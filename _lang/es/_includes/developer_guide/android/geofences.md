@@ -1,14 +1,14 @@
-{% multi_lang_include developer_guide/prerequisites/android.md %} Además, tendrás que [configurar las notificaciones push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android).
+{% multi_lang_include developer_guide/prerequisites/android.md %}
 
 ## Configuración de geovallas {#setting-up-geofences}
 
-### Paso 1: Habilitación en Braze
+### Paso 1: Habilitar en Braze {#step-1-enable-in-braze}
 
 {% multi_lang_include developer_guide/_shared/enable_geofences_in_braze.md %}
 
-### Paso 2: Actualiza `build.gradle`
+### Paso 2: Actualiza `build.gradle` {#step-2-update-buildgradle}
 
-Añade `android-sdk-location` al nivel de tu aplicación `build.gradle`. Además, añade el [paquete de ubicación](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary) de Google Play Services utilizando la [guía de configuración](https://developers.google.com/android/guides/setup) de Google Play Services:
+Añade `android-sdk-location` al `build.gradle` a nivel de tu aplicación. Además, añade el [paquete de ubicación](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary) de Google Play Services utilizando la [guía de configuración](https://developers.google.com/android/guides/setup) de Google Play Services:
 
 ```
 dependencies {
@@ -17,9 +17,9 @@ dependencies {
 }
 ```
 
-### Paso 3: Actualiza el manifiesto
+### Paso 3: Actualiza el manifiesto {#step-3-update-the-manifest}
 
-Añade permisos de arranque, ubicación fina y ubicación en segundo plano a tu `AndroidManifest.xml`:
+Añade permisos de arranque, ubicación precisa y ubicación en segundo plano a tu `AndroidManifest.xml`:
 
 ```xml
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -28,10 +28,10 @@ Añade permisos de arranque, ubicación fina y ubicación en segundo plano a tu 
 ```
 
 {% alert important %}
-El permiso de acceso a la ubicación en segundo plano se añadió en Android 10 y es necesario para que las geovallas funcionen mientras la aplicación está en segundo plano para todos los dispositivos Android 10+.
+El permiso de acceso a la ubicación en segundo plano se añadió en Android 10 y es necesario para que las geovallas funcionen mientras la aplicación está en segundo plano en todos los dispositivos Android 10+.
 {% endalert %}
 
-Añade el receptor de arranque Braze al elemento `application` de tu `AndroidManifest.xml`:
+Añade el receptor de arranque de Braze al elemento `application` de tu `AndroidManifest.xml`:
 
 ```xml
 <receiver android:name="com.braze.BrazeBootReceiver">
@@ -41,7 +41,7 @@ Añade el receptor de arranque Braze al elemento `application` de tu `AndroidMan
 </receiver>
 ```
 
-### Paso 4: Habilitar la recogida de ubicaciones Braze
+### Paso 4: Habilitar la recopilación de ubicaciones de Braze {#step-4-enable-braze-location-collection}
 
 Si aún no has habilitado la recopilación de ubicaciones de Braze, actualiza tu archivo `braze.xml` para incluir `com_braze_enable_location_collection` y confirma que su valor es `true`:
 
@@ -50,16 +50,16 @@ Si aún no has habilitado la recopilación de ubicaciones de Braze, actualiza tu
 ```
 
 {% alert important %}
-A partir de la versión 3.6.0 del SDK para Android de Braze, la recopilación de ubicaciones de Braze está desactivada por defecto.
+A partir de la versión 3.6.0 del SDK de Braze para Android, la recopilación de ubicaciones de Braze está desactivada de forma predeterminada.
 {% endalert %}
 
-Las geovallas Braze están habilitadas si está habilitada la recopilación de ubicaciones Braze. Si deseas excluirte de nuestra recopilación predeterminada de ubicaciones, pero quieres seguir utilizando geovallas, puedes habilitarlo selectivamente estableciendo el valor de la clave `com_braze_geofences_enabled` en `true` en `braze.xml`, independientemente del valor de `com_braze_enable_location_collection`:
+Las geovallas de Braze se habilitan cuando la recopilación de ubicaciones de Braze está habilitada. Si deseas excluirte de nuestra recopilación predeterminada de ubicaciones, pero quieres seguir utilizando geovallas, puedes habilitarlas selectivamente estableciendo el valor de la clave `com_braze_geofences_enabled` en `true` en `braze.xml`, de forma independiente del valor de `com_braze_enable_location_collection`:
 
 ```xml
 <bool name="com_braze_geofences_enabled">true</bool>
 ```
 
-### Paso 5: Obtener permisos de ubicación del usuario final
+### Paso 5: Obtener permisos de ubicación del usuario final {#step-5-obtain-location-permissions-from-the-end-user}
 
 Para Android M y versiones superiores, debes solicitar permisos de ubicación al usuario final antes de recopilar información de ubicación o registrar geovallas.
 
@@ -82,9 +82,9 @@ Braze.getInstance(context).requestLocationInitialization()
 {% endtab %}
 {% endtabs %}
 
-Esto hará que el SDK solicite geovallas a los servidores Braze e inicie el seguimiento de geovallas.
+Esto hará que el SDK solicite geovallas a los servidores de Braze e inicie el seguimiento de geovallas.
 
-Consulta [`RuntimePermissionUtils.java`](https://github.com/braze-inc/braze-android-sdk/blob/master/droidboy/src/main/java/com/appboy/sample/util/RuntimePermissionUtils.kt) en nuestro ejemplo de aplicación para ver un ejemplo de implementación.
+Consulta [`RuntimePermissionUtils.java`](https://github.com/braze-inc/braze-android-sdk/blob/master/droidboy/src/main/java/com/appboy/sample/util/RuntimePermissionUtils.kt) en nuestra aplicación de ejemplo para ver un ejemplo de implementación.
 
 {% tabs %}
 {% tab JAVA %}
@@ -164,7 +164,7 @@ object RuntimePermissionUtils {
 {% endtab %}
 {% endtabs %}
 
-El uso del código de ejemplo anterior se realiza mediante:
+El código de ejemplo anterior se utiliza de la siguiente manera:
 
 {% tabs %}
 {% tab JAVA %}
@@ -215,11 +215,11 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 {% endtab %}
 {% endtabs %}
 
-### Paso 6: Solicitar manualmente actualizaciones de geovallas (opcional)
+### Paso 6: Solicitar manualmente actualizaciones de geovallas (opcional) {#step-6-manually-request-geofence-updates-optional}
 
-Por defecto, Braze recupera automáticamente la ubicación del dispositivo y solicita geovallas basadas en esa ubicación recopilada. Sin embargo, puedes proporcionar manualmente una coordenada GPS que se utilizará para recuperar geovallas próximas de Braze. Para solicitar manualmente geovallas Braze, debes desactivar las solicitudes automáticas de geovallas Braze y proporcionar una coordenada GPS para las solicitudes.
+De forma predeterminada, Braze recupera automáticamente la ubicación del dispositivo y solicita geovallas basándose en esa ubicación recopilada. Sin embargo, puedes proporcionar manualmente una coordenada GPS que se utilizará para recuperar geovallas próximas de Braze. Para solicitar manualmente geovallas de Braze, debes desactivar las solicitudes automáticas de geovallas de Braze y proporcionar una coordenada GPS para las solicitudes.
 
-#### Paso 6.1: Desactivar las solicitudes automáticas de geovallas
+#### Paso 6.1: Desactivar las solicitudes automáticas de geovallas {#step-61-disable-automatic-geofence-requests}
 
 Las solicitudes automáticas de geovallas de Braze pueden desactivarse en tu archivo `braze.xml` configurando `com_braze_automatic_geofence_requests_enabled` como `false`:
 
@@ -227,7 +227,7 @@ Las solicitudes automáticas de geovallas de Braze pueden desactivarse en tu arc
 <bool name="com_braze_automatic_geofence_requests_enabled">false</bool>
 ```
 
-Esto puede hacerse adicionalmente en tiempo de ejecución mediante:
+Esto también puede hacerse en tiempo de ejecución mediante:
 
 {% tabs %}
 {% tab JAVA %}
@@ -250,7 +250,7 @@ Braze.configure(applicationContext, brazeConfigBuilder.build())
 {% endtab %}
 {% endtabs %}
 
-#### Paso 6.2: Solicitar manualmente la geovalla Braze con coordenadas GPS
+#### Paso 6.2: Solicitar manualmente geovallas de Braze con coordenadas GPS {#step-62-manually-request-braze-geofence-with-gps-coordinate}
 
 Las geovallas de Braze se solicitan manualmente mediante el método [`requestGeofences()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-geofences.html):
 
@@ -274,9 +274,3 @@ Braze.getInstance(applicationContext).requestGeofences(33.078947, -116.601356)
 {% alert important %}
 Las geovallas solo pueden solicitarse una vez por sesión, ya sea automáticamente por el SDK o manualmente con este método.
 {% endalert %}
-
-### Habilitación de push-to-sync
-
-Ten en cuenta que Braze sincroniza las geovallas con los dispositivos mediante notificaciones push en segundo plano. En la mayoría de los casos, esto no implicará cambios en el código, ya que esta característica no requiere una mayor integración por parte de la aplicación.
-
-Sin embargo, nota que si tu aplicación está parada, al recibir un push en segundo plano se lanzará en segundo plano y se llamará a su método `Application.onCreate()`. Si tienes una implementación personalizada de `Application.onCreate()`, debes aplazar las llamadas automáticas al servidor y cualquier otra acción que no quieras que sea desencadenada por el push en segundo plano.

@@ -1,29 +1,28 @@
---- 
+---
 nav_title: 7月
 page_order: 6
 noindex: true
 page_type: update
 description: "この記事には2020年7月のリリースノートが含まれています。"
 ---
-# 2020年7月
+# 2020年7月 {#july-2020}
 
-## プロモーションコード
+## プロモーションコード {#promotion-codes}
 
-Liquid を使用して、アップロードした[プロモーションコード]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/promotion_codes/#promotion-codes)のリストからメッセージを取得できます。この機能は、有効期限が最長6か月で、リストごとにuから20MMまでの個別コードをサポートします。
+Liquidを使用して、アップロードした[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#promotion-codes)のリストからメッセージを取得できます。この機能は、有効期限が最長6か月で、リストごとに最大2,000万件の個別コードをサポートします。
 
-## バリアントリテンションレポート
+## バリアントリテンションレポート {#variant-retention-report}
 
-[キャンペーン]({{site.baseurl}}/user_guide/engagement_tools/campaigns/testing_and_more/retention_reports/) または[キャンバス]({{site.baseurl}}/user_guide/engagement_tools/canvas/retention_reports/) のリテンション レポートを確認するときに、バリアント別の結果を表示できるようになりました。 
+[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/test_campaigns/retention_reports/)または[キャンバス]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)のリテンションレポートを確認する際に、バリアント別に結果を表示できるようになりました。
 
-## キャンペーンとキャンバスの「フィルタ」オプション
+## キャンペーンおよびキャンバスの「フィルター」オプション {#filter-option-for-campaigns-and-canvases}
 
-キャンバスおよびキャンペーン GET リストエンドポイントのフィルターオプションを使用すると、キャンペーンまたはキャンバスメッセージの最終更新時刻を顧客が把握できます。
+キャンバスおよびキャンペーンのGETリストエンドポイントのフィルターオプションを使用すると、キャンペーンまたはキャンバスメッセージが最後に更新された日時を確認できます。
 
-## Currents `ad-id`
+## Currentsの`ad-id` {#currents-ad-id}
 
-Currents の新しい `ad-id` (広告主 ID) フィールドを反映するため、[ストレージ接続ドキュメント]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#content-card-click-events)を更新しました。
+Currentsの新しい`ad-id`（広告主ID）フィールドを反映するため、[ストレージ接続ドキュメント]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#content-card-click-events)を更新しました。
 
-## BCC機能
+## BCC機能 {#bcc-functionality}
 
-[BCC アドレス設定]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings/)では、Braze からの送信メールメッセージに追加できる BCC アドレスを追加および管理できます。	
-
+[BCCアドレス設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/)では、Brazeから送信されるメールメッセージに追加できるBCCアドレスを追加および管理できます。

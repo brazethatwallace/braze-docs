@@ -10,39 +10,37 @@ search_tag: Partner
 
 # Taxi for Email
 
-> [Taxi for Email](http://taxiforemail.com/) es una herramienta de marketing por correo electrónico en línea que ofrece un editor de arrastrar y soltar de correo electrónico visual e intuitivo. Taxi anima a los equipos a colaborar fácilmente en campañas de correo electrónico, permitiendo a redactores y editores el acceso y los recursos que necesitan para crear correos electrónicos, todo ello sin código.
+> [Taxi for Email](http://taxiforemail.com/) es una herramienta de marketing por correo electrónico en línea que ofrece un editor visual de correo electrónico intuitivo con función de arrastrar y soltar. Taxi anima a los equipos a colaborar fácilmente en campañas de correo electrónico, permitiendo a redactores y editores el acceso y los recursos que necesitan para crear correos electrónicos, todo ello sin código.
 
 _Esta integración la mantiene Taxi for Email._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Taxi utiliza la sencilla pero potente sintaxis de Taxi para crear y exportar plantillas de correo electrónico inteligentes a Braze. 
+La integración de Braze y Taxi utiliza la sencilla pero potente sintaxis de Taxi para crear y exportar plantillas de correo electrónico inteligentes a Braze.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ------------| ----------- |
 | Cuenta Taxi for Email | Se necesita una cuenta de Taxi for Email para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave Braze REST API con permisos **Templates** completos. <br><br> Puede crearse en el dashboard de Braze desde **Configuración** > **Claves API**. |
-| Punto final Braze | [Tu punto final Braze]({{site.baseurl}}/api/basics/#endpoints) se alinea con la URL de tu panel Braze.<br><br> Por ejemplo, si la URL de tu panel es `https://dashboard-03.braze.com`, tu punto final será `dashboard-03`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Plantillas**. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Punto de conexión de Braze | [Tu punto de conexión de Braze]({{site.baseurl}}/api/basics/#endpoints) se corresponde con la URL de tu panel de Braze.<br><br> Por ejemplo, si la URL de tu panel es `https://dashboard-03.braze.com`, tu punto de conexión será `dashboard-03`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
-### Paso 1: Crear una plantilla de correo electrónico para Taxi
+### Paso 1: Crear una plantilla de correo electrónico en Taxi {#step-1-create-a-taxi-email-template}
 
-Crea una plantilla de Taxi en la plataforma Taxi. Una vez creada la plantilla, ve a la **Configuración de tu Organización** y selecciona la pestaña **Conectores ESP**.
+Crea una plantilla de Taxi en la plataforma Taxi. Una vez creada la plantilla, ve a la **Configuración de tu organización** y selecciona la pestaña **ESP Connectors**.
 
-### Paso 2: Crear conector Braze
+### Paso 2: Crear el conector de Braze {#step-2-create-braze-connector}
 
-1. En el cuadro de diálogo que aparece, selecciona el botón **Añadir nuevo** y, a continuación, selecciona **Braze** en el menú desplegable. 
-2. Selecciona **Braze** para editar la configuración del conector Braze.
-3. Introduce tu punto final Braze y tu clave de API Braze.
+1. En el cuadro de diálogo que aparece, selecciona el botón **Add New** y, a continuación, selecciona **Braze** en el menú desplegable.
+2. Selecciona **Braze** para editar la configuración del conector de Braze.
+3. Introduce tu punto de conexión de Braze y tu clave de API de Braze.
 
-El campo de tu conector cambiará de color una vez que se hayan proporcionado los detalles con los permisos correctos. Si este campo no cambia, comprueba que tus campos se ajustan a los requisitos indicados.
+El campo de tu conector cambiará de color una vez que se hayan proporcionado los datos con los permisos correctos. Si este campo no cambia, comprueba que tus campos se ajustan a los requisitos indicados.
 
-## Uso
+## Uso {#usage}
 
-Encuentra tu plantilla Taxi subida en la sección **Plantillas** de tu cuenta Braze ** & Media > Plantillas de correo electrónico**. Ya puede utilizar esta plantilla de correo electrónico para empezar a enviar mensajes atractivos a sus clientes.
-
-
+Encuentra tu plantilla de Taxi cargada en la sección **Plantillas y medios > Plantillas de correo electrónico** de tu cuenta de Braze. Ya puedes utilizar esta plantilla de correo electrónico para empezar a enviar mensajes atractivos a tus clientes.

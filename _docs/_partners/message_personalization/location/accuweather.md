@@ -19,7 +19,7 @@ _This integration is maintained by AccuWeather._
 | Requirement | Description |
 |---|---|
 | AccuWeather API Key | Contact your AccuWeather account manager for compatible API keys to use in your request URLs.<br><br>Further instructions can be found on the [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/) page. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Available AccuWeather APIs
 
@@ -36,7 +36,7 @@ The following are the AccuWeather APIs you can reference within your Braze campa
 | [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | Get radar and satellite images. |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | Get current position, past positions, and forecasts for tropical cyclones worldwide. |
 | [Translations](https://apidev.accuweather.com/developers/translationsApiGuide) | Get a list of available languages. Get translations for specific groups of phrases. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available AccuWeather APIs" }
 
 ## Connected Content example
 

@@ -10,30 +10,32 @@ search_tag: Partner
 
 # OpenAI
 
-> [OpenAI](https://openai.com/) crea modelos avanzados de IA, como GPT, que habilitan la comprensión y generación de lenguaje natural, permitiendo a las marcas crear y ampliar interacciones significativas con los clientes. 
+> [OpenAI](https://openai.com/) crea modelos avanzados de IA, como GPT, que habilitan la comprensión y generación de lenguaje natural, permitiendo a las marcas crear y ampliar interacciones significativas con los clientes.
+
+{% multi_lang_include alerts/important_alerts.md alert='Braze Agents' %}
 
 _Esta integración está mantenida por OpenAI._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de Braze y OpenAI te permite conectar tu clave de API de OpenAI a Braze para que puedas utilizar modelos de OpenAI al crear agentes de IA personalizados. Con esta integración, tus agentes pueden generar textos personalizados, tomar decisiones en tiempo real o actualizar los campos del catálogo utilizando los grandes modelos lingüísticos de OpenAI.
+La integración de Braze y OpenAI te permite conectar tu clave de API de OpenAI a Braze para que puedas utilizar modelos de OpenAI al crear agentes de IA personalizados. Con esta integración, tus agentes pueden generar textos personalizados, tomar decisiones en tiempo real o actualizar los campos del Catálogo utilizando los grandes modelos de lenguaje de OpenAI.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisitos | Descripción |
 |---|---|
-| Cuenta OpenAI con clave de API | Una cuenta de OpenAI con una clave de API. Ponte en contacto con tu administrador o con [el servicio de asistencia de OpenAI](https://help.openai.com/) si tienes algún problema o pregunta. |
-| instancia de Braze | Puedes encontrar tu instancia de Braze en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints) o a través de tu administrador de incorporación de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Cuenta de OpenAI con clave de API | Una cuenta de OpenAI con una clave de API. Ponte en contacto con tu administrador o con [el servicio de asistencia de OpenAI](https://help.openai.com/) si tienes algún problema o pregunta. |
+| Instancia de Braze | Puedes encontrar tu instancia de Braze en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints) o a través de tu administrador de incorporación de Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
 Para conectar tu clave de API de OpenAI a Braze:
 
 1. Ve a **Integraciones de socios** > **Socios tecnológicos** en el panel de Braze y busca OpenAI.
 2. Introduce tu clave de API de OpenAI.
-3. Seleccione **Guardar**.
+3. Selecciona **Guardar**.
 
-Después de guardar, puedes seleccionar modelos OpenAI al [crear un agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) en la Consola de agentes.
+Después de guardar, puedes seleccionar modelos de OpenAI al [crear un agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) en la Consola de Agente.
 
 Ponte en contacto con [el servicio de asistencia de OpenAI](https://help.openai.com/) si tienes algún problema o pregunta sobre tu integración.

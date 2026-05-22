@@ -2,7 +2,7 @@
 nav_title: Fivetran
 article_title: Fivetran
 alias: /partners/fivetran/
-description: "This reference article outlines the partnership between Braze and Fivetran, a workflow automation tool that can assist you in data-backed decision making by delivering ready-to-query data into your cloud warehouse."
+description: "이 참조 문서에서는 클라우드 웨어하우스에 바로 쿼리할 수 있는 데이터를 제공하여 데이터 기반 의사결정을 지원하는 워크플로 자동화 도구인 Fivetran과 Braze 간의 파트너십에 대해 설명합니다."
 page_type: partner
 search_tag: Partner
 tool: Currents
@@ -11,42 +11,42 @@ tool: Currents
 
 # Fivetran
 
-> [Fivetran](https://fivetran.com/) is a globally recognized brand whose analyst-focused products and fully managed pipelines enable data-backed decisions by delivering ready-to-query data into your cloud warehouse.
+> [Fivetran](https://fivetran.com/)은 분석가 중심의 제품과 완전 관리형 파이프라인을 통해 클라우드 웨어하우스에 바로 쿼리할 수 있는 데이터를 제공하여 데이터 기반 의사결정을 지원하는 세계적으로 인정받는 브랜드입니다.
 
-The Braze and Fivetran integration allows users to create a zero-maintenance pipeline that enables you to collect and analyze Braze data by connecting all of your applications and databases to a central warehouse. After data has been collected in the central warehouse, data teams can explore Braze data effectively using their preferred business intelligence tools. 
+Braze와 Fivetran 통합을 사용하면 모든 애플리케이션과 데이터베이스를 중앙 웨어하우스에 연결하여 Braze 데이터를 수집하고 분석할 수 있는 유지보수가 필요 없는 파이프라인을 만들 수 있습니다. 중앙 웨어하우스에 데이터가 수집되면 데이터 팀은 선호하는 비즈니스 인텔리전스 도구를 사용하여 Braze 데이터를 효과적으로 탐색할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Fivetran account | A [Fivetran](https://fivetran.com/login?next=%2Fdashboard) account is required to take advantage of this partnership. |
-| Braze REST API key | A Braze REST API key with the following permissions:<br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint  | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/api/basics/#api-definitions). |
-| Braze Currents | [Braze Currents](https://www.braze.com/product/data-agility-management/currents/) should be connected to either Amazon S3 or Google Cloud Storage. |
-| Amazon S3 or Google Cloud Storage | This integration requires you have access to one Amazon S3 or Google Cloud Storage. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+| Fivetran 계정 | 이 파트너십을 활용하려면 [Fivetran](https://fivetran.com/login?next=%2Fdashboard) 계정이 필요합니다. |
+| Braze REST API 키 | 다음 권한이 있는 Braze REST API 키:<br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#api-definitions)에 따라 달라집니다. |
+| Braze 커런츠 | [Braze 커런츠](https://www.braze.com/product/data-agility-management/currents/)가 Amazon S3 또는 Google Cloud Storage에 연결되어 있어야 합니다. |
+| Amazon S3 또는 Google Cloud Storage | 이 통합을 사용하려면 Amazon S3 또는 Google Cloud Storage에 대한 액세스 권한이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-The following Currents integration is supported for both [Amazon S3](#setting-up-braze-currents-for-s3) and [Google Cloud Storage](#setting-up-braze-currents-for-google-cloud-storage).
+다음 Currents 통합은 [Amazon S3](#setting-up-braze-currents-for-s3)와 [Google Cloud Storage](#setting-up-braze-currents-for-google-cloud-storage) 모두에서 지원됩니다.
 
-### Setting up Braze Currents for S3
+### S3용 Braze 커런츠 설정 {#setting-up-braze-currents-for-s3}
 
-#### Step 1: Locate your external ID {#step-one}
+#### 1단계: 외부 ID 찾기 {#step-one}
 
-In the [Fivetran Dashboard](https://fivetran.com/dashboard), select **\+ Connector**, and then select the **Braze** connector to launch the setup form. Next, select **Amazon S3**. Note the external ID provided here; you will need it to allow Fivetran to access your S3 bucket. 
+[Fivetran 대시보드](https://fivetran.com/dashboard)에서 **+ Connector**를 선택한 다음 **Braze** 커넥터를 선택하여 설정 양식을 시작합니다. 그런 다음 **Amazon S3**를 선택합니다. 여기에 표시된 외부 ID를 기록해 두세요. Fivetran이 S3 버킷에 액세스할 수 있도록 허용하는 데 필요합니다.
 
-![The Fivetran set up Braze connector form. 이 단계에 필요한 외부 ID 필드는 페이지 중앙의 밝은 회색 상자에 있습니다.]({% image_buster /assets/img/fivetran_braze_setupform_as3.png %})
+![Fivetran Braze 커넥터 설정 양식. 이 단계에 필요한 외부 ID 필드는 페이지 중앙의 밝은 회색 상자에 있습니다.]({% image_buster /assets/img/fivetran_braze_setupform_as3.png %})
 
-#### 2단계: Give Fivetran access to a specified S3 bucket
+#### 2단계: 지정된 S3 버킷에 대한 Fivetran 액세스 권한 부여 {#step-2-give-fivetran-access-to-a-specified-s3-bucket}
 
-##### Creating an IAM policy
+##### IAM 정책 생성 {#creating-an-iam-policy}
 
-Open the [Amazon IAM Console](https://console.aws.amazon.com/iam/home#home) and navigate to **Policies > Create Policy**.
+[Amazon IAM 콘솔](https://console.aws.amazon.com/iam/home#home)을 열고 **Policies > Create Policy**로 이동합니다.
 
 ![정책 목록이 있는 Amazon IAM 콘솔.]({% image_buster /assets/img/fivetran_as3_iam.png %})
 
-Next, open the **JSON** tab and paste the following policy. Make sure to replace `{your-bucket-name}` with the name of your S3 bucket.
+그런 다음 **JSON** 탭을 열고 다음 정책을 붙여넣습니다. `{your-bucket-name}`을 S3 버킷 이름으로 바꿔야 합니다.
 
 {% raw %}
 ```json
@@ -74,78 +74,77 @@ Next, open the **JSON** tab and paste the following policy. Make sure to replace
 ```
 {% endraw %}
 
-Lastly, select **Review Policy** and give the policy a unique name and description. Select **Create Policy** to build your policy. 
+마지막으로 **Review Policy**를 선택하고 정책에 고유한 이름과 설명을 입력합니다. **Create Policy**를 선택하여 정책을 생성합니다.
 
-![필드에 정책의 이름을 지정하고 설명을 입력합니다.]({% image_buster /assets/img/fivetran_iam_policy_meta.png %})
+![정책 이름과 설명을 입력하는 필드.]({% image_buster /assets/img/fivetran_iam_policy_meta.png %})
 
-##### Create an IAM role {#step-two}
+##### IAM 역할 생성 {#step-two}
 
-In AWS, navigate to **Roles**, then select **Create New Role**.
+AWS에서 **Roles**로 이동한 다음 **Create New Role**을 선택합니다.
 
-![새 역할을 만들 수 있는 버튼이 있는 '역할' 페이지입니다.]({% image_buster /assets/img/fivetran_iam_new_role.png %})
+![새 역할을 만들 수 있는 버튼이 있는 역할 페이지.]({% image_buster /assets/img/fivetran_iam_new_role.png %})
 
-Select **Another AWS Account** and provide the Fivetran account ID `834469178297`. Make sure to check the **Require external ID** checkbox. Here, you will provide the external ID found in step 1.
+**Another AWS Account**를 선택하고 Fivetran 계정 ID `834469178297`을 입력합니다. **Require external ID** 확인란을 선택해야 합니다. 여기에 1단계에서 찾은 외부 ID를 입력합니다.
 
-!['계정 ID'를 입력하는 필드, 외부 ID를 요구하는 확인란, '외부 ID'를 입력하는 빈 텍스트 상자가 있습니다.]({% image_buster /assets/img/fivetran_another_aws_account.png %})
+![계정 ID를 입력하는 필드, 외부 ID를 요구하는 확인란, 외부 ID를 입력하는 빈 텍스트 상자.]({% image_buster /assets/img/fivetran_another_aws_account.png %})
 
-Next, select **Next: Permissions** to select the policy you just created.
+그런 다음 **Next: Permissions**를 선택하여 방금 생성한 정책을 선택합니다.
 
 ![정책 목록.]({% image_buster /assets/img/fivetran_as3_select_policy.png %})
 
-Select **Next: Review**, name your new role (such as Fivetran), and select **Create Role**. After the role is created, select it and note the Role ARN shown.
+**Next: Review**를 선택하고 새 역할의 이름(예: Fivetran)을 지정한 다음 **Create Role**을 선택합니다. 역할이 생성되면 해당 역할을 선택하고 표시된 Role ARN을 기록합니다.
 
 ![역할에 나열된 Amazon S3 ARN.]({% image_buster /assets/img/fivetran_iam_role_arn.png %})
 
 {% alert note %}
-You can specify permissions for the Role ARN that you designate for Fivetran. Giving selective permissions to this Role will allow Fivetran to only sync what it has permissions to see.
+Fivetran에 지정하는 Role ARN에 대한 권한을 지정할 수 있습니다. 이 역할에 선택적 권한을 부여하면 Fivetran이 볼 수 있는 권한이 있는 항목만 동기화할 수 있습니다.
 {% endalert %}
 
-#### Step 3: Complete the Fivetran connector
+#### 3단계: Fivetran 커넥터 완료 {#step-3-complete-the-fivetran-connector}
 
-In Fivetran, select **\+ Connector**, and then select the **Braze** connector to launch the setup form. Within the form, fill the given fields with the appropriate values:
-- `Destination schema`: A unique schema name.
-- `API URL`: Your Braze REST API endpoint.
-- `API Key`: Your Braze REST API key. 
-- `External ID`: The external ID set in [step 2](#step-two) of the Currents set up directions. This ID is a fixed value.
-- `Bucket`: Found in your Braze account by navigating to **Partner Integrations** > **Data Export** > your Current name.
-- `Role ARN`: The Role ARN can be found in [step 1](#step-one) of the Current setup directions.
+Fivetran에서 **+ Connector**를 선택한 다음 **Braze** 커넥터를 선택하여 설정 양식을 시작합니다. 양식 내에서 주어진 필드에 적절한 값을 입력합니다:
+- `Destination schema`: 고유한 스키마 이름.
+- `API URL`: Braze REST API 엔드포인트.
+- `API Key`: Braze REST API 키.
+- `External ID`: Currents 설정 안내의 [2단계](#step-two)에서 설정한 외부 ID. 이 ID는 고정 값입니다.
+- `Bucket`: Braze 계정에서 **파트너 통합** > **데이터 내보내기** > 해당 Current 이름으로 이동하여 찾을 수 있습니다.
+- `Role ARN`: Role ARN은 Current 설정 안내의 [1단계](#step-one)에서 찾을 수 있습니다.
 
 {% alert important %}
-Ensure **Amazon S3** is selected as the **Cloud Storage** choice.
+**Cloud Storage** 선택 항목으로 **Amazon S3**가 선택되어 있는지 확인합니다.
 {% endalert %}
 
-마지막으로 **저장 & 테스트를** 선택하면 나머지 작업은 Fivetran이 Braze 계정의 데이터와 동기화하여 수행합니다!
+마지막으로 **Save & Test**를 선택하면 나머지 작업은 Fivetran이 Braze 계정의 데이터와 동기화하여 수행합니다!
 
-### Setting up Braze Currents for Google Cloud Storage
+### Google Cloud Storage용 Braze 커런츠 설정 {#setting-up-braze-currents-for-google-cloud-storage}
 
-#### Step 1: Retrieve your Fivetran email from Google Cloud Storage {#step-one2}
+#### 1단계: Google Cloud Storage에서 Fivetran 이메일 가져오기 {#step-one2}
 
-In the [Fivetran dashboard](https://fivetran.com/dashboard), select **\+ Connector**, and  then select the **Braze** connector to launch the setup form. Next, select **Google Cloud storage**. Make a note of the email address that appears.
+[Fivetran 대시보드](https://fivetran.com/dashboard)에서 **+ Connector**를 선택한 다음 **Braze** 커넥터를 선택하여 설정 양식을 시작합니다. 그런 다음 **Google Cloud storage**를 선택합니다. 표시되는 이메일 주소를 기록해 둡니다.
 
-![The Fivetran set up Braze connector form. 이 단계에 필요한 이메일 필드는 페이지 중앙의 밝은 회색 상자에 있습니다.]({% image_buster /assets/img/fivetran_braze_setupform_gcs.png %})
+![Fivetran Braze 커넥터 설정 양식. 이 단계에 필요한 이메일 필드는 페이지 중앙의 밝은 회색 상자에 있습니다.]({% image_buster /assets/img/fivetran_braze_setupform_gcs.png %})
 
-#### 2단계: Grant bucket access
+#### 2단계: 버킷 액세스 권한 부여 {#step-2-grant-bucket-access}
 
-Navigate to your [Google Storage Console](https://console.cloud.google.com/storage/browser) and select the bucket you configured Braze Currents with, and select **Edit bucket permissions**.
+[Google Storage 콘솔](https://console.cloud.google.com/storage/browser)로 이동하여 Braze 커런츠로 구성한 버킷을 선택한 다음 **Edit bucket permissions**를 선택합니다.
 
-![The Google Storage Console available buckets. 버킷을 찾아 세로 점 3개 아이콘을 선택하면 버킷 권한을 편집할 수 있는 드롭다운이 열립니다.]({% image_buster /assets/img/fivetran_edit_bucket_permissions_gcs.png %})
+![Google Storage 콘솔에서 사용 가능한 버킷. 버킷을 찾아 세로 점 3개 아이콘을 선택하면 버킷 권한을 편집할 수 있는 드롭다운이 열립니다.]({% image_buster /assets/img/fivetran_edit_bucket_permissions_gcs.png %})
 
-Next, grant `Storage Object Viewer` access to the email from [step 1](#step-one2) by adding the email as a member. Make a note of the bucket name; you will need it in the next step to configure Fivetran.
+그런 다음 [1단계](#step-one2)의 이메일을 멤버로 추가하여 `Storage Object Viewer` 액세스 권한을 부여합니다. 버킷 이름을 기록해 두세요. 다음 단계에서 Fivetran을 구성하는 데 필요합니다.
 
 ![권한이 있는 버킷.]({% image_buster /assets/img/fivetran_add_members_gcs.png %})
 
-#### 3단계: Complete the Fivetran connector
+#### 3단계: Fivetran 커넥터 완료
 
-In Fivetran, select **\+ Connector**, and then select the **Braze** connector to launch the setup form. Within the form, fill the given fields with the appropriate values:
-- `Destination schema`: A unique schema name.
-- `API URL`: Your Braze REST API endpoint.
-- `API Key`: Your Braze REST API key. 
-- `Bucket Name`: Found in your Braze account by navigating to **Partner Integrations** > **Data Export** > your Current name.
-- `Folder`: Found in your Braze account by navigating to **Partner Integrations** > **Data Export** > your Current name.
+Fivetran에서 **+ Connector**를 선택한 다음 **Braze** 커넥터를 선택하여 설정 양식을 시작합니다. 양식 내에서 주어진 필드에 적절한 값을 입력합니다:
+- `Destination schema`: 고유한 스키마 이름.
+- `API URL`: Braze REST API 엔드포인트.
+- `API Key`: Braze REST API 키.
+- `Bucket Name`: Braze 계정에서 **파트너 통합** > **데이터 내보내기** > 해당 Current 이름으로 이동하여 찾을 수 있습니다.
+- `Folder`: Braze 계정에서 **파트너 통합** > **데이터 내보내기** > 해당 Current 이름으로 이동하여 찾을 수 있습니다.
 
 {% alert important %}
-Ensure **Google Cloud Storage** is selected as the **Cloud Storage** choice.
+**Cloud Storage** 선택 항목으로 **Google Cloud Storage**가 선택되어 있는지 확인합니다.
 {% endalert %}
 
-마지막으로 **저장 & 테스트를** 선택하면 나머지 작업은 Fivetran이 Braze 계정의 데이터와 동기화하여 수행합니다!
-
+마지막으로 **Save & Test**를 선택하면 나머지 작업은 Fivetran이 Braze 계정의 데이터와 동기화하여 수행합니다!

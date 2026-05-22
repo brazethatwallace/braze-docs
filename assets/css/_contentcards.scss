@@ -96,7 +96,7 @@ a#cc_prompt {
   font-family: Sailec W00 Bold,Arial,sans-serif;
   font-size: 12px;
   letter-spacing: .75px;
-  color: #3accdd;
+  color: #147a86; // #3accdd → darkened for 5.1:1 on white background
   padding: 25px;
   text-align: center;
   transition: color .1s ease-in-out;
@@ -129,7 +129,7 @@ a#cc_prompt {
       font-size: 12px;
       letter-spacing: .75px;
       background-size: 120px 91px;
-      color: #3accdd;
+      color: #147a86; // #3accdd → darkened for 5.1:1 on white background
       padding: 25px;
       text-align: center;
       @media (max-width: $window-medium-px) {

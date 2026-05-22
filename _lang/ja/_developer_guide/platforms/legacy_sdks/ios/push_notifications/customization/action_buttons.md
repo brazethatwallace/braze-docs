@@ -42,7 +42,7 @@ UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTy
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // For UserNotification.framework (iOS 10+ only)
 let appboyCategories = ABKPushUtils.getAppboyUNNotificationCategorySet()
 UNUserNotificationCenter.current().setNotificationCategories(appboyCategories)
@@ -69,7 +69,7 @@ UIApplication.shared.registerUserNotificationSettings(settings)
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance] userNotificationCenter:center
                            didReceiveNotificationResponse:response
                                withCompletionHandler:completionHandler];
@@ -78,7 +78,7 @@ UIApplication.shared.registerUserNotificationSettings(settings)
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.userNotificationCenter(center,
                                                 didReceive: response,
                                                 withCompletionHandler: completionHandler)
@@ -92,7 +92,7 @@ UnNotification フレームワークを使用していない場合は、プッ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance] getActionWithIdentifier:identifier
                            forRemoteNotification:userInfo
                                completionHandler:completionHandler];
@@ -101,7 +101,7 @@ UnNotification フレームワークを使用していない場合は、プッ�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.getActionWithIdentifier(identifier,
                                                  forRemoteNotification: userInfo,,
                                                  completionHandler: completionHandler)

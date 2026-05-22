@@ -58,7 +58,9 @@ Administrators can also suspend a user by selecting their name from the list and
 
 ## Deleting company users
 
-To delete a user, go to **Settings** > **Company Users**, find their username, and select <i class="fa fa-trash-can"></i> **Delete user**.
+To delete a user, go to **Settings** > **Company Users**, find the user's name, and select <i class="fa fa-trash-can"></i> **Delete user**. 
+
+Only administrators can delete company users, and company users cannot delete their own accounts. An administrator cannot delete their own dashboard account; another administrator must delete it for them.
 
 ![Delete a user.]({% image_buster /assets/img_archive/delete_user_new.png %})
 

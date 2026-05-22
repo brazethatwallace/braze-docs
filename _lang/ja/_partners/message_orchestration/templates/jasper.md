@@ -1,84 +1,84 @@
 ---
-nav_title: ジャスパー
-article_title: ジャスパー
-description: "Brazeとジャスパーの融合について概説した。"
+nav_title: Jasper
+article_title: Jasper
+description: "このリファレンス記事では、BrazeとJasperの連携について説明します。"
 alias: /partners/jasper/
 page_type: partner
 search_tag: Partner
 ---
 
-# ジャスパー 
+# Jasper
 
-> [Jasper](https://www.jasper.ai/)は、ブログ、広告、ソーシャルメディアを含む様々なチャネルにまたがって、ブランドが高品質のオンブランドコンテンツを創造し、管理し、規模を拡大できるようにする、AIを駆使したコンテンツプラットフォームです。
+> [Jasper](https://www.jasper.ai/)は、ブログ、広告、ソーシャルメディアなど、さまざまなチャネルにわたって高品質でブランドに沿ったコンテンツの作成、管理、スケーリングを可能にするAI搭載のコンテンツプラットフォームです。
 
-_この統合はJasperによって維持されています。_
+_この連携はJasperによって管理されています。_
 
-## 概要
+## 概要 {#overview}
 
-ジャスパーとBrazeインテグレーションにより、コンテンツ作成とキャンペーン実行を合理化できます。ジャスパーでは、マーケティングチームが高品質でオンブランドのコピーを数分で作成できます。Brazeは、これらの情報を最適な時期に適切なオーディエンスに配信することを促進する。この統合により、シームレスなワークフローが促進され、手作業の労力が削減され、より強力なエンゲージメント成果がもたらされます。
+JasperとBrazeの連携により、コンテンツ作成とキャンペーン実行を効率化できます。Jasperを使用すると、マーケティングチームは高品質でブランドに沿ったコピーを数分で生成できます。Brazeは、これらのメッセージを最適なタイミングで適切なオーディエンスに配信します。この連携により、シームレスなワークフローが促進され、手作業が削減され、より強力なエンゲージメント成果が得られます。
 
-この統合を使用する利点は、次のとおりです。
+この連携を使用する利点は以下のとおりです。
 
-- **高速キャンペーン実行:**数週間ではなく、数分でキャンペーンsを起動します。
-- **一貫したブランドの声:**ジャスパーテンプレートsを使用して、生成された複製がブランドガイドラインに厳密に準拠していることを確認します。
-- **ターゲットコンテンツ生成:**オーディエンス Segment、スタイルガイド、独自のナレッジアイテムで高度にカスタマイズされたメッセージングを作成します。
-- **ダイナミックパーソナライゼーション:**Braze内のスケーラブルなパーソナライゼーションには、{% raw %}```{{${first_name}}}```{% endraw %} のようなリキッドプレースホルダを使用します。
-- **エラー低減:**自動化されたワークフローは、コピー/ペーストエラーを最小化し、手動ステップを削減します。
+- **迅速なキャンペーン実行：** 数週間ではなく、数分でキャンペーンを起動できます。
+- **一貫したブランドボイス：** Jasperテンプレートを使用して、生成されたコピーがブランドガイドラインに厳密に準拠していることを確認できます。
+- **ターゲットコンテンツの生成：** オーディエンスセグメント、スタイルガイド、独自のナレッジアイテムを使用して、高度にカスタマイズされたメッセージングを作成できます。
+- **ダイナミックなパーソナライゼーション：** Braze内でスケーラブルなパーソナライゼーションを実現するために、{% raw %}`{{${first_name}}}`{% endraw %}のようなLiquidプレースホルダーを使用できます。
+- **エラーの削減：** 自動化されたワークフローにより、コピー＆ペーストのエラーが最小化され、手動ステップが削減されます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-| 必要条件   | 説明  |
+| 要件 | 説明 |
 | ------------------- | ---------------- |
-| ジャスパーアカウント      | このパートナーシップを活用するにはJasperアカウントが必要です。 |
-| Braze REST API キー  | 次の権限を持つBraze REST API キー。<br>  <br>`templates.email.create`<br> `templates.email.update`<br>`content_blocks.create`<br>`content_blocks.update`<br><br>このキーは、**Settings > API Keys** にナビゲートすることで、Braze ダッシュボードで生成できます。  |
-| Braze RESTエンドポイント | RESTエンドポイントのURL。具体的なエンドポイントは、インスタンスのBraze URL によって異なります。[Braze API の基本を参照してください。詳細は、エンドポイント]({{site.baseurl}}/api/basics#endpoints) ドキュメントを参照してください。 |
-{: .reset-td-br-1 .rest-td-br-2 role=“presentation” }
+| Jasperアカウント | このパートナーシップを利用するにはJasperアカウントが必要です。 |
+| Braze REST APIキー | 以下の権限を持つBraze REST APIキー。<br><br>`templates.email.create` <br> `templates.email.update` <br>`content_blocks.create` <br>`content_blocks.update` <br><br>このキーは、Brazeダッシュボードで**Settings** > **API Keys**に移動して生成できます。 |
+| Braze RESTエンドポイント | RESTエンドポイントのURL。具体的なエンドポイントは、インスタンスのBraze URLによって異なります。詳細については、[Braze APIの基本：エンドポイント]({{site.baseurl}}/api/basics/#endpoints)のドキュメントを参照してください。 |
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Prerequisites" }
 
-## 連携方法
+## 連携方法 {#integration-methods}
 
-ジャスパーでコンテンツを生成し、Braze テンプレートs を更新するには、次の2 つの方法があります。
+Jasperでコンテンツを生成し、Brazeテンプレートを更新するには、2つの方法があります。
 
-1. Jasper API を直接使用する
-2. Jasper Studio を使用して、Braze対応のカスタムアプリを作成する
+1. Jasper APIを直接使用する
+2. Jasper Studioを使用してBraze対応のカスタムアプリを構築する
 
 {% tabs %}
 {% tab Jasper API %}
 
-## メソッド: Jasper API を直接使用する
+## 方法：Jasper APIを直接使用する {#method-use-jasper-api-directly}
 
-このメソッドは、Jasper およびBraze での手動設定をバイパスして、Braze でメール HTML テンプレートs をプログラムで作成および更新する場合にアイデアです。
+この方法は、JasperおよびBrazeでの手動設定をバイパスして、BrazeでメールHTMLテンプレートをプログラムで作成・更新する場合に最適です。
 
-### ステップ 1: ジャスパーのセットアップ
+### ステップ1：Jasperのセットアップ {#step-1-set-up-jasper}
 
-1. [Getting Started](https://developers.jasper.ai/docs/getting-started-1)の手順に従ってJasper API キーを生成します。
-2. テンプレート ID が`skl_BC53D8AC5B4B47E8BE557EBB706E9B47` のBraze HTML メール テンプレートs の生成に最適化されたJasper のビルド済みテンプレートを使用します。
-3. 以下のフィールドs の値を収集します。これは、Braze HTML メール テンプレートのコンテンツを生成するリクエストを実行するために必要です。
-
-| フィールド | 説明 |
-| --- | --- |
-| `emailObjective`| メールの目標を明確に定義する。 |
-| `ctaLink`| 通話先アクションのURL。 |
-| `unsubscribeLink`| マーケティング メール s に必要。 |
-| `brandColor`| 16 進数形式のブランドのプライマリカラー(`#4dfa8a` など)。 |
-{: .reset-td-br-1 .rest-td-br-2 role=“presentation” }
-
-**任意項目**
+1. [Getting Started](https://developers.jasper.ai/docs/getting-started-1)の手順に従って、Jasper APIキーを生成します。
+2. Braze HTMLメールテンプレートの生成に最適化されたJasperのビルド済みテンプレートを使用します。テンプレートIDは`skl_BC53D8AC5B4B47E8BE557EBB706E9B47`です。
+3. 以下のフィールドの値を収集します。これらは、Braze HTMLメールテンプレートのコンテンツを生成するリクエストを行うために必要です。
 
 | フィールド | 説明 |
 | --- | --- |
-|`toneId` | ブランドボイス |
-| `audienceId`| オーディエンスセグメンテーション |
-| `styleId`| スタイルガイド |
-| `knowledgeIds` | コンテンツコンテキストの拡張。最大3 つのID を追加できます。 |
-{: .reset-td-br-1 .rest-td-br-2 role=“presentation” }
+| `emailObjective` | メールの目標を明確に定義します。 |
+| `ctaLink` | コールトゥアクションのURL。 |
+| `unsubscribeLink` | マーケティングメールに必須です。 |
+| `brandColor` | 16進数形式のブランドのプライマリカラー（例：`#4dfa8a`）。 |
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Step 1: Set up Jasper" }
+
+**オプションフィールド**
+
+| フィールド | 説明 |
+| --- | --- |
+| `toneId` | ブランドボイス |
+| `audienceId` | オーディエンスセグメンテーション |
+| `styleId` | スタイルガイド |
+| `knowledgeIds` | コンテンツコンテキストの拡張。最大3つのIDを追加できます。 |
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Step 1: Set up Jasper" }
 
 {: start="4"}
-4. Jasper API を使用してテンプレートを実行し、出力を生成します。これにより、`subject`、`preheader`、および`body`(HTML内容)を含むJSON 有料読み込むが生成されます。
+4. Jasper APIを使用してテンプレートを実行し、出力を生成します。これにより、`subject`、`preheader`、および`body`（HTMLコンテンツ）を含むJSONペイロードが生成されます。
 
 {% subtabs %}
 {% subtab Sample request %}
 
-### サンプルリクエスト
+### サンプルリクエスト {#sample-request}
 
 {% raw %}
 ```bash
@@ -105,7 +105,7 @@ curl --location 'https://api.jasper.ai/v1/templates/skl_BC53D8AC5B4B47E8BE557EBB
 {% endsubtab %}
 {% subtab Sample output %}
 
-### 出力例
+### 出力例 {#sample-output}
 ```
 {
   "subject": "GlowUp Serum is Here! Limited-Time 20% Off!",
@@ -116,13 +116,13 @@ curl --location 'https://api.jasper.ai/v1/templates/skl_BC53D8AC5B4B47E8BE557EBB
 {% endsubtab %}
 {% endsubtabs %}
 
-### ステップ 2:Brazeの設定
+### ステップ2：Brazeのセットアップ {#step-2-set-up-braze}
 
-ステップ1 でJasper によって生成された`subject`、`preheader`、および`body` を使用して、[ にBraze REST API へのPOST リクエストを行い、新しいメール テンプレート]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) を作成します。Braze REST API キーに`templates.email.create` および`templates.email.update` 権限があることを確認します。
+ステップ1でJasperによって生成された`subject`、`preheader`、および`body`を使用して、Braze REST APIにPOSTリクエストを行い、[新しいメールテンプレートを作成]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/)します。Braze REST APIキーに`templates.email.create`および`templates.email.update`の権限があることを確認してください。
 
-### メール テンプレートを作成するためのBraze APIリクエストの例
+### メールテンプレートを作成するためのBraze APIリクエストの例 {#sample-braze-api-request-to-create-an-email-template}
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <YOUR_BRAZE_API_KEY>' \
@@ -136,26 +136,26 @@ curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/cr
 {% endtab %}
 {% tab Jasper Studio %}
 
-## メソッド: Jasper Studio でBraze対応のカスタムアプリを作成する
+## 方法：Jasper StudioでBraze対応のカスタムアプリを構築する {#method-build-a-braze-ready-custom-app-with-jasper-studio}
 
-Jasper Studio は、IT サポートを必要とせずにカスタマイズされたAI アプリを構築できるJasper 内のno-コード プラットフォームです。Braze API 用に特別にフォーマットされたJSON ストラクチャを生成するカスタムアプリをデザインしたり、Braze メッセージに手動で追加できるコンテンツを生成したりできます。
+Jasper Studioは、ITサポートを必要とせずにカスタマイズされたAIアプリを構築できるJasper内のノーコードプラットフォームです。Braze API用に特別にフォーマットされたJSON構造を生成するカスタムアプリを設計したり、Brazeメッセージに手動で追加できるコンテンツを生成したりできます。
 
-1. Jasperのホーム画面で、**アプリを作成**を選択します。
-2. 作成するアプリを指定します。たとえば、**Braze HTMLメールテンプレート**または**コンテンツブロックテンプレート**などです。
-3. Jasperが生成する入力プロンプトフィールドを変更します。HTML メール テンプレートの場合、件名行、プリヘッダー、HTML本文、タグs、インラインCSS切り替え、テンプレートの名前の入力フォームを含めることができます。
-4. 一貫したパーソナライゼーションとダイナミックな内容のためのリキッドのベストプラクティスに関するガイダンスと知識を統合する。
-5. コンテンツ生成のために、Large Language Model (LLM) に提供されている手順を絞り込みます。
-6. Braze給与読み込むs 用にフォーマットされた自動化されたJSON 出力を含めることができる、目的の出力のサンプルを提供します。
+1. Jasperのホーム画面で、**Create an App**を選択します。
+2. 作成するアプリを指定します。たとえば、**Braze HTML Email Template**や**Content Block Template**などです。
+3. Jasperが生成する入力プロンプトフィールドを編集します。HTMLメールテンプレートの場合、件名行、プリヘッダー、HTML本文、タグ、インラインCSS切り替え、テンプレート名の入力フォームを含めることができます。
+4. 一貫したパーソナライゼーションとダイナミックコンテンツのためのLiquidベストプラクティスに関するガイダンスとナレッジの埋め込みを統合します。
+5. コンテンツ生成のためにLarge Language Model（LLM）に提供する指示を調整します。
+6. 目的の出力のサンプルを提供します。これには、Brazeペイロード用にフォーマットされた自動化されたJSON出力を含めることができます。
 7. 以下を生成してエクスポートします。
-- **ダイレクトコピー/貼り付け:**内容をコピーしてBraze プラットフォームに貼り付けることができます。
-- **JSON 出力:**JSON 出力を生成します。この有料読み込むは、`curl` またはミドルウェアを介してBraze エンドポイントを直接呼び出すか、メールオペレーションワークフローに統合するために使用できます。
+- **ダイレクトコピー＆ペースト：** コンテンツをコピーしてBrazeプラットフォームに直接貼り付けることができます。
+- **JSON出力：** JSON出力を生成します。このペイロードは、`curl`またはミドルウェアを介してBrazeエンドポイントを直接呼び出すか、メールオペレーションワークフローに統合するために使用できます。
 
-![Jasper Braze カスタムアプリ。]({% image_buster /assets/img/jasper/jasper_custom_app.png %})
+![Jasper Brazeカスタムアプリ。]({% image_buster /assets/img/jasper/jasper_custom_app.png %})
 
 {% subtabs %}
 {% subtab Sample JSON output (custom app) %}
 
-## JSON 出力の例(カスタムアプリ)
+## JSON出力の例（カスタムアプリ） {#sample-json-output-custom-app}
 
 {% raw %}
 ```json
@@ -173,10 +173,10 @@ Jasper Studio は、IT サポートを必要とせずにカスタマイズされ
 {% endsubtab %}
 {% subtab Sample Braze API request (using custom app output) %}
 
-## Braze API リクエストの例(カスタムアプリアウトプットを使用)
+## Braze APIリクエストの例（カスタムアプリ出力を使用） {#sample-braze-api-request-using-custom-app-output}
 
 {% raw %}
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <YOUR_BRAZE_API_KEY>' \
@@ -192,11 +192,11 @@ curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/cr
 {% endsubtab %}
 {% endsubtabs %}
 
-または、マーケターの場合は、カスタムアプリを作成してブランドガイドラインに合わせ、HTMLやコピーアンドペーストなしでコンテンツを生成し、Braze テンプレートsを使用してスタイルを設定することもできます。
+また、マーケターの場合は、ブランドガイドラインに沿ったカスタムアプリを作成し、HTMLやコピー＆ペーストなしでコンテンツを生成し、Brazeテンプレートを使用してスタイリングすることもできます。
 
 {% endtab %}
 {% endtabs %}
 
 {% alert note %}
-その他のサポートについては、[Jasper API ドキュメント](https://developers.jasper.ai/reference/gettemplate-1)および[Jasper Studio ヘルプセンター](https://help.jasper.ai/hc/en-us/articles/36783295610395-Jasper-Studio)を参照してください。
+その他のサポートについては、[Jasper APIドキュメント](https://developers.jasper.ai/reference/gettemplate-1)および[Jasper Studioヘルプセンター](https://help.jasper.ai/hc/en-us/articles/36783295610395-Jasper-Studio)を参照してください。
 {% endalert %}

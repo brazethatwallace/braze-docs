@@ -6,50 +6,50 @@ page_type: reference
 description: "Aprende a utilizar varias características de Braze para potenciar tus casos de uso de segmentación basada en cuentas B2B."
 ---
 
-# Configurar la segmentación basada en cuentas
+# Configurar la segmentación basada en cuentas {#set-up-account-based-segmentation}
 
 > Esta página muestra cómo utilizar varias características de Braze para potenciar tus casos de uso de segmentación basada en cuentas B2B.
 
-Puedes hacer la segmentación B2B basada en cuentas de dos formas, dependiendo de cómo configures tu [modelo de datos B2B]({{site.baseurl}}/user_guide/getting_started/b2b_use_cases/b2b_data_models/):
+Puedes hacer la segmentación B2B basada en cuentas de dos formas, dependiendo de cómo configures tu [modelo de datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/):
 
 - Cuando utilices [catálogos para tus objetos de negocio](#option-1-when-using-catalogs-for-your-business-objects)
 - Cuando utilices [fuentes conectadas para tus objetos de negocio](#option-2-when-using-connected-sources-for-your-business-objects)
 
-## Configuración de la segmentación B2B basada en cuentas
+## Configuración de la segmentación B2B basada en cuentas {#setting-up-b2b-account-based-segmentation}
 
-### Opción 1: Cuando utilices catálogos para tus objetos de negocio
+### Opción 1: Cuando utilices catálogos para tus objetos de negocio {#option-1-when-using-catalogs-for-your-business-objects}
 
-#### Segmentación básica de plantillas SQL
+#### Segmentación básica con plantillas SQL {#basic-sql-template-segmentation}
 
 Para ayudarte a empezar, hemos creado plantillas SQL básicas para una segmentación sencilla basada en cuentas.
 
-Supongamos que quieres segmentar a los usuarios que son empleados de una cuenta de empresa objetivo. 
+Supongamos que quieres segmentar a los usuarios que son empleados de una cuenta de empresa objetivo.
 
-1. Ve a **Audiencia** > **Extensiones de segmento** > **Crear nueva extensión** > **Empezar con una plantilla** y selecciona la plantilla **Segmento de catálogo para eventos**. <br><br> ![Modalidad "Selecciona una plantilla" con opciones de segmento de catálogo para eventos o compras.]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>El editor SQL se rellena automáticamente con una plantilla que une los datos de eventos de usuario con los datos del catálogo para segmentar a los usuarios que interactúan con determinados elementos del catálogo. <br><br>![Un editor SQL para una nueva extensión con una pestaña "Variables" abierta.]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
-2. Utilice la pestaña **Variables** para proporcionar los campos necesarios para su plantilla antes de generar su segmento.<br><br>Para que Braze identifique a los usuarios en función de su compromiso con los artículos del catálogo, debe hacer lo siguiente:
-- Selecciona un catálogo que contenga un campo de catálogo
-- Selecciona un evento personalizado que contenga una propiedad de evento
-- Haz coincidir los valores del campo del catálogo y de las propiedades del evento
+1. Ve a **Audiencia** > **Extensiones de segmento** > **Crear nueva extensión** > **Empezar con una plantilla** y selecciona la plantilla **Segmento de catálogo para eventos**. <br><br> ![Modal "Selecciona una plantilla" con opciones de segmento de catálogo para eventos o compras.]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>El editor SQL se rellena automáticamente con una plantilla que une los datos de eventos de usuario con los datos del catálogo para segmentar a los usuarios que interactúan con determinados elementos del catálogo. <br><br>![Un editor SQL para una nueva extensión con una pestaña "Variables" abierta.]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
+2. Utiliza la pestaña **Variables** para proporcionar los campos necesarios para tu plantilla antes de generar tu segmento.<br><br>Para que Braze identifique a los usuarios en función de su interacción con los elementos del catálogo, necesitas hacer lo siguiente:
+- Seleccionar un catálogo que contenga un campo de catálogo
+- Seleccionar un evento personalizado que contenga una propiedad de evento
+- Hacer coincidir los valores del campo del catálogo y de la propiedad del evento
 
-##### Directrices sobre variables para casos de uso B2B
+##### Directrices sobre variables para casos de uso B2B {#variables-guidelines-for-b2b-use-cases}
 
 Selecciona las siguientes variables para un caso de uso de segmentación basada en cuentas B2B:
 
 | Variable | Propiedad |
 | --- | --- |
 | Catálogo | Catálogo de cuentas |
-| Campo del catálogo | ID |
+| Campo del catálogo | Id |
 | Evento personalizado | account_linked |
 | Propiedad de evento personalizado | account_id |
 | (En Filtrar resultados SQL) Campo del catálogo | Clasificación |
 | (En Filtrar resultados SQL) Valor | Empresa |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Segmentación SQL sofisticada
+#### Segmentación SQL sofisticada {#sophisticated-sql-segmentation}
 
-Para una segmentación más sofisticada o compleja, consulta [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/). Para ayudarte a empezar, aquí tienes algunas plantillas SQL que puedes utilizar para empezar con la segmentación basada en cuentas B2B:
+Para una segmentación más sofisticada o compleja, consulta [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/). Para ayudarte a empezar, aquí tienes algunas plantillas SQL que puedes utilizar para avanzar con la segmentación basada en cuentas B2B:
 
-1. Crea un segmento comparando dos filtros en un mismo catálogo (como los usuarios que trabajan en el sector de la restauración para una cuenta de nivel empresarial). Debes incluir el ID del catálogo y el ID del artículo.
+1. Crea un segmento comparando dos filtros en un mismo catálogo (como los usuarios que trabajan en el sector de la restauración para una cuenta de nivel empresarial). Debes incluir el ID del catálogo y el ID del elemento.
 
 ```sql
 WITH salesforce_accounts AS (
@@ -68,11 +68,11 @@ ON TRY_PARSE_JSON(events.properties):account_id::STRING = salesforce_accounts.id
 WHERE events.name = 'account_linked'
 AND salesforce_accounts.Industry = 'Restaurants'
 AND salesforce_accounts.Classification = 'Enterprise'
-; 
+;
 ```
 
 {: start="2"}
-2\. Crea un segmento comparando dos filtros a través de dos catálogos distintos (como los usuarios asociados a cuentas de empresa-objetivo que tienen una oportunidad abierta "Etapa 3").
+2. Crea un segmento comparando dos filtros en dos catálogos distintos (como los usuarios asociados a cuentas de empresa objetivo que tienen una oportunidad abierta en "Stage 3").
 
 ```sql
 -- Reformat catalog data into a table with columns for each field
@@ -106,11 +106,10 @@ AND salesforce_opportunities.Stage = 'Closed Won'
 ;
 ```
 
-### Opción 2: Cuando utilices fuentes conectadas para tus objetos de negocio
+### Opción 2: Cuando utilices fuentes conectadas para tus objetos de negocio {#option-2-when-using-connected-sources-for-your-business-objects}
 
-Para obtener información básica sobre cómo utilizar fuentes conectadas en la segmentación, consulta [Extensiones]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/cdi_segments/) de [segmento CDI]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/cdi_segments/). Utiliza las plantillas que se describen en [Cuando utilices catálogos](#option-1-when-using-catalogs-for-your-business-objects) como fuente de inspiración para dar formato a las tablas de origen, ya que puedes darles el formato que desees.
+Para obtener información básica sobre cómo utilizar fuentes conectadas en la segmentación, consulta [Extensiones de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/). Utiliza las plantillas que se describen en [Cuando utilices catálogos](#option-1-when-using-catalogs-for-your-business-objects) como fuente de inspiración para dar formato a las tablas de origen, ya que puedes darles el formato que desees.
 
-## Utilizar tu extensión basada en cuentas en un segmento
+## Utilizar tu extensión basada en cuentas en un segmento {#using-your-account-based-extension-in-a-segment}
 
-Después de haber creado tu segmentación a nivel de cuenta en los pasos anteriores, puedes incorporar directamente esas extensiones de segmento a tus criterios de segmentación. También es fácil añadir criterios demográficos incrementales de los usuarios, como la función, la interacción con campañas anteriores, etc. Para más información, consulta [Utilizar tu extensión en un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/#step-6-use-your-extension-in-a-segment).
-
+Después de haber creado tu segmentación a nivel de cuenta en los pasos anteriores, puedes incorporar directamente esas extensiones de segmento a tus criterios de segmentación. También es fácil añadir criterios demográficos incrementales de los usuarios, como el rol, la interacción con campañas anteriores, y más. Para más información, consulta [Utilizar tu extensión en un segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-6-use-your-extension-in-a-segment).

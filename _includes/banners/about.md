@@ -22,7 +22,7 @@ After Banners are integrated into an app or website, marketers can design and la
 | Personalizing offers | Show personalized promotions and incentives based on each user’s browsing history, cart content, subscription tier, and loyalty status. |
 | Targeting new user engagement | Guide new users through onboarding flows and account setup. |
 | Sales and promotions | Highlight featured content, trending products, and ongoing brand campaigns persistently and directly on your homepage without disrupting the user experience. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why use Banners?" }
 
 ## Features
 
@@ -83,11 +83,11 @@ Additionally, Banner messages do not support the following features:
 - API-triggered and action-based campaigns
 - Connected Content
 - Promotional codes
-- User-controlled dismissals
 - `catalog_items` using the [`:rerender` tag]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
+- User-controlled dismissals (early access only)
 
-{% alert tip %}
-Want to help prioritize what's next? Contact [banners-feedback@braze.com](mailto:banners-feedback@braze.com).
+{% alert important %}
+Allowing users to manually dismiss a Banner is in early access. See [Configure dismissal behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) for more details. If you're interested in participating in the early access, contact your customer success manager.
 {% endalert %}
 
 ## Next steps
@@ -95,3 +95,7 @@ Want to help prioritize what's next? Contact [banners-feedback@braze.com](mailto
 - [Create Banner placements in your app or website]({{site.baseurl}}/developer_guide/banners/placements/)
 - [Create a Banner campaign in Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
 - [Tutorial: Displaying a Banner by Placement ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+
+{% alert tip %}
+Want to help prioritize what's next? Contact [banners-feedback@braze.com](mailto:banners-feedback@braze.com).
+{% endalert %}

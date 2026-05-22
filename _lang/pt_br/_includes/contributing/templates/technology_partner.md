@@ -1,6 +1,6 @@
-Você pode usar esse modelo para criar a documentação do parceiro de tecnologia. Para obter um exemplo, consulte [Análise de dados Scuba]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/scuba/).
+Você pode usar esse modelo para criar a documentação do parceiro de tecnologia. Para ver um exemplo, consulte [Scuba Analytics]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/scuba/).
 
-{% details Show template %}
+{% details Mostrar modelo %}
 {% raw %}
 `````markdown
 ---
@@ -39,12 +39,12 @@ CONTENT.
 
 Before you start, you need the following:
 
-| Prerequisite       | Description |                        
+| Prerequisite       | Description |
 |-----------------------|-----------------|
 | A PARTNER_NAME account   | A PARTNER_NAME account is required to take advantage of this partnership.  |
 | A Braze REST API key  | A Braze REST API key with `users.track` permissions. <br><br> Create this key in the Braze dashboard from **Settings** > **API Keys**. |
 | A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance.  |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+{: .reset-td-br-1 .reset-td-br-2 aria-label=”Prerequisites” }
 
 ## Integrating TOOL_NAME
 <!-- Create step-by-step instructions for integrating your tool with Braze. It's important to be concise and outline the minimum necessary steps. -->
@@ -71,53 +71,54 @@ curl -X POST "PARTNER_POST_URL" \
 "PARTNER_token":"PARTNER_NAME_API_TOKEN"}'
 ```
 
-Replace the following:
+Substitua o seguinte:
 
-| Placeholder     | Description      |
+| Placeholder     | Descrição      |
 |---------------------|---------------------|
-| `BRAZE_API_ENDPOINT`    | The Braze REST endpoint URL of your current Braze instance. For more information, see [Rest API keys]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys). |
-| `BRAZE_API_KEY`         | Your Braze REST API key with the `users.track` permission. |                                                                                                                                    | `HOSTNAME`                  | The hostname of your current PARTNER_NAME instance.  |                                                                                                                         
-| `PARTNER_NAME_API_TOKEN`       | Your PARTNER_NAME API token.  |                                                                                                                                        {: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+| `BRAZE_API_ENDPOINT`    | A URL do endpoint REST da Braze da sua instância atual da Braze. Para saber mais, consulte [Chaves da API REST]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys). |
+| `BRAZE_API_KEY`         | Sua chave da API REST da Braze com a permissão `users.track`. |                                                                                                                                    | `HOSTNAME`                  | O hostname da sua instância atual de PARTNER_NAME.  |
+| `PARTNER_NAME_API_TOKEN`       | Seu token de API PARTNER_NAME.  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Fazer uma solicitação POST" }
 
-#### Default behavior
-
-CONTENT.
-
-#### Rate limit
+#### Comportamento padrão
 
 CONTENT.
 
-## Customizing TOOL_NAME
-<!-- An optional section you can use to outline additional customization steps. It's important to be concise and outline the minimum necessary steps. -->
-
-### Step 1: ACTION_TO_COMPLETE
+#### Limite de taxa
 
 CONTENT.
 
-### Step 2: ACTION_TO_COMPLETE
+## Personalizando TOOL_NAME
+<!-- Uma seção opcional que você pode usar para descrever etapas adicionais de personalização. É importante ser conciso e descrever apenas as etapas mínimas necessárias. -->
+
+### Etapa 1: ACTION_TO_COMPLETE
 
 CONTENT.
 
-## Using TOOL_NAME with Braze / USE_CASE
-<!-- A section outlining how to use your integration with Braze. For example, how to access the data sent to Braze, how to leverage your integration with Braze messaging, or how to complete a certain use case from the “Use cases” section. -->
-
-### Step 1: ACTION_TO_COMPLETE
+### Etapa 2: ACTION_TO_COMPLETE
 
 CONTENT.
 
-### Step 2: ACTION_TO_COMPLETE
+## Usando TOOL_NAME com a Braze / USE_CASE
+<!-- Uma seção que descreve como usar sua integração com a Braze. Por exemplo, como acessar os dados enviados para a Braze, como aproveitar sua integração com o envio de mensagens da Braze ou como concluir um determinado caso de uso da seção "Casos de uso". -->
+
+### Etapa 1: ACTION_TO_COMPLETE
 
 CONTENT.
 
-## Considerations
-<!-- An optional section listing additional information that may impact how users interact with your integration. -->
+### Etapa 2: ACTION_TO_COMPLETE
+
+CONTENT.
+
+## Considerações
+<!-- Uma seção opcional que lista informações adicionais que podem afetar a forma como os usuários interagem com a sua integração. -->
 
 ### CONSIDERATION_ITEM
 
 CONTENT.
 
-## Troubleshooting
-<!-- An optional section guiding users through issues they may encounter while setting up your integration. You can also direct users to your documentation site with hyperlinks. -->
+## Solução de problemas
+<!-- Uma seção opcional que orienta os usuários sobre problemas que podem encontrar ao configurar sua integração. Você também pode direcionar os usuários para o seu site de documentação com hiperlinks. -->
 
 ### TROUBLESHOOTING_ITEM
 

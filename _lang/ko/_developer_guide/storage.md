@@ -1,9 +1,9 @@
 ---
 nav_title: 저장
-article_title: iOS용 저장소
+article_title: 저장
 page_order: 3.60
 page_type: reference
-description: "Braze SDK에 저장되는 다양한 기기 수준 등록정보에 대해 알아보세요."
+description: "Braze SDK에 저장되는 다양한 기기 수준의 등록정보에 대해 알아보세요."
 platform:
   - Android
   - FireOS
@@ -11,13 +11,13 @@ platform:
   - Web
 ---
 
-# 저장
+# 저장 {#storage}
 
-> Braze SDK에 저장되는 다양한 기기 수준 등록정보에 대해 알아보세요.
+> Braze SDK에 저장되는 다양한 기기 수준의 등록정보에 대해 알아보세요.
 
-## 기기 등록정보
+## 기기 등록정보 {#device-properties}
 
-기본적으로 Braze는 다음과 같은 기기 수준 등록정보를 수집하여 기기, 언어, 시간대 기반 메시지 개인화를 지원합니다:
+기본적으로 Braze는 기기, 언어, 시간대를 기반으로 메시지를 개인화할 수 있도록 다음과 같은 기기 수준 등록정보를 수집합니다.
 
 {% tabs %}
 {% tab web %}
@@ -82,7 +82,7 @@ braze.initialize("API-KEY", {
 {% endtab %}
 
 {% tab android %}
-예를 들어 허용 목록에 추가할 Android OS 버전과 기기 로캘을 지정할 수 있습니다. 자세한 내용은 [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) 및 [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html) 메서드를 참조하세요. 
+예를 들어 허용 목록에 추가할 Android OS 버전과 기기 로캘을 지정할 수 있습니다. 자세한 내용은 [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) 및 [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html) 메서드를 참조하세요.
 
 ```java
 new BrazeConfig.Builder()
@@ -117,23 +117,23 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-자동으로 수집되는 기기 등록정보에 대해 자세히 알아보려면 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/)을 참조하세요.
+자동으로 수집되는 기기 등록정보에 대해 자세히 알아보려면 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)을 참조하세요.
 {% endalert %}
 
 ## 쿠키 저장(웹 전용) {#cookies}
 
 [웹 Braze SDK를 초기화](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)하면 새 세션에서 자동으로 갱신되는 400일 만료 쿠키가 생성되어 저장됩니다.
 
-다음과 같은 쿠키가 저장됩니다:
+다음과 같은 쿠키가 저장됩니다.
 
-|쿠키|설명|크기|
-|---|----|---|---|
-|`ab.storage.userId.[your-api-key]`|현재 로그인한 사용자의 변경 여부를 확인하고 이벤트를 현재 사용자와 연결하는 데 사용됩니다.|`changeUser`에 전달된 값의 크기에 따라 다름|
-|`ab.storage.sessionId.[your-api-key]`|사용자가 새 세션을 시작하는지 기존 세션을 시작하는지 확인하여 메시지를 동기화하고 세션 분석을 계산하는 데 사용되는 무작위 생성 문자열입니다.|~200바이트|
-|`ab.storage.deviceId.[your-api-key]`|익명 사용자를 식별하고 사용자의 기기를 구분하여 기기 기반 메시징을 활성화하는 데 사용되는 무작위 생성 문자열입니다.|~200바이트|
-|`ab.optOut`|`disableSDK` 호출 시 사용자의 옵트아웃 환경설정을 저장하는 데 사용됩니다.|~40바이트|
-|`ab._gd`|루트 수준 쿠키 도메인을 결정하기 위해 임시로 생성(후 삭제)되며, 이를 통해 SDK가 하위 도메인에서 올바르게 작동할 수 있습니다.|해당 없음|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 쿠키 | 설명 | 크기 |
+|---|----|---|
+| `ab.storage.userId.[your-api-key]` | 현재 로그인한 사용자의 변경 여부를 확인하고 이벤트를 현재 사용자와 연결하는 데 사용됩니다. | `changeUser`에 전달된 값의 크기에 따라 다름 |
+| `ab.storage.sessionId.[your-api-key]` | 사용자가 새 세션을 시작하는지 기존 세션을 시작하는지 확인하여 메시지를 동기화하고 세션 분석을 계산하는 데 사용되는 무작위 생성 문자열입니다. | ~200바이트 |
+| `ab.storage.deviceId.[your-api-key]` | 익명 사용자를 식별하고 사용자의 기기를 구분하여 기기 기반 메시징을 활성화하는 데 사용되는 무작위 생성 문자열입니다. | ~200바이트 |
+| `ab.optOut` | `disableSDK` 호출 시 사용자의 옵트아웃 환경설정을 저장하는 데 사용됩니다. | ~40바이트 |
+| `ab._gd` | 루트 수준 쿠키 도메인을 결정하기 위해 임시로 생성(후 삭제)되며, 이를 통해 SDK가 하위 도메인에서 올바르게 작동할 수 있습니다. | 해당 없음 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
 
 ### 쿠키 만료 변경하기 {#cookie-expiry}
 

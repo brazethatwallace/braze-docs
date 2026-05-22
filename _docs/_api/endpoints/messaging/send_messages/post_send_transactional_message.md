@@ -40,7 +40,7 @@ To use this endpoint, you'll need to generate an API key with the `transactional
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `campaign_id` | Required | String | ID of the campaign |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Request body
 
@@ -70,7 +70,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 |`external_send_id`| Optional | String |  A Base64 compatible string. Validated against the following regex:<br><br> `/^[a-zA-Z0-9-_+\/=]+$/` <br><br>This optional field allows you to pass an internal identifier for this particular send, which is included in events sent from the Transactional HTTP event postback. When passed, this identifier is also used as a deduplication key, which Braze stores for 24 hours. <br><br>Passing the same identifier in another request does not result in a new instance of a send by Braze for 24 hours.|
 |`trigger_properties`|Optional|Object|See [trigger properties]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). Personalization key-value pairs that apply to the user in this request. |
 |`recipient`|Required|Object| The user you are targeting this message to. Can contain `attributes` and a single `external_user_id` or `user_alias`.<br><br>Note that if you provide an external user ID that doesn't already exist in Braze, passing any fields to the `attributes` object creates this user profile in Braze and sends this message to the newly created user. <br><br>If you send multiple requests to the same user with different data in the `attributes` object, `first_name`, `last_name`, and `email` attributes are updated synchronously and templated into your message. Custom attributes don't have this same protection, so proceed with caution when updating a user through this API and passing different custom attribute values in quick succession.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 
@@ -120,7 +120,7 @@ The endpoint may also return an error code and a human-readable message in some 
 | `Error authenticating credentials` | The API key provided is invalid |
 | `Invalid whitelisted IPs `| The IP address sending the request is not on the IP whitelist (if it is being used) |
 | `You do not have permission to access this resource` | The API key used does not have permission to take this action |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 Most endpoints at Braze have a rate limit implementation that returns a 429 response code if you make too many requests. The transactional sending endpoint has a paid hourly allotment measured in units (for example, 50,000 units per hour, depending on your package). There is no separate per-endpoint rate limit for this endpoint: you can send beyond your allotted volume, but only the allotted volume is covered by SLA; requests above that allotment still send but are not covered by SLA. Requests to this endpoint count toward your [overall external API rate limit]({{site.baseurl}}/api/api_limits/). If you exceed that limit (for example, 250,000 requests per hour across all endpoints), Braze returns 429 and throttles requests until the limit resets. The transactional volume count resets each hour. Contact Braze Support if you need more information about this functionality.
 

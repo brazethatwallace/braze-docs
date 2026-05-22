@@ -22,7 +22,7 @@ The Braze and Amplitude bi-directional integration allows you to [import your Am
 |---|---|
 | Amplitude account | An [Amplitude account](https://amplitude.com/) is required to take advantage of this partnership. |
 | Currents | In order to export data back into Amplitude, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Choose an integration 
 
@@ -40,6 +40,7 @@ Amplitude and Braze offer two different integration methods. Read through the fo
 | Braze REST API key | A Braze REST API key with the all permissions.<br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL][1]. Your endpoint will depend on the Braze URL for your instance. |
 | Braze app identifier | The identifier for the app that will receive Amplitude events. This can be found within the **Braze Dashboard > Developer Console > Settings**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Amplitude Setup
 

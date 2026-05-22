@@ -8,7 +8,7 @@ tool: Location
 hidden: true
 ---
 
-# 位置情報の追跡
+# 位置情報の追跡 {#location-tracking}
 {% multi_lang_include archive/windows_deprecation.md %}
 
 1. `Package.appxmanifest` ファイル内で `location` がオンになっていることを確認します。

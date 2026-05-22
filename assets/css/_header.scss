@@ -205,7 +205,7 @@ $header_transition_time: 0.25s;
 			@media (min-width: $window-xlarge-px) {
 				font-size: $header_nav_font_size;
 			}
-			font-family: $braze-heavy;
+			font-family: $braze-bold;
 		}
 
 		.navbar-nav {
@@ -226,7 +226,7 @@ $header_transition_time: 0.25s;
 					padding-right: 15px;
 				}
 				div {
-					font-family: $braze-heavy !important;
+					font-family: $braze-bold !important;
 					display: inline;
 					border-bottom-width: 2px;
 					border-color: transparent;
@@ -309,7 +309,7 @@ $header_transition_time: 0.25s;
 		font-size: 16px;
 		display: flex;
 		gap: 10px;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 		@media (max-width: $window-mobile-px) {
 			//max-width: 100px;
 			font-size: $header_nav_font_size;

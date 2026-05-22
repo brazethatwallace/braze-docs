@@ -2,7 +2,7 @@
 nav_title: Transifex
 article_title: Transifex
 alias: /partners/transifex/
-description: "Este artículo de referencia describe la asociación entre Braze y Transifex, una plataforma de localización que le permite automatizar la traducción liberando a sus equipos para que se centren en ofrecer experiencias brillantes a los clientes."
+description: "Este artículo de referencia describe la asociación entre Braze y Transifex, una plataforma de localización que te permite automatizar la traducción, liberando a tus equipos para que se centren en ofrecer experiencias brillantes a los clientes."
 page_type: partner
 search_tag: Partner
 
@@ -14,26 +14,26 @@ search_tag: Partner
 
 _Esta integración está mantenida por Transifex._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Transifex utiliza Contenido conectado para permitirte extraer una colección de cadenas de recursos e incluir las traducciones pertinentes en tus mensajes, en lugar de líneas de formato condicional basadas en el idioma. Esto automatiza la traducción y libera a sus equipos para que se centren en ofrecer experiencias brillantes a los clientes.
+La integración de Braze y Transifex utiliza Contenido conectado para permitirte extraer una colección de cadenas de recursos e incluir las traducciones pertinentes en tus mensajes, en lugar de líneas de formato condicional basadas en el idioma. Esto automatiza la traducción y libera a tus equipos para que se centren en ofrecer experiencias brillantes a los clientes.
 
 {% alert important %}
-A partir del 7 de abril de 2022, Transifex ha dejado obsoletas sus versiones 2 y 2.5 de la API para dar paso a la versión 3\. Las v2 y v2.5 ya no son operativas, y las solicitudes correspondientes fallarán. <br><br>Las siguientes instrucciones de integración reflejan la actualización de la versión 3. Actualice en consecuencia sus llamadas a Contenidos Conectados.
+A partir del 7 de abril de 2022, Transifex ha dejado obsoletas sus versiones 2 y 2.5 de la API para dar paso a la versión 3. Las v2 y v2.5 ya no son operativas, y las solicitudes correspondientes fallarán. <br><br>Las siguientes instrucciones de integración reflejan la actualización de la versión 3. Actualiza tus llamadas a Contenido conectado en consecuencia.
 {% endalert %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-| Requisito| Descripción|
-| ---| ---|
-|Cuenta Transifex | Se necesita una [cuenta Transifex](https://www.transifex.com/signin/) para beneficiarse de esta asociación. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Requisito | Descripción |
+| --- | --- |
+| Cuenta de Transifex | Se necesita una [cuenta de Transifex](https://www.transifex.com/signin/) para beneficiarse de esta asociación. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
-La integración de Transifex utiliza la [API de traducción de recursos](https://developers.transifex.com/reference/get_resource-translations) de Transifex. El siguiente cURL te permitirá ver si tu cuenta tiene valores de contenido asociados a traducciones. 
+La integración de Transifex utiliza la [API de traducción de recursos](https://developers.transifex.com/reference/get_resource-translations) de Transifex. El siguiente cURL te permitirá ver si tu cuenta tiene valores de contenido asociados a traducciones.
 
-En primer lugar, introduce los datos `<ORGANIZATION_NAME>`, `<PROJECT_NAME>`, y `<RESOURCE_NAME>` que se encuentran en tu cuenta de Transifex. A continuación, sustituya `<LANGUAGE>` por el código de idioma por el que desea filtrar las traducciones y `<TRANSIFEX_BEARER_TOKEN>` por su [token de portador](https://developers.transifex.com/reference/api-authentication) Transifex.
+En primer lugar, introduce los datos `<ORGANIZATION_NAME>`, `<PROJECT_NAME>` y `<RESOURCE_NAME>` que se encuentran en tu cuenta de Transifex. A continuación, sustituye `<LANGUAGE>` por el código de idioma por el que deseas filtrar las traducciones y `<TRANSIFEX_BEARER_TOKEN>` por tu [token de portador](https://developers.transifex.com/reference/api-authentication) de Transifex.
 
 ```
 curl --request GET \
@@ -42,11 +42,11 @@ curl --request GET \
      --header 'Authorization: Bearer 1/<TRANSIFEX_BEARER_TOKEN>'
 ```
 
-Por ejemplo, si tu proyecto Transifex está ubicado en `https://www.transifex.com/appboy-3/french2/french_translationspo/`, el `project_name` será "french2" y el `resource_name` será "french_translationspo".
+Por ejemplo, si tu proyecto de Transifex está ubicado en `https://www.transifex.com/appboy-3/french2/french_translationspo/`, el `project_name` será "french2" y el `resource_name` será "french_translationspo".
 
-## Ejemplo de mensaje de contenido conectado
+## Ejemplo de mensaje de Contenido conectado {#connected-content-message-example}
 
-Este fragmento de código de ejemplo utiliza la API de traducción de recursos de Transifex y el atributo `language` del usuario. En función de sus necesidades, puede realizar un bucle a través de los objetos de cadena y extraer el contenido pertinente utilizando el siguiente Liquid: `{{strings.data[X].attributes.strings.other}}`.
+Este fragmento de código de ejemplo utiliza la API de traducción de recursos de Transifex y el atributo `language` del usuario. En función de tus necesidades, puedes recorrer los objetos de cadena y extraer el contenido pertinente utilizando el siguiente Liquid: `{{strings.data[X].attributes.strings.other}}`.
 
 {% raw %}
 ```

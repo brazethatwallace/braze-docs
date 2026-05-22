@@ -1,7 +1,7 @@
 ---
 nav_title: Airbyte
 article_title: Airbyte
-description: "Este artículo de referencia cubre la integración de Braze y Airbyte. Airbyte es un motor de integración de datos de código abierto que le ayuda a consolidar sus datos en sus almacenes de datos, lagos y bases de datos, reenviando eventos en tiempo real desde Airbyte a Braze."
+description: "Este artículo de referencia cubre la integración de Braze y Airbyte. Airbyte es un motor de integración de datos de código abierto que te ayuda a consolidar tus datos en tus almacenes de datos, lagos y bases de datos, reenviando eventos en tiempo real desde Airbyte a Braze."
 alias: /partners/airbyte/
 page_type: partner
 search_tag: Airbyte
@@ -14,32 +14,32 @@ search_tag: Airbyte
 
 _Esta integración está mantenida por Airbyte._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Airbyte permite a los usuarios crear una canalización de datos para recopilar y analizar datos de Braze conectando todas sus aplicaciones y bases de datos a un almacén central. Una vez recopilados los datos en el almacén central, los equipos de datos pueden explorar los datos de Braze con eficacia utilizando sus herramientas de inteligencia empresarial preferidas.
+La integración de Braze y Airbyte permite a los usuarios crear una canalización de datos para recopilar y analizar datos de Braze conectando todas tus aplicaciones y bases de datos a un almacén central. Una vez recopilados los datos en el almacén central, los equipos de datos pueden explorar los datos de Braze de forma eficaz utilizando sus herramientas de inteligencia empresarial preferidas.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Cuenta Airbyte Cloud | Se requiere una cuenta [Airbyte Cloud](https://cloud.airbyte.io/workspaces) para aprovechar esta integración. |
-| Clave REST API de Braze | Una clave Braze REST API con todos los permisos. <br><br> Puede crearse en el panel Braze desde **Configuración** > **Claves API**. |
-| Punto final REST Braze | Tu punto final dependerá de la URL Braze de tu instancia. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Cuenta de Airbyte Cloud | Se requiere una cuenta de [Airbyte Cloud](https://cloud.airbyte.io/workspaces) para aprovechar esta integración. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
-1. En su cuenta de Airbyte Cloud, vaya a **Fuentes > + Nueva fuente > Configurar la fuente**.
+1. En tu cuenta de Airbyte Cloud, ve a **Sources > + New Source > Set up the Source**.
 2. Introduce "Braze" como nombre de la fuente y selecciona **Braze** en el desplegable de fuentes.
-3. Proporciona la URL de tu punto final, la clave de API REST de Braze y la fecha de inicio. Haz clic en **Configurar fuente**.
+3. Proporciona la URL de tu punto de conexión, la clave de API REST de Braze y la fecha de inicio. Haz clic en **Set up Source**.
 
-### Modos de sincronización admitidos
+### Modos de sincronización admitidos {#supported-sync-modes}
 
 El conector de fuente Braze de Airbyte admite los siguientes [modos de sincronización](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes):
-- **Actualización completa | Sobrescribir**: sincroniza todos los registros del origen y sustituye los datos en el destino sobrescribiéndolos.
-- **Sincronización incremental | Añadir**: Sincroniza nuevos registros desde el origen y añádelos al destino sin borrar ningún dato.
+- **Full Refresh | Overwrite**: sincroniza todos los registros del origen y sustituye los datos en el destino sobrescribiéndolos.
+- **Incremental Sync | Append**: sincroniza nuevos registros desde el origen y los añade al destino sin borrar ningún dato.
 
-### Flujos admitidos
+### Flujos admitidos {#supported-streams}
 
 - [`campaigns`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f3b0b3ef-04fb-4a31-8570-e6ad88dacb18)
 - [`campaigns_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1)
@@ -56,5 +56,5 @@ El conector de fuente Braze de Airbyte admite los siguientes [modos de sincroniz
 - [`segments_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e)
 
 {% alert note %}
-Los límites de velocidad varían en función del flujo. Visite la [tabla de límites de tarifas]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type) para obtener más información.
+Los límites de velocidad varían en función del flujo. Visita la [tabla de límites de velocidad]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type) para obtener más información.
 {% endalert %}

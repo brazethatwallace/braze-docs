@@ -35,12 +35,12 @@ channel:
   - Push
   - SMS
   - Webhooks
-  
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
-guide_top_header: "Landing Page mit einem Abschnitt und Bildern"
-guide_top_text: "Landing Pages mit einem Abschnitt eignen sich hervorragend für einen großen Abschnitt mit wenig oder gar keiner Unterteilung zwischen den Seiten in diesem Abschnitt. Dieses Template verwendet den YAML-Parameter 'featured' ('layout: dev_guide'), mit dem Sie zusätzliche Informationen am unteren Rand der Seite hinzufügen können. Wenn Sie zusätzliche Abschnitte benötigen, verwenden Sie den Seitentyp Landing Page mit mehreren Abschnitten, indem Sie den YAML-Parameter 'dev_guide' layout verwenden."
+guide_top_header: "Landing-Page mit einem Abschnitt und Bildern"
+guide_top_text: "Landing-Pages mit einem Abschnitt eignen sich hervorragend für einen großen Abschnitt mit wenig oder gar keiner Unterteilung zwischen den Seiten in diesem Abschnitt. Dieses Template verwendet den YAML-Layoutparameter „featured“ ('layout: dev_guide'), mit dem Sie zusätzliche Informationen am unteren Rand der Seite hinzufügen können. Wenn Sie zusätzliche Abschnitte benötigen, verwenden Sie den Seitentyp Landing-Page mit mehreren Abschnitten und den YAML-Layoutparameter 'dev_guide'."
 
 guide_featured_title: "Abschnitt"
 guide_featured_list:
@@ -58,7 +58,7 @@ guide_featured_list:
 
 ## Extra
 
-Wenn Sie möchten, können Sie am unteren Rand zusätzliche Inhalte hinzufügen. Achten Sie darauf, dass Sie am Ende Zeilenumbrüche einfügen. Fügen Sie hier kein referenzierendes Material hinzu. [Verwenden Sie dazu das Template zum Referenzieren]({{site.baseurl}}/home/templates/reference/).
+Wenn Sie möchten, können Sie am unteren Rand zusätzliche Inhalte hinzufügen. Achten Sie darauf, dass Sie am Ende Zeilenumbrüche einfügen. Fügen Sie hier kein Referenzmaterial hinzu. [Verwenden Sie dafür das Referenz-Template]({{site.baseurl}}/contributing/content_types/#references).
 
 <br>
 

@@ -87,7 +87,7 @@ lines-index.js=16
 
 {% scrolly %}
 
-```kotlin file=MainApplication.kt
+`````````kotlin file=MainApplication.kt
 import android.app.Application
 import com.braze.Braze
 import com.braze.support.BrazeLogger
@@ -182,7 +182,7 @@ lines-MainApplication.kt=38,41
 
 {% scrolly %}
 
-```swift file=AppDelegate.swift
+`````````swift file=AppDelegate.swift
 import SwiftUI
 import BrazeKit
 import BrazeUI
@@ -219,7 +219,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, BrazeInAppMessageUIDelegate 
 }
 ```
 
-```swift file=SampleApp.swift
+`````````swift file=SampleApp.swift
 import SwiftUI
 
 @main

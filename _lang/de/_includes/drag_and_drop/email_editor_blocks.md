@@ -1,230 +1,238 @@
-## Verwendung von Editor-Blöcken für E-Mail-Editoren
+## E-Mail-Editor-Blöcke {#email-editor-blocks}
 
-Die Editor-Blöcke befinden sich im Abschnitt **„Inhalt“** für E-Mail-Nachrichten. Um einen Editor-Block zu verwenden, ziehen Sie im Drag-and-Drop-Editor einen Editor-Block in eine Spalte. Es passt sich automatisch an die Spaltenbreite an. Jeder Editor-Block hat seine eigenen Einstellungen, wie z. B. die granulare Steuerung des Paddings.
+Editor-Blöcke befinden sich im Abschnitt **Inhalt** für E-Mail-Nachrichten. Ziehen Sie einen Block im **Drag-and-Drop-Editor** in eine Spalte; er passt sich automatisch an die Spaltenbreite an.
 
-Weitere Informationen zur Verwendung und Anpassung dieser Editor-Blöcke in Ihrer E-Mail finden Sie unter [„Weitere Anpassungen]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/overview/#other-customizations)“.
+Weitere Informationen zum Erstellen von E-Mails im **Drag-and-Drop-Editor** finden Sie unter [E-Mail per Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) und <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Weitere Anpassungen</a> in diesem Artikel.
 
 {% alert tip %}
-Sie können auch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) zu jeder URL innerhalb der `Image`Editor-Blöcke`Text` ,`Button` , oder hinzufügen.
+Sie können auch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) zu jeder URL innerhalb der Editor-Blöcke `Image`, `Button` oder `Text` hinzufügen.
 {% endalert %}
 
-## Typen
+### Titel {#title}
 
-In der folgenden Tabelle wird beschrieben, wie Nutzer:innen die einzelnen Editor-Blöcke verwenden können.
+Fügt Text für Überschriften innerhalb der E-Mail hinzu.
 
-| Name | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|Titel| Fügt Text für Kopfzeilen innerhalb der E-Mail hinzu. | 
-|Absatz| Gibt Text in Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Textbearbeitung. | 
-|Liste| Fügt eine Aufzählungsliste hinzu. |
-|Button| Fügt eine Standard-Schaltfläche hinzu. Die Eigenschaften dieses Blocks ermöglichen das einfache Bearbeiten und Setzen von Links. | 
-|Trennlinie| Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um die Abstände zu vergrößern.|
-|Spacer| Fügt Leerzeichen oder „Padding“ zwischen anderen Blöcken hinzu. |
-|Bild| Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) ein. | 
-|Video| Erzeugt einen Link zum Videoinhalt. |
-|Social| Fügt das Symbol einer sozialen Medienplattform ein. Sie können angepasste Bilder für markenspezifische Symbole hochladen. |
-|Ikonen| Fügt ein Symbol ein. Sie können angepasste Bilder hochladen. Braze verwendet ein übergroßes Platzhalter-Symbol, bis Sie ein Bild hochladen. |
-|HTML| Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid/), wie beispielsweise Connected-Content oder bedingte Anweisungen. | 
-|Menü| Erzeugt ein flexibles Menü für die Nachricht, die Sie entwerfen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+| Titel | Wählt den Überschriftenstil aus. |
+| Schriftfamilie | Der Schriftstil für Ihren Titel. |
+| Schriftschnitt | Die allgemeine Stärke der Schriftart. |
+| Schriftgröße | Bestimmt die Größe Ihres Textes. |
+| Textfarbe | Ändert die Farbe des Titels. |
+| Linkfarbe | Ändert die Farbe des Links. |
+| Ausrichtung | Verschiebt den Titel nach links, in die Mitte oder nach rechts. |
+| Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen. |
+| Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
+| Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
-## Eigenschaften
+### Absatz {#paragraph}
 
-Einzelheiten zu den Eigenschaften der einzelnen Editorblöcke finden Sie in den folgenden Tabellen.
+Gibt Text in die Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Textbearbeitung.
 
-### Titel
-In der folgenden Tabelle finden Sie Einzelheiten zu den Eigenschaften des Editor-Blocks `Title`.
-
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|Titel| Wählt den Überschriftenstil aus. | 
-|Schriftfamilie| Dies ist der Schriftstil für Ihren Titel. |
-|Schriftschnitt| Dies ist die allgemeine Stärke der Schriftart. |
-|Schriftgröße| Bestimmt die Größe Ihres Textes. |
-|Textfarbe| Ändert die Farbe des Titels. |
-|Linkfarbe| Ändert die Farbe des Links. |
-|Ausrichten| Verschiebt den Titel nach links, in die Mitte oder nach rechts. |
-|Zeilenhöhe| Ändert den Abstand zwischen den Textzeilen. |
-|Zeilenabstand| Ändert den Abstand zwischen den einzelnen Zeichen. |
-|Textrichtung| Standardmäßig von links nach rechts, kann jedoch von rechts nach [links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Schriftfamilie | Der Schriftstil für Ihren Absatztext. |
+| Schriftschnitt | Die allgemeine Stärke der Schriftart. |
+| Schriftgröße | Bestimmt die Größe Ihres Textes. |
+| Textfarbe | Ändert die Farbe des Textes. |
+| Linkfarbe | Ändert die Farbe des Links. |
+| Ausrichtung | Verschiebt den Text nach links, in die Mitte oder nach rechts. |
+| Absatzabstand | Ändert den Abstand zwischen den Absätzen. |
+| Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen. |
+| Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
+| Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
-### Absatz
+### Liste {#list}
 
-In der folgenden Tabelle finden Sie Einzelheiten zu den Eigenschaften des Editor-Blocks `Paragraph`.
+Fügt eine Aufzählungsliste hinzu.
 
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|Schriftfamilie| Dies ist der Schriftstil für Ihren Absatztext. |
-|Schriftschnitt| Dies ist die allgemeine Stärke der Schriftart. |
-|Schriftgröße| Bestimmt die Größe Ihres Textes. |
-|Textfarbe| Ändert die Farbe des Titels. |
-|Linkfarbe| Ändert die Farbe des Links. |
-|Ausrichten| Verschiebt den Titel nach links, in die Mitte oder nach rechts. |
-|Absatzabstand| Ändert den Abstand zwischen den Absätzen. |
-|Zeilenhöhe| Ändert den Abstand zwischen den Textzeilen. |
-|Buchstabenabstand| Ändert den Abstand zwischen den einzelnen Zeichen. |
-|Textrichtung| Standardmäßig von links nach rechts, kann jedoch von rechts nach [links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Listentyp | Die Art der Liste. Kann entweder als Aufzählung oder nummeriert sein. |
+| Listenstil-Typ | Bestimmt den Stil Ihrer Liste. |
+| Liste beginnen ab | Bestimmt die Startnummer für Ihre Liste. |
+| Schriftfamilie | Der Schriftstil für Ihren Absatztext. |
+| Schriftschnitt | Die allgemeine Stärke der Schriftart. |
+| Schriftgröße | Bestimmt die Größe Ihres Textes. |
+| Textfarbe | Ändert die Farbe des Textes. |
+| Linkfarbe | Ändert die Farbe des Links. |
+| Ausrichtung | Verschiebt den Text nach links, in die Mitte oder nach rechts. |
+| Abstand zwischen Listenelementen | Ändert den Abstand zwischen den Listenelementen. |
+| Einrückung der Listenelemente | Ändert die Einrückung der Listenelemente. |
+| Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen. |
+| Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
+| Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
-### Liste
+### Button
 
-In der folgenden Tabelle finden Sie Einzelheiten zu den Eigenschaften des Editor-Blocks `List`.
+Fügt einen Standard-Button hinzu. Die Eigenschaften ermöglichen das Bearbeiten des Stils und das Festlegen des Link-Verhaltens.
 
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|Listentyp| Dies ist die Art der Liste. Kann entweder aufgezählt oder nummeriert werden. |
-|Listenstil-Typ| Bestimmt den Stil Ihrer Liste. |
-|Startliste von| Bestimmt die Startnummer für Ihre Liste. |
-|Schriftfamilie| Dies ist der Schriftstil für Ihren Absatztext. |
-|Schriftschnitt| Dies ist die allgemeine Stärke der Schriftart. |
-|Schriftgröße| Bestimmt die Größe Ihres Textes. |
-|Textfarbe| Ändert die Farbe des Titels. |
-|Linkfarbe| Ändert die Farbe des Links. |
-|Ausrichten| Verschiebt den Titel nach links, in die Mitte oder nach rechts. |
-|Abstand zwischen Listenelementen| Ändert den Abstand zwischen den Listenelementen. |
-|Artikel einrücken| Ändert die Einrückung von Listenelementen. |
-|Zeilenhöhe| Ändert den Abstand zwischen den Textzeilen. |
-|Buchstabenabstand| Ändert den Abstand zwischen den einzelnen Zeichen. |
-|Textrichtung| Standardmäßig von links nach rechts, kann jedoch von rechts nach [links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Button-Optionen | Legt verschiedene Button-Optionen fest, wie z. B. Schriftart, Größe, Breite, Farbe und Padding. |
+| Button-Hover | Der Stil des Buttons, wenn Nutzer:innen mit der Maus oder dem Trackpad darüber fahren. Dazu gehören die Hintergrundfarbe des Buttons, die Schriftfarbe und der Rahmenstil. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
 
-### Trennlinie
+#### Klick-Verhalten {#on-click-behavior}
 
-In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Divider`.
-
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|Transparent| Wenn aktiviert, werden die Optionen 'Linie' und 'Breite' entfernt. |
-|Line| Die verschiedenen Linienformate, ob gestrichelt, gepunktet oder durchgezogen. Darüber hinaus können Sie die Dicke und Farbe der Trennlinie ändern. |
-|Breite | Stellt die Spanne des Teilers in 5er-Schritten ein.  |
-|Ausrichten| Verschiebt die Linie, so dass sie entweder links, mittig oder rechts ausgerichtet ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Link-Typ | Legt die Aktion beim Klicken auf den Button fest und stellt das entsprechende Protokoll ein. |
+| URL | Dynamisch basierend auf dem Link-Typ **Open web page**. |
+| Empfänger:in, Betreff und Text | Für den Link-Typ **Send email** werden hier die E-Mail-Adresse der Empfänger:in, der Betreff und der Inhalt festgelegt, die in einem E-Mail-Entwurf angezeigt werden, wenn Nutzer:innen den Button auswählen. |
+| Tel. | Für die Link-Typen **Make call** und **Send SMS** wird hier die Telefonnummer festgelegt, die Nutzer:innen anrufen oder per SMS kontaktieren, wenn sie den Button auswählen. |
+| Nachricht | Für den Link-Typ **Send SMS** legt dies den Inhalt fest, der in einem SMS-Entwurf angezeigt wird, wenn Nutzer:innen den Button auswählen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+
+### Trennlinie {#divider}
+
+Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um die Abstände zu vergrößern.
+
+| Eigenschaft | Beschreibung |
+|---|---|
+| Transparent | Wenn aktiviert, werden die Optionen für Linie und Breite entfernt. |
+| Linie | Die verschiedenen Linienformate, ob gepunktet, gestrichelt oder durchgezogen. Darüber hinaus können Sie die Dicke und Farbe der Trennlinie ändern. |
+| Breite | Passt die Ausdehnung der Trennlinie in 5er-Schritten an. |
+| Ausrichtung | Verschiebt die Linie nach links, in die Mitte oder nach rechts. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
 ### Spacer
 
-In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Spacer`.
+Fügt Leerraum oder Padding zwischen anderen Blöcken hinzu.
 
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|Höhe| Justiert die Höhe des Spacer-Blocks. Der Standardwert ist 60px.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Höhe | Passt die Höhe des Spacer-Blocks an. Der Standardwert ist 60px. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
-### Bild
+### Bild {#image}
 
-In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Image`. Für dynamische Bilder (Bilder mit Liquid oder Connected-Content) müssen Sie ein Fallback-Bild festlegen, um die Einstellungen für die automatische Breitenanpassung zu verwenden. Die Bildspezifikationen referenzieren Sie bitte bei unseren [E-Mail-Bildspezifikationen]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
+Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) ein. Für dynamische Bilder (Bilder mit Liquid oder Connected-Content) müssen Sie ein Fallback-Bild festlegen, um die Einstellungen für die automatische Breitenanpassung zu verwenden. Informationen zu Bildspezifikationen finden Sie unter [E-Mail-Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#email).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|Automatische Breite| Ändert die Breite des Bildes in Pixel. |
-|Ausrichten| Richtet das Bild entweder links, in der Mitte oder rechts des Blocks aus. |
-|Bild mit Liquid| Verwenden Sie [Liquid]({{site.baseurl}}/liquid/) Logic, um dynamisch verschiedene Bilder innerhalb desselben Content-Blocks festzulegen. |
-|URL| Stellen Sie ein Bild über die Adresse ein, unter der es gehostet wird. |
-|Alternativer Text| Eine kurze Beschreibung des Bildes, die den Nutzer:innen die gleichen Informationen liefert, die auch auf dem Bild zu sehen sind. Dies ist für die Barrierefreiheit von Bildschirmleseprogrammen oder für den Fall, dass das Bild nicht geladen werden kann, unerlässlich. |
-|Bild mit abgerundeten Ecken| Rendert das Bild mit abgerundeten Ecken. Standardmäßig werden Bilder mit quadratischen Ecken gerendert. |
-|Aktion| Löst eine Aktion aus, wenn der Nutzer:in auf das Bild klickt.|
-|Blockoptionen| Legt das Padding um den Bildblock fest. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Automatische Breite | Ändert die Breite des Bildes in Pixel. |
+| Ausrichtung | Richtet das Bild entweder links, in der Mitte oder rechts des Blocks aus. |
+| Bild mit Liquid | Verwenden Sie [Liquid]({{site.baseurl}}/liquid/)-Logik, um dynamisch verschiedene Bilder innerhalb desselben Inhaltsblocks festzulegen. |
+| URL | Legen Sie ein Bild über die Adresse fest, unter der es gehostet wird. |
+| Alternativer Text | Eine kurze Beschreibung des Bildes, die den Nutzer:innen die gleichen Informationen liefert, die auch auf dem Bild zu sehen sind. Dies ist für die Barrierefreiheit von Screenreadern oder für den Fall, dass das Bild nicht geladen werden kann, unerlässlich. |
+| Bild mit abgerundeten Ecken | Rendert das Bild mit abgerundeten Ecken. Standardmäßig werden Bilder mit eckigen Ecken gerendert. |
+| Aktion | Löst eine Aktion aus, wenn Nutzer:innen auf das Bild klicken. |
+| Blockoptionen | Legt das Padding um den Bildblock fest. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 {% alert tip %}
-Für `Auto Width` wählt die automatische Bildgrößenanpassung die beste Größe für das Bild auf der Grundlage einer Kombination aus Bildbreite und verfügbarem Platz im Layout:
-- Bilder, die breiter sind als der verfügbare Platz, werden auf eine Breite von 100% gesetzt und behalten dieses Verhältnis auf mobilen Geräten bei, wobei die gesamte Anzeigebreite des Geräts genutzt wird.
+Für **Automatische Breite** wählt die automatische Bildgrößenanpassung die beste Größe für das Bild auf der Grundlage einer Kombination aus Bildbreite und verfügbarem Platz im Layout:
+- Bilder, die breiter sind als der verfügbare Platz, werden auf eine Breite von 100 % gesetzt und behalten dieses Verhältnis auf Mobilgeräten bei, wobei die gesamte Anzeigebreite des Geräts genutzt wird.
 - Bei Bildern, die kleiner sind als der verfügbare Platz, wird die natürliche Größe des Bildes verwendet, um Verzerrungseffekte oder unscharfe Bilder zu vermeiden.
 {% endalert %}
 
 ### Video
 
-In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Video`.
+Erstellt einen Link zu Video-Inhalten. Es werden nur YouTube und Vimeo unterstützt.
 
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|URL| Die URL für das Video. Beachten Sie, dass nur YouTube und Vimeo unterstützt werden. |
-|Titel| Wird automatisch aus den Metadaten des Videos generiert oder kann angepasst werden. |
-|Symbolstil| Enthält verschiedene Optionen für die Schaltfläche "Abspielen", die sich oben in einem Videobild befindet. |
-|Farbe des Wiedergabesymbols| Option zum Auswählen von **Hell** oder **Dunkel** für den Wiedergabe-Button. |
-|Größe des Wiedergabesymbols| Wählen Sie die Pixelgröße für den Wiedergabe-Button. Vordefinierter Bereich von 50 px bis 80 px (erhöht um 5 px). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| URL | Die URL für das Video. |
+| Titel | Wird automatisch aus den Metadaten des Videos generiert oder kann angepasst werden. |
+| Wiedergabesymbol-Stil | Enthält verschiedene Optionen für den Wiedergabe-Button, der sich oben auf einem Videobild befindet. |
+| Wiedergabesymbol-Farbe | Option zur Auswahl von **Light** oder **Dark** für den Wiedergabe-Button. |
+| Wiedergabesymbol-Größe | Wählen Sie die Pixelgröße für den Wiedergabe-Button. Vordefinierter Bereich von 50&nbsp;px bis 80&nbsp;px (in 5&nbsp;px-Schritten). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
 
 {% alert tip %}
-Videos, die von Vimeo gehostet werden, funktionieren nur, wenn sie auf öffentlich eingestellt sind. Alle anderen Sicherheitseinstellungen, die in Vimeo verfügbar sind (z. B. „Vor Vimeo.com verbergen“), generieren ein anderes Linkformat, das von diesem Content-Blocker nicht unterstützt wird. Diese Arten von Links werden vom Builder geändert, wodurch Braze keine Miniaturansicht erstellen kann.
+Videos, die von Vimeo gehostet werden, funktionieren nur, wenn sie auf öffentlich eingestellt sind. Alle anderen Sicherheitseinstellungen, die in Vimeo verfügbar sind (z. B. „Vor Vimeo.com verbergen“), generieren ein anderes Linkformat, das von diesem Content-Block nicht unterstützt wird. Diese Arten von Links werden vom Builder geändert, wodurch Braze keine Miniaturansicht erstellen kann.
 {% endalert %}
 
 ### Social
 
-In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Social`.
+Fügt Social-Media-Plattform-Symbole ein. Sie können angepasste Bilder für markenspezifische Symbole hochladen.
 
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|Symbolsammlung auswählen| Legt den Stil Ihrer Symbolsammlung fest. |
-|Symbolsammlung konfigurieren| Legt die URL für jedes soziale Symbol fest. Enthält die Option **Weitere Optionen** zum Bearbeiten des Titels und des Alternativtextes. |
-|Ausrichten| Verschiebt das Symbol für soziale Netzwerke nach links, in die Mitte oder nach rechts. |
-|Abstand zwischen Symbolen| Bestimmt die Abstände zwischen den einzelnen sozialen Symbolen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Symbolsammlung auswählen | Legt den Stil Ihrer Symbolsammlung fest. |
+| Symbolsammlung konfigurieren | Legt die URL für jedes Social-Media-Symbol fest. Enthält den Umschalter **Weitere Optionen** zum Bearbeiten des Titels und des Alternativtextes. |
+| Ausrichtung | Verschiebt das Social-Media-Symbol nach links, in die Mitte oder nach rechts. |
+| Symbolabstand | Bestimmt den Abstand zwischen den einzelnen Social-Media-Symbolen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
-### Ikonen
+### Icons
 
-In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Icons`.
+Fügt ein Symbol ein. Sie können angepasste Bilder hochladen. Braze verwendet ein übergroßes Platzhalter-Symbol, bis Sie ein Bild hochladen.
 
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|Schriftfamilie| Dies ist der Schriftstil für Ihren Absatztext. |
-|Schriftschnitt| Dies ist die allgemeine Stärke der Schriftart. |
-|Schriftgröße| Bestimmt die Größe Ihres Textes. |
-|Textfarbe| Ändert die Farbe des Titels. |
-|Linkfarbe| Ändert die Farbe des Links. |
-|Ausrichten| Verschiebt das Symbol nach links, in die Mitte oder nach rechts. |
-|Buchstabenabstand| Ändert den Abstand zwischen den einzelnen Zeichen. |
-|Symbolgröße| Bestimmt die Größe Ihres Symbols. |
-|Abstand zwischen Symbolen| Ändert den Platz des Symbols. |
-|Icon-Padding| Ändert die Auffüllung des Symbols. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Schriftfamilie | Der Schriftstil für Ihren Absatztext. |
+| Schriftschnitt | Die allgemeine Stärke der Schriftart. |
+| Schriftgröße | Bestimmt die Größe Ihres Textes. |
+| Textfarbe | Ändert die Farbe des Titels. |
+| Linkfarbe | Ändert die Farbe des Links. |
+| Ausrichtung | Verschiebt das Symbol nach links, in die Mitte oder nach rechts. |
+| Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
+| Symbolgröße | Bestimmt die Größe Ihres Symbols. |
+| Symbolabstand | Ändert den Abstand des Symbols. |
+| Symbol-Padding | Ändert das Padding des Symbols. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
 
 ### HTML
 
-In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `HTML`.
+Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid/), wie z. B. Connected-Content oder bedingte Anweisungen.
 
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|HTML-Editor| Geben Sie das rohe HTML ein. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| HTML | Fügen Sie rohes HTML hinzu oder bearbeiten Sie es, einschließlich [Liquid]({{site.baseurl}}/liquid/) für Personalisierung oder bedingte Logik. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
-### Menü
+### Menü {#menu}
 
-In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Menu`.
+Erstellt ein flexibles Menü für die Nachricht, die Sie entwerfen.
 
-| Eigenschaften | Beschreibung |
+| Eigenschaft | Beschreibung |
 |---|---|
-|Menüartikel konfigurieren| Fügt einen Artikel im Menü hinzu. |
-|Schriftfamilie| Der Stil, der für Ihr Menü verwendet werden soll. |
-|Schriftgröße| Die Größe Ihres Menüs. |
-|Textfarbe| Ändert die Farbe des Menüs. |
-|Linkfarbe| Ändert die Farbe des Menütextes. |
-|Ausrichten| Verschiebt das Menü nach links, in die Mitte oder nach rechts. |
-|Buchstabenabstand| Ändert den Abstand zwischen den einzelnen Zeichen. |
-|Layout| Legt fest, dass das Layout entweder horizontal oder vertikal sein soll. |
-|Trennvorrichtung| Fügen Sie ein oder mehrere Zeichen zwischen den Menüoptionen ein. |
-|Mobiles Menü| Enthält Optionen zum Ändern der Symbolgröße, der Farbe und des Symboltyps für die Anzeige auf einem mobilen Gerät. |
-|Artikel-Padding| Ändern Sie die Auffüllung entweder mit der Taste **+** oder **-** oder durch Eingabe einer bestimmten Zahl. |
-|Alle Seiten| Legt ein einheitliches Padding fest, wenn das Padding für Artikel deaktiviert ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Menüelemente konfigurieren | Fügt ein Menüelement hinzu. |
+| Schriftfamilie | Der Schriftstil für das Menü. |
+| Schriftgröße | Die Größe Ihres Menüs. |
+| Textfarbe | Ändert die Farbe des Menüs. |
+| Linkfarbe | Ändert die Farbe des Menütextes. |
+| Ausrichtung | Verschiebt das Menü nach links, in die Mitte oder nach rechts. |
+| Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
+| Layout | Legt fest, ob das Layout horizontal oder vertikal sein soll. |
+| Trennzeichen | Fügt Zeichen zwischen den Menüoptionen ein. |
+| Mobiles Menü | Enthält Optionen zum Ändern der Symbolgröße, Farbe und des Symboltyps bei der Anzeige auf einem Mobilgerät. |
+| Element-Padding | Ändert das Padding entweder mit der Taste **+** oder **-** oder durch Eingabe einer bestimmten Zahl. |
+| Alle Seiten | Legt ein einheitliches Padding fest, wenn das Element-Padding deaktiviert ist. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
-## Aktionen
+### Produkt {#product}
 
-Sie können eine Aktion zuweisen, die ausgeführt wird, wenn eine Nutzer:in auf einen Button, einen Link oder ein Bild in der Nachricht tippt. Sie können [Liquid]({{site.baseurl}}/liquid/) auch verwenden, um die Aktionen personalisiert anzupassen. Einzelheiten zu den Aktionen der einzelnen Editor-Blöcke finden Sie in den folgenden Tabellen.
+Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/), entweder als statische Artikel aus einer Katalog-Auswahl (bis zu 12) oder als dynamische Produkte, die durch einen [Canvas-E-Commerce-Trigger]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/) gesteuert werden (bis zu 24).
 
-### Button
+| Eigenschaft | Beschreibung |
+| --- | --- |
+| Inhaltstyp | Legt fest, ob Produkte aus einer festen Katalog-**Auswahl** (**Statisch**, bis zu 12 Produkte) oder aus einem Canvas-E-Commerce-Empfehlungs-Trigger (**Dynamisch**, bis zu 24 Produkte) stammen. **Dynamisch** ist nur in Canvas-Nachrichtenschritten verfügbar. |
+| Katalog | Wählt aus, welcher Produktkatalog die Produktdaten und Feldzuordnungen liefert. |
+| Auswahl | *(Nur statisch)* Wählt aus, welche gefilterte Menge im Katalog bestimmt, welche Produkte angezeigt werden. |
+| Quelldetails anzeigen | Blendet Hilfetext ein oder aus, der den zugrunde liegenden Katalog oder das Ereignisfeld anzeigt, das jedem Produktfeld zugeordnet ist. |
+| Variantenbild | Blendet das Variantenbild für jede Produktkachel ein oder aus. |
+| Produkttitel | Blendet den Produkttitel für jede Kachel ein oder aus. |
+| Preis | Blendet den Produktpreis ein oder aus. |
+| Button für Produkt-URL | Blendet einen Call-to-Action-Button ein oder aus, der auf die Produkt-URL verlinkt. |
+| Menge | *(Dynamisch, nur Canvas, wenn der Eingangs-Trigger kein Produktansichts-Ereignis ist)* Blendet die Produktmenge aus dem Trigger-Ereignis ein oder aus. |
+| Produktausrichtung | Legt die Bildposition innerhalb jeder Kachel fest: **Bild links**, **Bild zentriert** oder **Bild rechts**. |
+| Ausrichtung | Legt die horizontale Ausrichtung des Inhalts innerhalb jeder Kachel fest. |
+| Max. Produkte pro Zeile | Legt fest, wie viele Produkte pro Zeile angezeigt werden: **1**, **2** oder **3** (**3** ist nur verfügbar, wenn die Ausrichtung **Bild zentriert** ist). |
+| Produktabstand | Legt den Abstand zwischen Produkten fest: **Automatisch** oder **Angepasst**. |
+| Angepasster Abstand | *(Wenn **Angepasst** ausgewählt ist)* Legt den Abstand in Pixel zwischen Produkten fest. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
 
-In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Button`.
+## Personalisierung {#personalization}
 
-| Eigenschaften | Beschreibung |
-|---|---|
-|Verbindungstyp| Legt die Aktion beim Klick auf den Button fest und stellt das entsprechende Protokoll ein. |
-|URL| Dynamisch basierend auf dem Link-Typ **„Offene Webseite**“.|
-|Empfänger, Betreff und Text| Für den Link-Typ **„E-Mail senden**“ werden hier die E-Mail-Adresse des Empfängers, der Betreff und der Inhalt festgelegt, die in einem E-Mail-Entwurf angezeigt werden, wenn der Nutzer:in den Button auswählt.|
-|Tel.| Für den Link-Typ **„Anruf tätigen“** und **„SMS senden**“ wird hier die Telefonnummer festgelegt, die der Nutzer:in anruft oder per SMS kontaktiert, wenn er den Button auswählt.|
-|Nachricht| Für den Link-Typ **„SMS senden**“ legt dies den Inhalt fest, der in einen SMS-Entwurf eingefügt wird, wenn die Nutzer:in den Button auswählt.|
-|Button-Optionen| Legt verschiedene Button-Optionen fest, wie beispielsweise Schriftart, Breite, Farbe und andere.|
-|Button-Hover| Der Stil des Buttons, wenn ein Nutzer:in mit der Maus oder dem Trackpad über den Button fährt. Dazu gehören die Hintergrundfarbe des Buttons, die Schriftfarbe und der Rahmenstil.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Sie können Ihre E-Mail mithilfe von Liquid oder Connected-Content personalisieren.
+
+- **Liquid:** Wählen Sie unter **Inhalt** > **Personalisierung** ein Attribut aus, kopieren Sie das Snippet und fügen Sie es in einen Titel-, Absatz- oder Listenblock (einfaches Liquid) oder HTML-Block (erweitertes Liquid) ein. Generell können Sie zwar einfaches Liquid in Titel-, Absatz- und Listenblöcken verwenden, wir empfehlen jedoch HTML-Blöcke für komplexere Logik, um Layout-Probleme zu vermeiden. Beachten Sie, dass Liquid in Bildblöcken oder in Button-URL-Feldern nicht unterstützt wird.
+- **[Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/):** Fügen Sie einen **HTML**-Block hinzu und platzieren Sie Ihren {% raw %}`{% connected_content %}`{% endraw %}-Aufruf dort.

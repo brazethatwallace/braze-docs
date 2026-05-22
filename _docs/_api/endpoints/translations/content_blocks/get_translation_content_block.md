@@ -33,7 +33,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | --------- | ---------| --------- | ----------- |
 |`content_block_id`| Required | String | The ID of your Content Block. |
 |`locale_id`| Optional | String | A locale UUID to filter the responses. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 All translation IDs are considered universal unique identifiers (UUIDs), which can be found in the GET endpoint's response.

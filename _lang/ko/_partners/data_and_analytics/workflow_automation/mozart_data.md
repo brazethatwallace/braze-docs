@@ -1,7 +1,7 @@
 ---
 nav_title: Mozart Data
 article_title: Mozart Data
-description: "This reference article outlines the partnership between Braze and Mozart Data, an all-in-one modern data platform, allowing you to use Fivetran to import data to Snowflake, create transforms, combine data, and more."
+description: "이 참조 문서에서는 Braze와 올인원 최신 데이터 플랫폼인 Mozart Data 간의 파트너십을 설명합니다. Fivetran을 사용하여 Snowflake로 데이터를 가져오고, 변환을 생성하고, 데이터를 결합하는 등의 작업을 수행할 수 있습니다."
 alias: /partners/mozart_data/
 page_type: partner
 search_tag: Partner
@@ -12,16 +12,16 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="HU6dSOClcQ0" align="right" %}
 
-> [Mozart Data](https://mozartdata.com/) is an all-in-one modern data platform powered by Fivetran, Portable, and Snowflake.
+> [Mozart Data](https://mozartdata.com/)는 Fivetran, Portable, Snowflake를 기반으로 하는 올인원 최신 데이터 플랫폼입니다.
 
-The Braze and Mozart Data integration allows you to:
-- Use Fivetran to import Braze data into Snowflake
-- Create transforms by combining Braze data with other applications data and effectively analyze user behaviors
-- Import data from Snowflake into Braze to create new customer engagement opportunities
-- Combine Braze data with other applications data to gain a more holistic understanding of user behaviors
-- Integrate with a business intelligence tool to further explore the data that is stored in Snowflake
+Braze와 Mozart Data 통합을 통해 다음을 수행할 수 있습니다:
+- Fivetran을 사용하여 Braze 데이터를 Snowflake로 가져오기
+- Braze 데이터를 다른 애플리케이션 데이터와 결합하여 변환을 생성하고 사용자 행동을 효과적으로 분석하기
+- Snowflake에서 Braze로 데이터를 가져와 새로운 고객 참여 기회 만들기
+- Braze 데이터를 다른 애플리케이션 데이터와 결합하여 사용자 행동에 대한 보다 전체적인 이해 얻기
+- 비즈니스 인텔리전스 도구와 통합하여 Snowflake에 저장된 데이터를 더 깊이 탐색하기
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
 <style>
 table th:nth-child(1) {
@@ -35,83 +35,83 @@ table td {
 }
 </style>
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Mozart Data account | A Mozart Data account is required to take advantage of this partnership. [Sign up here.](https://app.mozartdata.com/signup)|
-| Snowflake Account<br>Option 1: New Account | Select **Create a New Snowflake Account** during the Mozart Data account creation process for Mozart Data to provision a new Snowflake account for you. |
-| Snowflake Account<br>Option 2: Existing Account | If your organization already has a Snowflake account, you can use the Mozart Data Connected option.<br><br>Select the **Already Have a Snowflake Account** option to connect an existing Snowflake account. To pursue this option, a user with account-level permissions must [follow these steps](https://help.mozartdata.com/docs/setting-up-data-warehouse#existingsnowflakeaccount). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Mozart Data 계정 | 이 파트너십을 활용하려면 Mozart Data 계정이 필요합니다. [여기에서 가입하세요.](https://app.mozartdata.com/signup)|
+| Snowflake 계정<br>옵션 1: 새 계정 | Mozart Data 계정 생성 과정에서 **Create a New Snowflake Account**를 선택하면 Mozart Data가 새 Snowflake 계정을 프로비저닝합니다. |
+| Snowflake 계정<br>옵션 2: 기존 계정 | 조직에 이미 Snowflake 계정이 있는 경우 Mozart Data Connected 옵션을 사용할 수 있습니다.<br><br>**Already Have a Snowflake Account** 옵션을 선택하여 기존 Snowflake 계정을 연결합니다. 이 옵션을 사용하려면 계정 수준 권한이 있는 사용자가 [다음 단계를 따라야 합니다](https://help.mozartdata.com/docs/setting-up-data-warehouse#existingsnowflakeaccount). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## Integration
+## 통합 {#integration}
 
-The integration is supported for both syncing data from [Braze to Mozart Data](#syncing-data-from-braze-to-mozart-data) and [Mozart Data to Braze](#syncing-data-from-mozart-data-to-braze).
+이 통합은 [Braze에서 Mozart Data로](#syncing-data-from-braze-to-mozart-data) 데이터를 동기화하는 것과 [Mozart Data에서 Braze로](#syncing-data-from-mozart-data-to-braze) 데이터를 동기화하는 것 모두 지원합니다.
 
-### Syncing data from Braze to Mozart Data
+### Braze에서 Mozart Data로 데이터 동기화 {#syncing-data-from-braze-to-mozart-data}
 
-#### Step 1: Set up Braze connector
+#### 1단계: Braze 커넥터 설정 {#step-1-set-up-braze-connector}
 
-1. In Mozart Data, go to **Connectors** and click **Add Connector**.
-2. Search for "Braze" and select the connector card.
-3. Enter a destination schema name where all of the synced data from Braze will be stored. We recommend using the default schema name `braze`.
-4. Click **Add Connector**.
+1. Mozart Data에서 **Connectors**로 이동하여 **Add Connector**를 클릭합니다.
+2. "Braze"를 검색하고 커넥터 카드를 선택합니다.
+3. Braze에서 동기화된 모든 데이터가 저장될 대상 스키마 이름을 입력합니다. 기본 스키마 이름 `braze`를 사용하는 것을 권장합니다.
+4. **Add Connector**를 클릭합니다.
 
-#### Step 2: Fill out the Fivetran connector form
+#### 2단계: Fivetran 커넥터 양식 작성 {#step-2-fill-out-the-fivetran-connector-form}
 
-You will be redirected to the Fivetran connector page. On this page, fill out the given fields. 그런 다음 **계속** > ** & 테스트 저장을** 클릭하여 Fivetran 커넥터를 완료합니다.
+Fivetran 커넥터 페이지로 리디렉션됩니다. 이 페이지에서 주어진 필드를 작성합니다. 그런 다음 **Continue** > **Save & Test**를 클릭하여 Fivetran 커넥터를 완료합니다.
 
-Fivetran will begin syncing data from your Braze account to your Snowflake data warehouse. You can access query data from Mozart Data after the connector has finished syncing. 
+Fivetran이 Braze 계정에서 Snowflake 데이터 웨어하우스로 데이터 동기화를 시작합니다. 커넥터가 동기화를 완료한 후 Mozart Data에서 쿼리 데이터에 접근할 수 있습니다.
 
-### Syncing data from Mozart Data to Braze
+### Mozart Data에서 Braze로 데이터 동기화 {#syncing-data-from-mozart-data-to-braze}
 
-#### Step 1: Set up a Snowflake data warehouse
+#### 1단계: Snowflake 데이터 웨어하우스 설정 {#step-1-set-up-a-snowflake-data-warehouse}
 
-Follow the [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/?tab=snowflake) instructions to set up a table, user, and permission from the Snowflake interface. Note that this step requires admin-level Snowflake access.
+[클라우드 데이터 수집]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/?tab=snowflake) 안내에 따라 Snowflake 인터페이스에서 테이블, 사용자 및 권한을 설정합니다. 이 단계에는 관리자 수준의 Snowflake 접근 권한이 필요합니다.
 
-#### Step 2: Set up your Snowflake integration in Braze
+#### 2단계: Braze에서 Snowflake 통합 설정 {#step-2-set-up-your-snowflake-integration-in-braze}
 
-After setting up your Snowflake warehouse, in Mozart Data, go to the **Integration** page and select **Braze**. Here, you will find the credentials you will need to provide Braze.
+Snowflake 웨어하우스를 설정한 후 Mozart Data에서 **Integration** 페이지로 이동하여 **Braze**를 선택합니다. 여기에서 Braze에 제공해야 하는 자격 증명을 확인할 수 있습니다.
 
 ![]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
 
-Next, while signed into Braze, go to **Integrations > Technology Partners > Snowflake** to begin the integration process. Copy the credentials from Mozart Data and add them to the Snowflake Data import page. Click **Set up sync details** and input your Snowflake account and source table information. 
+다음으로, Braze에 로그인한 상태에서 **Integrations > Technology Partners > Snowflake**로 이동하여 통합 프로세스를 시작합니다. Mozart Data에서 자격 증명을 복사하여 Snowflake 데이터 가져오기 페이지에 추가합니다. **Set up sync details**를 클릭하고 Snowflake 계정 및 소스 테이블 정보를 입력합니다.
 
 ![]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
-Next, choose a name for your sync, provide contact emails, and select a data type and a sync frequency. 
+다음으로, 동기화 이름을 선택하고 연락처 이메일을 입력한 후 데이터 유형과 동기화 빈도를 선택합니다.
 
 ![]({% image_buster /assets/img/mozartdata/mozartdata-braze-importsync.png %}){: style="max-width:80%;"}
 
-#### 3단계: Add a public key to the Braze user
-At this point, you will need to go back to Snowflake to complete the setup. Add the public key displayed on the Braze dashboard to the user you created for Braze to connect to Snowflake.
+#### 3단계: Braze 사용자에 공개 키 추가 {#step-3-add-a-public-key-to-the-braze-user}
+이 시점에서 설정을 완료하려면 Snowflake로 돌아가야 합니다. Braze 대시보드에 표시된 공개 키를 Braze가 Snowflake에 연결하기 위해 생성한 사용자에 추가합니다.
 
-For additional information on how to do this, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/key-pair-auth.html). If you want to rotate the keys at any point, Mozart Data can generate a new key pair and provide you with the new public key.
+이 작업에 대한 자세한 내용은 [Snowflake 설명서](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)를 참조하세요. 키를 교체하려는 경우 Mozart Data가 새 키 쌍을 생성하고 새 공개 키를 제공할 수 있습니다.
 
 ```sql
 ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='Braze12345...';
 ```
 
-#### Step 4: Test connection
+#### 4단계: 연결 테스트 {#step-4-test-connection}
 
-Once the user is updated with the public key, return to the Braze dashboard and click **Test connection**. If successful, you'll see a preview of the data. If, for some reason, the connection is unsuccessful, an error message will display to help troubleshoot the issue.
+사용자가 공개 키로 업데이트되면 Braze 대시보드로 돌아가서 **Test connection**을 클릭합니다. 성공하면 데이터 미리보기가 표시됩니다. 어떤 이유로든 연결에 실패하면 문제 해결에 도움이 되는 오류 메시지가 표시됩니다.
 
 ![]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
 
 {% alert note %}
-You must successfully test an integration before it can move from Draft to Active state. If you need to close out of the creation page, your integration will be saved, and you can revisit the details page to make changes and test.  
+통합이 초안에서 활성 상태로 전환되려면 먼저 테스트를 성공적으로 완료해야 합니다. 생성 페이지를 닫아야 하는 경우 통합이 저장되며, 세부 정보 페이지를 다시 방문하여 변경하고 테스트할 수 있습니다.
 {% endalert %}
 
-## Using this integration
+## 이 통합 사용하기 {#using-this-integration}
 
-### How to access Braze data as a Mozart Data user
-Upon successfully creating a Mozart Data account, you can access your Braze data synced to your Snowflake data warehouse from Mozart Data.
+### Mozart Data 사용자로서 Braze 데이터에 접근하는 방법 {#how-to-access-braze-data-as-a-mozart-data-user}
+Mozart Data 계정을 성공적으로 생성하면 Mozart Data에서 Snowflake 데이터 웨어하우스로 동기화된 Braze 데이터에 접근할 수 있습니다.
 
-#### Transforms
-Mozart Data offers a SQL transformation layer to allow users to create a view or table. You can create a user-level dimension table (for example, `dim_users`) to summarize each user's product usage data, transactional history, and engagement activities with Braze messages. 
+#### 변환 {#transforms}
+Mozart Data는 사용자가 뷰 또는 테이블을 생성할 수 있도록 SQL 변환 레이어를 제공합니다. 사용자 수준의 차원 테이블(예: `dim_users`)을 생성하여 각 사용자의 제품 사용 데이터, 트랜잭션 기록 및 Braze 메시지와의 참여 활동을 요약할 수 있습니다.
 
-#### Analysis
-Using the transform models or raw data synced from Braze, you can analyze users' engagement with Braze messages. Additionally, you can combine the Braze data with other application data and analyze how the insights you gained from users' interaction with the Braze messages relate to other data you may have about the users. For example,  their demographic information, shopping history, product usage, and customer service engagement. 
+#### 분석 {#analysis}
+Braze에서 동기화된 변환 모델 또는 원시 데이터를 사용하여 Braze 메시지에 대한 사용자의 참여를 분석할 수 있습니다. 또한 Braze 데이터를 다른 애플리케이션 데이터와 결합하여 Braze 메시지와의 사용자 상호작용에서 얻은 인사이트가 사용자에 대해 보유하고 있는 다른 데이터와 어떻게 관련되는지 분석할 수 있습니다. 예를 들어, 인구통계 정보, 쇼핑 기록, 제품 사용 및 고객 서비스 참여 등이 있습니다.
 
-This can help you make more informed decisions about engagement strategies to improve user retention. This can all be done within Mozart Data's interface using the Query tool, where you can export the results into a Google Sheet or CSV to prepare for a presentation.
+이를 통해 사용자 유지율을 개선하기 위한 참여 전략에 대해 보다 정보에 기반한 의사결정을 내릴 수 있습니다. 이 모든 작업은 Mozart Data의 인터페이스에서 쿼리 도구를 사용하여 수행할 수 있으며, 결과를 Google Sheet 또는 CSV로 내보내 프레젠테이션을 준비할 수 있습니다.
 
-#### Business intelligence (BI)
-Ready to visualize and share your insights with other team members? Mozart Data integrates with almost every BI tool. 아직 BI 도구가 없는 경우, Mozart Data에 문의하여 무료 Metabase 계정을 설정하세요.
+#### 비즈니스 인텔리전스(BI) {#business-intelligence-bi}
+인사이트를 시각화하고 다른 팀원과 공유할 준비가 되셨나요? Mozart Data는 거의 모든 BI 도구와 통합됩니다. 아직 BI 도구가 없는 경우, Mozart Data에 문의하여 무료 Metabase 계정을 설정하세요.

@@ -1,6 +1,6 @@
 ---
 nav_title: Recursos de dados da Shopify
-article_title: "Recursos de dados da Shopify"
+article_title: Recursos de dados da Shopify
 description: "Este artigo de referência aborda os recursos de dados da Shopify."
 page_type: partner
 search_tag: Partner
@@ -8,13 +8,13 @@ alias: /shopify_data_features/
 page_order: 4
 ---
 
-# Recursos de dados da Shopify
+# Recursos de dados da Shopify {#shopify-data-features}
 
 > Este artigo fornece uma visão geral dos nossos recursos da Shopify, incluindo quais dados da Shopify são rastreados e exemplos de cargas úteis, backfill histórico e sincronizações de produtos.
 
-## Eventos da Shopify rastreados
+## Eventos da Shopify rastreados {#tracked-shopify-events}
 
-A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/custom_data/recommended_events/ecommerce_events/) para capturar os principais comportamentos de compra. Para ver exemplos de implementação e estratégias de marketing usando esses eventos, consulte [Casos de uso de eCommerce]({{site.baseurl}}/user_guide/engagement_tools/canvas/ideas_and_strategies/ecommerce_use_cases/).
+A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) para capturar os principais comportamentos de compra. Para ver exemplos de implementação e estratégias de marketing usando esses eventos, consulte [Casos de uso de eCommerce]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/).
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -81,6 +81,9 @@ A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl
     "properties": {
         "cart_id": "eeafa272cebfd4b22385bc4b645e762c",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "products": [
             {
@@ -113,6 +116,9 @@ A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl
         "order_id": "820982911946154508",
         "cart_id": "eeafa272cebfd4b22385bc4b645e762c",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "total_discounts": 5,
         "discounts": [],
@@ -131,7 +137,7 @@ A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl
         "source": "braze-mock-storefront.myshopify.com",
         "metadata": {
             "order_status_url": "https://apple.myshopify.com/690933842/orders/123456abcd/authenticate?key=abcdefg",
-            "order_number": 1234,
+            "order_number": "1234",
             "tags": [
                 "heavy",
                 "heavy2"
@@ -331,6 +337,9 @@ A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl
         "order_id": "820982911946154508",
         "cancel_reason": "no longer necessary",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "total_discounts": 5,
         "discounts": [],
@@ -349,7 +358,7 @@ A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl
         "source": "braze-mock-storefront.myshopify.com",
         "metadata": {
             "order_status_url": "https://apple.myshopify.com/690933842/orders/123456abcd/authenticate?key=abcdefg",
-            "order_number": 1234,
+            "order_number": "1234",
             "tags": [
                 "heavy",
                 "heavy2"
@@ -385,7 +394,7 @@ A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl
 		"order_note": "item was broken"
         }
     }
-} 
+}
 ```
 {% endsubtab %}
 {% subtab Account login %}
@@ -423,7 +432,7 @@ A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -434,7 +443,7 @@ A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl
 **Fonte de dados**: SDKs da Braze<br>
 **Caso de uso**: Abandono de carrinho
 
-Para Canvas de carrinho abandonado, primeiro você precisa adicionar a Liquid tag inicial do carrinho de compras para obter o contexto do carrinho na sua mensagem. 
+Para Canvas de carrinho abandonado, primeiro você precisa adicionar a Liquid tag inicial do carrinho de compras para obter o contexto do carrinho na sua mensagem.
 
 {% raw %}
 ```liquid
@@ -460,11 +469,11 @@ Em seguida, você pode adicionar as seguintes Liquid tags do carrinho de compras
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert tip %}
-Para saber mais sobre como criar um loop Liquid `for` para adicionar dinamicamente todos os produtos ao seu e-mail, consulte [Personalização de produtos de carrinho abandonado para e-mails]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart). 
+Para saber mais sobre como criar um loop Liquid `for` para adicionar dinamicamente todos os produtos ao seu e-mail, consulte [Personalização de produtos de carrinho abandonado para e-mails]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart).
 {% endalert %}
 
 {% endsubtab %}
@@ -472,7 +481,7 @@ Para saber mais sobre como criar um loop Liquid `for` para adicionar dinamicamen
 **Evento**: `ecommerce.checkout_started`<br>
 **Tipo**: Evento recomendado<br>
 **Disparado**: Quando um usuário navega até a página de checkout<br>
-**Fonte de dados**: API REST da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: Abandono de checkout
 
 {% alert important %}
@@ -506,7 +515,7 @@ Em seguida, você pode adicionar as seguintes Liquid tags na sua mensagem para r
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -514,8 +523,8 @@ Em seguida, você pode adicionar as seguintes Liquid tags na sua mensagem para r
 **Evento**: `ecommerce.order_placed`<br>
 **Tipo**: Evento recomendado<br>
 **Disparado**: Quando um usuário conclui o processo de checkout e faz um pedido<br>
-**Fonte de dados**: API REST da Braze<br>
-**Caso de uso**: Confirmação de pedido, redirecionamento pós-compra, upsells ou cross-sells 
+**Fonte de dados**: REST API da Braze<br>
+**Caso de uso**: Confirmação de pedido, redirecionamento pós-compra, upsells ou cross-sells
 
 {% raw %}
 | Variável                | Modelo Liquid                                   |
@@ -535,20 +544,20 @@ Em seguida, você pode adicionar as seguintes Liquid tags na sua mensagem para r
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert tip %}
-O webhook de checkout concluído da Shopify não contém URLs de produtos nem URLs de imagens. Por isso, você precisa usar a personalização Liquid de Catálogos, conforme mencionado em [Personalização de produtos de carrinho abandonado para e-mails]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey). 
+O webhook de checkout concluído da Shopify não contém URLs de produtos nem URLs de imagens. Por isso, você precisa usar a personalização Liquid de Catálogos, conforme mencionado em [Personalização de produtos de carrinho abandonado para e-mails]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey).
 {% endalert %}
 
 {% endsubtab %}
 {% subtab Fulfilled order %}
 **Evento**: `shopify_fulfilled_order`<br>
-**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **Disparado**: Quando o pedido de um usuário é processado e está pronto para envio<br>
-**Fonte de dados**: API REST da Braze<br>
-**Caso de uso**: (Transacional) Atualização de processamento 
+**Fonte de dados**: REST API da Braze<br>
+**Caso de uso**: (Transacional) Atualização de processamento
 
 {% raw %}
 | Variável | Modelo Liquid |
@@ -590,16 +599,16 @@ O webhook de checkout concluído da Shopify não contém URLs de produtos nem UR
 | Fornecedor do processamento | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | ID da variante | `{{event_properties.${line_items}[0].variant_id}}` |
 | Título da variante | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Partially fulfilled order %}
 **Evento**: `shopify_partially_fulfilled_order`<br>
-**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
-**Disparado**: Quando parte do pedido de um usuário é processada e está pronta para envio<br> 
-**Fonte de dados**: API REST da Braze<br>
-**Caso de uso**: (Transacional) Atualização de processamento 
+**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Disparado**: Quando parte do pedido de um usuário é processada e está pronta para envio<br>
+**Fonte de dados**: REST API da Braze<br>
+**Caso de uso**: (Transacional) Atualização de processamento
 
 {% raw %}
 | Variável | Modelo Liquid |
@@ -641,15 +650,15 @@ O webhook de checkout concluído da Shopify não contém URLs de produtos nem UR
 | Fornecedor do processamento | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | ID da variante | `{{event_properties.${line_items}[0].variant_id}}` |
 | Título da variante | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Paid order %}
 **Evento**: `shopify_paid_order`<br>
-**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **Disparado**: Quando o pedido de um usuário é marcado como pago na Shopify<br>
-**Fonte de dados**: API REST da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: (Transacional) Confirmação de pagamento
 
 {% raw %}
@@ -675,15 +684,15 @@ O webhook de checkout concluído da Shopify não contém URLs de produtos nem UR
 | Preço da remessa | `{{event_properties.${shipping}[0].price}}` |
 | ID da variante | `{{event_properties.${line_items}[0].variant_id}}` |
 | Título da variante | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Order cancelled %}
 **Evento**: `shopify_cancelled_order`<br>
-**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
-**Disparado**: Quando o pedido de um usuário é cancelado<br> 
-**Fonte de dados**: API REST da Braze<br>
+**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Disparado**: Quando o pedido de um usuário é cancelado<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: (Transacional) Confirmação de cancelamento de pedido
 
 {% raw %}
@@ -712,14 +721,14 @@ O webhook de checkout concluído da Shopify não contém URLs de produtos nem UR
 | Preço da remessa | `{{event_properties.${shipping}[0].price}}` |
 | ID da variante | `{{event_properties.${line_items}[0].variant_id}}` |
 | Título da variante | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
 **Evento**: `shopify_order_refunded`<br>
-**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **Disparado**: Quando o pedido de um usuário é reembolsado<br>
-**Fonte de dados**: API REST da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: (Transacional) Confirmação de reembolso
 
 {% raw %}
@@ -737,27 +746,27 @@ O webhook de checkout concluído da Shopify não contém URLs de produtos nem UR
 | Preço do item | `{{event_properties.${line_items}[0].price}}` |
 | ID da variante | `{{event_properties.${line_items}[0].variant_id}}` |
 | Título da variante | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Account login %}
 
 **Evento**: `shopify_account_login`<br>
-**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **Disparado**: Quando um usuário faz login na sua conta<br>
-**Fonte de dados**: API REST da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: Série de boas-vindas
 
 {% raw %}
 | Variável | Modelo Liquid |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert note %}
-A integração da Shopify atualmente não oferece suporte ao preenchimento do [evento de compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-events) da Braze. Como resultado, os filtros de compra, as Liquid tags, os disparos baseados em ação e a análise de dados devem usar o evento `ecommerce.order_placed`. 
+A integração da Shopify atualmente não oferece suporte ao preenchimento do [evento de compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-events) da Braze. Como resultado, os filtros de compra, as Liquid tags, os disparos baseados em ação e a análise de dados devem usar o evento `ecommerce.order_placed`.
 {% endalert %}
 
 {% endsubtab %}
@@ -765,7 +774,7 @@ A integração da Shopify atualmente não oferece suporte ao preenchimento do [e
 {% endtab %}
 {% endtabs %}
 
-## Atributos personalizados compatíveis da Shopify
+## Atributos personalizados compatíveis da Shopify {#supported-shopify-custom-attributes}
 
 {% multi_lang_include alerts/note_alerts.md alert='Shopify attributes REST API' %}
 
@@ -800,7 +809,7 @@ A integração da Shopify atualmente não oferece suporte ao preenchimento do [e
 | `shopify_last_order_name` | O nome do último pedido do cliente. Está diretamente relacionado ao campo `name` no recurso do pedido. |
 | `shopify_zipcode` | O CEP do cliente a partir do endereço padrão. |
 | `shopify_province` | O estado/província do cliente a partir do endereço padrão. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Shopify custom attributes" }
 
 {% alert important %}
 Um problema conhecido na versão atual da API da Shopify impede que o atributo de usuário `shopify_last_order_name` seja preenchido corretamente. O impacto sobre os usuários é o seguinte:<br><br>
@@ -811,19 +820,19 @@ Um problema conhecido na versão atual da API da Shopify impede que o atributo d
 Esta página será atualizada depois que a Shopify resolver esse problema.
 {% endalert %}
 
-### Personalização Liquid
+### Personalização Liquid {#liquid-personalization}
 
-Para adicionar personalização Liquid aos seus atributos personalizados da Shopify, selecione **+ Personalização**. Em seguida, selecione **Atributos personalizados** como tipo de personalização.
+Para adicionar personalização Liquid aos seus atributos personalizados da Shopify, selecione **+ Personalization**. Em seguida, selecione **Custom Attributes** como tipo de personalização.
 
-![A seção "Adicionar personalização" com o menu suspenso "Atributo" expandido.]({% image_buster /assets/img/Shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+![A seção "Add Personalization" com o menu suspenso "Attribute" expandido.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 Depois de selecionar seu atributo personalizado, insira um valor padrão e copie o snippet Liquid na sua mensagem.
 
-![Colando um snippet Liquid em uma mensagem.]({% image_buster /assets/img/Shopify/copy_liquid_snippet.png %})
+![Colando um snippet Liquid em uma mensagem.]({% image_buster /assets/img/shopify/copy_liquid_snippet.png %})
 {% endtab %}
 {% endtabs %}
 
-## Atributos padrão compatíveis da Shopify
+## Atributos padrão compatíveis da Shopify {#supported-shopify-standard-attributes}
 
 {% multi_lang_include alerts/note_alerts.md alert='Shopify attributes REST API' %}
 
@@ -838,32 +847,43 @@ Depois de selecionar seu atributo personalizado, insira um valor padrão e copie
 A Braze só atualiza os atributos personalizados compatíveis da Shopify e os atributos padrão da Braze quando há uma diferença nos dados em relação ao perfil de usuário existente. Por exemplo, se os dados recebidos da Shopify contiverem o nome "Bob" e "Bob" já existir como nome no perfil de usuário da Braze, a Braze não dispara uma atualização e você não é cobrado por um ponto de dados.
 {% endalert %}
 
-## Coleta de dados do SDK 
+## Coleta de dados do SDK {#sdk-data-collection}
 
-Para saber mais sobre quais dados são coletados pelos SDKs da Braze, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/). 
+Para saber mais sobre quais dados são coletados pelos SDKs da Braze, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
-## Backfill histórico
+## Backfill histórico {#historical-backfill}
 
-Durante a integração da sua loja Shopify, você pode iniciar uma sincronização inicial de dados por meio do backfill histórico para começar a interagir com seus clientes imediatamente. Como parte desse backfill, a Braze executa uma sincronização inicial de todos os clientes e eventos de pedidos realizados nos últimos 90 dias antes da conexão da sua integração com a Shopify. Quando a Braze importa seus clientes da Shopify, ela atribui o tipo de `external_id` que você escolheu nas suas configurações.
+> Os dados históricos da Shopify são importados de antes de você conectar a Braze — eventos de pedidos dos últimos 90 dias e dados de clientes do último ano. Ambos os períodos são contados a partir da data em que você concluiu a integração.
+
+Por meio da [configuração de integração padrão da Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) ou da [configuração de integração personalizada da Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/), você pode ativar o backfill histórico para direcionar clientes anteriores. Isso importa seus pedidos da Shopify (eventos relacionados a pedidos) dos últimos 90 dias e perfis de usuário do último ano. Ambos os períodos são contados a partir da data em que você concluiu a integração.
+
+Quando a Braze importa seus clientes da Shopify, ela atribui o tipo de `external_id` que você escolheu nas suas configurações.
 
 {% alert note %}
-Se você planeja integrar com um ID externo personalizado (seja na [integração padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) ou na [integração personalizada]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)), será necessário adicionar seu ID externo personalizado como um metacampo de cliente da Shopify a todos os perfis de clientes existentes da Shopify e, em seguida, realizar o backfill histórico. 
+Se você já é cliente da Braze com Campaigns ou Canvas ativos, revise como os clientes importados e os eventos de pedidos afetam seus segmentos e jornadas antes de ativar o backfill histórico.
 {% endalert %}
 
-Os dados de eventos de pedidos sincronizados ficam disponíveis para segmentação, mas os dados de receita em si não são preenchidos no perfil de usuário nem no dashboard [Receita – Último ponto de contato]({{site.baseurl}}/user_guide/analytics/reporting/dashboard_builder/#revenue---last-touch-attribution).
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
-### Configuração do backfill histórico da Shopify
+### Configuração do backfill histórico da Shopify {#setting-up-shopify-historical-backfill}
 
-1. Ative o backfill histórico na etapa **Rastrear dados da Shopify**.
+1. Ative o backfill histórico na etapa **Track Shopify data**.
 
-![A etapa "Rastrear dados da Shopify" da integração da Shopify mostrando o backfill histórico selecionado.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
+![A etapa "Track Shopify data" da integração da Shopify mostrando o backfill histórico selecionado.]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
-2. Depois de concluir a configuração da integração, a Braze iniciará a sincronização inicial dos dados. Você pode monitorar o progresso na guia **Dados da Shopify** das suas configurações de integração. 
+2. Depois de concluir a configuração da integração, a Braze iniciará a sincronização inicial dos dados. Você pode monitorar o progresso na guia **Shopify Data** das suas configurações de integração.
 
-![A página de configurações de integração da Shopify com um indicador de carregamento mostrando que os eventos estão sendo sincronizados ativamente.]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
+![A página de configurações de integração da Shopify com um indicador de carregamento mostrando que os eventos estão sendo sincronizados ativamente.]({% image_buster /assets/img/shopify/historical_data_backfill_syncing.png %})
 
-### Dados sincronizados 
+### Dados sincronizados {#synced-data}
 
-Na sincronização inicial de dados, a Braze importa os clientes e os pedidos realizados nos últimos 90 dias antes da conexão da sua integração com a Shopify. Quando a Braze importa seus clientes da Shopify, ela atribui o tipo de `external_id` que você escolheu nas suas configurações.
+Na sincronização inicial de dados, a Braze importa eventos de pedidos dos últimos 90 dias e perfis de usuário do último ano, cada um contado a partir da data em que você concluiu a integração. Quando a Braze importa seus clientes da Shopify, ela atribui o tipo de `external_id` que você escolheu nas suas configurações.
+
+A tabela a seguir resume os dados incluídos nessa carga inicial.
+
+| Eventos recomendados da Braze | Eventos personalizados da Shopify | Atributos padrão da Braze | Status de inscrição da Braze |
+| --- | --- | --- | --- |
+| {::nomarkdown}<ul><li>Pedido realizado</li><li>Pedido cancelado</li><li>Pedido reembolsado</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-mail</li><li>Nome</li><li>Sobrenome</li><li>Telefone</li><li>Cidade</li><li>País</li><li>Receita total</li><li>Reembolsos totais</li><li>Pedidos totais</li></ul>{:/} | {::nomarkdown}<ul><li>Inscrições de marketing por e-mail associadas a esta loja Shopify</li><li>Inscrições de marketing por SMS associadas a esta loja Shopify</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Dados sincronizados" }

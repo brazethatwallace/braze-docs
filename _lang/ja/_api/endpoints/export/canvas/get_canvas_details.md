@@ -1,15 +1,15 @@
 ---
-nav_title: "取得:キャンバスの詳細をエクスポートする"
-article_title: "取得:キャンバスの詳細をエクスポートする"
-search_tag: エンドポイント
+nav_title: "GET: キャンバスの詳細をエクスポートする"
+article_title: "GET: キャンバスの詳細をエクスポートする"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「キャンバスの詳細のエクスポート」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「キャンバスの詳細のエクスポート」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# キャンバスの詳細をエクスポートする
+# キャンバスの詳細をエクスポートする {#export-canvas-details}
 {% apimethod get %}
 /canvas/details
 {% endapimethod %}
@@ -18,24 +18,24 @@ description: "この記事では、「キャンバスの詳細のエクスポー
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5188873c-13a3-4aaf-a54b-9fa1daeac5f8 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.details` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`canvas.details` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | 必須 | 文字列 | [キャンバス API 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください |
-| `post_launch_draft_version` | オプション | ブール値 | 起動後の下書きがあるキャンバスの場合、これを `true` に設定すると、利用可能な下書きの変更が表示されます。デフォルトは `false` です。 |
-| `include_has_translatable_content` | オプション | ブール値 | `true` に設定すると、API 応答の各メッセージに `has_translatable_content` フィールドが含まれます。デフォルトは `false` です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | 必須 | 文字列 | [Canvas API識別子]({{site.baseurl}}/api/identifier_types/)を参照してください |
+| `post_launch_draft_version` | オプション | ブール値 | 起動後の下書きがあるキャンバスの場合、これを`true`に設定すると、利用可能な下書きの変更が表示されます。デフォルトは`false`です。 |
+| `include_has_translatable_content` | オプション | ブール値 | `true`に設定すると、API応答の各メッセージに`has_translatable_content`フィールドが含まれます。デフォルトは`false`です。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## リクエスト例
+## リクエスト例 {#example-request}
 
 {% raw %}
 ```
@@ -44,10 +44,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 {% endraw %}
 
-## 応答
+## 応答 {#responses}
 
 {% alert note %}
-すべてのキャンバスステップには、`{name, next_step_id}` データの配列である `next_paths` フィールドがあります。メッセージステップでは `next_step_ids` フィールドが存在しますが、他のキャンバスステップのデータは含まれません。
+すべてのキャンバスステップには、`{name, next_step_id}`データの配列である`next_paths`フィールドがあります。メッセージステップでは`next_step_ids`フィールドが存在しますが、他のキャンバスステップのデータは含まれません。
 {% endalert %}
 
 ```json
@@ -104,7 +104,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 }
 ```
 
-### チャネル別のメッセージ
+### チャネル別のメッセージ {#messages-by-channel}
 
 以下は、異なるチャネル（メール、プッシュ、SMS、アプリ内メッセージ）を通じて送信されたキャンバスメッセージを含む応答の例です。
 
@@ -220,7 +220,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
 {% endalert %}
 
 {% endapi %}

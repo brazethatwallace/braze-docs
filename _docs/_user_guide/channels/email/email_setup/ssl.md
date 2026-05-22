@@ -10,9 +10,9 @@ channel: email
 
 # SSL at Braze
 
-{% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
-
 > A secure socket layer (SSL) encrypts a URL with HTTPS instead of HTTP. HTTPS indicates that a valid and trusted SSL or TLS certificate exists and that the website is safe to visit.
+
+{% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
 
 ## Why is SSL important?
 
@@ -85,7 +85,7 @@ When you configure your CDN's click-tracking domain, enable the `X-Forwarded-Hos
 | SparkPost | Fastly | [Step-by-step guide with Fastly](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-fastly) |
 | SparkPost | Google Cloud Platform | [Step-by-step guide with Google Cloud Platform](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-google-cloud-platform) |
 | SparkPost | Microsoft Azure | [Step-by-step guide with Microsoft Azure](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-microsoft-azure) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional resources" }
 
 ### Amazon SES
 

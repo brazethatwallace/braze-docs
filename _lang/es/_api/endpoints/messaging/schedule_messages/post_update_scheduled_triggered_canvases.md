@@ -1,40 +1,40 @@
 ---
-nav_title: "PUBLICAR: Actualizar lienzos programados desencadenados por la API"
-article_title: "PUBLICAR: Actualizar lienzos programados desencadenados por la API"
+nav_title: "POST: Actualizar Canvas programados desencadenados por la API"
+article_title: "POST: Actualizar Canvas programados desencadenados por la API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Actualizar Canvas desencadenados por API programados de Braze."
+description: "En este artículo se describen los detalles del punto de conexión de Braze Actualizar Canvas programados desencadenados por la API."
 
 ---
 {% api %}
-# Actualizar lienzos programados desencadenados por la API
+# Actualizar Canvas programados desencadenados por la API {#update-scheduled-api-triggered-canvases}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /canvas/trigger/schedule/update
 {% endapimethod %}
 
-> Utiliza este punto final para actualizar los Lienzos programados desencadenados por la API que se crearon en el panel.
+> Utiliza este punto de conexión para actualizar los Canvas programados desencadenados por la API que se crearon en el dashboard.
 
-Esto te permite decidir qué acción desencadena el envío del mensaje. Puedes pasar en `trigger_properties` las plantillas de Braze al propio mensaje.
+Esto te permite decidir qué acción desencadena el envío del mensaje. Puedes pasar `trigger_properties` que Braze utiliza como plantilla en el propio mensaje.
 
-Ten en cuenta que para enviar mensajes con este punto final, debes tener un ID de Canvas, creado cuando construyes un [Canvas]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier).
+Ten en cuenta que para enviar mensajes con este punto de conexión, debes tener un ID de Canvas, creado cuando construyes un [Canvas]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier).
 
-Cualquier horario sobrescribirá completamente el que haya proporcionado en la solicitud de creación de horario o en anteriores solicitudes de actualización de horario.
+Cualquier planificación sobrescribirá completamente la que hayas proporcionado en la solicitud de creación de planificación o en anteriores solicitudes de actualización de planificación.
   - Por ejemplo, si originalmente proporcionas `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` y luego en tu actualización proporcionas `"schedule" : {"time" : "2015-02-20T14:14:47"}`, Braze envía tu mensaje a la hora proporcionada en UTC, no en la hora local del usuario.
   - Los desencadenantes programados que actualices cerca de la hora a la que debían enviarse o durante la misma se actualizan con el máximo esfuerzo, por lo que Braze puede aplicar cambios de último momento a todos, a algunos o a ninguno de tus usuarios objetivo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#8fdf158b-ce20-41d8-80e4-a9300a6706d4 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.trigger.schedule.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.trigger.schedule.update`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -51,16 +51,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`|Obligatoria|Cadena| Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types/). |
-| `schedule_id` | Opcional | Cadena | El `schedule_id` para actualizar (obtenido de la respuesta para crear horario). |
-|`schedule` | Obligatoria | Objeto | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `schedule_id` | Opcional | Cadena | El `schedule_id` a actualizar (obtenido de la respuesta de creación de planificación). |
+| `schedule` | Obligatorio | Objeto | Ver [objeto de planificación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/update' \
 --header 'Content-Type: application/json' \

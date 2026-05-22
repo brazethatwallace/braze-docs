@@ -4,7 +4,7 @@ article_title: Standort-Tracking für iOS
 platform: iOS
 page_order: 6
 description: "Dieser Artikel zeigt, wie Sie das Standort-Tracking für Ihre iOS-Anwendung konfigurieren."
-Tool:
+tool:
   - Location
 
 noindex: true

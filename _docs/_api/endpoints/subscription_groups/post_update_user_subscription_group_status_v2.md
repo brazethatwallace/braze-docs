@@ -52,6 +52,8 @@ The V2 endpoint differs from the [V1 endpoint]({{site.baseurl}}/api/endpoints/su
 **Phone number format**: Phone numbers must be in [E.164 format](https://en.wikipedia.org/wiki/E.164) (for example, `+12223334444`). Phone numbers that are not in E.164 format are rejected.
 {% endalert %}
 
+{% multi_lang_include api/orphaned_subscription_states.md %}
+
 ## Rate limit
 
 {% multi_lang_include rate_limits.md endpoint='subscription status set' %}
@@ -92,7 +94,7 @@ When creating new users using the [`/users/track` endpoint]({{site.baseurl}}/api
 | `emails` | Required* | String or array of strings | The email address of the user, can be passed as an array of strings. Must include at least one email address (with a maximum of 50). <br><br>If multiple users (`external_id`) in the same workspace share the same email address, all users that share the email address are updated with the subscription group changes. |
 | `phones` | Required* | String in [E.164](https://en.wikipedia.org/wiki/E.164) format | You can pass user phone numbers as an array of strings. Must include at least one phone number (up to 50). Phone numbers must be in E.164 format (for example, `+12223334444`). <br><br>If multiple users (`external_id`) in the same workspace share the same phone number, then all users that share the phone number are updated with the same subscription group changes.|
 | `use_double_opt_in_logic` | Optional | Boolean | Defaults to `false` if omitted. For SMS subscription groups, set to `true` to enter the user into the [SMS double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) workflow when their subscription status is set to `subscribed`. Users entered into the double opt-in workflow in this way receive at most one opt-in prompt reply message per day, regardless of the number of times they are entered into the workflow. If this parameter is omitted or set to `false`, users are subscribed without entering the double opt-in workflow. This parameter is not applicable to email subscription groups. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert important %}
 **Identifier selection**: 

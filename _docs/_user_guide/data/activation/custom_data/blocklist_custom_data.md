@@ -20,8 +20,6 @@ To blocklist custom data, you need the [user permissions]({{site.baseurl}}/user_
 
 {% details User permissions for blocklisting custom data %}
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 - View Campaigns
 - Edit Campaigns
 - Archive Campaigns

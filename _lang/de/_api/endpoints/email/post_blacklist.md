@@ -1,29 +1,29 @@
 ---
-nav_title: "POST: E-Mails auf die schwarze Liste setzen"
-article_title: "POST: Schwarze Liste E-Mails"
+nav_title: "POST: E-Mails auf die Blacklist setzen"
+article_title: "POST: E-Mails auf die Blacklist setzen"
 search_tag: Endpoint
 page_order: 10
 layout: api_page
 page_type: reference
 alias: /blacklist/
-description: "Dieser Artikel beschreibt die Details des Endpunkts Blacklist E-Mails Braze."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „E-Mails auf die Blacklist setzen“."
 
 ---
 {% api %}
-# E-Mails auf die schwarze Liste setzen
+# E-Mails auf die Blacklist setzen {#blacklist-emails}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /email/blacklist
 {% endapimethod %}
 
 {% alert important %}
-Braze hat den [Endpunkt`/email/blocklist` ]({{site.baseurl}}/api/endpoints/email/post_blocklist/) mit denselben Funktionen wie den Endpunkt `/email/blacklist` veröffentlicht. Wir empfehlen Ihnen, stattdessen den Endpunkt `/email/blocklist` zu verwenden.
+Braze hat den [`/email/blocklist`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_blocklist/) mit denselben Funktionen wie den `/email/blacklist`-Endpunkt veröffentlicht. Wir empfehlen Ihnen, stattdessen den `/email/blocklist`-Endpunkt zu verwenden.
 {% endalert %}
 
-> Verwenden Sie diesen Endpunkt, um Nutzer:innen von E-Mails abzumelden und sie als "hard bounced" zu markieren.
+> Verwenden Sie diesen Endpunkt, um eine Nutzer:in von E-Mails abzumelden und als Hard Bounce zu markieren.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d51155a1-a6e8-4dcc-9f2b-88c54ab9e8c6 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `email.blacklist`.
 
@@ -31,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -44,14 +44,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | -----------|----------| --------|------- |
 | `email` | Erforderlich | String oder Array | String-E-Mail-Adresse für die Blacklist oder ein Array mit bis zu 50 E-Mail-Adressen für die Blacklist. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/email/blacklist' \
 --header 'Content-Type: application/json' \

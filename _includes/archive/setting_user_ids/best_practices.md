@@ -4,7 +4,7 @@
 | ---------------------- | -------------------------- |
 | User **has not** been previously identified | Anonymous history **is merged** with user profile upon identification. |
 | User **has been** previously identified in-app or via API | Anonymous history **is not merged** with user profile upon identification. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Automatic preservation of anonymous user history" }
 
 Refer to [Identified user profiles]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#identified-user-profiles) for more information on what occurs when you identify anonymous users.
 

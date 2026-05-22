@@ -3,31 +3,30 @@ nav_title: 1月
 page_order: 11
 noindex: true
 page_type: update
-description: "この記事には、2021年1月のリリースノートが含まれている。"
+description: "この記事には、2021年1月のリリースノートが含まれています。"
 ---
-# 2021年1月
+# 2021年1月 {#january-2021}
 
-## キャンバスレポートビルダー
+## キャンバスレポートビルダー {#canvas-report-builder}
 
-レポートビルダーを使用すると、複数のキャンペーンまたはキャンバスの結果を 1 つのビューで比較できるため、主要な指標に最も影響を与えたエンゲージメント戦略を簡単に判断できます。[Canvas Report Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/)について詳しく説明します。
+レポートビルダーを使用すると、複数のキャンペーンまたはキャンバスの結果を1つのビューで比較できるため、主要な指標に最も影響を与えたエンゲージメント戦略を簡単に判断できます。[キャンバスレポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)について詳しくお読みください。
 
-## アプリ内メッセージ iOS実装ガイド
+## アプリ内メッセージiOS実装ガイド {#in-app-message-ios-implementation-guide}
 
-この詳細なガイドでは、サブクラス化を活用して、BrazeのキャンペーンやCanvasに追加するカスタムスライドアップアプリ内メッセージ、カスタムモーダルアプリ内メッセージ、カスタムフルアプリ内メッセージを作成する方法を説明する。必要なコードの検討、我々のチームによって構築された詳細な使用例、付随するコード・スニペットも含まれている。詳しくは、ドキュメント[ここ]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/)をご覧ください。 
+この詳細なガイドでは、サブクラス化を活用して、Brazeのキャンペーンやキャンバスに追加するカスタムスライドアップアプリ内メッセージ、カスタムモーダルアプリ内メッセージ、カスタムフルアプリ内メッセージを作成する方法を説明しています。必要なコードの考慮事項、チームが構築した詳細なユースケース、付随するコードスニペットが含まれています。詳しくは[こちら]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/)のドキュメントをご覧ください。
 
-## SMSカスタムキーワードカテゴリとリターゲティングオプション
+## SMSカスタムキーワードカテゴリとリターゲティングオプション {#sms-custom-keyword-categories-and-retargeting-options}
 
-BrazeはネイティブSMSの機能を拡張し、双方向メッセージングのためのカスタムキーワードの追加、キーワードのカスタムカテゴリー、多言語サポート、キーワードのリターゲティングとフィルタリングオプションなどの機能を追加した。SMSキーワード処理の詳細については、[SMSドキュメントを]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/keywords/keyword_handling/)参照のこと。 
+BrazeはネイティブSMS機能を拡張し、双方向メッセージングのためのカスタムキーワードの追加、キーワードのカスタムカテゴリ、多言語サポート、キーワードのリターゲティングおよびフィルタリングオプションなどの機能を追加しました。SMSキーワード処理の詳細については、[SMSドキュメント]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)を参照してください。
 
-## Playable のパートナーシップが開始
+## Playableパートナーシップの開始 {#playable-partnership-is-live}
 
-Braze のメール機能を拡張し、[Playable]({{site.baseurl}}/partners/playable/) で最高のコンテンツ(高品質動画) を最高のオーディエンス(メール) に提供します。再生可能な動画メールは、受信ボックス内で自動的に再生されるエキサイティングで高品質な動画コンテンツで、クリックスルーとクリック後の指標を高めることができる。 
+Brazeのメール機能を拡張し、[Playable]({{site.baseurl}}/partners/playable/)で最高のコンテンツ（高品質動画）を最高のオーディエンス（メール）に提供します。Playable動画メールは、受信トレイ内で自動的に再生されるエキサイティングで高品質な動画コンテンツで、クリックスルーとクリック後の指標を高めることができます。
 
-## Zendeskとのパートナーシップが始動
+## Zendeskパートナーシップの開始 {#zendesk-partnership-is-live}
 
-[Zendesk Support Suite（ZSS]({{site.baseurl}}/partners/zendesk/)）は、Eメール、ウェブチャット、音声、ソーシャルメッセージングアプリを使ったオムニチャネルサポートを通じて、顧客との自然な会話を可能にする。ZSSはインタラクションの追跡と優先順位付けを通じてカスタマーサポートを評価し、企業が顧客に関する統一された履歴ビューを持つことを可能にする。合理化されたチケット発行システムなどの強力なツールにより、企業はパーソナライズされたアプローチで顧客に直接コンタクトすることができる。Braze が Zendesk とのサーバー間統合を提供するため、Braze と Zendesk 間でサポートチケットデータを同期できる Braze webhook を利用できます。 
+[Zendesk Support Suite（ZSS）]({{site.baseurl}}/partners/zendesk/)は、メール、Webチャット、音声、ソーシャルメッセージングアプリを使ったオムニチャネルサポートを通じて、顧客との自然な会話を可能にします。ZSSはインタラクションの追跡と優先順位付けを通じてカスタマーサポートを重視し、企業が顧客に関する統一された履歴ビューを持つことを可能にします。合理化されたチケット発行システムなどの強力なツールにより、企業はパーソナライズされたアプローチで顧客に直接コンタクトすることができます。BrazeはZendeskとのサーバー間統合を提供しており、BrazeとZendesk間でサポートチケットデータを同期できるBraze webhookを利用できます。
 
-## Crowdin のパートナーシップが開始
+## Crowdinパートナーシップの開始 {#crowdin-partnership-is-live}
 
-[Crowdin]({{site.baseurl}}/partners/crowdin/)は、ローカライゼーションマネジメントのためのクラウドベースのソフトウエアです。Braze と Crowdin の統合により、メールテンプレートとコンテンツブロックを翻訳できます。Braze アカウントから Crowdin プロジェクトにコンテンツを同期し、Braze に戻って翻訳を追加できます。
-
+[Crowdin]({{site.baseurl}}/partners/crowdin/)は、ローカライゼーション管理のためのクラウドベースのソフトウェアです。BrazeとCrowdinの統合により、メールテンプレートとContent Blocksを翻訳できます。BrazeアカウントからCrowdinプロジェクトにコンテンツを同期し、翻訳をBrazeに追加することができます。

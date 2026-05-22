@@ -10,13 +10,13 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# iOS向けカスタムイベントのトラッキング
+# iOS向けカスタムイベントのトラッキング {#track-custom-events-for-ios}
 
-Braze でカスタムイベントを記録することで、アプリの使用パターンに関する詳細を把握し、ダッシュボードでのアクションによってユーザーをセグメント化できます。
+Brazeでカスタムイベントを記録することで、アプリの使用パターンに関する詳細を把握し、ダッシュボードでのアクションによってユーザーをセグメント化できます。
 
-実装前に、[ベストプラクティス]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection)のカスタムイベント、カスタム属性、および購入イベントによって提供されるセグメンテーションオプションの例と、[イベント命名規則]({{site.baseurl}}/user_guide/data/custom_data/event_naming_conventions/)のメモを必ず確認しておいてください。
+実装前に、[ベストプラクティス]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection)のカスタムイベント、カスタム属性、および購入イベントによって提供されるセグメンテーションオプションの例と、[イベント命名規則]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/)のメモを必ず確認してください。
 
-## カスタムイベントの追加
+## カスタムイベントの追加 {#adding-a-custom-event}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -28,21 +28,21 @@ Braze でカスタムイベントを記録することで、アプリの使用�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.logCustomEvent("YOUR_EVENT_NAME")
 ```
 
 {% endtab %}
 {% endtabs %}
 
-### プロパティの追加
+### プロパティの追加 {#adding-properties}
 
 `NSNumber`、`NSString`、または `NSDate` の値が入力された `NSDictionary` を渡すことで、カスタムイベントに関するメタデータを追加できます。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance] logCustomEvent:@"YOUR-EVENT-NAME"
                          withProperties:@{
   @"you": @"can",
@@ -59,7 +59,7 @@ Appboy.sharedInstance()?.logCustomEvent("YOUR_EVENT_NAME")
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.logCustomEvent(
   "YOUR-EVENT-NAME",
   withProperties: [
@@ -87,8 +87,7 @@ Appboy.sharedInstance()?.logCustomEvent(
 - `time`
 - `event_name`
 
-## その他のリソース
+## その他のリソース {#additional-resources}
 
-- `Appboy.h` [ファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h)内のメソッドの宣言を参照してください。 
-- 詳細については、[`logCustomEvent` のドキュメント](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ad80c39e8c96482a77562a5b1a1d387aa) を参照してください。
-
+- `Appboy.h` [ファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h)内のメソッドの宣言を参照してください。
+- 詳細については、[`logCustomEvent`のドキュメント](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ad80c39e8c96482a77562a5b1a1d387aa)を参照してください。

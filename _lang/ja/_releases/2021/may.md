@@ -3,34 +3,34 @@ nav_title: 5月
 page_order: 7
 noindex: true
 page_type: update
-description: "この記事には、2021年5月のリリースノートが含まれている。"
+description: "この記事には2021年5月のリリースノートが含まれています。"
 ---
 
-# 2021年5月
+# 2021年5月 {#may-2021}
 
-## コンバージョンの相関
+## コンバージョンの相関 {#conversion-correlation}
 
-このガイドでは、**キャンペーン分析**ページの[コンバージョン相関]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/)分析について説明する。この分析では、キャンペーンに設定した成果に対して、どのようなユーザー属性や行動が役立つのか、あるいは不利になるのかを知ることができる。分析の概要、何をチェックするのか、いつチェックできるのか、そしてBrazeがどのように有意性をチェックするのかについて説明する。
+このガイドでは、**キャンペーン分析**ページの[コンバージョン相関]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/)分析について説明します。この分析では、キャンペーンに設定した成果に対して、どのようなユーザー属性や行動が役立つのか、あるいは不利になるのかについてインサイトを得ることができます。分析の概要、チェック対象、利用可能なタイミング、そしてBrazeがどのように有意性をチェックするのかについて説明します。
 
-## グローバルコントロールグループレポート
+## グローバルコントロールグループレポート {#global-control-group-report}
 
-[Global Control Groups]({{site.baseurl}}/user_guide/engagement_tools/testing/global_control_group/)レポートのメトリクスを更新し、メッセージングの取り組みの全般的な影響をより適切に分析できます。主な変更点には、**ユーザーあたりのイベント数**と**推定グループサイズ**の追加、トリートメントグループとコントロールグループ間の合計イベント数の差異を反映するための**増分上昇**計算の調整が含まれます。
+[グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group/)レポートの指標を更新し、メッセージングの取り組みが時間の経過とともに全体に与える影響をより適切に分析できるようにしました。主な変更点には、**ユーザーあたりのイベント数**と**推定グループサイズ**の追加、およびトリートメントグループとコントロールグループ間の合計イベント数の差異を反映するための**増分上昇**計算の調整が含まれます。
 
-## レポートの概要
+## レポートの概要 {#reports-overview}
 
-キャンペーンやキャンバスの分析について何から始めたらよいかわからない？[レポートの概要では]({{site.baseurl}}/user_guide/analytics/reporting/reports_overview/)、マーケティング戦略に関する一般的な質問に答えるために、どのレポートやアナリティクスを使用できるかを案内している。
+キャンペーンやキャンバスの分析について何から始めたらよいかわからない場合は、[レポートの概要]({{site.baseurl}}/user_guide/analytics/reports/)で、マーケティング戦略に関する一般的な質問に答えるために使用できるレポートや分析についてのガイダンスを提供しています。
 
-## 新しいUS-05クラスター
+## 新しいUS-05クラスター {#new-us-05-cluster}
 
-Brazeは新しいUSクラスタ、US-05をサポートしている。詳細については、ダッシュボードとRESTの一覧[エンドポイント]({{site.baseurl}}/api/basics/#endpoints)を参照してください。
+Brazeは新しいUSクラスター、US-05をサポートしています。詳細については、ダッシュボードとRESTの[エンドポイント]({{site.baseurl}}/api/basics/#endpoints)一覧を参照してください。
 
-## BrazeのUIアップデート
+## BrazeのUIアップデート {#braze-ui-updates}
 
-2021年5月、Braze は Braze ダッシュボードで以下のラベルと用語を更新しました。
+2021年5月、BrazeはBrazeダッシュボードで以下のラベルと用語を更新しました。
 
-- アプリケーションの使用状況--> 概要
-- アプリ設定 --> 設定
-- アプリグループを管理する --> 設定を管理する
-- アプリに費やした金額 --> 支出した金額
-- アプリの利用状況 (ユーザープロファイル) --> セッションの概要
-- このアプリグループでユーザーを追加または更新するには、CSV 形式のユーザー情報をインポートします --> ユーザーを追加または更新するには、CSV 形式のユーザー情報をインポートします
+- App Usage --> Overview
+- App Settings --> Settings
+- Manage App Group --> Manage Settings
+- Money Spent In-App --> Money Spent
+- App Usage (User Profile) --> Sessions Overview
+- Import a CSV of user information to add and/or update users in this App Group --> Import a CSV of user information to add or update users
