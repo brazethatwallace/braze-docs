@@ -44,4 +44,4 @@ Falls noch nicht geschehen, folgen Sie den Schritten zur [Shopify-Standardintegr
 4. Wählen Sie die Ereignisse aus, die Sie verfolgen möchten. Eine Liste der verfügbaren Ereignisse wird bereitgestellt.
 5. Wählen Sie **Launch Current** aus.
 
-![Die Braze-Shopify-Currents-Seite. Diese Seite enthält Felder für den Integrationsnamen, die Kontakt-E-Mail-Adresse und den Shopify-Shop.]({% image_buster /assets/img/Shopify/shopify_currents.png %})
+![Die Braze-Shopify-Currents-Seite. Diese Seite enthält Felder für den Integrationsnamen, die Kontakt-E-Mail-Adresse und den Shopify-Shop.]({% image_buster /assets/img/shopify/shopify_currents.png %})

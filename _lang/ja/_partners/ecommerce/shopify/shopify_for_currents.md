@@ -44,4 +44,4 @@ BrazeとShopifyの統合は、カスタマーエンゲージメントを強化�
 4. 追跡するイベントを選択します。利用可能なイベントのリストが表示されます。
 5. **Launch Current**を選択します。
 
-![Braze Shopify Currentsページ。このページには、統合名、連絡先メール、Shopifyストアのフィールドが含まれています。]({% image_buster /assets/img/Shopify/shopify_currents.png %})
+![Braze Shopify Currentsページ。このページには、統合名、連絡先メール、Shopifyストアのフィールドが含まれています。]({% image_buster /assets/img/shopify/shopify_currents.png %})

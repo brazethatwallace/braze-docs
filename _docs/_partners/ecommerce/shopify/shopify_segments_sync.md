@@ -42,29 +42,29 @@ If a sync fails, the action extension modal displays an error banner with a reco
 
 In Shopify, go to **Customers** > **Segments**, and select the segment you want to sync to Braze. You can sync any segment built using Shopify's native segmentation, including segments based on order history, product purchases, customer tags, lifetime spend, and metafields.
 
-![Segments panel with list of Shopify segments.]({% image_buster /assets/img/Shopify/shopify_segments.png %})
+![Segments panel with list of Shopify segments.]({% image_buster /assets/img/shopify/shopify_segments.png %})
 
 ### Step 2: Initiate the sync
 
 1. On Shopify's segment detail page, open the **Use segment** dropdown and select **Braze Segment Sync**. 
 
-![Segment detail page with a "Use segment dropdown that has a "Braze Segment Sync" option.]({% image_buster /assets/img/Shopify/braze_segment_sync.png %})
+![Segment detail page with a "Use segment dropdown that has a "Braze Segment Sync" option.]({% image_buster /assets/img/shopify/braze_segment_sync.png %})
 
 {: start="2"}
 2. In the Braze action extension modal that opens, displaying the segment name and audience size. Select **Sync with Braze** to begin the import.
 
-![Modal with a button to sync with Braze.]({% image_buster /assets/img/Shopify/sync_with_braze.png %}){:style="max-width:70%;"}
+![Modal with a button to sync with Braze.]({% image_buster /assets/img/shopify/sync_with_braze.png %}){:style="max-width:70%;"}
 
 {: start="3"}
 3. Select **Done**.
 
-![Modal confirming sync is active.]({% image_buster /assets/img/Shopify/braze_sync_active.png %}){:style="max-width:70%;"}
+![Modal confirming sync is active.]({% image_buster /assets/img/shopify/braze_sync_active.png %}){:style="max-width:70%;"}
 
 ### Step 3: Create a Braze segment with the Cohort Membership filter
 
 In Braze, go to **Audience** > **Segments**, and create a new segment. In **Add Filter**, select the **Cohort Membership** filter and select your synced Shopify segment from the dropdown. After saving, you can reference this Braze segment when targeting users in a campaign or Canvas.
 
-![Segment builder with the "Shopify Cohorts" filter.]({% image_buster /assets/img/Shopify/segment_builder_cohort_import.png %})
+![Segment builder with the "Shopify Cohorts" filter.]({% image_buster /assets/img/shopify/segment_builder_cohort_import.png %})
 
 ## User matching
 
