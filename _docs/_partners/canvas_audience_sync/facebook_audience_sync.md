@@ -291,17 +291,17 @@ table td {
     <tr>
       <td><b>Ad account missing from dropdown</b></td>
       <td>When you configure the Facebook Audience step, an ad account you expect is not listed in the ad account picker.</td>
-      <td>Confirm your Facebook app completed <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">App Review</a> for <code>ads_management</code> with the access level Facebook requires for Marketing API use. In <a href="https://business.facebook.com/">Facebook Business Manager</a>, confirm the system user token has the right permissions and is associated with the ad accounts you use in Braze, and that ad account terms are accepted. If the dropdown works on a new Canvas but not on a Canvas you already edited, try a hard refresh of your browser (or clear cache) and confirm you are signed in as a user who still has access to those ad accounts.</td>
+      <td>Confirm your Facebook app completed <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">App Review</a> for <code>ads_management</code> with the access level Facebook requires for Marketing API use. In <a href="https://business.facebook.com/">Facebook Business Manager</a>, confirm the system user token has the right permissions and is associated with the ad accounts you use in Braze, and that ad account terms are accepted. <br><br>If the dropdown works on a new Canvas but not on a Canvas you already edited, try a hard refresh of your browser (or clear your cache) and confirm you are signed in as a user who still has access to those ad accounts.</td>
     </tr>
     <tr>
       <td><b>Error validating access token</b></td>
       <td>You see an error about validating the Facebook access token when connecting Braze to Facebook or when syncing audiences.</td>
-      <td>Sign out of Facebook in your browser. In Braze, go to <b>Partner Integrations</b> &gt; <b>Facebook</b>, remove saved Facebook credentials, then connect Facebook again. On Facebook's Technology Partners page for Braze, disconnect and reconnect the integration if the option is available. If issues continue, follow <a href="#audit-your-facebook-account">Audit your Facebook account</a>.</td>
+      <td>Sign out of Facebook in your browser. In Braze, go to <b>Partner Integrations</b> &gt; <b>Facebook</b>, remove the saved Facebook credentials, then connect Facebook again. On Facebook's Technology Partners page for Braze, disconnect and reconnect the integration if the option is available. <br><br>If issues continue, follow <a href="#audit-your-facebook-account">Audit your Facebook account</a>.</td>
     </tr>
     <tr>
       <td><b>Audience export or sync permission errors</b></td>
       <td>Exporting or syncing a Facebook audience fails with authorization, admin, or ad account errors.</td>
-      <td>In <a href="https://developers.facebook.com/">Meta for Developers</a>, open your app and confirm your user has an <b>Admin</b> role under <b>App roles</b>. Under <b>App settings</b> &gt; <b>Advanced</b>, confirm <b>Advertising accounts</b> includes the accounts you use with Braze. In <a href="https://business.facebook.com/latest/settings">Business settings</a>, confirm the connecting user or system user has access to the correct ad account. For the latest steps, refer to <a href="https://www.facebook.com/business/help/">Facebook Business Help Center</a>.</td>
+      <td>In <a href="https://developers.facebook.com/">Meta for Developers</a>, open your app and confirm your user has an <b>Admin</b> role under <b>App roles</b>. Under <b>App settings</b> &gt; <b>Advanced</b>, confirm <b>Advertising accounts</b> includes the accounts you use with Braze. In <a href="https://business.facebook.com/latest/settings">Business settings</a>, confirm the connecting user or system user has access to the correct ad account.</td>
     </tr>
   </tbody>
 </table>
