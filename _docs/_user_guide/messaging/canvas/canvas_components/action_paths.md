@@ -89,4 +89,6 @@ Note that the rankings aren't [editable after launch]({{site.baseurl}}/post-laun
 
 ### How does the Add an email address trigger work?
 
-The **Add an email address** action group trigger fires when an email address is added or updated on the user profile and that change is recorded during the Action Path **evaluation window**. Behavior matches other attribute-based triggers: the user advances through the action group when the profile change qualifies under your configuration, including any filters on the trigger.
+### How the Add an Email Address trigger works
+
+The **Add an Email Address** action group trigger fires when an email address is added or updated on the user profile during the Action Path's evaluation window. Behavior matches other attribute-based triggers: the user advances through the action group when the profile change qualifies under your configuration, including any filters on the trigger.
