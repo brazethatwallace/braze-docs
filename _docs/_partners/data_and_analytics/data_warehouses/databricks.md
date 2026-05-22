@@ -9,11 +9,12 @@ hidden: true
 
 # Databricks
 
+
+> [Databricks](https://www.databricks.com/) is a unified, open analytics platform for building, deploying, sharing, and maintaining enterprise-grade data, analytics, and AI solutions at scale. The Databricks Data Intelligence Platform integrates with cloud storage and security in your cloud account, and manages and deploys cloud infrastructure for you.
+
 {% alert important %}
 Databricks Delta Sharing with Braze is in **closed beta**. Availability, supported regions, and product behavior can change. Contact your Braze customer success manager to participate or to confirm whether this feature is enabled for your workspace.
 {% endalert %}
-
-> [Databricks](https://www.databricks.com/) is a unified, open analytics platform for building, deploying, sharing, and maintaining enterprise-grade data, analytics, and AI solutions at scale. The Databricks Data Intelligence Platform integrates with cloud storage and security in your cloud account, and manages and deploys cloud infrastructure for you.
 
 ## Delta Sharing (Braze to Databricks)
 
