@@ -79,7 +79,7 @@ Pour les campagnes e-mail et les Canvas, le bouton d'arrêt ne stoppe pas imméd
 
 Bien que Braze n'envoie plus de demandes une fois la campagne ou le Canvas arrêté(e), les analyses peuvent encore augmenter pendant que l'ESP termine le traitement des demandes déjà en cours.
 
-### Pourquoi est-ce que je vois plus de _Clics totaux_ que d'_Ouvertures totales_ dans mes analyses d'e-mails ? {#why-am-i-seeing-more-total-clicks-than-total-opens-in-my-email-analytics}
+### Pourquoi est-ce que je vois plus de _Clics totaux_ que d'_Ouvertures totales_ dans mes analyses d'e-mails ? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
 _Ouvertures totales_ correspond au nombre de fois où l'e-mail a été ouvert par les utilisateurs, tandis que _Clics totaux_ correspond au nombre de fois où les utilisateurs ont cliqué dans l'e-mail distribué, y compris tout type de clics tels que les clics sur les liens. Vous pouvez voir plus de clics que d'ouvertures pour l'une des raisons suivantes :
 
@@ -105,9 +105,9 @@ Braze suit les liens de désabonnement si le Liquid suivant est utilisé dans le
 
 ### Pourquoi est-ce que je vois un nombre de désabonnements différent du nombre de clics sur mon lien de désabonnement ? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-S'il y a plus de _Désabonnements_ que d'utilisateurs ayant cliqué sur le lien de désabonnement dans le corps de l'e-mail, les actions de l'en-tête list-unsubscribe expliquent souvent l'écart — un clic sur l'en-tête list-unsubscribe est comptabilisé comme un _Désabonnement_ mais pas comme un _Clic_ sur le lien dans le corps.
+S'il y a plus de _Désabonnements_ que d'utilisateurs ayant cliqué sur le lien de désabonnement dans le corps de l'e-mail, le [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) explique souvent l'écart. Le list-unsubscribe est un chemin de désabonnement supplémentaire dans l'en-tête de l'e-mail (et non le lien dans le corps de votre message). Lorsqu'un utilisateur se désabonne de cette manière, cela est comptabilisé dans les _Désabonnements_ mais ne compte pas comme un clic sur l'URL de désabonnement suivie dans le corps.
 
-Si le nombre total de clics sur le lien de désabonnement dans le corps est supérieur au nombre de _Désabonnements_, les utilisateurs ont peut-être cliqué sur le lien plus d'une fois.
+Si le nombre total de clics sur le lien de désabonnement dans le corps est supérieur au nombre de _Désabonnements_, les utilisateurs ont peut-être cliqué sur le lien plus d'une fois — par exemple, s'ils se sont désabonnés, réabonnés, puis désabonnés à nouveau, les analyses d'e-mails peuvent enregistrer plusieurs clics dans la ventilation des clics.
 
 Si un utilisateur clique deux fois sur le lien de désabonnement (par exemple, s'il s'est désabonné, réabonné, puis désabonné à nouveau), cela est comptabilisé deux fois dans les analyses d'e-mails.
 
@@ -159,7 +159,7 @@ Pour contourner ce problème :
 
 ### L'indicateur *Ouvertures uniques* inclut-il les *Ouvertures automatiques* ? {#does-the-unique-opens-metric-include-machine-opens}
 
-Non. Les *Ouvertures uniques* ne comptent que les [Autres ouvertures]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens), ce qui exclut les e-mails identifiés comme des ouvertures automatiques. Les *Ouvertures automatiques* sont suivies séparément. Dans la vue **Campaign Analytics** et le **Générateur de rapports**, vous pouvez consulter les deux indicateurs indépendamment.
+Oui. Les *Ouvertures uniques* incluent les *Ouvertures automatiques*. Vous pouvez consulter les deux indicateurs dans la vue **Campaign Analytics** et le **Générateur de rapports**.
 
 ### Pourquoi mon volume de distribution d'e-mails ne correspond-il pas à mon volume d'envoi ? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 

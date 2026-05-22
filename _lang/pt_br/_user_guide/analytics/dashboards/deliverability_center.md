@@ -15,11 +15,9 @@ channel:
 
 A entregabilidade de e-mail é o ponto central do sucesso de uma campanha. Usando o Centro de Entregabilidade no dashboard da Braze, você pode visualizar seus domínios por **IP Reputation** ou **Delivery Errors** para identificar e solucionar possíveis problemas de entregabilidade de e-mail.
 
-Para acessar o Centro de Entregabilidade, você precisa das [permissões de usuário legadas]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) "Access Campaigns, Canvases, Cards, Segments, Media Library" e "View Usage Data", ou das [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions) listadas no dropdown a seguir para o seu espaço de trabalho.
+Para acessar o Centro de Entregabilidade, você precisa das [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) listadas no dropdown a seguir para o seu espaço de trabalho.
 
 {% details Permissões de usuário para o Centro de Entregabilidade %}
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 - View Campaigns
 - Edit Campaigns

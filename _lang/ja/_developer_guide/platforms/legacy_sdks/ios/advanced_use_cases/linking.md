@@ -53,7 +53,7 @@ iOS 9 以降では、アプリが開くことを許可されているカスタ�
 
 アプリがディープリンクする必要があるすべてのスキームを、キー `LSApplicationQueriesSchemes` を使用してアプリの `Info.plist` の許可リストに追加する必要があります。以下に例を示します。
 
-```html
+`````````html
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>myapp</string>
@@ -71,7 +71,7 @@ iOS 9 以降では、アプリが開くことを許可されているカスタ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
   NSString *path  = [url path];
   NSString *query = [url query];
@@ -83,7 +83,7 @@ iOS 9 以降では、アプリが開くことを許可されているカスタ�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   let query = url.query
@@ -104,7 +104,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application
 continueUserActivity:(NSUserActivity *)userActivity
   restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler {
@@ -119,7 +119,7 @@ continueUserActivity:(NSUserActivity *)userActivity
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
   if (userActivity.activityType == NSUserActivityTypeBrowsingWeb) {
     let url = userActivity.webpageURL
@@ -164,7 +164,7 @@ ATS コンプライアンスは、モバイルアプリ内で開かれたリン�
 ATS は、次の 3 つの方法のいずれかで処理できます。
 
 #### すべてのリンクが ATS に準拠していることを確認する (推奨) {#confirm-all-links-are-ats-compliant-recommended}
-(アプリ内メッセージやプッシュCampaignsから) ユーザーを誘導する既存のリンクが ATS の要件を満たすようにすることで、Braze 統合が ATS 要件を満たすことができます。ATS の制限を回避する方法はありますが、リンクされたすべての URL が ATS に準拠するようにすることをお勧めします。Apple がアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATS の例外を許可する以下のアプローチが Apple によってサポートされる保証はありません。
+(アプリ内メッセージやプッシュキャンペーンから) ユーザーを誘導する既存のリンクが ATS の要件を満たすようにすることで、Braze 統合が ATS 要件を満たすことができます。ATS の制限を回避する方法はありますが、リンクされたすべての URL が ATS に準拠するようにすることをお勧めします。Apple がアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATS の例外を許可する以下のアプローチが Apple によってサポートされる保証はありません。
 
 SSL ツールにより、Web サーバーのセキュリティの問題を正確に特定できます。この Qualys, Inc. の [SSL サーバーテスト](https://www.ssllabs.com/ssltest/index.html)は、Apple ATS 9 および iOS 9 への準拠に特化した項目を提供します。
 
@@ -173,7 +173,7 @@ SSL ツールにより、Web サーバーのセキュリティの問題を正確
 
 ATS の例外としてドメインを追加するには、アプリの `Info.plist` ファイルに以下を追加します。
 
-```html
+`````````html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -197,7 +197,7 @@ ATS の例外としてドメインを追加するには、アプリの `Info.pli
 
 ATS を完全に無効にできます。ただし、セキュリティ保護が失われることと、将来の iOS との互換性の両方を考慮して、この方法は推奨されないことに注意してください。ATS を無効にするには、アプリの `Info.plist` ファイルに以下を挿入します。
 
-```html
+`````````html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -216,7 +216,7 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   // Handle urlString
@@ -227,7 +227,7 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
   func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
@@ -255,7 +255,7 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)handleAppboyURL:(NSURL *)url fromChannel:(ABKChannel)channel withExtras:(NSDictionary *)extras {
   if ([[url.host lowercaseString] isEqualToString:@"MY-DOMAIN.com"]) {
     // Custom handle link here
@@ -269,7 +269,7 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func handleAppboyURL(_ url: URL?, from channel: ABKChannel, withExtras extras: [AnyHashable : Any]?) -> Bool {
   if (url.host == "MY-DOMAIN.com") {
     // Custom handle link here
@@ -304,7 +304,7 @@ iOS は、アプリから iOS 設定アプリケーションのページにユ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
@@ -320,7 +320,7 @@ iOS は、アプリから iOS 設定アプリケーションのページにユ�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   if (path == "settings") {

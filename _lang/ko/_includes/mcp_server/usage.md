@@ -67,10 +67,6 @@ Claude 및 Cursor와 같은 자연어 도구를 통해 Braze MCP 서버를 사�
 ### 이메일 템플릿 생성하기 {#create-an-email-template}
 
 {% tabs %}
-{% tab Claude %}
-!['이메일 템플릿 생성하기'를 Claude에서 질문하고 답변받는 모습]({% image_buster /assets/img/mcp_server/claude/create_an_email_template.png %}){: style="max-width:85%;"}
-{% endtab %}
-
 {% tab Cursor %}
 !['이메일 템플릿 생성하기'를 Cursor에서 질문하고 답변받는 모습]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
 {% endtab %}
@@ -81,10 +77,6 @@ Claude 및 Cursor와 같은 자연어 도구를 통해 Braze MCP 서버를 사�
 ### 콘텐츠 블록 업데이트하기 {#update-a-content-block}
 
 {% tabs %}
-{% tab Claude %}
-!['콘텐츠 블록 업데이트하기'를 Claude에서 질문하고 답변받는 모습]({% image_buster /assets/img/mcp_server/claude/update_a_content_block.png %}){: style="max-width:85%;"}
-{% endtab %}
-
 {% tab Cursor %}
 !['콘텐츠 블록 업데이트하기'를 Cursor에서 질문하고 답변받는 모습]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
 {% endtab %}

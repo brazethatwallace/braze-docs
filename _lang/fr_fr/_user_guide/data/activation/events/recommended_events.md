@@ -47,7 +47,7 @@ Vous ne pouvez pas personnaliser ni renommer les événements.
 
 Les six événements recommandés eCommerce correspondent aux étapes du parcours d'achat. Déclenchez chaque événement au moment où l'utilisateur effectue l'action correspondante.
 
-![Diagramme du parcours utilisateur à travers les six événements recommandés eCommerce : product_viewed, cart_updated, checkout_started, order_placed, order_cancelled et order_refunded.]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![Diagramme du parcours utilisateur à travers les six événements recommandés eCommerce : product_viewed, cart_updated, checkout_started, order_placed, order_cancelled et order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}

@@ -240,18 +240,18 @@ Les flux de messages conversationnels vous permettent de répondre dynamiquement
 
 Braze recommande toujours de prévisualiser et de tester votre message avant de l'envoyer. Passez à l'onglet **Test** pour envoyer un SMS, MMS ou RCS de test à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) ou à des utilisateurs individuels, ou prévisualisez le message en tant qu'utilisateur directement dans Braze.
 
-![Prévisualisation du texte SMS depuis l'onglet Test du compositeur. Dans la section profil, le champ Prénom est défini sur « James ». Dans la section de prévisualisation, le SMS affiche désormais « Bonjour James, nous apprécions votre soutien ! »]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 Si vous souhaitez tester en combien de segments votre SMS pourrait être découpé, testez la longueur de votre texte avec le [calculateur de segments SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).
 {% endalert %}
+
+![Prévisualisation du texte SMS depuis l'onglet Test du compositeur. Dans la section profil, le champ Prénom est défini sur « James ». Dans la section de prévisualisation, le SMS affiche désormais « Bonjour James, nous apprécions votre soutien ! »]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 Pour les MMS, l'ordre des ressources (image et corps du message) ne peut pas être personnalisé. L'ordre dépend du téléphone qui reçoit le message.
 {% endalert %}
 
 {% alert note %}
-Étant donné que le rendu RCS est contrôlé par le système d'exploitation de l'utilisateur, le fabricant de l'appareil, l'opérateur et l'application de messagerie (par exemple, Google Messages vs. Apple Messages), l'apparence du message peut varier. La prévisualisation affichée dans Braze peut ne pas correspondre exactement à ce que l'utilisateur final reçoit. Validez le rendu final sur de vrais appareils dans la mesure du possible.
+Étant donné que le rendu RCS est contrôlé par le système d'exploitation de l'utilisateur, le fabricant de l'appareil, l'opérateur et l'application de messagerie (par exemple, Google Messages vs. Apple Messages), l'apparence du message peut varier. La prévisualisation affichée dans Braze peut ne pas correspondre exactement à ce que l'utilisateur final reçoit. Validez le rendu final sur de vrais appareils dans la mesure du possible. Pour plus de détails sur le rendu RCS sur les appareils iOS, consultez [Pourquoi mon message RCS ne s'affiche-t-il pas correctement sur les appareils iOS ?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
 Pour plus d'informations, consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs).
@@ -267,7 +267,7 @@ Ensuite, construisez le reste de votre campagne. Consultez les sections suivante
 
 Les messages peuvent être livrés en fonction d'une heure planifiée, d'une action ou d'un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 C'est également à cette étape que vous pouvez spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 

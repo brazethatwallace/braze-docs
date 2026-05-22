@@ -1,9 +1,5 @@
 ## 세분화된 권한 마이그레이션 {#granular-permissions-migration}
 
-{% alert important %}
-세분화된 권한은 얼리 액세스 중입니다. 귀사의 마이그레이션이 계획되면, Braze 관리자에게 [세분화된 권한 마이그레이션]({{site.baseurl}}/granular_permissions_migration/)을 알리는 이메일과 대시보드 내 배너가 전송됩니다.
-{% endalert %}
-
 기존 SCIM 통합 및 [레거시 SCIM API 오브젝트]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api)는 4월 말 세분화된 권한 마이그레이션 후에도 계속 작동합니다.
 
 즉각적인 조치를 취할 필요는 없습니다. 그러나 세분화될 권한에 대해 통합을 검토하는 것을 권장합니다. 예를 들어, 현재 API에서 `basic_access`를 전송하고 있다면, 세분화 후 특정 권한(예: `"appGroupPermissions":["view_campaigns","edit_campaigns"]`)을 포함하도록 통합을 업데이트하는 것을 권장합니다. Braze는 세분화된 권한 마이그레이션 후에도 기존 통합이 중단되지 않도록 `basic_access`와 같은 레거시 문자열을 계속 수용합니다.
@@ -40,7 +36,7 @@
 
 | 키 | 필수 | 데이터 유형 | 설명 |
 | --- | --- | --- | --- |
-| `appGroupName`| 선택 사항 | 문자열 | 워크스페이스의 이름입니다. 이 오브젝트에 포함된 권한이 적용될 워크스페이스를 지정하는 데 사용됩니다. |
+| `appGroupName` | 선택 사항 | 문자열 | 워크스페이스의 이름입니다. 이 오브젝트에 포함된 권한이 적용될 워크스페이스를 지정하는 데 사용됩니다. |
 | `appGroupId` | `appGroupName`이 없으면 필수 | 문자열 | 워크스페이스의 ID로, 워크스페이스를 지정하는 대체 방법입니다. |
 | `appGroupPermissionSets` | 선택 사항 | 배열 | 단일 [워크스페이스 권한 세트 오브젝트]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object)를 포함하는 배열입니다. |
 | `appGroupPermissions` | 필수 | 배열 | [워크스페이스 권한 문자열]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings) 테이블의 워크스페이스 수준 권한 문자열 배열로, 문자열이 존재하면 사용자가 지정된 워크스페이스에 대한 해당 권한을 가지고 있음을 나타냅니다. |
@@ -86,7 +82,7 @@
 | --- | --- |
 | Administrator | `admin` |
 | Manage Company Settings | `manage_company_settings` |
-| Create and delete workspaces | `add_remove_app_groups` |
+| Create and delete workspaces| `add_remove_app_groups` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
 
 ### 워크스페이스 권한 문자열 {#workspace-strings}

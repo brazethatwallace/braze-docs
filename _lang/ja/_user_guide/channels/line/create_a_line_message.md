@@ -35,7 +35,7 @@ BrazeからLINEメッセージを送信すると、アカウントのメッセ�
 **手順:**
 
 1. **Messaging** > **Campaigns** に移動し、**Create Campaign** を選択します。
-2. **LINE** を選択するか、複数チャネルをターゲットとするCampaignsの場合は **Multichannel Campaign** を選択します。
+2. **LINE** を選択するか、複数チャネルをターゲットとするCampaignの場合は **Multichannel Campaign** を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
    * タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。
@@ -97,7 +97,7 @@ Campaignの残りの部分を構築します。LINEメッセージを構築す�
 
 LINEメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。スケジュールとトリガーオプションの詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
-配信コントロールを指定できます。たとえば、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にすることができます。アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)も設定できます。
+配信コントロールを指定できます。たとえば、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にすることができます。アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)も設定できます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 

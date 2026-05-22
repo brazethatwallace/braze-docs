@@ -53,7 +53,7 @@ Nossa solução de notificação por push automática aproveita o recurso de aut
 
 {% tabs %}
 {% tab Android %}
-#### Etapa 2.1: Configurar as definições de push {#step-21-configure-push-settings}
+#### Etapa 2.1: Configurar as definições de push {#unity_step-21-configure-push-settings}
 
 O SDK da Braze pode lidar automaticamente com o registro de push nos servidores do Firebase Cloud Messaging para que os dispositivos recebam notificações por push. No Unity, ative **Automate Unity Android Integration** e, em seguida, defina as seguintes configurações de **Push Notification**.
 
@@ -62,8 +62,13 @@ O SDK da Braze pode lidar automaticamente com o registro de push nos servidores 
 | Automatic Firebase Cloud Messaging Registration Enabled | Instrui o SDK da Braze a recuperar e enviar automaticamente um token por push FCM para um dispositivo. |
 | Firebase Cloud Messaging Sender ID | O Sender ID do seu console do Firebase. |
 | Handle Push Deeplinks Automatically | Se o SDK deve lidar com a abertura de deep links ou abrir o app quando notificações por push são clicadas. |
-| Small Notification Icon Drawable | O drawable deve ser exibido como o ícone pequeno sempre que uma notificação por push for recebida. A notificação usará o ícone do aplicativo como o ícone pequeno se nenhum ícone for fornecido. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Small Notification Icon Drawable | Referência de recurso drawable do Android para o ícone pequeno exibido quando uma notificação por push chega. Insira a referência completa incluindo o prefixo `@drawable/` (por exemplo, `@drawable/hourglass_icon`). A integração automatizada grava esse valor no `braze.xml` conforme inserido. Se você deixar em branco, a notificação usará o ícone do aplicativo como ícone pequeno. |
+| Large Notification Icon Drawable | Ícone grande opcional para notificações. Use o mesmo formato `@drawable/` do ícone pequeno (por exemplo, `@drawable/my_large_icon`). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+
+{% alert note %}
+**Small Notification Icon Drawable** e **Large Notification Icon Drawable** aparecem em **Push Configuration** em **Braze > Braze Configuration**. Ambos os valores são gravados no `braze.xml` conforme você os insere. Inclua o prefixo `@drawable/` você mesmo — a integração Unity da Braze não o adiciona automaticamente (por exemplo, `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`).
+{% endalert %}
 {% endtab %}
 
 {% tab Swift %}
@@ -94,7 +99,7 @@ Os usuários que ainda não tiverem aceitado as notificações por push serão a
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-#### Etapa 2.1: Atualize `AndroidManifest.xml` {#step-21-update-androidmanifestxml}
+#### Etapa 2.1: Atualize `AndroidManifest.xml` {#unity_step-21-update-androidmanifestxml}
 
 Se o seu app não tiver um `AndroidManifest.xml`, você poderá usar o seguinte como modelo. Caso contrário, se você já tiver um `AndroidManifest.xml`, confira se alguma das seções a seguir está faltando e adicione-a ao seu `AndroidManifest.xml` existente.
 
@@ -238,7 +243,7 @@ O ouvinte de push recebido é acionado quando um usuário recebe uma notificaç�
 
 O ouvinte de push aberto é acionado quando um usuário lança o app clicando em uma notificação por push. Para enviar a carga útil do push para o Unity, defina o nome do seu objeto de jogo e o método de retorno de chamada do ouvinte de push aberto na opção **Set Push Opened Listener**:
 
-![O editor Unity mostra as opções de configuração da Braze. Nesse editor, a opção "Set Push Received Listener" é expandida, e o "Game Object Name" (AppBoyCallback) e o "Callback Method Name" (PushNotificationOpenedCallback) são fornecidos.]({% image_buster /assets/img/unity/ios/unity_ios_push_opened.png %})
+![O editor Unity mostra as opções de configuração da Braze. Nesse editor, a opção "Set Push Opened Listener" é expandida, e o "Game Object Name" (AppBoyCallback) e o "Callback Method Name" (PushNotificationOpenedCallback) são fornecidos.]({% image_buster /assets/img/unity/ios/unity_ios_push_opened.png %})
 
 Se você precisar configurar o ouvinte do objeto de jogo em tempo de execução, use `AppboyBinding.ConfigureListener()` e especifique `BrazeUnityMessageType.PUSH_OPENED`.
 
@@ -301,7 +306,13 @@ Para obter orientações de configuração, visite [Deep Linking to In-App Resou
 
 #### Adição de ícones de notificação por push da Braze {#adding-braze-push-notification-icons}
 
-Para adicionar ícones de push ao seu projeto, crie um plug-in do Android Archive (AAR) ou uma biblioteca do Android que contenha os arquivos de imagem do ícone. Para obter etapas e informações, consulte a documentação do Unity: [Android Library Projects and Android Archive plug-ins](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+{% alert important %}
+Não adicione imagens de ícones de notificação em `Assets/Plugins/Android/res`. O Unity [descontinuou o fornecimento de recursos Android nesse caminho](https://support.unity.com/hc/en-us/articles/115005875443-Providing-Android-resources-in-Assets-Plugins-Android-res-is-deprecated), o que pode gerar avisos de build ou erros de validação. Empacote seus drawables de ícone em um [plug-in Android Archive (AAR)](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) ou em um projeto de biblioteca Android para que eles sejam mesclados nos recursos do app compilado como qualquer outro drawable.
+{% endalert %}
+
+Para adicionar ícones de push ao seu projeto, crie um plug-in AAR ou uma biblioteca Android que contenha os arquivos de imagem do ícone em `res/drawable*` (ou pastas específicas por densidade) e, em seguida, referencie cada ícone em **Braze > Braze Configuration** usando o nome completo do recurso `@drawable/` (consulte a [Etapa 2.1: Configurar as definições de push](#unity_step-21-configure-push-settings)). Para as etapas de empacotamento e importação do Unity, consulte [Android Library Projects and Android Archive plug-ins](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+
+Para regras de arte do ícone pequeno (somente alfa, sem cor), consulte [Notificações por push para Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android), Etapa 2: Adequar ícones pequenos às diretrizes de design.
 {% endtab %}
 
 {% tab Swift %}

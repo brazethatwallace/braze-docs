@@ -153,7 +153,7 @@ Braze는 항상 메시지를 보내기 전에 미리보기하고 테스트하는
 
 WhatsApp 메시지는 스케줄된 시간, 실행 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
-실행 기반 전달의 경우, Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)도 설정할 수 있습니다.
+실행 기반 전달의 경우, Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)도 설정할 수 있습니다.
 
 이 단계에서는 사용자가 Campaign을 [다시 받을 수 있도록]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
@@ -233,4 +233,4 @@ Braze를 통해 전송하는 WhatsApp 메시지에 대해 다음 콜투액션 �
 | 쿠폰 코드 메시지 템플릿 | 메시지 템플릿에서만 사용 가능합니다. <br>다른 메시지 템플릿처럼 열고 편집할 수 있으며, Liquid 및 Braze 프로모션 코드와 호환됩니다. |
 | CTA 응답 메시지 | 콜투액션 버튼이 포함된 응답 메시지를 만듭니다. |
 | [목록 응답 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | 사용자가 선택할 수 있는 최대 10개의 옵션 목록이 포함된 응답 메시지를 만듭니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types #ctas" }

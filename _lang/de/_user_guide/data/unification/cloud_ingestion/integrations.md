@@ -471,9 +471,16 @@ Gehen Sie im Braze-Dashboard zu **Dateneinstellungen** > **Cloud Data Ingestion*
 
 Wählen Sie einen Namen für Ihre Quelle und geben Sie Ihre Snowflake-Zugangsdaten und -Konfiguration ein. Fahren Sie dann mit dem nächsten Schritt fort.
 
-{% alert note %}
-Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Kontobezeichner](https://docs.snowflake.com/en/user-guide/admin-account-identifier) ein, der in der Regel einem Format wie `xy12345.us-east-1.aws` entspricht. Dies ist nicht dasselbe wie ein Datenbankname oder Warehouse-Name.
-{% endalert %}
+Bevor Sie fortfahren, überprüfen Sie den Wert, den Sie im Feld **Snowflake Account Locator** eingeben.
+
+Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Kontobezeichner](https://docs.snowflake.com/en/user-guide/admin-account-identifier) ein. Geben Sie nur den Wert des Kontobezeichners ein, z. B. `myorganization-myaccount`. Fügen Sie weder `https://`, `.snowflakecomputing.com` noch einen Pfad hinzu.
+
+So finden Sie Ihren Snowflake-Kontobezeichner:
+
+1. Wählen Sie in Snowsight Ihr Kontomenü aus.
+2. Wählen Sie **View account details**.
+3. Kopieren Sie den Wert des **Account identifier**.
+4. Wenn Sie aus einer Snowflake-URL kopieren, verwenden Sie nur den Wert vor `.snowflakecomputing.com`.
 
 #### Schritt 2.2: Public Key zur Braze-Nutzerin oder zum Braze-Nutzer hinzufügen {#step-22-add-a-public-key-to-the-braze-user}
 

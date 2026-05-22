@@ -68,6 +68,10 @@ Content Cards [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/ca
 
 ![콘텐츠 카드 만료를 위한 컨텍스트 변수로 구성된 기간 개인화를 보여주는 만료 설정.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Content Cards의 최대 만료 기간은 컨텍스트 변수를 사용한 개인화된 기간을 설정하더라도 30일입니다. 30일을 초과하는 값은 30일로 제한됩니다. 자세한 내용은 [카드 만료]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration)를 참조하세요.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 

@@ -9,6 +9,8 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
 {% alert important %}
 Nutzerprofil-Events befinden sich in der Beta-Phase. Wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um Zugang zu erhalten.
 {% endalert %}
@@ -21,7 +23,7 @@ Wenden Sie sich an Ihre Braze-Vertretung oder eröffnen Sie ein [Support-Ticket]
 
 {% details Erläuterung der Struktur von Nutzerprofil-Update-Events %}
 
-### Event-Struktur
+### Event-Struktur {#event-structure}
 
 Diese Aufschlüsselung von Kundenverhalten- und Nutzer-Events zeigt, welche Art von Informationen in der Regel in einem Nutzerprofil-Update-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Datenmetriken auszuwerten.
 
@@ -33,6 +35,9 @@ Currents verwirft Events mit Payloads, die größer als 900 KB sind.
 
 {% enddetails %}
 
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## Nutzerprofil-Update-Events {#user-profile-update-events}

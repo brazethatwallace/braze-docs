@@ -5,10 +5,15 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "この用語集には、Brazeが追跡し、Currentsを使用して選択されたデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントをリストしています。"
+description: "この用語集には、Brazeが追跡し、Currentsを使用して選択されたデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントがリストされています。"
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
+
+<div class="api-glossary-preamble" markdown="1">
+
+{% details スキーマの範囲と関連リソース %}
 
 ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。
 
@@ -17,6 +22,8 @@ search_rank: 6
 {% endalert %}
 
 追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに問い合わせるか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+
+{% enddetails %}
 
 {% details メッセージエンゲージメントイベントの構造とプラットフォーム値の説明 %}
 
@@ -56,27 +63,25 @@ search_rank: 6
 
 {% enddetails %}
 
-{% alert important %}
-Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つイベントをドロップします。
-{% endalert %}
+{% details メッセージエンゲージメントイベントに関する考慮事項 %}
 
-{% alert note %}
-キャンバスフローに関連するオブジェクトのIDは、グループ化に使用でき、[キャンバスの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)によって人間が読める名前に変換できます。
-{% endalert %}
+- Currentsは、900&nbsp;KBを超えるペイロードを持つイベントをドロップします。
+- キャンバスフローに関連するオブジェクトのIDは、グループ化に使用でき、[キャンバスの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)によって人間が読める名前に変換できます。
+- Campaignやキャンバスを更新した直後、特定のフィールドが最新の状態をすぐに表示しない場合があります。
+  - `campaign_name`
+  - `canvas_name`
+  - `canvas_step_name`
+  - `conversion_behavior`
+  - `canvas_variation_name`
+  - `experiment_split_name`
+  - `message_variation_name`
+- これらのフィールドの完全な一貫性が必要な場合は、最終更新から1時間待ってからユーザーにメッセージを送信してください。
 
-{% alert note %}
-Campaignやキャンバスの更新後、特定のフィールドが最新の状態を表示するのに時間がかかる場合があります。これらのフィールドは以下のとおりです。
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
-完全な一貫性が必要な場合は、これらのフィールドの最終更新から1時間待ってからユーザーにメッセージを送信することをお勧めします。
-{% endalert %}
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
 
 {% api %}
 
@@ -239,10 +244,10 @@ Agent
 Uninstall
 {% endapitags %}
 
-このイベントは、ユーザーがアプリをアンインストールしたときに発生します。このデータを使用して、ユーザーがアプリをアンインストールしたタイミングを追跡します。これは現在メッセージエンゲージメントイベントですが、将来的にはユーザー行動イベントに変更される予定です。
+このイベントは、ユーザーがアプリをアンインストールしたときに発生します。このデータを使用して、ユーザーがアプリをアンインストールしたタイミングを追跡できます。これは現在メッセージエンゲージメントイベントですが、将来的にはユーザー行動イベントに変更される予定です。
 
 {% alert important %}
-このイベントは、ユーザーが実際にアプリをアンインストールしたときには発生しません。その時点を正確に追跡することが不可能だからです。Brazeは、アプリがユーザーのデバイスにまだ存在するかどうかを判断するために、毎日サイレントプッシュを送信します。そのサイレントプッシュでエラーが返された場合、アプリがアンインストールされたと見なします。
+このイベントは、ユーザーが実際にアプリをアンインストールしたときには発生しません。その時点を正確に追跡することが不可能だからです。Brazeは、アプリがユーザーのデバイスにまだ存在するかどうかを判断するために、毎日サイレントプッシュを送信します。そのサイレントプッシュでエラーが返された場合、アプリがアンインストールされたと見なされます。
 {% endalert %}
 
 {% tabs %}
@@ -634,7 +639,7 @@ Subscription
 | 受信メッセージ | SMS などのチャネルを経由するエンドユーザーからのインバウンドメッセージによってユーザーが更新された場合 |
 | 移行 | 内部移行または保守スクリプトによってユーザーが更新された場合 |
 | ユーザーマージ | ユーザーのマージプロセスによってユーザーが更新された場合 |
-| Canvasユーザー更新ステップ | Canvasユーザー更新ステップによってユーザーが更新された場合 |
+| キャンバスユーザー更新ステップ | キャンバスユーザー更新ステップによってユーザーが更新された場合 |
 | プッシュトークン登録 | トークン登録プロセスによってユーザーが更新された場合 |
 | リスト配信停止 | ユーザーがBrazeの mailto またはワンクリックリスト配信停止ヘッダーを使用して配信停止した場合 |
 | その他 | デモまたはプロバイダーの同期ジョブ、SMS および WhatsApp イベントコールバックなど、その他のソースが含まれます |
@@ -2033,7 +2038,7 @@ Exit, Canvas
 ## 実験ステップコンバージョンイベント {#experiment-step-conversion-events}
 
 {% apitags %}
-Canvas
+Canvas, Conversion
 {% endapitags %}
 
 このイベントは、ユーザーがCanvasの実験ステップでコンバージョンを達成したときに発生します。
@@ -2232,7 +2237,7 @@ Canvas
 ## 実験分割エントリイベント {#experiment-split-entry-events}
 
 {% apitags %}
-Canvas
+Canvas, Entry
 {% endapitags %}
 
 このイベントは、ユーザーがCanvasの実験ステップパスに入ったときに発生します。
@@ -3198,6 +3203,10 @@ Banner, Clicks
 {% api %}
 
 ## バナー却下イベント {#banner-dismissal-events}
+
+{% apitags %}
+Banner, Dismissal
+{% endapitags %}
 
 このイベントは、ユーザーがバナーを却下したときに発生します。
 
@@ -7498,6 +7507,7 @@ Email, Sends
 {% endapi %}
 
 {% api %}
+
 ## メールソフトバウンスイベント {#email-soft-bounce-events}
 
 {% apitags %}
@@ -7751,6 +7761,7 @@ Email, Bounce
 {% endapi %}
 
 {% api %}
+
 ## メール配信停止イベント {#email-unsubscribe-events}
 
 {% apitags %}
@@ -8802,8 +8813,8 @@ In-App Messages, Clicks
 
 #### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFA と Android Google 広告 ID を明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して、`ad_id` の送信を有効にしてください。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
+- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して `ad_id` の送信を有効にしてください。
 
 {% endapi %}
 
@@ -10899,7 +10910,7 @@ Abort, Push
 ## プッシュ通知バウンスイベント {#push-notification-bounce-events}
 
 {% apitags %}
-Push, Sends, Bounce
+Push, Bounce
 {% endapitags %}
 
 このイベントは、Apple Push Notification ServiceまたはFire Cloud Messagingからエラーを受信した場合に発生します。これは、プッシュメッセージがバウンスされたため、ユーザーのデバイスに配信されなかったことを意味します。
@@ -11160,7 +11171,7 @@ Push, Sends, Bounce
 ## プッシュ通知iOSフォアグラウンドオープンイベント {#push-notification-ios-foreground-open-events}
 
 {% apitags %}
-Push, iOS, Sends
+Push, iOS, Opens
 {% endapitags %}
 
 このイベントは[Swift SDK](https://github.com/braze-inc/braze-swift-sdk)ではサポートされておらず、[Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk)では非推奨になりました。
@@ -11375,7 +11386,7 @@ Push, iOS, Sends
 Push, Opens
 {% endapitags %}
 
-このイベントは、ユーザーがプッシュ通知を直接クリックしてアプリケーションを開封したときに発生します。現在、プッシュ開封イベントは「オープン数の合計」ではなく「直接開封数」を指します。Campaignレベルの「誘発された開封数」に表示される統計情報は、ユーザーレベルで帰属していないため、これに含まれません。
+このイベントは、ユーザーがプッシュ通知を直接クリックしてアプリケーションを開封したときに発生します。現在、プッシュ開封イベントは「オープン数の合計」ではなく「直接開封数」を指します。キャンペーンレベルの「誘発された開封数」に表示される統計情報は、ユーザーレベルで帰属していないため、これに含まれません。
 
 {% alert note %}
 まれに、Currentsデータにおいてプッシュ開封が対応するプッシュ送信イベントより前に表示されることがあります。これは以下の理由によるものです。
@@ -12871,7 +12882,7 @@ RCS, Delivery
 
 #### プロパティの詳細
 
-- `dispatch_id` は、特定のメッセージ配信（Campaign送信など）のIDです。同じディスパッチから発生するすべてのプッシュイベントは、同じ `dispatch_id` を含みます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、特定のメッセージディスパッチ（Campaignの送信など）のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -13115,7 +13126,7 @@ RCS, Inbound Received
 RCS, Read
 {% endapitags %}
 
-このイベントは、ユーザーが自身の端末でRCSメッセージを開封した際に生成されます。これはユーザーがメッセージのコンテンツを確認または閲覧したことを示します。
+このイベントは、ユーザーが自身のデバイスでRCSメッセージを開封した際に生成されます。これはユーザーがメッセージのコンテンツを確認または閲覧したことを示します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13312,7 +13323,7 @@ RCS, Read
 RCS, Rejection
 {% endapitags %}
 
-通信事業者の介入により、RCSメッセージがユーザーのモバイル端末に配信されなかった場合に生成されるイベントです。
+通信事業者の介入により、RCSメッセージがユーザーのモバイルデバイスに配信されなかった場合に生成されるイベントです。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14510,7 +14521,7 @@ SMS, Delivery
 ## SMS配信失敗イベント {#sms-delivery-failure-events}
 
 {% apitags %}
-SMS, Delivery
+SMS, Delivery, Failure
 {% endapitags %}
 
 このイベントは、SMSで配信エラーが発生したときに発生します。このイベントと提供されたエラーコードを使用して、SMS配信に関する問題のトラブルシューティングに役立てることができます。
@@ -15004,7 +15015,7 @@ SMS, Rejection
 このイベントは、SMS送信が通信事業者によって拒否されたときに発生します。これはいくつかの理由で起こる可能性があります。このイベントと提供されたエラーコードを使用して、SMS配信に関する問題のトラブルシューティングに役立てることができます。
 
 {% alert note %}
-Brazeは、イベントがログ記録のために処理される時点でBrazeユーザープロファイルがワークスペースにまだ存在している場合にのみ、`users.messages.sms.Rejection` をCurrents、Snowflakeデータ共有、および関連するエクスポートに送信します。そのプロファイルが事前に削除されていた場合、データウェアハウスやCurrentsエクスポートにこのイベントは表示されません。同じ処理ルールは、Brazeが同じパイプラインを通じてログに記録する他の `users.messages.sms.*` アウトバウンドイベント（配信、配信失敗、キャリアへの送信など）にも適用されます。ワークスペースレベルのSMS指標には、Snowflakeの行と1対1で対応しない集計カウントが含まれる場合があります。
+Brazeは、イベントがログ記録のために処理される時点でBrazeユーザープロファイルがワークスペースにまだ存在している場合にのみ、`users.messages.sms.Rejection`をCurrents、Snowflakeデータ共有、および関連するエクスポートに送信します。そのプロファイルが事前に削除されていた場合、データウェアハウスやCurrentsエクスポートにこのイベントは表示されません。同じ処理ルールは、Brazeが同じパイプラインを通じてログに記録する他の`users.messages.sms.*`アウトバウンドイベント（配信、配信失敗、キャリアへの送信など）にも適用されます。ワークスペースレベルのSMS指標には、Snowflakeの行と1対1で対応しない集計カウントが含まれる場合があります。
 {% endalert %}
 
 {% tabs %}
@@ -15251,7 +15262,7 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、Campaignの送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -15728,8 +15739,8 @@ SMS, Sends
 
 #### プロパティの詳細
 
-- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/) を参照してください。
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `message_extras`を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/)を参照してください。
+- `dispatch_id`は、Campaignの送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 

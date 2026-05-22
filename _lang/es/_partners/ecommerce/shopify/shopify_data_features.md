@@ -824,11 +824,11 @@ Esta página se actualizará cuando Shopify resuelva este problema.
 
 Para añadir personalización Liquid a tus atributos personalizados de Shopify, selecciona **+ Personalization**. A continuación, selecciona **Custom Attributes** como tipo de personalización.
 
-![La sección "Add Personalization" con el desplegable "Attribute" expandido.]({% image_buster /assets/img/Shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+![La sección "Add Personalization" con el desplegable "Attribute" expandido.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 Tras seleccionar tu atributo personalizado, introduce un valor predeterminado y copia el fragmento de código Liquid en tu mensaje.
 
-![Pegar un fragmento de código Liquid en un mensaje.]({% image_buster /assets/img/Shopify/copy_liquid_snippet.png %})
+![Pegar un fragmento de código Liquid en un mensaje.]({% image_buster /assets/img/shopify/copy_liquid_snippet.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -869,13 +869,13 @@ Si ya eres cliente de Braze con Campaigns o Canvas activos, revisa cómo los cli
 
 1. Activa el backfill histórico en el paso **Track Shopify data**.
 
-![El paso "Track Shopify data" de la integración de Shopify muestra el backfill histórico seleccionado.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
+![El paso "Track Shopify data" de la integración de Shopify muestra el backfill histórico seleccionado.]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
 2. Después de completar la configuración de tu integración, Braze comenzará la sincronización inicial de datos. Puedes supervisar el progreso en la pestaña **Shopify Data** de tu configuración de integración.
 
-![La página de configuración de la integración de Shopify con un indicador que muestra que los eventos se están sincronizando activamente.]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
+![La página de configuración de la integración de Shopify con un indicador que muestra que los eventos se están sincronizando activamente.]({% image_buster /assets/img/shopify/historical_data_backfill_syncing.png %})
 
 ### Datos sincronizados {#synced-data}
 

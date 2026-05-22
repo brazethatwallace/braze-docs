@@ -481,7 +481,7 @@ Note that _Deferrals_ are currently only available using Currents or Braze Snowf
 
 This statistic uses a proprietary analytical model created by Braze to reconstruct an estimate of the campaign's unique open rate as if machine opens did not exist. While we receive labels of *Machine Opens* on some open events from email senders (see above), these labels can often label actual opens as machine opens. In other words, the *Other Opens* are likely an underestimate of real opens (by actual users). Instead, Braze uses click data from each campaign to infer the rate at which actual humans opened the message. This compensates for various machine opening mechanisms, including Apple’s MPP.
 
-_Estimated Real Open Rate_ is calculated 36 hours after email sending has begun and is recalculated every 24 hours thereafter. If a campaign recurs, the estimate is recalculated 36 hours after another send occurs.
+_Estimated Real Open Rate_ is calculated 24 hours after email sending has begun and is recalculated every 72 hours thereafter.
 
 Because this metric is recalculated on an ongoing cadence, the _Estimated Real Open Rate_ value can change over time as new engagement signals (such as opens and clicks) are received and incorporated into the model. In practice, the _Estimated Real Open Rate_ can continue to update daily while a campaign remains active.
 

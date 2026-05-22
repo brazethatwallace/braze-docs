@@ -22,7 +22,7 @@
 
 {% endif %}
 
-{% if include.alert == 'Segment profiles first app use' %}
+{% if include.alert == 'セグメント profiles first app use' %}
 
 {% alert note %}
 Brazeは、ユーザーが初めてアプリを使用するまでプロファイルを生成しないため、まだアプリを開いていないユーザーをターゲットにすることはできません。

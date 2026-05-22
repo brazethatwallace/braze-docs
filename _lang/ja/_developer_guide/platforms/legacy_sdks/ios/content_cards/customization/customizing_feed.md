@@ -49,7 +49,7 @@ noindex: true
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
   super.apply(captionedImageCard)         
  
@@ -70,7 +70,7 @@ override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
 
 {% tabs %}
 {% tab Objective-C %}
-```objc
+`````````objc
 #import "CustomClassicContentCardCell.h"  
  
 @implementation CustomClassicContentCardCell
@@ -85,7 +85,7 @@ override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 override func setUpUI() {
   super.setUpUI()
      
@@ -110,7 +110,7 @@ Braze には、3 つのコンテンツカードテンプレート (バナー、�
 
 {% tabs %}
 {% tab Objective-C %}
-```objc
+`````````objc
 - (void)registerTableViewCellClasses {
   [super registerTableViewCellClasses];
  
@@ -121,7 +121,7 @@ Braze には、3 つのコンテンツカードテンプレート (バナー、�
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 override func registerTableViewCellClasses() {
   super.registerTableViewCellClasses()
      
@@ -141,7 +141,7 @@ override func registerTableViewCellClasses() {
 
 {% tabs %}
 {% tab Objective-C %}
-```objc
+`````````objc
 - (void)populateContentCards {
   NSMutableArray<ABKContentCard *> *cards = [NSMutableArray arrayWithArray:[Appboy.sharedInstance.contentCardsController getContentCards]];
   for (ABKContentCard *card in cards) {
@@ -155,7 +155,7 @@ override func registerTableViewCellClasses() {
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 override func populateContentCards() {
   guard let cards = Appboy.sharedInstance()?.contentCardsController.contentCards else { return }
   for card in cards {

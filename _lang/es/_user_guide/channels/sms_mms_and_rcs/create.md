@@ -240,18 +240,18 @@ Los flujos de trabajo de mensajes conversacionales te permiten responder dinámi
 
 Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Cambia a la pestaña **Test** para enviar un SMS, MMS o RCS de prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) o a usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
 
-![Vista previa del texto SMS desde la pestaña Test del compositor. En la sección de perfil, el campo Nombre está configurado como "James". En la sección de vista previa, el SMS ahora dice "Hola James, ¡agradecemos tu apoyo!"]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 Si deseas probar en cuántos segmentos se puede dividir tu SMS, prueba la longitud de tu texto con la [calculadora de segmentos SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).
 {% endalert %}
+
+![Vista previa del texto SMS desde la pestaña Test del compositor. En la sección de perfil, el campo Nombre está configurado como "James". En la sección de vista previa, el SMS ahora dice "Hola James, ¡agradecemos tu apoyo!"]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 Para MMS, el orden de los activos (imagen y cuerpo del mensaje) no se puede personalizar. El orden depende del teléfono que recibe el mensaje.
 {% endalert %}
 
 {% alert note %}
-Dado que la renderización de RCS está controlada por el sistema operativo del usuario, el fabricante del dispositivo, el operador y la aplicación de mensajería (por ejemplo, Google Messages frente a Apple Messages), la apariencia del mensaje puede variar. La vista previa mostrada en Braze puede no coincidir exactamente con lo que recibe un usuario final. Valida la renderización final en dispositivos reales siempre que sea posible.
+Dado que la renderización de RCS está controlada por el sistema operativo del usuario, el fabricante del dispositivo, el operador y la aplicación de mensajería (por ejemplo, Google Messages frente a Apple Messages), la apariencia del mensaje puede variar. La vista previa mostrada en Braze puede no coincidir exactamente con lo que recibe un usuario final. Valida la renderización final en dispositivos reales siempre que sea posible. Para más detalles sobre la renderización de RCS en dispositivos iOS, consulta [¿Por qué mi mensaje RCS no se renderiza correctamente en dispositivos iOS?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
 Para más información, consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs).
@@ -267,7 +267,7 @@ A continuación, construye el resto de tu campaña. Consulta las siguientes secc
 
 Los mensajes se pueden entregar en función de una hora planificada, una acción o un desencadenante de API. Para más información, consulta [Planificar tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 En este paso también puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para recibir la campaña, o habilitar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 

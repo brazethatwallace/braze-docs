@@ -47,7 +47,7 @@ KakaoTalk 채널 정보(채널명, 프로필 이미지 등)는 공식 제출 서
 1. [카카오톡 채널 관리자센터](https://center-pf.kakao.com/)에 로그인합니다.
 2. 업그레이드하려는 기존 KakaoTalk 채널을 선택합니다.
 3. **Management (관리)** 섹션에서 **Business Channel Application (비즈니스 채널 신청)** 옵션을 선택합니다.
-4. **Apply** 또는 **Request button (신청)** 을 선택하여 절차를 시작합니다.
+4. **Apply** 또는 **Request button (신청)**을 선택하여 절차를 시작합니다.
 5. 필요한 정보를 입력합니다.
 6. 심사 결과 알림을 기다립니다.
 
@@ -55,8 +55,8 @@ KakaoTalk 채널 정보(채널명, 프로필 이미지 등)는 공식 제출 서
 
 ### 1단계: KakaoTalk 채널을 Braze에 연결 {#step-1-connect-the-kakaotalk-channel-to-braze}
 
-1. **Partner Integrations** > **Technology Partners**로 이동하여 KakaoTalk 제공업체를 선택합니다.
-2. 제공업체에 필요한 자격 증명을 수집한 후(아래 참조) **Technology Partners** 페이지에 입력하고 저장합니다.
+1. **파트너 통합** > **기술 파트너**로 이동하여 KakaoTalk 제공업체를 선택합니다.
+2. 제공업체에 필요한 자격 증명을 수집한 후(아래 참조) **기술 파트너** 페이지에 입력하고 저장합니다.
 3. 새로 저장한 자격 증명을 사용하여 발송합니다.
 
 #### CJ OliveNetworks
@@ -82,6 +82,12 @@ KakaoTalk 채널 정보(채널명, 프로필 이미지 등)는 공식 제출 서
 
 ![마스킹 처리된 발신프로필 키가 표시된 Comm.One 대시보드.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
+{% alert important %}
+KakaoTalk 발신프로필 키는 한 번에 하나의 워크스페이스에만 통합할 수 있습니다. 동일한 발신프로필 키를 다른 워크스페이스에서 사용하려면 먼저 기존 워크스페이스에서 KakaoTalk 구독 그룹을 아카이브한 후 [Braze 고객지원]({{site.baseurl}}/braze_support/)에 연락하여 통합을 제거해야 합니다. Braze에서 통합을 제거한 후 새 워크스페이스에서 통합을 설정할 수 있습니다.
+{% endalert %}
+
+![Braze KakaoTalk 채널의 자격 증명.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
+
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
 
@@ -95,13 +101,11 @@ KakaoTalk 채널 정보(채널명, 프로필 이미지 등)는 공식 제출 서
 {% endtab %}
 {% endtabs %}
 
-![CJ OliveNetworks의 Technology Partners 페이지 필드.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Braze KakaoTalk 채널의 자격 증명.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 하나의 공통 ID에 매핑된 채널만 등록할 수 있습니다.
 {% endalert %}
+
+![CJ OliveNetworks의 기술 파트너 페이지 필드.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 

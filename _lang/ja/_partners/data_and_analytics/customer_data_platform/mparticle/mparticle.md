@@ -15,7 +15,7 @@ search_tag: Partner
 > mParticleの顧客データプラットフォームは、データの有効活用を支援します。熟練したマーケターは、mParticleでグローススタック全体のデータのオーケストレーションを行い、カスタマージャーニーの重要なタイミングで適切なアクションを取ることができます。
 
 BrazeとmParticleの統合により、2つのシステム間の情報の流れをシームレスにコントロールできます。
-- Braze CampaignとCanvasのセグメンテーションのために、mParticleのオーディエンスをBrazeに同期する。
+- Braze キャンペーンとキャンバスのセグメンテーションのために、mParticleのオーディエンスをBrazeに同期する。
 - 2つのプラットフォーム間でデータを共有する。これはmParticleキット統合とサーバー間統合によって実現できます。
 - [Currentsを介してBrazeユーザーインタラクションをmParticleに送信し]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/)、グローススタック全体でアクションに活用する。
 
@@ -39,41 +39,41 @@ BrazeとmParticleのパートナーシップを利用して統合を構成し、
 
 #### オーディエンスの転送 {#forwarding-audiences}
 
-mParticleでは、コホートメンバーシップ属性を設定する3つの方法が提供されており、「[Segmentsの送信方法](#send_settings)」設定で制御されます。各オプションの処理については、以下のセクションを参照してください。
+mParticleでは、コホートメンバーシップ属性を設定する3つの方法が提供されており、「[セグメントの送信方法](#send_settings)」設定で制御されます。各オプションの処理については、以下のセクションを参照してください。
 
 - [単一文字列属性](#string)
 - [単一配列属性](#array)
-- [Segmentごとに1つの属性](#per-segment)
+- [セグメントごとに1つの属性](#per-segment)
 - [単一配列属性と単一文字列属性の両方](#both-1)
-- [単一配列属性とSegmentごとに1つの属性の両方](#both-2)
-- [単一文字列属性とSegmentごとに1つの属性の両方](#both-3)
-- [単一配列属性、単一文字列属性、およびSegmentごとに1つの属性](#multi)
+- [単一配列属性とセグメントごとに1つの属性の両方](#both-2)
+- [単一文字列属性とセグメントごとに1つの属性の両方](#both-3)
+- [単一配列属性、単一文字列属性、およびセグメントごとに1つの属性](#multi)
 
 ##### 単一文字列属性 {#string}
 
-mParticleは `SegmentMembership` というカスタム属性を1つ作成します。この属性の値は、ユーザーに一致するmParticleオーディエンスIDのカンマ区切り文字列です。これらのオーディエンスIDは、mParticleダッシュボードの**Audiences**で確認できます。
+mParticleは `セグメントMembership` というカスタム属性を1つ作成します。この属性の値は、ユーザーに一致するmParticleオーディエンスIDのカンマ区切り文字列です。これらのオーディエンスIDは、mParticleダッシュボードの**Audiences**で確認できます。
 
-たとえば、mParticleオーディエンス「Ibiza dreamers」のオーディエンスIDが「11036」の場合、フィルター `SegmentMembership` — `matches regex` — `11036` でこれらのユーザーをセグメントできます。
+たとえば、mParticleオーディエンス「Ibiza dreamers」のオーディエンスIDが「11036」の場合、フィルター `セグメントMembership` — `matches regex` — `11036` でこれらのユーザーをセグメントできます。
 
-これはmParticleのデフォルトオプションですが、ほとんどの企業ユーザーは、BrazeでSegmentsを作成する際のフィルタリング体験のために[単一配列属性](#array)を使用することを選択しています。
+これはmParticleのデフォルトオプションですが、ほとんどの企業ユーザーは、Brazeでセグメントを作成する際のフィルタリング体験のために[単一配列属性](#array)を使用することを選択しています。
 
 {% alert important %}
-オーディエンスが少数の場合を除き、このソリューションは推奨されません。カスタム属性は最大255文字であるため、この方法ではユーザープロファイルに数十または数百のオーディエンスを保存することはできません。ユーザーあたりのコホート数が多い場合は、「Segmentごとに1つの属性」設定を強くお勧めします。
+オーディエンスが少数の場合を除き、このソリューションは推奨されません。カスタム属性は最大255文字であるため、この方法ではユーザープロファイルに数十または数百のオーディエンスを保存することはできません。ユーザーあたりのコホート数が多い場合は、「セグメントごとに1つの属性」設定を強くお勧めします。
 {% endalert %}
 
-![mParticle Segmentメンバーシップ]({% image_buster /assets/img_archive/mparticle1.png %})
+![mParticle セグメントメンバーシップ]({% image_buster /assets/img_archive/mparticle1.png %})
 
 ##### 単一配列属性 {#array}
 
-mParticleは、各ユーザーに対して `SegmentMembershipArray` というカスタム配列属性をBrazeに1つ作成します。この属性の値は、ユーザーに一致するmParticleオーディエンスIDの配列です。
+mParticleは、各ユーザーに対して `セグメントMembershipArray` というカスタム配列属性をBrazeに1つ作成します。この属性の値は、ユーザーに一致するmParticleオーディエンスIDの配列です。
 
-たとえば、ユーザーがオーディエンスID「13053」、「13052」、「13051」の3つのmParticleオーディエンスのメンバーである場合、フィルター `SegmentMembershipArray` — `includes value` — `13051` でこれらのオーディエンスのいずれかに一致するユーザーをセグメントできます。
+たとえば、ユーザーがオーディエンスID「13053」、「13052」、「13051」の3つのmParticleオーディエンスのメンバーである場合、フィルター `セグメントMembershipArray` — `includes value` — `13051` でこれらのオーディエンスのいずれかに一致するユーザーをセグメントできます。
 
 {% alert note %}
 Brazeの配列属性のデフォルトの最大長は500です。ユーザーが500を超えるオーディエンスのメンバーである場合、Brazeはメンバーシップ情報を切り捨てます。回避策については、Brazeアカウントマネージャーに連絡して最大配列長のしきい値を引き上げてください。
 {% endalert %}
 
-##### Segmentごとに1つの属性 {#per-segment}
+##### セグメントごとに1つの属性 {#per-segment}
 
 mParticleは、ユーザーが所属する各オーディエンスに対してブール値のカスタム属性を作成します。たとえば、mParticleオーディエンスが「Possible Parisians」という名前の場合、フィルター `In Possible Parisians` - `equals` - `true` でこれらのユーザーをセグメントできます。
 
@@ -83,17 +83,17 @@ mParticleは、ユーザーが所属する各オーディエンスに対して�
 
 mParticleは、単一配列属性と単一文字列属性の両方で説明されているとおりに属性を送信します。
 
-##### 単一配列属性とSegmentごとに1つの属性の両方 {#both-2}
+##### 単一配列属性とセグメントごとに1つの属性の両方 {#both-2}
 
-mParticleは、単一配列属性とSegmentごとに1つの属性の両方で説明されているとおりに属性を送信します。
+mParticleは、単一配列属性とセグメントごとに1つの属性の両方で説明されているとおりに属性を送信します。
 
-##### 単一文字列属性とSegmentごとに1つの属性の両方 {#both-3}
+##### 単一文字列属性とセグメントごとに1つの属性の両方 {#both-3}
 
-mParticleは、単一文字列属性とSegmentごとに1つの属性の両方で説明されているとおりに属性を送信します。
+mParticleは、単一文字列属性とセグメントごとに1つの属性の両方で説明されているとおりに属性を送信します。
 
-##### 単一配列属性、単一文字列属性、およびSegmentごとに1つの属性 {#multi}
+##### 単一配列属性、単一文字列属性、およびセグメントごとに1つの属性 {#multi}
 
-mParticleは、単一配列属性、単一文字列属性、およびSegmentごとに1つの属性で説明されているとおりに属性を送信します。
+mParticleは、単一配列属性、単一文字列属性、およびセグメントごとに1つの属性で説明されているとおりに属性を送信します。
 
 #### ステップ 1: mParticleでオーディエンスを作成する {#send_settings}
 
@@ -106,7 +106,7 @@ mParticleでオーディエンスを作成するには:
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | APIキー | Brazeダッシュボードの**Settings** > **API Keys**で確認できます。<br><br>古いナビゲーションを使用している場合は、**Developer Console** > **API Settings**でAPIキーを確認できます。 |
 | APIキーのオペレーティングシステム | Braze APIキーが対応するオペレーティングシステムを選択します。この選択により、オーディエンス更新時に転送されるプッシュトークンの種類が制限されます。 |
-| Segmentsの送信方法 | オーディエンスをBrazeに送信する方法です。詳細については、[オーディエンスの転送](#forwarding-audiences)セクションを参照してください。 |
+| セグメントの送信方法 | オーディエンスをBrazeに送信する方法です。詳細については、[オーディエンスの転送](#forwarding-audiences)セクションを参照してください。 |
 | ワークスペースREST APIキー | フル権限を持つBraze REST APIキー。これはBrazeダッシュボードの**Settings** > **API Keys**で作成できます。 |
 | 外部IDタイプ | Brazeにexternal IDとして転送するmParticleユーザーIDタイプ。デフォルト値のCustomer IDのままにすることをお勧めします。 |
 | メールIDタイプ | Brazeにメールとして転送するmParticleユーザーIDタイプ。 |
@@ -120,16 +120,16 @@ mParticleでオーディエンスを作成するには:
 
 #### ステップ 2: Brazeでユーザーをセグメントする {#step-2-segment-users-in-braze}
 
-Brazeでこれらのユーザーのセグメントを作成するには、**Engagement**の下の**Segments**に移動し、Segmentに名前を付けます。以下は、**Segmentsの送信方法**で選択したオプションに応じた2つのセグメントの例です。各オプションの詳細については、[オーディエンスの転送](#forwarding-audiences)を参照してください。
+Brazeでこれらのユーザーのセグメントを作成するには、**Engagement**の下の**セグメント**に移動し、セグメントに名前を付けます。以下は、**セグメントの送信方法**で選択したオプションに応じた2つのセグメントの例です。各オプションの詳細については、[オーディエンスの転送](#forwarding-audiences)を参照してください。
 
-- **単一配列属性:** フィルターとして `SegmentMembershipArray` を選択します。次に、「includes value」オプションを使用して、目的のオーディエンスIDを入力します。![mParticle Segmentフィルター「SegmentMembershipArray」が「includes value」とオーディエンスIDに設定されている。]({% image_buster /assets/img_archive/mparticle5.png %})<br><br>
-- **Segmentごとに1つの属性:** フィルターとしてカスタム属性を選択します。次に、「equals」オプションを使用して、適切なロジックを選択します。![mParticle Segmentフィルター「in possible parisians」が「equals」と「true」に設定されている。]({% image_buster /assets/img_archive/mparticle3.png %})
+- **単一配列属性:** フィルターとして `セグメントMembershipArray` を選択します。次に、「includes value」オプションを使用して、目的のオーディエンスIDを入力します。![mParticle セグメントフィルター「セグメントMembershipArray」が「includes value」とオーディエンスIDに設定されている。]({% image_buster /assets/img_archive/mparticle5.png %})<br><br>
+- **セグメントごとに1つの属性:** フィルターとしてカスタム属性を選択します。次に、「equals」オプションを使用して、適切なロジックを選択します。![mParticle セグメントフィルター「in possible parisians」が「equals」と「true」に設定されている。]({% image_buster /assets/img_archive/mparticle3.png %})
 
-保存すると、ターゲットユーザーステップでCanvasまたはCampaign作成時にこのSegmentを参照できます。
+保存すると、ターゲットユーザーステップでキャンバスまたはキャンペーン作成時にこのセグメントを参照できます。
 
 #### 接続の無効化と削除 {#deactivating-and-deleting-connections}
 
-mParticleはBrazeのSegmentsを直接管理しないため、対応するmParticleオーディエンス接続が削除または無効化されてもSegmentsは削除されません。この場合、mParticleはBrazeのオーディエンスユーザー属性を更新して各ユーザーからオーディエンスを削除しません。
+mParticleはBrazeのセグメントを直接管理しないため、対応するmParticleオーディエンス接続が削除または無効化されてもセグメントは削除されません。この場合、mParticleはBrazeのオーディエンスユーザー属性を更新して各ユーザーからオーディエンスを削除しません。
 
 削除前にBrazeユーザーからオーディエンスを削除するには、オーディエンスフィルターを調整してオーディエンスサイズを0にしてから、オーディエンスを削除します。オーディエンスの計算が完了して0ユーザーが返された後、オーディエンスを削除します。すると、Brazeのオーディエンスメンバーシップは、単一属性オプションの場合は `false` に更新され、配列形式の場合はオーディエンスIDが削除されます。
 

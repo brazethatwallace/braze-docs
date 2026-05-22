@@ -2,7 +2,7 @@
 nav_title: Criação de cartões
 article_title: Criação de cartões
 alias: /card_creation/
-description: "Este artigo descreve as diferenças entre a criação do cartão de conteúdo no lançamento da campanha ou na entrada da etapa do Canvas versus na primeira impressão."
+description: "Este artigo descreve as diferenças entre a criação do cartão de conteúdo no lançamento da Campaign ou na entrada da etapa do Canvas versus na primeira impressão."
 page_order: 0
 tool: Campaigns
 channel:
@@ -12,7 +12,7 @@ toc_headers: h2
 
 # Criação de cartões {#card-creation}
 
-> Você pode escolher quando a Braze avalia a elegibilidade do público e a personalização para novas campanhas de Content Cards e etapas do Canvas, especificando quando o cartão é criado.
+> Você pode escolher quando a Braze avalia a elegibilidade do público e a personalização para novas Campaigns de Content Cards e etapas do Canvas, especificando quando o cartão é criado.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -67,6 +67,10 @@ Selecione a opção para remover Content Cards quando os usuários concluírem u
 Nas configurações de **Expiration (Time in Feed)**, você pode selecionar **Personalize duration** para definir a expiração do Content Card usando variáveis de contexto.
 
 ![Configurações de expiração mostrando Personalize duration configurada com uma variável de contexto para expiração do Content Card.]({% image_buster /assets/img/content_card_personalize_duration.png %})
+
+{% alert important %}
+Content Cards têm uma expiração máxima de 30 dias, mesmo ao usar duração personalizada com variáveis de contexto. Qualquer valor definido além de 30 dias é limitado a 30 dias. Para mais detalhes, consulte [Expiração do cartão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+{% endalert %}
 
 {% endtab %}
 {% endtabs %}

@@ -28,7 +28,7 @@ La integración de Braze y Amazon S3 presenta dos estrategias de integración:
 | Cuenta de Amazon S3 | Necesitas una cuenta de Amazon S3 para aprovechar esta asociación. |
 | Contenedor de S3 dedicado | Antes de integrarte con Amazon S3, debes crear un contenedor de S3 para tu aplicación.<br><br>Si ya tienes un contenedor de S3, te recomendamos que crees un nuevo contenedor específico para Braze, de modo que puedas limitar los permisos. Consulta las siguientes instrucciones sobre cómo crear un nuevo contenedor. |
 | Currents | Para volver a exportar datos a Amazon S3, necesitas tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) para tu cuenta. Currents no es necesario si solo estás configurando el archivado de mensajes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### Crear un nuevo contenedor de S3 {#creating-a-new-s3-bucket}
 
@@ -332,6 +332,14 @@ Una notificación te informa de si tus credenciales se han validado correctament
 
 {% endtab %}
 {% endtabs %}
+
+## Actualización de credenciales de Amazon S3 para Currents {#updating-currents-credentials}
+
+Puedes actualizar las credenciales de Amazon S3 en un conector de Braze Currents existente sin detener la integración ni perder los datos ya exportados a tu contenedor.
+
+Para actualizar las credenciales, o para cambiar entre **AWS Secret Access Key** y **AWS Role ARN**, completa los pasos de IAM y AWS para el método elegido descritos anteriormente en este artículo (políticas, usuario o rol, e identificadores según sea necesario).
+
+Cuando hayas terminado de preparar las credenciales en AWS, ve a **Partner Integrations** > **Currents** en Braze, localiza tu conector de Amazon S3 en la lista, selecciona **Edit**, actualiza las **Credentials** y selecciona **Update Current**. Braze valida las credenciales que introduces; tu conector sigue funcionando y los datos que ya están en tu contenedor permanecen disponibles. Para más información, consulta [Actualización de Currents en Configurar Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents).
 
 ## Comportamiento de la exportación {#export-behavior}
 

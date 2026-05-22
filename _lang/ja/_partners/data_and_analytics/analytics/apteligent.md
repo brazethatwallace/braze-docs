@@ -48,7 +48,7 @@ Apteligent SDKは、クラッシュが発生した後にユーザーがアプリ
 
 通知を受け取ったら、カスタムクラッシュイベントをログに記録し、Apteligentのクラッシュレポート分析を使用してユーザー属性を更新します。
 
-```objc
+`````````objc
 - (void)crashDidOccur:(NSNotification*)notification {
   NSDictionary *crashInfo = notification.userInfo;
   [[Appboy sharedInstance] logCustomEvent:@"ApteligentCrashEvent" withProperties:crashInfo];

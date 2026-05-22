@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [VWO](https://vwo.com/) は、顧客行動データに裏打ちされたコンバージョン最適化プログラムをチームが実行できるようにすることで、ブランドが主要なビジネス指標を強化するのを支援する強力な実験プラットフォームです。VWOを使えば、顧客データの一元化、行動インサイトの獲得、仮説の構築、複数プラットフォーム（サーバー、Web、モバイル）でのA/Bテストの実行、機能の展開、エクスペリエンスのパーソナライズ、カスタマージャーニー全体の最適化が可能になります。
 
-VWOとBrazeを統合することで、VWOの実験データを活用してターゲットSegmentsを作成し、パーソナライズされたCampaignsを配信できます。
+VWOとBrazeを統合することで、VWOの実験データを活用してターゲットセグメントを作成し、パーソナライズされたキャンペーンを配信できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -26,35 +26,35 @@ VWOとBrazeを統合することで、VWOの実験データを活用してター
 ### ステップ1:VWOでBraze統合を有効にする {#step-1-enable-the-braze-integration-in-vwo}
 
 1. VWOアカウントにログインします。
-2. VWOダッシュボードで、**Configurations** > **Integrations** に移動します。ここでは、ワークスペースレベルで統合を有効にできます。これにより、統合はデフォルトで今後のすべてのテストCampaignsに適用されます。
+2. VWOダッシュボードで、**Configurations** > **Integrations** に移動します。ここでは、ワークスペースレベルで統合を有効にできます。これにより、統合はデフォルトで今後のすべてのテストキャンペーンに適用されます。
 
    ![VWO統合設定]({% image_buster /assets/img/vwo/vwo1_settings.png %})
 
 4. Braze統合を選択して有効にします。
-5. 必要に応じて、既存のあらゆるCampaignsに対してBraze統合を有効にできます。そのためには、Campaignを選択し、**Configuration** > **Integrations** に移動して、Brazeを有効にします。
+5. 必要に応じて、既存のあらゆるキャンペーンに対してBraze統合を有効にできます。そのためには、キャンペーンを選択し、**Configuration** > **Integrations** に移動して、Brazeを有効にします。
 
    ![Braze統合を有効にする]({% image_buster /assets/img/vwo/vwo2_enable_braze.png %})
 
-6. 統合を有効にすると、VWOはCampaignレベルでBrazeへの実験データの送信を開始します。
+6. 統合を有効にすると、VWOはキャンペーンレベルでBrazeへの実験データの送信を開始します。
 
-### ステップ2:VWOイベントプロパティを使用してBrazeでSegmentを作成する {#step-2-create-a-segment-in-braze-with-vwo-event-properties}
+### ステップ2:VWOイベントプロパティを使用してBrazeでセグメントを作成する {#step-2-create-a-segment-in-braze-with-vwo-event-properties}
 
-1. Brazeダッシュボードで、**Segments** > **+ Create Segment** を選択します。
-3. **Create Segment** ウィンドウで、Segmentの名前を入力し、**Create Segment** を選択します。
-4. 新しく作成したSegmentで、**Filters** > **Add Filter** を選択し、フィルタータイプとして **Custom Event** を選択します。
+1. Brazeダッシュボードで、**セグメント** > **+ Create セグメント** を選択します。
+3. **Create セグメント** ウィンドウで、セグメントの名前を入力し、**Create セグメント** を選択します。
+4. 新しく作成したセグメントで、**Filters** > **Add Filter** を選択し、フィルタータイプとして **Custom Event** を選択します。
 6. フィルターのドロップダウンで、**VWO** を検索します。
 7. 関連するVWOプロパティを選択し、必要な値を指定します。
 8. 必要であれば、訪問回数と時間枠を設定します。完了したら、**Save** を選択します。
 
-   ![BrazeでのSegment作成]({% image_buster /assets/img/vwo/vwo3_braze_segment.png %})
+   ![Brazeでのセグメント作成]({% image_buster /assets/img/vwo/vwo3_braze_segment.png %})
 
-9. Segment条件に一致するユーザー数を表示するには、**Calculate Exact Statistics** を選択します。
+9. セグメント条件に一致するユーザー数を表示するには、**Calculate Exact Statistics** を選択します。
 
-   ![BrazeのSegment統計]({% image_buster /assets/img/vwo/vwo4_braze_segment_calculate_size.png %})
+   ![Brazeのセグメント統計]({% image_buster /assets/img/vwo/vwo4_braze_segment_calculate_size.png %})
 
 ## データフロー {#data-flow}
 
-VWOは、Campaign実験データを以下のフォーマットでカスタムイベントとしてBrazeに送信します。
+VWOは、キャンペーン実験データを以下のフォーマットでカスタムイベントとしてBrazeに送信します。
 
 - **イベント名:** VWO
 - **イベントプロパティ:** `vwo_campaign_name`、`vwo_variation_name`
@@ -80,7 +80,7 @@ VWOは、Campaign実験データを以下のフォーマットでカスタムイ
    <tbody>
       <tr>
          <td><strong>件名</strong></td>
-         <td>Request to Enable Event Property Segmentation for VWO Integration</td>
+         <td>Request to Enable Event Property セグメントation for VWO Integration</td>
       </tr>
       <tr>
          <td><strong>本文</strong></td>
@@ -109,7 +109,7 @@ VWOからBrazeに送信されるカスタムイベント（セグメンテーシ
 
 BrazeでVWOのデータが表示されない場合:
 
-1. テストCampaignが実行されているページを右クリックし、**Inspect Element** を選択します。
+1. テストキャンペーンが実行されているページを右クリックし、**Inspect Element** を選択します。
 2. **Network** タブで、**Braze** を検索し、Brazeのネットワークコールをフィルタリングします。
 3. ネットワークコールはページの読み込み時に入力されます。ネットワークコールを表示するにはページをリロードしてください。
 4. ネットワークコールを選択すると、詳細が表示されます。

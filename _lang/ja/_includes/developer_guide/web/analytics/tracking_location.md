@@ -26,7 +26,7 @@ Brazeにデータが送信される際、SDKはユーザーのIPアドレスか�
 
 もし彼らがオプトインすれば、位置情報が更新されるたびに成功コールバックが呼び出されるようになる。
 
-```javascript
+`````````javascript
 function success(position) {
   var coords = position.coords;
   braze.getUser().setLastKnownLocation(

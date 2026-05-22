@@ -47,7 +47,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 6개의 eCommerce 추천 이벤트는 구매 여정의 단계에 매핑됩니다. 사용자가 해당 동작을 완료하는 시점에 각 이벤트를 발생시키세요.
 
-![6개의 eCommerce 추천 이벤트(product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, order_refunded)를 거치는 사용자 여정 다이어그램]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![6개의 eCommerce 추천 이벤트(product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, order_refunded)를 거치는 사용자 여정 다이어그램]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
