@@ -2,7 +2,6 @@
 nav_title: "Regular expressions"
 article_title: Regular Expressions
 page_order: 8
-
 description: "This reference article covers what regular expressions (regex) are, how to begin using them, and offers debugger functionality to validate and test regular expressions."
 page_type: reference
 tool:
@@ -208,7 +207,7 @@ Assuming you're searching for US phone numbers, use the regex format `1?\d\d\d\d
 
 Likewise, the format for UK phone numbers is `^\+4\d\d\d\d\d\d\d\d\d\d\d`. Any other country would be the respective country code, followed by the necessary number of `\d` repetitions for each remaining digit. So in the case of Lithuania with a country code of "3", their regex would be `^\+3\d\d\d\d\d\d\d\d\d\d`.
 
-If your UK mobile numbers are stored **without** a leading `+` in the common format starting with `447` (for example, `447123456789`), you can match them with:
+If your UK mobile numbers are stored without a leading `+` in the common format starting with `447` (for example, `447123456789`), you can match them with:
 
 ```
 ^447\d{9}$

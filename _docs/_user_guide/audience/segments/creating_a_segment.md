@@ -120,9 +120,11 @@ By adding filters that document your user flow, you can see the points where use
 
 #### Testing segments
 
-After adding apps and filters to your segment, you can test if your segment is set up as expected by looking up a user to confirm if they match the segment criteria. To do so, search for a user’s `external_id` or `braze_id` in the **User Lookup** section. Note that you cannot search by email address in **User Lookup**.
+After adding apps and filters to your segment, you can test if your segment is set up as expected by looking up a user to confirm if they match the segment criteria. To do so, search for a user’s `external_id` or `braze_id` in the **User Lookup** section. 
 
+{% alert note %}
 **User Lookup** accepts only `external_id` and `braze_id`. It does not accept email addresses, phone numbers, or other identifiers. To find a profile by email, phone, or other fields, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles) instead.
+{% endalert %}
 
 ![User Lookup section with a search field.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
 
