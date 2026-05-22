@@ -339,13 +339,13 @@ Users who are frequency capped don't generate a send event for that step. To ide
 
 ### Why does the dashboard show a rate limit error for my campaign?
 
-This usually means the campaign's [delivery speed rate limit](#delivery-speed-rate-limiting) is set higher than your workspace, provider, or mailbox host can absorb, so sends back up and Braze surfaces a warning. If you cannot raise the limit safely, you can spread volume with **Limit the number of people who will receive this campaign** using **Every time the campaign is scheduled**, send to **a maximum of** *X* **users** so each scheduled occurrence stays within a sustainable per-minute throughput.
+This usually means the campaign's [delivery speed rate limit](#delivery-speed-rate-limiting) is set higher than your workspace, provider, or mailbox host can absorb, so sends back up and Braze surfaces a warning. If you cannot raise the limit safely, you can spread volume with **Limit the number of people who will receive this campaign** using "Every time the campaign is scheduled, send to a maximum of X users" so each scheduled occurrence stays within a sustainable per-minute throughput.
 
 ### What does "Sent" mean for frequency capping?
 
-In analytics and frequency capping, **Sent** refers to when Braze **dispatches** the message (the send is recorded), not guaranteed final delivery to the device or inbox. Frequency capping and send counts use these recorded send events, which can differ from downstream "delivered" metrics.
+In analytics and frequency capping, _Sent_ refers to when Braze dispatches the message (the send is recorded), not guaranteed final delivery to the device or inbox. Frequency capping and send counts use these recorded send events, which can differ from downstream "delivered" metrics.
 
-### Why am I seeing email bounces such as `554 5.4.7` / "too many connections"?
+### Why am I seeing email bounces such as `554 5.4.7` or "too many connections"?
 
 Some mailbox providers return `554 5.4.7` (or similar) when too many concurrent connections or messages arrive at once. Lower the campaign or Canvas [delivery speed rate limit](#delivery-speed-rate-limiting) so Braze opens fewer simultaneous connections to that provider, then retry sends once the provider accepts traffic again.
 

@@ -173,11 +173,3 @@ Braze expects all SCIM requests to contain the SCIM API bearer token attached vi
 
 {% endtab %}
 {% endtabs %}
-
-## Dashboard permissions and exports
-
-The Braze dashboard does not offer a bulk export of every user’s **permission** assignments (for example, a spreadsheet of who holds which workspace or company role).
-
-- **Programmatic access:** Use SCIM to work with dashboard user accounts. For example, you can [search for an existing dashboard user]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user/) by email, or retrieve a user by resource ID as described in [See user account information]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information/).
-- **Support:** If you need a list of dashboard users, [contact Braze Support]({{site.baseurl}}/braze_support/). In some situations Support can assist with a user list; that list reflects accounts, not a full permission matrix.
-- **Audit trail:** Your company’s **security event log** records events such as **Added Account** and **Updated Permissions**. You can filter those events when you need an audit trail of permission changes outside the dashboard UI.
