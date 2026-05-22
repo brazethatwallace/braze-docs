@@ -411,18 +411,6 @@ line-height: 18px; /* 138.462% */
   }
 }
 
-.algolia-autocomplete-listbox-2 {
-    display: inline !important;
-}
-
-#algolia-autocomplete-listbox-2 {
-  position: relative !important;
-}
-
-.algolia-autocomplete {
-  line-height: normal;
-  display: inline !important;
-}
 #search-input {
     padding: 0 0 20px;
     position: relative;
@@ -471,10 +459,6 @@ line-height: 18px; /* 138.462% */
 
 #ticket_search aa-suggestion--highlight{
 
-}
-
-#ticket_search .algolia-docsearch-footer {
-  padding-top: 5px;
 }
 
 .gradient-line {
@@ -640,33 +624,6 @@ a:hover {
 #firefox_warning a:hover, #ticket_thankyou_msg a:hover {
   color: #3accdd;
   text-decoration: none;
-}
-#support-search-panel .aa-Panel {
-  top: 0px !important;
-  position: static;
-  box-shadow: none;
-}
-#support-search-panel .aa-Item {
-  top: 0px !important;
-  position: static;
-  box-shadow: none;
-  min-height: 1.8em;
-  line-height: 1.3em;
-}
-#support-search-panel .aa-PanelLayout {
-  padding-top: 0px;
-}
-#support-search-div {
-  padding-bottom: 15px;
-}
-#support-search-div .aa-Form {
-  box-shadow: none;
-  border-color: transparent;
-  border-radius: 0px;
-  border-bottom: solid 2px #c9c9c9;
-}
-#support-search-div .aa-Form button {
-  padding-top: 10px;
 }
 .hidden {
               display: none !important;
@@ -2230,122 +2187,6 @@ $( document ).ready(function() {
     }
     return str;
   }
-  const algoliaInsightsPluginSupport = createAlgoliaInsightsPlugin({
-    insightsClient,
-    onItemsChange({ insights, insightsEvents }) {
-      const events = insightsEvents.map((insightsEvent) => ({
-        ...insightsEvent,
-        eventName: 'Viewed from Support Search',
-      }));
-      insights.viewedObjectIDs(...events);
-    },
-    onSelect({ insights, insightsEvents }) {
-      const events = insightsEvents.map((insightsEvent) => ({
-        ...insightsEvent,
-        eventName: 'Clicked from Support Search',
-      }));
-      insights.clickedObjectIDsAfterSearch(...events);
-    },
-  });
-  autocomplete({
-    container: "#support-search-div",
-    panelContainer: "#support-search-panel",
-    debug: true,
-    placeholder: "Search",
-    plugins: [algoliaInsightsPluginSupport],
-    detachedMediaQuery: 'none',
-    onSubmit(e){
-      var query = e.state.query;
-      window.location = base_url + '/search/?query=' + encodeURIComponent(query);
-    },
-    getSources() {
-      return [{
-          sourceId: "querySuggestions",
-          getItemInputValue: ({ item }) => item.query,
-          getItems({ query }) {
-            return getAlgoliaResults({
-              searchClient,
-              queries: [
-                {
-                  indexName: "DocSearch",
-                  query,
-                  params: {
-                    hitsPerPage: 5,
-                    attributesToSnippet: ["description:12"],
-                    snippetEllipsisText: " ...",
-                    clickAnalytics: true,
-                  },
-                },
-              ],
-            });
-          },
-          getItemUrl({ item }) {
-           return base_url + item.url;
-         },
-         templates: {
-           noResults({createElement}) {
-             return createElement("div", {
-               dangerouslySetInnerHTML: {
-                 __html: '<div class="no_results">No results were found with your current search. Try to change the search query.</div>',
-                 },
-               })
-          },
-
-          item({ item, createElement }) {
-            var content = "";
-            var title = "";
-            var type = "";
-            var category = "";
-            var platform = "";
-            var subname = "";
-            var heading = "";
-
-            if ("nav_title" in item) {
-              title = item.nav_title.replaceUnder();
-            } else {
-              title = item.title.replaceUnder();
-            }
-            if ("type" in item) {
-              type = item.type.replaceUnder().upCaseWord();
-            }
-            if ("category" in item) {
-              category = item.category.replaceUnder();
-            }
-
-            if ("platform" in item) {
-              if (Array.isArray(item.platform)){
-                platform = item.platform.join(',').replace(/\%20/g, ' ').replace(/\_/g, ' ') + ' > ';
-              }
-              else {
-                platform = item.platform.replace(/\%20/g, ' ').replace(/\_/g, ' ') + ' > ';
-              }
-            }
-            if ("headings" in item) {
-              if (item["headings"]) {
-                heading = item["headings"][item["headings"].length - 1];
-              }
-            }
-
-            var url = item.url;
-            if (heading) {
-              url += "#" + string_to_slug(heading);
-            }
-            var resulttemplate = '<a href="' +
-                base_url + url + '"><div class="title"> * ' +
-                platform + title + ' <div class="category">' +
-                subname.replace(/\_/g, " ") +
-                "</div></div></a>";
-            return createElement("div", {
-              dangerouslySetInnerHTML: {
-                __html: resulttemplate,
-              },
-            });
-          },
-        },
-      }];
-    }
-  });
-
  if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ) {
    var ff_div = $('#firefox_warning').detach();
    ff_div.insertBefore($('#basic_page')).show();

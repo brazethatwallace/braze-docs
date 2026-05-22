@@ -64,9 +64,9 @@ Not all findings can be fixed in the docs repo. Categorize each **critical** fin
 | **Docs templates** | Layouts, shared includes (header, nav, search, forms) | `_includes/`, `_layouts/`, `assets/` | Update HTML/Liquid in this repo |
 | **_lang/ content** | Localized pages under `_lang/<locale>/` | `_lang/**/*.md` | **Do not edit.** Add to Issues report only |
 | **Platform/site** | Third-party widgets, cookie banner, site chrome not in docs repo | Docs site platform (separate repo) | Add to Issues report; escalate |
-| **Third-party**   | Search (Algolia), analytics, etc. | External service | Add to Issues report; document for vendor |
+| **Third-party**   | Search (SearchUnify), analytics, etc. | External service | Add to Issues report; document for vendor |
 
-**How to tell:** Inspect the **Code Snippet** and **Selector/Xpath**. If it references `su__` (search), `searchForm`, `search-box-autocomplete`, `nav`, `header`, or `form` in shared layout, it may be template/platform or **third-party** — the search widget HTML is injected by external scripts (Swiftype/Algolia) and is not editable in this repo. If it references `img` with missing alt, `div` used as heading, or content inside the main article area, it's likely docs content.
+**How to tell:** Inspect the **Code Snippet** and **Selector/Xpath**. If it references `su__` (search), `searchForm`, `search-box-autocomplete`, `nav`, `header`, or `form` in shared layout, it may be template/platform or **third-party** — the search widget HTML is injected by external scripts (SearchUnify) and is not editable in this repo. If it references `img` with missing alt, `div` used as heading, or content inside the main article area, it's likely docs content.
 
 **Docs-repo patterns (fixable here):** `glossary_search`, `api_search`, `partner_search` → `_layouts/api_glossary.html`, `glossary_page.html`, `partner_page.html`, and other glossary/report layouts.
 
