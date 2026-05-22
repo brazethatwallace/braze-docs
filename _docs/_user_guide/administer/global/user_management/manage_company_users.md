@@ -88,6 +88,15 @@ If a new dashboard user is subsequently created with the same email address as t
 
 ## Troubleshooting
 
+### "Unable to perform action" when adding a user
+
+If adding a dashboard user fails with an "Unable to perform action" (or similar) error:
+
+- Remove leading or trailing spaces and hidden characters from the email address.
+- Confirm the address is a valid email format for your organization. 
+Some special characters are rejected.
+- The same email cannot be used for two dashboard users in the same [cluster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/). If the address is already registered in another workspace on that cluster, use a distinct address or an alias such as `user+1@company.com`.
+
 ### "Email is already taken" when trying to add a user
 
 If you try to add a new user and receive an error saying the email is already taken, but can't find them in your user list, that user most likely exists within a different instance of the same Braze dashboard cluster.
