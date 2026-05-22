@@ -4,6 +4,7 @@ article_title: Databricks
 description: "This article outlines Databricks Delta Sharing with Braze (closed beta), which allows you to access Braze engagement and campaign data in your Databricks account."
 page_type: partner
 search_tag: Partner
+permalink: /databricks/
 hidden: true
 ---
 
