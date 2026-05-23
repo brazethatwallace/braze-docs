@@ -5,8 +5,7 @@ hide_nav: true
 layout: basic
 hide_toc: true
 ---
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
-
+<!-- Legacy Algolia/DocSearch CSS and autocomplete JS removed; support suggestions use SearchUnify (see in-page fetch to searchunify.com). -->
 
 <style type="text/css">
   .legal-disclaimer{
@@ -409,56 +408,6 @@ line-height: 18px; /* 138.462% */
     padding-left: 15px;
     border: none;
   }
-}
-
-#search-input {
-    padding: 0 0 20px;
-    position: relative;
-}
-
-#search-input input[type="text"] {
-    padding: .5em 0 .5em 0;
-    outline: 0;
-    border: 0;
-    border-bottom: solid 2px #c9c9c9;
-    width: 100%;
-    font-size: 15px;
-    display: inline-block;
-    background-image:url(/docs/assets/img/search_black_shark.svg);
-    background-position: right 10px top 9px;
-    background-size: 14px 14px;
-    background-repeat: no-repeat;
-}
-
-#search-input .fa-search {
-  line-height: normal;
-  position: relative;
-  top: 15px;
-  left: 5px;
-}
-
-.aa-suggestion {
-  margin-top: 5px;
-  line-height: 25px;
-}
-
-#ticket_search div.aa-suggestion {
-  color: #6d6d70;
-  cursor: pointer;
-  display: inline;
-  border-bottom-width: 0px;
-}
-
-#ticket_search aa-suggestions:hover div {
-  text-decoration: none;
-  color: #6d6d70;
-  border-bottom-width: 2px;
-  border-color: #3accdd;
-}
-
-
-#ticket_search aa-suggestion--highlight{
-
 }
 
 .gradient-line {
@@ -1287,11 +1236,6 @@ nextButton.addEventListener('keypress', function(e) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-
-function support_doc_submit(){
-  window.location = base_url + '/search/?query=' + encodeURIComponent($('#support-search-form .aa-Form .aa-Input').val());
-  return false;
-}
 
 String.prototype.mapReplace = function(map) {
   var mstr = this;
