@@ -10,4 +10,4 @@ In Braze, geofences and location tracking serve different purposes:
 - **Location tracking:** Collect and store each user's most recent location on their profile. You use this data for backward-looking segmentation—for example, the `Most Recent Location` filter targets users based on where they last opened your app, not necessarily where they are in real time.
 - **Geofences:** Define virtual boundaries around a latitude, longitude, and radius. When a user enters or exits a boundary, Braze can trigger actions such as sending a campaign. Geofences require additional SDK setup beyond basic location tracking.
 
-Both features require users to grant location permissions. If a user opts out of location tracking, previously stored location data isn't automatically removed from their profile, but new location data won't be collected.
+Both features require users to grant location permissions. If a user opts out of location tracking, previously stored location data isn't automatically removed from their profile, but new location data isn't collected.
