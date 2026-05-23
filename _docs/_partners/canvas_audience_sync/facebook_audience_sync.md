@@ -242,7 +242,6 @@ table td {
 </style>
 
 <table aria-label="Troubleshooting">
-  <caption>Troubleshooting</caption>
   <thead>
     <tr>
       <th>Error</th>
