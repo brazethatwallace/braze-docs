@@ -22,6 +22,10 @@ There are several Braze Unity packages available for download on the [Braze Unit
     - This package is similar to `Appboy.unitypackage` except for the [SDWebImage](https://github.com/SDWebImage/SDWebImage) framework is not present. This package is useful if you do not want the SDWebImage framework present in your iOS app.
 
 {% alert note %}
+If Android builds fail with **This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled**, open `Assets/Plugins/Android/gradleTemplate.properties` in your Unity project and set `android.useAndroidX=true`. See the [Braze Unity sample app](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) for a working template.
+{% endalert %}
+
+{% alert note %}
 As of Unity 2.6.0, the bundled Braze Android SDK artifact requires  [AndroidX](https://developer.android.com/jetpack/androidx) dependencies. If you were previously using a `jetified unitypackage`, then you can safely transition to the corresponding `unitypackage`.
 {% endalert %}
 {% endtab %}
