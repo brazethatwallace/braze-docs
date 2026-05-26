@@ -267,3 +267,8 @@ Several factors can cause the number of sends to be lower than the estimated aud
 - **Segment re-evaluation:** For action-based or scheduled campaigns that re-evaluate at send time, users who were in the segment when the campaign was enqueued may no longer qualify when the message is actually sent.
 - **Send caps:** A Maximum number of users (or similar cap) in **Target Audiences** stops delivery when the cap is hit.
 - **Strict device or browser filters:** Filters that only match the newest app versions or browsers shrink the reachable set at send time compared to a broad segment preview.
+
+### Where are frequently asked questions about global frequency capping?
+
+For questions about calendar days, silent push, webhooks, Canvas behavior, and related topics, see the [Frequently asked questions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) for [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
