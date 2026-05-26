@@ -17,7 +17,7 @@ tool:
 
 ### 다크 모드에서 이메일이 어떻게 표시되는지 미리볼 수 있나요? {#can-i-preview-how-my-email-appears-in-dark-mode}
 
-네. 드래그 앤 드롭 편집기의 **미리보기 및 테스트** 섹션으로 이동하여 **다크 모드**를 켜세요. 다양한 사용자 플랫폼에서 이메일을 미리보기하고 테스트하는 것도 권장하며, 가능하면 행 배경 이미지에 투명 이미지를 사용하는 것이 좋습니다.
+네. 드래그 앤 드롭 편집기의 **Preview and Test** 섹션으로 이동하여 **Dark mode**를 켜세요. 다양한 사용자 플랫폼에서 이메일을 미리보기하고 테스트하는 것도 권장하며, 가능하면 행 배경 이미지에 투명 이미지를 사용하는 것이 좋습니다.
 
 ### 다크 모드와 라이트 모드에 맞게 이메일을 어떻게 디자인해야 하나요? {#how-should-i-design-emails-for-dark-mode-and-light-mode}
 
@@ -46,8 +46,12 @@ tool:
 
 ### Campaign이나 Canvas에서 작성한 드래그 앤 드롭 이메일을 템플릿으로 저장할 수 있나요? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-아니요, 저장하려면 **이메일 템플릿**에서 이메일을 다시 만들어야 합니다.
+아니요. Campaign이나 Canvas에서 작성한 드래그 앤 드롭 이메일을 **Templates** > **Email Templates**에서 드래그 앤 드롭 **Email Template**으로 저장할 수 없습니다. **Templates** > **Email Templates**에서 레이아웃을 다시 만들거나, 다음에는 저장된 템플릿에서 시작하세요. 자세한 내용은 [이메일 템플릿 만들기]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)를 참조하세요.
+
+재사용 가능한 HTML 템플릿이 필요한 경우, 드래그 앤 드롭 본문을 편집하는 동안 **Download file**을 선택하고, ZIP에서 HTML을 열어 HTML 코드 편집기를 사용하여 [HTML 이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)에 마크업을 붙여넣으세요. 이후 Liquid, 링크 및 호스팅된 자산을 다시 확인하세요.
+
+템플릿이 어디에 있는지에 대한 자세한 내용은 [Templates and Media]({{site.baseurl}}/user_guide/messaging/templates/)를 참조하세요.
 
 ### 드래그 앤 드롭 편집기에 이메일 첨부 파일을 추가할 수 있나요? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
-네. **발송 설정** > **고급**으로 이동하여 이메일 메시지에 첨부 파일을 추가할 수 있습니다.
+네. **Sending Settings** > **Advanced**로 이동하여 이메일 메시지에 첨부 파일을 추가할 수 있습니다.

@@ -62,10 +62,18 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     {
       "name": "Created_At",
       "type": "time"
+    },
+    {
+      "name": "Location",
+      "type": "geo"
     }
   ]
 }'
 ```
+
+{% alert note %}
+You must provide geolocation field values as a `[longitude, latitude]` array—for example, `[-73.988103, 40.779109]`. Latitude must be between -90 and 90; longitude must be between -180 and 180.
+{% endalert %}
 
 ## Response
 

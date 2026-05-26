@@ -44,4 +44,4 @@ Si ce n'est pas déjà fait, suivez les étapes de [configuration de l'intégrat
 4. Sélectionnez les événements que vous souhaitez suivre. Une liste des événements disponibles est fournie.
 5. Sélectionnez **Launch Current**.
 
-![La page Braze Shopify Currents. Cette page comprend des champs pour le nom de l'intégration, l'adresse e-mail de contact et la boutique Shopify.]({% image_buster /assets/img/Shopify/shopify_currents.png %})
+![La page Braze Shopify Currents. Cette page comprend des champs pour le nom de l'intégration, l'adresse e-mail de contact et la boutique Shopify.]({% image_buster /assets/img/shopify/shopify_currents.png %})

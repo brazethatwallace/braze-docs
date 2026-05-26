@@ -37,7 +37,7 @@ Recomendamos verificar a visualização de análise de dados para usuários pend
 
 Enfileiramos um trabalho para cada etapa — eles são executados aproximadamente ao mesmo tempo, e um deles "vence". Na prática, isso pode ser distribuído de forma relativamente uniforme, mas é provável que haja pelo menos uma leve tendência para a etapa que foi criada primeiro.
 
-Além disso, não podemos garantir exatamente como será essa distribuição. Se você quiser uma divisão uniforme, adicione um filtro de [Número de bucket aleatório]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/).
+Além disso, não podemos garantir exatamente como será essa distribuição. Se você quiser uma divisão uniforme, adicione um filtro de [número de bucket aleatório]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/).
 
 ### Como os públicos do Canvas são avaliados? {#how-are-canvas-audiences-evaluated}
 
@@ -93,7 +93,7 @@ Para escalonar envios ou usar horários diferentes por jornada, tente os seguint
 - Ramos ou uma etapa de [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para que os usuários sigam jornadas com diferentes horários.
 - Campaigns separadas se o caso de uso não precisar permanecer dentro de um único Canvas.
 
-Para conceitos de testes multivariantes e Testes A/B em Campaigns, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+Para conceitos de testes multivariantes e testes A/B em Campaigns, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 ### Por que os envios são menores que o tamanho estimado do público? {#why-are-sends-lower-than-the-estimated-audience-size}
 
@@ -109,7 +109,7 @@ Fatores específicos do Canvas também se aplicam:
 - **Limites máximos de entrada ou público:** Limites de entrada ou envio impedem usuários adicionais mesmo quando o segmento subjacente é maior.
 - **Janela de relatório:** O intervalo de análise de dados pode não incluir todos os envios que você está comparando com a estimativa.
 
-### Por que _Destinatários únicos_ é maior que o número de usuários que eu segmentei? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Por que _Destinatários únicos_ é maior que o número de usuários que eu segmentei? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 _Destinatários únicos_ pode ser maior que o público esperado porque a Braze rastreia **destinatários únicos diários** para relatórios de Canvas e Campaign. Isso permite uma atribuição de conversão precisa cada vez que um usuário recebe uma mensagem na jornada.
 
@@ -162,6 +162,16 @@ Há um Canvas de uma única etapa com horário de silêncio ativado:
 
 É comum que o total de conversões de uma variante do Canvas seja maior que a soma dos totais de suas etapas. Isso ocorre porque um usuário pode realizar um evento de conversão para uma variante assim que entra nela. No entanto, esse mesmo evento de conversão não conta para uma etapa do Canvas. Portanto, qualquer usuário que entre no Canvas e realize o evento de conversão antes de receber a primeira etapa do Canvas será contado no total de conversões da variante, mas não no total da etapa. O mesmo vale para um usuário que entra no Canvas, mas sai antes de receber qualquer etapa.
 
+Observe que também é possível que um usuário entre em uma variante, não receba nenhuma mensagem de uma etapa e depois converta. Nesse caso, a conversão não é registrada no nível da etapa. No entanto, como o usuário tecnicamente converteu, a conversão é registrada no nível do Canvas.
+
+### Como posso confirmar se meus usuários receberam um Canvas disparado por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+
+Você pode [criar um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando um filtro de Canvas para confirmar se os usuários entraram no Canvas ou receberam uma etapa específica do Canvas. Por exemplo, use um filtro de entrada no Canvas se quiser confirmar que os usuários entraram no Canvas disparado por API, ou um filtro de etapa recebida se quiser confirmar que eles receberam uma mensagem do Canvas. Depois, use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para exportar os usuários desse segmento.
+
+### Posso excluir um Canvas? {#can-i-delete-a-canvas}
+
+Não, mas você pode [arquivar um Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### Como posso visualizar a análise de dados de cada um dos meus componentes do Canvas? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
 Para visualizar a análise de dados de um componente do Canvas, acesse seu Canvas e role para baixo na página **Detalhes do Canvas**. Aqui, você pode visualizar a análise de dados de cada componente. Confira [Análise de dados do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) para mais detalhes.
@@ -172,7 +182,7 @@ O segmentador é uma estatística mais precisa para dados de usuários únicos e
 
 ### Por que o número de usuários que entram em um Canvas não corresponde ao número esperado? {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
 
-O número de usuários que entram em um Canvas pode diferir do número esperado devido à forma como os públicos e gatilhos são avaliados. Na Braze, o público é avaliado antes do gatilho (a menos que se use um gatilho de [mudança de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam do Canvas se não fizerem parte do público selecionado antes que quaisquer ações-gatilho sejam avaliadas.
+O número de usuários que entram em um Canvas pode diferir do número esperado devido à forma como os públicos e gatilhos são avaliados. Na Braze, o público é avaliado antes do gatilho (a menos que se use um gatilho de [mudança de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Isso fará com que os usuários saiam do Canvas se não fizerem parte do público selecionado antes que quaisquer ações-gatilho sejam avaliadas.
 
 ### O que acontece com usuários anônimos durante sua jornada no Canvas? {#what-happens-to-anonymous-users-during-their-canvas-journey}
 

@@ -32,16 +32,16 @@ BrazeとShopifyの統合は、カスタマーエンゲージメントを強化�
 
 ## 統合 {#integration}
 
-### ステップ 1: Shopifyストアを設定する {#step-1-set-up-your-shopify-store}
+### ステップ1:Shopifyストアを設定する {#step-1-set-up-your-shopify-store}
 
 まだ設定していない場合は、[Shopify標準統合セットアップ]({{site.baseurl}}/shopify_standard_integration/)の手順に従って、Brazeで少なくとも1つのShopifyストアを設定してください。
 
-### ステップ 2: Braze Currentを作成する {#step-2-create-braze-current}
+### ステップ2:Braze Currentを作成する {#step-2-create-braze-current}
 
-1. Brazeで、**パートナー連携** > **Currents** > **+ 新規Currentを作成** > **Shopify Export**に移動します。
+1. Brazeで、**パートナー連携** > **Currents** > **+ 新規Currentを作成** > **Shopify Export** に移動します。
 2. 統合名と連絡先メールアドレスを入力します。
-3. **認証情報**セクションで、[ステップ 1](#step-1-set-up-your-shopify-store)で設定したShopifyストアを選択します。
+3. **認証情報**セクションで、[ステップ1](#step-1-set-up-your-shopify-store)で設定したShopifyストアを選択します。
 4. 追跡するイベントを選択します。利用可能なイベントのリストが表示されます。
-5. **Launch Current**を選択します。
+5. **Launch Current** を選択します。
 
-![Braze Shopify Currentsページ。このページには、統合名、連絡先メール、Shopifyストアのフィールドが含まれています。]({% image_buster /assets/img/Shopify/shopify_currents.png %})
+![Braze Shopify Currentsページ。このページには、統合名、連絡先メール、Shopifyストアのフィールドが含まれています。]({% image_buster /assets/img/shopify/shopify_currents.png %})

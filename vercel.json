@@ -26,7 +26,15 @@
 			"destination": "/:path*"
 		},
 		{
-			"source": "/api/(.*)",
+			"source": "/api/llms.txt",
+			"destination": "/api/llms.txt"
+		},
+		{
+			"source": "/api/llms-full.txt",
+			"destination": "/api/llms-full.txt"
+		},
+		{
+			"source": "/api/((?!llms\\.txt|llms-full\\.txt).*)",
 			"destination": "/api/404.html"
 		}
 	],

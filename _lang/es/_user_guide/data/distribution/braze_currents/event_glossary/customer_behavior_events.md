@@ -70,7 +70,7 @@ Algunos eventos devuelven un valor `platform` que especifica la plataforma del d
 Random Bucket Number
 {% endapitags %}
 
-Este evento de usuario se produce cada vez que se crea un nuevo usuario dentro de su espacio de trabajo. Durante este evento, a cada nuevo usuario se le asigna un número de contenedor aleatorio que luego puedes utilizar para crear segmentos distribuidos uniformemente de usuarios aleatorios. Utiliza esta función para agrupar una serie de valores de números de contenedor aleatorios y comparar el rendimiento de tus Campaigns y variantes de campaña.
+Este evento de usuario se produce cada vez que se crea un nuevo usuario dentro de su espacio de trabajo. Durante este evento, a cada nuevo usuario se le asigna un número de contenedor aleatorio que luego puedes utilizar para crear segmentos distribuidos uniformemente de usuarios aleatorios. Utiliza esta función para agrupar una serie de valores de números de contenedor aleatorios y comparar el rendimiento de tus campañas y variantes de campaña.
 
 {% alert important %}
 Este evento de Currents solo está disponible para los clientes que hayan adquirido un «conector para todos los eventos» y solo está disponible para conectores de eventos de almacenamiento (como Amazon S3, Microsoft Azure y Google Cloud Storage).
@@ -1574,11 +1574,14 @@ Este evento se produce cuando se inserta, actualiza o elimina un token de notifi
 - El campo `push_token_foreground_push_disabled` indica si el token de notificaciones push puede recibir notificaciones push en primer plano o en segundo plano.
   - Si el usuario ha otorgado explícitamente el permiso para las notificaciones push en su dispositivo, este valor será `false`, y el token podrá recibir notificaciones push en primer plano.
   - Si el usuario ha denegado explícitamente el permiso para las notificaciones push en su dispositivo, este valor será `true`, y el token solo podrá recibir notificaciones push en segundo plano.
-  - Si el permiso push es desconocido, este campo estará vacío. De forma predeterminada, Braze intentará enviar notificaciones push en primer plano al token.
+  - Si el permiso push aún no se ha determinado (por ejemplo, el usuario no ha respondido al aviso del sistema operativo), este valor será `true`, y el token solo podrá recibir notificaciones push en segundo plano.
+  - Este campo puede ser `null` (o estar vacío, dependiendo del formato de tu destino) para registros de tokens de SDK más antiguos que aún no han informado del estado del permiso y para tokens de notificaciones push web. Trata `null` de la misma forma que `false` (con capacidad de push en primer plano), ya que Braze sigue intentando enviar notificaciones push en primer plano a esos tokens.
+  - Un intento de envío push no actualiza este campo. Si un envío tiene éxito, no se emite ningún evento `TokenStateChange`. Si un envío rebota porque el token no es válido, Braze emite un evento "remove" y elimina el token.
+  - Este campo solo cambia cuando Braze ingesta una actualización del estado del token desde el SDK (por ejemplo, una sincronización de sesión posterior que informa del estado del permiso push).
 - El campo `push_token_provisionally_opted_in` solo se aplica a los tokens de notificaciones push de iOS.
   - Si tienes configurada la [autorización provisional]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push), los tokens provisionales tendrán este campo establecido en `true`. El resto de tokens de notificaciones push serán `false`.
-- El campo `sdk_version` solo se rellenará si el cambio de estado del token es iniciado por el SDK.
-  - Si hay un evento `changeUser` del SDK que desencadena el traslado del token de un usuario a otro, se rellenará el campo `sdk_version`.
+- El campo `sdk_version` solo se rellena si el cambio de estado del token es iniciado por el SDK.
+  - Si hay un evento `changeUser` del SDK que desencadena el traslado del token de un usuario a otro, se rellena el campo `sdk_version`.
   - Si hay un rebote de push (por ejemplo, debido a una desinstalación), el campo `sdk_version` quedará en blanco.
 - Cada vez que un token de notificaciones push entra en Braze, se registran los eventos de su ciclo de vida. Hay tres tipos de eventos de cambio de token ("add", "update" y "remove") registrados en el campo `push_token_state_change_type`.
 
@@ -1588,12 +1591,18 @@ Este evento se produce cuando se inserta, actualiza o elimina un token de notifi
 
 Se ingesta un evento "add" cuando se registra un nuevo token. Esto ocurre cuando un usuario abre la aplicación en un nuevo dispositivo por primera vez, o cuando se establece un token a través del punto de conexión [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) con `push_tokens` para un usuario que no tenía uno anteriormente.
 
+{% alert note %}
+Para iOS Swift SDK 13.3.0 y versiones posteriores, y Android SDK 40.0.0 y versiones posteriores, el estado del permiso push y el token de notificaciones push se envían juntos. Para los nuevos registros de estos SDK, `push_token_foreground_push_disabled` se rellena en el evento "add" (normalmente `false` cuando las notificaciones están habilitadas).<br><br>
+
+Los registros de tokens más antiguos pueden seguir teniendo este campo como `null` hasta que el SDK informe posteriormente del estado del permiso push. Los tokens de notificaciones push web también pueden tener este campo como `null` por diseño.
+{% endalert %}
+
 ##### Actualizar {#update}
 
-Se ingesta un evento "update" cuando cambia una propiedad de un token existente sin que cambie la cadena del token en sí. El token tiene la misma cadena, el mismo usuario y la misma aplicación, pero uno o varios de los siguientes campos han cambiado: `foreground_push_disabled`, puerta de enlace APNs, claves de notificaciones push web, `provisionally_opted_in` o `device_id`.
+Se ingesta un evento "update" cuando cambia una propiedad de un token existente sin que cambie la cadena del token en sí. El token tiene la misma cadena, el mismo usuario y la misma aplicación, pero uno o varios de los siguientes campos han cambiado: `foreground_push_disabled`, puerta de enlace APNs, claves de notificaciones push web, `provisionally_opted_in` o `device_id`. Estas actualizaciones provienen de eventos de sincronización del estado del token (por ejemplo, cuando el SDK informa de un nuevo estado de permiso), no de los resultados de envío push.
 
 {% alert note %}
-En la mayoría de los casos, la reinstalación de la aplicación o la restauración de una copia de seguridad da como resultado un nuevo evento "add" con un nuevo `push_token` y un nuevo `device_id` (porque el SDK genera un nuevo `device_id` y el sistema operativo proporciona una nueva cadena de token de notificaciones push). Esto crea dos entradas separadas para el token y el dispositivo en el perfil de usuario, y la entrada más antigua se elimina posteriormente mediante Uninstall Tracking o el envío de una Campaign.<br><br>
+En la mayoría de los casos, la reinstalación de la aplicación o la restauración de una copia de seguridad da como resultado un nuevo evento "add" con un nuevo `push_token` y un nuevo `device_id` (porque el SDK genera un nuevo `device_id` y el sistema operativo proporciona una nueva cadena de token de notificaciones push). Esto crea dos entradas separadas para el token y el dispositivo en el perfil de usuario, y la entrada más antigua se elimina posteriormente mediante Uninstall Tracking o el envío de una campaña.<br><br>
 
 Sería muy raro que solo cambiara el `device_id` sin que cambiara el `push_token` (esto requeriría que el sistema operativo devolviera la misma cadena de token después de la reinstalación).
 {% endalert %}
@@ -1605,6 +1614,8 @@ Se ingesta un evento independiente "remove" cuando Braze elimina un token. Esto 
 - Rebote de push (APNs, FCM o HMS informan de que el token no es válido o ha caducado)
 - Detección de desinstalación mediante push silencioso
 - Token eliminado a través de la REST API o el servicio de feedback de APNs
+
+Cuando un rebote de push desencadena la eliminación del token, Braze emite `push_token_state_change_type = "remove"` para ese token. No emite un evento "update" que cambie `push_token_foreground_push_disabled`.
 
 ##### Pares de añadir y eliminar {#add-and-remove-pairs}
 

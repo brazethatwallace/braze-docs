@@ -257,8 +257,7 @@ $search_icon: $white;
 		.aa-DetachedFormContainer {
 			.aa-Form {
 				width: 100%;
-				.aa-input,
-				.algolia-autocomplete .aa-hint {
+				.aa-input {
 					width: 100%;
 					height: 30px;
 					@media (min-width: $window-small-px) {
@@ -379,20 +378,6 @@ $search_icon: $white;
 					color: $black-shark;
 					font-style: normal;
 				}
-				#algolia_footer {
-					height: $search_footer_height;
-					border-top: 1px solid rgba($grey-ghost, 0.7);
-					margin: 0 15px 0 15px;
-
-					.algolia-docsearch-footer {
-						height: $search_footer_height;
-						font-size: 0;
-						line-height: 0;
-						position: absolute;
-						left: 0;
-						margin: auto 10px;
-					}
-				}
 			}
 		}
 		.aa-InputWrapperSuffix {
@@ -448,24 +433,6 @@ $search_icon: $white;
 						text-align: right;
 						display: inline;
 					}
-				}
-			}
-		}
-		#algolia-headersearch-advanced {
-			height: $search_footer_height;
-			font-size: 13px;
-			line-height: 50px;
-			font-family: $braze-bold;
-			color: $braze-purple-dark;
-			position: absolute;
-			right: 0;
-			margin: auto 15px auto 0;
-			cursor: pointer;
-			a {
-				color: $braze-purple;
-				&:hover {
-					color: $braze-purple;
-					text-decoration: none;
 				}
 			}
 		}

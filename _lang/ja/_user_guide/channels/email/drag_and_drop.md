@@ -6,13 +6,13 @@ page_order: 1
 description: "この記事では、メールメッセージ用のドラッグ＆ドロップエディターの設定方法と適切な使用方法について説明します。"
 channel: email
 tool:
-- キャンペーン
-- キャンバス
+- Campaigns
+- Canvas
 ---
 
 # ドラッグ＆ドロップでメールを作成する {#create-an-email-with-drag-and-drop}
 
-> ドラッグ＆ドロップエディターを使用すると、キャンペーンまたはキャンバスのいずれかで、完全にカスタムでパーソナライズされたメールメッセージを作成できます。メール本文の構築にHTMLを使用する必要はありません。
+> ドラッグ＆ドロップエディターを使用すると、CampaignまたはCanvasのいずれかで、完全にカスタムでパーソナライズされたメールメッセージを作成できます。メール本文の構築にHTMLを使用する必要はありません。
 
 ## エディターについて {#about-the-editor}
 
@@ -74,7 +74,11 @@ tool:
 
 ## ドラッグ＆ドロップエディターの使用 {#using-the-drag-and-drop-editor}
 
-メールメッセージをキャンペーンで送信するかキャンバスで送信するか迷っていますか？キャンペーンは単一のターゲットメッセージングに適しており、キャンバスはマルチステップのユーザージャーニーに適しています。
+メールメッセージをCampaignで送信するかCanvasで送信するか迷っていますか？Campaignは単一のターゲットメッセージングに適しており、Canvasはマルチステップのユーザージャーニーに適しています。
+
+{% alert note %}
+ドラッグ＆ドロップメールをCampaignまたはCanvasから直接**テンプレート** > **メールテンプレート**にメールテンプレートとして保存することはできません。まず**テンプレート**で構築するか、[CampaignまたはCanvas内で構築した後にドラッグ＆ドロップメールをテンプレートとして保存できますか？]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas)を参照して、ドラッグ＆ドロップテンプレートの再作成や**ファイルをダウンロード**でHTMLをエクスポートする方法をご確認ください。
+{% endalert %}
 
 メッセージの作成場所を選択したら、ドラッグ＆ドロップメールを作成する手順を見ていきましょう。
 
@@ -139,7 +143,7 @@ tool:
 **送信設定**の下で、メールヘッダーとメールエクストラのパーソナライゼーションを追加できます。これにより、他のメールサービスプロバイダー（ESP）に追加データを送信できます。受信者の名前を含めるなど、メールヘッダーをパーソナライズすることで、メールが開封される可能性を高めることもできます。
 
 {% alert note %}
-詳細設定機能は、キャンペーンまたはキャンバスコンポーザーに表示されます。詳細設定機能では、インラインCSS設定を変更したり、ヘッダーまたは追加のキーと値のペアを入力したりできます（設定されている場合）。
+詳細設定機能は、CampaignまたはCanvasコンポーザーに表示されます。詳細設定機能では、インラインCSS設定を変更したり、ヘッダーまたは追加のキーと値のペアを入力したりできます（設定されている場合）。
 {% endalert %}
 
 #### メール添付ファイルの追加 {#adding-email-attachments}
@@ -194,7 +198,7 @@ Inbox Visionを使用すると、メールクライアントやモバイルデ�
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email)を参照してください。
 
-ドラッグ＆ドロップエディターを使用してメールメッセージをデザインおよび作成した後、キャンペーンまたはキャンバスの残りの部分の[構築]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas)を続けます。
+ドラッグ＆ドロップエディターを使用してメールメッセージをデザインおよび作成した後、CampaignまたはCanvasの残りの部分の[構築]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas)を続けます。
 
 {% details 更新されたHTMLエンジンについて %}
 ドラッグ＆ドロップエディターからHTMLを生成する基盤エンジンが最適化および更新され、HTMLファイルの圧縮とレンダリングに関する改善がもたらされました。

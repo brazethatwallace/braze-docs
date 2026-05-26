@@ -47,7 +47,7 @@ You cannot customize or rename events.
 
 The six eCommerce recommended events map to stages of the purchase journey. Fire each event at the moment the user completes the corresponding action.
 
-![Diagram of user journey through all six eCommerce recommended events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, and order_refunded.]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![Diagram of user journey through all six eCommerce recommended events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, and order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}

@@ -190,6 +190,14 @@ Campaigns disparadas por API permitem que você gerencie o texto da Campaign, te
 
 Campaigns da API são usadas para rastrear as mensagens enviadas usando a API. Diferentemente da maioria das Campaigns, você não especifica a mensagem, os destinatários ou a programação, mas sim passa os identificadores nas suas chamadas de API.
 
+### Como posso confirmar se meus usuários receberam uma Campaign disparada por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+Você pode [criar um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando o filtro **Received Campaign** e selecionar a Campaign disparada por API específica que deseja verificar. Após salvar o segmento, use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para exportar os usuários desse segmento.
+
+### Posso excluir uma Campaign? {#can-i-delete-a-campaign}
+
+Não, mas você pode [arquivar uma Campaign]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### Qual é a diferença entre Campaigns baseadas em ação e Campaigns disparadas por API? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
 <style>

@@ -10,8 +10,7 @@ $search_footer_height: 50px;
 $search_offset: 65px;
 $search_font_color: #58585a;
 $search_tag_color: $grey-athens;
-#doc-search-form_div,
-.algolia_overlay {
+#doc-search-form_div {
 	justify-content: center;
 	display: flex;
 	margin: auto;
@@ -58,56 +57,6 @@ $search_tag_color: $grey-athens;
 			border-width: 2px;
 		}
 	}
-	#doc-search-panel {
-		border: none;
-		box-shadow: none;
-		#algolia_footer {
-			height: $search_footer_height;
-			margin: 0 15px 0 15px;
-
-			.algolia-docsearch-footer {
-				height: $search_footer_height;
-				font-size: 0;
-				line-height: 0;
-				position: absolute;
-				left: 0;
-				margin: auto 10px;
-			}
-			#algolia-docsearch-advanced {
-				height: $search_footer_height;
-				font-size: 13px;
-				line-height: 50px;
-				font-family: $braze-bold;
-				color: $braze-purple-dark;
-				position: absolute;
-				right: 0;
-				margin: auto 15px auto 0;
-				cursor: pointer;
-				a {
-					color: $braze-purple;
-					&:hover {
-						color: $braze-purple;
-						text-decoration: none;
-					}
-				}
-			}
-			.algolia-docsearch-footer--logo {
-				background-image: url("#{$base_url}/assets/img/algolia.svg");
-				background-repeat: no-repeat;
-				background-position: 5px center;
-				background-size: 110px 16px;
-				overflow: hidden;
-				text-indent: -9000px;
-				padding: 0 !important;
-				width: 120px;
-				height: 100%;
-				display: block;
-			}
-		}
-
-		z-index: 700;
-	}
-
 	.lab_header {
 		font-size: 18px;
 		margin-top: 20px;

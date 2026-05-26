@@ -15,7 +15,7 @@ description: "이 참조 문서에서는 Braze가 eCommerce 이벤트에 대해 
 
 [eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events/)는 구매 여정의 6단계를 다룹니다: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled`, `order_refunded`. 이러한 이벤트를 성공적으로 전송하면 Braze가 데이터를 유효성 검사하고 점점 늘어나는 플랫폼 기능 세트에서 사용할 수 있도록 합니다.
 
-이러한 기능에는 유기한 탐색, 유기한 장바구니, 유기한 결제, 주문 확인 플로우를 위한 Canvas 템플릿, eCommerce 리포팅, 그리고 _총 매출_, _총 주문 수_, _총 환불 금액_에 대한 계산된 사용자 프로필 필드가 포함됩니다. 또한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통해 중첩된 제품 등록정보 필터링을 사용하여 세그먼트를 구축하고, {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그로 유기한 장바구니 메시지를 개인화하며, [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) 등의 BrazeAI<sup>TM</sup> 기능과 기타 기능을 활용할 수 있습니다.
+이러한 기능에는 유기한 탐색, 유기한 장바구니, 유기한 결제, 주문 확인 플로우를 위한 Canvas 템플릿, eCommerce 리포팅, 그리고 _총 매출_, _총 주문 수_, _총 환불 금액_에 대한 계산된 사용자 프로필 필드가 포함됩니다. 또한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통해 중첩된 제품 등록정보 필터링을 사용하여 Segments를 구축하고, {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그로 유기한 장바구니 메시지를 개인화하며, [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) 등의 BrazeAI<sup>TM</sup> 기능과 기타 기능을 활용할 수 있습니다.
 
 이러한 이벤트는 정의된 스키마를 따르기 때문에, 지원되는 각 기능이 커스텀 등록정보 매핑이나 기능별 구성 없이도 구조화된 데이터를 읽을 수 있습니다.
 
@@ -32,7 +32,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 - 유기한 장바구니 플로우를 위한 장바구니 상태 관리
 - Predictive Events, Predictive Churn, 아이템 추천과 같은 BrazeAI<sup>TM</sup> 기능을 위한 더 풍부한 데이터
 
-플랫폼에서 커스텀 이벤트를 지원하는 모든 곳에서 이름으로 eCommerce 이벤트를 참조할 수도 있습니다. 예를 들어, `ecommerce.product_viewed` 이벤트로 액션 기반 Campaign을 트리거하거나, `ecommerce.checkout_started` 이벤트를 필터링하여 세그먼트를 구축하거나, Currents를 통해 `ecommerce.order_placed` 이벤트를 내보낼 수 있습니다.
+플랫폼에서 커스텀 이벤트를 지원하는 모든 곳에서 이름으로 eCommerce 이벤트를 참조할 수도 있습니다. 예를 들어, `ecommerce.product_viewed` 이벤트로 액션 기반 Campaign을 트리거하거나, `ecommerce.checkout_started` 이벤트를 필터링하여 Segment를 구축하거나, Currents를 통해 `ecommerce.order_placed` 이벤트를 내보낼 수 있습니다.
 
 #### 이벤트 이름 지정 {#event-naming}
 
@@ -47,7 +47,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 6개의 eCommerce 추천 이벤트는 구매 여정의 단계에 매핑됩니다. 사용자가 해당 동작을 완료하는 시점에 각 이벤트를 발생시키세요.
 
-![6개의 eCommerce 추천 이벤트(product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, order_refunded)를 거치는 사용자 여정 다이어그램]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![6개의 eCommerce 추천 이벤트(product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, order_refunded)를 거치는 사용자 여정 다이어그램]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
@@ -237,7 +237,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 {% endsubtab %}
 {% subtab Android %}
 
-##### 추가
+##### Add {#add}
 
 `add`는 수량을 증가시키거나 새 라인을 추가합니다. `quantity` 등록정보는 추가할 단위 수입니다.
 
@@ -286,7 +286,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 189.99)))));
 ```
 
-##### 제거
+##### Remove {#remove}
 
 `remove`는 `quantity`에 지정된 양만큼 수량을 감소시킵니다. 수량이 `0`에 도달하면 라인이 제거됩니다.
 
@@ -335,7 +335,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 14.99)))));
 ```
 
-##### 교체
+##### Replace {#replace}
 
 `replace`(또는 `action` 생략)는 전체 장바구니를 전송합니다. `total_value`가 필수입니다.
 
@@ -404,7 +404,7 @@ Braze.getInstance(context).logCustomEvent(
 {% endsubtab %}
 {% subtab Swift %}
 
-##### 추가
+##### Add
 
 `add`는 수량을 증가시키거나 새 라인을 추가합니다. `quantity` 등록정보는 추가할 단위 수입니다.
 
@@ -450,7 +450,7 @@ Objective-C
 }];
 ```
 
-##### 제거
+##### Remove
 
 `remove`는 `quantity`에 지정된 양만큼 수량을 감소시킵니다. 수량이 `0`에 도달하면 라인이 제거됩니다.
 
@@ -496,7 +496,7 @@ Objective-C
 }];
 ```
 
-##### 교체
+##### Replace
 
 `replace`(또는 `action` 생략)는 전체 장바구니를 전송합니다. `total_value`가 필수입니다.
 

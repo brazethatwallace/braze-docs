@@ -104,7 +104,7 @@ To create an audience in mParticle:
 
 | Field Name               | Description                                                                                                                                                                   |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API key                  | Found in the Braze dashboard at **Settings** > **API Keys**.<br><br>If you are using the older navigation, you can find API keys at **Developer Console** > **API Settings**. |
+| API key                  | In the Braze dashboard, go to **Settings** > **API Keys**. |
 | API key operating system | Select which operating system your Braze API key corresponds to. This selection will limit the types of push tokens forwarded on an audience update.                          |
 | Send segments as         | The method of sending audiences to Braze. See the section [Forwarding audiences](#forwarding-audiences) for details.                                                          |
 | Workspace REST API key   | Braze REST API key with full permissions. This can be created in the Braze dashboard from **Settings** > **API Keys**.                                                        |
