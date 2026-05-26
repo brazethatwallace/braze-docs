@@ -228,8 +228,8 @@ Content Cardsのペイロードサイズを管理するためのベストプラ�
 
 再適格性を有効にすると、ユーザーがCampaignに「再エントリ」できるまでのカウントダウンは、メッセージが送信された後に開始されます。このカウントダウンが開始される具体的なタイミングは、カード作成の設定によって異なります。
 
-* [ファーストインプレッション時]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)を使用するContent Cardsは、インプレッション時刻を使用して再適格性を計算します。
-* Campaign起動時またはキャンバスステップエントリ時に作成されたContent Cardsは、送信時刻またはインプレッション時刻のいずれか遅い方を使用します。
+- [ファーストインプレッション時]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)を使用するContent Cardsは、インプレッション時刻を使用して再適格性を計算します。
+- Campaign起動時、マルチチャネルCampaigns、またはキャンバスステップエントリ時に作成されたContent Cardsは、送信時刻またはインプレッション時刻のいずれか遅い方を使用します。
 
 #### 30日間の有効期限と再適格性 {#the-30-day-expiration-and-re-eligibility}
 

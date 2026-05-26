@@ -588,7 +588,7 @@ Antes de continuar con el proceso de incorporación, confirma que has habilitado
 
 ### Paso 3: Rastrear datos de Shopify {#step-3-track-shopify-data}
 
-Mejora tu integración añadiendo más eventos y atributos de Shopify, que se activarán mediante webhooks de Shopify. Para obtener información detallada sobre los datos de seguimiento a través de esta integración, consulta [Características de los datos de Shopify]({{site.baseurl}}/shopify_data_features/).
+Mejora tu integración añadiendo más eventos y atributos de Shopify, que se activarán mediante webhooks de Shopify. Para obtener información detallada sobre los datos rastreados a través de esta integración, consulta [Características de los datos de Shopify]({{site.baseurl}}/shopify_data_features/).
 
 ![Paso de configuración para el seguimiento de los datos de Shopify.]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 

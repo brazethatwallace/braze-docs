@@ -6,8 +6,8 @@ channel: email
 page_order: 5
 description: "この記事では、ドラッグ＆ドロップエディターに関するさまざまなFAQを取り上げます。"
 tool:
-  - キャンペーン
-  - キャンバス
+  - Campaigns
+  - Canvas
 
 ---
 
@@ -44,9 +44,13 @@ tool:
 
 ドラッグ＆ドロップエディターは現在2つのレイヤーをサポートしています。行のバックグラウンド画像を設定し、バックグラウンドカラーをカスタマイズできます。
 
-### キャンペーンまたはキャンバス内で作成したドラッグ＆ドロップメールをテンプレートとして保存できますか？ {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### CampaignまたはCanvas内で作成したドラッグ＆ドロップメールをテンプレートとして保存できますか？ {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-いいえ、保存するには**メールテンプレート**でメールを再作成する必要があります。
+いいえ。CampaignまたはCanvasからドラッグ＆ドロップメールを、**テンプレート** > **メールテンプレート**のドラッグ＆ドロップ**メールテンプレート**として保存することはできません。**テンプレート** > **メールテンプレート**でレイアウトを再作成するか、次回は保存済みのテンプレートから開始してください。手順については、[メールテンプレートの作成]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)を参照してください。
+
+再利用可能なHTMLテンプレートが必要な場合は、ドラッグ＆ドロップの本文を編集中に**ファイルをダウンロード**を選択し、ZIPからHTMLを開き、HTMLコードエディターを使用して[HTMLメールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)にマークアップを貼り付けてください。その後、Liquid、リンク、ホストされたアセットを再確認してください。
+
+テンプレートの保存場所の詳細については、[テンプレートとメディア]({{site.baseurl}}/user_guide/messaging/templates/)を参照してください。
 
 ### ドラッグ＆ドロップエディターにメールの添付ファイルを追加できますか？ {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 

@@ -44,9 +44,13 @@ Die Zeilenhöhe passt sich automatisch an den Inhalt an. Alternativ empfehlen wi
 
 Der Drag-and-Drop-Editor unterstützt derzeit zwei Ebenen. Sie können ein Zeilen-Hintergrundbild festlegen und Hintergrundfarben anpassen.
 
-### Kann ich meine Drag-and-Drop-E-Mail als Template speichern, nachdem ich sie in meiner Kampagne oder meinem Canvas erstellt habe? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### Kann ich meine Drag-and-Drop-E-Mail als Template speichern, nachdem ich sie in meiner Campaign oder meinem Canvas erstellt habe? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Nein, Sie müssen die E-Mail unter **E-Mail-Templates** neu erstellen, um sie zu speichern.
+Nein. Sie können eine Drag-and-Drop-E-Mail aus einer Campaign oder einem Canvas nicht als Drag-and-Drop-**E-Mail-Template** unter **Templates** > **Email Templates** speichern. Erstellen Sie das Layout unter **Templates** > **Email Templates** neu, oder beginnen Sie beim nächsten Mal mit einem gespeicherten Template. Eine Anleitung finden Sie unter [E-Mail-Template erstellen]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+
+Wenn Sie stattdessen ein wiederverwendbares HTML-Template benötigen, wählen Sie beim Bearbeiten des Drag-and-Drop-Inhalts **Download file** aus, öffnen Sie die HTML-Datei aus der ZIP-Datei und fügen Sie das Markup über den HTML-Code-Editor in ein [HTML-E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) ein. Überprüfen Sie anschließend Liquid, Links und gehostete Assets.
+
+Weitere Informationen darüber, wo Templates gespeichert werden, finden Sie unter [Templates und Medien]({{site.baseurl}}/user_guide/messaging/templates/).
 
 ### Kann ich E-Mail-Anhänge zum Drag-and-Drop-Editor hinzufügen? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 

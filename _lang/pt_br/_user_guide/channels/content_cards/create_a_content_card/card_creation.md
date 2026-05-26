@@ -131,6 +131,10 @@ Esta seção descreve as principais diferenças entre a criação de cartões no
 
 ## Considerações {#considerations}
 
+### Campaigns multicanal {#multichannel-campaigns}
+
+Campaigns multicanal não suportam cartões na primeira impressão, então todos os Content Cards são enviados no lançamento da Campaign.
+
 ### Usando propriedades de contexto do Canvas {#using-canvas-context-properties}
 
 Ao personalizar Content Cards com [propriedades de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), use a sintaxe `${...}` (por exemplo, {%raw%}`{{context.${property_name}}}`{%endraw%}). A notação de ponto sem essa sintaxe (por exemplo, {%raw%}`{{context.property_name}}`{%endraw%}) pode não ser resolvida corretamente em Content Cards, mesmo que funcione em outros canais como push e e-mail.
@@ -143,7 +147,7 @@ A Braze recomenda não alterar como os cartões são criados após o lançamento
 
 Para públicos grandes, selecione a opção de criar cartões na primeira impressão para que os cartões fiquem disponíveis rapidamente após o lançamento. Campaigns disparadas no início da sessão também podem se beneficiar ao mudar para criação na primeira impressão (disponível por meio de entrega agendada) para melhorar o desempenho.
 
-Quando os cartões são criados na primeira impressão, pode levar de 1 a 2 segundos para processá-los. A duração desse tempo de processamento depende de vários fatores, como o tamanho do cartão e a complexidade das opções de modelo da mensagem. Por exemplo, o tempo de processamento para cartões que usam Conteúdo conectado será pelo menos tão longo quanto o tempo de resposta do Conteúdo conectado.
+Quando os cartões são criados na primeira impressão, pode levar alguns segundos para processá-los. A duração desse tempo de processamento depende de vários fatores, como o tamanho do cartão e a complexidade das opções de modelo da mensagem. Por exemplo, o tempo de processamento para cartões que usam Conteúdo conectado será pelo menos tão longo quanto o tempo de resposta do Conteúdo conectado.
 
 ### Versões anteriores do SDK {#previous-sdk-versions}
 
