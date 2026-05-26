@@ -10,7 +10,7 @@ tool: Canvas
 
 # Send to Destination step
 
-> The Send to Destination step allows you to send users from one Canvas to another in real time. For example, you can chain Canvas journeys (such as Canvas 1 to Canvas 2) or connect Canvases that share messaging for promotional offers.
+> The Send to Destination step allows you to send users from one Canvas to another in real time. For example, you can connect Canvases that share messaging for promotional offers.
 
 ## How it works
 
@@ -25,7 +25,7 @@ This step allows users from Canvas 1 to be sent to Canvas 2. When users from Can
 
 ### Real-time entry
 
-Send to Destination enters users into the destination Canvas as soon as they reach this step. This step acts as an ad hoc entry path into the destination Canvas. Users who meet the destination Canvas entry and audience criteria begin that Canvas journey in real time. Users who don't meet those criteria at that moment don't enter the destination Canvas and continue in the source Canvas.
+Send to Destination enters users into the destination Canvas as soon as they reach this step. This step acts as an ad hoc entry point into the destination Canvas. Users who meet the destination Canvas entry and audience criteria begin that Canvas journey in real time. Users who don't meet those criteria at that moment don't enter the destination Canvas and continue in the source Canvas.
 
 {% alert note %}
 Align the destination Canvas entry and segmentation with the audience you expect from the source Canvas. If Canvas 1 sends users who don't match Canvas 2's criteria at send time, those users won't enter Canvas 2. Keep Canvas 2 criteria aligned with Canvas 1's audience, or broad enough to include users you route from Canvas 1.
@@ -59,17 +59,19 @@ Yes. The destination Canvas can have a draft or idle status.
 
 Yes. The [context]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) of the source Canvas is always passed to the destination Canvas.
 
-### Can I use Send to Destination to chain Canvases instead of API or User Update workarounds?
+### Can I use the Send to Destination step to connect Canvases instead of using API or User Update workarounds?
 
-Yes. You can chain Canvases in real time (for example, Canvas 1 to Canvas 2) with Send to Destination when users should move directly into another Canvas journey. You don't need separate User Update steps, API triggers, or webhooks solely to move users between Canvases, as long as they meet the destination Canvas criteria when they're sent.
+Yes. You can connect Canvases with the Send to Destination step when users should move directly into another Canvas journey. 
+
+You don't need separate User Update steps, API triggers, or webhooks solely to move users between Canvases, as long as they meet the destination Canvas criteria when they're sent.
 
 ### Do users enter at the start of the destination Canvas?
 
 Eligible users enter immediately at the first step of the destination Canvas. They don't wait for a later scheduled entry time on the destination Canvas. At this time, you can't link to a specific Canvas step inside the destination Canvas.
 
-### Does Send to Destination respect a scheduled destination Canvas entry schedule?
+### Does the Send to Destination step respect a scheduled destination Canvas entry schedule?
 
-No. If the destination Canvas uses a scheduled entry type, users sent from Send to Destination don't wait for the next scheduled evaluation window. They're evaluated and entered when they reach the Send to Destination step, if they meet entry and audience criteria.
+No. If the destination Canvas uses a scheduled entry type, users sent from the Send to Destination step don't wait for the next scheduled evaluation window. They're evaluated and entered when they reach the Send to Destination step if they meet entry and audience criteria.
 
 ### How does advancement behavior work for Send to Destination steps?
 
