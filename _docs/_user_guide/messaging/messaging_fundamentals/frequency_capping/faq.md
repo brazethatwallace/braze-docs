@@ -18,7 +18,7 @@ Yes, when you increase or decrease a Canvas rate limit, the updated limit takes 
 
 ### What happens if a user reaches a Canvas Message step but is over the global frequency cap?
 
-The user won't receive that send for the capped channel, but they still follow your Message step advancement rules. Message steps advance users when a message isn't sent because of global frequency capping, so they continue to the next Canvas step. For the full list of advancement cases, see [How users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance).
+The user doesn't receive that send for the capped channel, but they still follow your Message step advancement rules. Message steps advance users when a message isn't sent because of global frequency capping, so they continue to the next Canvas step. For the full list of advancement cases, see [How users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance).
 
 ### How can I identify users who were frequency capped in a Canvas?
 
