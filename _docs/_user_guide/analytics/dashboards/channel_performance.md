@@ -149,7 +149,7 @@ To open the dashboard, go to **Analytics** > **Dashboard Builder**, then select 
 You can filter the data on your dashboard using the following filter options:
 
 - **Tag:** Choose one tag. When applied, your dashboard will show metrics for only your selected tag.
-- **Platforms:** (Push performance dashboard only) Choose a push platform, such as **All Push**, **Android**, **iOS**, **Mobile combined**, **Kindle**, or **Web**. When applied, your dashboard will show metrics for only your selected platform.
+- **Platforms:** (Push performance dashboard only) Choose a push platform, such as **All Push**, **Android**, **iOS**, **Mobile combined**, **Kindle**, or **Web**. When applied, your dashboard displays metrics for only your selected platform.
 - **Canvas:** Choose up to 10 Canvases. When applied, your dashboard will show metrics for only your selected Canvases. If you select a tag filter first, then your options for Canvas filters will only include Canvases that have your selected tag.
 - **Campaign:** Choose up to 10 campaigns. When applied, your dashboard will show metrics for only your selected campaigns. If you select a tag filter first, then your options for campaign filters will only include campaigns that have your selected tag.
 
