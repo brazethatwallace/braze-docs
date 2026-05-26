@@ -319,6 +319,9 @@ Braze will track the conversions for users who are placed into the control group
 
 You can adjust the distribution between your messages by double-clicking the **Variant Name** headers.
 
+If a single variant has multiple branches with the same audience and send time, Braze does not guarantee an even split across those branches. Distribution may favor the branch that was created first. For an even split, use [Random Bucket Number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) filters on each branch. For more detail, see [What happens if the audience and send time are identical for a Canvas that has one variant, but multiple branches?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
+
+
 In this example, we have our Canvas divided into two variants. Variant 1 has 70% of the users. The second variant is a control group with the remaining 30% of users.
 
 ![An example variant in a Braze Canvas, where 70% go to "Variant 1", which delays for 1 day in the first step, then sends a message in the second step. The other 30% go to a "Control" that does not have any follow-up steps.]({% image_buster /assets/img_archive/Canvas_Multivariate_Flow.png %})
