@@ -165,9 +165,9 @@ After the metafield is created, populate it for your customers. We recommend the
 - **Listen to customer creation webhooks:** Set up a webhook to listen for [`customer/create` events](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). This allows you to write the metafield when a new customer is created.
 - **Backfill existing customers:** Use the [Admin API](https://shopify.dev/docs/api/admin-graphql) or [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) to backfill the metafield for previously created customers.
 
-#### Race condition and automatic merge
+#### Potential race condition
 
-There is a race condition where the Shopify `customers/create` webhook may fire before your middleware has written the `braze.external_id` metafield to the customer profile. When this happens:
+The Shopify `customers/create` webhook may fire before the `braze.external_id` metafield is written to the user profile. When this happens:
 
 1. If the metafield is missing, Braze calls the configured endpoint (Step 4.2) to fetch the external ID.
 2. If that call also fails or times out, Braze creates a temporary user profile with the Shopify customer ID as the external ID.
