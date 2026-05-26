@@ -219,7 +219,7 @@ This behavior changes the default behavior when you turn off frequency capping f
 
 #### How sends count toward caps
 
-Frequency capping applies per dispatch: each time Braze sends a campaign or Canvas component to a user counts toward your caps—not each message variant or platform inside that send. For example, if users are capped at five push campaigns per week, they won't receive any push campaigns after the fifth dispatch until the cap resets.
+Frequency capping applies per dispatch: each time Braze sends a campaign or Canvas component to a user counts toward your caps—not each message variant or platform inside that send. For example, if users are capped at five push campaigns per week, they don't receive any push campaigns after the fifth dispatch until the cap resets.
 
 ##### Multichannel sends
 
