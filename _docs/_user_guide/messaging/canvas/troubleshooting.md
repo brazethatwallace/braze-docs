@@ -11,6 +11,13 @@ tool: Canvas
 
 > This page helps you troubleshoot issues with your Canvases.
 
+## "Too Many Canvas Branches" error
+
+If you see a **Too Many Canvas Branches** error when saving or launching a Canvas, the journey exceeds Braze limits for full-step branches on that Canvas.
+
+- Prefer **Audience Path** steps instead of many parallel full-step branches when you need large fan-out.
+- Reconfigure or relaunch the Canvas so the branch count stays within supported limits.
+
 ## Why did a user not receive a triggered Canvas step?
 
 First, confirm that the custom event is being passed to Braze. Go to **Analytics** > **Custom Events Report**, and then select the respective custom event and date range. If the event doesn't display, confirm that it's set up correctly and that the user performed the correct action.
