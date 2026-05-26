@@ -67,7 +67,7 @@ Las siguientes características **no** utilizan datos de interacción de mensaje
 - Puntos de datos
 - Los siguientes filtros de reorientación:
     - Clicked Alias in Any Campaign or Canvas Step
-    - Conmutadores de características
+    - Feature Flags
     - Hard Bounced
     - Has Marked You As Spam
     - Has Never Received a Message from Campaign or Canvas Step

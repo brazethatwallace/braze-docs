@@ -152,10 +152,10 @@ Una vez creado el catálogo, puedes empezar a hacer referencia al [catálogo en 
 
 Antes de poder editar o crear catálogos en el navegador, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para tu espacio de trabajo:
 
-- Catálogos: ver
-- Catálogos: editar
-- Catálogos: exportar
-- Catálogos: eliminar
+- View Catalogs
+- Edit Catalogs
+- Export Catalogs
+- Delete Catalogs
 
 ### Paso 1: Introduce los detalles del catálogo {#step-1-enter-catalog-details}
 
