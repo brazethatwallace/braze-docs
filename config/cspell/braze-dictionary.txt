@@ -146,6 +146,7 @@ CCPA
 ccpa
 Celebrus
 centricity
+Certiverse
 Certona
 chatbots
 checkins
@@ -614,6 +615,7 @@ reactnative
 reapproved
 rebalances
 Receipient's
+Recertification
 recherchez
 RECORDEVENT
 Recurly
