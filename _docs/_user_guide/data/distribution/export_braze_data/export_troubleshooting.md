@@ -58,6 +58,8 @@ In cloud storage, CSV exports are bundled into a ZIP file. Inside the ZIP are mu
 - Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).  
 
 ## API exports  
+When you export data through the APIs with a storage partner connected, the export files are written to your bucket. For **Amazon S3** and **Microsoft Azure Blob Storage**, files typically appear in your bucket **as the export runs**—you do not need to wait for the entire job to finish before accessing partial results. Each worker uploads completed batches incrementally rather than holding everything until the end.
+
 When you export data through the APIs with a storage partner connected, the export files are written to your bucket. No email is sent. The underlying objects live in your storage and follow your retention settings, even though the download URLs Braze returns may still be time-limited. Each ZIP file contains JSON objects, one per line. Large exports may be split into multiple ZIP files instead of a single ZIP, which generally makes this method more reliable for heavy exports.  
 
 ### Common errors
