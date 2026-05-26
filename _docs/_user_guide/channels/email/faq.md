@@ -13,7 +13,7 @@ channel: email
 
 ### What happens when an email is sent out, and multiple profiles have the same email address?
 
-If multiple users with matching email addresses are in a segment to receive a campaign, a random user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
+If multiple users with matching email addresses are in a segment to receive a campaign, a single user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
 
 **Unique email addresses:** Braze doesn't enforce unique email addresses across profiles. If you rely on a one-to-one relationship between an email address and a profile, monitor for duplicates internally when creating users.
 
@@ -211,9 +211,7 @@ No. Each part of the email (subject, body, headers, buttons, and so on) is gener
 
 ### My email template is missing. Where is it?
 
-Go to **Templates** > **Email Templates**. You can filter by type (HTML or drag-and-drop).
-
-Confirm you have permission to view templates—see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+First, confirm you have the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to view templates. To view saved email templates, go to **Content** > **Email**. You can filter templates by status and type (HTML or drag-and-drop).
 
 ### Do I need to register domains for relay or masked emails?
 

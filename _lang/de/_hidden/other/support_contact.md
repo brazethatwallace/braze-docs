@@ -2441,9 +2441,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>Hier sind einige Artikel, die Ihnen weiterhelfen könnten:</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>Keine Vorschläge gefunden.</p>";
         }
 
         // --- Citation hover tooltip ---
@@ -2536,7 +2536,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
     } catch (err) {
-        suggestionsBox.innerHTML = `<p>Error: ${err.message}</p>`;
+        suggestionsBox.innerHTML = `<p>Fehler: ${err.message}</p>`;
         console.error(err);
     }
 });

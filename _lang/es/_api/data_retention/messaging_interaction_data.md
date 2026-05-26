@@ -9,7 +9,7 @@ page_type: reference
 
 # Acerca de la disponibilidad de los datos de interacción de mensajería {#about-messaging-interaction-data-availability}
 
-> Este artículo cubre información sobre los datos de interacción de campañas y Canvas y su disponibilidad.
+> Aprende sobre los datos de interacción de mensajería para campañas y Canvas, incluyendo cuánto tiempo los conserva Braze y qué características los utilizan para reorientar.
 
 ### ¿Qué son los datos de interacción de mensajería? {#what-is-messaging-interaction-data}
 
@@ -67,7 +67,7 @@ Las siguientes características **no** utilizan datos de interacción de mensaje
 - Puntos de datos
 - Los siguientes filtros de reorientación:
     - Clicked Alias in Any Campaign or Canvas Step
-    - Conmutador de características
+    - Feature Flags
     - Hard Bounced
     - Has Marked You As Spam
     - Has Never Received a Message from Campaign or Canvas Step

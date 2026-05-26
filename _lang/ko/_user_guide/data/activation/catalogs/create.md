@@ -25,7 +25,18 @@ description: "이 참조 문서에서는 Liquid를 통해 Braze Campaign에서 �
 
 ## 지원되는 데이터 유형 {#supported-data-types}
 
-지원되는 카탈로그 데이터 유형, 설명, 각 유형의 생성 또는 업데이트 방법(CSV vs API 및 CDI), 형식 및 예시에 대해서는 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)을 참조하세요.
+다음 표에는 지원되는 카탈로그 데이터 유형과 각 유형의 생성 또는 업데이트 방법이 나와 있습니다.
+
+| 데이터 유형 | 설명 | CSV 업로드 가능 | API 및 CDI 가능 |
+|--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
+| 문자열 | 문자의 시퀀스입니다. | ✅ 예 | ✅ 예 |
+| 숫자 | 정수 또는 플로트의 숫자 값입니다. | ✅ 예 | ✅ 예 |
+| 부울 | `true` 또는 `false` 값입니다. | ✅ 예 | ✅ 예 |
+| 시간 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식으로 포맷된 문자열입니다. | ✅ 예 | ✅ 예 |
+| 지리 위치 | `[longitude, latitude]` 좌표 배열입니다. 위도는 -90에서 90 사이여야 하고, 경도는 -180에서 180 사이여야 합니다. 예: `[-73.988103, 40.779109]`. | ✅ 예 | ✅ 예 |
+| JSON 오브젝트 | 키-값 페어가 포함된 중첩 오브젝트입니다. 플랫폼에서 표시할 수 있지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. | ⛔ 아니요 | ✅ 예 |
+| 문자열 배열 | 문자열 목록입니다. 플랫폼에서 표시할 수 있지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. 최대 100개 요소입니다. | ⛔ 아니요 | ✅ 예 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## 카탈로그 만들기 {#creating-a-catalog}
 
@@ -44,10 +55,10 @@ CSV 파일을 업로드하기 전에 CSV 파일이 다음 요구 사항을 충�
 | 파일 크기 | 무료 요금제의 경우, 회사 전체의 모든 CSV 파일의 총 크기는 100MB로 제한됩니다. 프로 요금제의 경우, 단일 CSV 파일의 최대 파일 크기는 2GB입니다. |
 | 필드 값 | 각 셀(필드 값)은 최대 5,000자를 포함할 수 있습니다. |
 | 유효한 문자 | `id` 열과 모든 헤더 값은 문자, 숫자, 하이픈 및 밑줄만 포함할 수 있습니다. |
-| 데이터 유형 | CSV 업로드에서 지원되는 데이터 유형에는 문자열, 숫자, 부울 및 시간이 포함됩니다. API 및 CDI를 통해서만 사용할 수 있는 데이터 유형을 포함한 전체 목록은 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)을 참조하세요. |
+| 데이터 유형 | CSV 업로드에서 지원되는 데이터 유형에는 문자열, 숫자, 부울, 시간 및 지리 위치가 포함됩니다. API 및 CDI를 통해서만 사용할 수 있는 데이터 유형을 포함한 전체 목록은 [지원되는 데이터 유형](#supported-data-types)을 참조하세요. |
 | 서식 지정 | 일관성을 유지하기 위해 모든 텍스트를 소문자로 포맷합니다. |
 | 인코딩 | UTF-8 인코딩을 사용하여 CSV 파일을 저장하고 업로드합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Review your CSV file" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert note %}
 CSV 파일을 저장할 공간이 더 필요하신가요? 카탈로그 업그레이드에 대한 자세한 내용은 Braze 계정 매니저에게 문의하세요.
@@ -94,8 +105,7 @@ CSV 파일을 저장할 공간이 더 필요하신가요? 카탈로그 업그레
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table aria-label="Tutorial: Creating a catalog from a CSV file" class="tg">
-  <caption>튜토리얼: CSV 파일에서 카탈로그 만들기</caption>
+<table class="tg" aria-label="Tutorial: Creating a catalog from a CSV file">
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -134,7 +144,7 @@ CSV 파일을 업로드하여 카탈로그를 생성합니다. `id`, `title`, `p
 
 카탈로그가 생성된 후에는 이 이름을 편집할 수 없다는 점에 유의하세요. 카탈로그를 삭제하고 동일한 카탈로그 이름을 사용하여 업데이트된 버전을 다시 업로드할 수 있습니다.
 
-카탈로그를 생성한 후에는 [Campaign에서 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/use/)를 참조할 수 있습니다.
+카탈로그를 생성한 후에는 [Campaign에서 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/)를 참조할 수 있습니다.
 {% endtab %}
 
 {% tab 브라우저에서 생성 %}
@@ -177,7 +187,20 @@ Braze는 대시보드 타임스탬프를 기반으로 시간 값을 처리합니
 {% endtab %}
 {% endtabs %}
 
-카탈로그 데이터 유형의 형식 및 예시에 대해서는 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)을 참조하세요.
+## 카탈로그 데이터 유형 {#catalog-data-types}
+
+카탈로그는 데이터를 효과적으로 구성하고 구조화하는 데 도움이 되는 다양한 데이터 유형을 지원합니다. 다음 표에는 지원되는 각 데이터 유형과 CSV 및 API 유형 이름에 매핑되는 방식이 설명되어 있습니다:
+
+| 데이터 유형 | 형식 | 예시 | 설명 |
+|-----------|--------|---------|-------------|
+| 문자열 | 텍스트 | `"Hello World"` | 이름, 설명, ID 등의 텍스트 데이터에 사용되는 문자 시퀀스입니다. CSV 및 API 가져오기에서 `string` 유형에 해당합니다. |
+| 시간 | ISO 8601 또는 Unix 타임스탬프(초) | `"2024-03-15T14:30:00Z"` | ISO 8601 또는 Unix 타임스탬프(초 단위)로 포맷된 날짜 및 시간 값입니다. API에서는 `time` 유형, CSV 가져오기에서는 `datetime` 유형에 해당합니다. |
+| 부울 | `true` 또는 `false` | `true` | 참 또는 거짓 상태를 나타내는 논리 값입니다. CSV 및 API 가져오기에서 `boolean` 유형에 해당합니다. |
+| 숫자 | 정수 또는 소수 | `42` 또는 `19.99` | 가격, 수량, 평점 등에 사용되는 정수 및 부동 소수점 숫자를 포함하는 숫자 값입니다. CSV 가져오기에서는 `integer` 및 `float` 유형, API에서는 `number` 유형에 해당합니다. |
+| 지리 위치 | `[longitude, latitude]` 배열 | `[-73.988103, 40.779109]` | 지리적 위치를 나타내는 좌표 쌍입니다. 경도는 -180에서 180 사이, 위도는 -90에서 90 사이여야 합니다. API `type` 값은 `geo`입니다. 카탈로그 UI의 **필드 추가** 서랍, CSV 업로드 또는 REST API를 통해 추가할 수 있습니다. |
+| 오브젝트 | JSON 오브젝트 | `{"key": "value", "price": 10}` | 복잡한 중첩 데이터 구조입니다. API `type` 값은 `object`입니다. 대시보드에서는 JSON 오브젝트로 표시됩니다. API 또는 클라우드 데이터 수집(CDI)을 통해서만 사용할 수 있습니다. |
+| 배열 | 문자열 배열 | `["red", "blue", "green"]` | 문자열 값의 목록입니다. API `type` 값은 `array`입니다. 대시보드에서는 문자열 배열로 표시됩니다. API 또는 CDI를 통해서만 사용할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## 카탈로그 이름에 템플릿 사용 {#template-catalog-names}
 
@@ -202,7 +225,7 @@ CSV를 업로드하거나 브라우저에서 카탈로그를 생성한 후 카�
 
 더 많은 카탈로그를 구축하면서 [카탈로그 목록 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/)를 사용하여 워크스페이스에 있는 카탈로그 목록을 반환할 수도 있습니다.
 
-REST API는 JSON 오브젝트 및 문자열 배열을 포함한 모든 [카탈로그 데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)을 지원합니다. JSON 오브젝트 및 문자열 배열은 REST API를 통해서만 생성하거나 업데이트할 수 있습니다.
+REST API는 JSON 오브젝트 및 문자열 배열을 포함한 모든 [카탈로그 데이터 유형](#supported-data-types)을 지원합니다. JSON 오브젝트 및 문자열 배열은 REST API를 통해서만 생성하거나 업데이트할 수 있습니다.
 
 ### 클라우드 데이터 수집 사용 {#using-cloud-data-ingestion}
 
@@ -215,8 +238,6 @@ REST API는 JSON 오브젝트 및 문자열 배열을 포함한 모든 [카탈�
 예를 들어 개별 카탈로그 항목을 편집하려면 [`/catalogs/catalog_name/items/item_id` 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/)를 사용할 수 있습니다.
 
 ## 카탈로그 저장소 {#tiers}
-
-저장소 한도에 대한 간략한 개요는 [데이터 저장소 제한]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations)을 참조하세요.
 
 무료 버전의 카탈로그는 회사 전체의 모든 CSV 파일을 합산하여 최대 100MB의 CSV 파일 크기를 지원하며, 카탈로그 프로 버전은 단일 CSV 파일에 대해 최대 2GB의 CSV 파일 크기를 지원합니다.
 
@@ -241,7 +262,7 @@ Braze 대시보드에 표시되는 패키지 자격은 시각적 편의를 위�
 | 항목 값 문자 수 | 단일 값에 최대 5,000자입니다. 예를 들어 `description`이라는 필드가 있는 경우 해당 필드 내 최대 문자 수는 5,000자입니다. |
 | 항목 열 이름 문자 수 | 최대 250자 |
 | 카탈로그당 선택 항목 수 | 카탈로그당 최대 30개 선택 항목 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
 카탈로그 Liquid 태그는 재귀적으로 사용할 수 없습니다. 즉, 동일한 Liquid 평가 내에서 두 번째 카탈로그 항목을 호출하는 카탈로그 항목을 참조할 수 없습니다.

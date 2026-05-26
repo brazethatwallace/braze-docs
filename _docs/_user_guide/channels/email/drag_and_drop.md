@@ -91,7 +91,7 @@ After selecting the drag-and-drop editor as your editing experience, you can cho
 - Use a saved drag-and-drop email template.
 
 {% alert note %}
-To use an existing custom HTML template or templates created by a third party, you must recreate the template by going to **Templates** > **Email Templates** and selecting **Drag-And-Drop Editor** as your editing experience.
+To use an existing custom HTML template or templates created by a third party, you must recreate the template by going to **Content** > **Email** and selecting **Drag-And-Drop Editor** as your editing experience.
 {% endalert %}
 
 You can also access all templates from the **Templates** section.

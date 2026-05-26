@@ -69,10 +69,6 @@ To view all of your tracked link aliases, do the following:
 1. Go to **Settings** > **Email Preferences** under **Workspace Settings**.
 2. Select the **Link Aliasing Settings** tab.
 
-{% alert important %}
-If you are using the [older navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), these settings are under **Manage Settings**.
-{% endalert %}
-
 Here, you can sort, search, and turn off tracking for link aliases.
 
 ![Tracked Link Aliases page that shows active and inactive link aliases associated with various campaigns.]({% image_buster /assets/img/tracked_aliases.png %})

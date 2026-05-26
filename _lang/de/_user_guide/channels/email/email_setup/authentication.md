@@ -18,13 +18,13 @@ Für **BIMI** (Brand Indicators for Message Identification) ist keine besondere 
 
 ## Methoden der Authentifizierung {#methods-of-authentication}
 
-### Sender Policy Framework (SPF) {#sender-policy-framework-spf}
+### Sender Policy Framework (SPF) {#spf}
 
 Diese Methode bestätigt, dass die IP-Adresse, von der aus Braze E-Mails versendet, berechtigt ist, in Ihrem Namen E-Mails zu versenden. SPF ist Ihre Basisauthentifizierung und wird durch die Veröffentlichung der Texteinträge in den DNS-Einstellungen erreicht. Der empfangende Server überprüft die DNS-Einträge und stellt fest, ob sie authentisch sind. Diese Methode dient dazu, den E-Mail-Absender zu überprüfen.
 
 Braze richtet Ihren SPF-Eintrag ein, wenn wir Ihre IPs und Domains konfigurieren. Abgesehen vom Hinzufügen der von uns bereitgestellten DNS-Einträge sind keine weiteren Maßnahmen erforderlich.
 
-### Domain Keys Identified Mail (DKIM) {#domain-keys-identified-mail-dkim}
+### Domain Keys Identified Mail (DKIM) {#dkim}
 
 Diese Methode bestätigt, dass Ihre Braze-E-Mail-Versanddomain berechtigt ist, in Ihrem Namen E-Mails zu versenden. Diese Methode dient dazu, die Authentizität des Absenders und die Integrität der Nachricht zu überprüfen. Außerdem werden individuelle kryptografische digitale Signaturen verwendet, damit ISPs sicherstellen können, dass die zugestellte E-Mail mit der von Ihnen gesendeten E-Mail übereinstimmt.
 
@@ -32,7 +32,7 @@ Braze signiert die E-Mail mit Ihrem geheimen Private Key. Die ISPs überprüfen 
 
 Braze richtet Ihren DKIM-Eintrag ein, wenn wir Ihre IPs und Domains konfigurieren. Abgesehen vom Hinzufügen der von uns bereitgestellten DNS-Einträge sind keine weiteren Maßnahmen erforderlich.
 
-### Domain-based Message Authentication, Reporting, and Conformance (DMARC) {#domain-based-message-authentication-reporting-and-conformance-dmarc}
+### Domain-based Message Authentication, Reporting, and Conformance (DMARC) {#dmarc}
 
 [Domain-based Message Authentication, Reporting & Conformance (DMARC)](https://dmarc.org/) ist ein E-Mail-Authentifizierungsprotokoll für E-Mail-Absender, um die Legitimität ihrer E-Mails nachzuweisen. Es stärkt das Vertrauen der Empfänger-Postfächer und fördert die Zustellung von E-Mails. DMARC ermöglicht es E-Mail-Absendern festzulegen, wie mit E-Mails umgegangen werden soll, die nicht über Sender Policy Framework (SPF) oder Domain Keys Identified Mail (DKIM) authentifiziert wurden. Dies wird erreicht, indem überprüft wird, dass sowohl SPF- als auch DKIM-Prüfungen bestanden werden.
 

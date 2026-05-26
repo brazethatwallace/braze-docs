@@ -14,7 +14,7 @@ toc_headers: h2
 ## ユーザーのコンテキストに基づいてパーソナライズされたメッセージを作成する {#write-personalized-messaging-based-on-a-users-context}
 
 {% apitags %}
-キャンバス agent
+Canvas agent
 {% endapitags %}
 
 このユースケースでは、キャンバス エージェントがアプリ内で検索したが予約しなかったユーザーに対して、メールの件名、プリヘッダー、プッシュ通知のタイトルと本文を連携して生成する方法を説明します。目標は、各チャネルの文字数制限を守りながら、ローカライズされたブランドセーフなメッセージングでチェックアウトを促進するキャンバスジャーニーでユーザーをリターゲティングすることです。
@@ -89,7 +89,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 ## ユーザーフィードバックを分析して次のステップを決定する {#analyze-user-feedback-to-determine-next-steps}
 
 {% apitags %}
-キャンバス agent
+Canvas agent
 {% endapitags %}
 
 このユースケースでは、キャンバス エージェントが旅行後のアンケートからユーザーフィードバックを分析し、センチメントとトピックを分類する方法を説明します。このエージェントの目標は、別の CRM プラットフォームの次のステップを決定することです。
@@ -153,7 +153,7 @@ Input & Output Example:
 ## エンゲージメントアンケートに基づいてコンバージョンの可能性を判定する {#determine-conversion-likelihood-based-on-engagement-surveys}
 
 {% apitags %}
-キャンバス agent
+Canvas agent
 {% endapitags %}
 
 このユースケースでは、キャンバス エージェントがアプリの無料サブスクライバーのコンバージョン率を判定する方法を説明します。エージェントはユーザーの行動を分析し、コンバージョンの可能性が高いサブスクライバーのセグメントに割り当てることができます。目標は、無料サブスクライバーを有料サブスクライバーに転換するためのさまざまなリテンション戦略の推奨を返すことです。
@@ -233,7 +233,7 @@ The user IS in the segment: "Has Valid Payment Method on File".
 ## 受信メッセージをオプトアウト意図で分類する {#classify-inbound-messages-for-opt-out-intent}
 
 {% apitags %}
-キャンバス agent
+Canvas agent
 {% endapitags %}
 
 このユースケースでは、キャンバス エージェントが受信した顧客メッセージを1件ずつ評価し、今後のメッセージングのオプトアウトリクエスト（例: STOP、配信停止、同意の撤回）として扱うべきかどうかを返す方法を説明します。目標は、厳密なブール値を出力してジャーニーを保守的に分岐させ、同意撤回後のメッセージ送信リスクを低減しつつ、ユーザーが明らかに質問をしている場合やエンゲージメントを続けている場合の誤検知を回避することです。
