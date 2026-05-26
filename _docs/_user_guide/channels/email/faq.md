@@ -211,9 +211,7 @@ No. Each part of the email (subject, body, headers, buttons, and so on) is gener
 
 ### My email template is missing. Where is it?
 
-Go to **Templates** > **Email Templates**. You can filter by type (HTML or drag-and-drop).
-
-Confirm you have permission to view templates—see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+First, confirm you have the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to view templates. To view saved email templates, go to **Content** > **Email**. You can filter templates by status and type (HTML or drag-and-drop).
 
 ### Do I need to register domains for relay or masked emails?
 

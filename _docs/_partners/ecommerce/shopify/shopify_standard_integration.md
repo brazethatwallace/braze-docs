@@ -15,12 +15,6 @@ page_order: 1
 ## Step 1: Connect your Shopify store
 
 1. In Braze, go to **Partner Integrations** > **Technology Partners** and then search for “Shopify”.
-
-{% alert note %}
-If you’re using the older navigation, you can find **Technology Partners** under **Integrations**.
-{% endalert %}
-
-{: start="2"}
 2. On the Shopify partner page, select **Begin setup** to start the integration process.<br><br>![Shopify integration page with button to begin setup.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br> 
 3. In the Shopify app store, install the Braze application.<br><br>![The Braze app store page with a button to install the application.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
