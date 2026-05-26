@@ -11,6 +11,16 @@ toc_headers: "h2"
 
 {% multi_lang_include developer_guide/_shared/logging_analytics/content_cards.md %}
 
+## Unique dismissals higher than unique impressions
+
+If dashboard analytics show *Unique Dismissals* higher than *Unique Impressions* for Content Cards, review your logging integration:
+
+- Confirm whether you use Braze's default Content Card UI or a fully custom UI. Custom UI requires you to log impressions and dismissals explicitly.
+- Verify you call the correct logging methods when a card is shown and when a user dismisses it.
+- Dismissals logged without matching impressions usually indicate a bug in custom logging code, not expected Braze behavior.
+
+For method details, see the platform sections in this article and [Log analytics]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) for your SDK.
+
 ## Missing Content Cards analytics
 
 If Content Cards appear correctly in your app but you consistently do not receive any analytics (unique recipients, impressions, clicks, and so on), it is likely an SDK integration issue.
