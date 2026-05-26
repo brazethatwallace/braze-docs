@@ -42,7 +42,7 @@ You can send gameplay milestones, reward redemptions, and engagement metrics to 
 | Braze REST endpoint | The REST endpoint URL for [your Braze instance]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integrate DailyPlay
+## Integration
 
 ### Step 1: Create a connection
 
