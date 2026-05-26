@@ -70,11 +70,11 @@ Go to the **Streams** page and create a new stream.
 
 Paste the code from step 2 into your campaign in Braze.
 
-When consumers play games in the stream, DailyPlay triggers an event and sends it to Braze through your Braze REST endpoint.
+When users play games in the stream, DailyPlay triggers an event and sends it to Braze through your Braze REST endpoint.
 
 ### Step 4: Inspect actions and expand your funnel
 
-Consumers who complete actions in DailyPlay streams receive custom attributes and custom events on their Braze profile.
+Users who complete actions in DailyPlay streams receive custom attributes and custom events on their Braze profile.
 
 Create a [campaign]({{site.baseurl}}/user_guide/messaging/campaigns/) or [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) with an [action-based]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) trigger that uses the DailyPlay custom events or custom attributes required for your use case.
 
