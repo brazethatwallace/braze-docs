@@ -67,7 +67,7 @@ page_type: reference
 - 데이터 포인트
 - 다음 리타겟팅 필터:
     - Clicked Alias in Any Campaign or Canvas Step
-    - 기능 플래그
+    - Feature Flags
     - Hard Bounced
     - Has Marked You As Spam
     - Has Never Received a Message from Campaign or Canvas Step

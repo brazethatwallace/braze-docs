@@ -67,7 +67,7 @@ Die folgenden Features verwenden **keine** Messaging-Interaktionsdaten, was bede
 - Datenpunkte
 - Die folgenden Retargeting-Filter:
     - Clicked Alias in Any Campaign or Canvas Step
-    - Feature-Flags
+    - Feature Flags
     - Hard Bounced
     - Has Marked You As Spam
     - Has Never Received a Message from Campaign or Canvas Step

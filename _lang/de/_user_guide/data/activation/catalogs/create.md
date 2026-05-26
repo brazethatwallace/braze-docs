@@ -152,10 +152,10 @@ Nachdem Sie den Katalog erstellt haben, können Sie damit beginnen, den [Katalog
 
 Bevor Sie Kataloge im Browser bearbeiten oder erstellen können, benötigen Sie die folgenden [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) für Ihren Workspace:
 
-- Kataloge anzeigen
-- Kataloge bearbeiten
-- Kataloge exportieren
-- Kataloge löschen
+- View Catalogs
+- Edit Catalogs
+- Export Catalogs
+- Delete Catalogs
 
 ### 1. Schritt: Katalogdetails eingeben {#step-1-enter-catalog-details}
 

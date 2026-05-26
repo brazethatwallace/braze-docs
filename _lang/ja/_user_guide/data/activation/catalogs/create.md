@@ -152,10 +152,10 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 
 ブラウザでカタログを編集または作成するには、ワークスペースに対して以下の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
 
-- カタログを表示
-- カタログを編集
-- カタログをエクスポート
-- カタログを削除
+- View Catalogs
+- Edit Catalogs
+- Export Catalogs
+- Delete Catalogs
 
 ### ステップ 1:カタログの詳細を入力する {#step-1-enter-catalog-details}
 

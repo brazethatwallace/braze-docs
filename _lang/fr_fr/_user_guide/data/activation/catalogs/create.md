@@ -152,10 +152,10 @@ Après avoir créé le catalogue, vous pouvez commencer à y faire référence [
 
 Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) suivantes pour votre espace de travail :
 
-- Afficher les catalogues
-- Modifier les catalogues
-- Exporter les catalogues
-- Supprimer les catalogues
+- View Catalogs
+- Edit Catalogs
+- Export Catalogs
+- Delete Catalogs
 
 ### Étape 1 : Saisissez les détails du catalogue {#step-1-enter-catalog-details}
 
