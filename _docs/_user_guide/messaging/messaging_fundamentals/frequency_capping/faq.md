@@ -14,7 +14,7 @@ tool: Campaigns
 
 ### If I change a send throttle on an active Canvas, does it affect users already in the Canvas?
 
-Yes, when you increase or decrease a Canvas rate limit, the updated limit will take effect for new messages within approximately 30 seconds of the change due to caching.
+Yes, when you increase or decrease a Canvas rate limit, the updated limit will take effect for new messages. There may be a brief delay before the update is reflected across the Canvas.
 
 ### What happens if a user reaches a Canvas Message step but is over the global frequency cap?
 
