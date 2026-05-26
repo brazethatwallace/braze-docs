@@ -190,6 +190,7 @@ cutover
 DALL
 DATAEVENT
 datagrail
+dailyplay
 dataops
 Datashare
 datasharing
