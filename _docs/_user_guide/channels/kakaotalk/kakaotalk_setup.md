@@ -72,6 +72,14 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 | **Credential (ID) & Password (비밀번호)** | Go to the same location for the **Sender number (사업자 등록번호)**, then go to **API** > **Brand Message (브랜드 메시지)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
+##### Register Braze IP addresses
+
+IP whitelist registration is a required step for all customers using CJ OliveNetworks. Register the Braze IP addresses for your cluster in your Comm.One dashboard.
+
+1. In your [Comm.One dashboard](https://ums.cjmplace.com/), go to **Account Management (계정 관리)**, select the menu icon, then select **View Details (자세히보기)**.
+2. Select **Center & Upload IP Whitelist (센터&업로드 IP 화이트리스트)**.
+3. Add the IP addresses for your Braze cluster. Refer to [IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting) for the complete list of IPs by cluster.
+
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
 
@@ -122,10 +130,10 @@ Go to your Infobip dashboard and gather the following information.
 
 ## Set user profiles
 
-User profiles must have phone numbers to message them through KakaoTalk. Phone numbers are shown on the user profile and in the format that they are provided. Currently, unlike SMS or WhatsApp, KakaoTalk uses the standard phone field (and not a number that has been changed into the E.164 format).
+User profiles must have phone numbers in E.164 format to message them through KakaoTalk. Phone numbers are shown on the user profile. For technical reasons, Kakao requires phone numbers to be in E.164 format (for example, `+821025749774`). This differs from some other messaging channels that may accept phone numbers in multiple formats.
 
-![User profile for a test user with a phone number in an unedited format.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
+![User profile for a test user with a phone number in E.164 format.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
 
 ### Import phone numbers
 
-Import phone numbers by [uploading a CSV or using the API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/) to create a user.
+Import phone numbers by [uploading a CSV or using the API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/) to create a user. Ensure phone numbers are in E.164 format before importing.
