@@ -97,7 +97,7 @@ For multivariate and A/B concepts in campaigns, see [Multivariate and A/B testin
 
 ### What happens if a user is global frequency capped at a Canvas Message step?
 
-They won't receive that send for the capped channel, but Message steps still advance users when a message isn't sent because of global frequency capping. For the step-by-step advancement cases, see [How users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance). Global frequency capping alone doesn't exit users from a Canvas; that behavior is separate from **Delivery validations** on a Message step. For more detail, see [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+They don't receive that send for the capped channel, but Message steps still advance users when a message isn't sent because of global frequency capping. For the step-by-step advancement cases, see [How users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance). Global frequency capping alone doesn't exit users from a Canvas; that behavior is separate from **Delivery validations** on a Message step. For more detail, see [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
 
 ### Why are sends lower than the estimated audience size?
 
