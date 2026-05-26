@@ -145,6 +145,8 @@ MAU snapshots are calculated once per day and never change retroactively. In thi
 When you initially integrate Braze, all users will look like new users because Braze has never recorded a session for them before.
 {% endalert %}
 
+The *New Users* count can **decrease retroactively** when an anonymous profile is linked to an identified user and the anonymous profile is orphaned. Braze removes the orphaned profile from the app usage totals, which can lower *New Users* for a period you already viewed. For profile linking behavior, see [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+
 {% alert important %}
 Users associated with more than one app are counted separately for each app. This means a single user can contribute to the *New Users* count multiple times if they start sessions across different apps in your workspace.
 {% endalert %}
