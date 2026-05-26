@@ -34,9 +34,8 @@ You can send gameplay milestones, reward redemptions, and engagement metrics to 
 
 ## Prerequisites
 
-Before you start, you need the following:
 
-| Prerequisite | Description |
+| Requirement | Description |
 | --- | --- |
 | DailyPlay account | A DailyPlay account is required to use this integration. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. Create this key in Braze under **Settings** > **APIs and Identifiers** > **API Keys**. For more information, see [API keys]({{site.baseurl}}/api/api_key/). |
