@@ -20,7 +20,18 @@ channel:
 | KakaoTalk Business channel | Your KakaoTalk account must be a KakaoTalk Business channel to send KakaoTalk messages through Braze. When you create an account, its default status is basic. To make your account a Business channel, you'll need to verify your business and provide relevant documentation. |
 | KakaoTalk Sender Key | A valid KakaoTalk Sender Key. |
 | Contact phone number | A contact phone number for your KakaoTalk channel's administrator. |
+| Braze cluster IPs allowlisted | IP whitelist registration is required for all customers. Register the Braze IP addresses for your cluster before you integrate KakaoTalk in Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+
+### Register Braze IP addresses {#register-braze-ip-addresses}
+
+Register the Braze IP addresses for your cluster in your Comm.One dashboard.
+
+1. In your Comm.One dashboard, go to **Account Management (계정 관리)**, select the menu icon, then select **View Details (자세히보기)**.
+2. Select **Center & Upload IP Whitelist (센터&업로드 IP 화이트리스트)**.
+3. Add the IP addresses for your Braze cluster. For the complete list of IPs by cluster, see [IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting).
+
+![Comm.One dashboard showing where you can add IP addresses.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
 ### Types of KakaoTalk accounts
 
@@ -72,14 +83,6 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 | **Credential (ID) & Password (비밀번호)** | Go to the same location for the **Sender number (사업자 등록번호)**, then go to **API** > **Brand Message (브랜드 메시지)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
-##### Register Braze IP addresses
-
-IP whitelist registration is a required step for all customers using CJ OliveNetworks. Register the Braze IP addresses for your cluster in your Comm.One dashboard.
-
-1. In your [Comm.One dashboard](https://ums.cjmplace.com/), go to **Account Management (계정 관리)**, select the menu icon, then select **View Details (자세히보기)**.
-2. Select **Center & Upload IP Whitelist (센터&업로드 IP 화이트리스트)**.
-3. Add the IP addresses for your Braze cluster. Refer to [IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting) for the complete list of IPs by cluster.
-
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
 
@@ -130,7 +133,7 @@ Go to your Infobip dashboard and gather the following information.
 
 ## Set user profiles
 
-User profiles must have phone numbers in E.164 format to message them through KakaoTalk. Phone numbers are shown on the user profile. For technical reasons, Kakao requires phone numbers to be in E.164 format (for example, `+821025749774`). This differs from some other messaging channels that may accept phone numbers in multiple formats.
+User profiles must have phone numbers in E.164 format to message them through KakaoTalk. Phone numbers are shown on the user profile. KakaoTalk requires phone numbers to be in E.164 format (for example, `+821025749774`). This differs from some other messaging channels that may accept phone numbers in multiple formats.
 
 ![User profile for a test user with a phone number in E.164 format.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
 
