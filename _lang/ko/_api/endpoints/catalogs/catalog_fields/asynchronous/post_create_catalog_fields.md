@@ -62,10 +62,18 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     {
       "name": "Created_At",
       "type": "time"
+    },
+    {
+      "name": "Location",
+      "type": "geo"
     }
   ]
 }'
 ```
+
+{% alert note %}
+지리 위치 필드 값은 `[longitude, latitude]` 배열로 제공해야 합니다. 예를 들어 `[-73.988103, 40.779109]`와 같습니다. 위도는 -90에서 90 사이여야 하며, 경도는 -180에서 180 사이여야 합니다.
+{% endalert %}
 
 ## 응답 {#response}
 
