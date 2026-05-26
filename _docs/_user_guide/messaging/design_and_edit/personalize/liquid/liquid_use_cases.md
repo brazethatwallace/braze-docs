@@ -566,6 +566,16 @@ There is a shovel here.
 ```
 {% endraw %}
 
+### Format currency for European number conventions {#european-currency-format}
+
+Use the [`money` filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) with `number_with_delimiter` and `replace` to swap decimal and thousands separators for locales that use comma as the decimal separator (for example, Italy or Germany).
+
+{% raw %}
+```liquid
+{{ 1234.56 | money | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+{% endraw %}
+
 ### Subtract two custom attributes to display the difference as a monetary value {#attribute-monetary-difference}
 
 This use case captures two monetary custom attributes, then calculates and displays the difference to let users know how far they have to reach their goal.
