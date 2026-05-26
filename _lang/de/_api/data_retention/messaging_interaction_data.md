@@ -9,7 +9,7 @@ page_type: reference
 
 # Über die Verfügbarkeit von Messaging-Interaktionsdaten {#about-messaging-interaction-data-availability}
 
-> Dieser Artikel behandelt Informationen über Interaktionsdaten von Campaigns und Canvases sowie deren Verfügbarkeit.
+> Erfahren Sie mehr über Messaging-Interaktionsdaten für Campaigns und Canvases, einschließlich der Aufbewahrungsdauer durch Braze und der Features, die sie für Retargeting verwenden.
 
 ### Was sind Messaging-Interaktionsdaten? {#what-is-messaging-interaction-data}
 

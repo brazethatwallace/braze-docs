@@ -30,14 +30,14 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter      | Erforderlich | Datentyp | Beschreibung          |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | Erforderlich | String    | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Anfrage-Parameter {#request-parameters}
 
 | Parameter   | Erforderlich | Datentyp | Beschreibung                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `selection` | Erforderlich | Objekt    | Ein Objekt, das Auswahlkriterien enthält. Eine vollständige Aufschlüsselung des Objekts und seiner Felder finden Sie unter [Katalogauswahl-Objekt]({{site.baseurl}}/api/objects_filters/catalog_selection_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### Parameter des Auswahlobjekts {#selection-object-parameters}
 
@@ -46,12 +46,12 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `name`           | Erforderlich | String    | Der Name der Katalogauswahl. |
 | `description`    | Optional | String    | Eine Beschreibung der Katalogauswahl. |
 | `external_id`    | Erforderlich | String    | Ein eindeutiger Bezeichner für die Auswahl. |
-| `source`         | Optional | String    | Die Quelle der Katalogdaten. Für Shopify-Kataloge verwenden Sie `"Shopify"`. Zulässige Werte sind `"Shopify"` und `"Braze"`. |
+| `source`         | Erforderlich | String    | Die Quelle der Katalogdaten. Für Shopify-Kataloge verwenden Sie `"Shopify"`. Für angepasste Kataloge verwenden Sie `"custom"`. |
 | `filters`        | Optional | Array    | Ein Array von Filterobjekten, die auf die Katalogartikel angewendet werden sollen. Sie können bis zu vier Filter pro Anfrage angeben. Wenn keine Filter angegeben werden, werden alle Artikel aus dem Katalog einbezogen. |
 | `results_limit`  | Optional | Integer   | Die maximale Anzahl der zurückzugebenden Ergebnisse. Es muss sich um eine Zahl zwischen 1 und 50 handeln. |
 | `sort_field`     | Optional | String    | Das Feld, nach dem die Ergebnisse sortiert werden sollen. Dies muss zusammen mit `sort_order` verwendet werden. Wenn weder `sort_field` noch `sort_order` vorhanden sind, werden die Ergebnisse in zufälliger Reihenfolge zurückgegeben. |
 | `sort_order`     | Optional | String    | Die Reihenfolge, in der die Ergebnisse sortiert werden sollen. Zulässige Werte sind `"asc"` (aufsteigend) oder `"desc"` (absteigend). Dies muss zusammen mit `sort_field` verwendet werden. Wenn weder `sort_field` noch `sort_order` vorhanden sind, werden die Ergebnisse in zufälliger Reihenfolge zurückgegeben. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Selection object parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
 Die Parameter `sort_field` und `sort_order` müssen zusammen verwendet werden. Wenn Sie nur einen der beiden Parameter angeben oder beide Parameter weglassen, werden die Auswahlergebnisse in zufälliger Reihenfolge zurückgegeben.
@@ -68,6 +68,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     "name": "favorite-restaurants",
     "description": "Favorite restaurants in NYC",
     "external_id": "favorite-nyc-restaurants",
+    "source": "custom",
     "filters": [
       {
         "field": "City",
@@ -96,10 +97,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `boolean`  | `is`                                                    |
 | `time`     | `before`, `after`                                       |
 | `array`    | `includes value`, `does not include value`              |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Filter operators" }
+| `geo`      | `geo within`, `geo outside`                             |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
 Die API unterstützt maximal vier Filter pro Auswahlanfrage. Im Braze-Dashboard können Sie bis zu 10 Filter pro Auswahl hinzufügen. Filter werden in der Reihenfolge angewendet, in der sie im Array erscheinen.
+{% endalert %}
+
+{% alert note %}
+Wenn Sie einen `geo`-Filter anwenden, sortiert das System die Ergebnisse automatisch nach Entfernung, wobei das nächstgelegene Element zuerst angezeigt wird – unabhängig von den Parametern `sort_field` und `sort_order`.
 {% endalert %}
 
 ## Antwort {#response}
@@ -156,6 +162,6 @@ In der folgenden Tabelle finden Sie mögliche zurückgegebene Fehler und die ent
 | `invalid-sort-field`                 | Prüfen Sie, ob das Sortierfeld der Auswahl gültig ist.                                                   |
 | `invalid-sort-order`                 | Prüfen Sie, ob die Sortierreihenfolge der Auswahl gültig ist.                                                   |
 | `selection-contains-too-many-arrays` | Prüfen Sie, ob die Auswahl mehr als ein Feld mit dem Typ `array` enthält. Es wird nur eines unterstützt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

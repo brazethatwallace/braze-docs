@@ -65,7 +65,7 @@ Nachdem Sie Braze mit Ihrem Facebook-Konto verknüpft haben, wählen Sie die Anz
 Ihre Facebook-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Facebook-Administrator Sie von Ihrem Facebook Business Manager oder dem Zugriff auf die verbundenen Facebook-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen werden Ihre aktiven Canvases, die Facebook-Audience-Komponenten verwenden, Fehler anzeigen, und Braze kann die Nutzer:innen nicht synchronisieren.
 
 {% alert important %}
-Für Nutzer:innen, die zuvor den Facebook-App-Review-Prozess für [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) und [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard) durchlaufen haben, ist Ihr System User Token weiterhin für die Facebook-Audience-Komponente gültig. Sie können das Facebook System User Token nicht über die Facebook-Partnerseite bearbeiten oder widerrufen. Stattdessen können Sie Ihr Facebook-Konto verbinden, um Ihr Facebook System User Token innerhalb Ihres Braze-Workspace zu ersetzen.
+Für Kund:innen, die zuvor den Facebook-App-Review-Prozess für [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) und [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard) durchlaufen haben, ist Ihr System User Token weiterhin für die Facebook-Audience-Komponente gültig. Sie können das Facebook System User Token nicht über die Facebook-Partnerseite bearbeiten oder widerrufen. Stattdessen können Sie Ihr Facebook-Konto verbinden, um Ihr Facebook System User Token innerhalb Ihres Braze-Workspace zu ersetzen.
 
 <br><br>Die Facebook-oAuth-Konfiguration gilt auch für [Facebook-Exporte mit Segments]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites).
 {% endalert %}
@@ -216,6 +216,14 @@ Nachdem Sie die Nutzungsbedingungen für Ihre angepasste Facebook-Zielgruppe akz
 
 Dann kann Braze die Nutzer:innen synchronisieren, sobald sie den Facebook-Audience-Sync-Schritt erreichen.
 
+### Was ist mit den Filtern „Connected Facebook“ und „Number of Facebook Friends Using App“ passiert? {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
+
+Die Braze-Segmentierungsfilter **Number of Facebook Friends Using App** und **Connected Facebook** sind veraltet. Facebook und die Braze-SDKs erfassen die zugrunde liegenden Daten, auf die sich diese Filter stützten, nicht mehr.
+
+Ersetzen Sie die veralteten Filter durch angepasste Attribute, angepasste Events oder Engagement-basierte Segmente – zum Beispiel Facebook-Login oder Social Linking anstelle von **Connected Facebook**, oder Empfehlungen, Einladungen und Shares anstelle von **Number of Facebook Friends Using App**.
+
+Für Canvas-Retargeting gleichen Sie Nutzer:innen mit E-Mail, Telefon, Vorname und Nachname ab, wie in [Schritt 4: Sync-Einrichtung](#step-4-sync-setup) gezeigt. Um die Reichweite zu erweitern, synchronisieren Sie ein hochwertiges Segment mit Facebook und erstellen Sie eine Lookalike-Zielgruppe im Meta Ads Manager.
+
 ## Fehlerbehebung {#troubleshooting}
 
 <style>
@@ -234,7 +242,6 @@ table td {
 </style>
 
 <table aria-label="Troubleshooting">
-  <caption>Fehlerbehebung</caption>
   <thead>
     <tr>
       <th>Fehler</th>
@@ -279,6 +286,21 @@ table td {
       <td>Auf der Facebook-Technologie-Partnerseite sehen Sie „Verbunden“, aber im Facebook-Audience-Sync-Schritt beim Synchronisieren einer Zielgruppe erscheint die Fehlermeldung „Zielgruppe ‚Zielgruppenname' konnte nicht erstellt werden“. Die Autorisierung Ihres Facebook-Kontos ist fehlgeschlagen. Besuchen Sie die Technologie-Partnerseite, um Ihr Konto erneut zu verbinden.</td>
       <td>Folgen Sie den Schritten in <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>diesem Abschnitt zur Fehlerbehebung</a>, um Ihr Konto auf Probleme zu überprüfen.
       </td>
+    </tr>
+    <tr>
+      <td><b>Anzeigenkonto fehlt in der Dropdown-Liste</b></td>
+      <td>Wenn Sie den Facebook-Audience-Schritt konfigurieren, wird ein erwartetes Anzeigenkonto nicht in der Anzeigenkonto-Auswahl angezeigt.</td>
+      <td>Vergewissern Sie sich, dass Ihre Facebook-App die <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">App-Überprüfung</a> für <code>ads_management</code> mit der von Facebook für die Marketing-API-Nutzung erforderlichen Zugriffsebene abgeschlossen hat. Bestätigen Sie im <a href="https://business.facebook.com/">Facebook Business Manager</a>, dass das System User Token die richtigen Berechtigungen hat und den Anzeigenkonten zugeordnet ist, die Sie in Braze verwenden, und dass die Nutzungsbedingungen für das Anzeigenkonto akzeptiert wurden. <br><br>Wenn die Dropdown-Liste in einem neuen Canvas funktioniert, aber nicht in einem bereits bearbeiteten Canvas, versuchen Sie, Ihren Browser hart zu aktualisieren (oder den Cache zu leeren), und bestätigen Sie, dass Sie als Nutzer:in angemeldet sind, die noch Zugriff auf diese Anzeigenkonten hat.</td>
+    </tr>
+    <tr>
+      <td><b>Fehler bei der Validierung des Zugriffstokens</b></td>
+      <td>Beim Verbinden von Braze mit Facebook oder beim Synchronisieren von Zielgruppen wird ein Fehler bei der Validierung des Facebook-Zugriffstokens angezeigt.</td>
+      <td>Melden Sie sich in Ihrem Browser von Facebook ab. Gehen Sie in Braze zu <b>Partnerintegrationen</b> &gt; <b>Facebook</b>, entfernen Sie die gespeicherten Facebook-Zugangsdaten und verbinden Sie Facebook erneut. Trennen und verbinden Sie auf der Facebook-Technologie-Partnerseite für Braze die Integration erneut, falls die Option verfügbar ist. <br><br>Wenn die Probleme weiterhin bestehen, folgen Sie den Schritten unter <a href="#audit-your-facebook-account">Ihr Facebook-Konto überprüfen</a>.</td>
+    </tr>
+    <tr>
+      <td><b>Berechtigungsfehler beim Zielgruppenexport oder bei der Synchronisierung</b></td>
+      <td>Der Export oder die Synchronisierung einer Facebook-Zielgruppe schlägt mit Autorisierungs-, Admin- oder Anzeigenkontofehlern fehl.</td>
+      <td>Öffnen Sie in <a href="https://developers.facebook.com/">Meta for Developers</a> Ihre App und bestätigen Sie, dass Ihre Nutzer:innen unter <b>App roles</b> eine <b>Admin</b>-Rolle haben. Bestätigen Sie unter <b>App settings</b> &gt; <b>Advanced</b>, dass <b>Advertising accounts</b> die Konten enthält, die Sie mit Braze verwenden. Bestätigen Sie in den <a href="https://business.facebook.com/latest/settings">Business-Einstellungen</a>, dass die verbindenden Nutzer:innen oder das System User Token Zugriff auf das richtige Anzeigenkonto haben.</td>
     </tr>
   </tbody>
 </table>

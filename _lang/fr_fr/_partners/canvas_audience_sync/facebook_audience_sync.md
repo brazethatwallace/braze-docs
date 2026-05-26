@@ -216,6 +216,14 @@ Après avoir accepté les conditions de service des audiences personnalisées Fa
 
 Ensuite, Braze peut synchroniser les utilisateurs dès qu'ils atteignent l'étape de synchronisation d'audience Facebook.
 
+### Qu'est-il advenu des filtres **Connected Facebook** et **Number of Facebook Friends Using App** ? {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
+
+Les filtres de segmentation Braze **Number of Facebook Friends Using App** et **Connected Facebook** sont obsolètes. Facebook et les SDK Braze ne collectent plus les données sous-jacentes sur lesquelles ces filtres reposaient.
+
+Remplacez les filtres obsolètes par des attributs personnalisés, des événements personnalisés ou des Segments basés sur l'engagement — par exemple, la connexion Facebook ou le lien social au lieu de **Connected Facebook**, ou les recommandations, invitations et partages au lieu de **Number of Facebook Friends Using App**.
+
+Pour le reciblage Canvas, faites correspondre les utilisateurs avec l'e-mail, le téléphone, le prénom et le nom de famille, comme démontré dans l'[étape 4 : Configuration de la synchronisation](#step-4-sync-setup). Pour élargir la portée, synchronisez un Segment à forte valeur avec Facebook et créez une audience similaire dans Meta Ads Manager.
+
 ## Résolution des problèmes {#troubleshooting}
 
 <style>
@@ -233,8 +241,7 @@ table td {
 }
 </style>
 
-<table aria-label="Troubleshooting">
-  <caption>Résolution des problèmes</caption>
+<table aria-label="Résolution des problèmes">
   <thead>
     <tr>
       <th>Erreur</th>
@@ -279,6 +286,21 @@ table td {
       <td>Sur la page Facebook Technology Partner, vous voyez « Connected », mais il y a une erreur à l'étape Facebook Audience Sync lors de la synchronisation d'une audience : « Failed to create audience 'audience name' ». L'autorisation de votre compte Facebook a échoué. Visitez la page des partenaires technologiques pour reconnecter votre compte.</td>
       <td>Suivez les étapes de <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>cette section de résolution des problèmes</a> pour vérifier que votre compte ne présente aucun problème.
       </td>
+    </tr>
+    <tr>
+      <td><b>Compte publicitaire absent du menu déroulant</b></td>
+      <td>Lorsque vous configurez l'étape Facebook Audience, un compte publicitaire attendu n'apparaît pas dans le sélecteur de comptes publicitaires.</td>
+      <td>Confirmez que votre application Facebook a terminé la <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">révision d'application</a> pour <code>ads_management</code> avec le niveau d'accès requis par Facebook pour l'utilisation de l'API marketing. Dans <a href="https://business.facebook.com/">Facebook Business Manager</a>, confirmez que le jeton d'utilisateur système dispose des autorisations appropriées et est associé aux comptes publicitaires que vous utilisez dans Braze, et que les conditions du compte publicitaire sont acceptées. <br><br>Si le menu déroulant fonctionne sur un nouveau Canvas mais pas sur un Canvas que vous avez déjà modifié, essayez d'actualiser votre navigateur (ou de vider votre cache) et confirmez que vous êtes connecté en tant qu'utilisateur ayant toujours accès à ces comptes publicitaires.</td>
+    </tr>
+    <tr>
+      <td><b>Erreur de validation du jeton d'accès</b></td>
+      <td>Vous voyez une erreur concernant la validation du jeton d'accès Facebook lors de la connexion de Braze à Facebook ou lors de la synchronisation des audiences.</td>
+      <td>Déconnectez-vous de Facebook dans votre navigateur. Dans Braze, allez dans <b>Intégrations partenaires</b> &gt; <b>Facebook</b>, supprimez les identifiants Facebook enregistrés, puis reconnectez Facebook. Sur la page des partenaires technologiques de Facebook pour Braze, déconnectez et reconnectez l'intégration si l'option est disponible. <br><br>Si les problèmes persistent, suivez la section <a href="#audit-your-facebook-account">Auditer votre compte Facebook</a>.</td>
+    </tr>
+    <tr>
+      <td><b>Erreurs d'autorisation d'exportation ou de synchronisation d'audience</b></td>
+      <td>L'exportation ou la synchronisation d'une audience Facebook échoue avec des erreurs d'autorisation, d'administration ou de compte publicitaire.</td>
+      <td>Dans <a href="https://developers.facebook.com/">Meta for Developers</a>, ouvrez votre application et confirmez que votre utilisateur a un rôle <b>Admin</b> sous <b>App roles</b>. Sous <b>App settings</b> &gt; <b>Advanced</b>, confirmez que <b>Advertising accounts</b> inclut les comptes que vous utilisez avec Braze. Dans <a href="https://business.facebook.com/latest/settings">Business settings</a>, confirmez que l'utilisateur connecté ou l'utilisateur système a accès au bon compte publicitaire.</td>
     </tr>
   </tbody>
 </table>
