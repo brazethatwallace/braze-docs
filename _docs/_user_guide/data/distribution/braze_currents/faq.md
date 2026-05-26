@@ -85,6 +85,12 @@ Storage requirements depend on your event volume and the types of events you're 
 
 When you create a new campaign or Canvas, the name may take some time to propagate through all Braze systems. Events sent through Currents during this window may have `NULL` in the name fields (such as `campaign_name` or `canvas_step_name`). This is also expected if the name was modified shortly before the events were logged. To avoid this, allow some time after creating or renaming a campaign or Canvas step before sending.
 
+### Why are session end events delayed or missing in Currents?
+
+Session end events are flushed on the SDK's normal upload schedule (typically about every 10 seconds when the network is available). If a user force-quits the app or goes offline before that flush, the session end may arrive late or not at all in Currents.
+
+To improve timeliness for session end in Currents, call your platform's immediate flush after session start when you need near-real-time session boundaries—for example, `requestImmediateDataFlush()` on supported SDKs. For general flush behavior, see [SDK overview]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/#data-upload-and-download).
+
 ### What happens if my storage bucket is unavailable when Currents tries to write data?
 
 If your storage bucket is unavailable at the time of data transfer, that data is lost. Braze is not able to backfill events that were not successfully delivered. To avoid data loss, ensure your storage bucket is available and properly configured at all times.
