@@ -196,6 +196,10 @@ While anonymous users can enter and exit Canvases, their actions aren't associat
 For further assistance with Canvas troubleshooting, be sure to contact Braze Support within 30 days of your issue's occurrence as we only have the last 30 days of diagnostic logs.
 {% endalert %}
 
+### Can I exclude users who are currently in a Canvas journey from a campaign or segment?
+
+No. Braze does not provide a segment or campaign filter for "currently in a Canvas journey." To target or suppress users based on Canvas entry, use webhooks at Canvas entry and exit to set custom attributes, then filter on those attributes in campaigns or segments.
+
 ## Segmentation
 
 ### What is the difference between "Has not entered Canvas variation" and "Is not in Canvas control group"?
