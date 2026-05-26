@@ -74,6 +74,10 @@ For information on how to set an `external_id` against a user profile, see our d
 Orphaned users are not eligible to receive messages.
 {% endalert %}
 
+### Merging duplicate users
+
+When you identify duplicate user profiles in your workspace, you can merge them using the REST API. For more information about merging users and the available methods, see [Merge duplicate users]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
+
 ## User aliases
 
 To refer to users by identifiers other than the Braze `external_id`, set user aliases against a user profile. Any alias set against a user profile will act in addition to the user's `braze_id` or `external_id` as opposed to replacing it. There's no limit to the number of aliases that you can set against a user profile.
