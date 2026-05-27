@@ -38,11 +38,7 @@ MyPostcard와 통합하려면 [로그인하거나 가입](https://www.mypostcard
 
 ### 1단계: Braze 웹훅 템플릿 생성 {#step-1-create-your-braze-webhook-template}
 
-향후 Campaigns 또는 Canvases에서 사용할 MyPostcard 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **템플릿** > **웹훅 템플릿**으로 이동하세요.
-
-{% alert note %}
-[구형 탐색]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/)을 사용하는 경우, **참여** > **템플릿 및 미디어** > **웹훅 템플릿**으로 이동하세요.
-{% endalert %}
+향후 Campaigns 또는 Canvases에서 사용할 MyPostcard 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **콘텐츠** > **웹훅**으로 이동하세요. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
 일회성 MyPostcard 웹훅 캠페인을 생성하거나 기존 템플릿을 사용하려면, 새 캠페인을 생성할 때 Braze에서 **Webhook**을 선택하세요. 다음 필드를 작성합니다:
 
@@ -95,7 +91,7 @@ B2B 관리 도구에 표시되는 요청 본문을 복사한 다음 Liquid 개�
 
 ### 2단계: 요청 미리보기 {#step-2-preview-your-request}
 
-다음으로, **Preview** 패널에서 요청을 미리 보거나 **Test** 탭으로 이동하여 무작위 사용자, 기존 사용자를 선택하거나 커스텀 사용자를 생성하여 웹훅을 테스트할 수 있습니다. 페이지를 떠나기 전에 템플릿을 저장하는 것을 잊지 마세요!
+다음으로, **미리보기** 패널에서 요청을 미리 보거나 **테스트** 탭으로 이동하여 무작위 사용자, 기존 사용자를 선택하거나 커스텀 사용자를 생성하여 웹훅을 테스트할 수 있습니다. 페이지를 떠나기 전에 템플릿을 저장하는 것을 잊지 마세요!
 
 ![구현을 검증하기 위한 다양한 필드가 있는 웹훅 테스트 탭.]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 

@@ -15,12 +15,6 @@ page_order: 1
 ## 1. Schritt: Verbinden Sie Ihren Shopify-Shop {#step-1-connect-your-shopify-store}
 
 1. Gehen Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und suchen Sie dann nach „Shopify“.
-
-{% alert note %}
-Wenn Sie die ältere Navigation verwenden, finden Sie **Technologie-Partner** unter **Integrationen**.
-{% endalert %}
-
-{: start="2"}
 2. Wählen Sie auf der Shopify-Partnerseite **Begin setup**, um die Integration zu starten.<br><br>![Shopify-Integrationsseite mit Button, um mit der Einrichtung zu beginnen.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Installieren Sie im Shopify App Store die Braze-Anwendung.<br><br>![Die Braze-App-Store-Seite mit einem Button zur Installation der Anwendung.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
@@ -176,10 +170,10 @@ Sie müssen einen öffentlichen Endpunkt erstellen, den Braze zum Abrufen der ex
 Braze sendet die folgenden Parameter an Ihren Endpunkt:
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
-|----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | Ja      | String    | Die Shopify-Kund:innen-ID.                                         |
-| shopify_storefront   | Ja      | String    | Der Storefront-Name für die Anfrage. Bsp.: `<storefront_name>.myshopify.com` |
-| email_address        | Nein       | String    | Die E-Mail-Adresse der angemeldeten Nutzer:in. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Nullwerte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
+|---|---|---|---|
+| shopify_customer_id | Ja | String | Die Shopify-Kund:innen-ID. |
+| shopify_storefront | Ja | String | Der Storefront-Name für die Anfrage. Bsp.: `<storefront_name>.myshopify.com` |
+| email_address | Nein | String | Die E-Mail-Adresse der angemeldeten Nutzer:in. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Nullwerte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpoint specifications" }
 
 #### Beispiel-Endpunkt {#example-endpoint}
@@ -238,7 +232,7 @@ Sie können alle Produkte aus Ihrem Shopify-Shop mit einem Braze-Katalog synchro
 
 ## 6. Schritt: Kanäle aktivieren (optional) {#step-6-activate-channels-optional}
 
-Sie können In-App-Nachrichten ohne Entwickler:in aktivieren, indem Sie sie in Ihrem Setup konfigurieren.
+Sie können In-Browser-Nachrichten ohne Entwickler:in aktivieren, indem Sie sie in Ihrem Setup konfigurieren.
 
 ![Einrichtungsschritt zur Aktivierung von Kanälen, wobei die verfügbare Option In-Browser-Messaging ist.]({% image_buster /assets/img/shopify/activate_channels_standard.png %})
 

@@ -52,6 +52,12 @@ Wenn Sie stattdessen ein wiederverwendbares HTML-Template benötigen, wählen Si
 
 Weitere Informationen darüber, wo Templates gespeichert werden, finden Sie unter [Templates und Medien]({{site.baseurl}}/user_guide/messaging/templates/).
 
+### Warum kann ich die Füllfarbe eines Buttons im Drag-and-Drop-Editor nicht ändern? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+
+Seitenstile können Nachrichtenstile überschreiben. Wenn das Aktualisieren von **Fill** bei einem Button oder Block keine Wirkung zeigt, versuchen Sie Folgendes:
+1. Öffnen Sie die [globalen E-Mail-Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) und wählen Sie **Reset to default** für den betreffenden Seitenstil aus, damit die Farbe auf Nachrichtenebene angewendet werden kann.
+2. Legen Sie die Farbe erneut am Block fest.
+
 ### Kann ich E-Mail-Anhänge zum Drag-and-Drop-Editor hinzufügen? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
 Ja. Sie können Anhänge zu Ihrer E-Mail-Nachricht hinzufügen, indem Sie zu **Sending Settings** > **Advanced** navigieren.

@@ -69,10 +69,6 @@ Para ver todos tus alias de enlace rastreados, haz lo siguiente:
 1. Ve a **Settings** > **Email Preferences** en **Workspace Settings**.
 2. Selecciona la pestaña **Link Aliasing Settings**.
 
-{% alert important %}
-Si estás usando la [navegación anterior]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), esta configuración se encuentra en **Manage Settings**.
-{% endalert %}
-
 Aquí puedes ordenar, buscar y desactivar el seguimiento de los alias de enlace.
 
 ![Página de alias de enlace rastreados que muestra alias de enlace activos e inactivos asociados con varias campañas.]({% image_buster /assets/img/tracked_aliases.png %})

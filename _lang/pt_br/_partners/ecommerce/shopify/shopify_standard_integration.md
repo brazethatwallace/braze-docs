@@ -15,12 +15,6 @@ page_order: 1
 ## Etapa 1: Conecte sua loja da Shopify {#step-1-connect-your-shopify-store}
 
 1. Na Braze, acesse **Integrações de parceiros** > **Parceiros de tecnologia** e depois procure "Shopify".
-
-{% alert note %}
-Se estiver usando a navegação mais antiga, poderá encontrar **Parceiros de tecnologia** em **Integrações**.
-{% endalert %}
-
-{: start="2"}
 2. Na página do parceiro da Shopify, selecione **Begin setup** para iniciar o processo de integração.<br><br>![Página de integração da Shopify com botão para iniciar a configuração.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Na loja de aplicativos da Shopify, instale o aplicativo da Braze.<br><br>![A página da loja de aplicativos da Braze com um botão para instalar o aplicativo.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
@@ -175,7 +169,7 @@ Você deve criar um endpoint público que a Braze possa chamar para recuperar o 
 
 A Braze envia os seguintes parâmetros para seu endpoint:
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |----------------------|----------|-----------|------------------------------------------------------------------|
 | shopify_customer_id  | Sim      | String    | O ID do cliente da Shopify.                                         |
 | shopify_storefront   | Sim      | String    | O nome da loja para a solicitação. Ex: `<storefront_name>.myshopify.com` |

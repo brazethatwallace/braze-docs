@@ -69,10 +69,6 @@ Um alle Ihre verfolgten Link-Aliase anzuzeigen, gehen Sie wie folgt vor:
 1. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** unter **Workspace-Einstellungen**.
 2. Wählen Sie den Tab **Link Aliasing Settings** aus.
 
-{% alert important %}
-Wenn Sie die [ältere Navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/) verwenden, finden Sie diese Einstellungen unter **Einstellungen verwalten**.
-{% endalert %}
-
 Hier können Sie Link-Aliase sortieren, suchen und das Tracking deaktivieren.
 
 ![Seite „Tracked Link Aliases“ mit aktiven und inaktiven Link-Aliasen, die verschiedenen Campaigns zugeordnet sind.]({% image_buster /assets/img/tracked_aliases.png %})
@@ -105,7 +101,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body | Link mit Aliasing |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit weiteren Query-Parametern" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with more query parameters" }
 
 ### HTML-Link {#html-link}
 
@@ -114,7 +110,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body | Link mit Aliasing |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML-Link" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML link" }
 
 ### Link mit Anker {#link-with-anchor}
 
@@ -123,7 +119,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body | Link mit Aliasing |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit Anker" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor" }
 
 ### Link mit Anker und Capture-Tag {#link-with-anchor-and-capture-tag}
 
@@ -132,7 +128,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body | Link mit Aliasing |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%} | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit Anker und Capture-Tag" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor and capture tag" }
 
 ## Link-Aliase verfolgen {#tracking-link-aliases}
 

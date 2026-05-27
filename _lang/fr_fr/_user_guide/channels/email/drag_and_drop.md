@@ -91,7 +91,7 @@ Après avoir sélectionné l'éditeur par glisser-déposer comme expérience d'�
 - Utiliser un modèle d'e-mail par glisser-déposer enregistré.
 
 {% alert note %}
-Pour utiliser un modèle HTML personnalisé existant ou des modèles créés par un tiers, vous devez recréer le modèle en accédant à **Templates** > **Email Templates** et en sélectionnant **Drag-And-Drop Editor** comme expérience d'édition.
+Pour utiliser un modèle HTML personnalisé existant ou des modèles créés par un tiers, vous devez recréer le modèle en accédant à **Content** > **Email** et en sélectionnant **Drag-And-Drop Editor** comme expérience d'édition.
 {% endalert %}
 
 Vous pouvez également accéder à tous les modèles depuis la section **Templates**.
