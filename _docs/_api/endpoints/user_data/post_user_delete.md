@@ -120,7 +120,7 @@ When you remove a user with this endpoint, the following occurs:
 
 ### Multiple profiles with a shared email address
 
-To merge user profiles that share the same email address, call the [`/users/merge` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_users_merg/). 
+To merge user profiles that share the same email address, call the [`/users/merge` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/). 
 
 ## Troubleshooting
 
