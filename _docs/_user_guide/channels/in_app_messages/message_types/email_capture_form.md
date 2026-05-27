@@ -62,6 +62,8 @@ Next, customize your form as needed. Customize the following features for your e
 - Different colors for the header and body text, buttons, and background
 - Key-value pairs
 - Style for header and body text, buttons, button border color, background, and overlay
+- Submit button
+    - Note that the submit button appears only after the user enters a valid email address. This helps you collect complete email addresses.
 
 ![Composer for email capture form.]({% image_buster /assets/img/email_capture.png %})
 
