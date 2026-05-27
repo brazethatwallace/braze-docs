@@ -78,6 +78,15 @@ The file `_data/sf_kb_articles.csv` contains the full content of Salesforce Know
 | `Visible to Customer` | `1` if visible to customers |
 | `Knowledge ID` | Salesforce record ID (different format from the Jira `sf_url` ID) |
 
+When using the Phase 1 backlog CSV (`_data/kb_articles.csv`), also use:
+
+| Column | Description |
+|--------|-------------|
+| `article_id` | Salesforce Knowledge record ID |
+| `doc_path` | Resolved `_docs/...` target (may be empty — infer per [Resolve target doc path](#resolve-target-doc-path)) |
+| `team` | Owning docs team label (e.g., `docs`, `kb`) |
+| `codebase_evidence` | Paths or notes from reference-repo verification (Phase 1) |
+
 ### Matching tickets to articles
 
 Match Jira tickets to CSV articles by comparing the ticket `summary` field (case-insensitive) against the CSV `Title` column. This produces an ~81% exact match rate. For unmatched tickets, try substring matching. If no match is found, the user must provide the article content manually.
@@ -94,10 +103,19 @@ The `Resolution` column contains the article's answer. It may be multi-line and 
 
 Jira tickets contain **triage metadata** (what the gap is, where it should go, why it matters) but generally do NOT contain the **source content** needed to draft the docs update. The actual content lives in the linked Salesforce Knowledge Base articles, which are now available locally in the CSV.
 
-- **Phase 1 (XML only):** Parse, triage, categorize, prioritize, and produce a ranked backlog. This can be fully automated.
-- **Phase 2 (CSV auto-lookup + drafting):** Draft the actual docs updates. For each ticket, automatically look up the article content from the CSV by title match. If no CSV match exists, prompt the user to provide the article content manually.
+- **Phase 1 (XML and/or CSV):** Parse, triage, categorize, prioritize, resolve target docs, assign product verticals, and produce a ranked backlog.
+- **Phase 2 (CSV auto-lookup + drafting):** Draft docs updates using reference repos, open PRs **batched by product vertical** (solo PR per article when vertical is unknown), then **append actioned `article_id` values** to [`_data/kb_epic_bd6308.txt`](_data/kb_epic_bd6308.txt).
 
 Always complete Phase 1 first. For Phase 2, use the CSV to auto-retrieve article content whenever possible.
+
+### BD-6308 actioned-article tracker
+
+| File | Purpose |
+|------|---------|
+| [`_data/kb_epic_bd6308.txt`](_data/kb_epic_bd6308.txt) | One `article_id` per line — Jira epic in-flight work **plus** IDs actioned in Phase 2 PRs |
+| [`_data/kb_articles.csv`](_data/kb_articles.csv) | Backlog; set `implementation_status` to `actioned` when a PR ships (optional but recommended) |
+
+Phase 1 must treat any ID already listed in `kb_epic_bd6308.txt` like other in-flight epic work (exclude from the actionable queue or mark skipped with reason **BD-6308 tracker**).
 
 ---
 
@@ -140,9 +158,10 @@ For each **actionable** ticket:
 1. **Extract the request** — Read the "Migration request" and "Recommended actions" sections
 2. **Check for sensitive content** — Review the "Flag sensitive information" section; omit anything flagged
 3. **Read comments** — Comments often refine, expand, or link related tickets
-4. **Identify target doc** — Use the "Recommended Braze Docs page" URLs to find the target file in the repo. Map URLs like `https://www.braze.com/docs/user_guide/...` to local paths `_docs/_user_guide/...`. **If the recommended target is under `_docs/_help/help_articles/`**, do not use it; search for related content elsewhere (e.g., same product area in `_user_guide/`, FAQ, or related topic) and record that **alternative location** as the target doc for the update.
-5. **Verify against existing docs** — Read the target file to check if the gap still exists
-6. **Assess drafting readiness** — Determine whether the ticket description contains enough detail to draft the update, or whether the SF article content is required
+4. **Resolve target doc** — Follow [Resolve target doc path](#resolve-target-doc-path) (below). Do not rely on a stale or missing "Recommended Braze Docs page" URL alone.
+5. **Assign product vertical** — Follow [Product vertical and ownership](#product-vertical-and-ownership) so Phase 2 can batch PRs correctly.
+6. **Verify against existing docs** — Read the target file to check if the gap still exists
+7. **Assess drafting readiness** — Determine whether the ticket description contains enough detail to draft the update, or whether the SF article content is required
 
 ### Output Format Per Ticket (to output.md and chat console)
 
@@ -154,6 +173,8 @@ For each **actionable** ticket:
 - **Knowledge Gap**: [Summary from description]
 - **Recommended Action**: [What to add/update, from description]
 - **Target Doc**: `_docs/_user_guide/path/to/file.md` (or "NEW: suggested_location")
+- **Target doc confidence**: [Explicit ticket URL | Inferred from docs search | Inferred from article content]
+- **Product vertical**: [e.g., Canvas, Email, Currents, SDK, Analytics] — or **Unknown** if ownership cannot be determined
 - **SF Knowledge Article**: [URL from custom field, if present]
 - **Ready to Draft**: [Yes — ticket has enough detail | No — needs SF article content]
 - **Suggested Change**: [Specific content to add/update, or summary of what the SF article would need to provide]
@@ -171,9 +192,10 @@ After processing all tickets:
    - **Priority field** (P1 > P2 > P3)
    - **Impact** (blocks core functionality vs. nice-to-have)
    - **Effort** (quick FAQ entry vs. new guide)
-3. **Batch by Doc** — Group changes targeting the same file
-4. **Maintain sources** — Keep a list of which BD-XXXX ticket IDs inform each update
-5. **Present the backlog** — Output the prioritized list and prompt the user to provide SF article content for the top items
+3. **Batch by doc** — Group changes targeting the same primary file (candidates for a single PR when they share a vertical)
+4. **Batch by product vertical** — Group actionable items by [product vertical](#product-vertical-and-ownership) for Phase 2 PR routing (one PR per vertical per run, unless vertical is unknown)
+5. **Maintain sources** — Keep a list of which BD-XXXX ticket IDs (and/or `article_id` from CSV) inform each update
+6. **Present the backlog** — Output the prioritized list grouped by vertical and prompt the user to provide SF article content for the top items
 
 ### Backlog prompt to the user
 
@@ -182,15 +204,62 @@ After Phase 1 is complete, present a summary like:
 ```markdown
 ## Phase 1 Complete — Prioritized Backlog
 
-| Rank | Ticket | Summary | Target Doc | CSV Match? | Linked Issues |
-|------|--------|---------|------------|------------|---------------|
-| 1 | BD-XXXX | ... | `_docs/...` | Yes | 274 |
-| 2 | BD-YYYY | ... | `_docs/...` | No | 235 |
+| Rank | Ticket | Summary | Product vertical | Target Doc | CSV Match? | Linked Issues |
+|------|--------|---------|------------------|------------|------------|---------------|
+| 1 | BD-XXXX | ... | Canvas | `_docs/...` | Yes | 274 |
+| 2 | BD-YYYY | ... | Unknown | `_docs/...` | No | 235 |
 
 **X of Y tickets have CSV matches and can be auto-drafted.**
+
+**Phase 2 PR plan:** N vertical batches + M solo PRs (articles with unknown vertical).
 To proceed, say: "Run Phase 2 for the top N tickets" or "Run Phase 2 for BD-XXXX".
 For tickets without CSV matches, paste the article content manually.
 ```
+
+---
+
+## Resolve target doc path
+
+Use this whenever a ticket or CSV row has no reliable `doc_path`, the recommended URL is missing, returns 404, points at deprecated IA (`_help/help_articles/`), or the cited page no longer matches the article topic.
+
+**Priority order:**
+
+1. **Explicit, valid path** — Ticket "Recommended Braze Docs page" maps to an existing `_docs/...` file (not under `_docs/_help/help_articles/`). Use it.
+2. **Phase 1 / CSV `doc_path`** — If already populated and the file exists on disk, use it.
+3. **Same-topic search in `_docs/`** — From the article `Title`, `Resolution`, and ticket summary, search the repo (grep or semantic search) for:
+   - Matching UI terms, error strings, metric names, API paths, or feature names
+   - Existing FAQ, troubleshooting, or glossary pages in the same product area
+   - Prefer updating an existing FAQ/troubleshooting section over creating a new page
+4. **SF `Environment` (CSV)** — Map product areas to doc neighborhoods (e.g., "Dashboard" → `_docs/_user_guide/administrative/`, "SDK and Segmentation" → `_docs/_developer_guide/` or `_docs/_user_guide/audience/`, "Currents" → `_docs/_user_guide/data/distribution/braze_currents/`).
+5. **IA bucket from path** — If you only know the vertical folder (e.g. `_docs/_user_guide/messaging/canvas/`), pick the most specific existing page (FAQ, troubleshooting, or parent guide) that already covers the feature class.
+6. **Record inference** — In Phase 1 output, set **Target doc confidence** to `Inferred from docs search` or `Inferred from article content` and note why (one line). If no defensible target exists, mark **Ready to Draft: No** and ask the user.
+
+**Do not** leave content in `_docs/_help/help_articles/` or publish new pages under that tree. Always land updates in `_docs/_user_guide/`, `_docs/_developer_guide/`, `_docs/_api/`, or shared `_includes/` as appropriate.
+
+---
+
+## Product vertical and ownership
+
+**Product vertical** is the docs/product area used to **batch pull requests** so the right reviewers see related changes together (Email, Push, SMS, Canvas, API, Currents, SDK, Analytics, Partners, Dashboard & administration, etc.).
+
+### How to determine vertical
+
+Apply the first match that applies:
+
+| Signal | Source | Example |
+|--------|--------|---------|
+| Jira team | XML `Team` custom field | `Currents`, `Email` |
+| CSV team / assignee | `kb_articles.csv` `team`, `assigned_to` | `docs`, product-aligned assignee |
+| SF environment | CSV `Environment` | "Dashboard", "Email" |
+| Resolved `doc_path` | Longest-prefix match in [`.github/support_analyzer_doc_assignees.csv`](.github/support_analyzer_doc_assignees.csv) `Team` column | `Core Messaging`, `Core Objects` |
+| IA bucket | First meaningful segment under `_docs/_user_guide/` or `_docs/_developer_guide/` | `messaging/canvas` → **Canvas**; `channels/email` → **Email**; `data/distribution/braze_currents` → **Currents** |
+| Article + code topic | Feature names in Resolution + reference-repo domain | Canvas → `platform/.../canvas`; push KVP → channel push docs |
+
+If two signals disagree, prefer **Jira `Team`** or **assignees CSV `Team`** over path-only guesses. Document the choice in the PR body.
+
+### When vertical is unknown
+
+If you cannot assign a vertical with reasonable confidence after the steps above, set **Product vertical: Unknown**. Those articles get **their own PR** (one article per PR), not merged into a vertical batch.
 
 ---
 
@@ -221,79 +290,198 @@ def lookup_article(ticket_summary):
     return None  # No match — ask user
 ```
 
-## Step 6: Draft Updates
+## Step 6: Draft updates (reference repos + target path)
 
-For each ticket where article content is available (from CSV or user):
+For each ticket or KB article where content is available (from CSV or user):
 
-1. **Evaluate the full doc site, not just the ticket URL** — The "Recommended Braze Docs page" URL is the most likely target, but search the broader doc site for other pages that cover the same topic or product area. Related content may live in guides, reference pages, or FAQs elsewhere.
-2. **Prefer refining existing content over adding new elements** — After identifying the relevant file(s), read the surrounding content carefully. Look for opportunities to clarify, restructure, or expand language that's already there. Adjusting existing prose is almost always better than appending a new alert, callout, or FAQ entry.
-3. **Separate public from internal content** — The SF article may contain:
-   - **Internal notes** (e.g., "Support should escalate to #team-channel") — omit these
-   - **Internal workflows** (e.g., "CSM needs to confirm pricing") — generalize to "contact your customer success manager"
-   - **Customer-facing content** (resolution steps, UI instructions, error explanations) — include this
-4. Draft changes following conventions in the codebase based on the style guides in `docs/contributing/style_guide/*`
-5. Keep additions concise and scannable (bullets, tables, code blocks)
-6. **Use alerts and FAQ entries as a last resort** — Only add a new alert, callout, or FAQ entry when the information genuinely cannot be worked into existing prose. These elements contribute to doc bloat and should be reserved for content that doesn't fit naturally elsewhere.
-7. Do NOT include any content flagged as sensitive in the ticket or marked as internal in the SF article
-8. **Do not edit files under `_docs/_help/help_articles/`** — if the ticket pointed there, apply the update to the alternative location you identified (related user guide, FAQ, or topic) instead
-9. **Cross-reference source code** — Verify technical accuracy against the main product (folder `platform`, typically at `../platform` in the workspace) when possible
+### A. Resolve where the content goes
 
-### Vet new content against reference repos
+1. If `doc_path` is missing or the ticket URL is stale, follow [Resolve target doc path](#resolve-target-doc-path) before writing.
+2. **Evaluate the full doc site**, not only the ticket URL — search for related guides, FAQs, and troubleshooting in the same vertical.
+3. **Do not edit** `_docs/_help/help_articles/` — use an alternative location in `_user_guide/`, `_developer_guide/`, or `_api/`.
 
-After drafting, verify the new or updated content against the appropriate Braze source repos as described in `.cursor/rules/reference-repos.mdc`. That rule uses **folder names** (e.g. `platform`, `braze-android-sdk`); in the workspace those folders are typically sibling directories to braze-docs (e.g. `../platform`).
+### B. Use reference repos to shape the draft
 
-1. **Choose the right repo(s)** — Use the reference-repos table to pick the source-of-truth folder for the content (e.g., folder `platform` for product/backend behavior, `braze-android-sdk` / `braze-swift-sdk` / `braze-web-sdk` for SDK behavior, `liquid` for Liquid templating, `grapesjs` for the drag-and-drop editor). Do not rely on the SF article or existing docs alone; confirm claims against source code.
-2. **Verify technical accuracy** — Cross-reference any new or changed claims (APIs, UI labels, behavior, configuration) with the relevant repo folder. If you can verify, correct the draft if it disagrees with the source. If you cannot verify against source code, leave the content as-is but do not claim verification in the PR.
-3. **Keep repos current** — If you rely on a reference repo for verification, ensure it is up to date (e.g., run `git pull` in that folder from the parent directory that contains braze-docs and the reference repo folders) before vetting.
-4. **PR descriptions** — When content was verified using these Braze source repos, include the relevant source file paths in the PR description so reviewers can trace the verification. All reference repos are private.
+Follow [`.cursor/rules/reference-repos.mdc`](.cursor/rules/reference-repos.mdc). Reference repos are the **source of truth for what to write**, not only a post-draft check.
 
-## Batch processing
+1. **Select repo(s)** before drafting — e.g. `platform` for dashboard/product rules (`shared_code/domains/` first), SDK folders for client behavior, `liquid` for templating, `grapesjs` for editor UI.
+2. **Update repos** — Run `git pull --ff-only` in each sibling repo you will search (only those needed for this vertical).
+3. **Research behavior** — Confirm APIs, limits, UI labels (`dashboard/app/javascript/src/`), error messages, and feature flags. Use feature naming (Canvas → `canvas`, Campaigns → `campaign`, etc.).
+4. **Draft from verified facts** — Write steps, limitations, and metric definitions that match code. If the SF article contradicts source, prefer source and [flag the discrepancy](.cursor/rules/reference-repos.mdc); do not silently copy outdated SF text.
+5. **Unverified claims** — If behavior cannot be found in source, keep prose minimal and do not claim verification in the PR.
 
-When the user requests batch processing (e.g., "run Phase 2 on all matched tickets" or "run Phase 2 on the next 5"), process tickets **one at a time sequentially**, completing the full cycle (draft → branch → commit → push → PR) for each ticket before moving to the next. This ensures each PR is isolated and reviewable.
+### C. Write for Braze Docs
 
-**Recommended batch size:** 3-5 tickets per conversation to stay within context limits. After completing a batch, summarize what was done and offer to continue with the next batch.
+1. **Prefer refining existing content** over new alerts or FAQ entries unless the information cannot fit in existing prose.
+2. **Separate public from internal content** — Omit internal notes and channels; generalize internal workflows (e.g., "contact your customer success manager").
+3. Follow style guides in `docs/contributing/style_guide/*`; keep additions concise (bullets, tables, code blocks).
+4. **Alerts and FAQ entries are a last resort.**
+5. Do not include content flagged sensitive in the ticket or SF article.
 
-**Batch processing flow:**
-1. Identify all tickets in the requested scope (e.g., "all matched", "top 10 by linked issues", "all Email team tickets")
-2. Filter to only those with a CSV match (or user-provided content)
-3. Sort by priority (linked issues desc, then priority field)
-4. For each ticket in order: retrieve article → draft → branch → commit → push → PR
-5. After each ticket, briefly confirm completion before moving to the next
-6. After the batch, output a summary table of all PRs created
+### D. PR description (verification)
+
+When content was verified using reference repos, list **repo-relative source paths** in the PR body (e.g. `platform/shared_code/domains/...`) per reference-repos rules. Do not paste local absolute paths.
 
 ---
 
-## Step 7: Create a Properly Named Branch
-**Always branch off `develop`**, not `main`. Before creating the branch, run:
+## Batch processing and PR grouping
+
+When the user requests batch Phase 2 (e.g., "run Phase 2 on the top 10" or "run Phase 2 for all matched Email articles"), **group work by product vertical**, not one PR per article by default.
+
+### PR batching rules
+
+| Situation | PR strategy |
+|-----------|-------------|
+| Same **product vertical**, multiple articles/tickets | **One PR per vertical** for that run — all doc edits for that vertical on one branch |
+| Same vertical **and** same primary `doc_path` | Strongly prefer one PR (combine sections in one file) |
+| **Unknown** product vertical | **One PR per article** (solo PR) |
+| User asks for isolated review | Honor explicit request (e.g., single BD ticket only) |
+
+Within a vertical PR, you may touch **multiple files** if different articles map to different targets in the same vertical.
+
+**Recommended scope per conversation:** one vertical batch (or 3–5 solo PRs), then summarize and offer the next vertical.
+
+### Batch processing flow
+
+1. Identify scope (tickets, CSV rows, or vertical filter).
+2. Filter to items with CSV `Resolution` (or user-provided content).
+3. Assign **product vertical** to each item; mark **Unknown** where needed.
+4. **Group** items by vertical; split **Unknown** into solo groups.
+5. For each PR group (vertical batch or solo article):
+   - `git checkout develop && git pull origin develop`
+   - Create branch (see Step 7)
+   - For each item in the group: resolve path → reference-repo research → draft → stage
+   - One commit (or logical commits) per PR group
+   - Push → open PR (Step 9)
+   - Record each successful PR's `article_id`(s) for Step 10
+6. **Update BD-6308 tracker** (Step 10) — once per Phase 2 run, after all PRs for that run are open
+7. Output a summary table: vertical | articles/tickets | branch | PR URL | Jira keys | `article_id`(s) appended to tracker
+
+---
+
+## Step 10: Update `_data/kb_epic_bd6308.txt`
+
+**Required at the end of every Phase 2 execution** (single-ticket or batch). Do this after doc PR(s) are created, not before.
+
+### Which IDs to append
+
+For every article processed in the run whose docs PR was opened successfully, append its Salesforce Knowledge **`article_id`** (`ka…`):
+
+| Source | Where to get `article_id` |
+|--------|---------------------------|
+| CSV backlog | `article_id` column in `_data/kb_articles.csv` |
+| Jira ticket | `ka…` in the `URL` custom field, description, or PR body you drafted |
+| User-provided | ID the user supplied with pasted article content |
+
+Do **not** append IDs for skipped items, failed PRs, or articles left in draft without an open PR.
+
+### How to update the file
+
+1. Read [`_data/kb_epic_bd6308.txt`](_data/kb_epic_bd6308.txt). Preserve all `#` comment lines at the top.
+2. Parse existing IDs (non-empty, non-comment lines).
+3. Add new IDs from this Phase 2 run; **skip duplicates**.
+4. Rewrite the ID block: **one ID per line**, entire list **sorted alphabetically** (case-sensitive).
+5. Optionally set `implementation_status` to `actioned` for those rows in `_data/kb_articles.csv` on the workflow branch (do not block the tracker update if CSV columns differ).
+
+Example:
+
+```python
+from pathlib import Path
+
+TRACKER = Path("_data/kb_epic_bd6308.txt")
+
+def update_bd6308_tracker(new_ids: list[str]) -> list[str]:
+    lines = TRACKER.read_text(encoding="utf-8").splitlines()
+    header, ids = [], []
+    for line in lines:
+        s = line.strip()
+        if not s or s.startswith("#"):
+            header.append(line)
+        else:
+            ids.append(s)
+    existing = set(ids)
+    added = [i.strip() for i in new_ids if i.strip() and i.strip() not in existing]
+    if not added:
+        return []
+    merged = sorted(existing | set(added))
+    body = "\n".join(header + [""] if header and header[-1].strip() else header)
+    if body and not body.endswith("\n"):
+        body += "\n"
+    TRACKER.write_text(body + "\n".join(merged) + "\n", encoding="utf-8")
+    return added
+```
+
+### Commit the tracker
+
+Commit `_data/kb_epic_bd6308.txt` (and CSV `implementation_status` updates if any) on the **workflow/data branch** (e.g. `sf-main-branch`), not on doc feature branches:
+
+```bash
+git checkout sf-main-branch && git pull origin sf-main-branch
+# apply tracker + optional CSV updates
+git add _data/kb_epic_bd6308.txt _data/kb_articles.csv
+git commit -m "Track Phase 2 actioned SF KB articles (BD-6308)"
+git push origin sf-main-branch
+```
+
+In the Phase 2 summary, list **newly appended** `article_id` values and confirm the tracker commit was pushed.
+
+---
+
+## Step 7: Create a properly named branch
+
+**Always branch off `develop`**, not `main`. Before creating the branch:
+
 ```bash
 git checkout develop && git pull origin develop
 ```
-Then create the branch with the naming convention: `sf-cursor-<ticket number>`  
-Example: `sf-cursor-bd-4040`  
+
+| PR type | Branch naming |
+|---------|----------------|
+| Vertical batch | `sf-cursor-<vertical-slug>-<YYYYMMDD>` — e.g. `sf-cursor-canvas-20260526` |
+| Solo (unknown vertical) | `sf-cursor-<ticket-key>` or `sf-cursor-<article_id>` — e.g. `sf-cursor-bd-4040`, `sf-cursor-ka0VP0000001IkTYAU` |
+
+Use lowercase slugs with hyphens (no spaces).
 
 ---
 
-## Step 8: Commit and Push Changes
-Stage and Commit all changes in `_docs` with a meaningful message derived from the summary
+## Step 8: Commit and push changes
+
+Stage and commit all changes for that PR group in `_docs/` (and `_includes/` when needed). Use a message that reflects the vertical or theme (e.g., `SF KB: Canvas FAQ and troubleshooting updates`). Push the branch before opening the PR.
 
 ---
 
-## Step 9: Generate the PR for each branch
-Create each PR **targeting `develop`** as the base branch (use `--base develop`).
-Set the pull request title to **exactly match the linked issue title** (`issue.title` as the source of truth, including any `[BD-NUMBER]` prefix). Follow `docs/contributing/style_guide.md` for documentation standards and `.github/PULL_REQUEST_TEMPLATE` for PR body structure.
-Do not add or change any prefixes or suffixes in the PR title; rely solely on `issue.title` as the source of truth.
-Always add the label `salesforce migration` to the PR by including `--label "salesforce migration"` in the `gh pr create` command.
-Let Cursor assign reviewers based on the repo `CODEOWNERS` file; if no specific owner is found, fall back to requesting `@braze-inc/docs-team` as the reviewer, following the same approach as `.cursor/rules/support-analyzer.mdc`.
+## Step 9: Generate the PR
 
-Cursor fills out the PR automatically:
+Create each PR **targeting `develop`** (`--base develop`). Always add label **`salesforce migration`** (`--label "salesforce migration"`).
+
+### PR title
+
+| PR type | Title |
+|---------|--------|
+| Single Jira ticket drives the whole PR | **Exactly** `issue.title` (including `[BD-NUMBER]` prefix) — do not alter |
+| Vertical batch (multiple tickets/articles) | `[SF KB] <Product vertical>: <short theme>` — e.g. `[SF KB] Canvas: FAQ and troubleshooting updates` |
+| Solo article, no Jira | `[SF KB] <Article title shortened>` |
+
+### PR body
+
+Follow `docs/contributing/style_guide.md` and `.github/PULL_REQUEST_TEMPLATE`. Include:
 
 ```text
-# Changes
-* [Cursor analyzes code changes and lists them — include relevant source file paths from the reference repo(s) used for verification]
-* List of changes to help the reviewer understand the scope
-* List the Jira ticket IDs that were addressed in the update in a bullet list of URLs with the format `https://jira.atl.braze.com/browse/<ticket key>`
-* If the ticket has a linked SF Knowledge article URL, include it for reference
+## Product vertical
+<Vertical name> — for reviewer routing
+
+## Changes
+* Files updated and what changed
+* Reference-repo paths used for verification (repo-relative, e.g. platform/shared_code/...)
+
+## Jira / Salesforce sources
+* https://jira.atl.braze.com/browse/<ticket key> (one bullet per ticket)
+* SF Knowledge article IDs or URLs where applicable
 ```
+
+### Reviewers
+
+Use [`.github/support_analyzer_doc_assignees.csv`](.github/support_analyzer_doc_assignees.csv): longest prefix match on changed `_docs` paths → `GitHub Username` for `--assignee`. If no match or assignee fails, request **`@braze-inc/docs-team`**. `CODEOWNERS` may also apply when populated.
 
 ## Source Code References
 
@@ -304,6 +492,7 @@ Cursor fills out the PR automatically:
 | Jira XML export | `_data/sf_migration_tasks.xml` |
 | Jira parsed JSON | `_data/sf_migration_parsed.json` |
 | SF KB articles CSV | `_data/sf_kb_articles.csv` |
+| BD-6308 actioned / in-flight article IDs | `_data/kb_epic_bd6308.txt` |
 
 
 ## Example Prompts
@@ -334,7 +523,11 @@ Focus on [specific product area or priority level] if applicable.
 ```
 
 ```
-@salesforce-analyzer.mdc Run Phase 2 for all matched Email team tickets.
+@salesforce-analyzer.mdc Run Phase 2 for all matched Email team tickets (one PR per vertical).
+```
+
+```
+@salesforce-analyzer.mdc Run Phase 2 for the Canvas vertical batch from Phase 1.
 ```
 
 ```
