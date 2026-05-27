@@ -13,7 +13,7 @@ channel: email
 
 ### Que se passe-t-il lorsqu'un e-mail est envoyé et que plusieurs profils partagent la même adresse e-mail ? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Si plusieurs utilisateurs ayant la même adresse e-mail se trouvent dans un segment destiné à recevoir une campagne, un profil utilisateur aléatoire associé à cette adresse e-mail est sélectionné au moment de l'envoi. Ainsi, l'e-mail n'est envoyé qu'une seule fois et dédupliqué, ce qui garantit qu'il n'atteint pas la même adresse e-mail plusieurs fois.
+Si plusieurs utilisateurs ayant la même adresse e-mail se trouvent dans un segment destiné à recevoir une campagne, un seul profil utilisateur associé à cette adresse e-mail est sélectionné au moment de l'envoi. Ainsi, l'e-mail n'est envoyé qu'une seule fois et dédupliqué, ce qui garantit qu'il n'atteint pas la même adresse e-mail plusieurs fois.
 
 **Adresses e-mail uniques :** Braze n'impose pas l'unicité des adresses e-mail entre les profils. Si vous vous appuyez sur une relation un-à-un entre une adresse e-mail et un profil, surveillez les doublons en interne lors de la création des utilisateurs.
 
@@ -87,9 +87,9 @@ Pour les campagnes e-mail et les Canvas, le bouton d'arrêt ne stoppe pas imméd
 
 Bien que Braze n'envoie plus de demandes une fois la campagne ou le Canvas arrêté(e), les analyses peuvent encore augmenter pendant que l'ESP termine le traitement des demandes déjà en cours.
 
-### Pourquoi est-ce que je vois plus de _Clics totaux_ que d'_Ouvertures totales_ dans mes analyses d'e-mails ? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
+### Pourquoi est-ce que je vois plus de *Clics totaux* que d'*Ouvertures totales* dans mes analyses d'e-mails ? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
-_Ouvertures totales_ correspond au nombre de fois où l'e-mail a été ouvert par les utilisateurs, tandis que _Clics totaux_ correspond au nombre de fois où les utilisateurs ont cliqué dans l'e-mail distribué, y compris tout type de clics tels que les clics sur les liens. Vous pouvez voir plus de clics que d'ouvertures pour l'une des raisons suivantes :
+*Ouvertures totales* correspond au nombre de fois où l'e-mail a été ouvert par les utilisateurs, tandis que *Clics totaux* correspond au nombre de fois où les utilisateurs ont cliqué dans l'e-mail distribué, y compris tout type de clics tels que les clics sur les liens. Vous pouvez voir plus de clics que d'ouvertures pour l'une des raisons suivantes :
 
 - Les utilisateurs effectuent plusieurs clics dans le corps de l'e-mail au cours d'une seule ouverture.
 - Les utilisateurs cliquent sur certains liens de l'e-mail dans le volet de prévisualisation de leur téléphone. Dans ce cas, Braze enregistre cet e-mail comme cliqué mais pas ouvert.
@@ -113,9 +113,9 @@ Braze suit les liens de désabonnement si le Liquid suivant est utilisé dans le
 
 ### Pourquoi est-ce que je vois un nombre de désabonnements différent du nombre de clics sur mon lien de désabonnement ? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-S'il y a plus de _Désabonnements_ que d'utilisateurs ayant cliqué sur le lien de désabonnement dans le corps de l'e-mail, le [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) explique souvent l'écart. Le list-unsubscribe est un chemin de désabonnement supplémentaire dans l'en-tête de l'e-mail (et non le lien dans le corps de votre message). Lorsqu'un utilisateur se désabonne de cette manière, cela est comptabilisé dans les _Désabonnements_ mais ne compte pas comme un clic sur l'URL de désabonnement suivie dans le corps.
+S'il y a plus de *Désabonnements* que d'utilisateurs ayant cliqué sur le lien de désabonnement dans le corps de l'e-mail, le [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) explique souvent l'écart. Le list-unsubscribe est un chemin de désabonnement supplémentaire dans l'en-tête de l'e-mail (et non le lien dans le corps de votre message). Lorsqu'un utilisateur se désabonne de cette manière, cela est comptabilisé dans les *Désabonnements* mais ne compte pas comme un clic sur l'URL de désabonnement suivie dans le corps.
 
-Si le nombre total de clics sur le lien de désabonnement dans le corps est supérieur au nombre de _Désabonnements_, les utilisateurs ont peut-être cliqué sur le lien plus d'une fois — par exemple, s'ils se sont désabonnés, réabonnés, puis désabonnés à nouveau, les analyses d'e-mails peuvent enregistrer plusieurs clics dans la ventilation des clics.
+Si le nombre total de clics sur le lien de désabonnement dans le corps est supérieur au nombre de *Désabonnements*, les utilisateurs ont peut-être cliqué sur le lien plus d'une fois — par exemple, s'ils se sont désabonnés, réabonnés, puis désabonnés à nouveau, les analyses d'e-mails peuvent enregistrer plusieurs clics dans la ventilation des clics.
 
 Si un utilisateur clique deux fois sur le lien de désabonnement (par exemple, s'il s'est désabonné, réabonné, puis désabonné à nouveau), cela est comptabilisé deux fois dans les analyses d'e-mails.
 
@@ -173,7 +173,7 @@ Oui. Les *Ouvertures uniques* incluent les *Ouvertures automatiques*. Vous pouve
 
 Après l'envoi d'un e-mail, la boîte de réception du destinataire décide du moment de sa distribution. Les messages peuvent être différés pendant des heures ou des jours en raison d'une boîte aux lettres pleine, d'une limitation de débit par l'ESP depuis une IP donnée, et pour des raisons similaires.
 
-Lorsque des messages différés sont distribués un jour calendaire différent du jour d'envoi, les _Distributions_ peuvent dépasser les _Envois_ pour la même plage de dates. Lorsque de nombreux reports se concentrent sur un même jour, les _Envois_ peuvent dépasser les _Distributions_ pour cette plage.
+Lorsque des messages différés sont distribués un jour calendaire différent du jour d'envoi, les *Distributions* peuvent dépasser les *Envois* pour la même plage de dates. Lorsque de nombreux reports se concentrent sur un même jour, les *Envois* peuvent dépasser les *Distributions* pour cette plage.
 
 ### Pourquoi est-ce que je vois un avertissement m'invitant à inclure un lien de désabonnement alors que mon e-mail en contient déjà un ? {#why-am-i-seeing-a-warning-to-include-an-unsubscribe-link-when-my-email-already-has-one}
 
@@ -211,9 +211,7 @@ Non. Chaque partie de l'e-mail (objet, corps, en-têtes, boutons, etc.) est gén
 
 ### Mon modèle d'e-mail est introuvable. Où est-il ? {#my-email-template-is-missing-where-is-it}
 
-Accédez à **Templates** > **Email Templates**. Vous pouvez filtrer par type (HTML ou glisser-déposer).
-
-Confirmez que vous avez l'autorisation de consulter les modèles — voir [Autorisations des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Tout d'abord, confirmez que vous disposez des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) nécessaires pour consulter les modèles. Pour afficher les modèles d'e-mail enregistrés, accédez à **Content** > **Email**. Vous pouvez filtrer les modèles par statut et par type (HTML ou glisser-déposer).
 
 ### Dois-je enregistrer des domaines pour les e-mails relais ou masqués ? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 

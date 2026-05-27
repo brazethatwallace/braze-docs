@@ -11,14 +11,14 @@ toc_headers: h2
 
 # Tableaux de bord des performances des canaux {#channel-performance-dashboards}
 
-> Les tableaux de bord des performances des canaux affichent les indicateurs de performance agrégés pour un canal entier, à la fois pour les Campaigns et les Canvas. Ces tableaux de bord sont actuellement disponibles pour l'e-mail et le SMS.
+> Les tableaux de bord des performances des canaux affichent les indicateurs de performance agrégés pour un canal entier, à la fois pour les Campaigns et les Canvas. Ces tableaux de bord sont actuellement disponibles pour l'e-mail, le push et le SMS.
 
 ## Tableaux de bord {#dashboards}
 
 Sélectionnez un onglet pour consulter les détails des tableaux de bord de performances des canaux disponibles.
 
 {% tabs %}
-{% tab Email performance %}
+{% tab Performances des e-mails %}
 
 ### Tableau de bord des performances des e-mails {#email-performance-dashboard}
 
@@ -26,13 +26,11 @@ Consultez votre tableau de bord des performances des e-mails en accédant à **A
 
 ![Tableau de bord des performances des e-mails affichant l'engagement du canal e-mail au cours des trente derniers jours.]({% image_buster /assets/img_archive/email_performance_dashboard_1.png %})
 
-#### Comment les indicateurs sont calculés {#how-metrics-are-calculated}
-
 ![Un exemple de Campaign e-mail avec 335 630 envois, soit une moyenne de 11 187,667 par jour.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
-Les calculs des différents indicateurs du tableau de bord des performances des e-mails sont identiques à ceux effectués au niveau d'un message individuel (comme l'analytique de Campaign). Sur ce tableau de bord, les indicateurs sont agrégés pour l'ensemble des Campaigns et Canvas sur la plage de dates sélectionnée. Pour en savoir plus sur ces définitions, consultez les [indicateurs e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#email-metrics).
+#### Comment les indicateurs sont calculés {#how-metrics-are-calculated}
 
-Chaque tuile affiche d'abord le taux, suivi du nombre (à l'exception des *Envois*, qui affichent le nombre suivi de la moyenne par jour). Par exemple, la tuile des clics uniques contient le *Taux de clics uniques* pour la période sélectionnée et le nombre total de clics uniques sur cette période. Chaque tuile affiche également la [comparaison avec la période précédente](#comparing-time-periods).
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="email" %}
 
 | Indicateur | Type | Calcul |
 | --- | --- | ---- |
@@ -47,7 +45,7 @@ Chaque tuile affiche d'abord le taux, suivi du nombre (à l'exception des *Envoi
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comment les indicateurs sont calculés" }
 
 {% endtab %}
-{% tab Email insights %}
+{% tab Informations e-mail %}
 
 ### Tableau de bord des informations e-mail {#email-insights-dashboard}
 
@@ -95,19 +93,17 @@ Le rapport d'engagement **Time of the day** répartit les ouvertures ou les clic
 Pour plus d'informations sur l'analytique de vos e-mails, consultez [Rapports e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/).
 
 {% endtab %}
-{% tab SMS performance %}
+{% tab Performances SMS %}
 
 ### Tableau de bord des performances SMS {#sms-performance-dashboard}
 
 Pour utiliser votre tableau de bord des performances SMS, accédez à **Analytics** > **SMS Performance**, puis sélectionnez la plage de dates pour la période souhaitée. Votre plage de dates peut remonter jusqu'à un an en arrière.
 
-#### Comment les indicateurs sont calculés
-
 ![Un exemple de Campaign SMS avec 335 630 envois, soit une moyenne de 11 187,667 par jour.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
-Les calculs des différents indicateurs du tableau de bord des performances SMS sont identiques à ceux effectués au niveau d'un message individuel (comme l'analytique de Campaign). Sur ce tableau de bord, les indicateurs sont agrégés pour l'ensemble des Campaigns et Canvas sur la plage de dates sélectionnée. Pour en savoir plus sur ces définitions, consultez les [indicateurs SMS]({{site.baseurl}}/sms_mms_rcs_reporting/).
+#### Comment les indicateurs sont calculés
 
-Chaque tuile affiche d'abord le taux, suivi du nombre (à l'exception des _Envois_, qui affichent le nombre suivi de la moyenne par jour). Chaque tuile affiche également la [comparaison avec la période précédente](#comparison-to-last-period-change-in-totals-or-rates).
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="SMS" %}
 
 | Indicateur | Type | Calcul |
 | --- | --- | ---- |
@@ -121,6 +117,31 @@ Chaque tuile affiche d'abord le taux, suivi du nombre (à l'exception des _Envoi
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comment les indicateurs sont calculés" }
 
 {% endtab %}
+{% tab Performances push %}
+
+### Tableau de bord des performances push {#push-performance-dashboard}
+
+Le tableau de bord **Push Performance** offre une vue unique au niveau du canal de l'engagement push, incluant les envois, les rebonds, les distributions et les taux d'ouvertures directes, influencées et totales sur une fenêtre temporelle configurable. Utilisez-le pour comprendre la santé globale de votre canal push sans avoir à agréger les données de Campaigns ou Canvas individuels.
+
+Pour ouvrir le tableau de bord, accédez à **Analytics** > **Dashboard Builder**, puis sélectionnez **Push Channel Dashboard**. Votre plage de dates peut remonter jusqu'à un an en arrière.
+
+![Un exemple de Campaign push avec plus de 63 millions d'envois.]({% image_buster /assets/img_archive/push_performance_dashboard.png %})
+
+#### Comment les indicateurs sont calculés
+
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="push" %}
+
+| Indicateur | Type | Calcul |
+| --- | --- | ---- |
+| Envois | Nombre | Nombre total d'envois pour chaque jour de la plage de dates |
+| Taux de rebond | Taux | (Nombre total de rebonds pour chaque jour de la plage de dates) / (Nombre total d'envois pour chaque jour de la plage de dates) |
+| Taux de distribution | Taux | (Nombre total de distributions pour chaque jour de la plage de dates) / (Nombre total d'envois pour chaque jour de la plage de dates) |
+| Taux d'ouvertures directes | Taux | (Nombre total d'ouvertures directes pour chaque jour de la plage de dates) / (Nombre total de distributions pour chaque jour de la plage de dates) |
+| Taux d'ouvertures influencées | Taux | (Nombre total d'ouvertures influencées pour chaque jour de la plage de dates) / (Nombre total de distributions pour chaque jour de la plage de dates) |
+| Taux d'ouvertures totales | Taux | (Nombre total d'ouvertures totales pour chaque jour de la plage de dates) / (Nombre total de distributions pour chaque jour de la plage de dates)<br><br>Les ouvertures totales incluent à la fois les ouvertures directes et les ouvertures influencées. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comment les indicateurs sont calculés" }
+
+{% endtab %}
 {% endtabs %}
 
 ## Filtres du tableau de bord {#dashboard-filters}
@@ -128,6 +149,7 @@ Chaque tuile affiche d'abord le taux, suivi du nombre (à l'exception des _Envoi
 Vous pouvez filtrer les données de votre tableau de bord à l'aide des options suivantes :
 
 - **Étiquette :** Choisissez une étiquette. Une fois appliqué, votre tableau de bord affichera les indicateurs uniquement pour l'étiquette sélectionnée.
+- **Plateformes :** (Tableau de bord des performances push uniquement) Choisissez une plateforme push, telle que **All Push**, **Android**, **iOS**, **Mobile combined**, **Kindle** ou **Web**. Une fois appliqué, votre tableau de bord affichera les indicateurs uniquement pour la plateforme sélectionnée.
 - **Canvas :** Choisissez jusqu'à 10 Canvas. Une fois appliqué, votre tableau de bord affichera les indicateurs uniquement pour les Canvas sélectionnés. Si vous sélectionnez d'abord un filtre par étiquette, les options de filtres Canvas ne proposeront que les Canvas associés à l'étiquette sélectionnée.
 - **Campaign :** Choisissez jusqu'à 10 Campaigns. Une fois appliqué, votre tableau de bord affichera les indicateurs uniquement pour les Campaigns sélectionnées. Si vous sélectionnez d'abord un filtre par étiquette, les options de filtres de Campaign ne proposeront que les Campaigns associées à l'étiquette sélectionnée.
 

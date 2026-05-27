@@ -15,12 +15,6 @@ page_order: 1
 ## ステップ 1:Shopifyストアを接続する {#step-1-connect-your-shopify-store}
 
 1. Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、「Shopify」を検索します。
-
-{% alert note %}
-古いナビゲーションを使用している場合は、**テクノロジーパートナー**は**統合**の下にあります。
-{% endalert %}
-
-{: start="2"}
 2. Shopifyパートナーページで、**Begin setup**を選択して統合プロセスを開始します。<br><br>![セットアップを開始するボタンが表示されたShopify統合ページ。]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Shopifyアプリストアで、Brazeアプリケーションをインストールします。<br><br>![アプリケーションをインストールするボタンが表示されたBrazeアプリストアページ。]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 

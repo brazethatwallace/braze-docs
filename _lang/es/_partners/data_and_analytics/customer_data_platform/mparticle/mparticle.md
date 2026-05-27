@@ -26,7 +26,7 @@ La integración de Braze y mParticle te permite controlar fácilmente el flujo d
 | Cuenta de mParticle | Se necesita una [cuenta de mParticle](https://app.mparticle.com/login) para beneficiarse de esta asociación. |
 | Instancia de Braze | Tu instancia de Braze se encuentra en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints) (por ejemplo, `US-01` o `US-02`). |
 | Clave de identificación de la aplicación de Braze | Tu clave de identificación de la aplicación. <br><br>Se encuentra en **Administrar configuración** > **Clave de API** en el dashboard de Braze. |
-| Clave de API REST del espacio de trabajo | (Servidor a servidor) Una clave de API REST de Braze<br><br>Se puede crear en **Consola para desarrolladores** > **Configuración de la API** > **Clave de API** en el dashboard de Braze. |
+| Clave de API REST del espacio de trabajo | (Servidor a servidor) Una clave de API REST de Braze<br><br>Se puede crear en **Consola para desarrolladores** > **Configuración de la aplicación** > **Clave de API** en el dashboard de Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -104,7 +104,7 @@ Para crear una audiencia en mParticle:
 
 | Nombre del campo | Descripción |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Clave de API | Se encuentra en el dashboard de Braze en **Settings** > **API Keys**.<br><br>Si utilizas la navegación anterior, puedes encontrar las claves de API en **Developer Console** > **API Settings**. |
+| Clave de API | Se encuentra en el dashboard de Braze en **Settings** > **API Keys**. |
 | Sistema operativo de la clave de API | Selecciona a qué sistema operativo corresponde tu clave de API de Braze. Esta selección limitará los tipos de tokens de notificaciones push reenviados en una actualización de audiencia. |
 | Enviar segmentos como | El método de envío de audiencias a Braze. Consulta la sección [Reenvío de audiencias](#forwarding-audiences) para más detalles. |
 | Clave de API REST del espacio de trabajo | Clave de API REST de Braze con permisos completos. Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |

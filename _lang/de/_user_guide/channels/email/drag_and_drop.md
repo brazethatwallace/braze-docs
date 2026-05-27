@@ -91,7 +91,7 @@ Nachdem Sie den Drag-and-Drop-Editor als Bearbeitungserfahrung ausgewählt haben
 - Ein gespeichertes Drag-and-Drop-E-Mail-Template verwenden.
 
 {% alert note %}
-Um ein vorhandenes benutzerdefiniertes HTML-Template oder von Drittanbietern erstellte Templates zu verwenden, müssen Sie das Template neu erstellen, indem Sie zu **Templates** > **E-Mail-Templates** gehen und **Drag-And-Drop Editor** als Bearbeitungserfahrung auswählen.
+Um ein vorhandenes benutzerdefiniertes HTML-Template oder von Drittanbietern erstellte Templates zu verwenden, müssen Sie das Template neu erstellen, indem Sie zu **Content** > **Email** gehen und **Drag-And-Drop Editor** als Bearbeitungserfahrung auswählen.
 {% endalert %}
 
 Sie können auch über den Bereich **Templates** auf alle Templates zugreifen.

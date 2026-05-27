@@ -8,17 +8,17 @@ tool: Media
 
 ---
 
-# Biblioteca de mídia
+# Biblioteca de mídia {#media-library}
 
 > A Biblioteca de mídia permite que você gerencie seus ativos em um único local centralizado.
 
-## Biblioteca de mídia versus CDN
+## Biblioteca de mídia versus CDN {#media-library-versus-cdn}
 
 Usar a Biblioteca de mídia em vez de uma Content Delivery Network (CDN) oferece melhor cache e desempenho para mensagens no app. Todos os ativos da Biblioteca de mídia encontrados em uma mensagem no app serão pré-armazenados em cache para exibição mais rápida e estarão disponíveis para exibição offline. Além disso, a Biblioteca de mídia é integrada aos criadores da Braze, permitindo que profissionais de marketing selecionem ou adicionem tags às imagens em vez de copiar e colar URLs de imagens.
 
-## Acessando a Biblioteca de mídia
+## Acessando a Biblioteca de mídia {#accessing-the-media-library}
 
-Na Biblioteca de mídia, você pode ver o tipo de ativo, tamanho, dimensões, URL, a data em que foi adicionado à biblioteca e outras informações. Para acessar a Biblioteca de mídia da Braze, acesse **Modelos** > **Biblioteca de mídia**. Aqui, você pode:
+Na Biblioteca de mídia, você pode ver o tipo de ativo, tamanho, dimensões, URL, a data em que foi adicionado à biblioteca e outras informações. Para acessar a Biblioteca de mídia da Braze, acesse **Conteúdo** > **Biblioteca de mídia**. Aqui, você pode:
 
 * Fazer upload de várias imagens de uma vez
 * Fazer upload de arquivos de contato virtual (.vcf)
@@ -35,11 +35,11 @@ Na Biblioteca de mídia, você pode ver o tipo de ativo, tamanho, dimensões, UR
 
 Depois, ao redigir uma mensagem na Braze, você pode importar suas imagens da Biblioteca de mídia.
 
-![Duas formas comuns de acessar a Biblioteca de mídia dependendo do criador de mensagens. Uma mostra o editor de arrastar e soltar de e-mail com o título "Imagens e GIFs" e um botão "Adicionar da Biblioteca de mídia". A outra mostra os editores padrão, como push e mensagens no app, com o título "Mídia" e um botão "Adicionar imagem".]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
+![Duas formas comuns de acessar a Biblioteca de mídia dependendo do criador de mensagens. Uma mostra o editor de arrastar e soltar de e-mail com o título "Images and GIFs" e um botão "Add from Media Library". A outra mostra os editores padrão, como push e mensagens no app, com o título "Media" e um botão "Add Image".]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
 
 {% alert tip %} Para mais ajuda com a Biblioteca de mídia, confira nossas [Perguntas frequentes sobre a Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq/). {% endalert %}
 
-## Especificações de imagem
+## Especificações de imagem {#image-specifications}
 
 Todas as imagens enviadas para a Biblioteca de mídia devem ter menos de 5&nbsp;MB. Os tipos de arquivo compatíveis são PNG, JPEG, GIF, SVG e WebP. Para tamanhos e especificações de imagem recomendados por canal de envio de mensagens, consulte [Especificações de imagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/).
 

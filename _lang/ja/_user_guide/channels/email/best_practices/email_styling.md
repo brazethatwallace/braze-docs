@@ -63,7 +63,7 @@ channel: email
   | Android Gmail          | 24      |
   | iOS ネイティブ             | 82      |
   | iOS Gmail              | 30      |
-  {: .reset-td-br-1 .reset-td-br-2 aria-label="プレヘッダーの文字数制限" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
 
   |  デスクトップメールクライアント  |  制限  |
   |:----------------------:|:-------:|
@@ -71,7 +71,7 @@ channel: email
   | Outlook '13            | 38      |
   | Outlook for Mac '15   | 53      |
   | Outlook '16            | 50      |
-  {: .reset-td-br-1 .reset-td-br-2 aria-label="プレヘッダーの文字数制限" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
 
 
   |  Webメールクライアント  |  制限  |
@@ -81,7 +81,7 @@ channel: email
   | Outlook.com            | 49      |
   | Office 365             | 40      |
   | Mail.ru                | 64      |
-  {: .reset-td-br-1 .reset-td-br-2 aria-label="プレヘッダーの文字数制限" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
 
 ## メールサイズ {#email-size}
 
@@ -93,7 +93,7 @@ channel: email
 |   テキストのみ   | テキスト＋画像 |     メール幅    |
 |:-------------:|:----------------:|:------------------:|
 | 最大 25&nbsp;KB |   最大 60&nbsp;KB   | 最大 600 ピクセル |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="メールサイズ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email size" }
 
 クリッピングのリスクを軽減するには：
 
@@ -126,7 +126,7 @@ channel: email
 | 件名の長さ | 最大35文字（モバイルでの最適な表示のため）（6～10語） |
 | 差出人名の長さ | 最大25文字（モバイルでの最適な表示のため） |
 | プレヘッダーの長さ | 最大85文字 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="テキストの長さ" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Text length" }
 
 ## 画像サイズ {#image-size}
 
@@ -135,11 +135,15 @@ channel: email
 |     サイズ    | ヘッダー画像の幅 |  本文画像の幅  |   ファイル形式  |
 |:-----------:|:------------------:|:------------------:|:-------------:|
 | 最大 5&nbsp;MB | 最大 600 ピクセル | 最大 480 ピクセル | PNG、JPEG、GIF |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="画像サイズ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Image size" }
+
+{% alert note %}
+Gmail WebおよびGmailモバイルアプリは、SVGを正しくレンダリングしないことが多いです（WEBPのサポートも一貫していません）。Gmailで確実に表示する必要がある画像には、PNGまたはJPEGを使用してください。
+{% endalert %}
 
 ## ディープリンク {#deep-linking}
 
-プッシュ通知やアプリ内メッセージでは、[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)によりユーザーをアプリ内の指定された場所に直接誘導できます。ただし、ディープリンクにはアプリがインストールされている必要があり、メールでは受信者がアプリを持っているかどうかを知る方法がありません。そのため、メール内のディープリンクは、アプリがインストールされていない受信者にとってエラーの原因となる可能性があります。
+プッシュ通知やIn-App Messagesでは、[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)によりユーザーをアプリ内の指定された場所に直接誘導できます。ただし、ディープリンクにはアプリがインストールされている必要があり、メールでは受信者がアプリを持っているかどうかを知る方法がありません。そのため、メール内のディープリンクは、アプリがインストールされていない受信者にとってエラーの原因となる可能性があります。
 
 代わりに、標準的なURLとして機能する[ユニバーサルリンクとApp Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/)を使用してください。アプリを開いたり、ユーザーを特定のページに誘導したりするように設定できます。また、アプリがインストールされていない場合は、アプリストアにリダイレクトしたり、Webページにフォールバックしたりすることもできます。
 

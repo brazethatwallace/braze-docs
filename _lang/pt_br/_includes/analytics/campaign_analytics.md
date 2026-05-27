@@ -36,6 +36,10 @@ O painel **Campaign Details** mostra uma visão geral de alto nível de toda a p
 
 Revise este painel para ver métricas gerais, como o número de mensagens enviadas para o número de destinatários, a taxa de conversão primária e a receita total gerada por esta mensagem. Você também pode revisar as configurações de entrega, público e conversão a partir desta página.
 
+{% alert note %}
+Os números de análise de dados no dashboard e no Snowflake podem diferir ligeiramente. A Braze mede os números no dashboard e registra as linhas no Snowflake separadamente. O Snowflake é a fonte de dados mais precisa, então se você perceber discrepâncias entre essas fontes, recomendamos consultar os dados do Snowflake.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 O canal do WhatsApp inclui a taxa de leitura. Esta métrica é entregue apenas para usuários com confirmações de leitura ativadas, o que pode variar.

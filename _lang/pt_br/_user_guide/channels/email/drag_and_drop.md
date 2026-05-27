@@ -91,7 +91,7 @@ Depois de selecionar o editor de arrastar e soltar como sua experiência de edi�
 - Usar um modelo de e-mail de arrastar e soltar salvo.
 
 {% alert note %}
-Para usar um modelo HTML personalizado existente ou modelos criados por terceiros, você deve recriar o modelo acessando **Templates** > **Email Templates** e selecionando **Drag-And-Drop Editor** como sua experiência de edição.
+Para usar um modelo HTML personalizado existente ou modelos criados por terceiros, você deve recriar o modelo acessando **Content** > **Email** e selecionando **Drag-And-Drop Editor** como sua experiência de edição.
 {% endalert %}
 
 Você também pode acessar todos os modelos na seção **Templates**.
@@ -317,7 +317,7 @@ Qualquer coisa adicionada fora das tags `<head>` será adicionada após a tag `<
 | `meta` | Fornece metadados como descrição da página ou palavras-chave. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Incorpora estilos CSS internos. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Define o título do documento exibido nas abas do navegador. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tags e atributos permitidos por tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | Tag | Atributo | Descrição | Exemplo |
 | --- | --- | --- | --- |
@@ -335,7 +335,7 @@ Qualquer coisa adicionada fora das tags `<head>` será adicionada após a tag `<
 | `style` | `type` | Tipo MIME do conteúdo de estilo. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Especifica a mídia ou dispositivo para o qual os estilos se aplicam. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Sem atributos | A tag `title` não aceita nenhum atributo. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tags e atributos permitidos por tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 Os nomes dos links podem ter até 63 bytes e são automaticamente truncados se excederem o limite.
