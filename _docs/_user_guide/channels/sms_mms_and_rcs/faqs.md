@@ -144,7 +144,7 @@ Yes, they do. Keep this in mind when testing messages.
 
 ### Does a user need to be part of an SMS subscription group to receive SMS test messages?
 
-Yes, they do. Users must have a valid phone number and be part of the SMS subscription group used for the test send. They must also have **at least one country selected** under **Geographic Permissions** for SMS so Braze is permitted to message that destination.
+Yes, they do. Users must have a valid phone number, be part of the SMS subscription group used for the test send, and have at least one country selected under **Geographic Permissions** for SMS.
 
 ### Is there a way to see if an alias exists on a user profile?
 
