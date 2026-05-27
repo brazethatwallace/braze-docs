@@ -11,7 +11,7 @@ description: "Erfahren Sie, wie Sie mit DALL·E 3, einem KI-System von OpenAI un
 
 ## Über die Medienbibliothek {#about-the-media-library}
 
-Die Medienbibliothek ermöglicht es Ihnen, Ihre Assets an einem einzigen, zentralen Ort zu verwalten. Um auf Ihre Braze-Medienbibliothek zuzugreifen, gehen Sie zu **Inhalt** > **Medienbibliothek**. Ausführlichere Informationen finden Sie unter [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
+Die Medienbibliothek ermöglicht es Ihnen, Ihre Assets an einem einzigen, zentralen Ort zu verwalten. Um auf Ihre Braze-Medienbibliothek zuzugreifen, gehen Sie zu **Content** > **Media Library**. Ausführlichere Informationen finden Sie unter [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
 
 ## Ein Bild generieren {#generating-an-image}
 

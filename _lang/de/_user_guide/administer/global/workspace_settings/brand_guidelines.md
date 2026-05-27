@@ -10,13 +10,13 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Markenrichtlinien erste
 
 > Passen Sie den Stil Ihrer KI-generierten Texte mit personalisierten Markenrichtlinien an die Stimme, den Ton und die Persönlichkeit Ihrer Marke an.
 
-Sie können Ihre Markenrichtlinien erstellen und verwalten, indem Sie zu **Inhalt** > **Markenrichtlinien** gehen. Sie können sie auch im [KI-Texterstellungsassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/) erstellen.
+Sie können Ihre Markenrichtlinien erstellen und verwalten, indem Sie zu **Content** > **Brand Guidelines** gehen. Sie können sie auch im [KI-Texterstellungsassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/) erstellen.
 
 ## Markenrichtlinien erstellen {#creating-brand-guidelines}
 
 ### 1. Schritt: Markenrichtlinie erstellen {#step-1-create-a-brand-guideline}
 
-Wählen Sie auf der Seite **Markenrichtlinien** die Option **Neu erstellen** aus. Wenn Sie möchten, dass diese Markenrichtlinie der Standard für den Workspace ist, markieren Sie **Use as default brand guideline**. Sie können einen Standard pro Workspace haben.
+Wählen Sie auf der Seite **Brand Guidelines** die Option **Create new** aus. Wenn Sie möchten, dass diese Markenrichtlinie der Standard für den Workspace ist, markieren Sie **Use as default brand guideline**. Sie können einen Standard pro Workspace haben.
 
 ### 2. Schritt: Beschreiben Sie Ihre Markenpersönlichkeit {#step-2-describe-your-brand-personality}
 
@@ -52,7 +52,7 @@ Sie können die Ausgabesprache unabhängig von der Sprache Ihres Textes ändern,
 
 ## Markenrichtlinien verwalten {#managing-brand-guidelines}
 
-Sie können Markenrichtlinien bearbeiten, indem Sie sie auf der Seite **Markenrichtlinien** auswählen. Archivieren Sie eine Markenrichtlinie, um sie zu deaktivieren und aus dem KI-Texterstellungsassistenten zu entfernen. Um sie wieder aktiv und auswählbar zu machen, können Sie nach archivierten Markenrichtlinien filtern und sie dann dearchivieren.
+Sie können Markenrichtlinien bearbeiten, indem Sie sie auf der Seite **Brand Guidelines** auswählen. Archivieren Sie eine Markenrichtlinie, um sie zu deaktivieren und aus dem KI-Texterstellungsassistenten zu entfernen. Um sie wieder aktiv und auswählbar zu machen, können Sie nach archivierten Markenrichtlinien filtern und sie dann dearchivieren.
 
 ![Die Seite „Markenrichtlinien“ mit Filter für archivierte Markenrichtlinien.]({% image_buster /assets/img/unarchive_brand_guideline.png %})
 

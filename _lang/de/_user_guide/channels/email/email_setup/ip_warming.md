@@ -25,9 +25,9 @@ Eine gesunde Zustellrate liegt oft bei etwa 99 % zugestellt mit einer Bounce-Rat
 
 Bevor Sie mit dem IP-Warming beginnen:
 
-1. Legen Sie unter **Einstellungen** > **E-Mail-Präferenzen** Ihre Standard-Versanddomain fest, fügen Sie einen gültigen Abmeldelink in Ihrer [angepassten Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/) hinzu, aktivieren Sie den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) und erwägen Sie bei Bedarf angepasste Abmelde-/Opt-in-Seiten.
+1. Legen Sie unter **Settings** > **Email Preferences** Ihre Standard-Versanddomain fest, fügen Sie einen gültigen Abmeldelink in Ihrer [angepassten Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/) hinzu, aktivieren Sie den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) und erwägen Sie bei Bedarf angepasste Abmelde-/Opt-in-Seiten.
 2. Konfigurieren Sie [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) für E-Mail.
-3. Erstellen Sie Ihre erforderlichen Templates unter **Inhalt** > **E-Mail**.
+3. Erstellen Sie Ihre erforderlichen Templates unter **Content** > **Email**.
 
 ## Was passiert, wenn ich keine Zeit habe, IPs aufzuwärmen? {#what-if-i-dont-have-time-to-warm-ips}
 

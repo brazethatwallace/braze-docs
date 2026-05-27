@@ -36,7 +36,7 @@ Sie können dieses Feature auch nutzen, wenn Ihre App kein eigenes dunkles Theme
 
 Um den Dark Mode für alle In-App-Nachrichten zu verwenden, erstellen Sie zunächst ein Farbprofil, das zu Ihrem Dark-Mode-Theme passt.
 
-1. Gehen Sie zu **Inhalt** > **In-App-Nachricht**.
+1. Gehen Sie zu **Content** > **In-App Message**.
 2. Wählen Sie **Templates erstellen** und dann [Farbprofil]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile) aus dem Dropdown-Menü.
 3. Erstellen und speichern Sie Ihr Farbprofil.
 

@@ -38,7 +38,7 @@ Um MyPostcard zu integrieren, [melden Sie sich an oder registrieren Sie sich](ht
 
 ### 1. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-1-create-your-braze-webhook-template}
 
-Um ein MyPostcard-Webhook-Template zur Verwendung in zukünftigen Campaigns oder Canvases zu erstellen, navigieren Sie auf der Braze-Plattform zu **Inhalt** > **Webhook**. Wählen Sie dann **Webhook-Template erstellen** aus.
+Um ein MyPostcard-Webhook-Template zur Verwendung in zukünftigen Campaigns oder Canvases zu erstellen, navigieren Sie auf der Braze-Plattform zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
 
 Wenn Sie eine einmalige MyPostcard-Webhook-Campaign erstellen oder ein vorhandenes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus. Füllen Sie die folgenden Felder aus:
 
