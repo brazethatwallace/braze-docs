@@ -21,7 +21,7 @@ Up to 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses`, or `pho
 If you have a use case that can't be solved with bulk user deletion through the API, contact the [Braze Support team]({{site.baseurl}}/user_guide/administer/personal/braze_support/) for assistance.
 
 {% alert warning %}
-Deleting user profiles cannot be undone. It will permanently remove users which may cause discrepancies in your data. For details, see [Effects of deleting user profiles](#effects-of-deleting-user-profiles).
+Deleting user profiles cannot be undone. The delete action permanently removes users, which may cause discrepancies in your data. For details, see [Effects of deleting user profiles](#effects-of-deleting-user-profiles).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
@@ -63,7 +63,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Deleting users by email addresses and phone numbers
 
-If an email address or phone number is specified as an identifier, an additional `prioritization` value is required in the identifier. `prioritization` must be an ordered array and should specify which user to delete if there are multiple users. This means deleting users will not occur if more than one user matches a prioritization.
+If an email address or phone number is specified as an identifier, an additional `prioritization` value is required in the identifier. `prioritization` must be an ordered array and should specify which user to delete if there are multiple users. This means deleting users does not occur if more than one user matches a prioritization.
 
 The allowed values for the array are:
 
