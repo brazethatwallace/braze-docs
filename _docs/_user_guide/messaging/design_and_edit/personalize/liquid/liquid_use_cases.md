@@ -1374,7 +1374,7 @@ Time zones
 - [Abort a message outside a time window in a fixed time zone](#abort-fixed-timezone-window)
 
 {% alert note %}
-If a user receives a message at an unexpected **local** time, their device or profile **time zone** may have changed (for example, after traveling). Local-time delivery uses the time zone on the profile at send time; users may need a new session in their usual region before values such as `{{${time_zone}}}` reflect what you expect. See the [time zone use cases](#users-time-zone) on this page for how to template in the user’s local time zone.
+If a user receives a message at an unexpected local time, their device or profile time zone may have changed (for example, after traveling). Local-time delivery uses the time zone on the profile at send time; users may need a new session in their usual region before values such as {% raw %}`{{${time_zone}}}`{% endraw %} reflect what you expect. However, you can [template in the user's time zone](#users-time-zone).
 {% endalert %}
 
 ### Template in the user's time zone {#users-time-zone}

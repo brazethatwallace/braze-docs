@@ -52,6 +52,8 @@ There is a default attribute for the user’s location: `{{${most_recent_locatio
 Both `{{campaign.${name}}}` and `{{campaign.${message_name}}}` are supported Liquid personalization tags. Both tags reference campaign attributes. `{{campaign.${name}}}` denotes the name of your campaign, and `{{campaign.${message_name}}}` is the name of your message variant.
 {% endraw %}
 
+For URL and query string use (for example, when a name contains `%` or spaces), see [Campaign names in URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls).
+
 ### How do I use Liquid with nested objects?
 
 Braze has a built-in feature that generates Liquid code for segments that can be used in a message. Specifically, you can create a segment that matches multiple criteria in an object.
@@ -143,8 +145,4 @@ Join our VIP program to unlock free shipping.
 
 ### Do Liquid variables carry between subject line and body?
 
-No. Braze renders each message component separately (for example, subject line, HTML body, preheader, and push title). Assignments or captures you make in one field are not available in another. Repeat the Liquid or Connected Content call in each field that needs the value.
-
-### How should I use campaign names in URLs when the name contains `%` or other special characters?
-
-Campaign names can include characters that are not URL-safe. When you interpolate `{{campaign.${name}}}` (or similar) inside a link, wrap the value with the [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) filter—for example, `{{ campaign.${name} | url_encode }}`—so characters like `%`, spaces, or `&` do not break query strings.
+No. Braze renders each message component separately (such as subject line, HTML body, preheader, and push title). Assignments or captures you make in one field are not available in another. Repeat the Liquid or Connected Content call in each field that needs the value.
