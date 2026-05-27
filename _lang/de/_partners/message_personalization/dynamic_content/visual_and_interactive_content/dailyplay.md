@@ -38,7 +38,7 @@ Sie können Spiel-Meilensteine, Reward-Einlösungen und Engagement-Metriken an B
 | Anforderung | Beschreibung |
 | --- | --- |
 | DailyPlay-Konto | Ein DailyPlay-Konto ist erforderlich, um diese Integration zu nutzen. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel in Braze unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. Weitere Informationen finden Sie unter [API-Schlüssel]({{site.baseurl}}/api/api_key/). |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel in Braze unter **Settings** > **APIs and Identifiers** > **API Keys**. Weitere Informationen finden Sie unter [API-Schlüssel]({{site.baseurl}}/api/api_key/). |
 | Braze REST-Endpunkt | Die REST-Endpunkt-URL für [Ihre Braze-Instanz]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
