@@ -42,7 +42,7 @@ Make sure you fall into the segment that you are targeting (if this is a live ca
 
 ![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment.
+You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment. **User Lookup** accepts only `external_id` or `braze_id`—not email addresses or phone numbers. To search by email, phone, push token, or user alias, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
 ![User Lookup section with a search field.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -171,6 +171,19 @@ If deep links work when the app is not running or when the link is used directly
 Apple `.p8` authentication keys are the required approach for APNs push in Braze. Unlike legacy certificate file types, `.p8` keys don't expire and support all of your apps under a single key, eliminating the need for annual certificate renewals and reducing the risk of push delivery failures.
 
 If you're currently using a `.p12` or `.pem` certificate, migrate to a `.p8` key as soon as possible. For instructions on creating and uploading a `.p8` key, see [Upload your APNs push certificate]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). For Apple's guidance on generating a `.p8` key from your developer account, see [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+
+### .p8 keys versus .p12 certificates
+
+| Credential | Expiration | Dashboard status indicator |
+| --- | --- | --- |
+| `.p8` authentication key | Does not expire | No green status indicator (this is expected) |
+| `.p12` push certificate | Expires yearly | Green indicator when the certificate is valid |
+
+When you replace a `.p12` certificate with a `.p8` key (or upload a new credential), push delivery can pause briefly while Braze processes the change. Plan updates during a maintenance window when possible.
+
+In **Settings** > **App Settings** > **Push Notification Settings**, confirm that **App Bundle ID**, **Team ID**, and **Key ID** (for `.p8` keys) match the values in your Apple Developer account. Multiple Braze workspaces can use the same Apple push credential when the iOS app **bundle ID** is identical; the credential environment (development versus production) must match how the app was built.
+
+Apps on [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) or later can use [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management), which routes tokens to the correct APNs environment automatically.
 
 ## Web push notifications aren't behaving as expected
 
