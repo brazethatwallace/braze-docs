@@ -117,10 +117,10 @@ GO
 
 With Braze Cloud Data Ingestion, you set up an integration between your data warehouse instance and Braze workspace to sync data on a recurring basis. This sync runs on a schedule you set, and each integration can have a different schedule. Syncs can run as frequently as every 15 minutes or as infrequently as once per month. For customers who need syncs to occur more frequently than 15 minutes, speak with your customer success manager, or consider using REST API calls for real-time data ingestion.
 
-When a sync runs, Braze will directly connect to your data warehouse instance, retrieve all new data from the specified table, and delete the corresponding user profiles on your Braze dashboard. 
+When a sync runs, Braze directly connects to your data warehouse instance, retrieves all new data from the specified table, and deletes the corresponding user profiles on your Braze dashboard. 
 
 {% alert warning %}
-Deleting user profiles cannot be undone. It will permanently remove users which may cause discrepancies in your data. For detail, see [Effects of deleting user profiles]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles).
+Deleting user profiles cannot be undone. The delete action permanently removes users, which may cause discrepancies in your data. For details, see [Effects of deleting user profiles]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles).
 {% endalert %}
 
 <br><br>

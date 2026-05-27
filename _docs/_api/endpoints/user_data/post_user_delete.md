@@ -28,7 +28,7 @@ Deleting user profiles cannot be undone. The delete action permanently removes u
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.delete` permission.
+To use this endpoint, you need an [API key]({{site.baseurl}}/api/api_key/) with the `users.delete` permission.
 
 ## Rate limit
 

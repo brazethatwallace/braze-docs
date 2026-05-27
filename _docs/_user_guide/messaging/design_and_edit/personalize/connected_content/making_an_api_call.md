@@ -76,7 +76,7 @@ You can allowlist specific URLs to be used for Connected Content. To access this
 {% endalert %}
 
 {% alert tip %}
-Visit [Troubleshoot webhook and Connected Content requests]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection) to learn more about how to troubleshoot common error codes.
+For more information about common error codes, see [Troubleshoot webhook and Connected Content requests]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection).
 {% endalert %}
 
 ### Rate limits (429) versus unhealthy host detection
