@@ -16,7 +16,7 @@ description: "This article outlines details about the Send messages immediately 
 
 > Use this endpoint to send immediate messages to designated users using the Braze API.
 
-If you are targeting a segment, a record of your request will be stored in the [Developer Console](https://dashboard.braze.com/app_settings/developer_console/activitylog/).
+If you are targeting a segment, a record of your request is stored in the [Developer Console](https://dashboard.braze.com/app_settings/developer_console/activitylog/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#946cb701-96e3-48d7-868c-f079785b6d24 {% endapiref %}
 
