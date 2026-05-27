@@ -83,6 +83,18 @@ Users may encounter messages like "You need “View Landing Pages” permissions
 It isn't possible to merge or import user permissions from one dashboard user to another.
 {% endalert %}
 
+## Nuances of user permissions
+
+Keep the following behaviors in mind when you assign dashboard access:
+
+- **App Group Admin versus Company Admin:** App Group Admins manage permissions within assigned workspaces. Company Admins have company-wide authority, including deleting other dashboard users.
+- **Limited Users:** Limited users with the **Edit Dashboard Users** permission can manage other limited users but cannot create or manage Company Admin accounts.
+- **Manage Dashboard Users scope:** On the user detail page, permissions appear only for workspaces the editor can access. A limited user who can edit users in one workspace may not see another workspace's permission checkboxes.
+- **Export User Data:** Exporting user data requires workspace-level access in addition to the export permission.
+- **Composite permissions:** Some areas require multiple permissions. For example, configuring [Technology Partners]({{site.baseurl}}/partners/) typically requires both partner access and a baseline read permission for the related workspace features.
+- **Import and Update User Data:** This permission includes the ability to edit app user profiles through import flows, not only dashboard user records.
+- **No permission merge:** You cannot merge or import permission sets from one dashboard user onto another. Assign roles or permission sets explicitly for each user.
+
 ## Edit a user's permissions
 
 To edit a user's current admin, company, or workspace permissions, go to **Settings** > **Company Users**, then select their name.
