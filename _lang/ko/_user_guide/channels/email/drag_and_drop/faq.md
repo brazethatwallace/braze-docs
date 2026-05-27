@@ -50,7 +50,13 @@ tool:
 
 재사용 가능한 HTML 템플릿이 필요한 경우, 드래그 앤 드롭 본문을 편집하는 동안 **Download file**을 선택하고, ZIP에서 HTML을 열어 HTML 코드 편집기를 사용하여 [HTML 이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)에 마크업을 붙여넣으세요. 이후 Liquid, 링크 및 호스팅된 자산을 다시 확인하세요.
 
-템플릿이 어디에 있는지에 대한 자세한 내용은 [Templates and Media]({{site.baseurl}}/user_guide/messaging/templates/)를 참조하세요.
+템플릿이 어디에 있는지에 대한 자세한 내용은 [템플릿 및 미디어]({{site.baseurl}}/user_guide/messaging/templates/)를 참조하세요.
+
+### 드래그 앤 드롭 편집기에서 버튼의 채우기 색상을 변경할 수 없는 이유는 무엇인가요? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+
+페이지 수준 스타일이 메시지 수준 스타일을 재정의할 수 있습니다. 버튼이나 블록에서 **Fill**을 업데이트해도 아무 변화가 없다면 다음을 시도해 보세요:
+1. [이메일 글로벌 스타일 설정]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)을 열고 충돌하는 페이지 스타일에서 **Reset to default**를 선택하여 메시지 수준 색상이 적용되도록 합니다.
+2. 블록에서 색상을 다시 설정합니다.
 
 ### 드래그 앤 드롭 편집기에 이메일 첨부 파일을 추가할 수 있나요? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 

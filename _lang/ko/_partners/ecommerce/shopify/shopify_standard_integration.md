@@ -15,12 +15,6 @@ page_order: 1
 ## 1단계: Shopify 스토어 연결 {#step-1-connect-your-shopify-store}
 
 1. Braze에서 **파트너 통합** > **기술 파트너**로 이동한 다음 "Shopify"를 검색합니다.
-
-{% alert note %}
-이전 탐색을 사용하는 경우 **통합** 아래에서 **기술 파트너**를 찾을 수 있습니다.
-{% endalert %}
-
-{: start="2"}
 2. Shopify 파트너 페이지에서 **Begin setup**을 선택하여 통합 프로세스를 시작합니다.<br><br>![설정 시작 버튼이 있는 Shopify 통합 페이지.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Shopify 앱 스토어에서 Braze 애플리케이션을 설치합니다.<br><br>![애플리케이션 설치 버튼이 있는 Braze 앱 스토어 페이지.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
@@ -234,7 +228,7 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이
 
 Shopify 스토어의 모든 제품을 Braze 카탈로그에 동기화하여 더 깊은 메시징 개인화를 구현할 수 있습니다. 자동 업데이트가 거의 실시간으로 이루어지므로 카탈로그에 최신 제품 세부 정보가 반영됩니다. 자세한 내용은 [Shopify 제품 동기화]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/)를 확인하세요.
 
-!["Catalog product identifier"로 "Shopify Variant ID"가 설정된 설정 프로세스의 4단계.]({% image_buster /assets/img/shopify/sync_products_step1.png %}){: style="max-width:80%;"}
+![카탈로그 제품 식별자로 "Shopify Variant ID"가 설정된 설정 프로세스의 4단계.]({% image_buster /assets/img/shopify/sync_products_step1.png %}){: style="max-width:80%;"}
 
 ## 6단계: 채널 활성화(선택 사항) {#step-6-activate-channels-optional}
 

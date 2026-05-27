@@ -38,11 +38,7 @@ Para integrarte con MyPostcard, [inicia sesión o regístrate](https://www.mypos
 
 ### Paso 1: Crea tu plantilla de webhook de Braze {#step-1-create-your-braze-webhook-template}
 
-Crea una plantilla de webhook de MyPostcard para utilizarla en futuras Campaigns o Canvas navegando hasta **Templates** > **Webhook Templates** en la plataforma Braze.
-
-{% alert note %}
-Si utilizas la [navegación antigua]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), ve a **Engagement** > **Templates & Media** > **Webhook Templates**.
-{% endalert %}
+Para crear una plantilla de webhook de MyPostcard que puedas utilizar en futuras Campaigns o Canvas, ve a **Contenido** > **Webhook** en la plataforma Braze. Luego, selecciona **Crear plantilla de webhook**.
 
 Si quieres crear una campaña única de webhook de MyPostcard o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña. Rellena los siguientes campos:
 
@@ -100,5 +96,5 @@ A continuación, previsualiza tu solicitud en el panel **Preview** o ve a la pes
 ![Pestaña de prueba de webhook con diferentes campos para validar la implementación.]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 
 {% alert important %}
-Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Saved Webhook Templates** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Plantillas de Webhook guardadas** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

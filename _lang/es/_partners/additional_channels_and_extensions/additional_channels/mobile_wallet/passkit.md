@@ -64,9 +64,9 @@ En primer lugar, debes definir la carga útil del cupón o del miembro.
 
 Hay muchos componentes diferentes que puedes incluir en tu carga útil, pero aquí hay dos importantes a tener en cuenta:
 
-| Componente | Obligatoria | Tipo | Descripción |
+| Componente | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| `person.externalId` | Obligatoria | Cadena | Establecido como el ID externo de Braze, es crucial para que funcionen las devoluciones de llamada de PassKit a Braze, permitiendo a los usuarios de la empresa tener cupones para múltiples ofertas en una Campaign. No se aplica como único. |
+| `person.externalId` | Obligatorio | Cadena | Establecido como el ID externo de Braze, es crucial para que funcionen las devoluciones de llamada de PassKit a Braze, permitiendo a los usuarios de la empresa tener cupones para múltiples ofertas en una Campaign. No se aplica como único. |
 | `members.member.externalId` | Opcional | Cadena | Establecido como ID externo de Braze, puedes utilizar tu ID externo para actualizar el pase de socio. La configuración de este campo hace que el usuario sea único dentro del programa de afiliación.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paso 1: Define la carga útil de los datos de tu pase" }
 
@@ -88,7 +88,7 @@ Para obtener una lista completa de los campos disponibles, sus tipos y descripci
 
 ### Paso 2: Crear y codificar una variable de carga útil indefinida {#step-2-create-and-encode-an-undefined-payload-variable}
 
-Para crear y nombrar un nuevo bloque de contenido, ve a **Plantillas** > **Content Blocks** en el panel de Braze.
+Para crear y nombrar un nuevo bloque de contenido, ve a **Contenido** > **Content Block** en el panel de Braze.
 
 Selecciona **Create Content Block** para empezar.
 

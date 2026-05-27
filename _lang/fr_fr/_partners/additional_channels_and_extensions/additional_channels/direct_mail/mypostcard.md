@@ -38,11 +38,7 @@ Pour intégrer MyPostcard, [connectez-vous ou inscrivez-vous](https://www.mypost
 
 ### Étape 1 : Créer votre modèle de webhook Braze {#step-1-create-your-braze-webhook-template}
 
-Créez un modèle de webhook MyPostcard à utiliser dans de futures Campaigns ou Canvas en naviguant vers **Templates** > **Webhook Templates** dans la plateforme Braze.
-
-{% alert note %}
-Si vous utilisez l'[ancienne navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), allez dans **Engagement** > **Templates & Media** > **Webhook Templates**.
-{% endalert %}
+Pour créer un modèle de webhook MyPostcard à utiliser dans de futures Campaigns ou Canvas, accédez à **Contenu** > **Webhook** dans la plateforme Braze. Sélectionnez ensuite **Créer un modèle de webhook**.
 
 Si vous souhaitez créer une Campaign webhook MyPostcard ponctuelle ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle Campaign. Remplissez les champs suivants :
 
@@ -95,10 +91,10 @@ Copiez le corps de la requête affiché dans l'outil d'administration B2B, puis 
 
 ### Étape 2 : Prévisualiser votre requête {#step-2-preview-your-request}
 
-Ensuite, prévisualisez votre requête dans le panneau **Preview** ou accédez à l'onglet **Test**, où vous pouvez choisir un utilisateur aléatoire, un utilisateur existant ou créer un utilisateur personnalisé pour tester votre webhook. N'oubliez pas d'enregistrer votre modèle avant de quitter la page !
+Ensuite, prévisualisez votre requête dans le panneau **Prévisualisation** ou accédez à l'onglet **Test**, où vous pouvez choisir un utilisateur aléatoire, un utilisateur existant ou créer un utilisateur personnalisé pour tester votre webhook. N'oubliez pas d'enregistrer votre modèle avant de quitter la page !
 
 ![Onglet Test du webhook avec différents champs pour valider la mise en œuvre.]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 
 {% alert important %}
-N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Saved Webhook Templates** lors de la création d'une nouvelle [Campaign webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [Campaign webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

@@ -91,16 +91,16 @@ Después de seleccionar el editor de arrastrar y soltar como tu experiencia de e
 - Usar una plantilla de correo electrónico de arrastrar y soltar guardada.
 
 {% alert note %}
-Para usar una plantilla HTML personalizada existente o plantillas creadas por terceros, debes recrear la plantilla yendo a **Plantillas** > **Plantillas de correo electrónico** y seleccionando **Editor de arrastrar y soltar** como tu experiencia de edición.
+Para usar una plantilla HTML personalizada existente o plantillas creadas por terceros, debes recrear la plantilla yendo a **Content** > **Email** y seleccionando **Drag-And-Drop Editor** como tu experiencia de edición.
 {% endalert %}
 
-También puedes acceder a todas las plantillas desde la sección **Plantillas**.
+También puedes acceder a todas las plantillas desde la sección **Templates**.
 
-Después de seleccionar tu plantilla, verás un resumen de tu correo electrónico en **Variantes de correo electrónico** que incluye la información de envío y el cuerpo del correo electrónico.
+Después de seleccionar tu plantilla, verás un resumen de tu correo electrónico en **Email Variants** que incluye la información de envío y el cuerpo del correo electrónico.
 
-Luego, selecciona **Editar cuerpo del correo electrónico** para comenzar a diseñar la estructura del correo electrónico en el editor de arrastrar y soltar.
+Luego, selecciona **Edit Email Body** para comenzar a diseñar la estructura del correo electrónico en el editor de arrastrar y soltar.
 
-![La sección «Variantes de correo electrónico» con un ejemplo de cuerpo de correo electrónico.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
+![La sección «Email Variants» con un ejemplo de cuerpo de correo electrónico.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
 
 ### Paso 2: Construye tu correo electrónico {#step-2-build-your-email}
 
