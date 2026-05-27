@@ -35,6 +35,10 @@ Slideup messages can contain up to three lines of copy before truncation with el
 
 You should always [preview and test your messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) on a variety of devices to ensure that the most important areas of your image and message appear as expected. Note that when previewing your message on the composer, the actual rendering on devices may differ.
 
+## Hyperlinks and anchor text
+
+To add a link in the slideup body, enter the visible link text in the **Body** field and set the destination in **On-click behavior** (for example, **Redirect to URL**). The body text acts as the anchor; you do not enter separate HTML anchor tags in the traditional editor.
+
 ## Mobile devices
 
 On mobile devices, slideups appear at the top or bottom of the app screen. You can specify this when you create your message. Users can swipe to dismiss the slideup, or tap to open it if a click action is included. If a click action is added to the slideup, a chevron ">" is shown.
