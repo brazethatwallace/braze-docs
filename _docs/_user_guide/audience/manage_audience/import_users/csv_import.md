@@ -427,6 +427,19 @@ If you used [file validation](#file-validation), start with the error report, as
 
 For troubleshooting CSV import, review these common issues below.
 
+### Create user profiles with the REST API
+
+Sending a [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) request with a new `external_id` and user attributes creates a new user profile when that `external_id` does not already exist. CSV import is not required to create profiles through the API.
+
+### Use email as `external_id`
+
+Braze does not recommend using an email address as `external_id`. If you use email as `external_id`, include both `external_id` and `email` columns in your CSV so users remain targetable on the email channel. Use a comma (`,`) as the column delimiter—not a colon (`:`).
+
+### `external_id` values with quote characters in API requests
+
+When you reference `external_id` in REST API requests (for example, during CSV-driven workflows that call the API), escape double-quote characters in the ID with a backslash (`\"`). Alternatively, use `braze_id`, which does not require manual quote escaping.
+
+
 ### CSV import isn't available as a segment filter
 
 You can use a CSV import as a segment filter only if you enabled a targeting preference during upload.
