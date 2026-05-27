@@ -1,7 +1,7 @@
 ---
 nav_title: RevenueCat
 article_title: RevenueCat
-description: "RevenueCatとBrazeの統合により、顧客の購入およびサブスクリプションのライフサイクルイベントをプラットフォーム間で自動的に同期できます。これにより、無料トライアル中にオプトアウトした顧客への働きかけや、請求で問題のある顧客へのリマインダーの送信など、顧客のサブスクリプションライフサイクルステージに対応するCampaignsを作成できます。"
+description: "RevenueCatとBrazeの統合により、顧客の購入およびサブスクリプションのライフサイクルイベントをプラットフォーム間で自動的に同期できます。これにより、無料トライアル中にオプトアウトした顧客への働きかけや、請求で問題のある顧客へのリマインダーの送信など、顧客のサブスクリプションライフサイクルステージに対応するキャンペーンを作成できます。"
 alias: /partners/revenuecat/
 page_type: partner
 search_tag: Partner
@@ -16,7 +16,7 @@ _この統合はRevenueCatによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-RevenueCatとBrazeの統合により、顧客の購入およびサブスクリプションのライフサイクルイベントをプラットフォーム間で自動的に同期できます。これにより、無料トライアル中にオプトアウトした顧客への働きかけや、請求で問題のある顧客へのリマインダーの送信など、顧客のサブスクリプションライフサイクルステージに対応するCampaignsを作成できます。
+RevenueCatとBrazeの統合により、顧客の購入およびサブスクリプションのライフサイクルイベントをプラットフォーム間で自動的に同期できます。これにより、無料トライアル中にオプトアウトした顧客への働きかけや、請求で問題のある顧客へのリマインダーの送信など、顧客のサブスクリプションライフサイクルステージに対応するキャンペーンを作成できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -33,7 +33,7 @@ RevenueCatとBrazeを接続するには、少なくともRevenueCatダッシュ�
 
 ## ユースケース {#use-cases}
 
-- 顧客が無料トライアルを開始するときにプレミアム機能を強調するオンボーディングCampaignをトリガーする。
+- 顧客が無料トライアルを開始するときにプレミアム機能を強調するオンボーディングキャンペーンをトリガーする。
 - 「Billing Issue」イベントを受信したときに請求情報の更新リマインダーを送信する。
 - 顧客が無料トライアルをキャンセルした後にフィードバックアンケートを送信する。
 
@@ -60,7 +60,7 @@ Purchases.shared.setAttributes(["$brazeAliasName" : "name",
 ```
 {% endtab %}
 {% tab objective-c %}
-```objc
+`````````objc
 // Configure Purchases SDK
 [RCPurchases configureWithAPIKey:@"public_sdk_key" appUserID:@"my_app_user_id"];
 
@@ -75,7 +75,7 @@ Purchases.shared.setAttributes(["$brazeAliasName" : "name",
 ```
 {% endtab %}
 {% tab java %}
-```java
+`````````java
 // Configure Purchases SDK
 Purchases.configure(this, "public_sdk_key", "my_app_user_id");
 

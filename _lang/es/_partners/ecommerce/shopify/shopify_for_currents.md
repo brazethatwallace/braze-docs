@@ -44,4 +44,4 @@ Si aún no lo has hecho, sigue los pasos de [configuración de la integración e
 4. Selecciona los eventos que deseas rastrear. Se proporciona una lista de eventos disponibles.
 5. Selecciona **Launch Current**.
 
-![La página de Braze Shopify Currents. Esta página incluye campos para el nombre de la integración, el correo electrónico de contacto y la tienda Shopify.]({% image_buster /assets/img/Shopify/shopify_currents.png %})
+![La página de Braze Shopify Currents. Esta página incluye campos para el nombre de la integración, el correo electrónico de contacto y la tienda Shopify.]({% image_buster /assets/img/shopify/shopify_currents.png %})

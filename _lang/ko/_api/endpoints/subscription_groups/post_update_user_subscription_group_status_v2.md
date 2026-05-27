@@ -52,6 +52,8 @@ V2 엔드포인트는 다음과 같은 점에서 [V1 엔드포인트]({{site.bas
 **전화번호 형식**: 전화번호는 [E.164 형식](https://en.wikipedia.org/wiki/E.164)이어야 합니다(예: `+12223334444`). E.164 형식이 아닌 전화번호는 거부됩니다.
 {% endalert %}
 
+{% multi_lang_include api/orphaned_subscription_states.md %}
+
 ## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='subscription status set' %}

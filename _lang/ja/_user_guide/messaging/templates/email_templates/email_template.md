@@ -17,7 +17,7 @@ search_rank: 1
 
 ## ステップ 1:メールテンプレートエディターに移動する {#step-1-navigate-to-the-email-template-editor}
 
-Brazeダッシュボードで、**テンプレート** > **メールテンプレート**に移動します。
+Brazeダッシュボードで、**コンテンツ** > **メール**に移動します。
 
 ## ステップ 2:編集エクスペリエンスを選択する {#step-2-select-your-editing-experience}
 

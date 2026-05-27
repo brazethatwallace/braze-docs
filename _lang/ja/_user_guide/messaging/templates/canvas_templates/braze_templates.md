@@ -1,26 +1,26 @@
 ---
 nav_title: Brazeテンプレートを使用する
-article_title: Braze Canvasテンプレートを使用する
+article_title: Braze キャンバステンプレートを使用する
 alias: "/canvas_templates/templates/"
 page_order: 2
-description: "このリファレンス記事では、利用可能なCanvasテンプレートの作成方法について説明します。"
+description: "このリファレンス記事では、利用可能なキャンバステンプレートの作成方法について説明します。"
 page_type: reference
 ---
 
-# Braze Canvasテンプレートを使用する {#use-braze-canvas-templates}
+# Braze キャンバステンプレートを使用する {#use-braze-canvas-templates}
 
-> Brazeには、一般的なユースケースのベストプラクティスとして参照・使用できるCanvasテンプレートが用意されています。これらのテンプレートは編集できませんが、**テンプレート** > **Brazeテンプレート**で確認したり、Canvasesで使用したりできます。
+> Brazeには、一般的なユースケースのベストプラクティスとして参照・使用できるキャンバステンプレートが用意されています。これらのテンプレートは編集できませんが、**コンテンツ** > **Canvas** > **Brazeテンプレート**で確認したり、Canvasesで使用したりできます。
 
-![Canvasテンプレートセクションに13個の利用可能なテンプレートが表示されたBrazeテンプレート。]({% image_buster /assets/img/braze_canvas_templates.png %})
+![キャンバステンプレートセクションに13個の利用可能なテンプレートが表示されたBrazeテンプレート。]({% image_buster /assets/img/braze_canvas_templates.png %})
 
 以下の利用可能なテンプレートから選択して、Canvasとして参照または使用してください。
 
-## 標準Canvasテンプレート {#standard-canvas-templates}
+## 標準キャンバステンプレート {#standard-canvas-templates}
 
 {% tabs %}
 {% tab Abandoned Intent %}
 
-### 放棄されたインテント {#abandoned-intent}
+### 放棄カート {#abandoned-intent}
 
 リアルタイムでユーザーにエンゲージし、購入を完了するよう促します。
 
@@ -44,7 +44,7 @@ page_type: reference
 {% endtab %}
 {% tab Feature Adoption %}
 
-### 機能の導入 {#feature-adoption}
+### 機能導入 {#feature-adoption}
 
 タイムリーでパーソナライズされたメッセージを配信し、メリットや使い方のヒントを紹介します。このテンプレートを使用する際は、以下の点を考慮してください。
 
@@ -89,8 +89,8 @@ page_type: reference
 {% endtab %}
 {% endtabs %}
 
-## eコマースCanvasテンプレート {#ecommerce-canvas-templates}
+## eコマースキャンバステンプレート {#ecommerce-canvas-templates}
 
-eコマースCanvasテンプレートは、eコマースマーケター向けに特別に設計されており、重要な戦略の実装を容易にします。
+eコマースキャンバステンプレートは、eコマースマーケター向けに特別に設計されており、重要な戦略の実装を容易にします。
 
 {% multi_lang_include canvas/ecommerce_templates.md %}

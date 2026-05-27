@@ -44,4 +44,4 @@ If you have not already, follow [Shopify standard integration setup]({{site.base
 4. Select the events you want to track. A list of available events is provided.
 5. Select **Launch Current**
 
-![The Braze Shopify Currents page. This page includes fields for integration name, contact email, and Shopify Store.]({% image_buster /assets/img/Shopify/shopify_currents.png %})
+![The Braze Shopify Currents page. This page includes fields for integration name, contact email, and Shopify Store.]({% image_buster /assets/img/shopify/shopify_currents.png %})

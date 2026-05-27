@@ -13,7 +13,7 @@ search_rank: 1
 
 # WhatsApp メッセージの作成 {#create-a-whatsapp-message}
 
-> WhatsApp Campaignsは、顧客に直接リーチし、プログラムによって会話するのに最適です。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
+> WhatsApp Campaignsは、顧客に直接リーチし、プログラムによって会話するのに最適です。Liquidやその他のダイナミックなコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -38,7 +38,7 @@ WhatsAppは言語ごとに異なる[メッセージテンプレート](#template
 **ステップ:**
 
 1. **Campaigns**ページに移動し、<i class="fas fa-plus"></i> **キャンペーンを作成**をクリックします。
-2. **WhatsApp**を選択するか、複数チャネルをターゲットとするCampaignsの場合は**マルチチャネルキャンペーン**を選択します。
+2. **WhatsApp**を選択するか、複数チャネルをターゲットとするCampaignの場合は**マルチチャネルCampaign**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
    * タグを使用すると、Campaignsの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
@@ -83,7 +83,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### 言語 {#languages}
 
-各テンプレートには割り当てられた言語があるため、ユーザーマッチングを正しく設定するには、言語ごとにCampaignまたはCanvasステップを作成する必要があります。たとえば、インドネシア語と英語が割り当てられたテンプレートを使用するCanvasを構築する場合、インドネシア語テンプレート用のCanvasステップと英語テンプレート用のCanvasステップを作成する必要があります。
+各テンプレートには割り当てられた言語があるため、ユーザーマッチングを正しく設定するには、言語ごとにCampaignまたはキャンバスステップを作成する必要があります。たとえば、インドネシア語と英語が割り当てられたテンプレートを使用するCanvasを構築する場合、インドネシア語テンプレート用のキャンバスステップと英語テンプレート用のキャンバスステップを作成する必要があります。
 
 ![テンプレートのリスト。メッセージのプレビュー、割り当てられた言語、承認ステータスが表示されています。]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
@@ -153,7 +153,7 @@ Brazeでは、メッセージを送信する前に必ずプレビューとテス
 
 WhatsAppメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
-アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)を設定することもできます。
+アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)を設定することもできます。
 
 このステップでは、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にするなどの配信コントロールを指定することもできます。
 
@@ -202,7 +202,7 @@ Brazeを通じて送信するWhatsApp送信メッセージでは、以下の機�
 | ドキュメント | ドキュメントは本文テキスト内に埋め込むことができます。ファイルはURL経由でホストされている必要があります。 | < 100 MB | `.txt`、`.xls`、`.xlsx`、`.doc`、`.docx`、`.ppt`、`.pttx`、`.pdf` |
 | 動画 | 動画は本文テキスト内に埋め込むことができます。ファイルはURL経由または[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)でホストされている必要があります。 | < 16 MB | `.3gp`、`.mp4` |
 | オーディオ | オーディオは応答メッセージングでのみサポートされています。ファイルはURL経由でホストされている必要があります。 | < 16 MB | `.aac`、`.amr`、`.mp3`、`.mp4`、`.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Outbound messages" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
@@ -218,7 +218,7 @@ Brazeを通じて受信するWhatsApp受信メッセージでは、以下の機�
 | ドキュメント | ドキュメントはメッセージ添付ファイルを通じてサポートされています。 | `.txt`、`.pdf`、`.ppt`、`.doc`、`.xls`、`.docx`、`.pptx`、`.xlsx` |
 | 動画 | H.264ビデオコーデックとAACオーディオコーデックのみがサポートされています。動画は単一のオーディオストリームを持つか、オーディオストリームを持たない必要があります。 | `.mp4`、`.3gp` |
 | CTAリンク | さまざまなコールトゥアクション（CTA）タイプがサポートされています。詳細については、[コールトゥアクションタイプ](#ctas)を参照してください。 | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Inbound messages" }
 
 ### コールトゥアクションタイプ {#ctas}
 
@@ -233,4 +233,4 @@ Brazeを通じて送信するWhatsAppメッセージでは、以下のコール�
 | クーポンコードメッセージテンプレート | メッセージテンプレートでのみ利用可能。<br>他のメッセージテンプレートと同様に開いて編集でき、LiquidおよびBrazeプロモーションコードと互換性があります。 |
 | CTA応答メッセージ | コールトゥアクションボタンを含む応答メッセージを作成します。 |
 | [リスト応答メッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | ユーザーが選択できる最大10個のオプションのリストを含む応答メッセージを作成します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types" }

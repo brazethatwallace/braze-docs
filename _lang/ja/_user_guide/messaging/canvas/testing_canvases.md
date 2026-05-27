@@ -7,7 +7,7 @@ guide_top_text: "キャンバスを送信した後は、常に結果を確認し
 page_order: 5
 
 tool: 
-  - Canvas
+  - キャンバス
   - Reports
 page_type: landing
 description: "このランディングページには、テストキャンバスの送信、キャンバスの分析、リテンションレポート、ファネルレポートに関する記事など、キャンバスのテストに関するリソースがまとめられています。"

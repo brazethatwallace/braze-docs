@@ -18,6 +18,8 @@ description: "この記事では、「送信分析をエクスポートする」
 
 Brazeは送信後14日間、送信分析を保存します。Campaignのコンバージョンは、特定のユーザーがCampaignから受け取った直近の `send_id` に帰属します。
 
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
@@ -36,7 +38,7 @@ Brazeは送信後14日間、送信分析を保存します。Campaignのコン�
 | `send_id` | 必須 | 文字列 | [送信API識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `length` | 必須 | 整数 | 返されるシリーズに含める `ending_at` までの最大日数。1以上100以下（両端を含む）でなければなりません。 |
 | `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データシリーズが終了する日付。デフォルトはリクエストの時刻です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 

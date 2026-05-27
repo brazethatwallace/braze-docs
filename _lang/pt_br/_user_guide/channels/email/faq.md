@@ -13,9 +13,15 @@ channel: email
 
 ### O que acontece quando um e-mail é enviado e vários perfis têm o mesmo endereço de e-mail? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Se vários usuários com endereços de e-mail correspondentes estiverem em um segmento para receber uma campanha, um perfil de usuário aleatório com esse endereço de e-mail é selecionado no momento do envio. Dessa forma, o e-mail é enviado apenas uma vez e deduplicado, garantindo que não chegue ao mesmo endereço de e-mail várias vezes.
+Se vários usuários com endereços de e-mail correspondentes estiverem em um segmento para receber uma campanha, um único perfil de usuário com esse endereço de e-mail é selecionado no momento do envio. Dessa forma, o e-mail é enviado apenas uma vez e deduplicado, garantindo que não chegue ao mesmo endereço de e-mail várias vezes.
+
+**Endereços de e-mail únicos:** A Braze não exige endereços de e-mail únicos entre perfis. Se você depende de uma relação um-para-um entre um endereço de e-mail e um perfil, monitore duplicatas internamente ao criar usuários.
+
+**Deduplicação antes do Liquid:** Para envios em que a Braze deduplica por endereço de e-mail dentro de um único despacho (por exemplo, Campaigns agendadas em que vários membros do segmento com o mesmo endereço são processados juntos), essa deduplicação acontece antes de o Liquid ser executado para o perfil escolhido para representar aquele endereço. Se o Liquid abortar para esse perfil (por exemplo, com [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)), esse endereço não recebe a mensagem naquele despacho — incluindo perfis já ignorados pela deduplicação. Envios disparados não aplicam essa mesma deduplicação de endereço dentro do despacho; vários perfis que compartilham um endereço podem permanecer elegíveis em um mesmo lote, então esse comportamento de abort não se aplica da mesma forma (veja o próximo parágrafo).
 
 Se vários perfis compartilham um endereço de e-mail e um perfil cancela a inscrição, a Braze atualiza outros perfis (até 100) com esse endereço para o mesmo estado de inscrição. Isso se aplica a cancelamentos de inscrição e outras alterações, como estado de inscrição global e status de grupos de inscrições individuais.
+
+**Grupos de teste:** Para Campaigns com [Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups), a Braze seleciona um perfil para entrega principal quando vários perfis compartilham um endereço. Esse destinatário principal pode não estar no seu grupo de teste, mesmo quando outro perfil com o mesmo endereço está.
 
 Os cenários a seguir podem fazer parecer que um usuário recebeu um e-mail duas vezes:
 
@@ -23,13 +29,15 @@ Os cenários a seguir podem fazer parecer que um usuário recebeu um e-mail duas
 - **Vários perfis de usuário têm encaminhamento de e-mail:** Se um usuário tem várias contas em um determinado app, mas uma conta encaminha e-mails, o usuário recebe a Campaign uma vez por caixa de entrada; o e-mail pode aparecer duas vezes na caixa de entrada para onde as mensagens são encaminhadas. Apenas alguns provedores indicam quando um e-mail foi encaminhado de outra conta.
 - **Configuração de e-mail no destinatário:** Alguns clientes mesclam caixas de entrada ("caixa de entrada universal"). Se a mesma Campaign direciona várias contas que compartilham uma caixa de entrada, pode parecer que uma pessoa recebeu a Campaign duas vezes quando, na verdade, dois perfis distintos foram contatados. O destinatário pode confirmar se várias contas estão combinadas em uma caixa de entrada.
 
-Observe que essa deduplicação ocorre quando os usuários direcionados estão incluídos no mesmo envio. Campaigns disparadas (excluindo Campaigns disparadas por API) e Canvas podem resultar em múltiplos envios para o mesmo endereço de e-mail (mesmo dentro de um período em que os usuários poderiam ser excluídos devido à reelegibilidade) se diferentes usuários com endereços de e-mail correspondentes registrarem o evento de gatilho em momentos diferentes. Por exemplo, se o usuário A e o usuário B compartilham o e-mail `johndoe@example.com`, mas seus perfis estão em fusos horários diferentes, quando o evento de gatilho da Campaign inclui o envio no fuso horário do usuário, o e-mail `johndoe@example.com` recebe dois e-mails.
+Essa deduplicação se aplica quando os usuários direcionados estão no mesmo despacho. A reelegibilidade é avaliada por perfil, não por endereço de e-mail.
+
+A reelegibilidade de Campaigns de e-mail e etapas do Canvas usa o perfil de cada usuário — não a caixa de entrada — então vários perfis podem se qualificar para envios separados enquanto essa lógica é satisfeita. Combinado com gatilhos, isso pode entregar mais de uma mensagem para a mesma caixa de entrada mesmo quando você está tentando respeitar um único período de inelegibilidade no nível do endereço. Campaigns disparadas (excluindo Campaigns disparadas por API) e Canvas também podem enviar duas vezes para o mesmo endereço quando perfis diferentes com endereços de e-mail correspondentes atendem ao gatilho em momentos diferentes — por exemplo, se o usuário A e o usuário B compartilham `johndoe@example.com`, mas estão em fusos horários diferentes enquanto a entrega usa fusos horários locais.
 
 Os usuários não são deduplicados por e-mail na entrada do Canvas, então podem não ser deduplicados além da primeira etapa de um Canvas se progredirem em momentos ligeiramente diferentes devido à entrada com limite de taxa. Quando um usuário associado a um determinado endereço de e-mail abre ou clica em um e-mail, todos os perfis de usuário que compartilham esse endereço de e-mail são marcados como tendo aberto ou clicado na Campaign.
 
 #### Exceção: Campaigns disparadas por API {#exception-api-triggered-campaigns}
 
-Campaigns disparadas por API deduplicarão ou enviarão duplicatas dependendo de onde o público é definido. E-mails duplicados devem ser direcionados separadamente na chamada de API usando `user_ids` distintos para receber múltiplos detalhes. Aqui estão três cenários possíveis para Campaigns disparadas por API:
+Campaigns disparadas por API deduplicarão ou enviarão duplicatas dependendo de onde o público é definido. E-mails duplicados devem ser direcionados separadamente na chamada de API usando `user_ids` distintos para receber múltiplas entregas. Aqui estão três cenários possíveis para Campaigns disparadas por API:
 
 - **Cenário 1: E-mails duplicados no segmento alvo:** Se o mesmo e-mail aparece em vários perfis de usuário que estão agrupados nos filtros de público do dashboard para uma Campaign disparada por API, apenas um dos perfis recebe o e-mail.
 - **Cenário 2: E-mails duplicados em diferentes `user_ids` dentro do objeto de destinatários:** Se o mesmo e-mail aparece em vários valores de `external_user_id` referenciados pelo objeto `recipients`, o e-mail é enviado duas vezes.
@@ -159,7 +167,7 @@ Para contornar isso:
 
 ### A métrica *Aberturas Únicas* inclui *Aberturas por Máquina*? {#does-the-unique-opens-metric-include-machine-opens}
 
-Não. *Aberturas Únicas* conta apenas [Outras Aberturas]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens), que exclui e-mails identificados como aberturas por máquina. *Aberturas por Máquina* são rastreadas separadamente. Na visualização de **Analytics** da Campaign e no **Criador de relatórios**, você pode visualizar ambas as métricas independentemente.
+Sim. *Aberturas Únicas* inclui *Aberturas por Máquina*. Você pode visualizar ambas as métricas na visualização **Analytics** da Campaign e no **Criador de relatórios**.
 
 ### Por que meu volume de entrega de e-mail não corresponde ao meu volume de envio? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
@@ -203,9 +211,7 @@ Não. Cada parte do e-mail (assunto, corpo, cabeçalhos, botões e assim por dia
 
 ### Meu modelo de e-mail está faltando. Onde ele está? {#my-email-template-is-missing-where-is-it}
 
-Acesse **Modelos** > **Modelos de e-mail**. Você pode filtrar por tipo (HTML ou arrastar e soltar).
-
-Confirme que você tem permissão para visualizar modelos — consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Primeiro, confirme que você tem as [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para visualizar modelos. Para ver os modelos de e-mail salvos, acesse **Content** > **Email**. Você pode filtrar modelos por status e tipo (HTML ou arrastar e soltar).
 
 ### Preciso registrar domínios para e-mails de relay ou mascarados? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 

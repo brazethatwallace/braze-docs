@@ -1,6 +1,6 @@
 ## Bloques del editor de páginas de inicio {#landing-page-editor-blocks}
 
-Los bloques del editor para páginas de inicio se encuentran en la sección **Crear** del **Editor de arrastrar y soltar**, en **Filas** y categorías de bloques. Arrastra un bloque a la columna de una fila; se ajusta automáticamente al ancho de la columna. Selecciona un bloque para editar su configuración en el panel de propiedades del lado derecho.
+Los bloques del editor para páginas de inicio se encuentran en la sección **Build** del **Editor de arrastrar y soltar**, en **Rows** y categorías de bloques. Arrastra un bloque a la columna de una fila; se ajusta automáticamente al ancho de la columna. Selecciona un bloque para editar su configuración en el panel de propiedades del lado derecho.
 
 Para más información sobre cómo crear y publicar páginas de inicio, consulta [Crear páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
 
@@ -65,7 +65,7 @@ Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, com
 | Propiedad | Descripción |
 | --- | --- |
 | Código personalizado | Te permite añadir, editar o eliminar HTML, CSS y JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Código personalizado" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Temporizador de cuenta regresiva {#countdown-timer}
@@ -113,16 +113,16 @@ Los usuarios eligen múltiples opciones; los valores establecen o se añaden a u
 
 ### Texto largo {#long-text}
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) o tu administrador del éxito del cliente de Braze.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) o tu administrador del éxito del cliente de Braze. Este bloque no está disponible para páginas de inicio estándar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada {#saved-row}
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original: si el original se actualiza, tendrás que arrastrarlo de nuevo al editor para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Si no ves **Fila guardada** en **Filas**, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) o tu administrador del éxito del cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original: si el original se actualiza, tendrás que arrastrarlo de nuevo al editor para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Si no ves **Fila guardada** en **Rows**, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) o tu administrador del éxito del cliente de Braze.
 -->
 
 ## Cosas que debes saber {#things-to-know}
 
-- **Video:** El compositor estándar no incluye un bloque de video dedicado. Usa **Código personalizado** para insertar un reproductor si es necesario. Para más información, consulta [Páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/).
+- **Video:** El compositor estándar no incluye un bloque de video dedicado. Usa **Custom code** para insertar un reproductor si es necesario. Para más información, consulta [Páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/).

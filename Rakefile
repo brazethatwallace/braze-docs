@@ -53,6 +53,31 @@ def jekyll_build(config_file = '_config.yml', lang = 'en', incremental: false)
     FileUtils.copy_file(index_file, File.join('_site', "index.html"))
     FileUtils.copy_file(File.join("_site/docs/#{lang}", "404.html"), File.join('_site', "404.html"))
   end
+  verify_llms_txt_artifacts(lang)
+end
+
+# Post-build sanity check: confirms the llms.txt / llms-full.txt files the
+# llms_txt_generator plugin is supposed to emit are actually present on disk.
+# Only enforced for the English build (other locales don't generate them).
+def verify_llms_txt_artifacts(lang)
+  return unless lang == 'en'
+  return if %w[1 true yes].include?(ENV.fetch('SKIP_LLMS_TXT_VERIFY', '').downcase)
+
+  expected = %w[user_guide developer_guide api partners releases].flat_map do |collection|
+    %W[_site/#{collection}/llms.txt _site/#{collection}/llms-full.txt]
+  end
+
+  missing = expected.reject { |path| File.exist?(path) && File.size(path) > 0 }
+  if missing.empty?
+    puts "LLMS verify: all #{expected.length} llms.txt artifacts present in _site."
+    return
+  end
+
+  warn "LLMS verify: missing or empty artifacts after Jekyll build:"
+  missing.each { |path| warn "  - #{path}" }
+  warn "LLMS verify: this means the llms_txt_generator plugin did not run."
+  warn "LLMS verify: set SKIP_LLMS_TXT_VERIFY=1 to bypass this check."
+  abort "LLMS verify: failing the build so the deploy doesn't ship without llms.txt files."
 end
 def jekyll_serve(config_file = '_config.yml')
   if ENV["RACK_ENV"] == 'staging'

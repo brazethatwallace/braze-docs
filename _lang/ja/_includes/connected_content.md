@@ -22,7 +22,7 @@
 {% tab Default content-type %}
 
 {% raw %}
-```js
+`````````js
 {% connected_content https://example.com/api/endpoint :method post :body key1=value1&key2=value2 %}
 ```
 {% endraw %}
@@ -31,7 +31,7 @@
 {% tab Application/JSON Content-Type %}
 
 {% raw %}
-```js
+`````````js
 {% connected_content https://example.com/api/endpoint :method post :body key1=value1&key2=value2 :content_type application/json %}
 ```
 {% endraw %}

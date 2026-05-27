@@ -106,6 +106,8 @@ valid_partner_list:
   url: /docs/partners/certona/
 - name: CataBoom
   url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Playable
   url: /docs/partners/playable/
 - name: Movable Ink
@@ -214,6 +216,8 @@ valid_partner_list:
   url: /docs/partners/wunderkind/
 - name: B.Layer
   url: /docs/partners/blayer-inapps/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Tellius
   url: /docs/partners/tellius/
 - name: Sheetlabs
@@ -284,6 +288,8 @@ valid_partner_list:
   url: /docs/partners/typeform/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
 - name: GRAVTY by Loyalty Juggernaut

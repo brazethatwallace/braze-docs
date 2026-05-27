@@ -71,23 +71,23 @@ Outgrowでは、インタラクティブコンテンツ（クイズ結果、カ�
 
 ## BrazeでOutgrowのデータをセグメンテーションとターゲティングに使用する {#using-outgrow-data-in-braze-for-segmentation-and-targeting}
 
-### BrazeでOutgrowデータを使ってSegmentsを作成する {#creating-segments-in-braze-with-outgrow-data}
+### BrazeでOutgrowデータを使ってセグメントを作成する {#creating-segments-in-braze-with-outgrow-data}
 
-統合により、Outgrowの回答から入力されたカスタム属性に基づいて、BrazeでSegmentsを作成できます。
+統合により、Outgrowの回答から入力されたカスタム属性に基づいて、Brazeでセグメントを作成できます。
 
-1. Brazeで、**エンゲージメント** > **Segments**と進み、**新しいSegmentを作成**を選択します。
-2. Segmentに名前を付け、Outgrowデータに基づいてフィルターを設定します。以下に例を示します。
+1. Brazeで、**エンゲージメント** > **セグメント**と進み、**新しいセグメントを作成**を選択します。
+2. セグメントに名前を付け、Outgrowデータに基づいてフィルターを設定します。以下に例を示します。
    - `outgrow_quiz_score`でフィルターをかけ、ある閾値以上のスコアを獲得したユーザーをターゲットにします。
-   - `outgrow_custom_segment`でフィルターして、特定のOutgrow定義Segmentに属するユーザーをターゲットにします。
-3. SegmentをCampaignsやCanvasesで使用できるように保存します。
+   - `outgrow_custom_segment`でフィルターして、特定のOutgrow定義セグメントに属するユーザーをターゲットにします。
+3. セグメントをキャンペーンやキャンバスで使用できるように保存します。
 
-### Outgrowで定義したSegmentsでCampaignsを開始する {#launching-campaigns-with-outgrow-defined-segments}
+### Outgrowで定義したセグメントでキャンペーンを開始する {#launching-campaigns-with-outgrow-defined-segments}
 
-Outgrowのデータから作成されたカスタムSegmentsを使用して、BrazeのCampaignsをパーソナライズしたり、インタラクティブコンテンツに対するユーザーの回答に基づいてターゲットを絞ったりできます。よりパーソナライズされたユーザーエクスペリエンスを実現するには、以下のステップに従ってください。
+Outgrowのデータから作成されたカスタムセグメントを使用して、Brazeのキャンペーンをパーソナライズしたり、インタラクティブコンテンツに対するユーザーの回答に基づいてターゲットを絞ったりできます。よりパーソナライズされたユーザーエクスペリエンスを実現するには、以下のステップに従ってください。
 
-1. Brazeで、**エンゲージメント** > **Campaigns**の順に移動します。
+1. Brazeで、**エンゲージメント** > **キャンペーン**の順に移動します。
 2. **キャンペーンを作成**を選択し、キャンペーンの種類（メール、プッシュ、アプリ内メッセージ、その他）を選択します。
-3. オーディエンスターゲティングのステップで、Outgrow属性から作成されたSegment（特定のクイズのスコアやSegmentsを持つユーザーなど）を選択します。
+3. オーディエンスターゲティングのステップで、Outgrow属性から作成されたセグメント（特定のクイズのスコアやセグメントを持つユーザーなど）を選択します。
 4. キャンペーンの内容と設定をカスタマイズし、キャンペーンを開始します。
 
 ## よくある問題のトラブルシューティング {#troubleshooting-common-issues}
@@ -96,7 +96,7 @@ Outgrowのデータから作成されたカスタムSegmentsを使用して、Br
 |-------|----------|
 | **Brazeにデータが転送されない** | Outgrowの統合設定で、APIキーとエンドポイントURLが正しいことを確認します。APIキーの`users.track`権限がオンになっていることを確認します。 |
 | **誤ったデータマッピング** | マッピングされた各Outgrow回答が有効なBrazeカスタム属性に対応し、属性名が正確に一致していることを確認します。 |
-| **Segmentが正しくフィルターされない** | Brazeのカスタム属性が適切に設定され、データを受信していることを確認します。Segmentフィルターのロジックを再チェックしてください。 |
+| **セグメントが正しくフィルターされない** | Brazeのカスタム属性が適切に設定され、データを受信していることを確認します。セグメントフィルターのロジックを再チェックしてください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="よくある問題のトラブルシューティング" }
 
 ## その他の考慮事項 {#additional-considerations}

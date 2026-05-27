@@ -17,7 +17,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 > Utiliza este punto de conexión para iniciar remotamente [actividades en vivo]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) mostradas en tu aplicación iOS. Este punto de conexión requiere una configuración adicional.
 
-Después de crear una actividad en vivo, puedes hacer una solicitud POST para iniciar remotamente tu actividad para cualquier segmento dado. Para más información sobre las actividades en vivo de Apple, consulta [Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
+Después de crear una actividad en vivo, puedes hacer una solicitud POST para iniciar remotamente tu actividad para un segmento, una audiencia conectada o ID de usuario externos específicos. Para más información sobre las actividades en vivo de Apple, consulta [Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
 Si `content-available` no se configura, la prioridad predeterminada del servicio de notificaciones push de Apple (APN) es 10. Si `content-available` se establece, esta prioridad es 5. Consulta [el objeto push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) para obtener más detalles.
 
@@ -79,10 +79,12 @@ Para utilizar este punto de conexión, tendrás que completar lo siguiente:
 | `content_state` | Obligatorio | Objeto | Los parámetros de `ContentState` se definen al crear la actividad en vivo. Pasa los valores actualizados para tu `ContentState` utilizando este objeto.<br><br>El formato de esta solicitud debe coincidir con la forma que definiste inicialmente. |
 | `stale_date` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Este parámetro indica al sistema cuándo el contenido de la actividad en vivo se marca como obsoleto en la interfaz del usuario. |
 | `notification` | Obligatorio | Objeto | Incluye un objeto [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) para definir una notificación push. El comportamiento de esta notificación push depende de si el usuario está activo o si está utilizando un dispositivo proxy. {::nomarkdown}<ul><li>Si se incluye un <code>notification</code> y el usuario está activo en su iPhone cuando se entrega la actualización, la interfaz de usuario actualizada de la actividad en vivo se deslizará hacia abajo y se mostrará como una notificación push.</li><li>Si se incluye un <code>notification</code> y el usuario no está activo en su iPhone, su pantalla se iluminará para mostrar la interfaz de usuario de la actividad en vivo actualizada en su pantalla de bloqueo.</li><li>La <code>notification alert</code> no se mostrará como una notificación push estándar. Además, si un usuario tiene un dispositivo proxy, como un Apple Watch, la <code>alert</code> se mostrará allí.</li></ul>{:/} |
-| `external_user_ids` | Opcional si se proporciona `segment_id` o `audience` | Matriz de cadenas | Ver [ID de usuario externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Máximo 50 ID de usuario externos. |
-| `segment_id ` | Opcional si se proporciona `external_user_ids` o `audience` | Cadena | Ver [identificador de segmento]({{site.baseurl}}/api/identifier_types/). |
+| `external_user_ids` | Opcional si se proporciona `segment_id` o `custom_audience` | Matriz de cadenas | Ver [ID de usuario externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Máximo 50 ID de usuario externos. |
+| `segment_id` | Opcional si se proporciona `external_user_ids` o `custom_audience` | Cadena | Ver [identificador de segmento]({{site.baseurl}}/api/identifier_types/). |
 | `custom_audience` | Opcional si se proporciona `external_user_ids` o `segment_id` | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+
+En este punto de conexión, pasa los filtros de audiencia conectada en `custom_audience`.
 
 ## Ejemplo de solicitud {#example-request}
 

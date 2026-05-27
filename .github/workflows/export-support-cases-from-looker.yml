@@ -252,7 +252,7 @@ jobs:
 
       - name: Download Phase 2 run summary
         if: ${{ needs.phase2_doc_prs.result != 'skipped' }}
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: support-analyzer-phase2-summary
           path: .github

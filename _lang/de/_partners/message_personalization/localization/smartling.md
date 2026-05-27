@@ -24,18 +24,9 @@ Der Braze Connector unterstützt Übersetzungen für Nachrichten in Campaigns un
 | [Push]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/?tab=push) | ✅ | k. A. |
 | E-Mail-Template | ✅ | ✅ |
 | Banner | k. A. | ✅ |
-| Content Blocks |  ✅* |  ✅* |
+| Content Blocks | ✅ | ✅ |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="About the integration" }
 
-*Weitere Informationen finden Sie unter [Übersetzungen für Content Blocks verwalten](#managing-translations-for-content-blocks).
-
-### Älterer Arbeitsablauf {#legacy-workflow}
-
-Je nach Anwendungsfall verwalten Sie Übersetzungen für Content Blocks entweder mit dem älteren oder dem aktualisierten Übersetzungsworkflow.
-
-Im aktualisierten Arbeitsablauf, der die Mehrsprachenunterstützung von Braze und Lokalisierungen in Nachrichten nutzt, werden dem Content Block Übersetzungstags hinzugefügt. Smartling führt die Übersetzungen jedoch auf Nachrichtenebene aus. Der Inhalt wird nur dann übersetzt, wenn er in einer Campaign oder einem Canvas enthalten ist und das Zielgebietsschema festgelegt wurde. Weitere Informationen finden Sie unter [Übersetzungen für Content Blocks verwalten](#managing-translations-for-content-blocks).
-
-Weitere Informationen zum älteren Arbeitsablauf finden Sie unter [Übersetzungen mit dem älteren Arbeitsablauf verwalten](#managing-translations-using-the-legacy-workflow).
 
 ## Voraussetzungen {#prerequisites}
 
@@ -76,7 +67,7 @@ Einzelheiten zur Konfiguration des Konnektors finden Sie in der [Smartling-Dokum
 ![Braze-Verbindung in Smartling-Projektsprachen.]({% image_buster /assets/img/smartling/image3_project_languages.png %})
 
 {: start="5"}
-5. Überprüfen Sie in den Braze-Einstellungen, ob die Werte in der Spalte **Target Language (Braze)** mit den in den Braze-Mehrspracheneinstellungen konfigurierten Gebietsschemata übereinstimmen. Die Benennungskonvention der Lokalisierung muss genau übereinstimmen.
+5. Überprüfen Sie in den Braze-Einstellungen, ob die Werte in der Spalte **Target Language (Braze)** mit den in den Braze-Mehrspracheneinstellungen konfigurierten Lokalisierungen übereinstimmen. Die Benennungskonvention der Lokalisierung muss genau übereinstimmen.
 
 ![Braze-Verbindung in der Smartling-Sprachbestätigung.]({% image_buster /assets/img/smartling/image4_language_confirmation.png %})
 
@@ -132,25 +123,6 @@ Smartling bietet erweiterte Features zum Suchen und Auswählen von Inhalten nach
 Zeigen Sie in Braze eine Vorschau Ihrer Campaign als mehrsprachige:r Nutzer:in an, um zu überprüfen, ob die Übersetzungen korrekt angewendet werden.
 
 ![Mehrsprachige Vorschau für Nutzer:innen.]({% image_buster /assets/img/smartling/image11_preview.png %})
-
-## Übersetzungen für Content Blocks verwalten {#managing-translations-for-content-blocks}
-
-Content Blocks werden in Braze unter dem Abschnitt **Templates und Medien** verwaltet.
-
-### Übersetzung als Teil der Nachrichtenkomponente gespeichert {#translation-stored-as-part-of-the-message-component}
-
-Übersetzungstags gehören in den Content Block. Smartling führt die Übersetzungen jedoch auf Nachrichtenebene aus. Der Inhalt wird nur dann übersetzt, wenn er in einer Campaign oder einem Canvas enthalten ist und das Zielgebietsschema festgelegt wurde.
-
-### Hinweise {#considerations}
-
-- Übersetzungstags müssen sowohl für HTML- als auch für Drag-and-Drop-Content-Block-Editoren manuell zum Content Block hinzugefügt werden.
-- Die Lokalisierung wird auf Nachrichtenebene ausgewählt, nicht auf den Content Blocks selbst.
-- Für Canvas empfehlen wir, Zeilen zu verwenden, um Content Blocks in Ihre Nachricht einzufügen, anstatt sie manuell mit einem Liquid-Tag hinzuzufügen. Wenn Sie einen Content Block aus der Vorschau in eine E-Mail ziehen, wird eine lokale Kopie erstellt. Änderungen am „übergeordneten“ Content Block werden nicht auf andere Campaigns übertragen, die diesen Block verwenden.
-- Wenn Sie einen Liquid-Tag für den Content Block verwenden, sollten Sie mindestens einen Übersetzungstag direkt in den Text der E-Mail einfügen. Durch das manuelle Hinzufügen des Übersetzungstags können Sie die Gebietsschemata aus dem Dropdown-Menü für mehrere Sprachen auswählen. Smartling übernimmt die Übersetzungstags für den Content Block. Sie können einen `comment`-Tag hinzufügen, damit der Text für die Nutzer:innen nicht sichtbar ist.
-
-## Übersetzungen mit dem älteren Arbeitsablauf verwalten {#managing-translations-using-the-legacy-workflow}
-
-Wenn Sie es vorziehen, Übersetzungen direkt in einem Content Block zu verwalten, lesen Sie die Anweisungen in der [Smartling-Dokumentation](https://help.smartling.com/hc/en-us/articles/13248577069979-Translating-with-the-Braze-Connector). Diese Methode verwendet ein Sprachattribut und Liquid-if/else-Logik, um Text in verschiedenen Sprachen anzuzeigen.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

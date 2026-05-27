@@ -93,7 +93,7 @@ Verwenden Sie die folgenden Felder, um Metadaten zu erfassen, die Ihrem Team hel
 | Team | Optional. Weisen Sie [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) zu, damit die richtigen Gruppen diesen Send bearbeiten oder darüber berichten können. |
 | Tags | Optional. Fügen Sie [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) hinzu, um in Listen und Tools wie dem [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) zu filtern. |
 | Campaign-ID | Wo im Composer oder in der Zusammenfassung angezeigt, kopieren Sie diesen Bezeichner für API-Aufrufe, Reporting und Integrationen, die eine bestimmte Kampagne referenzieren. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Kampagnendetails" }
 
 ### Kanäle und Editoren {#channels-and-editors}
 
@@ -116,13 +116,13 @@ Wählen Sie, wann Nutzer:innen berechtigt werden, die Kampagne zu erhalten:
 | [Geplante Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/) | Senden Sie zu einem bestimmten Zeitpunkt oder in einem bestimmten Rhythmus. |
 | [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) | Senden Sie, wenn Nutzer:innen Verhaltensweisen ausführen oder von Ihnen definierte Bedingungen erfüllen. |
 | [API-getriggerte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) | Senden Sie, wenn Ihre Systeme Braze aufrufen, um die Kampagne für berechtigte Nutzer:innen zu triggern. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Schedule delivery" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Zustellung planen" }
 
 Informationen zu Planungskonzepten in Braze finden Sie unter [Kampagne planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
 ### Zustellungs-Kontrollgruppen {#delivery-controls}
 
-Je nach Zustellungstyp können Sie die [Wiederberechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) anpassen (ob Nutzer:innen erneut in die Kampagne eintreten dürfen) und die [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)-Regeln des Workspace berücksichtigen. Sie können auch [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) konfigurieren, damit Nachrichten nicht während eingeschränkter Zeitfenster gesendet werden.
+Je nach Zustellungstyp können Sie die [Wiederberechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) anpassen (ob Nutzer:innen erneut in die Kampagne eintreten dürfen) und die [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)-Regeln des Workspace berücksichtigen. Sie können auch [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) konfigurieren, damit Nachrichten nicht während eingeschränkter Zeitfenster gesendet werden.
 
 ## 3. Schritt: Zielgruppen definieren {#step-3-target-audiences}
 

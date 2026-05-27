@@ -13,9 +13,15 @@ channel: email
 
 ### Que se passe-t-il lorsqu'un e-mail est envoyé et que plusieurs profils partagent la même adresse e-mail ? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Si plusieurs utilisateurs ayant la même adresse e-mail se trouvent dans un segment destiné à recevoir une campagne, un profil utilisateur aléatoire associé à cette adresse e-mail est sélectionné au moment de l'envoi. Ainsi, l'e-mail n'est envoyé qu'une seule fois et dédupliqué, ce qui garantit qu'il n'atteint pas la même adresse e-mail plusieurs fois.
+Si plusieurs utilisateurs ayant la même adresse e-mail se trouvent dans un segment destiné à recevoir une campagne, un seul profil utilisateur associé à cette adresse e-mail est sélectionné au moment de l'envoi. Ainsi, l'e-mail n'est envoyé qu'une seule fois et dédupliqué, ce qui garantit qu'il n'atteint pas la même adresse e-mail plusieurs fois.
+
+**Adresses e-mail uniques :** Braze n'impose pas l'unicité des adresses e-mail entre les profils. Si vous vous appuyez sur une relation un-à-un entre une adresse e-mail et un profil, surveillez les doublons en interne lors de la création des utilisateurs.
+
+**Déduplication avant Liquid :** Pour les envois où Braze déduplique par adresse e-mail au sein d'un même envoi (par exemple, les campagnes planifiées où plusieurs membres du segment ayant la même adresse sont traités ensemble), cette déduplication se produit avant l'exécution de Liquid pour le profil choisi pour représenter cette adresse. Si Liquid interrompt l'envoi pour ce profil (par exemple avec [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)), cette adresse ne reçoit pas le message lors de cet envoi — y compris les profils déjà ignorés par la déduplication. Les envois déclenchés n'appliquent pas cette même déduplication par adresse au sein d'un envoi ; plusieurs profils partageant une adresse peuvent tous rester éligibles dans un même lot, de sorte que ce comportement d'interruption ne s'applique pas de la même manière (voir le paragraphe suivant).
 
 Si plusieurs profils partagent une adresse e-mail et qu'un profil se désabonne, Braze met à jour les autres profils (jusqu'à 100) associés à cette adresse vers le même état d'abonnement. Cela s'applique aux désabonnements et aux autres modifications telles que l'état d'abonnement global et les statuts individuels des groupes d'abonnement.
+
+**Groupes initiateurs :** Pour les campagnes avec des [groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups), Braze sélectionne un profil pour la distribution principale lorsque plusieurs profils partagent une adresse. Ce destinataire principal peut ne pas faire partie de votre groupe initiateur, même si un autre profil ayant la même adresse en fait partie.
 
 Les scénarios suivants peuvent donner l'impression qu'un utilisateur a reçu un e-mail deux fois :
 
@@ -23,13 +29,15 @@ Les scénarios suivants peuvent donner l'impression qu'un utilisateur a reçu un
 - **Plusieurs profils utilisateur ont un transfert d'e-mails :** Si un utilisateur possède plusieurs comptes dans une application donnée mais qu'un compte transfère les e-mails, l'utilisateur reçoit la campagne une fois par boîte de réception ; le courrier peut apparaître deux fois dans la boîte de réception où les messages sont transférés. Seuls certains fournisseurs indiquent quand un e-mail a été transféré depuis un autre compte.
 - **Configuration de l'e-mail chez le destinataire :** Certains clients fusionnent les boîtes de réception (« boîte de réception universelle »). Si la même campagne cible plusieurs comptes partageant une seule boîte de réception, cela peut donner l'impression qu'une personne a reçu la campagne deux fois alors que deux profils distincts ont effectivement été contactés. Le destinataire peut confirmer si plusieurs comptes sont combinés dans une seule boîte de réception.
 
-Notez que cette déduplication se produit lorsque les utilisateurs ciblés sont inclus dans le même envoi. Les campagnes déclenchées (à l'exception des campagnes déclenchées par API) et les Canvas peuvent entraîner plusieurs envois à la même adresse e-mail (même pendant une période où les utilisateurs pourraient être exclus en raison de la rééligibilité) si différents utilisateurs ayant la même adresse e-mail déclenchent l'événement à des moments différents. Par exemple, si l'utilisateur A et l'utilisateur B partagent l'adresse `johndoe@example.com` mais que leurs profils sont dans des fuseaux horaires différents, lorsque l'événement déclencheur de la campagne inclut l'envoi dans le fuseau horaire de l'utilisateur, l'adresse `johndoe@example.com` reçoit deux e-mails.
+Cette déduplication s'applique lorsque les utilisateurs ciblés sont inclus dans le même envoi. La rééligibilité est évaluée par profil, et non par adresse e-mail.
+
+La rééligibilité des campagnes e-mail et des étapes de Canvas utilise le profil de chaque utilisateur — et non la boîte de réception — de sorte que plusieurs profils peuvent être éligibles à des envois distincts tant que cette logique est satisfaite. Combiné avec des déclencheurs, cela peut entraîner la distribution de plus d'un message à la même boîte de réception, même lorsque vous essayez de respecter une seule période d'inéligibilité au niveau de l'adresse. Les campagnes déclenchées (à l'exception des campagnes déclenchées par API) et les Canvas peuvent également envoyer deux fois à la même adresse lorsque différents profils ayant la même adresse e-mail déclenchent l'événement à des moments différents — par exemple, si l'utilisateur A et l'utilisateur B partagent l'adresse `johndoe@example.com` mais se trouvent dans des fuseaux horaires différents alors que la distribution utilise les fuseaux horaires locaux.
 
 Les utilisateurs ne sont pas dédupliqués par e-mail à l'entrée du Canvas, ils peuvent donc ne pas être dédupliqués au-delà de la première étape d'un Canvas s'ils progressent à des moments légèrement différents en raison d'une entrée limitée en débit. Lorsqu'un utilisateur associé à une adresse e-mail donnée ouvre ou clique sur un e-mail, tous les profils utilisateur partageant cette adresse e-mail sont marqués comme ayant ouvert ou cliqué sur la campagne.
 
 #### Exception : campagnes déclenchées par API {#exception-api-triggered-campaigns}
 
-Les campagnes déclenchées par API dédupliquent ou envoient des doublons selon l'endroit où l'audience est définie. Les e-mails en double doivent être ciblés séparément dans l'appel API en utilisant des `user_ids` distincts pour recevoir plusieurs détails. Voici trois scénarios possibles pour les campagnes déclenchées par API :
+Les campagnes déclenchées par API dédupliquent ou envoient des doublons selon l'endroit où l'audience est définie. Les e-mails en double doivent être ciblés séparément dans l'appel API en utilisant des `user_ids` distincts pour recevoir plusieurs distributions. Voici trois scénarios possibles pour les campagnes déclenchées par API :
 
 - **Scénario 1 : E-mails en double dans le segment cible :** Si le même e-mail apparaît dans plusieurs profils utilisateur regroupés dans les filtres d'audience du tableau de bord pour une campagne déclenchée par API, un seul des profils reçoit l'e-mail.
 - **Scénario 2 : E-mails en double dans différents `user_ids` au sein de l'objet recipients :** Si le même e-mail apparaît dans plusieurs valeurs `external_user_id` référencées par l'objet `recipients`, l'e-mail est envoyé deux fois.
@@ -41,7 +49,7 @@ Si vous envoyez une campagne API via un appel API (à l'exception des campagnes 
 
 ### Que se passe-t-il pour l'état d'abonnement lorsque l'adresse e-mail d'un utilisateur est modifiée vers une adresse partagée par un autre utilisateur ? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
-Si vous définissez ou mettez à jour l'adresse e-mail de l'utilisateur A vers une autre adresse e-mail partagée par un utilisateur B existant, l'utilisateur A hérite de l'état d'abonnement déjà existant de l'utilisateur B, sauf si le paramètre **Réabonner les utilisateurs lorsqu'ils mettent à jour leur e-mail** est activé.
+Si vous définissez ou mettez à jour l'adresse e-mail de l'utilisateur A vers une autre adresse e-mail partagée par un utilisateur B existant, l'utilisateur A hérite de l'état d'abonnement déjà existant de l'utilisateur B, sauf si le paramètre **Resubscribe users when they update their email** est activé.
 
 ### Les mises à jour de mes paramètres d'e-mails sortants s'appliqueront-elles rétroactivement ? {#will-updates-to-my-outbound-email-settings-apply-retroactively}
 
@@ -79,9 +87,9 @@ Pour les campagnes e-mail et les Canvas, le bouton d'arrêt ne stoppe pas imméd
 
 Bien que Braze n'envoie plus de demandes une fois la campagne ou le Canvas arrêté(e), les analyses peuvent encore augmenter pendant que l'ESP termine le traitement des demandes déjà en cours.
 
-### Pourquoi est-ce que je vois plus de _Clics totaux_ que d'_Ouvertures totales_ dans mes analyses d'e-mails ? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
+### Pourquoi est-ce que je vois plus de *Clics totaux* que d'*Ouvertures totales* dans mes analyses d'e-mails ? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
-_Ouvertures totales_ correspond au nombre de fois où l'e-mail a été ouvert par les utilisateurs, tandis que _Clics totaux_ correspond au nombre de fois où les utilisateurs ont cliqué dans l'e-mail distribué, y compris tout type de clics tels que les clics sur les liens. Vous pouvez voir plus de clics que d'ouvertures pour l'une des raisons suivantes :
+*Ouvertures totales* correspond au nombre de fois où l'e-mail a été ouvert par les utilisateurs, tandis que *Clics totaux* correspond au nombre de fois où les utilisateurs ont cliqué dans l'e-mail distribué, y compris tout type de clics tels que les clics sur les liens. Vous pouvez voir plus de clics que d'ouvertures pour l'une des raisons suivantes :
 
 - Les utilisateurs effectuent plusieurs clics dans le corps de l'e-mail au cours d'une seule ouverture.
 - Les utilisateurs cliquent sur certains liens de l'e-mail dans le volet de prévisualisation de leur téléphone. Dans ce cas, Braze enregistre cet e-mail comme cliqué mais pas ouvert.
@@ -105,9 +113,9 @@ Braze suit les liens de désabonnement si le Liquid suivant est utilisé dans le
 
 ### Pourquoi est-ce que je vois un nombre de désabonnements différent du nombre de clics sur mon lien de désabonnement ? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-S'il y a plus de _Désabonnements_ que d'utilisateurs ayant cliqué sur le lien de désabonnement dans le corps de l'e-mail, le [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) explique souvent l'écart. Le list-unsubscribe est un chemin de désabonnement supplémentaire dans l'en-tête de l'e-mail (et non le lien dans le corps de votre message). Lorsqu'un utilisateur se désabonne de cette manière, cela est comptabilisé dans les _Désabonnements_ mais ne compte pas comme un clic sur l'URL de désabonnement suivie dans le corps.
+S'il y a plus de *Désabonnements* que d'utilisateurs ayant cliqué sur le lien de désabonnement dans le corps de l'e-mail, le [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) explique souvent l'écart. Le list-unsubscribe est un chemin de désabonnement supplémentaire dans l'en-tête de l'e-mail (et non le lien dans le corps de votre message). Lorsqu'un utilisateur se désabonne de cette manière, cela est comptabilisé dans les *Désabonnements* mais ne compte pas comme un clic sur l'URL de désabonnement suivie dans le corps.
 
-Si le nombre total de clics sur le lien de désabonnement dans le corps est supérieur au nombre de _Désabonnements_, les utilisateurs ont peut-être cliqué sur le lien plus d'une fois — par exemple, s'ils se sont désabonnés, réabonnés, puis désabonnés à nouveau, les analyses d'e-mails peuvent enregistrer plusieurs clics dans la ventilation des clics.
+Si le nombre total de clics sur le lien de désabonnement dans le corps est supérieur au nombre de *Désabonnements*, les utilisateurs ont peut-être cliqué sur le lien plus d'une fois — par exemple, s'ils se sont désabonnés, réabonnés, puis désabonnés à nouveau, les analyses d'e-mails peuvent enregistrer plusieurs clics dans la ventilation des clics.
 
 Si un utilisateur clique deux fois sur le lien de désabonnement (par exemple, s'il s'est désabonné, réabonné, puis désabonné à nouveau), cela est comptabilisé deux fois dans les analyses d'e-mails.
 
@@ -115,7 +123,7 @@ Si un utilisateur clique deux fois sur le lien de désabonnement (par exemple, s
 
 Non. Braze ne propose pas cette fonctionnalité. En effet, une majorité croissante des e-mails est ouverte sur des appareils mobiles et dans des clients de messagerie modernes, qui affichent les images et le contenu sans problème.
 
-**Solution de contournement :** Pour obtenir le même résultat, vous pouvez héberger le contenu de votre e-mail sur une page externe (comme votre site web), puis y renvoyer depuis la campagne e-mail que vous créez en utilisant l'outil **Lien** lors de la modification du corps de l'e-mail.
+**Solution de contournement :** Pour obtenir le même résultat, vous pouvez héberger le contenu de votre e-mail sur une page externe (comme votre site web), puis y renvoyer depuis la campagne e-mail que vous créez en utilisant l'outil **Link** lors de la modification du corps de l'e-mail.
 
 ### Braze convertit-il automatiquement les URL en texte brut ou le texte « www. » en liens ? {#does-braze-automatically-turn-plain-text-urls-or-www-text-into-links}
 
@@ -159,13 +167,13 @@ Pour contourner ce problème :
 
 ### L'indicateur *Ouvertures uniques* inclut-il les *Ouvertures automatiques* ? {#does-the-unique-opens-metric-include-machine-opens}
 
-Non. Les *Ouvertures uniques* ne comptent que les [Autres ouvertures]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens), ce qui exclut les e-mails identifiés comme des ouvertures automatiques. Les *Ouvertures automatiques* sont suivies séparément. Dans la vue **Campaign Analytics** et le **Générateur de rapports**, vous pouvez consulter les deux indicateurs indépendamment.
+Oui. Les *Ouvertures uniques* incluent les *Ouvertures automatiques*. Vous pouvez consulter les deux indicateurs dans la vue **Campaign Analytics** et le **Générateur de rapports**.
 
 ### Pourquoi mon volume de distribution d'e-mails ne correspond-il pas à mon volume d'envoi ? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
 Après l'envoi d'un e-mail, la boîte de réception du destinataire décide du moment de sa distribution. Les messages peuvent être différés pendant des heures ou des jours en raison d'une boîte aux lettres pleine, d'une limitation de débit par l'ESP depuis une IP donnée, et pour des raisons similaires.
 
-Lorsque des messages différés sont distribués un jour calendaire différent du jour d'envoi, les _Distributions_ peuvent dépasser les _Envois_ pour la même plage de dates. Lorsque de nombreux reports se concentrent sur un même jour, les _Envois_ peuvent dépasser les _Distributions_ pour cette plage.
+Lorsque des messages différés sont distribués un jour calendaire différent du jour d'envoi, les *Distributions* peuvent dépasser les *Envois* pour la même plage de dates. Lorsque de nombreux reports se concentrent sur un même jour, les *Envois* peuvent dépasser les *Distributions* pour cette plage.
 
 ### Pourquoi est-ce que je vois un avertissement m'invitant à inclure un lien de désabonnement alors que mon e-mail en contient déjà un ? {#why-am-i-seeing-a-warning-to-include-an-unsubscribe-link-when-my-email-already-has-one}
 
@@ -203,9 +211,7 @@ Non. Chaque partie de l'e-mail (objet, corps, en-têtes, boutons, etc.) est gén
 
 ### Mon modèle d'e-mail est introuvable. Où est-il ? {#my-email-template-is-missing-where-is-it}
 
-Accédez à **Templates** > **Email Templates**. Vous pouvez filtrer par type (HTML ou glisser-déposer).
-
-Confirmez que vous avez l'autorisation de consulter les modèles — voir [Autorisations des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Tout d'abord, confirmez que vous disposez des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) nécessaires pour consulter les modèles. Pour afficher les modèles d'e-mail enregistrés, accédez à **Content** > **Email**. Vous pouvez filtrer les modèles par statut et par type (HTML ou glisser-déposer).
 
 ### Dois-je enregistrer des domaines pour les e-mails relais ou masqués ? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 

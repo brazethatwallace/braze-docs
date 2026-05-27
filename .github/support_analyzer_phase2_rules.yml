@@ -4,7 +4,9 @@
 # run (all edits in the rule share one PR). Branch names include the run date and
 # GitHub run id (support-analyzer/phase2-<rule_id>-YYYY-MM-DD-<run_id>) so a new
 # draft can open while an earlier one is still in review. If every target file
-# already contains the rule fingerprint on develop, no PR is opened for that run.
+# already on develop (fingerprint HTML comment, or skip_if_contains phrases), no PR opens.
+# When merging Phase 2 PRs manually, keep <!-- support-analyzer-phase2:... --> comments
+# or add skip_if_contains so later runs do not duplicate the same guidance.
 #
 # CI runs `support_analyzer_phase2.py --strict-anchors`: if a rule matches cases
 # but an anchor is missing (and the fingerprint is not already in the file), the
@@ -104,6 +106,8 @@ rules:
     edits:
       - file: _docs/_user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery.md
         fingerprint: support-analyzer-phase2:liquid_api_trigger_extra_braces_delivery
+        skip_if_contains:
+          - "Use exactly two curly brackets per Liquid tag in `trigger_properties`"
         anchor_substring: In addition to triggering the message, you can also include content with the API request to be templated into the message within the `trigger_properties` object.
         insert: |+
 

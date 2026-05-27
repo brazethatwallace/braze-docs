@@ -36,6 +36,10 @@ El panel **Campaign Details** muestra un resumen de alto nivel del rendimiento g
 
 Revisa este panel para ver métricas generales como el número de mensajes enviados a los destinatarios, la tasa de conversión primaria y los ingresos totales generados por este mensaje. También puedes revisar la configuración de entrega, audiencia y conversión desde esta página.
 
+{% alert note %}
+Las cifras de análisis en el dashboard y en Snowflake pueden diferir ligeramente. Braze mide las cifras en el dashboard y registra las filas en Snowflake por separado. Snowflake es la fuente de datos más precisa, por lo que si ves discrepancias entre estas fuentes, te recomendamos consultar los datos de Snowflake.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 El canal de WhatsApp incluye la tasa de lectura. Esta métrica solo se entrega a los usuarios que tienen activados los recibos de lectura, lo que puede variar.
@@ -894,7 +898,7 @@ El panel **Conversion Correlation** te da información sobre qué atributos y co
 
 ## Generador de informes {#report-builder}
 
-También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) para crear informes personalizados para tus Campaigns de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo Campaigns de KakaoTalk seleccionando **KakaoTalk** en **Canales**, o filtrando por cualquier etiqueta que hayas aplicado a tus Campaigns de KakaoTalk.
+También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) para crear informes personalizados para tus Campaigns de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo Campaigns de KakaoTalk seleccionando **KakaoTalk** en **Channels**, o filtrando por cualquier etiqueta que hayas aplicado a tus Campaigns de KakaoTalk.
 
 {% endif %}
 

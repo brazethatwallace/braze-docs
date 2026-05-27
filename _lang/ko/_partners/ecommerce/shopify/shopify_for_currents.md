@@ -27,7 +27,7 @@ Braze와 Shopify의 통합은 고객 참여를 강화하고 개인화된 마케�
 | ----------- | ----------- |
 | Currents | 데이터를 Shopify로 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
 | Shopify 스토어 | [Braze와 최소 하나의 Shopify 스토어를 설정]({{site.baseurl}}/shopify_standard_integration/)했는지 확인하세요. |
-| Shopify 스토어 소유자 또는 직원 권한 | {::nomarkdown}<ul><li>모든 <b>기본설정</b> 및 <b>Online Store</b> 설정에 대한 접근 권한.</li><li> 추가 관리자 권한:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
+| Shopify 스토어 소유자 또는 직원 권한 | {::nomarkdown}<ul><li>모든 <b>General</b> 및 <b>Online Store</b> 설정에 대한 접근 권한.</li><li> 추가 관리자 권한:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 통합 {#integration}
@@ -44,4 +44,4 @@ Braze와 Shopify의 통합은 고객 참여를 강화하고 개인화된 마케�
 4. 추적하려는 이벤트를 선택합니다. 사용 가능한 이벤트 목록이 제공됩니다.
 5. **Launch Current**을 선택합니다.
 
-![Braze Shopify Currents 페이지. 이 페이지에는 통합 이름, 연락처 이메일 및 Shopify 스토어 필드가 포함되어 있습니다.]({% image_buster /assets/img/Shopify/shopify_currents.png %})
+![Braze Shopify Currents 페이지. 이 페이지에는 통합 이름, 연락처 이메일 및 Shopify 스토어 필드가 포함되어 있습니다.]({% image_buster /assets/img/shopify/shopify_currents.png %})

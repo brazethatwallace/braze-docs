@@ -1,6 +1,6 @@
 ---
 nav_title: "Canaux et extensions supplémentaires"
-article_title: Canaux supplémentaires et extensions
+article_title: "Canaux et extensions supplémentaires"
 page_order: 11
 
 page_type: landing
@@ -8,7 +8,7 @@ description: "Cette page répertorie les partenaires de Braze (Alloys) qui fourn
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Canaux supplémentaires et extensions"
+partner_top_header: "Canaux et extensions supplémentaires"
 
 valid_partner_list:
 - name: LiveRamp
@@ -45,6 +45,8 @@ valid_partner_list:
   url: /docs/partners/odicci/
 - name: CataBoom
   url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Digioh
   url: /docs/partners/digioh/
 - name: Knak

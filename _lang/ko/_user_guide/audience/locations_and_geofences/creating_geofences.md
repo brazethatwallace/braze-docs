@@ -38,7 +38,7 @@ search_rank: 9
 | 위도 및 경도 | 지오펜스의 지리적 중심입니다. |
 | 반경 | 지리적 중심에서 측정한 지오펜스의 반경(미터 단위)입니다. 모든 지오펜스에 대해 최소 반경을 100미터에서 150미터로 설정하세요. |
 | 쿨다운 | 사용자는 개별 지오펜스에서 진입 또는 이탈 전환을 수행한 후 지오펜스 트리거 알림을 받습니다. 전환이 발생한 후, 해당 사용자가 동일한 개별 지오펜스에서 동일한 전환을 다시 수행할 수 없는 사전 정의된 기간이 있습니다. 이 "쿨다운"은 Braze에 의해 사전 정의되며, 주요 목적은 불필요한 네트워크 요청을 방지하는 것입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
 
 ## 필수 조건 {#prerequisites}
 
@@ -74,7 +74,7 @@ iOS와 Android 모두 여러 수준의 위치 접근 권한을 제공합니다. 
 | **앱 사용 중 허용** | 앱이 포그라운드에 있을 때마다 위치 접근 권한을 부여합니다. 이 권한이 부여된 후 iOS는 사용자에게 "항상 허용"으로 업그레이드할 것을 요청하는 후속 프롬프트를 표시할 수 있습니다. | 예. iOS는 이 권한이 있는 앱에 대해 지오펜스 전환을 포함한 백그라운드 위치 모니터링을 활성화합니다. |
 | **항상 허용** | 백그라운드 및 앱이 닫혀 있을 때를 포함하여 지속적인 위치 접근 권한을 부여합니다. | 예. 가장 안정적인 지오펜스 모니터링을 제공합니다. |
 | **허용 안 함** | 모든 위치 접근을 거부합니다. | 아니요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% tab Android %}
@@ -84,7 +84,7 @@ iOS와 Android 모두 여러 수준의 위치 접근 권한을 제공합니다. 
 | **앱 사용 중** | 앱이 포그라운드에 있는 동안 위치 접근 권한을 부여합니다. | 아니요. Android에서는 지오펜스 모니터링을 위해 백그라운드 위치 접근이 필요합니다. |
 | **항상 허용** | 백그라운드를 포함하여 지속적인 위치 접근 권한을 부여합니다. Android 10 이상에서는 초기 "앱 사용 중" 권한이 부여된 후 별도의 프롬프트가 필요합니다. | 예. Android에서 지오펜싱에 필요합니다. |
 | **허용 안 함** | 모든 위치 접근을 거부합니다. Android 13 이상에서는 사용자가 위치 프롬프트를 두 번 거부하면 OS가 추가 인앱 프롬프트를 차단합니다. | 아니요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% endtabs %}
@@ -97,7 +97,7 @@ iOS 14+ 및 Android 12+에서 사용자는 정밀 위치와 대략적 위치 중
 |---|---|---|
 | **정밀 위치 (켜짐)** | GPS, Wi-Fi 및 셀룰러 삼각측량을 사용하여 5미터에서 50미터 범위의 정확도입니다. | 지오펜스가 예상대로 작동합니다. 모든 지오펜스 기반 사용 사례에 권장됩니다. |
 | **대략적 위치 (꺼짐)** | 약 3제곱킬로미터(약 1제곱마일)의 정확도입니다. 기기가 정확한 좌표 대신 일반적인 영역을 반환합니다. | 지오펜스가 안정적으로 트리거되지 않습니다. 기기가 사용자가 지오펜스 경계 안에 있는지 밖에 있는지 정확하게 판단할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Precise versus approximate location" }
 
 {% alert important %}
 지오펜싱이 안정적으로 작동하려면 사용자가 정밀 위치를 활성화해야 합니다. 사용자가 정밀 위치가 왜 중요한지 이해할 수 있도록 위치 권한 프라이머 메시지에 이 안내를 포함하세요.
@@ -307,15 +307,11 @@ Braze SDK는 세션 시작 시 하루에 한 번만 지오펜스를 요청합니
 
 [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) 및 [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)와 같은 Braze 기술 파트너와 함께 지오펜스를 사용할 수도 있습니다.
 
+## 지오펜스와 위치 추적의 차이점 {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## 자주 묻는 질문 {#frequently-asked-questions}
-
-### 지오펜스와 위치 추적의 차이점은 무엇인가요? {#whats-the-difference-between-geofences-and-location-tracking}
-
-Braze에서 지오펜스는 위치 추적과 다른 개념입니다. 지오펜스는 특정 동작의 트리거로 사용됩니다—사용자가 지리적 위치 주변에 설정된 가상 경계에 진입하거나 이탈할 때 메시지 전송과 같은 특정 동작을 트리거할 수 있습니다.
-
-위치 추적은 사용자의 가장 최근 위치 데이터를 수집하고 저장합니다. 이 데이터는 `Most Recent Location` 필터를 기반으로 사용자를 세분화하는 데 사용할 수 있습니다. 예를 들어, `Most Recent Location` 필터를 사용하여 뉴욕에 위치한 사용자를 타겟팅할 수 있습니다.
-
-자세한 내용은 [위치 추적]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/)을 참조하세요.
 
 ### Braze 지오펜스는 얼마나 정확한가요? {#how-accurate-are-braze-geofences}
 

@@ -45,3 +45,15 @@ Brazeは、ユーザーが初めてアプリを使用するまでプロファイ
 {% endalert %}
 
 {% endif %}
+
+{% if include.alert == 'GIF platform support' %}
+
+{% alert note %}
+GIFはAndroidプッシュ通知ではサポートされていません。これはAndroidプラットフォームの制限であり、Brazeの制限ではありません。
+<br><br>
+- Androidのアプリ内メッセージおよびContent Cardsでは、[Glide](https://bumptech.github.io/glide/)や[Fresco](https://frescolib.org/)などのサードパーティ画像ライブラリーを統合することでGIFをサポートできます。
+<br>
+- iOSでは、プッシュ通知がGIFをサポートしています。アプリ内メッセージおよびContent Cardsにはカスタムの GIF 画像プロバイダーが必要です。
+{% endalert %}
+
+{% endif %}

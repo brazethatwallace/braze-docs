@@ -60,7 +60,7 @@ Um mehr über das erwartete Verhalten und Aussehen jedes Typs zu erfahren, lesen
 | [Klassisch]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![Eine klassische Content-Card mit einem kleinen Symbol und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | Die klassische Karte hat ein einfaches Layout mit einem fettgedruckten Titel, Nachrichtentext und einem optionalen Bild links neben Titel und Text. Am besten verwenden Sie ein quadratisches Bild oder Symbol für die klassische Karte. |
 | [Hervorgehobenes Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![Eine hervorgehobene Content-Card mit dem Bild eines Gewichthebers und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | Die hervorgehobene Content-Card präsentiert Ihren Inhalt mit Text und einem aufmerksamkeitsstarken Bild. |
 | [Nur Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![Eine Content-Card vom Typ „Nur Bild“ mit ausschließlich Text.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | Die Karte „Nur Bild“ zieht die Aufmerksamkeit auf sich und bietet Platz für Bilder, GIFs und andere kreative, nicht-textliche Inhalte. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2: Geben Sie Ihre Nachrichtentypen an" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
 
 ## 3. Schritt: Content-Card verfassen {#step-3-compose-a-content-card}
 
@@ -110,7 +110,7 @@ Die folgenden Aktionen sind für Content-Card-Links verfügbar:
 | [Deeplink in die App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Deeplink zu einem bestehenden Bildschirm in Ihrer App. |
 | Angepasstes Event protokollieren | Ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) auswählen, das getriggert werden soll. Kann verwendet werden, um eine weitere Content-Card anzuzeigen oder zusätzliches Messaging auszulösen. |
 | Angepasstes Attribut protokollieren | Ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) auswählen, das für die aktuelle Nutzerin oder den aktuellen Nutzer gesetzt werden soll. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Klickverhalten" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 Die Optionen **Angepasstes Event protokollieren** und **Angepasstes Attribut protokollieren** erfordern die folgende SDK-Versionskompatibilität:
 
@@ -133,7 +133,7 @@ Erstellen Sie den Rest Ihrer Kampagne. In den folgenden Abschnitten finden Sie w
 
 Content Cards können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Kampagne planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Sie können auch die Dauer der Kampagne und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) festlegen sowie die Ablaufzeit der Content-Card bestimmen. Legen Sie ein bestimmtes Ablaufdatum oder die Anzahl der Tage bis zum Ablauf einer Karte fest – bis zu maximal 30 Tage. Alle Varianten haben identische Ablaufdaten.
+Sie können auch die Dauer der Kampagne und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) festlegen sowie die Ablaufzeit der Content-Card bestimmen. Legen Sie ein bestimmtes Ablaufdatum oder die Anzahl der Tage bis zum Ablauf einer Karte fest – bis zu maximal 30 Tage. Alle Varianten haben identische Ablaufdaten.
 
 Wenn Sie festlegen, dass eine Karte nach einer bestimmten Dauer abläuft (z. B. nach zwei Wochen), wird die Ablaufzeit ab dem Sendezeitpunkt der Karte berechnet. Bei geplanten Kampagnen ist dies der geplante Startzeitpunkt. Bei aktionsbasierten Kampagnen ist dies der Zeitpunkt, zu dem die Nutzerin oder der Nutzer die auslösende Aktion ausführt. Wenn beispielsweise eine aktionsbasierte Karte heute um 14 Uhr gesendet wird und eine Ablaufzeit von 1 Tag hat, läuft sie am nächsten Tag um 14 Uhr ab.
 
@@ -228,8 +228,8 @@ Möchten Sie, dass Ihr Inhalt länger als 30 Tage bestehen bleibt? Probieren Sie
 
 Wenn Sie Re-Eligibility aktivieren, beginnt der Countdown, wann eine Nutzerin oder ein Nutzer erneut in eine Kampagne „eintreten“ kann, nachdem die Nachricht gesendet wurde. Der genaue Zeitpunkt, an dem dieser Countdown beginnt, hängt von Ihren Kartenerstellungseinstellungen ab:
 
-* Content Cards, die [bei der ersten Impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) erstellt werden, verwenden den Impressionszeitpunkt zur Berechnung der Re-Eligibility.
-* Content Cards, die beim Kampagnenstart oder Canvas-Schritt-Eintritt erstellt werden, verwenden den jeweils späteren Zeitpunkt von Sendezeitpunkt oder Impressionszeitpunkt.
+- Content Cards, die [bei der ersten Impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) erstellt werden, verwenden den Impressionszeitpunkt zur Berechnung der Re-Eligibility.
+- Content Cards, die beim Kampagnenstart, in Multichannel-Kampagnen oder beim Canvas-Schritt-Eintritt erstellt werden, verwenden den jeweils späteren Zeitpunkt von Sendezeitpunkt oder Impressionszeitpunkt.
 
 #### Die 30-Tage-Ablaufzeit und Re-Eligibility {#the-30-day-expiration-and-re-eligibility}
 
