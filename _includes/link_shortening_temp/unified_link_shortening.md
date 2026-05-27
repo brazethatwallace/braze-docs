@@ -41,8 +41,6 @@ This preview updates with relevant personalization and the shortened URL. The nu
 
 Make sure to save the campaign or Canvas before sending a test message to receive a representation of the shortened URL that is dispatched in your message. If the campaign or Canvas isn't saved before a test send, the test send includes a placeholder URL.
 
-For Canvases that rely on **Clicked shortened SMS link** behavior (for example, entry or action paths), the SMS step’s variant must use **Advanced** click tracking so Braze can record user-level clicks. **Basic** tracking alone does not surface those Canvas options—see [Link shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) for the legacy versus unified behavior details.
-
 {% alert important %}
 If a draft is created within an active Canvas, a shortened URL won't be generated. The actual shortened URL is generated when the Canvas draft is made active.
 {% endalert %}
