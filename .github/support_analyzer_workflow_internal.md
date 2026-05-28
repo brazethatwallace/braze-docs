@@ -2,7 +2,7 @@
 
 **Audience:** Docs and adjacent teams (internal).  
 **Workflow file:** [`.github/workflows/export-support-cases-from-looker.yml`](workflows/export-support-cases-from-looker.yml)  
-**Cursor rule (manual triage):** `.cursor/rules/support-analyzer.mdc`
+**Cursor skill (manual triage):** `.github/skills/support-analyzer/SKILL.md`
 
 On a fixed cadence (and on demand), a GitHub Actions workflow exports recent **Braze Support** cases from **Looker** into this repo, builds an **internal digest** (themes and counts only), then may open **draft** pull requests that propose small, **allowlisted** edits to English customer docs in `_docs`. Case bodies stay off GitHub’s public PR pages where we can avoid it; PRs link to **Salesforce** case views instead.
 
@@ -34,7 +34,7 @@ The Looker saved report behind the export is scoped to a **rolling ~3-day** wind
 
 - Read the **stakeholder blurb** at the top: the change is **automated** from Support themes, not a human-authored spec.
 - Use **Salesforce** links in the PR to inspect cases if needed; **do not** paste consumer PII into GitHub comments.
-- Confirm wording against **product behavior** before merge. For **public**-facing PR descriptions, use **Verified against Braze source code.** and do **not** paste internal `platform` or SDK file paths (see `.cursor/rules/reference-repos.mdc`).
+- Confirm wording against **product behavior** before merge. For **public**-facing PR descriptions, use **Verified against Braze source code.** and do **not** paste internal `platform` or SDK file paths (see `.github/skills/reference-repos/SKILL.md`).
 - If the assignee is wrong, fix the row in **`.github/support_analyzer_doc_assignees.csv`** (or the upstream spreadsheet export) in a follow-up PR.
 
 **When you’re tagged on the digest PR**
@@ -156,4 +156,4 @@ Export fails closed without **`SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DAT
 - Treat the Support CSV and case narratives as **sensitive**. Limit who can read **`support-analyzer-data`** and the Looker query scope.
 - Automated PR bodies should use **Salesforce case links**, not pasted email bodies or PII.
 
-For product verification in Cursor, follow **reference-repos** layout and policies; the Looker workflow **does not** clone `Appboy/platform` in CI—optional `verification` blocks in rules run **ripgrep** only when a local checkout exists.
+For product verification in Cursor, follow the **reference-repos** skill (`.github/skills/reference-repos/SKILL.md`) layout and policies; the Looker workflow **does not** clone `Appboy/platform` in CI—optional `verification` blocks in rules run **ripgrep** only when a local checkout exists.

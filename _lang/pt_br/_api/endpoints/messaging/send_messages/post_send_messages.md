@@ -91,14 +91,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `broadcast` | Opcional | booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para um segmento inteiro que uma Campaign ou Canvas segmenta. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag de forma não intencional pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
+| `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para um segmento inteiro que uma Campaign ou Canvas segmenta. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag de forma não intencional pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
 | `external_user_ids` | Opcional | Matriz de strings | Consulte [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). |
 | `user_aliases` | Opcional | Vetor de objetos de alias de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
-| `segment_id ` | Opcional | String | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types/#segment-identifier). |
+| `segment_id` | Opcional | String | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types/#segment-identifier). |
 | `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-| `campaign_id` | Opcional* | String | Para saber mais, consulte o [identificador de Campaign]({{site.baseurl}}/api/identifier_types/#campaign-identifier/). <br><br>\*Obrigatório se você deseja realizar o rastreamento das métricas da Campaign (como *Envios*, *Cliques* ou *Bounces*) no dashboard da Braze, ou se deseja ver eventos associados a essa mensagem na [guia Histórico de mensagens]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#messaging-history-tab) do perfil de usuário. |
+| `campaign_id` | Opcional* | String | Para saber mais, consulte o [identificador de Campaign]({{site.baseurl}}/api/identifier_types/#campaign-identifier/). <br><br>*Obrigatório se você deseja realizar o rastreamento das métricas da Campaign (como _Envios_, _Cliques_ ou _Bounces_) no dashboard da Braze, ou se deseja ver eventos associados a essa mensagem na [guia Histórico de mensagens]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#messaging-history-tab) do perfil de usuário. |
 | `send_id` | Opcional | String | Consulte [identificador de envio]({{site.baseurl}}/api/identifier_types/#send-identifier). |
-| `override_frequency_capping` | Opcional | booleano | Ignore `frequency_capping` para Campaigns, o padrão é `false`. |
+| `override_frequency_capping` | Opcional | Booleano | Ignore `frequency_capping` para Campaigns, o padrão é `false`. |
 | `recipient_subscription_state` | Opcional | String | Use essa opção para enviar mensagens apenas para usuários que tenham aceitado receber mensagens (`opted_in`), apenas para usuários que tenham feito a inscrição ou aceitado receber mensagens (`subscribed`) ou para todos os usuários, inclusive os que cancelaram a inscrição (`all`). <br><br>O uso de `all` é útil para e-mail de transação. O padrão é `subscribed`. |
 | `messages` | Opcional | Objetos de envio de mensagens | Consulte os [objetos de envio de mensagens disponíveis]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
@@ -178,6 +178,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/send' \
 
 ## Detalhes da resposta {#response-details}
 
-As respostas do endpoint de envio de mensagens incluirão o `dispatch_id` da mensagem para referência ao despacho da mensagem. O `dispatch_id` é o ID do despacho de mensagens, ou seja, o ID exclusivo de cada "transmissão" enviada pela Braze. Para saber mais, consulte [Comportamento do Dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+As respostas do endpoint de envio de mensagens incluem o `dispatch_id` da mensagem para referência ao despacho da mensagem. O `dispatch_id` é o ID do despacho de mensagens, ou seja, o ID exclusivo de cada "transmissão" enviada pela Braze. Para saber mais, consulte [Comportamento do Dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}

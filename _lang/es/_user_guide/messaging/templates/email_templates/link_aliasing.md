@@ -206,7 +206,7 @@ Si exportas tus datos de interacción con Currents, un evento de clic de correo 
 ```
 
 {% alert update %}
-El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que pueden ser planificados) como eventos desencadenados, incluso cuando están "planificados". Obtén más información sobre el [comportamiento de `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) en Canvas y Campaigns.
+El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que pueden ser planificados) como eventos desencadenados, incluso cuando están "planificados". Obtén más información sobre el [comportamiento de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) en Canvas y Campaigns.
 
 _Actualización registrada en agosto de 2019._
 {% endalert %}
