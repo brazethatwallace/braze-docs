@@ -36,7 +36,7 @@ Column definitions are as follows:
 ## Credit ratio table for Message Credits - Lambda
 
 {% details Click to expand %}
-<table>
+<table aria-label="Credit ratio table for Message Credits - Lambda">
     <colgroup>
         <col span="3" style="background-color:#FFFFFF;">
         <col style="background-color:#f0f0f5">
