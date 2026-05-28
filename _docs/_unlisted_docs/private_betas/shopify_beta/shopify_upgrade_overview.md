@@ -138,7 +138,7 @@ If you're currently collecting email or SMS subscribers, a new default subscript
 | --- | --- | --- | 
 | Initial product sync | {::nomarkdown}<ul><li>If product syncing is enabled, initial import of all products in your storefront</li><li>Ability to only import active products</li></ul>{:/} | {::nomarkdown}<ul><li>No&nbsp;changes</li></ul>{:/} |
 | Real-time product syncs | {::nomarkdown}<ul><li>Real-time syncs when products are created, updated, or deleted from your store</li></ul>{:/} | {::nomarkdown}<ul><li>No&nbsp;changes</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Product sync" }
 
 ### Channels 
 
