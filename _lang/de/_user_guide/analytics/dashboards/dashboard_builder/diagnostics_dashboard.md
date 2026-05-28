@@ -112,9 +112,9 @@ Die folgenden Definitionen erklären die im Dashboard angezeigten Abbruchergebni
 | ---- | ---- |
 | Verzögerungsschritt fehlgeschlagen | Der [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays) ist fehlgeschlagen, wodurch die Nutzer:innen den Canvas verlassen haben. Dieser Fehler kann auftreten, wenn: {::nomarkdown}<ul><li> Die Variable, die dem personalisierten Verzögerungsschritt bereitgestellt wurde, leer oder ein ungültiger Typ war </li><li> Die Verzögerung die maximal zulässige Dauer innerhalb des Canvas überschreitet</li></ul>{:/} |
 | Ausnahme- oder Ausstiegs-Event | Die Nutzer:innen waren zuvor berechtigt, die Nachricht zu erhalten, haben aber entweder {::nomarkdown}<ul><li> ein <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">Ausnahme-Event</a> für eine aktionsbasierte Campaign ausgeführt, sodass die Nachricht abgebrochen wurde, oder </li><li> die Canvas-<a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">Ausstiegskriterien</a> erfüllt, sodass sie mitten in der Journey entfernt wurden.</li></ul>{:/} |
-| Inaktive Campaign | Die Campaign wurde gestoppt, während die Nachricht unterwegs war, sodass sie abgebrochen wurde. |
-| Inaktiver Canvas | Der Canvas wurde gestoppt, bevor die Nutzer:innen die Journey betreten haben. |
-| Inaktiver Canvas-Schritt | Dies kann im Canvas auftreten, wenn: {::nomarkdown}<ul><li> Der Canvas-Schritt gelöscht wurde </li> <li>Der Canvas gestoppt wurde, wodurch alle Schritte inaktiv werden </li></ul>{:/} |
+| Inactive campaign | Die Campaign wurde gestoppt, während die Nachricht unterwegs war, sodass sie abgebrochen wurde. |
+| Inactive Canvas | Der Canvas wurde gestoppt, bevor die Nutzer:innen die Journey betreten haben. |
+| Inactive Canvas step | Dies kann im Canvas auftreten, wenn: {::nomarkdown}<ul><li> Der Canvas-Schritt gelöscht wurde </li> <li>Der Canvas gestoppt wurde, wodurch alle Schritte inaktiv werden </li></ul>{:/} |
 | Volumenlimit erreicht | Die Campaign hat das festgelegte Volumenlimit erreicht, sodass der Versand abgebrochen wurde. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign and Canvas state" }
 
