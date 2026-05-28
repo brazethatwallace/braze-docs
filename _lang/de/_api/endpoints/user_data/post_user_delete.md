@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids` | Optional | String-Array | Zu löschende Braze-Nutzerbezeichner. |
 | `email_addresses` | Optional | String-Array | Zu löschende E-Mail-Adressen von Nutzer:innen. Weitere Informationen finden Sie unter [Löschen von Nutzer:innen per E-Mail](#deleting-users-by-email). |
 | `phone_numbers` | Optional | String-Array | Zu löschende Telefonnummern von Nutzer:innen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Löschen von Nutzer:innen nach E-Mail-Adressen und Telefonnummern {#deleting-users-by-email-addresses-and-phone-numbers}
 
