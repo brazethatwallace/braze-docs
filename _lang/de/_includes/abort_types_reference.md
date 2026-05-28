@@ -29,6 +29,25 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 ### Inhalt und Rendering {#content-and-rendering}
 
+{% if include.combined_content_rendering %}
+
+| `abort_type`-Wert | Beschreibung |
+| --- | --- |
+| `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `blacklisted_media_url` | Die Medien-URL ist auf der Sperrliste und kann nicht in Nachrichten verwendet werden. |
+| `blocked_media_url` | Die Medien-URL wurde durch Sicherheitsrichtlinien blockiert. |
+| `invalid_media_url` | Die Medien-URL ist ungültig oder konnte nicht aufgelöst werden. |
+| `ssl_error` | Bei einer Anfrage ist ein SSL-Fehler aufgetreten. |
+| `invalid_http_status` | Eine HTTP-Anfrage hat einen nicht erfolgreichen Statuscode zurückgegeben. |
+| `http_timeout` | Bei einer HTTP-Anfrage wurde das Zeitlimit überschritten, bevor eine Antwort empfangen wurde. |
+| `missing_hostname` | In der Anfrage-URL fehlt ein Hostname. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+
+{% else %}
+
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
@@ -36,14 +55,43 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
-{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | Die Medien-URL ist auf der Sperrliste und kann nicht in Nachrichten verwendet werden. |
+
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}
+{% unless include.combined_content_rendering %}
+
+| `abort_type`-Wert | Beschreibung |
+| --- | --- |
+| `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `blacklisted_media_url` | Die Medien-URL ist auf der Sperrliste und kann nicht in Nachrichten verwendet werden. |
 | `blocked_media_url` | Die Medien-URL wurde durch Sicherheitsrichtlinien blockiert. |
-| `invalid_media_url` | Die Medien-URL ist ungültig oder konnte nicht aufgelöst werden. |{% endif %}
-{% if ch == "all" or ch == "email" or ch == "webhook" %}| `ssl_error` | Bei einer Anfrage ist ein SSL-Fehler aufgetreten. |
+| `invalid_media_url` | Die Medien-URL ist ungültig oder konnte nicht aufgelöst werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering media URLs" }
+
+{% endunless %}
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "webhook" %}
+{% unless include.combined_content_rendering %}
+
+| `abort_type`-Wert | Beschreibung |
+| --- | --- |
+| `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `ssl_error` | Bei einer Anfrage ist ein SSL-Fehler aufgetreten. |
 | `invalid_http_status` | Eine HTTP-Anfrage hat einen nicht erfolgreichen Statuscode zurückgegeben. |
 | `http_timeout` | Bei einer HTTP-Anfrage wurde das Zeitlimit überschritten, bevor eine Antwort empfangen wurde. |
-| `missing_hostname` | In der Anfrage-URL fehlt ein Hostname. |{% endif %}
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+| `missing_hostname` | In der Anfrage-URL fehlt ein Hostname. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering HTTP and SSL" }
+
+{% endunless %}
+{% endif %}
 
 {% endunless %}
 

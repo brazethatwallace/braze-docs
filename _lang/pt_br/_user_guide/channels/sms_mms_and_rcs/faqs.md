@@ -144,7 +144,7 @@ Sim, contam. Tenha isso em mente ao testar mensagens.
 
 ### Um usuário precisa fazer parte de um grupo de inscrições de SMS para receber mensagens de teste de SMS? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
-Sim. Os usuários devem ter um número de telefone válido e fazer parte do grupo de inscrições de SMS usado para o envio de teste.
+Sim. Os usuários devem ter um número de telefone válido, fazer parte do grupo de inscrições de SMS usado para o envio de teste e ter pelo menos um país selecionado em **Geographic Permissions** para SMS.
 
 ### Existe uma maneira de verificar se um alias existe em um perfil de usuário? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
@@ -189,7 +189,7 @@ As mensagens RCS podem ser renderizadas de forma diferente em dispositivos iOS d
 - Botões de rich cards e ações sugeridas que estão fora do rich card podem permanecer visíveis mesmo após tocar em um botão de rich card ou em uma ação sugerida.
 
 {% alert note %}
-A Braze envia o payload de RCS que você compõe, enquanto o cliente de mensagens controla como as ações sugeridas são ordenadas, agrupadas e ocultadas. Certifique-se de testar as mensagens RCS, especialmente aquelas que usam rich cards com ações sugeridas ou respostas sugeridas, em dispositivos Android e iOS antes de enviar.
+A Braze envia a carga útil de RCS que você compõe, enquanto o cliente de mensagens controla como as ações sugeridas são ordenadas, agrupadas e ocultadas. Certifique-se de testar as mensagens RCS, especialmente aquelas que usam rich cards com ações sugeridas ou respostas sugeridas, em dispositivos Android e iOS antes de enviar.
 {% endalert %}
 
 ### Posso enviar mensagens de voz pré-gravadas com RCS? {#can-i-send-pre-recorded-voicemails-with-rcs}

@@ -13,13 +13,13 @@ description: "Diese Seite bietet eine Übersicht über den Prozess zum Löschen 
 
 Löschsynchronisierungen von Nutzer:innen werden für alle verfügbaren Datenquellen der Cloud-Datenaufnahme unterstützt.
 
-## Konfigurieren der Integration {#configuring-the-integration}
+## Integration konfigurieren {#configure-the-integration}
 
 Folgen Sie dem Standardverfahren zur [Erstellung einer neuen Integration im Braze-Dashboard]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) für das Data Warehouse, mit dem Sie sich verbinden möchten. Stellen Sie sicher, dass Sie eine Rolle angeben, die Zugriff auf die Löschtabelle hat. Stellen Sie auf der Seite **Create import sync** den **Data Type** auf **Delete Users** ein, damit während des Integrationslaufs die richtigen Aktionen zum Löschen von Nutzer:innen durchgeführt werden.
 
 ![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
-## Konfigurieren der Quelldaten {#configuring-source-data}
+## Quelldaten konfigurieren {#configure-source-data}
 
 Die Quelltabellen für die Löschung von Nutzer:innen sollten einen oder mehrere Typen von Bezeichnern und einen `UPDATED_AT`-Zeitstempel enthalten. Payload-Spalten werden für Löschdaten von Nutzer:innen nicht unterstützt.
 
@@ -120,7 +120,7 @@ Mit der Braze Cloud-Datenaufnahme richten Sie eine Integration zwischen Ihrer Da
 Wenn eine Synchronisierung ausgeführt wird, stellt Braze eine direkte Verbindung zu Ihrer Data-Warehouse-Instanz her, ruft alle neuen Daten aus der angegebenen Tabelle ab und löscht die entsprechenden Nutzerprofile in Ihrem Braze-Dashboard.
 
 {% alert warning %}
-Das Löschen von Nutzerprofilen kann nicht rückgängig gemacht werden. Es entfernt Nutzer:innen dauerhaft, was zu Unstimmigkeiten in Ihren Daten führen kann. Weitere Informationen finden Sie unter [Nutzerprofil löschen]({{site.baseurl}}/help/help_articles/api/delete_user/).
+Das Löschen von Nutzerprofilen kann nicht rückgängig gemacht werden. Es entfernt Nutzer:innen dauerhaft, was zu Unstimmigkeiten in Ihren Daten führen kann. Weitere Informationen finden Sie unter [Auswirkungen des Löschens von Nutzerprofilen]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles).
 {% endalert %}
 
 <br><br>

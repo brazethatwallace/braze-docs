@@ -19,8 +19,6 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 Si deseas actualizar las traducciones después de que se haya lanzado una campaña, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Requisitos previos {#prerequisites}
 
 Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.translations.update`.
