@@ -57,7 +57,7 @@ For Abandoned Checkout messaging, you will need to use the new Abandoned Checkou
 For a complete list of new eCommerce Canvas templates and pre-defined HTML blocks for product personalization available through the integration, refer to [Create your Canvas user journeys]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys).
 
 {% alert important %}
-If you don't acount for active messages that use discontinued events in the Shopify integration, impacted messages will no longer be sent to your customers.
+If you don't account for active messages that use discontinued events in the Shopify integration, impacted messages will no longer be sent to your customers.
 {% endalert %}
 
 To learn more, review [Supported Shopify events]({{site.baseurl}}/shopify_upgrade_overview/#supported-shopify-events).

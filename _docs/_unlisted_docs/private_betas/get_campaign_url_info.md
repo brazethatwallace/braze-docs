@@ -59,7 +59,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-### Troubelshooting
+### Troubleshooting
 
 The following table lists possible returned errors and their associated troubleshooting steps.
 

@@ -45,7 +45,7 @@ If you're a Shopify online store and your developers implemented the Braze SDKs 
 {% endalert %}
 
 - **Review identity management:** If you're using a Braze external ID, work with your development team to ensure it's compatible with the new integration. If you set the external ID within your Shopify store experience, have your developers adjust it to avoid conflicts with the [new identity management process](https://braze.com/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview/#user-and-data-syncing).
-- **Prepare impacted campaigns, Canvases, and segments:** During the guided upgrade process, you can view and export any campaigns, Canvases, and segments that rely on Shopify data. We recommend adding the new required Shopify events and attributes using an “OR” operator to faciliate a smooth upgrade for your active messages.
+- **Prepare impacted campaigns, Canvases, and segments:** During the guided upgrade process, you can view and export any campaigns, Canvases, and segments that rely on Shopify data. We recommend adding the new required Shopify events and attributes using an “OR” operator to facilitate a smooth upgrade for your active messages.
 - **Create Abandoned Cart and Checkout user journeys:** The Abandoned Cart user journey must now use the “Performed Cart Updated” trigger as part of the entry criteria in your Canvas. Additionally, you need to use the new shopping cart Liquid tag for both Abandoned Cart and Abandoned Checkout user journeys. You can use our new [Canvas templates]({{site.baseurl}}/using_shopify_with_braze#create-your-canvas-user-journeys) to help you get started.
 
 Completing these steps will help facilitate a successful upgrade to the latest version of the Shopify integration.

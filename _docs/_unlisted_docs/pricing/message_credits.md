@@ -86,7 +86,7 @@ Credit Unit Rates: <input type="text" id="credit_rate" value="0" />
       Credits /Message
     </th>
     <th>
-      Impied Rates
+      Implied Rates
     </th>
   </tr>
   <tr><td>SMS - US / CA</td><td id="sms_-_us_ca_united_states_ratio"></td><td>United States</td><td id="sms_-_us_ca_united_states_multipler"></td><td id="sms_-_us_ca_united_states_credit"></td><td id="sms_-_us_ca_united_states_rates"></td></tr>

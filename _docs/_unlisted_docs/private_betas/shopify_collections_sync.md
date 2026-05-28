@@ -18,9 +18,9 @@ Shopify collections sync is currently in beta. Contact your Braze account manage
 
 To sync your products from your Shopify store to Braze, select the checkbox to **Sync Shopify collections** in the **Sync products** step of [integrating Shopify](https://braze.com/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/setting_up_shopify#setting-up-shopify-in-braze).<br><br>![Step 4 of the Shopify product sync with the "Sync Shopify collections" checkbox selected.][1]
 
-Once your products have been synced, you can view which products are associated with your collections by viewing your Shopify catalog. <br><br>![Catalog table row showing a product in the collections of "best-sellers" and "frontpage".][2]
+Once your products have been synced, you can view which products are associated with your collections by viewing your Shopify catalog. <br><br>![Catalog table row showing a product in the collections of "best-sellers" and "front page".][2]
 
-From your Shopify catalog, you can view your Shopify collection in the **Selections** tab. <br><br>![The Selections tab showing a list of two collections: "best-sellers" and "frontpage".][3]
+From your Shopify catalog, you can view your Shopify collection in the **Selections** tab. <br><br>![The Selections tab showing a list of two collections: "best-sellers" and "front page".][3]
 
 ### Beta functionality
 
