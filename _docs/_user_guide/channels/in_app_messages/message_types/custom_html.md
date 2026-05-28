@@ -160,6 +160,20 @@ You can track performance within your custom code in-app message using the [`bra
 This method of button tracking replaces the prior automatic click tracking methods (such as `?abButtonId=0`), which have been removed.
 {% endalert %}
 
+Use [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) for HTML with preview messages when you need more than two tracked buttons. Button 1 and Button 2 map to `'0'` and `'1'`; additional buttons use custom IDs (up to 100 unique IDs per campaign). For character restrictions on button IDs, see [Button click tracking limitations]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#javascript-bridge).
+
+### Troubleshooting custom HTML links and close behavior
+
+#### Button clicks do not open the link
+
+If a button in your custom HTML in-app message does not load when clicked, verify that the link uses a valid URL or supported deep link scheme. Malformed URLs or unsupported custom schemes can prevent the click action from completing.
+
+#### Body clicks when closing the message
+
+Calling `brazeBridge.closeMessage()` closes the message but does not log analytics on its own. To log a body click when the user closes the message, call `brazeBridge.logClick()` before `brazeBridge.closeMessage()`.
+
+On Android, following a close action through the JavaScript bridge can log a body click for HTML full in-app messages when no button ID is present. On iOS, `brazeBridge.closeMessage()` does not log a body click unless you call `brazeBridge.logClick()` explicitly. Use the combined pattern in the [Backward incompatible changes](#backward-incompatible-changes) table for consistent tracking across platforms.
+
 ### Backward incompatible changes {#backward-incompatible-changes}
 
 1. The most notable incompatible change with this new message type is the SDK requirements. Users whose app SDK does not meet the minimum [SDK version requirements](#supported-sdk-versions) will not be shown the message.
