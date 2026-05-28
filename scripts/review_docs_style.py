@@ -374,7 +374,13 @@ def sync_summary_comment(
             lines.append(f"- {note}")
         lines.append("")
     if not posted and not summary_notes and not fallback:
-        lines.append("No style guide issues flagged for changed Markdown in this PR.")
+        if files_reviewed:
+            lines.append("No style guide issues flagged for the changed Markdown in this PR.")
+        else:
+            lines.append(
+                "No Markdown changes under `_docs/`, `_includes/`, or `_lang/` in this PR diff. "
+                "Push a docs edit to run a full style review."
+            )
         lines.append("")
 
     body = "\n".join(lines)
@@ -406,6 +412,8 @@ def sync_summary_comment(
             ],
             input=json.dumps({"body": body}),
             cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
             check=True,
         )
         print(f"Updated summary comment {existing['id']}")
@@ -422,6 +430,8 @@ def sync_summary_comment(
             ],
             input=json.dumps({"body": body}),
             cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
             check=True,
         )
         print("Created summary comment")
@@ -441,7 +451,10 @@ def main() -> None:
     print(f"Reviewing {len(files)} Markdown file(s) in PR #{PR_NUMBER}")
     if not files:
         sync_summary_comment(0, [], [], [])
-        print("No eligible Markdown changes; posted neutral summary.")
+        print(
+            "No eligible Markdown under _docs/, _includes/, or _lang/ in this PR diff; "
+            "posted summary (workflow-only PRs still trigger this check)."
+        )
         return
 
     user_prompt = build_user_prompt(files)
