@@ -51,7 +51,7 @@ Um das Dashboard auszuführen und Ihre Daten anzuzeigen:
 2. Wählen Sie eine oder mehrere Campaigns oder Canvases aus.
 3. Wählen Sie **Run Dashboard**, um die Daten für Ihre ausgewählten Filter zu laden.
 
-![Beispiel für Campaign- und Canvas-Diagnose vom 25. Mai bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
+![Beispiel für Campaign- und Canvas-Diagnose vom 25. Mai bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![Beispiel für Campaign- und Canvas-Diagnose mit Chart bei Hover vom 25. Mai bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
 
 ## Daten interpretieren {#interpreting-the-data}
 
@@ -78,11 +78,16 @@ Dieses Zeitreihen-Chart zeigt eine tägliche Aufschlüsselung der verschiedenen 
 Um das Chart übersichtlich zu halten, werden Abbruch- oder Drop-Gründe mit null Vorkommen in Ihrem ausgewählten Zeitraum nicht im Chart angezeigt.
 {% endalert %}
 
-### Aufschlüsselung der Nachrichtenergebnisse {#message-outcomes-breakdown}
+### Detailliertes Protokoll der Nachrichtenergebnisse {#message-outcomes-granular-log}
 
-Dieses Chart zeigt die Aufschlüsselung aller Nachrichtenergebnisse innerhalb Ihres ausgewählten Zeitraums. Es bietet ein vollständiges Bild von:
-- Der Gesamtanzahl der Sends als Anteil an allen Ergebnissen.
-- Der proportionalen Aufschlüsselung jedes Abbruch- und Drop-Grundes. Dies hilft Ihnen, die häufigsten Gründe schnell zu identifizieren, warum Nachrichten nicht gesendet werden.
+Unterhalb des Zeitreihen-Charts zeigt das Dashboard eine detaillierte Tabelle einzelner Nachrichtenergebnisse für Ihre ausgewählten Filter und den Zeitraum. Verwenden Sie diese Tabelle, um bestimmte Datensätze zu überprüfen, einschließlich Zeitstempel, Nutzer-ID, Canvas-Schritt, Ergebnis und Kanal.
+
+Sie können die Tabelle filtern, um sich auf bestimmte Datensätze zu konzentrieren:
+
+- **Nach Ergebnis filtern:** Wählen Sie ein Ergebnis aus dem Ergebnisfilter, um nur Zeilen mit diesem Ergebnis anzuzeigen (z. B. `Frequency capped` oder `User not eligible`).
+- **Nach Nutzer-ID suchen:** Geben Sie eine Nutzer-ID in das Suchfeld ein, um Zeilen für diese bestimmten Nutzer:innen anzuzeigen.
+
+Wenn Sie beide Filter anwenden, gibt die Tabelle Zeilen zurück, die sowohl dem ausgewählten Ergebnis als auch der eingegebenen Nutzer-ID entsprechen.
 
 ### Abbruchergebnisse {#abort-outcomes}
 
