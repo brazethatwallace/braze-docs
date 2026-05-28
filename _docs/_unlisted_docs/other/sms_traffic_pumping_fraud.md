@@ -15,7 +15,7 @@ For example, if a brand has an SMS sign-up form on their website for customers t
 
 ### What does Braze do to mitigate SMS pumping fraud?
 
-Braze currently maintains an SMS blocklist for both US-embargoed countries, as well as for countries known to be high risk for traffic pumping, which can be referenced in [our documentation](https://braze.com/docs/sms_country_blocklist/). All attempted sends to phone numbers with these country codes are blocked.
+Braze currently maintains an SMS blocklist for both US-embargoed countries, as well as for countries known to be high risk for traffic pumping, which can be referenced in [our documentation]({{site.baseurl}}/sms_country_blocklist/). All attempted sends to phone numbers with these country codes are blocked.
 
 Additionally, Braze is introducing an SMS Geographic Permission Allowlist, which will further protect against fraudulent behavior by enforcing controls on what countries you are able to send to.
 
@@ -23,12 +23,12 @@ Additionally, Braze is introducing an SMS Geographic Permission Allowlist, which
 
 There are several ways you can protect yourself, including: 
 - **Monitor your daily SMS sending volumes for spikes and abnormalities:**
-    - We recommend setting [campaign limits and alerts](https://braze.com/docs/user_guide/engagement_tools/campaigns/managing_campaigns/campaign_alerts/) to cap and notify if an unusually high number of messages are sent.
+    - We recommend setting [campaign limits and alerts]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/campaign_alerts/) to cap and notify if an unusually high number of messages are sent.
     - Unusual spikes in sending of messages might indicate traffic pumping.
     - Unusually high number of opt-ins in a short time frame (outside of intentional strategies to drive opt-ins) might indicate traffic pumping.
 - **Improve security for online phone number capture forms:**
-    - Braze [SMS sign-up form templates](https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/templates/phone_number_capture) provide out-of-the box security measures, such as validating the phone number length and format. You can also set up the form to only collect phone numbers with country codes that align to your target customers:
-        - For example, if you only do business in the US and UK, set up the form to only collect numbers with a +1 and +44 country code (technical details can be found in [our documentation](https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/templates/phone_number_capture/#step-2-customize-your-phone-number-input-component)).
+    - Braze [SMS sign-up form templates]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/templates/phone_number_capture) provide out-of-the box security measures, such as validating the phone number length and format. You can also set up the form to only collect phone numbers with country codes that align to your target customers:
+        - For example, if you only do business in the US and UK, set up the form to only collect numbers with a +1 and +44 country code (technical details can be found in [our documentation]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/templates/phone_number_capture/#step-2-customize-your-phone-number-input-component)).
     - If you are building a custom phone number capture on your website, we recommend setting rules to validate phone number length and format and ensuring forms are fully complete before collecting phone numbers. Be sure to work with your engineering or technical team to validate the form inputs both client-side and server-side for maximum protection.
         - Additionally, consider using tools such as CAPTCHA to ensure the form is submitted by a human and not an automated process. A CAPTCHA requirement on SMS sign-up forms can help reduce the number of fraudulent sign-ups.
 
