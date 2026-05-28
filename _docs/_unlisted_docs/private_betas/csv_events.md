@@ -153,7 +153,7 @@ If you are updating subscription group status, you must have the following two c
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table class="tg" aria-label="Updating subscription group status">
 <thead>
   <tr>
     <th class="tg-0pky">external_id</th>
