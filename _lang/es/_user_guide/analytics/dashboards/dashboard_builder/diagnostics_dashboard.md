@@ -112,7 +112,7 @@ Las siguientes definiciones explican los resultados de cancelación que se muest
 | ---- | ---- |
 | Fallo en paso de retraso | El [paso de retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays) falló, causando que el usuario saliera del Canvas. Este fallo puede ocurrir cuando: {::nomarkdown}<ul><li> La variable proporcionada al paso de retraso personalizado estaba vacía o era de un tipo no válido </li><li> El retraso supera la duración máxima permitida dentro del Canvas</li></ul>{:/} |
 | Evento de excepción o salida | El usuario era previamente elegible para recibir el mensaje, pero {::nomarkdown}<ul><li> realizó un <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">evento de excepción</a> para una campaña basada en acciones, por lo que el mensaje fue cancelado, o </li><li> cumplió los <a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">criterios de salida</a> del Canvas, por lo que fue eliminado a mitad del recorrido.</li></ul>{:/} |
-| Campaña inactiva | La campaña fue detenida mientras el mensaje estaba en tránsito, por lo que fue cancelado. |
+| Campaign inactiva | La campaña fue detenida mientras el mensaje estaba en tránsito, por lo que fue cancelado. |
 | Canvas inactivo | El Canvas fue detenido antes de que el usuario entrara al recorrido. |
 | Paso en Canvas inactivo | Esto puede ocurrir en el Canvas si: {::nomarkdown}<ul><li> El paso en Canvas fue eliminado </li> <li>El Canvas fue detenido, lo que causa que todos los pasos se vuelvan inactivos </li></ul>{:/} |
 | Límite de volumen alcanzado | La campaña alcanzó el límite de volumen establecido, por lo que el envío fue cancelado. |

@@ -43,7 +43,7 @@ Die Häufigkeit, mit der die Daten in diesem Dashboard aktualisiert werden, kann
 
 ## Dashboard konfigurieren {#configuring-the-dashboard}
 
-Sie können auf das Diagnose-Dashboard zugreifen, indem Sie zu **Analytics** > **Dashboard-Builder** navigieren und **Messaging Diagnostics** aus der Liste der von Braze erstellten Dashboards auswählen.
+Sie können auf das Diagnose-Dashboard zugreifen, indem Sie zu **Analytics** > **Dashboard Builder** navigieren und **Messaging Diagnostics** aus der Liste der von Braze erstellten Dashboards auswählen.
 
 Um das Dashboard auszuführen und Ihre Daten anzuzeigen:
 
@@ -145,7 +145,7 @@ Die folgenden Definitionen erklären die im Dashboard angezeigten Abbruchergebni
 | Abbruchergebnis | Erklärung |
 | ---- | ---- |
 | Partner-Zustellungs-Timeout | Braze hat 24 Stunden lang versucht, diese Nachricht an Ihren Zustellungspartner zu senden, aber der Partner hat während des gesamten Zeitfensters temporäre Fehler zurückgegeben. |
-| Push-Zugangsdaten ungültig | Die [Push-Zugangsdaten]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token) für diese App fehlen oder sind ungültig, sodass der Versand abgebrochen wurde. Aktualisieren Sie Ihre Zugangsdaten in den **App-Einstellungen**. |
+| Push-Zugangsdaten ungültig | Die [Push-Zugangsdaten]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token) für diese App fehlen oder sind ungültig, sodass der Versand abgebrochen wurde. Aktualisieren Sie Ihre Zugangsdaten in den **App Settings**. |
 | Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert | Push kann nicht an diese Nutzer:innen gesendet werden. Einige häufige Gründe: {::nomarkdown}<ul><li> Die Nutzer:innen haben die App nicht installiert.</li> <li> Die Nutzer:innen haben kein gültiges Push-Token. </li> <li>Die Nutzer:innen haben nicht das erforderliche Gerät für diese Push-Benachrichtigung. </li> <li> Die Nutzer:innen haben Benachrichtigungen für diese App in den Geräteeinstellungen deaktiviert. </li> <li> Die Nutzer:innen haben Push-Benachrichtigungen nicht abonniert oder dem Empfang nicht zugestimmt.</li></ul>{:/} |
 | Nutzer:innen nicht für iOS-Push, App oder Gerät aktiviert | Gleich wie das Abbruchergebnis „Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert“. |
 | Nutzer:innen nicht für Kindle-Push, App oder Gerät aktiviert | Gleich wie das Abbruchergebnis „Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert“. |
