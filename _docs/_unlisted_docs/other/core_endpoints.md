@@ -39,11 +39,11 @@ The core endpoints include:
 [7]: https://braze.com/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages/
 [8]: https://braze.com/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages/
 [9]: https://braze.com/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/
-[10]: https://braze.com/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/
+[10]: https://braze.com/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/
 [11]: https://braze.com/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns/
 [12]: https://braze.com/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages/
 [13]: https://braze.com/docs/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#sending-canvas-messages-via-api-triggered-delivery
 [14]: https://braze.com/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/#schedule-api-triggered-canvases
-[15]: https://braze.com/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns/
+[15]: https://braze.com/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/
 [16]: https://braze.com/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages/
 [17]: https://braze.com/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status/#update-users-subscription-group-status
