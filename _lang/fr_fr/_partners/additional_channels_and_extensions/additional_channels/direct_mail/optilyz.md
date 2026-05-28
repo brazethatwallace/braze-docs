@@ -25,7 +25,7 @@ Utilisez l'intégration du webhook optilyz et Braze pour envoyer à vos clients 
 | Compte optilyz | Un compte optilyz est nécessaire pour bénéficier de ce partenariat. |
 | Clé API optilyz<br><br>`<OPTILYZ_API_KEY>` | Votre gestionnaire de la satisfaction client optilyz vous fournira votre clé API optilyz.<br><br>Cette clé API vous permettra de connecter vos comptes Braze et optilyz. |
 | ID d'automatisation optilyz<br><br>`<OPTILYZ_AUTOMATION_ID>` | L'ID d'automatisation se trouve dans un encadré dans l'en-tête de la page.<br><br>Une fois connecté à optilyz, vous pouvez accéder à l'automatisation vers laquelle vous souhaitez envoyer des données.<br>L'automatisation doit d'abord être activée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -40,20 +40,20 @@ Pour intégrer optilyz, utilisez l'[API optilyz](https://www.optilyz.com/doc/api
 
 ### Étape 1 : Créer votre modèle de webhook Braze {#step-1-create-your-braze-webhook-template}
 
-Pour créer un modèle de webhook optilyz à utiliser dans de futures Campaigns ou Canvas, accédez à **Modèles** > **Modèles de webhook** dans la plateforme Braze.
+Pour créer un modèle de webhook optilyz à utiliser dans de futures Campaigns ou Canvas, accédez à **Contenu** > **Webhook** dans la plateforme Braze. Sélectionnez ensuite **Créer un modèle de webhook**.
 
-Si vous souhaitez créer une campagne webhook optilyz unique ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle campagne.
+Si vous souhaitez créer une Campaign webhook optilyz unique ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle Campaign.
 
 Dans votre nouveau modèle de webhook, renseignez les champs suivants :
-- **Webhook URL** : l'URL du webhook est unique pour chaque client et votre gestionnaire de la satisfaction client optilyz vous la fournira.
-- **Request Body** : Raw Text
+- **URL du webhook** : l'URL du webhook est unique pour chaque client et votre gestionnaire de la satisfaction client optilyz vous la fournira.
+- **Corps de la requête** : Raw Text
 
 #### En-têtes et méthode de la requête {#request-headers-and-method}
 
-optilyz nécessite également un en-tête HTTP pour l'autorisation et une méthode HTTP. Les éléments suivants seront déjà inclus dans le modèle en tant que paire clé-valeur, mais dans l'onglet **Settings**, vous devez remplacer `<OPTILYZ_API_KEY>` par votre clé API optilyz. Cette clé doit inclure un « : » juste après la clé et être encodée en base 64.
+optilyz nécessite également un en-tête HTTP pour l'autorisation et une méthode HTTP. Les éléments suivants seront déjà inclus dans le modèle en tant que paire clé-valeur, mais dans l'onglet **Paramètres**, vous devez remplacer `<OPTILYZ_API_KEY>` par votre clé API optilyz. Cette clé doit inclure un « : » juste après la clé et être encodée en base 64.
 
-- **HTTP Method** : POST
-- **Request Headers** :
+- **Méthode HTTP** : POST
+- **En-têtes de la requête** :
   - **Authorization** : {% raw %} `{{ '<OPTILYZ_API_KEY>:' | base64_encode }}` {% endraw %}
   - **Content-Type** : application/json
 
@@ -88,10 +88,10 @@ Le champ `variation` est facultatif et permet de définir quelle conception au s
 
 ### Étape 2 : Prévisualiser votre requête {#step-2-preview-your-request}
 
-Ensuite, prévisualisez votre requête dans le panneau **Preview** ou accédez à l'onglet **Test**, où vous pouvez sélectionner un utilisateur aléatoire, un utilisateur existant ou personnaliser le vôtre pour tester votre webhook. N'oubliez pas d'enregistrer votre modèle avant de quitter la page !
+Ensuite, prévisualisez votre requête dans le panneau **Prévisualisation** ou accédez à l'onglet **Test**, où vous pouvez sélectionner un utilisateur aléatoire, un utilisateur existant ou personnaliser le vôtre pour tester votre webhook. N'oubliez pas d'enregistrer votre modèle avant de quitter la page !
 
 ![Différents champs de test disponibles dans l'onglet de test du générateur de webhooks Braze.]({% image_buster /assets/img/optilyz/optilyz_testing.png %})
 
 {% alert important %}
-N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [Campaign webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

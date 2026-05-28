@@ -132,7 +132,7 @@ Eine vollständige Liste der Felder für Push-Benachrichtigungen finden Sie in d
 | `braze_properties` | Objekt    | Stellt die mit der Campaign verbundenen Braze-Eigenschaften dar (Schlüssel-Wert-Paare). |
 | `ios`              | Objekt    | Stellt iOS-spezifische Felder dar. |
 | `android`          | Objekt    | Stellt Android-spezifische Felder dar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### 3. Schritt: Deeplinking aktivieren (optional) {#step-3-enable-deep-linking-optional}
 

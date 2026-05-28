@@ -2,7 +2,6 @@
 nav_title: Especificações de imagem
 article_title: Especificações de imagem
 page_order: 1
-
 page_type: reference
 description: "Este artigo de referência descreve os tamanhos e especificações de imagem recomendados para cada tipo de canal."
 tool:
@@ -29,9 +28,11 @@ Vídeos enviados para a Biblioteca de mídia só podem ser usados em mensagens d
 
 GIFs são compatíveis com push para iOS, mensagens no app, e-mail, Content Cards e mensagens MMS ou RCS. GIFs com formatos muito alongados (por exemplo, 3000 x 2 pixels) ou com 300 ou mais quadros podem falhar no upload, mesmo que o tamanho total do arquivo seja pequeno.
 
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
+
 ## Orientações por canal {#channel-guidance}
 
-### Content Cards {#content-cards}
+### Content Cards
 
 {% multi_lang_include image_specs.md variable_name='content cards' %}
 
@@ -83,7 +84,7 @@ Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de 
 | Firefox | 192 x 192 px ou maior |
 | Safari | 192 x 192 px ou maior (configurável por campanha com Safari 16 no macOS 13+) |
 | Opera | 192 x 192 px ou maior |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push para a web" }
 
 | Navegador | Plataforma | Tamanho de imagem grande |
 | --- | --- | --- |
@@ -97,7 +98,7 @@ Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de 
 | Safari | macOS | N/A |
 | Firefox | macOS | N/A |
 | Opera | macOS | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push para a web" }
 
 {% endtab %}
 {% tab Texto %}
@@ -114,7 +115,7 @@ Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de 
 | Safari | macOS | 38 | 84 |
 | Firefox | macOS | 38 | 42 |
 | Opera | macOS | 38 | 42 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Push para a web" }
 
 {% endtab %}
 {% endtabs %}

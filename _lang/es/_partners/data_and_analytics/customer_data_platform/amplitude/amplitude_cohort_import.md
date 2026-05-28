@@ -16,7 +16,7 @@ Cualquier integración que configures contará para el volumen de puntos de dato
 
 ### Paso 1: Obtener la clave de importación de datos de Braze {#step-1-get-the-braze-data-import-key}
 
-En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Amplitude**. Aquí encontrarás el punto de conexión REST y generarás tu clave de importación de datos de Braze.
+En Braze, ve a **Partner Integrations** > **Technology Partners** y selecciona **Amplitude**. Aquí encontrarás el punto de conexión REST y generarás tu clave de importación de datos de Braze.
 
 Una vez generada, puedes crear una nueva clave o invalidar una existente. La clave de importación de datos y el punto de conexión REST se utilizan en el siguiente paso al configurar un postback en el dashboard de Amplitude.<br><br>![]({% image_buster /assets/img/amplitude3.png %})
 
@@ -28,10 +28,9 @@ En Amplitude, ve a **Sources & Destinations** > **[nombre del proyecto]** > **De
 
 ### Paso 3: Exportar una cohorte de Amplitude a Braze {#step-3-export-an-amplitude-cohort-to-braze}
 
-En primer lugar, para exportar usuarios de Amplitude a Braze, crea una [cohorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) de usuarios que desees exportar. Amplitude puede sincronizar cohortes con Braze utilizando los siguientes identificadores:
-- Alias de usuario
-- ID del dispositivo
+En primer lugar, para exportar usuarios de Amplitude a Braze, crea una [cohorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) de usuarios que desees exportar. Luego, para capturar usuarios identificados y anónimos, configura dos sincronizaciones para esa cohorte con estas propiedades de mapeado de identificadores:
 - ID de usuario (ID externo)
+- ID del dispositivo
 
 Puedes configurar múltiples conexiones de Braze en tu cuenta de Amplitude. Esto te permite configurar una conexión para sincronizar ID de usuario para usuarios conocidos y otra para sincronizar ID de dispositivo para usuarios anónimos.
 

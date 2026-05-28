@@ -1,16 +1,16 @@
 ---
 nav_title: FAQ
-article_title: 캠페인 FAQ
+article_title: Campaign FAQ
 page_order: 10
 page_type: FAQ
-description: "이 페이지에서는 캠페인에 대해 자주 묻는 질문에 대한 답변을 제공합니다."
+description: "이 페이지에서는 Campaign에 대해 자주 묻는 질문에 대한 답변을 제공합니다."
 tool: Campaigns
 
 ---
 
 # 자주 묻는 질문 {#frequently-asked-questions}
 
-> 이 문서에서는 캠페인에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
+> 이 문서에서는 Campaign에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
 
 ### 멀티채널 캠페인은 어떻게 만드나요? {#how-do-i-create-a-multichannel-campaign}
 
@@ -38,7 +38,7 @@ tool: Campaigns
 
 예를 들어, iOS와 웹 푸시 알림이 모두 포함된 Canvas가 있는 경우, 모바일과 데스크탑 기기를 모두 가진 사용자는 두 개 이상의 메시지를 받을 수 있습니다.
 
-### *고유 수신자*가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### *고유 수신자*가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *고유 수신자*는 Braze가 보고를 위해 일별 고유 수신자를 추적하기 때문에 예상한 오디언스보다 높을 수 있습니다. 이를 통해 Braze는 사용자가 메시지를 받을 때마다 전환 기간 내의 전환을 귀속시킬 수 있으며, 여러 수신을 하나의 평생 카운트로 축소하지 않습니다(그렇게 하면 전환 계산이 왜곡됩니다).
 
@@ -190,6 +190,14 @@ API 트리거 캠페인을 사용하면 Braze 대시보드 내에서 캠페인 �
 
 API 캠페인은 API를 사용하여 보낸 메시지를 추적하는 데 사용됩니다. 대부분의 캠페인과 달리 메시지, 수신자 또는 스케줄을 지정하지 않고 대신 API 호출에 식별자를 전달합니다.
 
+### API 트리거 캠페인을 사용자가 수신했는지 어떻게 확인할 수 있나요? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+**Campaign 수신** 필터를 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)한 다음 확인하려는 특정 API 트리거 캠페인을 선택할 수 있습니다. Segment를 저장한 후 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하여 해당 Segment의 사용자를 내보낼 수 있습니다.
+
+### 캠페인을 삭제할 수 있나요? {#can-i-delete-a-campaign}
+
+아니요, 하지만 [캠페인을 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving/)할 수 있습니다.
+
 ### 실행 기반 캠페인과 API 트리거 캠페인의 차이점은 무엇인가요? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
 <style>
@@ -259,3 +267,7 @@ API 트리거 및 서버 트리거 캠페인은 더 고급 트랜잭션을 처�
 - **Segment 재평가:** 발송 시점에 재평가하는 실행 기반 또는 스케줄 캠페인의 경우, 캠페인이 대기줄에 들어갔을 때 Segment에 있던 사용자가 메시지가 실제로 발송될 때는 더 이상 자격을 갖추지 못할 수 있습니다.
 - **발송 제한:** **타겟 오디언스**의 최대 사용자 수(또는 유사한 제한)가 제한에 도달하면 전달을 중지합니다.
 - **엄격한 기기 또는 브라우저 필터:** 최신 앱 버전이나 브라우저만 일치하는 필터는 광범위한 Segment 미리보기에 비해 발송 시점의 도달 가능 집합을 줄입니다.
+
+### 글로벌 최대 게재빈도 설정에 대한 자주 묻는 질문은 어디에 있나요? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+캘린더 일, 사일런트 푸시, 웹훅, Canvas 동작 및 관련 주제에 대한 질문은 [사용량 제한 및 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)의 [자주 묻는 질문]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/)을 참조하세요.

@@ -20,7 +20,7 @@ channel:
 각 인터랙티브 버튼은 웹 페이지, 딥링크로 연결하거나 앱을 열 수 있습니다.
 
 - 표준 푸시 Campaign의 경우, 대시보드의 푸시 메시지 작성기에서 **On-Click Behavior** 섹션에서 푸시 실행 버튼을 지정할 수 있습니다.
-- [빠른 푸시 Campaign]({{site.baseurl}}/quick_push/)의 경우, **Settings** 탭에서 각 플랫폼별로 실행 버튼을 별도로 구성할 수 있습니다.
+- [빠른 푸시 Campaign]({{site.baseurl}}/quick_push/)의 경우, **설정** 탭에서 각 플랫폼별로 실행 버튼을 별도로 구성할 수 있습니다.
 
 {% tabs %}
 {% tab iOS %}
@@ -28,7 +28,7 @@ channel:
 
 iOS 푸시 메시지에서 실행 버튼을 사용하려면 다음을 수행하세요:
 
-1. 표준 Campaign의 경우 **Compose** 탭에서, 빠른 푸시의 경우 **Settings** 탭에서 실행 버튼을 켭니다.
+1. 표준 Campaign의 경우 **작성** 탭에서, 빠른 푸시의 경우 **설정** 탭에서 실행 버튼을 켭니다.
 2. 다음 사용 가능한 버튼 조합에서 **iOS Notification Category**를 선택합니다:
  - Accept / Decline
  - Yes / No
@@ -49,11 +49,11 @@ iOS의 버튼 처리 방식으로 인해, 푸시 실행 버튼을 설정할 때 
 
 Android 푸시 메시지에서 실행 버튼을 사용하려면 다음을 수행하세요:
 
-1. 표준 Campaign의 경우 **Compose** 탭에서, 빠른 푸시의 경우 **Settings** 탭에서 실행 버튼을 켭니다.
+1. 표준 Campaign의 경우 **작성** 탭에서, 빠른 푸시의 경우 **설정** 탭에서 실행 버튼을 켭니다.
 2. <i class="fas fa-plus-circle"></i> **Add Button**을 선택하고 버튼 텍스트와 **On-Click Behavior**를 지정합니다. 다음 사용 가능한 동작 중에서 선택할 수 있습니다:
   - Open App
   - Redirect to Web URL
-  - [딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) Into Application
+  - 앱으로 [딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)
 
 ![알림 버튼의 클릭 시 동작으로 "Open App"을 선택하는 화면.]({% image_buster /assets/img_archive/push_action_buttons_android.png %}){: style="max-width:70%"}
 

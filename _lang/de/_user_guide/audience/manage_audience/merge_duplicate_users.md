@@ -9,9 +9,18 @@ page_order: 4
 
 > Erfahren Sie, wie Sie doppelte Nutzer:innen finden und zusammenführen, um die Effektivität Ihrer Campaigns und Canvases zu maximieren.
 
-{% alert tip %}
-Um doppelte Nutzer:innen über die Braze REST API zusammenzuführen, lesen Sie [POST: Nutzer:innen zusammenführen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
-{% endalert %}
+## REST API: Nutzer:innen identifizieren und zusammenführen {#rest-api-identify-and-merge-users}
+
+Die Tools auf dieser Seite führen doppelte Profile im Dashboard zusammen. Sie können Profile auch über die [User-Data-Endpunkte]({{site.baseurl}}/api/endpoints/user_data/) von Braze kombinieren oder umleiten:
+
+- [POST: Nutzer:innen identifizieren]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) (`/users/identify`): Kombiniert ein Nur-Alias-, Nur-E-Mail- oder Nur-Telefonnummer-Profil mit einem Profil, das eine `external_id` hat.
+- [POST: Nutzer:innen zusammenführen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) (`/users/merge`): Führt ein Nutzerprofil mit einem anderen zusammen, auch wenn beide Profile bereits eine `external_id` haben. Lesen Sie [Voraussetzungen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites) und [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior), bevor Sie diesen Endpunkt aufrufen.
+
+Wenn ein anonymes Profil einem bestehenden identifizierten Profil zugeordnet wird (z. B. durch einen SDK-`changeUser()`-Aufruf oder `/users/identify`), verwaist Braze das anonyme Profil und kopiert nur bestimmte Felder auf das identifizierte Profil. Weitere Informationen finden Sie unter [Was passiert, wenn Sie anonyme Nutzer:innen identifizieren]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users).
+
+Zusammenführungen von Nutzer:innen sind schwer rückgängig zu machen. Wenn Sie eine komplexe Zusammenführung über mehrere `external_id`-Werte oder große Profilmigrationen planen, wenden Sie sich an Ihren Customer-Success-Manager, bevor Sie sich auf `/users/merge` verlassen.
+
+Braze behandelt drei Nutzertypen beim Zusammenführen unterschiedlich: zum Löschen markierte Nutzer:innen, Testnutzer:innen und Nutzer:innen der Globalen Kontrollgruppe. Weitere Details finden Sie unter [Zusammenführungsverhalten von Nutzer:innen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
 
 ## Einzelnes Zusammenführen {#individual-merging}
 
@@ -65,12 +74,12 @@ Im folgenden Beispiel verwendet Braze die externe ID der Nutzer:innen, um doppel
 
 {% tabs local %}
 {% tab example csv file %}
-| E-Mail-Adresse   | Externe ID  | Telefonnummer  | Braze-ID              | Bezeichner für Regel | Profil beibehalten | Profil zusammenführen |
-| ---------------- | ----------- | -------------- | --------------------- | -------------------- | ------------------ | --------------------- |
-| alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email                | TRUE               | FALSE                 |
-| alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email                | FALSE              | TRUE                  |
-| alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email                | FALSE              | TRUE                  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Profile to keep | Profile to merge |
+| ---------------- | ----------- | -------------- | --------------------- | ------------------- | --------------- | ---------------- |
+| alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
+| alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
+| alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Ergebnisse in der Vorschau anzeigen (optional)" }
 {% endtab %}
 {% endtabs %}
 
@@ -127,3 +136,9 @@ Nachdem das Feature aktiviert wurde, weist Braze automatisch ein Zeitfenster zu,
 {% alert warning %}
 Doppelte Nutzerprofile können nach dem Zusammenführen nicht wiederhergestellt werden.
 {% endalert %}
+
+## Verwandte Artikel {#related-articles}
+
+- [Zusammenführungsverhalten von Nutzer:innen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
+- [POST: Nutzer:innen zusammenführen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
+- [Nutzer:innen löschen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)

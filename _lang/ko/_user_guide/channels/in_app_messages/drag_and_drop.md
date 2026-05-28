@@ -29,7 +29,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 | 최소 SDK 버전                                                          | 권장 SDK 버전                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK 요구 사항" }
 
 {% details 최소 SDK에 대한 추가 정보 %}
 
@@ -45,7 +45,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 | 텍스트 링크*                                                         | 푸시 프라이머 요청                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK 요구 사항" }
 
 *인앱 메시지에 URL로 리디렉션하는 링크를 포함하고 최종 사용자가 지정된 최소 SDK 버전을 사용하지 않는 경우, 링크를 선택하면 메시지가 닫히고 사용자는 양식을 제출하기 위해 메시지로 돌아갈 수 없습니다.
 
@@ -95,7 +95,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 기존 페이지를 복제하려면:
 
-1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i>을 선택하여 추가 옵션을 엽니다.
+1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i>를 선택하여 추가 옵션을 엽니다.
 2. **Duplicate**를 선택합니다.
 3. 의미 있는 이름을 지정합니다. 이렇게 하면 페이지를 서로 연결할 때 도움이 됩니다.
 
@@ -104,7 +104,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 페이지를 삭제하거나 이름을 변경하려면:
 
-1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i>을 선택하여 추가 옵션을 엽니다.
+1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i>를 선택하여 추가 옵션을 엽니다.
 2. **Rename** 또는 **Delete**를 선택합니다.
 
 {% endtab %}
@@ -192,4 +192,4 @@ Campaigns를 보내기 전에 항상 인앱 메시지를 테스트하여 사용�
 
 ![제품 투어를 위한 인앱 메시지 미리보기.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-**Templates** > **In-App Message Templates**로 이동하여 인앱 메시지 템플릿을 만들고 저장할 수도 있습니다.
+**Content** > **In-App Message**로 이동하여 인앱 메시지 템플릿을 만들고 저장할 수도 있습니다.

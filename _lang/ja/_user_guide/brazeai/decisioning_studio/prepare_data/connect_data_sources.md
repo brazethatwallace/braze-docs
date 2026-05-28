@@ -22,8 +22,8 @@ Decisioning Studioは、顧客データを接続するための複数の統合�
 | **Brazeデータプラットフォーム** | すでにBrazeを使用している顧客 | 低 |
 | **Brazeクラウドデータ取り込み（CDI）** | 外部データウェアハウスの接続 | 中 |
 | **クラウドストレージ（GCS、AWS、Azure）** | 他のプラットフォームからの直接データエクスポート | 中 |
-| **CEP統合** | SFMC、Klaviyoデータ拡張 | 中 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+| **CEP統合** | SFMC、Klaviyoデータエクステンション | 中 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
 
 ## 顧客データタイプ {#customer-data-types}
 
@@ -35,7 +35,7 @@ Decisioning Studioは、顧客データを接続するための複数の統合�
 | **顧客行動** | アクティビティとエンゲージメントパターン | アカウントログイン、デバイスタイプ、カスタマーサービスのインタラクション、製品使用状況 |
 | **取引履歴** | 購入とコンバージョンデータ | 購入した製品、取引金額、支払い方法、購入チャネル |
 | **マーケティングエンゲージメント** | コミュニケーションへの反応 | メールの開封/クリック、SMSエンゲージメント、Webおよびモバイルアクティビティ、調査への回答 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customer data types" }
 
 {% alert tip %}
 エージェントが顧客について持つ情報が多いほど、パフォーマンスが向上します。ビジネスにとって特に重要なインサイトに関するデータを含めることを検討してください（例えば、AIがロイヤルティ顧客をどのように異なる扱いにするかを確認したい場合は、ロイヤルティステータスが顧客データに含まれていることを確認してください）。
@@ -81,11 +81,11 @@ Brazeデータプラットフォームに送信しているデータに満足し
 
 Salesforce Marketing Cloudとの統合の場合：
 
-1. 顧客データ用のSFMCデータ拡張を設定します
+1. 顧客データ用のSFMCデータエクステンションを設定します
 2. Decisioning Studioが必要とする適切な権限を持つAPI統合用のSFMCインストール済みパッケージを設定します
-3. Decisioning Studioは利用可能な最新の増分データから取得するため、データ拡張が毎日更新されることを確認します
+3. Decisioning Studioは利用可能な最新の増分データから取得するため、データエクステンションが毎日更新されることを確認します
 
-拡張IDとAPIキーをAI Decisioning Servicesチームに提供してください。チームが顧客データの取り込みにおける次のステップをサポートします。
+エクステンションIDとAPIキーをAI Decisioning Servicesチームに提供してください。チームが顧客データの取り込みにおける次のステップをサポートします。
 
 {% endtab %}
 {% tab Klaviyo %}
@@ -110,7 +110,7 @@ APIキーの設定の詳細については、[Klaviyoドキュメント](https:/
 これが実現可能かどうかを判断するには、お使いのマーテクプラットフォームのドキュメントを参照してください。例えば：
 
 - mParticleは[Google Cloud Storageとのネイティブ統合](https://www.mparticle.com/integration/google-cloud-storage/)を提供しています
-- [Twilio Segment](https://www.twilio.com/docs/segment/connections/storage/catalog/google-cloud-storage)
+- [Twilio セグメント](https://www.twilio.com/docs/segment/connections/storage/catalog/google-cloud-storage)
 - [トレジャーデータ](https://docs.treasuredata.com/int/google-cloud-storage-export-integration)
 - [ActionIQ](https://info.actioniq.com/hubfs/ActionIQ%20Industry%20Brief%20Solutions/ActionIQ_Integrations_Brief.pdf)
 - [Adobe Experience Platform](https://experienceleague.adobe.com/en/docs/experience-platform/destinations/catalog/cloud-storage/google-cloud-storage)
@@ -122,10 +122,10 @@ APIキーの設定の詳細については、[Klaviyoドキュメント](https:/
 
 ## ベストプラクティス {#best-practices}
 
-- **わかりやすいカラム名：**顧客データには明確でわかりやすいカラム名を付ける必要があります。理想的には、データディクショナリを提供してください。
-- **増分更新：**毎日の顧客履歴全体のスナップショットよりも、増分ファイルが推奨されます
-- **一貫した識別子：**各レコードには、すべてのデータアセットで一貫したユニークな顧客識別子が含まれている必要があります
-- **タイムスタンプを含める：**正確なアトリビューションとエージェントのトレーニングのために、レコードには関連するタイムスタンプが必要です
+- **わかりやすいカラム名：** 顧客データには明確でわかりやすいカラム名を付ける必要があります。理想的には、データディクショナリを提供してください。
+- **増分更新：** 毎日の顧客履歴全体のスナップショットよりも、増分ファイルが推奨されます
+- **一貫した識別子：** 各レコードには、すべてのデータアセットで一貫したユニークな顧客識別子が含まれている必要があります
+- **タイムスタンプを含める：** 正確なアトリビューションとエージェントのトレーニングのために、レコードには関連するタイムスタンプが必要です
 
 ## カスタム統合 {#custom-integrations}
 

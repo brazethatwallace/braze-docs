@@ -58,7 +58,7 @@ Le corps de la requête comprend les paramètres suivants :
 | `asset_url` | Facultatif | Chaîne de caractères | Une URL accessible au public pour la ressource à télécharger dans Braze. |
 | `asset_file` | Facultatif | Binaire | Données de fichier binaire. |
 | `name` | Facultatif | Chaîne de caractères | Un nom qui apparaîtra dans la bibliothèque multimédia pour cette ressource. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
 
 {% alert important %}
 `asset_url` et `asset_file` sont mutuellement exclusifs : vous devez n'inclure qu'un seul d'entre eux dans votre requête API.
@@ -74,7 +74,7 @@ Cette section explique comment l'endpoint attribue des noms aux fichiers téléc
 | --- | --- |
 | `name` fourni | La valeur `name` est utilisée comme nom de la ressource dans la bibliothèque multimédia. |
 | `name` exclu | Le nom de fichier original provenant de l'URL ou du fichier téléchargé est utilisé. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" style="table-layout: fixed; width: 100%;" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Single file uploads" }
 
 #### Téléchargements de fichiers ZIP {#zip-file-uploads}
 
@@ -82,7 +82,7 @@ Cette section explique comment l'endpoint attribue des noms aux fichiers téléc
 | --- | --- |
 | `name` fourni | La valeur `name` est utilisée comme préfixe, avec un numéro incrémentiel ajouté comme suffixe (par exemple, « Mon fichier 1 », « Mon fichier 2 », « Mon fichier 3 »). |
 | `name` exclu | Chaque fichier conserve son nom d'origine tel qu'il figurait dans le fichier ZIP. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" style="table-layout: fixed; width: 100%;" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIP file uploads" }
 
 ## Exemple de requête {#example-request}
 
@@ -127,7 +127,7 @@ Ce tableau répertorie les erreurs de validation possibles.
 | 400 | "Either asset_url or asset_file must be provided." | Aucun paramètre de ressource n'a été fourni dans la requête. |
 | 400 | "Both asset_url and asset_file cannot be provided. Please provide only one." | Les deux paramètres de ressource ont été fournis ; un seul est autorisé. |
 | 403 | "Media Library Public APIs are not enabled for this company." | La fonctionnalité de bibliothèque multimédia n'est pas activée pour cet espace de travail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
 
 #### Erreurs de traitement {#processing-errors}
 
@@ -154,7 +154,7 @@ Ce tableau répertorie les erreurs de traitement possibles.
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Une entrée de fichier à l'intérieur du ZIP n'a pas de nom. Assurez-vous que le fichier ZIP n'est pas endommagé et attribuez un nom à toute entrée de fichier sans nom. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | Le fichier ZIP contient des répertoires imbriqués, qui ne sont pas pris en charge. Tous les fichiers doivent se trouver à la racine du fichier ZIP. |
 | `GENERIC_ERROR` | 500 | Une erreur imprévue s'est produite lors du téléchargement. L'objet `meta` contient le message `original_error` pour le débogage. Réessayez ou contactez l'[assistance]({{site.baseurl}}/support_contact/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
 
 
 ## Réponse {#response}

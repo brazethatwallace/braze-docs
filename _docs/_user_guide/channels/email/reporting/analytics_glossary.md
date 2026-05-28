@@ -239,7 +239,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. After seven days, another unique click can count for the same user if they click again. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. After seven days, another unique click can count for the same user if they click again. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -274,6 +274,15 @@ _Unsubscribes_ reflect the standard unsubscribe link for Braze. Custom unsubscri
     </ul>
 </span>
 {:/}
+
+#### Why *Unsubscribes* and unsubscribe-link clicks can differ
+
+On the **Analytics** page for an email campaign or Canvas, compare the *Unsubscribes* count to clicks on the Braze unsubscribe URL in the per-link breakdown when you expand **Total Clicks** or **Unique Clicks**. The two often match but can differ:
+
+- **More *Unsubscribes* than clicks on the body unsubscribe URL:** [List-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) is an additional unsubscribe path in the email header (not the link in your message body). When a user unsubscribes that way, it counts toward *Unsubscribes* but does not count as a click on the tracked unsubscribe URL in the body.
+- **More clicks on the body unsubscribe URL than *Unsubscribes*:** A user may select that link more than once. If they unsubscribe, resubscribe, and unsubscribe again, email analytics can record multiple clicks (for example, two) in the click breakdown.
+
+For more information, see [Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 {% endapi %}
 

@@ -20,12 +20,12 @@ A integração entre a Braze e a Optimizely é uma integração bidirecional que
 
 ## Pré-requisitos {#prerequisites}
 
-| Requisito                        | Descrição |
+| Requisito | Descrição |
 |----------------------------------|-------------|
 | Conta da Optimizely Data Platform | É necessário ter uma conta na Optimizely Data Platform (ODP) para aproveitar essa parceria. |
-| Chave da API REST da Braze        | Uma chave da API REST da Braze com as seguintes permissões: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` e `canvas.trigger.send`. |
-| Currents                         | Para exportar dados de volta para a Optimizely, você precisa ter o Braze Currents configurado para sua conta. |
-| URL e token da Optimizely        | Isso pode ser obtido acessando seu dashboard da Optimizely e copiando a URL de ingestão e o token. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` e `canvas.trigger.send`. |
+| Currents | Para exportar dados de volta para a Optimizely, você precisa ter o Braze Currents configurado para sua conta. |
+| URL e token da Optimizely | Isso pode ser obtido acessando seu dashboard da Optimizely e copiando a URL de ingestão e o token. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integração {#integration}

@@ -105,7 +105,7 @@ Na guia **Redigir** de cada etapa de Atualização de usuário, faça o seguinte
 | **Nome do atributo** | Selecione o atributo de pontuação de leads que você selecionou na etapa 2 (`lead score`). |
 | **Ação** | Altere a ação para **Incrementar por** se a jornada aumentar a pontuação ou **Decrementar por** se a jornada diminuir a pontuação. |
 | **Incrementar por** ou **Decrementar por** | Insira o número de pontos que serão aumentados ou diminuídos da pontuação de leads. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4d: Add User Update steps" }
 
 ### Etapa 5: Lance seu Canvas {#step-5-launch-your-canvas}
 

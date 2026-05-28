@@ -32,7 +32,7 @@ Na Braze, esses quatro objetos são combinados e reduzidos a dois: perfis de usu
 | --- | --- | --- |
 | Perfis de usuário | Mapeiam diretamente para leads e contatos no seu sistema CRM de vendas. Como os leads são capturados pela Braze, eles são automaticamente criados como leads no seu sistema CRM de vendas. Quando são convertidos em contatos, os IDs e os detalhes dos contatos são sincronizados de volta para a Braze. | Leads<br> Contatos |
 | Objetos de negócios | Mapeiam qualquer objeto que não seja de usuário no seu sistema CRM de vendas. Isso inclui objetos específicos de vendas, como objetos de conta e objetos de oportunidade. | Contas<br> Oportunidades |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
 
 ## Etapa 1: Crie seus objetos de negócios na Braze {#step-1-create-your-business-objects-in-braze}
 
@@ -64,7 +64,7 @@ As tabelas abaixo incluem alguns exemplos de campos que você pode mapear a part
 
 Neste caso de uso, o Salesforce é o sistema CRM de exemplo. Você pode mapear qualquer campo incluído nos objetos do seu CRM.
 
-<table border="1">
+<table aria-label="Map over your CRM fields" border="1">
   <caption>Mapeie seus campos de CRM</caption>
   <tr>
     <th><b>Objeto da Braze</b></th>
@@ -104,7 +104,7 @@ Neste caso de uso, o Salesforce é o sistema CRM de exemplo. Você pode mapear q
 
 Neste caso de uso, o Salesforce é o sistema CRM de exemplo. Você pode mapear qualquer campo incluído nos objetos do seu CRM.
 
-<table border="1">
+<table aria-label="Example table of mapped account fields" border="1">
   <caption>Exemplo de tabela de campos de conta mapeados</caption>
   <tr>
     <th><b>Objeto da Braze</b></th>

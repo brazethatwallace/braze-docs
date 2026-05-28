@@ -25,10 +25,10 @@ Além disso, as Geo APIs da Radar podem ser usadas para enriquecer ou personaliz
 | Requisito | Descrição |
 |---|---|
 | Conta Radar | Uma conta Radar é necessária para aproveitar esta parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Identificador do app | Seu [identificador do app]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) pode ser encontrado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Chave de API do iOS<br>Chave de API do Android | Essas chaves de API podem ser encontradas no dashboard da Braze em **Configurações** > **Configurações do app**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração {#integration}
 
@@ -72,9 +72,9 @@ Por exemplo, direcione qualquer usuário que tenha visitado sua loja nos último
 
 O exemplo a seguir mostra como executar uma promoção para atrair usuários próximos à loja com uma oferta digital.
 
-![Uma imagem do Android de uma mensagem por push de Conteúdo conectado que exibe "New In Store Deals, Walmart and target near you".]({% image_buster /assets/img/radar_example.png %}){: style="float:right;max-width:30%;border:0;"}
+![Uma imagem do Android de uma mensagem por push de Conteúdo conectado que exibe "New In Store Deals, Walmart and Target near you".]({% image_buster /assets/img/radar_example.png %}){: style="float:right;max-width:30%;border:0;"}
 
-Para começar, você precisará ter sua chave de API publicável da Radar em mãos para usar nos URLs de suas solicitações.
+Para começar, você precisará ter sua chave de API publicável da Radar em mãos para usar nas URLs de suas solicitações.
 
 Em seguida, dentro de uma tag `connected_content`, faça uma solicitação GET para a [API Search Places](https://radar.com/documentation/api#search-places). A API Search Places retorna locais próximos com base em [Radar Places](https://radar.com/documentation/places): um banco de dados de locais para lugares, redes e categorias que fornece uma visão abrangente do mundo.
 

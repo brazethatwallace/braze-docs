@@ -138,14 +138,14 @@ Les choix sélectionnés seront automatiquement transmis à Currents, sous le ch
 
 Pour configurer cela, utilisez un sondage à choix unique avec cinq options allant de « 😡 Très insatisfait » à « 😍 Très satisfait ». Chaque choix est associé à l'attribut personnalisé `customer_satisfaction`, avec une valeur numérique de 1 à 5, où 1 indique le moins satisfait et 5 le plus satisfait. Notez que ces valeurs numériques sont stockées sous forme de chaînes de caractères, car les attributs personnalisés de type chaîne de caractères sont requis pour la sélection à choix unique.
 
-| Choix                                       | Attribut               | Valeur |
-|---------------------------------------------|------------------------|--------|
-| 😡 Très insatisfait                         | `customer_satisfaction` | 1      |
-| 😟 Insatisfait                              | `customer_satisfaction` | 2      |
-| 🙂 Ni satisfait ni insatisfait              | `customer_satisfaction` | 3      |
-| 😊 Satisfait                                | `customer_satisfaction` | 4      |
-| 😍 Très satisfait                           | `customer_satisfaction` | 5      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Choix | Attribut | Valeur |
+|-------|----------|--------|
+| 😡 Très insatisfait | `customer_satisfaction` | 1 |
+| 😟 Insatisfait | `customer_satisfaction` | 2 |
+| 🙂 Ni satisfait ni insatisfait | `customer_satisfaction` | 3 |
+| 😊 Satisfait | `customer_satisfaction` | 4 |
+| 😍 Très satisfait | `customer_satisfaction` | 5 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Satisfaction des utilisateurs" }
 
 Lorsqu'un utilisateur soumet le sondage, la valeur sélectionnée est enregistrée comme attribut personnalisé. Vous pouvez ensuite créer des campagnes de suivi à l'aide de filtres d'audience. Par exemple, ciblez des messages de reconquête vers les utilisateurs dont l'attribut `customer_satisfaction` est « 1 » ou « 2 ».
 
@@ -158,14 +158,14 @@ Lorsqu'un utilisateur soumet le sondage, la valeur sélectionnée est enregistr�
 
 Pour configurer cela, utilisez un sondage à choix multiples où chaque choix représente un sujet de notification. Au lieu d'attribuer le même attribut avec des valeurs différentes, chaque choix est associé à un attribut booléen distinct qui reflète l'intérêt de l'utilisateur pour ce sujet. Si un utilisateur sélectionne un choix, l'attribut correspondant est défini sur `true`. S'il n'est pas sélectionné, l'attribut reste inchangé.
 
-| Choix                  | Attribut                | Valeur |
-|------------------------|-------------------------|--------|
-| Mises à jour produit   | `wants_product_updates` | `true` |
-| Promotions             | `wants_promotions`      | `true` |
-| Invitations événements | `wants_event_invites`   | `true` |
-| Sondages et retours    | `wants_surveys`         | `true` |
-| Conseils et tutoriels  | `wants_tips`            | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Choix | Attribut | Valeur |
+|-------|----------|--------|
+| Mises à jour produit | `wants_product_updates` | `true` |
+| Promotions | `wants_promotions` | `true` |
+| Invitations événements | `wants_event_invites` | `true` |
+| Sondages et retours | `wants_surveys` | `true` |
+| Conseils et tutoriels | `wants_tips` | `true` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Préférences de notification" }
 
 {% endtab %}
 {% tab Identifier les objectifs des clients %}
@@ -176,14 +176,14 @@ Pour configurer cela, utilisez un sondage à choix multiples où chaque choix re
 
 Pour configurer cela, utilisez un sondage à choix unique avec chaque option représentant un objectif ou une intention courante. Chaque choix est associé à l'attribut personnalisé `product_goal` avec une valeur correspondant à l'intention sélectionnée par l'utilisateur.
 
-| Choix                       | Attribut         | Valeur     |
-|-----------------------------|------------------|------------|
-| Vérifier un statut          | `product_goal`   | `status`   |
-| Mettre à niveau mon compte  | `product_goal`   | `upgrade`  |
-| Planifier un rendez-vous    | `product_goal`   | `schedule` |
-| Assistance client           | `product_goal`   | `support`  |
-| Simple navigation           | `product_goal`   | `browse`   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Choix | Attribut | Valeur |
+|-------|----------|--------|
+| Vérifier un statut | `product_goal` | `status` |
+| Mettre à niveau mon compte | `product_goal` | `upgrade` |
+| Planifier un rendez-vous | `product_goal` | `schedule` |
+| Assistance client | `product_goal` | `support` |
+| Simple navigation | `product_goal` | `browse` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier les objectifs des clients" }
 
 Lorsqu'un utilisateur soumet le sondage, la valeur sélectionnée est enregistrée comme attribut personnalisé dans son profil. Vous pouvez ensuite utiliser ces données pour personnaliser les expériences futures ou segmenter les utilisateurs en fonction de leur objectif principal.
 
@@ -196,14 +196,14 @@ Lorsqu'un utilisateur soumet le sondage, la valeur sélectionnée est enregistr�
 
 Pour configurer cela, utilisez un sondage à choix unique avec chaque option représentant un obstacle courant à la mise à niveau. Chaque choix est associé à l'attribut personnalisé `upgrade_reason` avec une valeur correspondante qui reflète la sélection de l'utilisateur.
 
-| Choix                    | Attribut         | Valeur       |
-|--------------------------|------------------|--------------|
-| Trop cher                | `upgrade_reason` | `expensive`  |
-| Pas assez de valeur      | `upgrade_reason` | `value`      |
-| Difficile à utiliser     | `upgrade_reason` | `difficult`  |
-| Utilise un concurrent    | `upgrade_reason` | `competitor` |
-| Autre raison             | `upgrade_reason` | `other`      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Choix | Attribut | Valeur |
+|-------|----------|--------|
+| Trop cher | `upgrade_reason` | `expensive` |
+| Pas assez de valeur | `upgrade_reason` | `value` |
+| Difficile à utiliser | `upgrade_reason` | `difficult` |
+| Utilise un concurrent | `upgrade_reason` | `competitor` |
+| Autre raison | `upgrade_reason` | `other` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Améliorer les taux de conversion" }
 
 Lorsqu'un utilisateur soumet le sondage, la valeur sélectionnée est enregistrée dans son profil. Vous pouvez ensuite cibler ces utilisateurs avec des campagnes adaptées à leur objection spécifique, comme des offres de réduction ou des améliorations de l'ergonomie.
 
@@ -216,16 +216,16 @@ Lorsqu'un utilisateur soumet le sondage, la valeur sélectionnée est enregistr�
 
 Pour configurer cela, utilisez un sondage à choix multiples où chaque option représente une fonctionnalité de votre application. Chaque choix est associé à l'attribut personnalisé `favorite_features`, et lorsque l'utilisateur soumet le sondage, l'attribut est défini sur un tableau des valeurs sélectionnées.
 
-| Choix               | Attribut            | Valeur       |
-|---------------------|---------------------|--------------|
-| Favoris             | `favorite_features` | `bookmarks`  |
-| Application mobile  | `favorite_features` | `mobile`     |
-| Partage de posts    | `favorite_features` | `sharing`    |
-| Assistance client   | `favorite_features` | `support`    |
-| Personnalisation    | `favorite_features` | `custom`     |
-| Prix / Valeur       | `favorite_features` | `value`      |
-| Communauté          | `favorite_features` | `community`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Choix | Attribut | Valeur |
+|-------|----------|--------|
+| Favoris | `favorite_features` | `bookmarks` |
+| Application mobile | `favorite_features` | `mobile` |
+| Partage de posts | `favorite_features` | `sharing` |
+| Assistance client | `favorite_features` | `support` |
+| Personnalisation | `favorite_features` | `custom` |
+| Prix / Valeur | `favorite_features` | `value` |
+| Communauté | `favorite_features` | `community` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fonctionnalités préférées" }
 
 Comme ce sondage utilise la sélection à choix multiples, le profil de l'utilisateur sera mis à jour avec une liste de toutes les valeurs de fonctionnalités sélectionnées.
 

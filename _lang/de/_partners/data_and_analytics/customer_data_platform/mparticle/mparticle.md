@@ -15,7 +15,7 @@ search_tag: Partner
 > Mit der Customer Data Platform von mParticle können Sie mehr aus Ihren Daten machen. Anspruchsvolle Marketer nutzen mParticle zur Orchestrierung von Daten in ihrem gesamten Growth Stack, um in den entscheidenden Momenten der Customer Journey zu überzeugen.
 
 Die Integration von Braze und mParticle erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen nahtlos zu steuern:
-- Synchronisieren Sie mParticle-Zielgruppen mit Braze für die Segmentierung von Kampagnen und Canvas.
+- Synchronisieren Sie mParticle-Zielgruppen mit Braze für die Segmentierung von Campaigns und Canvas.
 - Teilen Sie Daten zwischen den beiden Plattformen. Dies kann über die mParticle-Kit-Integration und die Server-zu-Server-Integration erfolgen.
 - [Senden Sie Braze-Nutzerinteraktionen über Currents an mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/) und machen Sie sie im gesamten Growth Stack nutzbar.
 
@@ -27,7 +27,7 @@ Die Integration von Braze und mParticle erlaubt es Ihnen, den Informationsfluss 
 | Braze-Instanz | Ihre Braze-Instanz finden Sie auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) (z. B. `US-01` oder `US-02`). |
 | Braze-App-Bezeichner-Schlüssel | Ihr App-Bezeichner-Schlüssel. <br><br>Diesen finden Sie im Braze-Dashboard unter **Einstellungen verwalten** > **API-Schlüssel**. |
 | Workspace-REST-API-Schlüssel | (Server-zu-Server) Ein Braze-REST-API-Schlüssel<br><br>Dieser kann im Braze-Dashboard unter **Entwicklungskonsole** > **API-Einstellungen** > **API-Schlüssel** erstellt werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -104,14 +104,14 @@ So erstellen Sie eine Zielgruppe in mParticle:
 
 | Feldname | Beschreibung |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API key | Zu finden im Braze-Dashboard unter **Settings** > **API Keys**.<br><br>Wenn Sie die ältere Navigation verwenden, finden Sie API-Schlüssel unter **Developer Console** > **API Settings**. |
+| API key | Zu finden im Braze-Dashboard unter **Settings** > **API Keys**. |
 | API key operating system | Wählen Sie aus, welchem Betriebssystem Ihr Braze-API-Schlüssel entspricht. Diese Auswahl begrenzt die Arten von Push-Token, die bei einem Zielgruppen-Update weitergeleitet werden. |
 | Send segments as | Die Methode zum Senden von Zielgruppen an Braze. Weitere Details finden Sie im Abschnitt [Weiterleitung von Zielgruppen](#forwarding-audiences). |
 | Workspace REST API key | Braze-REST-API-Schlüssel mit vollständigen Berechtigungen. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | External identity type | Der mParticle-Nutzeridentitätstyp, der als externe ID an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „Customer ID“ beizubehalten. |
 | Email identity type | Der mParticle-Nutzeridentitätstyp, der als E-Mail an Braze weitergeleitet wird. |
 | Braze instance | Geben Sie an, an welchen Cluster Ihre Braze-Daten weitergeleitet werden sollen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1: Erstellen Sie eine Zielgruppe in mParticle" }
 
 {:start="3"}
 3. Abschließend **speichern** Sie Ihre Zielgruppe.
@@ -125,7 +125,7 @@ Um in Braze ein Segment dieser Nutzer:innen zu erstellen, navigieren Sie zu **Se
 - **Einzelnes Array-Attribut:** Wählen Sie `SegmentMembershipArray` als Ihren Filter. Verwenden Sie dann die Option „includes value“ und geben Sie Ihre gewünschte Zielgruppen-ID ein. ![mParticle-Segmentfilter „SegmentMembershipArray“ eingestellt auf „includes value“ und Zielgruppen-ID.]({% image_buster /assets/img_archive/mparticle5.png %})<br><br>
 - **Ein Attribut pro Segment:** Wählen Sie Ihr angepasstes Attribut als Filter. Verwenden Sie dann die Option „equals“ und wählen Sie die entsprechende Logik. ![mParticle-Segmentfilter „in possible parisians“ eingestellt auf „equals“ und „true“.]({% image_buster /assets/img_archive/mparticle3.png %})
 
-Nach dem Speichern können Sie dieses Segment bei der Erstellung von Canvas oder Kampagnen im Schritt zur Nutzer-Zielgruppenauswahl referenzieren.
+Nach dem Speichern können Sie dieses Segment bei der Erstellung von Canvas oder Campaigns im Schritt zur Nutzer-Zielgruppenauswahl referenzieren.
 
 #### Deaktivieren und Löschen von Verbindungen {#deactivating-and-deleting-connections}
 
@@ -150,7 +150,7 @@ Navigieren Sie in mParticle zu **Setup > Outputs > Add Outputs** und wählen Sie
 | Email identity type | Der mParticle-Nutzeridentitätstyp, der als E-Mail an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „Email“ beizubehalten. |
 | Braze instance | Der Cluster, an den Ihre Braze-Daten weitergeleitet werden; dieser sollte derselbe Cluster sein, auf dem sich Ihr Dashboard befindet. |
 | Enable event stream forwarding | (Server-zu-Server) Wenn aktiviert, werden alle Events in Echtzeit weitergeleitet. Andernfalls werden alle Events in Batches weitergeleitet. Wenn Sie die Event-Stream-Weiterleitung aktivieren, stellen Sie sicher, dass die Daten, die Sie an Braze senden, die [Rate-Limits]({{site.baseurl}}/api/api_limits/) einhalten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Konfigurieren Sie Ihre Braze-Ausgabeeinstellungen" }
 
 ![]({% image_buster /assets/img_archive/configure_settings.png %})
 
@@ -221,7 +221,7 @@ Nicht alle Datentypen werden zwischen beiden Plattformen unterstützt.
 Braze unterstützt keine Zeitstempel vor dem Jahr 0 oder nach dem Jahr 3000 in angepassten Attributen vom Typ `Time`. Braze nimmt diese Werte auf, wenn sie von mParticle gesendet werden, aber der Wert wird als String gespeichert.
 {% endalert %}
 
-#### Daten-Mapping {#data-mapping}
+#### Daten-Mapping
 
 | mParticle-Datentyp | Braze-Datentyp | Beschreibung |
 | ------------------- | --------------- | ----------- |
@@ -230,7 +230,7 @@ Braze unterstützt keine Zeitstempel vor dem Jahr 0 oder nach dem Jahr 3000 in a
 | Angepasstes Event | Angepasstes Event | Angepasste mParticle-Events werden von Braze als angepasstes Event erkannt. Event-Attribute werden als angepasste Event-Eigenschaften weitergeleitet.<br><br>Event-Attribute, die als Event-Eigenschaften an Braze übergeben werden, unterstützen String-, numerische, boolesche oder Datumsobjekte, aber keine Arrays oder verschachtelten Objekte. |
 | Kauf-Commerce-Event | Kauf-Event | Kauf-Commerce-Events werden Braze-Kauf-Events zugeordnet. <br><br>Schalten Sie den Einstellungswert für „Bundle Commerce Event Data“ um, um Käufe auf Bestell- oder Produktebene zu protokollieren. Wenn beispielsweise `false`, würde ein einzelnes eingehendes Event mit zwei einzigartigen Produkten, Aktionen oder Impressionen zu mindestens zwei ausgehenden Braze-Events führen. Bei `true` würde es zu einem einzelnen ausgehenden Event mit einem verschachtelten Array für Produkte, Aktionen bzw. Impressionen führen.<br><br>Weitere Informationen zu den zusätzlichen Commerce-Feldern, die protokolliert werden, finden Sie in der [mParticle-Dokumentation](https://docs.mparticle.com/integrations/braze/event/#purchase-events). <br><br>Wenn „Bundle Commerce Event Data“ auf `false` gesetzt ist, unterstützen Produktattribute, die als Kauf-Event-Eigenschaften an Braze übergeben werden, String-, numerische, boolesche oder Datumsobjekte, aber keine Arrays oder verschachtelten Objekte. |
 | Alle anderen Commerce-Events | Angepasstes Event | Alle anderen Commerce-Events werden angepassten Events zugeordnet. <br><br>Schalten Sie den Einstellungswert für „Bundle Commerce Event Data“ um, um Käufe auf Bestell- oder Produktebene zu protokollieren. Wenn beispielsweise `false`, würde ein einzelnes eingehendes Event mit zwei einzigartigen Produkten, Aktionen oder Impressionen zu mindestens zwei ausgehenden Braze-Events führen. Bei `true` würde es zu einem einzelnen ausgehenden Event mit einem verschachtelten Array für Produkte, Aktionen bzw. Impressionen führen.<br><br>Zusätzlich zu bestimmten Standard-Commerce-Werten werden Produktattribute als Braze-Event-Eigenschaften protokolliert. Weitere Informationen zu den zusätzlichen Commerce-Feldern, die protokolliert werden, finden Sie in der [mParticle-Dokumentation](https://docs.mparticle.com/integrations/braze/event/#other-commerce-events).<br><br>Wenn „Bundle Commerce Event Data“ auf `false` gesetzt ist, unterstützen Produktattribute, die als Event-Eigenschaften an Braze übergeben werden, String-, numerische, boolesche oder Datumsobjekte, aber keine Arrays oder verschachtelten Objekte. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Daten-Mapping" }
 
 #### Nutzeridentitäts-Mapping {#user-identity-mapping}
 Für jede mParticle-Ausgabe können Sie den externen Identitätstyp auswählen, der als `external_id` an Braze gesendet wird. Der Standardwert ist „Customer ID“, Sie können jedoch auch eine andere ID, wie z. B. `MPID`, wählen, um sie als `external_id` an Braze zu senden. Beachten Sie, dass die Wahl eines anderen Bezeichners als der Customer ID beeinflussen kann, wie Daten in Braze gesendet werden.

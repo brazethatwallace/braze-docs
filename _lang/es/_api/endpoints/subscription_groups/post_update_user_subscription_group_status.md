@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "En este artículo se describen los detalles del punto de conexión Actualizar el estado del grupo de suscripción del usuario de Braze."
 ---
+
 {% api %}
 # Actualizar el estado del grupo de suscripción del usuario {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 {% alert note %}
 Si te interesa utilizar este punto de conexión con [grupos de suscripción de LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), ponte en contacto con tu administrador del éxito del cliente.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Límite de velocidad {#rate-limit}
 
@@ -97,7 +100,7 @@ Esta propiedad no debe utilizarse para actualizar la información del perfil de 
 | `email` | Obligatorio* | Cadena o matriz de cadenas | La dirección de correo electrónico del usuario, se puede pasar como una matriz de cadenas. Debe incluir al menos una dirección de correo electrónico (con un máximo de 50). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten la misma dirección de correo electrónico, Braze actualiza a todos los usuarios que comparten la dirección de correo electrónico con los cambios del grupo de suscripción. |
 | `phone` | Obligatorio* | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | El número de teléfono del usuario, puede pasarse como una matriz de cadenas. Debe incluir al menos un número de teléfono (hasta 50). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten el mismo número de teléfono, Braze actualiza a todos los usuarios que comparten el número de teléfono con los mismos cambios de grupo de suscripción. |
 | `use_double_opt_in_logic` | Opcional | Booleano | Se aplica solo a grupos de suscripción SMS; se ignora para correo electrónico y otros tipos de grupos de suscripción. El valor predeterminado es `false` si se omite. Para grupos de suscripción SMS, establécelo en `true` para que el usuario entre en el flujo de trabajo de [doble adhesión voluntaria de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) cuando su estado de suscripción se establezca en `subscribed`. Los usuarios que entran en el flujo de trabajo de doble adhesión voluntaria de esta manera reciben como máximo un mensaje de respuesta de adhesión voluntaria por día, independientemente del número de veces que entren en el flujo de trabajo. Si este parámetro se omite o se establece en `false`, los usuarios se suscriben sin entrar en el flujo de trabajo de doble adhesión voluntaria. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplos de solicitudes {#example-requests}
 

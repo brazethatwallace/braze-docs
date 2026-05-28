@@ -42,7 +42,7 @@ Votre URL doit correspondre à l'[endpoint du SDK API]({{site.baseurl}}/user_gui
 | URL | Information |
 |---|-----------|
 | `connect-src https://sdk.iad-01.braze.com` | Permet au SDK de communiquer avec les API de Braze. Modifiez cette URL pour qu'elle corresponde à l'[endpoint du SDK API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) de l'option d'initialisation `baseUrl` que vous avez choisie. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src #connect-src" }
 
 ### `script-src` {#script-src}
 
@@ -51,14 +51,14 @@ Votre URL doit correspondre à l'[endpoint du SDK API]({{site.baseurl}}/user_gui
 | `script-src https://js.appboycdn.com` | Requis lors de l'utilisation de l'intégration hébergée par le réseau de diffusion de contenu. |
 | `script-src 'unsafe-eval'` | Requis lors de l'utilisation de l'extrait de code d'intégration qui contient une référence à `appboyQueue`. Pour éviter d'utiliser cette directive, [intégrez le SDK à l'aide de NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager). |
 | `script-src 'nonce-...'`<br>ou<br>`script-src 'unsafe-inline'` | Requis pour certains messages in-app, tels que le HTML personnalisé. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 
 ### `img-src` {#img-src}
 
 | URL | Information |
 |---|-----------|
 | `img-src: appboy-images.com braze-images.com cdn.braze.eu` | Requis lors de l'utilisation d'images hébergées par le réseau de diffusion de contenu de Braze. Les noms d'hôte peuvent varier en fonction du cluster du tableau de bord.<br><br>**Important :** Si vous utilisez des polices personnalisées, vous devez également inclure `font-src`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="img-src #img-src" }
 
 ## Font Awesome {#font-awesome}
 

@@ -61,7 +61,7 @@ Comienza eligiendo qué plataformas deben recibir el mensaje. Usa esta selecció
 | Mobile Apps                     | SDK de iOS, Android y Vega |
 | Web Browsers                    | SDK web                      |
 | Both Mobile Apps & Web Browsers | SDK de iOS, Android, Vega y web |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Especifica las plataformas de entrega" }
 
 ## Paso 3: Especifica tus tipos de mensaje {#step-3-specify-your-message-types}
 
@@ -84,7 +84,7 @@ Estos mensajes dentro de la aplicación son aceptados tanto por aplicaciones mó
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Tipos de mensaje" class="tg">
   <caption>Tipos de mensaje</caption>
 <thead>
   <tr>
@@ -134,7 +134,7 @@ Estos mensajes dentro de la aplicación son aceptados tanto por aplicaciones mó
 
 Estos mensajes dentro de la aplicación son personalizables según tus necesidades.
 
-<table class="tg">
+<table aria-label="Tipos de mensaje avanzados" class="tg">
   <caption>Tipos de mensaje avanzados</caption>
 <thead>
   <tr>
@@ -241,7 +241,7 @@ Cuando tu cliente hace clic en un botón de tu mensaje dentro de la aplicación,
 | Registrar evento personalizado | Elige un [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) para desencadenar. Se puede usar para mostrar otro mensaje dentro de la aplicación o desencadenar mensajería adicional. |
 | Registrar atributo personalizado | Elige un [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) para establecer para el usuario actual. |
 | Solicitar permiso push | Muestra el permiso push nativo. Lee más sobre [preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/), así como las [mejores prácticas]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) para preparar a los usuarios para push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamiento al hacer clic" }
 
 Nota: las opciones __Solicitar permiso push__, __Registrar evento personalizado__ y __Registrar atributo personalizado__ requieren las siguientes versiones mínimas del SDK:
 
@@ -287,7 +287,7 @@ El contenido de la pestaña **Style** varía según las opciones de mensaje eleg
 | Color de fondo | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. Este es el fondo de todo el mensaje y se mostrará claramente detrás del cuerpo de texto. |
 | Superposición de pantalla | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. Solo disponible para versiones más recientes del SDK de Braze. Este es el marco alrededor de todo el mensaje. |
 | Chevron u otra opción de cierre de mensaje | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 5: Dale estilo a tu mensaje dentro de la aplicación" }
 
 Siempre [previsualiza y prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) tu mensaje antes de enviarlo.
 

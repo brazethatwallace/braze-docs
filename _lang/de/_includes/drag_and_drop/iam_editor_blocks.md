@@ -63,7 +63,7 @@ Fügt angepasstes HTML, CSS oder JavaScript für erweiterte Anpassungen ein.
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Angepasster Code | Ermöglicht es Ihnen, HTML, CSS und JavaScript für eine In-App-Nachricht hinzuzufügen, zu bearbeiten oder zu löschen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasster Code" }
 
 ### Telefonerfassung {#phone-capture}
 

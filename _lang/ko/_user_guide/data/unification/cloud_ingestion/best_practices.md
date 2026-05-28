@@ -12,7 +12,7 @@ description: "이 페이지에서는 클라우드 데이터 수집, 모범 사�
 
 > Braze 클라우드 데이터 수집을 사용하면 데이터 웨어하우스 또는 파일 저장 시스템에서 Braze로 직접 연결을 설정하여 관련 사용자 또는 카탈로그 데이터를 동기화할 수 있습니다. 이 데이터를 Braze에 동기화하면 개인화, 트리거 또는 세분화와 같은 사용 사례에 활용할 수 있습니다.
 
-## `UPDATED_AT` 열 이해하기 {#understanding-the-updatedat-column}
+## `UPDATED_AT` 열 이해하기 {#understanding-the-updated_at-column}
 
 {% alert note %}
 `UPDATED_AT`는 S3 동기화가 아닌 데이터 웨어하우스 통합에만 관련이 있습니다.
@@ -286,7 +286,7 @@ CDI는 마지막으로 동기화된 `UPDATED_AT` 값의 행 수를 추적합니�
 `UPDATED_AT` 값은 주어진 동기화의 실행 시작 시간보다 더 늦을 수도 있습니다. 그러나 이렇게 하면 마지막 `UPDATED_AT` 타임스탬프가 "미래로" 밀려나 이후 동기화에서 이전 값을 동기화하지 못하게 되므로 권장하지 않습니다.
 {% endalert %}
 
-## `UPDATED_AT` 열에 UTC 타임스탬프 사용 {#use-a-utc-timestamp-for-the-updatedat-column}
+## `UPDATED_AT` 열에 UTC 타임스탬프 사용 {#use-a-utc-timestamp-for-the-updated_at-column}
 
 `UPDATED_AT` 열은 일광 절약 시간 문제를 방지하기 위해 UTC로 설정해야 합니다. 가능한 경우 `CURRENT_DATE()` 대신 `SYSDATE()`와 같은 UTC 전용 함수를 사용하세요.
 
@@ -313,8 +313,8 @@ CDI는 마지막으로 동기화된 `UPDATED_AT` 타임스탬프의 행 수를 �
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
-  <caption>예시: 후속 업데이트 관리</caption>
+<table aria-label="Example: Managing subsequent updates">
+  <caption>Example: Managing subsequent updates</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -421,8 +421,8 @@ FROM EXAMPLE_DATA;
 
 동기화가 실행되고 Braze는 사용 가능한 모든 데이터를 "2023-03-16 15:00:00"까지 동기화했다고 기록합니다. 그런 다음, 2일째 아침에 ETL이 실행되고 사용자 테이블의 일부 필드가 업데이트됩니다(강조 표시됨):
 
-<table>
-  <caption>예시: 후속 업데이트 관리</caption>
+<table aria-label="Example: Managing subsequent updates">
+  <caption>Example: Managing subsequent updates</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -545,7 +545,7 @@ CDI는 새 행만 동기화하므로 다음 동기화가 실행되면 마지막 
 
 CDI를 사용하는 데이터 포인트 사용량은 REST API나 SDK와 같은 다른 수집 방법과 동일하므로, 소스 테이블에 새로운 속성이나 업데이트된 속성만 추가하고 있는지 확인하는 것은 여러분의 몫입니다.
 
-### `EXTERNAL_ID` 열과 `PAYLOAD` 열을 분리 {#separate-externalid-from-payload-column}
+### `EXTERNAL_ID` 열과 `PAYLOAD` 열을 분리 {#separate-external_id-from-payload-column}
 
 `PAYLOAD` 오브젝트에는 외부 ID 또는 다른 ID 유형이 포함되어서는 안 됩니다.
 
@@ -685,7 +685,7 @@ FROM [braze].[users] ;
 
 {% endtabs %}
 
-### `UPDATED_AT` 타임스탬프 사용 {#use-the-updatedat-timestamp}
+### `UPDATED_AT` 타임스탬프 사용 {#use-the-updated_at-timestamp}
 
 Braze는 `UPDATED_AT` 타임스탬프를 사용하여 어떤 데이터가 성공적으로 동기화되었는지 추적합니다. CDI는 마지막으로 동기화된 타임스탬프의 행 수도 추적합니다. 실행 사이에 동일한 타임스탬프로 새 행이 추가되면 CDI는 해당 타임스탬프의 모든 행을 다시 동기화하여 중복 데이터가 발생할 수 있습니다. 자세한 내용과 팁은 [중복 타임스탬프가 있는 행의 재동기화 방지](#avoid-resyncing-rows-with-duplicate-timestamps)를 참조하세요.
 

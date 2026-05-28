@@ -76,7 +76,7 @@ send_date_sydney;
 
 더 긴 기간 동안 쿼리 사용을 감사하거나 7일 이후의 기록을 유지해야 하는 경우, 만료되기 전에 중요한 쿼리 결과를 내보내거나 저장하는 것을 권장합니다.
 
-## AI 쿼리 빌더로 SQL 생성하기 {#ai-query-builder}
+## AI 쿼리 빌더로 SQL 생성하기 {#generating-sql-with-the-ai-query-builder}
 
 AI 쿼리 빌더는 OpenAI가 제공하는 [GPT](https://openai.com/gpt-4)를 활용하여 쿼리에 대한 SQL을 추천합니다.
 
@@ -215,7 +215,7 @@ LIMIT 100
 | 시작 날짜 | 시작 날짜를 지정합니다 | `start_date` 필요 |
 | 종료 날짜 | 종료 날짜를 지정합니다 | `end_date` 필요 |
 | 날짜 범위 | 시작 날짜와 종료 날짜를 모두 지정합니다 | `start_date`와 `end_date` 모두 필요 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="예시 값" }
 
 - **대체 값:** `start_date`와 `end_date`를 UTC 기준 지정된 날짜의 Unix 타임스탬프(초 단위)로 대체합니다(예: `1696517353`).
 - **사용 예시:** 상대적, 시작 날짜, 종료 날짜 및 날짜 범위 변수 모두에 대해:

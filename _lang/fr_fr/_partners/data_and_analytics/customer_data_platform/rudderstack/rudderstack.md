@@ -1,6 +1,6 @@
 ---
-nav_title: RudderStack
-article_title: RudderStack
+nav_title: Rudderstack
+article_title: Rudderstack
 description: "Cet article présente le partenariat entre Braze et RudderStack, une infrastructure de données client open-source offrant une intégration fluide de Braze pour vos applications Android, iOS et web. Avec RudderStack, vous pouvez envoyer vos données d'événements client in-app directement à Braze pour une analyse contextuelle."
 page_type: partner
 search_tag: Partner
@@ -22,7 +22,7 @@ L'intégration entre Braze et RudderStack offre une intégration SDK native pour
 | Clé API REST de Braze | Une clé API REST de Braze avec les autorisations `users.track`, `users.identify`, `users.delete` et `users.alias.new`.<br><br>Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Clé d'application Braze | Pour obtenir votre clé d'application dans le tableau de bord de Braze, accédez à **Paramètres** > **Paramètres des applications** > **Identification** et trouvez le nom de votre application. Enregistrez la chaîne de caractères de l'identifiant associé.
 | Centre de données | Votre centre de données correspond à votre [instance]({{site.baseurl}}/api/basics/#endpoints) du tableau de bord de Braze.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Intégration {#integration}
 
@@ -158,7 +158,7 @@ La [méthode `alias`](https://www.rudderstack.com/docs/destinations/streaming-de
 
 ## Envoyer les traits utilisateur sous forme d'attributs personnalisés imbriqués {#send-user-traits-as-nested-custom-attributes}
 
-Vous pouvez envoyer les traits utilisateur à Braze sous forme d'attributs personnalisés imbriqués et effectuer des opérations d'ajout, de mise à jour et de suppression sur ces traits. Pour ce faire, activez le paramètre « Use Custom Attributes Operation » dans RudderStack lors de la configuration de la destination Braze. Cette fonctionnalité n'est disponible qu'en mode cloud.
+Vous pouvez envoyer les traits utilisateur à Braze sous forme d'attributs personnalisés imbriqués et effectuer des opérations d'ajout, de mise à jour et de suppression sur ces traits. Pour ce faire, activez le paramètre « Use Custom Attributes Operation dashboard » dans RudderStack lors de la configuration de la destination Braze. Cette fonctionnalité n'est disponible qu'en mode cloud.
 
 Vous pouvez envoyer les traits utilisateur sous forme d'attributs personnalisés imbriqués dans vos événements `identify` au format suivant :
 ```javascript

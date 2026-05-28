@@ -3,15 +3,19 @@ nav_title: アーカイブ
 article_title: アーカイブ
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、CampaignやCanvasesをアーカイブする方法について説明しています。"
+description: "このリファレンス記事では、CampaignsやCanvasesをアーカイブする方法について説明しています。"
 tool:
     - Campaigns
     - Canvas
 ---
 
-# CampaignとCanvasesのアーカイブ {#archive-campaigns-and-canvases}
+# CampaignsとCanvasesのアーカイブ {#archive-campaigns-and-canvases}
 
-> CampaignやCanvasesをアーカイブすることは、ワークスペースを整理するためのシンプルで効果的な方法です。メッセージの作成を続けていく中で、アーカイブを活用することで、アクティブで関連性の高いメッセージング活動に集中できるようになります。
+> CampaignsやCanvasesをアーカイブすることは、ワークスペースを整理するための効果的な方法です。メッセージの作成を続けていく中で、アーカイブを活用することで、アクティブで関連性の高いメッセージング活動に集中できるようになります。
+
+{% alert important %}
+ダッシュボードからCampaignsやCanvasesを削除することはできませんが、アーカイブすることは可能です。
+{% endalert %}
 
 ## アーカイブ {#archiving}
 

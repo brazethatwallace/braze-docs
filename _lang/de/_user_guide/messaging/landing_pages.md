@@ -37,7 +37,7 @@ Die Anzahl der veröffentlichten Landing-Pages und angepassten Domains, die Sie 
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Veröffentlichte Landing-Pages | Fünf pro Unternehmen | 20 zusätzlich |
 | Angepasste Domains | Eine pro Unternehmen | Fünf zusätzlich |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tarifoptionen" }
 
 ## Google Tag Manager zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}
 

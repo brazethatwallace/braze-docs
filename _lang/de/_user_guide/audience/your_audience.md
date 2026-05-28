@@ -164,7 +164,7 @@ Sobald Nutzerdaten in Braze vorhanden sind, unterstützen sie nahezu jede Engage
 | ---- | ---- |
 | [Segmentierung]({{site.baseurl}}/user_guide/audience/segments/) | Erstellen Sie Zielgruppen basierend auf: {::nomarkdown}<ul><li>Attributen und angepassten Feldern</li> <li>Events und Verhaltensweisen</li> <li>Nachrichten-Engagement</li> <li>Geräte- und Kanaleigenschaften</li></ul>{:/} <br>Segmente können über Campaigns und Canvases hinweg wiederverwendet werden. |
 | [Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) | Nutzen Sie Nutzerdaten, um Inhalte anzupassen, z. B.: {::nomarkdown}<ul><li>Namen und Präferenzen im Nachrichtentext</li> <li>Dynamische Empfehlungen</li> <li>Standort- oder sprachspezifische Inhalte</li></ul>{:/} |
-| Automatisierung und Orchestrierung  | Triggern Sie Nachrichten und Journeys basierend auf: {::nomarkdown}<ul><li>Nutzeraktionen</li> <li>Attributänderungen</li> <li>Zeitbasierten Bedingungen</li></ul>{:/} |
+| Automatisierung und Orchestrierung | Triggern Sie Nachrichten und Journeys basierend auf: {::nomarkdown}<ul><li>Nutzeraktionen</li> <li>Attributänderungen</li> <li>Zeitbasierten Bedingungen</li></ul>{:/} |
 | Kanalübergreifende Koordination | Erreichen Sie Nutzer:innen auf dem am besten geeigneten Kanal unter Berücksichtigung von: {::nomarkdown}<ul><li>Opt-in-Status</li> <li>Häufigkeitsbegrenzungen</li> <li>Kanalpräferenzen</li></ul>{:/} |
 | [Analytics und Insights]({{site.baseurl}}/user_guide/analytics/) | Verstehen Sie das Verhalten verschiedener Zielgruppen durch Analyse von: {::nomarkdown}<ul><li>Engagement-Raten</li> <li>Conversion-Pfaden</li> <li>Segment-Performance im Zeitverlauf</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

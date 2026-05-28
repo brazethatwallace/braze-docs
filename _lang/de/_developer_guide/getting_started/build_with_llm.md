@@ -12,7 +12,7 @@ platform:
 
 > Nutzen Sie KI-Codierungsassistenten, um Ihren Braze-Integrations-Workflow zu beschleunigen. Verbinden Sie Ihre IDE über Context7 mit dem Braze Docs MCP-Server und erhalten Sie präzise, aktuelle SDK-Anleitungen direkt in Ihrer Entwicklungsumgebung.
 
-KI-Codierungsassistenten können Ihnen beim Schreiben von Integrationscode, bei der Fehlerbehebung und beim Erkunden der Features des Braze SDK behilflich sein – jedoch nur, wenn sie über den richtigen Kontext verfügen. Der Braze Docs MCP-Server ermöglicht Ihrem KI-Assistenten direkten Zugriff auf die Braze-Dokumentation, sodass er präzise Code-Snippets generieren und technische Fragen auf Grundlage der neuesten SDK-Referenzen beantworten kann.
+KI-Codierungsassistenten können Ihnen beim Schreiben von Integrationscode, bei der Fehlerbehebung und beim Erkunden der Features des Braze SDK behilflich sein&#8212;jedoch nur, wenn sie über den richtigen Kontext verfügen. Der Braze Docs MCP-Server ermöglicht Ihrem KI-Assistenten direkten Zugriff auf die Braze-Dokumentation, sodass er präzise Code-Snippets generieren und technische Fragen auf Grundlage der neuesten SDK-Referenzen beantworten kann.
 
 ## Verbindung mit dem Braze Docs MCP herstellen {#connecting-to-the-braze-docs-mcp}
 
@@ -83,7 +83,7 @@ Context7 unterscheidet sich vom [Braze MCP-Server]({{site.baseurl}}/developer_gu
 
 Nachdem Sie Context7 eingerichtet haben, fügen Sie `use context7` in Ihre Prompts ein, um Ihrem KI-Assistenten mitzuteilen, dass er die Braze-Dokumentation als Kontext heranziehen soll. Die folgenden Beispiele veranschaulichen, wie Sie effektive Prompts für gängige SDK-Aufgaben erstellen können.
 
-### React Native SDK
+### React Native SDK {#react-native-sdk}
 
 Diese Prompts veranschaulichen gängige Integrationsaufgaben für das [Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native).
 
@@ -120,11 +120,11 @@ Native SDK, including how to log impressions and button clicks
 programmatically. Use context7.
 ```
 
-### Web SDK
+### Web SDK {#web-sdk}
 
 Diese Prompts veranschaulichen gängige Integrationsaufgaben für das [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
 
-#### Initialisierung des SDK {#initializing-the-sdk}
+#### Initialisierung des SDK
 
 ```text
 Using the Braze Web SDK, show me how to initialize the SDK with
@@ -168,6 +168,6 @@ Sie können auf die Dokumentation des Braze Developer Guide als reine Textdateie
 |------|-------------|
 | [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | Ein Verzeichnis der Braze-Dokumentationsseiten für Entwickler:innen mit Titeln und Beschreibungen. Nutzen Sie dies als Ausgangspunkt, um die verfügbare Dokumentation zu entdecken. |
 | [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | Die vollständige Braze-Dokumentation für Entwickler:innen in einer einzigen Textdatei, formatiert für die Verwendung mit LLMs. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Klartext-Dokumentation" }
 
 Diese Dateien entsprechen dem [llms.txt-Standard](https://llmstxt.org/), einer sich entwickelnden Konvention, um Dokumentationen für KI-Tools zugänglich zu machen. Sie können diese Dateien direkt in Ihren Prompts referenzieren oder ihren Inhalt zur Kontextualisierung in ein LLM einfügen.

@@ -34,7 +34,7 @@ Os BSUIDs têm três características principais:
 | Único | Dois usuários não compartilham o mesmo BSUID dentro do seu portfólio de negócios. |
 | Com escopo de negócio | O mesmo usuário terá um BSUID diferente para cada empresa com a qual se comunica. Os BSUIDs não podem ser compartilhados ou comparados entre portfólios de negócios diferentes. |
 | Disponível em webhooks | Os BSUIDs são incluídos em todas as mesmas cargas úteis de webhook que atualmente contêm o número de telefone do usuário. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Business-scoped user ID (BSUID)" }
 
 ## Mudanças nos tipos de usuário do WhatsApp {#changes-to-whatsapp-user-types}
 
@@ -44,7 +44,7 @@ Após o lançamento dos nomes de usuário do WhatsApp, haverá dois tipos de usu
 | ----- | ----- | ----- |
 | Usuários sem nome de usuário | Número de telefone (sem alteração) | Número de telefone (sem alteração) |
 | Usuários com nome de usuário | Nome de usuário (exibido), BSUID (backend) | BSUID, número de telefone para usuários que já têm uma conversa existente com sua empresa |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Changes to WhatsApp user types" }
 
 A principal diferença é que um usuário que adota um nome de usuário compartilha seu número de telefone com sua empresa apenas se vocês já tiveram uma conversa anterior ou se ele aparece no seu Catálogo de Contatos do WhatsApp.
 
@@ -144,7 +144,7 @@ A Meta gerencia o processo de vinculação de portfólios de negócios. Para com
 | Portfólio de negócios único | BSUID regular |
 | Vários portfólios vinculados | BSUID pai (preferencial). Se nenhum BSUID pai existir, usa o BSUID regular |
 | Vários portfólios não vinculados | BSUID regular (pode resultar em perfis de usuário duplicados por portfólio) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How Braze uses parent BSUIDs" }
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

@@ -9,7 +9,7 @@ page_type: reference
 
 # Utiliser les modèles de Canvas Braze {#use-braze-canvas-templates}
 
-> Braze propose une sélection de modèles de Canvas que vous pouvez consulter et utiliser comme bonnes pratiques pour des cas d'utilisation courants. Bien que ces modèles ne puissent pas être modifiés, vous pouvez les consulter dans **Modèles** > **Modèles Braze** ou les utiliser dans vos Canvas.
+> Braze propose une sélection de modèles de Canvas que vous pouvez consulter et utiliser comme bonnes pratiques pour des cas d'utilisation courants. Bien que ces modèles ne puissent pas être modifiés, vous pouvez les consulter dans **Contenu** > **Canvas** > **Modèles Braze** ou les utiliser dans vos Canvas.
 
 ![Modèles Braze dans la section des modèles de Canvas avec treize modèles disponibles.]({% image_buster /assets/img/braze_canvas_templates.png %})
 
@@ -33,7 +33,7 @@ Tenez compte des éléments suivants lors de l'utilisation de ce modèle :
 {% endtab %}
 {% tab Back In Stock %}
 
-### De retour en stock {#back-in-stock}
+### Retour en stock {#back-in-stock}
 
 Stimulez les achats en informant vos utilisateurs lorsqu'un article est de nouveau en stock grâce à des messages personnalisés. Tenez compte des éléments suivants lors de l'utilisation de ce modèle :
 
@@ -67,7 +67,7 @@ Ramenez les utilisateurs vers votre application grâce à des incitations basée
 {% endtab %}
 {% tab Onboarding %}
 
-### Onboarding
+### Onboarding {#onboarding}
 
 Créez des parcours d'onboarding qui favorisent une adoption initiale solide et encouragent des relations durables avec vos utilisateurs. Tenez compte des éléments suivants lors de l'utilisation de ce modèle :
 

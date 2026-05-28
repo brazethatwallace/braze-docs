@@ -53,7 +53,7 @@ Ao configurar seu webhook, use as seguintes configurações e forneça seu endpo
 - **Unflatten**: No
 - **Request Header**:
   - **Content-Type**: application/json
-  - **Authorization**: Bearer SUA-CHAVE-DE-API
+  - **Authorization**: Bearer YOUR-API-KEY
 - **Data**:
 
 ```json
@@ -86,7 +86,7 @@ Para enviar dados ao endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/us
 3. Defina **Method** como POST, insira a URL do endpoint REST da Braze (por exemplo, `https://rest.iad-01.braze.com/users/track`) e formate o corpo da solicitação com aspas duplas ao redor de cada elemento, como faria em uma chamada no Postman ou na API. Mapeie os campos do seu gatilho (por exemplo, colunas da planilha) no corpo JSON conforme apropriado.
 4. Adicione os cabeçalhos obrigatórios:
    - **Content-Type**: `application/json`
-   - **Authorization**: `Bearer SUA-CHAVE-DA-API-REST` (use sua chave da API REST da Braze sem colchetes ou aspas)
+   - **Authorization**: `Bearer YOUR-REST-API-KEY` (use sua chave da API REST da Braze sem colchetes ou aspas)
 5. Teste a etapa e ative seu zap.
 
 [5]: {% image_buster /assets/img_archive/zapier1.png %}

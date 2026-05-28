@@ -34,7 +34,7 @@ Para un recorrido completo, consulta [Configuración de WhatsApp]({{site.baseurl
 | Recordatorios de citas | Reduce las ausencias con recordatorios de citas oportunos y permite a los clientes confirmar o reprogramar. |
 | Campañas promocionales | Llega a los clientes con promociones segmentadas, lanzamientos de productos y ofertas personalizadas a través de mensajes con contenido multimedia enriquecido. |
 | Conversaciones bidireccionales | Construye relaciones más profundas con mensajería interactiva que permite a los clientes responder, hacer preguntas y dar su opinión. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Próximos pasos {#next-steps}
 

@@ -23,7 +23,7 @@ El conector HTTP personalizado está actualmente en fase beta. Si te interesa co
 | --- | --- |
 | Cuenta Zeotap | Se necesita una [cuenta Zeotap](https://zeotap.com/) para beneficiarse de esta asociación. |
 | Currents | Para volver a exportar datos a Zeotap, tienes que tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) en tu cuenta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Implementación {#implementation}
 

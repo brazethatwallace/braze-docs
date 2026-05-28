@@ -29,7 +29,7 @@ Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder ei
 | Mindest-SDK-Version                                                          | Empfohlene SDK-Version                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Anforderungen" }
 
 {% details Weitere Informationen zu Mindest-SDKs %}
 
@@ -45,7 +45,7 @@ Im Folgenden finden Sie die einzelnen Mindest-SDK-Anforderungen für diese Featu
 | Textlinks*                                                         | Push-Primer anfordern                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Anforderungen" }
 
 *Wenn Sie einen Link in Ihre In-App-Nachricht einfügen, der auf eine URL weiterleitet, und die Endnutzer:innen nicht die angegebenen Mindest-SDK-Versionen verwenden, wird durch Auswählen des Links die Nachricht geschlossen und die Nutzer:innen können nicht zur Nachricht zurückkehren, um das Formular abzusenden.
 
@@ -140,7 +140,7 @@ Hier kann Ihre Nachricht im Stil Ihrer Marke glänzen. Mit einer Kombination aus
 
 ## 5. Schritt: Ihre In-App-Nachricht testen {#step-5-test-your-in-app-message}
 
-Im Abschnitt **Vorschau und Test** können Sie Ihre In-App-Nachrichten auf verschiedenen Geräten in der Vorschau anzeigen und eine Testnachricht an Ihr Gerät senden. Hier können Sie sicherstellen, dass die Details auf allen Ihren Plattformen für Ihre Drag-and-Drop-In-App-Nachrichten-Campaign übereinstimmen.
+Im Abschnitt **Preview & Test** können Sie Ihre In-App-Nachrichten auf verschiedenen Geräten in der Vorschau anzeigen und eine Testnachricht an Ihr Gerät senden. Hier können Sie sicherstellen, dass die Details auf allen Ihren Plattformen für Ihre Drag-and-Drop-In-App-Nachrichten-Campaign übereinstimmen.
 
 Es ist wichtig, Ihre In-App-Nachrichten immer zu testen, bevor Sie Ihre Campaigns senden, damit Sie sich ein Bild davon machen können, wie Ihre endgültige Nachricht aus der Perspektive Ihrer Nutzer:innen aussehen wird.
 
@@ -150,7 +150,7 @@ Es ist wichtig, Ihre In-App-Nachrichten immer zu testen, bevor Sie Ihre Campaign
 Um einen Test an Content-Testgruppen oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten vor dem Senden aktiviert sein.
 {% endalert %}
 
-Sie können Nachrichten im Tab **Vorschau und Test** in der Vorschau anzeigen, als wären Sie eine Nutzer:in. Sie können bestimmte Nutzer:innen, zufällige Nutzer:innen auswählen oder benutzerdefinierte Nutzer:innen erstellen:
+Sie können Nachrichten im Tab **Preview & Test** in der Vorschau anzeigen, als wären Sie eine Nutzer:in. Sie können bestimmte Nutzer:innen, zufällige Nutzer:innen auswählen oder benutzerdefinierte Nutzer:innen erstellen:
 
 - **Zufällige Nutzer:in:** Braze wählt zufällig Nutzer:innen aus der Datenbank aus und zeigt die In-App-Nachricht basierend auf deren Attributen oder Ereignisinformationen in der Vorschau an.
 - **Nutzer:in auswählen:** Sie können bestimmte Nutzer:innen anhand ihrer E-Mail-Adresse oder `external_id` auswählen. Die In-App-Nachricht wird basierend auf den Attributen und Ereignisinformationen dieser Nutzer:innen in der Vorschau angezeigt.
@@ -192,4 +192,4 @@ Ja. Für jede In-App-Nachricht, die Sie in einer zukünftigen Campaign oder eine
 
 ![Eine Vorschau einer In-App-Nachricht für eine Produkttour.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-Sie können auch In-App-Nachrichten-Templates erstellen und speichern, indem Sie zu **Templates** > **In-App Message Templates** navigieren.
+Sie können auch In-App-Nachrichten-Templates erstellen und speichern, indem Sie zu **Content** > **In-App Message** navigieren.

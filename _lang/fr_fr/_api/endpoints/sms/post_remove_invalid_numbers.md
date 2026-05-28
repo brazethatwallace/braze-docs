@@ -10,6 +10,7 @@ description: "Cet article présente en détail l'endpoint Braze Supprimer les nu
 ---
 {% api %}
 # Supprimer les numéros de téléphone non valides {#remove-invalid-phone-numbers}
+
 {% apimethod post %}
 /sms/invalid_phone_numbers/remove
 {% endapimethod %}
@@ -46,7 +47,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Paramètre | Requis | Type de données | Description |
 | ----------|-----------| ---------|------ |
 | `phone_number` | Requis | Tableau de chaînes de caractères au format e.164 | Un tableau pouvant contenir jusqu'à 50 numéros de téléphone à modifier. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de requête {#example-request}
 

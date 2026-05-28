@@ -83,7 +83,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 
 ## Antwort {#response}
 
-Alle erfolgreichen Antworten geben je nach Status und Nutzer:innen-Verlauf mit der Abo-Gruppe `Subscribed`, `Unsubscribed` oder `Unknown` zurück.
+Alle erfolgreichen Antworten geben je nach Status und Verlauf der Nutzer:innen mit der Abo-Gruppe `Subscribed`, `Unsubscribed` oder `Unknown` zurück.
 
 ```json
 {

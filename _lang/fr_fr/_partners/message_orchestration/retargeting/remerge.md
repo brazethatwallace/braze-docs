@@ -27,13 +27,14 @@ L'intégration de Braze et Remerge vous permet de développer des campagnes mark
 | ID de l'application Android | Votre identifiant unique d'application Braze pour Android (tel que « com.example »). |
 | ID de l'application iOS | Votre identifiant unique d'application Braze pour iOS (tel que « 012345678 »). |
 | Activer la collecte IDFA dans le SDK Braze | La collecte IDFA est facultative dans le SDK Braze et désactivée par défaut. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Intégration {#integration}
 
 ### Étape 1 : Créer votre modèle de webhook Braze {#step-1-create-your-braze-webhook-template}
 
-Pour créer un modèle de webhook Remerge pour de futures campagnes ou Canvas, accédez à **Templates** > **Webhook Templates** dans la plateforme Braze.
+Pour créer un modèle de webhook Remerge pour de futures campagnes ou Canvas, accédez à **Contenu** > **Webhook** dans la plateforme Braze. Sélectionnez ensuite **Créer un modèle de webhook**.
+
 
 Si vous souhaitez créer une campagne webhook Remerge ponctuelle ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle campagne.
 

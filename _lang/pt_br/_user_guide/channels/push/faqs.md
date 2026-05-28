@@ -72,3 +72,17 @@ Esses filtros de segmentação verificam condições diferentes:
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 Um usuário pode ter `Push em Segundo Plano ou Primeiro Plano Ativado` sem ter `Push em Primeiro Plano Ativado`. Isso acontece quando o usuário desativou as notificações por push visíveis nas configurações do dispositivo, mas o app ainda mantém um token por push de segundo plano. Para mais informações, consulte [Usuários de push e inscrições]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
+
+### Como a Braze determina quando uma mensagem de push é enviada com sucesso? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
+
+Uma mensagem é registrada como enviada assim que é recebida pelo provedor de notificação por push. Isso não significa necessariamente que o usuário recebeu ou visualizou a mensagem.
+
+Para iOS, o provedor de notificação por push é o Apple Push Notification Service (APNs) e, para Android, normalmente é o Firebase Cloud Messaging (FCM). O provedor de notificação por push responde imediatamente com sucesso ou falha. Uma falha pode incluir um bounce ou uma nova tentativa por falha de rede.
+
+Se uma mensagem de sucesso é retornada, o envio é registrado pela Braze e, em seguida, o serviço de push tenta entregar ao dispositivo. Se o dispositivo não puder ser alcançado imediatamente, o serviço faz novas tentativas até a opção de expiração configurada na Braze (**TTL** para Android, **Expiry** para iOS). Se a mensagem expirar, o serviço de push descarta o push, mas isso não é considerado um bounce.
+
+- Para Campaigns de push com entrega baseada em ação, o envio da mensagem é registrado assim que o usuário realiza a ação que aciona a Campaign.
+- Para campanhas agendadas, o horário de envio é o momento em que a mensagem foi enfileirada e passada ao provedor de notificação por push.
+- Para ambos os tipos de entrega, a mensagem é marcada como "enviada" na Braze e no perfil de usuário em **Campaigns Received**, mesmo que o usuário ainda não tenha visto ou recebido o push.
+
+A métrica de "entregas" para push no dashboard é calculada no carregamento da página como o número de envios menos bounces.

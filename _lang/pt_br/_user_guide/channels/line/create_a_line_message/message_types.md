@@ -53,7 +53,7 @@ Use imagens por URL para casos de uso que incorporam:
 | Comprimento da URL do arquivo de imagem | 2.000 caracteres no máximo  |
 | Formato da imagem          | PNG, JPEG             |
 | Tamanho do arquivo     |  10&nbsp;MB no máximo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL image" }
 
 ## Mensagens ricas (mapa de imagem) {#rich-messages-image-map}
 
@@ -74,7 +74,7 @@ Casos de uso incluem:
 | Formato da imagem          | PNG (pode ser transparente), JPEG             |
 | Proporção          | 1:1 (largura:altura)
 | Tamanho do arquivo     |  10&nbsp;MB no máximo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image map" }
 
 ### Link URI {#uri-link}
 
@@ -82,7 +82,7 @@ Casos de uso incluem:
 |--------------------------|----------------------------|
 | Contagem de caracteres      | 1.000 no máximo |
 | Esquemas              | HTTP, HTTPS, LINE, tel |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URI link" }
 
 ### Texto
 
@@ -106,7 +106,7 @@ Casos de uso incluem:
 | Colunas                  | 10 no máximo |
 | Proporção             | Retângulo: 1,51:1 <br> Quadrado: 1:1  |
 | Título                    | 40 caracteres no máximo
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message" }
 
 
 ### Imagem
@@ -117,7 +117,7 @@ Casos de uso incluem:
 | Formato da imagem              | JPEG ou PNG |
 | Largura                     | 1.024 pixels  |
 | Tamanho do arquivo                 | 1 MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 
 ### Texto
@@ -126,4 +126,4 @@ Casos de uso incluem:
 |-------------------------|----------------------------|
 | Caracteres              | 120 no máximo (sem imagem ou título) <br> 60 no máximo (mensagem com imagem ou título)  |
 | Ações                 | 3 no máximo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Text" }

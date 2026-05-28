@@ -30,9 +30,9 @@ In Braze werden diese vier Objekte kombiniert und auf zwei Objekte reduziert: Nu
 
 | Braze-B2B-Objekt | Beschreibung | Ursprüngliche B2B-Objekte  |
 | --- | --- | --- |
-| Nutzerprofile | Diese werden direkt den Leads und Kontakten in Ihrem Vertriebs-CRM-System zugeordnet. Da Leads von Braze erfasst werden, werden sie automatisch als Leads in Ihrem Vertriebs-CRM-System angelegt. Wenn sie in Kontakte umgewandelt werden, werden die Kontakt-IDs und -details zurück zu Braze synchronisiert. |Leads<br> Kontakte |
+| Nutzerprofile | Diese werden direkt den Leads und Kontakten in Ihrem Vertriebs-CRM-System zugeordnet. Da Leads von Braze erfasst werden, werden sie automatisch als Leads in Ihrem Vertriebs-CRM-System angelegt. Wenn sie in Kontakte umgewandelt werden, werden die Kontakt-IDs und -details zurück zu Braze synchronisiert. | Leads<br> Kontakte |
 | Geschäftsobjekte | Diese lassen sich auf alle Nicht-Nutzer-Objekte in Ihrem Vertriebs-CRM-System abbilden. Dazu gehören Ihre vertriebsspezifischen Objekte, wie z. B. Kontoobjekte und Opportunity-Objekte. | Konten<br> Opportunities |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
 
 ## 1. Schritt: Erstellen Sie Ihre Geschäftsobjekte in Braze {#step-1-create-your-business-objects-in-braze}
 
@@ -64,7 +64,7 @@ In den nachstehenden Tabellen finden Sie einige Beispiele für Felder, die Sie a
 
 In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jedes Feld übertragen, das in den Objekten Ihres CRM enthalten ist.
 
-<table border="1">
+<table aria-label="Übertragen Sie Ihre CRM-Felder" border="1">
   <caption>Übertragen Sie Ihre CRM-Felder</caption>
   <tr>
     <th><b>Braze-Objekt</b></th>
@@ -104,7 +104,7 @@ In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jed
 
 In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jedes Feld übertragen, das in den Objekten Ihres CRM enthalten ist.
 
-<table border="1">
+<table aria-label="Beispieltabelle der zugeordneten Kontofelder" border="1">
   <caption>Beispieltabelle der zugeordneten Kontofelder</caption>
   <tr>
     <th><b>Braze-Objekt</b></th>
@@ -165,7 +165,7 @@ Stellen Sie zunächst sicher, dass Braze und das CRM Ihrer Wahl über einen geme
 
 | Braze-Feld | CRM-Objekt (Salesforce) | CRM-Feld (Salesforce) | Zusätzliche Informationen |
 | --- | --- | --- | --- |
-| `Aliases.salesforce_lead_id` | Lead | `id` |  - Alias-Label: `salesforce_lead_id` <br>- Alias-Name: `lead_id`|
+| `Aliases.salesforce_lead_id` | Lead | `id` | - Alias-Label: `salesforce_lead_id` <br>- Alias-Name: `lead_id` |
 | `Aliases.salesforce_contact_id` | Kontakt | `id` | - Alias-Label: `salesforce_contact_id` <br>- Alias-Name: `contact_id` |
 | `AccountId` | Kontakt | `AccountId` |
 | `OpportunityId` (optional, skalar) <br>oder<br> `Opportunities` (optional, Array) | Opportunity | `id` |

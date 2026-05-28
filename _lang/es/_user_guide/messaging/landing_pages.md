@@ -33,11 +33,11 @@ Antes de poder acceder, crear y publicar páginas de inicio, necesitas [permisos
 
 El número de páginas de inicio publicadas y dominios personalizados que puedes usar depende de tu tipo de plan: gratuito o de pago (incremental).
 
-| Característica                                                                                                   | Nivel gratuito     | Nivel de pago (incremental)     |
+| Característica | Nivel gratuito | Nivel de pago (incremental) |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
-| Páginas de inicio publicadas                                                                 | Cinco por empresa | 20 adicionales |
-| Dominios personalizados          | Uno por empresa | Cinco adicionales |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+| Páginas de inicio publicadas | Cinco por empresa | 20 adicionales |
+| Dominios personalizados | Uno por empresa | Cinco adicionales |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveles de plan" }
 
 ## Añadir Google Tag Manager a una página de inicio {#adding-google-tag-manager-to-a-landing-page}
 

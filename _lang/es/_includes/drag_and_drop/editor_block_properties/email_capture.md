@@ -8,4 +8,4 @@
 | Letter spacing | Modifica la distancia entre cada carácter. |
 | Text alignment | Mueve el texto para alinearlo a la izquierda, al centro, a la derecha o justificado. |
 | Placeholder text | Una dirección de correo electrónico de marcador de posición para mostrar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -19,7 +19,7 @@ search_tag: Partner
 | AppsFlyerアカウント | このパートナーシップを活用するには、AppsFlyerアカウントが必要です。 |
 | iOSまたはAndroidアプリ | この統合では、iOSアプリとAndroidアプリがサポートされています。ご使用のプラットフォームによっては、アプリケーションでコードスニペットが必要な場合があります。これらの要件の詳細については、統合プロセスのステップ1を参照してください。 |
 | AppsFlyer SDK | 必要なBraze SDKに加えて、[AppsFlyer SDK](https://support.appsflyer.com/hc/en-us/articles/207032126-SDK-integration-overview)をインストールする必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## データインポート統合 {#data-import-integration}
 
@@ -35,7 +35,7 @@ AppsFlyerLib.getInstance().setPartnerData("braze_int", brazeData);
 ```
 
 #### iOS
-```objc
+`````````objc
 NSDictionary *brazeInfo = @{
      @"external_user_id":@"some-braze-external-id-value"
 };
@@ -46,7 +46,7 @@ NSDictionary *brazeInfo = @{
 
 Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、**AppsFlyer**を選択します。
 
-ここでRESTエンドポイントを見つけ、Brazeデータインポートキーを生成します。キーが生成されたら、新しいキーを作成するか、既存のキーを無効にできます。データインポートキーとRESTエンドポイントは、AppsFlyerのダッシュボードでポストバックを設定する次のステップで使用されます。<br><br>![AppsFlyerテクノロジーページの「コホートインポートを使用したデータインポート」ボックス。このボックスには、データインポートキーとRESTエンドポイントが表示されている。]({% image_buster /assets/img/appsflyer_audiences/appsflyer_data_import_key.png %}){: style="max-width:90%;"}
+ここでRESTエンドポイントを見つけ、Brazeデータインポートキーを生成します。キーが生成されたら、新しいキーを作成するか、既存のキーを無効にできます。データインポートキーとRESTエンドポイントは、AppsFlyerのダッシュボードでポストバックを設定する次のステップで使用されます。<br><br>![AppsFlyerテクノロジーページの「コホートインポートを使用したデータインポート」ボックス。このボックスには、データインポートキーとRESTエンドポイントが表示されています。]({% image_buster /assets/img/appsflyer_audiences/appsflyer_data_import_key.png %}){: style="max-width:90%;"}
 
 ### ステップ3: AppsFlyer AudiencesでのBraze接続の設定 {#step-3-configure-a-braze-connection-in-appsflyer-audiences}
 
@@ -55,13 +55,13 @@ Brazeで、**パートナー連携** > **テクノロジーパートナー**に�
 3. データインポートキーとBraze RESTエンドポイントを入力します。
 4. 接続を保存します。保存した接続は、新しいオーディエンスまたは既存のオーディエンスにリンクできます。
 
-![AppsFlyer Audiencesプラットフォームのパートナー接続設定ページ。画像下部で「Braze external ID」ボックスがオンになっている。]({% image_buster /assets/img/appsflyer_audiences/appsflyer_braze_connection.png %}){: style="max-width:80%;"}
+![AppsFlyer Audiencesプラットフォームのパートナー接続設定ページ。画像下部で「Braze external ID」ボックスがオンになっています。]({% image_buster /assets/img/appsflyer_audiences/appsflyer_braze_connection.png %}){: style="max-width:80%;"}
 
 ### ステップ4: BrazeでのAppsFlyer Audiencesコホートの使用 {#step-4-using-appsflyer-audiences-cohorts-in-braze}
 
-AppsFlyerオーディエンスがBrazeにアップロードされると、**AppsFlyer Cohorts**フィルターを選択して、BrazeでSegmentsを定義する際のフィルターとして使用できます。
+AppsFlyerオーディエンスがBrazeにアップロードされると、**AppsFlyer Cohorts**フィルターを選択して、Brazeでセグメントを定義する際のフィルターとして使用できます。
 
-![ユーザー属性フィルター「AppsFlyer Cohorts」が選択されている。]({% image_buster /assets/img/appsflyer_audiences/appsflyer_cohorts_as_filter.png %})
+![ユーザー属性フィルター「AppsFlyer Cohorts」が選択されています。]({% image_buster /assets/img/appsflyer_audiences/appsflyer_cohorts_as_filter.png %})
 
 {% alert important %}
 Braze内に既に存在するユーザーのみがコホートに追加または削除されます。コホートインポートではBrazeに新しいユーザーは作成されません。

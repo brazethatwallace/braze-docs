@@ -59,7 +59,7 @@ Insere HTML personalizado para layouts avançados ou conteúdo incorporado (por 
 | Propriedade | Descrição |
 | --- | --- |
 | Código personalizado | Adicione ou edite HTML (e ativos relacionados) para o Banner. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Código personalizado" }
 
 ### Captura de telefone {#phone-capture}
 

@@ -32,7 +32,7 @@ Dans Braze, ces quatre objets sont combinés et réduits en deux objets : les pr
 | --- | --- | --- |
 | Profils utilisateur | Ils correspondent directement aux prospects et contacts de votre système CRM de vente. Les prospects capturés par Braze sont automatiquement créés en tant que prospects dans votre système CRM de vente. Lorsqu'ils sont convertis en contacts, les ID et les détails des contacts sont synchronisés vers Braze. | Prospects<br> Contacts |
 | Objets métier | Ils correspondent à tous les objets non-utilisateur de votre système CRM de vente, y compris vos objets spécifiques aux ventes, tels que les objets de compte et les objets d'opportunité. | Comptes<br> Opportunités |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
 
 ## Étape 1 : Créer vos objets métier dans Braze {#step-1-create-your-business-objects-in-braze}
 
@@ -64,8 +64,8 @@ Les tableaux ci-dessous présentent quelques exemples de champs que vous pouvez 
 
 Dans ce cas d'utilisation, Salesforce est l'exemple de système CRM. Vous pouvez mapper n'importe quel champ inclus dans les objets de votre CRM.
 
-<table border="1">
-  <caption>Mapper les champs de votre CRM</caption>
+<table aria-label="Map over your CRM fields" border="1">
+  <caption>Map over your CRM fields</caption>
   <tr>
     <th><b>Objet Braze</b></th>
     <th><b>Champ Braze</b></th>
@@ -104,8 +104,8 @@ Dans ce cas d'utilisation, Salesforce est l'exemple de système CRM. Vous pouvez
 
 Dans ce cas d'utilisation, Salesforce est l'exemple de système CRM. Vous pouvez mapper n'importe quel champ inclus dans les objets de votre CRM.
 
-<table border="1">
-  <caption>Exemple de tableau des champs de compte mappés</caption>
+<table aria-label="Example table of mapped account fields" border="1">
+  <caption>Example table of mapped account fields</caption>
   <tr>
     <th><b>Objet Braze</b></th>
     <th><b>Champ Braze</b></th>

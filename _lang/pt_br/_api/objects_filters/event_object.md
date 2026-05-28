@@ -72,7 +72,7 @@ Os valores de propriedade podem ser qualquer um dos seguintes tipos de dados:
 | Strings | 255 caracteres ou menos. |
 | Matrizes | As matrizes não podem incluir datetimes. |
 | Objetos | Os objetos serão ingeridos como strings. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Event properties object" }
 
 Os objetos de propriedade de evento que contêm valores de vetor ou objeto podem ter uma carga útil de propriedade de evento de até 100&nbsp;KB.
 

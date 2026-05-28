@@ -16,7 +16,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Canva
 
 > Verwenden Sie diesen Endpunkt, um Zeitreihendaten für ein Canvas zu exportieren.
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 
@@ -39,7 +39,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `include_variant_breakdown` | Optional | Boolescher Wert | Ob Varianten-Statistiken einbezogen werden sollen oder nicht (Standard ist `false`). |
 | `include_step_breakdown` | Optional | Boolescher Wert | Ob Schritt-Statistiken einbezogen werden sollen oder nicht (Standard ist `false`). |
 | `include_deleted_step_data` | Optional | Boolescher Wert | Ob Schritt-Statistiken für gelöschte Schritte einbezogen werden sollen oder nicht (Standard ist `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Beispielanfrage {#example-request}
 

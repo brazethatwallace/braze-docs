@@ -26,7 +26,7 @@ Brazeをご利用のお客様の場合、顧客特徴量は通常、ユーザー
 | **ユーザー傾向** | 顧客が何かを行う可能性に関するモデル由来のスコア | `churn_risk_score`、`purchase_intent_score`、`upsell_affinity` |
 | **ユーザー行動** | 時間枠における顧客アクティビティの要約 | `clicks_past_30d`、`purchases_past_7d`、`app_logins_past_14d` |
 | **環境** | 顧客外部の文脈に応じたシグナル | `is_promotional_period`、`is_holiday`、`regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Types of customer features" }
 
 これらの特徴量の種類を組み合わせることで、モデルはセグメントを特定し、顧客を区別し、それに応じておすすめを適応させるために必要な情報を得ることができます。
 

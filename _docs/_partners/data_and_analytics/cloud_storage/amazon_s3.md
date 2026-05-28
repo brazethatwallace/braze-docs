@@ -28,7 +28,7 @@ The Braze and Amazon S3 integration features two integration strategies:
 | Amazon S3 account | You need an Amazon S3 account to take advantage of this partnership. |
 | Dedicated S3 bucket | Before integrating with Amazon S3, you must create an S3 bucket for your app.<br><br>If you already have an S3 bucket, we still recommend creating a new bucket specifically for Braze so you can limit permissions. Refer to the following instructions on how to create a new bucket. |
 | Currents | To export data back into Amazon S3, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. Currents isn't required if you're only setting up message archiving. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### Creating a new S3 bucket
 
@@ -332,6 +332,14 @@ A notification informs you whether your credentials have been successfully valid
 
 {% endtab %}
 {% endtabs %}
+
+## Updating Amazon S3 credentials for Currents {#updating-currents-credentials}
+
+You can update the Amazon S3 credentials on an existing Braze Currents connector without stopping the integration or losing data already exported to your bucket.
+
+To refresh credentials—or to switch between **AWS Secret Access Key** and **AWS Role ARN**—finish the IAM and AWS-side steps for your chosen method earlier in this article (policies, user or role, and identifiers as needed).
+
+When you've finished preparing credentials in AWS, go to **Partner Integrations** > **Currents** in Braze, locate your Amazon S3 connector in the list, select **Edit**, update **Credentials**, and select **Update Current**. Braze validates the credentials you enter; your connector keeps running and data already in your bucket remains available. For more information, see [Updating Currents in Set up Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents).
 
 ## Export behavior
 

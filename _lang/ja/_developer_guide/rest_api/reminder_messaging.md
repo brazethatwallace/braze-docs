@@ -3,12 +3,12 @@ nav_title: ユーザー選択リマインダーメッセージング
 article_title: ユーザー選択リマインダーメッセージング
 page_order: 5
 page_type: reference
-description: "このリファレンス記事では、Brazeのランディングページ、カスタム属性、Campaignsを使用して、今後のイベントや予定に関するパーソナライズ済みリマインダーメッセージにユーザーがサインアップできるようにする方法を説明します。"
+description: "このリファレンス記事では、Brazeのランディングページ、カスタム属性、キャンペーンを使用して、今後のイベントや予定に関するパーソナライズ済みリマインダーメッセージにユーザーがサインアップできるようにする方法を説明します。"
 ---
 
 # ユーザー選択リマインダーメッセージング {#user-selected-reminder-messaging}
 
-> Brazeの[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)、カスタム属性、Campaignsを使用して、今後のイベントや予定に関するリマインダーメッセージをいつ受け取りたいかをユーザーが選択できるようにします。このアプローチにより、技術的な知識がないBrazeユーザーでもリマインダーサインアップページのコンテンツを作成・編集でき、ユーザーが選択した設定はBrazeを活用したすべてのメッセージングにおけるセグメンテーション、ターゲティング、パーソナライゼーションに活用できます。
+> Brazeの[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)、カスタム属性、キャンペーンを使用して、今後のイベントや予定に関するリマインダーメッセージをいつ受け取りたいかをユーザーが選択できるようにします。このアプローチにより、技術的な知識がないBrazeユーザーでもリマインダーサインアップページのコンテンツを作成・編集でき、ユーザーが選択した設定はBrazeを活用したすべてのメッセージングにおけるセグメンテーション、ターゲティング、パーソナライゼーションに活用できます。
 
 このアプローチでは、以下のことが可能です。
 
@@ -26,7 +26,7 @@ description: "このリファレンス記事では、Brazeのランディング�
 | ランディングページへのアクセス | Brazeで[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)を作成するためのアクセスと権限。 |
 | HTMLとJavaScriptの知識 | ランディングページをカスタマイズするためのHTMLとJavaScriptの基本的な知識。[オプションB](#option-b-personal-dates-custom-code-block)でのみ必要です。 |
 | Liquidの知識 | パーソナライズ済み変数をテンプレート化するための[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)の基本的な知識。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ステップ1: ランディングページを作成し、メッセージからリンクする {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 
@@ -46,7 +46,7 @@ description: "このリファレンス記事では、Brazeのランディング�
 
 ユーザー設定の取得方法は、共通の日付を収集するか、パーソナルな日付を収集するかによって異なります。ユースケースに合ったオプションを選択してください。
 
-### オプションA: 共通の日付（ドラッグ＆ドロップフォームブロック） {#option-a-shared-dates-dnd-form-blocks}
+### オプションA: 共通の日付（ドラッグ＆ドロップフォームブロック） {#option-a-shared-dates-drag-and-drop-form-blocks}
 
 多くのユーザーが同じ日付を共有するイベント（祝日やスポーツイベントなど）の場合、ドラッグ＆ドロップエディターの組み込み[**チェックボックス**フォームブロック]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#form-blocks)を使用して設定を取得します。各チェックボックスは、フォームが送信されるとユーザーのプロファイルにブール値のカスタム属性（`true`または`false`）をネイティブに設定します。カスタムコードは不要です。
 
@@ -56,7 +56,7 @@ description: "このリファレンス記事では、Brazeのランディング�
 super_bowl_2026_reminder = true
 ```
 
-これらのブール値属性は、[Segmentフィルター]({{site.baseurl}}/user_guide/audience/segments/)で直接使用して、リマインダーメッセージのターゲットオーディエンスを構築できます。
+これらのブール値属性は、[セグメントフィルター]({{site.baseurl}}/user_guide/audience/segments/)で直接使用して、リマインダーメッセージのターゲットオーディエンスを構築できます。
 
 ### オプションB: パーソナルな日付（カスタムコードブロック） {#option-b-personal-dates-custom-code-block}
 
@@ -74,7 +74,7 @@ super_bowl_2026_reminder = true
 
 以下のスクリプト例では、デフォルトのボタン動作を無効にし、ボタンクリック時にカスタムメソッドを実行します。要素IDと属性値をご自身のものに置き換えてください。
 
-```html
+`````````html
 <script async="true">
   // Set IDs (as found by inspecting your landing page preview) and success message
   const registerButtonId = "YOUR_BUTTON_ID";
@@ -116,17 +116,17 @@ super_bowl_2026_reminder = true
 
 ## ステップ3: リマインダーメッセージを設定してトリガーする {#step-3-set-up-and-trigger-reminder-messages}
 
-ランディングページを通じてカスタム属性を収集した後、今後のイベントについてユーザーにメッセージを送信するCampaignsを作成します。
+ランディングページを通じてカスタム属性を収集した後、今後のイベントについてユーザーにメッセージを送信するキャンペーンを作成します。
 
 ### オプションA: 共通の日付 {#step-3-option-a-shared-dates}
 
-ブール値のカスタム属性（[ステップ2](#option-a-shared-dates-dnd-form-blocks)のオプションA）を使用した場合、その属性をSegmentフィルターとして使用してリマインダーメッセージのオーディエンスを構築します。次に、イベント前にスケジュールされた新しいCampaignを作成し、選択したコンテンツでこのグループをターゲットにします。
+ブール値のカスタム属性（[ステップ2](#option-a-shared-dates-dnd-form-blocks)のオプションA）を使用した場合、その属性をセグメントフィルターとして使用してリマインダーメッセージのオーディエンスを構築します。次に、イベント前にスケジュールされた新しいキャンペーンを作成し、選択したコンテンツでこのグループをターゲットにします。
 
 ### オプションB: パーソナルな日付 {#step-3-option-b-personal-dates}
 
 階層化カスタム属性（[ステップ2](#option-b-personal-dates-custom-code-block)のオプションB）を使用した場合、**階層化カスタム属性**オーディエンスフィルターを使用して、特定の時間枠内（例えば、2日後）にリマインダー日付があるすべてのユーザーを選択します。
 
-継続的にリマインダーを送信するには、毎日繰り返しのCampaignを設定して、時間枠内に今後のリマインダーがあるユーザーが毎日メッセージを受信できるようにします。
+継続的にリマインダーを送信するには、毎日繰り返しのキャンペーンを設定して、時間枠内に今後のリマインダーがあるユーザーが毎日メッセージを受信できるようにします。
 
 ## ステップ4: 統合を検証する {#step-4-verify-your-integration}
 
@@ -135,7 +135,7 @@ super_bowl_2026_reminder = true
 1. ランディングページへのリンクを自分に送信し、フォームを完了します。
 2. Brazeダッシュボードでユーザープロファイルに移動し、カスタム属性が表示されていることを確認します。
 3. テストリマインダーメッセージを自分のプロファイルに送信し、パーソナライズ済みの詳細が正しくレンダリングされることを確認します。
-4. Campaignを起動する際に、結果を注意深く監視します。
+4. キャンペーンを起動する際に、結果を注意深く監視します。
 
 ## 考慮事項 {#considerations}
 

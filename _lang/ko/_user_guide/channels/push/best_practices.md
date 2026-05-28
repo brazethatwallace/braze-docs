@@ -30,7 +30,7 @@ channel: push
 | Android | 3,930바이트 |
 | iOS | 3,960바이트 |
 | Kindle | 5,985바이트 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reduce push notification payload size" }
 
 푸시가 최대 페이로드 크기를 초과하면 메시지가 발송되지 않을 수 있습니다. 모범 사례로서, 페이로드를 수백 바이트 이내로 유지하세요.
 
@@ -69,7 +69,7 @@ Braze는 통합 및 분석 목적으로 푸시 페이로드의 일부를 예약�
 
 ### 관련 사용자 데이터 수집 {#collect-relevant-user-data}
 
-푸시 알림은 적시에 관련성 있는 알림으로 사용자를 타겟팅하기 위해 신중하게 다뤄야 합니다. Braze는 관련 세그먼트를 타겟팅하는 데 사용할 수 있는 유용한 기기 및 사용 정보를 수집합니다. 이 정보는 앱에 특화된 커스텀 이벤트 및 속성으로 보완되어야 합니다. 이 데이터를 활용하면 메시지를 신중하게 타겟팅하여 열람률을 높이고 사용자가 푸시를 비활성화하는 경우를 줄일 수 있습니다.
+푸시 알림은 적시에 관련성 있는 알림으로 사용자를 타겟팅하기 위해 신중하게 다뤄야 합니다. Braze는 관련 Segment를 타겟팅하는 데 사용할 수 있는 유용한 기기 및 사용 정보를 수집합니다. 이 정보는 앱에 특화된 커스텀 이벤트 및 속성으로 보완되어야 합니다. 이 데이터를 활용하면 메시지를 신중하게 타겟팅하여 열람률을 높이고 사용자가 푸시를 비활성화하는 경우를 줄일 수 있습니다.
 
 ### 알림 설정 페이지 만들기 {#create-a-notification-settings-page}
 
@@ -94,6 +94,14 @@ Android 13 이상에서는 푸시 알림을 표시하기 전에 권한을 획득
 ### 푸시 구독 제어 추가 {#add-push-subscription-controls}
 
 사용자가 기기 수준에서 알림을 끄면 포그라운드 푸시 토큰이 완전히 제거되므로, 이를 방지하기 위해 사용자가 앱 내에서 직접 푸시 구독을 제어할 수 있도록 하세요. 자세한 내용은 [푸시 구독 상태 업데이트]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#update-push-subscription-state)를 참조하세요.
+
+### 고급 스케줄링 사용 또는 지연 추가 {#use-advanced-scheduling-or-add-delays}
+
+오디언스 규모와 푸시 메시지가 얼마나 미리 스케줄되었는지에 따라 푸시 전달에 지연이 발생할 수 있습니다. 푸시 발송에 걸리는 시간은 할당된 처리 능력에 따라 달라집니다. 예를 들어, 푸시 메시지가 여러 연결된 콘텐츠 호출을 사용하는 경우 푸시 메시지 템플릿 작성의 복잡성이 증가하여 서드파티 API가 데이터를 반환하는 속도에 의해 속도가 제한될 수 있습니다.
+
+더 작은 푸시 페이로드와 더 높은 알림 우선순위는 지연을 줄이고 메시지를 확장하는 데 도움이 됩니다. 오디언스 필터에 `Push Enabled = true`를 추가하여 오디언스 규모를 줄이면 푸시가 활성화된 사용자만 Campaign 발송에 대해 처리됩니다.
+
+또한 필요한 데이터를 최적화하여 API 호출 수를 최소화하는 것을 권장합니다. 가능하다면 여러 번 호출하는 대신 한 번의 API 호출로 필요한 모든 데이터를 가져오세요.
 
 ### 푸시 구독 상태 이해 {#understand-push-subscription-states}
 
@@ -135,12 +143,12 @@ Android 13 이상에서는 푸시 알림을 표시하기 전에 권한을 획득
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) 허용되지 않음: (i) App Store와 유사하거나 일반적인 관심 컬렉션으로 서드파티 앱, 확장 프로그램 또는 플러그인을 표시하기 위한 인터페이스를 만드는 것. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) 푸시 알림은 앱 기능에 필수적이어서는 안 되며, 민감한 개인 정보나 기밀 정보를 전송하는 데 사용해서는 안 됩니다. 앱의 UI에 표시된 동의 문구를 통해 고객이 명시적으로 수신에 옵트인하고, 앱에서 이러한 메시지 수신을 거부할 수 있는 방법을 제공하지 않는 한, 푸시 알림은 프로모션이나 직접 마케팅 목적으로 사용해서는 안 됩니다. |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) 푸시 알림, 카메라 또는 자이로스코프와 같은 하드웨어 또는 운영체제에서 제공하는 내장 기능이나, Apple Music 접근, iCloud 저장소 또는 Screen Time API와 같은 Apple 서비스 및 기술을 수익화해서는 안 됩니다. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 | Google Play Store 정책 |
 | --- |
 | [시스템 기능의 무단 사용 또는 모방](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) 알림이나 경고와 같은 시스템 기능을 모방하거나 방해하는 앱이나 광고는 허용되지 않습니다. 시스템 수준 알림은 항공사 앱이 특별 할인을 알리거나 게임이 인게임 프로모션을 알리는 것과 같이 앱의 핵심 기능에만 사용할 수 있습니다. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 ## 관련 문서 {#related-articles}
 

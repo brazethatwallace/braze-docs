@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Alle Übersetzungen für einen Content-Block anzeigen"
 article_title: "GET: Alle Übersetzungen für einen Content-Block anzeigen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page

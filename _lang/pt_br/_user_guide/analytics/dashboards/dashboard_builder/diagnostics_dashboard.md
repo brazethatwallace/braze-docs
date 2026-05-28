@@ -7,7 +7,7 @@ page_order: 2
 toc_headers: h2
 ---
 
-# Dashboard de diagnóstico de envio de mensagens
+# Dashboard de diagnóstico de envio de mensagens {#messaging-diagnostics-dashboard}
 
 > O dashboard **Messaging Diagnostics** oferece uma visão geral dos resultados de envio de mensagens, permitindo que você identifique tendências e diagnostique possíveis problemas na sua configuração de envio de mensagens. Esse dashboard pode ajudar a entender por que as mensagens de suas campanhas ou Canvas podem não ter sido enviadas conforme o esperado.
 
@@ -15,9 +15,9 @@ toc_headers: h2
 O dashboard **Messaging Diagnostics** está atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar do acesso antecipado.
 {% endalert %}
 
-## Conceitos principais
+## Conceitos principais {#key-concepts}
 
-### Enviado e entregue
+### Enviado e entregue {#sent-and-delivered}
 
 É fundamental entender que esse dashboard relata como a Braze processou internamente uma mensagem, e não o status final de entrega da mensagem.
 
@@ -27,7 +27,7 @@ Quando a Braze "envia" uma mensagem, a entrega final pode depender de serviços 
 
 | Canal | Exemplo de entrega final |
 | --- | --- |
-| Cartões de conteúdo | O cartão foi enviado e está elegível para visualização. |
+| Content Cards | O cartão foi enviado e está elegível para visualização. |
 | E-mail | A Braze encaminha a mensagem a um provedor de serviço de e-mail (ESP). O ESP é então responsável pela entrega final. Esse ESP, por exemplo, pode reportar um "bounce" se o endereço de e-mail for inválido ou a caixa de entrada estiver cheia. |
 | Mensagens no app | A mensagem foi exibida ao usuário. |
 | LINE | A mensagem foi encaminhada com sucesso a um parceiro de envio. |
@@ -35,13 +35,13 @@ Quando a Braze "envia" uma mensagem, a entrega final pode depender de serviços 
 | SMS/MMS/RCS | A Braze encaminha a mensagem a um gateway de SMS (como o Twilio). Esse gateway é responsável pela entrega final à operadora de celular. |
 | Webhooks | A solicitação de webhook foi feita com sucesso, retornando uma resposta `2xx`. |
 | WhatsApp | A mensagem foi encaminhada com sucesso a um parceiro de envio. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sent and delivered" }
 
-### Atualização dos dados
+### Atualização dos dados {#data-freshness}
 
 A frequência com que os dados nesse dashboard são atualizados pode variar com base na carga do sistema. Embora a frequência de atualização não seja garantida, na maioria dos casos ela é inferior a uma hora.
 
-## Configurando o dashboard
+## Configurando o dashboard {#configuring-the-dashboard}
 
 Você pode acessar o dashboard de diagnóstico em **Analytics** > **Criador de dashboard** e selecionando **Messaging Diagnostics** na lista de dashboards criados pela Braze.
 
@@ -51,15 +51,15 @@ Para executar o dashboard e visualizar seus dados:
 2. Selecione uma ou mais campanhas ou Canvas.
 3. Selecione **Run Dashboard** para carregar os dados dos filtros selecionados.
 
-![Exemplo de diagnóstico de campanha e Canvas de 25 a 31 de maio de 2025 para uma campanha de série de boas-vindas.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
+![Exemplo de diagnóstico de Campaign e Canvas de 25 a 31 de maio de 2025 para uma campanha de série de boas-vindas.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
 
-## Interpretando os dados
+## Interpretando os dados {#interpreting-the-data}
 
 {% alert note %}
 O dashboard exibe apenas os dados dos últimos sete dias. Todos os horários são exibidos no fuso horário do seu espaço de trabalho.
 {% endalert %}
 
-### Blocos de resumo
+### Blocos de resumo {#summary-tiles}
 
 No topo da página, há blocos de resumo com as principais métricas do período selecionado:
 
@@ -67,10 +67,10 @@ No topo da página, há blocos de resumo com as principais métricas do período
 - **Message Sends:** A contagem total de mensagens que a Braze processou e enviou com sucesso.
   - **E-mail, SMS/MMS/RCS, WhatsApp, LINE e push:** A mensagem foi encaminhada com sucesso a um parceiro de envio.
   - **Webhooks:** A solicitação de webhook foi feita com sucesso, retornando uma resposta `2xx`.
-  - **Cartões de conteúdo:** O cartão foi enviado e está elegível para visualização.
+  - **Content Cards:** O cartão foi enviado e está elegível para visualização.
   - **Mensagens no app:** A mensagem foi exibida ao usuário.
 
-### Resultados de mensagens ao longo do tempo
+### Resultados de mensagens ao longo do tempo {#message-outcomes-over-time}
 
 Este gráfico de série temporal mostra um detalhamento dia a dia dos diferentes motivos pelos quais uma mensagem foi abortada ou um usuário foi removido de um Canvas. Este gráfico não exibe o número de envios.
 
@@ -78,17 +78,17 @@ Este gráfico de série temporal mostra um detalhamento dia a dia dos diferentes
 Para manter o gráfico organizado, qualquer motivo de aborto ou remoção com zero ocorrências no período selecionado não aparece no gráfico.
 {% endalert %}
 
-### Detalhamento dos resultados de mensagens
+### Detalhamento dos resultados de mensagens {#message-outcomes-breakdown}
 
 Este gráfico mostra o detalhamento de todos os resultados de mensagens dentro do período selecionado. Ele fornece uma visão completa de:
 - O número total de envios como proporção de todos os resultados.
 - O detalhamento proporcional de cada motivo de aborto e remoção. Isso ajuda a identificar rapidamente os motivos mais comuns pelos quais as mensagens não estão sendo enviadas.
 
-### Resultados de aborto
+### Resultados de aborto {#abort-outcomes}
 
 As definições a seguir explicam os resultados de aborto exibidos no dashboard. Os resultados são agrupados por categoria para facilitar a localização do que você está investigando.
 
-#### Conteúdo e renderização
+#### Conteúdo e renderização {#content-and-rendering}
 
 | Resultado de aborto | Explicação |
 | ---- | ---- |
@@ -99,9 +99,9 @@ As definições a seguir explicam os resultados de aborto exibidos no dashboard.
 | Liquid abort | A Liquid tag [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) foi chamada, então o envio foi cancelado. |
 | Liquid rendering timeout | A renderização do modelo Liquid demorou demais. Isso ocorre com mais frequência em Banners, mensagens no app e e-mail. |
 | Liquid syntax error | O modelo Liquid continha um erro de sintaxe, então a mensagem foi cancelada. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
 
-#### Estado da campanha e do Canvas
+#### Estado da campanha e do Canvas {#campaign-and-canvas-state}
 
 | Resultado de aborto | Explicação |
 | ---- | ---- |
@@ -111,18 +111,18 @@ As definições a seguir explicam os resultados de aborto exibidos no dashboard.
 | Inactive Canvas | O Canvas foi interrompido antes que o usuário entrasse na jornada. |
 | Inactive Canvas step | Isso pode ocorrer no Canvas se: {::nomarkdown}<ul><li> A etapa do Canvas foi excluída </li> <li>O Canvas foi interrompido, fazendo com que todas as etapas se tornassem inativas </li></ul>{:/} |
 | Volume limited | A campanha atingiu o limite de volume de envios definido, então o envio foi cancelado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign and Canvas state" }
 
-#### Limite de taxa e temporização
+#### Limite de taxa e temporização {#rate-limiting-and-timing}
 
 | Resultado de aborto | Explicação |
 | ---- | ---- |
 | Frequency capped | O usuário já recebeu o número máximo de mensagens permitido pelas regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#about-frequency-capping) do seu espaço de trabalho, então o envio foi cancelado. |
 | Quiet Hours abort | O horário de silêncio estava ativado para a campanha ou etapa do Canvas com o fallback definido como **Abort message**. O usuário disparou a campanha ou entrou na etapa de mensagem do Canvas durante o horário de silêncio, então a mensagem foi abortada. No entanto, isso não remove o usuário do Canvas. |
 | Rate limited over 72 hours | A mensagem foi limitada por mais de 72 horas devido aos [limites de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), então o envio foi abortado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limiting and timing" }
 
-#### Elegibilidade e perfil do usuário
+#### Elegibilidade e perfil do usuário {#user-eligibility-and-profile}
 
 | Resultado de aborto | Explicação |
 | ---- | ---- |
@@ -130,12 +130,12 @@ As definições a seguir explicam os resultados de aborto exibidos no dashboard.
 | User failed pre-check for Message step | Essa pré-verificação é executada antes das validações de entrega. Quando isso ocorre, o usuário não atendeu à pré-verificação básica para esta etapa de mensagem (usuário não encontrado ou não elegível para o canal da etapa de mensagem). **Nota:** Para uma etapa de mensagem multicanal, isso significa que o usuário não foi encontrado; a elegibilidade do canal só é verificada aqui para etapas de mensagem de canal único. |
 | User failed pre-check for triggered message | Para uma mensagem disparada, a Braze executa um primeiro conjunto de pré-verificações básicas de elegibilidade de público, reelegibilidade e elegibilidade de canal antes de criar uma mensagem para enviar a partir desse gatilho. |
 | User no longer eligible | O usuário estava inicialmente no público-alvo, mas deixou de atender aos critérios do público antes que a Braze enviasse a mensagem ou inserisse o usuário no Canvas. O intervalo entre o usuário atender inicialmente aos critérios do público e deixar de atendê-los pode ser causado por atrasos de: {::nomarkdown}<ul><li>Intelligent Timing</li><li>Horário de silêncio</li><li>Horário local</li><li>Limites de velocidade de entrega (não aplicável para entrada no Canvas)</li><li>Atrasos no pipeline de envio de mensagens</li></ul>{:/} |
-| User not eligible for step | O usuário saiu do Canvas porque não atendeu às [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) definidas para a etapa de mensagem ou porque fazia parte de uma [lista de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists/). |
+| User not eligible for step | O usuário não atendeu às [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) definidas para a etapa de mensagem ou fazia parte de uma [lista de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists/). Dependendo das configurações de **Delivery validations**, o usuário pode ter saído do Canvas ou avançado para a próxima etapa. |
 | User not re-eligible | O usuário era elegível para receber a mensagem ou entrar no Canvas, mas o envio foi cancelado devido às configurações de reelegibilidade ou reentrada. Isso pode acontecer se o usuário já recebeu a campanha ou entrou no Canvas recentemente, se outro envio da mesma campanha já está em andamento para esse usuário, ou se a reelegibilidade ou reentrada está desativada. |
 | User profile not found | O usuário nunca existiu ou não existe mais na Braze. Alguns casos comuns incluem: {::nomarkdown}<ul><li> O usuário foi direcionado usando envio de mensagens por API, mas nunca existiu na Braze. </li><li>O usuário foi excluído antes que a mensagem fosse enviada ou a etapa do Canvas fosse executada. </li><li>O usuário foi mesclado com outro perfil antes que a mensagem fosse enviada.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }
 
-#### Canal e entrega
+#### Canal e entrega {#channel-and-delivery}
 
 | Resultado de aborto | Explicação |
 | ---- | ---- |
@@ -151,21 +151,21 @@ As definições a seguir explicam os resultados de aborto exibidos no dashboard.
 | User not enabled for SMS/MMS/RCS | Não é possível enviar mensagens SMS para este usuário. Alguns motivos comuns: {::nomarkdown}<ul><li> O usuário não tem um número de telefone no perfil de usuário. </li><li> O número de telefone do usuário foi marcado como inválido devido a falhas de entrega. </li><li> O número de telefone do usuário não está em um formato E.164 válido, e as tentativas de formatação automática falharam. </li><li> O estado de inscrição do usuário o exclui de receber a mensagem SMS.</li><li>O número de telefone do usuário está em um país bloqueado.</li></ul>{:/} |
 | User not enabled for WhatsApp | Não é possível enviar mensagens WhatsApp para este usuário. Alguns motivos comuns: {::nomarkdown}<ul><li> O usuário não tem um número de telefone no perfil de usuário. </li><li> O número de telefone do usuário foi marcado como inválido devido a falhas de entrega. </li><li> O estado de inscrição do usuário o exclui de receber esta mensagem. </li><li> O usuário não tem uma conta WhatsApp.</li></ul>{:/} |
 | Webhook failed | O webhook recebeu um código de resposta malsucedido (não `2xx`). Consulte o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#dev-console-troubleshooting) para mais detalhes. Registros com mais de 60 horas são limpos e não estão mais acessíveis; erros de webhook são amostrados em até 20 registros por hora. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and delivery" }
 
-## Perguntas frequentes
+## Perguntas frequentes {#frequently-asked-questions}
 
-### O que significa uma falha de "pré-verificação"?
+### O que significa uma falha de "pré-verificação"? {#what-does-a-pre-check-failure-mean}
 
 Uma "pré-verificação" é uma verificação de validação rápida e agrupada que é executada no início de uma etapa do pipeline (como uma mensagem sendo disparada ou o envio de uma etapa de mensagem do Canvas). Pense nisso como uma saída antecipada projetada para máxima velocidade. Em vez de executar muitas verificações separadas e que consomem muitos recursos (como validar cada detalhe do perfil de um usuário), a Braze agrupa várias validações básicas em uma única "primeira passagem".
 
-Se um usuário falhar nessa verificação agrupada, ele é removido imediatamente. Essa abordagem agrupada permite que a Braze processe volumes massivos de mensagens em alta velocidade e pode contribuir para uma performance mais rápida e estável das suas campanhas e Canvas, reduzindo a latência de processamento de cada mensagem.
+Se um usuário falhar nessa verificação agrupada, ele é removido imediatamente. Essa abordagem agrupada permite que a Braze processe volumes massivos de mensagens em alta velocidade e pode contribuir para um desempenho mais rápido e estável das suas campanhas e Canvas, reduzindo a latência de processamento de cada mensagem.
 
-### O que significa um resultado de aborto "other"?
+### O que significa um resultado de aborto "other"? {#what-does-an-other-abort-outcome-mean}
 
 São abortos que não se enquadraram em nenhuma das categorias pré-existentes da Braze. Se você notar uma grande proporção de abortos com esse resultado, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/) para obter mais assistência.
 
-### Por que a soma de *Total Aborts* e *Message Sends* é menor que o tamanho esperado do meu público?
+### Por que a soma de _Total Aborts_ e _Message Sends_ é menor que o tamanho esperado do meu público? {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-lower-than-my-expected-audience-size}
 
 Isso pode acontecer por vários motivos:
 
@@ -174,7 +174,7 @@ Isso pode acontecer por vários motivos:
 - **Atualização dos dados:** Os dados do dashboard são atualizados aproximadamente a cada 15 minutos, mas isso não é garantido. Os dados mais recentes desta campanha ou Canvas podem ainda não ter chegado ao dashboard.
 - **Casos extremos:** Há uma pequena chance de você estar encontrando um caso extremo que não é capturado neste dashboard no momento. Se você suspeitar que esse é o caso, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
-### Por que a soma de *Total Aborts* e *Message Sends* é maior que o público de uma campanha e Canvas?
+### Por que a soma de _Total Aborts_ e _Message Sends_ é maior que o público de uma campanha e Canvas? {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-greater-than-the-audience-for-a-campaign-and-canvas}
 
 Isso pode ocorrer pelos seguintes motivos:
 

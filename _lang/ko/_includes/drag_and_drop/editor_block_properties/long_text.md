@@ -12,4 +12,4 @@
 | 줄 높이 | 텍스트 줄 사이의 세로 간격입니다. |
 | 텍스트 색상 | 텍스트의 색상입니다. |
 | 자간 | 문자 사이의 가로 간격입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

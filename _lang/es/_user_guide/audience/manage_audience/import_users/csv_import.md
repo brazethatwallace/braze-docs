@@ -18,7 +18,7 @@ Puedes utilizar la importación CSV para registrar y actualizar los siguientes a
 | Atributos predeterminados | Atributos de usuario reservados reconocidos por Braze. | `first_name`, `email` | 500 MB |
 | Atributos personalizados | Atributos de usuario exclusivos de tu empresa. | `last_destination_searched` | 500 MB |
 | Eventos personalizados | Eventos exclusivos de tu empresa que representan acciones de los usuarios. | `trip_booked` | 50 MB |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Acerca de la importación CSV" }
 
 ## Uso de la importación CSV {#using-csv-import}
 
@@ -60,7 +60,7 @@ Si estás cargando o actualizando perfiles de usuario que solo tienen alias, deb
 | :---- | :---- | :---- | :---- | :---- |
 | 182736485 | my_alt_identifier | Smith | smith@user.com | TRUE |
 | 182736486 | my_alt_identifier | Nguyen | nguyen@user.com | FALSE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Paso 2: Elige un identificador" }
 
 Cuando proporcionas tanto un `user_alias_name` como un `user_alias_label` en tu importación, Braze actualiza cualquier usuario existente con el mismo `user_alias_name` y `user_alias_label`. Si no se encuentra un usuario, Braze crea un nuevo usuario identificado con ese `user_alias_name` establecido.
 
@@ -136,7 +136,7 @@ Los siguientes tipos de datos pueden utilizarse como atributos personalizados pa
 | Número | Debe ser un entero o decimal sin espacios ni comas. Los decimales deben usar un punto (`.`) como separador decimal. |
 | Cadena | Puede contener comas si el valor está envuelto en comillas dobles (`""`). |
 | En blanco | Los valores en blanco no sobrescribirán los valores existentes en el perfil de usuario, y no necesitas incluir todos los atributos de usuario existentes en tu archivo CSV. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Atributos personalizados" }
 
 {% alert important %}
 Los arrays, tokens de notificaciones push y tipos de datos de eventos personalizados no son compatibles con la importación de usuarios, ya que las comas en tu archivo CSV se interpretarán como separadores de columna y causarán errores al analizar tu archivo.<br><br>Para cargar este tipo de valores, utiliza el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) en su lugar.
@@ -146,6 +146,10 @@ Los arrays, tokens de notificaciones push y tipos de datos de eventos personaliz
 
 {% alert important %}
 Al importar atributos predeterminados, los encabezados de columna que utilices deben coincidir exactamente con la ortografía y las mayúsculas de los atributos de usuario predeterminados. De lo contrario, Braze los detectará como [atributos personalizados](#custom-attributes).
+{% endalert %}
+
+{% alert tip %}
+Para la lista completa de atributos estándar que Braze reconoce (a través de SDK, API, CSV e Ingesta de datos de Cloud), consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). La siguiente tabla cubre solo el subconjunto que puede establecerse a través de la importación CSV.
 {% endalert %}
 
 Los siguientes atributos predeterminados están disponibles para la importación de usuarios.
@@ -172,7 +176,7 @@ Los siguientes atributos predeterminados están disponibles para la importación
 | `date_of_first_session`  `date_of_last_session` | Cadena | Puede pasarse en uno de los siguientes formatos ISO 8601: "AAAA-MM-DD" "AAAA-MM-DDTHH:MM:SS+00:00" "AAAA-MM-DDTHH:MM:SSZ" "AAAA-MM-DDTHH:MM:SS" (por ejemplo, 2019-11-20T18:38:57) | No |
 | `subscription_group_id` | Cadena | El `id` de tu grupo de suscripción. Este identificador se puede encontrar en la página del grupo de suscripción de tu dashboard. | No |
 | `subscription_state` | Cadena | El estado de suscripción para el grupo de suscripción especificado por `subscription_group_id`. Los valores permitidos son `unsubscribed` (no está en el grupo de suscripción) o `subscribed` (está en el grupo de suscripción). | No, pero se recomienda encarecidamente si se utiliza `subscription_group_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Atributos predeterminados" }
 
 #### Actualización del estado del grupo de suscripción (opcional) {#updating-subscription-group-status-optional}
 
@@ -187,7 +191,7 @@ Si estás actualizando estados de grupos de suscripción, debes tener las siguie
 | :---- | :---- | :---- | :---- |
 | A8i3mkd99 | Colby | 6ff593d7-cf69-448b-aca9-abf7d7b8c273 | subscribed |
 | k2LNhj8Ks | Tom | aea02307-a91e-4bc0-abad-1c0bee817dfa | subscribed |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Actualización del estado del grupo de suscripción (opcional)" }
 
 {% alert note %}
 Solo se puede establecer un único `subscription_group_id` por fila en la importación de usuarios. Diferentes filas pueden tener diferentes valores de `subscription_group_id`. Sin embargo, si necesitas inscribir a los mismos usuarios en múltiples grupos de suscripción, deberás realizar múltiples importaciones.
@@ -223,7 +227,7 @@ Por ejemplo, el evento personalizado `trip_booked` puede tener las propiedades `
 | `name` | Cadena | Un evento personalizado de tus usuarios. | Sí |
 | `time` | Cadena | La hora del evento. Puede pasarse en uno de los siguientes formatos ISO-8601: "AAAA-MM-DD" "AAAA-MM-DDTHH:MM:SS+00:00" "AAAA-MM-DDTHH:MM:SSZ" "AAAA-MM-DDTHH:MM:SS" (por ejemplo, 2019-11-20T18:38:57) | Sí |
 | `<event name>.properties.<property name>` | Múltiples | Una propiedad del evento asociada a un evento personalizado. Un ejemplo es `trip_booked.properties.destination` | No |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campos de eventos personalizados" }
 
 #### Requisitos de formato para eventos personalizados {#format-requirements-for-custom-events}
 
@@ -270,7 +274,7 @@ La siguiente tabla muestra el formato correcto para importar eventos personaliza
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | 123 | rented_movie | 2024-06-10T12:00:00Z | Ghostbusters | Action | | |
 | 456 | bought_movie | 2024-06-12T12:00:00Z | | | Ghostbusters | Action |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Ejemplo de estructura CSV" }
 
 En este ejemplo:
 
@@ -314,13 +318,15 @@ La columna de estado de mapeado indica la acción que ocurre cuando se importa t
 | **Tipo de datos no coincidente** | El tipo de datos detectado de la columna CSV no coincide con el tipo de datos del atributo o identificador existente. Braze intenta convertir el tipo de datos en la importación para que coincida con el atributo existente. El valor se descarta si esto no es posible. |
 | **Atributo en lista de bloqueo** | El campo CSV coincide con el nombre de un atributo en la lista de bloqueo. Selecciona un atributo diferente para mapear o la columna no se importará. |
 | **Atributo duplicado** | Hay uno o más campos con el mismo nombre en tu archivo CSV. Mapea las columnas con el mismo nombre a diferentes atributos o solo se importará la primera columna. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de mapeado" }
+
 
 #### Edición de nuevos atributos {#editing-new-attributes}
 
 Cuando no existe un atributo coincidente en tu espacio de trabajo, Braze intenta crear un nuevo atributo en la importación utilizando el nombre del campo CSV y el tipo de datos detectado. Puedes editar este nuevo atributo antes de la importación seleccionando el botón **Edit new attribute** junto al estado de mapeado.
 
 ![El botón de editar nuevo atributo en la página de mapeado de columnas.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
+
 
 {% alert note %}
 No puedes avanzar más allá del paso de mapeado hasta que se mapee un identificador. Braze mapea automáticamente un identificador cuando es posible. Consulta la sección **Required fields** para ver si se ha mapeado un identificador.
@@ -334,7 +340,7 @@ Después del mapeado, puedes elegir entre las siguientes preferencias de segment
 |---|---|
 | Filtro de segmentación | Para convertir tu archivo CSV en una opción de reorientación al construir segmentos de usuarios, elige tu archivo del menú desplegable **Updated/Imported from CSV** y luego selecciona **Create targeting filter**. |
 | Nuevos segmentos | Para crear también un nuevo segmento a partir de tu nuevo filtro de segmentación, selecciona **Create targeting filter and add to new segment**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 6: Elige las preferencias de segmentación" }
 
 ![Un grupo de filtros con el filtro "Updated/Imported from CSV" que incluye un archivo CSV titulado "Halloween season fun".]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
@@ -354,7 +360,7 @@ Cuando la validación se completa, aparece uno de los siguientes resultados.
 | **Problemas encontrados** | Algunas filas tienen errores o advertencias. | Descarga el informe de errores para revisarlos, luego selecciona **Import anyway** para continuar o **Cancel** para corregir tu archivo primero. |
 | **Validación agotada** | La validación se quedó sin tiempo. Las filas que se verificaron no tenían problemas. | Selecciona **Import data**. Un informe completo estará disponible en unos minutos. |
 | **Validación agotada con problemas** | La validación se quedó sin tiempo y encontró errores en algunas de las filas que verificó. | Descarga el informe parcial para revisar lo que se encontró, luego selecciona **Import anyway** o **Cancel**. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Resultados de la validación" }
 
 ![La página de resumen mostrando la sección de problemas encontrados, con un recuento de filas con errores y advertencias, y opciones para volver, descargar el informe de errores o iniciar la importación.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
@@ -366,7 +372,7 @@ El informe de errores es un archivo CSV que contiene cada fila marcada junto con
 |---|---|
 | **Error** | La fila se omitirá completamente durante la importación. |
 | **Advertencia** | La fila se importará, pero algunos valores se descartarán. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprensión del informe de errores" }
 
 Después de revisar el informe, puedes corregir los problemas en tu archivo original y volver a cargarlo, o continuar con la importación y aceptar los resultados parciales.
 
@@ -390,7 +396,7 @@ Después de iniciar tu importación, puedes verificar su estado en la página **
 | **Completado** | Todas las filas se importaron correctamente. |
 | **Éxito parcial** | Algunas filas fallaron. Selecciona el menú de tres puntos junto a la importación para descargar un informe de errores o el CSV cargado originalmente. |
 | **En progreso** | La importación se está ejecutando actualmente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de importación" }
 
 ![La página Import Users mostrando un estado de éxito parcial con el menú contextual abierto, mostrando las opciones Download error report y Download uploaded CSV.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
 
@@ -409,7 +415,7 @@ Cada dato de cliente importado desde un archivo CSV sobrescribe el valor existen
 | ID externos | Cargar un CSV con solo `external_id` no registra puntos de datos. Esto te permite segmentar usuarios existentes de Braze sin afectar los límites de datos. Sin embargo, incluir campos como `email` o `phone` sobrescribe los datos de usuario existentes y **sí** registra puntos de datos. <br><br>Las importaciones CSV utilizadas solo para segmentación no registran puntos de datos, como aquellas que contienen solo `external_id`, `braze_id` o `user_alias_name`. |
 | Valores en blanco | Los valores en blanco en tu CSV no sobrescribirán los datos existentes del perfil de usuario. No necesitas incluir todos los atributos de usuario o eventos personalizados al importar. |
 | Estados de suscripción | Actualizar `email_subscribe`, `push_subscribe`, `subscription_group_id` o `subscription_state` **no** cuenta para el uso de puntos de datos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Consideraciones sobre puntos de datos" }
 
 {% alert important %}
 Establecer `language` o `country` en un usuario a través de la importación CSV o API impide que Braze capture automáticamente esta información a través del SDK.
@@ -442,7 +448,9 @@ Si tu objetivo es crear un segmento sin actualizar datos de perfil, carga un CSV
 
 Si tu carga se completó con errores, puede haber una fila malformada en tu archivo CSV.
 
-Para importar datos correctamente, debe haber una fila de encabezado. Cada fila debe tener el mismo número de celdas que la fila de encabezado. Las filas con más o menos valores que la fila de encabezado se excluirán de la importación. Las comas dentro de un valor se interpretarán como separador y pueden provocar este error. Además, todos los datos deben estar codificados en UTF-8.
+Para importar datos correctamente, debe haber una fila de encabezado. Cada fila debe tener el mismo número de celdas que la fila de encabezado. Las filas con más o menos valores que la fila de encabezado se excluirán de la importación. Las comas dentro de un valor se interpretarán como separador y pueden provocar este error.
+
+Además, todos los datos deben estar codificados en UTF-8. Si el archivo se guarda con una codificación heredada (por ejemplo, algunos valores predeterminados de Excel), los caracteres especiales y las URL en las celdas pueden corromperse y aparecer como signos de interrogación (`?`) en Braze o en los mensajes enviados.
 
 Si tu archivo CSV tiene filas en blanco e importa menos filas que el total de líneas en el archivo CSV, esto puede no indicar un problema con la importación, ya que las filas en blanco no necesitarían importarse. Verifica el número de líneas que se importaron correctamente y asegúrate de que coincida con el número de usuarios que intentas importar.
 
@@ -459,7 +467,7 @@ Hay algunas razones por las que el número de usuarios importados podría no coi
 | Comillas dobles sin escapar o desbalanceadas (`"`) | Las comillas dobles envuelven valores de cadena que contienen comas. Si un valor en sí contiene una comilla doble, escápala duplicándola (`""`). Las comillas dobles sin escapar o desbalanceadas causan una fila malformada. |
 | Saltos de línea inconsistentes | Los saltos de línea mixtos (por ejemplo, `\n` y `\r\n`) pueden hacer que la primera fila de datos se trate como parte del encabezado. Usa un editor hexadecimal o de texto avanzado para inspeccionar y corregir. |
 | Archivo codificado incorrectamente | Aunque se permiten acentos, el archivo debe estar codificado en UTF-8. Otras codificaciones pueden funcionar parcialmente pero no son totalmente compatibles. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fila faltante" }
 
 #### Comillas en cadenas {#string-quotation}
 
@@ -513,4 +521,4 @@ Hay varias razones por las que el botón **Select CSV File** puede no funcionar:
 | Bloqueador de ventanas emergentes | Esto puede impedir que la página se muestre. Confirma que tu navegador permite ventanas emergentes en el sitio web del dashboard de Braze. |
 | Navegador desactualizado | Asegúrate de que tu navegador esté actualizado; si no lo está, actualízalo a la última versión. |
 | Procesos en segundo plano | Cierra todas las instancias del navegador y luego reinicia tu computadora. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="\"Select CSV File\" no funciona" }

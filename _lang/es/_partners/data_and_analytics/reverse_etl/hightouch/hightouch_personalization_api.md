@@ -26,7 +26,7 @@ La API de personalización de Hightouch proporciona un punto de conexión REST p
 | Casos de uso definidos | Antes de configurar la API, debes determinar tu caso de uso para esta integración. Consulta la siguiente lista de casos de uso comunes. |
 | Datos almacenados en un almacén de datos en la nube u otra fuente | Hightouch se integra con [más de 25 orígenes de datos](https://hightouch.com/integrations) |
 | Clave de API de Hightouch | Se puede crear en **Hightouch > Settings > API keys > Add API key**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% tabs %}
 {% tab Use Cases %}
@@ -170,7 +170,7 @@ Las siguientes referencias de Liquid devolverían estos datos de ejemplo:
 | {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %}| Aphex Twin |
 | {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %}| San Francisco, CA |
 | {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %}| Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 4: Llamar a la API de personalización a través del Contenido conectado de Braze" }
 
 ## Solución de problemas {#troubleshooting}
 

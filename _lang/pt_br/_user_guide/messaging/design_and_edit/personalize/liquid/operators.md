@@ -12,7 +12,7 @@ description: "Esta página de referência apresenta os operadores compatíveis c
 
 Esta tabela lista os operadores compatíveis. Observe que parênteses são caracteres inválidos em Liquid e impedem que suas tags funcionem.
 
-| Sintaxe| Descrição do operador|
+|   Sintaxe| Descrição do operador|
 |---------|-----------|
 | ==  | igual a        |
 | !=  | diferente de|
@@ -23,7 +23,7 @@ Esta tabela lista os operadores compatíveis. Observe que parênteses são carac
 | or | condição A ou condição B|
 | and | condição A e condição B|
 | contains | verifica se uma string ou array de strings contém uma string|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
 
 {% alert note %}
 Os operadores podem ser usados em instruções condicionais (`if`, `elsif`, `unless`), mas não em instruções `assign`, loops `for` ou colchetes de acesso a arrays. Nas tags `case` e `when`, cada ramificação compara a expressão `case` com um valor `when` usando igualdade, em vez de expressões arbitrárias com operadores. Para exemplos, consulte [Lógica condicional de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags). Para uma explicação completa, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).

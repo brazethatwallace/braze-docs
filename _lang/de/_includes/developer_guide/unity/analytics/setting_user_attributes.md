@@ -188,17 +188,17 @@ Beide Funktionen nehmen `Appboy.Models.AppboyNotificationSubscriptionType` als A
 | `OPTED_IN` | Abonniert und ausdrücklich angemeldet |
 | `SUBSCRIBED` | Abonniert, aber nicht ausdrücklich angemeldet |
 | `UNSUBSCRIBED` | Abgemeldet und/oder ausdrücklich abbestellt |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abos für Nutzer:innen einrichten" }
 
 {% alert note %}
 Unter Windows ist kein explizites Opt-in erforderlich, um Nutzer:innen Push-Benachrichtigungen zu senden. Wenn Nutzer:innen für Push registriert sind, werden sie standardmäßig auf `SUBSCRIBED` statt auf `OPTED_IN` gesetzt. Mehr erfahren Sie in unserer Dokumentation zur [Implementierung von Abos und expliziten Opt-ins]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
 {% endalert %}
 
-| Abo-Typ                                 | Beschreibung |
+| Abo-Typ | Beschreibung |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType`      | Nutzer:innen werden beim Empfang einer gültigen E-Mail-Adresse automatisch auf `SUBSCRIBED` gesetzt. Wir empfehlen Ihnen jedoch, ein explizites Opt-in-Verfahren einzurichten und diesen Wert auf `OPTED_IN` zu setzen, sobald Sie die ausdrückliche Zustimmung erhalten haben. Weitere Details finden Sie in unserer Dokumentation zum [Ändern von Nutzer-Abos]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
-| `PushNotificationSubscriptionType`       | Nutzer:innen werden bei einer gültigen Push-Registrierung automatisch auf `SUBSCRIBED` gesetzt. Wir empfehlen Ihnen jedoch, ein explizites Opt-in-Verfahren einzurichten und diesen Wert auf `OPTED_IN` zu setzen, sobald Sie die ausdrückliche Zustimmung erhalten haben. Weitere Details finden Sie in unserer Dokumentation zum [Ändern von Nutzer-Abos]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `EmailNotificationSubscriptionType` | Nutzer:innen werden beim Empfang einer gültigen E-Mail-Adresse automatisch auf `SUBSCRIBED` gesetzt. Wir empfehlen Ihnen jedoch, ein explizites Opt-in-Verfahren einzurichten und diesen Wert auf `OPTED_IN` zu setzen, sobald Sie die ausdrückliche Zustimmung erhalten haben. Weitere Details finden Sie in unserer Dokumentation zum [Ändern von Nutzer-Abos]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
+| `PushNotificationSubscriptionType` | Nutzer:innen werden bei einer gültigen Push-Registrierung automatisch auf `SUBSCRIBED` gesetzt. Wir empfehlen Ihnen jedoch, ein explizites Opt-in-Verfahren einzurichten und diesen Wert auf `OPTED_IN` zu setzen, sobald Sie die ausdrückliche Zustimmung erhalten haben. Weitere Details finden Sie in unserer Dokumentation zum [Ändern von Nutzer-Abos]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abos für Nutzer:innen einrichten" }
 
 {% alert note %}
 Diese Typen gehören zu `Appboy.Models.AppboyNotificationSubscriptionType`.

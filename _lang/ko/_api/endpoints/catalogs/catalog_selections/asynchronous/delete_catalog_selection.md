@@ -33,7 +33,7 @@ description: "이 문서에서는 카탈로그 선택 항목 삭제 Braze 엔드
 | `selection_name` | 필수 | 문자열 | 카탈로그 선택 항목의 이름입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 
 ```
 curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaurants/selections/favorite_list' \

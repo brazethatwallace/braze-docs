@@ -19,7 +19,7 @@ CDI 사용자 데이터 동기화의 경우 다음 두 가지를 모두 구성�
 | --- | --- |
 | 소스 테이블 설정 | 필수 열, 사용자 식별자 및 `UPDATED_AT` 동기화 동작 |
 | 페이로드 형식 지정 | `PAYLOAD`의 JSON 필드(속성, 이벤트, 구매에 대한 오브젝트 형태 포함) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="테이블 설정과 페이로드 형식 지정 비교" }
 
 Braze는 먼저 소스 테이블에서 행을 읽은 다음, 선택한 데이터 유형에 따라 `PAYLOAD` 필드를 검증합니다.
 
@@ -38,7 +38,7 @@ Braze는 먼저 소스 테이블에서 행을 읽은 다음, 선택한 데이터
 
 테이블에 여러 식별자 열이 포함되어 있더라도 각 행에는 한 번에 하나의 식별자 유형만 포함해야 합니다.
 
-### `UPDATED_AT` 요구 사항 {#updatedat-requirements}
+### `UPDATED_AT` 요구 사항 {#updated_at-requirements}
 
 - 일광 절약 시간 문제를 방지하려면 `UPDATED_AT` 값을 UTC로 저장합니다.
 - Braze는 `UPDATED_AT`가 마지막으로 동기화된 값보다 이후인 행을 동기화합니다.
@@ -59,7 +59,7 @@ Braze는 먼저 소스 테이블에서 행을 읽은 다음, 선택한 데이터
 | `attributes` | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOAD 열 설정" }
 
 중첩 속성의 경우 [오브젝트 등록정보로 날짜 캡처]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties)의 형식을 사용하여 날짜를 포함합니다.
 

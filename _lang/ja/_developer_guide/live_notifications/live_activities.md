@@ -101,7 +101,7 @@ sequenceDiagram
 
 競争している2つの野生動物救助チームに、保護しているフクロウに対してポイントが与えられるSuperb Owlショーの更新をユーザーに提供するライブアクティビティを作成すると想定してみましょう。この例では、`SportsActivityAttributes`という構造体を作成しましたが、`ActivityAttributes`の独自の実装を使用することもできます。
 
-```swift
+`````````swift
 #if canImport(ActivityKit)
   import ActivityKit
 #endif
@@ -145,7 +145,7 @@ Xcodeプロジェクトで、アプリの名前を選択し、**General**を選�
 iOSは`brazeActivityId`プロパティをライブアクティビティのpush-to-startペイロードの対応するフィールドにマップするため、名前を変更したり、他の値を割り当てたりしないでください。
 {% endalert %}
 
-```swift
+`````````swift
 import BrazeKit
 
 #if canImport(ActivityKit)
@@ -180,7 +180,7 @@ iOSオペレーティングシステムは、デバイスが再起動した後�
 
 次の例では、`LiveActivityManager`クラスがライブアクティビティオブジェクトを処理します。次に、`registerPushToStart`メソッドが`SportsActivityAttributes`を登録します。
 
-```swift
+`````````swift
 import BrazeKit
 
 #if canImport(ActivityKit)
@@ -195,7 +195,7 @@ class LiveActivityManager {
     // You may keep a reference to this task if you need to cancel it wherever appropriate, or ignore the return value if you wish.
     let pushToStartObserver: Task = Self.braze?.liveActivities.registerPushToStart(
       forType: Activity<SportsActivityAttributes>.self,
-      name: "SportsActivityAttributes"
+      name: SportsActivityAttributes.name
     )
   }
 
@@ -221,7 +221,7 @@ class LiveActivityManager {
 
 この例では、ライブアクティビティオブジェクトのインターフェイスとして`LiveActivityManager`というクラスを作成します。次に、`pushTokenTag`を`"sports-game-2024-03-15"`に設定します。
 
-```swift
+`````````swift
 import BrazeKit
 
 #if canImport(ActivityKit)
@@ -268,7 +268,7 @@ Brazeがアプリ起動時にライブアクティビティを追跡できるよ
 
 ###### 例 {#example}
 
-```swift
+`````````swift
 import UIKit
 import BrazeKit
 
@@ -361,7 +361,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 Appleが提供するライブアクティビティ機能は、JavaScriptでは変換できない言語機能（Swift Concurrency、generics、SwiftUIなど）を使用しているため、ライブアクティビティ用のReact Native固有のJavaScriptコンビニエンスAPIは存在しません。
 
-#### BrazeはCampaignやCanvasステップとしてのライブアクティビティをサポートしていますか？ {#does-braze-support-live-activities-as-a-campaign-or-canvas-step}
+#### Brazeはキャンペーンやキャンバスステップとしてのライブアクティビティをサポートしていますか？ {#does-braze-support-live-activities-as-a-campaign-or-canvas-step}
 
 いいえ、現在サポートされていません。
 

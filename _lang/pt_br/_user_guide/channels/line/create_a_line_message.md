@@ -23,7 +23,7 @@ Antes de criar uma mensagem LINE, faça o seguinte:
 2. Reconheça as políticas, limites e regras de conteúdo.
 3. [Configure sua conexão LINE]({{site.baseurl}}/user_guide/channels/line/line_setup/).
 
-O envio de mensagens LINE pela Braze consumirá os créditos de mensagem da sua conta.
+O envio de mensagens LINE pela Braze consumirá os créditos de mensagem ou de ação da sua conta.
 
 ## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
@@ -97,7 +97,7 @@ Construa o restante da sua Campaign. Consulte as seções a seguir para mais det
 
 As mensagens LINE podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais sobre opções de agendamento e gatilho, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Você pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para receber a Campaign, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping). Para entrega baseada em ação, você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Você pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para receber a Campaign, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping). Para entrega baseada em ação, você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 ### Escolha os usuários a serem direcionados {#choose-users-to-target}
 

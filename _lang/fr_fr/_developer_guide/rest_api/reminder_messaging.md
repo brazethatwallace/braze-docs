@@ -26,7 +26,7 @@ Pour suivre ce guide, vous avez besoin de :
 | Accès aux pages d'accueil | Accès et autorisations pour créer des [pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) dans Braze. |
 | Connaissances en HTML et JavaScript | Familiarité de base avec HTML et JavaScript pour personnaliser votre page d'accueil. Requis uniquement pour l'[Option B](#option-b-personal-dates-custom-code-block). |
 | Connaissances en Liquid | Familiarité de base avec [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) pour créer des modèles de variables personnalisées. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Étape 1 : Créer une page d'accueil et y renvoyer depuis un message {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 
@@ -46,7 +46,7 @@ Lorsqu'un utilisateur clique sur ce lien, Braze l'identifie automatiquement, de 
 
 La manière de recueillir les préférences des utilisateurs dépend de la nature des dates collectées : dates partagées ou dates personnelles. Choisissez l'option qui correspond à votre cas d'usage.
 
-### Option A : Dates partagées (blocs de formulaire par glisser-déposer) {#option-a-shared-dates-dnd-form-blocks}
+### Option A : Dates partagées (blocs de formulaire par glisser-déposer) {#option-a-shared-dates-drag-and-drop-form-blocks}
 
 Pour les événements où de nombreux utilisateurs partagent la même date (comme les jours fériés ou les événements sportifs), utilisez les [blocs de formulaire **Case à cocher**]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#form-blocks) intégrés à l'éditeur par glisser-déposer pour recueillir les préférences. Chaque case à cocher définit nativement un attribut personnalisé de type booléen (`true` ou `false`) sur le profil de l'utilisateur lors de la soumission du formulaire, sans code personnalisé nécessaire.
 

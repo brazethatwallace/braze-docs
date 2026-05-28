@@ -61,7 +61,7 @@ Un mensaje de texto de KakaoTalk es la forma más sencilla de comunicación: un 
 | Contenido | Contenido de texto, incluyendo emojis y personalización con Liquid |
 | Capacidad de texto | Hasta 1000 caracteres |
 | Botones | Hasta 5 botones opcionales. Actualmente, solo se pueden usar para abrir una URL al hacer clic. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones" }
 
 ![Un mensaje de texto de KakaoTalk en el compositor.]({% image_buster /assets/img/kakaotalk/kakaotalk_text.png %})
 
@@ -79,7 +79,7 @@ Una imagen es un mensaje que combina un elemento visual con texto de apoyo. Braz
 | Ancho recomendado | 500px |
 | Tamaño de archivo | Hasta 500kb |
 | Relación de aspecto | Debe estar entre 2:1 (ancho) y 3:4 (alto) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones generales" }
 
 Los mensajes de imagen estrecha y ancha tienen diferentes consideraciones de recuento de caracteres y botones.
 
@@ -99,7 +99,7 @@ Un mensaje de imagen estrecha presenta una imagen ligeramente más alta y estrec
 | Botones | Hasta 5 botones opcionales |
 | Fuente de imagen | Las imágenes se pueden añadir usando la biblioteca de medios de Braze o una URL directa |
 | Personalización | Puedes especificar el comportamiento al hacer clic en la imagen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones" }
 
 ![Un mensaje estrecho de KakaoTalk.]({% image_buster /assets/img/kakaotalk/narrow_image.png %})
 
@@ -119,7 +119,7 @@ Un mensaje de imagen ancha presenta una imagen ancha prominente, adecuada para c
 | Botones | Hasta 2 botones opcionales |
 | Fuente de imagen | Las imágenes se pueden añadir usando la biblioteca de medios de Braze o una URL directa |
 | Personalización | Puedes especificar el comportamiento al hacer clic en la imagen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones" }
 
 ![Un mensaje ancho de KakaoTalk.]({% image_buster /assets/img/kakaotalk/wide_image.png %})
 
@@ -151,7 +151,7 @@ Los mensajes de elementos de lista consisten en un encabezado, una sección de l
 | Encabezado | Hasta 250 caracteres |
 | Título del elemento | Hasta 25 caracteres |
 | URL del sitio web (por elemento) | Hasta 250 caracteres |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones" }
 
 ![Un mensaje de lista de elementos de KakaoTalk.]({% image_buster /assets/img/kakaotalk/item_list.png %})
 
@@ -204,7 +204,7 @@ Consulta las siguientes secciones para obtener detalles sobre cómo usar mejor n
 
 Los mensajes de KakaoTalk se pueden entregar según un horario planificado, una acción o un desencadenador de API. Para más información sobre las opciones de planificación y desencadenadores, consulta [Planifica tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) o [Tipos de horario de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) (para tu Canvas).
 
-Puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser elegibles para recibir la campaña, o activar reglas de limitación de frecuencia. Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las horas tranquilas.
+Puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser elegibles para recibir la campaña, o activar reglas de limitación de frecuencia. Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 ### Elige los usuarios objetivo {#choose-users-to-target}
 
@@ -212,7 +212,7 @@ Segmenta a los usuarios seleccionando Segments o filtros para reducir tu audienc
 
 ### Elige eventos de conversión {#choose-conversion-events}
 
-Braze te permite rastrear con qué frecuencia los usuarios realizan acciones específicas, eventos de conversión, después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se cuenta una conversión si el usuario realiza la acción especificada.
+Braze te permite rastrear con qué frecuencia los usuarios realizan acciones específicas (eventos de conversión) después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se cuenta una conversión si el usuario realiza la acción especificada.
 
 Los eventos de conversión te ayudan a medir el éxito de tu campaña. Por ejemplo, si intentas impulsar a los usuarios a usar tu aplicación, establece el evento de conversión en **Starts Session**.
 

@@ -21,7 +21,7 @@ Más información sobre cómo Braze recopila datos:
     - Ten en cuenta que para que el alias de usuario sea un perfil al que se pueda enviar mensajes, debes incluir el correo electrónico y/o el teléfono como atributo estándar en el perfil.
 - `device_id`: un identificador específico del dispositivo generado automáticamente. Un perfil de usuario puede tener asociados varios `device_ids`. Por ejemplo, un usuario que haya iniciado sesión en su cuenta en la computadora del trabajo, la computadora de casa, la tableta y la aplicación iOS tendría 4 `device_ids` asociados a su perfil.
 - Dirección de correo electrónico y número de teléfono:
-    - Se admite como identificador en el punto de conexión de seguimiento de usuarios de Braze.
+    - Se admiten como identificador en el punto de conexión de seguimiento de usuarios de Braze.
     - Cuando se utiliza la dirección de correo electrónico o los números de teléfono como identificador dentro de una solicitud, hay tres resultados posibles:
         1. Si no existe un usuario con este correo electrónico/teléfono en Braze, se creará un perfil de usuario de solo correo electrónico/solo teléfono, y los datos de la solicitud se añadirán al perfil.
         2. Si ya existe un perfil con este correo electrónico/teléfono en Braze, se actualizará para incluir los datos enviados en la solicitud.
@@ -73,7 +73,7 @@ Más adelante podrás identificar y fusionar este alias de usuario con un `exter
 
 ### Creación de un usuario de solo correo electrónico {#creating-an-email-only-user}
 
-Utiliza la dirección de correo electrónico como identificador en el punto de conexión de seguimiento del usuario.
+Utiliza la dirección de correo electrónico como identificador en el punto de conexión de seguimiento de usuarios.
 
 ```json
 {
@@ -126,19 +126,19 @@ Esta funcionalidad está en acceso anticipado.
 ### Currents
 
 Currents es una herramienta de transmisión de análisis de interacción de mensajes casi en tiempo real en Braze. Transmitirá datos a nivel de usuario sobre todos los envíos, entregas, aperturas, clics, etc., de Campaigns y Canvas enviados desde el espacio de trabajo del cliente. Un par de cosas a tener en cuenta: Currents tiene un precio por conector para el cliente, por lo que todos los nuevos socios de Currents deben pasar por un proceso de acceso anticipado. Pedimos a nuestros socios que cuenten con cinco clientes como parte del acceso anticipado antes de crear la interfaz de usuario personalizada y poner el conector a disposición del público.
-- [Documentación para socios]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [Documentación para socios]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 - [Eventos de interacción de mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/): todos los clientes que adquieran un conector de Currents tendrán acceso a estos eventos.
 - [Eventos de comportamiento del usuario]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/): no todos los clientes que adquieren un conector de Currents adquieren un conector de "todos los eventos" que incluya estos eventos.
 
 ### Snowflake Data Share
 
 Los clientes que adquieran un conector de Snowflake Data Share tendrán acceso automático tanto a los eventos de interacción de mensajes como a los de comportamiento del usuario. Cuando se utiliza Snowflake Data Share como integración del socio, Braze proporcionará un recurso compartido a la instancia de Snowflake del socio en nombre del cliente. Como nota, el intercambio de datos entre regiones supone un precio más elevado para nuestros clientes, por lo que pedimos a los socios que deseen integrarse con Snowflake que tengan en cuenta que necesitan una cuenta en `US-EAST-1` y/o `EU-CENTRAL-1`.
-- [Documentación para socios]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [Documentación para socios]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 
-## Creación y activación de campañas y Canvas {#building-and-triggering-campaigns-and-canvases}
+## Creación y activación de Campaigns y Canvas {#building-and-triggering-campaigns-and-canvases}
 
 ### Creación de activos en Braze {#creating-assets-in-braze}
-Braze ofrece una serie de puntos de conexión que permiten a los clientes y socios crear/actualizar plantillas de correo electrónico y Content Blocks dentro del espacio de trabajo del cliente. Estas plantillas y Content Blocks pueden, a su vez, utilizarse en todas las campañas y Canvas del cliente en Braze.
+Braze ofrece una serie de puntos de conexión que permiten a los clientes y socios crear/actualizar plantillas de correo electrónico y Content Blocks dentro del espacio de trabajo del cliente. Estas plantillas y Content Blocks pueden, a su vez, utilizarse en todas las Campaigns y Canvas del cliente en Braze.
 - Plantillas de correo electrónico
     - [Punto de conexión para crear plantilla]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/)
     - [Punto de conexión para actualizar plantilla]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/#rate-limit)
@@ -146,9 +146,9 @@ Braze ofrece una serie de puntos de conexión que permiten a los clientes y soci
     - [Punto de conexión para crear Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/)
     - [Punto de conexión para actualizar Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)
 
-### Campañas y Canvas activados por API {#api-triggered-campaigns-and-canvases}
+### Campaigns y Canvas activados por API {#api-triggered-campaigns-and-canvases}
 
-Los clientes pueden configurar campañas y Canvas para que se activen mediante la API. Las solicitudes de API para activar estas campañas pueden utilizarse para personalizar y segmentar aún más la campaña introduciendo propiedades de activación de API y parámetros de audiencia o destinatario.
+Los clientes pueden configurar Campaigns y Canvas para que se activen mediante la API. Las solicitudes de API para activar estas campañas pueden utilizarse para personalizar y segmentar aún más la campaña introduciendo propiedades de activación de API y parámetros de audiencia o destinatario.
 - [Activación de campañas a través de la API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body)
     - Las campañas son mensajes singulares, como correos electrónicos individuales.
 - [Activación de Canvas mediante API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#request-body)
@@ -156,13 +156,13 @@ Los clientes pueden configurar campañas y Canvas para que se activen mediante l
 - [Propiedades de activación de API/propiedades de entrada en Canvas]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)
     - Datos que pueden introducirse dinámicamente en el mensaje en el momento del envío.
 
-### Campañas de API {#api-campaigns}
-Al crear campañas de API (diferentes de las campañas activadas por API mencionadas anteriormente), el dashboard de Braze solo se utiliza para generar un `campaign_id`, que permite al cliente realizar un seguimiento de los análisis para la elaboración de informes de campaña. El propio mensaje de la campaña se define dentro de la solicitud de la API.
-- [Enviar campaña de API inmediatamente]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
-- [Programar una campaña de API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
+### Campaigns de API {#api-campaigns}
+Al crear Campaigns de API (diferentes de las Campaigns activadas por API mencionadas anteriormente), el dashboard de Braze solo se utiliza para generar un `campaign_id`, que permite al cliente realizar un seguimiento de los análisis para la elaboración de informes de la campaña. El propio mensaje de la campaña se define dentro de la solicitud de la API.
+- [Enviar Campaign de API inmediatamente]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
+- [Programar una Campaign de API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 
 ### ID de envío {#send-ids}
-Utiliza el punto de conexión de Braze para generar un ID de envío que pueda utilizarse para desglosar los análisis de campaña por envío. Por ejemplo, si se crea un `campaign_id` (campaña de API) por ubicación, se podría generar un ID de envío por cada envío para realizar un seguimiento del rendimiento de los diferentes mensajes para una ubicación concreta.
+Utiliza el punto de conexión de Braze para generar un ID de envío que pueda utilizarse para desglosar los análisis de la campaña por envío. Por ejemplo, si se crea un `campaign_id` (Campaign de API) por ubicación, se podría generar un ID de envío por cada envío para realizar un seguimiento del rendimiento de los diferentes mensajes para una ubicación concreta.
 - [ID de envío]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids/)
 
 ## Contenido conectado {#connected-content}

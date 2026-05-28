@@ -41,7 +41,7 @@ Nous vous recommandons de suivre ces bonnes pratiques :
 | Méta-description | Un extrait de texte qui s'affiche dans les résultats de recherche. | Utilisez entre 140 et 160 caractères. |
 | Favicon | L'icône qui apparaît à côté du titre du site dans l'onglet du navigateur. | Utilisez un rapport hauteur/largeur de 1:1 et un type de fichier pris en charge : PNG, JPEG ou ICO. |
 | URL de la page | Il s'agit du chemin URL vers votre page d'accueil. Cette valeur est également référencée lors de l'utilisation des [étiquettes Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que vous pouvez intégrer dans un message pour identifier automatiquement les utilisateurs lorsqu'ils soumettent votre formulaire. | Cette valeur doit être unique dans votre espace de travail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
 
 ### Étape 3 : Personnaliser la page {#step-3-customize-the-page}
 
@@ -68,7 +68,7 @@ Vous pouvez utiliser ces blocs pour ajouter du contenu et personnaliser la dispo
 | Lien | Un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour accéder à une URL spécifiée. Peut être intégré dans du texte ou autonome. |
 | Espacement | Un bloc invisible qui ajoute un espacement vertical entre les éléments pour améliorer la disposition et la lisibilité. |
 | Code personnalisé | Un bloc qui vous permet d'insérer et d'exécuter du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
 
 ##### Span text {#span-text}
 
@@ -89,7 +89,7 @@ Vous pouvez utiliser ces blocs pour créer un formulaire qui relie les données 
 | Menu déroulant | Les utilisateurs peuvent sélectionner un élément dans une liste prédéfinie. Vous pouvez ajouter n'importe quelle chaîne de caractères d'attribut personnalisé à la liste. |
 | Case à cocher | Si un utilisateur coche la case, l'attribut du bloc est défini sur `true`. Si elle n'est pas cochée, son attribut est défini sur `false`. |
 | Groupe de cases à cocher | Les utilisateurs peuvent sélectionner parmi plusieurs choix présentés. Les valeurs sont soit définies, soit ajoutées à un attribut personnalisé de type tableau défini. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
 Après avoir créé une page d'accueil avec un formulaire, assurez-vous d'intégrer son [étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) dans votre message. Grâce à cette étiquette, Braze peut automatiquement identifier et mettre à jour les profils utilisateurs existants lorsqu'ils soumettent le formulaire.
@@ -158,7 +158,7 @@ Les bloqueurs de pop-ups et de publicités agressifs sur iOS et dans Safari (y c
 
 ## Utiliser des modèles {#using-templates}
 
-Utilisez les modèles de pages d'accueil pour créer des modèles pour vos prochaines campagnes. Ces modèles sont accessibles et gérables à la fois dans l'éditeur de pages d'accueil et dans la section **Templates** du tableau de bord (**Templates** > **Landing Page Templates**). Les modèles de pages d'accueil nécessitent un nom et acceptent facultativement une description.
+Utilisez les modèles de pages d'accueil pour créer des modèles pour vos prochaines campagnes. Ces modèles sont accessibles et gérables à la fois dans l'éditeur de pages d'accueil et depuis la page **Landing Page Templates** (**Content** > **Landing Page**). Les modèles de pages d'accueil nécessitent un nom et acceptent facultativement une description.
 
 ## Gérer les modèles {#managing-templates}
 

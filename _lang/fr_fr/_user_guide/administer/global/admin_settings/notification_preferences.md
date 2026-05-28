@@ -7,7 +7,7 @@ description: "Cet article de référence couvre les options disponibles pour sur
 
 ---
 
-# Préférences de notification
+# Préférences de notification {#notification-preferences}
 
 > Si vous souhaitez surveiller l'envoi de messages et l'activité dans votre compte d'entreprise, vous pouvez configurer des notifications spécifiques et choisir où elles sont envoyées.
 
@@ -21,7 +21,7 @@ Pour accéder à cette page, allez dans **Paramètres** > **Paramètres d'admini
 Vous pouvez également intégrer Slack pour recevoir des notifications. Pour connaître la marche à suivre, consultez [Envoi de messages à l'aide de webhooks entrants](https://api.slack.com/incoming-webhooks).
 {% endalert %}
 
-## Notifications disponibles
+## Notifications disponibles {#available-notifications}
 
 Le tableau suivant décrit les notifications disponibles et les canaux utilisés pour les transmettre.
 
@@ -48,13 +48,13 @@ Si vous supprimez la valeur par défaut **Destinataires** de **Tous les utilisat
 | Rapport d'analyse hebdomadaire | Envoie un résumé de l'activité de l'espace de travail de la semaine écoulée aux destinataires chaque lundi. Les destinataires reçoivent un résumé pour chaque espace de travail auquel ils appartiennent. | E-mail |
 | Limites quotidiennes de volume d'entrée Canvas/campagne | Envoie des notifications chaque fois qu'une limite d'envoi est atteinte. | E-mail |
 | Erreur de la console des agents | Informe les destinataires lorsqu'un agent de la [console des agents]({{site.baseurl}}/user_guide/brazeai/agents/) a atteint sa limite d'exécution avec la fonctionnalité actuelle ou lorsqu'un agent utilise des modèles devenus indisponibles. | E-mail |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notifications disponibles" }
 
 {% alert note %}
 Les [utilisateurs suspendus]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users) peuvent toujours recevoir des notifications de Braze.
 {% endalert %}
 
-## Rapport d'analyse hebdomadaire
+## Rapport d'analyse hebdomadaire {#weekly-analytics-reporting}
 
 Braze peut envoyer un rapport hebdomadaire par e-mail aux personnes que vous désignez au sein de votre entreprise, chaque lundi à 5 h (heure de l'Est). Vous pouvez sélectionner les événements personnalisés à inclure dans le rapport hebdomadaire depuis **Paramètres des données** > **Événements personnalisés**.
 

@@ -140,7 +140,7 @@ Para integrar sua fonte de dados com seu data warehouse:
     | `ID` | String | Sim |
     | `NAME` | String | Sim |
     | `DELETED` | booleano | Opcional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sincronize os dados da sua conta" }
 
 {:start="3"}
 3. Crie um usuário e conceda permissões. Se você já tiver credenciais de outra sincronização, pode reutilizá-las desde que tenham acesso à tabela de contas.
@@ -151,7 +151,7 @@ Para integrar sua fonte de dados com seu data warehouse:
     | BigQuery User | Permite que a Braze execute consultas, leia metadados e liste tabelas. |
     | BigQuery Data Viewer | Permite que a Braze visualize datasets e conteúdos. |
     | BigQuery Job User | Permite que a Braze execute jobs. |
-    {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 aria-label="Sincronize os dados da sua conta" }
 
     Após conceder as permissões, gere uma chave JSON. Consulte [Criar e excluir chaves](https://cloud.google.com/iam/docs/keys-create-delete) para instruções. Você fará o upload dela no dashboard da Braze posteriormente.
 
@@ -187,7 +187,7 @@ Para integrar sua fonte de dados com seu data warehouse:
     | `ID` | String | Sim |
     | `NAME` | String | Sim |
     | `DELETED` | booleano | Opcional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sincronize os dados da sua conta" }
 
 {:start="3"}
 3. Crie um token de acesso pessoal no Databricks:
@@ -234,9 +234,9 @@ Para sincronizar dados de conta a partir de armazenamento de arquivos, crie um a
 | `ID` | Sim | ID da conta a ser atualizada ou criada |
 | `NAME` | Sim | Nome da conta |
 | `PAYLOAD` | Sim | String JSON dos campos a serem sincronizados com a conta na Braze |
-| `DELETED` | Opcional | booleano indicando a exclusão da conta na Braze |
+| `DELETED` | Opcional | Booleano indicando a exclusão da conta na Braze |
 | `UPDATED_AT` | _*Não suportado_ | O armazenamento de arquivos não suporta colunas `UPDATED_AT` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sincronize os dados da sua conta" }
 
 {% alert note %}
 Os nomes dos arquivos devem seguir as regras da AWS e ser únicos. Adicione timestamps para ajudar a garantir a unicidade. Para saber mais sobre sincronização com Amazon S3, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).

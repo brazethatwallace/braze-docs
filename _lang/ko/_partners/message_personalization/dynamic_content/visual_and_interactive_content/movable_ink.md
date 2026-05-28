@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Movable Ink
 
-> [Movable Ink](https://www.movableink.com/)는 디지털 마케터에게 고객을 움직이는 매력적이고 독특한 시각적 경험을 만들 수 있는 방법을 제공하는 클라우드 기반 소프트웨어 플랫폼입니다. Movable Ink 플랫폼은 Campaigns에 쉽게 삽입할 수 있는 유용한 커스터마이징 옵션을 제공합니다.
+> [Movable Ink](https://www.movableink.com/)는 디지털 마케터에게 고객을 움직이는 매력적이고 독특한 시각적 경험을 만들 수 있는 방법을 제공하는 클라우드 기반 소프트웨어 플랫폼입니다. Movable Ink 플랫폼은 캠페인에 쉽게 삽입할 수 있는 유용한 커스터마이징 옵션을 제공합니다.
 
 _이 통합은 Movable Ink에서 유지 관리합니다._
 
@@ -24,7 +24,7 @@ Movable Ink의 Intelligent Creative 기능(투표, 카운트다운 타이머, �
 |---|---|
 | Movable Ink 계정 | 이 파트너십을 활용하려면 Movable Ink 계정이 필요합니다. |
 | 데이터 소스 | Movable Ink에 데이터 소스를 연결해야 합니다. CSV, 웹사이트 가져오기 또는 API를 통해 연결할 수 있습니다. Braze와 Movable Ink 간에 통합 식별자(예: `external_id`)를 사용하여 데이터를 전달해야 합니다.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 활용 사례 {#use-cases}
 
@@ -42,17 +42,17 @@ Intelligent Creative는 회사 사용자가 활용할 수 있는 다양한 기�
 | Movable Ink 기능 | 기능 | 리치 푸시 알림 | 인앱 메시징 / Content Cards / 이메일 | 세부 정보 |
 | ---------------------- |---| ---------------------- | -------------------------------- | ------- |
 | Creative Optimizer | A/B 콘텐츠 표시 | ✗ | ✔ | |
-|| 최적화 | ✗ | ✔* | * Branch의 딥링킹 솔루션을 사용해야 합니다 |
+| 최적화 | ✗ | ✔* | * Branch의 딥링킹 솔루션을 사용해야 합니다 |
 | 타겟팅 규칙 | 날짜 | ✔* | ✔ | * 지원되지만 푸시 알림은 수신 시 캐시되어 새로고침되지 않으므로 권장하지 않습니다 |
-|| 요일 | ✔* | ✔ | * 지원되지만 푸시 알림은 수신 시 캐시되어 새로고침되지 않으므로 권장하지 않습니다 |
-|| 시간대 | ✔* | ✔ | * 지원되지만 푸시 알림은 수신 시 캐시되어 새로고침되지 않으므로 권장하지 않습니다 |
+| 요일 | ✔* | ✔ | * 지원되지만 푸시 알림은 수신 시 캐시되어 새로고침되지 않으므로 권장하지 않습니다 |
+| 시간대 | ✔* | ✔ | * 지원되지만 푸시 알림은 수신 시 캐시되어 새로고침되지 않으므로 권장하지 않습니다 |
 | Stories/동작 활동 | | ✔* | ✔* | * Braze에 사용되는 고유 사용자 식별자가 이메일 서비스 공급자의 식별자에 연결되어야 합니다 |
 | 앱 내 딥링킹 | | ✔* | ✔* | * 고객에게 원활한 경험을 제공하려면 Branch를 통한 기존 딥링킹 솔루션 또는 Movable Ink의 Client Experience 팀과 검증된 솔루션을 사용하세요. |
 | 앱 | 카운트다운 타이머 | ✔* | ✔ | * 지원되지만 푸시 알림은 수신 시 캐시되어 새로고침되지 않으므로 권장하지 않습니다 |
-|| 투표 | ✗ | ✔* | * 투표 후 앱을 떠나 모바일 랜딩 페이지로 이동합니다 |
-|| 스크래치 오프 | ✔* | ✔* | * 클릭 시 앱을 떠나 스크래치 오프 경험으로 이동합니다 |
-|| 동영상 | ✔* | ✔* | * 애니메이션 GIF만 지원, <br>Android의 경우 Braze 구현에 [GIF 지원]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android)이 필요합니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| 투표 | ✗ | ✔* | * 투표 후 앱을 떠나 모바일 랜딩 페이지로 이동합니다 |
+| 스크래치 오프 | ✔* | ✔* | * 클릭 시 앱을 떠나 스크래치 오프 경험으로 이동합니다 |
+| 동영상 | ✔* | ✔* | * 애니메이션 GIF만 지원, <br>Android의 경우 Braze 구현에 [GIF 지원]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android)이 필요합니다 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Supported Movable Ink capabilities" }
 
 ## 통합 {#integration}
 
@@ -63,12 +63,12 @@ Intelligent Creative는 회사 사용자가 활용할 수 있는 다양한 기�
 ![표시되는 다양한 데이터 소스 옵션: CSV 업로드, 웹사이트 또는 API 통합.]({% image_buster /assets/img/movable_ink/movable_ink1.png %})
 
 {% tabs local %}
-{% tab CSV Data Source %}
+{% tab CSV 데이터 소스 %}
 - **CSV 데이터 소스**: 각 행에는 최소 하나의 세그먼트 열과 하나의 콘텐츠 열이 있어야 합니다. CSV를 업로드한 후 콘텐츠를 타겟팅하는 데 사용할 열을 선택합니다. [CSV 파일 예시]({% image_buster /assets/download_file/movable_ink_CSV.csv %})
 
 ![데이터 소스로 'CSV'를 선택하면 표시되는 필드입니다.]({% image_buster /assets/img/movable_ink/movable_ink2.png %})
 {% endtab %}
-{% tab Website Data Source %}
+{% tab 웹사이트 데이터 소스 %}
 - **웹사이트 데이터 소스**: 각 행에는 최소 하나의 세그먼트 열과 하나의 콘텐츠 열이 있어야 합니다. CSV를 업로드한 후 콘텐츠를 타겟팅하는 데 사용할 열을 선택합니다.
   - 이 과정에서 다음을 매핑해야 합니다:
     - 세그먼트로 사용할 필드
@@ -76,7 +76,7 @@ Intelligent Creative는 회사 사용자가 활용할 수 있는 다양한 기�
 
 ![데이터 소스로 '웹사이트'를 선택하면 표시되는 필드입니다.]({% image_buster /assets/img/movable_ink/movable_ink3.png %})
 {% endtab %}
-{% tab API Integrations %}
+{% tab API 통합 %}
 - **API 통합**: 회사의 API를 사용하여 API 응답에서 직접 콘텐츠를 제공합니다.
 
 ![데이터 소스로 'API 통합'을 선택할 때 표시되는 필드]({% image_buster /assets/img/movable_ink/movable_ink4.png %})
@@ -112,11 +112,11 @@ Braze 메시지에 Movable Ink 콘텐츠를 포함하려면 Movable Ink에서 �
 ### 4단계: Braze 경험 {#step-4-braze-experience}
 
 {% tabs local %}
-{% tab Email %}
+{% tab 이메일 %}
 Braze 플랫폼에서 크리에이티브 태그를 이메일 본문에 붙여넣습니다.![]({% image_buster /assets/img/movable_ink/web2.png %}){: style="max-width:90%"}<br><br>
 
 {% endtab %}
-{% tab Push notification %}
+{% tab 푸시 알림 %}
 
 1. Braze 플랫폼에서:
 	- Android 푸시: **Push Icon Image** 및 **Expanded Notification Image** 필드에 URL을 붙여넣습니다.<br>![]({% image_buster /assets/img/movable_ink/android.png %}){: style="max-width:60%"}<br><br>
@@ -125,7 +125,7 @@ Braze 플랫폼에서 크리에이티브 태그를 이메일 본문에 붙여넣
 2. 이미지가 캐시되지 않도록 하려면 메시지의 URL 앞에 빈 Liquid 태그를 추가합니다: <br>{% raw %}`{% if true %}{% endif %}https://movable-ink-image-url-goes-here`{% endraw %}
 
 {% endtab %}
-{% tab In-app message %}
+{% tab 인앱 메시지 %}
 
 1. Braze 플랫폼에서 **Rich Notification Media** 필드에 URL을 붙여넣습니다.![]({% image_buster /assets/img/movable_ink/image.png %}){: style="max-width:60%"}<br><br>
 2. 캐싱을 방지하기 위해 고유한 URL을 제공합니다. Movable Ink의 실시간 이미지가 작동하고 캐싱의 영향을 받지 않도록 하려면 Liquid를 사용하여 Movable Ink 이미지 URL 끝에 타임스탬프를 추가합니다.
@@ -138,17 +138,17 @@ Braze 플랫폼에서 크리에이티브 태그를 이메일 본문에 붙여넣
 {{img}}
 ```
 {% endraw %}
-이 템플릿은 현재 시간(초 단위)을 가져와 Movable Ink 이미지 탭 끝에 쿼리 파라미터로 추가한 다음 최종 결과를 출력합니다. **Test** 탭에서 미리보기할 수 있으며, 이 탭에서 코드를 평가하고 미리보기를 표시합니다.
+이 템플릿은 현재 시간(초 단위)을 가져와 Movable Ink 이미지 탭 끝에 쿼리 파라미터로 추가한 다음 최종 결과를 출력합니다. **Test** 탭에서 미리보기할 수 있으며&#8212;이 탭에서 코드를 평가하고 미리보기를 표시합니다.
 
-**3.** 마지막으로 Segment 멤버십을 재평가합니다. 이렇게 하려면 Campaign의 **Target Audiences** 단계에 있는 `Re-evaluate audience membership and liquid at send-time` 옵션을 활성화합니다. 이 옵션을 사용할 수 없는 경우 고객 성공 매니저 또는 Braze 고객지원팀에 문의하세요. 이 옵션은 Braze SDK에 Campaign을 다시 요청하도록 지시하여 인앱 메시지가 트리거될 때마다 고유한 URL을 제공합니다.
+**3.** 마지막으로 세그먼트 멤버십을 재평가합니다. 이렇게 하려면 Campaign의 **Target Audiences** 단계에 있는 `Re-evaluate audience membership and liquid at send-time` 옵션을 활성화합니다. 이 옵션을 사용할 수 없는 경우 고객 성공 매니저 또는 Braze 고객지원팀에 문의하세요. 이 옵션은 Braze SDK에 Campaign을 다시 요청하도록 지시하여 인앱 메시지가 트리거될 때마다 고유한 URL을 제공합니다.
 
 {% endtab %}
 {% tab Content Card %}
 
 1. Braze 플랫폼에서 **Rich Notification Media** 필드에 URL을 붙여넣습니다.![]({% image_buster /assets/img/movable_ink/image.png %}){: style="max-width:60%"}<br><br>
 2. 모바일의 경우: iOS 및 Android의 Content Cards 이미지는 수신 시 캐시되며 새로고침되지 않습니다.
-  - 해결 방법으로, Content Cards가 다시 템플릿화되도록 해당 만료 기간과 함께 일별, 주별 또는 월별 반복 메시지로 Campaign을 예약합니다. 예를 들어, 하루에 한 번 새로고침해야 하는 Content Cards는 1일 만료 기간의 일별 예약 발송으로 설정해야 합니다.
-3. Movable Ink의 실시간 이미지가 작동하고 Content Cards가 다시 템플릿화될 때 캐싱의 영향을 받지 않도록 하려면 Liquid를 사용하여 Movable Ink 이미지 URL 끝에 타임스탬프를 추가합니다.
+  - 해결 방법으로, Content Card가 다시 템플릿화되도록 해당 만료 기간과 함께 일별, 주별 또는 월별 반복 메시지로 Campaign을 예약합니다. 예를 들어, 하루에 한 번 새로고침해야 하는 Content Card는 1일 만료 기간의 일별 예약 발송으로 설정해야 합니다.
+3. Movable Ink의 실시간 이미지가 작동하고 Content Card가 다시 템플릿화될 때 캐싱의 영향을 받지 않도록 하려면 Liquid를 사용하여 Movable Ink 이미지 URL 끝에 타임스탬프를 추가합니다.
 
 이렇게 하려면 다음 구문을 사용하고 필요에 따라 이미지 URL을 교체합니다:
 {% raw %}

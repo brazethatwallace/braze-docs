@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/roku.md %}
 
-## Attributs par défaut de l’utilisateur
+## Attributs par défaut de l'utilisateur {#default-user-attributes}
 
-### Méthodes prédéfinies
+### Méthodes prédéfinies {#predefined-methods}
 
 Braze propose des méthodes prédéfinies pour définir les attributs utilisateur suivants à l'aide de l'objet `m.Braze`.
 
@@ -16,7 +16,7 @@ Braze propose des méthodes prédéfinies pour définir les attributs utilisateu
 - `HomeCity`
 - `PhoneNumber`
 
-### Définition des attributs par défaut
+### Définition des attributs par défaut {#setting-default-attributes}
 
 Pour définir un attribut par défaut, appelez la méthode correspondante sur l'objet `m.Braze`.
 
@@ -68,15 +68,15 @@ m.Braze.setPhoneNumber("+1234567890")
 {% endtab %}
 {% endtabs %}
 
-## Attributs utilisateur personnalisés
+## Attributs utilisateur personnalisés {#custom-user-attributes}
 
 Outre les attributs par défaut, Braze vous permet de définir des attributs personnalisés à l'aide de différents types de données.
 
-### Définition des attributs personnalisés
+### Définition des attributs personnalisés {#settings-custom-attributes}
 
 {% tabs %}
 {% tab String %}
-Pour donner à un attribut personnalisé une valeur `string`:
+Pour définir un attribut personnalisé avec une valeur `string` :
 
 ```brightscript
 m.Braze.setCustomAttribute("stringAttribute", "stringValue")
@@ -84,7 +84,7 @@ m.Braze.setCustomAttribute("stringAttribute", "stringValue")
 {% endtab %}
 
 {% tab Integer %}
-Pour définir un attribut personnalisé avec une valeur `integer`:
+Pour définir un attribut personnalisé avec une valeur `integer` :
 
 ```brightscript
 m.Braze.setCustomAttribute("intAttribute", 5)
@@ -100,7 +100,7 @@ m.Braze.setCustomAttribute("floatAttribute", 3.5)
 {% endtab %}
 
 {% tab Boolean %}
-Pour définir un attribut personnalisé avec une valeur `boolean`:
+Pour définir un attribut personnalisé avec une valeur `boolean` :
 
 ```brightscript
 m.Braze.setCustomAttribute("boolAttribute", true)
@@ -108,7 +108,7 @@ m.Braze.setCustomAttribute("boolAttribute", true)
 {% endtab %}
 
 {% tab Date %}
-Pour définir un attribut personnalisé avec une valeur `date`:
+Pour définir un attribut personnalisé avec une valeur `date` :
 
 ```brightscript
 dateAttribute = CreateObject("roDateTime")
@@ -118,7 +118,7 @@ m.Braze.setCustomAttribute("dateAttribute", dateAttribute)
 {% endtab %}
 
 {% tab Array %}
-Pour définir un attribut personnalisé avec une valeur `array`:
+Pour définir un attribut personnalisé avec une valeur `array` :
 
 ```brightscript
 stringArray = createObject("roArray", 3, true)
@@ -131,45 +131,45 @@ m.Braze.setCustomAttribute("arrayAttribute", stringArray)
 {% endtabs %}
 
 {% alert important %}
-Les valeurs d’attribut personnalisé ont une longueur maximale de 255 caractères ; les valeurs plus longues seront tronquées.
+Les valeurs d'attribut personnalisé ont une longueur maximale de 255 caractères ; les valeurs plus longues seront tronquées.
 {% endalert %}
 
-### Incrémentation et décrémentation des attributs personnalisés
+### Incrémentation et décrémentation des attributs personnalisés {#incrementing-and-decrementing-custom-attributes}
 
-Ce code est un exemple d’incrémentation d’un attribut personnalisé. Vous pouvez augmenter la valeur d’un attribut personnalisé par une valeur entière positive ou négative.
+Ce code est un exemple d'incrémentation d'un attribut personnalisé. Vous pouvez augmenter la valeur d'un attribut personnalisé par n'importe quelle valeur entière positive ou négative.
 
 ```brightscript
 m.Braze.incrementCustomUserAttribute("intAttribute", 3)
 ```
 
-### Désactivation des attributs personnalisés
+### Suppression des attributs personnalisés {#unsetting-custom-attributes}
 
-Pour désactiver un attribut personnalisé, transmettez la clé de l'attribut concerné à la méthode `unsetCustomAttribute`.
+Pour supprimer un attribut personnalisé, transmettez la clé de l'attribut concerné à la méthode `unsetCustomAttribute`.
 
 ```brightscript
 m.Braze.unsetCustomAttribute("attributeName")
 ```
 
-### Utiliser l'API REST
+### Utiliser la REST API {#using-the-rest-api}
 
-Vous pouvez également utiliser notre API REST pour définir ou désactiver les attributs des utilisateurs. Pour plus d'informations, reportez-vous aux [Endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+Vous pouvez également utiliser notre REST API pour définir ou supprimer les attributs des utilisateurs. Pour plus d'informations, reportez-vous aux [endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
-## Définir des inscriptions par e-mail
+## Définir les abonnements par e-mail {#setting-email-subscriptions}
 
-Vous pouvez définir les statuts d’abonnement aux e-mails suivants pour vos utilisateurs par programmation via le SDK.
+Vous pouvez définir les statuts d'abonnement aux e-mails suivants pour vos utilisateurs par programmation via le SDK.
 
-| Statut d’abonnement | Définition |
+| Statut d'abonnement | Définition |
 | ------------------- | ---------- |
-| `OptedIn` | Inscrit et explicitement abonné |
-| `Subscribed` | Inscrit et pas explicitement abonné |
-| `UnSubscribed` | Désinscrit ou explicitement désabonné |
+| `OptedIn` | Abonné et explicitement inscrit |
+| `Subscribed` | Abonné, mais pas explicitement inscrit |
+| `UnSubscribed` | Désabonné et/ou explicitement désinscrit |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-Ces types tombent dans la catégorie `BrazeConstants().SUBSCRIPTION_STATES`.
+Ces types relèvent de `BrazeConstants().SUBSCRIPTION_STATES`.
 {% endalert %}
 
-La méthode de définition du statut d’abonnement aux e-mails est `setEmailSubscriptionState()`. Les utilisateurs seront définis sur `Subscribed` automatiquement dès réception d’une adresse e-mail valide. Cependant, nous vous suggérons d’établir un processus d’abonnement explicite et de définir cette valeur sur `OptedIn` dès réception du consentement explicite de votre utilisateur. Pour plus de détails, consultez la page [Gestion des abonnements des utilisateurs]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
+La méthode de définition du statut d'abonnement aux e-mails est `setEmailSubscriptionState()`. Les utilisateurs seront automatiquement définis sur `Subscribed` dès réception d'une adresse e-mail valide. Cependant, nous vous suggérons d'établir un processus d'abonnement explicite et de définir cette valeur sur `OptedIn` dès réception du consentement explicite de votre utilisateur. Pour plus de détails, consultez la page [Gestion des abonnements des utilisateurs]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
 
 ```brightscript
 m.Braze.setEmailSubscriptionState(BrazeConstants().SUBSCRIPTION_STATES.OPTED_IN)

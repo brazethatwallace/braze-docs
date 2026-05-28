@@ -1,7 +1,7 @@
 ---
 nav_title: Survicate
 article_title: Survicate
-description: "この参考記事では、BrazeとカスタマーフィードバックプラットフォームであるSurvicateのパートナーシップについて概説している。Survicateは、複数のチャネルやカスタマージャーニー全体を通して、顧客のインサイトを収集、分析、活用することを支援するプラットフォームである。"
+description: "このリファレンス記事では、BrazeとSurvicateのパートナーシップについて説明します。Survicateは、複数のチャネルやカスタマージャーニー全体を通じて、顧客インサイトの収集、分析、活用を支援するカスタマーフィードバックプラットフォームです。"
 alias: /partners/survicate/
 page_type: partner
 search_tag: Partner
@@ -10,233 +10,233 @@ search_tag: Partner
 
 # Survicate
 
-> [Survicateは](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter)、複数のチャネルとカスタマージャーニーを通じて顧客のインサイトを収集、分析、活用するカスタマー・フィードバック・プラットフォームである。[クイックデモを見る](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter)
+> [Survicate](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter)は、複数のチャネルとカスタマージャーニー全体を通じて顧客インサイトを収集、分析、活用するカスタマーフィードバックプラットフォームです。[クイックデモを見る](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter)
 
-_この統合は Survicate によって管理されます。_
+_この統合はSurvicateによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-SurvicateとBrazeのネイティブインテグレーションを使用して、メール、アプリ内、モバイル、またはWebアンケートの回答をBrazeの顧客プロファイルと同期する。アンケートの回答は、カスタム属性またはイベントとして Braze ユーザープロファイルと自動的に同期されます。リアルタイムのフィードバックインサイトにより、顧客データとともにフィードバックを簡単に追跡・分析し、ターゲットフォローアップやパーソナライズされたセグメントを作成することができる。 
+SurvicateとBrazeのネイティブ統合を使用して、メール、アプリ内、モバイル、またはWebアンケートの回答をBrazeの顧客プロファイルと同期できます。アンケートの回答は、カスタム属性またはイベントとしてBrazeユーザープロファイルと自動的に同期されます。リアルタイムのフィードバックインサイトにより、顧客データとともにフィードバックを簡単に追跡・分析し、ターゲットフォローアップやハイパーパーソナライズされたセグメントを作成できます。
 
-## ユースケース
+## ユースケース {#use-cases}
 
-BrazeとSurvicateは、様々なフィードバックのユースケースをカバーするために連携し、アクション可能なユーザーインサイトの収集とカスタマーエクスペリエンスの向上を支援する：
+BrazeとSurvicateは、さまざまなフィードバックのユースケースをカバーするために連携し、アクション可能なユーザーインサイトの収集とカスタマーエクスペリエンスの向上を支援します。
 
-- 受信トレイから回答できる埋め込み型アンケートで、アンケートのレスポンシブ率を向上させる。 
-- アプリ内メッセージでカスタマージャーニーの重要な段階でインサイトを収集する。 
-- Brazeでよりスマートなセグメンテーションを作成するために、Survicateに保存されたフィードバックを使用する。 
-- 顧客のフィードバックに基づいてフォローアップキャンペーンをオートメーション化する。 
-- 顧客インサイトを活用して、パーソナライズされたワークフローをトリガーする。 
-- 自動翻訳されたアンケートで、より多くのオーディエンスにアプローチする。
-- 誰かがアンケートに回答すると、Brazeコンタクトプロファイルにイベントを送信する。
+- 受信トレイから回答できる埋め込み型アンケートで、アンケートの回答率を向上させます。
+- Brazeアプリ内メッセージを通じて、カスタマージャーニーの重要な段階でインサイトを収集します。
+- Survicateに保存されたフィードバックを使用して、Brazeでよりスマートなセグメントを作成します。
+- 顧客のフィードバックに基づいてフォローアップキャンペーンを自動化します。
+- 顧客インサイトを活用して、パーソナライズされたワークフローをトリガーします。
+- 自動翻訳されたアンケートで、より多くのオーディエンスにアプローチします。
+- 誰かがアンケートに回答すると、Brazeコンタクトプロファイルにイベントを送信します。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Survicate アカウント | この統合を有効にするにはSurvicateアカウントが必要である。 |
-| Braze REST API キー | `users.track` 権限を持つ Braze REST API キー。<br><br> これは、Brazeダッシュボードの**「設定**」>「**APIと識別子**」から作成できる。 |
-| Braze RESTエンドポイント | [あなたのRESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。お客様のエンドポイントは、お客様のインスタンスのBraze URLに依存します。 |
+| Survicateアカウント | この統合を有効にするにはSurvicateアカウントが必要です。 |
+| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## 統合の主な特徴
+## 統合の主な特徴 {#key-features-of-the-integration}
 
-Survicate と Braze の統合により、リアルタイムのデータ同期が提供されるため、Survicate アンケートの最新情報を Braze ですぐに利用できます。アンケートの回答に基づいて、このデータを使ってタイムリーでパーソナライズされたアクションを取ることができます。
+SurvicateとBrazeの統合はリアルタイムのデータ同期を提供するため、Survicateアンケートの最新情報をBrazeですぐに利用できます。アンケートの回答に基づいて、このデータを使用してタイムリーでパーソナライズされたアクションを実行できます。
 
-- **アンケートの回答をカスタムユーザー属性として Braze に送信する**：アンケートの回答データでユーザープロファイルを充実させます。
-- **Braze のカスタムイベントをトリガーする**：アンケートの回答に基づいたイベントを利用して、特定のグループをターゲットにしたり、フォローアップキャンペーンを開始する。
-- **詳細なセグメントを構築する**：Survicate アンケートのデータを使って Braze セグメントを作成し、アウトリーチをさらにパーソナライズします。
+- **アンケートの回答をカスタムユーザー属性としてBrazeに送信する**：アンケートの回答データでBrazeユーザープロファイルを充実させます。
+- **Brazeでカスタムイベントをトリガーする**：アンケートの回答に基づいたイベントを使用して、特定のグループをターゲットにしたり、フォローアップキャンペーンを開始したりします。
+- **詳細なセグメントを構築する**：Survicateアンケートのデータを使用してBraze セグメントを作成し、アウトリーチをさらにパーソナライズします。
 
-## 統合
+## 統合 {#integration}
 
-### Survicateでアンケートを作成する
+### Survicateでアンケートを作成する {#creating-your-surveys-in-survicate}
 
-#### アンケートをメールに埋め込んだり、共有可能なリンクアンケートを作成する。 
+#### アンケートをメールに埋め込むか、共有可能なリンクアンケートを作成する {#embed-your-survey-in-an-email-or-create-a-shareable-link-survey}
 
-1.  Survicate で**\+ 新規アンケートの作成を**クリックし、作成方法（テンプレート、AI アンケート作成、または独自の質問の追加）を選択し、メールまたは共有リンクのアンケートタイプを選択する：
-![アンケート作成でBrazeが選択されている。]({% image_buster /assets/img/survicate/survicate_1.gif %})
+1.  Survicateで**+ Create new survey**をクリックし、作成方法（テンプレート、AIアンケート作成、または独自の質問の追加）を選択し、メールまたは共有リンクのアンケートタイプを選択します：
+![アンケート作成画面でBrazeが選択されている。]({% image_buster /assets/img/survicate/survicate_1.gif %})
 
 {: start="2"}
-2\.アンケートの設定タブで、回答者を識別するツールとして**Braze**を選択する：
+2. アンケートのConfigureタブで、回答者を識別するツールとして**Braze**を選択します：
 ![アンケートのConfigureタブでBrazeが選択されている。]({% image_buster /assets/img/survicate/survicate_2.png %})
 
 {: start="3"}
-3\.アンケートを設定したら、共有タブでメールアンケートの送信方法を決める。**アンケートをリンクとして**送信するか、**最初の質問をメールに埋め込んで**、回答者がメールからすぐにアンケートに回答できるようにする。
+3. アンケートを設定したら、Shareタブでメールアンケートの送信方法を決定します。2つのオプションがあります：**アンケートをリンクとして**送信するか、**最初の質問をメールに埋め込んで**回答者がメールからすぐにアンケートに回答できるようにします。
 
-{% details Survey link option %}
+{% details アンケートリンクオプション %}
 
-1. アンケートリンクをコピーするボタンからアンケートへのリンクを取得する：
+1. **Copy survey link**ボタンからアンケートへのリンクを取得します：
 
-![アンケートリンクをコピーするボタンからアンケートへのリンクを取得する。]({% image_buster /assets/img/survicate/survicate_3.png %})
+![Copy survey linkボタンからアンケートへのリンクを取得する。]({% image_buster /assets/img/survicate/survicate_3.png %})
 
 {: start="2"}
-2\.BrazeメールのCTAボタンやハイパーリンクの後ろにアンケートリンクを隠す。
+2. BrazeメールのCTAボタンやハイパーリンクの背後にアンケートリンクを配置します。
 
-![BrazeメールのCTAボタンやハイパーリンクの後ろにアンケートリンクを隠す。]({% image_buster /assets/img/survicate/survicate_4.png %})
+![BrazeメールのCTAボタンやハイパーリンクの背後にアンケートリンクを配置する。]({% image_buster /assets/img/survicate/survicate_4.png %})
 
 {% enddetails %}
 
-{% details Email embed option %}
+{% details メール埋め込みオプション %}
 
-最初の質問をメール本文に直接表示し、メールからアンケートを開始する。その後、回答者は残りのアンケートに回答するためのランディングページにリダイレクトされる。
+最初の質問をメール本文に直接表示し、メールからアンケートを開始します。その後、回答者は残りのアンケートに回答するためのランディングページにリダイレクトされます。
 
-1. **メールコードを取得**」をクリックし、**HTMLコードをコピーする**：
+1. **Get email code**をクリックし、**Copy the HTML code**をクリックします：
 
 ![メールコードを取得する]({% image_buster /assets/img/survicate/survicate_5.gif %})
 
 {: start="2"}
-2\.アンケートに使用するBrazeキャンペーンに移動し、**メール本文の編集を**クリックし、テンプレートにHTMLブロックを追加する：
+2. アンケートに使用するBraze キャンペーンに移動し、**Edit email body**をクリックして、テンプレートにHTMLブロックを追加します：
 
 ![HTMLブロックコードを取得する]({% image_buster /assets/img/survicate/survicate_6.png %})
 
 {: start="3"}
-3\.コードをSurvicateアンケートからコピーしたものに置き換える。すると、アンケートの最初の質問がテンプレートに表示される：
+3. コードをSurvicateアンケートからコピーしたものに置き換えます。すると、アンケートの最初の質問がテンプレートに表示されます：
 
-![Survicateアンケートからコピーしたコードに置き換える。]({% image_buster /assets/img/survicate/survicate_7.png %})
+![Survicateアンケートからコピーしたコードに置き換える]({% image_buster /assets/img/survicate/survicate_7.png %})
 
 {: start="4"}
-4. メールをスケジュールされ、ターゲットグループを選択すれば、キャンペーンは送信準備完了。
+4. メールをスケジュールし、ターゲットグループを選択すれば、キャンペーンは送信準備完了です。
 
 {% enddetails %}
 
-### Brazeアプリ内メッセージ調査
+### Brazeアプリ内メッセージアンケート {#braze-in-app-message-survey}
 
-1. **新しいアンケートを作成するを**クリックし、作成方法（テンプレート、AIアンケート作成、または独自の質問の追加）を選択し、プラットフォーム内アンケートとアプリ内メッセージのアンケートタイプを選択する：
+1. **+ Create new survey**をクリックし、作成方法（テンプレート、AIアンケート作成、または独自の質問の追加）を選択し、プラットフォーム内アンケートとBraze In-App Messageのアンケートタイプを選択します：
 
-![新しいアンケートを作成する」をクリックし、作成方法を選択する。]({% image_buster /assets/img/survicate/survicate_8.gif %})
-
-{: start="2"}
-2\.Brazeアカウントに移動し、**メッセージング > キャンペーン > キャンペーンの作成 > アプリ内**メッセージの順に選択して、Brazeアプリ内メッセージ調査を開始する**：**
-![Brazeアプリ内メッセージアンケートを開始する。]({% image_buster /assets/img/survicate/survicate_9.gif %})
-
-### 従来のエディタでBrazeアプリ内Messengerアンケートを開始する。
-
-1. 従来のエディターを使用している場合は、メッセージタイプで**カスタムコードを**選択する：
-
-![カスタムコードを選択する]({% image_buster /assets/img/survicate/survicate_10.gif %})
+![+ Create new surveyをクリックし、作成方法を選択する]({% image_buster /assets/img/survicate/survicate_8.gif %})
 
 {: start="2"}
-2\.次に、アンケートの開始タブにあるコードを HTML フィールドに貼り付ける：
+2. Brazeアカウントに移動し、**Messaging** > **キャンペーン** > **Create キャンペーン** > **In-App Message**の順に選択して、Brazeアプリ内メッセージアンケートを起動します：
+![Brazeアプリ内メッセージアンケートを起動する]({% image_buster /assets/img/survicate/survicate_9.gif %})
 
-![アンケートの開始タブから HTML フィールドにコードを貼り付ける。]({% image_buster /assets/img/survicate/survicate_11.gif %})
+### 従来のエディターでBrazeアプリ内メッセージアンケートを起動する {#launch-your-braze-in-app-messenger-survey-via-the-traditional-editor}
+
+1. 従来のエディターを使用している場合は、メッセージタイプで**Custom code**を選択します：
+
+![Custom codeを選択する]({% image_buster /assets/img/survicate/survicate_10.gif %})
+
+{: start="2"}
+2. 次に、アンケートのLaunchタブにあるコードをHTMLフィールドに貼り付けます：
+
+![アンケートのLaunchタブからHTMLフィールドにコードを貼り付ける]({% image_buster /assets/img/survicate/survicate_11.gif %})
 
 {% alert note %}
-Brazeはデフォルトで、アプリのバックグラウンドがブロックされている間、アプリ内メッセージをiframeで表示する。Survicateのアンケートが表示されている間、アプリとのインタラクションを許可するには、次のことが必要である：<br><br>
+Brazeはデフォルトで、アプリのバックグラウンドがブロックされている間、アプリ内メッセージをiframeで表示します。Survicateのアンケートが表示されている間にアプリとのインタラクションを許可するには、以下が必要です：<br><br>
 
-- サービケート・ブレイズのスニペットに`opts.useBrazeIframeClipper = true` を追加する。
-- Brazeを初期化し、`initBrazeBridge` 関数を使用するファイルに、`@survicate/braze-bridge-npm` [パッケージを](https://www.npmjs.com/package/@survicate/braze-bridge-npm)インストールする。
+- Survicate-Brazeスニペットに`opts.useBrazeIframeClipper = true`を追加します。
+- Brazeを初期化し、`initBrazeBridge`関数を使用するファイルに`@survicate/braze-bridge-npm` [パッケージ](https://www.npmjs.com/package/@survicate/braze-bridge-npm)をインストールします。
 
-サンプル・スニペットとReactの実装は[Survicateの開発者サイトに](https://developers.survicate.com/javascript/installation/#braze)ある。
+サンプルスニペットとReactの実装は[Survicateの開発者サイト](https://developers.survicate.com/javascript/installation/#braze)にあります。
 {% endalert %}
 
 {: start="3"}
-3\.Brazeキャンペーンで、TargetとAssignステップを設定する。完了したら、キャンペーンを開始できる。レビューのステップでは、キャンペーンがどのように見えるかを見ることができる。アンケートは、上記のようにSurvicateパネルで指定された場所にWebサイトに表示される。
+3. Braze キャンペーンで、ターゲットと割り当てのステップを設定します。完了したら、キャンペーンを起動する準備が整います。確認ステップでは、キャンペーンの見た目を確認できます。アンケートは、上記のようにSurvicateパネルで指定された場所にWebサイト上に表示されます。
 
-### Brazeとの統合をイネーブルメントにする
+### Braze統合を有効にする {#enabling-the-braze-integration}
 
-1. Brazeとのイネーブルメントを有効にするには、「**Integrations**」から「Braze」を検索して選択する。
+1. Braze統合を有効にするには、**Integrations**に移動し、「Braze」を検索して選択します。
 
-![ブレイズを選択する]({% image_buster /assets/img/survicate/survicate_12.gif %})
+![Brazeを選択する]({% image_buster /assets/img/survicate/survicate_12.gif %})
 
 {: start="2"}
-2\.**Connectを**クリックして認証を設定する。
+2. **Connect**をクリックして認証を設定します。
 
-3. BrazeアカウントのワークスペースAPIキーとBrazeインスタンスURLを入力する：
+3. BrazeアカウントのワークスペースAPIキーとBrazeインスタンスURLを入力します：
 
-![BrazeアカウントのワークスペースAPIキーとBrazeインスタンスURLを入力する。]({% image_buster /assets/img/survicate/survicate_13.png %})
+![BrazeアカウントのワークスペースAPIキーとBrazeインスタンスURLを入力する]({% image_buster /assets/img/survicate/survicate_13.png %})
 
 {% alert important %}
-SurvicateをBrazeに接続するには、Braze APIキーに`users.track` の権限が必要である。
+SurvicateをBrazeに接続するには、Braze APIキーに`users.track`権限が必要です。
 {% endalert %}
 
-### アンケートをBrazeに接続する
+### アンケートをBrazeに接続する {#connecting-your-surveys-to-braze}
 
-Brazeインテグレーションが接続されたので、各アンケートに個別の設定を行うことができる。アンケートにアクセスし、**Connect**タブを選択し、利用可能な統合のリストから**Brazeを**選択する。
+Braze統合が接続されたので、各アンケートに個別の設定を行うことができます。アンケートに移動し、**Connect**タブを選択し、利用可能な統合のリストから**Braze**を選択します。
 
-![アンケートにアクセスし、Connectタブを選択し、Brazeを選択する。]({% image_buster /assets/img/survicate/survicate_14.png %})
+![アンケートに移動し、Connectタブを選択し、Brazeを選択する]({% image_buster /assets/img/survicate/survicate_14.png %})
 
-### レスポンシブをカスタム属性としてBrazeに送信する。
+### 回答をカスタム属性としてBrazeに送信する {#sending-responses-to-braze-as-custom-attributes}
 
-アンケートの回答をカスタム属性としてBrazeに流入するように設定し、収集データでユーザープロファイルを充実させる。
+アンケートの回答をカスタム属性としてBrazeに流入するように設定し、収集データでBrazeユーザープロファイルを充実させます。
 
-1. Braze Integrationの設定タブで、**更新フィールド**セクションを細かく設定する。
+1. Braze統合の設定タブで、**Update fields**セクションを見つけます。
 
-![更新フィールドセクションを選択する。]({% image_buster /assets/img/survicate/survicate_15.png %})
+![Update fieldsセクションを選択する]({% image_buster /assets/img/survicate/survicate_15.png %})
 
 {: start="2"}
-2\.フィールドを更新したい質問を選択する。Brazeユーザープロファイルがデータで溢れるのを避けるため、選択した質問のみにレスポンスを送信することができる。
+2. フィールドを更新したい質問を選択します。Brazeユーザープロファイルがデータで溢れるのを避けるため、選択した質問のみに回答を送信できます。
 
-![フィールドを更新したい質問を選択する。]({% image_buster /assets/img/survicate/survicate_16.png %})
+![フィールドを更新したい質問を選択する]({% image_buster /assets/img/survicate/survicate_16.png %})
 
 {% alert note %}
-このBraze統合では、ランキングとマトリックスの質問はサポートされていない。
+このBraze統合では、ランキングとマトリックスの質問はサポートされていません。
 {% endalert %}
 
 {: start="3"}
-3\.更新したいカスタム属性の名前を**ユーザー**フィールドの下に追加する：
+3. 更新したいカスタム属性の名前を**User**フィールドの下に追加します：
 
-![更新したいカスタム属性の名前をユーザーフィールドの下に追加する。]({% image_buster /assets/img/survicate/survicate_17.png %})
+![更新したいカスタム属性の名前をUserフィールドの下に追加する]({% image_buster /assets/img/survicate/survicate_17.png %})
 
-デフォルトでは、Survicateはアンケートの回答内容を属性値として送信する。これらの値を変更するには、**Edit mappingを**クリックして、ラベルを短くしたり、データ構造に合わせて変更することができる：
+デフォルトでは、Survicateはアンケートの回答内容を属性値として送信します。ラベルを短くしたり、データ構造に合わせて変更するには、**Edit mapping**をクリックしてこれらの値を変更できます：
 
 ![属性値としてのアンケート回答]({% image_buster /assets/img/survicate/survicate_18.png %})
 
-![これらの値を変更するには、マッピングの編集をクリックする。]({% image_buster /assets/img/survicate/survicate_19.png %})
+![これらの値を変更するにはEdit mappingをクリックする]({% image_buster /assets/img/survicate/survicate_19.png %})
 
 {% alert note %}
-NPSの場合、SurvicateはNPS®の質問の回答グループに基づいてマッピングされた値を送信する。ただし、数値を受信したい場合は、「Send Answers as 0-10」を切り替えることができる。
+NPSの場合、SurvicateはNPS®の質問の回答グループに基づいてマッピングされた値を送信します。ただし、数値を受信したい場合は、「Send Answers as 0-10 values」をオンに切り替えることができます。
 {% endalert %}
 
-![Survicateはレスポンスグループに基づいてマッピングされた値を送信する。]({% image_buster /assets/img/survicate/survicate_20.png %})
+![Survicateは回答グループに基づいてマッピングされた値を送信する]({% image_buster /assets/img/survicate/survicate_20.png %})
 
 {: start="4"}
-4. **新規追加]**をクリックし、同じステップを適用することで、さらに多くの質問を統合に接続する。
+4. **+ Add new**をクリックし、同じステップを適用することで、さらに多くの質問を統合に接続します。
 
-![より多くの質問を統合につなげる]({% image_buster /assets/img/survicate/survicate_21.png %})
+![より多くの質問を統合に接続する]({% image_buster /assets/img/survicate/survicate_21.png %})
 
-### Brazeコンタクトのプロファイルにイベントを送信する
+### Brazeコンタクトのプロファイルにイベントを送信する {#sending-events-to-braze-contacts-profiles}
 
-これまでの設定とは別に、Survicateは、回答者がアンケートの質問に回答するたびに、Brazeで`survicate-question-answered` というカスタムイベントを送信することができる。
-Survicateパネルの[カスタム属性としてレスポンスを送信]で、すべての質問に対してイベントを送信するか、[フィールドの更新]タブで選択した質問に対してイベントを送信するか、またはまったく送信しないかを選択することができる：
+これまでの設定とは別に、回答者がアンケートの質問に回答するたびに、Survicateは`survicate-question-answered`というカスタムイベントをBrazeに送信できます。
+Survicateパネルの「Send responses as custom attributes」で、すべての質問に対してイベントを送信するか、「Update fields」タブで選択した質問に対してイベントを送信するか、またはまったく送信しないかを選択できます：
 
-![すべての質問に対してイベントを送信するかどうかを選択できる。]({% image_buster /assets/img/survicate/survicate_22.png %})
+![すべての質問に対してイベントを送信するかどうかを選択できる]({% image_buster /assets/img/survicate/survicate_22.png %})
 
-イベントの送信を選択した場合、Survicateアンケートに何回回答したか、最後に回答したのはいつかをユーザープロファイルで確認できる：
+イベントの送信を選択した場合、ユーザープロファイルでSurvicateアンケートに何回回答したか、最後に回答したのはいつかを確認できます：
 
-![レスポンシブ ]({% image_buster /assets/img/survicate/survicate_23.png %})
+![回答状況]({% image_buster /assets/img/survicate/survicate_23.png %})
 
-イベントには、質問に対する回答と、アンケート、質問、回答者に関する情報を含むイベントプロパティが含まれる。このイベントを使用してセグメンテーションを作成することができる。例えば、特定の日付以降や特定の回数以降にアンケートに回答したユーザーのセグメンテーションを作成する：
+イベントには、質問に対する回答と、アンケート、質問、回答者に関する情報を含むイベントプロパティが含まれます。このイベントを使用してセグメントを作成できます。例えば、特定の日付以降や特定の回数アンケートに回答したユーザーのセグメントを作成できます：
 
-![このイベントには、答えを持つイベントプロパティが含まれている。]({% image_buster /assets/img/survicate/survicate_24.png %})
+![イベントには回答を含むイベントプロパティが含まれる]({% image_buster /assets/img/survicate/survicate_24.png %})
 
-このデータは、Brazeでキャンペーンを作成する際にも使用できる。
+このデータは、Brazeでキャンペーンを作成する際にも使用できます。
 
-![このデータは、Brazeでキャンペーンを作成する際にも使用できる。]({% image_buster /assets/img/survicate/survicate_25.png %})
+![このデータはBrazeでキャンペーンを作成する際にも使用できる]({% image_buster /assets/img/survicate/survicate_25.png %})
 
-### 統合をテストする
+### 統合をテストする {#test-the-integration}
 
-アンケートの準備と統合設定が完了したら、作成した属性、タグ、新規コンタクト設定の横にある統合テストボタンをクリックして、Survicateを離れることなくアンケートをテストすることができる。SurvicateはBrazeアカウントにテストコンタクト(`braze-test@survicate.com`)を作成する。コンタクトのプロファイルには、設定に従って更新されたフィールドが含まれる。
+アンケートの準備と統合設定が完了したら、作成した属性、タグ、新規コンタクト設定の横にある**Test Integration**ボタンをクリックして、Survicateを離れることなくテストできます。SurvicateはBrazeアカウントにテストコンタクト（`braze-test@survicate.com`）を作成します。コンタクトのプロファイルには、設定に従って更新されたフィールドが含まれます。
 
-![統合テストボタンをクリックする]({% image_buster /assets/img/survicate/survicate_26.png %})
+![Test Integrationボタンをクリックする]({% image_buster /assets/img/survicate/survicate_26.png %})
 
-Brazeでは、Survicateダミーコンタクトにマッピングされたフィールドのサンプルデータを見ることができる：
+Brazeでは、Survicateダミーコンタクトのマッピングされたフィールドのサンプルデータを確認できます：
 
 ![Survicateダミーコンタクトのマッピングされたフィールドのサンプルデータ]({% image_buster /assets/img/survicate/survicate_27.png %})
 
-### アンケート結果を分析する
+### アンケート結果を分析する {#analyzing-your-survey-results}
 
-Brazeのアンケートで回答を集めたら、回答者が共有したフィードバックやインサイトを調べてみよう。Survicateを使えば、結果、統計、傾向を簡単に確認し、さらなるアクションにつなげることができる。
+Brazeアンケートで回答を収集したら、回答者が共有したフィードバックやインサイトを確認しましょう。Survicateを使えば、結果、統計、傾向を簡単に確認し、さらなるアクションにつなげることができます。
 
-### Survicateでのフィードバック
+### Survicateでのフィードバック {#feedback-in-survicate}
 
-アンケートの収集が開始されると、アンケートの分析タブにすぐに回答が表示される。
+アンケートの回答収集が開始されると、アンケートのAnalyzeタブにすぐに回答が表示されます。
 
-![分析タブのレスポンシブ]({% image_buster /assets/img/survicate/survicate_28.png %})
+![Analyzeタブの回答]({% image_buster /assets/img/survicate/survicate_28.png %})
 
-分析]タブでは、統計およびオーバータイムデータを含む全体的な結果が表示されるほか、各アンケートの詳細を調べるための個別のレスポンシブも表示される。
+Analyzeタブでは、統計および経時データを含む全体的な結果が表示されるほか、各アンケート提出の詳細を調べるための個別の回答も表示されます。
 
-### Brazeへのフィードバック
+### Brazeでのフィードバック {#feedback-in-braze}
 
-アンケートの回答でユーザーフィールドを更新したり、回答をカスタムイベントとして送信したりすると、リアルタイムで同期されたアンケートデータを確認できる。Brazeで、アンケートに回答した特定の連絡先にアクセスする。コンタクトのメインビューには、レスポンシブデータとイベントの両方が表示される。
+アンケートの回答でユーザーフィールドを更新したり、回答をカスタムイベントとして送信したりすると、リアルタイムで同期されたアンケートデータを確認できます。Brazeで、アンケートに回答した特定のコンタクトにアクセスします。コンタクトのメインビューには、回答ベースのデータとイベントの両方が表示されます。
 
-![調査データはリアルタイムで同期される]({% image_buster /assets/img/survicate/survicate_29.png %}) 
+![アンケートデータはリアルタイムで同期される]({% image_buster /assets/img/survicate/survicate_29.png %})

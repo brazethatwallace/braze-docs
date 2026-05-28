@@ -17,7 +17,7 @@ channel:
 | 요구 사항 | 설명 |
 | --- | --- |
 | Infobip 계정 | BYO WhatsApp 커넥터를 사용하려면 Infobip 계정이 필요합니다. |
-| 메시징 크레딧 | WhatsApp 메시지를 보낼 때 Braze 메시징 크레딧이 소비됩니다. |
+| 메시지 또는 액션 크레딧 | WhatsApp 메시지를 보낼 때 Braze 액션 크레딧이 소비됩니다. |
 | WhatsApp 요구 사항 | 모든 [WhatsApp 요구 사항]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites)을 완료하세요. |
 | 전화번호 | 편의를 위해 [Infobip을 통해 전화번호를 취득](https://www.infobip.com/docs/numbers/getting-started)하는 것을 권장합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }

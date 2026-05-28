@@ -22,7 +22,7 @@ La integración de Justuno y Braze te ofrece lo mejor de ambos mundos. Puedes co
 
 | Clave de API REST de Braze | Una clave de API REST de Braze con los permisos `users.track` y `custom_attributes.get`.<br><br>Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
 | Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de Justuno con Braze {#integrating-justuno-with-braze}
 
@@ -56,7 +56,7 @@ Para enviar datos de perfil desde Justuno a un grupo de suscripción de correo e
 |----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
 | ID de grupo de suscripción SMS de Braze  | Sí       | Este ID se utiliza para recoger el consentimiento de SMS de los perfiles de usuario. Si no se introduce ningún ID en Justuno, los perfiles no tendrán consentimiento cuando Justuno envíe ese perfil a Braze. |
 | ID de grupo de suscripción de correo electrónico de Braze | No        | Si no se introduce este ID en Justuno, Justuno enviará los datos de perfil a Braze como un usuario sin grupos de suscripción asociados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 3: Conectar tus grupos de suscripción de Braze" }
 
 #### Paso 3.1: Localizar los ID en Braze {#step-31-locate-the-ids-in-braze}
 

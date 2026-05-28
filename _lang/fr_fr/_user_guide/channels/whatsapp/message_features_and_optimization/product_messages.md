@@ -32,7 +32,7 @@ Lorsque les utilisateurs ajoutent des articles à leur panier via les messages c
 | Compte WhatsApp Business | Pour utiliser les messages produit WhatsApp, vous devez disposer d'un compte WhatsApp Business connecté à Braze. |
 | Catalogue Meta | Vous devez configurer un catalogue Meta dans votre Commerce Manager. |
 | Conformité aux conditions | Respectez les [conditions et politiques commerciales de Meta](https://www.facebook.com/policies_center/commerce). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Types de messages produit {#product-message-types}
 
@@ -173,7 +173,7 @@ Lorsque les utilisateurs interagissent avec vos messages produit WhatsApp, ils p
 
 - **Pas de paiement intégré :** les utilisateurs ne peuvent pas finaliser leurs achats directement dans WhatsApp. Toutes les transactions doivent être redirigées vers votre site web ou application.
 - **Lien personnalisé requis :** vous devez créer un lien personnalisé qui dirige les utilisateurs vers leur panier sur votre plateforme.
-- **Configuration manuelle :** le processus de configuration nécessite une configuration manuelle de votre panier et de vos workflows de messagerie.
+- **Configuration manuelle :** le processus de configuration nécessite une configuration manuelle de votre panier et de vos workflows d'envoi de messages.
 
 {% alert note %}
 Nous ne prenons actuellement pas en charge les paiements directement dans WhatsApp, et la prise en charge future sera spécifique à chaque pays (actuellement, Meta ne le propose qu'aux entreprises basées en Inde, au Brésil et à Singapour et travaillant directement avec des utilisateurs dans ces pays).

@@ -151,4 +151,4 @@ Para enlazar el código del cupón dentro de una imagen:
 | `usage_exceeded` | The usage for this coupon code's campaign is full. Please try next time. | El uso del código supera el número de usuarios autorizados a utilizarlo. Por ejemplo, si la configuración del dashboard permite que un código sea utilizado por 3000 usuarios y el número de usuarios supera los 3000, se producirá este error. |
 | `usage_exceeded_by_guest` | This promo code has already been processed. | El uso del código por un usuario supera el número de veces que un usuario puede utilizarlo. Por ejemplo, la configuración del dashboard permite que un mismo código sea utilizado tres veces por un usuario. Si se utiliza más veces, se producirá este error. |
 | `already_used_by_other_guest` | This promo code has already been used by some other guest. | Otro usuario ya ha utilizado el código. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensajes de error" }

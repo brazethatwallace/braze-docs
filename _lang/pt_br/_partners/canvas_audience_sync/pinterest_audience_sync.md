@@ -29,6 +29,7 @@ O Braze Audience Sync com o Pinterest é uma integração do Audience Sync Pro. 
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
+
 É necessário garantir que os itens a seguir sejam criados, concluídos e/ou aceitos antes de configurar a etapa do público do Pinterest no Canvas.
 
 | Requisito | Origin | Descrição |
@@ -79,7 +80,7 @@ Selecione **Pinterest** como parceiro desejado do Audience Sync.
 Em seguida, selecione sua conta de anúncios do Pinterest desejada. No menu suspenso **Choose a New or Existing Audience**, digite o nome de um público novo ou existente.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Criar um novo público %}
 
 **Criar um novo público**<br>
 Digite um nome para o novo público, selecione **Add Users to Audience** e selecione os campos que deseja sincronizar com o Pinterest. Em seguida, salve seu público clicando no botão **Create Audience** na parte inferior do editor de etapas.
@@ -92,7 +93,7 @@ A Braze exibe uma notificação na parte superior do editor de etapas se o públ
 
 Ao lançar um Canvas com um novo público, a Braze sincroniza os usuários quase em tempo real quando eles entram na etapa do Audience Sync.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Sincronizar com um público existente %}
 **Sincronização com um público existente**<br>
 A Braze também oferece a capacidade de adicionar usuários a públicos existentes no Pinterest para garantir que esses públicos estejam atualizados. Para sincronizar com um público existente, digite o nome do público existente no menu suspenso e adicione-o ao público. A Braze adicionará usuários quase em tempo real quando eles entrarem na etapa do Audience Sync.
 

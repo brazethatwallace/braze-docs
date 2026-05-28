@@ -12,4 +12,4 @@
 | Hauteur de ligne | Espacement vertical entre les lignes de texte. |
 | Couleur du texte | Couleur du texte. |
 | Espacement des lettres | Espacement horizontal entre les caractères. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

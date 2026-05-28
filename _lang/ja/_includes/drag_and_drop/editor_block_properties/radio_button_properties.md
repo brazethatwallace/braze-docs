@@ -11,4 +11,4 @@
 | 配置 | ブロック内の選択肢の水平方向の配置です。 |
 | アクセントカラー | ラジオボタンコントロールに使用される色（選択済み状態のインジケーターなど）です。 |
 | パディング | ブロック周囲の間隔です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

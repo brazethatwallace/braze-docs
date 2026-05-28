@@ -92,7 +92,7 @@ Después de desactivar tu grupo de control, puedes guardar uno nuevo. Cuando int
 
 Si deseas ver qué usuarios están en tu Grupo de control global, puedes exportar los miembros de tu grupo mediante CSV o API.
 
-Para ejecutar una exportación CSV, navega a la pestaña **Global Control Group Settings** y haz clic en <i class="fas fa-download"></i>&nbsp;**Export**. Para exportar mediante API, usa el [punto de conexión `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/).
+Para ejecutar una exportación CSV, navega a la pestaña **Global Control Group Settings** y haz clic en <i class="fas fa-download" aria-label="Descargar"></i>&nbsp;**Export**. Para exportar mediante API, usa el [punto de conexión `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/).
 
 {% alert important %}
 Los grupos de control históricos no se conservan, por lo que solo puedes exportar los miembros de tu grupo actual. Asegúrate de exportar cualquier información necesaria antes de desactivar un grupo de control.
@@ -162,7 +162,7 @@ A medida que configuras tus grupos de control globales y ves los informes, estos
 
 #### Números de contenedor aleatorio superpuestos {#overlapping-random-bucket-numbers}
 
-Tu Grupo de control global se forma usando números de contenedor aleatorio, por lo que si estás ejecutando otras pruebas usando filtros de segmento con números de contenedor aleatorio, ten en cuenta que podría haber una superposición entre esos segmentos que creas y los usuarios de tu Grupo de control global.
+Tu Grupo de control global se forma usando números de contenedor aleatorio, por lo que si estás ejecutando otras pruebas usando filtros de Segment con números de contenedor aleatorio, ten en cuenta que podría haber una superposición entre esos segmentos que creas y los usuarios de tu Grupo de control global.
 
 #### Direcciones de correo electrónico duplicadas {#duplicate-email-addresses}
 

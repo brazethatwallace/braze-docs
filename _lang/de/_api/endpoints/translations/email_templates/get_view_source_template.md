@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Quellübersetzungen für E-Mail-Template anzeigen"
 article_title: "GET: Quellübersetzungen für E-Mail-Template anzeigen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -29,10 +29,10 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 ## Abfrageparameter {#query-parameters}
 
-| Parameter     | Erforderlich | Datentyp | Beschreibung                     |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | Erforderlich | String    | Die ID für Ihr E-Mail-Template. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `template_id` | Erforderlich | String | Die ID für Ihr E-Mail-Template. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Beispielanfrage {#example-request}
 

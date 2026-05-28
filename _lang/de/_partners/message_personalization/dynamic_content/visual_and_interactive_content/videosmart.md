@@ -119,7 +119,7 @@ Häufige Variablen umfassen:
 | `{{ video_url }}` | URL des personalisierten Videos |
 | `{{ poster_url }}` | URL des Posterbilds für das Video |
 | `{{ output_data.VARIABLE_NAME }}` | Zusätzliche Ausgabefelder, die vom Content-Block bereitgestellt werden |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="5. Schritt: Die vom VideoSmart Content-Block-Template generierten Variablen verwenden" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endraw %}
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

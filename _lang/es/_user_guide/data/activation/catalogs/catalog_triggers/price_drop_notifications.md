@@ -41,7 +41,7 @@ Sigue estos pasos para configurar las notificaciones de bajada de precios en un 
 | **Evento personalizado para suscribirse** | El evento personalizado utilizado para suscribir a un usuario a las notificaciones del catálogo. Cuando se produzca este evento, se suscribirá al usuario que lo haya realizado. |
 | **Evento personalizado para cancelar suscripción** | El evento personalizado utilizado para cancelar la suscripción de un usuario a las notificaciones. Este evento es opcional. Si el usuario no realiza este evento, se le cancelará la suscripción transcurridos 90 días o cuando se desencadene el evento de bajada de precio, lo que ocurra primero. |
 | **Propiedad del evento de ID de artículo** | La propiedad en el evento personalizado anterior que se utiliza para determinar el artículo para una suscripción o cancelación de suscripción. Esta propiedad del evento personalizado debe contener un ID de artículo que exista en un catálogo. El evento personalizado debe contener una propiedad `catalog_name` para especificar en qué catálogo se encuentra este artículo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting up price drop notifications" }
 
 A continuación se muestra un ejemplo de evento personalizado:
 

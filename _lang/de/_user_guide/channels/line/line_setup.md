@@ -25,7 +25,7 @@ Für die Integration von LINE mit Braze benötigen Sie Folgendes:
 - [LINE-Entwicklerkonto](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE Messaging API-Kanal](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Der Versand von LINE-Nachrichten über Braze wird von den Nachrichtenguthaben Ihres Kontos abgezogen.
+Der Versand von LINE-Nachrichten über Braze wird von den Nachrichtenguthaben oder Aktionsguthaben Ihres Kontos abgezogen.
 
 {% alert note %}
 **`native_line_id` festlegen**: Sie können `native_line_id` festlegen, indem Sie Nutzeraktualisierungen an Braze senden (z. B. mit dem [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)-Endpunkt, [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)). Wenn Ihr clientseitiges SDK kein dediziertes Feld für `native_line_id` hat, senden Sie es in serverseitigen Nutzeraktualisierungen über eine dieser Methoden.
@@ -38,7 +38,7 @@ Der Versand von LINE-Nachrichten über Braze wird von den Nachrichtenguthaben Ih
 | Nicht verifiziertes Konto | Ein nicht überprüftes Konto, das von jeder Person (Einzelperson oder Unternehmen) erstellt werden kann. Dieses Konto wird mit einem grauen Badge dargestellt und erscheint nicht in den Suchergebnissen der LINE-App. |
 | Verifiziertes Konto | Ein Konto, das die LINE Yahoo-Überprüfung bestanden hat. Dieses Konto wird mit einem blauen Badge dargestellt und erscheint in den Suchergebnissen der LINE-App.<br><br>Dieses Konto ist nur für Konten mit Sitz in Japan, Taiwan, Thailand und Indonesien verfügbar. |
 | Premium-Konto | Ein Konto, das die LINE Yahoo-Überprüfung bestanden hat. Dieses Konto wird mit einem grünen Badge dargestellt und erscheint in den Suchergebnissen der LINE-App. Dieser Kontotyp wird während der Überprüfung automatisch nach Ermessen von LINE vergeben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of LINE accounts" }
 
 ### Erforderlicher Kontotyp {#required-account-type}
 
@@ -99,7 +99,11 @@ Nach Abschluss des Integrationsprozesses ruft Braze automatisch die LINE-Followe
 | Kanal-ID | Wählen Sie Ihren Provider und gehen Sie dann zu **Channels** > Ihr Kanal > **Basic settings** |
 | Kanalgeheimnis | Wählen Sie Ihren Provider und gehen Sie dann zu **Channels** > Ihr Kanal > **Basic settings** |
 | Kanalzugriffstoken | Wählen Sie Ihren Provider und gehen Sie dann zu **Channels** > Ihr Kanal > **Messaging API**. Wenn kein Kanalzugriffstoken vorhanden ist, wählen Sie **Issue**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
+
+{% alert note %}
+Wenn Sie das Kanalgeheimnis für einen bereits integrierten LINE-Kanal aktualisieren oder rotieren müssen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support/), um eine Aktualisierung anzufordern.
+{% endalert %}
 
 {: start="3"}
 3. Gehen Sie zu Ihrer Seite **Settings** > **Response settings** und führen Sie Folgendes aus:
@@ -285,10 +289,10 @@ LINE-IDs werden automatisch von Braze empfangen, wenn Nutzer:innen Ihrem Kanal f
 
 Es gibt zwei Möglichkeiten, eine LINE-ID mit einem bestehenden Braze-Nutzerprofil zu kombinieren:
 
-- [LINE Login](#line-login)
+- [LINE-Anmeldung (LINE Login)](#line-login)
 - [Nutzerkontoverknüpfung](#user-account-linking)
 
-### LINE Login {#line-login}
+### LINE-Anmeldung (LINE Login) {#line-login}
 
 Diese Methode nutzt Social-Media-Logins zur Abstimmung. Wenn sich Nutzer:innen in Ihrer App anmelden, erhalten sie die Option, [LINE Login](https://developers.line.biz/en/docs/line-login/overview/) zu verwenden, um ein Nutzerkonto zu erstellen oder sich anzumelden.
 
@@ -309,7 +313,7 @@ Um die korrekte LINE-ID für alle Nutzer:innen zu erhalten, richten Sie LINE Log
 
 5. Senden Sie die neuen oder aktualisierten Nutzerinformationen an Braze über den [`/user/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users/), [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
 
-#### Workflows
+#### Abläufe mit LINE Login {#workflows}
 
 ##### Bestehende:r Follower:in verwendet LINE Login {#existing-follower-uses-line-login}
 
@@ -343,7 +347,7 @@ Thanks for following Flash n' Thread on LINE! For personalized offers and 20% of
 
 {: start="3"}
 3. Erstellen Sie eine Folgenachricht, die den Gutscheincode liefert.
-4. (Optional) Erstellen Sie eine aktionsbasierte Kampagne oder ein Canvas, das ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden, um ihnen den Gutscheincode zu senden. <br>![Aktionsbasierte Kampagne, die ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden.]({% image_buster /assets/img/line/account_link_2.png %})
+4. (Optional) Erstellen Sie eine aktionsbasierte Campaign oder ein Canvas, das ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden, um ihnen den Gutscheincode zu senden. <br>![Aktionsbasierte Campaign, die ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden.]({% image_buster /assets/img/line/account_link_2.png %})
 
 #### So funktioniert es {#how-it-works}
 
@@ -373,7 +377,7 @@ if (user && isLoggedIn && lineUserId) {
 }
 ```
 
-#### Workflows
+#### Abläufe bei der Nutzerkontoverknüpfung
 
 ##### Bestehende Nutzer:innen folgen Ihrem LINE-Kanal {#existing-user-follows-your-line-channel}
 
@@ -387,9 +391,9 @@ if (user && isLoggedIn && lineUserId) {
 
 ## LINE-Testnutzer:innen in Braze erstellen {#creating-line-test-users-in-braze}
 
-Sie können Ihren LINE-Kanal testen, bevor Sie die [Nutzerabstimmung](#user-id-reconciliation) einrichten, indem Sie ein „Wer bin ich“-Canvas oder eine Kampagne erstellen.
+Sie können Ihren LINE-Kanal testen, bevor Sie die [Nutzerabstimmung](#user-id-reconciliation) einrichten, indem Sie ein „Wer bin ich“-Canvas oder eine Campaign erstellen.
 
-1. Richten Sie ein Canvas ein, das die Braze-Nutzer-ID bei einem bestimmten Triggerwort zurückgibt. <br><br>Beispiel-Trigger <br><br>![Trigger zum Senden der Kampagne an Nutzer:innen, die eine eingehende LINE-Nachricht an eine bestimmte Abo-Gruppe gesendet haben.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Beispielnachricht<br><br>![LINE-Nachricht mit der Braze-Nutzer-ID.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
+1. Richten Sie ein Canvas ein, das die Braze-Nutzer-ID bei einem bestimmten Triggerwort zurückgibt. <br><br>Beispiel-Trigger <br><br>![Trigger zum Senden der Campaign an Nutzer:innen, die eine eingehende LINE-Nachricht an eine bestimmte Abo-Gruppe gesendet haben.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Beispielnachricht<br><br>![LINE-Nachricht mit der Braze-Nutzer-ID.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
 
 2. In Braze können Sie die Braze-ID verwenden, um bestimmte Nutzer:innen zu suchen und bei Bedarf zu ändern.
 

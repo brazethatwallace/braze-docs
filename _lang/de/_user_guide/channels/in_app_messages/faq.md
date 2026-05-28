@@ -47,7 +47,7 @@ Bei In-App-Nachricht-Campaigns können Sie Nutzer:innen erlauben, erneut für de
 
 Wenn die erneute Berechtigung deaktiviert ist, erhalten Nutzer:innen dieselbe Campaign in der Regel nicht erneut, allein basierend auf den Qualifizierungskriterien, nachdem sie sie bereits erhalten haben.
 
-#### Canvases
+#### Canvases {#canvases}
 
 Bei In-App-Nachrichten, die aus einem Canvas gesendet werden, hängt es davon ab, ob ein:e Nutzer:in die Nachricht erneut sehen kann, von den Canvas-Eintrittskontrollen (z. B. ob Nutzer:innen den Canvas erneut betreten dürfen) und Ihrer Schritt-Konfiguration – nicht nur von den Campaign-Zustellungskontrollen.
 

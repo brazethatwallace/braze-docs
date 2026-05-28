@@ -11,7 +11,7 @@ search_tag: Partner
 
 > A [VideoSmart](https://www.videosmart.com/) oferece tecnologia de vídeo personalizado e interativo que permite entregar conteúdo não linear e orientado por dados em escala. Cada vídeo é gerado dinamicamente usando dados no nível do cliente, permitindo mensagens personalizadas e jornadas do usuário dentro de uma única experiência de vídeo.
 >
-> A integração com a VideoSmart permite incorporar conteúdo de vídeo personalizado em campanhas de e-mail usando Conteúdo conectado da Braze e modelos Liquid para solicitar ativos de vídeo da VideoSmart. Essa integração é normalmente implementada por meio de um modelo reutilizável de bloco de conteúdo da Braze, permitindo implantação consistente entre campanhas e flexibilidade na seleção de campanhas e na lógica de personalização.
+> A integração com a VideoSmart permite incorporar conteúdo de vídeo personalizado em Campaigns de e-mail usando Conteúdo conectado da Braze e modelos Liquid para solicitar ativos de vídeo da VideoSmart. Essa integração é normalmente implementada por meio de um modelo reutilizável de bloco de conteúdo da Braze, permitindo implantação consistente entre Campaigns e flexibilidade na seleção de Campaigns e na lógica de personalização.
 
 _Esta integração é desenvolvida e mantida pela VideoSmart._
 
@@ -44,7 +44,7 @@ Antes de começar, confirme que você tem o seguinte:
 | Credenciais de Conteúdo conectado da Braze | Uma credencial de Autenticação Básica de Conteúdo conectado chamada **basic_credentials**, configurada com os valores fornecidos pela VideoSmart |
 | Modelo de **VideoSmart Content Block** | O modelo de **VideoSmart Content Block** adicionado ao seu dashboard da Braze (fornecido pela VideoSmart) |
 | Uma mensagem de e-mail da Braze | Um e-mail de Campaign da Braze ou uma etapa de e-mail do Canvas onde você inserirá o **VideoSmart Content Block** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -121,7 +121,7 @@ As variáveis comuns incluem:
 | `{{ output_data.VARIABLE_NAME }}` | Campos de saída adicionais expostos pelo Content Block |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 5: Usar as variáveis geradas pelo modelo de VideoSmart Content Block" }
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 5: Usar as variáveis geradas pelo modelo de VideoSmart Content Block" }
 
 ## Limites de taxa {#rate-limits}
 

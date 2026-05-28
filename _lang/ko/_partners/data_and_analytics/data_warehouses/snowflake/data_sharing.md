@@ -8,7 +8,7 @@ search_tag: Partner
 
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake 데이터 공유 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake 데이터 공유 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
 
 > Snowflake [보안 데이터 공유](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html)를 사용하면 일반적인 데이터 공급자 관계에서 발생하는 워크플로 마찰이나 지연, 장애 지점, 불필요한 비용에 대한 걱정 없이 Braze가 Snowflake 포털의 데이터에 대한 안전한 액세스를 제공할 수 있습니다. 데이터 공유는 다음 통합을 통해 또는 [Snowflake 리더 계정]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts)을 통해 설정할 수 있습니다.
 
@@ -36,7 +36,7 @@ Snowflake의 데이터 공유에 대해 자세히 알아보려면 [보안 데이
 | ----------- | ----------- |
 | Braze 액세스 | 데이터 공유를 설정하려면 Braze 계정 또는 고객 성공 매니저에게 문의하세요. |
 | Snowflake 계정 | `admin` 권한이 있는 Snowflake 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 보안 데이터 공유 설정 {#setting-up-secure-data-sharing}
 
@@ -87,7 +87,7 @@ Currents와 마찬가지로 Snowflake 보안 데이터 공유를 사용하여 �
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Braze에서 자동으로 할당하는 고유 식별자입니다. |
 | `external_id` | `"EXTERNAL_USER_ID"` | 고객이 설정한 사용자 프로필의 고유 식별자입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ## 중요 정보 및 제한 사항 {#important-information-and-limitations}
 

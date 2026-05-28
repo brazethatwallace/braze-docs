@@ -22,7 +22,7 @@ Um ThoughtSpot mit Braze nutzen zu können, müssen Ihre Daten an ein Cloud Data
 | ----------- | ----------- |
 | ThoughtSpot-Konto | Ein ThoughtSpot-Konto ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen. |
 | Cloud Data Warehouse | Braze-Daten werden mit Braze-Currents im Cloud Data Warehouse gespeichert. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## TML-Blöcke {#tml-blocks}
 

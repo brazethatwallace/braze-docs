@@ -215,7 +215,7 @@ Alle vier Typen werden angezeigt, wenn sowohl `start_date` als auch `end_date` m
 | Startdatum | Gibt ein Startdatum an | Erfordert `start_date` |
 | Enddatum | Gibt ein Enddatum an | Erfordert `end_date` |
 | Datumsbereich | Gibt sowohl ein Start- als auch ein Enddatum an | Erfordert sowohl `start_date` als auch `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Beispielwerte" }
 
 - **Ersetzungswert:** Ersetzt `start_date` und `end_date` durch einen Unix-Zeitstempel in Sekunden für ein angegebenes Datum in UTC, z. B. `1696517353`.
 - **Verwendungsbeispiel:** Für alle Variablen – relativ, Startdatum, Enddatum und Datumsbereich:

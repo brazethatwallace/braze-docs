@@ -10,12 +10,12 @@ description: "Braze Agents können Inhalte generieren, intelligente Entscheidung
 > Braze Agents sind KI-gestützte Assistenten, die Sie innerhalb von Braze erstellen können. Agenten können Inhalte generieren, intelligente Entscheidungen treffen und Ihre Daten anreichern, damit Sie personalisiertere Kundenerlebnisse bieten können.
 
 {% alert important %}
-Für den Zugriff auf und die Nutzung von Braze Agents sind Nachrichtenguthaben erforderlich. Sollten Sie derzeit nicht über Nachrichtenguthaben verfügen und Braze Agents nutzen möchten, wenden Sie sich an Ihren Account Manager, um die nächsten Schritte zu besprechen.
+Für den Zugriff auf und die Nutzung von Braze Agents sind Nachrichten- oder Aktionsguthaben erforderlich. Sollten Sie derzeit nicht über Aktionsguthaben verfügen und Braze Agents nutzen möchten, wenden Sie sich an Ihren Account Manager, um die nächsten Schritte zu besprechen.
 {% endalert %}
 
 Sehen Sie sich dieses Video an, um einen Überblick über Braze Agents in der Agentenkonsole zu erhalten.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## Warum sollten Sie Braze Agents einsetzen? {#why-use-braze-agents}
 
@@ -33,7 +33,7 @@ Der Agent lernt jedoch nicht durch Versuch und Irrtum und hat keine Vorstellung 
 
 Im Gegensatz dazu sind andere BrazeAI-Tools darauf ausgelegt, die von ihnen gemessenen Metriken zu maximieren. Beispielsweise sind Agenten sehr gut darin, qualitativ zu beurteilen, inwiefern die Eigenschaften einer Nutzer:in deren Wahrscheinlichkeit oder Neigung beeinflussen, eine bestimmte Handlung auszuführen oder ein bestimmtes Produkt zu mögen. Da der Agent jedoch nicht durch Versuch und Irrtum lernt, hat er keine Vorstellung davon, wie er seine Genauigkeit bei der Vorhersage von Wahrscheinlichkeiten messen und das Signal im Laufe der Zeit verbessern kann. Daher übertrifft die Predictive Suite den Agent-Schritt, wenn man die Genauigkeit der Prognosen und die Verbesserungen im Laufe der Zeit betrachtet.
 
-## Features {#features}
+## Funktionen {#features}
 
 Zu den Features von Braze Agents gehören:
 
@@ -57,8 +57,7 @@ Agenten werden mit Anweisungen (System-Prompts) konfiguriert, die ihr Verhalten 
 | [Ausgabevariable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | Die Ausgabe, die der Agent erzeugt, wenn er in Canvas-Schritten verwendet wird. Ausgabevariablen speichern das Ergebnis des Agenten, um Inhalte zu personalisieren oder Workflow-Pfade zu steuern. Ausgabevariablen können vom Datentyp String, Zahl oder Boolescher Wert sein. |
 | [Ausführung](#limitations) | Ein einzelner Durchlauf des Agenten. Dies wird auf Ihre täglichen Limits angerechnet. |
 | [Ausgabeformat]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | Die vordefinierte Datenstruktur der Antwort des Agenten. |
-| [Temperatur]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | Der Grad der Abweichung für die Ausgabe des Agenten. Dies bestimmt, wie präzise oder kreativ Ihr Agent sein kann. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wichtige Konzepte" }
 
 ## Einschränkungen {#limitations}
 

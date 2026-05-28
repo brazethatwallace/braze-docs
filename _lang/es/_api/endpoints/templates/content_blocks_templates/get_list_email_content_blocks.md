@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Lista de bloques de contenido disponibles"
 article_title: "GET: Lista de bloques de contenido disponibles"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -29,11 +29,11 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `modified_after`  | Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera solo los Content Blocks actualizados a la hora indicada o después. |
-| `modified_before`  |  Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera solo los Content Blocks actualizados a la hora indicada o antes. |
+| `modified_after` | Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera solo los Content Blocks actualizados a la hora indicada o después. |
+| `modified_before` | Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera solo los Content Blocks actualizados a la hora indicada o antes. |
 | `limit` | Opcional | Número positivo | Número máximo de Content Blocks a recuperar. Predeterminado a 100 si no se proporciona, con un valor máximo aceptable de 1000. |
-| `offset`  |  Opcional | Número positivo | Número de Content Blocks que se omiten antes de devolver el resto de plantillas que se ajustan a los criterios de búsqueda. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `offset` | Opcional | Número positivo | Número de Content Blocks que se omiten antes de devolver el resto de plantillas que se ajustan a los criterios de búsqueda. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 ```
@@ -75,6 +75,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `Content Block number limit exceeds maximum of 1000` | Cambia el parámetro `limit` por un número entero inferior a 1000. |
 | `Offset is invalid` | El parámetro `offset` debe ser un número entero mayor que 0. |
 | `Offset must be greater than 0` | Cambia el parámetro `offset` por un número entero mayor que 0. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

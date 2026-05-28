@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [Seen](https://seen.io)は、ブランドがパーソナライズされた動画体験を大規模に作成し、配信することを可能にします。Seenを使えば、データを中心に動画をデザインし、クラウド上で大規模にパーソナライズし、最適な場所に配信できます。
 >
-> BrazeとSeenの統合により、ユーザーデータをBrazeからSeenに送信し、パーソナライズされた動画をダイナミックに生成し、固有のプレーヤーURLやサムネイルなどの動画アセットをBrazeに戻して、CampaignsやCanvasesで使用できます。
+> BrazeとSeenの統合により、ユーザーデータをBrazeからSeenに送信し、パーソナライズされた動画をダイナミックに生成し、固有のプレーヤーURLやサムネイルなどの動画アセットをBrazeに戻して、キャンペーンやキャンバスで使用できます。
 
 
 ## ユースケース {#use-cases}
@@ -33,7 +33,7 @@ Seenは、カスタマーライフサイクル全体にわたって、以下の�
 | Seenプラットフォームへのアクセス | SeenプラットフォームのサブスクリプションまたはアクティブなSeenキャンペーンが必要です。ワークスペースIDを取得し、APIトークンを生成するには、ワークスペース設定にアクセスする必要があります。 |
 | Brazeデータ変換Webhook URL | Brazeデータ変換は、Seenからの受信データをBrazeの/users/trackエンドポイントで受け入れられるように再フォーマットします。 |
 | Brazeユーザーデータ | 動画のパーソナライゼーションには、ユーザーレベルのデータが必要です。関連する属性がBrazeで利用可能であることを確認し、一意識別子として**braze_id**を渡してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 
 
@@ -128,7 +128,7 @@ Journeyを設定するには、以下の手順に従います。
 | `id` | Brazeから送信される`braze_id`と一致する必要があります |
 | `player_url` | パーソナライズされた動画プレーヤーのユニークなURL |
 | `email_thumbnail_url` | 生成された動画サムネイルのURL |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook node response requirements" }
 
 ユースケースで追加の属性が必要な場合は、それらをレスポンスに含め、Brazeでマッピングしてください。
 
@@ -147,7 +147,7 @@ Brazeデータ変換を使用して、Seen Journeyのレスポンスを取り込
 4. 生成されたWebhook URLをSeenと共有するか、Journeyの**Webhookノード**に直接追加します
 5. 以下の変換コードを使用します。
 
-```javascript
+`````````javascript
 let brazecall = {
   "attributes": [
     {

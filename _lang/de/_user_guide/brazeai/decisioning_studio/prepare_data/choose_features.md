@@ -26,7 +26,7 @@ Es gibt vier gängige Kategorien von Kund:innen-Features:
 | **Nutzerneigung** | Modellbasierte Scores für die Wahrscheinlichkeit, dass Kund:innen etwas tun | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **Nutzerverhalten** | Zusammenfassungen der Kund:innenaktivität über ein Zeitfenster | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **Umgebung** | Kontextuelle Signale außerhalb der Kund:in | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Typen von Kund:innen-Features" }
 
 Zusammen geben diese Feature-Typen dem Modell die Informationen, die es benötigt, um Segmente zu identifizieren, zwischen Kund:innen zu unterscheiden und Empfehlungen entsprechend anzupassen.
 

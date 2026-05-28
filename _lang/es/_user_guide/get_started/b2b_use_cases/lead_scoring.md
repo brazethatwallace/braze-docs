@@ -16,7 +16,7 @@ Hay dos pasos clave para crear un flujo de trabajo de puntuación de clientes po
 - [Puntuación sencilla de clientes potenciales](#simple-lead-scoring)
 - [Puntuación externa de clientes potenciales](#external-lead-scoring)
 
-2. Crea una campaña de webhook para enviar clientes potenciales cualificados a tu equipo de ventas:
+2. Crea una Campaign de webhook para enviar clientes potenciales cualificados a tu equipo de ventas:
 - [Traspaso de clientes potenciales: cliente potencial cualificado por marketing (MQL) a ventas](#lead-handoff)
 
 ## Puntuación sencilla de clientes potenciales {#simple-lead-scoring}
@@ -151,13 +151,13 @@ Nuestro enfoque recomendado para los traspasos de clientes potenciales es tener 
 
 Para actualizar el registro de clientes potenciales en Salesforce con el estado del cliente potencial desde Braze, recomendamos utilizar una plantilla de webhook activada.
 
-### Paso 1: Crear una campaña de webhook {#step-1-create-a-webhook-campaign}
+### Paso 1: Crear una Campaign de webhook {#step-1-create-a-webhook-campaign}
 
 ### Paso 2: Configura tu webhook {#step-2-configure-your-webhook}
 
 #### Paso 2a: Redactar webhook {#step-2a-compose-webhook}
 
-1. Dale un nombre a tu campaña de webhook, como "Salesforce > Actualizar cliente potencial a MQL".
+1. Dale un nombre a tu Campaign de webhook, como "Salesforce > Actualizar cliente potencial a MQL".
 
 2. Introduce la URL de tu webhook en el formato {% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %}. El ID de usuario de Braze {% raw %}`{{${user_id}}}`{% endraw %} debe coincidir con tu ID de contacto de Salesforce. Si no es así, utiliza un alias en lugar de {% raw %}`{{${user_id}}}`{% endraw %}.
 
@@ -184,13 +184,13 @@ Para actualizar el registro de clientes potenciales en Salesforce con el estado 
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Para recuperar un token, [configura una aplicación conectada](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) para el flujo de credenciales de cliente OAuth 2.0 y luego usa contenido conectado para recuperar el bearer de Salesforce: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2a: Redactar webhook" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2a: Compose webhook" }
 
 ![Webhook que se compone con una URL de webhook de Salesforce, método HTTP PATCH, cuerpo de solicitud de texto sin formato y encabezados de solicitud.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 
 #### Paso 2b: Programar envíos de webhooks {#step-2b-schedule-webhook-sends}
 
-La campaña debe activarse cada vez que cambie la puntuación del usuario. Esta campaña se activará para cualquier usuario cuya puntuación cambie, pero solo afectará a los usuarios que no sean actualmente un MQL y que hayan superado el umbral establecido en el paso anterior.
+La Campaign debe activarse cada vez que cambie la puntuación del usuario. Esta Campaign se activará para cualquier usuario cuya puntuación cambie, pero solo afectará a los usuarios que no sean actualmente un MQL y que hayan superado el umbral establecido en el paso anterior.
 
 En el paso **Programar entrega**, selecciona lo siguiente:
 - Un tipo de entrega **basado en acciones**
@@ -202,6 +202,6 @@ En el paso **Target Audiences**, incluye un filtro que excluya a los usuarios cu
 
 ![Opciones de segmentación de webhooks con el filtro de "lead_status" is none of "MQL".]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
 
-### Paso 3: Lanzar la campaña {#step-3-launch-campaign}
+### Paso 3: Lanzar la Campaign {#step-3-launch-campaign}
 
 Selecciona **Launch** y observa cómo cambia el estado de tus clientes potenciales en Salesforce a medida que tus clientes cruzan el umbral de puntuación de clientes potenciales MQL.

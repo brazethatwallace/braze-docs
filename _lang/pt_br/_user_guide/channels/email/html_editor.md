@@ -152,7 +152,7 @@ Evite usar as seguintes chaves:
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Cabeçalhos de e-mail" id="reserved-fields">
   <caption>Cabeçalhos de e-mail</caption>
 <thead>
   <tr>
@@ -262,7 +262,7 @@ Entregue e-mails com base em um horário programado, uma ação ou um gatilho de
 Para Campaigns disparadas por API, quando a ação-gatilho é definida como **Interact With Campaign**, selecionar uma opção **Receive** como interação fará com que sua nova campanha seja disparada assim que a Braze marcar a campanha selecionada como enviada, mesmo que essa mensagem sofra bounce ou falhe na entrega.
 {% endalert %}
 
-Você também pode definir a duração da campanha, especificar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) e definir regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
+Você também pode definir a duração da campanha, especificar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) e definir regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
 #### Escolha os usuários-alvo {#choose-users-to-target}
 

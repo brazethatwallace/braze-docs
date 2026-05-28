@@ -47,9 +47,9 @@ Ve a **Messaging** > **Campaigns** y elige una Campaign. En tu editor de mensaje
 
 Braze generará automáticamente una etiqueta de Liquid utilizando la [URL de tu página de inicio](#page-url). Consulta la siguiente tabla para generar tu etiqueta:
 
-|**Tipo de personalización**| Elige **Landing Page**.|
-|**Página de inicio**|Elige la página de inicio [que creaste anteriormente](#prerequisites).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Tipo de personalización** | Elige **Landing Page**. |
+| **Página de inicio** | Elige la página de inicio [que creaste anteriormente](#prerequisites). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Generate the Liquid tag" }
 
 Para añadir la etiqueta de Liquid a tu mensaje, puedes seleccionar **Insert** o copiar el fragmento de código a tu portapapeles y añadirlo manualmente.
 

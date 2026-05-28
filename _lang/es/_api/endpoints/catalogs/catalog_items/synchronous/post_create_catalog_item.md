@@ -33,14 +33,14 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 |---|---|---|---|
 | `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
 | `item_id` | Obligatorio | Cadena | El ID del elemento del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `items` | Obligatorio | Matriz | Una matriz que contiene objetos de elemento. Los objetos de elemento deben contener todos los campos del catálogo excepto el campo `id`. Solo se permite un objeto de elemento por solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -56,9 +56,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 5,
       "Loyalty_Program": true,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -69,6 +70,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
   ]
 }'
 ```
+
+{% alert note %}
+El campo `Location` utiliza el tipo de datos `geo`, que espera una matriz con el formato `[longitude, latitude]`.
+{% endalert %}
 
 ## Respuesta {#response}
 
@@ -126,6 +131,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `request-includes-too-many-items` | Solo puedes crear un elemento de catálogo por solicitud. |
 | `too-deep-nesting-in-value-object` | Los objetos de elemento no pueden tener más de 50 niveles de anidamiento. |
 | `unable-to-coerce-value` | Los tipos de elemento no se pueden convertir. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

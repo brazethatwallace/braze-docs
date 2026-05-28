@@ -153,7 +153,7 @@ En la tabla siguiente se describen las ventajas e inconvenientes de estos dos en
   }
 </style>
 
-<table>
+<table aria-label="Resumen de cada enfoque">
   <caption>Resumen de cada enfoque</caption>
     <tr>
         <th></th>
@@ -205,7 +205,7 @@ En la tabla siguiente se describen las ventajas e inconvenientes de estos dos en
     <tr>
         <th scope="row">Duplicación de contenidos</th>
         <td>N/A</td>
-        <td>No se pueden duplicar Segments, campañas de push o de tarjeta de contenido, ni Canvas entre espacios de trabajo.</td>
+        <td>No se pueden duplicar Segments, Campaigns de push o de tarjeta de contenido, ni Canvas entre espacios de trabajo.</td>
         <td>Puedes <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar campañas entre espacios de trabajo</a> para los siguientes canales compatibles: SMS, mensajes dentro de la aplicación, correo electrónico, plantillas de correo electrónico y Content Blocks. <br><br>Puedes duplicar Segments, campañas y Canvas para reutilizar el contenido de una instancia de aplicación a otra.</td>
         <td>N/A</td>
     </tr>

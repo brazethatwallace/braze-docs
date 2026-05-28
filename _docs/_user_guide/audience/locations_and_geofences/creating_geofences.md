@@ -307,15 +307,11 @@ Basic SDK integration enables location tracking only. Geofencing requires additi
 
 You can also use geofences with Braze Technology Partners, such as [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) and [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/).
 
+## Differences between geofences and location tracking
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Frequently asked questions
-
-### What's the difference between geofences and location tracking?
-
-In Braze, a geofence is a different concept from location tracking. Geofences are used as triggers for certain actions—when a user enters or exits a virtual boundary set up around a geographical location, it can trigger a specific action, such as sending a message.
-
-Location tracking collects and stores a user's most recent location data. This data can be used to segment users based on the `Most Recent Location` filter. For example, you could use the `Most Recent Location` filter to target users located in New York.
-
-For more information, see [Location tracking]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/).
 
 ### How accurate are Braze geofences?
 

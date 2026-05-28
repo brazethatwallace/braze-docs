@@ -24,7 +24,7 @@ Bidirektionales Messaging ermöglicht es Ihnen, Nachrichten zu senden und die An
 SMS, MMS und RCS mit Braze bieten Ihnen die Möglichkeit, Keyword-Trigger zu erstellen, benutzerdefinierte Antworten zu definieren, Keyword-Sets für mehrere Sprachen festzulegen und benutzerdefinierte Keyword-Kategorien einzurichten.
 
 {% alert note %}
-Braze verwendet Ihren vollständigen Satz an Opt-out-Keywords ([Standard-Keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) und [benutzerdefinierte Keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/) für die exakte Opt-out-Verarbeitung und [Fuzzy-Opt-out]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+Braze verwendet Ihren vollständigen Satz an Opt-out-Keywords ([Standard-Keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) und [benutzerdefinierte Keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)) für die exakte Opt-out-Verarbeitung und [Fuzzy-Opt-out]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
 {% endalert %}
 
 {% tabs %}
@@ -45,7 +45,7 @@ Die folgenden Regeln gelten für Keywords und Keyword-Antworten:
 | Keywords | Keyword-Antworten |
 | -------- | ----------------- |
 | - Gültige UTF-8-kodierte Zeichen<br>- Maximal 20 Keywords pro Kategorie insgesamt<br>- Maximale Länge von 34 Zeichen<br>- Minimale Länge von 1 Zeichen<br>- Dürfen keine Leerzeichen enthalten<br>- Müssen innerhalb der Abo-Gruppe groß-/kleinschreibungsunabhängig und eindeutig sein | - Dürfen nicht leer sein<br>- Maximale Länge von 300 Zeichen<br>- Gültige UTF-8-Zeichen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Keyword-Trigger hinzufügen" }
 
 {% alert tip %}
 Möchten Sie erfahren, wie diese Keywords in Ihren Campaigns und Canvases zum Retargeting und Triggern von Nachrichten verwendet werden können? Besuchen Sie [Nutzer:innen-Retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) für weitere Informationen.
@@ -68,7 +68,7 @@ Sie können eigene Antworten verwalten, die an Nutzer:innen gesendet werden, nac
 | Keywords | Keyword-Antworten |
 | -------- | ----------------- |
 | - Gültige UTF-8-kodierte Zeichen<br>- Maximal 20 Keywords pro Kategorie insgesamt<br>- Maximale Länge von 34 Zeichen<br>- Minimale Länge von 1 Zeichen<br>- Dürfen keine Leerzeichen enthalten<br>- Müssen innerhalb der Abo-Gruppe groß-/kleinschreibungsunabhängig und eindeutig sein | - Dürfen nicht leer sein<br>- Maximale Länge von 300 Zeichen<br>- Gültige UTF-8-Zeichen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Hinweise" }
 
 {% endtab %}
 {% endtabs %}

@@ -9,7 +9,7 @@ page_type: reference
 
 # Use Braze Canvas templates
 
-> Braze has a selection of Canvas templates available for you to reference and use as best practices for common use cases. While these templates can't be edited, you can view them in **Templates** > **Braze templates** or use them in your Canvases.
+> Braze has a selection of Canvas templates available for you to reference and use as best practices for common use cases. While these templates can't be edited, you can view them in **Content** > **Canvas** > **Braze templates** or use them in your Canvases.
 
 ![Braze templates in the Canvas templates section with thirteen available templates.]({% image_buster /assets/img/braze_canvas_templates.png %})
 

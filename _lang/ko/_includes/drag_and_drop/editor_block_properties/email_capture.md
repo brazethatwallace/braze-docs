@@ -8,4 +8,4 @@
 | 자간 | 각 문자 사이의 간격을 조정합니다. |
 | 텍스트 정렬 | 텍스트를 왼쪽, 가운데, 오른쪽 또는 양쪽 정렬로 이동합니다. |
 | 입력 안내 텍스트 | 표시할 입력 안내 이메일 주소입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -28,7 +28,7 @@ Puedes copiar campañas entre espacios de trabajo para estos canales compatibles
 Para copiar una campaña a un espacio de trabajo diferente:
 
 1. Selecciona el ícono de engranaje <i class="fas fa-cog"></i> junto a la campaña seleccionada.
-2. Selecciona **Copiar al espacio de trabajo**.
+2. Selecciona **Copy to workspace**.
 3. Después de copiar, revisa y prueba tu campaña para confirmar que todos los campos funcionan correctamente.
 
 {% endtab %}
@@ -43,7 +43,7 @@ Puedes copiar Canvas entre espacios de trabajo para estos canales compatibles: c
 Para copiar un Canvas a un espacio de trabajo diferente:
 
 1. Selecciona el menú <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;junto al Canvas seleccionado.
-2. Selecciona **Copiar al espacio de trabajo**.
+2. Selecciona **Copy to workspace**.
 3. Después de copiar, revisa y prueba tu Canvas para confirmar que todos los campos funcionan correctamente.
 
 Al copiar un Canvas con pasos de Audience Sync, la configuración no se copiará al espacio de trabajo de destino, pero los pasos del recorrido sí.
@@ -71,7 +71,7 @@ Ten en cuenta que la siguiente no es una lista exhaustiva de lo que se copia ent
 | Estado de suscripción del destinatario |  |
 | Planificación recurrente |  |
 | Es transaccional |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 {% endtab %}
 {% tab canvas %}
@@ -87,7 +87,7 @@ Ten en cuenta que la siguiente no es una lista exhaustiva de lo que se copia ent
 | Estado de suscripción del destinatario |  |
 | Planificación recurrente | Criterios de salida |
 | Es transaccional |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)) no se copian al espacio de trabajo de destino. Reconfigura esos filtros después de copiar.
 
@@ -105,7 +105,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Interacción con la campaña | ID de campaña |
 | Nombre de evento personalizado |  |
 | Nombre de producto |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% tab canvas %}
@@ -116,7 +116,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Interacción con Canvas | ID de Canvas |
 | Nombre de evento personalizado |  |
 | Nombre de producto |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% endtabs %}
@@ -132,7 +132,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Interacción con la campaña | ID de campaña |
 | Nombre de evento personalizado |  |
 | Nombre de producto |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% tab canvas %}
@@ -143,7 +143,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Interacción con Canvas | ID de Canvas |
 | Nombre de evento personalizado |  |
 | Nombre de producto |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% endtabs %}
@@ -159,7 +159,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Tipo | ID de grupo semilla |
 |  | ID de plantilla de enlace |
 |  | ID de grupo de usuarios internos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% tab canvas %}
@@ -170,7 +170,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Tipo | ID de grupo semilla |
 |  | ID de plantilla de enlace |
 |  | ID de grupo de usuarios internos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% endtabs %}
@@ -189,7 +189,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Asunto | Plantilla de enlace |
 |  | Aliasing de enlaces |
 |  | Traducciones |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -202,7 +202,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Asunto | Plantilla de enlace |
 |  | Aliasing de enlaces |
 |  | Traducciones |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% endtabs %}
@@ -219,7 +219,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Preencabezado |  |
 | CSS en línea |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% tab canvas %}
@@ -231,7 +231,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Preencabezado |  |
 | CSS en línea |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% endtabs %}
@@ -248,7 +248,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Asunto | Territorios |
 | Encabezados | Etiquetas |
 | | Traducciones |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% tab canvas %}
@@ -260,7 +260,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Asunto | Territorios |
 | Encabezados | Etiquetas |
 | | Traducciones |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -276,7 +276,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Descripción | Claves de API |
 | Contenido | Territorios |
 | Contenido HTML y de arrastrar y soltar | Etiquetas |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% tab canvas %}
@@ -287,7 +287,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Descripción | Claves de API |
 | Contenido | Territorios |
 | Contenido HTML y de arrastrar y soltar | Etiquetas |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% endtabs %}
@@ -303,7 +303,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Acortamiento de enlaces | Elementos multimedia VCF |
 | Seguimiento de clics |  |
 | Elementos multimedia |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -314,7 +314,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 | Acortamiento de enlaces | Elementos multimedia VCF |
 | Seguimiento de clics |  |
 | Elementos multimedia |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% endtabs %}

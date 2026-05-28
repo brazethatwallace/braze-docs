@@ -117,7 +117,7 @@ Notez que l'adresse e-mail ou le numéro de téléphone associé au profil de l'
     <ul>
         <li>PROPERTIES pour USERS_BEHAVIORS_CUSTOMEVENT</li>
         <li>PROPERTIES pour USERS_BEHAVIORS_PURCHASE</li>
-        <li>MESSAGE_EXTRAS pour :</li>
+        <li>MESSAGE_EXTRAS pour :
             <ul>
             <li>USERS_MESSAGES_CONTENTCARD</li>
             <li>USERS_MESSAGES_EMAIL_SEND</li>
@@ -127,6 +127,7 @@ Notez que l'adresse e-mail ou le numéro de téléphone associé au profil de l'
             <li>USERS_MESSAGES_SMS_SEND</li>
             <li>Événements d'envoi de messages futurs</li>
             </ul>
+        </li>
     </ul>
     <p>Ces paramètres sont accessibles via <b>Paramètres de l'entreprise</b> > <b>Paramètres d'administration</b> > <b>Paramètres de sécurité</b>. Les préférences de suppression des données sont définies par type d'événement ou catégorie. Seul un utilisateur disposant de privilèges d'administrateur peut apporter des modifications à ces paramètres. Un administrateur peut également déléguer ces autorisations à un autre utilisateur.</p>
     <p>Si un type d'événement ou un extra de message est configuré pour être inclus dans le processus de suppression, les données de ce champ seront supprimées à l'avenir pour les utilisateurs pour lesquels vous exécutez l'endpoint de l'API REST de suppression d'utilisateur. De plus, lorsque vous sélectionnez cette préférence de suppression, lors du prochain travail de suppression planifié, les données de ces champs seront supprimées de tout ensemble de données anonymisées existant contenant ces champs. La restauration des champs de données supprimés ne sera pas possible.</p>

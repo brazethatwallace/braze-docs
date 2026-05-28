@@ -25,7 +25,7 @@ You'll need the following to integrate LINE with Braze:
 - [LINE developers account](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE messaging API channel](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Sending LINE messages from Braze draws from your account's Message Credits.
+Sending LINE messages from Braze draws from your account's Message or Action Credits.
 
 {% alert note %}
 **Setting `native_line_id`**: You can set `native_line_id` by sending user updates to Braze (for example, with the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint, [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import), or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)). If your client-side SDK doesn’t have a dedicated field for `native_line_id`, send it in server-side user updates using one of these methods.
@@ -101,9 +101,13 @@ After the integration process completes, Braze will automatically pull that chan
 | Channel access token | Select your provider and then go to **Channels** > your channel > **Messaging API**. If there isn't a channel access token, select **Issue**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
 
+{% alert note %}
+If you need to update or rotate the channel secret for an already integrated LINE channel, contact [Braze Support]({{site.baseurl}}/braze_support/) to request an update.
+{% endalert %}
+
 {: start="3"}
 3. Go to your **Settings** page > **Response settings** and do the following:
-   - Turn off **Greeting message**. This can be handled in Braze via trigger on follow.
+   - Turn off **Greeting message**. This can be handled in Braze by triggering on follow.
    - Turn off **Auto-response messages**. All triggered messaging should be through Braze. This won't prevent you from sending directly from the LINE console.
    - Turn on **Webhooks**.
 

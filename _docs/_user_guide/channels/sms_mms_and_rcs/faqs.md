@@ -144,7 +144,7 @@ Yes, they do. Keep this in mind when testing messages.
 
 ### Does a user need to be part of an SMS subscription group to receive SMS test messages?
 
-Yes, they do. Users must have a valid phone number and be part of the SMS subscription group used for the test send.
+Yes, they do. Users must have a valid phone number, be part of the SMS subscription group used for the test send, and have at least one country selected under **Geographic Permissions** for SMS.
 
 ### Is there a way to see if an alias exists on a user profile?
 
@@ -180,6 +180,17 @@ MMS is only displayed on the Braze dashboard when a subscription group is consid
 Additionally, certain situations will require Twilio to re-approve the enablement of short codes that originally didn't have MMS enabled. This approval process could take weeks.
 
 ## RCS
+
+### Why doesn't my RCS message render accurately on iOS devices?
+
+RCS messages may render differently on an iOS device depending on the operating system and messaging app. On iOS devices, the following behaviors may occur:
+
+- Suggested actions from different RCS messages in the same conversation thread may be grouped together and shown in the wrong order.
+- Rich card buttons and suggested actions that are outside the rich card may remain visible even after tapping a rich card button or a suggested action.
+
+{% alert note %}
+Braze sends the RCS payload you compose, while the messaging client controls how suggested actions are ordered, grouped, and hidden. Be sure to test RCS messages, especially those that use rich cards with suggested actions or suggested replies, on both Android and iOS devices before sending.
+{% endalert %}
 
 ### Can I send pre-recorded voicemails with RCS?
 

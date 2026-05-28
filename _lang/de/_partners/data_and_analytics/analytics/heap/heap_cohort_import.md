@@ -43,13 +43,13 @@ Auf dieser Seite finden Sie Ihren Datenimport-Schlüssel und einen REST-Endpunkt
 
 ### 2. Schritt: Importierte Nutzer:innen in Braze segmentieren {#step-2-segment-imported-users-in-braze}
 
-Navigieren Sie in Braze zu **Segments**, benennen Sie Ihr Heap-Kohorten-Segment und wählen Sie **Heap Cohorts** als Filter. Von hier aus können Sie auswählen, welche Heap-Kohorte Sie einbeziehen möchten. Nachdem Ihr Heap-Kohorten-Segment erstellt wurde, können Sie es als Zielgruppen-Filter auswählen, wenn Sie eine Campaign oder ein Canvas erstellen.
+Navigieren Sie in Braze zu **Segments**, benennen Sie Ihr Heap-Kohorten-Segment und wählen Sie **Heap Cohorts** als Filter. Von hier aus können Sie auswählen, welche Heap-Kohorte Sie einbeziehen möchten. Nachdem Ihr Heap-Kohorten-Segment erstellt wurde, können Sie es als Zielgruppen-Filter auswählen, wenn Sie eine Kampagne oder ein Canvas erstellen.
 
 ![Im Braze-Segment-Builder ist der Nutzer:innen-Attribut-Filter „Heap cohort“ auf „includes“ und „Heap Test Cohort“ gesetzt.]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### Verwendung dieser Integration {#using-this-integration}
 
-Um Ihr Heap-Segment zu verwenden, erstellen Sie eine Braze-Campaign oder ein Canvas und wählen Sie das Segment als Ihre Zielgruppe aus.
+Um Ihr Heap-Segment zu verwenden, erstellen Sie eine Braze-Kampagne oder ein Canvas und wählen Sie das Segment als Ihre Zielgruppe aus.
 
 ![Im Braze-Campaign-Builder ist im Targeting-Schritt der Filter „Zielgruppen nach Segment zusammenstellen“ auf „Heap cohort“ gesetzt.]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 

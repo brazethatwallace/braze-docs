@@ -96,4 +96,4 @@ Todos os seguintes códigos de erro indicam que nenhuma mensagem foi enviada.
 | `404 Not Found` | URL inválida. |
 | `415 Unsupported Media Type` | O cabeçalho de solicitação `Content-Type` está ausente ou incorreto. Na página **Configurações**, adicione `Content-Type` com o valor `application/json`. |
 | `429 Rate Limited` | Limite de taxa excedido. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fatal errors" }

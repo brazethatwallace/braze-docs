@@ -12,7 +12,7 @@ search_tag: Partner
 
 # Tealium für Currents {#tealium-for-currents}
 
-> [Tealium](https://www.tealium.com) ist eine Customer Data Platform (CDP), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Standorte in Ihrem Marketing Stack weiterleitet.
+> [Tealium](https://www.tealium.com) ist eine Customer Data Platform (CDP), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Orte in Ihrem Marketing Stack weiterleitet.
 
 Die Integration von Braze und Tealium erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen nahtlos zu steuern. Mit Currents können Sie auch Daten mit Tealium verbinden, um sie über den gesamten Growth Stack hinweg nutzbar zu machen.
 
@@ -23,7 +23,7 @@ Die Integration von Braze und Tealium erlaubt es Ihnen, den Informationsfluss zw
 | Tealium EventStream oder Tealium AudienceStream | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Tealium-Konto](https://my.tealiumiq.com/). |
 | Currents | Um Daten zurück nach Tealium zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
 | Tealium-URL | Diese erhalten Sie, indem Sie zu Ihrem Tealium-Dashboard navigieren und die Ingestion-URL kopieren.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

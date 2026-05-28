@@ -27,7 +27,7 @@ A integração entre Braze e Segment permite que você use o [Engage](https://se
 | Chave de importação de dados da Braze | Para sincronizar os públicos do Engage com a Braze como coortes, você deve gerar uma chave de importação de dados.<br><br>A importação de coorte está em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente da Braze para obter acesso a esse recurso. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração de destino de coortes {#cohorts-destination-integration}
 

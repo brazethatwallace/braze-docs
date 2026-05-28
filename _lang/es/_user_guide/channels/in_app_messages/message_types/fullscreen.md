@@ -46,7 +46,7 @@ Los mensajes dentro de la aplicación a pantalla completa llenarán toda la altu
 |--- | --- | --- |
 | Imagen y texto | Relación de aspecto 6:5<br> Alta resolución 1200 x 1000&nbsp;px<br> Mínimo 600 x 500&nbsp;px | Puede haber recorte en todos los lados, pero la imagen siempre llenará el 50 % superior del viewport |
 | Solo imagen | Relación de aspecto 3:5<br> Alta resolución 1200 x 2000&nbsp;px<br> Mínimo 600 x 1000&nbsp;px | Puede haber recorte en los bordes izquierdo y derecho en dispositivos más altos |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Portrait" }
 
 ### Horizontal {#landscape}
 
@@ -54,7 +54,7 @@ Los mensajes dentro de la aplicación a pantalla completa llenarán toda la altu
 |--- | --- | --- |
 | Imagen y texto | Relación de aspecto 10:3<br> Alta resolución 2000 x 600px<br> Mínimo 1000 x 300&nbsp;px | Puede haber recorte en todos los lados, pero la imagen siempre llenará el 50 % superior del viewport |
 | Solo imagen | Relación de aspecto 5:3<br> Alta resolución 2000 x 1200px<br> Mínimo 1000 x 600&nbsp;px | Puede haber recorte en los bordes izquierdo y derecho en dispositivos más altos |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Landscape" }
 
 ### Zona segura de imagen {#image-safe-zone}
 

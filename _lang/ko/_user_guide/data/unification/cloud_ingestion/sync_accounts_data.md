@@ -74,7 +74,7 @@ CDI를 사용하여 계정 데이터를 동기화하려면 먼저 [계정 스키
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
 3. 네트워크 정책을 사용하는 경우, CDI 서비스가 연결할 수 있도록 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)을 참조하세요.
-4. Braze 대시보드에서 **데이터 설정** > **Cloud Data Ingestion**으로 이동하여 새 동기화를 생성합니다.
+4. Braze 대시보드에서 **데이터 설정** > **클라우드 데이터 수집**으로 이동하여 새 동기화를 생성합니다.
 5. 연결 세부 정보를 입력하거나 기존 정보를 재사용한 다음 소스 테이블을 추가합니다.
 6. **Accounts** 동기화 유형을 선택한 다음 통합 이름과 스케줄을 입력합니다.
 7. 동기화 빈도를 선택합니다.
@@ -140,7 +140,7 @@ CDI를 사용하여 계정 데이터를 동기화하려면 먼저 [계정 스키
     | `ID` | String | 예 |
     | `NAME` | String | 예 |
     | `DELETED` | Boolean | 선택 사항 |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="계정 데이터 동기화" }
 
 {:start="3"}
 3. 사용자를 생성하고 권한을 부여합니다. 다른 동기화에서 사용하는 자격 증명이 이미 있다면 계정 테이블에 대한 접근 권한이 있는 한 재사용할 수 있습니다.
@@ -151,7 +151,7 @@ CDI를 사용하여 계정 데이터를 동기화하려면 먼저 [계정 스키
     | BigQuery User | Braze가 쿼리를 실행하고, 메타데이터를 읽고, 테이블을 나열할 수 있도록 허용합니다. |
     | BigQuery Data Viewer | Braze가 데이터셋과 콘텐츠를 볼 수 있도록 허용합니다. |
     | BigQuery Job User | Braze가 작업을 실행할 수 있도록 허용합니다. |
-    {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 aria-label="계정 데이터 동기화" }
 
     권한을 부여한 후 JSON 키를 생성합니다. 자세한 방법은 [키 생성 및 삭제](https://cloud.google.com/iam/docs/keys-create-delete)를 참조하세요. 나중에 Braze 대시보드에서 업로드하게 됩니다.
 
@@ -187,7 +187,7 @@ CDI를 사용하여 계정 데이터를 동기화하려면 먼저 [계정 스키
     | `ID` | String | 예 |
     | `NAME` | String | 예 |
     | `DELETED` | Boolean | 선택 사항 |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="계정 데이터 동기화" }
 
 {:start="3"}
 3. Databricks에서 개인 액세스 토큰을 생성합니다:
@@ -236,7 +236,7 @@ CDI를 사용하여 계정 데이터를 동기화하려면 먼저 [계정 스키
 | `PAYLOAD` | 예 | Braze의 계정에 동기화할 필드의 JSON 문자열 |
 | `DELETED` | 선택 사항 | Braze에서 계정을 삭제할지 여부를 나타내는 부울 값 |
 | `UPDATED_AT` | _*지원되지 않음_ | 파일 스토리지는 `UPDATED_AT` 열을 지원하지 않습니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="계정 데이터 동기화" }
 
 {% alert note %}
 파일 이름은 AWS 규칙을 따르고 고유해야 합니다. 고유성을 보장하기 위해 타임스탬프를 추가하세요. Amazon S3 동기화에 대한 자세한 내용은 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)을 참조하세요.

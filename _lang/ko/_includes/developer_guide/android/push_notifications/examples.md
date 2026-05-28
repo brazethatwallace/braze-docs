@@ -1,22 +1,22 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %} [푸시 알림도 설정해야]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) 합니다.
 
-## 커스텀 알림 레이아웃
+## 커스텀 알림 레이아웃 {#custom-notification-layout}
 
-Braze 알림은 [데이터 메시지로](https://firebase.google.com/docs/cloud-messaging/concept-options) 전송되므로 앱이 백그라운드에 있을 때 시스템에서 자동으로 처리할 수 있는 알림 메시지와 달리 백그라운드에서도 항상 응답하고 그에 따라 동작을 수행할 수 있는 기회가 있습니다. 이와 같이 애플리케이션은 예를 들어 알림 트레이에 전달된 알림 내에서 개인화된 UI 요소를 표시하여 경험을 사용자 지정할 수 있습니다. 이 방식으로 푸시를 구현하는 것이 일부에게는 낯설 수 있지만, Braze의 잘 알려진 기능 중 하나인 [푸시 스토리]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/)는 커스텀 뷰 컴포넌트를 사용하여 몰입감 있는 경험을 만드는 좋은 예입니다!
+Braze 알림은 [데이터 메시지](https://firebase.google.com/docs/cloud-messaging/concept-options)로 전송되므로, 앱이 백그라운드에 있을 때 시스템에서 자동으로 처리할 수 있는 알림 메시지와 달리 백그라운드에서도 항상 응답하고 그에 따라 동작을 수행할 수 있는 기회가 있습니다. 이와 같이 애플리케이션은 예를 들어 알림 트레이에 전달된 알림 내에서 개인화된 UI 요소를 표시하여 경험을 커스터마이즈할 수 있습니다. 이 방식으로 푸시를 구현하는 것이 일부에게는 낯설 수 있지만, Braze의 잘 알려진 기능 중 하나인 [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/)는 커스텀 뷰 구성요소를 사용하여 몰입감 있는 경험을 만드는 좋은 예입니다!
 
 {% alert important %}
-Android는 커스텀 알림 보기를 구현하는 데 사용할 수 있는 구성요소에 몇 가지 제한을 둡니다. 알림 보기 레이아웃은 _오직_ [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews) 프레임워크와 호환되는 View 객체만 포함해야 합니다.
+Android는 커스텀 알림 뷰를 구현하는 데 사용할 수 있는 구성요소에 몇 가지 제한을 둡니다. 알림 뷰 레이아웃은 _오직_ [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews) 프레임워크와 호환되는 View 오브젝트만 포함해야 합니다.
 {% endalert %}
 
-인터페이스를 사용하여 [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) 인터페이스를 사용하여 Braze 푸시 알림이 표시되는 방식을 사용자 지정할 수 있습니다. `BrazeNotificationFactory` 을 확장하면 사용자에게 알림이 표시되기 전에 Braze가 공장의 `createNotification()` 메소드를 호출합니다. 그런 다음 Braze 대시보드 또는 REST API를 통해 전송된 사용자 지정 키-값 쌍이 포함된 페이로드를 전달합니다.
+[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) 인터페이스를 사용하여 Braze 푸시 알림이 표시되는 방식을 커스터마이즈할 수 있습니다. `BrazeNotificationFactory`를 확장하면 사용자에게 알림이 표시되기 전에 Braze가 팩토리의 `createNotification()` 메서드를 호출합니다. 그런 다음 Braze 대시보드 또는 REST API를 통해 전송된 커스텀 키-값 페어가 포함된 페이로드를 전달합니다.
 
-이 섹션에서는 야생동물 구조팀이 누가 가장 많은 올빼미를 구할 수 있는지 경쟁하는 새로운 게임 쇼의 호스트인 슈퍼 올빼미와 파트너가 됩니다. 이들은 Android 앱에서 실시간 업데이트 알림을 활용하여 진행 중인 경기의 상태를 표시하고 실시간으로 알림을 동적으로 업데이트할 수 있도록 하려고 합니다.
+이 섹션에서는 야생동물 구조팀이 누가 가장 많은 올빼미를 구할 수 있는지 경쟁하는 새로운 게임 쇼의 호스트인 Superb Owl과 파트너가 됩니다. 이들은 Android 앱에서 실시간 업데이트 알림을 활용하여 진행 중인 경기의 상태를 표시하고 실시간으로 알림을 동적으로 업데이트하려고 합니다.
 
-![슈퍼 올빼미가 보여주고 싶은 라이브 업데이트는 '야생 조류 기금'과 '올빼미 구조대'의 진행 중인 경기를 보여주는 것입니다. 현재 4쿼터, 스코어는 2-4로 OWL이 앞서고 있습니다.]({% image_buster /assets/img/android/android-live-activity-superb-owl-example.jpg %}){: style="max-width:65%;"}
+![Superb Owl이 보여주고 싶은 라이브 업데이트로, 'Wild Bird Fund'와 'Owl Rescue' 간의 진행 중인 경기를 표시합니다. 현재 4쿼터이며 스코어는 2-4로 OWL이 앞서고 있습니다.]({% image_buster /assets/img/android/android-live-activity-superb-owl-example.jpg %}){: style="max-width:65%;"}
 
-### 1단계: 커스텀 레이아웃 추가하기
+### 1단계: 커스텀 레이아웃 추가 {#step-1-add-a-custom-layout}
 
-프로젝트에 하나 이상의 커스텀 알림 리모트뷰 레이아웃을 추가할 수 있습니다. 이는 접거나 펼쳤을 때 알림이 표시되는 방식을 처리하는 데 유용합니다. 디렉토리 구조는 다음과 비슷해야 합니다:
+프로젝트에 하나 이상의 커스텀 알림 RemoteView 레이아웃을 추가할 수 있습니다. 이는 알림이 축소되거나 확장될 때 표시되는 방식을 처리하는 데 유용합니다. 디렉토리 구조는 다음과 비슷해야 합니다:
 
 ```plaintext
 .
@@ -49,7 +49,7 @@ Android는 커스텀 알림 보기를 구현하는 데 사용할 수 있는 구�
 {% endtab %}
 
 {% tab Example: Expanded layout %}
-{% details Show the sample code %}
+{% details 샘플 코드 보기 %}
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -133,13 +133,13 @@ Android는 커스텀 알림 보기를 구현하는 데 사용할 수 있는 구�
 {% endtab %}
 {% endtabs %}
 
-### 2단계: 사용자 지정 알림 팩토리 만들기
+### 2단계: 커스텀 알림 팩토리 생성 {#step-2-create-a-custom-notification-factory}
 
-애플리케이션에서 `MyCustomNotificationFactory.kt` 이라는 이름의 새 파일을 만들어 확장자 [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) 을 확장하여 커스텀 리모트뷰 레이아웃이 표시되는 방식을 처리합니다.
+애플리케이션에서 [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)를 확장하는 `MyCustomNotificationFactory.kt`라는 새 파일을 만들어 커스텀 RemoteView 레이아웃이 표시되는 방식을 처리합니다.
 
-다음 예시에서는 슈퍼 올빼미가 진행 중인 경기에 대한 RemoteView 레이아웃을 표시하는 커스텀 알림 팩토리를 만들었습니다. [다음 단계에서는](#android_step-3-map-custom-data) `getTeamInfo` 이라는 새로운 메서드를 만들어 팀의 데이터를 활동에 매핑합니다.
+다음 예시에서 Superb Owl은 진행 중인 경기에 대한 RemoteView 레이아웃을 표시하는 커스텀 알림 팩토리를 만들었습니다. [다음 단계](#android_step-3-map-custom-data)에서는 팀의 데이터를 활동에 매핑하기 위해 `getTeamInfo`라는 새로운 메서드를 만듭니다.
 
-{% details Show the sample code %}
+{% details 샘플 코드 보기 %}
 ```kotlin
 import android.app.Notification
 import android.widget.RemoteViews
@@ -205,11 +205,11 @@ class MyCustomNotificationFactory : BrazeNotificationFactory() {
 ```
 {% enddetails %}
 
-### 3단계: 사용자 지정 데이터 매핑
+### 3단계: 커스텀 데이터 매핑 {#step-3-map-custom-data}
 
-`MyCustomNotificationFactory.kt` 에서 라이브 업데이트가 표시될 때 데이터를 처리하는 새로운 메서드를 만듭니다.
+`MyCustomNotificationFactory.kt`에서 라이브 업데이트가 표시될 때 데이터를 처리하는 새로운 메서드를 만듭니다.
 
-슈퍼 올빼미는 각 팀의 이름과 로고를 확장된 라이브 업데이트에 매핑하는 방법을 다음과 같이 만들었습니다:
+Superb Owl은 각 팀의 이름과 로고를 확장된 라이브 업데이트에 매핑하기 위해 다음과 같은 메서드를 만들었습니다:
 
 ```kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
@@ -229,9 +229,9 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
 }
 ```
 
-### 4단계: 사용자 지정 알림 팩토리 설정
+### 4단계: 커스텀 알림 팩토리 설정 {#step-4-set-the-custom-notification-factory}
 
-애플리케이션 클래스에서 [`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?)를 사용하여 사용자 지정 알림 팩토리를 설정합니다.
+애플리케이션 클래스에서 [`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?)를 사용하여 커스텀 알림 팩토리를 설정합니다.
 
 ```kotlin
 import com.braze.Braze
@@ -246,11 +246,11 @@ class MyApplication : Application() {
 }
 ```
 
-### 5단계: 활동 보내기
+### 5단계: 활동 보내기 {#step-5-send-the-activity}
 
-REST API 엔드포인트를 사용하여 [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) REST API 엔드포인트를 사용하여 사용자의 Android 디바이스로 푸시 알림을 보낼 수 있습니다.
+[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) REST API 엔드포인트를 사용하여 사용자의 Android 기기로 푸시 알림을 보낼 수 있습니다.
 
-#### curl 명령 예제
+#### curl 명령 예시 {#example-curl-command}
 
 Superb Owl은 다음 curl 명령을 사용하여 요청을 보냈습니다:
 
@@ -280,32 +280,32 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-컬 명령은 테스트에 유용하지만, 이미 [iOS 라이브 활동을]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) 처리하고 있는 백엔드에서 이 호출을 처리하는 것이 좋습니다.
+curl 명령은 테스트에 유용하지만, 이미 [iOS 라이브 활동]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)을 처리하고 있는 백엔드에서 이 호출을 처리하는 것이 좋습니다.
 {% endalert %}
 
-#### 요청 매개변수
+#### 요청 매개변수 {#request-parameters}
 
-| 키                           | Description                                                                                                                                                                                                                                      |
+| 키 | 설명 |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `REST_API_KEY`                | `messages.send` 권한이 있는 Braze REST API 키. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**.                                                                                                     |
-| `BRAZE_REST_ENDPOINT`         | 귀하의 REST 엔드포인트 URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/api/basics/#endpoints).                                                                                                                  |
-| `USER_ID`                     | 알림을 보낼 사용자의 ID입니다.                                                                                                                                                                                          |
-| `messages.android_push.title` | 메시지 제목입니다. 기본적으로 이 기능은 사용자 지정 알림 팩토리의 실시간 알림에 사용되지 않지만, 대체 기능으로 사용할 수 있습니다.                                                                                                    |
-| `messages.android_push.alert` | 메시지 본문입니다. 기본적으로 이 기능은 사용자 지정 알림 팩토리의 실시간 알림에 사용되지 않지만, 대체 기능으로 사용할 수 있습니다.                                                                                                     |
-| `messages.extra`              | 사용자 지정 알림 팩토리에서 실시간 알림에 사용하는 키-값 쌍입니다. 이 값에는 어떤 문자열이든 지정할 수 있지만, 위의 예에서는 `live_updates` 을 사용하여 기본 푸시 알림인지 실시간 푸시 알림인지를 결정합니다.  |
-| `ASSIGNED_NOTIFICATION_ID`    | 선택한 사용자의 실시간 알림에 할당할 알림 ID입니다. 이 ID는 이 게임에만 고유해야 하며, 나중에 [기존 알림을 업데이트할](#android_step-4-update-data-with-the-braze-rest-api) 때 사용해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `REST_API_KEY` | `messages.send` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| `BRAZE_REST_ENDPOINT` | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#endpoints)에 따라 달라집니다. |
+| `USER_ID` | 알림을 보낼 사용자의 ID입니다. |
+| `messages.android_push.title` | 메시지 제목입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 수단으로 사용할 수 있습니다. |
+| `messages.android_push.alert` | 메시지 본문입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 수단으로 사용할 수 있습니다. |
+| `messages.extra` | 커스텀 알림 팩토리에서 라이브 알림에 사용하는 키-값 페어입니다. 이 값에는 어떤 문자열이든 할당할 수 있지만, 위의 예시에서는 `live_updates`를 사용하여 기본 푸시 알림인지 라이브 푸시 알림인지를 결정합니다. |
+| `ASSIGNED_NOTIFICATION_ID` | 선택한 사용자의 라이브 알림에 할당할 알림 ID입니다. 이 ID는 해당 게임에 고유해야 하며, 나중에 [기존 알림을 업데이트](#android_step-4-update-data-with-the-braze-rest-api)할 때 사용해야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요청 매개변수" }
 
-### 6단계: 활동 업데이트
+### 6단계: 활동 업데이트 {#step-6-update-the-activity}
 
-기존 RemoteView 알림을 새 데이터로 업데이트하려면 `messages.extra` 에 할당된 관련 키-값 페어를 수정한 다음 동일한 `notification_id` 을 사용하여 `/messages/send` 엔드포인트를 다시 호출하세요.
+기존 RemoteView 알림을 새 데이터로 업데이트하려면 `messages.extra`에 할당된 관련 키-값 페어를 수정한 다음 동일한 `notification_id`를 사용하여 `/messages/send` 엔드포인트를 다시 호출합니다.
 
-## 개인화된 푸시 알림
+## 개인화된 푸시 알림 {#personalized-push-notifications}
 
-푸시 알림은 사용자 지정 보기 계층 구조 내에 사용자별 정보를 표시할 수 있습니다. 다음 예제에서는 API 트리거를 사용하여 앱에서 특정 작업을 완료한 후 현재 진행 상황을 추적할 수 있도록 사용자에게 개인화된 푸시 알림을 보냅니다.
+푸시 알림은 커스텀 뷰 계층 구조 내에 사용자별 정보를 표시할 수 있습니다. 다음 예시에서는 API 트리거를 사용하여 사용자가 앱에서 특정 작업을 완료한 후 현재 진행 상황을 확인할 수 있도록 개인화된 푸시 알림을 보냅니다.
 
-![개인화된 푸시 대시보드 예제]({% image_buster /assets/img/push_implementation_guide/android_push_custom_layout.png %}){: style="max-width:65%;border:0"}
+![개인화된 푸시 대시보드 예시]({% image_buster /assets/img/push_implementation_guide/android_push_custom_layout.png %}){: style="max-width:65%;border:0"}
 
-대시보드에서 개인화된 푸시를 설정하려면 표시하려는 특정 카테고리를 등록한 다음 Liquid를 사용하여 표시하려는 관련 사용자 속성을 설정하세요.
+대시보드에서 개인화된 푸시를 설정하려면 표시하려는 특정 카테고리를 등록한 다음 Liquid를 사용하여 표시하려는 관련 사용자 속성을 설정합니다.
 
-![개인화된 푸시 대시보드 예제]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
+![개인화된 푸시 대시보드 예시]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}

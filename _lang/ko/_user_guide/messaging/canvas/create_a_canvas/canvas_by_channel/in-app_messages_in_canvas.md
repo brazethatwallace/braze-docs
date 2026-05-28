@@ -46,7 +46,7 @@ Canvas에 인앱 메시지를 추가하려면 다음을 수행하세요:
 |---|---|---|
 | **단계가 사용 가능해진 후 일정 기간** | 사용자에게 단계가 사용 가능해진 시점을 기준으로 인앱 메시지가 만료되도록 설정합니다. | 2일 만료 기간이 있는 인앱 메시지는 사용자가 메시지 단계에 진입하고 오디언스 옵션이 확인될 때 사용 가능해집니다. 이 단계에 도달하기 전의 지연은 Canvas의 이전 지연 단계에서 발생합니다. 그런 다음 인앱 메시지는 사용자가 단계에 진입한 시점부터 2일(48시간) 동안 사용 가능하며, 이 기간 동안 사용자가 앱을 열면 인앱 메시지를 볼 수 있습니다. |
 | **특정 날짜 및 시간에** | 인앱 메시지가 더 이상 사용 불가능해지는 특정 날짜와 시간을 선택합니다. | 2024년 11월 30일에 종료되는 세일이 있는 경우, 이 옵션을 선택하여 세일이 종료되면 사용자가 관련 인앱 메시지를 더 이상 보지 않도록 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="In-app message expiration" }
 
 ## 활용 사례 {#use-cases}
 
@@ -62,8 +62,8 @@ Braze는 프로모션 및 온보딩 Canvases에서 이 기능을 사용하는 �
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
-  <caption>활용 사례</caption>
+<table aria-label="Use cases" class="tg">
+  <caption>Use cases</caption>
 <thead>
   <tr>
     <th>캔버스 단계</th>
@@ -113,8 +113,8 @@ Braze는 프로모션 및 온보딩 Canvases에서 이 기능을 사용하는 �
 
 사용자에 대한 첫인상은 아마도 가장 중요한 순간일 것입니다. 이것이 앱에 대한 향후 방문을 좌우할 수 있습니다. 사용자와의 초기 커뮤니케이션은 적절한 시점에 이루어져야 하며, 사용을 촉진하기 위해 앱 방문을 자주 하도록 유도해야 합니다.
 
-<table class="tg">
-  <caption>활용 사례</caption>
+<table aria-label="Use cases" class="tg">
+  <caption>Use cases</caption>
 <thead>
   <tr>
     <th>캔버스 단계</th>
@@ -205,7 +205,7 @@ Braze는 프로모션 및 온보딩 Canvases에서 이 기능을 사용하는 �
 |---|---|
 | 메시지 발송 시 진행 | 사용자가 이메일, 웹훅 또는 푸시 알림을 받거나 인앱 메시지를 조회해야 Canvas의 후속 단계로 진행할 수 있습니다.  <br> <br>  인앱 메시지가 만료되고 사용자가 이메일, 웹훅 또는 푸시를 받지 않았거나 인앱 메시지를 조회하지 않은 경우, Canvas를 종료하며 후속 단계로 진행하지 않습니다. |
 | 즉시 오디언스 진행 | 단계의 오디언스에 속한 모든 사용자는 지연이 경과한 후 해당 메시지를 보았는지 여부에 관계없이 다음 단계로 진행합니다. <br> <br> 사용자는 다음 단계로 진행하기 위해 단계의 Segment 및 필터 기준을 충족해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Steps with multiple channels #steps-multiple-channels" }
 
 {% alert important %}
 **전체 오디언스**가 선택된 경우, 사용자가 후속 단계로 이동했더라도 인앱 메시지는 만료될 때까지 사용 가능합니다. Canvas의 다음 단계가 전달될 때 인앱 메시지가 라이브 상태가 아니길 원한다면, 만료 기간이 후속 단계의 지연보다 짧은지 확인하세요.

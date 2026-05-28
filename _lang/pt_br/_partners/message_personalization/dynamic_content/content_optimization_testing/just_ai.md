@@ -137,7 +137,7 @@ Certifique-se de pré-visualizar o e-mail na Braze para confirmar que o conteúd
 
 O Braze Currents permite o rastreamento de desempenho e a otimização ao longo do tempo.
 
-1. Na Braze, acesse **Partner Integrations** > **Data Export**.
+1. Na Braze, acesse **Integrações de parceiros** > **Exportação de dados**.
 2. Selecione **Create New Test Current** e depois selecione **Test Amazon S3 Data Export**.
 
 ![Menu suspenso "Create New Test Current" com a opção "Test Amazon S3 Data Export".]({% image_buster /assets/img/just_words/test_amazon_s3.png %}){: style="max-width:80%;"}

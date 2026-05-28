@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids` | 선택 사항 | 문자열 배열 | 삭제할 Braze 사용자 식별자. |
 | `email_addresses` | 선택 사항 | 문자열 배열 | 삭제할 사용자 이메일. 자세한 내용은 [이메일로 사용자 삭제하기](#deleting-users-by-email)를 참조하세요. |
 | `phone_numbers` | 선택 사항 | 문자열 배열 | 삭제할 사용자 전화번호. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### 이메일 주소 및 전화번호로 사용자 삭제하기 {#deleting-users-by-email}
 
@@ -119,8 +119,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 몇 분이 지난 후에도 사용자가 여전히 존재하는 경우, 요청의 식별자가 사용자의 실제 프로필과 일치하는지 확인하세요:
 
 - **`external_ids` 배열:** 각 값이 사용자의 외부 ID와 정확히 일치하는지 확인하세요.
-- **`braze_id`:** [`/users/export/ids` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)를 사용하여 사용자 데이터를 내보내거나 Segment를 CSV로 내보내면(`braze_id`가 "Appboy ID"로 표시됨) 사용자의 `braze_id`를 확인할 수 있습니다.
-- **별칭 전용 또는 이메일 전용 프로필:** 프로필에 `external_id`가 없는 경우, **외부 사용자 ID가 비어 있음** 필터와 알려진 이메일 또는 전화번호를 결합하여 Segment를 생성한 다음 CSV로 내보내 `braze_id`를 확인하세요.
+- **`braze_id`:** [`/users/export/ids` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)를 사용하여 사용자 데이터를 내보내거나 세그먼트를 CSV로 내보내면(`braze_id`가 "Appboy ID"로 표시됨) 사용자의 `braze_id`를 확인할 수 있습니다.
+- **별칭 전용 또는 이메일 전용 프로필:** 프로필에 `external_id`가 없는 경우, **외부 사용자 ID가 비어 있음** 필터와 알려진 이메일 또는 전화번호를 결합하여 세그먼트를 생성한 다음 CSV로 내보내 `braze_id`를 확인하세요.
 
 사용자가 삭제되었는지 확인하려면 삭제 요청에서 사용한 것과 동일한 식별자 유형을 사용하여 [`/users/export/ids` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)를 호출하세요(예: `external_ids`, `braze_id` 또는 `user_aliases`에 값을 포함). 사용자가 더 이상 존재하지 않으면 응답에 `"users": []`가 포함되며, 해당 식별자를 나열하는 `"invalid_user_ids"`가 포함될 수 있습니다.
 

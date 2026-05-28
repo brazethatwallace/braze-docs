@@ -21,7 +21,7 @@ Durante a configuração, será solicitado que você forneça uma URL de login e
 | URL do Assertion Consumer Service (ACS) | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> Para domínios da União Europeia, a URL do ACS é `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> Em alguns IdPs, isso também pode ser chamado de URL de resposta, URL de login, URL de público ou URI de público. |
 | Entity ID | `braze_dashboard` |
 | Chave de API do RelayState | Acesse **Settings** > **API Keys** e crie uma chave de API com permissões `sso.saml.login`. Em seguida, insira a chave de API gerada como o parâmetro `RelayState` no seu IdP. Para etapas detalhadas, consulte [Configurando seu RelayState](#setting-up-your-relaystate). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Configurando o SAML SSO {#setting-up-saml-sso}
 
@@ -33,12 +33,12 @@ Configure a Braze como prestador de serviço (SP) no seu provedor de identidade 
 Se você planeja usar o Okta como seu provedor de identidade, certifique-se de usar a integração pré-construída encontrada no [site do Okta](https://www.okta.com/integrations/braze/).
 {% endalert %}
 
-| Atributo SAML | Obrigatória? | Atributos SAML aceitos |
+| Atributo SAML | Obrigatório? | Atributos SAML aceitos |
 |---|---|---|
-| `email` | Obrigatória | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
+| `email` | Obrigatório | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | Opcional | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | Opcional | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1: Configure seu provedor de identidade" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1: Configure your identity provider" }
 
 {% alert note %}
 A Braze exige apenas `email` na asserção SAML.
@@ -57,7 +57,7 @@ Na mesma página, insira o seguinte:
 | SAML Name | Isso aparecerá como o texto do botão na tela de login.<br>Normalmente é o nome do seu provedor de identidade, como "Okta". |
 | Target URL | Isso é fornecido após configurar a Braze no seu IdP.<br> Alguns IdPs chamam isso de URL de SSO ou endpoint SAML 2.0. |
 | Certificado | O certificado `x.509` fornecido pelo seu provedor de identidade.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure Braze" }
 
 Certifique-se de que o seu certificado `x.509` siga este formato ao adicioná-lo ao dashboard:
 
@@ -166,6 +166,12 @@ Peça ao usuário afetado para [limpar o cache e os cookies do navegador](https:
 ### Você configurou seu RelayState? {#did-you-set-your-relaystate}
 
 Se você está recebendo o erro `ERROR_CODE_SSO_INVALID_RELAY_STATE`, seu RelayState pode estar configurado incorretamente ou não existir. Se ainda não fez isso, você precisa configurar seu RelayState no sistema de gerenciamento do seu IdP. Para as etapas, consulte [Configurando seu RelayState](#setting-up-your-relaystate).
+
+### O login bem-sucedido por SSO redireciona você para a página de login da Braze? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+
+Isso pode acontecer quando o RelayState não está configurado corretamente. Confirme que você criou uma chave de API (em **Settings** > **API Keys**) para login pelo IdP e definiu essa chave de API como o parâmetro `RelayState` no seu IdP. O RelayState identifica em qual conta da empresa você está fazendo login. Para instruções passo a passo, consulte [Configurando seu RelayState](#setting-up-your-relaystate).
+
+Se ainda não conseguir fazer login, [fale com o suporte da Braze]({{site.baseurl}}/braze_support/) com um rastreamento SAML, se possível. Para ajuda na captura de um rastreamento, consulte [Obtendo um rastreamento SAML](#obtaining-a-saml-trace).
 
 ### O usuário está preso em um loop de login entre o Okta e a Braze? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 

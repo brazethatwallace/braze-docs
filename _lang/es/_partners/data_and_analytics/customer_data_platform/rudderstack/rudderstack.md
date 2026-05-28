@@ -17,12 +17,12 @@ La integración de Braze y RudderStack ofrece una integración de SDK nativa par
 
 | Requisito | Descripción |
 | --- | --- |
-| Cuenta RudderStack | Se requiere una [cuenta RudderStack](https://app.rudderstack.com/) para beneficiarse de esta asociación. |
+| Cuenta de RudderStack | Se requiere una [cuenta de RudderStack](https://app.rudderstack.com/) para beneficiarse de esta asociación. |
 | Fuente configurada | Una [fuente](https://www.rudderstack.com/docs/dashboard-guides/sources/) es esencialmente el origen de cualquier dato enviado a RudderStack, como sitios web, aplicaciones móviles o servidores backend. Es necesario configurar la fuente antes de configurar Braze como destino en RudderStack. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`, `users.identify`, `users.delete` y `users.alias.new`.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Clave de la aplicación Braze | Para obtener la clave de tu aplicación en el panel de Braze, ve a **Configuración** > **Configuración de la aplicación** > **Identificación** y busca el nombre de tu aplicación. Guarda la cadena de identificador asociada.
 | Centro de datos | Tu centro de datos se alinea con tu [instancia]({{site.baseurl}}/api/basics/#endpoints) del panel de Braze.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
