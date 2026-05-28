@@ -79,7 +79,7 @@ This integration uses Shopify as the source of truth for supported attributes an
 | Previous version | Latest version |
 | --- | --- | 
 | {::nomarkdown}<ul><li>Script Tag support</li><li>Braze Web SDK only</li><li>Shopify webhooks for events and products</li></ul>{:/} | {::nomarkdown}<ul><li>Web Pixel API support</li><li>New Braze app embed</li><li>Braze Web SDK & JavaScript SDK</li><li>Shopify webhooks for events and products</ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Standard integration" }
 
 ### User identifiers supported by the integration 
 
