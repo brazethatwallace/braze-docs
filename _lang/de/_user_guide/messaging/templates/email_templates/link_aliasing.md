@@ -206,7 +206,7 @@ Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-
 ```
 
 {% alert update %}
-Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/help/help_articles/data/dispatch_id/) in Canvas und Campaigns.
+Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) in Canvas und Campaigns.
 
 _Update vermerkt im August 2019._
 {% endalert %}

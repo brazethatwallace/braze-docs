@@ -17,8 +17,6 @@ description: "Dieser Artikel beschreibt die Details des Endpunkts „Übersetzun
 
 > Verwenden Sie diesen Endpunkt, um eine Vorschau einer übersetzten Nachricht für ein Canvas anzuzeigen. Weitere Informationen zu Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `canvas.translations.get`.
@@ -29,12 +27,12 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 ## Abfrageparameter {#query-parameters}
 
-| Parameter              | Erforderlich | Datentyp | Beschreibung                        |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id`          | Erforderlich | String    | Die ID des Canvas.              |
-| `step_id`              | Erforderlich | String    | Die ID Ihres Canvas-Schritts.        |
+| `workflow_id` | Erforderlich | String | Die ID des Canvas. |
+| `step_id` | Erforderlich | String | Die ID Ihres Canvas-Schritts. |
 | `message_variation_id` | Erforderlich | String | Die ID Ihrer Nachrichtenvariante. |
-| `locale_id`            | Optional | String    | Die ID (UUID) der Locale.       |
+| `locale_id` | Optional | String | Die ID (UUID) der Locale. |
 | `post_launch_draft_version` | Optional | Boolescher Wert | Wenn `true`, wird die neueste Entwurfsversion anstelle der zuletzt veröffentlichten Live-Version zurückgegeben. Standardmäßig `false`, wodurch die aktuellste Live-Version zurückgegeben wird.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 

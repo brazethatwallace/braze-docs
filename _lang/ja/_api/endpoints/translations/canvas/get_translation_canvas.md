@@ -1,23 +1,21 @@
 ---
-nav_title: "GET: キャンバスの翻訳を表示する"
-article_title: "GET: キャンバスの翻訳を表示する"
+nav_title: "GET: Canvasの翻訳を表示する"
+article_title: "GET: Canvasの翻訳を表示する"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "この記事では、「キャンバスの翻訳を表示する」エンドポイントについて詳しく説明します。"
+description: "この記事では、「Canvasの翻訳を表示する」エンドポイントについて詳しく説明します。"
 ---
 
 {% api %}
-# キャンバスの翻訳を表示する {#view-translation-for-a-canvas}
+# Canvasの翻訳を表示する {#view-translation-for-a-canvas}
 {% apimethod get %}
 /canvas/translations
 {% endapimethod %}
 
-> このエンドポイントを使用して、キャンバスの翻訳されたメッセージをプレビューします。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> このエンドポイントを使用して、Canvasの翻訳されたメッセージをプレビューします。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
@@ -31,7 +29,7 @@ description: "この記事では、「キャンバスの翻訳を表示する」
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id` | 必須 | 文字列 | キャンバスのID。 |
+| `workflow_id` | 必須 | 文字列 | CanvasのID。 |
 | `step_id` | 必須 | 文字列 | キャンバスステップのID。 |
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
 | `locale_id` | オプション | 文字列 | ロケールのID（UUID）。 |

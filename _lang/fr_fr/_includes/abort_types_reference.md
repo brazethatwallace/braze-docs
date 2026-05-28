@@ -29,6 +29,25 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
 ### Contenu et rendu {#content-and-rendering}
 
+{% if include.combined_content_rendering %}
+
+| Valeur `abort_type` | Description |
+| --- | --- |
+| `exhausted_cc_retries` | Le contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
+| `connected_content_not_supported` | Le [Contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `promo_codes_not_supported` | Les codes de promotion ne sont pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `catalog_items_rerender_not_supported` | Le re-rendu des éléments de catalogue n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `blacklisted_media_url` | L'URL du média est sur liste de blocage et ne peut pas être utilisée dans les messages. |
+| `blocked_media_url` | L'URL du média a été bloquée par les politiques de sécurité. |
+| `invalid_media_url` | L'URL du média n'est pas valide ou n'a pas pu être résolue. |
+| `ssl_error` | Une erreur SSL s'est produite lors de l'exécution d'une requête. |
+| `invalid_http_status` | Une requête HTTP a renvoyé un code d'état indiquant un échec. |
+| `http_timeout` | Une requête HTTP a expiré avant de recevoir une réponse. |
+| `missing_hostname` | L'URL de la requête ne contient pas de nom d'hôte. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+
+{% else %}
+
 | Valeur `abort_type` | Description |
 | --- | --- |
 | `exhausted_cc_retries` | Le contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
@@ -36,14 +55,43 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | `promo_codes_not_supported` | Les codes de promotion ne sont pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `catalog_items_rerender_not_supported` | Le re-rendu des éléments de catalogue n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
-{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | L'URL du média est sur liste de blocage et ne peut pas être utilisée dans les messages. |
+
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}
+{% unless include.combined_content_rendering %}
+
+| Valeur `abort_type` | Description |
+| --- | --- |
+| `exhausted_cc_retries` | Le contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
+| `connected_content_not_supported` | Le [Contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `promo_codes_not_supported` | Les codes de promotion ne sont pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `catalog_items_rerender_not_supported` | Le re-rendu des éléments de catalogue n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `blacklisted_media_url` | L'URL du média est sur liste de blocage et ne peut pas être utilisée dans les messages. |
 | `blocked_media_url` | L'URL du média a été bloquée par les politiques de sécurité. |
-| `invalid_media_url` | L'URL du média n'est pas valide ou n'a pas pu être résolue. |{% endif %}
-{% if ch == "all" or ch == "email" or ch == "webhook" %}| `ssl_error` | Une erreur SSL s'est produite lors de l'exécution d'une requête. |
+| `invalid_media_url` | L'URL du média n'est pas valide ou n'a pas pu être résolue. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering media URLs" }
+
+{% endunless %}
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "webhook" %}
+{% unless include.combined_content_rendering %}
+
+| Valeur `abort_type` | Description |
+| --- | --- |
+| `exhausted_cc_retries` | Le contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
+| `connected_content_not_supported` | Le [Contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `promo_codes_not_supported` | Les codes de promotion ne sont pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `catalog_items_rerender_not_supported` | Le re-rendu des éléments de catalogue n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `ssl_error` | Une erreur SSL s'est produite lors de l'exécution d'une requête. |
 | `invalid_http_status` | Une requête HTTP a renvoyé un code d'état indiquant un échec. |
 | `http_timeout` | Une requête HTTP a expiré avant de recevoir une réponse. |
-| `missing_hostname` | L'URL de la requête ne contient pas de nom d'hôte. |{% endif %}
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+| `missing_hostname` | L'URL de la requête ne contient pas de nom d'hôte. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering HTTP and SSL" }
+
+{% endunless %}
+{% endif %}
 
 {% endunless %}
 
