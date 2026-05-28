@@ -46,7 +46,7 @@ Column definitions are as follows:
         <th><b>Destination</b></th>
         <th class="credits-column"><b>Credits per 1 Send</b></th>
     </tr>
-<table>
+<table aria-label="Credit ratio table for Message Credits - Sigma">
 <tr>
         <td>Agent Console</td>
         <td>BYO LLM API Key</td>
