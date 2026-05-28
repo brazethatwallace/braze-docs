@@ -54,6 +54,8 @@ Apply the Braze Docs Style Guide provided in the user message.
 - Editorial quality: voice, tone, clarity, active voice, second person, present tense.
 - Style guide compliance: headings, UI formatting, links, lists, numbers, alerts, inclusive language.
 - Braze terminology: Canvas, workspace (not app group), customers (not clients), allowlist/blocklist, etc.
+- Internal consistency within a file beats isolated style preferences (match dominant usage in the
+  same article before suggesting a one-off change).
 - Do NOT flag product behavior you cannot verify from the diff alone.
 - Do NOT invent facts or suggest content unrelated to the change.
 
@@ -79,6 +81,8 @@ Respond with ONLY valid JSON (no markdown fences). Schema:
 - "suggested_line" must be the complete line after your edit (not a fragment).
 - Only include inline items when you are confident and the fix is a single-line change.
 - Prefer high-signal issues; omit nitpicks and subjective preferences.
+- If prior automated suggestions on this PR are listed in the user message, do not contradict them
+  on the same line (especially opposite capitalization or wording reversals).
 - Maximum """ + str(MAX_INLINE) + """ inline items across the whole PR.
 - Use an empty "inline" array if the diff looks compliant.
 - Do not include customer PII or internal repo paths in messages.
@@ -333,8 +337,13 @@ def load_style_context() -> str:
     return "\n\n".join(parts)
 
 
-def build_user_prompt(files: list[str]) -> str:
+def build_user_prompt(
+    files: list[str],
+    prior_suggestions: dict[tuple[str, int], list[str]] | None = None,
+) -> str:
     sections = [load_style_context(), f"## Pull request #{PR_NUMBER}\n"]
+    if prior_suggestions:
+        sections.append(format_prior_suggestions_section(prior_suggestions))
     for path in files:
         diff = file_diff(path)
         if not diff.strip():
@@ -410,6 +419,90 @@ def validate_inline(item: dict) -> dict | None:
         "message": message.strip(),
         "suggested_line": suggested,
     }
+
+
+_SUGGESTION_BLOCK = re.compile(r"```suggestion\n([\s\S]*?)\n```")
+
+
+def _parse_suggestion_body(body: str) -> str | None:
+    match = _SUGGESTION_BLOCK.search(body)
+    return match.group(1).rstrip() if match else None
+
+
+def fetch_prior_style_suggestions() -> dict[tuple[str, int], list[str]]:
+    """Earlier inline suggestions from this bot on the same PR (includes outdated comments)."""
+    owner, repo = REPO.split("/", 1)
+    result = subprocess.run(
+        ["gh", "api", f"repos/{owner}/{repo}/pulls/{PR_NUMBER}/comments", "--paginate"],
+        capture_output=True,
+        text=True,
+        cwd=REPO_ROOT,
+        check=False,
+    )
+    if result.returncode != 0:
+        print(f"Pull comment fetch warning: {result.stderr.strip()}", file=sys.stderr)
+        return {}
+
+    prior: dict[tuple[str, int], list[str]] = {}
+    for comment in json.loads(result.stdout):
+        body = comment.get("body") or ""
+        if STYLE_REVIEW_INLINE_MARKER not in body:
+            continue
+        login = (comment.get("user") or {}).get("login", "")
+        if not _is_bot_login(login):
+            continue
+        suggested = _parse_suggestion_body(body)
+        path = comment.get("path") or ""
+        line = comment.get("line") or comment.get("original_line")
+        if not suggested or not path or not line:
+            continue
+        key = (path, int(line))
+        prior.setdefault(key, []).append(suggested)
+    return prior
+
+
+def format_prior_suggestions_section(
+    prior_suggestions: dict[tuple[str, int], list[str]],
+) -> str:
+    lines = [
+        "## Prior automated inline suggestions on this PR",
+        "",
+        "Do not contradict these on the same line. Prefer consistency within the file "
+        "over reversing a prior suggestion.",
+        "",
+    ]
+    for (path, line), suggestions in sorted(prior_suggestions.items()):
+        for suggested in suggestions:
+            lines.append(f"- `{path}` line {line}: `{suggested}`")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def filter_conflicting_prior_suggestions(
+    inline: list[dict],
+    prior_suggestions: dict[tuple[str, int], list[str]],
+) -> list[dict]:
+    """Skip case-only or wording reversals on lines we already commented on."""
+    kept: list[dict] = []
+    for item in inline:
+        key = (item["path"], item["line"])
+        priors = prior_suggestions.get(key, [])
+        new = item["suggested_line"].rstrip()
+        conflict = False
+        for prior in priors:
+            if prior == new:
+                continue
+            if prior.lower() == new.lower():
+                conflict = True
+                break
+        if conflict:
+            print(
+                f"Skipping conflicting suggestion on `{item['path']}` line {item['line']} "
+                "(case-only change from a prior automated suggestion on this PR)"
+            )
+            continue
+        kept.append(item)
+    return kept
 
 
 def post_pull_request_review(inline: list[dict], summary_notes: list[str]) -> tuple[int, int]:
@@ -701,6 +794,13 @@ def main() -> None:
     if removed:
         print(f"Cleaned up {removed} stale style review thread(s) from earlier commits.")
 
+    prior_suggestions = fetch_prior_style_suggestions()
+    if prior_suggestions:
+        print(
+            f"Found {sum(len(v) for v in prior_suggestions.values())} prior inline "
+            "suggestion(s) on this PR."
+        )
+
     files = get_changed_markdown_files()
     print(f"Reviewing {len(files)} Markdown file(s) in PR #{PR_NUMBER}")
     if not files:
@@ -711,7 +811,7 @@ def main() -> None:
         )
         return
 
-    user_prompt = build_user_prompt(files)
+    user_prompt = build_user_prompt(files, prior_suggestions)
     if len(user_prompt) > 180_000:
         user_prompt = user_prompt[:180_000] + "\n\n…(prompt truncated)\n"
 
@@ -728,6 +828,8 @@ def main() -> None:
         v = validate_inline(item)
         if v:
             validated.append(v)
+
+    validated = filter_conflicting_prior_suggestions(validated, prior_suggestions)
 
     summary_notes = data.get("summary") or []
     if not isinstance(summary_notes, list):
