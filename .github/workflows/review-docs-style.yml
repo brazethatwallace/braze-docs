@@ -29,7 +29,7 @@ concurrency:
 
 jobs:
   review-docs-style:
-    name: Braze Docs Style Guide Review
+    name: claude-edit-suggestions
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     env:
