@@ -42,6 +42,9 @@ SUMMARY_FILE = REPO_ROOT / "docs_style_review_summary.md"
 
 MARKDOWN_PREFIXES = ("_docs/", "_includes/", "_lang/")
 
+STYLE_REVIEW_INLINE_MARKER = "**Docs style review**"
+BOT_LOGINS = frozenset({"github-actions[bot]", "cursor[bot]"})
+
 SYSTEM_PROMPT = """\
 You are a senior technical editor reviewing Braze documentation pull requests.
 Apply the Braze Docs Style Guide provided in the user message.
@@ -110,6 +113,187 @@ def get_changed_markdown_files() -> list[str]:
             continue
         files.append(path)
     return files[:MAX_FILES]
+
+
+def get_pr_diff_paths() -> set[str]:
+    """All paths changed in this PR (any file type), for stale-comment cleanup."""
+    base = f"origin/{BASE_REF}"
+    result = _run(
+        ["git", "diff", "--name-only", "--diff-filter=ACMRTD", f"{base}...HEAD"],
+        check=False,
+    )
+    if result.returncode != 0:
+        print(f"git diff warning: {result.stderr.strip()}", file=sys.stderr)
+        return set()
+    return {line.strip() for line in result.stdout.splitlines() if line.strip()}
+
+
+def _is_bot_login(login: str) -> bool:
+    return login in BOT_LOGINS or login.endswith("[bot]")
+
+
+def _graphql(query: str, variables: dict) -> dict | None:
+    result = subprocess.run(
+        ["gh", "api", "graphql", "--input", "-"],
+        input=json.dumps({"query": query, "variables": variables}),
+        capture_output=True,
+        text=True,
+        cwd=REPO_ROOT,
+        check=False,
+    )
+    if result.returncode != 0:
+        print(f"GraphQL warning: {result.stderr.strip()}", file=sys.stderr)
+        return None
+    payload = json.loads(result.stdout)
+    if payload.get("errors"):
+        print(f"GraphQL errors: {payload['errors']}", file=sys.stderr)
+        return None
+    return payload.get("data")
+
+
+def _fetch_review_threads() -> list[dict]:
+    owner, repo = REPO.split("/", 1)
+    threads: list[dict] = []
+    cursor: str | None = None
+    query = """
+    query($owner: String!, $name: String!, $number: Int!, $after: String) {
+      repository(owner: $owner, name: $name) {
+        pullRequest(number: $number) {
+          reviewThreads(first: 100, after: $after) {
+            pageInfo { hasNextPage endCursor }
+            nodes {
+              id
+              isResolved
+              isOutdated
+              path
+              comments(first: 50) {
+                nodes {
+                  databaseId
+                  body
+                  author { login }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    """
+    while True:
+        variables: dict = {
+            "owner": owner,
+            "name": repo,
+            "number": int(PR_NUMBER),
+        }
+        if cursor:
+            variables["after"] = cursor
+        data = _graphql(query, variables)
+        if not data:
+            break
+        review_threads = data["repository"]["pullRequest"]["reviewThreads"]
+        threads.extend(review_threads["nodes"])
+        page_info = review_threads["pageInfo"]
+        if not page_info["hasNextPage"]:
+            break
+        cursor = page_info["endCursor"]
+    return threads
+
+
+def _is_our_style_thread(thread: dict) -> bool:
+    nodes = thread.get("comments", {}).get("nodes", [])
+    if not nodes:
+        return False
+    return STYLE_REVIEW_INLINE_MARKER in (nodes[0].get("body") or "")
+
+
+def _thread_has_human_followup(thread: dict) -> bool:
+    nodes = thread.get("comments", {}).get("nodes", [])
+    for comment in nodes[1:]:
+        login = (comment.get("author") or {}).get("login", "")
+        if login and not _is_bot_login(login):
+            return True
+    return False
+
+
+def _delete_review_comment(comment_id: int) -> bool:
+    owner, repo = REPO.split("/", 1)
+    result = subprocess.run(
+        [
+            "gh",
+            "api",
+            "--method",
+            "DELETE",
+            f"repos/{owner}/{repo}/pulls/comments/{comment_id}",
+        ],
+        capture_output=True,
+        text=True,
+        cwd=REPO_ROOT,
+    )
+    if result.returncode != 0:
+        print(
+            f"DELETE comment {comment_id} failed: {result.stderr.strip()}",
+            file=sys.stderr,
+        )
+        return False
+    return True
+
+
+def _resolve_review_thread(thread_id: str) -> bool:
+    mutation = """
+    mutation($threadId: ID!) {
+      resolveReviewThread(input: {threadId: $threadId}) {
+        thread { isResolved }
+      }
+    }
+    """
+    return _graphql(mutation, {"threadId": thread_id}) is not None
+
+
+def cleanup_stale_style_review_comments() -> int:
+    """Remove or resolve bot threads when the file leaves the PR or the comment is outdated."""
+    diff_paths = get_pr_diff_paths()
+    cleaned = 0
+
+    for thread in _fetch_review_threads():
+        if thread.get("isResolved"):
+            continue
+        if not _is_our_style_thread(thread):
+            continue
+        if _thread_has_human_followup(thread):
+            continue
+
+        path = thread.get("path") or ""
+        is_outdated = bool(thread.get("isOutdated"))
+        path_removed = path not in diff_paths
+        if not is_outdated and not path_removed:
+            continue
+
+        nodes = thread.get("comments", {}).get("nodes", [])
+        ours = [
+            c
+            for c in nodes
+            if STYLE_REVIEW_INLINE_MARKER in (c.get("body") or "")
+            or _is_bot_login((c.get("author") or {}).get("login", ""))
+        ]
+        deleted_all = bool(ours) and all(
+            c.get("databaseId") and _delete_review_comment(int(c["databaseId"]))
+            for c in ours
+        )
+
+        if deleted_all:
+            cleaned += 1
+            print(
+                f"Deleted stale style review thread on `{path}` "
+                f"(outdated={is_outdated}, path_removed={path_removed})"
+            )
+        elif _resolve_review_thread(thread["id"]):
+            cleaned += 1
+            print(
+                f"Resolved stale style review thread on `{path}` "
+                f"(outdated={is_outdated}, path_removed={path_removed})"
+            )
+
+    return cleaned
 
 
 def file_diff(path: str) -> str:
@@ -512,6 +696,10 @@ def main() -> None:
     if not os.environ.get("ANTHROPIC_API_KEY"):
         print("ERROR: ANTHROPIC_API_KEY is required", file=sys.stderr)
         sys.exit(1)
+
+    removed = cleanup_stale_style_review_comments()
+    if removed:
+        print(f"Cleaned up {removed} stale style review thread(s) from earlier commits.")
 
     files = get_changed_markdown_files()
     print(f"Reviewing {len(files)} Markdown file(s) in PR #{PR_NUMBER}")
