@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Mettre à jour le statut du groupe d'abonnement de l'utilisateur."
 ---
+
 {% api %}
 # Mettre à jour le statut du groupe d'abonnement de l'utilisateur {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 {% alert note %}
 Si vous souhaitez utiliser cet endpoint avec les [groupes d'abonnement LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Limite de débit {#rate-limit}
 

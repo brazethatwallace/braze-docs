@@ -18,7 +18,7 @@ Using the media library instead of a Content Delivery Network (CDN) provides bet
 
 ## Accessing the media library
 
-Within the media library, you can see the asset type, size, dimensions, URL, the date it was added to the library, and other information. To access your Braze media library, go to **Templates** > **Media Library**. Here, you can:
+Within the media library, you can see the asset type, size, dimensions, URL, the date it was added to the library, and other information. To access your Braze media library, go to **Content** > **Media Library**. Here, you can:
 
 * Upload multiple images at one time
 * Upload Virtual Contact Files (.vcf)

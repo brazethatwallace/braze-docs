@@ -27,10 +27,6 @@ search_tag: Partner
 | SessionM | Um ID de varejista do SessionM Connect REST | Um GUID de identificação exclusivo para o cliente específico associado à sua instância. Entre em contato com o gerente técnico de conta da SessionM ou com a equipe de Delivery para obter. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-{% alert note %}
-Se estiver usando a [navegação mais antiga]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), você pode criar uma chave de API em **Console de desenvolvedor** > **Configurações de API**.
-{% endalert %}
-
 ## Casos de uso {#use-cases}
 
 Os casos de uso a seguir mostram algumas maneiras de aproveitar a integração da SessionM com a Braze.

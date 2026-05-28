@@ -25,7 +25,7 @@ Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubs
 | Status | Definition |
 | --------- | ---------- |
 | Abonniert | Nutzer:in ist für den Empfang von SMS und RCS aus einer bestimmten Abo-Gruppe angemeldet. Eine Nutzer:in kann abonniert werden, indem der Abo-Status über die Braze-Abo-API aktualisiert wird oder indem ein Opt-in-Schlüsselwort per SMS gesendet wird. Eine Nutzer:in muss bei einer SMS- oder RCS-Abo-Gruppe abonniert sein, um SMS, RCS oder beides zu empfangen. Wenn [Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) aktiviert ist, müssen Nutzer:innen ihre Opt-in-Absicht bestätigen, bevor ihr Abo-Status auf `Subscribed` aktualisiert wird. |
-| Abgemeldet | Nutzer:in hat sich ausdrücklich vom Nachrichtenempfang Ihrer SMS- und RCS-Abo-Gruppe und den darin enthaltenen Sendetelefonnummern abgemeldet. Die Abmeldung kann durch Senden eines Opt-out-Schlüsselworts per SMS erfolgen, oder Sie können Nutzer:innen über die [Braze-Abo-API]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) abmelden. Nutzer:innen, die von einer SMS- und RCS-Abo-Gruppe abgemeldet sind, erhalten keine SMS oder RCS mehr von Sendetelefonnummern, die zu dieser Abo-Gruppe gehören.|
+| Abgemeldet | Nutzer:in hat sich ausdrücklich vom Nachrichtenempfang Ihrer SMS- und RCS-Abo-Gruppe und den darin enthaltenen Sendetelefonnummern abgemeldet. Die Abmeldung kann durch Senden eines Opt-out-Schlüsselworts per SMS erfolgen, oder Sie können Nutzer:innen über die [Braze-Abo-API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) abmelden. Nutzer:innen, die von einer SMS- und RCS-Abo-Gruppe abgemeldet sind, erhalten keine SMS oder RCS mehr von Sendetelefonnummern, die zu dieser Abo-Gruppe gehören.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Status einer Nutzer:in festlegen {#set-a-users-state}
@@ -47,6 +47,8 @@ Um den Abo-Gruppenstatus einer Nutzer:in festzulegen, verwenden Sie eine der fol
 Wenn Sie den Abo-Gruppenstatus einer Nutzer:in als Teil eines Canvas-Flows aktualisieren, verwenden Sie einen [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)-Schritt anstelle eines Webhooks. Der Nutzeraktualisierung-Schritt wartet, bis die Verarbeitung abgeschlossen ist, bevor die Nutzer:in zum nächsten Schritt weitergeleitet wird, sodass nachfolgende Messaging-Schritte den aktualisierten Abo-Status verwenden.
 
 Wenn Sie einen Webhook zum Aktualisieren von Abo-Gruppen verwenden, wird die Nutzer:in weitergeleitet, sobald der Webhook gesendet wurde – nicht wenn die Abo-Änderung fertig verarbeitet ist. Dies kann eine Race-Condition verursachen, bei der ein nachfolgender SMS-Schritt ausgeführt wird, bevor die Nutzer:in abonniert ist, was dazu führt, dass die Nachricht für einen Teil der Nutzer:innen fehlschlägt. Wenn Sie einen Webhook verwenden müssen, fügen Sie vor dem nächsten Messaging-Schritt einen Verzögerungsschritt von mindestens 1 Minute hinzu.
+
+#{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Gruppe einer Nutzer:in prüfen {#check-a-users-group}
 

@@ -69,10 +69,6 @@ Para ver todos tus alias de enlace rastreados, haz lo siguiente:
 1. Ve a **Settings** > **Email Preferences** en **Workspace Settings**.
 2. Selecciona la pestaña **Link Aliasing Settings**.
 
-{% alert important %}
-Si estás usando la [navegación anterior]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), esta configuración se encuentra en **Manage Settings**.
-{% endalert %}
-
 Aquí puedes ordenar, buscar y desactivar el seguimiento de los alias de enlace.
 
 ![Página de alias de enlace rastreados que muestra alias de enlace activos e inactivos asociados con varias campañas.]({% image_buster /assets/img/tracked_aliases.png %})
@@ -210,7 +206,7 @@ Si exportas tus datos de interacción con Currents, un evento de clic de correo 
 ```
 
 {% alert update %}
-El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que pueden ser planificados) como eventos desencadenados, incluso cuando están "planificados". Obtén más información sobre el [comportamiento de `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) en Canvas y Campaigns.
+El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que pueden ser planificados) como eventos desencadenados, incluso cuando están "planificados". Obtén más información sobre el [comportamiento de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) en Canvas y Campaigns.
 
 _Actualización registrada en agosto de 2019._
 {% endalert %}
@@ -262,7 +258,9 @@ En el editor de arrastrar y soltar, los campos que contienen un enlace (como la 
 
 ### Ejemplo de Content Block {#content-block-example}
 
+{% raw %}
 Si un Content Block contiene un enlace como `https://www.braze.com/{{custom_attribute.${offer_id}}}` sin un `?` o `&` final, Braze no sabe dónde añadir `lid`, por lo que el enlace no se detecta para **Link Management**. Añade `?` o `&` al final de la URL en el Content Block (dependiendo de si ya existe una cadena de consulta), guarda el Content Block y el enlace podrá ser reconocido.
+{% endraw %}
 
 ### Informes cuando la URL varía por usuario {#reporting-when-the-url-varies-per-user}
 

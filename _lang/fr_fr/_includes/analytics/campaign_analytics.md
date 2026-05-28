@@ -36,6 +36,10 @@ Le panneau **Campaign Details** présente un aperçu global des performances de 
 
 Examinez ce panneau pour voir les indicateurs globaux tels que le nombre de messages envoyés par rapport au nombre de destinataires, le taux de conversion principal et le chiffre d'affaires total généré par ce message. Vous pouvez également consulter les paramètres de réception/distribution, d'audience et de conversion à partir de cette page.
 
+{% alert note %}
+Les chiffres analytiques dans le tableau de bord et dans Snowflake peuvent légèrement différer. Braze mesure les chiffres dans le tableau de bord et enregistre les lignes dans Snowflake séparément. Snowflake est la source de données la plus précise. Si vous constatez des écarts entre ces sources, nous vous recommandons de vous référer aux données Snowflake.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 Le canal WhatsApp comprend le taux de lecture. Cet indicateur n'est fourni que pour les utilisateurs ayant activé les accusés de lecture, ce qui peut varier.
@@ -377,7 +381,7 @@ Voici quelques indicateurs clés spécifiques aux e-mails que vous ne retrouvere
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Clics uniques</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Ceci est suivi sur une période de sept jours pour les e-mails et mesuré par <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. Cela inclut les clics sur les liens de désabonnement fournis par Braze. Ce nombre devrait se situer entre 5 et 10 %. Au-delà de 10 %, c'est exceptionnel !
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Ceci est suivi sur une période de sept jours pour les e-mails et mesuré par <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Cela inclut les clics sur les liens de désabonnement fournis par Braze. Ce nombre devrait se situer entre 5 et 10 %. Au-delà de 10 %, c'est exceptionnel !
             </td>
         </tr>
         <tr>
@@ -481,7 +485,7 @@ Notez que les _reports_ ne sont actuellement disponibles qu'en utilisant les fon
 
 Cette statistique utilise un modèle analytique propriétaire créé par Braze pour reconstruire une estimation du taux d'ouverture unique de la campagne comme si les ouvertures automatiques n'existaient pas. Bien que nous recevions des étiquettes *Ouvertures automatiques* pour certains événements d'ouverture provenant d'expéditeurs d'e-mails (voir ci-dessus), ces étiquettes peuvent souvent classer les ouvertures réelles comme des ouvertures automatiques. Autrement dit, les *autres ouvertures* sont probablement une sous-estimation des ouvertures réelles (par des utilisateurs réels). Braze utilise plutôt les données de clics de chaque campagne pour déduire le taux d'ouverture du message par des humains réels. Cela permet de compenser les divers mécanismes d'ouverture automatique, y compris la protection de la confidentialité dans Mail d'Apple.
 
-Le _taux d'ouverture réel estimé_ est calculé 36 heures après le début de l'envoi de l'e-mail et est ensuite recalculé toutes les 24 heures. Si une campagne se répète, l'estimation est recalculée 36 heures après un nouvel envoi.
+Le _taux d'ouverture réel estimé_ est calculé 24 heures après le début de l'envoi de l'e-mail et est ensuite recalculé toutes les 72 heures.
 
 Étant donné que cet indicateur est recalculé de manière continue, la valeur du _taux d'ouverture réel estimé_ peut évoluer au fil du temps à mesure que de nouveaux signaux d'engagement (tels que les ouvertures et les clics) sont reçus et intégrés au modèle. En pratique, le _taux d'ouverture réel estimé_ peut continuer à être mis à jour quotidiennement tant qu'une campagne reste active.
 
@@ -669,7 +673,7 @@ Bien que les termes _ouvertures directes_ et _ouvertures influencées_ contienne
 
 ##### Boutons d'action push et rapports {#push-action-buttons-and-reporting}
 
-Lorsque vous ajoutez des [boutons d'action push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), le panneau **Push Performance** peut inclure les **clics sur le corps du message**, les **clics bouton 1** et les **clics bouton 2** aux côtés d'indicateurs tels que les **ouvertures directes**. Ces colonnes mesurent des interactions différentes, comparez-les donc lorsque vous interprétez l'engagement.
+Lorsque vous ajoutez des [boutons d'action push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), le panneau **Push Performance** peut inclure les **Body Clicks**, les **Button 1 Clicks** et les **Button 2 Clicks** aux côtés d'indicateurs tels que les **Direct Opens**. Ces colonnes mesurent des interactions différentes, comparez-les donc lorsque vous interprétez l'engagement.
 
 Les _ouvertures directes_ reflètent les indicateurs du tableau de bord pour les interactions comptabilisées comme une ouverture directe de votre message. Les événements **Push Notification Open** dans [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ou Snowflake décrivent les interactions push de manière plus large et peuvent inclure des champs facultatifs tels que `button_action_type` (par exemple, `close`) et `button_string`. Pour les définitions des champs, consultez les [événements Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
 

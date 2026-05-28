@@ -76,6 +76,10 @@ Le **Style Cartes** est une propriété de ligne qui vous permet d'ajouter un es
 
 Vous ne savez pas si votre e-mail doit être envoyé via une Campaign ou un Canvas ? Les Campaigns sont plus adaptées aux envois de messages ciblés ponctuels, tandis que les Canvas conviennent mieux aux parcours utilisateur en plusieurs étapes.
 
+{% alert note %}
+Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une Campaign ou un Canvas directement dans **Templates** > **Email Templates** en tant que modèle d'e-mail. Créez d'abord votre modèle sous **Templates**, ou consultez [Puis-je enregistrer mon e-mail par glisser-déposer en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) pour recréer un modèle par glisser-déposer ou exporter le HTML avec **Download file**.
+{% endalert %}
+
 Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un e-mail par glisser-déposer.
 
 ### Étape 1 : Sélectionner votre modèle {#step-1-select-your-template}
@@ -87,7 +91,7 @@ Après avoir sélectionné l'éditeur par glisser-déposer comme expérience d'�
 - Utiliser un modèle d'e-mail par glisser-déposer enregistré.
 
 {% alert note %}
-Pour utiliser un modèle HTML personnalisé existant ou des modèles créés par un tiers, vous devez recréer le modèle en accédant à **Templates** > **Email Templates** et en sélectionnant **Drag-And-Drop Editor** comme expérience d'édition.
+Pour utiliser un modèle HTML personnalisé existant ou des modèles créés par un tiers, vous devez recréer le modèle en accédant à **Content** > **Email** et en sélectionnant **Drag-And-Drop Editor** comme expérience d'édition.
 {% endalert %}
 
 Vous pouvez également accéder à tous les modèles depuis la section **Templates**.

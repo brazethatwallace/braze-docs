@@ -239,7 +239,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールの場合7日間にわたって追跡され、<a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> で測定されます。Brazeが提供する配信停止リンクのクリックも含まれます。7日後に同じユーザーが再度クリックした場合、別のユニーククリックとしてカウントされます。Currentsからダッシュボードのカウントと一致させるには、`is_unique` が `true` のイベントでフィルタリングしてください。
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールの場合7日間にわたって追跡され、<a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> で測定されます。Brazeが提供する配信停止リンクのクリックも含まれます。7日後に同じユーザーが再度クリックした場合、別のユニーククリックとしてカウントされます。Currentsからダッシュボードのカウントと一致させるには、`is_unique` が `true` のイベントでフィルタリングしてください。
 
 {::nomarkdown}
 <span class="calculation-line">

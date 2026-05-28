@@ -3,7 +3,8 @@
 PR Triage Notifier for Braze Docs
 Checks open PRs for:
   Scenario 1: Missing "In Review" label OR no stakeholder reviewers tagged
-  Scenario 2: Approved by non-docs-team member but no updates in stale_days+
+  Scenario 2a: Approved by non-docs-team member, no updates in early_stale_days+
+  Scenario 2b: Same PRs after stale_days+ with no updates (existing 7-day alert)
 """
 
 import json
@@ -87,6 +88,10 @@ def gh_paginate(url, token):
     while True:
         sep = "&" if "?" in url else "?"
         data = gh_request(f"{url}{sep}per_page=100&page={page}", token)
+        if not isinstance(data, list):
+            if page == 1:
+                raise ValueError(f"Unexpected GitHub API response (expected list): {url}")
+            break
         if not data:
             break
         results.extend(data)
@@ -126,9 +131,13 @@ def get_pr_requested_reviewers(repo, pr_number, token):
 def main():
     # Handle save-thread subcommand
     if len(sys.argv) >= 5 and sys.argv[1] == "save-thread":
-        scenario = sys.argv[2]  # s1 or s2
+        scenario = sys.argv[2]
         pr_number = int(sys.argv[3])
         thread_ts = sys.argv[4]
+        allowed = {"s1", "s2", "s2_early", "s3", "s4"}
+        if scenario not in allowed:
+            print(json.dumps({"error": f"scenario must be one of {sorted(allowed)}"}))
+            return
         state = load_json(STATE_PATH)
         if "thread_ts" not in state:
             state["thread_ts"] = {}
@@ -147,6 +156,7 @@ def main():
     token = config.get("github_token", "")
     repo = config.get("repo", "")
     stale_days = config.get("stale_days", 7)
+    early_stale_days = config.get("early_stale_days", 2)
     github_to_slack = config.get("github_to_slack", {})
     extra_docs = set(m.lower() for m in config.get("extra_docs_team_members", [])
                      if not m.startswith("_"))
@@ -159,6 +169,12 @@ def main():
         print(json.dumps({"error": "Missing github_token or repo in config.json"}))
         return
 
+    if early_stale_days >= stale_days:
+        print(json.dumps({
+            "error": f"early_stale_days ({early_stale_days}) must be less than stale_days ({stale_days})"
+        }))
+        return
+
     # Load state
     try:
         state = load_json(STATE_PATH)
@@ -167,6 +183,7 @@ def main():
 
     scenario1_notified = set(state.get("scenario1_notified", []))
     scenario2_notified = state.get("scenario2_notified", {})
+    scenario2_early_notified = set(state.get("scenario2_early_notified", []))
     scenario3_notified = set(state.get("scenario3_notified", []))
     scenario4_notified = set(state.get("scenario4_notified", []))
     thread_ts_map = state.get("thread_ts", {})
@@ -194,15 +211,18 @@ def main():
 
     new_scenario1 = []
     new_scenario2 = []
+    new_scenario2_early = []
     new_scenario3 = []
     new_scenario4 = []
     resolved_scenario1 = []
     resolved_scenario2 = []
+    resolved_scenario2_early = []
     resolved_scenario3 = []
     resolved_scenario4 = []
 
     current_s1_prs = set()
     current_s2_prs = set()
+    current_s2_early_prs = set()
     current_s3_prs = set()
     current_s4_prs = set()
 
@@ -218,21 +238,25 @@ def main():
         open_days = days_since(created_at)
 
         # Slack mention for author
-        slack_id = github_to_slack.get(author_lower) or github_to_slack.get(author)
-        if slack_id and slack_id.startswith("U"):
-            author_mention = f"<@{slack_id}>"
-        elif slack_id:
-            author_mention = f"@{slack_id}"
+        # If the author is a service account, tag oncall-docs instead
+        svc_accounts = {"brazedocs-svc"}
+        if author_lower in svc_accounts:
+            author_mention = oncall_docs_mention
         else:
-            author_mention = f"@{author}"
+            slack_id = github_to_slack.get(author_lower) or github_to_slack.get(author)
+            if slack_id and slack_id.startswith("U"):
+                author_mention = f"<@{slack_id}>"
+            elif slack_id:
+                author_mention = f"@{slack_id}"
+            else:
+                author_mention = f"@{author}"
 
         # Get reviews and requested reviewers
         reviews = get_pr_reviews(repo, pr_number, token)
         requested_reviewers = get_pr_requested_reviewers(repo, pr_number, token)
 
-        # --- Scenario 1: No docs-team reviewer, PR older than 24h, not "do not merge" ---
+        # --- Scenario 1: No docs-team reviewer, non-docs approval 24h+ ago, not "do not merge" ---
 
-        # Condition 1: Neither braze-inc/docs-team (as a team) nor any individual member is tagged
         requested_team_slugs = {t["slug"].lower() for t in requested_reviewers.get("teams", [])}
         requested_user_logins = {u["login"].lower() for u in requested_reviewers.get("users", [])}
         docs_team_individuals = {k.lower() for k in github_to_slack.keys()
@@ -251,12 +275,11 @@ def main():
         created_dt     = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
         pr_age         = datetime.now(timezone.utc) - created_dt
         older_than_24h = pr_age >= timedelta(hours=24)
-        older_than_48h = pr_age >= timedelta(hours=48)
 
-        # Condition 3: PR does not have a "do not merge" label (case-insensitive)
+        # PR does not have a "do not merge" label (case-insensitive)
         has_do_not_merge = any(l.lower() == "do not merge" for l in labels)
 
-        # Condition 4: A non-docs-team human member approved the PR 24+ hours ago
+        # A non-docs-team human member approved the PR 24+ hours ago
         # Excludes bots (e.g. Copilot) and ignored_reviewers from config
         non_docs_approved_24h = any(
             r["state"] == "APPROVED"
@@ -283,8 +306,7 @@ def main():
                     "reason": "no docs-team reviewer tagged",
                 })
 
-        # --- Scenario 2: Approved by non-docs-team, no updates in stale_days ---
-        # Find approvals from non-docs team members
+        # --- Scenario 2: Approved by non-docs-team, no updates (2-day early, then 7-day stale) ---
         approvals = [r for r in reviews
                      if r["state"] == "APPROVED"
                      and r.get("user")
@@ -292,45 +314,54 @@ def main():
                      and r["user"]["login"].lower() not in docs_team
                      and r["user"]["login"].lower() not in ignored_reviewers]
 
-        stale = days_since(updated_at) >= stale_days
+        days_without_update = days_since(updated_at)
+        stale_early = early_stale_days <= days_without_update < stale_days
+        stale = days_without_update >= stale_days
 
-        if approvals and stale and not has_do_not_merge:
-            current_s2_prs.add(pr_number)
-            pr_num_str = str(pr_number)
-            if pr_num_str not in scenario2_notified:
-                approver_mentions = []
-                for appr in approvals:
-                    approver_login = appr["user"]["login"].lower()
-                    appr_slack = github_to_slack.get(approver_login) or github_to_slack.get(appr["user"]["login"])
-                    if appr_slack and appr_slack.startswith("U"):
-                        approver_mentions.append(f"<@{appr_slack}>")
-                    elif appr_slack:
-                        approver_mentions.append(f"@{appr_slack}")
-                    else:
-                        approver_mentions.append(f"@{appr['user']['login']}")
+        if approvals and not has_do_not_merge:
+            approver_mentions = []
+            for appr in approvals:
+                approver_login = appr["user"]["login"].lower()
+                appr_slack = github_to_slack.get(approver_login) or github_to_slack.get(appr["user"]["login"])
+                if appr_slack and appr_slack.startswith("U"):
+                    approver_mentions.append(f"<@{appr_slack}>")
+                elif appr_slack:
+                    approver_mentions.append(f"@{appr_slack}")
+                else:
+                    approver_mentions.append(f"@{appr['user']['login']}")
 
-                # Check if any assignee is a docs team member
-                assignees = pr.get("assignees", [])
-                assignee_is_docs = any(
-                    a["login"].lower() in docs_team for a in assignees
-                )
+            assignees = pr.get("assignees", [])
+            assignee_is_docs = any(
+                a["login"].lower() in docs_team for a in assignees
+            )
 
-                new_scenario2.append({
-                    "pr_number": pr_number,
-                    "title": pr_title,
-                    "url": pr_url,
-                    "author": author,
-                    "author_mention": author_mention,
-                    "open_days": open_days,
-                    "stale_days": days_since(updated_at),
-                    "approver_mentions": approver_mentions,
-                    "assignee_is_docs": assignee_is_docs,
-                })
+            pr_alert = {
+                "pr_number": pr_number,
+                "title": pr_title,
+                "url": pr_url,
+                "author": author,
+                "author_mention": author_mention,
+                "open_days": open_days,
+                "stale_days": days_without_update,
+                "approver_mentions": approver_mentions,
+                "assignee_is_docs": assignee_is_docs,
+            }
 
-        # --- Scenario 3: External PR with no docs-team reviewer after 48h ---
+            if stale_early:
+                current_s2_early_prs.add(pr_number)
+                if pr_number not in scenario2_early_notified:
+                    new_scenario2_early.append(pr_alert.copy())
+
+            if stale:
+                current_s2_prs.add(pr_number)
+                pr_num_str = str(pr_number)
+                if pr_num_str not in scenario2_notified:
+                    new_scenario2.append(pr_alert.copy())
+
+        # --- Scenario 3: External PR with no docs-team reviewer after 24h ---
         author_is_external = author_lower not in docs_team
 
-        if author_is_external and older_than_48h and no_docs_reviewer:
+        if author_is_external and older_than_24h and no_docs_reviewer:
             current_s3_prs.add(pr_number)
             if pr_number not in scenario3_notified:
                 new_scenario3.append({
@@ -343,11 +374,8 @@ def main():
                 })
 
         # --- Scenario 4: docs-team tagged, no other human reviewers, no approval after 24h ---
-
-        # docs-team must be tagged as a team reviewer
         docs_team_is_requested = "docs-team" in requested_team_slugs
 
-        # No non-docs-team, non-bot, non-ignored humans in requested reviewers
         other_human_requested = [
             u["login"].lower() for u in requested_reviewers.get("users", [])
             if u.get("type", "User") != "Bot"
@@ -355,7 +383,6 @@ def main():
             and u["login"].lower() not in ignored_reviewers
         ]
 
-        # No non-docs-team, non-bot, non-ignored humans have already reviewed
         other_human_reviewed = [
             r["user"]["login"].lower() for r in reviews
             if r.get("user")
@@ -367,7 +394,6 @@ def main():
 
         no_other_human_reviewers = not other_human_requested and not other_human_reviewed
 
-        # No human (any team) has approved yet — excluding bots and ignored reviewers
         no_human_approvals = not any(
             r["state"] == "APPROVED"
             and r.get("user")
@@ -388,44 +414,32 @@ def main():
                     "open_days": open_days,
                 })
 
-    # Check for resolved Scenario 1 (was notified, no longer meets criteria)
+    # Check for resolved scenarios
     for pr_number in list(scenario1_notified):
         if pr_number not in current_s1_prs:
-            key = f"s1_{pr_number}"
-            resolved_scenario1.append({
-                "pr_number": pr_number,
-                "thread_ts": thread_ts_map.get(key),
-            })
+            resolved_scenario1.append({"pr_number": pr_number, "thread_ts": thread_ts_map.get(f"s1_{pr_number}")})
 
-    # Check for resolved Scenario 2
     for pr_num_str in list(scenario2_notified.keys()):
         pr_number = int(pr_num_str)
         if pr_number not in current_s2_prs:
-            key = f"s2_{pr_number}"
-            resolved_scenario2.append({
+            resolved_scenario2.append({"pr_number": pr_number, "thread_ts": thread_ts_map.get(f"s2_{pr_number}")})
+
+    for pr_number in list(scenario2_early_notified):
+        if pr_number not in current_s2_early_prs:
+            resolved_scenario2_early.append({
                 "pr_number": pr_number,
-                "thread_ts": thread_ts_map.get(key),
+                "thread_ts": thread_ts_map.get(f"s2_early_{pr_number}"),
             })
 
-    # Check for resolved Scenario 3
     for pr_number in list(scenario3_notified):
         if pr_number not in current_s3_prs:
-            key = f"s3_{pr_number}"
-            resolved_scenario3.append({
-                "pr_number": pr_number,
-                "thread_ts": thread_ts_map.get(key),
-            })
+            resolved_scenario3.append({"pr_number": pr_number, "thread_ts": thread_ts_map.get(f"s3_{pr_number}")})
 
-    # Check for resolved Scenario 4
     for pr_number in list(scenario4_notified):
         if pr_number not in current_s4_prs:
-            key = f"s4_{pr_number}"
-            resolved_scenario4.append({
-                "pr_number": pr_number,
-                "thread_ts": thread_ts_map.get(key),
-            })
+            resolved_scenario4.append({"pr_number": pr_number, "thread_ts": thread_ts_map.get(f"s4_{pr_number}")})
 
-    # Remove resolved PRs from state immediately (they're no longer triggering)
+    # Remove resolved PRs from state
     new_s1_set = scenario1_notified.copy()
     for r in resolved_scenario1:
         new_s1_set.discard(r["pr_number"])
@@ -433,6 +447,10 @@ def main():
     new_s2_dict = scenario2_notified.copy()
     for r in resolved_scenario2:
         new_s2_dict.pop(str(r["pr_number"]), None)
+
+    new_s2_early_set = scenario2_early_notified.copy()
+    for r in resolved_scenario2_early:
+        new_s2_early_set.discard(r["pr_number"])
 
     new_s3_set = scenario3_notified.copy()
     for r in resolved_scenario3:
@@ -444,23 +462,9 @@ def main():
 
     warning_footer = f"\n_⚠️ Note: {warning}_" if warning else ""
 
-    # --- Post resolved replies ---
-    for r in resolved_scenario1:
-        ts = r.get("thread_ts")
-        if ts and slack_token and slack_channel:
-            slack_react(slack_token, slack_channel, ts)
-
-    for r in resolved_scenario2:
-        ts = r.get("thread_ts")
-        if ts and slack_token and slack_channel:
-            slack_react(slack_token, slack_channel, ts)
-
-    for r in resolved_scenario3:
-        ts = r.get("thread_ts")
-        if ts and slack_token and slack_channel:
-            slack_react(slack_token, slack_channel, ts)
-
-    for r in resolved_scenario4:
+    # --- Post resolved reactions ---
+    for r in (resolved_scenario1 + resolved_scenario2 + resolved_scenario2_early
+              + resolved_scenario3 + resolved_scenario4):
         ts = r.get("thread_ts")
         if ts and slack_token and slack_channel:
             slack_react(slack_token, slack_channel, ts)
@@ -476,14 +480,32 @@ def main():
         if slack_token and slack_channel:
             ts = slack_post(slack_token, slack_channel, text)
             if ts:
-                # Only mark as notified after a successful post
                 new_s1_set.add(pr["pr_number"])
-                key = f"s1_{pr['pr_number']}"
-                thread_ts_map[key] = ts
+                thread_ts_map[f"s1_{pr['pr_number']}"] = ts
         else:
             print(text)
 
-    # --- Post new Scenario 2 alerts ---
+    # --- Post new Scenario 2 early (2-day) alerts ---
+    for pr in new_scenario2_early:
+        approvers = ", ".join(pr["approver_mentions"]) if pr["approver_mentions"] else "unknown"
+        oncall_tag = f"\n{oncall_docs_mention} please follow up on this PR." if not pr["assignee_is_docs"] else ""
+        text = (
+            f"⏳ *Heads up: Approved PR may go stale soon*\n"
+            f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
+            f"Owner: {pr['author_mention']}  |  Approved by: {approvers}  |  "
+            f"No updates for {pr['stale_days']} days (follow-up before {stale_days} days)"
+            f"{oncall_tag}"
+            f"{warning_footer}"
+        )
+        if slack_token and slack_channel:
+            ts = slack_post(slack_token, slack_channel, text)
+            if ts:
+                new_s2_early_set.add(pr["pr_number"])
+                thread_ts_map[f"s2_early_{pr['pr_number']}"] = ts
+        else:
+            print(text)
+
+    # --- Post new Scenario 2 (7-day) alerts ---
     for pr in new_scenario2:
         approvers = ", ".join(pr["approver_mentions"]) if pr["approver_mentions"] else "unknown"
         oncall_tag = f"\n{oncall_docs_mention} please follow up on this PR." if not pr["assignee_is_docs"] else ""
@@ -497,28 +519,8 @@ def main():
         if slack_token and slack_channel:
             ts = slack_post(slack_token, slack_channel, text)
             if ts:
-                # Only mark as notified after a successful post
                 new_s2_dict[str(pr["pr_number"])] = datetime.now(timezone.utc).isoformat()
-                key = f"s2_{pr['pr_number']}"
-                thread_ts_map[key] = ts
-        else:
-            print(text)
-
-    # --- Post new Scenario 4 alerts ---
-    for pr in new_scenario4:
-        text = (
-            f"🔔 *Docs-team PR ready for review*\n"
-            f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
-            f"Owner: {pr['author_mention']}  |  Open {pr['open_days']} days\n"
-            f"{oncall_docs_mention} this PR is waiting on a docs-team review — please take a look, leave feedback, or approve and merge."
-            f"{warning_footer}"
-        )
-        if slack_token and slack_channel:
-            ts = slack_post(slack_token, slack_channel, text)
-            if ts:
-                new_s4_set.add(pr["pr_number"])
-                key = f"s4_{pr['pr_number']}"
-                thread_ts_map[key] = ts
+                thread_ts_map[f"s2_{pr['pr_number']}"] = ts
         else:
             print(text)
 
@@ -535,14 +537,31 @@ def main():
             ts = slack_post(slack_token, slack_channel, text)
             if ts:
                 new_s3_set.add(pr["pr_number"])
-                key = f"s3_{pr['pr_number']}"
-                thread_ts_map[key] = ts
+                thread_ts_map[f"s3_{pr['pr_number']}"] = ts
         else:
             print(text)
 
-    # Save final state after all posts attempted
+    # --- Post new Scenario 4 alerts ---
+    for pr in new_scenario4:
+        text = (
+            f"🔔 *Docs-team PR ready for review*\n"
+            f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
+            f"Owner: {pr['author_mention']}  |  Open {pr['open_days']} days\n"
+            f"{oncall_docs_mention} this PR is waiting on a docs-team review — please take a look, leave feedback, or approve and merge."
+            f"{warning_footer}"
+        )
+        if slack_token and slack_channel:
+            ts = slack_post(slack_token, slack_channel, text)
+            if ts:
+                new_s4_set.add(pr["pr_number"])
+                thread_ts_map[f"s4_{pr['pr_number']}"] = ts
+        else:
+            print(text)
+
+    # Save final state
     state["scenario1_notified"] = sorted(new_s1_set)
     state["scenario2_notified"] = new_s2_dict
+    state["scenario2_early_notified"] = sorted(new_s2_early_set)
     state["scenario3_notified"] = sorted(new_s3_set)
     state["scenario4_notified"] = sorted(new_s4_set)
     state["thread_ts"] = thread_ts_map
@@ -551,10 +570,12 @@ def main():
     output = {
         "new_scenario1": new_scenario1,
         "new_scenario2": new_scenario2,
+        "new_scenario2_early": new_scenario2_early,
         "new_scenario3": new_scenario3,
         "new_scenario4": new_scenario4,
         "resolved_scenario1": resolved_scenario1,
         "resolved_scenario2": resolved_scenario2,
+        "resolved_scenario2_early": resolved_scenario2_early,
         "resolved_scenario3": resolved_scenario3,
         "resolved_scenario4": resolved_scenario4,
         "total_open_prs": total_open_prs,

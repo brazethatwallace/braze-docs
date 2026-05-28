@@ -25,7 +25,7 @@ Existem dois estados de inscrição para usuários de SMS e RCS: `subscribed` e 
 | Estado | Definição |
 | --------- | ---------- |
 | Inscrito | O usuário está inscrito para receber SMS e RCS de um grupo de inscrições específico. Um usuário pode ser inscrito ao ter seu estado de inscrição atualizado pela API de inscrições da Braze ou ao enviar uma resposta com palavra-chave de opt-in. Um usuário deve estar inscrito em um grupo de inscrições de SMS ou RCS para receber SMS, RCS ou ambos. Quando o [double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) está ativado, os usuários devem confirmar sua intenção de opt-in antes que o status de inscrição seja atualizado para `Subscribed`. |
-| Cancelou inscrição | O usuário optou explicitamente por não receber mensagens do seu grupo de inscrições de SMS e RCS e dos números de telefone de envio dentro do grupo de inscrições. Eles podem cancelar a inscrição enviando uma resposta com palavra-chave de descadastramento, ou você pode cancelar a inscrição dos usuários pela [API de inscrições da Braze]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Usuários que cancelaram a inscrição de um grupo de inscrições de SMS e RCS não receberão mais nenhum SMS ou RCS dos números de telefone de envio que pertencem ao grupo de inscrições.|
+| Cancelou inscrição | O usuário optou explicitamente por não receber mensagens do seu grupo de inscrições de SMS e RCS e dos números de telefone de envio dentro do grupo de inscrições. Eles podem cancelar a inscrição enviando uma resposta com palavra-chave de descadastramento, ou você pode cancelar a inscrição dos usuários pela [API de inscrições da Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Usuários que cancelaram a inscrição de um grupo de inscrições de SMS e RCS não receberão mais nenhum SMS ou RCS dos números de telefone de envio que pertencem ao grupo de inscrições.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Definir o estado de um usuário {#set-a-users-state}
@@ -47,6 +47,8 @@ Para definir o estado do grupo de inscrições de um usuário, use um dos seguin
 Ao atualizar o status do grupo de inscrições de um usuário como parte de um fluxo do Canvas, use uma etapa de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) em vez de um webhook. A etapa de Atualização de usuário aguarda a conclusão do processamento antes de avançar o usuário para a próxima etapa, para que as etapas de envio de mensagens subsequentes usem o status de inscrição atualizado.
 
 Se você usar um webhook para atualizar grupos de inscrições, o usuário avança assim que o webhook é enviado — e não quando a alteração de inscrição termina de ser processada. Isso pode criar uma condição de corrida em que uma etapa de SMS subsequente é executada antes que o usuário esteja inscrito, fazendo com que a mensagem falhe para uma parte dos usuários. Se você precisar usar um webhook, adicione uma etapa de postergação de pelo menos 1 minuto antes da próxima etapa de envio de mensagens.
+
+#{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Verificar o grupo de um usuário {#check-a-users-group}
 

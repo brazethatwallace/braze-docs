@@ -1,6 +1,6 @@
 ---
 nav_title: FAQ
-article_title: 캔버스 FAQ
+article_title: Canvas FAQ
 page_order: 8
 alias: "/canvas_v2_101/"
 description: "이 문서에서는 Canvas에 대해 자주 묻는 질문에 대한 답변을 제공합니다."
@@ -91,13 +91,17 @@ Canvas를 중지해도 메시지 수신을 대기 중인 사용자가 사용자 
 
 - 각 메시지가 자체 스케줄을 갖도록 메시지 단계 사이에 지연 단계를 배치합니다.
 - 브랜치 또는 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) 단계를 사용하여 사용자가 다른 타이밍의 경로를 따르도록 합니다.
-- 사용 사례가 하나의 Canvas 안에 있을 필요가 없는 경우 별도의 Campaign을 사용합니다.
+- 사용 사례가 하나의 Canvas 안에 있을 필요가 없는 경우 별도의 Campaigns를 사용합니다.
 
-Campaign의 다변량 및 A/B 테스트 개념에 대해서는 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
+Campaigns의 다변량 및 A/B 테스트 개념에 대해서는 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
+
+### 사용자가 Canvas 메시지 단계에서 글로벌 최대 게재빈도 설정에 도달하면 어떻게 되나요? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+해당 채널에 대한 전송을 받지 못하지만, 메시지 단계는 글로벌 최대 게재빈도 설정으로 인해 메시지가 전송되지 않은 경우에도 사용자를 진행시킵니다. 단계별 진행 사례에 대해서는 [사용자 진행 방식]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance)을 참조하세요. 글로벌 최대 게재빈도 설정만으로는 사용자가 Canvas에서 나가지 않으며, 이 동작은 메시지 단계의 **전달 유효성 검사**와는 별개입니다. 자세한 내용은 [사용량 제한 및 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)을 참조하세요.
 
 ### 전송 수가 예상 오디언스 크기보다 낮은 이유는 무엇인가요? {#why-are-sends-lower-than-the-estimated-audience-size}
 
-전송 수는 [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)과 동일한 여러 이유로 **예상 오디언스**보다 낮을 수 있습니다. 여기에는 빈도 제한, 엄격한 기기 또는 브라우저 필터, 재적격 기간, 사용량 제한, 채널 수준 제외(예: 푸시 도달 가능성 또는 이메일 구독 및 전달 가능성 확인) 등이 포함됩니다.
+전송 수는 [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)와 동일한 여러 이유로 **예상 오디언스**보다 낮을 수 있습니다. 여기에는 빈도 제한, 엄격한 기기 또는 브라우저 필터, 재적격 기간, 사용량 제한, 채널 수준 제외(예: 푸시 도달 가능성 또는 이메일 구독 및 전달 가능성 확인) 등이 포함됩니다.
 
 Canvas 고유의 요인도 적용됩니다:
 
@@ -109,7 +113,7 @@ Canvas 고유의 요인도 적용됩니다:
 - **최대 진입 또는 오디언스 제한:** 기본 Segment가 더 크더라도 진입 또는 전송 제한이 추가 사용자를 차단합니다.
 - **리포팅 기간:** 분석 범위에 추정치와 비교하는 모든 전송이 포함되지 않을 수 있습니다.
 
-### _고유 수신자_가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### _고유 수신자_가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 _고유 수신자_는 Braze가 Canvas 및 Campaign 리포팅에서 **일별 고유 수신자**를 추적하기 때문에 예상보다 높을 수 있습니다. 이는 사용자가 여정에서 메시지를 수신할 때마다 정확한 전환 기여도를 지원합니다.
 
@@ -161,6 +165,16 @@ _고유 수신자_는 Braze가 Canvas 및 Campaign 리포팅에서 **일별 고�
 ### Canvas 단계 전환율이 Canvas 배리언트 총 전환율과 같지 않은 이유는 무엇인가요? {#why-is-my-canvas-step-conversion-rate-not-equal-to-my-canvas-variant-total-conversion-rate}
 
 Canvas 배리언트의 전환 합계가 단계 합계의 합보다 큰 것은 일반적입니다. 이는 사용자가 배리언트에 진입하자마자 해당 배리언트에 대한 전환 이벤트를 수행할 수 있기 때문입니다. 그러나 이 동일한 전환 이벤트는 캔버스 단계에 대해서는 집계되지 않습니다. 따라서 Canvas에 진입하고 첫 번째 캔버스 단계를 수신하기 전에 전환 이벤트를 수행한 사용자는 배리언트 전환 합계에는 집계되지만 단계 합계에는 집계되지 않습니다. Canvas에 진입했지만 어떤 단계도 수신하기 전에 Canvas를 나간 사용자도 마찬가지입니다.
+
+사용자가 배리언트에 진입하고 어떤 단계에서도 메시지를 받지 않았지만 전환하는 경우도 가능합니다. 이 경우 단계 수준에서는 전환이 기록되지 않습니다. 그러나 사용자가 기술적으로 전환했기 때문에 Canvas 수준에서는 전환이 기록됩니다.
+
+### API 트리거 Canvas를 사용자가 수신했는지 어떻게 확인할 수 있나요? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+
+Canvas 필터를 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)하면 사용자가 Canvas에 진입했는지 또는 특정 캔버스 단계를 수신했는지 확인할 수 있습니다. 예를 들어, 사용자가 API 트리거 Canvas에 진입했는지 확인하려면 Canvas 진입 필터를 사용하고, Canvas에서 메시지를 수신했는지 확인하려면 수신 단계 필터를 사용하세요. 그런 다음 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하여 해당 Segment의 사용자를 내보낼 수 있습니다.
+
+### Canvas를 삭제할 수 있나요? {#can-i-delete-a-canvas}
+
+아니요. 하지만 [Canvas를 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving/)할 수 있습니다.
 
 ### 각 Canvas 구성요소의 분석을 어떻게 볼 수 있나요? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 

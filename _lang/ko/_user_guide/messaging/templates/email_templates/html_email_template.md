@@ -27,19 +27,19 @@ channel:
 
 ### 1단계: 이메일 템플릿 에디터로 이동 {#step-1-go-to-the-email-template-editor}
 
-**Templates** > **Email Templates**로 이동합니다.
+**콘텐츠** > **이메일**로 이동합니다. **이메일 템플릿 생성**을 선택합니다.
 
-### 2단계: 업로더 열기 {#step-2-open-the-uploader}
+### 2단계: 템플릿 세부 정보 추가 {#step-2-add-template-details}
 
-**Template Type** 섹션에서 **HTML Editor**를 선택하고 **Start from a Basic HTML Template** 섹션까지 아래로 스크롤합니다. **From File**을 선택합니다.
+템플릿 이름을 입력합니다. 선택 사항으로 설명, Teams, 태그를 추가할 수 있습니다.
 
 ### 3단계: 템플릿 업로드 {#step-3-upload-your-template}
 
-**Upload From File**을 선택하고 컴퓨터에서 템플릿을 선택합니다. 템플릿이 업로드 요구 사항을 충족하는지 [요구 사항](#upload-requirements) 섹션을 참조하세요.
+**템플릿 콘텐츠** 섹션에서 **HTML 코드 에디터** 타일 아래의 **파일 업로드**를 선택합니다. 컴퓨터에서 템플릿을 선택합니다. 템플릿이 업로드 요구 사항을 충족하는지 [요구 사항](#upload-requirements) 섹션을 참조하세요.
 
 ### 4단계: 템플릿 완성 및 저장 {#step-4-finish-and-save-your-template}
 
-**Save Template**을 선택하여 템플릿을 저장하세요. 이제 원하는 Campaign 또는 Canvas에서 이 템플릿을 사용할 준비가 되었습니다!
+**템플릿 저장**을 선택하여 템플릿을 저장하세요. 이제 원하는 Campaign 또는 Canvas에서 이 템플릿을 사용할 준비가 되었습니다.
 
 {% alert note %}
 기존 템플릿을 편집하면 해당 템플릿의 이전 버전을 사용하여 생성된 Campaign에는 변경 사항이 반영되지 않습니다.

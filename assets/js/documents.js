@@ -71,6 +71,9 @@ function string_to_slug(str) {
   }
   return str;
 }
+// TODO: The __algolia_user cookie and algolia_user variable below are remnants of Algolia
+// Insights tracking. The Algolia frontend has been removed; confirm with the team that this
+// cookie is no longer needed and remove in a follow-up PR.
 let algolia_user = Cookies.get('__algolia_user');
 if (!algolia_user){
   algolia_user = generateUUID();
@@ -143,7 +146,7 @@ var tab_track = {
   'bigquery': 'tb_data',
   'databricks': 'tb_data',
 }
-// Set cookie to auto expire after 30 days of inactivity
+// TODO: Remove this cookie set along with the algolia_user variable above in a follow-up PR.
 Cookies.set('__algolia_user', algolia_user, { expires: 30 });
 
 String.prototype.upCaseWord = function() {

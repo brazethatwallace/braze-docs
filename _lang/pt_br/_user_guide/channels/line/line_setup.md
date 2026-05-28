@@ -101,6 +101,10 @@ Após a conclusão do processo de integração, a Braze extrairá automaticament
 | Channel access token | Selecione seu provedor e acesse **Channels** > seu canal > **Messaging API**. Se não houver um channel access token, selecione **Issue**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2.1: Editar configurações de webhook" }
 
+{% alert note %}
+Se você precisar atualizar ou rotacionar o channel secret de um canal LINE já integrado, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/) para solicitar uma atualização.
+{% endalert %}
+
 {: start="3"}
 3. Acesse sua página **Settings** > **Response settings** e faça o seguinte:
    - Desative **Greeting message**. Isso pode ser gerenciado na Braze por meio de gatilho ao seguir.
@@ -285,10 +289,10 @@ Os IDs LINE são recebidos automaticamente pela Braze quando um usuário segue s
 
 Existem duas maneiras de combinar um ID LINE com um perfil de usuário existente na Braze:
 
-- [Login com LINE (LINE Login)](#line-login)
+- [Login com LINE](#line-login)
 - [Vinculação de conta de usuário](#user-account-linking)
 
-### Login com LINE (LINE Login) {#line-login}
+### Login com LINE {#line-login}
 
 Este método usa logins de redes sociais para reconciliação. Quando um usuário faz login no seu app, ele tem a opção de usar o [LINE Login](https://developers.line.biz/en/docs/line-login/overview/) para criar uma conta de usuário ou fazer login.
 

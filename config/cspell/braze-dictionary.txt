@@ -146,6 +146,7 @@ CCPA
 ccpa
 Celebrus
 centricity
+Certiverse
 Certona
 chatbots
 checkins
@@ -190,6 +191,7 @@ cutover
 DALL
 DATAEVENT
 datagrail
+dailyplay
 dataops
 Datashare
 datasharing
@@ -413,6 +415,7 @@ Kubit's
 Lemnisk
 Leste
 LGBTQ
+libphonenumber
 Lifecycles
 Lifesum
 LiftIgniter
@@ -612,6 +615,7 @@ reactnative
 reapproved
 rebalances
 Receipient's
+Recertification
 recherchez
 RECORDEVENT
 Recurly
@@ -722,6 +726,7 @@ snapshottable
 SNCM
 SNDS
 Snowflake
+Snowsight
 Snowpipe
 Snowpipes
 sobjects

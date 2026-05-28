@@ -9,13 +9,13 @@ description: "この記事には2020年4月のリリースノートが含まれ�
 
 ## Movable Inkのパートナーシップ {#movable-ink-partnership}
 
-Movable Inkは、プッシュ、アプリ内メッセージ、およびコンテンツカードCampaignsでカウントダウンタイマー、投票、スクラッチオフなどのインテリジェントクリエイティブ機能を使用する機能をBrazeのお客様に提供します。Movable InkとBrazeは、ダイナミックなデータドリブン型のメッセージに対するより包括的なアプローチを実現し、重要事項に関するリアルタイムのエレメントをユーザーに提供します。
+Movable Inkは、プッシュ、アプリ内メッセージ、およびコンテンツカードキャンペーンでカウントダウンタイマー、投票、スクラッチオフなどのインテリジェントクリエイティブ機能を使用する機能をBrazeのお客様に提供します。Movable InkとBrazeは、ダイナミックなデータドリブン型のメッセージに対するより包括的なアプローチを実現し、重要事項に関するリアルタイムのエレメントをユーザーに提供します。
 
-Campaignsに[Movable Inkを統合]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/movable_ink/)しましょう！
+キャンペーンに[Movable Inkを統合]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/movable_ink/)しましょう！
 
 ## インテリジェントタイミング {#intelligent-timing}
 
-Campaignのスケジュールを設定する場合、[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)（以前はインテリジェント配信）を使用して、Brazeが個人がエンゲージする可能性が最も高いと判断した時間に、各ユーザーへメッセージを配信できます。
+キャンペーンのスケジュールを設定する場合、[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)（以前はインテリジェント配信）を使用して、Brazeが個人がエンゲージする可能性が最も高いと判断した時間に、各ユーザーへメッセージを配信できます。
 
 この機能の更新内容は次のとおりです。
 - **サイレント時間の明確化**：サイレント時間機能に変更はありませんが、UIは明確化のために調整されています。
@@ -24,12 +24,12 @@ Campaignのスケジュールを設定する場合、[インテリジェント�
 
 ## Facebookオーディエンスエクスポート {#facebook-audience-export}
 
-Brazeでは、Braze Segmentsページからユーザーを手動でエクスポートしてFacebookカスタムオーディエンスを作成する機能を提供しています。これは1回限りの静的オーディエンスエクスポートであり、新しい[Facebookカスタムオーディエンス]({{site.baseurl}}/partners/facebook/)のみが作成されます。
+Brazeでは、Braze セグメントページからユーザーを手動でエクスポートしてFacebookカスタムオーディエンスを作成する機能を提供しています。これは1回限りの静的オーディエンスエクスポートであり、新しい[Facebookカスタムオーディエンス]({{site.baseurl}}/partners/facebook/)のみが作成されます。
 
 すべてのクラスタで利用可能な新しいBraze Facebookオーディエンスエクスポートプロセスは、明確な統合ステップでワークフローを合理化します。カスタムオーディエンスを送信するためにOAuth Redirect URIをホワイトリストに登録したり、統合するためにFacebookアプリ設定を調整したりする必要はなくなりました。
 
 {% alert important %}
-現在Facebookカスタムオーディエンスを使用しているすべてのクライアントは、これらの新しいステップを使用してBraze Segmentsを再統合する必要があることにご注意ください。
+現在Facebookカスタムオーディエンスを使用しているすべてのクライアントは、これらの新しいステップを使用してBraze セグメントを再統合する必要があることにご注意ください。
 {% endalert%}
 
 

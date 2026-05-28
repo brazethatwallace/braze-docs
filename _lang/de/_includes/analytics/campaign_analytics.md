@@ -5,9 +5,9 @@ Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kam
 {% alert tip %}
 Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe und Metriken? Sehen Sie sich unser
   {% if include.channel == "email" %}[E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/) an.
-  {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Bannern.
+  {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Banner.
   {% elsif include.channel == "Content Card" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Content Cards.
-  {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach In-App-Nachricht.
+  {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach In-App-Nachrichten.
   {% elsif include.channel == "push" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Push.
   {% elsif include.channel == "SMS" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach SMS/MMS und RCS.
   {% elsif include.channel == "whatsapp" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach WhatsApp.
@@ -35,6 +35,10 @@ Das Panel **Campaign Details** zeigt einen Überblick über die gesamte Performa
   {% endif %}
 
 In diesem Panel sehen Sie Gesamtmetriken wie die Anzahl der gesendeten Nachrichten, die Anzahl der Empfänger:innen, die primäre Konversionsrate und den Gesamtumsatz, der mit dieser Nachricht erzielt wurde. Auf dieser Seite können Sie auch die Einstellungen für Zustellung, Zielgruppe und Conversion überprüfen.
+
+{% alert note %}
+Die Analytics-Zahlen im Dashboard und in Snowflake können leicht voneinander abweichen. Braze misst die Zahlen im Dashboard und schreibt Zeilen separat nach Snowflake. Snowflake ist die präzisere Datenquelle. Wenn Sie Abweichungen zwischen diesen Quellen feststellen, empfehlen wir, sich auf die Snowflake-Daten zu beziehen.
+{% endalert %}
 
 {% if include.channel == "whatsapp" %}
 {% alert note %}
@@ -287,7 +291,7 @@ _Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind,
 
 Dies sind die wichtigsten Metriken, die Sie bei der Überprüfung der Performance Ihrer Banner-Kampagne im Blick behalten sollten. Klicks und Impressionen für Banner werden automatisch über das SDK getrackt.
 
-Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Bannern.
+Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Banner.
 
 <style>
     .no-split {
@@ -377,7 +381,7 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dieser Wert wird über einen Zeitraum von sieben Tagen für E-Mails getrackt und anhand der <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> gemessen. Dazu gehören auch Klicks auf die von Braze bereitgestellten Abmeldelinks. Dieser Wert sollte zwischen 5–10 % liegen. Alles über 10 % ist außergewöhnlich!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dieser Wert wird über einen Zeitraum von sieben Tagen für E-Mails getrackt und anhand der <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> gemessen. Dazu gehören auch Klicks auf die von Braze bereitgestellten Abmeldelinks. Dieser Wert sollte zwischen 5–10 % liegen. Alles über 10 % ist außergewöhnlich!
             </td>
         </tr>
         <tr>
@@ -481,7 +485,7 @@ Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-F
 
 Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten (siehe oben), können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
 
-Die _Estimated Real Open Rate_ wird 36 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 24 Stunden neu berechnet. Bei wiederkehrenden Kampagnen wird die Schätzung 36 Stunden nach einem weiteren Versand neu berechnet.
+Die _Estimated Real Open Rate_ wird 24 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 72 Stunden neu berechnet.
 
 Da diese Metrik kontinuierlich neu berechnet wird, kann sich der Wert der _Estimated Real Open Rate_ im Laufe der Zeit ändern, wenn neue Engagement-Signale (wie Öffnungen und Klicks) empfangen und in das Modell integriert werden. In der Praxis kann die _Estimated Real Open Rate_ täglich aktualisiert werden, solange eine Kampagne aktiv ist.
 
@@ -852,7 +856,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
 
 Im Panel **Historical Performance** können Sie die Metriken aus dem Panel **Message Performance** als Diagramm im Zeitverlauf betrachten. Verwenden Sie die Filter am oberen Rand des Panels, um die angezeigten Statistiken und Kanäle zu ändern. Der Zeitraum dieses Diagramms entspricht immer dem oben auf der Seite angegebenen Zeitraum.
 
-Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das <i class="fas fa-bars" aria-label="Navigationsmenü öffnen"></i> Hamburger-Menü und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
+Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das <i class="fas fa-bars"></i> Hamburger-Menü und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
 
 ![Ein Diagramm des Panels „Historical Performance“ mit Beispielstatistiken für eine E-Mail von Februar 2021 bis Mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

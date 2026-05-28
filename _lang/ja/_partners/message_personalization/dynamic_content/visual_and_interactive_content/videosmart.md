@@ -11,13 +11,13 @@ search_tag: Partner
 
 > [VideoSmart](https://www.videosmart.com/)は、パーソナライズされたインタラクティブな動画テクノロジーを提供し、データドリブン型のノンリニアコンテンツを大規模に配信できるようにします。各動画は顧客レベルのデータを使用して動的に生成され、単一の動画体験内でカスタマイズされたメッセージングとユーザージャーニーを実現します。
 >
-> VideoSmartとの連携により、BrazeのコネクテッドコンテンツとLiquidテンプレートを使用してVideoSmartから動画アセットをリクエストし、パーソナライズされた動画コンテンツをメールキャンペーンに埋め込むことができます。この連携は通常、再利用可能なBraze Content Blockテンプレートを通じて実装され、Campaigns全体で一貫したデプロイを可能にしながら、Campaignの選択やパーソナライゼーションロジックの柔軟性を維持します。
+> VideoSmartとの連携により、BrazeのコネクテッドコンテンツとLiquidテンプレートを使用してVideoSmartから動画アセットをリクエストし、パーソナライズされた動画コンテンツをメールキャンペーンに埋め込むことができます。この連携は通常、再利用可能なBraze Content Blockテンプレートを通じて実装され、キャンペーン全体で一貫したデプロイを可能にしながら、キャンペーンの選択やパーソナライゼーションロジックの柔軟性を維持します。
 
 _この連携はVideoSmartによって開発・維持されています。_
 
 ## この連携について {#about-this-integration}
 
-VideoSmartはBrazeと連携し、送信時にパーソナライズされた動画アセットを動的に生成し、BrazeのCampaignおよびCanvasのメールコンテンツに直接埋め込みます。
+VideoSmartはBrazeと連携し、送信時にパーソナライズされた動画アセットを動的に生成し、Brazeのキャンペーンおよびキャンバスのメールコンテンツに直接埋め込みます。
 
 Brazeでは、関連するVideoSmartキャンペーンを選択し、送信時にLiquidテンプレートを通じて顧客属性をVideoSmartに渡します。これらの属性は、各受信者に対してユニークでパーソナライズされた動画体験をレンダリングするために使用されます。その後、Brazeのコネクテッドコンテンツを使用して、VideoSmartのAPIからリアルタイムで動画URLやアセットをリクエストでき、スケーラブルなパーソナライゼーションが可能になります。
 
@@ -31,8 +31,8 @@ Brazeでは、関連するVideoSmartキャンペーンを選択し、送信時�
 - 顧客のオンボーディングとウェルカムジャーニー
 - 金融教育（年金や保険契約など）
 - 年次報告書と規制関連のコミュニケーション
-- 製品認知とクロスセルCampaigns
-- カスタマーリテンションと再エンゲージメントCampaigns
+- 製品認知とクロスセルキャンペーン
+- カスタマーリテンションと再エンゲージメントキャンペーン
 - 放棄カートリマインダー：顧客がカートに商品を追加したが購入しなかった場合、カートに残した商品をハイライトするパーソナライズされた動画付きのメールを送信します
 - 購入後のフォローアップ：購入後にパーソナライズされたお礼動画を送信し、関連商品をおすすめします
 
@@ -44,7 +44,7 @@ Brazeでは、関連するVideoSmartキャンペーンを選択し、送信時�
 | --- | --- |
 | Brazeコネクテッドコンテンツの認証情報 | VideoSmartから提供された値で設定された、**basic_credentials**という名前のコネクテッドコンテンツBasic認証の認証情報 |
 | **VideoSmart Content Block**テンプレート | Brazeダッシュボードに追加された**VideoSmart Content Block**テンプレート（VideoSmartから提供） |
-| Brazeメールメッセージ | **VideoSmart Content Block**を挿入するBraze CampaignメールまたはCanvasメールステップ |
+| Brazeメールメッセージ | **VideoSmart Content Block**を挿入するBraze キャンペーンメールまたはキャンバスメールステップ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 連携 {#integration}
@@ -68,15 +68,15 @@ Brazeで「basic_credentials」という名前のコネクテッドコンテン�
 
 動画コンテンツを表示したい場所に、**VideoSmart Content Block**をメールに挿入します。
 
-ほとんどのBrazeセットアップでは、Content Blocksは以下のパターンで参照されます（「VideoSmart_Campaign」をアカウント内のContent Block名に置き換えてください）。
+ほとんどのBrazeセットアップでは、Content Blocksは以下のパターンで参照されます（「VideoSmart_キャンペーン」をアカウント内のContent Block名に置き換えてください）。
 
-{% raw %}`{{content_blocks.${VideoSmart_Campaign}}}`{% endraw %}
+{% raw %}`{{content_blocks.${VideoSmart_キャンペーン}}}`{% endraw %}
 
 {% alert important %}
 Content Block名は大文字と小文字が区別され、Brazeで設定した名前と完全に一致する必要があります。
 {% endalert %}
 
-### ステップ 4：Campaignの上書きとレコードデータ（オプション） {#step-4-override-campaign-and-record-data-optional}
+### ステップ 4：キャンペーンの上書きとレコードデータ（オプション） {#step-4-override-campaign-and-record-data-optional}
 
 Content Blockがデフォルト値をサポートしている場合、変数を設定せずに使用できます。
 
@@ -128,7 +128,7 @@ Content Blockの実行後、メール内の他の場所で参照できる変数�
 
 VideoSmartのAPIには、1分あたり10,000リクエストのレート制限があります。この制限を超えると、エラーが発生したり、動画生成に遅延が生じたりする場合があります。
 
-このリスクを軽減するために、メッセージ送信レートがVideoSmart APIの容量を下回るようにBraze Campaignのレート制限を設定してください。
+このリスクを軽減するために、メッセージ送信レートがVideoSmart APIの容量を下回るようにBraze キャンペーンのレート制限を設定してください。
 
 配信速度とレート制限に関するBrazeのガイダンスについては、[配信速度とレート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting)を参照してください。
 

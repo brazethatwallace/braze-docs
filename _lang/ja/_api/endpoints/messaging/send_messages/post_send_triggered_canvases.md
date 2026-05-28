@@ -144,7 +144,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sen
 
 ## レスポンスの詳細 {#response-details}
 
-メッセージ送信エンドポイントのレスポンスには、メッセージのディスパッチを参照するための`dispatch_id`が含まれます。`dispatch_id`はメッセージディスパッチのIDです（Brazeプラットフォームから送信される各「送信」に固有のID）。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+メッセージ送信エンドポイントのレスポンスには、メッセージのディスパッチを参照するための`dispatch_id`が含まれます。`dispatch_id`はメッセージディスパッチのIDです（Brazeプラットフォームから送信される各「送信」に固有のID）。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 
 ### 成功レスポンスの例 {#example-success-response}
 

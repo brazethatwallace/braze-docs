@@ -23,7 +23,7 @@ Antes de empezar, necesitarás lo siguiente:
 
 ## Cómo funciona {#how-it-works}
 
-Cuando creas un agente, defines su propósito y estableces las pautas sobre cómo debe comportarse. Una vez que esté en vivo, el agente se puede implementar en Braze para generar textos personalizados, tomar decisiones en tiempo real o actualizar campos del catálogo. Puedes pausar o actualizar un agente en cualquier momento desde el dashboard.
+Cuando creas un agente, defines su propósito y estableces las pautas sobre cómo debe comportarse. Una vez que esté en vivo, el agente se puede implementar en Braze para generar textos personalizados, tomar decisiones en tiempo real o actualizar campos del catálogo. Mientras construyes tu agente, puedes guardarlo como borrador, y puedes pausar o actualizar un agente en cualquier momento desde el dashboard.
 
 Los siguientes casos de uso muestran algunas formas de aprovechar los agentes personalizados.
 
@@ -116,7 +116,8 @@ Evita decirle al agente exactamente lo que no quieres que haga. Los LLM pueden s
 
 ¡Tu agente ya está listo para usar! Para obtener más información, consulta [Implementar agentes]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
 
-## Artículos relacionados {#related-articles}
+## Recursos relacionados {#related-resources}
 
 - [Referencia para agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [Preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [Seminario web de Braze sobre IA en acción: 3 nuevos casos de uso para la personalización 1:1](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

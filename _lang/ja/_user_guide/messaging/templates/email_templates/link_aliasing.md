@@ -25,7 +25,7 @@ channel:
 
 ### 仕組み {#how-it-works}
 
-Brazeは、すべてのリンクURLに`lid`（リンク識別子とも呼ばれる）という追加パラメーターを付加することで、メール内のリンクを一意に識別します。この`lid`値により、URLの他のパラメーターが異なる場合でも、Brazeはリンクに対するユーザーインタラクションを追跡、監視、集計できます。これにより、メールCampaignのコンテンツに対するユーザーのエンゲージメントに関するインサイトが得られます。
+Brazeは、すべてのリンクURLに`lid`（リンク識別子とも呼ばれる）という追加パラメーターを付加することで、メール内のリンクを一意に識別します。この`lid`値により、URLの他のパラメーターが異なる場合でも、Brazeはリンクに対するユーザーインタラクションを追跡、監視、集計できます。これにより、メールキャンペーンのコンテンツに対するユーザーのエンゲージメントに関するインサイトが得られます。
 
 リンク識別子は、メールCampaign、メールメッセージを含むCanvas、またはContent Blocksが複製された場合にも更新されます。
 
@@ -68,10 +68,6 @@ Brazeは、すべてのリンクURLに`lid`（リンク識別子とも呼ばれ�
 
 1. **設定** > **ワークスペース設定**の**メール設定**に移動します。
 2. **リンクエイリアス設定**タブを選択します。
-
-{% alert important %}
-[旧ナビゲーション]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/)を使用している場合、これらの設定は**設定の管理**にあります。
-{% endalert %}
 
 ここでは、リンクエイリアスの並べ替え、検索、およびトラッキングのオン/オフを切り替えることができます。
 
@@ -210,7 +206,7 @@ Brazeでは、メールにリンクエイリアスがあり、ユーザーがそ
 ```
 
 {% alert update %}
-`dispatch_id`の動作は、CanvasとCampaignで異なります。Brazeは、Canvasステップ（エントリステップを除く。エントリステップはスケジュール可能）を、「スケジュール済み」であってもトリガーイベントとして扱います。CanvasおよびCampaignにおける[`dispatch_id`の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)の詳細をご覧ください。
+`dispatch_id`の動作は、CanvasとCampaignで異なります。Brazeは、キャンバスステップ（エントリステップを除く。エントリステップはスケジュール可能）を、「スケジュール済み」であってもトリガーイベントとして扱います。CanvasおよびCampaignにおける[`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)の詳細をご覧ください。
 
 _2019年8月に更新。_
 {% endalert %}
@@ -262,7 +258,9 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 
 ### Content Blocksの例 {#content-block-example}
 
+{% raw %}
 Content Blocksに`https://www.braze.com/{{custom_attribute.${offer_id}}}`のようなリンクが含まれており、末尾に`?`または`&`がない場合、Brazeは`lid`を付加する場所がわからないため、リンクは**リンク管理**に取得されません。Content Block内のURLの末尾に`?`または`&`を追加し（クエリ文字列がすでに存在するかどうかに応じて）、Content Blocksを保存すると、リンクが認識されるようになります。
+{% endraw %}
 
 ### ユーザーごとにURLが異なる場合のレポート {#reporting-when-the-url-varies-per-user}
 

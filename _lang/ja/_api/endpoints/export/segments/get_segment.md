@@ -49,7 +49,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "segments" : [
         {
-            "id" : (string) the Segment API identifier,
+            "id" : (string) the セグメント API identifier,
             "name" : (string) segment name,
             "analytics_tracking_enabled" : (boolean) whether the segment has analytics tracking enabled,
             "tags" : (array) the tag names associated with the segment formatted as strings

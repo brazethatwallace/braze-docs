@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar o status do grupo de inscrições do usuário\"."
 ---
+
 {% api %}
 # Atualizar o status do grupo de inscrições do usuário {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 {% alert note %}
 Se você estiver interessado em usar esse endpoint com [grupos de inscrição LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Limite de taxa {#rate-limit}
 

@@ -29,6 +29,25 @@
 
 ### コンテンツとレンダリング {#content-and-rendering}
 
+{% if include.combined_content_rendering %}
+
+| `abort_type` の値 | 説明 |
+| --- | --- |
+| `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)がサポートされていないため、メッセージが中止されました。 |
+| `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
+| `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
+| `blacklisted_media_url` | メディアURLがブロックリストに登録されており、メッセージで使用できません。 |
+| `blocked_media_url` | メディアURLがセキュリティポリシーによりブロックされました。 |
+| `invalid_media_url` | メディアURLが無効であるか、解決できませんでした。 |
+| `ssl_error` | リクエスト中にSSLエラーが発生しました。 |
+| `invalid_http_status` | HTTPリクエストが失敗のステータスコードを返しました。 |
+| `http_timeout` | HTTPリクエストが応答を受信する前にタイムアウトしました。 |
+| `missing_hostname` | リクエストURLにホスト名がありません。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+
+{% else %}
+
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
@@ -36,14 +55,43 @@
 | `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
 | `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
-{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | メディアURLがブロックリストに登録されており、メッセージで使用できません。 |
+
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}
+{% unless include.combined_content_rendering %}
+
+| `abort_type` の値 | 説明 |
+| --- | --- |
+| `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)がサポートされていないため、メッセージが中止されました。 |
+| `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
+| `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
+| `blacklisted_media_url` | メディアURLがブロックリストに登録されており、メッセージで使用できません。 |
 | `blocked_media_url` | メディアURLがセキュリティポリシーによりブロックされました。 |
-| `invalid_media_url` | メディアURLが無効であるか、解決できませんでした。 |{% endif %}
-{% if ch == "all" or ch == "email" or ch == "webhook" %}| `ssl_error` | リクエスト中にSSLエラーが発生しました。 |
+| `invalid_media_url` | メディアURLが無効であるか、解決できませんでした。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering media URLs" }
+
+{% endunless %}
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "webhook" %}
+{% unless include.combined_content_rendering %}
+
+| `abort_type` の値 | 説明 |
+| --- | --- |
+| `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)がサポートされていないため、メッセージが中止されました。 |
+| `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
+| `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
+| `ssl_error` | リクエスト中にSSLエラーが発生しました。 |
 | `invalid_http_status` | HTTPリクエストが失敗のステータスコードを返しました。 |
 | `http_timeout` | HTTPリクエストが応答を受信する前にタイムアウトしました。 |
-| `missing_hostname` | リクエストURLにホスト名がありません。 |{% endif %}
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+| `missing_hostname` | リクエストURLにホスト名がありません。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering HTTP and SSL" }
+
+{% endunless %}
+{% endif %}
 
 {% endunless %}
 

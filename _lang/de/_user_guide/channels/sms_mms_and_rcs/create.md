@@ -154,7 +154,7 @@ RCS-Textnachrichten konzentrieren sich auf Text als Medium. Wenn Ihre Nachricht 
 - In einigen Fällen kann es kostengünstiger sein, längere reine Textnachrichten über RCS statt per SMS zu senden, da längere SMS-Nachrichten in mehrere abrechnungsfähige Segmente aufgeteilt werden, während RCS-Nachrichten pro Nachricht abgerechnet werden.
 
 {% endsubtab %}
-{% subtab Media %}
+{% subtab Medien %}
 
 RCS-Mediennachrichten ermöglichen es Ihnen, ansprechende Medienformate zu verwenden, die mit SMS nicht möglich sind, einschließlich Bild-, Video- und Dokumentdateien.
 
@@ -267,7 +267,7 @@ Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitte
 
 Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Für aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) festlegen.
+Für aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) festlegen.
 
 In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) werden können, die Campaign zu erhalten, oder ob [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln aktiviert werden sollen.
 

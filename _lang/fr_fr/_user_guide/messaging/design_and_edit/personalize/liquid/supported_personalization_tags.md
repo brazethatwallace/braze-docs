@@ -40,19 +40,19 @@ Pour plus de commodité, voici un résumé des étiquettes de personnalisation p
 
 Les attributs de Campaign, de carte et de Canvas ne sont pris en charge que dans leurs modèles de messages correspondants (par exemple, `dispatch_id` n'est pas disponible dans les Campaigns de messages in-app).
 
-Consultez cet article d'aide pour en savoir plus sur [les différences entre certains de ces attributs selon les sources dans Braze]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/).
+Pour plus de détails, consultez [Attributs de Campaign et de Canvas selon les sources]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 
 ### Différences entre les étiquettes Canvas et Campaign {#canvas-and-campaign-tag-differences}
 
 Le comportement des étiquettes suivantes diffère entre Canvas et les Campaigns :
 {% raw %}
-- Le comportement de `dispatch_id` diffère car Braze traite les étapes Canvas comme des événements déclenchés, même lorsqu'elles sont « planifiées » (à l'exception des étapes d'entrée, qui peuvent être planifiées). Pour en savoir plus, consultez [Comportement du dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+- Le comportement de `dispatch_id` diffère car Braze traite les étapes Canvas comme des événements déclenchés, même lorsqu'elles sont « planifiées » (à l'exception des étapes d'entrée, qui peuvent être planifiées). Pour en savoir plus, consultez [Comportement du dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 - L'utilisation de l'étiquette `{{campaign.${name}}}` avec Canvas affiche le nom du composant Canvas. Lorsque vous utilisez cette étiquette avec des Campaigns, elle affiche le nom de la Campaign.
 {% endraw %}
 
 ## Informations sur l'appareil le plus récemment utilisé {#most-recently-used-device-information}
 
-Vous pouvez utiliser les attributs suivants comme modèles pour l'appareil le plus récent de l'utilisateur sur toutes les plateformes. Si un utilisateur n'a pas utilisé votre application (par exemple, si vous avez importé l'utilisateur via l'API REST), toutes ces valeurs sont `null`.
+Vous pouvez utiliser les attributs suivants comme modèles pour l'appareil le plus récent de l'utilisateur sur toutes les plateformes. Si un utilisateur n'a pas utilisé votre application (par exemple, si vous avez importé l'utilisateur via la REST API), toutes ces valeurs sont `null`.
 
 {% raw %}
 
