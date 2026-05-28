@@ -126,7 +126,7 @@ By default, Braze automatically converts emails from Shopify to lowercase before
 | --- | --- | --- | 
 | Email subscriber collection |  {::nomarkdown}<ul><li>Override for global email subscription state</li><li>Ability to assign one or more subscription groups</li><li>No default subscription group for the integration for the connected Shopify store</li></ul>{:/} | {::nomarkdown}<ul><li>Deprecated override functionality</li><li>A default subscription group will be created as part of the upgrade</li><li>Ability to assign additional subscription groups</li></ul>{:/} |
 | SMS subscriber collection |  {::nomarkdown}<ul><li>Required to assign one or more subscription groups</li><li>No default subscription group for the integration for the connected Shopify store</li></ul>{:/} | {::nomarkdown}<ul><li>A default subscription group will be created as part of the upgrade</li><li>Ability to assign additional subscription groups</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Subscriber collection" }
 
 {% alert note %}
 If you're currently collecting email or SMS subscribers, a new default subscription group will be created after the upgrade is completed. The default subscription group will be the name of your Shopify storefront. This process may take up to 5 hours. <br><br>After the subscription groups are available, make sure to include them in your active campaigns, Segments, or Canvases to effectively reach your subscribed shoppers.
