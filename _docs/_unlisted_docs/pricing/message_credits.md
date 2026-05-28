@@ -68,7 +68,7 @@ Message Credits:
 </select><br />
 Credit Unit Rates: <input type="text" id="credit_rate" value="0" />
 <div id="message_error"></div><br /><br />
-<table>
+<table aria-label="Message Credits - Calculator">
   <tr>
     <th>
       Channel
