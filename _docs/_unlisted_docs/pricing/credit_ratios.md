@@ -12,7 +12,7 @@ hidden: true
 ## Credit Ratio Table
 
 {% details Click to expand %}
-<table>
+<table aria-label="Credit Ratio Table">
     <colgroup>
         <col span="3" style="background-color:#FFFFFF;">
         <col style="background-color:#f0f0f5">
