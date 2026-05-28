@@ -1,7 +1,11 @@
 ---
-description: Reference Braze SDK and product repos for verifying docs content
-alwaysApply: true
+name: reference-repos
+description: >
+  Verifies Braze documentation against sibling SDK, platform, and tooling repos as source of truth.
+  Use when verifying product behavior, APIs, SDK behavior, cross-referencing docs with source code,
+  documenting limits from code, or when the user mentions @reference-repos or reference repos.
 ---
+
 # Reference repos for content verification
 
 When verifying documentation (SDK behavior, APIs, product behavior), use the following repos in this workspace as source-of-truth. Prefer searching and citing these over docs alone.

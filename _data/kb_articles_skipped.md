@@ -4,7 +4,7 @@ Generated from `_data/kb_articles.csv` on **2026-05-18 16:14 UTC**.
 
 **Do not hand-edit this file** — it is overwritten by `python3 scripts/generate_kb_phase1_outputs.py` (repo root). Update the CSV (or epic ID list), then re-run that script; the companion `_data/kb_articles_actioned.md` file is refreshed in the same run.
 
-Rows listed here **did not** pass automated Phase 1 gates in `.cursor/rules/salesforce-analyzer.mdc`. The **actionable** queue (rows that *did* pass) lives in `_data/kb_articles_actioned.md`. Rows skipped only because they appear in `_data/kb_epic_bd6308.txt` would otherwise be actionable — they are excluded so this list does not duplicate Jira Epic **BD-6308** in-flight work. Redundant-with-live-docs, bug-workaround-only, and other **manual** Phase 1 checks are **not** applied here.
+Rows listed here **did not** pass automated Phase 1 gates in `.github/skills/salesforce-migration/SKILL.md`. The **actionable** queue (rows that *did* pass) lives in `_data/kb_articles_actioned.md`. Rows skipped only because they appear in `_data/kb_epic_bd6308.txt` would otherwise be actionable — they are excluded so this list does not duplicate Jira Epic **BD-6308** in-flight work. Redundant-with-live-docs, bug-workaround-only, and other **manual** Phase 1 checks are **not** applied here.
 
 **Totals:** 246 CSV rows — **25 actionable**, **221 skipped**.
 
@@ -474,7 +474,7 @@ Rows listed here **did not** pass automated Phase 1 gates in `.cursor/rules/sale
 - **`ka0VP000000TyjxYAC`** — Snowflake Query - Obtaining Unique Email Opens
   - *Explanation:* Outcome surface for the row is unclear; do not open a Phase 2 docs PR without analyst override.
 
-## `implementation_status` first line is `made it "internal only"` — unlisted or non-public disposition; default skip per salesforce-analyzer rule.
+## `implementation_status` first line is `made it "internal only"` — unlisted or non-public disposition; default skip per salesforce-migration skill.
 
 **Count:** 1
 

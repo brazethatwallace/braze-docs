@@ -1,9 +1,9 @@
 ---
-description: "Use when analyzing Braze support case CSVs to find documentation gaps, triage tickets (Docs Gap, Docs Discrepancy, New Feature, etc.), verify behavior against source, and draft or propose docs updates in _docs. Apply when the user asks to analyze support tickets, run the support analyzer, or draft docs from a CSV in _data."
-globs:
-  - "_data/**/*.csv"
-  - "_docs/**/*.md"
-alwaysApply: false
+name: support-analyzer
+description: >
+  Analyzes Braze support case CSVs to find documentation gaps, triages tickets, verifies behavior against source,
+  and drafts docs updates in _docs. Use when analyzing support tickets, running the support analyzer,
+  triaging Looker exports on support-analyzer-data, or drafting docs from _data support CSVs.
 ---
 
 # Drafting docs updates from support tickets
@@ -17,7 +17,7 @@ Use support-case exports to find doc gaps, triage by category, verify against pr
 | Path | What it does | When to use it |
 |------|----------------|----------------|
 | **CI — Support analyzer (Looker)** | Looker → CSV on `support-analyzer-data` → digest MD + artifact → optional **Phase 2** draft PRs from [`.github/support_analyzer_phase2_rules.yml`](.github/support_analyzer_phase2_rules.yml) → may close digest PR | Recurring themes; allowlisted inserts; no per-ticket judgment |
-| **Manual — this rule (Steps 1–8)** | Full triage, source verification, custom targets, style decisions | Themes outside YAML rules, ambiguous tickets, docs discrepancies |
+| **Manual — this skill (Steps 1–8)** | Full triage, source verification, custom targets, style decisions | Themes outside YAML rules, ambiguous tickets, docs discrepancies |
 
 Before investing manual triage, check whether the theme belongs in **Phase 2 rules** (regex + anchored snippets + optional `verification` / `rg` when a product checkout exists locally, for example `../platform`). Prefer one YAML rule over duplicating automation in ad-hoc analysis.
 
@@ -35,7 +35,7 @@ Workflow file: [`.github/workflows/export-support-cases-from-looker.yml`](.githu
 4. **Close digest PR** — If a digest PR was opened **and** Phase 2 **succeeded**, that digest PR is closed automatically; the digest remains in the **artifact**.
 5. **Slack (`notify`)** — Posts to **#docs_request** via Docs PR Bot when configured (`SLACK_BOT_TOKEN`, `SLACK_DOCS_REQUEST_CHANNEL` channel ID; optional fallback `SLACK_DEPLOY_NOTIFY_CHANNEL`). **Failures** in export, digest, Phase 2, or close-digest post `:x:` with the workflow run link. **Success with Phase 2 PRs** lists each draft PR and **@mentions** assignees (Slack member lookup by GitHub username, with optional `SUPPORT_ANALYZER_GITHUB_TO_SLACK` JSON override). Digest-only runs (no matching Phase 2 rules) post a short success note when a digest PR was opened.
 
-**Phase 2 and product source:** The Looker workflow does **not** clone `Appboy/platform` (or other product repos). Per-rule **`verification`** in `.github/support_analyzer_phase2_rules.yml` runs **ripgrep** only when the referenced root (for example `platform/`) exists—for example on a developer machine with [reference-repos](.cursor/rules/reference-repos.mdc). In GitHub Actions those checks are typically skipped. Use **`verification.required: true`** only in environments where that checkout is always present.
+**Phase 2 and product source:** The Looker workflow does **not** clone `Appboy/platform` (or other product repos). Per-rule **`verification`** in `.github/support_analyzer_phase2_rules.yml` runs **ripgrep** only when the referenced root (for example `platform/`) exists—for example on a developer machine with [reference-repos](../reference-repos/SKILL.md). In GitHub Actions those checks are typically skipped. Use **`verification.required: true`** only in environments where that checkout is always present.
 
 **Manual / local CSV:** Export from the [Support Cases dashboard](https://braze.looker.com/x/4git0QPwJ9xjVtdBphbkPE) or Snowflake; save under `_data/` (or path you pass in the prompt). Default Look export window is defined in Looker (e.g. recent resolved cases), not in this repo.
 
@@ -44,7 +44,7 @@ Workflow file: [`.github/workflows/export-support-cases-from-looker.yml`](.githu
 ## PII and public output
 
 - Treat CSV and message bodies as **sensitive**. Do not paste raw case text, customer names, or emails into **public** PRs, issues, or external posts.
-- For **public** PR descriptions, never list internal paths under `platform` or SDK repos. Use **Verified against Braze source code.** per [reference-repos](.cursor/rules/reference-repos.mdc). Internal paths may appear in **Cursor chat / local notes** or **workflow artifacts**, not customer-facing copy.
+- For **public** PR descriptions, never list internal paths under `platform` or SDK repos. Use **Verified against Braze source code.** per [reference-repos](../reference-repos/SKILL.md). Internal paths may appear in **Cursor chat / local notes** or **workflow artifacts**, not customer-facing copy.
 
 ---
 
@@ -84,7 +84,7 @@ For each **unique Case ID**, decide if docs work is needed:
 For each **actionable** ticket:
 
 1. **Extract Q&A** — Distill the core question and resolution from the message thread.
-2. **Verify** — Cross-check behavior against main product source (local workspace: `../platform` when using [reference-repos](.cursor/rules/reference-repos.mdc) layout). Do not rely on support text or docs alone. If you verified behavior against source, say so in your analysis; if you could not verify, say that explicitly. For **public** PR descriptions and customer-facing copy, never paste internal `platform` or SDK repository paths—use **Verified against Braze source code.** per [reference-repos](.cursor/rules/reference-repos.mdc).
+2. **Verify** — Cross-check behavior against main product source (local workspace: `../platform` when using [reference-repos](../reference-repos/SKILL.md) layout). Do not rely on support text or docs alone. If you verified behavior against source, say so in your analysis; if you could not verify, say that explicitly. For **public** PR descriptions and customer-facing copy, never paste internal `platform` or SDK repository paths—use **Verified against Braze source code.** per [reference-repos](../reference-repos/SKILL.md).
 3. **Identify target** — Which existing `_docs` page to update (or flag a new location).
 4. **Record case IDs** — For traceability in PR bodies (Salesforce links only; see Step 7).
 
@@ -176,7 +176,7 @@ If [`.github/CODEOWNERS`](.github/CODEOWNERS) lists owners for the paths you cha
 
 | Context | Product source |
 |---------|----------------|
-| Local Cursor + [reference-repos](.cursor/rules/reference-repos.mdc) | `../platform` (sibling clone) |
+| Local Cursor + [reference-repos](../reference-repos/SKILL.md) | `../platform` (sibling clone) |
 | GitHub Actions Phase 2 | No product-repo checkout; optional `verification` is skipped unless you change the workflow |
 
 ---
@@ -184,10 +184,10 @@ If [`.github/CODEOWNERS`](.github/CODEOWNERS) lists owners for the paths you cha
 ## Example prompts
 
 ```
-@support-analyzer.mdc Analyze the CSV in _data/ and draft docs updates.
+@support-analyzer Analyze the CSV in _data/ and draft docs updates.
 Focus on [product area] if applicable.
 ```
 
 ```
-@support-analyzer.mdc After reviewing the latest weekly digest, triage cases that are not covered by .github/support_analyzer_phase2_rules.yml and propose manual doc updates.
+@support-analyzer After reviewing the latest weekly digest, triage cases that are not covered by .github/support_analyzer_phase2_rules.yml and propose manual doc updates.
 ```

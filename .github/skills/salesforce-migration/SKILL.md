@@ -1,5 +1,9 @@
 ---
-alwaysApply: false
+name: salesforce-migration
+description: >
+  Analyzes Jira Salesforce Knowledge Base migration tickets and SF KB CSV exports to find doc gaps and draft updates.
+  Use for SF migration Phase 1 triage, Phase 2 drafting, _data/sf_migration_tasks.xml, sf_kb_articles.csv,
+  or kb_articles.csv backlog work.
 ---
 
 # Drafting docs updates from Jira SF migration tickets
@@ -302,12 +306,12 @@ For each ticket or KB article where content is available (from CSV or user):
 
 ### B. Use reference repos to shape the draft
 
-Follow [`.cursor/rules/reference-repos.mdc`](.cursor/rules/reference-repos.mdc). Reference repos are the **source of truth for what to write**, not only a post-draft check.
+Follow [`../reference-repos/SKILL.md`](../reference-repos/SKILL.md). Reference repos are the **source of truth for what to write**, not only a post-draft check.
 
 1. **Select repo(s)** before drafting — e.g. `platform` for dashboard/product rules (`shared_code/domains/` first), SDK folders for client behavior, `liquid` for templating, `grapesjs` for editor UI.
 2. **Update repos** — Run `git pull --ff-only` in each sibling repo you will search (only those needed for this vertical).
 3. **Research behavior** — Confirm APIs, limits, UI labels (`dashboard/app/javascript/src/`), error messages, and feature flags. Use feature naming (Canvas → `canvas`, Campaigns → `campaign`, etc.).
-4. **Draft from verified facts** — Write steps, limitations, and metric definitions that match code. If the SF article contradicts source, prefer source and [flag the discrepancy](.cursor/rules/reference-repos.mdc); do not silently copy outdated SF text.
+4. **Draft from verified facts** — Write steps, limitations, and metric definitions that match code. If the SF article contradicts source, prefer source and [flag the discrepancy](../reference-repos/SKILL.md); do not silently copy outdated SF text.
 5. **Unverified claims** — If behavior cannot be found in source, keep prose minimal and do not claim verification in the PR.
 
 ### C. Write for Braze Docs
@@ -500,37 +504,37 @@ Use [`.github/support_analyzer_doc_assignees.csv`](.github/support_analyzer_doc_
 ### Phase 1: Triage and prioritize
 
 ```
-@salesforce-analyzer.mdc Run Phase 1 on the Jira XML export.
+@salesforce-migration Run Phase 1 on the Jira XML export.
 Focus on [specific product area or priority level] if applicable.
 ```
 
 ```
-@salesforce-analyzer.mdc Run Phase 1 on only P1 tickets from the Jira XML.
+@salesforce-migration Run Phase 1 on only P1 tickets from the Jira XML.
 ```
 
 ```
-@salesforce-analyzer.mdc Run Phase 1 on tickets assigned to the Currents team.
+@salesforce-migration Run Phase 1 on tickets assigned to the Currents team.
 ```
 
 ### Phase 2: Draft updates (auto-lookup from CSV)
 
 ```
-@salesforce-analyzer.mdc Run Phase 2 for BD-4670.
+@salesforce-migration Run Phase 2 for BD-4670.
 ```
 
 ```
-@salesforce-analyzer.mdc Run Phase 2 for the top 5 tickets by linked issues.
+@salesforce-migration Run Phase 2 for the top 5 tickets by linked issues.
 ```
 
 ```
-@salesforce-analyzer.mdc Run Phase 2 for all matched Email team tickets (one PR per vertical).
+@salesforce-migration Run Phase 2 for all matched Email team tickets (one PR per vertical).
 ```
 
 ```
-@salesforce-analyzer.mdc Run Phase 2 for the Canvas vertical batch from Phase 1.
+@salesforce-migration Run Phase 2 for the Canvas vertical batch from Phase 1.
 ```
 
 ```
-@salesforce-analyzer.mdc Run Phase 2 for BD-4670. The CSV didn't have a match, so here is the SF article content:
+@salesforce-migration Run Phase 2 for BD-4670. The CSV didn't have a match, so here is the SF article content:
 [paste article content here]
 ```

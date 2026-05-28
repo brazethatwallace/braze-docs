@@ -1,7 +1,9 @@
 ---
-description: "Verify Braze docs against platform source code to find discrepancies, draft updates, and open PRs. Use when asked to verify docs, cross-reference docs with source, find docs gaps, or update docs from product behavior."
-globs: _docs/**/*.md
-alwaysApply: false
+name: docs-discrepancies
+description: >
+  Verifies Braze docs against platform source code, finds gaps and discrepancies, drafts updates, and opens PRs.
+  Use when asked to verify docs against source, find docs gaps, cross-reference docs with product behavior,
+  or run docs discrepancy workflows on _docs markdown files.
 ---
 
 # Identify and update docs discrepancies against source code
@@ -14,7 +16,7 @@ Verify Braze docs against source code to identify discrepancies and propose docs
 
 For the .md file in `_docs/*`:
 1. **Extract Product Behavior** - Distill the page down to a set of product and platform behaviors that need to be verified.
-2. **Verify Product Behavior** - Cross-reference with source code of the Main Product at `../platform`. Do not rely on other documentation to verify. Always cross-reference with source code. If you can verify the resolution against the source code, add a reference to the source file(s). If you cannot verify the resolution, say that you could not verify the resolution against the source code.
+2. **Verify Product Behavior** - Cross-reference with source code per the [reference-repos](../reference-repos/SKILL.md) skill (Main Product at `../platform`). Do not rely on other documentation to verify. Always cross-reference with source code. If you can verify the resolution against the source code, add a reference to the source file(s). If you cannot verify the resolution, say that you could not verify the resolution against the source code.
 3. **Identify Target** - Which existing doc page should be updated? (or flag as new page)
 4. **Suggest Changes** - Which changes should be made to the existing doc?
 
@@ -79,8 +81,8 @@ Cursor identifies team members based on the CODEOWNERS file. If no owner is foun
 ## Example Prompt
 
 ```
-@find-docs-discrepancies.mdc Identify discrepancies for each .md file in `_docs/*`
+@docs-discrepancies Identify discrepancies for each .md file in `_docs/*`
 
-@find-docs-discrepancies.mdc Identify discrepancies for ai.md
+@docs-discrepancies Identify discrepancies for ai.md
 
 ```

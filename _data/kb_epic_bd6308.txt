@@ -2,7 +2,7 @@
 #
 # Sources (union):
 # - Jira: `"Epic Link" = BD-6308` → extract `ka…` tokens from issue descriptions
-# - Phase 2: append each `article_id` when a docs PR is opened (see `.cursor/rules/salesforce-analyzer.mdc`)
+# - Phase 2: append each `article_id` when a docs PR is opened (see `.github/skills/salesforce-migration/SKILL.md`)
 #
 # Phase 1 excludes these IDs from `_data/kb_articles_actioned.md` when they would otherwise be
 # actionable, so the queue does not duplicate in-flight or completed migration work.
