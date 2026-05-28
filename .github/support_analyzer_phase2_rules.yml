@@ -19,7 +19,7 @@
 # environment with a checkout. Set `required: true` only when that environment
 # is guaranteed. Patterns use ripgrep regex.
 #
-# CSV columns (Looker export): see .cursor/rules/support-analyzer.mdc
+# CSV columns (Looker export): see .github/skills/support-analyzer/SKILL.md
 version: 1
 
 rules:
