@@ -118,7 +118,7 @@ By default, Braze automatically converts emails from Shopify to lowercase before
 | Attributes | {::nomarkdown}<ul><li>shopify_last_order_name</li></ul>{:/}| {::nomarkdown}<ul><li>No changes</li></ul>{:/}|
 | Attributes | {::nomarkdown}<ul><li>shopify_zipcode</li></ul>{:/}| {::nomarkdown}<ul><li>No changes</li></ul>{:/}|
 | Attributes | {::nomarkdown}<ul><li>shopify_province</li></ul>{:/}| {::nomarkdown}<ul><li>No changes</li></ul>{:/}|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported Shopify events" }
 
 ### Subscriber collection 
 
