@@ -345,6 +345,40 @@ def _has_style_findings(
     return posted > 0 or bool(fallback) or bool(summary_notes)
 
 
+def _list_pr_comments_with_marker() -> list[dict]:
+    owner, repo = REPO.split("/", 1)
+    result = subprocess.run(
+        [
+            "gh",
+            "api",
+            f"repos/{owner}/{repo}/issues/{PR_NUMBER}/comments",
+            "--paginate",
+        ],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    comments = json.loads(result.stdout)
+    return [c for c in comments if SUMMARY_MARKER in (c.get("body") or "")]
+
+
+def _delete_issue_comment(comment_id: int) -> None:
+    owner, repo = REPO.split("/", 1)
+    subprocess.run(
+        [
+            "gh",
+            "api",
+            "--method",
+            "DELETE",
+            f"repos/{owner}/{repo}/issues/comments/{comment_id}",
+        ],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+
 def sync_summary_comment(
     posted: int,
     fallback: list[dict],
@@ -382,11 +416,13 @@ def sync_summary_comment(
         )
         lines.append("")
 
+    short_sha = HEAD_SHA[:7] if HEAD_SHA else "unknown"
     lines.extend(
         [
             f"- **Files reviewed:** {len(files_reviewed)}",
             f"- **Inline suggestions posted:** {posted}",
             f"- **Model:** `{REVIEW_MODEL}`",
+            f"- **Last run (commit):** `{short_sha}`",
             "",
         ]
     )
@@ -420,28 +456,23 @@ def sync_summary_comment(
 
     body = "\n".join(lines)
 
-    list_result = subprocess.run(
-        [
-            "gh",
-            "api",
-            f"repos/{owner}/{repo}/issues/{PR_NUMBER}/comments",
-            "--paginate",
-        ],
-        capture_output=True,
-        text=True,
-        check=True,
-    )
-    comments = json.loads(list_result.stdout)
-    existing = next((c for c in comments if SUMMARY_MARKER in (c.get("body") or "")), None)
+    # One summary comment per PR: replace content on every run (pass ↔ findings).
+    marked = _list_pr_comments_with_marker()
+    if len(marked) > 1:
+        marked.sort(key=lambda c: c["id"])
+        for duplicate in marked[:-1]:
+            _delete_issue_comment(duplicate["id"])
+            print(f"Removed duplicate summary comment {duplicate['id']}")
 
-    if existing:
+    if marked:
+        target = marked[-1]
         subprocess.run(
             [
                 "gh",
                 "api",
                 "--method",
                 "PATCH",
-                f"repos/{owner}/{repo}/issues/comments/{existing['id']}",
+                f"repos/{owner}/{repo}/issues/comments/{target['id']}",
                 "--input",
                 "-",
             ],
@@ -451,7 +482,7 @@ def sync_summary_comment(
             text=True,
             check=True,
         )
-        print(f"Updated summary comment {existing['id']}")
+        print(f"Updated summary comment {target['id']} (replaced prior message for this run)")
     else:
         subprocess.run(
             [
@@ -516,9 +547,16 @@ def main() -> None:
     summary_notes = [str(s).strip() for s in summary_notes if str(s).strip()]
 
     print(f"Model returned {len(validated)} valid inline suggestion(s)")
-    posted, fallback = post_pull_request_review(validated, summary_notes)
+    has_findings = bool(validated) or bool(summary_notes)
+    if has_findings:
+        posted, fallback = post_pull_request_review(validated, summary_notes)
+        print(f"Posted {posted} inline suggestion(s) on the PR diff.")
+    else:
+        posted, fallback = 0, []
+        print("No findings; skipping PR review (pass/fail only in summary comment).")
+
     sync_summary_comment(posted, fallback, summary_notes, files)
-    print(f"Done. Posted {posted} inline suggestion(s).")
+    print("Summary comment updated for this commit.")
 
 
 if __name__ == "__main__":
