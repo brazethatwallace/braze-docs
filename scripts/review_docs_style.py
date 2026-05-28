@@ -78,6 +78,8 @@ Respond with ONLY valid JSON (no markdown fences). Schema:
 }
 
 - "line" is the 1-based line number on the RIGHT (new) side of the diff.
+- Only suggest lines that appear in the unified diff (added or context lines within a hunk).
+  GitHub cannot attach inline comments to unchanged lines outside the PR diff.
 - "suggested_line" must be the complete line after your edit (not a fragment).
 - Only include inline items when you are confident and the fix is a single-line change.
 - Prefer high-signal issues; omit nitpicks and subjective preferences.
@@ -312,6 +314,52 @@ def file_diff(path: str) -> str:
     return text
 
 
+_HUNK_HEADER = re.compile(r"^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@")
+
+
+def get_diff_commentable_lines(path: str) -> set[int]:
+    """RIGHT-side line numbers that GitHub allows inline review comments on."""
+    commentable: set[int] = set()
+    new_line = 0
+    in_hunk = False
+    for line in file_diff(path).splitlines():
+        hunk = _HUNK_HEADER.match(line)
+        if hunk:
+            new_line = int(hunk.group(1))
+            in_hunk = True
+            continue
+        if not in_hunk or line.startswith(("--- ", "+++ ")):
+            continue
+        if line.startswith("+") or line.startswith(" "):
+            commentable.add(new_line)
+            new_line += 1
+        elif line.startswith("-"):
+            continue
+        else:
+            in_hunk = False
+    return commentable
+
+
+def filter_to_diff_lines(inline: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Split suggestions into postable (in diff) vs manual fallback (outside diff)."""
+    lines_by_path: dict[str, set[int]] = {}
+    in_diff: list[dict] = []
+    outside_diff: list[dict] = []
+    for item in inline:
+        path = item["path"]
+        if path not in lines_by_path:
+            lines_by_path[path] = get_diff_commentable_lines(path)
+        if item["line"] in lines_by_path[path]:
+            in_diff.append(item)
+        else:
+            outside_diff.append(item)
+            print(
+                f"Skipping inline on `{path}` line {item['line']} "
+                "(outside PR diff; will list in summary comment)"
+            )
+    return in_diff, outside_diff
+
+
 def numbered_excerpt(path: str, max_lines: int = 120) -> str:
     p = REPO_ROOT / path
     if not p.exists():
@@ -478,6 +526,18 @@ def format_prior_suggestions_section(
     return "\n".join(lines)
 
 
+def _inline_to_review_comment(item: dict) -> dict:
+    return {
+        "path": item["path"],
+        "line": item["line"],
+        "side": "RIGHT",
+        "body": (
+            f"**Docs style review** — {item['message']}\n\n"
+            f"```suggestion\n{item['suggested_line']}\n```"
+        ),
+    }
+
+
 def filter_conflicting_prior_suggestions(
     inline: list[dict],
     prior_suggestions: dict[tuple[str, int], list[str]],
@@ -505,25 +565,39 @@ def filter_conflicting_prior_suggestions(
     return kept
 
 
-def post_pull_request_review(inline: list[dict], summary_notes: list[str]) -> tuple[int, int]:
-    """Returns (posted_inline, fallback_count)."""
-    owner, repo = REPO.split("/", 1)
-    review_comments = []
-    fallback = []
+def _post_single_review_comment(owner: str, repo: str, comment: dict) -> bool:
+    payload = {
+        "commit_id": HEAD_SHA,
+        "path": comment["path"],
+        "line": comment["line"],
+        "side": comment["side"],
+        "body": comment["body"],
+    }
+    result = subprocess.run(
+        [
+            "gh",
+            "api",
+            "--method",
+            "POST",
+            f"repos/{owner}/{repo}/pulls/{PR_NUMBER}/comments",
+            "--input",
+            "-",
+        ],
+        input=json.dumps(payload),
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        print(result.stderr.strip(), file=sys.stderr)
+    return result.returncode == 0
 
-    for item in inline[:MAX_INLINE]:
-        body = (
-            f"**Docs style review** — {item['message']}\n\n"
-            f"```suggestion\n{item['suggested_line']}\n```"
-        )
-        review_comments.append(
-            {
-                "path": item["path"],
-                "line": item["line"],
-                "side": "RIGHT",
-                "body": body,
-            }
-        )
+
+def post_pull_request_review(inline: list[dict], summary_notes: list[str]) -> tuple[int, list[dict]]:
+    """Returns (posted_inline, fallback_comments)."""
+    owner, repo = REPO.split("/", 1)
+    review_comments = [_inline_to_review_comment(item) for item in inline[:MAX_INLINE]]
+    fallback: list[dict] = []
 
     summary_lines = [
         "## Docs style review (automated)\n",
@@ -578,40 +652,18 @@ def post_pull_request_review(inline: list[dict], summary_notes: list[str]) -> tu
         # Fall back to posting comments one at a time
         posted = 0
         for c in review_comments:
-            single = subprocess.run(
-                [
-                    "gh",
-                    "api",
-                    "--method",
-                    "POST",
-                    f"repos/{owner}/{repo}/pulls/{PR_NUMBER}/comments",
-                    "-f",
-                    f"commit_id={HEAD_SHA}",
-                    "-f",
-                    f"path={c['path']}",
-                    "-f",
-                    f"line={c['line']}",
-                    "-f",
-                    "side=RIGHT",
-                    "-f",
-                    f"body={c['body']}",
-                ],
-                cwd=REPO_ROOT,
-                capture_output=True,
-                text=True,
-            )
-            if single.returncode == 0:
+            if _post_single_review_comment(owner, repo, c):
                 posted += 1
             else:
                 fallback.append(c)
                 print(
-                    f"Could not post inline for {c['path']}:{c['line']}: {single.stderr}",
+                    f"Could not post inline for {c['path']}:{c['line']}",
                     file=sys.stderr,
                 )
-        return posted, len(fallback)
+        return posted, fallback
 
     posted = len(review_comments)
-    return posted, 0
+    return posted, []
 
 
 def _has_style_findings(
@@ -830,6 +882,7 @@ def main() -> None:
             validated.append(v)
 
     validated = filter_conflicting_prior_suggestions(validated, prior_suggestions)
+    postable, outside_diff = filter_to_diff_lines(validated)
 
     summary_notes = data.get("summary") or []
     if not isinstance(summary_notes, list):
@@ -839,7 +892,8 @@ def main() -> None:
     print(f"Model returned {len(validated)} valid inline suggestion(s)")
     has_findings = bool(validated) or bool(summary_notes)
     if has_findings:
-        posted, fallback = post_pull_request_review(validated, summary_notes)
+        posted, fallback = post_pull_request_review(postable, summary_notes)
+        fallback.extend(_inline_to_review_comment(item) for item in outside_diff)
         print(f"Posted {posted} inline suggestion(s) on the PR diff.")
     else:
         posted, fallback = 0, []
