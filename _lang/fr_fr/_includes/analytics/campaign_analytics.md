@@ -36,6 +36,10 @@ Le panneau **Campaign Details** présente un aperçu global des performances de 
 
 Examinez ce panneau pour voir les indicateurs globaux tels que le nombre de messages envoyés par rapport au nombre de destinataires, le taux de conversion principal et le chiffre d'affaires total généré par ce message. Vous pouvez également consulter les paramètres de réception/distribution, d'audience et de conversion à partir de cette page.
 
+{% alert note %}
+Les chiffres analytiques dans le tableau de bord et dans Snowflake peuvent légèrement différer. Braze mesure les chiffres dans le tableau de bord et enregistre les lignes dans Snowflake séparément. Snowflake est la source de données la plus précise. Si vous constatez des écarts entre ces sources, nous vous recommandons de vous référer aux données Snowflake.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 Le canal WhatsApp comprend le taux de lecture. Cet indicateur n'est fourni que pour les utilisateurs ayant activé les accusés de lecture, ce qui peut varier.
@@ -669,7 +673,7 @@ Bien que les termes _ouvertures directes_ et _ouvertures influencées_ contienne
 
 ##### Boutons d'action push et rapports {#push-action-buttons-and-reporting}
 
-Lorsque vous ajoutez des [boutons d'action push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), le panneau **Push Performance** peut inclure les **clics sur le corps du message**, les **clics bouton 1** et les **clics bouton 2** aux côtés d'indicateurs tels que les **ouvertures directes**. Ces colonnes mesurent des interactions différentes, comparez-les donc lorsque vous interprétez l'engagement.
+Lorsque vous ajoutez des [boutons d'action push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), le panneau **Push Performance** peut inclure les **Body Clicks**, les **Button 1 Clicks** et les **Button 2 Clicks** aux côtés d'indicateurs tels que les **Direct Opens**. Ces colonnes mesurent des interactions différentes, comparez-les donc lorsque vous interprétez l'engagement.
 
 Les _ouvertures directes_ reflètent les indicateurs du tableau de bord pour les interactions comptabilisées comme une ouverture directe de votre message. Les événements **Push Notification Open** dans [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ou Snowflake décrivent les interactions push de manière plus large et peuvent inclure des champs facultatifs tels que `button_action_type` (par exemple, `close`) et `button_string`. Pour les définitions des champs, consultez les [événements Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
 
@@ -852,7 +856,7 @@ D'autres indicateurs peuvent être consultés via le [tableau de bord du gestion
 
 Le panneau **Historical Performance** vous permet de visualiser les indicateurs du panneau **Message Performance** sous la forme d'un graphique dans le temps. Utilisez les filtres en haut du panneau pour modifier les statistiques et les canaux affichés dans le graphique. La plage temporelle de ce graphique reflète toujours la plage de temps spécifiée en haut de la page.
 
-Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars" aria-label="Ouvrir le menu de navigation"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
+Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
 
 ![Graphique du panneau Performances historiques avec des exemples de statistiques pour un e-mail envoyé entre février 2021 et mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

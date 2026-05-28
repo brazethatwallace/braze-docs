@@ -25,11 +25,7 @@ search_tag: Partner
 | SessionM | Un punto de conexión REST de SessionM Connect | Tu punto de conexión dependerá de la URL de SessionM de tu instancia. Ponte en contacto con tu director de cuentas técnicas de SessionM o con el equipo de entrega para que te lo proporcionen. |
 | SessionM | Una cadena de autorización REST de SessionM Connect | La cadena de autorización básica de SessionM Connect asociada a tu instancia. Esta cadena de autenticación se puede utilizar para todas las llamadas basadas en conexión, incluido get_user_offers. Ponte en contacto con tu director de cuentas técnicas de SessionM o con el equipo de entrega para que te la proporcionen. |
 | SessionM | Un ID de minorista REST de SessionM Connect | Un GUID de identificación único para el cliente específico asociado a tu instancia. Ponte en contacto con tu director de cuentas técnicas de SessionM o con el equipo de entrega para que te lo proporcionen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-{% alert note %}
-Si utilizas la [navegación anterior]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), puedes crear una clave de API en **Consola para desarrolladores** > **Configuración de la aplicación**.
-{% endalert %}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Casos de uso {#use-cases}
 
@@ -74,7 +70,7 @@ En la pestaña **Configuración**, añade los pares clave-valor para cada campo 
 
 ![Configuración del webhook.]({% image_buster /assets/img/sessionm/SessionMWebhookSettings.png %}){: style="max-width:85%;"}
 
-Programa tu entrega, configura tu **Público objetivo** para que se dirija al segmento [que creaste anteriormente](#step-1-create-a-segment-in-braze) y, a continuación, lanza tu campaña.
+Programa tu entrega, configura tu **Target Audiences** para que se dirija al segmento [que creaste anteriormente](#step-1-create-a-segment-in-braze) y, a continuación, lanza tu campaña.
 
 {% alert important %}
 Este proceso también puede realizarse a través de un cliente API, como Postman, haciendo una solicitud directamente al [punto de conexión de etiquetas de SessionM](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) especificando el cliente, el nombre de la etiqueta y un tiempo de vida para cada usuario en la llamada (un único usuario por llamada).
@@ -209,7 +205,7 @@ Los campos estándar presentes en todas las plantillas de SessionM incluyen:
 - `email address`
 
 {% alert note %}
-Al configurar `broadcast flag` en `true`, el mensaje se enviará a todo el segmento al que se dirija la campaña o Canvas en Braze.
+Al configurar `broadcast flag` en `true`, el mensaje se enviará a todo el segmento al que se dirija la Campaign o Canvas en Braze.
 {% endalert %}
 
 Se pueden configurar campos adicionales en función de necesidades específicas:
@@ -221,17 +217,17 @@ Se pueden configurar campos adicionales en función de necesidades específicas:
 
 Los campos adicionales se envían a Braze como `trigger_properties` para personalizar el mensaje.
 
-### Paso 2: Crea una campaña o Canvas en Braze {#step-2-create-a-braze-campaign-or-canvas}
+### Paso 2: Crea una Campaign o Canvas en Braze {#step-2-create-a-braze-campaign-or-canvas}
 
-Crea una campaña activada por API o un Canvas en Braze para que lo desencadene SessionM. Si se han configurado campos adicionales, como `offer_id` u `offer title`, utiliza Liquid (como {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %}) para añadir los campos personalizados a tu mensajería.
+Crea una Campaign activada por API o un Canvas en Braze para que lo desencadene SessionM. Si se han configurado campos adicionales, como `offer_id` u `offer title`, utiliza Liquid (como {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %}) para añadir los campos personalizados a tu mensajería.
 
 ![Propiedades de desencadenamiento de API.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
-En la pestaña **Schedule Delivery**, anota el ID de la campaña o del Canvas, ya que se añadirá a la **Configuración avanzada** de la campaña de SessionM.
+En la pestaña **Schedule Delivery**, anota el ID de la Campaign o del Canvas, ya que se añadirá a la **Configuración avanzada** de la campaña de SessionM.
 
-![Campaña desencadenada por API.]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
+![Campaign desencadenada por API.]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
 
-Finaliza los detalles de tu campaña o Canvas y selecciona **Launch**.
+Finaliza los detalles de tu Campaign o Canvas y selecciona **Launch**.
 
 ### Paso 3: Crea una campaña promocional o de mensajería de SessionM {#step-3-create-a-sessionm-promotional-or-messaging-campaign}
 

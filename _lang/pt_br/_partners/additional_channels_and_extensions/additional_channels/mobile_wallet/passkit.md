@@ -88,7 +88,7 @@ Para obter uma lista completa dos campos disponíveis, seus tipos e descrições
 
 ### Etapa 2: criar e codificar uma variável de carga útil indefinida {#step-2-create-and-encode-an-undefined-payload-variable}
 
-Crie e nomeie um novo bloco de conteúdo navegando até **Templates** > **Content Blocks** no dashboard da Braze.
+Crie e nomeie um novo bloco de conteúdo navegando até **Content** > **Content Block** no dashboard da Braze.
 
 Selecione **Create Content Block** para começar.
 

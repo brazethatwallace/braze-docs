@@ -2,7 +2,7 @@
 nav_title: mParticle de Rokt
 article_title: mParticle de Rokt
 alias: /partners/mparticle/
-description: "Cet article de référence présente le partenariat entre Braze et mParticle, une plateforme de données client qui collecte et achemine les données entre les sources de votre pile marketing."
+description: "Cet article de référence présente le partenariat entre Braze et mParticle, une plateforme de données client qui collecte et achemine les informations entre les sources de votre pile marketing."
 page_type: partner
 search_tag: Partner
 
@@ -55,7 +55,7 @@ mParticle créera un attribut personnalisé unique appelé `SegmentMembership`. 
 
 Par exemple, si une audience mParticle « Ibiza dreamers » a un ID d'audience de « 11036 », vous pouvez segmenter ces utilisateurs avec le filtre `SegmentMembership` — `matches regex` — `11036`.
 
-Bien qu'il s'agisse de l'option par défaut dans mParticle, la plupart des utilisateurs en entreprise optent pour les [attributs de tableau unique](#array) pour l'expérience de filtrage lors de la création de Segments dans Braze.
+Bien qu'il s'agisse de l'option par défaut dans mParticle, la plupart des utilisateurs en entreprise optent pour les [attributs de tableau unique](#array) pour l'expérience de filtrage lors de la création de segments dans Braze.
 
 {% alert important %}
 Cette solution n'est pas recommandée si vous avez plus de quelques audiences, car les attributs personnalisés peuvent contenir jusqu'à 255 caractères. Vous ne pourrez donc pas stocker des dizaines ou des centaines d'audiences sur un profil utilisateur avec cette méthode. Si vous avez un grand nombre de cohortes par utilisateur, nous recommandons fortement la configuration « un attribut par segment ».
@@ -104,7 +104,7 @@ Pour créer une audience dans mParticle :
 
 | Nom du champ | Description |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Clé API | Se trouve dans le tableau de bord de Braze sous **Settings** > **API Keys**.<br><br>Si vous utilisez l'ancienne navigation, vous pouvez trouver les clés API sous **Developer Console** > **API Settings**. |
+| Clé API | Se trouve dans le tableau de bord de Braze sous **Settings** > **API Keys**. |
 | Système d'exploitation de la clé API | Sélectionnez le système d'exploitation auquel correspond votre clé API Braze. Cette sélection limitera les types de jetons de notification push transférés lors d'une mise à jour d'audience. |
 | Envoyer les segments en tant que | La méthode d'envoi des audiences à Braze. Consultez la section [Transfert des audiences](#forwarding-audiences) pour plus de détails. |
 | Clé API REST de l'espace de travail | Clé API REST de Braze avec toutes les autorisations. Elle peut être créée dans le tableau de bord de Braze sous **Settings** > **API Keys**. |

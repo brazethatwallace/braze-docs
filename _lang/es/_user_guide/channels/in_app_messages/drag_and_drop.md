@@ -192,4 +192,4 @@ Sí. Para cualquier mensaje dentro de la aplicación que quieras reutilizar en u
 
 ![Una vista previa de un mensaje dentro de la aplicación para un recorrido de producto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Templates** > **In-App Message Templates**.
+También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Content** > **In-App Message Templates**.

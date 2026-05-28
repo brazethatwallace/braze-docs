@@ -1,26 +1,24 @@
 ---
-nav_title: Differences between campaign and Canvas attributes in Braze
-article_title: Differences between Campaign and Canvas Attributes in Braze
-page_order: 1
-
+nav_title: Campaign and Canvas attributes across sources
+article_title: Campaign and Canvas attributes across sources
+page_order: 1.5
 page_type: reference
-description: "This help article compares campaign and Canvas attribute name and IDs across sources in Braze."
-platform: API
+description: "This reference article compares campaign and Canvas attribute names and IDs across Liquid, the REST API, and Currents."
 ---
 
-# How campaign and Canvas attributes differ across sources in Braze
+# Campaign and Canvas attributes across sources
 
-Campaign, Canvas, and Canvas Step names and IDs are all available in Liquid, our REST API, and Currents. These attributes map to the same value across all three sources, but may be named differently. This page is meant to help you draw connections between the three.
+> Campaign, Canvas, and Canvas Step names and IDs are all available in Liquid, the Braze REST API, and Currents. These attributes map to the same value across all three sources, but may be named differently. Use this page to draw connections between the three.
 
 ## Use cases
 
 ### Liquid
 
-Campaign and Canvas attributes are available as Liquid tags in our dashboard {% raw %}(such as `{{campaign.${api_id}}}`){% endraw %}. You can use Liquid to pass these attributes in the message itself, in a Connected Content call, or as key-value pairs. This is usually done for tracking purposes.
+Campaign and Canvas attributes are available as Liquid tags in the dashboard {% raw %}(such as `{{campaign.${api_id}}}`){% endraw %}. Use Liquid to pass these attributes in the message itself, in a Connected Content call, or as key-value pairs. This is usually done for tracking purposes.
 
 ### REST API
 
-Campaign and Canvas attributes are also available in the [Export campaign details endpoint]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) or [Export Canvas details endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/). You can use our REST API to build mappings—that is, a list of all the Canvas names and their corresponding IDs.
+Campaign and Canvas attributes are also available in the [Export campaign details endpoint]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) or [Export Canvas details endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/). Use the Braze REST API to build mappings—that is, a list of all the Canvas names and their corresponding IDs.
 
 ### Currents
 

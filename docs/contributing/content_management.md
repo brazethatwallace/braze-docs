@@ -117,7 +117,6 @@ The primary sections on Braze Docs are:
 - [Developer Guide](https://www.braze.com/docs/developer_guide/home)
 - [Braze API Guide](https://www.braze.com/docs/api/home)
 - [Technology Partners](https://www.braze.com/docs/partners/home)
-- [Braze Help](https://www.braze.com/docs/help/home)
 - [Contributing to Braze Docs](README.md)
 
 Other than **Contributing to Braze Docs**, these primary sections can be accessed on the site header from any page on Braze Docs.

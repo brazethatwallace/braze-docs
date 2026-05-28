@@ -195,7 +195,7 @@ class LiveActivityManager {
     // You may keep a reference to this task if you need to cancel it wherever appropriate, or ignore the return value if you wish.
     let pushToStartObserver: Task = Self.braze?.liveActivities.registerPushToStart(
       forType: Activity<SportsActivityAttributes>.self,
-      name: "SportsActivityAttributes"
+      name: SportsActivityAttributes.name
     )
   }
 
