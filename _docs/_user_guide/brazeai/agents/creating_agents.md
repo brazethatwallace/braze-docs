@@ -12,7 +12,7 @@ alias: /creating-agents/
 
 ## Prerequisites
 
-Before you start, you'll need the following:
+Before you start, you'll need the following items:
 
 - [Permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) to access the **Agent Console** in your workspace. Check with your Braze admins if you don’t see this option.  
 - Permission to create and edit custom AI Agents.
