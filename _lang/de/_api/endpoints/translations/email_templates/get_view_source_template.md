@@ -30,7 +30,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | Erforderlich | String | Die ID für Ihr E-Mail-Template. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Abfrageparameter" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
 
 ## Beispielanfrage {#example-request}
 
