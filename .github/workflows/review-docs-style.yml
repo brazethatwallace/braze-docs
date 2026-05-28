@@ -7,7 +7,7 @@
 #
 # Includes bot PRs (auto-translate, support analyzer, etc.) — same as former Copilot coverage.
 
-name: Review docs style
+name: Braze Docs Style Guide Review
 
 on:
   pull_request:
@@ -29,7 +29,7 @@ concurrency:
 
 jobs:
   review-docs-style:
-    name: AI style review (docs)
+    name: Braze Docs Style Guide Review
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     env:
