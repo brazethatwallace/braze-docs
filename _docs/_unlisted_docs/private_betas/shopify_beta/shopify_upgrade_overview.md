@@ -88,7 +88,7 @@ This integration uses Shopify as the source of truth for supported attributes an
 | Braze device ID |  {::nomarkdown}<ul><li>A randomly generated ID that is stored on the browser</li></ul>{:/} | {::nomarkdown} <ul><li>A randomly generated ID that is stored on the browser</li></ul>{:/}|
 | Braze aliases | {::nomarkdown}<ul><li>Shopify customer ID</li><li>Shopify email</li></ul>{:/} | {::nomarkdown}<ul><li>Shopify cart token</li><li>Shopify checkout token</li></ul>{:/}|
 | Braze external ID | {::nomarkdown}<ul><li>N/A</li></ul>{:/}| {::nomarkdown}<ul><li>Shopify customer ID</li><li>Email</li><li>Hashed email (SHA-256, SHA-1, MD5)</li><li>Custom external ID</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifiers supported by the integration" }
 
 For more details on user syncing and ID management, refer to [User data and syncing](https://braze.com/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview/#user-and-data-syncing).
 
