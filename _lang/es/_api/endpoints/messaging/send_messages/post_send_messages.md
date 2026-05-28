@@ -178,6 +178,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/send' \
 
 ## Detalles de la respuesta {#response-details}
 
-Las respuestas del punto de conexión de envío de mensajes incluirán el `dispatch_id` del mensaje como referencia del envío. El `dispatch_id` es el ID del envío del mensaje, es decir, el ID único de cada "transmisión" enviada desde Braze. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Las respuestas del punto de conexión de envío de mensajes incluyen el `dispatch_id` del mensaje como referencia del envío. El `dispatch_id` es el ID del envío del mensaje, es decir, el ID único de cada "transmisión" enviada desde Braze. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}

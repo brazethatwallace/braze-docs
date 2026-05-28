@@ -206,7 +206,7 @@ Currents로 참여 데이터를 내보내는 경우, 링크 별칭 지정이 활
 ```
 
 {% alert update %}
-`dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 Canvas 단계(스케줄할 수 있는 진입 단계 제외)를 "스케줄"된 경우에도 트리거된 이벤트로 처리하기 때문입니다. Canvas와 Campaigns에서의 [`dispatch_id` 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+`dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 Canvas 단계(스케줄할 수 있는 진입 단계 제외)를 "스케줄"된 경우에도 트리거된 이벤트로 처리하기 때문입니다. Canvas와 Campaigns에서의 [`dispatch_id` 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)에 대해 자세히 알아보세요.
 
 _2019년 8월에 업데이트되었습니다._
 {% endalert %}
@@ -242,7 +242,7 @@ Liquid로 생성된 URL에서 [링크 템플릿]({{site.baseurl}}/user_guide/mes
 
 프래그먼트(`#` 및 그 이후의 모든 내용)는 일반 링크 요청 시 서버로 전송되지 않습니다. Braze는 `lid`를 쿼리 문자열에 삽입하며, 이는 `#` 앞에 위치해야 합니다. `href`에 Liquid와 `#` 프래그먼트가 있지만 `#` 앞에 `?` 또는 `&`가 없으면 Braze가 안전하게 `lid`를 추가할 수 없으므로 해당 링크가 **Link Management**에 표시되지 않거나 링크 별칭으로 추적되지 않을 수 있습니다.
 
-이는 드래그 앤 드롭 편집기에서 버튼 URL이 Liquid와 해시 기반 패턴을 혼합할 때(예: 정적 경로 다음에 `#`, 그 다음에 추가 키-값 쌍) 특히 흔합니다. 이 경우 `#` 바로 앞에 `?`를 추가하여 쿼리 문자열(`lid` 포함)이 프래그먼트 앞에서 구문 분석되도록 합니다.
+이는 드래그 앤 드롭 편집기에서 버튼 URL이 Liquid와 해시 기반 패턴을 혼합할 때(예: 정적 경로 다음에 `#`, 그 다음에 추가 키-값 페어) 특히 흔합니다. 이 경우 `#` 바로 앞에 `?`를 추가하여 쿼리 문자열(`lid` 포함)이 프래그먼트 앞에서 구문 분석되도록 합니다.
 
 {% raw %}
 ```text

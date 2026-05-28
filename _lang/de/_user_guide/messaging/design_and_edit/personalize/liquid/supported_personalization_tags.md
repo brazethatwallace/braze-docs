@@ -40,13 +40,13 @@ Zur besseren Übersicht finden Sie hier eine Zusammenfassung der unterstützten 
 
 Campaign-, Card- und Canvas-Attribute werden nur in ihren entsprechenden Messaging-Templates unterstützt (zum Beispiel ist `dispatch_id` nicht in In-App-Nachrichten-Campaigns verfügbar).
 
-Lesen Sie diesen Hilfeartikel, um mehr darüber zu erfahren, [wie sich einige dieser Attribute je nach Quelle in Braze unterscheiden]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/).
+Weitere Details finden Sie unter [Campaign- und Canvas-Attribute über verschiedene Quellen hinweg]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 
 ### Unterschiede zwischen Canvas- und Campaign-Tags {#canvas-and-campaign-tag-differences}
 
 Das Verhalten der folgenden Tags unterscheidet sich zwischen Canvas und Campaigns:
 {% raw %}
-- Das Verhalten von `dispatch_id` unterscheidet sich, da Braze Canvas-Schritte als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind (mit Ausnahme von Eingangs-Schritten, die geplant werden können). Weitere Informationen finden Sie unter [Dispatch-ID-Verhalten]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+- Das Verhalten von `dispatch_id` unterscheidet sich, da Braze Canvas-Schritte als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind (mit Ausnahme von Eingangs-Schritten, die geplant werden können). Weitere Informationen finden Sie unter [Dispatch-ID-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 - Die Verwendung des Tags `{{campaign.${name}}}` mit Canvas zeigt den Namen der Canvas-Komponente an. Bei Verwendung dieses Tags mit Campaigns wird der Campaign-Name angezeigt.
 {% endraw %}
 

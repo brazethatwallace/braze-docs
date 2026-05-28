@@ -356,7 +356,7 @@ Es ist wichtig sicherzustellen, dass diese Dateien immer öffentlich zugänglich
 
 Stellen Sie sicher, dass Sie die korrekten Definitionen für Domains haben, die Ihre App öffnen darf.
 
-- **iOS:** Überprüfen Sie die in Xcode für Ihre App eingerichteten Associated Domains ([Schritt 1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
+- **iOS:** Überprüfen Sie die in Xcode für Ihre App eingerichteten Associated Domains ([Schritt 1c]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
 - **Android:** Öffnen Sie die App-Infoseite (langes Drücken auf das App-Symbol und Klick auf ⓘ). Suchen Sie im App-Info-Menü nach **Standardmäßig öffnen** und tippen Sie darauf. Es sollte ein Bildschirm mit allen verifizierten Links angezeigt werden, die die App öffnen darf. Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
 
 #### Tracking-Domain kann keine .well-known-Dateien bereitstellen {#tracking-domain-cant-serve-well-known-files}
