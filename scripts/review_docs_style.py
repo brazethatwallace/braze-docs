@@ -266,7 +266,9 @@ def post_pull_request_review(inline: list[dict], summary_notes: list[str]) -> tu
             summary_lines.append(f"- {note}")
         summary_lines.append("")
     if not review_comments and not summary_notes:
-        summary_lines.append("No style guide issues flagged for the changed Markdown in this PR.")
+        summary_lines.append(
+            "**No issues or errors found** for the changed Markdown in this PR."
+        )
         summary_lines.append("")
 
     review_body = "\n".join(summary_lines).strip()
@@ -335,6 +337,14 @@ def post_pull_request_review(inline: list[dict], summary_notes: list[str]) -> tu
     return posted, 0
 
 
+def _has_style_findings(
+    posted: int,
+    fallback: list[dict],
+    summary_notes: list[str],
+) -> bool:
+    return posted > 0 or bool(fallback) or bool(summary_notes)
+
+
 def sync_summary_comment(
     posted: int,
     fallback: list[dict],
@@ -345,13 +355,42 @@ def sync_summary_comment(
     lines = [
         SUMMARY_MARKER,
         "",
-        "## Docs style review (automated)",
-        "",
-        f"- **Files reviewed:** {len(files_reviewed)}",
-        f"- **Inline suggestions posted:** {posted}",
-        f"- **Model:** `{REVIEW_MODEL}`",
+        "## Braze Docs style guide review (automated)",
         "",
     ]
+
+    if not _has_style_findings(posted, fallback, summary_notes):
+        lines.extend(
+            [
+                "**No issues or errors found.** This PR is OK to merge from the "
+                "automated style guide review.",
+                "",
+            ]
+        )
+        if not files_reviewed:
+            lines.extend(
+                [
+                    "_No Markdown under `_docs/`, `_includes/`, or `_lang/` was changed in "
+                    "this PR, so no editorial review was run. This comment confirms the "
+                    "check completed successfully._",
+                    "",
+                ]
+            )
+    else:
+        lines.append(
+            "The automated style guide review found items to address before merge."
+        )
+        lines.append("")
+
+    lines.extend(
+        [
+            f"- **Files reviewed:** {len(files_reviewed)}",
+            f"- **Inline suggestions posted:** {posted}",
+            f"- **Model:** `{REVIEW_MODEL}`",
+            "",
+        ]
+    )
+
     if posted:
         lines.append(
             "Use **Commit suggestion** or **Commit all suggestions** in the "
@@ -373,15 +412,11 @@ def sync_summary_comment(
         for note in summary_notes:
             lines.append(f"- {note}")
         lines.append("")
-    if not posted and not summary_notes and not fallback:
-        if files_reviewed:
-            lines.append("No style guide issues flagged for the changed Markdown in this PR.")
-        else:
-            lines.append(
-                "No Markdown changes under `_docs/`, `_includes/`, or `_lang/` in this PR diff. "
-                "Push a docs edit to run a full style review."
-            )
-        lines.append("")
+
+    lines.append(
+        "_This check does not replace human review, CODEOWNERS approval, or other required PR checks._"
+    )
+    lines.append("")
 
     body = "\n".join(lines)
 
