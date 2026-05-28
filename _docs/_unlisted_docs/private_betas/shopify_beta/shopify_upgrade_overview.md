@@ -145,4 +145,4 @@ If you're currently collecting email or SMS subscribers, a new default subscript
 | Channel | Previous version | Latest version |
 | --- | --- | --- | 
 | In-app messages |  {::nomarkdown}<ul><li>Included within standard integrations for Shopify online stores</li></ul>{:/} | {::nomarkdown}<ul><li>No changes</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Channels" }
