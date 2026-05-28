@@ -138,15 +138,7 @@ Once you've finished designing and building your email message, it's time to add
 
 A preview in the right-hand panel will populate with the sending information you've added. This information can also be updated by navigating to **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Personalizing your email header (advanced)
-
-Under **Sending Settings**, you can add personalization for email headers and email extras, which allows you to send additional data back to other email service providers. Personalizing an email header, such as including a recipient's name, can also contribute to the likelihood of your email being opened.
-
-{% alert note %}
-Advanced functionality will appear in the campaign or Canvas composer. In advanced functionality, you can modify your inline CSS setting and enter a header or extra key-value pairs (if configured).
-{% endalert %}
-
-#### Adding email attachments
+#### Add email attachments
 
 In **Sending Settings** > **Advanced**, you can add email attachments by the following methods:
 
@@ -155,6 +147,14 @@ In **Sending Settings** > **Advanced**, you can add email attachments by the fol
 - **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
 
 Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
+
+#### Personalize your email header (advanced)
+
+Under **Sending Settings**, you can add personalization for email headers and email extras, which allows you to send additional data back to other email service providers. Personalizing an email header, such as including a recipient's name, can also contribute to the likelihood of your email being opened.
+
+{% alert note %}
+Advanced functionality will appear in the campaign or Canvas composer. In advanced functionality, you can modify your inline CSS setting and enter a header or extra key-value pairs (if configured).
+{% endalert %}
 
 ### Step 4: Test your email
 
