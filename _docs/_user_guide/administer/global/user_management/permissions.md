@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## Create a permission set
 
-Use permission sets to bundle permissions related to specific subject areas or actions. You can apply permissions sets to dashboard users who need the same access across different workspaces. To create a permission set, go to **Settings** > **Permission Settings**, then select **Create permission set**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
+Use permission sets to bundle permissions related to specific subject areas or actions. You can apply permission sets to dashboard users who need the same access across different workspaces. To create a permission set, go to **Settings** > **Permission Settings**, then select **Create permission set**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab example permission sets %}
@@ -32,7 +32,7 @@ Use permission sets to bundle permissions related to specific subject areas or a
 
 ## Creating a role
 
-Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the right workspaces and directly grant them the associated permissions. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
+Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the right workspaces and directly grant them the associated permissions. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab example roles %}
