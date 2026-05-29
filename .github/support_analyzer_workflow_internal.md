@@ -144,7 +144,7 @@ Export fails closed without **`SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DAT
 | **Phase 2** fails “script not found” | For scheduled runs, `support_analyzer_phase2.py` must exist on **default branch**; merge the script before relying on schedule-only. |
 | **Phase 2** fails strict anchors | Target `_docs` file missing anchor text on `develop`; fix anchor or rule in a PR, or adjust rule. |
 | **No Phase 2 PRs** opened | Normal if no rule matches enough cases or edits are already present (fingerprints / `skip_if_contains` / anchors). |
-| **Duplicate-looking Phase 2 PR** | Earlier PR merged equivalent prose without `<!-- support-analyzer-phase2:... -->` fingerprint; automation re-proposes. Close the duplicate, merge only missing files, or add `skip_if_contains` to the rule (see #13773 / #13823). |
+| **Duplicate-looking Phase 2 PR** | Earlier PR merged equivalent prose without `<!-- support-analyzer-phase2:... -->` fingerprint; automation re-proposes. Close the duplicate, merge only missing files, or add `skip_if_contains` to the rule (see #13773 / #13823, #13772 / #13914). For `data_series_currents`, merged include `api/export_data_series_analytics_dashboard_note.md` satisfies the rule. |
 | **`gh pr create` assignee errors** | Script retries **without** assignees; fix invalid **GitHub Username** values in the CSV (e.g. team placeholders that are not user logins). |
 | **Digest PR not auto-closed** | `close_digest_pr` only runs if digest PR was created **and** Phase 2 job **succeeded**; check Phase 2 job and permissions. |
 | **Close digest failed with 403** | Job needs **`contents: write`** and **`pull-requests: write`** for `gh pr close --delete-branch` (already set in workflow). |
