@@ -147,3 +147,10 @@ If you want rows aggregated by entire campaign or Canvas instead of daily, weekl
 
 If you use HTML in-app messages and **Body clicks** look high in the engagement report, you may be firing click logging twice—for example by calling `brazeBridge.logClick()` for a generic body click and also `brazeBridge.logClick('body click')` (or another ID) on the same interaction. Search your markup for `brazeBridge.logClick(` and align with one pattern per control. For recommended usage, see [Button tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
 
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Engagement Report - Broken Link Solution
+
+Engagement Report broken links - workaround: send to Gmail and open in Chrome; ensure Report Schedule sends immediately; enable link shortener in SendGrid.
