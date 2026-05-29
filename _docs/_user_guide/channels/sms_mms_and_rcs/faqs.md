@@ -195,3 +195,11 @@ Braze sends the RCS payload you compose, while the messaging client controls how
 ### Can I send pre-recorded voicemails with RCS?
 
 Yes, you can use media messages to support audio files.
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### SMS Subscribes are not accurately reflected in SMS/MMS/RCS Channel Engagement
+
+Add a note to SMS/MMS/RCS Channel Engagement or analytics docs clarifying that Total-Opt Ins/Outs in that report only includes Inbound message opt-ins/opt-outs. Document the Query Builder workaround using USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED and STATE_CHANGE_SOURCE to filter by Rest API vs Inbound Message.
