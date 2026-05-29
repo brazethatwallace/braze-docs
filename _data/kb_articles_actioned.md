@@ -1,11 +1,11 @@
 # KB articles — Phase 1 actionable backlog
 
-Generated from `_data/kb_articles.csv` on **2026-05-29 16:43 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-05-29 22:48 UTC**.
 
 These rows passed Phase 1 and resolve to an on-disk `_docs/...` file. Work queue for Phase 2 — not CSV `actioned` status.
 
-**Totals:** **126** actionable rows (of 128).
-**Reference-repo verification:** **85** row(s) have `conflict_resolution` = `inconclusive` — confirm behavior in reference repos (see `.github/skills/salesforce-migration/SKILL.md` Phase 2) before drafting; do not copy Salesforce Knowledge text without source verification.
+**Totals:** **115** actionable rows (of 117).
+**Reference-repo verification:** **81** row(s) have `conflict_resolution` = `inconclusive` — confirm behavior in reference repos (see `.github/skills/salesforce-migration/SKILL.md` Phase 2) before drafting; do not copy Salesforce Knowledge text without source verification.
 
 ## 1. Phase 2 PR batches (one primary `_docs` file per PR)
 
@@ -17,7 +17,6 @@ Do **not** batch PRs by product vertical — mixed verticals under one path are 
 
 | Primary `_docs` target | Articles | Suggested reviewer vertical | Suggested branch slug | Product owner |
 | --- | ---: | --- | --- | --- |
-| `_docs/_user_guide/channels/email/reporting/analytics_glossary.md` | 12 | Email | `sf-cursor-reporting-analytics-glossary-<YYYYMMDD>` |  |
 | `_docs/_user_guide/messaging/design_and_edit/personalize/liquid/faq.md` | 12 | Messaging (Liquid personalization) | `sf-cursor-liquid-faq-<YYYYMMDD>` |  |
 | `_docs/_user_guide/messaging/canvas/faqs.md` | 11 | Canvas | `sf-cursor-canvas-faqs-<YYYYMMDD>` |  |
 | `_docs/_user_guide/audience/segments/segmentation_filters.md` | 10 | Audience & segments | `sf-cursor-segments-segmentation-filters-<YYYYMMDD>` |  |
@@ -56,6 +55,7 @@ Do **not** batch PRs by product vertical — mixed verticals under one path are 
 | `_docs/_user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps.md` | 1 | Email | `sf-cursor-email-setup-deliverability-pitfalls-and-spam-traps-<YYYYMMDD>` |  |
 | `_docs/_user_guide/channels/email/email_setup/open_pixel_and_click_tracking.md` | 1 | Email | `sf-cursor-email-setup-open-pixel-and-click-tracking-<YYYYMMDD>` |  |
 | `_docs/_user_guide/channels/email/reporting.md` | 1 | Email | `sf-cursor-email-reporting-<YYYYMMDD>` |  |
+| `_docs/_user_guide/channels/email/reporting/analytics_glossary.md` | 1 | Email | `sf-cursor-reporting-analytics-glossary-<YYYYMMDD>` |  |
 | `_docs/_user_guide/channels/sms_mms_and_rcs/faqs.md` | 1 | SMS / MMS / RCS | `sf-cursor-sms-mms-and-rcs-faqs-<YYYYMMDD>` |  |
 | `_docs/_user_guide/channels/whatsapp/faq.md` | 1 | WhatsApp | `sf-cursor-whatsapp-faq-<YYYYMMDD>` |  |
 | `_docs/_user_guide/data/activation/attributes/custom_attributes.md` | 1 | Data platform | `sf-cursor-attributes-custom-attributes-<YYYYMMDD>` |  |
@@ -71,24 +71,6 @@ Do **not** batch PRs by product vertical — mixed verticals under one path are 
 | `_docs/_user_guide/messaging/messaging_fundamentals/conversion_events.md` | 1 | Messaging & automation (Campaigns / Canvas-adjacent) | `sf-cursor-messaging-fundamentals-conversion-events-<YYYYMMDD>` |  |
 | `_docs/_user_guide/messaging/messaging_fundamentals/frequency_capping.md` | 1 | Messaging & automation (Campaigns / Canvas-adjacent) | `sf-cursor-messaging-fundamentals-frequency-capping-<YYYYMMDD>` |  |
 | `_docs/_user_guide/messaging/messaging_fundamentals/sending_test_messages.md` | 1 | Messaging & automation (Campaigns / Canvas-adjacent) | `sf-cursor-messaging-fundamentals-sending-test-messages-<YYYYMMDD>` |  |
-
-### PR batch: `_docs/_user_guide/channels/email/reporting/analytics_glossary.md` — **12** article(s)
-
-- **Branch example:** `sf-cursor-reporting-analytics-glossary-<YYYYMMDD>`
-- **Reviewer hint:** Email
-
-- **`ka0VP000000Pzl3YAC`** — "Campaign is already in delay window, so not enqueueing another" outcome with no delay on campaign (tier , score ; team ``)
-- **`ka0VP000000S5UbYAK`** — *INTERNAL* High Total Clicks for Email (tier , score ; team ``)
-- **`ka0VP000000S59dYAC`** — 550 5.7.1 Our system has detected that this message is likely unsolicited mail (tier , score ; team ``)
-- **`ka0VP000000CrgTYAS`** — Changes to Custom Unsubscribe Page in Email Settings are not Reflecting in Sent Emails (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
-- **`ka0VP000000MAS9YAO`** — Does Braze Offer the "View this email in a browser" Feature? (tier , score ; team ``)
-- **`ka0VP000000Ju05YAC`** — Does Email Unsubscribe Count Towards Unique Clicks (tier , score ; team ``)
-- **`ka0VP0000005OHpYAM`** — Hidden Link Appearing In Heatmap. (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
-- **`ka0VP000000S5nxYAC`** — Interpreting Email Open Likelihood Test Results (tier , score ; team ``)
-- **`ka0VP000000LSkTYAW`** — Over Quota Email address (tier , score ; team ``)
-- **`ka0VP000000AgCTYA0`** — SPF/DKIM Alignment (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
-- **`ka0VP000000RbGPYA0`** — What is defined as a 'Good'  Email Deliverability Rate? (tier , score ; team ``)
-- **`ka0VP000000RWWrYAO`** — When does the recalculation of estimated real opens stop? (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
 
 ### PR batch: `_docs/_user_guide/messaging/design_and_edit/personalize/liquid/faq.md` — **12** article(s)
 
@@ -416,6 +398,13 @@ Do **not** batch PRs by product vertical — mixed verticals under one path are 
 - **Reviewer hint:** Email
 
 - **`ka0VP000000RdzlYAC`** — Metric counts are different in Email Performance Dashboard vs Engagement Report (tier , score ; team ``)
+
+### PR batch: `_docs/_user_guide/channels/email/reporting/analytics_glossary.md` — **1** article(s)
+
+- **Branch example:** `sf-cursor-reporting-analytics-glossary-<YYYYMMDD>`
+- **Reviewer hint:** Email
+
+- **`ka0VP000000Pzl3YAC`** — "Campaign is already in delay window, so not enqueueing another" outcome with no delay on campaign (tier , score ; team ``)
 
 ### PR batch: `_docs/_user_guide/channels/sms_mms_and_rcs/faqs.md` — **1** article(s)
 
