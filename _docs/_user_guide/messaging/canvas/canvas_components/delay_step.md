@@ -149,3 +149,10 @@ Time series for these analytics are available in the expanded component view.
 
 If users aren't triggering a personalized delay, it could be because the Context step you set to qualify them for the Delay step is not working as you expected. When a [context variable is invalid]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), a user will continue through your Canvas without having their context set by the Context step. This can cause them to not qualify for steps later in your Canvas, such as personalized delays.
 
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Delay Step Auto Advancement Behavior When a Canvas is Stopped
+
+Add a note to delay_step.md or canvas troubleshooting: when a Canvas is stopped while users are in a delay step, those users will not auto-advance.
