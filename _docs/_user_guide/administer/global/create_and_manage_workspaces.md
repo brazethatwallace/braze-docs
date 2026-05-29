@@ -2,10 +2,20 @@
 nav_title: Create and manage workspaces
 article_title: Create and Manage Workspaces
 page_order: 0
+layout: dev_guide
+guide_top_header: "Create and manage workspaces"
+guide_top_text: "This article covers how to create, set up, and manage your workspaces."
 page_type: reference
 description: "This article covers how to create, set up, and manage your workspaces."
 
+guide_featured_title: "Section articles"
+guide_featured_list:
+- name: Migrate data between workspaces
+  link: /docs/user_guide/administer/global/create_and_manage_workspaces/migrate_workspace_data
+  image: /assets/img/braze_icons/switch-horizontal-01.svg
 ---
+
+<br>
 
 # Create and manage workspaces
 
