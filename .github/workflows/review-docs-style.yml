@@ -5,7 +5,7 @@
 # Posts inline review comments with ```suggestion blocks where possible (Commit suggestion).
 # Requires: ANTHROPIC_API_KEY repository secret.
 #
-# Includes bot PRs (auto-translate, support analyzer, etc.) — same as former Copilot coverage.
+# Includes bot PRs (support analyzer, etc.). Skips `_lang/` on auto-translate/* branches.
 
 name: Braze Docs Style Guide Review
 
@@ -36,6 +36,7 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       PR_NUMBER: ${{ github.event.pull_request.number }}
       HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      GITHUB_HEAD_REF: ${{ github.head_ref }}
       GITHUB_BASE_REF: ${{ github.base_ref }}
 
     steps:

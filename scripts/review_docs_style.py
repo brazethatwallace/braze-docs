@@ -28,11 +28,14 @@ from pathlib import Path
 REPO = os.environ.get("GITHUB_REPOSITORY", "braze-inc/braze-docs")
 PR_NUMBER = os.environ.get("PR_NUMBER", "")
 HEAD_SHA = os.environ.get("HEAD_SHA", "")
+HEAD_REF = os.environ.get("GITHUB_HEAD_REF", "")
 BASE_REF = os.environ.get("GITHUB_BASE_REF", "develop")
 REVIEW_MODEL = os.environ.get("REVIEW_MODEL", "claude-sonnet-4-20250514")
 MAX_INLINE = int(os.environ.get("MAX_INLINE_COMMENTS", "25"))
 MAX_FILES = int(os.environ.get("MAX_STYLE_REVIEW_FILES", "25"))
 MAX_DIFF_CHARS = int(os.environ.get("MAX_STYLE_DIFF_CHARS", "12000"))
+NEARBY_LINE_WINDOW = int(os.environ.get("STYLE_REVIEW_NEARBY_LINE_WINDOW", "3"))
+AUTO_TRANSLATE_BRANCH_PREFIX = "auto-translate/"
 
 REPO_ROOT = Path(os.environ.get("GITHUB_WORKSPACE", Path.cwd()))
 STYLE_REF = REPO_ROOT / ".github/skills/braze-docs/references/writing-style.md"
@@ -58,6 +61,10 @@ Apply the Braze Docs Style Guide provided in the user message.
   same article before suggesting a one-off change).
 - Do NOT flag product behavior you cannot verify from the diff alone.
 - Do NOT invent facts or suggest content unrelated to the change.
+- Do NOT suggest adding sections, alerts, FAQs, or blocks that already appear in the numbered
+  file excerpt. Compare your suggestion to that excerpt before including an inline item.
+- For `_lang/` locale files: review only editorial issues in changed lines. Do not infer missing
+  content from the English site; if the excerpt already contains the passage, omit the item.
 
 ## Output rules
 
@@ -77,10 +84,11 @@ Respond with ONLY valid JSON (no markdown fences). Schema:
   ]
 }
 
-- "line" is the 1-based line number on the RIGHT (new) side of the diff.
+- "line" is the 1-based line number on the RIGHT (new) side of the diff for the exact line you
+  are replacing. It must match the numbered file excerpt (not a nearby blank line or adjacent line).
 - Only suggest lines that appear in the unified diff (added or context lines within a hunk).
   GitHub cannot attach inline comments to unchanged lines outside the PR diff.
-- "suggested_line" must be the complete line after your edit (not a fragment).
+- "suggested_line" must be the complete single-line replacement (not a fragment, not multiple lines).
 - Only include inline items when you are confident and the fix is a single-line change.
 - Prefer high-signal issues; omit nitpicks and subjective preferences.
 - If prior automated suggestions on this PR are listed in the user message, do not contradict them
@@ -101,6 +109,10 @@ def _run(cmd: list[str], *, check: bool = True) -> subprocess.CompletedProcess[s
     )
 
 
+def _is_auto_translate_pr() -> bool:
+    return HEAD_REF.startswith(AUTO_TRANSLATE_BRANCH_PREFIX)
+
+
 def get_changed_markdown_files() -> list[str]:
     base = f"origin/{BASE_REF}"
     result = _run(
@@ -110,12 +122,20 @@ def get_changed_markdown_files() -> list[str]:
     if result.returncode != 0:
         print(f"git diff warning: {result.stderr.strip()}", file=sys.stderr)
         return []
+    skip_lang = _is_auto_translate_pr()
+    if skip_lang:
+        print(
+            "Auto-translate PR detected; skipping `_lang/` files "
+            "(English source is reviewed separately)."
+        )
     files = []
     for line in result.stdout.splitlines():
         path = line.strip()
         if not path.endswith(".md"):
             continue
         if path.startswith("_docs/_hidden/"):
+            continue
+        if skip_lang and path.startswith("_lang/"):
             continue
         files.append(path)
     return files[:MAX_FILES]
@@ -440,6 +460,23 @@ def call_claude(user_prompt: str) -> dict:
     return data
 
 
+def _block_exists_in_file(suggested: str, file_lines: list[str]) -> bool:
+    suggested_lines = [line.rstrip() for line in suggested.splitlines() if line.strip()]
+    if not suggested_lines:
+        return False
+    if len(suggested_lines) == 1:
+        target = suggested_lines[0]
+        return any(line.rstrip() == target for line in file_lines)
+    block_len = len(suggested_lines)
+    for start in range(len(file_lines) - block_len + 1):
+        if all(
+            file_lines[start + offset].rstrip() == suggested_lines[offset]
+            for offset in range(block_len)
+        ):
+            return True
+    return False
+
+
 def validate_inline(item: dict) -> dict | None:
     path = item.get("path")
     line = item.get("line")
@@ -458,12 +495,54 @@ def validate_inline(item: dict) -> dict | None:
     lines = p.read_text(encoding="utf-8", errors="replace").splitlines()
     if line > len(lines):
         return None
-    current = lines[line - 1]
-    if current.rstrip() == suggested.rstrip():
+
+    suggested_norm = suggested.rstrip()
+    if "\n" in suggested_norm:
+        if _block_exists_in_file(suggested_norm, lines):
+            print(
+                f"Skipping no-op multi-line suggestion on `{path}` line {line}: "
+                "block already in file"
+            )
+        else:
+            print(
+                f"Skipping multi-line suggestion on `{path}` line {line} "
+                "(inline suggestions must be single-line)"
+            )
         return None
+
+    window_start = max(0, line - 1 - NEARBY_LINE_WINDOW)
+    window_end = min(len(lines), line - 1 + NEARBY_LINE_WINDOW + 1)
+    for idx in range(window_start, window_end):
+        if lines[idx].rstrip() == suggested_norm:
+            print(
+                f"Skipping no-op suggestion on `{path}` line {line}: "
+                f"text already on line {idx + 1}"
+            )
+            return None
+
+    candidates = [
+        idx + 1
+        for idx in range(window_start, window_end)
+        if lines[idx].rstrip() != suggested_norm
+    ]
+    if not candidates:
+        return None
+
+    if line in candidates:
+        target_line = line
+    else:
+        target_line = min(candidates, key=lambda ln: abs(ln - line))
+        print(
+            f"Adjusted suggestion target on `{path}` from line {line} to line {target_line}"
+        )
+
+    current = lines[target_line - 1]
+    if current.rstrip() == suggested_norm:
+        return None
+
     return {
         "path": path,
-        "line": line,
+        "line": target_line,
         "message": message.strip(),
         "suggested_line": suggested,
     }
@@ -731,14 +810,24 @@ def sync_summary_comment(
             ]
         )
         if not files_reviewed:
-            lines.extend(
-                [
-                    "_No Markdown under `_docs/`, `_includes/`, or `_lang/` was changed in "
-                    "this PR, so no editorial review was run. This comment confirms the "
-                    "check completed successfully._",
-                    "",
-                ]
-            )
+            if _is_auto_translate_pr():
+                lines.extend(
+                    [
+                        "_This PR only updates `_lang/` locale files from the auto-translate "
+                        "workflow. Those files are skipped here because English canonical docs "
+                        "are reviewed separately when they change._",
+                        "",
+                    ]
+                )
+            else:
+                lines.extend(
+                    [
+                        "_No Markdown under `_docs/`, `_includes/`, or `_lang/` was changed in "
+                        "this PR, so no editorial review was run. This comment confirms the "
+                        "check completed successfully._",
+                        "",
+                    ]
+                )
     else:
         lines.append(
             "The automated style guide review found items to address before merge."
