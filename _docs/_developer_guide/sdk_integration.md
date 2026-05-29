@@ -62,3 +62,11 @@ After integrating the SDK, you can enable [SDK Authentication]({{site.baseurl}}/
 {% alert note %}
 While performing QA on your SDK integration, use the [SDK Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging) to get troubleshoot issues without turning on verbose logging for your app.
 {% endalert %}
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Are there known React and React Native versions needed to work with Braze's React SDK?
+
+Add FAQ to React Native SDK docs: no specific minimum React/React Native versions; follow CHANGELOG breaking changes when upgrading.
