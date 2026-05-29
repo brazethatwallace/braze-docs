@@ -68,6 +68,10 @@ Dans les paramètres **Expiration (Time in Feed)**, vous pouvez sélectionner **
 
 ![Paramètres d'expiration affichant l'option Personalize duration configurée avec une variable de contexte pour l'expiration de la Content Card.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Les Content Cards ont une durée d'expiration maximale de 30 jours, même lorsque vous utilisez une durée personnalisée avec des variables de contexte. Toute valeur définie au-delà de 30 jours est plafonnée à 30 jours. Pour plus de détails, consultez [Expiration de la carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -127,6 +131,10 @@ Cette section décrit les principales différences entre la création de cartes 
 
 ## Considérations {#considerations}
 
+### Campagnes multicanales {#multichannel-campaigns}
+
+Les campagnes multicanales ne prennent pas en charge les cartes à la première impression, de sorte que toutes les Content Cards sont envoyées au lancement de la campagne.
+
 ### Utilisation des propriétés de contexte du Canvas {#using-canvas-context-properties}
 
 Lors de la personnalisation des Content Cards avec les [propriétés de contexte du Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), utilisez la syntaxe `${...}` (par exemple, {%raw%}`{{context.${property_name}}}`{%endraw%}). La notation par points sans cette syntaxe (par exemple, {%raw%}`{{context.property_name}}`{%endraw%}) peut ne pas se résoudre correctement dans les Content Cards, même si elle fonctionne dans d'autres canaux comme les notifications push et les e-mails.
@@ -139,7 +147,7 @@ Braze recommande de ne pas modifier le mode de création des cartes après le la
 
 Pour les audiences volumineuses, sélectionnez l'option de création des cartes à la première impression afin que les cartes soient disponibles rapidement après le lancement. Les campagnes déclenchées au démarrage de session peuvent également bénéficier du passage à la création à la première impression (disponible via la livraison planifiée) pour améliorer les performances.
 
-Lorsque les cartes sont créées à la première impression, leur traitement peut prendre 1 à 2 secondes. La durée de ce traitement dépend de divers facteurs, tels que la taille de la carte et la complexité des options de modèle de message. Par exemple, le temps de traitement des cartes utilisant le Contenu connecté sera au moins aussi long que le temps de réponse du Contenu connecté.
+Lorsque les cartes sont créées à la première impression, leur traitement peut prendre quelques secondes. La durée de ce traitement dépend de divers facteurs, tels que la taille de la carte et la complexité des options de modèle de message. Par exemple, le temps de traitement des cartes utilisant le Contenu connecté sera au moins aussi long que le temps de réponse du Contenu connecté.
 
 ### Versions antérieures du SDK {#previous-sdk-versions}
 

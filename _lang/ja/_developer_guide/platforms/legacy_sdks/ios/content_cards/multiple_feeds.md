@@ -41,7 +41,7 @@ noindex: true
 {% endtab %}
 {% tab SWIFT %}
 
-```swift
+`````````swift
 NotificationCenter.default.addObserver(self, selector:
   #selector(contentCardsUpdated),
   name:NSNotification.Name.ABKContentCardsProcessed, object: nil)
@@ -57,7 +57,7 @@ NotificationCenter.default.addObserver(self, selector:
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (void)contentCardsUpdatedNotificationReceived:(NSNotification *)notification {
   BOOL updateIsSuccessful = [notification.userInfo[ABKContentCardsProcessedIsSuccessfulKey] boolValue];
   if (updateIsSuccessful) {
@@ -88,7 +88,7 @@ NotificationCenter.default.addObserver(self, selector:
 {% endtab %}
 {% tab SWIFT %}
 
-```swift
+`````````swift
 @objc private func contentCardsUpdatedNotificationReceived(notification: NSNotification) {
     guard let updateSuccessful = notification.userInfo?[ABKContentCardsProcessedIsSuccessfulKey] as? Bool else { return }
     if updateSuccessful {

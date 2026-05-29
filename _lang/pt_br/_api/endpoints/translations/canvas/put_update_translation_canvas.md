@@ -19,8 +19,6 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 
 Se você quiser atualizar as traduções depois que um Canvas for lançado, precisará [salvar sua mensagem como rascunho]({{site.baseurl}}/post-launch_edits/) primeiro.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `canvas.translations.update`.

@@ -32,8 +32,8 @@ BrazeとZendeskのサーバー間統合により、以下を利用できます�
 
 Webhookを作成するには：
 
-- **Campaigns：** Brazeダッシュボードの**Campaigns**ページに移動します。**キャンペーンを作成**をクリックし、**Webhook**を選択します。
-- **Canvas：** 新しいCanvasまたは既存のCanvasから、Canvasビルダーでフルステップまたはメッセージステップを作成します。次に、**Messages**をクリックし、メッセージオプションから**Webhook**を選択します。
+- **キャンペーン：** Brazeダッシュボードの**キャンペーン**ページに移動します。**キャンペーンを作成**をクリックし、**Webhook**を選択します。
+- **キャンバス：** 新しいキャンバスまたは既存のキャンバスから、キャンバスビルダーでフルステップまたはメッセージステップを作成します。次に、**Messages**をクリックし、メッセージオプションから**Webhook**を選択します。
 
 Webhookに以下のフィールドを記入します：
 - **Webhook URL**: `<your-zendesk-instance>.zendesk.com/api/v2/tickets.json`

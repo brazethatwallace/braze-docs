@@ -11,7 +11,11 @@ tool:
 
 # Archivar Campaigns y Canvas {#archive-campaigns-and-canvases}
 
-> Archivar tus Campaigns y Canvas puede ser una forma sencilla y eficaz de organizar tu espacio de trabajo. A medida que sigas creando más mensajes, archivar puede ayudarte a mantener el enfoque en los esfuerzos de mensajería activos y relevantes.
+> Archivar tus Campaigns y Canvas es una forma eficaz de organizar tu espacio de trabajo. A medida que sigas creando más mensajes, archivar puede ayudarte a mantener el enfoque en los esfuerzos de mensajería activos y relevantes.
+
+{% alert important %}
+No puedes eliminar Campaigns y Canvas desde el dashboard, pero puedes archivarlos.
+{% endalert %}
 
 ## Archivar {#archiving}
 
@@ -37,6 +41,6 @@ Para archivar un Canvas:
 
 ## Desarchivar {#unarchiving}
 
-Cuando desarchivas una campaña o un Canvas, no se pondrá en vivo&mdash;su estado solo cambiará a **Activo**. Después de desarchivar, puedes editar y revisar cómo está configurado el mensaje sin que se envíe ningún mensaje.
+Cuando desarchivas una campaña o un Canvas, no se pondrá en vivo&mdash;su estado solo cambiará a **Activos**. Después de desarchivar, puedes editar y revisar cómo está configurado el mensaje sin que se envíe ningún mensaje.
 
 Para reanudar la campaña o el Canvas y comenzar a enviar mensajes, selecciona el menú <i class="fas fa-ellipsis-vertical"></i> de la fila correspondiente y selecciona **Resume**.

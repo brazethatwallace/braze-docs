@@ -33,7 +33,7 @@ Hi ${first_name},
 Liquidのパスバックを正しくレンダリングするには、以下のコードスニペットに示すように、リクエストのどこかに {% raw %}`${language}`{% endraw %} タグを含める必要があります。Liquidプリプロセッサーは、応答のテンプレート化に備えて、ユーザーから「language」属性を取得することを認識します。
 
 {%raw%}
-```liquid
+`````````liquid
 Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
 ```
 {% endraw %}
@@ -51,7 +51,7 @@ Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${lan
 例えば、以下の例で`message`イベントプロパティにJSON形式を壊す可能性のある文字が含まれている場合、この例のように`json_escape`フィルターを追加します。
 
 {% raw %}
-```liquid
+`````````liquid
 [{
 "message":"{{event_properties.${message} | json_escape}}"
 }]

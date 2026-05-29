@@ -53,7 +53,7 @@ Unsere Lösung für automatische Push-Benachrichtigungen nutzt die Funktion „P
 
 {% tabs %}
 {% tab Android %}
-#### Schritt 2.1: Push-Einstellungen konfigurieren {#step-21-configure-push-settings}
+#### Schritt 2.1: Push-Einstellungen konfigurieren {#unity_step-21-configure-push-settings}
 
 Das Braze SDK kann die Push-Registrierung bei den Firebase Cloud Messaging-Servern automatisch übernehmen, damit Geräte Push-Benachrichtigungen empfangen können. Aktivieren Sie in Unity **Automate Unity Android Integration** und konfigurieren Sie dann die folgenden **Push Notification**-Einstellungen.
 
@@ -62,8 +62,13 @@ Das Braze SDK kann die Push-Registrierung bei den Firebase Cloud Messaging-Serve
 | Automatic Firebase Cloud Messaging Registration Enabled | Weist das Braze SDK an, automatisch ein FCM-Push-Token für ein Gerät abzurufen und zu senden. |
 | Firebase Cloud Messaging Sender ID | Die Sender-ID aus Ihrer Firebase-Konsole. |
 | Handle Push Deeplinks Automatically | Gibt an, ob das SDK das Öffnen von Deeplinks oder das Öffnen der App beim Klicken auf Push-Benachrichtigungen verarbeiten soll. |
-| Small Notification Icon Drawable | Das Drawable, das beim Empfang einer Push-Benachrichtigung als kleines Symbol angezeigt werden soll. Wenn kein Symbol angegeben wird, verwendet die Benachrichtigung das Anwendungssymbol als kleines Symbol. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2.1: Push-Einstellungen konfigurieren" }
+| Small Notification Icon Drawable | Android-Drawable-Ressourcenreferenz für das kleine Symbol, das beim Empfang einer Push-Benachrichtigung angezeigt wird. Geben Sie die vollständige Referenz einschließlich des Präfixes `@drawable/` ein (z. B. `@drawable/hourglass_icon`). Die automatisierte Integration schreibt diesen Wert wie eingegeben in `braze.xml`. Wenn Sie dieses Feld leer lassen, verwendet die Benachrichtigung das Anwendungssymbol als kleines Symbol. |
+| Large Notification Icon Drawable | Optionales großes Symbol für Benachrichtigungen. Verwenden Sie dasselbe `@drawable/`-Format wie beim kleinen Symbol (z. B. `@drawable/my_large_icon`). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+
+{% alert note %}
+**Small Notification Icon Drawable** und **Large Notification Icon Drawable** befinden sich unter **Push Configuration** in **Braze > Braze Configuration**. Beide Werte werden wie eingegeben in `braze.xml` geschrieben. Fügen Sie das Präfix `@drawable/` selbst hinzu – die Braze-Unity-Integration ergänzt es nicht automatisch (z. B. `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`).
+{% endalert %}
 {% endtab %}
 
 {% tab Swift %}
@@ -94,7 +99,7 @@ Nutzer:innen, die sich noch nicht für Push-Benachrichtigungen entschieden haben
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-#### Schritt 2.1: `AndroidManifest.xml` aktualisieren {#step-21-update-androidmanifestxml}
+#### Schritt 2.1: `AndroidManifest.xml` aktualisieren {#unity_step-21-update-androidmanifestxml}
 
 Wenn Ihre App keine `AndroidManifest.xml` hat, können Sie die folgende Vorlage verwenden. Wenn Sie bereits eine `AndroidManifest.xml` haben, stellen Sie sicher, dass alle fehlenden Abschnitte zu Ihrer bestehenden `AndroidManifest.xml` hinzugefügt werden.
 
@@ -301,7 +306,13 @@ Eine Anleitung zur Einrichtung finden Sie unter [Deeplinking zu In-App-Ressource
 
 #### Braze-Push-Benachrichtigungssymbole hinzufügen {#adding-braze-push-notification-icons}
 
-Um Ihrem Projekt Push-Symbole hinzuzufügen, erstellen Sie ein Android-Archive-Plug-in (AAR) oder eine Android-Bibliothek, die die Bilddateien für die Symbole enthält. Weitere Schritte und Informationen finden Sie in der Unity-Dokumentation: [Android-Library-Projekte und Android-Archive-Plug-ins](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+{% alert important %}
+Fügen Sie keine Benachrichtigungssymbol-Bilder unter `Assets/Plugins/Android/res` hinzu. Unity hat [die Bereitstellung von Android-Ressourcen in diesem Pfad als veraltet markiert](https://support.unity.com/hc/en-us/articles/115005875443-Providing-Android-resources-in-Assets-Plugins-Android-res-is-deprecated), was zu Build-Warnungen oder Validierungsfehlern führen kann. Packen Sie Ihre Symbol-Drawables stattdessen in ein [Android-Archive-Plug-in (AAR)](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) oder ein Android-Bibliotheksprojekt, damit sie wie jedes andere Drawable in die Ressourcen der erstellten App eingebunden werden.
+{% endalert %}
+
+Um Ihrem Projekt Push-Symbole hinzuzufügen, erstellen Sie ein AAR-Plug-in oder eine Android-Bibliothek, die die Bilddateien für die Symbole unter `res/drawable*` (oder dichteabhängigen Ordnern) enthält, und referenzieren Sie jedes Symbol in **Braze > Braze Configuration** mit dem vollständigen `@drawable/`-Ressourcennamen (siehe [Schritt 2.1: Push-Einstellungen konfigurieren](#unity_step-21-configure-push-settings)). Informationen zu den Paketierungs- und Importschritten in Unity finden Sie unter [Android-Library-Projekte und Android-Archive-Plug-ins](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+
+Informationen zu den Gestaltungsregeln für kleine Symbole (nur Alpha-Kanal, keine Farbe) finden Sie unter [Android-Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android), Schritt 2: Kleine Symbole an die Designrichtlinien anpassen.
 {% endtab %}
 
 {% tab Swift %}

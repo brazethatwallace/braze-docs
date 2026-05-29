@@ -8,7 +8,7 @@ tool: Media
 
 ---
 
-# Bibliothèque multimédia
+# Bibliothèque multimédia {#media-library}
 
 > La bibliothèque multimédia vous permet de gérer vos ressources depuis un emplacement unique et centralisé.
 
@@ -18,7 +18,7 @@ L'utilisation de la bibliothèque multimédia plutôt qu'un réseau de diffusion
 
 ## Accéder à la bibliothèque multimédia {#accessing-the-media-library}
 
-Dans la bibliothèque multimédia, vous pouvez voir le type de ressource, sa taille, ses dimensions, son URL, la date à laquelle elle a été ajoutée à la bibliothèque, ainsi que d'autres informations. Pour accéder à votre bibliothèque multimédia Braze, allez dans **Modèles** > **Bibliothèque multimédia**. Vous pouvez y effectuer les actions suivantes :
+Dans la bibliothèque multimédia, vous pouvez voir le type de ressource, sa taille, ses dimensions, son URL, la date à laquelle elle a été ajoutée à la bibliothèque, ainsi que d'autres informations. Pour accéder à votre bibliothèque multimédia Braze, allez dans **Contenu** > **Bibliothèque multimédia**. Vous pouvez y effectuer les actions suivantes :
 
 * Charger plusieurs images en une seule fois
 * Charger des fichiers de contacts virtuels (.vcf)

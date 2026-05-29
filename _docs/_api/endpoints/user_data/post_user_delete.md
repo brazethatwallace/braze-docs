@@ -21,14 +21,14 @@ Up to 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses`, or `pho
 If you have a use case that can't be solved with bulk user deletion through the API, contact the [Braze Support team]({{site.baseurl}}/user_guide/administer/personal/braze_support/) for assistance.
 
 {% alert warning %}
-Deleting user profiles cannot be undone. It will permanently remove users which may cause discrepancies in your data. Learn more about what happens when you [delete a user profile using the API]({{site.baseurl}}/help/help_articles/api/delete_user/) in our Help documentation.
+Deleting user profiles cannot be undone. The delete action permanently removes users, which may cause discrepancies in your data. For details, see [Effects of deleting user profiles](#effects-of-deleting-user-profiles).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.delete` permission.
+To use this endpoint, you need an [API key]({{site.baseurl}}/api/api_key/) with the `users.delete` permission.
 
 ## Rate limit
 
@@ -63,7 +63,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Deleting users by email addresses and phone numbers
 
-If an email address or phone number is specified as an identifier, an additional `prioritization` value is required in the identifier. `prioritization` must be an ordered array and should specify which user to delete if there are multiple users. This means deleting users will not occur if more than one user matches a prioritization.
+If an email address or phone number is specified as an identifier, an additional `prioritization` value is required in the identifier. `prioritization` must be an ordered array and should specify which user to delete if there are multiple users. This means deleting users does not occur if more than one user matches a prioritization.
 
 The allowed values for the array are:
 
@@ -109,6 +109,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   "deleted" : (required, integer) number of user IDs queued for deletion
 }
 ```
+
+## Effects of deleting user profiles {#effects-of-deleting-user-profiles}
+
+When you remove a user with this endpoint, the following occurs:
+
+- The user profile is deleted (nulled).
+- Workspace user counts (such as total users on the [analytics home]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) update to account for the removed users.
+- The removed user still counts toward the aggregated conversion percentage. Custom event counts and purchase counts are not updated for removed users.
+
+### Multiple profiles with a shared email address
+
+To merge user profiles that share the same email address, call the [`/users/merge` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/). 
 
 ## Troubleshooting
 

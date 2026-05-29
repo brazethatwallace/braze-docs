@@ -47,7 +47,7 @@ No puedes personalizar ni renombrar eventos.
 
 Los seis eventos recomendados de comercio electrónico se corresponden con etapas del recorrido de compra. Dispara cada evento en el momento en que el usuario completa la acción correspondiente.
 
-![Diagrama del recorrido del usuario a través de los seis eventos recomendados de comercio electrónico: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled y order_refunded.]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![Diagrama del recorrido del usuario a través de los seis eventos recomendados de comercio electrónico: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled y order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
@@ -237,7 +237,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 {% endsubtab %}
 {% subtab Android %}
 
-##### Añadir
+##### Add {#add}
 
 `add` incrementa la cantidad o agrega una nueva línea. La propiedad `quantity` indica cuántas unidades agregar.
 
@@ -286,7 +286,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 189.99)))));
 ```
 
-##### Eliminar
+##### Remove {#remove}
 
 `remove` decrementa la cantidad en el monto indicado en `quantity`. La línea se elimina cuando la cantidad llega a `0`.
 
@@ -335,7 +335,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 14.99)))));
 ```
 
-##### Reemplazar
+##### Replace {#replace}
 
 `replace` (u omitir `action`) envía el carrito completo. `total_value` es obligatoria.
 
@@ -404,7 +404,7 @@ Braze.getInstance(context).logCustomEvent(
 {% endsubtab %}
 {% subtab Swift %}
 
-##### Añadir
+##### Add
 
 `add` incrementa la cantidad o agrega una nueva línea. La propiedad `quantity` indica cuántas unidades agregar.
 
@@ -450,7 +450,7 @@ Objective-C
 }];
 ```
 
-##### Eliminar
+##### Remove
 
 `remove` decrementa la cantidad en el monto indicado en `quantity`. La línea se elimina cuando la cantidad llega a `0`.
 
@@ -496,7 +496,7 @@ Objective-C
 }];
 ```
 
-##### Reemplazar
+##### Replace
 
 `replace` (u omitir `action`) envía el carrito completo. `total_value` es obligatoria.
 
@@ -1108,7 +1108,7 @@ La siguiente tabla resume lo que Braze hace automáticamente para cada evento cu
 | `ecommerce.cart_updated`     | Crea o actualiza el objeto de mapeado de carritos en el perfil de usuario (cargas útiles de carrito completo o actualizaciones incrementales del carrito con `action` opcional: `add`, `remove` o `replace`). El carrito expira después de 30 días sin una actualización. |
 | `ecommerce.product_viewed`   | Sin cambios en el perfil de usuario. Disponible para segmentación, desencadenantes y características de BrazeAI<sup>TM</sup> (como recomendaciones de artículos). |
 | `ecommerce.checkout_started` | Sin cambios en el perfil de usuario. Disponible para segmentación y desencadenantes (por ejemplo, flujos de pago abandonado). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Posprocesamiento de eventos de comercio electrónico" }
 
 {% alert important %}
 Los valores de moneda que no sean USD se convierten automáticamente a USD usando el tipo de cambio de la fecha en que se reporta el evento. Si ya reportas en USD, codifica `USD` como la moneda para evitar conversiones no deseadas.
@@ -1206,7 +1206,7 @@ Para cada evento cuyo nombre coincida con un evento recomendado de comercio elec
 | Sin propiedades adicionales de nivel superior | Los campos personalizados bajo propiedades causan un fallo. Usa el objeto `metadata` en su lugar. |
 | Restricciones de valores | Los campos monetarios deben ser ≥ `0`. `currency` debe ser una cadena ISO 4217 válida. |
 | Campos por producto | Cada elemento en `products[]` debe incluir `product_id`, `product_name`, `variant_id`, `quantity` y `price`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Qué validamos" }
 
 ### Por qué validamos {#why-we-validate}
 
@@ -1257,7 +1257,7 @@ Los fallos también se clasifican internamente y se agregan para el correo elect
 | `missing_property`     | Falta un campo obligatorio. | `order_placed` enviado sin `order_id`. |
 | `extra_property`       | Se agregó un campo que el esquema no define. | Un campo personalizado `gift_wrapped` en el nivel superior de `properties` en lugar de dentro de `metadata`. |
 | `unexpected_data_type` | Un campo tiene el tipo incorrecto. | `total_value: "29.99"` (cadena) en lugar de `29.99` (número). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example API error response" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ejemplo de respuesta de error de la API" }
 
 {% alert note %}
 Los nombres de eventos que no coinciden exactamente con un evento recomendado (por ejemplo, `ecommerce.OrderPlaced`) omiten la validación por completo y se registran como eventos personalizados ordinarios. Aparecen en Currents y en la segmentación con el nombre que enviaste, pero no reciben procesamiento de evento recomendado ni una entrada de `errors` en la respuesta.

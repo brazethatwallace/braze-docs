@@ -25,7 +25,7 @@ Existen dos estados de suscripción para los usuarios de SMS y RCS: `subscribed`
 | Estado | Definición |
 | --------- | ---------- |
 | Suscrito | El usuario está suscrito para recibir SMS y RCS de un grupo de suscripción específico. Un usuario puede suscribirse ya sea actualizando su estado de suscripción a través de la API de suscripción de Braze o enviando un mensaje de texto con una palabra clave de adhesión voluntaria. Un usuario debe estar suscrito a un grupo de suscripción de SMS o RCS para recibir SMS, RCS o ambos. Cuando la [doble adhesión voluntaria]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) está habilitada, los usuarios deben confirmar su intención de adhesión antes de que su estado de suscripción se actualice a `Subscribed`. |
-| Dado de baja | El usuario ha optado explícitamente por no recibir mensajes de tu grupo de suscripción de SMS y RCS y de los números de teléfono de envío dentro del grupo de suscripción. Pueden cancelar la suscripción enviando un mensaje de texto con una palabra clave de cancelación, o puedes cancelar la suscripción de los usuarios a través de la [API de suscripción de Braze]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Los usuarios dados de baja de un grupo de suscripción de SMS y RCS ya no recibirán ningún SMS o RCS de los números de teléfono de envío que pertenezcan al grupo de suscripción.|
+| Dado de baja | El usuario ha optado explícitamente por no recibir mensajes de tu grupo de suscripción de SMS y RCS y de los números de teléfono de envío dentro del grupo de suscripción. Pueden cancelar la suscripción enviando un mensaje de texto con una palabra clave de cancelación, o puedes cancelar la suscripción de los usuarios a través de la [API de suscripción de Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Los usuarios dados de baja de un grupo de suscripción de SMS y RCS ya no recibirán ningún SMS o RCS de los números de teléfono de envío que pertenezcan al grupo de suscripción.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Establecer el estado de un usuario {#set-a-users-state}
@@ -47,6 +47,8 @@ Para establecer el estado del grupo de suscripción de un usuario, utiliza uno d
 Al actualizar el estado del grupo de suscripción de un usuario como parte de un flujo de Canvas, utiliza un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) en lugar de un webhook. El paso de Actualización de usuario espera a que se complete el procesamiento antes de avanzar al usuario al siguiente paso, de modo que los pasos de mensajería posteriores utilicen el estado de suscripción actualizado.
 
 Si usas un webhook para actualizar los grupos de suscripción, el usuario avanza tan pronto como se envía el webhook, no cuando el cambio de suscripción termina de procesarse. Esto puede crear una condición de carrera en la que un paso de SMS posterior se ejecuta antes de que el usuario esté suscrito, lo que provoca que el mensaje falle para una parte de los usuarios. Si debes usar un webhook, agrega un paso de retraso de al menos 1 minuto antes del siguiente paso de mensajería.
+
+#{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Verificar el grupo de un usuario {#check-a-users-group}
 
@@ -132,7 +134,7 @@ Define tu audiencia usando uno de los siguientes métodos. A continuación, ve a
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Crear un segmento** | Crea un segmento que incluya a todos los usuarios en un grupo de suscripción o un subconjunto usando filtros de segmentación (como un 5-10 % aleatorio). Los segmentos se actualizan antes de cada envío para reflejar tu base de usuarios actual. |
 | **Aplicar filtros de campaña o Canvas** | Refina la audiencia en el paso **Target Audience** de tu campaña o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Definir tu audiencia" }
 
 ### Paso 3: Configurar un paso de Actualización de usuario {#step-3-configure-a-user-update-step}
 

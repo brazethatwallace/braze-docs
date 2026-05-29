@@ -36,11 +36,11 @@ En la plataforma Inkit, crea una plantilla para utilizarla en tu campaña de Bra
 
 ### Paso 2: Crea tu plantilla de webhook de Braze {#step-2-create-your-braze-webhook-template}
 
-Para crear una plantilla de webhook de Inkit y utilizarla en futuras campañas o Canvas, ve a **Templates** > **Webhook Templates** en la plataforma Braze.
+Para crear una plantilla de webhook de Inkit y utilizarla en futuras campañas o Canvas, ve a **Contenido** > **Webhook** en la plataforma Braze. Luego, selecciona **Crear plantilla de webhook**.
 
 Si deseas crear una campaña de webhook de Inkit única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña.
 
-![Una selección de plantillas de webhook prediseñadas disponibles en la pestaña Webhook Templates de la sección Plantillas y medios.]({% image_buster /assets/img/inkit-webhook-template.png %})
+![Una selección de plantillas de webhook prediseñadas disponibles en la pestaña Plantillas de Webhook de la sección Plantillas y medios.]({% image_buster /assets/img/inkit-webhook-template.png %})
 
 Una vez que hayas seleccionado la plantilla de webhook de Inkit, deberías ver lo siguiente:
 - **Webhook URL**: En blanco
@@ -91,5 +91,5 @@ El texto sin formato se resaltará automáticamente si se trata de una etiqueta 
 Previsualiza tu solicitud en el panel de **Preview** o ve a la pestaña de **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook.
 
 {% alert important %}
-Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Saved Webhook Templates** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Plantillas de Webhook guardadas** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

@@ -6,7 +6,7 @@ layout: partner_page
 search_tag: Partner
 
 partner_top_header: "Technologie-Partner"
-partner_top_text: "Willkommen bei unserer Liste der Technologie-Partner – unseren Braze Alloys. Nutzen Sie diese Seite, um Technologie-Partner in das Braze SDK zu implementieren. Gehen Sie in Braze zu <b>Partnerintegrationen</b> > <b>Technologie-Partner</b>, um sich mit einem der auf dieser Seite aufgeführten Partner zu verbinden. <br> <br> Wenn Sie Informationen darüber suchen, wie Sie unserer Firebrands-Community von Kund:innen beitreten können, die Braze nutzen, um ihr Kundenerlebnis und Marketing zu modernisieren, besuchen Sie unser <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a>."
+partner_top_text: "Willkommen bei unserer Liste der Technologie-Partner – unseren Braze Alloys. Nutzen Sie diese Seite, um Technologie-Partner in das Braze SDK zu implementieren. Gehen Sie in Braze zu <b>Partnerintegrationen</b> > <b>Technologie-Partner</b>, um sich mit einem der auf dieser Seite aufgeführten Partner zu verbinden. <br> <br> Wenn bei einem Partner in Braze <b>Ungültige Zugangsdaten</b> angezeigt wird, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Seite „Technologie-Partner“ und verbinden Sie sie erneut. Überprüfen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite. <br> <br> Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangsüberwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Seite „Technologie-Partner“. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt. <br> <br> Wenn Sie Informationen darüber suchen, wie Sie unserer Firebrands-Community von Kund:innen beitreten können, die Braze nutzen, um ihr Kundenerlebnis und Marketing zu modernisieren, besuchen Sie unser <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a>."
 description: "Diese Landing-Page enthält alle Braze Partner. Hier finden Sie technische Dokumentation, die Sie bei der Implementierung von Technologie-Partnern in das Braze SDK unterstützt."
 
 valid_partner_list:
@@ -106,6 +106,8 @@ valid_partner_list:
   url: /docs/partners/certona/
 - name: CataBoom
   url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Playable
   url: /docs/partners/playable/
 - name: Movable Ink
@@ -214,6 +216,8 @@ valid_partner_list:
   url: /docs/partners/wunderkind/
 - name: B.Layer
   url: /docs/partners/blayer-inapps/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Tellius
   url: /docs/partners/tellius/
 - name: Sheetlabs
@@ -284,6 +288,8 @@ valid_partner_list:
   url: /docs/partners/typeform/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
 - name: GRAVTY by Loyalty Juggernaut

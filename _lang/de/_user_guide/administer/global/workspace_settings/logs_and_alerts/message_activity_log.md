@@ -11,7 +11,7 @@ description: "Dieser Referenzartikel beschreibt das Nachrichten-Aktivitätsproto
 
 > Das **Nachrichten-Aktivitätsprotokoll** gibt Ihnen die Möglichkeit, alle Nachrichten (insbesondere Fehlermeldungen) einzusehen, die mit Ihren Campaigns und Sendungen verknüpft sind.
 
-Sie können API-Campaign-Transaktionen einsehen, Details zu fehlgeschlagenen Nachrichten analysieren und Insights gewinnen, wie Sie die Zustellung von Benachrichtigungen verbessern oder bestehende technische Probleme lösen können.
+Sie können API-Kampagnen-Transaktionen einsehen, Details zu fehlgeschlagenen Nachrichten analysieren und Insights gewinnen, wie Sie die Zustellung von Benachrichtigungen verbessern oder bestehende technische Probleme lösen können.
 
 Um auf das Protokoll zuzugreifen, gehen Sie zu **Einstellungen** > **Nachrichten-Aktivitätsprotokoll**.
 
@@ -24,7 +24,7 @@ Zusätzlich zu diesem Artikel empfehlen wir Ihnen auch unseren Braze-Lernkurs [Q
 Sie können nach den folgenden Inhalten filtern, die im **Nachrichten-Aktivitätsprotokoll** protokolliert werden:
 
 - Push-Benachrichtigungsfehler
-- Fehler bei abgebrochenen Nachrichten
+- Fehler bei abgebrochenen In-App-Nachrichten-Templates
 - Webhook-Fehler
 - E-Mail-Fehler
 - API-Nachrichtendatensätze
@@ -55,7 +55,7 @@ Die folgenden Nachrichten dienen als Beispiele und stimmen möglicherweise nicht
 
 | Nachrichtentyp | Mögliche Nachricht | Beschreibung |
 |---|---|---|
-| Soft Bounce | The email address same@example.com soft bounced. | Die E-Mail-Adresse war gültig und die E-Mail-Nachricht erreichte den Mailserver des Empfängers, wurde aber aufgrund eines „vorübergehenden“ Problems abgelehnt. <br><br>Häufige Gründe für Soft Bounces sind: {::nomarkdown} <ul> <li> Das Postfach war voll (die Nutzer:in hat ihr Kontingent überschritten) </li> <li> Der Server war nicht erreichbar </li> <li> Die Nachricht war zu groß für den Posteingang des Empfängers </li>  </ul> {:/} Wenn eine E-Mail einen Soft Bounce erhalten hat, versuchen wir in der Regel innerhalb von 72 Stunden erneut zuzustellen, aber die Anzahl der Wiederholungsversuche variiert je nach Empfänger. |
+| Soft Bounce | The email address same@example.com soft bounced. | Die E-Mail-Adresse war gültig und die E-Mail-Nachricht erreichte den Mailserver der Empfänger:in, wurde aber aufgrund eines „vorübergehenden“ Problems abgelehnt. <br><br>Häufige Gründe für Soft Bounces sind: {::nomarkdown} <ul> <li> Das Postfach war voll (die Nutzer:in hat ihr Kontingent überschritten) </li> <li> Der Server war nicht erreichbar </li> <li> Die Nachricht war zu groß für den Posteingang der Empfänger:in </li>  </ul> {:/} Wenn eine E-Mail einen Soft Bounce erhalten hat, versuchen wir in der Regel innerhalb von 72 Stunden erneut zuzustellen, aber die Anzahl der Wiederholungsversuche variiert je nach Empfänger:in. |
 | Hard Bounce | The email account that you tried to reach does not exist. Try double-checking the recipient's email address for typos or unnecessary spaces. | Ihre Nachricht hat den Posteingang dieser Person nie erreicht, weil kein Posteingang vorhanden war. Wenn Sie tiefer nachforschen möchten, können solche Nachrichten manchmal Links in der Spalte **Details anzeigen** enthalten, über die Sie das Profil der vorgesehenen Empfänger:in einsehen können.|
 | Block | Spam message is rejected because of anti-spam policy. | Ihre Nachricht wurde als Spam eingestuft. Dieser E-Mail-Fehler wird für eine Nutzer:in protokolliert, wenn wir ein Ereignis vom ESP erhalten haben, das anzeigt, dass die E-Mail verworfen wurde. Es könnte nur für diese bestimmte Empfänger:in gelten, aber wenn Sie diese Nachricht häufig sehen, sollten Sie Ihre Sendegewohnheiten oder den Inhalt Ihrer Nachricht überprüfen. Denken Sie auch zurück – haben Sie [Ihre IP aufgewärmt]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)? Falls nicht, kontaktieren Sie Braze für Ratschläge, wie Sie damit beginnen können.|
 | Aborted Message Error | empty-cart_web | Wenn Sie eine App mit einem Warenkorb haben oder eine Sendung mit einer Abbruchnachricht in Liquid erstellen, können Sie anpassen, welche Nachricht an Sie zurückgegeben wird, wenn die Sendung abgebrochen wird. In diesem Fall lautet die zurückgegebene Nachricht empty-cart_web.|
@@ -78,8 +78,8 @@ Fehler der letzten 60 Stunden sind in den Nachrichten-Aktivitätsprotokollen ver
 
 ### Anzahl der gespeicherten Fehlerprotokolle {#number-of-error-logs-stored}
 
-Die Anzahl der gespeicherten Protokolle wird von mehreren Bedingungen beeinflusst. Wenn beispielsweise eine geplante Campaign an Tausende von Nutzer:innen gesendet wird, würden wir möglicherweise nur eine Stichprobe der Fehler im Nachrichten-Aktivitätsprotokoll sehen, anstatt alle Fehler. Im Folgenden finden Sie eine Übersicht der Bedingungen, die beeinflussen, wie viele Protokolle gespeichert werden:
-- Bis zu 20 Fehlerprotokolle desselben Fehlertyps werden für dieselbe Campaign oder denselben Canvas-Schritt innerhalb einer festen Uhrstunde für die folgenden Fehlertypen gespeichert:
+Die Anzahl der gespeicherten Protokolle wird von mehreren Bedingungen beeinflusst. Wenn beispielsweise eine geplante Kampagne an Tausende von Nutzer:innen gesendet wird, würden wir möglicherweise nur eine Stichprobe der Fehler im Nachrichten-Aktivitätsprotokoll sehen, anstatt alle Fehler. Im Folgenden finden Sie eine Übersicht der Bedingungen, die beeinflussen, wie viele Protokolle gespeichert werden:
+- Bis zu 20 Fehlerprotokolle desselben Fehlertyps werden für dieselbe Kampagne oder denselben Canvas-Schritt innerhalb einer festen Uhrstunde für die folgenden Fehlertypen gespeichert:
     - Connected-Content-Fehler
     - Fehler bei abgebrochenen Nachrichten
     - Webhook-Fehler
@@ -87,7 +87,7 @@ Die Anzahl der gespeicherten Protokolle wird von mehreren Bedingungen beeinfluss
     - SMS-Zustellungsfehler
     - WhatsApp-Fehler
     - A/B-Test-Fehler
-- Bis zu 20 Push-Benachrichtigungs-Fehlerprotokolle desselben Fehlertyps werden für dieselbe Campaign oder denselben Canvas-Schritt und dieselbe App-Kombination für die folgenden Fehlertypen gespeichert:
+- Bis zu 20 Push-Benachrichtigungs-Fehlerprotokolle desselben Fehlertyps werden für dieselbe Kampagne oder denselben Canvas-Schritt und dieselbe App-Kombination für die folgenden Fehlertypen gespeichert:
     - Ungültige Push-Zugangsdaten
     - Ungültiges Push-Token
     - Keine Push-Zugangsdaten
@@ -101,7 +101,7 @@ Die Anzahl der gespeicherten Protokolle wird von mehreren Bedingungen beeinfluss
     - Live-Activity-Fehler (Ungültige Push-Zugangsdaten)
     - Andere Live-Activity-Fehler
     - APNs-Feedback-Fehler bei entferntem Token
-- Bis zu 100 Fehlerprotokolle desselben Fehlertyps werden für dieselbe Campaign oder denselben Canvas-Schritt innerhalb einer festen Uhrstunde für die folgenden Fehlertypen gespeichert:
+- Bis zu 100 Fehlerprotokolle desselben Fehlertyps werden für dieselbe Kampagne oder denselben Canvas-Schritt innerhalb einer festen Uhrstunde für die folgenden Fehlertypen gespeichert:
     - E-Mail-Soft-Bounce-Fehler
     - E-Mail-Hard-Bounce-Fehler
     - E-Mail-Block-Fehler

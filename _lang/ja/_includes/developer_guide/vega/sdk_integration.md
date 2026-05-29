@@ -18,7 +18,7 @@ npm install @braze/vega-sdk --save
 
 インストール後、必要なメソッドをインポートできる：
 
-```javascript
+`````````javascript
 import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 ```
 {% endtab %}
@@ -26,13 +26,13 @@ import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 {% tab yarn %}
 プロジェクトでYarnを使用している場合、Braze Vega SDKを依存関係として追加できる。
 
-```bash
+`````````bash
 yarn add @braze/vega-sdk
 ```
 
 インストール後、必要なメソッドをインポートできる：
 
-```javascript
+`````````javascript
 import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 ```
 {% endtab %}
@@ -46,7 +46,7 @@ import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 他のBrazeメソッドを呼び出す前に、プロミ`changeUser`スを待機または解決しなければならない。さもなければ、イベントや属性が誤ったユーザーに設定される可能性がある。
 {% endalert %}
 
-```javascript
+`````````javascript
 import { useEffect } from "react-native";
 import {
   initialize,
@@ -102,7 +102,7 @@ SDKのログ記録のイネーブルメントを有効にすれば、デバッ�
 
 デバッグメッセージをコンソールに記録するには`initialize()`、`enableLogging: true`以下を実行する:
 
-```javascript
+`````````javascript
 initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
   enableLogging: true
 });
@@ -116,7 +116,7 @@ initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
 
 初期化後にSDKのログ出力をイネーブルメントまたは無効`toggleLogging()`にするには、以下を使用する：
 
-```javascript
+`````````javascript
 import { toggleLogging } from "@braze/vega-sdk";
 
 // Enable logging
@@ -127,7 +127,7 @@ toggleLogging();
 
 SDKのログ処理をより細かくコントロールするために、カスタムロガー関数を`setLogger()`指定するには``を使用する。
 
-```javascript
+`````````javascript
 import { setLogger } from "@braze/vega-sdk";
 
 setLogger((message) => {
@@ -140,7 +140,7 @@ setLogger((message) => {
 
 SDKの動作をカスタマイズするために`initialize()`、追加の設定オプションを渡すことができる：
 
-```javascript
+`````````javascript
 await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
   sessionTimeoutInSeconds: 60,        // Configure session timeout (default is 30 seconds)
   appVersionNumber: "1.2.3.4",        // Set your app version
@@ -152,7 +152,7 @@ await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
 
 NPMやYarnからBraze Vega SDKを参照している場合、パッケージ依存関係を更新することで最新版にアップグレードできる：
 
-```bash
+`````````bash
 npm update @braze/vega-sdk
 # or, using yarn:
 yarn upgrade @braze/vega-sdk

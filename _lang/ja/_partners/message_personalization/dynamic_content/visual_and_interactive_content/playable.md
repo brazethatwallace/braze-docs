@@ -1,7 +1,7 @@
 ---
 nav_title: "Playable"
 article_title: "Playable"
-description: "このリファレンス記事では、BrazeとPlayableのパートナーシップについて説明します。Playableは動画プラットフォームであり、動画コンテンツをBrazeのメールCampaignsに追加できます。"
+description: "このリファレンス記事では、BrazeとPlayableのパートナーシップについて説明します。Playableは動画プラットフォームであり、動画コンテンツをBrazeのメールキャンペーンに追加できます。"
 alias: /partners/playable/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Playable
 
-> [Playable](https://playable.video)では、自動再生動画コンテンツをBrazeのメールCampaignsに追加できます。
+> [Playable](https://playable.video)では、自動再生動画コンテンツをBrazeのメールキャンペーンに追加できます。
 
 _この統合はPlayableによって管理されています。_
 
@@ -35,7 +35,7 @@ Playableプラットフォームで、動画ファイルをアップロードす
 
 ### ステップ 2:埋め込みコードをPlayableからコピーする {#step-2-copy-the-embed-code-from-playable}
 
-アップロードが完了すると、Playableによりコードが生成されます。このコードをBraze Campaignに挿入すると、メールに動画が埋め込まれ、開封時に自動再生されます。メールが開封されると、メールクライアント、デバイス、スクリーンサイズ、およびネットワーク状況に応じて最適な動画がPlayableサーバーから配信されます。
+アップロードが完了すると、Playableによりコードが生成されます。このコードをBraze キャンペーンに挿入すると、メールに動画が埋め込まれ、開封時に自動再生されます。メールが開封されると、メールクライアント、デバイス、スクリーンサイズ、およびネットワーク状況に応じて最適な動画がPlayableサーバーから配信されます。
 
 {% alert tip %}
 動画は、iPhone Mail、Gmail、Apple Mail、Outlook for iOS、Outlook for Android、Outlook for Mac、およびOutlook 365 for Windowsの新しいバージョンなど、受信トレイの98%以上で自動再生されます。従来のOutlook for Windowsをご利用の場合は、動画の代わりに静止画像が表示されます。
@@ -43,4 +43,4 @@ Playableプラットフォームで、動画ファイルをアップロードす
 
 ### ステップ 3:埋め込みコードをBrazeに貼り付ける {#step-3-paste-the-embed-code-into-braze}
 
-最後に、コードをBrazeのメールCampaignに貼り付けてから、メールCampaignのデザイン、テスト、公開を続行します。
+最後に、コードをBrazeのメールキャンペーンに貼り付けてから、メールキャンペーンのデザイン、テスト、公開を続行します。

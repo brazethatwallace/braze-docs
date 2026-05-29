@@ -5,7 +5,7 @@ layout: email_report_metrics
 page_order: 0
 excerpt_separator: ""
 page_type: glossary
-description: "이 용어집에는 시작 후 이메일 캠페인 또는 캔버스의 분석 섹션에서 찾을 수 있는 용어가 포함되어 있습니다. 이 용어집에는 커런츠 측정기준이 포함되어 있지 않습니다."
+description: "이 용어집에는 시작 후 이메일 Campaign 또는 Canvas의 분석 섹션에서 찾을 수 있는 용어가 포함되어 있습니다. 이 용어집에는 Currents 측정기준이 포함되어 있지 않습니다."
 channel:
   - email
 ---
@@ -19,7 +19,7 @@ channel:
 
 {% api %}
 
-### 변형
+### 배리언트 {#variation}
 
 {% apitags %}
 Count
@@ -33,7 +33,7 @@ Count
 
 {% api %}
 
-### 이메일 가능
+### 이메일 가능 {#emailable}
 
 {% apitags %}
 Count
@@ -47,7 +47,7 @@ Count
 
 {% api %}
 
-### 오디언스 %
+### 오디언스 % {#audience}
 
 {% apitags %}
 Percentage
@@ -61,7 +61,7 @@ Percentage
 
 {% api %}
 
-### 고유 수신자
+### 고유 수신자 {#unique-recipients}
 
 {% apitags %}
 Count
@@ -75,7 +75,7 @@ Count
 
 {% api %}
 
-### 발송 수
+### 발송 수 {#sends}
 
 {% apitags %}
 Count
@@ -89,7 +89,7 @@ Count
 
 {% api %}
 
-### Messages Sent
+### 발송된 메시지 {#messages-sent}
 
 {% apitags %}
 Count
@@ -103,7 +103,7 @@ Count
 
 {% api %}
 
-### 전달 수
+### 전달 수 {#deliveries}
 
 {% apitags %}
 Count
@@ -131,7 +131,7 @@ Percentage
 
 {% api %}
 
-### 반송
+### 반송 {#bounces}
 
 {% apitags %}
 Count, Percentage
@@ -157,7 +157,7 @@ SendGrid를 사용하는 고객의 이메일 반송은 하드바운스, 스팸(`
 
 {% api %}
 
-### 하드바운스
+### 하드바운스 {#hard-bounce}
 
 {% apitags %}
 Count
@@ -173,7 +173,7 @@ Count
 
 {% api %}
 
-### 소프트바운스
+### 소프트바운스 {#soft-bounce}
 
 {% apitags %}
 Count
@@ -189,7 +189,7 @@ Count
 
 {% api %}
 
-### 스팸
+### 스팸 {#spam}
 
 {% apitags %}
 Count, Percentage
@@ -211,7 +211,7 @@ Count, Percentage
 
 {% api %}
 
-### 고유 열람
+### 고유 열람 {#unique-opens}
 
 {% apitags %}
 Count, Percentage
@@ -233,13 +233,13 @@ Count, Percentage
 
 {% api %}
 
-### 고유 클릭
+### 고유 클릭 {#unique-clicks}
 
 {% apitags %}
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>로 측정됩니다. 여기에는 Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 7일 후 동일한 사용자가 다시 클릭하면 새로운 고유 클릭으로 집계될 수 있습니다. Currents에서 대시보드 수치와 일치시키려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 로 측정됩니다. 여기에는 Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 7일 후 동일한 사용자가 다시 클릭하면 새로운 고유 클릭으로 집계될 수 있습니다. Currents에서 대시보드 수치와 일치시키려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -255,7 +255,7 @@ Count, Percentage
 
 {% api %}
 
-### 구독취소 또는 가입 취소
+### 구독취소 또는 가입 취소 {#unsubscribers-or-unsub}
 
 {% apitags %}
 Count, Percentage
@@ -275,11 +275,20 @@ Count, Percentage
 </span>
 {:/}
 
+#### *구독취소*와 구독취소 링크 클릭 수가 다를 수 있는 이유 {#why-unsubscribes-and-unsubscribe-link-clicks-can-differ}
+
+이메일 Campaign 또는 Canvas의 **Analytics** 페이지에서 **Total Clicks** 또는 **Unique Clicks**를 확장할 때 링크별 분석에서 Braze 구독취소 URL 클릭 수와 *구독취소* 수를 비교해 보세요. 두 수치는 대체로 일치하지만 차이가 발생할 수 있습니다.
+
+- ***구독취소*가 본문 구독취소 URL 클릭 수보다 많은 경우:** [List-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)는 이메일 헤더에 있는 추가 구독취소 경로입니다(메시지 본문의 링크가 아님). 사용자가 이 방법으로 구독을 취소하면 *구독취소*에는 집계되지만 본문의 추적된 구독취소 URL 클릭으로는 집계되지 않습니다.
+- **본문 구독취소 URL 클릭 수가 *구독취소*보다 많은 경우:** 사용자가 해당 링크를 여러 번 선택할 수 있습니다. 구독을 취소한 후 다시 구독하고 다시 구독을 취소하면, 이메일 분석에서 클릭 분석에 여러 번의 클릭(예: 두 번)이 기록될 수 있습니다.
+
+자세한 내용은 [구독취소 수와 구독취소 링크 클릭 수가 다른 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)를 참조하세요.
+
 {% endapi %}
 
 {% api %}
 
-### 매출
+### 매출 {#revenue}
 
 {% apitags %}
 Count
@@ -293,7 +302,7 @@ Count
 
 {% api %}
 
-### 주요 전환 (A) 또는 주요 전환 이벤트
+### 주요 전환 (A) 또는 주요 전환 이벤트 {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Count, Percentage
@@ -315,7 +324,7 @@ Count, Percentage
 
 {% api %}
 
-### 신뢰도
+### 신뢰도 {#confidence}
 
 {% apitags %}
 Count
@@ -327,7 +336,7 @@ Count
 
 {% api %}
 
-### 머신 열람
+### 머신 열람 {#machine-opens}
 
 {% multi_lang_include analytics/metrics.md metric='Machine Opens' %} 이 측정기준은 SendGrid의 경우 2021년 11월 11일부터, SparkPost의 경우 2021년 12월 2일부터 추적됩니다.
 
@@ -337,7 +346,7 @@ Count
 
 {% api %}
 
-### 기타 열람
+### 기타 열람 {#other-opens}
 
 {% apitags %}
 Count
@@ -351,7 +360,7 @@ Count
 
 {% api %}
 
-### 클릭 대비 열람률
+### 클릭 대비 열람률 {#click-to-open-rate}
 
 {% apitags %}
 Percentage

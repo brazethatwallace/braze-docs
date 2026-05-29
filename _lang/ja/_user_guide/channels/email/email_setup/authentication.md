@@ -18,13 +18,13 @@ channel: email
 
 ## 認証方法 {#methods-of-authentication}
 
-### Sender Policy Framework（SPF） {#sender-policy-framework-spf}
+### Sender Policy Framework（SPF） {#spf}
 
 この方法は、Brazeのメール送信IPアドレスがあなたに代わってメールを送信する権限を持っていることを確認します。SPFは基本的な認証であり、DNS設定にテキストレコードを公開することで実現されます。受信サーバーはDNSレコードを確認し、それが正当であるかどうかを判断します。この方法はメール送信者を検証するために設計されています。
 
 Brazeは、IPとドメインの設定時にSPFレコードをセットアップします。Brazeが提供するDNSレコードを追加する以外に、追加の対応は必要ありません。
 
-### Domain Keys Identified Mail（DKIM） {#domain-keys-identified-mail-dkim}
+### Domain Keys Identified Mail（DKIM） {#dkim}
 
 この方法は、Brazeのメール送信ドメインがあなたに代わってメールを送信する権限を持っていることを確認します。この方法は送信者の正当性を検証し、メッセージの完全性が保持されていることを検証するために設計されています。また、個別の暗号デジタル署名を使用するため、ISPは配信するメールがあなたが送信したメールと同一であることを確認できます。
 
@@ -32,7 +32,7 @@ Brazeはあなたの秘密キーでメールに署名します。ISPはカスタ
 
 Brazeは、IPとドメインの設定時にDKIMレコードをセットアップします。Brazeが提供するDNSレコードを追加する以外に、追加の対応は必要ありません。
 
-### Domain-based Message Authentication, Reporting, and Conformance（DMARC） {#domain-based-message-authentication-reporting-and-conformance-dmarc}
+### Domain-based Message Authentication, Reporting, and Conformance（DMARC） {#dmarc}
 
 [Domain-based Message Authentication, Reporting & Conformance（DMARC）](https://dmarc.org/)は、メール送信者がメールの正当性を証明するためのメール認証プロトコルであり、メールボックス受信者の信頼を高め、メールの受け入れを促進します。DMARCにより、メール送信者はSender Policy Framework（SPF）またはDomain Keys Identified Mail（DKIM）で認証されなかったメールの処理方法を指定できます。これは、SPFとDKIMの両方のチェックが通過していることを検証することで実現されます。
 
@@ -63,7 +63,7 @@ DMARCレコードは、DMARCレコードに記載されたレポート用メー�
 
 たとえば、Gmailを使用している場合は、以下の手順に従います。
 
-1. メールメッセージの**その他** <i class="fa-solid fa-ellipsis"></i> をクリックします。
+1. メールメッセージの**その他** <i class="fa-solid fa-ellipsis"></i>をクリックします。
 2. **メッセージのソースを表示**を選択します。
 3. **DMARC**のステータスが「PASS」であることを確認します。
 

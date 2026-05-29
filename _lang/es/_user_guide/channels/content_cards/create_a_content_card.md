@@ -96,7 +96,7 @@ Cada tipo de mensaje y plataforma puede tener sus propias proporciones y requisi
 
 Braze muestra una tarjeta anclada en la parte superior del feed del usuario y el usuario no puede descartarla. Si el feed de un usuario tiene múltiples tarjetas ancladas, Braze las ordena cronológicamente. Después de enviar una tarjeta, no puedes actualizar retroactivamente su opción de anclaje. Cambiar esta opción después de enviar una Campaign solo afecta a los envíos futuros.
 
-![Vista lado a lado de la vista previa de la Content Card en Braze para móvil y web con la opción "Anclar esta tarjeta en la parte superior del feed" seleccionada.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
+![Vista lado a lado de la vista previa de la Content Card en Braze para móvil y web con la opción «Anclar esta tarjeta en la parte superior del feed» seleccionada.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 #### Comportamiento al hacer clic {#on-click-behavior}
 
@@ -133,7 +133,7 @@ Construye el resto de tu Campaign. Continúa con las siguientes secciones para o
 
 Las Content Cards pueden entregarse según un horario planificado, una acción o un desencadenante de API. Para más información, consulta [Planificar tu Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-También puedes establecer la duración de la Campaign y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours), y determinar la expiración de la Content Card. Establece una fecha de expiración específica o los días hasta que una tarjeta expire, hasta 30 días. Todas las variantes tienen fechas de expiración idénticas.
+También puedes establecer la duración de la Campaign y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/), y determinar la expiración de la Content Card. Establece una fecha de expiración específica o los días hasta que una tarjeta expire, hasta 30 días. Todas las variantes tienen fechas de expiración idénticas.
 
 Si eliges que una tarjeta expire después de un período establecido (por ejemplo, después de dos semanas), la expiración se calcula desde el momento de envío de la tarjeta. Para Campaigns planificadas, este es el horario de lanzamiento planificado. Para Campaigns basadas en acciones, este es el momento en que el usuario realiza la acción desencadenante. Por ejemplo, si una tarjeta basada en acciones se envía a las 2 pm de hoy con una expiración de 1 día, expira a las 2 pm del día siguiente.
 
@@ -226,10 +226,10 @@ La reelegibilidad determina si un usuario puede recibir un mensaje de la misma C
 
 #### Cómo se calcula la reelegibilidad {#how-re-eligibility-is-calculated}
 
-Si activas la reelegibilidad, la cuenta regresiva para que un usuario pueda "reingresar" a una Campaign comienza después de que se le envía el mensaje. El momento específico en que comienza esta cuenta regresiva depende de la configuración de creación de tu tarjeta:
+Si activas la reelegibilidad, la cuenta regresiva para que un usuario pueda «reingresar» a una Campaign comienza después de que se le envía el mensaje. El momento específico en que comienza esta cuenta regresiva depende de la configuración de creación de tu tarjeta:
 
-* Las Content Cards que usan [primera impresión]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) usan el momento de la impresión para calcular la reelegibilidad.
-* Las Content Cards creadas al lanzamiento de la Campaign o al entrar en el paso en Canvas usan el momento de envío o el momento de impresión, el que sea más reciente.
+- Las Content Cards que usan [primera impresión]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) usan el momento de la impresión para calcular la reelegibilidad.
+- Las Content Cards creadas al lanzamiento de la Campaign, en Campaigns multicanal, o al entrar en el paso en Canvas usan el momento de envío o el momento de impresión, el que sea más reciente.
 
 #### La expiración de 30 días y la reelegibilidad {#the-30-day-expiration-and-re-eligibility}
 
@@ -241,7 +241,7 @@ Para que los usuarios solo reciban un mensaje de una Campaign específica una ve
 
 ### Gestionar Content Cards activas {#managing-live-content-cards}
 
-Después de que las Content Cards se han enviado, permanecen esperando en un "buzón de entrada" listas para ser entregadas al usuario (similar a lo que sucede con los correos electrónicos). Después de que el contenido se extrae en la Content Card (en el momento de la visualización), no se puede cambiar durante su vida útil. Esto aplica incluso si estás llamando a una API a través de contenido conectado y los datos del punto de conexión cambian. Estos datos no se actualizarán. Solo se puede detener el envío a nuevos usuarios y eliminarla de los feeds de los usuarios. Si modificas una Campaign, solo las tarjetas futuras que se envíen tendrán la actualización.
+Después de que las Content Cards se han enviado, permanecen esperando en un «buzón de entrada» listas para ser entregadas al usuario (similar a lo que sucede con los correos electrónicos). Después de que el contenido se extrae en la Content Card (en el momento de la visualización), no se puede cambiar durante su vida útil. Esto aplica incluso si estás llamando a una API a través de contenido conectado y los datos del punto de conexión cambian. Estos datos no se actualizarán. Solo se puede detener el envío a nuevos usuarios y eliminarla de los feeds de los usuarios. Si modificas una Campaign, solo las tarjetas futuras que se envíen tendrán la actualización.
 
 #### Actualizar tarjetas lanzadas {#updating-launched-cards}
 
@@ -294,7 +294,7 @@ Digamos que tienes una Campaign que se desencadena al inicio de sesión y tiene 
 
 Puedes eliminar manualmente las tarjetas de los feeds de todos los usuarios en cualquier momento deteniendo la Campaign.
 
-1. Abre la Campaign de Content Card y selecciona Detener Campaign.
+1. Abre la Campaign de Content Card y selecciona **Detener Campaign**.
 2. Cuando se te solicite, selecciona **Remove card after the next sync**. La tarjeta se elimina en la próxima actualización del feed.
 
 ##### Eliminación automatizada de tarjetas {#action-based-card-removal}
@@ -327,4 +327,4 @@ Si quieres que una tarjeta parezca estar siempre disponible, puedes crear una Ca
 
 1. Establece la duración de la Content Card en 30 días.
 2. Establece la reelegibilidad de la Campaign en 30 días.
-3. Configura la Campaign para que se desencadene al "Inicio de sesión".
+3. Configura la Campaign para que se desencadene al «Inicio de sesión».

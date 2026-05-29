@@ -18,6 +18,8 @@ description: "이 문서에서는 발송 분석 내보내기 Braze 엔드포인�
 
 Braze는 발송 후 14일 동안 발송 분석을 저장합니다. Campaign 전환은 해당 사용자가 Campaign에서 가장 최근에 수신한 `send_id`에 기여 분석됩니다.
 
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
 ## 필수 조건 {#prerequisites}

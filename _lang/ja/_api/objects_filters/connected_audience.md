@@ -11,23 +11,23 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 > 接続オーディエンスは、APIリクエスト内でインラインに定義するダイナミックなオーディエンスフィルターです。Brazeダッシュボードでセグメントを作成・管理することなく、送信時に適切なユーザーをターゲットにできます。
 
-あらゆるオーディエンスの組み合わせに対してSegmentを事前に構築する代わりに、APIコールの`audience`パラメーターにフィルター条件を直接渡します。Brazeはリアルタイムで各ユーザーをその条件に照らして評価し、条件に一致するユーザーにのみメッセージを配信します。つまり、1つのCampaign、Canvas、またはAPIのみのメッセージ定義で、ビジネスロジックに完全に基づいた無制限のオーディエンスバリエーションに対応できます。
+あらゆるオーディエンスの組み合わせに対してSegmentを事前に構築する代わりに、APIコールにフィルター条件を直接渡します。エンドポイントに応じて、このオブジェクトは`audience`または`custom_audience`として渡されます。Brazeはリアルタイムで各ユーザーをその条件に照らして評価し、条件に一致するユーザーにのみメッセージを配信します。つまり、1つのCampaign、Canvas、またはAPIのみのメッセージ定義で、ビジネスロジックに完全に基づいた無制限のオーディエンスバリエーションに対応できます。
 
 ## 仕組み {#how-it-works}
 
 1. BrazeダッシュボードでAPIトリガーのCampaignまたはCanvasを作成してメッセージを定義するか、APIリクエストの[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を使用してメッセージコンテンツを完全にインラインで定義します。ダイナミックなパーソナライゼーションには[トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)または[Canvasコンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)を使用します。
-2. 対応するエンドポイントを呼び出し、フィルター条件を含む`audience`パラメーターを指定します。カスタム属性、プッシュ通知のサブスクリプションステータス、メールのサブスクリプションステータス、最後にアプリを使用した時間でフィルターできます。
+2. 対応するエンドポイントを呼び出し、接続オーディエンスフィルターを`audience`パラメーターに含めます。`/messages/live_activity/start`の場合は`custom_audience`に含めます。カスタム属性、プッシュ通知のサブスクリプションステータス、メールのサブスクリプションステータス、最後にアプリを使用した時間でフィルターできます。
 3. Brazeは送信時にフィルターを評価し、条件に一致するユーザーにのみメッセージを配信します。
 
 {% alert tip %}
 `audience`パラメーターを使用する場合、`campaign_id`は必須ではありません。[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)および[`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)エンドポイントでは、事前に作成したCampaignなしでメッセージコンテンツをインラインで定義できます。ただし、ダッシュボードでCampaignレベルの指標（送信数、クリック数、バウンスなど）を追跡したい場合は、`campaign_id`を含めてください。
 {% endalert %}
 
-オーディエンスはリクエストごとに定義されるため、バックエンドシステムは任意のビジネスイベント（価格変更、気象警報、ライブスコア更新など）に応じて、ダッシュボードの操作なしに文脈に応じた関連メッセージをトリガーできます。
+オーディエンスはリクエストごとに定義されるため、バックエンドシステムは任意のビジネスイベント（価格変更、気象警報、ライブスコア更新など）に応じて、ダッシュボードの操作なしに状況に即した関連メッセージをトリガーできます。
 
 ### 対応エンドポイント {#compatible-endpoints}
 
-接続オーディエンスオブジェクトは、以下のエンドポイントの`audience`パラメーターで使用できます。
+接続オーディエンスオブジェクトは、以下のエンドポイントで使用できます。
 
 - [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)
@@ -35,6 +35,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 - [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 - [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/)
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/)（`custom_audience`を使用）
 
 ## ユースケース {#use-cases}
 

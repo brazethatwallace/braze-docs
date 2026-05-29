@@ -1,5 +1,6 @@
 ---
 nav_title: Comportement des clients et événements utilisateurs
+article_title: Comportement des clients et événements utilisateurs
 layout: customer_behavior_events_glossary
 page_order: 4
 excerpt_separator: ""
@@ -9,11 +10,19 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Portée du schéma et ressources associées %}
+
+Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons à des partenaires de stockage d'entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Certaines combinaisons d'événements et de destinations énumérées ici ne sont pas encore disponibles de manière générale. Pour savoir quels événements sont pris en charge par les différents partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et leurs pages respectives.
+
 {% alert tip %}
 Ces événements sont également disponibles sous forme de tables SQL dans le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
 {% endalert %}
 
 Contactez votre conseiller Braze ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce dont vous avez besoin sur cette page, consultez notre [bibliothèque des événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) ou nos [exemples d'échantillons de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+
+{% enddetails %}
 
 {% details Explication de la structure des comportements des clients et des événements utilisateur, et des valeurs de plateforme %}
 
@@ -43,14 +52,16 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 {% enddetails %}
 
-{% alert important %}
-Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons à des partenaires de stockage d'entrepôt de données (tels que Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Certaines combinaisons d'événements et de destinations énumérées ici ne sont pas encore disponibles de manière générale. Pour savoir quels événements sont pris en charge par les différents partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et leurs pages respectives.<br><br>Notez également que Currents abandonnera les événements dont le payload est excessivement volumineux (plus de 900&nbsp;Ko).
-{% endalert %}
+{% details Considérations relatives aux comportements des clients et aux événements utilisateur %}
 
-{% alert note %}
-De nombreux événements de ce glossaire sont initiés par le SDK. Certains événements, tels que `token_state_change`, peuvent être initiés par le SDK ou par le backend (par exemple, en réponse à un rebond de notification push). Les champs `sdk_version`, `gender`, `language` et `country` ne sont définis que pour les événements initiés par le SDK ; pour les événements initiés par le backend, ou lorsque ces informations ne sont pas disponibles ou non définies pour l'utilisateur, ces champs peuvent être `null`.
-{% endalert %}
+- Currents abandonne les événements dont le payload est excessivement volumineux (plus de 900&nbsp;Ko).
+- De nombreux événements de ce glossaire sont initiés par le SDK. Certains événements, tels que `token_state_change`, peuvent être initiés par le SDK ou par le backend (par exemple, en réponse à un rebond de notification push). Les champs `sdk_version`, `gender`, `language` et `country` ne sont définis que pour les événements initiés par le SDK ; pour les événements initiés par le backend, ou lorsque ces informations ne sont pas disponibles ou non définies pour l'utilisateur, ces champs peuvent être `null`.
 
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## Événements de mise à jour du numéro de compartiment aléatoire {#random-bucket-number-update-events}
@@ -148,7 +159,7 @@ Cet événement se produit lorsqu'un événement personnalisé spécifique est d
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.CustomEvent
 
@@ -235,7 +246,7 @@ Cet événement se produit lorsqu'un événement personnalisé spécifique est d
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails des propriétés {#property-details}
 
 - Pour les événements personnalisés, le payload sera également rempli avec toutes les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/#custom-event-properties) associées à l'événement.
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus : [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
@@ -287,7 +298,7 @@ Cet événement se produit lorsqu'une installation d'application est attribuée 
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.InstallAttribution
 
@@ -424,7 +435,7 @@ Cet événement est déclenché lorsqu'un utilisateur se rend à un emplacement 
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.Location
 
@@ -523,7 +534,7 @@ Cet événement est déclenché lorsqu'un utilisateur se rend à un emplacement 
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété
+#### Détails des propriétés
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus : [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte afin d'activer la fonctionnalité permettant l'envoi de `ad_id`.
@@ -600,7 +611,7 @@ Les achats sont des événements personnalisés spéciaux et sont accompagnés d
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.Purchase
 
@@ -693,7 +704,7 @@ Les achats sont des événements personnalisés spéciaux et sont accompagnés d
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété
+#### Détails des propriétés
 
 - Pour les événements d'achat, le payload sera également rempli avec toutes les [propriétés d'achat]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/#purchase-properties) associées à l'événement.
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus : [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
@@ -763,7 +774,7 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.FirstSession
 
@@ -899,7 +910,7 @@ Cet événement se produit lorsqu'un utilisateur quitte votre application, metta
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.SessionEnd
 
@@ -1039,7 +1050,7 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.SessionStart
 
@@ -1173,7 +1184,7 @@ Cet événement se produit lorsque Braze synchronise le jeton Push To Start de l
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.liveactivity.PushToStartTokenChange
 
@@ -1307,7 +1318,7 @@ Cet événement se produit lorsque Braze synchronise le jeton de mise à jour de
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.liveactivity.UpdateTokenChange
 
@@ -1457,7 +1468,7 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.pushnotification.TokenStateChange
 
@@ -1558,17 +1569,20 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété
+#### Détails des propriétés
 
 - Le champ `push_token_foreground_push_disabled` indique si le jeton de notification push peut recevoir des notifications push en avant-plan ou en arrière-plan.
-  - Si l'utilisateur a explicitement autorisé les notifications push sur son appareil, la valeur sera `false`, et le jeton pourra recevoir des notifications push en avant-plan.
-  - Si l'utilisateur a explicitement refusé l'autorisation de notification push sur son appareil, la valeur sera `true`, et le jeton ne pourra recevoir que des notifications push en arrière-plan.
-  - Si l'autorisation push est inconnue, ce champ sera vide. Par défaut, Braze tentera d'envoyer des notifications push en avant-plan au jeton.
+  - Si l'utilisateur a explicitement autorisé les notifications push sur son appareil, la valeur est `false`, et le jeton peut recevoir des notifications push en avant-plan.
+  - Si l'utilisateur a explicitement refusé l'autorisation de notification push sur son appareil, la valeur est `true`, et le jeton ne peut recevoir que des notifications push en arrière-plan.
+  - Si l'autorisation push n'a pas encore été déterminée (par exemple, l'utilisateur n'a pas encore répondu à l'invite du système d'exploitation), la valeur est `true`, et le jeton ne peut recevoir que des notifications push en arrière-plan.
+  - Ce champ peut être `null` (ou vide, selon le format de votre destination) pour les enregistrements de jetons SDK plus anciens qui n'ont pas encore signalé l'état de l'autorisation, ainsi que pour les jetons de notification push web. Traitez `null` de la même manière que `false` (compatible avec les notifications push en avant-plan), car Braze tente toujours d'envoyer des notifications push en avant-plan à ces jetons.
+  - Une tentative d'envoi de notification push ne met pas à jour ce champ. Si un envoi réussit, aucun événement `TokenStateChange` n'est émis. Si un envoi rebondit parce que le jeton est invalide, Braze émet un événement « remove » et supprime le jeton.
+  - Ce champ ne change que lorsque Braze ingère une mise à jour de l'état du jeton depuis le SDK (par exemple, une synchronisation de session ultérieure qui signale l'état de l'autorisation push).
 - Le champ `push_token_provisionally_opted_in` s'applique uniquement aux jetons de notification push iOS.
-  - Si vous avez configuré l'[autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push), ce champ sera défini sur `true` pour les jetons provisoires. Tous les autres jetons de notification push auront la valeur `false`.
-- Le champ `sdk_version` ne sera rempli que si le changement d'état du jeton est initié par le SDK.
-  - Si un événement SDK `changeUser` déclenche le transfert du jeton d'un utilisateur à un autre, le champ `sdk_version` sera rempli.
-  - En cas de rebond de notification push (par exemple, suite à une désinstallation), le champ `sdk_version` restera vide.
+  - Si vous avez configuré l'[autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push), les jetons provisoires auront ce champ défini sur `true`. Tous les autres jetons de notification push auront la valeur `false`.
+- Le champ `sdk_version` n'est rempli que si le changement d'état du jeton est initié par le SDK.
+  - Si un événement SDK `changeUser` déclenche le transfert du jeton d'un utilisateur à un autre, le champ `sdk_version` est rempli.
+  - En cas de rebond de notification push (par exemple, suite à une désinstallation), le champ `sdk_version` reste vide.
 - Chaque fois qu'un jeton de notification push entre dans Braze, les événements de son cycle de vie sont enregistrés. Trois types d'événements de modification de jeton (« add », « update » et « remove ») sont enregistrés dans le champ `push_token_state_change_type`.
 
 #### Types d'événements {#event-types}
@@ -1577,23 +1591,31 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
 
 Un événement « add » est ingéré lorsqu'un nouveau jeton est enregistré. Cela se produit lorsqu'un utilisateur ouvre l'application pour la première fois sur un nouvel appareil, ou lorsqu'un jeton est défini via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) avec `push_tokens` pour un utilisateur qui n'en avait pas auparavant.
 
+{% alert note %}
+Pour le SDK Swift iOS 13.3.0 et versions ultérieures, et le SDK Android 40.0.0 et versions ultérieures, l'état de l'autorisation push et le jeton de notification push sont envoyés ensemble. Pour les nouveaux enregistrements provenant de ces SDK, `push_token_foreground_push_disabled` est renseigné dans l'événement « add » (généralement `false` lorsque les notifications sont activées).<br><br>
+
+Les enregistrements de jetons plus anciens peuvent encore avoir ce champ à `null` jusqu'à ce que le SDK signale ultérieurement l'état de l'autorisation push. Les jetons de notification push web peuvent également avoir ce champ à `null` par conception.
+{% endalert %}
+
 ##### Update {#update}
 
-Un événement « update » est ingéré lorsqu'une propriété d'un jeton existant est modifiée sans que la chaîne de caractères du jeton elle-même ne change. Le jeton conserve la même chaîne de caractères, le même utilisateur et la même application, mais un ou plusieurs des champs suivants ont été modifiés : `foreground_push_disabled`, passerelle APNs, clés de notification push web, `provisionally_opted_in` ou `device_id`.
+Un événement « update » est ingéré lorsqu'une propriété d'un jeton existant est modifiée sans que la chaîne de caractères du jeton elle-même ne change. Le jeton conserve la même chaîne de caractères, le même utilisateur et la même application, mais un ou plusieurs des champs suivants ont été modifiés : `foreground_push_disabled`, passerelle APNs, clés de notification push web, `provisionally_opted_in` ou `device_id`. Ces mises à jour proviennent d'événements de synchronisation de l'état du jeton (par exemple, lorsque le SDK signale un nouvel état d'autorisation), et non des résultats d'envoi de notifications push.
 
 {% alert note %}
-Dans la plupart des cas, la réinstallation d'une application ou la restauration d'une sauvegarde entraîne un nouvel événement « add » avec un nouveau `push_token` et un nouveau `device_id` (car le SDK génère un nouveau `device_id` et le système d'exploitation fournit une nouvelle chaîne de caractères de jeton de notification push). Cela crée deux entrées distinctes pour le jeton et l'appareil dans le profil utilisateur, et l'entrée la plus ancienne est supprimée ultérieurement via le suivi des désinstallations ou l'envoi de Campaigns.<br><br>
+Dans la plupart des cas, la réinstallation d'une application ou la restauration d'une sauvegarde entraîne un nouvel événement « add » avec un nouveau `push_token` et un nouveau `device_id` (car le SDK génère un nouveau `device_id` et le système d'exploitation fournit une nouvelle chaîne de caractères de jeton de notification push). Cela crée deux entrées distinctes pour le jeton et l'appareil dans le profil utilisateur, et l'entrée la plus ancienne est supprimée ultérieurement via le suivi des désinstallations ou l'envoi de campagnes.<br><br>
 
-Il serait extrêmement rare que seul le `device_id` change sans que le `push_token` ne change (cela nécessiterait que le système d'exploitation renvoie la même chaîne de caractères après la réinstallation).
+Il serait extrêmement rare que seul le `device_id` change sans que le `push_token` ne change (cela nécessiterait que le système d'exploitation renvoie la même chaîne de caractères de jeton après la réinstallation).
 {% endalert %}
 
 ##### Remove {#remove}
 
 Un événement « remove » autonome est ingéré lorsque Braze supprime un jeton. Cela peut se produire pour plusieurs raisons :
 
-- Rebond de notification push (APNs, FCM ou HMS signale le jeton comme non valide ou expiré)
+- Rebond de notification push (APNs, FCM ou HMS signale le jeton comme invalide ou expiré)
 - Détection de désinstallation via une notification push silencieuse
 - Jeton supprimé via la REST API ou le service de retour APNs
+
+Lorsqu'un rebond de notification push déclenche la suppression d'un jeton, Braze émet `push_token_state_change_type = "remove"` pour ce jeton. Il n'émet pas d'événement « update » modifiant `push_token_foreground_push_disabled`.
 
 ##### Paires add et remove {#add-and-remove-pairs}
 

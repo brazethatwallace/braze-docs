@@ -122,7 +122,7 @@ Braze actualmente admite anular la ubicación predeterminada del píxel de segui
 Para cambiar la ubicación:
 
 1. En Braze, ve a **Settings** > **Email Preferences**.
-2. Selecciona entre las siguientes opciones: **Move for SendGrid**, **Move for SparkPost** o **Move for Amazon SES**
+2. Selecciona entre las siguientes opciones: **Move for SendGrid**, **Move for SparkPost** o **Move for Amazon SES**.
 3. Selecciona **Save**.
 
 Después de guardar, Braze envía instrucciones especiales al ESP para colocar el píxel de seguimiento de apertura en la parte superior de todos los correos electrónicos HTML.
@@ -171,7 +171,7 @@ _*Yahoo y Gmail eventualmente dejarán de usar el encabezado "mailto:" y solo ad
 Mostrar el encabezado es determinado en última instancia por el proveedor de buzón de correo. Para verificar si el encabezado list-unsubscribe está incluido en el correo electrónico sin formato (texto) para el destinatario en Gmail, haz lo siguiente:
 
 1. Selecciona **Show Original** en el correo electrónico. Esto abre una nueva pestaña con la versión sin formato del correo electrónico y sus encabezados.
-2. Busca "List-Unsubscribe".
+2. Busca "List-Unsubscribe". Para la cancelación de suscripción con un clic, muchos proveedores también incluyen un encabezado "List-Unsubscribe-Post". Confirma que ambos aparezcan en el mensaje sin formato cuando esperas que la cancelación con un clic esté disponible.
 
 Si el encabezado está en la versión sin formato del correo electrónico pero no se muestra, el proveedor de buzón de correo ha decidido no mostrar la opción de cancelación de suscripción, lo que significa que no tenemos más información sobre por qué el proveedor de buzón de correo no muestra el encabezado. Ver el encabezado list-unsubscribe depende en última instancia de la reputación. En la mayoría de los casos, cuanto mejor sea tu reputación del remitente con el proveedor de buzón de correo, más probable es que aparezca el encabezado list-unsubscribe.
 
@@ -266,7 +266,7 @@ Usa la opción para incluir "[TEST]" y "[SEED]" en las líneas de asunto de tus 
 
 El CSS en línea es una técnica que automáticamente incorpora estilos CSS en línea para tus correos electrónicos y nuevos correos electrónicos. Para algunos clientes de correo electrónico, esto puede mejorar la forma en que se renderizan tus correos electrónicos.
 
-Cambiar esta configuración no afecta ninguno de tus mensajes de correo electrónico o plantillas existentes. Puedes anular este valor predeterminado en cualquier momento mientras redactas mensajes o plantillas. Para más información, consulta [CSS en línea]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline/).
+Cambiar esta configuración no afecninguno de tus mensajes de correo electrónico o plantillas existentes. Puedes anular este valor predeterminado en cualquier momento mientras redactas mensajes o plantillas. Para más información, consulta [CSS en línea]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline/).
 
 ## Resuscribir usuarios cuando cambia su correo electrónico {#resubscribe-users-when-their-email-changes}
 

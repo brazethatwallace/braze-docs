@@ -25,7 +25,7 @@ Il existe deux états d'abonnement pour les utilisateurs SMS et RCS : `subscribe
 | État | Définition |
 | --------- | ---------- |
 | Abonné | L'utilisateur est abonné pour recevoir des SMS et RCS d'un groupe d'abonnement spécifique. Un utilisateur peut être abonné soit en ayant son état d'abonnement mis à jour via l'API d'abonnement Braze, soit en envoyant par SMS un mot-clé d'abonnement. Un utilisateur doit être abonné à un groupe d'abonnement SMS ou RCS pour recevoir des SMS, des RCS, ou les deux. Lorsque le [double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) est activé, les utilisateurs doivent confirmer leur intention d'abonnement avant que leur statut d'abonnement ne passe à `Subscribed`. |
-| Désabonné | L'utilisateur a explicitement refusé de recevoir des messages de votre groupe d'abonnement SMS et RCS et des numéros de téléphone d'envoi au sein du groupe d'abonnement. Il peut se désabonner en envoyant par SMS un mot-clé de désabonnement, ou vous pouvez désabonner les utilisateurs via l'[API d'abonnement Braze]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Les utilisateurs désabonnés d'un groupe d'abonnement SMS et RCS ne recevront plus aucun SMS ou RCS provenant des numéros de téléphone d'envoi appartenant au groupe d'abonnement. |
+| Désabonné | L'utilisateur a explicitement refusé de recevoir des messages de votre groupe d'abonnement SMS et RCS et des numéros de téléphone d'envoi au sein du groupe d'abonnement. Il peut se désabonner en envoyant par SMS un mot-clé de désabonnement, ou vous pouvez désabonner les utilisateurs via l'[API d'abonnement Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Les utilisateurs désabonnés d'un groupe d'abonnement SMS et RCS ne recevront plus aucun SMS ou RCS provenant des numéros de téléphone d'envoi appartenant au groupe d'abonnement. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Définir l'état d'un utilisateur {#set-a-users-state}
@@ -47,6 +47,8 @@ Pour définir l'état du groupe d'abonnement d'un utilisateur, utilisez l'une de
 Lors de la mise à jour du statut du groupe d'abonnement d'un utilisateur dans le cadre d'un flux Canvas, utilisez une étape [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) au lieu d'un webhook. L'étape Mise à jour utilisateur attend que le traitement soit terminé avant de faire avancer l'utilisateur vers l'étape suivante, de sorte que les étapes de messagerie ultérieures utilisent le statut d'abonnement mis à jour.
 
 Si vous utilisez un webhook pour mettre à jour les groupes d'abonnement, l'utilisateur avance dès que le webhook est envoyé, et non lorsque le changement d'abonnement a fini d'être traité. Cela peut créer une condition de concurrence où une étape SMS de suivi s'exécute avant que l'utilisateur ne soit abonné, entraînant l'échec du message pour une partie des utilisateurs. Si vous devez utiliser un webhook, ajoutez une étape de délai d'au moins 1 minute avant l'étape de messagerie suivante.
+
+#{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Vérifier le groupe d'un utilisateur {#check-a-users-group}
 

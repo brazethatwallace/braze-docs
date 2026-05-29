@@ -14,7 +14,7 @@ description: "この記事では、「セグメント別ユーザーのエクス
 /users/export/segment
 {% endapimethod %}
 
-> このエンドポイントを使用して、Segment内のすべてのユーザーをエクスポートします。
+> このエンドポイントを使用して、セグメント内のすべてのユーザーをエクスポートします。
 
 {% alert important %}
 このエンドポイントを使用する場合は、次の点に注意してください。<br><br>1. この API リクエストの `fields_to_export` フィールドは**必須**です。<br>2. `custom_events`、`purchases`、`campaigns_received`、`canvases_received` のフィールドには、過去90日間のデータのみが含まれます。
@@ -26,7 +26,7 @@ description: "この記事では、「セグメント別ユーザーのエクス
 **エクスポートの出力形式**: エクスポートが成功し、クラウドストレージ認証情報を設定していない場合、HTTP レスポンスには圧縮アーカイブ（ZIP または GZIP ファイル）をダウンロードするための URL が含まれます。クラウドストレージ認証情報（S3、Azure、または Google Cloud Storage）が設定されている場合、Braze はエクスポートをバケットに直接書き込み、レスポンスにはダウンロード URL は含まれません。エクスポートが失敗した場合は、代わりにメール通知が届きます。クラウドストレージ認証情報を設定すると、大規模なエクスポートで障害が発生する可能性が低くなります。
 {% endalert %}
 
-企業は、このエンドポイントを使用するSegmentごとに、特定の時刻に最大1つのエクスポートを実行できます。エクスポートが完了するのを待ってから、再試行してください。
+企業は、このエンドポイントを使用するセグメントごとに、特定の時刻に最大1つのエクスポートを実行できます。エクスポートが完了するのを待ってから、再試行してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cfa6fa98-632c-4f25-8789-6c3f220b9457 {% endapiref %}
 
@@ -40,7 +40,7 @@ description: "この記事では、「セグメント別ユーザーのエクス
 
 ## 認証情報ベースの応答の詳細 {#credentials-based-response-details}
 
-[S3][1]、[Azure][2]、または [Google Cloud Storage][3] の認証情報を Braze に追加した場合、各ファイルは `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip` のようなキー形式で ZIP ファイルとしてバケットにアップロードされます。Azure を使用している場合は、Braze の Azure パートナー概要ページで**これをデフォルトのデータエクスポート先にする**チェックボックスがオンになっていることを確認してください。通常、Braze は処理を最適化するために5,000ユーザーごとに1つのファイルを作成します。大きなワークスペース内で小さなSegmentをエクスポートすると、複数のファイルが生成される場合があります。その後、ファイルを展開し、必要に応じてすべての `json` ファイルを1つのファイルに連結できます。`output_format` に `gzip` を指定すると、ファイル拡張子は `.zip` ではなく `.gz` になります。
+[S3][1]、[Azure][2]、または [Google Cloud Storage][3] の認証情報を Braze に追加した場合、各ファイルは `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip` のようなキー形式で ZIP ファイルとしてバケットにアップロードされます。Azure を使用している場合は、Braze の Azure パートナー概要ページで**これをデフォルトのデータエクスポート先にする**チェックボックスがオンになっていることを確認してください。通常、Braze は処理を最適化するために5,000ユーザーごとに1つのファイルを作成します。大きなワークスペース内で小さなセグメントをエクスポートすると、複数のファイルが生成される場合があります。その後、ファイルを展開し、必要に応じてすべての `json` ファイルを1つのファイルに連結できます。`output_format` に `gzip` を指定すると、ファイル拡張子は `.zip` ではなく `.gz` になります。
 
 {% details ZIP のエクスポートパスの内訳 %}
 **ZIP 形式:**
@@ -64,7 +64,7 @@ description: "この記事では、「セグメント別ユーザーのエクス
 
 このエンドポイントを使用する際にエクスポートに独自のバケットポリシーを適用するため、独自の S3 または Azure 認証情報を設定することを強くお勧めします。クラウドストレージの認証情報がない場合は、リクエストへの応答で、すべてのユーザーファイルを含む ZIP ファイルをダウンロードできる URL が提供されます。URL は、エクスポートの準備ができた後にのみ有効な場所になります。
 
-クラウドストレージ認証情報を提供しない場合は、このエンドポイントからエクスポートできるデータ量に制限があることに注意してください。エクスポートするフィールドやユーザーの数によっては、ファイルが大きすぎるとファイル転送が失敗することがあります。ベストプラクティスは、`fields_to_export` を使用してエクスポートするフィールドを指定し、転送サイズを抑えるために必要なフィールドのみを指定することです。ファイルの生成でエラーが発生する場合は、ランダムバケット番号に基づいてユーザー群をより多くのSegmentに分割することを検討してください（たとえば、ランダムバケット番号が1,000未満、または1,000から2,000の間のSegmentを作成します）。
+クラウドストレージ認証情報を提供しない場合は、このエンドポイントからエクスポートできるデータ量に制限があることに注意してください。エクスポートするフィールドやユーザーの数によっては、ファイルが大きすぎるとファイル転送が失敗することがあります。ベストプラクティスは、`fields_to_export` を使用してエクスポートするフィールドを指定し、転送サイズを抑えるために必要なフィールドのみを指定することです。ファイルの生成でエラーが発生する場合は、ランダムバケット番号に基づいてユーザー群をより多くのセグメントに分割することを検討してください（たとえば、ランダムバケット番号が1,000未満、または1,000から2,000の間のセグメントを作成します）。
 
 どちらのシナリオでも、オプションで `callback_endpoint` を指定して、エクスポートの準備が整ったときに通知を受け取ることができます。`callback_endpoint` が指定されている場合、Braze はダウンロードの準備ができたときに、指定されたアドレスに POST リクエストを行います。POST の本文は "success":true です。S3 認証情報を Braze に追加していない場合、POST の本文にはダウンロード URL を値として持つ属性 `url` が追加されます。
 
@@ -137,8 +137,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `apps` | 配列 | このユーザーがセッションを記録したアプリ。次のフィールドが含まれます。<br><br>- `name`: アプリ名<br>- `platform`: アプリのプラットフォーム（iOS、Android、Web など）<br>- `version`: アプリのバージョン番号または名前<br>- `sessions`: このアプリの総セッション数<br>- `first_used`: 初回セッションの日付<br>- `last_used`: 最終セッションの日付<br><br>すべてのフィールドは文字列です。 |
 | `attributed_campaign` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。特定の広告キャンペーンの識別子。 |
 | `attributed_source` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。広告が掲載されたプラットフォームの識別子。 |
-| `attributed_adgroup` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。Campaignの下のオプションのサブグループの識別子。 |
-| `attributed_ad` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。Campaignと広告グループの下のオプションのサブグループの識別子。 |
+| `attributed_adgroup` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。キャンペーンの下のオプションのサブグループの識別子。 |
+| `attributed_ad` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。キャンペーンと広告グループの下のオプションのサブグループの識別子。 |
 | `push_subscribe` | 文字列 | ユーザーのプッシュ通知のサブスクリプションステータス。 |
 | `email_subscribe` | 文字列 | ユーザーのメールサブスクリプションステータス。 |
 | `braze_id` | 文字列 | このユーザーに対して Braze が設定したデバイス固有の一意のユーザー識別子。 |
@@ -160,9 +160,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `phone` | 文字列 | Braze にインポートされた形式のユーザーの電話番号。たとえば、電話番号を追加するリクエストが `1234567890` として送信された場合、同じ形式でエクスポートされます。 |
 | `purchases` | 配列 | このユーザーが過去90日間に行った購入。 |
 | `push_tokens` | 配列 | ユーザーのプッシュトークンに関する情報。 |
-| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布Segmentを作成するために使用されます。 |
+| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
 | `time_zone` | 文字列 | IANA タイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
-| `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したCampaignおよびCanvasのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
+| `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したキャンペーンおよびキャンバスのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
 | `user_aliases` | オブジェクト | `alias_name` および `alias_label` を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)（存在する場合）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="エクスポートするフィールド" }
@@ -171,8 +171,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 
 - `custom_events`、`purchases`、`campaigns_received`、および `canvases_received` のフィールドには、過去90日間のデータのみが含まれます。
 - `custom_events` と `purchases` の両方に、`first` と `count` のフィールドが含まれています。これらのフィールドは両方とも全期間の情報を反映しており、過去90日間のデータに限定されません。たとえば、特定のユーザーが90日以上前にイベントを最初に実行した場合、これは `first` フィールドに正確に反映され、`count` フィールドは過去90日より前に発生したイベントも考慮します。
-- 企業がエンドポイントレベルで実行できる同時Segmentエクスポートの数は100に制限されています。この制限を超えると、エラーが発生します。
-- 最初のエクスポートジョブの実行中にSegmentを2回目にエクスポートしようとすると、429エラーが発生します。
+- 企業がエンドポイントレベルで実行できる同時セグメントエクスポートの数は100に制限されています。この制限を超えると、エラーが発生します。
+- 最初のエクスポートジョブの実行中にセグメントを2回目にエクスポートしようとすると、429エラーが発生します。
 - [`403 Forbidden` レスポンス]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads)は、多くの場合、エクスポートファイルがまだ準備できていないことを意味します。
 
 ## 応答 {#response}

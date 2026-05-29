@@ -69,10 +69,6 @@ To view all of your tracked link aliases, do the following:
 1. Go to **Settings** > **Email Preferences** under **Workspace Settings**.
 2. Select the **Link Aliasing Settings** tab.
 
-{% alert important %}
-If you are using the [older navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), these settings are under **Manage Settings**.
-{% endalert %}
-
 Here, you can sort, search, and turn off tracking for link aliases.
 
 ![Tracked Link Aliases page that shows active and inactive link aliases associated with various campaigns.]({% image_buster /assets/img/tracked_aliases.png %})
@@ -210,7 +206,7 @@ If you export your engagement data with Currents, an email click event will be s
 ```
 
 {% alert update %}
-The behavior for `dispatch_id` differs between Canvas and campaigns because Braze treats Canvas steps (except for Entry Steps, which can be scheduled) as triggered events, even when they are "scheduled". Learn more about [`dispatch_id` behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/) in Canvas and campaigns.
+The behavior for `dispatch_id` differs between Canvas and campaigns because Braze treats Canvas steps (except for Entry Steps, which can be scheduled) as triggered events, even when they are "scheduled". Learn more about [`dispatch_id` behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) in Canvas and campaigns.
 
 _Update noted in August 2019._
 {% endalert %}
@@ -262,7 +258,9 @@ In the drag-and-drop editor, fields that hold a link (such as a button **URL**) 
 
 ### Content Block example
 
+{% raw %}
 If a Content Block contains a link such as `https://www.braze.com/{{custom_attribute.${offer_id}}}` with no trailing `?` or `&`, Braze does not know where to append `lid`, so the link is not picked up for **Link Management**. Add `?` or `&` at the end of the URL in the Content Block (depending on whether a query string already exists), save the Content Block, and the link can be recognized.
+{% endraw %}
 
 ### Reporting when the URL varies per user
 

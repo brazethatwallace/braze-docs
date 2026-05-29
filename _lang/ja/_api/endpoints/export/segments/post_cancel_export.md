@@ -1,20 +1,20 @@
 ---
-nav_title: "POST: Segmentによるエクスポートのキャンセル"
-article_title: "POST: Segmentによるエクスポートのキャンセル"
+nav_title: "POST: セグメントによるエクスポートのキャンセル"
+article_title: "POST: セグメントによるエクスポートのキャンセル"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Segmentによるエクスポートのキャンセル Brazeエンドポイントの詳細について説明します。"
+description: "この記事では、セグメントによるエクスポートのキャンセル Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# Segmentによるエクスポートのキャンセル {#cancel-exports-by-segment}
+# セグメントによるエクスポートのキャンセル {#cancel-exports-by-segment}
 {% apimethod post %}
 /export/segment/cancel
 {% endapimethod %}
 
-> このエンドポイントを使用して、指定されたSegment IDで進行中のすべてのエクスポートをキャンセルします。
+> このエンドポイントを使用して、指定されたセグメント IDで進行中のすべてのエクスポートをキャンセルします。
 
 ## 前提条件 {#prerequisites}
 
