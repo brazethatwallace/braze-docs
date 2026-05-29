@@ -98,3 +98,11 @@ Marking an issue as "Critical" means your production instance is down, and all w
 ## Troubleshooting access
 
 If you receive an error when logging into the Braze Support Portal, such as `Check your entry`, make sure you followed the link in your welcome email to set a password for the portal. If you've done that or were previously able to log into the portal, create a Support ticket.
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Dashboard Doesn't Load Correctly
+
+Add a troubleshooting section to _docs/_user_guide/access_braze/troubleshooting.md covering: dashboard load issues, browser testing (different browser), clearing cache/cookies, disabling ad blockers, VPN checks, ERR_BLOCKED_BY_CLIENT in console, and link to Chrome/Firefox cache-clearing instructions.
