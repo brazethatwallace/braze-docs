@@ -328,3 +328,23 @@ If you want a card to seem like it's always available, you can create a recurrin
 1. Set the duration of the Content Card for 30 days.
 2. Set the campaign re-eligibility to 30 days.
 3. Set the campaign to trigger on "Session Start."
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### What is the Difference Between a Full Sync and a Partial Sync for Content Cards?
+
+Add Full Sync vs Partial Sync explanation to Content Cards developer docs. Include: Full sync every 7 days or on changeUser(); Partial sync on requestContentCardsRefresh() unless 7 days since last full sync; partial sync can return 0 cards but user still sees cached cards.
+
+### Content Cards not Refreshing at openSession() (Web SDK)
+
+call subscribeToContentCardsUpdates() before openSession() for automatic sync at session start. Reference v4 upgrade guide.
+
+### What is the Impact of Stopping Content Cards Campaigns?
+
+when stopping a campaign with 'Remove card after next sync', card is removed; impression count may not match send count because removed cards cannot be impressed.
+
+### Content Cards Pinning/Unpinning Behavior
+
+Add 'future sends only' clarification for pinning changes to Content Cards docs.
