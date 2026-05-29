@@ -37,7 +37,7 @@ As a convenience, a summary of supported personalization tags are provided. For 
 {% endraw %}
 
 {% alert note %}
-API trigger properties must use two curly braces per tag: `{{api_trigger_properties.${your_api_trigger_property}}}`. Triple braces (for example `{{{...}}}`) are not valid Braze personalization syntax. See [Why is my API-triggered Liquid failing in Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+API trigger properties must use two curly braces per tag: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Triple braces (for example `{{{...}}}`){% endraw %} are not valid Braze personalization syntax. See [Why is my API-triggered Liquid failing in Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
 {% endalert %}
 
 ### Supported attributes
