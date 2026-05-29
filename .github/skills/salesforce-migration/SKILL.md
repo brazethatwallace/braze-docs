@@ -1,5 +1,9 @@
 ---
-alwaysApply: false
+name: salesforce-migration
+description: >
+  Migrates Salesforce Knowledge gaps into Braze public docs (Epic BD-6308). Use for Phase 1 triage,
+  Phase 2 drafting and PRs, kb_articles.csv backlog work, sf_kb_articles.csv Resolution lookups,
+  or when the user mentions @salesforce-migration or Salesforce KB migration.
 ---
 
 # Salesforce Knowledge → Braze Docs (Epic BD-6308)
