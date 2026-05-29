@@ -199,3 +199,11 @@ WhatsApp is a channel focused on 2-way messaging and thus anchors on conversatio
 Factors that affect phone number quality rating include an end-user blocking a business (and the reasons they provide when they block a business) and an end-user reporting a business. 
 
 When a quality rating is low, the phone number status changes from **Connected** to **Flagged**. If the quality doesn't improve over seven days, the status returns to **Connected**. However, the messaging limit will decrease to the next level. For example, a phone number that used to have a 100,000 messaging limit now has a 10,000 messaging limit.
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Whatsapp template has been falsely flagged - content against Whatsapp's Commerce Policy
+
+If you believe your template was falsely flagged, request a review via the link in the email from WhatsApp. The WhatsApp Business team may reverse the outcome.' Cross-link from Knowledge article to docs FAQ.
