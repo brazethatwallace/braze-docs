@@ -247,6 +247,10 @@ Vous pouvez également [annuler des messages]({{site.baseurl}}/user_guide/messag
 
 ## Résolution des problèmes {#troubleshooting}
 
+### L'envoi test n'arrive pas lors de l'utilisation d'`abort_message` {#test-send-doesnt-arrive-when-using-abort_message}
+
+Si vous utilisez [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) et qu'un envoi test n'arrive jamais, il se peut que l'utilisateur de prévisualisation ne possède pas les attributs attendus par votre code Liquid. La logique d'annulation s'exécute lors du rendu ; lorsqu'elle se déclenche, Braze n'envoie pas le message. Prévisualisez avec un utilisateur qui dispose des données de profil requises, ou utilisez **Preview as user** pour tester les champs du destinataire qui fournissent les mêmes valeurs que celles de votre audience de production.
+
 ### La prévisualisation peut convertir incorrectement les types de propriétés {#preview-may-incorrectly-coerce-property-types}
 
 Lors de la prévisualisation d'un message dans le tableau de bord, la plupart des variables (comme les attributs personnalisés) sont converties dans le type correct. Cependant, certaines variables n'ont pas de type défini que la prévisualisation peut rechercher :

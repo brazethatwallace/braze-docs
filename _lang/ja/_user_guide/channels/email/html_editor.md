@@ -137,6 +137,16 @@ Gmailモバイルアプリ（AndroidおよびiOS）は、デバイスがダー�
 
 メールヘッダーやメールエクストラのパーソナライゼーションを追加して、他のメールサービスプロバイダーに追加データを送信することもできます。
 
+##### メールの添付ファイル {#email-attachments}
+
+以下の方法でメールに添付ファイルを追加することもできます。
+
+- **ファイルをアップロード：** コンピューターからファイルをドラッグ＆ドロップするか、参照して直接アップロードします。Brazeはアップロード前にファイルの種類とサイズ（デフォルトで最大2&nbsp;MB）を検証し、ファイルはメディアライブラリにアップロードされます。2&nbsp;MBの制限を超えるファイルはアップロードできません。
+- **メディアライブラリを使用：** [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)に既に保存されているアセットを参照して選択します。PDF、Word文書、Excelファイル、PowerPointプレゼンテーションがすべてサポートされています。
+- **URLから追加：** ファイルを指すURLを入力し、表示ファイル名を指定します。Brazeはメール作成中に任意のURLのサイズを調べることができないため、ファイルサイズは送信時に適用されます。このフィールドではLiquidはサポートされていません。
+
+具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)を参照してください。
+
 ##### メールヘッダー {#email-headers}
 
 メールヘッダーを追加するには、**Add New Header**を選択します。メールヘッダーには、送信されるメールに関する情報が含まれています。これらの[キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)には、通常、送信者、受信者、認証プロトコル、ルーティング情報が含まれます。Brazeは、メールが受信トレイプロバイダーに到達するために必要なRFC準拠のヘッダー情報を自動的に追加します。
@@ -152,7 +162,7 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="メールヘッダー" id="reserved-fields">
   <caption>メールヘッダー</caption>
 <thead>
   <tr>

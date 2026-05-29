@@ -1373,6 +1373,10 @@ Time zones
 - [Cancelar uma mensagem fora de um intervalo de horas no momento do envio](#abort-send-time-hour-range)
 - [Cancelar uma mensagem fora de um período de tempo em um fuso horário fixo](#abort-fixed-timezone-window)
 
+{% alert note %}
+Se um usuário receber uma mensagem em um horário local inesperado, o fuso horário do dispositivo ou do perfil pode ter mudado (por exemplo, após uma viagem). A entrega por horário local usa o fuso horário do perfil no momento do envio; os usuários podem precisar de uma nova sessão na região habitual antes que valores como {% raw %}`{{${time_zone}}}`{% endraw %} reflitam o esperado. No entanto, você pode [inserir o fuso horário do usuário no modelo](#users-time-zone).
+{% endalert %}
+
 ### Inserir o fuso horário do usuário no modelo {#users-time-zone}
 
 Por padrão, datas e horários em Liquid são renderizados em Tempo Universal Coordenado (UTC). Para exibir datas e horários no fuso horário local do usuário, use o filtro `time_zone` com o filtro `date`.
