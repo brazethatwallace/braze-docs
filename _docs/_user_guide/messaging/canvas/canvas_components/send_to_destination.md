@@ -25,7 +25,7 @@ This step allows users from Canvas 1 to be sent to Canvas 2. When users from Can
 
 ### Real-time entry
 
-Send to Destination enters users into the destination Canvas as soon as they reach this step. This step acts as an ad hoc entry path into the destination Canvas. Users who meet the destination Canvas entry and audience criteria begin that Canvas journey in real time. Users who don't meet those criteria at that moment don't enter the destination Canvas and continue in the source Canvas.
+Send to Destination enters users into the destination Canvas as soon as they reach this step. This step acts as an ad hoc entry point into the destination Canvas. Users who meet the destination Canvas entry and audience criteria begin that Canvas journey in real time. Users who don't meet those criteria at that moment don't enter the destination Canvas and continue in the source Canvas.
 
 ## Create a Send to Destination step
 
@@ -55,7 +55,7 @@ Yes. The destination Canvas can have a draft or idle status.
 
 Yes. The [context]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) of the source Canvas is always passed to the destination Canvas.
 
-### Can I use Send to Destination to chain Canvases instead of API or User Update workarounds?
+### Can I use the Send to Destination step to connect Canvases instead of using API or User Update workarounds?
 
 Yes. You can connect Canvases with the Send to Destination step when users should move directly into another Canvas journey.
 
@@ -65,7 +65,7 @@ You don’t need separate User Update steps, API triggers, or webhooks solely to
 
 Eligible users enter immediately at the first step of the destination Canvas. They don’t wait for a later scheduled entry time on the destination Canvas.  You can’t link into a specific Canvas step inside the destination Canvas.
 
-### Does Send to Destination respect a scheduled destination Canvas entry schedule?
+### Does the Send to Destination step respect a scheduled destination Canvas entry schedule?
 
 No. If the destination Canvas uses a scheduled entry type, users sent from the Send to Destination step don’t wait for the next scheduled evaluation window. They’re evaluated and entered when they reach the Send to Destination step if they meet entry and audience criteria of the Destination Canvas.
 
