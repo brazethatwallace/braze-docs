@@ -142,3 +142,11 @@ Duplicate user profiles cannot be recovered after merging.
 - [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
 - [POST: Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
 - [Delete users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Why are multiple User Profiles associated with the Same Email Address?
+
+Ensure docs on user creation/import and duplicate profiles reference Export Users by Identifier as pre-check. Cross-link related KAs.
