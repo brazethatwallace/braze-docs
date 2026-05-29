@@ -47,10 +47,12 @@ Sie können auch eine Liquid-`{% if X %}`{% endraw %}-Anweisung für bedingtes R
 {% raw %}
 Es gibt ein Standardattribut für den Standort der Nutzerin oder des Nutzers: `{{${most_recent_location}}}`.
 
-### Was ist der Unterschied zwischen {{campaign.${name}}} und {{campaign.${message_name}}}? {#whats-the-difference-between-campaignname-and-campaignmessagename}
+### Was ist der Unterschied zwischen {{campaign.${name}}} und {{campaign.${message_name}}}? {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
 Sowohl `{{campaign.${name}}}` als auch `{{campaign.${message_name}}}` sind unterstützte Liquid-Personalisierungs-Tags. Beide Tags referenzieren Campaign-Attribute. `{{campaign.${name}}}` bezeichnet den Namen Ihrer Campaign, und `{{campaign.${message_name}}}` ist der Name Ihrer Nachrichtenvariante.
 {% endraw %}
+
+Informationen zur Verwendung in URLs und Query-Strings (z. B. wenn ein Name `%` oder Leerzeichen enthält) finden Sie unter [Campaign-Namen in URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls).
 
 ### Wie verwende ich Liquid mit verschachtelten Objekten? {#how-do-i-use-liquid-with-nested-objects}
 
@@ -140,3 +142,7 @@ Join our VIP program to unlock free shipping.
 {% endcapture %}
 ```
 {% endraw %}
+
+### Werden Liquid-Variablen zwischen Betreffzeile und Nachrichtentext übernommen? {#do-liquid-variables-carry-between-subject-line-and-body}
+
+Nein. Braze rendert jede Nachrichtenkomponente separat (z. B. Betreffzeile, HTML-Body, Preheader und Push-Titel). Zuweisungen oder Captures, die Sie in einem Feld vornehmen, sind in einem anderen nicht verfügbar. Wiederholen Sie den Liquid- oder Connected-Content-Aufruf in jedem Feld, das den Wert benötigt.
