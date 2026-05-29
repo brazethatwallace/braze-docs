@@ -20,7 +20,7 @@ Before you can use in-app messages in your Canvas, be sure to have a [Canvas]({{
 
 In the Canvas builder, add a [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) step and select **In-App Message** as your **Messaging Channel**. You can customize [when your message will expire](#in-app-message-expiration) and which [advancement behavior](#advancement-behavior) it will have.
 
-If your workspace has multiple apps, add a segment that targets **Users from specific apps** to the Message step's [**Delivery validations**]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations). In-app messages display only when the user opens the targeted app and meets the step's trigger criteria.
+If your workspace has multiple apps, target the correct app using **delivery platforms**, {% raw %}`{{targeted_device.${platform}}}`{% endraw %}, or {% raw %}`{{app.${api_id}}}`{% endraw %} Liquid tags—not delivery validations. In-app messages display only when the user opens the targeted app and meets the step's trigger criteria. For more information, see [Delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations).
 
 ## Adding an in-app message to your user journey
 
