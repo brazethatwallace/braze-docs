@@ -162,7 +162,7 @@ Vermeiden Sie die Verwendung der folgenden Schlüssel:
 }
 </style>
 
-<table aria-label="E-Mail-Header" id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
   <caption>E-Mail-Header</caption>
 <thead>
   <tr>
