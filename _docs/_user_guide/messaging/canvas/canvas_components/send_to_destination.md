@@ -63,7 +63,7 @@ You don’t need separate User Update steps, API triggers, or webhooks solely to
 
 ### Do users enter at the start of the destination Canvas?
 
-Eligible users enter immediately at the first step of the destination Canvas. They don’t wait for a later scheduled entry time on the destination Canvas.  You can’t link into a specific Canvas step inside the destination Canvas.
+Eligible users enter immediately at the first step of the destination Canvas. They don't wait for a later scheduled entry time on the destination Canvas. You can't link into a specific Canvas step inside the destination Canvas.
 
 ### Does the Send to Destination step respect a scheduled destination Canvas entry schedule?
 
