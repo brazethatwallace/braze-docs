@@ -61,3 +61,15 @@ Intelligent Timing campaigns work best for one-off and recurring messages where 
 ## Audience criteria evaluation with delays
 
 For campaigns that use scheduled delivery, audience criteria are always evaluated at the time of the scheduled send, not when the campaign launches. This applies to any delay between scheduling and sending—for example, rate limiting, local time zone, Intelligent Timing, or a trigger schedule.
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Scheduled Email Campaign Did Not Send to the Entire Estimated Audience
+
+Consider adding a troubleshooting section to docs for 'campaign did not send to full audience' covering: users without email, subscription status, email_changed_at timing. The email_changed_at (ect) field exists in platform.
+
+### Schedule Campaign Sent A Day Before The Schedule Time
+
+Add troubleshooting note to intelligent timing docs: if campaigns send a day before schedule, add a time window or enable local time delivery. Samoa timezone behavior causes early sends when neither is set.
