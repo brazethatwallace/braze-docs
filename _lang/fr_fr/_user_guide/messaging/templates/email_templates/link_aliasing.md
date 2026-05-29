@@ -69,10 +69,6 @@ Pour afficher tous vos alias de lien suivis, procédez comme suit :
 1. Accédez à **Settings** > **Email Preferences** sous **Workspace Settings**.
 2. Sélectionnez l'onglet **Link Aliasing Settings**.
 
-{% alert important %}
-Si vous utilisez l'[ancienne navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), ces paramètres se trouvent sous **Gérer les paramètres**.
-{% endalert %}
-
 Ici, vous pouvez trier, rechercher et désactiver le suivi des alias de lien.
 
 ![Page Tracked Link Aliases affichant les alias de lien actifs et inactifs associés à diverses Campaigns.]({% image_buster /assets/img/tracked_aliases.png %})
@@ -172,7 +168,7 @@ L'arrêt du suivi d'un lien ne réaffectera pas les segments existants avec le f
 
 Les liens dans les messages archivés ne sont plus suivis automatiquement. Cependant, si des messages archivés sont désarchivés, les liens devront être suivis à nouveau. Lorsque les alias de lien sont suivis, les rapports de lien sont indexés par l'alias au lieu des domaines de premier niveau ou des URL complètes.
 
-Pour afficher tous les liens de votre Campaign par e-mail et leurs clics totaux respectifs, accédez à **Message Analytics** > **Email Performance** > **Preview & Heatmap**, et sélectionnez le bouton bascule **Show Heatmap**.
+Pour afficher tous les liens de votre Campaign par e-mail et leurs clics totaux respectifs, accédez à **Message Analytics** > **Email Performance** > **Preview & Heatmap**, et activez le bouton bascule **Show Heatmap**.
 
 ![Panneau Link Table by Total Clicks avec les alias de lien et leurs clics totaux.]({% image_buster /assets/img/link_alias_total_clicks.png %}){: style="max-width:60%;"}
 
@@ -210,7 +206,7 @@ Si vous exportez vos données d'engagement avec Currents, un événement de clic
 ```
 
 {% alert update %}
-Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns car Braze traite les étapes Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». En savoir plus sur le [comportement de `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) dans Canvas et les Campaigns.
+Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns car Braze traite les étapes Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». En savoir plus sur le [comportement de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) dans Canvas et les Campaigns.
 
 _Mise à jour notée en août 2019._
 {% endalert %}

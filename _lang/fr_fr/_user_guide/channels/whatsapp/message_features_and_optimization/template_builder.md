@@ -20,7 +20,7 @@ channel:
 
 ### Étape 1 : Accéder aux modèles WhatsApp {#step-1-go-to-whatsapp-templates}
 
-Accédez à **Contenu** > **Modèles WhatsApp**, puis sélectionnez **Créer un nouveau modèle**.
+Accédez à **Contenu** > **WhatsApp**, puis sélectionnez **Créer un nouveau modèle**.
 
 ![Page des modèles WhatsApp avec un bouton pour créer un nouveau modèle.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -90,7 +90,7 @@ Avant de soumettre, prévisualisez l'apparence de votre message pour les destina
 
 ### Étape 6 : Soumettre pour vérification {#step-6-submit-for-review}
 
-Sélectionnez **Envoyer** pour soumettre votre modèle à Meta pour vérification, ce qui prend généralement quelques minutes mais peut aller jusqu'à 24 heures. Le modèle apparaît sur votre page **Modèles WhatsApp** une fois soumis, et l'état se met à jour lorsque vous actualisez la page **Modèles WhatsApp**.
+Sélectionnez **Submit** pour soumettre votre modèle à Meta pour vérification, ce qui prend généralement quelques minutes mais peut aller jusqu'à 24 heures. Le modèle apparaît sur votre page **Modèles WhatsApp** une fois soumis, et l'état se met à jour lorsque vous actualisez la page **Modèles WhatsApp**.
 
 ## Catégories de modèles prises en charge {#supported-template-categories}
 
@@ -118,7 +118,7 @@ Les vérifications sont généralement terminées en cinq minutes, mais peuvent 
 
 Toute modification du contenu verrouillé (texte du corps ou autres champs contrôlés par Meta) nécessite de resoumettre le modèle pour approbation, ce qui doit être fait depuis le WhatsApp Business Manager. Vous pouvez mettre à jour le contenu et la personnalisation lors de la construction de votre campagne ou de votre Canvas.
 
-### Qu'advient-il des modèles que j'ai soumis avant la disponibilité du générateur de modèles ? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
+### Qu'advient-il des modèles soumis avant la disponibilité du générateur de modèles ? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 
 Les modèles créés dans le Meta Business Manager restent disponibles dans Braze. Le générateur de modèles est un moyen supplémentaire de créer et de gérer des modèles sans quitter le tableau de bord de Braze.
 

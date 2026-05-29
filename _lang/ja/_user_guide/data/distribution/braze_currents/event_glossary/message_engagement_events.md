@@ -5578,7 +5578,7 @@ Email, Bounce
 #### プロパティの詳細
 
 - `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -5916,7 +5916,7 @@ Email, Clicks
 #### プロパティの詳細
 
 - `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -7501,7 +7501,7 @@ Email, Sends
 #### プロパティの詳細
 
 - `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 - `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
 
 {% endapi %}
@@ -7755,7 +7755,7 @@ Email, Bounce
 #### プロパティの詳細
 
 - `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -7992,7 +7992,7 @@ Email, Subscription
 #### プロパティの詳細
 
 - `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -11650,7 +11650,7 @@ Push, Opens
 #### プロパティの詳細
 
 - `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して、`ad_id` の送信を有効にしてください。
+- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、アカウントマネージャーに連絡して、`ad_id` の送信を有効にしてください。
 - `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
@@ -12168,7 +12168,7 @@ Push, Sends
 #### プロパティの詳細
 
 - `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して、`ad_id` の送信を有効にしてください。
+- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、アカウントマネージャーに連絡して、`ad_id` の送信を有効にしてください。
 - `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/) を参照してください。
 - `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
@@ -12658,7 +12658,7 @@ RCS, Clicks
 RCS, Delivery
 {% endapitags %}
 
-このイベントは、RCSメッセージがユーザーのモバイル端末に正常に配信されたときに生成されます。
+このイベントは、RCSメッセージがユーザーのモバイルデバイスに正常に配信されたときに生成されます。
 
 {% tabs %}
 {% tab Cloud Storage %}

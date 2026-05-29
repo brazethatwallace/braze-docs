@@ -36,6 +36,10 @@ O painel **Campaign Details** mostra uma visão geral de alto nível de toda a p
 
 Revise este painel para ver métricas gerais, como o número de mensagens enviadas para o número de destinatários, a taxa de conversão primária e a receita total gerada por esta mensagem. Você também pode revisar as configurações de entrega, público e conversão a partir desta página.
 
+{% alert note %}
+Os números de análise de dados no dashboard e no Snowflake podem diferir ligeiramente. A Braze mede os números no dashboard e registra as linhas no Snowflake separadamente. O Snowflake é a fonte de dados mais precisa, então se você perceber discrepâncias entre essas fontes, recomendamos consultar os dados do Snowflake.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 O canal do WhatsApp inclui a taxa de leitura. Esta métrica é entregue apenas para usuários com confirmações de leitura ativadas, o que pode variar.
@@ -377,7 +381,7 @@ Aqui estão algumas métricas específicas de e-mail que você não verá em out
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. Isso inclui cliques em links de cancelamento de inscrição fornecidos pela Braze. Este número deve estar entre 5–10%. Qualquer coisa acima de 10% é excepcional!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Isso inclui cliques em links de cancelamento de inscrição fornecidos pela Braze. Este número deve estar entre 5–10%. Qualquer coisa acima de 10% é excepcional!
             </td>
         </tr>
         <tr>

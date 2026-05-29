@@ -13,7 +13,7 @@ channel: email
 
 ### What happens when an email is sent out, and multiple profiles have the same email address?
 
-If multiple users with matching email addresses are in a segment to receive a campaign, a random user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
+If multiple users with matching email addresses are in a segment to receive a campaign, a single user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
 
 **Unique email addresses:** Braze doesn't enforce unique email addresses across profiles. If you rely on a one-to-one relationship between an email address and a profile, monitor for duplicates internally when creating users.
 

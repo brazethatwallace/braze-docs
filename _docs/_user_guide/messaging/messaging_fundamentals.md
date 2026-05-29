@@ -19,6 +19,9 @@ guide_featured_list:
   - name: Delivery and entry types
     link: /docs/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types
     image: /assets/img/braze_icons/line-chart-up-01.svg
+  - name: Dispatch ID
+    link: /docs/user_guide/messaging/messaging_fundamentals/dispatch_id
+    image: /assets/img/braze_icons/key-01.svg
   - name: Re-eligibility
     link: /docs/user_guide/messaging/messaging_fundamentals/re_eligibility
     image: /assets/img/braze_icons/users-01.svg

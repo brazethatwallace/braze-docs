@@ -23,7 +23,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 ## Fonctionnement {#how-it-works}
 
-Lorsque vous créez un agent, vous définissez son objectif et établissez des garde-fous quant à son comportement. Une fois en production, l'agent peut être déployé dans Braze pour générer des textes personnalisés, prendre des décisions en temps réel ou mettre à jour les champs du catalogue. Vous pouvez suspendre ou mettre à jour un agent à tout moment depuis le tableau de bord.
+Lorsque vous créez un agent, vous définissez son objectif et établissez des garde-fous quant à son comportement. Une fois en production, l'agent peut être déployé dans Braze pour générer des textes personnalisés, prendre des décisions en temps réel ou mettre à jour les champs du catalogue. Pendant la création de votre agent, vous pouvez l'enregistrer en tant que brouillon, et vous pouvez suspendre ou mettre à jour un agent à tout moment depuis le tableau de bord.
 
 Les cas d'utilisation suivants illustrent quelques façons de tirer parti des agents personnalisés.
 
@@ -116,7 +116,8 @@ Si quelque chose ne semble pas correct, mettez à jour la configuration de l'age
 
 Votre agent est désormais prêt à l'emploi ! Pour plus de détails, consultez [Déployer des agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
 
-## Articles connexes {#related-articles}
+## Ressources connexes {#related-resources}
 
 - [Article de référence pour les agents]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [Questions fréquentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [Webinaire Braze sur l'intelligence artificielle en action : 3 nouveaux cas d'utilisation pour la personnalisation 1:1](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)
