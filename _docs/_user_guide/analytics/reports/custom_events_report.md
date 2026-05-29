@@ -36,3 +36,11 @@ To export your custom events data, select <i class="fas fa-bars" title="Chart co
 {% alert tip %}
 For help with CSV and API exports, refer to [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Custom Attribute methods for an Array value
+
+Add troubleshooting note to Custom Events Report or analytics docs explaining why segment numbers may not match total app numbers when comparing All Users vs app-specific segments.
