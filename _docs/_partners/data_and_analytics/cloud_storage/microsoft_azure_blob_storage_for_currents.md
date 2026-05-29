@@ -98,3 +98,11 @@ Users that have integrated a cloud data storage solution, and are trying to expo
 
 Currents exports use Apache Avro format (`.avro` files), not JSON. This JSON format requirement applies to dashboard data exports and API exports that use JSON format.
 {% endalert %}
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Is there a set of IPs specifically for storage that can be provided to customers for whitelisting for Azure?
+
+Add FAQ note to Azure docs: Braze cannot provide IP ranges for storage whitelisting due to dynamic IPs; connection string + container name provide isolation.
