@@ -39,3 +39,11 @@ guide_featured_list:
 <br><br>
 
 [16]: [success@braze.com](mailto:success@braze.com)
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Connected Content Call is not returning a response
+
+Consider adding NBSP troubleshooting to Connected Content docs if not present.
