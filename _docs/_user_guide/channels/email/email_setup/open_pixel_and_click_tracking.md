@@ -22,3 +22,10 @@ For reference, this information is reflected on the user profile in the email **
 
 ![Email open and click tracking pixel fields on the Engagement tab of a user's profile]({% image_buster /assets/img_archive/open_click_user_profile.png %}){: style="max-width:60%;"}
 
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Click Tracking Only Available for Links Directed to a HTTP or HTTPS Site (Can you click track phone numbers? etc.)
+
+Ensure docs explicitly state mailto and tel: links are not click-tracked; suggest HTTP redirect workaround.
