@@ -231,3 +231,11 @@ For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl
 {% endalert %}
 
 {% endapi %}
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Can we see delivery failures from API campaigns or API triggered campaigns?
+
+Consider adding FAQ or API docs note: delivery failures from API campaigns are visible only in Message Activity Log, not via API response.
