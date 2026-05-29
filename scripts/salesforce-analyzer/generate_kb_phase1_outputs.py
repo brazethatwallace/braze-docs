@@ -7,8 +7,7 @@ Writes:
     actionable file, warns not to hand-edit, and summarizes largest skip buckets.
   - `_data/kb_articles_actioned.md` — actionable backlog grouped for **Phase 2 PRs: one
     primary `_docs` file per PR** (multiple articles may share that file). Includes a
-    reviewer-routing hint column (Email/Push/Canvas/etc.) — not used to batch PRs. Optional
-    vertical index section for discovery only.
+    reviewer-routing hint column (Email/Push/Canvas/etc.) — not used to batch PRs.
 
 If `_data/kb_epic_bd6308.txt` exists, `article_id` values listed there
 (typically copied from Jira issues under Epic **BD-6308**) are excluded from the actionable
@@ -36,7 +35,7 @@ the markdown files without editing the CSV.
 Gates align with `.github/skills/salesforce-migration/SKILL.md` Phase 1 (automated subset).
 Rows with `conflict_resolution` = `inconclusive` are **not** auto-skipped; they enter the
 actionable queue when they resolve to a `doc_path` and pass other gates. Phase 2 must
-verify behavior in reference repos (see Step 6 in the salesforce-migration skill) before drafting.
+verify behavior in reference repos (see salesforce-migration skill Phase 2) before drafting.
 Does not re-read doc bodies for “redundant with docs” or bug-workaround detection;
 those remain manual Phase 1 checks.
 
@@ -1407,12 +1406,9 @@ def main() -> None:
         "(repo root). Update the CSV (or epic ID list), then re-run that script; the companion "
         f"`{ACTIONED_OUT.relative_to(REPO_ROOT)}` file is refreshed in the same run.",
         "",
-        "Rows listed here **did not** pass automated Phase 1 gates in `.github/skills/salesforce-migration/SKILL.md`. "
-        "The **actionable** queue (rows that *did* pass) lives in "
-        f"`{ACTIONED_OUT.relative_to(REPO_ROOT)}`. "
-        "Rows skipped only because they appear in `_data/kb_epic_bd6308.txt` would otherwise "
-        "be actionable — they are excluded so this list does not duplicate Jira Epic **BD-6308** in-flight work. "
-        "Redundant-with-live-docs, bug-workaround-only, and other **manual** Phase 1 checks are **not** applied here.",
+        "Rows listed here **did not** pass Phase 1 gates (see `.github/skills/salesforce-migration/SKILL.md`). "
+        f"Actionable queue: `{ACTIONED_OUT.relative_to(REPO_ROOT)}`. "
+        "IDs in `_data/kb_epic_bd6308.txt` are excluded as in-flight BD-6308 work.",
         "",
         f"**Totals:** {len(rows)} CSV rows — **{len(actionable)} actionable**, **{len(skipped)} skipped**.",
         "",
@@ -1438,11 +1434,9 @@ def main() -> None:
 
     # --- actioned.md (actionable backlog, not CSV status "Actioned") ---
     by_file: dict[str, list[RowOut]] = defaultdict(list)
-    by_vertical: dict[str, list[RowOut]] = defaultdict(list)
     for c in actionable:
         assert c.primary_rel
         by_file[c.primary_rel].append(c)
-        by_vertical[c.vertical].append(c)
 
     # One Phase 2 PR per primary doc (may include one or many articles).
     pr_batches_sorted = sorted(by_file.items(), key=lambda kv: (-len(kv[1]), kv[0]))
@@ -1453,8 +1447,8 @@ def main() -> None:
         "",
         f"Generated from `{CSV_PATH.relative_to(REPO_ROOT)}` on **{now}**.",
         "",
-        "These rows passed automated Phase 1 gates and resolve to an on-disk `_docs/...` file. "
-        "They are **not** marked `actioned` in the CSV — this file is a **work queue** for Phase 2.",
+        "These rows passed Phase 1 and resolve to an on-disk `_docs/...` file. "
+        "Work queue for Phase 2 — not CSV `actioned` status.",
         "",
         f"**Totals:** **{len(actionable)}** actionable rows (of {len(rows)}).",
     ]
@@ -1463,7 +1457,7 @@ def main() -> None:
         act_lines.append(
             f"**Reference-repo verification:** **{ref_verify_n}** row(s) have "
             "`conflict_resolution` = `inconclusive` — confirm behavior in reference repos "
-            "(see `.github/skills/salesforce-migration/SKILL.md` Phase 2 Step 6) before drafting; "
+            "(see `.github/skills/salesforce-migration/SKILL.md` Phase 2) before drafting; "
             "do not copy Salesforce Knowledge text without source verification."
         )
     if epic_tracked and epic_skip_n:
@@ -1554,39 +1548,6 @@ def main() -> None:
         if len(inferred_rows) > 45:
             act_lines.append(f"| … | _({len(inferred_rows) - 45} more)_ | | |")
         act_lines.append("")
-
-    act_lines.extend(
-        [
-            "## 2. Index by vertical (discovery only — not for PR batching)",
-            "",
-            "Within each vertical, rows are sorted by **tier ascending**, **score descending**, then title. "
-            "Use [section 1](#1-phase-2-pr-batches-one-primary-_docs-file-per-pr) to choose the next PR.",
-            "",
-        ]
-    )
-    for vert in sorted(by_vertical.keys(), key=lambda v: v.lower()):
-        group = by_vertical[vert]
-        by_team: dict[str, list[RowOut]] = defaultdict(list)
-        for c in group:
-            by_team[(c.row.get("team") or "").strip() or "(empty team)"].append(c)
-
-        act_lines.append(f"### Vertical: `{vert}` — **{len(group)}** articles")
-        act_lines.append("")
-
-        for tm in sorted(by_team.keys(), key=str.lower):
-            tg = by_team[tm]
-            act_lines.append(f"#### Team: `{tm}` — {len(tg)} articles")
-            act_lines.append("")
-            act_lines.append("| Tier | Score | article_id | Title | Primary `_docs` target |")
-            act_lines.append("| --- | --- | --- | --- | --- |")
-            for c in sorted(tg, key=lambda x: score_key(x.row)):
-                r = c.row
-                ttl = (r.get("title") or "").replace("|", "\\|")
-                act_lines.append(
-                    f"| {r.get('priority_tier', '')} | {r.get('score', '')} | `{r.get('article_id', '')}` "
-                    f"| {ttl} | `{c.primary_rel}` |"
-                )
-            act_lines.append("")
 
     ACTIONED_OUT.write_text("\n".join(act_lines).rstrip() + "\n", encoding="utf-8")
 

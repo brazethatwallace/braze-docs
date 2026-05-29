@@ -1,10 +1,10 @@
 # KB articles — Phase 1 skipped rows
 
-Generated from `_data/kb_articles.csv` on **2026-05-29 16:28 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-05-29 16:43 UTC**.
 
 **Do not hand-edit this file** — it is overwritten by `python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py` (repo root). Update the CSV (or epic ID list), then re-run that script; the companion `_data/kb_articles_actioned.md` file is refreshed in the same run.
 
-Rows listed here **did not** pass automated Phase 1 gates in `.github/skills/salesforce-migration/SKILL.md`. The **actionable** queue (rows that *did* pass) lives in `_data/kb_articles_actioned.md`. Rows skipped only because they appear in `_data/kb_epic_bd6308.txt` would otherwise be actionable — they are excluded so this list does not duplicate Jira Epic **BD-6308** in-flight work. Redundant-with-live-docs, bug-workaround-only, and other **manual** Phase 1 checks are **not** applied here.
+Rows listed here **did not** pass Phase 1 gates (see `.github/skills/salesforce-migration/SKILL.md`). Actionable queue: `_data/kb_articles_actioned.md`. IDs in `_data/kb_epic_bd6308.txt` are excluded as in-flight BD-6308 work.
 
 **Totals:** 128 CSV rows — **126 actionable**, **2 skipped**.
 
