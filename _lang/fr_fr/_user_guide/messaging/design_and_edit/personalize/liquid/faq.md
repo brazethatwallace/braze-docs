@@ -47,10 +47,12 @@ Vous pouvez également utiliser une instruction Liquid `{% if X %}` {% endraw %}
 {% raw %}
 Il existe un attribut par défaut pour la localisation de l'utilisateur : `{{${most_recent_location}}}`.
 
-### Quelle est la différence entre {{campaign.${name}}} et {{campaign.${message_name}}} ? {#whats-the-difference-between-campaignname-and-campaignmessagename}
+### Quelle est la différence entre {{campaign.${name}}} et {{campaign.${message_name}}} ? {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
 `{{campaign.${name}}}` et `{{campaign.${message_name}}}` sont toutes deux des étiquettes de personnalisation Liquid prises en charge. Ces deux étiquettes font référence aux attributs de la Campaign. `{{campaign.${name}}}` désigne le nom de votre Campaign, et `{{campaign.${message_name}}}` est le nom de votre variante de message.
 {% endraw %}
+
+Pour l'utilisation dans les URL et les chaînes de requête (par exemple, lorsqu'un nom contient `%` ou des espaces), consultez [Noms de Campaign dans les URL]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls).
 
 ### Comment utiliser Liquid avec des objets imbriqués ? {#how-do-i-use-liquid-with-nested-objects}
 
@@ -140,3 +142,7 @@ Join our VIP program to unlock free shipping.
 {% endcapture %}
 ```
 {% endraw %}
+
+### Les variables Liquid sont-elles partagées entre la ligne d'objet et le corps du message ? {#do-liquid-variables-carry-between-subject-line-and-body}
+
+Non. Braze effectue le rendu de chaque composant du message séparément (ligne d'objet, corps HTML, accroche, titre push, etc.). Les affectations ou captures que vous effectuez dans un champ ne sont pas disponibles dans un autre. Répétez l'appel Liquid ou de Contenu connecté dans chaque champ qui nécessite la valeur.

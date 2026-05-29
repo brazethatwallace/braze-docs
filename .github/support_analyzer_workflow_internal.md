@@ -2,7 +2,7 @@
 
 **Audience:** Docs and adjacent teams (internal).  
 **Workflow file:** [`.github/workflows/export-support-cases-from-looker.yml`](workflows/export-support-cases-from-looker.yml)  
-**Cursor rule (manual triage):** `.cursor/rules/support-analyzer.mdc`
+**Cursor skill (manual triage):** `.github/skills/support-analyzer/SKILL.md`
 
 On a fixed cadence (and on demand), a GitHub Actions workflow exports recent **Braze Support** cases from **Looker** into this repo, builds an **internal digest** (themes and counts only), then may open **draft** pull requests that propose small, **allowlisted** edits to English customer docs in `_docs`. Case bodies stay off GitHub’s public PR pages where we can avoid it; PRs link to **Salesforce** case views instead.
 
@@ -34,7 +34,7 @@ The Looker saved report behind the export is scoped to a **rolling ~3-day** wind
 
 - Read the **stakeholder blurb** at the top: the change is **automated** from Support themes, not a human-authored spec.
 - Use **Salesforce** links in the PR to inspect cases if needed; **do not** paste consumer PII into GitHub comments.
-- Confirm wording against **product behavior** before merge. For **public**-facing PR descriptions, use **Verified against Braze source code.** and do **not** paste internal `platform` or SDK file paths (see `.cursor/rules/reference-repos.mdc`).
+- Confirm wording against **product behavior** before merge. For **public**-facing PR descriptions, use **Verified against Braze source code.** and do **not** paste internal `platform` or SDK file paths (see `.github/skills/reference-repos/SKILL.md`).
 - If the assignee is wrong, fix the row in **`.github/support_analyzer_doc_assignees.csv`** (or the upstream spreadsheet export) in a follow-up PR.
 
 **When you’re tagged on the digest PR**
@@ -139,12 +139,12 @@ Export fails closed without **`SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DAT
 | Symptom | What to check |
 |---------|----------------|
 | **Export** fails | Looker secrets, query id variable, network; Actions log for `export_support_cases_from_looker.py`. |
-| **Export** push rejected (GH013) | Case text contained a credential GitHub push protection blocked. The export job runs `scripts/export_support_cases_from_looker.py` from the **workflow ref** (`develop` on schedule), not from `support-analyzer-data` (that branch is CSV-only). Redaction covers AWS keys, SendGrid `SG.…` keys, GitHub/Slack/Stripe tokens—re-run after merging script/workflow fixes. Check the log for `Redacted N embedded credential-like value(s)`; do not unblock secrets in GitHub unless you intend to store them on the data branch. |
+| **Export** push rejected (GH013) | Case text contained a credential GitHub push protection blocked. The export job runs `scripts/export_support_cases_from_looker.py` from the **workflow ref** (`develop` on schedule), not from `support-analyzer-data` (that branch is CSV-only). Redaction covers AWS keys, SendGrid `SG.…` keys, Twilio `AC…`/`SK…` SIDs, GitHub/Slack/Stripe tokens—re-run after merging script/workflow fixes. Check the log for `Redacted N embedded credential-like value(s)`; do not unblock secrets in GitHub unless you intend to store them on the data branch. |
 | **Digest** fails with empty CSV | Branch **`support-analyzer-data`** missing or empty file; ensure `export` succeeded. |
 | **Phase 2** fails “script not found” | For scheduled runs, `support_analyzer_phase2.py` must exist on **default branch**; merge the script before relying on schedule-only. |
 | **Phase 2** fails strict anchors | Target `_docs` file missing anchor text on `develop`; fix anchor or rule in a PR, or adjust rule. |
 | **No Phase 2 PRs** opened | Normal if no rule matches enough cases or edits are already present (fingerprints / `skip_if_contains` / anchors). |
-| **Duplicate-looking Phase 2 PR** | Earlier PR merged equivalent prose without `<!-- support-analyzer-phase2:... -->` fingerprint; automation re-proposes. Close the duplicate, merge only missing files, or add `skip_if_contains` to the rule (see #13773 / #13823). |
+| **Duplicate-looking Phase 2 PR** | Earlier PR merged equivalent prose without `<!-- support-analyzer-phase2:... -->` fingerprint; automation re-proposes. Close the duplicate, merge only missing files, or add `skip_if_contains` to the rule (see #13773 / #13823, #13772 / #13914). For `data_series_currents`, merged include `api/export_data_series_analytics_dashboard_note.md` satisfies the rule. |
 | **`gh pr create` assignee errors** | Script retries **without** assignees; fix invalid **GitHub Username** values in the CSV (e.g. team placeholders that are not user logins). |
 | **Digest PR not auto-closed** | `close_digest_pr` only runs if digest PR was created **and** Phase 2 job **succeeded**; check Phase 2 job and permissions. |
 | **Close digest failed with 403** | Job needs **`contents: write`** and **`pull-requests: write`** for `gh pr close --delete-branch` (already set in workflow). |
@@ -156,4 +156,4 @@ Export fails closed without **`SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DAT
 - Treat the Support CSV and case narratives as **sensitive**. Limit who can read **`support-analyzer-data`** and the Looker query scope.
 - Automated PR bodies should use **Salesforce case links**, not pasted email bodies or PII.
 
-For product verification in Cursor, follow **reference-repos** layout and policies; the Looker workflow **does not** clone `Appboy/platform` in CI—optional `verification` blocks in rules run **ripgrep** only when a local checkout exists.
+For product verification in Cursor, follow the **reference-repos** skill (`.github/skills/reference-repos/SKILL.md`) layout and policies; the Looker workflow **does not** clone `Appboy/platform` in CI—optional `verification` blocks in rules run **ripgrep** only when a local checkout exists.

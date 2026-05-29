@@ -77,7 +77,7 @@ Las **filas** son unidades estructurales que definen la composición horizontal 
 ¿No tienes claro si tu mensaje de correo electrónico debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
 
 {% alert note %}
-No puedes guardar un correo electrónico de arrastrar y soltar desde una campaña o Canvas directamente en **Plantillas** > **Plantillas de correo electrónico** como una plantilla de correo electrónico. Primero construye en **Plantillas**, o consulta [¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de construirlo dentro de mi campaña o Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) para recrear una plantilla de arrastrar y soltar o exportar HTML con **Download file**.
+No puedes guardar un correo electrónico de arrastrar y soltar desde una campaña o Canvas directamente en **Templates** > **Email Templates** como una plantilla de correo electrónico. Primero construye en **Templates**, o consulta [¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de construirlo dentro de mi campaña o Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) para recrear una plantilla de arrastrar y soltar o exportar HTML con **Download file**.
 {% endalert %}
 
 Una vez que hayas seleccionado dónde construir tu mensaje, veamos los pasos para crear un correo electrónico con arrastrar y soltar.
@@ -138,15 +138,7 @@ Una vez que hayas terminado de diseñar y construir tu mensaje de correo electr�
 
 Una vista previa en el panel derecho se completará con la información de envío que hayas añadido. Esta información también se puede actualizar navegando a **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Personalizar el encabezado de tu correo electrónico (avanzado) {#personalizing-your-email-header-advanced}
-
-En **Sending Settings**, puedes añadir personalización para los encabezados del correo electrónico y extras del correo electrónico, lo que te permite enviar datos adicionales a otros proveedores de servicios de correo electrónico. Personalizar un encabezado de correo electrónico, como incluir el nombre del destinatario, también puede contribuir a la probabilidad de que tu correo electrónico sea abierto.
-
-{% alert note %}
-La funcionalidad avanzada aparecerá en el compositor de la campaña o Canvas. En la funcionalidad avanzada, puedes modificar tu configuración de CSS en línea e introducir un encabezado o pares clave-valor adicionales (si están configurados).
-{% endalert %}
-
-#### Añadir archivos adjuntos al correo electrónico {#adding-email-attachments}
+#### Añadir archivos adjuntos al correo electrónico {#add-email-attachments}
 
 En **Sending Settings** > **Advanced**, puedes añadir archivos adjuntos al correo electrónico mediante los siguientes métodos:
 
@@ -155,6 +147,14 @@ En **Sending Settings** > **Advanced**, puedes añadir archivos adjuntos al corr
 - **Añadir desde URL:** Introduce una URL que apunte al archivo y proporciona un nombre de archivo para mostrar. Dado que Braze no puede verificar el tamaño de URL arbitrarias durante la composición del correo electrónico, el tamaño del archivo se aplica en el momento del envío. Ten en cuenta que Liquid no es compatible en este campo.
 
 Consulta las [Directrices de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) para conocer las mejores prácticas específicas a considerar.
+
+#### Personalizar el encabezado de tu correo electrónico (avanzado) {#personalize-your-email-header-advanced}
+
+En **Sending Settings**, puedes añadir personalización para los encabezados del correo electrónico y extras del correo electrónico, lo que te permite enviar datos adicionales a otros proveedores de servicios de correo electrónico. Personalizar un encabezado de correo electrónico, como incluir el nombre del destinatario, también puede contribuir a la probabilidad de que tu correo electrónico sea abierto.
+
+{% alert note %}
+La funcionalidad avanzada aparecerá en el compositor de la campaña o Canvas. En la funcionalidad avanzada, puedes modificar tu configuración de CSS en línea e introducir un encabezado o pares clave-valor adicionales (si están configurados).
+{% endalert %}
 
 ### Paso 4: Prueba tu correo electrónico {#step-4-test-your-email}
 

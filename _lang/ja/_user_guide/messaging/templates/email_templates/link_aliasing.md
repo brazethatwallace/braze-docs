@@ -206,7 +206,7 @@ Brazeでは、メールにリンクエイリアスがあり、ユーザーがそ
 ```
 
 {% alert update %}
-`dispatch_id`の動作は、CanvasとCampaignで異なります。Brazeは、キャンバスステップ（エントリステップを除く。エントリステップはスケジュール可能）を、「スケジュール済み」であってもトリガーイベントとして扱います。CanvasおよびCampaignにおける[`dispatch_id`の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)の詳細をご覧ください。
+`dispatch_id`の動作は、CanvasとCampaignで異なります。Brazeは、キャンバスステップ（エントリステップを除く。エントリステップはスケジュール可能）を、「スケジュール済み」であってもトリガーイベントとして扱います。CanvasおよびCampaignにおける[`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)の詳細をご覧ください。
 
 _2019年8月に更新。_
 {% endalert %}

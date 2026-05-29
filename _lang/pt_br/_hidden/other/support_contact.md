@@ -1,6 +1,6 @@
 ---
 permalink: /support_contact/
-nav_title: Help | Braze
+nav_title: Ajuda | Braze
 hide_nav: true
 layout: basic
 hide_toc: true
@@ -1264,7 +1264,7 @@ var ticket_lookuptable = {
   'Label': '* What can we help you with?',
   'SelectDefault': 'Select a topic...',
   'LinksTitle': ['Marketer documentation','Developer documentation','Marketer troubleshooting guide','Frequently Asked Questions'],
-  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/help/home/','{{site.baseurl}}/help/faqs/'],
+  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/user_guide/home/'],
   'SelectOption': {
     'Technical Issue': {
       'Label': '* Category',
@@ -1536,7 +1536,7 @@ var ticket_lookuptable = {
             },
             'Message Composition by Channel' : {
               'LinksTitle': ['Available Channels','Know Before You Send: Channels'],
-              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/help/help_articles/campaigns_and_canvas/know_before_send/'],
+              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/'],
               'Label': 'Channel *',
               'SelectDefault': 'Select channel...',
               'SelectOption' : {
@@ -1588,12 +1588,12 @@ var ticket_lookuptable = {
             'Password Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Locked Out of Account'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#password-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#password-error']
             },
             'Instance Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Instance Error'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#instance-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#instance-error']
             },
             'SAML and Single Sign On' : {
               'ShowSubmit': true,
@@ -1603,7 +1603,7 @@ var ticket_lookuptable = {
             'Other' : {
               'ShowSubmit': true,
               'LinksTitle': ['Account Login Issues'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/']
             }
           }
         },
@@ -1655,7 +1655,7 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
-      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/help/accessibility/','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
+      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
@@ -1665,7 +1665,7 @@ var ticket_lookuptable = {
         'Best Practices and Frequently Asked Questions' :{
           'ShowSubmit': true,
           'LinksTitle': ['Best Practices and Frequently Asked Questions'],
-          'Links':  ['{{site.baseurl}}/help/faqs']
+          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/best_practices/']
         },
         'Other' :{
           'ShowSubmit': true,

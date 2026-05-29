@@ -75,7 +75,7 @@ Estas etapas são adaptadas da documentação para desenvolvedores da Apple. Par
 ### Etapa 1: Configure os entitlements do seu app {#step-1-configure-your-app-entitlements}
 
 {% alert note %}
-[No Xcode 13 e posterior](https://developer.apple.com/help/account/reference/provisioning-with-managed-capabilities/), o Xcode pode gerenciar o provisionamento de entitlements automaticamente. Você provavelmente pode pular para a [etapa 1c](#step-1c) e voltar a estas instruções se tiver problemas.
+[No Xcode 13 e posterior](https://developer.apple.com/help/account/reference/provisioning-with-managed-capabilities/), o Xcode pode gerenciar o provisionamento de entitlements automaticamente. Você provavelmente pode pular para a [etapa&nbsp;1c](#step-1c) e voltar a estas instruções se tiver problemas.
 {% endalert %}
 
 #### Etapa 1a: Registre seu app {#step-1a}
@@ -356,7 +356,7 @@ Certifique-se de que o arquivo AASA (iOS) ou Digital Asset Links (Android) está
 
 Certifique-se de que você tem as definições corretas para os domínios que seu app pode abrir.
 
-- **iOS:** Revise os Associated Domains configurados no Xcode para o seu app ([etapa 1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
+- **iOS:** Revise os Associated Domains configurados no Xcode para o seu app ([etapa 1c]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
 - **Android:** Abra a página de informações do app (pressione e segure o ícone do app e clique em ⓘ). No menu de informações do app, localize **Abrir por padrão** e toque nessa opção. Isso deve mostrar uma tela com todos os links verificados que o app pode abrir. Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
 
 #### O domínio de rastreamento não consegue servir arquivos .well-known {#tracking-domain-cant-serve-well-known-files}

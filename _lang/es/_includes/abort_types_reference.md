@@ -29,6 +29,25 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 
 ### Contenido y renderizado {#content-and-rendering}
 
+{% if include.combined_content_rendering %}
+
+| Valor de `abort_type` | Descripción |
+| --- | --- |
+| `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
+| `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `blacklisted_media_url` | La URL del medio está en la lista de bloqueo y no se puede usar en mensajes. |
+| `blocked_media_url` | La URL del medio fue bloqueada por políticas de seguridad. |
+| `invalid_media_url` | La URL del medio no es válida o no se pudo resolver. |
+| `ssl_error` | Ocurrió un error SSL al realizar una solicitud. |
+| `invalid_http_status` | Una solicitud HTTP devolvió un código de estado no exitoso. |
+| `http_timeout` | Una solicitud HTTP agotó el tiempo de espera antes de recibir una respuesta. |
+| `missing_hostname` | La URL de la solicitud no tiene un nombre de host. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+
+{% else %}
+
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
@@ -36,14 +55,43 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
 | `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
-{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | La URL del medio está en la lista de bloqueo y no se puede usar en mensajes. |
+
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}
+{% unless include.combined_content_rendering %}
+
+| Valor de `abort_type` | Descripción |
+| --- | --- |
+| `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
+| `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `blacklisted_media_url` | La URL del medio está en la lista de bloqueo y no se puede usar en mensajes. |
 | `blocked_media_url` | La URL del medio fue bloqueada por políticas de seguridad. |
-| `invalid_media_url` | La URL del medio no es válida o no se pudo resolver. |{% endif %}
-{% if ch == "all" or ch == "email" or ch == "webhook" %}| `ssl_error` | Ocurrió un error SSL al realizar una solicitud. |
+| `invalid_media_url` | La URL del medio no es válida o no se pudo resolver. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering media URLs" }
+
+{% endunless %}
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "webhook" %}
+{% unless include.combined_content_rendering %}
+
+| Valor de `abort_type` | Descripción |
+| --- | --- |
+| `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
+| `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `ssl_error` | Ocurrió un error SSL al realizar una solicitud. |
 | `invalid_http_status` | Una solicitud HTTP devolvió un código de estado no exitoso. |
 | `http_timeout` | Una solicitud HTTP agotó el tiempo de espera antes de recibir una respuesta. |
-| `missing_hostname` | La URL de la solicitud no tiene un nombre de host. |{% endif %}
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+| `missing_hostname` | La URL de la solicitud no tiene un nombre de host. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering HTTP and SSL" }
+
+{% endunless %}
+{% endif %}
 
 {% endunless %}
 
