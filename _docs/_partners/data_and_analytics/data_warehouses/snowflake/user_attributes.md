@@ -76,7 +76,9 @@ These views provide periodic snapshots of user profile attributes. The data is d
 * **Limitation:** Data is not up to date in real time.
 
 {% alert note %}
-The `TIME` field represents the time in seconds of the user profile update; the `TIME_MS` field indicates this in millisecond precision. For backfilled data, the `TIME` and `TIME_MS` values are the time of the backfill.
+**Understanding date fields:**
+- `TIME` and `TIME_MS`: Represent when the user profile update occurred in Braze (in seconds and milliseconds, respectively). For backfilled data, these values are the time of the backfill.
+- `SF_UPDATED_AT`: Represents when the data was last persisted in Snowflake. This field is most useful for determining data freshness—when the row was most recently synced to your data warehouse.
 {% endalert %}
 
 ### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` schema
@@ -135,7 +137,9 @@ These views provides near real-time updates on user profile attributes, with dat
     * Queries on a large dataset (such as over 100 million users) may take many minutes.
 
 {% alert note %}
-The `TIME` field represents the time in seconds of the user profile update; the `TIME_MS` field indicates this in millisecond precision. For backfilled data, the `TIME` and `TIME_MS` values are the time of the backfill.
+**Understanding date fields:**
+- `TIME` and `TIME_MS`: Represent when the user profile update occurred in Braze (in seconds and milliseconds, respectively). For backfilled data, these values are the time of the backfill.
+- `SF_UPDATED_AT`: Represents when the data was last persisted in Snowflake. This field is most useful for determining data freshness—when the row was most recently synced to your data warehouse.
 {% endalert %}
 
 ### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` schema
@@ -190,7 +194,9 @@ These views store historical change logs of user attributes, capturing changes w
 * `EFF_DT` and `END_DT` mark the start and end of a user’s attribute state.
 
 {% alert note %}
-The `TIME` field represents the time in seconds of the user profile update; the `TIME_MS` field indicates this in millisecond precision. For backfilled data, the `TIME` and `TIME_MS` values are the time of the backfill.
+**Understanding date fields:**
+- `TIME` and `TIME_MS`: Represent when the user profile update occurred in Braze (in seconds and milliseconds, respectively). For backfilled data, these values are the time of the backfill.
+- `SF_UPDATED_AT`: Represents when the data was last persisted in Snowflake. This field is most useful for determining data freshness—when the row was most recently synced to your data warehouse.
 {% endalert %}
 
 ### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` schema
