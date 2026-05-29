@@ -67,7 +67,7 @@ Eligible users enter immediately at the first step of the destination Canvas. Th
 
 ### Does the Send to Destination step respect a scheduled destination Canvas entry schedule?
 
-No. If the destination Canvas uses a scheduled entry type, users sent from the Send to Destination step don’t wait for the next scheduled evaluation window. They’re evaluated and entered when they reach the Send to Destination step if they meet entry and audience criteria of the Destination Canvas.
+No. If the destination Canvas uses a scheduled entry type, users sent from the Send to Destination step don't wait for the next scheduled evaluation window. They're evaluated and entered when they reach the Send to Destination step if they meet entry and audience criteria of the destination Canvas.
 
 ### How does advancement behavior work for Send to Destination steps?
 
