@@ -162,7 +162,7 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 }
 </style>
 
-<table aria-label="メールヘッダー" id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
   <caption>メールヘッダー</caption>
 <thead>
   <tr>
