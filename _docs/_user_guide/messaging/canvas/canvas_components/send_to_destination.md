@@ -25,7 +25,7 @@ This step allows users from Canvas 1 to be sent to Canvas 2. When users from Can
 
 ### Real-time entry
 
-Send to Destination enters users into the destination Canvas as soon as they reach this step. This step acts as an ad hoc entry point into the destination Canvas. Users who meet the destination Canvas entry and audience criteria begin that Canvas journey in real time. Users who don't meet those criteria at that moment don't enter the destination Canvas and continue in the source Canvas.
+Send to Destination enters users into the destination Canvas as soon as they reach this step. This step acts as a one-time entry point into the destination Canvas. Users who meet the destination Canvas entry and audience criteria begin that Canvas journey in real time. Users who don't meet those criteria at that moment don't enter the destination Canvas and continue in the source Canvas.
 
 ## Create a Send to Destination step
 
