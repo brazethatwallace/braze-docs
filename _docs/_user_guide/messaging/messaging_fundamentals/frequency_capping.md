@@ -347,7 +347,11 @@ This usually means the campaign's [delivery speed rate limit](#delivery-speed-ra
 
 In analytics and frequency capping, _Sent_ refers to when Braze dispatches the message (the send is recorded), not guaranteed final delivery to the device or inbox. Frequency capping and send counts use these recorded send events, which can differ from downstream "delivered" metrics.
 
-### Why am I seeing email bounces such as `554 5.4.7` or "too many connections"?
+### Why am I seeing email bounces or deferrals?
 
-Some mailbox providers return `554 5.4.7` (or similar) when too many concurrent connections or messages arrive at once. Lower the campaign or Canvas [delivery speed rate limit](#delivery-speed-rate-limiting) so Braze opens fewer simultaneous connections to that provider, then retry sends once the provider accepts traffic again.
+Email bounce and deferral messages use many different codes and provider-specific text. Don't treat a particular code as a sign of a rate limiting problem, as the cause depends on your sending context and mailbox-provider feedback.
+
+If messages are temporarily deferred, sending less may help in the short term. Use a [delivery speed rate limit](#delivery-speed-rate-limiting), **Limit the number of people who will receive this campaign**, or both.
+
+For a long-term solution, work with a deliverability expert to review your bounce and deferral data.
 
