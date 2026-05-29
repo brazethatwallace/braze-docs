@@ -29,3 +29,23 @@ guide_featured_list:
 ---
 <br>
 <br>
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Understanding the Subscription Group Timeseries
+
+Add a section to subscription groups or analytics docs explaining: (1) Subscription Group Size = users subscribed to that group at a date; (2) Subscription Group Unsubscribed Size = users unsubscribed from that group at that date; (3) why timeseries can differ from segment filter 'Email Subscription Status is Unsubscribed' (global vs group-specific); (4) the 2M user threshold for accurate vs estimated count.
+
+### How to Avoid Duplicate User Creation via Email Capture Forms
+
+Add a 'Best practices' or 'Avoiding duplicates' section to subscription group or user import docs: use /subscription/status/get to check if user exists; if 'User not found', create via /subscription/status/set; otherwise update.
+
+### Snowflake Log for USERS_MESSAGES_EMAIL_UNSUBSCRIBE
+
+Consider adding to docs or Data pipeline/Currents docs: USERS_MESSAGES_EMAIL_UNSUBSCRIBE table logs only unsubscribes via email link click, not REST API. Subscription change events for Currents require Subscription Group.
+
+### Does a user need to be part of the selected SMS Subscription Group to receive SMS test messages?
+
+users must be part of the selected SMS Subscription Group to receive SMS test messages.
