@@ -10,6 +10,8 @@ channel:
   - email
 ---
 
+> This glossary defines metrics on the **Analytics** tab for email campaigns and Canvases. Braze does not offer a hosted "view this email in a browser" page—see [Can I add a "view this email in a browser" link to my emails?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) for a workaround. For other troubleshooting that spans multiple metrics, see [Email FAQ]({{site.baseurl}}/user_guide/channels/email/faq/).
+
 <style>
   .calculation-line {
     color: #76848C;
@@ -127,6 +129,14 @@ Percentage
 
 <span class="calculation-line">Calculation: (Sends - Bounces) / (Sends) </span>
 
+#### Delivery rate benchmarks
+
+*Deliveries* and bounce rate are related but not the same as inbox placement (deliverability). As a starting point, many senders aim for about 98% of messages *Delivered* with a bounce rate no higher than 3%, while also monitoring opens and clicks for engagement signals. For more detail, see [What is a "good" email delivery rate?]({{site.baseurl}}/user_guide/channels/email/faq/#what-is-a-good-email-delivery-rate)
+
+#### SPF and DKIM alignment
+
+Your **From** address domain must align with the sending domain configured for your email service provider. For example, if your provider sends from `team.example.com`, use a matching `@team.example.com` **From** address. Misalignment can contribute to bounces and spam filtering. For setup steps, see [Email authentication]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication/).
+
 {% endapi %}
 
 {% api %}
@@ -152,6 +162,10 @@ An email bounce for customers using SendGrid consists of hard bounces, spam (`sp
     </ul>
 </span>
 {:/}
+
+#### Troubleshooting Gmail 550 5.7.1 unsolicited mail blocks
+
+When Gmail returns **550 5.7.1 Our system has detected that this message is likely unsolicited mail**, the block often relates to authentication or reputation—not list size alone. Verify that your [SPF, DKIM, and DMARC records]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication/) align with the domain in your **From** address and that DNS changes have propagated. For more guidance, see [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
 {% endapi %}
 
@@ -182,6 +196,10 @@ Count
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} If an email receives a soft bounce, we will usually retry within 72 hours, but the number of retry attempts varies from receiver to receiver. 
 
 While soft bounces aren’t tracked in your campaign analytics, you can monitor the soft bounces in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) or exclude these users from your sending with the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). In the Message Activity Log, you can also see the reason for the soft bounces and understand possible discrepancies between the “sends” and “deliveries” for your email campaigns.
+
+#### Over-quota (full mailbox) addresses
+
+A soft bounce can occur when the recipient's mailbox is full (over quota). This pattern often appears with new sign-ups using abandoned addresses or long-inactive profiles. Prioritize engaged recipients, enforce double opt-in where appropriate, and remove chronically inactive addresses as part of list hygiene.
 
 <span class="calculation-line">Calculation: Count </span>
 
@@ -239,7 +257,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. After seven days, another unique click can count for the same user if they click again. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. Tracked custom unsubscribe URLs also count toward *Unique Clicks* when a user selects the link. After seven days, another unique click can count for the same user if they click again. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -250,6 +268,24 @@ Count, Percentage
     </ul>
 </span>
 {:/}
+
+#### Unexpected links on the email heatmap
+
+When the [email heatmap]({{site.baseurl}}/user_guide/channels/email/reporting/) shows links you do not expect, inspect the message HTML for [content blocks]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) or spacing between words that create tracked URLs. Use the **Link Table by Total Clicks** on the heatmap view to identify URLs that do not match visible copy.
+
+{% endapi %}
+
+{% api %}
+
+### Total Clicks
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+<i>Total Clicks</i> is the total number of times users clicked links in the delivered email, including multiple clicks by the same user. This includes clicks on Braze unsubscribe links and tracked custom unsubscribe URLs.
+
+When *Total Clicks* is much higher than *Unique Clicks*, security tools or mailbox providers may be scanning links without users opening the message. Compare *Unique Clicks* when you evaluate engagement internally.
 
 {% endapi %}
 
@@ -283,6 +319,10 @@ On the **Analytics** page for an email campaign or Canvas, compare the *Unsubscr
 - **More clicks on the body unsubscribe URL than *Unsubscribes*:** A user may select that link more than once. If they unsubscribe, resubscribe, and unsubscribe again, email analytics can record multiple clicks (for example, two) in the click breakdown.
 
 For more information, see [Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+
+#### Custom unsubscribe page updates
+
+Changes to your [custom unsubscribe page]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) can take a few hours to appear in live sends because cached versions of the page are refreshed on a schedule.
 
 {% endapi %}
 
@@ -360,6 +400,18 @@ Count
 
 {% api %}
 
+### Estimated Real Opens
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Estimated Real Opens' %} Braze recalculates this estimate as new open and click data arrives. The value typically stabilizes a few days after send but continues to update when new qualifying events occur.
+
+{% endapi %}
+
+{% api %}
+
 ### Click-to-Open Rate
 
 {% apitags %}
@@ -369,5 +421,9 @@ Percentage
 {% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
 
 <span class="calculation-line">Calculation: (Unique Clicks) / (Unique Opens) (for Email)</span>
+
+#### Message Open Likelihood scores (segmentation)
+
+The [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) segment filter scores how likely a user is to open email on a scale of 0–100%. Users without enough send or open history for the channel appear as blank. For email, machine opens are excluded from the calculation, which uses recent message history on that channel (see [Message Open Likelihood filter for individual channels]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#individual-channels)).
 
 {% endapi %}
