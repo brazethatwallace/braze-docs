@@ -31,6 +31,11 @@ As a convenience, a summary of supported personalization tags are provided. For 
 | Canvas Context Variables | `{{context.${your_context_variable}}}` |
 | Custom Attributes <br> (These are custom to your workspace.) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object/'>API Trigger Properties</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
+
+<!-- support-analyzer-phase2:liquid_api_trigger_extra_braces_tags -->
+{% alert note %}
+API trigger properties must use two curly braces per tag: `{{api_trigger_properties.${your_api_trigger_property}}}`. Triple braces (for example `{{{...}}}`) are not valid Braze personalization syntax. See [Why is my API-triggered Liquid failing in Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+{% endalert %}
 | Canvas Entry Properties | `{{context.${property_name}}}` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
 
