@@ -213,3 +213,11 @@ Under normal conditions, the time for our data eventual consistency to occur is 
 ### Rate limit reset
 
 Rate limits reset on the clock hour, not on a rolling window. For example, if the limit is 250,000 requests per hour, you could make 50,000 requests between 10:00 PM and 10:59 PM and another 250,000 requests between 11:00 PM and 11:59 PM, because the counter resets at the top of each hour.
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### What is the API Payload Limit for Braze APIs?
+
+Ensure 4MB payload limit and HTTP 413 are documented in API limits or user data endpoints.
