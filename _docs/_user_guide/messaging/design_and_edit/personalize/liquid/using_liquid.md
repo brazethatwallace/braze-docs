@@ -217,3 +217,11 @@ You can insert pre-formatted variables with defaults through the **Add Personali
 The modal will insert Liquid with your specified default value at the point where your cursor was. The insertion point is also specified by the preview box, which has the before and after text. If a block of text is highlighted, the highlighted text will be replaced.
 
 ![A GIF of the Add Personalization modal that shows the user inserting "fellow traveler" as a default value, and the modal replacing the highlighted text "name" in the composer with the Liquid snippet.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Liquid / Content Block changes position when switching from HTML > Classic Editor
+
+Add a note to _docs/_user_guide/personalization_and_dynamic_content/liquid/using_liquid.md or email editor docs: when switching between HTML and Classic editor, Content Block/Liquid position may change. Consider using the Drag and Drop editor as an alternative. Braze is working on a consolidated editor.
