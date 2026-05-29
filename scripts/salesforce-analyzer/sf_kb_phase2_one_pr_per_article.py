@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Phase 2: one branch/PR per Salesforce KB article_id. Run from repo root."""
+"""Phase 2: one branch/PR per Salesforce KB article_id. Run from repo root:
+
+  python3 scripts/salesforce-analyzer/sf_kb_phase2_one_pr_per_article.py
+"""
 
 from __future__ import annotations
 
@@ -8,7 +11,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[1]
+REPO = Path(__file__).resolve().parents[2]
 
 ARTICLES: list[tuple[str, str, str]] = [
     # (article_id, short_title_for_pr, relative_path from repo root)
