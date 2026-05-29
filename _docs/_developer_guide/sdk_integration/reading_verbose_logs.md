@@ -526,3 +526,19 @@ In verbose log payloads, Braze uses abbreviated event names. Here's a reference:
 | `ccd` | Content Card dismissed |
 | `lr` | Location recorded |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Common event abbreviations" }
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### When might a user have 0 sessions recorded against their profile?
+
+Add FAQ to session tracking docs: Users may have 0 sessions when imported via REST API (/user/track) or CSV without First/Last session fields; link to SDK session tracking.
+
+### User Data Discrepancies when performing tasks via SDK/REST API simultaneously or in close succession.
+
+Add troubleshooting to user data / changeUser docs: when using SDK and REST simultaneously, flush after changeUser, avoid batching critical calls, consider delay between API calls.
+
+### Data Not Getting to Braze
+
+Verify braze-docs has troubleshooting for 'data not getting to Braze' / API connectivity. If missing, add section on firewall whitelisting (Fastly IP list), MTR, Fastly Debug.
