@@ -2619,7 +2619,11 @@ validurls['/docs/partners/message_orchestration/additional_channels/retargeting/
 validurls['/docs/user_guide/message_building_by_channel/push/ios/advanced_campaign_settings'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/notification_options';
 validurls['/docs/user_guide/message_building_by_channel/sms/best_practices/know_before_send'] = '/docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/know_before_send';
 validurls['/docs/user_guide/message_building_by_channel/sms/best_practices/opt-ins'] = '/docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins';
-validurls['/docs/user_guide/message_building_by_channel/sms/sms_geographic_permissions'] = '/docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions';
+validurls['/docs/sms_country_blocklist'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions';
+validurls['/docs/sms_country_blocklist/'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions';
+validurls['/docs/user_guide/message_building_by_channel/sms/sms_geographic_permissions'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions';
+validurls['/docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions';
+validurls['/docs/user_guide/channels/sms_mms_and_rcs/message_setup/geographic_permissions'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions';
 validurls['/docs/user_guide/message_building_by_channel/sms/keywords'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing';
 validurls['/docs/user_guide/message_building_by_channel/sms/keywords/fuzzy_opt_out'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out';
 validurls['/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling';
@@ -4040,7 +4044,7 @@ validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/sms/sms_setu
 validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/sms/sms_setup/sms_sending'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending';
 validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/sms/sms_setup/terms'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/terms';
 validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/short_and_long_codes'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup';
-validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/geographic_permissions'] = '/docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions';
+validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/geographic_permissions'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions';
 validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/subscription_groups'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups';
 validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/phone_numbers_capture'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/phone_numbers_capture';
 validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/laws_and_regulations'] = '/docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations';
