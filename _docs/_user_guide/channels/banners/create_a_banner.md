@@ -133,6 +133,12 @@ When you're finished, select **Done**.
 If you have multiple Banner campaigns using the same placement ID, we recommend using the drag-and-drop priority sorter to define the exact priority.
 {% endalert %}
 
+#### Configure re-eligibility (optional) {#re-eligibility}
+
+By default, users who dismiss a Banner are never re-eligible for that campaign. To let dismissed users see the Banner again, go to the **Delivery Controls** step and select **Allow users to become re-eligible to receive campaign**. When enabled, set a cooldown window in minutes, hours, days, or weeks.
+
+The countdown starts from when the user dismisses the Banner. After the window expires, the user is automatically re-eligible—no campaign restart required. Re-eligibility is tracked per user per campaign.
+
 #### Choose your audience
 
 1. In **Target Audiences**, choose segments or filters to narrow your audience. You automatically receive a preview of the approximate segment population. Exact segment membership is calculated before the message is sent.
@@ -151,6 +157,8 @@ Braze allows you to track [conversion events]({{site.baseurl}}/user_guide/messag
 {% tab Canvas %}
 
 If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement [multivariate testing]({{site.baseurl}}/user_guide/messaging/ab_testing/) and [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) step of our Canvas documentation.
+
+To control re-eligibility for Canvas Banner steps, use the Canvas re-entry settings. For more information, see [Re-eligibility for campaigns and Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/).
 
 {% endtab %}
 {% endtabs %}

@@ -47,6 +47,8 @@ Allowing users to manually dismiss a Banner is in early access. See [Configure d
 
 Users can manually dismiss Banners only if dismissal behavior is enabled and your workspace is participating in the early access. If dismissal isn't enabled or available for your workspace, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session.
 
+When a user dismisses a Banner, they're ineligible for that campaign by default. To let dismissed users see the Banner again, [configure re-eligibility]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility) in the campaign's **Delivery Controls** step. Canvas Banner steps use Canvas re-entry settings to control re-eligibility instead.
+
 {% alert important %}
 [Banner dismissals]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) are currently in early access. If you're interested in participating in the early access, contact your customer success manager.
 {% endalert %}
