@@ -112,7 +112,11 @@ When you export user data from a Canvas step, the CSV includes all users who hav
 
 {% alert tip %}
 For help with CSV and API exports, visit our [troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) article.
-{% endalert %} 
+{% endalert %}
+
+{% alert note %}
+Subscription group data is not available through segment exports. To identify users by subscription status, create a separate segment based on subscription group membership and export that segment.
+{% endalert %}
 
 ## Exporting large segments
 
