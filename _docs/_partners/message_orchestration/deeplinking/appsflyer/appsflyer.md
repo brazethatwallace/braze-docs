@@ -108,6 +108,10 @@ Here, you find the REST endpoint and generate your Braze data import key. After 
 3. Provide the data import key and REST endpoint that you found in the Braze dashboard. 
 4. Toggle **Advanced Privacy** off and save your configuration.
 
+{% alert important %}
+When entering the Braze REST endpoint in AppsFlyer's Integration tab, enter only the domain (for example, `rest.fra-02.braze.eu`) without the `https://` protocol and without the `/attribution/appsflyer` path. AppsFlyer automatically prepends the protocol and appends the path. Including either in your input will cause postback failures.
+{% endalert %}
+
 Additional information on these instructions is available in [AppsFlyer's documentation](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration).
 
 ### Step 4: Confirm the integration
