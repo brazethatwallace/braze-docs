@@ -50,6 +50,17 @@ Das Verhalten der folgenden Tags unterscheidet sich zwischen Canvas und Campaign
 - Die Verwendung des Tags `{{campaign.${name}}}` mit Canvas zeigt den Namen der Canvas-Komponente an. Bei Verwendung dieses Tags mit Campaigns wird der Campaign-Name angezeigt.
 {% endraw %}
 
+#### Campaign-Namen in URLs {#campaign-names-in-urls}
+{: #campaign-names-in-urls}
+
+{% raw %}
+Campaign- und Nachrichtenvarianten-Namen können Zeichen enthalten, die nicht URL-sicher sind, wie z. B. `%`, Leerzeichen oder `&`. Wenn Sie `{{campaign.${name}}}` oder `{{campaign.${message_name}}}` in einen Link oder Query-String einfügen, z. B. als `utm_campaign`-Parameter, wenden Sie den [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters)-Filter an, damit die URL korrekt geparst wird. Zum Beispiel:
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
+{% endraw %}
+
 ## Informationen zum zuletzt verwendeten Gerät {#most-recently-used-device-information}
 
 Sie können die folgenden Attribute für das zuletzt verwendete Gerät der Nutzer:innen über alle Plattformen hinweg als Template verwenden. Wenn Nutzer:innen Ihre Anwendung nicht verwendet haben (zum Beispiel wenn Sie die Nutzer:innen über die REST API importiert haben), sind alle diese Werte `null`.
