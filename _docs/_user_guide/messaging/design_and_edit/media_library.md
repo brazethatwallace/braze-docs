@@ -57,7 +57,7 @@ To replace an asset:
 
 - The replacement file must have the same file extension as the original. For example, you can't replace a `.png` asset with a `.jpg` file.
 - Video assets cannot be replaced.
-- After replacement, the updated file may take some time to display for all end users due to CDN caching.
+- After replacement, the updated file may take some time to display for all consumers due to CDN caching.
 
 ### Channels with processed image copies
 
