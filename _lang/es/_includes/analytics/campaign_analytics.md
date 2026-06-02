@@ -36,6 +36,10 @@ El panel **Campaign Details** muestra un resumen de alto nivel del rendimiento g
 
 Revisa este panel para ver métricas generales como el número de mensajes enviados a los destinatarios, la tasa de conversión primaria y los ingresos totales generados por este mensaje. También puedes revisar la configuración de entrega, audiencia y conversión desde esta página.
 
+{% alert note %}
+Las cifras de análisis en el dashboard y en Snowflake pueden diferir ligeramente. Braze mide las cifras en el dashboard y registra las filas en Snowflake por separado. Snowflake es la fuente de datos más precisa, por lo que si ves discrepancias entre estas fuentes, te recomendamos consultar los datos de Snowflake.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 El canal de WhatsApp incluye la tasa de lectura. Esta métrica solo se entrega a los usuarios que tienen activados los recibos de lectura, lo que puede variar.
@@ -377,7 +381,7 @@ Aquí tienes algunas métricas clave específicas del correo electrónico que no
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Este seguimiento se realiza durante un periodo de siete días para el correo electrónico y se mide mediante <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. Esto incluye los clics en los enlaces de cancelación de suscripción proporcionados por Braze. Esta cifra debería estar entre el 5-10 %. ¡Todo lo que supere el 10 % es excepcional!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Este seguimiento se realiza durante un periodo de siete días para el correo electrónico y se mide mediante <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Esto incluye los clics en los enlaces de cancelación de suscripción proporcionados por Braze. Esta cifra debería estar entre el 5-10 %. ¡Todo lo que supere el 10 % es excepcional!
             </td>
         </tr>
         <tr>
@@ -894,7 +898,7 @@ El panel **Conversion Correlation** te da información sobre qué atributos y co
 
 ## Generador de informes {#report-builder}
 
-También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) para crear informes personalizados para tus Campaigns de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo Campaigns de KakaoTalk seleccionando **KakaoTalk** en **Canales**, o filtrando por cualquier etiqueta que hayas aplicado a tus Campaigns de KakaoTalk.
+También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) para crear informes personalizados para tus Campaigns de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo Campaigns de KakaoTalk seleccionando **KakaoTalk** en **Channels**, o filtrando por cualquier etiqueta que hayas aplicado a tus Campaigns de KakaoTalk.
 
 {% endif %}
 

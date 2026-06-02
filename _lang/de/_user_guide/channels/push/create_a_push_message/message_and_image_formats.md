@@ -26,13 +26,7 @@ Für optimale Ergebnisse beachten Sie die folgenden Richtlinien zu Bildgrößen 
 (Android) Erweiterte Benachrichtigung | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
 
-{% alert note %}
-GIFs werden in Android-Push-Benachrichtigungen nicht unterstützt. Dies ist eine Einschränkung der Android-Plattform, keine Einschränkung von Braze.
-
-Für In-App-Nachrichten und Content Cards auf Android können Sie GIFs unterstützen, indem Sie eine Drittanbieter-Bildbibliothek integrieren, wie z. B. [Glide](https://bumptech.github.io/glide/) oder [Fresco](https://frescolib.org/).
-
-Auf iOS unterstützen Push-Benachrichtigungen GIFs. In-App-Nachrichten und Content Cards erfordern einen angepassten GIF-Bildanbieter.
-{% endalert %}
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 {% endtab %}
 {% tab Text %}

@@ -953,7 +953,7 @@ a:hover {
               <div class="gradient-line"></div>
           </div>
    </div>
-        <aside class="operator-callout" aria-label="ヒント：BrazeAI Operator">
+        <aside class="operator-callout" aria-label="ヒント: BrazeAI Operator">
           <div class="operator-callout-content">
             <div class="operator-callout-title">
               <strong>BrazeAI Operator&#8482;でトラブルシューティングを迅速に</strong>
@@ -1053,7 +1053,7 @@ a:hover {
 
                 <div class="flex-display">
                 <div class= "legal-disclaimer">
-                  <em>免責事項：この回答はAIによって生成されたものであり、情報提供のみを目的としています。リンク先のソースをBrazeドキュメントでご確認ください。</em>
+                  <em>免責事項: この回答はAIによって生成されたものであり、情報提供のみを目的としています。リンク先のソースをBrazeドキュメントでご確認ください。</em>
                 </div>
                 <div class="gpt-res-buttons">
                 <button type="button" class="submit-btn" id="backToStep1" style="background-color:grey;">戻る</button>
@@ -1142,10 +1142,10 @@ a:hover {
             <div class="form-group">
               <label for="ticket_priority" class="required">問題の重大度 </label>
               <select id="ticket_priority" name="priority" class="form-control">
-                <option value="Critical">Critical：システムがダウンしている、または深刻なデータ整合性の問題</option>
-                <option value="High">High：機能の重大な喪失、またはCampaignが送信されない</option>
-                <option value="Medium">Medium：パフォーマンスの低下、またはビジネスに大きな影響を与える問題</option>
-                <option value="Low" selected>Low：Brazeの機能や分析に関する質問</option>
+                <option value="Critical">Critical: システムがダウンしている、または深刻なデータ整合性の問題</option>
+                <option value="High">High: 機能の重大な喪失、またはCampaignが送信されない</option>
+                <option value="Medium">Medium: パフォーマンスの低下、またはビジネスに大きな影響を与える問題</option>
+                <option value="Low" selected>Low: Brazeの機能や分析に関する質問</option>
               </select>
             </div>
           </div>
@@ -1264,7 +1264,7 @@ var ticket_lookuptable = {
   'Label': '* What can we help you with?',
   'SelectDefault': 'Select a topic...',
   'LinksTitle': ['Marketer documentation','Developer documentation','Marketer troubleshooting guide','Frequently Asked Questions'],
-  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/help/home/','{{site.baseurl}}/help/faqs/'],
+  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/user_guide/home/'],
   'SelectOption': {
     'Technical Issue': {
       'Label': '* Category',
@@ -1536,7 +1536,7 @@ var ticket_lookuptable = {
             },
             'Message Composition by Channel' : {
               'LinksTitle': ['Available Channels','Know Before You Send: Channels'],
-              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/help/help_articles/campaigns_and_canvas/know_before_send/'],
+              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/'],
               'Label': 'Channel *',
               'SelectDefault': 'Select channel...',
               'SelectOption' : {
@@ -1588,12 +1588,12 @@ var ticket_lookuptable = {
             'Password Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Locked Out of Account'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#password-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#password-error']
             },
             'Instance Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Instance Error'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#instance-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#instance-error']
             },
             'SAML and Single Sign On' : {
               'ShowSubmit': true,
@@ -1603,7 +1603,7 @@ var ticket_lookuptable = {
             'Other' : {
               'ShowSubmit': true,
               'LinksTitle': ['Account Login Issues'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/']
             }
           }
         },
@@ -1655,7 +1655,7 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
-      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/help/accessibility/','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
+      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
@@ -1665,7 +1665,7 @@ var ticket_lookuptable = {
         'Best Practices and Frequently Asked Questions' :{
           'ShowSubmit': true,
           'LinksTitle': ['Best Practices and Frequently Asked Questions'],
-          'Links':  ['{{site.baseurl}}/help/faqs']
+          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/best_practices/']
         },
         'Other' :{
           'ShowSubmit': true,

@@ -37,6 +37,10 @@
 
 이 패널에서 수신자에게 전송된 메시지 수, 주요 전환율, 이 메시지로 발생한 총 매출 등 전반적인 측정기준을 확인할 수 있습니다. 이 페이지에서 전달, 오디언스 및 전환 설정도 검토할 수 있습니다.
 
+{% alert note %}
+대시보드와 Snowflake의 분석 수치는 약간 다를 수 있습니다. Braze는 대시보드의 수치를 측정하고 Snowflake에 행을 별도로 기록합니다. Snowflake가 더 정확한 데이터 소스이므로, 이 두 소스 간에 차이가 있는 경우 Snowflake 데이터를 참조하는 것이 좋습니다.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 WhatsApp 채널에는 읽기 비율이 포함됩니다. 이 측정기준은 읽음 확인을 켜놓은 사용자에게만 제공되며, 사용자마다 다를 수 있습니다.
@@ -377,7 +381,7 @@ _Unique Recipients_는 실제로 본 배너를 의미합니다.
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> 로 측정됩니다. Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 이 수치는 5~10% 사이가 일반적이며, 10%를 초과하면 매우 우수한 수준입니다!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 로 측정됩니다. Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 이 수치는 5~10% 사이가 일반적이며, 10%를 초과하면 매우 우수한 수준입니다!
             </td>
         </tr>
         <tr>

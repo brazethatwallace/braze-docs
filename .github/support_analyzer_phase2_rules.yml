@@ -19,12 +19,13 @@
 # environment with a checkout. Set `required: true` only when that environment
 # is guaranteed. Patterns use ripgrep regex.
 #
-# CSV columns (Looker export): see .cursor/rules/support-analyzer.mdc
+# CSV columns (Looker export): see .github/skills/support-analyzer/SKILL.md
 version: 1
 
 rules:
   - id: data_series_currents
     enabled: true
+    # skip_if_contains below detects the shared include merged in #13772; disable this rule if that include is canonical.
     min_matching_cases: 3
     case_text:
       fields:
@@ -54,6 +55,8 @@ rules:
     edits:
       - file: _docs/_api/endpoints/export/campaigns/get_campaign_analytics.md
         fingerprint: support-analyzer-phase2:data_series_currents_campaign
+        skip_if_contains:
+          - "api/export_data_series_analytics_dashboard_note.md"
         anchor_substring: Data returned includes how many messages were sent, opened, clicked, or converted by messaging channel.
         insert: |+
 
@@ -64,6 +67,8 @@ rules:
 
       - file: _docs/_api/endpoints/export/canvas/get_canvas_analytics.md
         fingerprint: support-analyzer-phase2:data_series_currents_canvas
+        skip_if_contains:
+          - "api/export_data_series_analytics_dashboard_note.md"
         anchor_substring: "> Use this endpoint to export time series data for a Canvas."
         insert: |+
 
@@ -74,6 +79,8 @@ rules:
 
       - file: _docs/_api/endpoints/export/campaigns/get_send_analytics.md
         fingerprint: support-analyzer-phase2:data_series_currents_send
+        skip_if_contains:
+          - "api/export_data_series_analytics_dashboard_note.md"
         anchor_substring: Braze stores send analytics for 14 days after the send.
         insert: |+
 

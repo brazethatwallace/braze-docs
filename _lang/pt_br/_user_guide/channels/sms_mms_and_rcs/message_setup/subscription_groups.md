@@ -127,11 +127,12 @@ A Braze recomenda que você teste o envio de RCS para volumes menores de usuári
 Crie um Canvas e dê a ele um nome facilmente identificável (como "Transferência de Usuários do Grupo de Inscrições SMS-RCS"). Em seguida, programe a campanha para quando for conveniente para você.
 
 ### Etapa 2: Definir seu público {#step-2-define-your-audience}
+{: #step-2-define-your-audience}
 
 Defina seu público usando um dos seguintes métodos. Em seguida, vá para a etapa **Configurações de envio** e selecione **Usuários que estão inscritos ou optaram por receber**.
 
 | Método | Descrição |
-|---|---|
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Criar um segmento** | Crie um segmento que inclua todos os usuários em um grupo de inscrições ou um subconjunto usando filtros de segmentação (como 5-10% aleatórios). Os segmentos são atualizados antes de cada envio para refletir sua base de usuários atual. |
 | **Aplicar filtros de Campaign ou Canvas** | Refine o público na etapa **Público-alvo** da sua Campaign ou Canvas. Ajuste as opções de direcionamento sem sair da página para maior flexibilidade. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
@@ -196,5 +197,7 @@ Escolha nomes de grupos de inscrições descritivos e claros para que o grupo co
 ### Separar grupos por país {#separate-groups-by-country}
 
 As regulamentações de SMS variam por país. Sugerimos separar os grupos de inscrições de SMS por país. Isso ajuda você a atender aos padrões de conformidade em todas as regiões onde envia mensagens.
+
+Para cada grupo de inscrições, você também pode configurar uma lista de permissões de países em **Permissões geográficas** para que SMS, MMS e RCS sejam enviados apenas para regiões aprovadas. Para saber mais, consulte [Permissões geográficas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/).
 
 Por exemplo, no Brasil, o envio de mensagens de marketing fora do horário das 9h às 21h no horário local é proibido, e o país abrange três fusos horários. Para cumprir essas regulamentações, você pode configurar grupos separados para enviar mensagens ao Brasil e aos Estados Unidos. Isso evita que usuários no Brasil recebam mensagens de marketing durante horários proibidos.

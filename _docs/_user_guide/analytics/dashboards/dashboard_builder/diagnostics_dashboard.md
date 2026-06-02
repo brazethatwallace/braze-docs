@@ -51,7 +51,7 @@ To run the dashboard and view your data:
 2. Select one or more campaigns or Canvases.
 3. Select **Run Dashboard** to load the data for your selected filters.
 
-![Campaign and Canvas diagnostics example from May 25 to May 31, 2025 for a welcome series campaign.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
+![Campaign and Canvas diagnostics example from May 25 to May 31, 2025 for a welcome series campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![Campaign and Canvas diagnostics example with graph on hover from May 25 to May 31, 2025 for a welcome series campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
 
 ## Interpreting the data
 
@@ -78,11 +78,16 @@ This time series chart shows a day-by-day breakdown of the different reasons a m
 To keep the chart organized, any abort or drop reason with zero occurrences in your selected time range does not appear on the chart.
 {% endalert %}
 
-### Message outcomes breakdown
+### Message outcomes granular log
 
-This chart shows the breakdown of all message outcomes within your selected time range. It provides a complete picture of:
-- The total number of sends as a proportion of all outcomes.  
-- The proportional breakdown of each abort and drop reason. This helps you quickly identify the most common reasons messages are not being sent.
+Below the time series chart, the dashboard shows a granular table of individual message outcomes for your selected filters and time range. Use this table to review specific records, including the timestamp, user ID, Canvas step, outcome, and channel.
+
+You can filter the table to focus on specific records:
+
+- **Filter by outcome:** Select an outcome from the outcome filter to show only rows with that outcome (for example, `Frequency capped` or `User not eligible`).
+- **Search by user ID:** Enter a user ID in the search field to show rows for that specific user.
+
+When you apply both filters, the table returns rows that match both the selected outcome and the entered user ID.
 
 ### Abort outcomes
 

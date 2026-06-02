@@ -23,6 +23,10 @@ No. If you don't add S3 credentials, your exports will appear in an S3 bucket be
 
 The **Make this the default data export destination** checkbox impacts whether exports go to S3 or Azure, assuming you've added credentials for both.
 
+### Does the default data export destination affect Braze Currents?
+
+No. Currents uses its own connector and storage settings. Choosing a default export destination for CSV and API-driven exports does not change where Currents data is written.
+
 ### Why did I receive multiple files when exporting user profiles to S3?
 
 This is expected behavior for workspaces with a lot of users. Braze will split your export into multiple files based on the number of users in your workspace. Generally, there is one file output per 5,000 users. Note that if you are exporting a small segment within a large workspace, you may still receive multiple files.

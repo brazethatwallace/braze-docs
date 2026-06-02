@@ -29,17 +29,17 @@ Wenn Sie mehr Segmente erstellen, wird es Fälle geben, in denen sich die Mitgli
 
 Braze bietet die folgenden Filter, um Ihnen zu helfen, die Rate zu begrenzen, mit der Ihre Nutzer:innen Nachrichten erhalten:
 
-- Letzte Interaktion mit Nachricht
-- Letzte empfangene Nachricht (beliebig)
-- Letzter empfangener Push
-- Letzte empfangene E-Mail
-- Letzte empfangene SMS
+- Last Engaged With Message
+- Last Received Any Message
+- Last Received Push
+- Last Received Email
+- Last Received SMS
 
 #### Filter implementieren {#implementing-filters}
 
 Nehmen wir an, wir haben ein Segment namens „Retargeting Filter Showcase“ mit dem Filter „App zuletzt vor mehr als 7 Tagen verwendet“ erstellt, um Nutzer:innen anzusprechen. Dies wäre ein standardmäßiges Segment zur erneuten Interaktion.
 
-Wenn Sie andere, gezieltere Segmente haben, die kürzlich Benachrichtigungen erhalten haben, möchten Sie möglicherweise nicht, dass Ihre Nutzer:innen von allgemeineren Campaigns angesprochen werden, die auf dieses Segment ausgerichtet sind. Durch Hinzufügen des Filters „Letzter empfangener Push“ zu diesem Segment wird sichergestellt, dass Nutzer:innen, die in den letzten 24 Stunden eine andere Benachrichtigung erhalten haben, für die nächsten 24 Stunden aus diesem Segment herausfallen. Wenn sie 24 Stunden später immer noch die anderen Kriterien des Segments erfüllen und keine weiteren Benachrichtigungen erhalten haben, werden sie wieder in das Segment aufgenommen.
+Wenn Sie andere, gezieltere Segmente haben, die kürzlich Benachrichtigungen erhalten haben, möchten Sie möglicherweise nicht, dass Ihre Nutzer:innen von allgemeineren Campaigns angesprochen werden, die auf dieses Segment ausgerichtet sind. Durch Hinzufügen des Filters „Last Received Push“ zu diesem Segment wird sichergestellt, dass Nutzer:innen, die in den letzten 24 Stunden eine andere Benachrichtigung erhalten haben, für die nächsten 24 Stunden aus diesem Segment herausfallen. Wenn sie 24 Stunden später immer noch die anderen Kriterien des Segments erfüllen und keine weiteren Benachrichtigungen erhalten haben, werden sie wieder in das Segment aufgenommen.
 
 ![Ein Segment namens „Retargeting Filter Showcase“ mit der Filtergruppe „App zuletzt vor mehr als 7 Tagen verwendet“.]({% image_buster /assets/img_archive/rate_limit_daily.png %}){: style="max-width:80%;"}
 
@@ -195,7 +195,9 @@ Jede Zeile der Frequency-Caps ist mit dem `AND`-Operator verbunden, und Sie kön
 
 #### Verhalten, wenn Nutzer:innen bei einem Canvas-Schritt Frequency-gekappt werden {#behavior-when-users-are-frequency-capped-on-a-canvas-step}
 
-Wenn Canvas-Nutzer:innen aufgrund globaler Frequency-Capping-Einstellungen Frequency-gekappt werden, rücken sie sofort zum nächsten Canvas-Schritt vor. Die Nutzer:innen verlassen das Canvas nicht aufgrund des Frequency-Caps.
+Globales Frequency-Capping allein führt nicht dazu, dass Nutzer:innen ein Canvas verlassen. Bei [Nachrichtenschritten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) rücken Nutzer:innen weiterhin vor, wenn eine Nachricht aufgrund von globalem Frequency-Capping nicht gesendet wird, entsprechend der Art und Weise, [wie Nutzer:innen durch den Schritt vorrücken]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance).
+
+Dies ist getrennt von den **Zustellungsvalidierungen** bei einem Nachrichtenschritt. Wenn Nutzer:innen Ihre Zustellungsvalidierungskriterien zum Sendezeitpunkt nicht erfüllen, können sie das Canvas bei diesem Schritt verlassen.
 
 ### Zustellungsregeln {#delivery-rules}
 
@@ -215,7 +217,13 @@ Dieses Verhalten ändert das Standardverhalten, wenn Sie Frequency-Capping für 
 
 ![Zustellungs-Kontrollgruppen-Bereich mit aktiviertem Frequency-Capping.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"}
 
-Verschiedene Kanäle innerhalb einer Multichannel-Campaign werden einzeln auf das Frequency-Cap angerechnet. Wenn Sie beispielsweise eine Multichannel-Campaign mit Push und E-Mail erstellen und Frequency-Capping für beide Kanäle eingerichtet haben, zählt der Push als eine Push-Campaign und die E-Mail-Nachricht als eine E-Mail-Nachrichten-Campaign. Die Campaign zählt auch als eine „Campaign beliebigen Typs“. Wenn Nutzer:innen auf einen Push und eine E-Mail-Campaign pro Tag begrenzt sind und diese Multichannel-Campaign erhalten, sind sie für den Rest des Tages nicht mehr für Push- oder E-Mail-Campaigns berechtigt (es sei denn, eine Campaign ignoriert die Frequency-Capping-Regeln).
+#### Wie Sendungen auf Obergrenzen angerechnet werden {#how-sends-count-toward-caps}
+
+Frequency-Capping wird pro Versand angewendet: Jedes Mal, wenn Braze eine Campaign oder Canvas-Komponente an Nutzer:innen sendet, wird dies auf Ihre Obergrenzen angerechnet – nicht jede Nachrichtenvariante oder Plattform innerhalb dieser Sendung. Wenn Nutzer:innen beispielsweise auf fünf Push-Campaigns pro Woche begrenzt sind, erhalten sie nach dem fünften Versand keine weiteren Push-Campaigns mehr, bis die Obergrenze zurückgesetzt wird.
+
+##### Multichannel-Sendungen {#multichannel-sends}
+
+Wenn ein einzelner Versand mehrere Kanäle verwendet, wird dieser Versand höchstens einmal pro anwendbarer Frequency-Capping-Regel gezählt. Wenn Sie beispielsweise eine Multichannel-Campaign erstellen, die E-Mail, iOS-Push und Android-Push in einer Zustellung sendet, und Ihr Workspace Regeln für Push und E-Mail sowie eine Regel für alle Kanäle hat, zählt diese Zustellung einmal für die Push-Regel, einmal für die E-Mail-Regel und einmal für die Alle-Kanäle-Regel – sie zählt nicht einmal pro Push-Plattform oder pro Nachricht innerhalb der Sendung. Wenn Nutzer:innen auf eine Push- und eine E-Mail-Campaign pro Tag begrenzt sind und diese Multichannel-Campaign erhalten, sind sie für den Rest des Tages nicht mehr für zusätzliche Push- oder E-Mail-Campaigns berechtigt, es sei denn, eine Campaign ignoriert die Frequency-Capping-Regeln.
 
 In-App-Nachrichten und Content Cards werden nicht als Obergrenzen für Campaigns oder Canvas-Komponenten beliebigen Typs gezählt oder darauf angerechnet.
 
@@ -322,17 +330,3 @@ Sie könnten beispielsweise die folgende Regel einrichten:
 > Nicht mehr als drei E-Mail-Campaigns oder Canvas-Komponenten pro Woche von allen Campaigns und Canvas-Schritten.
 
 Diese Regel stellt sicher, dass keine Nutzer:innen mehr als 100 E-Mails pro Woche erhalten, da Nutzer:innen höchstens drei E-Mails pro Woche von Campaigns oder Canvas-Komponenten mit aktiviertem Frequency-Capping erhalten.
-
-## Häufig gestellte Fragen {#frequently-asked-questions}
-
-### Wenn ich eine Sendedrosselung bei einem aktiven Canvas ändere, wirkt sich das auf Nutzer:innen aus, die sich bereits im Canvas befinden? {#if-i-change-a-send-throttle-on-an-active-canvas-does-it-affect-users-already-in-the-canvas}
-
-Ja, wenn Sie ein Canvas-Rate-Limit erhöhen oder verringern, wird das aktualisierte Limit aufgrund von Caching innerhalb von etwa 30 Sekunden nach der Änderung für neue Nachrichten wirksam.
-
-### Führt Frequency-Capping dazu, dass Nutzer:innen ein Canvas verlassen? {#does-frequency-capping-cause-users-to-exit-a-canvas}
-
-Nein. Wenn Canvas-Nutzer:innen aufgrund globaler Frequency-Capping-Einstellungen Frequency-gekappt werden, rücken sie sofort zum nächsten Canvas-Schritt vor. Die Nutzer:innen verlassen das Canvas **nicht** aufgrund des Frequency-Caps.
-
-### Wie kann ich Nutzer:innen identifizieren, die in einem Canvas Frequency-gekappt wurden? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
-
-Nutzer:innen, die Frequency-gekappt werden, erzeugen kein Sendeereignis für diesen Schritt. Um diese Nutzer:innen zu identifizieren, können Sie [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) verwenden, um Frequency-Capping-Ereignisse für Nachrichten zu verfolgen. Alternativ können Sie eine [Segmenterweiterung]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) erstellen, um Nutzer:innen zu analysieren, die das Canvas betreten haben, aber die erwartete Nachricht nicht erhalten haben.
