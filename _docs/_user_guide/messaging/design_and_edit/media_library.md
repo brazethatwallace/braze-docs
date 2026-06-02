@@ -20,6 +20,10 @@ tool: Media
 | "Edit Media Library Assets" permission | Lets you upload, crop, and manage assets in the media library. |
 | "Delete Media Library Assets" permission | Lets you delete assets from the media library. |
 | "Replace Media Library Assets" permission | Lets you replace the file of an existing asset while keeping its URL stable. |
+| "View Media Library Assets" permission | View assets |
+| "Edit Media Library Assets" permission | Upload, crop, and manage assets |
+| "Delete Media Library Assets" permission | Delete assets |
+| "Replace Media Library Assets" permission | Replace a file while keeping its URL stable |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
 
 For more information, see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
