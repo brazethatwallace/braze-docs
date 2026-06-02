@@ -68,6 +68,12 @@ The following limitations apply:
     - If your agents consistently time out, contact your Braze account manager to increase this limit.
 - Input data is limited to 25 KB per request. Longer inputs are truncated.
 
+## Error handling
+
+If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider during a Canvas Agent step, Braze retries the request up to five times using exponential backoff. For other failures (such as a timeout or invalid API key), the agent output is set to `null`. If an agent reaches its daily invocation limit, the output is also set to `null`.
+
+When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) to buffer against null outputs in your messages.
+
 ## How is my data used and sent to Braze-provided LLMs?
 
 In order to generate AI output through Braze AI features that Braze identifies as leveraging Braze-provided LLMs (“Output”), Braze will send your system prompt or any other input, as applicable (“Input”) to the Braze-provided LLM. Data sent to the applicable Braze-provided LLM is not used to train or improve the Braze-provided LLM. Between you and Braze, Output is your intellectual property. Braze will not assert any claims of copyright ownership on such Output. Braze makes no warranty of any kind with respect to any AI-generated content generally, including Output.
