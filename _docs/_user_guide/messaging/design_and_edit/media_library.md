@@ -16,10 +16,6 @@ tool: Media
 
 | Requirements | Description |
 |---|---|
-| "View Media Library Assets" permission | Lets you view assets in the media library. |
-| "Edit Media Library Assets" permission | Lets you upload, crop, and manage assets in the media library. |
-| "Delete Media Library Assets" permission | Lets you delete assets from the media library. |
-| "Replace Media Library Assets" permission | Lets you replace the file of an existing asset while keeping its URL stable. |
 | "View Media Library Assets" permission | View assets |
 | "Edit Media Library Assets" permission | Upload, crop, and manage assets |
 | "Delete Media Library Assets" permission | Delete assets |
