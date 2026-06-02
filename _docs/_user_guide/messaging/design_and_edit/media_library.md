@@ -16,10 +16,10 @@ tool: Media
 
 | Requirements | Description |
 |---|---|
-| "View Media Library Assets" permission | View assets |
-| "Edit Media Library Assets" permission | Upload, crop, and manage assets |
-| "Delete Media Library Assets" permission | Delete assets |
-| "Replace Media Library Assets" permission | Replace a file while keeping its URL stable |
+| "View Media Library Assets" permission | View media library assets |
+| "Edit Media Library Assets" permission | Create and update media library assets |
+| "Delete Media Library Assets" permission | Permanently delete media library assets |
+| "Replace Media Library Assets" permission | Replace the file of an existing media library asset while keeping its URL and asset ID stable |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
 
 For more information, see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
