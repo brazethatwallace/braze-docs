@@ -12,6 +12,18 @@ tool: Media
 
 > The media library allows you to manage your assets in a single, centralized location. 
 
+## Prerequisites
+
+| Requirements | Description |
+|---|---|
+| "View Media Library Assets" permission | Lets you view assets in the media library. |
+| "Edit Media Library Assets" permission | Lets you upload, crop, and manage assets in the media library. |
+| "Delete Media Library Assets" permission | Lets you delete assets from the media library. |
+| "Replace Media Library Assets" permission | Lets you replace the file of an existing asset while keeping its URL stable. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
+
+For more information, see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+
 ## Media library versus CDN
 
 Using the media library instead of a Content Delivery Network (CDN) provides better caching and performance for in-app messages. All media library assets found in an in-app message will be pre-cached for faster display and will be available for offline display. Additionally, the media library is integrated with Braze composers, allowing marketers to select or tag images instead of copying and pasting image URLs.
@@ -55,6 +67,7 @@ To replace an asset:
 
 ### Requirements and limitations
 
+- You need the "Replace Media Library Assets" permission to replace files.
 - The replacement file must have the same file extension as the original. For example, you can't replace a `.png` asset with a `.jpg` file.
 - Video assets cannot be replaced.
 - After replacement, the updated file may take some time to display for all consumers due to CDN caching.
