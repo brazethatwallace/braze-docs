@@ -24,6 +24,7 @@ description: "Cet article de référence explique comment utiliser les attributs
 - Les points (`.`) et les signes dollar (`$`) ne sont pas des caractères pris en charge dans un payload API si vous tentez d'envoyer un attribut personnalisé imbriqué à un profil utilisateur.
 - Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Reportez-vous à la [documentation du partenaire]({{site.baseurl}}/partners/home/) pour savoir si les intégrations spécifiques du partenaire prennent en charge cette fonctionnalité.
 - Les attributs personnalisés imbriqués ne peuvent pas être utilisés comme filtre lors d'un appel API Connected Audience.
+- Par défaut, le filtre de segment **Attributs personnalisés imbriqués** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriété inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableau imbriqués. Pour masquer les attributs personnalisés de type tableau de niveau supérieur dans ce filtre, contactez l'[assistance Braze]({{site.baseurl}}/braze_support/).
 
 ## Exemple d'API {#api-example}
 
@@ -271,7 +272,7 @@ En utilisant la fenêtre modale **Ajouter une personnalisation**, vous pouvez é
 
 Par exemple, dans la fenêtre modale de personnalisation ci-dessous, cela insère l'attribut personnalisé imbriqué d'un bureau de quartier local en fonction des préférences d'un utilisateur.
 
-![Fenêtre modale de personnalisation montrant l'insertion d'un attribut personnalisé imbriqué pour un bureau de quartier]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
 
 {% alert tip %}
 Vérifiez qu'un schéma a été généré si vous ne voyez pas l'option d'insertion d'attributs personnalisés imbriqués.
@@ -285,7 +286,7 @@ Pour régénérer le schéma de votre attribut personnalisé imbriqué :
 
 1. Accédez à **Paramètres des données** > **Attributs personnalisés**.
 2. Recherchez votre attribut personnalisé imbriqué.
-3. Dans la colonne **Attribute Name** correspondant à votre attribut, sélectionnez <i class="fas fa-plus" aria-label="Gérer le schéma"></i> pour gérer le schéma.
+3. Dans la colonne **Attribute Name** correspondant à votre attribut, sélectionnez <i class="fas fa-plus"></i> pour gérer le schéma.
 4. Une fenêtre modale apparaîtra. Sélectionnez **Regenerate Schema**.
 
 L'option de régénération du schéma sera désactivée si moins de 24 heures se sont écoulées depuis la dernière régénération. La régénération du schéma ne détectera que les nouveaux objets et ne supprimera pas les objets qui existent déjà dans le schéma.

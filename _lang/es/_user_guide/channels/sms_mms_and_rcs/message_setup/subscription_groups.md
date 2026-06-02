@@ -127,6 +127,7 @@ Braze recomienda que primero pruebes el envío de RCS a volúmenes más pequeño
 Crea un Canvas y nómbralo con algo fácilmente identificable (como "Transferencia de usuarios de grupo de suscripción SMS-RCS"). Luego, programa la campaña cuando te resulte conveniente.
 
 ### Paso 2: Definir tu audiencia {#step-2-define-your-audience}
+{: #step-2-define-your-audience}
 
 Define tu audiencia usando uno de los siguientes métodos. A continuación, ve al paso **Ajustes de envío** y selecciona **Users who are subscribed or opted-in**.
 
@@ -134,7 +135,7 @@ Define tu audiencia usando uno de los siguientes métodos. A continuación, ve a
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Crear un segmento** | Crea un segmento que incluya a todos los usuarios en un grupo de suscripción o un subconjunto usando filtros de segmentación (como un 5-10 % aleatorio). Los segmentos se actualizan antes de cada envío para reflejar tu base de usuarios actual. |
 | **Aplicar filtros de campaña o Canvas** | Refina la audiencia en el paso **Target Audience** de tu campaña o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Definir tu audiencia" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
 
 ### Paso 3: Configurar un paso de Actualización de usuario {#step-3-configure-a-user-update-step}
 
@@ -196,5 +197,7 @@ Elige nombres de grupos de suscripción descriptivos y claros para que se selecc
 ### Separar grupos por país {#separate-groups-by-country}
 
 Las regulaciones de SMS varían según el país. Sugerimos separar los grupos de suscripción de SMS por país. Esto te ayuda a cumplir con los estándares de conformidad en todas las regiones donde envías mensajes.
+
+Para cada grupo de suscripción, también puedes configurar una lista de países permitidos en **Geographic Permissions** para que los SMS, MMS y RCS solo se envíen a regiones aprobadas. Para más información, consulta [Permisos geográficos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/).
 
 Por ejemplo, en Brasil, el envío de mensajes de marketing fuera del horario de 9 a.m. a 9 p.m. hora local está prohibido, y el país abarca tres zonas horarias. Para cumplir con estas regulaciones, podrías configurar grupos separados para enviar mensajes a Brasil y Estados Unidos. Esto evita que los usuarios en Brasil reciban mensajes de marketing durante las horas prohibidas.
