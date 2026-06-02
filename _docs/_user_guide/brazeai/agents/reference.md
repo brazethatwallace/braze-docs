@@ -84,6 +84,10 @@ When many users enter an Agent step at once, Braze queues invocations according 
 
 If the LLM provider returns a rate limit error, Braze retries the request up to five times using exponential backoff. This retry behavior applies to Canvas Agent steps. Catalog agents do not retry failed invocations, including rate limit errors from the LLM provider.
 
+If all retries fail, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**.
+
+![Agent Console log details showing a rate limit exceeded error in the Output field.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
+
 ## Writing instructions
 
 Instructions are the rules or guidelines you give the agent (system prompt). They define how the agent should behave each time it runs. System instructions can be up to 25 KB.
