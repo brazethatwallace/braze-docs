@@ -158,7 +158,7 @@ Aggressive pop-up blockers and ad blockers on iOS and in Safari (including Safar
 
 ## Using templates
 
-Use landing page templates to create templates for your next campaigns. These templates can be accessed and managed in both the landing page editor and the **Templates** section of the dashboard (**Templates** > **Landing Page Templates**). Landing page templates require a name and optionally require a description. 
+Use landing page templates to create templates for your next campaigns. These templates can be accessed and managed in both the landing page editor and from the **Landing Page Templates** page (**Content** > **Landing Page**). Landing page templates require a name and optionally require a description. 
 
 ## Managing templates
 

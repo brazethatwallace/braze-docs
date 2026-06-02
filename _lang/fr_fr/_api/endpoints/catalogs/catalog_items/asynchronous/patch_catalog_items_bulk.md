@@ -35,14 +35,14 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `catalog_name` | Requis | Chaîne de caractères | Nom du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
 ## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `items` | Requis | Tableau | Un tableau contenant des objets d'éléments. Les objets d'éléments doivent contenir des champs qui existent dans le catalogue. Jusqu'à 50 objets d'éléments sont autorisés par requête. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 
@@ -56,9 +56,10 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
       "id": "restaurant1",
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": {
         "$add": [
@@ -85,7 +86,8 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 ```
 
 {% alert note %}
-Les opérateurs `$add` et `$remove` ne s'appliquent qu'aux champs de type tableau et ne sont pris en charge que par les endpoints PATCH.
+- Le champ `Location` utilise le type de données `geo`, qui attend un tableau au format `[longitude, latitude]`.
+- Les opérateurs `$add` et `$remove` ne s'appliquent qu'aux champs de type tableau et ne sont pris en charge que par les endpoints PATCH.
 {% endalert %}
 
 ## Réponse {#response}
@@ -143,6 +145,6 @@ Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes d
 | `request-includes-too-many-items` | Votre requête contient trop d'éléments. La limite d'éléments par requête est de 50. |
 | `too-deep-nesting-in-value-object` | Les objets d'éléments ne peuvent pas avoir plus de 50 niveaux d'imbrication. |
 | `unable-to-coerce-value` | Les types d'éléments ne peuvent pas être convertis. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 {% endapi %}

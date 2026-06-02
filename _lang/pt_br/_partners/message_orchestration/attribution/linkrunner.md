@@ -66,10 +66,10 @@ try await LinkrunnerSDK.shared.signup(userData: userData)
 
 ### Etapa 2: Criar chave de API na Braze {#step-2-create-api-key-in-braze}
 
-No dashboard da Braze, acesse **Configurações** > **Configurações e teste** > **APIs e identificadores** > **Chaves de API**.
+No dashboard da Braze, acesse **Settings** > **Setup and Testing** > **APIs and Identifiers** > **API Keys**.
 
-1. Selecione **Criar chave de API**.
-2. Em **Dados de usuários**, selecione as seguintes permissões:
+1. Selecione **Create API Key**.
+2. Em **User Data**, selecione as seguintes permissões:
    - `users.track`
    - `users.export.ids`
 3. Salve a chave de API.
@@ -79,15 +79,15 @@ No dashboard da Braze, acesse **Configurações** > **Configurações e teste** 
 
 ### Etapa 3: Configurar a Braze no dashboard do Linkrunner {#step-3-configure-braze-in-linkrunners-dashboard}
 
-1. No Linkrunner, acesse **Integrações** no painel à esquerda.
-2. Em **Analytics**, selecione **Configurar** para a Braze.
+1. No Linkrunner, acesse **Integrations** no painel à esquerda.
+2. Em **Analytics**, selecione **Configure** para a Braze.
 3. Insira a chave de API e o endpoint REST que você copiou na Etapa 2.
 
 Para saber mais, consulte a [documentação do Linkrunner](https://docs.linkrunner.io/analytics-integrations/braze).
 
 ### Etapa 4: Visualizar dados de atribuição de usuários {#step-4-view-user-attribution-data}
 
-O Linkrunner envia `lr_campaign` e `lr_ad_network` como atributos personalizados. Visualize esses dados na seção **Atributos personalizados** do perfil de usuário no dashboard da Braze.
+O Linkrunner envia `lr_campaign` e `lr_ad_network` como atributos personalizados. Visualize esses dados na seção **Custom Attributes** do perfil de usuário no dashboard da Braze.
 
 ## Dados de atribuição do Facebook e X (antigo Twitter) {#facebook-and-x-formerly-twitter-attribution-data}
 

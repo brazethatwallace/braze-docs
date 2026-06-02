@@ -38,14 +38,14 @@ Los perfiles de usuario son un gran recurso para la solución de problemas y las
 
 Por ejemplo, si un usuario reporta un problema y no estás seguro de qué dispositivo y sistema operativo está utilizando, puedes usar la [pestaña Resumen](#overview-tab) para encontrar esta información (siempre que tengas su correo electrónico o ID de usuario). También puedes ver el idioma de un usuario, lo que podría ser útil si estás solucionando problemas con una [campaña multilingüe]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/) que no se comportó como se esperaba.
 
-Puedes usar la [pestaña Interacción](#engagement-tab) para verificar si un usuario determinado recibió una Campaign. Además, si este usuario en particular recibió la Campaign, puedes ver cuándo la recibió. También puedes verificar si un usuario está en un Segment determinado y si un usuario ha optado por recibir notificaciones push, correo electrónico o ambos. Esta información es útil para la solución de problemas. Por ejemplo, deberías verificar esta información si un usuario no recibe una Campaign que esperabas que recibiera o recibe una Campaign que no esperabas que recibiera.
+Puedes usar la [pestaña Interacción](#engagement-tab) para verificar si un usuario determinado recibió una campaña. Además, si este usuario en particular recibió la campaña, puedes ver cuándo la recibió. También puedes verificar si un usuario está en un segmento determinado y si un usuario ha optado por recibir notificaciones push, correo electrónico o ambos. Esta información es útil para la solución de problemas. Por ejemplo, deberías verificar esta información si un usuario no recibe una campaña que esperabas que recibiera o recibe una campaña que no esperabas que recibiera.
 
 ## Elementos del perfil de usuario {#elements-of-user-profile}
 
 Hay cuatro secciones principales en el perfil de un usuario.
 
 - **Resumen:** Información básica sobre el usuario, datos de sesión, atributos personalizados, eventos personalizados, compras y el dispositivo más reciente en el que el usuario inició sesión.
-- **Interacción:** Información sobre la configuración de contacto del usuario, Campaigns recibidas, segmentos, estadísticas de comunicación, atribución de instalación y número de contenedor aleatorio.
+- **Interacción:** Información sobre la configuración de contacto del usuario, campañas recibidas, segmentos, estadísticas de comunicación, atribución de instalación y número de contenedor aleatorio.
 - **Historial de mensajes:** Eventos recientes relacionados con mensajería para este usuario de los últimos 30 días.
 - **Elegibilidad de conmutadores de características:** Valida para qué conmutadores de características un usuario es actualmente elegible en despliegues, pasos en Canvas y experimentos.
 
@@ -61,7 +61,7 @@ La pestaña **Resumen** contiene información básica sobre un usuario y sus int
 | Dispositivos recientes | En cuántos dispositivos ha iniciado sesión, detalles de cada dispositivo y sus ID de publicidad asociados (si los hay). |
 | Eventos personalizados | Qué eventos personalizados ha realizado este usuario, cuántas veces y cuándo realizó cada evento por última vez. |
 | Compras | Ingresos de por vida atribuidos a este usuario, su última compra, número total de compras y una lista de cada compra. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab #overview-tab" }
 
 Para más información sobre estos datos, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
@@ -74,14 +74,28 @@ La pestaña **Interacción** contiene información sobre las interacciones de un
 | Categoría de interacción | Contiene |
 | --- | --- |
 | Configuración de contacto | Estado de suscripción para correo electrónico, SMS y push, y los grupos de suscripción con los que este usuario está asociado para estos tres canales. Esta sección también incluye información del registro de cambios para tokens de notificaciones push. Consulta [correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions/), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) y [push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/) para obtener información sobre cómo se configuran las suscripciones y las adhesiones voluntarias. |
-| Campaigns recibidas | Las Campaigns recibidas se marcan cuando el usuario recibe la Campaign, o cuando detectamos por primera vez datos de interacción para un usuario.<br><br> Cuando un mensaje se recibe, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la Campaign o no recibieron directamente el mensaje.<br><br> Selecciona una Campaign de la lista para verla. |
-| Segments | Segments en los que este usuario está incluido. Selecciona un Segment de la lista para verlo. |
+| Campaigns recibidas | **Campaigns recibidas** refleja los tiempos de envío y visualización específicos de cada canal. La mayoría de los canales registran un envío cuando Braze pasa el mensaje al proveedor de entrega, incluso cuando el mensaje no se entrega finalmente. **Content Cards** son diferentes: las campañas aparecen aquí solo después de que el usuario visualiza la tarjeta en la aplicación. Para un desglose por canal, consulta [Cuándo aparecen las campañas en Campaigns recibidas](#when-campaigns-appear-in-campaigns-received). Cuando un mensaje se recibe, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la campaña o no recibieron directamente el mensaje.<br><br> Selecciona una campaña de la lista para verla. |
+| Segments | Segments en los que este usuario está incluido. Selecciona un segmento de la lista para verlo. |
 | Estadísticas de comunicación | Cuándo este usuario recibió mensajes tuyos por última vez de cada canal. |
 | Atribución de instalación | Información sobre cómo y cuándo un usuario instaló tu aplicación. Obtén más información sobre [comprender las instalaciones de usuarios]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/). |
 | Varios | El [número de contenedor aleatorio]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) del usuario. |
-| Mensajes de Canvas recibidos | Mensajes de Canvas que este usuario ha recibido y cuándo.<br><br> Cuando un mensaje se recibe, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la Campaign o no recibieron directamente el mensaje.<br><br> Selecciona un mensaje de la lista para verlo. |
+| Mensajes de Canvas recibidos | Mensajes de Canvas que este usuario ha recibido y cuándo. Los tiempos de envío siguen las mismas reglas de canal que **Campaigns recibidas**; consulta [Cuándo aparecen las campañas en Campaigns recibidas](#when-campaigns-appear-in-campaigns-received). Cuando un mensaje se recibe, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la campaña o no recibieron directamente el mensaje.<br><br> Selecciona un mensaje de la lista para verlo. |
 | Predicciones | Puntuaciones de [predicción de cancelación]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) y [predicción de eventos]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) para este usuario. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab #engagement-tab" }
+
+### Cuándo aparecen las campañas en Campaigns recibidas {#when-campaigns-appear-in-campaigns-received}
+
+En general, Braze muestra una campaña en **Campaigns recibidas** después de intentar enviar el mensaje. No se requiere una entrega al dispositivo o buzón de entrada del usuario para que se registre un envío. **Mensajes de Canvas recibidos** sigue las mismas reglas específicas de canal para cada tipo de mensaje de Canvas.
+
+- **Correo electrónico:** Braze registra un envío cuando el mensaje se entrega a tu proveedor de servicios de correo electrónico (ESP). Después de esa entrega, el mensaje no se cancela por lógica de Liquid, limitación de velocidad o porque el usuario se marcó como inalcanzable. Los siguientes eventos suelen ser una entrega o un rebote.
+- **Push:** Braze registra un envío cuando el mensaje se entrega al proveedor de push (por ejemplo, el servicio de notificaciones push de Apple (APNs) o Firebase Cloud Messaging (FCM)). El proveedor generalmente intenta entregar de inmediato; si el dispositivo no está disponible (por ejemplo, sin conexión), el proveedor puede reintentar hasta que el mensaje expire.
+- **Mensajes dentro de la aplicación:** Braze registra un envío cuando se lanza la campaña.
+- **Content Cards:** Cuándo Braze registra un evento de _Enviado_ depende del tipo de entrega y tu configuración de **Creación de tarjeta**. Una campaña de Content Cards aparece en **Campaigns recibidas** en el perfil de usuario solo después de que el usuario visualiza la tarjeta en la aplicación. Para el desglose completo, consulta [Cuándo se registran los envíos]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#when-sends-are-logged) y [Campaigns recibidas y filtros de reorientación]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#campaigns-received-and-retargeting-filters) en el artículo de informes de Content Cards.
+- **SMS, WhatsApp y webhooks:** Braze registra un envío cuando el mensaje entra en la ruta de entrega para ese canal (por ejemplo, el proveedor de SMS o WhatsApp, o tu punto de conexión de webhook).
+
+{% alert note %}
+Estas descripciones cubren cuándo se registra un envío para **Campaigns recibidas**. Son independientes de las [cancelaciones de mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) que pueden detener un mensaje antes de que llegue a un proveedor.
+{% endalert %}
 
 ![La pestaña Interacción de un perfil de usuario mostrando su configuración de contacto y estadísticas de comunicación.]({% image_buster /assets/img_archive/profiles_engagement_tab.png %})
 
@@ -90,14 +104,14 @@ La pestaña **Interacción** contiene información sobre las interacciones de un
 La pestaña **Historial de mensajes** del perfil de usuario muestra eventos recientes relacionados con mensajería (aproximadamente 40) para un usuario individual de los últimos 30 días. Estos eventos incluyen los mensajes que se le enviaron al usuario, que recibió, con los que interactuó, y más.
 
 {% alert note %}
-Los datos de esta pestaña no se actualizan después de que se fusiona un usuario. Además, los eventos asociados con mensajes enviados a través de la API (por ejemplo, el [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#creating-new-users-with-api-sends)) no aparecen en esta pestaña si no se especifica un ID de Campaign en esos envíos.
+Los datos de esta pestaña no se actualizan después de que se fusiona un usuario. Además, los eventos asociados con mensajes enviados a través de la API (por ejemplo, el [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#creating-new-users-with-api-sends)) no aparecen en esta pestaña si no se especifica un ID de campaña en esos envíos.
 {% endalert %}
 
 ![La pestaña Historial de mensajes mostrando qué Campaigns y Canvas ha recibido un usuario.]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})
 
 #### Ver y comprender los eventos {#viewing-and-understanding-events}
 
-Para cada evento en la tabla **Historial de mensajes**, puedes ver el canal de mensajería, el tipo de evento, la marca de tiempo en que ocurrió el evento, la Campaign o mensaje de Canvas asociado, y los datos del dispositivo del usuario. Para filtrar eventos específicos, haz clic en **Filtros** y selecciona eventos de la lista.
+Para cada evento en la tabla **Historial de mensajes**, puedes ver el canal de mensajería, el tipo de evento, la marca de tiempo en que ocurrió el evento, la campaña o mensaje de Canvas asociado, y los datos del dispositivo del usuario. Para filtrar eventos específicos, haz clic en **Filtros** y selecciona eventos de la lista.
 
 ##### Eventos de interacción con mensajes {#message-engagement-events}
 
@@ -112,7 +126,7 @@ Los siguientes eventos de interacción con mensajes están disponibles para corr
 | Content Cards | Clic<br>Descarte<br>Impresión<br>Envío |
 | Webhooks | Envío |
 | WhatsApp | Cancelación<br>Entrega<br>Fallo<br>Limitación de frecuencia<br>Recepción de entrada<br>Lectura<br>Envío |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
 
 ##### Eventos de cancelación de mensajes {#message-abort-events}
 
@@ -147,10 +161,10 @@ Si bien las estadísticas de apertura de correo electrónico pueden ser útiles 
 
 Algunos campos pueden estar ausentes en la pestaña **Historial de mensajes** de un usuario en los siguientes escenarios:
 
-- Cuando a un evento le faltan datos para **Mensaje enviado**, esto indica que la Campaign no tiene variaciones de mensaje.
-- Cuando a un evento le faltan datos para **Campaign/Canvas** y **Mensaje enviado**, esto indica que este mensaje fue enviado desde una campaña de API (no Campaigns activadas por API) que no especificó el `campaign_id` y el `message_variation_id`. Estos campos son opcionales y pueden omitirse del cuerpo de la solicitud. Cuando se especifican estos campos, esa información se completa en los registros del historial de mensajes.
-   - Si un mensaje en particular falta completamente del historial de mensajes pero aparece en el registro de **Campaigns recibidas**, es probable que el usuario haya recibido la Campaign antes de ser identificado como el usuario actual. Si un perfil existente queda huérfano, el registro de **Campaigns recibidas** se transfiere, pero el historial de mensajes no.
-- Cuando faltan datos para **Campaign/Canvas**, es posible que se haya enviado una prueba manual. Las pruebas manuales se registran en la pestaña **Historial de mensajes**, pero la Campaign o Canvas que se envió no se registrará.
+- Cuando a un evento le faltan datos para **Mensaje enviado**, esto indica que la campaña no tiene variaciones de mensaje.
+- Cuando a un evento le faltan datos para **Campaign/Canvas** y **Mensaje enviado**, esto indica que este mensaje fue enviado desde una campaña de API (no campañas activadas por API) que no especificó el `campaign_id` y el `message_variation_id`. Estos campos son opcionales y pueden omitirse del cuerpo de la solicitud. Cuando se especifican estos campos, esa información se completa en los registros del historial de mensajes.
+   - Si un mensaje en particular falta completamente del historial de mensajes pero aparece en el registro de **Campaigns recibidas**, es probable que el usuario haya recibido la campaña antes de ser identificado como el usuario actual. Si un perfil existente queda huérfano, el registro de **Campaigns recibidas** se transfiere, pero el historial de mensajes no.
+- Cuando faltan datos para **Campaign/Canvas**, es posible que se haya enviado una prueba manual. Las pruebas manuales se registran en la pestaña **Historial de mensajes**, pero la campaña o Canvas que se envió no se registrará.
 
 ## Artículos relacionados {#related-articles}
 

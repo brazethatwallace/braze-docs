@@ -18,7 +18,7 @@ description: "Découvrez comment définir et configurer l'audience de votre agen
 | **Contrôle aléatoire** | Clients qui reçoivent des options sélectionnées aléatoirement (comparaison de référence) |
 | **Business-as-Usual (facultatif)** | Clients qui reçoivent le parcours marketing actuel (pour comparer avec les performances existantes) |
 | **Holdout (facultatif)** | Clients qui ne reçoivent aucune communication (pour mesurer l'impact global de la campagne) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Groupes de traitement" }
 
 ## Configurer votre audience {#configure-your-audience}
 

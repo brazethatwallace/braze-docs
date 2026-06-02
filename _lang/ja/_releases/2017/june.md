@@ -24,9 +24,9 @@ description: "この記事には2017年6月のリリースノートが含まれ�
 
 複数のCSVを同時にアップロードして処理できるようになり、より迅速に作業を進めることができます。[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/)について詳しくはこちらをご覧ください。
 
-## Canvasテンプレート属性 {#canvas-template-attributes}
+## キャンバステンプレート属性 {#canvas-template-attributes}
 
-Canvasのステップから送信されるメッセージに[テンプレート属性]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)を含める機能を追加しました。これにより、より効率的に作業できるようになります。
+キャンバスのステップから送信されるメッセージに[テンプレート属性]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)を含める機能を追加しました。これにより、より効率的に作業できるようになります。
 
 ## ターゲット設定の更新 {#updates-to-targeting}
 

@@ -95,7 +95,7 @@ Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie *
 | Gesamtumsatz | Verfügbar für Campaigns, Canvases, Campaigns und Canvases, Tags. Nicht verfügbar mit **Kanäle**-Drilldown. |
 | Eindeutige Impressionen | Verfügbar für Campaigns, Canvases, Campaigns und Canvases, Tags. |
 | Eindeutige Empfänger:innen | Verfügbar für Campaigns, Canvases, Campaigns und Canvases, Tags. Nicht verfügbar mit **Kanäle**-Drilldown. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbarkeit von Metriken" }
 
 ### Gelöschte Nachrichtenvarianten {#deleted-message-variants}
 

@@ -49,7 +49,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Paramètre | Requis | Type de données | Description |
 | -----------|----------| --------|------- |
 | `email` | Requis | Chaîne de caractères ou tableau | Adresse e-mail sous forme de chaîne de caractères à ajouter à la liste noire, ou un tableau de 50 adresses e-mail maximum à ajouter à la liste noire. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de demande {#example-request}
 ```

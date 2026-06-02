@@ -207,7 +207,7 @@ const favoriteBook = {
 braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 ```
 
-### Utiliser la REST API {#using-the-rest-api}
+### Utilisation de la REST API {#using-the-rest-api}
 
 Vous pouvez également utiliser notre REST API pour définir ou supprimer des attributs utilisateur. Pour plus d'informations, consultez les [endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
@@ -220,7 +220,7 @@ Pour configurer un abonnement pour vos utilisateurs (par e-mail ou notification 
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | Abonné et explicitement inscrit |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | Abonné, mais pas explicitement inscrit |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Désabonné et/ou explicitement désinscrit |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuration des abonnements des utilisateurs" }
 
 Lorsqu'un utilisateur est enregistré pour les notifications push, le navigateur l'oblige à choisir d'autoriser ou de bloquer les notifications. S'il choisit de les autoriser, son statut est défini sur `OPTED_IN` par défaut.
 

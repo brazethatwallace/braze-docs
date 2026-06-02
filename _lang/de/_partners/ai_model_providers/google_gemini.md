@@ -16,11 +16,11 @@ search_tag: Partner
 
 _Diese Integration wird von Google gepflegt._
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
 Mit der Integration von Braze und Google Gemini können Sie Ihren Google Gemini API-Schlüssel oder Vertex AI-Schlüssel mit Braze verbinden, um Gemini-Modelle beim Erstellen angepasster KI-Agenten zu verwenden. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Entscheidungen in Realtime treffen oder Katalog-Felder mithilfe der Gemini-Modelle von Google aktualisieren.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderungen | Beschreibung |
 |---|---|
@@ -32,10 +32,10 @@ Mit der Integration von Braze und Google Gemini können Sie Ihren Google Gemini 
 
 So verbinden Sie Ihren Google Gemini API-Schlüssel mit Braze:
 
-1. Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologiepartner** und suchen Sie Google Gemini.
+1. Gehen Sie im Braze-Dashboard zu **Partner Integrations** > **Technology Partners** und suchen Sie Google Gemini.
 2. Wählen Sie unter **API Type** entweder **Gemini API** oder **Vertex AI** aus.
 3. Geben Sie Ihren API-Schlüssel von Google ein. Für Vertex AI geben Sie die Projekt-ID ein.
-4. Wählen Sie **Speichern**.
+4. Wählen Sie **Save**.
 
 Nach dem Speichern können Sie Gemini-Modelle auswählen, wenn Sie [einen angepassten Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) – direkt in der Agentenkonsole.
 

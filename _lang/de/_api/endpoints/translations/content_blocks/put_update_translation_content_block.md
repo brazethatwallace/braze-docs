@@ -1,7 +1,7 @@
 ---
 nav_title: "PUT: Übersetzung in einem Content-Block aktualisieren"
 article_title: "PUT: Übersetzung in einem Content-Block aktualisieren"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
@@ -16,8 +16,6 @@ description: "Dieser Artikel beschreibt den Endpunkt „Übersetzung in einem Co
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
-
-{% include early_access_beta_alert.md feature='This endpoint' %}
 
 ## Voraussetzungen {#prerequisites}
 
@@ -36,9 +34,9 @@ Für diesen Endpunkt gibt es keine Pfadparameter.
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
 | `content_block_id` | Erforderlich | String | Die ID Ihres Content-Blocks. |
-| `locale_id`| Erforderlich | String | Die ID (UUID) der Locale. |
+| `locale_id` | Erforderlich | String | Die ID (UUID) der Locale. |
 | `translation_map` | Erforderlich | Objekt | Objekt, das die neuen Übersetzungen enthält. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.

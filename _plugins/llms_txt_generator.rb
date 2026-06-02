@@ -1,4 +1,5 @@
 require 'jekyll'
+require 'fileutils'
 
 module Jekyll
   class LlmsTxtGenerator
@@ -15,8 +16,101 @@ module Jekyll
       'releases' => "What's New"
     }.freeze
 
+    # Backed-by-memory static file written through Jekyll's normal write phase.
+    # Using a real StaticFile instead of an out-of-band File.write() ensures the
+    # LLM index files are emitted by the same pipeline as every other asset,
+    # which is required for them to land in the deployed _site artifact in
+    # environments where post_write hooks behave unexpectedly.
+    class InMemoryStaticFile < Jekyll::StaticFile
+      def initialize(site, dest_subpath, content)
+        @site = site
+        @base = site.source
+        @dir = File.dirname(dest_subpath)
+        @name = File.basename(dest_subpath)
+        @relative_path = dest_subpath.start_with?('/') ? dest_subpath : "/#{dest_subpath}"
+        @extname = File.extname(@name)
+        @collection = nil
+        @content = content.to_s
+        @modified_time = Time.now
+        @data = {}
+      end
+
+      def path
+        nil
+      end
+
+      def url
+        @relative_path
+      end
+
+      def destination(dest)
+        File.join(dest, @relative_path)
+      end
+
+      def modified?
+        true
+      end
+
+      def write(dest)
+        dest_path = destination(dest)
+        FileUtils.mkdir_p(File.dirname(dest_path))
+        File.open(dest_path, 'wb') { |f| f.write(@content) }
+        Jekyll.logger.debug("LlmsTxtGenerator:", "Wrote #{@relative_path} (#{@content.bytesize} bytes)")
+        true
+      end
+    end
+
     def self.init
-      # Generation is triggered by markdown_copy_llm.rb after markdown export completes.
+      # Use :post_render (after pages are rendered, before :site, :post_write).
+      # At this point markdown_copy_llm's :pre_render hook has populated
+      # __export_merged_md / llm_markdown_content on each doc, so we have the
+      # high-quality rendered markdown available.
+      Jekyll::Hooks.register :site, :post_render do |site|
+        next if site.config['__llms_txt_static_files_added']
+        register_llms_txt_static_files(site)
+        site.config['__llms_txt_static_files_added'] = true
+      rescue => e
+        Jekyll.logger.error(
+          "LlmsTxtGenerator:",
+          "Failed to register llms.txt static files: #{e.class}: #{e.message}"
+        )
+      end
+
+      # Safety net: if for any reason the static file registration didn't run
+      # (load order, hook skipped), regenerate via direct file write after the
+      # build completes. Skipped when StaticFiles already emitted the outputs.
+      Jekyll::Hooks.register :site, :post_write do |site|
+        next if site.config['__llms_txt_static_files_added']
+        next if site.config['__llms_txt_generated_for_this_build']
+        generate_llms_txt(site)
+        site.config['__llms_txt_generated_for_this_build'] = true
+      rescue => e
+        Jekyll.logger.error(
+          "LlmsTxtGenerator:",
+          "Failed to generate llms.txt files via post_write fallback: #{e.class}: #{e.message}"
+        )
+      end
+    end
+
+    def self.register_llms_txt_static_files(site)
+      return unless should_generate_llms_txt?(site)
+
+      SUPPORTED_COLLECTIONS.each do |collection_name|
+        documents = collection_documents(site, collection_name)
+        next if documents.empty?
+
+        label = COLLECTION_LABELS.fetch(collection_name, collection_name.tr('_', ' ').capitalize)
+        llms_content = generate_llms_content(site, documents, label)
+        llms_full_content = generate_llms_full_content(site, documents, label)
+
+        site.static_files << InMemoryStaticFile.new(site, "#{collection_name}/llms.txt", llms_content)
+        site.static_files << InMemoryStaticFile.new(site, "#{collection_name}/llms-full.txt", llms_full_content)
+
+        Jekyll.logger.info(
+          "LlmsTxtGenerator:",
+          "Registered llms.txt and llms-full.txt static files for #{documents.length} #{label} pages"
+        )
+      end
     end
 
     def self.generate_llms_txt(site)
@@ -37,14 +131,14 @@ module Jekyll
 
       site_dir = site.dest || File.join(site.source, '_site')
       collection_dir = File.join(site_dir, collection_name)
-      Dir.mkdir(collection_dir) unless Dir.exist?(collection_dir)
+      FileUtils.mkdir_p(collection_dir)
 
       File.write(File.join(collection_dir, 'llms.txt'), llms_content)
       File.write(File.join(collection_dir, 'llms-full.txt'), llms_full_content)
 
       Jekyll.logger.info(
         "LlmsTxtGenerator:",
-        "Generated llms.txt and llms-full.txt with #{documents.length} #{label} pages"
+        "Generated llms.txt and llms-full.txt (fallback path) with #{documents.length} #{label} pages"
       )
     end
 

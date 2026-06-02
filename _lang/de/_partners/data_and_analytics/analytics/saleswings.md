@@ -23,10 +23,10 @@ SalesWings erlaubt es Marketingteams und Marketing-Operations-Manager:innen, Lea
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | SalesWings-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [SalesWings-Konto](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs). |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.export.ids`-Berechtigungen (und `users.track`, wenn Sie das SalesWings-Insights-Push-Feature verwenden). <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.export.ids`-Berechtigungen (und `users.track`, wenn Sie das SalesWings-Insights-Push-Feature verwenden). <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | Braze-REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Segment.com-Konto (optional) | Wenn Sie Segment.com nutzen, können Sie alle Daten zum Lead-Engagement und -Profil sowie Identifizierungs-Events über Segment.com für das Lead-Profiling senden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -162,7 +162,7 @@ Wenn Sie den SalesWings-Insights-Push für Braze aktivieren, aktualisiert SalesW
 | `sw_session_count` | Ganzzahl | Die Anzahl der getrackten Sitzungen auf Ihrer Website für diesen Lead |
 | `sw_tags` | String-Array | Die von SalesWings identifizierten Bedürfnisse und Interessen, dargestellt als „Tags“. Die Namen der SalesWings-Tags, die in der SalesWings [Rule Engine](https://helium.saleswings.pro/falcon) konfiguriert sind und für diesen Lead gelten |
 | Zusätzliche Lead-Score-Attribute | Gleitkommazahl | Ein angepasstes Attribut für jeden zusätzlichen Lead Score, der in der SalesWings [Rule Engine](https://helium.saleswings.pro/falcon) konfiguriert wurde. Der Name des Attributs wird vom Namen des SalesWings-Scores abgeleitet. Ein Score mit dem Namen `Likeliness to meet` wird beispielsweise als angepasstes Attribut `sw_likeliness_to_meet` gesendet. Wenn Sie einen Score umbenennen, nachdem das System ihn erstellt hat, setzt SalesWings die Synchronisierung mit dem ursprünglichen Namen des angepassten Attributs fort. |
-{: .reset-td-br-1 .reset-td-br_2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pushing SalesWings insights to Braze" }
 
 Wenn der Push aktiviert ist, beginnt SalesWings sofort damit, angepasste Attribute an Braze zu senden, sobald sich die zugrundeliegenden Datenpunkte in den SalesWings-Lead-Profilen ändern, und synchronisiert nach und nach alle bestehenden Leads, auch wenn sie keine neuen Updates haben.
 
@@ -195,7 +195,7 @@ Die folgende Tabelle zeigt die von SalesWings unterstützten Braze-Event-Typen u
 | Nachrichten-Events | WhatsApp gelesen | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
 | Abos | Globale Abostatus-Änderung | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
 | Abos | Statusänderung der Abo-Gruppe | `[Subscription status change] $subscription_status to/from $campaign_name` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Using Braze Currents events in your CRM" }
 
 Sie können dann die Bedingungen für **Custom Event** > **Event Name** und **Custom Event** > **Event Property** für SalesWings-Tags und -Scores anhand der SalesWings-Event-Namen aus der obigen Tabelle konfigurieren. Die Liste der Event-Eigenschaften, die für Bedingungen zur Verfügung stehen, ist mit einigen häufig verwendeten Einträgen vorausgefüllt. Sie können jederzeit neue Eigenschaften im Abschnitt **Event Property** auf der [Konfigurationsseite der Rule Engine](https://helium.saleswings.pro/falcon) hinzufügen.
 

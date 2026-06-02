@@ -10,12 +10,12 @@ description: "Braze Agents can generate content, make intelligent decisions, and
 > Braze Agents are AI-powered helpers you can create inside Braze. Agents can generate content, make intelligent decisions, and enrich your data so you can deliver more personalized customer experiences.
 
 {% alert important %}
-Message Credits are required to access and use Braze Agents. If you don't currently have message credits and want to use Braze Agents, contact your account manager for next steps.
+Message or Action Credits are required to access and use Braze Agents. If you don't currently have Action Credits and want to use Braze Agents, contact your account manager for next steps.
 {% endalert %}
 
 Watch this video for an overview of Braze Agents in Agent Console.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## Why use Braze Agents?
 

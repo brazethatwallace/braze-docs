@@ -24,7 +24,7 @@ description: "この記事では、複数のカタログアイテムを編集す
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.update_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.update_items` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -35,14 +35,14 @@ description: "この記事では、複数のカタログアイテムを編集す
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `items` | 必須 | 配列 | アイテムオブジェクトを含む配列。アイテムオブジェクトには、カタログに存在するフィールドが含まれている必要があります。リクエストごとに最大50個のアイテムオブジェクトが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 
@@ -56,9 +56,10 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
       "id": "restaurant1",
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": {
         "$add": [
@@ -85,16 +86,17 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 ```
 
 {% alert note %}
-`$add` および `$remove` 演算子は配列型フィールドにのみ適用可能であり、PATCH エンドポイントでのみサポートされます。
+- `Location`フィールドは`geo`データタイプを使用しており、`[経度, 緯度]`の形式の配列を想定しています。
+- `$add`および`$remove`演算子は配列型フィールドにのみ適用可能であり、PATCHエンドポイントでのみサポートされます。
 {% endalert %}
 
 ## 応答 {#response}
 
-このエンドポイントには、`202`、`400`、`404` の3つのステータスコード応答があります。
+このエンドポイントには、`202`、`400`、`404`の3つのステータスコード応答があります。
 
 ### 成功応答の例 {#example-success-response}
 
-ステータスコード `202` は、次の応答本文を返す可能性があります。
+ステータスコード`202`は、次の応答本文を返す可能性があります。
 
 ```json
 {
@@ -104,7 +106,7 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 
 ### エラー応答の例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照してください。
+ステータスコード`400`は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照してください。
 
 ```json
 {
@@ -136,13 +138,13 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 | `ids-not-unique` | アイテムIDはリクエスト内で一意でなければなりません。 |
 | `invalid-ids` | アイテムIDには、英字、数字、ハイフン、アンダースコアのみを使用できます。 |
 | `invalid-fields` | APIリクエストで送信するすべてのフィールドが、すでにカタログに存在していることを確認してください。これは、エラーに記載されているIDフィールドとは関係ありません。 |
-| `invalid-keys-in-value-object` | アイテムオブジェクトのキーに `.` または `$` を含めることはできません。 |
+| `invalid-keys-in-value-object` | アイテムオブジェクトのキーに`.`または`$`を含めることはできません。 |
 | `items-missing-ids` | アイテムIDがないアイテムがあります。各アイテムがアイテムIDを持っていることを確認してください。 |
-| `item-array-invalid` | `items` はオブジェクトの配列でなければなりません。 |
+| `item-array-invalid` | `items`はオブジェクトの配列でなければなりません。 |
 | `items-too-large` | アイテムの値は5,000文字を超えることはできません。 |
 | `request-includes-too-many-items` | リクエストに含まれるアイテムが多すぎます。リクエストごとのアイテムの上限は50個です。 |
 | `too-deep-nesting-in-value-object` | アイテムオブジェクトは50レベルを超えるネストを持つことはできません。 |
 | `unable-to-coerce-value` | アイテムタイプは変換できません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

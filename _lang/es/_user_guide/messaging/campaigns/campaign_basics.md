@@ -22,13 +22,13 @@ Las campañas son un paso de mensaje único para conectar con tus usuarios a tra
 
 Dado que las campañas pueden construirse de forma única dependiendo del canal de mensajería, puedes usar estas cinco preguntas de visualización para ayudar a identificar y conceptualizar tus estrategias y objetivos de interacción con los clientes.
 
-### El "qué": Nombra tu campaña {#the-what-name-your-campaign}
+### El "qué": nombra tu campaña {#the-what-name-your-campaign}
 
 *¿Qué estás intentando ayudar al usuario a hacer o entender?*
 
 Nunca subestimes el poder del nombre. Braze está diseñado para la colaboración, así que este es un excelente momento para establecer cómo comunicarás los objetivos con tu equipo. Para más información sobre los recorridos del cliente, consulta nuestro curso de Braze Learning [Mapping User Lifecycles](https://learning.braze.com/mapping-customer-lifecycles).
 
-### El "cuándo": Crea las condiciones de inicio {#the-when-create-starting-conditions}
+### El "cuándo": crea las condiciones de inicio {#the-when-create-starting-conditions}
 
 *¿Cuándo encontrará un cliente esta campaña?*
 
@@ -36,7 +36,7 @@ Los usuarios pueden entrar en tu campaña de tres formas: en una fecha y hora es
 
 La entrega planificada implica ajustar tus campañas para que se envíen en un momento específico y, opcionalmente, con una cadencia determinada. Las campañas basadas en acciones responden a comportamientos específicos del cliente a medida que ocurren en tiempo real. Esto puede incluir realizar una compra o interactuar con otra campaña. Las campañas desencadenadas por API pueden configurarse para determinar acciones clave del cliente en tu plataforma que, cuando se logran, desencadenarán una llamada a la API de Braze y enviarán tus campañas.
 
-### El "quién": Selecciona una audiencia de entrada {#the-who-select-an-entry-audience}
+### El "quién": selecciona una audiencia de entrada {#the-who-select-an-entry-audience}
 
 *¿A quién intentas llegar?*
 
@@ -50,21 +50,21 @@ Puedes usar [Segments]({{site.baseurl}}/user_guide/audience/segments/) predefini
 | Actividad de marketing | Segmenta clientes según comportamientos universales como la última interacción o las campañas recibidas. |
 | Atributos del usuario | Segmenta clientes por sus atributos y características constantes. |
 | Atribución de instalación | Segmenta clientes por su primera fuente, grupo de anuncios, campaña o anuncio. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="The "who": Select an entry audience" }
 
-### El "por qué": Identifica los eventos de conversión {#the-why-identify-conversion-events}
+### El "por qué": identifica los eventos de conversión {#the-why-identify-conversion-events}
 
 *¿Por qué estás creando esta campaña?*
 
 Siempre es importante tener un objetivo definido en mente, y las campañas te ayudan a entender tu rendimiento frente a KPI como la interacción en sesiones, las compras y los eventos personalizados. Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) te dará la capacidad de comprender el rendimiento de tu campaña.
 
-### El "dónde": Encuentra a mi audiencia {#the-where-find-my-audience}
+### El "dónde": encuentra a mi audiencia {#the-where-find-my-audience}
 
 *¿Dónde puedo llegar mejor a mi audiencia?*
 
 Aquí es donde determinamos qué canales de mensajería tienen más sentido para el recorrido de tu usuario. Idealmente, querrás llegar a tus usuarios donde estén más activos.
 
-### El "cómo": Construye la experiencia {#the-how-build-the-experience}
+### El "cómo": construye la experiencia {#the-how-build-the-experience}
 
 *¿Cómo construyo mi campaña después de identificar las cinco preguntas?*
 

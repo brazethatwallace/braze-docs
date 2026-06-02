@@ -45,7 +45,7 @@ Jeder Drag-and-Drop-Content-Block ist auf eine Zeile beschränkt. Sie können je
 | Inhaltsgröße | Maximal 50 KB. |
 | Platzierung | Content-Blöcke können nicht in einer E-Mail-Fußzeile verwendet werden, aber Sie können [einen Content-Block erstellen, der eine Fußzeile enthält](#email-footers), um ihn in Ihren E-Mails zu verwenden. |
 | Erstellung | HTML-Editor oder Drag-and-Drop-Editor. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block specifications" }
 
 {% alert tip %}
 Beim Erstellen von Content-Blöcken kann es hilfreich sein, HTML und Liquid durch Zeilenumbrüche zu visualisieren. Wenn diese Zeilenumbrüche beim Senden beibehalten werden, riskieren Sie überflüssige Leerzeichen, die das Rendering des Blocks beeinträchtigen können. Um dies zu vermeiden, verwenden Sie den **Capture**-Tag in Ihrem Block zusammen mit dem **&#124; strip**-Filter.
@@ -85,7 +85,7 @@ So fügen Sie einen Content-Block mit Liquid ein:
 
 Im Drag-and-Drop-Editor können Sie einen Content-Block auch über das **Personalization**-Panel hinzufügen:
 
-1. Gehen Sie zu Ihrer E-Mail-Kampagne und wählen Sie **Edit Email Body** aus.
+1. Gehen Sie zu Ihrer E-Mail-Campaign und wählen Sie **Edit Email Body** aus.
 2. Klicken Sie auf <i class="fas fa-plus"></i> **Personalization**.
 3. Wählen Sie **Content Blocks** im Dropdown **Personalization Type** aus.
 4. Wählen Sie den Namen Ihres Content-Blocks im Feld **Attribute** aus.
@@ -99,11 +99,11 @@ Content-Blöcke, die über Liquid eingefügt werden, **sind verknüpft** mit dem
 
 - Die Verwendung von HTML-Content-Blöcken in Drag-and-Drop-E-Mails **oder** von Drag-and-Drop-Content-Blöcken in HTML-E-Mails kann zu unerwarteten Rendering-Problemen führen. Das liegt daran, dass der Drag-and-Drop-Editor HTML und CSS generiert, die den Inhalt dynamisch rendern, während der HTML-Editor eher statisch ist.
 - Wenn Sie einen Drag-and-Drop-Content-Block über Liquid einfügen, übernimmt Braze keine Styles aus dem HTML-`<head>` des Blocks. Responsive Styles, wie mobilspezifisches CSS, werden möglicherweise nicht wie erwartet gerendert. Wenn der Block auf responsives CSS angewiesen ist, fügen Sie dieses CSS der Nachricht oder dem Template hinzu, das den Content-Block enthält.
-- Canvas-Event-Eigenschaften werden nur in einem Canvas unterstützt. Wenn Sie einen Content-Block mit Canvas-Eingangs-Eigenschaften in einer Kampagne referenzieren, wird er nicht befüllt.
+- Canvas-Event-Eigenschaften werden nur in einem Canvas unterstützt. Wenn Sie einen Content-Block mit Canvas-Eingangs-Eigenschaften in einer Campaign referenzieren, wird er nicht befüllt.
 
 ## Content-Blöcke in der Vorschau anzeigen {#preview-content-blocks}
 
-Nachdem Sie einen Content-Block in einer aktiven Kampagne oder einem Canvas hinzugefügt haben, können Sie ihn in der Content-Block-Bibliothek in der Vorschau anzeigen, indem Sie mit der Maus über den Content-Block fahren und das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau** auswählen.
+Nachdem Sie einen Content-Block in einer aktiven Campaign oder einem Canvas hinzugefügt haben, können Sie ihn in der Content-Block-Bibliothek in der Vorschau anzeigen, indem Sie mit der Maus über den Content-Block fahren und das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau** auswählen.
 
 Diese Vorschau enthält Informationen über den Content-Block, z. B. wer ihn erstellt hat, Tags, Erstellungsdatum, Datum der letzten Bearbeitung, Beschreibung, Editor-Typ, Anzahl der Verwendungen mit Details (eine anklickbare Liste von Nachrichten oder Content-Blöcken, die den Content-Block verwenden) sowie eine tatsächliche Vorschau des Content-Blocks.
 

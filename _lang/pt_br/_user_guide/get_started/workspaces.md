@@ -153,7 +153,7 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
   }
 </style>
 
-<table>
+<table aria-label="Visão geral de cada abordagem">
   <caption>Visão geral de cada abordagem</caption>
     <tr>
         <th></th>

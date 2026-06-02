@@ -95,7 +95,7 @@ toc_headers: h2
 
 ### 개인 식별 정보(PII)로 표시 {#marking-as-personally-identifiable-information-pii}
 
-관리자는 이 페이지에서 커스텀 속성을 생성하고 PII로 표시할 수도 있습니다. 이러한 속성은 관리자와 "PII로 표시된 커스텀 속성 보기" 권한이 있는 대시보드 사용자에게만 표시됩니다.
+관리자는 이 페이지에서 커스텀 속성을 생성하고 PII로 표시할 수도 있습니다. 이러한 속성은 관리자와 "View Custom Attributes Marked as PII" 권한이 있는 대시보드 사용자에게만 표시됩니다.
 
 ### 설명 추가 {#adding-descriptions}
 
@@ -159,7 +159,7 @@ toc_headers: h2
 
 **고객 프로필**에 저장된 모든 데이터(커스텀 속성 데이터 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users) 상태인 한 무기한 보존됩니다.
 
-## 커스텀 속성 데이터 유형 {#custom-attribute-data-types}
+## 커스텀 속성 데이터 유형
 
 커스텀 속성은 뛰어난 타겟팅을 가능하게 하는 매우 유연한 도구입니다.
 
@@ -184,7 +184,7 @@ toc_headers: h2
 | 부울 값이 참, 거짓, 참 또는 미설정, 거짓 또는 미설정 중 하나**인지** 확인 | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET**, 또는 **FALSE OR NOT SET** | 이 필터가 `coffee_drinker`를 지정하는 경우, 사용자는 다음 상황에서 이 필터와 일치합니다: <br> {::nomarkdown}<ul><li>이 필터가 <code>true</code>이고 사용자에게 <code>coffee_drinker</code> 값이 있는 경우</li><li>이 필터가 <code>false</code>이고 사용자에게 <code>coffee_drinker</code> 값이 없는 경우</li><li>이 필터가 <code>true or not set</code>이고 사용자에게 <code>coffee_drinker</code> 값이 있거나 값이 없는 경우</li><li>이 필터가 <code>false or not set</code>이고 사용자에게 <code>coffee_drinker</code> 또는 어떤 값도 없는 경우</li></ul>{:/} |
 | 부울 값이 사용자 프로필에 **존재하고** null이 아닌지 확인 | **IS NOT BLANK**  | **N/A** | 이 필터가 `coffee_drinker`를 지정하고 사용자에게 `coffee_drinker` 속성에 대한 값이 있는 경우, 사용자는 이 필터와 일치합니다. |
 | 부울 값이 사용자 프로필에 **존재하지 않거나** null인지 확인 | **IS BLANK**  | **N/A** | 이 필터가 `coffee_drinker`를 지정하고 사용자에게 `coffee_drinker` 속성이 없거나 `coffee_drinker` 값이 null인 경우, 사용자는 이 필터와 일치합니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 {% endtab %}
 {% tab 숫자 %}
@@ -203,7 +203,7 @@ toc_headers: h2
 | 숫자 속성이 **숫자**보다 **작은지** 확인| **LESS THAN** | **NUMBER** | 이 필터가 `10`을 지정하고 고객 프로필에 `10`보다 작은 값이 있는 경우, 사용자는 이 필터와 일치합니다. |
 | 숫자 속성이 사용자 프로필에 **존재하고** null이 아닌지 확인 | **IS NOT BLANK** | **N/A** | 고객 프로필에 지정된 숫자 속성이 포함되어 있으면 값에 관계없이 사용자는 이 필터와 일치합니다. |
 | 숫자 속성이 사용자 프로필에 **존재하지 않거나** null인지 확인 | **IS BLANK** | **N/A** | 고객 프로필에 지정된 숫자 속성이 포함되어 있지 않거나 속성 값이 null인 경우, 사용자는 이 필터와 일치합니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 #### 숫자 속성 세부 정보 {#number-attribute-details}
 
@@ -227,7 +227,7 @@ toc_headers: h2
 | 문자열 속성이 입력된 문자열 중 **어느 것과도 정확히 일치하지 않는지** 확인 | **IS NONE OF** |**STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터가 `book`, `bookmark`, `reading light`를 지정하고 고객 프로필에 해당 문자열이 포함되어 있지 않은 경우, 사용자는 이 필터와 일치합니다.|
 | 문자열 속성이 입력된 문자열 중 **하나와 부분적으로 일치하는지** 확인 | **CONTAINS ANY OF** | **STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터가 `gold`를 지정하고 고객 프로필에 `gold_tier` 또는 `former_gold_tier`와 같이 `gold`가 포함된 문자열이 있는 경우, 사용자는 이 필터와 일치합니다. |
 | 문자열 속성이 입력된 문자열 중 **어느 것과도 부분적으로 일치하지 않는지** 확인 | **DOESN'T CONTAIN ANY OF** | **STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터가 `gold`를 지정하고 고객 프로필에 `gold`가 포함된 문자열이 없는 경우, 사용자는 이 필터와 일치합니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
@@ -261,7 +261,7 @@ toc_headers: h2
 | 배열 속성이 입력된 값 중 **어느 것과도 부분적으로 일치하는 값을 포함하지 않는지** 확인 | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터가 `gold`를 지정하고 고객 프로필 배열에 어떤 문자열에도 `gold`가 포함되어 있지 않은 경우, 사용자는 이 필터와 일치합니다. 즉, `gold_tier` 및 `former_gold_tier`와 같은 문자열 값을 가진 사용자는 이 필터와 일치하지 않습니다.|
 | 배열 속성이 입력된 값을 **모두 포함하는지** 확인 | **IS ALL OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터가 `sci-fi, fantasy, romance`를 지정하고 고객 프로필에 해당 값이 모두 있는 경우, 사용자는 이 필터와 일치합니다. 사용자는 `horror` 또는 다른 값도 가지고 있어도 이 필터와 일치할 수 있습니다.|
 | 배열 속성이 입력된 값을 **모두 포함하지 않는지** 확인 | **ISN'T ALL OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개)|  이 필터가 `sci-fi, fantasy, romance`를 지정하고 고객 프로필에 해당 값이 모두 있지 않은 경우, 사용자는 이 필터와 일치합니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% alert tip %}
 정규표현식(regex) 사용 방법에 대한 자세한 내용은 다음 리소스를 참조하세요:
@@ -296,7 +296,7 @@ toc_headers: h2
 | 시간 속성이 **미래 X일** **이내인지** 확인 | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | 이 필터가 `7`을 지정하고 고객 프로필에 미래 7일 이내의 날짜가 있는 경우, 사용자는 이 필터와 일치합니다.|
 | 시간 속성이 사용자 프로필에 **존재하고** null이 아닌지 확인 | **IS NOT BLANK** | **N/A** | 이 필터가 고객 프로필에 있는 시간 속성을 지정하는 경우, 사용자는 이 필터와 일치합니다.|
 | 시간 속성이 사용자 프로필에 **존재하지 않거나** null인지 확인 | **IS BLANK** | **N/A** | 이 필터가 고객 프로필에 없는 시간 속성을 지정하는 경우, 사용자는 이 필터와 일치합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 #### 시간 속성 세부 정보 {#time-attribute-details}
 
@@ -331,7 +331,7 @@ toc_headers: h2
 | 문자열 | does not equal | is none of | 최소 1개 값 |
 | 배열 | includes value | includes any of | 최소 1개 값 |
 | 배열 | doesn't include value | includes none of | 최소 1개 값 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Consolidated operators #consolidated-operators" }
 
 ## 이벤트 속성정보 데이터 유형 {#event-property-data-types}
 
@@ -401,7 +401,7 @@ toc_headers: h2
 | 시간 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 또는 초 단위 Unix 타임스탬프의 날짜 및 시간. | ✅ 예 | ✅ 예 |
 | JSON 오브젝트 (오브젝트) | 키-값 페어가 있는 중첩 오브젝트. 플랫폼에 표시되지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. | ❌ 아니요 | ✅ 예 |
 | 문자열 배열 (배열) | 문자열 목록. 플랫폼에 표시되지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. 최대 100개 요소. | ❌ 아니요 | ✅ 예 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
 
 ### 형식 및 예시 {#format-and-examples}
 
@@ -413,6 +413,6 @@ toc_headers: h2
 | 숫자 | 정수 또는 소수 | <code>42</code> 또는 <code>19.99</code> |
 | 오브젝트 | JSON 오브젝트 | <code>{"key": "value", "price": 10}</code> |
 | 배열 | 문자열 배열 | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
 
 카탈로그 생성 및 업데이트에 대해서는 [카탈로그 생성]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)을 참조하세요.

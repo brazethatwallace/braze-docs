@@ -53,9 +53,9 @@ Al generar el JWT, se esperan los siguientes campos:
 | ----- | -------- | ----------------------------------- |
 | `alg` | Sí  | El algoritmo admitido es `RS256`. |
 | `typ` | Sí  | El tipo debe ser igual a `JWT`.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.2: Crear un token web JSON para el usuario actual" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 **Carga útil JWT**
 
@@ -63,9 +63,9 @@ Al generar el JWT, se esperan los siguientes campos:
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Sí  | El "asunto" debe ser igual al ID de usuario que proporcionas al SDK de Braze cuando llamas a `changeUser`  |
 | `exp` | Sí | La "caducidad" de cuándo quieres que caduque este token.                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.2: Crear un token web JSON para el usuario actual" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 {% alert tip %}
 Para saber más sobre los tokens web JSON, o para echar un vistazo a las muchas bibliotecas de código abierto que simplifican este proceso de firma, consulta [https://jwt.io](https://jwt.io).
@@ -81,7 +81,7 @@ Esta característica está disponible en las siguientes [versiones del SDK]({{ s
 Para las integraciones de iOS, en esta página se detallan los pasos para el SDK Swift de Braze. Para ver ejemplos de uso en el SDK heredado de AppboyKit para iOS, consulta [este archivo](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/AppDelegate.m) y [este archivo](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/Utils/SdkAuthDelegate.m).
 {% endalert %}
 
-#### Paso 2.1: Habilita la autenticación en el SDK de Braze. {#step-21-enable-authentication-in-the-braze-sdk}
+#### Paso 2.1: Habilita la autenticación en el SDK de Braze {#step-21-enable-authentication-in-the-braze-sdk}
 
 Cuando esta característica está habilitada, el SDK de Braze añadirá el último JWT conocido del usuario actual a las solicitudes de red realizadas a los servidores de Braze.
 
@@ -722,7 +722,7 @@ En la página **Administrar configuración** del dashboard, cada aplicación tie
 | **Deshabilitada** | Braze no verificará el JWT suministrado para un usuario. (Configuración predeterminada) |
 | **Opcional** | Braze verificará las solicitudes de los usuarios registrados, pero no rechazará las solicitudes no válidas. |
 | **Obligatoria** | Braze verificará las solicitudes de los usuarios registrados y rechazará los JWT no válidos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
 
 ![]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -779,7 +779,7 @@ Los datos están disponibles en tiempo real, y puedes pasar el ratón por encima
 | 26 | `MISSING_TOKEN` | No se ha proporcionado ningún token en la solicitud. | Asegúrate de que estás pasando un token al llamar a `changeUser(id, token)` y de que tu token no está en blanco. |
 | 27 | `NO_MATCHING_PUBLIC_KEYS` | Ninguna clave pública coincide con el token proporcionado. | La clave privada utilizada en el JWT no coincide con ninguna de las claves públicas configuradas para tu aplicación. Confirma que has añadido las claves públicas a la aplicación correcta de tu espacio de trabajo que coincide con esta clave de API. |
 | 28 | `PAYLOAD_USER_ID_MISMATCH` | No todos los ID de usuario de la carga útil de la solicitud coinciden como se requiere. | Esto es inesperado y puede dar lugar a una carga útil malformada. Abre un ticket de soporte para obtener ayuda. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Error codes #error-codes" }
 
 ## Preguntas frecuentes (FAQ) {#faq}
 

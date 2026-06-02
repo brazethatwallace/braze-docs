@@ -23,8 +23,8 @@ De plus, vérifiez la ponctuation et les emojis pour déterminer si votre messag
 | Rendu occidental standard | Rendu de droite à gauche |
 |------------------|------------------------|
 | Affiche le point d'exclamation et l'emoji à la **fin** des phrases. | Affiche le point d'exclamation et l'emoji au **début** de la phrase. |
-| ![Exemple de message standard de droite à gauche.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Exemple de message de gauche à droite.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| ![Exemple de message avec rendu standard.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Exemple de message avec rendu de droite à gauche.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Apparence des messages" }
 
 ## Créer un message de droite à gauche {#creating-a-right-to-left-message}
 

@@ -5,7 +5,7 @@ page_order: 3
 description: "BrazeAI Decisioning Studio에서 아웃바운드 및 인바운드 데이터 상태를 모니터링하기 위해 진단 보고서를 사용하는 방법을 알아보세요."
 ---
 
-# 진단 보고서
+# 진단 보고서 {#diagnostics-report}
 
 > 진단 보고서에는 **아웃바운드**와 **인바운드**, 두 가지 보고서 유형이 있습니다.
 
@@ -13,7 +13,7 @@ description: "BrazeAI Decisioning Studio에서 아웃바운드 및 인바운드 
 {% tab outbound %}
 아웃바운드 진단 보고서는 오디언스 전체에서 생성되고 활성화된 추천의 일일 볼륨을 보여줍니다. 이를 사용하여 전달 문제를 발견하고, 활성화의 급증 또는 감소를 추적하며, 메시지가 예상대로 올바른 그룹에 도달하고 있는지 확인할 수 있습니다.
 
-![다양한 오디언스 그룹에 대해 생성되고 활성화된 추천의 일일 볼륨을 추적하는 라인 차트를 보여주는 아웃바운드 진단 보고서. 차트에는 생성됨과 활성화됨으로 레이블이 지정된 두 개의 라인이 표시되며, y축은 추천 수를, x축은 날짜를 나타냅니다. 범례는 각 라인을 색상으로 구분합니다. 인터페이스에는 차트 위에 날짜 범위 및 오디언스 선택을 위한 드롭다운 필터가 포함되어 있습니다.]({% image_buster /assets/img/decisioning_studio/reporting_diagnostics_outbound.png %})
+![다양한 오디언스 그룹에 대해 생성되고 활성화된 추천의 일일 볼륨을 추적하는 라인 차트를 보여주는 아웃바운드 진단 보고서. 차트에는 Generated와 Activated로 레이블이 지정된 두 개의 라인이 표시되며, y축은 추천 수를, x축은 날짜를 나타냅니다. 범례는 각 라인을 색상으로 구분합니다. 인터페이스에는 차트 위에 날짜 범위 및 오디언스 선택을 위한 드롭다운 필터가 포함되어 있습니다.]({% image_buster /assets/img/decisioning_studio/reporting_diagnostics_outbound.png %})
 
 {% endtab %}
 
@@ -23,7 +23,7 @@ description: "BrazeAI Decisioning Studio에서 아웃바운드 및 인바운드 
 
 드롭다운을 사용하여 평균 파일 크기나 파일 수와 같은 다양한 차트 측정기준을 선택할 수 있습니다.
 
-![BrazeAI<sup>TM</sup>에 전달된 데이터 자산의 일일 파일 수와 평균 파일 크기를 추적하는 라인 차트를 보여주는 인바운드 진단 보고서. 차트에는 파일 수와 평균 파일 크기(MB)로 레이블이 지정된 두 개의 라인이 표시되며, y축은 값을, x축은 날짜를 나타냅니다. 차트 위에는 날짜 범위 및 데이터 자산 선택을 위한 드롭다운 필터가 있습니다.]( {% image_buster /assets/img/decisioning_studio/reporting_diagnostics_inbound.png %} )
+![BrazeAI<sup>TM</sup>에 전달된 데이터 자산의 일일 파일 수와 평균 파일 크기를 추적하는 라인 차트를 보여주는 인바운드 진단 보고서. 차트에는 File count와 Average file size MBs로 레이블이 지정된 두 개의 라인이 표시되며, y축은 값을, x축은 날짜를 나타냅니다. 차트 위에는 날짜 범위 및 데이터 자산 선택을 위한 드롭다운 필터가 있습니다.]( {% image_buster /assets/img/decisioning_studio/reporting_diagnostics_inbound.png %} )
 
 인바운드 보고서의 각 측정기준에 대한 자세한 내용은 다음 표를 참조하세요.
 
@@ -36,7 +36,7 @@ description: "BrazeAI Decisioning Studio에서 아웃바운드 및 인바운드 
 | 최대 파일 크기(MB) | 수신된 가장 큰 파일의 크기(메가바이트)입니다. |
 | 평균 파일 크기(MB) | 수신된 모든 파일의 평균 크기(메가바이트)입니다. |
 | 파일 행 수 | 전달된 파일에 포함된 총 행 수입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Diagnostics report" }
 
 {% endtab %}
 {% endtabs %}

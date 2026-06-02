@@ -56,7 +56,7 @@ Independientemente del tipo de codificación, cada mensaje SMS enviado por Braze
 | 1072 - 1224 caracteres | 8 segmentos |
 | 1225 - 1377 caracteres | 9 segmentos |
 | 1378 - 1530 caracteres | 10 segmentos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% tab Codificación UCS-2 %}
 | Número de caracteres | ¿Cuántos segmentos? |
@@ -71,7 +71,7 @@ Independientemente del tipo de codificación, cada mensaje SMS enviado por Braze
 | 470 - 536 caracteres | 8 segmentos |
 | 537 - 603 caracteres | 9 segmentos |
 | 604 - 670 caracteres | 10 segmentos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% endtabs %}
 
@@ -145,8 +145,8 @@ Los mensajes Rich Media incluyen un archivo multimedia (imagen, video) o una Ric
 {% endtab %}
 {% endtabs %}
 
-### Creador de mensajes y dashboard de uso de mensajes {#message-composer-and-message-usage-dashboard}
+### Creador de mensajes y dashboard de uso de créditos {#message-composer-and-credits-usage-dashboard}
 
 Al crear tu mensaje, el creador de mensajes mostrará el tipo de facturación en tiempo real a través de una etiqueta (Basic RCS, Single RCS, Rich o Rich Media), ayudándote a rastrear los costos antes de enviar.
 
-Tu [dashboard de uso de mensajes]({{site.baseurl}}/message_usage_dashboard/) reflejará estos tipos de facturación y proporcionará el número de segmentos utilizados para mensajes de EE. UU., ofreciendo una vista transparente del consumo de créditos de mensajes.
+Tu [dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard/) reflejará estos tipos de facturación y proporcionará el número de segmentos utilizados para mensajes de EE. UU., ofreciendo una vista transparente del consumo de créditos de mensajes.

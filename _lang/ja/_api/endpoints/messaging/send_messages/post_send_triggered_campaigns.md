@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。`audience` を含めると、メッセージはカスタム属性やサブスクリプションステータスなど、定義されたフィルターに一致するユーザーにのみ送信されます。 |
 | `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。<br><br>`send_to_existing_only` が `false` の場合、`attributes` オブジェクトを含める必要があります。<br><br>ネストされた `attributes` オブジェクト内に `subscription_groups` を含めることで、ユーザーのサブスクリプショングループのステータスを更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/)を参照してください。<br><br>`recipients` が指定されず、`broadcast` がtrueに設定されている場合、メッセージはBrazeダッシュボードでCampaignのターゲットオーディエンスとして設定されたSegment全体に送信されます。<br><br>`email` が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)を含める必要があります。 |
 | `attachments` | オプション | 配列 | `broadcast` がtrueに設定されている場合、`attachments` リストを含めることはできません。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### 受信者の解決動作 {#recipient-resolution-behavior}
 
@@ -108,7 +108,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 - 同点が解消され、`prioritization` が1つのプロファイルを返した後にBrazeは送信します。たとえば、プロファイルの更新によってあるユーザーの順序フィールドが変更された場合、`prioritization` がプロファイルを一意に識別できるようになった時点でBrazeは送信します（[リトライ動作と `send_to_existing_only`](#retry-behavior-and-send_to_existing_only)を参照）。
 - `prioritization` がプロファイルを返さない場合も、Brazeは送信しません。
 
-#### リトライ動作と send_to_existing_only {#retry-behavior-and-send_to_existing_only}
+#### リトライ動作とsend_to_existing_only {#retry-behavior-and-send_to_existing_only}
 
 `prioritization` が正確に1つのプロファイルを返さない場合に何が起こるかについて説明します。
 
@@ -201,7 +201,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## 応答の詳細 {#response-details}
 
-メッセージ送信エンドポイントの応答には、メッセージのディスパッチを参照するための `dispatch_id` が含まれます。`dispatch_id` はメッセージディスパッチのIDで、Brazeから送信される各送信に固有のIDです。このエンドポイントを使用すると、バッチ処理されたユーザーセット全体に対して単一の `dispatch_id` を受け取ります。`dispatch_id` の詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)に関するドキュメントを参照してください。
+メッセージ送信エンドポイントの応答には、メッセージのディスパッチを参照するための `dispatch_id` が含まれます。`dispatch_id` はメッセージディスパッチのIDで、Brazeから送信される各送信に固有のIDです。このエンドポイントを使用すると、バッチ処理されたユーザーセット全体に対して単一の `dispatch_id` を受け取ります。`dispatch_id` の詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)に関するドキュメントを参照してください。
 
 リクエストで致命的なエラーが発生した場合のエラーコードと説明については、[エラーとレスポンス]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
 

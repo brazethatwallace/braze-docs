@@ -46,7 +46,7 @@ tool:
 |--- | --- | --- |
 | 이미지 및 텍스트 | 6:5 종횡비<br> 고해상도 1200 x 1000&nbsp;px<br> 최소 600 x 500&nbsp;px | 모든 면에서 잘림이 발생할 수 있지만, 이미지는 항상 뷰포트 상단 50%를 채웁니다 |
 | 이미지만 | 3:5 종횡비<br> 고해상도 1200 x 2000&nbsp;px<br> 최소 600 x 1000&nbsp;px | 더 긴 기기에서 좌우 가장자리에서 잘림이 발생할 수 있습니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Portrait" }
 
 ### 가로 {#landscape}
 
@@ -54,7 +54,7 @@ tool:
 |--- | --- | --- |
 | 이미지 및 텍스트 | 10:3 종횡비<br> 고해상도 2000 x 600px<br> 최소 1000 x 300&nbsp;px | 모든 면에서 잘림이 발생할 수 있지만, 이미지는 항상 뷰포트 상단 50%를 채웁니다 |
 | 이미지만 | 5:3 종횡비<br> 고해상도 2000 x 1200px<br> 최소 1000 x 600&nbsp;px | 더 긴 기기에서 좌우 가장자리에서 잘림이 발생할 수 있습니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Landscape" }
 
 ### 이미지 안전 영역 {#image-safe-zone}
 

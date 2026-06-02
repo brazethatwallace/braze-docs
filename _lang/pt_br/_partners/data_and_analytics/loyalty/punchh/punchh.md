@@ -33,7 +33,7 @@ A integração da Braze com a Punchh permite que você sincronize dados para fin
 | Conta Punchh | Você precisa ter uma conta ativa na Punchh para aproveitar essa parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## O que mais devo saber? {#what-else-should-i-know}
 
@@ -163,7 +163,7 @@ A Braze pode adicionar usuários a um segmento da Punchh por meio de webhooks qu
 
 2. Crie uma campanha de webhook na Braze usando o endpoint da Punchh para adicionar um usuário a um segmento personalizado como a URL do webhook. Aqui você pode fornecer o `custom_segment_id` extraído da URL e o `user_id` como pares de valores-chave.<br><br>![]({% image_buster /assets/img/punchh/punchh4.png %})<br><br>
 
-3. Esse webhook pode ser configurado como uma campanha singular ou como uma etapa de um Canvas. Como alternativa, se o webhook que adiciona usuários a esse segmento específico da Punchh for usado em várias campanhas ou Canvas, ele poderá ser configurado como um [modelo]({{site.baseurl}}/user_guide/messaging/templates/webhook_templates/).<br><br>
+3. Esse webhook pode ser configurado como uma campanha singular ou como uma etapa de um Canvas. Como alternativa, se o webhook que adiciona usuários a esse segmento específico da Punchh for usado em várias Campaigns ou Canvas, ele poderá ser configurado como um [modelo]({{site.baseurl}}/user_guide/messaging/templates/webhook_templates/).<br><br>
 A chave `user_id` no webhook mapeia o ID de usuário da Punchh. Esse identificador precisará ser adicionado a todos os webhooks criados na Braze para adicionar usuários a um segmento personalizado da Punchh. O atributo personalizado `punchh_user_id` pode ser preenchido dinamicamente como o valor da chave `user_id` usando o [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#pre-formatted-variables). Você pode inserir a variável de atributo personalizado `punchh_user_id` usando o ícone azul de "mais", localizado no canto superior direito de qualquer campo de texto de modelo.<br><br>![]({% image_buster /assets/img/punchh/update3.png %}){: style="max-width:65%;"}<br><br>![]({% image_buster /assets/img/punchh/update4.png %}){: style="max-width:65%;"}<br><br>
 
 4. Depois que o webhook é salvo, ele pode ser usado para sincronizar usuários, conforme mostrado abaixo. Por exemplo, 136 convidados seriam adicionados ao segmento personalizado da Punchh quando essa campanha de webhook da Braze fosse lançada.<br><br>![Um exemplo de sincronização de usuários usando o webhook salvo devido à integração da Braze com a Punchh.]({% image_buster /assets/img/punchh/punchh6.png %})

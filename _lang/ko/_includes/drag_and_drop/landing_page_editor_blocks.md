@@ -65,7 +65,7 @@
 | 등록정보 | 설명 |
 | --- | --- |
 | 커스텀 코드 | HTML, CSS, JavaScript를 추가, 편집 또는 삭제할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer
@@ -113,7 +113,7 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### 긴 텍스트 {#long-text}
 
-설문조사 스타일 플로우를 위한 여러 줄 텍스트 필드입니다. 이 블록이 보이지 않으면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/) 또는 Braze 고객 성공 매니저에게 문의하세요.
+설문조사 스타일 플로우를 위한 여러 줄 텍스트 필드입니다. 이 블록이 보이지 않으면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/) 또는 Braze 고객 성공 매니저에게 문의하세요. 이 블록은 표준 랜딩 페이지에서는 사용할 수 없습니다.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 

@@ -24,7 +24,7 @@ search_tag: Partner
 | --- | --- |
 | Trustpilotアカウント | TrustpilotのAPIへのアクセス権を持つTrustpilotアカウントが必要です。 |
 | Trustpilot認証キー | APIキーを設定し、アクセストークンをリクエストする必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -76,10 +76,10 @@ https://api.trustpilot.com/v1/oauth/oauth-business-users-for-applications/access
 
 ## 製品レビューインサイトを使用したメッセージのパーソナライズ {#personalizing-messages-with-product-review-insights}
 
-BrazeのCampaignで、Trustpilotの[製品レビューサマリー取得エンドポイント](https://developers.trustpilot.com/product-reviews-api#get-product-reviews-summary)（{% raw %}`https://api.trustpilot.com/v1/product-reviews/business-units/{businessUnitId}`{% endraw %}）からデータをリクエストするコネクテッドコンテンツコールを実行します。このメソッドは、ビジネスユニットから特定のSKUの製品レビューを取得します。以下の例では、特定の製品SKUを指定し、5つ星レビューでフィルタリングしています。
+Brazeのキャンペーンで、Trustpilotの[製品レビューサマリー取得エンドポイント](https://developers.trustpilot.com/product-reviews-api#get-product-reviews-summary)（{% raw %}`https://api.trustpilot.com/v1/product-reviews/business-units/{businessUnitId}`{% endraw %}）からデータをリクエストするコネクテッドコンテンツコールを実行します。このメソッドは、ビジネスユニットから特定のSKUの製品レビューを取得します。以下の例では、特定の製品SKUを指定し、5つ星レビューでフィルタリングしています。
 
 {% raw %}
-```liquid
+`````````liquid
 {% connected_content https://api.trustpilot.com/v1/product-reviews/business-units/66ea0530xxxxxx/reviews?sku={{event_properties.${item_sku}}}&stars=5
    :method get
    :headers {"apikey": "xxxxx"}
@@ -92,7 +92,7 @@ BrazeのCampaignで、Trustpilotの[製品レビューサマリー取得エン�
 コネクテッドコンテンツリクエストは製品レビューを返します。
 
 {% raw %}
-```liquid
+`````````liquid
   {
    "productReviews": [
        {

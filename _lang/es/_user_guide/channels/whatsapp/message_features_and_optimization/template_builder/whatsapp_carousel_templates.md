@@ -12,10 +12,6 @@ toc_headers: h2
 
 > Las plantillas de carrusel de WhatsApp te permiten crear mensajes interactivos con múltiples tarjetas por las que los usuarios pueden deslizarse. Cada carrusel puede contener hasta 10 tarjetas con imágenes o videos, junto con botones personalizables para la interacción. Esta característica es ideal para mostrar tus productos y servicios, o contenido de varios pasos en un formato visualmente atractivo.
 
-{% alert note %}
-Las plantillas de carrusel de WhatsApp están en acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente si te interesa participar en este acceso anticipado.
-{% endalert %}
-
 ## Requisitos previos {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -56,7 +52,7 @@ Completa los campos obligatorios.
 | Idioma de la plantilla | Selecciona el idioma de tu plantilla. Meta restringe las plantillas a un solo idioma, así que elige el idioma que verá tu audiencia. |
 | Nombre de la plantilla | Introduce un nombre descriptivo que te ayude a identificar esta plantilla más adelante. Los nombres de plantilla no pueden contener espacios; usa guiones bajos o elimina los espacios por completo (como `carousel_example` o `carouselexample`). |
 | Categoría | Se establece automáticamente como **Marketing**. Todos los mensajes de carrusel se categorizan como mensajes de marketing. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configurar los ajustes de la plantilla" }
 
 ![Panel de detalles de la plantilla de WhatsApp con una cuenta de WhatsApp Business seleccionada, inglés como idioma de la plantilla y un nombre de plantilla "welcome_message".]({% image_buster /assets/img/whatsapp/templates/whatsapp_template_details.png %}){: style="max-width:70%"}
 
@@ -112,7 +108,7 @@ El envío de prueba no está disponible hasta que Meta apruebe la plantilla. El 
 
 ## Usar plantillas de carrusel {#use-carousel-templates}
 
-Después de que Meta apruebe tu plantilla de carrusel, puedes usarla en Campaigns y Canvas. El proceso es similar para ambos tipos de mensaje.
+Después de que Meta apruebe tu plantilla de carrusel, puedes usarla en campañas y Canvas. El proceso es similar para ambos tipos de mensaje.
 
 ### Paso 1: Crear un mensaje de WhatsApp {#step-1-create-a-whatsapp-message}
 
@@ -168,21 +164,21 @@ Después de la composición, continúa con el flujo de trabajo de lanzamiento de
 
 ### Directrices de contenido {#content-guidelines}
 
-- **Ubicación del contenido del cuerpo:** Las variables no pueden colocarse al final del contenido del cuerpo. Añade al menos una palabra o signo de puntuación después de cada variable.
-- **Estructura de tarjetas consistente:** Todas las tarjetas deben tener la misma forma, tipo de medio y configuración de botones. Planifica tu contenido en consecuencia.
-- **Cantidad óptima de tarjetas:** Aunque puedes crear hasta 10 tarjetas, considera la experiencia del usuario. Demasiadas tarjetas pueden resultar abrumadoras; de 3 a 5 tarjetas funcionan bien para la mayoría de los casos de uso.
-- **Valores predeterminados:** Al usar variables de Liquid, proporciona siempre valores predeterminados para una vista previa precisa. Esto ayuda a confirmar que el mensaje se muestra correctamente si faltan ciertos datos del perfil de usuario.
+- **Ubicación del contenido del cuerpo:** las variables no pueden colocarse al final del contenido del cuerpo. Añade al menos una palabra o signo de puntuación después de cada variable.
+- **Estructura de tarjetas consistente:** todas las tarjetas deben tener la misma forma, tipo de medio y configuración de botones. Planifica tu contenido en consecuencia.
+- **Cantidad óptima de tarjetas:** aunque puedes crear hasta 10 tarjetas, considera la experiencia del usuario. Demasiadas tarjetas pueden resultar abrumadoras; de 3 a 5 tarjetas funcionan bien para la mayoría de los casos de uso.
+- **Valores predeterminados:** al usar variables de Liquid, proporciona siempre valores predeterminados para una vista previa precisa. Esto ayuda a confirmar que el mensaje se muestra correctamente si faltan ciertos datos del perfil de usuario.
 
 ### Cuentas de WhatsApp Business y grupos de suscripción {#whatsapp-business-accounts-and-subscription-groups}
 
-- **Entiende cómo se comparten las plantillas:** Las plantillas se comparten entre todos los grupos de suscripción dentro de la misma cuenta de WhatsApp Business (WABA), pero no entre diferentes WABAs. Planifica en consecuencia si administras múltiples WABAs.
-- **Organiza por WABA:** Si tienes múltiples WABAs, considera organizar tus plantillas por cuenta de negocio para evitar confusiones al seleccionar plantillas en campañas.
+- **Entiende cómo se comparten las plantillas:** las plantillas se comparten entre todos los grupos de suscripción dentro de la misma cuenta de WhatsApp Business (WABA), pero no entre diferentes WABAs. Planifica en consecuencia si administras múltiples WABAs.
+- **Organiza por WABA:** si tienes múltiples WABAs, considera organizar tus plantillas por cuenta de negocio para evitar confusiones al seleccionar plantillas en campañas.
 
 ### Pruebas y aprobación {#testing-and-approval}
 
-- **Previsualiza antes de enviar:** Siempre previsualiza tus plantillas para detectar errores antes de enviarlas a Meta para aprobación.
-- **Planifica el tiempo de aprobación:** Aunque la aprobación suele tardar solo unos minutos, ten en cuenta posibles retrasos al planificar los lanzamientos de campañas.
-- **Prueba a fondo:** Después de la aprobación, prueba tu carrusel con datos reales de usuarios para confirmar que todas las variables se completan correctamente y que la experiencia del usuario es fluida.
+- **Previsualiza antes de enviar:** siempre previsualiza tus plantillas para detectar errores antes de enviarlas a Meta para aprobación.
+- **Planifica el tiempo de aprobación:** aunque la aprobación suele tardar solo unos minutos, ten en cuenta posibles retrasos al planificar los lanzamientos de campañas.
+- **Prueba a fondo:** después de la aprobación, prueba tu carrusel con datos reales de usuarios para confirmar que todas las variables se completan correctamente y que la experiencia del usuario es fluida.
 
 ## Solución de problemas {#troubleshooting}
 
@@ -193,4 +189,4 @@ Después de la composición, continúa con el flujo de trabajo de lanzamiento de
 | Las variables no se completan en la prueba | Asegúrate de que la sintaxis de Liquid sea correcta y de que los atributos existan en los perfiles de usuario. Comprueba si hay errores tipográficos en los nombres de las variables y verifica que los valores predeterminados estén configurados donde corresponda. |
 | El nombre de la plantilla tiene espacios | Los nombres de plantilla no pueden contener espacios. Usa guiones bajos en su lugar (`template_name`) o elimina los espacios por completo (`templatename`). |
 | No se puede cambiar el número de tarjetas | El número de tarjetas se fija cuando creas la plantilla y no puede cambiarse después del envío. Si necesitas un número diferente de tarjetas, tendrás que crear una nueva plantilla. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }

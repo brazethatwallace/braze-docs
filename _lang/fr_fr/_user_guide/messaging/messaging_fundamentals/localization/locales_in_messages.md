@@ -27,16 +27,16 @@ Regardez la vidéo suivante pour un aperçu facultatif de la configuration et de
 
 | Fonctionnalité | Autorisations utilisateur requises |
 | --- | --- |
-| Types&nbsp;de&nbsp;messages | Vous avez besoin de ces autorisations pour ajouter des paramètres régionaux et des traductions aux Campaigns et aux Canvas :<br><br> {::nomarkdown}Autorisations granulaires : <ul><li>Modifier les Campaigns</li><li>Modifier les Canvas</li></ul> Autorisations héritées : <ul><li>Accéder aux Campaigns, Canvas, cartes, Content Blocks, indicateurs de fonctionnalité, Segments, bibliothèque multimédia, emplacements, codes de promotion et centres de préférences</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Types&nbsp;de&nbsp;messages | Vous avez besoin de ces autorisations pour ajouter des paramètres régionaux et des traductions aux Campaigns et aux Canvas :<br><br> <ul><li>Modifier les Campaigns</li><li>Modifier les Canvas</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables"}
 
 {% endtab %}
 {% tab Modèles %}
 
 | Fonctionnalité | Autorisations utilisateur requises |
 | --- | --- |
-| Modèles | Vous avez besoin de ces autorisations pour le type de modèle auquel vous souhaitez ajouter des paramètres régionaux et des traductions :<br><br> {::nomarkdown}Autorisations granulaires : <ul><li>Modifier les modèles d'e-mail</li><li>Modifier les modèles de messages in-app</li><li>Modifier les modèles de Content Blocks</li></ul> Autorisations héritées : <ul><li>Accéder aux Campaigns, Canvas, cartes, Content Blocks, indicateurs de fonctionnalité, Segments, bibliothèque multimédia, emplacements, codes de promotion et centres de préférences</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Modèles | Vous avez besoin de ces autorisations pour le type de modèle auquel vous souhaitez ajouter des paramètres régionaux et des traductions :<br><br> <ul><li>Modifier les modèles d'e-mail</li><li>Modifier les modèles de messages in-app</li><li>Modifier les modèles de Content Blocks</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% endtab %}
 {% endtabs %}
@@ -69,7 +69,7 @@ Les URL statiques sont saisies manuellement dans l'éditeur (par exemple, `https
 | --- | --- |
 | Gardez le protocole (`https://`) en dehors des balises de traduction. N'encadrez que le domaine et le chemin (par exemple, `example.com/en`). | Les traducteurs peuvent accidentellement modifier ou supprimer des caractères spéciaux, ce qui entraîne des liens brisés. |
 | N'incluez pas les paramètres de requête dans les balises de traduction (par exemple, `?utm_source=promo`). | Les traducteurs peuvent accidentellement modifier ou supprimer des caractères spéciaux, ce qui entraîne des liens brisés. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL standard (statiques)" }
 
 Une URL standard qui suit les deux recommandations est :
 
@@ -87,7 +87,7 @@ Si votre URL est générée avec Liquid (par exemple, {% raw %}`{% landing_page_
 | --- | --- |
 | N'encadrez l'URL générée par Liquid dans des balises de traduction que si elle doit être localisée. | La syntaxe Liquid doit être soigneusement préservée pour s'afficher correctement. |
 | N'incluez pas les paramètres de requête (par exemple, `?utm_source=promo`) dans les balises de traduction. | Les traducteurs peuvent accidentellement modifier ou supprimer des caractères spéciaux, ce qui entraîne des liens brisés. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL générées par Liquid" }
 
 Une URL générée par Liquid qui suit les deux recommandations est :
 
@@ -227,7 +227,7 @@ Les URL utilisent deux caractères spéciaux pour contrôler ce fonctionnement :
 | URL standard | Oui | Utilisez `&` à la fin de l'URL (après la balise de traduction fermante) si elle contient déjà `?`. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Générée par Liquid | Non | Utilisez `?` après les balises de traduction fermantes si l'URL générée n'en contient pas déjà un. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Générée par Liquid | Oui | Utilisez `&` après la balise de traduction fermante si l'URL générée contient déjà un `?`. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Suivi des liens e-mail" }
 
 ### Paramètres de langue et accessibilité {#language-settings-and-accessibility}
 
@@ -296,4 +296,4 @@ Oui. Si vous utilisez un CSV, commencez par effectuer la modification dans le fi
 | Les balises de traduction contiennent des URL complètes ou des URL générées par Liquid. | Les balises de traduction contenant des URL sont identifiées au cas où des problèmes de liens brisés ou de suivi des liens surviendraient. |
 | Les balises de traduction incluent des paramètres de requête. | Les balises de traduction contenant des paramètres de requête sont identifiées au cas où des problèmes de liens brisés ou de suivi des liens surviendraient. |
 | Les balises de traduction contiennent des attributs ou des structures HTML. | Les balises de traduction contenant des attributs ou des structures HTML sont identifiées au cas où des problèmes de styles et de formatage surviendraient. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quelles validations ou vérifications supplémentaires Braze effectue-t-il ?" }

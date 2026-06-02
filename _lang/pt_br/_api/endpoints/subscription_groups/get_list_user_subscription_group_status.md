@@ -48,8 +48,6 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `phone` | Obrigatória* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | O número de telefone do usuário. Se o e-mail não estiver incluído, você deve incluir pelo menos um número de telefone (com no máximo 50).<br><br> Enviar tanto um endereço de e-mail quanto um número de telefone (sem `external_id`) resultará em um erro. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
-
 *Um entre `external_id`, `email` ou `phone` é obrigatório para cada usuário.
 
 - Para grupos de inscrições de SMS e WhatsApp, é necessário `external_id` ou `phone`. Quando ambos são enviados, apenas o `external_id` é usado para a consulta e o número de telefone é aplicado a esse usuário.
@@ -58,14 +56,14 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 ## Exemplo de solicitação {#example-request}
 
 {% tabs %}
-{% tab Multiple Users %}
+{% tab Múltiplos usuários %}
 {% raw %}
 ```
 https://rest.iad-03.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&external_id[]=1&external_id[]=2
 ```
 {% endraw %}
 {% endtab %}
-{% tab SMS and WhatsApp %}
+{% tab SMS e WhatsApp %}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&phone=+11112223333' \
@@ -73,7 +71,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 ```
 {% endraw %}
 {% endtab %}
-{% tab Email %}
+{% tab E-mail %}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \

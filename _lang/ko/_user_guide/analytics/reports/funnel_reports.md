@@ -59,7 +59,7 @@ Campaign 또는 Canvas에 대조군이나 여러 배리언트가 포함된 경�
 
 | Campaign | 세션 시작, 구매, 커스텀 이벤트 수행, 메시지 참여 이벤트 |
 | Canvas | 세션 시작, 구매, 커스텀 이벤트 수행, 캔버스 단계 수신, 단계와 상호작용 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용 가능한 퍼널 보고서 이벤트" }
 
 {% alert note %}
 **단계와 상호작용** 보고서 이벤트는 이메일 또는 푸시 메시징 채널을 사용하는 캔버스 단계에서만 사용할 수 있습니다.

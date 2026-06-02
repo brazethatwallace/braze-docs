@@ -38,7 +38,7 @@ Uma possível explicação é que a Campaign ou o Canvas tem a reelegibilidade a
 
 Por exemplo, se você tiver um Canvas que possui notificações por push tanto para iOS quanto para web, um determinado usuário com dispositivos móvel e desktop pode receber mais de uma mensagem.
 
-### Por que *Destinatários únicos* é maior do que o número de usuários que eu direcionei? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Por que *Destinatários únicos* é maior do que o número de usuários que eu direcionei? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *Destinatários únicos* pode ser maior do que o público esperado porque a Braze rastreia destinatários únicos diários para fins de relatório. Isso permite que a Braze atribua conversões dentro da janela de conversão cada vez que um usuário recebe a mensagem, em vez de consolidar múltiplos recebimentos em uma única contagem vitalícia (o que distorceria os cálculos de conversão).
 
@@ -162,7 +162,7 @@ Para evitar isso, garanta que as atualizações de atributos personalizados ou e
 
 ### Por que o número de usuários entrando em uma Campaign não corresponde ao número esperado? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-O número de usuários entrando em uma Campaign pode diferir do número esperado devido à forma como públicos e gatilhos são avaliados. Na Braze, o público é avaliado antes do gatilho (a menos que se use um gatilho de [mudança de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam da Campaign se não fizerem parte inicialmente do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários entrando em uma Campaign pode diferir do número esperado devido à forma como públicos e gatilhos são avaliados. Na Braze, o público é avaliado antes do gatilho (a menos que se use um gatilho de [mudança de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Isso fará com que os usuários saiam da Campaign se não fizerem parte inicialmente do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% alert tip %}
 Para assistência adicional com solução de problemas de Campaigns, entre em contato com o suporte da Braze dentro de 30 dias da ocorrência do problema, pois temos apenas os últimos 30 dias de registros de diagnóstico.
@@ -189,6 +189,14 @@ Por exemplo, se você inserir um nome de Campaign ou parâmetro UTM com múltipl
 Campaigns disparadas por API permitem que você gerencie o texto da Campaign, testes multivariantes e regras de reelegibilidade dentro do dashboard da Braze enquanto aciona a entrega desse conteúdo a partir dos seus próprios servidores e sistemas. Essas mensagens também podem incluir dados adicionais para serem modelados nas mensagens em tempo real.
 
 Campaigns da API são usadas para rastrear as mensagens enviadas usando a API. Diferentemente da maioria das Campaigns, você não especifica a mensagem, os destinatários ou a programação, mas sim passa os identificadores nas suas chamadas de API.
+
+### Como posso confirmar se meus usuários receberam uma Campaign disparada por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+Você pode [criar um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando o filtro **Received Campaign** e selecionar a Campaign disparada por API específica que deseja verificar. Após salvar o segmento, use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para exportar os usuários desse segmento.
+
+### Posso excluir uma Campaign? {#can-i-delete-a-campaign}
+
+Não, mas você pode [arquivar uma Campaign]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
 
 ### Qual é a diferença entre Campaigns baseadas em ação e Campaigns disparadas por API? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
@@ -259,3 +267,7 @@ Vários fatores podem fazer com que o número de envios seja menor do que o tama
 - **Reavaliação do segmento:** Para Campaigns baseadas em ação ou programadas que reavaliam no momento do envio, os usuários que estavam no segmento quando a Campaign foi enfileirada podem não se qualificar mais quando a mensagem é realmente enviada.
 - **Limites de envio:** Um número máximo de usuários (ou limite similar) em **Público-alvo** interrompe a entrega quando o limite é atingido.
 - **Filtros rigorosos de dispositivo ou navegador:** Filtros que correspondem apenas às versões mais recentes de apps ou navegadores reduzem o conjunto alcançável no momento do envio em comparação com uma pré-visualização ampla de segmento.
+
+### Onde estão as perguntas frequentes sobre limite de frequência global? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+Para perguntas sobre dias corridos, push silencioso, webhooks, comportamento do Canvas e tópicos relacionados, consulte as [Perguntas frequentes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) de [Limite de taxa e limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).

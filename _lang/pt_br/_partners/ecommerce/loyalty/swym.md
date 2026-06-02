@@ -26,7 +26,7 @@ Antes de começar, você precisará do seguinte:
 | Swym  | Os apps Swym Wishlist Plus, Back in Stock ou ambos devem estar instalados em sua plataforma de comércio eletrônico (Shopify ou BigCommerce), e você deve estar no plano Enterprise.       |
 | Uma chave da API REST da Braze  | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
 | Um endpoint REST da Braze | [Seu URL de endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint dependerá do URL da Braze para sua instância.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}
 
@@ -51,7 +51,7 @@ Para proteger suas chaves de API, a Swym recomenda que você compartilhe credenc
 
 3. Depois que a chave de API e o URL da instância forem compartilhados com a equipe de suporte da Swym, eles configurarão a integração para você e responderão com uma confirmação.
 
-4. Após a conclusão da configuração, os eventos personalizados da Swym serão registrados automaticamente na Braze. Você pode visualizar a lista de eventos Swym registrados no dashboard da Braze acessando **Data Settings** > **Custom Events**.
+4. Após a conclusão da configuração, os eventos personalizados da Swym serão registrados automaticamente na Braze. Você pode visualizar a lista de eventos Swym registrados no dashboard da Braze acessando **Configurações de dados** > **Eventos personalizados**.
 
 5. Visualize as propriedades de cada evento Swym selecionando **Manage Properties** para o evento personalizado correspondente. Essas propriedades contêm os valores de eventos que podem ser usados para personalizar suas mensagens.
 
@@ -74,7 +74,7 @@ No app Wishlist Plus, acesse a guia **Marketing** e encontre a seção **Automat
 | Price Drop alert | O produto em uma lista de desejos é colocado à venda |
 | Low Stock alert | O produto em uma lista de desejos está ficando sem estoque |
 | Back in Stock alert | O produto em uma lista de desejos é reabastecido |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### Eventos do app Swym Back in Stock Alerts {#swym-back-in-stock-alerts-app-events}
 
@@ -83,7 +83,7 @@ No app Wishlist Plus, acesse a guia **Marketing** e encontre a seção **Automat
 | Back in Stock Acknowledgment | O comprador se inscreve para ser notificado quando um produto estiver novamente em estoque |
 | Restock Alert | O produto para o qual um comprador solicitou um alerta de volta ao estoque é reabastecido |
 | Restock Reminder | Alerta de acompanhamento (geralmente cerca de 24 horas após o primeiro alerta de reabastecimento, configurável) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Etapa 3: Crie uma Campaign ou um Canvas na Braze {#step-3-create-a-braze-campaign-or-canvas}
 

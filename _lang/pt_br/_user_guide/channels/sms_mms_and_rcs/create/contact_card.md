@@ -15,7 +15,7 @@ channel:
 > Cartões de contato (às vezes conhecidos como vCard ou Virtual Contact Files (VCF)) são um formato de arquivo padronizado para enviar informações comerciais e de contato que podem ser facilmente importadas para catálogos de endereços ou listas de contatos.
 
 {% alert note %}
-O envio de um cartão de contato é cobrado como MMS. Revise o volume esperado de MMS e o uso de créditos de mensagem ao criar cartões de contato, e confirme os custos na [página de Faturamento]({{site.baseurl}}/user_guide/administer/global/billing/) da Braze.
+O envio de um cartão de contato é cobrado como MMS. Revise o volume esperado de MMS e o uso de créditos de mensagem ou de ação ao criar cartões de contato, e confirme os custos na [página de Faturamento]({{site.baseurl}}/user_guide/administer/global/billing/) da Braze.
 {% endalert %}
 
 Os cartões de contato podem ser criados [programaticamente](https://www.twilio.com/blog/send-vcard-twilio-sms) e enviados para a [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library) da Braze, ou criados por meio do nosso gerador de cartões de contato integrado. Esses cartões podem receber propriedades comuns, como o nome da sua empresa, número de telefone, endereço, e-mail e uma pequena foto. Para começar a criar cartões de contato, primeiro certifique-se de que o MMS está configurado na Braze.

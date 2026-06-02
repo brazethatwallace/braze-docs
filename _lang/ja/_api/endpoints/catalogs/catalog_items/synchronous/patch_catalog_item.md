@@ -33,14 +33,14 @@ description: "この記事では、カタログアイテムの編集Brazeエン�
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログの名前。 |
 | `item_id` | 必須 | 文字列 | カタログアイテムのID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `items` | 必須 | 配列 | アイテムオブジェクトを含む配列。アイテムオブジェクトには、`id` フィールドを除き、カタログに存在するフィールドを含める必要があります。1つのリクエストにつき、1つのアイテムオブジェクトのみが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 
@@ -53,9 +53,10 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
     {
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": {
         "$add": [
@@ -73,7 +74,8 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 ```
 
 {% alert note %}
-`$add` および `$remove` 演算子は配列型フィールドにのみ適用可能であり、PATCH エンドポイントでのみサポートされます。
+- `Location` フィールドは `geo` データタイプを使用しており、`[経度, 緯度]` の形式の配列を想定しています。
+- `$add` および `$remove` 演算子は配列型フィールドにのみ適用可能であり、PATCHエンドポイントでのみサポートされています。
 {% endalert %}
 
 ## 応答 {#response}
@@ -132,6 +134,6 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 | `request-includes-too-many-items` | 1つのリクエストにつき1つのカタログアイテムのみ編集できます。 |
 | `too-deep-nesting-in-value-object` | アイテムオブジェクトは50レベル以上のネストを持つことはできません。 |
 | `unable-to-coerce-value` | アイテムタイプは変換できません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

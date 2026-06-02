@@ -127,8 +127,8 @@ Si vous sélectionnez une limite pour les notifications push, vous ne pouvez pas
 **Mises à jour de l'interface de limite de débit**<br>
 Braze a mis à jour l'interface de limite de débit pour offrir plus de transparence et de contrôle sur la façon dont les limites de débit s'appliquent aux campagnes multicanal et aux Canvas.<br><br>
 
-- **Campagnes et Canvas existants :** toutes les campagnes et Canvas existants ont été migrés vers cette interface. Leur comportement d'envoi reste le même. Le tableau de bord indique si la campagne utilise une logique partagée ou par canal.<br>
-- **Nouvelles campagnes et Canvas :** pour toutes les nouvelles campagnes et Canvas, il y a un bouton bascule manuel pour choisir votre logique de limite de débit préférée. Assurez-vous de sélectionner le comportement de limite de débit qui correspond à votre intention lors de la configuration ou de la mise à jour d'une limite de débit de campagne ou de Canvas.
+- **Campagnes et Canvas existants :** toutes les campagnes et tous les Canvas existants ont été migrés vers cette interface. Leur comportement d'envoi reste le même. Le tableau de bord indique si la campagne utilise une logique partagée ou par canal.<br>
+- **Nouvelles campagnes et nouveaux Canvas :** pour toutes les nouvelles campagnes et tous les nouveaux Canvas, il y a un bouton bascule manuel pour choisir votre logique de limite de débit préférée. Assurez-vous de sélectionner le comportement de limite de débit qui correspond à votre intention lors de la configuration ou de la mise à jour d'une limite de débit de campagne ou de Canvas.
 {% endalert %}
 
 ##### Considérations relatives à la limite de débit {#rate-limiting-considerations}
@@ -164,7 +164,7 @@ Au lieu d'essayer de rattraper le retard et d'envoyer les 6 000 messages restant
 | 7      | 10 000     | 10 000                    |
 | 8      | 5 000      | 10 000                    |
 | 9      | 0          | 6 000                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Limite de débit et nouvelles tentatives de contenu connecté" }
 
 Les requêtes de contenu connecté ne sont pas limitées indépendamment et suivront la limite de débit des webhooks. Cela signifie que s'il y a un appel de contenu connecté vers un endpoint unique par webhook, vous pouvez vous attendre à 5 000 webhooks et également 5 000 appels de contenu connecté par minute. Notez que la mise en cache peut affecter cela et réduire le nombre d'appels de contenu connecté. De plus, les nouvelles tentatives peuvent augmenter les appels de contenu connecté, nous vous recommandons donc de vérifier que l'endpoint de contenu connecté peut gérer certaines fluctuations.
 
@@ -195,7 +195,9 @@ Chaque ligne de limites de fréquence est connectée à l'aide de l'opérateur `
 
 #### Comportement lorsque les utilisateurs sont plafonnés en fréquence sur une étape Canvas {#behavior-when-users-are-frequency-capped-on-a-canvas-step}
 
-Si un utilisateur Canvas est plafonné en fréquence en raison des paramètres globaux de limite de fréquence, l'utilisateur avancera immédiatement à l'étape Canvas suivante. L'utilisateur ne quittera pas le Canvas en raison de la limite de fréquence.
+La limite de fréquence globale seule ne fait pas sortir les utilisateurs d'un Canvas. Sur les [étapes de message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), les utilisateurs continuent d'avancer lorsqu'un message n'est pas envoyé en raison de la limite de fréquence globale, conformément à la [façon dont les utilisateurs avancent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance) dans l'étape.
+
+Cela est distinct des **validations d'envoi** sur une étape de message. Si un utilisateur ne remplit pas vos critères de validation d'envoi au moment de l'envoi, il peut sortir du Canvas à cette étape.
 
 ### Règles d'envoi {#delivery-rules}
 
@@ -207,7 +209,7 @@ Après cela, il vous sera demandé si vous souhaitez toujours que cette campagne
 
 Lors de l'envoi de [campagnes API]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging), qui sont souvent transactionnelles, vous aurez la possibilité de spécifier qu'une campagne doit ignorer les règles de limite de fréquence en définissant `override_frequency_capping` sur `true` dans la requête API.
 
-Par défaut, les nouvelles campagnes et Canvas qui n'obéissent pas aux limites de fréquence ne seront pas non plus comptabilisés dans celles-ci. Ceci est configurable pour chaque campagne et Canvas.
+Par défaut, les nouvelles campagnes et les nouveaux Canvas qui n'obéissent pas aux limites de fréquence ne seront pas non plus comptabilisés dans celles-ci. Ceci est configurable pour chaque campagne et Canvas.
 
 {% alert note %}
 Ce comportement modifie le comportement par défaut lorsque vous désactivez la limite de fréquence pour une campagne ou un Canvas. Les modifications sont rétrocompatibles et n'affectent pas les messages actuellement en cours.
@@ -215,7 +217,13 @@ Ce comportement modifie le comportement par défaut lorsque vous désactivez la 
 
 ![Section des contrôles de l'envoi avec la limite de fréquence activée.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"}
 
-Les différents canaux au sein d'une campagne multicanal comptent individuellement dans la limite de fréquence. Par exemple, si vous créez une campagne multicanal avec à la fois des notifications push et des e-mails et que vous avez configuré une limite de fréquence pour ces deux canaux, alors la notification push compte comme une campagne push, et le message e-mail compte comme une campagne e-mail. La campagne compte également comme une « campagne de tout type ». Si les utilisateurs sont plafonnés à une notification push et une campagne e-mail par jour, et qu'un utilisateur reçoit cette campagne multicanal, alors il n'est plus éligible pour les campagnes push ou e-mail pour le reste de la journée (sauf si une campagne ignore les règles de limite de fréquence).
+#### Comment les envois sont comptabilisés dans les plafonds {#how-sends-count-toward-caps}
+
+La limite de fréquence s'applique par envoi : chaque fois que Braze envoie une campagne ou un composant Canvas à un utilisateur, cela compte dans vos plafonds — pas chaque variante de message ou plateforme au sein de cet envoi. Par exemple, si les utilisateurs sont plafonnés à cinq campagnes push par semaine, ils ne reçoivent plus aucune campagne push après le cinquième envoi jusqu'à la réinitialisation du plafond.
+
+##### Envois multicanal {#multichannel-sends}
+
+Lorsqu'un seul envoi utilise plusieurs canaux, cet envoi compte au maximum une fois par règle de limite de fréquence applicable. Par exemple, si vous créez une campagne multicanal qui envoie un e-mail, une notification push iOS et une notification push Android en un seul envoi, et que votre espace de travail a des règles pour les notifications push et les e-mails, ainsi qu'une règle qui s'applique à tous les canaux, cet envoi compte une fois dans la règle push, une fois dans la règle e-mail et une fois dans la règle tous canaux — il ne compte pas une fois par plateforme push ou par message au sein de l'envoi. Si les utilisateurs sont plafonnés à une notification push et une campagne e-mail par jour et qu'ils reçoivent cette campagne multicanal, ils ne sont plus éligibles pour des campagnes push ou e-mail supplémentaires pour le reste de la journée, sauf si une campagne ignore les règles de limite de fréquence.
 
 Les messages in-app et les Content Cards ne sont pas comptabilisés comme ou dans les plafonds des campagnes ou composants Canvas de tout type.
 
@@ -303,7 +311,7 @@ Considérez les campagnes et la règle de limite de fréquence par étiquette su
 |---|---|
 | L'étiquette `promotional` est supprimée de **Campaign A** après que votre utilisateur a reçu le message, mais avant que **Campaign B** ne soit envoyée. | Votre utilisateur reçoit **Campaign B**. |
 | L'étiquette `promotional` est supprimée par erreur de **Campaign A** après que votre utilisateur a reçu le message. <br> L'étiquette est rajoutée à **Campaign A** le mardi, avant que **Campaign B** ne soit envoyée. | Votre utilisateur ne reçoit pas **Campaign B**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
 #### Envoi à grande échelle {#sending-at-large-scales}
 
@@ -322,17 +330,3 @@ Par exemple, vous pourriez configurer la règle suivante :
 > Pas plus de trois campagnes e-mail ou composants Canvas par semaine de toutes les campagnes et étapes Canvas.
 
 Cette règle garantit qu'aucun utilisateur ne reçoit plus de 100 e-mails par semaine car, au maximum, les utilisateurs reçoivent trois e-mails par semaine provenant de campagnes ou composants Canvas avec la limite de fréquence activée.
-
-## Foire aux questions {#frequently-asked-questions}
-
-### Si je modifie un throttle d'envoi sur un Canvas actif, cela affecte-t-il les utilisateurs déjà dans le Canvas ? {#if-i-change-a-send-throttle-on-an-active-canvas-does-it-affect-users-already-in-the-canvas}
-
-Oui, lorsque vous augmentez ou diminuez une limite de débit Canvas, la limite mise à jour prendra effet pour les nouveaux messages dans un délai d'environ 30 secondes après la modification en raison de la mise en cache.
-
-### La limite de fréquence provoque-t-elle la sortie des utilisateurs d'un Canvas ? {#does-frequency-capping-cause-users-to-exit-a-canvas}
-
-Non. Si un utilisateur Canvas est plafonné en fréquence en raison des paramètres globaux de limite de fréquence, l'utilisateur avancera immédiatement à l'étape Canvas suivante. L'utilisateur ne quittera **pas** le Canvas en raison de la limite de fréquence.
-
-### Comment puis-je identifier les utilisateurs qui ont été plafonnés en fréquence dans un Canvas ? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
-
-Les utilisateurs plafonnés en fréquence ne génèrent pas d'événement d'envoi pour cette étape. Pour identifier ces utilisateurs, vous pouvez utiliser [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) pour suivre les événements de messages plafonnés en fréquence. Vous pouvez également créer une [extension de segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) pour analyser les utilisateurs qui sont entrés dans le Canvas mais n'ont pas reçu le message attendu.

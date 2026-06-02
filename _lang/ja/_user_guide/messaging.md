@@ -4,10 +4,10 @@ article_title: メッセージング
 page_order: 4.5
 layout: dev_guide
 guide_top_header: "メッセージング"
-guide_top_text: "CampaignsやCanvases全体でメッセージングを作成、管理、最適化しましょう。メッセージングの基本を学び、コンテンツをパーソナライズし、A/Bテストを設定し、ランディングページを構築してコミュニケーションを拡大できます。"
+guide_top_text: "キャンペーンやキャンバス全体でメッセージングを作成、管理、最適化しましょう。メッセージングの基本を学び、コンテンツをパーソナライズし、A/Bテストを設定し、ランディングページを構築してコミュニケーションを拡大できます。"
 
 page_type: landing
-description: "BrazeのCampaignsやCanvases全体でメッセージングを作成、管理、最適化します。"
+description: "Brazeのキャンペーンやキャンバス全体でメッセージングを作成、管理、最適化します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:

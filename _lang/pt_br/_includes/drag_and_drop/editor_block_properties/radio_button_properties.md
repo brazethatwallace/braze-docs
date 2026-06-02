@@ -11,4 +11,4 @@
 | Alinhamento | Alinhamento horizontal das opções dentro do bloco. |
 | Cor de destaque | Cor usada para os controles de botão de opção (como o indicador de estado selecionado). |
 | Preenchimento | Espaçamento ao redor do bloco. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

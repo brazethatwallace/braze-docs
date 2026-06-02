@@ -12,25 +12,26 @@ search_tag: Partner
 
 > [Facebook 메신저](https://developers.facebook.com/docs/messenger-platform/)는 세계에서 가장 인기 있는 인스턴트 메시징 플랫폼 중 하나로, 약 10억 명의 월간 활성 사용자가 이용하고 있습니다. 이 플랫폼을 통해 브랜드는 매력적인 챗봇을 만들어 고객과 지능적이고 자동화된 방식으로 상호작용할 수 있습니다.
 
-Braze와 Facebook 통합은 Braze 웹훅, 세분화, 개인화 및 트리거 기능을 활용하여 메신저 플랫폼 API를 통해 Facebook 메신저에서 사용자에게 메시지를 보냅니다. 커스텀 Facebook 메신저 웹훅 템플릿은 플랫폼의 **템플릿** > **웹훅 템플릿**에서 제공됩니다.
+Braze와 Facebook 통합은 Braze 웹훅, 세분화, 개인화 및 트리거 기능을 활용하여 메신저 플랫폼 API를 통해 Facebook 메신저에서 사용자에게 메시지를 보냅니다. 커스텀 Facebook 메신저 웹훅 템플릿은 플랫폼의 **콘텐츠** > **웹훅**에서 제공됩니다.
 
 Facebook 메신저 플랫폼은 "기존 거래를 지원하거나, 기타 고객 지원 조치를 제공하거나, 사용자가 요청한 콘텐츠를 전달하는 비홍보성 메시지"를 위한 것입니다. 자세한 내용은 [Facebook 플랫폼 가이드라인](https://developers.facebook.com/docs/messenger-platform) 및 [허용되는 사용 사례 예시](https://developers.facebook.com/docs/messenger-platform/app-review#examples_acceptable)를 참조하세요.
 
 ## 필수 조건 {#prerequisites}
 
 통합을 진행하기 전에 다음 사항을 확인하세요:
+
 - Facebook은 메신저 플랫폼을 마케팅 메시지 전송에 사용하는 것을 허용하지 않습니다.
 - 페이지에서 메시지를 보내려면 사용자의 명시적인 동의가 필요합니다.
 - Facebook 앱의 테스트 사용자가 아닌 사용자에게 메시지를 보내려면 앱이 Facebook의 [앱 검토](https://developers.facebook.com/docs/messenger-platform/app-review)를 통과해야 합니다.<br><br>
 
-| 요구 사항| 출처| 접근| 설명|
+| 요구 사항 | 출처 | 접근 | 설명 |
 | --- | --- | --- | --- |
-| Facebook 메신저 페이지| Facebook| [https://www.facebook.com/pages/create](https://www.facebook.com/pages/create) | Facebook 페이지는 봇의 ID로 사용됩니다. 사용자가 앱과 채팅할 때 페이지 이름과 프로필 사진이 표시됩니다.|
-| Facebook 메신저 앱| Facebook| [https://developers.facebook.com/apps](https://developers.facebook.com/apps) | Facebook 앱에는 액세스 토큰을 포함한 메신저 봇의 설정이 포함되어 있습니다.
+| Facebook 메신저 페이지 | Facebook | [https://www.facebook.com/pages/create](https://www.facebook.com/pages/create) | Facebook 페이지는 봇의 ID로 사용됩니다. 사용자가 앱과 채팅할 때 페이지 이름과 프로필 사진이 표시됩니다. |
+| Facebook 메신저 앱 | Facebook | [https://developers.facebook.com/apps](https://developers.facebook.com/apps) | Facebook 앱에는 액세스 토큰을 포함한 메신저 봇의 설정이 포함되어 있습니다. |
 | 앱 봇 검토 및 승인 | Facebook | [https://developers.facebook.com/docs/messenger-platform/app-review](https://developers.facebook.com/docs/messenger-platform/app-review) | 봇을 공개적으로 출시할 준비가 되면 Facebook에 검토 및 승인을 위해 제출해야 합니다. 이 검토 과정을 통해 메신저 봇이 정책을 준수하고 예상대로 작동하는지 확인한 후 메신저의 모든 사용자에게 제공합니다. |
-| 페이지 범위 ID(PSID) | Facebook | [https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages) | Facebook 메신저에서 메시지를 보내려면 사용자의 PSID가 필요합니다. 사용자가 메신저를 통해 앱과 상호작용하면 Facebook이 PSID를 생성합니다. 이 PSID는 문자열 커스텀 속성으로 Braze에 전송할 수 있습니다.
-| 페이지 액세스 토큰 | Facebook | [https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token) | 이 액세스 토큰은 사용자 액세스 토큰과 유사하지만, Facebook 페이지에 속한 데이터를 읽고, 쓰고, 수정하는 API에 대한 권한을 제공합니다. 페이지 액세스 토큰을 얻으려면 먼저 사용자 액세스 토큰을 얻고 `manage_pagespermission`을 요청해야 합니다. 사용자 액세스 토큰을 얻은 후 Graph API를 통해 페이지 액세스 토큰을 가져옵니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| 페이지 범위 ID(PSID) | Facebook | [https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages) | Facebook 메신저에서 메시지를 보내려면 사용자의 PSID가 필요합니다. 사용자가 메신저를 통해 앱과 상호작용하면 Facebook이 PSID를 생성합니다. 이 PSID는 문자열 커스텀 속성으로 Braze에 전송할 수 있습니다. |
+| 페이지 액세스 토큰 | Facebook | [https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token) | 이 액세스 토큰은 사용자 액세스 토큰과 유사하지만, Facebook 페이지에 속한 데이터를 읽고, 쓰고, 수정하는 API에 대한 권한을 제공합니다. 페이지 액세스 토큰을 얻으려면 먼저 사용자 액세스 토큰을 얻고 `manage_pagespermission`을 요청해야 합니다. 사용자 액세스 토큰을 얻은 후 Graph API를 통해 페이지 액세스 토큰을 가져옵니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -70,7 +71,12 @@ PSID를 수신하고 있다고 확인되면, 개발자와 협력하여 PSID를 [
 
 ### 3단계: 웹훅 템플릿 설정 {#step-3-set-up-your-webhook-template}
 
-**템플릿 및 미디어**에서 **웹훅 템플릿**으로 이동하여 **Facebook Messenger Webhook Template**을 선택합니다.
+Facebook 메신저 웹훅 템플릿을 생성하려면 다음을 수행합니다.
+
+1. **콘텐츠** > **웹훅**으로 이동하여 **웹훅 템플릿 생성**을 선택합니다.
+2. **템플릿** > **Braze 템플릿**을 선택합니다.
+3. "Facebook Messenger" 템플릿을 찾아 선택합니다.
+4. **템플릿 선택**을 선택합니다.
 
 1. 템플릿 이름을 입력하고 필요에 따라 Teams와 태그를 추가합니다.
 2. 메시지를 입력하거나 [Facebook에서 제공하는 메시지 템플릿](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages)에서 선택합니다. 메시지 [유형](https://developers.facebook.com/docs/messenger-platform/send-messages#message_types) 또는 [태그](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags)를 선택할 수도 있습니다.

@@ -88,7 +88,7 @@ if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_x_Max) {
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 if #available(iOS 10, *) {
   let center = UNUserNotificationCenter.current()
   center.delegate = self as? UNUserNotificationCenterDelegate
@@ -123,7 +123,7 @@ if #available(iOS 10, *) {
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound) categories:nil];
 [[UIApplication sharedApplication] registerForRemoteNotifications];
 [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
@@ -132,7 +132,7 @@ UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTy
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 let types : UIUserNotificationType = UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert
 var setting : UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
 UIApplication.shared.registerUserNotificationSettings(setting)
@@ -152,7 +152,7 @@ APNsの登録が完了したら、次のメソッドを変更して結果の `de
 
 `application:didRegisterForRemoteNotificationsWithDeviceToken:` メソッドに次のコードを追加します。
 
-```objc
+`````````objc
 [[Appboy sharedInstance] registerDeviceToken:deviceToken];
 ```
 
@@ -161,7 +161,7 @@ APNsの登録が完了したら、次のメソッドを変更して結果の `de
 
 アプリの `application(_:didRegisterForRemoteNotificationsWithDeviceToken:)` メソッドに次のコードを追加します。
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.registerDeviceToken(deviceToken)
 ```
 
@@ -185,7 +185,7 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
 
 アプリケーションの `application:didReceiveRemoteNotification:fetchCompletionHandler:` メソッドに次のコードを追加します。
 
-```objc
+`````````objc
 [[Appboy sharedInstance] registerApplication:application
                 didReceiveRemoteNotification:userInfo
                       fetchCompletionHandler:completionHandler];
@@ -193,7 +193,7 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
 
 次に、アプリの `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` メソッドに次のコードを追加します。
 
-```objc
+`````````objc
 [[Appboy sharedInstance] userNotificationCenter:center
                  didReceiveNotificationResponse:response
                           withCompletionHandler:completionHandler];
@@ -203,7 +203,7 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
 
 アプリがフォアグラウンドにある間にプッシュ通知を表示するには、`userNotificationCenter:willPresentNotification:withCompletionHandler:` を実装します。
 
-```objc
+`````````objc
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
        willPresentNotification:(UNNotification *)notification
          withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
@@ -222,7 +222,7 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
 
 アプリの `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` メソッドに次のコードを追加します。
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.register(application,
                                             didReceiveRemoteNotification: userInfo,
                                             fetchCompletionHandler: completionHandler)
@@ -230,7 +230,7 @@ Appboy.sharedInstance()?.register(application,
 
 次に、アプリの `userNotificationCenter(_:didReceive:withCompletionHandler:)` メソッドに次のコードを追加します。
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.userNotificationCenter(center,
                                                didReceive: response,
                                                withCompletionHandler: completionHandler)
@@ -240,7 +240,7 @@ Appboy.sharedInstance()?.userNotificationCenter(center,
 
 アプリがフォアグラウンドにある間にプッシュ通知を表示するには、`userNotificationCenter(_:willPresent:withCompletionHandler:)` を実装します。
 
-```swift
+`````````swift
 func userNotificationCenter(_ center: UNUserNotificationCenter,
                               willPresent notification: UNNotification,
                               withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -268,7 +268,7 @@ SDK < iOS 10に対してビルドするアプリについては、以下の手�
 
 プッシュ通知でオープントラッキングを有効にするには、アプリの `application:didReceiveRemoteNotification:fetchCompletionHandler:` メソッドに次のコードを追加します。
 
-```objc
+`````````objc
 [[Appboy sharedInstance] registerApplication:application
                 didReceiveRemoteNotification:userInfo
                       fetchCompletionHandler:completionHandler];
@@ -276,7 +276,7 @@ SDK < iOS 10に対してビルドするアプリについては、以下の手�
 
 iOS 10でプッシュ分析をサポートするには、アプリの `application:didReceiveRemoteNotification:` デリゲートメソッドに次のコードも追加する必要があります。
 
-```objc
+`````````objc
 [[Appboy sharedInstance] registerApplication:application
                 didReceiveRemoteNotification:userInfo];
 ```
@@ -286,7 +286,7 @@ iOS 10でプッシュ分析をサポートするには、アプリの `applicati
 
 プッシュ通知でオープントラッキングを有効にするには、アプリの `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` メソッドに次のコードを追加します。
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.register(application,
   didReceiveRemoteNotification: userInfo,
   fetchCompletionHandler: completionHandler)
@@ -294,7 +294,7 @@ Appboy.sharedInstance()?.register(application,
 
 iOS 10でプッシュ分析をサポートするには、アプリの `application(_:didReceiveRemoteNotification:)` デリゲートメソッドに次のコードも追加する必要があります。
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.register(application,
   didReceiveRemoteNotification: userInfo)
 ```

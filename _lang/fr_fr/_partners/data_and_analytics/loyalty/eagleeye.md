@@ -31,7 +31,7 @@ Eagle Eye Connect est une intégration bidirectionnelle entre Braze et AIR qui p
 | Compte AIR Eagle Eye | Vous devez disposer d'un compte AIR Eagle Eye actif pour bénéficier de ce partenariat. Pour commencer, contactez l'équipe des partenariats d'Eagle Eye à [partnerships@eagleeye.com](mailto:partnerships@eagleeye.com). |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br>Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres > Clés API**. |
 | Endpoint REST Braze | [L'URL de votre endpoint REST](https://www.braze.com/docs/api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Sortant et entrant {#outbound-vs-inbound}
 
@@ -39,7 +39,7 @@ Les tableaux suivants présentent les deux types d'intégrations pris en charge 
 
 {% tabs local %}
 {% tab sortant %}
-<table>
+<table aria-label="Sortant et entrant">
   <caption>Sortant et entrant</caption>
   <thead>
     <tr>
@@ -71,11 +71,11 @@ Les tableaux suivants présentent les deux types d'intégrations pris en charge 
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Sortant et entrant" }
 {% endtab %}
 
 {% tab entrant %}
-<table>
+<table aria-label="Sortant et entrant">
   <caption>Sortant et entrant</caption>
   <thead>
     <tr>
@@ -105,7 +105,7 @@ Les tableaux suivants présentent les deux types d'intégrations pris en charge 
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Sortant et entrant" }
 {% endtab %}
 {% endtabs %}
 
@@ -129,7 +129,7 @@ Tout d'abord, vous fournirez les informations suivantes à votre équipe Eagle E
 | Correspondance des identifiants | Déterminez et partagez l'identifiant principal de l'utilisateur pour les mises à jour de profil, commun à AIR et Braze, tel que l'ID externe ou l'e-mail. |
 | Clé d'authentification | Déterminez et partagez une clé d'authentification secrète pour chaque connecteur entrant et sortant. |
 | Code devise | Partagez le code devise à 3 caractères pour l'affichage des montants d'achat monétaires (par ex., USD). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Fournir les détails de configuration" }
 
 ### Étape 2 : Configurer Eagle Eye Connect {#step-2-configure-eagle-eye-connect}
 

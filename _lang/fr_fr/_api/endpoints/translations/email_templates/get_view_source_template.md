@@ -15,9 +15,7 @@ description: "Cet article présente les détails de l'endpoint permettant de con
 /templates/email/translations/source
 {% endapimethod %}
 
-> Utilisez cet endpoint pour consulter les traductions sources d'un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> Utilisez cet endpoint pour consulter les traductions sources d'un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consultez [Paramètres régionaux dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
 
 ## Conditions préalables {#prerequisites}
 
@@ -29,10 +27,10 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 ## Paramètres de requête {#query-parameters}
 
-| Paramètre     | Requis | Type de données | Description                     |
+| Paramètre | Requis | Type de données | Description |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | Requis | Chaîne de caractères    | L'ID de votre modèle d'e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `template_id` | Requis | Chaîne de caractères | L'ID de votre modèle d'e-mail. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Exemple de requête {#example-request}
 

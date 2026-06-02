@@ -145,11 +145,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
-    description: "Segmente vos utilisateurs en fonction du moment où ils ont reçu un composant Canvas spécifique.<br><br> Étant donné que les données sont mises à jour pour tous les profils partageant le même identifiant de canal (par exemple, e-mail ou téléphone) lorsqu'une distribution, une ouverture ou un clic se produit, un utilisateur partageant un identifiant avec quelqu'un qui a reçu un message peut ne pas correspondre à ce filtre même s'il n'a jamais reçu explicitement le message. Utilisez « Entered Canvas Variation » pour isoler les profils utilisateur des doublons.<br><br> Ce filtre ne prend pas en compte le moment où les utilisateurs ont reçu d'autres composants Canvas."
+    description: "Segmente vos utilisateurs en fonction du moment où ils ont reçu un composant Canvas spécifique.<br><br> Étant donné que les données sont mises à jour pour tous les profils partageant le même identifiant de canal (par exemple, e-mail ou téléphone) lorsqu'une distribution, une ouverture ou un clic se produit, un utilisateur partageant un identifiant avec quelqu'un qui a reçu un message peut correspondre à ce filtre même s'il n'a jamais reçu explicitement le message. Utilisez « Entered Canvas Variation » pour isoler les profils utilisateur des doublons.<br><br> Ce filtre ne prend pas en compte le moment où les utilisateurs ont reçu d'autres composants Canvas."
     tags:
       - Retargeting
   - name: Last Received Message from Specific Campaign
-    description: "Segmente vos utilisateurs selon qu'ils ont reçu ou non une campagne spécifique.<br><br> Étant donné que les données sont mises à jour pour tous les profils partageant le même identifiant de canal (par exemple, e-mail ou téléphone) lorsqu'une distribution, une ouverture ou un clic se produit, un utilisateur partageant un identifiant avec quelqu'un qui a reçu un message peut ne pas correspondre à ce filtre même s'il n'a jamais reçu explicitement le message.<br><br> Ce filtre ne prend pas en compte le moment où les utilisateurs ont reçu d'autres campagnes."
+    description: "Segmente vos utilisateurs selon qu'ils ont reçu ou non une campagne spécifique.<br><br> Étant donné que les données sont mises à jour pour tous les profils partageant le même identifiant de canal (par exemple, e-mail ou téléphone) lorsqu'une distribution, une ouverture ou un clic se produit, un utilisateur partageant un identifiant avec quelqu'un qui a reçu un message peut correspondre à ce filtre même s'il n'a jamais reçu explicitement le message.<br><br> Ce filtre ne prend pas en compte le moment où les utilisateurs ont reçu d'autres campagnes."
     tags:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
@@ -445,11 +445,11 @@ glossaries:
     tags:
       - App
   - name: Most Recent App Version Name
-    description: "Segmente par le nom récent de l'application de l'utilisateur.<br><br>Lors de l'utilisation de « inférieur à » ou « inférieur ou égal à », si la version principale de l'application n'existe pas, ce filtre renvoie <code>true</code> car l'utilisateur est plus ancien que la version de l'application. Cela signifie que si la dernière version principale de l'application de l'utilisateur n'existe pas, il correspond automatiquement au filtre."
+    description: "Segmente par le nom le plus récent de la version de l'application de l'utilisateur.<br><br>Lors de l'utilisation de « inférieur à » ou « inférieur ou égal à », si la version principale de l'application n'existe pas, ce filtre renvoie <code>true</code> car l'utilisateur est plus ancien que la version de l'application. Cela signifie que si la dernière version principale de l'application de l'utilisateur n'existe pas, il correspond automatiquement au filtre."
     tags:
       - App
   - name: Most Recent App Version Number
-    description: "Segmente par le numéro de version récent de l'application de l'utilisateur.<br><br>Lors de l'utilisation de « inférieur à » ou « inférieur ou égal à », si la version principale de l'application n'existe pas, ce filtre renvoie <code>true</code> car l'utilisateur est plus ancien que la version de l'application. Cela signifie que si la dernière version principale de l'application de l'utilisateur n'existe pas, il correspond automatiquement au filtre.<br><br>Il peut falloir un certain temps pour que les versions actuelles de l'application soient renseignées. La version de l'application sur le profil utilisateur est mise à jour lorsque l'information est capturée par le SDK, ce qui dépend du moment où les utilisateurs ouvrent leurs applications. Si l'utilisateur n'ouvre pas l'application, la version actuelle ne sera pas mise à jour. Ces filtres ne s'appliquent pas non plus rétroactivement. Il est recommandé d'utiliser « supérieur à » ou « égal à » pour les versions actuelles et futures, mais l'utilisation de filtres sur des versions passées peut entraîner des comportements inattendus."
+    description: "Segmente par le numéro de version le plus récent de l'application de l'utilisateur. Le numéro de version entre parenthèses est utilisé pour le filtrage, tandis que le numéro qui le précède est fourni à titre de référence — par exemple, dans « 3.7.0(134.0.0.0) », « 134.0.0.0 » est le numéro de version filtré.<br><br>Lors de l'utilisation de « inférieur à » ou « inférieur ou égal à », si la version principale de l'application n'existe pas, ce filtre renvoie <code>true</code> car l'utilisateur est plus ancien que la version de l'application. Cela signifie que si la dernière version principale de l'application de l'utilisateur n'existe pas, il correspond automatiquement au filtre.<br><br>Il peut falloir un certain temps pour que les versions actuelles de l'application soient renseignées. La version de l'application sur le profil utilisateur est mise à jour lorsque l'information est capturée par le SDK, ce qui dépend du moment où les utilisateurs ouvrent leurs applications. Si l'utilisateur n'ouvre pas l'application, la version actuelle ne sera pas mise à jour. Ces filtres ne s'appliquent pas non plus rétroactivement. Il est recommandé d'utiliser « supérieur à » ou « égal à » pour les versions actuelles et futures, mais l'utilisation de filtres sur des versions passées peut entraîner des comportements inattendus."
     tags:
       - App
   - name: Uninstalled
@@ -585,7 +585,7 @@ glossaries:
     tags:
       - Intelligence and predictive
   - name: Event Likelihood Score
-    description: "Segmente vos utilisateurs par probabilité d'effectuer un événement selon une prédiction spécifique."
+    description: "Segmente vos utilisateurs par score de probabilité d'effectuer un événement selon une prédiction spécifique."
     tags:
       - Intelligence and predictive
   - name: Intelligent Channel

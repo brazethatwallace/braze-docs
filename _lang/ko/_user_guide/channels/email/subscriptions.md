@@ -23,7 +23,7 @@ Braze에는 이메일 사용자를 위한 세 가지 글로벌 구독 상태가 
 | 옵트인 | 사용자가 이메일 수신을 명시적으로 확인했습니다. 이메일 발송에 대한 사용자 동의를 얻기 위해 명시적 옵트인 프로세스를 권장합니다. |
 | 가입됨 | 사용자가 탈퇴하지도 않았고 이메일 수신에 명시적으로 옵트인하지도 않았습니다. 이것은 고객 프로필이 생성될 때의 기본 구독 상태입니다. |
 | 탈퇴됨 | 사용자가 이메일 수신을 명시적으로 탈퇴했습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
 
 {% alert note %}
 Braze는 글로벌 및 구독 그룹 관련 구독 상태 변경을 데이터 포인트에 포함하지 않습니다.

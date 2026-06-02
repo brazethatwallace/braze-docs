@@ -1,23 +1,23 @@
-Todos os e-mails de transação são complementados com postbacks de status de evento enviados como uma solicitação HTTP de volta ao URL especificado. Isso permite analisar o status da mensagem em tempo real e tomar providências para alcançar o usuário por outros canais se a mensagem não for entregue ou voltar para o sistema interno, caso a Braze esteja enfrentando um período com latência.
+Todos os e-mails de transação são complementados com postbacks de status de evento enviados como uma solicitação HTTP de volta à URL especificada. Isso permite analisar o status da mensagem em tempo real e tomar providências para alcançar o usuário por outro canal se a mensagem não for entregue, ou fazer fallback para um sistema interno caso a Braze esteja enfrentando latência.
 
 Você pode associar essas atualizações a mensagens individuais usando identificadores exclusivos:
 
-- `dispatch_id`: Um ID exclusivo que o Braze gera automaticamente para cada mensagem.
-- `external_send_id`: Um identificador personalizado que você fornece, como um número de pedido, para combinar atualizações com seus sistemas internos.
+- `dispatch_id`: um ID exclusivo que a Braze gera automaticamente para cada mensagem.
+- `external_send_id`: um identificador personalizado que você fornece, como um número de pedido, para combinar atualizações com seus sistemas internos.
 
-Por exemplo, se você incluir `external_send_id: 1234` na solicitação ao enviar um e-mail de confirmação de pedido, todos os postbacks de eventos subsequentes para esse e-mail—como `Sent` ou `Delivered`—incluirão `external_send_id: 1234`. Isso permite que você confirme se o cliente do pedido #1234 recebeu seu e-mail de confirmação de pedido.
+Por exemplo, se você incluir `external_send_id: 1234` na solicitação ao enviar um e-mail de confirmação de pedido, todos os postbacks de eventos subsequentes para esse e-mail — como `Sent` ou `Delivered` — incluirão `external_send_id: 1234`. Isso permite que você confirme se o cliente do pedido #1234 recebeu o e-mail de confirmação de pedido.
 
-### Configurando postbacks
+### Configurando postbacks {#setting-up-postbacks}
 
-No seu painel do Braze:
+No dashboard da Braze:
 
 1. Acesse **Configurações** > **Preferências de e-mail**.
-2. Em **Status do Evento Transacional Postback**, insira a URL onde o Braze deve enviar atualizações de status para seus e-mails transacionais.
+2. Em **Transactional Event Status Postback**, insira a URL onde a Braze deve enviar atualizações de status para seus e-mails de transação.
 3. Teste o postback.
 
 ![]({% image_buster /assets/img/transactional_webhook_url.png %})
 
-### Corpo do postback
+### Corpo do postback {#postback-body}
 
 ```json
 {
@@ -40,18 +40,18 @@ No seu painel do Braze:
 }
 ```
 
-#### Status da mensagem
+#### Status da mensagem {#message-status}
 
-|  Status | Descrição |
+| Status | Descrição |
 | ------------ | ----------- |
-| `sent` | Mensagem enviada com sucesso para um parceiro de envio de e-mail do Braze |
+| `sent` | Mensagem enviada com sucesso para um parceiro de envio de e-mail da Braze |
 | `processed` | O parceiro de envio de e-mail recebeu e preparou com êxito a mensagem para envio ao provedor da caixa de entrada do usuário |
-| `aborted` | O Braze não conseguiu enviar a mensagem com êxito porque o usuário não tinha um endereço de e-mail ou a lógica de abortamento do Liquid foi chamada no corpo da mensagem. Todos os eventos abortados incluem um campo `reason` no objeto de metadados, indicando por que a mensagem foi abortada |
-|`delivered`| A mensagem foi aceita pelo provedor da caixa de entrada de e-mail do usuário |
-|`bounced`| A mensagem foi rejeitada pelo provedor da caixa de entrada de e-mail do usuário. Todos os eventos de bounce incluem um campo `reason` no objeto de metadados que reflete o código de erro de bounce fornecido pelo provedor da caixa de entrada |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `aborted` | A Braze não conseguiu enviar a mensagem com êxito porque o usuário não tinha um endereço de e-mail válido ou a lógica de abortamento do Liquid foi chamada no corpo da mensagem. Todos os eventos abortados incluem um campo `reason` no objeto de metadados, indicando por que a mensagem foi abortada |
+| `delivered` | A mensagem foi aceita pelo provedor da caixa de entrada de e-mail do usuário |
+| `bounced` | A mensagem foi rejeitada pelo provedor da caixa de entrada de e-mail do usuário. Todos os eventos de bounce incluem um campo `reason` no objeto de metadados que reflete o código de erro de bounce fornecido pelo provedor da caixa de entrada |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message status" }
 
-### Exemplo de postback
+### Exemplo de postback {#example-postback}
 ```json
 
 // Sent Event

@@ -10,4 +10,4 @@
 | Hintergrundfarbe | Ändert die Hintergrundfarbe des Buttons. |
 | Rahmenstil | Bestimmt den Stil des Button-Rahmens. |
 | Rahmenradius | Bestimmt, wie abgerundet die Ecken sind. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

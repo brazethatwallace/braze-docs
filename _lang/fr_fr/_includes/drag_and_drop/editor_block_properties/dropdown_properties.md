@@ -12,4 +12,4 @@
 | Espacement des lettres | Espacement horizontal entre les caractères. |
 | Alignement | Alignement horizontal du menu déroulant (gauche ou centre). |
 | Marge intérieure | Espacement autour du bloc. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

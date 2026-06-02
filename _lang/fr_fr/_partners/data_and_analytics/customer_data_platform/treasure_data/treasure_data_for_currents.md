@@ -21,8 +21,8 @@ L'intégration de Braze et Treasure Data vous permet de contrôler de façon flu
 | ----------- | ----------- |
 | Treasure Data | Un [compte Treasure Data](https://console.treasuredata.com/users/sign_in) est nécessaire pour bénéficier de ce partenariat. |
 | Currents | Pour exporter des données dans Treasure Data, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. |
-| URL Treasure Data | Vous pouvez l'obtenir en accédant à votre tableau de bord Treasure Data et en copiant l'URL d'ingestion.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| URL Treasure Data | Vous pouvez l'obtenir en accédant à votre tableau de bord Treasure Data et en copiant l'URL d'ingestion. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% alert note %}
 Treasure Data enregistre chaque événement par lots. Pour plus d'informations sur la manière d'interroger Treasure Data pour obtenir le nombre d'événements, reportez-vous à la section [Interroger les données](https://docs.treasuredata.com/articles/int/braze-currents-import-integration/a/h2__592056238).<br><br>Si vous souhaitez intégrer le nouveau connecteur de flux en continu Braze de Treasure Data, reportez-vous aux étapes de configuration détaillées dans [Intégration de l'importation de flux en continu Braze Currents](https://docs.treasuredata.com/articles/#!int/braze-currents-import-integration/q/braze/qid/72364/qp/4). Pour toute question concernant l'intégration ou la configuration dans Braze, contactez votre équipe de compte Braze.

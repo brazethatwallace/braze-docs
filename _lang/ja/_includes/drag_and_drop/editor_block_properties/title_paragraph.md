@@ -7,4 +7,4 @@
 | 文字間隔 | 各文字間の距離を変更します。 |
 | テキストの配置 | テキストを左揃え、中央揃え、右揃え、または両端揃えに移動します。 |
 | テキストの色 | テキストの色を変更します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

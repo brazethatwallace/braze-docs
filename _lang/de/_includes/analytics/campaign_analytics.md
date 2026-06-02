@@ -5,9 +5,9 @@ Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kam
 {% alert tip %}
 Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe und Metriken? Sehen Sie sich unser
   {% if include.channel == "email" %}[E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/) an.
-  {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Bannern.
+  {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Banner.
   {% elsif include.channel == "Content Card" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Content Cards.
-  {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach In-App-Nachricht.
+  {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach In-App-Nachrichten.
   {% elsif include.channel == "push" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Push.
   {% elsif include.channel == "SMS" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach SMS/MMS und RCS.
   {% elsif include.channel == "whatsapp" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach WhatsApp.
@@ -35,6 +35,10 @@ Das Panel **Campaign Details** zeigt einen Überblick über die gesamte Performa
   {% endif %}
 
 In diesem Panel sehen Sie Gesamtmetriken wie die Anzahl der gesendeten Nachrichten, die Anzahl der Empfänger:innen, die primäre Konversionsrate und den Gesamtumsatz, der mit dieser Nachricht erzielt wurde. Auf dieser Seite können Sie auch die Einstellungen für Zustellung, Zielgruppe und Conversion überprüfen.
+
+{% alert note %}
+Die Analytics-Zahlen im Dashboard und in Snowflake können leicht voneinander abweichen. Braze misst die Zahlen im Dashboard und schreibt Zeilen separat nach Snowflake. Snowflake ist die präzisere Datenquelle. Wenn Sie Abweichungen zwischen diesen Quellen feststellen, empfehlen wir, sich auf die Snowflake-Daten zu beziehen.
+{% endalert %}
 
 {% if include.channel == "whatsapp" %}
 {% alert note %}
@@ -82,7 +86,7 @@ Die folgende Tabelle erklärt, was die jeweilige Bezeichnung bedeutet.
 | --- | --- |
 | **Estimated Audience** | Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei großen Workspaces oder kleinen Segmenten im Verhältnis zum Workspace. |
 | **Current Audience** | Braze kann die Standardstatistik mit einem vollständigen Scan der Workspace-Profile berechnen, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience und Current Audience" }
 
 Weitere Informationen zum Stichprobenverhalten, zu **Calculate exact statistics** und zur Segmentierung **erreichbarer Nutzer:innen** finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -220,7 +224,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     }
 </style>
 
-<table>
+<table aria-label="Content-Card-Metriken">
     <caption class="sr-only">Content-Card-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -287,7 +291,7 @@ _Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind,
 
 Dies sind die wichtigsten Metriken, die Sie bei der Überprüfung der Performance Ihrer Banner-Kampagne im Blick behalten sollten. Klicks und Impressionen für Banner werden automatisch über das SDK getrackt.
 
-Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Bannern.
+Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Banner.
 
 <style>
     .no-split {
@@ -295,7 +299,7 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
     }
 </style>
 
-<table>
+<table aria-label="Banner-Metriken">
     <caption class="sr-only">Banner-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -365,7 +369,7 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
     }
 </style>
 
-<table>
+<table aria-label="E-Mail-Metriken">
     <caption class="sr-only">E-Mail-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -377,7 +381,7 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dieser Wert wird über einen Zeitraum von sieben Tagen für E-Mails getrackt und anhand der <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> gemessen. Dazu gehören auch Klicks auf die von Braze bereitgestellten Abmeldelinks. Dieser Wert sollte zwischen 5–10 % liegen. Alles über 10 % ist außergewöhnlich!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dieser Wert wird über einen Zeitraum von sieben Tagen für E-Mails getrackt und anhand der <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> gemessen. Dazu gehören auch Klicks auf die von Braze bereitgestellten Abmeldelinks. Dieser Wert sollte zwischen 5–10 % liegen. Alles über 10 % ist außergewöhnlich!
             </td>
         </tr>
         <tr>
@@ -447,15 +451,23 @@ Ein Klick und eine Öffnung können auch an verschiedenen Tagen stattfinden: Ein
 
 ##### Höhere _Unique Clicks_ als _Unique Opens_ {#higher-unique-clicks-than-unique-opens}
 
-_Unique Clicks_ können höher sein als _Unique Opens_, wenn Öffnungen zu niedrig gezählt oder Klicks überhöht werden:
+Es kann vorkommen, dass _Unique Clicks_ die _Unique Opens_ deutlich übersteigen (z. B. mehrere eindeutige Klicks pro eindeutiger Öffnung), selbst wenn Sie von Ihrer Zielgruppe ein niedrigeres Verhältnis erwarten. Dieses Muster bedeutet in der Regel, dass Öffnungen zu niedrig gezählt, Klicks überhöht oder beides der Fall ist. Das bedeutet jedoch nicht, dass Braze Klicks isoliert falsch zählt.
+
+Braze protokolliert eine E-Mail-Öffnung, wenn das Öffnungs-Tracking-Pixel geladen wird. Dieses Pixel ist ein kleines transparentes Bild (oft als 1 x 1&nbsp;px beschrieben), das Braze dem Nachrichten-HTML hinzufügt. Wenn das Pixel nie geladen wird, wird für diese Ansicht keine Öffnung protokolliert, aber Link-Klicks können dennoch registriert werden – sodass Ihre Click-to-Open-Rate und das Verhältnis zwischen diesen beiden Metriken verzerrt aussehen können.
 
 **Das Postfach hat das Öffnungs-Tracking-Pixel nie geladen**
 
-Dies kann passieren, wenn:
+Das Pixel wird möglicherweise nicht geladen, wenn:
 
-- Die Nachricht lang ist und das Öffnungs-Pixel am Ende steht. Wenn der Client die Nachricht abschneidet, wird das Pixel abgeschnitten.
-- Die Nachricht im Spam-Ordner gelandet ist, wo Remote-Bilder (einschließlich des Öffnungs-Pixels) oft nicht geladen werden.
-- Das Postfach strengere Sicherheitseinstellungen verwendet (häufig bei Unternehmenskonten) und die Nutzer:in sich noch nicht entschieden hat, Bilder zu laden.
+- **Die Nachricht abgeschnitten wird.** Langes HTML schiebt Inhalte – einschließlich des Pixels am Ende – hinter einen „Gesamte Nachricht anzeigen“-Abschnitt. In Gmail werden Nachrichten, die größer als etwa [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) sind, häufig abgeschnitten, was das Laden des Pixels verhindern kann, bis die vollständige Nachricht geöffnet wird (und manchmal auch dann nicht, je nach Client).
+- **Bilder blockiert oder eingeschränkt sind.** Strengere Posteingangs-Sicherheit (häufig bei Unternehmenskonten) kann Remote-Bilder blockieren, bis die Empfänger:in sich entscheidet, sie zu laden, sodass das Öffnungs-Pixel nicht ausgelöst wird, obwohl getrackte Links angeklickt werden.
+- **Die Nachricht sich im Spam- oder Massenordner befindet.** Viele Anbieter laden Remote-Bilder (einschließlich des Öffnungs-Pixels) in diesen Ordnern standardmäßig nicht.
+
+**Was Sie tun können**
+
+- **Abschneiden:** Kürzen und vereinfachen Sie das HTML, entfernen Sie ungenutzte Styles oder Assets und halten Sie die Gesamtgröße der Nachricht innerhalb der Client-Limits. Für Gmail sollten Sie unter etwa 102&nbsp;KB bleiben, wie unter [E-Mail-Größe]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) beschrieben.
+- **Posteingangs-Sicherheit und Bildladen:** Nur die Empfänger:in (oder deren IT-Richtlinie) kann ändern, ob Bilder standardmäßig geladen werden.
+- **Spam-Platzierung:** Konzentrieren Sie sich auf die [Verbesserung der E-Mail-Zustellbarkeit]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) und Listenhygiene. Wenn E-Mails regelmäßig im Spam landen und die Metriken falsch aussehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
 **Sicherheits- oder Bot-Aktivität bei Links**
 
@@ -473,7 +485,7 @@ Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-F
 
 Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten (siehe oben), können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
 
-Die _Estimated Real Open Rate_ wird 36 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 24 Stunden neu berechnet. Bei wiederkehrenden Kampagnen wird die Schätzung 36 Stunden nach einem weiteren Versand neu berechnet.
+Die _Estimated Real Open Rate_ wird 24 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 72 Stunden neu berechnet.
 
 Da diese Metrik kontinuierlich neu berechnet wird, kann sich der Wert der _Estimated Real Open Rate_ im Laufe der Zeit ändern, wenn neue Engagement-Signale (wie Öffnungen und Klicks) empfangen und in das Modell integriert werden. In der Praxis kann die _Estimated Real Open Rate_ täglich aktualisiert werden, solange eine Kampagne aktiv ist.
 
@@ -516,7 +528,7 @@ Die Berichterstattung für _Button 1 Clicks_ und _Button 2 Clicks_ funktioniert 
     }
 </style>
 
-<table>
+<table aria-label="Metriken für In-App-Nachrichten">
     <caption class="sr-only">In-App-Nachrichten-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -585,7 +597,7 @@ Im Folgenden finden Sie einige wichtige KakaoTalk-Metriken, die Sie in Ihren Ana
 | Fehler | _Fehler_ ist die Anzahl der vom KakaoTalk-Anbieter zurückgegebenen Fehler (wird während des Sendevorgangs erhöht). |
 | Umsatz | _Umsatz_ ist der Umsatz in Dollar von Kampagnenempfänger:innen innerhalb des festgelegten primären Konversionsfensters. |
 | Primäre Konversionen | _Primäre Konversionen_ ist die Anzahl der Male, die ein definiertes Event nach der Interaktion mit oder dem Anzeigen einer empfangenen Nachricht aus einer Braze-Kampagne aufgetreten ist. Dieses definierte Event wird von Ihnen beim Erstellen der Kampagne festgelegt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk-Metriken" }
 
 {% elsif include.channel == "push" %}
 
@@ -599,7 +611,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     }
 </style>
 
-<table>
+<table aria-label="Push-Metriken">
     <caption class="sr-only">Push-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -700,7 +712,7 @@ Firebase Cloud Messaging (FCM) Bounces können in drei Fällen auftreten:
 | Deinstallierte Anwendungen | Wenn eine Nachricht versucht, an ein Gerät zugestellt zu werden, und die vorgesehene App auf diesem Gerät deinstalliert ist, wird die Nachricht verworfen und die Registrierungs-ID des Geräts wird ungültig. Alle weiteren Versuche, das Gerät zu benachrichtigen, geben den Fehler NotRegistered zurück. |
 | Gesicherte Anwendung | Wenn eine Anwendung gesichert wird, kann ihre Registrierungs-ID ungültig werden, bevor die Anwendung wiederhergestellt wird. In diesem Fall speichert FCM die Registrierungs-ID der Anwendung nicht mehr und die Anwendung empfängt keine Nachrichten mehr. Registrierungs-IDs sollten daher **nicht** gespeichert werden, wenn eine Anwendung gesichert wird. |
 | Aktualisierte Anwendung | Wenn eine Anwendung aktualisiert wird, funktioniert die Registrierungs-ID der vorherigen Version möglicherweise nicht mehr. Daher sollte eine aktualisierte Anwendung ihre bestehende Registrierungs-ID ersetzen. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Warum Bounces auftreten" }
 
 {% endtab %}
 {% endtabs %}
@@ -718,7 +730,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     }
 </style>
 
-<table>
+<table aria-label="SMS-, MMS- und RCS-Metriken">
     <caption class="sr-only">SMS-, MMS- und RCS-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -770,7 +782,7 @@ Hier sind einige wichtige Webhook-Metriken, die Sie in Ihren Analytics sehen kö
     }
 </style>
 
-<table>
+<table aria-label="Webhook-Metriken">
     <caption class="sr-only">Webhook-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -806,7 +818,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
     }
 </style>
 
-<table>
+<table aria-label="WhatsApp-Metriken">
     <caption class="sr-only">WhatsApp-Performance-Metriken</caption>
     <thead>
         <tr>

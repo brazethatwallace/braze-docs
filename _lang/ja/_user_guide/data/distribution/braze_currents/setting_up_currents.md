@@ -8,7 +8,7 @@ tool: Currents
 search_rank: 8
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/currents-the-basics-2/){: style="float:right;width:120px;border:0;" class="noimgborder"}Currents の設定
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/currents-the-basics-2/){: style="float:right;width:120px;border:0;" class="noimgborder"}Currents の設定 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcurrents-the-basics-2-stylefloatrightwidth120pxborder0-classnoimgborderset-up-currents}
 
 > このページでは、Braze Currents の連携と設定を行う一般的なプロセスを概説します。
 
@@ -23,11 +23,11 @@ Currents は特定の Braze パッケージに含まれています。ご質問�
 
 エンタイトルメントのリクエストや設定の調整については、Braze のアカウントマネージャーにお問い合わせください。
 
-## 要件
+## 要件 {#requirements}
 
 弊社のパートナーと連携して Currents を使用するには、同じ基本パラメーターと接続方法が必要です。
 
-各パートナーは、Braze がデータファイルを書き込んでパートナーに送信する権限を有することを要求し、Braze は、それらのファイルを書き込む場所、具体的にはバケット名またはキーを尋ねます。
+各パートナーは、Braze がデータファイルを書き込んでパートナーに送信する権限を有することを要求し、Braze はそれらのファイルを書き込む場所、具体的にはバケット名またはキーを尋ねます。
 
 以下の要件は、ほとんどのパートナーと連携するための基本的な最小要件です。パートナーによっては追加のパラメーターが必要になります。それらのパラメーターは、これらの基本要件に関する注意事項とともに、それぞれの[パートナーのドキュメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)に記載されています。
 
@@ -37,41 +37,41 @@ Currents は特定の Braze パッケージに含まれています。ご質問�
 | パートナー API キーまたはトークン | 通常はパートナーのダッシュボードにあります。 | 指定された Braze のフィールドにコピーして貼り付けます。 | Braze には、パートナーの連携ページに、このための指定フィールドがあります。データの送信先を特定するために、これが必要です。**パートナーキーやトークンは常に最新の状態に保ってください。無効な認証情報はコネクターを無効化し、イベントを消失させる可能性があります。**
 | 認証コード/キー、秘密キー、認証ファイル | そのパートナーのアカウント担当者に連絡します。パートナーのダッシュボードに記載されている可能性もあります。 | キーをコピーして指定の Braze フィールドに貼り付けます。`.json` または他の認証ファイルを生成して、Braze の適切な場所にアップロードします。 | Braze には、パートナーの連携ページに、このための指定フィールドがあります。これにより Braze に認証情報が付与され、パートナーでのお客様のアカウントに Braze がファイルを書き込むことができます。**認証の詳細を最新の状態に維持することが重要です。認証情報が無効の場合、コネクターが無効になり、イベントがドロップする可能性があります。**
 | バケット、フォルダパス | 一部のパートナーは、バケットごとにデータを整理し、分類しています。これはパートナーのダッシュボードにあります。 | これが必要な場合は、バケット名またはファイルパスを Braze の指定されたスペースに正確にコピーします。 | これはパートナーによっては必要なことですが、必要なときに正しく行うことが重要です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Requirements" }
 
 {% alert important %}
 パートナーキー、パートナートークン、および認証の詳細を最新の状態に保つことが重要です。コネクターの認証情報の有効期限が切れると、コネクターはイベントの送信を停止します。これが**5日**以上続くと、コネクターのイベントは破棄され、データは永久に失われます。
 {% endalert %}
 
-## Currents の設定
+## Currents の設定 {#setting-up-currents}
 
-### ステップ 1: パートナーの選択
+### ステップ 1: パートナーの選択 {#step-1-choose-your-partner}
 
 Braze Currents を使用すると、フラットファイルを使用したデータストレージ経由での連携、またはバッチ化された JSON ペイロードを指定されたエンドポイントに送信して、行動分析や顧客データのパートナーとの連携ができます。
 
-連携を開始する前に、目的に最適な連携を決定することをお勧めします。例えば、すでに mParticle と Segment を利用していて、そこに Braze データをストリーミングしたい場合は、バッチ化された JSON ペイロードを使用するのが最適です。データを独自に操作したい場合、またはより複雑なデータ分析システムがある場合は、データストレージを使用するのが最適です（[Braze ではこの方法を採用]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)しています）。
+連携を開始する前に、目的に最適な連携を決定することをお勧めします。例えば、すでに mParticle とセグメントを利用していて、そこに Braze データをストリーミングしたい場合は、バッチ化された JSON ペイロードを使用するのが最適です。データを独自に操作したい場合、またはより複雑なデータ分析システムがある場合は、データストレージを使用するのが最適です（[Braze ではこの方法を採用]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)しています）。
 
-### ステップ 2: Currents を開く
+### ステップ 2: Currents を開く {#step-2-open-currents}
 
 始めるには、**[パートナー連携]** > **[Currents]** に移動します。Currents の連携管理ページが表示されます。
 
 ![Braze ダッシュボードの Currents ページ]({% image_buster /assets/img_archive/currents-main-page.png %})
 
-### ステップ 3: パートナーを追加する
+### ステップ 3: パートナーを追加する {#step-3-add-your-partner}
 
 画面上部のドロップダウンを選択し、パートナー（「Currents コネクター」と呼ばれることもあります）を追加します。
 
 パートナーごとに異なる設定ステップが必要です。各連携を有効にするには、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページの指示に従ってください。
 
-### ステップ 4: イベントを設定する
+### ステップ 4: イベントを設定する {#step-4-configure-your-events}
 
 利用可能なオプションから、パートナーに渡すイベントのチェックボックスをオンにします。これらのイベントのリストは、[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)ライブラリと[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)ライブラリにあります。
 
 ![]({% image_buster /assets/img/current4.png %})
 
-必要に応じて、イベントの詳細について[イベント配信セマンティクス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/)の記事を参照してください。
+必要に応じて、イベントの詳細について[イベント配信のセマンティクス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/)の記事を参照してください。
 
-### ステップ 5: フィールド変換の設定
+### ステップ 5: フィールド変換の設定 {#step-5-set-up-field-transformations}
 
 Currents フィールド変換を使用して、文字列フィールドを削除またはハッシュできます。
 
@@ -82,7 +82,7 @@ Currents フィールド変換を使用して、文字列フィールドを削�
 
 ![フィールド変換の追加]({% image_buster /assets/img/current3.png %})
 
-### ステップ 6: 連携のテスト
+### ステップ 6: 連携のテスト {#step-6-test-your-integration}
 
 {% alert important %}
 Currents は、900&nbsp;KB を超える過度に大きなペイロードを持つイベントをドロップします。
@@ -90,13 +90,13 @@ Currents は、900&nbsp;KB を超える過度に大きなペイロードを持�
 
 テストする前に、[GitHub のサンプル Currents データ](https://github.com/Appboy/currents-examples)をご確認ください。テストの準備ができたら、以下のオプションを選択します。
 
-#### テストイベントの送信
+#### テストイベントの送信 {#sending-test-events}
 
-連携をテストするには、**テストイベントを送信** を選択して、選択した各イベントタイプからこの Current に 1 つのイベントを送信します。各イベントタイプの詳細については、[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)ライブラリと[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)ライブラリを参照してください。
+連携をテストするには、**テストイベントを送信**を選択して、選択した各イベントタイプからこの Current に 1 つのイベントを送信します。各イベントタイプの詳細については、[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)ライブラリと[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)ライブラリを参照してください。
 
-![Braze ダッシュボードの「Currents テスト」ページ。]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
+![Braze ダッシュボードの「Currents テスト」ページ]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 
-#### Currents コネクターのテスト
+#### Currents コネクターのテスト {#testing-currents-connectors}
 
 Currents のテストコネクターは、弊社の既存のコネクターの無料版であり、さまざまな送信先のテストと試行に使用できます。Currents のテストには以下の特徴があります。
 
@@ -105,13 +105,13 @@ Currents のテストコネクターは、弊社の既存のコネクターの�
 
 テスト Currents コネクターが送信上限に達すると、そのコネクターは翌日の午前 0 時（UTC）までイベントを送信しません。
 
-Currents のテストコネクターをアップグレードするには、ダッシュボードで連携を編集し、**テスト連携をアップグレード** を選択します。
+Currents のテストコネクターをアップグレードするには、ダッシュボードで連携を編集し、**テスト連携をアップグレード**を選択します。
 
-## Currents の更新
+## Currents の更新 {#updating-currents}
 
 {% multi_lang_include updating_currents.md %}
 
-## IP 許可リスト
+## IP 許可リスト {#ip-allowlisting}
 
 Braze は、リストされた IP から Currents データを送信します。
 

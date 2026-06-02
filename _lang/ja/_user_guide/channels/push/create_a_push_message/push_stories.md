@@ -9,14 +9,14 @@ channel:
 
 ---
 
-# Push Stories
+# Push Stories {#push-stories}
 
 > Push Storiesは、InstagramやFacebookで普及したフォトカルーセル機能を活用し、マーケターがプッシュ通知内にカルーセル形式のページを作成して、リッチで一貫性のあるストーリーを伝えることを可能にします。これらのページは、画像、クリックアクション、タイトル、説明で構成されます。ユーザーはこれらのページをスワイプして、あなたが伝えるストーリーを閲覧できます。
 
 | Androidの例（展開時） | iOSの例（展開時） |
 | :-----: | :----------: |
 | ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
 
 {% alert note %}
 iOS SDKバージョン3.13.0以降では、SDKが画像をダウンロードする方法の変更により、プッシュの縮小表示で最初の画像のサムネイルが表示されません。メッセージのコピーで、画像を表示するためにプッシュを展開するようユーザーに促してください。
@@ -35,7 +35,7 @@ Push Storiesを受信するには、以下のSDKバージョンが必要です�
 
 Push Storiesを使用するには、以下の手順を実行します。
 
-1. [プッシュCampaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)を作成します。
+1. [プッシュキャンペーン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)を作成します。
 2. **通知タイプ**で**Push Stories**を選択します。
 3. **iOS**または**Android**を選択します。プッシュメッセージで両方を選択した場合、Push Storyを作成するオプションは表示されません。
 
@@ -83,7 +83,7 @@ Push Storiesを使用するには、以下の手順を実行します。
 
 ### Push Storyのセグメンテーション {#push-story-segmentation}
 
-CampaignまたはCanvasを作成する際、Push Storyページをクリックしたかどうかに基づいてターゲットユーザーをフィルタリングできます。次に、ユーザーをターゲットするために使用するCampaignとページを選択します。
+キャンペーンまたはキャンバスを作成する際、Push Storyページをクリックしたかどうかに基づいてターゲットユーザーをフィルタリングできます。次に、ユーザーをターゲットするために使用するキャンペーンとページを選択します。
 
 ### Push Storiesの分析 {#push-stories-analytics}
 

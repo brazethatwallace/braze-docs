@@ -1,5 +1,5 @@
 ---
-nav_title: "Referenzieren"
+nav_title: "Referenz"
 
 page_order: 5
 
@@ -32,30 +32,30 @@ channel:
   - Push
   - SMS
   - Webhooks
-    
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
 ---
 
-# Seite Titel
+# Seitentitel {#page-title}
 
->  Diese Art von Artikel erklärt ein Konzept und enthält spezifische Informationen über technische Prozesse und Produktinhalte (Canvas-Schritte, Segmentierung, einen bestimmten Objekttyp usw.). Die andere Art von Template zum Referenzieren ist ein Glossar. Dieses Format wird nicht für unser API-Glossar oder unsere referenzierte Dokumentation verwendet, es sei denn, es gibt ein bestimmtes Konzept, das erklärt werden muss. Stellen Sie sicher, dass sie auf dieser Seite [dies](#what-is-x-concept), [das](#topic-1-regarding-this-concept) und [das andere](#topic-2-regarding-this-concept) lernen. Dies ist ein [gutes Beispiel für ein allgemeines Dokument zum Referenzieren](https://guide.meteor.com/code-style.html). Dies ist ein gutes Beispiel für ein [sehr technisches Dokument zum Referenzieren](https://www.w3schools.com/html/html_intro.asp).
+>  Diese Art von Artikel erklärt ein Konzept und enthält spezifische Informationen über technische Prozesse und Produktinhalte (Canvas-Schritte, Segmentierung, einen bestimmten Objekttyp usw.). Die andere Art von Referenz-Template ist ein Glossar. Dieses Format wird nicht für unser API-Glossar oder unsere Referenzdokumentation verwendet, es sei denn, es gibt ein bestimmtes Konzept, das erklärt werden muss. Stellen Sie sicher, dass auf dieser Seite [dies](#what-is-x-concept), [das](#topic-1-regarding-this-concept) und [das andere](#topic-2-regarding-this-concept) vermittelt wird. Dies ist ein [gutes Beispiel für ein allgemeines Referenzdokument](https://guide.meteor.com/code-style.html). Dies ist ein gutes Beispiel für ein [sehr technisches Referenzdokument](https://www.w3schools.com/html/html_intro.asp).
 
-## Was ist das X-Konzept
+## Was ist das X-Konzept {#what-is-x-concept}
 
 Einschließen:
 - Die Herkunft dieses Konzepts, falls relevant.
-- Links zu externen Ressourcen über dieses Konzept und andere Bezeichnungen für dieses Konzept, falls erforderlich.
-- Wie dieses Konzept bei Braze genutzt und angewendet wird.  
+- Links zu externen Ressourcen über dieses Konzept und andere Bezeichnungen dafür, falls erforderlich.
+- Wie dieses Konzept bei Braze genutzt und angewendet wird.
 - Was sind die Vorteile dieses Konzepts?
 
 
-## Thema 1 Zu diesem Konzept
+## Thema 1 zu diesem Konzept {#topic-1-regarding-this-concept}
 
-Hier sollte ein bestimmter Aspekt dieses Konzepts erläutert werden, z. B. wie ein bestimmter Typ von Canvas-Schritt in Kombination mit einem Kanal verwendet wird. Wenn Sie ein Beispiel dafür sehen möchten, wie man so etwas in freier Wildbahn macht, klicken Sie auf [diesen Link zu diesem Tutorial]().
+Hier sollte ein bestimmter Aspekt dieses Konzepts erläutert werden, z. B. wie ein bestimmter Typ von Canvas-Schritt in Kombination mit einem Kanal verwendet wird. Wenn Sie ein Beispiel dafür sehen möchten, wie das in der Praxis aussieht, klicken Sie auf [diesen Link zu diesem Tutorial]().
 
-### Code Beispiel
+### Code-Beispiel {#code-sample}
 
 Wenn Sie ein technisches Konzept erklären, vermerken Sie das hier und zeigen Sie ein Code-Beispiel.
 
@@ -74,15 +74,15 @@ Wenn Sie ein technisches Konzept erklären, vermerken Sie das hier und zeigen Si
 </html>
 ```
 
-Stellen Sie sicher, dass Sie Parameter oder Elemente definieren, die die Nutzer:innen aus dem Code-Beispiel anpassen müssen. Viele Nutzer:innen werden einfach kopieren und einfügen.
+Stellen Sie sicher, dass Sie Parameter oder Elemente definieren, die Nutzer:innen aus dem Code-Beispiel anpassen müssen. Viele Nutzer:innen werden einfach kopieren und einfügen.
 
-| Variabel | Beschreibung |
+| Variable | Beschreibung |
 | -------- | ----------- |
-| Seite Titel | Sie können Ihre Seite beliebig betiteln. Das müssen Sie haben. |
-| Meine erste Überschrift | Wir empfehlen, dies in Großbuchstaben zu schreiben. Auch dies ist optional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Page Title | Sie können Ihre Seite beliebig betiteln. Dies ist erforderlich. |
+| My First Heading | Wir empfehlen, dies in Großbuchstaben zu schreiben. Dies ist optional. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code-Beispiel" }
 
 
-## Thema 2 Zu diesem Konzept
+## Thema 2 zu diesem Konzept {#topic-2-regarding-this-concept}
 
 Falls ein zweites Thema hinzugefügt wird, sollten Sie es sofort vom ersten Konzept unterscheiden. Gehen Sie dann dazu über, das Konzept zu erklären. Sie können gerne Diagramme hinzufügen!

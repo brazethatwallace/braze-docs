@@ -9,13 +9,13 @@ search_tag: Partner
 
 # スウィム {#swym}
 
-> [Swym](https://getswym.com/)は、ウィッシュリスト、後で購入、ギフトレジストリ、再入荷アラートを活用して、eコマースブランドがショッピングの意図を捉えるのを支援します。権限ベースの豊富なデータを使用することで、ハイパーターゲティングCampaignsを作成し、エンゲージメントを促進し、コンバージョンを向上させ、ロイヤルティを高めるパーソナライズされたショッピング体験を提供できます。
+> [Swym](https://getswym.com/)は、ウィッシュリスト、後で購入、ギフトレジストリ、再入荷アラートを活用して、eコマースブランドがショッピングの意図を捉えるのを支援します。権限ベースの豊富なデータを使用することで、ハイパーターゲティングキャンペーンを作成し、エンゲージメントを促進し、コンバージョンを向上させ、ロイヤルティを高めるパーソナライズされたショッピング体験を提供できます。
 
 *この統合はSwymによって管理されています。*
 
 ## 統合について {#about-the-integration}
 
-SwymとBrazeの統合により、パーソナライズされたイベント駆動型のマーケティングCampaignsを配信し、買い物客の購買意欲を売上につなげることができます。この統合を利用することで、買い物客は前回の続きから買い物を再開したり、ショッピングジャーニーを通じて他のユーザーと協力したり、パフォーマンスの高いリターゲティングCampaignsを受け取ったりすることができます。
+SwymとBrazeの統合により、パーソナライズされたイベント駆動型のマーケティングキャンペーンを配信し、買い物客の購買意欲を売上につなげることができます。この統合を利用することで、買い物客は前回の続きから買い物を再開したり、ショッピングジャーニーを通じて他のユーザーと協力したり、パフォーマンスの高いリターゲティングキャンペーンを受け取ったりすることができます。
 
 ## 前提条件 {#prerequisites}
 
@@ -26,7 +26,7 @@ SwymとBrazeの統合により、パーソナライズされたイベント駆�
 | Swym | Swym Wishlist Plus、Back in Stockアプリ、またはその両方がeコマースプラットフォーム（ShopifyまたはBigCommerce）にインストールされており、エンタープライズプランに加入していること。 |
 | Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -74,7 +74,7 @@ Wishlist Plusアプリから**Marketing**タブに移動し、**Automations**セ
 | 値下げアラート | ウィッシュリストの商品がセールになった場合 |
 | 在庫僅少アラート | ウィッシュリストの商品の在庫が少なくなっている場合 |
 | 再入荷アラート | ウィッシュリストの商品が再入荷した場合 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Swym Wishlist Plusアプリのイベント" }
 
 #### Swym Back in Stockアラートアプリのイベント {#swym-back-in-stock-alerts-app-events}
 
@@ -83,11 +83,11 @@ Wishlist Plusアプリから**Marketing**タブに移動し、**Automations**セ
 | 再入荷確認 | 買い物客が商品の再入荷通知をサブスクライブした場合 |
 | 再入荷アラート | 買い物客が再入荷アラートをリクエストした商品が再入荷された場合 |
 | 再入荷リマインダー | フォローアップアラート（通常、最初の再入荷アラートから約24時間後、設定可能） |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Swym Back in Stockアラートアプリのイベント" }
 
-### ステップ 3: BrazeのCampaignまたはCanvasを作成する {#step-3-create-a-braze-campaign-or-canvas}
+### ステップ 3: Brazeのキャンペーンまたはキャンバスを作成する {#step-3-create-a-braze-campaign-or-canvas}
 
-買い物客へのパーソナライズされたメッセージ配信を自動化するには、サブスクライブした各イベントに対して、Brazeで個別のCampaignまたはCanvasを作成する必要があります。各CampaignまたはCanvasは、特定のイベントに基づいてトリガーされるように設定し、対応するイベントプロパティを使用してメッセージにダイナミックなコンテンツを挿入する必要があります。ステップバイステップのガイダンスについては、[はじめに：CampaignsとCanvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/)を参照してください。
+買い物客へのパーソナライズされたメッセージ配信を自動化するには、サブスクライブした各イベントに対して、Brazeで個別のキャンペーンまたはキャンバスを作成する必要があります。各キャンペーンまたはキャンバスは、特定のイベントに基づいてトリガーされるように設定し、対応するイベントプロパティを使用してメッセージにダイナミックなコンテンツを挿入する必要があります。ステップバイステップのガイダンスについては、[はじめに：キャンペーンとキャンバス]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/)を参照してください。
 
 ![アクションベースのイベント。]({% image_buster /assets/img/swym/braze-canvas-setup.png %})
 

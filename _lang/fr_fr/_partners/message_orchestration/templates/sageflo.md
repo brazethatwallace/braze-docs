@@ -14,38 +14,36 @@ search_tag: Partner
 
 _Cette intégration est maintenue par Sageflo._
 
-## À propos de l'intégration
+## À propos de l'intégration {#about-the-integration}
 
-Donnez aux équipes locales les outils dont elles ont besoin pour faire du marketing de manière plus intelligente en exploitant les capacités sophistiquées de Braze qui comprennent la segmentation de l'audience, la gouvernance de la fréquence et le contenu dynamique, tout en incluant des garde-fous pour votre marque. 
+Donnez aux équipes locales les outils dont elles ont besoin pour faire du marketing plus intelligemment en exploitant les fonctionnalités avancées de Braze, notamment la segmentation de l'audience, la gouvernance de la fréquence et le contenu dynamique, tout en incluant des garde-fous pour votre marque.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
 | Compte Sageflo Radiate | Un compte Sageflo Radiate est nécessaire pour bénéficier de ce partenariat. |
-| Clé d'API REST Braze | Une clé API REST de Braze avec des autorisations complètes `templates` et `campaigns`. <br><br> Cette clé peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés d'API**. |
-| Endpoint REST de Braze | [L'URL de votre endpoint REST.]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) Votre endpoint API correspond à l'URL du tableau de bord de votre instance Braze. <br><br> Par exemple, si l'URL de votre tableau de bord est `https://dashboard-03.braze.com`, votre endpoint sera `dashboard-03`. |
+| Clé REST API Braze | Une clé REST API Braze avec les autorisations complètes `templates` et `campaigns`. <br><br> Cette clé peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint API correspond à l'URL du tableau de bord de votre instance Braze. <br><br> Par exemple, si l'URL de votre tableau de bord est `https://dashboard-03.braze.com`, votre endpoint sera `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Cas d'utilisation
+## Cas d'utilisation {#use-cases}
 
-Radiate est idéal pour les franchises et les entreprises de vente au détail qui cherchent à développer leurs efforts de marketing en permettant aux équipes distribuées d'envoyer des e-mails à leurs audiences locales par le biais de Braze.
+Radiate est idéal pour les franchises et les entreprises de vente au détail qui cherchent à développer leurs efforts marketing en permettant aux équipes distribuées d'envoyer des e-mails à leurs audiences locales via Braze.
 
-* Permettez aux équipes distribuées d'envoyer facilement des e-mails et des SMS marketing.
-* Créer avec les clients des liens axés sur la communauté
+* Permettre aux équipes distribuées d'envoyer facilement des e-mails et des SMS marketing
+* Créer des liens axés sur la communauté avec les clients
 * Maintenir la cohérence de la marque grâce à des garde-fous intégrés
-* Soulagez votre équipe marketing nationale
+* Soulager votre équipe marketing nationale
 
-## Intégration
+## Intégration {#integration}
 
-L’équipe de gestion des comptes Sageflo prendra en charge la mise en place de votre intégration. Il vous sera demandé de fournir vos identifiants API Braze et Sageflo aidera votre équipe marketing à configurer des segments d'audience pour des emplacements spécifiques. 
+L'équipe de gestion des comptes Sageflo prendra en charge la mise en place de votre intégration. Il vous sera demandé de fournir vos identifiants API Braze et Sageflo travaillera avec votre équipe marketing pour configurer des segments d'audience pour des emplacements et des succursales spécifiques.
 
-Une fois connecté, Sageflo :
+Une fois connecté, Sageflo :
 
-* Configuration de l'environnement Radiate et connexion à Braze
-* Configurer des segments d'audience basés sur l'emplacement/localisation dans Braze
-* Définir les paramètres de la campagne, de l'emplacement/localisation et du groupe d'utilisateurs
-* Modèles de mappage de Braze à utiliser avec les campagnes Radiate
-* Planification et organisation de la formation des utilisateurs
-
-
+* Configurera l'environnement Radiate et la connexion à Braze
+* Configurera des segments d'audience basés sur l'emplacement dans Braze
+* Définira les paramètres de campagne, d'emplacement et de groupe d'utilisateurs
+* Associera les modèles de Braze pour les utiliser avec les campagnes Radiate
+* Planifiera et organisera la formation des utilisateurs

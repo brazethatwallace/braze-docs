@@ -20,7 +20,7 @@ Pour en savoir plus sur les webhooks et comment les utiliser dans Braze, consult
 
 ## Étape 1 : Choisir où créer votre message {#step-1-choose-where-to-build-your-message}
 
-Vous ne savez pas si votre message doit être envoyé via une campagne ou un Canvas ? Les Campaigns sont plus adaptées aux envois de messages ciblés uniques, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
+Vous ne savez pas si votre message doit être envoyé via une campagne ou un Canvas ? Les campagnes sont plus adaptées aux envois de messages ciblés uniques, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
 
 {% tabs %}
 {% tab Campaign %}
@@ -97,7 +97,7 @@ La méthode HTTP à utiliser varie en fonction de l'endpoint auquel vous envoyez
 | GET | Récupère des informations existantes, par opposition à l'écriture de nouvelles informations. Par définition, une requête GET ne prend pas en charge de corps de requête. |
 | PUT | Met à jour les informations sur l'endpoint, en remplaçant toute information existante par ce qui se trouve dans le corps de la requête. |
 | DELETE | Supprime la ressource dans l'URL HTTP. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
 
 #### Corps de la requête {#request-body}
 
@@ -176,7 +176,7 @@ Ensuite, construisez le reste de votre campagne. Consultez les sections suivante
 
 Les webhooks peuvent être envoyés selon une planification, une action ou un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 Cette étape vous permet également de spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
@@ -224,13 +224,13 @@ Lorsque la requête webhook est envoyée, le serveur récepteur renvoie un code 
 
 | Code de réponse | Marqué comme reçu ? | Nouvelles tentatives ? |
 |---------------|-----------|----------|
-| `20x` (succès)  | Oui |   N/A  |
-| `30x` (redirection)  | Non | Non |
-| `408` (délai d'expiration de la requête)  | Non | Oui |
-| `429` (limite de débit atteinte)  | Non | Oui |
-| `Autre 4XX` (erreur client)  | Non | Non |
-| `5XX` (erreur serveur)   | Non | Oui |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `20x` (succès) | Oui | N/A |
+| `30x` (redirection) | Non | Non |
+| `408` (délai d'expiration de la requête) | Non | Oui |
+| `429` (limite de débit atteinte) | Non | Oui |
+| `Autre 4XX` (erreur client) | Non | Non |
+| `5XX` (erreur serveur) | Non | Oui |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
 Braze effectue de nouvelles tentatives pour les codes d'état ci-dessus jusqu'à cinq fois dans un délai de 30 minutes en utilisant des délais exponentiels. Si nous ne parvenons pas à atteindre votre endpoint, les nouvelles tentatives peuvent s'étaler sur une période de 24 heures.<br><br>Chaque webhook dispose de 90 secondes avant d'expirer.
@@ -248,7 +248,7 @@ Braze ne fournit pas de rapport intégré listant chaque campagne ou étape Canv
 
 #### Résolution des problèmes et détails supplémentaires sur les erreurs {#troubleshooting-and-additional-error-details}
 
-Pour des explications détaillées, des étapes de résolution des problèmes et des conseils pour résoudre des erreurs webhook spécifiques, consultez [Résolution des problèmes liés aux requêtes webhook et Contenu connecté]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/). Vous y trouverez également des explications sur le fonctionnement de notre système de détection d'hôtes défaillants et sur la façon dont Braze fournit des notifications d'erreur via des e-mails automatisés et une journalisation supplémentaire dans Braze Currents.
+Pour des explications détaillées, des étapes de résolution des problèmes et des conseils pour résoudre des erreurs webhook spécifiques, consultez [Résolution des problèmes liés aux requêtes webhook et Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/). Vous y trouverez également des explications sur le fonctionnement de notre système de détection d'hôtes défaillants et sur la façon dont Braze fournit des notifications d'erreur via des e-mails automatisés et une journalisation supplémentaire dans Braze Currents.
 
 ### Liste d'autorisation IP {#ip-allowlisting}
 

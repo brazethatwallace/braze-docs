@@ -11,21 +11,17 @@ toc_headers: h2
 
 > Diese Seite dient als Referenz für die Standard- und angepassten Attributansichten in Snowflake. Es gibt drei Ansichten für Standardattribute und drei Ansichten für angepasste Attribute, die jeweils für einen bestimmten Anwendungsfall mit eigenen Performance-Überlegungen konzipiert wurden.
 
-{% alert important %}
-Die Attribute der Nutzerprofile befinden sich derzeit in der Beta-Phase für Snowflake-Datenfreigabe-Kund:innen. Wenn Sie Snowflake-Datenfreigabe verwenden und Zugang zu dieser Beta-Version wünschen, wenden Sie sich an Ihren Customer-Success-Manager oder den Braze Support.
-{% endalert %}
-
 ## Datenparität mit dem Dashboard {#data-parity-with-the-dashboard}
 
 In seltenen Fällen stimmen die Werte von Standard- und angepassten Attributen in den Snowflake-Ansichten auf dieser Seite möglicherweise nicht mit dem überein, was Sie im Nutzerprofil im Braze-Dashboard sehen.
 
-Während der Beta-Phase können Abweichungen auftreten. Beispielsweise kann ein Attribut in Snowflake als `NULL` erscheinen, während das Dashboard einen Wert für diese:n Nutzer:in anzeigt.
+Beispielsweise kann ein Attribut in Snowflake als `NULL` erscheinen, während das Dashboard einen Wert für diese:n Nutzer:in anzeigt.
 
 Wenn Sie weitverbreitete Abweichungen feststellen, wenden Sie sich an Ihren Customer-Success-Manager oder den Braze Support.
 
 ## Verfügbare Ansichten {#available-views}
 
-<table>
+<table aria-label="Verfügbare Ansichten">
   <caption>Verfügbare Ansichten</caption>
   <thead>
     <tr>
@@ -63,7 +59,7 @@ Wenn Sie weitverbreitete Abweichungen feststellen, wenden Sie sich an Ihren Cust
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verfügbare Ansichten" }
 
 ## Schnappschüsse von Nutzerprofilen {#user-profile-snapshots}
 
@@ -80,7 +76,7 @@ Diese Ansichten bieten regelmäßige Schnappschüsse der Attribute des Nutzerpro
 * **Einschränkung:** Die Daten sind nicht in Realtime auf dem neuesten Stand.
 
 {% alert note %}
-Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglich aufgefüllten Daten entspricht `TIME` dem Zeitpunkt der Auffüllung.
+Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das Feld `TIME_MS` gibt diesen Zeitpunkt in Millisekunden-Präzision an. Bei nachträglich aufgefüllten Daten entsprechen die Werte von `TIME` und `TIME_MS` dem Zeitpunkt der Auffüllung.
 {% endalert %}
 
 ### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`-Schema
@@ -91,20 +87,21 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
+| `TIMEZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED-Schema" }
 
 
 ### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`-Schema
@@ -115,10 +112,11 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED-Schema" }
 
 ## Realtime-Ansichten des Nutzerprofils {#real-time-user-profile-views}
 
@@ -137,7 +135,7 @@ Diese Ansichten bieten nahezu Realtime-Updates der Attribute des Nutzerprofils, 
     * Abfragen eines großen Datensatzes (z. B. über 100 Millionen Nutzer:innen) können viele Minuten dauern.
 
 {% alert note %}
-Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglich aufgefüllten Daten entspricht `TIME` dem Zeitpunkt der Auffüllung.
+Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das Feld `TIME_MS` gibt diesen Zeitpunkt in Millisekunden-Präzision an. Bei nachträglich aufgefüllten Daten entsprechen die Werte von `TIME` und `TIME_MS` dem Zeitpunkt der Auffüllung.
 {% endalert %}
 
 ### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`-Schema
@@ -148,20 +146,21 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+| `TIMEZONE` | VARCHAR |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED-Schema" }
 
 ### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`-Schema
 
@@ -170,11 +169,12 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED-Schema" }
 
 ## Historische Änderungsprotokolle {#historical-change-logs}
 
@@ -190,7 +190,7 @@ Diese Ansichten speichern historische Änderungsprotokolle von Nutzerattributen,
 * `EFF_DT` und `END_DT` markieren den Beginn und das Ende des Attribut-Status einer:eines Nutzer:in.
 
 {% alert note %}
-Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglich aufgefüllten Daten entspricht `TIME` dem Zeitpunkt der Auffüllung.
+Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das Feld `TIME_MS` gibt diesen Zeitpunkt in Millisekunden-Präzision an. Bei nachträglich aufgefüllten Daten entsprechen die Werte von `TIME` und `TIME_MS` dem Zeitpunkt der Auffüllung.
 {% endalert %}
 
 ### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`-Schema
@@ -201,22 +201,23 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
+| `TIMEZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED-Schema" }
 
 ### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`-Schema
 
@@ -226,12 +227,13 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED-Schema" }
 
 ## Best Practices
 
@@ -242,7 +244,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | **Allgemeine Abfragen**, die keine aktuellen Updates erfordern | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` und `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | Schnelle Ausführung, mit Daten, die bis zu 12 Stunden alt sind.                          |
 | Abfragen, die die **neuesten Attribute der Nutzer:innen** erfordern       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` und `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Bietet Updates nahezu in Realtime, kann aber bei großen Datenmengen langsamer sein. |
 | **Historisches Tracking** von Attributänderungen           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` und `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | Speichert Attributänderungen mit einer Granularität von 12 Stunden.                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Empfohlene Abfrageverwendung" }
 
 ### Performance-Überlegungen {#performance-considerations}
 

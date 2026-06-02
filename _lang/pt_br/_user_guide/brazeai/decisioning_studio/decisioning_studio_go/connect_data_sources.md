@@ -14,7 +14,7 @@ description: "Saiba como o BrazeAI Decisioning Studio Go se conecta aos seus dad
 Diferente do Decisioning Studio Pro, que suporta integrações diretas de dados com várias fontes, o Decisioning Studio Go acessa os dados de cliente através da sua CEP. Isso significa:
 
 - **Os dados do público** são extraídos diretamente de segmentos ou listas definidos na sua CEP (Braze ou Salesforce Marketing Cloud) e podem incluir apenas certos atributos predefinidos (não dados 1P)
-- **Os dados de engajamento** (aberturas, cliques, envios) são capturados através de consultas automatizadas ou integrações nativas com sua CEP
+- **Os dados de engajamento** (aberturas, cliques, envios) são capturados através de consultas automatizadas ou integrações nativas com a sua CEP
 - **Nenhuma configuração adicional de pipeline de dados** é necessária além do que você configura na sua CEP
 
 ## Padrões de integração suportados {#supported-integration-patterns}
@@ -25,7 +25,7 @@ O Decisioning Studio Go suporta as seguintes CEPs para acesso a dados:
 |-----|-----------------|-----------------|
 | **Braze** | Segments | Exportação do Braze Currents |
 | **Salesforce Marketing Cloud** | Extensões de dados | Automação de consulta SQL |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Requisitos de dados por CEP {#data-requirements-by-cep}
 

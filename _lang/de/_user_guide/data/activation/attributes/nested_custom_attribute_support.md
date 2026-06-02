@@ -24,11 +24,12 @@ description: "Dieser Referenzartikel behandelt die Verwendung verschachtelter an
 - Punkte (`.`) und Dollarzeichen (`$`) sind keine unterstützten Zeichen in einer API-Nutzlast, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Nutzerprofil zu senden.
 - Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Schauen Sie in der [Dokumentation des Partners]({{site.baseurl}}/partners/home/) nach, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
 - Verschachtelte angepasste Attribute können nicht als Filter verwendet werden, wenn Sie einen Connected Audience API-Aufruf durchführen.
+- Standardmäßig enthält der Segmentfilter **Verschachtelte angepasste Attribute** angepasste Attribute vom Typ Objekt, Array-of-Object-Attribute und angepasste Attribute vom Typ Array. Wenn Sie ein Attribut auswählen, enthält der Eigenschafts-Schema-Selektor Array-Pfade (mit `[]`-Notation) für verschachtelte Array-Felder. Um angepasste Attribute auf oberster Ebene vom Typ Array aus diesem Filter auszublenden, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support/).
 
 ## API-Beispiel {#api-example}
 
 {% tabs local %}
-{% tab Create %}
+{% tab Erstellen %}
 Das folgende Beispiel zeigt eine `/users/track`-Anfrage mit einem „Most Played Song“-Objekt. Um die Eigenschaften des Songs zu erfassen, senden wir eine API-Anfrage, die `most_played_song` als Objekt zusammen mit einer Reihe von Objekt-Eigenschaften auflistet.
 
 ```json
@@ -52,7 +53,7 @@ Das folgende Beispiel zeigt eine `/users/track`-Anfrage mit einem „Most Played
 ```
 
 {% endtab %}
-{% tab Update %}
+{% tab Aktualisieren %}
 Um ein bestehendes Objekt zu aktualisieren, senden Sie einen POST an `users/track` mit dem Parameter `_merge_objects` in der Anfrage. Dadurch wird Ihr Update per Deep Merge mit den vorhandenen Objektdaten zusammengeführt. Deep Merging stellt sicher, dass alle Ebenen eines Objekts in ein anderes Objekt zusammengeführt werden und nicht nur die erste Ebene. In diesem Beispiel haben wir bereits ein `most_played_song`-Objekt in Braze und fügen nun ein neues Feld, `year_released`, zum `most_played_song`-Objekt hinzu.
 
 ```json
@@ -90,7 +91,7 @@ Sie müssen `_merge_objects` auf `true` setzen, da Ihre Objekte sonst überschri
 {% endalert %}
 
 {% endtab %}
-{% tab Delete %}
+{% tab Löschen %}
 Um ein angepasstes Attribut-Objekt zu löschen, senden Sie einen POST an `users/track`, wobei das angepasste Attribut-Objekt auf `null` gesetzt wird.
 
 ```json
@@ -285,7 +286,7 @@ So generieren Sie das Schema für Ihr verschachteltes angepasstes Attribut neu:
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute**.
 2. Suchen Sie nach Ihrem verschachtelten angepassten Attribut.
-3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus" aria-label="Schema verwalten"></i> aus, um das Schema zu verwalten.
+3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus"></i> aus, um das Schema zu verwalten.
 4. Ein Modal wird angezeigt. Wählen Sie **Schema neu generieren**.
 
 Die Option zur Schema-Neugenerierung ist deaktiviert, wenn seit der letzten Neugenerierung weniger als 24 Stunden vergangen sind. Die Schema-Neugenerierung erkennt nur neue Objekte und löscht keine Objekte, die derzeit im Schema vorhanden sind.
@@ -302,7 +303,7 @@ Sie können triggern, wenn sich ein verschachteltes angepasstes Attribut-Objekt 
 
 In einer aktionsbasierten Campaign können Sie beispielsweise eine neue Aktion triggern für **Angepassten Attributwert ändern**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
 
-![Aktionsbasierte Campaign-Zustellungseinstellungen mit einem Trigger für die Änderung eines angepassten Attributwerts für verschachtelte Präferenzen]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![Aktionsbasierte Campaign-Zustellungseinstellungen mit einem Trigger für die Änderung eines angepassten Attributwerts für verschachtelte Präferenzen.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
 ## Segmentierungsverhalten bei Objekt-Arrays {#segmentation-behavior-with-arrays-of-objects}
 

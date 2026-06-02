@@ -94,7 +94,7 @@ Eine vollständige Liste der Felder für Push-Benachrichtigungen finden Sie in d
 | `brazeProperties` | Objekt | Stellt die mit der Campaign verbundenen Braze-Eigenschaften dar (Schlüssel-Wert-Paare). |
 | `ios` | Objekt | Stellt iOS-spezifische Felder dar. |
 | `android` | Objekt | Stellt Android-spezifische Felder dar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ereignisfelder für Push-Benachrichtigungen" }
 
 ### 3. Schritt: Anzeige von Push-Benachrichtigungen testen {#step-3-test-displaying-push-notifications}
 

@@ -112,7 +112,7 @@ The following pattern uses three agents for a travel example: someone searched i
 
 To test your agent's performance and credit consumption against your existing journeys, add an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so only part of your audience enters the branch that contains your Agent step. 
 
-For example, using about 25,000 invocations, send 2,000 users per day down a path with the agent and send the rest to a control path or a path without the agent. Gather data for 1-2 weeks and compare key performance indicators (KPIs), counter-metrics, and agent credit consumption between paths before you increase traffic to the agent-enabled branch.
+For example, you can start by sending a few thousand users per day down a path with the agent and send the rest to a control path or a path without the agent. Gather data for 1-2 weeks and compare key performance indicators (KPIs), counter-metrics, and agent credit consumption between paths. This way, you can build confidence and prove ROI before you increase traffic to the agent-enabled branch, and limit invocation consumption to do it.
 
 ## Frequently asked questions
 
@@ -134,4 +134,4 @@ An Agent step analyzes the context data that the agent is configured to use, as 
 - [Braze Agents overview]({{site.baseurl}}/user_guide/brazeai/agents/)  
 - [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)  
 - [Deploy agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)  
-- [Reference for agents]({{site.baseurl}}/user_guide/brazeai/agents/reference/)  
+- [Reference for agents]({{site.baseurl}}/user_guide/brazeai/agents/reference/)

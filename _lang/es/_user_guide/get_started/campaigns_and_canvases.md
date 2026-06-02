@@ -24,7 +24,7 @@ Aunque las Campaigns pueden construirse de forma única dependiendo del canal, h
 | Pruebas A/B | En el caso de las Campaigns dirigidas a un único canal, puedes enviar más de una versión de la misma Campaign y ver cuál sale ganadora. Puedes probar el texto, la personalización y más para un máximo de ocho versiones diferentes con una [Campaign multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing/). |
 | API | Las [Campaigns de API]({{site.baseurl}}/api/api_campaigns/) te permiten enviar mensajes puntuales lo más rápidamente posible. A diferencia de otros tipos de Campaign, no especificas el mensaje, los destinatarios ni la planificación en el dashboard de Braze. En su lugar, pasas estos identificadores a tus llamadas a la API. Suelen utilizarse para mensajería transaccional en tiempo real o noticias de última hora. |
 | Correos electrónicos transaccionales | Los [correos electrónicos transaccionales]({{site.baseurl}}/user_guide/channels/email/) de Braze están diseñados para enviar mensajes de correo electrónico automatizados y no promocionales con el fin de facilitar una transacción acordada entre tú y tus clientes. Envían notificaciones críticas para el negocio a un único usuario donde la velocidad es lo más importante. *Disponible para determinados paquetes.* |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
 
 {% alert note %}
 Las Campaigns regulares y de pruebas A/B pueden programarse (como informar a una lista de usuarios sobre un próximo evento) o automatizarse para que se envíen en respuesta a una acción del usuario (como enviar un correo electrónico cuando alguien se suscribe a tu boletín). Más información sobre [la programación de Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
@@ -77,7 +77,7 @@ En la tabla siguiente se describen los canales que admitimos.
 | [TV conectada]({{site.baseurl}}/developer_guide/platforms/tv_and_ott/) | Interactúa con los usuarios en plataformas de televisión conectadas. |
 | [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/) | Habilita la comunicación en tiempo real y la integración con sistemas externos mediante devoluciones de llamada HTTP personalizadas. |
 | [LINE]({{site.baseurl}}/user_guide/channels/line/) | Interactúa con los usuarios en LINE, la aplicación de mensajería más popular de Japón. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canales de mensajería" }
 
 <sup>*Disponible como característica adicional.</sup>
 

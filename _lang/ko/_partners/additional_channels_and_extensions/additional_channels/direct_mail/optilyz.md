@@ -25,7 +25,7 @@ optilyz와 Braze 웹훅 통합을 사용하여 고객에게 편지, 엽서, 셀�
 | optilyz 계정 | 이 파트너십을 활용하려면 optilyz 계정이 필요합니다. |
 | optilyz API 키<br><br>`<OPTILYZ_API_KEY>` | optilyz 고객 성공 매니저가 optilyz API 키를 제공합니다.<br><br>이 API 키를 사용하여 Braze와 optilyz 계정을 연결할 수 있습니다. |
 | optilyz 자동화 ID<br><br>`<OPTILYZ_AUTOMATION_ID>` | 자동화 ID는 페이지 헤더의 박스에서 확인할 수 있습니다.<br><br>optilyz에 로그인한 후 데이터를 전송하려는 자동화로 이동할 수 있습니다.<br>자동화를 먼저 활성화해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 활용 사례 {#use-cases}
 
@@ -40,7 +40,7 @@ optilyz와 통합하려면 [optilyz API](https://www.optilyz.com/doc/api/)를 �
 
 ### 1단계: Braze 웹훅 템플릿 생성 {#step-1-create-your-braze-webhook-template}
 
-향후 Campaign 또는 Canvas에서 사용할 optilyz 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **템플릿** > **웹훅 템플릿**으로 이동합니다.
+향후 Campaigns 또는 Canvases에서 사용할 optilyz 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **콘텐츠** > **웹훅**으로 이동합니다. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
 일회성 optilyz 웹훅 캠페인을 생성하거나 기존 템플릿을 사용하려면 새 캠페인을 생성할 때 Braze에서 **웹훅**을 선택합니다.
 

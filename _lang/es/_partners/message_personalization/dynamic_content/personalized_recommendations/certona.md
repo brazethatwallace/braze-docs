@@ -2,7 +2,7 @@
 nav_title: Certona
 article_title: Certona
 alias: /partners/certona/
-description: "Este artículo de referencia describe la asociación entre Braze y Certona, una solución de personalización omnicanal en tiempo real que ofrece personalización en todo el ciclo de vida del cliente. Utiliza Certona con el socio de contenido conectado Braze para insertar fácilmente recomendaciones de contenido en campañas multicanal."
+description: "Este artículo de referencia describe la asociación entre Braze y Certona, una solución de personalización omnicanal en tiempo real que ofrece personalización en todo el ciclo de vida del cliente. Utiliza Certona con el socio de Contenido conectado de Braze para insertar fácilmente recomendaciones de contenido en campañas multicanal."
 page_type: partner
 search_tag: Partner
 
@@ -10,25 +10,25 @@ search_tag: Partner
 
 # Certona
 
-> La plataforma de [Certona](https://www.certona.com/) impulsa la personalización a lo largo del ciclo de vida del cliente. Desde campañas de correo electrónico altamente individualizadas hasta recomendaciones de productos basadas en aprendizaje automático, Certona le garantiza que está aprovechando el poder de la personalización.
+> La plataforma de [Certona](https://www.certona.com/) impulsa la personalización a lo largo del ciclo de vida del cliente. Desde campañas de correo electrónico altamente individualizadas hasta recomendaciones de productos basadas en aprendizaje automático, Certona te garantiza que estás aprovechando el poder de la personalización.
 
 _Esta integración está mantenida por Certona._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Certona utiliza las recomendaciones de productos de aprendizaje automático de Certona en campañas Braze y Canvases a través de contenido conectado.
+La integración de Braze y Certona utiliza las recomendaciones de productos de aprendizaje automático de Certona en Campaigns y Canvas de Braze a través de Contenido conectado.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-| Requisito| Descripción|
-| ---| ---|
+| Requisito | Descripción |
+| --- | --- |
 | [Cuenta Certona](https://manage.certona.com/) | Se necesita una cuenta Certona para beneficiarse de esta asociación. |
-| [Punto final de la API REST de Certona](https://manage.certona.com/) | Este endpoint se utiliza directamente en su mensaje de campaña Braze para extraer contenido recomendado basado en el ID de usuario. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [Punto de conexión de la REST API de Certona](https://manage.certona.com/) | Este punto de conexión se utiliza directamente en tu mensaje de Campaign de Braze para extraer contenido recomendado basado en el ID de usuario. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
-Utilice la API REST de Certona para insertar contenido personalizado en sus mensajes. Para ello, añada la siguiente plantilla de contenido conectado al compositor de mensajes Braze junto con el punto final de la API REST de Certona.
+Utiliza la REST API de Certona para insertar contenido personalizado en tus mensajes. Para ello, añade la siguiente plantilla de Contenido conectado a tu creador de mensajes de Braze junto con tu punto de conexión de la REST API de Certona.
 
 {% raw %}
 ```liquid
@@ -39,10 +39,8 @@ A continuación, define el contenido que deseas llamar, como texto o imágenes r
 
 {% endraw %}
 
-![Imagen de una campaña push con Contenido Conectado relacionado con Certona incluido en el cuerpo del mensaje.]({% image_buster /assets/img/certona.png %})
+![Imagen de una campaña push con Contenido conectado relacionado con Certona incluido en el cuerpo del mensaje.]({% image_buster /assets/img/certona.png %})
 
-Una vez que hayas puesto este mensaje en el cuerpo del compositor, previsualiza tu llamada a Contenido Conectado para asegurarte de que has mostrado la información correcta.
+Una vez que hayas puesto este mensaje en el cuerpo del creador de mensajes, previsualiza tu llamada a Contenido conectado para asegurarte de que has mostrado la información correcta.
 
 ![Una imagen que muestra la pestaña "Prueba", animando a los usuarios a probar a fondo su mensaje antes de enviarlo.]({% image_buster /assets/img/certona2.png %})
-
-

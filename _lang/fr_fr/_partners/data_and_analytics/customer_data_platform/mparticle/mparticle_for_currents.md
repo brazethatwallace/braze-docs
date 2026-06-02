@@ -2,7 +2,7 @@
 nav_title: mParticle pour Currents
 article_title: mParticle pour Currents
 alias: /partners/mparticle_for_currents/
-description: "Cet article de référence présente le partenariat entre Braze Currents et mParticle, une plateforme de données client qui collecte et achemine les données entre les sources de votre pile marketing."
+description: "Cet article de référence présente le partenariat entre Braze Currents et mParticle, une plateforme de données client qui collecte et achemine les informations entre les sources de votre pile marketing."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -21,7 +21,7 @@ L'intégration de Braze et mParticle vous permet de contrôler de façon fluide 
 | ----------- | ----------- |
 | Currents | Pour pouvoir exporter des données dans mParticle, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. |
 | Compte mParticle | Un [compte mParticle](https://app.mparticle.com/login) est nécessaire pour profiter de ce partenariat. |
-| Clé et secret du serveur mParticle | Vous pouvez les obtenir en naviguant dans votre tableau de bord de mParticle et en créant les [flux nécessaires](#step-1-create-feeds) qui permettent à mParticle de recevoir les données d'interaction de Braze pour les plateformes iOS, Android et Web. |
+| Clé et secret serveur-à-serveur mParticle | Vous pouvez les obtenir en accédant à votre tableau de bord mParticle et en créant les [flux nécessaires](#step-1-create-feeds) qui permettent à mParticle de recevoir les données d'interaction de Braze pour les plateformes iOS, Android et Web. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## À propos des identifiants mParticle {#about-mparticle-credentials}
@@ -63,64 +63,11 @@ Tous les événements envoyés à mParticle incluront le `external_user_id` de l
 
 ## Événements Currents pris en charge {#supported-currents-events}
 
-Braze prend en charge l'exportation des données suivantes, répertoriées dans les glossaires d'événements Currents de [comportement utilisateur]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) et d'[engagement par message]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/), vers mParticle :
+Braze prend en charge l'exportation des événements suivants vers mParticle :
 
-### Comportements {#behaviors}
-- Désinstallation : `users.behaviors.Uninstall`
-- Abonnement (changement d'état global) : `users.behaviors.subscription.GlobalStateChange`
-- Groupe d'abonnement (changement d'état) : `users.behaviors.subscriptiongroup.StateChange`
+- [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
+- [Événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
 
-### Campaigns
-- Abandon : `users_campaigns_abort`
-- Conversion : `users.campaigns.Conversion`
-- EnrollinControl : `users.campaigns.EnrollInControl`
+Pour connaître la structure du payload de chaque événement, sélectionnez l'onglet **mParticle** dans le [glossaire des événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) et le [glossaire des événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
 
-### Canvas
-- Abandon : `users_canvas_abort`
-- Conversion : `users.canvas.Conversion`
-- Entrée : `users.canvas.Entry`
-- Sortie (audience correspondante, événement réalisé)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- Étape d'expérience (conversion, entrée fractionnée)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
-
-### Messages
-- Carte de contenu (abandon, clic, rejet, impression, envoi)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- E-mail (abandon, rebond, clic, réception, signalement comme spam, ouverture, envoi, rebond temporaire, désabonnement)
-- Message in-app (abandon, clic, impression)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- Notification push (abandon, rebond, ouverture, envoi)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS (abandon, envoi par opérateur, réception, échec de réception, réception entrante, rejet, envoi, clic sur lien court)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- Webhook (abandon, envoi)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp (abandon, réception, échec, réception entrante, lecture, envoi)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
-
-
-Pour en savoir plus sur l'intégration mParticle, consultez leur documentation [ici](http://docs.mparticle.com/integrations/braze/feed).
+Pour en savoir plus sur l'intégration mParticle, consultez la [documentation mParticle](http://docs.mparticle.com/integrations/braze/feed).

@@ -25,7 +25,7 @@ Você precisará do seguinte para integrar o LINE com a Braze:
 - [Conta de desenvolvedor do LINE](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [Canal da API de mensagens do LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-O envio de mensagens LINE a partir da Braze consome os Créditos de Mensagem da sua conta.
+O envio de mensagens LINE a partir da Braze consome os Créditos de Mensagem ou Créditos de Ação da sua conta.
 
 {% alert note %}
 **Configurando `native_line_id`**: Você pode definir `native_line_id` enviando atualizações de usuário para a Braze (por exemplo, com o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)). Se o SDK do lado do cliente não tiver um campo dedicado para `native_line_id`, envie-o nas atualizações de usuário do lado do servidor usando um desses métodos.
@@ -38,7 +38,7 @@ O envio de mensagens LINE a partir da Braze consome os Créditos de Mensagem da 
 | Conta não verificada | Uma conta não revisada que pode ser obtida por qualquer pessoa (individual ou corporativa). Esta conta é representada por um selo cinza e não aparecerá nos resultados de pesquisa dentro do app LINE. |
 | Conta verificada | Uma conta que passou pela análise do LINE Yahoo. Esta conta é representada por um selo azul e aparecerá nos resultados de pesquisa dentro do app LINE.<br><br>Esta conta está disponível apenas para contas baseadas no Japão, Taiwan, Tailândia e Indonésia. |
 | Conta premium | Uma conta que passou pela análise do LINE Yahoo. Esta conta é representada por um selo verde e aparecerá nos resultados de pesquisa dentro do app LINE. Este tipo de conta é concedido automaticamente durante a análise, a critério do LINE. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de contas LINE" }
 
 ### Tipo de conta necessário {#required-account-type}
 
@@ -99,7 +99,11 @@ Após a conclusão do processo de integração, a Braze extrairá automaticament
 | Channel ID | Selecione seu provedor e acesse **Channels** > seu canal > **Basic settings** |
 | Channel secret | Selecione seu provedor e acesse **Channels** > seu canal > **Basic settings**. |
 | Channel access token | Selecione seu provedor e acesse **Channels** > seu canal > **Messaging API**. Se não houver um channel access token, selecione **Issue**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2.1: Editar configurações de webhook" }
+
+{% alert note %}
+Se você precisar atualizar ou rotacionar o channel secret de um canal LINE já integrado, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/) para solicitar uma atualização.
+{% endalert %}
 
 {: start="3"}
 3. Acesse sua página **Settings** > **Response settings** e faça o seguinte:
@@ -285,10 +289,10 @@ Os IDs LINE são recebidos automaticamente pela Braze quando um usuário segue s
 
 Existem duas maneiras de combinar um ID LINE com um perfil de usuário existente na Braze:
 
-- [LINE Login](#line-login)
+- [Login com LINE](#line-login)
 - [Vinculação de conta de usuário](#user-account-linking)
 
-### LINE Login {#line-login}
+### Login com LINE {#line-login}
 
 Este método usa logins de redes sociais para reconciliação. Quando um usuário faz login no seu app, ele tem a opção de usar o [LINE Login](https://developers.line.biz/en/docs/line-login/overview/) para criar uma conta de usuário ou fazer login.
 

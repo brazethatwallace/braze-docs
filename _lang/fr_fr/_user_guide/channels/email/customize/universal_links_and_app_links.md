@@ -7,7 +7,7 @@ description: "Cet article décrit comment configurer les liens universels Apple 
 channel: email
 ---
 
-# Liens universels et App Links
+# Liens universels et App Links {#universal-links-and-app-links}
 
 > Cet article décrit comment configurer les liens universels Apple et les Android App Links.
 
@@ -33,7 +33,7 @@ Ce tableau présente les principales différences entre les liens universels et 
 | Objectif                | Lier de façon fluide le contenu web et applicatif sur les appareils iOS et Android | Lier vers un contenu spécifique de l'application |
 | Fonction               | Dirige vers des pages web ou du contenu applicatif selon le contexte           | Ouvre des écrans spécifiques de l'application   |
 | Installation de l'application       | Ouvre l'application si elle est installée, sinon ouvre le contenu web | Nécessite que l'application soit installée |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How universal links and App Links work" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -72,7 +72,7 @@ Cette association bidirectionnelle domaine-application est nécessaire pour qu'u
 
 Ces étapes sont adaptées de la documentation développeur Apple. Pour plus d'informations, consultez [Allowing apps and websites to link to your content](https://developer.apple.com/documentation/xcode/allowing-apps-and-websites-to-link-to-your-content?language=objc).
 
-### Étape 1 : Configurer les droits de votre application
+### Étape 1 : Configurer les droits de votre application {#step-1-configure-your-app-entitlements}
 
 {% alert note %}
 [Dans Xcode 13 et versions ultérieures](https://developer.apple.com/help/account/reference/provisioning-with-managed-capabilities/), Xcode peut gérer automatiquement le provisionnement des droits pour vous. Vous pouvez probablement passer directement à l'[étape&nbsp;1c](#step-1c) et revenir à ces instructions en cas de problème.
@@ -87,7 +87,7 @@ Ces étapes sont adaptées de la documentation développeur Apple. Pour plus d'i
    a. Saisissez un **Name**. Vous pouvez choisir ce que vous voulez.
    b. Saisissez le **Bundle ID**. Vous pouvez trouver votre identifiant de bundle dans l'onglet **General** de votre projet Xcode pour la cible de build appropriée.
 
-#### Étape 1b : Activer les Associated Domains dans votre identifiant d'application
+#### Étape 1b : Activer les Associated Domains dans votre identifiant d'application {#step-1b-turn-on-associated-domains-in-your-app-identifier}
 
 1. Dans votre identifiant d'application existant ou nouvellement créé, localisez la section **App Services**.
 2. Sélectionnez **Associated Domains**.
@@ -102,26 +102,26 @@ Avant de continuer, assurez-vous que votre projet Xcode a la même équipe séle
 1. Dans Xcode, accédez à l'onglet **Capabilities** de votre fichier de projet.
 2. Activez **Associated Domains**.
 
-##### Conseil de résolution des problèmes
+##### Conseil de résolution des problèmes {#troubleshooting-tip}
 
 Si vous voyez l'erreur « An App ID with Identifier 'your-app-id' is not available. Please enter a different string », procédez comme suit :
 
 1. Vérifiez que vous avez sélectionné la bonne équipe.
 2. Vérifiez que le Bundle ID ([étape 1a](#step-1a)) de votre projet Xcode correspond à celui utilisé pour enregistrer l'identifiant d'application.
 
-#### Étape 1d : Ajouter le droit de domaine
+#### Étape 1d : Ajouter le droit de domaine {#step-1d-add-the-domain-entitlement}
 
 Dans la section des domaines, ajoutez l'étiquette de domaine appropriée. Vous devez la préfixer avec `applinks:`. Dans ce cas, vous pouvez voir que nous avons ajouté `applinks:yourdomain.com`.
 
 ![]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
-#### Étape 1e : Confirmer que le fichier de droits est inclus dans le build
+#### Étape 1e : Confirmer que le fichier de droits est inclus dans le build {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
 Dans le navigateur de projet, assurez-vous que votre nouveau fichier de droits est sélectionné sous **Target Membership**.
 
 Xcode devrait gérer cela automatiquement.
 
-### Étape 2 : Configurer votre site web pour héberger le fichier AASA
+### Étape 2 : Configurer votre site web pour héberger le fichier AASA {#step-2-configure-your-website-to-host-the-aasa-file}
 
 Pour associer le domaine de votre site web à votre application native sur iOS, vous devez héberger le fichier Apple App Site Association (AASA) sur votre site web. Ce fichier constitue un moyen sécurisé de vérifier la propriété du domaine auprès d'iOS. Avant iOS 9, les développeurs pouvaient enregistrer n'importe quel schéma URI pour ouvrir leurs applications, sans aucune vérification. Cependant, avec l'AASA, ce processus est devenu beaucoup plus sécurisé et fiable.
 
@@ -150,7 +150,7 @@ Le fichier AASA contient un objet JSON avec une liste d'applications et les chem
 Ces chaînes de caractères sont sensibles à la casse et les chaînes de requête et les identifiants de fragment sont ignorés.
 {% endalert %}
 
-### Étape 3 : Héberger le fichier AASA sur votre domaine
+### Étape 3 : Héberger le fichier AASA sur votre domaine {#step-3-host-the-aasa-file-on-your-domain}
 
 Lorsque votre fichier AASA est prêt, vous pouvez l'héberger sur votre domaine soit à `https://<<yourdomain>>/apple-app-site-association`, soit à `https://<<yourdomain>>/.well-known/apple-app-site-association`.
 
@@ -166,7 +166,7 @@ Lors de l'hébergement du fichier AASA, assurez-vous que le fichier respecte ces
 - Utilise le type MIME `application/json`.
 - Ne dépasse pas 128 Ko (exigence à partir d'iOS 9.3.1)
 
-### Étape 4 : Préparer votre application pour gérer les liens universels
+### Étape 4 : Préparer votre application pour gérer les liens universels {#step-4-prepare-your-app-to-handle-universal-links}
 
 Lorsqu'un utilisateur appuie sur un lien universel sur un appareil iOS, l'appareil lance l'application et lui envoie un objet [NSUserActivity](https://developer.apple.com/documentation/foundation/nsuseractivity). L'application peut ensuite interroger l'objet NSUserActivity pour déterminer comment elle a été lancée.
 
@@ -181,7 +181,7 @@ Dans Xcode, ouvrez la section **Associated Domains** dans l'onglet **Capabilitie
 Apple recommande de limiter cette liste à un maximum de 20 à 30 domaines.
 {% endalert %}
 
-### Étape 5 : Tester votre lien universel
+### Étape 5 : Tester votre lien universel {#step-5-test-your-universal-link}
 
 Ajoutez le lien universel à un e-mail et envoyez-le à un appareil de test. Coller un lien universel directement dans le champ URL de Safari ne provoquera pas l'ouverture automatique de l'application. Si vous faites cela, vous devrez tirer manuellement la page web vers le bas pour qu'une invite apparaisse en haut vous demandant d'ouvrir l'application correspondante.
 
@@ -196,23 +196,23 @@ Ces étapes sont adaptées de la documentation développeur Android. Pour plus d
 Les Android App Links nécessitent un `IBrazeDeeplinkHandler` personnalisé avec une logique pour gérer les liens de leurs domaines séparément des autres URL web. Il peut être plus simple d'utiliser des liens profonds à la place et de maintenir des pratiques de liens uniformes pour les canaux autres que l'e-mail.
 {% endalert %}
 
-### Étape 1 : Créer des liens profonds
+### Étape 1 : Créer des liens profonds {#step-1-create-deep-links}
 
 Tout d'abord, vous devez créer des liens profonds pour votre application Android. Pour cela, ajoutez des [filtres d'intention](https://developer.android.com/guide/components/intents-filters) dans votre fichier `AndroidManifest.xml`. Le filtre d'intention doit inclure l'action `VIEW` et la catégorie `BROWSABLE`, ainsi que l'URL de votre site web dans l'élément data.
 
-### Étape 2 : Associer votre application à votre site web
+### Étape 2 : Associer votre application à votre site web {#step-2-associate-your-app-with-your-website}
 
 Vous devez associer votre application à votre site web en créant un fichier Digital Asset Links. Ce fichier doit être au format JSON et inclure des détails sur les applications Android pouvant ouvrir les liens vers votre site web. Il doit être placé dans le répertoire `.well-known` de votre site web.
 
-### Étape 3 : Mettre à jour le fichier manifeste de votre application
+### Étape 3 : Mettre à jour le fichier manifeste de votre application {#step-3-update-your-app-manifest-file}
 
 Dans votre fichier `AndroidManifest.xml`, ajoutez un élément meta-data à l'intérieur de l'élément application. L'élément meta-data doit avoir un attribut `android:name` de « asset_statements » et un attribut `android:resource` qui pointe vers un fichier de ressources contenant un tableau de chaînes de caractères incluant l'URL de votre site web.
 
-### Étape 4 : Préparer votre application pour gérer les liens profonds
+### Étape 4 : Préparer votre application pour gérer les liens profonds {#step-4-prepare-your-app-to-handle-deep-links}
 
 Dans votre application Android, vous devez gérer les liens profonds entrants. Vous pouvez le faire en récupérant l'intent qui a démarré votre activité et en extrayant les données de celui-ci.
 
-### Étape 5 : Tester vos liens profonds
+### Étape 5 : Tester vos liens profonds {#step-5-testing-your-deep-links}
 
 Enfin, vous pouvez tester vos liens profonds. Envoyez-vous un lien via une application de messagerie ou un e-mail et cliquez dessus. Si tout est correctement configuré, cela devrait ouvrir votre application.
 
@@ -297,11 +297,11 @@ Si votre fournisseur de services d'e-mailing est Amazon SES, utilisez le code HT
 <a ses:no-track href="[INSERT https LINK HERE]">click here</a>
 ```
 
-#### Éditeur par glisser-déposer
+#### Éditeur par glisser-déposer {#drag-and-drop-editor}
 
 Lorsque vous utilisez l'éditeur d'e-mail par glisser-déposer, saisissez votre code HTML en tant qu'attribut personnalisé si votre lien est attaché à du texte, un bouton ou une image.
 
-##### Attribut personnalisé pour un lien texte
+##### Attribut personnalisé pour un lien texte {#custom-attribute-for-a-text-link}
 
 #### SendGrid
 
@@ -319,7 +319,7 @@ Sélectionnez les éléments suivants pour l'attribut personnalisé :
 
 ![Un attribut personnalisé pour un lien texte.]({% image_buster /assets/img/text_click_tracking_off.png %}){: style="max-width:60%;"}
 
-##### Attribut personnalisé pour un bouton ou une image
+##### Attribut personnalisé pour un bouton ou une image {#custom-attribute-for-a-button-or-image}
 
 #### SendGrid
 
@@ -343,7 +343,7 @@ Sélectionnez les éléments suivants pour l'attribut personnalisé :
 
 Si vos liens universels ne fonctionnent pas comme prévu dans vos e-mails, par exemple en redirigeant le destinataire de son application de messagerie vers le navigateur web avant de finalement rediriger vers l'application, consultez ces conseils pour résoudre les problèmes de configuration de vos liens universels.
 
-#### Vérifier l'emplacement du fichier de liens
+#### Vérifier l'emplacement du fichier de liens {#verify-link-file-location}
 
 Assurez-vous que le fichier AASA (iOS) ou le fichier Digital Asset Links (Android) se trouve au bon emplacement :
 
@@ -352,9 +352,17 @@ Assurez-vous que le fichier AASA (iOS) ou le fichier Digital Asset Links (Androi
 
 Il est important de s'assurer que ces fichiers sont toujours accessibles publiquement. Si vous ne pouvez pas y accéder, vous avez peut-être manqué une étape dans la configuration des liens universels pour l'e-mail.
 
-#### Vérifier les définitions de domaines
+#### Vérifier les définitions de domaines {#verify-domain-definitions}
 
 Assurez-vous que les définitions des domaines que votre application est autorisée à ouvrir sont correctes.
 
-- **iOS :** vérifiez les Associated Domains configurés dans Xcode pour votre application ([étape 1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
+- **iOS :** vérifiez les Associated Domains configurés dans Xcode pour votre application ([étape 1c]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
 - **Android :** ouvrez la page d'informations de l'application (appui long sur l'icône de l'application et cliquez sur ⓘ). Dans le menu d'informations de l'application, localisez **Ouvrir par défaut** et appuyez dessus. Cela devrait afficher un écran avec tous les liens vérifiés que l'application est autorisée à ouvrir. Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
+
+#### Le domaine de suivi ne peut pas servir les fichiers .well-known {#tracking-domain-cant-serve-well-known-files}
+
+Dans certains cas, votre domaine de suivi des clics peut ne pas être en mesure d'héberger les fichiers `.well-known` requis en raison de limitations de l'ESP ou de contraintes d'infrastructure. Si vous ne pouvez pas héberger le fichier AASA ou Digital Asset Links sur votre domaine de suivi, envisagez les options suivantes :
+
+- **Contactez votre ESP pour héberger les fichiers sur leur domaine de suivi :** votre sous-domaine de suivi des clics est généralement un CNAME pointant vers votre ESP (SendGrid, SparkPost ou Amazon SES). Comme l'ESP termine le trafic pour ce domaine, il peut héberger les fichiers `.well-known` pour vous. SendGrid et SparkPost prennent tous deux en charge cette fonctionnalité. Contactez directement votre ESP pour en faire la demande.
+- **Désactivez sélectivement le suivi des clics sur les URL de liens profonds :** si votre ESP ne peut pas héberger les fichiers, vous pouvez désactiver le suivi des clics pour des liens universels spécifiques afin qu'ils pointent directement vers votre domaine principal (où vous pouvez héberger le fichier AASA ou Digital Asset Links). Notez que cette méthode peut entraîner une perte d'analyse des clics pour ces liens spécifiques. Consultez [Désactiver le suivi des clics lien par lien](#turning-off-click-tracking-on-a-link-to-link-basis) pour les instructions.
+- **Placez un réseau de diffusion de contenu devant le sous-domaine de suivi :** si vous avez besoin d'une couverture complète du suivi des clics et de la création de liens profonds, vous pouvez placer un réseau de diffusion de contenu (tel que Cloudflare ou CloudFront) devant votre sous-domaine de suivi. Configurez le réseau de diffusion de contenu pour servir les fichiers `.well-known` localement et transmettre tout le reste du trafic à votre ESP. Cette approche est plus complexe mais vous donne un contrôle total sur le suivi des clics et les liens universels.

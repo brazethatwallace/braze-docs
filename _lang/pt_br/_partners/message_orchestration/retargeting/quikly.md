@@ -100,17 +100,17 @@ Aqui está o fluxo de trabalho completo quando um cliente fornece seu número de
 Para dar suporte aos fluxos de trabalho de inscrição por SMS de aceitação dupla existentes, a Quikly pode enviar um evento personalizado para a Braze em vez do fluxo de trabalho acima. Nesse caso, em vez de atualizar o status da inscrição diretamente, o [evento personalizado dispara o processo de dupla aceitação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/), e o status da inscrição é monitorado periodicamente para verificar se o usuário fez a aceitação total antes de creditá-lo na ativação da Quikly.
 
 {% alert important %}
-A Braze aconselha que, ao criar novos usuários por meio do endpoint `/users/track`, deve haver um delay de cerca de 2 minutos antes de adicionar usuários ao grupo de inscrições relevante para dar tempo à Braze de criar completamente o perfil do usuário.
+A Braze aconselha que, ao criar novos usuários por meio do endpoint `/users/track`, deve haver uma postergação de cerca de 2 minutos antes de adicionar usuários ao grupo de inscrições relevante para dar tempo à Braze de criar completamente o perfil do usuário.
 {% endalert %}
 
 {% details Detailed /subscription/status/set request %}
-#### Cabeçalhos da solicitação {#request-headers}
+#### Cabeçalhos da solicitação
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-#### Corpo da solicitação {#request-body}
+#### Corpo da solicitação
 ```
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
@@ -135,9 +135,9 @@ Use webhooks para disparar incentivos para eventos específicos na jornada do cl
 
 ### Criar um webhook da Quikly na Braze {#create-a-quikly-webhook-in-braze}
 
-Para criar um modelo de webhook da Quikly para futuras campanhas ou Canvas, navegue até **Modelos** > **Modelos de webhook** na plataforma Braze.
+Para criar um modelo de webhook da Quikly para futuras Campaigns ou Canvas, navegue até **Conteúdo** > **Webhook** na plataforma Braze. Em seguida, selecione **Criar modelo de webhook**.
 
-Se quiser criar uma campanha única de webhook da Quikly ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova campanha.
+Se quiser criar uma Campaign única de webhook da Quikly ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova Campaign.
 
 Selecione **Blank Template** e insira o seguinte para a URL do webhook e o corpo da solicitação:
 - **Webhook URL**: https://api.quikly.com/webhook/braze
@@ -152,7 +152,7 @@ A Quikly exige um `HTTP Header` para autorização.
   - **Authorization**: Bearer [PARTNER_AUTHORIZATION_HEADER]
   - **Content-Type**: application/json
 
-#### Corpo da solicitação {#request-body}
+#### Corpo da solicitação
 
 Selecione ***JSON key/value pairs*** e adicione os seguintes pares:
 {% raw %}
@@ -168,7 +168,7 @@ Selecione ***JSON key/value pairs*** e adicione os seguintes pares:
 Pré-visualize a solicitação no painel **Preview** ou navegue até a guia `Test`, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
 
 {% alert important %}
-Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}
 
 {% endtab %}

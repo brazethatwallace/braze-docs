@@ -8,13 +8,9 @@ description: "Cet article de référence explique comment créer et utiliser des
 
 # Sélections {#selections}
 
-> Cette page explique comment créer et utiliser des sélections avec vos [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/).
+> Les sélections sont des groupes de données que vous pouvez utiliser pour personnaliser un message pour chaque utilisateur de votre campagne. Lorsque vous utilisez une sélection, vous configurez essentiellement des filtres personnalisés basés sur des colonnes spécifiques de votre catalogue. Il peut s'agir de filtres pour la marque, la taille, l'emplacement, la date d'ajout, etc. Cela vous donne le contrôle sur ce que vous montrez aux utilisateurs en vous permettant de définir des critères auxquels les éléments doivent répondre au préalable.<br><br>Cette page explique comment créer et utiliser des sélections avec vos catalogues.
 
-## Fonctionnement {#how-it-works}
-
-Les sélections sont des groupes de données qui permettent de personnaliser un message pour chaque utilisateur de votre campagne. Lorsque vous utilisez une sélection, vous configurez essentiellement des filtres personnalisés basés sur des colonnes spécifiques de votre catalogue. Il peut s'agir de filtres pour la marque, la taille, l'emplacement, la date d'ajout, etc. Cela vous donne le contrôle sur ce que vous montrez aux utilisateurs en vous permettant de définir des critères auxquels les éléments doivent répondre au préalable.
-
-Après avoir créé un catalogue, vous pouvez référencer davantage les données de votre catalogue en incorporant des sélections dans vos campagnes ou recommandations Braze.
+Après avoir créé un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/), vous pouvez référencer davantage les données de votre catalogue en incorporant des sélections dans vos Campaigns ou recommandations Braze.
 
 ![La section Sélections dans un exemple de catalogue.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -22,7 +18,35 @@ Après avoir créé un catalogue, vous pouvez référencer davantage les donnée
 
 - Vous pouvez créer jusqu'à 30 sélections par catalogue.
 - Vous pouvez ajouter jusqu'à 10 filtres par sélection.
-- Les sélections sont idéales pour affiner les recommandations à partir des données de catalogue Braze. Si vous cherchez de l'inspiration, consultez [À propos des recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) pour des exemples de cas d'utilisation.
+- Les sélections sont idéales pour affiner les recommandations à partir des données de catalogue Braze. Si vous cherchez de l'inspiration, consultez [À propos des recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/recommendations/) pour des exemples de cas d'utilisation.
+
+## Filtres de géolocalisation {#geolocation-filters}
+
+Si votre catalogue contient un [type de champ Géolocalisation]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#supported-data-types), vous pouvez utiliser des filtres basés sur la géolocalisation dans vos sélections pour faire apparaître des éléments du catalogue en fonction de leur proximité avec un point géographique.
+
+Deux opérateurs de géolocalisation sont disponibles :
+
+| Opérateur | Description |
+| -------- | ----------- |
+| `geo within` | Renvoie les éléments dont le champ de géolocalisation se trouve dans un rayon spécifié autour d'un point central. |
+| `geo outside` | Renvoie les éléments dont le champ de géolocalisation se trouve en dehors d'un rayon spécifié autour d'un point central. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+Lorsqu'un filtre de géolocalisation est appliqué, les résultats sont triés par distance, l'élément le plus proche apparaissant en premier.
+
+### Définir le point central avec Liquid {#setting-the-center-point-with-liquid}
+
+Vous pouvez définir le point central de manière dynamique à l'aide de Liquid. Par exemple, pour filtrer les éléments par rapport à la localisation la plus récente de chaque utilisateur, utilisez l'attribut {% raw %}`{{${most_recent_location}}}`{% endraw %} comme valeur de filtre :
+
+{% raw %}
+```
+{{${most_recent_location}}}
+```
+{% endraw %}
+
+### Cas d'utilisation : afficher les magasins les plus proches {#use-case-show-the-nearest-store-locations}
+
+Imaginons que votre catalogue contienne un champ `store_location` de type Géolocalisation. Vous pouvez créer une sélection qui utilise l'opérateur `geo within` pour renvoyer les emplacements de magasins situés dans un rayon défini autour de la localisation la plus récente de chaque utilisateur. Définissez la valeur du filtre sur {% raw %}`{{${most_recent_location}}}`{% endraw %} afin que le point central soit mis à jour pour chaque utilisateur. Comme les résultats sont triés par distance, le premier élément renvoyé est toujours le magasin le plus proche.
 
 ## Créer une sélection {#creating-a-selection}
 
@@ -46,7 +70,7 @@ Après avoir créé une sélection, vous pouvez utiliser la section **Preview fo
 L'utilisation de Liquid dans les catalogues, comme les attributs personnalisés et les événements personnalisés, peut donner lieu à des résultats différents pour chaque utilisateur de votre sélection.
 
 {% alert note %}
-Le Contenu connecté Liquid n'est pas pris en charge dans ces paramètres de filtrage.
+Le Liquid de Contenu connecté n'est pas pris en charge dans ces paramètres de filtrage.
 {% endalert %}
 
 ![Paramètres de filtrage pour la sélection du catalogue lorsque l'attribut est défini sur un attribut personnalisé Liquid.]({% image_buster /assets/img_archive/catalog_selections7.png %})
@@ -60,7 +84,7 @@ Après avoir créé votre sélection, personnalisez vos messages avec Liquid pou
 3. Sélectionnez le nom de votre catalogue.
 4. Pour **Item selection method**, sélectionnez **Use a selection**.
 4. Sélectionnez votre sélection dans la liste.
-5. Pour **Information to Display**, sélectionnez les champs du catalogue à inclure pour chaque article.
+5. Pour **Information to Display**, sélectionnez les champs du catalogue à inclure pour chaque élément.
 6. Sélectionnez l'icône **Copy** et collez le Liquid à l'endroit voulu dans votre message.
 
 ![La fenêtre modale Add Personalization avec les sélections suivantes : « Catalog Items » pour « Personalization Type », « Games » pour « Catalog Name », « Selections » pour « Selection Type », « game_selection » pour « Selection », et « title » et « description_en » pour « Information to Display ».]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}

@@ -26,7 +26,7 @@ La integración de Braze y OpenAI te permite conectar tu clave de API de OpenAI 
 |---|---|
 | Cuenta de OpenAI con clave de API | Una cuenta de OpenAI con una clave de API. Ponte en contacto con tu administrador o con [el servicio de asistencia de OpenAI](https://help.openai.com/) si tienes algún problema o pregunta. |
 | Instancia de Braze | Puedes encontrar tu instancia de Braze en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints) o a través de tu administrador de incorporación de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 

@@ -24,7 +24,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 | --- | --- |
 | Un compte Trustpilot | Vous avez besoin d'un compte Trustpilot avec accès à l'API de Trustpilot. |
 | Une clé d'authentification Trustpilot | Vous devrez configurer une clé API et demander un jeton d'accès. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 

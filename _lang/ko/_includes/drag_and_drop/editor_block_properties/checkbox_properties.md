@@ -4,4 +4,4 @@
 | 커스텀 속성 이름 | 체크 시 `true`, 체크 해제 시 `false`를 수신할 부울 커스텀 속성을 선택합니다. |
 | 강조 색상 | 체크박스 제어 스타일링에 사용되는 색상입니다. |
 | 패딩 | 블록 주위의 간격입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -36,7 +36,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `include_archived` | Opcional | booleano | Se deve ou não incluir campanhas arquivadas; o padrão é false. |
 | `sort_direction` | Opcional | String | - Classifique o tempo de criação do mais novo para o mais antigo: passe o valor `desc`.<br> - Classifique o tempo de criação do mais antigo para o mais recente: passe o valor `asc`. <br><br>Se `sort_direction` não estiver incluído, a ordem padrão será da mais antiga para a mais recente. |
 | `last_edit.time[gt]` | Opcional | Horário | Filtra os resultados e retorna apenas as campanhas que foram editadas após o horário fornecido até o momento atual. O formato é `yyyy-MM-DDTHH:mm:ss`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 

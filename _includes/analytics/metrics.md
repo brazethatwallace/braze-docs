@@ -95,7 +95,7 @@ Push Story Notifications record a <i>Body Click</i> when the notification is cli
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
-<i>Deliveries</i> is the total number of message requests that are accepted by the receiving server. This doesn’t mean the message was delivered to a device, only that the message was accepted by the server. 
+<i>Deliveries</i> is the total number (or percentage) of message requests that are accepted by the receiving server. This doesn’t mean the message was delivered to a device, only that the message was accepted by the server. 
 {% endif %}
 
 {% if include.metric == "Deliveries %" %}
@@ -115,7 +115,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-<i>Direct Opens</i> is the total number of users who opened your app or website by directly pressing the notification.
+<i>Direct Opens</i> is the total number (or percentage) of users who opened your app or website by directly pressing the notification.
 {% endif %}
 
 {% if include.metric == "Emailable" %}
@@ -131,7 +131,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
-<i>Influenced Opens</i> is the total number (and percentage) of users who opened the app after the push notification was sent, without directly opening the push.
+<i>Influenced Opens</i> is the total number (or percentage) of users who opened the app after the push notification was sent, without directly opening the push.
 {% endif %}
 
 {% if include.metric == "Lifetime Revenue" %}
@@ -231,7 +231,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
-<i>Total Clicks</i> is the number of unique recipients who clicked on a link in the delivered message.
+<i>Total Clicks</i> is the number (or percentage) of unique recipients who clicked on a link in the delivered message.
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
@@ -251,7 +251,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>Unique Clicks</i>  is the distinct number of recipients who have clicked a link within a message at least once and is measured by <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>.
+<i>Unique Clicks</i>  is the distinct number of recipients who have clicked a link within a message at least once and is measured by <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
@@ -269,15 +269,15 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Unique Opens" %}
-<i>Unique Opens</i> is the total number of delivered messages that have been opened by a single user at least once and are tracked over a seven-day period.
+<i>Unique Opens</i> is the total number (or percentage) of delivered messages that have been opened by a single user at least once and are tracked over a seven-day period.
 {% endif %}
 
 {% if include.metric == "Unsubscribers or Unsub" %}
-<i>Unsubscribers</i> or <i>Unsub</i> is the number of messages resulting in an unsubscription. Unsubscriptions occur when a user clicks on the Braze unsubscribe link.
+<i>Unsubscribers</i> or <i>Unsub</i> is the number of messages resulting in an unsubscription. Unsubscriptions occur when Braze processes an unsubscribe from the Braze unsubscribe URL in the message body or from the list-unsubscribe header when that path is handled by Braze.
 {% endif %}
 
 {% if include.metric == "Unsubscribes" %}
-<i>Unsubscribes</i> is the number of recipients whose subscription state changed to unsubscribed as a result of clicking the Braze provided unsubscribe URL.
+<i>Unsubscribes</i> is the number of recipients whose subscription state changed to unsubscribed from a Braze-handled unsubscribe path, including the Braze unsubscribe URL in the message body and list-unsubscribe when Braze processes the request.
 {% endif %}
 
 {% if include.metric == "Variation" %}

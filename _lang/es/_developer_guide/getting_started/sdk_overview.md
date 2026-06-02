@@ -5,7 +5,7 @@ description: "Este artículo de referencia sobre la incorporación proporciona u
 page_order: 0
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} Resumen del SDK para desarrolladores {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}Resumen del SDK para desarrolladores {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
 
 > Antes de empezar a integrar los SDK de Braze, puede que te preguntes qué estás construyendo e integrando exactamente. Quizá tengas curiosidad por saber cómo puedes personalizar el SDK para adaptarlo aún más a tus necesidades. Este artículo puede ayudarte a responder a todas tus preguntas sobre el SDK.
 
@@ -88,7 +88,7 @@ Si la lista de permitidos está vacía, **no se** enviarán datos de dispositivo
 Puedes asignar un conjunto de campos elegibles a [`configuration.devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) en tu `Braze.Configuration` para especificar una lista de permitidos para los campos del dispositivo que recoge el SDK. La lista completa de campos se define en [`Braze.Configuration.DeviceProperty`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/deviceproperty). Para desactivar la recopilación de todos los campos del dispositivo, establece el valor de esta propiedad en un conjunto vacío (`[]`).
 
 {% alert important %}
-De manera predeterminada, todos los campos son recogidos por el SDK Swift de Braze. Eliminar algunas propiedades del dispositivo puede desactivar las características del SDK.
+De manera predeterminada, todos los campos son recogidos por el SDK Swift de Braze. Eliminar algunas propiedades del dispositivo puede desactivar características del SDK.
 {% endalert %}
 
 Para más detalles de uso, consulta [Almacenamiento]({{site.baseurl}}/developer_guide/storage/?tab=swift) en la documentación del SDK Swift.

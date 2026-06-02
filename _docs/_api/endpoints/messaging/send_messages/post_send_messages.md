@@ -16,7 +16,7 @@ description: "This article outlines details about the Send messages immediately 
 
 > Use this endpoint to send immediate messages to designated users using the Braze API.
 
-If you are targeting a segment, a record of your request will be stored in the [Developer Console](https://dashboard.braze.com/app_settings/developer_console/activitylog/).
+If you are targeting a segment, a record of your request is stored in the [Developer Console](https://dashboard.braze.com/app_settings/developer_console/activitylog/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#946cb701-96e3-48d7-868c-f079785b6d24 {% endapiref %}
 
@@ -178,6 +178,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/send' \
 
 ## Response details
 
-Message sending endpoint responses will include the message's `dispatch_id` for reference back to the dispatch of the message. The `dispatch_id` is the ID of the message dispatch, meaning the unique ID for each "transmission" sent from Braze. For more information, refer to [Dispatch ID behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Message sending endpoint responses include the message's `dispatch_id` for reference back to the dispatch of the message. The `dispatch_id` is the ID of the message dispatch, meaning the unique ID for each "transmission" sent from Braze. For more information, refer to [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}

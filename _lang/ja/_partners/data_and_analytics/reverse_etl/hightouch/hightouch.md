@@ -11,9 +11,9 @@ search_tag: Partner
 
 > [Hightouch](https://hightouch.io) は最新のデータ統合プラットフォームであり、ITチームやエンジニアリングチームの支援を必要とせずに、ウェアハウスやデータレイクからお客様が選択したアプリに、顧客データ、製品データ、または独自のデータを同期できます。
 
-BrazeとHightouchの統合により、データウェアハウスの最新の顧客データを使用して、Brazeでより優れたCampaignsを作成できます。顧客データをBrazeに自動的に同期させることで、データの整合性を心配する必要がなくなり、世界レベルのカスタマーエクスペリエンスの構築に集中して取り組むことができます。
+BrazeとHightouchの統合により、データウェアハウスの最新の顧客データを使用して、Brazeでより優れたキャンペーンを作成できます。顧客データをBrazeに自動的に同期させることで、データの整合性を心配する必要がなくなり、世界レベルのカスタマーエクスペリエンスの構築に集中して取り組むことができます。
 
-この統合により、[ユーザーコホートをBrazeにインポート]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/hightouch/hightouch_cohort_import/)し、ウェアハウスにしか存在しないデータに基づいてターゲットを絞ったCampaignsを送信することもできます。
+この統合により、[ユーザーコホートをBrazeにインポート]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/hightouch/hightouch_cohort_import/)し、ウェアハウスにしか存在しないデータに基づいてターゲットを絞ったキャンペーンを送信することもできます。
 
 ## 前提条件 {#prerequisites}
 
@@ -21,15 +21,15 @@ BrazeとHightouchの統合により、データウェアハウスの最新の顧
 |---|---|
 | Hightouchアカウント | このパートナーシップを活用するには、Hightouchアカウントが必要です。
 | Braze REST APIキー | `users.track` および `users.export.ids` の権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント  | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)に応じて異なります。<br><br>Hightouchには、Brazeインスタンスが配置されているクラスターの名前が必要です。例えば、Brazeのエンドポイントが`https://rest.iad-01.braze.com`の場合、必要なのは`iad-01`だけです。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze RESTエンドポイント  | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)に応じて異なります。<br><br>Hightouchには、Brazeインスタンスが配置されているクラスターの名前が必要です。例えば、Brazeのエンドポイントが `https://rest.iad-01.braze.com` の場合、必要なのは `iad-01` だけです。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
-* ユーザーとアカウントに関するデータをBrazeに同期し、高度にパーソナライズされたCampaignsを構築します。
-* BrazeのSegmentsをウェアハウスからの最新データで自動的に更新します。
+* ユーザーとアカウントに関するデータをBrazeに同期し、高度にパーソナライズされたキャンペーンを構築します。
+* Brazeのセグメントをウェアハウスからの最新データで自動的に更新します。
 * 他の顧客タッチポイントからのデータをBrazeに取り込むことで、より良い体験を提供します。
-* ユーザーのコホートをBrazeにインポートし、ターゲットを絞ったCampaignsやCanvasesを送信できます。
+* ユーザーのコホートをBrazeにインポートし、ターゲットを絞ったキャンペーンやキャンバスを送信できます。
 
 ## 統合 {#integration}
 
@@ -70,5 +70,5 @@ Hightouchでは、イベントデータと購入データを追跡し、これ�
 ## 統合デモ {#integration-demo}
 
 <div class="video-container">
-    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" title="Hightouch integration demo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>

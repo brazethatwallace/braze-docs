@@ -26,7 +26,7 @@ BrazeとOpenAIの連携により、OpenAIのAPIキーをBrazeに接続して、�
 |---|---|
 | APIキーを持つOpenAIアカウント | APIキーを持つOpenAIアカウントが必要です。問題や質問がある場合は、管理者または[OpenAIサポート](https://help.openai.com/)にお問い合わせください。 |
 | Brazeインスタンス | Brazeインスタンスは、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)またはBrazeオンボーディングマネージャーから確認できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 連携 {#integration}
 

@@ -14,32 +14,32 @@ search_tag: Airbyte
 
 _Cette intégration est maintenue par Airbyte._
 
-## À propos de l'intégration
+## À propos de l'intégration {#about-the-integration}
 
 L'intégration de Braze et Airbyte permet aux utilisateurs de créer un pipeline de données pour collecter et analyser les données de Braze en connectant toutes vos applications et bases de données à un entrepôt central. Une fois les données collectées dans l'entrepôt central, les équipes chargées des données peuvent explorer efficacement les données de Braze à l'aide de leurs outils d'aide à la décision préférés.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
-| compte Airbyte Cloud | Un compte [Airbyte Cloud](https://cloud.airbyte.io/workspaces) est requis pour profiter de cette intégration. |
-| Clé d'API REST Braze | Une clé API REST Braze avec toutes les permissions. <br><br> Cette clé peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés d'API**. |
+| Compte Airbyte Cloud | Un compte [Airbyte Cloud](https://cloud.airbyte.io/workspaces) est requis pour profiter de cette intégration. |
+| Clé API REST Braze | Une clé API REST Braze avec toutes les autorisations. <br><br> Cette clé peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST Braze | Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Intégration
+## Intégration {#integration}
 
-1. Dans votre compte Airbyte Cloud, accédez à **Sources > + Nouvelle source > Configurer la source**.
-2. Entrez "Braze" comme nom de source et sélectionnez **Braze** dans le menu déroulant de la source.
-3. Spécifiez l’URL de l'endpoint, la clé API REST Braze et la date de début. Cliquez sur **Configurer la source**.
+1. Dans votre compte Airbyte Cloud, accédez à **Sources > + New Source > Set up the Source**.
+2. Entrez « Braze » comme nom de source et sélectionnez **Braze** dans le menu déroulant de la source.
+3. Indiquez l'URL de l'endpoint, la clé API REST Braze et la date de début. Cliquez sur **Set up Source**.
 
-### Modes de synchronisation pris en charge
+### Modes de synchronisation pris en charge {#supported-sync-modes}
 
-Le connecteur de source Braze d'Airbyte prend en charge les [modes de synchronisation](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes) suivants :
-- **Actualisation complète | Remplacer** : synchroniser tous les enregistrements de la source et remplacer les données dans la destination en les écrasant.
-- **Synchronisation incrémentielle | Ajouter**: Synchroniser les nouveaux enregistrements de la source et les ajouter à la destination sans supprimer aucune donnée.
+Le connecteur source Braze d'Airbyte prend en charge les [modes de synchronisation](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes) suivants :
+- **Full Refresh | Overwrite** : synchronise tous les enregistrements de la source et remplace les données dans la destination en les écrasant.
+- **Incremental Sync | Append** : synchronise les nouveaux enregistrements de la source et les ajoute à la destination sans supprimer aucune donnée.
 
-### Flux pris en charge
+### Flux pris en charge {#supported-streams}
 
 - [`campaigns`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f3b0b3ef-04fb-4a31-8570-e6ad88dacb18)
 - [`campaigns_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1)
@@ -56,5 +56,5 @@ Le connecteur de source Braze d'Airbyte prend en charge les [modes de synchronis
 - [`segments_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e)
 
 {% alert note %}
-Les limites de débit varient selon le flux. Visitez le [tableau des limites de taux]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type) pour plus d'informations.
+Les limites de débit varient selon le flux. Consultez le [tableau des limites de débit]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type) pour plus d'informations.
 {% endalert %}

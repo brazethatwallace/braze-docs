@@ -30,14 +30,14 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | Parámetro      | Obligatorio | Tipo de datos | Descripción          |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | Obligatorio | Cadena    | Nombre del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
 
 ## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción                                                                                                  |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | `fields`  | Obligatorio | Matriz     | Una matriz que contiene objetos de campo. Los objetos de campo deben contener el nombre y el tipo de los nuevos campos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -62,10 +62,18 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     {
       "name": "Created_At",
       "type": "time"
+    },
+    {
+      "name": "Location",
+      "type": "geo"
     }
   ]
 }'
 ```
+
+{% alert note %}
+Debes proporcionar los valores de los campos de geolocalización como una matriz `[longitude, latitude]`, por ejemplo, `[-73.988103, 40.779109]`. La latitud debe estar entre -90 y 90; la longitud debe estar entre -180 y 180.
+{% endalert %}
 
 ## Respuesta {#response}
 
@@ -114,6 +122,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `company-size-limit-already-reached` | Se ha alcanzado el límite de tamaño de almacenamiento del catálogo.                                                             |
 | `request-includes-too-many-fields`   | Cada solicitud puede admitir hasta 50 campos nuevos.                                                          |
 | `catalog-exceeds-fields-limit`       | El catálogo no puede tener más de 500 campos.                                                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

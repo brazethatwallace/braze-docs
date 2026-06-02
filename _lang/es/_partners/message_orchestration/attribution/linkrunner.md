@@ -28,7 +28,7 @@ Lo siguiente es necesario antes de comenzar:
 | Aplicación iOS o Android | Esta integración es compatible con aplicaciones iOS y Android. Dependiendo de tu plataforma, es posible que se requieran fragmentos de código en tu aplicación. |
 | SDK de Linkrunner | Debes instalar el [SDK de Linkrunner](https://docs.linkrunner.io/introduction). |
 | SDK de Braze | Debes integrar el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 

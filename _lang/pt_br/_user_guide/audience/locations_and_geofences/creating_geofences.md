@@ -38,7 +38,7 @@ A tabela a seguir descreve termos comuns de geofence:
 | Latitude e longitude | O centro geográfico da geofence. |
 | Raio | O raio da geofence em metros, medido a partir do centro geográfico. Defina um raio mínimo de 100 metros a 150 metros para todas as geofences. |
 | Cooldown | Os usuários recebem notificações disparadas por geofence após realizar transições de entrada ou saída em geofences individuais. Após uma transição ocorrer, há um período pré-definido durante o qual esse usuário não pode realizar a mesma transição nessa geofence individual novamente. Esse "cooldown" é pré-definido pela Braze e seu principal objetivo é evitar solicitações de rede desnecessárias. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
 
 ## Pré-requisitos {#prerequisites}
 
@@ -74,7 +74,7 @@ Tanto o iOS quanto o Android oferecem múltiplos níveis de acesso à localizaç
 | **Permitir ao usar o app** | Concede acesso à localização sempre que o app está em primeiro plano. Após essa concessão, o iOS pode apresentar um prompt de acompanhamento pedindo ao usuário para fazer upgrade para "Permitir sempre". | Sim. O iOS ativa o monitoramento de localização em segundo plano, incluindo transições de geofence, para apps com essa permissão. |
 | **Permitir sempre** | Concede acesso contínuo à localização, inclusive em segundo plano e quando o app está fechado. | Sim. Isso fornece o monitoramento de geofence mais confiável. |
 | **Não permitir** | Nega todo acesso à localização. | Não. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% tab Android %}
@@ -84,7 +84,7 @@ Tanto o iOS quanto o Android oferecem múltiplos níveis de acesso à localizaç
 | **Ao usar o app** | Concede acesso à localização enquanto o app está em primeiro plano. | Não. No Android, o acesso à localização em segundo plano é necessário para o monitoramento de geofence. |
 | **Permitir sempre** | Concede acesso contínuo à localização, inclusive em segundo plano. No Android 10 e posterior, isso requer um prompt separado após a permissão inicial "Ao usar o app" ser concedida. | Sim. Isso é necessário para geofencing no Android. |
 | **Não permitir** | Nega todo acesso à localização. No Android 13 e posterior, se um usuário negar o prompt de localização duas vezes, o sistema operacional bloqueia prompts adicionais no app. | Não. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% endtabs %}
@@ -97,7 +97,7 @@ No iOS 14+ e Android 12+, os usuários podem escolher entre localização precis
 |---|---|---|
 | **Localização precisa (ativada)** | Precisão na faixa de 5 metros a 50 metros, usando GPS, Wi-Fi e triangulação celular. | As geofences funcionam conforme esperado. Recomendado para todos os casos de uso baseados em geofence. |
 | **Localização aproximada (desativada)** | Precisão de cerca de 3 quilômetros quadrados (aproximadamente 1 milha quadrada). O dispositivo retorna uma área geral em vez de coordenadas exatas. | As geofences não disparam de forma confiável. O dispositivo não consegue determinar com precisão se um usuário está dentro ou fora de um limite de geofence. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Precise versus approximate location" }
 
 {% alert important %}
 Para que o geofencing funcione de forma confiável, os usuários devem ativar a localização precisa. Inclua essa orientação nas mensagens do seu primer de permissão de localização para que os usuários entendam por que a localização precisa é importante.
@@ -307,15 +307,11 @@ A integração básica do SDK ativa apenas o rastreamento de localização. O ge
 
 Você também pode usar geofences com Parceiros de tecnologia da Braze, como [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) e [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/).
 
+## Diferenças entre geofences e rastreamento de localização {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Perguntas frequentes {#frequently-asked-questions}
-
-### Qual é a diferença entre geofences e rastreamento de localização? {#whats-the-difference-between-geofences-and-location-tracking}
-
-Na Braze, uma geofence é um conceito diferente do rastreamento de localização. Geofences são usadas como gatilhos para determinadas ações — quando um usuário entra ou sai de um limite virtual configurado ao redor de uma localização geográfica, isso pode disparar uma ação específica, como enviar uma mensagem.
-
-O rastreamento de localização coleta e armazena os dados de localização mais recentes de um usuário. Esses dados podem ser usados para segmentar usuários com base no filtro `Most Recent Location`. Por exemplo, você poderia usar o filtro `Most Recent Location` para direcionar usuários localizados em Nova York.
-
-Para saber mais, consulte [Rastreamento de localização]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/).
 
 ### Quão precisas são as geofences da Braze? {#how-accurate-are-braze-geofences}
 

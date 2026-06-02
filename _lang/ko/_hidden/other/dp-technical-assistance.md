@@ -117,7 +117,7 @@ Braze 서비스에서 최종 사용자를 삭제하면 제공된 `external_id`�
     <ul>
         <li>USERS_BEHAVIORS_CUSTOMEVENT의 PROPERTIES</li>
         <li>USERS_BEHAVIORS_PURCHASE의 PROPERTIES</li>
-        <li>다음에 대한 MESSAGE_EXTRAS:</li>
+        <li>다음에 대한 MESSAGE_EXTRAS:
             <ul>
             <li>USERS_MESSAGES_CONTENTCARD</li>
             <li>USERS_MESSAGES_EMAIL_SEND</li>
@@ -127,6 +127,7 @@ Braze 서비스에서 최종 사용자를 삭제하면 제공된 `external_id`�
             <li>USERS_MESSAGES_SMS_SEND</li>
             <li>향후 메시지 전송 이벤트</li>
             </ul>
+        </li>
     </ul>
     <p>이에 대한 설정은 <b>회사 설정</b> > <b>관리자 설정</b> > <b>보안 설정</b>에서 액세스할 수 있습니다. 데이터 삭제 기본 설정은 이벤트 유형 또는 카테고리별로 설정됩니다. 관리자 권한이 있는 사용자만 이러한 설정을 변경할 수 있습니다. 또는 관리자가 이러한 권한을 다른 사용자에게 위임할 수도 있습니다.</p>
     <p>이벤트 유형 또는 메시지 추가 항목이 삭제 프로세스에 포함되도록 설정된 경우, 사용자 삭제 REST API 엔드포인트를 실행 중인 사용자에 대해 이 필드의 데이터가 앞으로 삭제됩니다. 또한 이 삭제 기본 설정을 선택하면, 다음 예약된 삭제 작업 시 해당 필드가 포함된 기존 익명화된 데이터 세트에서 해당 필드의 데이터가 삭제됩니다. 삭제된 데이터 필드는 복원할 수 없습니다.</p>

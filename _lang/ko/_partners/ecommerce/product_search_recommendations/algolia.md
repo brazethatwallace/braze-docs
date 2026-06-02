@@ -16,7 +16,7 @@ Algolia와 Braze 통합은 [연결된 콘텐츠]({{site.baseurl}}/user_guide/mes
 ## 활용 사례 {#use-cases}
 
 - **인기 제품 홍보:** Algolia에서 인기 또는 최고 성과 제품을 자동으로 가져와 Braze 메시지에 포함시켜 관심도가 높은 아이템을 홍보하고 참여를 높입니다.
-- **검색 인텔리전스로 캠페인 개인화:** Algolia 검색 및 브라우징 인텔리전스를 활용하여 Braze Campaign을 개인화하고, 각 사용자의 관심사에 맞는 제품이나 카테고리를 전달합니다.
+- **검색 인텔리전스로 Campaign 개인화:** Algolia 검색 및 브라우징 인텔리전스를 활용하여 Braze Campaign을 개인화하고, 각 사용자의 관심사에 맞는 제품이나 카테고리를 전달합니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -25,7 +25,7 @@ Algolia와 Braze 통합은 [연결된 콘텐츠]({{site.baseurl}}/user_guide/mes
 | Algolia 계정 | 이 파트너십을 활용하려면 Algolia 계정이 필요합니다. |
 | Algolia API 자격 증명 | Algolia API 키 및 애플리케이션 ID입니다. |
 | Algolia 제품 인덱스 | 제품 데이터로 채워진 Algolia 인덱스입니다. Search 또는 Recommend API를 사용하려면 이 인덱스가 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -76,7 +76,7 @@ X-Algolia-API-Key: {ALGOLIA_API_KEY}
 X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 ```
 
-#### 쿼리 페이로드 예시 {#example-query-payload}
+#### 쿼리 페이로드 예시
 
 ```json
 {

@@ -21,7 +21,7 @@ dependencies {
 
 `AndroidManifest.xml`にブート、精度の高い位置情報、バックグラウンド位置情報の権限を追加します。
 
-```xml
+`````````xml
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
@@ -33,7 +33,7 @@ dependencies {
 
 `AndroidManifest.xml`の`application`エレメントにBrazeブートレシーバーを追加します。
 
-```xml
+`````````xml
 <receiver android:name="com.braze.BrazeBootReceiver">
   <intent-filter>
     <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -45,7 +45,7 @@ dependencies {
 
 まだBrazeの位置情報収集機能を有効にしていない場合は、`com_braze_enable_location_collection`を含むように`braze.xml`ファイルを更新し、その値が`true`に設定されていることを確認します。
 
-```xml
+`````````xml
 <bool name="com_braze_enable_location_collection">true</bool>
 ```
 
@@ -55,7 +55,7 @@ Braze Android SDKバージョン3.6.0以降、Brazeの位置情報収集機能�
 
 Brazeのジオフェンスは、Brazeの位置情報収集機能が有効になっている場合に有効になります。デフォルトの位置情報収集機能をオプトアウトしながらもジオフェンスを使用したい場合は、`com_braze_enable_location_collection`の値とは独立して、`braze.xml`のキー`com_braze_geofences_enabled`の値を`true`に設定することで、選択的に有効にすることができます。
 
-```xml
+`````````xml
 <bool name="com_braze_geofences_enabled">true</bool>
 ```
 
@@ -68,14 +68,14 @@ Android M以降のバージョンでは、位置情報を収集したりジオ�
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).requestLocationInitialization();
 ```
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).requestLocationInitialization()
 ```
 
@@ -89,7 +89,7 @@ Braze.getInstance(context).requestLocationInitialization()
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 public class RuntimePermissionUtils {
   private static final String TAG = BrazeLogger.getBrazeLogTag(RuntimePermissionUtils.class);
   public static final int DROIDBOY_PERMISSION_LOCATION = 40;
@@ -127,7 +127,7 @@ public class RuntimePermissionUtils {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 object RuntimePermissionUtils {
   private val TAG = BrazeLogger.getBrazeLogTag(RuntimePermissionUtils::class.java!!)
   val DROIDBOY_PERMISSION_LOCATION = 40
@@ -169,7 +169,7 @@ object RuntimePermissionUtils {
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
     boolean hasAllPermissions = PermissionUtils.hasPermission(getApplicationContext(), Manifest.permission.ACCESS_BACKGROUND_LOCATION)
@@ -192,7 +192,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
     val hasAllPermissions = PermissionUtils.hasPermission(applicationContext, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
@@ -223,7 +223,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
 自動Brazeジオフェンスリクエストは、`com_braze_automatic_geofence_requests_enabled`を`false`に設定することで、`braze.xml`ファイルで無効にすることができます。
 
-```xml
+`````````xml
 <bool name="com_braze_automatic_geofence_requests_enabled">false</bool>
 ```
 
@@ -232,7 +232,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 BrazeConfig.Builder brazeConfigBuilder = new BrazeConfig.Builder()
     .setAutomaticGeofenceRequestsEnabled(false);
 Braze.configure(getApplicationContext(), brazeConfigBuilder.build());
@@ -241,7 +241,7 @@ Braze.configure(getApplicationContext(), brazeConfigBuilder.build());
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val brazeConfigBuilder = BrazeConfig.Builder()
     .setAutomaticGeofenceRequestsEnabled(false)
 Braze.configure(applicationContext, brazeConfigBuilder.build())
@@ -257,14 +257,14 @@ Brazeジオフェンスは、[`requestGeofences()`](https://braze-inc.github.io/
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(getApplicationContext()).requestGeofences(latitude, longitude);
 ```
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(applicationContext).requestGeofences(33.078947, -116.601356)
 ```
 

@@ -143,7 +143,7 @@ FCM プッシュが正しく機能するためには、Google Play 開発者サ�
 
 プッシュ通知を表示するには、BrazeFirebaseMessagingService が `AndroidManifest.xml` に適切に登録されている必要があります。
 
-```xml
+`````````xml
 <service android:name="com.braze.push.BrazeFirebaseMessagingService"
   android:exported="false">
   <intent-filter>
@@ -198,6 +198,6 @@ Braze はプッシュクリックを自動的に記録するため、このシ�
 
 ディープリンクが [[ADB では正しく動作する](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters)] が、Braze プッシュでは機能しない場合は、[[バックスタック](https://developer.android.com/guide/components/activities/tasks-and-back-stack)] を無効にしてみてください。そのためには、**braze.xml** を更新して以下を含めます。
 
-```xml
+`````````xml
 <bool name="com_braze_push_deep_link_back_stack_activity_enabled">false</bool>
 ```

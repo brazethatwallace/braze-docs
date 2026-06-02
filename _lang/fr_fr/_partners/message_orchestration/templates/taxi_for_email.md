@@ -1,48 +1,46 @@
 ---
-nav_title: Taxi for email
-article_title: Taxi for email
+nav_title: Taxi for Email
+article_title: Taxi for Email
 alias: /partners/taxi_for_email
-description: "Cet article de référence décrit le partenariat entre Braze et Taxi for email, un outil de marketing par e-mail en ligne qui permet aux clients de Braze de créer des modèles d'e-mail intelligents en utilisant leur interface de glisser-déposer et une syntaxe simple mais puissante."
+description: "Cet article de référence décrit le partenariat entre Braze et Taxi for Email, un outil de marketing par e-mail en ligne qui permet aux clients de Braze de créer des modèles d'e-mail intelligents en utilisant leur interface de glisser-déposer et une syntaxe simple mais puissante."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Taxi for email
+# Taxi for Email
 
-> [Taxi for email](http://taxiforemail.com/) est un outil de marketing par e-mail en ligne qui offre un éditeur d'e-mails visuel intuitif par glisser-déposer. Taxi encourage les teams à collaborer facilement sur des campagnes d'e-mail, permettant aux rédacteurs et éditeurs d'avoir l'accès et les ressources dont ils ont besoin pour créer des e-mails, le tout sans code.
+> [Taxi for Email](http://taxiforemail.com/) est un outil de marketing par e-mail en ligne qui offre un éditeur d'e-mails visuel intuitif par glisser-déposer. Taxi encourage les équipes à collaborer facilement sur des campagnes d'e-mail, permettant aux rédacteurs et éditeurs d'avoir l'accès et les ressources dont ils ont besoin pour créer des e-mails, le tout sans code.
 
-_Cette intégration est assurée par Taxi for email._
+_Cette intégration est assurée par Taxi for Email._
 
-## À propos de l'intégration
+## À propos de l'intégration {#about-the-integration}
 
-L'intégration entre Braze et Taxi utilise la syntaxe simple mais puissante de Taxi pour créer et exporter des modèles d'e-mails intelligents vers Braze. 
+L'intégration entre Braze et Taxi utilise la syntaxe simple mais puissante de Taxi pour créer et exporter des modèles d'e-mails intelligents vers Braze.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ------------| ----------- |
-| Compte Taxi for email | Un compte Taxi for email est requis pour profiter de ce partenariat. |
-| Clé API REST de Braze | Une clé API Braze REST avec des autorisations complètes sur les **modèles**. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Paramètres** > **Clés API**. |
-| endpoint Braze | [Votre endpoint Braze]({{site.baseurl}}/api/basics/#endpoints) s'aligne avec l'URL de votre tableau de bord de Braze.<br><br> Par exemple, si l'URL de votre tableau de bord est `https://dashboard-03.braze.com`, votre endpoint sera `dashboard-03`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Compte Taxi for Email | Un compte Taxi for Email est requis pour profiter de ce partenariat. |
+| Clé REST API de Braze | Une clé REST API de Braze avec toutes les autorisations **Modèles**. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Endpoint Braze | [Votre endpoint Braze]({{site.baseurl}}/api/basics/#endpoints) correspond à l'URL de votre tableau de bord de Braze.<br><br> Par exemple, si l'URL de votre tableau de bord est `https://dashboard-03.braze.com`, votre endpoint sera `dashboard-03`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Intégration
+## Intégration {#integration}
 
-### Étape 1 : Créer un modèle d'e-mail de taxi
+### Étape 1 : Créer un modèle d'e-mail Taxi {#step-1-create-a-taxi-email-template}
 
-Créer un modèle de Taxi sur la plateforme Taxi. Après la création du modèle, accédez à vos **Paramètres de l'organisation** et sélectionnez l'onglet **Connecteurs ESP**.
+Créez un modèle Taxi sur la plateforme Taxi. Une fois le modèle créé, accédez à vos **Organization Settings** et sélectionnez l'onglet **ESP Connectors**.
 
-### Étape 2 : Créer un connecteur Braze
+### Étape 2 : Créer un connecteur Braze {#step-2-create-braze-connector}
 
-1. Dans la boîte de dialogue qui s'affiche, cliquez sur le bouton **Ajouter un nouveau**, puis sélectionnez **Braze** dans la liste déroulante. 
+1. Dans la boîte de dialogue qui s'affiche, cliquez sur le bouton **Add New**, puis sélectionnez **Braze** dans la liste déroulante.
 2. Sélectionnez **Braze** pour modifier les paramètres du connecteur Braze.
-3. Entrez votre endpoint Braze et votre clé API Braze.
+3. Saisissez votre endpoint Braze et votre clé API Braze.
 
-Votre champ de connecteur changera de couleur après que les détails avec les autorisations correctes auront été fournis. Si ce champ ne change pas, vérifiez que vos champs sont alignés avec les exigences énumérées.
+Votre champ de connecteur changera de couleur une fois que les informations avec les autorisations correctes auront été fournies. Si ce champ ne change pas, vérifiez que vos champs correspondent aux exigences indiquées.
 
-## Utilisation
+## Utilisation {#usage}
 
-Vous trouverez le modèle de Taxi que vous avez téléchargé dans la section **Modèles & Media > Modèles d'e-mail de** votre compte Braze. Vous pouvez désormais utiliser ce modèle d'e-mail pour commencer à envoyer des e-mails attrayants à vos clients !
-
-
+Retrouvez le modèle Taxi que vous avez importé dans la section **Templates & Media > Email Templates** de votre compte Braze. Vous pouvez désormais utiliser ce modèle d'e-mail pour commencer à envoyer des e-mails attrayants à vos clients !

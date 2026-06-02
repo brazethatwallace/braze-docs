@@ -79,7 +79,7 @@ Em seguida, selecione a conta de anúncios do TikTok desejada. No menu suspenso 
 ![]({% image_buster /assets/img/tiktok/tiktok11.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Criar um novo público %}
 
 **Criar um novo público**<br>
 Digite um nome para o novo público, selecione **Add Users to Audience** e selecione os campos que deseja sincronizar com o TikTok. Em seguida, salve seu público clicando no botão **Create Audience** na parte inferior do editor de etapas.
@@ -93,7 +93,7 @@ A Braze exibe uma notificação na parte superior do editor de etapas se o públ
 Ao lançar um Canvas com um novo público, a Braze sincroniza os usuários quase em tempo real quando eles entram na etapa do público.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Sincronizar com um público existente %}
 
 **Sincronização com um público existente**<br>
 A Braze também oferece a capacidade de adicionar usuários aos públicos existentes do TikTok para garantir que esses públicos estejam atualizados. Para sincronizar com um público existente, digite o nome do público existente no menu suspenso e selecione **Add to the Audience**. A Braze adicionará usuários quase em tempo real quando eles entrarem na etapa do TikTok Audience.
@@ -108,7 +108,7 @@ Depois de configurar seu componente TikTok Audience, basta lançar o Canvas! Um 
 
 Você pode visualizar o público no TikTok entrando em sua conta do **Ads Manager** e selecionando **Audiences** no menu suspenso **Assets**. Na página **Audience**, você pode ver o tamanho de cada público depois que ele atinge &#126;1.000.
 
-![Página do TikTok listando as seguintes métricas para o público em questão.]({% image_buster /assets/img/tiktok/tiktok5.png %})
+![Página do TikTok listando as métricas para o público em questão.]({% image_buster /assets/img/tiktok/tiktok5.png %})
 
 ## Considerações sobre sincronização de usuários e limite de taxa {#user-syncing-and-rate-limit-considerations}
 

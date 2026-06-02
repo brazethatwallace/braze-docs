@@ -6,7 +6,7 @@ description: "Este artigo fornece uma visão geral do Intelligent Timing (anteri
 
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
 
 > Use o Intelligent Timing para enviar sua mensagem a cada usuário quando a Braze determinar o horário ideal de envio, que é quando o usuário tem mais chances de interagir (abrir ou clicar). Isso facilita garantir que você está enviando mensagens aos usuários no horário preferido deles, o que pode levar a um maior engajamento.
 
@@ -18,7 +18,7 @@ A Braze calcula o momento ideal para o envio com base em uma análise estatísti
 - Aberturas diretas de push
 - Aberturas por influência de push
 - Cliques em e-mail
-- Aberturas de e-mail (excluindo [aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens)
+- Aberturas de e-mail (excluindo [aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens))
 - Cliques em SMS (somente se [o encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) e o rastreamento avançado estiverem ativados)
 
 Por exemplo, Sam pode abrir seus e-mails pela manhã regularmente, mas ela abre seu app e interage com as notificações à noite. Isso significa que Sam receberia uma campanha de e-mail com Intelligent Timing pela manhã, enquanto receberia campanhas com notificações por push à noite, quando é mais provável que ela interaja.
@@ -64,6 +64,8 @@ O horário de silêncio substituiu a configuração **Only send within specific 
 Quando o horário de silêncio está ativado, a Braze não enviará mensagens durante o período de silêncio, mesmo que esse horário corresponda ao horário ideal de envio do usuário. Se o horário ideal do usuário estiver dentro da janela de silêncio, a mensagem será enviada no limite mais próximo da janela.
 
 Por exemplo, se o horário de silêncio for definido das 22h às 6h e o horário ideal do usuário for 5h30, a Braze reterá a mensagem e a entregará às 6h — o horário mais próximo fora do período de silêncio.
+
+Para saber mais, consulte [Horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 #### Prévia dos horários de entrega {#preview-delivery-times}
 

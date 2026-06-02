@@ -16,7 +16,7 @@ description: "이 참조 문서에서는 Braze 데이터 변환을 사용하여 
 | --- | --- |
 | 2단계 인증 또는 SSO | 계정에 [2단계 인증]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication)(2FA) 또는 [싱글사인온]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication)(SSO)을 활성화해야 합니다. |
 | 올바른 권한 | 계정 관리자 또는 워크스페이스 관리자이거나 "변환 관리" 사용자 권한이 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 1단계: 소스 플랫폼 식별 {#step-1-identify-a-source-platform}
 
@@ -43,7 +43,7 @@ Braze에 연결하려는 외부 플랫폼을 식별하고 해당 플랫폼이 �
 
 Typeform의 경우 다음과 같이 표시됩니다:
 
-![Example Data Transformation code that maps the webhook to Braze user profiles.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
+![웹훅을 Braze 사용자 프로필에 매핑하는 데이터 변환 코드 예시]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
 Braze 데이터 변환은 웹훅에 대한 특별한 확인이나 인증이 필요한 외부 플랫폼을 아직 지원하지 않을 수 있습니다. Braze 데이터 변환에 이러한 유형의 플랫폼을 사용하는 데 관심이 있다면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal/)을 남겨 주세요.

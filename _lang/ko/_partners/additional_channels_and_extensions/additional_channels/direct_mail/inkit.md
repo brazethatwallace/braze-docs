@@ -26,7 +26,7 @@ Braze와 Inkit 통합을 사용하면 문서를 생성하고 Braze 웹훅을 통
 | Inkit API 키<br><br>`<INKIT_API_TOKEN>` | 이 키는 [Inkit 대시보드](https://app.inkit.io/#/account/integrations)의 **Development** 탭에서 확인할 수 있으며, Braze와 Inkit 계정을 연결하는 데 사용됩니다. |
 | Inkit 템플릿 ID<br><br>`<INKIT_TEMPLATE_ID>` | 템플릿을 생성한 후 **Templates** 탭에서 템플릿 ID를 복사하여 Braze의 템플릿에서 사용할 수 있습니다.<br><br>예를 들어, Inkit 환경에서 `invoice_template`이라는 템플릿을 생성하면 템플릿 ID가 `tmpl_3bDScFl9cwr3OAVR1RSdEC`와 같이 부여됩니다.
 | HTTP 헤더 | HTTP 헤더는 Braze에서 Inkit으로 보내는 API 요청의 일부입니다. 여기에 Inkit API 키를 포함하여 Inkit API 호출을 인증하고 승인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -36,7 +36,7 @@ Inkit 플랫폼에서 Braze Campaign에 사용할 템플릿을 HTML, Word, Power
 
 ### 2단계: Braze 웹훅 템플릿 생성 {#step-2-create-your-braze-webhook-template}
 
-향후 Campaigns 또는 Canvases에서 사용할 Inkit 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **템플릿** > **웹훅 템플릿**으로 이동합니다.
+향후 Campaigns 또는 Canvases에서 사용할 Inkit 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **콘텐츠** > **웹훅**으로 이동합니다. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
 일회성 Inkit 웹훅 Campaign을 생성하거나 기존 템플릿을 사용하려면 새 Campaign을 생성할 때 Braze에서 **웹훅**을 선택합니다.
 

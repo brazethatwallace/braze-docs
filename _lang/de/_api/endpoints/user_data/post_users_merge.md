@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `merge_updates` | Erforderlich | Array | Ein Objekt-Array. Jedes Objekt sollte ein `identifier_to_merge`-Objekt und ein `identifier_to_keep`-Objekt enthalten, die jeweils eine Nutzer:in entweder über `external_id`, `user_alias`, `phone` oder `email` referenzieren sollten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Zusammenführungsverhalten {#merge-behavior}
 
@@ -94,6 +94,8 @@ Dieser Endpunkt führt die folgenden Felder zusammen, wenn sie bei der Zielnutze
 Bei der Zusammenführung von Nutzer:innen funktioniert die Verwendung des Endpunkts `/users/merge` genauso wie die Verwendung der [`changeUser()`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
+Braze behandelt drei Nutzertypen bei der Zusammenführung unterschiedlich: zur Löschung markierte Nutzer:innen, Testnutzer:innen und Nutzer:innen der globalen Kontrollgruppe. Weitere Details finden Sie unter [Verhalten bei der Zusammenführung von Nutzer:innen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+
 #### Verhalten bei angepasstem Event-Datum und Kauf-Event-Datum {#custom-event-date-and-purchase-event-date-behavior}
 
 Diese zusammengeführten Felder aktualisieren die Filter „für X Events in Y Tagen“. Bei Kauf-Events umfassen diese Filter „Anzahl der Käufe in Y Tagen“ und „Geldausgaben in den letzten Y Tagen“.
@@ -129,7 +131,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -176,7 +177,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -202,7 +202,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -218,7 +217,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### Zusammenführung einer nicht identifizierten Nutzer:in ohne die most_recently_updated-Priorisierung {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
+### Zusammenführung einer nicht identifizierten Nutzer:in ohne die most_recently_updated-Priorisierung {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
 Wenn es zwei nicht identifizierte Nutzer:innen mit der E-Mail-Adresse `john.smith@braze.com` gibt, führt diese Beispielanfrage keine Nutzer:innen zusammen, da es zwei nicht identifizierte Nutzer:innen mit dieser E-Mail-Adresse gibt. Diese Anfrage funktioniert nur, wenn es lediglich eine nicht identifizierte Nutzer:in mit der E-Mail-Adresse `john.smith@braze.com` gibt.
 
@@ -227,7 +226,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -276,6 +274,6 @@ Die folgende Tabelle listet mögliche Fehlermeldungen auf, die auftreten können
 | `a single request may not contain more than 50 merge updates` | Sie können in einer einzelnen Anfrage nur bis zu 50 Zusammenführungs-Updates angeben. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Überprüfen Sie die Bezeichner in Ihrer Anfrage. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Stellen Sie sicher, dass `merge_updates` nur die beiden Objekte `identifier_to_merge` und `identifier_to_keep` enthält. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

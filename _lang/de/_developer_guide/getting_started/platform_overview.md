@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}Erste Schritte: Übersicht über die Plattform {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}Erste Schritte: Übersicht über die Plattform {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
 
 > Dieser Artikel beschreibt die grundlegenden Komponenten und Funktionen der Braze-Plattform. Links in diesem Artikel führen zu wichtigen Themen von Braze.
 
@@ -66,17 +66,17 @@ Die in Braze gespeicherten Daten bleiben erhalten und können für Segmentierung
 
 ![Ein Segment im Braze-Dashboard mit dem Titel „Kürzliche Käufer:innen“ wird neben einem Telefonbildschirm angezeigt, auf dem eine E-Mail mit dem Titel „Top-Empfehlungen für Linda“ zu sehen ist.]({% image_buster /assets/img/getting-started/getting-started-segment.png %}){: style="max-width:80%"}
 
-### App-Analytics
+### App-Analytics {#app-analytics}
 
 Das Braze-Dashboard zeigt Grafiken an, die in Realtime auf der Grundlage von Analytics-Metriken und angepassten Events, die Sie instrumentieren, aktualisiert werden. Konsistente Messungen und Optimierungen mithilfe von A/B-Tests, benutzerdefinierten Berichten, Analytics und automatisierter Intelligenz unterstützen Ihr Customer-Engagement und Ihre Differenzierung.
 
-### Nutzer-Segmentierung {#user-segmentation}
+### Nutzersegmentierung {#user-segmentation}
 
 Mit der Segmentierung können Sie Nutzergruppen auf der Grundlage leistungsstarker Filter ihres In-App-Verhaltens, demografischer Daten und Ähnlichem erstellen. Außerdem haben Sie in Braze die Möglichkeit, jede In-App-Nutzeraktion als „angepasstes Event“ zu definieren, wenn die gewünschte Aktion nicht standardmäßig erfasst wird. Dasselbe gilt für Nutzermerkmale über „angepasste Attribute“. Nachdem ein Nutzersegment im Dashboard erstellt wurde, bewegen sich Ihre Nutzer:innen in das Segment hinein und aus ihm heraus, wenn sie die definierten Kriterien erfüllen (oder nicht erfüllen). Sie können z. B. ein Segment erstellen, das alle Nutzer:innen umfasst, die in der App Geld ausgegeben haben und die App zuletzt vor mehr als zwei Wochen genutzt haben.
 
 Mehr über unsere Datenmodelle erfahren Sie hier: [Erste Schritte: Übersicht über Analytics]({{site.baseurl}}/developer_guide/getting_started/architecture_overview/).
 
-## Multichannel-Messaging
+## Multichannel-Messaging {#multichannel-messaging}
 
 Nachdem Sie ein Segment definiert haben, können Sie mit den Messaging-Tools von Braze auf dynamische, personalisierte Weise mit Ihren Nutzer:innen in Kontakt treten. Braze wurde mit einem kanalunabhängigen, nutzerzentrierten Datenmodell entwickelt. Die Nachrichtenübermittlung erfolgt innerhalb Ihrer App oder Website (z. B. durch das Versenden von In-App-Nachrichten oder durch grafische Elemente wie Content-Card-Karusselle und Banner) oder außerhalb Ihres App-Erlebnisses (z. B. durch das Versenden von Push-Benachrichtigungen oder E-Mails). So können Ihre Marketer beispielsweise eine Push-Benachrichtigung und eine E-Mail an das im vorherigen Abschnitt definierte Beispielsegment senden.
 
@@ -92,7 +92,7 @@ Nachdem Sie ein Segment definiert haben, können Sie mit den Messaging-Tools von
 | [Web-Push]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/) | Senden Sie Webbrowser-Benachrichtigungen, auch wenn Ihre Nutzer:innen gerade nicht auf Ihrer Website aktiv sind. |
 | [Webhooks]({{site.baseurl}}/about_webhooks/) | Verwenden Sie Webhooks, um Aktionen außerhalb der App zu triggern und andere Systeme und Anwendungen mit Echtzeitdaten zu versorgen. |
 | [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)* | Stellen Sie eine direkte Verbindung zu Ihren Nutzer:innen und Kund:innen her, indem Sie die beliebte Peer-to-Peer-Messaging-Plattform nutzen: WhatsApp. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Multichannel-Messaging" }
 
 <sup>*Als Add-on-Feature erhältlich.*</sup>
 
@@ -115,7 +115,7 @@ Braze ist für eine schnelle Integration konzipiert. Die durchschnittliche Amort
 
 Als technische Ressource werden Sie an vielen Details von Braze beteiligt sein. Hier finden Sie gute Quellen, die Sie sich außerhalb unserer Dokumentation merken sollten. Halten Sie unser Glossar mit [den wichtigsten Begriffen]({{site.baseurl}}/user_guide/get_started/terms_to_know/) für den Fall bereit, dass Sie Fragen zu Braze-Begriffen haben.
 
-| Ressource | Was Sie lernen werden|
+| Ressource | Was Sie lernen werden |
 |---|---|
 | [SDK-Debugging]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) | Bei der Fehlerbehebung Ihrer Integration ist das SDK-Debugging-Tool ein hilfreiches Werkzeug. Stellen Sie sicher, dass Sie es zur Hand haben! |
 | [Öffentliches GitHub von Braze](https://github.com/braze-inc/) | In unserem GitHub-Repository finden Sie ausführliche Informationen zur Integration und Beispielcode. |
@@ -124,8 +124,8 @@ Als technische Ressource werden Sie an vielen Details von Braze beteiligt sein. 
 | [iOS (Swift) SDK GitHub-Repository](https://github.com/braze-inc/braze-swift-sdk) | Das Swift SDK GitHub-Repository. |
 | [iOS (Swift) SDK-Referenz](https://braze-inc.github.io/braze-swift-sdk/) | Klassendokumentation für das iOS SDK. |
 | [GitHub-Repository für Web SDK](https://github.com/braze-inc/braze-web-sdk) | Das Web SDK GitHub-Repository. |
-| [Web SDK-Referenz](https://js.appboycdn.com/web-sdk/5.0/doc/modules/braze.html) | Klassendokumentation für das iOS SDK. |
+| [Web SDK-Referenz](https://js.appboycdn.com/web-sdk/5.0/doc/modules/braze.html) | Klassendokumentation für das Web SDK. |
 | [SDK-Changelogs]({{site.baseurl}}/developer_guide/changelogs/) | Braze bietet planmäßige monatliche Releases sowie zusätzliche Releases für kritische Probleme und größere Betriebssystem-Updates. |
 | [Braze API Postman-Kollektion](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest) | Laden Sie hier unsere Postman-Kollektion herunter.  |
 | [Braze Systemstatus-Monitor](https://braze.statuspage.io/) | Unsere Statusseite wird immer dann aktualisiert, wenn es zu Zwischenfällen oder Ausfällen kommt. Besuchen Sie diese Seite, um Benachrichtigungen zu abonnieren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ressourcen als Lesezeichen" }

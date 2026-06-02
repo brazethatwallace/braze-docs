@@ -6,11 +6,11 @@ description: "Este artículo de referencia cubre una lista completa de las etiqu
 search_rank: 1
 ---
 
-# Etiquetas de personalización compatibles
+# Etiquetas de personalización compatibles {#supported-personalization-tags}
 
 > Este artículo de referencia cubre una lista completa de las etiquetas de personalización de Liquid compatibles.
 
-## Resumen de las etiquetas compatibles
+## Resumen de las etiquetas compatibles {#summary-of-supported-tags}
 
 A modo de referencia, se proporciona un resumen de las etiquetas de personalización compatibles. Para más detalles sobre cada tipo de etiqueta y las mejores prácticas, sigue leyendo.
 
@@ -22,8 +22,8 @@ A modo de referencia, se proporciona un resumen de las etiquetas de personalizac
 | Atributos de dispositivo | `{{most_recently_used_device.${carrier}}}` <br> `{{most_recently_used_device.${id}}}` <br> `{{most_recently_used_device.${idfa}}}` <br> `{{most_recently_used_device.${model}}}` <br> `{{most_recently_used_device.${os}}}` <br> `{{most_recently_used_device.${platform}}}` <br> `{{most_recently_used_device.${google_ad_id}}}` <br> `{{most_recently_used_device.${roku_ad_id}}}` <br> `{{most_recently_used_device.${foreground_push_enabled}}}`|
 | <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>Atributos de lista de correo electrónico</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Esta etiqueta reemplaza a la anterior `{{${unsubscribe_url}}}`. Aunque la etiqueta antigua sigue funcionando en correos electrónicos creados previamente, te recomendamos que uses la nueva en su lugar. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
 | <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>Atributos de SMS</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
-| <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>Atributos de WhatsApp</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` |
-| Atributos de campaña y atributos de paso en Canvas | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
+| <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>Atributos de WhatsApp</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
+| Atributos de Campaign y atributos de paso en Canvas | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
 | Atributos de Canvas | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
 | Atributos de tarjeta | `{{card.${api_id}}}` <br> `{{card.${name}}}` |
 | Eventos de geovallado | `{{event_properties.${geofence_name}}}` <br> `{{event_properties.${geofence_set_name}}}` |
@@ -32,27 +32,38 @@ A modo de referencia, se proporciona un resumen de las etiquetas de personalizac
 | Atributos personalizados <br> (Son personalizados para tu espacio de trabajo.) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object/'>Propiedades de desencadenamiento de API</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Propiedades de entrada de Canvas | `{{context.${property_name}}}` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
 
 {% endraw %}
 
-### Atributos compatibles
+### Atributos compatibles {#supported-attributes}
 
-Los atributos de campaña, tarjeta y Canvas solo son compatibles en sus plantillas de mensajería correspondientes (por ejemplo, `dispatch_id` no está disponible en campañas de mensajes dentro de la aplicación).
+Los atributos de Campaign, tarjeta y Canvas solo son compatibles en sus plantillas de mensajería correspondientes (por ejemplo, `dispatch_id` no está disponible en Campaigns de mensajes dentro de la aplicación).
 
-Consulta este artículo de ayuda para obtener más información sobre [cómo algunos de estos atributos difieren entre fuentes en Braze]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/).
+Para más detalles, consulta [Atributos de Campaign y Canvas en distintas fuentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 
-### Diferencias entre etiquetas de Canvas y de campaña
+### Diferencias entre etiquetas de Canvas y de Campaign {#canvas-and-campaign-tag-differences}
 
-El comportamiento de las siguientes etiquetas difiere entre Canvas y las campañas:
+El comportamiento de las siguientes etiquetas difiere entre Canvas y Campaigns:
 {% raw %}
-- `dispatch_id` se comporta de manera diferente porque Braze trata los pasos de Canvas como eventos desencadenados, incluso cuando están "planificados" (excepto los pasos de entrada, que pueden planificarse). Para obtener más información, consulta [Comportamiento de dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
-- Usar la etiqueta `{{campaign.${name}}}` con Canvas muestra el nombre del componente de Canvas. Cuando se usa esta etiqueta con campañas, muestra el nombre de la campaña.
+- `dispatch_id` se comporta de manera diferente porque Braze trata los pasos de Canvas como eventos desencadenados, incluso cuando están "planificados" (excepto los pasos de entrada, que pueden planificarse). Para obtener más información, consulta [Comportamiento de dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+- Usar la etiqueta `{{campaign.${name}}}` con Canvas muestra el nombre del componente de Canvas. Cuando se usa esta etiqueta con Campaigns, muestra el nombre de la Campaign.
 {% endraw %}
 
-## Información del dispositivo usado más recientemente
+#### Nombres de Campaign en URLs {#campaign-names-in-urls}
+{: #campaign-names-in-urls}
 
-Puedes usar como plantilla los siguientes atributos del dispositivo más reciente del usuario en todas las plataformas. Si un usuario no ha utilizado tu aplicación (por ejemplo, si importaste al usuario a través de la API REST), todos estos valores serán `null`.
+{% raw %}
+Los nombres de Campaign y de variantes de mensaje pueden incluir caracteres que no son seguros para URLs, como `%`, espacios o `&`. Cuando insertas `{{campaign.${name}}}` o `{{campaign.${message_name}}}` en un enlace o cadena de consulta, como un parámetro `utm_campaign`, aplica el filtro [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) para que la URL se analice correctamente. Por ejemplo:
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
+{% endraw %}
+
+## Información del dispositivo usado más recientemente {#most-recently-used-device-information}
+
+Puedes usar como plantilla los siguientes atributos del dispositivo más reciente del usuario en todas las plataformas. Si un usuario no ha utilizado tu aplicación (por ejemplo, si importaste al usuario a través de la REST API), todos estos valores serán `null`.
 
 {% raw %}
 
@@ -68,11 +79,11 @@ Puedes usar como plantilla los siguientes atributos del dispositivo más recient
 | `{{most_recently_used_device.${model}}}` | El nombre del modelo del dispositivo, si está disponible. Algunos ejemplos son "iPhone 6S", "Nexus 6P" y "Firefox". |
 | `{{most_recently_used_device.${os}}}` | El sistema operativo del dispositivo, si está disponible. Algunos ejemplos son "iOS 9.2.1", "Android (Lollipop)" y "Windows". |
 | `{{most_recently_used_device.${platform}}}` | La plataforma del dispositivo, si está disponible. Si está configurada, el valor es uno de `ios`, `android`, `kindle`, `android_china`, `web` o `tvos`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Most recently used device information" }
 
 Dado que existe una amplia variedad de operadores de dispositivos, nombres de modelos y sistemas operativos, te recomendamos que pruebes exhaustivamente cualquier Liquid que dependa condicionalmente de alguno de esos valores. Estos valores son `null` si no están disponibles en un dispositivo en particular.
 
-## Información de la aplicación objetivo
+## Información de la aplicación objetivo {#targeted-app-information}
 
 Para mensajes dentro de la aplicación, puedes usar los siguientes atributos de la aplicación dentro de Liquid. Los valores se basan en la clave de API de SDK que tus aplicaciones usan para solicitar la mensajería.
 
@@ -80,7 +91,7 @@ Para mensajes dentro de la aplicación, puedes usar los siguientes atributos de 
 |------------------|---|
 | `{{app.${api_id}}}` | La clave de API de la aplicación que solicita el mensaje. Por ejemplo, puedes usar esta clave junto con `abort_message()` de Liquid para evitar enviar mensajes dentro de la aplicación a ciertas aplicaciones, como plataformas de TV o compilaciones de desarrollo que usan una clave de API de SDK diferente. |
 | `{{app.${name}}}` | El nombre de la aplicación (tal como se define en el panel de Braze) que solicita el mensaje. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted app information" }
 
 Por ejemplo, este código Liquid cancela un mensaje si las aplicaciones que lo solicitan no son una de las dos claves de API de la lista:
 
@@ -93,9 +104,9 @@ User is in list of apps
 {% endif %}
 ```
 
-## Información del dispositivo objetivo
+## Información del dispositivo objetivo {#targeted-device-information}
 
-Para notificaciones push, mensajes dentro de la aplicación y Banners, puedes usar como plantilla los siguientes atributos del dispositivo que recibe el mensaje. Una notificación push, un mensaje dentro de la aplicación o un Banner puede incluir atributos del dispositivo en el que el usuario lee el mensaje. Estos atributos no funcionan para Tarjetas de contenido ni correos electrónicos. Para los correos electrónicos, los mensajes se renderizan antes de enviarse, por lo que el dispositivo en el que el usuario abre el correo electrónico es desconocido en ese momento.
+Para notificaciones push, mensajes dentro de la aplicación y Banners, puedes usar como plantilla los siguientes atributos del dispositivo que recibe el mensaje. Una notificación push, un mensaje dentro de la aplicación o un Banner puede incluir atributos del dispositivo en el que el usuario lee el mensaje. Estos atributos no funcionan para Content Cards ni correos electrónicos. Para los correos electrónicos, los mensajes se renderizan antes de enviarse, por lo que el dispositivo en el que el usuario abre el correo electrónico es desconocido en ese momento.
 
 | Etiqueta | Descripción |
 |------------------|---|
@@ -108,7 +119,7 @@ Para notificaciones push, mensajes dentro de la aplicación y Banners, puedes us
 | `{{targeted_device.${os}}}` | El sistema operativo del dispositivo, si está disponible. Algunos ejemplos son "iOS 9.2.1", "Android (Lollipop)" y "Windows". |
 | `{{targeted_device.${platform}}}` | La plataforma del dispositivo, si está disponible. Si está configurada, el valor es uno de `ios`, `android`, `kindle`, `android_china`, `web` o `tvos`. También puedes usar la etiqueta de personalización `most_recently_used_device`. |
 | `{{targeted_device.${foreground_push_enabled}}}` | Este valor es `true` cuando el dispositivo objetivo tiene habilitadas las notificaciones push en primer plano, `false` en caso contrario. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted device information" }
 
 {% endraw %}
 
@@ -118,11 +129,11 @@ Además, para las notificaciones push, es posible que Braze no pueda determinar 
 
 ![Ejemplo de uso de un valor predeterminado de "there" al usar una variable de nombre en un mensaje push.]({% image_buster /assets/img_archive/personalized_firstname_.png %})
 
-### Usar lógica condicional en lugar de un valor predeterminado
+### Usar lógica condicional en lugar de un valor predeterminado {#using-conditional-logic-instead-of-a-default-value}
 
 En algunas circunstancias, puedes optar por usar [lógica condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/) en lugar de establecer un valor predeterminado. La lógica condicional te permite enviar mensajes que difieren según el valor de un atributo personalizado. Además, puedes usar lógica condicional para [cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) a clientes con valores de atributo nulos o en blanco.
 
-#### Caso de uso
+#### Caso de uso {#use-case}
 
 Por ejemplo, supongamos que estás enviando una notificación de saldo de recompensas a los clientes. No hay una buena forma de tener en cuenta a los clientes con saldos bajos y nulos usando valores predeterminados.
 
@@ -158,7 +169,7 @@ En este caso de uso, un usuario con un nombre en blanco o nulo recibe el mensaje
 
 {% endraw %}
 
-## Etiquetas de variable
+## Etiquetas de variable {#variable-tags}
 
 Puedes usar la etiqueta `assign` para crear una variable en el creador de mensajes. Te recomendamos usar un nombre único para tu variable. Si creas una variable con un nombre similar a las etiquetas de personalización compatibles (como `language`), esto puede afectar tu lógica de mensajería.
 
@@ -169,7 +180,7 @@ Después de crear una variable, puedes hacer referencia a ella en tu lógica de 
 
 1. [Crea un bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#create-a-content-block).
 2. Dale un nombre a tu bloque de contenido (sin espacios ni caracteres especiales).
-3. Selecciona **Editar** en la parte inferior de la página.
+3. Selecciona **Edit** en la parte inferior de la página.
 4. Escribe tus etiquetas `assign`.
 
 Siempre que el bloque de contenido esté al inicio de tu mensaje, cada vez que la variable se inserte en tu mensaje como un objeto, hará referencia a tu atributo personalizado elegido.
@@ -190,7 +201,7 @@ Make a purchase to bring your rewards points to {{new_points_balance}} and cash 
 ```
 {% endraw %}
 
-## Etiquetas de iteración
+## Etiquetas de iteración {#iteration-tags}
 
 {% raw %}
 Las etiquetas de iteración se pueden usar para ejecutar un bloque de código repetidamente. El caso de uso a continuación presenta la etiqueta `for`.
@@ -218,7 +229,7 @@ Luego, enviamos el mensaje de oferta cuando `converse_viewer` es true. De lo con
 
 Este es un ejemplo sencillo de cómo se pueden usar las etiquetas de iteración en el creador de mensajes de Braze. Puedes encontrar más información en la documentación de Shopify sobre [etiquetas de iteración](https://docs.shopify.com/themes/liquid/tags/iteration-tags).
 
-## Etiquetas de sintaxis
+## Etiquetas de sintaxis {#syntax-tags}
 
 Las etiquetas de sintaxis se pueden usar para controlar cómo se renderiza Liquid. Puedes usar la etiqueta `echo` para devolver una expresión. Esto es lo mismo que envolver una expresión usando llaves, excepto que puedes usar esta etiqueta dentro de etiquetas de Liquid. También puedes usar la etiqueta `liquid` para tener un bloque de Liquid sin delimitadores en cada etiqueta. Cada etiqueta debe estar en su propia línea cuando se usa la etiqueta `liquid`. Consulta la documentación de Shopify sobre [etiquetas de sintaxis](https://shopify.dev/api/liquid/tags#syntax-tags) para más información y ejemplos.
 
@@ -240,11 +251,11 @@ Puedes utilizar el estado HTTP de una llamada de [Contenido conectado]({{site.ba
 Esta clave solo se agrega automáticamente al objeto de Contenido conectado si el punto de conexión devuelve un objeto JSON. Si el punto de conexión devuelve un array u otro tipo, esa clave no se puede establecer automáticamente en la respuesta.
 {% endalert %}
 
-## Enviar mensajes según el idioma, la configuración regional más reciente y la zona horaria
+## Enviar mensajes según el idioma, la configuración regional más reciente y la zona horaria {#send-messages-based-on-language-most-recent-locale-and-time-zone}
 
 En algunas situaciones, es posible que desees enviar mensajes específicos para configuraciones regionales particulares. Por ejemplo, el portugués brasileño es típicamente diferente del portugués europeo.
 
-### Caso de uso: localizar según la configuración regional más reciente
+### Caso de uso: localizar según la configuración regional más reciente {#use-case-localize-based-on-recent-locale}
 
 Aquí tienes un caso de uso de cómo puedes usar la configuración regional más reciente para localizar aún más un mensaje internacionalizado.
 
@@ -274,9 +285,9 @@ Message in default language
 
 En este caso de uso, los clientes con una configuración regional más reciente de `pt_BR` reciben un mensaje en portugués brasileño, y los clientes con una configuración regional más reciente de `pt_PT` reciben un mensaje en portugués europeo. Los clientes que no cumplen las dos primeras condiciones pero tienen su idioma configurado como portugués reciben un mensaje en el tipo de portugués que desees como predeterminado.
 
-### Caso de uso: dirigirse a usuarios por zona horaria
+### Caso de uso: dirigirse a usuarios por zona horaria {#use-case-target-users-by-time-zone}
 
-También puedes dirigirte a los usuarios por su zona horaria. Por ejemplo, enviar un mensaje si están en EST y otro si están en PST. Para hacer esto, guarda la hora actual en UTC y compara una declaración if/else con la hora actual del usuario para enviar el mensaje correcto para la zona horaria correcta. Deberías configurar la campaña para que se envíe en la zona horaria local del usuario, para que reciban la campaña en el momento adecuado.
+También puedes dirigirte a los usuarios por su zona horaria. Por ejemplo, enviar un mensaje si están en EST y otro si están en PST. Para hacer esto, guarda la hora actual en UTC y compara una declaración if/else con la hora actual del usuario para enviar el mensaje correcto para la zona horaria correcta. Deberías configurar la Campaign para que se envíe en la zona horaria local del usuario, para que reciban la Campaign en el momento adecuado.
 
 Consulta el siguiente caso de uso sobre cómo escribir un mensaje que se entrega entre las 2 pm y las 3 pm con un mensaje específico para cada zona horaria.
 
@@ -293,7 +304,7 @@ It is between 2:00:00 pm and 2:59:59 pm PT!
 
 {% endraw %}
 
-## Enviar mensajes con un número aleatorio
+## Enviar mensajes con un número aleatorio {#send-messages-with-a-random-number}
 
 {% raw %}
 La etiqueta `{% random %}` devuelve un número aleatorio. Puedes usarla para lógica de estilo A/B, muestreo o variar el contenido del mensaje.
@@ -302,11 +313,11 @@ La etiqueta `{% random %}` devuelve un número aleatorio. Puedes usarla para ló
 |-------|--------------|
 | `{% random %}` | Un número decimal entre 0 y 1 (incluye 0, excluye 1). |
 | `{% random 10 %}` (argumento entero) | Un entero que va desde 0 hasta, pero sin incluir, el entero especificado. Por ejemplo, `{% random 10 %}` devuelve un entero de 0 a 9. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Send messages with a random number" }
 
 {% endraw %}
 
-### Caso de uso: enviar variantes aleatorias a los usuarios
+### Caso de uso: enviar variantes aleatorias a los usuarios {#use-case-send-users-random-variants}
 
 {% raw %}
 ```liquid

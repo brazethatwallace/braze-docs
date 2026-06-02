@@ -41,7 +41,7 @@ page_order: 0
 | メタディスクリプション | 検索結果に表示されるテキストスニペット。 | 140〜160文字で使用してください。|
 | ファビコン | ブラウザタブでサイトタイトルの横に表示されるアイコン。 | アスペクト比1:1を使用し、サポートされているファイルタイプはPNG、JPEG、またはICOです。 |
 | ページURL | ランディングページへのURLパスです。この値は、メッセージに埋め込むことができる[ランディングページLiquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/)を使用する際にも参照され、フォーム送信時にユーザーを自動的に識別します。| この値はワークスペース全体で一意である必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
 
 ### ステップ 3:ページをカスタマイズする {#step-3-customize-the-page}
 
@@ -68,7 +68,7 @@ page_order: 0
 | リンク | ユーザーがクリックして指定されたURLに移動できるハイパーリンク。テキスト内に埋め込むことも、単独で使用することもできます。 |
 | スペーサー | 要素間に垂直方向のスペースを追加する非表示のブロック。レイアウトと可読性の向上に使用します。 |
 | カスタムコード | カスタムHTML、CSS、またはJavaScriptを挿入して実行できるブロック。高度なカスタマイズに使用します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
 
 ##### スパンテキスト {#span-text}
 
@@ -89,7 +89,7 @@ page_order: 0
 | ドロップダウン | ユーザーが事前定義されたリストからアイテムを選択できます。リストに任意のカスタム属性文字列を追加できます。 |
 | チェックボックス | ユーザーがボックスにチェックを入れると、ブロックの属性が`true`に設定されます。チェックを入れない場合、属性は`false`に設定されます。 |
 | チェックボックスグループ | ユーザーが複数の選択肢から選択できます。値は定義された配列カスタム属性に設定または追加されます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
 フォーム付きのランディングページを作成した後、メッセージにその[ランディングページLiquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/)を埋め込んでください。このタグにより、Brazeはフォーム送信時に既存のユーザープロファイルを自動的に識別して更新できます。
@@ -158,7 +158,7 @@ iOSやSafariの積極的なポップアップブロッカーや広告ブロッ�
 
 ## テンプレートの使用 {#using-templates}
 
-ランディングページテンプレートを使用して、次のCampaigns用のテンプレートを作成できます。これらのテンプレートは、ランディングページエディターとダッシュボードの**Templates**セクション（**Templates** > **Landing Page Templates**）の両方からアクセスおよび管理できます。ランディングページテンプレートには名前が必須で、説明はオプションです。
+ランディングページテンプレートを使用して、次のCampaigns用のテンプレートを作成できます。これらのテンプレートは、ランディングページエディターと**ランディングページテンプレート**ページ（**Content** > **Landing Page**）の両方からアクセスおよび管理できます。ランディングページテンプレートには名前が必須で、説明はオプションです。
 
 ## テンプレートの管理 {#managing-templates}
 

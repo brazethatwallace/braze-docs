@@ -25,7 +25,7 @@ toc_headers: h2
 
 여기에서 모든 워크스페이스의 목록, 설정된 시간대 및 마지막으로 시간대가 편집된 시간을 볼 수 있습니다. 검색창을 사용하여 이름으로 특정 워크스페이스를 찾을 수 있습니다.
 
-!["워크스페이스 시간대" 페이지에는 워크스페이스 목록, 해당 시간대 및 마지막으로 시간대가 편집된 시간이 포함되어 있습니다.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
+!["워크스페이스 시간대" 페이지에는 워크스페이스 목록, 해당 시간대 및 마지막으로 시간대가 편집된 시간이 표시되어 있습니다.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
 
 ### 시간대 설정 {#setting-a-time-zone}
 
@@ -36,13 +36,13 @@ toc_headers: h2
 {% tabs %}
 {% tab 단일 워크스페이스 %}
 1. 목록에서 원하는 워크스페이스를 찾습니다.
-2. 워크스페이스 이름 옆에 있는 **편집** 아이콘을 선택합니다.
+2. 워크스페이스 이름 옆에 있는 **Edit** 아이콘을 선택합니다.
 
-![워크스페이스 이름 옆에 있는 "편집" 버튼입니다.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
+![워크스페이스 이름 옆에 있는 "Edit" 버튼입니다.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
 
 {: start="3"}
 3. 드롭다운 메뉴에서 해당 워크스페이스에 원하는 시간대를 선택합니다.
-4. **저장**을 선택합니다.
+4. **Save**를 선택합니다.
 
 ![GMT 시간대가 선택된 드롭다운 메뉴입니다.]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})
 {% endtab %}
@@ -51,13 +51,13 @@ toc_headers: h2
 다음 단계를 수행하여 여러 워크스페이스에 특정 시간대를 한 번에 적용할 수 있습니다:
 
 1. 업데이트하려는 모든 워크스페이스 옆의 체크박스를 선택합니다.
-2. **시간대 편집**을 선택합니다.
+2. **Edit time zone**을 선택합니다.
 3. 드롭다운 메뉴에서 선택한 모든 워크스페이스에 적용할 시간대를 선택합니다.
 
-![여러 워크스페이스가 선택되고 "시간대 편집" 버튼이 있는 "워크스페이스 시간대" 페이지입니다.]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
+![여러 워크스페이스가 선택되고 "Edit time zone" 버튼이 있는 "워크스페이스 시간대" 페이지입니다.]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
 
 {: start="4"}
-4. **저장**을 선택합니다.
+4. **Save**를 선택합니다.
 
 {% endtab %}
 {% endtabs %}
@@ -86,10 +86,6 @@ Campaign 스케줄에 대한 혼란을 방지하기 위해 각 워크스페이�
 - **새 기준 시점:** 오후 11시 59분 PST(다음 날 오전 2시 59분 EST에 해당)
 
 이 변경 후, 2026년 3월 6일 오후 10시 PST(2026년 3월 7일 오전 1시 EST에 해당)에 커스텀 이벤트를 수행한 사용자는 해당 날짜의 PST 캘린더 경계 내에 포함되므로 이제 오디언스에 포함됩니다.
-
-## 보고서 불일치 {#reporting-discrepancies}
-
-워크스페이스 시간대는 Campaign 전송에 대한 정밀한 제어를 제공하지만, 이 기능이 얼리 액세스 단계에 있는 동안 잠재적인 보고서 불일치에 유의해야 합니다. 특정 시간대가 재정의된 워크스페이스의 보고서를 분석할 때 데이터 포인트를 교차 참조하고 시간대를 고려하세요.
 
 ## 성과 데이터에 미치는 영향 {#impact-on-performance-data}
 

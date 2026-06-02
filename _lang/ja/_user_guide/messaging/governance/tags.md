@@ -3,47 +3,47 @@ nav_title: タグ
 article_title: タグ
 page_order: 6
 page_type: reference
-description: "このリファレンス記事では、Braze ダッシュボードでのCampaigns、Canvases、Segments、カスタムデータのタグについて説明します。"
+description: "このリファレンス記事では、Braze ダッシュボードでのキャンペーン、キャンバス、セグメント、カスタムデータのタグについて説明します。"
 tool:
-  - Campaigns
-  - Canvas
+  - キャンペーン
+  - キャンバス
 ---
 
 # タグ {#tags}
 
-> Brazeは、Segments、Campaigns、Canvasesの作成者、エディター、日付、ステータス情報を追跡し、エンゲージメントをさらに整理・分類するためのタグを作成する機能を提供します。
+> Brazeは、セグメント、キャンペーン、キャンバスの作成者、エディター、日付、ステータス情報を追跡し、エンゲージメントをさらに整理・分類するためのタグを作成する機能を提供します。
 
-## Campaign、Canvas、Segmentのタグ {#campaign-canvas-and-segment-tags}
+## キャンペーン、キャンバス、セグメントのタグ {#campaign-canvas-and-segment-tags}
 
-Campaign、Canvas、またはSegmentの作成時や編集時にタグを追加できます。エンゲージメント名の下にある <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tags** をクリックし、既存のタグを選択するか、入力を開始して新しいタグを追加します。
+キャンペーン、キャンバス、またはセグメントの作成時や編集時にタグを追加できます。エンゲージメント名の下にある <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tags** をクリックし、既存のタグを選択するか、入力を開始して新しいタグを追加します。
 
-![Campaign作成時にタグを追加する。]({% image_buster /assets/img_archive/tags_add_tag.png %}){: style="max-width:60%;" }
+![キャンペーン作成時にタグを追加する。]({% image_buster /assets/img_archive/tags_add_tag.png %}){: style="max-width:60%;" }
 
 {% alert important %}
-Campaign、Canvas、またはSegmentには最大175個のタグを追加できます。
+キャンペーン、キャンバス、またはセグメントには最大175個のタグを追加できます。
 {% endalert %}
 
 ### 一括タグ付け {#bulk-tagging}
 
-複数のCampaign、Canvas、またはSegmentを選択し、<span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tag As** を選択することで、一括でタグを追加することもできます。
+複数のキャンペーン、キャンバス、またはセグメントを選択し、<span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tag As** を選択することで、一括でタグを追加することもできます。
 
-![複数のCampaignに同時にタグを追加する。]({% image_buster /assets/img_archive/tags_apply_multiple.gif %})
+![複数のキャンペーンに同時にタグを追加する。]({% image_buster /assets/img_archive/tags_apply_multiple.gif %})
 
 {% alert important %}
-一括タグ付けを使用して、すでに異なるタグが設定されている複数のCampaignに新しいタグを適用すると、選択した各Campaignに新しいタグが追加され、いずれかのCampaignに存在するタグが、元々関連付けられていなかった場合でも、選択した他のすべてのCampaignに適用されます。
+一括タグ付けを使用して、すでに異なるタグが設定されている複数のキャンペーンに新しいタグを適用すると、選択した各キャンペーンに新しいタグが追加され、いずれかのキャンペーンに存在するタグが、元々関連付けられていなかった場合でも、選択した他のすべてのキャンペーンに適用されます。
 {% endalert %}
 
 ### タグの表示 {#viewing-tags}
 
-Campaign、Canvas、またはSegmentに設定されたタグは、エンゲージメント名の近くにある詳細ページで確認できます。また、Campaign分析にも表示されます。
+キャンペーン、キャンバス、またはセグメントに設定されたタグは、エンゲージメント名の近くにある詳細ページで確認できます。また、キャンペーン分析にも表示されます。
 
-![Campaign分析ページに表示されるタグ。]({% image_buster /assets/img_archive/tag_details_page.png %}){: style="max-width:60%;" }
+![キャンペーン分析ページに表示されるタグ。]({% image_buster /assets/img_archive/tag_details_page.png %}){: style="max-width:60%;" }
 
 ### タグによるフィルタリング {#filtering-by-tag}
 
-タグは、Campaign、Canvas、またはSegmentのリストに、**Archived** や **Draft** などのステータスラベルの追加タグとともに表示されます。タグでフィルタリングするには、タグのリストからタグ名を選択します。
+タグは、キャンペーン、キャンバス、またはセグメントのリストに、**Archived** や **Draft** などのステータスラベルの追加タグとともに表示されます。タグでフィルタリングするには、タグのリストからタグ名を選択します。
 
-![Campaignのリストに表示されるタグ。]({% image_buster /assets/img_archive/tags_grid.png %})
+![キャンペーンのリストに表示されるタグ。]({% image_buster /assets/img_archive/tags_grid.png %})
 
 ## カスタムデータのタグ {#custom-data-tags}
 

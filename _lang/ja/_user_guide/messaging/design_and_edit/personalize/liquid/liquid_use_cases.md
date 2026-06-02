@@ -937,7 +937,7 @@ Today's offer from {{store}}
 
 このユースケースでは、カスタムイベントに基づいて今後のリマインダーを設定できます。このシナリオ例では、26日以上先のポリシー更新日に対してリマインダーを設定し、ポリシー更新日の26日前、13日前、7日前、または2日前にリマインダーを送信します。
 
-このユースケースでは、以下を[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)またはキャンバスステップの本文に配置する必要があります。
+このユースケースでは、以下を[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)またはCanvasステップの本文に配置する必要があります。
 
 {% raw %}
 ```liquid
@@ -1372,6 +1372,10 @@ Time zones
 - [ユーザーのローカルタイムゾーンの時間帯に基づいて異なるメッセージを送信する](#time-of-day)
 - [送信時に時間範囲外の場合にメッセージを中止する](#abort-send-time-hour-range)
 - [固定タイムゾーンの時間枠外でメッセージを中止する](#abort-fixed-timezone-window)
+
+{% alert note %}
+ユーザーが予期しないローカル時刻にメッセージを受信した場合、デバイスまたはプロファイルのタイムゾーンが変更された可能性があります（たとえば、旅行後など）。ローカルタイム配信では、送信時のプロファイルのタイムゾーンを使用します。{% raw %}`{{${time_zone}}}`{% endraw %}などの値が期待どおりに反映されるには、ユーザーが通常の地域で新しいセッションを開始する必要がある場合があります。ただし、[ユーザーのタイムゾーンをテンプレートに挿入する](#users-time-zone)ことは可能です。
+{% endalert %}
 
 ### ユーザーのタイムゾーンをテンプレートに挿入する {#users-time-zone}
 

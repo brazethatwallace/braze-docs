@@ -24,7 +24,7 @@ Além disso, verifique a pontuação e os emojis para determinar se sua mensagem
 |------------------|------------------------|
 | Exibe o ponto de exclamação e o emoji no **final** das frases. | Exibe o ponto de exclamação e o emoji no **início** da frase. |
 | ![Um exemplo de mensagem com renderização padrão.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Um exemplo de mensagem da direita para a esquerda.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aparência da mensagem" }
 
 ## Criando uma mensagem da direita para a esquerda {#creating-a-right-to-left-message}
 

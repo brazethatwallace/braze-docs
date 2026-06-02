@@ -20,7 +20,7 @@ channel:
 | KakaoTalk-Business-Kanal | Ihr KakaoTalk-Konto muss ein KakaoTalk-Business-Kanal sein, um KakaoTalk-Nachrichten über Braze zu senden. Wenn Sie ein Konto erstellen, ist der Standardstatus „Basic“. Um Ihr Konto zu einem Business-Kanal zu machen, müssen Sie Ihr Unternehmen verifizieren und die entsprechenden Dokumente bereitstellen. |
 | KakaoTalk-Sender-Key | Ein gültiger KakaoTalk-Sender-Key. |
 | Kontakt-Telefonnummer | Eine Kontakt-Telefonnummer für den Administrator Ihres KakaoTalk-Kanals. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Typen von KakaoTalk-Konten {#types-of-kakaotalk-accounts}
 
@@ -28,7 +28,7 @@ channel:
 | --- | --- |
 | Basic-Kanal | Ein Standard-KakaoTalk-Kanal, den jede Organisation einrichten kann. Er ermöglicht Broadcast-Messaging und 1:1-Chat über KakaoTalk. |
 | [Business-Kanal](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Ein erweiterter, geschäftlich verifizierter KakaoTalk-Kanal, der einen Antrags- und Verifizierungsprozess erfordert. Er bietet erweiterte Features, wie z. B. {::nomarkdown}<ul><li>Verifiziertes Badge</li><li>Anzeige als empfohlener Kanal</li><li>Unterstützung für Business-Messaging</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of KakaoTalk accounts" }
 
 #### Einen Business-Kanal beantragen {#apply-for-a-business-channel}
 
@@ -55,8 +55,8 @@ Nachdem Sie Ihre Dokumente zusammengestellt haben, folgen Sie diesen Schritten:
 
 ### 1. Schritt: Den KakaoTalk-Kanal mit Braze verbinden {#step-1-connect-the-kakaotalk-channel-to-braze}
 
-1. Gehen Sie zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie Ihren KakaoTalk-Anbieter aus.
-2. Sammeln Sie die erforderlichen Zugangsdaten für Ihren Anbieter (siehe unten), geben Sie diese auf der Seite **Technologie-Partner** ein und speichern Sie.
+1. Gehen Sie zu **Partner Integrations** > **Technology Partners** und wählen Sie Ihren KakaoTalk-Anbieter aus.
+2. Sammeln Sie die erforderlichen Zugangsdaten für Ihren Anbieter (siehe unten), geben Sie diese auf der Seite **Technology Partners** ein und speichern Sie.
 3. Verwenden Sie die neu gespeicherten Zugangsdaten zum Senden.
 
 #### CJ OliveNetworks
@@ -70,7 +70,7 @@ Gehen Sie zu Ihrem [Comm.One-Dashboard](https://ums.cjmplace.com/) und sammeln S
 | **Channel name (카카오톡 채널 프로필명)** | Gehen Sie in Ihrem Comm.One-Dashboard zu **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Sender number (연락처)** | {::nomarkdown}<ol><li>Gehen Sie zu <b>Account Management (계정 관리)</b>, wählen Sie das Menüsymbol und dann <b>View Details (자세히보기)</b>.</li><li>Gehen Sie zu <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ul>{:/} |
 | **Credential (ID) & Password (비밀번호)** | Gehen Sie zum selben Ort wie für die **Sender number (사업자 등록번호)** und dann zu **API** > **Brand Message (브랜드 메시지)**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
@@ -81,6 +81,12 @@ Gehen Sie zu Ihrem [Comm.One-Dashboard](https://ums.cjmplace.com/) und sammeln S
 {% tab Sender Key (발신프로필 키) %}
 
 ![Comm.One-Dashboard mit einem zensierten Sender Key.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
+
+{% alert important %}
+Sie können einen KakaoTalk-Sender-Key jeweils nur in einen Workspace integrieren. Um denselben Sender Key in einem anderen Workspace zu verwenden, müssen Sie zunächst die KakaoTalk-Abo-Gruppe im ursprünglichen Workspace archivieren und dann den [Braze-Support]({{site.baseurl}}/braze_support/) kontaktieren, um die Integration zu entfernen. Nachdem Braze die Integration entfernt hat, können Sie die Integration im neuen Workspace einrichten.
+{% endalert %}
+
+![Zugangsdaten für einen Braze-KakaoTalk-Kanal.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
 
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
@@ -95,13 +101,11 @@ Gehen Sie zu Ihrem [Comm.One-Dashboard](https://ums.cjmplace.com/) und sammeln S
 {% endtab %}
 {% endtabs %}
 
-![Felder auf der Technologie-Partner-Seite für CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Zugangsdaten für einen Braze-KakaoTalk-Kanal.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 Es können nur die Kanäle registriert werden, die einer einzelnen gemeinsamen ID zugeordnet sind.
 {% endalert %}
+
+![Felder auf der Seite „Technology Partners“ für CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 
@@ -110,17 +114,17 @@ Gehen Sie zu Ihrem Infobip-Dashboard und sammeln Sie die folgenden Informationen
 | Feld | Ort |
 | --- | --- |
 | **API Base URL** | Wählen Sie **Developer Tools** > **API Keys**. |
-| **API-Schlüssel** | Wählen Sie **Developer Tools** > **API Keys**. |
+| **API Key** | Wählen Sie **Developer Tools** > **API Keys**. |
 | **Sender name / Sender key** | Wählen Sie **Channels and Numbers** > **Channels** und dann den Tab **Senders**. |
 | **Sender profile UUID** | Wird direkt von Infobip bereitgestellt. Kontaktieren Sie Infobip, wenn Sie diese Information nicht haben. |
 | **Channel name** | Wird direkt von Infobip bereitgestellt. Kontaktieren Sie Infobip, wenn Sie diese Information nicht haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
 
 ## Nutzerprofile einrichten {#set-user-profiles}
 
-Nutzerprofile müssen Telefonnummern enthalten, um Nachrichten über KakaoTalk zu senden. Telefonnummern werden im Nutzerprofil in dem Format angezeigt, in dem sie bereitgestellt wurden. Im Gegensatz zu SMS oder WhatsApp verwendet KakaoTalk derzeit das Standard-Telefonnummernfeld (und nicht eine Nummer, die in das E.164-Format umgewandelt wurde).
+Nutzerprofile müssen Telefonnummern enthalten, um ihnen Nachrichten über KakaoTalk zu senden. Telefonnummern werden im Nutzerprofil in dem Format angezeigt, in dem sie bereitgestellt wurden. Im Gegensatz zu SMS oder WhatsApp verwendet KakaoTalk derzeit das Standard-Telefonnummernfeld (und nicht eine Nummer, die in das E.164-Format umgewandelt wurde).
 
-![Nutzerprofil einer Testnutzer:in mit einer Telefonnummer in einem unbearbeiteten Format.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
+![Nutzerprofil eines Testnutzers mit einer Telefonnummer in einem unbearbeiteten Format.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
 
 ### Telefonnummern importieren {#import-phone-numbers}
 

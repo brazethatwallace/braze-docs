@@ -1,6 +1,6 @@
 ---
 nav_title: "Email Love"
-article_title: Email Love
+article_title: "Email Love"
 description: "Figma에서 직접 반응형 및 접근성 높은 HTML 이메일을 디자인하고 내보낼 수 있는 Figma 플러그인인 Email Love를 Braze와 통합하는 방법을 알아보세요."
 alias: /partners/email_love/
 page_type: partner
@@ -14,11 +14,11 @@ search_tag: Partner
 
 ## 필수 조건 {#prerequisites}
 
-| 요구 사항            | 설명                                                      |
+| 요구 사항 | 설명 |
 |------------------------|------------------------------------------------------------------|
 | **Email Love 계정** | 이 파트너십을 활용하려면 Email Love 계정이 필요합니다. |
 | **Braze REST API 키** | 전체 `Templates` 권한이 활성화된 Braze REST API 키가 필요합니다. Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Braze에서 Email Love 사용하기 {#using-email-love-with-braze}
 
@@ -32,7 +32,7 @@ search_tag: Partner
 
 ### 3단계: Email Love의 사전 구축된 구성요소로 템플릿 디자인하기 {#step-3-design-the-template-with-email-loves-pre-built-components}
 
-생성한 프레임을 선택하고 플러그인의 **자산** 라이브러리에서 구성요소(헤더, 콘텐츠 블록, CTA, 푸터)를 추가하여 이메일 구조를 만듭니다.
+생성한 프레임을 선택하고 플러그인의 **Assets** 라이브러리에서 구성요소(헤더, 콘텐츠 블록, CTA, 푸터)를 추가하여 이메일 구조를 만듭니다.
 
 ![Email Love의 사전 구축된 구성요소.]({% image_buster /assets/img/email_love/emaillove1_content.png %})
 

@@ -12,13 +12,13 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# コンテンツカード統合
+# コンテンツカード統合 {#content-card-integration}
 
-## コンテンツカードデータモデル
+## コンテンツカードデータモデル {#content-cards-data-model}
 
-コンテンツカードデータモデルは iOS SDK で使用できます。
+コンテンツカードデータモデルはiOS SDKで使用できます。
 
-### データを取得する
+### データを取得する {#getting-the-data}
 
 コンテンツカードデータモデルにアクセスするには、コンテンツカード更新イベントを購読してください。
 
@@ -33,7 +33,7 @@ noindex: true
                                            object:nil];
 ```
 
-```objc
+`````````objc
 // Called when Content Cards are refreshed (via `requestContentCardsRefresh`)
 - (void)contentCardsUpdated:(NSNotification *)notification {
   BOOL updateIsSuccessful = [notification.userInfo[ABKContentCardsProcessedIsSuccessfulKey] boolValue];
@@ -44,7 +44,7 @@ noindex: true
 ```
 {% endtab %}
 {% tab swift %}
-```swift
+`````````swift
 // Subscribe to content card updates
 // Note: you should remove the observer where appropriate
 NotificationCenter.default.addObserver(self, selector:
@@ -52,7 +52,7 @@ NotificationCenter.default.addObserver(self, selector:
   name:NSNotification.Name.ABKContentCardsProcessed, object: nil)
 ```
 
-```swift
+`````````swift
 // Called when the Content Cards are refreshed (via `requestContentCardsRefresh`)
 @objc private func contentCardsUpdated(_ notification: Notification) {
   if let updateIsSuccessful = notification.userInfo?[ABKContentCardsProcessedIsSuccessfulKey] as? Bool {
@@ -65,81 +65,81 @@ NotificationCenter.default.addObserver(self, selector:
 {% endtab %}
 {% endtabs %}
 
-Braze から送信された後にカードデータを変更したい場合は、カードデータのディープコピーをローカルに保存し、データを更新してから自分で表示することをおすすめします。カードには [`ABKContentCardsController`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_cards_controller.html) 経由でアクセスできます。
+Brazeから送信された後にカードデータを変更したい場合は、カードデータのディープコピーをローカルに保存し、データを更新してから自分で表示することをおすすめします。カードには[`ABKContentCardsController`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_cards_controller.html)経由でアクセスできます。
 
-## コンテンツカードモデル
+## コンテンツカードモデル {#content-card-model}
 
-Braze には、バナー、キャプション付き画像、クラシックの3種類のコンテンツカードが用意されています。各タイプはベース `ABKContentCard` クラスから共通のプロパティを継承し、次の追加プロパティがあります。
+Brazeには、バナー、キャプション付き画像、クラシックの3種類のContent Cardsが用意されています。各タイプはベース`ABKContentCard`クラスから共通のプロパティを継承し、以下の追加プロパティを持ちます。
 
-### ベースコンテンツカードモデルプロパティ - ABKContentCard
+### ベースコンテンツカードモデルプロパティ - ABKContentCard {#base-content-card-model-properties-abkcontentcard}
 
-|プロパティ|説明|
+| プロパティ | 説明 |
 |---|---|
-|`idString` | (参照のみ) Brazeで設定されたカードのID。 |
-| `viewed` | このプロパティは、ユーザがカードを閲覧したかどうかを反映する。|
-| `created` | (参照のみ) このプロパティは、Braze からのカードの作成時刻のUNIX タイムスタンプです。 |
-| `expiresAt` | (参照のみ)このプロパティは、カードの有効期限のUNIX タイムスタンプです。|
-| `dismissible` | このプロパティは、ユーザーがカードを削除できるかどうかを反映します。|
-| `pinned` | このプロパティは、カードがダッシュボードで「ピン留め」されているかどうかを反映する。|
-| `dismissed` | このプロパティは、ユーザーがカードを削除したかどうかを反映します。|
-| `url` | カードをクリックした後に開封されるURL。HTTP (S) URL でもプロトコル URL でもかまいません。||
-| `openURLInWebView` | このプロパティは、URL をアプリ内で開封するか、外部Web ブラウザーで開封するかを決定します。|
-| `extras`| `NSString` 値のオプションの `NSDictionary`。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `idString` | (読み取り専用) Brazeで設定されたカードのID。 |
+| `viewed` | このプロパティは、ユーザーがカードを閲覧したかどうかを反映します。|
+| `created` | (読み取り専用) このプロパティは、Brazeからのカードの作成時刻のUNIXタイムスタンプです。 |
+| `expiresAt` | (読み取り専用) このプロパティは、カードの有効期限のUNIXタイムスタンプです。|
+| `dismissible` | このプロパティは、ユーザーがカードを非表示にできるかどうかを反映します。|
+| `pinned` | このプロパティは、カードがダッシュボードで「ピン留め」されているかどうかを反映します。|
+| `dismissed` | このプロパティは、ユーザーがカードを非表示にしたかどうかを反映します。|
+| `url` | カードをクリックした後に開かれるURL。HTTP(S) URLでもプロトコルURLでもかまいません。|
+| `openURLInWebView` | このプロパティは、URLをアプリ内で開くか、外部Webブラウザーで開くかを決定します。|
+| `extras`| `NSString`値のオプションの`NSDictionary`。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Base Content Card model properties - ABKContentCard" }
 
-### バナーコンテンツカードのプロパティ - ABKBannerContentCard
+### バナーコンテンツカードのプロパティ - ABKBannerContentCard {#banner-content-card-properties-abkbannercontentcard}
 
-|プロパティ|説明|
+| プロパティ | 説明 |
 |---|---|
-| `image` | このプロパティはカードの画像の URL です。|
-| `imageAspectRatio` | このプロパティはカードの画像の縦横比であり、画像の読み込みが完了する前のヒントとして機能します。ただし、場合によってはプロパティが供給されないことがあります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `image` | このプロパティはカードの画像のURLです。|
+| `imageAspectRatio` | このプロパティはカードの画像の縦横比であり、画像の読み込みが完了する前のヒントとして機能します。ただし、場合によってはプロパティが提供されないことがあります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Banner Content Card properties - ABKBannerContentCard" }
 
-### キャプション付き画像コンテンツカードのプロパティ-ABKCaptionedImageCard
+### キャプション付き画像コンテンツカードのプロパティ - ABKCaptionedImageCard {#captioned-image-content-card-properties-abkcaptionedimagecard}
 
-|プロパティ|説明|
+| プロパティ | 説明 |
 |---|---|
-| `image` | このプロパティはカードの画像の URL です。|
+| `image` | このプロパティはカードの画像のURLです。|
 | `imageAspectRatio` | このプロパティはカードの画像の縦横比です。|
 | `title` | カードのタイトルテキスト。|
-| `cardDescription` | カードの本文。|
-| `domain` | @"blog.braze.com" のようなプロパティ URL のリンクテキスト。カードの UI に表示され、カードをクリックした時の動作/方向を示すことができます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `cardDescription` | カードの本文テキスト。|
+| `domain` | @"blog.braze.com" のようなプロパティURLのリンクテキスト。カードのUIに表示して、カードをクリックしたときのアクション/方向を示すことができます。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image Content Card properties - ABKCaptionedImageCard" }
 
-### クラシックコンテンツカードのプロパティ - ABKClassicContentCard
+### クラシックコンテンツカードのプロパティ - ABKClassicContentCard {#classic-content-card-properties-abkclassiccontentcard}
 
-|プロパティ|説明|
+| プロパティ | 説明 |
 |---|---|
-| `image` | (オプション) このプロパティはカードの画像の URL です。|
+| `image` | (オプション) このプロパティはカードの画像のURLです。|
 | `title` | カードのタイトルテキスト。 |
-| `cardDescription` | カードの本文。 |
-| `domain` | @"blog.braze.com" のようなプロパティ URL のリンクテキスト。カードの UI に表示して、カードをクリックしたときのアクションと方向を示すことができます。| |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `cardDescription` | カードの本文テキスト。 |
+| `domain` | @"blog.braze.com" のようなプロパティURLのリンクテキスト。カードのUIに表示して、カードをクリックしたときのアクションと方向を示すことができます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic Content Card properties - ABKClassicContentCard" }
 
-## カードメソッド
+## カードメソッド {#card-methods}
 
-|方法|説明|
+| メソッド | 説明 |
 |---|---|
-| `logContentCardImpression` | 特定のカードのインプレッションを手動でBrazeに記録する。 |
-| `logContentCardClicked` | 特定のカードのクリックを Braze に手動で記録します。SDK は、カードに有効な値の `url` プロパティがある場合にのみカードクリックを記録します。 |
-| `logContentCardDismissed` | 特定のカードの消去を手動で Braze に記録します。カードの`dismissed` プロパティがまだ`true` に設定されていない場合にのみ、SDKはカードの削除を記録します。 |
-| `isControlCard` | カードが A/B テストのコントロールカードであるかどうかを判断します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `logContentCardImpression` | 特定のカードのインプレッションを手動でBrazeに記録します。 |
+| `logContentCardClicked` | 特定のカードのクリックを手動でBrazeに記録します。SDKは、カードに有効な値の`url`プロパティがある場合にのみカードクリックを記録します。 |
+| `logContentCardDismissed` | 特定のカードの非表示を手動でBrazeに記録します。カードの`dismissed`プロパティがまだ`true`に設定されていない場合にのみ、SDKはカードの非表示を記録します。 |
+| `isControlCard` | カードがA/Bテストのコントロールカードであるかどうかを判断します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
 
 詳細については、[クラスリファレンスドキュメント](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_card.html)を参照してください。
 
-## コンテンツカードビューコントローラーの統合
+## コンテンツカードビューコントローラーの統合 {#content-cards-view-controller-integration}
 
-コンテンツカードは、ナビゲーションまたはモーダルという2つのビューコントローラコンテキストと統合できます。
+コンテンツカードは、ナビゲーションまたはモーダルという2つのビューコントローラーコンテキストで統合できます。
 
-### ナビゲーションコンテキスト
+### ナビゲーションコンテキスト {#navigation-context}
 
-ナビゲーションコントローラーにインスタンスをプッシュする例:
+ナビゲーションコントローラーに`ABKContentCardsTableViewController`インスタンスをプッシュする例:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 ABKContentCardsTableViewController *contentCards = [[ABKContentCardsTableViewController alloc] init];
 contentCards.title = @"Content Cards Title";
 contentCards.disableUnreadIndicator = YES;
@@ -149,7 +149,7 @@ contentCards.disableUnreadIndicator = YES;
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 let contentCards = ABKContentCardsTableViewController()
 contentCards.title = "Content Cards Title"
 contentCards.disableUnreadIndicator = true
@@ -160,17 +160,17 @@ navigationController?.pushViewController(contentCards, animated: true)
 {% endtabs %}
 
 {% alert note %}
-ナビゲーションバーのタイトルをカスタマイズするには、`ABKContentCardsTableViewController` インスタンスの `navigationItem` のプロパティを設定します。
+ナビゲーションバーのタイトルをカスタマイズするには、`ABKContentCardsTableViewController`インスタンスの`navigationItem`のタイトルプロパティを設定します。
 {% endalert %}
 
-### モーダルコンテキスト
+### モーダルコンテキスト {#modal-context}
 
-このモーダルは、ビューコントローラをモーダルビューに表示するために使用され、上部にナビゲーションバー、バーの横に [**完了**] ボタンが表示されます。
+このモーダルは、ビューコントローラーをモーダルビューに表示するために使用され、上部にナビゲーションバー、バーの横に**Done**ボタンが表示されます。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 ABKContentCardsViewController *contentCards = [[ABKContentCardsViewController alloc] init];
 contentCards.contentCardsViewController.title = @"Content Cards Title";
 contentCards.contentCardsViewController.disableUnreadIndicator = YES;
@@ -180,7 +180,7 @@ contentCards.contentCardsViewController.disableUnreadIndicator = YES;
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 let contentCards = ABKContentCardsViewController()
 contentCards.contentCardsViewController.title = "Content Cards Title"
 contentCards.contentCardsViewController.disableUnreadIndicator = true
@@ -190,8 +190,8 @@ self.present(contentCards, animated: true, completion: nil)
 {% endtab %}
 {% endtabs %}
 
-ビューコントローラーの例については、[コンテンツカードのサンプルアプリ](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp)をご覧ください。
+ビューコントローラーの例については、[Content Cardsサンプルアプリ](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp)をご覧ください。
 
 {% alert note %}
-ヘッダーをカスタマイズするには、親 `ABKContentCardsViewController` インスタンスに埋め込まれている `ABKContentCardsTableViewController` インスタンスに属する `navigationItem` のタイトルプロパティを設定します。
+ヘッダーをカスタマイズするには、親`ABKContentCardsViewController`インスタンスに埋め込まれている`ABKContentCardsTableViewController`インスタンスに属する`navigationItem`のタイトルプロパティを設定します。
 {% endalert %}

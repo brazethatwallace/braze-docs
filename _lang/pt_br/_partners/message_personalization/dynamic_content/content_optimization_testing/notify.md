@@ -17,9 +17,9 @@ A integração da Braze com a Notify permite que profissionais de marketing prom
 
 Antes de começar, você precisará do seguinte:
 
-| Requisito          | Descrição                                                                                                                                |
+| Requisito | Descrição |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Chave da API REST da Braze  | Uma chave da API REST da Braze com as permissões `users.export.segment` e `campaigns.trigger.send`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.export.segment` e `campaigns.trigger.send`. <br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
 | Configuração de CNAME | Um subdomínio deve ser criado para o pixel de rastreamento usado no e-mail para que a Notify rastreie o engajamento do usuário com as mensagens e alimente melhor o modelo. Compartilhe a URL do subdomínio com a Notify após a criação. |
 | Exportação de opt-in do banco de dados | Envie os dados de Campaigns e de compras do último ano (12 meses) para a Notify. ​Essa exportação será usada para treinar o modelo preditivo da Notify. <br><br> **Campos:** <br><br> **E-mail:** Um hash SHA256 do e-mail, convertido para minúsculas e com quaisquer espaços em branco no início ou no final removidos.<br><br>**Segment:** As informações do segmento que definem o nível de atividade (ativo ou inativo).<br><br>**Subsegmento:** Qualquer outra informação relevante sobre atividades, como nível de atividade de compra.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

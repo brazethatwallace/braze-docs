@@ -88,7 +88,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### SMS-Abonnements {#sms-subscriptions}
 
-Quikly-Aktivierungen können Mobilfunknummern direkt von Kund:innen erfassen und ein neues SMS-Abo einrichten. Um diese Integration zu aktivieren, stellen Sie Ihrem Quikly Client Success Manager die `subscription_group_id` zur Verfügung. Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie zur Seite **Abo-Gruppe** navigieren.
+Quikly-Aktivierungen können Mobilfunknummern direkt von Kund:innen erfassen und ein neues SMS-Abo einrichten. Um diese Integration zu aktivieren, stellen Sie Ihrem Quikly Client Success Manager die `subscription_group_id` zur Verfügung. Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie zur Seite **Subscription Group** navigieren.
 
 Quikly führt eine Abo-Suche anhand der Telefonnummer der/des Kund:in durch und schreibt ihr/ihm bei der Aktivierung automatisch gut, wenn bereits ein SMS-Abo besteht. Andernfalls wird ein neues Abo eingeleitet, und nachdem der Abo-Status verifiziert wurde, wird der/dem Kund:in die Gutschrift erteilt.
 
@@ -104,13 +104,13 @@ Braze empfiehlt, bei der Erstellung neuer Nutzer:innen über den `/users/track`-
 {% endalert %}
 
 {% details Detailed /subscription/status/set request %}
-#### Anfrage-Header {#request-headers}
+#### Anfrage-Header
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-#### Anfragetext {#request-body}
+#### Anfragetext
 ```
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
@@ -126,7 +126,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% tab Custom Attributes %}
 ### Angepasste Attribute {#custom-attributes}
 
-Je nach Ihrer Braze-Implementierung möchten Sie möglicherweise, dass Events innerhalb der Quikly-Aktivierung zur weiteren Verarbeitung durch Braze kaskadiert werden. Sie können beispielsweise ein angepasstes Attribut anwenden, das darauf basiert, welche Stufe oder welcher Anreiz bei der Quikly-Aktivierung erreicht wurde, sodass Sie die entsprechende Content-Card anzeigen können, wenn Nutzer:innen Ihre App öffnen oder sich auf Ihrer Website einloggen. Quikly arbeitet direkt mit Ihnen zusammen, um diese Integrationen zu implementieren.
+Je nach Ihrer Braze-Implementierung möchten Sie möglicherweise, dass Events innerhalb der Quikly-Aktivierung zur weiteren Verarbeitung durch Braze kaskadiert werden. Sie können beispielsweise ein angepasstes Nutzerattribut anwenden, das darauf basiert, welche Stufe oder welcher Anreiz bei der Quikly-Aktivierung erreicht wurde, sodass Sie die entsprechende Content-Card anzeigen können, wenn Nutzer:innen Ihre App öffnen oder sich auf Ihrer Website einloggen. Quikly arbeitet direkt mit Ihnen zusammen, um diese Integrationen zu implementieren.
 
 {% endtab %}
 {% tab Webhooks %}
@@ -135,24 +135,24 @@ Verwenden Sie Webhooks, um Anreize für bestimmte Events in der Customer Journey
 
 ### Erstellen eines Quikly-Webhooks in Braze {#create-a-quikly-webhook-in-braze}
 
-Um ein Quikly-Webhook-Template für künftige Campaigns oder Canvases zu erstellen, navigieren Sie in der Braze-Plattform zu **Templates** > **Webhook-Templates**.
+Um ein Quikly-Webhook-Template für künftige Campaigns oder Canvases zu erstellen, navigieren Sie in der Braze-Plattform zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
 
 Wenn Sie eine einmalige Quikly-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 
 Wählen Sie **Blank Template** aus und geben Sie Folgendes für die Webhook-URL und den Anfragetext ein:
-- **Webhook-URL**: https://api.quikly.com/webhook/braze
-- **Anfragetext**: JSON-Schlüssel-Wert-Paare
+- **Webhook URL**: https://api.quikly.com/webhook/braze
+- **Request Body**: JSON-Schlüssel-Wert-Paare
 
 #### Anfrage-Header und Methode {#request-headers-and-method}
 
 Quikly benötigt einen `HTTP Header` für die Autorisierung.
 
-- **HTTP-Methode**: POST
-- **Anfrage-Header**:
+- **HTTP Method**: POST
+- **Request Header**:
   - **Authorization**: Bearer [PARTNER_AUTHORIZATION_HEADER]
   - **Content-Type**: application/json
 
-#### Anfragetext {#request-body}
+#### Anfragetext
 
 Wählen Sie ***JSON key/value pairs*** aus und fügen Sie die folgenden Paare hinzu:
 {% raw %}

@@ -25,7 +25,7 @@ Quando um usuário chega a uma etapa de agente em um Canvas, a Braze envia os da
 
 Você pode usar essa variável de três formas principais:
 
-- **Tomada de decisão:** Direcione os usuários por diferentes jornadas do Canvas com base na resposta do agente. Por exemplo, um agente de pontuação de leads pode retornar um número entre 1 e 10. Você pode usar essa pontuação para decidir se continua enviando mensagens ao usuário ou se o remove da jornada.
+- **Tomada de decisão:** Direcione os usuários por diferentes jornadas do Canvas com base na resposta do agente. Por exemplo, um agente de pontuação de leads pode retornar uma categoria de lead como "Sales Ready", "Marketing Qualified" ou "Disqualified". Você pode usar essa atribuição para disparar um alerta no Slack ou uma mensagem automatizada para leads "Sales Ready", enquanto remove leads "Disqualified" da jornada.
 - **Personalização:** Insira a resposta do agente diretamente em uma mensagem. Por exemplo, um agente pode analisar o feedback de um cliente e gerar um e-mail de acompanhamento empático que faz referência ao comentário do cliente e sugere uma resolução.
 - **Processamento de dados de usuários:** Analise e padronize seus dados de usuários e, em seguida, armazene-os no perfil de usuário ou envie-os usando um webhook. Por exemplo, um agente pode retornar uma pontuação de sentimento ou uma atribuição de afinidade de produto. Você pode armazenar esses dados em um perfil de usuário para uso futuro.
 
@@ -51,9 +51,9 @@ O tipo de dado da variável de saída é definido no [Console do agente]({{site.
 | Número | Pontuação, limites, roteamento em [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) |
 | Booleano | Ramificação Sim/Não em [Divisões de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) |
 | Objeto | Aproveite um ou mais dos tipos de dados acima com uma única chamada de LLM em uma estrutura de dados previsível |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
 
-Você pode usar uma variável de saída em todo o Canvas usando a mesma sintaxe de modelo que usaria com uma variável de contexto. Use o filtro de segmento **Context Variable** ou insira as respostas do agente diretamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
+Você pode usar uma variável de saída em todo o Canvas usando a mesma sintaxe de modelo que usaria com uma variável de contexto. Use o filtro de segmento **Context Variable** ou insira as respostas do agente diretamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
 
 Para usar uma propriedade específica de uma variável de saída do tipo objeto, use a notação de ponto para acessar essa propriedade usando Liquid: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
@@ -94,7 +94,7 @@ Consulte as métricas a seguir para acompanhar o desempenho das suas etapas de a
 | _Entered_ | O número de vezes que os usuários entraram na etapa de agente. |
 | _Proceeded to Next Step_ | O número de usuários que avançaram para a próxima etapa do fluxo após passar pela etapa de agente. |
 | _Exited Canvas_ | O número de usuários que saíram do Canvas após passar pela etapa de agente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
 
 ## Práticas recomendadas {#best-practices}
 
@@ -112,7 +112,7 @@ O padrão a seguir usa três agentes para um exemplo de viagens: alguém pesquis
 
 Para testar o desempenho e o consumo de créditos do seu agente em comparação com suas jornadas existentes, adicione uma etapa de [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para que apenas parte do seu público entre na ramificação que contém sua etapa de agente.
 
-Por exemplo, envie alguns milhares de usuários por dia por uma jornada com o agente e envie o restante para uma jornada de controle ou uma jornada sem o agente. Colete dados por 1 a 2 semanas e compare indicadores-chave de desempenho (KPIs), contra-métricas e consumo de créditos do agente entre as jornadas antes de aumentar o tráfego para a ramificação habilitada com agente.
+Por exemplo, você pode começar enviando alguns milhares de usuários por dia por uma jornada com o agente e enviar o restante para uma jornada de controle ou uma jornada sem o agente. Colete dados por 1 a 2 semanas e compare indicadores-chave de desempenho (KPIs), contra-métricas e consumo de créditos do agente entre as jornadas. Dessa forma, você pode ganhar confiança e comprovar o ROI antes de aumentar o tráfego para a ramificação habilitada com agente, limitando o consumo de invocações ao mesmo tempo.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

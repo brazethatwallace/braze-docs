@@ -34,7 +34,7 @@ Si estás participando en las pruebas de las cuentas de Meta Work en versión be
 | [Facebook Business Manager](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Una herramienta centralizada para gestionar los activos de Facebook de tu marca (por ejemplo, cuentas de anuncios, páginas, aplicaciones). |
 | [Cuenta publicitaria de Facebook](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Una cuenta de anuncios de Facebook activa vinculada al administrador de empresas de tu marca que quieras utilizar con los públicos personalizados de Braze.<br><br>Asegúrate de que el administrador de tu empresa en Facebook te ha concedido permisos de administrador para las cuentas de anuncios de Facebook que piensas utilizar con Braze, y de que has aceptado los términos y condiciones de tu cuenta de anuncios. De lo contrario, no podrás acceder a ninguna cuenta de anuncios de Facebook dentro de Braze. |
 | [Términos de los públicos personalizados de Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php)| Debes aceptar los términos de públicos personalizados de Facebook para las cuentas de anuncios de Facebook que pienses utilizar con Braze.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integración {#integration}
 

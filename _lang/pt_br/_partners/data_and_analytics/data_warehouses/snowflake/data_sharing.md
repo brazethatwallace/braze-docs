@@ -8,7 +8,7 @@ search_tag: Partner
 
 ---
 
-# [![curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Compartilhamento de dados do Snowflake {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
+# [![curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Compartilhamento de dados do Snowflake {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
 
 > O [Compartilhamento Seguro de Dados](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html) do Snowflake permite que a Braze forneça acesso seguro aos dados no nosso portal Snowflake sem se preocupar com atritos no fluxo de trabalho, lentidão, pontos de falha e custos desnecessários que acompanham os relacionamentos típicos com provedores de dados. O compartilhamento de dados pode ser configurado por meio da integração a seguir ou por meio das [Contas de Leitor do Snowflake]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts).
 
@@ -36,7 +36,7 @@ Para saber mais sobre o compartilhamento de dados do Snowflake, consulte [Introd
 | ----------- | ----------- |
 | Acesso à Braze | Fale com sua conta da Braze ou gerente de sucesso do cliente para configurar o Compartilhamento de Dados. |
 | Conta do Snowflake | Uma conta do Snowflake com permissões de `admin`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Configurando o Compartilhamento Seguro de Dados {#setting-up-secure-data-sharing}
 
@@ -44,7 +44,7 @@ No Snowflake, o compartilhamento de dados acontece entre um [provedor de dados](
 
 ### Etapa 1: Enviar o datashare a partir da Braze {#step-1-send-the-datashare-from-braze}
 
-1. Na Braze, acesse **Integrações de parceiros** > **Compartilhamento de dados**.
+1. Na Braze, acesse **Partner Integrations** > **Data Sharing**.
 2. Insira os detalhes e o localizador da sua conta do Snowflake. Para obter o localizador da sua conta, execute `SELECT CURRENT_ACCOUNT()` na conta de destino.
 3. Se estiver usando um compartilhamento CRR, especifique o provedor de nuvem e a região.
 4. Quando terminar, selecione **Create Datashare**. Isso enviará o datashare para sua conta do Snowflake.
@@ -87,7 +87,7 @@ Observe as seguintes diferenças entre as convenções de nomenclatura da Braze 
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | O identificador único que é atribuído automaticamente pela Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | O identificador único do perfil de um usuário que é definido pelo cliente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ## Informações importantes e limitações {#important-information-and-limitations}
 

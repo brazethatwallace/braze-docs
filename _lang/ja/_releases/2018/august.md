@@ -13,7 +13,7 @@ description: "この記事には、2018年8月のリリースノートが含ま�
 
 ## Push Storyトリガー {#push-story-triggering}
 
-Push Storyスライドの特定のページクリックに基づいて、ユーザーをリターゲティングできるようになりました。**Campaignとインタラクションした**の追加フィルターを使用します。
+Push Storyスライドの特定のページクリックに基づいて、ユーザーをリターゲティングできるようになりました。**キャンペーンとインタラクションした**の追加フィルターを使用します。
 
 ## 匿名ユーザーからのS3およびAzureデータイベント {#s3-and-azure-data-events-from-anonymous-users}
 
@@ -21,4 +21,4 @@ Amazon S3およびMicrosoft Azureにデータをエクスポートするお客�
 
 ## Mixpanelコホート統合 {#mixpanel-cohorts-integration}
 
-BrazeとMixpanelの両方をご利用のお客様が、[MixpanelコホートをSegmentフィルターとしてBrazeに統合・送信]({{site.baseurl}}/partners/insights/behavioral_analytics/mixpanel_for_currents/#mixpanel-cohort-import)できるようになりました。1回限りの手動エクスポートを設定するか、2時間ごとのダイナミックなエクスポートを設定できます。更新された各ユーザーはデータポイントとしてカウントされますが、Mixpanelからは前回の同期以降の変更のみが送信されます。
+BrazeとMixpanelの両方をご利用のお客様が、[MixpanelコホートをセグメントフィルターとしてBrazeに統合・送信]({{site.baseurl}}/partners/insights/behavioral_analytics/mixpanel_for_currents/#mixpanel-cohort-import)できるようになりました。1回限りの手動エクスポートを設定するか、2時間ごとのダイナミックなエクスポートを設定できます。更新された各ユーザーはデータポイントとしてカウントされますが、Mixpanelからは前回の同期以降の変更のみが送信されます。

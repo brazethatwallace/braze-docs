@@ -5,7 +5,7 @@
 | --- | --- |
 | Imagem e texto | Imagens altas ou estreitas serão reduzidas e centralizadas horizontalmente. Imagens largas serão cortadas nas bordas esquerda e direita. |
 | Somente imagem | A mensagem será redimensionada para se ajustar a imagens com a maioria das proporções. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% endif %}
 
@@ -18,7 +18,7 @@ Recomendamos os seguintes tamanhos de carga útil:
 | iOS (pré-iOS 8) | 0,256 KB |
 | iOS (pós-iOS 8) | 2 KB |
 | Android (FCM) | 4 KB |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% endif %}
 
@@ -37,7 +37,7 @@ Todas as mensagens no app têm um tamanho de imagem recomendado de 500 KB, taman
 | --- | --- | --- | --- |
 | Retrato em tela inteira com texto | 6:5 | Alta resolução 1200 x 1000 px <br>Resolução mínima 600 x 500 px | O corte pode ocorrer em todos os lados, mas a imagem sempre preencherá os 50% superiores da janela de visualização. |
 | Retrato em tela inteira (somente imagem, com ou sem botões) | 3:5 | Alta resolução 1200 x 2000 px <br> Resolução mínima 600 x 1000 px | O corte pode ocorrer nas bordas esquerda e direita em dispositivos mais altos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% tab Landscape %}
@@ -46,7 +46,7 @@ Todas as mensagens no app têm um tamanho de imagem recomendado de 500 KB, taman
 | --- | --- | --- | --- |
 | Paisagem em tela inteira com texto | 10:3 | Alta resolução 2000 x 600 px <br>Resolução mínima 1000 x 300 px | O corte pode ocorrer em todos os lados, mas a imagem sempre preencherá os 50% superiores da janela de visualização. |
 | Paisagem em tela inteira (somente imagem, com ou sem botões) | 5:3 | Alta resolução 2000 x 600 px <br> Resolução mínima 1000 x 600 px | O corte pode ocorrer nas bordas esquerda e direita em dispositivos mais altos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% tab Slideup %}
@@ -54,7 +54,7 @@ Todas as mensagens no app têm um tamanho de imagem recomendado de 500 KB, taman
 | Tipo | Proporção | Qualidade da imagem | Notas |
 | --- | --- | --- | --- |
 | Slideup | 1:1 | Alta resolução 150 x 150 px <br> Resolução mínima 50 x 50 px | Imagens de várias proporções caberão em um contêiner de imagem quadrado, sem corte. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% tab Modal %}
@@ -63,7 +63,7 @@ Todas as mensagens no app têm um tamanho de imagem recomendado de 500 KB, taman
 | --- | --- | --- | --- |
 | Modal (somente imagem) | 1:1 | Resolução máxima recomendada: 1200 x 2000 px <br> Resolução mínima: 600 x 600 px | A mensagem será redimensionada para se ajustar a imagens com a maioria das proporções. A resolução máxima recomendada tem uma proporção de 3:5, o que pode não fornecer resultados ideais. Embora imagens maiores sejam utilizáveis, elas podem levar a tempos de carregamento mais longos. <br> A proporção ideal para imagens é 1:1. Não atender a essa proporção pode disparar um aviso durante o upload. Esse aviso é uma sugestão para melhores resultados e não impede o upload de imagens maiores. |
 | Modal com texto | 29:10 | Alta resolução 1450 x 500 px <br> Resolução mínima 600 x 205 px | Imagens altas serão reduzidas e centralizadas horizontalmente. Imagens largas serão cortadas nas bordas esquerda e direita. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% endtabs %}
@@ -79,7 +79,7 @@ Todas as mensagens no app têm um tamanho de imagem recomendado de 500 KB, taman
 | Alerta de banner do iOS | 85 caracteres | 43 caracteres |
 | Tela de bloqueio do Android | 49 caracteres | 43 caracteres |
 | Gaveta de notificação do Android | 597 caracteres | 43 caracteres |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
 O tamanho de imagem recomendado para todas as imagens push é de 500 KB.
 
@@ -89,7 +89,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Table">
   <thead>
     <tr>
       <th>Tipo de imagem</th>
@@ -135,7 +135,7 @@ table td {
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 aria-label="Table" }
 
 {% endif %}
 
@@ -146,21 +146,21 @@ table td {
 | Somente texto | 25 KB |
 | Texto com imagens | 60 KB |
 | Largura do e-mail | 600 px |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 | Especificações da imagem | Propriedades máximas recomendadas |
 | --- | --- |
 | Tamanho | 5 MB |
 | Largura | Cabeçalho: 600 px<br>Corpo: 480 px |
 | Tipos de arquivo | PNG, JPEG, GIF<br><br> O suporte a imagens WebP varia entre os clientes de e-mail. Para uma renderização confiável, converta imagens WebP para PNG ou JPEG antes de adicioná-las às mensagens de e-mail. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br_1 .reset-td-br-2 aria-label="Table" }
 
 | Especificações de texto | Propriedades máximas recomendadas |
 | --- | --- |
 | Comprimento da linha de assunto | 35 caracteres<br>6 a 10 palavras |
 | Comprimento do `"From: Name"` | 25 caracteres |
 | Comprimento do pré-cabeçalho | 85 caracteres |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% endif %}
 
@@ -171,7 +171,7 @@ table td {
 | Clássico   | Proporção 1:1 | 60 x 60&nbsp;px        |
 | Com legenda | Proporção 4:3 | Largura mínima de 600&nbsp;px |
 | Banner    | Qualquer proporção | Largura mínima de 600&nbsp;px |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
 Para saber mais, consulte os [detalhes de criação dos Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
 
@@ -189,7 +189,7 @@ Essas especificações se aplicam a cabeçalhos de modelo, mensagens de mídia d
 | Legenda (somente mensagens de imagem) | Opcional; máximo de 1.024 caracteres | |
 | Dimensões recomendadas | 1.125 × 600 px | Recomendamos usar imagens JPEG ou PNG com 1.125×600 px (1.91:1) para uma renderização consistente entre dispositivos e conformidade com os requisitos da Meta. |
 | Proporção recomendada | 1.91:1 (largo) | Formatos quadrado (1:1) e largo (16:9) são aceitos, mas as imagens podem ser cortadas ou ampliadas dependendo do dispositivo do usuário.<br><br> Para cartões de carrossel, as imagens de cabeçalho são automaticamente cortadas para uma proporção larga pelo WhatsApp, a menos que não haja texto no corpo. Nesse caso, a imagem é renderizada como quadrada.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
 {% endif %}
 
@@ -206,7 +206,7 @@ As especificações a seguir se aplicam a cabeçalhos de modelo, mensagens de m�
 | Faixas de áudio | Uma única faixa de áudio ou sem faixa de áudio |
 | Legenda (somente mensagens de vídeo) | Opcional; máximo de 1.024 caracteres |
 | Proporção recomendada | 1.91:1 (largo) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 

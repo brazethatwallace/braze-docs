@@ -17,13 +17,14 @@ description: "Este artigo de referência aborda o uso de atributos personalizado
 
 ## Considerações {#considerations}
 
-- Os atributos personalizados aninhados destinam-se a atributos personalizados enviados por meio do Braze SDK ou da API.
+- Os atributos personalizados aninhados destinam-se a atributos personalizados enviados por meio do SDK ou da API da Braze.
 - Os objetos têm um tamanho máximo de 100&nbsp;KB. Se uma atualização fizer com que o objeto exceda 100&nbsp;KB, a Braze descarta a atualização e o atributo permanece inalterado.
 - Os nomes das chaves e os valores das strings têm um limite de tamanho de 255 caracteres.
 - Os nomes das chaves não podem conter espaços.
-- Períodos (`.`) e sinais de dólar (`$`) não são caracteres suportados em uma carga útil de API se você estiver tentando enviar um atributo personalizado aninhado para um perfil de usuário.
+- Pontos (`.`) e sinais de dólar (`$`) não são caracteres suportados em uma carga útil de API se você estiver tentando enviar um atributo personalizado aninhado para um perfil de usuário.
 - Nem todos os parceiros da Braze suportam atributos personalizados aninhados. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home/) para confirmar se integrações com parceiros específicos suportam esse recurso.
 - Os atributos personalizados aninhados não podem ser usados como filtro ao fazer uma chamada à API do Connected Audience.
+- Por padrão, o filtro de Segment **Nested Custom Attributes** inclui atributos personalizados do tipo objeto, atributos de vetor de objetos e atributos personalizados do tipo vetor. Quando você seleciona um atributo, o seletor de esquema de propriedades inclui caminhos de vetor (usando a notação `[]`) para campos de vetor aninhados. Para ocultar atributos personalizados de vetor de nível superior desse filtro, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/).
 
 ## Exemplo de API {#api-example}
 
@@ -267,7 +268,7 @@ Use a tag de personalização `custom_attribute` e a notação de ponto para ace
 
 ### Personalização {#personalization}
 
-Usando o modal **Adicionar personalização**, você também pode inserir atributos personalizados aninhados no seu envio de mensagens. Selecione **Atributos personalizados aninhados** como o tipo de personalização. Em seguida, selecione o atributo de nível superior e a chave do atributo.
+Usando o modal **Add Personalization**, você também pode inserir atributos personalizados aninhados no seu envio de mensagens. Selecione **Nested Custom Attributes** como o tipo de personalização. Em seguida, selecione o atributo de nível superior e a chave do atributo.
 
 Por exemplo, no modal de personalização abaixo, isso insere o atributo personalizado aninhado de um escritório de bairro local com base nas preferências do usuário.
 
@@ -283,7 +284,7 @@ Após um esquema ser gerado, ele pode ser regenerado uma vez a cada 24 horas. Es
 
 Para regenerar o esquema do seu atributo personalizado aninhado:
 
-1. Acesse **Configurações de dados** > **Atributos personalizados**.
+1. Acesse **Data Settings** > **Custom Attributes**.
 2. Pesquise seu atributo personalizado aninhado.
 3. Na coluna **Attribute Name** do seu atributo, selecione <i class="fas fa-plus" aria-label="Gerenciar esquema"></i> para gerenciar o esquema.
 4. Um modal será exibido. Selecione **Regenerate Schema**.
