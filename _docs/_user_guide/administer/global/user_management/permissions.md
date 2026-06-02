@@ -355,6 +355,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Media Library Assets | View Media Library Assets | View media library assets |
 | Media Library Assets | Delete Media Library Assets | Permanently delete media library assets |
 | Media Library Assets | Edit Media Library Assets | Create and update media library assets |
+| Media Library Assets | Replace Media Library Assets | Replace the file of an existing media library asset while keeping its URL and asset ID stable |
 | Messaging Rate Limits | View Messaging Rate Limits | View workspace-level messaging rate limits |
 | Messaging Rate Limits | Edit Messaging Rate Limits | Configure and edit workspace-level messaging rate limits |
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Access and use Braze Operator to answer questions, navigate setup, troubleshoot issues, and brainstorm ideas |
