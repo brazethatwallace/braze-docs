@@ -280,7 +280,7 @@ Vérifiez qu'un schéma a été généré si vous ne voyez pas l'option d'insert
 
 ## Régénérer les schémas {#regenerate-schema}
 
-Une fois qu'un schéma a été généré, il peut être régénéré une fois toutes les 24 heures. Cette section décrit comment régénérer votre schéma. Pour des informations plus détaillées sur les schémas, consultez [Générer un schéma à l'aide de l'explorateur d'objets imbriqués]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Une fois qu'un schéma a été généré, vous pouvez le régénérer **une fois par jour calendaire** (en fonction du fuseau horaire de votre entreprise). Cette section décrit comment régénérer votre schéma. Pour des informations plus détaillées sur les schémas, consultez [Générer un schéma à l'aide de l'explorateur d'objets imbriqués]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
 
 Pour régénérer le schéma de votre attribut personnalisé imbriqué :
 
@@ -289,7 +289,7 @@ Pour régénérer le schéma de votre attribut personnalisé imbriqué :
 3. Dans la colonne **Attribute Name** correspondant à votre attribut, sélectionnez <i class="fas fa-plus"></i> pour gérer le schéma.
 4. Une fenêtre modale apparaîtra. Sélectionnez **Regenerate Schema**.
 
-L'option de régénération du schéma sera désactivée si moins de 24 heures se sont écoulées depuis la dernière régénération. La régénération du schéma ne détectera que les nouveaux objets et ne supprimera pas les objets qui existent déjà dans le schéma.
+L'action **Regenerate Schema** est limitée à **une fois par jour calendaire** dans le fuseau horaire de votre entreprise. Vous ne pouvez pas lancer une autre régénération tant qu'une tâche de schéma est déjà **en cours** (l'option est indisponible tant que l'état est **Generating**). La régénération du schéma ne détecte que les nouveaux objets et ne supprime pas les objets qui existent déjà dans le schéma.
 
 {% alert important %}
 Pour réinitialiser le schéma d'un tableau d'objets avec un objet existant, vous devez créer un nouvel attribut personnalisé. La régénération du schéma ne supprime pas les objets existants.
