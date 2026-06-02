@@ -50,7 +50,7 @@ You can choose when the in-app message will expire. During this time, the in-app
 
 When a user starts a session, Braze checks whether their eligibility or expiration for in-app messages has changed and sends updated expiration information to their device.
 
-If an in-app message is set to expire on a specific date and time that has already passed when the user reaches the Message step, that user will not receive the in-app message. They will continue through the Canvas according to your [advancement behavior](#advancement-behavior) for that step.
+If an in-app message is set to expire on a specific date and time that has already passed when the user reaches the Message step, that user does not receive the in-app message. They will continue through the Canvas according to your [advancement behavior](#advancement-behavior) for that step.
 
 This often happens when a preceding step, such as a [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) step, keeps users on a longer path. For example, if you launch a Canvas on May 22 with a 72-hour delay followed by an in-app message that expires on May 23 at midnight, users reach the Message step after the expiration time and do not see the in-app message.
 
