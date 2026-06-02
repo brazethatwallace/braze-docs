@@ -280,7 +280,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 ## 스키마 재생성 {#regenerate-schema}
 
-스키마가 생성된 후에는 24시간마다 한 번 재생성할 수 있습니다. 이 섹션에서는 스키마를 재생성하는 방법을 설명합니다. 스키마에 대한 자세한 내용은 [중첩 오브젝트 탐색기를 사용하여 스키마 생성]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema)을 참조하세요.
+스키마가 생성된 후에는 **캘린더 일 기준 하루에 한 번**(회사의 시간대 기준) 재생성할 수 있습니다. 이 섹션에서는 스키마를 재생성하는 방법을 설명합니다. 스키마에 대한 자세한 내용은 [중첩 오브젝트 탐색기를 사용하여 스키마 생성]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema)을 참조하세요.
 
 중첩 커스텀 속성의 스키마를 재생성하려면:
 
@@ -289,7 +289,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 3. 속성의 **Attribute Name** 열에서 <i class="fas fa-plus" aria-label="스키마 관리"></i>를 선택하여 스키마를 관리합니다.
 4. 모달이 나타납니다. **Regenerate Schema**를 선택합니다.
 
-마지막으로 스키마를 재생성한 후 24시간이 지나지 않은 경우 스키마 재생성 옵션이 비활성화됩니다. 스키마 재생성은 새 오브젝트만 감지하며 현재 스키마에 존재하는 오브젝트를 삭제하지 않습니다.
+**Regenerate Schema** 동작은 회사의 시간대 기준으로 **캘린더 일 기준 하루에 한 번**으로 제한됩니다. 스키마 작업이 이미 **진행 중**인 경우(상태가 **Generating**인 동안에는 옵션을 사용할 수 없음) 다른 재생성을 시작할 수 없습니다. 스키마 재생성은 새 오브젝트만 감지하며 현재 스키마에 존재하는 오브젝트를 삭제하지 않습니다.
 
 {% alert important %}
 기존 오브젝트가 있는 오브젝트 배열의 스키마를 초기화하려면 새 커스텀 속성을 생성해야 합니다. 스키마 재생성은 기존 오브젝트를 삭제하지 않습니다.

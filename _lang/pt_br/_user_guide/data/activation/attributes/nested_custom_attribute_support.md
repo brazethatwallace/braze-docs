@@ -280,7 +280,7 @@ Verifique se um esquema foi gerado caso você não veja a opção de inserir atr
 
 ## Regenerar esquemas {#regenerate-schema}
 
-Após um esquema ser gerado, ele pode ser regenerado uma vez a cada 24 horas. Esta seção descreve como regenerar seu esquema. Para informações mais detalhadas sobre esquemas, consulte [Gerar um esquema usando o explorador de objetos aninhados]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Após um esquema ser gerado, ele pode ser regenerado **uma vez por dia corrido** (com base no fuso horário da sua empresa). Esta seção descreve como regenerar seu esquema. Para informações mais detalhadas sobre esquemas, consulte [Gerar um esquema usando o explorador de objetos aninhados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
 
 Para regenerar o esquema do seu atributo personalizado aninhado:
 
@@ -289,7 +289,7 @@ Para regenerar o esquema do seu atributo personalizado aninhado:
 3. Na coluna **Attribute Name** do seu atributo, selecione <i class="fas fa-plus" aria-label="Gerenciar esquema"></i> para gerenciar o esquema.
 4. Um modal será exibido. Selecione **Regenerate Schema**.
 
-A opção de regenerar esquema ficará desabilitada se tiverem se passado menos de 24 horas desde a última regeneração do esquema. Regenerar o esquema detectará apenas novos objetos e não excluirá objetos que já existem no esquema.
+A ação **Regenerate Schema** é limitada a **uma vez por dia corrido** no fuso horário da sua empresa. Não é possível iniciar outra regeneração enquanto um trabalho de esquema já estiver **em andamento** (a opção fica indisponível enquanto o status for **Generating**). Regenerar o esquema detecta apenas novos objetos e não exclui objetos que já existem no esquema.
 
 {% alert important %}
 Para redefinir o esquema de um vetor de objetos com um objeto existente, você precisa criar um novo atributo personalizado. A regeneração do esquema não exclui objetos existentes.
@@ -307,7 +307,7 @@ Por exemplo, em uma Campaign baseada em ação, você pode adicionar uma nova a�
 
 ## Comportamento de segmentação com vetores de objetos {#segmentation-behavior-with-arrays-of-objects}
 
-Quando você usa múltiplos filtros de `Nested Custom Attribute` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment se *qualquer* item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao *mesmo* item.
+Quando você usa múltiplos filtros de `Nested Custom Attribute` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment se _qualquer_ item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao _mesmo_ item.
 
 Por exemplo, suponha que um usuário tenha o seguinte vetor:
 

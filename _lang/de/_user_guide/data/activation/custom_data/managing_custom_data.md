@@ -79,6 +79,8 @@ Wenn alle vorhandenen Nutzerdaten dem neuen Typ entsprechen sollen, müssen Sie 
 | Boolescher Wert | Eingaben von `1`, `true`, `t` (Groß-/Kleinschreibung wird nicht berücksichtigt) werden als `true` gespeichert |
 | Boolescher Wert | Eingaben von `0`, `false`, `f` (Groß-/Kleinschreibung wird nicht berücksichtigt) werden als `false` gespeichert |
 | Zahl | Ganzzahlen oder Gleitkommazahlen (wie `1`, `1.5`) werden als Zahlen gespeichert |
+| Zahl | Numerische Strings (wie `"100"` oder `"3.14"`) können in Zahlen umgewandelt werden, wenn das Attribut auf **Zahl** erzwungen wird |
+| String | Numerische Werte können in ihre String-Form umgewandelt werden, wenn das Attribut auf **String** erzwungen wird |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Datentypumwandlung" }
 
 Weitere Informationen zu den spezifischen Filteroptionen, die bei verschiedenen Datentypvergleichen zur Verfügung stehen, finden Sie unter [Berichte konfigurieren]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). Weitere Informationen zu den verschiedenen verfügbaren Datentypen finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).
