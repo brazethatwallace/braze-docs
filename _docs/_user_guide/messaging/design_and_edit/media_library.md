@@ -51,7 +51,7 @@ To replace an asset:
 3. In the modal, select **Replace file**.
 4. Upload the replacement file.
 
-![Media library edit modal showing the Replace file, Crop image, and Delete buttons for an asset.]({% image_buster /assets/img_archive/media_library_replace_file.png %})
+![Media library edit modal showing the Replace file, Crop image, and Delete buttons for an asset.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
 
 ### Requirements and limitations
 
@@ -65,7 +65,7 @@ To replace an asset:
 Some channels—including in-app messages, Content Cards, push notifications, and banners—create an optimized copy of the image when the message is set up, resulting in a separate URL. Replacing the original media library asset does not update what end users see for messages created using those channels.
 {% endalert %}
 
-You can also replace an asset programmatically using the [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) endpoint.
+You can also replace an asset programmatically using the `PUT /media_library/replace_file` endpoint. For more information, see [Media library endpoints]({{site.baseurl}}/api/endpoints/media_library/).
 
 ## Image specifications
 
