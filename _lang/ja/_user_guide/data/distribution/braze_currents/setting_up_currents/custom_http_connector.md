@@ -12,8 +12,6 @@ description: "このリファレンス記事では、カスタムHTTPコネク�
 
 > カスタムCurrentsコネクターを統合して、Brazeからリアルタイムでイベントデータを取得し、よりカスタマイズされた分析、レポート、オートメーションを実現する方法を説明します。
 
-{% multi_lang_include early_access_beta_alert.md feature='The Custom HTTP Connector' type='beta' %}
-
 ## 前提条件 {#prerequisites}
 
 BrazeでカスタムCurrentsコネクターを統合するには、エンドポイントURLと[オプションの認証トークン](#authentication)を提供する必要があります。
