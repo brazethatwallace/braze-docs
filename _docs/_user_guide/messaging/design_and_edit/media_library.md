@@ -56,7 +56,7 @@ Later, when drafting a message in Braze, you can pull in your images from the me
 
 You can replace the file of an existing asset in the media library while keeping its URL and asset ID stable. Because the URL doesn't change, any message or campaign that references that asset—including already-sent emails—automatically reflects the updated file. This is useful when you want to update a shared asset (such as a logo) in one place rather than updating every campaign individually.
 
-To replace an asset:
+To replace an asset, you must have the "Replace Media Library Assets" permission:
 
 1. Go to **Content** > **Media Library**.
 2. Select the asset you want to replace.
@@ -67,7 +67,6 @@ To replace an asset:
 
 ### Requirements and limitations
 
-- You need the "Replace Media Library Assets" permission to replace files.
 - The replacement file must have the same file extension as the original. For example, you can't replace a `.png` asset with a `.jpg` file.
 - Video assets cannot be replaced.
 - After replacement, the updated file may take some time to display for all consumers due to CDN caching.
