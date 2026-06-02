@@ -16,11 +16,11 @@ search_rank: 7
 
 To contact the Braze Support team, navigate to the Braze dashboard and select **Support**. The menu offers two options:
 
-![The "Support" dropdown showing "Get help with Operator" and "Get help" options.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:60%;"}
+- **Get help with Operator** opens BrazeAI Operator<sup>TM</sup>, which can troubleshoot your issue on the spot using context from your conversation and the current screen. If Operator is unable to resolve your issue, you can ask it to draft a support ticket based on your conversation. Learn how to [file support tickets with BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets).
+- **Get help** takes you directly to the Braze Support Portal (if you are a designated support contact) or our standard support form, where you can submit and track cases. If you're unsure whether you are a Braze support contact, contact your company's Braze administrator, Braze success manager, or account owner.
 
-**Get help with Operator** opens BrazeAI Operator<sup>TM</sup>, which can troubleshoot your issue on the spot using context from your conversation and the current screen. If Operator is unable to resolve your issue, you can ask it to draft a support ticket based on your conversation, or select the **Support** button that appears after its response.
+![The "Support" dropdown showing "Get help with Operator" and "Get help" options.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
 
-**Get help** takes you directly to the Braze Support Portal (if you are a designated support contact) or our standard support form, where you can submit and track cases. If you're unsure whether you are a Braze support contact, contact your company's Braze administrator, Braze success manager, or account owner.
 
 ## Adding designated support contacts
 
