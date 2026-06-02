@@ -61,11 +61,9 @@ To replace an asset:
 
 ### Channels with processed image copies
 
-{% alert note %}
-Some channels—including in-app messages, Content Cards, push notifications, and banners—create an optimized copy of the image when the message is set up, resulting in a separate URL. Replacing the original media library asset does not update what end users see for messages created using those channels.
-{% endalert %}
+Some channels create an optimized copy of the image when the message is set up, resulting in a separate URL. Replacing the original media library asset does not update what end users see for messages created using those channels, including in-app messages, Content Cards, push notifications, and banners.
 
-You can also replace an asset programmatically using the `PUT /media_library/replace_file` endpoint. For more information, see [Media library endpoints]({{site.baseurl}}/api/endpoints/media_library/).
+You can also replace an asset programmatically using the [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) endpoint.
 
 ## Image specifications
 
