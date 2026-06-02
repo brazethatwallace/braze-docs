@@ -150,9 +150,11 @@ The cart creates a carts mapping object on the user profile that powers the {% r
 | `metadata`      | Object    | No       | Flexible key-value pairs (for example, `color` or `size`).   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
-#### Code examples
+#### Implementation examples
 
-Each platform tab below uses the snippet layout that matches that integration path (for example, headings or labels inside a fenced block). The `add`, `remove`, and `replace` payloads are the same across platforms; only the SDK or API surface differs.
+For SDK implementation examples (including `logEcommerceEvent` and `logCustomEvent`) and platform-specific code snippets, see [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
+{% comment %}
 
 {% subtabs local %}
 {% subtab Web %}
@@ -684,6 +686,7 @@ Objective-C
 
 {% endsubtab %}
 {% endsubtabs %}
+{% endcomment %}
 
 {% endtab %}
 {% tab ecommerce.checkout_started %}
@@ -1116,7 +1119,7 @@ Non-USD currency values are automatically converted to USD using the exchange ra
 
 ## Implement eCommerce events 
 
-You can send eCommerce events through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (server-side) or the client [SDK method]({{site.baseurl}}/developer_guide/sdk_integration/) `logCustomEvent`.
+You can send eCommerce events through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (server-side) or through the Braze SDKs (client-side). For SDK implementation examples, see [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 ### Send events server-side
 

@@ -672,6 +672,7 @@ Braze.getInstance(context).logCustomEvent(
 ## iOS
 
 The Swift SDK provides typed eCommerce event classes—`ProductViewedEvent`, `CartUpdatedEvent`, `CheckoutStartedEvent`, and `OrderPlacedEvent`—that you build and pass to `logEcommerceEvent`. Use `ProductLineItem` for the products in cart, checkout, and order events. Each initializer is throwing, so wrap it in `try?` and log the event only when construction succeeds.
+This is available in Swift SDK version `15.0.0` and later.
 
 `ecommerce.order_cancelled` and `ecommerce.order_refunded` are not available as typed Swift SDK classes. Log them with `logCustomEvent`.
 
