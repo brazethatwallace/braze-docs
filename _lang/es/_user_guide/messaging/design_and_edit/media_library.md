@@ -58,7 +58,7 @@ Puedes reemplazar el archivo de un activo existente en la Biblioteca de medios m
 
 Para reemplazar un activo, debes tener el permiso "Replace Media Library Assets":
 
-1. Ve a **Contenido** > **Biblioteca de medios**.
+1. Ve a **Content** > **Media Library**.
 2. Selecciona el activo que deseas reemplazar.
 3. En el modal, selecciona **Replace file**.
 4. Carga el archivo de reemplazo.
