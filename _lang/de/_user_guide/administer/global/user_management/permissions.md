@@ -355,6 +355,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Medienbibliothek-Assets | View Media Library Assets | Medienbibliothek-Assets anzeigen |
 | Medienbibliothek-Assets | Delete Media Library Assets | Medienbibliothek-Assets dauerhaft löschen |
 | Medienbibliothek-Assets | Edit Media Library Assets | Medienbibliothek-Assets erstellen und aktualisieren |
+| Medienbibliothek-Assets | Replace Media Library Assets | Die Datei eines vorhandenen Medienbibliothek-Assets ersetzen, wobei URL und Asset-ID stabil bleiben |
 | Messaging-Rate-Limits | View Messaging Rate Limits | Messaging-Rate-Limits auf Workspace-Ebene anzeigen |
 | Messaging-Rate-Limits | Edit Messaging Rate Limits | Messaging-Rate-Limits auf Workspace-Ebene konfigurieren und bearbeiten |
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Auf Braze Operator zugreifen und ihn verwenden, um Fragen zu beantworten, die Einrichtung zu unterstützen, Probleme zu beheben und Ideen zu entwickeln |
