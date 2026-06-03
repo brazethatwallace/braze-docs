@@ -78,6 +78,8 @@ Apply the Braze Docs Style Guide provided in the user message.
   file excerpt. Compare your suggestion to that excerpt before including an inline item.
 - For `_lang/` locale files: review only editorial issues in changed lines. Do not infer missing
   content from the English site; if the excerpt already contains the passage, omit the item.
+- Do NOT suggest removing `&nbsp;` between a number and a unit (for example `512&nbsp;MB`).
+  Braze docs require non-breaking spaces for units of measurement; see the style reference.
 
 ## Output rules
 
@@ -697,6 +699,57 @@ def validate_inline(item: dict) -> dict | None:
     }
 
 
+# Non-breaking space is required between numbers and units (and in a few UI/table patterns).
+_NUMBER_UNIT_NBSP = re.compile(
+    r"\d(?:,\d{3})*(?:\.\d+)?&nbsp;"
+    r"(?:KB|MB|GB|TB|KiB|K\b|px|pt|em|rem|ms|sec|seconds?|minutes?|hours?|days?|"
+    r"kg|lb|lbs|oz|°[CF]?|deg)",
+    re.IGNORECASE,
+)
+_ICON_UI_NBSP = re.compile(r"</i>&nbsp;\*\*")
+_SCHEMA_TYPE_NBSP = re.compile(r"`[^`]*`&nbsp;`")
+
+
+def _line_has_required_nbsp(line: str) -> bool:
+    return bool(
+        _NUMBER_UNIT_NBSP.search(line)
+        or _ICON_UI_NBSP.search(line)
+        or _SCHEMA_TYPE_NBSP.search(line)
+    )
+
+
+def filter_nbsp_removal_suggestions(inline: list[dict]) -> list[dict]:
+    """Skip suggestions that remove required &nbsp; (number+unit, icon+UI, schema types)."""
+    kept: list[dict] = []
+    for item in inline:
+        path = item["path"]
+        file_path = REPO_ROOT / path
+        if not file_path.exists():
+            kept.append(item)
+            continue
+        lines = file_path.read_text(encoding="utf-8", errors="replace").splitlines()
+        line_num = item["line"]
+        if line_num > len(lines):
+            kept.append(item)
+            continue
+        current = lines[line_num - 1]
+        suggested = item["suggested_line"].rstrip()
+        if "&nbsp;" not in current or "&nbsp;" in suggested:
+            kept.append(item)
+            continue
+        if not _line_has_required_nbsp(current):
+            kept.append(item)
+            continue
+        if suggested == current.replace("&nbsp;", " ").rstrip():
+            print(
+                f"Skipping nbsp removal on `{path}` line {line_num} "
+                "(required non-breaking space per style guide)"
+            )
+            continue
+        kept.append(item)
+    return kept
+
+
 _SUGGESTION_BLOCK = re.compile(r"```suggestion\n([\s\S]*?)\n```")
 
 
@@ -1137,6 +1190,7 @@ def main() -> None:
         if v:
             validated.append(v)
 
+    validated = filter_nbsp_removal_suggestions(validated)
     validated = filter_dismissed_suggestions(
         validated, dismissed_suggested, dismissed_message
     )

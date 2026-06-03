@@ -19,6 +19,7 @@ on:
       - "_lang/**"
       - "scripts/review_docs_style.py"
       - ".github/workflows/review-docs-style.yml"
+      - ".github/skills/braze-docs/references/writing-style.md"
 
 permissions:
   contents: read
