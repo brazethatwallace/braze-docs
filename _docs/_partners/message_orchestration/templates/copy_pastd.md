@@ -17,7 +17,7 @@ _This integration is maintained by Copy Pastd._
 
 The Braze and Copy Pastd integration lets you build emails in Building Blocks—a hosted email builder that produces Braze-native output with clean Liquid, Content Block references, and templates that drop into any campaign or Canvas without translation.
 
-You can assemble an email from reusable blocks, push it to Braze in one click, and trust that the same brand styles, components, and dynamic content render consistently across every send. The result is fewer hand-coded templates, faster brief-to-send turnaround, and a centralized library that updates everywhere when it changes.
+You can assemble an email from reusable blocks, push it to Braze in one click, and trust that the same brand styles, components, and dynamic content render consistently across every send. The result is fewer hand-coded templates, less time spent creating and sending emails, and a centralized library that updates everywhere when it changes.
 
 ## Prerequisites
 
