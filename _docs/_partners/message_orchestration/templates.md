@@ -15,6 +15,8 @@ valid_partner_list:
   url: /docs/partners/better_email/
 - name: B.Layer
   url: /docs/partners/blayer-inapps/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Denada
   url: /docs/partners/denada/
 - name: Dyspatch
