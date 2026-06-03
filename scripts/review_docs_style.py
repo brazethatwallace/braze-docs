@@ -28,11 +28,14 @@ from pathlib import Path
 REPO = os.environ.get("GITHUB_REPOSITORY", "braze-inc/braze-docs")
 PR_NUMBER = os.environ.get("PR_NUMBER", "")
 HEAD_SHA = os.environ.get("HEAD_SHA", "")
+HEAD_REF = os.environ.get("GITHUB_HEAD_REF", "")
 BASE_REF = os.environ.get("GITHUB_BASE_REF", "develop")
 REVIEW_MODEL = os.environ.get("REVIEW_MODEL", "claude-sonnet-4-20250514")
 MAX_INLINE = int(os.environ.get("MAX_INLINE_COMMENTS", "25"))
 MAX_FILES = int(os.environ.get("MAX_STYLE_REVIEW_FILES", "25"))
 MAX_DIFF_CHARS = int(os.environ.get("MAX_STYLE_DIFF_CHARS", "12000"))
+NEARBY_LINE_WINDOW = int(os.environ.get("STYLE_REVIEW_NEARBY_LINE_WINDOW", "3"))
+AUTO_TRANSLATE_BRANCH_PREFIX = "auto-translate/"
 
 REPO_ROOT = Path(os.environ.get("GITHUB_WORKSPACE", Path.cwd()))
 STYLE_REF = REPO_ROOT / ".github/skills/braze-docs/references/writing-style.md"
@@ -43,6 +46,19 @@ SUMMARY_FILE = REPO_ROOT / "docs_style_review_summary.md"
 MARKDOWN_PREFIXES = ("_docs/", "_includes/", "_lang/")
 
 STYLE_REVIEW_INLINE_MARKER = "**Docs style review**"
+REJECT_STYLE_REVIEW_MARKER = "<!-- reject-style-review -->"
+REJECT_REPLY_PHRASES = (
+    "reject",
+    "/reject",
+    "wontfix",
+    "won't fix",
+    "won’t fix",
+)
+DISMISS_INSTRUCTION_FOOTER = (
+    "\n\n---\n"
+    "If you disagree, **Resolve conversation** on this thread or reply `reject` "
+    "— the bot won't suggest this again on this PR."
+)
 BOT_LOGINS = frozenset({"github-actions[bot]", "cursor[bot]"})
 
 SYSTEM_PROMPT = """\
@@ -58,6 +74,12 @@ Apply the Braze Docs Style Guide provided in the user message.
   same article before suggesting a one-off change).
 - Do NOT flag product behavior you cannot verify from the diff alone.
 - Do NOT invent facts or suggest content unrelated to the change.
+- Do NOT suggest adding sections, alerts, FAQs, or blocks that already appear in the numbered
+  file excerpt. Compare your suggestion to that excerpt before including an inline item.
+- For `_lang/` locale files: review only editorial issues in changed lines. Do not infer missing
+  content from the English site; if the excerpt already contains the passage, omit the item.
+- Do NOT suggest removing `&nbsp;` between a number and a unit (for example `512&nbsp;MB`).
+  Braze docs require non-breaking spaces for units of measurement; see the style reference.
 
 ## Output rules
 
@@ -77,14 +99,16 @@ Respond with ONLY valid JSON (no markdown fences). Schema:
   ]
 }
 
-- "line" is the 1-based line number on the RIGHT (new) side of the diff.
+- "line" is the 1-based line number on the RIGHT (new) side of the diff for the exact line you
+  are replacing. It must match the numbered file excerpt (not a nearby blank line or adjacent line).
 - Only suggest lines that appear in the unified diff (added or context lines within a hunk).
   GitHub cannot attach inline comments to unchanged lines outside the PR diff.
-- "suggested_line" must be the complete line after your edit (not a fragment).
+- "suggested_line" must be the complete single-line replacement (not a fragment, not multiple lines).
 - Only include inline items when you are confident and the fix is a single-line change.
 - Prefer high-signal issues; omit nitpicks and subjective preferences.
 - If prior automated suggestions on this PR are listed in the user message, do not contradict them
   on the same line (especially opposite capitalization or wording reversals).
+- If dismissed suggestions are listed in the user message, do not repeat them on this PR.
 - Maximum """ + str(MAX_INLINE) + """ inline items across the whole PR.
 - Use an empty "inline" array if the diff looks compliant.
 - Do not include customer PII or internal repo paths in messages.
@@ -101,6 +125,10 @@ def _run(cmd: list[str], *, check: bool = True) -> subprocess.CompletedProcess[s
     )
 
 
+def _is_auto_translate_pr() -> bool:
+    return HEAD_REF.startswith(AUTO_TRANSLATE_BRANCH_PREFIX)
+
+
 def get_changed_markdown_files() -> list[str]:
     base = f"origin/{BASE_REF}"
     result = _run(
@@ -110,12 +138,20 @@ def get_changed_markdown_files() -> list[str]:
     if result.returncode != 0:
         print(f"git diff warning: {result.stderr.strip()}", file=sys.stderr)
         return []
+    skip_lang = _is_auto_translate_pr()
+    if skip_lang:
+        print(
+            "Auto-translate PR detected; skipping `_lang/` files "
+            "(English source is reviewed separately)."
+        )
     files = []
     for line in result.stdout.splitlines():
         path = line.strip()
         if not path.endswith(".md"):
             continue
         if path.startswith("_docs/_hidden/"):
+            continue
+        if skip_lang and path.startswith("_lang/"):
             continue
         files.append(path)
     return files[:MAX_FILES]
@@ -219,6 +255,152 @@ def _thread_has_human_followup(thread: dict) -> bool:
         if login and not _is_bot_login(login):
             return True
     return False
+
+
+def _human_rejected_thread(thread: dict) -> bool:
+    nodes = thread.get("comments", {}).get("nodes", [])
+    for comment in nodes[1:]:
+        login = (comment.get("author") or {}).get("login", "")
+        if not login or _is_bot_login(login):
+            continue
+        body = (comment.get("body") or "").strip().lower()
+        if REJECT_STYLE_REVIEW_MARKER in (comment.get("body") or ""):
+            return True
+        if body in REJECT_REPLY_PHRASES:
+            return True
+        if body.startswith("/reject"):
+            return True
+    return False
+
+
+def _extract_style_review_message(body: str) -> str | None:
+    if STYLE_REVIEW_INLINE_MARKER not in body:
+        return None
+    match = re.search(
+        r"\*\*Docs style review\*\* — (.+?)(?:\n\n```|\Z)",
+        body,
+        re.DOTALL,
+    )
+    return match.group(1).strip() if match else None
+
+
+def _parse_style_thread_first_comment(thread: dict) -> tuple[str, str | None, str | None] | None:
+    """Return (path, suggested_line, message) from the bot's opening comment."""
+    path = thread.get("path") or ""
+    nodes = thread.get("comments", {}).get("nodes", [])
+    if not path or not nodes:
+        return None
+    body = nodes[0].get("body") or ""
+    if STYLE_REVIEW_INLINE_MARKER not in body:
+        return None
+    suggested = _parse_suggestion_body(body)
+    message = _extract_style_review_message(body)
+    if not suggested and not message:
+        return None
+    return path, suggested, message
+
+
+def fetch_dismissed_style_suggestions() -> tuple[set[tuple[str, str]], set[tuple[str, str]]]:
+    """
+    Suggestions reviewers dismissed on this PR.
+
+    Returns:
+        dismissed_suggested: (path, suggested_line) pairs
+        dismissed_message: (path, review_message) pairs
+    """
+    dismissed_suggested: set[tuple[str, str]] = set()
+    dismissed_message: set[tuple[str, str]] = set()
+
+    for thread in _fetch_review_threads():
+        if not _is_our_style_thread(thread):
+            continue
+        rejected = _human_rejected_thread(thread)
+        if not thread.get("isResolved") and not rejected:
+            continue
+        parsed = _parse_style_thread_first_comment(thread)
+        if not parsed:
+            continue
+        path, suggested, message = parsed
+        if suggested:
+            dismissed_suggested.add((path, suggested.rstrip()))
+        if message:
+            dismissed_message.add((path, message.rstrip()))
+        print(
+            f"Honoring dismissed style review on `{path}` "
+            f"(resolved={thread.get('isResolved')}, reject_reply={rejected})"
+        )
+
+    return dismissed_suggested, dismissed_message
+
+
+def format_dismissed_section(
+    dismissed_suggested: set[tuple[str, str]],
+    dismissed_message: set[tuple[str, str]],
+) -> str:
+    if not dismissed_suggested and not dismissed_message:
+        return ""
+    lines = [
+        "## Dismissed suggestions on this PR",
+        "",
+        "Reviewers resolved or rejected these. Do not suggest them again:",
+        "",
+    ]
+    seen: set[tuple[str, str, str]] = set()
+    for path, suggested in sorted(dismissed_suggested):
+        key = (path, "suggested", suggested)
+        if key in seen:
+            continue
+        seen.add(key)
+        lines.append(f"- `{path}`: `{suggested}`")
+    for path, message in sorted(dismissed_message):
+        key = (path, "message", message)
+        if key in seen:
+            continue
+        seen.add(key)
+        lines.append(f"- `{path}`: _{message}_")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def filter_dismissed_suggestions(
+    inline: list[dict],
+    dismissed_suggested: set[tuple[str, str]],
+    dismissed_message: set[tuple[str, str]],
+) -> list[dict]:
+    kept: list[dict] = []
+    for item in inline:
+        path = item["path"]
+        suggested = item["suggested_line"].rstrip()
+        message = item["message"].rstrip()
+        if (path, suggested) in dismissed_suggested:
+            print(f"Skipping dismissed suggestion on `{path}` (matched prior suggested line)")
+            continue
+        if (path, message) in dismissed_message:
+            print(f"Skipping dismissed suggestion on `{path}` (matched prior review message)")
+            continue
+        kept.append(item)
+    return kept
+
+
+def filter_duplicate_prior_suggestions(
+    inline: list[dict],
+    prior_suggestions: dict[tuple[str, int], list[str]],
+) -> list[dict]:
+    """Skip exact suggested text already posted on this PR (even if line shifted)."""
+    by_path: dict[str, set[str]] = {}
+    for (path, _line), texts in prior_suggestions.items():
+        by_path.setdefault(path, set()).update(text.rstrip() for text in texts)
+
+    kept: list[dict] = []
+    for item in inline:
+        if item["suggested_line"].rstrip() in by_path.get(item["path"], set()):
+            print(
+                f"Skipping duplicate suggestion on `{item['path']}` "
+                "(same suggested line already posted on this PR)"
+            )
+            continue
+        kept.append(item)
+    return kept
 
 
 def _delete_review_comment(comment_id: int) -> bool:
@@ -388,10 +570,19 @@ def load_style_context() -> str:
 def build_user_prompt(
     files: list[str],
     prior_suggestions: dict[tuple[str, int], list[str]] | None = None,
+    dismissed_suggested: set[tuple[str, str]] | None = None,
+    dismissed_message: set[tuple[str, str]] | None = None,
 ) -> str:
     sections = [load_style_context(), f"## Pull request #{PR_NUMBER}\n"]
     if prior_suggestions:
         sections.append(format_prior_suggestions_section(prior_suggestions))
+    if dismissed_suggested or dismissed_message:
+        sections.append(
+            format_dismissed_section(
+                dismissed_suggested or set(),
+                dismissed_message or set(),
+            )
+        )
     for path in files:
         diff = file_diff(path)
         if not diff.strip():
@@ -440,6 +631,23 @@ def call_claude(user_prompt: str) -> dict:
     return data
 
 
+def _block_exists_in_file(suggested: str, file_lines: list[str]) -> bool:
+    suggested_lines = [line.rstrip() for line in suggested.splitlines() if line.strip()]
+    if not suggested_lines:
+        return False
+    if len(suggested_lines) == 1:
+        target = suggested_lines[0]
+        return any(line.rstrip() == target for line in file_lines)
+    block_len = len(suggested_lines)
+    for start in range(len(file_lines) - block_len + 1):
+        if all(
+            file_lines[start + offset].rstrip() == suggested_lines[offset]
+            for offset in range(block_len)
+        ):
+            return True
+    return False
+
+
 def validate_inline(item: dict) -> dict | None:
     path = item.get("path")
     line = item.get("line")
@@ -458,15 +666,88 @@ def validate_inline(item: dict) -> dict | None:
     lines = p.read_text(encoding="utf-8", errors="replace").splitlines()
     if line > len(lines):
         return None
-    current = lines[line - 1]
-    if current.rstrip() == suggested.rstrip():
+
+    suggested_norm = suggested.rstrip()
+    if "\n" in suggested_norm:
+        if _block_exists_in_file(suggested_norm, lines):
+            print(
+                f"Skipping no-op multi-line suggestion on `{path}` line {line}: "
+                "block already in file"
+            )
+        else:
+            print(
+                f"Skipping multi-line suggestion on `{path}` line {line} "
+                "(inline suggestions must be single-line)"
+            )
         return None
+
+    window_start = max(0, line - 1 - NEARBY_LINE_WINDOW)
+    window_end = min(len(lines), line - 1 + NEARBY_LINE_WINDOW + 1)
+    for idx in range(window_start, window_end):
+        if lines[idx].rstrip() == suggested_norm:
+            print(
+                f"Skipping no-op suggestion on `{path}` line {line}: "
+                f"text already on line {idx + 1}"
+            )
+            return None
+
     return {
         "path": path,
         "line": line,
         "message": message.strip(),
         "suggested_line": suggested,
     }
+
+
+# Non-breaking space is required between numbers and units (and in a few UI/table patterns).
+_NUMBER_UNIT_NBSP = re.compile(
+    r"\d(?:,\d{3})*(?:\.\d+)?&nbsp;"
+    r"(?:KB|MB|GB|TB|KiB|K\b|px|pt|em|rem|ms|sec|seconds?|minutes?|hours?|days?|"
+    r"kg|lb|lbs|oz|°[CF]?|deg)",
+    re.IGNORECASE,
+)
+_ICON_UI_NBSP = re.compile(r"</i>&nbsp;\*\*")
+_SCHEMA_TYPE_NBSP = re.compile(r"`[^`]*`&nbsp;`")
+
+
+def _line_has_required_nbsp(line: str) -> bool:
+    return bool(
+        _NUMBER_UNIT_NBSP.search(line)
+        or _ICON_UI_NBSP.search(line)
+        or _SCHEMA_TYPE_NBSP.search(line)
+    )
+
+
+def filter_nbsp_removal_suggestions(inline: list[dict]) -> list[dict]:
+    """Skip suggestions that remove required &nbsp; (number+unit, icon+UI, schema types)."""
+    kept: list[dict] = []
+    for item in inline:
+        path = item["path"]
+        file_path = REPO_ROOT / path
+        if not file_path.exists():
+            kept.append(item)
+            continue
+        lines = file_path.read_text(encoding="utf-8", errors="replace").splitlines()
+        line_num = item["line"]
+        if line_num > len(lines):
+            kept.append(item)
+            continue
+        current = lines[line_num - 1]
+        suggested = item["suggested_line"].rstrip()
+        if "&nbsp;" not in current or "&nbsp;" in suggested:
+            kept.append(item)
+            continue
+        if not _line_has_required_nbsp(current):
+            kept.append(item)
+            continue
+        if suggested == current.replace("&nbsp;", " ").rstrip():
+            print(
+                f"Skipping nbsp removal on `{path}` line {line_num} "
+                "(required non-breaking space per style guide)"
+            )
+            continue
+        kept.append(item)
+    return kept
 
 
 _SUGGESTION_BLOCK = re.compile(r"```suggestion\n([\s\S]*?)\n```")
@@ -534,6 +815,7 @@ def _inline_to_review_comment(item: dict) -> dict:
         "body": (
             f"**Docs style review** — {item['message']}\n\n"
             f"```suggestion\n{item['suggested_line']}\n```"
+            f"{DISMISS_INSTRUCTION_FOOTER}"
         ),
     }
 
@@ -731,14 +1013,24 @@ def sync_summary_comment(
             ]
         )
         if not files_reviewed:
-            lines.extend(
-                [
-                    "_No Markdown under `_docs/`, `_includes/`, or `_lang/` was changed in "
-                    "this PR, so no editorial review was run. This comment confirms the "
-                    "check completed successfully._",
-                    "",
-                ]
-            )
+            if _is_auto_translate_pr():
+                lines.extend(
+                    [
+                        "_This PR only updates `_lang/` locale files from the auto-translate "
+                        "workflow. Those files are skipped here because English canonical docs "
+                        "are reviewed separately when they change._",
+                        "",
+                    ]
+                )
+            else:
+                lines.extend(
+                    [
+                        "_No Markdown under `_docs/`, `_includes/`, or `_lang/` was changed in "
+                        "this PR, so no editorial review was run. This comment confirms the "
+                        "check completed successfully._",
+                        "",
+                    ]
+                )
     else:
         lines.append(
             "The automated style guide review found items to address before merge."
@@ -760,6 +1052,11 @@ def sync_summary_comment(
         lines.append(
             "Use **Commit suggestion** or **Commit all suggestions** in the "
             "**Files changed** tab where inline comments appear."
+        )
+        lines.append("")
+        lines.append(
+            "To dismiss a suggestion you disagree with, **Resolve conversation** on that "
+            "thread or reply `reject` — the bot won't suggest it again on this PR."
         )
         lines.append("")
     if fallback:
@@ -853,6 +1150,13 @@ def main() -> None:
             "suggestion(s) on this PR."
         )
 
+    dismissed_suggested, dismissed_message = fetch_dismissed_style_suggestions()
+    if dismissed_suggested or dismissed_message:
+        print(
+            f"Honoring {len(dismissed_suggested) + len(dismissed_message)} dismissed "
+            "style review item(s) on this PR."
+        )
+
     files = get_changed_markdown_files()
     print(f"Reviewing {len(files)} Markdown file(s) in PR #{PR_NUMBER}")
     if not files:
@@ -863,7 +1167,12 @@ def main() -> None:
         )
         return
 
-    user_prompt = build_user_prompt(files, prior_suggestions)
+    user_prompt = build_user_prompt(
+        files,
+        prior_suggestions,
+        dismissed_suggested,
+        dismissed_message,
+    )
     if len(user_prompt) > 180_000:
         user_prompt = user_prompt[:180_000] + "\n\n…(prompt truncated)\n"
 
@@ -881,6 +1190,11 @@ def main() -> None:
         if v:
             validated.append(v)
 
+    validated = filter_nbsp_removal_suggestions(validated)
+    validated = filter_dismissed_suggestions(
+        validated, dismissed_suggested, dismissed_message
+    )
+    validated = filter_duplicate_prior_suggestions(validated, prior_suggestions)
     validated = filter_conflicting_prior_suggestions(validated, prior_suggestions)
     postable, outside_diff = filter_to_diff_lines(validated)
 
