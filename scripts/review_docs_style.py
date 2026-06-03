@@ -46,6 +46,19 @@ SUMMARY_FILE = REPO_ROOT / "docs_style_review_summary.md"
 MARKDOWN_PREFIXES = ("_docs/", "_includes/", "_lang/")
 
 STYLE_REVIEW_INLINE_MARKER = "**Docs style review**"
+REJECT_STYLE_REVIEW_MARKER = "<!-- reject-style-review -->"
+REJECT_REPLY_PHRASES = (
+    "reject",
+    "/reject",
+    "wontfix",
+    "won't fix",
+    "won’t fix",
+)
+DISMISS_INSTRUCTION_FOOTER = (
+    "\n\n---\n"
+    "If you disagree, **Resolve conversation** on this thread or reply `reject` "
+    "— the bot won't suggest this again on this PR."
+)
 BOT_LOGINS = frozenset({"github-actions[bot]", "cursor[bot]"})
 
 SYSTEM_PROMPT = """\
@@ -93,6 +106,7 @@ Respond with ONLY valid JSON (no markdown fences). Schema:
 - Prefer high-signal issues; omit nitpicks and subjective preferences.
 - If prior automated suggestions on this PR are listed in the user message, do not contradict them
   on the same line (especially opposite capitalization or wording reversals).
+- If dismissed suggestions are listed in the user message, do not repeat them on this PR.
 - Maximum """ + str(MAX_INLINE) + """ inline items across the whole PR.
 - Use an empty "inline" array if the diff looks compliant.
 - Do not include customer PII or internal repo paths in messages.
@@ -239,6 +253,152 @@ def _thread_has_human_followup(thread: dict) -> bool:
         if login and not _is_bot_login(login):
             return True
     return False
+
+
+def _human_rejected_thread(thread: dict) -> bool:
+    nodes = thread.get("comments", {}).get("nodes", [])
+    for comment in nodes[1:]:
+        login = (comment.get("author") or {}).get("login", "")
+        if not login or _is_bot_login(login):
+            continue
+        body = (comment.get("body") or "").strip().lower()
+        if REJECT_STYLE_REVIEW_MARKER in (comment.get("body") or ""):
+            return True
+        if body in REJECT_REPLY_PHRASES:
+            return True
+        if body.startswith("/reject"):
+            return True
+    return False
+
+
+def _extract_style_review_message(body: str) -> str | None:
+    if STYLE_REVIEW_INLINE_MARKER not in body:
+        return None
+    match = re.search(
+        r"\*\*Docs style review\*\* — (.+?)(?:\n\n```|\Z)",
+        body,
+        re.DOTALL,
+    )
+    return match.group(1).strip() if match else None
+
+
+def _parse_style_thread_first_comment(thread: dict) -> tuple[str, str | None, str | None] | None:
+    """Return (path, suggested_line, message) from the bot's opening comment."""
+    path = thread.get("path") or ""
+    nodes = thread.get("comments", {}).get("nodes", [])
+    if not path or not nodes:
+        return None
+    body = nodes[0].get("body") or ""
+    if STYLE_REVIEW_INLINE_MARKER not in body:
+        return None
+    suggested = _parse_suggestion_body(body)
+    message = _extract_style_review_message(body)
+    if not suggested and not message:
+        return None
+    return path, suggested, message
+
+
+def fetch_dismissed_style_suggestions() -> tuple[set[tuple[str, str]], set[tuple[str, str]]]:
+    """
+    Suggestions reviewers dismissed on this PR.
+
+    Returns:
+        dismissed_suggested: (path, suggested_line) pairs
+        dismissed_message: (path, review_message) pairs
+    """
+    dismissed_suggested: set[tuple[str, str]] = set()
+    dismissed_message: set[tuple[str, str]] = set()
+
+    for thread in _fetch_review_threads():
+        if not _is_our_style_thread(thread):
+            continue
+        rejected = _human_rejected_thread(thread)
+        if not thread.get("isResolved") and not rejected:
+            continue
+        parsed = _parse_style_thread_first_comment(thread)
+        if not parsed:
+            continue
+        path, suggested, message = parsed
+        if suggested:
+            dismissed_suggested.add((path, suggested.rstrip()))
+        if message:
+            dismissed_message.add((path, message.rstrip()))
+        print(
+            f"Honoring dismissed style review on `{path}` "
+            f"(resolved={thread.get('isResolved')}, reject_reply={rejected})"
+        )
+
+    return dismissed_suggested, dismissed_message
+
+
+def format_dismissed_section(
+    dismissed_suggested: set[tuple[str, str]],
+    dismissed_message: set[tuple[str, str]],
+) -> str:
+    if not dismissed_suggested and not dismissed_message:
+        return ""
+    lines = [
+        "## Dismissed suggestions on this PR",
+        "",
+        "Reviewers resolved or rejected these. Do not suggest them again:",
+        "",
+    ]
+    seen: set[tuple[str, str, str]] = set()
+    for path, suggested in sorted(dismissed_suggested):
+        key = (path, "suggested", suggested)
+        if key in seen:
+            continue
+        seen.add(key)
+        lines.append(f"- `{path}`: `{suggested}`")
+    for path, message in sorted(dismissed_message):
+        key = (path, "message", message)
+        if key in seen:
+            continue
+        seen.add(key)
+        lines.append(f"- `{path}`: _{message}_")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def filter_dismissed_suggestions(
+    inline: list[dict],
+    dismissed_suggested: set[tuple[str, str]],
+    dismissed_message: set[tuple[str, str]],
+) -> list[dict]:
+    kept: list[dict] = []
+    for item in inline:
+        path = item["path"]
+        suggested = item["suggested_line"].rstrip()
+        message = item["message"].rstrip()
+        if (path, suggested) in dismissed_suggested:
+            print(f"Skipping dismissed suggestion on `{path}` (matched prior suggested line)")
+            continue
+        if (path, message) in dismissed_message:
+            print(f"Skipping dismissed suggestion on `{path}` (matched prior review message)")
+            continue
+        kept.append(item)
+    return kept
+
+
+def filter_duplicate_prior_suggestions(
+    inline: list[dict],
+    prior_suggestions: dict[tuple[str, int], list[str]],
+) -> list[dict]:
+    """Skip exact suggested text already posted on this PR (even if line shifted)."""
+    by_path: dict[str, set[str]] = {}
+    for (path, _line), texts in prior_suggestions.items():
+        by_path.setdefault(path, set()).update(text.rstrip() for text in texts)
+
+    kept: list[dict] = []
+    for item in inline:
+        if item["suggested_line"].rstrip() in by_path.get(item["path"], set()):
+            print(
+                f"Skipping duplicate suggestion on `{item['path']}` "
+                "(same suggested line already posted on this PR)"
+            )
+            continue
+        kept.append(item)
+    return kept
 
 
 def _delete_review_comment(comment_id: int) -> bool:
@@ -408,10 +568,19 @@ def load_style_context() -> str:
 def build_user_prompt(
     files: list[str],
     prior_suggestions: dict[tuple[str, int], list[str]] | None = None,
+    dismissed_suggested: set[tuple[str, str]] | None = None,
+    dismissed_message: set[tuple[str, str]] | None = None,
 ) -> str:
     sections = [load_style_context(), f"## Pull request #{PR_NUMBER}\n"]
     if prior_suggestions:
         sections.append(format_prior_suggestions_section(prior_suggestions))
+    if dismissed_suggested or dismissed_message:
+        sections.append(
+            format_dismissed_section(
+                dismissed_suggested or set(),
+                dismissed_message or set(),
+            )
+        )
     for path in files:
         diff = file_diff(path)
         if not diff.strip():
@@ -613,6 +782,7 @@ def _inline_to_review_comment(item: dict) -> dict:
         "body": (
             f"**Docs style review** — {item['message']}\n\n"
             f"```suggestion\n{item['suggested_line']}\n```"
+            f"{DISMISS_INSTRUCTION_FOOTER}"
         ),
     }
 
@@ -851,6 +1021,11 @@ def sync_summary_comment(
             "**Files changed** tab where inline comments appear."
         )
         lines.append("")
+        lines.append(
+            "To dismiss a suggestion you disagree with, **Resolve conversation** on that "
+            "thread or reply `reject` — the bot won't suggest it again on this PR."
+        )
+        lines.append("")
     if fallback:
         lines.append(
             f"**{len(fallback)}** suggestion(s) could not be posted inline "
@@ -942,6 +1117,13 @@ def main() -> None:
             "suggestion(s) on this PR."
         )
 
+    dismissed_suggested, dismissed_message = fetch_dismissed_style_suggestions()
+    if dismissed_suggested or dismissed_message:
+        print(
+            f"Honoring {len(dismissed_suggested) + len(dismissed_message)} dismissed "
+            "style review item(s) on this PR."
+        )
+
     files = get_changed_markdown_files()
     print(f"Reviewing {len(files)} Markdown file(s) in PR #{PR_NUMBER}")
     if not files:
@@ -952,7 +1134,12 @@ def main() -> None:
         )
         return
 
-    user_prompt = build_user_prompt(files, prior_suggestions)
+    user_prompt = build_user_prompt(
+        files,
+        prior_suggestions,
+        dismissed_suggested,
+        dismissed_message,
+    )
     if len(user_prompt) > 180_000:
         user_prompt = user_prompt[:180_000] + "\n\n…(prompt truncated)\n"
 
@@ -970,6 +1157,10 @@ def main() -> None:
         if v:
             validated.append(v)
 
+    validated = filter_dismissed_suggestions(
+        validated, dismissed_suggested, dismissed_message
+    )
+    validated = filter_duplicate_prior_suggestions(validated, prior_suggestions)
     validated = filter_conflicting_prior_suggestions(validated, prior_suggestions)
     postable, outside_diff = filter_to_diff_lines(validated)
 
