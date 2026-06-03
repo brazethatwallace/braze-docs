@@ -106,12 +106,12 @@ Aplicamos um limite de taxa compartilhado de 1.000 solicitações por hora a ess
 <!---/canvas/trigger/send-->
 
 {% elsif include.endpoint == "send endpoints" %}
-Ao usar filtros de público conectado em sua solicitação, aplicamos um limite de taxa de 250 solicitações por minuto a esse endpoint. Caso contrário, se estiver especificando um `external_id`, esse endpoint tem um limite de taxa padrão de 250.000 solicitações por hora compartilhado entre os endpoints documentados em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/#requests-with-shared-rate-limits).
+Ao usar filtros de Connected Audience em sua solicitação, aplicamos um limite de taxa de 250 solicitações por minuto a esse endpoint. Caso contrário, se estiver especificando um `external_id`, esse endpoint tem um limite de taxa padrão de 250.000 solicitações por hora compartilhado entre os endpoints documentados em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/#requests-with-shared-rate-limits).
 
 Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/api/api_limits/#batching-api-requests). Uma única solicitação para os endpoints de envio de mensagens pode alcançar qualquer um dos seguintes itens:
 
 - Até 50 `external_ids` específicos, cada um com parâmetros de mensagem individuais
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/)
+- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 <!---/transactional/v1/campaigns/{campaign_id}/send -->
 
@@ -149,6 +149,10 @@ Esse endpoint tem um limite de taxa de 20 solicitações por minuto.
 {% elsif include.endpoint == "cdi job sync status" %}
 Esse endpoint tem um limite de taxa de 100 solicitações por minuto.
 
+<!---/media_library/create, /media_library/replace_file--->
+{% elsif include.endpoint == "media_library" %}
+Esse endpoint tem um limite de taxa de 100 solicitações por hora, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+
 {% endif %}
 
 <!---Additional if statement for Messaging endpoints-->
@@ -159,7 +163,7 @@ Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/a
 
 - Até 50 `external_ids` específicos, cada um com parâmetros de mensagem individuais
 - Um segmento de qualquer tamanho criado no dashboard da Braze, especificado por seu `segment_id`
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/)
+- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 {% endif %}
 
@@ -168,7 +172,7 @@ Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/a
 Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/api/api_limits/#batching-api-requests). Uma única solicitação para os endpoints de envio de mensagens pode alcançar qualquer um dos seguintes itens:
 
 - Até 50 `external_ids` específicos, cada um com parâmetros de mensagem individuais
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/)
+- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 {% endif %}
 
@@ -188,7 +192,7 @@ Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/a
 
 - Até 50 `external_ids` específicos
 - Um segmento de qualquer tamanho criado no dashboard da Braze, especificado por seu `segment_id`
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/)
+- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 {% endif %}
 
