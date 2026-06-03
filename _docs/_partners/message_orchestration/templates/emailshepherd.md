@@ -9,7 +9,7 @@ search_tag: Partner
 
 # EmailShepherd
 
-> [EmailShepherd](https://emailshepherd.com/) is an agentic email creation platform built on your Email Design System, letting your whole marketing team—and AI agents—produce on-brand, production-ready emails without bottlenecks. The Braze integration publishes approved emails directly to your Braze workspace, so marketers can scale email production in Braze without sacrificing brand consistency.
+> [EmailShepherd](https://emailshepherd.com/) is an agentic email creation platform built on your Email Design System that allows your whole marketing team—and AI agents—to produce on-brand, production-ready emails without bottlenecks. The Braze integration publishes approved emails directly to your Braze workspace, so marketers can scale email production in Braze without sacrificing brand consistency.
 
 _This integration is maintained by EmailShepherd._
 
