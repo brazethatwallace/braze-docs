@@ -6,6 +6,7 @@
 # Requires: ANTHROPIC_API_KEY repository secret.
 #
 # Includes bot PRs (support analyzer, etc.). Skips `_lang/` on auto-translate/* branches.
+# Skips nightly deploy PRs (label: Deploy).
 
 name: Braze Docs Style Guide Review
 
@@ -30,7 +31,9 @@ concurrency:
 jobs:
   review-docs-style:
     name: claude-edit-suggestions
-    if: github.event.pull_request.draft == false
+    if: >-
+      github.event.pull_request.draft == false &&
+      !contains(github.event.pull_request.labels.*.name, 'Deploy')
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
