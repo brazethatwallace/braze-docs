@@ -15,7 +15,7 @@ _This integration is maintained by EmailShepherd._
 
 ## About the integration
 
-The Braze and EmailShepherd integration allows you to build emails on your Email Design System in EmailShepherd and export them to Braze as email templates. Your team can create and approve emails in EmailShepherd, then publish production-ready templates to Braze without manual HTML handoff.
+The Braze and EmailShepherd integration allows you to build emails on your Email Design System in EmailShepherd and export them to Braze as email templates. Your team creates and approves emails in EmailShepherd, then publishes production-ready templates to Braze without manual HTML handoff.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ The following are required to use this integration:
 | Requirement | Description |
 | ----------- | ----------- |
 | EmailShepherd account | An EmailShepherd account is required to use this integration. |
-| Braze REST API key | A Braze REST API key with full **Templates** permissions. <br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
+| Braze REST API key | A Braze REST API key with full "Templates" permissions. <br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze instance | Your Braze [cluster instance]({{site.baseurl}}/api/basics/#endpoints) aligns with your Braze dashboard and REST endpoint. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -66,7 +66,7 @@ In EmailShepherd, locate an email that you want to export to Braze. Make sure it
 
 ![EmailShepherd export page with Braze connector, image hosting, and template name fields]({% image_buster /assets/img_archive/emailshepherd_step3.png %}){: style="max-width:60%;"}
 
-## Using the integration
+## Use the integration
 
 In Braze, find your exported emails under **Templates & Media** > **Email Templates**. You can use these templates in Braze campaigns and Canvases.
 
