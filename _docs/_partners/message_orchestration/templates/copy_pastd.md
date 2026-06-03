@@ -67,7 +67,7 @@ Connecting Building Blocks to Braze is a one-time setup. After your credentials 
 1. In Building Blocks, navigate to **Settings** > **Build** > **Stylesheets**.
 2. Edit the default stylesheet or create a new one. Set your color palette (24 named colors), fonts (Google Fonts supported), button styles, link styles, radius, and padding scale.
 3. Select **Save**. Building Blocks regenerates the Liquid for every block that uses this stylesheet.
-4. Click **Sync now** to push the updated styles into your Braze workspace.
+4. Select **Sync now** to push the updated styles into your Braze workspace.
 
 ### Step 2: Enable Connected Content endpoints (optional)
 
