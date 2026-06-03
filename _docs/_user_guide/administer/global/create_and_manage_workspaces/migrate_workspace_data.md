@@ -8,7 +8,7 @@ description: "Learn how workspace data is isolated, what Braze can copy or impor
 
 # Migrate data between workspaces and instances
 
-> Workspaces keep your Braze data separate. This page explains how that isolation affects migration, what you can move with product features and APIs, and what you need to rebuild or handle outside Braze.
+> Workspaces keep your Braze data separate. This page explains how that isolation affects migration, what you can move with product features and APIs, and what you need to rebuild or handle outside Braze. Migration is usually a cross-functional effort—not only a Company Admin task. Admins often own workspace setup and channel configuration; developers handle SDK and API changes; marketers rebuild segments and copy messaging content. Each step requires the relevant [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) in the source and destination workspaces.
 
 Everything you store in Braze—user profiles, segments, messaging content, and engagement history—lives inside a workspace. A segment, campaign, or Canvas can't read or target data from another workspace. Dashboard users often use multiple workspaces on the same company dashboard for staging and production, for different brands, or for regional splits. That setup gives you isolation, but it also means there is no single action in the dashboard that moves all workspace data to another workspace or another Braze instance.
 
@@ -95,7 +95,7 @@ If you need a historical record of sends, opens, or clicks when consolidating en
 
 When you've pointed your app or site at a new workspace:
 
-- Users who open the app or site can create new profiles in the new workspace. They won't carry over prior workspace-specific history automatically.
+- Users who open the app or site can create new profiles in the new workspace. They don't carry over prior workspace-specific history automatically.
 - If the same person could exist in both workspaces, you can see [duplicate-like scenarios]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/#should-i-create-a-new-workspace-when-im-releasing-an-updated-app) (for example, overlapping push reach). Prefer a deliberate data and targeting plan over sharing production and staging keys unintentionally.
 
 {% alert tip %}
