@@ -17,7 +17,7 @@ Nous vous recommandons également de consulter notre cours d'apprentissage Braze
 
 ## Conditions préalables {#prerequisites}
 
-Pour créer et gérer des groupes internes, vous avez besoin de l'[autorisation héritée Accès à la console développeur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) ou de ces [autorisations granulaires]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions) :
+Pour créer et gérer des groupes internes, vous avez besoin des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) suivantes :
 
 - Afficher les clés API
 - Modifier les clés API
@@ -32,8 +32,6 @@ Pour créer et gérer des groupes internes, vous avez besoin de l'[autorisation 
 - Modifier les alertes d'utilisation de l'API
 - Modifier l'outil de débogage du SDK
 - Afficher l'outil de débogage du SDK
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 ## Créer un groupe interne {#creating-an-internal-group}
 
@@ -91,9 +89,9 @@ Si vous utilisez un pool d'adresses IP pour envoyer un e-mail, sélectionnez le 
 
 Les groupes initiateurs ne sont pris en charge que pour le canal e-mail. Ajoutez des utilisateurs à un groupe initiateur pour envoyer des copies de chaque variante d'e-mail à tous les membres du groupe.
 
-Les groupes initiateurs ne sont pas disponibles pour les campagnes API, mais vous pouvez inclure des groupes initiateurs en utilisant une entrée déclenchée par API dans la Campaign. Utilisez-les pour mesurer les indicateurs de livrabilité et pour conserver un historique du contenu de vos e-mails à des fins d'archivage.
+Les groupes initiateurs ne sont pas disponibles pour les campagnes API, mais vous pouvez inclure des groupes initiateurs en utilisant une entrée déclenchée par API dans la campagne. Utilisez-les pour mesurer les indicateurs de livrabilité et pour conserver un historique du contenu de vos e-mails à des fins d'archivage.
 
-Après avoir créé un groupe interne et l'avoir étiqueté pour être utilisé comme groupe initiateur, sélectionnez-le à l'étape **Target Audiences** de l'éditeur de Campaign, ou à l'étape **Send Settings** dans un Canvas.
+Après avoir créé un groupe interne et l'avoir étiqueté pour être utilisé comme groupe initiateur, sélectionnez-le à l'étape **Target Audiences** de l'éditeur de campagne, ou à l'étape **Send Settings** dans un Canvas.
 
 Les e-mails initiateurs ont `[SEED]` ajouté au début de la ligne d'objet. Notez que les e-mails initiateurs **ne font pas** les actions suivantes :
 
@@ -113,26 +111,26 @@ Si les membres du groupe initiateur ne voient pas le message, confirmez qu'ils f
 Si l'e-mail utilise le [Liquid `abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/), les membres du groupe initiateur doivent toujours satisfaire la condition d'abandon pour recevoir l'envoi.
 {% endalert %}
 
-#### Pour les Campaigns {#for-campaigns}
+#### Pour les campagnes {#for-campaigns}
 
-Lors de la composition d'une Campaign par e-mail, modifiez vos groupes initiateurs dans la section **Target Audiences** de l'éditeur.
+Lors de la composition d'une campagne par e-mail, modifiez vos groupes initiateurs dans la section **Target Audiences** de l'éditeur.
 
 {% alert important %}
-Si vous configurez un groupe initiateur pour qu'il s'attache automatiquement à toutes les Campaigns, cela ne s'applique qu'aux nouvelles Campaigns. Cela ne s'applique pas lorsque vous copiez des Campaigns existantes. Vous devez appliquer manuellement les groupes initiateurs souhaités à la Campaign copiée dans la section **Target Audiences**.
+Si vous configurez un groupe initiateur pour qu'il s'attache automatiquement à toutes les campagnes, cela ne s'applique qu'aux nouvelles campagnes. Cela ne s'applique pas lorsque vous copiez des campagnes existantes. Vous devez appliquer manuellement les groupes initiateurs souhaités à la campagne copiée dans la section **Target Audiences**.
 {% endalert %}
 
-Les groupes initiateurs envoient à chaque variante d'e-mail une seule fois et sont distribués la première fois que votre utilisateur reçoit cette variante particulière. Pour les messages planifiés, il s'agit généralement du premier lancement de la Campaign. Pour les Campaigns déclenchées par une action ou par API, il s'agit du moment où le premier utilisateur reçoit un message.
+Les groupes initiateurs envoient à chaque variante d'e-mail une seule fois et sont distribués la première fois que votre utilisateur reçoit cette variante particulière. Pour les messages planifiés, il s'agit généralement du premier lancement de la campagne. Pour les campagnes déclenchées par une action ou par API, il s'agit du moment où le premier utilisateur reçoit un message.
 
-Si votre Campaign est multivariée et que votre variante a un pourcentage d'envoi de 0 %, elle n'est pas envoyée aux groupes initiateurs. De plus, si la variante a déjà été envoyée et n'a pas été mise à jour pour un renvoi dans **Edit Seed Groups** à l'étape **Target**, elle n'est pas renvoyée par défaut.
+Si votre campagne est multivariée et que votre variante a un pourcentage d'envoi de 0 %, elle n'est pas envoyée aux groupes initiateurs. De plus, si la variante a déjà été envoyée et n'a pas été mise à jour pour un renvoi dans **Edit Seed Groups** à l'étape **Target**, elle n'est pas renvoyée par défaut.
 
 {% alert note %}
-Si vous avez une Campaign récurrente et que l'une des variantes est mise à jour, vous pouvez choisir de renvoyer uniquement aux variantes mises à jour ou à toutes les variantes, ou de désactiver l'envoi du groupe initiateur lors de la mise à jour.
+Si vous avez une campagne récurrente et que l'une des variantes est mise à jour, vous pouvez choisir de renvoyer uniquement aux variantes mises à jour ou à toutes les variantes, ou de désactiver l'envoi du groupe initiateur lors de la mise à jour.
 {% endalert %}
 
-![Le groupe initiateur « Email seed test » sélectionné pour recevoir la Campaign e-mail Variante 1.]({% image_buster /assets/img_archive/seed_group_campaign.png %})
+![Le groupe initiateur « Email seed test » sélectionné pour recevoir la campagne e-mail Variante 1.]({% image_buster /assets/img_archive/seed_group_campaign.png %})
 
 #### Pour Canvas {#for-canvas}
 
-Les groupes initiateurs dans Canvas fonctionnent de manière similaire à toute Campaign déclenchée. Braze détecte automatiquement toutes les étapes contenant un message e-mail et les envoie lorsque votre utilisateur atteint pour la première fois cette étape e-mail particulière.
+Les groupes initiateurs dans Canvas fonctionnent de manière similaire à toute campagne déclenchée. Braze détecte automatiquement toutes les étapes contenant un message e-mail et les envoie lorsque votre utilisateur atteint pour la première fois cette étape e-mail particulière.
 
 Si une étape e-mail a été mise à jour après l'envoi au groupe initiateur, Braze propose l'option de n'envoyer qu'aux étapes mises à jour, à toutes les étapes, ou de désactiver les envois initiateurs.

@@ -22,7 +22,7 @@ Si ya has instalado tu tienda Shopify, puedes sincronizar tus productos siguiend
 
 Puedes sincronizar tus productos con un catálogo de Braze a través del flujo de instalación de Shopify o en la página del socio de Shopify.
 
-![Paso 3 del proceso de configuración con "Shopify Variant ID" como "Catalog product identifier".]({% image_buster /assets/img/Shopify/sync_products_step1.png %})
+![Paso 3 del proceso de configuración con "Shopify Variant ID" como "Catalog product identifier".]({% image_buster /assets/img/shopify/sync_products_step1.png %})
 
 ### Paso 2: Selecciona el identificador de tu producto {#step-2-select-your-product-identifier}
 
@@ -48,7 +48,7 @@ Opcionalmente, puedes habilitar la sincronización de etiquetas de productos, co
 Primero añade las etiquetas de productos, las colecciones de Shopify y los metacampos en Shopify. Si no existen en Shopify, no aparecerán en Braze.
 {% endalert %}
 
-![Configuración para sincronizar productos y variantes de Shopify con Braze.]({% image_buster /assets/img/Shopify/additional_product_data.png %})
+![Configuración para sincronizar productos y variantes de Shopify con Braze.]({% image_buster /assets/img/shopify/additional_product_data.png %})
 
 {% tabs global %}
 {% tab Etiquetas de productos %}
@@ -56,25 +56,25 @@ Primero añade las etiquetas de productos, las colecciones de Shopify y los meta
 1. En la página **Sync product data to Braze**, selecciona la casilla **Sync product tags** para abrir el modal **Select product tags**.
 2. Selecciona hasta 20 etiquetas de productos para sincronizar con tu catálogo de Braze. Solo se sincronizarán las etiquetas que selecciones.
 
-![Modal para seleccionar etiquetas de productos con una selección de etiquetas.]({% image_buster /assets/img/Shopify/select_product_tags.png %}){: style="max-width:80%;"}
+![Modal para seleccionar etiquetas de productos con una selección de etiquetas.]({% image_buster /assets/img/shopify/select_product_tags.png %}){: style="max-width:80%;"}
 
 {% endtab %}
 {% tab Metacampos de productos %}
 
 1. Si tienes una integración de Shopify existente, vuelve a autorizar la aplicación Braze Shopify para instalar los nuevos permisos necesarios para sincronizar productos. Si eres un cliente nuevo, ve al siguiente paso.
 
-![Banner que indica volver a autorizar la aplicación Braze Shopify.]({% image_buster /assets/img/Shopify/banner_to_reauthorize.png %})
+![Banner que indica volver a autorizar la aplicación Braze Shopify.]({% image_buster /assets/img/shopify/banner_to_reauthorize.png %})
 
 {: start="2"}
 2. Selecciona **Sync product metafields** para abrir el modal de configuración de metacampos.
 
-![Sección de sincronización de datos de productos con Braze con opciones para seleccionar entre múltiples configuraciones, incluidas las colecciones.]({% image_buster /assets/img/Shopify/select_collections.png %})
+![Sección de sincronización de datos de productos con Braze con opciones para seleccionar entre múltiples configuraciones, incluidas las colecciones.]({% image_buster /assets/img/shopify/select_collections.png %})
 
 {: start="3"}
 3. Selecciona hasta 20 de los metacampos buscables para sincronizar. Cada uno se convierte en una columna separada en tu catálogo para usar en características como selecciones de catálogo o extensiones de segmento.
 - Al nombrar metacampos, ten en cuenta que los espacios se convierten en "_" y todos los caracteres especiales se eliminan para cumplir con las restricciones de nomenclatura de campos de catálogo de Braze.
 
-![Modal para seleccionar metacampos de productos.]({% image_buster /assets/img/Shopify/select_metafields.png %}){: style="max-width:80%;"}
+![Modal para seleccionar metacampos de productos.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
 
 {% subtabs %}
 {% subtab Metacampos compatibles %}
@@ -125,7 +125,7 @@ Braze no admite objetos de metacampos, incluidos algunos tipos de lista respecti
 Braze utiliza el ID de colección de Shopify para identificar las colecciones sincronizadas, que luego se utilizan al crear selecciones de catálogo y filtros de segmento.
 {% endalert %}
 
-![Modal para seleccionar colecciones de un menú desplegable.]({% image_buster /assets/img/Shopify/selected_collections.png %}){: style="max-width:80%;"}
+![Modal para seleccionar colecciones de un menú desplegable.]({% image_buster /assets/img/shopify/selected_collections.png %}){: style="max-width:80%;"}
 
 {% endtab %}
 {% endtabs %}
@@ -140,11 +140,11 @@ Después de guardar tu configuración, Braze comenzará a sincronizar tus produc
 
 Puedes salir de la página una vez que la sincronización esté en curso; Braze te enviará una notificación en el dashboard cuando la sincronización se complete. Después de completarse, el estado se actualizará a **Active** y podrás ver tus productos seleccionando el nombre del catálogo en tu página del socio de Shopify.
 
-![Página de configuración de la integración con un estado de sincronización de productos.]({% image_buster /assets/img/Shopify/track_sync_progress.png %})
+![Página de configuración de la integración con un estado de sincronización de productos.]({% image_buster /assets/img/shopify/track_sync_progress.png %})
 
 También puedes ver las etiquetas de productos, metacampos y colecciones sincronizados dentro de tu catálogo de Shopify como nuevas columnas.
 
-![Catálogo de Shopify con datos sincronizados.]({% image_buster /assets/img/Shopify/synced_catalog.png %})
+![Catálogo de Shopify con datos sincronizados.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
 Si tu sincronización supera el límite de almacenamiento de tu catálogo, Braze dejará de sincronizar y las nuevas actualizaciones de productos ya no se reflejarán. Ponte en contacto con tu administrador del éxito del cliente para subir de nivel si es necesario.
@@ -156,7 +156,7 @@ Cada tipo de sincronización tiene una tarjeta de resumen en la página del soci
 
 Puedes modificar tu sincronización de productos de Shopify, incluida la administración de tus etiquetas de productos, colecciones y metacampos de productos en cualquier momento desde la página del socio de Shopify.
 
-![Página de configuración de la integración con una sincronización de catálogo de productos activa.]({% image_buster /assets/img/Shopify/active_catalog_sync.png %})
+![Página de configuración de la integración con una sincronización de catálogo de productos activa.]({% image_buster /assets/img/shopify/active_catalog_sync.png %})
 
 {% alert important %}
 Cambiar tus selecciones sincronizadas puede afectar a Campaigns, Canvas o selecciones de catálogo activas que hagan referencia a ellas. Actualiza el contenido activo para que funcione correctamente cuando apliques los cambios.
@@ -214,18 +214,18 @@ Las etiquetas de productos se almacenan como un campo de matriz en cada artícul
 
 1. En Shopify, asigna a los productos relevantes la etiqueta de producto "Women's".
 
-![Un tipo de producto "Women's - Sweaters" con las etiquetas "Women's", "Sweaters" y "Men".]({% image_buster /assets/img/Shopify/product_tag_womens.png %}){: style="max-width:40%;"}
+![Un tipo de producto "Women's - Sweaters" con las etiquetas "Women's", "Sweaters" y "Men".]({% image_buster /assets/img/shopify/product_tag_womens.png %}){: style="max-width:40%;"}
 
 {: start="2"}
 2. En Braze, habilita la sincronización de etiquetas y selecciona la etiqueta de producto "Women's".
 
-![Modal para seleccionar etiquetas de productos de Shopify, con 15 etiquetas relacionadas con ropa seleccionadas, incluida "Women's".]({% image_buster /assets/img/Shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
+![Modal para seleccionar etiquetas de productos de Shopify, con 15 etiquetas relacionadas con ropa seleccionadas, incluida "Women's".]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
 
 ### Personalización {#personalization}
 
 1. Crea una selección de catálogo que filtre los productos que tengan la etiqueta de producto correspondiente, como "Women's". Solo puedes usar un campo de matriz único dentro de una sola selección de catálogo, y hasta 50 productos en tu selección de catálogo.
 
-![Una selección de catálogo que filtra por etiquetas de productos que tienen el atributo "Women's".]({% image_buster /assets/img/Shopify/edit_product_tags_selection.png %})
+![Una selección de catálogo que filtra por etiquetas de productos que tienen el atributo "Women's".]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
 
 {: start="2"}
 2. En el creador de mensajes, añade la selección donde quieras incluir los productos de la selección de catálogo etiquetados con "Women's". Por ejemplo, podrías usar un bloque de producto HTML como este:
@@ -287,7 +287,7 @@ Checkout the latest women's clothing:
 ```
 {% endraw %}
 
-![Creador de notificaciones push con una selección de catálogo que incluye tres artículos con una etiqueta de producto.]({% image_buster /assets/img/Shopify/add_personalization_product_tags.png %})
+![Creador de notificaciones push con una selección de catálogo que incluye tres artículos con una etiqueta de producto.]({% image_buster /assets/img/shopify/add_personalization_product_tags.png %})
 
 ### Segmentación de catálogo (SQL) {#catalog-segmentation-sql}
 
@@ -332,18 +332,18 @@ Cada metacampo sincronizado se convierte en una columna separada en tu catálogo
 
 1. En Shopify, establece el metacampo de producto `seasonal` en los productos relevantes con el valor `summer` (este es un valor de metacampo, no una etiqueta de producto).
 
-![Modal para añadir metacampos de productos, incluido el metacampo seasonal con el valor summer.]({% image_buster /assets/img/Shopify/summer_product_metafield.png %}){: style="max-width:80%;"}
+![Modal para añadir metacampos de productos, incluido el metacampo seasonal con el valor summer.]({% image_buster /assets/img/shopify/summer_product_metafield.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 2. En Braze, habilita la sincronización de metacampos y selecciona `custom.seasonal` (o el espacio de nombres y la clave que coincidan con tu metacampo de Shopify).
 
-![Modal para seleccionar metacampos de productos, con un menú desplegable expandido que tiene cuatro elementos seleccionados, incluido custom.seasonal.]({% image_buster /assets/img/Shopify/select_metafields.png %}){: style="max-width:80%;"}
+![Modal para seleccionar metacampos de productos, con un menú desplegable expandido que tiene cuatro elementos seleccionados, incluido custom.seasonal.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
 
 ### Personalización
 
 1. Crea una [selección de catálogo]({{site.baseurl}}/catalog_selections/) que filtre por metacampos que incluyan el valor correspondiente.
 
-![Una selección de catálogo que filtra por metacampos que tienen el atributo summer.]({% image_buster /assets/img/Shopify/metafields_selection.png %})
+![Una selección de catálogo que filtra por metacampos que tienen el atributo summer.]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
 {: start="2"}
 2. En el creador de mensajes, añade la selección donde quieras incluir los metacampos de productos. Por ejemplo, podrías usar un bloque de producto HTML como este:
@@ -405,7 +405,7 @@ Check out the latest summer products:
 ```
 {% endraw %}
 
-![Creador de notificaciones push con una selección de catálogo que incluye tres artículos usando una selección basada en metacampos.]({% image_buster /assets/img/Shopify/add_personalization_metafields.png %})
+![Creador de notificaciones push con una selección de catálogo que incluye tres artículos usando una selección basada en metacampos.]({% image_buster /assets/img/shopify/add_personalization_metafields.png %})
 
 ### Segmentación de catálogo (SQL)
 
@@ -585,12 +585,12 @@ Usa las colecciones de Shopify para incluir agrupaciones de productos selecciona
 
 1. En Shopify, crea una colección "New Women's Products - In Stock" con tus productos de mejor rendimiento.
 
-![Lista de colecciones de Shopify, incluida "New Women's Products - In Stock".]({% image_buster /assets/img/Shopify/shopify_collections.png %})
+![Lista de colecciones de Shopify, incluida "New Women's Products - In Stock".]({% image_buster /assets/img/shopify/shopify_collections.png %})
 
 {: start="2"}
 2. En Braze, habilita la sincronización de colecciones y selecciona "Women's Products - In Stock".
 
-![Modal para seleccionar colecciones, con un menú desplegable expandido que selecciona cuatro colecciones.]({% image_buster /assets/img/Shopify/select_collections_id.png %})
+![Modal para seleccionar colecciones, con un menú desplegable expandido que selecciona cuatro colecciones.]({% image_buster /assets/img/shopify/select_collections_id.png %})
 
 {% alert note %}
 Para las colecciones de Shopify, debes usar el **Collection ID**, que se encuentra en la URL cuando ves la colección. Por ejemplo, una URL de `https://admin.shopify.com/store/se-team-ecommerce/collections/470645342446` tiene el Collection ID `470645342446`.
@@ -601,7 +601,7 @@ Para las colecciones de Shopify, debes usar el **Collection ID**, que se encuent
 1. Crea una selección de catálogo llamada "New Women's Products - In Stock" que esté filtrada con productos que tengan el ID de esa colección. Solo puedes usar un campo de matriz único dentro de una sola selección de catálogo, y hasta 50 productos en tu colección.
  - También puedes crear tus propias selecciones personalizadas filtrando con el campo **Collections**.
 
-![Una selección de catálogo que filtra por colecciones que tienen el atributo de Collection ID "470645342446".]({% image_buster /assets/img/Shopify/collections_selection.png %})
+![Una selección de catálogo que filtra por colecciones que tienen el atributo de Collection ID "470645342446".]({% image_buster /assets/img/shopify/collections_selection.png %})
 
 {: start="2"}
 2. En tu mensaje, incluye tu colección usando la selección creada o haciendo referencia directa a la colección. Por ejemplo, podrías usar un bloque de producto HTML como este:
@@ -663,7 +663,7 @@ Checkout the latest women's clothing:
 ```
 {% endraw %}
 
-![Creador de notificaciones push con una selección de catálogo que incluye tres artículos con una etiqueta de producto.]({% image_buster /assets/img/Shopify/add_personalization_collections.png %})
+![Creador de notificaciones push con una selección de catálogo que incluye tres artículos con una etiqueta de producto.]({% image_buster /assets/img/shopify/add_personalization_collections.png %})
 
 ### Segmentación de catálogo (SQL)
 

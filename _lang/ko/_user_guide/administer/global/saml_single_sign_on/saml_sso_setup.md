@@ -167,6 +167,12 @@ THIS_IS_A_MOCKED_CERTIFICATE_4ysJLTzETANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNy
 
 `ERROR_CODE_SSO_INVALID_RELAY_STATE` 오류가 발생하면 RelayState가 잘못 구성되었거나 존재하지 않을 수 있습니다. 아직 설정하지 않았다면 IdP 관리 시스템에서 RelayState를 설정해야 합니다. 단계는 [RelayState 설정하기](#setting-up-your-relaystate)를 참조하세요.
 
+### SSO 로그인에 성공했는데 Braze 로그인 페이지로 돌아가나요? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+
+RelayState가 올바르게 구성되지 않은 경우 이 문제가 발생할 수 있습니다. IdP 로그인을 위한 API 키를 생성(**설정** > **API 키**)하고 해당 API 키를 IdP에서 `RelayState` 매개변수로 설정했는지 확인하세요. RelayState는 로그인하려는 회사 계정을 식별합니다. 단계별 지침은 [RelayState 설정하기](#setting-up-your-relaystate)를 참조하세요.
+
+여전히 로그인할 수 없는 경우, 가능하면 SAML 트레이스와 함께 [Braze 고객지원에 문의]({{site.baseurl}}/braze_support/)하세요. 트레이스 캡처에 대한 도움말은 [SAML 트레이스 얻기](#obtaining-a-saml-trace)를 참조하세요.
+
 ### 사용자가 Okta와 Braze 사이에서 로그인 루프에 빠져 있나요? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
 사용자가 Okta SSO와 Braze 대시보드 사이를 순환하며 로그인할 수 없는 경우, Okta로 이동하여 SSO URL 대상을 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)(예: `https://dashboard-07.braze.com`)로 설정해야 합니다.

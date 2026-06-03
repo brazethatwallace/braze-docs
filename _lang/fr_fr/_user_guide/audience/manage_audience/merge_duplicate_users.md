@@ -20,6 +20,8 @@ Lorsqu'un profil anonyme est associé à un profil identifié existant (par exem
 
 Les fusions d'utilisateurs sont difficiles à annuler. Si vous prévoyez une fusion complexe impliquant plusieurs valeurs `external_id` ou des migrations de profils à grande échelle, contactez votre gestionnaire de la satisfaction client Braze pour obtenir des conseils avant de vous appuyer sur `/users/merge`.
 
+Braze traite différemment trois types d'utilisateurs lors de la fusion : les utilisateurs marqués pour suppression, les utilisateurs test et les utilisateurs du Groupe de contrôle global. Pour plus de détails, consultez [Comportement de la fusion d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+
 ## Fusion individuelle {#individual-merging}
 
 Si une recherche d'utilisateurs renvoie des profils en double, vous pouvez fusionner chaque profil individuellement depuis le profil de l'utilisateur dans le tableau de bord de Braze.
@@ -134,3 +136,9 @@ Une fois la fonctionnalité activée, Braze attribue automatiquement un créneau
 {% alert warning %}
 Les profils utilisateur en double ne peuvent pas être récupérés après la fusion.
 {% endalert %}
+
+## Articles connexes {#related-articles}
+
+- [Comportement de la fusion d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
+- [POST : Fusionner les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
+- [Supprimer des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)

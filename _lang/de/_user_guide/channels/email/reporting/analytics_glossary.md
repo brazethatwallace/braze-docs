@@ -5,7 +5,7 @@ layout: email_report_metrics
 page_order: 0
 excerpt_separator: ""
 page_type: glossary
-description: "Dieses Glossar enthält die Begriffe, die Sie im Analysebereich Ihrer E-Mail-Kampagne oder Ihres Canvas nach dem Start finden werden. Dieses Glossar enthält keine Currents-Metriken."
+description: "Dieses Glossar enthält die Begriffe, die Sie im Analysebereich Ihrer E-Mail-Campaign oder Ihres Canvas nach dem Start finden werden. Dieses Glossar enthält keine Currents-Metriken."
 channel:
   - email
 ---
@@ -19,7 +19,7 @@ channel:
 
 {% api %}
 
-### Variante
+### Variante {#variation}
 
 {% apitags %}
 Count
@@ -33,7 +33,7 @@ Count
 
 {% api %}
 
-### Per E-Mail versendbar
+### Per E-Mail versendbar {#emailable}
 
 {% apitags %}
 Count
@@ -47,7 +47,7 @@ Count
 
 {% api %}
 
-### Zielgruppe %
+### Zielgruppe % {#audience}
 
 {% apitags %}
 Percentage
@@ -61,7 +61,7 @@ Percentage
 
 {% api %}
 
-### Eindeutige Empfänger:innen
+### Eindeutige Empfänger:innen {#unique-recipients}
 
 {% apitags %}
 Count
@@ -75,7 +75,7 @@ Count
 
 {% api %}
 
-### Sendungen
+### Sendungen {#sends}
 
 {% apitags %}
 Count
@@ -89,7 +89,7 @@ Count
 
 {% api %}
 
-### Nachrichten gesendet
+### Nachrichten gesendet {#messages-sent}
 
 {% apitags %}
 Count
@@ -103,7 +103,7 @@ Count
 
 {% api %}
 
-### Zustellungen
+### Zustellungen {#deliveries}
 
 {% apitags %}
 Count
@@ -131,7 +131,7 @@ Percentage
 
 {% api %}
 
-### Bounces
+### Bounces {#bounces}
 
 {% apitags %}
 Count, Percentage
@@ -157,7 +157,7 @@ Ein E-Mail-Bounce für Kund:innen, die SendGrid verwenden, umfasst Hard Bounces,
 
 {% api %}
 
-### Hard Bounce
+### Hard Bounce {#hard-bounce}
 
 {% apitags %}
 Count
@@ -173,7 +173,7 @@ Wenn eine E-Mail einen Hard Bounce verursacht oder als Spam markiert wird, kennz
 
 {% api %}
 
-### Soft Bounce
+### Soft Bounce {#soft-bounce}
 
 {% apitags %}
 Count
@@ -181,7 +181,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Wenn eine E-Mail einen Soft Bounce verursacht, wird in der Regel innerhalb von 72 Stunden ein erneuter Zustellversuch unternommen, wobei die Anzahl der Wiederholungsversuche je nach Empfänger:in variiert.
 
-Obwohl Soft Bounces nicht in Ihren Kampagnen-Analytics erfasst werden, können Sie die Soft Bounces im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) überwachen oder diese Nutzer:innen mit dem [Soft-Bounce-Segment-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced) von Ihrem Versand ausschließen. Im Nachrichten-Aktivitätsprotokoll können Sie auch den Grund für die Soft Bounces einsehen und mögliche Abweichungen zwischen den „Sendungen“ und „Zustellungen“ Ihrer E-Mail-Campaigns nachvollziehen.
+Obwohl Soft Bounces nicht in Ihren Campaign-Analytics erfasst werden, können Sie die Soft Bounces im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) überwachen oder diese Nutzer:innen mit dem [Soft-Bounce-Segment-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced) von Ihrem Versand ausschließen. Im Nachrichten-Aktivitätsprotokoll können Sie auch den Grund für die Soft Bounces einsehen und mögliche Abweichungen zwischen den „Sendungen“ und „Zustellungen“ Ihrer E-Mail-Campaigns nachvollziehen.
 
 <span class="calculation-line">Berechnung: Anzahl </span>
 
@@ -189,7 +189,7 @@ Obwohl Soft Bounces nicht in Ihren Kampagnen-Analytics erfasst werden, können S
 
 {% api %}
 
-### Spam
+### Spam {#spam}
 
 {% apitags %}
 Count, Percentage
@@ -211,13 +211,13 @@ Count, Percentage
 
 {% api %}
 
-### Eindeutige Öffnungen
+### Eindeutige Öffnungen {#unique-opens}
 
 {% apitags %}
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Bei E-Mails wird dies über einen Zeitraum von sieben Tagen erfasst. Das bedeutet, dass ein:e einzelne:r Nutzer:in, der/die dieselbe E-Mail nach sieben Tagen erneut öffnet, als neue eindeutige Öffnung gezählt wird. Daher können die Zähler für eindeutige Öffnungen im Dashboard höher sein als eine einfache `DISTINCT user_id`-Abfrage auf Currents-Daten. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Events, bei denen `is_unique` den Wert `true` hat.
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Bei E-Mails wird dies über einen Zeitraum von sieben Tagen erfasst. Das bedeutet, dass ein:e einzelne:r Nutzer:in, der/die dieselbe E-Mail nach sieben Tagen erneut öffnet, als neue eindeutige Öffnung gezählt wird. Daher können die Zähler für eindeutige Öffnungen im Dashboard höher sein als eine einfache `DISTINCT user_id`-Abfrage auf Currents-Daten. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Ereignissen, bei denen `is_unique` den Wert `true` hat.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -233,13 +233,13 @@ Count, Percentage
 
 {% api %}
 
-### Eindeutige Klicks
+### Eindeutige Klicks {#unique-clicks}
 
 {% apitags %}
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dies wird bei E-Mails über einen Zeitraum von sieben Tagen erfasst und anhand der <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> gemessen. Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks. Nach sieben Tagen kann ein weiterer eindeutiger Klick für dieselbe:n Nutzer:in gezählt werden, wenn er/sie erneut klickt. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Events, bei denen `is_unique` den Wert `true` hat.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dies wird bei E-Mails über einen Zeitraum von sieben Tagen erfasst und anhand der <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> gemessen. Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks. Nach sieben Tagen kann ein weiterer eindeutiger Klick für dieselbe:n Nutzer:in gezählt werden, wenn er/sie erneut klickt. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Ereignissen, bei denen `is_unique` den Wert `true` hat.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -255,7 +255,7 @@ Count, Percentage
 
 {% api %}
 
-### Abmeldungen oder Unsub
+### Abmeldungen oder Unsub {#unsubscribers-or-unsub}
 
 {% apitags %}
 Count, Percentage
@@ -275,11 +275,20 @@ Count, Percentage
 </span>
 {:/}
 
+#### Warum sich *Abmeldungen* und Klicks auf den Abmeldelink unterscheiden können {#why-unsubscribes-and-unsubscribe-link-clicks-can-differ}
+
+Vergleichen Sie auf der **Analytics**-Seite einer E-Mail-Campaign oder eines Canvas die Anzahl der *Abmeldungen* mit den Klicks auf die Braze-Abmelde-URL in der Link-Aufschlüsselung, wenn Sie **Total Clicks** oder **Unique Clicks** aufklappen. Die beiden Werte stimmen oft überein, können aber abweichen:
+
+- **Mehr *Abmeldungen* als Klicks auf die Abmelde-URL im E-Mail-Text:** [List-Unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) ist ein zusätzlicher Abmeldepfad im E-Mail-Header (nicht der Link in Ihrem Nachrichtentext). Wenn sich Nutzer:innen auf diesem Weg abmelden, wird dies zu den *Abmeldungen* gezählt, zählt aber nicht als Klick auf die erfasste Abmelde-URL im Text.
+- **Mehr Klicks auf die Abmelde-URL im Text als *Abmeldungen*:** Nutzer:innen können diesen Link mehrmals auswählen. Wenn sie sich abmelden, erneut anmelden und sich wieder abmelden, kann die E-Mail-Analyse mehrere Klicks (z. B. zwei) in der Klick-Aufschlüsselung erfassen.
+
+Weitere Informationen finden Sie unter [Warum sehe ich eine andere Anzahl von Abmeldungen als Klicks auf meinen Abmeldelink?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+
 {% endapi %}
 
 {% api %}
 
-### Umsatz
+### Umsatz {#revenue}
 
 {% apitags %}
 Count
@@ -293,7 +302,7 @@ Count
 
 {% api %}
 
-### Primäre Conversions (A) oder primäres Konversions-Event
+### Primäre Conversions (A) oder primäres Konversions-Event {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Count, Percentage
@@ -315,7 +324,7 @@ Count, Percentage
 
 {% api %}
 
-### Konfidenz
+### Konfidenz {#confidence}
 
 {% apitags %}
 Count
@@ -327,7 +336,7 @@ Count
 
 {% api %}
 
-### Maschinelle Öffnungen
+### Maschinelle Öffnungen {#machine-opens}
 
 {% multi_lang_include analytics/metrics.md metric='Machine Opens' %} Diese Metrik wird seit dem 11. November 2021 für SendGrid und seit dem 2. Dezember 2021 für SparkPost erfasst.
 
@@ -337,13 +346,13 @@ Count
 
 {% api %}
 
-### Sonstige Öffnungen
+### Sonstige Öffnungen {#other-opens}
 
 {% apitags %}
 Count
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Beachten Sie, dass ein:e Nutzer:in eine E-Mail auch öffnen kann (wobei die Öffnung zu <i>Sonstige Öffnungen</i> gezählt wird), bevor ein Zähler für <i>Maschinelle Öffnungen</i> protokolliert wird. Wenn ein:e Nutzer:in eine E-Mail einmal (oder mehrmals) nach einem maschinellen Öffnungs-Event aus einem Nicht-Apple-Mail-Posteingang öffnet, wird die Anzahl der Öffnungen durch die:den Nutzer:in zu <i>Sonstige Öffnungen</i> gezählt und nur einmal zu <i>Eindeutige Öffnungen</i>.
+{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Beachten Sie, dass ein:e Nutzer:in eine E-Mail auch öffnen kann (wobei die Öffnung zu <i>Sonstige Öffnungen</i> gezählt wird), bevor ein Zähler für <i>Maschinelle Öffnungen</i> protokolliert wird. Wenn ein:e Nutzer:in eine E-Mail einmal (oder mehrmals) nach einem maschinellen Öffnungs-Ereignis aus einem Nicht-Apple-Mail-Posteingang öffnet, wird die Anzahl der Öffnungen durch die:den Nutzer:in zu <i>Sonstige Öffnungen</i> gezählt und nur einmal zu <i>Eindeutige Öffnungen</i>.
 
 <span class="calculation-line">Berechnung: Anzahl </span>
 
@@ -351,7 +360,7 @@ Count
 
 {% api %}
 
-### Klick-zu-Öffnungs-Rate
+### Klick-zu-Öffnungs-Rate {#click-to-open-rate}
 
 {% apitags %}
 Percentage

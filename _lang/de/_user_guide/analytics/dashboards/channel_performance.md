@@ -11,7 +11,7 @@ toc_headers: h2
 
 # Kanal-Performance-Dashboards {#channel-performance-dashboards}
 
-> Kanal-Performance-Dashboards zeigen aggregierte Performance-Metriken für einen gesamten Kanal, sowohl aus Campaigns als auch aus Canvases. Diese Dashboards sind derzeit für E-Mail und SMS verfügbar.
+> Kanal-Performance-Dashboards zeigen aggregierte Performance-Metriken für einen gesamten Kanal, sowohl aus Campaigns als auch aus Canvases. Diese Dashboards sind derzeit für E-Mail, Push und SMS verfügbar.
 
 ## Dashboards {#dashboards}
 
@@ -26,13 +26,11 @@ Rufen Sie Ihr E-Mail-Performance-Dashboard auf, indem Sie zu **Analytics** > **E
 
 ![E-Mail-Performance-Dashboard, das das E-Mail-Kanal-Engagement der letzten dreißig Tage anzeigt.]({% image_buster /assets/img_archive/email_performance_dashboard_1.png %})
 
-#### Wie Metriken berechnet werden {#how-metrics-are-calculated}
-
 ![Eine Beispiel-E-Mail-Campaign mit 335.630 Sends und einem Durchschnitt von 11.187,667 pro Tag.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
-Die Berechnungen für die verschiedenen Metriken im E-Mail-Performance-Dashboard sind dieselben wie auf der Ebene einzelner Nachrichten (z. B. Campaign-Analytics). In diesem Dashboard werden die Metriken über alle Campaigns und Canvases für den von Ihnen ausgewählten Datumsbereich aggregiert. Weitere Informationen zu diesen Definitionen finden Sie unter [E-Mail-Metriken]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#email-metrics).
+#### Wie Metriken berechnet werden {#how-metrics-are-calculated}
 
-Jede Kachel zeigt zuerst die Raten-Metrik, gefolgt von der Zähl-Metrik (mit Ausnahme von *Sends*, das die Zähl-Metrik gefolgt vom Tagesdurchschnitt anzeigt). Zum Beispiel enthält die Kachel für eindeutige Klicks die *Eindeutige Klickrate* aus Ihrem ausgewählten Zeitraum und die Gesamtzahl der eindeutigen Klicks aus diesem Zeitraum. Jede Kachel zeigt außerdem den [Vergleich zum vorherigen Zeitraum](#comparing-time-periods).
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="email" %}
 
 | Metrik | Typ | Berechnung |
 | --- | --- | ---- |
@@ -101,13 +99,11 @@ Weitere Informationen zu Analytics für Ihre E-Mails finden Sie unter [E-Mail-Re
 
 Um Ihr SMS-Performance-Dashboard zu verwenden, navigieren Sie zu **Analytics** > **SMS Performance** und wählen Sie den Datumsbereich für den Zeitraum aus, für den Sie Daten anzeigen möchten. Ihr Datumsbereich kann bis zu ein Jahr in der Vergangenheit liegen.
 
-#### Wie Metriken berechnet werden
-
 ![Eine Beispiel-SMS-Campaign mit 335.630 Sends und einem Durchschnitt von 11.187,667 pro Tag.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
-Die Berechnungen für die verschiedenen Metriken im SMS-Performance-Dashboard sind dieselben wie auf der Ebene einzelner Nachrichten (z. B. Campaign-Analytics). In diesem Dashboard werden die Metriken über alle Campaigns und Canvases für den von Ihnen ausgewählten Datumsbereich aggregiert. Weitere Informationen zu diesen Definitionen finden Sie unter [SMS-Metriken]({{site.baseurl}}/sms_mms_rcs_reporting/).
+#### Wie Metriken berechnet werden
 
-Jede Kachel zeigt zuerst die Raten-Metrik, gefolgt von der Zähl-Metrik (mit Ausnahme von _Sends_, das die Zähl-Metrik gefolgt vom Tagesdurchschnitt anzeigt). Jede Kachel zeigt außerdem den [Vergleich zum vorherigen Zeitraum](#comparison-to-last-period-change-in-totals-or-rates).
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="SMS" %}
 
 | Metrik | Typ | Berechnung |
 | --- | --- | ---- |
@@ -121,6 +117,31 @@ Jede Kachel zeigt zuerst die Raten-Metrik, gefolgt von der Zähl-Metrik (mit Aus
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
 
 {% endtab %}
+{% tab Push-Performance %}
+
+### Push-Performance-Dashboard {#push-performance-dashboard}
+
+Das **Push Performance**-Dashboard bietet Ihnen eine kanalübergreifende Ansicht des Push-Engagements, einschließlich Sends, Bounces, Zustellungen sowie direkter, beeinflusster und gesamter Öffnungsraten über ein konfigurierbares Zeitfenster. Nutzen Sie es, um den allgemeinen Zustand Ihres Push-Kanals zu verstehen, ohne Daten aus einzelnen Campaigns oder Canvases zusammenführen zu müssen.
+
+Um das Dashboard zu öffnen, navigieren Sie zu **Analytics** > **Dashboard Builder** und wählen Sie **Push Channel Dashboard** aus. Ihr Datumsbereich kann bis zu ein Jahr in der Vergangenheit liegen.
+
+![Eine Beispiel-Push-Campaign mit über 63 Millionen Sends.]({% image_buster /assets/img_archive/push_performance_dashboard.png %})
+
+#### Wie Metriken berechnet werden
+
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="push" %}
+
+| Metrik | Typ | Berechnung |
+| --- | --- | ---- |
+| Sends | Anzahl | Gesamtzahl der Sends über jeden Tag im Datumsbereich |
+| Bounce-Rate | Rate | (Gesamtzahl der Bounces über jeden Tag im Datumsbereich) / (Gesamtzahl der Sends über jeden Tag im Datumsbereich) |
+| Zustellrate | Rate | (Gesamtzahl der Zustellungen über jeden Tag im Datumsbereich) / (Gesamtzahl der Sends über jeden Tag im Datumsbereich) |
+| Direkte Öffnungsrate | Rate | (Gesamtzahl der direkten Öffnungen über jeden Tag im Datumsbereich) / (Gesamtzahl der Zustellungen über jeden Tag im Datumsbereich) |
+| Beeinflusste Öffnungsrate | Rate | (Gesamtzahl der beeinflussten Öffnungen über jeden Tag im Datumsbereich) / (Gesamtzahl der Zustellungen über jeden Tag im Datumsbereich) |
+| Gesamte Öffnungsrate | Rate | (Gesamtzahl der Gesamtöffnungen über jeden Tag im Datumsbereich) / (Gesamtzahl der Zustellungen über jeden Tag im Datumsbereich)<br><br>Gesamtöffnungen umfassen sowohl direkte Öffnungen als auch beeinflusste Öffnungen. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+
+{% endtab %}
 {% endtabs %}
 
 ## Dashboard-Filter {#dashboard-filters}
@@ -128,6 +149,7 @@ Jede Kachel zeigt zuerst die Raten-Metrik, gefolgt von der Zähl-Metrik (mit Aus
 Sie können die Daten in Ihrem Dashboard mit den folgenden Filteroptionen filtern:
 
 - **Tag:** Wählen Sie einen Tag aus. Nach der Anwendung zeigt Ihr Dashboard nur Metriken für den ausgewählten Tag an.
+- **Plattformen:** (Nur Push-Performance-Dashboard) Wählen Sie eine Push-Plattform aus, z. B. **All Push**, **Android**, **iOS**, **Mobile combined**, **Kindle** oder **Web**. Nach der Anwendung zeigt Ihr Dashboard nur Metriken für die ausgewählte Plattform an.
 - **Canvas:** Wählen Sie bis zu 10 Canvases aus. Nach der Anwendung zeigt Ihr Dashboard nur Metriken für die ausgewählten Canvases an. Wenn Sie zuerst einen Tag-Filter auswählen, umfassen Ihre Canvas-Filteroptionen nur Canvases, die den ausgewählten Tag haben.
 - **Campaign:** Wählen Sie bis zu 10 Campaigns aus. Nach der Anwendung zeigt Ihr Dashboard nur Metriken für die ausgewählten Campaigns an. Wenn Sie zuerst einen Tag-Filter auswählen, umfassen Ihre Campaign-Filteroptionen nur Campaigns, die den ausgewählten Tag haben.
 
@@ -159,7 +181,7 @@ Um mehr Metriken zu sehen, versuchen Sie, den Datumsbereich zu erweitern.
 
 ### Warum zeigt mein E-Mail-Dashboard mehr sonstige Öffnungen als eindeutige Öffnungen an? {#why-does-my-email-dashboard-display-more-other-opens-than-unique-opens}
 
-Für die Metrik _Eindeutige Öffnungen_ dedupliziert Braze alle wiederholten Öffnungen, die von einer bestimmten Nutzer:in registriert werden (unabhängig davon, ob sie _Maschinelle Öffnungen_ oder _Sonstige Öffnungen_ umfassen), sodass nur eine einzige _Eindeutige Öffnung_ gezählt wird, wenn eine Nutzer:in mehrfach öffnet. Bei _Sonstigen Öffnungen_ findet keine Deduplizierung statt.
+Für die Metrik *Eindeutige Öffnungen* dedupliziert Braze alle wiederholten Öffnungen, die von einer bestimmten Nutzer:in registriert werden (unabhängig davon, ob sie *Maschinelle Öffnungen* oder *Sonstige Öffnungen* umfassen), sodass nur eine einzige *Eindeutige Öffnung* gezählt wird, wenn eine Nutzer:in mehrfach öffnet. Bei *Sonstigen Öffnungen* findet keine Deduplizierung statt.
 
 <!---Temporarily hidden until functionality is added
 

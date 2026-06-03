@@ -52,6 +52,8 @@ The V2 endpoint differs from the [V1 endpoint]({{site.baseurl}}/api/endpoints/su
 **Phone number format**: Phone numbers must be in [E.164 format](https://en.wikipedia.org/wiki/E.164) (for example, `+12223334444`). Phone numbers that are not in E.164 format are rejected.
 {% endalert %}
 
+{% multi_lang_include api/orphaned_subscription_states.md %}
+
 ## Rate limit
 
 {% multi_lang_include rate_limits.md endpoint='subscription status set' %}

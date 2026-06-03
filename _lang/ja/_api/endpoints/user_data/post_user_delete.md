@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "この記事では、「ユーザーの削除」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「ユーザーの削除」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
@@ -18,10 +18,10 @@ description: "この記事では、「ユーザーの削除」Braze エンドポ
 
 1つのリクエストには、最大50個の`external_ids`、`user_aliases`、`braze_ids`、`email_addresses`、または`phone_numbers`を含めることができます。単一のリクエストに含めることができるのは、`external_ids`、`user_aliases`、`braze_ids`、`email_addresses`、または`phone_numbers`のいずれか1つだけです。
 
-APIを経由したユーザーの一括削除では解決できないユースケースがある場合は、[Braze サポートチーム]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
+APIを経由したユーザーの一括削除では解決できないユースケースがある場合は、[Brazeサポートチーム]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
 
 {% alert warning %}
-ユーザープロファイルの削除は元に戻せません。ユーザーを完全に削除するため、データの矛盾が発生する可能性があります。[APIを使用してユーザープロファイルを削除する]({{site.baseurl}}/help/help_articles/api/delete_user/)場合の詳細については、ヘルプドキュメントを参照してください。
+ユーザープロファイルの削除は元に戻せません。削除アクションはユーザーを完全に削除するため、データの矛盾が発生する可能性があります。詳細については、[ユーザープロファイル削除の影響](#effects-of-deleting-user-profiles)を参照してください。
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
@@ -109,6 +109,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   "deleted" : (required, integer) number of user IDs queued for deletion
 }
 ```
+
+## ユーザープロファイル削除の影響 {#effects-of-deleting-user-profiles}
+
+このエンドポイントでユーザーを削除すると、以下のことが発生します。
+
+- ユーザープロファイルが削除（null化）されます。
+- ワークスペースのユーザー数（[分析ホーム]({{site.baseurl}}/user_guide/analytics/dashboards/home/)の合計ユーザー数など）が、削除されたユーザーを反映して更新されます。
+- 削除されたユーザーは、集計されたコンバージョン率にはカウントされ続けます。カスタムイベント数と購入数は、削除されたユーザーについては更新されません。
+
+### 共有メールアドレスを持つ複数のプロファイル {#multiple-profiles-with-a-shared-email-address}
+
+同じメールアドレスを共有するユーザープロファイルをマージするには、[`/users/merge`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)を呼び出してください。
 
 ## トラブルシューティング {#troubleshooting}
 

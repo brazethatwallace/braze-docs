@@ -94,6 +94,8 @@ Este punto de conexión fusiona los siguientes campos si no se encuentran en el 
 Al fusionar usuarios, el uso del punto de conexión `/users/merge` funciona del mismo modo que el [método `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
+Braze gestiona de forma diferente tres tipos de usuarios durante la fusión: usuarios marcados para eliminación, usuarios de prueba y usuarios del Grupo de control global. Para más detalles, consulta [Comportamiento de la fusión de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+
 #### Comportamiento de la fecha de eventos personalizados y la fecha de eventos de compra {#custom-event-date-and-purchase-event-date-behavior}
 
 Estos campos fusionados actualizan los filtros «para X eventos en Y días». Para los eventos de compra, estos filtros incluyen «número de compras en Y días» y «dinero gastado en los últimos Y días».

@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [Seen](https://seen.io)は、ブランドがパーソナライズされた動画体験を大規模に作成し、配信することを可能にします。Seenを使えば、データを中心に動画をデザインし、クラウド上で大規模にパーソナライズし、最適な場所に配信できます。
 >
-> BrazeとSeenの統合により、ユーザーデータをBrazeからSeenに送信し、パーソナライズされた動画をダイナミックに生成し、固有のプレーヤーURLやサムネイルなどの動画アセットをBrazeに戻して、CampaignsやCanvasesで使用できます。
+> BrazeとSeenの統合により、ユーザーデータをBrazeからSeenに送信し、パーソナライズされた動画をダイナミックに生成し、固有のプレーヤーURLやサムネイルなどの動画アセットをBrazeに戻して、キャンペーンやキャンバスで使用できます。
 
 
 ## ユースケース {#use-cases}
@@ -147,7 +147,7 @@ Brazeデータ変換を使用して、Seen Journeyのレスポンスを取り込
 4. 生成されたWebhook URLをSeenと共有するか、Journeyの**Webhookノード**に直接追加します
 5. 以下の変換コードを使用します。
 
-```javascript
+`````````javascript
 let brazecall = {
   "attributes": [
     {

@@ -76,6 +76,10 @@ Le **Style Cartes** est une propriété de ligne qui vous permet d'ajouter un es
 
 Vous ne savez pas si votre e-mail doit être envoyé via une Campaign ou un Canvas ? Les Campaigns sont plus adaptées aux envois de messages ciblés ponctuels, tandis que les Canvas conviennent mieux aux parcours utilisateur en plusieurs étapes.
 
+{% alert note %}
+Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une Campaign ou un Canvas directement dans **Templates** > **Email Templates** en tant que modèle d'e-mail. Créez d'abord votre modèle sous **Templates**, ou consultez [Puis-je enregistrer mon e-mail par glisser-déposer en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) pour recréer un modèle par glisser-déposer ou exporter le HTML avec **Download file**.
+{% endalert %}
+
 Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un e-mail par glisser-déposer.
 
 ### Étape 1 : Sélectionner votre modèle {#step-1-select-your-template}
@@ -87,7 +91,7 @@ Après avoir sélectionné l'éditeur par glisser-déposer comme expérience d'�
 - Utiliser un modèle d'e-mail par glisser-déposer enregistré.
 
 {% alert note %}
-Pour utiliser un modèle HTML personnalisé existant ou des modèles créés par un tiers, vous devez recréer le modèle en accédant à **Templates** > **Email Templates** et en sélectionnant **Drag-And-Drop Editor** comme expérience d'édition.
+Pour utiliser un modèle HTML personnalisé existant ou des modèles créés par un tiers, vous devez recréer le modèle en accédant à **Content** > **Email** et en sélectionnant **Drag-And-Drop Editor** comme expérience d'édition.
 {% endalert %}
 
 Vous pouvez également accéder à tous les modèles depuis la section **Templates**.
@@ -134,7 +138,17 @@ Une fois la conception et la création de votre e-mail terminées, il est temps 
 
 Un aperçu dans le panneau de droite se remplira avec les informations d'envoi que vous avez ajoutées. Ces informations peuvent également être mises à jour en accédant à **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Personnaliser l'en-tête de votre e-mail (avancé) {#personalizing-your-email-header-advanced}
+#### Ajouter des pièces jointes à l'e-mail {#add-email-attachments}
+
+Dans **Sending Settings** > **Advanced**, vous pouvez ajouter des pièces jointes à l'e-mail par les méthodes suivantes :
+
+- **Télécharger un fichier :** Glissez-déposez ou parcourez pour télécharger un fichier directement depuis votre ordinateur vers l'e-mail. Braze valide le type et la taille du fichier (jusqu'à 2&nbsp;Mo par défaut) avant le téléchargement, puis ces fichiers sont téléchargés dans la bibliothèque multimédia. Les fichiers dépassant la limite de 2&nbsp;Mo ne peuvent pas être téléchargés.
+- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
+- **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
+
+Consultez les [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) pour les recommandations spécifiques à prendre en compte.
+
+#### Personnaliser l'en-tête de votre e-mail (avancé) {#personalize-your-email-header-advanced}
 
 Sous **Sending Settings**, vous pouvez ajouter de la personnalisation pour les en-têtes d'e-mail et les extras d'e-mail, ce qui vous permet de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. La personnalisation d'un en-tête d'e-mail, comme l'inclusion du nom du destinataire, peut également contribuer à augmenter la probabilité que votre e-mail soit ouvert.
 
@@ -310,14 +324,14 @@ Tout ce qui est ajouté en dehors des balises `<head>` sera ajouté après la ba
 | `base` | `href` | URL de base à utiliser pour les URL relatives. | ```<base href="https://braze.com">``` |
 | `base` | `target`| Cible par défaut pour tous les hyperliens et formulaires. | ```<base target="_blank">``` |
 | `link` | `href` | URL vers la ressource externe. | ```<link href="style.css">``` |
-| `link` | `rel` | Définit les relations entre le message actuel et le message lié. | ```<link rel="stylesheet">``` |
+| `link` | `rel` | Définit les relations entre le document actuel et la ressource liée. | ```<link rel="stylesheet">``` |
 | `link` | `type` | Type de la ressource liée. | ```<link type="text/css">``` |
 | `link` | `sizes` | Spécifie les tailles des icônes. | ```<link rel="icon" sizes="32x32" href="favicon-32.png">``` |
 | `link` | `media` | Spécifie le média ou l'appareil pour lequel les styles s'appliquent. | ```<link rel="stylesheet" media="screen" href="style.css">``` |
-| `meta` | `name` | Définit le titre du document affiché dans les onglets du navigateur. | ```<meta name="viewport" content="width=device-width, initial-scale=1">``` |
-| `meta` | `content` | Définit le titre du document affiché dans les onglets du navigateur. | ```<meta name="description" content="Page about our newest products">``` |
+| `meta` | `name` | Définit le nom de la métadonnée. | ```<meta name="viewport" content="width=device-width, initial-scale=1">``` |
+| `meta` | `content` | Définit la valeur de la métadonnée. | ```<meta name="description" content="Page about our newest products">``` |
 | `meta` | `charset` | Déclare l'encodage des caractères. | ```<meta charset="UTF-8">``` |
-| `meta` | `property` | Définit le titre du document affiché dans les onglets du navigateur. | ```<meta property="og:title" content="Website title">``` |
+| `meta` | `property` | Définit une propriété de métadonnée (par exemple Open Graph). | ```<meta property="og:title" content="Website title">``` |
 | `style` | `type` | Type MIME du contenu de style. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Spécifie le média ou l'appareil pour lequel les styles s'appliquent. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Aucun attribut | La balise `title` n'accepte aucun attribut. | ```<title>Kitchenerie</title>``` |

@@ -25,7 +25,7 @@ Existen dos estados de suscripción para los usuarios de SMS y RCS: `subscribed`
 | Estado | Definición |
 | --------- | ---------- |
 | Suscrito | El usuario está suscrito para recibir SMS y RCS de un grupo de suscripción específico. Un usuario puede suscribirse ya sea actualizando su estado de suscripción a través de la API de suscripción de Braze o enviando un mensaje de texto con una palabra clave de adhesión voluntaria. Un usuario debe estar suscrito a un grupo de suscripción de SMS o RCS para recibir SMS, RCS o ambos. Cuando la [doble adhesión voluntaria]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) está habilitada, los usuarios deben confirmar su intención de adhesión antes de que su estado de suscripción se actualice a `Subscribed`. |
-| Dado de baja | El usuario ha optado explícitamente por no recibir mensajes de tu grupo de suscripción de SMS y RCS y de los números de teléfono de envío dentro del grupo de suscripción. Pueden cancelar la suscripción enviando un mensaje de texto con una palabra clave de cancelación, o puedes cancelar la suscripción de los usuarios a través de la [API de suscripción de Braze]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Los usuarios dados de baja de un grupo de suscripción de SMS y RCS ya no recibirán ningún SMS o RCS de los números de teléfono de envío que pertenezcan al grupo de suscripción.|
+| Dado de baja | El usuario ha optado explícitamente por no recibir mensajes de tu grupo de suscripción de SMS y RCS y de los números de teléfono de envío dentro del grupo de suscripción. Pueden cancelar la suscripción enviando un mensaje de texto con una palabra clave de cancelación, o puedes cancelar la suscripción de los usuarios a través de la [API de suscripción de Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Los usuarios dados de baja de un grupo de suscripción de SMS y RCS ya no recibirán ningún SMS o RCS de los números de teléfono de envío que pertenezcan al grupo de suscripción.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Establecer el estado de un usuario {#set-a-users-state}
@@ -47,6 +47,8 @@ Para establecer el estado del grupo de suscripción de un usuario, utiliza uno d
 Al actualizar el estado del grupo de suscripción de un usuario como parte de un flujo de Canvas, utiliza un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) en lugar de un webhook. El paso de Actualización de usuario espera a que se complete el procesamiento antes de avanzar al usuario al siguiente paso, de modo que los pasos de mensajería posteriores utilicen el estado de suscripción actualizado.
 
 Si usas un webhook para actualizar los grupos de suscripción, el usuario avanza tan pronto como se envía el webhook, no cuando el cambio de suscripción termina de procesarse. Esto puede crear una condición de carrera en la que un paso de SMS posterior se ejecuta antes de que el usuario esté suscrito, lo que provoca que el mensaje falle para una parte de los usuarios. Si debes usar un webhook, agrega un paso de retraso de al menos 1 minuto antes del siguiente paso de mensajería.
+
+#{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Verificar el grupo de un usuario {#check-a-users-group}
 
@@ -125,6 +127,7 @@ Braze recomienda que primero pruebes el envío de RCS a volúmenes más pequeño
 Crea un Canvas y nómbralo con algo fácilmente identificable (como "Transferencia de usuarios de grupo de suscripción SMS-RCS"). Luego, programa la campaña cuando te resulte conveniente.
 
 ### Paso 2: Definir tu audiencia {#step-2-define-your-audience}
+{: #step-2-define-your-audience}
 
 Define tu audiencia usando uno de los siguientes métodos. A continuación, ve al paso **Ajustes de envío** y selecciona **Users who are subscribed or opted-in**.
 
@@ -194,5 +197,7 @@ Elige nombres de grupos de suscripción descriptivos y claros para que se selecc
 ### Separar grupos por país {#separate-groups-by-country}
 
 Las regulaciones de SMS varían según el país. Sugerimos separar los grupos de suscripción de SMS por país. Esto te ayuda a cumplir con los estándares de conformidad en todas las regiones donde envías mensajes.
+
+Para cada grupo de suscripción, también puedes configurar una lista de países permitidos en **Geographic Permissions** para que los SMS, MMS y RCS solo se envíen a regiones aprobadas. Para más información, consulta [Permisos geográficos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/).
 
 Por ejemplo, en Brasil, el envío de mensajes de marketing fuera del horario de 9 a.m. a 9 p.m. hora local está prohibido, y el país abarca tres zonas horarias. Para cumplir con estas regulaciones, podrías configurar grupos separados para enviar mensajes a Brasil y Estados Unidos. Esto evita que los usuarios en Brasil reciban mensajes de marketing durante las horas prohibidas.

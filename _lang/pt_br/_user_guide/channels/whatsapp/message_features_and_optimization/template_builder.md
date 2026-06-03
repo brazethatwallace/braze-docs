@@ -12,10 +12,6 @@ channel:
 
 > O Criador de modelos de WhatsApp permite criar e enviar modelos de mensagens do WhatsApp diretamente na Braze, sem precisar alternar entre a Braze e o Meta Business Manager. Depois que a Meta aprovar seu modelo, use-o em quantas campanhas e Canvas quiser.
 
-{% alert note %}
-O Criador de modelos de WhatsApp está atualmente em acesso antecipado. Entre em contato com o gerente da sua conta Braze para obter acesso.
-{% endalert %}
-
 ## Pré-requisitos {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -24,7 +20,7 @@ O Criador de modelos de WhatsApp está atualmente em acesso antecipado. Entre em
 
 ### Etapa 1: Acessar os modelos de WhatsApp {#step-1-go-to-whatsapp-templates}
 
-Acesse **Modelos** > **Modelos de WhatsApp** e selecione **Criar novo modelo**.
+Acesse **Conteúdo** > **WhatsApp** e selecione **Criar novo modelo**.
 
 ![Página de modelos de WhatsApp com botão para criar um novo modelo.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 

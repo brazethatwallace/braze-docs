@@ -82,6 +82,12 @@ KakaoTalkチャネルの情報（チャネル名、プロフィール画像な�
 
 ![発信キーがマスクされたComm.Oneダッシュボード。]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
+{% alert important %}
+KakaoTalk発信キーは、一度に1つのワークスペースにのみ統合できます。同じ発信キーを別のワークスペースで使用するには、まず元のワークスペースでKakaoTalkサブスクリプショングループをアーカイブし、[Brazeサポート]({{site.baseurl}}/braze_support/)に連絡して統合を削除してもらう必要があります。Brazeが統合を削除した後、新しいワークスペースで統合をセットアップできます。
+{% endalert %}
+
+![Braze KakaoTalkチャネルの認証情報。]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
+
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
 
@@ -95,13 +101,11 @@ KakaoTalkチャネルの情報（チャネル名、プロフィール画像な�
 {% endtab %}
 {% endtabs %}
 
-![CJ OliveNetworksのテクノロジーパートナーページのフィールド。]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Braze KakaoTalkチャネルの認証情報。]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 単一の共通IDにマッピングされたチャネルのみ登録できます。
 {% endalert %}
+
+![CJ OliveNetworksのテクノロジーパートナーページのフィールド。]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 

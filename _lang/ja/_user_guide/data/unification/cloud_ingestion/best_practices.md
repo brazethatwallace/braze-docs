@@ -573,7 +573,7 @@ CDIを使用したデータポイント使用量は、REST APIやSDKなどの他
 {% tabs local %}
 {% tab Snowflake %}
 このクエリをSnowflakeで使用して、ソース列をCDIフィールドにフォーマットします。
-```sql
+`````````sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
      attribute_2 string,
@@ -596,7 +596,7 @@ SELECT
 {% endtab %}
 {% tab Redshift %}
 このクエリをRedshiftで使用して、ソース列をCDIフィールドにフォーマットします。
-```sql
+`````````sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
      attribute_2 string,
@@ -619,7 +619,7 @@ SELECT
 {% endtab %}
 {% tab BigQuery %}
 このクエリをBigQueryで使用して、ソース列をCDIフィールドにフォーマットします。
-```sql
+`````````sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (attribute_1 string,
      attribute_2 STRING,
      attribute_3 NUMERIC,
@@ -640,7 +640,7 @@ SELECT
 {% endtab %}
 {% tab Databricks %}
 このクエリをDatabricksで使用して、ソース列をCDIフィールドにフォーマットします。
-```sql
+`````````sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (
     attribute_1 string,
     attribute_2 STRING,
@@ -663,7 +663,7 @@ SELECT
 {% endtab %}
 {% tab Microsoft Fabric %}
 このクエリをMicrosoft Fabricで使用して、ソース列をCDIフィールドにフォーマットします。
-```sql
+`````````sql
 CREATE TABLE [braze].[users] (
     attribute_1 VARCHAR,
     attribute_2 VARCHAR,

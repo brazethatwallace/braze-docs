@@ -17,8 +17,6 @@ description: "Este artículo describe los detalles sobre el punto de conexión V
 
 > Usa este punto de conexión para ver las traducciones de origen de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Requisitos previos {#prerequisites}
 
 Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `templates.email.info`.
@@ -29,10 +27,10 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 
 ## Parámetros de consulta {#query-parameters}
 
-| Parámetro | Obligatorio | Tipo de datos | Descripción |
+| Parámetro     | Obligatorio | Tipo de datos | Descripción                     |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | Obligatorio | Cadena | El ID de tu plantilla de correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `template_id` | Obligatorio | Cadena    | El ID de tu plantilla de correo electrónico. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 

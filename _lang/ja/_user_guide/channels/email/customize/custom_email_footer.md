@@ -12,7 +12,7 @@ channel:
 
 > ワークスペース全体のカスタムメールフッターを設定し、{% raw %}`{{${email_footer}}}`{% endraw %} Liquid属性を使用してすべてのメールにテンプレートとして適用できます。
 
-カスタムメールフッターを使用すると、メールテンプレートやメールCampaignごとに新しいフッターを作成する必要がなくなります。新規および既存のすべてのメールCampaignsに、カスタムフッターへの変更が反映されます。[CAN-SPAM Act of 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) に準拠するには、メールに会社の物理的な住所と配信停止リンクを含める必要があることにご注意ください。
+カスタムメールフッターを使用すると、メールテンプレートやメールキャンペーンごとに新しいフッターを作成する必要がなくなります。新規および既存のすべてのメールキャンペーンに、カスタムフッターへの変更が反映されます。[CAN-SPAM Act of 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) に準拠するには、メールに会社の物理的な住所と配信停止リンクを含める必要があることにご注意ください。
 
 {% alert warning %}
 カスタムフッターが上記の要件を満たしていることを確認するのは、お客様の責任です。
@@ -46,9 +46,9 @@ CAN-SPAM規制に準拠するため、カスタムフッターには配信停止
 
 ![フッターなしで作成されたメールの例。]({% image_buster /assets/img_archive/no_unsub_link_warning.png %})
 
-Campaignコンポーザーでの警告は以下のとおりです。
+キャンペーンコンポーザーでの警告は以下のとおりです。
 
-![フッターなしのCampaign作成。]({% image_buster /assets/img_archive/no_footer_test.png %})
+![フッターなしのキャンペーン作成。]({% image_buster /assets/img_archive/no_footer_test.png %})
 
 ### カスタム配信停止リンクの追加 {#adding-a-custom-unsubscribe-link}
 

@@ -4,7 +4,7 @@ article_title: テンプレート
 page_order: 5
 layout: dev_guide
 guide_top_header: "テンプレート"
-guide_top_text: "メッセージ用の再利用可能なテンプレートを作成・管理します。メールテンプレート、Webhookテンプレート、リンクテンプレート、Content Blocks、キャンバステンプレートを使用して、Campaignsの一貫性を保ちながら時間を節約しましょう。"
+guide_top_text: "メッセージ用の再利用可能なテンプレートを作成・管理します。メールテンプレート、Webhookテンプレート、リンクテンプレート、Content Blocks、キャンバステンプレートを使用して、キャンペーンの一貫性を保ちながら時間を節約しましょう。"
 search_rank: 2
 page_type: landing
 tool:

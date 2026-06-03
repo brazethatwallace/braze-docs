@@ -27,7 +27,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 ## Rate-Limit
 
-{% multi_lang_include rate_limits.md endpoint='default' %}
+{% multi_lang_include rate_limits.md endpoint='media_library' %}
 
 ## Anfragetext {#request-body}
 
@@ -149,6 +149,7 @@ Diese Tabelle listet mögliche Verarbeitungsfehler auf.
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | Die Datei überschreitet die maximal zulässige Größe. Bilder dürfen maximal 5 MB groß sein. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | Der Workspace hat die maximale Anzahl an Assets erreicht (Standard: 200 für Unternehmen mit kostenloser Demo, ansonsten unbegrenzt). Das `meta`-Objekt enthält das aktuelle `limit`. |
 | `ASSET_UPLOAD_FAILED` | 400 | Das Asset konnte aufgrund von Verarbeitungsproblemen nicht hochgeladen werden. |
+| `INVALID_ASSET_URL` | 400 | Der `asset_url`-Wert ist kein gültiger URI. Das `meta`-Objekt enthält `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | Die ZIP-Datei ist beschädigt oder konnte nicht geöffnet werden. Das `meta`-Objekt enthält die `original_error`-Nachricht. |
 | `ZIP_FILE_TOO_LARGE` | 400 | Die unkomprimierte Gesamtgröße der ZIP-Datei überschreitet das Limit von 5 MB. Das `meta`-Objekt enthält `zip_file_name` und `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Ein Dateieintrag innerhalb der ZIP-Datei hat keinen Namen. Stellen Sie sicher, dass die ZIP-Datei nicht beschädigt ist, und benennen Sie alle unbenannten Dateieinträge. |

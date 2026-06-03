@@ -47,10 +47,12 @@ Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パ
 {% raw %}
 ユーザーのロケーションにはデフォルト属性があります：`{{${most_recent_location}}}`。
 
-### {{campaign.${name}}} と {{campaign.${message_name}}} の違いは何ですか？ {#whats-the-difference-between-campaignname-and-campaignmessagename}
+### {{campaign.${name}}} と {{campaign.${message_name}}} の違いは何ですか？ {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
-`{{campaign.${name}}}` と `{{campaign.${message_name}}}` はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもCampaign属性を参照します。`{{campaign.${name}}}` はCampaignの名前を示し、`{{campaign.${message_name}}}` はメッセージバリアントの名前です。
+`{{campaign.${name}}}` と `{{campaign.${message_name}}}` はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもCampaignの属性を参照します。`{{campaign.${name}}}` はCampaignの名前を示し、`{{campaign.${message_name}}}` はメッセージバリアントの名前です。
 {% endraw %}
+
+URLやクエリ文字列での使用（名前に `%` やスペースが含まれる場合など）については、[URLでのCampaign名]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls)を参照してください。
 
 ### ネストされたオブジェクトでLiquidを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-with-nested-objects}
 
@@ -72,7 +74,7 @@ Brazeには、メッセージで使用できるSegments用のLiquidコードを�
 
 ### 中止ロジックとは何ですか？また、どのように使用できますか？ {#what-is-abort-logic-and-how-can-i-use-it}
 
-中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングCampaignでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)で詳しくご覧ください。
+中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングキャンペーンでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)で詳しくご覧ください。
 
 ### forループロジックとは何ですか？また、どのように使用できますか？ {#what-is-for-loop-logic-and-how-can-i-use-it}
 
@@ -140,3 +142,7 @@ Join our VIP program to unlock free shipping.
 {% endcapture %}
 ```
 {% endraw %}
+
+### Liquid変数は件名と本文の間で引き継がれますか？ {#do-liquid-variables-carry-between-subject-line-and-body}
+
+いいえ。Brazeは各メッセージコンポーネント（件名、HTML本文、プリヘッダー、プッシュタイトルなど）を個別にレンダリングします。あるフィールドで行った割り当てやキャプチャは、別のフィールドでは使用できません。値が必要な各フィールドでLiquidまたはコネクテッドコンテンツの呼び出しを繰り返してください。

@@ -174,7 +174,6 @@
   "CACI": "CACI",
   "calendar": "calendario",
   "callback": "devolución de llamada",
-  "campaign": "campaña",
   "Campaign": "Campaign",
   "Campaign or Canvas": "Campaña o Canvas",
   "campaign variant": "variante de campaña",
@@ -1348,5 +1347,6 @@
   "Zapier": "Zapier",
   "Zendesk": "Zendesk",
   "Zeotap": "Zeotap",
-  "zero-party data": "zero-party data"
+  "zero-party data": "zero-party data",
+  "campaign": "campaña"
 }

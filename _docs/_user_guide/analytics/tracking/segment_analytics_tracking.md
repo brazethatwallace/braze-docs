@@ -31,6 +31,8 @@ After enabling analytics tracking, there may be a delay until the segment data p
 
 Go to **Analytics** > **Revenue Report** to view data on [revenue and purchases over time for this segment]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/).
 
+Revenue and purchase charts reflect activity recorded after analytics tracking is turned on for that segment. Turning tracking on does not backfill earlier purchases into those reports. When you compare segments, use only time ranges where tracking was enabled for each segment you select.
+
 ![Revenue data by segment]({% image_buster /assets/img_archive/Revenue.png %})
 
 To visually compare segment data for any custom time range, add or remove segments from the graph. Select **By Segment** in the **Breakdown** dropdown, and then select your segments in **Breakdown values**.
@@ -52,4 +54,10 @@ View data on [Custom events over time for segments]({{site.baseurl}}/user_guide/
 ## Using Query Builder templates
 
 When analytics tracking is turned on, you can use Query Builder report templates to break down performance metrics for campaigns, Canvas, variants, and steps by segments. To learn more, check out [Segment data]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment).
+
+## Frequently asked questions
+
+### What should I check if analytics tracking looks wrong or empty?
+
+Confirm **Analytics Tracking** is still enabled in **Segment Details**, you have not exceeded the per-app limit (25 segments with tracking), and allow up to 24 hours for data to populate after you first enable tracking. If issues continue, verify the segment definition and report date range, then [contact Support]({{site.baseurl}}/braze_support/).
 

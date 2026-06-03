@@ -51,8 +51,12 @@ valid_partner_list:
   url: /docs/partners/remerge/
 - name: Alpaco
   url: /docs/partners/alpaco/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Blayer
   url: /docs/partners/blayer/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Dyspatch
   url: /docs/partners/dyspatch/
 - name: Denada

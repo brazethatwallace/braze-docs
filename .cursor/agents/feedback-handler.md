@@ -22,7 +22,7 @@ You may only **edit** files inside these two directories:
 - `_includes/`
 
 You may **read** (but never edit) files under `.cursor/agents/` and
-`.cursor/rules/` when needed to follow this workflow.
+`.github/skills/` when needed to follow this workflow.
 
 You must never edit files outside `_docs/` and `_includes/`. In particular:
 - NEVER edit anything inside `_lang/` — those are translated files
@@ -50,7 +50,7 @@ edited docs content or in the PR description. Anonymize or omit it.
 ### 1. Read the ticket and all linked resources
 
 Prerequisite: The Atlassian MCP must be enabled for Cloud Agent runs
-in this repo. If it is not configured, Step 1, Step 6, and all edge cases that
+in this repo. If it is not configured, Step 1 and all edge cases that
 require leaving comments will fail. Confirm this is set up before
 running the workflow in production.
 
@@ -130,7 +130,7 @@ than in the page file itself.
 
 ### 3. Verify against the source code
 
-Before making any edit, use `.cursor/rules/reference-repos.mdc` to
+Before making any edit, follow [`.github/skills/reference-repos/SKILL.md`](.github/skills/reference-repos/SKILL.md) to
 locate the relevant source code for the feature or behavior described
 in the ticket.
 
@@ -141,11 +141,24 @@ in the ticket.
 - If you cannot find relevant source code: proceed based on the
   ticket content and note in the PR description that source code
   verification was not possible.
+- If source code, release notes, or internal specs show the subject
+  is **deprecated**, **retired**, **no longer supported**, or **removed
+  from the dashboard UI**: do **not** document it as a current
+  customer-facing capability. Follow Step 4 under **Never document
+  deprecated, removed, or unavailable product behavior**.
 
 Always record the specific files and lines you checked, even if they
 were inconclusive. This goes in the PR description.
 
 ### 4. Make the edit
+
+Before your first `git commit`, configure the repository git identity
+to the Braze docs service account (run in the repo root):
+
+```bash
+git config user.name "brazedocs_svc"
+git config user.email "github-brazedocs_svc@braze.com"
+```
 
 Make the smallest targeted edit that addresses the reported issue.
 
@@ -155,6 +168,31 @@ Follow these guidelines:
 2. Follow the Braze docs style guide at `_docs/_contributing/style_guide/`.
 3. Keep additions concise — use bullets, tables, and code samples
    where appropriate.
+
+**Never document deprecated, removed, or unavailable product behavior**
+
+You must **never** add, expand, reintroduce, or "preserve for history"
+documentation that teaches customers to use:
+
+- Anything Braze or its SDKs/APIs label or treat as **deprecated**,
+  **legacy**, **retired**, **sunset**, **end-of-life**, or **no longer
+  supported** in code, OpenAPI, release notes, or authoritative
+  internal specs you used in this workflow.
+- Product areas that are **no longer used** for new work (superseded
+  entirely by a replacement) when the ticket is asking you to document
+  the old path as if it were current.
+- **Dashboard UI** that **no longer exists** — pages, tabs, buttons,
+  toggles, wizards, or navigation paths that cannot be reached in the
+  live product. Do not write steps that assume that removed UI is still
+  there.
+
+If the ticket asks you to document any of the above, or your
+verification shows the capability falls into those categories:
+**do not** add new how-to or reference material for it. Note what you
+found in the PR description and flag the reviewer. **Reductive** edits
+are allowed when they **remove** or **correct** misleading text that
+still claims a deprecated or removed surface exists (stay within file
+scope and keep the edit minimal).
 
 Do not:
 - Rewrite sections unrelated to the issue
@@ -169,6 +207,10 @@ Base your work on `develop`. Your branch name must be `jira-<ticket_id>`
 
 Create the PR as a draft using:
 
+**PR title format:** `[<ticket_id>] - <descriptive title>` (for example,
+`[BD-1234] - Clarify segment export limits`). Put the ticket ID in
+brackets, then a space, a dash, a space, then the descriptive title.
+
 **Assign the PR to the Jira ticket assignee:**
 Look up the Jira ticket assignee's display name in
 `.cursor/agents/jira-github-users.yml`. Match the display name
@@ -181,7 +223,7 @@ section: "Could not map Jira assignee to a GitHub user for assignee —
 requested review from docs team (`gh pr edit --add-reviewer braze-inc/docs-team`)."
 
 gh pr create --draft --base develop \
-  --title "<ticket_id>: <short description of fix>" \
+  --title "[<ticket_id>] - <descriptive title>" \
   --body "<PR description>"
 
 **Request a GitHub review (after the PR exists):**
@@ -248,39 +290,10 @@ or reasons this might need a closer look.>
 > or made edits beyond the intended scope.
 ---
 
-### 6. Post completion comment on Jira
-
-After the draft PR is created in Step 5, use the Atlassian MCP tool
-`addCommentToJiraIssue` to post a comment on the original Jira ticket
-(the same issue key from Step 1).
-
-- If you have the PR URL (for example from `gh pr create` output,
-  `gh pr view`, or the GitHub web UI), post a comment whose body is
-  exactly this text, with `<PR URL>` replaced by the real URL (two
-  sentences as shown):
-
-  ```text
-  🤖 Cursor Agent: Draft PR is ready for your review: <PR URL>
-  Please review the proposed changes and merge or request edits as needed.
-  ```
-
-- If the PR URL is not available, post a comment whose body is
-  exactly this line, with the branch name matching `jira-<ticket_id>`
-  from Step 5 (for example `jira-BD-1234`):
-
-  ```text
-  🤖 Cursor Agent: A draft PR has been opened for this ticket. Search GitHub for branch `jira-BD-1234` to find it.
-  ```
-
-  Replace `jira-BD-1234` with your actual branch name (`jira-` plus the
-  Jira issue key).
-
-**If Jira comment fails:** If the `addCommentToJiraIssue` tool is
-unavailable, returns an error, or the comment request otherwise fails,
-**log the failure** (include any error message or tool output you
-received) and **continue**. Do not abort the run, do not revert the
-PR, and do not treat a failed Jira comment as a blocker — the draft PR
-and documentation fix remain the primary outcome.
+When the draft PR is opened on a `jira-<ticket_id>` branch, the
+**Jira — PR ready comment** GitHub Actions workflow
+(`.github/workflows/jira-pr-comment.yml`) posts the "PR ready" comment on
+the Jira ticket automatically. Do not post that comment via the Atlassian MCP.
 
 ---
 
@@ -311,6 +324,16 @@ Workaround content creates maintenance burden and misleads customers
 once the underlying issue is resolved. Use the Atlassian MCP to
 leave a comment on the ticket flagging it as a likely bug and close
 this run without making an edit.
+
+**The ticket asks you to document deprecated, removed-from-UI, or
+retired product behavior:**
+Do not add documentation that presents that behavior as current or
+recommended. Use the Atlassian MCP to leave a comment on the ticket
+summarizing what you verified (deprecated, removed UI, retired API,
+and so on) and close this run without a how-to edit, unless the ticket
+is strictly about **removing** inaccurate legacy copy — in that case,
+make only the minimal reductive/corrective edit allowed elsewhere in
+this file.
 
 **The ticket does not contain enough information to identify the
 correct fix:**

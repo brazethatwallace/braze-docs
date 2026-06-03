@@ -43,7 +43,7 @@ La fréquence de mise à jour des données de ce tableau de bord peut varier en 
 
 ## Configuration du tableau de bord {#configuring-the-dashboard}
 
-Vous pouvez accéder au tableau de bord de diagnostic en allant dans **Analytics** > **Générateur de tableaux de bord** et en sélectionnant **Messaging Diagnostics** dans la liste des tableaux de bord créés par Braze.
+Vous pouvez accéder au tableau de bord de diagnostic en allant dans **Analytics** > **Dashboard Builder** et en sélectionnant **Messaging Diagnostics** dans la liste des tableaux de bord créés par Braze.
 
 Pour exécuter le tableau de bord et afficher vos données :
 
@@ -51,7 +51,7 @@ Pour exécuter le tableau de bord et afficher vos données :
 2. Sélectionnez une ou plusieurs campagnes ou Canvas.
 3. Sélectionnez **Run Dashboard** pour charger les données correspondant aux filtres sélectionnés.
 
-![Exemple de diagnostic de Campaign et Canvas du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
+![Exemple de diagnostic de Campaign et Canvas du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![Exemple de diagnostic de Campaign et Canvas avec graphique au survol du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
 
 ## Interprétation des données {#interpreting-the-data}
 
@@ -78,11 +78,16 @@ Ce graphique en série temporelle montre une ventilation jour par jour des diff�
 Pour garder le graphique lisible, toute raison d'abandon ou de retrait ayant zéro occurrence dans la période sélectionnée n'apparaît pas sur le graphique.
 {% endalert %}
 
-### Ventilation des résultats des messages {#message-outcomes-breakdown}
+### Journal détaillé des résultats des messages {#message-outcomes-granular-log}
 
-Ce graphique montre la ventilation de tous les résultats des messages dans la période sélectionnée. Il fournit une vue complète de :
-- Le nombre total d'envois en proportion de tous les résultats.
-- La ventilation proportionnelle de chaque raison d'abandon et de retrait. Cela vous aide à identifier rapidement les raisons les plus courantes pour lesquelles les messages ne sont pas envoyés.
+Sous le graphique en série temporelle, le tableau de bord affiche un tableau détaillé des résultats individuels des messages pour les filtres et la période sélectionnés. Utilisez ce tableau pour examiner des enregistrements spécifiques, notamment l'horodatage, l'ID utilisateur, l'étape du Canvas, le résultat et le canal.
+
+Vous pouvez filtrer le tableau pour vous concentrer sur des enregistrements spécifiques :
+
+- **Filtrer par résultat :** Sélectionnez un résultat dans le filtre de résultats pour afficher uniquement les lignes correspondant à ce résultat (par exemple, `Frequency capped` ou `User not eligible`).
+- **Rechercher par ID utilisateur :** Saisissez un ID utilisateur dans le champ de recherche pour afficher les lignes correspondant à cet utilisateur spécifique.
+
+Lorsque vous appliquez les deux filtres, le tableau renvoie les lignes correspondant à la fois au résultat sélectionné et à l'ID utilisateur saisi.
 
 ### Résultats d'abandon {#abort-outcomes}
 
@@ -130,7 +135,7 @@ Les définitions suivantes expliquent les résultats d'abandon affichés sur le 
 | L'utilisateur a échoué à la pré-vérification de l'étape Message | Cette pré-vérification s'exécute avant les validations de distribution. Lorsque cela se produit, l'utilisateur n'a pas satisfait la pré-vérification de base pour cette étape Message (utilisateur introuvable ou non éligible pour le canal de l'étape Message). **Remarque :** Pour une étape Message multicanal, cela signifie que l'utilisateur n'a pas été trouvé ; l'éligibilité au canal n'est vérifiée ici que pour les étapes Message à canal unique. |
 | L'utilisateur a échoué à la pré-vérification du message déclenché | Pour un message déclenché, Braze exécute un premier ensemble de pré-vérifications de base concernant l'éligibilité de l'audience, la rééligibilité et l'éligibilité au canal avant de créer un message à envoyer à partir de ce déclencheur. |
 | L'utilisateur n'est plus éligible | L'utilisateur faisait initialement partie de l'audience cible, mais ne correspondait plus aux critères de l'audience avant que Braze n'envoie le message ou n'intègre l'utilisateur dans le Canvas. Le délai entre le moment où l'utilisateur a initialement satisfait les critères de l'audience et celui où il en est sorti peut être dû à : {::nomarkdown}<ul><li>Le timing intelligent</li><li>Les heures calmes</li><li>L'heure locale</li><li>Les limites de débit de vitesse de distribution (non applicable pour l'entrée dans le Canvas)</li><li>Les délais du pipeline d'envoi de messages</li></ul>{:/} |
-| L'utilisateur n'est pas éligible pour l'étape | L'utilisateur est sorti du Canvas parce qu'il ne satisfaisait pas les [validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) définies pour l'étape Message ou parce qu'il faisait partie d'une [liste de suppression]({{site.baseurl}}/user_guide/audience/suppression_lists/). |
+| L'utilisateur n'est pas éligible pour l'étape | L'utilisateur ne satisfaisait pas les [validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) définies pour l'étape Message ou faisait partie d'une [liste de suppression]({{site.baseurl}}/user_guide/audience/suppression_lists/). Selon les paramètres des **validations de distribution**, l'utilisateur peut avoir quitté le Canvas ou être passé à l'étape suivante. |
 | L'utilisateur n'est pas rééligible | L'utilisateur était éligible pour recevoir le message ou entrer dans le Canvas, mais l'envoi a été annulé en raison des paramètres de rééligibilité ou de réentrée. Cela peut se produire si l'utilisateur a déjà reçu la campagne ou est entré dans le Canvas trop récemment, si un autre envoi pour la même campagne est déjà en cours pour cet utilisateur, ou si la rééligibilité ou la réentrée est désactivée. |
 | Profil utilisateur introuvable | L'utilisateur n'a jamais existé ou n'existe plus dans Braze. Voici quelques cas courants : {::nomarkdown}<ul><li> L'utilisateur a été ciblé via l'API d'envoi de messages, mais n'a jamais existé dans Braze. </li><li>L'utilisateur a été supprimé avant l'envoi du message ou l'exécution de l'étape du Canvas. </li><li>L'utilisateur a été fusionné avec un autre profil avant l'envoi du message.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }
@@ -140,7 +145,7 @@ Les définitions suivantes expliquent les résultats d'abandon affichés sur le 
 | Résultat d'abandon | Explication |
 | ---- | ---- |
 | Délai d'expiration de la distribution par le partenaire | Braze a tenté d'envoyer ce message à votre partenaire de distribution pendant 24 heures, mais le partenaire a renvoyé des erreurs temporaires pendant toute la durée de cette fenêtre. |
-| Identifiants push invalides | Les [identifiants push]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token) pour cette application sont manquants ou invalides, l'envoi a donc été annulé. Mettez à jour vos identifiants dans **Paramètres des applications**. |
+| Identifiants push invalides | Les [identifiants push]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token) pour cette application sont manquants ou invalides, l'envoi a donc été annulé. Mettez à jour vos identifiants dans **App Settings**. |
 | L'utilisateur n'est pas activé pour les notifications push Android, l'application ou l'appareil | La notification push ne peut pas être envoyée à cet utilisateur. Voici quelques raisons courantes : {::nomarkdown}<ul><li> L'utilisateur n'a pas l'application installée.</li> <li> L'utilisateur n'a pas de jeton de notification push valide. </li> <li>L'utilisateur ne dispose pas de l'appareil nécessaire pour cette notification push. </li> <li> L'utilisateur a désactivé les notifications pour cette application dans les paramètres de son appareil. </li> <li> L'utilisateur n'est pas abonné ou n'a pas opté pour recevoir des notifications push.</li></ul>{:/} |
 | L'utilisateur n'est pas activé pour les notifications push iOS, l'application ou l'appareil | Identique au résultat d'abandon « L'utilisateur n'est pas activé pour les notifications push Android, l'application ou l'appareil ». |
 | L'utilisateur n'est pas activé pour les notifications push Kindle, l'application ou l'appareil | Identique au résultat d'abandon « L'utilisateur n'est pas activé pour les notifications push Android, l'application ou l'appareil ». |

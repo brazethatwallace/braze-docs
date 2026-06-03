@@ -18,13 +18,13 @@ Nenhuma coordenação especial com a Braze é necessária para o **BIMI** (Brand
 
 ## Métodos de autenticação {#methods-of-authentication}
 
-### Sender Policy Framework (SPF) {#sender-policy-framework-spf}
+### Sender Policy Framework (SPF) {#spf}
 
 Esse método confirma que seu endereço IP de envio de e-mail da Braze está autorizado a enviar e-mails em seu nome. O SPF é a autenticação básica e é realizado por meio da publicação dos registros de texto nas configurações de DNS. O servidor receptor verificará os registros DNS e determinará se eles são autênticos. Esse método foi criado para validar o remetente do e-mail.
 
 A Braze configura seu registro SPF quando configuramos seus IPs e domínios. Além de adicionar os registros DNS que fornecemos, você não precisa tomar mais nenhuma ação.
 
-### Domain Keys Identified Mail (DKIM) {#domain-keys-identified-mail-dkim}
+### Domain Keys Identified Mail (DKIM) {#dkim}
 
 Esse método confirma que seu domínio de envio de e-mail da Braze está autorizado a enviar e-mails em seu nome. Esse método foi projetado para validar a autenticidade do remetente e garantir que a integridade da mensagem seja preservada. Ele também usa assinaturas digitais criptográficas individuais para que os provedores de acesso à internet possam ter certeza de que o e-mail entregue é o mesmo que você enviou.
 
@@ -32,7 +32,7 @@ A Braze assina o e-mail com sua chave privada secreta. Os ISPs verificam a assin
 
 A Braze configura seu registro DKIM quando configuramos seus IPs e domínios. Além de adicionar os registros DNS que fornecemos, você não precisa tomar mais nenhuma ação.
 
-### Domain-based Message Authentication, Reporting, and Conformance (DMARC) {#domain-based-message-authentication-reporting-and-conformance-dmarc}
+### Domain-based Message Authentication, Reporting, and Conformance (DMARC) {#dmarc}
 
 O [Domain-based Message Authentication, Reporting & Conformance (DMARC)](https://dmarc.org/) é um protocolo de autenticação de e-mail para que remetentes comprovem a legitimidade de suas mensagens, o que aumenta a confiança do provedor de caixa de e-mail receptor e incentiva a aceitação do e-mail. O DMARC permite que remetentes de e-mail especifiquem como lidar com e-mails que não foram autenticados usando Sender Policy Framework (SPF) ou Domain Keys Identified Mail (DKIM). Isso é feito verificando se as checagens de SPF e DKIM foram aprovadas.
 

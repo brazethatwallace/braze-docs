@@ -12,10 +12,6 @@ toc_headers: h2
 
 > Mit WhatsApp-Karussell-Templates können Sie interaktive Nachrichten mit mehreren Karten erstellen, durch die Nutzer:innen wischen können. Jedes Karussell kann bis zu 10 Karten mit Bildern oder Videos sowie anpassbare Buttons für das Engagement enthalten. Dieses Feature eignet sich ideal, um Ihre Produkte und Serviceleistungen oder mehrstufige Inhalte in einem visuell ansprechenden Format zu präsentieren.
 
-{% alert note %}
-WhatsApp-Karussell-Templates befinden sich im Early Access. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind.
-{% endalert %}
-
 ## Voraussetzungen {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}

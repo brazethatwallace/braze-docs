@@ -7,7 +7,7 @@ page_order: 4
 
 # 重複ユーザーの統合 {#merge-duplicate-users}
 
-> 重複ユーザーを見つけて統合し、CampaignsやCanvasesの効果を最大化する方法を説明します。
+> 重複ユーザーを見つけて統合し、キャンペーンやキャンバスの効果を最大化する方法を説明します。
 
 ## REST API: ユーザーの識別と統合 {#rest-api-identify-and-merge-users}
 
@@ -19,6 +19,8 @@ page_order: 4
 匿名プロファイルが既存の識別済みプロファイルと一致した場合（たとえばSDKの`changeUser()`呼び出しや`/users/identify`を通じて）、Brazeは匿名プロファイルを孤立させ、特定のフィールドのみを識別済みプロファイルにコピーします。詳細については、[匿名ユーザーを識別した場合の動作]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)を参照してください。
 
 ユーザーの統合は元に戻すことが困難です。複数の`external_id`値にまたがる複雑な統合や大規模なプロファイル移行を計画している場合は、`/users/merge`に依存する前に、Brazeカスタマーサクセスマネージャーにガイダンスを求めてください。
+
+Brazeは統合時に、削除対象としてマークされたユーザー、テストユーザー、グローバルコントロールグループユーザーの3種類のユーザーを異なる方法で処理します。詳細については、[ユーザー統合の動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)を参照してください。
 
 ## 個別統合 {#individual-merging}
 
@@ -134,3 +136,9 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 {% alert warning %}
 重複ユーザープロファイルは、統合後に復元できません。
 {% endalert %}
+
+## 関連記事 {#related-articles}
+
+- [ユーザー統合の動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
+- [POST: ユーザーの統合]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
+- [ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)

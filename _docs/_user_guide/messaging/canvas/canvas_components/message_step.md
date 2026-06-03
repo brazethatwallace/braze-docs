@@ -48,9 +48,16 @@ Select **Using Intelligent Timing** in the **Delivery Settings** tab. Here, you 
 
 #### Delivery validations
 
-Delivery validations provide an additional check to confirm your audience meets the delivery criteria at message send. This setting is recommended if Quiet Hours, Intelligent Timing, or rate limiting are activated. 
+Delivery validations provide an additional check at message send to confirm your audience still meets your criteria. We recommend using it when Quiet Hours, Intelligent Timing, or rate limiting are enabled. Select **Validate audience at message send**, then add a segment or additional filters. If a user doesn't meet the validations, choose whether they exit the Canvas or advance to the next step.
 
-Select **Validate audience at message send**, then add a segment or additional filters to validate when the message is sent. If a user does not meet the set delivery validations for a Message step, choose whether they exit the Canvas or advance to the next step.
+Delivery validations evaluate user profile criteria at send time. App-related filters check whether a user recently used or ever used a specific app, but they don't confirm which app a user is using in their current session.
+
+If your workspace has multiple apps and a Message step should target a specific app, use one of the following approaches instead:
+
+- When composing the message, [specify your delivery platforms]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms), such as **Mobile Apps** or **Web Browsers**.
+- Use Liquid to check the targeted device or app at send time:
+  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} evaluates the platform for the user's current session. For more information, see [Targeted device information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information).
+  - {% raw %}`{{app.${api_id}}}`{% endraw %} evaluates which app is requesting the message. Combine this tag with `abort_message()` to prevent sends to the wrong app. For more information, see [Targeted app information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-app-information).
 
 ![Delivery Validations are enabled to validate the audience at message send. Delivery validations advancement behavior is set to progress the user to the next step in the Canvas if delivery validations are not met.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 

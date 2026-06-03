@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Mettre à jour le statut du groupe d'abonnement de l'utilisateur."
 ---
+
 {% api %}
 # Mettre à jour le statut du groupe d'abonnement de l'utilisateur {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 {% alert note %}
 Si vous souhaitez utiliser cet endpoint avec les [groupes d'abonnement LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Limite de débit {#rate-limit}
 
@@ -144,5 +147,7 @@ Le code de statut `201` peut renvoyer le corps de réponse suivant.
 {% alert important %}
 L'endpoint n'accepte que la valeur `email` ou `phone`, pas les deux. Si vous fournissez les deux, vous recevrez cette réponse : `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
+
+Pour que votre mise à jour d'abonnement s'applique aux numéros de téléphone, vérifiez que vous avez envoyé des numéros de téléphone au format E.164 (par exemple, `+15555550123`), utilisé le bon `subscription_group_id` et transmis `phone` (et non `phone` et `email` en même temps) dans le même corps de requête. Pour les mises à jour de plusieurs numéros, utilisez le format de tableau `phone` indiqué dans [SMS et RCS](#sms-and-rcs).
 
 {% endapi %}

@@ -97,7 +97,7 @@ Notez que les champs de texte désactivés (surlignés en gris) ne peuvent pas �
 
 {% alert tip %}
 {% raw %}
-Si vous prévoyez d'utiliser Liquid, assurez-vous d'inclure une valeur par défaut pour la personnalisation choisie afin que, dans le cas où le profil utilisateur du destinataire est incomplet, celui-ci ne reçoive pas un message vide. Tout message contenant des variables Liquid manquantes ne sera pas envoyé par WhatsApp.
+Si vous prévoyez d'utiliser Liquid, assurez-vous d'inclure une valeur par défaut pour la personnalisation choisie afin que, dans le cas où le profil utilisateur du destinataire est incomplet, celui-ci ne reçoive pas de message. Tout message contenant des variables Liquid manquantes ne sera pas envoyé par WhatsApp.
 {% endraw %}
 {% endalert %}
 
@@ -153,7 +153,7 @@ Ensuite, construisez le reste de votre campagne. Consultez les sections suivante
 
 Les messages WhatsApp peuvent être envoyés selon un horaire planifié, une action ou un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 Cette étape vous permet également de spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
@@ -225,7 +225,7 @@ Les fonctionnalités suivantes sont prises en charge pour les messages WhatsApp 
 Les types d'appel à l'action suivants sont pris en charge pour les messages WhatsApp que vous envoyez via Braze :
 
 | Type de CTA | Détails |
-| ----------- |---------------- |
+| ----------- | ---------------- |
 | Visiter le site web | Un bouton maximum (y compris les paramètres variables). |
 | Appeler un numéro de téléphone | Disponible uniquement pour les modèles de messages. <br>Un bouton maximum. |
 | Boutons de réponse rapide personnalisés | Trois boutons maximum. |

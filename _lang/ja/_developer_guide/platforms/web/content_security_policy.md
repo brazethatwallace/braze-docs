@@ -64,7 +64,7 @@ URLは、選択した`baseUrl`初期化オプションの[API SDKエンドポイ
 
 Font Awesomeの自動組み込みを無効にするには、`doNotLoadFontAwesome`初期化オプションを使用します。
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 
 braze.initialize(apiKey, {

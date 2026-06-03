@@ -7,7 +7,7 @@ page_order: 4
 
 # 중복 사용자 병합 {#merge-duplicate-users}
 
-> Campaign(캠페인)과 Canvases의 효과를 극대화할 수 있도록 중복 사용자를 찾고 병합하는 방법을 알아봅니다.
+> Campaign과 Canvases의 효과를 극대화할 수 있도록 중복 사용자를 찾고 병합하는 방법을 알아봅니다.
 
 ## REST API: 사용자 식별 및 병합 {#rest-api-identify-and-merge-users}
 
@@ -19,6 +19,8 @@ page_order: 4
 익명 프로필이 기존 식별된 프로필과 매칭되면(예: SDK `changeUser()` 호출 또는 `/users/identify`를 통해), Braze는 익명 프로필을 분리하고 특정 필드만 식별된 프로필에 복사합니다. 자세한 내용은 [익명 사용자를 식별할 때 발생하는 일]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)을 참조하세요.
 
 사용자 병합은 되돌리기 어렵습니다. 여러 `external_id` 값에 걸친 복잡한 병합이나 대규모 프로필 마이그레이션을 계획하고 있다면, `/users/merge`에 의존하기 전에 Braze 고객 성공 매니저에게 안내를 요청하세요.
+
+Braze는 병합 시 삭제 예정 사용자, 테스트 사용자, 글로벌 컨트롤 그룹 사용자의 세 가지 사용자 유형을 다르게 처리합니다. 자세한 내용은 [사용자 병합 동작]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)을 참조하세요.
 
 ## 개별 병합 {#individual-merging}
 
@@ -134,3 +136,9 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 {% alert warning %}
 중복 사용자 프로필은 병합 후 복구할 수 없습니다.
 {% endalert %}
+
+## 관련 문서 {#related-articles}
+
+- [사용자 병합 동작]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
+- [POST: 사용자 병합]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
+- [사용자 삭제]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)

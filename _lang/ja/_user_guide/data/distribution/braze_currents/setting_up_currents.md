@@ -49,7 +49,7 @@ Currents は特定の Braze パッケージに含まれています。ご質問�
 
 Braze Currents を使用すると、フラットファイルを使用したデータストレージ経由での連携、またはバッチ化された JSON ペイロードを指定されたエンドポイントに送信して、行動分析や顧客データのパートナーとの連携ができます。
 
-連携を開始する前に、目的に最適な連携を決定することをお勧めします。例えば、すでに mParticle とSegmentを利用していて、そこに Braze データをストリーミングしたい場合は、バッチ化された JSON ペイロードを使用するのが最適です。データを独自に操作したい場合、またはより複雑なデータ分析システムがある場合は、データストレージを使用するのが最適です（[Braze ではこの方法を採用]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)しています）。
+連携を開始する前に、目的に最適な連携を決定することをお勧めします。例えば、すでに mParticle とセグメントを利用していて、そこに Braze データをストリーミングしたい場合は、バッチ化された JSON ペイロードを使用するのが最適です。データを独自に操作したい場合、またはより複雑なデータ分析システムがある場合は、データストレージを使用するのが最適です（[Braze ではこの方法を採用]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)しています）。
 
 ### ステップ 2: Currents を開く {#step-2-open-currents}
 

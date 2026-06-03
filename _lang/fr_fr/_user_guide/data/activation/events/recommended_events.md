@@ -15,7 +15,7 @@ description: "Cet article de référence décrit les événements recommandés, 
 
 Les [événements recommandés eCommerce]({{site.baseurl}}/ecommerce_events/) couvrent six étapes du parcours d'achat : `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` et `order_refunded`. Lorsque vous envoyez ces événements avec succès, Braze valide les données et les rend disponibles pour un ensemble croissant de fonctionnalités de la plateforme.
 
-Ces fonctionnalités incluent des modèles de Canvas pour les flux de navigation abandonnée, de panier abandonné, de paiement abandonné et de confirmation de commande ; le reporting eCommerce ; et des champs calculés sur le profil utilisateur pour le _chiffre d'affaires total_, le _nombre total de commandes_ et le _total des remboursements_. Vous pouvez également créer des Segments en utilisant le filtrage imbriqué des propriétés de produit via les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), personnaliser les messages de panier abandonné avec l'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %}, et alimenter les fonctionnalités BrazeAI<sup>TM</sup> comme [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) et les [recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/item_recommendations/), ainsi que d'autres fonctionnalités.
+Ces fonctionnalités incluent des modèles de Canvas pour les flux de navigation abandonnée, de panier abandonné, de paiement abandonné et de confirmation de commande ; le reporting eCommerce ; et des champs calculés sur le profil utilisateur pour le _chiffre d'affaires total_, le _nombre total de commandes_ et le _total des remboursements_. Vous pouvez également créer des segments en utilisant le filtrage imbriqué des propriétés de produit via les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), personnaliser les messages de panier abandonné avec l'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %}, et alimenter les fonctionnalités BrazeAI<sup>TM</sup> comme [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) et les [recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/item_recommendations/), ainsi que d'autres fonctionnalités.
 
 Comme ces événements suivent un schéma défini, chaque fonctionnalité prise en charge peut lire les données structurées sans mappage de propriétés personnalisées ni configuration par fonctionnalité de votre côté.
 
@@ -32,7 +32,7 @@ Les événements eCommerce fonctionnent partout où les autres événements pers
 - La gestion de l'état du panier pour les flux de panier abandonné
 - Des données plus riches pour les fonctionnalités BrazeAI<sup>TM</sup> comme Predictive Events, Predictive Churn et les recommandations d'articles
 
-Vous pouvez également référencer les événements eCommerce par leur nom partout où la plateforme prend en charge les événements personnalisés. Par exemple, vous pouvez déclencher une Campaign basée sur l'action avec les événements `ecommerce.product_viewed`, créer un Segment filtrant sur les événements `ecommerce.checkout_started`, ou exporter les événements `ecommerce.order_placed` via Currents.
+Vous pouvez également référencer les événements eCommerce par leur nom partout où la plateforme prend en charge les événements personnalisés. Par exemple, vous pouvez déclencher une Campaign basée sur l'action avec les événements `ecommerce.product_viewed`, créer un segment filtrant sur les événements `ecommerce.checkout_started`, ou exporter les événements `ecommerce.order_placed` via Currents.
 
 #### Nommage des événements {#event-naming}
 
@@ -47,7 +47,7 @@ Vous ne pouvez pas personnaliser ni renommer les événements.
 
 Les six événements recommandés eCommerce correspondent aux étapes du parcours d'achat. Déclenchez chaque événement au moment où l'utilisateur effectue l'action correspondante.
 
-![Diagramme du parcours utilisateur à travers les six événements recommandés eCommerce : product_viewed, cart_updated, checkout_started, order_placed, order_cancelled et order_refunded.]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![Diagramme du parcours utilisateur à travers les six événements recommandés eCommerce : product_viewed, cart_updated, checkout_started, order_placed, order_cancelled et order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
@@ -237,7 +237,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 {% endsubtab %}
 {% subtab Android %}
 
-##### Ajouter
+##### Add {#add}
 
 `add` augmente la quantité ou ajoute une nouvelle ligne. La propriété `quantity` correspond au nombre d'unités à ajouter.
 
@@ -286,7 +286,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 189.99)))));
 ```
 
-##### Retirer
+##### Remove {#remove}
 
 `remove` diminue la quantité du montant indiqué dans `quantity`. La ligne est supprimée lorsque la quantité atteint `0`.
 
@@ -335,7 +335,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 14.99)))));
 ```
 
-##### Remplacer
+##### Replace {#replace}
 
 `replace` (ou omettez `action`) envoie le panier complet. `total_value` est requis.
 
@@ -404,7 +404,7 @@ Braze.getInstance(context).logCustomEvent(
 {% endsubtab %}
 {% subtab Swift %}
 
-##### Ajouter
+##### Add
 
 `add` augmente la quantité ou ajoute une nouvelle ligne. La propriété `quantity` correspond au nombre d'unités à ajouter.
 
@@ -450,7 +450,7 @@ Objective-C
 }];
 ```
 
-##### Retirer
+##### Remove
 
 `remove` diminue la quantité du montant indiqué dans `quantity`. La ligne est supprimée lorsque la quantité atteint `0`.
 
@@ -496,7 +496,7 @@ Objective-C
 }];
 ```
 
-##### Remplacer
+##### Replace
 
 `replace` (ou omettez `action`) envoie le panier complet. `total_value` est requis.
 
@@ -1108,7 +1108,7 @@ Le tableau suivant résume ce que Braze fait automatiquement pour chaque événe
 | `ecommerce.cart_updated`     | Crée ou met à jour l'objet de mappage des paniers sur le profil utilisateur (payloads de panier complet, ou mises à jour incrémentales du panier avec `action` facultatif : `add`, `remove` ou `replace`). Le panier expire après 30 jours sans mise à jour. |
 | `ecommerce.product_viewed`   | Aucune modification du profil utilisateur. Disponible pour la segmentation, le déclenchement et les fonctionnalités BrazeAI<sup>TM</sup> (comme les recommandations d'articles). |
 | `ecommerce.checkout_started` | Aucune modification du profil utilisateur. Disponible pour la segmentation et le déclenchement (par exemple, les flux de paiement abandonné). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Post-traitement des événements eCommerce" }
 
 {% alert important %}
 Les valeurs dans des devises autres que l'USD sont automatiquement converties en USD en utilisant le taux de change à la date à laquelle l'événement est signalé. Si vous déclarez déjà en USD, codez en dur `USD` comme devise pour éviter toute conversion involontaire.
@@ -1206,7 +1206,7 @@ Pour chaque événement dont le nom correspond à un événement recommandé eCo
 | Pas de propriétés supplémentaires au niveau supérieur | Les champs personnalisés sous properties provoquent un échec. Utilisez l'objet `metadata` à la place. |
 | Contraintes de valeur | Les champs monétaires doivent être ≥ `0`. `currency` doit être une chaîne ISO 4217 valide. |
 | Champs par produit | Chaque élément de `products[]` doit inclure `product_id`, `product_name`, `variant_id`, `quantity` et `price`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ce que nous validons" }
 
 ### Pourquoi nous validons {#why-we-validate}
 
@@ -1257,7 +1257,7 @@ Les échecs sont également classés en interne et agrégés pour l'e-mail réca
 | `missing_property`     | Un champ requis est absent. | `order_placed` envoyé sans `order_id`. |
 | `extra_property`       | Un champ a été ajouté que le schéma ne définit pas. | Un champ personnalisé `gift_wrapped` au niveau supérieur de `properties` au lieu d'être dans `metadata`. |
 | `unexpected_data_type` | Un champ est du mauvais type. | `total_value: "29.99"` (chaîne de caractères) au lieu de `29.99` (nombre). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example API error response" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemple de réponse d'erreur API" }
 
 {% alert note %}
 Les noms d'événements qui ne correspondent pas exactement à un événement recommandé (par exemple, `ecommerce.OrderPlaced`) ignorent entièrement la validation et sont enregistrés comme des événements personnalisés ordinaires. Ils apparaissent dans Currents et la segmentation sous le nom que vous avez envoyé, mais ne reçoivent aucun traitement d'événement recommandé et aucune entrée `errors` dans la réponse.

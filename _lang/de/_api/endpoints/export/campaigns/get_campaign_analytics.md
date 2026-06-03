@@ -18,7 +18,7 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Kampagnen-
 
 Die zurückgegebenen Daten umfassen, wie viele Nachrichten pro Messaging-Kanal gesendet, geöffnet, angeklickt oder konvertiert wurden.
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='campaign' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='campaign' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1 {% endapiref %}
 

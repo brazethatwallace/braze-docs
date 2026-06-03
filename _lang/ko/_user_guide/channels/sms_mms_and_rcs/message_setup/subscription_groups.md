@@ -25,7 +25,7 @@ SMS 및 RCS 사용자에게는 `subscribed`와 `unsubscribed` 두 가지 구독 
 | 상태 | 정의 |
 | --------- | ---------- |
 | 가입됨 | 사용자가 특정 구독 그룹에서 SMS 및 RCS를 수신하도록 가입되어 있습니다. 사용자는 Braze 구독 API를 통해 구독 상태를 업데이트하거나 옵트인 키워드 응답을 문자로 보내 가입할 수 있습니다. SMS 또는 RCS, 혹은 둘 다를 수신하려면 사용자가 SMS 또는 RCS 구독 그룹에 가입되어 있어야 합니다. [이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)이 활성화된 경우, 사용자는 구독 상태가 `Subscribed`로 업데이트되기 전에 옵트인 의사를 확인해야 합니다. |
-| 가입 취소됨 | 사용자가 SMS 및 RCS 구독 그룹과 해당 구독 그룹 내 발송 전화번호로부터의 메시징을 명시적으로 옵트아웃했습니다. 옵트아웃 키워드 응답을 문자로 보내 가입을 취소하거나, [Braze 구독 API]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)를 통해 사용자의 가입을 취소할 수 있습니다. SMS 및 RCS 구독 그룹에서 가입 취소된 사용자는 해당 구독 그룹에 속한 발송 전화번호로부터 더 이상 SMS 또는 RCS를 수신하지 않습니다.|
+| 가입 취소됨 | 사용자가 SMS 및 RCS 구독 그룹과 해당 구독 그룹 내 발송 전화번호로부터의 메시징을 명시적으로 옵트아웃했습니다. 옵트아웃 키워드 응답을 문자로 보내 가입을 취소하거나, [Braze 구독 API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)를 통해 사용자의 가입을 취소할 수 있습니다. SMS 및 RCS 구독 그룹에서 가입 취소된 사용자는 해당 구독 그룹에 속한 발송 전화번호로부터 더 이상 SMS 또는 RCS를 수신하지 않습니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### 사용자 상태 설정 {#set-a-users-state}
@@ -47,6 +47,8 @@ SMS 및 RCS 사용자에게는 `subscribed`와 `unsubscribed` 두 가지 구독 
 Canvas 플로우의 일부로 사용자의 구독 그룹 상태를 업데이트할 때는 웹훅 대신 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 단계를 사용하세요. 사용자 업데이트 단계는 처리가 완료될 때까지 기다린 후 사용자를 다음 단계로 진행시키므로, 후속 메시징 단계에서 업데이트된 구독 상태를 사용합니다.
 
 웹훅을 사용하여 구독 그룹을 업데이트하면, 구독 변경 처리가 완료되기 전에 웹훅이 발송되는 즉시 사용자가 진행됩니다. 이로 인해 후속 SMS 단계가 사용자가 가입되기 전에 실행되어 일부 사용자에게 메시지 발송이 실패하는 경합 조건이 발생할 수 있습니다. 웹훅을 사용해야 하는 경우, 다음 메시징 단계 전에 최소 1분의 지연 단계를 추가하세요.
+
+#{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### 사용자 그룹 확인 {#check-a-users-group}
 
@@ -125,6 +127,7 @@ Braze는 처음에 소규모 사용자에게 RCS 발송을 테스트하고, 시�
 Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 캠페인을 스케줄하세요.
 
 ### 2단계: 오디언스 정의 {#step-2-define-your-audience}
+{: #step-2-define-your-audience}
 
 다음 방법 중 하나를 사용하여 오디언스를 정의하세요. 그런 다음 **발송 설정** 단계로 이동하여 **가입했거나 옵트인한 사용자**를 선택하세요.
 
@@ -194,5 +197,7 @@ SMS Campaign을 생성할 때 올바른 그룹이 선택되도록 설명적이�
 ### 국가별 그룹 분리 {#separate-groups-by-country}
 
 SMS 규정은 국가마다 다릅니다. SMS 구독 그룹을 국가별로 분리하는 것을 권장합니다. 이렇게 하면 메시지를 발송하는 모든 지역에서 규정 준수 기준을 충족하는 데 도움이 됩니다.
+
+각 구독 그룹에 대해 **Geographic Permissions** 아래에서 국가 허용 목록을 구성하여 SMS, MMS, RCS가 승인된 지역으로만 발송되도록 할 수도 있습니다. 자세한 내용은 [지리적 권한]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)을 참조하세요.
 
 예를 들어, 브라질에서는 현지 시간 오전 9시에서 오후 9시 이외의 시간에 마케팅 메시지를 발송하는 것이 금지되어 있으며, 이 나라는 세 개의 시간대에 걸쳐 있습니다. 이러한 규정을 준수하기 위해 브라질과 미국에 메시지를 발송하기 위한 별도의 그룹을 설정할 수 있습니다. 이렇게 하면 브라질 사용자가 금지된 시간에 마케팅 메시지를 수신하는 것을 방지할 수 있습니다.

@@ -24,27 +24,18 @@ O Braze Connector oferece suporte a traduções para mensagens em Campaigns e Ca
 | [Push]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/?tab=push) | ✅ | n/a |
 | Modelo de e-mail | ✅ | ✅ |
 | Banners | n/a | ✅ |
-| Content Blocks |  ✅* |  ✅* |
+| Content Blocks | ✅ | ✅ |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="About the integration" }
 
-*Consulte [Gerenciamento de traduções para Content Blocks](#managing-translations-for-content-blocks) para mais informações.
-
-### Fluxo de trabalho legado {#legacy-workflow}
-
-Dependendo do seu caso de uso, gerencie traduções para Content Blocks usando o fluxo de trabalho de tradução legado ou o fluxo de trabalho atualizado.
-
-No fluxo de trabalho atualizado, usando o suporte multilíngue da Braze e os locais em mensagens, as tags de tradução são adicionadas ao Content Block. No entanto, o Smartling executa traduções no nível da mensagem. O conteúdo é traduzido somente quando é incluído em uma Campaign ou Canvas e a localização de destino é definida. Para saber mais, consulte [Gerenciamento de traduções para Content Blocks](#managing-translations-for-content-blocks).
-
-Para saber mais sobre o fluxo de trabalho legado, consulte [Gerenciamento de traduções usando o fluxo de trabalho legado](#managing-translations-using-the-legacy-workflow).
 
 ## Pré-requisitos {#prerequisites}
 
-| Requisito                   | Descrição                                                                                                                                                         |
+| Requisito | Descrição |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Conta do Smartling             | É necessário ter uma [conta Smartling](https://dashboard.smartling.com/) para aproveitar essa parceria.                                                          |
+| Conta do Smartling | É necessário ter uma [conta Smartling](https://dashboard.smartling.com/) para aproveitar essa parceria. |
 | Projeto de tradução Smartling | Para conectar sua conta da Braze ao Smartling, primeiro você deve fazer login e [criar um projeto de tradução](https://help.smartling.com/hc/en-us/articles/115003074093). |
-| Chave da API REST da Braze            | Uma chave da API REST da Braze com as seguintes permissões: <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
-| Endpoint REST da Braze           | [Sua URL de endpoint REST.]({{site.baseurl}}/api/basics/#endpoints) Seu endpoint depende da URL da Braze para sua instância.             |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões: <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST.]({{site.baseurl}}/api/basics/#endpoints) Seu endpoint depende da URL da Braze para sua instância. |
 | Configurações multilíngues da Braze | [Conclua as configurações multilíngues na Braze]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#prerequisites) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -127,30 +118,11 @@ O Smartling oferece recursos avançados para pesquisar e selecionar conteúdo po
 
 ![Enviar a tradução para a Braze.]({% image_buster /assets/img/smartling/image10_translations.png %})
 
-### Etapa 5: Visualizar a mensagem como um usuário multilíngue na Braze {#step-5-preview-the-message-as-a-multi-language-user-in-braze}
+### Etapa 5: Pré-visualizar a mensagem como um usuário multilíngue na Braze {#step-5-preview-the-message-as-a-multi-language-user-in-braze}
 
 Na Braze, faça uma pré-visualização da sua Campaign como um usuário multilíngue para confirmar que as traduções foram aplicadas corretamente.
 
 ![Pré-visualização do usuário multilíngue.]({% image_buster /assets/img/smartling/image11_preview.png %})
-
-## Gerenciamento de traduções para Content Blocks {#managing-translations-for-content-blocks}
-
-Os Content Blocks são gerenciados na seção **Modelos e mídia** na Braze.
-
-### Tradução armazenada como parte do componente da mensagem {#translation-stored-as-part-of-the-message-component}
-
-As tags de tradução pertencem ao Content Block. No entanto, o Smartling executa traduções no nível da mensagem; o conteúdo é traduzido somente quando é incluído em uma Campaign ou Canvas e a localização de destino é definida.
-
-### Considerações {#considerations}
-
-- As tags de tradução devem ser adicionadas manualmente ao Content Block tanto no editor HTML quanto no editor de arrastar e soltar de Content Blocks.
-- As localizações são selecionadas no nível da mensagem, não nos Content Blocks em si.
-- Para Canvas, recomendamos o uso de linhas para inserir Content Blocks em sua mensagem em vez de adicioná-los manualmente com uma Liquid tag. Arrastar um Content Block da pré-visualização para um e-mail cria uma cópia local; quaisquer alterações no Content Block "pai" não se propagam para outras Campaigns que usam esse bloco.
-- Se você usar uma Liquid tag de Content Block, certifique-se de incluir pelo menos uma tag de tradução diretamente no corpo do e-mail. A adição manual da tag de tradução permite que você selecione as localizações no menu suspenso multilíngue. O Smartling captura as tags de tradução do Content Block. É possível adicionar uma tag `comment` para que o texto não fique visível para o usuário.
-
-## Gerenciamento de traduções usando o fluxo de trabalho legado {#managing-translations-using-the-legacy-workflow}
-
-Se preferir gerenciar as traduções diretamente em um Content Block, consulte as instruções legadas na [documentação do Smartling](https://help.smartling.com/hc/en-us/articles/13248577069979-Translating-with-the-Braze-Connector). Esse método usa um atributo de idioma e a lógica if/else do Liquid para exibir texto em diferentes idiomas.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

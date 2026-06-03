@@ -80,7 +80,7 @@ Après avoir configuré votre étape Agent, vous pouvez tester et prévisualiser
 - Si le modèle connecté renvoie une erreur de limite de débit, Braze effectue jusqu'à cinq nouvelles tentatives avec des délais exponentiels.
 - Si l'agent échoue pour toute autre raison (comme une erreur de délai d'attente ou une clé API invalide), la variable de sortie est définie sur `null`.
     - Si un agent atteint sa limite d'invocations quotidiennes, la variable de sortie est définie sur `null`.
-- Utilisez les [valeurs Liquid par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) pour vous prémunir contre les erreurs. Par exemple, dans la boîte de dialogue modale **Add Personalization**, vous pouvez saisir une valeur Liquid par défaut telle que {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} ou {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
+- Utilisez les [valeurs Liquid par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) pour vous prémunir contre les erreurs. Par exemple, dans la fenêtre modale **Add Personalization**, vous pouvez saisir une valeur Liquid par défaut telle que {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} ou {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - Les réponses sont mises en cache pour des entrées identiques et peuvent être réutilisées pour des invocations identiques répétées dans un délai de quelques minutes.
     - Les réponses utilisant des valeurs en cache sont tout de même comptabilisées dans le total et les invocations quotidiennes.
 - Les étapes Agent peuvent prendre du temps pour traiter un grand lot d'utilisateurs. Si vous constatez que des utilisateurs sont encore en attente dans cette étape, vérifiez vos journaux pour confirmer que les invocations sont bien en cours.
@@ -112,7 +112,7 @@ Le schéma suivant utilise trois agents pour un exemple dans le domaine du voyag
 
 Pour tester les performances de votre agent et la consommation de crédits par rapport à vos parcours existants, ajoutez une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) afin que seule une partie de votre audience entre dans la branche contenant votre étape Agent.
 
-Par exemple, avec environ 25 000 invocations, envoyez 2 000 utilisateurs par jour dans un parcours avec l'agent et le reste vers un parcours de contrôle ou un parcours sans agent. Collectez des données pendant 1 à 2 semaines et comparez les indicateurs clés de performance (KPI), les contre-indicateurs et la consommation de crédits de l'agent entre les parcours avant d'augmenter le trafic vers la branche utilisant l'agent.
+Par exemple, vous pouvez commencer par envoyer quelques milliers d'utilisateurs par jour dans un parcours avec l'agent et le reste vers un parcours de contrôle ou un parcours sans agent. Collectez des données pendant 1 à 2 semaines et comparez les indicateurs clés de performance (KPI), les contre-indicateurs et la consommation de crédits de l'agent entre les parcours. Ainsi, vous pouvez gagner en confiance et prouver le ROI avant d'augmenter le trafic vers la branche utilisant l'agent, tout en limitant la consommation d'invocations.
 
 ## Questions fréquentes {#frequently-asked-questions}
 

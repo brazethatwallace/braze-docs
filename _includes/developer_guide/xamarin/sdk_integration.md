@@ -61,8 +61,6 @@ Now that the libraries have been integrated, you have to create an `Braze.xml` f
 
 {% alert note %}
 Be sure to substitute `YOUR_API_KEY` with the API key located at **Settings** > **API Keys** in the Braze dashboard.
-<br><br>
-If you are using the [older navigation]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/), you can find API keys at **Developer Console** > **API Settings**..
 {% endalert %}
 
 ```xml
@@ -105,8 +103,6 @@ When setting up your Braze instance, add the following snippet to configure your
 
 {% alert note %}
 Be sure to substitute `YOUR_API_KEY` with the API key located at **Settings** > **API Keys** in the Braze dashboard.
-
-If you are using the [older navigation]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/), you can find API keys at **Developer Console** > **API Settings**..
 {% endalert %}
 
 ```csharp

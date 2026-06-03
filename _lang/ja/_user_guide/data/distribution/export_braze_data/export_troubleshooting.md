@@ -27,7 +27,7 @@ description: "このリファレンス記事では、CSVワークフローとAPI
 - `AccessDenied`エラーが表示された場合、ファイルの有効期限がすでに切れているか、準備が完了する前に開こうとした可能性があります。大きなレポートほど生成に時間がかかるため、数分待ってから再試行してください。
 - `ExpiredToken`エラーは、4時間の時間枠が経過したことを意味します。エクスポートを再実行して、新しいリンクを生成してください。
 - `Looks like the file doesn't exist anymore`というメッセージは、通常、メールは送信されたもののファイルのS3へのアップロードがまだ完了していない場合に表示されます。数分待つと、通常は解決します。
-- 特定のフィールド（`-`、`=`、`+`、`@`など）の先頭にアポストロフィが追加されるのは想定された動作です。たとえば、`-1943`はCSVでは`'-1943`になります。Brazeは、スプレッドシートプログラムがデータを誤って解釈するのを防ぐためにこの処理を行っています。これは、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)から返されるものなどのJSONエクスポートには適用されません。
+- 特定のフィールド（`-`、`=`、`+`、`@`など）の先頭にアポストロフィが追加されるのは想定された動作です。たとえば、`-1943`はCSVでは`'-1943`になります。Brazeは、スプレッドシートプログラムがデータを誤って解釈するのを防ぐためにこの処理を行っています。これは、[`/users/export/segment`エンドポイント]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-large-segments)から返されるものなどのJSONエクスポートには適用されません。
 
 ## APIエクスポート {#api-exports}
 クラウドストレージを使用せずにエクスポートAPIを通じてエクスポートを行うと、BrazeはファイルをそのS3バケットに書き込みます。メールは送信されません。代わりに、APIの応答に一時的なダウンロードURLが含まれます。エクスポートは、1行に1ユーザーを含む複数のJSONファイルが入ったZIPとして提供されます。
@@ -71,19 +71,23 @@ CSVエクスポートでは、Brazeがダウンロードリンクをメールで
 
 ## CampaignとCanvasの分析 {#campaign-and-canvas-analytics}
 
-### CSVエクスポートのユーザー数が「送信済みメッセージ」や「ユニーク受信者」と一致しない {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
+### CSVエクスポートのユーザー数が「送信済みメッセージ」や「ユニーク受信者」と一致しない {#number-of-users-in-csv-export-doesnt-match-_messages-sent_-or-_unique-recipients_}
 
-Campaignの CSVエクスポートで、「送信済みメッセージ」や「ユニーク受信者」と異なるユーザー数が表示される理由は以下のとおりです。
+Campaignの CSVエクスポートで、*送信済みメッセージ*や*ユニーク受信者*と異なるユーザー数が表示される理由は以下のとおりです。
 
 #### 再エリジビリティが有効になっている {#re-eligibility-is-turned-on}
 
-ユーザーがCampaignを複数回受信できる（または過去にできた）場合、Campaignの分析数値とユーザーデータエクスポートの行数は一致しません。「送信済みメッセージ」は、同じユーザーに複数回メッセージが送信された場合を含め、すべての送信をカウントします。**ユーザーデータを CSV 形式でエクスポート**のダウンロードでは、ユニークユーザーが一覧表示されます。つまり、Campaignを受信したプロファイルごとに1行であり、送信ごとに1行ではありません。たとえば、「送信済みメッセージ」が12でCSVが10行の場合、12回の送信は10人の異なるユーザーに対して行われたことになります（一部のユーザーにはCampaignが複数回送信されています）。
+ユーザーがCampaignを複数回受信できる（または過去にできた）場合、Campaignの分析数値とユーザーデータエクスポートの行数は一致しません。*送信済みメッセージ*は、同じユーザーに複数回メッセージが送信された場合を含め、すべての送信をカウントします。**ユーザーデータを CSV 形式でエクスポート**のダウンロードでは、ユニークユーザーが一覧表示されます。つまり、Campaignを受信したプロファイルごとに1行であり、送信ごとに1行ではありません。たとえば、*送信済みメッセージ*が12でCSVが10行の場合、12回の送信は10人の異なるユーザーに対して行われたことになります（一部のユーザーにはCampaignが複数回送信されています）。
 
 #### CampaignまたはCanvasの送信後にユーザーが削除またはマージされた {#users-were-deleted-or-merged-since-the-campaign-or-canvas-sent}
 
 CSVエクスポートは、特定のCampaignまたはCanvasを受信した既存ユーザーのスナップショットを提供します。ユーザーは削除またはマージされる可能性があるため、CSVエクスポートのカウントはユニーク受信者数よりも少なくなることがあります。たとえば、1,000人のユーザーがCampaignを受信した場合、Campaignには1,000人のユニーク受信者が表示され、同日のCSVエクスポートにも1,000人のユーザーが表示されます。1か月後にそのうち50人が削除された場合、CSVエクスポートには950人のユーザーが含まれますが、累積されたユニーク受信者数は引き続き1,000のままです。
 
 ## ダッシュボードのSegmentエクスポートメール {#dashboard-segment-export-emails}
+
+### 「Segmentが大きすぎます」またはSegmentが500,000ユーザー未満に見えるのにエクスポートが失敗する {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
+
+ダッシュボードのSegment**サイズは推定値です**。CSVエクスポートはその推定値を使用して[500,000ユーザーのエクスポート制限]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details)を適用します。エクスポートパイプラインは、SegmentビルダーのUIとは異なる方法でサイズを評価する場合もあります。そのしきい値付近のSegmentでエクスポートが失敗する場合は、[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)を使用するか、オーディエンスをより小さなSegmentsに分割するか、[大規模なSegmentsのエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)に記載されている[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用してください。
 
 ### Segmentエクスポートメールが届かないのはなぜですか？ {#why-arent-i-receiving-segment-export-emails}
 

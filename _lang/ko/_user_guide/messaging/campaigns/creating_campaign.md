@@ -17,7 +17,7 @@ tool: Campaigns
 
 ### 시작하기 전에 {#before-you-begin}
 
-- 메시지를 수신할 대상을 정의하는 [세그먼트]({{site.baseurl}}/user_guide/audience/segments/)를 구축하거나 선택하세요.
+- 메시지를 수신할 대상을 정의하는 [Segments]({{site.baseurl}}/user_guide/audience/segments/)를 구축하거나 선택하세요.
 - 메시징 채널, 전달 유형 및 전환 목표가 사용 사례에 맞는지 [캠페인 기본 사항]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics/)을 검토하세요.
 - 전달, 타겟팅 및 전환에 대한 안내 워크스루를 보려면 [캠페인 설정](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) Braze 학습 과정을 수강하세요.
 
@@ -42,8 +42,8 @@ tool: Campaigns
 
 캠페인을 생성하려면:
 
-1. **메시징** > **Campaigns**로 이동합니다.
-2. **캠페인 생성**을 선택합니다.
+1. **Messaging** > **Campaigns**로 이동합니다.
+2. **Create Campaign**을 선택합니다.
 3. 사용 사례에 맞는 [채널]({{site.baseurl}}/user_guide/channels/)을 선택합니다.
 4. [작성 단계](#step-1-compose-messages)에서 해당 채널의 문구를 작성하고 미리보기합니다.
 
@@ -72,10 +72,10 @@ tool: Campaigns
 
 ### 멀티채널 캠페인 생성 {#create-a-multichannel-campaign}
 
-1. **메시징** > **Campaigns**로 이동합니다.
-2. **캠페인 생성**을 선택합니다.
-3. **멀티채널**을 선택합니다.
-4. [작성 단계](#step-1-compose-messages)에서 **채널 추가**를 선택하고 필요한 각 채널을 선택합니다. 각 채널의 문구를 작성하는 동안 채널 아이콘을 선택하여 작성기 간에 전환합니다.
+1. **Messaging** > **Campaigns**로 이동합니다.
+2. **Create Campaign**을 선택합니다.
+3. **Multichannel**을 선택합니다.
+4. [작성 단계](#step-1-compose-messages)에서 **Add Channel**을 선택하고 필요한 각 채널을 선택합니다. 각 채널의 문구를 작성하는 동안 채널 아이콘을 선택하여 작성기 간에 전환합니다.
 
 {% endtab %}
 {% endtabs %}
@@ -92,7 +92,7 @@ tool: Campaigns
 | 설명 | 선택 사항. 협업자를 위한 의도 또는 브리프 링크를 설명하세요. |
 | 팀 | 선택 사항. 적절한 그룹이 이 발송을 편집하거나 보고할 수 있도록 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)를 할당하세요. |
 | 태그 | 선택 사항. [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) 등의 목록 및 도구에서 필터링할 수 있도록 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가하세요. |
-| 캠페인 ID | 작성기 또는 요약에 표시되는 경우, 특정 캠페인을 참조하는 API 호출, 보고 및 통합을 위해 이 식별자를 복사하세요. |
+| Campaign ID | 작성기 또는 요약에 표시되는 경우, 특정 캠페인을 참조하는 API 호출, 보고 및 통합을 위해 이 식별자를 복사하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
 
 ### 채널 및 편집기 {#channels-and-editors}
@@ -104,7 +104,7 @@ tool: Campaigns
 크리에이티브 또는 전달 분할을 비교하려면 배리언트를 추가하세요. 실험 및 대조군에 대한 배경 정보는 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
 
 {% alert tip %}
-각 배리언트가 유사한 본문 콘텐츠를 사용하는 경우, 추가 배리언트를 추가하기 **전에** 메시지를 작성하세요. 그런 다음 **배리언트 추가** 메뉴에서 **배리언트에서 복사**를 사용하여 배리언트 또는 채널 간에 작업을 재사용하세요.
+각 배리언트가 유사한 본문 콘텐츠를 사용하는 경우, 추가 배리언트를 추가하기 **전에** 메시지를 작성하세요. 그런 다음 **Add Variant** 메뉴에서 **Copy from Variant**를 사용하여 배리언트 또는 채널 간에 작업을 재사용하세요.
 {% endalert %}
 
 ## 2단계: 전달 스케줄 {#step-2-schedule-delivery}
@@ -122,31 +122,31 @@ Braze 전반의 스케줄링 개념은 [캠페인 스케줄]({{site.baseurl}}/us
 
 ### 전달 제어 {#delivery-controls}
 
-전달 유형에 따라 [재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)(사용자가 캠페인에 다시 진입할 수 있는지 여부)을 조정하고 워크스페이스 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) 규칙을 준수할 수 있습니다. 또한 제한된 기간 동안 메시지가 발송되지 않도록 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)을 구성할 수도 있습니다.
+전달 유형에 따라 [재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)(사용자가 캠페인에 다시 진입할 수 있는지 여부)을 조정하고 워크스페이스 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) 규칙을 준수할 수 있습니다. 또한 제한된 기간 동안 메시지가 발송되지 않도록 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 구성할 수도 있습니다.
 
 ## 3단계: 타겟 오디언스 {#step-3-target-audiences}
 
-**타겟 오디언스**에서 캠페인을 수신할 자격이 있는 대상을 정의합니다. 전체 타겟팅 옵션, UI 워크스루 및 스크린샷은 [사용자 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)을 참조하세요.
+**Target Audiences**에서 캠페인을 수신할 자격이 있는 대상을 정의합니다. 전체 타겟팅 옵션, UI 워크스루 및 스크린샷은 [사용자 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)을 참조하세요.
 
 ### 타겟팅 옵션 {#targeting-options}
 
-이 섹션에서는 Segments 또는 필터를 선택하여 오디언스를 좁혀 사용자를 타겟팅할 수 있습니다. 자격이 있는 사용자는 여전히 **전달 스케줄** 단계에서 정의한 트리거 또는 기준을 충족해야 합니다. 타겟 오디언스는 대기실과 같습니다. 이미 안에 있는 사람만 다음 동작이 발생할 때 앞으로 나아갈 수 있습니다.
+이 섹션에서는 Segments 또는 필터를 선택하여 오디언스를 좁혀 사용자를 타겟팅할 수 있습니다. 자격이 있는 사용자는 여전히 **Schedule Delivery** 단계에서 정의한 트리거 또는 기준을 충족해야 합니다. 타겟 오디언스는 대기실과 같습니다. 이미 안에 있는 사람만 다음 동작이 발생할 때 앞으로 나아갈 수 있습니다.
 
 워크스페이스 [억제 목록]({{site.baseurl}}/user_guide/audience/suppression_lists/)은 이 캠페인에 대한 예외를 허용하지 않는 한 목록에 있는 사용자를 자동으로 제외합니다.
 
 ### 오디언스 요약 {#audience-summary}
 
-Segments 또는 필터를 추가한 후, **오디언스 요약**은 해당 세그먼트 모집단의 모습을 미리 보여주며, 해당 세그먼트 내에서 선택한 채널을 통해 도달 가능한 사용자 수를 포함합니다. 도달 가능 수는 워크스페이스 데이터, 채널 설정 및 필터를 반영합니다. 정확한 세그먼트 멤버십은 항상 메시지가 발송되기 전에 계산된다는 점을 유의하세요. 매우 큰 오디언스의 경우, Braze는 정확한 통계를 계산할 때까지 추정치를 표시할 수 있습니다.
+Segments 또는 필터를 추가한 후, **Audience Summary**는 해당 세그먼트 모집단의 모습을 미리 보여주며, 해당 세그먼트 내에서 선택한 채널을 통해 도달 가능한 사용자 수를 포함합니다. 도달 가능 수는 워크스페이스 데이터, 채널 설정 및 필터를 반영합니다. 정확한 세그먼트 멤버십은 항상 메시지가 발송되기 전에 계산된다는 점을 유의하세요. 매우 큰 오디언스의 경우, Braze는 정확한 통계를 계산할 때까지 추정치를 표시할 수 있습니다.
 
 ### 사용자 조회 {#user-lookup}
 
-Segments 또는 필터를 추가한 후, 사용자를 조회하여 세그먼트 기준에 일치하는지 확인함으로써 오디언스가 예상대로 설정되었는지 테스트할 수 있습니다. 이를 위해 **사용자 조회** 섹션에서 사용자의 `external_id` 또는 `braze_id`를 검색하세요. 여기서는 이메일 주소로 검색할 수 없습니다. 자세한 내용은 [세그먼트 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)를 참조하세요.
+Segments 또는 필터를 추가한 후, 사용자를 조회하여 세그먼트 기준에 일치하는지 확인함으로써 오디언스가 예상대로 설정되었는지 테스트할 수 있습니다. 이를 위해 **User Lookup** 섹션에서 사용자의 `external_id` 또는 `braze_id`를 검색하세요. 여기서는 이메일 주소로 검색할 수 없습니다. 자세한 내용은 [세그먼트 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)를 참조하세요.
 
 사용자가 세그먼트, 필터 및 앱 기준에 일치하면 알림이 표시됩니다. 사용자가 세그먼트, 필터 또는 앱 기준의 일부 또는 전부에 일치하지 않으면, 문제 해결을 위해 누락된 기준이 나열됩니다.
 
 ### 이 사용자에게 발송 {#send-to-these-users}
 
-구독 기반 채널(이메일, SMS 등)의 경우, **이 사용자에게 발송**을 사용하여 특정 구독 상태를 가진 사용자(예: 이메일에 가입되고 옵트인한 사용자)에게만 캠페인을 발송하세요.
+구독 기반 채널(이메일, SMS 등)의 경우, **Send to these users**를 사용하여 특정 구독 상태를 가진 사용자(예: 이메일에 가입되고 옵트인한 사용자)에게만 캠페인을 발송하세요.
 
 ### 발송량 제한 {#limit-send-volume}
 
@@ -174,12 +174,12 @@ Segments 또는 필터를 추가한 후, 사용자를 조회하여 세그먼트 
 
 ## 5단계: 요약 검토 및 시작 {#step-5-review-summary-and-launch}
 
-**요약 검토** 단계에서는 스케줄, 오디언스, 배리언트 및 메시징 선택 사항을 보여줍니다. 캠페인을 시작하기 전에:
+**Review Summary** 단계에서는 스케줄, 오디언스, 배리언트 및 메시징 선택 사항을 보여줍니다. 캠페인을 시작하기 전에:
 
 1. 세그먼트, 배리언트 및 전달 설정이 의도와 일치하는지 확인합니다.
 2. 테스트 기기 또는 내부 수신자에서 렌더링 및 동작을 검증하기 위해 [테스트 메시지를 발송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)합니다.
 
-준비가 되면 **캠페인 시작**을 선택합니다.
+준비가 되면 **Launch Campaign**을 선택합니다.
 
 ### 승인 {#approvals}
 

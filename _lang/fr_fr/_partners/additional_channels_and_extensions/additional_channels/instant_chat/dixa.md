@@ -27,7 +27,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 ## Cas d'utilisation {#use-cases}
 
-Affichez les données de Braze dans la vue de l'agent du service client tout en communiquant avec vos utilisateurs sur différents canaux de communication, tels que l'e-mail, la messagerie ou le chat. Vous pouvez également utiliser la Transformation des données de Braze pour envoyer des données de Dixa vers Braze afin de mettre en pause le marketing pendant la résolution d'un problème utilisateur.
+Affichez les données de Braze dans la vue de l'agent du service client tout en communiquant avec vos utilisateurs sur différents canaux de communication, tels que l'e-mail, la messagerie ou le chat. Vous pouvez également utiliser la Transformation des données de Braze pour envoyer des données de Dixa vers Braze afin de mettre en pause le marketing pendant la résolution d'un problème utilisateur, ou utiliser les enquêtes de satisfaction de Dixa pour la segmentation.
 
 ## Intégration {#integration}
 
@@ -83,6 +83,8 @@ Voici un exemple d'intégration :
 
 Dixa utilise des webhooks pour envoyer des données à Braze. Vous devez être administrateur Dixa pour configurer les webhooks.
 
+### Suivre les conversations dans Dixa {#track-conversations-in-dixa}
+
 La première étape consiste à créer une transformation de données dans Braze.
 
 1. Accédez à **Data Settings** > **Data Transformations** > **Create transformation**.
@@ -128,5 +130,56 @@ const brazecall = {
 };
 
 // Returning the transformed data
+return brazecall;
+```
+
+### Utiliser le score CSAT dans Braze {#use-csat-score-in-braze}
+
+1. Accédez à **Data Settings** > **Data Transformations** > **Create transformation**.
+2. Sélectionnez **Start from scratch**, sélectionnez la destination **POST: Track Users**, puis sélectionnez **Create transformation**.
+3. Dans l'éditeur de transformation, copiez l'exemple de code de la section **Suivre le score CSAT** ci-dessous et insérez-le dans le champ **Transformation code**. Sélectionnez **Save**, copiez l'**URL du webhook**, puis ouvrez Dixa.
+4. Dans Dixa, accédez à **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
+5. Sur la page des paramètres du webhook, collez l'URL provenant de Braze et activez les événements que vous souhaitez suivre. **Conversation created** est un bon point de départ pour suivre les conversations des clients.
+6. Sélectionnez **Save** pour terminer la configuration de Dixa.
+
+#### Suivre le score CSAT {#track-csat-score}
+
+```js
+const body = payload?.data;
+
+// values from your webhook
+const score = body.score;         // number
+const comment = body.comment;     // string
+const type = body.type;           // string
+const ratedAt = body.event_timestamp;   // ISO 8601 string
+const contactemail = body.conversation.requester.email;
+
+// ALWAYS identify by email
+const email = contactemail;
+
+if (!email) {
+  // Can't identify a user without email
+  return { attributes: [] };
+}
+
+
+let brazecall = {
+  "attributes": [
+    {
+      // Using the Dixa user email as the external_id to identify the user in Braze
+      "email": contactemail,
+      "_update_existing_only": true,
+
+      // Your new custom object attribute
+      "last_csat": {
+        "score": score,
+        "comment": comment,
+        "type": type,
+        "rated_at": ratedAt
+      }
+    }
+  ]
+};
+
 return brazecall;
 ```

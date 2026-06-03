@@ -79,6 +79,8 @@ Brazeは、受信した属性データのデータタイプを自動的に認識
 | ブール値 | `1`、`true`、`t`（大文字小文字は区別されない）の入力は、`true`として保存されます |
 | ブール値 | `0`、`false`、`f`（大文字小文字は区別されない）の入力は、`false`として保存されます |
 | 数値 | 整数または浮動小数点数（`1`、`1.5`など）は数値として保存されます |
+| 数値 | 数値文字列（`"100"`や`"3.14"`など）は、属性が**数値**に強制されている場合、数値に変換できます |
+| 文字列 | 数値は、属性が**文字列**に強制されている場合、文字列形式に変換できます |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Data type coercion" }
 
 異なるデータタイプの比較によって表示される特定のフィルターオプションの詳細については、[レポートの設定]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/)を参照してください。また、利用可能なデータタイプの詳細については、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types)を参照してください。

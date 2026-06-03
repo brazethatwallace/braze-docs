@@ -29,7 +29,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 | --- | --- |
 | Content Cards | 카드가 발송되었으며 조회 가능한 상태입니다. |
 | 이메일 | Braze가 이메일 서비스 공급자(ESP)에게 메시지를 전달합니다. ESP가 최종 전달을 담당합니다. 예를 들어, 이메일 주소가 유효하지 않거나 받은편지함이 가득 찬 경우 ESP가 "반송"을 보고할 수 있습니다. |
-| In-App Messages | 메시지가 사용자에게 표시되었습니다. |
+| 인앱 메시지 | 메시지가 사용자에게 표시되었습니다. |
 | LINE | 메시지가 발송 파트너에게 성공적으로 전달되었습니다. |
 | 푸시 | Braze가 적절한 푸시 알림 서비스(iOS의 경우 Apple Push Notification service, Android의 경우 Firebase Cloud Messaging)에 메시지를 전달합니다. 해당 서비스가 기기로의 최종 알림 전달을 담당합니다. |
 | SMS/MMS/RCS | Braze가 SMS 게이트웨이(예: Twilio)에 메시지를 전달합니다. 해당 게이트웨이가 이동통신사로의 최종 전달을 담당합니다. |
@@ -51,7 +51,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 2. 하나 이상의 Campaign 또는 Canvas를 선택합니다.
 3. **Run Dashboard**를 선택하여 선택한 필터에 대한 데이터를 로드합니다.
 
-![2025년 5월 25일부터 5월 31일까지의 웰컴 시리즈 Campaign에 대한 Campaign 및 Canvas 진단 예시.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
+![2025년 5월 25일부터 5월 31일까지의 웰컴 시리즈 Campaign에 대한 Campaign 및 Canvas 진단 예시.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![2025년 5월 25일부터 5월 31일까지의 웰컴 시리즈 Campaign에 대한 그래프 호버 시 Campaign 및 Canvas 진단 예시.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
 
 ## 데이터 해석 {#interpreting-the-data}
 
@@ -68,7 +68,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
   - **이메일, SMS/MMS/RCS, WhatsApp, LINE, 푸시:** 메시지가 발송 파트너에게 성공적으로 전달되었습니다.
   - **웹훅:** 웹훅 요청이 성공적으로 이루어졌으며, `2xx` 응답을 반환했습니다.
   - **Content Cards:** 카드가 발송되었으며 조회 가능한 상태입니다.
-  - **In-App Messages:** 메시지가 사용자에게 표시되었습니다.
+  - **인앱 메시지:** 메시지가 사용자에게 표시되었습니다.
 
 ### 시간별 메시지 결과 {#message-outcomes-over-time}
 
@@ -78,11 +78,16 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 차트를 깔끔하게 유지하기 위해, 선택한 기간 내에서 발생 횟수가 0인 중단 또는 제외 사유는 차트에 표시되지 않습니다.
 {% endalert %}
 
-### 메시지 결과 분석 {#message-outcomes-breakdown}
+### 메시지 결과 상세 로그 {#message-outcomes-granular-log}
 
-이 차트는 선택한 기간 내 모든 메시지 결과의 분석을 보여줍니다. 다음에 대한 전체적인 그림을 제공합니다:
-- 전체 결과 대비 총 발송 수의 비율.
-- 각 중단 및 제외 사유의 비율 분석. 이를 통해 메시지가 발송되지 않는 가장 일반적인 이유를 빠르게 파악할 수 있습니다.
+시계열 차트 아래에는 선택한 필터와 기간에 대한 개별 메시지 결과의 상세 테이블이 표시됩니다. 이 테이블을 사용하여 타임스탬프, 사용자 ID, 캔버스 단계, 결과, 채널 등 특정 레코드를 검토할 수 있습니다.
+
+테이블을 필터링하여 특정 레코드에 집중할 수 있습니다:
+
+- **결과별 필터링:** 결과 필터에서 결과를 선택하여 해당 결과가 있는 행만 표시합니다(예: `Frequency capped` 또는 `User not eligible`).
+- **사용자 ID로 검색:** 검색 필드에 사용자 ID를 입력하여 해당 사용자의 행을 표시합니다.
+
+두 필터를 모두 적용하면, 테이블은 선택한 결과와 입력한 사용자 ID 모두에 일치하는 행을 반환합니다.
 
 ### 중단 결과 {#abort-outcomes}
 
@@ -130,7 +135,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 | 메시지 단계 사전 검사 실패 | 이 사전 검사는 전달 유효성 검사 전에 실행됩니다. 이 경우 사용자가 이 메시지 단계의 기본 사전 검사를 충족하지 못했습니다(사용자를 찾을 수 없거나 메시지 단계의 채널에 대한 자격이 없음). **참고:** 다중 채널 메시지 단계의 경우, 이는 사용자를 찾을 수 없음을 의미합니다. 채널 자격은 단일 채널 메시지 단계에서만 여기서 확인됩니다. |
 | 트리거된 메시지 사전 검사 실패 | 트리거된 메시지의 경우, Braze는 이 트리거에서 발송할 메시지를 생성하기 전에 오디언스 자격, 재자격, 채널 자격에 대한 기본 사전 검사를 먼저 실행합니다. |
 | 사용자가 더 이상 자격이 없음 | 사용자가 처음에는 타겟 오디언스에 포함되어 있었지만, Braze가 메시지를 발송하거나 사용자를 Canvas에 진입시키기 전에 오디언스 기준에 더 이상 일치하지 않게 되었습니다. 사용자가 처음 오디언스 기준을 충족한 시점과 오디언스에서 벗어난 시점 사이의 시간 차이는 다음과 같은 지연으로 인해 발생할 수 있습니다: {::nomarkdown}<ul><li>Intelligent Timing</li><li>방해금지 시간</li><li>현지 시간</li><li>전달 속도 사용량 제한(Canvas 진입에는 적용되지 않음)</li><li>메시징 파이프라인 지연</li></ul>{:/} |
-| 단계에 대한 사용자 자격 없음 | 사용자가 메시지 단계에 대해 설정된 [전달 유효성 검사]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations)를 충족하지 못했거나 [억제 목록]({{site.baseurl}}/user_guide/audience/suppression_lists/)에 포함되어 있어 Canvas를 종료했습니다. |
+| 단계에 대한 사용자 자격 없음 | 사용자가 메시지 단계에 대해 설정된 [전달 유효성 검사]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations)를 충족하지 못했거나 [억제 목록]({{site.baseurl}}/user_guide/audience/suppression_lists/)에 포함되어 있었습니다. **전달 유효성 검사** 설정에 따라 사용자가 Canvas를 종료했거나 다음 단계로 진행했을 수 있습니다. |
 | 사용자 재자격 없음 | 사용자가 메시지를 받거나 Canvas에 진입할 자격이 있었지만, 재자격 또는 재진입 설정으로 인해 발송이 취소되었습니다. 이는 사용자가 이미 Campaign을 수신했거나 Canvas에 최근에 진입한 경우, 동일한 Campaign에 대한 다른 발송이 이미 해당 사용자에 대해 진행 중인 경우, 또는 재자격이나 재진입이 비활성화된 경우에 발생할 수 있습니다. |
 | 고객 프로필을 찾을 수 없음 | 사용자가 존재한 적이 없거나 Braze에 더 이상 존재하지 않습니다. 일반적인 경우는 다음과 같습니다: {::nomarkdown}<ul><li> API 메시징을 사용하여 사용자를 타겟팅했지만, Braze에 존재한 적이 없는 경우. </li><li>메시지가 발송되거나 캔버스 단계가 실행되기 전에 사용자가 삭제된 경우. </li><li>메시지가 발송되기 전에 사용자가 다른 프로필과 병합된 경우.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }

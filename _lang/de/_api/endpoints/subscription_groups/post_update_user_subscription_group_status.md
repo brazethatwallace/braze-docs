@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Update des Abo-Gruppenstatus von Nutzer:innen“."
 ---
+
 {% api %}
 # Update des Abo-Gruppenstatus von Nutzer:innen {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 {% alert note %}
 Wenn Sie diesen Endpunkt mit [LINE-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/) verwenden möchten, wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Rate-Limit
 
@@ -144,5 +147,7 @@ Der Statuscode `201` könnte den folgenden Antworttext zurückgeben.
 {% alert important %}
 Der Endpunkt akzeptiert nur den Wert `email` oder `phone`, nicht beide. Wenn Sie beides angeben, erhalten Sie diese Antwort: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
+
+Damit Ihr Abo-Update auf Telefonnummern angewendet wird, stellen Sie sicher, dass Sie Telefonnummern im E.164-Format gesendet haben (z. B. `+15555550123`), die korrekte `subscription_group_id` verwendet haben und `phone` (nicht sowohl `phone` als auch `email`) im selben Anfragetext übergeben haben. Für Updates mit mehreren Nummern verwenden Sie das `phone`-Array-Format, das unter [SMS und RCS](#sms-and-rcs) gezeigt wird.
 
 {% endapi %}

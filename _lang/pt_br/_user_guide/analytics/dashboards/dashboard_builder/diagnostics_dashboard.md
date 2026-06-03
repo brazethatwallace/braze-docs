@@ -51,7 +51,7 @@ Para executar o dashboard e visualizar seus dados:
 2. Selecione uma ou mais campanhas ou Canvas.
 3. Selecione **Run Dashboard** para carregar os dados dos filtros selecionados.
 
-![Exemplo de diagnóstico de Campaign e Canvas de 25 a 31 de maio de 2025 para uma campanha de série de boas-vindas.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
+![Exemplo de diagnóstico de Campaign e Canvas de 25 a 31 de maio de 2025 para uma campanha de série de boas-vindas.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![Exemplo de diagnóstico de Campaign e Canvas com gráfico ao passar o mouse de 25 a 31 de maio de 2025 para uma campanha de série de boas-vindas.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
 
 ## Interpretando os dados {#interpreting-the-data}
 
@@ -78,11 +78,16 @@ Este gráfico de série temporal mostra um detalhamento dia a dia dos diferentes
 Para manter o gráfico organizado, qualquer motivo de aborto ou remoção com zero ocorrências no período selecionado não aparece no gráfico.
 {% endalert %}
 
-### Detalhamento dos resultados de mensagens {#message-outcomes-breakdown}
+### Registro granular de resultados de mensagens {#message-outcomes-granular-log}
 
-Este gráfico mostra o detalhamento de todos os resultados de mensagens dentro do período selecionado. Ele fornece uma visão completa de:
-- O número total de envios como proporção de todos os resultados.
-- O detalhamento proporcional de cada motivo de aborto e remoção. Isso ajuda a identificar rapidamente os motivos mais comuns pelos quais as mensagens não estão sendo enviadas.
+Abaixo do gráfico de série temporal, o dashboard exibe uma tabela granular de resultados individuais de mensagens para os filtros e o período selecionados. Use essa tabela para revisar registros específicos, incluindo o horário, o ID do usuário, a etapa do Canvas, o resultado e o canal.
+
+Você pode filtrar a tabela para focar em registros específicos:
+
+- **Filtrar por resultado:** Selecione um resultado no filtro de resultados para exibir apenas as linhas com esse resultado (por exemplo, `Frequency capped` ou `User not eligible`).
+- **Pesquisar por ID do usuário:** Insira um ID de usuário no campo de pesquisa para exibir as linhas desse usuário específico.
+
+Quando você aplica ambos os filtros, a tabela retorna as linhas que correspondem tanto ao resultado selecionado quanto ao ID do usuário inserido.
 
 ### Resultados de aborto {#abort-outcomes}
 
@@ -130,7 +135,7 @@ As definições a seguir explicam os resultados de aborto exibidos no dashboard.
 | User failed pre-check for Message step | Essa pré-verificação é executada antes das validações de entrega. Quando isso ocorre, o usuário não atendeu à pré-verificação básica para esta etapa de mensagem (usuário não encontrado ou não elegível para o canal da etapa de mensagem). **Nota:** Para uma etapa de mensagem multicanal, isso significa que o usuário não foi encontrado; a elegibilidade do canal só é verificada aqui para etapas de mensagem de canal único. |
 | User failed pre-check for triggered message | Para uma mensagem disparada, a Braze executa um primeiro conjunto de pré-verificações básicas de elegibilidade de público, reelegibilidade e elegibilidade de canal antes de criar uma mensagem para enviar a partir desse gatilho. |
 | User no longer eligible | O usuário estava inicialmente no público-alvo, mas deixou de atender aos critérios do público antes que a Braze enviasse a mensagem ou inserisse o usuário no Canvas. O intervalo entre o usuário atender inicialmente aos critérios do público e deixar de atendê-los pode ser causado por atrasos de: {::nomarkdown}<ul><li>Intelligent Timing</li><li>Horário de silêncio</li><li>Horário local</li><li>Limites de velocidade de entrega (não aplicável para entrada no Canvas)</li><li>Atrasos no pipeline de envio de mensagens</li></ul>{:/} |
-| User not eligible for step | O usuário saiu do Canvas porque não atendeu às [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) definidas para a etapa de mensagem ou porque fazia parte de uma [lista de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists/). |
+| User not eligible for step | O usuário não atendeu às [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) definidas para a etapa de mensagem ou fazia parte de uma [lista de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists/). Dependendo das configurações de **Delivery validations**, o usuário pode ter saído do Canvas ou avançado para a próxima etapa. |
 | User not re-eligible | O usuário era elegível para receber a mensagem ou entrar no Canvas, mas o envio foi cancelado devido às configurações de reelegibilidade ou reentrada. Isso pode acontecer se o usuário já recebeu a campanha ou entrou no Canvas recentemente, se outro envio da mesma campanha já está em andamento para esse usuário, ou se a reelegibilidade ou reentrada está desativada. |
 | User profile not found | O usuário nunca existiu ou não existe mais na Braze. Alguns casos comuns incluem: {::nomarkdown}<ul><li> O usuário foi direcionado usando envio de mensagens por API, mas nunca existiu na Braze. </li><li>O usuário foi excluído antes que a mensagem fosse enviada ou a etapa do Canvas fosse executada. </li><li>O usuário foi mesclado com outro perfil antes que a mensagem fosse enviada.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }

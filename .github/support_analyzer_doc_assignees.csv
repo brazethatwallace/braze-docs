@@ -1,5 +1,4 @@
 Page Path,Writer,Team,GitHub Username
-_docs/_api/api_campaigns.md,Lydia,Core Messaging,lydia-xie
 _docs/_api/api_campaigns/transactional_api_campaign.md,Lydia,Core Messaging,lydia-xie
 _docs/_api/api_limits.md,Docs Team,,docs-team
 _docs/_api/basics.md,Docs Team,,docs-team
@@ -419,7 +418,6 @@ _docs/_hidden/other/documentation_request.md,Docs Team,,docs-team
 _docs/_hidden/other/dp-technical-assistance.md,Docs Team,,docs-team
 _docs/_hidden/other/feedback.md,Rachel,User Targeting,rachel-feinberg
 _docs/_hidden/other/segment_funnels.md,Rachel,User Targeting,rachel-feinberg
-_docs/_hidden/other/sms_country_blocklist.md,Rachel,SMS,rachel-feinberg
 _docs/_hidden/other/support_contact.md,Docs Team,Support,docs-team
 _docs/_hidden/other/user_archival.md,Docs Team,,docs-team
 _docs/_hidden/redirects/advancement_behavior.md,Docs Team,,docs-team
@@ -670,16 +668,16 @@ _docs/_partners/ecommerce/product_search_recommendations.md,Adam,Partnerships,at
 _docs/_partners/ecommerce/product_search_recommendations/algolia.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/product_search_recommendations/constructor.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/product_search_recommendations/stylitics.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/shopify.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/shopify/discount_codes.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/shopify/multiple_stores.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/shopify/shopify_catalogs.md,Adam,Partnerships,atom-evens
+_docs/_partners/ecommerce/shopify.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/discount_codes.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/multiple_stores.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/shopify_catalogs.md,Rachel,Shopify,rachel-feinberg
 _docs/_partners/ecommerce/shopify/shopify_catalogs/faq.md,Rachel,Shopify,rachel-feinberg
-_docs/_partners/ecommerce/shopify/shopify_custom_integration.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/shopify/shopify_data_features.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/shopify/shopify_overview.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/shopify/shopify_standard_integration_third_party_tagging.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/shopify/shopify_standard_integration.md,Adam,Partnerships,atom-evens
+_docs/_partners/ecommerce/shopify/shopify_custom_integration.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/shopify_data_features.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/shopify_overview.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/shopify_standard_integration_third_party_tagging.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/shopify_standard_integration.md,Rachel,Shopify,rachel-feinberg
 _docs/_partners/ecommerce/tapcart.md,Adam,Partnerships,atom-evens
 _docs/_partners/home.md,Adam,Partnerships,atom-evens
 _docs/_partners/isv_partners.md,Adam,Partnerships,atom-evens
@@ -934,21 +932,6 @@ _docs/_releases/2025/5_27_25.md,Docs Team,n/a,docs-team
 _docs/_releases/2025/6_24_25.md,Docs Team,n/a,docs-team
 _docs/_releases/2025/7_22_25.md,Docs Team,n/a,docs-team
 _docs/_releases/2025/8_19_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/9_16_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2026.md,Docs Team,n/a,docs-team
-_docs/_releases/2026/1_8_26.md,Docs Team,n/a,docs-team
-_docs/_releases/2026/2_5_26.md,Docs Team,n/a,docs-team
-_docs/_releases/2026/3_5_26.md,Docs Team,n/a,docs-team
-_docs/_releases/2026/4_2_26.md,Docs Team,n/a,docs-team
-_docs/_releases/2026/4_30_26.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/apptimize.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/custom_broadcast_receiver.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/eclipse_setup_deprecated.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/grouparoo.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/shopify_checkout.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/tls_deprecation.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/twilio.md,Docs Team,n/a,docs-team
 _docs/_releases/home.md,Docs Team,n/a,docs-team
 _docs/_releases/sdk_changelogs.md,Docs Team,n/a,docs-team
 _docs/_user_guide/administer.md,Docs Team,,docs-team
@@ -999,15 +982,15 @@ _docs/_user_guide/administer/personal/language_settings.md,Docs Team,,docs-team
 _docs/_user_guide/administer/personal/product_portal.md,Docs Team,,docs-team
 _docs/_user_guide/administer/personal/sdk_endpoints.md,Zair,SDKs,zairro
 _docs/_user_guide/administer/personal/the_braze_dashboard.md,Bre,FIX,bre-fitzgerald
-_docs/_user_guide/analytics.md,Rachel,Reporting,rachel-feinberg
+_docs/_user_guide/analytics.md,Docs Team,Reporting,docs-team
 _docs/_user_guide/analytics/dashboards.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/analytics/dashboards/api_usage.md,Rachel,Reporting,rachel-feinberg
+_docs/_user_guide/analytics/dashboards/api_usage.md,Zair,Ingestion Foundations,zairro
 _docs/_user_guide/analytics/dashboards/channel_performance.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/dashboards/conversions.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/dashboards/dashboard_builder.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard.md,Rachel,Reporting,rachel-feinberg
+_docs/_user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/analytics/dashboards/dashboard_builder/ecommerce_revenue_dashboard.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/analytics/dashboards/deliverability_center.md,Rachel,Reporting,rachel-feinberg
+_docs/_user_guide/analytics/dashboards/deliverability_center.md,Lydia,Email,lydia-xie
 _docs/_user_guide/analytics/dashboards/home.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/metrics_glossary.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/reports.md,Rachel,Reporting,rachel-feinberg
@@ -1266,7 +1249,7 @@ _docs/_user_guide/channels/sms_mms_and_rcs/billing_calculator.md,Rachel,SMS,rach
 _docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins.md,Rachel,SMS,rachel-feinberg
-_docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions.md,Rachel,SMS,rachel-feinberg
+_docs/_user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/know_before_send.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/create.md,Rachel,SMS,rachel-feinberg

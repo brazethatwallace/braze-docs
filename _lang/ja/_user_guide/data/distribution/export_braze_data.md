@@ -7,7 +7,7 @@ guide_top_header: "Braze データのエクスポート"
 guide_top_text: "Braze は、Braze ダッシュボードデータの CSV エクスポートを提供しており、さまざまなツールでデータを分析できます。以下の記事では、ダッシュボードからエクスポートできるさまざまな種類のデータと、データを Excel で開いたり、API を使用してエクスポートを実行するためのヒントについて説明します。<br><br>エクスポートを実行する前に、データを表示したい適切な時間枠が選択されていることを確認してください。"
 
 page_type: landing
-description: "このランディングページには、Campaign や Canvas の結果、Segment データ、概要や収益データなど、Braze データのエクスポートに関するリソースがまとめられています。"
+description: "このランディングページには、キャンペーン や キャンバス の結果、セグメント データ、概要や収益データなど、Braze データのエクスポートに関するリソースがまとめられています。"
 tool: Reports
 
 guide_featured_title: "セクション記事"
@@ -21,7 +21,7 @@ guide_featured_list:
   - name: キャンバスデータ
     link: /docs/user_guide/data/distribution/export_braze_data/export_canvas_data
     image: /assets/img/braze_icons/palette.svg
-  - name: Segment データ
+  - name: セグメント データ
     link: /docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv
     image: /assets/img/braze_icons/file-download-02.svg
   - name: エクスポート API

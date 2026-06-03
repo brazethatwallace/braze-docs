@@ -111,14 +111,14 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | データタイプ | メモ |
 | --- | --- |
 | 配列 | カスタム属性配列がサポートされています。要素を追加すると、配列の末尾に追加されます。要素がすでに存在する場合は、現在の位置から末尾に移動します。<br><br>一意の値のみが格納されます。たとえば、`['hotdog','hotdog','hotdog','pizza']`をインポートすると、`['hotdog', 'pizza']`になります。<br><br>配列を直接設定することも（`"my_array_custom_attribute":[ "Value1", "Value2" ]`など）、`"my_array_custom_attribute" : { "add" : ["Value3"] }`で既存の配列に追加することも、`"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`で値を削除することもできます。<br><br>配列内の要素のデフォルトおよび最大数は500です。最大数はBrazeダッシュボードの**データ設定** > **カスタム属性**で更新できます。詳細については、[配列]({{site.baseurl}}/developer_guide/analytics/#arrays)を参照してください。 |
-| オブジェクト配列 | オブジェクトの配列を使用して、各オブジェクトに一連の属性が含まれるオブジェクトのリストを定義します。このタイプを使用して、ホテル宿泊や好みなど、ユーザーの関連データセットを複数保存します。<br><br>たとえば、`hotel_stays`という名前のカスタム属性をユーザープロファイル上で配列として定義します。ここで、各オブジェクトは個別の宿泊を表し、`hotel_name`、`check_in_date`、`nights_stayed`などの属性を持ちます。<br><br>オブジェクトの配列にはアイテム数の制限はありませんが、最大サイズは100&nbsp;KBです。更新によって配列がこの制限を超える場合、Brazeは更新を破棄し、属性は変更されません。<br><br>`$add`でアイテムを追加し、`$remove`でアイテムを削除し、`$update`でアイテムを更新します。詳細については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)、[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)、および[オブジェクトの配列の例](#array-of-objects-example)を参照してください。 |
+| オブジェクト配列 | オブジェクトの配列を使用して、各オブジェクトに一連の属性が含まれるオブジェクトのリストを定義します。このタイプを使用して、ホテル宿泊、購入履歴、好みなど、ユーザーの関連データセットを複数保存します。<br><br>たとえば、`hotel_stays`という名前のカスタム属性をユーザープロファイル上で配列として定義します。ここで、各オブジェクトは個別の宿泊を表し、`hotel_name`、`check_in_date`、`nights_stayed`などの属性を持ちます。<br><br>オブジェクトの配列にはアイテム数の制限はありませんが、最大サイズは100&nbsp;KBです。更新によって配列がこの制限を超える場合、Brazeは更新を破棄し、属性は変更されません。<br><br>REST APIリクエストでは、`add`でアイテムを追加し、`remove`でアイテムを削除し、`update`でアイテムを更新します。SDKメソッドでは、SDKに渡すペイロードで`$add`、`$remove`、`$update`を使用します。詳細については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)、[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)、および[オブジェクトの配列の例](#array-of-objects-example)を参照してください。 |
 | ブール値 | `true`または`false` |
 | 日付 | [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式または次のいずれかの形式で保存する必要があります。<br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>「T」は時間指定子であり、プレースホルダーではないことに注意してください。変更または削除しないでください。<br><br>タイムゾーンのない時間属性は、デフォルトでUTCの深夜0時になります（また、ダッシュボードでは、会社のタイムゾーンのUTCの深夜0時に相当する形式で表示されます）。タイムゾーンを指定するには、タイムスタンプにUTCオフセットを追加します（例：ESTの場合は`2024-11-10T18:00:00-05:00`）。タイムゾーンオフセットが欠落しているか、フォーマットが正しくない場合、値はデフォルトでUTCになります。<br><br>時間はダッシュボードで会社のタイムゾーンで表示されます。たとえば、`2024-11-10T18:00:00-05:00`（EST午後6時）は、会社の設定されたタイムゾーンの対応する時間として表示されます。<br><br>将来のタイムスタンプを持つイベントは、デフォルトで現在時刻になります。<br><br>通常のカスタム属性の場合、年が0より小さいか3000より大きい場合、Brazeはユーザープロファイルに文字列として値を格納します。 |
 | フロート | floatカスタム属性は、小数点付きの正または負の数です。たとえば、浮動小数点を使用して、アカウントの残高や製品またはサービスのユーザー評価を保存できます。 |
 | 整数 | 「inc」フィールドと追加する量を持つオブジェクトを割り当てることで、整数カスタム属性をインクリメントできます。<br><br>例: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | 階層化カスタム属性 | 階層化カスタム属性は、属性のセットを別の属性のプロパティとして定義します。カスタム属性オブジェクトを定義するときに、そのオブジェクトに一連の属性を追加します。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)を参照してください。 |
 | 文字列 | 文字列カスタム属性は、テキストデータを格納するために使用される一連の文字です。たとえば、文字列を使用して、姓名、メールアドレス、好みを保存できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタム属性のデータタイプ" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attribute data types" }
 
 {% alert tip %}
 カスタムイベントとカスタム属性のどちらを使用するかについては、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)および[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を参照してください。
@@ -141,6 +141,10 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 {% alert important %}
 次のユーザープロファイルフィールドは大文字と小文字を区別するため、これらのフィールドを小文字で参照するようにしてください。
+{% endalert %}
+
+{% alert tip %}
+カテゴリ別に整理された標準属性のリファレンス（SDK、API、CSV、クラウドデータ取り込みのガイダンスを含む）については、[標準属性]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/)を参照してください。
 {% endalert %}
 
 | ユーザープロファイルフィールド | データタイプ仕様 |
@@ -171,7 +175,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | subscription_groups| `subscription_group_id`および`subscription_state`の文字列を持つオブジェクト配列（`[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`など）。`subscription_state`の利用可能な値は「subscribed」と「unsubscribed」です。|
 | time_zone | （文字列）[IANAタイムゾーンデータベース](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)のタイムゾーン名（例：「America/New_York」または「Eastern Time (US & Canada)」）。有効なタイムゾーン値のみが設定されます。 |
 | twitter | `id`（整数）、`screen_name`（文字列、X（旧Twitter）ハンドル）、`followers_count`（整数）、`friends_count`（整数）、`statuses_count`（整数）のいずれかを含むハッシュ。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeユーザープロファイルフィールド" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields #braze-user-profile-fields" }
 
 このAPIによって明示的に設定された言語値は、Brazeがデバイスから自動的に受信するロケール情報よりも優先されます。
 
@@ -230,7 +234,7 @@ Webプッシュトークンの性質上、Webプッシュを実装する際に�
 |----------------------|------------|
 | **サービスワーカー**  | デフォルトでは、Web SDKは`./service-worker`でサービスワーカーを探します。ただし、`manageServiceWorkerExternally`や`serviceWorkerLocation`などの別のオプションが指定されている場合を除きます。サービスワーカーの設定が適切でないと、ユーザーのプッシュトークンが期限切れになる可能性があります。 |
 | **期限切れトークン**   | ユーザーが60日間Webセッションを開始していない場合、プッシュトークンは期限切れになります。Brazeは期限切れのプッシュトークンを移行できないため、再エンゲージするには[プッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)を送信する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Webトークンに関する考慮事項" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web token considerations" }
 
 ### APIを使用した手動移行 {#manual-migration-through-api}
 
@@ -319,7 +323,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 {% endtab %}
 {% endtabs %}
 
-### Androidのプッシュトークンをインポートする {#importing-android-push-tokens}
+### Androidプッシュトークンのインポート {#importing-android-push-tokens}
 
 {% alert important %}
 以下の考慮事項はAndroidアプリのみに当てはまります。iOSアプリではこれらのステップは必要ありません。iOSプラットフォームはプッシュを表示するためのフレームワークが1つしかなく、Brazeが必要なプッシュトークンと証明書を持っている限り、プッシュ通知は即座にレンダリングされるためです。

@@ -66,11 +66,6 @@ Considerando esse comportamento, a Braze recomenda fortemente que você use um f
 ```
 {% endraw %}
 
-#### Exceções {#exceptions}
-
-- Os timestamps não são normalizados para UTC na primeira etapa de um Canvas se essa etapa for uma etapa de Mensagem.
-- Os timestamps não são normalizados para UTC em nenhuma etapa de Mensagem que use o canal de mensagem no app, independentemente da sua ordem no Canvas.
-
 ## Caso de uso {#use-case}
 
 ![Uma etapa de Jornadas de ação seguida por uma etapa de postergação e uma etapa de Mensagem para usuários que adicionaram um item à lista de desejos, e uma jornada para o restante do público.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}

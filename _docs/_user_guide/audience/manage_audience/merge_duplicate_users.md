@@ -20,6 +20,8 @@ When an anonymous profile is matched to an existing identified profile (for exam
 
 User merges are difficult to undo. If you're planning a complex merge across multiple `external_id` values or large profile migrations, contact your Braze customer success manager for guidance before you rely on `/users/merge`.
 
+Braze handles three user types differently when merging: users marked for deletion, test users, and Global Control Group users. For details, see [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+
 ## Individual merging
 
 If a user search returns duplicate profiles, you can merge each profile individually from the user's profile in the Braze dashboard.
@@ -134,3 +136,9 @@ After the feature is turned on, Braze will automatically assign a timeslot to pe
 {% alert warning %}
 Duplicate user profiles cannot be recovered after merging.
 {% endalert %}
+
+## Related articles
+
+- [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
+- [POST: Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
+- [Delete users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)
