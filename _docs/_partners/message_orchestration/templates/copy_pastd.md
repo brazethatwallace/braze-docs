@@ -53,7 +53,7 @@ Connecting Building Blocks to Braze is a one-time setup. After your credentials 
 2. From the dashboard, select **Set up your Braze connection**. (This pill appears for admins on first login and until completed. You can also access the page from **Team Settings** > **Connect** > **Braze API Keys**.)
 3. Select your Braze cluster from the dropdown. The matching REST endpoint is completed for you.
 4. Paste your Templates API key, your Content Blocks API key, and (optionally) your Catalogs API key into the relevant fields.
-5. Select **Validate and save**. Building Blocks calls Braze to confirm the keys work and the permission scopes are correct. If anything is missing, an inline error tells you which scope is wrong.
+5. Select **Validate and save**. Building Blocks calls Braze to confirm the keys work and the permission scopes are correct. If anything is missing, an inline error shows you which scope is wrong.
 
 ### Step 2: Sync your library to Braze
 
