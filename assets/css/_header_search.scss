@@ -64,14 +64,17 @@ $search_icon: $white;
 			border-radius: 20px;
 			background-color: transparent;
 			button {
-				&:focus {
+				&:focus:not(:focus-visible) {
 					outline: none;
+				}
+				&:focus-visible {
+					outline: 2px solid $braze-purple;
+					outline-offset: 2px;
 				}
 			}
 			&:focus-within {
-				border-color: none;
+				border-color: transparent;
 				box-shadow: none;
-				outline: currentColor none medium;
 			}
 			&:hover {
 				&::placeholder {
@@ -546,14 +549,20 @@ $search_icon: $white;
 
   
   
-  #auto #search-box-autocomplete:focus ,
-  #auto #search-box-autocomplete.has-text{
-	width: 300px; 
+  #auto #search-box-autocomplete:focus,
+  #auto #search-box-autocomplete.has-text {
+	width: 300px;
 	background: white;
-    box-shadow: none;
+	box-shadow: none;
 	color: black;
-	outline: none;
 	border-radius: 11px;
+  }
+  #auto #search-box-autocomplete:focus:not(:focus-visible) {
+	outline: none;
+  }
+  #auto #search-box-autocomplete:focus-visible {
+	outline: 2px solid $braze-purple;
+	outline-offset: 2px;
   }
 
 #auto #search-box-autocomplete::placeholder{

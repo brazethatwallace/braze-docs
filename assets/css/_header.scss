@@ -25,8 +25,12 @@ $header_transition_time: 0.25s;
 
 	#header_toggle {
 		z-index: 550;
-		&:focus {
+		&:focus:not(:focus-visible) {
 			outline: none;
+		}
+		&:focus-visible {
+			outline: 2px solid $braze-purple;
+			outline-offset: 2px;
 		}
 		span {
 		}
@@ -285,9 +289,12 @@ $header_transition_time: 0.25s;
 	.lang-select {
 		background-color: transparent;
 		color: $header-nav;
-		&:focus,
-		&:focus-visible {
+		&:focus:not(:focus-visible) {
 			outline: none;
+		}
+		&:focus-visible {
+			outline: 2px solid $braze-purple;
+			outline-offset: 2px;
 		}
 	}
 	.nav-item-lang-li {

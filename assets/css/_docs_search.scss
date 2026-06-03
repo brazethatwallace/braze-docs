@@ -73,8 +73,12 @@ $search_tag_color: $grey-athens;
 				var(--aa-input-background-color-alpha)
 			);
 			button {
-				&:focus {
+				&:focus:not(:focus-visible) {
 					outline: none;
+				}
+				&:focus-visible {
+					outline: 2px solid $braze-purple;
+					outline-offset: 2px;
 				}
 			}
 			@media (min-width: $window-medium-px) {
@@ -94,9 +98,8 @@ $search_tag_color: $grey-athens;
 			position: relative;
 			width: 100%;
 			&:focus-within {
-				border-color: none;
+				border-color: transparent;
 				box-shadow: none;
-				outline: currentColor none medium;
 			}
 			.aa-InputWrapperPrefix {
 				margin-top: 10px;
@@ -220,14 +223,15 @@ section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
     border-radius: 16px;
 	background: white;
 	color: black;
-	outline: none;
-	outline: none;
 }
 #su_main_search button.su__btn.su__search_btn.su__animate-zoom.su__flex-vcenter.su__position-absolute.su__zindex.su__bg-transparent.su__rtlleft svg path {
     fill: #3e34d3;
 }
+/* Design review: white border on :focus-visible — verify 3:1 contrast against search panel bg */
 input#search-box-autocomplete:focus-visible {
 	border: 2px solid white !important;
+	outline: 2px solid $braze-purple;
+	outline-offset: 2px;
   }
 
  #su_main_search .svg-search {
@@ -294,8 +298,8 @@ input#search-box-autocomplete:focus-visible {
 .su__suggestions-list {
 	padding: 10px 0px !important;
 }
-#su_main_search #search-box-autocomplete:focus {
-	border: 2px solid black !important; 
+#su_main_search #search-box-autocomplete:focus:not(:focus-visible) {
+	border: 2px solid black !important;
   }
   #su_main_search span.su_source_label_font { color: #101828; }
 #su_main_search span[title="Api"] { background: #f7caf5; }
