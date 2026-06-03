@@ -23,7 +23,7 @@ Because these events follow a defined schema, each supported feature can read th
 
 ### How eCommerce events work
 
-eCommerce events are custom events with predefined names and property schemas. You send them using the Braze SDK or the [`/users/track` REST API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), and Braze validates each event against its schema on ingestion. When validation passes, Braze automatically applies post-processing specific to that event type, such as calculating revenue fields and managing cart state on user profiles.
+eCommerce events are custom events with predefined names and property schemas. You send them using the [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) or the [`/users/track` REST API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), and Braze validates each event against its schema on ingestion. When validation passes, Braze automatically applies post-processing specific to that event type, such as calculating revenue fields and managing cart state on user profiles.
 
 eCommerce events work everywhere other custom events do: triggers and filters for performed custom events, custom events reporting, and more. However, their schema validation unlocks additional capabilities, including:
 
@@ -48,6 +48,10 @@ You cannot customize or rename events.
 The six eCommerce recommended events map to stages of the purchase journey. Fire each event at the moment the user completes the corresponding action.
 
 ![Diagram of user journey through all six eCommerce recommended events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, and order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
+
+{% alert tip %}
+The following examples show the REST API payload for each event. To log any of these events client-side, see [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) for platform-specific SDK implementation examples.
+{% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
@@ -149,10 +153,6 @@ The cart creates a carts mapping object on the user profile that powers the {% r
 | `price`         | Float     | Yes      | Variant unit price.                             |
 | `metadata`      | Object    | No       | Flexible key-value pairs (for example, `color` or `size`).   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
-
-#### Implementation examples
-
-For SDK implementation examples (including `logEcommerceEvent` and `logCustomEvent`) and platform-specific code snippets, see [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 {% comment %}
 
