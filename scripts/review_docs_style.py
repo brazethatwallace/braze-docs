@@ -689,29 +689,9 @@ def validate_inline(item: dict) -> dict | None:
             )
             return None
 
-    candidates = [
-        idx + 1
-        for idx in range(window_start, window_end)
-        if lines[idx].rstrip() != suggested_norm
-    ]
-    if not candidates:
-        return None
-
-    if line in candidates:
-        target_line = line
-    else:
-        target_line = min(candidates, key=lambda ln: abs(ln - line))
-        print(
-            f"Adjusted suggestion target on `{path}` from line {line} to line {target_line}"
-        )
-
-    current = lines[target_line - 1]
-    if current.rstrip() == suggested_norm:
-        return None
-
     return {
         "path": path,
-        "line": target_line,
+        "line": line,
         "message": message.strip(),
         "suggested_line": suggested,
     }
