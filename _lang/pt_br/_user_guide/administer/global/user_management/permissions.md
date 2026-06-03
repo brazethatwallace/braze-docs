@@ -355,6 +355,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Ativos da biblioteca de mídia | View Media Library Assets | Visualizar ativos da biblioteca de mídia |
 | Ativos da biblioteca de mídia | Delete Media Library Assets | Excluir permanentemente ativos da biblioteca de mídia |
 | Ativos da biblioteca de mídia | Edit Media Library Assets | Criar e atualizar ativos da biblioteca de mídia |
+| Ativos da biblioteca de mídia | Replace Media Library Assets | Substituir o arquivo de um ativo existente da biblioteca de mídia mantendo a URL e o ID do ativo estáveis |
 | Limites de taxa de envio de mensagens | View Messaging Rate Limits | Visualizar limites de taxa de envio de mensagens no nível do espaço de trabalho |
 | Limites de taxa de envio de mensagens | Edit Messaging Rate Limits | Configurar e editar limites de taxa de envio de mensagens no nível do espaço de trabalho |
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Acessar e usar o BrazeAI Operator para responder perguntas, navegar pela configuração, solucionar problemas e gerar ideias |
