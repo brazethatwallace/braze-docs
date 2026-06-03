@@ -29,7 +29,7 @@ $header_transition_time: 0.25s;
 			outline: none;
 		}
 		&:focus-visible {
-			outline: 2px solid $braze-purple;
+			outline: 2px solid $white;
 			outline-offset: 2px;
 		}
 		span {
@@ -216,6 +216,13 @@ $header_transition_time: 0.25s;
 			.nav-link {
 				color: $header-nav;
 				line-height: 1;
+				&:focus:not(:focus-visible) {
+					outline: none;
+				}
+				&:focus-visible {
+					outline: 2px solid $white;
+					outline-offset: 2px;
+				}
 				@media (min-width: $window-medium-px) {
 					font-size: $header_nav_font_size;
 					padding-top: 0px;
@@ -293,7 +300,7 @@ $header_transition_time: 0.25s;
 			outline: none;
 		}
 		&:focus-visible {
-			outline: 2px solid $braze-purple;
+			outline: 2px solid $white;
 			outline-offset: 2px;
 		}
 	}
@@ -396,6 +403,13 @@ $header_transition_time: 0.25s;
 					font-size: 16px;
 					&:hover {
 						background-color: transparent;
+					}
+					&:focus:not(:focus-visible) {
+						outline: none;
+					}
+					&:focus-visible {
+						outline: 2px solid $white;
+						outline-offset: 2px;
 					}
 					&.active {
 						background-color: transparent;
