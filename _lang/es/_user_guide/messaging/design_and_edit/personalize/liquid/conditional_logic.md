@@ -28,7 +28,7 @@ Por ejemplo, añade lo siguiente en el campo de mensaje primero:
 {% endif %}
 ```
 
-Asegúrate de que se resalte en verde, luego reemplaza la `X` con tu Liquid o Contenido conectado elegido usando el `+` azul en la esquina del campo de mensaje, y el `0` con el valor deseado.
+Asegúrate de que se resalte en verde, luego reemplaza la `X` con tu Liquid o contenido conectado elegido usando el `+` azul en la esquina del campo de mensaje, y el `0` con el valor deseado.
 <br><br>
 Después, añade las variaciones de tu mensaje según las necesites entre los condicionales `else`:
 ```liquid
@@ -67,10 +67,11 @@ La lógica condicional comienza con la etiqueta `if`, que establece la primera c
 
 Tienes la opción de incluir una sentencia `{% else %}` en tu lógica condicional. Si ninguna de las condiciones que estableciste se cumple, la sentencia `{% else %}` especifica el mensaje que debe enviarse. En este ejemplo, el idioma predeterminado es el inglés si el idioma del usuario no es inglés, español o chino.
 
-#### Etiquetas case y when {#case-and-when-tags}
-{: #case-and-when-tags}
+#### `case` y `when` {#case-and-when}
 
 `{% case %}`, `{% when %}` y `{% endcase %}` funcionan como una sentencia switch: estableces una expresión después de `case`, y cada rama `when` se ejecuta cuando esa expresión es igual al valor indicado (Liquid usa igualdad internamente, similar a encadenar `if` y `elsif` con `==`). Puedes listar múltiples valores en una etiqueta `when` separándolos con una coma u `or`. Usa `{% else %}` como alternativa cuando nada coincida, y luego cierra con `{% endcase %}`.
+
+Asegúrate de que el formato de tus valores `when` coincida con el tipo de datos. Para texto (como un código de idioma), usa comillas: `{% when 'es' %}`. Para números, omite las comillas: `{% when 2 %}`.
 
 ```liquid
 {% assign handle = 'cake' %}

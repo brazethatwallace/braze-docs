@@ -14,7 +14,7 @@ Human source of truth: [`docs/contributing/style_guide/`](docs/contributing/styl
 | [`reference-repos`](.github/skills/reference-repos/SKILL.md) | Verifying product, API, or SDK behavior against source repos |
 | [`docs-discrepancies`](.github/skills/docs-discrepancies/SKILL.md) | Page-by-page doc vs platform audits and discrepancy PRs |
 | [`support-analyzer`](.github/skills/support-analyzer/SKILL.md) | Manual triage of support case CSVs (after CI digest / Phase 2) |
-| [`salesforce-migration`](.github/skills/salesforce-migration/SKILL.md) | Jira SF KB migration tickets and `_data/sf_*.xml` / CSV workflows |
+| [`salesforce-migration`](.github/skills/salesforce-migration/SKILL.md) | SF KB backlog (`_data/kb_articles.csv`), Phase 1 triage, Phase 2 PRs under Epic **BD-6308** |
 
 ## How to invoke (Cursor)
 
