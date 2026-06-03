@@ -58,7 +58,7 @@ Connecting Building Blocks to Braze is a one-time setup. After your credentials 
 ### Step 2: Sync your library to Braze
 
 1. After the keys validate, select **Sync now** in the setup modal. (You can also resync any time from **Settings** > **Connect** > **Braze** > **Sync library**.) <br> Building Blocks pushes your stylesheet and blocks into your Braze workspace as Braze Content Blocks. They appear in Braze under names prefixed with `CP_` (for example, `CP_Hero_1`) or `cp_` for stylesheets (for example, `cp_default_style`).
-3. After the sync finishes, you can push individual templates from the builder using **Push to Braze**.
+2. After the sync finishes, you can push individual templates from the builder using **Push to Braze**.
 
 ## Customize Building Blocks
 
