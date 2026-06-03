@@ -143,7 +143,7 @@ Find your uploaded Building Blocks templates in Braze under **Templates & Media*
 
 ## Considerations
 
-- **One Braze instance per Building Blocks teamspace.** Each Building Blocks team connects to a single Braze instance. Customers running multiple workspaces (separate brands, regions, or environments) can add them to the same team, which allows sharing blocks.
+- **One Braze instance per Building Blocks team space.** Each Building Blocks team connects to a single Braze instance. Customers running multiple workspaces (separate brands, regions, or environments) can add them to the same team, which allows sharing blocks.
 - **API key permissions are scoped separately.** Templates keys and Content Blocks keys are kept apart. Validation fails fast if a key is missing a required scope, so you know exactly which permission to add in Braze.
 - **Content Block names are namespaced.** Building Blocks pushes Content Blocks with `CP_` (blocks) and `cp_` (stylesheets) prefixes to avoid collisions with Content Blocks created directly in Braze.
 - **Stylesheet edits update every email.** Stylesheets render as a single Braze Content Block referenced by every template. A change in Building Blocks updates every email in Braze that uses it, including those already scheduled. Test stylesheet changes in a draft template before syncing.
