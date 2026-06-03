@@ -25,7 +25,7 @@ The following are required to use this integration:
 
 | Requirement | Description |
 | ----------- | ----------- |
-| Copy Pastd account | Required to use Building Blocks. Sign up at [copypastd.com](https://copypastd.com). Each team gets a workspace, a stylesheet library, five builder seats, and a block library. |
+| Copy Pastd account | Required to use Building Blocks. Sign up at [copypastd.com](https://copypastd.com). Each customer gets a workspace, a stylesheet library, five builder seats, and a block library. |
 | Braze REST API key for email templates | An API key with `templates.email.create`, `templates.email.update`, and `templates.email.list` permissions.<br><br>Create the key in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST API key for Content Blocks | An API key with `content_blocks.create`, `content_blocks.update`, `content_blocks.info`, and `content_blocks.list` permissions.<br><br>Create the key in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST API key for Catalogs (optional) | An API key with read access to `catalogs.get`, `catalogs.get_item`, and `catalogs.get_selections`. Required only if you plan to bind blocks to Braze Catalogs. |
