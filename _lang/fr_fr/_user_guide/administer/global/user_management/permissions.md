@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## Créer un ensemble d'autorisations {#create-a-permission-set}
 
-Utilisez les ensembles d'autorisations pour regrouper les autorisations liées à des domaines ou des actions spécifiques. Vous pouvez appliquer des ensembles d'autorisations aux utilisateurs du tableau de bord qui ont besoin du même accès dans différents espaces de travail. Pour créer un ensemble d'autorisations, accédez à **Paramètres** > **Paramètres des autorisations**, puis sélectionnez **Créer un ensemble d'autorisations**. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
+Utilisez les ensembles d'autorisations pour regrouper les autorisations liées à des domaines ou des actions spécifiques. Vous pouvez appliquer des ensembles d'autorisations aux utilisateurs du tableau de bord qui ont besoin du même accès dans différents espaces de travail. Pour créer un ensemble d'autorisations, accédez à **Paramètres** > **Paramètres des autorisations**, puis sélectionnez **Créer un ensemble d'autorisations**. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab Exemples d'ensembles d'autorisations %}
@@ -32,7 +32,7 @@ Utilisez les ensembles d'autorisations pour regrouper les autorisations liées �
 
 ## Créer un rôle {#creating-a-role}
 
-Les rôles permettent de structurer davantage en regroupant vos autorisations personnalisées individuelles avec des contrôles d'accès aux espaces de travail. C'est particulièrement utile si vous avez plusieurs marques ou espaces de travail régionaux dans un même tableau de bord. Avec les rôles, vous pouvez ajouter des utilisateurs du tableau de bord aux bons espaces de travail et leur accorder directement les autorisations associées. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
+Les rôles permettent de structurer davantage en regroupant vos autorisations personnalisées individuelles avec des contrôles d'accès aux espaces de travail. C'est particulièrement utile si vous avez plusieurs marques ou espaces de travail régionaux dans un même tableau de bord. Avec les rôles, vous pouvez ajouter des utilisateurs du tableau de bord aux bons espaces de travail et leur accorder directement les autorisations associées. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab Exemples de rôles %}
@@ -213,7 +213,7 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Données utilisateur | Import Users | Importer des utilisateurs dans le tableau de bord |
 | Données utilisateur | Edit User Data | Créer et mettre à jour les données utilisateur |
 | Données utilisateur | Export User Data | Télécharger des utilisateurs depuis le tableau de bord |
-| Enregistrements de suppression d'utilisateurs | View User Merge Records | Consulter une liste des enregistrements de fusion d'utilisateurs |
+| Enregistrements de fusion d'utilisateurs | View User Merge Records | Consulter une liste des enregistrements de fusion d'utilisateurs |
 | Utilisateurs | View User Profiles (PII Redacted) | Consulter les profils utilisateur de manière conforme aux données personnelles |
 | Utilisateurs en double | Merge Duplicate Users | Combiner des utilisateurs en double en un seul utilisateur. Les doublons sont supprimés après la fusion |
 | Utilisateurs | Delete Users | Supprimer définitivement des utilisateurs du tableau de bord individuellement ou en masse |

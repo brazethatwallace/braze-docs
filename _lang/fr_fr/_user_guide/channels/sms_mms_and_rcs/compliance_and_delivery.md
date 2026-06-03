@@ -6,7 +6,7 @@ layout: dev_guide
 guide_top_header: "Conformité et distribution"
 guide_top_text: "Assurez-vous que vos messages SMS, MMS et RCS respectent les réglementations en vigueur et suivent les bonnes pratiques en matière de livrabilité et de confiance des utilisateurs."
 page_type: landing
-description: "Gérez la conformité et la livrabilité pour l'envoi de messages SMS, MMS et RCS, y compris les lois et réglementations, les abonnements et les autorisations géographiques."
+description: "Gérez la conformité et la livrabilité pour l'envoi de messages SMS, MMS et RCS, y compris les lois et réglementations, les abonnements et la fraude par trafic frauduleux (traffic pumping)."
 channel:
   - SMS
   - MMS
@@ -20,10 +20,10 @@ guide_featured_list:
   - name: Bonnes pratiques
     link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices
     image: /assets/img/braze_icons/thumbs-up.svg
-  - name: Collecte des abonnements utilisateurs
+  - name: Collecter les abonnements des utilisateurs
     link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins
     image: /assets/img/braze_icons/message-check-circle.svg
-  - name: Autorisations géographiques
-    link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions
-    image: /assets/img/braze_icons/globe-04.svg
+  - name: Prévention de la fraude par trafic frauduleux SMS, MMS et RCS
+    link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud
+    image: /assets/img/braze_icons/shield-01.svg
 ---
