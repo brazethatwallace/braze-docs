@@ -46,9 +46,9 @@ Si vous souhaitez que le jeton de notification push soit réattribué à l'utili
 1. Demandez à l'utilisateur d'origine de se connecter au profil avec le jeton de notification push manquant.
 2. Déclenchez un nouvel envoi push. Cela transférera le jeton vers le compte si l'utilisateur a toujours les notifications push activées au niveau de l'appareil.
 
-### Pourquoi « Open web URL inside mobile app » ouvre-t-il toujours l'application lorsque je teste un brouillon de campagne ? {#why-does-open-web-url-inside-mobile-app-always-open-the-app-when-im-testing-a-draft-campaign}
+### Pourquoi « Open web URL inside mobile app » ouvre-t-il toujours l'application lorsque je teste un brouillon de Campaign ? {#why-does-open-web-url-inside-mobile-app-always-open-the-app-when-im-testing-a-draft-campaign}
 
-Lorsqu'une campagne est encore au statut **Draft** et que vous envoyez un push de test, appuyer sur la notification ouvre toujours l'application en premier, que l'option **Open web URL inside mobile app** soit sélectionnée ou non. Lorsque la campagne est **Live**, le comportement au clic fonctionne comme configuré.
+Lorsqu'une Campaign est encore au statut **Draft** et que vous envoyez un push de test, appuyer sur la notification ouvre toujours l'application en premier, que l'option **Open web URL inside mobile app** soit sélectionnée ou non. Lorsque la Campaign est **Live**, le comportement au clic fonctionne comme configuré.
 
 Si vous avez sélectionné **Open web URL** sans l'option **Inside App**, le lien s'ouvre directement dans le navigateur par défaut de l'appareil. Si vous avez sélectionné **Open web URL inside mobile app**, le lien s'ouvre dans une vue web in-app.
 
@@ -72,3 +72,17 @@ Ces filtres de segmentation vérifient des conditions différentes :
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 Un utilisateur peut être `Background or Foreground Push Enabled` sans être `Foreground Push Enabled`. Cela se produit lorsque l'utilisateur a désactivé les notifications push visibles dans les paramètres de son appareil, mais que l'application détient toujours un jeton de notification push en arrière-plan. Pour plus de détails, consultez [Utilisateurs push et abonnements]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
+
+### Comment Braze détermine-t-il qu'un message push a été envoyé avec succès ? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
+
+Un message est enregistré comme envoyé dès qu'il est reçu par le fournisseur de service push. Cela ne signifie pas nécessairement que l'utilisateur a reçu ou consulté le message.
+
+Pour iOS, le fournisseur de service push est Apple Push Notification Service (APNs), et pour Android, il s'agit généralement de Firebase Cloud Messaging (FCM). Le fournisseur de service push répond immédiatement avec un succès ou un échec. Un échec peut inclure un rebond ou une nouvelle tentative en cas de défaillance réseau.
+
+Si un message de succès est renvoyé, l'envoi est enregistré par Braze, puis le service push tente de distribuer le message à l'appareil. Si l'appareil ne peut pas être atteint immédiatement, le service effectue de nouvelles tentatives jusqu'à l'expiration de l'option définie dans Braze (**TTL** pour Android, **Expiry** pour iOS). Si le message expire, le service push supprime la notification push, mais celle-ci n'est pas considérée comme un rebond.
+
+- Pour les Campaigns push à livraison par événement, l'envoi du message est enregistré dès que l'utilisateur a effectué l'action qui déclenche la Campaign.
+- Pour les Campaigns planifiées, l'heure d'envoi correspond au moment où le message a été mis en file d'attente et transmis au fournisseur de service push.
+- Pour les deux types de livraison, le message est marqué comme « envoyé » dans Braze et dans le profil utilisateur sous **Campaigns Received**, même si l'utilisateur n'a pas encore vu ou reçu la notification push.
+
+L'indicateur « distributions » pour les notifications push dans le tableau de bord est calculé au chargement de la page comme le nombre d'envois moins les rebonds.

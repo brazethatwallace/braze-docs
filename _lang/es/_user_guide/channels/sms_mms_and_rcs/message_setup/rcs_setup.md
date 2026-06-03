@@ -19,7 +19,7 @@ Configurar RCS es tan sencillo como configurar SMS. Sigue leyendo para aprender 
 
 Para ser elegible para enviar RCS con Braze, tu empresa debe cumplir tres criterios de antemano:
 
-1. Tu contrato actual de Braze debe incluir créditos de mensajes.
+1. Tu contrato actual de Braze debe incluir créditos de mensajes o de acciones.
 2. Debes enviar tus mensajes RCS a uno de los siguientes países compatibles con Braze:
 - Estados Unidos
 - Reino Unido
@@ -32,7 +32,7 @@ Para ser elegible para enviar RCS con Braze, tu empresa debe cumplir tres criter
 - Francia
 - Italia
 - Colombia
-3. Debes adquirir uno o más SKU de RCS a $0 en tu contrato.
+3. Debes adquirir uno o más SKU de RCS en tu contrato.
 
 ## Paso 2: Registrar un remitente verificado de RCS {#step-2-register-an-rcs-verified-sender}
 
@@ -77,8 +77,8 @@ Define tu audiencia usando uno de los siguientes métodos. A continuación, ve a
 | Método | Descripción |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Crear un segmento** | Construye un segmento que incluya a todos los usuarios en un grupo de suscripción o un subconjunto usando filtros de segmentación (como un 5-10% aleatorio). Los segmentos se actualizan antes de cada envío para reflejar tu base de usuarios actual. |
-| **Aplicar filtros de campaña o Canvas** | Refina la audiencia en el paso **Target Audience** de tu campaña o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Aplicar filtros de Campaign o Canvas** | Refina la audiencia en el paso **Target Audience** de tu Campaign o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Paso 3: Configurar un paso de Actualización de usuario {#step-3-configure-a-user-update-step}
 
@@ -103,7 +103,7 @@ Añade un paso de Actualización de usuario a tu Canvas. En el paso, abre el **A
 ```
 {% endraw %}
 
-!["Objeto de Actualización de usuario" que contiene el código JSON mencionado anteriormente.]({% image_buster /assets/img/sms/user_update_object.png %})
+![Objeto de Actualización de usuario que contiene el código JSON mencionado anteriormente.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### Paso 4: Probar el Canvas {#step-4-test-the-canvas}
 

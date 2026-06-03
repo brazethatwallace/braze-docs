@@ -20,7 +20,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 Si quieres usar tus plantillas HTML personalizadas existentes o plantillas creadas por terceros, deben recrearse en el editor de arrastrar y soltar.
 
-¿No tienes claro si tu mensaje dentro de la aplicación debe enviarse usando una campaña o un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)? Las Campaigns son mejores para campañas de mensajería únicas y dirigidas, mientras que los Canvas son mejores para recorridos de usuario de varios pasos. Después de seleccionar dónde construir tu mensaje, veamos los pasos para crear un mensaje dentro de la aplicación con arrastrar y soltar.
+¿No tienes claro si tu mensaje dentro de la aplicación debe enviarse usando una campaña o un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)? Las campañas son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos. Después de seleccionar dónde construir tu mensaje, veamos los pasos para crear un mensaje dentro de la aplicación con arrastrar y soltar.
 
 ## Requisitos previos {#prerequisites}
 
@@ -29,7 +29,7 @@ Si quieres usar tus plantillas HTML personalizadas existentes o plantillas cread
 | Versión mínima del SDK                                                       | Versión recomendada del SDK                                                   |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos del SDK" }
 
 {% details Más información sobre los SDK mínimos %}
 
@@ -45,7 +45,7 @@ A continuación se describen los requisitos mínimos individuales del SDK para e
 | Enlaces de texto*                                                   | Solicitar push primer                                                         |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos del SDK" }
 
 *Si incluyes un enlace en tu mensaje dentro de la aplicación que redirige a una URL y el usuario final no está en las versiones mínimas del SDK especificadas, al seleccionar el enlace se cerrará el mensaje y el usuario no podrá volver al mensaje para enviar el formulario.
 
@@ -180,7 +180,7 @@ Sí, puedes segmentar basándote en los clics de botones para hasta dos botones 
 
 #### ¿Puedo personalizar mi mensaje dentro de la aplicación usando HTML o JavaScript personalizado, o transferir mensajes HTML existentes al editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-No puedes transferir directamente mensajes HTML existentes al editor, pero puedes insertar HTML sin procesar, CSS y JavaScript en un bloque de código personalizado. Puedes usar bloques de código personalizado para incrustar videos de terceros y Liquid avanzado, como Contenido conectado o sentencias condicionales.
+No puedes transferir directamente mensajes HTML existentes al editor, pero puedes insertar HTML sin procesar, CSS y JavaScript en un bloque de código personalizado. Puedes usar bloques de código personalizado para incrustar videos de terceros y Liquid avanzado, como contenido conectado o sentencias condicionales.
 
 #### ¿Cómo puedo crear un mensaje dentro de la aplicación de deslizamiento hacia arriba? {#how-can-i-create-a-slideup-in-app-message}
 
@@ -192,4 +192,4 @@ Sí. Para cualquier mensaje dentro de la aplicación que quieras reutilizar en u
 
 ![Una vista previa de un mensaje dentro de la aplicación para un recorrido de producto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Templates** > **In-App Message Templates**.
+También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Content** > **In-App Message Templates**.

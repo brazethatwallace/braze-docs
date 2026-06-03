@@ -9,7 +9,7 @@ search_tag: Partner
 ---
 # トレジャーデータのコホートインポート {#treasure-data-cohort-import}
 
-> この記事では、トレジャーデータからBrazeにユーザーコホートをインポートする方法について説明します。これにより、ウェアハウスにしか存在しないデータに基づいてターゲットCampaignsを送信できるようになります。
+> この記事では、トレジャーデータからBrazeにユーザーコホートをインポートする方法について説明します。これにより、ウェアハウスにしか存在しないデータに基づいてターゲットキャンペーンを送信できるようになります。
 
 {% alert important %}
 この機能は現在ベータ版です。詳細については、トレジャーデータおよびBrazeの担当者にお問い合わせください。
@@ -20,10 +20,10 @@ search_tag: Partner
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | トレジャーデータのアカウント | このパートナーシップを利用するには、[トレジャーデータ](https://www.treasuredata.com/)のアカウントが必要です。 |
-| Brazeデータインポートキー | これは、Brazeダッシュボードの**パートナー連携** > **テクノロジーパートナー**からキャプチャし、**トレジャーデータ**を選択して取得できます。 |
+| Brazeデータインポートキー | これは、Brazeダッシュボードの**パートナー連携** > **テクノロジーパートナー**から**トレジャーデータ**を選択して取得できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
 | トレジャーデータの静的IPアドレス | トレジャーデータの静的IPアドレスは、この統合のリンクのアクセスポイントおよびソースです。静的IPアドレスを確認するには、トレジャーデータのカスタマーサクセス担当者またはトレジャーデータの技術サポートにご連絡ください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## データインポート統合 {#data-import-integration}
 
@@ -81,7 +81,7 @@ Braze内にすでに存在するユーザーのみが、コホートに追加ま
 列名は`user_ids`である必要があります。そうでないと同期が失敗します。
 {% endalert %}
 
-external IDを使用してコホートを同期するには、次のクエリを実行します。
+external IDを使用してコホートを同期するには、次のクエリを実行します:
 
 ```sql
 SELECT
@@ -111,7 +111,7 @@ FROM
 
 ユーザーエイリアスを使用してコホートを同期するには、次のクエリを実行します:
 
-```sql
+`````````sql
 SELECT
   email
 FROM
@@ -143,7 +143,7 @@ FROM
 
 デバイスIDを使用してコホートを同期するには、次のクエリを実行します:
 
-```sql
+`````````sql
 SELECT
   device_ids
 FROM
@@ -185,7 +185,7 @@ FROM
 {% tab Audience Studio %}
 #### ステップ3.1:アクティベーションを作成する {#step-31-create-an-activation}
 
-新しいSegmentを作成するか、既存のSegmentを選択して、コホートとしてBrazeに同期します。Segment内で、**Create Activation**を選択します。
+新しいセグメントを作成するか、既存のセグメントを選択して、コホートとしてBrazeに同期します。セグメント内で、**Create Activation**を選択します。
 
 #### ステップ3.2:アクティベーションの詳細を入力する {#step-32-fill-out-your-activation-details}
 
@@ -209,7 +209,7 @@ FROM
 
 | アクティベーション出力マッピング |	説明	|
 | ----------- | ----------- |
-| 属性カラム	| Segmentデータベースの列を指定し、プロファイルをBrazeコホートに同期する際の識別子としてマッピングします。	|
+| 属性カラム	| セグメントデータベースの列を指定し、プロファイルをBrazeコホートに同期する際の識別子としてマッピングします。	|
 | String Builder| Braze統合には文字列ビルダーは必要ありません。	|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.3: Set up output mapping" }
 
@@ -229,9 +229,9 @@ FROM
 {% endtab %}
 {% endtabs %}
 
-### ステップ4:トレジャーデータのエクスポートからBraze Segmentを作成する {#step-4-create-a-braze-segment-from-the-treasure-data-export}
+### ステップ4:トレジャーデータのエクスポートからBraze セグメントを作成する {#step-4-create-a-braze-segment-from-the-treasure-data-export}
 
-Brazeで、**Segments**に移動し、新しいSegmentを作成して、フィルターとして**Treasure Data Cohorts**を選択します。ここから、含めるトレジャーデータコホートを選択できます。トレジャーデータのコホートSegmentを作成したら、CampaignまたはCanvasを作成する際にオーディエンスフィルターとして選択できます。
+Brazeで、**セグメント**に移動し、新しいセグメントを作成して、フィルターとして**Treasure Data Cohorts**を選択します。ここから、含めるトレジャーデータコホートを選択できます。トレジャーデータのコホートセグメントを作成したら、キャンペーンまたはキャンバスを作成する際にオーディエンスフィルターとして選択できます。
 
 ![Treasure Data Integrations Hubのカタログ]({% image_buster /assets/img/treasure_data/cohort/cohort4.png %})
 

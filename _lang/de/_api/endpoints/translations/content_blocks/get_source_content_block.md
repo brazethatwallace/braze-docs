@@ -17,8 +17,6 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt für Übersetzungsq
 
 > Verwenden Sie diesen Endpunkt, um alle Standard-Übersetzungsquellen für die Übersetzungs-Tags eines Content-Blocks anzuzeigen. Dies sind die Werte innerhalb von {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Weitere Informationen zu Übersetzungsfunktionen finden Sie unter [Lokalisierungen in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `content_blocks.translations.get`.
@@ -31,9 +29,9 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `content_block_id`| Erforderlich | String | Die ID Ihres Content-Blocks. |
-| `locale_id`| Optional | String | Eine Locale-UUID zum Filtern der Antworten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `content_block_id` | Erforderlich | String | Die ID Ihres Content-Blocks. |
+| `locale_id` | Optional | String | Eine Locale-UUID zum Filtern der Antworten. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universell eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.

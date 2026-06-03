@@ -40,7 +40,7 @@ Beim Crawl-Ansatz liegt die Anpassung direkt in den Händen der Marketer. Zwar i
 
 Marketer legen über das Dashboard den Inhalt, die Zielgruppe und den Zeitpunkt der Nachrichten fest. Die Stil-Optionen sind jedoch begrenzt. Dieser Ansatz eignet sich am besten für Teams mit begrenzten Entwicklerressourcen oder für Teams, die schnell einfache Inhalte teilen möchten.
 
-<table>
+<table aria-label="Anpassungsübersicht">
   <caption>Anpassungsübersicht</caption>
 <thead>
   <tr>
@@ -87,7 +87,7 @@ Während der Implementierung schreiben Entwickler:innen angepassten Code, um das
 
 Marketer behalten weiterhin die Kontrolle über die Zielgruppe, den Inhalt, das On-Click-Verhalten und die Ablaufzeit direkt im Braze-Dashboard.
 
-<table>
+<table aria-label="Anpassungsübersicht">
   <caption>Anpassungsübersicht</caption>
 <thead>
   <tr>
@@ -132,7 +132,7 @@ Beim Run-Ansatz übernehmen Entwickler:innen die Führung und haben die volle Ko
 
 Wenn Sie völlig neue, angepasste Inhalte erstellen – z. B. neue Arten von Content Cards oder In-App-Nachrichten mit maßgeschneiderter UI –, erfolgt das [Analytics-Tracking]({{site.baseurl}}/developer_guide/analytics/) nicht automatisch durch das Braze SDK. Analytics müssen programmatisch verarbeitet werden, damit Marketer weiterhin Zugriff auf Metriken wie Impressionen, Klicks und Ausblendungen im Braze-Dashboard haben. Rufen Sie die Analytics-Methoden des Braze SDK auf, damit das SDK diese Daten an Braze zurückgeben kann. Für jeden Messaging-Kanal gibt es einen Analytics-Artikel mit hilfreichen Informationen.
 
-<table>
+<table aria-label="Anpassungsübersicht">
   <caption>Anpassungsübersicht</caption>
 <thead>
   <tr>

@@ -11,7 +11,7 @@ toc_headers: h2
 
 # Channel performance dashboards
 
-> Channel performance dashboards show aggregate performance metrics for an entire channel, from both campaigns and Canvases. These dashboards are currently available for email and SMS.
+> Channel performance dashboards show aggregate performance metrics for an entire channel, from both campaigns and Canvases. These dashboards are currently available for email, push, and SMS.
 
 ## Dashboards
 
@@ -26,13 +26,11 @@ View your email performance dashboard by going to **Analytics** > **Email Perfor
 
 ![Email performance dashboard displaying email channel engagement from the last thirty days.]({% image_buster /assets/img_archive/email_performance_dashboard_1.png %})
 
-#### How metrics are calculated
-
 ![An example email campaign with 335,630 sends, with an average of 11,187.667 per day.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
-The calculations for different metrics in the email performance dashboard are the same as those on an individual message level (such as campaign analytics). On this dashboard, the metrics are aggregated across all campaigns and Canvases for the date range you've selected. To learn more about these definitions, refer to [Email metrics]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#email-metrics).
+#### How metrics are calculated
 
-Each tile shows the rate metric first, followed by the count metric (with the exception of *Sends*, which displays the count metric followed by the average per day). For example, the unique clicks tile contains the *Unique click rate* from your selected time period and the count of the total number of unique clicks from that time period. Each tile also shows the [comparison to the last period](#comparing-time-periods).
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="email" %}
 
 | Metric | Type | Calculation |
 | --- | --- | ---- |
@@ -101,13 +99,11 @@ For more information on analytics for your emails, check out [Email reporting]({
 
 To use your SMS performance dashboard, go to **Analytics** > **SMS Performance**, and select the date range for the period you want to view data. Your date range can be up to one year in the past.
 
-#### How metrics are calculated
-
 ![An example SMS campaign with 335,630 sends, with an average of 11,187.667 per day.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
-The calculations for different metrics in the SMS performance dashboard are the same as those on an individual message level (such as campaign analytics). On this dashboard, the metrics are aggregated across all campaigns and Canvases for the date range you've selected. To learn more about these definitions, refer to [SMS metrics]({{site.baseurl}}/sms_mms_rcs_reporting/).
+#### How metrics are calculated
 
-Each tile shows the rate metric first, followed by the count metric (with the exception of _Sends_, which displays the count metric followed by the average per day). Each tile also shows the [comparison to the last period](#comparison-to-last-period-change-in-totals-or-rates).
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="SMS" %}
 
 | Metric | Type | Calculation |
 | --- | --- | ---- |
@@ -121,6 +117,31 @@ Each tile shows the rate metric first, followed by the count metric (with the ex
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
 
 {% endtab %}
+{% tab Push performance %}
+
+### Push performance dashboard
+
+The **Push Performance** dashboard gives you a single, channel-level view of push engagement, including sends, bounces, deliveries, and direct, influenced, and total open rates over a configurable time window. Use it to understand the overall health of your push channel without rolling up data from individual campaigns or Canvases.
+
+To open the dashboard, go to **Analytics** > **Dashboard Builder**, then select **Push Channel Dashboard**. Your date range can be up to one year in the past.
+
+![An example Push campaign with over 63 million sends.]({% image_buster /assets/img_archive/push_performance_dashboard.png %})
+
+#### How metrics are calculated
+
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="push" %}
+
+| Metric | Type | Calculation |
+| --- | --- | ---- |
+| Sends | Count | Total number of sends across each day in the date range |
+| Bounce rate | Rate | (Total number of bounces across each day in the date range) / (Total number of sends across each day in the date range) |
+| Delivery rate | Rate | (Total number of deliveries across each day in the date range) / (Total number of sends across each day in the date range) |
+| Direct open rate | Rate | (Total number of direct opens across each day in the date range) / (Total number of deliveries across each day in the date range) |
+| Influenced open rate | Rate | (Total number of influenced opens across each day in the date range) / (Total number of deliveries across each day in the date range) |
+| Total open rate | Rate | (Total number of total opens across each day in the date range) / (Total number of deliveries across each day in the date range)<br><br>Total opens includes both direct opens and influenced opens. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+
+{% endtab %}
 {% endtabs %}
 
 ## Dashboard filters
@@ -128,6 +149,7 @@ Each tile shows the rate metric first, followed by the count metric (with the ex
 You can filter the data on your dashboard using the following filter options:
 
 - **Tag:** Choose one tag. When applied, your dashboard will show metrics for only your selected tag.
+- **Platforms:** (Push performance dashboard only) Choose a push platform, such as **All Push**, **Android**, **iOS**, **Mobile combined**, **Kindle**, or **Web**. When applied, your dashboard displays metrics for only your selected platform.
 - **Canvas:** Choose up to 10 Canvases. When applied, your dashboard will show metrics for only your selected Canvases. If you select a tag filter first, then your options for Canvas filters will only include Canvases that have your selected tag.
 - **Campaign:** Choose up to 10 campaigns. When applied, your dashboard will show metrics for only your selected campaigns. If you select a tag filter first, then your options for campaign filters will only include campaigns that have your selected tag.
 

@@ -25,7 +25,7 @@ L'intégration de Braze et Airbridge vous permet de transmettre toutes les donn�
 | Compte Airbridge | Un compte Airbridge est nécessaire pour profiter de ce partenariat. |
 | Application iOS ou Android | Cette intégration prend en charge les applications iOS et Android. En fonction de votre plateforme, des extraits de code peuvent être nécessaires dans votre application. |
 | SDK Airbridge | Outre le SDK Braze requis, vous devez installer le SDK Airbridge [Android](https://help.airbridge.io/en/developers/android-sdk) ou [iOS](https://help.airbridge.io/en/developers/ios-sdk). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Intégration {#integration}
 
@@ -220,9 +220,9 @@ Ce statut ne change que lorsque Braze reçoit des données sur une installation 
 
 Airbridge peut envoyer quatre types de données d'attribution à Braze, répertoriés dans le tableau ci-dessous. Ces données peuvent être consultées dans le tableau de bord d'Airbridge et sont utilisées pour l'attribution et le filtrage des installations des utilisateurs.
 
-En supposant que vous configurez votre intégration comme suggéré, Braze mappera les données d'installation aux filtres de Segment.
+En supposant que vous configurez votre intégration comme suggéré, Braze mappera les données d'installation aux filtres de segment.
 
-| Champ de données Airbridge | Filtre de Segment Braze | Description |
+| Champ de données Airbridge | Filtre de segment Braze | Description |
 | -------------------- | ---------------------| ---- |
 | `Channel` | Source d'attribution d'installation | Le canal auquel les installations ou les ouvertures de liens profonds sont attribuées |
 | `Campaign` | Campaign d'attribution d'installation | La campagne à laquelle les installations ou les ouvertures de liens profonds sont attribuées |

@@ -29,16 +29,16 @@ BrazeとGRAVTY®の統合は、両プラットフォーム間でロイヤルテ�
 | Brazeアカウント | APIアクセスが有効になっているアクティブなBrazeアカウント。 |
 | Braze REST APIキー | `campaigns.trigger.send`、`canvas.trigger.send`、`users.track`の権限を持つREST APIキー。<br><br> このキーはBrazeダッシュボードの**設定** > **APIキー**から作成します。 |
 | Braze APIエンドポイント | BrazeのRESTエンドポイント（例：`https://rest.fra-01.braze.eu`）。詳細については、[Brazeインスタンスとエンドポイント]({{site.baseurl}}/api/basics/#endpoints)を参照してください。 |
-| CampaignまたはCanvas ID | GRAVTY®からトリガーする**Campaigns**または**Canvas**ワークフローのID。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| キャンペーンまたはキャンバス ID | GRAVTY®からトリガーする**キャンペーン**または**キャンバス**ワークフローのID。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
 この統合は、以下のBraze機能をサポートします。
 
 - **ユーザーデータ同期（`/users/track`）：** メンバーの属性、イベント、購入をBrazeに同期し、セグメンテーションとパーソナライゼーションに活用します。
-- **Campaignトリガー（`/campaigns/trigger/send`）：** Braze Campaignsを使用して、ワンタイムまたはトランザクションメッセージをトリガーします。
-- **Canvasトリガー（`/canvas/trigger/send`）：** Braze **Canvas**を使用して、マルチステップジャーニーとライフサイクルメッセージングを開始します。
+- **キャンペーントリガー（`/campaigns/trigger/send`）：** Braze キャンペーンを使用して、ワンタイムまたはトランザクションメッセージをトリガーします。
+- **キャンバストリガー（`/canvas/trigger/send`）：** Braze **キャンバス**を使用して、マルチステップジャーニーとライフサイクルメッセージングを開始します。
 - **セグメンテーションとパーソナライゼーション：** 同期されたデータからターゲットオーディエンスを構築し、パーソナライズされたコミュニケーションを配信します。
 
 ## 統合 {#integration}
@@ -77,8 +77,8 @@ GRAVTY®で、メンバーのアクティビティが定義した条件（例：
 イベントを設定した後、サブスクライバー設定を完了してデータ同期とコミュニケーショントリガーを有効にします。
 
 1. サブスクライバードロップダウンから、ステップ1で作成した**Brazeサブスクライバー**を選択します。
-2. ユースケースに基づいて、適切な**チャネル**（**Campaign**または**Canvas**）を選択します。データ同期のみのシナリオでは、チャネルを未選択のままにできます。
-3. 該当する場合、**Template Name**フィールドに対応する**Campaign ID**または**Canvas ID**を入力します。
+2. ユースケースに基づいて、適切な**チャネル**（**キャンペーン**または**キャンバス**）を選択します。データ同期のみのシナリオでは、チャネルを未選択のままにできます。
+3. 該当する場合、**Template Name**フィールドに対応する**キャンペーン ID**または**キャンバス ID**を入力します。
 4. 同期やトリガーベースのメッセージングをサポートするようにコミュニケーションタイプを設定します。
 
 GRAVTY®でフィールドマッピングを設定するには：
@@ -109,7 +109,7 @@ GRAVTY®でサンプルイベントをトリガーして、同期、コミュニ
 
 ![設定されたフィールドマッピングに基づいてデータフィールドが入力されたBrazeメンバープロファイル。]({% image_buster /assets/img/lji/braze-member-profile.png %})
 
-* 設定されたCampaignまたはCanvasに基づいてコミュニケーションがトリガーされます。
+* 設定されたキャンペーンまたはキャンバスに基づいてコミュニケーションがトリガーされます。
 
 ![Brazeからトリガーされたメールの例。]({% image_buster /assets/img/lji/braze-email-example.png %})
 

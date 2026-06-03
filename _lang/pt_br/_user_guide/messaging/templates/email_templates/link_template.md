@@ -31,8 +31,8 @@ Digamos que você esteja executando uma Campaign promocional de e-mail para o la
 
 Você pode criar um número ilimitado de modelos de links para atender às suas diversas necessidades. Para criar um modelo de link, faça o seguinte:
 
-1. Acesse **Modelos** > **Modelos de links de e-mail**.
-2. Selecione **Create email link template**.
+1. Acesse **Conteúdo** > **Link de e-mail**.
+2. Selecione **Criar modelo de link de e-mail**.
 3. Dê um nome ao seu modelo de link.
 4. (Opcional) Adicione uma descrição, equipe ou tag para incluir detalhes sobre o modelo de link.
 5. (Opcional) Selecione o botão de alternância para adicionar automaticamente o modelo de link aos links em campanhas de e-mail e Canvas. Isso se aplica ao adicionar um novo link a qualquer e-mail novo ou existente.
@@ -49,22 +49,22 @@ Ao usar modelos de links e [Liquid]({{site.baseurl}}/user_guide/messaging/design
 Para adicionar uma string ou URL antes dos links na sua mensagem de e-mail, faça o seguinte:
 
 1. Crie um novo modelo de link.
-2. Defina a **Template Position** como **Before URL**.
+2. Defina a **Posição do modelo** como **Antes do URL**.
 3. Insira uma string que sempre será prefixada ao seu URL.
 
-A **Template Preview** é fornecida para dar um exemplo de como o modelo de link será inserido antes de um URL.
+A **Pré-visualização do modelo** é fornecida para dar um exemplo de como o modelo de link será inserido antes de um URL.
 
-![Campos de Template Position, Prepend URL e Template Preview para o processo de inserção do modelo de link antes de um URL.]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
+![Campos de posição do modelo, URL prefixado e pré-visualização do modelo para o processo de inserção do modelo de link antes de um URL.]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
 
 ### Sufixar: criar um modelo de link que insere depois de um URL {#append-link-template}
 
 Se você quiser adicionar parâmetros de consulta depois de um URL na sua mensagem de e-mail:
 
 1. Crie um novo modelo de link.
-2. Defina a **Template Position** como **After URL**.
+2. Defina a **Posição do modelo** como **Após o URL**.
 3. Insira os parâmetros de consulta (`value=example`) no final de cada URL. Você pode ter vários parâmetros adicionados ao final de um URL.
 
-![Campos de Template Position, Query Parameters e Template Preview para o processo de inserção do modelo de link depois de um URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
+![Campos de posição do modelo, parâmetros de consulta e pré-visualização do modelo para o processo de inserção do modelo de link depois de um URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
 
 ## Usando modelos de links em campanhas de e-mail {#using-link-templates-in-email-campaigns}
 

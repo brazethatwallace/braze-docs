@@ -23,7 +23,7 @@ LINE 메시지를 만들기 전에 다음을 수행하세요:
 2. 정책, 제한 사항 및 콘텐츠 규칙을 확인하세요.
 3. [LINE 연결을 설정하세요]({{site.baseurl}}/user_guide/channels/line/line_setup/).
 
-Braze에서 LINE 메시지를 발송하면 계정의 메시지 크레딧이 차감됩니다.
+Braze에서 LINE 메시지를 발송하면 계정의 메시지 또는 액션 크레딧이 차감됩니다.
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
@@ -42,7 +42,7 @@ Braze에서 LINE 메시지를 발송하면 계정의 메시지 크레딧이 차�
 5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 추가된 각 배리언트에 대해 서로 다른 플랫폼, 메시지 유형 및 레이아웃을 선택할 수 있습니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
 
 {% alert tip %}
-Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 메시지를 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
+Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 메시지를 작성하세요. 그런 다음 **Add Variant** 드롭다운에서 **Copy from Variant**를 선택할 수 있습니다.
 {% endalert %}
 
 {% endtab %}
@@ -80,9 +80,9 @@ Liquid를 사용할 계획이라면 개인화에 기본값을 포함해야 합�
 
 ## 3단계: 메시지 미리보기 및 테스트 {#step-3-preview-and-test-your-message}
 
-**테스트** 탭으로 전환하여 콘텐츠 테스트 그룹 또는 개별 사용자에게 테스트 LINE 메시지를 보내거나, Braze에서 직접 사용자로서 메시지를 미리 볼 수 있습니다.
+**Test** 탭으로 전환하여 콘텐츠 테스트 그룹 또는 개별 사용자에게 테스트 LINE 메시지를 보내거나, Braze에서 직접 사용자로서 메시지를 미리 볼 수 있습니다.
 
-![테스트 메시지 미리보기가 표시된 '테스트' 탭.]({% image_buster /assets/img/line/test_preview.png %})
+![테스트 메시지 미리보기가 표시된 "Tests" 탭.]({% image_buster /assets/img/line/test_preview.png %})
 
 자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=line)를 참조하세요.
 
@@ -97,7 +97,7 @@ Campaign의 나머지 부분을 구축합니다. LINE 메시지를 작성하기 
 
 LINE 메시지는 스케줄된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 스케줄 및 트리거 옵션에 대한 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
-사용자가 Campaign을 다시 받을 수 있도록 [재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)을 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등 전달 제어를 지정할 수 있습니다. 실행 기반 전달의 경우 Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)도 설정할 수 있습니다.
+사용자가 Campaign을 다시 받을 수 있도록 [재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)을 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등 전달 제어를 지정할 수 있습니다. 실행 기반 전달의 경우 Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)도 설정할 수 있습니다.
 
 ### 타겟 사용자 선택 {#choose-users-to-target}
 

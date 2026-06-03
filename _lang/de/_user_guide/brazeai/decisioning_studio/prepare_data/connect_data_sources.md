@@ -23,7 +23,7 @@ Decisioning Studio unterstützt mehrere Integrationsmuster für die Verbindung v
 | **Braze-Cloud-Datenaufnahme (CDI)** | Anbindung externer Data Warehouses | Mittel |
 | **Cloud Storage (GCS, AWS, Azure)** | Direkte Datenexporte von anderen Plattformen | Mittel |
 | **CEP-Integrationen** | SFMC, Klaviyo-Datenerweiterungen | Mittel |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
 
 ## Kundendatentypen {#customer-data-types}
 
@@ -35,7 +35,7 @@ Die folgenden Kundendaten-Assets helfen Agenten, effektiver zu personalisieren:
 | **Kundenverhalten** | Aktivitäts- und Engagement-Muster | Kontoanmeldungen, Gerätetyp, Kundenservice-Interaktionen, Produktnutzung |
 | **Transaktionsverlauf** | Kauf- und Conversion-Daten | Gekaufte Produkte, Transaktionsbeträge, Zahlungsmethoden, Kaufkanäle |
 | **Marketing-Engagement** | Reaktionen auf Kommunikation | E-Mail-Öffnungen/-Klicks, SMS-Engagement, Web- und Mobilaktivität, Umfrageantworten |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customer data types" }
 
 {% alert tip %}
 Je mehr Informationen Agenten über Ihre Kund:innen haben, desto besser werden sie arbeiten. Erwägen Sie, Daten zu allen Insights einzubeziehen, die für Ihr Unternehmen besonders wichtig wären (möchten Sie beispielsweise sehen, wie die KI Ihre Treuekund:innen anders behandelt? Stellen Sie sicher, dass der Treuestatus in den Kundendaten enthalten ist).
@@ -120,7 +120,7 @@ Wenn dies machbar ist, können wir einen GCS-Bucket bereitstellen, in den Kunden
 {% endtab %}
 {% endtabs %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 - **Beschreibende Spaltennamen:** Kundendaten sollten klare, beschreibende Spaltennamen haben. Idealerweise sollte ein Datenwörterbuch bereitgestellt werden.
 - **Inkrementelle Updates:** Inkrementelle Dateien sind gegenüber täglichen Snapshots des gesamten Kundenverlaufs vorzuziehen.

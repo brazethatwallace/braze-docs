@@ -117,7 +117,7 @@ Os seguintes tipos de arquivo são compatíveis para upload:
 | Imagens SVG           | `.svg`                            |
 | Arquivos JavaScript   | `.js`                             |
 | Arquivos CSS          | `.css`                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
 
 A Braze recomenda fazer upload de ativos para a Biblioteca de mídia por dois motivos:
 
@@ -153,8 +153,8 @@ Você pode rastrear o desempenho dentro da sua mensagem no app com código perso
 | Botão 1    | `brazeBridge.logClick('0')` |
 | Botão 2    | `brazeBridge.logClick('1')` |
 | Clique no corpo | `brazeBridge.logClick()`    |
-| Rastreamento de botão personalizado |`brazeBridge.logClick('your custom name here')`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Rastreamento de botão personalizado | `brazeBridge.logClick('your custom name here')` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking" }
 
 {% alert note %}
 Esse método de rastreamento de botões substitui os métodos anteriores de rastreamento automático de cliques (como `?abButtonId=0`), que foram removidos.
@@ -172,3 +172,4 @@ Esse método de rastreamento de botões substitui os métodos anteriores de rast
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes" }

@@ -35,10 +35,10 @@ Un détaillant utilise les expériences gamifiées d'Odicci pour collecter des a
 
 Avant de commencer, vous aurez besoin des éléments suivants :
 
-| Prérequis             | Description                                                               |
+| Prérequis | Description |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| Un compte Odicci            | Un compte Odicci avec accès à la section **Intégration** est nécessaire pour profiter de ce partenariat.|
-| Clé API REST Braze        | Une clé API REST Braze avec les autorisations `users.track` et `campaigns.list`. |
+| Un compte Odicci | Un compte Odicci avec accès à la section **Integrations** est nécessaire pour profiter de ce partenariat. |
+| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track` et `campaigns.list`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Intégration d'Odicci {#integrating-odicci}
@@ -91,7 +91,7 @@ Vérifiez à nouveau votre clé API Braze et assurez-vous qu'elle dispose des au
 
 ### Les données ne se synchronisent pas {#data-not-syncing}
 
-Vérifiez que les champs de la section **Mappage des champs** sont correctement configurés. Ensuite, assurez-vous que la clé API dispose des autorisations nécessaires pour l'importation des données utilisateur.
+Vérifiez que les champs de la section **Field Mapping** sont correctement configurés. Ensuite, assurez-vous que la clé API dispose des autorisations nécessaires pour l'importation des données utilisateur.
 
 ### La campagne ne se déclenche pas {#campaign-not-triggering}
 

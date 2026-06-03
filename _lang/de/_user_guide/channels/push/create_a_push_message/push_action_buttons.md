@@ -72,6 +72,6 @@ Die folgende Tabelle zeigt, wie viele Zeichen Sie hinzufügen können, bevor Ihr
 | 1 | 46 Zeichen |
 | 2 | 20 Zeichen |
 | 3 | 11 Zeichen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
 {% endtab %}
 {% endtabs %}

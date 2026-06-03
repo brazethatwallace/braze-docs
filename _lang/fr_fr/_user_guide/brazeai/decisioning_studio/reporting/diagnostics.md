@@ -5,7 +5,7 @@ page_order: 3
 description: "Découvrez comment utiliser le rapport de diagnostics pour surveiller la santé des données sortantes et entrantes dans BrazeAI Decisioning Studio."
 ---
 
-# Rapport de diagnostics
+# Rapport de diagnostics {#diagnostics-report}
 
 > Le rapport de diagnostics contient deux types de rapports différents : **Sortant** et **Entrant**.
 
@@ -19,7 +19,7 @@ Le rapport de diagnostics sortant affiche le volume quotidien de recommandations
 
 {% tab inbound %}
 
-Le rapport de diagnostics entrant surveille la santé de vos flux de données vers BrazeAI<sup>TM</sup>. Il suit des détails tels que le nombre de fichiers, leur taille et le volume de lignes pour chaque ressource, vous permettant de confirmer que les données arrivent comme prévu et de résoudre les problèmes avant qu'ils n'affectent vos agents ou campagnes.
+Le rapport de diagnostics entrant surveille la santé de vos flux de données vers BrazeAI<sup>TM</sup>. Il suit des détails tels que le nombre de fichiers, leur taille et le volume de lignes pour chaque ressource, vous permettant de confirmer que les données arrivent comme prévu et de résoudre les problèmes avant qu'ils n'affectent vos agents ou vos campagnes.
 
 Vous pouvez utiliser le menu déroulant pour sélectionner différents indicateurs de graphique, comme la taille moyenne des fichiers ou le nombre de fichiers.
 
@@ -36,7 +36,7 @@ Consultez le tableau suivant pour plus de détails sur chaque indicateur du rapp
 | Max file size (MBs) | La taille du plus gros fichier reçu, en mégaoctets. |
 | Average file size (MBs) | La taille moyenne de tous les fichiers reçus, en mégaoctets. |
 | File row count | Le nombre total de lignes contenues dans les fichiers livrés. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rapport de diagnostics" }
 
 {% endtab %}
 {% endtabs %}

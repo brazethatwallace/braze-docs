@@ -63,7 +63,7 @@ Insere HTML, CSS ou JavaScript personalizados para personalização avançada.
 | Propriedade | Descrição |
 | --- | --- |
 | Código personalizado | Permite adicionar, editar ou excluir HTML, CSS e JavaScript de uma mensagem no app. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Código personalizado" }
 
 ### Captura de telefone {#phone-capture}
 

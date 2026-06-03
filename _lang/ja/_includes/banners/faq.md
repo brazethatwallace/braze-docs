@@ -4,7 +4,7 @@
 
 ## バナーの更新はいつユーザーに表示されますか？ {#when-do-banner-updates-appear-for-users}
 
-バナーはリフレッシュメソッドを呼び出すたびに最新のデータで更新されます&#8212;バナーCampaignを再送信したり更新したりする必要はありません。
+バナーはリフレッシュメソッドを呼び出すたびに最新のデータで更新されます&#8212;バナーキャンペーンを再送信したり更新したりする必要はありません。
 
 ## 1回のセッションで何件のプレースメントをリクエストできますか？ {#how-many-placements-can-i-request-in-a-session}
 
@@ -12,17 +12,17 @@
 
 詳細については、[プレースメントリクエスト]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners#requests{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners#requests{% endif %})を参照してください。
 
-## 同時にアクティブにできるバナーCampaignはいくつですか？ {#how-many-banner-campaigns-can-be-active-simultaneously}
+## 同時にアクティブにできるバナーキャンペーンはいくつですか？ {#how-many-banner-campaigns-can-be-active-simultaneously}
 
-各ワークスペースは最大200のアクティブなバナーCampaignをサポートできます。この制限に達した場合、新しいCampaignを作成する前に、既存のCampaignを[アーカイブまたは無効化]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/about_statuses/#changing-the-status)する必要があります。
+各ワークスペースは最大200のアクティブなバナーキャンペーンをサポートできます。この制限に達した場合、新しいキャンペーンを作成する前に、既存のキャンペーンを[アーカイブまたは無効化]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/about_statuses/#changing-the-status)する必要があります。
 
-## 同じプレースメントを共有するCampaignでは、どのバナーが最初に表示されますか？ {#for-campaigns-sharing-a-placement-which-banner-is-displayed-first}
+## 同じプレースメントを共有するキャンペーンでは、どのバナーが最初に表示されますか？ {#for-campaigns-sharing-a-placement-which-banner-is-displayed-first}
 
-ユーザーが同じプレースメントを共有する複数のバナーCampaignの対象となる場合、最も優先度の高いバナーが表示されます。詳細については、[バナーの優先度]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners/#priority{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners#priority{% endif %})を参照してください。
+ユーザーが同じプレースメントを共有する複数のバナーキャンペーンの対象となる場合、最も優先度の高いバナーが表示されます。詳細については、[バナーの優先度]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners/#priority{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners#priority{% endif %})を参照してください。
 
 ## 既存のContent Cardsフィードでバナーを使用できますか？ {#can-i-use-banners-in-my-existing-content-card-feed}
 
-バナーはContent Cardsとは異なるため、同じフィード内でバナーとContent Cardsを併用することはできません。既存のContent Cardsフィードをバナーに置き換えるには、[アプリやWebサイト内にプレースメントを作成]({{site.baseurl}}/developer_guide/banners/placements/)する必要があります。
+バナーはContent Cardsとは異なるため、同じフィード内でバナーとContent Cardsを併用することはできません。既存のContent CardsフィードをバナーにContent Cardsフィードをバナーに置き換えるには、[アプリやWebサイト内にプレースメントを作成]({{site.baseurl}}/developer_guide/banners/placements/)する必要があります。
 
 ## バナーに動画を含めることはできますか？ {#can-banners-include-video}
 
@@ -33,7 +33,7 @@
 バナーは[アクションベースの配信]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)をサポートしていませんが、セグメンテーションと優先度を活用して、ユーザーの過去のアクションに基づいてターゲティングできます。
 
 例えば、`purchase` イベントを完了したユーザーにのみ特別なバナーを表示するには：
-1. **ターゲティング：** Campaignで、カスタムイベント `purchase` を少なくとも1回実行したユーザーのSegmentをターゲットに設定します。
+1. **ターゲティング：** キャンペーンで、カスタムイベント `purchase` を少なくとも1回実行したユーザーのSegmentをターゲットに設定します。
 2. **優先度：** すべてのユーザー向けの一般的なバナーと、購入者向けの特定のバナーが同じプレースメントをターゲットにしている場合、特定のバナーの優先度を**高**に、一般的なバナーを**中**または**低**に設定します。
 
 ユーザーが新しいセッションを開始するか、アクション実行後にバナーをリフレッシュすると、Brazeは適格性を評価します。「購入」Segmentに一致する場合、優先度の高いバナーが表示されます。
@@ -41,11 +41,11 @@
 
 ## ユーザーはバナーを閉じることができますか？ {#can-users-dismiss-a-banner}
 
-{% alert important %}
-ユーザーが手動でバナーを閉じる機能は、早期アクセス段階です。詳細については、[閉じる動作の設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)を参照してください。早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
+はい。バナーコンポーザーで閉じる動作を有効にすることで、ユーザーが手動でバナーを閉じることを許可できます。閉じる動作の有効化と閉じるボタンのカスタマイズについては、[閉じる動作の設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)を参照してください。
 
-ユーザーが手動でバナーを閉じることができるのは、閉じる動作が有効で、ワークスペースが早期アクセスに参加している場合のみです。閉じる動作が有効でない場合やワークスペースで利用できない場合は、ユーザーSegmentの適格性を管理することでバナーの表示をコントロールできます。ユーザーがバナーCampaignのターゲティング条件を満たさなくなると、次のセッションではそのバナーが表示されなくなります。
+ユーザーが手動でバナーを閉じることができるのは、閉じる動作が有効になっている場合のみです。閉じる動作が有効でない場合は、ユーザーSegmentの適格性を管理することでバナーの表示をコントロールできます。ユーザーがバナーキャンペーンのターゲティング条件を満たさなくなると、次のセッションではそのバナーが表示されなくなります。
+
+ユーザーがバナーを閉じると、デフォルトではそのキャンペーンの対象外となります。閉じたユーザーに再度バナーを表示するには、キャンペーンの**配信コントロール**ステップで[再適格性を設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility)してください。Canvasのバナーステップでは、再適格性の制御にCanvasの再エントリ設定が使用されます。
 
 {% alert important %}
 [バナーの閉じる操作]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals)は現在、早期アクセス段階です。早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
@@ -53,17 +53,17 @@
 
 例えば、ユーザーが購入するまでプロモーションバナーを表示する場合、`purchase_completed` などのイベントを記録することで、そのユーザーをターゲットSegmentから除外し、その後のセッションでバナーを非表示にできます。
 
-## Braze APIを使ってバナーCampaignの分析データをエクスポートできますか？ {#can-i-export-banners-campaign-analytics-using-the-braze-api}
+## Braze APIを使ってバナーキャンペーンの分析データをエクスポートできますか？ {#can-i-export-banners-campaign-analytics-using-the-braze-api}
 
-はい。[`/campaigns/data_series` エンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/)を使用して、バナーCampaignの表示回数、クリック数、コンバージョン数に関するデータを取得できます。
+はい。[`/campaigns/data_series` エンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/)を使用して、バナーキャンペーンの表示回数、クリック数、コンバージョン数に関するデータを取得できます。
 
 ## ユーザーはいつセグメンテーションされますか？ {#when-are-users-segmented}
 
-ユーザーはセッションの開始時にセグメンテーションされます。Campaignのターゲットセグメントがカスタム属性、カスタムイベント、その他のターゲティング属性に依存する場合、それらはセッション開始時点でユーザーに存在している必要があります。
+ユーザーはセッションの開始時にセグメンテーションされます。キャンペーンのターゲットSegmentsがカスタム属性、カスタムイベント、その他のターゲティング属性に依存する場合、それらはセッション開始時点でユーザーに存在している必要があります。
 
 ## レイテンシーを最小限に抑えるために、バナーをどのように構成すればよいですか？ {#how-can-i-compose-banners-to-ensure-the-lowest-latency}
 
-バナーのメッセージがシンプルであるほど、レンダリングが速くなります。ユースケースに対して想定されるレイテンシーでバナーCampaignをテストすることをお勧めします。例えば、`catalog_items` などのLiquid属性は必ずテストしてください。
+バナーのメッセージがシンプルであるほど、レンダリングが速くなります。ユースケースに対して想定されるレイテンシーでバナーキャンペーンをテストすることをお勧めします。例えば、`catalog_items` などのLiquid属性は必ずテストしてください。
 
 ## すべてのLiquidタグはサポートされていますか？ {#are-all-liquid-tags-supported}
 

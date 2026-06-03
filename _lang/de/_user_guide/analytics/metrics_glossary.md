@@ -68,7 +68,7 @@ Email, Web Push, iOS Push
 |-------|-----------------------|
 | E-Mail | Ein E-Mail-Bounce für Kund:innen, die SendGrid verwenden, besteht aus Hard Bounces, Spam (`spam_report_drops`) und E-Mails, die an ungültige Adressen gesendet wurden (`invalid_emails`).<br><br>Für E-Mails ist *Bounce %* oder *Bounce-Rate* der Prozentsatz der Nachrichten, die nicht erfolgreich gesendet wurden oder als „zurückgesendet“ oder „nicht erhalten“ von genutzten Versanddiensten gekennzeichnet wurden oder von den vorgesehenen E-Mail-Empfänger:innen nicht empfangen wurden. |
 | Push | Diese Nutzer:innen wurden automatisch von allen zukünftigen Push-Benachrichtigungen abgemeldet. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bounces" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -249,7 +249,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 | E-Mail, Push, Webhooks | Conversions werden nach dem ersten Versand getrackt. |
 | Content Cards | Conversions werden gezählt, wenn die Nutzer:innen eine Content Card zum ersten Mal ansehen. |
 | In-App-Nachrichten | Eine Conversion wird gezählt, wenn die Nutzer:innen die In-App-Nachrichten-Campaign erhalten und angesehen haben und anschließend das spezifische Konversions-Event innerhalb des definierten Konversionsfensters ausführen, unabhängig davon, ob sie auf die Nachricht geklickt haben oder nicht.<br><br>Conversions werden der zuletzt empfangenen Nachricht zugeordnet. Wenn die erneute Berechtigung aktiviert ist, wird die Conversion der zuletzt empfangenen In-App-Nachricht zugewiesen, sofern sie innerhalb des definierten Konversionsfensters erfolgt. Wenn der In-App-Nachricht jedoch bereits eine Conversion zugewiesen wurde, kann die neue Conversion nicht für diese spezifische Nachricht protokolliert werden. Das bedeutet, dass jede In-App-Nachrichten-Zustellung nur mit einer Conversion verknüpft ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversions (B, C, D)" }
 
 {% endapi %}
 
@@ -294,7 +294,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
 | In-App-Nachrichten | Die Metrik der täglichen <i>eindeutigen Impressionen</i> wird zur Berechnung der <i>Konversionsrate</i> für In-App-Nachrichten verwendet.<br><br><i>Eindeutige Impressionen</i> für In-App-Nachrichten können nur einmal pro Kalendertag in der Zeitzone Ihres Workspace gezählt werden. Die Anzahl der Male, die Nutzer:innen eine gewünschte Aktion ausführen (eine „Conversion“), kann innerhalb desselben Kalendertags steigen. Während Conversions mehr als einmal pro Tag stattfinden können, können <i>eindeutige Impressionen</i> das nicht. Wenn Nutzer:innen daher eine Conversion innerhalb eines Tages mehrfach ausführen, kann die <i>Konversionsrate</i> entsprechend steigen, aber <i>eindeutige Impressionen</i> werden für diesen Kalendertag nur einmal gezählt. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-App-Nachrichten-Reporting</a>. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion Rate" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -333,7 +333,7 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
 | E-Mail | Bezieht sich auf die Gesamtzahl der Nachrichten (Sends), die erfolgreich an E-Mail-fähige Empfänger:innen gesendet und von diesen empfangen wurden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deliveries" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -647,7 +647,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 |-------|-----------------------|
 | E-Mail, Push, Webhooks | Nach dem ersten Versand. |
 | Content Cards, In-App-Nachrichten | Wenn die Nutzer:innen die Content Card oder Nachricht zum ersten Mal ansehen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) or Primary Conversion Event" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -705,7 +705,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 | SMS/MMS | „Zugestellt“, nachdem der SMS-Anbieter eine Bestätigung vom vorgelagerten Carrier und dem Zielgerät erhalten hat. |
 | In-App-Nachricht | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Aktion. |
 | WhatsApp | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Aktion. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Received" }
 
 {% endapi %}
 
@@ -901,7 +901,7 @@ Email, Content Cards, SMS/MMS, LINE
 |-------|-------|
 | LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. AMP-E-Mails umfassen Klicks, die sowohl in HTML- als auch in Nur-Text-Versionen erfasst werden. Diese Zahl kann durch Anti-Spam-Tools künstlich erhöht sein. |
 | Banner | Die Gesamtzahl (und der Prozentsatz) der Nutzer:innen, die innerhalb der zugestellten Nachricht geklickt haben, unabhängig davon, ob dieselben Nutzer:innen mehrfach klicken. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Clicks" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -952,7 +952,7 @@ In-App Message, Content Cards
 |-------|-----------------------|
 | Content Cards | Die Gesamtzahl der für eine bestimmte Content Card protokollierten Impressionen. Diese kann für dieselben Nutzer:innen mehrfach erhöht werden. |
 | In-App-Nachrichten | Wenn es mehrere Geräte gibt und die erneute Berechtigung deaktiviert ist, sollten die Nutzer:innen die In-App-Nachricht nur einmal sehen. Selbst wenn die Nutzer:innen mehrere Geräte verwenden, sehen sie die Nachricht nur auf dem ersten Gerät, das angesprochen wird. Dies setzt voraus, dass das Profil konsolidierte Geräte hat und die Nutzer:innen eine Nutzer-ID haben, mit der sie geräteübergreifend angemeldet sind. Wenn die erneute Berechtigung aktiviert ist, wird eine Impression jedes Mal protokolliert, wenn die Nutzer:innen die In-App-Nachricht sehen. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-App-Nachrichten-Reporting</a>. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Impressions" }
 
 <span class="calculation-line">Berechnung: Anzahl</span>
 
@@ -972,7 +972,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 |-------|-----------------------|
 | LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. |
 | AMP-E-Mails | Die Gesamtöffnungen für die HTML- und Nur-Text-Versionen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Opens" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1018,7 +1018,7 @@ Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks.
 |-------|-----------------------|
 | E-Mail | Wird über einen Zeitraum von sieben Tagen getrackt. |
 | LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Clicks" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1061,7 +1061,7 @@ In-App Message, Content Cards
 |-------|-----------------------|
 | In-App-Nachrichten | Eindeutige Impressionen können an einem neuen Kalendertag in der Zeitzone Ihres Workspace erneut erhöht werden, wenn die erneute Berechtigung aktiviert ist und die Nutzer:innen die Aktion ausführen. Wenn die erneute Berechtigung aktiviert ist, gilt <i>Eindeutige Impressionen</i> = <i>Eindeutige Empfänger:innen</i>. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-App-Nachrichten-Reporting</a>. |
 | Content Cards | Die Zählung sollte sich nicht erhöhen, wenn Nutzer:innen eine Card ein zweites Mal ansehen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Impressions" }
 
 <span class="calculation-line">Berechnung: Anzahl</span>
 
@@ -1081,7 +1081,7 @@ Email, LINE
 |-------|-----------------------|
 | E-Mail | Wird über einen Zeitraum von 7 Tagen getrackt. |
 | LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Opens" }
 
 {::nomarkdown}
 <span class="calculation-line">

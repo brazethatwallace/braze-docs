@@ -63,7 +63,7 @@
 | プロパティ | 説明 |
 | --- | --- |
 | カスタムコード | アプリ内メッセージのHTML、CSS、JavaScriptを追加、編集、削除できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### 電話キャプチャ {#phone-capture}
 

@@ -46,7 +46,7 @@ As mensagens no app em tela cheia preenchem toda a altura do dispositivo e corta
 |--- | --- | --- |
 | Imagem e texto | Proporção 6:5<br> Alta resolução 1200 x 1000&nbsp;px<br> Mínimo 600 x 500&nbsp;px | O corte pode ocorrer em todos os lados, mas a imagem sempre preencherá os 50% superiores da viewport |
 | Somente imagem | Proporção 3:5<br> Alta resolução 1200 x 2000&nbsp;px<br> Mínimo 600 x 1000&nbsp;px | O corte pode ocorrer nas bordas esquerda e direita em dispositivos mais altos |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Portrait" }
 
 ### Paisagem {#landscape}
 
@@ -54,7 +54,7 @@ As mensagens no app em tela cheia preenchem toda a altura do dispositivo e corta
 |--- | --- | --- |
 | Imagem e texto | Proporção 10:3<br> Alta resolução 2000 x 600px<br> Mínimo 1000 x 300&nbsp;px | O corte pode ocorrer em todos os lados, mas a imagem sempre preencherá os 50% superiores da viewport |
 | Somente imagem | Proporção 5:3<br> Alta resolução 2000 x 1200px<br> Mínimo 1000 x 600&nbsp;px | O corte pode ocorrer nas bordas esquerda e direita em dispositivos mais altos |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Landscape" }
 
 ### Zona segura da imagem {#image-safe-zone}
 

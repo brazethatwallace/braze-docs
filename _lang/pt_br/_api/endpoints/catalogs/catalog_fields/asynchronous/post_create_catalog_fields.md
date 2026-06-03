@@ -30,14 +30,14 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | Parâmetro      | Obrigatória | Tipo de dados | Descrição          |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | Obrigatória | String    | Nome do catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição                                                                                                  |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | `fields`  | Obrigatória | Vetor     | Um vetor que contém objetos de campo. Os objetos de campos devem conter o nome e o tipo dos novos campos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -62,10 +62,18 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     {
       "name": "Created_At",
       "type": "time"
+    },
+    {
+      "name": "Location",
+      "type": "geo"
     }
   ]
 }'
 ```
+
+{% alert note %}
+Você deve fornecer os valores do campo de geolocalização como um vetor `[longitude, latitude]` — por exemplo, `[-73.988103, 40.779109]`. A latitude deve estar entre -90 e 90; a longitude deve estar entre -180 e 180.
+{% endalert %}
 
 ## Resposta {#response}
 
@@ -114,6 +122,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `company-size-limit-already-reached` | O limite de tamanho do armazenamento do catálogo foi atingido.                                              |
 | `request-includes-too-many-fields`   | Cada solicitação pode suportar até 50 novos campos.                                                         |
 | `catalog-exceeds-fields-limit`       | O catálogo não pode ter mais de 500 campos.                                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

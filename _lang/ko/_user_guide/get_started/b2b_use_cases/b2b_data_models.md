@@ -32,7 +32,7 @@ Braze 내에서 이 네 가지 오브젝트는 고객 프로필과 비즈니스 
 | --- | --- | --- |
 | 고객 프로필 | 영업 고객 관계 관리 시스템의 리드와 연락처에 직접 매핑됩니다. 리드는 Braze에서 캡처되므로 영업 고객 관계 관리 시스템에서 자동으로 리드로 생성됩니다. 연락처로 전환되면 연락처 ID와 세부 정보가 다시 Braze에 동기화됩니다. | 리드<br> 연락처 |
 | 비즈니스 오브젝트 | 영업 고객 관계 관리 시스템의 모든 비사용자 오브젝트에 매핑됩니다. 여기에는 계정 오브젝트 및 기회 오브젝트와 같은 영업 관련 오브젝트가 포함됩니다. | 계정<br> 기회 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
 
 ## 1단계: Braze에서 비즈니스 오브젝트 만들기 {#step-1-create-your-business-objects-in-braze}
 
@@ -64,7 +64,7 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
 
 이 사용 사례에서는 Salesforce가 예시 CRM 시스템입니다. CRM의 오브젝트에 포함된 모든 필드를 매핑할 수 있습니다.
 
-<table border="1">
+<table aria-label="Map over your CRM fields" border="1">
   <caption>CRM 필드 매핑</caption>
   <tr>
     <th><b>Braze 오브젝트</b></th>
@@ -104,7 +104,7 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
 
 이 사용 사례에서는 Salesforce가 예시 CRM 시스템입니다. CRM의 오브젝트에 포함된 모든 필드를 매핑할 수 있습니다.
 
-<table border="1">
+<table aria-label="Example table of mapped account fields" border="1">
   <caption>매핑된 계정 필드의 예시 테이블</caption>
   <tr>
     <th><b>Braze 오브젝트</b></th>

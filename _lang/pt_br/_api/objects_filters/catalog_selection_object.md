@@ -54,7 +54,7 @@ O objeto `selection` permite que você especifique quais itens do seu catálogo 
 | `results_limit` | Opcional | Inteiro | O número máximo de resultados a serem retornados. Deve ser um número entre 1 e 50. |
 | `sort_field` | Opcional | String | O campo para ordenar os resultados. Deve ser emparelhado com `sort_order`. Se `sort_field` e `sort_order` não estiverem presentes, os resultados são retornados em ordem aleatória. |
 | `sort_order` | Opcional | String | A ordem para classificar os resultados. Os valores aceitos são `"asc"` (crescente) ou `"desc"` (decrescente). Deve ser emparelhado com `sort_field`. Se `sort_field` e `sort_order` não estiverem presentes, os resultados são retornados em ordem aleatória. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object details" }
 
 ### Objeto de filtro {#filter-object}
 
@@ -65,7 +65,7 @@ Cada objeto de filtro no array `filters` contém os campos descritos na tabela a
 | `field`    | Obrigatória | String                                      | O campo do catálogo a ser filtrado. |
 | `operator` | Obrigatória | String                                      | O operador de comparação a ser usado para filtragem. Exemplos incluem `"includes value"` e `"does not include value"`. |
 | `value`    | Obrigatória | Varia (string, número, booleano, tempo)     | O valor a ser comparado. Deve corresponder ao tipo de dado do campo do catálogo subjacente (por exemplo, string, número, booleano, tempo). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filter object" }
 
 {% alert note %}
 A API suporta um máximo de quatro filtros por solicitação de seleção. No dashboard da Braze, você pode adicionar até 10 filtros por seleção. Os filtros são aplicados na ordem em que aparecem no array.

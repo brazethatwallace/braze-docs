@@ -111,14 +111,14 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 | 데이터 유형 | 참고 |
 | --- | --- |
 | 배열 | 커스텀 속성 배열이 지원됩니다. 요소를 추가하면 배열의 끝에 추가됩니다. 요소가 이미 존재하는 경우 현재 위치에서 끝으로 이동합니다.<br><br>고유한 값만 저장됩니다. 예를 들어, `['hotdog','hotdog','hotdog','pizza']`를 가져오면 `['hotdog', 'pizza']`가 됩니다.<br><br>배열을 직접 설정하거나(예: `"my_array_custom_attribute":[ "Value1", "Value2" ]`), 기존 배열에 `"my_array_custom_attribute" : { "add" : ["Value3"] }`로 추가하거나, `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`로 값을 제거할 수 있습니다.<br><br>배열의 기본값 및 최대 요소 개수는 500개입니다. Braze 대시보드의 **데이터 설정** > **커스텀 속성**에서 배열의 최대 개수를 업데이트할 수 있습니다. 자세한 내용은 [배열]({{site.baseurl}}/developer_guide/analytics/#arrays)을 참조하세요. |
-| 오브젝트 배열 | 오브젝트 배열을 사용하여 각 오브젝트가 속성 집합을 포함하는 오브젝트 목록을 정의합니다. 이 유형을 사용하면 호텔 숙박이나 선호도와 같은 사용자 관련 데이터를 여러 세트로 저장할 수 있습니다. <br><br>예를 들어, 고객 프로필에 `hotel_stays`라는 커스텀 속성을 배열로 정의하고, 각 오브젝트가 별도의 숙박을 나타내며 `hotel_name`, `check_in_date`, `nights_stayed`와 같은 속성을 포함하도록 할 수 있습니다.<br><br>오브젝트 배열은 항목 수에 제한이 없지만 최대 크기는 100&nbsp;KB입니다. 업데이트로 인해 배열이 이 제한을 초과하면 Braze는 업데이트를 삭제하고 속성은 변경되지 않습니다.<br><br>`$add`로 항목을 추가하고, `$remove`로 항목을 제거하고, `$update`로 항목을 업데이트합니다. 자세한 내용은 [오브젝트 배열 API 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [오브젝트 배열 SDK 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) 및 [오브젝트 배열 예제](#array-of-objects-example)를 참조하세요. |
+| 오브젝트 배열 | 오브젝트 배열을 사용하여 각 오브젝트가 속성 집합을 포함하는 오브젝트 목록을 정의합니다. 이 유형을 사용하면 호텔 숙박, 구매 내역 또는 선호도와 같은 사용자 관련 데이터를 여러 세트로 저장할 수 있습니다. <br><br>예를 들어, 고객 프로필에 `hotel_stays`라는 커스텀 속성을 배열로 정의하고, 각 오브젝트가 별도의 숙박을 나타내며 `hotel_name`, `check_in_date`, `nights_stayed`와 같은 속성을 포함하도록 할 수 있습니다.<br><br>오브젝트 배열은 항목 수에 제한이 없지만 최대 크기는 100&nbsp;KB입니다. 업데이트로 인해 배열이 이 제한을 초과하면 Braze는 업데이트를 삭제하고 속성은 변경되지 않습니다.<br><br>REST API 요청의 경우, `add`로 항목을 추가하고, `remove`로 항목을 제거하고, `update`로 항목을 업데이트합니다. SDK 메서드의 경우, SDK에 전달되는 페이로드에서 `$add`, `$remove`, `$update`를 사용합니다. 자세한 내용은 [오브젝트 배열 API 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [오브젝트 배열 SDK 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) 및 [오브젝트 배열 예제](#array-of-objects-example)를 참조하세요. |
 | 부울 | `true` 또는 `false` |
 | 날짜 | [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) 형식 또는 다음 형식 중 하나로 저장해야 합니다: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>"T"는 입력 안내가 아닌 시간 지정자이므로 변경하거나 제거해서는 안 됩니다. <br><br>시간대가 없는 시간 속성은 기본적으로 자정 UTC로 설정되며(대시보드에서는 회사의 시간대에서 자정 UTC에 해당하는 형식으로 표시됩니다). 시간대를 지정하려면 타임스탬프에 UTC 오프셋을 추가합니다(예: EST의 경우 `2024-11-10T18:00:00-05:00`). 시간대 오프셋이 누락되었거나 형식이 잘못된 경우 값은 기본적으로 UTC로 설정됩니다. <br><br>시간은 대시보드에서 회사의 시간대로 표시됩니다. 예를 들어, `2024-11-10T18:00:00-05:00`(오후 6:00 EST)은 회사에 설정된 시간대의 해당 시간으로 표시됩니다. <br><br>미래의 타임스탬프가 있는 이벤트는 현재 시간으로 기본 설정됩니다. <br><br>일반 커스텀 속성의 경우, 연도가 0보다 작거나 3000보다 크면 Braze는 고객 프로필에 값을 문자열로 저장합니다. |
 | 플로트 | 플로트 커스텀 속성은 소수점이 있는 양수 또는 음수입니다. 예를 들어 플로트를 사용하여 계정 잔액이나 제품 또는 서비스에 대한 사용자 평점을 저장할 수 있습니다. |
 | 정수 | 정수 커스텀 속성은 "inc" 필드와 추가할 양을 가진 오브젝트를 할당하여 증가시킬 수 있습니다. <br><br>예시: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | 중첩 커스텀 속성 | 중첩 커스텀 속성은 속성 집합을 다른 속성의 등록정보로 정의합니다. 커스텀 속성 오브젝트를 정의할 때 해당 오브젝트에 속성 집합을 추가합니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)을 참조하세요. |
 | 문자열 | 문자열 커스텀 속성은 텍스트 데이터를 저장하는 데 사용되는 문자 시퀀스입니다. 예를 들어 문자열을 사용하여 이름과 성, 이메일 주소 또는 환경설정을 저장할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attribute data types" }
 
 {% alert tip %}
 커스텀 이벤트와 커스텀 속성을 언제 사용해야 하는지에 대한 지침은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) 및 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 참조하세요.
@@ -141,6 +141,10 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 
 {% alert important %}
 다음 고객 프로필 필드는 대소문자를 구분하므로 반드시 소문자로 참조하세요.
+{% endalert %}
+
+{% alert tip %}
+카테고리별로 정리되어 있으며 SDK, API, CSV 및 클라우드 데이터 수집에 대한 안내가 포함된 고객 대상 표준 속성 참조는 [표준 속성]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/)을 참조하세요.
 {% endalert %}
 
 | 고객 프로필 필드 | 데이터 유형 사양 |
@@ -171,7 +175,7 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 | subscription_groups| `subscription_group_id` 및 `subscription_state` 문자열이 포함된 오브젝트 배열(예: `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`). `subscription_state`에 사용할 수 있는 값은 "subscribed" 및 "unsubscribed"입니다.|
 | time_zone | (문자열) [IANA 시간대 데이터베이스](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)의 시간대 이름(예: "America/New_York" 또는 "Eastern Time (US & Canada)"). 유효한 시간대 값만 설정됩니다. |
 | twitter | `id`(정수), `screen_name`(문자열, X(구 Twitter) 핸들), `followers_count`(정수), `friends_count`(정수), `statuses_count`(정수) 중 하나를 포함하는 해시입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields" }
 
 이 API를 통해 명시적으로 설정된 언어 값은 Braze가 기기에서 자동으로 수신하는 로케일 정보보다 우선합니다.
 
@@ -230,7 +234,7 @@ Braze를 통합하기 전에 자체적으로 또는 다른 제공업체를 통�
 |----------------------|------------|
 | **서비스 워커**  | 기본적으로 웹 SDK는 `manageServiceWorkerExternally` 또는 `serviceWorkerLocation`과 같은 다른 옵션이 지정되지 않는 한 `./service-worker`에서 서비스 워커를 찾습니다. 서비스 워커가 제대로 설정되어 있지 않으면 사용자의 푸시 토큰이 만료될 수 있습니다. |
 | **만료된 토큰**   | 사용자가 60일 이내에 웹 세션을 시작하지 않으면 푸시 토큰이 만료됩니다. Braze는 만료된 푸시 토큰을 마이그레이션할 수 없으므로, 사용자를 재참여시키기 위해 [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)를 보내야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web token considerations" }
 
 ### API를 통한 수동 마이그레이션 {#manual-migration-through-api}
 

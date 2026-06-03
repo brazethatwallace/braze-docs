@@ -16,12 +16,18 @@ Dado que los eventos de comercio electrónico siguen un esquema predecible, Braz
 Los eventos de comercio electrónico de Braze y sus propiedades de eventos segmentables no cuentan como [puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
 {% endalert %}
 
-## Pestaña Transacciones {#transactions-tab}
+<a id="transactions-tab" aria-hidden="true"></a>
 
-La pestaña **Transacciones** en cada perfil de usuario proporciona una vista en vivo de la actividad comercial de un usuario al mostrar tres métricas calculadas que se actualizan en tiempo real a medida que se procesan los eventos. El modelo a nivel de pedido de estos cálculos separa claramente los precios de los productos del valor total del pedido.
+## Pestaña Commerce {#commerce-tab}
+
+La pestaña **Commerce** en cada perfil de usuario combina dos módulos: **Order activity** (métricas calculadas de ingresos y pedidos) y **Active cart** (el carrito más reciente de los eventos `ecommerce.cart_updated`).
+
+### Actividad de pedidos {#order-activity}
+
+El módulo **Order activity** muestra tres métricas calculadas que se actualizan en tiempo real a medida que se procesan los eventos. El modelo a nivel de pedido de estos cálculos separa claramente los precios de los productos del valor total del pedido.
 
 {% alert note %}
-Los eventos recomendados de comercio electrónico no se muestran dentro de la sección **Historial de compras** de la pestaña **Transacciones**. El historial de compras se llena con los eventos de compra heredados. Usa las métricas de la siguiente tabla para los ingresos y la actividad de pedidos de los eventos recomendados.
+Los eventos recomendados de comercio electrónico no se muestran dentro de la sección **Purchase history** de la pestaña **Commerce**. El historial de compras se llena con los eventos de compra heredados. Usa las métricas de la siguiente tabla para los ingresos y la actividad de pedidos de los eventos recomendados.
 {% endalert %}
 
 | Métrica | Fórmula |
@@ -29,20 +35,31 @@ Los eventos recomendados de comercio electrónico no se muestran dentro de la se
 | Ingresos totales | suma (`order_placed.total_value`) − suma (`order_refunded.total_value`) |
 | Total de pedidos | conteo (distintos `order_placed`) − conteo (distintos `order_cancelled`) |
 | Valor total de reembolsos | suma (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Order activity metrics" }
 
-![Sección de actividad de pedidos con ingresos totales, total de pedidos y valor total de reembolsos.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+### Carrito activo {#active-cart}
+
+El módulo **Active cart** muestra el carrito más reciente en el perfil de usuario. Esta vista es especialmente útil mientras realizas pruebas. Puedes usarla para confirmar el contenido del carrito, validar recorridos basados en el carrito o verificar que los eventos `ecommerce.cart_updated` están actualizando el perfil como esperas.
+
+**Active cart** incluye lo siguiente:
+
+- **Cart ID** — Identificador del carrito que recibió por última vez un evento `ecommerce.cart_updated`.
+- **Last updated** — Marca de tiempo de la actualización de carrito más reciente.
+- **Total cart value** — Valor total de los artículos en el carrito actual.
+- **View products** — Un enlace para abrir la lista de productos en el carrito (hasta 50 productos).
 
 ## Orquestación de comercio electrónico {#ecommerce-orchestration}
 
 ### Segmentación {#segmentation}
 
-Los eventos de comercio electrónico se comportan como eventos personalizados, por lo que todos los filtros de eventos personalizados existentes funcionan de inmediato. Por ejemplo, podrías filtrar por "Ha realizado el evento personalizado `ecommerce.order_placed` más de X veces".
+Braze ofrece tres formas de segmentar usuarios basándose en datos de comercio electrónico:
 
-Para la segmentación basada en datos de productos anidados (como ID de producto específicos, nombres de variantes o umbrales de precio), usa [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) con filtrado de propiedades de eventos anidados. Esto te permite crear audiencias como "usuarios que compraron el producto SKU-123 en los últimos 90 días" o combinar criterios entre diferentes propiedades del mismo pedido.
+- **Filtros de comercio electrónico:** Usa la categoría **eCommerce** en el segmentador, que contiene filtros impulsados por eventos recomendados de comercio electrónico (como **Last Order Placed**, **Total Revenue** y **Average Order Value**). Para una lista completa de filtros disponibles, consulta [Filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+- **Filtros de eventos personalizados:** Dado que los eventos de comercio electrónico se comportan como eventos personalizados, todos los filtros de eventos personalizados existentes funcionan de inmediato. Por ejemplo, puedes filtrar por "Ha realizado el evento personalizado `ecommerce.order_placed` más de X veces" o "Realizó por primera vez el evento personalizado `ecommerce.order_placed`".
+- **Extensiones de segmento:** Para segmentar por propiedades de eventos anidados, incluyendo el arreglo de productos anidados o las propiedades de los objetos de metadatos, usa [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) con filtrado de propiedades de eventos anidados. Esto te permite crear audiencias como "usuarios que compraron el producto SKU-123 en los últimos 90 días" o combinar criterios entre diferentes propiedades del mismo pedido.
 
 {% alert important %}
-Las Extensiones de segmento son una característica de pago. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
+Las Extensiones de segmento para eventos recomendados de comercio electrónico son una característica de pago y están en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
 {% endalert %}
 
 ### Desencadenamiento {#triggering}
@@ -77,7 +94,7 @@ Usa esta plantilla cuando quieras traer de vuelta a los navegadores para que con
 | Evento de entrada | `ecommerce.product_viewed` |
 | Eventos de salida | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Evento de conversión | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Carrito abandonado %}
@@ -91,10 +108,10 @@ Usa esta plantilla cuando quieras recordar a los usuarios sobre los artículos e
 | Evento de entrada | `ecommerce.cart_updated` |
 | Eventos de salida | `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Evento de conversión | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-El evento `ecommerce.cart_updated` usa un modelo de reemplazo. Cada evento enviado sobrescribe el estado del carrito del usuario. Usa la etiqueta de Liquid {% raw %}`{% shopping_cart %}`{% endraw %} en tu mensaje para mostrar dinámicamente el contenido actual del carrito en el momento del envío.
+El evento `ecommerce.cart_updated` admite el reemplazo completo del carrito (cada evento puede describir el carrito completo) o actualizaciones incrementales usando los valores `add` y `remove` para la propiedad opcional `action`. Elige un enfoque por carrito y evita mezclar actualizaciones de reemplazo e incrementales para el mismo `cart_id`. Usa la etiqueta de Liquid {% raw %}`{% shopping_cart %}`{% endraw %} en tu mensaje para mostrar dinámicamente el contenido actual del carrito en el momento del envío.
 {% endalert %}
 
 {% endtab %}
@@ -109,7 +126,7 @@ Usa esta plantilla cuando quieras recuperar compras en la etapa de mayor intenci
 | Evento de entrada | `ecommerce.checkout_started` |
 | Evento de salida | Placed Order |
 | Evento de conversión | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Confirmación de pedido y encuesta %}
@@ -122,7 +139,7 @@ Usa esta plantilla cuando quieras optimizar la comunicación posterior a la comp
 | --- | --- |
 | Evento de entrada | `ecommerce.order_placed` |
 | Evento de conversión | Start Session o `ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -147,11 +164,11 @@ Los eventos recomendados de comercio electrónico alimentan las mismas superfici
 | Informe de ingresos | Ingresos totales, ingresos diarios promedio, compras diarias e ingresos por usuario a lo largo del tiempo en todas las fuentes para el rango de fechas y aplicaciones seleccionados. |
 | Dashboard de ingresos de atribución de último toque | Ingresos atribuidos a la última campaña o Canvas con los que un usuario interactuó antes de realizar un pedido. Los eventos de toque incluyen clics en correo electrónico, aperturas de push, clics en tarjetas de contenido, clics en mensajes dentro de la aplicación y clics en enlaces cortos de SMS o WhatsApp. |
 | Análisis de Campaign y Canvas | Ingresos totales atribuidos a una campaña o Canvas específicos dentro de la ventana de conversión primaria. |
-| Informe de conversiones | Ingresos vinculados a eventos de conversión en Campaigns y Canvas.<br> **Nota:** Para contar los ingresos de `ecommerce.order_placed`, la campaña o Canvas debe usar el tipo de evento de conversión "Place Order" como su evento de conversión. |
+| Informe de conversiones | Ingresos vinculados a eventos de conversión en campañas y Canvas.<br> **Nota:** Para contar los ingresos de `ecommerce.order_placed`, la campaña o Canvas debe usar el tipo de evento de conversión "Place Order" como su evento de conversión. |
 | Información del segmento | Comparaciones de ingresos entre segmentos en el dashboard de información del segmento. |
 | Generador de informes | Métricas de ingresos en informes personalizados creados en el Generador de informes. |
 | Generador de dashboards | Métricas de ingresos en dashboards personalizados creados en el Generador de dashboards. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
 Para campos calculados que no son de usuario (por ejemplo, ingresos de una campaña o Canvas), los ingresos se calculan de la misma manera en todos los informes: `price` multiplicado por `quantity` por producto en el pedido, sumado entre los productos de cada evento `order_placed`.
 
@@ -174,7 +191,7 @@ Braze ofrece varias formas de exportar datos de eventos de comercio electrónico
 | [Uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | Los eventos de comercio electrónico se comparten como eventos personalizados; busca el espacio de nombres `ecommerce.*` para encontrarlos. Los productos de cada pedido están disponibles en la tabla de compras. |
 | [Exportar datos de segmento a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | Exportación CSV de miembros del segmento. Para incluir eventos de comercio electrónico, selecciónalos por nombre en el menú desplegable de eventos personalizados. |
 | [Exportar perfil de usuario por Segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | Datos de perfil de usuario para miembros del segmento, devueltos a través de la API. Los eventos de comercio electrónico se incluyen como eventos personalizados. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
 
 ### ¿Cómo segmento usuarios por un producto específico? {#how-do-i-segment-users-by-a-specific-product}
 

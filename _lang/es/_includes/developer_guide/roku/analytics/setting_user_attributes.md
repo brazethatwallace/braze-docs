@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/roku.md %}
 
-## Atributos predeterminados del usuario
+## Atributos predeterminados del usuario {#default-user-attributes}
 
-### Métodos predefinidos
+### Métodos predefinidos {#predefined-methods}
 
 Braze proporciona métodos predefinidos para configurar los siguientes atributos de usuario utilizando el objeto `m.Braze`.
 
@@ -16,7 +16,7 @@ Braze proporciona métodos predefinidos para configurar los siguientes atributos
 - `HomeCity`
 - `PhoneNumber`
 
-### Configuración de atributos predeterminados
+### Configuración de atributos predeterminados {#setting-default-attributes}
 
 Para establecer un atributo predeterminado, llama al método correspondiente en el objeto `m.Braze`.
 
@@ -68,15 +68,15 @@ m.Braze.setPhoneNumber("+1234567890")
 {% endtab %}
 {% endtabs %}
 
-## Atributos personalizados del usuario
+## Atributos personalizados del usuario {#custom-user-attributes}
 
 Además de los atributos predeterminados de usuario, Braze también te permite definir atributos personalizados utilizando varios tipos de datos diferentes.
 
-### Configuración de atributos personalizados
+### Configuración de atributos personalizados {#settings-custom-attributes}
 
 {% tabs %}
 {% tab String %}
-Para establecer un atributo personalizado un valor `string`:
+Para establecer un atributo personalizado con un valor `string`:
 
 ```brightscript
 m.Braze.setCustomAttribute("stringAttribute", "stringValue")
@@ -92,7 +92,7 @@ m.Braze.setCustomAttribute("intAttribute", 5)
 {% endtab %}
 
 {% tab Floating-points %}
-Braze trata exactamente igual los valores `float` y `double`. Para establecer un atributo personalizado con cualquier valor:
+Braze trata exactamente igual los valores `float` y `double`. Para establecer un atributo personalizado con cualquiera de estos valores:
 
 ```brightscript
 m.Braze.setCustomAttribute("floatAttribute", 3.5)
@@ -134,15 +134,15 @@ m.Braze.setCustomAttribute("arrayAttribute", stringArray)
 Los valores de atributos personalizados tienen una longitud máxima de 255 caracteres; los valores más largos se truncarán.
 {% endalert %}
 
-### Aumento y disminución de atributos personalizados
+### Incremento y decremento de atributos personalizados {#incrementing-and-decrementing-custom-attributes}
 
-Este código es un ejemplo de atributo personalizado que se incrementa. Puedes incrementar el valor de un atributo personalizado en cualquier valor entero positivo o negativo.
+Este código es un ejemplo de un atributo personalizado que se incrementa. Puedes incrementar el valor de un atributo personalizado en cualquier valor entero positivo o negativo.
 
 ```brightscript
 m.Braze.incrementCustomUserAttribute("intAttribute", 3)
 ```
 
-### Desactivar atributos personalizados
+### Desactivar atributos personalizados {#unsetting-custom-attributes}
 
 Para desactivar un atributo personalizado, pasa la clave del atributo correspondiente al método `unsetCustomAttribute`.
 
@@ -150,11 +150,11 @@ Para desactivar un atributo personalizado, pasa la clave del atributo correspond
 m.Braze.unsetCustomAttribute("attributeName")
 ```
 
-### Utilizar la API REST
+### Utilizar la REST API {#using-the-rest-api}
 
-También puedes utilizar nuestra API REST para establecer o desestablecer atributos de usuario. Para más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+También puedes utilizar nuestra REST API para establecer o desactivar atributos de usuario. Para más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
-## Configuración de las suscripciones por correo electrónico
+## Configuración de las suscripciones por correo electrónico {#setting-email-subscriptions}
 
 Puedes configurar los siguientes estados de suscripción por correo electrónico para tus usuarios mediante programación a través del SDK.
 
@@ -162,14 +162,14 @@ Puedes configurar los siguientes estados de suscripción por correo electrónico
 | ------------------- | ---------- |
 | `OptedIn` | Suscrito y con adhesión voluntaria explícita |
 | `Subscribed` | Suscrito, pero sin adhesión voluntaria explícita |
-| `UnSubscribed` | No suscrito y/o sin adhesión voluntaria explícita |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `UnSubscribed` | No suscrito y/o con exclusión voluntaria explícita |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting email subscriptions" }
 
 {% alert note %}
 Estos tipos se incluyen en `BrazeConstants().SUBSCRIPTION_STATES`.
 {% endalert %}
 
-El método para configurar el estado de la suscripción por correo electrónico es `setEmailSubscriptionState()`. Los usuarios se configurarán en `Subscribed` automáticamente al recibir una dirección de correo electrónico válida, sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor en `OptedIn` al recibir el consentimiento explícito de tu usuario. Para más detalles, visita [Gestionar las suscripciones de los usuarios]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
+El método para configurar el estado de la suscripción por correo electrónico es `setEmailSubscriptionState()`. Los usuarios se configurarán en `Subscribed` automáticamente al recibir una dirección de correo electrónico válida; sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor en `OptedIn` al recibir el consentimiento explícito de tu usuario. Para más detalles, visita [Gestionar las suscripciones de los usuarios]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
 
 ```brightscript
 m.Braze.setEmailSubscriptionState(BrazeConstants().SUBSCRIPTION_STATES.OPTED_IN)

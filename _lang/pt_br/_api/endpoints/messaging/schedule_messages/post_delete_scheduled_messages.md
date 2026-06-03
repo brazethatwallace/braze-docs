@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 | `schedule_id` | Obrigatório | String | O `schedule_id` a ser excluído (obtido da resposta à criação de agendamento). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

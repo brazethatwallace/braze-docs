@@ -42,6 +42,8 @@ En résumé, les points de données s'accumulent lorsque les données de profil 
 
 Vous trouverez une décomposition de la façon dont Braze accumule les points de données dans les sections suivantes. Si vous avez des questions sur les subtilités des points de données Braze, votre gestionnaire de compte Braze pourra y répondre.
 
+Pour l'ingestion via l'API, chaque mise à jour facturable effectuée via [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) suit les mêmes règles que les autres mises à jour de profil : par exemple, chaque **événement personnalisé** enregistré compte comme un point de donnée, et les **attributs personnalisés** comptent généralement par attribut mis à jour dans cette requête (voir les tableaux facturables ci-dessous et les [Circonstances particulières](#special-circumstances)).
+
 Les actions suivantes n'enregistrent pas de points de données :
 - Supprimer des utilisateurs de Braze
 - Utiliser du contenu connecté lors de l'envoi de messages
@@ -113,7 +115,7 @@ Les tableaux suivants sont donnés à titre d'exemple. Pour connaître les conve
 | Twitter | Abonnements |
 | Twitter | Nombre de tweets |
 | Facebook | Mentions J'aime |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Points de données non facturables (par défaut)" }
 
 {% endtab %}
 {% tab Facturables %}
@@ -167,7 +169,7 @@ table td {
 | Affectation de cohorte Appsflyer | Toutes les affectations | |
 | Localisation la plus récente | Toutes les localisations les plus récentes | Entrer ou sortir d'un géorepérage n'enregistre pas de points de données, car les données de géorepérage ne sont pas stockées dans le profil utilisateur. Les géorepérages sont surveillés par les services de localisation d'Apple et de Google ; Braze n'est notifié que lorsqu'un utilisateur déclenche un géorepérage. |
 | Twitter | Nom d'utilisateur | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Points de données facturables" }
 
 {% endtab %}
 {% endtabs %}

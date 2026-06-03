@@ -4,4 +4,4 @@
 | プラットフォームごとに個別の動作を設定 | ボタンの動作をプラットフォームごとに個別にカスタマイズします。 |
 | クリック時動作 | ユーザーがボタンをクリックしたときのアクションを決定します。メッセージを閉じる、Web URLを開く、アプリの特定のページへのディープリンク、別のページへの遷移、[プッシュ許可のリクエスト]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)などがあります。 |
 | カスタム属性またはイベントを記録 | ボタンのクリックによってユーザーのプロファイルをカスタムデータで更新するかどうかを決定します。レポート用の識別子を選択することもできます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -1,6 +1,6 @@
 ---
 nav_title: Enviar mensagens de e-mail
-article_title: Enviando mensagens de e-mail usando a API REST
+article_title: Enviando mensagens de e-mail usando a REST API
 page_order: 3
 page_type: reference
 description: "Este artigo de referência explica como enviar mensagens de e-mail usando a REST API da Braze e uma Campanha da API."
@@ -34,7 +34,7 @@ Para concluir este guia, você precisa de:
 | ID do app da Braze | O identificador do seu app dentro do seu espaço de trabalho. Para encontrá-lo, acesse **Settings** > **APIs and Identifiers** e verifique a seção **App identifiers**. Esse valor é obrigatório no campo `app_id` do objeto de envio de mensagens de e-mail. Para saber mais, consulte [Identificador de app]({{site.baseurl}}/api/identifier_types/). |
 | Conteúdo HTML do e-mail | O corpo HTML da sua mensagem de e-mail, preparado com antecedência. |
 | Serviço de backend | Um serviço de backend ou ambiente de script capaz de fazer solicitações HTTP POST para a REST API da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Etapa 1: Criar uma Campanha da API {#step-1-create-an-api-campaign}
 

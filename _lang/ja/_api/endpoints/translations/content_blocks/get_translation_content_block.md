@@ -17,8 +17,6 @@ description: "この記事では、コンテンツブロックの全翻訳を表
 
 > このエンドポイントを使用して、[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)の全翻訳を表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 前提条件 {#prerequisites}
 
 このエンドポイントを使用するには、`content_blocks.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
@@ -33,7 +31,7 @@ description: "この記事では、コンテンツブロックの全翻訳を表
 | --------- | ---------| --------- | ----------- |
 | `content_block_id` | 必須 | 文字列 | コンテンツブロックのID。|
 | `locale_id` | オプション | 文字列 | 応答をフィルタリングするためのロケールUUID。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）とみなされ、GETエンドポイントの応答で確認できます。

@@ -9,7 +9,7 @@ search_tag: Partner
 ---
 # Treasure Data-Kohortenimport {#treasure-data-cohort-import}
 
-> Dieser Artikel beschreibt, wie Sie Kohorten von Treasure Data nach Braze importieren, damit Sie zielgerichtete Campaigns auf der Grundlage von Daten versenden können, die möglicherweise nur in Ihrem Warehouse vorhanden sind.
+> Dieser Artikel beschreibt, wie Sie Kohorten von Treasure Data nach Braze importieren, damit Sie zielgerichtete Kampagnen auf der Grundlage von Daten versenden können, die möglicherweise nur in Ihrem Warehouse vorhanden sind.
 
 {% alert important %}
 Dieses Feature befindet sich derzeit in der Beta-Phase. Für weitere Informationen wenden Sie sich bitte an Ihre Vertretung von Treasure Data und Braze.
@@ -23,7 +23,7 @@ Dieses Feature befindet sich derzeit in der Beta-Phase. Für weitere Information
 | Braze-Datenimport-Schlüssel | Diesen finden Sie im Braze-Dashboard unter **Partnerintegrationen** > **Technologie-Partner** und dann **Treasure Data** auswählen. |
 | Braze-REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Statische IP-Adresse von Treasure Data | Die statische IP-Adresse von Treasure Data ist der Zugangspunkt und die Quelle der Verknüpfung für diese Integration. Um die statische IP-Adresse zu ermitteln, wenden Sie sich an Ihre Treasure Data-Kundenerfolgs-Vertretung oder an den technischen Support von Treasure Data. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Datenimport-Integration {#data-import-integration}
 
@@ -173,7 +173,7 @@ Sobald die Abfrage erstellt wurde, wählen Sie **Export Results**. Sie können e
 | Operation	| Wird verwendet, um zu bestimmen, ob die Abfrage Profile aus der Kohorte in Braze hinzufügen oder entfernen soll.	|
 | Aliase (optional) | Wenn definiert, wird der Name der entsprechenden Spalte innerhalb Ihrer Abfrage als `alias_label` gesendet und die Werte jeder Zeile in der Spalte werden als `alias_name` gesendet.	|
 | Thread-Anzahl | Anzahl der gleichzeitigen API-Aufrufe. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.2: Specify the result export target" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3.2: Ziel des Ergebnisexports festlegen" }
 
 Folgen Sie den [Schritten von Treasure Data](https://docs.treasuredata.com/articles/#!int/braze-cohort-export-integration/a/ExportIntegrationTemplate-SpecifytheResultExportTarget), um Ihren Export für Ihren Anwendungsfall zu konfigurieren.
 
@@ -195,13 +195,13 @@ Erstellen Sie ein neues Segment oder wählen Sie ein bestehendes Segment, um es 
 | ----------- | ----------- |
 | Aktivierungsname	| Der Name Ihrer Aktivierung.	|
 | Aktivierungsbeschreibung| Eine kurze Beschreibung der Aktivierung.	|
-| Authentifizierung	| Wählen Sie die in Schritt 2 erstellte Braze-Kohorten-Authentifizierung.	|
+| Authentifizierung	| Wählen Sie die in [Schritt 2](#schritt-2-datenverbindung-erstellen) erstellte Braze-Kohorten-Authentifizierung.	|
 | Kohorten-ID	| Dies ist der Backend-Kohorten-Bezeichner, der an Braze gesendet wird. 	|
 | Kohortenname (optional)	| Dies ist der Name, der innerhalb des Kohorten-Filters im Braze-Segmentierungs-Tool angezeigt wird. Wenn dieser nicht festgelegt ist, wird die `Cohort ID` als `Cohort Name` verwendet.	|
 | Operation	| Wird verwendet, um zu bestimmen, ob die Abfrage Profile aus der Kohorte in Braze hinzufügen oder entfernen soll.	|
 | Aliase (optional) | Wenn definiert, wird der Name der entsprechenden Spalte innerhalb Ihrer Abfrage als `alias_label` gesendet und die Werte jeder Zeile in der Spalte werden als `alias_name` gesendet.	|
 | Thread-Anzahl | Anzahl der gleichzeitigen API-Aufrufe. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.2: Fill out your activation details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3.2: Aktivierungsdetails ausfüllen" }
 
 #### Schritt 3.3: Ausgabe-Abbildung einrichten {#step-33-set-up-output-mapping}
 
@@ -211,7 +211,7 @@ Erstellen Sie ein neues Segment oder wählen Sie ein bestehendes Segment, um es 
 | ----------- | ----------- |
 | Attribut-Spalten	| Bestimmen Sie die Spalten aus Ihrer Segmentdatenbank, die bei der Synchronisierung von Profilen mit einer Braze-Kohorte als Bezeichner abgebildet werden sollen.	|
 | String Builder| Der String Builder ist für die Braze-Integration nicht erforderlich.	|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.3: Set up output mapping" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3.3: Ausgabe-Abbildung einrichten" }
 
 {% alert important %}
  - Wenn Sie `device_id` als Bezeichner verwenden, muss der **Name der Ausgabespalte** `device_ids` lauten.
@@ -231,7 +231,7 @@ Definieren Sie den gewünschten Synchronisierungszeitplan und speichern Sie Ihre
 
 ### 4. Schritt: Braze-Segment aus dem Treasure Data-Export erstellen {#step-4-create-a-braze-segment-from-the-treasure-data-export}
 
-Navigieren Sie in Braze zu **Segments**, erstellen Sie ein neues Segment und wählen Sie **Treasure Data Cohorts** als Filter. Von hier aus können Sie wählen, welche Treasure Data-Kohorte Sie einbeziehen möchten. Nachdem Ihr Treasure Data-Kohorten-Segment erstellt wurde, können Sie es als Zielgruppen-Filter auswählen, wenn Sie eine Campaign oder ein Canvas erstellen.
+Navigieren Sie in Braze zu **Segments**, erstellen Sie ein neues Segment und wählen Sie **Treasure Data Cohorts** als Filter. Von hier aus können Sie wählen, welche Treasure Data-Kohorte Sie einbeziehen möchten. Nachdem Ihr Treasure Data-Kohorten-Segment erstellt wurde, können Sie es als Zielgruppen-Filter auswählen, wenn Sie eine Kampagne oder ein Canvas erstellen.
 
 ![Treasure Data Integrations-Hub-Katalog]({% image_buster /assets/img/treasure_data/cohort/cohort4.png %})
 

@@ -28,7 +28,7 @@ Im Folgenden finden Sie eine Liste der Features und Messaging-Kanäle, die heute
 }
 
 </style>
-<table id="tv-feature-table">
+<table aria-label="Plattformen und Features" id="tv-feature-table">
   <caption>Plattformen und Features</caption>
     <thead>
         <tr>

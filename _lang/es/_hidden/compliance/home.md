@@ -68,7 +68,7 @@ Sin perjuicio de lo anterior, en caso de que el cliente envíe mensajes móviles
 
 ### Términos de excepción para el uso de webhooks {#webhook-use-exception-terms}
 
-Aplicable a los clientes que se hayan suscrito a créditos de mensajes a partir del 9 de diciembre de 2024 (según la fecha de entrada en vigor del formulario de pedido): las restricciones descritas en la documentación de conformidad del canal de webhooks no se aplican al uso de webhooks para enviar mensajes móviles a través de una plataforma de proveedor externo.
+Aplicable a los clientes que se hayan suscrito a créditos de acción a partir del 9 de diciembre de 2024 (según la fecha de entrada en vigor del formulario de pedido): las restricciones descritas en la documentación de conformidad del canal de webhooks no se aplican al uso de webhooks para enviar mensajes móviles a través de una plataforma de proveedor externo.
 
 ### Conector SMS propio (BYO) {#bring-your-own-byo-sms-connector}
 
@@ -118,14 +118,13 @@ Los siguientes términos adicionales se aplican en relación con el uso del cana
 
 ### Requisitos previos {#pre-requisites}
 
-Para enviar mensajes a través del canal LINE, los clientes deben obtener una cuenta oficial verificada de LINE, que es aprobada y otorgada por LINE a su entera discreción. Los clientes deben asegurarse de obtener una cuenta oficial verificada de LINE antes de adquirir créditos de mensajes de Braze para el uso del canal LINE.
+Para enviar mensajes a través del canal LINE, los clientes deben obtener una cuenta oficial verificada de LINE, que es aprobada y otorgada por LINE a su entera discreción. Los clientes deben asegurarse de obtener una cuenta oficial verificada de LINE antes de adquirir créditos de acción de Braze para el uso del canal LINE.
 
 ### Términos aplicables del proveedor externo
 
 Al utilizar el canal LINE, el cliente acepta cumplir y quedar vinculado por, según corresponda, todos los términos y políticas requeridos por LY Corporation y sus afiliadas (colectivamente "LINE"), incluidos, entre otros, los Términos de uso de la cuenta oficial de LINE, los Términos de uso de la API de la cuenta oficial, las Directrices de la cuenta oficial de LINE, la Política de datos de usuario de LINE y cualquier política, término, directriz y documentación incorporados por referencia a los mismos (colectivamente, los "Términos de LINE"). Para mayor claridad, el cliente es responsable de: (i) garantizar que cualquier dato procesado en relación con LINE se procese de acuerdo con los Términos de LINE según corresponda; y (ii) cualquier tarifa o pago adeudado a LINE por el uso de los servicios de LINE en relación con el canal LINE.
 
 Sin perjuicio de cualquier disposición en contrario en los Términos de LINE, el cliente sigue siendo el principal responsable de su uso de los servicios de LINE.
-
 
 ## 5. Documentación de conformidad de la integración con Shopify {#shopify-integration-compliance-documentation}
 

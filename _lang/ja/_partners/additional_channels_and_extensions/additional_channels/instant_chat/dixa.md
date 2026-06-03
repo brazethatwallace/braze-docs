@@ -1,7 +1,7 @@
 ---
 nav_title: Dixa
 article_title: Dixa
-description: "この記事では、Braze と Dixa のパートナーシップについて概説します。"
+description: "この記事では、BrazeとDixaのパートナーシップについて概説します。"
 alias: /partners/dixa/
 page_type: partner
 search_tag: Partner
@@ -12,40 +12,40 @@ search_tag: Partner
 
 > [Dixa](https://www.dixa.com/) は、チャット、メール、電話、ソーシャルメディアなどのコミュニケーションチャネルを単一のインターフェイスに統合することで、サポート体験を向上させるように設計された顧客サービスプラットフォームです。インテリジェントなルーティング、オートメーション、リアルタイムのパフォーマンスインサイトを通じて、企業が顧客満足度と効率性を向上させるのを支援します。
 
-Braze と Dixa の統合により、カスタマーサービス担当者にリアルタイムのBrazeデータを提供することで、すべてのユーザーをより良く把握することができます。
+BrazeとDixaの統合により、カスタマーサービス担当者にリアルタイムのBrazeデータを提供することで、すべてのユーザーをより良く把握できます。
 
 ## 前提条件 {#prerequisites}
 
 開始する前に、以下が必要です。
 
-| 前提条件          | 説明                                                                                                                                                       |
+| 前提条件 | 説明 |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dixaアカウント        | このパートナーシップを活用するには、Dixa 管理者アカウントが必要です。                                                                                           |
-| Braze REST APIキー  | `users.export.ids` および `email.status` 権限を持つ Braze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | [RESTエンドポイントのURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お客様のインスタンスのBraze URLに依存します。              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Dixaアカウント | このパートナーシップを活用するには、Dixa管理者アカウントが必要です。 |
+| Braze REST APIキー | `users.export.ids` および `email.status` 権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントのURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お客様のインスタンスのBraze URLに依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
-メール、Messenger、チャットなどのさまざまな通信チャネルでユーザーとコミュニケーションしている間に、Brazeデータをカスタマーサービスエージェントビューに表示します。さらに、Brazeのデータ変換を使用してDixaからBrazeにデータを送信し、ユーザーの問題を解決している間はマーケティングを一時停止することもできます。
+メール、Messenger、チャットなどのさまざまな通信チャネルでユーザーとコミュニケーションしている間に、Brazeデータをカスタマーサービスエージェントビューに表示します。さらに、Brazeのデータ変換を使用してDixaからBrazeにデータを送信し、ユーザーの問題を解決している間はマーケティングを一時停止したり、Dixaの満足度アンケートをセグメンテーションに活用したりできます。
 
 ## 統合 {#integration}
 
 Dixa内で統合を設定するには、Dixa管理者である必要があります。Brazeとの統合は、Dixaで**Settings** > **Integrations** > **Braze**に移動します。
 
-![Dixaの Braze ウィジェット作成ページ。ウィジェット名、API URL、APIキーを入力します。]({% image_buster /assets/img/dixa/dixa-create-integration.png %}){: style="width:450px;"}
+![Dixaの Brazeウィジェット作成ページ。ウィジェット名、API URL、APIキーを入力します。]({% image_buster /assets/img/dixa/dixa-create-integration.png %}){: style="width:450px;"}
 
 ### ステップ 1:Dixaで統合を作成する {#step-1-create-the-integration-in-dixa}
 
 **Create Braze widget**ページで、以下の必須フィールドに入力して統合を作成します。
 
-- **Widget name:**これは、後に会話サイドバーでタイトルとして使用される統合の名前です。
-- **API URL:**インスタンスのBraze REST APIエンドポイントURLです。
-- **API Key:**これは、前提条件で作成したBraze APIキーです。
+- **Widget name:** これは、後に会話サイドバーでタイトルとして使用される統合の名前です。
+- **API URL:** インスタンスのBraze REST APIエンドポイントURLです。
+- **API Key:** これは、前提条件で作成したBraze APIキーです。
 
 ### ステップ 2:統合を設定する {#step-2-configure-the-integration}
 
-次に、Braze と Dixa の統合を設定します。会話サイドバーのBrazeウィジェットの表示を調整するには、以下のオプションから選択します。
+次に、BrazeとDixaの統合を設定します。会話サイドバーのBrazeウィジェットの表示を調整するには、以下のオプションから選択します。
 
 #### 会話サイドバーにウィジェットを表示する {#show-the-widget-in-the-conversation-sidebar}
 
@@ -77,19 +77,21 @@ Dixa内で統合を設定するには、Dixa管理者である必要がありま
 
 以下に統合の例を示します。
 
-![ユーザーのメールサブスクリプション状態、カスタム属性、カスタムイベント、購入を表示するDixaでのBraze と Dixa の統合。]({% image_buster /assets/img/dixa/dixa-braze-integration.png %}){: style="width:350px;"}
+![ユーザーのメールサブスクリプション状態、カスタム属性、カスタムイベント、購入を表示するDixaでのBrazeとDixaの統合。]({% image_buster /assets/img/dixa/dixa-braze-integration.png %}){: style="width:350px;"}
 
 ## データ変換ツール {#data-transformation-tool}
 
 Dixaはwebhookを使用してBrazeにデータを送信します。webhookを設定するには、Dixa管理者である必要があります。
 
+### Dixaでの会話を追跡する {#track-conversations-in-dixa}
+
 最初のステップは、Brazeでデータ変換を作成することです。
 
 1. **データ設定** > **データ変換** > **変換を作成**に移動します。
-2. **ゼロから開始**を選択し、送信先として **POST: Track Users** を選択して、**変換を作成**を選択します。
-3. 変換エディターで、以下の**データ変換ツールの例**からコードをコピーし、**変換コード**フィールドに挿入します。**保存**を選択し、**Webhook URL** をコピーして、Dixaを開きます。
+2. **ゼロから開始**を選択し、送信先として**POST: Track Users**を選択して、**変換を作成**を選択します。
+3. 変換エディターで、以下の**データ変換ツールの例**からコードをコピーし、**変換コード**フィールドに挿入します。**保存**を選択し、**Webhook URL**をコピーして、Dixaを開きます。
 4. Dixaで、**Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**に移動します。
-5. Webhook設定ページで、Brazeからコピーした URL を貼り付け、追跡したいイベントをトグルで有効にします。**Conversation created** は、顧客の会話を追跡するための良い出発点です。
+5. Webhook設定ページで、BrazeからコピーしたURLを貼り付け、追跡したいイベントをトグルで有効にします。**Conversation created**は、顧客の会話を追跡するための良い出発点です。
 6. **Save**を選択してDixaのセットアップを完了します。
 
 ### データ変換ツールの例 {#example-transformation-tool}
@@ -128,5 +130,56 @@ const brazecall = {
 };
 
 // Returning the transformed data
+return brazecall;
+```
+
+### BrazeでCSATスコアを使用する {#use-csat-score-in-braze}
+
+1. **データ設定** > **データ変換** > **変換を作成**に移動します。
+2. **ゼロから開始**を選択し、送信先として**POST: Track Users**を選択して、**変換を作成**を選択します。
+3. 変換エディターで、以下の**CSATスコアの追跡**からコードをコピーし、**変換コード**フィールドに挿入します。**保存**を選択し、**Webhook URL**をコピーして、Dixaを開きます。
+4. Dixaで、**Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**に移動します。
+5. Webhook設定ページで、BrazeからコピーしたURLを貼り付け、追跡したいイベントをトグルで有効にします。**Conversation created**は、顧客の会話を追跡するための良い出発点です。
+6. **Save**を選択してDixaのセットアップを完了します。
+
+#### CSATスコアの追跡 {#track-csat-score}
+
+```js
+const body = payload?.data;
+
+// values from your webhook
+const score = body.score;         // number
+const comment = body.comment;     // string
+const type = body.type;           // string
+const ratedAt = body.event_timestamp;   // ISO 8601 string
+const contactemail = body.conversation.requester.email;
+
+// ALWAYS identify by email
+const email = contactemail;
+
+if (!email) {
+  // Can't identify a user without email
+  return { attributes: [] };
+}
+
+
+let brazecall = {
+  "attributes": [
+    {
+      // Using the Dixa user email as the external_id to identify the user in Braze
+      "email": contactemail,
+      "_update_existing_only": true,
+
+      // Your new custom object attribute
+      "last_csat": {
+        "score": score,
+        "comment": comment,
+        "type": type,
+        "rated_at": ratedAt
+      }
+    }
+  ]
+};
+
 return brazecall;
 ```

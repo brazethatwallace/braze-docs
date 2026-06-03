@@ -6,7 +6,7 @@ page_layout: reference
 description: "Este artigo de referência aborda algumas configurações avançadas de push para Campaigns, como prioridade, URLs personalizadas, opções de entrega e mais."
 platform: Android
 channel:
-  - push
+  - Push
 tool:
   - Campaigns
 
@@ -117,7 +117,7 @@ Para saber mais, consulte a documentação do Google sobre [notificações Andro
 
 As notificações por push Android oferecem a opção de especificar se sua notificação se enquadra em uma categoria predefinida. A interface do sistema Android pode usar essa categoria para tomar decisões de classificação ou filtragem sobre onde posicionar a notificação na bandeja de notificações do usuário.
 
-![Guia Settings com a Categoria definida como None, que é a configuração padrão.]({% image_buster /assets/img_archive/braze_category.png %}){: style="max-width:60%;"}
+![Guia Settings com a categoria definida como None, que é a configuração padrão.]({% image_buster /assets/img_archive/braze_category.png %}){: style="max-width:60%;"}
 
 | Categoria | Descrição |
 |---|-------|

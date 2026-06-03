@@ -6,8 +6,7 @@ page_type: reference
 description: "Este artigo de referência aborda tópicos sobre canais de notificação por push para Android, como a transição para o Android O, como adicionar um canal à Braze, configurar um canal de fallback e mais."
 platform: Android
 channel:
-  - push
-
+  - Push
 ---
 
 # Canais de notificação {#notification-channels}
@@ -65,7 +64,7 @@ Para entender melhor o comportamento esperado dos canais, consulte a tabela a se
 |**Empresa XYZ** atualiza para um SDK que suporta Android O <br>**Empresa XYZ** não adiciona nenhum canal ao dashboard da Braze<br>**Empresa XYZ** renomeia o canal padrão do SDK para "Marketing" | Notificações por push enviadas para dispositivos Android O criarão um canal chamado "Marketing" e as notificações serão enviadas pelo canal "Marketing"
 |**Empresa LMN** atualiza para um SDK que suporta Android O <br>**Empresa LMN** define dois canais no código do app, "Promotions" e "Order Updates" <br>**Empresa LMN** adiciona os IDs dos canais "Promotions" e "Order Updates" ao dashboard da Braze <br>**Empresa LMN** designa "Promotions" como o canal de fallback do dashboard<br>**Empresa LMN** renomeia o canal padrão do SDK para "Marketing" | Notificações por push enviadas para dispositivos Android O não criarão um canal<br><br>A menos que o profissional de marketing especifique explicitamente que as notificações devem ser enviadas pelo canal "Order Updates" ou "Marketing", todas as notificações criadas antes dos canais serem adicionados ao dashboard serão enviadas pelo canal "Promotions"<br><br>O canal padrão do SDK, "Marketing", só é criado e usado se a empresa tentar enviar uma notificação por um ID de canal inválido ou se for explicitamente selecionado
 |**Empresa HIJ** atualiza para o Android O, mas não atualiza o SDK da Braze para Android para a versão 2.1.0 ou posterior | Notificações enviadas para usuários com Android O ou posterior não aparecerão |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canal de fallback do dashboard" }
 
 ## Adicionando canais ao dashboard da Braze {#adding-channels-to-the-braze-dashboard}
 

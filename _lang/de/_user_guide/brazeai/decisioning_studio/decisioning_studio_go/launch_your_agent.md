@@ -55,7 +55,7 @@ Nachdem Sie Ihr Versuchsdesign validiert haben, erfassen Sie die folgenden Detai
 |-----|---------------|
 | **Braze** | Campaigns und Canvases |
 | **Salesforce Marketing Cloud** | Nur Journeys |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required information" }
 
 **Zielgruppen-ID aus Ihrem CEP:**
 
@@ -63,7 +63,7 @@ Nachdem Sie Ihr Versuchsdesign validiert haben, erfassen Sie die folgenden Detai
 |-----|---------------|
 | **Braze** | Nur Segmente |
 | **Salesforce Marketing Cloud** | Nur Data Extensions |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required information" }
 
 Sollten Sie noch keine Zielgruppe haben, die Ihre BAU-Zielgruppe trackt, müssen Sie eine solche erstellen.
 

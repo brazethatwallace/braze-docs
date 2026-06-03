@@ -12,10 +12,6 @@ channel:
 
 > WhatsApp テンプレートビルダーを使用すると、BrazeとMeta Business Managerを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成して送信できます。Metaがテンプレートを承認した後は、必要な数のCampaignsやCanvasesで使用できます。
 
-{% alert note %}
-WhatsApp テンプレートビルダーは現在、早期アクセス段階です。アクセスについてはBrazeアカウントマネージャーにお問い合わせください。
-{% endalert %}
-
 ## 前提条件 {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -24,7 +20,7 @@ WhatsApp テンプレートビルダーは現在、早期アクセス段階で�
 
 ### ステップ 1:WhatsApp テンプレートに移動する {#step-1-go-to-whatsapp-templates}
 
-**テンプレート** > **WhatsApp テンプレート**に移動し、**新規テンプレートを作成**を選択します。
+**コンテンツ** > **WhatsApp**に移動し、**新規テンプレートを作成**を選択します。
 
 ![新しいテンプレートを作成するボタンがあるWhatsAppテンプレートページ。]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -37,7 +33,7 @@ WhatsApp テンプレートビルダーは現在、早期アクセス段階で�
 | **アカウント** | テンプレートを送信するWhatsApp Business Account（WABA）。WABA内のすべてのサブスクリプショングループと電話番号がテンプレートアクセスを共有します。 |
 | **言語** | このテンプレートの言語。WhatsAppでは言語ごとに個別のテンプレートが必要です。 |
 | **テンプレート名** | テンプレートのユニークな名前。テンプレート名には小文字、数字、アンダースコアのみ使用できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
 
 ### ステップ 3:レイアウトを選択する {#step-3-choose-a-layout}
 
@@ -78,10 +74,10 @@ WhatsApp テンプレートビルダーは現在、早期アクセス段階で�
 | ボタンタイプ | カテゴリ | 仕様 |
 | --- | --- | --- |
 | クイック返信 | クイック返信ボタン |{::nomarkdown}<ul><li><b>最大数:</b> 10</li><li><b>ボタンテキスト:</b> 最大25文字</li></ul> {:/}|
-| 電話番号 | コールトゥアクションボタン | {::nomarkdown}<ul><li><b>最大数:</b> 1</li><li><b>ボタンテキスト:</b> 最大25文字</li><li><b>電話番号:</b> +を含まない国コード付きの有効な電話番号（例: 「14155552671」）</li></ul> {:/}|
+| 電話番号 | コールトゥアクションボタン | {::nomarkdown}<ul><li><b>最大数:</b> 1</li><li><b>ボタンテキスト:</b> 最大25文字</li><li><b>電話番号:</b> +を含まない国コード付きの有効な電話番号（例:「14155552671」）</li></ul> {:/}|
 | Webサイトにアクセス | コールトゥアクションボタン | {::nomarkdown}<ul><li><b>最大数:</b> 2</li><li><b>ボタンテキスト:</b> 最大25文字</li><li><b>WebサイトURL:</b> 最大2,000文字</li></ul> {:/}|
-| オファーコードをコピー | コールトゥアクションボタン | {::nomarkdown}<ul><li><b>最大数:</b> 1</li><li><b>ボタンテキスト:</b> 「Copy offer code」（編集不可）</li><li><b>オファーコード:</b> 最大15文字</li></ul> {:/}|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| オファーコードをコピー | コールトゥアクションボタン | {::nomarkdown}<ul><li><b>最大数:</b> 1</li><li><b>ボタンテキスト:</b>「Copy offer code」（編集不可）</li><li><b>オファーコード:</b> 最大15文字</li></ul> {:/}|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Buttons (optional)" }
 
 ![クイック返信ボタンとコールトゥアクションボタンを含むWhatsAppテンプレート作成画面。]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 
@@ -110,7 +106,7 @@ Metaがテンプレートを承認した後、WhatsApp CampaignまたはCanvas�
 4. 必要に応じて変数コンテンツやパーソナライゼーションを更新します。Metaによってロックされたフィールド（グレーで表示）は編集できません。ロックされたコンテンツを変更するには、テンプレートを編集して承認のために再送信する必要があります。
 5. **テスト**タブを使用してメッセージをプレビューし、本文変数を更新し、起動前にメッセージが期待どおりに表示されることを確認します。
 
-WhatsApp Campaignsの構築の詳細については、[WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を参照してください。
+WhatsApp Campaignの構築の詳細については、[WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 

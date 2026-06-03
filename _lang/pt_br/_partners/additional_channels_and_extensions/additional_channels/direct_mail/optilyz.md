@@ -25,7 +25,7 @@ Use a integração de webhook entre a optilyz e a Braze para enviar mala direta 
 | Conta optilyz | Uma conta da optilyz é necessária para usar essa parceria. |
 | Chave de API da optilyz<br><br>`<OPTILYZ_API_KEY>`| Seu gerente de sucesso do cliente da optilyz fornecerá sua chave de API da optilyz.<br><br>Essa chave de API permitirá que você conecte suas contas da Braze e da optilyz. |
 | ID de automação da optilyz<br><br>`<OPTILYZ_AUTOMATION_ID>` | O ID de automação pode ser encontrado em uma caixa no cabeçalho da página.<br><br>Depois de fazer login na optilyz, você poderá navegar até a automação para a qual deseja enviar dados.<br>A automação deve ser ativada primeiro. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -38,9 +38,9 @@ Operar a mala direta como um canal digital significa afastar-se das correspondê
 
 Para integrar com a optilyz, use a [API da optilyz](https://www.optilyz.com/doc/api/) para enviar dados do destinatário para o webhook da Braze.
 
-### Etapa 1: Crie seu modelo de webhook da Braze {#step-1-create-your-braze-webhook-template}
+### Etapa 1: crie seu modelo de webhook da Braze {#step-1-create-your-braze-webhook-template}
 
-Para criar um modelo de webhook da optilyz para ser usado em futuras Campaigns ou Canvas, navegue até **Modelos** > **Modelos de webhook** na plataforma Braze.
+Para criar um modelo de webhook da optilyz para ser usado em futuras Campaigns ou Canvas, acesse **Conteúdo** > **Webhook** na plataforma Braze. Em seguida, selecione **Criar modelo de webhook**.
 
 Se você quiser criar uma Campaign única de webhook da optilyz ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova Campaign.
 
@@ -86,7 +86,7 @@ O campo `variation` é opcional e pode definir qual design dentro da automação
 
 ![Uma imagem do código do corpo da solicitação e da URL do webhook mostrada na guia de composição do construtor de webhooks da Braze.]({% image_buster /assets/img/optilyz/optilyz_compose.png %})
 
-### Etapa 2: Visualize sua solicitação {#step-2-preview-your-request}
+### Etapa 2: visualize sua solicitação {#step-2-preview-your-request}
 
 Em seguida, visualize sua solicitação no painel **Pré-visualização** ou navegue até a guia **Teste**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio usuário para testar o webhook. Lembre-se de salvar seu modelo antes de sair da página!
 

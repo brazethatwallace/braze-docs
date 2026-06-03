@@ -4,14 +4,14 @@ article_title: Datentransformation
 page_order: 2
 layout: dev_guide
 guide_top_header: "Datentransformation"
-guide_top_text: "Braze Data Transformation erlaubt es Ihnen, Webhook-Integrationen zu erstellen und zu verwalten, um den Datenfluss von externen Plattformen in Braze zu automatisieren. Diese neu integrierten Nutzerdaten können dann für noch anspruchsvollere Marketing-Anwendungsfälle genutzt werden. Braze Data Transformation kann Ihre Datenintegration beschleunigen, selbst wenn Sie nur wenig Erfahrung mit der Programmierung haben, und kann die Abhängigkeit Ihres Teams von manuellen API-Aufrufen, Integrations-Tools von Drittanbietern oder sogar Customer Data Platforms ersetzen."
+guide_top_text: "Braze Datentransformation erlaubt es Ihnen, Webhook-Integrationen zu erstellen und zu verwalten, um den Datenfluss von externen Plattformen in Braze zu automatisieren. Diese neu integrierten Nutzerdaten können dann für noch anspruchsvollere Marketing-Anwendungsfälle genutzt werden. Braze Datentransformation kann Ihre Datenintegration beschleunigen, selbst wenn Sie nur wenig Erfahrung mit der Programmierung haben, und kann die Abhängigkeit Ihres Teams von manuellen API-Aufrufen, Integrations-Tools von Drittanbietern oder sogar Customer Data Platforms ersetzen."
 page_type: landing
-description: "Auf dieser Landing-Page finden Sie Artikel über Braze Data Transformation, u. a. wie Sie eine Datentransformation erstellen und Anwendungsfälle."
+description: "Auf dieser Landing-Page finden Sie Artikel über Braze Datentransformation, u. a. wie Sie eine Datentransformation erstellen und Anwendungsfälle."
 alias: /data_transformation/
 
 guide_featured_title: "Abschnittsartikel"
 guide_featured_list:
-  - name: Erstellen Sie eine Transformation
+  - name: Transformation erstellen
     link: /docs/user_guide/data/unification/data_transformation/creating_a_transformation
     image: /assets/img/braze_icons/flip-forward.svg
   - name: Anwendungsfälle
@@ -37,13 +37,13 @@ Eine Umfrageplattform kann zum Beispiel einen Webhook an ein Ziel Ihrer Wahl sen
 
 ## Datentransformationsebenen {#data-transformation-tiers}
 
-Die folgende Tabelle beschreibt die Unterschiede zwischen der kostenlosen und der Pro-Version von Data Transformation.
+Die folgende Tabelle beschreibt die Unterschiede zwischen der kostenlosen und der Pro-Version von Datentransformation.
 
 | Bereich | Kostenlose Version | Data Transformation Pro |
 |----|----|----|
 | Aktive Transformationen | Bis zu 5 pro Unternehmen | Bis zu 55 pro Unternehmen |
 | Pro Monat | 300.000 eingehende Anfragen pro Monat | 10.300.000 eingehende Anfragen pro Monat |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data Transformation tiers" }
 
 {% alert important %}
 Um ein Upgrade auf Data Transformation Pro anzufordern, wenden Sie sich an Ihren Braze Account Manager oder wählen Sie den Button **Request Upgrade** im Braze-Dashboard.
@@ -51,31 +51,31 @@ Um ein Upgrade auf Data Transformation Pro anzufordern, wenden Sie sich an Ihren
 
 ### Rate-Limits {#rate-limits}
 
-Das Rate-Limit für Braze Data Transformations liegt bei 1.000 eingehenden Anfragen pro Minute und Workspace. Wenn Sie Data Transformation Pro haben und ein höheres Rate-Limit benötigen, wenden Sie sich an Ihren Braze Account Manager.
+Das Rate-Limit für Braze Datentransformationen liegt bei 1.000 eingehenden Anfragen pro Minute und Workspace. Wenn Sie Data Transformation Pro haben und ein höheres Rate-Limit benötigen, wenden Sie sich an Ihren Braze Account Manager.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Was wird mit Braze Data Transformation synchronisiert? {#what-gets-synced-with-braze-data-transformation}
+### Was wird mit Braze Datentransformation synchronisiert? {#what-gets-synced-with-braze-data-transformation}
 
 Alle Daten, die die externe Plattform in einem Webhook zur Verfügung stellt, können mit Braze synchronisiert werden. Je mehr eine externe Plattform über Webhooks sendet, desto mehr Möglichkeiten haben Sie, auszuwählen, was synchronisiert werden soll.
 
-### Ich bin Marketer. Benötige ich Entwickler:innen-Ressourcen, um Braze Data Transformation zu verwenden? {#im-a-marketer-do-i-need-developer-resources-to-use-braze-data-transformation}
+### Ich bin Marketer. Benötige ich Entwickler:innen-Ressourcen, um Braze Datentransformation zu verwenden? {#im-a-marketer-do-i-need-developer-resources-to-use-braze-data-transformation}
 
 Wir würden uns freuen, wenn auch Entwickler:innen dieses Feature nutzen würden, aber Sie müssen keine:r sein, um es zu verwenden! Marketer können Transformationen auch ohne Entwickler:innen-Ressourcen erfolgreich einrichten.
 
-### Kann ich Braze Data Transformation auch dann verwenden, wenn meine externe Plattform als Bezeichner nur eine E-Mail-Adresse oder Telefonnummer angibt? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
+### Kann ich Braze Datentransformation auch dann verwenden, wenn meine externe Plattform als Bezeichner nur eine E-Mail-Adresse oder Telefonnummer angibt? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
 
 Ja. Sie können Ihre Transformationen zum Update des Endpunkts `/users/track` mit der [E-Mail-Adresse oder Telefonnummer als Bezeichner]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#example-request-for-updating-a-user-profile-by-email-address) verwenden.
 
 Dies funktioniert, indem Sie `email` oder `phone` als Bezeichner-Eigenschaft im Transformationscode anstelle von `external_id` oder `braze_id` verwenden. Der [Beispiel-Transformationscode]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases/#example-transformation-code) verwendet diese Funktionalität.
 
 {% alert note %}
-Nutzer:innen von Braze Data Transformation im Early Access, die vor April 2023 begonnen haben, kennen vielleicht die Funktion `get_user_by_email`, die bei diesem Anwendungsfall hilfreich war. Diese Funktion ist inzwischen veraltet.
+Nutzer:innen von Braze Datentransformation im Early Access, die vor April 2023 begonnen haben, kennen vielleicht die Funktion `get_user_by_email`, die bei diesem Anwendungsfall hilfreich war. Diese Funktion ist inzwischen veraltet.
 {% endalert %}
 
-### Protokolliert Braze Data Transformation Datenpunkte? {#does-braze-data-transformation-log-data-points}
+### Protokolliert Braze Datentransformation Datenpunkte? {#does-braze-data-transformation-log-data-points}
 
-Ja, in den meisten Fällen. Braze Data Transformation erstellt letztlich einen `/users/track`-Aufruf, der die gewünschten Attribute, Ereignisse und Käufe schreibt. Diese protokollieren Datenpunkte auf die gleiche Weise, als ob der `/users/track`-Aufruf unabhängig erfolgt wäre. Sie haben die Kontrolle darüber, wie viele Datenpunkte protokolliert werden, je nachdem, wie Sie Ihre Transformation schreiben.
+Ja, in den meisten Fällen. Braze Datentransformation erstellt letztlich einen `/users/track`-Aufruf, der die gewünschten Attribute, Ereignisse und Käufe schreibt. Diese protokollieren Datenpunkte auf die gleiche Weise, als ob der `/users/track`-Aufruf unabhängig erfolgt wäre. Sie haben die Kontrolle darüber, wie viele Datenpunkte protokolliert werden, je nachdem, wie Sie Ihre Transformation schreiben.
 
 ### Wie kann ich Hilfe bei der Einrichtung meines Anwendungsfalls oder bei meinem Transformationscode erhalten? {#how-can-i-get-help-setting-up-my-use-case-or-with-my-transformation-code}
 

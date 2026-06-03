@@ -85,7 +85,7 @@ Certifique-se de definir parâmetros ou elementos que os usuários possam precis
 | -------- | ----------- |
 | Page Title | Você pode dar qualquer título à sua página. Isso é obrigatório. |
 | My First Heading | Recomendamos colocar isso em letras maiúsculas. Isso também é opcional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code Sample" }
 
 ## Tópico 2 sobre este conceito {#topic-2-regarding-this-concept}
 

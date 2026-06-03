@@ -16,7 +16,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 > Usa este punto de conexión para exportar datos de series temporales de un Canvas.
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 
@@ -39,7 +39,7 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 | `include_variant_breakdown` | Opcional | Booleano | Incluir o no estadísticas de variantes (por defecto `false`).  |
 | `include_step_breakdown` | Opcional | Booleano | Incluir o no estadísticas de pasos (por defecto `false`). |
 | `include_deleted_step_data` | Opcional | Booleano | Incluir o no las estadísticas de los pasos eliminados (por defecto `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 

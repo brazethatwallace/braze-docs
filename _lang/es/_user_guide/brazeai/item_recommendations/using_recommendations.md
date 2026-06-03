@@ -29,7 +29,7 @@ Una vez que tu recomendación haya terminado el entrenamiento, puedes personaliz
 
 Puedes generar Liquid desde la sección **Add personalization** en tu creador de mensajes:
 
-1. En cualquier creador de mensajes que admita la personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> para abrir la ventana de personalización.
+1. En cualquier creador de mensajes que admita la personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Añadir personalización"></i> para abrir la ventana de personalización.
 2. En **Personalization Type**, selecciona **Item Recommendation**.
 3. En **Item Recommendation Name**, selecciona la recomendación que acabas de crear.
 4. En **Number of Predicted Items**, introduce cuántos productos principales quieres que se inserten. Por ejemplo, puedes mostrar los tres artículos más comprados.
@@ -44,7 +44,7 @@ Puedes escribir código Liquid personalizado haciendo referencia al objeto `prod
 |-------------|-------|
 | **Estructura** | Se accede a cada elemento como `items[index]`, donde el índice comienza en 0 (para el primer elemento) y se incrementa para los elementos siguientes. |
 | **Campos del catálogo** | Cada elemento de la matriz contiene pares clave-valor correspondientes a campos (columnas) del catálogo. Por ejemplo, los campos habituales del catálogo para recomendaciones de productos incluyen:<br>- `name` o `title`<br>- `price`<br>- `image_url` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Añadir código Liquid" }
 
 Utiliza la etiqueta `assign` para obtener los datos de `product_recommendation` y asignarlos a una variable.
 
@@ -60,7 +60,7 @@ Sustituye lo siguiente:
 |-----------|-----------|
 | `recommendation_name` | El nombre de la recomendación de IA que creaste en Braze. |
 | `items` | La variable que almacena la matriz de artículos recomendados. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Añadir código Liquid" }
 
 A continuación, haz referencia a elementos específicos y sus campos utilizando el índice de la matriz y la notación de puntos:
 
@@ -110,7 +110,7 @@ Sustituye lo siguiente:
 |-----------|-----------|
 | `recommendation_name` | El nombre de tu recomendación. |
 | `image_url_field` | El nombre del campo de tu catálogo que contiene las URL de las imágenes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Hacer referencia a una imagen (opcional)" }
 
 Para incluir una imagen de marcador de posición en tus correos electrónicos de vista previa y prueba, selecciona **Choose image** y, a continuación, elige una imagen de tu biblioteca de medios o introduce la URL de una imagen de tu sitio de alojamiento.
 {% endtab %}
@@ -131,6 +131,6 @@ Sustituye lo siguiente:
 |-----------|-----------|
 | `recommendation_name` | El nombre de tu recomendación. |
 | `image_url_field` | El nombre del campo de tu catálogo que contiene las URL de las imágenes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Hacer referencia a una imagen (opcional)" }
 {% endtab %}
 {% endtabs %}

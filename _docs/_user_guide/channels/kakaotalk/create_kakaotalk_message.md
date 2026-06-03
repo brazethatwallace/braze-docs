@@ -204,7 +204,7 @@ Refer to the following sections for details on how best to use our tools to buil
 
 KakaoTalk messages can be delivered based on a scheduled time, an action, or an API trigger. For more about scheduling and trigger options, refer to [Schedule your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) or [Entry schedule types]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) (for your Canvas).
 
-You can specify delivery controls, such as allowing users to become re-eligible to receive the campaign, or turn on frequency capping rules. For action-based delivery, you can also set the campaign’s duration and Quiet Hours.
+You can specify delivery controls, such as allowing users to become re-eligible to receive the campaign, or turn on frequency capping rules. For action-based delivery, you can also set the campaign’s duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 ### Choose users to target
 

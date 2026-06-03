@@ -23,7 +23,7 @@ Antes de empezar, necesitarás lo siguiente:
 | Una cuenta Friendbuy | Es necesario tener una [cuenta Friendbuy](https://retailer.friendbuy.io/) para beneficiarse de esta asociación. |
 | Una clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
 | Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), que depende de la URL de tu instancia de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de Friendbuy {#integrating-friendbuy}
 
@@ -47,14 +47,14 @@ Vuelve a tu [cuenta Friendbuy](https://retailer.friendbuy.io/) y actualiza la p�
 | **Friendbuy Customer Name** | El nombre que el cliente introdujo al enviar su información a través de un widget de referidos. | Cadena |
 | **Friendbuy Referral Link** | Un enlace personal de referidos (PURL) generado para un Advocate. Por ejemplo, https://fbuy.io/EzcW | Cadena |
 | **Friendbuy Date of Last Share** | La fecha y hora en que el Advocate compartió por última vez con un amigo a través de cualquier canal de compartición. Si el Advocate aún no ha compartido, la propiedad no será visible. | Tiempo |
-| **Friendbuy Campaign ID** | El identificador de Campaign asociado al enlace de referidos personal generado para un Advocate. | Cadena |
-| **Friendbuy Campaign Name** | El nombre de Campaign asociado al enlace de referidos personal generado para un Advocate. | Cadena |
+| **Friendbuy Campaign ID** | El identificador de campaña asociado al enlace de referidos personal generado para un Advocate. | Cadena |
+| **Friendbuy Campaign Name** | El nombre de campaña asociado al enlace de referidos personal generado para un Advocate. | Cadena |
 | **Friendbuy Coupon Code** | El último código de cupón de referidos distribuido al cliente. Nota: solo se mostrará un código. | Cadena |
 | **Friendbuy Coupon Value** | El valor monetario del último código de cupón distribuido al cliente. | Número |
 | **Friendbuy Coupon Status** | El estado del último código de cupón distribuido al cliente. Nota: el estado será "distributed" o "redeemed". | Cadena |
 | **Friendbuy Coupon Currency** | Código de moneda (USD, CAD, etc.) o porcentaje (%) asociado al último código de cupón distribuido al cliente. | Cadena |
-| **Friendbuy Coupon Campaign ID** | El ID de Campaign asociado al código de cupón generado para un cliente. | Cadena |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| **Friendbuy Coupon Campaign ID** | El ID de campaña asociado al código de cupón generado para un cliente. | Cadena |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Atributos personalizados" }
 
 ## Comportamiento predeterminado {#default-behavior}
 

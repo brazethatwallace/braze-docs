@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Alle Übersetzungen und Lokalisierungen für E-Mail-Template anzeigen"
 article_title: "GET: Alle Übersetzungen und Lokalisierungen für E-Mail-Template anzeigen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 3
 
 layout: api_page
@@ -16,8 +16,6 @@ description: "Dieser Artikel beschreibt die Details des Endpunkts „Alle Übers
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um alle Übersetzungen und Lokalisierungen für ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/) anzuzeigen. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Lokalisierungen in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
 ## Voraussetzungen {#prerequisites}
 

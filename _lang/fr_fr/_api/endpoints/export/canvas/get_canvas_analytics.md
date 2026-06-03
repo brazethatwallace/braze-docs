@@ -16,7 +16,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter l'analy
 
 > Utilisez cet endpoint pour exporter des données de séries temporelles pour un Canvas.
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 
@@ -39,7 +39,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `include_variant_breakdown` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les statistiques de variante (par défaut `false`).  |
 | `include_step_breakdown` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les statistiques d'étape (par défaut `false`). |
 | `include_deleted_step_data` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les statistiques d'étape pour les étapes supprimées (par défaut `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de requête {#example-request}
 

@@ -4,7 +4,7 @@ article_title: Remerge
 alias: /partners/remerge/
 description: "이 참조 문서에서는 대규모 앱 리타겟팅을 위해 특별히 설계된 Remerge와 Braze 간의 파트너십을 설명하며, 앱 오디언스를 효율적으로 세분화하고 사용자를 리타겟팅할 수 있는 도구를 제공합니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 
 ---
 
@@ -27,15 +27,16 @@ Braze와 Remerge 통합은 웹훅 이벤트를 통해 사용자 데이터를 Rem
 | Android 앱 ID | Android용 고유 Braze 애플리케이션 식별자(예: "com.example"). |
 | iOS 앱 ID | iOS용 고유 Braze 애플리케이션 식별자(예: "012345678"). |
 | Braze SDK에서 IDFA 수집 활성화 | IDFA 수집은 Braze SDK 내에서 선택 사항이며 기본적으로 비활성화되어 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
 ### 1단계: Braze 웹훅 템플릿 생성 {#step-1-create-your-braze-webhook-template}
 
-향후 Campaigns 또는 Canvases에서 사용할 Remerge 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **템플릿** > **웹훅 템플릿**으로 이동합니다.
+향후 Campaigns 또는 Canvases에서 사용할 Remerge 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **콘텐츠** > **웹훅**으로 이동합니다. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
-일회성 Remerge 웹훅 캠페인을 생성하거나 기존 템플릿을 사용하려면 새 캠페인을 생성할 때 Braze에서 **Webhook**을 선택합니다.
+
+일회성 Remerge 웹훅 Campaign을 생성하거나 기존 템플릿을 사용하려면 새 Campaign을 생성할 때 Braze에서 **Webhook**을 선택합니다.
 
 새 웹훅 템플릿에서 다음 필드를 입력합니다:
 - **Request Body**: Raw Text
@@ -87,5 +88,5 @@ Remerge 웹훅에는 HTTP 메서드와 요청 헤더가 필요합니다.
 메시지를 미리보기하여 다양한 사용자에 대해 요청이 올바르게 렌더링되는지 확인합니다. Android 및 iOS 사용자 모두에 대해 미리보기 및 테스트 요청을 전송하는 것을 권장합니다. 요청이 성공하면 API는 `HTTP 204`로 응답합니다.
 
 {% alert important %}
-페이지를 떠나기 전에 템플릿을 저장하세요! <br>업데이트된 웹훅 템플릿은 새 [웹훅 캠페인]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)을 생성할 때 **저장된 웹훅 템플릿** 목록에서 찾을 수 있습니다.
+페이지를 떠나기 전에 템플릿을 저장하세요! <br>업데이트된 웹훅 템플릿은 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)을 생성할 때 **저장된 웹훅 템플릿** 목록에서 찾을 수 있습니다.
 {% endalert %}

@@ -53,7 +53,7 @@ if (@available(iOS 10.0, *)) {
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 if #available(iOS 10, *) {
   let center = UNUserNotificationCenter.current()
   center.getNotificationSettings(completionHandler: { (settings) in
@@ -85,7 +85,7 @@ if #available(iOS 10, *) {
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 if (@available(iOS 10.0, *)) {
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
@@ -106,7 +106,7 @@ if (@available(iOS 10.0, *)) {
 ```
 {% endtab %}
 {% tab swift %}
-```swift
+`````````swift
 if #available(iOS 10, *) {
   let center = UNUserNotificationCenter.current()
   center.getNotificationSettings(completionHandler: { (settings) in
@@ -136,7 +136,7 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
   // ...
   // check that this deep link relates to the push prompt
   // ...
@@ -158,7 +158,7 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
   // ...
   // check that this deep link relates to the push prompt
   // ...

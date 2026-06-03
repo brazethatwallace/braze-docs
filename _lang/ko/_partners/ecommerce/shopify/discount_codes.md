@@ -20,7 +20,7 @@ description: "이 참조 문서에서는 Braze 프로모션 코드와 Shopify Bu
 | --- | --- |
 | Shopify 스토어 설정 | [Braze와 Shopify 스토어를 설정]({{site.baseurl}}/shopify_overview/)했는지 확인합니다. |
 | Bulk Discount Code Bot 앱 설치 | Shopify 앱 스토어에서 [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) 앱을 다운로드합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## 고유 할인 코드 생성하기 {#generating-unique-discount-codes}
 
@@ -85,9 +85,9 @@ Campaigns 또는 Canvases에서 할인 코드가 몇 번 참조되더라도 사�
 
 {% enddetails %}
 
-[1]: {% image_buster /assets/img/Shopify/configure_discount_codes.png %}
-[2]: {% image_buster /assets/img/Shopify/export_discount_codes.png %}
-[3]: {% image_buster /assets/img/Shopify/edited_codes_csv.png %}
-[4]: {% image_buster /assets/img/Shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/Shopify/liquid_promo_code.gif %}
-[6]: {% image_buster /assets/img/Shopify/user_update_step.png %}
+[1]: {% image_buster /assets/img/shopify/configure_discount_codes.png %}
+[2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
+[3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
+[4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
+[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
+[6]: {% image_buster /assets/img/shopify/user_update_step.png %}

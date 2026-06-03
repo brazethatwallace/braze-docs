@@ -76,7 +76,7 @@ X-Algolia-API-Key: {ALGOLIA_API_KEY}
 X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 ```
 
-#### Exemplo de carga útil da consulta {#example-query-payload}
+#### Exemplo de carga útil da consulta
 
 ```json
 {

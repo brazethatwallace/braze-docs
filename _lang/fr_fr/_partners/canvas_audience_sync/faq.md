@@ -1,6 +1,6 @@
 ---
 nav_title: FAQ
-article_title: "FAQ sur Audience Sync"
+article_title: FAQ sur Audience Sync
 alias: /partners/audience_sync_faq/
 description: "Cet article fournit des réponses aux questions fréquemment posées sur Audience Sync."
 page_order: 80
@@ -39,7 +39,7 @@ Cela dépend des méthodes d'intégration des partenaires et n'est pas contrôl�
 
 ### Comment reconnecter mon intégration ? {#how-do-i-reconnect-my-integration}
 
-Si l'utilisateur qui a initialement connecté l'intégration ne fait plus partie de votre entreprise, vous devrez mettre à jour l'intégration avec le nouvel utilisateur en sélectionnant **Change Account**. Sélectionnez ensuite **Confirm** et connectez-vous avec le nouvel utilisateur. Nous vous recommandons de changer d'utilisateur lorsqu'aucune synchronisation active n'est en cours, par exemple avant une entrée planifiée d'utilisateurs dans un Canvas, car la synchronisation pendant la transition d'un utilisateur à un autre peut perturber les Canvas actifs.
+Si l'utilisateur qui a initialement connecté l'intégration ne fait plus partie de votre entreprise, vous devrez mettre à jour l'intégration avec le nouvel utilisateur en sélectionnant **Change Account**. Sélectionnez ensuite **Confirm** et connectez-vous avec le nouvel utilisateur. Nous vous recommandons de changer d'utilisateur lorsqu'aucune synchronisation active n'est en cours, par exemple avant une entrée planifiée d'utilisateurs dans un Canvas, car la synchronisation pendant la transition d'un utilisateur à un autre peut perturber les Canvas actifs. Nous vous recommandons de changer d'utilisateur lorsqu'aucune synchronisation active n'est en cours, par exemple avant une entrée planifiée d'utilisateurs dans un Canvas.
 
 L'utilisateur qui se reconnecte doit disposer d'un accès en lecture et en écriture à toutes les audiences afin que les utilisateurs puissent être synchronisés avec les partenaires. Vérifiez que l'utilisateur qui reconnecte l'intégration a accès aux mêmes comptes publicitaires et aux mêmes audiences. Vous n'aurez pas besoin de modifier les étapes du Canvas existantes.
 

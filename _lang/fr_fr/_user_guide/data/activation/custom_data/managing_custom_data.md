@@ -23,8 +23,8 @@ Pour pré-remplir les événements et attributs personnalisés, procédez comme 
 ![Naviguez jusqu'à Attributs personnalisés, Événements personnalisés ou Produits.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
 
 {: start="2"}
-2. Pour ajouter un attribut personnalisé, un événement personnalisé ou un produit, rendez-vous sur la page correspondante et sélectionnez **Ajouter des attributs personnalisés**, **Ajouter des événements personnalisés** ou **Ajouter des produits**.<br><br>Pour les attributs personnalisés, sélectionnez un [type de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) pour cet attribut (par exemple, valeur booléenne ou chaîne de caractères). Le type de données d'un attribut détermine les filtres de segmentation disponibles pour cet attribut. <br><br>![Ajouter un nouvel attribut ou événement]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
-3. Sélectionnez **Enregistrer**.
+2. Pour ajouter un attribut personnalisé, un événement personnalisé ou un produit, rendez-vous sur la page correspondante et sélectionnez **Add Custom Attributes**, **Add Custom Events** ou **Add Products**.<br><br>Pour les attributs personnalisés, sélectionnez un [type de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) pour cet attribut (par exemple, valeur booléenne ou chaîne de caractères). Le type de données d'un attribut détermine les filtres de segmentation disponibles pour cet attribut. <br><br>![Ajouter un nouvel attribut ou événement]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
+3. Sélectionnez **Save**.
 
 ### Attribution de noms aux événements et attributs personnalisés {#naming-custom-events-and-custom-attributes}
 
@@ -32,7 +32,7 @@ Les événements personnalisés et les attributs personnalisés sont sensibles �
 
 ## Gestion des propriétés {#managing-properties}
 
-Après avoir créé un événement personnalisé ou un produit, sélectionnez **Gérer les propriétés** de cet événement ou de ce produit pour ajouter de nouvelles propriétés, bloquer des propriétés existantes et afficher les campagnes ou les Canvas qui utilisent cette propriété dans un [événement déclencheur]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
+Après avoir créé un événement personnalisé ou un produit, sélectionnez **Manage Properties** pour cet événement ou ce produit afin d'ajouter de nouvelles propriétés, bloquer des propriétés existantes et afficher les Campaigns ou les Canvas qui utilisent cette propriété dans un [événement déclencheur]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
 
 ![Propriétés personnalisées d'un événement personnalisé.]({% image_buster /assets/img_archive/manageproperties1.png %}){: style="max-width:80%"}
 
@@ -46,11 +46,11 @@ Pour assurer la traçabilité des attributs personnalisés, événements, produi
 
 Braze détecte automatiquement le type de données d'un attribut personnalisé en fonction de la première valeur reçue. Si votre environnement de développement envoie d'abord une valeur numérique comme `100`, l'attribut est stocké en tant que nombre. Si la première valeur provenant de votre environnement de production arrive sous forme de chaîne de caractères (par exemple `"100"` entre guillemets), l'attribut est stocké en tant que chaîne de caractères.
 
-Pour éviter cela, assurez-vous que votre intégration envoie des types de données cohérents dans tous les environnements. Si un type incorrect est déjà défini, vous pouvez forcer le type de données correct dans **Paramètres des données** > **Attributs personnalisés** en utilisant la [liste déroulante du type de données](#forcing-data-type-comparisons).
+Pour éviter cela, assurez-vous que votre intégration envoie des types de données cohérents dans tous les environnements. Si un type incorrect est déjà défini, vous pouvez forcer le type de données correct dans **Data Settings** > **Custom Attributes** en utilisant la [liste déroulante du type de données](#forcing-data-type-comparisons).
 
 ## Forcer les comparaisons de type de données {#forcing-data-type-comparisons}
 
-Braze reconnaît automatiquement les types de données pour les données d'attribut qui lui sont envoyées. Cependant, dans l'éventualité où plusieurs types de données sont appliqués à un seul attribut, vous pouvez forcer le type de données de n'importe quel attribut pour indiquer à Braze de quoi il s'agit. Sélectionnez le type souhaité dans la liste déroulante de la colonne **Type de données**.
+Braze reconnaît automatiquement les types de données pour les données d'attribut qui lui sont envoyées. Cependant, dans l'éventualité où plusieurs types de données sont appliqués à un seul attribut, vous pouvez forcer le type de données de n'importe quel attribut pour indiquer à Braze de quoi il s'agit. Sélectionnez le type souhaité dans la liste déroulante de la colonne **Data Type**.
 
 {% alert note %}
 À compter du 30 mars 2026, la détection automatique ne définit un type de données que lors de la première ingestion. Pour modifier le type de données après la première ingestion, mettez-le à jour manuellement en suivant les étapes ci-dessous.
@@ -79,7 +79,9 @@ Si vous avez besoin que toutes les données utilisateur existantes correspondent
 | Valeur booléenne | Les entrées `1`, `true`, `t` (non sensibles à la casse) sont stockées comme `true` |
 | Valeur booléenne | Les entrées `0`, `false`, `f` (non sensibles à la casse) sont stockées comme `false` |
 | Nombre | Les nombres entiers ou flottants (tels que `1`, `1.5`) sont stockés en tant que nombres |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Nombre | Les chaînes de caractères numériques (telles que `"100"` ou `"3.14"`) peuvent être contraintes en nombres lorsque l'attribut est forcé au type **Nombre** |
+| Chaîne de caractères | Les valeurs numériques peuvent être contraintes sous forme de chaîne de caractères lorsque l'attribut est forcé au type **Chaîne de caractères** |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Coercition de type de données" }
 
 Pour plus d'informations sur les options de filtrage spécifiques exposées par les différentes comparaisons de types de données, consultez la section [Configuration des rapports]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). Pour plus d'informations sur les différents types de données disponibles, reportez-vous à la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).
 

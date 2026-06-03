@@ -1,6 +1,6 @@
 ---
 nav_title: Zeotap
-description: "This reference article outlines the partnership between Braze and Zeotap, a next-generation customer data platform that provides identity resolution, insights, and enrichment."
+description: "이 참조 문서에서는 ID 확인, 인사이트, 데이터 보강을 제공하는 차세대 고객 데이터 플랫폼인 Zeotap과 Braze 간의 파트너십에 대해 설명합니다."
 page_type: partner
 search_tag: Partner
 page_order: 1
@@ -8,55 +8,54 @@ page_order: 1
 
 # Zeotap
 
-> [Zeotap](https://zeotap.com/) is a next-generation customer data platform that helps you discover and understand your mobile audience by providing identity resolution, insights, and data enrichment.
+> [Zeotap](https://zeotap.com/)은 ID 확인, 인사이트, 데이터 보강을 제공하여 모바일 오디언스를 발견하고 이해할 수 있도록 돕는 차세대 고객 데이터 플랫폼입니다.
 
-With the Zeotap and Braze integration, you can extend the scale and reach of your campaigns by syncing Zeotap customer segments to map user data to Braze user accounts. You can then act on this data, delivering personalized target experiences to your users.
+Zeotap과 Braze 통합을 사용하면 Zeotap 고객 세그먼트를 동기화하여 사용자 데이터를 Braze 사용자 계정에 매핑함으로써 캠페인의 규모와 도달 범위를 확장할 수 있습니다. 이 데이터를 기반으로 사용자에게 개인화된 타겟 경험을 제공할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | --- | --- |
-|Zeotap account | A [Zeotap account](https://zeotap.com/) is required to take advantage of this partnership. |
-| Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint  | 귀하의 REST 엔드포인트 URL. 사용자의 엔드포인트는 [인스턴스를 위한 Braze URL]({% image_buster /assets/img/zeotap/zeotap1.png %})에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| Zeotap 계정 | 이 파트너십을 활용하려면 [Zeotap 계정](https://zeotap.com/)이 필요합니다. |
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스에 대한 Braze URL]({% image_buster /assets/img/zeotap/zeotap1.png %})에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Create a Zeotap destination
+### 1단계: Zeotap 대상 생성 {#step-1-create-a-zeotap-destination}
 
-1. From the Zeotap Unity platform, navigate to the **DESTINATIONS** application.
-2. Under **All Channels**, select **Braze**.
-3. In the prompt that appears, name your destination, and provide your client name and Braze REST API key associated with your Braze account.
-4. Lastly, select your Braze REST endpoint instance from the dropdown and save the destination. <br><br>![]({% image_buster /assets/img/zeotap/zeotap1.png %})
+1. Zeotap Unity 플랫폼에서 **DESTINATIONS** 애플리케이션으로 이동합니다.
+2. **All Channels** 아래에서 **Braze**를 선택합니다.
+3. 표시되는 프롬프트에서 대상 이름을 지정하고, Braze 계정과 연결된 클라이언트 이름과 Braze REST API 키를 입력합니다.
+4. 마지막으로 드롭다운에서 Braze REST 엔드포인트 인스턴스를 선택하고 대상을 저장합니다. <br><br>![]({% image_buster /assets/img/zeotap/zeotap1.png %})
 
-### 2단계: Create and link a Zeotap segment to your destination 
- 
-1. From the Zeotap Unity platform, navigate to the **CONNECT** application.
-2. Create a segment and select the Braze destination created in step 1.
-3. Select a supported output identifier: MAIDs, email address hashed to SHA256, or any 1P customer identifier recognized by Braze (if you want to use a custom identifier for your Braze account, get in touch with Zeotap so that it can be enabled for your account). Only one output identifier can be used for the Braze integration. These identifiers must be the same as the external ID set when collecting Braze SDK data.
-4. Save the segment.
+### 2단계: Zeotap 세그먼트를 생성하고 대상에 연결 {#step-2-create-and-link-a-zeotap-segment-to-your-destination}
+
+1. Zeotap Unity 플랫폼에서 **CONNECT** 애플리케이션으로 이동합니다.
+2. 세그먼트를 생성하고 1단계에서 만든 Braze 대상을 선택합니다.
+3. 지원되는 출력 식별자를 선택합니다: MAID, SHA256으로 해시된 이메일 주소, 또는 Braze에서 인식하는 1P 고객 식별자(Braze 계정에 커스텀 식별자를 사용하려면 Zeotap에 문의하여 계정에서 활성화할 수 있도록 하세요). Braze 통합에는 하나의 출력 식별자만 사용할 수 있습니다. 이러한 식별자는 Braze SDK 데이터를 수집할 때 설정한 외부 ID와 동일해야 합니다.
+4. 세그먼트를 저장합니다.
 
 ![]({% image_buster /assets/img/zeotap/zeotap2.png %})
 
 {% alert note %}
-The identifiers that appear are both available in the segment and supported by Braze.
+표시되는 식별자는 세그먼트에서 사용 가능하며 Braze에서 지원하는 식별자입니다.
 {% endalert %}
 
-### Step 3: Create Braze segment
+### 3단계: Braze 세그먼트 생성 {#step-3-create-braze-segment}
 
-After successfully creating, pushing, and processing a segment in Zeotap, the Zeotap users will appear in the Braze dashboard. Braze 대시보드에서 사용자 ID로 사용자를 조회할 수 있습니다. 
+Zeotap에서 세그먼트를 성공적으로 생성, 푸시 및 처리하면 Zeotap 사용자가 Braze 대시보드에 표시됩니다. Braze 대시보드에서 사용자 ID로 사용자를 조회할 수 있습니다.
 
-!['커스텀 속성' 아래 'true'로 나열된 세그먼트 1~4를 표시하는 Braze 고객 프로필.]({% image_buster /assets/img/zeotap/zeotap4.png %})
+![커스텀 속성 아래에 세그먼트 1~4가 "true"로 나열된 Braze 고객 프로필]({% image_buster /assets/img/zeotap/zeotap4.png %})
 
-사용자가 Zeotap 세그먼트의 일부인 경우 세그먼트 이름이 고객 프로필에 커스텀 속성으로 표시되며 부울 값 `true`가 표시됩니다. Take note of the custom attribute name as you will need it when creating a Braze segment. 
+사용자가 Zeotap 세그먼트의 일부인 경우 세그먼트 이름이 고객 프로필에 커스텀 속성으로 표시되며 부울 값 `true`가 표시됩니다. Braze 세그먼트를 생성할 때 필요하므로 커스텀 속성 이름을 기록해 두세요.
 
-Next, you must create and define this segment within Braze:
-1. From the Braze dashboard, select **Segments** and then **Create Segment**.
-2. Next, name your segment and select the custom attribute segment made in Zeotap.
-3. 변경 사항을 저장합니다. 
+다음으로 Braze 내에서 이 세그먼트를 생성하고 정의해야 합니다:
+1. Braze 대시보드에서 **Segments**를 선택한 다음 **Create Segment**를 선택합니다.
+2. 세그먼트 이름을 지정하고 Zeotap에서 만든 커스텀 속성 세그먼트를 선택합니다.
+3. 변경 사항을 저장합니다.
 
 ![Braze 세그먼트 빌더에서 커스텀 속성으로 설정된 가져온 세그먼트를 찾을 수 있습니다.]({% image_buster /assets/img/zeotap/zeotap3.png %})
 
-You can now add this newly created segment to future Braze campaigns and Canvases to target these end-users. 
-
+이제 새로 생성한 세그먼트를 향후 Braze Campaigns 및 Canvases에 추가하여 이러한 최종 사용자를 타겟팅할 수 있습니다.

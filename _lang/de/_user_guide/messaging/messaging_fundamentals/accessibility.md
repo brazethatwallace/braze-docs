@@ -161,7 +161,7 @@ Verwenden Sie diese Tabelle, um Kanäle zu vergleichen. Standardwerte können ab
 | Banner | Gleiches Verhalten wie bei In-App-Nachrichten. |
 | Landing-Pages | Sie können die Sprache auf der Live-Seite festlegen. Wählen Sie eine Sprache oder verwenden Sie Liquid, wenn Ihr Konto Liquid auf Landing-Pages erlaubt. Standardwerte unterscheiden sich ebenfalls von In-App-Nachrichten und Bannern – prüfen Sie die veröffentlichte Seite. |
 | Content Cards | Cards verwenden ein **Language**-Feld für Apps anstelle einer expliziten Barrierefreiheitssprache. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Kanal- und Editor-Unterstützung" }
 
 Wenn Sie HTML selbst schreiben, können Sie trotzdem ein Sprach-Tag für einen Teil der Nachricht hinzufügen (zum Beispiel einen Satz in einer anderen Sprache). Weitere Muster finden Sie unter [Benutzerdefiniertes HTML](#custom-html).
 
@@ -240,7 +240,7 @@ Schreiben Sie Linktexte, die klar beschreiben, wohin der Link die Nutzer:innen f
 | Schlecht | Besser | Am besten |
 | --- | --- | --- |
 | Hier klicken | Hier klicken, um den heutigen Wetterbericht aufzurufen | Heutiger Wetterbericht |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Beschreibenden Linktext schreiben" }
 
 Wie bei allen Inhalten gilt: Halten Sie es unkompliziert mit so wenig überflüssigen Wörtern wie möglich.
 

@@ -69,7 +69,7 @@ Oui, mais un seul message in-app peut s'afficher par occurrence d'un [événemen
 
 Lorsque plusieurs messages partagent le même niveau de priorité, le message créé le plus récemment s'affiche en premier. Pour les déclencheurs de démarrage de session, le message suivant le plus récent s'affiche lors d'une session ultérieure ; pour les autres types de déclencheurs, le message suivant le plus récent s'affiche la prochaine fois que cet événement déclencheur se produit, ce qui peut être au cours de la même session ou d'une session ultérieure.
 
-Pour contrôler l'ordre d'affichage au sein d'un niveau de priorité, accédez aux paramètres de distribution de l'une des campagnes et sélectionnez **Définir la priorité exacte**, puis glissez-déposez les campagnes dans l'ordre souhaité. Pour plus de détails, consultez [Choisir une priorité]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
+Pour contrôler l'ordre d'affichage au sein d'un niveau de priorité, accédez aux paramètres de distribution de l'une des campagnes et sélectionnez **Set Exact Priority**, puis glissez-déposez les campagnes dans l'ordre souhaité. Pour plus de détails, consultez [Choisir une priorité]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
 
 ### Comment Braze calcule-t-il l'expiration d'un message in-app définie sur « après 1 jour(s) » ? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -86,7 +86,7 @@ Les messages in-app sont distribués en tant que messages in-app modélisés lor
 - `catalog_selection_items`
 - `event_properties`
 
-Cela signifie que lors du démarrage de la session, l'appareil reçoit le déclencheur de ce message in-app au lieu du message complet. Lorsque l'utilisateur déclenche le message in-app, l'appareil de l'utilisateur effectue une requête réseau pour récupérer le message réel.
+Cela signifie que lors du démarrage de la session, l'appareil reçoit le déclencheur de ce message in-app au lieu du message complet. Lorsque l'utilisateur déclenche le message in-app, son appareil effectue une requête réseau pour récupérer le message réel.
 
 {% alert note %}
 Le message n'est pas distribué si l'appareil n'a pas accès à Internet. Le message peut ne pas être distribué si la logique Liquid prend trop de temps à se résoudre.
@@ -106,7 +106,7 @@ Cependant, étant donné que les messages in-app sont un canal de type « pull �
 
 #### Comportement d'annulation standard des messages in-app {#standard-in-app-message-abort-behavior}
 
-Les messages in-app sont récupérés par l'appareil au démarrage de la session et mis en cache sur l'appareil, de sorte que, quelle que soit la qualité de la connexion Internet, le message peut être distribué instantanément à l'utilisateur. Par exemple, si un utilisateur reçoit cinq messages in-app au cours de sa session, il les reçoit tous les cinq au démarrage de la session. Les messages sont mis en cache localement et apparaissent lorsque leurs événements déclencheurs définis se produisent (démarrage de session, l'utilisateur clique sur un bouton qui enregistre un événement personnalisé, ou autre).
+Les messages in-app sont récupérés par l'appareil au démarrage de la session et mis en cache sur l'appareil, de sorte que, quelle que soit la qualité de la connexion Internet, le message peut être distribué instantanément à l'utilisateur. Par exemple, si un utilisateur reçoit cinq messages in-app au cours de sa session, il les reçoit tous les cinq au démarrage de la session. Les messages sont mis en cache localement et apparaissent lorsque leurs événements déclencheurs définis se produisent (démarrage de session, clic sur un bouton qui enregistre un événement personnalisé, ou autre).
 
 En d'autres termes, la logique qui détermine si un message in-app doit être annulé se produit **avant** que le déclencheur ne se soit produit. Pour illustrer cela, supposons que Sam de l'exemple de l'e-mail est abonné aux notifications push.
 

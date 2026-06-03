@@ -68,10 +68,12 @@ guide_menu_list:
 
 Liquid를 사용하여 카탈로그 정보를 가져오는 방법에 대한 예는 [카탈로그 생성]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/)의 추가 활용 사례를 참조하세요.
 
-#### 데이터 저장 제한 {#data-storage-limitations}
+## 데이터 저장 제한 {#data-storage-limitations}
 
 카탈로그의 데이터 저장 용량은 카탈로그 항목의 크기에 따라 제한되며, 업로드된 CSV 파일의 크기와 다를 수 있습니다.
 
 카탈로그 무료 버전의 경우 허용되는 저장 용량은 최대 100&nbsp;MB입니다. 저장 공간이 100&nbsp;MB를 초과하지 않는 한 항목 수에는 제한이 없습니다.
 
 Catalogs Pro의 경우 저장 용량 옵션은 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB 또는 50&nbsp;GB입니다. 무료 버전의 저장 용량(100&nbsp;MB)은 각 요금제에 포함되어 있습니다.
+
+카탈로그 저장 용량을 업그레이드해야 하는 경우 Braze 계정 매니저에게 문의하세요. 요금제 세부 정보 및 자격 참고 사항은 [카탈로그 저장 용량]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#tiers)을 참조하세요.

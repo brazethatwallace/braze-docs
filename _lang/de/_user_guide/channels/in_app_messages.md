@@ -32,7 +32,7 @@ Dank der umfangreichen Inhalte, die In-App-Nachrichten bieten, können Sie diese
 | Verkäufe und Aktionen | Verwenden Sie modale In-App-Nachrichten, um Kund:innen mit visuell ansprechenden Medien zu begrüßen, die statische Aktionscodes oder Angebote enthalten. Motivieren Sie sie zu Käufen oder Conversions, die sie sonst nicht getätigt hätten. |
 | Feature-Adoption fördern | Ermutigen Sie Kund:innen, andere Bereiche Ihrer App zu nutzen oder einen Dienst in Anspruch zu nehmen. |
 | Hochgradig personalisierte Campaigns | Platzieren Sie In-App-Nachrichten als Erstes, was Ihre Kund:innen sehen, wenn sie Ihre App oder Website öffnen. Fügen Sie einige Braze-Personalisierungsfeatures hinzu, wie z. B. [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), um Nutzer:innen zum Handeln zu bewegen und so Ihre Ansprache effektiver zu gestalten.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 Weitere Anwendungsfälle, die Sie in Betracht ziehen sollten:
 
@@ -61,7 +61,7 @@ Modale Nachrichten erscheinen in der Mitte des Gerätebildschirms mit einem Bild
 ![Modale In-App-Nachricht, die in der Mitte einer App und Website als Dialog erscheint. Das Modal enthält ein Bild, eine Überschrift, einen Nachrichtentext und zwei Buttons.]({% image_buster /assets/img/modal-behavior.gif %}){: style="border:0px;"}
 
 {% endtab %}
-{% tab Fullscreen %}
+{% tab Vollbild %}
 
 Vollbild-Nachrichten sind genau das, was Sie erwarten würden – sie nehmen den gesamten Bildschirm des Geräts ein! Dieser Nachrichtentyp eignet sich hervorragend, wenn Sie wirklich die Aufmerksamkeit Ihrer Nutzer:innen benötigen, z. B. für obligatorische App-Updates.
 
@@ -70,9 +70,9 @@ Vollbild-Nachrichten sind genau das, was Sie erwarten würden – sie nehmen den
 {% endtab %}
 {% endtabs %}
 
-Zusätzlich zu diesen Standard-Nachrichtentemplates können Sie Ihr Messaging auch mit benutzerdefinierten HTML-In-App-Nachrichten, Web-Modalen mit CSS oder Web-E-Mail-Erfassungsformularen weiter anpassen. Weitere Informationen finden Sie unter [Anpassung]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+Zusätzlich zu diesen Standard-Nachrichtentemplates können Sie Ihr Messaging auch mit benutzerdefinierten HTML-In-App-Nachrichten, Web-Modalen mit CSS oder Web-E-Mail-Erfassungsformularen weiter anpassen. Weitere Informationen finden Sie unter [Anpassen]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
 
-Informationen dazu, wie die Template-basierte Zustellung zum Anzeigezeitpunkt das **Abbruch**-Logging beeinflusst, finden Sie in den [In-App-Nachrichten-FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).
+Informationen dazu, wie die Template-basierte Zustellung zum Anzeigezeitpunkt das **Abbruch**-Logging beeinflusst, finden Sie in den [FAQ zu In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).
 
 ## Nächste Schritte {#next-steps}
 

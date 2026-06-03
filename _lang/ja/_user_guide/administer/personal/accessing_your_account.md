@@ -79,7 +79,7 @@ SSOを使用していてマルチカンパニー開発者を設定する場合�
 
 ### ブラウザーのキャッシュとCookieのクリア {#clearing-your-browser-cache-and-cookies}
 
-ダッシュボードやSegmentパフォーマンスリストが読み込まれないなど、ダッシュボードのパフォーマンスに問題がある場合は、使用しているブラウザーの手順に従ってブラウザーのキャッシュとCookieをクリアしてください。
+ダッシュボードやセグメントパフォーマンスリストが読み込まれないなど、ダッシュボードのパフォーマンスに問題がある場合は、使用しているブラウザーの手順に従ってブラウザーのキャッシュとCookieをクリアしてください。
 
 {% alert important %}
 Cookieをクリアするとログアウトされるため、保存されていない作業は失われます。
@@ -91,6 +91,10 @@ Cookieをクリアするとログアウトされるため、保存されてい�
 - [Microsoft EdgeですべてのCookieを削除する](https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d#bkmk_deleteallcookies)
 
 ブラウザーのキャッシュとCookieをクリアしても問題が解決しない場合は、[サポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+
+### Google Chromeの「Aw, Snap!」エラー {#aw-snap-error-in-google-chrome}
+
+Google Chromeで「Aw, Snap!」エラーが表示される場合、ChromeがBrazeダッシュボードページの読み込みに問題を抱えています。トラブルシューティングの手順については、[Chromeの一般的なエラーメッセージに関するヘルプ](https://support.google.com/chrome/answer/95669?co=GENIE.Platform%3DDesktop&hl=en)を参照してください。
 
 ### ダッシュボードのナビゲーション中に「Please Refresh Page」または「Unexpected Error」が表示される {#please-refresh-page-or-unexpected-error-while-navigating-the-dashboard}
 

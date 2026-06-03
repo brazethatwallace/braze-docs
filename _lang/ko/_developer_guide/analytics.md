@@ -32,7 +32,7 @@ Braze를 구현하는 동안 팀과 마케팅 목표에 대해 논의하여 추�
 
 ## 커스텀 이벤트 {#custom-events}
 
-커스텀 이벤트는 사용자가 수행하는 동작으로, 애플리케이션과의 가치 있는 사용자 상호 작용을 추적하는 데 가장 적합합니다. 커스텀 이벤트를 기록하면 구성 가능한 지연 시간으로 후속 캠페인을 얼마든지 트리거할 수 있으며, 해당 이벤트의 최신성 및 빈도에 따라 다음과 같은 세분화 필터를 사용할 수 있습니다.
+커스텀 이벤트는 사용자가 수행하는 동작으로, 애플리케이션과의 가치 있는 사용자 상호 작용을 추적하는 데 가장 적합합니다. 커스텀 이벤트를 기록하면 구성 가능한 지연 시간으로 후속 Campaign을 얼마든지 트리거할 수 있으며, 해당 이벤트의 최신성 및 빈도에 따라 다음과 같은 세분화 필터를 사용할 수 있습니다.
 
 | 세분화 옵션 | 드롭다운 필터 | 입력 옵션 |
 | ---------------------| --------------- | ------------- |
@@ -46,7 +46,7 @@ Braze를 구현하는 동안 팀과 마케팅 목표에 대해 논의하여 추�
 | 커스텀 이벤트가 **X회(최대 = 50) 초과**하여 발생했는지 확인합니다 | **MORE THAN** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
 | 커스텀 이벤트가 **X회(최대 = 50) 미만으로** 발생했는지 확인합니다 | **LESS THAN** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
 | 커스텀 이벤트가 **정확히 X회(최대 = 50)만큼** 발생했는지 확인합니다 | **EXACTLY** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom events" }
 
 Braze는 세분화를 위해 이러한 이벤트가 발생한 횟수와 각 사용자가 마지막으로 수행한 시간을 기록합니다. **커스텀 이벤트** 분석 페이지에서 각 커스텀 이벤트의 발생 빈도를 집계하여 볼 수 있을 뿐만 아니라 시간 경과에 따른 Segment별로 더 자세히 분석할 수 있습니다. Campaign이 마지막으로 전송된 시간을 나타내기 위해 Braze에서 시계열에 겹쳐 표시하는 회색 선을 보고 Campaign이 커스텀 이벤트 활동에 어떤 영향을 미쳤는지 확인하는 데 특히 유용합니다.
 
@@ -110,7 +110,7 @@ Talk to villagers for essential tips on how to beat levels!
 | 문자열 속성이 입력한 문자열과 **일치하지 않는지** 확인합니다 | **DOES NOT EQUAL** | **문자열** |
 | 사용자 프로필에 문자열 속성이 **존재하는지** 확인합니다 | **IS BLANK** | **N/A** |
 | 사용자 프로필에 문자열 속성이 **존재하지 않는지** 확인합니다 | **IS NOT BLANK** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Strings (alphanumeric characters)" }
 
 {% alert important %}
 **DOES NOT MATCH REGEX** 필터를 사용하여 세분화할 때는 해당 고객 프로필에 값이 할당된 커스텀 속성이 이미 존재해야 합니다. Braze는 사용자를 적절하게 타겟팅하기 위해 "OR" 로직을 사용하여 커스텀 속성이 비어 있는지 확인할 것을 권장합니다.
@@ -153,7 +153,7 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 | 배열 속성에 입력된 값 **또는** 정규표현식과 **부분 일치하는 값이 포함**되었는지 확인합니다 | **MATCHES REGEX** | **문자열** **또는** **정규표현식** |
 | 배열 속성에 **값이 있는지** 확인합니다 | **HAS A VALUE** | **N/A** |
 | 배열 속성이 **비어 있는지** 확인합니다 | **IS EMPTY** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Arrays" }
 
 {% alert note %}
 [Perl 호환 정규표현식(PCRE)](http://www.regextester.com/pregsyntax.html)을 사용합니다.
@@ -178,10 +178,10 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 | 시간 속성이 **X일을 초과**한 **이전** 시점인지 확인합니다 | **MORE THAN** | **이전 일수** |
 | 시간 속성이 **X일 미만**의 **이전** 시점인지 확인합니다 | **LESS THAN** | **이전 일수** |
 | 시간 속성이 **향후 X일을 초과**한 **향후** 시점인지 확인합니다 | **IN MORE THAN** | **향후 일수** |
-| 시간 속성이 **향후 X일 미만**의 **향후** 시점인지 확인합니다 | **IN LESS THAN** | **향후 일수**  |
+| 시간 속성이 **향후 X일 미만**의 **향후** 시점인지 확인합니다 | **IN LESS THAN** | **향후 일수** |
 | 사용자 프로필에 시간 속성이 **존재하는지** 확인합니다 | **BLANK** | **N/A** |
 | 사용자 프로필에 시간 속성이 **존재하지 않는지** 확인합니다 | **IS NOT BLANK** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dates" }
 
 #### 숫자 {#integers}
 
@@ -201,7 +201,7 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 | 숫자 속성이 **숫자**와 **같지 않은지** 확인합니다 | **DOES NOT EQUAL** | **숫자** |
 | 사용자 프로필에 숫자 속성이 **존재하는지** 확인합니다 | **EXISTS** | **N/A** |
 | 사용자 프로필에 숫자 속성이 **존재하지 않는지** 확인합니다 | **DOES NOT EXIST** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Numbers #integers" }
 
 #### 부울(참/거짓) {#booleans-truefalse}
 
@@ -211,10 +211,10 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 
 | 세분화 옵션 | 드롭다운 필터 | 입력 옵션 |
 | ---------------------| --------------- | ------------- |
-| 부울 값이 다음과 **같은지** 확인합니다 | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** 또는 **FALSE OR NOT SET** |
-| 사용자 프로필에 부울 값이 **존재하는지** 확인합니다 | **EXISTS**  | **N/A** |
-| 사용자 프로필에 부울 값이 **존재하지 않는지** 확인합니다 | **DOES NOT EXIST**  | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 부울 값이 다음과 **같은지** 확인합니다 | **IS** | **TRUE**, **FALSE**, **TRUE OR NOT SET** 또는 **FALSE OR NOT SET** |
+| 사용자 프로필에 부울 값이 **존재하는지** 확인합니다 | **EXISTS** | **N/A** |
+| 사용자 프로필에 부울 값이 **존재하지 않는지** 확인합니다 | **DOES NOT EXIST** | **N/A** |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Booleans (true/false)" }
 
 ## 구매 이벤트 / 매출 추적 {#purchase-events-revenue-tracking}
 
@@ -234,7 +234,7 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 | 구매가 **X(최대 = 50)회 이상** 발생했는지 확인합니다 | **MORE THAN** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
 | 구매가 **X(최대 = 50)회 미만으로** 발생했는지 확인합니다 | **LESS THAN** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
 | 구매가 **정확히 X(최대 = 50)회** 발생했는지 확인합니다 | **EXACTLY** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Purchase events / revenue tracking" }
 
 {% alert note %}
 특정 구매가 발생한 횟수를 기준으로 세분화하려면 해당 구매를 [증분 커스텀 속성](#integers)으로 개별적으로 기록해야 합니다.

@@ -96,4 +96,4 @@ Alle folgenden Fehlercodes weisen darauf hin, dass keine Nachrichten gesendet we
 | `404 Not Found` | Ungültige URL. |
 | `415 Unsupported Media Type` | Der `Content-Type`-Anfrage-Header fehlt oder ist falsch. Fügen Sie auf der Seite **Einstellungen** `Content-Type` mit dem Wert `application/json` hinzu. |
 | `429 Rate Limited` | Rate-Limit überschritten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schwerwiegende Fehler" }

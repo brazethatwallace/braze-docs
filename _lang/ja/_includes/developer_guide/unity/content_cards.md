@@ -24,7 +24,7 @@ Content Cards ゲームオブジェクトコールバックで受信した受信
 
 ##### コンテンツカードのコールバックの例
 
-```csharp
+`````````csharp
 void ExampleCallback(string message) {
   try {
     JSONClass json = (JSONClass)JSON.Parse(message);
@@ -59,7 +59,7 @@ void ExampleCallback(string message) {
 
 Braze からコンテンツカードを更新するには、次のいずれかのメソッドを呼び出します。
 
-```csharp
+`````````csharp
 // results in a network request to Braze
 AppboyBinding.RequestContentCardsRefresh()
 

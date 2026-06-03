@@ -19,7 +19,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 | Exigence          | Description                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Clé REST API Braze  | Une clé REST API Braze avec les autorisations `users.export.segment` et `campaigns.trigger.send`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Clé REST API Braze  | Une clé REST API Braze avec les autorisations `users.export.segment` et `campaigns.trigger.send`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
 | Configuration du CNAME | Un sous-domaine doit être créé pour le pixel de suivi utilisé dans l'e-mail afin que Notify puisse suivre l'engagement des utilisateurs avec les messages et ainsi alimenter le modèle. Partagez l'URL du sous-domaine avec Notify après sa création. |
 | Exportation de la base de données d'abonnement | Envoyez à Notify les données relatives aux campagnes et aux achats de l'année écoulée (12 mois). ​Cette exportation sera utilisée pour entraîner le modèle prédictif de Notify. <br><br> **Champs :** <br><br> **E-mail :** Un hachage SHA256 de l'e-mail, converti en minuscules et dont les espaces de début et de fin ont été supprimés.<br><br>**Segment :** Les informations de segment définissant le niveau d'activité (actif ou inactif).<br><br>**Sous-segment :** Toute autre information pertinente sur l'activité, telle que le niveau d'activité d'achat.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

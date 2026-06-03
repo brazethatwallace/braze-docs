@@ -28,7 +28,7 @@ platform:
 }
 
 </style>
-<table id="tv-feature-table">
+<table aria-label="플랫폼 및 기능" id="tv-feature-table">
   <caption>플랫폼 및 기능</caption>
     <thead>
         <tr>
@@ -252,9 +252,9 @@ Braze Swift SDK를 사용하여 visionOS와 통합하세요. iOS에서 사용할
 
 ## 앱 타겟팅 {#app-targeting}
 
-메시징을 위해 OTT 앱을 타겟팅하려면 OTT 앱 전용 Segment를 생성하는 것이 좋습니다.
+메시징을 위해 OTT 앱을 타겟팅하려면 OTT 앱 전용 세그먼트를 생성하는 것이 좋습니다.
 
-![Android OTT 앱을 사용하여 생성한 Segment입니다.]({% image_buster /assets/img/android_ott.png %})
+![Android OTT 앱을 사용하여 생성한 세그먼트입니다.]({% image_buster /assets/img/android_ott.png %})
 
 ## 헤드리스 UI {#custom-ui}
 

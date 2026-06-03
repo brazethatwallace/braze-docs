@@ -13,17 +13,13 @@ search_tag: Partner
 
 La integración de Braze y Zeotap te permite ampliar la escala y el alcance de tus campañas sincronizando los segmentos de clientes de Zeotap con los perfiles de usuario de Braze. Con [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), también puedes conectar los datos a Zeotap para que sean procesables en todo el stack de crecimiento.
 
-{% alert important %}
-El conector HTTP personalizado está actualmente en fase beta. Si te interesa configurar esta integración, ponte en contacto con tu administrador del éxito del cliente.
-{% endalert %}
-
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta Zeotap | Se necesita una [cuenta Zeotap](https://zeotap.com/) para beneficiarse de esta asociación. |
 | Currents | Para volver a exportar datos a Zeotap, tienes que tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) en tu cuenta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Implementación {#implementation}
 

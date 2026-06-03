@@ -36,7 +36,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `ending_at` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la serie de datos. De forma predeterminada, la hora de la solicitud. |
 | `app_id` | Opcional | Cadena | Identificador de API de la aplicación recuperado de la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) para limitar los análisis a una aplicación concreta. |
 | `segment_id` | Opcional | Cadena | Ver [Identificador de API del segmento]({{site.baseurl}}/api/identifier_types/). ID del segmento que indica el segmento habilitado para análisis para el que deben devolverse los análisis de eventos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 
 ## Ejemplo de solicitud {#example-request}

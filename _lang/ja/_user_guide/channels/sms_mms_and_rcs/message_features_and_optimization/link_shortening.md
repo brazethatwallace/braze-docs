@@ -6,7 +6,7 @@ description: "この参照記事では、SMSメッセージでリンク短縮を
 page_type: reference
 alias: "/link_shortening/"
 tool:
-  - Campaigns
+  - キャンペーン
 channel:
   - SMS
   - MMS

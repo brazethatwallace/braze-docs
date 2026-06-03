@@ -19,8 +19,6 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 
 Se você quiser atualizar as traduções depois que um Canvas for lançado, precisará [salvar sua mensagem como rascunho]({{site.baseurl}}/post-launch_edits/) primeiro.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `canvas.translations.update`.
@@ -42,7 +40,7 @@ Não há parâmetros de caminho para este endpoint.
 | `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
 | `locale_id` | Obrigatória | String | O ID (UUID) do local. |
 | `translation_map` | Obrigatória | Objeto | Objeto contendo as novas traduções. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.

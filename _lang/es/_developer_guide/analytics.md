@@ -46,7 +46,7 @@ Los eventos personalizados son acciones que realizan tus usuarios; son los más 
 | Comprobar si el evento personalizado se ha producido **más de X (Máx. = 50) veces** | **MÁS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si el evento personalizado se ha producido **menos de X (Máx. = 50) veces** | **MENOS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si el evento personalizado ocurrió **exactamente X (Máx. = 50) número de veces** | **EXACTAMENTE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom events" }
 
 Braze registra el número de veces que se han producido estos eventos, así como la última vez que los realizó cada usuario para la segmentación. En la página de análisis de **Eventos personalizados**, puedes ver de forma agregada la frecuencia con la que se produce cada evento personalizado, así como por segmentos a lo largo del tiempo para un análisis más detallado. Esto es especialmente útil para ver cómo han afectado tus campañas a la actividad de los eventos personalizados, observando las líneas grises que Braze superpone en las series temporales para indicar la última vez que se envió una campaña.
 
@@ -104,13 +104,13 @@ La tabla siguiente describe las opciones de segmentación disponibles para los a
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada |
 | ---------------------| --------------- | ------------- |
-| Comprobar si el atributo de cadena **coincide exactamente con** una cadena introducida| **IGUAL A** | **CADENA** |
+| Comprobar si el atributo de cadena **coincide exactamente con** una cadena introducida | **IGUAL A** | **CADENA** |
 | Comprobar si el atributo de cadena **coincide parcialmente con** una cadena introducida **O** una expresión regular | **COINCIDE CON REGEX** | **CADENA** **O** **EXPRESIÓN REGULAR** |
 | Comprobar si el atributo de cadena **no coincide parcialmente con** una cadena introducida **O** una expresión regular | **NO COINCIDE CON REGEX** | **CADENA** **O** **EXPRESIÓN REGULAR** |
-| Comprobar si el atributo de cadena **no coincide con** una cadena introducida| **NO ES IGUAL A** | **CADENA** |
+| Comprobar si el atributo de cadena **no coincide con** una cadena introducida | **NO ES IGUAL A** | **CADENA** |
 | Comprobar si el atributo de cadena **existe** en el perfil de un usuario | **ESTÁ EN BLANCO** | **N/A** |
 | Comprobar si el atributo de cadena **no existe** en el perfil de un usuario | **NO ESTÁ EN BLANCO** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Strings (alphanumeric characters)" }
 
 {% alert important %}
 Al segmentar utilizando el filtro **NO COINCIDE CON REGEX**, se requiere que ya exista un atributo personalizado con un valor asignado en ese perfil de usuario. Braze sugiere utilizar la lógica "OR" para comprobar si un atributo personalizado está en blanco con el fin de dirigirte correctamente a los usuarios.
@@ -148,12 +148,12 @@ La tabla siguiente describe las opciones de segmentación disponibles para los a
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada |
 | ---------------------| --------------- | ------------- |
-| Comprobar si el atributo de matriz **incluye un valor que coincide exactamente con** un valor introducido| **INCLUYE VALOR** | **CADENA** |
-| Comprobar si el atributo de matriz **no incluye un valor que coincida exactamente con** un valor introducido| **NO INCLUYE EL VALOR** | **CADENA** |
+| Comprobar si el atributo de matriz **incluye un valor que coincide exactamente con** un valor introducido | **INCLUYE VALOR** | **CADENA** |
+| Comprobar si el atributo de matriz **no incluye un valor que coincida exactamente con** un valor introducido | **NO INCLUYE EL VALOR** | **CADENA** |
 | Comprobar si el atributo de matriz **contiene un valor que coincide parcialmente con** un valor introducido **O** una expresión regular | **COINCIDE CON REGEX** | **CADENA** **O** **EXPRESIÓN REGULAR** |
 | Comprobar si el atributo de matriz **tiene algún valor** | **TIENE UN VALOR** | **N/A** |
 | Comprobar si el atributo de matriz **está vacío** | **ESTÁ VACÍO** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Arrays" }
 
 {% alert note %}
 Utilizamos [expresiones regulares compatibles con Perl (PCRE)](http://www.regextester.com/pregsyntax.html).
@@ -173,15 +173,15 @@ La siguiente tabla describe las opciones de segmentación disponibles para los a
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada |
 | ---------------------| --------------- | ------------- |
-| Comprobar si el atributo de tiempo **es anterior a** una **fecha seleccionada**| **ANTES** | **SELECTOR DE FECHAS DEL CALENDARIO** |
-| Comprobar si el atributo de tiempo **es posterior a** una **fecha seleccionada**| **DESPUÉS DE** | **SELECTOR DE FECHAS DEL CALENDARIO** |
+| Comprobar si el atributo de tiempo **es anterior a** una **fecha seleccionada** | **ANTES** | **SELECTOR DE FECHAS DEL CALENDARIO** |
+| Comprobar si el atributo de tiempo **es posterior a** una **fecha seleccionada** | **DESPUÉS DE** | **SELECTOR DE FECHAS DEL CALENDARIO** |
 | Comprobar si el atributo de tiempo es **más de X número** de **días atrás** | **MÁS DE** | **NÚMERO DE DÍAS ATRÁS** |
-| Comprobar si el atributo de tiempo es **menos de X número** de **días atrás**| **MENOS DE** | **NÚMERO DE DÍAS ATRÁS** |
+| Comprobar si el atributo de tiempo es **menos de X número** de **días atrás** | **MENOS DE** | **NÚMERO DE DÍAS ATRÁS** |
 | Comprobar si el atributo de tiempo está **en más de X número** de **días en el futuro** | **EN MÁS DE** | **NÚMERO DE DÍAS EN EL FUTURO** |
 | Comprobar si el atributo de tiempo es **menos de X número** de **días en el futuro** | **EN MENOS DE** | **NÚMERO DE DÍAS EN EL FUTURO**  |
 | Comprobar si el atributo de tiempo **existe** en el perfil de un usuario | **EN BLANCO** | **N/A** |
 | Comprobar si el atributo de tiempo **no existe** en el perfil de un usuario | **NO ESTÁ EN BLANCO** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dates" }
 
 #### Números {#integers}
 
@@ -195,13 +195,13 @@ La tabla siguiente describe las opciones de segmentación disponibles para los a
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada |
 | ---------------------| --------------- | ------------- |
-| Comprobar si el atributo numérico **es más que** un **número**| **MÁS DE** | **NÚMERO** |
-| Comprobar si el atributo numérico **es menor que** un **número**| **MENOS DE** | **NÚMERO** |
-| Comprobar si el atributo numérico **es exactamente** un **número**| **EXACTAMENTE** | **NÚMERO** |
-| Comprobar si el atributo numérico **no es igual a** un **número**| **NO ES IGUAL A** | **NÚMERO** |
+| Comprobar si el atributo numérico **es más que** un **número** | **MÁS DE** | **NÚMERO** |
+| Comprobar si el atributo numérico **es menor que** un **número** | **MENOS DE** | **NÚMERO** |
+| Comprobar si el atributo numérico **es exactamente** un **número** | **EXACTAMENTE** | **NÚMERO** |
+| Comprobar si el atributo numérico **no es igual a** un **número** | **NO ES IGUAL A** | **NÚMERO** |
 | Comprobar si el atributo numérico **existe** en el perfil de un usuario | **EXISTE** | **N/A** |
 | Comprobar si el atributo numérico **no existe** en el perfil de un usuario | **NO EXISTE** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Numbers #integers" }
 
 #### Booleanos (verdadero/falso) {#booleans-truefalse}
 
@@ -214,7 +214,7 @@ La tabla siguiente describe las opciones de segmentación disponibles para los a
 | Comprobar si el valor booleano **es** | **ES**  | **VERDADERO**, **FALSO**, **VERDADERO O NO ESTABLECIDO**, o **FALSO O NO ESTABLECIDO** |
 | Comprobar si el valor booleano **existe** en el perfil de un usuario | **EXISTE**  | **N/A** |
 | Comprobar si el valor booleano **no existe** en el perfil de un usuario | **NO EXISTE**  | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Booleans (true/false)" }
 
 ## Eventos de compra / seguimiento de ingresos {#purchase-events-revenue-tracking}
 
@@ -224,9 +224,9 @@ La siguiente tabla describe las opciones de segmentación disponibles para los e
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada |
 | ---------------------| --------------- | ------------- |
-| Comprobar si el total de dólares gastados **es mayor que** un **número**| **MAYOR QUE** | **NÚMERO** |
-| Comprobar si el número total de dólares gastados **es menor que** un **número**| **MENOS DE** | **NÚMERO** |
-| Comprobar si el total de dólares gastados **es exactamente** un **número**| **EXACTAMENTE** | **NÚMERO** |
+| Comprobar si el total de dólares gastados **es mayor que** un **número** | **MAYOR QUE** | **NÚMERO** |
+| Comprobar si el número total de dólares gastados **es menor que** un **número** | **MENOS DE** | **NÚMERO** |
+| Comprobar si el total de dólares gastados **es exactamente** un **número** | **EXACTAMENTE** | **NÚMERO** |
 | Comprobar si la última compra se **produjo después de X fecha** | **DESPUÉS DE** | **TIME** |
 | Comprobar si la última compra se produjo **antes de X fecha** | **ANTES** | **TIME** |
 | Comprobar si la última compra se **produjo hace más de X días** | **MÁS DE** | **TIME** |
@@ -234,7 +234,7 @@ La siguiente tabla describe las opciones de segmentación disponibles para los e
 | Comprobar si la compra se ha producido **más de X (Máx. = 50) veces** | **MÁS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si la compra se ha producido **menos de X (Máx. = 50) veces** | **MENOS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si la compra se ha producido **exactamente X (Máx. = 50) veces** | **EXACTAMENTE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Purchase events / revenue tracking" }
 
 {% alert note %}
 Si deseas segmentar en función del número de veces que se ha producido una compra específica, también deberás registrar dicha compra individualmente como un [atributo personalizado incremental](#integers).

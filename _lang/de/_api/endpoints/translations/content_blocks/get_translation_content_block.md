@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Alle Übersetzungen für einen Content-Block anzeigen"
 article_title: "GET: Alle Übersetzungen für einen Content-Block anzeigen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -16,8 +16,6 @@ description: "Dieser Artikel enthält detaillierte Informationen zum Endpunkt �
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um alle Übersetzungen für einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) anzuzeigen. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
-
-{% include early_access_beta_alert.md feature='This endpoint' %}
 
 ## Voraussetzungen {#prerequisites}
 

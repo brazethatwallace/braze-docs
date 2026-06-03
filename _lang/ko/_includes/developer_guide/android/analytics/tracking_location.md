@@ -34,11 +34,11 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 사용자의 위치를 지속적으로 추적하려면 `AndroidManifest.xml` 파일에 다음 권한 중 하나 이상을 추가하여 앱의 위치 데이터 수집 의도를 선언해야 합니다.
 
-|권한|설명|
+| 권한 | 설명 |
 |---|---|
 | `ACCESS_COARSE_LOCATION` | 배터리 효율이 가장 높은 비GPS 제공자(예: 홈 네트워크)를 사용합니다. 일반적으로 대부분의 위치 데이터 요구사항에는 이 정도면 충분합니다. 런타임 권한 모델에서 위치 권한을 부여하면 암묵적으로 정밀한 위치 데이터 수집이 승인됩니다. |
 | `ACCESS_FINE_LOCATION`   | 보다 정확한 위치 파악을 위한 GPS 데이터를 포함합니다. 런타임 권한 모델에서 위치 권한을 부여하면 정밀 위치 액세스도 포함됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Continuously tracking the location" }
 
 `AndroidManifest.xml`은 다음과 유사해야 합니다:
 

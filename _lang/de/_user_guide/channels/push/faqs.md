@@ -72,3 +72,17 @@ Diese Segmentierungsfilter prüfen unterschiedliche Bedingungen:
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 Ein:e Nutzer:in kann `Background or Foreground Push Enabled` sein, ohne `Foreground Push Enabled` zu sein. Das passiert, wenn der/die Nutzer:in sichtbare Push-Benachrichtigungen in den Geräteeinstellungen deaktiviert hat, die App aber noch ein Hintergrund-Push-Token besitzt. Weitere Details finden Sie unter [Push-Nutzer:innen und Abos]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
+
+### Wie bestimmt Braze, wann eine Push-Nachricht erfolgreich gesendet wurde? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
+
+Eine Nachricht wird als gesendet protokolliert, sobald sie vom Push-Dienstanbieter empfangen wurde. Das bedeutet nicht zwangsläufig, dass der/die Nutzer:in die Nachricht erhalten oder gesehen hat.
+
+Für iOS ist der Push-Dienstanbieter der Apple Push Notification Service (APNs), und für Android ist es in der Regel Firebase Cloud Messaging (FCM). Der Push-Dienstanbieter antwortet sofort mit Erfolg oder Fehler. Ein Fehler kann einen Bounce oder einen erneuten Versuch bei Netzwerkproblemen umfassen.
+
+Wenn eine Erfolgsmeldung zurückgegeben wird, protokolliert Braze den Versand, und der Push-Dienst versucht anschließend, die Nachricht an das Gerät zuzustellen. Wenn das Gerät nicht sofort erreichbar ist, versucht der Dienst es erneut – bis zur in Braze festgelegten Ablaufoption (**TTL** für Android, **Expiry** für iOS). Wenn die Nachricht das Zeitlimit überschreitet, verwirft der Push-Dienst den Push, dieser wird jedoch nicht als Bounce gewertet.
+
+- Bei Push-Campaigns mit aktionsbasierter Zustellung wird der Nachrichtenversand protokolliert, sobald der/die Nutzer:in die Aktion ausgeführt hat, die die Campaign auslöst.
+- Bei geplanten Campaigns ist der Sendezeitpunkt der Zeitpunkt, zu dem die Nachricht in die Warteschlange eingereiht und an den Push-Dienstanbieter übergeben wurde.
+- Bei beiden Zustellungsarten wird die Nachricht in Braze und im Nutzerprofil unter **Campaigns Received** als „gesendet“ markiert, auch wenn der/die Nutzer:in den Push möglicherweise noch nicht gesehen oder erhalten hat.
+
+Die Metrik „Zustellungen“ für Push im Dashboard wird beim Laden der Seite als Anzahl der Sendungen abzüglich der Bounces berechnet.

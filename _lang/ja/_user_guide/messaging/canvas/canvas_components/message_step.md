@@ -9,21 +9,21 @@ tool: Canvas
 
 ---
 
-# メッセージ
+# メッセージ {#message}
 
 > メッセージステップを使用すると、キャンバス内の任意の場所にスタンドアロンメッセージを追加できます。
 
 ![プッシュチャネルを使用した「Lunch promo」という名前のメッセージステップ。]({% image_buster /assets/img/canvas_components/message_step1.png %}){: style="float:right;max-width:25%;margin-left:15px;"}
 
-## メッセージの作成
+## メッセージの作成 {#create-a-message}
 
 メッセージコンポーネントを作成するには、まずキャンバスにステップを追加します。サイドバーからコンポーネントをドラッグ＆ドロップするか、ステップの下部にある<i class="fas fa-plus-circle"></i>プラスボタンを選択して**メッセージ**を選択します。
 
-### ステップ 1: メッセージングチャネルの選択
+### ステップ 1: メッセージングチャネルの選択 {#step-1-select-your-messaging-channel}
 
 以下のメッセージングチャネルから選択できます。
 - バナー
-- コンテンツカード
+- Content Cards
 - メール
 - LINE
 - プッシュ通知
@@ -34,11 +34,11 @@ tool: Canvas
 
 ![メッセージステップで選択可能なメッセージングチャネルのリスト。]({% image_buster /assets/img/canvas_components/message_step2.png %})
 
-### ステップ 2: 配信設定の編集
+### ステップ 2: 配信設定の編集 {#step-2-edit-delivery-settings}
 
 次に、インテリジェントタイミング、サイレント時間の上書き、配信バリデーションの設定を編集できます。
 
-#### インテリジェントタイミング
+#### インテリジェントタイミング {#intelligent-timing}
 
 ユーザーのプロファイルに最適な時間を計算するための十分なデータがない場合のフォールバックオプションとともに、[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)を有効にできます。ユーザーがメッセージステップに入ってから実際にメッセージが送信されるまでの遅延に対する追加チェックとして、インテリジェントタイミングと[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping/)を有効にすることをお勧めします。
 
@@ -46,7 +46,7 @@ tool: Canvas
 
 ![メッセージコンポーネント設定の配信設定タブ。サイレント時間が有効になっており、インテリジェントタイミングを使用のチェックボックスが選択されて、最適な時間にメッセージを配信します。]({% image_buster /assets/img/canvas_components/message_step4.png %}){: style="max-width:90%;"}
 
-#### 配信バリデーション
+#### 配信バリデーション {#delivery-validations}
 
 配信バリデーションは、メッセージ送信時にオーディエンスが配信基準を満たしていることを確認するための追加チェックを提供します。この設定は、サイレント時間、インテリジェントタイミング、またはレート制限が有効になっている場合に推奨されます。
 
@@ -54,7 +54,7 @@ tool: Canvas
 
 ![配信バリデーションが有効になっており、メッセージ送信時にオーディエンスを検証します。配信バリデーションの進行動作は、配信バリデーションが満たされない場合にユーザーをキャンバスの次のステップに進めるように設定されています。]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 
-## ユーザーの進行方法
+## ユーザーの進行方法 {#how-users-advance}
 
 メッセージステップに入ったすべてのユーザーは、以下のいずれかの条件が満たされると次のステップに進みます。
 
@@ -68,31 +68,31 @@ tool: Canvas
 アクションベースのキャンバスが受信SMSメッセージによってトリガーされた場合、最初のステップ（メッセージステップ）またはアクションパスステップの下にネストされたメッセージステップでSMSプロパティを参照できます。例えば、メッセージステップでは `{{sms.${inbound_message_body}}}` や `{{sms.${inbound_media_urls}}}` を使用できます。
 {% endraw %}
 
-## コンテキストプロパティの参照
+## コンテキストプロパティの参照 {#reference-context-properties}
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
 エントリプロパティは、キャンバス作成の**エントリスケジュール**ステップで設定され、ユーザーをキャンバスに入れるトリガーを示します。これらのプロパティは、APIトリガーのキャンバスにおけるエントリペイロードのプロパティにもアクセスできます。`context` オブジェクトの最大サイズ制限は50 KBです。
 
-エントリプロパティは、任意のメッセージステップの Liquid で使用できます。これらのエントリプロパティを参照する場合は、次の Liquid を使用します: {% raw %}``{context.${property_name}}``{% endraw %}。イベントは、この方法で使用するにはカスタムイベントまたは購入イベントである必要があります。
+エントリプロパティは、任意のメッセージステップのLiquidで使用できます。これらのエントリプロパティを参照する場合は、次のLiquidを使用します: {% raw %}``{context.${property_name}}``{% endraw %}。イベントは、この方法で使用するにはカスタムイベントまたは購入イベントである必要があります。
 
 {% alert note %}
 アプリ内メッセージチャネルの場合、`context` はキャンバスでのみ参照できます。
 {% endalert %}
 
-これらのエントリプロパティを参照する場合は、次の Liquid を使用します: {% raw %}``context.${property_name}``{% endraw %}。イベントは、この方法で使用するにはカスタムイベントまたは購入イベントである必要があります。
+これらのエントリプロパティを参照する場合は、次のLiquidを使用します: {% raw %}``context.${property_name}``{% endraw %}。イベントは、この方法で使用するにはカスタムイベントまたは購入イベントである必要があります。
 
 {% raw %}
-例えば、次のリクエストを考えてみましょう: `\"context\" : {\"product_name\" : \"shoes\", \"product_price\" : 79.99}`。Liquid `{{context.${product_name}}}` を使用して、メッセージに「shoes」という単語を追加できます。
+例えば、次のリクエストを考えてみましょう: `"context" : {"product_name" : "shoes", "product_price" : 79.99}`。Liquid `{{context.${product_name}}}` を使用して、メッセージに「shoes」という単語を追加できます。
 {% endraw %}
 
 また、[永続的なエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/)を任意のメッセージステップで活用して、キャンバスワークフロー全体でパーソナライズされたステップにユーザーを誘導することもできます。
 
-### イベントプロパティ
+### イベントプロパティ {#event-properties}
 
 イベントプロパティとは、カスタムイベントおよび購入イベントに設定するプロパティのことです。これらのイベントプロパティは、アクションベースの配信を使用するキャンペーンやキャンバスで使用できます。
 
-キャンバスでは、カスタムイベントおよび購入イベントのプロパティは、[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)ステップに続く任意のメッセージステップの Liquid で使用できます。例えば、`event_properties` を参照する場合は、次の Liquid スニペットを使用します: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
+キャンバスでは、カスタムイベントおよび購入イベントのプロパティは、[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)ステップに続く任意のメッセージステップのLiquidで使用できます。例えば、`event_properties` を参照する場合は、次のLiquidスニペットを使用します: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
 
 {% alert important %}
 `event_properties` はアクションパスステップなしでは単独で使用できません。
@@ -114,7 +114,7 @@ tool: Canvas
 
 {% enddetails %}
 
-## 分析
+## 分析 {#analytics}
 
 メッセージコンポーネントの指標の定義については、以下の表を参照してください。
 

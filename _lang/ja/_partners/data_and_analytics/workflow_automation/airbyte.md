@@ -1,7 +1,7 @@
 ---
 nav_title: Airbyte
 article_title: Airbyte
-description: "この参考記事では、BrazeとAirbyteの統合について取り上げている。Airbyte はデータウェアハウス、データレイク、データベースにデータを統合するのに役立つオープンソースのデータ統合エンジンであり、Airbyte から Braze にリアルタイムのイベントが転送されます。"
+description: "このリファレンス記事では、BrazeとAirbyteの統合について説明します。Airbyteはデータウェアハウス、データレイク、データベースにデータを統合するのに役立つオープンソースのデータ統合エンジンであり、AirbyteからBrazeにリアルタイムのイベントを転送します。"
 alias: /partners/airbyte/
 page_type: partner
 search_tag: Airbyte
@@ -12,34 +12,34 @@ search_tag: Airbyte
 
 > [Airbyte](https://airbyte.com/) は、データウェアハウス、データレイク、データベースにデータを統合するのに役立つオープンソースのデータ統合エンジンです。
 
-_この統合は Airbyte によって管理されます。_
+_この統合はAirbyteによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-BrazeとAirbyteの統合により、ユーザーはデータパイプラインを作成し、すべてのアプリケーションとデータベースを中央倉庫に接続することで、Brazeのデータを収集・分析することができる。中央ウェアハウスにデータが収集されると、データチームは好きなビジネスインテリジェンスツールを使って、Braze のデータを効率的に調査できます。
+BrazeとAirbyteの統合により、ユーザーはすべてのアプリケーションとデータベースを中央のデータウェアハウスに接続することで、Brazeデータを収集・分析するためのデータパイプラインを作成できます。中央のデータウェアハウスにデータが収集されると、データチームは好みのビジネスインテリジェンスツールを使用して、Brazeデータを効率的に調査できます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Airbyte Cloud アカウント | この統合を利用するには、[Airbyte Cloud](https://cloud.airbyte.io/workspaces)アカウントが必要である。 |
-| Braze REST API キー | すべての権限を持つBraze REST APIキー。<br><br> これはBrazeのダッシュボードで**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | お客様のエンドポイントは、お客様のインスタンスのBraze URLに依存します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Airbyte Cloudアカウント | この統合を利用するには、[Airbyte Cloud](https://cloud.airbyte.io/workspaces)アカウントが必要です。 |
+| Braze REST APIキー | すべての権限を持つBraze REST APIキー。<br><br> これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## 統合
+## 統合 {#integration}
 
-1. Airbyte Cloud アカウントで **[Sources] > [+ New Source] > [Set up the Source]** に移動します。
-2. ソース名として「Braze」を入力し、ソースのドロップダウンから [**Braze**] を選択します。
-3. エンドポイント URL、Braze REST API キー、および開始日を指定します。[**Set up Source**] をクリックします。
+1. Airbyte Cloudアカウントで、**Sources** > **+ New Source** > **Set up the Source** に移動します。
+2. ソース名として「Braze」を入力し、ソースのドロップダウンから**Braze**を選択します。
+3. エンドポイントURL、Braze REST APIキー、および開始日を入力します。**Set up Source** をクリックします。
 
-### 対応する同期モード
+### サポートされる同期モード {#supported-sync-modes}
 
-Airbyte の Braze ソースコネクターは、以下の[同期モード](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes)をサポートしています。
-- **フル・リフレッシュ｜上書き**：ソースからすべてのレコードを同期し、デスティネーションのデータを上書きして置き換える。
-- **Incremental Sync | Append**:ソースから新しいレコードを同期し、データを削除せずに宛先に追加する。
+AirbyteのBrazeソースコネクターは、以下の[同期モード](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes)をサポートしています。
+- **フルリフレッシュ | 上書き**: ソースからすべてのレコードを同期し、送信先のデータを上書きして置き換えます。
+- **増分同期 | 追加**: ソースから新しいレコードを同期し、データを削除せずに送信先に追加します。
 
-### サポートされるストリーム
+### サポートされるストリーム {#supported-streams}
 
 - [`campaigns`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f3b0b3ef-04fb-4a31-8570-e6ad88dacb18)
 - [`campaigns_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1)
@@ -56,5 +56,5 @@ Airbyte の Braze ソースコネクターは、以下の[同期モード](https
 - [`segments_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e)
 
 {% alert note %}
-レート制限はストリームによって異なる。詳しくは[料金制限表を]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type)参照のこと。
+レート制限はストリームによって異なります。詳しくは[レート制限テーブル]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type)を参照してください。
 {% endalert %}

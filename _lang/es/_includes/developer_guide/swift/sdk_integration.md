@@ -35,6 +35,7 @@ El SDK de Swift de Braze separa las características en bibliotecas independient
 | `BrazeKit`      | Biblioteca principal del SDK que proporciona soporte para análisis y notificaciones push.                                                                                        |
 | `BrazeLocation` | Biblioteca de ubicación que proporciona soporte para el análisis de la ubicación y la supervisión de geovallas.                                                                              |
 | `BrazeUI`       | Biblioteca de interfaz de usuario proporcionada por Braze para mensajes dentro de la aplicación, Content Cards y banners. Importa esta biblioteca si deseas utilizar los componentes predeterminados de la interfaz de usuario. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Select your packages" }
 
 {: .ws-td-nw-1}
 
@@ -48,6 +49,7 @@ El SDK de Swift de Braze separa las características en bibliotecas independient
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `BrazeNotificationService` | Biblioteca de extensión de servicios de notificación que proporciona soporte para notificaciones push enriquecidas. |
 | `BrazePushStory`           | Biblioteca de extensión de contenido de notificaciones que ofrece soporte para Push Stories.            |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -95,6 +97,7 @@ El SDK de Swift de Braze separa las características en bibliotecas independient
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pod 'BrazeLocation'` | Biblioteca de ubicación que proporciona soporte para el análisis de la ubicación y la supervisión de geovallas.                                                                              |
 | `pod 'BrazeUI'`       | Biblioteca de interfaz de usuario proporcionada por Braze para mensajes dentro de la aplicación, Content Cards y banners. Importa esta biblioteca si deseas utilizar los componentes predeterminados de la interfaz de usuario. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About additional libraries" }
 
 {: .ws-td-nw-1}
 
@@ -106,6 +109,7 @@ El SDK de Swift de Braze separa las características en bibliotecas independient
 | -------------------------------- | ------------------------------------------------------------------------------------- |
 | `pod 'BrazeNotificationService'` | Biblioteca de extensión de servicios de notificación que proporciona soporte para notificaciones push enriquecidas. |
 | `pod 'BrazePushStory'`           | Biblioteca de extensión de contenido de notificaciones que ofrece soporte para Push Stories.            |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -118,7 +122,7 @@ pod install
 
 En este punto, deberías poder abrir el nuevo espacio de trabajo del proyecto Xcode creado por CocoaPods. Asegúrate de utilizar este espacio de trabajo de Xcode en lugar de tu proyecto de Xcode.
 
-![Una carpeta de ejemplo de Braze expandida para mostrar el nuevo `BrazeExample.workspace`.]({% image_buster /assets/img/braze_example_workspace.png %})
+![A Braze Example folder expanded to show the new `BrazeExample.workspace`.]({% image_buster /assets/img/braze_example_workspace.png %})
 
 #### Actualización del SDK mediante CocoaPods {#updating-the-sdk-using-cocoapods}
 
@@ -134,7 +138,7 @@ pod update
 
 Ve a la [página de lanzamiento del SDK de Braze en GitHub](https://github.com/braze-inc/braze-swift-sdk/releases) y descarga `braze-swift-sdk-prebuilt.zip`.
 
-!["Página de lanzamiento del SDK de Braze en GitHub."]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
+!["The Braze SDK release page on GitHub."]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
 
 #### Paso 1.2: Elige tus frameworks {#step-12-choose-your-frameworks}
 
@@ -150,8 +154,9 @@ El SDK Swift de Braze contiene diversos XCFrameworks independientes, lo que te d
 | `BrazeKitCompat`           | No        | Biblioteca de compatibilidad que contiene todas las clases y métodos de `Appboy` y `ABK*` que estaban disponibles en la versión 4.X.X de `Appboy-iOS-SDK`. Para conocer los detalles de uso, consulta el escenario de migración mínima en la [guía de migración](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/).            |
 | `BrazeUICompat`            | No        | Biblioteca de compatibilidad que contiene todas las clases y métodos de `ABK*` que estaban disponibles en la biblioteca `AppboyUI` a partir de la versión 4.X.X de `Appboy-iOS-SDK`. Para conocer los detalles de uso, consulta el escenario de migración mínima en la [guía de migración](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
 | `SDWebImage`               | No        | Dependencia utilizada solo por `BrazeUICompat` en el escenario de migración mínima.                                                                                                                                                                                                                                                           |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Choose your frameworks" }
 
-{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Choose your frameworks" }
 
 #### Paso 1.3: Prepara tus archivos {#step-13-prepare-your-files}
 
@@ -178,7 +183,7 @@ A continuación, integra los XCFrameworks **dinámicos** o **estáticos** que [p
 
 En tu proyecto Xcode, selecciona tu objetivo de compilación y, a continuación, **General**. En **Frameworks, Libraries, and Embedded Content**, arrastra y suelta los [archivos que preparaste anteriormente](#swift_step-3-prepare-your-files).
 
-!["Un ejemplo de proyecto Xcode con cada biblioteca Braze configurada en 'Embed & Sign'."]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
+!["An example Xcode project with each Braze library set to 'Embed & Sign.'"]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
 
 {% alert note %}
 A partir del SDK Swift 12.0.0, siempre debes seleccionar **Embed & Sign** para los XCFrameworks de Braze tanto para las variantes estáticas como dinámicas. Esto garantiza que los recursos del framework estén correctamente integrados en el paquete de tu aplicación.
@@ -482,8 +487,9 @@ El nivel de registro predeterminado para el SDK de Braze Swift es `.error`&#8212
 | `.info`     | `BRZLoggerLevelInfo`     | Registra la información general del SDK (cambios de usuario, etc.) + `.error`. |
 | `.error`    | `BRZLoggerLevelError`    | Registra errores.                                                  |
 | `.disabled` | `BRZLoggerLevelDisabled` | No se produce ningún registro.                                           |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
 #### Configuración del nivel de registro {#setting-the-log-level}
 

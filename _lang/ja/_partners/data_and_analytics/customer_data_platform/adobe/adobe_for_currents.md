@@ -2,7 +2,7 @@
 nav_title: Currentsの Adobe
 article_title: Currentsの Adobe
 alias: /partners/adobe_for_currents/
-description: "このリファレンス記事では、Braze Currentsと Adobe のパートナーシップについて説明します。Adobe は顧客データプラットフォームであり、ブランドはリアルタイムで Adobe データ（カスタム属性とSegments）をBrazeに接続してマッピングできます。"
+description: "このリファレンス記事では、Braze Currentsと Adobe のパートナーシップについて説明します。Adobe は顧客データプラットフォームであり、ブランドはリアルタイムで Adobe データ（カスタム属性とセグメント）をBrazeに接続してマッピングできます。"
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Currentsの Adobe {#adobe-for-currents}
 
-> [Adobe](https://www.adobe.com/) は、ブランドが自身の Adobe データ（カスタム属性とSegments）をリアルタイムでBrazeに接続してマッピングできる顧客データプラットフォームです。
+> [Adobe](https://www.adobe.com/) は、ブランドが自身の Adobe データ（カスタム属性とセグメント）をリアルタイムでBrazeに接続してマッピングできる顧客データプラットフォームです。
 
 BrazeとAdobe の統合により、2つのシステム間の情報の流れをシームレスにコントロールできます。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用すると、データをAdobe に接続し、グローススタック全体で実用的なデータにすることもできます。
 
@@ -21,11 +21,11 @@ BrazeとAdobe の統合により、2つのシステム間の情報の流れを�
 | Currents | Adobe にデータを再度エクスポートするには、アカウントに [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) を設定する必要があります。 |
 | Adobe Experience Platform アカウント | このパートナーシップを活用するには、[Adobe Experience Platform アカウント](https://experience.adobe.com/#/platform/home)が必要です。 |
 | コネクタの作成権限 | この統合を使用するには、ストリーミングソース接続を作成する権限が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
-### ステップ 1: Adobe で XDM スキーマを作成する {#step-1-create-an-xdm-schema-in-adobe}
+### ステップ 1:Adobe で XDM スキーマを作成する {#step-1-create-an-xdm-schema-in-adobe}
 
 1. Adobe Experience Platform で、**Schemas** > **Create schema** > **Experience Event** > **Next** の順に選択します。<br><br>![「Braze Currents Walk-Through」というスキーマの Adobe Schemas ページ。]({% image_buster /assets/img/adobe/currents_sources.png %})<br><br>
 2. スキーマの名前と説明を入力します。
@@ -35,7 +35,7 @@ BrazeとAdobe の統合により、2つのシステム間の情報の流れを�
 
 スキーマの詳細については、[スキーマの作成](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/tutorials/create-schema-ui)に関する Adobe のドキュメントを参照してください。
 
-### ステップ 2: Brazeを Adobe Experience Platform に接続する {#step-2-connect-braze-to-the-adobe-experience-platform}
+### ステップ 2:Brazeを Adobe Experience Platform に接続する {#step-2-connect-braze-to-the-adobe-experience-platform}
 
 1. Adobe Experience Platform で、**Sources** > **Catalog** > **Marketing automation** に移動します。
 2. Braze Currentsの **Add data** を選択します。
@@ -57,7 +57,7 @@ Brazeのタイムスタンプは秒単位で表されます。Adobe Experience P
 {: start="7"}
 7. **Next** を選択し、データフローの詳細を確認してから、**Finish** を選択します。<br><br>![マッピングエラーのない Adobe の「データの追加」ページ。]({% image_buster /assets/img/adobe/currents_no_errors.png %})
 
-### ステップ 3: 認証情報を収集する {#step-3-gather-credentials}
+### ステップ 3:認証情報を収集する {#step-3-gather-credentials}
 
 次の認証情報を収集してBrazeに入力すると、BrazeがAdobe Experience Platform にデータを送信できるようになります。
 
@@ -69,9 +69,9 @@ Brazeのタイムスタンプは秒単位で表されます。Adobe Experience P
 | Sandbox Name  | Adobe Experience Platform ソースに関連付けられたサンドボックス。   |
 | Dataflow ID   | Adobe Experience Platform ソースに関連付けられたデータフロー ID。   |
 | Streaming Endpoint  | Adobe Experience Platform ソースに関連付けられたストリーミングエンドポイント。Brazeはこれを自動的にバッチストリーミングエンドポイントに変換します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Gather credentials" }
 
-### ステップ 4: データソースにデータをストリーミングするようCurrentsを設定する {#step-4-configure-currents-to-stream-data-to-your-data-source}
+### ステップ 4:データソースにデータをストリーミングするようCurrentsを設定する {#step-4-configure-currents-to-stream-data-to-your-data-source}
 
 1. Brazeで、**パートナー連携** > **データのエクスポート** に移動し、**Create New Current** を選択します。
 2. 次の情報を入力します。

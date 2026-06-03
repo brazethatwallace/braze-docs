@@ -32,7 +32,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `catalogs` | Erforderlich | Array | Ein Array, das Katalogobjekte enthält. Für diese Anfrage ist nur ein Katalogobjekt zulässig. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Katalogobjekt-Parameter {#catalog-object-parameters}
 
@@ -41,7 +41,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `name` | Erforderlich | String | Der Name des Katalogs, den Sie erstellen möchten. |
 | `description` | Erforderlich | String | Die Beschreibung des Katalogs, den Sie erstellen möchten. |
 | `fields` | Erforderlich | Array | Ein Array von Objekten, wobei das Objekt die Schlüssel `name` und `type` enthält. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
 
 ## Beispielanfrage {#example-request}
 ```
@@ -80,6 +80,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -95,6 +99,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
   ]
 }'
 ```
+
+{% alert note %}
+Der Datentyp `geo` speichert eine geografische Koordinate als Array im Format `[longitude, latitude]`. Zum Beispiel `[-73.988103, 40.779109]`.
+{% endalert %}
 
 ## Antwort {#response}
 
@@ -136,6 +144,10 @@ Der Statuscode `201` könnte den folgenden Antworttext zurückgeben.
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -197,6 +209,6 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `invalid-fields` | `fields` ist nicht korrekt formatiert. |
 | `too-many-catalog-atoms` | Sie können nur einen Katalog pro Anfrage erstellen. |
 | `too-many-fields` | Die Anzahl der Felder ist auf 500 begrenzt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

@@ -32,6 +32,7 @@ channel:
   - SMS
   - Webhooks
 
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 ---
@@ -77,7 +78,7 @@ noindex: true
 | -------- | ----------- |
 | Page Title | 페이지 제목은 원하는 대로 지을 수 있습니다. 반드시 포함해야 합니다. |
 | My First Heading | 대문자로 작성하는 것을 권장합니다. 이 항목은 선택 사항입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code Sample" }
 
 ## 2단계: 다음 작업 수행하기 {#step-2-do-the-next-thing}
 

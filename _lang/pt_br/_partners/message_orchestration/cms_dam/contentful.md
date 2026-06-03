@@ -1,7 +1,7 @@
 ---
 nav_title: Contentful
 article_title: Contentful
-description: "Este artigo de referência descreve a parceria entre a Braze e o Contentful, um sistema de gerenciamento de conteúdo que permite usar dinamicamente o Conteúdo conectado para extrair conteúdo do Contentful para suas campanhas da Braze."
+description: "Este artigo de referência descreve a parceria entre a Braze e o Contentful, um sistema de gerenciamento de conteúdo que permite usar dinamicamente o Conteúdo conectado para extrair conteúdo do Contentful para suas Campaigns da Braze."
 alias: /partners/contentful/
 page_type: partner
 search_tag: Partner
@@ -17,11 +17,11 @@ Depois de integrado, você pode usar as APIs RESTful do Contentful para entregar
 
 Antes de começar, você precisará do seguinte:
 
-| Pré-requisito          | Descrição                        |
+| Pré-requisito | Descrição |
 |-----------------------|------------------------------------|
 | Uma conta Contentful | Você precisa de uma conta Contentful com acesso à API de Entrega de Conteúdo. |
 | Uma conta Braze | Você precisa de uma conta Braze com acesso ao recurso de Conteúdo conectado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -34,11 +34,11 @@ Antes de começar, você precisará do seguinte:
 ### Etapa 2: Configure o Conteúdo conectado da Braze {#step-2-configure-braze-connected-content}
 
 1. [Faça login na Braze](https://dashboard.braze.com/sign_in) com suas credenciais.
-2. No dashboard da Braze, acesse **Templates** > **Content Blocks** > **Create Content Block** > **HTML code editor**.
-3. Crie uma solicitação de Conteúdo conectado para a [URL da API de Entrega de Conteúdo do Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links). Um exemplo de URL da API de Entrega de Conteúdo do Contentful é `https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries`.<br><br> A recuperação de diferentes ativos requer a inclusão de variáveis específicas. A solicitação de URL de Conteúdo conectado do exemplo tem como alvo o endpoint [Entry](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console) do Contentful. Esse endpoint precisa de variáveis como `{space_id}` e `{environment_id}`, ou `{entry_id}` e `{access_token}`. Esses valores podem ser obtidos da sua instância do Contentful. Neste exemplo de bloco de conteúdo, as variáveis devem ser substituídas pelo seu Space ID e Environment ID do Contentful.<br><br>A URL de exemplo da API de Entrega de Conteúdo usa apenas um dos endpoints disponíveis do Contentful. Diferentes casos de uso podem ser alcançados aproveitando diferentes URLs. Por exemplo, a [Image API](https://www.contentful.com/developers/docs/references/images-api/) pode ser usada para capturar imagens armazenadas no Contentful. Para saber mais, consulte a [API de Entrega de Conteúdo](https://www.contentful.com/developers/docs/references/content-delivery-api/).
+2. No dashboard da Braze, acesse **Content** > **Content Block** > **Create Content Block** > **HTML code editor**.
+3. Crie uma solicitação de Conteúdo conectado para a [URL da API de Entrega de Conteúdo do Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links). Um exemplo de URL da API de Entrega de Conteúdo do Contentful é `https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries`.<br><br> A recuperação de diferentes ativos requer a inclusão de variáveis específicas. A solicitação de URL de Conteúdo conectado do exemplo tem como alvo o endpoint [Entry](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console) do Contentful. Esse endpoint precisa de variáveis como `{space_id}` e `{environment_id}`, ou `{entry_id}` e `{access_token}`. Esses valores podem ser obtidos da sua instância do Contentful. Neste exemplo de bloco de conteúdo, as variáveis devem ser substituídas pelo seu Space ID e Environment ID do Contentful.<br><br>A URL de exemplo da API de Entrega de Conteúdo usa apenas um dos endpoints disponíveis do Contentful. Diferentes casos de uso podem ser alcançados aproveitando diferentes URLs. Por exemplo, a [Image API](https://www.contentful.com/developers/docs/references/images-api/) pode ser usada para capturar imagens armazenadas no Contentful. Para saber mais, consulte a [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/).
 
 {% alert note %}
-Diferentes endpoints podem exigir novas variáveis; por exemplo, a API de Imagens requer um `{asset_id}`, `{unique_id},` e `{name}`. Para mais orientações, entre em contato com o Contentful.
+Diferentes endpoints podem exigir novas variáveis; por exemplo, a Images API requer um `{asset_id}`, `{unique_id},` e `{name}`. Para mais orientações, entre em contato com o Contentful.
 {% endalert %}
 
 {% raw %}
@@ -132,6 +132,6 @@ Verifique se os mapeamentos de caminho de resposta estão configurados corretame
 
 ## Recursos adicionais {#additional-resources}
 
-- [Documentação da API de Entrega de Conteúdo do Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/)
+- [Documentação da Content Delivery API do Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/)
 - [Conteúdo conectado da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)
 - [Content Blocks da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)

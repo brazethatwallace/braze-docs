@@ -11,4 +11,4 @@
 | Alignement | Alignement horizontal des choix dans le bloc. |
 | Couleur d'accentuation | Couleur utilisée pour les contrôles des boutons radio (comme l'indicateur de l'état sélectionné). |
 | Marge intérieure | Espacement autour du bloc. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

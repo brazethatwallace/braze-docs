@@ -88,7 +88,7 @@ En Braze, desde **Templates & Media**, ve a **Webhook Templates** y elige la **S
 ### Campaigns
 
 1. En el panel de Braze, en la página **Campaigns**, haz clic en **Create Campaign** > **Webhook**.
-2. Selecciona la plantilla de webhook que creaste anteriormente. Se recomienda encarecidamente utilizar el punto de conexión por lotes para las campañas.
+2. Selecciona la plantilla de webhook que creaste anteriormente. Se recomienda encarecidamente utilizar el punto de conexión por lotes para las Campaigns.
 3. Personaliza la plantilla editando sus variables en la pestaña **Compose**.
 
 ### Canvas
@@ -102,7 +102,7 @@ En Braze, desde **Templates & Media**, ve a **Webhook Templates** y elige la **S
 
 ### Seguimiento de la entrega y el estado de apertura {#track-delivery-and-open-status}
 
-Para integrar el evento de entrega y estado de apertura de las notificaciones con la métrica de conversión de una campaña, añade un evento personalizado en el panel de Braze.
+Para integrar el evento de entrega y estado de apertura de las notificaciones con la métrica de conversión de una Campaign, añade un evento personalizado en el panel de Braze.
 
 1. En el panel de Braze, ve a **Settings > Manage Settings > Custom Events** y haz clic en **+ Add Custom Event**.
 2. Después de crear un evento personalizado, haz clic en **Manage Properties**, añade una propiedad llamada "status" y elige "String" como tipo de propiedad.

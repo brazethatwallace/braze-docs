@@ -22,9 +22,9 @@ Amplía tus capacidades creativas aprovechando las características de creativid
 
 | Requisito | Descripción |
 |---|---|
-| Cuenta Movable Ink | Se necesita una cuenta Movable Ink para beneficiarse de esta asociación. |
+| Cuenta de Movable Ink | Se necesita una cuenta de Movable Ink para beneficiarse de esta asociación. |
 | Origen de datos | Tendrás que conectar un origen de datos a Movable Ink. Esto puede hacerse mediante CSV, importación del sitio web o API. Asegúrate de que pasas los datos con un identificador unificador entre Braze y Movable Ink (por ejemplo, `external_id`).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Casos de uso {#use-cases}
 
@@ -42,17 +42,17 @@ Intelligent Creative tiene muchas ofertas que los usuarios de la empresa pueden 
 | Capacidad de Movable Ink | Característica | Notificación push enriquecida | Mensajería dentro de la aplicación / Content Cards / correo electrónico | Detalles |
 | ---------------------- |---| ---------------------- | -------------------------------- | ------- |
 | Creative Optimizer | Contenido A/B en pantalla | ✗ | ✔ | |
-|| Optimizar | ✗ | ✔* | * Debes utilizar la solución de vinculación profunda de Branch |
+| Optimizar | ✗ | ✔* | * Debes utilizar la solución de vinculación profunda de Branch |
 | Reglas de segmentación | Fecha | ✔* | ✔ | * Se admite pero no se recomienda porque las notificaciones push se almacenan en caché al recibirlas y no se actualizan |
-|| Día de la semana | ✔* | ✔ | * Se admite pero no se recomienda porque las notificaciones push se almacenan en caché al recibirlas y no se actualizan |
-|| Hora del día | ✔* | ✔ | * Se admite pero no se recomienda porque las notificaciones push se almacenan en caché al recibirlas y no se actualizan |
+| Día de la semana | ✔* | ✔ | * Se admite pero no se recomienda porque las notificaciones push se almacenan en caché al recibirlas y no se actualizan |
+| Hora del día | ✔* | ✔ | * Se admite pero no se recomienda porque las notificaciones push se almacenan en caché al recibirlas y no se actualizan |
 | Stories/Actividad de comportamiento | | ✔* | ✔* | * El identificador único de usuario utilizado para Braze debe estar vinculado al identificador de tu ESP |
 | Vinculación en profundidad dentro de la aplicación | | ✔* | ✔* | * Para ofrecer una experiencia optimizada a tus clientes, utiliza una solución de vinculación en profundidad establecida a través de Branch, o una solución validada con el equipo de experiencia del cliente de Movable Ink. |
 | Aplicaciones | Temporizador de cuenta atrás | ✔* | ✔ | * Se admite pero no se recomienda porque las notificaciones push se almacenan en caché al recibirlas y no se actualizan |
-|| Encuesta | ✗ | ✔* | * Después de votar, dejará la aplicación para ser una página de inicio móvil |
-|| Rasca y gana | ✔* | ✔* | * Al hacer clic, saldrás de la aplicación para vivir la experiencia de Rasca y gana |
-|| Video | ✔* | ✔* | * Solo GIF animados, <br>Para Android, Braze requiere [soporte GIF]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android) en la implementación |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| Encuesta | ✗ | ✔* | * Después de votar, dejará la aplicación para ser una página de inicio móvil |
+| Rasca y gana | ✔* | ✔* | * Al hacer clic, saldrás de la aplicación para vivir la experiencia de Rasca y gana |
+| Video | ✔* | ✔* | * Solo GIF animados, <br>Para Android, Braze requiere [soporte GIF]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android) en la implementación |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Supported Movable Ink capabilities" }
 
 ## Integración {#integration}
 
@@ -60,7 +60,7 @@ Intelligent Creative tiene muchas ofertas que los usuarios de la empresa pueden 
 
 Los clientes tendrán que crear un origen de datos que puede ser un CSV, la importación de un sitio web o la integración de una API.
 
-![Diferentes opciones de origen de datos que aparecerán: Carga CSV, sitio web o integración API.]({% image_buster /assets/img/movable_ink/movable_ink1.png %})
+![Diferentes opciones de origen de datos que aparecerán: carga CSV, sitio web o integración API.]({% image_buster /assets/img/movable_ink/movable_ink1.png %})
 
 {% tabs local %}
 {% tab CSV Data Source %}

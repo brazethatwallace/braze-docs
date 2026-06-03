@@ -45,11 +45,12 @@ You can manage, revoke, and create your keys from this page as needed.
 
 ### Step 2: Create a Braze webhook template
 
-Next, create a webhook template for Oppizi in Braze to use in future campaigns or Canvases.
+Next, create a webhook template for Oppizi in Braze to use in future campaigns or Canvases:
 
-1. In Braze, go to **Templates** > **Webhook templates**.
-
-In your webhook template, fill out the following fields:
+1. In Braze, go to **Content** > **Webhook**. 
+2. Select **Create **Create webhook template**.
+3. Provide a name for the template.
+4. In your webhook template, fill out the following fields:
 
 - **Webhook URL:** ```https://webhooks.oppizi.com/events```
 - **Request body:** **Raw Text**

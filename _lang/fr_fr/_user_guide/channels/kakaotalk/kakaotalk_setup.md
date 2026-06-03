@@ -20,7 +20,7 @@ channel:
 | Canal Business KakaoTalk | Votre compte KakaoTalk doit être un canal Business KakaoTalk pour envoyer des messages KakaoTalk via Braze. Lorsque vous créez un compte, son statut par défaut est basique. Pour faire de votre compte un canal Business, vous devrez vérifier votre entreprise et fournir la documentation pertinente. |
 | Clé d'expéditeur KakaoTalk | Une clé d'expéditeur KakaoTalk valide. |
 | Numéro de téléphone de contact | Un numéro de téléphone de contact pour l'administrateur de votre canal KakaoTalk. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Types de comptes KakaoTalk {#types-of-kakaotalk-accounts}
 
@@ -28,15 +28,15 @@ channel:
 | --- | --- |
 | Canal basique | Un canal KakaoTalk standard que toute organisation peut configurer. Il permet l'envoi de messages diffusés et le chat 1:1 via KakaoTalk. |
 | [Canal Business](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Un canal KakaoTalk amélioré et vérifié pour les entreprises, qui nécessite un processus de candidature et de vérification. Il offre des fonctionnalités avancées, telles que {::nomarkdown}<ul><li>Badge vérifié</li><li>Apparition en tant que canal recommandé</li><li>Prise en charge de l'envoi de messages professionnels</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of KakaoTalk accounts" }
 
 #### Candidater pour un canal Business {#apply-for-a-business-channel}
 
 Avant de commencer la candidature, rassemblez la documentation professionnelle suivante :
-- Certificat d'enregistrement d'entreprise coréen
-- Pièce d'identité du représentant de l'entreprise
-- Certificat d'emploi
-- Licences spécifiques au secteur d'activité
+- Korean Business Registration Certificate
+- ID of the Business Representative
+- Employment Certificate
+- Industry-specific Licenses
 
 {% alert important %}
 Les informations de votre canal KakaoTalk (telles que le nom du canal, l'image de profil et autres) doivent correspondre exactement aux informations figurant sur vos documents officiels soumis.
@@ -55,8 +55,8 @@ Après avoir rassemblé votre documentation, suivez ces étapes :
 
 ### Étape 1 : Connecter le canal KakaoTalk à Braze {#step-1-connect-the-kakaotalk-channel-to-braze}
 
-1. Accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez votre fournisseur KakaoTalk.
-2. Rassemblez les identifiants requis pour votre fournisseur (voir ci-dessous), puis saisissez-les sur la page **Partenaires technologiques** et enregistrez.
+1. Accédez à **Partner Integrations** > **Technology Partners** et sélectionnez votre fournisseur KakaoTalk.
+2. Rassemblez les identifiants requis pour votre fournisseur (voir ci-dessous), puis saisissez-les sur la page **Technology Partners** et enregistrez.
 3. Utilisez les identifiants nouvellement enregistrés pour l'envoi.
 
 #### CJ OliveNetworks
@@ -70,7 +70,7 @@ Accédez à votre [tableau de bord Comm.One](https://ums.cjmplace.com/) et rasse
 | **Channel name (카카오톡 채널 프로필명)** | Dans votre tableau de bord Comm.One, accédez à **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Sender number (연락처)** | {::nomarkdown}<ol><li>Accédez à <b>Account Management (계정 관리)</b>, sélectionnez l'icône de menu, puis sélectionnez <b>View Details (자세히보기)</b>.</li><li>Accédez à <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ul>{:/} |
 | **Credential (ID) & Password (비밀번호)** | Accédez au même emplacement que pour le **Sender number (사업자 등록번호)**, puis accédez à **API** > **Brand Message (브랜드 메시지)**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
@@ -81,6 +81,12 @@ Accédez à votre [tableau de bord Comm.One](https://ums.cjmplace.com/) et rasse
 {% tab Sender Key (발신프로필 키) %}
 
 ![Tableau de bord Comm.One affichant une clé d'expéditeur masquée.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
+
+{% alert important %}
+Vous ne pouvez intégrer une clé d'expéditeur KakaoTalk que dans un seul espace de travail à la fois. Pour utiliser la même clé d'expéditeur dans un autre espace de travail, vous devez d'abord archiver le groupe d'abonnement KakaoTalk dans l'espace de travail d'origine, puis contacter l'[assistance Braze]({{site.baseurl}}/braze_support/) pour supprimer l'intégration. Une fois l'intégration supprimée par Braze, vous pouvez configurer l'intégration dans le nouvel espace de travail.
+{% endalert %}
+
+![Identifiants pour un canal KakaoTalk Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
 
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
@@ -95,13 +101,11 @@ Accédez à votre [tableau de bord Comm.One](https://ums.cjmplace.com/) et rasse
 {% endtab %}
 {% endtabs %}
 
-![Champs sur la page Partenaires technologiques pour CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Identifiants pour un canal KakaoTalk Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 Seuls les canaux associés à un identifiant commun unique peuvent être enregistrés.
 {% endalert %}
+
+![Champs sur la page Technology Partners pour CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 
@@ -114,7 +118,7 @@ Accédez à votre tableau de bord Infobip et rassemblez les informations suivant
 | **Sender name / Sender key** | Sélectionnez **Channels and Numbers** > **Channels**, puis sélectionnez l'onglet **Senders**. |
 | **Sender profile UUID** | Fourni directement par Infobip. Contactez Infobip si vous ne disposez pas de cette information. |
 | **Channel name** | Fourni directement par Infobip. Contactez Infobip si vous ne disposez pas de cette information. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
 
 ## Configurer les profils utilisateur {#set-user-profiles}
 

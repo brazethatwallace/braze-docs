@@ -31,7 +31,7 @@ Eagle Eye Connect는 Braze와 AIR 간의 양방향 통합으로, 브랜드가 �
 | Eagle Eye AIR 계정 | 이 파트너십을 활용하려면 활성 Eagle Eye AIR 계정이 필요합니다. 시작하려면 [partnerships@eagleeye.com](mailto:partnerships@eagleeye.com)으로 Eagle Eye 파트너십 팀에 문의하세요. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br>Braze 대시보드의 **설정 > API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL](https://www.braze.com/docs/api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 아웃바운드 vs. 인바운드 {#outbound-vs-inbound}
 
@@ -39,8 +39,8 @@ Eagle Eye Connect는 Braze와 AIR 간의 양방향 통합으로, 브랜드가 �
 
 {% tabs local %}
 {% tab 아웃바운드 %}
-<table>
-  <caption>아웃바운드 vs. 인바운드</caption>
+<table aria-label="Outbound vs. inbound">
+  <caption>Outbound vs. inbound</caption>
   <thead>
     <tr>
       <th>방향</th>
@@ -71,12 +71,12 @@ Eagle Eye Connect는 Braze와 AIR 간의 양방향 통합으로, 브랜드가 �
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Outbound vs. inbound" }
 {% endtab %}
 
 {% tab 인바운드 %}
-<table>
-  <caption>아웃바운드 vs. 인바운드</caption>
+<table aria-label="Outbound vs. inbound">
+  <caption>Outbound vs. inbound</caption>
   <thead>
     <tr>
       <th>방향</th>
@@ -105,7 +105,7 @@ Eagle Eye Connect는 Braze와 AIR 간의 양방향 통합으로, 브랜드가 �
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Outbound vs. inbound" }
 {% endtab %}
 {% endtabs %}
 
@@ -129,7 +129,7 @@ Eagle Eye 팀과 협력하여 다음 단계를 완료하게 됩니다:
 | 식별자 매칭 | AIR과 Braze에서 공통으로 사용되는 프로필 업데이트용 기본 사용자 식별자(예: 외부 ID 또는 이메일)를 결정하고 공유합니다. |
 | 인증 키 | 각 인바운드 및 아웃바운드 커넥터에 대한 비밀 인증 키를 결정하고 공유합니다. |
 | 통화 코드 | 금전적 구매 금액을 표시하기 위한 3자리 통화 코드를 공유합니다(예: USD). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Provide configuration details" }
 
 ### 2단계: Eagle Eye Connect 구성 {#step-2-configure-eagle-eye-connect}
 

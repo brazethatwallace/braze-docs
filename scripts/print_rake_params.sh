@@ -19,12 +19,8 @@ rake ja
 rake ko
 rake pt_br
 
+# Partner hub (Sanity): on by default when partner_api is true in _config.yml. Skip: PARTNER_API=false rake
+
 # to render content in '{% markdown_embed %}' tags:
 MARKDOWN_API=true rake
-
-# to render tiles on partner landing pages:
-PARTNER_API=true rake
-
-# to render both APIs:
-MARKDOWN_API=true PARTNER_API=true rake
 EOF

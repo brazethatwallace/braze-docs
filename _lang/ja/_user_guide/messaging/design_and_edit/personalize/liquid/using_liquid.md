@@ -6,7 +6,7 @@ description: "このリファレンス記事では、一般的なLiquidのユー
 search_rank: 2
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Liquidの使用 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Liquidの使用 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
 
 > この記事では、さまざまなユーザー属性を使用して、メッセージングにパーソナル情報をダイナミックに挿入する方法を説明します。
 
@@ -82,7 +82,7 @@ Liquidには、ダイナミックなパーソナライゼーションを作成�
 | `case`、`when` | 等価マッチングのみ[^case_when_ops] | サポートなし |
 | `for` | サポートなし | サポートなし |
 | 配列アクセス（`[ ]`） | サポートなし | サポートなし |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="演算子とフィルターの使用場所" }
 
 [^case_when_ops]: `case`タグと`when`タグでは、Liquidは`case`式を各`when`値と等価比較します（`if`と`elsif`を`==`でチェーンするのと同様です）。`when`句内では、`if`や`elsif`のように任意の比較演算子や論理演算子を使用することはできません。例については、[条件付きメッセージングロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags)を参照してください。
 
@@ -94,7 +94,7 @@ Liquidには、ダイナミックなパーソナライゼーションを作成�
 
 条件文でフィルターを直接使用することはできません。以下は正しくありません：
 
-```liquid
+`````````liquid
 {% if my_array | size > 3 %}
 You have more than 3 items!
 {% endif %}
@@ -102,7 +102,7 @@ You have more than 3 items!
 
 代わりに、フィルター結果を変数に割り当ててください：
 
-```liquid
+`````````liquid
 {% assign array_size = my_array | size %}
 {% if array_size > 3 %}
 You have more than 3 items!
@@ -113,7 +113,7 @@ You have more than 3 items!
 
 `for`ループのイテラブルにフィルターを適用することはできません。以下は正しくありません：
 
-```liquid
+`````````liquid
 {% for item in my_array | reverse %}
 {{ item }}
 {% endfor %}
@@ -121,7 +121,7 @@ You have more than 3 items!
 
 代わりに、フィルター処理された値を変数に割り当ててください：
 
-```liquid
+`````````liquid
 {% assign reversed = my_array | reverse %}
 {% for item in reversed %}
 {{ item }}
@@ -132,13 +132,13 @@ You have more than 3 items!
 
 角括弧内でフィルターを使用することはできません。以下は正しくありません：
 
-```liquid
+`````````liquid
 {{ my_array[my_var | minus: 1] }}
 ```
 
 代わりに、まずフィルター処理された値を割り当ててください：
 
-```liquid
+`````````liquid
 {% assign adjusted_index = my_var | minus: 1 %}
 {{ my_array[adjusted_index] }}
 ```
@@ -147,7 +147,7 @@ You have more than 3 items!
 
 `assign`文で演算子を使用することはできません。以下は正しくありません：
 
-```liquid
+`````````liquid
 {% assign is_vip = total_spend > 100 %}
 {% if is_vip %}
 Welcome to the VIP lounge!
@@ -156,7 +156,7 @@ Welcome to the VIP lounge!
 
 代わりに、条件文を使用して変数を設定してください：
 
-```liquid
+`````````liquid
 {% assign is_vip = false %}
 {% if total_spend > 100 %}
 {% assign is_vip = true %}
@@ -189,7 +189,7 @@ Welcome to the VIP lounge!
 
 以下のタグはすべて正しいです：
 
-```liquid
+`````````liquid
 {% if custom_attribute.${Number_Game_Attended} == 1 %}
 {% if {{custom_attribute.${Number_Game_Attended}}} == 1 %}
 

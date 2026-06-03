@@ -22,7 +22,7 @@ channel:
 
 SMSメッセージはメッセージセグメント単位で課金されます。SMSメッセージがどのように分割されるかを理解することが、課金を把握するための鍵となります。
 
-### SMSセグメントとは？ {#what-is-an-sms-segment}
+### SMSセグメントとは {#what-is-an-sms-segment}
 
 ショートメッセージサービス（SMS）は、デバイス間で短いテキストメッセージを送受信できる標準化された通信プロトコルです。他のシグナリングプロトコルの「間に収まる」ように設計されたため、SMSメッセージの長さは160文字の7ビット文字（1120ビット、つまり140バイト）に制限されています。SMSメッセージセグメントとは、携帯キャリアがテキストメッセージを計測するために使用する文字のバッチです。メッセージはセグメント単位で課金されるため、SMSを活用するクライアントは、メッセージがどのように分割されるかの細かい仕組みを理解することで大きなメリットを得られます。
 
@@ -56,7 +56,7 @@ Brazeを使用してSMS CampaignやCanvasを作成する際、メッセージ作
 | 1072〜1224文字 | 8セグメント |
 | 1225〜1377文字 | 9セグメント |
 | 1378〜1530文字 | 10セグメント |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% tab UCS-2エンコーディング %}
 | 文字数 | セグメント数 |
@@ -71,7 +71,7 @@ Brazeを使用してSMS CampaignやCanvasを作成する際、メッセージ作
 | 470〜536文字 | 8セグメント |
 | 537〜603文字 | 9セグメント |
 | 604〜670文字 | 10セグメント |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% endtabs %}
 
@@ -145,8 +145,8 @@ Rich Mediaメッセージは、メディアファイル（画像、動画）ま�
 {% endtab %}
 {% endtabs %}
 
-### メッセージ作成画面とメッセージ使用量ダッシュボード {#message-composer-and-message-usage-dashboard}
+### メッセージ作成画面とクレジット使用量ダッシュボード {#message-composer-and-credits-usage-dashboard}
 
 メッセージを作成する際、メッセージ作成画面にはラベル（Basic RCS、Single RCS、Rich、またはRich Media）を通じて課金タイプがリアルタイムで表示され、送信前にコストを把握できます。
 
-[メッセージ使用量ダッシュボード]({{site.baseurl}}/message_usage_dashboard/)にはこれらの課金タイプが反映され、米国向けメッセージで使用されたセグメント数が表示されるため、メッセージクレジットの消費状況を透明に確認できます。
+[クレジット使用量ダッシュボード]({{site.baseurl}}/credits_usage_dashboard/)にはこれらの課金タイプが反映され、米国向けメッセージで使用されたセグメント数が表示されるため、メッセージクレジットの消費状況を透明に確認できます。

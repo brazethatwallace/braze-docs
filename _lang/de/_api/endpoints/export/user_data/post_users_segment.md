@@ -58,7 +58,7 @@ Wenn Sie Ihre [S3-][1], [Azure-][2] oder [Google Cloud Storage][3]-Zugangsdaten 
 | `RANDOM_UUID`                   | Eine zufällige UUID, die von Braze zum Zeitpunkt der Anfrage generiert wurde.        | `d9696570-dfb7-45ae-baa2-25e302r2da27` |
 | `TIMESTAMP_WHEN_EXPORT_STARTED` | Unix-Zeit (Sekunden seit 2017-01-01:00:00:00Z), zu der der Export in UTC angefragt wurde. | `1556044807`                           |
 | `filename`                      | Zufällig pro Datei.                                                                  | `114f0226319130e1a4770f2602b5639a`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Auf Zugangsdaten basierende Antwortdetails" }
 
 {% enddetails %}
 
@@ -93,9 +93,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `segment_id`                  | Erforderlich  | String           | Bezeichner für das zu exportierende Segment. Siehe [Segment-Bezeichner]({{site.baseurl}}/api/identifier_types/).<br><br>Die `segment_id` für ein bestimmtes Segment finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) in Ihrem Braze-Konto oder Sie können den [Endpunkt Segmentliste]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) verwenden. |
 | `callback_endpoint`           | Optional      | String           | Endpunkt, an den eine Download-URL gesendet wird, wenn der Export verfügbar ist.                                                                                                                                                                                                                                                                                                                             |
 | `fields_to_export`            | Erforderlich* | String-Array     | Name der zu exportierenden Nutzerdatenfelder. Sie können auch alle angepassten Attribute exportieren, indem Sie `custom_attributes` in diesen Parameter aufnehmen. Eine vollständige Liste der exportierbaren Felder finden Sie unter [Zu exportierende Felder](#fields-to-export).                                                                                                                            |
-| `custom_attributes_to_export` | Optional      | String-Array     | Name des spezifischen angepassten Attributs, das exportiert werden soll. Es können bis zu 500 angepasste Attribute exportiert werden. Um angepasste Attribute im Dashboard zu erstellen und zu verwalten, gehen Sie zu **Data Settings** > **Custom Attributes**.                                                                                                                                     |
+| `custom_attributes_to_export` | Optional      | String-Array     | Name des spezifischen angepassten Attributs, das exportiert werden soll. Es können bis zu 500 angepasste Attribute exportiert werden. Um angepasste Attribute im Dashboard zu erstellen und zu verwalten, gehen Sie zu **Data Settings** > **Custom Attributes**.                                                                                                                                             |
 | `output_format`               | Optional      | String           | Das Ausgabeformat Ihrer Datei. Standardmäßig ist das Dateiformat `zip` eingestellt. Wenn Sie Ihren eigenen S3-Bucket verwenden, können Sie `zip` oder `gzip` angeben.                                                                                                                                                                                                                                       |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert note %}
 Wenn `custom_attributes` im Parameter `fields_to_export` enthalten ist, werden alle angepassten Attribute exportiert, unabhängig davon, was in `custom_attributes_to_export` steht. Wenn Sie nur bestimmte Attribute exportieren möchten, sollte `custom_attributes` nicht im Parameter `fields_to_export` enthalten sein. Verwenden Sie stattdessen den Parameter `custom_attributes_to_export`.
@@ -165,7 +165,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 | `total_revenue`       | Gleitkommazahl  | Gesamtumsatz, der dieser Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf der Grundlage der Käufe berechnet, die die Nutzer:innen während der Konversionsfenster für die Campaigns und Canvases getätigt haben, die sie erhalten haben.                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `uninstalled_at`      | Zeitstempel     | Datum und Uhrzeit der Deinstallation der App durch die Nutzer:in. Entfällt, wenn die App nicht deinstalliert wurde.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `user_aliases`        | Objekt          | [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification), das `alias_name` und `alias_label` enthält, falls vorhanden.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zu exportierende Felder" }
 
 ## Wichtige Hinweise {#important-reminders}
 
@@ -174,6 +174,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 - Die Anzahl der gleichzeitigen Segmentexporte, die ein Unternehmen auf Endpunktebene ausführen kann, ist auf 100 begrenzt. Versuche, die diese Grenze überschreiten, führen zu einem Fehler.
 - Der Versuch, ein Segment ein zweites Mal zu exportieren, während der erste Exportvorgang noch läuft, führt zu einem 429-Fehler.
 - Eine [`403 Forbidden`-Antwort]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads) bedeutet häufig, dass die Exportdatei noch nicht bereit ist.
+- Abo-Gruppendaten sind über Segmentexporte nicht verfügbar. Um Nutzer:innen nach Abo-Status zu identifizieren, erstellen Sie ein separates Segment basierend auf der Zugehörigkeit zu einer Abo-Gruppe und exportieren Sie dieses Segment.
 
 ## Antwort {#response}
 
@@ -189,7 +190,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 
 Wenn die Antwort `"url": null` enthält (oder keine Download-URL zurückgibt) und Sie eine [Cloud-Speicher-Integration]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) wie einen Amazon S3-Bucket oder einen Azure Blob Storage-Container konfiguriert haben, schreibt Braze den Export in Ihren verbundenen Bucket oder Container, anstatt eine temporäre Download-URL in der API-Antwort zurückzugeben. Rufen Sie die Dateien aus Ihrem verbundenen Cloud-Speicher-Bucket oder -Container ab.
 
-Nachdem die URL bereitgestellt wurde, ist sie nur für einige Stunden gültig. Wir empfehlen Ihnen daher dringend, Ihre eigenen S3-Anmeldedaten zu Braze hinzuzufügen.
+Wenn eine Download-URL zurückgegeben wird, ist sie nur für einige Stunden gültig. Wir empfehlen Ihnen daher dringend, Ihre eigenen S3-Anmeldedaten zu Braze hinzuzufügen.
 
 Wenn Sie in Ihrer API-Antwort `object_prefix` sehen, aber keine URL zum Herunterladen der Daten, bedeutet dies, dass Sie bereits einen Amazon S3-Bucket für diesen Endpunkt eingerichtet haben. Alle Daten, die über diesen Endpunkt exportiert werden, gehen direkt in Ihren S3-Bucket.
 

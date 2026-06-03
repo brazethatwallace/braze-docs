@@ -11,24 +11,24 @@ description: "Conheça as diversas opções de importação de usuários da Braz
 
 ## Opções de importação {#import-options}
 
-Você pode fazer upload de atributos e eventos de usuários por meio de uma importação de CSV na Braze, um script serverless de importação de CSV via S3 Lambda, chamadas diretas à API ou Ingestão de dados na nuvem a partir do seu data warehouse.
+Você pode fazer upload de atributos e eventos de usuários por meio de uma importação por CSV na Braze, um script serverless de importação de CSV via S3 Lambda, chamadas diretas à API ou Ingestão de dados na nuvem a partir do seu data warehouse.
 
-### Importação de CSV da Braze {#braze-csv-import}
+### Importação por CSV da Braze {#braze-csv-import}
 
-Você pode usar a importação de CSV para registrar e atualizar os seguintes atributos de usuários e eventos personalizados. Para começar, consulte [Importação de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
+Você pode usar a importação por CSV para registrar e atualizar os seguintes atributos de usuários e eventos personalizados. Para começar, consulte [Importação por CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
 
-|Tipo|Definição|Exemplo|Tamanho máximo do arquivo|
+| Tipo | Definição | Exemplo | Tamanho máximo do arquivo |
 |---|---|---|---|
-|Atributos padrão|Atributos de usuário reservados e reconhecidos pela Braze.| `first_name`, `email`|500 MB|
-|Atributos personalizados|Atributos de usuário exclusivos do seu negócio.| `last_destination_searched`|500 MB|
-|Eventos personalizados|Eventos exclusivos do seu negócio que representam ações dos usuários.| `trip_booked`|50 MB|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+| Atributos padrão | Atributos de usuário reservados reconhecidos pela Braze. | `first_name`, `email` | 500 MB |
+| Atributos personalizados | Atributos de usuário exclusivos do seu negócio. | `last_destination_searched` | 500 MB |
+| Eventos personalizados | Eventos exclusivos do seu negócio que representam ações dos usuários. | `trip_booked` | 50 MB |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze CSV import" }
 
 #### Construindo seu CSV {#constructing-your-csv}
 
-A Braze aceita dados de usuários no formato CSV padrão. Importações de atributos padrão e personalizados suportam arquivos de até 500 MB; importações de eventos personalizados suportam arquivos de até 50 MB. Para identificadores, cabeçalhos de coluna, regras de validação e exemplos, consulte [Importação de CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/csv_import/).
+A Braze aceita dados de usuários no formato CSV padrão. Importações de atributos padrão e personalizados suportam arquivos de até 500 MB; importações de eventos personalizados suportam arquivos de até 50 MB. Para identificadores, cabeçalhos de coluna, regras de validação e exemplos, consulte [Importação por CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/csv_import/).
 
-Quando você faz upload de um CSV grande por meio de **Importar usuários** no dashboard, a página pode parecer não responder ou ficar lenta enquanto a Braze recebe o arquivo e executa a etapa de cálculo. Deixe o upload e o cálculo terminarem — o tempo total varia de alguns minutos a algumas horas, dependendo do tamanho do arquivo, e arquivos maiores levam mais tempo para calcular.
+Quando você faz upload de um CSV grande por meio de **Import Users** no dashboard, a página pode parecer não responder ou ficar lenta enquanto a Braze recebe o arquivo e executa a etapa de cálculo. Deixe o upload e o cálculo terminarem — o tempo total varia de alguns minutos a algumas horas, dependendo do tamanho do arquivo, e arquivos maiores levam mais tempo para calcular.
 
 {% alert note %}
 Ao importar eventos personalizados com propriedades, você deve usar notação de ponto nos cabeçalhos de coluna do seu CSV. Para saber mais sobre a formatação de eventos personalizados, consulte [Entendendo a formatação de eventos personalizados]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/?tab=custom%20events#understanding-custom-event-formatting).

@@ -85,11 +85,18 @@ channel:
 
 #### 3.3단계: 닫기 동작 구성 (선택 사항) {#dismiss-behavior}
 
-{% alert important %}
-배너 닫기 기능은 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하고 싶으시면 고객 성공 매니저에게 문의하세요.
-{% endalert %}
+**Dismiss Behavior** 섹션에서 **Banner can be dismissed** 체크박스를 선택하여 사용자가 배너를 닫을 수 있도록 합니다. 이 옵션은 모든 앱 사용자에게 한정 세일을 홍보하되, 관심이 없는 경우 메시지를 닫을 수 있도록 하려는 시나리오에서 유용합니다.
 
-**Banner can be dismissed** 체크박스를 선택하여 사용자가 배너를 닫을 수 있도록 합니다. 이 옵션은 모든 앱 사용자에게 한정 세일을 홍보하되, 관심이 없는 경우 메시지를 닫을 수 있도록 하려는 시나리오에서 유용할 수 있습니다.
+닫기가 활성화되면 **Dismiss Behavior** 섹션에서 닫기 버튼을 커스터마이즈할 수 있습니다:
+
+| 설정 | 설명 |
+|---------|-------------|
+| **Button size** | 배너에 표시되는 닫기 버튼의 크기입니다. |
+| **Button color** | 닫기 버튼의 색상입니다. |
+| **ARIA label** | 스크린 리더에서 사용하는 닫기 버튼의 접근성 레이블입니다. 비워 두면 기본값은 "Close"입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
+
+사용자가 배너를 닫으면 캠페인의 타겟팅 기준에 여전히 해당하더라도 해당 사용자에게 다시 표시되지 않습니다.
 
 #### 3.4단계: 커스텀 등록정보 추가 (선택 사항) {#custom-properties}
 
@@ -110,7 +117,7 @@ channel:
 | 등록정보 유형 | 등록정보의 데이터 유형입니다. 지원되는 유형에는 문자열, 부울, 숫자, 타임스탬프, 이미지 URL 및 JSON 오브젝트가 포함됩니다. | 문자열 |
 | 등록정보 키 | 등록정보의 고유 식별자입니다. 이 키는 SDK에서 등록정보에 액세스하는 데 사용됩니다. | `color` |
 | 값 | 등록정보에 할당된 값입니다. 선택한 등록정보 유형과 일치해야 합니다. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
 
 완료되면 **Done**을 선택합니다.
 
@@ -133,6 +140,12 @@ channel:
 동일한 배치 ID를 사용하는 배너 캠페인이 여러 개인 경우, 드래그 앤 드롭 우선순위 정렬기를 사용하여 정확한 우선순위를 정의하는 것을 권장합니다.
 {% endalert %}
 
+#### 재적격성 구성 (선택 사항) {#re-eligibility}
+
+기본적으로 배너를 닫은 사용자는 해당 캠페인에 대해 다시 적격하지 않습니다. 닫은 사용자가 배너를 다시 볼 수 있도록 하려면 **전달 제어** 단계로 이동하여 **Allow users to become re-eligible to receive campaign**을 선택합니다. 활성화되면 분, 시간, 일 또는 주 단위로 쿨다운 기간을 설정합니다.
+
+카운트다운은 사용자가 배너를 닫은 시점부터 시작됩니다. 기간이 만료되면 사용자는 자동으로 재적격 상태가 되며, 캠페인을 다시 시작할 필요가 없습니다. 재적격성은 사용자별, 캠페인별로 추적됩니다.
+
 #### 오디언스 선택 {#choose-your-audience}
 
 1. **타겟 오디언스**에서 Segments 또는 필터를 선택하여 오디언스를 좁힙니다. 대략적인 Segment 인구의 미리보기가 자동으로 제공됩니다. 정확한 Segment 멤버십은 메시지가 발송되기 전에 계산됩니다.
@@ -151,6 +164,8 @@ Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 행동을 �
 {% tab Canvas %}
 
 아직 완료하지 않았다면 Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, [다변량 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/) 및 [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) 단계를 참조하세요.
+
+Canvas 배너 단계의 재적격성을 제어하려면 Canvas 재진입 설정을 사용하세요. 자세한 내용은 [Campaigns 및 Canvas의 재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)을 참조하세요.
 
 {% endtab %}
 {% endtabs %}

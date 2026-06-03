@@ -12,13 +12,13 @@ tool:
 
 # ドラッグ＆ドロップでメールを作成する {#create-an-email-with-drag-and-drop}
 
-> ドラッグ＆ドロップエディターを使用すると、CampaignsまたはCanvasesのいずれかで、完全にカスタムでパーソナライズされたメールメッセージを作成できます。メール本文の構築にHTMLを使用する必要はありません。
+> ドラッグ＆ドロップエディターを使用すると、CampaignまたはCanvasのいずれかで、完全にカスタムでパーソナライズされたメールメッセージを作成できます。メール本文の構築にHTMLを使用する必要はありません。
 
 ## エディターについて {#about-the-editor}
 
 ドラッグ＆ドロップエディターは、[コンテンツ](#content)と[行](#rows)の2つの主要コンポーネントを使用してワークフローを簡素化します。HTMLを追加で使用する必要はありません。
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="エディターについて" style="width: 100%; table-layout: fixed;">
     <caption>コンテンツと行のエディターコンポーネント</caption>
     <tr>
         <th style="width: 50%;">コンテンツ</th>
@@ -33,7 +33,7 @@ tool:
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="エディターについて" }
 
 ### コンテンツ {#content}
 
@@ -74,7 +74,11 @@ tool:
 
 ## ドラッグ＆ドロップエディターの使用 {#using-the-drag-and-drop-editor}
 
-メールメッセージをCampaignとCanvasのどちらで送信すべきかわからない場合は、Campaignsは単一のターゲットメッセージングCampaignに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。
+メールメッセージをCampaignで送信するかCanvasで送信するか迷っていますか？Campaignは単一のターゲットメッセージングに適しており、Canvasはマルチステップのユーザージャーニーに適しています。
+
+{% alert note %}
+ドラッグ＆ドロップメールをCampaignまたはCanvasから直接**テンプレート** > **メールテンプレート**にメールテンプレートとして保存することはできません。まず**テンプレート**で構築するか、[CampaignまたはCanvas内で構築した後にドラッグ＆ドロップメールをテンプレートとして保存できますか？]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas)を参照して、ドラッグ＆ドロップテンプレートの再作成や**ファイルをダウンロード**でHTMLをエクスポートする方法をご確認ください。
+{% endalert %}
 
 メッセージの作成場所を選択したら、ドラッグ＆ドロップメールを作成する手順を見ていきましょう。
 
@@ -87,7 +91,7 @@ tool:
 - 保存済みのドラッグ＆ドロップメールテンプレートを使用する。
 
 {% alert note %}
-既存のカスタムHTMLテンプレートやサードパーティが作成したテンプレートを使用するには、**テンプレート** > **メールテンプレート**に移動し、編集エクスペリエンスとして**ドラッグ＆ドロップエディター**を選択してテンプレートを再作成する必要があります。
+既存のカスタムHTMLテンプレートやサードパーティが作成したテンプレートを使用するには、**コンテンツ** > **メール**に移動し、編集エクスペリエンスとして**ドラッグ＆ドロップエディター**を選択してテンプレートを再作成する必要があります。
 {% endalert %}
 
 すべてのテンプレートには**テンプレート**セクションからもアクセスできます。
@@ -134,9 +138,19 @@ tool:
 
 右側のパネルのプレビューに、追加した送信情報が表示されます。この情報は、**設定** > **メール設定** > **送信設定**に移動して更新することもできます。
 
-#### メールヘッダーのパーソナライズ（詳細設定） {#personalizing-your-email-header-advanced}
+#### メール添付ファイルの追加 {#add-email-attachments}
 
-**送信設定**の下で、メールヘッダーとメールエクストラのパーソナライゼーションを追加できます。これにより、他のメールサービスプロバイダー（ESP）に追加データを送信できます。受信者の名前を含めるなど、メールヘッダーをパーソナライズすることで、メールが開封される可能性を高めることもできます。
+**送信設定** > **詳細設定**で、以下の方法でメール添付ファイルを追加できます。
+
+- **ファイルをアップロード:** コンピューターからファイルを直接ドラッグ＆ドロップまたは参照してアップロードします。Brazeはアップロード前にファイルタイプとサイズ（デフォルトで最大2&nbsp;MB）を検証し、ファイルはメディアライブラリにアップロードされます。2&nbsp;MBの制限を超えるファイルはアップロードできません。
+- **メディアライブラリを使用:** [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)に既に保存されているアセットを参照して選択します。PDF、Wordドキュメント、Excelファイル、PowerPointプレゼンテーションがすべてサポートされています。
+- **URLから追加:** ファイルを指すURLを入力し、表示ファイル名を指定します。Brazeはメール作成中に任意のURLのサイズを調べることができないため、ファイルサイズは送信時に適用されます。このフィールドではLiquidはサポートされていないことに注意してください。
+
+考慮すべき具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)を参照してください。
+
+#### メールヘッダーのパーソナライズ（詳細設定） {#personalize-your-email-header-advanced}
+
+**送信設定**の下で、メールヘッダーとメールエクストラのパーソナライゼーションを追加できます。これにより、他のメールサービスプロバイダーに追加データを送信できます。受信者の名前を含めるなど、メールヘッダーをパーソナライズすることで、メールが開封される可能性を高めることもできます。
 
 {% alert note %}
 詳細設定機能は、CampaignまたはCanvasコンポーザーに表示されます。詳細設定機能では、インラインCSS設定を変更したり、ヘッダーまたは追加のキーと値のペアを入力したりできます（設定されている場合）。
@@ -178,7 +192,7 @@ tool:
 
 #### Inbox Visionを使用する {#use-inbox-vision}
 
-Inbox Visionを使用すると、メールクライアントやモバイルデバイスの視点からメールCampaignを表示できます。Inbox Visionを使用してメールメッセージをテストするには、**プレビューとテスト**セクションで**Inbox Vision**を選択し、**Inbox Visionを実行**を選択します。
+Inbox Visionを使用すると、メールクライアントやモバイルデバイスの視点からメールキャンペーンを表示できます。Inbox Visionを使用してメールメッセージをテストするには、**プレビューとテスト**セクションで**Inbox Vision**を選択し、**Inbox Visionを実行**を選択します。
 
 メールメッセージの細部をテストして確認することが重要です。たとえば、メールメッセージングのバックグラウンド画像は、画像間に白い線や途切れが表示されることがあります。また、Windows Outlookなどのクライアントではバックグラウンド画像が表示されない場合があります。Inbox Visionを使用すると、クライアント間のこれらの不一致を特定できます。このシナリオでは、フォールバックのバックグラウンドカラーを設定して、これらの画像が期待どおりにレンダリングされるようにします。
 
@@ -192,8 +206,8 @@ Inbox Visionを使用すると、メールクライアントやモバイルデ�
 エクスポートされるHTMLデータの平均フットプリントサイズが削減され、読み込みとレンダリングの高速化、モバイルでのクリッピングの削減、帯域幅消費の削減につながりました。
 
 HTMLレンダリングは、条件付きコメントとCSSメディアクエリの数を最小限に抑える以下の更新に基づいて改善されました。その結果、HTMLファイルはより小さく、より効率的にコーディングされています。
-- `<div>` 要素ベースのデザインから標準的な `<table>` フォーマットのコードベースへの移行
-  <caption>Inbox Visionを使用する</caption>
+- `<div>` 要素ベースのデザインから標準的な `<table aria-label="Use Inbox Vision">` フォーマットのコードベースへの移行
+  <caption>Use Inbox Vision</caption>
 - [エディターブロック（メール）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)が簡潔さのために再コーディングされました
 - 最終的なHTMLコードはタグ間の空白を削除するために圧縮されます
 - 透明な区切り線はコンテンツパディングに自動的に変換されます
@@ -227,11 +241,11 @@ HTMLレンダリングは、条件付きコメントとCSSメディアクエリ�
 
 ### コンテンツバックグラウンド {#content-background}
 
-行の設定にバックグラウンド画像を追加して、メールCampaignにより多くのデザインとビジュアルコンテンツを組み込むことができます。
+行の設定にバックグラウンド画像を追加して、メールキャンペーンにより多くのデザインとビジュアルコンテンツを組み込むことができます。
 
 ### 言語属性 {#language-attribute}
 
-**設定**タブに移動し、目的の言語を選択することで、言語属性を設定できます。メッセージがダイナミックな言語値を持つユーザーを対象としている場合は、ユーザー属性 {%raw%} `{{${language}}}` {%endraw%} をターゲットにすることもできます。
+**設定**タブに移動し、目的の言語を選択することで、言語属性を設定できます。メッセージがダイナミックな言語値を持つユーザーを対象としている場合は、ユーザー属性{%raw%}`{{${language}}}`{%endraw%}をターゲットにすることもできます。
 
 ![メールの「言語」値を設定する画面。]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
 
@@ -250,10 +264,10 @@ Liquidパーソナライゼーションは、画像ブロックとボタンリ�
 
 #### ダイナミック画像 {#dynamic-images}
 
-画像ソース属性に[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content)または[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めることで、メールメッセージングにダイナミック画像を含めることができます。たとえば、静的な画像の代わりに、画像URLとして {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} を挿入して、画像にユーザーの名を含めることができます。これにより、各ユーザーに合わせてメールをパーソナライズできます。
+画像ソース属性に[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content)または[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めることで、メールメッセージングにダイナミック画像を含めることができます。たとえば、静的な画像の代わりに、画像URLとして{% raw %}`https://example.com/images/?imageBanner={{first_name}}`{% endraw %}を挿入して、画像にユーザーの名を含めることができます。これにより、各ユーザーに合わせてメールをパーソナライズできます。
 
 {% alert important %}
-画像URLは `https://` で始まる必要があります。`http://` を使用するとアプリがクラッシュします。
+画像URLは`https://`で始まる必要があります。`http://`を使用するとアプリがクラッシュします。
 {% endalert %}
 
 ### テキスト方向 {#text-direction}
@@ -303,7 +317,7 @@ Liquidパーソナライゼーションは、画像ブロックとボタンリ�
 | `meta` | ページの説明やキーワードなどのメタデータを提供します。 | `<meta name="description" content="Free Web tutorials">` |
 | `style` | 内部CSSスタイルを埋め込みます。 | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | ブラウザタブに表示されるドキュメントのタイトルを設定します。 | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="許可されるタグとタグごとの属性" }
 
 | タグ | 属性 | 説明 | 例 |
 | --- | --- | --- | --- |
@@ -321,7 +335,7 @@ Liquidパーソナライゼーションは、画像ブロックとボタンリ�
 | `style` | `type` | スタイルコンテンツのMIMEタイプ。 | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | スタイルが適用されるメディアまたはデバイスを指定します。 | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | 属性なし | `title` タグは属性を受け付けません。 | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="許可されるタグとタグごとの属性" }
 
 {% alert note %}
 リンク名は最大63バイトで、制限を超えると自動的に切り捨てられます。

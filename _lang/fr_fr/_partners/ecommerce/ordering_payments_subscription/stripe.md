@@ -1,76 +1,76 @@
 ---
-nav_title: Rayure
-article_title: Rayure
+nav_title: Stripe
+article_title: Stripe
 description: "Cet article présente le partenariat entre Braze et Stripe."
 alias: /partners/stripe/
 page_type: partner
 search_tag: Partner
 ---
 
-# Rayure
+# Stripe
 
 > [Stripe](https://www.stripe.com/) est une plateforme d'infrastructure financière complète qui permet aux entreprises d'accepter les paiements, de gérer les opérations de chiffre d'affaires et de faciliter le commerce mondial grâce à une suite d'API et de services intégrés.
 
 En intégrant Braze et Stripe, vous pouvez :
 
-- Mettez à jour les profils utilisateurs dans Braze avec les données en temps réel de paiement et de facturation de Stripe.
-- Déclenchez des messages dans Braze en fonction des événements Stripe, tels que le démarrage d'un essai, l'activation d'un abonnement, l'annulation d'un abonnement, et plus encore.
-- Personnalisez les messages de Braze en fonction de l'historique de paiement d'un utilisateur ou du statut de facturation reçu à l'aide des webhooks de Stripe.
+- Mettre à jour les profils utilisateurs dans Braze avec les données de paiement et de facturation en temps réel provenant de Stripe.
+- Déclencher des messages dans Braze en fonction des événements Stripe, tels que le démarrage d'un essai, l'activation d'un abonnement, l'annulation d'un abonnement, et plus encore.
+- Personnaliser les messages de Braze en fonction de l'historique de paiement ou du statut de facturation d'un utilisateur reçu à l'aide des webhooks Stripe.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
 | Compte Stripe | Un compte Stripe avec accès aux webhooks est nécessaire pour profiter de ce partenariat. |
-| Transformation des données de Braze | Une [URL de transformation des données]({{site.baseurl}}/data_transformation/) est nécessaire pour recevoir des données de Stripe. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Transformation des données Braze | Une [URL de Transformation des données]({{site.baseurl}}/data_transformation/) est nécessaire pour recevoir des données de Stripe. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Intégration
+## Intégration {#integration}
 
-### Étape 1 : Configurez la transformation de données de Braze pour qu'elle accepte les webhooks de Braze. {#step-1}
+### Étape 1 : Configurer la Transformation des données Braze pour accepter les webhooks de Stripe {#step-1}
 
 {% multi_lang_include create_transformation.md %}
 
-### Étape 2 : Configurer les webhooks de Stripe
+### Étape 2 : Configurer les webhooks de Stripe {#step-2-set-up-stripe-webhooks}
 
 Suivez les étapes de la [documentation sur les webhooks de Stripe](https://docs.stripe.com/development/dashboard/webhooks) pour configurer un webhook.
 
-Ajoutez l'URL de votre webhook de transformation de données en tant qu'**URL de destination** et sélectionnez les types d'événements que vous souhaitez envoyer à Braze. Reportez-vous à la [documentation de Stripe](https://docs.stripe.com/api/events/types) pour une liste complète des types d'événements.
+Ajoutez l'URL de votre webhook de Transformation des données en tant qu'**URL de destination** et sélectionnez les types d'événements que vous souhaitez envoyer à Braze. Reportez-vous à la [documentation de Stripe](https://docs.stripe.com/api/events/types) pour une liste complète des types d'événements.
 
 ![Un exemple de configuration de webhook Stripe.]({% image_buster /assets/img/stripe/stripe_webhook_configuration.png %}){: style="max-width:80%;"}
 
-Ensuite, envoyez un événement test à votre transformation de données. 
+Ensuite, envoyez un événement de test à votre Transformation des données.
 
-### Étape 3 : Écrire le code de transformation pour accepter les événements Stripe que vous avez choisis.
+### Étape 3 : Écrire le code de transformation pour accepter les événements Stripe choisis {#step-3-write-transformation-code-to-accept-your-chosen-stripe-events}
 
-Ensuite, vous transformerez la charge utile du webhook qui sera envoyée par Stripe en une valeur de retour d'objet JavaScript.
+Ensuite, vous transformerez le payload du webhook envoyé par Stripe en une valeur de retour sous forme d'objet JavaScript.
 
-1. Actualisez votre transformation de données et assurez-vous que vous pouvez voir la charge utile du test Stripe dans la section des **détails du webhook**.
-2. Mettez à jour votre code de transformation des données pour prendre en charge les événements Stripe que vous avez choisis.
-3. Sélectionnez **Valider** pour obtenir un aperçu du résultat de votre code et vérifier s'il s'agit d'une demande `/users/track` acceptable.
-4. Enregistrez et activez votre transformation de données.
+1. Actualisez votre Transformation des données et assurez-vous que vous pouvez voir le payload de test Stripe dans la section **Détails du webhook**.
+2. Mettez à jour votre code de Transformation des données pour prendre en charge les événements Stripe que vous avez choisis.
+3. Sélectionnez **Validate** pour obtenir un aperçu du résultat de votre code et vérifier s'il s'agit d'une requête `/users/track` acceptable.
+4. Enregistrez et activez votre Transformation des données.
 
 ![Un exemple de détails de webhook et de code de transformation.]({% image_buster /assets/img/stripe/stripe_data_transformation.png %})
 
-#### Format du corps de la requête
+#### Format du corps de la requête {#request-body-format}
 
-Cette valeur de retour doit respecter le format du corps de la requête de l'endpoint `/users/track`:
+Cette valeur de retour doit respecter le format du corps de la requête de l'endpoint `/users/track` :
 
 - Le code de transformation est accepté dans le langage de programmation JavaScript. Tout flux de contrôle JavaScript standard, tel que la logique if/else, est pris en charge.
-- Le code de transformation accède au corps de la demande de webhook à l'aide de la variable payload. Cette variable est un objet rempli en analysant le JSON du corps de la demande.
+- Le code de transformation accède au corps de la requête du webhook à l'aide de la variable payload. Cette variable est un objet rempli en analysant le JSON du corps de la requête.
 - Toutes les fonctionnalités prises en charge dans notre endpoint `/users/track` sont prises en charge, y compris :
     - Objets d'attributs utilisateur, objets d'événements et objets d'achat
     - Attributs et propriétés d'événements personnalisés imbriqués
-    - Mise à jour des groupes d'abonnement
+    - Mises à jour des groupes d'abonnement
     - L'adresse e-mail comme identifiant
 
-### Étape 4 : Publiez votre webhook Stripe
+### Étape 4 : Publier votre webhook Stripe {#step-4-publish-your-stripe-webhook}
 
-Après avoir écrit votre transformation de données, sélectionnez **Valider** pour vous assurer que votre code de transformation de données est formaté correctement et qu'il fonctionnera comme prévu. Ensuite, enregistrez et activez votre transformation de données. Une fois activées, les données des événements personnalisés seront enregistrées dans le profil de l'utilisateur lorsqu'il aura terminé l'événement.
+Après avoir écrit votre Transformation des données, sélectionnez **Validate** pour vous assurer que votre code de Transformation des données est correctement formaté et qu'il fonctionnera comme prévu. Ensuite, enregistrez et activez votre Transformation des données. Une fois activée, les données des événements personnalisés seront enregistrées dans le profil de l'utilisateur lorsqu'il aura complété l'événement.
 
-![Un événement personnalisé Stripe "Charge Succeeded" dans un profil utilisateur Braze.]({% image_buster /assets/img/stripe/stripe_braze_profile_event.png %}){: style="max-width:80%;"}
+![Un événement personnalisé Stripe « Charge Succeeded » dans un profil utilisateur Braze.]({% image_buster /assets/img/stripe/stripe_braze_profile_event.png %}){: style="max-width:80%;"}
 
-## Exemple de charge utile de webhook Stripe {#example}
+## Exemple de payload de webhook Stripe {#example}
 
 ```json
 {
@@ -233,15 +233,15 @@ Après avoir écrit votre transformation de données, sélectionnez **Valider** 
 }
 ```
 
-## Cas d'utilisation de la transformation des données
+## Cas d'utilisation de la Transformation des données {#data-transformation-use-cases}
 
-Vous trouverez ci-dessous des exemples de modèles créés à partir de notre [exemple de webhook Stripe](#example). Ces modèles peuvent être utilisés comme point de départ. Vous pouvez repartir de zéro ou supprimer des éléments spécifiques comme bon vous semble.
+Vous trouverez ci-dessous des exemples de modèles créés à partir de notre [exemple de payload de webhook Stripe](#example). Ces modèles peuvent être utilisés comme point de départ. Vous pouvez repartir de zéro ou supprimer des composants spécifiques comme bon vous semble.
 
-Dans cet exemple de modèle, nous enregistrons un événement personnalisé dans le profil Braze. Le type d'événement sera envoyé en tant que nom d'événement personnalisé et l'objet de données sera transmis en tant que propriétés d'événement. 
+Dans cet exemple de modèle, nous enregistrons un événement personnalisé dans le profil Braze. Le type d'événement sera envoyé en tant que nom d'événement personnalisé et l'objet de données sera transmis en tant que propriétés d'événement.
 
-### Cas d'utilisation : le client comme identifiant
+### Cas d'utilisation : le client comme identifiant {#use-case-customer-as-an-identifier}
 
-Dans cet exemple de modèle, nous utilisons le champ "client" comme identifiant.
+Dans cet exemple de modèle, nous utilisons le champ client comme identifiant.
 
 {% tabs local %}
 {% tab Input %}
@@ -305,6 +305,6 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-## Surveillance et résolution des problèmes
+## Surveillance et résolution des problèmes {#monitoring-and-troubleshooting}
 
-Reportez-vous à la section [Surveillance de votre]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation) transformation pour plus d'informations sur la surveillance et le dépannage de votre transformation.
+Reportez-vous à la section [Surveiller votre transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation) pour plus d'informations sur la surveillance et la résolution des problèmes de votre transformation.

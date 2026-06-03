@@ -9,18 +9,18 @@ page_type: reference
 
 # Braze-Canvas-Templates verwenden {#use-braze-canvas-templates}
 
-> Braze bietet eine Auswahl an Canvas-Templates, die Sie als Referenz und Best Practices für gängige Anwendungsfälle nutzen können. Diese Templates können zwar nicht bearbeitet werden, aber Sie können sie unter **Templates** > **Braze templates** ansehen oder in Ihren Canvases verwenden.
+> Braze bietet eine Auswahl an Canvas-Templates, die Sie als Referenz und Best Practices für gängige Anwendungsfälle nutzen können. Diese Templates können zwar nicht bearbeitet werden, aber Sie können sie unter **Inhalt** > **Canvas** > **Braze templates** ansehen oder in Ihren Canvases verwenden.
 
 ![Braze-Templates im Bereich „Canvas-Templates“ mit dreizehn verfügbaren Templates.]({% image_buster /assets/img/braze_canvas_templates.png %})
 
 Wählen Sie aus den folgenden verfügbaren Templates, um sie als Referenz oder als Grundlage für Ihr Canvas zu verwenden.
 
-## Standard-Canvas-Templates
+## Standard-Canvas-Templates {#standard-canvas-templates}
 
 {% tabs %}
 {% tab Abandoned Intent %}
 
-### Abandoned Intent
+### Abandoned Intent {#abandoned-intent}
 
 Sprechen Sie Nutzer:innen in Echtzeit an, um sie zum Abschluss ihrer Käufe zu ermutigen.
 
@@ -33,7 +33,7 @@ Beachten Sie Folgendes bei der Verwendung dieses Templates:
 {% endtab %}
 {% tab Back In Stock %}
 
-### Back in Stock
+### Back in Stock {#back-in-stock}
 
 Steigern Sie Käufe, indem Sie Ihre Nutzer:innen mit personalisiertem Messaging benachrichtigen, wenn ein Artikel wieder auf Lager ist. Beachten Sie Folgendes bei der Verwendung dieses Templates:
 
@@ -44,7 +44,7 @@ Steigern Sie Käufe, indem Sie Ihre Nutzer:innen mit personalisiertem Messaging 
 {% endtab %}
 {% tab Feature Adoption %}
 
-### Feature Adoption
+### Feature-Adoption {#feature-adoption}
 
 Senden Sie zeitlich abgestimmte, personalisierte Nachrichten, die die Vorteile und Nutzungstipps hervorheben. Beachten Sie Folgendes bei der Verwendung dieses Templates:
 
@@ -56,7 +56,7 @@ Senden Sie zeitlich abgestimmte, personalisierte Nachrichten, die die Vorteile u
 {% endtab %}
 {% tab Lapsed User %}
 
-### Lapsed User
+### Lapsed User {#lapsed-user}
 
 Holen Sie Nutzer:innen mit Anreizen basierend auf ihren bisherigen Interaktionen zurück in Ihre App. Beachten Sie Folgendes bei der Verwendung dieses Templates:
 
@@ -67,7 +67,7 @@ Holen Sie Nutzer:innen mit Anreizen basierend auf ihren bisherigen Interaktionen
 {% endtab %}
 {% tab Onboarding %}
 
-### Onboarding
+### Onboarding {#onboarding}
 
 Erstellen Sie Onboarding-Journeys, die eine starke anfängliche Nutzung fördern und dauerhafte Beziehungen zu Ihren Nutzer:innen aufbauen. Beachten Sie Folgendes bei der Verwendung dieses Templates:
 
@@ -76,7 +76,7 @@ Erstellen Sie Onboarding-Journeys, die eine starke anfängliche Nutzung fördern
 {% endtab %}
 {% tab Post-Purchase Feedback %}
 
-### Post-Purchase Feedback
+### Post-Purchase Feedback {#post-purchase-feedback}
 
 Orchestrieren Sie personalisierte Erlebnisse, die es Ihnen ermöglichen, auf Feedback zu reagieren und eine Beziehung zu Ihren Nutzer:innen aufzubauen. Beachten Sie Folgendes bei der Verwendung dieses Templates:
 

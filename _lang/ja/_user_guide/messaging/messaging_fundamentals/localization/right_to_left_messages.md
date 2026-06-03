@@ -24,7 +24,7 @@ description: "このページでは、Brazeで右から左に読むメッセー�
 |------------------|------------------------|
 | 感嘆符と絵文字が文の**末尾**に表示されます。 | 感嘆符と絵文字が文の**先頭**に表示されます。 |
 | ![標準的な右から左へのメッセージの例。]({% image_buster /assets/img/right-to-left/standard.png %}) | ![左から右へのメッセージの例。]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メッセージの表示" }
 
 ## 右から左へのメッセージの作成 {#creating-a-right-to-left-message}
 

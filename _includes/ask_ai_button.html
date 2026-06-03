@@ -135,23 +135,30 @@
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
     function getMarkdownPath(pathname) {
-      if (!pathname) {
-        return '/index.md';
+      var siteBaseUrl = '{{ site.baseurl }}';
+      var normalizedPath = pathname || '/';
+
+      normalizedPath = normalizedPath.split('?')[0].split('#')[0];
+
+      if (siteBaseUrl && siteBaseUrl !== '/' &&
+          normalizedPath.indexOf(siteBaseUrl + '/') !== 0 &&
+          normalizedPath !== siteBaseUrl) {
+        normalizedPath = siteBaseUrl + (normalizedPath.charAt(0) === '/' ? normalizedPath : '/' + normalizedPath);
       }
 
-      if (pathname.endsWith('/index.md')) {
-        return pathname;
+      if (normalizedPath.endsWith('/index.md') || normalizedPath.endsWith('.md')) {
+        return normalizedPath;
       }
 
-      if (pathname.endsWith('/')) {
-        return pathname.slice(0, -1) + '/index.md';
+      if (normalizedPath.endsWith('/')) {
+        return normalizedPath + 'index.md';
       }
 
-      if (pathname.endsWith('.html')) {
-        return pathname.replace('.html', '/index.md');
+      if (normalizedPath.endsWith('.html')) {
+        return normalizedPath.replace('.html', '/index.md');
       }
 
-      return pathname + '/index.md';
+      return normalizedPath + '/index.md';
     }
 
     function logAskAiEvent(eventName, properties) {

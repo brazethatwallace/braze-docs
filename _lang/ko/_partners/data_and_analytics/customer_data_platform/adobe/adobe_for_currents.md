@@ -21,7 +21,7 @@ Braze와 Adobe 통합을 통해 두 시스템 간의 정보 흐름을 원활하�
 | Currents | 데이터를 Adobe로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
 | Adobe Experience Platform 계정 | 이 파트너십을 활용하려면 [Adobe Experience Platform 계정](https://experience.adobe.com/#/platform/home)이 필요합니다. |
 | 커넥터 생성 권한 | 이 통합을 사용하려면 스트리밍 소스 연결을 생성할 수 있는 권한이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -69,7 +69,7 @@ Braze가 Adobe Experience Platform으로 데이터를 전송할 수 있도록 �
 | Sandbox Name  | Adobe Experience Platform 소스와 연결된 샌드박스입니다.   |
 | Dataflow ID   | Adobe Experience Platform 소스와 연결된 데이터 흐름 ID입니다.   |
 | Streaming Endpoint  | Adobe Experience Platform 소스와 연결된 스트리밍 엔드포인트입니다. Braze는 이를 자동으로 배치 스트리밍 엔드포인트로 변환합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Gather credentials" }
 
 ### 4단계: 데이터 소스로 데이터를 스트리밍하도록 Currents 구성 {#step-4-configure-currents-to-stream-data-to-your-data-source}
 

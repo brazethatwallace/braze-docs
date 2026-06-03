@@ -19,7 +19,7 @@ Die Partnerschaft zwischen Braze und Zapier nutzt die Braze API und die Braze-[W
 |---|---|
 | Zapier-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Zapier-Konto. |
 | Braze-REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#api-definitions) ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -73,7 +73,7 @@ Wenn Sie Ihren Webhook einrichten, verwenden Sie die folgenden Einstellungen und
 
 ![]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
 
-### 4. Schritt: Erstellen Sie eine Braze-Campaign {#step-4-create-a-braze-campaign}
+### 4. Schritt: Erstellen Sie eine Braze-Kampagne {#step-4-create-a-braze-campaign}
 
 Sobald Sie Ihren Zap erfolgreich eingerichtet haben, können Sie Ihre Braze-Campaigns oder Canvases mit WordPress-Daten anpassen, indem Sie die Informationen in Ihren Nachrichten mit Liquid formatieren.
 

@@ -92,7 +92,7 @@ Hay varias formas de recopilar datos de comportamiento en SalesWings para la pun
 
 ### Paso 3: Conexión de SalesWings con Braze {#step-3-connecting-saleswings-to-braze}
 
-Ve a la [página **Integraciones de SalesWings**](https://helium.saleswings.pro/integrations) y amplía la sección **Braze Integration**.
+Ve a la [página **SalesWings Integrations**](https://helium.saleswings.pro/integrations) y amplía la sección **Braze Integration**.
 
 ![La sección Braze Integration de la página de configuración de SalesWings.]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_integration_settings.png %})
 
@@ -104,19 +104,19 @@ A continuación, selecciona **Save**.
 
 ### Paso 4: Habilitar el push de información de SalesWings a Braze (opcional) {#step-4-enable-saleswings-insights-push-to-braze-optional}
 
-Si quieres que la información de SalesWings esté disponible en tus perfiles de usuario de Braze para la segmentación, personalización u orquestación del recorrido de Canvas, visita la [página **Integraciones de SalesWings**](https://helium.saleswings.pro/integrations) y amplía la sección **Braze Integration**.
+Si quieres que la información de SalesWings esté disponible en tus perfiles de usuario de Braze para la segmentación, personalización u orquestación del recorrido de Canvas, visita la [página **SalesWings Integrations**](https://helium.saleswings.pro/integrations) y amplía la sección **Braze Integration**.
 
 Haz clic en **Start data push** en **SalesWings-to-Braze insights data push**.
 
 ### Paso 5: Configurar una exportación personalizada de Currents a SalesWings (opcional) {#step-5-set-up-a-custom-currents-export-to-saleswings-optional}
 
-Si quieres utilizar eventos de [comportamiento del usuario]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) y de [interacción de mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) para la inteligencia de comportamiento, la puntuación de clientes potenciales y cuentas, producir información de ventas o generar informes en tu CRM, ve a la [página **Integraciones de SalesWings**](https://helium.saleswings.pro/integrations) y amplía la sección **Braze Integration**.
+Si quieres utilizar eventos de [comportamiento del usuario]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) y de [interacción de mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) para la inteligencia de comportamiento, la puntuación de clientes potenciales y cuentas, producir información de ventas o generar informes en tu CRM, ve a la [página **SalesWings Integrations**](https://helium.saleswings.pro/integrations) y amplía la sección **Braze Integration**.
 
 Selecciona **Generate** en **Generate an API token to setup a Custom Currents Export**.
 
 A continuación, [crea un nuevo Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/) y selecciona **Custom Currents Export** como tipo de Current.
 
-En la sección **Credentials** del formulario de creación del Current, introduce el token de API que has generado en la [página **Integraciones de SalesWings**](https://helium.saleswings.pro/integrations) para **Bearer Token**, y `https://helium.saleswings.pro/api/braze/currents/events` para **Endpoint**.
+En la sección **Credentials** del formulario de creación del Current, introduce el token de API que has generado en la [página **SalesWings Integrations**](https://helium.saleswings.pro/integrations) para **Bearer Token**, y `https://helium.saleswings.pro/api/braze/currents/events` para **Endpoint**.
 
 ### Paso 6: Configuración de la puntuación de clientes potenciales y cuentas de SalesWings para Braze, integración con CRM y mucho más {#step-6-configuring-saleswings-lead-and-account-scoring-for-braze-crm-integration-and-more}
 
@@ -150,7 +150,7 @@ Si habilitas el push de información de SalesWings a Braze, SalesWings actualiza
 
 | Atributo personalizado | Tipo | Descripción |
 | ----------- | ----------- | ----------- |
-| `sw_favorite` | booleano | Si el cliente potencial se marcó como favorito en SalesWings o Salesforce CRM |
+| `sw_favorite` | Booleano | Si el cliente potencial se marcó como favorito en SalesWings o Salesforce CRM |
 | `sw_last_active_at` | date | El momento de la última actividad del cliente potencial en tu sitio web |
 | `sw_lead_link_open` | cadena | El enlace para acceder al perfil de un cliente potencial en SalesWings (sin una cuenta en el panel de SalesWings) |
 | `sw_lead_link_protected` | cadena | El enlace para acceder al perfil de un cliente potencial en SalesWings (con una cuenta en el panel de SalesWings) |

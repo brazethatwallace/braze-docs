@@ -3,7 +3,7 @@ nav_title: Créer des notifications enrichies
 article_title: "Création de notifications push enrichies pour iOS"
 page_order: 3
 page_type: tutorial
-description: "Ce tutoriel explique comment configurer les notifications enrichies iOS pour vos campagnes Braze."
+description: "Ce tutoriel explique les conditions requises et les étapes pour créer des notifications enrichies iOS pour vos campagnes Braze."
 
 platform: iOS
 channel:
@@ -31,6 +31,10 @@ Avant de créer une notification push enrichie pour iOS, notez les détails suiv
 Depuis janvier 2020, les notifications push enrichies iOS peuvent gérer des images de 1038x1038 de moins de 10&nbsp;Mo, mais nous recommandons d'utiliser la taille de fichier la plus petite possible. En pratique, l'envoi de fichiers volumineux peut entraîner un stress réseau inutile et rendre les délais d'expiration de téléchargement plus fréquents.
 {% endalert %}
 
+{% alert important %}
+Les images des notifications push peuvent ne pas s'afficher comme prévu si la taille du fichier image est trop importante, si le rapport hauteur/largeur est incorrect, si le texte dépasse la longueur maximale du message ou si le texte du titre dépasse la longueur maximale du titre.
+{% endalert %}
+
 ### Nombre de caractères {#character-count}
 
 Bien que nous ne puissions pas fournir de règle stricte sur le nombre précis de caractères à inclure dans une notification push, nous [fournissons quelques recommandations]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) à prendre en compte lors de la conception de messages iOS. Il peut y avoir des variations en fonction de la présence d'une image, de l'état de la notification et des paramètres d'affichage de l'appareil de l'utilisateur, ainsi que de la taille de l'appareil. En cas de doute, restez bref et concis.
@@ -41,7 +45,7 @@ En tant que bonne pratique, Braze recommande de limiter chaque ligne de texte, t
 
 Vos utilisateurs peuvent voir les notifications push dans différentes situations et peuvent voir des longueurs de texte différentes comme suit.
 
-<table>
+<table aria-label="États de notification">
   <caption>États de notification</caption>
 <thead>
   <tr>
@@ -58,7 +62,7 @@ Vos utilisateurs peuvent voir les notifications push dans différentes situation
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="États de notification" }
 
 ![Exemples de notifications push affichées sur l'écran de verrouillage, en mode étendu et lorsque l'appareil est actif.]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 

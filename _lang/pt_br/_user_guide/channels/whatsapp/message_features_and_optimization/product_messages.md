@@ -32,7 +32,7 @@ Quando os usuários adicionam itens ao carrinho por meio de mensagens de catálo
 | Conta WhatsApp Business | Para usar mensagens de produto do WhatsApp, você precisa ter uma conta WhatsApp Business conectada à Braze. |
 | Catálogo Meta | Você precisa configurar um catálogo Meta no seu Commerce Manager. |
 | Conformidade com os termos | Cumpra os [Termos e Políticas de Comércio da Meta](https://www.facebook.com/policies_center/commerce). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Tipos de mensagens de produto {#product-message-types}
 

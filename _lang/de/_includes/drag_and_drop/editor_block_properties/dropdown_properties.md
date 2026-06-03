@@ -12,4 +12,4 @@
 | Zeichenabstand | Horizontaler Abstand zwischen den Zeichen. |
 | Ausrichtung | Horizontale Ausrichtung des Dropdowns (links oder zentriert). |
 | Padding | Abstand um den Block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -16,7 +16,7 @@ description: "Brazeプラットフォーム内で後から使用するためのW
 
 ## ステップ 1:Webhook テンプレートエディターに移動する {#step-1-go-to-the-webhook-template-editor}
 
-Brazeダッシュボードで、**テンプレート** > **Webhook テンプレート**に移動します。
+Brazeダッシュボードで、**コンテンツ** > **Webhook**に移動します。
 
 ![事前にデザインされたWebhookテンプレートと保存済みWebhookテンプレートが表示された「Webhook テンプレート」ページ。]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 

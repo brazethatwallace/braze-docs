@@ -1,5 +1,5 @@
 ---
-nav_title: "Abo-Gruppen"
+nav_title: Abo-Gruppen
 article_title: SMS- und RCS-Abo-Gruppen
 page_order: 4
 description: "Dieser Referenzartikel behandelt Abo-Gruppen, Abo-Status und den Einrichtungsprozess von Abo-Gruppen für SMS-, MMS- und RCS-Kanäle."
@@ -25,8 +25,8 @@ Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubs
 | Status | Definition |
 | --------- | ---------- |
 | Abonniert | Nutzer:in ist für den Empfang von SMS und RCS aus einer bestimmten Abo-Gruppe angemeldet. Eine Nutzer:in kann abonniert werden, indem der Abo-Status über die Braze-Abo-API aktualisiert wird oder indem ein Opt-in-Schlüsselwort per SMS gesendet wird. Eine Nutzer:in muss bei einer SMS- oder RCS-Abo-Gruppe abonniert sein, um SMS, RCS oder beides zu empfangen. Wenn [Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) aktiviert ist, müssen Nutzer:innen ihre Opt-in-Absicht bestätigen, bevor ihr Abo-Status auf `Subscribed` aktualisiert wird. |
-| Abgemeldet | Nutzer:in hat sich ausdrücklich vom Nachrichtenempfang Ihrer SMS- und RCS-Abo-Gruppe und den darin enthaltenen Sendetelefonnummern abgemeldet. Die Abmeldung kann durch Senden eines Opt-out-Schlüsselworts per SMS erfolgen, oder Sie können Nutzer:innen über die [Braze-Abo-API]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) abmelden. Nutzer:innen, die von einer SMS- und RCS-Abo-Gruppe abgemeldet sind, erhalten keine SMS oder RCS mehr von Sendetelefonnummern, die zu dieser Abo-Gruppe gehören.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Abgemeldet | Nutzer:in hat sich ausdrücklich vom Nachrichtenempfang Ihrer SMS- und RCS-Abo-Gruppe und den darin enthaltenen Sendetelefonnummern abgemeldet. Die Abmeldung kann durch Senden eines Opt-out-Schlüsselworts per SMS erfolgen, oder Sie können Nutzer:innen über die [Braze-Abo-API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) abmelden. Nutzer:innen, die von einer SMS- und RCS-Abo-Gruppe abgemeldet sind, erhalten keine SMS oder RCS mehr von Sendetelefonnummern, die zu dieser Abo-Gruppe gehören.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Status einer Nutzer:in festlegen {#set-a-users-state}
 
@@ -48,12 +48,14 @@ Wenn Sie den Abo-Gruppenstatus einer Nutzer:in als Teil eines Canvas-Flows aktua
 
 Wenn Sie einen Webhook zum Aktualisieren von Abo-Gruppen verwenden, wird die Nutzer:in weitergeleitet, sobald der Webhook gesendet wurde – nicht wenn die Abo-Änderung fertig verarbeitet ist. Dies kann eine Race-Condition verursachen, bei der ein nachfolgender SMS-Schritt ausgeführt wird, bevor die Nutzer:in abonniert ist, was dazu führt, dass die Nachricht für einen Teil der Nutzer:innen fehlschlägt. Wenn Sie einen Webhook verwenden müssen, fügen Sie vor dem nächsten Messaging-Schritt einen Verzögerungsschritt von mindestens 1 Minute hinzu.
 
+#{% multi_lang_include api/orphaned_subscription_states.md %}
+
 ### Gruppe einer Nutzer:in prüfen {#check-a-users-group}
 
 Um die Abo-Gruppe einer Nutzer:in zu prüfen, verwenden Sie eine der folgenden Methoden:
 
 - **Nutzerprofil:** Auf einzelne Nutzerprofile kann über das Braze-Dashboard zugegriffen werden, indem Sie in der Seitenleiste **Nutzersuche** auswählen. Hier können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie unter dem Tab „Engagement“ die SMS- und RCS-Abo-Gruppen einer Nutzer:in einsehen.
-- **REST API:** Die Abo-Gruppen einzelner Nutzerprofile können über den [Endpunkt „Abo-Gruppen der Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) oder den [Endpunkt „Abo-Gruppenstatus der Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) mithilfe der Braze REST API eingesehen werden.
+- **REST API:** Die Abo-Gruppen einzelner Nutzerprofile können über den [Endpunkt „Abo-Gruppen von Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) oder den [Endpunkt „Abo-Gruppenstatus der Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) mithilfe der Braze REST API eingesehen werden.
 
 ## Nachrichten mit einer Abo-Gruppe senden {#send-messages-with-a-subscription-group}
 
@@ -111,7 +113,7 @@ Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#c
 5. Fügen Sie einen [Nutzeraktualisierung-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) hinzu, um den Status der Nutzer:in in der jeweiligen SMS-Abo-Gruppe auf „Abgemeldet“ zu ändern.
 
 {% alert note %}
-Die Nutzung der Agentenkonsole verbraucht Message Credits.
+Die Nutzung der Agentenkonsole verbraucht Message oder Action Credits.
 {% endalert %}
 
 ## SMS-Traffic zu RCS migrieren {#migrate-sms-traffic-to-rcs}
@@ -125,6 +127,7 @@ Braze empfiehlt, zunächst RCS an kleinere Nutzervolumen zu testen und im Laufe 
 Erstellen Sie einen Canvas und geben Sie ihm einen leicht erkennbaren Namen (z. B. „SMS-RCS Abo-Gruppen-Nutzertransfer“). Planen Sie die Campaign dann zu einem für Sie passenden Zeitpunkt.
 
 ### 2. Schritt: Zielgruppe definieren {#step-2-define-your-audience}
+{: #step-2-define-your-audience}
 
 Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann zum Schritt **Sendeeinstellungen** und wählen Sie **Nutzer:innen, die abonniert oder angemeldet sind**.
 
@@ -132,7 +135,7 @@ Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann 
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Segment erstellen** | Erstellen Sie ein Segment, das alle Nutzer:innen in einer Abo-Gruppe oder eine Teilmenge mithilfe von Segmentierungsfiltern enthält (z. B. zufällige 5–10 %). Segmente werden vor jedem Versand aktualisiert, um Ihre aktuelle Nutzerbasis widerzuspiegeln. |
 | **Campaign- oder Canvas-Filter anwenden** | Verfeinern Sie die Zielgruppe im Schritt **Zielgruppe** Ihrer Campaign oder Ihres Canvas. Passen Sie die Targeting-Optionen an, ohne die Seite zu verlassen, für zusätzliche Flexibilität. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
 
 ### 3. Schritt: Nutzeraktualisierung-Schritt konfigurieren {#step-3-configure-a-user-update-step}
 
@@ -194,5 +197,7 @@ Wählen Sie beschreibende und klare Abo-Gruppennamen, damit beim Erstellen von S
 ### Gruppen nach Land trennen {#separate-groups-by-country}
 
 SMS-Vorschriften variieren je nach Land. Wir empfehlen, SMS-Abo-Gruppen nach Land zu trennen. Dies hilft Ihnen, Compliance-Standards in allen Regionen einzuhalten, in denen Sie Nachrichten versenden.
+
+Für jede Abo-Gruppe können Sie außerdem unter **Geographic Permissions** eine Länder-Allowlist konfigurieren, sodass SMS, MMS und RCS nur an genehmigte Regionen gesendet werden. Weitere Informationen finden Sie unter [Geografische Berechtigungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/).
 
 In Brasilien ist es beispielsweise verboten, Marketing-Nachrichten außerhalb der Zeiten von 9:00 bis 21:00 Uhr Ortszeit zu versenden, und das Land erstreckt sich über drei Zeitzonen. Um diese Vorschriften einzuhalten, könnten Sie separate Gruppen für den Nachrichtenversand nach Brasilien und in die USA einrichten. Dies verhindert, dass Nutzer:innen in Brasilien Marketing-Nachrichten während verbotener Zeiten erhalten.

@@ -4,4 +4,4 @@
 | Nombre del atributo personalizado | Selecciona qué atributo personalizado booleano recibe `true` cuando está marcado o `false` cuando no lo está. |
 | Color de acento | Color utilizado para el estilo del control de la casilla de verificación. |
 | Relleno | Espaciado alrededor del bloque. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

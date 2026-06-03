@@ -19,7 +19,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 | --- | --- |
 | Compte Kameleoon | Un compte Kameleoon est nécessaire pour bénéficier de ce partenariat. |
 | Compte Braze | Un compte Braze actif avec le [SDK Web Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) intégré sur votre page web. Vous devrez également activer la segmentation des propriétés d'événement. Pour en faire la demande, consultez la section [Considérations](#considerations). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -101,7 +101,7 @@ En outre, ces événements seront accessibles via les [objets d'événements per
 
 Avant de pouvoir utiliser la segmentation des propriétés d'événement, vous devez l'activer dans Braze. Utilisez le modèle suivant pour contacter votre CSM Braze ou l'équipe d'assistance afin d'obtenir l'accès.
 
-   <table>
+   <table aria-label="Demander la segmentation des propriétés d'événement">
      <caption>Demander la segmentation des propriétés d'événement</caption>
    <thead>
       <tr>
@@ -127,7 +127,7 @@ Avant de pouvoir utiliser la segmentation des propriétés d'événement, vous d
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Demander la segmentation des propriétés d'événement" }
 
 ### Points de données Braze {#braze-data-points}
 

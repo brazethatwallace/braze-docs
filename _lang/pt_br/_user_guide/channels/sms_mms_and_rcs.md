@@ -36,7 +36,7 @@ Antes de começar, verifique se você tem o seguinte:
 | Autenticação de dois fatores | Envie códigos de verificação únicos para login em contas e confirmação de transações. |
 | Ofertas promocionais | Alcance os clientes com promoções por tempo limitado, promoções relâmpago e descontos personalizados diretamente no celular. |
 | Suporte ao cliente | Possibilite conversas bidirecionais para resolver dúvidas dos clientes, coletar feedback ou confirmar solicitações de atendimento. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## Comparação entre SMS, MMS e RCS {#sms-mms-and-rcs-compared}
 

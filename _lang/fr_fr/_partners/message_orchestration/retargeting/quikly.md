@@ -43,7 +43,7 @@ Par exemple :
 Vous trouverez ci-dessous quatre intégrations différentes : l'acquisition par e-mail, l'acquisition par SMS, les attributs personnalisés et les webhooks. L'intégration que vous choisirez dépendra de votre activation Quikly et de votre cas d'utilisation.
 
 {% tabs %}
-{% tab Email Acquisition %}
+{% tab Acquisition d'e-mails %}
 
 ### Acquisition d'e-mails {#email-acquisition}
 
@@ -59,7 +59,7 @@ Voici un aperçu de la manière dont Quikly exécute ce flux de travail.
     - Quikly crée un profil d'alias uniquement via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) de Braze, en définissant l'e-mail de l'utilisateur comme alias d'utilisateur pour le référencer à l'avenir (car l'utilisateur n'aura pas d'ID externe).
     - Si vous le souhaitez, Quikly peut enregistrer des événements personnalisés pour indiquer que ce profil a participé à l'activation Quikly.
 
-{% details /users/track request %}
+{% details Requête /users/track %}
 
 #### En-têtes de requête {#request-headers}
 ```
@@ -84,7 +84,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% enddetails %}
 
 {% endtab %}
-{% tab SMS Acquisition %}
+{% tab Acquisition SMS %}
 
 ### Abonnements SMS {#sms-subscriptions}
 
@@ -103,14 +103,14 @@ Pour prendre en charge les flux de travail existants d'abonnement SMS à double 
 Braze conseille, lors de la création de nouveaux utilisateurs via l'endpoint `/users/track`, d'attendre environ 2 minutes avant d'ajouter les utilisateurs au groupe d'abonnement concerné, afin de laisser à Braze le temps de créer entièrement le profil utilisateur.
 {% endalert %}
 
-{% details Detailed /subscription/status/set request %}
-#### En-têtes de requête {#request-headers}
+{% details Requête détaillée /subscription/status/set %}
+#### En-têtes de requête
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-#### Corps de la requête {#request-body}
+#### Corps de la requête
 ```
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
@@ -123,7 +123,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% enddetails %}
 
 {% endtab %}
-{% tab Custom Attributes %}
+{% tab Attributs personnalisés %}
 ### Attributs personnalisés {#custom-attributes}
 
 En fonction de votre mise en œuvre de Braze, vous pouvez souhaiter que les événements d'activation Quikly soient transmis à Braze pour un traitement ultérieur. Par exemple, vous pouvez souhaiter appliquer un attribut utilisateur personnalisé en fonction du niveau ou de l'incitation atteint dans l'activation Quikly, ce qui vous permet d'afficher la carte de contenu correspondante lorsque les utilisateurs ouvrent votre application ou se connectent à votre site web. Quikly travaillera directement avec vous pour mettre en œuvre ces intégrations.
@@ -135,7 +135,7 @@ Utilisez des webhooks pour déclencher des incitations lors d'événements spéc
 
 ### Créer un webhook Quikly dans Braze {#create-a-quikly-webhook-in-braze}
 
-Pour créer un modèle de webhook Quikly pour de futures Campaigns ou Canvas, accédez à **Modèles** > **Modèles de webhook** dans la plateforme Braze.
+Pour créer un modèle de webhook Quikly pour de futures Campaigns ou Canvas, accédez à **Contenu** > **Webhook** dans la plateforme Braze. Sélectionnez ensuite **Créer un modèle de webhook**.
 
 Si vous souhaitez créer une Campaign webhook Quikly ponctuelle ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle Campaign.
 
@@ -152,7 +152,7 @@ Quikly nécessite un `HTTP Header` pour l'autorisation.
   - **Authorization** : Bearer [PARTNER_AUTHORIZATION_HEADER]
   - **Content-Type** : application/json
 
-#### Corps de la requête {#request-body}
+#### Corps de la requête
 
 Sélectionnez ***JSON key/value pairs*** et ajoutez les paires suivantes :
 {% raw %}

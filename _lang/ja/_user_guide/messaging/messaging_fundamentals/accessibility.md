@@ -139,7 +139,7 @@ description: "このリファレンス記事では、マーケティングコン
 
 アクセシビリティ言語を空白のままにし、安全なデフォルトが利用できない場合、Brazeは言語タグを省略します。言語が設定されていない場合、支援ツールは通常、ユーザーの電話やコンピューターの言語にフォールバックします。それがメッセージの言語と異なる場合、発音が正しく聞こえない可能性があります。
 
-CampaignsとCanvasesは、ワークスペースで機能が利用できない場合を除き、これらのオプションに同じエディターを使用します。
+キャンペーンとキャンバスは、ワークスペースで機能が利用できない場合を除き、これらのオプションに同じエディターを使用します。
 
 #### アクセシビリティ言語を設定する {#configure-accessibility-language}
 
@@ -157,11 +157,11 @@ CampaignsとCanvasesは、ワークスペースで機能が利用できない場
 | --- | --- |
 | メール（ドラッグ＆ドロップ、フルテンプレート） | エディターで言語を設定します。多言語メッセージを使用すると、フルメールテンプレートが各ロケールの言語に自動的に一致します。Content Blocksのみ（単一行）を使用する場合、これらのショートカットは同じようには機能しません。エディターで許可されている場合は、自分で言語を選択してください。 |
 | メール（HTMLコード） | Brazeは言語タグを自動的に追加しません。必要な場合はHTMLに追加してください。 |
-| In-App Messages（ドラッグ＆ドロップ） | **アクセシビリティ**で言語を選択すると、Brazeはメッセージの外側のHTMLにその言語を追加し、スクリーンリーダーがメッセージ全体をその言語として扱います。多言語メッセージがオンの場合、新しいメッセージはロケール言語がデフォルトになる場合があります。**プレビュー**では、**Settings**で言語を選択するまで言語が表示されない場合があります。 |
-| バナー | In-App Messagesと同じ動作です。 |
-| ランディングページ | ライブページで言語を設定できます。1つの言語を選択するか、アカウントでランディングページにLiquidが許可されている場合はLiquidを使用してください。デフォルトもIn-App Messagesやバナーとは異なります。公開されたページを確認してください。 |
+| アプリ内メッセージ（ドラッグ＆ドロップ） | **アクセシビリティ**で言語を選択すると、Brazeはメッセージの外側のHTMLにその言語を追加し、スクリーンリーダーがメッセージ全体をその言語として扱います。多言語メッセージがオンの場合、新しいメッセージはロケール言語がデフォルトになる場合があります。**プレビュー**では、**設定**で言語を選択するまで言語が表示されない場合があります。 |
+| バナー | アプリ内メッセージと同じ動作です。 |
+| ランディングページ | ライブページで言語を設定できます。1つの言語を選択するか、アカウントでランディングページにLiquidが許可されている場合はLiquidを使用してください。デフォルトもアプリ内メッセージやバナーとは異なります。公開されたページを確認してください。 |
 | Content Cards | Cardsは明示的なアクセシビリティ言語の代わりに、アプリ用の**Language**フィールドを使用します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and editor support" }
 
 HTMLを自分で記述する場合でも、メッセージの一部に言語タグを追加できます（例えば、別の言語の1つのフレーズ）。詳しいパターンについては、[カスタムHTML](#custom-html)をご覧ください。
 
@@ -240,7 +240,7 @@ BrazeがHTMLにルートレベルの言語タグを追加する場合、HTML [`l
 | 悪い例 | より良い例 | 最良の例 |
 | --- | --- | --- |
 | ここをクリック | ここをクリックして今日の天気を見る | 今日の天気 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Write descriptive link text" }
 
 すべてのコンテンツと同様に、余分な言葉をできるだけ少なくして簡潔にしましょう。
 
@@ -543,13 +543,13 @@ Brazeのドラッグ＆ドロップエディターはデフォルトでセマン
 - BrazeがエクスポートでHTMLメタデータを追加できるドキュメントレベルの言語については、[アクセシビリティ言語](#accessibility-language)を参照してください。動作はチャネルによって異なります。コンテンツを自分でマークアップする場合は、HTML内に[`lang`属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang)を設定して、コンテンツの言語を識別してください。スクリーンリーダーは、各言語の発音と特性に基づいて異なるサウンドライブラリを使用します。これが指定されていない場合、スクリーンリーダーはコンテンツがユーザーがスクリーンリーダーの設定時に選択したデフォルト言語で書かれていると仮定します。メッセージが実際にはデフォルト言語でない場合、スクリーンリーダーがメッセージを正しく発音できない可能性があります。
 
 {% raw %}
-```html
+`````````html
 <html lang="en-us">
 ```
 {% endraw %}
 
 {% alert note %}
-ドラッグ＆ドロップメールエディターを使用する場合、そのコントロールが利用可能なときは**Settings**タブから言語を設定してください。フルテンプレートおよびContent Blocksのみのメールでは、アクセシビリティ言語のデフォルトが異なる場合があります。詳しくは[アクセシビリティ言語](#accessibility-language)をご覧ください。その他のチャネルについてもそのセクションで説明しています。
+ドラッグ＆ドロップメールエディターを使用する場合、そのコントロールが利用可能なときは**設定**タブから言語を設定してください。フルテンプレートおよびContent Blocksのみのメールでは、アクセシビリティ言語のデフォルトが異なる場合があります。詳しくは[アクセシビリティ言語](#accessibility-language)をご覧ください。その他のチャネルについてもそのセクションで説明しています。
 {% endalert %}
 
 - [ARIA属性](#aria-attributes)を使用して追加のコンテキストを提供してください。これらの属性は支援技術に追加情報を提供し、それ自体では意味が不明確なUI要素の役割、状態、またはプロパティを明確にするのに役立ちます。
@@ -575,7 +575,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 `aria-label`は、表示テキストのない要素にアクセシブルな名前を追加します。テキストのないアイコン（ゴミ箱や閉じるための「X」など）を使用している場合、スクリーンリーダーを使用している方はラベルがなければその機能を知ることができません。`aria-label`はそのアイコンに声を与えます。
 
 {% raw %}
-```html
+`````````html
 <button aria-label="Close message">
   <svg ...></svg>
 </button>
@@ -587,7 +587,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 `aria-labelledby`は、すでに表示ラベルを持つ要素に要素を接続します。バナーやリージョンにタイトル付きで読み上げてほしい場合、`aria-labelledby`を使用して支援技術に「あそこの見出しを使ってこの部分に名前を付けて」と伝えることができます。
 
 {% raw %}
-```html
+`````````html
 <h2 id="banner-title">Important Update</h2>
 <div role="region" aria-labelledby="banner-title">...</div>
 ```
@@ -600,7 +600,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 これにより、スクリーンリーダーのユーザーにとって体験がよりクリーンになります。そうでなければ、冗長または混乱を招くコンテンツを聞くことになるかもしれません。まだ展開されていないオフスクリーンのアコーディオンコンテンツを非表示にする場合にも便利です。
 
 {% raw %}
-```html
+`````````html
 <span aria-hidden="true">✔️</span>
 ```
 {% endraw %}
@@ -612,7 +612,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 `role="presentation"`は、デザインテーブルなどのレイアウト専用の要素を無視するように支援技術に伝えます。例えば、メールでは要素を整列させるためだけにテーブルを使用することがよくあります。このロールがないと、スクリーンリーダーはレイアウトがデータテーブルであると仮定し、行番号と列番号を読み上げ始める可能性があります。
 
 {% raw %}
-```html
+`````````html
 <table role="presentation">...</table>
 ```
 {% endraw %}
@@ -624,7 +624,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 `aria-live="polite"`は、ユーザーの操作なしにコンテンツが変更されたときに更新をアナウンスします。メッセージ内で成功、エラー、その他の通知などのダイナミックな更新を表示する場合に使用してください。
 
 {% raw %}
-```html
+`````````html
 <div aria-live="polite">Your preferences have been saved.</div>
 ```
 {% endraw %}
@@ -634,7 +634,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 アクセシビリティの問題を早期に特定して修正するために、Brazeは以下の領域で自動アクセシビリティテストを提供しています：
 
 - メール用の[Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing)
-- HTMLエディターを使用して作成されたメッセージ用の[アクセシビリティスキャナー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner)（例：HTMLのIn-App Messages、HTML Content Blocks、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/)、[メールオプトインページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page)、[メール配信停止ページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)）
+- HTMLエディターを使用して作成されたメッセージ用の[アクセシビリティスキャナー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner)（例：HTMLのアプリ内メッセージ、HTML Content Blocks、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/)、[メールオプトインページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page)、[メール配信停止ページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)）
 
 これらのテストは、Webコンテンツアクセシビリティガイドライン（[WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)）標準（アクセシブルなコンテンツのための国際的に認められた技術標準のセット）に基づいてメッセージをチェックします。自動的に検出できる問題はフラグが立てられ、優先順位付けに役立つように重大度別に分類されます。
 
@@ -667,4 +667,6 @@ Inbox VisionはHTMLとドラッグ＆ドロップの両方のメールで機能�
 - 可能な場合は手動でテストする。特にレイアウトとインタラクションパターンについて。
 - スクリーンリーダー、キーボードのみのナビゲーション、ブラウザのズームなどのツールを使用して、さまざまなアクセスニーズをシミュレートする。
 
-自動テストと思慮深い手動レビューを組み合わせることで、より多くの潜在的な問題を発見し、すべての受信者にとってよりインクルーシブで使いやすいCampaignsを作成できます。
+自動テストと思慮深い手動レビューを組み合わせることで、より多くの潜在的な問題を発見し、すべての受信者にとってよりインクルーシブで使いやすいキャンペーンを作成できます。
+
+{% multi_lang_include accessibility/automated_testing.md %}

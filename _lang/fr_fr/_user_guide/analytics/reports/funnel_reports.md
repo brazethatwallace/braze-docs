@@ -59,7 +59,7 @@ Pour chaque rapport d'entonnoir, le premier événement est la réception du mes
 
 | Campaign | Démarrage de session, Achat effectué, Événement personnalisé effectué, Événement d'engagement lié aux messages |
 | Canvas | Démarrage de session, Achat effectué, Événement personnalisé effectué, Étape du Canvas reçue, Interaction avec l'étape |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available funnel report events" }
 
 {% alert note %}
 L'événement de rapport **Interaction avec l'étape** ne peut être utilisé qu'avec les étapes du Canvas qui utilisent les canaux e-mail ou push.

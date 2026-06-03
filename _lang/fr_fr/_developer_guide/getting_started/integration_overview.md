@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Cours d'apprentissage de Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} Premiers pas : Présentation de l'intégration {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Cours d'apprentissage de Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} Premiers pas : Présentation de l'intégration {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > Cet article donne un aperçu du processus d'onboarding.
 
@@ -38,7 +38,7 @@ Au cours de cette phase, vous travaillerez avec votre équipe pour définir les 
 
 Votre équipe effectuera une planification de bout en bout de vos cas d'utilisation pour s'assurer que tout peut être créé comme prévu, avec les bonnes données disponibles pour le faire. Cette phase inclut votre chef de projet, votre responsable CRM, l'ingénierie front-end et back-end, les propriétaires de produits et les marketeurs.
 
-La phase de découverte et de planification dure en moyenne six semaines. Les responsables de l'ingénierie peuvent s'attendre à passer de 2 à 4 heures par semaine au cours de cette phase. Les développeurs qui travaillent avec le produit peuvent s'attendre à passer 10 à 20 heures par semaine sur Braze pendant la phase de découverte et de planification.
+La phase de découverte et de planification dure en moyenne six semaines. Les responsables de l'ingénierie peuvent s'attendre à passer 2 à 4 heures par semaine au cours de cette phase. Les développeurs qui travaillent avec le produit peuvent s'attendre à passer 10 à 20 heures par semaine sur Braze pendant la phase de découverte et de planification.
 
 {% alert tip %}
 Pendant la période d'onboarding de votre entreprise, Braze organisera des séances de présentation technique. Nous recommandons vivement aux ingénieurs de participer à ces sessions. Les sessions de présentation technique vous donnent l'occasion d'aborder l'évolutivité de l'architecture de la plateforme et de voir des exemples pratiques de la façon dont certaines entreprises de votre taille ont précédemment réussi avec des cas d'utilisation similaires.
@@ -199,7 +199,7 @@ Assurez-vous que vos environnements de production et de test sont configurés av
 |                           | Vérifiez que les Content Cards sont distribuées et que les indicateurs sont enregistrés. |
 |                           | Facilitez le contenu connecté (par exemple, AccuWeather). |
 |                           | Confirmez que toutes les intégrations des canaux de communication fonctionnent correctement. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quality assurance #qa" }
 
 {% alert note %}
 Lors de l'assurance qualité de votre intégration SDK, utilisez l'[outil de débogage du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) pour résoudre les problèmes sans avoir à activer la journalisation détaillée pour votre application.

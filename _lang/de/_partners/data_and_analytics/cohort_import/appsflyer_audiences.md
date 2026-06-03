@@ -1,6 +1,6 @@
 ---
-nav_title: AppsFlyer Zielgruppen
-article_title: AppsFlyer Zielgruppen
+nav_title: AppsFlyer Audiences
+article_title: AppsFlyer Audiences
 alias: /partners/appsflyer_audiences/
 description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und AppsFlyer Audiences, ein Feature der AppsFlyer-Plattform, mit dem Sie Zielgruppen-Segmente effizient erstellen und mit Partnernetzwerken verbinden können."
 page_type: partner
@@ -8,7 +8,7 @@ search_tag: Partner
 
 ---
 
-# AppsFlyer Zielgruppen {#appsflyer-audiences}
+# AppsFlyer Audiences
 
 > Dieser Artikel beschreibt, wie Sie Nutzer:innen-Kohorten aus AppsFlyer in Braze importieren können, indem Sie die [AppsFlyer Audiences](https://www.appsflyer.com/product/audiences/)-Integration verwenden. Weitere Informationen zur Integration von AppsFlyer und seinen anderen Funktionalitäten, wie z. B. der mobilen Attribution, finden Sie im [Hauptartikel zu AppsFlyer]({{site.baseurl}}/partners/message_orchestration/deeplinking/appsflyer/appsflyer/).
 

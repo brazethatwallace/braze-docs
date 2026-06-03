@@ -85,7 +85,7 @@ Em `app.json`, adicione o plugin Braze Expo. A chave de API e o endpoint não s�
 | `iosPushStoryAppGroup`                        | string  | Somente iOS. O grupo de app usado para Push Stories no iOS.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | booleano | Somente iOS. Se o ID do dispositivo usa um UUID gerado aleatoriamente.                                                                                       |
 | `iosForwardUniversalLinks`                    | booleano | Somente iOS. Especifica se o SDK deve reconhecer automaticamente e encaminhar links universais para os métodos do sistema (padrão: `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
 
 O trecho de código a seguir mostra um exemplo de configuração `app.json`:
 
@@ -444,7 +444,7 @@ Em `app.json`, adicione o plugin Braze Expo. Você pode fornecer as seguintes op
 | `iosPushStoryAppGroup`                        | string  | Somente iOS. O grupo de app usado para Push Stories no iOS.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | booleano | Somente iOS. Se o ID do dispositivo usará um UUID gerado aleatoriamente.                                                                                       |
 | `iosForwardUniversalLinks`                    | booleano | Somente iOS. Especifica se o SDK deve reconhecer automaticamente e encaminhar links universais para os métodos do sistema (padrão: `false`). Quando ativado, o SDK encaminhará automaticamente links universais para os métodos do sistema definidos em [Suporte a links universais no seu app](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/). Introduzido no React Native SDK v11.1.0 e no Expo Plugin v3.2.0. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
 
 O trecho de código a seguir mostra um exemplo de configuração `app.json`:
 
@@ -550,7 +550,7 @@ Execute seu aplicativo conforme especificado nos [documentos da Expo](https://do
 
 #### Método 2: Usando React Native CLI {#method-2-using-react-native-cli}
 
-##### Configurar o Android {#set-up-android-1}
+##### Configurar o Android
 
 **Etapa 2.1: Adicione o plugin Kotlin Gradle**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### Configurar o iOS {#set-up-ios-1}
+##### Configurar o iOS
 
 **Etapa 2.5: (Opcional) Configure o Podfile para XCFrameworks dinâmicos**
 

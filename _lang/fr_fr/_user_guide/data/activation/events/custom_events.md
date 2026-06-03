@@ -7,7 +7,7 @@ description: "Cet article décrit les événements et propriétés personnalisé
 search_rank: 2
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Événements personnalisés {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Événements personnalisés {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
 > Cet article décrit les événements et propriétés personnalisés, les filtres de segmentation associés, les propriétés d'entrée dans Canvas, les analyses pertinentes, etc. Pour en savoir plus sur les événements de Braze en général, consultez la rubrique [Événements]({{site.baseurl}}/user_guide/data/activation/events/).
 
@@ -61,9 +61,13 @@ Vous pouvez ajouter des étiquettes à un événement personnalisé après sa cr
 
 Pour exporter la liste des événements personnalisés sous forme de fichier CSV, sélectionnez **Export all** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
 
+{% alert note %}
+Il n'y a pas de limite fixe dans le tableau de bord quant au nombre d'**événements personnalisés** ou d'**attributs personnalisés** distincts que vous pouvez définir ou stocker sur un profil ; les limites pratiques dépendent de la forme des données, du volume d'ingestion et des performances de l'espace de travail. Si vous prévoyez de suivre un très grand catalogue d'événements ou d'attributs, collaborez avec votre équipe de compte Braze sur la modélisation et l'hygiène des données (par exemple, le [blocage]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) des données inutilisées).
+{% endalert %}
+
 ## Consulter les rapports d'utilisation {#viewing-usage-reports}
 
-Le rapport d'utilisation répertorie tous les Canvas, campagnes et segments qui utilisent un événement personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
+Le rapport d'utilisation répertorie tous les Canvas, Campaigns et Segments qui utilisent un événement personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
 
 Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des événements personnalisés, puis en sélectionnant **View usage report**.
 
@@ -103,7 +107,7 @@ Le tableau suivant présente les filtres disponibles pour segmenter les utilisat
 | Vérifier si l'événement personnalisé s'est produit **plus de X fois (max = 50)** | **MORE THAN** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
 | Vérifier si l'événement personnalisé s'est produit **moins de X fois (max = 50)** | **LESS THAN** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
 | Vérifier si l'événement personnalisé s'est produit **exactement X fois (max = 50)** | **EXACTLY** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres de segmentation" }
 
 ## Analyses {#analytics}
 
@@ -113,7 +117,7 @@ Sur la page **Rapport d'événements personnalisés** du tableau de bord, vous p
 
 ![Graphique du nombre d'événements personnalisés sur la page Événements personnalisés du tableau de bord montrant les tendances d'un événement personnalisé]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-Vous pouvez également utiliser les **filtres** pour ventiler vos événements personnalisés par heure, utilisateurs actifs mensuels (MAU), segments ou formules d'indicateurs clés de performance.
+Vous pouvez également utiliser les **filtres** pour ventiler vos événements personnalisés par heure, utilisateurs actifs mensuels (MAU), Segments ou formules d'indicateurs clés de performance.
 
 ![Filtres du graphique d'événements personnalisés]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
@@ -123,7 +127,7 @@ Vous pouvez également utiliser les **filtres** pour ventiler vos événements p
 
 ### Pourquoi les analyses d'événements personnalisés ne s'affichent pas {#why-custom-events-analytics-arent-showing}
 
-Les segments créés à partir de données d'événements personnalisés ne peuvent pas afficher les données historiques antérieures à leur création.
+Les Segments créés à partir de données d'événements personnalisés ne peuvent pas afficher les données historiques antérieures à leur création.
 
 ## Propriétés d'événement personnalisé {#custom-event-properties}
 

@@ -1,15 +1,15 @@
 ---
-nav_title: "LÖSCHEN: Entfernen Sie den SDK-Authentifizierungsschlüssel."
-article_title: "LÖSCHEN: SDK-Authentifizierungsschlüssel entfernen"
-search_tag: Endpunkt
+nav_title: "DELETE: SDK-Authentifizierungsschlüssel entfernen"
+article_title: "DELETE: SDK-Authentifizierungsschlüssel entfernen"
+search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum SDK Authentifizierungsschlüssel Braze Endpunkt löschen."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „SDK-Authentifizierungsschlüssel löschen“."
 ---
 
 {% api %}
-# SDK Authentifizierungsschlüssel löschen
+# SDK-Authentifizierungsschlüssel löschen {#delete-sdk-authentication-key}
 {% apimethod delete %}
 /app_group/sdk_authentication/delete
 {% endapimethod %}
@@ -17,10 +17,10 @@ description: "Dieser Artikel beschreibt Details zum SDK Authentifizierungsschlü
 > Verwenden Sie diesen Endpunkt, um einen SDK-Authentifizierungsschlüssel für Ihre App zu löschen.
 
 {% alert important %}
-Der Primärschlüssel kann nicht gelöscht werden. Wenn Sie versuchen, den Primärschlüssel zu löschen, wird dieser Endpunkt einen Fehler zurückgeben.
+Der Primärschlüssel kann nicht gelöscht werden. Wenn Sie versuchen, den Primärschlüssel zu löschen, gibt dieser Endpunkt einen Fehler zurück.
 {% endalert %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `sdk_authentication.delete`.
 
@@ -28,7 +28,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -40,15 +40,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Erforderlich | String | Der Bezeichner der App APIs. |
-| `key_id` | Erforderlich | String | Die ID des zu löschenden SDK Authentifizierungsschlüssels. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | Erforderlich | String | Der API-Bezeichner der App. |
+| `key_id` | Erforderlich | String | Die ID des zu löschenden SDK-Authentifizierungsschlüssels. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```bash
 curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_authentication/delete' \
@@ -60,7 +60,7 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {
@@ -75,24 +75,24 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 }
 ```
 
-## Antwort-Parameter
+## Antwortparameter {#response-parameters}
 
 | Parameter | Datentyp | Beschreibung |
 | --------- | --------- | ----------- |
-| `keys` | Array | Array der verbleibenden SDK Authentifizierungsschlüssel-Objekte. |
-| `keys[].id` | String | Die ID des SDK Authentifizierungsschlüssels. |
-| `keys[].rsa_public_key` | String | Der String für den öffentlichen RSA-Schlüssel. |
+| `keys` | Array | Array der verbleibenden SDK-Authentifizierungsschlüssel-Objekte. |
+| `keys[].id` | String | Die ID des SDK-Authentifizierungsschlüssels. |
+| `keys[].rsa_public_key` | String | Der String des öffentlichen RSA-Schlüssels. |
 | `keys[].description` | String | Beschreibung des SDK-Authentifizierungsschlüssels. |
-| `keys[].is_primary` | Boolesch | Ob dieser Schlüssel der primäre SDK Authentifizierungsschlüssel ist. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `keys[].is_primary` | Boolescher Wert | Ob dieser Schlüssel der primäre SDK-Authentifizierungsschlüssel ist. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortparameter" }
 
-### Validierungsregeln
+### Validierungsregeln {#validation-rules}
 
 Für diesen Endpunkt gelten die folgenden Validierungsregeln:
 
-- Die `key_id` muss eine gültige SDK Authentication Key ID sein.
-- Die `app_id` muss ein gültiger Bezeichner für die App API sein.
+- Die `key_id` muss eine gültige ID eines SDK-Authentifizierungsschlüssels sein.
+- Die `app_id` muss ein gültiger API-Bezeichner der App sein.
 - Der SDK-Authentifizierungsschlüssel muss für die angegebene App existieren.
-- Der primäre SDK Authentifizierungsschlüssel kann nicht gelöscht werden.
+- Der primäre SDK-Authentifizierungsschlüssel kann nicht gelöscht werden.
 
 {% endapi %}

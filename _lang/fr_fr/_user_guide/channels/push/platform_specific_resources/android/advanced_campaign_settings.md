@@ -18,7 +18,7 @@ tool:
 
 ## ID de notification {#notification-id}
 
-Un ID de notification est un identifiant unique pour une catégorie de messages de votre choix qui indique au service de messagerie de ne prendre en compte que le message le plus récent portant cet ID. Définir un ID de notification vous permet d'envoyer uniquement le message le plus récent et le plus pertinent, plutôt qu'un empilement de messages obsolètes et non pertinents.
+Un ID de notification est un identifiant unique pour une catégorie de messages de votre choix qui indique au service d'envoi de messages de ne prendre en compte que le message le plus récent portant cet ID. Définir un ID de notification vous permet d'envoyer uniquement le message le plus récent et le plus pertinent, plutôt qu'un empilement de messages obsolètes et non pertinents.
 
 Pour attribuer un ID de notification, accédez à la page de composition du push auquel vous souhaitez ajouter l'ID et sélectionnez l'onglet **Settings**. Saisissez un nombre entier dans la section **Notification ID**. Pour mettre à jour cette notification après l'avoir émise, envoyez une autre notification avec le même ID que celui utilisé précédemment.
 
@@ -26,11 +26,11 @@ Pour attribuer un ID de notification, accédez à la page de composition du push
 
 ## Durée de vie (TTL) {#ttl}
 
-Le champ **Time to Live** vous permet de définir une durée personnalisée de stockage des messages auprès du service de messagerie push. Si l'appareil reste hors ligne au-delà du TTL, le message expirera et ne sera pas distribué.
+Le champ **Time to Live** vous permet de définir une durée personnalisée de stockage des messages auprès du service d'envoi de messages push. Si l'appareil reste hors ligne au-delà du TTL, le message expirera et ne sera pas distribué.
 
 Pour modifier la durée de vie de votre notification push Android, accédez au composeur et sélectionnez l'onglet **Settings**. Trouvez le champ **Time to Live** et saisissez une valeur en jours, heures ou secondes.
 
-Les valeurs par défaut de la durée de vie sont définies par votre administrateur sur la page [Paramètres de notifications push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/). Par défaut, Braze définit le TTL des notifications push à la valeur maximale pour chaque service de messagerie push. Bien que les paramètres TTL par défaut s'appliquent globalement, vous pouvez les remplacer au niveau du message lors de la création d'une campagne. Cela est utile lorsque différentes campagnes nécessitent des niveaux d'urgence ou des fenêtres de distribution différents.
+Les valeurs par défaut de la durée de vie sont définies par votre administrateur sur la page [Paramètres de notifications push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/). Par défaut, Braze définit le TTL des notifications push à la valeur maximale pour chaque service d'envoi de messages push. Bien que les paramètres TTL par défaut s'appliquent globalement, vous pouvez les remplacer au niveau du message lors de la création d'une campagne. Cela est utile lorsque différentes campagnes nécessitent des niveaux d'urgence ou des fenêtres de distribution différents.
 
 Par exemple, imaginons que votre application héberge un concours de quiz hebdomadaire. Vous envoyez une notification push une heure avant le début. En définissant le TTL à 1 heure, vous vous assurez que les utilisateurs qui ouvrent l'application après le début du concours ne recevront pas de notification concernant un événement déjà commencé.
 
@@ -60,7 +60,7 @@ Le champ **Firebase Messaging Delivery Priority** vous permet de contrôler si u
 |---------|-------------|----------|
 | Normale | Distribution optimisée pour la batterie, pouvant être retardée pour économiser l'énergie | Contenu non urgent, offres promotionnelles, mises à jour d'actualités |
 | Élevée | Distribution immédiate avec une consommation de batterie plus importante | Notifications urgentes, alertes critiques, mises à jour d'événements en direct, alertes de compte, actualités de dernière minute ou rappels urgents |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Firebase messaging delivery priority #fcm-priority" }
 
 #### Considérations {#considerations}
 
@@ -109,7 +109,7 @@ Consultez le tableau suivant pour les niveaux de priorité que vous pouvez défi
 | Par défaut | La plupart des notifications. À utiliser si votre message ne relève explicitement d'aucun des autres types de priorité. | `0` |
 | Basse | Information que vous souhaitez porter à la connaissance des utilisateurs mais qui ne nécessite pas d'action immédiate. | `-1`|
 | Min | Information contextuelle ou de fond. | `-2`|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority" }
 
 Pour plus d'informations, consultez la documentation de Google sur les [notifications Android](http://developer.android.com/design/patterns/notifications.html).
 
@@ -137,7 +137,7 @@ Les notifications push Android offrent la possibilité de spécifier si votre no
 | Status | Information continue sur l'appareil ou l'état contextuel. |
 | System | Mise à jour du système ou de l'état de l'appareil. Réservé à l'utilisation système. |
 | Transport | Contrôle de transport multimédia pour la lecture. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push category" }
 
 ## Visibilité push {#push-visibility}
 
@@ -148,7 +148,7 @@ Les notifications push Android fournissent un champ facultatif pour déterminer 
 | Public | La notification apparaît sur l'écran de verrouillage |
 | Private | La notification s'affiche avec « Contenu masqué » comme message |
 | Secret | La notification n'apparaît pas sur l'écran de verrouillage |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push visibility" }
 
 De plus, les utilisateurs Android peuvent remplacer la façon dont les notifications push apparaissent sur leur écran de verrouillage en modifiant le paramètre de confidentialité des notifications sur leur appareil. Ce paramètre remplacera la visibilité définie dans la notification push.
 

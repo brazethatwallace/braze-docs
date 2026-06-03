@@ -14,7 +14,7 @@ page_order: 2
 
 Você pode usar agentes como etapas em uma jornada para personalizar mensagens ou guiar decisões em tempo real. Para etapas de configuração detalhadas, consulte [Etapa de agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
-### Casos de uso {#canvas-use-cases}
+### Casos de uso {#use-cases}
 
 | Caso de uso | Descrição |
 | --- | --- |
@@ -24,13 +24,13 @@ Você pode usar agentes como etapas em uma jornada para personalizar mensagens o
 | Roteamento inteligente | Use saídas do agente (booleanas ou numéricas) para dividir usuários em diferentes jornadas do Canvas. Por exemplo, classifique usuários como "em risco" ou "saudáveis" e ajuste a cadência das mensagens de acordo. |
 | Interpretação de pesquisas ou respostas | Permita que um agente analise respostas abertas de pesquisas ou campos de texto livre, retornando valores estruturados (por exemplo, categorizando intenção ou necessidade) que direcionam jornadas subsequentes. |
 | Raciocínio em múltiplas etapas | Configure um agente para combinar campos de contexto e tomar decisões complexas, como recomendar a próxima melhor ação (e-mail, SMS ou contato humano) com base em múltiplos atributos do usuário. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## Agentes em catálogos {#agents-in-catalogs}
 
 Você pode aplicar um agente a campos de catálogo para que ele gere ou calcule automaticamente valores para cada linha. O agente também será executado em novas linhas que forem adicionadas ao catálogo no futuro.
 
-### Casos de uso {#catalog-use-cases}
+### Casos de uso
 
 | Caso de uso | Descrição |
 | --- | --- |
@@ -40,7 +40,7 @@ Você pode aplicar um agente a campos de catálogo para que ele gere ou calcule 
 | Categorizar ou etiquetar itens | Atribua tags para lógica de recomendação, para que modelos de personalização possam segmentar produtos de forma mais eficaz. Por exemplo, etiquete produtos como "ao ar livre", "pronto para festivais" ou "premium". |
 | Localizar conteúdo | Traduza o texto do catálogo para outro idioma em campanhas globais, ou ajuste o tom e o tamanho para canais específicos de cada região. Por exemplo, traduza "Classic Clubmaster Sunglasses" para o espanhol como "Gafas de sol Classic Clubmaster", ou encurte descrições para campanhas de SMS. |
 | Resumir avaliações ou feedback | Resuma sentimentos ou feedback em um novo campo, como atribuir pontuações de sentimento (Positivo, Neutro ou Negativo) ou criar um resumo curto como "A maioria dos clientes elogia o ajuste, mas menciona o envio lento." |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ### Etapas {#steps}
 
@@ -49,24 +49,24 @@ Você pode aplicar um agente a campos de catálogo para que ele gere ou calcule 
 Para adicionar um agente ao seu campo de catálogo:
 
 1. No seu catálogo, adicione um novo campo.
-2. Selecione **Aplicar agente IA**.
+2. Selecione **Apply AI agent**.
 3. Atribua um agente a este campo.
 4. Selecione quais colunas devem ser passadas como entrada. Se nenhuma for selecionada, o agente terá acesso a todas as colunas do catálogo.
 5. Decida se o agente deve recalcular os campos quando as linhas do catálogo forem atualizadas. Se você não selecionar esta opção, o agente será executado apenas uma vez por linha.
-6. Selecione **Adicionar campos** para implantar o agente e revisar as estimativas de custo. O modal **Estimativa de custo** mostra quantas vezes o agente será executado neste catálogo, aproximadamente igual ao número total de linhas. Para continuar, selecione **Confirmar**.
+6. Selecione **Add fields** para implantar o agente e revisar as estimativas de custo. O modal **Cost estimation** mostra quantas vezes o agente será executado neste catálogo, aproximadamente igual ao número total de linhas. Para continuar, selecione **Confirm**.
 
 ### Como os agentes de catálogo funcionam {#how-catalog-agents-run}
 
-Após o lançamento, o agente executa e avalia cada linha, usando as colunas selecionadas como contexto para produzir uma saída. Os agentes são executados em todas as novas linhas adicionadas após a implantação. Se você selecionou **Recalcular quando as linhas do catálogo forem atualizadas**, todos os valores desse campo serão atualizados quando os campos de origem existentes mudarem.
+Após o lançamento, o agente executa e avalia cada linha, usando as colunas selecionadas como contexto para produzir uma saída. Os agentes são executados em todas as novas linhas adicionadas após a implantação. Se você selecionou **Recalculate when catalog rows update**, todos os valores desse campo serão atualizados quando os campos de origem existentes mudarem.
 
-Você pode atualizar e editar os campos do catálogo que usam agentes. Para remover um agente de uma coluna, desmarque **Aplicar agente IA**. Isso reverte a coluna para uma coluna não agente, e os campos mantêm os últimos valores que o agente aplicou na última execução no catálogo.
+Você pode atualizar e editar os campos do catálogo que usam agentes. Para remover um agente de uma coluna, desmarque **Apply AI agent**. Isso reverte a coluna para uma coluna não agente, e os campos mantêm os últimos valores que o agente aplicou na última execução no catálogo.
 
 Referências circulares em catálogos não são suportadas. Portanto, o seguinte cenário não pode ocorrer:
 
 - A Coluna Agente 1 usa a Coluna Agente 2 como entrada
 - A Coluna Agente 2 usa a Coluna Agente 1 como entrada
 
-![A opção de selecionar "Aplicar agente IA" para um campo de catálogo.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
+![A opção de selecionar "Apply AI agent" para um campo de catálogo.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
 
 {% alert note %}
 Agentes de catálogo estão limitados a processar valores de entrada de até 25 KB por linha.
@@ -74,7 +74,7 @@ Agentes de catálogo estão limitados a processar valores de entrada de até 25 
 
 #### Definir campos de resposta {#define-response-fields}
 
-Se o seu agente usar [campos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) como formato de saída, você pode selecionar, no campo **Campo de Resposta**, o campo correspondente do agente para usar no campo do catálogo.
+Se o seu agente usar [campos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) como formato de saída, você pode selecionar, no campo **Response Field**, o campo correspondente do agente para usar no campo do catálogo.
 
 Digamos que você tenha um agente que adiciona descrições de produtos a um catálogo com os seguintes campos para estruturar o formato de saída:
 
@@ -82,13 +82,13 @@ Digamos que você tenha um agente que adiciona descrições de produtos a um cat
 | --- | --- |
 | **description** | Texto |
 | **confidence_score_out_of_ten** | Número |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Define response fields" }
 
-Você pode adicionar um campo chamado **product_description** a um catálogo e selecionar **description** como o **Campo de Resposta** para preencher a coluna com as descrições do agente.
+Você pode adicionar um campo chamado **product_description** a um catálogo e selecionar **description** como o **Response Field** para preencher a coluna com as descrições do agente.
 
 ![Um campo "product_description" com o agente "Descriptor" aplicado. A saída "description" é selecionada como o campo de resposta.]({% image_buster /assets/img/ai_agent/response_field.png %}){: style="max-width:80%;"}
 
-Você também pode substituir manualmente a célula gerada pelo agente selecionando **Editar Item** e atualizando a descrição gerada pelo agente com suas edições. Para reverter à descrição gerada pelo agente, selecione o símbolo de atualizar na célula.
+Você também pode substituir manualmente a célula gerada pelo agente selecionando **Edit Item** e atualizando a descrição gerada pelo agente com suas edições. Para reverter à descrição gerada pelo agente, selecione o símbolo de atualizar na célula.
 
 ### Tratamento de erros em catálogos {#error-handling-in-catalogs}
 
@@ -98,11 +98,11 @@ Você também pode substituir manualmente a célula gerada pelo agente seleciona
 
 ## Monitore seu agente {#monitor-your-agent}
 
-Na seção **Uso** do seu agente, você pode consultar e navegar até onde o agente está sendo usado ativamente em catálogos e Canvas.
+Na seção **Usage** do seu agente, você pode consultar e navegar até onde o agente está sendo usado ativamente em catálogos e Canvas.
 
 ![Seção de uso do agente que mostra dois agentes ativos e um agente inativo para Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-Na seção **Logs** do seu agente, você pode monitorar chamadas reais do agente que ocorrem nos seus Canvas e catálogos. Você pode filtrar por informações como intervalo de datas, resultado (sucesso ou falha) ou local de chamada. Também pode selecionar **Exportar CSV** para exportar os registros mostrados apenas na página atual.
+Na seção **Logs** do seu agente, você pode monitorar chamadas reais do agente que ocorrem nos seus Canvas e catálogos. Você pode filtrar por informações como intervalo de datas, resultado (sucesso ou falha) ou local de chamada. Também pode selecionar **Export CSV** para exportar os registros mostrados apenas na página atual.
 
 {% alert tip %}
 Você também pode monitorar erros de limite de invocação diária no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
@@ -110,7 +110,7 @@ Você também pode monitorar erros de limite de invocação diária no [Registro
 
 ![Registros para um agente de Pontuação de Sentimento de IA.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
 
-Selecione **Ver** em uma chamada de agente específica para ver a entrada, a saída e o ID do usuário.
+Selecione **View** em uma chamada de agente específica para ver a entrada, a saída e o ID do usuário.
 
 ![O painel de detalhes para um agente de Atribuição Aleatória de Esportes que mostra o prompt de entrada, a resposta de saída e um ID de usuário associado.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 

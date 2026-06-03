@@ -18,7 +18,7 @@ channel:
 
 > Utiliza este punto de conexión para actualizar por lotes el estado de suscripción de hasta 50 usuarios en el panel de Braze.
 
-Puedes acceder al `subscription_group_id` de un grupo de suscripción navegando a la página **Grupo de suscripción**.
+Puedes acceder al `subscription_group_id` de un grupo de suscripción navegando a la página **Subscription Group**.
 
 Para ver ejemplos o probar este punto de conexión para **grupos de suscripción por correo electrónico**:
 
@@ -52,6 +52,8 @@ El punto de conexión V2 difiere del [punto de conexión V1]({{site.baseurl}}/ap
 **Formato del número de teléfono**: Los números de teléfono deben estar en formato [E.164](https://en.wikipedia.org/wiki/E.164) (por ejemplo, `+12223334444`). Los números de teléfono que no están en formato E.164 son rechazados.
 {% endalert %}
 
+{% multi_lang_include api/orphaned_subscription_states.md %}
+
 ## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='subscription status set' %}
@@ -84,15 +86,15 @@ Al crear nuevos usuarios utilizando el [punto de conexión `/users/track`]({{sit
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Obligatoria | Cadena | El `id` de tu grupo de suscripción. |
-| `subscription_state` | Obligatoria | Cadena | Los valores disponibles son `unsubscribed` (no en el grupo de suscripción) o `subscribed` (en el grupo de suscripción). |
-| `external_ids` | Obligatoria* | Matriz de cadenas | El `external_id` del usuario o usuarios, puede incluir hasta 50 `id`s. |
-| `emails` | Obligatoria* | Cadena o matriz de cadenas | La dirección de correo electrónico del usuario, se puede pasar como una matriz de cadenas. Debe incluir al menos una dirección de correo electrónico (con un máximo de 50). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten la misma dirección de correo electrónico, todos los usuarios que comparten la dirección de correo electrónico se actualizan con los cambios del grupo de suscripción. |
-| `phones` | Obligatoria* | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | Puedes pasar los números de teléfono de los usuarios como una matriz de cadenas. Debes incluir al menos un número de teléfono (hasta 50). Los números de teléfono deben estar en formato E.164 (por ejemplo, `+12223334444`). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten el mismo número de teléfono, todos los usuarios que comparten el número de teléfono se actualizan con los mismos cambios del grupo de suscripción. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Obligatorio | Cadena | El `id` de tu grupo de suscripción. |
+| `subscription_state` | Obligatorio | Cadena | Los valores disponibles son `unsubscribed` (no en el grupo de suscripción) o `subscribed` (en el grupo de suscripción). |
+| `external_ids` | Obligatorio* | Matriz de cadenas | El `external_id` del usuario o usuarios, puede incluir hasta 50 `id`s. |
+| `emails` | Obligatorio* | Cadena o matriz de cadenas | La dirección de correo electrónico del usuario, se puede pasar como una matriz de cadenas. Debe incluir al menos una dirección de correo electrónico (con un máximo de 50). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten la misma dirección de correo electrónico, todos los usuarios que comparten la dirección de correo electrónico se actualizan con los cambios del grupo de suscripción. |
+| `phones` | Obligatorio* | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | Puedes pasar los números de teléfono de los usuarios como una matriz de cadenas. Debes incluir al menos un número de teléfono (hasta 50). Los números de teléfono deben estar en formato E.164 (por ejemplo, `+12223334444`). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten el mismo número de teléfono, todos los usuarios que comparten el número de teléfono se actualizan con los mismos cambios del grupo de suscripción. |
 | `use_double_opt_in_logic` | Opcional | Booleano | Su valor predeterminado es `false` si se omite. Para los grupos de suscripción por SMS, establécelo en `true` para que el usuario entre en el flujo de trabajo de [doble adhesión voluntaria por SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) cuando su estado de suscripción se establece en `subscribed`. Los usuarios que entran en el flujo de trabajo de doble adhesión voluntaria de esta manera reciben como máximo un mensaje de respuesta de adhesión voluntaria por día, independientemente del número de veces que entren en el flujo de trabajo. Si este parámetro se omite o se establece en `false`, los usuarios se suscriben sin entrar en el flujo de trabajo de doble adhesión voluntaria. Este parámetro no es aplicable a los grupos de suscripción por correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert important %}
 **Selección del identificador**:

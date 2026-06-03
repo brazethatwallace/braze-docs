@@ -54,7 +54,7 @@ description: "이 참조 문서에서는 Braze에서 사용되는 다양한 Andr
 | `push_icon_image_url` | 큰 아이콘 매개변수의 값은 이미지가 호스팅되는 위치로 연결되는 URL이어야 합니다. <br> <br> 이미지는 1:1 종횡비로 잘라야 하며 최소 40x40이어야 합니다. |
 | `notification_channel` | 이를 지정하지 않으면 Braze는 [대시보드 대체]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel) 채널 ID로 알림 페이로드를 전송하려고 시도합니다. 자세한 내용은 [알림 채널]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/)을 참조하고 통합 중 [알림 채널 정의]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels) 단계를 참조하세요. |
 | `send_to_sync` | `send_to_sync` 메시지에 대한 자세한 내용은 [무음 Android 알림]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/silent_push_notifications/#silent-push-notifications)을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Additional parameter details" }
 
 ## Android 푸시 실행 버튼 오브젝트 {#android-push-action-button-object}
 

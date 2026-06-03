@@ -16,7 +16,7 @@ channel:
 | Ejemplo de Android (expandido) | Ejemplo de iOS (expandido) |
 | :-----: | :----------: |
 | ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
 
 {% alert note %}
 En las versiones 3.13.0+ del SDK de iOS, debido a un cambio en la forma en que el SDK descarga las imágenes, no se mostrará una miniatura de la primera imagen en la vista condensada de la notificación push. Asegúrate de que el texto de tu mensaje invite a los usuarios a expandir la notificación push para ver las imágenes.

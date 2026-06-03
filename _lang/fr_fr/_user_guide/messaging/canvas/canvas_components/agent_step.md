@@ -25,7 +25,7 @@ Lorsqu'un utilisateur atteint une étape Agent dans un Canvas, Braze envoie les 
 
 Vous pouvez ensuite utiliser cette variable de trois manières principales :
 
-- **Prise de décision :** Orientez les utilisateurs vers différents parcours Canvas en fonction de la réponse de l'agent. Par exemple, un agent de scoring de leads peut renvoyer un nombre entre 1 et 10. Vous pouvez utiliser ce score pour décider de continuer à envoyer des messages à un utilisateur ou de le retirer du parcours.
+- **Prise de décision :** Orientez les utilisateurs vers différents parcours Canvas en fonction de la réponse de l'agent. Par exemple, un agent de scoring de leads peut renvoyer une catégorie de lead telle que « Sales Ready », « Marketing Qualified » ou « Disqualified ». Vous pouvez utiliser cette affectation pour déclencher une alerte Slack ou un message automatisé pour les leads « Sales Ready » tout en retirant les leads « Disqualified » du parcours.
 - **Personnalisation :** Insérez la réponse de l'agent directement dans un message. Par exemple, un agent pourrait analyser les retours d'un client et générer un e-mail de suivi empathique qui fait référence au commentaire du client et propose une solution.
 - **Traitement des données utilisateur :** Analysez et standardisez vos données utilisateur, puis stockez-les dans le profil utilisateur ou envoyez-les via un webhook. Par exemple, un agent pourrait renvoyer un score de sentiment ou une affectation d'affinité produit. Vous pouvez stocker ces données dans un profil utilisateur pour une utilisation ultérieure.
 
@@ -51,7 +51,7 @@ Notez que le type de données de la variable de sortie est défini depuis la [Co
 | Nombre | Scoring, seuils, routage dans les [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) |
 | Valeur booléenne | Branchement Oui/Non dans les [Arbres décisionnels]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) |
 | Objet | Exploitez un ou plusieurs des types de données ci-dessus avec un seul appel LLM dans une structure de données prévisible |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
 
 Vous pouvez utiliser une variable de sortie dans l'ensemble du Canvas en utilisant la même syntaxe de template que pour une variable de contexte. Utilisez soit le filtre de segment **Context Variable**, soit intégrez directement les réponses de l'agent avec Liquid : {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 
@@ -80,7 +80,7 @@ Après avoir configuré votre étape Agent, vous pouvez tester et prévisualiser
 - Si le modèle connecté renvoie une erreur de limite de débit, Braze effectue jusqu'à cinq nouvelles tentatives avec des délais exponentiels.
 - Si l'agent échoue pour toute autre raison (comme une erreur de délai d'attente ou une clé API invalide), la variable de sortie est définie sur `null`.
     - Si un agent atteint sa limite d'invocations quotidiennes, la variable de sortie est définie sur `null`.
-- Utilisez les [valeurs Liquid par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) pour vous prémunir contre les erreurs. Par exemple, dans la boîte de dialogue modale **Add Personalization**, vous pouvez saisir une valeur Liquid par défaut telle que {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} ou {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
+- Utilisez les [valeurs Liquid par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) pour vous prémunir contre les erreurs. Par exemple, dans la fenêtre modale **Add Personalization**, vous pouvez saisir une valeur Liquid par défaut telle que {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} ou {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - Les réponses sont mises en cache pour des entrées identiques et peuvent être réutilisées pour des invocations identiques répétées dans un délai de quelques minutes.
     - Les réponses utilisant des valeurs en cache sont tout de même comptabilisées dans le total et les invocations quotidiennes.
 - Les étapes Agent peuvent prendre du temps pour traiter un grand lot d'utilisateurs. Si vous constatez que des utilisateurs sont encore en attente dans cette étape, vérifiez vos journaux pour confirmer que les invocations sont bien en cours.
@@ -94,7 +94,7 @@ Consultez les indicateurs suivants pour suivre les performances de vos étapes A
 | _Entrés_ | Le nombre de fois où des utilisateurs sont entrés dans l'étape Agent. |
 | _Passés à l'étape suivante_ | Le nombre d'utilisateurs qui sont passés à l'étape suivante du flux après avoir traversé l'étape Agent. |
 | _Sortis du Canvas_ | Le nombre d'utilisateurs qui ont quitté le Canvas après avoir traversé l'étape Agent. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
 
 ## Bonnes pratiques {#best-practices}
 
@@ -105,14 +105,14 @@ Si vous constatez qu'un agent peine face à la complexité des tâches que vous 
 Le schéma suivant utilise trois agents pour un exemple dans le domaine du voyage : un utilisateur a effectué une recherche récemment dans votre application sans réserver, et vous souhaitez un texte de reciblage qui l'incite à finaliser sa réservation.
 
 - L'agent 1 résume le contexte Canvas. Il lit des champs tels que le niveau de fidélité, la dernière ville recherchée et le comportement de recherche à forte intention, puis renvoie un résumé structuré court sous forme de variable de sortie que les étapes suivantes peuvent réutiliser.
-- L'agent 2 renvoie une valeur de routage sur laquelle votre Canvas peut se brancher. Utilisez un nombre, une valeur booléenne ou un objet structuré afin que la sortie corresponde à votre logique de branchement. Associez cette valeur à une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) ou [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/). Par exemple, envisagez des parcours distincts pour un message axé sur la fidélité et un message axé sur les promotions.
+- L'agent 2 renvoie une valeur de routage sur laquelle votre Canvas peut se brancher. Utilisez un nombre, une valeur booléenne ou un objet structuré afin que la sortie corresponde à votre logique de branchement. Associez cette valeur à une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) ou [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/). Par exemple, envisagez des parcours distincts pour un envoi de messages axé sur la fidélité et un envoi de messages axé sur les promotions.
 - L'agent 3 rédige le texte du message généré uniquement sur les branches où vous le souhaitez. Transmettez le résumé de l'agent 1 (ainsi que tout contexte spécifique à la branche) afin que cet agent se concentre sur le ton et les limites du canal plutôt que de normaliser les entrées et de choisir la stratégie dans le même prompt.
 
 ### Utiliser l'étape Chemins d'expérience pour tester les parcours agentiques à petite échelle {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
 
 Pour tester les performances de votre agent et la consommation de crédits par rapport à vos parcours existants, ajoutez une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) afin que seule une partie de votre audience entre dans la branche contenant votre étape Agent.
 
-Par exemple, envoyez quelques milliers d'utilisateurs par jour dans un parcours avec l'agent et le reste vers un parcours de contrôle ou un parcours sans agent. Collectez des données pendant 1 à 2 semaines et comparez les indicateurs clés de performance (KPI), les contre-indicateurs et la consommation de crédits de l'agent entre les parcours avant d'augmenter le trafic vers la branche utilisant l'agent.
+Par exemple, vous pouvez commencer par envoyer quelques milliers d'utilisateurs par jour dans un parcours avec l'agent et le reste vers un parcours de contrôle ou un parcours sans agent. Collectez des données pendant 1 à 2 semaines et comparez les indicateurs clés de performance (KPI), les contre-indicateurs et la consommation de crédits de l'agent entre les parcours. Ainsi, vous pouvez gagner en confiance et prouver le ROI avant d'augmenter le trafic vers la branche utilisant l'agent, tout en limitant la consommation d'invocations.
 
 ## Questions fréquentes {#frequently-asked-questions}
 

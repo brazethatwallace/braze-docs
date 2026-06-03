@@ -72,7 +72,7 @@ Bei den Eigenschaftswerten kann es sich um jeden der folgenden Datentypen handel
 | Strings | 255 Zeichen oder weniger. |
 | Arrays | Arrays können keine Datumsangaben enthalten. |
 | Objekte | Objekte werden als Strings eingelesen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Event-Eigenschaften-Objekt" }
 
 Event-Eigenschaftsobjekte, die Array- oder Objektwerte enthalten, können eine Event-Eigenschafts-Nutzlast von bis zu 100&nbsp;KB haben.
 

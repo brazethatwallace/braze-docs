@@ -29,7 +29,7 @@ Cette intégration fonctionne de la même manière pour les balises Infillion et
 | [Compte gestionnaire Infillion](https://manager.gimbal.com/login/users/sign_in) | Un compte gestionnaire Infillion est nécessaire pour profiter de ce partenariat. |
 | [SDK de localisation Infillion](https://docs.gimbal.com/index.html) | Le SDK de localisation Infillion alimente des expériences mobiles macro et micro basées sur la localisation en utilisant des balises de proximité et des géorepérages qui vous permettent de communiquer plus efficacement avec les utilisateurs de votre application. Le SDK doit être implémenté et les géorepérages (ou balises) configurés. |
 | Clé API REST de Braze | Une clé API REST de Braze avec les autorisations `users.track`. <br><br> Cette clé peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration SDK {#sdk-integration}
 

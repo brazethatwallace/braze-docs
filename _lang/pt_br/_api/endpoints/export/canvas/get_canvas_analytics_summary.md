@@ -37,7 +37,7 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `include_variant_breakdown` | Opcional | booleano | Se deve incluir estatísticas de variantes (o padrão é `false`).  |
 | `include_step_breakdown` | Opcional | booleano | Se deve incluir estatísticas de etapas (o padrão é `false`). |
 | `include_deleted_step_data` | Opcional | booleano | Se deve incluir estatísticas de etapas excluídas (o padrão é `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert important %}
 **Alinhamento de fuso horário:** A análise de dados do dashboard da Braze é agregada diariamente no fuso horário configurado da sua empresa no dashboard. Certifique-se de que seus timestamps estejam alinhados com o fuso horário da sua empresa para que suas estatísticas correspondam ao dashboard. Por exemplo, se o horário da sua empresa é UTC+2, o timestamp deve ser 00h00 UTC+2.

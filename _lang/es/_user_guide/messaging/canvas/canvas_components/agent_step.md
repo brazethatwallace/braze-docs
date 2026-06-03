@@ -25,7 +25,7 @@ Cuando un usuario llega a un paso de agente en un Canvas, Braze envía los datos
 
 Puedes usar esta variable de tres formas principales:
 
-- **Toma de decisiones:** Dirige a los usuarios por diferentes rutas de Canvas según la respuesta del agente. Por ejemplo, un agente de puntuación de leads podría devolver un número entre 1 y 10. Puedes usar esta puntuación para decidir si continuar enviando mensajes a un usuario o eliminarlo del recorrido.
+- **Toma de decisiones:** Dirige a los usuarios por diferentes rutas de Canvas según la respuesta del agente. Por ejemplo, un agente de puntuación de leads podría devolver una categoría de lead como "Listo para ventas", "Calificado para marketing" o "Descalificado". Podrías usar esta asignación para activar una alerta de Slack o un mensaje automatizado para los leads "Listos para ventas", mientras eliminas del recorrido a los leads "Descalificados".
 - **Personalización:** Inserta la respuesta del agente directamente en un mensaje. Por ejemplo, un agente podría analizar los comentarios de un cliente y generar un correo electrónico de seguimiento empático que haga referencia al comentario del cliente y sugiera una resolución.
 - **Procesamiento de datos de usuario:** Analiza y estandariza tus datos de usuario, luego almacénalos en el perfil de usuario o envíalos mediante un webhook. Por ejemplo, un agente podría devolver una puntuación de sentimiento o una asignación de afinidad de producto. Puedes almacenar esos datos en un perfil de usuario para uso futuro.
 
@@ -51,9 +51,9 @@ Ten en cuenta que el tipo de datos de la variable de salida se configura desde l
 | Número | Puntuación, umbrales, enrutamiento en [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) |
 | Booleano | Ramificación Sí/No en [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) |
 | Objeto | Aprovecha uno o más de los tipos de datos anteriores con una sola llamada LLM en una estructura de datos predecible |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
 
-Puedes usar una variable de salida en todo el Canvas utilizando la misma sintaxis de plantilla que usarías con una variable de contexto. Usa el filtro de segmento **Context Variable**, o inserta las respuestas del agente directamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
+Puedes usar una variable de salida en todo el Canvas utilizando la misma sintaxis de plantilla que usarías con una variable de contexto. Usa el filtro de Segment **Context Variable**, o inserta las respuestas del agente directamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
 
 Para usar una propiedad específica de una variable de salida de tipo objeto, usa la notación de punto para acceder a esa propiedad usando Liquid: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
@@ -94,7 +94,7 @@ Consulta las siguientes métricas para rastrear el rendimiento de tus pasos de a
 | _Entered_ | El número de veces que los usuarios ingresaron al paso de agente. |
 | _Proceeded to Next Step_ | El número de usuarios que procedieron al siguiente paso en el flujo después de pasar por el paso de agente. |
 | _Exited Canvas_ | El número de usuarios que salieron del Canvas después de pasar por el paso de agente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
 
 ## Mejores prácticas {#best-practices}
 
@@ -112,7 +112,7 @@ El siguiente patrón usa tres agentes para un ejemplo de viajes: alguien buscó 
 
 Para probar el rendimiento y el consumo de créditos de tu agente frente a tus recorridos existentes, añade un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para que solo una parte de tu audiencia entre en la rama que contiene tu paso de agente.
 
-Por ejemplo, envía unos pocos miles de usuarios por día por una ruta con el agente y envía el resto a una ruta de control o una ruta sin el agente. Recopila datos durante 1-2 semanas y compara los indicadores clave de rendimiento (KPI), las contramétricas y el consumo de créditos del agente entre las rutas antes de aumentar el tráfico hacia la rama habilitada con el agente.
+Por ejemplo, puedes empezar enviando unos pocos miles de usuarios por día por una ruta con el agente y enviar el resto a una ruta de control o una ruta sin el agente. Recopila datos durante 1-2 semanas y compara los indicadores clave de rendimiento (KPI), las contramétricas y el consumo de créditos del agente entre las rutas. De esta forma, puedes generar confianza y demostrar el ROI antes de aumentar el tráfico hacia la rama habilitada con el agente, y limitar el consumo de invocaciones para hacerlo.
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

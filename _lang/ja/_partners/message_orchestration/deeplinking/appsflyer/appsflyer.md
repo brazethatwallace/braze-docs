@@ -24,10 +24,10 @@ BrazeとAppsFlyerの統合により、AppsFlyerのモバイルインストール
 |---|---|
 | AppsFlyerアカウント | このパートナーシップを活用するには、AppsFlyerアカウントが必要です。 |
 | iOSまたはAndroidアプリ | この統合では、iOSアプリとAndroidアプリがサポートされています。ご使用のプラットフォームによっては、アプリケーションでコードスニペットが必要な場合があります。これらの要件の詳細については、統合プロセスのステップ1を参照してください。 |
-| AppsFlyer SDK | 必要なBraze SDKに加えて、[AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started)をインストールする必要があります。
+| AppsFlyer SDK | 必要なBraze SDKに加えて、[AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started)をインストールする必要があります。 |
 | メールドメインのセットアップ完了 | Brazeオンボーディング時にメールを設定するには、[IPとドメインの設定ステップ]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)を完了している必要があります。 |
 | SSL証明書 | [SSL証明書]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -108,13 +108,17 @@ Brazeで、**Partner Integrations** > **Technology Partners**に移動し、**Ap
 3. Brazeダッシュボードで確認したデータインポートキーとRESTエンドポイントを入力します。
 4. **Advanced Privacy**をオフに切り替え、設定を保存します。
 
+{% alert important %}
+AppsFlyerのIntegrationタブでBraze RESTエンドポイントを入力する際は、`https://`プロトコルや`/attribution/appsflyer`パスを含めず、ドメインのみ（例：`rest.fra-02.braze.eu`）を入力してください。AppsFlyerが自動的にプロトコルを付加し、パスを追加します。いずれかを入力に含めると、ポストバックが失敗します。
+{% endalert %}
+
 これらの手順に関する追加情報は、[AppsFlyerのドキュメント](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration)に掲載されています。
 
 ### ステップ4: 統合を確認する {#step-4-confirm-the-integration}
 
-BrazeがAppsFlyerからアトリビューションデータを受信すると、BrazeのAppsFlyerテクノロジーパートナーページのステータス接続インジケータが「Not Connected」から「Connected」に変わり、最後にリクエストが成功したタイムスタンプが含まれます。
+BrazeのAppsFlyerテクノロジーパートナーページでは、ステップ2でデータインポートAPIキーを生成するまで、接続インジケーターに**Not Connected**と表示されます。キーを生成すると、インジケーターが**Connected**に変わり、タイムスタンプが表示されます。このタイムスタンプは、AppsFlyerが最後にポストバックを送信した時点ではなく、Brazeで統合が最初にセットアップされた時点（データインポートキーが作成された時点）を反映しています。
 
-このステータスは、アトリビューション付きインストールに関するデータをBrazeが受信した後にのみ変更されます。Brazeはオーガニックインストールを無視し（AppsFlyerのポストバックから除外し）、接続が成功したかどうかを判断する際にカウントしません。
+インストールアトリビューションデータがAppsFlyerから流入していることを確認するには、ステップ5を使用して、非オーガニックインストールデータがBrazeのSegmentフィルターに表示されることを検証してください。BrazeはAppsFlyerのポストバックからのオーガニックインストールを無視し、アトリビューション付きインストールデータとして保存しません。
 
 ### ステップ5: ユーザーアトリビューションデータを確認する {#step-5-viewing-user-attribution-data}
 
@@ -124,20 +128,20 @@ BrazeがAppsFlyerからアトリビューションデータを受信すると、
 
 | AppsFlyerデータフィールド | Braze Segmentフィルター |
 | -------------------- | --------------------- |
-| `media_source` | アトリビューションソース |
-| `campaign` | アトリビューションCampaign |
-| `af_adset` | アトリビューション広告グループ |
-| `af_ad` | アトリビューション広告 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `media_source` | Attributed Source |
+| `campaign` | Attributed Campaign |
+| `af_adset` | Attributed Adgroup |
+| `af_ad` | Attributed Ad |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
 
 Brazeダッシュボードでは、インストールアトリビューションフィルターを使用して、アトリビューションデータでユーザー群をセグメンテーションできます。
 
-![4つのフィルターが利用可能です。1つ目は「インストールアトリビューションソースがnetwork_val_0」。2つ目は「インストールアトリビューションソースがcampaign_val_0」。3つ目は「インストールアトリビューションソースがadgroup_val_0」。4つ目は「インストールアトリビューションソースがcreative_val_0」。リストされたフィルターの横に、これらのアトリビューションソースがどのようにユーザープロファイルに追加されるかを確認できます。ユーザー情報ページの「インストールアトリビューション」ボックスで、インストールソースはnetwork_val_0、キャンペーンはcampaign_val_0などと表示されます。]({% image_buster /assets/img/braze_attribution.png %})
+![4つのフィルターが利用可能です。1つ目は「Install Attribution Sourceがnetwork_val_0」。2つ目は「Install Attribution Sourceがcampaign_val_0」。3つ目は「Install Attribution Sourceがadgroup_val_0」。4つ目は「Install Attribution Sourceがcreative_val_0」。リストされたフィルターの横に、これらのアトリビューションソースがどのようにユーザープロファイルに追加されるかを確認できます。ユーザー情報ページの「Install Attribution」ボックスで、Install Sourceはnetwork_val_0、campaignはcampaign_val_0などと表示されます。]({% image_buster /assets/img/braze_attribution.png %})
 
 さらに、特定のユーザーのアトリビューションデータは、Brazeダッシュボードの各ユーザーのプロファイルで利用可能です。
 
 {% alert note %}
-FacebookおよびX（旧Twitter）キャンペーンのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
+FacebookおよびX（旧Twitter）Campaignsのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
 {% endalert %}
 
 ## ディープリンクのためにAppsFlyerとBrazeを統合する {#integrate-appsflyer-with-braze-for-deep-linking}
@@ -154,14 +158,14 @@ AppsFlyerはこのような問題を回避する[サービス](https://support.a
 
 ![右上の「Support」ボタンの下にある「Get Help」ボタンを示すBraze UI]({% image_buster /assets/img/attribution/appsflyer/1.png %})
 
-既存のCTDを使用している場合でも、新しいCTDの作成は必須です。これにより、現在のライブメールキャンペーンのトラフィックに影響を与えることはありません。
+既存のCTDを使用している場合でも、新しいCTDの作成は必須です。これにより、現在のライブメールCampaignsのトラフィックに影響を与えることはありません。
 
 {% alert important%}
 AppsFlyerがSSL証明書を作成します。この段階では、メールのリンクはセキュリティで保護されていない可能性が高く、URLプレフィックスがHTTPSではなくHTTPであることを意味します。これは後のステップで解決されます。
 {%endalert%}
 
 ## ステップ2 - AppsFlyerでOneLinkテンプレートを作成する {#step-2-create-a-onelink-template-in-appsflyer}
-[OneLinkテンプレート](https://support.appsflyer.com/hc/en-us/articles/207032246-Create-a-OneLink-template#procedures)を作成し、「When app is installed」でユニバーサルリンク/アプリリンクを設定します。このテンプレートは、後でメールキャンペーン用のOneLinkリンクを作成する際に使用します。
+[OneLinkテンプレート](https://support.appsflyer.com/hc/en-us/articles/207032246-Create-a-OneLink-template#procedures)を作成し、「When app is installed」でユニバーサルリンク/アプリリンクを設定します。このテンプレートは、後でメールCampaigns用のOneLinkリンクを作成する際に使用します。
 
 {% alert note%} ユニバーサルリンク/アプリリンクを有効にする既存のOneLinkテンプレートがすでに設定されている場合は、それを使用できます。
 {%endalert%}
@@ -178,7 +182,7 @@ AppsFlyerでBraze統合を設定するには：
 ![Brazeを含むESP統合のリストを表示するAppsFlyerのUI。]({% image_buster /assets/img/attribution/appsflyer/3.png %})
 
 
-### 3. メールキャンペーンに使用するOneLinkテンプレートを選択し、「Next」をクリックします。 {#3-select-the-onelink-template-you-want-to-use-for-email-campaigns-then-click-next}
+### 3. メールCampaignsに使用するOneLinkテンプレートを選択し、「Next」をクリックします。 {#3-select-the-onelink-template-you-want-to-use-for-email-campaigns-then-click-next}
 ![AppsFlyerのUIに、ユーザーがテンプレートを選択できるドロップダウンが表示されています。]({% image_buster /assets/img/attribution/appsflyer/4.png %})
 
 
@@ -193,11 +197,11 @@ AppsFlyerでBraze統合を設定するには：
 次に、**Validate connection**をクリックし、クリック追跡ドメインが入力したエンドポイントを指していることを検証します。
 完了したら、**Next**をクリックします。
 
-### 5. リンクトラフィックをAppsFlyerにルーティングする： {#5-route-link-traffic-to-appsflyer}
+### 5. リンクトラフィックをAppsFlyerにルーティングする {#5-route-link-traffic-to-appsflyer}
 
 #### a. AppsFlyerでカスタマイズされたプレハブの説明書をコピーし、ITまたはドメイン管理者に送信します。 {#a-copy-and-send-the-customized-pre-fabricated-instructions-in-appsflyer-to-your-it-or-domain-administrator}
 
-管理者は、AppsFlyerが提供する新しいドメインでDNS CNAMEレコードを更新することにより、メールキャンペーンのトラフィックをESPサーバーからAppsFlyerサーバーにリルートする必要があります。
+管理者は、AppsFlyerが提供する新しいドメインでDNS CNAMEレコードを更新することにより、メールCampaignsのトラフィックをESPサーバーからAppsFlyerサーバーにリルートする必要があります。
 
 その結果、リンクがクリックされるたびに、クリックはAppsFlyerにリダイレクトされ、AppsFlyerからESPエンドポイントにリダイレクトされます。
 

@@ -1,7 +1,7 @@
 ---
 nav_title: Adobe
 article_title: Adobe
-description: "이 페이지에서는 브랜드가 Adobe 데이터(커스텀 속성 및 세그먼트)를 Braze에 실시간으로 연결하고 매핑할 수 있도록 하는 고객 데이터 플랫폼인 Braze와 Adobe 간의 파트너십에 대해 설명합니다. 브랜드는 이 데이터를 기반으로 해당 사용자에게 개인화된 타겟 경험을 제공할 수 있습니다."
+description: "이 페이지에서는 브랜드가 Adobe 데이터(커스텀 속성 및 Segments)를 Braze에 실시간으로 연결하고 매핑할 수 있도록 하는 고객 데이터 플랫폼인 Braze와 Adobe 간의 파트너십에 대해 설명합니다. 브랜드는 이 데이터를 기반으로 해당 사용자에게 개인화된 타겟 경험을 제공할 수 있습니다."
 page_type: partner
 page_order: 1
 search_tag: Partner
@@ -12,7 +12,7 @@ search_tag: Partner
 
 > Adobe Experience Platform을 기반으로 구축된 Adobe의 실시간 고객 데이터 플랫폼은 여러 엔터프라이즈 소스에서 알려진 데이터와 익명 데이터를 통합하여 고객 프로필을 생성합니다. 이러한 프로필을 사용하여 모든 채널과 기기에서 실시간으로 개인화된 경험을 제공할 수 있습니다.
 
-Braze와 Adobe CDP 통합은 브랜드의 Adobe 데이터(커스텀 속성 및 세그먼트)를 Braze에 실시간으로 연결하고 매핑합니다. 이 데이터를 기반으로 사용자에게 개인화된 타겟 경험을 제공할 수 있습니다. Adobe를 사용하면 통합이 직관적입니다. Adobe [ID](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en)를 가져와 Braze 외부 ID에 매핑하고 Braze 플랫폼으로 전송하기만 하면 됩니다. 전송된 모든 데이터는 새로운 `AdobeExperiencePlatformSegments` 속성을 통해 Braze에서 액세스할 수 있습니다.
+Braze와 Adobe CDP 통합은 브랜드의 Adobe 데이터(커스텀 속성 및 Segments)를 Braze에 실시간으로 연결하고 매핑합니다. 이 데이터를 기반으로 사용자에게 개인화된 타겟 경험을 제공할 수 있습니다. Adobe를 사용하면 통합이 직관적입니다. Adobe [ID](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en)를 가져와 Braze 외부 ID에 매핑하고 Braze 플랫폼으로 전송하기만 하면 됩니다. 전송된 모든 데이터는 새로운 `AdobeExperiencePlatformSegments` 속성을 통해 Braze에서 액세스할 수 있습니다.
 
 {% alert important %}
 Adobe Experience Platform 통합은 현재 동적 오디언스 멤버십을 지원하지 않습니다. 즉, 고객 프로필에 값을 추가할 수만 있고 제거할 수는 없습니다.
@@ -26,7 +26,7 @@ Adobe Experience Platform 통합은 현재 동적 오디언스 멤버십을 지�
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze 인스턴스 | Braze 인스턴스는 Braze 온보딩 매니저에게 문의하거나 [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints)에서 확인할 수 있습니다. |
 | Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#endpoints)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert important %}
 추가 커스텀 속성을 전송하면 데이터 포인트 사용량이 증가합니다. 잠재적인 데이터 포인트 증가를 더 잘 이해하려면 고객 성공 매니저에게 문의하는 것을 권장합니다.
@@ -61,16 +61,16 @@ Braze와의 연결이 이미 존재하는 경우 대상 카드에 **Activate** �
 ![]({% image_buster /assets/img/adobe/braze-destination-authentication.png %}){: style="max-width:60%;"}
 
 ### 4단계: 대상 생성 {#step-4-create-destination}
-**Create destination**을 선택합니다. 대상이 생성되었습니다. **Save & Exit**를 선택하여 나중에 세그먼트를 활성화하거나 **Next**를 선택하여 워크플로를 계속하고 활성화할 세그먼트를 선택할 수 있습니다.
+**Create destination**을 선택합니다. 대상이 생성되었습니다. **Save & Exit**를 선택하여 나중에 Segments를 활성화하거나 **Next**를 선택하여 워크플로를 계속하고 활성화할 Segments를 선택할 수 있습니다.
 
-### 5단계: 세그먼트 활성화 {#step-5-activate-segments}
-세그먼트를 Braze 대상에 매핑하여 Adobe 실시간 CDP에 있는 데이터를 활성화합니다.
+### 5단계: Segments 활성화 {#step-5-activate-segments}
+Segments를 Braze 대상에 매핑하여 Adobe 실시간 CDP에 있는 데이터를 활성화합니다.
 
-다음 목록은 세그먼트를 활성화하는 데 필요한 일반적인 단계를 설명합니다. Adobe 세그먼트 및 세그먼트 활성화 워크플로에 대한 자세한 안내는 [Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites)를 참조하세요.
+다음 목록은 Segment를 활성화하는 데 필요한 일반적인 단계를 설명합니다. Adobe Segments 및 Segment 활성화 워크플로에 대한 자세한 안내는 [Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites)를 참조하세요.
 
 1. Braze 대상을 선택하고 활성화합니다.
-2. 해당하는 세그먼트를 선택합니다.
-4. 내보내는 각 세그먼트에 대해 스케줄링 및 파일 이름을 구성합니다.
+2. 해당하는 Segments를 선택합니다.
+4. 내보내는 각 Segment에 대해 스케줄링 및 파일 이름을 구성합니다.
 5. Braze로 전송할 속성을 선택합니다.
 6. 활성화를 검토하고 확인합니다.
 
@@ -94,14 +94,14 @@ XDM 프로필 스키마와 Braze 인스턴스에 다음과 같은 속성과 ID�
 | --- | ------------------ | -------------- |
 | 속성 | - `person.name.firstname`<br>- `person.name.lastname`<br>- `mobilePhone.number`| - `FirstName`<br>- `LastName`<br>- `PhoneNumber`|
 | ID | - `Email`<br>- Google Ad ID (`GAID`)<br>- Apple ID For Advertisers (`IDFA`) | - `external_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Use case" }
 
 올바른 매핑은 다음과 같습니다:
 
 ![대상 매핑: IdentityMap:IDFA가 IdentityMap:external_id에 매핑됨, IdentityMap:GAID가 IdentityMap:external_id에 매핑됨, IdentityMap:Email이 IdentityMap:external_id에 매핑됨, xdm:mobilePhone.number가 CustomAttribute:PhoneNumber에 매핑됨, xdm:person.name.lastName이 CustomAttribute:LastName에 매핑됨, xdm:person.name.firstName이 CustomAttribute:FirstName에 매핑됨]({% image_buster /assets/img/adobe/braze-destination-mapping-example.png %})
 
 ## 내보낸 데이터 {#exported-data}
-데이터가 Braze로 성공적으로 내보내졌는지 확인하려면 Braze 계정을 확인하세요. Adobe Experience Platform 세그먼트는 `AdobeExperiencePlatformSegments` 속성 아래에서 Braze로 내보내집니다.
+데이터가 Braze로 성공적으로 내보내졌는지 확인하려면 Braze 계정을 확인하세요. Adobe Experience Platform Segments는 `AdobeExperiencePlatformSegments` 속성 아래에서 Braze로 내보내집니다.
 
 ## 데이터 사용 및 거버넌스 {#data-usage-and-governance}
 모든 Adobe Experience Platform 대상은 데이터를 처리할 때 데이터 사용 정책을 준수합니다. Adobe Experience Platform이 데이터 거버넌스를 시행하는 방법에 대한 자세한 내용은 [실시간 CDP의 데이터 거버넌스](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en)를 참조하세요.

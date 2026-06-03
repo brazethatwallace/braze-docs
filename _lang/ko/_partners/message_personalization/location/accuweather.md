@@ -19,7 +19,7 @@ _이 통합은 AccuWeather에서 유지 관리합니다._
 | 요구 사항 | 설명 |
 |---|---|
 | AccuWeather API 키 | 요청 URL에서 사용할 호환 API 키에 대해 AccuWeather 계정 매니저에게 문의하세요.<br><br>자세한 안내는 [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/) 페이지에서 확인할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 사용 가능한 AccuWeather API {#available-accuweather-apis}
 
@@ -36,7 +36,7 @@ _이 통합은 AccuWeather에서 유지 관리합니다._
 | [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | 레이더 및 위성 이미지를 가져옵니다. |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | 전 세계 열대성 저기압의 현재 위치, 과거 위치 및 예보를 가져옵니다. |
 | [Translations](https://apidev.accuweather.com/developers/translationsApiGuide) | 사용 가능한 언어 목록을 가져옵니다. 특정 그룹의 구문에 대한 번역을 가져옵니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available AccuWeather APIs" }
 
 ## 연결된 콘텐츠 예시 {#connected-content-example}
 
@@ -58,7 +58,7 @@ Enjoy the weather!
 ```
 {% endraw %}
 
-![Android 기기에 표시된 연결된 콘텐츠 푸시 메시지 "비가 오고 있어요! 우산을 챙기세요!"]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
+![Android 기기에 표시된 연결된 콘텐츠 푸시 메시지 "It's raining! Grab an Umbrella!"]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
 
 두 개의 연결된 콘텐츠 호출에 대한 분석은 다음 예시에서 확인할 수 있습니다.
 

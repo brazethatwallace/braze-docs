@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Canvas-Daten-Zusammenfassung Analytics exportieren"
 article_title: "GET: Canvas-Daten-Zusammenfassung Analytics exportieren"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -37,7 +37,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `include_variant_breakdown` | Optional | Boolescher Wert | Ob Variantenstatistiken einbezogen werden sollen (Standardwert ist `false`).  |
 | `include_step_breakdown` | Optional | Boolescher Wert | Ob Schrittstatistiken einbezogen werden sollen (Standardwert ist `false`). |
 | `include_deleted_step_data` | Optional | Boolescher Wert | Ob Schrittstatistiken für gelöschte Schritte einbezogen werden sollen (Standardwert ist `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert important %}
 **Zeitzonen-Abgleich:** Die Analytics-Daten des Braze-Dashboards werden täglich in der für Ihr Unternehmen konfigurierten Zeitzone im Dashboard aggregiert. Stellen Sie sicher, dass Ihre Zeitstempel mit der Zeitzone Ihres Unternehmens übereinstimmen, damit Ihre Statistiken mit dem Dashboard übereinstimmen. Wenn die Zeitzone Ihres Unternehmens beispielsweise UTC+2 ist, sollte der Zeitstempel 0:00 Uhr UTC+2 lauten.
