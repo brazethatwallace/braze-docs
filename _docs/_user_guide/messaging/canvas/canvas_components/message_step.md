@@ -48,7 +48,7 @@ Select **Using Intelligent Timing** in the **Delivery Settings** tab. Here, you 
 
 #### Delivery validations
 
-Delivery validations provide an additional check at message send to confirm your audience still meets your criteria. We recommended using it when Quiet Hours, Intelligent Timing, or rate limiting are enabled. Select **Validate audience at message send**, then add a segment or additional filters. If a user doesn't meet the validations, choose whether they exit the Canvas or advance to the next step.
+Delivery validations provide an additional check at message send to confirm your audience still meets your criteria. We recommend using it when Quiet Hours, Intelligent Timing, or rate limiting are enabled. Select **Validate audience at message send**, then add a segment or additional filters. If a user doesn't meet the validations, choose whether they exit the Canvas or advance to the next step.
 
 Delivery validations evaluate user profile criteria at send time. App-related filters can check whether a user recently used or ever used a specific app, but they can't confirm which app a user is using in their current session.
 
