@@ -228,7 +228,7 @@ section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
     fill: #3e34d3;
 }
 /* Design review: white border on :focus-visible — verify 3:1 contrast against search panel bg */
-input#search-box-autocomplete:focus-visible {
+#su_main_search input#search-box-autocomplete:focus-visible {
 	border: 2px solid white !important;
 	outline: 2px solid $braze-purple;
 	outline-offset: 2px;
