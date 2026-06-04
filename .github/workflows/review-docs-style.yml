@@ -6,7 +6,7 @@
 # Requires: ANTHROPIC_API_KEY repository secret.
 #
 # Includes bot PRs (support analyzer, etc.). Skips `_lang/` on auto-translate/* branches.
-# Skips nightly deploy PRs (label: Deploy).
+# Skips nightly deploy PRs (label: Deploy). Skips files whose diff is code/CSS-only (no prose).
 
 name: Braze Docs Style Guide Review
 
