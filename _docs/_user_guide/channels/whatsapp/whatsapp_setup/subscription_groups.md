@@ -38,17 +38,17 @@ There are two subscription states for WhatsApp users: `subscribed` and `unsubscr
 
 - **Rest API:** Individual user profiles subscription group can be viewed by the [List user’s subscription groups endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) or [List user’s subscription group status endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) by using Braze's REST API. 
 
-## Managing subscription groups
+## Archive subscription groups
 
-### Archiving a subscription group
+If you need to stop using a WhatsApp subscription group, you can archive it to mark it as inactive. 
 
-If you need to stop using a WhatsApp subscription group, you can archive it to mark it as inactive. To archive a subscription group:
+Archiving a subscription group marks it as inactive but doesn't delete it from your workspace. If you need to remove a WhatsApp phone number or subscription group entirely, you must first archive the subscription group in the Subscription Group Manager before requesting deletion from Braze support.
+
+To archive a subscription group:
 
 1. Go to **Audience** > **Subscription Group Management**.
 2. Find the WhatsApp subscription group you want to archive.
 3. Hover over the status for the subscription group and select <i class="fa-solid fa-box-archive"></i> **Archive**.
-
-Archiving a subscription group marks it as inactive but doesn't delete it from your workspace. If you need to remove a WhatsApp phone number or subscription group entirely, you must first archive the subscription group in the Subscription Group Manager before requesting deletion from Braze support.
 
 ## WhatsApp opt-in and opt-out process
 
