@@ -50,13 +50,18 @@ The six eCommerce recommended events map to stages of the purchase journey. Fire
 ![Diagram of user journey through all six eCommerce recommended events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, and order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% alert tip %}
-The following examples show the REST API payload for each event. To log any of these events client-side, see [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) for platform-specific SDK implementation examples.
+The following examples show the REST API payload for each event.
+For client-side logging, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, and `ecommerce.order_placed` use SDK eCommerce event APIs where available, while `ecommerce.order_cancelled` and `ecommerce.order_refunded` use `logCustomEvent`. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 {% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
-Trigger when a user views a product detail page. This event is compatible with Braze catalog [back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) and [price drop notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/). 
+Trigger when a user views a product detail page. This event is compatible with Braze catalog [back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) and [price drop notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/).
+
+#### Client-side implementation
+
+Use SDK eCommerce event APIs where available. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 #### Event properties
 
@@ -108,6 +113,10 @@ Trigger when a user views a product detail page. This event is compatible with B
 {% tab ecommerce.cart_updated %}
 
 Trigger every time the contents of a user's cart change.
+
+#### Client-side implementation
+
+Use SDK eCommerce event APIs where available. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 You can send this event in one of two ways:
 
@@ -693,6 +702,10 @@ Objective-C
 
 Trigger when the user initiates the checkout flow (for example, selects "Checkout" or lands on the checkout page).
 
+#### Client-side implementation
+
+Use SDK eCommerce event APIs where available. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 #### Event properties
 
 | Property       | Type    | Required | Description                                                                                                      |
@@ -783,6 +796,10 @@ Trigger when the user initiates the checkout flow (for example, selects "Checkou
 {% tab ecommerce.order_placed %}
 
 Trigger when an order is successfully completed or payment is confirmed.
+
+#### Client-side implementation
+
+Use SDK eCommerce event APIs where available. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 {% alert important %}
 This event is the primary revenue driver. It increments `total_revenue` by the value in `total_value` and increments `total_orders` by 1 on the user profile.
@@ -888,6 +905,10 @@ This event is the primary revenue driver. It increments `total_revenue` by the v
 
 Trigger when an order is cancelled.
 
+#### Client-side implementation
+
+Use `logCustomEvent`. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 {% alert important %}
 This event decrements `total_orders` by 1 on the user profile. It does not affect `total_revenue`; use `order_refunded` to adjust revenue.
 {% endalert %}
@@ -980,6 +1001,10 @@ This event decrements `total_orders` by 1 on the user profile. It does not affec
 {% tab ecommerce.order_refunded %}
 
 Trigger when a full or partial refund is issued.
+
+#### Client-side implementation
+
+Use `logCustomEvent`. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 {% alert important %}
 This event decrements `total_revenue` by the value in `total_value` and increments `total_refunds` on the user profile. For partial refunds, set `total_value` to the refunded amount only, not the original order total.
