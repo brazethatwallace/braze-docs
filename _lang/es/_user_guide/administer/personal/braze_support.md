@@ -8,16 +8,19 @@ page_type: reference
 search_rank: 7
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Soporte de Braze 
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Soporte de Braze {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomthe-braze-support-portal-stylefloatrightwidth120pxborder0-classnoimgborderbraze-support}
+
 > Aprende a acceder al portal de soporte de Braze, enviar y hacer seguimiento de casos de soporte, y proporcionar la información necesaria para una solución de problemas eficiente.
 
 ## Acceder al portal de soporte {#access-the-support-portal}
 
-Para ponerte en contacto con el equipo de soporte de Braze, navega al dashboard de Braze. En el dashboard, selecciona **Support** > **Get help**.
+Para ponerte en contacto con el equipo de soporte de Braze, navega al dashboard de Braze y selecciona **Support**. El menú ofrece dos opciones:
 
-![El menú desplegable "Support" con la opción de obtener ayuda.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:60%;"}
+- **Get help with Operator** abre BrazeAI Operator<sup>TM</sup>, que puede solucionar tu problema en el momento utilizando el contexto de tu conversación y la pantalla actual. Si Operator no puede resolver tu problema, puedes pedirle que redacte un ticket de soporte basado en tu conversación. Para más información, consulta [enviar tickets de soporte con BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/).
+- **Get help** te lleva directamente al portal de soporte de Braze (si eres un contacto de soporte designado) o a nuestro formulario de soporte estándar, donde puedes enviar y hacer seguimiento de casos. Si no estás seguro de si eres un contacto de soporte de Braze, ponte en contacto con el administrador de Braze de tu empresa, tu gestor de éxito de Braze o el propietario de la cuenta.
 
-Dependiendo de tus permisos de Braze y de si eres un contacto de soporte designado, serás dirigido al portal de soporte de Braze, donde puedes enviar y hacer seguimiento de casos, o a nuestro formulario de soporte estándar. Si no estás seguro de si eres un contacto de soporte de Braze, ponte en contacto con el administrador de Braze de tu empresa, tu gestor de éxito de Braze o el propietario de la cuenta.
+![El menú desplegable "Support" mostrando las opciones "Get help with Operator" y "Get help".]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
+
 
 ## Añadir contactos de soporte designados {#adding-designated-support-contacts}
 
