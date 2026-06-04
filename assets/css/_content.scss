@@ -499,6 +499,14 @@
 		&:hover {
 			opacity: 1 !important;
 		}
+		&:focus:not(:focus-visible) {
+			outline: none;
+		}
+		&:focus-visible {
+			opacity: 1;
+			outline: 2px solid $braze-purple;
+			outline-offset: 2px;
+		}
 	}
 
 	.heading-copy-feedback {
