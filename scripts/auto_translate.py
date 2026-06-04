@@ -589,9 +589,13 @@ keep their **casing consistent** (match `article_title` to `nav_title` when \
 they would otherwise differ only by capitalization) (auto-translate PR #13380).
 31. **Administer / dashboard polish** (PR #13384): Do not paste huge invented \
 `{#slug}` tails on headings when English has none. Keep `<style>` CSS \
-selectors valid (no `nth-child(N), {` before `{`). Localize known \
-`aria-label="Open navigation menu"` / `aria-label="Select your language"` \
-when the surrounding prose is localized.
+selectors valid (no `nth-child(N), {` before `{`). **Table / Kramdown IAL \
+`aria-label` values** (for example `{: .reset-td-br-1 aria-label="Use cases" }` \
+or `<table aria-label="Email headers">`) must stay in **English**—copy \
+character-for-character from the source; never translate them to the target \
+language (table-accessibility CI / PR #13996). **Exception:** localize \
+`aria-label="Open navigation menu"` / `aria-label="Select your language"` on \
+Font Awesome icon-only nav controls when the surrounding prose is localized.
 32. **Brazilian Portuguese — Braze ``Analytics`` menu**: When English uses bold \
 ``**Analytics**`` as the dashboard section name in navigation paths (for example \
 ``**Analytics** > **Report Builder (New)**``) or phrases like "the **Analytics** \
@@ -5926,6 +5930,51 @@ _UI_ARIA_EN_PHRASES = {
 }
 
 
+_ARIA_LABEL_VALUE_RE = re.compile(r'aria-label="([^"]*)"', re.IGNORECASE)
+
+
+def repair_aria_label_values_from_english(english_content, translated_content):
+    """Restore English ``aria-label`` values from the source (tables, Kramdown IAL).
+
+    Table-accessibility CI adds ``aria-label="…"`` on markdown table IAL lines and
+    HTML ``<table>`` tags. Those labels must stay in English in every locale. Font
+    Awesome nav icon labels are re-localized afterward by
+    ``repair_documentation_english_aria_labels``.
+    """
+    en_vals = _ARIA_LABEL_VALUE_RE.findall(english_content)
+    if not en_vals:
+        return translated_content, []
+
+    tr_matches = list(_ARIA_LABEL_VALUE_RE.finditer(translated_content))
+    repairs = []
+    if len(tr_matches) != len(en_vals):
+        repairs.append(
+            f"aria_label — count mismatch (English: {len(en_vals)}, "
+            f"translated: {len(tr_matches)}); partial repair"
+        )
+
+    pair_count = min(len(en_vals), len(tr_matches))
+    if pair_count == 0:
+        return translated_content, repairs
+
+    parts = []
+    last = 0
+    for i in range(pair_count):
+        match = tr_matches[i]
+        parts.append(translated_content[last : match.start(1)])
+        en_val = en_vals[i]
+        tr_val = match.group(1)
+        parts.append(en_val)
+        if tr_val != en_val:
+            repairs.append(f"aria_label[{i}] — restored {en_val!r}")
+        last = match.end(1)
+    parts.append(translated_content[last:])
+    new_content = "".join(parts)
+    if new_content == translated_content:
+        return translated_content, repairs
+    return new_content, repairs
+
+
 def repair_documentation_english_aria_labels(translated_content, lang_key):
     """Swap known English ``aria-label`` strings for locale text in translated docs."""
     repairs = []
@@ -6544,6 +6593,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(cb_repairs)
+
+    translated_content, table_aria_repairs = repair_aria_label_values_from_english(
+        english_content, translated_content
+    )
+    findings["repairs"].extend(table_aria_repairs)
 
     translated_content, url_repairs = repair_urls(
         english_content, translated_content
