@@ -5933,30 +5933,31 @@ _UI_ARIA_EN_PHRASES = {
 }
 
 
-_ARIA_LABEL_VALUE_RE = re.compile(r'aria-label="([^"]*)"', re.IGNORECASE)
+_KRAMDOWN_TABLE_IAL_ARIA_RE = re.compile(
+    r"\{:[^}]*aria-label=\"([^\"]*)\"[^}]*\}", re.IGNORECASE
+)
+_HTML_TABLE_ARIA_RE = re.compile(
+    r"<table\b[^>]*aria-label=\"([^\"]*)\"[^>]*>", re.IGNORECASE
+)
 
 
-def repair_aria_label_values_from_english(english_content, translated_content):
-    """Restore English ``aria-label`` values from the source (tables, Kramdown IAL).
-
-    Table-accessibility CI adds ``aria-label="…"`` on markdown table IAL lines and
-    HTML ``<table>`` tags. Those labels must stay in English in every locale. Font
-    Awesome nav icon labels are re-localized afterward by
-    ``repair_documentation_english_aria_labels``.
-    """
-    en_vals = _ARIA_LABEL_VALUE_RE.findall(english_content)
-    if not en_vals:
+def _restore_aria_label_values_for_pattern(
+    english_content, translated_content, pattern, label
+):
+    """Restore English ``aria-label`` values for one table-specific pattern."""
+    en_matches = list(pattern.finditer(english_content))
+    if not en_matches:
         return translated_content, []
 
-    tr_matches = list(_ARIA_LABEL_VALUE_RE.finditer(translated_content))
+    tr_matches = list(pattern.finditer(translated_content))
     repairs = []
-    if len(tr_matches) != len(en_vals):
+    if len(tr_matches) != len(en_matches):
         repairs.append(
-            f"aria_label — count mismatch (English: {len(en_vals)}, "
+            f"aria_label ({label}) — count mismatch (English: {len(en_matches)}, "
             f"translated: {len(tr_matches)}); partial repair"
         )
 
-    pair_count = min(len(en_vals), len(tr_matches))
+    pair_count = min(len(en_matches), len(tr_matches))
     if pair_count == 0:
         return translated_content, repairs
 
@@ -5965,14 +5966,38 @@ def repair_aria_label_values_from_english(english_content, translated_content):
     for i in range(pair_count):
         match = tr_matches[i]
         parts.append(translated_content[last : match.start(1)])
-        en_val = en_vals[i]
+        en_val = en_matches[i].group(1)
         tr_val = match.group(1)
         parts.append(en_val)
         if tr_val != en_val:
-            repairs.append(f"aria_label[{i}] — restored {en_val!r}")
+            repairs.append(f"aria_label ({label})[{i}] — restored {en_val!r}")
         last = match.end(1)
     parts.append(translated_content[last:])
     new_content = "".join(parts)
+    if new_content == translated_content:
+        return translated_content, repairs
+    return new_content, repairs
+
+
+def repair_aria_label_values_from_english(english_content, translated_content):
+    """Restore English ``aria-label`` values from the source (tables, Kramdown IAL).
+
+    Table-accessibility CI adds ``aria-label="…"`` on markdown table IAL lines and
+    HTML ``<table>`` tags. Those labels must stay in English in every locale. Font
+    Awesome and other inline icon ``aria-label`` values are intentionally excluded
+    so localized icon labels (for example ``fa-gear`` **Settings**) are preserved.
+    Nav menu phrases are still handled by ``repair_documentation_english_aria_labels``.
+    """
+    repairs = []
+    new_content = translated_content
+    for pattern, label in (
+        (_KRAMDOWN_TABLE_IAL_ARIA_RE, "kramdown-ial"),
+        (_HTML_TABLE_ARIA_RE, "html-table"),
+    ):
+        new_content, pattern_repairs = _restore_aria_label_values_for_pattern(
+            english_content, new_content, pattern, label
+        )
+        repairs.extend(pattern_repairs)
     if new_content == translated_content:
         return translated_content, repairs
     return new_content, repairs
