@@ -42,7 +42,7 @@ There are two subscription states for WhatsApp users: `subscribed` and `unsubscr
 
 If you need to stop using a WhatsApp subscription group, you can archive it to mark it as inactive. 
 
-Archiving a subscription group marks it as inactive but doesn't delete it from your workspace. If you need to remove a WhatsApp phone number or subscription group entirely, you must first archive the subscription group in the Subscription Group Manager before requesting deletion from Braze support.
+Archiving a subscription group marks it as inactive but does not delete it from your workspace. If you need to remove a WhatsApp phone number or subscription group entirely, you must first archive the subscription group in the Subscription Group Manager before requesting deletion from Braze support.
 
 To archive a subscription group:
 
