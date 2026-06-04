@@ -41,6 +41,7 @@ REPO_ROOT = Path(os.environ.get("GITHUB_WORKSPACE", Path.cwd()))
 STYLE_REF = REPO_ROOT / ".github/skills/braze-docs/references/writing-style.md"
 GLOSSARY_REF = REPO_ROOT / ".github/skills/braze-docs/references/glossary.md"
 SUMMARY_MARKER = "<!-- braze-docs-style-review -->"
+CODE_ONLY_SKIP_MARKER = "<!-- braze-docs-style-review:code-only -->"
 SUMMARY_FILE = REPO_ROOT / "docs_style_review_summary.md"
 
 MARKDOWN_PREFIXES = ("_docs/", "_includes/", "_lang/")
@@ -148,8 +149,6 @@ def get_changed_markdown_files() -> list[str]:
     for line in result.stdout.splitlines():
         path = line.strip()
         if not path.endswith(".md"):
-            continue
-        if path.startswith("_docs/_hidden/"):
             continue
         if skip_lang and path.startswith("_lang/"):
             continue
@@ -494,6 +493,127 @@ def file_diff(path: str) -> str:
     if len(text) > MAX_DIFF_CHARS:
         text = text[:MAX_DIFF_CHARS] + "\n\n…(diff truncated)\n"
     return text
+
+
+# Per-file gate: run editorial review only when the diff includes user-facing copy.
+# Skips diffs that touch only inline code, fenced blocks, CSS/HTML, Liquid, or markup
+# (same non-prose categories called out in scripts/translation_prompt.md).
+_PROSE_LETTERS = re.compile(
+    r"[A-Za-zÀ-ÿ\u0400-\u04ff\u3040-\u30ff\u4e00-\u9fff]{4,}"
+)
+_CSS_PROPERTY_LINE = re.compile(r"^\s*[\w-]+\s*:\s*.+;\s*$")
+
+
+def _strip_non_prose_fragments(line: str) -> str:
+    text = line
+    text = re.sub(r"\{%.*?%\}", "", text)
+    text = re.sub(r"\{\{.*?\}\}", "", text)
+    text = re.sub(r"<[^>]+>", "", text)
+    text = re.sub(r"`[^`]+`", "", text)
+    text = re.sub(r"!\[[^\]]*\]\([^)]+\)", "", text)
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"\{:[^}]+\}", "", text)
+    text = re.sub(r"\{#[^}]+\}", "", text)
+    return text.strip()
+
+
+def _line_is_inline_code_only(stripped: str) -> bool:
+    """True when the line edits only backtick inline code (no surrounding prose)."""
+    if "`" not in stripped:
+        return False
+    without_code = re.sub(r"`[^`]*`", "", stripped)
+    without_code = re.sub(r"^\s*[-*+\d.]+\s*", "", without_code)
+    without_code = re.sub(r"[|:\s]", "", without_code)
+    return not without_code or not _PROSE_LETTERS.search(without_code)
+
+
+def _line_is_css_like(stripped: str) -> bool:
+    if _CSS_PROPERTY_LINE.match(stripped):
+        return True
+    if re.match(r"^\s*\}\s*,?\s*$", stripped):
+        return True
+    if re.match(r"^\s*[\w.#@][^{]*\{\s*$", stripped):
+        return True
+    if re.match(r"^\s*[\w.#][^;{]*,\s*$", stripped):
+        return True
+    if re.search(r":(?:focus|hover|not|visible|before|after|active)", stripped):
+        if re.search(r"^\s*[\w.#\[]", stripped):
+            return True
+    return False
+
+
+def _diff_line_likely_prose(line: str) -> bool:
+    """True when a changed diff line probably edits user-facing copy."""
+    stripped = line.rstrip()
+    if not stripped:
+        return False
+    if _line_is_inline_code_only(stripped):
+        return False
+    if _line_is_css_like(stripped):
+        return False
+    if stripped.startswith("<!--") or stripped.startswith("{%") or stripped.startswith("{{"):
+        return False
+    if stripped.startswith("```") or stripped.startswith("~~~"):
+        return False
+    if re.match(r"^\s*\|[-: |]+\|\s*$", stripped):
+        return False
+    if re.match(r"^\s*---\s*$", stripped):
+        return False
+    lower = stripped.lower()
+    if lower.startswith("<style") or lower.startswith("</style"):
+        return False
+    if stripped in {"}", "{", "};"}:
+        return False
+    remainder = _strip_non_prose_fragments(stripped)
+    return bool(_PROSE_LETTERS.search(remainder))
+
+
+def diff_has_prose_changes(path: str) -> bool:
+    """True when the PR diff for this file includes user-facing copy edits."""
+    diff = file_diff(path)
+    if not diff.strip():
+        return False
+
+    in_style = False
+    in_code_fence = False
+    for raw in diff.splitlines():
+        if raw.startswith("+++") or raw.startswith("---") or raw.startswith("@@"):
+            continue
+        if not raw.startswith(("+", "-")):
+            continue
+        line = raw[1:]
+
+        lower = line.lower()
+        if "<style" in lower:
+            in_style = True
+        if "</style>" in lower:
+            in_style = False
+            continue
+        if in_style:
+            continue
+
+        if line.strip().startswith("```") or line.strip().startswith("~~~"):
+            in_code_fence = not in_code_fence
+            continue
+        if in_code_fence:
+            continue
+
+        if _diff_line_likely_prose(line):
+            return True
+    return False
+
+
+def filter_files_with_prose_changes(files: list[str]) -> tuple[list[str], list[str]]:
+    """Split changed markdown files into prose edits vs code/structure-only edits."""
+    prose_files: list[str] = []
+    code_only: list[str] = []
+    for path in files:
+        if diff_has_prose_changes(path):
+            prose_files.append(path)
+        else:
+            code_only.append(path)
+            print(f"Skipping `{path}` (diff changes code/markup only, not user-facing copy)")
+    return prose_files, code_only
 
 
 _HUNK_HEADER = re.compile(r"^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@")
@@ -973,6 +1093,17 @@ def _list_pr_comments_with_marker() -> list[dict]:
     return [c for c in comments if SUMMARY_MARKER in (c.get("body") or "")]
 
 
+def _existing_summary_is_code_only_pass() -> bool:
+    """True when the PR already has a no-prose (code/markup-only) pass summary."""
+    marked = _list_pr_comments_with_marker()
+    if not marked:
+        return False
+    body = marked[-1].get("body") or ""
+    if CODE_ONLY_SKIP_MARKER in body:
+        return True
+    return "did not edit user-facing copy" in body and not _has_style_findings(0, [], [])
+
+
 def _delete_issue_comment(comment_id: int) -> None:
     owner, repo = REPO.split("/", 1)
     subprocess.run(
@@ -995,6 +1126,8 @@ def sync_summary_comment(
     fallback: list[dict],
     summary_notes: list[str],
     files_reviewed: list[str],
+    *,
+    skip_reason: str | None = None,
 ) -> None:
     owner, repo = REPO.split("/", 1)
     lines = [
@@ -1013,7 +1146,17 @@ def sync_summary_comment(
             ]
         )
         if not files_reviewed:
-            if _is_auto_translate_pr():
+            if skip_reason == "code_only":
+                lines.extend(
+                    [
+                        CODE_ONLY_SKIP_MARKER,
+                        "_Changed Markdown in this PR did not edit user-facing copy "
+                        "(only inline code, fenced blocks, CSS, Liquid, HTML, or structural "
+                        "markup), so no editorial review was run._",
+                        "",
+                    ]
+                )
+            elif _is_auto_translate_pr():
                 lines.extend(
                     [
                         "_This PR only updates `_lang/` locale files from the auto-translate "
@@ -1158,13 +1301,31 @@ def main() -> None:
         )
 
     files = get_changed_markdown_files()
+    files, code_only_files = filter_files_with_prose_changes(files)
+    if code_only_files:
+        print(
+            f"Skipped {len(code_only_files)} file(s) whose diffs change code/markup only "
+            "(no user-facing copy edits)."
+        )
     print(f"Reviewing {len(files)} Markdown file(s) in PR #{PR_NUMBER}")
     if not files:
-        sync_summary_comment(0, [], [], [])
-        print(
-            "No eligible Markdown under _docs/, _includes/, or _lang/ in this PR diff; "
-            "posted summary (workflow-only PRs still trigger this check)."
-        )
+        skip_reason = "code_only" if code_only_files else None
+        if skip_reason == "code_only" and _existing_summary_is_code_only_pass():
+            print(
+                "No user-facing prose changes; existing code-only pass summary unchanged "
+                "(no new comment)."
+            )
+            return
+        sync_summary_comment(0, [], [], [], skip_reason=skip_reason)
+        if code_only_files:
+            print(
+                "No user-facing prose changes in eligible Markdown; posted pass summary."
+            )
+        else:
+            print(
+                "No eligible Markdown under _docs/, _includes/, or _lang/ in this PR diff; "
+                "posted summary (workflow-only PRs still trigger this check)."
+            )
         return
 
     user_prompt = build_user_prompt(
