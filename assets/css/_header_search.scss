@@ -569,7 +569,7 @@ $search_icon: $white;
 	outline: none;
   }
   #auto #search-box-autocomplete:focus-visible {
-	@include focus-ring();
+	@include focus-ring($radius: 11px);
   }
 
 #auto #search-box-autocomplete::placeholder{
