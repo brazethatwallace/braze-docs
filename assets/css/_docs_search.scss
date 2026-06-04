@@ -77,8 +77,7 @@ $search_tag_color: $grey-athens;
 					outline: none;
 				}
 				&:focus-visible {
-					outline: 2px solid $braze-purple;
-					outline-offset: 2px;
+					@include focus-ring();
 				}
 			}
 			@media (min-width: $window-medium-px) {
@@ -233,8 +232,7 @@ section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
 /* Design review: verify purple outline is visible against search panel bg */
 #su_main_search input#search-box-autocomplete:focus-visible {
 	border-color: transparent !important;
-	outline: 2px solid $braze-purple;
-	outline-offset: 2px;
+	@include focus-ring();
   }
 
  #su_main_search .svg-search {

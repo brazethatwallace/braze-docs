@@ -37,8 +37,7 @@
 						background-color: $white;
 					}
 					&:focus-visible {
-						outline: 2px solid $braze-purple;
-						outline-offset: 2px;
+						@include focus-ring();
 					}
 				}
 			}
@@ -183,8 +182,7 @@
            background-color: $white;
          }
          &:focus-visible {
-           outline: 2px solid $braze-purple;
-           outline-offset: 2px;
+           @include focus-ring();
          }
        }
       }
