@@ -223,13 +223,16 @@ section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
     border-radius: 16px;
 	background: white;
 	color: black;
+	&:focus-within {
+		border-color: transparent;
+	}
 }
 #su_main_search button.su__btn.su__search_btn.su__animate-zoom.su__flex-vcenter.su__position-absolute.su__zindex.su__bg-transparent.su__rtlleft svg path {
     fill: #3e34d3;
 }
-/* Design review: white border on :focus-visible — verify 3:1 contrast against search panel bg */
+/* Design review: verify purple outline is visible against search panel bg */
 #su_main_search input#search-box-autocomplete:focus-visible {
-	border: 2px solid white !important;
+	border-color: transparent !important;
 	outline: 2px solid $braze-purple;
 	outline-offset: 2px;
   }

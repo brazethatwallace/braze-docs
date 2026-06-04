@@ -162,6 +162,14 @@ $header_transition_time: 0.25s;
 			img {
 				max-height: 30px;
 			}
+			&:focus:not(:focus-visible) {
+				outline: none;
+			}
+			&:focus-visible {
+				outline: 2px solid $white;
+				outline-offset: 2px;
+				border-radius: 2px;
+			}
 		}
 	}
 
@@ -214,15 +222,19 @@ $header_transition_time: 0.25s;
 
 		.navbar-nav {
 			.nav-link {
-				color: $header-nav;
-				line-height: 1;
-				&:focus:not(:focus-visible) {
-					outline: none;
-				}
-				&:focus-visible {
+			color: $header-nav;
+			line-height: 1;
+			&:focus:not(:focus-visible) {
+				outline: none;
+			}
+			&:focus-visible {
+				outline: none;
+				> div {
 					outline: 2px solid $white;
 					outline-offset: 2px;
+					border-radius: 2px;
 				}
+			}
 				@media (min-width: $window-medium-px) {
 					font-size: $header_nav_font_size;
 					padding-top: 0px;

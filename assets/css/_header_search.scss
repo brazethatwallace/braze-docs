@@ -32,6 +32,17 @@ $search_icon: $white;
 		display: inline-flex;
 		gap: 5px;
 		align-items: center;
+		&:focus:not(:focus-visible) {
+			outline: none;
+		}
+		&:focus-visible {
+			outline: none;
+			> div {
+				outline: 2px solid $white;
+				outline-offset: 2px;
+				border-radius: 2px;
+			}
+		}
 	}
 	@media (max-width: $window-medium-px) {
 		#site-link {
@@ -68,8 +79,9 @@ $search_icon: $white;
 					outline: none;
 				}
 				&:focus-visible {
-					outline: 2px solid $braze-purple;
+					outline: 2px solid $white;
 					outline-offset: 2px;
+					border-radius: 2px;
 				}
 			}
 			&:focus-within {
