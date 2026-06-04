@@ -72,7 +72,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 | --- | --- |
 | 워크스페이스 관리자 | 워크스페이스 관리자는 워크스페이스 관리에 특화된 권한을 가지지만, 회사 관리자와 동일한 권한은 없습니다. 제한된 사용자는 필요한 권한이 체크되어 있으면 워크스페이스 관리자와 유사한 권한을 상속받을 수 있습니다. |
 | 관리자(회사 관리자) | 회사 관리자는 대시보드 사용자를 삭제하는 기능을 포함하여 더 넓은 권한을 가집니다. 그러나 자신의 계정은 삭제할 수 없으며, 해당 작업을 위해 다른 회사 관리자에게 연락해야 합니다. |
-| 보기 전용 접근 | Campaign(캠페인) 페이지와 같은 대시보드의 일부에 접근하려면 사용자에게 보기 권한이 할당되어 있어야 합니다. |
+| 보기 전용 접근 | Campaigns 페이지와 같은 대시보드의 일부에 접근하려면 사용자에게 보기 권한이 할당되어 있어야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comparison of limited users" }
 
 ### 제한된 접근 오류 {#limited-access-error}
@@ -355,6 +355,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 미디어 라이브러리 자산 | View Media Library Assets | 미디어 라이브러리 자산 보기 |
 | 미디어 라이브러리 자산 | Delete Media Library Assets | 미디어 라이브러리 자산 영구 삭제 |
 | 미디어 라이브러리 자산 | Edit Media Library Assets | 미디어 라이브러리 자산 생성 및 업데이트 |
+| 미디어 라이브러리 자산 | Replace Media Library Assets | 기존 미디어 라이브러리 자산의 파일을 URL 및 자산 ID를 유지하면서 교체 |
 | 메시징 사용량 제한 | View Messaging Rate Limits | 워크스페이스 수준 메시징 사용량 제한 보기 |
 | 메시징 사용량 제한 | Edit Messaging Rate Limits | 워크스페이스 수준 메시징 사용량 제한 구성 및 편집 |
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Braze Operator에 접근하여 질문에 답하고, 설정을 안내하고, 문제를 해결하고, 아이디어를 브레인스토밍합니다 |

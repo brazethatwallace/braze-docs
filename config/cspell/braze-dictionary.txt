@@ -572,6 +572,7 @@ Pandoc
 parentheticals
 passback
 PassKit
+Pastd
 Patricks
 PCRE
 PERFORMEDEVENT
