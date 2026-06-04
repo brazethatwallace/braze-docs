@@ -101,7 +101,7 @@ WhatsApp provides an "Offers and Announcements" toggle in the app settings that 
 These two layers don't sync automatically by design. When a user turns off the "Offers and Announcements" toggle in WhatsApp, Meta blocks marketing message delivery at the platform level, even if the user's Braze subscription status shows as "Subscribed". The user's preference is respected at the point of delivery.
 
 {% alert note %}
-Because Braze doesn't receive an opt-out signal until a send attempt is made and Meta returns an error, subscription counts in Braze may not reflect users who have opted out via the WhatsApp toggle until a message is attempted. This means reach estimates may be slightly overstated until that feedback loop occurs.
+Because Braze doesn't receive an opt-out signal until a send attempt is made and Meta returns an error, subscription counts in Braze may not reflect users who have opted out through the WhatsApp toggle until a message is attempted. This means reach estimates may be slightly overstated until that feedback loop occurs.
 {% endalert %}
 
 ### General opt-out keywords
