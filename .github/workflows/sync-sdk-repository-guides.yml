@@ -10,10 +10,6 @@ permissions:
   contents: write
   pull-requests: write
 
-concurrency:
-  group: sdk-repository-guides-sync
-  cancel-in-progress: true
-
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -34,66 +30,20 @@ jobs:
         run: python scripts/sync_sdk_repository_guides.py --write
 
       - name: Create pull request
-        id: create_pr
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: automation/sdk-repository-guides-sync
+          branch: sdk-repository-guides-sync/${{ github.run_id }}
           base: develop
           title: "chore: sync SDK repository guides from upstream READMEs"
           commit-message: "chore: sync SDK repository guides from upstream READMEs"
           delete-branch: true
           body: |
             ## Summary
-            - Sync SDK repository guide pages from upstream public README files once per week.
-            - Apply post-processing before publishing to docs (alerts, links, code blocks, and page-safe formatting).
+            - Sync SDK repository guide pages from upstream public README files.
+            - Update docs mirrors only when source README content changed.
 
             ## Notes
             - This PR was automatically created by the scheduled SDK repository guide sync workflow.
-            - The generated README region is wrapped by `BEGIN/END GENERATED README CONTENT` markers.
           add-paths: |
             _docs/_developer_guide/sdk_repository_guides/
-
-      - name: Auto-approve PR (best effort)
-        if: ${{ steps.create_pr.outputs.pull-request-number != '' }}
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const pull_number = Number('${{ steps.create_pr.outputs.pull-request-number }}');
-            try {
-              await github.rest.pulls.createReview({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                pull_number,
-                event: 'APPROVE',
-                body: 'Automated weekly SDK README sync approval.',
-              });
-              core.info(`Approved PR #${pull_number}`);
-            } catch (error) {
-              core.warning(`Auto-approve skipped: ${error.message}`);
-            }
-
-      - name: Enable auto-merge (best effort)
-        if: ${{ steps.create_pr.outputs.pull-request-number != '' }}
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const pull_number = Number('${{ steps.create_pr.outputs.pull-request-number }}');
-            try {
-              const pr = await github.rest.pulls.get({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                pull_number,
-              });
-              await github.graphql(
-                `mutation EnableAutoMerge($pullRequestId: ID!) {
-                  enablePullRequestAutoMerge(input: {pullRequestId: $pullRequestId, mergeMethod: SQUASH}) {
-                    pullRequest { number }
-                  }
-                }`,
-                { pullRequestId: pr.data.node_id }
-              );
-              core.info(`Auto-merge enabled for PR #${pull_number}`);
-            } catch (error) {
-              core.warning(`Auto-merge not enabled: ${error.message}`);
-            }
