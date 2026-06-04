@@ -2,15 +2,18 @@
 nav_title: Roku SDK
 article_title: Roku SDK repository guide
 page_order: 8
-description: "Braze Android SDK README"
+description: "Braze Roku SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Braze Roku SDK
+## About the Braze Roku SDK
 
-Successful marketing automation is essential to the future of your mobile app. Braze helps you engage your users beyond the download. Visit the following links for details and we'll have you up and running in no time!
+The Braze Roku SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.
 
-- [Developer Guide](https://www.braze.com/docs/developer_guide/home/ "Braze Developer Guide")
+To get started, refer to the following resources:
+
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=roku)
 
 ## Initial SDK Integration
 
@@ -25,7 +28,7 @@ The Braze Roku SDK will provide you with an API to report information to be used
 
 Add a reference to `BrazeSDK.brs` in your main scene using the following `script` element:
 
-```
+``` text
 <script type="text/brightscript" uri="pkg:/source/BrazeSDK.brs"/>
 ```
 
@@ -33,7 +36,7 @@ Add a reference to `BrazeSDK.brs` in your main scene using the following `script
 
 Within `main.brs`, set the Braze configuration on the global node:
 
-```
+``` text
 globalNode = screen.getGlobalNode()
 config = {}
 config_fields = BrazeConstants().BRAZE_CONFIG_FIELDS
@@ -47,7 +50,7 @@ globalNode.addFields({brazeConfig: config})
 
 Initialize the Braze instance:
 
-```
+``` text
 m.BrazeTask = createObject("roSGNode", "BrazeTask")
 m.Braze = getBrazeInstance(m.BrazeTask)
 ```
@@ -56,13 +59,13 @@ m.Braze = getBrazeInstance(m.BrazeTask)
 
 To process in-app messages, you can add an observer on `BrazeTask.BrazeInAppMessage`:
 
-```
+``` text
 m.BrazeTask.observeField("BrazeInAppMessage", "onInAppMessageReceived")
 ```
 
 Then within your handler, you have access to the highest in-app message that has been triggered by your campaigns:
 
-```
+``` text
 in_app_message = m.BrazeTask.BrazeInAppMessage
 ```
 
@@ -99,26 +102,26 @@ Button fields include:
 
 When a message is displayed or seen, log an impression:
 
-```
+``` text
 LogInAppMessageImpression(in_app_message.id, brazetask)
 ```
 
 Once a user clicks on the message, log a click:
-```
+``` text
 LogInAppMessageClick(in_app_message.id, brazetask)
 ```
 and then process `in_app_message.click_action`
 
 If the user clicks on a button, log the button click:
 
-```
+``` text
 LogInAppMessageButtonClick(inappmessage.id, inappmessage.buttons[selected].id, brazetask)
 ```
 and then process `inappmessage.buttons[selected].click_action`
 
 After processing in-app message, you should clear the field:
 
-```
+``` text
 m.BrazeTask.BrazeInAppMessage = invalid
 ```
 

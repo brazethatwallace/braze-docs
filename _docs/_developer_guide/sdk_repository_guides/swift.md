@@ -2,14 +2,18 @@
 nav_title: Swift SDK
 article_title: Swift SDK repository guide
 page_order: 3
-description: "Braze Android SDK README"
+description: "Braze Swift SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Braze Swift SDK [![latest release](https://img.shields.io/github/v/tag/braze-inc/braze-swift-sdk?label=latest%20release&color=300266)](https://github.com/braze-inc/braze-swift-sdk/releases) [![Static Badge](https://img.shields.io/badge/DocC-801ed7)](https://braze-inc.github.io/braze-swift-sdk)
+## About the Braze Swift SDK
 
-- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/ "Braze User Guide")
-- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift "Braze Developer Guide")
+The Braze Swift SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.
+
+To get started, refer to the following resources:
+
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
 
 ## Quickstart
 
@@ -50,10 +54,10 @@ See [the Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_i
 Tool | Minimum Supported Version
 :----|:----
 iOS|12.0+
-Mac Catalyst|13.0+
+Mac Catalyst|16.0+
 tvOS|12.0+
 visionOS|1.0+
-Xcode|16.0+ (16A242d)
+Xcode|26.0+ (17A324)
 
 ## Package Managers
 - Swift Package Manager
@@ -63,7 +67,7 @@ Xcode|16.0+ (16A242d)
 
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
-|                                                                                                                             | iOS |     tvOS      | macCatatyst |   visionOS    |
+|                                                                                                                             | iOS |     tvOS      | macCatalyst |   visionOS    |
 |-----------------------------------------------------------------------------------------------------------------------------|:---:|:-------------:|:-----------:|:-------------:|
 | **BrazeKit**<br/> _Main SDK library providing support for [analytics] and [push notifications]._                            |  ✅  | ✅<sup>1</sup> |      ✅      |       ✅       |
 | **BrazeUI**<br/> _Braze-provided user interface library for [In-App Messages] and [Content Cards]._                         |  ✅  |      n/a      |      ✅      |       ✅       |

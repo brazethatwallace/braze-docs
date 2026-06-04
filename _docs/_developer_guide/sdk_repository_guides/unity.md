@@ -2,13 +2,18 @@
 nav_title: Unity SDK
 article_title: Unity SDK repository guide
 page_order: 9
-description: "Braze Android SDK README"
+description: "Braze Unity SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Braze Unity SDK
+## About the Braze Unity SDK
 
-This repository contains the the C# interface and native Unity functionality for the Unity plugins derived from the Braze Android and iOS SDKs. Since version 1.5.0, Braze's Unity plugins require Unity 5. See the CHANGELOG for more information.
+The Braze Unity SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.
+
+To get started, refer to the following resources:
+
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=unity)
 
 ## Plugin Setup
 
@@ -26,7 +31,11 @@ Before you can start using Braze in Unity scripts, you'll need to import the plu
 To integrate Braze into your Unity application, complete our instructions for [Integrating the Braze Unity SDK][2].
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
-[2]: https://www.braze.com/docs/developer_guide/platforms/unity/sdk_integration
+[2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
+
+## Contact
+
+If you have questions, please contact [support@braze.com](mailto:support@braze.com).
 <!-- END GENERATED README CONTENT -->
 
 For repository details and sample projects, see [https://github.com/braze-inc/braze-unity-sdk](https://github.com/braze-inc/braze-unity-sdk).

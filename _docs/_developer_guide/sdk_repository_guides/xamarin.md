@@ -2,25 +2,18 @@
 nav_title: .NET MAUI (Xamarin) SDK
 article_title: .NET MAUI (Xamarin) SDK repository guide
 page_order: 10
-description: "Braze Android SDK README"
+description: "Braze .NET MAUI (Xamarin) SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Braze Xamarin SDK
+## About the Braze .NET MAUI (Xamarin) SDK
 
-Successful marketing automation is essential to the future of your mobile app. Braze helps you engage your users beyond the download. Visit the following links for details and we'll have you up and running in no time!
+The Braze .NET MAUI (Xamarin) SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.
 
-- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/ "Braze User Guide")
-- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/home/ "Braze Developer Guide")
-- iOS Xamarin Bindings NuGet Packages:
-  - [Braze.iOS.BrazeKit](https://www.nuget.org/packages/Braze.iOS.BrazeKit "Braze.iOS.BrazeKit")
-  - [Braze.iOS.BrazeUI](https://www.nuget.org/packages/Braze.iOS.BrazeUI "Braze.iOS.BrazeUI")
-  - [Braze.iOS.BrazeLocation](https://www.nuget.org/packages/Braze.iOS.BrazeLocation "Braze.iOS.BrazeLocation")
-  - [Braze.iOS.BrazeKitCompat](https://www.nuget.org/packages/Braze.iOS.BrazeKitCompat "Braze.iOS.BrazeKitCompat")
-  - [Braze.iOS.BrazeUICompat](https://www.nuget.org/packages/Braze.iOS.BrazeUICompat "Braze.iOS.BrazeUICompat")
-- Android Xamarin Bindings NuGet Packages:
-  - [BrazePlatform.BrazeAndroidBinding](https://www.nuget.org/packages/BrazePlatform.BrazeAndroidBinding "Braze Android Xamarin Binding NuGet Package")
-  - [BrazePlatform.BrazeAndroidLocationBinding](https://www.nuget.org/packages/BrazePlatform.BrazeAndroidLocationBinding "Braze Android Location Xamarin Binding NuGet Package")
+To get started, refer to the following resources:
+
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=xamarin)
 
 ## Components
 

@@ -2,15 +2,10 @@
 nav_title: React Native SDK
 article_title: React Native SDK repository guide
 page_order: 7
-description: "Braze Android SDK README"
+description: "Braze React Native SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Braze React Native SDK [![latest](https://img.shields.io/github/v/tag/braze-inc/braze-react-native-sdk?label=latest%20release&color=300266)](https://github.com/braze-inc/braze-react-native-sdk/releases) [![npm](https://img.shields.io/npm/v/@braze/react-native-sdk?label=npm&color=300266)](https://www.npmjs.com/package/@braze/react-native-sdk)
-
-- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze Developer Guide — React Native](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)
-
 ## About the Braze React Native SDK
 
 The Braze React Native SDK connects your iOS and Android apps to Braze: user profiles, messaging surfaces, analytics, and feature flags. It wraps the native [Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk) and [Braze Android SDK](https://github.com/braze-inc/braze-android-sdk) behind a JavaScript API.
@@ -38,35 +33,9 @@ The Braze React Native SDK connects your iOS and Android apps to Braze: user pro
 
 For credential locations in the dashboard, follow the [integration overview](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native).
 
-## Table of contents
-
-1. [Installation](#installation)
-2. [Quick start](#quick-start)
-3. [Native setup](#native-setup)
-4. [Configuration reference](#configuration-reference)
-5. [JavaScript / TypeScript API](#javascript--typescript-api)
-6. [Core features](#core-features)
-   - [User management](#user-management)
-   - [In-app messages](#in-app-messages)
-   - [Content Cards](#content-cards)
-   - [Banners](#banners)
-   - [Push notifications](#push-notifications)
-   - [Feature flags](#feature-flags)
-   - [Analytics and purchases](#analytics-and-purchases)
-   - [Data management and SDK state](#data-management-and-sdk-state)
-7. [Events](#events)
-8. [Integration notes](#integration-notes)
-9. [Version support](#version-support)
-10. [Braze Expo plugin](#braze-expo-plugin)
-11. [Sample app](#sample-app)
-12. [Debugging and troubleshooting](#debugging-and-troubleshooting)
-13. [Additional resources](#additional-resources)
-
----
-
 ## Installation
 
-```shell
+``` bash
 npm install @braze/react-native-sdk
 # or:
 # yarn add @braze/react-native-sdk
@@ -80,7 +49,7 @@ npm install @braze/react-native-sdk
 2. Complete **native setup** for Android and iOS (configuration, permissions, push if needed).
 3. Initialize the SDK from JavaScript and start using it:
 
-```typescript
+``` typescript
 import Braze from "@braze/react-native-sdk";
 
 // Initialize the SDK — call early in your app lifecycle (e.g. in a useEffect).
@@ -109,7 +78,7 @@ Calling `Braze.initialize` again with different credentials tears down the curre
 - Ensure basic permissions such as `INTERNET` and `ACCESS_NETWORK_STATE` in `AndroidManifest.xml`.
 - For push, complete FCM integration and any Braze-specific sender ID / registration flags described in the docs.
 
-```xml
+``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <!-- Enable delayed initialization so the SDK starts when
@@ -122,17 +91,18 @@ Calling `Braze.initialize` again with different credentials tears down the curre
 </resources>
 ```
 
-> **Note:** The API key and endpoint are no longer set in `braze.xml` — they are passed from JavaScript via `Braze.initialize(apiKey, endpoint)`.
-
+{% alert note %}
+** The API key and endpoint are no longer set in `braze.xml` — they are passed from JavaScript via `Braze.initialize(apiKey, endpoint)`.
+{% endalert %}
 ### iOS
 
-```shell
+``` bash
 cd ios && pod install
 ```
 
 Use `BrazeReactInitializer.configure` in your `AppDelegate` to register native configuration. The closures you provide are stored and applied later when `Braze.initialize(apiKey, endpoint)` is called from JavaScript.
 
-```swift
+``` swift
 import BrazeKit
 import braze_react_native_sdk
 
@@ -161,8 +131,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 - **`configure` closure**: receives a `Braze.Configuration` and lets you set native configuration properties (logging, push, sessions, etc.). The API key and endpoint are provided from JavaScript — you do not set them here.
 - **`postInitialization` closure** *(optional)*: receives the live `Braze` instance after creation, for setup that requires the instance (e.g. storing a reference, setting delegates).
 
-> **Note:** `BrazeReactInitializer.configure` is a Swift-first API that replaces the deprecated `BrazeReactBridge.initBraze(_:)`. It also resolves a Swift type-resolution issue with `Braze.Configuration` in the Objective-C bridge.
-
+{% alert note %}
+** `BrazeReactInitializer.configure` is a Swift-first API that replaces the deprecated `BrazeReactBridge.initBraze(_:)`. It also resolves a Swift type-resolution issue with `Braze.Configuration` in the Objective-C bridge.
+{% endalert %}
 ---
 
 ## Configuration reference
@@ -218,7 +189,7 @@ The package default export is the `Braze` class with **static** methods (for exa
 
 ### User management
 
-```typescript
+``` typescript
 import Braze from "@braze/react-native-sdk";
 
 Braze.changeUser("user-123");
@@ -235,7 +206,7 @@ Optional **SDK Authentication**: pass a signature as the second argument to `cha
 - With the **default Braze UI**, follow the [in-app message documentation](https://github.com/braze-inc/braze-react-native-sdk/blob/master/docs/developer_guide/in_app_messages?sdktab=react%20native); you typically do **not** need to call `subscribeToInAppMessage` only to show default UI.
 - For **custom** handling, subscribe with `useBrazeUI: false`, then log impressions/clicks as needed:
 
-```typescript
+``` typescript
 Braze.subscribeToInAppMessage(false, (event) => {
   const msg = event.inAppMessage;
   // Render your own UI from msg.message, msg.buttons, etc.
@@ -245,7 +216,7 @@ Braze.subscribeToInAppMessage(false, (event) => {
 
 ### Content Cards
 
-```typescript
+``` typescript
 const cards = await Braze.getContentCards();
 Braze.requestContentCardsRefresh();
 Braze.launchContentCards(); // default Braze UI
@@ -258,7 +229,7 @@ Listen for updates with `Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, .
 
 ### Banners
 
-```typescript
+``` typescript
 import Braze from "@braze/react-native-sdk";
 
 Braze.requestBannersRefresh(["homepage_banner"]);
@@ -270,7 +241,7 @@ const banner = await Braze.getBanner("homepage_banner");
 
 ### Push notifications
 
-```typescript
+``` typescript
 Braze.requestPushPermission({
   alert: true,
   badge: true,
@@ -285,7 +256,7 @@ Braze.registerPushToken(token);
 
 ### Feature flags
 
-```typescript
+``` typescript
 const flag = await Braze.getFeatureFlag("new_checkout");
 if (flag?.enabled) {
   const rollout = flag.getNumberProperty("rollout_percentage") ?? 0;
@@ -296,7 +267,7 @@ Braze.logFeatureFlagImpression("new_checkout");
 
 ### Analytics and purchases
 
-```typescript
+``` typescript
 Braze.logCustomEvent("purchase_completed", { sku: "sku-1" });
 Braze.logPurchase("sku-1", "29.99", "USD", 1, { source: "cart" });
 Braze.requestImmediateDataFlush();
@@ -308,7 +279,7 @@ Note: `logPurchase` takes **price as a string** (see typings).
 
 **`changeUser`** only tells Braze which user ID to attribute **new** activity to. It does **not** clear cached SDK data on the device. There is no separate “logout” API: if you need a traditional sign-out (clear local Braze state so the prior user’s cached profile, messages, and tokens are gone on this install), you typically use **`wipeData()`**. This is a full local reset.
 
-```typescript
+``` typescript
 Braze.wipeData();
 Braze.disableSDK();
 Braze.enableSDK();
@@ -328,7 +299,7 @@ Subscribe with `Braze.addListener(event, callback)`. The call returns a subscrip
 
 **Setting up a listener:**
 
-```typescript
+``` typescript
 import Braze from "@braze/react-native-sdk";
 
 const subscription = Braze.addListener(
@@ -341,13 +312,13 @@ const subscription = Braze.addListener(
 
 **Removing the listener:**
 
-```typescript
+``` typescript
 subscription.remove();
 ```
 
 In a React component, store the subscription and call `.remove()` in your cleanup (e.g. the return of a `useEffect`):
 
-```typescript
+``` typescript
 useEffect(() => {
   const sub = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (update) => {
     setCards(update.cards);
@@ -376,9 +347,9 @@ useEffect(() => {
 
 ## Version support
 
-> [!NOTE]
-> This SDK has been tested with React Native version **0.83.0**.
-
+{% alert note %}
+This SDK has been tested with React Native version **0.83.0**.
+{% endalert %}
 | Braze plugin | React Native | New Architecture |
 |--------------|--------------|------------------|
 | 9.0.0+       | ≥ 0.71       | Yes              |
@@ -403,7 +374,7 @@ For Expo-managed workflows, see the [Braze Expo plugin repository](https://githu
 
 `BrazeProject` in this repository is a full sample (user management, content cards, feature flags, banners, etc.).
 
-```shell
+``` bash
 cd BrazeProject/
 yarn install
 npx react-native start
@@ -411,7 +382,7 @@ npx react-native start
 
 **iOS** (from `BrazeProject`):
 
-```shell
+``` bash
 cd ios && pod install && cd ..
 npx react-native run-ios
 ```
@@ -420,7 +391,7 @@ Use `RCT_NEW_ARCH_ENABLED=0 pod install` if you need the legacy architecture.
 
 **Android** (from `BrazeProject`):
 
-```shell
+``` bash
 npx react-native run-android
 ```
 

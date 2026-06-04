@@ -2,15 +2,18 @@
 nav_title: Cordova SDK
 article_title: Cordova SDK repository guide
 page_order: 5
-description: "Braze Android SDK README"
+description: "Braze Cordova SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Braze Cordova SDK
+## About the Braze Cordova SDK
 
-Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. View the following resources for details and we'll have you up and running in no time!
+The Braze Cordova SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.
 
-See our instructions for [Integrating the Braze Cordova SDK](https://www.braze.com/docs/developer_guide/platforms/cordova/sdk_integration) into your Cordova app.
+To get started, refer to the following resources:
+
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=cordova)
 
 ## Minimum version requirements
 
@@ -24,8 +27,10 @@ This SDK additionally inherits the requirements of its underlying Braze native S
 * [Swift SDK requirements](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 
 ## Installing the SDK
-#### ⚠ Only add the Braze Cordova SDK using the methods below. Do not attempt to install using other methods as it could lead to a security breach. ⚠
-```
+{% alert warning %}
+Only add the Braze Cordova SDK using the methods below. Do not attempt to install using other methods as it could lead to a security breach.
+{% endalert %}
+``` text
 # To use the base SDK functionality, install using the `master` branch.
 
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
@@ -35,7 +40,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 ```
 
 ## Running the sample application
-```
+``` text
 cordova plugin remove cordova-plugin-braze
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
 
