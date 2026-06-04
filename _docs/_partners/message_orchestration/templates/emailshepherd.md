@@ -68,7 +68,7 @@ In EmailShepherd, locate an email that you want to export to Braze. Make sure it
 
 ## Use the integration
 
-In Braze, find your exported emails under **Templates & Media** > **Email Templates**. You can use these templates in Braze campaigns and Canvases.
+In Braze, find your exported emails under **Content** > **Email**. You can use these templates in Braze campaigns and Canvases.
 
 ## Support
 
