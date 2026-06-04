@@ -145,6 +145,10 @@ Dismiss a comment when:
   > **Configuración de seguridad** for English **Settings** > **Admin Settings**
   > **Security Settings**). Localized nav paths are correct; only flag mixed
   English/localized controls within the same step list.
+- It claims table or icon `aria-label` values must stay in English when they
+  were correctly translated (for example `"Use cases"` → `"Casos de uso"` on
+  a Kramdown IAL line or `"Settings"` → `"Configuración"` on a `fa-gear` icon).
+  Localized `aria-label` values are correct per our translation rules.
 
 ## Response format
 
