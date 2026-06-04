@@ -41,6 +41,7 @@ REPO_ROOT = Path(os.environ.get("GITHUB_WORKSPACE", Path.cwd()))
 STYLE_REF = REPO_ROOT / ".github/skills/braze-docs/references/writing-style.md"
 GLOSSARY_REF = REPO_ROOT / ".github/skills/braze-docs/references/glossary.md"
 SUMMARY_MARKER = "<!-- braze-docs-style-review -->"
+CODE_ONLY_SKIP_MARKER = "<!-- braze-docs-style-review:code-only -->"
 SUMMARY_FILE = REPO_ROOT / "docs_style_review_summary.md"
 
 MARKDOWN_PREFIXES = ("_docs/", "_includes/", "_lang/")
@@ -1092,6 +1093,17 @@ def _list_pr_comments_with_marker() -> list[dict]:
     return [c for c in comments if SUMMARY_MARKER in (c.get("body") or "")]
 
 
+def _existing_summary_is_code_only_pass() -> bool:
+    """True when the PR already has a no-prose (code/markup-only) pass summary."""
+    marked = _list_pr_comments_with_marker()
+    if not marked:
+        return False
+    body = marked[-1].get("body") or ""
+    if CODE_ONLY_SKIP_MARKER in body:
+        return True
+    return "did not edit user-facing copy" in body and not _has_style_findings(0, [], [])
+
+
 def _delete_issue_comment(comment_id: int) -> None:
     owner, repo = REPO.split("/", 1)
     subprocess.run(
@@ -1137,6 +1149,7 @@ def sync_summary_comment(
             if skip_reason == "code_only":
                 lines.extend(
                     [
+                        CODE_ONLY_SKIP_MARKER,
                         "_Changed Markdown in this PR did not edit user-facing copy "
                         "(only inline code, fenced blocks, CSS, Liquid, HTML, or structural "
                         "markup), so no editorial review was run._",
@@ -1297,6 +1310,12 @@ def main() -> None:
     print(f"Reviewing {len(files)} Markdown file(s) in PR #{PR_NUMBER}")
     if not files:
         skip_reason = "code_only" if code_only_files else None
+        if skip_reason == "code_only" and _existing_summary_is_code_only_pass():
+            print(
+                "No user-facing prose changes; existing code-only pass summary unchanged "
+                "(no new comment)."
+            )
+            return
         sync_summary_comment(0, [], [], [], skip_reason=skip_reason)
         if code_only_files:
             print(
