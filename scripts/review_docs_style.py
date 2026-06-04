@@ -149,8 +149,6 @@ def get_changed_markdown_files() -> list[str]:
         path = line.strip()
         if not path.endswith(".md"):
             continue
-        if path.startswith("_docs/_hidden/") or "/_hidden/" in path:
-            continue
         if skip_lang and path.startswith("_lang/"):
             continue
         files.append(path)
@@ -496,8 +494,9 @@ def file_diff(path: str) -> str:
     return text
 
 
-# Heuristics aligned with scripts/translation_prompt.md: editorial review applies to
-# user-facing prose, not code fences, Liquid/HTML/CSS blocks, or structural markup.
+# Per-file gate: run editorial review only when the diff includes user-facing copy.
+# Skips diffs that touch only inline code, fenced blocks, CSS/HTML, Liquid, or markup
+# (same non-prose categories called out in scripts/translation_prompt.md).
 _PROSE_LETTERS = re.compile(
     r"[A-Za-zÀ-ÿ\u0400-\u04ff\u3040-\u30ff\u4e00-\u9fff]{4,}"
 )
@@ -515,6 +514,16 @@ def _strip_non_prose_fragments(line: str) -> str:
     text = re.sub(r"\{:[^}]+\}", "", text)
     text = re.sub(r"\{#[^}]+\}", "", text)
     return text.strip()
+
+
+def _line_is_inline_code_only(stripped: str) -> bool:
+    """True when the line edits only backtick inline code (no surrounding prose)."""
+    if "`" not in stripped:
+        return False
+    without_code = re.sub(r"`[^`]*`", "", stripped)
+    without_code = re.sub(r"^\s*[-*+\d.]+\s*", "", without_code)
+    without_code = re.sub(r"[|:\s]", "", without_code)
+    return not without_code or not _PROSE_LETTERS.search(without_code)
 
 
 def _line_is_css_like(stripped: str) -> bool:
@@ -536,6 +545,8 @@ def _diff_line_likely_prose(line: str) -> bool:
     """True when a changed diff line probably edits user-facing copy."""
     stripped = line.rstrip()
     if not stripped:
+        return False
+    if _line_is_inline_code_only(stripped):
         return False
     if _line_is_css_like(stripped):
         return False
@@ -600,7 +611,7 @@ def filter_files_with_prose_changes(files: list[str]) -> tuple[list[str], list[s
             prose_files.append(path)
         else:
             code_only.append(path)
-            print(f"Skipping `{path}` (diff has no user-facing prose changes)")
+            print(f"Skipping `{path}` (diff changes code/markup only, not user-facing copy)")
     return prose_files, code_only
 
 
@@ -1126,9 +1137,9 @@ def sync_summary_comment(
             if skip_reason == "code_only":
                 lines.extend(
                     [
-                        "_Changed Markdown in this PR did not include user-facing copy "
-                        "edits (only code, CSS, Liquid, HTML, or structural markup), so "
-                        "no editorial review was run._",
+                        "_Changed Markdown in this PR did not edit user-facing copy "
+                        "(only inline code, fenced blocks, CSS, Liquid, HTML, or structural "
+                        "markup), so no editorial review was run._",
                         "",
                     ]
                 )
@@ -1280,8 +1291,8 @@ def main() -> None:
     files, code_only_files = filter_files_with_prose_changes(files)
     if code_only_files:
         print(
-            f"Skipped {len(code_only_files)} file(s) with code/structure-only diffs "
-            "(no user-facing prose changes)."
+            f"Skipped {len(code_only_files)} file(s) whose diffs change code/markup only "
+            "(no user-facing copy edits)."
         )
     print(f"Reviewing {len(files)} Markdown file(s) in PR #{PR_NUMBER}")
     if not files:
