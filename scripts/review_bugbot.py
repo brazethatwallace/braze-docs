@@ -139,6 +139,12 @@ Dismiss a comment when:
   (e.g., Braze product names, technical terms)
 - It conflicts with the translation rules (e.g., keeping English product names)
 - The current text is actually correct
+- It claims bold dashboard breadcrumb paths must stay in English when the
+  translation matches localized Braze dashboard UI labels for that locale
+  (for example Spanish **Configuración** > **Configuración de administrador**
+  > **Configuración de seguridad** for English **Settings** > **Admin Settings**
+  > **Security Settings**). Localized nav paths are correct; only flag mixed
+  English/localized controls within the same step list.
 
 ## Response format
 

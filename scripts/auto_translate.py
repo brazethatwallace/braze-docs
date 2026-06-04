@@ -451,9 +451,12 @@ get_started, messaging, analytics, onboarding_faq), keep locale-established card
 labels, headings, and common nouns aligned with the locale's linked pages; avoid \
 introducing English variants where that locale already uses translated labels.
 8. **Procedure UI labels**: In each numbered or bulleted procedure, bold \
-dashboard controls must not mix English with localized forms—either mirror \
-the English source bold strings verbatim for that whole list or localize \
-every control in that list per the style guide; fix any half-and-half lists.
+dashboard controls must not mix English with localized forms—localize every \
+breadcrumb, tab, button, and menu label together to match the in-product UI \
+for that locale, or keep the whole list verbatim when the locale already uses \
+English-only breadcrumbs; fix any half-and-half lists. Localized Settings \
+paths (for example ES **Configuración** > **Configuración de administrador**) \
+are correct—do not revert them to English.
 9. **Heading anchor parity**: If some section headings use explicit Kramdown \
 `{#id}` blocks, ensure peer headings that need stable deep links include the \
 expected `{#slug}` (especially multi-table `_includes`).
