@@ -99,6 +99,11 @@ Repository READMEs are authored for GitHub rendering, but docs pages require:
    - Collapses excessive blank lines.
    - Produces stable output for cleaner diffs and easier reviews.
 
+9. **Enforce table accessibility metadata**
+   - Adds table IAL blocks with `aria-label` after markdown tables when missing.
+   - Uses the nearest markdown heading to generate a descriptive label.
+   - Preserves existing explicit layout-table opt-outs (`role="presentation"` or `role="none"`).
+
 ## Performance and maintainability controls
 
 - Uses concurrent README fetching for efficient runtime.

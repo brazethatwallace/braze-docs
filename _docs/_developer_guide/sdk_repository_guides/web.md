@@ -90,6 +90,7 @@ The `initialize` function accepts an options object with the following propertie
 | `requireExplicitInAppMessageDismissal` | `boolean` | `false` | By default, in-app messages can be dismissed by clicking outside of them or pressing the escape key. Set this option to true to require users to explicitly click a dismiss button or action button to dismiss the message. |
 | `devicePropertyAllowlist` | `string[]` | `undefined` | By default, the Braze SDK automatically detects and collects all device properties in DeviceProperties. To override this behavior, provide an array of DeviceProperties. To disable all properties being sent to Braze servers, provide an empty array. Note that without some properties, not all features will function properly. For instance, without the time zone, local timezone delivery will not function. |
 | `serviceWorkerScope` | `string` | `undefined` | By default, the Braze Web SDK will register its service worker with the default scope (the service worker's directory). Provide a value for this option to override that default and specify a custom scope for the service worker. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Initialization Options" }
 
 ---
 
@@ -806,6 +807,7 @@ Braze may also be compatible with other tag management solutions by following ou
 | Full | Full SDK with UI. When using the npm version, Javascript bundlers will remove any unused code including the UI. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js
 | Core | Contains the SDK without UI. You will need to implement your own UI for In-App Messaging and Content Cards when using this version of the SDK. Our UI elements are fully customizable via css, so we generally recommend integration of the full library instead. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js
 | No-AMD | Contains the full SDK without AMD support. This is useful if your site uses RequireJS or another AMD module-loader, but you prefer to load the SDK through the CDN. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Libraries" }
 
 ## Supported Browsers
 

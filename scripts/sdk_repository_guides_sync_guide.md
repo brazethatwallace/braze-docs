@@ -47,8 +47,9 @@ For every source README, the script applies deterministic post-processing:
 7. Removes README table-of-contents blocks to avoid duplicate navigation in docs.
 8. Removes leading README preamble text before the first section heading so pages begin with clean article sections.
 9. Injects a standardized intro section (`About the Braze <SDK>`) for consistent page starts across repository guide pages.
-10. Removes the README top-level H1 to avoid duplicate page titles in docs templates.
-11. Collapses excessive whitespace.
+10. Adds markdown table accessibility labels automatically (`{: ... aria-label="..." }`) using the nearest section heading.
+11. Removes the README top-level H1 to avoid duplicate page titles in docs templates.
+12. Collapses excessive whitespace.
 
 ### CLI usage
 

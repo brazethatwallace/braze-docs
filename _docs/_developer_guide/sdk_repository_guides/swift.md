@@ -74,6 +74,7 @@ Xcode|26.0+ (17A324)
 | **BrazeLocation**<br/> _Location library providing support for [location analytics and geofence monitoring]._               |  ✅  | ✅<sup>2</sup> |      ✅      | ✅<sup>2</sup> |
 | **BrazeNotificationService**<br/> _Notification service extension library providing support for [rich push notifications]._ |  ✅  |      n/a      |      ✅      |       ✅       |
 | **BrazePushStory**<br/> _Notification content extension library providing support for [Push Stories]._                      |  ✅  |      n/a      |      ✅      |       ✅       |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Libraries" }
 
 <sup>1</sup> _Push notifications not supported on tvOS_<br/>
 <sup>2</sup> _Geofence monitoring not supported on tvOS and visionOS_
@@ -98,6 +99,7 @@ Explore our [examples project](https://github.com/braze-inc/braze-swift-sdk/blob
 | Static XCFrameworks                   |    [braze-inc/braze-swift-sdk-prebuilt-static] |                   ✗ |
 | Dynamic XCFrameworks                  |   [braze-inc/braze-swift-sdk-prebuilt-dynamic] |                   ✗ |
 | Mergeable XCFrameworks (early access) | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                   ✗ |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Alternative Repositories" }
 
 ## Contact
 

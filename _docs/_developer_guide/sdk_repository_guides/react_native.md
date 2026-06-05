@@ -157,6 +157,7 @@ Commonly used entries:
 | `com_braze_handle_push_deep_links_automatically` | `bool` | Let Braze open push deep links automatically. |
 | `com_braze_trigger_action_minimum_time_interval_seconds` | `integer` | Minimum seconds between in-app message trigger actions. |
 | **Other** | *various* | Additional keys not show here (session timeout, geofences, location, notification defaults, device allowlists, delayed initialization, SDK Authentication, etc…). See [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) and the [Android SDK integration guide](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Android (braze.xml)" }
 
 ### iOS (`Braze.Configuration`)
 
@@ -174,6 +175,7 @@ Set native configuration properties in the `configure` closure passed to `BrazeR
 | **Push subscription** | `optInWhenPushAuthorized` | When `true`, subscription can move to opted-in after the user authorizes notifications. |
 | **IAM + user changes** | `preventInAppMessageDisplayForDifferentUser` | Reduces mismatched IAM if the user ID changes. |
 | **Other** | `forwardUniversalLinks`, `ephemeralEvents`, `useUUIDAsDeviceId`, … | See Swift documentation for full behavior. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS (Braze.Configuration)" }
 
 The React Native bridge sets React-specific **`api.sdkFlavor`** / SDK metadata on init; do not override those unless Braze documentation instructs you to.
 
@@ -335,6 +337,7 @@ useEffect(() => {
 | `Braze.Events.IN_APP_MESSAGE_RECEIVED` | In-app message event |
 | `Braze.Events.SDK_AUTHENTICATION_ERROR` | SDK auth error details |
 | `Braze.Events.PUSH_NOTIFICATION_EVENT` | Push payload (**Android only**) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
 
 ---
 
@@ -356,6 +359,7 @@ This SDK has been tested with React Native version **0.83.0**.
 | 6.0.0+       | ≥ 0.68       | Yes (≥ 0.70.0)   |
 | 2.0.0+       | ≥ 0.68       | Yes              |
 | ≤ 1.41.0     | ≤ 0.71       | No               |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Version support" }
 
 Also respect native SDK requirements:
 

@@ -21,6 +21,7 @@ To get started, refer to the following resources:
 | ------------ | --------------- | ----------- |
 | 10.0.0+      | >= 13.0.0       | >= 5.0.0    |
 | 2.31.0+      | >= 12.0.0       | >= 5.0.0    |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Minimum version requirements" }
 
 This SDK additionally inherits the requirements of its underlying Braze native SDKs. Be sure to also adhere to the lists below:
 * [Android SDK requirements](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)

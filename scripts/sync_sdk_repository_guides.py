@@ -55,6 +55,14 @@ WARNING_HEADING_PATTERN = re.compile(
     r"^\s{0,3}#{2,6}\s*(?:⚠️?|:warning:)\s*(.+?)\s*(?:⚠️?)?\s*$",
     re.IGNORECASE,
 )
+IAL_RE = re.compile(r"^\s*\{:.*\}\s*$")
+IAL_ARIA_LABEL_RE = re.compile(r"aria-label\s*=")
+LAYOUT_ROLE_RE = re.compile(r'role\s*=\s*["\']?(presentation|none)["\']?', re.IGNORECASE)
+TABLE_SEPARATOR_CELL_RE = re.compile(r"^:?-+:?$")
+STRIP_MD_RE = re.compile(
+    r"\[([^\]]+)\]\([^)]+\)|`([^`]+)`|\*\*([^*]+)\*\*|\*([^*]+)\*"
+)
+STRIP_EXTRA_RE = re.compile(r"[`*_{}<>]")
 
 CODE_FENCE_LANGUAGE_ALIASES: Dict[str, str] = {
     "sh": "bash",
@@ -537,6 +545,121 @@ def normalize_code_fences(content: str) -> str:
     return "\n".join(normalized)
 
 
+def build_skip_mask(lines: Sequence[str]) -> List[bool]:
+    skip = [False] * len(lines)
+    in_fence = False
+    fence_marker = ""
+    in_raw = False
+
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+
+        if not in_raw and "{% raw %}" in line:
+            if "{% endraw %}" not in line:
+                in_raw = True
+                skip[index] = True
+                continue
+        elif in_raw:
+            skip[index] = True
+            if "{% endraw %}" in line:
+                in_raw = False
+            continue
+
+        if not in_fence:
+            match = re.match(r"^(`{3,}|~{3,})", stripped)
+            if match:
+                in_fence = True
+                fence_marker = match.group(1)[0] * len(match.group(1))
+                skip[index] = True
+                continue
+        else:
+            skip[index] = True
+            if re.match(r"^" + re.escape(fence_marker) + r"`*\s*$", stripped):
+                in_fence = False
+            continue
+
+    return skip
+
+
+def is_gfm_table_row(line: str) -> bool:
+    return line.lstrip().startswith("|")
+
+
+def is_table_separator(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped.startswith("|"):
+        return False
+    cells = [cell.strip() for cell in stripped.strip("|").split("|")]
+    return bool(cells) and all(TABLE_SEPARATOR_CELL_RE.match(cell) for cell in cells if cell)
+
+
+def clean_heading_for_label(raw_heading: str) -> str:
+    heading = STRIP_MD_RE.sub(lambda match: next(group for group in match.groups() if group is not None), raw_heading)
+    heading = STRIP_EXTRA_RE.sub("", heading).strip()
+    heading = heading.replace('"', "'")
+    return heading or "Table"
+
+
+def nearest_heading_label(lines: Sequence[str], table_start_idx: int) -> str:
+    for heading_idx in range(table_start_idx - 1, -1, -1):
+        match = MARKDOWN_HEADING_PATTERN.match(lines[heading_idx].strip())
+        if match:
+            return clean_heading_for_label(match.group(2))
+    return "Table"
+
+
+def count_table_columns(lines: Sequence[str], table_start_idx: int, table_end_idx: int) -> int:
+    for row_idx in range(table_start_idx, table_end_idx):
+        row = lines[row_idx].strip()
+        if row.startswith("|") and not is_table_separator(row):
+            cells = [cell for cell in row.strip("|").split("|")]
+            return max(1, len(cells))
+    return 2
+
+
+def make_table_ial(column_count: int, label: str) -> str:
+    classes = " ".join(f".reset-td-br-{index}" for index in range(1, column_count + 1))
+    return f'{{: {classes} aria-label="{label}" }}'
+
+
+def add_accessible_names_to_tables(content: str) -> str:
+    lines = content.splitlines()
+    skip = build_skip_mask(lines)
+    index = 0
+
+    while index < len(lines):
+        if skip[index] or not is_gfm_table_row(lines[index]):
+            index += 1
+            continue
+
+        table_start = index
+        has_separator = False
+        while index < len(lines) and not skip[index] and is_gfm_table_row(lines[index]):
+            if is_table_separator(lines[index]):
+                has_separator = True
+            index += 1
+        table_end = index
+
+        if not has_separator:
+            continue
+
+        label = nearest_heading_label(lines, table_start)
+        column_count = count_table_columns(lines, table_start, table_end)
+        ial_line = lines[table_end].strip() if table_end < len(lines) else ""
+        new_ial = make_table_ial(column_count, label)
+
+        if IAL_RE.match(ial_line):
+            if not (IAL_ARIA_LABEL_RE.search(ial_line) or LAYOUT_ROLE_RE.search(ial_line)):
+                lines[table_end] = new_ial
+            continue
+
+        lines.insert(table_end, new_ial)
+        skip.insert(table_end, False)
+        index = table_end + 1
+
+    return "\n".join(lines)
+
+
 def collapse_excess_blank_lines(content: str) -> str:
     return re.sub(r"\n{3,}", "\n\n", content)
 
@@ -558,6 +681,7 @@ def apply_post_processing(content: str, guide: RepoGuide) -> str:
     normalized = remove_markdown_table_of_contents(normalized)
     normalized = strip_readme_preamble_before_sections(normalized)
     normalized = ensure_standard_intro(normalized, guide)
+    normalized = add_accessible_names_to_tables(normalized)
     normalized = collapse_excess_blank_lines(normalized)
     return normalized.rstrip() + "\n"
 
