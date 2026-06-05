@@ -202,4 +202,4 @@ When a quality rating is low, the phone number status changes from **Connected**
 
 #### What if my template was falsely flagged for violating WhatsApp's Commerce Policy?
 
-If you believe Meta falsely flagged your template, use the review link in the email from WhatsApp to request a re-review. The WhatsApp Business team reverses the decision after review.
+If you believe Meta falsely flagged your template, use the review link in the email from WhatsApp to request a re-review. The WhatsApp Business team reviews the decision and reverses it if appropriate.
