@@ -87,7 +87,7 @@ When you create a new campaign or Canvas, the name may take some time to propaga
 
 ### Why are session end events delayed or missing in Currents?
 
-Session end events follow the SDK's normal upload schedule. The Braze SDK caches session data locally and flushes it periodically based on network quality—for example, about every 10 seconds on a strong connection. Until the SDK uploads the event, it won't appear in Currents.
+Session end events follow the SDK's normal upload schedule. The Braze SDK caches session data locally and flushes it periodically based on network quality—for example, about every 10 seconds on a strong connection. Until the SDK uploads the event, it doesn't appear in Currents.
 
 If a user force-quits the app or goes offline before the next flush, the session end event may arrive late or not at all. On iOS, session end events often don't flush until the app reopens because the SDK can't send data while the app is in the background.
 
