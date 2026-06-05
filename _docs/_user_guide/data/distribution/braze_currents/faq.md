@@ -87,9 +87,11 @@ When you create a new campaign or Canvas, the name may take some time to propaga
 
 ### Why are session end events delayed or missing in Currents?
 
-Session end events are flushed on the SDK's normal upload schedule (typically about every 10 seconds when the network is available). If a user force-quits the app or goes offline before that flush, the session end may arrive late or not at all in Currents.
+Session end events follow the SDK's normal upload schedule. The Braze SDK caches session data locally and flushes it periodically based on network quality—for example, about every 10 seconds on a strong connection. Until the SDK uploads the event, it won't appear in Currents.
 
-To improve timeliness for session end in Currents, call your platform's immediate flush after session start when you need near-real-time session boundaries—for example, `requestImmediateDataFlush()` on supported SDKs. For general flush behavior, see [SDK overview]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/#data-upload-and-download).
+If a user force-quits the app or goes offline before the next flush, the session end event may arrive late or not at all. On iOS, session end events often don't flush until the app reopens because the SDK can't send data while the app is in the background.
+
+When you need timelier session boundaries in Currents, call `requestImmediateDataFlush()` at lifecycle points such as when the app moves to the background or returns to the foreground. For more information, see [Data upload and download]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/#data-upload-and-download) and [Session end and session start have similar timestamps (iOS)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/#session-end-and-session-start-have-similar-timestamps-ios).
 
 ### What happens if my storage bucket is unavailable when Currents tries to write data?
 
