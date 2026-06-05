@@ -147,19 +147,18 @@ Join our VIP program to unlock free shipping.
 
 No. Braze renders each message component separately (such as subject line, HTML body, preheader, and push title). Assignments or captures you make in one field are not available in another. Repeat the Liquid or Connected Content call in each field that needs the value.
 
-<!-- sf-kb-phase2-batch -->
 
 ### Can I use Liquid inside the `abort_message` tag?
 
-No. The `{% abort_message %}` tag accepts only a static string in quotes, not Liquid personalization. Use other Liquid logic before the tag if you need conditional abort behavior.
+No. The `{% abort_message %}` tag accepts a static string in quotes, not Liquid personalization. Use other Liquid logic before the tag if you need conditional abort behavior.
 
 ### Why am I seeing an "Unexpected end token" Liquid error?
 
-This error usually means extra or missing curly braces. Do not nest `{{ }}` inside another Liquid tag expression. For example, use `{{custom_attribute.${date_of_birth} | date: '%s'}}` rather than wrapping the attribute reference in an additional pair of braces.
+This error usually indicates extra or missing curly braces. Do not nest `{{ }}` inside another Liquid tag expression. For example, use `{{custom_attribute.${date_of_birth} | date: '%s'}}` rather than wrapping the attribute reference in an additional pair of braces.
 
 ### Why does my message abort with "Invalid from email address for recipient:"?
 
-This abort often occurs when Liquid in the **From** address produces invalid syntax, such as a missing variable, extra spaces, or disallowed characters. Preview with a test user and verify the rendered **From** address matches your configured sending domain.
+This abort occurs when Liquid in the **From** address produces invalid syntax, such as a missing variable, extra spaces, or disallowed characters. Preview with a test user and verify the rendered **From** address matches your configured sending domain.
 
 ### Why is my Content Block missing from **Row** in the drag-and-drop search tool?
 
@@ -171,11 +170,11 @@ Use Liquid in the **Reply-To** field when your workspace supports dynamic Reply-
 
 ### Why does my drag-and-drop Content Block preview differ from the compose view?
 
-When you template a Content Block with Liquid, mobile media queries in the block may not apply in preview the same way they do when you drag the block directly into a message. Dragging the block preserves layout but decouples it from the source block, so future block edits no longer update the message automatically.
+When you template a Content Block with Liquid, mobile media queries in the block may not apply in the preview the same way they do when you drag the block directly into a message. Dragging the block preserves layout but decouples it from the source block, so future block edits no longer update the message automatically.
 
-### Are there size limits for Canvas entry properties?
+### Are there size limits for Canvas context properties?
 
-Braze does not enforce a hard limit on Canvas entry properties, but keep payloads under about 1 KB (~1,000 characters). Larger objects can increase memory use and delay message rendering during high-volume sends.
+Braze does not enforce a hard limit on [Canvas context properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), but keep payloads under approximately 1 KB (~1,000 characters). Larger objects can increase memory use and delay message rendering during high-volume sends.
 
 ### Why does my Catalog Liquid snippet return an abort message?
 
@@ -183,11 +182,19 @@ If a Catalog Liquid snippet aborts during send, recreate the snippet from the pe
 
 ### Why do I get a Liquid error when previewing certain data types in the dashboard?
 
-Some Canvas entry property types require coercion in Liquid before you use them in comparisons or math. For example, append `| plus: 0` when you need numeric behavior.
+Some [Canvas context property]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) types require coercion in Liquid before you use them in comparisons or math. For example, when you need numeric behavior:
+
+{% raw %}
+```liquid
+{{context.${property_name} | plus: 0}}
+```
+{% endraw %}
 
 ### Why is Connected Content retry unavailable for my in-app message?
 
+{% raw %}
 The `{% connected_content %}` tag with retry is not supported for all message types, including some in-app message formats. Remove retry parameters or use a supported channel for retried Connected Content calls.
+{% endraw %}
 
 ### How do I preview event property values in Message Composer?
 
