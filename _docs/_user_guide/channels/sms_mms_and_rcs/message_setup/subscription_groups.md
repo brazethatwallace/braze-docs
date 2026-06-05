@@ -69,7 +69,7 @@ In adherence with international [telecommunication compliance and guidelines]({{
 
 ## SMS subscription group best practices
 
-Design separate SMS subscription groups for each messaging purpose (for example, transactional versus marketing) and for each App Group. When you operate in multiple countries, consider separate groups by region to support local compliance rules—for example, Brazil's restrictions on promotional send windows.
+Design separate SMS subscription groups for each messaging purpose (for example, transactional versus marketing) and for each workspace. When you operate in multiple countries, consider separate groups by region to support local compliance rules—for example, Brazil's restrictions on promotional send windows.
 
 ## Enable subscription groups
 
