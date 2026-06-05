@@ -52,6 +52,12 @@ tool:
 
 テンプレートの保存場所の詳細については、[テンプレートとメディア]({{site.baseurl}}/user_guide/messaging/templates/)を参照してください。
 
+### ドラッグ＆ドロップエディターでボタンの塗りつぶし色を変更できないのはなぜですか？ {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+
+ページレベルのスタイルがメッセージレベルのスタイルを上書きすることがあります。ボタンやブロックの**塗りつぶし**を更新しても反映されない場合は、以下をお試しください。
+1. [メールのグローバルスタイル設定]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)を開き、競合しているページスタイルで**デフォルトにリセット**を選択して、メッセージレベルの色が適用されるようにします。
+2. ブロックで色を再度設定します。
+
 ### ドラッグ＆ドロップエディターにメールの添付ファイルを追加できますか？ {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
 はい。メールメッセージに添付ファイルを追加するには、**送信設定** > **詳細設定**に移動してください。

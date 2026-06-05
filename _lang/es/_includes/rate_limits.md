@@ -149,6 +149,10 @@ Este punto de conexión tiene un límite de velocidad de 20 solicitudes por minu
 {% elsif include.endpoint == "cdi job sync status" %}
 Este punto de conexión tiene un límite de velocidad de 100 solicitudes por minuto.
 
+<!---/media_library/create, /media_library/replace_file--->
+{% elsif include.endpoint == "media_library" %}
+Este punto de conexión tiene un límite de velocidad de 100 solicitudes por hora, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits/).
+
 {% endif %}
 
 <!---Additional if statement for Messaging endpoints-->

@@ -1373,6 +1373,10 @@ Time zones
 - [Nachricht außerhalb eines Stundenbereichs zum Sendezeitpunkt abbrechen](#abort-send-time-hour-range)
 - [Nachricht außerhalb eines Zeitfensters in einer festen Zeitzone abbrechen](#abort-fixed-timezone-window)
 
+{% alert note %}
+Wenn ein/e Nutzer:in eine Nachricht zu einer unerwarteten Ortszeit erhält, hat sich möglicherweise die Zeitzone des Geräts oder Profils geändert (z. B. nach einer Reise). Die Zustellung zur Ortszeit verwendet die Zeitzone im Profil zum Sendezeitpunkt; Nutzer:innen benötigen möglicherweise eine neue Sitzung in ihrer gewohnten Region, bevor Werte wie {% raw %}`{{${time_zone}}}`{% endraw %} das erwartete Ergebnis liefern. Sie können jedoch [die Zeitzone des/der Nutzer:in einfügen](#users-time-zone).
+{% endalert %}
+
 ### Zeitzone des/der Nutzer:in einfügen {#users-time-zone}
 
 Standardmäßig werden Daten und Uhrzeiten in Liquid in koordinierter Weltzeit (UTC) dargestellt. Um Daten und Uhrzeiten in der lokalen Zeitzone anzuzeigen, verwenden Sie den `time_zone`-Filter zusammen mit dem `date`-Filter.
@@ -1466,7 +1470,7 @@ Here's a message that will send between 8 am and 8 pm!
 ```
 {% endraw %}
 
-### Wiederkehrende In-App-Nachricht innerhalb eines Zeitfensters in der lokalen Zeitzone senden {#time-reoccurring-iam-window}
+### Wiederkehrende In-App-Nachricht innerhalb eines Zeitfensters in der lokalen Zeitzone senden {#time-reocurring-iam-window}
 
 Dieser Anwendungsfall zeigt eine Nachricht an, wenn die aktuelle Uhrzeit innerhalb eines festgelegten Fensters liegt.
 

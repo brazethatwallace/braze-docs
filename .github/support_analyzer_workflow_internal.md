@@ -2,7 +2,7 @@
 
 **Audience:** Docs and adjacent teams (internal).  
 **Workflow file:** [`.github/workflows/export-support-cases-from-looker.yml`](workflows/export-support-cases-from-looker.yml)  
-**Cursor rule (manual triage):** `.cursor/rules/support-analyzer.mdc`
+**Cursor skill (manual triage):** `.github/skills/support-analyzer/SKILL.md`
 
 On a fixed cadence (and on demand), a GitHub Actions workflow exports recent **Braze Support** cases from **Looker** into this repo, builds an **internal digest** (themes and counts only), then may open **draft** pull requests that propose small, **allowlisted** edits to English customer docs in `_docs`. Case bodies stay off GitHub’s public PR pages where we can avoid it; PRs link to **Salesforce** case views instead.
 
@@ -18,7 +18,7 @@ The Looker saved report behind the export is scoped to a **rolling ~3-day** wind
 
 2. **`digest_and_pr`** — Checks out the default branch checkout for that job, fetches the CSV from **`support-analyzer-data`**, runs `scripts/support_analyzer_weekly_digest.py`, uploads the digest markdown as workflow artifact **`support-analyzer-weekly-digest`**, and opens a **draft** digest PR to **`develop`** (branch pattern `support-analyzer/weekly-digest-<run_id>`, title like **`[SA] Weekly support cases digest — YYYY-MM-DD`**, label **`support analyzer`**). The digest PR body includes a short **stakeholder blurb** explaining automation. **This PR does not change customer-facing docs**—only `.github/support_analyzer_weekly_digest.md`.
 
-3. **`phase2_doc_prs`** — Unless **`workflow_dispatch`** was started with **Skip Phase 2** checked, checks out **`github.ref`** (scheduled runs: repo default branch, usually **`develop`**; manual runs: the branch you selected so the Phase 2 script exists), fetches the same CSV, runs **`scripts/support_analyzer_phase2.py`** with **`--strict-anchors`** against [`.github/support_analyzer_phase2_rules.yml`](support_analyzer_phase2_rules.yml). For each **enabled** rule that matches enough cases and has real edits to apply, it pushes a branch `support-analyzer/phase2-<rule_id>-<YYYY-MM-DD>-<run_id>` (Eastern date + run id) and opens a **draft** PR to **`develop`**. A new run can open another draft for the same rule while an earlier PR is still open; skipped only when the proposed fingerprints are already on **`develop`**. PR bodies start with the same kind of **stakeholder blurb**, then rule metadata, Salesforce case links (up to 50), optional rule notes, and verification guidance. **Assignees** are resolved from [`.github/support_analyzer_doc_assignees.csv`](support_analyzer_doc_assignees.csv) (longest matching **Page Path** prefix → **GitHub Username**). A verification markdown file is uploaded when present as artifact **`support-analyzer-phase2-verification`**.
+3. **`phase2_doc_prs`** — Unless **`workflow_dispatch`** was started with **Skip Phase 2** checked, checks out **`github.ref`** (scheduled runs: repo default branch, usually **`develop`**; manual runs: the branch you selected so the Phase 2 script exists), fetches the same CSV, runs **`scripts/support_analyzer_phase2.py`** with **`--strict-anchors`** against [`.github/support_analyzer_phase2_rules.yml`](support_analyzer_phase2_rules.yml). For each **enabled** rule that matches enough cases and has real edits to apply, it pushes a branch `support-analyzer/phase2-<rule_id>-<YYYY-MM-DD>-<run_id>` (Eastern date + run id) and opens a **draft** PR to **`develop`**, unless an **open** draft for that rule already exists (same branch prefix) or every edit is skipped on **`develop`** (`fingerprint`, `skip_if_contains`, or `skip_if_contains_in_files`). PR bodies start with the same kind of **stakeholder blurb**, then rule metadata, Salesforce case links (up to 50), optional rule notes, and verification guidance. **Assignees** are resolved from [`.github/support_analyzer_doc_assignees.csv`](support_analyzer_doc_assignees.csv) (longest matching **Page Path** prefix → **GitHub Username**). A verification markdown file is uploaded when present as artifact **`support-analyzer-phase2-verification`**.
 
 4. **`close_digest_pr`** — If a digest PR was opened **and** Phase 2 **succeeded**, closes that digest PR with **`gh pr close --delete-branch`** and leaves a short comment pointing readers at the **digest artifact** on the workflow run. The digest markdown remains in Actions artifacts even after the PR is closed.
 
@@ -34,7 +34,7 @@ The Looker saved report behind the export is scoped to a **rolling ~3-day** wind
 
 - Read the **stakeholder blurb** at the top: the change is **automated** from Support themes, not a human-authored spec.
 - Use **Salesforce** links in the PR to inspect cases if needed; **do not** paste consumer PII into GitHub comments.
-- Confirm wording against **product behavior** before merge. For **public**-facing PR descriptions, use **Verified against Braze source code.** and do **not** paste internal `platform` or SDK file paths (see `.cursor/rules/reference-repos.mdc`).
+- Confirm wording against **product behavior** before merge. For **public**-facing PR descriptions, use **Verified against Braze source code.** and do **not** paste internal `platform` or SDK file paths (see `.github/skills/reference-repos/SKILL.md`).
 - If the assignee is wrong, fix the row in **`.github/support_analyzer_doc_assignees.csv`** (or the upstream spreadsheet export) in a follow-up PR.
 
 **When you’re tagged on the digest PR**
@@ -139,12 +139,12 @@ Export fails closed without **`SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DAT
 | Symptom | What to check |
 |---------|----------------|
 | **Export** fails | Looker secrets, query id variable, network; Actions log for `export_support_cases_from_looker.py`. |
-| **Export** push rejected (GH013) | Case text contained a credential GitHub push protection blocked. The export job runs `scripts/export_support_cases_from_looker.py` from the **workflow ref** (`develop` on schedule), not from `support-analyzer-data` (that branch is CSV-only). Redaction covers AWS keys, SendGrid `SG.…` keys, GitHub/Slack/Stripe tokens—re-run after merging script/workflow fixes. Check the log for `Redacted N embedded credential-like value(s)`; do not unblock secrets in GitHub unless you intend to store them on the data branch. |
+| **Export** push rejected (GH013) | Case text contained a credential GitHub push protection blocked. The export job runs `scripts/export_support_cases_from_looker.py` from the **workflow ref** (`develop` on schedule), not from `support-analyzer-data` (that branch is CSV-only). Redaction covers AWS keys, SendGrid `SG.…` keys, Twilio `AC…`/`SK…` SIDs, GitHub/Slack/Stripe tokens—re-run after merging script/workflow fixes. Check the log for `Redacted N embedded credential-like value(s)`; do not unblock secrets in GitHub unless you intend to store them on the data branch. |
 | **Digest** fails with empty CSV | Branch **`support-analyzer-data`** missing or empty file; ensure `export` succeeded. |
 | **Phase 2** fails “script not found” | For scheduled runs, `support_analyzer_phase2.py` must exist on **default branch**; merge the script before relying on schedule-only. |
 | **Phase 2** fails strict anchors | Target `_docs` file missing anchor text on `develop`; fix anchor or rule in a PR, or adjust rule. |
 | **No Phase 2 PRs** opened | Normal if no rule matches enough cases or edits are already present (fingerprints / `skip_if_contains` / anchors). |
-| **Duplicate-looking Phase 2 PR** | Earlier PR merged equivalent prose without `<!-- support-analyzer-phase2:... -->` fingerprint; automation re-proposes. Close the duplicate, merge only missing files, or add `skip_if_contains` to the rule (see #13773 / #13823). |
+| **Duplicate-looking Phase 2 PR** | Earlier PR merged equivalent prose without `<!-- support-analyzer-phase2:... -->` fingerprint; automation re-proposes. Close the duplicate, merge only missing files, or add `skip_if_contains` to the rule (see #13773 / #13823, #13772 / #13914). For `data_series_currents`, merged include `api/export_data_series_analytics_dashboard_note.md` satisfies the rule. |
 | **`gh pr create` assignee errors** | Script retries **without** assignees; fix invalid **GitHub Username** values in the CSV (e.g. team placeholders that are not user logins). |
 | **Digest PR not auto-closed** | `close_digest_pr` only runs if digest PR was created **and** Phase 2 job **succeeded**; check Phase 2 job and permissions. |
 | **Close digest failed with 403** | Job needs **`contents: write`** and **`pull-requests: write`** for `gh pr close --delete-branch` (already set in workflow). |
@@ -156,4 +156,4 @@ Export fails closed without **`SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DAT
 - Treat the Support CSV and case narratives as **sensitive**. Limit who can read **`support-analyzer-data`** and the Looker query scope.
 - Automated PR bodies should use **Salesforce case links**, not pasted email bodies or PII.
 
-For product verification in Cursor, follow **reference-repos** layout and policies; the Looker workflow **does not** clone `Appboy/platform` in CI—optional `verification` blocks in rules run **ripgrep** only when a local checkout exists.
+For product verification in Cursor, follow the **reference-repos** skill (`.github/skills/reference-repos/SKILL.md`) layout and policies; the Looker workflow **does not** clone `Appboy/platform` in CI—optional `verification` blocks in rules run **ripgrep** only when a local checkout exists.

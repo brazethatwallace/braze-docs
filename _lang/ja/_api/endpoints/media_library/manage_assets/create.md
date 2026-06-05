@@ -27,7 +27,7 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 
 ## レート制限 {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='default' %}
+{% multi_lang_include rate_limits.md endpoint='media_library' %}
 
 ## リクエスト本文 {#request-body}
 
@@ -149,6 +149,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | ファイルが最大許容サイズを超えています。画像には5 MBの制限があります。 |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | ワークスペースがアセットの最大数に達しました（無料トライアル企業ではデフォルトで200、それ以外は無制限）。`meta`オブジェクトには現在の`limit`が含まれています。 |
 | `ASSET_UPLOAD_FAILED` | 400 | 処理の問題により、アセットのアップロードに失敗しました。 |
+| `INVALID_ASSET_URL` | 400 | `asset_url`の値が有効なURIではありません。`meta`オブジェクトには`asset_url`が含まれています。 |
 | `ZIP_UPLOAD_ERROR` | 400 | ZIPファイルが破損しているか、開くことができません。`meta`オブジェクトには`original_error`メッセージが含まれています。 |
 | `ZIP_FILE_TOO_LARGE` | 400 | ZIPファイルの非圧縮時の合計サイズが5 MBの制限を超えています。`meta`オブジェクトには`zip_file_name`と`zip_file_size`が含まれています。 |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | ZIP内のファイルエントリに名前がありません。ZIPファイルが破損していないことを確認し、名前のないファイルエントリに名前を追加してください。 |

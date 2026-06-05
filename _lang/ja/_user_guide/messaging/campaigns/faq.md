@@ -267,3 +267,7 @@ CampaignまたはCanvasの作成・編集中に「リクエストタイムアウ
 - **Segmentの再評価：** 送信時に再評価するアクションベースまたはスケジュールされたCampaignでは、Campaignがキューに入れられた時点でSegmentに含まれていたユーザーが、メッセージが実際に送信される時点では条件を満たさなくなっている場合があります。
 - **送信キャップ：** **Target Audiences**の最大ユーザー数（または同様のキャップ）により、キャップに達した時点で配信が停止されます。
 - **厳格なデバイスまたはブラウザフィルター：** 最新のアプリバージョンやブラウザのみに一致するフィルターは、広範なSegmentプレビューと比較して、送信時の到達可能なセットを縮小します。
+
+### グローバルフリークエンシーキャップに関するよくある質問はどこにありますか？ {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+カレンダー日、サイレントプッシュ、Webhook、Canvasの動作、および関連トピックに関する質問については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)の[よくある質問]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/)を参照してください。

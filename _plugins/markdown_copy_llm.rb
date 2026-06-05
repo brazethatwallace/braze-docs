@@ -214,6 +214,47 @@ module Jekyll
     RAW_KEY = "__export_merged_md"
     PUBLIC_KEY = "llm_markdown_content"
 
+    # Backed-by-memory static file written through Jekyll's normal write phase.
+    # This avoids relying on post_write-only File.write behavior in environments
+    # where deploy artifacts are captured before out-of-band writes.
+    class InMemoryStaticFile < Jekyll::StaticFile
+      def initialize(site, dest_subpath, content)
+        @site = site
+        @base = site.source
+        @dir = File.dirname(dest_subpath)
+        @name = File.basename(dest_subpath)
+        @relative_path = dest_subpath.start_with?('/') ? dest_subpath : "/#{dest_subpath}"
+        @extname = File.extname(@name)
+        @collection = nil
+        @content = content.to_s
+        @modified_time = Time.now
+        @data = {}
+      end
+
+      def path
+        nil
+      end
+
+      def url
+        @relative_path
+      end
+
+      def destination(dest)
+        File.join(dest, @relative_path)
+      end
+
+      def modified?
+        true
+      end
+
+      def write(dest)
+        dest_path = destination(dest)
+        FileUtils.mkdir_p(File.dirname(dest_path))
+        File.open(dest_path, 'wb') { |f| f.write(@content) }
+        true
+      end
+    end
+
     # ---- Shared export rewrites (reused by main render and includes) ----
     def self.export_replacements
       {
@@ -276,9 +317,25 @@ module Jekyll
         item.data[PUBLIC_KEY] = processed_markdown
       end
 
+      # Register markdown exports as static files before site write, which makes
+      # them part of the normal output artifact in all environments.
+      Jekyll::Hooks.register :site, :post_render do |site|
+        next if site.config['__markdown_copy_static_files_added']
+        register_markdown_static_files(site)
+        site.config['__markdown_copy_static_files_added'] = true
+      rescue => e
+        Jekyll.logger.error(
+          "MarkdownCopyLLM:",
+          "Failed to register markdown static files: #{e.class}: #{e.message}"
+        )
+      end
+
       # Emit files after normal site write
       Jekyll::Hooks.register :site, :post_write do |site|
+        next if site.config['__markdown_copy_static_files_added']
+        next if site.config['__markdown_copy_generated_for_this_build']
         copy_markdown_files(site)
+        site.config['__markdown_copy_generated_for_this_build'] = true
       rescue => e
         Jekyll.logger.error(
           "MarkdownCopyLLM:",
@@ -360,6 +417,24 @@ module Jekyll
       content = content.gsub(/\]\(\/(?!\/)/, "](#{base_url}/")
       
       safe_utf8(content)
+    end
+
+    def self.register_markdown_static_files(site)
+      return unless should_copy?(site)
+
+      all = site.pages + site.collections.flat_map { |_, c| c.docs }
+      copied = 0
+
+      all.each do |item|
+        next unless should_capture?(item, site)
+        merged = item.data[RAW_KEY].to_s
+        next if merged.empty?
+
+        site.static_files << InMemoryStaticFile.new(site, output_path_for(item), merged)
+        copied += 1
+      end
+
+      Jekyll.logger.info "MarkdownCopyLLM:", "Registered #{copied} markdown export static files from supported guide collections"
     end
 
     def self.copy_markdown_files(site)

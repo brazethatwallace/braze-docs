@@ -18,6 +18,8 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 
 A Braze armazena a análise de dados de envio por 14 dias após o envio. As conversões da campanha serão atribuídas ao `send_id` mais recente que um determinado usuário recebeu da campanha.
 
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
@@ -34,7 +36,7 @@ Esse endpoint é apenas para Campanhas da API. Para usar esse endpoint, você pr
 | --------- | -------- | --------- |------------ |
 | `campaign_id` | Obrigatória | String | Consulte o [identificador de API da campanha]({{site.baseurl}}/api/identifier_types/). |
 | `send_id` | Obrigatória | String | Consulte o [identificador de API de envio]({{site.baseurl}}/api/identifier_types/). |
-| `length` | Obrigatória | Inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
+| `length` | Obrigatória | Número inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `ending_at` | Opcional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a série de dados deve terminar. O padrão é a hora da solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 

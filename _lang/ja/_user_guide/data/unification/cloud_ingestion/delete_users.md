@@ -13,13 +13,13 @@ description: "このページでは、クラウドデータ取り込みを使用
 
 ユーザー削除の同期は、利用可能なすべてのクラウドデータ取り込みデータソースでサポートされています。
 
-## 統合の設定 {#configuring-the-integration}
+## 統合の設定 {#configure-the-integration}
 
-標準のプロセスに従って、接続するデータウェアハウスのBrazeダッシュボードで[新しい統合を作成]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)します。削除テーブルにアクセスできるロールが含まれていることを確認してください。**Create import sync** ページで、**データタイプ**を**Delete Users**に設定し、統合実行中にユーザーを削除するための適切なアクションが実行されるようにします。
+標準のプロセスに従って、接続するデータウェアハウスのBrazeダッシュボードで[新しい統合を作成]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)します。削除テーブルにアクセスできるロールが含まれていることを確認してください。**Create import sync**ページで、**データタイプ**を**Delete Users**に設定し、統合実行中にユーザーを削除するための適切なアクションが実行されるようにします。
 
 ![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
-## ソースデータの設定 {#configuring-source-data}
+## ソースデータの設定 {#configure-source-data}
 
 ユーザー削除のソーステーブルには、1つ以上のユーザー識別子タイプと`UPDATED_AT`タイムスタンプを含める必要があります。ペイロード列は、ユーザー削除データではサポートされていません。
 
@@ -54,7 +54,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 ```
 {% endtab %}
 {% tab Redshift %}
-`````````sql
+```sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
    updated_at timestamptz default sysdate,
    --at least one of external_id, alias_name and alias_label, or braze_id is required
@@ -94,7 +94,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
 {% endtab %}
 {% tab Microsoft Fabric %}
-`````````sql
+```sql
 CREATE OR ALTER TABLE [warehouse].[schema].[users_deletes]
 (
   UPDATED_AT DATETIME2(6) NOT NULL,
@@ -120,7 +120,7 @@ Brazeのクラウドデータ取り込みでは、データウェアハウスイ
 同期が実行されると、Brazeはデータウェアハウスインスタンスに直接接続し、指定されたテーブルからすべての新しいデータを取得して、Brazeダッシュボード上の対応するユーザープロファイルを削除します。
 
 {% alert warning %}
-ユーザープロファイルの削除は元に戻せません。ユーザーが完全に削除されるため、データの不整合が発生する可能性があります。詳細については、[ユーザープロファイルの削除]({{site.baseurl}}/help/help_articles/api/delete_user/)を参照してください。
+ユーザープロファイルの削除は元に戻せません。ユーザーが完全に削除されるため、データの不整合が発生する可能性があります。詳細については、[ユーザープロファイル削除の影響]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles)を参照してください。
 {% endalert %}
 
 <br><br>
