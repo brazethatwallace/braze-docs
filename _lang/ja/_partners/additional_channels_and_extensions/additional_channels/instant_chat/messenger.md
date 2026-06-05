@@ -12,13 +12,14 @@ search_tag: Partner
 
 > [Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/)は、世界で最も人気があるインスタントメッセージングプラットフォームの1つで、1か月あたりのアクティブユーザー数は10億にのぼります。ブランドはこのプラットフォームで、顧客とインテリジェントかつ自動的にやり取りするための魅力的なチャットボットを作成できます。
 
-BrazeとFacebookの統合では、Messenger Platform APIを介してFacebook Messengerのユーザーにメッセージを送信するために、Braze Webhook、セグメンテーション、パーソナライゼーション、トリガー機能が利用されます。カスタムFacebook Messenger Webhookテンプレートは、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**にあります。
+BrazeとFacebookの統合では、Messenger Platform APIを介してFacebook Messengerのユーザーにメッセージを送信するために、Braze Webhook、セグメンテーション、パーソナライゼーション、トリガー機能が利用されます。カスタムFacebook Messenger Webhookテンプレートは、Brazeプラットフォームの**コンテンツ** > **Webhook**にあります。
 
 Facebook Messengerプラットフォームは、「既存の取引を促進し、他の顧客サポートアクションを提供し、個人が要求したコンテンツを配信する非プロモーションメッセージ」を対象としています。詳細については、[Facebookのプラットフォームガイドライン](https://developers.facebook.com/docs/messenger-platform)と[許容可能なユースケースの例](https://developers.facebook.com/docs/messenger-platform/app-review#examples_acceptable)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
 統合を進める前に、以下を確認してください。
+
 - Facebookでは、マーケティングメッセージの送信にMessengerプラットフォームを使用することを許可していません。
 - お客様のページからのメッセージに対するユーザーの明示的な許可が必要になります。
 - Facebookアプリのテストユーザーではないユーザーにメッセージを送信するには、アプリがFacebookの[アプリレビュー](https://developers.facebook.com/docs/messenger-platform/app-review)に合格する必要があります。<br><br>
@@ -70,7 +71,12 @@ PSIDを受信していると確信したら、これを開発者と調整して�
 
 ### ステップ3:Webhookテンプレートをセットアップする {#step-3-set-up-your-webhook-template}
 
-**テンプレートとメディア**から**Webhookテンプレート**に進み、**Facebook Messenger Webhook Template**を選択します。
+Facebook Messenger Webhookテンプレートを作成するには:
+
+1. **コンテンツ** > **Webhook**に移動し、**Webhookテンプレートを作成**を選択します。
+2. **テンプレート** > **Brazeテンプレート**を選択します。
+3. 「Facebook Messenger」テンプレートを見つけて選択します。
+4. **テンプレートを選択**を選択します。
 
 1. テンプレートの名前を入力し、必要に応じてチームとタグを追加します。
 2. メッセージを入力するか、[Facebookで利用可能なメッセージテンプレート](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages)からメッセージテンプレートを選択します。また、メッセージの[タイプ](https://developers.facebook.com/docs/messenger-platform/send-messages#message_types)や[タグ](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags)を選択することもできます。
@@ -87,10 +93,10 @@ PSIDを受信していると確信したら、これを開発者と調整して�
 
 ## この統合を使用する {#using-this-integration}
 
-セットアップが完了したら、この統合を使用してFacebook Messengerユーザーをターゲットにします。ユーザーの電話番号を使用してメッセージを送信しておらず、Messengerメッセージを繰り返し送信する予定がある場合は、Messenger IDがカスタム属性として存在するすべてのユーザーに対して[セグメントを作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment)し、[分析トラッキング]({{site.baseurl}}/user_guide/audience/segments/segment_data/)をオンにして、Messengerのサブスクリプション率を経時的に追跡する必要があります。
+セットアップが完了したら、この統合を使用してFacebook Messengerユーザーをターゲットにします。ユーザーの電話番号を使用してメッセージを送信しておらず、Messengerメッセージを繰り返し送信する予定がある場合は、Messenger IDがカスタム属性として存在するすべてのユーザーに対して[Segmentを作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment)し、[分析トラッキング]({{site.baseurl}}/user_guide/audience/segments/segment_data/)をオンにして、Messengerのサブスクリプション率を経時的に追跡する必要があります。
 
 ![セグメンテーションフィルター「messenger_id」が「is not blank」に設定されています。]({% image_buster /assets/img_archive/fbm-segmentation.png %})
 
-Messengerサブスクライバー向けの特定のセグメントを作成しない場合は、エラーを避けるために、既存のMessenger IDのフィルターを必ず含めてください。
+Messengerサブスクライバー向けの特定のSegmentを作成しない場合は、エラーを避けるために、既存のMessenger IDのフィルターを必ず含めてください。
 
-他のセグメンテーションを使用してMessenger キャンペーンをターゲットにし、他のキャンペーンと同様にそれ以降のキャンペーン作成プロセスを実行することもできます。
+他のセグメンテーションを使用してMessenger Campaignsをターゲットにし、他のCampaignと同様にそれ以降のCampaign作成プロセスを実行することもできます。

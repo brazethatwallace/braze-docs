@@ -657,8 +657,17 @@ a:hover {
         .form-group textarea:focus,
         .form-group select:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible,
+        .form-group select:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible),
+        .form-group select:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -822,8 +831,15 @@ a:hover {
         .form-group input[type="text"]:focus,
         .form-group textarea:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -1536,7 +1552,7 @@ var ticket_lookuptable = {
             },
             'Message Composition by Channel' : {
               'LinksTitle': ['Available Channels','Know Before You Send: Channels'],
-              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/help/help_articles/campaigns_and_canvas/know_before_send/'],
+              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/'],
               'Label': 'Channel *',
               'SelectDefault': 'Select channel...',
               'SelectOption' : {
@@ -1588,12 +1604,12 @@ var ticket_lookuptable = {
             'Password Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Locked Out of Account'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#password-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#password-error']
             },
             'Instance Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Instance Error'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#instance-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#instance-error']
             },
             'SAML and Single Sign On' : {
               'ShowSubmit': true,
@@ -1603,7 +1619,7 @@ var ticket_lookuptable = {
             'Other' : {
               'ShowSubmit': true,
               'LinksTitle': ['Account Login Issues'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/']
             }
           }
         },
@@ -1655,7 +1671,7 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
-      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/help/accessibility/','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
+      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
@@ -1665,7 +1681,7 @@ var ticket_lookuptable = {
         'Best Practices and Frequently Asked Questions' :{
           'ShowSubmit': true,
           'LinksTitle': ['Best Practices and Frequently Asked Questions'],
-          'Links':  ['{{site.baseurl}}/help/faqs']
+          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/best_practices/']
         },
         'Other' :{
           'ShowSubmit': true,
@@ -2441,9 +2457,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>Hier sind einige Artikel, die Ihnen weiterhelfen könnten:</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>Keine Vorschläge gefunden.</p>";
         }
 
         // --- Citation hover tooltip ---
@@ -2536,7 +2552,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
     } catch (err) {
-        suggestionsBox.innerHTML = `<p>Error: ${err.message}</p>`;
+        suggestionsBox.innerHTML = `<p>Fehler: ${err.message}</p>`;
         console.error(err);
     }
 });

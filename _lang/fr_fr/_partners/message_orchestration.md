@@ -8,7 +8,7 @@ description: "Cette page répertorie les partenaires de Braze (Alloys) qui vous 
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Message Orchestration"
+partner_top_header: "Orchestration des messages"
 
 valid_partner_list:
 - name: Jacquard
@@ -51,8 +51,12 @@ valid_partner_list:
   url: /docs/partners/remerge/
 - name: Alpaco
   url: /docs/partners/alpaco/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Blayer
   url: /docs/partners/blayer/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Dyspatch
   url: /docs/partners/dyspatch/
 - name: Denada
@@ -90,7 +94,7 @@ valid_partner_list:
 - name: Punchh
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/punchh/
 - name: LINE
-  url: /docs/partners/message_orchestration/additional_channels/messaging/line/  
+  url: /docs/partners/message_orchestration/additional_channels/messaging/line/
 - name: Shopify
   url: /docs/partners/ecommerce/shopify
 - name: Yotpo
@@ -114,7 +118,7 @@ valid_partner_list:
 - name: Nift
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/nift/
 - name: Sendbird
-  url: /docs/partners/message_orchestration/additional_channels/messaging/sendbird/  
+  url: /docs/partners/message_orchestration/additional_channels/messaging/sendbird/
 - name: Regal
   url: /docs/partners/message_orchestration/additional_channels/messaging/regal/
 - name: Kognitiv

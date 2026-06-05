@@ -104,7 +104,7 @@ So erstellen Sie eine Zielgruppe in mParticle:
 
 | Feldname | Beschreibung |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API key | Zu finden im Braze-Dashboard unter **Settings** > **API Keys**.<br><br>Wenn Sie die ältere Navigation verwenden, finden Sie API-Schlüssel unter **Developer Console** > **API Settings**. |
+| API key | Zu finden im Braze-Dashboard unter **Settings** > **API Keys**. |
 | API key operating system | Wählen Sie aus, welchem Betriebssystem Ihr Braze-API-Schlüssel entspricht. Diese Auswahl begrenzt die Arten von Push-Token, die bei einem Zielgruppen-Update weitergeleitet werden. |
 | Send segments as | Die Methode zum Senden von Zielgruppen an Braze. Weitere Details finden Sie im Abschnitt [Weiterleitung von Zielgruppen](#forwarding-audiences). |
 | Workspace REST API key | Braze-REST-API-Schlüssel mit vollständigen Berechtigungen. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |

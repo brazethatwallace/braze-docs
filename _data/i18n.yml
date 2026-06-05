@@ -66,6 +66,14 @@ en:
   glossary_liquid_use_cases_showing: Showing __COUNT__ of __TOTAL__ use cases
   sql_segment_extensions_glossary_intro: "Use the search bar or the checkboxes below to browse sample SQL Segment Extension queries."
   liquid_use_case_glossary_intro: "Looking for inspiration to craft the perfect personalization using Liquid? Take a look through our collection of Liquid use cases, outlined by category below.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
+  glossary_agents_use_cases_search_placeholder: Search
+  glossary_agents_use_cases_search_aria: Search use cases
+  glossary_agents_use_cases_search_hint: Results update automatically as you type.
+  glossary_agents_use_cases_no_results: No use cases matching these filters
+  agents_use_case_glossary_intro: "Take a look through our collection of agent instructions and use cases.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
+  agents_use_case_tag_labels:
+    "canvas agent": Canvas agent
+    "catalog agent": Catalog agent
   message_engagement_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas consist of the Braze Events that are directly related to message sending."
   customer_behavior_events_glossary_title: Customer behavior and user events
   customer_behavior_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas include other app or website activity such as sessions, custom events, and purchases tracked through the platform."
@@ -267,6 +275,14 @@ fr:
   glossary_liquid_use_cases_search_hint: Les résultats se mettent à jour automatiquement lorsque vous saisissez du texte.
   glossary_liquid_use_cases_no_results: Aucun cas d'utilisation ne correspond à ces filtres
   glossary_liquid_use_cases_showing: Affichage de __COUNT__ cas d'utilisation sur __TOTAL__
+  glossary_agents_use_cases_search_placeholder: Rechercher
+  glossary_agents_use_cases_search_aria: Rechercher des cas d'usage
+  glossary_agents_use_cases_search_hint: Les résultats se mettent à jour automatiquement lorsque vous saisissez du texte.
+  glossary_agents_use_cases_no_results: Aucun cas d'usage ne correspond à ces filtres
+  agents_use_case_glossary_intro: "Parcourez notre collection d'instructions d'agents et de cas d'utilisation.<br><br>Utilisez la barre de recherche ou les cases à cocher ci-dessous pour trouver les cas d'usage qui correspondent à vos besoins."
+  agents_use_case_tag_labels:
+    "canvas agent": Agent Canvas
+    "catalog agent": Agent de catalogue
 ja:
   next: 次へ
   previous: 前へ
@@ -336,6 +352,14 @@ ja:
   glossary_liquid_use_cases_showing: ユースケース __TOTAL__ 件中 __COUNT__ 件を表示
   sql_segment_extensions_glossary_intro: "検索バーまたは下のチェックボックスから、SQLセグメントエクステンションのサンプルクエリを参照してください。"
   liquid_use_case_glossary_intro: "Liquidを使った理想的なパーソナライゼーションのヒントをお探しですか？カテゴリ別に整理したLiquidユースケース集をご覧ください。<br><br>検索バーまたは下のチェックボックスから、ニーズに合ったユースケースを探してください。"
+  glossary_agents_use_cases_search_placeholder: 検索
+  glossary_agents_use_cases_search_aria: ユースケースを検索
+  glossary_agents_use_cases_search_hint: 入力に応じて結果が自動的に更新されます。
+  glossary_agents_use_cases_no_results: この条件に一致するユースケースはありません
+  agents_use_case_glossary_intro: "エージェントのインストラクションとユースケース集をご覧ください。<br><br>検索バーまたは下のチェックボックスから、ニーズに合ったユースケースを探してください。"
+  agents_use_case_tag_labels:
+    "canvas agent": キャンバスエージェント
+    "catalog agent": カタログエージェント
   message_engagement_events_glossary_intro: "検索バーまたは下のチェックボックスから、Currentsを効果的に使うために必要なイベントを探してください。<br><br>これらのスキーマは、メッセージ送信に直接関連するBrazeイベントで構成されています。"
   customer_behavior_events_glossary_title: 顧客行動とユーザーイベント
   customer_behavior_events_glossary_intro: "検索バーまたは下のチェックボックスから、Currentsを効果的に使うために必要なイベントを探してください。<br><br>これらのスキーマには、セッション、カスタムイベント、購入など、プラットフォームを通じて追跡されるアプリまたはWebサイトのその他のアクティビティが含まれます。"
@@ -525,6 +549,14 @@ ko:
   glossary_liquid_use_cases_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
   glossary_liquid_use_cases_no_results: 이 필터와 일치하는 사용 사례가 없습니다
   glossary_liquid_use_cases_showing: 사용 사례 __TOTAL__개 중 __COUNT__개 표시
+  glossary_agents_use_cases_search_placeholder: 검색
+  glossary_agents_use_cases_search_aria: 사용 사례 검색
+  glossary_agents_use_cases_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
+  glossary_agents_use_cases_no_results: 이 필터와 일치하는 사용 사례가 없습니다
+  agents_use_case_glossary_intro: "에이전트 지침 및 사용 사례 모음을 살펴보세요.<br><br>검색창 또는 아래 확인란을 사용하여 필요에 맞는 사용 사례를 찾으세요."
+  agents_use_case_tag_labels:
+    "canvas agent": Canvas 에이전트
+    "catalog agent": 카탈로그 에이전트
   currents_customer_behavior_tag_labels:
     attribution: 어트리뷰션
     "custom events": 커스텀 이벤트
@@ -709,6 +741,14 @@ pt-br:
   glossary_liquid_use_cases_search_hint: Os resultados são atualizados automaticamente conforme você digita.
   glossary_liquid_use_cases_no_results: Nenhum caso de uso corresponde a esses filtros
   glossary_liquid_use_cases_showing: Mostrando __COUNT__ de __TOTAL__ casos de uso
+  glossary_agents_use_cases_search_placeholder: Pesquisar
+  glossary_agents_use_cases_search_aria: Pesquisar casos de uso
+  glossary_agents_use_cases_search_hint: Os resultados são atualizados automaticamente conforme você digita.
+  glossary_agents_use_cases_no_results: Nenhum caso de uso corresponde a esses filtros
+  agents_use_case_glossary_intro: "Confira nossa coleção de instruções e casos de uso para agentes.<br><br>Use a barra de pesquisa ou as caixas de seleção abaixo para encontrar os casos de uso que atendem às suas necessidades."
+  agents_use_case_tag_labels:
+    "canvas agent": Agente de Canvas
+    "catalog agent": Agente de catálogo
 es:
   next: SIGUIENTE
   previous: ANTERIOR
@@ -774,6 +814,14 @@ es:
   glossary_liquid_use_cases_search_hint: Los resultados se actualizan automáticamente mientras escribes.
   glossary_liquid_use_cases_no_results: Ningún caso de uso coincide con estos filtros
   glossary_liquid_use_cases_showing: Mostrando __COUNT__ de __TOTAL__ casos de uso
+  glossary_agents_use_cases_search_placeholder: Buscar
+  glossary_agents_use_cases_search_aria: Buscar casos de uso
+  glossary_agents_use_cases_search_hint: Los resultados se actualizan automáticamente mientras escribes.
+  glossary_agents_use_cases_no_results: Ningún caso de uso coincide con estos filtros
+  agents_use_case_glossary_intro: "Consulta nuestra colección de instrucciones y casos de uso para agentes.<br><br>Usa la barra de búsqueda o las casillas de abajo para encontrar los casos de uso que necesitas."
+  agents_use_case_tag_labels:
+    "canvas agent": Agente de Canvas
+    "catalog agent": Agente de catálogo
 de:
   next: NÄCHSTES
   previous: VORHERIGES
@@ -839,3 +887,11 @@ de:
   glossary_liquid_use_cases_search_hint: Die Ergebnisse werden automatisch aktualisiert, während du tippst.
   glossary_liquid_use_cases_no_results: Keine Anwendungsfälle entsprechen diesen Filtern
   glossary_liquid_use_cases_showing: __COUNT__ von __TOTAL__ Anwendungsfällen werden angezeigt
+  glossary_agents_use_cases_search_placeholder: Suchen
+  glossary_agents_use_cases_search_aria: Anwendungsfälle durchsuchen
+  glossary_agents_use_cases_search_hint: Die Ergebnisse werden automatisch aktualisiert, während du tippst.
+  glossary_agents_use_cases_no_results: Keine Anwendungsfälle entsprechen diesen Filtern
+  agents_use_case_glossary_intro: "Durchsuchen Sie unsere Sammlung von Agentenanweisungen und Anwendungsfällen.<br><br>Verwenden Sie die Suchleiste oder die Kontrollkästchen unten, um die passenden Anwendungsfälle zu finden."
+  agents_use_case_tag_labels:
+    "canvas agent": Canvas-Agent
+    "catalog agent": Katalog-Agent

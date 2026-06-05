@@ -50,6 +50,23 @@ Liquid puede personalizar la experiencia de la página de inicio tanto para visi
 - **Usuarios identificados:** Enlaza a la página de inicio desde un mensaje de Braze e incluye la [etiqueta de Liquid de la página de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). Esto asocia al usuario con su perfil de Braze y personaliza la experiencia de la página.
 - **Visitantes anónimos:** Usa Liquid para contenido contextual no basado en el perfil, como un número aleatorio o un saludo según la hora del día.
 
+### Prerrellenar campos de formulario {#pre-fill-form-fields}
+
+Si un campo de formulario de la página de inicio está mapeado a un atributo del perfil de usuario, puedes prerrellenar ese campo para los usuarios que regresan. Esto ayuda a reducir la fricción del formulario y mejora las tasas de finalización para los visitantes conocidos.
+
+Para prerrellenar campos de formulario:
+
+1. Selecciona tu campo de formulario en el editor de arrastrar y soltar.
+2. En el panel de configuración de la derecha, mapea el campo al atributo de perfil correspondiente.
+3. Selecciona **Pre-fill from user profile**.
+
+![Configuración de campo de formulario de la página de inicio mostrando la opción de prerrellenar desde los datos del perfil de usuario.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
+
+El prerrellenado solo funciona para [usuarios identificados](#use-liquid-for-identified-and-anonymous-users). Para los visitantes anónimos, los campos de formulario mantienen su estado predeterminado:
+
+- **Campos de entrada:** Muestran su texto de marcador de posición.
+- **Casillas de verificación, botones de radio y controles similares:** Permanecen sin seleccionar hasta que el usuario interactúe con ellos.
+
 ## Obtener datos externos con código personalizado {#fetching-external-data-with-custom-code}
 
 Puedes usar un bloque de **código personalizado** para obtener datos de puntos de conexión externos y mostrarlos en tu página de inicio. Este enfoque realiza la solicitud en el lado del cliente (en el navegador del usuario), por lo que la página se carga rápidamente sin retrasos de renderizado del lado del servidor.

@@ -11,7 +11,7 @@ description: "This reference page describes the components of the content calend
 
 > The content calendar offers a high-level overview for your upcoming scheduled campaigns.
 
-You can analyze messaging data and view and manage your scheduled campaigns. To open the calendar, select **Messaging** > **Content Calendar**.
+You can analyze messaging data and view and manage your scheduled campaigns. To open the calendar, select **Content** > **Content Calendar**.
 
 ## Messaging analytics
 

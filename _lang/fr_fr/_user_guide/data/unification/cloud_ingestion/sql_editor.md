@@ -1,12 +1,13 @@
 ---
-hidden: true
-article_title: "Ingestion de données cloud : éditeur SQL (bêta)"
+nav_title: Éditeur SQL
+article_title: "Ingestion de données cloud : éditeur SQL"
 description: "Découvrez comment créer et valider des synchronisations d'ingestion de données cloud avec des requêtes SQL."
+page_order: 11
 page_type: reference
 toc_headers: h2
 ---
 
-# Ingestion de données cloud : éditeur SQL (bêta) {#cloud-data-ingestion-sql-editor-beta}
+# Ingestion de données cloud : éditeur SQL {#cloud-data-ingestion-sql-editor}
 
 > Cette page explique comment utiliser l'éditeur SQL de l'ingestion de données cloud (CDI) de Braze pour créer et valider des synchronisations avec des requêtes SQL.
 
@@ -189,7 +190,7 @@ Si aucun identifiant valide n'est détecté, la validation échoue.
 Ces identifiants sont sensibles à la casse et doivent être en majuscules.
 {% endalert %}
 
-### Inclure `UPDATED_AT` {#include-updatedat}
+### Inclure `UPDATED_AT` {#include-updated_at}
 
 Votre requête doit inclure une colonne `UPDATED_AT`.
 
@@ -326,7 +327,7 @@ Lorsque vous voyez « No preview available », l'un des types d'erreur sous-jace
 
 Assurez-vous que votre requête inclut un identifiant valide, tel que `external_id`.
 
-### La colonne `UPDATED_AT` est manquante {#updatedat-column-is-missing}
+### La colonne `UPDATED_AT` est manquante {#updated_at-column-is-missing}
 
 Ajoutez une colonne d'horodatage pour la synchronisation incrémentielle.
 

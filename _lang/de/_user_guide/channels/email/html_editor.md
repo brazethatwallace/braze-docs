@@ -137,6 +137,16 @@ Unter **Sending Settings** > **Advanced** aktivieren Sie **Inline-CSS** für die
 
 Sie können auch Personalisierung für E-Mail-Header und E-Mail-Extras hinzufügen, um zusätzliche Daten an andere E-Mail-Anbieter zurückzusenden.
 
+##### E-Mail-Anhänge {#email-attachments}
+
+Sie können E-Mail-Anhänge auch mit den folgenden Methoden hinzufügen:
+
+- **Datei hochladen:** Ziehen Sie eine Datei per Drag-and-Drop oder durchsuchen Sie Ihren Computer, um eine Datei direkt hochzuladen. Braze validiert den Dateityp und die Größe (standardmäßig bis zu 2&nbsp;MB) vor dem Hochladen, anschließend werden diese Dateien in die Medienbibliothek hochgeladen. Dateien, die das Limit von 2&nbsp;MB überschreiten, können nicht hochgeladen werden.
+- **Medienbibliothek verwenden:** Durchsuchen und wählen Sie aus bereits in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) gespeicherten Assets. PDFs, Word-Dokumente, Excel-Dateien und PowerPoint-Präsentationen werden unterstützt.
+- **Von URL hinzufügen:** Geben Sie eine URL ein, die auf die Datei verweist, und geben Sie einen Anzeige-Dateinamen an. Da Braze beliebige URLs während der E-Mail-Erstellung nicht auf ihre Größe prüfen kann, wird die Dateigröße zum Sendezeitpunkt erzwungen. Beachten Sie, dass Liquid in diesem Feld nicht unterstützt wird.
+
+Spezifische Best Practices finden Sie unter [E-Mail-Richtlinien]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/).
+
 ##### E-Mail-Header {#email-headers}
 
 Um E-Mail-Header hinzuzufügen, wählen Sie **Add New Header**. E-Mail-Header enthalten Informationen über die gesendete E-Mail. Diese [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) umfassen typischerweise Absender, Empfänger:in, Authentifizierungsprotokoll und Routing-Informationen. Braze fügt automatisch die RFC-erforderlichen Header-Informationen hinzu, damit E-Mails die Postfach-Anbieter erreichen.
@@ -152,7 +162,7 @@ Vermeiden Sie die Verwendung der folgenden Schlüssel:
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
   <caption>E-Mail-Header</caption>
 <thead>
   <tr>

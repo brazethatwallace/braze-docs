@@ -657,8 +657,17 @@ a:hover {
         .form-group textarea:focus,
         .form-group select:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible,
+        .form-group select:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible),
+        .form-group select:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -822,8 +831,15 @@ a:hover {
         .form-group input[type="text"]:focus,
         .form-group textarea:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -1143,7 +1159,7 @@ a:hover {
               <label for="ticket_priority" class="required">問題の重大度 </label>
               <select id="ticket_priority" name="priority" class="form-control">
                 <option value="Critical">Critical: システムがダウンしている、または深刻なデータ整合性の問題</option>
-                <option value="High">High: 機能の重大な喪失、またはキャンペーンが送信されない</option>
+                <option value="High">High: 機能の重大な喪失、またはCampaignが送信されない</option>
                 <option value="Medium">Medium: パフォーマンスの低下、またはビジネスに大きな影響を与える問題</option>
                 <option value="Low" selected>Low: Brazeの機能や分析に関する質問</option>
               </select>
@@ -1264,7 +1280,7 @@ var ticket_lookuptable = {
   'Label': '* What can we help you with?',
   'SelectDefault': 'Select a topic...',
   'LinksTitle': ['Marketer documentation','Developer documentation','Marketer troubleshooting guide','Frequently Asked Questions'],
-  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/help/home/','{{site.baseurl}}/help/faqs/'],
+  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/user_guide/home/'],
   'SelectOption': {
     'Technical Issue': {
       'Label': '* Category',
@@ -1407,9 +1423,9 @@ var ticket_lookuptable = {
               'LinksTitle': ['Exporting Braze Data','REST API: Export Endpoints', 'Export Frequently Asked Questions'],
               'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data','{{site.baseurl}}/api/endpoints/export','{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/faqs/']
             },
-            'API キャンペーン' : {
+            'API Campaigns' : {
               'ShowSubmit': true,
-              'LinksTitle': ['API キャンペーン Overview','REST API: Send API-Triggered キャンペーン Endpoint','REST API: Schedule API-Triggered キャンペーン Endpoint'],
+              'LinksTitle': ['API Campaign Overview','REST API: Send API-Triggered Campaign Endpoint','REST API: Schedule API-Triggered Campaign Endpoint'],
               'Links' : ['{{site.baseurl}}/api/api_campaigns/','{{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/','{{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/']
             },
             'Rate Limits' : {
@@ -1518,10 +1534,10 @@ var ticket_lookuptable = {
             }
           }
         },
-        'キャンペーン and キャンバス' :{
+        'Campaigns and Canvas' :{
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
-          'LinksTitle': ['キャンペーン Frequently Asked Questions','キャンバス Frequently Asked Questions'],
+          'LinksTitle': ['Campaign Frequently Asked Questions','Canvas Frequently Asked Questions'],
           'Links' : ['{{site.baseurl}}/user_guide/messaging/campaigns/faq/','{{site.baseurl}}/user_guide/messaging/canvas/faqs/'],
           'SelectOption': {
             'Messaging Personalization' : {
@@ -1529,40 +1545,40 @@ var ticket_lookuptable = {
               'LinksTitle': ['Personalization and Dynamic Content','Personalization Using Liquid Tags','Liquid Use Case Library','Connected Content'],
               'Links' : ['{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content']
             },
-            'Targeting and セグメントation' : {
+            'Targeting and Segmentation' : {
               'ShowSubmit': true,
-              'LinksTitle': ['セグメントation','セグメント Insights','Braze Learning Course: セグメントation',''],
+              'LinksTitle': ['Segmentation','Segment Insights','Braze Learning Course: Segmentation',''],
               'Links' : ['{{site.baseurl}}/user_guide/audience/segments','{{site.baseurl}}/user_guide/audience/segments/segment_insights/','https://learning.braze.com/segmentation-course']
             },
             'Message Composition by Channel' : {
               'LinksTitle': ['Available Channels','Know Before You Send: Channels'],
-              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/help/help_articles/campaigns_and_canvas/know_before_send/'],
+              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/'],
               'Label': 'Channel *',
               'SelectDefault': 'Select channel...',
               'SelectOption' : {
                 'Email' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create an Email キャンペーン with the Drag-And-Drop Editor','Create an Email キャンペーン with the HTML Editor'],
+                  'LinksTitle': ['Create an Email Campaign with the Drag-And-Drop Editor','Create an Email Campaign with the HTML Editor'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/email/drag_and_drop/','{{site.baseurl}}/user_guide/channels/email/html_editor/']
                 },
                 'Push' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Push キャンペーン','Braze Learning Course: Push'],
+                  'LinksTitle': ['Create a Push Campaign','Braze Learning Course: Push'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/push/creating_a_push_message#creating-a-push-message','https://learning.braze.com/messaging-channels-push']
                 },
                 'In-App Messages' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['In-App Message Drag-And-Drop Editor キャンペーン','In-App Message Traditional Editor キャンペーン','Braze Learning Course: In-App and In-Browser Messages'],
+                  'LinksTitle': ['In-App Message Drag-And-Drop Editor Campaign','In-App Message Traditional Editor Campaign','Braze Learning Course: In-App and In-Browser Messages'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/in-app_messages/drag_and_drop/create/','{{site.baseurl}}/user_guide/channels/in-app_messages/traditional/create/','https://learning.braze.com/messaging-channels-in-app-in-browser']
                 },
                 'Content Cards' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Content Card キャンペーン','Braze Learning Course: Content Cards'],
+                  'LinksTitle': ['Create a Content Card Campaign','Braze Learning Course: Content Cards'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/content_cards/create/','https://learning.braze.com/messaging-channels-content-cards']
                 },
                 'Webhooks' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Webhook キャンペーン'],
+                  'LinksTitle': ['Create a Webhook Campaign'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/webhooks/creating_a_webhook/']
                 },
                 'SMS and MMS' : {
@@ -1572,7 +1588,7 @@ var ticket_lookuptable = {
                 },
                 'WhatsApp' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a WhatsApp キャンペーン'],
+                  'LinksTitle': ['Create a WhatsApp Campaign'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_campaign/create/']
                 }
               }
@@ -1588,12 +1604,12 @@ var ticket_lookuptable = {
             'Password Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Locked Out of Account'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#password-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#password-error']
             },
             'Instance Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Instance Error'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#instance-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#instance-error']
             },
             'SAML and Single Sign On' : {
               'ShowSubmit': true,
@@ -1603,7 +1619,7 @@ var ticket_lookuptable = {
             'Other' : {
               'ShowSubmit': true,
               'LinksTitle': ['Account Login Issues'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/']
             }
           }
         },
@@ -1654,18 +1670,18 @@ var ticket_lookuptable = {
     'Strategy Assistance' : {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
-      'LinksTitle': ['キャンペーン Ideas and Strategies','キャンバス Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with キャンバス Flow'],
-      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/help/accessibility/','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
+      'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
+      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
-          'LinksTitle': ['キャンペーン Ideas and Strategies', 'キャンバス Ideas and Strategies','Braze Learning Course: Customer Engagement Tools and Use Cases'],
+          'LinksTitle': ['Campaign Ideas and Strategies', 'Canvas Ideas and Strategies','Braze Learning Course: Customer Engagement Tools and Use Cases'],
           'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','https://learning.braze.com/braze-customer-engagement-tools-use-cases']
         },
         'Best Practices and Frequently Asked Questions' :{
           'ShowSubmit': true,
           'LinksTitle': ['Best Practices and Frequently Asked Questions'],
-          'Links':  ['{{site.baseurl}}/help/faqs']
+          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/best_practices/']
         },
         'Other' :{
           'ShowSubmit': true,

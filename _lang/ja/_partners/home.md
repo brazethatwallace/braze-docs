@@ -106,6 +106,8 @@ valid_partner_list:
   url: /docs/partners/certona/
 - name: CataBoom
   url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Playable
   url: /docs/partners/playable/
 - name: Movable Ink
@@ -214,6 +216,8 @@ valid_partner_list:
   url: /docs/partners/wunderkind/
 - name: B.Layer
   url: /docs/partners/blayer-inapps/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Tellius
   url: /docs/partners/tellius/
 - name: Sheetlabs
@@ -320,6 +324,8 @@ valid_partner_list:
   url: /docs/partners/justuno/
 - name: Constructor
   url: /docs/partners/constructor/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Email Love
   url: /docs/partners/email_love/
 - name: Adikteev

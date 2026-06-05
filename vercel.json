@@ -34,7 +34,11 @@
 			"destination": "/api/llms-full.txt"
 		},
 		{
-			"source": "/api/((?!llms\\.txt|llms-full\\.txt).*)",
+			"source": "/api/:path*/index.md",
+			"destination": "/api/:path*/index.md"
+		},
+		{
+			"source": "/api/((?!llms\\.txt|llms-full\\.txt|.*/index\\.md$).*)",
 			"destination": "/api/404.html"
 		}
 	],
