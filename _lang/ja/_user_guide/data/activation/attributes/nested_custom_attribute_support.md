@@ -18,12 +18,13 @@ description: "このリファレンス記事では、階層化カスタム属性
 ## 考慮事項 {#considerations}
 
 - 階層化カスタム属性は、Braze SDKまたはAPIを介して送信されるカスタム属性を対象としています。
-- オブジェクトの最大サイズは 100&nbsp;KB です。更新によりオブジェクトが 100&nbsp;KB を超える場合、Brazeはその更新を破棄し、属性は変更されません。
-- キー名と文字列値のサイズ上限は 255 文字です。
+- オブジェクトの最大サイズは100&nbsp;KBです。更新によりオブジェクトが100&nbsp;KBを超える場合、Brazeはその更新を破棄し、属性は変更されません。
+- キー名と文字列値のサイズ上限は255文字です。
 - キー名にスペースを含めることはできません。
-- ピリオド (`.`) とドル記号 (`$`) は、階層化カスタム属性をユーザープロファイルに送信しようとする場合、APIペイロードではサポートされていない文字です。
+- ピリオド（`.`）とドル記号（`$`）は、階層化カスタム属性をユーザープロファイルに送信しようとする場合、APIペイロードではサポートされていない文字です。
 - すべてのBrazeパートナーが階層化カスタム属性をサポートしているわけではありません。特定のパートナー連携がこの機能をサポートしているかどうかを確認するには、[パートナーのドキュメント]({{site.baseurl}}/partners/home/)を参照してください。
 - 階層化カスタム属性は、Connected AudienceのAPI呼び出しを行うときのフィルターとして使用できません。
+- デフォルトでは、**階層化カスタム属性**のSegmentフィルターには、オブジェクト型カスタム属性、オブジェクト配列属性、および配列型カスタム属性が含まれます。属性を選択すると、プロパティスキーマセレクターにネストされた配列フィールドの配列パス（`[]` 表記を使用）が含まれます。そのフィルターからトップレベルの配列カスタム属性を非表示にするには、[Brazeサポート]({{site.baseurl}}/braze_support/)にお問い合わせください。
 
 ## APIの例 {#api-example}
 
@@ -105,7 +106,7 @@ description: "このリファレンス記事では、階層化カスタム属性
 ```
 
 {% alert note %}
-このアプローチは、[オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)内の階層化キーを削除するためには使用できません。
+このアプローチは、[オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)内のネストされたキーを削除するためには使用できません。
 {% endalert %}
 
 {% endtab %}
@@ -119,7 +120,7 @@ description: "このリファレンス記事では、階層化カスタム属性
 {% tab Android SDK %}
 
 **作成**
-`````````kotlin
+```kotlin
 val json = JSONObject()
     .put("song_name", "Solea")
     .put("artist_name", "Miles Davis")
@@ -138,7 +139,7 @@ braze.getCurrentUser { user ->
 ```
 
 **更新**
-`````````kotlin
+```kotlin
 val json = JSONObject()
     .put("year_released", 1960)
 
@@ -148,7 +149,7 @@ braze.getCurrentUser { user ->
 ```
 
 **削除**
-`````````kotlin
+```kotlin
 braze.getCurrentUser { user ->
     user.unsetCustomUserAttribute("most_played_song")
 }
@@ -158,7 +159,7 @@ braze.getCurrentUser { user ->
 {% tab Swift SDK %}
 
 **作成**
-`````````swift
+```swift
 let json: [String: Any?] = [
   "song_name": "Solea",
   "artist_name": "Miles Davis",
@@ -174,7 +175,7 @@ braze.user.setCustomAttribute(key: "most_played_song", dictionary: json)
 ```
 
 **更新**
-`````````swift
+```swift
 let json: [String: Any?] = [
   "year_released": 1960
 ]
@@ -183,7 +184,7 @@ braze.user.setCustomAttribute(key: "most_played_song", dictionary: json, merge: 
 ```
 
 **削除**
-`````````swift
+```swift
 braze.user.unsetCustomAttribute(key: "most_played_song")
 ```
 
@@ -191,7 +192,7 @@ braze.user.unsetCustomAttribute(key: "most_played_song")
 {% tab Web SDK %}
 
 **作成**
-`````````javascript
+```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
   "song_name": "Solea",
@@ -207,7 +208,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", json);
 ```
 
 **更新**
-`````````javascript
+```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
   "year_released": 1960
@@ -217,7 +218,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", json, true);
 ```
 
 **削除**
-`````````javascript
+```javascript
 import * as braze from "@braze/web-sdk";
 braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
@@ -230,7 +231,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 オブジェクトプロパティとして日付をキャプチャするには、`$time` キーを使用する必要があります。以下の例では、「Important Dates」オブジェクトを使用して、`birthday` と `wedding_anniversary` というオブジェクトプロパティのセットをキャプチャしています。これらの日付の値は `$time` キーを持つオブジェクトであり、null値にすることはできません。
 
 {% alert note %}
-最初にオブジェクトプロパティとして日付をキャプチャしていなかった場合は、すべてのユーザーに対して `$time` キーを使用してこのデータを再送信することをお勧めします。そうしないと、`$time` 属性を使用する際にセグメントが不完全になる可能性があります。ただし、階層化カスタム属性内の `$time` の値が正しくフォーマットされていない場合、階層化カスタム属性全体が更新されません。
+最初にオブジェクトプロパティとして日付をキャプチャしていなかった場合は、すべてのユーザーに対して `$time` キーを使用してこのデータを再送信することをお勧めします。そうしないと、`$time` 属性を使用する際にSegmentが不完全になる可能性があります。ただし、階層化カスタム属性内の `$time` の値が正しくフォーマットされていない場合、階層化カスタム属性全体が更新されません。
 {% endalert %}
 
 ```json
@@ -248,7 +249,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% alert note %}
-階層化カスタム属性の場合、年が 0 未満または 3000 より大きい場合、Brazeはこれらの値をユーザーに保存しません。
+階層化カスタム属性の場合、年が0未満または3000より大きい場合、Brazeはこれらの値をユーザーに保存しません。
 {% endalert %}
 
 ## Liquidテンプレート {#liquid-templating}
@@ -279,16 +280,16 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 ## スキーマの再生成 {#regenerate-schema}
 
-スキーマが生成された後、24時間に1回再生成できます。このセクションでは、スキーマを再生成する方法について説明します。スキーマの詳細については、[ネストされたオブジェクトエクスプローラーを使用してスキーマを生成する]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema)を参照してください。
+スキーマが生成された後、**1暦日に1回**（会社のタイムゾーンに基づく）再生成できます。このセクションでは、スキーマを再生成する方法について説明します。スキーマの詳細については、[ネストされたオブジェクトエクスプローラーを使用してスキーマを生成する]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema)を参照してください。
 
 階層化カスタム属性のスキーマを再生成するには：
 
 1. **データ設定** > **カスタム属性**に移動します。
 2. 階層化カスタム属性を検索します。
-3. 属性の**属性名**列で、<i class="fas fa-plus" aria-label="スキーマを管理"></i>を選択してスキーマを管理します。
-4. モーダルが表示されます。**スキーマを再生成**を選択します。
+3. 属性の**Attribute Name**列で、<i class="fas fa-plus"></i>を選択してスキーマを管理します。
+4. モーダルが表示されます。**Regenerate Schema**を選択します。
 
-スキーマが最後に再生成されてから24時間未満の場合、スキーマの再生成オプションは無効になります。スキーマの再生成では新しいオブジェクトのみが検出され、スキーマに現在存在するオブジェクトは削除されません。
+**Regenerate Schema**アクションは、会社のタイムゾーンで**1暦日に1回**に制限されています。スキーマジョブがすでに**進行中**の場合（ステータスが**Generating**の間はオプションが利用できません）、別の再生成を開始することはできません。スキーマの再生成では新しいオブジェクトのみが検出され、スキーマに現在存在するオブジェクトは削除されません。
 
 {% alert important %}
 既存のオブジェクトを持つオブジェクト配列のスキーマをリセットするには、新しいカスタム属性を作成する必要があります。スキーマの再生成では既存のオブジェクトは削除されません。
@@ -300,13 +301,13 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 階層化カスタム属性オブジェクトが変更されたときにトリガーできます。このオプションはオブジェクト配列の変更には使用できません。パスエクスプローラーを表示するオプションが表示されない場合は、スキーマが生成されているか確認してください。
 
-例えば、アクションベースのキャンペーンでは、**カスタム属性値の変更**の新しいトリガーアクションを追加して、地域のオフィスの設定を変更したユーザーをターゲットにできます。
+例えば、アクションベースのCampaignでは、**Change Custom Attribute Value**の新しいトリガーアクションを追加して、地域のオフィスの設定を変更したユーザーをターゲットにできます。
 
-![階層化された設定に対するカスタム属性値の変更トリガーを使用したアクションベースのキャンペーン配信設定]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![階層化された設定に対するカスタム属性値の変更トリガーを使用したアクションベースのCampaign配信設定]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
 ## オブジェクト配列でのセグメンテーション動作 {#segmentation-behavior-with-arrays-of-objects}
 
-複数の `Nested Custom Attribute` フィルターをANDロジックで使用してオブジェクト配列をセグメントする場合、各フィルターは配列内のすべてのアイテムに対して独立して評価されます。配列内の*いずれかの*アイテムが各個別フィルターを満たす場合、ユーザーはセグメントの対象となります。フィルターが*同じ*アイテムに一致する必要はありません。
+複数の `Nested Custom Attribute` フィルターをANDロジックで使用してオブジェクト配列をセグメントする場合、各フィルターは配列内のすべてのアイテムに対して独立して評価されます。配列内の*いずれかの*アイテムが各個別フィルターを満たす場合、ユーザーはそのSegmentの対象となります。フィルターが*同じ*アイテムに一致する必要はありません。
 
 例えば、ユーザーが以下の配列を持っているとします。
 
@@ -319,12 +320,12 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 }
 ```
 
-以下のANDフィルターを持つセグメント：
+以下のANDフィルターを持つSegment：
 
-- `orders[].price` が 50 より大きい
-- `orders[].price` が 30 より小さい
+- `orders[].price` が50より大きい
+- `orders[].price` が30より小さい
 
-このユーザーは対象となります。最初のフィルターは「Shoes」アイテム（80 > 50）に一致し、2番目のフィルターは「Hat」アイテム（25 < 30）に一致するためです。単一のアイテムが両方の条件を満たしていなくても、ユーザーはセグメントに入ります。
+このユーザーは対象となります。最初のフィルターは「Shoes」アイテム（80 > 50）に一致し、2番目のフィルターは「Hat」アイテム（25 < 30）に一致するためです。単一のアイテムが両方の条件を満たしていなくても、ユーザーはSegmentに入ります。
 
 配列内の同じアイテムにすべての条件を一致させる必要がある場合は、同じパスで[マルチクライテリアセグメンテーション]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation)を使用するか、クロスアイテムマッチングを避けるようにデータを再構成してください。
 

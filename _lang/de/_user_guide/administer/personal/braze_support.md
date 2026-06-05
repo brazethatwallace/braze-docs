@@ -8,16 +8,19 @@ page_type: reference
 search_rank: 7
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Braze-Support 
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Braze-Support {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomthe-braze-support-portal-stylefloatrightwidth120pxborder0-classnoimgborderbraze-support}
+
 > Erfahren Sie, wie Sie auf das Braze-Support-Portal zugreifen, Support-Fälle einreichen und nachverfolgen und die für eine effiziente Fehlerbehebung benötigten Informationen bereitstellen.
 
 ## Zugriff auf das Support-Portal {#access-the-support-portal}
 
-Um das Braze-Support-Team zu kontaktieren, navigieren Sie zum Braze-Dashboard. Wählen Sie im Dashboard **Support** > **Get help** aus.
+Um das Braze-Support-Team zu kontaktieren, navigieren Sie zum Braze-Dashboard und wählen Sie **Support** aus. Das Menü bietet zwei Optionen:
 
-![Das Dropdown-Menü „Support“ mit der Option, Hilfe zu erhalten.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:60%;"}
+- **Get help with Operator** öffnet BrazeAI Operator<sup>TM</sup>, der Ihr Problem direkt mithilfe des Kontexts aus Ihrer Konversation und dem aktuellen Bildschirm beheben kann. Wenn Operator Ihr Problem nicht lösen kann, können Sie ihn bitten, ein Support-Ticket auf Basis Ihrer Konversation zu erstellen. Weitere Informationen finden Sie unter [Support-Tickets mit BrazeAI Operator einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/).
+- **Get help** leitet Sie direkt zum Braze-Support-Portal weiter (wenn Sie ein:e designierte:r Support-Kontakt sind) oder zu unserem Standard-Support-Formular, wo Sie Fälle einreichen und nachverfolgen können. Wenn Sie sich nicht sicher sind, ob Sie ein:e Braze-Support-Kontakt sind, wenden Sie sich an den Braze-Administrator Ihres Unternehmens, Ihren Braze-Success-Manager oder den Kontoinhaber.
 
-Abhängig von Ihren Braze-Berechtigungen und davon, ob Sie ein:e designierte:r Support-Kontakt sind, werden Sie entweder zum Braze-Support-Portal weitergeleitet, wo Sie Fälle einreichen und nachverfolgen können, oder zu unserem Standard-Support-Formular. Wenn Sie sich nicht sicher sind, ob Sie ein:e Braze-Support-Kontakt sind, wenden Sie sich an den Braze-Administrator Ihres Unternehmens, Ihren Braze-Success-Manager oder den Kontoinhaber.
+![Das Dropdown-Menü „Support“ mit den Optionen „Get help with Operator“ und „Get help“.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
+
 
 ## Designierte Support-Kontakte hinzufügen {#adding-designated-support-contacts}
 
@@ -28,7 +31,7 @@ Designierte Support-Kontakte können auf alle Support-Fälle Ihres Unternehmens 
 3. Wählen Sie im Menü **Edit** aus, um zur Seite **Edit user** weitergeleitet zu werden.
 4. Aktivieren Sie das Kontrollkästchen **Set this user as a Designated Support Contact for Braze Support Portal**.
 
-![Das Kontrollkästchen zum Festlegen einer Nutzer:in als designierten Support-Kontakt.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
+![Das Kontrollkästchen zum Festlegen eines/einer Nutzer:in als designierten Support-Kontakt.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
 
 ### Zugang erhalten {#gaining-access}
 
@@ -68,15 +71,15 @@ Teilen Sie eine Stichprobe von Nutzer:innen anstelle des gesamten betroffenen Se
 
 ### Netzwerkprotokolle (HAR-Protokolle) anhängen {#attach-network-logs-har-logs}
 
-Wenn Sie den Support kontaktieren, ist es hilfreich, wenn die betroffene Nutzer:in Netzwerkprotokolle (HAR-Protokolle) aus ihrem Browser erfasst, während das Problem auftritt. Diese zeigen die Netzwerkanfragen zwischen dem Browser und dem Server für die einzelnen Komponenten einer Webseite sowie das Braze-Dashboard an, das die Nutzer:in zu öffnen versucht.
+Wenn Sie den Support kontaktieren, ist es hilfreich, wenn der/die betroffene Nutzer:in Netzwerkprotokolle (HAR-Protokolle) aus dem Browser erfasst, während das Problem auftritt. Diese zeigen die Netzwerkanfragen zwischen dem Browser und dem Server für die einzelnen Komponenten einer Webseite sowie das Braze-Dashboard an, das der/die Nutzer:in zu öffnen versucht.
 
-Lassen Sie die betroffene Nutzer:in Folgendes tun:
+Lassen Sie den/die betroffene:n Nutzer:in Folgendes tun:
 
 1. Öffnen Sie die Entwicklertools. In Chrome kann dies mit dem Tastenkürzel `option` + `⌘` + `J` (unter macOS) erfolgen. Unter Windows oder Linux verwenden Sie das Tastenkürzel `shift` + `CTRL` + `J`.
 2. Wählen Sie **Network** > **Fetch/XHR** oder **XHR** aus.
 3. Erstellen Sie eine Bildschirmaufnahme oder einen Screenshot, der **Name**, **Status**, **Size** und **Time** für die Elemente zeigt.<br><br>![Der Tab „Fetch/XHR“ in einem Chrome-Browser.]({% image_buster /assets/img/network_xhr.png %}){: style="max-width:60%;"}
 
-Hängen Sie dann die Aufnahme oder den Screenshot der Nutzer:in an das Support-Ticket an. Diese Informationen können die Untersuchung des Supports unterstützen.
+Hängen Sie dann die Aufnahme oder den Screenshot an das Support-Ticket an. Diese Informationen können die Untersuchung des Supports unterstützen.
 
 ### Erwartetes und tatsächliches Verhalten klären {#clarify-expected-versus-actual-behavior}
 
