@@ -19,8 +19,6 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 Si deseas actualizar las traducciones después de haber lanzado un Canvas, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/post-launch_edits/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Requisitos previos {#prerequisites}
 
 Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.translations.update`.

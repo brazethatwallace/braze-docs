@@ -111,4 +111,4 @@ Este gráfico permite visualizar rapidamente o uso total de pontos de dados em c
 ## Próximas etapas {#next-steps}
 
 - [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para configurar alertas para eventos relacionados ao faturamento e limites de uso.
-- [Dashboard de uso de mensagens]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/) para monitorar o consumo de créditos de SMS, WhatsApp e RCS.
+- [Dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard/) para monitorar o consumo de créditos de mensagens.

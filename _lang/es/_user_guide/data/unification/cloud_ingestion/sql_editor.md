@@ -1,12 +1,13 @@
 ---
-hidden: true
-article_title: "Ingesta de datos de Cloud: editor SQL (beta)"
+nav_title: Editor SQL
+article_title: "Ingesta de datos de Cloud: editor SQL"
 description: "Aprende a crear y validar sincronizaciones de Ingesta de datos de Cloud con consultas SQL."
+page_order: 11
 page_type: reference
 toc_headers: h2
 ---
 
-# Ingesta de datos de Cloud: editor SQL (beta) {#cloud-data-ingestion-sql-editor-beta}
+# Ingesta de datos de Cloud: editor SQL {#cloud-data-ingestion-sql-editor}
 
 > Esta página explica cómo usar el editor SQL de Ingesta de datos de Cloud (CDI) de Braze para crear y validar sincronizaciones con consultas SQL.
 
@@ -189,7 +190,7 @@ Si no se detecta un identificador válido, la validación falla.
 Ten en cuenta que estos identificadores distinguen entre mayúsculas y minúsculas y deben estar en mayúsculas.
 {% endalert %}
 
-### Incluir `UPDATED_AT` {#include-updatedat}
+### Incluir `UPDATED_AT` {#include-updated_at}
 
 Tu consulta debe incluir una columna `UPDATED_AT`.
 
@@ -280,7 +281,7 @@ Si tu consulta devuelve cero filas:
 - Aún puedes crear la sincronización
 - No se actualizan usuarios hasta que se devuelvan filas
 
-## Compatibilidad con PAYLOAD (legado) {#payload-support-legacy}
+## Compatibilidad con `PAYLOAD` (legado) {#payload-support-legacy}
 
 El editor SQL es compatible con [tablas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) donde hay una columna `PAYLOAD` presente.
 
@@ -312,7 +313,7 @@ Esta sección incluye errores comunes y orientación sobre cómo solucionarlos.
 
 ### Vista previa no disponible {#no-preview-available}
 
-Cuando ves "No preview available", uno de los siguientes tipos de error subyacentes puede estar causándolo.
+Cuando ves "Vista previa no disponible", uno de los siguientes tipos de error subyacentes puede estar causándolo.
 
 | Tipo de error | Pasos para resolver |
 |---|---|
@@ -326,7 +327,7 @@ Cuando ves "No preview available", uno de los siguientes tipos de error subyacen
 
 Asegúrate de que tu consulta incluya un identificador válido, como `external_id`.
 
-### Falta la columna `UPDATED_AT` {#updatedat-column-is-missing}
+### Falta la columna `UPDATED_AT` {#updated_at-column-is-missing}
 
 Añade una columna de marca de tiempo para la sincronización incremental.
 

@@ -138,15 +138,7 @@ tool:
 
 오른쪽 패널의 미리보기에 추가한 발송 정보가 표시됩니다. 이 정보는 **Settings** > **Email Preferences** > **Sending Configuration**으로 이동하여 업데이트할 수도 있습니다.
 
-#### 이메일 헤더 개인화(고급) {#personalizing-your-email-header-advanced}
-
-**Sending Settings**에서 이메일 헤더와 이메일 추가 항목에 대한 개인화를 추가할 수 있으며, 이를 통해 다른 이메일 서비스 공급자에게 추가 데이터를 보낼 수 있습니다. 수신자의 이름을 포함하는 등 이메일 헤더를 개인화하면 이메일이 열릴 가능성을 높이는 데 기여할 수 있습니다.
-
-{% alert note %}
-고급 기능은 Campaign 또는 Canvas 작성기에 표시됩니다. 고급 기능에서는 인라인 CSS 설정을 수정하고 헤더 또는 추가 키-값 페어를 입력할 수 있습니다(구성된 경우).
-{% endalert %}
-
-#### 이메일 첨부 파일 추가 {#adding-email-attachments}
+#### 이메일 첨부 파일 추가 {#add-email-attachments}
 
 **Sending Settings** > **Advanced**에서 다음 방법으로 이메일 첨부 파일을 추가할 수 있습니다:
 
@@ -155,6 +147,14 @@ tool:
 - **URL에서 추가:** 파일을 가리키는 URL을 입력하고 표시 파일 이름을 제공합니다. Braze는 이메일 작성 중에 임의의 URL의 크기를 확인할 수 없으므로 파일 크기는 발송 시 적용됩니다. 이 필드에서는 Liquid가 지원되지 않습니다.
 
 고려해야 할 구체적인 모범 사례는 [이메일 가이드라인]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)을 참조하세요.
+
+#### 이메일 헤더 개인화(고급) {#personalize-your-email-header-advanced}
+
+**Sending Settings**에서 이메일 헤더와 이메일 추가 항목에 대한 개인화를 추가할 수 있으며, 이를 통해 다른 이메일 서비스 공급자에게 추가 데이터를 보낼 수 있습니다. 수신자의 이름을 포함하는 등 이메일 헤더를 개인화하면 이메일이 열릴 가능성을 높이는 데 기여할 수 있습니다.
+
+{% alert note %}
+고급 기능은 Campaign 또는 Canvas 작성기에 표시됩니다. 고급 기능에서는 인라인 CSS 설정을 수정하고 헤더 또는 추가 키-값 페어를 입력할 수 있습니다(구성된 경우).
+{% endalert %}
 
 ### 4단계: 이메일 테스트 {#step-4-test-your-email}
 

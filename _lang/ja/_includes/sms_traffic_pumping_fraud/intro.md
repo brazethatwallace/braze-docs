@@ -1,0 +1,1 @@
+> SMS、MMS、およびRCSのトラフィックポンピング詐欺は、メッセージングコストを急速に膨らませる可能性があります。このページでは、この手口の仕組み、Brazeが特定の国を高詐欺リスクとしてマークする理由、およびリスクを軽減するために実行できるステップについて説明します。{% if include.link_geographic_permissions %} 国の許可リストの設定については、[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)を参照してください。{% endif %}

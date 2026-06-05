@@ -16,6 +16,15 @@ Ocasionalmente, você pode identificar atributos personalizados, eventos persona
 
 Para impedir que esses dados sejam enviados à Braze, você pode bloquear um objeto de dados personalizados enquanto sua equipe de engenharia trabalha para removê-lo do backend do seu app ou site. O bloqueio impede que um determinado objeto de dados personalizados seja registrado pela Braze dali em diante, o que significa que ele não aparecerá ao pesquisar um usuário específico.
 
+### Escolhendo entre bloqueio e exclusão {#choosing-blocklisting-or-deletion}
+
+- **Bloqueio** mantém os atributos personalizados, eventos ou compras existentes nos perfis de usuário, mas a Braze não processa mais novos dados para esses objetos.
+- **Exclusão** remove esses dados dos perfis de usuário. Atributos personalizados e eventos excluídos são movidos para **Trashed** por sete dias, durante os quais você pode restaurá-los. Após sete dias, a Braze os exclui permanentemente. A exclusão não impede a chegada de novos dados, então confirme que seu SDK, API ou importações de CSV não estão mais enviando esses dados antes de excluir.
+
+O bloqueio envia informações de bloqueio para o dispositivo de cada usuário e pode ser intensivo em dados. Bloquear um número muito grande de atributos, eventos ou compras (por exemplo, mais de 100) pode afetar o desempenho do app. Se você não planeja mais enviar esses dados à Braze, a exclusão geralmente é a melhor abordagem depois que você parar a integração de enviá-los.
+
+Independentemente de você bloquear ou excluir, esses atributos personalizados, eventos e compras não aparecem mais na página **Gerenciar espaço de trabalho** e são removidos como filtros de segmento. Se você excluir dados personalizados, a Braze remove esses dados em nível de usuário dos perfis de acordo com [Como a exclusão funciona](#how-deletion-works).
+
 Para bloquear dados personalizados, você precisa das [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) listadas no menu suspenso a seguir para o seu espaço de trabalho.
 
 {% details Permissões de usuário para bloqueio de dados personalizados %}
@@ -102,7 +111,7 @@ Até 300 itens são enviados ao SDK para bloqueio. Se você bloquear mais de 300
 
 ## Excluindo dados personalizados {#deleting-custom-data}
 
-Ao criar Campaigns e Segments direcionados, você pode descobrir que não precisa mais de um evento personalizado ou atributo personalizado. Por exemplo, se você usou um atributo personalizado específico como parte de uma Campaign única, pode excluir esses dados após [bloqueá-los](#blocklisting-custom-attributes-custom-events-and-products) e remover suas referências do seu app. Você pode excluir qualquer tipo de dado (como strings, números e atributos personalizados aninhados).
+Ao criar campanhas e segmentos direcionados, você pode descobrir que não precisa mais de um evento personalizado ou atributo personalizado. Por exemplo, se você usou um atributo personalizado específico como parte de uma campanha única, pode excluir esses dados após [bloqueá-los](#blocklisting-custom-attributes-custom-events-and-products) e remover suas referências do seu app. Você pode excluir qualquer tipo de dado (como strings, números e atributos personalizados aninhados).
 
 {% alert important %}
 Você precisa ser [administrador da Braze]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin) para excluir dados personalizados.

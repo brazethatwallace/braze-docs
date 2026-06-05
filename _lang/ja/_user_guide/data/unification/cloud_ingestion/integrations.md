@@ -32,6 +32,10 @@ page_type: reference
 2. Redshiftインスタンスで、Brazeと同期するテーブルまたはビューを設定します。
 3. Brazeダッシュボードで新しいソースと同期を作成します。
 4. 連携のテストを行い、同期を開始します。
+
+{% alert note %}
+同期ごとに処理される行数は、ウェアハウスのパフォーマンス、ネットワークレイテンシー、および同期クエリに一致する新しいデータの量によって異なります。ダッシュボードの連携**同期履歴**を使用して、最近の実行の所要時間と行数を確認できます。
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. サービスアカウントを作成し、同期するデータを含むBigQueryのプロジェクトとデータセットへのアクセスを許可します。
@@ -104,7 +108,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 
 #### ステップ 1.2: ロールとデータベース権限の設定 {#step-12-set-up-the-role-and-database-permissions}
 
-`````````sql
+```sql
 CREATE ROLE BRAZE_INGESTION_ROLE;
 
 GRANT USAGE ON DATABASE BRAZE_CLOUD_PRODUCTION TO ROLE BRAZE_INGESTION_ROLE;
@@ -116,7 +120,7 @@ GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC TO 
 
 #### ステップ 1.3: ウェアハウスの設定とBrazeロールへのアクセス権の付与 {#step-13-set-up-the-warehouse-and-give-access-to-braze-role}
 
-`````````sql
+```sql
 CREATE WAREHOUSE BRAZE_INGESTION_WAREHOUSE;
 
 GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
@@ -128,7 +132,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 
 #### ステップ 1.4: ユーザーの設定 {#step-14-set-up-the-user}
 
-`````````sql
+```sql
 CREATE USER BRAZE_INGESTION_USER;
 
 GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
@@ -152,12 +156,12 @@ Snowflakeアカウントの設定によっては、Snowflakeのネットワー�
 #### ステップ 1.1: テーブルの設定
 
 オプションで、ソーステーブルを保持する新規データベースとスキーマを設定します。
-`````````sql
+```sql
 CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
 CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
 ```
 CDI連携に使用するテーブル（またはビュー）を作成します。
-`````````sql
+```sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
    updated_at timestamptz default sysdate,
    --at least one of external_id, alias_name and alias_label, or braze_id is required
@@ -187,7 +191,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 
 #### ステップ 1.2: ユーザーの作成と権限の付与 {#step-12-create-user-and-grant-permissions}
 
-`````````sql
+```sql
 CREATE USER braze_user PASSWORD '{password}';
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
@@ -216,13 +220,13 @@ Brazeダッシュボードのリージョンに対応する以下のIPからの�
 
 オプションで、ソーステーブルを保持する新規のプロジェクトまたはデータセットを設定します。
 
-`````````sql
+```sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 ```
 
 次のフィールドを持つ、CDI連携に使用するテーブルを1つ以上作成します。
 
-`````````sql
+```sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 (
   updated_at TIMESTAMP DEFAULT current_timestamp,
@@ -299,14 +303,14 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 オプションで、ソーステーブルを保持する新しいカタログまたはスキーマを設定します。
 
-`````````sql
+```sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 ```
 
 次のフィールドを持つ、CDI連携に使用するテーブルを1つ以上作成します。
 
 
-`````````sql
+```sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 (
   updated_at TIMESTAMP DEFAULT current_timestamp(),
@@ -412,7 +416,7 @@ Brazeに接続するFabricリソースは、共有ワークスペースに配置
 #### ステップ 1.4: テーブルの設定 {#step-14-set-up-the-table}
 BrazeはFabricウェアハウスのテーブルとビューの両方をサポートしています。新しいウェアハウスを作成する必要がある場合は、ステップ 1.3の共有ワークスペース内に作成してください。Fabricコンソールで**Create** > **Data Warehouse** > **Warehouse**と進みます。
 
-`````````sql
+```sql
 CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
 (
   UPDATED_AT DATETIME2(6) NOT NULL,
@@ -488,7 +492,7 @@ Snowflakeのアカウント識別子を確認するには:
 
 その方法の詳細については、[Snowflakeのドキュメント](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)を参照してください。任意の時点でキーをローテーションする場合は、Brazeが新しいキーペアを生成して新しい公開キーを提供できます。
 
-`````````sql
+```sql
 ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 ```
 {% endtab %}
@@ -770,26 +774,26 @@ Brazeとの連携を複数設定できますが、各連携は異なるテーブ
 
 {% tabs %}
 {% tab Snowflake %}
-有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
+有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のテストスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
 
 {% endtab %}
 {% tab Redshift %}
-有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
+有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のテストスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
 
 {% endtab %}
 {% tab BigQuery %}
 
-有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
+有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のテストスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
 
 {% endtab %}
 {% tab Databricks %}
 
-有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
+有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のテストスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
+有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のテストスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
 
 {% endtab %}
 

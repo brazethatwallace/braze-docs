@@ -91,6 +91,19 @@ Verwenden Sie das [Telefonnummer-Erfassungsformular]({{site.baseurl}}/user_guide
 
 ## Opt-outs für Ihren Braze-WhatsApp-Kanal einrichten {#set-up-opt-outs-for-your-braze-whatsapp-channel}
 
+### WhatsApp-Schalter „Angebote und Ankündigungen“ {#whatsapp-offers-and-announcements-toggle}
+
+WhatsApp bietet in den App-Einstellungen einen Schalter „Angebote und Ankündigungen“, mit dem Nutzer:innen Marketing-Nachrichten ablehnen können. Dieser Schalter funktioniert unabhängig von Braze-Abo-Gruppen:
+
+- **Braze-Abo-Gruppen** werden über Ihre Braze-Integration (API, Präferenzzentrum oder SDK) verwaltet und steuern, welche Nutzer:innen Sie für Nachrichten ansprechen.
+- **Der native WhatsApp-Schalter** wird von Meta gesteuert und auf Plattformebene durchgesetzt, außerhalb von Braze.
+
+Diese beiden Ebenen synchronisieren sich nicht automatisch. Wenn ein:e Nutzer:in den Schalter „Angebote und Ankündigungen“ in WhatsApp deaktiviert, blockiert Meta die Zustellung von Marketing-Nachrichten auf Plattformebene, selbst wenn der Braze-Abo-Status der Nutzer:innen als „Abonniert“ angezeigt wird. Die Präferenz der Nutzer:innen wird zum Zeitpunkt der Zustellung berücksichtigt.
+
+{% alert note %}
+Da Braze kein Opt-out-Signal erhält, bis ein Sendeversuch unternommen wird und Meta einen Fehler zurückgibt, spiegeln die Abo-Zahlen in Braze möglicherweise nicht die Nutzer:innen wider, die sich über den WhatsApp-Schalter abgemeldet haben, bis eine Nachricht versucht wird. Das bedeutet, dass Reichweitenschätzungen leicht überhöht sein können, bis diese Rückkopplungsschleife stattfindet.
+{% endalert %}
+
 ### Allgemeine Opt-out-Schlüsselwörter {#general-opt-out-keywords}
 
 Sie können eine Campaign oder ein Canvas einrichten, das Nutzer:innen, die bestimmte Wörter senden, von zukünftigen Nachrichten abmeldet. Canvases können besonders vorteilhaft sein, da sie Ihnen ermöglichen, eine Folgenachricht einzufügen, die das erfolgreiche Opt-out bestätigt.
@@ -185,7 +198,7 @@ Sie müssen diese Methode nicht für STOP-Nachrichten verwenden. Die Bestätigun
 {: start="3"}
 3. Geben Sie die [Endpunkt-URL]({{site.baseurl}}/api/basics/) der Kund:innen in die **Webhook URL** ein, gefolgt vom Endpunkt-Link `campaigns/trigger/send`. Zum Beispiel `https://dashboard-02.braze.eu/campaigns/trigger/send`.
 
-![Webhook-URL-Feld im Abschnitt „Compose Webhook“.]({% image_buster /assets/img/whatsapp/campaigns_webhook_url.png %}){: style="max-width:70%;"}
+![Webhook-URL-Feld im Abschnitt „Webhook verfassen“.]({% image_buster /assets/img/whatsapp/campaigns_webhook_url.png %}){: style="max-width:70%;"}
 
 {: start="4"}
 4. Geben Sie im Rohtext den folgenden JSON-Payload ein und ersetzen Sie `XXXXXXXXXXX` durch Ihre Abo-Gruppen-ID. Sie müssen die `campaign_id` ersetzen, nachdem Sie Ihre zweite Campaign erstellt haben.
@@ -228,4 +241,4 @@ In dieser Tabelle wird `STOP` als Beispiel-Triggerwort verwendet, um zu zeigen, 
 | `Is` | `STOP` | Erfasst jede vollständige Wortverwendung von „stop“ unabhängig von der Groß-/Kleinschreibung. Dies erfasst beispielsweise „stop“, aber nicht „please stop“. |
 | `Matches regex` | `STOP` | Erfasst jede Verwendung von „STOP“ in genau dieser Schreibweise. Dies erfasst beispielsweise „STOP“ und „PLEASE STOP“, aber nicht „stop“. |
 | `Matches regex` | `(?i)STOP(?-i)` | Erfasst jede Verwendung von „STOP“ in beliebiger Schreibweise. Dies erfasst beispielsweise „stop“, „please stop“ und „never stop sending me messages“. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Den Unterschied zwischen den Modifikatoren „Regex“ und „is“ verstehen" }
