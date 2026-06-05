@@ -196,10 +196,8 @@ Braze sends the RCS payload you compose, while the messaging client controls how
 
 Yes, you can use media messages to support audio files.
 
-<!-- sf-kb-phase2-batch -->
+### Why don't REST API SMS opt-ins match **Total Opt-Ins** on SMS/MMS/RCS Performance?
 
-## Salesforce Knowledge updates
+**Total Opt-Ins** and **Total Opt-Outs** on the [SMS/MMS/RCS Performance]({{site.baseurl}}/user_guide/analytics/dashboards/) dashboard count subscription changes driven by inbound SMS keyword handling (for example, a user texting an opt-in keyword to your short code). They don't include every subscription update made through the REST API, the dashboard, or other sources.
 
-### SMS Subscribes are not accurately reflected in SMS/MMS/RCS Channel Engagement
-
-Add a note to SMS/MMS/RCS Channel Engagement or analytics docs clarifying that Total-Opt Ins/Outs in that report only includes Inbound message opt-ins/opt-outs. Document the Query Builder workaround using USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED and STATE_CHANGE_SOURCE to filter by Rest API vs Inbound Message.
+To analyze opt-ins and opt-outs by source, use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) on `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` and filter on `STATE_CHANGE_SOURCE` (for example, **Rest API** versus **Inbound Message**).
