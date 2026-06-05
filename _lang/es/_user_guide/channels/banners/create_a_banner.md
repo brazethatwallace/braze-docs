@@ -33,7 +33,7 @@ Antes de poder lanzar tu banner, tu equipo de desarrollo debe [configurar las ub
 3. Dale a tu campaña un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario. Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el Generador de informes, puedes filtrar por las etiquetas relevantes.
 5. Selecciona la ubicación que creaste previamente para asociarla con tu campaña.
-6. Añade variantes según sea necesario. Puedes elegir un tipo de mensaje y diseño diferente para cada una. Para más información sobre variantes, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+6. Añade variantes según sea necesario. Puedes elegir un tipo de mensaje y diseño diferente para cada una. Para más información sobre variantes, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 7. Elige una fecha y hora de inicio para tu campaña de banner. De forma predeterminada, los banners duran indefinidamente. Puedes cambiar esto seleccionando **End Time** y especificando una fecha y hora de fin.
 
 {% alert tip %}
@@ -85,11 +85,18 @@ El comportamiento al hacer clic puede ser anulado si un elemento específico (co
 
 #### Paso 3.3: Configurar el comportamiento de descarte (opcional) {#dismiss-behavior}
 
-{% alert important %}
-Los descartes de banners están actualmente en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.
-{% endalert %}
+Selecciona la casilla **Banner can be dismissed** en la sección **Dismiss Behavior** para permitir que los usuarios descarten el banner. Esta opción es útil en escenarios donde quieres promocionar una venta por tiempo limitado para todos los usuarios de la aplicación, pero permitirles descartar el mensaje si no están interesados.
 
-Selecciona la casilla **Banner can be dismissed** para permitir que los usuarios descarten el banner. Esta opción puede ser útil en escenarios donde quieres promocionar una venta por tiempo limitado para todos los usuarios de la aplicación, pero permitirles descartar el mensaje si no están interesados.
+Cuando el descarte está habilitado, puedes personalizar el botón de descarte en la sección **Dismiss Behavior**:
+
+| Configuración | Descripción |
+|---------|-------------|
+| **Button size** | El tamaño del botón de descarte que se muestra en el banner. |
+| **Button color** | El color del botón de descarte. |
+| **ARIA label** | La etiqueta accesible para el botón de descarte, utilizada por los lectores de pantalla. De forma predeterminada es "Close" si se deja en blanco. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
+
+Cuando un usuario descarta un banner, este no vuelve a aparecer para ese usuario, incluso si aún cumple con los criterios de segmentación de la campaña.
 
 #### Paso 3.4: Añadir propiedades personalizadas (opcional) {#custom-properties}
 
@@ -110,7 +117,7 @@ Para cada propiedad que quieras añadir, completa lo siguiente:
 | Tipo de propiedad | El tipo de datos de la propiedad. Los tipos compatibles incluyen cadena, booleano, número, marca de tiempo, URL de imagen y objeto JSON. | Cadena |
 | Clave de propiedad | El identificador único de la propiedad. Esta clave se usa en el SDK para acceder a la propiedad. | `color` |
 | Valor | El valor asignado a la propiedad. Debe coincidir con el tipo de propiedad seleccionado. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
 
 Cuando hayas terminado, selecciona **Done**.
 
@@ -133,6 +140,12 @@ La [prioridad del banner]({{site.baseurl}}/user_guide/channels/banners/#priority
 Si tienes múltiples campañas de banner usando el mismo ID de ubicación, te recomendamos usar el ordenador de prioridad de arrastrar y soltar para definir la prioridad exacta.
 {% endalert %}
 
+#### Configurar la reelegibilidad (opcional) {#re-eligibility}
+
+De forma predeterminada, los usuarios que descartan un banner nunca vuelven a ser elegibles para esa campaña. Para permitir que los usuarios que descartaron el banner lo vean de nuevo, ve al paso **Delivery Controls** y selecciona **Allow users to become re-eligible to receive campaign**. Cuando esté habilitado, establece una ventana de espera en minutos, horas, días o semanas.
+
+La cuenta regresiva comienza cuando el usuario descarta el banner. Después de que la ventana expire, el usuario vuelve a ser elegible automáticamente, sin necesidad de reiniciar la campaña. La reelegibilidad se rastrea por usuario y por campaña.
+
 #### Elige tu audiencia {#choose-your-audience}
 
 1. En **Target Audiences**, elige Segments o filtros para delimitar tu audiencia. Recibirás automáticamente una vista previa de la población aproximada del segmento. La pertenencia exacta al segmento se calcula antes de que se envíe el mensaje.
@@ -150,7 +163,9 @@ Braze te permite realizar un seguimiento de los [eventos de conversión]({{site.
 
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing/) e [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing/) e [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
+
+Para controlar la reelegibilidad en los pasos de banner de Canvas, usa la configuración de reentrada de Canvas. Para más información, consulta [Reelegibilidad para campañas y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/).
 
 {% endtab %}
 {% endtabs %}

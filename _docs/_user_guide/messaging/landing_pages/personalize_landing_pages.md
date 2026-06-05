@@ -50,6 +50,23 @@ Liquid can customize the landing page experience for both identified and anonymo
 - **Identified users:** Link to the landing page from a Braze message and include the [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). This associates the user with their Braze profile and personalizes the page experience.
 - **Anonymous visitors:** Use Liquid for contextual, non-profile-based content, such as a random number or a time-of-day greeting.
 
+### Pre-fill form fields
+
+If a landing page form field maps to a user profile attribute, you can pre-fill that field for returning users. This helps reduce form friction and improves completion rates for known visitors.
+
+Use pre-fill form fields:
+
+1. Select your form field in the drag-and-drop editor.
+2. In the right-hand settings panel, map the field to the appropriate profile attribute.
+3. Select **Pre-fill from user profile**.
+
+![Landing page form field settings showing the option to pre-fill from user profile data.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
+
+Pre-filling only works for [identified users](#use-liquid-for-identified-and-anonymous-users). For anonymous visitors, form fields keep their default state:
+
+- **Input fields:** Display their placeholder text.
+- **Checkboxes, radio buttons, and similar controls:** Remain unselected until the user interacts with them.
+
 ## Fetching external data with custom code
 
 You can use a **Custom Code** block to fetch data from external endpoints and display it in your landing page. This approach makes the request on the client side (in the user's browser), so the page loads quickly without server-side rendering delays.
