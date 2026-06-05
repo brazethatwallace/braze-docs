@@ -120,14 +120,14 @@ Message if the venue name's size is 10 characters or fewer.
 Dans cet exemple, différents messages s'affichent selon que le champ `venue_name` contient plus ou moins de 10 caractères. Si `venue_name` est vide, le message est interrompu.
 
 {% alert tip %}
-Pour éviter les erreurs de syntaxe Liquid, sélectionnez le bouton **+** dans l'éditeur de message pour insérer automatiquement les étiquettes Liquid de catalogue.
+Pour éviter les erreurs de syntaxe Liquid, sélectionnez le bouton **+** dans l'éditeur de message pour insérer automatiquement les balises Liquid de catalogue.
 {% endalert %}
 
 ### Utiliser des images {#using-images}
 
 Vous pouvez également référencer des images du catalogue pour les utiliser dans vos messages. Pour ce faire, utilisez la balise `catalogs` et l'objet `item` dans le champ Liquid pour les images.
 
-Par exemple, pour ajouter le `image_link` de notre catalogue Games à notre message promotionnel pour Tales, sélectionnez l'`id` pour le champ **Catalog Items** et `image_link` pour le champ **Information to Display**. Ceci ajoute les étiquettes Liquid suivantes à notre champ d'image :
+Par exemple, pour ajouter le `image_link` de notre catalogue Games à notre message promotionnel pour Tales, sélectionnez l'`id` pour le champ **Catalog Items** et `image_link` pour le champ **Information to Display**. Ceci ajoute les balises Liquid suivantes à notre champ d'image :
 
 {% raw %}
 ```liquid
@@ -137,11 +137,15 @@ Par exemple, pour ajouter le `image_link` de notre catalogue Games à notre mess
 ```
 {% endraw %}
 
-![Éditeur de carte de contenu avec une étiquette Liquid de catalogue utilisée dans le champ d'image.]({% image_buster /assets/img_archive/catalog_image_link1.png %})
+![Éditeur de carte de contenu avec une balise Liquid de catalogue utilisée dans le champ d'image.]({% image_buster /assets/img_archive/catalog_image_link1.png %})
 
 Voici à quoi cela ressemble une fois le Liquid rendu :
 
-![Exemple de carte de contenu avec rendu des étiquettes Liquid du catalogue.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
+![Exemple de carte de contenu avec rendu des balises Liquid du catalogue.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
+
+{% alert important %}
+Dans les canaux **HTML** tels que l'e-mail, évitez les espaces ou sauts de ligne supplémentaires entre la balise de fermeture `{% raw %}{% catalog_items ... %}{% endraw %}` et le Liquid qui affiche l'URL de l'image (par exemple, `{% raw %}{{ items[0].image_link }}{% endraw %}`). Les espaces supplémentaires dans le modèle peuvent empêcher la résolution correcte de l'URL de l'image dans le message rendu. Gardez l'expression d'URL immédiatement adjacente à la balise du catalogue, comme ceci : `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`.
+{% endalert %}
 
 ### Modèles d'éléments de catalogue
 
@@ -194,9 +198,9 @@ Vous pouvez également composer manuellement des catalogues avec la logique Liqu
 
 #### Modélisation d'éléments de catalogue incluant du Liquid
 
-Tout comme pour le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), vous devez utiliser le drapeau `:rerender` dans une étiquette Liquid pour afficher le contenu Liquid d'un élément du catalogue. Notez que le drapeau `:rerender` ne s'applique qu'à un seul niveau de profondeur : il ne s'appliquera pas aux appels d'étiquettes Liquid imbriqués.
+Tout comme pour le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), vous devez utiliser le drapeau `:rerender` dans une balise Liquid pour afficher le contenu Liquid d'un élément du catalogue. Notez que le drapeau `:rerender` ne s'applique qu'à un seul niveau de profondeur : il ne s'appliquera pas aux appels de balises Liquid imbriquées.
 
-Si un élément du catalogue contient des champs de profil utilisateur (dans une étiquette de personnalisation Liquid), ces valeurs doivent être définies en Liquid plus tôt dans le message, avant la modélisation, afin de garantir le bon rendu du Liquid. Si le drapeau `:rerender` n'est pas fourni, le contenu Liquid brut sera restitué.
+Si un élément du catalogue contient des champs de profil utilisateur (dans une balise de personnalisation Liquid), ces valeurs doivent être définies en Liquid plus tôt dans le message, avant la modélisation, afin de garantir le bon rendu du Liquid. Si le drapeau `:rerender` n'est pas fourni, le contenu Liquid brut sera restitué.
 
 Par exemple, si un catalogue nommé « Messages » possède un élément avec ce Liquid :
 
@@ -224,7 +228,7 @@ Welcome to our store, Peter!
 {% endraw %}
 
 {% alert note %}
-Les étiquettes Liquid des catalogues ne peuvent pas être utilisées de manière récursive à l'intérieur des catalogues.
+Les balises Liquid des catalogues ne peuvent pas être utilisées de manière récursive à l'intérieur des catalogues.
 {% endalert %}
 
 ## Structurer les données de votre catalogue
@@ -233,7 +237,7 @@ Lorsque vous planifiez la structure des données de votre catalogue, partez de v
 
 ### Quand utiliser les appels de catalogue standard
 
-Avec les appels de catalogue standard, vous faites correspondre une valeur à la colonne `id`. En insérant un attribut personnalisé ou une propriété d'événement (sous forme de chaîne de caractères d'ID) dans l'étiquette Liquid du catalogue, vous pouvez récupérer plusieurs attributs d'un même élément dans votre message. Les cas d'utilisation courants incluent :
+Avec les appels de catalogue standard, vous faites correspondre une valeur à la colonne `id`. En insérant un attribut personnalisé ou une propriété d'événement (sous forme de chaîne de caractères d'ID) dans la balise Liquid du catalogue, vous pouvez récupérer plusieurs attributs d'un même élément dans votre message. Les cas d'utilisation courants incluent :
 
 - Produit ou service récemment consulté
 - Éléments de la liste de souhaits

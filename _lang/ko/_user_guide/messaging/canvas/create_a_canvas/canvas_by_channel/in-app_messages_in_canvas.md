@@ -20,6 +20,8 @@ Canvas에서 인앱 메시지를 사용하기 전에, 지연 및 오디언스 �
 
 Canvas 빌더에서 [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) 단계를 추가하고 **메시징 채널**로 **인앱 메시지**를 선택합니다. [메시지 만료 시점](#in-app-message-expiration)과 [진행 동작](#advancement-behavior)을 커스텀할 수 있습니다.
 
+워크스페이스에 여러 앱이 있는 경우, 전달 유효성 검사가 아닌 **전달 플랫폼**, {% raw %}`{{targeted_device.${platform}}}`{% endraw %} 또는 {% raw %}`{{app.${api_id}}}`{% endraw %} Liquid 태그를 사용하여 올바른 앱을 타겟팅하세요. 인앱 메시지는 사용자가 타겟팅된 앱을 열고 단계의 트리거 기준을 충족할 때만 표시됩니다. 자세한 내용은 [전달 유효성 검사]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations)를 참조하세요.
+
 ## 사용자 여정에 인앱 메시지 추가하기 {#adding-an-in-app-message-to-your-user-journey}
 
 Canvas에 인앱 메시지를 추가하려면 다음을 수행하세요:
@@ -48,6 +50,12 @@ Canvas에 인앱 메시지를 추가하려면 다음을 수행하세요:
 | **특정 날짜 및 시간에** | 인앱 메시지가 더 이상 사용 불가능해지는 특정 날짜와 시간을 선택합니다. | 2024년 11월 30일에 종료되는 세일이 있는 경우, 이 옵션을 선택하여 세일이 종료되면 사용자가 관련 인앱 메시지를 더 이상 보지 않도록 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="In-app message expiration" }
 
+사용자가 세션을 시작하면, Braze는 인앱 메시지에 대한 자격 또는 만료 여부가 변경되었는지 확인하고 업데이트된 만료 정보를 기기로 전송합니다.
+
+인앱 메시지가 사용자가 메시지 단계에 도달할 때 이미 지난 특정 날짜와 시간에 만료되도록 설정된 경우, 해당 사용자는 인앱 메시지를 받지 않습니다. 해당 단계의 [진행 동작](#advancement-behavior)에 따라 Canvas를 계속 진행합니다.
+
+이는 [지연]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) 단계와 같은 이전 단계가 사용자를 더 긴 경로에 머물게 할 때 자주 발생합니다. 예를 들어, 5월 22일에 Canvas를 시작하고 72시간 지연 후 5월 23일 자정에 만료되는 인앱 메시지가 있는 경우, 사용자는 만료 시간 이후에 메시지 단계에 도달하므로 인앱 메시지를 보지 못합니다.
+
 ## 활용 사례 {#use-cases}
 
 Braze는 프로모션 및 온보딩 Canvases에서 이 기능을 사용하는 것을 권장합니다.
@@ -62,8 +70,8 @@ Braze는 프로모션 및 온보딩 Canvases에서 이 기능을 사용하는 �
 .tg th{word-break:normal;}
 </style>
 
-<table aria-label="Use cases" class="tg">
-  <caption>Use cases</caption>
+<table aria-label="활용 사례" class="tg">
+  <caption>활용 사례</caption>
 <thead>
   <tr>
     <th>캔버스 단계</th>
@@ -113,8 +121,8 @@ Braze는 프로모션 및 온보딩 Canvases에서 이 기능을 사용하는 �
 
 사용자에 대한 첫인상은 아마도 가장 중요한 순간일 것입니다. 이것이 앱에 대한 향후 방문을 좌우할 수 있습니다. 사용자와의 초기 커뮤니케이션은 적절한 시점에 이루어져야 하며, 사용을 촉진하기 위해 앱 방문을 자주 하도록 유도해야 합니다.
 
-<table aria-label="Use cases" class="tg">
-  <caption>Use cases</caption>
+<table aria-label="활용 사례" class="tg">
+  <caption>활용 사례</caption>
 <thead>
   <tr>
     <th>캔버스 단계</th>
