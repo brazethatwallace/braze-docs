@@ -46,7 +46,17 @@ El editor de arrastrar y soltar actualmente admite dos capas. Puedes establecer 
 
 ### ¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de crearlo dentro de mi campaña o Canvas? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-No, debes recrear el correo electrónico en **Plantillas de correo electrónico** para guardarlo.
+No. No puedes guardar un correo electrónico de arrastrar y soltar desde una campaña o Canvas como una **plantilla de correo electrónico** de arrastrar y soltar en **Templates** > **Email Templates**. Recrea el diseño en **Templates** > **Email Templates**, o la próxima vez comienza desde una plantilla guardada. Para obtener instrucciones, consulta [Crear una plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+
+Si necesitas una plantilla HTML reutilizable, selecciona **Download file** mientras editas el cuerpo de arrastrar y soltar, abre el HTML del archivo ZIP y pega el código en una [plantilla de correo electrónico HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) usando el editor de código HTML. Vuelve a verificar el Liquid, los enlaces y los activos alojados después.
+
+Para más información sobre dónde se encuentran las plantillas, consulta [Plantillas y medios]({{site.baseurl}}/user_guide/messaging/templates/).
+
+### ¿Por qué no puedo cambiar el color de relleno de un botón en el editor de arrastrar y soltar? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+
+Los estilos a nivel de página pueden anular los estilos a nivel de mensaje. Si actualizar **Fill** en un botón o bloque no tiene efecto, intenta lo siguiente:
+1. Abre la [configuración global de estilos de correo electrónico]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) y selecciona **Reset to default** en el estilo de página en conflicto para que el color a nivel de mensaje pueda aplicarse.
+2. Establece el color de nuevo en el bloque.
 
 ### ¿Puedo agregar archivos adjuntos de correo electrónico en el editor de arrastrar y soltar? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 

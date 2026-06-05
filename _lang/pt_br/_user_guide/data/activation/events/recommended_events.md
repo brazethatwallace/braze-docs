@@ -237,7 +237,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 {% endsubtab %}
 {% subtab Android %}
 
-##### Adicionar
+##### Adicionar {#add}
 
 `add` aumenta a quantidade ou adiciona um novo item. A propriedade `quantity` indica quantas unidades adicionar.
 
@@ -286,7 +286,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 189.99)))));
 ```
 
-##### Remover
+##### Remover {#remove}
 
 `remove` diminui a quantidade pelo valor em `quantity`. O item é removido quando a quantidade chega a `0`.
 
@@ -335,7 +335,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 14.99)))));
 ```
 
-##### Substituir
+##### Substituir {#replace}
 
 `replace` (ou omitir `action`) envia o carrinho completo. `total_value` é obrigatório.
 
@@ -1108,7 +1108,7 @@ A tabela a seguir resume o que a Braze faz automaticamente para cada evento quan
 | `ecommerce.cart_updated`     | Cria ou atualiza o objeto de mapeamento de carrinhos no perfil do usuário (cargas úteis de carrinho completo ou atualizações incrementais com `action` opcional: `add`, `remove` ou `replace`). O carrinho expira após 30 dias sem atualização. |
 | `ecommerce.product_viewed`   | Nenhuma alteração no perfil do usuário. Disponível para segmentação, disparo e recursos do BrazeAI<sup>TM</sup> (como recomendações de itens). |
 | `ecommerce.checkout_started` | Nenhuma alteração no perfil do usuário. Disponível para segmentação e disparo (por exemplo, fluxos de checkout abandonado). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pós-processamento de eventos de eCommerce" }
 
 {% alert important %}
 Valores em moedas diferentes de USD são automaticamente convertidos para USD usando a taxa de câmbio da data em que o evento é reportado. Se você já reporta em USD, defina `USD` como a moeda para evitar conversões indesejadas.
@@ -1206,7 +1206,7 @@ Para cada evento cujo nome corresponda a um evento recomendado de eCommerce, a B
 | Sem propriedades extras no nível superior | Campos personalizados em properties causam falha. Use o objeto `metadata` em vez disso. |
 | Restrições de valor | Campos monetários devem ser ≥ `0`. `currency` deve ser uma string ISO 4217 válida. |
 | Campos por produto | Cada item em `products[]` deve incluir `product_id`, `product_name`, `variant_id`, `quantity` e `price`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="O que é validado" }
 
 ### Por que validamos {#why-we-validate}
 
@@ -1257,7 +1257,7 @@ As falhas também são classificadas internamente e agregadas para o e-mail de r
 | `missing_property`     | Um campo obrigatório está ausente. | `order_placed` enviado sem `order_id`. |
 | `extra_property`       | Um campo foi adicionado que o esquema não define. | Um campo personalizado `gift_wrapped` no topo de `properties` em vez de dentro de `metadata`. |
 | `unexpected_data_type` | Um campo está com o tipo errado. | `total_value: "29.99"` (string) em vez de `29.99` (número). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example API error response" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemplo de resposta de erro da API" }
 
 {% alert note %}
 Nomes de eventos que não correspondem exatamente a um evento recomendado (por exemplo, `ecommerce.OrderPlaced`) ignoram a validação completamente e são registrados como eventos personalizados comuns. Eles aparecem no Currents e na segmentação com o nome que você enviou, mas não recebem processamento de evento recomendado e nenhuma entrada de `errors` na resposta.

@@ -52,12 +52,14 @@ Das Modul **Active cart** zeigt den neuesten Warenkorb im Nutzerprofil an. Diese
 
 ### Segmentierung {#segmentation}
 
-E-Commerce-Events verhalten sich wie angepasste Events, sodass alle vorhandenen Filter für angepasste Events sofort funktionieren. Sie könnten beispielsweise filtern nach „Hat angepasstes Event `ecommerce.order_placed` mehr als X Mal ausgeführt.“
+Braze bietet drei Möglichkeiten, Nutzer:innen auf Basis von E-Commerce-Daten zu segmentieren:
 
-Für Targeting auf Basis verschachtelter Produktdaten (wie bestimmte Produkt-IDs, Variantennamen oder Preisschwellen) verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) mit Filterung nach verschachtelten Event-Eigenschaften. So können Sie Zielgruppen erstellen wie „Nutzer:innen, die Produkt SKU-123 in den letzten 90 Tagen gekauft haben“ oder Kriterien über verschiedene Eigenschaften derselben Bestellung kombinieren.
+- **E-Commerce-Filter:** Verwenden Sie die Kategorie **eCommerce** im Segmenter, die Filter enthält, die von empfohlenen E-Commerce-Events gespeist werden (wie **Last Order Placed**, **Total Revenue** und **Average Order Value**). Eine vollständige Liste der verfügbaren Filter finden Sie unter [Segment-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+- **Filter für angepasste Events:** Da sich E-Commerce-Events wie angepasste Events verhalten, funktionieren alle vorhandenen Filter für angepasste Events sofort. Sie können beispielsweise filtern nach „Hat angepasstes Event `ecommerce.order_placed` mehr als X Mal ausgeführt“ oder „Hat angepasstes Event `ecommerce.order_placed` zum ersten Mal ausgeführt“.
+- **Segmenterweiterungen:** Für die Segmentierung nach verschachtelten Event-Eigenschaften, einschließlich des verschachtelten Produkt-Arrays oder der Metadaten-Objekt-Eigenschaften, verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) mit Filterung nach verschachtelten Event-Eigenschaften. So können Sie Zielgruppen erstellen wie „Nutzer:innen, die Produkt SKU-123 in den letzten 90 Tagen gekauft haben“ oder Kriterien über verschiedene Eigenschaften derselben Bestellung kombinieren.
 
 {% alert important %}
-Segmenterweiterungen sind ein kostenpflichtiges Feature. Bestätigen Sie, dass Ihr Plan Zugang beinhaltet, bevor Sie Ihrem Team die Segmentierung nach verschachtelten Eigenschaften empfehlen.
+Segmenterweiterungen für empfohlene E-Commerce-Events sind ein kostenpflichtiges Feature im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren Customer-Success-Manager. Bestätigen Sie, dass Ihr Plan Zugang beinhaltet, bevor Sie Ihrem Team die Segmentierung nach verschachtelten Eigenschaften empfehlen.
 {% endalert %}
 
 ### Triggern {#triggering}
@@ -160,7 +162,7 @@ Empfohlene E-Commerce-Events speisen dieselben Umsatzoberflächen, die Kund:inne
 | Bericht | Was er zeigt |
 |---------------------------------------------|-------------------------------------------|
 | Umsatzbericht | Gesamtumsatz, durchschnittlicher Tagesumsatz, tägliche Käufe und Umsatz pro Nutzer:in im Zeitverlauf über alle Quellen für Ihren ausgewählten Zeitraum und Ihre Apps. |
-| Last-Touch-Attribution-Umsatz-Dashboard | Umsatz, der der letzten Campaign oder dem letzten Canvas zugeordnet wird, mit dem eine Nutzer:in vor einer Bestellung interagiert hat. Touch-Events umfassen E-Mail-Klicks, Push-Öffnungen, Content-Card-Klicks, In-App-Nachricht-Klicks sowie SMS- oder WhatsApp-Kurzlink-Klicks. |
+| Last-Touch-Attribution-Umsatz-Dashboard | Umsatz, der der letzten Campaign oder dem letzten Canvas zugeordnet wird, mit der bzw. dem eine Nutzer:in vor einer Bestellung interagiert hat. Touch-Events umfassen E-Mail-Klicks, Push-Öffnungen, Content-Card-Klicks, In-App-Nachricht-Klicks sowie SMS- oder WhatsApp-Kurzlink-Klicks. |
 | Campaign- und Canvas-Analytics | Gesamtumsatz, der einer bestimmten Campaign oder einem bestimmten Canvas innerhalb des primären Konversionsfensters zugeordnet wird. |
 | Conversions-Bericht | Umsatz, der an Konversions-Events von Campaigns und Canvases gebunden ist.<br> **Hinweis:** Damit der Umsatz von `ecommerce.order_placed` gezählt wird, muss die Campaign oder der Canvas den Konversions-Event-Typ „Place Order“ als Konversions-Event verwenden. |
 | Segment-Insights | Umsatzvergleiche über Segmente hinweg im Segment-Insights-Dashboard. |

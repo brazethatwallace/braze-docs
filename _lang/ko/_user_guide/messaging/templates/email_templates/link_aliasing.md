@@ -69,10 +69,6 @@ Braze는 모든 링크 URL에 `lid`(링크 식별자라고도 함)라는 추가 
 1. **설정** > **워크스페이스 설정** 아래의 **이메일 환경설정**으로 이동합니다.
 2. **Link Aliasing Settings** 탭을 선택합니다.
 
-{% alert important %}
-[이전 탐색]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/)을 사용하는 경우 이러한 설정은 **설정 관리** 아래에 있습니다.
-{% endalert %}
-
 여기에서 링크 별칭을 정렬, 검색하고 추적을 해제할 수 있습니다.
 
 ![다양한 캠페인과 연결된 활성 및 비활성 링크 별칭을 보여주는 추적된 링크 별칭 페이지.]({% image_buster /assets/img/tracked_aliases.png %})
@@ -142,7 +138,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 링크 참여 측정기준을 추적하려면 링크가 HTTP 또는 HTTPS로 시작하는지 확인하세요. 특정 링크의 클릭 추적을 해제하려면 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)를 참조하세요.
 {% endalert %}
 
-Braze에서는 추적할 링크를 무제한으로 선택할 수 있지만, 가장 최근에 열어본 링크에 대해서만 사용자를 리타겟팅할 수 있습니다. 사용자 프로필에는 가장 최근에 클릭한 100개의 링크가 포함됩니다. 예를 들어, 500개의 링크를 추적하고 사용자가 500개 모두를 클릭한 경우, 가장 최근에 클릭한 100개의 링크를 기반으로 리타겟팅하거나 세그먼트를 생성할 수 있습니다.
+Braze에서는 추적할 링크를 무제한으로 선택할 수 있지만, 가장 최근에 열어본 링크에 대해서만 사용자를 리타겟팅할 수 있습니다. 사용자 프로필에는 가장 최근에 클릭한 100개의 링크가 포함됩니다. 예를 들어, 500개의 링크를 추적하고 사용자가 500개 모두를 클릭한 경우, 가장 최근에 클릭한 100개의 링크를 기반으로 리타겟팅하거나 Segment를 생성할 수 있습니다.
 
 ![두 개의 링크가 선택된 Link Management 탭.]({% image_buster /assets/img/link_management_dnd.png %})
 
@@ -168,7 +164,7 @@ Braze에서 이메일에 링크 별칭이 있고 사용자가 이를 클릭하�
 
 #### 링크 추적 해제 {#untracking-links}
 
-링크 추적을 해제해도 추적 해제된 별칭에 대한 필터가 있는 기존 세그먼트가 재할당되지 않습니다. 이전 데이터는 새로운 데이터로 대체될 때까지 사용자 프로필에 남아 있습니다.
+링크 추적을 해제해도 추적 해제된 별칭에 대한 필터가 있는 기존 Segment가 재할당되지 않습니다. 이전 데이터는 새로운 데이터로 대체될 때까지 사용자 프로필에 남아 있습니다.
 
 아카이브된 메시지의 링크는 자동으로 추적이 해제됩니다. 그러나 아카이브된 메시지가 아카이브 해제되면 링크를 다시 추적해야 합니다. 링크 별칭이 추적되면 링크 보고는 최상위 도메인이나 전체 URL 대신 별칭으로 인덱싱됩니다.
 
@@ -210,7 +206,7 @@ Currents로 참여 데이터를 내보내는 경우, 링크 별칭 지정이 활
 ```
 
 {% alert update %}
-`dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 Canvas 단계(스케줄할 수 있는 진입 단계 제외)를 "스케줄"된 경우에도 트리거된 이벤트로 처리하기 때문입니다. Canvas와 Campaigns에서의 [`dispatch_id` 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+`dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 Canvas 단계(스케줄할 수 있는 진입 단계 제외)를 "스케줄"된 경우에도 트리거된 이벤트로 처리하기 때문입니다. Canvas와 Campaigns에서의 [`dispatch_id` 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)에 대해 자세히 알아보세요.
 
 _2019년 8월에 업데이트되었습니다._
 {% endalert %}
@@ -246,7 +242,7 @@ Liquid로 생성된 URL에서 [링크 템플릿]({{site.baseurl}}/user_guide/mes
 
 프래그먼트(`#` 및 그 이후의 모든 내용)는 일반 링크 요청 시 서버로 전송되지 않습니다. Braze는 `lid`를 쿼리 문자열에 삽입하며, 이는 `#` 앞에 위치해야 합니다. `href`에 Liquid와 `#` 프래그먼트가 있지만 `#` 앞에 `?` 또는 `&`가 없으면 Braze가 안전하게 `lid`를 추가할 수 없으므로 해당 링크가 **Link Management**에 표시되지 않거나 링크 별칭으로 추적되지 않을 수 있습니다.
 
-이는 드래그 앤 드롭 편집기에서 버튼 URL이 Liquid와 해시 기반 패턴을 혼합할 때(예: 정적 경로 다음에 `#`, 그 다음에 추가 키-값 쌍) 특히 흔합니다. 이 경우 `#` 바로 앞에 `?`를 추가하여 쿼리 문자열(`lid` 포함)이 프래그먼트 앞에서 구문 분석되도록 합니다.
+이는 드래그 앤 드롭 편집기에서 버튼 URL이 Liquid와 해시 기반 패턴을 혼합할 때(예: 정적 경로 다음에 `#`, 그 다음에 추가 키-값 페어) 특히 흔합니다. 이 경우 `#` 바로 앞에 `?`를 추가하여 쿼리 문자열(`lid` 포함)이 프래그먼트 앞에서 구문 분석되도록 합니다.
 
 {% raw %}
 ```text

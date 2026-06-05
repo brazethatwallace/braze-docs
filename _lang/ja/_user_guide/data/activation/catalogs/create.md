@@ -3,7 +3,7 @@ nav_title: カタログを作成する
 article_title: カタログを作成する
 alias: "/catalogs/"
 page_order: 1
-description: "この参考記事では、Liquidを通してBrazeのキャンペーンでユーザー以外のデータを参照するカタログを作成する方法について説明します。"
+description: "この参考記事では、Liquidを通してBrazeのCampaignsでユーザー以外のデータを参照するカタログを作成する方法について説明します。"
 ---
 
 # カタログを作成する {#create-a-catalog}
@@ -25,14 +25,25 @@ description: "この参考記事では、Liquidを通してBrazeのキャンペ�
 
 ## サポートされているデータタイプ {#supported-data-types}
 
-サポートされているカタログのデータタイプ、説明、各データタイプの作成・更新方法（CSV vs APIおよびCDI）、フォーマットと例については、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)を参照してください。
+以下の表は、サポートされているカタログのデータタイプと、それぞれの作成・更新方法を示しています。
+
+| データタイプ | 説明 | CSVアップロードで利用可能 | APIおよびCDIで利用可能 |
+|--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
+| 文字列 | 文字のシーケンスです。 | ✅ はい | ✅ はい |
+| 数値 | 整数または浮動小数点の数値です。 | ✅ はい | ✅ はい |
+| ブール値 | `true` または `false` の値です。 | ✅ はい | ✅ はい |
+| 時刻 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)形式でフォーマットされた文字列です。 | ✅ はい | ✅ はい |
+| 位置情報 | `[longitude, latitude]` の座標配列です。緯度は-90から90の間、経度は-180から180の間である必要があります。例: `[-73.988103, 40.779109]`。 | ✅ はい | ✅ はい |
+| JSONオブジェクト | キーと値のペアを持つネストされたオブジェクトです。プラットフォーム上で表示できますが、作成や更新はAPIまたはCDIを通じてのみ可能です。 | ⛔ いいえ | ✅ はい |
+| 文字列配列 | 文字列のリストです。プラットフォーム上で表示できますが、作成や更新はAPIまたはCDIを通じてのみ可能です。最大100要素です。 | ⛔ いいえ | ✅ はい |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## カタログを作成する {#creating-a-catalog}
 
 カタログを作成するには、**データ設定** > **カタログ**に移動し、**新規カタログ作成**を選択して、以下のいずれかのオプションを選びます。
 
 {% tabs local %}
-{% tab Upload CSV %}
+{% tab CSVをアップロード %}
 ### ステップ 1:CSVファイルを確認する {#step-1-review-your-csv-file}
 
 CSVファイルをアップロードする前に、そのファイルが以下の要件を満たしていることを確認してください。
@@ -44,10 +55,10 @@ CSVファイルをアップロードする前に、そのファイルが以下�
 | ファイルサイズ | 無料プランでは、会社全体で扱うすべてのCSVファイルの合計サイズは100 MBに制限されます。プロプランの場合、単一のCSVファイルの最大ファイルサイズは2 GBです。 |
 | フィールド値 | 各セル（フィールド値）は最大5,000文字まで含めることができます。 |
 | 有効な文字 | `id` 列とすべてのヘッダー値は、英字、数字、ハイフン、アンダースコアのみを含めることができます。 |
-| データタイプ | CSVアップロードでサポートされているデータタイプは、文字列、数値、ブール値、時刻です。APIおよびCDIを通じてのみ利用可能なデータタイプを含む全リストについては、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)を参照してください。 |
+| データタイプ | CSVアップロードでサポートされているデータタイプは、文字列、数値、ブール値、時刻、位置情報です。APIおよびCDIを通じてのみ利用可能なデータタイプを含む全リストについては、[サポートされているデータタイプ](#supported-data-types)を参照してください。 |
 | フォーマット | 一貫性を保つため、すべてのテキストを小文字でフォーマットしてください。 |
 | エンコーディング | UTF-8エンコーディングでCSVファイルを保存し、アップロードしてください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Review your CSV file" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert note %}
 CSVファイルを保存するためにより多くのスペースが必要な場合は、カタログのアップグレードの詳細についてBrazeのアカウントマネージャーにお問い合わせください。
@@ -74,7 +85,7 @@ CSVファイルを保存するためにより多くのスペースが必要な�
   - 数字、アルファベット、ハイフン、アンダースコアのみを含めることができます
 
 {% alert tip %}
-[カタログ名にテンプレートを使用](#template-catalog-names)することもできます。これにより、言語やキャンペーンなどの変数に基づいてカタログ名をダイナミックに生成できます。
+[カタログ名にテンプレートを使用](#template-catalog-names)することもできます。これにより、言語やCampaignなどの変数に基づいてカタログ名をダイナミックに生成できます。
 {% endalert %}
 
 ![「my_catalog」という名前のカタログ。]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
@@ -94,8 +105,7 @@ CSVファイルを保存するためにより多くのスペースが必要な�
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table aria-label="Tutorial: Creating a catalog from a CSV file" class="tg">
-  <caption>チュートリアル: CSVファイルからカタログを作成する</caption>
+<table class="tg" aria-label="Tutorial: Creating a catalog from a CSV file">
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -134,7 +144,7 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 
 カタログが作成された後は、この名前を編集することはできません。カタログを削除してから、同じカタログ名を使用して更新後のバージョンを再びアップロードできます。
 
-カタログを作成したら、[キャンペーンでのカタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/use/)の参照を開始できます。
+カタログを作成したら、[Campaignでのカタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/)の参照を開始できます。
 {% endtab %}
 
 {% tab ブラウザで作成 %}
@@ -142,10 +152,10 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 
 ブラウザでカタログを編集または作成するには、ワークスペースに対して以下の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
 
-- カタログを表示
-- カタログを編集
-- カタログをエクスポート
-- カタログを削除
+- View Catalogs
+- Edit Catalogs
+- Export Catalogs
+- Delete Catalogs
 
 ### ステップ 1:カタログの詳細を入力する {#step-1-enter-catalog-details}
 
@@ -156,7 +166,7 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 - 数字、アルファベット、ハイフン、アンダースコアのみを含めることができます
 
 {% alert tip %}
-[カタログ名にテンプレートを使用](#template-catalog-names)することもできます。これにより、言語やキャンペーンなどの変数に基づいてカタログ名をダイナミックに生成できます。
+[カタログ名にテンプレートを使用](#template-catalog-names)することもできます。これにより、言語やCampaignなどの変数に基づいてカタログ名をダイナミックに生成できます。
 {% endalert %}
 
 ![「my_catalog」という名前のカタログ。]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
@@ -177,11 +187,24 @@ Brazeは、ダッシュボードのタイムスタンプに基づいて時間値
 {% endtab %}
 {% endtabs %}
 
-カタログのデータタイプのフォーマットと例については、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)を参照してください。
+## カタログのデータタイプ {#catalog-data-types}
+
+カタログは、データを効果的に整理・構造化するためにさまざまなデータタイプをサポートしています。以下の表は、サポートされている各データタイプと、CSVおよびAPIのタイプ名へのマッピングを説明しています。
+
+| データタイプ | フォーマット | 例 | 説明 |
+|-----------|--------|---------|-------------|
+| 文字列 | テキスト | `"Hello World"` | 名前、説明、IDなどのテキストデータに使用される任意の文字シーケンスです。CSVおよびAPIインポートの `string` タイプに相当します。 |
+| 時刻 | ISO 8601またはUnixタイムスタンプ（秒） | `"2024-03-15T14:30:00Z"` | ISO 8601またはUnixタイムスタンプ（秒）でフォーマットされた日時の値です。APIの `time` タイプおよびCSVインポートの `datetime` タイプに相当します。 |
+| ブール値 | `true` または `false` | `true` | trueまたはfalseの状態を表す論理値です。CSVおよびAPIインポートの `boolean` タイプに相当します。 |
+| 数値 | 整数または小数 | `42` または `19.99` | 価格、数量、評価などに使用される整数および浮動小数点数を含む数値です。CSVインポートの `integer` および `float` タイプ、APIの `number` タイプに相当します。 |
+| 位置情報 | `[longitude, latitude]` 配列 | `[-73.988103, 40.779109]` | 地理的な位置を表す座標ペアです。経度は-180から180の間、緯度は-90から90の間である必要があります。APIの `type` 値は `geo` です。カタログUIの**Add Fields**ドロワー、CSVアップロード、またはREST APIを通じて追加できます。 |
+| オブジェクト | JSONオブジェクト | `{"key": "value", "price": 10}` | 複雑なネストされたデータ構造です。APIの `type` 値は `object` です。ダッシュボードではJSONオブジェクトとして表示されます。APIまたはクラウドデータ取り込み（CDI）を通じてのみ利用可能です。 |
+| 配列 | 文字列の配列 | `["red", "blue", "green"]` | 文字列値のリストです。APIの `type` 値は `array` です。ダッシュボードでは文字列配列として表示されます。APIまたはCDIを通じてのみ利用可能です。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## カタログ名でのテンプレートの使用 {#template-catalog-names}
 
-カタログに名前を付ける際、カタログ名にテンプレートを使用することもできます。これにより、言語やキャンペーンなどの変数に基づいてカタログ名をダイナミックに生成できます。例えば、次のように使用できます。
+カタログに名前を付ける際、カタログ名にテンプレートを使用することもできます。これにより、言語やCampaignなどの変数に基づいてカタログ名をダイナミックに生成できます。例えば、次のように使用できます。
 
 {% raw %}
 ```liquid
@@ -202,7 +225,7 @@ CSVをアップロードした後やブラウザでカタログを作成した�
 
 作成したカタログが増えた場合、[カタログ一覧エンドポイント]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/)を使用して、ワークスペース内のカタログのリストを返すこともできます。
 
-REST APIは、JSONオブジェクトや文字列配列を含む、すべての[カタログデータタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)をサポートしています。JSONオブジェクトと文字列配列は、REST APIを通じてのみ作成または更新できます。
+REST APIは、JSONオブジェクトや文字列配列を含む、すべての[カタログデータタイプ](#supported-data-types)をサポートしています。JSONオブジェクトと文字列配列は、REST APIを通じてのみ作成または更新できます。
 
 ### クラウドデータ取り込みの使用 {#using-cloud-data-ingestion}
 
@@ -216,19 +239,17 @@ REST APIは、JSONオブジェクトや文字列配列を含む、すべての[�
 
 ## カタログストレージ {#tiers}
 
-ストレージ制限の概要については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations)を参照してください。
-
 無料版のカタログでは、会社全体のすべてのCSVファイルの合計で最大100 MBのファイルサイズがサポートされています。一方、Catalogs Proバージョンでは、単一のCSVファイルに対して最大2 GBのファイルサイズがサポートされています。
 
 {% alert important %}
 Brazeダッシュボードに表示されるパッケージのエンタイトルメントは、表示上の理由から最も近い単位に丸められていますが、購入したエンタイトルメントの全量が付与されています。カタログストレージのアップグレードをリクエストするには、Brazeのアカウントマネージャーにお問い合わせください。
 {% endalert %}
 
-### 無料版 {#free-version}
+#### 無料版 {#free-version}
 
 無料版カタログのストレージサイズは最大100&nbsp;MBです。100&nbsp;MB未満であれば、アイテム数に制限はありません。
 
-### Catalogs Pro {#catalogs-pro}
+#### Catalogs Pro {#catalogs-pro}
 
 会社レベルで、Catalogs Proの最大ストレージはカタログデータのサイズに基づきます。ストレージサイズのオプションは、5&nbsp;GB、10&nbsp;GB、15&nbsp;GBのいずれかです。なお、無料版のストレージ（100&nbsp;MB）はこれらの各プランに含まれています。
 
@@ -241,7 +262,7 @@ Brazeダッシュボードに表示されるパッケージのエンタイトル
 | 項目値の文字数 | 単一の値に最大5,000文字です。例えば、`description` というラベルのフィールドがある場合、そのフィールド内の最大文字数は5,000文字です。 |
 | 項目列名の文字数 | 最大250文字 |
 | カタログあたりのセレクション数 | カタログあたり最大30セレクション |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
 カタログのLiquidタグは再帰的に使用できません。つまり、同じLiquid評価内で、あるカタログ項目を参照し、そこからさらに別のカタログ項目を呼び出すことはできません。

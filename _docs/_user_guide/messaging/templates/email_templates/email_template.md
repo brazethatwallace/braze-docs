@@ -17,7 +17,7 @@ search_rank: 1
 
 ## Step 1: Navigate to the email template editor
 
-In the Braze dashboard, go to **Templates** > **Email Templates**.
+In the Braze dashboard, go to **Content** > **Email**.
 
 ## Step 2: Select your editing experience 
 

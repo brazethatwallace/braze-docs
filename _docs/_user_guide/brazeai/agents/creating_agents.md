@@ -23,7 +23,7 @@ Before you start, you'll need the following:
 
 ## How it works
 
-When you create an agent, you define its purpose and set guardrails for how it should behave. After it's live, the agent can be deployed in Braze to generate personalized copy, make real-time decisions, or update catalog fields. You can pause or update an agent anytime from the dashboard.
+When you create an agent, you define its purpose and set guardrails for how it should behave. After it's live, the agent can be deployed in Braze to generate personalized copy, make real-time decisions, or update catalog fields. As you build your agent, you can save it as a draft, and you can pause or update an agent anytime from the dashboard.
 
 The following use cases showcase a few ways to leverage custom agents.
 
@@ -88,7 +88,7 @@ When you use an [advanced output schema]({{site.baseurl}}/user_guide/brazeai/age
 
 ### Step 5: Test and create the agent
 
-The **Preview** pane is an instance of the agent that shows up as a side-by-side panel within the configuration experience. You can use it to test the agent while you're creating or making updates to it to experience it in a similar way to end users. This step helps you confirm that it’s behaving the way you expect, and gives you a chance to fine-tune before it goes live.
+The **Preview** pane is an instance of the agent that shows up as a side-by-side panel within the configuration experience. You can use this section to test the agent while you're creating or making updates to it to experience it in a similar way to end users. This step helps you confirm that it’s behaving the way you expect, and gives you a chance to fine-tune before it goes live.
 
 1. In the **Test your agent** field, enter example customer data or customer responses—anything that reflects real scenarios your agent will handle.
 2. Preview the agent's response for a random user, existing user, or custom user.
@@ -116,7 +116,8 @@ Avoid telling the agent exactly what you do not want it to do. LLMs may still ge
 
 Your agent is now ready to use! For details, refer to [Deploy agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
 
-## Related articles  
+## Related resources  
 
 - [Reference for agents]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [Frequently asked questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [Braze webinar about AI in Action: 3 new use cases for 1:1 personalization](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

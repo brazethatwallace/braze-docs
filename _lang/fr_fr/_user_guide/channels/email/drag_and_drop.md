@@ -76,6 +76,10 @@ Le **Style Cartes** est une propriété de ligne qui vous permet d'ajouter un es
 
 Vous ne savez pas si votre e-mail doit être envoyé via une Campaign ou un Canvas ? Les Campaigns sont plus adaptées aux envois de messages ciblés ponctuels, tandis que les Canvas conviennent mieux aux parcours utilisateur en plusieurs étapes.
 
+{% alert note %}
+Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une Campaign ou un Canvas directement dans **Templates** > **Email Templates** en tant que modèle d'e-mail. Créez d'abord votre modèle sous **Templates**, ou consultez [Puis-je enregistrer mon e-mail par glisser-déposer en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) pour recréer un modèle par glisser-déposer ou exporter le HTML avec **Download file**.
+{% endalert %}
+
 Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un e-mail par glisser-déposer.
 
 ### Étape 1 : Sélectionner votre modèle {#step-1-select-your-template}
@@ -87,7 +91,7 @@ Après avoir sélectionné l'éditeur par glisser-déposer comme expérience d'�
 - Utiliser un modèle d'e-mail par glisser-déposer enregistré.
 
 {% alert note %}
-Pour utiliser un modèle HTML personnalisé existant ou des modèles créés par un tiers, vous devez recréer le modèle en accédant à **Templates** > **Email Templates** et en sélectionnant **Drag-And-Drop Editor** comme expérience d'édition.
+Pour utiliser un modèle HTML personnalisé existant ou des modèles créés par un tiers, vous devez recréer le modèle en accédant à **Content** > **Email** et en sélectionnant **Drag-And-Drop Editor** comme expérience d'édition.
 {% endalert %}
 
 Vous pouvez également accéder à tous les modèles depuis la section **Templates**.
@@ -134,15 +138,7 @@ Une fois la conception et la création de votre e-mail terminées, il est temps 
 
 Un aperçu dans le panneau de droite se remplira avec les informations d'envoi que vous avez ajoutées. Ces informations peuvent également être mises à jour en accédant à **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Personnaliser l'en-tête de votre e-mail (avancé) {#personalizing-your-email-header-advanced}
-
-Sous **Sending Settings**, vous pouvez ajouter de la personnalisation pour les en-têtes d'e-mail et les extras d'e-mail, ce qui vous permet de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. La personnalisation d'un en-tête d'e-mail, comme l'inclusion du nom du destinataire, peut également contribuer à augmenter la probabilité que votre e-mail soit ouvert.
-
-{% alert note %}
-Les fonctionnalités avancées apparaîtront dans le compositeur de Campaign ou de Canvas. Dans les fonctionnalités avancées, vous pouvez modifier votre paramètre CSS en ligne et saisir des paires clé-valeur d'en-tête ou supplémentaires (si configurées).
-{% endalert %}
-
-#### Ajouter des pièces jointes à l'e-mail {#adding-email-attachments}
+#### Ajouter des pièces jointes à l'e-mail {#add-email-attachments}
 
 Dans **Sending Settings** > **Advanced**, vous pouvez ajouter des pièces jointes à l'e-mail par les méthodes suivantes :
 
@@ -151,6 +147,14 @@ Dans **Sending Settings** > **Advanced**, vous pouvez ajouter des pièces jointe
 - **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
 
 Consultez les [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) pour les recommandations spécifiques à prendre en compte.
+
+#### Personnaliser l'en-tête de votre e-mail (avancé) {#personalize-your-email-header-advanced}
+
+Sous **Sending Settings**, vous pouvez ajouter de la personnalisation pour les en-têtes d'e-mail et les extras d'e-mail, ce qui vous permet de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. La personnalisation d'un en-tête d'e-mail, comme l'inclusion du nom du destinataire, peut également contribuer à augmenter la probabilité que votre e-mail soit ouvert.
+
+{% alert note %}
+Les fonctionnalités avancées apparaîtront dans le compositeur de Campaign ou de Canvas. Dans les fonctionnalités avancées, vous pouvez modifier votre paramètre CSS en ligne et saisir des paires clé-valeur d'en-tête ou supplémentaires (si configurées).
+{% endalert %}
 
 ### Étape 4 : Tester votre e-mail {#step-4-test-your-email}
 

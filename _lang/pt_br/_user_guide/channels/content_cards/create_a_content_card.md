@@ -228,8 +228,8 @@ Quer que seu conteúdo dure mais de 30 dias? Experimente os [Banners]({{site.bas
 
 Se você ativar a reelegibilidade, a contagem regressiva para quando um usuário pode "reentrar" em uma Campaign começa após o envio da mensagem. O momento específico em que essa contagem começa depende das suas configurações de criação de cartão:
 
-* Content Cards que usam [na primeira impressão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) usam o momento da impressão para calcular a reelegibilidade.
-* Content Cards criados no lançamento da Campaign ou na entrada da etapa do Canvas usam o que for mais recente entre o momento do envio e o momento da impressão.
+- Content Cards que usam [na primeira impressão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) usam o momento da impressão para calcular a reelegibilidade.
+- Content Cards criados no lançamento da Campaign, em Campaigns multicanal ou na entrada da etapa do Canvas usam o que for mais recente entre o momento do envio e o momento da impressão.
 
 #### A expiração de 30 dias e a reelegibilidade {#the-30-day-expiration-and-re-eligibility}
 

@@ -13,7 +13,7 @@ channel: email
 
 ### What happens when an email is sent out, and multiple profiles have the same email address?
 
-If multiple users with matching email addresses are in a segment to receive a campaign, a random user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
+If multiple users with matching email addresses are in a segment to receive a campaign, a single user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
 
 **Unique email addresses:** Braze doesn't enforce unique email addresses across profiles. If you rely on a one-to-one relationship between an email address and a profile, monitor for duplicates internally when creating users.
 
@@ -239,10 +239,26 @@ No. Each part of the email (subject, body, headers, buttons, and so on) is gener
 
 ### My email template is missing. Where is it?
 
-Go to **Templates** > **Email Templates**. You can filter by type (HTML or drag-and-drop).
-
-Confirm you have permission to view templates—see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+First, confirm you have the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to view templates. To view saved email templates, go to **Content** > **Email**. You can filter templates by status and type (HTML or drag-and-drop).
 
 ### Do I need to register domains for relay or masked emails?
 
 [Apple’s Private Email Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) requires you to register your sending domains in the Apple Developer Portal to prevent bounces. Google Shielded Email does not require a manual domain registration or allowlisting process.
+
+### What does the bounce reason `unable to get mx info` or `failed to get IPs from PTR record` mean?
+
+In the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), a bounce reason similar to the following indicates a problem resolving the receiving domain's mail setup (the domain after the `@` in the address), not to Braze message composition:
+
+Typical causes include:
+
+- Missing, incorrect, or unreachable **MX records** for that domain
+- Inbound mail hostnames that don't resolve or that fail **PTR (reverse DNS)** checks expected by receiving infrastructure
+- Invalid or mistyped domains in the email address
+
+**Next steps:**
+
+- Confirm the address and domain spelling.
+- If the address is correct, contact the mailbox owner or IT team for that domain.
+- Ask them to audit MX and related DNS records, including PTR records for their mail servers, with their DNS provider.
+
+Other recipients are usually unaffected. For how soft bounces appear in reporting, see [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).

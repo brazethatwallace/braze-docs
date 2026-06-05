@@ -146,6 +146,7 @@ CCPA
 ccpa
 Celebrus
 centricity
+Certiverse
 Certona
 chatbots
 checkins
@@ -190,6 +191,7 @@ cutover
 DALL
 DATAEVENT
 datagrail
+dailyplay
 dataops
 Datashare
 datasharing
@@ -570,6 +572,7 @@ Pandoc
 parentheticals
 passback
 PassKit
+Pastd
 Patricks
 PCRE
 PERFORMEDEVENT
@@ -613,6 +616,7 @@ reactnative
 reapproved
 rebalances
 Receipient's
+Recertification
 recherchez
 RECORDEVENT
 Recurly

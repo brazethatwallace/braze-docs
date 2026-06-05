@@ -9,7 +9,7 @@ page_type: reference
 
 # Usar plantillas de Canvas de Braze {#use-braze-canvas-templates}
 
-> Braze tiene una selección de plantillas de Canvas disponibles para que las consultes y uses como mejores prácticas para casos de uso comunes. Aunque estas plantillas no se pueden editar, puedes verlas en **Templates** > **Braze templates** o usarlas en tus Canvas.
+> Braze tiene una selección de plantillas de Canvas disponibles para que las consultes y uses como mejores prácticas para casos de uso comunes. Aunque estas plantillas no se pueden editar, puedes verlas en **Content** > **Canvas** > **Braze templates** o usarlas en tus Canvas.
 
 ![Plantillas de Braze en la sección de plantillas de Canvas con trece plantillas disponibles.]({% image_buster /assets/img/braze_canvas_templates.png %})
 

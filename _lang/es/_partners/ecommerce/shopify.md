@@ -4,12 +4,12 @@ article_title: Shopify
 alias: /partners/shopify/
 layout: dev_guide
 guide_top_header: "Shopify"
-guide_top_text: "Shopify es una empresa líder en el comercio mundial, que proporciona herramientas de confianza para iniciar, hacer crecer, comercializar y gestionar un negocio minorista de cualquier tamaño. Shopify hace que el comercio sea mejor para todos, con una plataforma y unos servicios diseñados para ofrecer fiabilidad y una mejor experiencia de compra a los consumidores de todo el mundo."
+guide_top_text: "Shopify es una empresa líder en comercio global que proporciona herramientas de confianza para iniciar, hacer crecer, comercializar y administrar un negocio de comercio minorista de cualquier tamaño. Shopify hace que el comercio sea mejor para todos con una plataforma y unos servicios diseñados para ofrecer fiabilidad y una mejor experiencia de compra a los consumidores de todo el mundo."
 description: "En esta página encontrarás todo lo relacionado con Shopify, incluyendo un resumen, la configuración de la integración estándar de Shopify, las características de Shopify y mucho más."
 
 guide_featured_title: "Artículos destacados"
 guide_featured_list:
-- name: Visión general de Shopify
+- name: Información general de Shopify
   link: /docs/shopify_overview/
   image: /assets/img/braze_icons/shopify.svg
 - name: Configuración de la integración estándar de Shopify
@@ -27,6 +27,9 @@ guide_featured_list:
 - name: Sincronización de productos de Shopify
   link: /docs/shopify_catalogs/
   image: /assets/img/braze_icons/list.svg
+- name: Sincronización de segmentos de Shopify
+  link: /docs/shopify_segments_sync/
+  image: /assets/img/braze_icons/dataflow-03.svg
 - name: Soporte para varias tiendas
   link: /docs/shopify_connecting_multiple_stores/
   image: /assets/img/braze_icons/shopping-bag-01.svg
@@ -34,9 +37,9 @@ guide_featured_list:
   link: /docs/shopify_discount_codes/
   image: /assets/img/braze_icons/tag-01.svg
 
-guide_menu_title: "Other articles"
+guide_menu_title: "Otros artículos"
 guide_menu_list:
-- name: Casos de uso del comercio electrónico
+- name: Casos de uso de comercio electrónico
   link: /docs/ecommerce_use_cases/
   image: /assets/img/braze_icons/users-01.svg
 ---

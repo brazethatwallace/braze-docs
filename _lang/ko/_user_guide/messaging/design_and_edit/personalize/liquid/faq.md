@@ -12,7 +12,7 @@ description: "이 문서에서는 Liquid에 대해 자주 묻는 질문에 대�
 
 ### Braze에서 Liquid 스니펫을 어떻게 사용하나요? {#how-do-i-use-liquid-snippets-in-braze}
 
-대부분의 경우 Campaign이나 Canvas로 이동한 후, 이메일 메시지 본문이나 Segment 등의 영역에서 개인화 모달을 통해 Liquid를 삽입하여 Liquid 스니펫을 활용할 수 있습니다.
+대부분의 경우 Campaign이나 Canvases로 이동한 후, 이메일 메시지 본문이나 Segment 등의 영역에서 개인화 모달을 통해 Liquid를 삽입하여 Liquid 스니펫을 활용할 수 있습니다.
 
 #### 더 자세히 알아보려면 어디를 참고하면 되나요? {#where-can-i-learn-more}
 
@@ -47,10 +47,12 @@ Braze에서 Liquid를 사용하는 가장 일반적인 방법입니다. Liquid �
 {% raw %}
 사용자의 위치에 대한 기본 속성이 있습니다: `{{${most_recent_location}}}`.
 
-### {{campaign.${name}}}과 {{campaign.${message_name}}}의 차이점은 무엇인가요? {#whats-the-difference-between-campaignname-and-campaignmessagename}
+### {{campaign.${name}}}과 {{campaign.${message_name}}}의 차이점은 무엇인가요? {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
 `{{campaign.${name}}}`과 `{{campaign.${message_name}}}`은 모두 지원되는 Liquid 개인화 태그입니다. 두 태그 모두 Campaign 속성을 참조합니다. `{{campaign.${name}}}`은 Campaign의 이름을 나타내고, `{{campaign.${message_name}}}`은 메시지 배리언트의 이름입니다.
 {% endraw %}
+
+URL 및 쿼리 문자열 사용(예: 이름에 `%` 또는 공백이 포함된 경우)에 대해서는 [URL에서의 Campaign 이름]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls)을 참조하세요.
 
 ### 중첩된 오브젝트에서 Liquid를 어떻게 사용하나요? {#how-do-i-use-liquid-with-nested-objects}
 
@@ -140,3 +142,7 @@ Join our VIP program to unlock free shipping.
 {% endcapture %}
 ```
 {% endraw %}
+
+### Liquid 변수는 제목란과 본문 사이에서 유지되나요? {#do-liquid-variables-carry-between-subject-line-and-body}
+
+아니요. Braze는 각 메시지 구성요소(제목란, HTML 본문, 프리헤더, 푸시 제목 등)를 별도로 렌더링합니다. 한 필드에서 수행한 할당이나 캡처는 다른 필드에서 사용할 수 없습니다. 값이 필요한 각 필드에서 Liquid 또는 연결된 콘텐츠 호출을 반복하세요.

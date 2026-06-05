@@ -12,13 +12,13 @@ description: "Esta landing page reúne ideias e estratégias de campanhas. Aqui,
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
-  - name: Práticas recomendadas
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+  - name: Melhores práticas
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
   - name: Campanhas de usuários ativos
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns
     image: /assets/img/braze_icons/users-01.svg
-  - name: Links para adicionar ao calendário
+  - name: Links de adicionar ao calendário
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/add_to_calendar_links
     image: /assets/img/braze_icons/calendar-date.svg
   - name: Recuperando usuários inativos
@@ -45,7 +45,7 @@ guide_menu_list:
   - name: Criando mensagens da direita para a esquerda
     link: /docs/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages
     image: /assets/img/braze_icons/globe-02.svg
-  - name: Sistema de e-mail de lembrete de reserva
+  - name: E-mail de lembrete de reserva
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/booking_use_case
     image: /assets/img/braze_icons/channel-email.svg
 ---

@@ -27,19 +27,19 @@ First, you'll need to create your HTML email template. This must be a ZIP file t
 
 ### Step 1: Go to the email template editor
 
-Go to the **Templates** > **Email Templates**.
+Go to **Content** > **Email**. Select **Create email template**.
 
-### Step 2: Open the uploader
+### Step 2: Add template details
 
-Under the **Template Type** section, select **HTML Editor** and scroll down to the section **Start from a Basic HTML Template**. Select **From File**.
+Provide a template name. Optionally, add a description, teams, and tags.
 
 ### Step 3: Upload your template
 
-Select **Upload From File** and select your template from your computer. Refer to the [Requirements](#upload-requirements) section to ensure your template meets the upload requirements.
+In the **Template content** section, select **Upload file** below the **HTML code editor** tile. Select your template from your computer. Refer to the [Requirements](#upload-requirements) section to ensure your template meets the upload requirements.
 
 ### Step 4: Finish and save your template
 
-Be sure to save your template by selecting **Save Template**. You're now ready to use this template in any campaign or Canvas you choose!
+Be sure to save your template by selecting **Save template**. You're now ready to use this template in any campaign or Canvas you choose.
 
 {% alert note %}
 If you make any edits to an existing template, those changes will not be reflected in campaigns that were created using previous versions of that template.

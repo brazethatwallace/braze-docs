@@ -448,7 +448,9 @@ Si tu objetivo es crear un segmento sin actualizar datos de perfil, carga un CSV
 
 Si tu carga se completó con errores, puede haber una fila malformada en tu archivo CSV.
 
-Para importar datos correctamente, debe haber una fila de encabezado. Cada fila debe tener el mismo número de celdas que la fila de encabezado. Las filas con más o menos valores que la fila de encabezado se excluirán de la importación. Las comas dentro de un valor se interpretarán como separador y pueden provocar este error. Además, todos los datos deben estar codificados en UTF-8.
+Para importar datos correctamente, debe haber una fila de encabezado. Cada fila debe tener el mismo número de celdas que la fila de encabezado. Las filas con más o menos valores que la fila de encabezado se excluirán de la importación. Las comas dentro de un valor se interpretarán como separador y pueden provocar este error.
+
+Además, todos los datos deben estar codificados en UTF-8. Si el archivo se guarda con una codificación heredada (por ejemplo, algunos valores predeterminados de Excel), los caracteres especiales y las URL en las celdas pueden corromperse y aparecer como signos de interrogación (`?`) en Braze o en los mensajes enviados.
 
 Si tu archivo CSV tiene filas en blanco e importa menos filas que el total de líneas en el archivo CSV, esto puede no indicar un problema con la importación, ya que las filas en blanco no necesitarían importarse. Verifica el número de líneas que se importaron correctamente y asegúrate de que coincida con el número de usuarios que intentas importar.
 

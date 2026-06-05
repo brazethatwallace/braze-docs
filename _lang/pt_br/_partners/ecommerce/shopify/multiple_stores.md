@@ -79,14 +79,14 @@ Quando um perfil de usuário é sincronizado, os seguintes campos são mesclados
 Você pode optar por coletar assinantes diretamente pela Braze (nas configurações do seu conector Shopify) ou por meio de alternativas de API e SDK que sincronizam dados do Shopify.
 
 {% tabs local %}
-{% tab Shopify connector %}
+{% tab Conector Shopify %}
 Na etapa **Gerenciar usuários** das configurações do seu conector Shopify, é possível usar a Braze para coletar opt-ins de assinantes de e-mail e SMS e organizá-los em um grupo de inscrições dedicado:
 
 1. Crie um grupo de inscrições exclusivo para cada loja que você conectar. Isso ajuda a manter dados precisos sobre a origem dos assinantes.
 2. Ative a coleta de assinantes de e-mail e SMS.
 {% endtab %}
 
-{% tab Braze API or SDKs %}
+{% tab API ou SDKs da Braze %}
 Como alternativa, você pode sincronizar as informações de opt-in de marketing por e-mail e SMS diretamente do Shopify usando a API ou os SDKs da Braze.
 
 | Opção | Recursos |

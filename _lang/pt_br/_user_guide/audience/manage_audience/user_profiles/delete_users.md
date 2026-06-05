@@ -173,3 +173,7 @@ Sim. No entanto, você pode adicionar um filtro de inclusão de segmento para ex
 Exclusões de usuários individuais são permanentes.
 
 Você pode [cancelar exclusões de segmentos](#cancel) dentro dos primeiros 7 dias. No entanto, os usuários já excluídos antes do cancelamento não podem ser restaurados.
+
+### Posso excluir usuários pela API em vez do dashboard? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+Sim. Para lotes menores, você pode usar o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), que aceita até 50 identificadores por solicitação e está sujeito ao [limite de taxa]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit) desse endpoint. A exclusão de segmentos pelo dashboard é mais adequada para públicos muito grandes, mas inclui o [período de espera de 7 dias](#about-user-deletion).
