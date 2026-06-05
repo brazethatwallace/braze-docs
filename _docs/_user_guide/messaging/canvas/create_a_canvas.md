@@ -311,7 +311,7 @@ In the first Message step following an Action Path, you can use `event_propertie
 
 To move a connection between steps, select the arrow connecting the two components and select a different component. To remove the connection, select the arrow followed by **Cancel Connection** in the footer of the Canvas composer.
 
-If a single variant has multiple branches with the same audience and send time, Braze doesn't guarantee an even split across those branches. Distribution may favor the branch that was created first. For an even split, use [Random Bucket Number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) filters on each branch. For more information, see [What happens if the audience and send time are identical for a Canvas that has one variant, but multiple branches?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
+If a single variant has multiple branches with the same audience and send time, Braze does not guarantee an even split across those branches. Distribution may favor the branch that was created first. For an even split, use [Random Bucket Number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) filters on each branch. For more information, see [What happens if the audience and send time are identical for a Canvas that has one variant, but multiple branches?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 
 ## Step 3: Add a control group
 
