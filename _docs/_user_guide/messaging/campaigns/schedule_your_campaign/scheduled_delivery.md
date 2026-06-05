@@ -68,8 +68,8 @@ For campaigns that use scheduled delivery, audience criteria are always evaluate
 
 ### Scheduled Email Campaign Did Not Send to the Entire Estimated Audience
 
-Consider adding a troubleshooting section to docs for 'campaign did not send to full audience' covering: users without email, subscription status, email_changed_at timing. The email_changed_at (ect) field exists in platform.
+A scheduled email campaign may not reach the full estimated audience when users lack an email address, aren't subscribed, or have a recent `email_changed_at` timestamp that affects eligibility at send time.
 
 ### Schedule Campaign Sent A Day Before The Schedule Time
 
-Add troubleshooting note to intelligent timing docs: if campaigns send a day before schedule, add a time window or enable local time delivery. Samoa timezone behavior causes early sends when neither is set.
+If a campaign sends a day before the scheduled time, add a delivery time window or enable **Send in local time zone**. Without either setting, Samoa timezone edge cases can cause sends to occur earlier than expected.
