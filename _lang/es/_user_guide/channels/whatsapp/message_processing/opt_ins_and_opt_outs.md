@@ -91,6 +91,19 @@ Usa la plantilla de [formulario de captura de número de teléfono]({{site.baseu
 
 ## Configurar cancelaciones para tu canal de WhatsApp en Braze {#set-up-opt-outs-for-your-braze-whatsapp-channel}
 
+### Interruptor de "Ofertas y anuncios" de WhatsApp {#whatsapp-offers-and-announcements-toggle}
+
+WhatsApp proporciona un interruptor de "Ofertas y anuncios" en la configuración de la aplicación que permite a los usuarios cancelar la recepción de mensajes de marketing. Este interruptor funciona de forma independiente de los grupos de suscripción de Braze:
+
+- **Los grupos de suscripción de Braze** se gestionan a través de tu integración con Braze (API, centro de preferencias o SDK) y controlan a qué usuarios diriges tus mensajes.
+- **El interruptor nativo de WhatsApp** es controlado por Meta y se aplica a nivel de plataforma, fuera de Braze.
+
+Estas dos capas no se sincronizan automáticamente por diseño. Cuando un usuario desactiva el interruptor de "Ofertas y anuncios" en WhatsApp, Meta bloquea la entrega de mensajes de marketing a nivel de plataforma, incluso si el estado de suscripción del usuario en Braze aparece como "Suscrito". La preferencia del usuario se respeta en el momento de la entrega.
+
+{% alert note %}
+Dado que Braze no recibe una señal de cancelación hasta que se intenta un envío y Meta devuelve un error, los recuentos de suscripción en Braze pueden no reflejar a los usuarios que han cancelado a través del interruptor de WhatsApp hasta que se intente enviar un mensaje. Esto significa que las estimaciones de alcance pueden estar ligeramente sobreestimadas hasta que se produzca ese ciclo de retroalimentación.
+{% endalert %}
+
 ### Palabras clave generales de cancelación {#general-opt-out-keywords}
 
 Puedes configurar una campaña o un Canvas que permita a los usuarios que envíen ciertas palabras cancelar la recepción de futuros mensajes. Los Canvas pueden ser especialmente beneficiosos, ya que te permiten incluir un mensaje de seguimiento que confirme la cancelación exitosa.
@@ -228,4 +241,4 @@ En esta tabla, se usa `STOP` como ejemplo de palabra desencadenadora para demost
 | `Is` | `STOP` | Captura cualquier uso de la palabra completa "stop" sin importar las mayúsculas o minúsculas. Por ejemplo, captura "stop" pero no "please stop". |
 | `Matches regex` | `STOP` | Captura cualquier uso de "STOP" en esa combinación exacta de mayúsculas y minúsculas. Por ejemplo, captura "STOP" y "PLEASE STOP" pero no "stop". |
 | `Matches regex` | `(?i)STOP(?-i)` | Captura cualquier uso de "STOP" en cualquier combinación de mayúsculas y minúsculas. Por ejemplo, captura "stop", "please stop" y "never stop sending me messages". |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comprender la diferencia entre los modificadores regex e is" }

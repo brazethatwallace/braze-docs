@@ -710,10 +710,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 Banner dismissals programmatically remove a Banner from a placement when a user actively dismisses it. When dismissed, the Banner is suppressed for that user. The next time the list of placements is refreshed, a new banner is returned if the user is eligible for one.
 
-{% alert important %}
-Banner dismissals are currently in early access. If you're interested in participating in the early access, contact your customer success manager.
-{% endalert %}
-
 ### Prerequisites
 
 These are the minimum SDK versions required to log Banner dismissals:

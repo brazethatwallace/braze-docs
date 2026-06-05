@@ -61,6 +61,10 @@ Você pode adicionar tags a um evento personalizado após sua criação se tiver
 
 Para exportar a lista de eventos personalizados como um arquivo CSV, selecione **Exportar tudo** no topo da página. O arquivo CSV será gerado e um link para baixar será enviado por e-mail para você.
 
+{% alert note %}
+Não há um limite fixo no dashboard para a quantidade de **eventos personalizados** ou **atributos personalizados** distintos que você pode definir ou armazenar em um perfil; os limites práticos dependem do formato dos dados, do volume de ingestão e do desempenho do espaço de trabalho. Se você planeja rastrear um catálogo muito grande de eventos ou atributos, trabalhe com a equipe de conta da Braze para modelagem e higienização (por exemplo, [bloqueio]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) de dados não utilizados).
+{% endalert %}
+
 ## Visualizando relatórios de uso {#viewing-usage-reports}
 
 O relatório de uso lista todos os Canvas, Campaigns e Segments que utilizam um evento personalizado específico. Esta lista não inclui usos de Liquid.

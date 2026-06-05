@@ -78,7 +78,9 @@ If you need all existing user data to match the new type, you must re-send the a
 |------------------|-------------|
 | Boolean | Inputs of `1`, `true`, `t` (not case sensitive) are stored as `true` |
 | Boolean | Inputs of `0`, `false`, `f` (not case sensitive) are stored as `false` |
-| Number | Integers or Floats (such as `1`, `1.5`) are stored as numbers |
+| Number | Integers or floats (such as `1`, `1.5`) are stored as numbers |
+| Number | Numeric strings (such as `"100"` or `"3.14"`) can be coerced to numbers when the attribute is forced to **Number** |
+| String | Numeric values can be coerced to their string form when the attribute is forced to **String** |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Data type coercion" }
 
 For more information on specific filter options exposed by different data type comparisons, check out [Configuring reporting]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). For more information on the different available data types, refer to [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).
