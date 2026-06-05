@@ -408,6 +408,6 @@ You can see this outcome even when the campaign shows **Send immediately** if an
 
 - The campaign uses an [exception event]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/#exception-events) or a send-time delay that affects timing.
 - Users have a [re-eligibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) period, so they can't receive the message again until that window passes.
-- Another campaign or Canvas step with higher priority consumed the send slot when triggers overlap.
+- Another campaign or Canvas message step with higher priority consumed the send slot when triggers overlap.
 
 If a user should have received the message but did not, check earlier outcomes for the same trigger (for example, email bounce or not enabled for the channel). Another message in the same workflow may have prevented this send.

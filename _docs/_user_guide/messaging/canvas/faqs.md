@@ -296,9 +296,11 @@ Yes. After Braze sends a request to your email service provider (ESP), Braze can
 
 This is the same behavior described for [stopping a Canvas](#what-happens-when-you-stop-a-canvas): email sends in flight are not immediately halted.
 
-### How can I use spacer.gif in a webhook for invisible tracking?
+### How can I confirm a Canvas webhook step fired without user-visible content?
 
-Some teams add a Canvas **Webhook** step that requests a one-pixel transparent image (for example, `spacer.gif`) hosted on their own infrastructure. The webhook body can reference the image URL so the request acts like an invisible tracking pixel without showing message content to the user. Keep the payload small, use HTTPS, and confirm your endpoint accepts the request method and headers Braze sends.
+Braze tracks webhook **Sends** and related delivery outcomes for [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/) steps in campaigns and Canvases. Use step analytics, [Webhook reporting]({{site.baseurl}}/user_guide/channels/webhooks/reporting/), or [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) webhook events to confirm the step ran. Your endpoint's request logs provide additional confirmation when you need server-side proof of receipt.
+
+Braze does not include a built-in invisible tracking pixel for webhook steps. Rely on Braze webhook metrics and your endpoint logging rather than custom one-pixel image requests.
 
 ### Why did a user enter a Canvas fewer times than they performed the trigger event?
 
