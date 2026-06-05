@@ -141,8 +141,7 @@
         outline: 0;
     }
     .select:focus-visible {
-        outline: 2px solid $braze-purple;
-        outline-offset: 2px;
+        @include focus-ring();
     }
 
     .partner_filter_div {

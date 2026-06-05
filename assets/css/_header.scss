@@ -29,8 +29,7 @@ $header_transition_time: 0.25s;
 			outline: none;
 		}
 		&:focus-visible {
-			outline: 2px solid $white;
-			outline-offset: 2px;
+			@include focus-ring($white);
 		}
 		span {
 		}
@@ -166,9 +165,7 @@ $header_transition_time: 0.25s;
 				outline: none;
 			}
 			&:focus-visible {
-				outline: 2px solid $white;
-				outline-offset: 2px;
-				border-radius: 2px;
+				@include focus-ring($white);
 			}
 		}
 	}
@@ -227,14 +224,12 @@ $header_transition_time: 0.25s;
 			&:focus:not(:focus-visible) {
 				outline: none;
 			}
-			&:focus-visible {
-				outline: none;
-				> div {
-					outline: 2px solid $white;
-					outline-offset: 2px;
-					border-radius: 2px;
-				}
+		&:focus-visible {
+			outline: none;
+			> div {
+				@include focus-ring($white);
 			}
+		}
 				@media (min-width: $window-medium-px) {
 					font-size: $header_nav_font_size;
 					padding-top: 0px;
@@ -312,8 +307,7 @@ $header_transition_time: 0.25s;
 			outline: none;
 		}
 		&:focus-visible {
-			outline: 2px solid $white;
-			outline-offset: 2px;
+			@include focus-ring($white);
 		}
 	}
 	.nav-item-lang-li {
@@ -420,8 +414,7 @@ $header_transition_time: 0.25s;
 						outline: none;
 					}
 					&:focus-visible {
-						outline: 2px solid $white;
-						outline-offset: 2px;
+						@include focus-ring($white);
 					}
 					&.active {
 						background-color: transparent;

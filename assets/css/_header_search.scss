@@ -38,9 +38,7 @@ $search_icon: $white;
 		&:focus-visible {
 			outline: none;
 			> div {
-				outline: 2px solid $white;
-				outline-offset: 2px;
-				border-radius: 2px;
+				@include focus-ring($white);
 			}
 		}
 	}
@@ -79,9 +77,7 @@ $search_icon: $white;
 					outline: none;
 				}
 				&:focus-visible {
-					outline: 2px solid $white;
-					outline-offset: 2px;
-					border-radius: 2px;
+					@include focus-ring($white);
 				}
 			}
 			&:focus-within {
@@ -573,8 +569,7 @@ $search_icon: $white;
 	outline: none;
   }
   #auto #search-box-autocomplete:focus-visible {
-	outline: 2px solid $braze-purple;
-	outline-offset: 2px;
+	@include focus-ring($radius: 11px);
   }
 
 #auto #search-box-autocomplete::placeholder{
