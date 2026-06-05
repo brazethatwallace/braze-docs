@@ -50,6 +50,23 @@ O Liquid pode personalizar a experiência da landing page tanto para visitantes 
 - **Usuários identificados:** Vincule a landing page a partir de uma mensagem da Braze e inclua a [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). Isso associa o usuário ao seu perfil na Braze e personaliza a experiência da página.
 - **Visitantes anônimos:** Use Liquid para conteúdo contextual não baseado em perfil, como um número aleatório ou uma saudação baseada no horário do dia.
 
+### Pré-preencher campos de formulário {#pre-fill-form-fields}
+
+Se um campo de formulário da landing page estiver mapeado para um atributo do perfil de usuário, você pode pré-preencher esse campo para usuários recorrentes. Isso ajuda a reduzir o atrito no formulário e melhora as taxas de conclusão para visitantes conhecidos.
+
+Para usar campos de formulário pré-preenchidos:
+
+1. Selecione o campo do formulário no editor de arrastar e soltar.
+2. No painel de configurações à direita, mapeie o campo para o atributo de perfil apropriado.
+3. Selecione **Pre-fill from user profile**.
+
+![Configurações do campo de formulário da landing page mostrando a opção de pré-preencher a partir dos dados do perfil de usuário.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
+
+O pré-preenchimento funciona apenas para [usuários identificados](#use-liquid-for-identified-and-anonymous-users). Para visitantes anônimos, os campos do formulário mantêm seu estado padrão:
+
+- **Campos de entrada:** Exibem o texto de placeholder.
+- **Caixas de seleção, botões de opção e controles semelhantes:** Permanecem desmarcados até que o usuário interaja com eles.
+
 ## Buscar dados externos com código personalizado {#fetching-external-data-with-custom-code}
 
 Você pode usar um bloco de **Custom Code** para buscar dados de endpoints externos e exibi-los na sua landing page. Essa abordagem faz a requisição no lado do cliente (no navegador do usuário), então a página carrega rapidamente sem atrasos de renderização no servidor.

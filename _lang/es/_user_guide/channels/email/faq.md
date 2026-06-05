@@ -216,3 +216,21 @@ Primero, confirma que tienes los [permisos de usuario]({{site.baseurl}}/user_gui
 ### ¿Necesito registrar dominios para correos electrónicos de retransmisión o enmascarados? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 El [servicio de retransmisión de correo electrónico privado de Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) requiere que registres tus dominios de envío en el Portal de Desarrolladores de Apple para evitar rebotes. Google Shielded Email no requiere un proceso manual de registro de dominio ni de lista de permitidos.
+
+### ¿Qué significa el motivo de rebote `unable to get mx info` o `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+En el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), un motivo de rebote similar al anterior indica un problema al resolver la configuración de correo del dominio receptor (el dominio después del `@` en la dirección), no un problema con la composición del mensaje en Braze:
+
+Las causas típicas incluyen:
+
+- **Registros MX** faltantes, incorrectos o inaccesibles para ese dominio
+- Nombres de host de correo entrante que no se resuelven o que no pasan las verificaciones de **PTR (DNS inverso)** esperadas por la infraestructura receptora
+- Dominios no válidos o mal escritos en la dirección de correo electrónico
+
+**Próximos pasos:**
+
+- Confirma la ortografía de la dirección y el dominio.
+- Si la dirección es correcta, ponte en contacto con el propietario del buzón de entrada o el equipo de TI de ese dominio.
+- Pídeles que auditen los registros MX y los registros de DNS relacionados, incluidos los registros PTR de sus servidores de correo, con su proveedor de DNS.
+
+Los demás destinatarios generalmente no se ven afectados. Para ver cómo aparecen los rebotes blandos en los informes, consulta [Rebote blando]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).

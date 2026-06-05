@@ -101,7 +101,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body | Link mit Aliasing |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with more query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit weiteren Query-Parametern" }
 
 ### HTML-Link {#html-link}
 
@@ -110,7 +110,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body | Link mit Aliasing |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML link" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML-Link" }
 
 ### Link mit Anker {#link-with-anchor}
 
@@ -119,7 +119,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body | Link mit Aliasing |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit Anker" }
 
 ### Link mit Anker und Capture-Tag {#link-with-anchor-and-capture-tag}
 
@@ -128,7 +128,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body | Link mit Aliasing |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%} | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor and capture tag" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit Anker und Capture-Tag" }
 
 ## Link-Aliase verfolgen {#tracking-link-aliases}
 
@@ -206,7 +206,7 @@ Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-
 ```
 
 {% alert update %}
-Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/help/help_articles/data/dispatch_id/) in Canvas und Campaigns.
+Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) in Canvas und Campaigns.
 
 _Update vermerkt im August 2019._
 {% endalert %}
@@ -335,3 +335,21 @@ Alternativ können Sie die URL in einer Variablen erfassen:
 <a href="{{ url }}?">Go to account</a>
 ```
 {% endraw %}
+
+## Fehlerbehebung {#troubleshooting}
+
+### Ziele, die den `lid`-Parameter nicht akzeptieren {#destinations-that-dont-accept-the-lid-parameter}
+
+Wenn Sie eine Testnachricht aus dem E-Mail-Editor senden, hängt Braze {% raw %}`lid={{placeholder}}`{% endraw %} an Ihre Links an (der Platzhalter wird zum Sendezeitpunkt zu einem eindeutigen Wert). Wenn die Zielseite oder API keine zusätzlichen Query-Parameter toleriert, kann der Link im Editor funktionieren, aber beim Öffnen aus der E-Mail fehlschlagen.
+
+Ohne den `lid`-Wert behandelt Braze die URL nicht als Link-Alias für Tracking und Segmentierung. Wir empfehlen, Ihr Backend oder Ihre Website so zu aktualisieren, dass der `lid`-Query-Parameter ignoriert wird, wenn er vorhanden ist. Dadurch bleiben Link Aliasing, Reporting und die in diesem Artikel beschriebenen Segment-Anwendungsfälle erhalten.
+
+Alternativ können Sie Link Aliasing im Dashboard deaktivieren, während Sie eine Backend-Änderung planen. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Link Aliasing Settings**.
+
+Wenn Sie Ihre Zielsysteme nicht ändern können, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support/), um Link Aliasing für Ihren Workspace zu deaktivieren. Beachten Sie die folgenden Hinweise, wenn Link Aliasing für Ihren Workspace deaktiviert wird:
+
+- Neue E-Mail-Nachrichten und Content Blocks erhalten in der Regel kein neues Link-Alias-Markup (wie den `lid`-Query-Parameter).
+- Bestehende Nachrichten, die erstellt wurden, als Link Aliasing aktiviert war, können weiterhin Link-Alias-Markup im HTML enthalten. Möglicherweise müssen Sie verbleibende `lid`-Parameter manuell entfernen, wo Sie sie nicht mehr benötigen.
+- Wenn Sie eine bestehende Campaign, einen Canvas-E-Mail-Schritt oder einen Content Block bearbeiten, müssen Sie möglicherweise Link-Templates erneut hinzufügen, damit Template-Links korrekt angezeigt werden.
+- Das Klick-Reporting für Sendungen, die durchgeführt wurden, als Link Aliasing aktiviert war, stimmt möglicherweise nicht sauber mit dem Reporting überein, nachdem das Feature deaktiviert wurde.
+- Segmente, die Link-Alias-basierte Filter verwenden (z. B. **Alias angeklickt**-Filter), liefern möglicherweise nicht mehr die erwarteten Zielgruppen.

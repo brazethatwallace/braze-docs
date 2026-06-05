@@ -174,6 +174,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 - 회사가 엔드포인트 수준에서 실행할 수 있는 동시 Segment 내보내기 수는 100개로 제한됩니다. 이 한도를 초과하는 시도는 오류를 발생시킵니다.
 - 첫 번째 내보내기 작업이 여전히 실행 중일 때 Segment를 두 번째로 내보내려고 하면 429 오류가 발생합니다.
 - [`403 Forbidden` 응답]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads)은 내보내기 파일이 아직 준비되지 않았음을 의미하는 경우가 많습니다.
+- 구독 그룹 데이터는 Segment 내보내기를 통해 사용할 수 없습니다. 구독 상태별로 사용자를 식별하려면 구독 그룹 멤버십을 기반으로 별도의 Segment를 생성하고 해당 Segment를 내보내세요.
 
 ## 응답 {#response}
 

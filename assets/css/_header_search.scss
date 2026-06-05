@@ -32,6 +32,15 @@ $search_icon: $white;
 		display: inline-flex;
 		gap: 5px;
 		align-items: center;
+		&:focus:not(:focus-visible) {
+			outline: none;
+		}
+		&:focus-visible {
+			outline: none;
+			> div {
+				@include focus-ring($white);
+			}
+		}
 	}
 	@media (max-width: $window-medium-px) {
 		#site-link {
@@ -64,14 +73,16 @@ $search_icon: $white;
 			border-radius: 20px;
 			background-color: transparent;
 			button {
-				&:focus {
+				&:focus:not(:focus-visible) {
 					outline: none;
+				}
+				&:focus-visible {
+					@include focus-ring($white);
 				}
 			}
 			&:focus-within {
-				border-color: none;
+				border-color: transparent;
 				box-shadow: none;
-				outline: currentColor none medium;
 			}
 			&:hover {
 				&::placeholder {
@@ -546,14 +557,19 @@ $search_icon: $white;
 
   
   
-  #auto #search-box-autocomplete:focus ,
-  #auto #search-box-autocomplete.has-text{
-	width: 300px; 
+  #auto #search-box-autocomplete:focus,
+  #auto #search-box-autocomplete.has-text {
+	width: 300px;
 	background: white;
-    box-shadow: none;
+	box-shadow: none;
 	color: black;
-	outline: none;
 	border-radius: 11px;
+  }
+  #auto #search-box-autocomplete:focus:not(:focus-visible) {
+	outline: none;
+  }
+  #auto #search-box-autocomplete:focus-visible {
+	@include focus-ring($radius: 11px);
   }
 
 #auto #search-box-autocomplete::placeholder{

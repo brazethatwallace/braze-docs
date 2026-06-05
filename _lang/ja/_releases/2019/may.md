@@ -37,9 +37,9 @@ Brazeは機能に新しいチャネルを追加しました！新しいチャネ
 
 データの強化やカスタムイベントのトラッキングのために、[Rokuデバイスからデータを取得]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=roku)できるようになりました。
 
-## キャンバスまたはキャンペーンの更新に関する通知設定 {#notification-preferences-for-canvas-or-campaign-updates}
+## CanvasまたはCampaignの更新に関する通知設定 {#notification-preferences-for-canvas-or-campaign-updates}
 
-この[新しい通知]({{site.baseurl}}/user_guide/administrative/company_settings/notification_preferences/#notification-preferences)は、キャンペーンまたはキャンバスがアクティブ化、更新、再アクティブ化、または非アクティブ化されたときにメールで通知します。Brazeアカウントの**通知設定**でこれを有効にしてください。
+この[新しい通知]({{site.baseurl}}/user_guide/administrative/company_settings/notification_preferences/#notification-preferences)は、CampaignまたはCanvasがアクティブ化、更新、再アクティブ化、または非アクティブ化されたときにメールで通知します。Brazeアカウントの**通知設定**でこれを有効にしてください。
 
 ## Jamppテクノロジーパートナードキュメント {#jampp-technology-partner-documentation}
 
@@ -49,14 +49,14 @@ Brazeのお客様は、Braze Webhookチャネルを構成してイベントをJa
 
 ## アプリ内メッセージ用プラットフォームピッカー {#platform-picker-for-in-app-messages}
 
-キャンペーン作成プロセスのこのステップを強調するプラットフォームピッカーにより、アプリ内メッセージの送信先と対象プラットフォームの選択が簡単になりました。
+Campaign作成プロセスのこのステップを強調するプラットフォームピッカーにより、アプリ内メッセージの送信先と対象プラットフォームの選択が簡単になりました。
 
 ![プラットフォームピッカー]({% image_buster /assets/img/iam_platforms.gif %})
 
 ## メールのディスパッチID Currentsフィールド {#dispatch-id-currents-field-for-email}
 
 {% alert update %}
-キャンバスとキャンペーンの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。キャンバスやキャンペーンでの[`dispatch_id`の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)について詳しくはこちらをご覧ください。
+CanvasとCampaignの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。CanvasやCampaignでの[`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)について詳しくはこちらをご覧ください。
 
 _更新は2019年8月に記録されました。_
 {% endalert %}
@@ -65,13 +65,13 @@ Currentsの機能を継続的に強化する取り組みの一環として、す
 
 `dispatch_id`は、Brazeプラットフォームからの送信（ディスパッチ）ごとに生成される一意のIDです。
 
-スケジュール済みのメッセージを受信したすべての顧客に同じ`dispatch_id`が割り当てられますが、アクションベースメッセージやAPIトリガーメッセージを受信した顧客にはメッセージごとに固有の`dispatch_id`が割り当てられます。`dispatch_id`フィールドを使用すると、定期的なキャンペーンのどのインスタンスがコンバージョンを担当しているかを識別できるため、より多くのインサイトと、どのタイプのキャンペーンがビジネス目標の達成に役立っているかについての情報を得ることができます。
+スケジュール済みのメッセージを受信したすべての顧客に同じ`dispatch_id`が割り当てられますが、アクションベースメッセージやAPIトリガーメッセージを受信した顧客にはメッセージごとに固有の`dispatch_id`が割り当てられます。`dispatch_id`フィールドを使用すると、定期的なCampaignのどのインスタンスがコンバージョンを担当しているかを識別できるため、より多くのインサイトと、どのタイプのCampaignがビジネス目標の達成に役立っているかについての情報を得ることができます。
 
-## 「自分のものだけを表示」キャンペーン並べ替え機能 {#only-show-mine-campaign-sorting-feature}
+## 「自分のものだけを表示」Campaign並べ替え機能 {#only-show-mine-campaign-sorting-feature}
 
-ユーザーがキャンペーングリッドの`Only Show Mine`チェックボックスをオンにすると、結果はログインしているユーザーによって作成されたキャンペーンのみを表示するようにフィルターされます。さらに、ユーザーは`created_by_me:true`を入力して検索バーを使用できます。
+ユーザーがCampaignグリッドの`Only Show Mine`チェックボックスをオンにすると、結果はログインしているユーザーによって作成されたCampaignのみを表示するようにフィルターされます。さらに、ユーザーは`created_by_me:true`を入力して検索バーを使用できます。
 
-また、キャンペーングリッドのサイドバーはサイズ変更可能になりました！
+また、Campaignグリッドのサイドバーはサイズ変更可能になりました！
 
 ## エイリアスによるユーザーの削除 {#delete-users-by-alias}
 
@@ -88,11 +88,10 @@ Mailjetも使用しているユーザーは、以前のユニーク判定の時�
 これらの更新された用語は、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)で検索できます。
 
 {% alert update %}
-キャンバスとキャンペーンの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。[キャンバスとキャンペーンにおける`dispatch_id`の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)について詳しくはこちらをご覧ください。
+CanvasとCampaignの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。[CanvasとCampaignにおける`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)について詳しくはこちらをご覧ください。
 
 _更新は2019年8月に記録されました。_
 {% endalert %}
-
 
 ## 最もエンゲージされたチャネル {#most-engaged-channel}
 
