@@ -14,6 +14,8 @@ description: "Erfahren Sie, wie Sie angepasste Events über das Braze SDK protok
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.
 {% endalert %}
 
+Informationen zu empfohlenen E-Commerce-Events finden Sie unter [E-Commerce-Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 ## Protokollieren eines angepassten Events {#logging-a-custom-event}
 
 Um ein angepasstes Event zu protokollieren, verwenden Sie die folgende Event-Protokollierungsmethode.
@@ -329,7 +331,7 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 Die Schlüssel `time` und `event_name` sind reserviert und können nicht als angepasste Event-Eigenschaften verwendet werden.
 {% endalert %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 Es gibt drei wichtige Überprüfungen, damit Ihre angepassten Event-Eigenschaften wie erwartet protokolliert werden:
 
@@ -361,7 +363,7 @@ Nachdem Sie [Ihre:n Nutzer:in als Testnutzer:in hinzugefügt haben]({{site.baseu
 
 1. Führen Sie das angepasste Event innerhalb der App aus.
 2. Warten Sie etwa 10 Sekunden, bis die Daten übertragen wurden.
-3. Aktualisieren Sie das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/), um das angepasste Event und den Wert der damit übergebenen Eigenschaft anzuzeigen.
+3. Aktualisieren Sie das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/), um das angepasste Event und den Wert der damit übergebenen Event-Eigenschaft anzuzeigen.
 
 ## Fehlerbehebung bei angepassten Events {#troubleshooting-custom-events}
 

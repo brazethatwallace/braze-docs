@@ -321,6 +321,10 @@ For the full definitions of all Banners metrics, refer to the [Report Metrics Gl
             <td class="no-split"><i>Total Clicks</i> is the total number (and percentage) of users who clicked within the delivered message, regardless of whether the same user clicks multiple times.</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i> is the total number of times users dismissed the Banner. Available only for Banners with dismissal behavior enabled.</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} Each user is only counted once.</td>
         </tr>

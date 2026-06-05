@@ -15,6 +15,10 @@ toc_headers: h2
 
 Com a Ingestão de Dados na Nuvem (CDI) da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada em um cronograma que você define, e cada integração pode ter um cronograma diferente. As sincronizações podem ocorrer com a frequência de 15 minutos ou tão raramente quanto uma vez por mês. Se precisar que as sincronizações ocorram com mais frequência do que 15 minutos, entre em contato com o gerente de sucesso do cliente ou considere o uso de chamadas de REST API para ingestão de dados em tempo real.
 
+{% alert note %}
+A frequência de sincronização no dashboard controla com que frequência a Braze executa uma sincronização (por exemplo, opções como execuções por hora ou mais frequentes dentro de uma hora). Ela não define um intervalo personalizado maior que uma hora entre as execuções. Para executar uma sincronização fora da cadência programada — como sob demanda após a conclusão do carregamento do seu data warehouse — use o endpoint [Disparar uma sincronização]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) com o ID da sua integração.
+{% endalert %}
+
 Quando uma sincronização é executada, a Braze se conecta diretamente à sua instância de data warehouse, recupera todos os novos dados da tabela especificada e atualiza os dados correspondentes no seu dashboard da Braze. Cada vez que a sincronização é executada, quaisquer dados atualizados são refletidos na Braze.
 
 ### Encontrando seu ID de integração {#finding-your-integration-id}
@@ -29,7 +33,7 @@ Com as capacidades de Ingestão de Dados na Nuvem da Braze, você pode:
 - Sincronizar de forma segura dados de usuários, incluindo atributos, eventos e compras do seu data warehouse para a Braze.
 - Fechar o ciclo de dados com a Braze combinando a Ingestão de Dados na Nuvem com Currents ou Compartilhamento de Dados do Snowflake.
 
-Além disso, [Fontes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) são uma alternativa de cópia zero. Você pode fazer com que a Braze consulte diretamente seu data warehouse ou solução de armazenamento de arquivos para construir segmentos CDI — tudo isso sem copiar os dados subjacentes para a Braze.
+Além disso, [Fontes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) são uma alternativa de cópia zero. Você pode fazer com que a Braze consulte diretamente seu data warehouse ou solução de armazenamento de arquivos para construir Segments CDI &#8212; tudo isso sem copiar os dados subjacentes para a Braze.
 
 ## Fontes de dados suportadas {#supported-data-sources}
 
