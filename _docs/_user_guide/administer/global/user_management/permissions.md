@@ -93,7 +93,6 @@ Keep the following behaviors in mind when you assign dashboard access:
 - **Export User Data:** Exporting user data requires workspace-level access in addition to the export permission.
 - **Composite permissions:** Some areas require multiple permissions. For example, configuring [Technology Partners]({{site.baseurl}}/partners/) typically requires both partner access and a baseline read permission for the related workspace features.
 - **Import and Update User Data:** This permission includes the ability to edit app user profiles through import flows, not only dashboard user records.
-- **No permission merge:** You cannot merge or import permission sets from one dashboard user onto another. Assign roles or permission sets explicitly for each user.
 
 ## Edit a user's permissions
 
