@@ -149,52 +149,50 @@ No. Braze renders each message component separately (such as subject line, HTML 
 
 <!-- sf-kb-phase2-batch -->
 
-## Salesforce Knowledge updates
+### Can I use Liquid inside the `abort_message` tag?
 
-### Can I supply liquid inside the abort_message tag?
+No. The `{% abort_message %}` tag accepts only a static string in quotes, not Liquid personalization. Use other Liquid logic before the tag if you need conditional abort behavior.
 
-it accepts only a static string; Liquid personalization is not supported. Consider adding to Liquid personalization or abort logic docs.
+### Why am I seeing an "Unexpected end token" Liquid error?
 
-### Why am I facing an error Unexpected end token when working with Liquid?
+This error usually means extra or missing curly braces. Do not nest `{{ }}` inside another Liquid tag expression. For example, use `{{custom_attribute.${date_of_birth} | date: '%s'}}` rather than wrapping the attribute reference in an additional pair of braces.
 
-Add troubleshooting section to liquid/faq.md or using_liquid.md: 'Unexpected end token' typically caused by extra or missing curly braces. Example: {{${date_of_birth}} | date: '%s'} should not have nested {{}} inside. Link to Liquid syntax and use case library.
+### Why does my message abort with "Invalid from email address for recipient:"?
 
-### Aborted Message Error "Invalid from email address for recipient:"
+This abort often occurs when Liquid in the **From** address produces invalid syntax, such as a missing variable, extra spaces, or disallowed characters. Preview with a test user and verify the rendered **From** address matches your configured sending domain.
 
-Add troubleshooting to outbound email settings: 'Invalid from email address' error when Liquid produces invalid syntax (missing variable, spaces, disallowed chars).
+### Why is my Content Block missing from **Row** in the drag-and-drop search tool?
 
-### Why is my content block not appearing under 'Row' in the DnD search tool?
+Some Content Blocks do not appear under **Row** in the drag-and-drop editor search. Add an HTML block from the **Content** tab (**Advanced**), then insert the Content Block Liquid tag in that HTML block to render the block content.
 
-If your Content Block does not appear under Row in the DnD search tool, you can add it via Liquid: add an HTML block (under Advanced in the Content tab), then insert the Content Block Liquid Tag. The HTML will display the Content Block content.
+### How do I create a dynamic Reply-To address?
 
-### How Do I Create A Dynamic 'Reply-To' Email Address?
+Use Liquid in the **Reply-To** field when your workspace supports dynamic Reply-To configuration. Pair it with your **From** display name settings as needed. See [Email settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_settings/) for workspace-specific options.
 
-Consider adding a short troubleshooting/guru section on dynamic Reply-To setup (exclude-reply address + Customize From Display Name checkbox) or cross-link from email_settings to a dedicated article. Alternatively archive KA if docs cover this.
+### Why does my drag-and-drop Content Block preview differ from the compose view?
 
-### DnD content block preview different from compose view
+When you template a Content Block with Liquid, mobile media queries in the block may not apply in preview the same way they do when you drag the block directly into a message. Dragging the block preserves layout but decouples it from the source block, so future block edits no longer update the message automatically.
 
-When templating via Liquid, media queries for mobile may be ignored; dragging the content block in preserves layout. Tradeoff: drag-in is not linked (no auto-updates).
+### Are there size limits for Canvas entry properties?
 
-### Are There Size Limits of Canvas Entry Properties Object?
+Braze does not enforce a hard limit on Canvas entry properties, but keep payloads under about 1 KB (~1,000 characters). Larger objects can increase memory use and delay message rendering during high-volume sends.
 
-Add a section to braze-docs on Canvas entry properties (e.g., in Canvas or Liquid personalization docs) documenting: no formal limit; recommend keeping under 1Kb (~1000 characters); larger objects may cause memory pressure and message delays during mass sends. Cite platform usage of canvas_entry_properties.
+### Why does my Catalog Liquid snippet return an abort message?
 
-### Why is my Liquid snippet containing Catalog items returning an abort message?
+If a Catalog Liquid snippet aborts during send, recreate the snippet from the personalization menu by selecting individual catalog items instead of using a bulk or fully dynamic selection. See [Catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/) and [Selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
 
-Add troubleshooting to docs: if Catalog Liquid snippet aborts, create snippet via Personalization menu with individual catalog item selections rather than bulk/dynamic selection. Verify Catalogs + Liquid docs for this workflow.
+### Why do I get a Liquid error when previewing certain data types in the dashboard?
 
-### Liquid Error Occurs On The Dashboard When Previewing Some Data Types
+Some Canvas entry property types require coercion in Liquid before you use them in comparisons or math. For example, append `| plus: 0` when you need numeric behavior.
 
-Consider adding Liquid workaround for canvas_entry_properties type coercion (plus: 0 filter) to Liquid FAQ or personalization docs if not already present.
+### Why is Connected Content retry unavailable for my in-app message?
 
-### IAM Campaign Error: Warning: Use of the {% connected_content %} tag with retry is not available for this message type.
+The `{% connected_content %}` tag with retry is not supported for all message types, including some in-app message formats. Remove retry parameters or use a supported channel for retried Connected Content calls.
 
-Add IAM + connected content retry limitation to Liquid or IAM docs.
+### How do I preview event property values in Message Composer?
 
-### Liquid: Event Property Values in Message Composer Preview Mode
+Use **Preview as Custom User** and enter sample custom event property values for the user you preview. This is also useful for messages with abort logic when you need preview values that do not trigger an abort.
 
-Preview as Custom User allows inputting sample custom event properties for Liquid templating. Also useful for messages with abort logic (preview values that prevent condition trigger).
+### Does Braze support an array of arrays in Liquid?
 
-### Do we support an array of arrays in Liquid?
-
-Consider adding to Liquid/custom attributes docs: Liquid does not natively support array of arrays; workaround is to store as array of comma-separated strings and use split filter. Link to Shopify Liquid split filter.
+Liquid does not natively support arrays of arrays. Store values as an array of comma-separated strings and use the `split` filter to parse them when needed.
