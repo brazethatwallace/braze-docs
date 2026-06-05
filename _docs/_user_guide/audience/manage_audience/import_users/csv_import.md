@@ -439,7 +439,6 @@ Braze does not recommend using an email address as `external_id`. If you use ema
 
 When you reference `external_id` in REST API requests (for example, during CSV-driven workflows that call the API), escape double-quote characters in the ID with a backslash (`\"`). Alternatively, use `braze_id`, which does not require manual quote escaping.
 
-
 ### CSV import isn't available as a segment filter
 
 You can use a CSV import as a segment filter only if you enabled a targeting preference during upload.
