@@ -17,8 +17,6 @@ description: "この記事では、コンテンツブロックの翻訳ソース
 
 > このエンドポイントを使用して、コンテンツブロックの翻訳タグのデフォルト翻訳ソースをすべて表示します。これらは {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %} 内の値です。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 前提条件 {#prerequisites}
 
 このエンドポイントを使用するには、`content_blocks.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。

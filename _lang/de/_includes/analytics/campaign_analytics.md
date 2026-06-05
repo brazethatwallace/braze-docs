@@ -321,6 +321,10 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
             <td class="no-split"><i>Total Clicks</i> ist die Gesamtzahl (und der Prozentsatz) der Nutzer:innen, die innerhalb der zugestellten Nachricht geklickt haben, unabhängig davon, ob dieselbe Nutzer:in mehrmals geklickt hat.</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i> ist die Gesamtzahl der Male, die Nutzer:innen das Banner geschlossen haben. Nur für Banner mit aktiviertem Schließverhalten verfügbar.</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} Jede Nutzer:in wird nur einmal gezählt.</td>
         </tr>
@@ -381,7 +385,7 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dieser Wert wird über einen Zeitraum von sieben Tagen für E-Mails getrackt und anhand der <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> gemessen. Dazu gehören auch Klicks auf die von Braze bereitgestellten Abmeldelinks. Dieser Wert sollte zwischen 5–10 % liegen. Alles über 10 % ist außergewöhnlich!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dieser Wert wird über einen Zeitraum von sieben Tagen für E-Mails getrackt und anhand der <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> gemessen. Dazu gehören auch Klicks auf die von Braze bereitgestellten Abmeldelinks. Dieser Wert sollte zwischen 5–10 % liegen. Alles über 10 % ist außergewöhnlich!
             </td>
         </tr>
         <tr>
@@ -856,7 +860,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
 
 Im Panel **Historical Performance** können Sie die Metriken aus dem Panel **Message Performance** als Diagramm im Zeitverlauf betrachten. Verwenden Sie die Filter am oberen Rand des Panels, um die angezeigten Statistiken und Kanäle zu ändern. Der Zeitraum dieses Diagramms entspricht immer dem oben auf der Seite angegebenen Zeitraum.
 
-Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das <i class="fas fa-bars" aria-label="Navigationsmenü öffnen"></i> Hamburger-Menü und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
+Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das <i class="fas fa-bars"></i> Hamburger-Menü und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
 
 ![Ein Diagramm des Panels „Historical Performance“ mit Beispielstatistiken für eine E-Mail von Februar 2021 bis Mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 
