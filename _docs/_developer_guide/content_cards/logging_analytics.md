@@ -19,7 +19,7 @@ If dashboard analytics show *Unique Dismissals* higher than *Unique Impressions*
 - Verify you call the correct logging methods when a card is shown and when a user dismisses it.
 - Dismissals logged without matching impressions usually indicate a bug in custom logging code, not expected Braze behavior.
 
-For method details, see the platform sections in this article and [Log analytics]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) for your SDK.
+For method details, see the platform sections below.
 
 ## Missing Content Cards analytics
 
