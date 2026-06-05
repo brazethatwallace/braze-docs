@@ -1,22 +1,22 @@
 ---
-nav_title: Braze Message Credits Descriptions
+nav_title: Braze Action Credits Descriptions
 permalink: "/message_credits_descriptions/"
 hidden: true
 noindex: true
 hide_toc: true
 ---
 
-# Braze Message Credits descriptions
+# Braze Action Credits descriptions
 
-> Message Credits provides a flexible structure that allows you to easily access multi-channel messaging and advanced AI products while maximizing your marketing budget. Start by engaging on a single channel or region and seamlessly expand your mix to include AI agents as your business model, customer base, and engagement strategies evolve.
+> Action Credits provide a flexible structure that allows you to easily access multi-channel messaging and advanced AI products while maximizing your marketing budget. Start by engaging on a single channel or region and seamlessly expand your mix to include AI agents as your business model, customer base, and engagement strategies evolve.
 
-Message Credits can be applied across any of the channels and features presented on this page.
+Action Credits can be applied across any of the channels and features presented on this page.
 
-Note that the "Credit Ratio" referenced in this page is defined as the exact number of Message Credits it takes to perform the specified action.
+Note that the "Credit Ratio" referenced in this page is defined as the exact number of Action Credits it takes to perform the specified action.
 
 ## Table of contents
 
-- [Braze Message Credits descriptions](#braze-message-credits-descriptions)
+- [Braze Action Credits descriptions](#braze-action-credits-descriptions)
   - [Email channel details](#email-channel-details)
   - [SMS, MMS, and RCS channel details](#sms-mms-and-rcs-channel-details)
     - [SMS segments](#sms-segments)
@@ -47,7 +47,7 @@ Refer to our [email documentation](https://www.braze.com/docs/user_guide/message
 SMS and MMS credit ratios are denominated in increments of inbound or outbound segments sent from the Braze platform. RCS credit ratios are denominated in increments of Basic or Single types sent from the Braze platform.
 
 {% alert note %}
-Where applicable for these channels, carrier fees are billed separately (in arrears) and are not considered as part of Message Credits.
+Where applicable for these channels, carrier fees are billed separately (in arrears) and are not considered as part of Action Credits.
 {% endalert %}
 
 ### SMS segments
