@@ -15,14 +15,14 @@ Human source of truth: [`docs/contributing/style_guide/`](docs/contributing/styl
 | [`docs-discrepancies`](.github/skills/docs-discrepancies/SKILL.md) | Page-by-page doc vs platform audits and discrepancy PRs |
 | [`support-analyzer`](.github/skills/support-analyzer/SKILL.md) | Manual triage of support case CSVs (after CI digest / Phase 2) |
 | [`salesforce-migration`](.github/skills/salesforce-migration/SKILL.md) | SF KB backlog (`_data/kb_articles.csv`), Phase 1 triage, Phase 2 PRs under Epic **BD-6308** |
-| [`docs-accessibility`](.github/skills/docs-accessibility/SKILL.md) | Pre-PR accessibility gate — table a11y on markdown edits, ADA audit checks on architecture changes |
+| [`check-accessibility`](.github/skills/check-accessibility/SKILL.md) | Pre-PR accessibility gate — table a11y on markdown edits, ADA audit checks on architecture changes |
 
 ## How to invoke (Cursor)
 
 - **Routine `_docs/` edits:** Describe the task; no tag required. The repo bootstrap rule points agents at `braze-docs`.
 - **Verification:** Use **`@reference-repos`** or ask to “verify against source.” Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders.
 - **Heavy workflows:** Name the skill once (for example `@support-analyzer`, `@salesforce-migration`, `@docs-discrepancies`).
-- **Accessibility:** Run **`@docs-accessibility`** before opening any PR that touches `_docs/`, `_includes/`, `_layouts/`, `assets/js/`, or `assets/css/`.
+- **Accessibility:** Run **`@check-accessibility`** before opening any PR that touches `_docs/`, `_includes/`, `_layouts/`, `assets/js/`, or `assets/css/`.
 
 ## Privacy
 

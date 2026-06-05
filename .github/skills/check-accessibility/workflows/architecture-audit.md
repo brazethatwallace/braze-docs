@@ -166,7 +166,7 @@ Use this format:
 
 ---
 
-**STOP.** Do not make any changes. The author reviews these findings and decides what to act on. If they ask you to help fix a specific finding, assist them — but wait for explicit direction on each one.
+**STOP.** Do not make any changes — with one exception: **P4-A (obsolete meta tags)** may be auto-removed if the author explicitly asks. For all other findings, wait for explicit direction before touching any file.
 
 ---
 

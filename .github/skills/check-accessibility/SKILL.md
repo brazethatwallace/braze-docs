@@ -1,5 +1,5 @@
 ---
-name: docs-accessibility
+name: check-accessibility
 description: >
   Pre-PR accessibility gate for Braze Docs contributors. Run before opening a PR to check for
   accessibility issues. Detects changed file types and routes automatically: architecture changes
