@@ -166,7 +166,7 @@ Some Content Blocks do not appear under **Row** in the drag-and-drop editor sear
 
 ### How do I create a dynamic Reply-To address?
 
-Use Liquid in the **Reply-To** field when your workspace supports dynamic Reply-To configuration. Pair it with your **From** display name settings as needed. See [Email settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_settings/) for workspace-specific options.
+Use Liquid in the **Reply-To** field when your workspace supports dynamic Reply-To configuration. Pair it with your **From** display name settings as needed. See [Email settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) for workspace-specific options.
 
 ### Why does my drag-and-drop Content Block preview differ from the compose view?
 
