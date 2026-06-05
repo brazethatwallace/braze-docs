@@ -21,7 +21,7 @@ To pull campaign or Canvas metrics for a defined date range, use one of the foll
 
 ### How do I edit a live Currents integration?
 
-To change a live Currents connector, open the integration and select **Edit** in the lower left of the page. Without **Edit**, the integration UI stays read-only and you cannot modify connector settings from the icons alone.
+To change a live Currents connector, open the integration and click **Edit** in the lower left of the page. Without **Edit**, the integration UI stays read-only and you cannot modify connector settings from the icons alone.
 
 ### How does Braze handle Azure Blob Storage Avro files after upload?
 
