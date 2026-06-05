@@ -150,11 +150,11 @@ No. Braze renders each message component separately (such as subject line, HTML 
 
 ### Can I use Liquid inside the `abort_message` tag?
 
-No. The `{% abort_message %}` tag accepts a static string in quotes, not Liquid personalization. Use other Liquid logic before the tag if you need conditional abort behavior.
+{% raw %}No. The {% abort_message %} tag accepts a static string in quotes, not Liquid personalization.{% endraw %} Use other Liquid logic before the tag if you need conditional abort behavior.
 
 ### Why am I seeing an "Unexpected end token" Liquid error?
 
-This error usually indicates extra or missing curly braces. Do not nest `{{ }}` inside another Liquid tag expression. For example, use `{{custom_attribute.${date_of_birth} | date: '%s'}}` rather than wrapping the attribute reference in an additional pair of braces.
+This error usually indicates extra or missing curly braces. Do not nest `{{ }}` inside another Liquid tag expression. For example, use {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} rather than wrapping the attribute reference in an additional pair of braces.
 
 ### Why does my message abort with "Invalid from email address for recipient:"?
 
