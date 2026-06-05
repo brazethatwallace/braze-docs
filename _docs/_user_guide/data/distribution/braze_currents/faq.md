@@ -95,7 +95,7 @@ When Currents changes occur (such as new event fields or event types), Braze sen
 
 ### How much storage do I need for Currents data?
 
-Storage requirements depend on your event volume and the types of events you're exporting. Braze provides [sample events in Avro format](https://github.com/braze-inc/currents-examples/tree/master/sample-data) that you can use to estimate file sizes for your use case.
+Storage requirements depend on your event volume and the types of events you're exporting. Braze provides [sample events in Avro format](https://github.com/appboy/currents-examples/tree/master/sample-data) that you can use to estimate file sizes for your use case.
 
 ### Why is the campaign name or Canvas step name `NULL` in my Currents data?
 
