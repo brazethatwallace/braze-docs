@@ -4846,4 +4846,32 @@ validurls['/docs/developer_guide/in_app_messages/tutorials/defer_and_restore_tri
 
 validurls['/docs/user_guide/messaging/campaigns/building_campaigns/delivery_types/api_triggered_delivery'] = '/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery';
 
+// Former _docs/_docs_pages/redirects stubs (to braze.com/unlisted_docs/*). Content now lives in
+// _unlisted_docs at the same /docs/ permalink; entries satisfy validate_doc_redirects.rb.
+validurls['/docs/ai_step/'] = '/docs/ai_step/';
+validurls['/docs/braze_go/'] = '/docs/braze_go/';
+validurls['/docs/campaign_autosave/'] = '/docs/campaign_autosave/';
+validurls['/docs/campaign_save_as_draft/'] = '/docs/campaign_save_as_draft/';
+validurls['/docs/canvas_triggered_in-app_messages/'] = '/docs/canvas_triggered_in-app_messages/';
+validurls['/docs/core_endpoints/'] = '/docs/core_endpoints/';
+validurls['/docs/credits_whatsapp/'] = '/docs/credits_whatsapp/';
+validurls['/docs/csv_events/'] = '/docs/csv_events/';
+validurls['/docs/device_and_carriers/'] = '/docs/device_and_carriers/';
+validurls['/docs/preview_dnd_content_blocks/'] = '/docs/preview_dnd_content_blocks/';
+validurls['/docs/email_html_editor/'] = '/docs/email_html_editor/';
+validurls['/docs/ephemeral_custom_events/'] = '/docs/ephemeral_custom_events/';
+validurls['/docs/iam_generations/'] = '/docs/iam_generations/';
+validurls['/docs/get_app_group_apps/'] = '/docs/get_app_group_apps/';
+validurls['/docs/get_campaign_link_alias/'] = '/docs/get_campaign_link_alias/';
+validurls['/docs/get_canvas_link_alias/'] = '/docs/get_canvas_link_alias/';
+validurls['/docs/idle_campaigns_canvases/'] = '/docs/idle_campaigns_canvases/';
+validurls['/docs/message_credits_delta_a3sy/'] = '/docs/message_credits_delta_a3sy/';
+validurls['/docs/message_credits_gamma_0dhr/'] = '/docs/message_credits_gamma_0dhr/';
+validurls['/docs/message_credits_lambda_k5gh/'] = '/docs/message_credits_lambda_k5gh/';
+validurls['/docs/message_credits_sigma_pow2/'] = '/docs/message_credits_sigma_pow2/';
+validurls['/docs/message_credits_theta_d9kw/'] = '/docs/message_credits_theta_d9kw/';
+validurls['/docs/track_users_bulk/'] = '/docs/track_users_bulk/';
+validurls['/docs/rate_limiting/'] = '/docs/rate_limiting/';
+validurls['/docs/whatsapp_pricing_updates/'] = '/docs/whatsapp_pricing_updates/';
+
 // validurls['OLD'] = 'NEW';

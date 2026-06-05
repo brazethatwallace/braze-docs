@@ -97,6 +97,17 @@ Select the appropriate severity level to help us assign the right resources to a
 Marking an issue as "Critical" means your production instance is down, and all work within Braze has stopped.
 {% endalert %}
 
+## Troubleshooting dashboard load issues
+
+If the Braze dashboard isn't loading correctly, try the following before you contact Support:
+
+1. Open the dashboard in a different browser or an incognito or private window.
+2. [Clear your browser cache and cookies]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+3. Disable ad blockers and browser extensions, then reload the dashboard.
+4. If you use a VPN, disconnect and try again.
+
+If your browser developer console shows `ERR_BLOCKED_BY_CLIENT`, an extension or ad blocker is blocking dashboard resources. Disable the blocker for your Braze dashboard URL and reload the page.
+
 ## Troubleshooting access
 
 If you receive an error when logging into the Braze Support Portal, such as `Check your entry`, make sure you followed the link in your welcome email to set a password for the portal. If you've done that or were previously able to log into the portal, create a Support ticket.
