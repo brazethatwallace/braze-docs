@@ -24,6 +24,6 @@ For reference, this information is reflected on the user profile in the email **
 
 ## Click tracking link requirements
 
-Braze click tracking only rewrites links that use `http://` or `https://` URLs. Links that use other schemes, such as `mailto:` or `tel:`, aren't click-tracked.
+Braze click tracking only rewrites links that use `http://` or `https://` URLs. Links that use other schemes, such as `mailto:` or `tel:`, are not click-tracked.
 
 To track clicks on phone numbers or email addresses, use an `https://` redirect URL that forwards to the `tel:` or `mailto:` destination instead.
