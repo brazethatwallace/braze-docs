@@ -11,6 +11,22 @@ tool: Currents
 
 > This page provides answers to some frequently asked questions about Currents.
 
+### Can I export campaign or Canvas data for a specific date window?
+
+To pull campaign or Canvas metrics for a defined date range, use one of the following approaches:
+
+- Submit a [product request](https://portal.braze.com/) for date-aligned exports when you need dashboard-style reporting outside standard API windows.
+- Call the [campaign analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) or [Canvas analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) endpoints with `ending_at` and `length` parameters (or use [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) and [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/)) for time-series data.
+- Stream events to your warehouse with [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) when you need ongoing, queryable message engagement data in Amazon S3, Azure Blob Storage, or another supported destination.
+
+### How do I edit a live Currents integration?
+
+To change a live Currents connector, open the integration and click **Edit** in the lower left of the page. Without **Edit**, the integration UI stays read-only and you cannot modify connector settings from the icons alone.
+
+### How does Braze handle Azure Blob Storage Avro files after upload?
+
+Braze does not modify Avro files in [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) after upload completes. Azure may block deletion of a blob while an upload is still in progress.
+
 ### How do I get historical data?
 
 Currents is a real-time, live data stream, which means that events can't be replayed. However, you can store Currents data in a data warehouse such as [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) or [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/), so you can act on past events as you see fit. Data is retained for 30 days, but for more historical data, you can query [Snowflake]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/s3_to_snowflake/).
