@@ -35,10 +35,21 @@ referring to Braze as an organization. Use the imperative for direct instruction
 
 ### Present tense
 
-Use present tense. Avoid "will" or hypothetical "would" for the result of user action.
+Use present tense instead of **future** tense. Present tense conveys immediacy and
+demonstrates confidence. Avoid using "will" or hypothetical "would", especially when
+referring to the result of user action.
 
 - Do: "Archived subscription groups cannot be edited and no longer appear in segment filters."
-- Don't: "Archived groups cannot be edited and will no longer appear in segment filters."
+- Don't: "Archived subscription groups cannot be edited and will no longer appear in segment filters."
+
+Only use future tense when you are actually talking about the future.
+
+**Exceptions (do not rewrite to present tense for "consistency"):**
+- Troubleshooting, FAQs, and incident write-ups describing **events that already happened**
+  (for example "The message was aborted", "The email went to the spam folder").
+- Markdown table **Possible cause** rows that name a past delivery outcome.
+- Epistemic hedging: "may", "may have", "might" when describing uncertain provider or user behavior
+  (for example "The mailbox provider may route the message to spam").
 
 ### Contractions
 
