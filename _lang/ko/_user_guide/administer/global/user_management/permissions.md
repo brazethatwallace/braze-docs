@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## 권한 세트 생성 {#create-a-permission-set}
 
-권한 세트를 사용하여 특정 주제 영역이나 동작과 관련된 권한을 묶을 수 있습니다. 서로 다른 워크스페이스에서 동일한 접근 권한이 필요한 대시보드 사용자에게 권한 세트를 적용할 수 있습니다. 권한 세트를 생성하려면 **설정** > **권한 설정**으로 이동한 다음 **권한 세트 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions)을 참조하세요.
+권한 세트를 사용하여 특정 주제 영역이나 동작과 관련된 권한을 묶을 수 있습니다. 서로 다른 워크스페이스에서 동일한 접근 권한이 필요한 대시보드 사용자에게 권한 세트를 적용할 수 있습니다. 권한 세트를 생성하려면 **설정** > **권한 설정**으로 이동한 다음 **권한 세트 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
 
 {% tabs local %}
 {% tab 권한 세트 예시 %}
@@ -32,7 +32,7 @@ tool: Dashboard
 
 ## 역할 생성 {#creating-a-role}
 
-역할은 개별 커스텀 권한과 워크스페이스 접근 제어를 묶어 더 체계적인 구조를 제공합니다. 이는 하나의 대시보드에 여러 브랜드나 지역별 워크스페이스가 있는 경우 특히 유용합니다. 역할을 사용하면 대시보드 사용자를 올바른 워크스페이스에 추가하고 관련 권한을 직접 부여할 수 있습니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions)을 참조하세요.
+역할은 개별 커스텀 권한과 워크스페이스 접근 제어를 묶어 더 체계적인 구조를 제공합니다. 이는 하나의 대시보드에 여러 브랜드나 지역별 워크스페이스가 있는 경우 특히 유용합니다. 역할을 사용하면 대시보드 사용자를 올바른 워크스페이스에 추가하고 관련 권한을 직접 부여할 수 있습니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
 
 {% tabs local %}
 {% tab 역할 예시 %}
@@ -172,11 +172,11 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 | 제품 영역 | 권한 | 정의 |
 | --- | --- | --- |
-| Campaigns | View Campaigns | Campaigns 보기 |
-| Campaigns | Launch Campaigns | 기존 Campaigns 시작, 중지, 일시 중지 또는 재개 |
-| Campaigns | Archive Campaigns | Campaigns를 아카이브로 이동 |
-| Campaigns | Edit Campaigns | Campaigns 생성 및 업데이트 |
-| Campaigns | Approve and Deny Campaigns | Campaigns 승인 또는 거부. [Campaigns 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 이 권한이 적용됩니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스 참여에 관심이 있으시면 계정 매니저에게 문의하세요. |
+| Campaigns | View Campaigns | Campaign(캠페인) 보기 |
+| Campaigns | Launch Campaigns | 기존 Campaign 시작, 중지, 일시 중지 또는 재개 |
+| Campaigns | Archive Campaigns | Campaign을 아카이브로 이동 |
+| Campaigns | Edit Campaigns | Campaign 생성 및 업데이트 |
+| Campaigns | Approve and Deny Campaigns | Campaign 승인 또는 거부. [Campaign 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 이 권한이 적용됩니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스 참여에 관심이 있으시면 계정 매니저에게 문의하세요. |
 | Canvas | View Canvases | Canvases 보기 |
 | Canvas | Archive Canvases | Canvases를 아카이브로 이동 |
 | Canvas | Edit Canvases | Canvases 생성 및 업데이트 |
@@ -355,6 +355,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 미디어 라이브러리 자산 | View Media Library Assets | 미디어 라이브러리 자산 보기 |
 | 미디어 라이브러리 자산 | Delete Media Library Assets | 미디어 라이브러리 자산 영구 삭제 |
 | 미디어 라이브러리 자산 | Edit Media Library Assets | 미디어 라이브러리 자산 생성 및 업데이트 |
+| 미디어 라이브러리 자산 | Replace Media Library Assets | 기존 미디어 라이브러리 자산의 파일을 URL 및 자산 ID를 유지하면서 교체 |
 | 메시징 사용량 제한 | View Messaging Rate Limits | 워크스페이스 수준 메시징 사용량 제한 보기 |
 | 메시징 사용량 제한 | Edit Messaging Rate Limits | 워크스페이스 수준 메시징 사용량 제한 구성 및 편집 |
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Braze Operator에 접근하여 질문에 답하고, 설정을 안내하고, 문제를 해결하고, 아이디어를 브레인스토밍합니다 |

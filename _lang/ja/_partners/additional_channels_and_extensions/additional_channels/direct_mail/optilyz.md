@@ -40,9 +40,9 @@ optilyzと統合するには、[optilyz API](https://www.optilyz.com/doc/api/) �
 
 ### ステップ 1: BrazeのWebhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 
-将来のキャンペーンやキャンバスで使用するoptilyz Webhookテンプレートを作成するには、Brazeプラットフォームで**テンプレート** > **Webhookテンプレート**に移動します。
+将来のCampaignsやCanvasesで使用するoptilyz Webhookテンプレートを作成するには、Brazeプラットフォームで**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
-1回限りのoptilyz Webhook キャンペーンを作成するか、既存のテンプレートを使用する場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
+1回限りのoptilyz Webhookキャンペーンを作成するか、既存のテンプレートを使用する場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
 
 新しいWebhookテンプレートで、以下のフィールドに記入します。
 - **Webhook URL**: Webhook URLはお客様ごとに異なり、optilyzのカスタマーサクセスマネージャーから提供されます。
@@ -93,5 +93,5 @@ optilyzには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
 ![Braze Webhookビルダーのテストタブで利用可能なさまざまなテストフィールド。]({% image_buster /assets/img/optilyz/optilyz_testing.png %})
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください。<br>更新済みWebhookテンプレートは、新しい[Webhook キャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください。<br>更新済みWebhookテンプレートは、新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}

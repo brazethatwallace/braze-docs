@@ -95,7 +95,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 기존 페이지를 복제하려면:
 
-1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i>을 선택하여 추가 옵션을 엽니다.
+1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i>를 선택하여 추가 옵션을 엽니다.
 2. **Duplicate**를 선택합니다.
 3. 의미 있는 이름을 지정합니다. 이렇게 하면 페이지를 서로 연결할 때 도움이 됩니다.
 
@@ -104,7 +104,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 페이지를 삭제하거나 이름을 변경하려면:
 
-1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i>을 선택하여 추가 옵션을 엽니다.
+1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i>를 선택하여 추가 옵션을 엽니다.
 2. **Rename** 또는 **Delete**를 선택합니다.
 
 {% endtab %}
@@ -192,4 +192,4 @@ Campaigns를 보내기 전에 항상 인앱 메시지를 테스트하여 사용�
 
 ![제품 투어를 위한 인앱 메시지 미리보기.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-**Templates** > **In-App Message Templates**로 이동하여 인앱 메시지 템플릿을 만들고 저장할 수도 있습니다.
+**Content** > **In-App Message**로 이동하여 인앱 메시지 템플릿을 만들고 저장할 수도 있습니다.

@@ -12,13 +12,14 @@ search_tag: Partner
 
 > [Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/) ist eine der beliebtesten Instant-Messaging-Plattformen der Welt, die von fast einer Milliarde monatlich aktiver Nutzer:innen genutzt wird. Über diese Plattform können Marken ansprechende Chatbots erstellen, die intelligent und automatisch mit ihren Kund:innen interagieren.
 
-Die Braze- und Facebook-Integration nutzt Braze-Webhooks, Segmentierung, Personalisierung und Triggering-Features, um Ihren Nutzer:innen im Facebook Messenger über die Messenger Platform API Nachrichten zu senden. Ein angepasstes Facebook Messenger Webhook-Template ist in unserer Plattform unter **Templates** > **Webhook-Templates** enthalten.
+Die Braze- und Facebook-Integration nutzt Braze-Webhooks, Segmentierung, Personalisierung und Triggering-Features, um Ihren Nutzer:innen im Facebook Messenger über die Messenger Platform API Nachrichten zu senden. Ein angepasstes Facebook Messenger Webhook-Template ist in unserer Plattform unter **Content** > **Webhook** enthalten.
 
 Die Facebook Messenger-Plattform ist für „nicht werbliche Nachrichten gedacht, die eine bereits bestehende Transaktion erleichtern, andere Aktionen zur Kundenbetreuung anbieten oder von einer Person angefragte Inhalte liefern.“ Weitere Informationen finden Sie in den [Richtlinien der Facebook-Plattform](https://developers.facebook.com/docs/messenger-platform) und in den [Beispielen für akzeptable Anwendungsfälle](https://developers.facebook.com/docs/messenger-platform/app-review#examples_acceptable).
 
 ## Voraussetzungen {#prerequisites}
 
 Bestätigen Sie die folgenden Punkte, bevor Sie mit der Integration fortfahren:
+
 - Facebook lässt die Nutzung der Messenger-Plattform zum Versenden von Marketing-Nachrichten nicht zu.
 - Sie benötigen die ausdrückliche Zustimmung der Nutzer:innen für Nachrichten von Ihrer Seite.
 - Um Nachrichten an Nutzer:innen zu senden, die keine Testnutzer:innen Ihrer Facebook App sind, muss Ihre App die [App-Prüfung](https://developers.facebook.com/docs/messenger-platform/app-review) von Facebook bestehen.<br><br>
@@ -70,10 +71,15 @@ Sobald Sie sicher sind, dass Sie PSIDs erhalten, koordinieren Sie dies mit Ihren
 
 ### 3. Schritt: Richten Sie Ihr Webhook-Template ein {#step-3-set-up-your-webhook-template}
 
-Gehen Sie unter **Templates und Medien** zu **Webhook-Templates** und wählen Sie das **Facebook Messenger Webhook-Template**.
+So erstellen Sie ein Facebook Messenger Webhook-Template:
+
+1. Gehen Sie zu **Content** > **Webhook** und wählen Sie **Create webhook template**.
+2. Wählen Sie **Templates** > **Braze templates**.
+3. Suchen und wählen Sie das Template „Facebook Messenger“.
+4. Wählen Sie **Template auswählen**.
 
 1. Geben Sie einen Template-Namen an und fügen Sie Teams und Tags hinzu, falls erforderlich.
-2. Geben Sie Ihre Nachricht ein oder wählen Sie ein Template aus den [von Facebook zur Verfügung gestellten](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages) Nachrichten. Sie können auch die [Art](https://developers.facebook.com/docs/messenger-platform/send-messages#message_types) Ihrer Nachricht oder Ihren [Tag](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags) auswählen.
+2. Geben Sie Ihre Nachricht ein oder wählen Sie ein Nachrichten-Template aus den [von Facebook zur Verfügung gestellten](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages). Sie können auch die [Art](https://developers.facebook.com/docs/messenger-platform/send-messages#message_types) Ihrer Nachricht oder Ihren [Tag](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags) auswählen.
 3. Fügen Sie die PSID als angepasstes Attribut ein. Verwenden Sie dazu den blau-weißen Button **+** in der Ecke des Feldes **Request Body**.
 3. Fügen Sie Ihr Token für den Seitenzugriff in die Webhook-URL ein, indem Sie `FACEBOOK_PAGE_ACCESS_TOKEN` durch Ihr Token ersetzen.
 

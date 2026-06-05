@@ -158,7 +158,7 @@ Les bloqueurs de pop-ups et de publicités agressifs sur iOS et dans Safari (y c
 
 ## Utiliser des modèles {#using-templates}
 
-Utilisez les modèles de pages d'accueil pour créer des modèles pour vos prochaines Campaigns. Ces modèles sont accessibles et gérables à la fois dans l'éditeur de pages d'accueil et dans la section **Templates** du tableau de bord (**Templates** > **Landing Page Templates**). Les modèles de pages d'accueil nécessitent un nom et acceptent facultativement une description.
+Utilisez les modèles de pages d'accueil pour créer des modèles pour vos prochaines campagnes. Ces modèles sont accessibles et gérables à la fois dans l'éditeur de pages d'accueil et depuis la page **Landing Page Templates** (**Content** > **Landing Page**). Les modèles de pages d'accueil nécessitent un nom et acceptent facultativement une description.
 
 ## Gérer les modèles {#managing-templates}
 

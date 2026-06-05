@@ -16,7 +16,7 @@ _Esta integração é mantida pela Oppizi._
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
-| --- | --- |
+| ------------------------------ | ----------------------------------------------------------------------------- |
 | Conta Oppizi | Uma conta Oppizi ativa é necessária para usar esta integração. |
 | Chave de API Oppizi | Encontrada na sua conta Oppizi em **Integrations** > **Braze**. |
 | ID do fluxo de trabalho de mala direta Oppizi | Crie um fluxo de trabalho na Oppizi na página **Direct Mail Workflow** para obter um ID. |
@@ -45,11 +45,12 @@ Você pode gerenciar, revogar e criar suas chaves a partir desta página conform
 
 ### Etapa 2: Crie um modelo de webhook na Braze {#step-2-create-a-braze-webhook-template}
 
-Em seguida, crie um modelo de webhook para Oppizi na Braze para usar em futuras campanhas ou Canvas.
+Em seguida, crie um modelo de webhook para Oppizi na Braze para usar em futuras campanhas ou Canvas:
 
-1. Na Braze, acesse **Templates** > **Webhook Templates**.
-
-No seu modelo de webhook, preencha os seguintes campos:
+1. Na Braze, acesse **Content** > **Webhook**.
+2. Selecione **Create webhook template**.
+3. Dê um nome ao modelo.
+4. No seu modelo de webhook, preencha os seguintes campos:
 
 - **Webhook URL:** `https://webhooks.oppizi.com/events`
 - **Request Body:** **Raw Text**
@@ -96,7 +97,7 @@ A seguir, um exemplo de corpo de solicitação:
 
 ### Etapa 3: Crie um fluxo de trabalho de mala direta na Oppizi {#step-3-create-a-direct-mail-workflow-in-oppizi}
 
-1. Na Oppizi, acesse **Direct Mail Workflow** > **Create workflow**
+1. Na Oppizi, acesse **Direct Mail Workflow** > **Create workflow**.
 2. Configure os detalhes do fluxo de trabalho, incluindo limites, ondas, formato do cartão postal e arte.
 3. Na seção de detalhes do webhook, você encontrará um corpo de solicitação pronto para uso, incluindo seu ID de fluxo de trabalho, que pode colar diretamente na Braze.
 

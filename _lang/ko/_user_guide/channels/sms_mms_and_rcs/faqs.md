@@ -144,7 +144,7 @@ Braze에는 링크를 자동으로 단축하고 클릭률 분석을 제공하는
 
 ### SMS 테스트 메시지를 받으려면 사용자가 SMS 구독 그룹에 속해 있어야 하나요? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
-네, 그렇습니다. 사용자는 유효한 전화번호를 가지고 있어야 하며, 테스트 전송에 사용되는 SMS 구독 그룹에 속해 있어야 합니다.
+네, 그렇습니다. 사용자는 유효한 전화번호를 가지고 있어야 하며, 테스트 전송에 사용되는 SMS 구독 그룹에 속해 있어야 하고, SMS의 **지역 권한**에서 하나 이상의 국가가 선택되어 있어야 합니다.
 
 ### 사용자 프로필에 별칭이 존재하는지 확인할 수 있는 방법이 있나요? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
