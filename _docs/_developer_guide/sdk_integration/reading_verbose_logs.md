@@ -533,12 +533,12 @@ In verbose log payloads, Braze uses abbreviated event names. Here's a reference:
 
 ### When might a user have 0 sessions recorded against their profile?
 
-Add FAQ to session tracking docs: Users may have 0 sessions when imported via REST API (/user/track) or CSV without First/Last session fields; link to SDK session tracking.
+A user profile can show 0 sessions when you import the user through the REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) or CSV import without **First session** or **Last session** fields. Sessions are recorded when users interact with your app through the SDK. For SDK session behavior, see [Session tracking]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/).
 
 ### User Data Discrepancies when performing tasks via SDK/REST API simultaneously or in close succession.
 
-Add troubleshooting to user data / changeUser docs: when using SDK and REST simultaneously, flush after changeUser, avoid batching critical calls, consider delay between API calls.
+When you use the SDK and REST API at the same time, race conditions can cause data discrepancies. After you call `changeUser()`, flush the SDK queue before making critical REST API calls, avoid batching time-sensitive updates, and consider adding a short delay between SDK and API requests.
 
 ### Data Not Getting to Braze
 
-Verify braze-docs has troubleshooting for 'data not getting to Braze' / API connectivity. If missing, add section on firewall whitelisting (Fastly IP list), MTR, Fastly Debug.
+If data isn't reaching Braze, check API connectivity troubleshooting in the docs. Confirm your firewall allows Braze traffic (including the [Fastly IP list]({{site.baseurl}}/user_guide/message_orchestration/channels/email/email_setup/ip_warming/)), run an MTR trace, and use Fastly Debug if needed.
