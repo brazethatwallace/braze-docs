@@ -118,9 +118,7 @@ MAU calculations follow specific rules to ensure accurate and consistent billing
 {% alert note %}
 Anonymous users also count toward your MAU. For mobile devices, anonymous users are device-dependent. For web users, anonymous users are browser cache-dependent.
 
-{% alert note %}
 MAU counts in Braze can differ from tools such as Amplitude when each product uses a different definition of an active user. Compare configuration in Amplitude (and your Braze MAU rules above) before investigating a discrepancy as a data pipeline issue.
-{% endalert %}
 {% endalert %}
 
 #### MAU calculation example
