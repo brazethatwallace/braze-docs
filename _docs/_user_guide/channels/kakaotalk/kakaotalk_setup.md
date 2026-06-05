@@ -28,7 +28,7 @@ channel:
 Register the Braze IP addresses for your cluster in your Comm.One dashboard.
 
 1. In your Comm.One dashboard, go to **Account Management (계정 관리)**, select the menu icon, then select **View Details (자세히보기)**.
-2. Select **Center & Upload IP Whitelist (센터&업로드 IP 화이트리스트)**.
+2. Select **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
 3. Add the IP addresses for your Braze cluster. For the complete list of IPs by cluster, see [IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting).
 
 ![Comm.One dashboard showing where you can add IP addresses.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
