@@ -19,8 +19,6 @@ description: "Cet article présente en détail l'endpoint Mettre à jour la trad
 
 Si vous souhaitez mettre à jour les traductions après le lancement d'un Canvas, vous devrez d'abord [enregistrer votre message en tant que brouillon]({{site.baseurl}}/post-launch_edits/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `canvas.translations.update`.

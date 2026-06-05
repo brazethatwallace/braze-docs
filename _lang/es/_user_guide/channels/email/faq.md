@@ -13,7 +13,7 @@ channel: email
 
 ### ¿Qué ocurre cuando se envía un correo electrónico y varios perfiles tienen la misma dirección de correo electrónico? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Si varios usuarios con direcciones de correo electrónico coincidentes están en un segmento que va a recibir una campaña, se selecciona un perfil de usuario aleatorio con esa dirección de correo electrónico en el momento del envío. De esta forma, el correo electrónico se envía solo una vez y se deduplica, lo que garantiza que no llegue a la misma dirección de correo electrónico varias veces.
+Si varios usuarios con direcciones de correo electrónico coincidentes están en un segmento que va a recibir una campaña, se selecciona un único perfil de usuario con esa dirección de correo electrónico en el momento del envío. De esta forma, el correo electrónico se envía solo una vez y se deduplica, lo que garantiza que no llegue a la misma dirección de correo electrónico varias veces.
 
 **Direcciones de correo electrónico únicas:** Braze no exige que las direcciones de correo electrónico sean únicas entre perfiles. Si dependes de una relación uno a uno entre una dirección de correo electrónico y un perfil, monitorea internamente los duplicados al crear usuarios.
 
@@ -211,10 +211,26 @@ No. Cada parte del correo electrónico (asunto, cuerpo, encabezados, botones, et
 
 ### Mi plantilla de correo electrónico no aparece. ¿Dónde está? {#my-email-template-is-missing-where-is-it}
 
-Ve a **Templates** > **Email Templates**. Puedes filtrar por tipo (HTML o arrastrar y soltar).
-
-Confirma que tienes permiso para ver plantillas; consulta [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Primero, confirma que tienes los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para ver plantillas. Para ver las plantillas de correo electrónico guardadas, ve a **Content** > **Email**. Puedes filtrar las plantillas por estado y tipo (HTML o arrastrar y soltar).
 
 ### ¿Necesito registrar dominios para correos electrónicos de retransmisión o enmascarados? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 El [servicio de retransmisión de correo electrónico privado de Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) requiere que registres tus dominios de envío en el Portal de Desarrolladores de Apple para evitar rebotes. Google Shielded Email no requiere un proceso manual de registro de dominio ni de lista de permitidos.
+
+### ¿Qué significa el motivo de rebote `unable to get mx info` o `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+En el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), un motivo de rebote similar al anterior indica un problema al resolver la configuración de correo del dominio receptor (el dominio después del `@` en la dirección), no un problema con la composición del mensaje en Braze:
+
+Las causas típicas incluyen:
+
+- **Registros MX** faltantes, incorrectos o inaccesibles para ese dominio
+- Nombres de host de correo entrante que no se resuelven o que no pasan las verificaciones de **PTR (DNS inverso)** esperadas por la infraestructura receptora
+- Dominios no válidos o mal escritos en la dirección de correo electrónico
+
+**Próximos pasos:**
+
+- Confirma la ortografía de la dirección y el dominio.
+- Si la dirección es correcta, ponte en contacto con el propietario del buzón de entrada o el equipo de TI de ese dominio.
+- Pídeles que auditen los registros MX y los registros de DNS relacionados, incluidos los registros PTR de sus servidores de correo, con su proveedor de DNS.
+
+Los demás destinatarios generalmente no se ven afectados. Para ver cómo aparecen los rebotes blandos en los informes, consulta [Rebote blando]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).

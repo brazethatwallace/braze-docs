@@ -3,13 +3,13 @@ nav_title: IP 워밍
 article_title: IP 워밍
 page_order: 1
 page_type: reference
-description: "이 참고 문서는 IP 워밍 및 모범 사례에 대해 다룹니다."
+description: "이 참조 문서는 IP 워밍 및 모범 사례에 대해 다룹니다."
 channel: email
 local_redirect:
   automated-ip-warming: '/docs/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming'
 ---
 
-# IP 워밍
+# IP 워밍 {#ip-warming}
 
 > IP 워밍은 이메일 받은편지함 제공자가 전용 IP 주소에서 메시징을 수신하는 데 익숙해지도록 하는 관행입니다. 이것은 모든 이메일 서비스 공급자(ESP)와 함께 이메일을 보내는 데 있어 매우 중요한 부분이며, Braze에서 메시지가 대상 받은편지함에 일관되게 높은 비율로 도달하는지 확인하는 표준 관행입니다.
 
@@ -27,11 +27,11 @@ IP 워밍을 시작하기 전에:
 
 1. **설정** > **이메일 환경설정**에서 기본 발송 도메인을 설정하고, [사용자 지정 바닥글]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/)에 유효한 탈퇴 링크를 추가하고, [list-unsubscribe 헤더]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)를 활성화하며, 필요한 경우 커스텀 탈퇴/옵트인 페이지를 고려하세요.
 2. 이메일에 대한 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)을 구성하세요.
-3. **템플릿** > **이메일 템플릿**에서 필요한 템플릿을 업로드하세요.
+3. **콘텐츠** > **이메일**에서 필요한 템플릿을 생성하세요.
 
 ## IP를 워밍할 시간이 없으면 어떻게 하나요? {#what-if-i-dont-have-time-to-warm-ips}
 
-**IP 워밍은 필수입니다.** IP를 적절하게 워밍업하지 않으면 이메일 패턴이 의심을 불러일으킬 경우 이메일 전달 속도가 크게 제한되거나 느려질 수 있습니다. 도메인 또는 IP가 ISP에 의해 차단될 수도 있으며, 이는 이메일이 사용자의 받은편지함 대신 스팸 폴더로 직접 이동하게 만들 수 있습니다. 따라서 IP를 적절하게 워밍하는 것이 중요합니다.
+**IP 워밍은 필수입니다.** IP를 적절하게 워밍하지 않으면 이메일 패턴이 의심을 불러일으킬 경우 이메일 전달 속도가 크게 제한되거나 느려질 수 있습니다. 도메인 또는 IP가 ISP에 의해 차단될 수도 있으며, 이는 이메일이 사용자의 받은편지함 대신 스팸 폴더로 직접 이동하게 만들 수 있습니다. 따라서 IP를 적절하게 워밍하는 것이 중요합니다.
 
 ISP는 스팸 의심이 발생할 때 사용자를 보호하기 위해 이메일 전달을 제한합니다. 예를 들어, 100,000명의 사용자에게 보낼 경우, ISP는 첫 시간 동안 그 사용자 중 5,000명에게만 이메일을 전달할 수 있습니다. 그런 다음 ISP는 열람률, 클릭률, 탈퇴, 스팸 신고와 같은 참여 측정기준을 모니터링합니다. 따라서 스팸 신고가 상당히 많이 발생하면 나머지 발송을 사용자의 받은편지함으로 전달하는 대신 스팸 폴더로 보내기로 선택할 수 있습니다.
 

@@ -17,7 +17,7 @@ search_rank: 1
 
 ## Étape 1 : Accéder à l'éditeur de modèles d'e-mail {#step-1-navigate-to-the-email-template-editor}
 
-Dans le tableau de bord de Braze, accédez à **Modèles** > **Modèles d'e-mail**.
+Dans le tableau de bord de Braze, accédez à **Contenu** > **E-mail**.
 
 ## Étape 2 : Sélectionner votre expérience d'édition {#step-2-select-your-editing-experience}
 

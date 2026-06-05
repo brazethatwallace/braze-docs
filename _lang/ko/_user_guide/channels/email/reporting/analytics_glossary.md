@@ -89,7 +89,7 @@ Count
 
 {% api %}
 
-### Messages Sent {#messages-sent}
+### 발송된 메시지 {#messages-sent}
 
 {% apitags %}
 Count
@@ -239,7 +239,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> 로 측정됩니다. 여기에는 Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 7일 후 동일한 사용자가 다시 클릭하면 새로운 고유 클릭으로 집계될 수 있습니다. Currents에서 대시보드 수치와 일치시키려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 로 측정됩니다. 여기에는 Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 7일 후 동일한 사용자가 다시 클릭하면 새로운 고유 클릭으로 집계될 수 있습니다. Currents에서 대시보드 수치와 일치시키려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
 
 {::nomarkdown}
 <span class="calculation-line">

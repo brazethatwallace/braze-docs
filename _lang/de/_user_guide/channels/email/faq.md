@@ -13,7 +13,7 @@ channel: email
 
 ### Was passiert, wenn eine E-Mail versendet wird und mehrere Profile dieselbe E-Mail-Adresse haben? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Wenn sich mehrere Nutzer:innen mit übereinstimmenden E-Mail-Adressen in einem Segment befinden, das eine Campaign erhalten soll, wird zum Sendezeitpunkt ein zufälliges Nutzerprofil mit dieser E-Mail-Adresse ausgewählt. Auf diese Weise wird die E-Mail nur einmal gesendet und dedupliziert, sodass sie nicht mehrfach an dieselbe E-Mail-Adresse zugestellt wird.
+Wenn sich mehrere Nutzer:innen mit übereinstimmenden E-Mail-Adressen in einem Segment befinden, das eine Campaign erhalten soll, wird zum Sendezeitpunkt ein einzelnes Nutzerprofil mit dieser E-Mail-Adresse ausgewählt. Auf diese Weise wird die E-Mail nur einmal gesendet und dedupliziert, sodass sie nicht mehrfach an dieselbe E-Mail-Adresse zugestellt wird.
 
 **Eindeutige E-Mail-Adressen:** Braze erzwingt keine eindeutigen E-Mail-Adressen über Profile hinweg. Wenn Sie auf eine Eins-zu-eins-Beziehung zwischen einer E-Mail-Adresse und einem Profil angewiesen sind, überwachen Sie beim Erstellen von Nutzer:innen intern auf Duplikate.
 
@@ -25,7 +25,7 @@ Wenn mehrere Profile eine E-Mail-Adresse teilen und ein Profil sich abmeldet, ak
 
 Die folgenden Szenarien können den Eindruck erwecken, dass ein:e Nutzer:in eine E-Mail zweimal erhalten hat:
 
-- **Bei der Erstellung der Campaign oder des Canvas ist ein Fehler aufgetreten:** Die/der Nutzer:in erhält möglicherweise nicht buchstäblich denselben Versand zweimal, kann aber zwei separate E-Mails mit derselben Betreffzeile erhalten. Wenn eine Campaign oder ein Canvas dupliziert wird, überprüfen Sie die E-Mail-Konfigurationsdetails wie Bilder oder Betreffzeilen. Sie können auch die Changelogs einsehen, um festzustellen, ob die Campaign oder das Canvas nach dem Start geändert wurde – ein Duplikat kann dieselbe Betreffzeile wie das Original haben, als die/der Nutzer:in es erhalten hat.
+- **Bei der Erstellung der Campaign oder des Canvas ist ein Fehler aufgetreten:** Die/der Nutzer:in erhält möglicherweise nicht denselben Versand zweimal, kann aber zwei separate E-Mails mit derselben Betreffzeile erhalten. Wenn eine Campaign oder ein Canvas dupliziert wird, überprüfen Sie die E-Mail-Konfigurationsdetails wie Bilder oder Betreffzeilen. Sie können auch die Changelogs einsehen, um festzustellen, ob die Campaign oder das Canvas nach dem Start geändert wurde – ein Duplikat kann dieselbe Betreffzeile wie das Original haben, als die/der Nutzer:in es erhalten hat.
 - **Mehrere Nutzerprofile haben E-Mail-Weiterleitung:** Wenn ein:e Nutzer:in mehrere Konten in einer bestimmten App hat, aber ein Konto E-Mails weiterleitet, erhält die/der Nutzer:in die Campaign einmal pro Posteingang; E-Mails können im Posteingang, an den Nachrichten weitergeleitet werden, doppelt erscheinen. Nur einige Anbieter zeigen an, wenn eine E-Mail von einem anderen Konto weitergeleitet wurde.
 - **E-Mail-Konfiguration bei der/dem Empfänger:in:** Einige Clients führen Posteingänge zusammen („universeller Posteingang“). Wenn dieselbe Campaign mehrere Konten anspricht, die einen Posteingang teilen, kann es so aussehen, als hätte eine Person die Campaign zweimal erhalten, obwohl tatsächlich zwei verschiedene Profile angeschrieben wurden. Die/der Empfänger:in kann bestätigen, ob mehrere Konten in einem Posteingang zusammengeführt sind.
 
@@ -211,10 +211,26 @@ Nein. Jeder Teil der E-Mail (Betreff, Text, Header, Buttons usw.) wird separat g
 
 ### Mein E-Mail-Template fehlt. Wo ist es? {#my-email-template-is-missing-where-is-it}
 
-Gehen Sie zu **Templates** > **Email Templates**. Sie können nach Typ filtern (HTML oder Drag-and-Drop).
-
-Bestätigen Sie, dass Sie die Berechtigung haben, Templates anzuzeigen – siehe [Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Bestätigen Sie zunächst, dass Sie die [Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) zum Anzeigen von Templates haben. Um gespeicherte E-Mail-Templates anzuzeigen, gehen Sie zu **Content** > **Email**. Sie können Templates nach Status und Typ (HTML oder Drag-and-Drop) filtern.
 
 ### Muss ich Domains für Relay- oder maskierte E-Mails registrieren? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 [Apples Private E-Mail-Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) erfordert, dass Sie Ihre Absenderdomains im Apple Developer Portal registrieren, um Bounces zu vermeiden. Google Shielded Email erfordert keinen manuellen Domain-Registrierungs- oder Allowlisting-Prozess.
+
+### Was bedeutet der Bounce-Grund `unable to get mx info` oder `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+Im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) weist ein Bounce-Grund ähnlich dem folgenden auf ein Problem bei der Auflösung der E-Mail-Konfiguration der empfangenden Domain hin (die Domain nach dem `@` in der Adresse), nicht auf die Braze-Nachrichtenerstellung:
+
+Typische Ursachen sind:
+
+- Fehlende, falsche oder nicht erreichbare **MX-Einträge** für diese Domain
+- Hostnamen für eingehende E-Mails, die nicht aufgelöst werden oder die von der empfangenden Infrastruktur erwarteten **PTR-Prüfungen (Reverse DNS)** nicht bestehen
+- Ungültige oder falsch geschriebene Domains in der E-Mail-Adresse
+
+**Nächste Schritte:**
+
+- Überprüfen Sie die Adresse und die Domain-Schreibweise.
+- Wenn die Adresse korrekt ist, kontaktieren Sie die/den Postfachinhaber:in oder das IT-Team für diese Domain.
+- Bitten Sie sie, die MX- und zugehörigen DNS-Einträge, einschließlich der PTR-Einträge für ihre Mailserver, bei ihrem DNS-Anbieter zu überprüfen.
+
+Andere Empfänger:innen sind in der Regel nicht betroffen. Informationen dazu, wie Soft Bounces im Reporting erscheinen, finden Sie unter [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).

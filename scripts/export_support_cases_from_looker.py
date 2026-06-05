@@ -56,6 +56,9 @@ _SECRET_REDACTIONS: list[tuple[re.Pattern[str], str]] = [
         re.compile(r"\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{16,}\b"),
         "[REDACTED_STRIPE_KEY]",
     ),
+    # Twilio Account SID (AC…) and API Key SID (SK…); 32 hex chars after prefix.
+    (re.compile(r"\bAC[0-9a-fA-F]{32}"), "[REDACTED_TWILIO_ACCOUNT_SID]"),
+    (re.compile(r"\bSK[0-9a-fA-F]{32}"), "[REDACTED_TWILIO_API_KEY_SID]"),
 ]
 
 

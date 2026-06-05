@@ -111,7 +111,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | データタイプ | メモ |
 | --- | --- |
 | 配列 | カスタム属性配列がサポートされています。要素を追加すると、配列の末尾に追加されます。要素がすでに存在する場合は、現在の位置から末尾に移動します。<br><br>一意の値のみが格納されます。たとえば、`['hotdog','hotdog','hotdog','pizza']`をインポートすると、`['hotdog', 'pizza']`になります。<br><br>配列を直接設定することも（`"my_array_custom_attribute":[ "Value1", "Value2" ]`など）、`"my_array_custom_attribute" : { "add" : ["Value3"] }`で既存の配列に追加することも、`"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`で値を削除することもできます。<br><br>配列内の要素のデフォルトおよび最大数は500です。最大数はBrazeダッシュボードの**データ設定** > **カスタム属性**で更新できます。詳細については、[配列]({{site.baseurl}}/developer_guide/analytics/#arrays)を参照してください。 |
-| オブジェクト配列 | オブジェクトの配列を使用して、各オブジェクトに一連の属性が含まれるオブジェクトのリストを定義します。このタイプを使用して、ホテル宿泊や好みなど、ユーザーの関連データセットを複数保存します。<br><br>たとえば、`hotel_stays`という名前のカスタム属性をユーザープロファイル上で配列として定義します。ここで、各オブジェクトは個別の宿泊を表し、`hotel_name`、`check_in_date`、`nights_stayed`などの属性を持ちます。<br><br>オブジェクトの配列にはアイテム数の制限はありませんが、最大サイズは100&nbsp;KBです。更新によって配列がこの制限を超える場合、Brazeは更新を破棄し、属性は変更されません。<br><br>`$add`でアイテムを追加し、`$remove`でアイテムを削除し、`$update`でアイテムを更新します。詳細については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)、[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)、および[オブジェクトの配列の例](#array-of-objects-example)を参照してください。 |
+| オブジェクト配列 | オブジェクトの配列を使用して、各オブジェクトに一連の属性が含まれるオブジェクトのリストを定義します。このタイプを使用して、ホテル宿泊、購入履歴、好みなど、ユーザーの関連データセットを複数保存します。<br><br>たとえば、`hotel_stays`という名前のカスタム属性をユーザープロファイル上で配列として定義します。ここで、各オブジェクトは個別の宿泊を表し、`hotel_name`、`check_in_date`、`nights_stayed`などの属性を持ちます。<br><br>オブジェクトの配列にはアイテム数の制限はありませんが、最大サイズは100&nbsp;KBです。更新によって配列がこの制限を超える場合、Brazeは更新を破棄し、属性は変更されません。<br><br>REST APIリクエストでは、`add`でアイテムを追加し、`remove`でアイテムを削除し、`update`でアイテムを更新します。SDKメソッドでは、SDKに渡すペイロードで`$add`、`$remove`、`$update`を使用します。詳細については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)、[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)、および[オブジェクトの配列の例](#array-of-objects-example)を参照してください。 |
 | ブール値 | `true`または`false` |
 | 日付 | [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式または次のいずれかの形式で保存する必要があります。<br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>「T」は時間指定子であり、プレースホルダーではないことに注意してください。変更または削除しないでください。<br><br>タイムゾーンのない時間属性は、デフォルトでUTCの深夜0時になります（また、ダッシュボードでは、会社のタイムゾーンのUTCの深夜0時に相当する形式で表示されます）。タイムゾーンを指定するには、タイムスタンプにUTCオフセットを追加します（例：ESTの場合は`2024-11-10T18:00:00-05:00`）。タイムゾーンオフセットが欠落しているか、フォーマットが正しくない場合、値はデフォルトでUTCになります。<br><br>時間はダッシュボードで会社のタイムゾーンで表示されます。たとえば、`2024-11-10T18:00:00-05:00`（EST午後6時）は、会社の設定されたタイムゾーンの対応する時間として表示されます。<br><br>将来のタイムスタンプを持つイベントは、デフォルトで現在時刻になります。<br><br>通常のカスタム属性の場合、年が0より小さいか3000より大きい場合、Brazeはユーザープロファイルに文字列として値を格納します。 |
 | フロート | floatカスタム属性は、小数点付きの正または負の数です。たとえば、浮動小数点を使用して、アカウントの残高や製品またはサービスのユーザー評価を保存できます。 |
@@ -126,7 +126,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 ##### オブジェクトの配列の例 {#array-of-objects-example}
 
-このオブジェクトの配列を使用すると、宿泊内の特定の条件に基づいてセグメントを作成し、Liquidテンプレートを使用して各宿泊のデータでメッセージをパーソナライズできます。
+このオブジェクトの配列を使用すると、宿泊内の特定の条件に基づいてSegmentを作成し、Liquidテンプレートを使用して各宿泊のデータでメッセージをパーソナライズできます。
 
 ```json
 {"hotel_stays": [
@@ -183,7 +183,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 この例には、API呼び出しあたり合計75個の許可された属性オブジェクトのうち、4個のユーザー属性オブジェクトが含まれています。
 
-`````````http
+```http
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -259,7 +259,7 @@ API移行の代わりに、SDKを統合し、トークンベースが自然に�
 
 以下に例を示します。
 
-`````````bash
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
@@ -285,7 +285,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 以下に例を示します。
 
-`````````bash
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
@@ -323,7 +323,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 {% endtab %}
 {% endtabs %}
 
-### Androidのプッシュトークンをインポートする {#importing-android-push-tokens}
+### Androidプッシュトークンのインポート {#importing-android-push-tokens}
 
 {% alert important %}
 以下の考慮事項はAndroidアプリのみに当てはまります。iOSアプリではこれらのステップは必要ありません。iOSプラットフォームはプッシュを表示するためのフレームワークが1つしかなく、Brazeが必要なプッシュトークンと証明書を持っている限り、プッシュ通知は即座にレンダリングされるためです。
@@ -331,7 +331,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 Braze SDKの統合が完了する前にAndroidプッシュ通知をユーザーに送信する必要がある場合は、キーと値のペアを使用してプッシュ通知を検証します。
 
-プッシュペイロードを処理し表示するレシーバーが必要です。プッシュペイロードをレシーバーに通知するには、必要なキーと値のペアをプッシュキャンペーンに追加します。これらのペアの値は、Brazeの前に使用していた特定のプッシュパートナーによって決まります。
+プッシュペイロードを処理し表示するレシーバーが必要です。プッシュペイロードをレシーバーに通知するには、必要なキーと値のペアをプッシュCampaignに追加します。これらのペアの値は、Brazeの前に使用していた特定のプッシュパートナーによって決まります。
 
 {% alert note %}
 一部のプッシュ通知プロバイダーでは、Brazeがキーと値のペアを適切に解釈できるようにフラット化する必要があります。特定のAndroidアプリのキーと値のペアをフラット化するには、カスタマーサクセスマネージャーにお問い合わせください。

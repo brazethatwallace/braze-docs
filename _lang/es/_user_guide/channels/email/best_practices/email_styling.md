@@ -102,7 +102,7 @@ Para reducir el riesgo de recorte:
 - Comprime las imágenes y los activos HTML.
 
 {% alert note %}
-Para guardar tu Campaign de correo electrónico o plantilla, asegúrate de que el cuerpo del correo electrónico no supere los 400&nbsp;KB.
+Para guardar tu campaña de correo electrónico o plantilla, asegúrate de que el cuerpo del correo electrónico no supere los 400&nbsp;KB.
 {% endalert %}
 
 ### ¿Qué puede añadir al tamaño final del correo electrónico? {#what-can-add-to-the-final-email-size}
@@ -136,6 +136,10 @@ Consulta la siguiente tabla para conocer los tamaños de imagen recomendados. La
 |:-----------:|:------------------:|:------------------:|:-------------:|
 | 5&nbsp;MB máximo | 600 píxeles máximo | 480 píxeles máximo | PNG, JPEG, GIF |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Image size" }
+
+{% alert note %}
+Gmail web y la aplicación móvil de Gmail generalmente no renderizan SVG (y la compatibilidad con WEBP es inconsistente). Usa PNG o JPEG para imágenes que deban mostrarse de forma fiable en Gmail.
+{% endalert %}
 
 ## Vinculación en profundidad {#deep-linking}
 

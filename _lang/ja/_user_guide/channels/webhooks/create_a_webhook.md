@@ -244,11 +244,11 @@ Brazeは、上記のステータスコードに対して、エクスポネンシ
 
 #### 保存済みWebhookテンプレートとCampaignの使用状況 {#saved-webhook-templates-and-campaign-usage}
 
-Brazeは、特定の**保存済みWebhookテンプレート**を参照するすべてのCampaignまたはCanvasステップをリストする組み込みレポートを提供していません。使用状況を監査するには、同じURLとHTTPメソッドを使用するWebhookステップを確認するか、[Brazeサポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+Brazeは、特定の**保存済みWebhookテンプレート**を参照するすべてのCampaignまたはキャンバスステップをリストする組み込みレポートを提供していません。使用状況を監査するには、同じURLとHTTPメソッドを使用するWebhookステップを確認するか、[Brazeサポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
 
 #### トラブルシューティングと追加のエラー詳細 {#troubleshooting-and-additional-error-details}
 
-特定のWebhookエラーの詳細な説明、トラブルシューティング手順、および解決ガイダンスについては、[Webhookとコネクテッドコンテンツリクエストのトラブルシューティング]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/)を参照してください。また、異常ホスト検出システムの仕組みや、Brazeが自動メールおよびBraze Currentsの追加ログを通じてエラー通知を提供する方法についても説明しています。
+特定のWebhookエラーの詳細な説明、トラブルシューティング手順、および解決ガイダンスについては、[Webhookとコネクテッドコンテンツリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/)を参照してください。また、異常ホスト検出システムの仕組みや、Brazeが自動メールおよびBraze Currentsの追加ログを通じてエラー通知を提供する方法についても説明しています。
 
 ### IP許可リスト {#ip-allowlisting}
 

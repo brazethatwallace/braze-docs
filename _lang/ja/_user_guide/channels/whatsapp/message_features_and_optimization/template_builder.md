@@ -10,7 +10,7 @@ channel:
 
 # WhatsApp テンプレートビルダー {#whatsapp-template-builder}
 
-> WhatsApp テンプレートビルダーを使用すると、BrazeとMeta Business Managerを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成して送信できます。Metaがテンプレートを承認した後は、必要な数のキャンペーンやキャンバスで使用できます。
+> WhatsApp テンプレートビルダーを使用すると、BrazeとMeta Business Managerを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成して送信できます。Metaがテンプレートを承認した後は、必要な数のCampaignsやCanvasesで使用できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -20,7 +20,7 @@ channel:
 
 ### ステップ 1:WhatsApp テンプレートに移動する {#step-1-go-to-whatsapp-templates}
 
-**コンテンツ** > **WhatsApp テンプレート**に移動し、**新規テンプレートを作成**を選択します。
+**コンテンツ** > **WhatsApp**に移動し、**新規テンプレートを作成**を選択します。
 
 ![新しいテンプレートを作成するボタンがあるWhatsAppテンプレートページ。]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -57,7 +57,7 @@ channel:
 メッセージのメインコンテンツを入力し、Liquidまたは汎用変数を使用して本文を必要に応じてパーソナライズします。
 
 {% raw %}
-- Liquidタグ（例: `{{${first_name}}}`）を使用します。BrazeはLiquidを保存し、キャンペーンまたはキャンバスの作成画面でテンプレートを使用する際に表示します。
+- Liquidタグ（例: `{{${first_name}}}`）を使用します。BrazeはLiquidを保存し、CampaignまたはCanvasの作成画面でテンプレートを使用する際に表示します。
 - 後でメッセージ作成時にパーソナライゼーションを追加したい場合は、番号付きプレースホルダー（例: `{{1}}`）などの汎用変数を使用します。
 {% endraw %}
 
@@ -96,17 +96,17 @@ channel:
 
 WhatsApp テンプレートビルダーでは、現在マーケティングテンプレートのみがサポートされています。
 
-## 承認済みテンプレートをキャンペーンで使用する {#use-an-approved-template-in-a-campaign}
+## 承認済みテンプレートをCampaignで使用する {#use-an-approved-template-in-a-campaign}
 
-Metaがテンプレートを承認した後、WhatsApp キャンペーンまたはキャンバスで使用できます。
+Metaがテンプレートを承認した後、WhatsApp CampaignまたはCanvasで使用できます。
 
-1. **キャンペーン**に移動し、**キャンペーンを作成** > **WhatsApp**を選択します。
+1. **Campaigns**に移動し、**キャンペーンを作成** > **WhatsApp**を選択します。
 2. メッセージ作成画面で、承認済みテンプレートを選択します。
 3. Brazeはテンプレートのコンテンツ（テンプレート作成時に入力したメディアやLiquidを含む）を自動的に入力するため、再入力する必要はありません。
 4. 必要に応じて変数コンテンツやパーソナライゼーションを更新します。Metaによってロックされたフィールド（グレーで表示）は編集できません。ロックされたコンテンツを変更するには、テンプレートを編集して承認のために再送信する必要があります。
 5. **テスト**タブを使用してメッセージをプレビューし、本文変数を更新し、起動前にメッセージが期待どおりに表示されることを確認します。
 
-WhatsApp キャンペーンの構築の詳細については、[WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を参照してください。
+WhatsApp Campaignの構築の詳細については、[WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -116,7 +116,7 @@ WhatsApp キャンペーンの構築の詳細については、[WhatsAppメッ�
 
 ### 承認後にテンプレートを編集できますか？ {#can-i-edit-a-template-after-its-been-approved}
 
-ロックされたコンテンツ（本文コピーやその他のMeta管理フィールド）を変更するには、テンプレートを承認のために再送信する必要があり、WhatsApp Business Managerから行う必要があります。キャンペーンまたはキャンバスを構築する際に、コンテンツとパーソナライゼーションを更新できます。
+ロックされたコンテンツ（本文コピーやその他のMeta管理フィールド）を変更するには、テンプレートを承認のために再送信する必要があり、WhatsApp Business Managerから行う必要があります。CampaignまたはCanvasを構築する際に、コンテンツとパーソナライゼーションを更新できます。
 
 ### テンプレートビルダーが利用可能になる前に送信したテンプレートはどうなりますか？ {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 
