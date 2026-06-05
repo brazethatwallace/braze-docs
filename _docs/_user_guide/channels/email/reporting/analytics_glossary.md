@@ -135,7 +135,7 @@ Percentage
 
 #### SPF and DKIM alignment
 
-Your **From** address domain must align with the sending domain configured for your email service provider. For example, if your provider sends from `team.example.com`, use a matching `@team.example.com` **From** address. Misalignment can contribute to bounces and spam filtering. For setup steps, see [Email authentication]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication/).
+Your **From** address domain must align with the sending domain configured for your email service provider. For example, if your provider sends from `team.example.com`, use a matching `@team.example.com` **From** address. Misalignment contributes to bounces and spam filtering. For setup steps, see [Email authentication]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication/).
 
 {% endapi %}
 
@@ -165,7 +165,7 @@ An email bounce for customers using SendGrid consists of hard bounces, spam (`sp
 
 #### Troubleshooting Gmail 550 5.7.1 unsolicited mail blocks
 
-When Gmail returns **550 5.7.1 Our system has detected that this message is likely unsolicited mail**, the block often relates to authentication or reputation—not list size alone. Verify that your [SPF, DKIM, and DMARC records]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication/) align with the domain in your **From** address and that DNS changes have propagated. For more guidance, see [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
+When Gmail returns **550 5.7.1 Our system has detected that this message is likely unsolicited mail**, the block relates to authentication or reputation—not list size alone. Verify that your [SPF, DKIM, and DMARC records]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication/) align with the domain in your **From** address and that DNS changes have propagated. For more guidance, see [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
 {% endapi %}
 
@@ -199,7 +199,7 @@ While soft bounces aren’t tracked in your campaign analytics, you can monitor 
 
 #### Over-quota (full mailbox) addresses
 
-A soft bounce can occur when the recipient's mailbox is full (over quota). This pattern often appears with new sign-ups using abandoned addresses or long-inactive profiles. Prioritize engaged recipients, enforce double opt-in where appropriate, and remove chronically inactive addresses as part of list hygiene.
+A soft bounce occurs when the recipient's mailbox is full (over quota). This pattern appears with new sign-ups using abandoned addresses or long-inactive profiles. Prioritize engaged recipients, enforce double opt-in where appropriate, and remove chronically inactive addresses as part of list hygiene.
 
 <span class="calculation-line">Calculation: Count </span>
 
@@ -257,7 +257,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. Tracked custom unsubscribe URLs also count toward *Unique Clicks* when a user selects the link. After seven days, another unique click can count for the same user if they click again. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. Tracked custom unsubscribe URLs also count toward *Unique Clicks* when a user selects the link. After seven days, another unique click counts for the same user if they click again. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -285,7 +285,7 @@ Count, Percentage
 
 <i>Total Clicks</i> is the total number of times users clicked links in the delivered email, including multiple clicks by the same user. This includes clicks on Braze unsubscribe links and tracked custom unsubscribe URLs.
 
-When *Total Clicks* is much higher than *Unique Clicks*, security tools or mailbox providers may be scanning links without users opening the message. Compare *Unique Clicks* when you evaluate engagement internally.
+When *Total Clicks* is much higher than *Unique Clicks*, security tools or mailbox providers scan links without users opening the message. Compare *Unique Clicks* when you evaluate engagement internally.
 
 {% endapi %}
 
@@ -322,7 +322,7 @@ For more information, see [Why am I seeing a different number of unsubscribes th
 
 #### Custom unsubscribe page updates
 
-Changes to your [custom unsubscribe page]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) can take a few hours to appear in live sends because cached versions of the page are refreshed on a schedule.
+Changes to your [custom unsubscribe page]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) take a few hours to appear in live sends because cached versions of the page are refreshed on a schedule.
 
 {% endapi %}
 
