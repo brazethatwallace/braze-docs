@@ -12,12 +12,12 @@ page_order: 3
 
 ### Email and SMS - unique recipients greater than sends
 
-Unique recipient count is incremented before ESP send; sent count after successful ESP response. Permanent errors (invalid email) or duplicate addresses can cause unique recipients to exceed sends.
+For email and SMS, Braze increments **Unique recipients** before the ESP send attempt and increments **Sends** after a successful ESP response. Permanent errors (such as invalid email addresses) or duplicate addresses can cause unique recipients to exceed sends.
 
 ### Campaign Last Sent Metric Does Not Match Last Message Send Timestamp
 
-Add a note to campaign analytics docs: For campaigns with single scheduled send, Last Sent typically matches launch time. For repeating campaigns with Send in Local Time Zone enabled, Last Sent may appear earlier than the scheduled time because users in different time zones (e.g. GMT vs PST) can cause sends to occur out of order.
+For a campaign with a single scheduled send, **Last sent** typically matches the launch time. For repeating campaigns with **Send in local time zone** enabled, **Last sent** can appear earlier than the scheduled time because sends to users in earlier time zones (for example, GMT vs. PST) can complete before your workspace schedule time.
 
 ### Why does my historical campaign no longer show any metrics on the Analytics page?
 
-Add 90-day default reporting window to analytics/reporting docs if not documented.
+If a campaign was stopped more than 90 days ago, interaction data may have expired and metrics may no longer appear on the **Analytics** page. You can restore interaction data in the dashboard to view metrics again.
