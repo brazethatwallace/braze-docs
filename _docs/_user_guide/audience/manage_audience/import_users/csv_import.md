@@ -435,9 +435,11 @@ Sending a [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_tr
 
 Braze does not recommend using an email address as `external_id`. If you use email as `external_id`, include both `external_id` and `email` columns in your CSV so users remain targetable on the email channel. Use a comma (`,`) as the column delimiter—not a colon (`:`).
 
-### `external_id` values with quote characters in API requests
+### Quote characters in `external_id` values
 
-When you reference `external_id` in REST API requests (for example, during CSV-driven workflows that call the API), escape double-quote characters in the ID with a backslash (`\"`). Alternatively, use `braze_id`, which does not require manual quote escaping.
+**CSV import:** If an `external_id` cell contains a double quotation mark, escape it by doubling the character (`""`), as described under [Unescaped or unbalanced double quotation marks](#missing-row). CSV import does not use backslash escaping.
+
+**REST API:** When you send `external_id` in a [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) request JSON body, escape embedded double-quote characters with a backslash (`\"`) per JSON string rules. Alternatively, use `braze_id`.
 
 ### CSV import isn't available as a segment filter
 
