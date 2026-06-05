@@ -143,6 +143,10 @@ Así es como se ve cuando se renderiza el Liquid:
 
 ![Ejemplo de tarjeta de contenido con etiquetas de Liquid del catálogo renderizadas.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
 
+{% alert important %}
+En canales **HTML** como el correo electrónico, evita espacios adicionales o saltos de línea entre la etiqueta de cierre `{% raw %}{% catalog_items ... %}{% endraw %}` y el Liquid que imprime la URL de la imagen (por ejemplo, `{% raw %}{{ items[0].image_link }}{% endraw %}`). Los espacios en blanco adicionales en la plantilla pueden impedir que la URL de la imagen se resuelva correctamente en el mensaje renderizado. Mantén la expresión de la URL inmediatamente adyacente a la etiqueta del catálogo, como en: `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`.
+{% endalert %}
+
 ### Plantillas de elementos de catálogo
 
 También puedes utilizar plantillas para extraer dinámicamente elementos del catálogo en función de atributos personalizados. Por ejemplo, supongamos que un usuario tiene el atributo personalizado `wishlist`, que contiene una matriz de ID de juegos de tu catálogo.

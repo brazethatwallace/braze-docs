@@ -420,7 +420,7 @@ Banner globalBanner = Braze.getInstance(context).getBanner("global_banner");
 {% endsubtab %}
 
 {% subtab Kotlin %}
-Androidビューを使用している場合は、次のXMLを使用します。
+Android Viewsを使用している場合は、次のXMLを使用します。
 
 ```xml
 <com.braze.ui.banners.BannerView
@@ -709,10 +709,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 ## 非表示を記録する {#log-dismissals}
 
 バナーの非表示は、ユーザーが能動的にバナーを閉じたときに、プログラムで配置からバナーを削除します。一度非表示にすると、そのユーザーに対してバナーは抑制されます。次に配置リストが更新されたとき、ユーザーが対象であれば新しいバナーが返されます。
-
-{% alert important %}
-バナーの非表示は現在、早期アクセス段階です。早期アクセスへの参加に興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
 
 ### 前提条件
 

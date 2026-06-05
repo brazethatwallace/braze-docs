@@ -12,8 +12,6 @@ description: "이 참조 문서에서는 Braze 커런츠 이벤트 데이터를 
 
 > 커스텀 Currents 커넥터를 통합하여 Braze에서 실시간으로 이벤트 데이터를 수신하고, 보다 맞춤화된 분석, 보고서 및 자동화를 구현하는 방법을 알아보세요.
 
-{% multi_lang_include early_access_beta_alert.md feature='The Custom HTTP Connector' type='beta' %}
-
 ## 필수 조건 {#prerequisites}
 
 Braze에서 커스텀 Currents 커넥터를 통합하려면 엔드포인트 URL과 [선택 사항인 인증 토큰](#authentication)을 제공해야 합니다.
