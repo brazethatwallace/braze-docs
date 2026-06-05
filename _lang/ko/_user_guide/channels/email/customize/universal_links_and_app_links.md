@@ -356,7 +356,7 @@ AASA 파일(iOS) 또는 Digital Asset Links 파일(Android)이 올바른 위치�
 
 앱이 열 수 있는 도메인에 대한 올바른 정의가 있는지 확인합니다.
 
-- **iOS:** Xcode에서 앱에 설정된 Associated Domains를 검토합니다([1c단계]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
+- **iOS:** Xcode에서 앱에 설정된 Associated Domains를 검토합니다([1c단계]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
 - **Android:** 앱 정보 페이지를 엽니다(앱 아이콘을 길게 누르고 ⓘ를 클릭). 앱 정보 메뉴에서 **기본으로 열기**를 찾아 탭합니다. 앱이 열 수 있는 모든 확인된 링크가 표시되는 화면이 나타납니다. 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
 
 #### 추적 도메인에서 .well-known 파일을 제공할 수 없는 경우 {#tracking-domain-cant-serve-well-known-files}

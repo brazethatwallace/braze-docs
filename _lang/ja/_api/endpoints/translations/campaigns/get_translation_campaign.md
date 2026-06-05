@@ -15,9 +15,7 @@ description: "この記事では、「キャンペーンのすべての翻訳を
 /campaigns/translations
 {% endapimethod %}
 
-> このエンドポイントを使用して、キャンペーン内の各メッセージバリアントのすべての翻訳を表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> このエンドポイントを使用して、Campaign内の各メッセージバリアントのすべての翻訳を表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
 ## 前提条件 {#prerequisites}
 

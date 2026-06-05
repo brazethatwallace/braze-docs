@@ -17,8 +17,6 @@ description: "Dieser Artikel enthält detaillierte Informationen zum Canvas-Übe
 
 > Verwenden Sie diesen Endpunkt, um alle Standardübersetzungsquellen für die Übersetzungstags eines Canvas anzuzeigen. Dies sind die Werte mit dem {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `canvas.translations.get`.

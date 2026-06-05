@@ -39,13 +39,13 @@ Par exemple, pour afficher une bannière spéciale uniquement aux utilisateurs a
 Lorsque l'utilisateur démarre une nouvelle session ou actualise les bannières après avoir effectué l'action, Braze évalue son éligibilité. S'il correspond au segment « Achat », la bannière à priorité élevée sera affichée.
 
 
-## Les utilisateurs peuvent-ils fermer manuellement une bannière ? {#can-users-dismiss-a-banner}
+## Les utilisateurs peuvent-ils fermer une bannière ? {#can-users-dismiss-a-banner}
 
-{% alert important %}
-La possibilité pour les utilisateurs de fermer manuellement une bannière est en accès anticipé. Consultez [Configurer le comportement de fermeture]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) pour plus de détails. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
-{% endalert %}
+Oui. Vous pouvez permettre aux utilisateurs de fermer manuellement une bannière en activant le comportement de fermeture dans le compositeur de bannières. Consultez [Configurer le comportement de fermeture]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) pour plus de détails sur l'activation de la fermeture et la personnalisation du bouton de fermeture.
 
-Les utilisateurs peuvent fermer manuellement les bannières uniquement si le comportement de fermeture est activé et si votre espace de travail participe à l'accès anticipé. Si la fermeture n'est pas activée ou disponible pour votre espace de travail, vous pouvez contrôler la visibilité des bannières en gérant l'éligibilité des segments d'utilisateurs. Lorsqu'un utilisateur ne répond plus aux critères de ciblage d'une campagne de bannières, il ne la verra plus lors de sa prochaine session.
+Les utilisateurs peuvent fermer manuellement les bannières uniquement si le comportement de fermeture est activé. Si la fermeture n'est pas activée, vous pouvez contrôler la visibilité des bannières en gérant l'éligibilité des segments d'utilisateurs. Lorsqu'un utilisateur ne répond plus aux critères de ciblage d'une campagne de bannières, il ne la verra plus lors de sa prochaine session.
+
+Lorsqu'un utilisateur ferme une bannière, il n'est plus éligible à cette campagne par défaut. Pour permettre aux utilisateurs ayant fermé la bannière de la revoir, [configurez la rééligibilité]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility) dans l'étape **Contrôles de l'envoi** de la campagne. Les étapes de bannière Canvas utilisent les paramètres de réentrée Canvas pour contrôler la rééligibilité.
 
 {% alert important %}
 Les [fermetures de bannières]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) sont actuellement en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
