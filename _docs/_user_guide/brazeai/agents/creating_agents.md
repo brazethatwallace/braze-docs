@@ -42,7 +42,7 @@ To create your custom agent:
 
 1. Go to **Agent Console** > **Agent Management** in the Braze dashboard.  
 2. Select **Create agent**.
-3. Choose to create a Canvas agent or catalog agent.
+3. Choose to create a Canvas Agent or Catalog Agent.
 
 ### Step 2: Set up details
 

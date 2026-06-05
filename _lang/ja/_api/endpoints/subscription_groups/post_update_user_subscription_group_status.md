@@ -148,4 +148,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
 このエンドポイントは`email`または`phone`の値のみを受け付け、両方を同時に受け付けることはできません。両方を指定した場合、次の応答が返されます: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
 
+サブスクリプションの更新を電話番号に適用するには、E.164形式の電話番号（例: `+15555550123`）を送信し、正しい`subscription_group_id`を使用し、同じリクエスト本文で`phone`のみ（`phone`と`email`の両方ではなく）を渡していることを確認してください。複数番号の更新には、[SMSとRCS](#sms-and-rcs)に示されている`phone`配列形式を使用してください。
+
 {% endapi %}
