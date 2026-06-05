@@ -144,7 +144,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sen
 
 ## 응답 세부 정보 {#response-details}
 
-메시지 전송 엔드포인트 응답에는 메시지의 `dispatch_id`가 포함되어 메시지 발송을 참조할 수 있습니다. `dispatch_id`는 메시지 발송의 ID(Braze 플랫폼에서 전송된 각 "전송"에 대한 고유 ID)입니다. 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)을 확인하세요.
+메시지 전송 엔드포인트 응답에는 메시지의 `dispatch_id`가 포함되어 메시지 발송을 참조할 수 있습니다. `dispatch_id`는 메시지 발송의 ID(Braze 플랫폼에서 전송된 각 "전송"에 대한 고유 ID)입니다. 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)을 확인하세요.
 
 ### 성공 응답 예시 {#example-success-response}
 

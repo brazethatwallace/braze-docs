@@ -18,7 +18,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 Los datos devueltos incluyen cuántos mensajes se enviaron, abrieron, recibieron clics o generaron conversiones por canal de mensajería.
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='campaign' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='campaign' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1 {% endapiref %}
 
@@ -34,7 +34,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obligatorio | Cadena | Consulta [identificador de API de campaña]({{site.baseurl}}/api/identifier_types/).<br><br> El `campaign_id` para Campaigns de API se puede encontrar en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) y en la página **Campaign Details** dentro de tu dashboard, o puedes utilizar el [punto de conexión Listar Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/). |
+| `campaign_id` | Obligatorio | Cadena | Consulta [identificador de API de la campaña]({{site.baseurl}}/api/identifier_types/).<br><br> El `campaign_id` para Campaigns de API se puede encontrar en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) y en la página **Campaign Details** dentro de tu dashboard, o puedes utilizar el [punto de conexión Listar Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/). |
 | `length` | Obligatorio | Entero | Número máximo de días antes de `ending_at` a incluir en la serie devuelta. Debe estar comprendido entre 1 y 100 (ambos inclusive). |
 | `ending_at` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la serie de datos. De forma predeterminada, la hora de la solicitud. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }

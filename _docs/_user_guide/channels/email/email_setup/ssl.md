@@ -89,7 +89,7 @@ When you configure your CDN's click-tracking domain, enable the `X-Forwarded-Hos
 
 ### Amazon SES
 
-If you are using Amazon SES as your CDN, Refer to **Option 2: Configuring an HTTPS domain** in [Amazon SES's documentation](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) and specify the AWS tracking domain by region based on your Braze cluster:
+If you are using Amazon SES as your ESP, refer to **Option 2: Configuring an HTTPS domain** in [Amazon SES's documentation](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) and specify the AWS tracking domain by region based on your Braze cluster:
 
 - **Braze US clusters:** `r.us-east-1.awstrack.me`
 - **Braze EU clusters:** `r.eu-central-1.awstrack.me`

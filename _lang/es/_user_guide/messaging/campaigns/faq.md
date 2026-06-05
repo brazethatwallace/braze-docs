@@ -216,7 +216,7 @@ Las campañas de entrega basada en acciones o campañas activadas por eventos so
 | Ventajas | Desventajas |
 | ---- | ---- |
 | • Visibilidad de las cargas útiles JSON entrantes en la plataforma (si el evento es activado por un usuario de prueba) a través del **Registro de actividad de mensajes**<br><br>• Los elementos de personalización se incluyen en las propiedades del evento personalizado<br><br>• El evento personalizado se puede usar para crear segmentos de usuarios elegibles para el mensaje | • Consume puntos de datos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Basadas en acciones" }
 
 #### Activadas por API {#api-triggered}
 
@@ -225,7 +225,7 @@ Las campañas activadas por API y activadas por servidor son ideales para maneja
 | Beneficios | Consideraciones |
 | ---- | ---- |
 | • No registra puntos de datos<br><br>• Los elementos de personalización se incluyen en las propiedades de la carga útil JSON | • No te permite crear un segmento de usuarios elegibles para el mensaje en las propiedades de la carga útil JSON<br><br>• No es posible ver las cargas útiles JSON entrantes con el **Registro de actividad de mensajes** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Activadas por API" }
 
 ### ¿Qué debo incluir al enviar un ticket de soporte por un error de "Tiempo de solicitud agotado"? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
@@ -267,3 +267,7 @@ Varios factores pueden causar que el número de envíos sea menor que el tamaño
 - **Reevaluación del segmento:** Para campañas basadas en acciones o programadas que reevalúan en el momento del envío, los usuarios que estaban en el segmento cuando la campaña se puso en cola pueden ya no cumplir los criterios cuando el mensaje se envía realmente.
 - **Límites de envío:** Un número máximo de usuarios (o límite similar) en **Target Audiences** detiene la entrega cuando se alcanza el límite.
 - **Filtros estrictos de dispositivo o navegador:** Los filtros que solo coinciden con las versiones más recientes de aplicaciones o navegadores reducen el conjunto alcanzable en el momento del envío en comparación con una vista previa de segmento amplia.
+
+### ¿Dónde están las preguntas frecuentes sobre la limitación de frecuencia global? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+Para preguntas sobre días calendario, push silencioso, webhooks, comportamiento de Canvas y temas relacionados, consulta las [Preguntas frecuentes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) de [Límite de velocidad y limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).

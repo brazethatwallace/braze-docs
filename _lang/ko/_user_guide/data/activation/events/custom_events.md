@@ -61,6 +61,10 @@ search_rank: 2
 
 커스텀 이벤트 목록을 CSV 파일로 내보내려면 페이지 상단에서 **모두 내보내기**를 선택합니다. CSV 파일이 생성되고 다운로드 링크가 이메일로 전송됩니다.
 
+{% alert note %}
+대시보드에서 정의하거나 프로필에 저장할 수 있는 고유한 **커스텀 이벤트** 또는 **커스텀 속성**의 수에 대한 고정된 상한은 없습니다. 실질적인 제한은 데이터 형태, 수집 볼륨 및 워크스페이스 성능에 따라 달라집니다. 매우 많은 수의 이벤트 또는 속성을 추적할 계획이라면 Braze 계정 팀과 모델링 및 데이터 관리(예: 사용하지 않는 데이터 [차단 목록 추가]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/))에 대해 상의하세요.
+{% endalert %}
+
 ## 사용 보고서 보기 {#viewing-usage-reports}
 
 사용 보고서에는 특정 커스텀 이벤트를 사용하는 모든 Canvases, Campaigns 및 Segments가 나열됩니다. 이 목록에는 Liquid 사용은 포함되지 않습니다.
@@ -103,7 +107,7 @@ search_rank: 2
 | 커스텀 이벤트가 **X회(최대 = 50) 초과** 발생했는지 확인 | **초과** | 지난 **Y일 (Y = 1,3,7,14,21,30)** |
 | 커스텀 이벤트가 **X회(최대 = 50) 미만** 발생했는지 확인 | **미만** | 지난 **Y일 (Y = 1,3,7,14,21,30)** |
 | 커스텀 이벤트가 **정확히 X회(최대 = 50)** 발생했는지 확인 | **정확히** | 지난 **Y일 (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="세분화 필터" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segmentation filters" }
 
 ## 분석 {#analytics}
 

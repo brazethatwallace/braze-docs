@@ -45,3 +45,15 @@ Sie können bis zu 350 Abo-Gruppen pro Workspace hinzufügen.
 {% endalert %}
 
 {% endif %}
+
+{% if include.alert == 'GIF platform support' %}
+
+{% alert note %}
+GIFs werden in Android-Push-Benachrichtigungen nicht unterstützt. Dies ist eine Einschränkung der Android-Plattform, keine Einschränkung von Braze.
+<br><br>
+- Für In-App-Nachrichten und Content Cards auf Android können Sie GIFs unterstützen, indem Sie eine Drittanbieter-Bildbibliothek wie [Glide](https://bumptech.github.io/glide/) oder [Fresco](https://frescolib.org/) integrieren.
+<br>
+- Auf iOS unterstützen Push-Benachrichtigungen GIFs. In-App-Nachrichten und Content Cards erfordern einen angepassten GIF-Bildanbieter.
+{% endalert %}
+
+{% endif %}

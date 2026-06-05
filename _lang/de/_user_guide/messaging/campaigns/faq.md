@@ -267,3 +267,7 @@ Mehrere Faktoren können dazu führen, dass die Anzahl der Sendungen niedriger i
 - **Segment-Neubewertung:** Bei aktionsbasierten oder geplanten Campaigns, die zum Sendezeitpunkt neu ausgewertet werden, sind Nutzer:innen, die beim Einreihen der Campaign im Segment waren, möglicherweise nicht mehr qualifiziert, wenn die Nachricht tatsächlich gesendet wird.
 - **Sendeobergrenzen:** Eine maximale Anzahl von Nutzer:innen (oder eine ähnliche Obergrenze) unter **Zielgruppe** stoppt die Zustellung, wenn die Obergrenze erreicht ist.
 - **Strenge Geräte- oder Browser-Filter:** Filter, die nur die neuesten App-Versionen oder Browser abgleichen, verkleinern die erreichbare Menge zum Sendezeitpunkt im Vergleich zu einer breiten Segment-Vorschau.
+
+### Wo finde ich häufig gestellte Fragen zum globalen Frequency-Capping? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+Für Fragen zu Kalendertagen, stillen Push-Benachrichtigungen, Webhooks, Canvas-Verhalten und verwandten Themen lesen Sie die [Häufig gestellten Fragen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) zu [Rate-Limiting und Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).

@@ -89,7 +89,7 @@ Cuando configures el dominio de seguimiento de clics de tu CDN, habilita el enca
 
 ### Amazon SES
 
-Si estás usando Amazon SES como tu CDN, consulta **Opción 2: Configurar un dominio HTTPS** en la [documentación de Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) y especifica el dominio de seguimiento de AWS por región según tu clúster de Braze:
+Si estás usando Amazon SES como tu ESP, consulta **Opción 2: Configurar un dominio HTTPS** en la [documentación de Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) y especifica el dominio de seguimiento de AWS por región según tu clúster de Braze:
 
 - **Clústeres de Braze en EE. UU.:** `r.us-east-1.awstrack.me`
 - **Clústeres de Braze en la UE:** `r.eu-central-1.awstrack.me`
