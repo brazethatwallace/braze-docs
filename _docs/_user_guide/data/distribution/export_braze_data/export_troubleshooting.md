@@ -60,7 +60,7 @@ In cloud storage, CSV exports are bundled into a ZIP file. Inside the ZIP are mu
 ## API exports  
 When you export data through the APIs with a storage partner connected, the export files are written to your bucket. No email is sent. The underlying objects live in your storage and follow your retention settings, even though the download URLs Braze returns may still be time-limited.
 
-Files typically appear in your bucket as the export runs, so you don't need to wait for the entire job to finish before accessing partial results. Braze uploads each completed batch incrementally instead of holding everything until the end. Large exports are split into multiple compressed files (ZIP or GZIP), each containing JSON objects, one per line. This generally makes this method more reliable for heavy exports.  
+Files typically appear in your bucket as the export runs, so you don't need to wait for the entire job to finish before accessing partial results. Braze uploads each completed batch incrementally instead of holding everything until the end. Large exports are split into multiple compressed files (ZIP or GZIP), each containing JSON objects, one per line. This makes this method more reliable for heavy exports.
 
 ### Common errors
 
