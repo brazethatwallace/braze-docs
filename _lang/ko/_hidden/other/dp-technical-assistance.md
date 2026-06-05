@@ -18,10 +18,6 @@ EU 및 영국 일반 개인정보 보호 규정("GDPR"), 캘리포니아 소비�
 
 이러한 데이터 보호법은 개인에게 자신의 개인 데이터에 대한 '개인정보 보호 권리'를 부여합니다. 조직은 개인정보 보호 권리를 행사하는 개인으로부터 요청을 받고 이에 응답해야 합니다. Braze 서비스는 해당 법률에서 요구하는 특정 조치를 용이하게 하는 기능을 제공함으로써 이러한 데이터 보호법 준수를 지원할 수 있습니다. 이 문서는 이러한 기능을 사용하여 개인정보 보호 권리 요청을 관리하기 위한 기술 지침을 제공합니다. 비즈니스에 적용되는 데이터 보호법을 결정하고 이를 준수하여 행동하는 것은 전적으로 귀하의 책임입니다.
 
-{% alert important %}
-이 페이지의 Braze 권장 사항은 BrazeAI Decisioning Studio™에는 적용되지 않습니다. BrazeAI Decisioning Studio™에서 개인 데이터와 관련된 개인정보 보호 권리 요청을 관리하려면 계정 매니저에게 문의하세요.
-{% endalert %}
-
 ## 법적 면책 조항 {#legal-disclaimer}
 
 다음 중 어느 것도 Braze의 법률 자문을 의도하지 않으며, 법률 자문으로 간주되지 않습니다. 귀하의 특정 상황 및 데이터 보호법이 귀하와 귀하의 Braze 서비스 이용에 어떻게 적용되는지에 대해 자체 법률 자문을 구하시기 바랍니다.
@@ -45,7 +41,6 @@ Braze 서비스와 관련하여:
 - Braze는 귀하를 대신하여 귀하로부터 받은 지시에 따라 Braze 서비스에서 개인 데이터를 처리하는 데이터 처리자입니다.
 
 위의 용어는 GDPR 용어이지만, 예를 들어 CCPA에 따른 유사한 용어는 다음과 같습니다:
-
 - 데이터 주체에 해당하는 "소비자".
 - 데이터 컨트롤러에 해당하는 "비즈니스".
 - 데이터 처리자에 해당하는 "서비스 제공자".
@@ -70,7 +65,11 @@ Braze 서비스와 관련하여:
 
 ### Braze 권장 사항
 
-데이터 주체의 액세스 요청에 대한 응답으로 Braze에서 기계 판독 가능한 형식의 개인 데이터를 제공하려면, 사용자 식별자(귀하가 Braze에 제공한 `external_id`로 정의됨) 및/또는 기기 식별자를 사용하여 Braze의 [REST API](https://www.braze.com/docs/api/endpoints/export/#user-export)에 API 호출을 수행하여 최종 사용자 프로필을 내보낼 수 있습니다.
+데이터 주체의 액세스 요청에 대한 응답으로 Braze에서 기계 판독 가능한 형식의 개인 데이터를 제공하려면, 사용자 식별자(귀하가 Braze에 제공한 `external_id`로 정의됨) 및/또는 기기 식별자를 사용하여 Braze의 [REST API]({{site.baseurl}}/api/endpoints/export/#user-export)에 API 호출을 수행하여 최종 사용자 프로필을 내보낼 수 있습니다.
+
+#### BrazeAI Decisioning Studio™
+
+BrazeAI Decisioning Studio™의 개인 데이터와 관련된 액세스 권리 요청을 이행하려면, 관련 customer_id 및/또는 이메일을 포함하여 계정 매니저에게 문의하세요.
 
 ## 수정할 권리 {#the-right-to-rectification}
 
@@ -78,7 +77,7 @@ Braze 서비스와 관련하여:
 
 ### Braze 권장 사항
 
-데이터 주체가 귀하 또는 귀하를 대신하여 Braze가 처리하는 개인 데이터의 부정확성을 수정할 것을 요청하는 경우, Braze SDK 또는 Braze [REST API](https://www.braze.com/docs/api/endpoints/user_data/#user-track-endpoint)를 사용하여 해당 개인 데이터를 수정할 수 있습니다.
+데이터 주체가 귀하 또는 귀하를 대신하여 Braze가 처리하는 개인 데이터의 부정확성을 수정할 것을 요청하는 경우, Braze SDK 또는 Braze [REST API]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint)를 사용하여 해당 개인 데이터를 수정할 수 있습니다.
 
 ## 삭제할 권리 {#the-right-to-erasure}
 
@@ -88,7 +87,7 @@ Braze 서비스와 관련하여:
 
 #### 표준 삭제 {#standard-deletion}
 
-데이터 수집을 중단한 후에는 [Braze의 사용자 삭제 REST API 엔드포인트](https://www.braze.com/docs/api/endpoints/user_data/post_user_delete/)를 사용하여 최종 사용자를 삭제할 수 있으며, 이렇게 하면 해당 최종 사용자의 모든 기록이 Braze 서비스에서 제거됩니다:
+데이터 수집을 중단한 후에는 [Braze의 사용자 삭제 REST API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)를 사용하여 최종 사용자를 삭제할 수 있으며, 이렇게 하면 해당 최종 사용자의 모든 기록이 Braze 서비스에서 제거됩니다:
 
 - Braze 서비스 내에서 external_id를 가진 최종 사용자의 경우, 해당 ID를 사용하여 해당 최종 사용자의 데이터를 삭제할 수 있습니다.
 - Braze 서비스 내에 external_id가 없는 익명 최종 사용자의 경우, Braze SDK를 사용하여 해당 최종 사용자의 기기 식별자를 검색할 수 있으며, 기기 식별자를 사용하여 해당 기기와 연결된 최종 사용자 프로필을 찾을 수 있습니다. 그런 다음 사용자 삭제 API를 사용하여 해당 최종 사용자와 연결된 프로필을 삭제할 수 있습니다.
@@ -96,6 +95,10 @@ Braze 서비스와 관련하여:
 Braze 서비스에서 최종 사용자를 삭제하면 제공된 `external_id`로 정의된 해당 최종 사용자에 대한 Braze의 중앙 집중식 고객 프로필이 영구적으로 삭제됩니다. 여기에는 기기 정보, 국가, 언어, 이메일 주소 등 Braze가 기본적으로 수집하거나 귀하가 수집하도록 Braze 서비스를 구성한 구조화된 프로필 정보가 포함됩니다.
 
 최종 사용자의 프로필과 연결된 이메일 주소나 전화번호는 다른 최종 사용자의 프로필과 연결될 수 있으므로 Braze에서 계속 저장될 수 있습니다. 이메일 주소와 전화번호는 Braze 서비스에서 고유하지 않습니다. 즉, 팀에서 여러 고객 프로필에 동일한 이메일 주소나 전화번호를 저장하도록 Braze를 구성했을 수 있습니다. 팀이 이러한 방식으로 Braze를 구성한 경우, 데이터 주체의 삭제 요청을 준수하기 위해 특정 데이터 주체를 나타내는 모든 고객 프로필을 삭제해야 할 수 있으며, 특정 데이터 주체를 참조하는 모든 고객 프로필을 삭제하려면 여러 번의 API 호출을 수행해야 할 수 있다는 점에 유의하세요.
+
+#### BrazeAI Decisioning Studio™
+
+BrazeAI Decisioning Studio™의 개인 데이터와 관련된 삭제 권리 요청을 이행하려면, 관련 customer_id 및/또는 이메일을 포함하여 계정 매니저에게 문의하세요. 계정 매니저가 데이터 웨어하우스에서 관련된 모든 개인 데이터를 삭제하도록 조치할 수 있습니다.
 
 #### 추가 삭제 고려 사항 {#additional-deletion-considerations}
 
@@ -152,7 +155,9 @@ Braze 서비스 내의 분석은 Braze 최종 사용자 식별자에 연결됩�
 
 ### Braze 권장 사항
 
-Braze 서비스는 개별 범주의 개인 데이터에 대한 처리 제한을 지원하지 않습니다. 데이터 주체로부터 해당 데이터 주체의 개인 데이터의 특정 하위 집합에 대한 처리를 제한하라는 요청을 받은 경우, [Braze API](https://www.braze.com/docs/api/home/)를 사용하여 해당 최종 사용자의 전체 프로필을 내보낸 다음 Braze에서 해당 프로필을 [삭제](https://www.braze.com/docs/api/endpoints/user_data/#user-delete-endpoint)해야 합니다. 최종 사용자가 나중에 해당 개인 데이터의 특정 하위 집합을 처리하도록 허용하는 경우, Braze의 API를 사용하여 이 데이터를 다시 가져올 수 있습니다. 또한, 데이터 주체에 대한 추가 데이터 수집을 중지하려면 최종 사용자가 Braze SDK를 사용하는 모든 애플리케이션을 제거하거나 로그아웃할 것을 권장해야 합니다.
+Braze 서비스는 개별 범주의 개인 데이터에 대한 처리 제한을 지원하지 않습니다. 데이터 주체로부터 해당 데이터 주체의 개인 데이터의 특정 하위 집합에 대한 처리를 제한하라는 요청을 받은 경우, [Braze API]({{site.baseurl}}/api/home/)를 사용하여 해당 최종 사용자의 전체 프로필을 내보낸 다음 Braze에서 해당 프로필을 [삭제]({{site.baseurl}}/api/endpoints/user_data/#user-delete-endpoint)해야 합니다. 최종 사용자가 나중에 해당 개인 데이터의 특정 하위 집합을 처리하도록 허용하는 경우, Braze의 API를 사용하여 이 데이터를 다시 가져올 수 있습니다. 또한, 데이터 주체에 대한 추가 데이터 수집을 중지하려면 최종 사용자가 Braze SDK를 사용하는 모든 애플리케이션을 제거하거나 로그아웃할 것을 권장해야 합니다.
+
+BrazeAI Decisioning Studio™만 사용하는 고객의 경우, 더 이상 Decisioning Studio로 데이터를 전송하지 않아야 합니다.
 
 ## 데이터 이동성에 대한 권리 {#the-right-to-data-portability}
 
@@ -160,7 +165,7 @@ Braze 서비스는 개별 범주의 개인 데이터에 대한 처리 제한을 
 
 ### Braze 권장 사항
 
-액세스 권리와 마찬가지로, Braze [REST API](https://www.braze.com/docs/api/endpoints/export/#user-export)를 사용하여 최종 사용자의 개인 데이터를 내보내고 데이터 주체의 요청에 따라 제공할 수 있습니다.
+액세스 권리와 마찬가지로, Braze [REST API]({{site.baseurl}}/api/endpoints/export/#user-export)를 사용하여 최종 사용자의 개인 데이터를 내보내고 데이터 주체의 요청에 따라 제공할 수 있습니다. 또한, BrazeAI Decisioning Studio에 보관된 개인 데이터의 사본을 요청하려면 관련 customer_id 및/또는 이메일을 포함하여 계정 매니저에게 문의하세요.
 
 ## 이의를 제기할 권리 {#the-right-to-object}
 
@@ -172,9 +177,10 @@ Braze 서비스는 개별 범주의 개인 데이터에 대한 처리 제한을 
 
 ### Braze 권장 사항
 
-Braze는 고객 프로필에 SMS, 이메일 또는 푸시 알림 수신 거부 표시를 할 수 있는 기능을 [REST API](https://www.braze.com/docs/api/home/)와 [iOS](https://www.braze.com/docs/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/), [Android](https://www.braze.com/docs/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/) 및 [웹](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/) SDK를 통해 제공합니다. 데이터 주체가 이러한 메시지 수신에 대해 이의를 제기하는 경우, Braze의 API를 사용하여 해당 최종 사용자의 수신을 거부 처리할 수 있습니다.
+Braze는 고객 프로필에 SMS, 이메일 또는 푸시 알림 수신 거부 표시를 할 수 있는 기능을 [REST API]({{site.baseurl}}/api/home/)와 [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/) 및 [웹]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/) SDK를 통해 제공합니다. 데이터 주체가 이러한 메시지 수신에 대해 이의를 제기하는 경우, Braze의 API를 사용하여 해당 최종 사용자의 수신을 거부 처리할 수 있습니다.
 
 그것으로 충분하지 않은 경우, Braze가 최종 사용자의 개인 데이터를 처리하지 않도록 하려면 '삭제할 권리'에 명시된 것과 동일한 방식으로 최종 사용자 프로필을 삭제해야 합니다.
+
 
 ## 자동화된 의사 결정 및 프로파일링과 관련된 권리 {#rights-related-to-automated-decision-making-and-profiling}
 
@@ -192,7 +198,7 @@ Braze는 데이터 주체에게 법적 또는 이와 동등한 영향을 미치�
 
 데이터 주체에 대한 타겟팅 광고를 목적으로 오디언스를 구축할 때는 타겟팅 광고에 반대하는 데이터 주체(예: CCPA에 따라 "판매 또는 공유 금지" 권리를 행사한 캘리포니아 소비자)를 제외했는지 확인해야 합니다.
 
-타사 플랫폼과 동기화할 오디언스를 구축하는 방법에 대한 자세한 내용은 [오디언스 동기화](https://www.braze.com/docs/partners/canvas_steps)를 참조하세요.
+타사 플랫폼과 동기화할 오디언스를 구축하는 방법에 대한 자세한 내용은 [오디언스 동기화]({{site.baseurl}}/partners/canvas_steps/)를 참조하세요.
 
 ## 차별받지 않을 권리 {#the-right-to-non-discrimination}
 

@@ -23,7 +23,7 @@ Para eliminar usuarios, debes ser administrador o tener el permiso **Delete User
 |---------|-------------|
 | Delete Users | Eliminar usuarios de forma permanente de manera individual o masiva. |
 | View User Deletion Records | Ver los registros de eliminación de usuarios. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Acerca de la eliminación de usuarios {#about-user-deletion}
 
@@ -34,7 +34,7 @@ La eliminación de usuarios te permite gestionar tu base de datos eliminando per
 | Tamaño máximo | Puedes eliminar hasta 100 millones de perfiles de usuario al eliminar un segmento. |
 | Período de espera | Todas las eliminaciones de segmentos requieren un período de espera de 7 días más el tiempo necesario para procesar las eliminaciones. |
 | Límites de trabajos | Solo se puede eliminar un segmento a la vez, lo que incluye el período de espera de 7 días. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de la eliminación de usuarios" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About user deletion" }
 
 ## Eliminar usuarios {#deleting-users}
 
@@ -132,7 +132,7 @@ En esta página, puedes encontrar la siguiente información general para todas l
 | Solicitante | El usuario que inició la solicitud de eliminación. |
 | Nombre del segmento | El nombre del segmento utilizado para seleccionar los usuarios pendientes de eliminación. |
 | Estado | Muestra si la solicitud de eliminación está pendiente, en curso o completada. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Gestionar audiencia" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
 
 Para obtener más detalles sobre una solicitud específica, selecciona <i class="fa-solid fa-eye"></i> para mostrar los detalles del registro de eliminación. Aquí también puedes [cancelar eliminaciones de segmentos pendientes](#cancel).
 
@@ -173,3 +173,7 @@ Sí. Sin embargo, puedes añadir un filtro de inclusión de segmento para exclui
 Las eliminaciones de usuarios individuales son permanentes.
 
 Puedes [cancelar eliminaciones de segmentos](#cancel) dentro de los primeros 7 días. Sin embargo, los usuarios que ya se hayan eliminado antes de la cancelación no se pueden restaurar.
+
+### ¿Puedo eliminar usuarios con la API en lugar del dashboard? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+Sí. Para lotes más pequeños, puedes usar el [punto de conexión `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), que acepta hasta 50 identificadores por solicitud y está sujeto al [límite de velocidad]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit) de ese punto de conexión. La eliminación basada en segmentos desde el dashboard es más adecuada para audiencias muy grandes, pero incluye el [período de espera de 7 días](#about-user-deletion).

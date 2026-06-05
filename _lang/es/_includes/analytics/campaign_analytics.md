@@ -321,6 +321,10 @@ Para obtener las definiciones completas de todas las métricas de banners, consu
             <td class="no-split"><i>Total Clicks</i> es el número total (y el porcentaje) de usuarios que hicieron clic en el mensaje entregado, independientemente de si el mismo usuario hace clic varias veces.</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i> es el número total de veces que los usuarios descartaron el banner. Solo está disponible para banners con el comportamiento de descarte habilitado.</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} Cada usuario solo se cuenta una vez.</td>
         </tr>
