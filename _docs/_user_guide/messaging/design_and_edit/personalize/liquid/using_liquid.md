@@ -224,4 +224,4 @@ The modal will insert Liquid with your specified default value at the point wher
 
 ### Liquid / Content Block changes position when switching from HTML > Classic Editor
 
-Add a note to _docs/_user_guide/personalization_and_dynamic_content/liquid/using_liquid.md or email editor docs: when switching between HTML and Classic editor, Content Block/Liquid position may change. Consider using the Drag and Drop editor as an alternative. Braze is working on a consolidated editor.
+When you switch between the HTML and Classic editors, Liquid snippets and Content Blocks can shift position in your message. Consider using the drag-and-drop editor as an alternative. Braze is working on a consolidated editor experience.
