@@ -17,7 +17,7 @@ tool:
 
 ### Puis-je prévisualiser l'apparence de mon e-mail en mode sombre ? {#can-i-preview-how-my-email-appears-in-dark-mode}
 
-Oui. Accédez à la section **Preview and Test** de l'éditeur par glisser-déposer et activez le **mode sombre**. Nous vous recommandons également de prévisualiser et de tester vos e-mails sur différentes plateformes utilisateur et d'utiliser des images transparentes pour les images d'arrière-plan des lignes lorsque cela est possible.
+Oui. Accédez à la section **Preview and Test** de l'éditeur par glisser-déposer et activez le **Dark mode**. Nous vous recommandons également de prévisualiser et de tester vos e-mails sur différentes plateformes utilisateur et d'utiliser des images transparentes pour les images d'arrière-plan des lignes lorsque cela est possible.
 
 ### Comment concevoir des e-mails pour le mode sombre et le mode clair ? {#how-should-i-design-emails-for-dark-mode-and-light-mode}
 
@@ -46,11 +46,17 @@ L'éditeur par glisser-déposer prend actuellement en charge deux calques. Vous 
 
 ### Puis-je enregistrer mon e-mail par glisser-déposer en tant que modèle après l'avoir créé dans ma campagne ou mon Canvas ? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Non. Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une campagne ou un Canvas en tant que **modèle d'e-mail** par glisser-déposer dans **Templates** > **Email Templates**. Recréez la mise en page dans **Templates** > **Email Templates**, ou partez d'un modèle enregistré la prochaine fois. Pour les instructions, consultez [Créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+Non. Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une campagne ou un Canvas en tant que **Email Template** par glisser-déposer dans **Templates** > **Email Templates**. Recréez la mise en page dans **Templates** > **Email Templates**, ou partez d'un modèle enregistré la prochaine fois. Pour les instructions, consultez [Créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
 
 Si vous avez besoin d'un modèle HTML réutilisable, sélectionnez **Download file** lors de la modification du corps par glisser-déposer, ouvrez le fichier HTML depuis le ZIP, puis collez le balisage dans un [modèle d'e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) à l'aide de l'éditeur de code HTML. Vérifiez à nouveau le Liquid, les liens et les ressources hébergées par la suite.
 
 Pour plus d'informations sur l'emplacement des modèles, consultez [Modèles et médias]({{site.baseurl}}/user_guide/messaging/templates/).
+
+### Pourquoi ne puis-je pas modifier la couleur de remplissage d'un bouton dans l'éditeur par glisser-déposer ? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+
+Les styles au niveau de la page peuvent remplacer les styles au niveau du message. Si la modification du **Fill** d'un bouton ou d'un bloc n'a aucun effet, essayez ce qui suit :
+1. Ouvrez les [paramètres de style global des e-mails]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) et sélectionnez **Reset to default** sur le style de page en conflit afin que la couleur définie au niveau du message puisse s'appliquer.
+2. Définissez à nouveau la couleur sur le bloc.
 
 ### Puis-je ajouter des pièces jointes aux e-mails dans l'éditeur par glisser-déposer ? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 

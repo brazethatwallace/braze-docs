@@ -29,7 +29,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 | --- | --- |
 | Content Cards | 카드가 발송되었으며 조회 가능한 상태입니다. |
 | 이메일 | Braze가 이메일 서비스 공급자(ESP)에게 메시지를 전달합니다. ESP가 최종 전달을 담당합니다. 예를 들어, 이메일 주소가 유효하지 않거나 받은편지함이 가득 찬 경우 ESP가 "반송"을 보고할 수 있습니다. |
-| In-App Messages | 메시지가 사용자에게 표시되었습니다. |
+| 인앱 메시지 | 메시지가 사용자에게 표시되었습니다. |
 | LINE | 메시지가 발송 파트너에게 성공적으로 전달되었습니다. |
 | 푸시 | Braze가 적절한 푸시 알림 서비스(iOS의 경우 Apple Push Notification service, Android의 경우 Firebase Cloud Messaging)에 메시지를 전달합니다. 해당 서비스가 기기로의 최종 알림 전달을 담당합니다. |
 | SMS/MMS/RCS | Braze가 SMS 게이트웨이(예: Twilio)에 메시지를 전달합니다. 해당 게이트웨이가 이동통신사로의 최종 전달을 담당합니다. |
@@ -51,7 +51,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 2. 하나 이상의 Campaign 또는 Canvas를 선택합니다.
 3. **Run Dashboard**를 선택하여 선택한 필터에 대한 데이터를 로드합니다.
 
-![2025년 5월 25일부터 5월 31일까지의 웰컴 시리즈 Campaign에 대한 Campaign 및 Canvas 진단 예시.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
+![2025년 5월 25일부터 5월 31일까지의 웰컴 시리즈 Campaign에 대한 Campaign 및 Canvas 진단 예시.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![2025년 5월 25일부터 5월 31일까지의 웰컴 시리즈 Campaign에 대한 그래프 호버 시 Campaign 및 Canvas 진단 예시.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
 
 ## 데이터 해석 {#interpreting-the-data}
 
@@ -68,7 +68,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
   - **이메일, SMS/MMS/RCS, WhatsApp, LINE, 푸시:** 메시지가 발송 파트너에게 성공적으로 전달되었습니다.
   - **웹훅:** 웹훅 요청이 성공적으로 이루어졌으며, `2xx` 응답을 반환했습니다.
   - **Content Cards:** 카드가 발송되었으며 조회 가능한 상태입니다.
-  - **In-App Messages:** 메시지가 사용자에게 표시되었습니다.
+  - **인앱 메시지:** 메시지가 사용자에게 표시되었습니다.
 
 ### 시간별 메시지 결과 {#message-outcomes-over-time}
 
@@ -78,11 +78,16 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 차트를 깔끔하게 유지하기 위해, 선택한 기간 내에서 발생 횟수가 0인 중단 또는 제외 사유는 차트에 표시되지 않습니다.
 {% endalert %}
 
-### 메시지 결과 분석 {#message-outcomes-breakdown}
+### 메시지 결과 상세 로그 {#message-outcomes-granular-log}
 
-이 차트는 선택한 기간 내 모든 메시지 결과의 분석을 보여줍니다. 다음에 대한 전체적인 그림을 제공합니다:
-- 전체 결과 대비 총 발송 수의 비율.
-- 각 중단 및 제외 사유의 비율 분석. 이를 통해 메시지가 발송되지 않는 가장 일반적인 이유를 빠르게 파악할 수 있습니다.
+시계열 차트 아래에는 선택한 필터와 기간에 대한 개별 메시지 결과의 상세 테이블이 표시됩니다. 이 테이블을 사용하여 타임스탬프, 사용자 ID, 캔버스 단계, 결과, 채널 등 특정 레코드를 검토할 수 있습니다.
+
+테이블을 필터링하여 특정 레코드에 집중할 수 있습니다:
+
+- **결과별 필터링:** 결과 필터에서 결과를 선택하여 해당 결과가 있는 행만 표시합니다(예: `Frequency capped` 또는 `User not eligible`).
+- **사용자 ID로 검색:** 검색 필드에 사용자 ID를 입력하여 해당 사용자의 행을 표시합니다.
+
+두 필터를 모두 적용하면, 테이블은 선택한 결과와 입력한 사용자 ID 모두에 일치하는 행을 반환합니다.
 
 ### 중단 결과 {#abort-outcomes}
 

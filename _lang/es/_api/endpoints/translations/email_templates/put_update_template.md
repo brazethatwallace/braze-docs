@@ -17,8 +17,6 @@ description: "Este artículo describe los detalles del punto de conexión Actual
 
 > Usa este punto de conexión para actualizar las traducciones de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Requisitos previos {#prerequisites}
 
 Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `templates.translations.update`.

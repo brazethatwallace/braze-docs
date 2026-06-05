@@ -26,7 +26,7 @@ Os Banners são diferentes dos Content Cards, o que significa que você não pod
 
 ## Os Banners podem incluir vídeo? {#can-banners-include-video}
 
-O criador padrão de Banners suporta imagens, texto e botões. Para incluir um vídeo em um Banner, você pode usar um bloco de **Código Personalizado** e renderizar um vídeo ou player incorporado no seu app ou site.
+O criador padrão de Banners suporta imagens, texto e botões. Para incluir um vídeo em um Banner, você pode usar um bloco de **Custom Code** e renderizar um vídeo ou player incorporado no seu app ou site.
 
 ## Posso disparar um banner com base nas ações do usuário? {#can-i-trigger-a-banner-based-on-user-actions}
 
@@ -34,18 +34,18 @@ Embora os Banners não suportem [entrega baseada em ação]({{site.baseurl}}/use
 
 Por exemplo, para mostrar um Banner especial apenas para usuários que completaram um evento `purchase`:
 1. **Direcionamento:** Na sua campanha, direcione um segmento de usuários que realizaram o evento personalizado `purchase` pelo menos uma vez.
-2. **Prioridade:** Se você tiver um Banner geral para todos os usuários e este Banner específico para compradores direcionando o mesmo posicionamento, defina a prioridade do Banner específico como **Alta** e a do Banner geral como **Média** ou **Baixa**.
+2. **Prioridade:** Se você tiver um Banner geral para todos os usuários e este Banner específico para compradores direcionando o mesmo posicionamento, defina a prioridade do Banner específico como **High** e a do Banner geral como **Medium** ou **Low**.
 
 Quando o usuário inicia uma nova sessão ou atualiza os Banners após realizar a ação, a Braze avalia sua elegibilidade. Se ele corresponder ao segmento "Compra", o Banner de alta prioridade será exibido.
 
 
 ## Os usuários podem dispensar um Banner? {#can-users-dismiss-a-banner}
 
-{% alert important %}
-Permitir que os usuários dispensem manualmente um Banner está em acesso antecipado. Consulte [Configurar comportamento de dispensa]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para mais detalhes. Se você tiver interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente.
-{% endalert %}
+Sim. Você pode permitir que os usuários dispensem manualmente um Banner ativando o comportamento de dispensa no criador de Banners. Consulte [Configurar comportamento de dispensa]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para detalhes sobre como ativar a dispensa e personalizar o botão de dispensar.
 
-Os usuários podem dispensar manualmente os Banners apenas se o comportamento de dispensa estiver ativado e seu espaço de trabalho estiver participando do acesso antecipado. Se a dispensa não estiver ativada ou disponível para o seu espaço de trabalho, você pode controlar a visibilidade do Banner gerenciando a elegibilidade do segmento de usuários. Quando um usuário não atende mais aos critérios de direcionamento de uma campanha de Banner, ele não verá o Banner novamente na próxima sessão.
+Os usuários podem dispensar manualmente os Banners apenas se o comportamento de dispensa estiver ativado. Se a dispensa não estiver ativada, você pode controlar a visibilidade do Banner gerenciando a elegibilidade do segmento de usuários. Quando um usuário não atende mais aos critérios de direcionamento de uma campanha de Banner, ele não verá o Banner novamente na próxima sessão.
+
+Quando um usuário dispensa um Banner, ele se torna inelegível para essa campanha por padrão. Para permitir que usuários que dispensaram vejam o Banner novamente, [configure a reelegibilidade]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility) na etapa de **Controles de entrega** da campanha. As etapas de Banner em Canvas usam as configurações de reentrada do Canvas para controlar a reelegibilidade.
 
 {% alert important %}
 [Dispensas de Banner]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) estão atualmente em acesso antecipado. Se você tiver interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente.
@@ -74,7 +74,7 @@ Não. No entanto, a maioria das Liquid tags é suportada para mensagens de Banne
 Sim. A forma como os eventos de clique são capturados depende de como seu Banner é renderizado:
 
 - **Componentes do editor padrão:** Se seu Banner usar componentes do editor padrão (imagens, botões, texto), os cliques são rastreados automaticamente ao usar os métodos de inserção do SDK.
-- **Blocos de Código Personalizado:** Se você quiser rastrear cliques em elementos dentro de um bloco do editor de Código Personalizado, deve chamar `brazeBridge.logClick()` de dentro do seu HTML personalizado para rastrear cliques. Isso se aplica mesmo ao usar os métodos do SDK para inserir e renderizar o Banner. Para a referência completa, consulte [Código personalizado e ponte JavaScript para Banners]({{site.baseurl}}/user_guide/message_building_by_channel/banners/custom_code/#javascript-bridge).
+- **Blocos de Custom Code:** Se você quiser rastrear cliques em elementos dentro de um bloco do editor de Custom Code, deve chamar `brazeBridge.logClick()` de dentro do seu HTML personalizado para rastrear cliques. Isso se aplica mesmo ao usar os métodos do SDK para inserir e renderizar o Banner. Para a referência completa, consulte [Código personalizado e ponte JavaScript para Banners]({{site.baseurl}}/user_guide/message_building_by_channel/banners/custom_code/#javascript-bridge).
 - **UI personalizada (headless):** Se você estiver construindo uma UI totalmente personalizada usando as propriedades personalizadas do Banner em vez de renderizar o HTML do Banner, chame `logClick()` no objeto Banner a partir do código da sua aplicação.
 
 Para saber mais, consulte [Registro de cliques]({{site.baseurl}}/developer_guide/banners/placements/#logging-clicks).

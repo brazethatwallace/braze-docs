@@ -29,7 +29,7 @@ Nous avons mis à jour la page partenaire d'Adjust pour rendre cette clé API ac
 
 ## Nouveaux partenaires {#new-partners}
 
-Certains nouveaux partenaires ont rejoint notre programme Alloys et ont été ajoutés à notre documentation ! Dites bonjour à :
+De nouveaux partenaires ont rejoint notre programme Alloys et ont été ajoutés à notre documentation ! Dites bonjour à :
 - [Fivetran]({{site.baseurl}}/partners/fivetran/)
 - [Talon.One]({{site.baseurl}}/partners/talonone/)
 - [Voucherify]({{site.baseurl}}/partners/voucherify/)
@@ -75,7 +75,7 @@ Examinez [plusieurs campagnes en même temps pour comparer leurs performances re
 ## Intégrer le dispatch ID dans les messages avec Liquid {#template-dispatch-id-into-messages-with-liquid}
 
 {% alert note %}
-Le comportement de `dispatch_id` diffère entre Canvas et les campagnes car Braze traite les étapes de Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». En savoir plus sur le [comportement de `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) dans les Canvas et les campagnes.
+Le comportement de `dispatch_id` diffère entre Canvas et les campagnes car Braze traite les étapes de Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». En savoir plus sur le [comportement de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) dans les Canvas et les campagnes.
 {% endalert %}
 
 Si vous souhaitez suivre l'envoi d'un message à partir du message lui-même (dans une URL, par exemple), vous pouvez intégrer le `dispatch_id`. Vous trouverez le formatage correspondant dans notre liste des balises de personnalisation prises en charge, sous [Attributs Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).

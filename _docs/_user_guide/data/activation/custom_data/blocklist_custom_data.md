@@ -14,7 +14,16 @@ description: "This reference article covers how to blocklist and delete custom e
 
 You may occasionally identify custom attributes, custom events, or purchase events that either log too many data points, are no longer useful to your marketing strategy, or were recorded in error. 
 
-To stop this data from being sent to Braze, you can blocklist a custom data object while your engineering team works to remove it from the backend of your app or website. Blocklisting prevents a particular custom data object from being recorded by Braze going forward, meaning it won't show up when searching for a specific user.
+To stop this data from being sent to Braze, you can blocklist a custom data object while your engineering team works to remove it from the backend of your app or website. Blocklisting prevents a particular custom data object from being recorded by Braze going forward, meaning it doesn't show up when searching for a specific user.
+
+### Choosing blocklisting or deletion {#choosing-blocklisting-or-deletion}
+
+- **Blocklisting** keeps existing custom attributes, events, or purchases on user profiles, but Braze no longer processes new data for those objects.
+- **Deletion** removes that data from user profiles. Deleted custom attributes and events move to **Trashed** for seven days, during which you can restore them. After seven days, Braze permanently deletes them. Deleting doesn't stop new data from arriving, so confirm your SDK, API, or CSV imports no longer send that data before you delete.
+
+Blocklisting pushes blocklist information to each user's device and can be data-intensive. Blocklisting a very large number of attributes, events, or purchases (for example, more than 100) can affect app performance. If you don't plan to send that data to Braze anymore, deletion is often the better approach after you've stopped the integration from sending it.
+
+Regardless of whether you blocklist or delete, those custom attributes, events, and purchases no longer appear on the **Manage Workspace** page and are removed as segment filters. If you delete custom data, Braze removes that user-level data from profiles according to [How deletion works](#how-deletion-works).
 
 To blocklist custom data, you need the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) in the following dropdown for your workspace.
 
@@ -92,7 +101,7 @@ When a custom event or attribute is blocklisted, the following applies:
 - References to blocklisted data within drafts of active Canvases load as invalid values, which may cause errors
 - Anything using the blocklisted event or attribute is archived
 
-To accomplish this, Braze sends the blocklisting information down to each device. This is important when thinking about blocklisting a huge number of events and attributes (hundreds of thousands or millions) as it would be a data-intensive operation.
+To accomplish this, Braze sends the blocklisting information down to each device. This is important when thinking about blocklisting a huge number of events and attributes (hundreds of thousands or millions) because it's a data-intensive operation.
 
 ### Considerations for blocklisting
 

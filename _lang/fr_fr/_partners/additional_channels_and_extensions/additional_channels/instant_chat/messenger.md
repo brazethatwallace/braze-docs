@@ -12,13 +12,14 @@ search_tag: Partner
 
 > [Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/) est l'une des plateformes de messagerie instantanée les plus populaires au monde, utilisée par près d'un milliard d'utilisateurs actifs par mois. Grâce à cette plateforme, les marques peuvent créer des chatbots engageants pour interagir de manière intelligente et automatique avec leurs clients.
 
-L'intégration Braze et Facebook exploite les webhooks Braze, les fonctionnalités de segmentation, de personnalisation et de déclenchement pour envoyer des messages à vos utilisateurs dans Facebook Messenger via l'API de la plateforme Messenger. Un modèle de webhook Facebook Messenger personnalisé est inclus dans notre plateforme sous **Modèles** > **Modèles de webhook**.
+L'intégration Braze et Facebook exploite les webhooks Braze, les fonctionnalités de segmentation, de personnalisation et de déclenchement pour envoyer des messages à vos utilisateurs dans Facebook Messenger via l'API de la plateforme Messenger. Un modèle de webhook Facebook Messenger personnalisé est inclus dans notre plateforme sous **Contenu** > **Webhook**.
 
 La plateforme Facebook Messenger est destinée aux « messages non promotionnels qui facilitent une transaction préexistante, fournissent d'autres actions d'assistance à la clientèle ou livrent un contenu demandé par une personne ». Pour en savoir plus, consultez [les lignes directrices de la plateforme Facebook](https://developers.facebook.com/docs/messenger-platform) et des [exemples de cas d'utilisation acceptables](https://developers.facebook.com/docs/messenger-platform/app-review#examples_acceptable).
 
 ## Conditions préalables {#prerequisites}
 
 Prenez connaissance des éléments suivants avant de procéder à l'intégration :
+
 - Facebook n'autorise pas l'utilisation de la plateforme Messenger pour l'envoi de messages marketing.
 - Vous devez obtenir l'autorisation explicite de l'utilisateur pour envoyer des messages à partir de votre page.
 - Pour envoyer des messages aux utilisateurs qui ne sont pas des utilisateurs de test de votre application Facebook, votre application devra passer l'[examen de validation](https://developers.facebook.com/docs/messenger-platform/app-review) de Facebook.<br><br>
@@ -26,9 +27,9 @@ Prenez connaissance des éléments suivants avant de procéder à l'intégration
 | Exigence | Origine | Accès | Description |
 | --- | --- | --- | --- |
 | Page Facebook Messenger | Facebook | [https://www.facebook.com/pages/create](https://www.facebook.com/pages/create) | Une page Facebook sera utilisée comme identité de votre bot. Lorsque les utilisateurs discutent avec votre application, ils voient le nom de la page et la photo de profil. |
-| Application Facebook Messenger | Facebook | [https://developers.facebook.com/apps](https://developers.facebook.com/apps) | L'application Facebook contient les paramètres de votre bot Messenger, notamment les jetons d'accès.
+| Application Facebook Messenger | Facebook | [https://developers.facebook.com/apps](https://developers.facebook.com/apps) | L'application Facebook contient les paramètres de votre bot Messenger, notamment les jetons d'accès. |
 | Vérification et approbation du bot de l'application | Facebook | [https://developers.facebook.com/docs/messenger-platform/app-review](https://developers.facebook.com/docs/messenger-platform/app-review) | Lorsque vous êtes prêt à rendre votre bot public, vous devez le soumettre à Facebook pour examen et approbation. Ce processus d'examen permet de s'assurer que votre bot Messenger respecte les politiques et fonctionne comme prévu avant de le mettre à la disposition de tous sur Messenger. |
-| ID de portée de page (PSID) | Facebook | [https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages) | Vous devez disposer des PSID de vos utilisateurs pour envoyer des messages sur Facebook Messenger. Lorsqu'un utilisateur interagit avec votre application via Messenger, Facebook crée un PSID. Ce PSID peut être envoyé à Braze sous la forme d'un attribut personnalisé de type chaîne de caractères.
+| ID de portée de page (PSID) | Facebook | [https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages) | Vous devez disposer des PSID de vos utilisateurs pour envoyer des messages sur Facebook Messenger. Lorsqu'un utilisateur interagit avec votre application via Messenger, Facebook crée un PSID. Ce PSID peut être envoyé à Braze sous la forme d'un attribut personnalisé de type chaîne de caractères. |
 | Jeton d'accès à la page | Facebook | [https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token) | Ces jetons d'accès sont similaires aux jetons d'accès des utilisateurs, sauf qu'ils fournissent une autorisation aux API qui lisent, écrivent ou modifient les données appartenant à une page Facebook. Pour obtenir un jeton d'accès à une page, vous devez obtenir un jeton d'accès utilisateur et demander l'autorisation `manage_pagespermission`. Après avoir obtenu le jeton d'accès utilisateur, vous obtenez ensuite le jeton d'accès de la page via l'API Graph. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Conditions préalables" }
 
@@ -70,7 +71,12 @@ Une fois que vous êtes certain de recevoir des PSID, coordonnez et partagez cel
 
 ### Étape 3 : Configurez votre modèle de webhook {#step-3-set-up-your-webhook-template}
 
-Depuis **Modèles et médias**, accédez à **Modèles de webhook** et choisissez le **modèle de webhook Facebook Messenger**.
+Pour créer un modèle de webhook Facebook Messenger :
+
+1. Accédez à **Contenu** > **Webhook** et sélectionnez **Créer un modèle de webhook**.
+2. Sélectionnez **Modèles** > **Modèles Braze**.
+3. Recherchez et sélectionnez le modèle « Facebook Messenger ».
+4. Sélectionnez **Sélectionner le modèle**.
 
 1. Donnez un nom au modèle et ajoutez des équipes et des étiquettes, si nécessaire.
 2. Saisissez votre message ou choisissez un modèle de message parmi [ceux mis à disposition par Facebook](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages). Vous pouvez également choisir le [type](https://developers.facebook.com/docs/messenger-platform/send-messages#message_types) de message ou l'[étiquette](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags).

@@ -17,8 +17,6 @@ description: "이 문서에서는 캠페인에 대한 모든 번역 보기 엔�
 
 > 이 엔드포인트를 사용하여 캠페인의 각 메시지 배리언트에 대한 모든 번역을 볼 수 있습니다. 번역 기능에 대한 자세한 내용은 [메시지의 로케일]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)을 참조하세요.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `campaigns.translations.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
