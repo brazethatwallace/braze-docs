@@ -329,9 +329,7 @@ If you want a card to seem like it's always available, you can create a recurrin
 2. Set the campaign re-eligibility to 30 days.
 3. Set the campaign to trigger on "Session Start."
 
-<!-- sf-kb-phase2-batch -->
-
-## Full sync versus partial sync
+### Full sync versus partial sync
 
 Content Cards sync in two ways:
 
@@ -340,14 +338,14 @@ Content Cards sync in two ways:
 
 For Web integrations, call `subscribeToContentCardsUpdates()` before `openSession()` so cards refresh automatically at session start. See [Log analytics]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) for your platform.
 
-## Content Cards not refreshing at `openSession()` (Web SDK)
+### Content Cards not refreshing at session start (Web SDK)
 
 On Web, Content Cards refresh on session start only if you call `subscribeToContentCardsUpdates()` before `openSession()`. You can also call `requestContentCardsRefresh()` to refresh the feed manually at any time.
 
-## Impact of stopping Content Cards campaigns
+### Impact of stopping Content Cards campaigns
 
 When you stop a campaign and select **Remove card after the next sync**, Braze removes the card from user feeds on the next refresh. Impression counts may be lower than send counts because users cannot impress cards that were removed before they viewed them.
 
-## Pinning and unpinning behavior
+### Pinning and unpinning behavior
 
 Changes to pinned card order apply to future sends only. Cards already delivered to a user's feed keep their previous order until the next eligible send or refresh updates the feed.
