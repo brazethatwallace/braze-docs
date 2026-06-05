@@ -451,9 +451,12 @@ get_started, messaging, analytics, onboarding_faq), keep locale-established card
 labels, headings, and common nouns aligned with the locale's linked pages; avoid \
 introducing English variants where that locale already uses translated labels.
 8. **Procedure UI labels**: In each numbered or bulleted procedure, bold \
-dashboard controls must not mix English with localized forms—either mirror \
-the English source bold strings verbatim for that whole list or localize \
-every control in that list per the style guide; fix any half-and-half lists.
+dashboard controls must not mix English with localized forms—localize every \
+breadcrumb, tab, button, and menu label together to match the in-product UI \
+for that locale, or keep the whole list verbatim when the locale already uses \
+English-only breadcrumbs; fix any half-and-half lists. Localized Settings \
+paths (for example ES **Configuración** > **Configuración de administrador**) \
+are correct—do not revert them to English.
 9. **Heading anchor parity**: If some section headings use explicit Kramdown \
 `{#id}` blocks, ensure peer headings that need stable deep links include the \
 expected `{#slug}` (especially multi-table `_includes`).
@@ -589,9 +592,13 @@ keep their **casing consistent** (match `article_title` to `nav_title` when \
 they would otherwise differ only by capitalization) (auto-translate PR #13380).
 31. **Administer / dashboard polish** (PR #13384): Do not paste huge invented \
 `{#slug}` tails on headings when English has none. Keep `<style>` CSS \
-selectors valid (no `nth-child(N), {` before `{`). Localize known \
+selectors valid (no `nth-child(N), {` before `{`). **Table / Kramdown IAL \
+and HTML `<table>` `aria-label` values** should be **localized** with the \
+rest of the page (for example `"Use cases"` → `"Casos de uso"`). Do not \
+revert localized table `aria-label` strings to English. The translation QC \
+pass still re-localizes known nav icon phrases \
 `aria-label="Open navigation menu"` / `aria-label="Select your language"` \
-when the surrounding prose is localized.
+when they slip through as English.
 32. **Brazilian Portuguese — Braze ``Analytics`` menu**: When English uses bold \
 ``**Analytics**`` as the dashboard section name in navigation paths (for example \
 ``**Analytics** > **Report Builder (New)**``) or phrases like "the **Analytics** \

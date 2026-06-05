@@ -127,6 +127,7 @@ Braze recommande de tester l'envoi de RCS à des volumes d'utilisateurs plus ré
 Créez un Canvas et donnez-lui un nom facilement identifiable (tel que « Transfert d'utilisateurs du groupe d'abonnement SMS-RCS »). Ensuite, planifiez la campagne au moment qui vous convient.
 
 ### Étape 2 : Définir votre audience {#step-2-define-your-audience}
+{: #step-2-define-your-audience}
 
 Définissez votre audience en utilisant l'une des méthodes suivantes. Ensuite, accédez à l'étape **Paramètres d'envoi** et sélectionnez **Utilisateurs abonnés ou ayant opté pour la réception**.
 
@@ -196,5 +197,7 @@ Choisissez des noms de groupes d'abonnement descriptifs et clairs afin que le bo
 ### Séparer les groupes par pays {#separate-groups-by-country}
 
 Les réglementations SMS varient selon les pays. Nous suggérons de séparer les groupes d'abonnement SMS par pays. Cela vous aide à respecter les normes de conformité dans toutes les régions où vous envoyez des messages.
+
+Pour chaque groupe d'abonnement, vous pouvez également configurer une liste de pays autorisés sous **Autorisations géographiques** afin que les SMS, MMS et RCS ne soient envoyés qu'aux régions approuvées. Pour en savoir plus, consultez [Autorisations géographiques]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/).
 
 Par exemple, au Brésil, l'envoi de messages marketing en dehors des heures de 9 h à 21 h heure locale est interdit, et le pays couvre trois fuseaux horaires. Pour respecter ces réglementations, vous pourriez configurer des groupes distincts pour l'envoi de messages au Brésil et aux États-Unis. Cela empêche les utilisateurs au Brésil de recevoir des messages marketing pendant les heures interdites.

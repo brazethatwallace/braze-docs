@@ -91,6 +91,19 @@ Braze SDK와 인터페이스하기 위해 [JavaScript "브릿지"]({{site.baseur
 
 ## Braze WhatsApp 채널의 옵트아웃 설정 {#set-up-opt-outs-for-your-braze-whatsapp-channel}
 
+### WhatsApp "혜택 및 공지" 토글 {#whatsapp-offers-and-announcements-toggle}
+
+WhatsApp은 앱 설정에서 사용자가 마케팅 메시지를 옵트아웃할 수 있는 "혜택 및 공지" 토글을 제공합니다. 이 토글은 Braze 구독 그룹과 독립적으로 작동합니다:
+
+- **Braze 구독 그룹**은 Braze 통합(API, 환경설정 센터 또는 SDK)을 통해 관리되며, 메시징 대상으로 지정할 사용자를 제어합니다.
+- **WhatsApp의 네이티브 토글**은 Meta에 의해 제어되며 Braze 외부의 플랫폼 수준에서 적용됩니다.
+
+이 두 레이어는 설계상 자동으로 동기화되지 않습니다. 사용자가 WhatsApp에서 "혜택 및 공지" 토글을 끄면, 사용자의 Braze 구독 상태가 "가입됨"으로 표시되더라도 Meta가 플랫폼 수준에서 마케팅 메시지 전달을 차단합니다. 사용자의 환경설정은 전달 시점에서 존중됩니다.
+
+{% alert note %}
+Braze는 발송 시도가 이루어지고 Meta가 오류를 반환할 때까지 옵트아웃 신호를 수신하지 않으므로, Braze의 구독 수는 메시지가 시도될 때까지 WhatsApp 토글을 통해 옵트아웃한 사용자를 반영하지 않을 수 있습니다. 이는 해당 피드백 루프가 발생할 때까지 도달 범위 추정치가 약간 과대 평가될 수 있음을 의미합니다.
+{% endalert %}
+
 ### 일반 옵트아웃 키워드 {#general-opt-out-keywords}
 
 특정 단어를 메시지로 보내는 사용자가 향후 메시징을 옵트아웃할 수 있도록 Campaign 또는 Canvas를 설정할 수 있습니다. Canvas는 성공적인 옵트아웃을 확인하는 후속 메시지를 포함할 수 있으므로 특히 유용합니다.
@@ -228,4 +241,4 @@ STOP 메시지에는 이 방법을 사용할 필요가 없습니다. 확인 메�
 | `Is` | `STOP` | 대소문자에 관계없이 "stop"이라는 전체 단어 사용을 포착합니다. 예를 들어, "stop"은 포착하지만 "please stop"은 포착하지 않습니다. |
 | `Matches regex` | `STOP` | 정확한 대소문자의 "STOP" 사용을 포착합니다. 예를 들어, "STOP"과 "PLEASE STOP"은 포착하지만 "stop"은 포착하지 않습니다. |
 | `Matches regex` | `(?i)STOP(?-i)` | 대소문자에 관계없이 "STOP"의 모든 사용을 포착합니다. 예를 들어, "stop", "please stop", "never stop sending me messages"를 포착합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="정규식과 is 수정자의 차이점 이해" }
