@@ -192,7 +192,7 @@ There are several reasons why a user might not receive an email that you expecte
 - The message may be in their spam folder.
 
 {% alert tip %}
-A delivery event in Braze means the email was accepted by the mailbox provider's server. However, this does not guarantee that the message appears in the user's inbox. The MBP may route the message to spam or, in rare cases, silently prevent display of the message.
+A delivery event in Braze means the email was accepted by the mailbox provider's server. However, this does not guarantee that the message appears in the user's inbox. The mailbox provider may route the message to spam or, in rare cases, silently prevent display of the message.
 {% endalert %}
 
 Use the following tables to narrow down the cause.
