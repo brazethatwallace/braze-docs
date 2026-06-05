@@ -220,4 +220,4 @@ Rate limits reset on the clock hour, not on a rolling window. For example, if th
 
 ### What is the API Payload Limit for Braze APIs?
 
-Ensure 4MB payload limit and HTTP 413 are documented in API limits or user data endpoints.
+All Braze API endpoints have a 4 MB data payload limit. Requests larger than 4 MB fail with HTTP `413 Request Entity Too Large`. This limit is also documented on the [User data endpoints]({{site.baseurl}}/api/endpoints/user_data/) landing page.
