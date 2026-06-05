@@ -208,6 +208,10 @@ If you use Liquid in your email messages, be sure to:
 
 {% endalert %}
 
+### Switching between HTML and Classic editors
+
+When you switch between the HTML and Classic editors, Liquid snippets and Content Blocks can shift position in your message. Review your template after you switch editors. If you need more predictable layout control, use the drag-and-drop editor.
+
 ### Inserting pre-formatted variables
 
 You can insert pre-formatted variables with defaults through the **Add Personalization** modal located near any templated text field.
@@ -217,11 +221,3 @@ You can insert pre-formatted variables with defaults through the **Add Personali
 The modal will insert Liquid with your specified default value at the point where your cursor was. The insertion point is also specified by the preview box, which has the before and after text. If a block of text is highlighted, the highlighted text will be replaced.
 
 ![A GIF of the Add Personalization modal that shows the user inserting "fellow traveler" as a default value, and the modal replacing the highlighted text "name" in the composer with the Liquid snippet.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
-
-<!-- sf-kb-phase2-batch -->
-
-## Salesforce Knowledge updates
-
-### Liquid / Content Block changes position when switching from HTML > Classic Editor
-
-When you switch between the HTML and Classic editors, Liquid snippets and Content Blocks can shift position in your message. Consider using the drag-and-drop editor as an alternative. Braze is working on a consolidated editor experience.
