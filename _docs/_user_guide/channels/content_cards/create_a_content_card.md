@@ -331,20 +331,23 @@ If you want a card to seem like it's always available, you can create a recurrin
 
 <!-- sf-kb-phase2-batch -->
 
-## Salesforce Knowledge updates
+## Full sync versus partial sync
 
-### What is the Difference Between a Full Sync and a Partial Sync for Content Cards?
+Content Cards sync in two ways:
 
-Add Full Sync vs Partial Sync explanation to Content Cards developer docs. Include: Full sync every 7 days or on changeUser(); Partial sync on requestContentCardsRefresh() unless 7 days since last full sync; partial sync can return 0 cards but user still sees cached cards.
+- **Full sync** — runs every seven days and when you call `changeUser()`. Braze replaces the cached feed with the latest cards from the server.
+- **Partial sync** — runs when you call `requestContentCardsRefresh()` unless a full sync ran within the last seven days. A partial sync can return zero new cards while the user still sees previously cached cards.
 
-### Content Cards not Refreshing at openSession() (Web SDK)
+For Web integrations, call `subscribeToContentCardsUpdates()` before `openSession()` so cards refresh automatically at session start. See [Log analytics]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) for your platform.
 
-call subscribeToContentCardsUpdates() before openSession() for automatic sync at session start. Reference v4 upgrade guide.
+## Content Cards not refreshing at `openSession()` (Web SDK)
 
-### What is the Impact of Stopping Content Cards Campaigns?
+On Web, Content Cards refresh on session start only if you call `subscribeToContentCardsUpdates()` before `openSession()`. You can also call `requestContentCardsRefresh()` to refresh the feed manually at any time.
 
-when stopping a campaign with 'Remove card after next sync', card is removed; impression count may not match send count because removed cards cannot be impressed.
+## Impact of stopping Content Cards campaigns
 
-### Content Cards Pinning/Unpinning Behavior
+When you stop a campaign and select **Remove card after the next sync**, Braze removes the card from user feeds on the next refresh. Impression counts may be lower than send counts because users cannot impress cards that were removed before they viewed them.
 
-Add 'future sends only' clarification for pinning changes to Content Cards docs.
+## Pinning and unpinning behavior
+
+Changes to pinned card order apply to future sends only. Cards already delivered to a user's feed keep their previous order until the next eligible send or refresh updates the feed.
