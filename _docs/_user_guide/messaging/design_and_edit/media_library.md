@@ -61,8 +61,8 @@ Before using this feature, review [how your data is used and sent to OpenAI]({{s
 
 ### Generate An Image Using AI
 
-AI Image Generator is feature-flagged (dalle_assistant). If not visible, request from Support. Mention Media Library permission and OpenAI content policy for failed prompts.
+The AI image generator is controlled by the `dalle_assistant` feature flag. If you don't see it, contact Braze Support. You also need Media Library permission. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
 
 ### Is it possible to create vanity URLs for Media Library image assets, and if so, how?
 
-vanity URLs for assets not supported; custom URLs would break CDN. Supported: change image at existing URL for campaigns referencing that URL. Submit product feedback for vanity URL requests.
+Vanity URLs for Media Library assets aren't supported because custom URLs would break CDN delivery. You can replace an image at its existing URL when campaigns already reference that URL. Submit product feedback if you need vanity URL support.
