@@ -232,10 +232,10 @@ For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl
 
 {% endapi %}
 
-<!-- sf-kb-phase2-batch -->
+## Troubleshooting
 
-## Salesforce Knowledge updates
+### Viewing delivery failures for API-triggered campaigns
 
-### Can we see delivery failures from API campaigns or API triggered campaigns?
+The [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) endpoint returns aggregated daily stats (for example, `delivery_failed` for SMS or `errors` for webhooks). It does not return per-recipient failure reasons.
 
-Consider adding FAQ or API docs note: delivery failures from API campaigns are visible only in Message Activity Log, not via API response.
+For per-message send failures, bounces, and aborts from API-triggered or API campaigns, use the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) in the dashboard. You can also stream failure events through Currents or Snowflake Data Sharing where your workspace has those products enabled.
