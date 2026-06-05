@@ -246,7 +246,7 @@ AMPメールの場合、この属性はdata-universal="true"にする必要が�
 
 例：
 
-`````````html
+```html
 <a href=”https://www.example.com” universal="true">
 ```
 
@@ -263,7 +263,7 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 例：
 
-`````````html
+```html
 <a href=”https://www.example.com” data-msys-sublink="open-in-app">
 ```
 
@@ -277,7 +277,7 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 メールサービスプロバイダー（ESP）がSendGridの場合、次のようにHTMLコード`clicktracking=off`を使用します。
 
-`````````HTML
+```HTML
 <a clicktracking=off href="[INSERT https LINK HERE]">click here</a>
 ```
 
@@ -285,7 +285,7 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 メールサービスプロバイダー（ESP）がSparkPostの場合、次のようにHTMLコード`data-msys-clicktrack="0"`を使用します。
 
-`````````HTML
+```HTML
 <a data-msys-clicktrack="0" href="[INSERT https LINK HERE]">click here</a>
 ```
 
@@ -293,7 +293,7 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 メールサービスプロバイダー（ESP）がAmazon SESの場合、次のようにHTMLコード`ses:no-track`を使用します。
 
-`````````HTML
+```HTML
 <a ses:no-track href="[INSERT https LINK HERE]">click here</a>
 ```
 
@@ -356,7 +356,7 @@ AASAファイル（iOS）またはDigital Asset Linksファイル（Android）�
 
 アプリが開くことを許可されるドメインの定義が正しいことを確認します。
 
-- **iOS:** XcodeでアプリのAssociated Domainsを確認します（[ステップ1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)）。クリックトラッキングドメインがそのリストに含まれていることを確認します。
+- **iOS:** XcodeでアプリのAssociated Domainsを確認します（[ステップ1c]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)）。クリックトラッキングドメインがそのリストに含まれていることを確認します。
 - **Android:** アプリ情報ページを開きます（アプリアイコンを長押しして ⓘ をクリック）。アプリ情報メニュー内で**Open by default**を見つけてタップします。アプリが開くことを許可されているすべての検証済みリンクが表示される画面が表示されます。クリックトラッキングドメインがそのリストに含まれていることを確認します。
 
 #### トラッキングドメインが.well-knownファイルを提供できない場合 {#tracking-domain-cant-serve-well-known-files}

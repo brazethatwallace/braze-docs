@@ -25,11 +25,7 @@ search_tag: Partner
 | SessionM | SessionM Connect REST 엔드포인트 | 엔드포인트는 인스턴스의 SessionM URL에 따라 달라집니다. SessionM 기술 계정 매니저 또는 전달 팀에 문의하여 제공받으세요. |
 | SessionM | SessionM Connect REST 승인 문자열 | 인스턴스와 연결된 SessionM Connect 기본 승인 문자열입니다. 이 인증 문자열은 get_user_offers를 포함한 모든 연결 기반 호출에 사용할 수 있습니다. SessionM 기술 계정 매니저 또는 전달 팀에 문의하여 제공받으세요. |
 | SessionM | SessionM Connect REST 리테일러 ID | 인스턴스와 연결된 특정 고객에 대한 고유 GUID 식별자입니다. SessionM 기술 계정 매니저 또는 전달 팀에 문의하여 제공받으세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-{% alert note %}
-[이전 탐색]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/)을 사용하는 경우 **개발자 콘솔** > **API 설정**에서 API 키를 생성할 수 있습니다.
-{% endalert %}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## 활용 사례 {#use-cases}
 

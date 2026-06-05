@@ -149,6 +149,10 @@ Cet endpoint a une limite de débit de 20 requêtes par minute.
 {% elsif include.endpoint == "cdi job sync status" %}
 Cet endpoint a une limite de débit de 100 requêtes par minute.
 
+<!---/media_library/create, /media_library/replace_file--->
+{% elsif include.endpoint == "media_library" %}
+Cet endpoint a une limite de débit de 100 requêtes par heure, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits/).
+
 {% endif %}
 
 <!---Additional if statement for Messaging endpoints-->

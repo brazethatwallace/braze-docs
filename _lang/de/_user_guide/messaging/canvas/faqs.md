@@ -95,6 +95,10 @@ Um Sends zeitlich zu staffeln oder unterschiedliche Zeiten pro Pfad zu verwenden
 
 Für multivariate und A/B-Konzepte in Campaigns siehe [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
+### Was passiert, wenn ein:e Nutzer:in bei einem Canvas-Nachrichten-Schritt durch globales Frequency-Capping begrenzt wird? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+Er/sie erhält den Send für den begrenzten Kanal nicht, aber Nachrichten-Schritte leiten Nutzer:innen trotzdem weiter, wenn eine Nachricht aufgrund von globalem Frequency-Capping nicht gesendet wird. Für die schrittweisen Fortschrittsfälle siehe [Wie Nutzer:innen fortschreiten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance). Globales Frequency-Capping allein führt nicht dazu, dass Nutzer:innen ein Canvas verlassen; dieses Verhalten ist unabhängig von den **Zustellungsvalidierungen** eines Nachrichten-Schritts. Weitere Details finden Sie unter [Rate-Limiting und Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
 ### Warum sind die Sends niedriger als die geschätzte Zielgruppengröße? {#why-are-sends-lower-than-the-estimated-audience-size}
 
 Sends können aus vielen der gleichen Gründe niedriger sein als die **Geschätzte Zielgruppe** wie bei [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), einschließlich Frequency Caps, strikter Geräte- oder Browser-Filter, Wiederzulassungsfenster, Rate-Limiting und kanalspezifischer Ausschlüsse (zum Beispiel Push-Erreichbarkeit oder E-Mail-Abo- und Zustellbarkeitsprüfungen).

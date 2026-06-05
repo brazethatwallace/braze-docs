@@ -26,13 +26,7 @@ Para obtener los mejores resultados, consulta las siguientes directrices sobre t
 (Android) Notificación expandida | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
 
-{% alert note %}
-Los GIF no son compatibles con las notificaciones push de Android. Esta es una limitación de la plataforma Android, no de Braze.
-
-Para los mensajes dentro de la aplicación y Content Cards en Android, puedes admitir GIF integrando una biblioteca de imágenes de terceros, como [Glide](https://bumptech.github.io/glide/) o [Fresco](https://frescolib.org/).
-
-En iOS, las notificaciones push admiten GIF. Los mensajes dentro de la aplicación y Content Cards requieren un proveedor de imágenes GIF personalizado.
-{% endalert %}
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 {% endtab %}
 {% tab Texto %}

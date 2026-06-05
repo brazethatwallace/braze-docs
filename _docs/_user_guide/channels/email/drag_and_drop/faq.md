@@ -52,6 +52,12 @@ If you need a reusable HTML template instead, select **Download file** while edi
 
 For more information about where templates live, see [Templates and Media]({{site.baseurl}}/user_guide/messaging/templates/).
 
+### Why can't I change a button's fill color in the drag-and-drop editor?
+
+Page-level styles can override message-level styles. If updating **Fill** on a button or block does nothing, try the following:
+1. Open [email global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) and select **Reset to default** on the conflicting page style so the message-level color can apply.
+2. Set the color again on the block.
+
 ### Can I add email attachments to the drag-and-drop editor?
 
 Yes. You can add attachments to your email message by going to **Sending Settings** > **Advanced**.

@@ -18,13 +18,13 @@ No special coordination with Braze is required for **BIMI** (Brand Indicators fo
 
 ## Methods of authentication
 
-### Sender Policy Framework (SPF)
+### Sender Policy Framework (SPF) {#spf}
 
 This method confirms that your Braze email-sending IP address is authorized to send mail on your behalf. SPF is your basic authentication and is accomplished by publishing the text records in DNS settings. The receiving server will check the DNS records and determine whether they are authentic. This method is designed to validate the email sender.
 
 Braze sets up your SPF record when we configure your IPs and domains. Beyond adding the DNS records we provide, you don't need to take further action.
 
-### Domain Keys Identified Mail (DKIM)
+### Domain Keys Identified Mail (DKIM) {#dkim}
 
 This method confirms that your Braze email-sending domain is authorized to send mail on your behalf. This method is designed to validate the sender's authenticity and validates the integrity of the message is preserved. It also uses individual cryptographic digital signatures so ISPs can be sure the mail they're delivering is the same as the mail you sent.
 
@@ -32,7 +32,7 @@ Braze signs the mail with your secret private key. The ISPs verify the signature
 
 Braze sets up your DKIM record when we configure your IPs and domains. Beyond adding the DNS records we provide, you don't need to take further action.
 
-### Domain-based Message Authentication, Reporting, and Conformance (DMARC)
+### Domain-based Message Authentication, Reporting, and Conformance (DMARC) {#dmarc}
 
 [Domain-based Message Authentication, Reporting & Conformance (DMARC)](https://dmarc.org/) is an email authentication protocol for email senders to prove the legitimacy of their mail, which enables mailbox receiver confidence and encourages mail acceptance. DMARC allows email senders to specify how to handle emails that were not authenticated using Sender Policy Framework (SPF) or Domain Keys Identified Mail (DKIM). This is achieved by verifying that both SPF and DKIM checks are passed. 
 

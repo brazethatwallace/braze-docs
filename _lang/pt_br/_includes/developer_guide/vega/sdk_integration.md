@@ -1,10 +1,10 @@
-## Sobre o SDK Braze Vega
+## Sobre o SDK Braze Vega {#about-the-braze-vega-sdk}
 
 O SDK Braze Vega permite coletar análise de dados e exibir mensagens ricas dentro do app para seus usuários. A maioria dos métodos no SDK Braze Vega são assíncronos e retornam promessas que devem ser aguardadas ou resolvidas.
 
-## Integrando o SDK Braze Vega
+## Integrando o SDK Braze Vega {#integrating-the-braze-vega-sdk}
 
-### Etapa 1: Instalar a biblioteca do Braze
+### Etapa 1: Instalar a biblioteca da Braze {#step-1-install-the-braze-library}
 
 Instale o SDK Braze Vega usando seu gerenciador de pacotes preferido.
 
@@ -38,12 +38,12 @@ import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 {% endtab %}
 {% endtabs %}
 
-### Etapa 2: Inicializar o SDK
+### Etapa 2: Inicializar o SDK {#step-2-initialize-the-sdk}
 
-Depois que o SDK Braze Vega for adicionado ao seu projeto, inicialize a biblioteca com a chave de API e a [URL do endpoint de SDK]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints) encontrada em **Configurações** > **Configurações do App** dentro do seu dashboard Braze.
+Depois que o SDK Braze Vega for adicionado ao seu projeto, inicialize a biblioteca com a chave de API e a [URL do endpoint de SDK]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/) encontrada em **Configurações** > **Configurações do app** dentro do seu dashboard da Braze.
 
 {% alert important %}
-Você deve aguardar ou resolver a promessa `changeUser` antes de chamar outros métodos do Braze, ou eventos e atributos podem ser definidos no usuário incorreto.
+Você deve aguardar ou resolver a promessa `changeUser` antes de chamar outros métodos da Braze, ou eventos e atributos podem ser definidos no usuário incorreto.
 {% endalert %}
 
 ```javascript
@@ -69,19 +69,19 @@ const App = () => {
 
       // Change user
       await changeUser("user-id-123");
-      
+
       // Start a session
       await openSession();
-      
+
       // Log custom events and set user attributes
       logCustomEvent("visited-page", { pageName: "home" });
       setCustomUserAttribute("my-attribute", "my-attribute-value");
       setUserCountry("USA");
     };
-    
+
     initBraze();
   }, []);
-  
+
   return (
     // Your app components
   );
@@ -92,13 +92,13 @@ const App = () => {
 Usuários anônimos podem ser contados para o seu [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data/#monthly-active-users). Como resultado, talvez seja necessário carregar ou inicializar condicionalmente o SDK para excluir esses usuários da sua contagem de MAU.
 {% endalert %}
 
-## Configurações opcionais
+## Configurações opcionais {#optional-configurations}
 
-### Registro
+### Registro {#logging}
 
 Você pode ativar o registro do SDK para ajudar na depuração e solução de problemas. Existem várias maneiras de ativar o registro.
 
-#### Ativar registro durante a inicialização
+#### Ativar registro durante a inicialização {#enable-logging-during-initialization}
 
 Passe `enableLogging: true` para `initialize()` para registrar mensagens de depuração no console:
 
@@ -112,7 +112,7 @@ initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
 Registros básicos são visíveis para todos os usuários, então considere desativar o registro antes de liberar seu código para produção.
 {% endalert %}
 
-#### Ativar registro após a inicialização
+#### Ativar registro após a inicialização {#enable-logging-after-initialization}
 
 Use `toggleLogging()` para ativar ou desativar o registro do SDK após a inicialização:
 
@@ -123,7 +123,7 @@ import { toggleLogging } from "@braze/vega-sdk";
 toggleLogging();
 ```
 
-#### Registro personalizado
+#### Registro personalizado {#custom-logging}
 
 Use `setLogger()` para fornecer uma função de logger personalizada para mais controle sobre como os registros do SDK são tratados:
 
@@ -136,21 +136,21 @@ setLogger((message) => {
 });
 ```
 
-### Opções de configuração
+### Opções de configuração {#configuration-options}
 
 Você pode passar opções de configuração adicionais para `initialize()` para personalizar o comportamento do SDK:
 
 ```javascript
 await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
-  sessionTimeoutInSeconds: 60,        // Configure session timeout (default is 30 seconds)
+  sessionTimeoutInSeconds: 60,        // Configure session timeout (default is 1800 seconds)
   appVersionNumber: "1.2.3.4",        // Set your app version
   enableLogging: true,                 // Enable SDK logging
 });
 ```
 
-## Fazendo upgrade do SDK
+## Fazendo upgrade do SDK {#upgrading-the-sdk}
 
-Quando você referencia o SDK Braze Vega do NPM ou Yarn, você pode fazer upgrade para a versão mais recente atualizando sua dependência de pacote:
+Quando você referencia o SDK Braze Vega do NPM ou Yarn, pode fazer upgrade para a versão mais recente atualizando sua dependência de pacote:
 
 ```bash
 npm update @braze/vega-sdk
@@ -158,14 +158,12 @@ npm update @braze/vega-sdk
 yarn upgrade @braze/vega-sdk
 ```
 
-## Testando sua integração
+## Testando sua integração {#testing-your-integration}
 
 Para verificar se sua integração de SDK está funcionando corretamente:
 
 1. Inicialize o SDK com `enableLogging: true` para ver mensagens de depuração no console
-2. Certifique-se de que você `await changeUser()` antes de chamar outros métodos do SDK
+2. Certifique-se de aguardar `await changeUser()` antes de chamar outros métodos do SDK
 3. Chame `await openSession()` para iniciar uma sessão
-4. Verifique seu dashboard Braze em **Visão Geral** para verificar se os dados da sessão estão sendo registrados
+4. Verifique seu dashboard da Braze em **Visão geral** para confirmar que os dados da sessão estão sendo registrados
 5. Teste o registro de um evento personalizado e verifique se ele aparece no seu dashboard
-
-

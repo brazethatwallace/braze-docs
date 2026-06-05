@@ -201,7 +201,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## Détails de la réponse {#response-details}
 
-Les réponses des endpoints d'envoi de messages incluent le `dispatch_id` du message, qui sert de référence pour le suivi de l'envoi. Le `dispatch_id` est l'identifiant de l'envoi, un ID unique pour chaque transmission effectuée depuis Braze. Lorsque vous utilisez cet endpoint, vous recevez un seul `dispatch_id` pour l'ensemble du lot d'utilisateurs. Pour en savoir plus sur le `dispatch_id`, consultez notre documentation sur le [comportement du Dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Les réponses des endpoints d'envoi de messages incluent le `dispatch_id` du message, qui sert de référence pour le suivi de l'envoi. Le `dispatch_id` est l'identifiant de l'envoi, un ID unique pour chaque transmission effectuée depuis Braze. Lorsque vous utilisez cet endpoint, vous recevez un seul `dispatch_id` pour l'ensemble du lot d'utilisateurs. Pour en savoir plus sur le `dispatch_id`, consultez notre documentation sur le [comportement du Dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 Si votre requête rencontre une erreur fatale, consultez la section [Erreurs et réponses]({{site.baseurl}}/api/errors/#fatal-errors) pour connaître le code d'erreur et sa description.
 

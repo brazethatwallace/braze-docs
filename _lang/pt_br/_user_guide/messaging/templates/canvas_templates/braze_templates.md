@@ -9,7 +9,7 @@ page_type: reference
 
 # Usar modelos de Canvas da Braze {#use-braze-canvas-templates}
 
-> A Braze tem uma seleção de modelos de Canvas disponíveis para você consultar e usar como práticas recomendadas para casos de uso comuns. Embora esses modelos não possam ser editados, você pode visualizá-los em **Modelos** > **Modelos da Braze** ou usá-los nos seus Canvas.
+> A Braze tem uma seleção de modelos de Canvas disponíveis para você consultar e usar como práticas recomendadas para casos de uso comuns. Embora esses modelos não possam ser editados, você pode visualizá-los em **Conteúdo** > **Canvas** > **Modelos da Braze** ou usá-los nos seus Canvas.
 
 ![Modelos da Braze na seção de modelos de Canvas com treze modelos disponíveis.]({% image_buster /assets/img/braze_canvas_templates.png %})
 
@@ -44,7 +44,7 @@ Impulsione compras notificando seus usuários quando um item está de volta ao e
 {% endtab %}
 {% tab Feature Adoption %}
 
-### Adoção de funcionalidade {#feature-adoption}
+### Adoção de funcionalidades {#feature-adoption}
 
 Entregue mensagens personalizadas e oportunas para destacar os benefícios e dicas de uso. Considere o seguinte ao usar este modelo:
 

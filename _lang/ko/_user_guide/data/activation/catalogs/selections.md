@@ -8,13 +8,9 @@ description: "이 참조 문서에서는 카탈로그를 사용하여 Braze Camp
 
 # 선택 {#selections}
 
-> 이 페이지에서는 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)를 사용하여 선택 항목을 생성하고 사용하는 방법을 다룹니다.
+> 선택 항목은 Campaign에서 각 사용자에게 메시지를 개인화하는 데 사용할 수 있는 데이터 그룹입니다. 선택을 사용하면 본질적으로 카탈로그의 특정 열을 기반으로 커스텀 필터를 설정하는 것입니다. 여기에는 브랜드, 크기, 위치, 추가된 날짜 등에 대한 필터가 포함될 수 있습니다. 항목이 먼저 충족해야 하는 기준을 정의할 수 있으므로 사용자에게 표시하는 콘텐츠를 제어할 수 있습니다.<br><br>이 페이지에서는 카탈로그를 사용하여 선택 항목을 생성하고 사용하는 방법을 다룹니다.
 
-## 작동 방식 {#how-it-works}
-
-선택 항목은 Campaign에서 각 사용자에게 메시지를 개인화하는 데 사용할 수 있는 데이터 그룹입니다. 선택을 사용하면 본질적으로 카탈로그의 특정 열을 기반으로 커스텀 필터를 설정하는 것입니다. 여기에는 브랜드, 크기, 위치, 추가된 날짜 등에 대한 필터가 포함될 수 있습니다. 항목이 먼저 충족해야 하는 기준을 정의할 수 있으므로 사용자에게 표시하는 콘텐츠를 제어할 수 있습니다.
-
-카탈로그를 생성한 후, Braze Campaigns이나 추천에 선택 항목을 통합하여 카탈로그 데이터를 추가로 참조할 수 있습니다.
+[카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)를 생성한 후, Braze Campaigns이나 추천에 선택 항목을 통합하여 카탈로그 데이터를 추가로 참조할 수 있습니다.
 
 ![예제 카탈로그의 선택 섹션입니다.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -22,23 +18,35 @@ description: "이 참조 문서에서는 카탈로그를 사용하여 Braze Camp
 
 - 카탈로그당 최대 30개의 선택 항목을 만들 수 있습니다.
 - 선택당 최대 10개의 필터를 추가할 수 있습니다.
-- 선택은 Braze 카탈로그 데이터에서 추천을 세분화하는 데 유용합니다. 영감이 필요하다면 [아이템 추천 소개]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)에서 활용 사례를 확인해 보세요.
+- 선택은 Braze 카탈로그 데이터에서 추천을 세분화하는 데 유용합니다. 영감이 필요하다면 [아이템 추천 소개]({{site.baseurl}}/user_guide/brazeai/recommendations/)에서 활용 사례를 확인해 보세요.
 
-## 지원되는 연산자 {#supported-operators}
+## 지리 위치 필터 {#geolocation-filters}
 
-선택 필터를 생성할 때 사용 가능한 연산자는 선택한 필드 유형에 따라 달라집니다.
+카탈로그에 [지리 위치 필드 유형]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#supported-data-types)이 포함되어 있는 경우, 선택에서 지리 위치 기반 필터를 사용하여 지리적 지점과의 근접성을 기반으로 카탈로그 항목을 표시할 수 있습니다.
 
-| 필드 유형 | 사용 가능한 연산자 |
-| --- | --- |
-| 문자열 | `equals`, `does not equal`, `is any of`, `is none of` |
-| 숫자 | `equals`, `does not equal`, `greater than`, `less than` |
-| 부울 | `is` |
-| 시간 | `before`, `after` |
-| 배열 | `includes value`, `does not include value` |
-| 지리 | `geo within`, `geo outside` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported operators" }
+두 가지 지리 위치 연산자를 사용할 수 있습니다:
 
-`is any of` 및 `is none of` 연산자는 문자열 필드에 사용할 수 있으며 각각 최대 10개의 값을 지원합니다.
+| 연산자 | 설명 |
+| -------- | ----------- |
+| `geo within` | 지리 위치 필드가 중심점의 지정된 반경 내에 있는 항목을 반환합니다. |
+| `geo outside` | 지리 위치 필드가 중심점의 지정된 반경 밖에 있는 항목을 반환합니다. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+지리 위치 필터가 적용되면 결과는 거리순으로 정렬되며 가장 가까운 항목이 먼저 표시됩니다.
+
+### Liquid로 중심점 설정 {#setting-the-center-point-with-liquid}
+
+Liquid를 사용하여 중심점을 동적으로 설정할 수 있습니다. 예를 들어, 각 사용자의 가장 최근 위치를 기준으로 항목을 필터링하려면 {% raw %}`{{${most_recent_location}}}`{% endraw %} 속성을 필터 값으로 사용합니다:
+
+{% raw %}
+```
+{{${most_recent_location}}}
+```
+{% endraw %}
+
+### 활용 사례: 가장 가까운 매장 위치 표시 {#use-case-show-the-nearest-store-locations}
+
+카탈로그에 지리 위치 유형의 `store_location` 필드가 포함되어 있다고 가정합니다. 각 사용자의 가장 최근 위치에서 설정된 반경 내의 매장 위치를 반환하는 `geo within` 연산자를 사용하는 선택을 만들 수 있습니다. 필터 값을 {% raw %}`{{${most_recent_location}}}`{% endraw %}로 설정하면 중심점이 사용자별로 업데이트됩니다. 결과는 거리순으로 정렬되므로 반환되는 첫 번째 항목은 항상 가장 가까운 매장입니다.
 
 ## 선택 만들기 {#creating-a-selection}
 
@@ -48,7 +56,7 @@ description: "이 참조 문서에서는 카탈로그를 사용하여 Braze Camp
 2. **Selection** 탭을 선택하고 **Create Selection**을 클릭합니다.
 3. 선택 항목에 이름과 선택적 설명을 지정합니다.
 4. **Filter Field**에서 필터링할 카탈로그 열을 선택합니다. 1,000자 이상의 문자열 필드는 필터에 선택할 수 없습니다.
-5. 관련 연산자와 속성을 선택하여 필터 기준 정의를 완료합니다. 필드 유형별 전체 연산자 목록은 [지원되는 연산자](#supported-operators)를 참조하세요.
+5. 관련 연산자(예: "equals" 또는 "does not equal")와 속성을 선택하여 필터 기준 정의를 완료합니다.
 6. **Sort type** 섹션에서 결과가 정렬되는 방식을 결정합니다. 기본값으로 결과는 특정한 순서 없이 반환됩니다. 특정 필드로 정렬을 지정하려면 **Randomize Sort Order**를 끄고 **Sort Field** 및 **Sort Order**(오름차순 또는 내림차순)를 지정합니다.
 7. **Results limit** 섹션에 결과 수를 입력합니다(최대 50개).
 8. **Create Selection**을 선택합니다.
@@ -69,7 +77,7 @@ description: "이 참조 문서에서는 카탈로그를 사용하여 Braze Camp
 
 ## 메시징에서 선택 사용 {#using-selections-in-messaging}
 
-선택을 만든 후, Liquid를 사용하여 해당 카탈로그에서 필터링된 항목을 삽입하여 메시지를 개인화합니다. 메시지 작성기에 있는 개인화 창에서 Braze가 Liquid를 자동으로 생성하도록 할 수 있습니다.
+선택을 만든 후, Liquid를 사용하여 해당 카탈로그에서 필터링된 항목을 삽입하여 메시지를 개인화합니다. 메시지 작성기에 있는 개인화 창에서 Braze가 Liquid를 자동으로 생성하도록 할 수 있습니다:
 
 1. 개인화를 지원하는 메시지 작성기에서 <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i>를 선택하여 개인화 창을 엽니다.
 2. **Personalization Type**에서 **Catalog Items**를 선택합니다.

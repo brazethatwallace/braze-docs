@@ -24,7 +24,7 @@ Es gibt zwei Abo-Status für WhatsApp-Nutzer:innen: `subscribed` und `unsubscrib
 | --- | --- |
 | Abonniert | Nutzer:in hat ausdrücklich bestätigt, dass sie WhatsApp-Nachrichten von einem bestimmten Unternehmen erhalten möchte. Nutzer:innen können abonniert werden, indem ihr Abo-Status über die Braze-Abo-API aktualisiert wird oder indem eine Opt-in-Strategie gemäß den WhatsApp-Richtlinien implementiert wird. |
 | Abgemeldet | Nutzer:in hat entweder nicht ausdrücklich dem Opt-in zugestimmt oder der Opt-in-Status wurde ausdrücklich entfernt. <br><br> Nutzer:innen, die sich von einer WhatsApp-Abo-Gruppe abgemeldet haben, erhalten keine WhatsApp-Nachrichten mehr von Telefonnummern, die zu dieser Abo-Gruppe gehören. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp subscription states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp-Abo-Status" }
 
 ### WhatsApp-Abo-Gruppen von Nutzer:innen festlegen {#setting-users-whatsapp-subscription-groups}
 
@@ -37,6 +37,18 @@ Es gibt zwei Abo-Status für WhatsApp-Nutzer:innen: `subscribed` und `unsubscrib
 - **Nutzerprofil:** Auf einzelne Nutzerprofile kann über das Braze-Dashboard unter **Audience** > **Nutzer:innen suchen** zugegriffen werden. Hier können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie unter dem Tab **Engagement** die WhatsApp-Abo-Gruppe und den Status der Nutzer:innen einsehen.
 
 - **REST API:** Die Abo-Gruppe einzelner Nutzerprofile kann über den [Endpunkt „Abo-Gruppen von Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) oder den [Endpunkt „Abo-Gruppenstatus der Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) mithilfe der Braze REST API eingesehen werden.
+
+## Abo-Gruppen archivieren {#archive-subscription-groups}
+
+Wenn Sie eine WhatsApp-Abo-Gruppe nicht mehr verwenden müssen, können Sie sie archivieren, um sie als inaktiv zu markieren.
+
+Das Archivieren einer Abo-Gruppe markiert sie als inaktiv, löscht sie jedoch nicht aus Ihrem Workspace. Wenn Sie eine WhatsApp-Telefonnummer oder Abo-Gruppe vollständig entfernen möchten, müssen Sie die Abo-Gruppe zunächst in der Abo-Gruppen-Verwaltung archivieren, bevor Sie die Löschung beim Braze-Support beantragen.
+
+So archivieren Sie eine Abo-Gruppe:
+
+1. Navigieren Sie zu **Audience** > **Subscription Group Management**.
+2. Suchen Sie die WhatsApp-Abo-Gruppe, die Sie archivieren möchten.
+3. Bewegen Sie den Mauszeiger über den Status der Abo-Gruppe und wählen Sie <i class="fa-solid fa-box-archive"></i> **Archivieren**.
 
 ## WhatsApp-Opt-in- und Opt-out-Prozess {#whatsapp-opt-in-and-opt-out-process}
 

@@ -448,7 +448,9 @@ If your goal is to create a segment without updating profile data, upload a CSV 
 
 If your upload completed with errors, there may be a malformed row in your CSV file. 
 
-To properly import data, there must be a header row. Each row must have the same number of cells as the header row. Rows with a length of more or fewer values than the header row will be excluded from the import. Commas in a value will be interpreted as a separator and can lead to this error. Additionally, all data must be UTF-8 encoded.
+To properly import data, there must be a header row. Each row must have the same number of cells as the header row. Rows with a length of more or fewer values than the header row will be excluded from the import. Commas in a value will be interpreted as a separator and can lead to this error. 
+
+Additionally, all data must be UTF-8 encoded. If the file is saved with a legacy encoding (for example, some Excel defaults), special characters and URLs in cells can be corrupted and may appear as question marks (`?`) in Braze or in sent messages.
 
 If your CSV file has blank rows and imports fewer rows than the total lines in the CSV file, this may not indicate a problem with the import since the blank rows wouldn't need to be imported. Check the number of lines that were correctly imported and make sure it matches the number of users you're attempting to import.
 

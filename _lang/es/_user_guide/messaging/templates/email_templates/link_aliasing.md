@@ -69,10 +69,6 @@ Para ver todos tus alias de enlace rastreados, haz lo siguiente:
 1. Ve a **Settings** > **Email Preferences** en **Workspace Settings**.
 2. Selecciona la pestaña **Link Aliasing Settings**.
 
-{% alert important %}
-Si estás usando la [navegación anterior]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), esta configuración se encuentra en **Manage Settings**.
-{% endalert %}
-
 Aquí puedes ordenar, buscar y desactivar el seguimiento de los alias de enlace.
 
 ![Página de alias de enlace rastreados que muestra alias de enlace activos e inactivos asociados con varias campañas.]({% image_buster /assets/img/tracked_aliases.png %})
@@ -210,7 +206,7 @@ Si exportas tus datos de interacción con Currents, un evento de clic de correo 
 ```
 
 {% alert update %}
-El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que pueden ser planificados) como eventos desencadenados, incluso cuando están "planificados". Obtén más información sobre el [comportamiento de `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) en Canvas y Campaigns.
+El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que pueden ser planificados) como eventos desencadenados, incluso cuando están "planificados". Obtén más información sobre el [comportamiento de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) en Canvas y Campaigns.
 
 _Actualización registrada en agosto de 2019._
 {% endalert %}
@@ -339,3 +335,21 @@ Alternativamente, puedes capturar la URL en una variable:
 <a href="{{ url }}?">Go to account</a>
 ```
 {% endraw %}
+
+## Solución de problemas {#troubleshooting}
+
+### Destinos que no aceptan el parámetro `lid` {#destinations-that-dont-accept-the-lid-parameter}
+
+Cuando envías un mensaje de prueba desde el editor de correo electrónico, Braze añade {% raw %}`lid={{placeholder}}`{% endraw %} a tus enlaces (el marcador de posición se convierte en un valor único en el momento del envío). Si el sitio de destino o la API no tolera parámetros de consulta adicionales, el enlace puede funcionar en el editor, pero fallar cuando se abre desde el correo electrónico.
+
+Sin el valor `lid`, Braze no trata la URL como enlace con alias para el seguimiento y la segmentación. Recomendamos actualizar tu backend o sitio para que ignore el parámetro de consulta `lid` cuando esté presente. Esto preserva el aliasing de enlaces, los informes y los casos de uso de segmentación descritos en este artículo.
+
+Alternativamente, puedes desactivar el aliasing de enlaces en el dashboard mientras planificas un cambio en el backend. Ve a **Settings** > **Email Preferences** > **Link Aliasing Settings**.
+
+Si no puedes cambiar tus sistemas de destino, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/) para desactivar el aliasing de enlaces en tu espacio de trabajo. Ten en cuenta las siguientes consideraciones si el aliasing de enlaces se desactiva para tu espacio de trabajo:
+
+- Los nuevos mensajes de correo electrónico y Content Blocks normalmente no recibirán nuevo marcado de alias de enlace (como el parámetro de consulta `lid`).
+- Los mensajes existentes que fueron creados mientras el aliasing de enlaces estaba activado pueden seguir conteniendo marcado de alias de enlace en el HTML. Es posible que necesites eliminar manualmente los parámetros `lid` sobrantes donde ya no los desees.
+- Si editas una Campaign existente, un paso de correo electrónico de Canvas o un Content Block, es posible que necesites añadir plantillas de enlace nuevamente para que los enlaces con plantilla se muestren correctamente.
+- Los informes de clics para envíos que se realizaron mientras el aliasing de enlaces estaba activado pueden no coincidir de forma limpia con los informes después de que la característica se desactive.
+- Los segmentos que usan filtros basados en alias de enlace (por ejemplo, filtros de **Hizo clic en alias**) pueden dejar de devolver las audiencias que esperas.

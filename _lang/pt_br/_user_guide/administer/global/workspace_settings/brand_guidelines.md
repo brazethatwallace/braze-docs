@@ -10,7 +10,7 @@ description: "Este artigo de referência descreve como criar, gerenciar e usar d
 
 > Adapte o estilo da sua cópia gerada por IA para que corresponda à voz, ao tom e à personalidade da sua marca com diretrizes personalizadas da marca.
 
-Você pode criar e gerenciar as diretrizes da marca acessando **Configurações** > **Diretrizes da marca**. Você também pode criá-las no [Assistente de Copywriting de IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/).
+Você pode criar e gerenciar as diretrizes da marca acessando **Conteúdo** > **Diretrizes da marca**. Você também pode criá-las no [Assistente de Copywriting de IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/).
 
 ## Criação de diretrizes da marca {#creating-brand-guidelines}
 
@@ -30,7 +30,7 @@ Para **Personalidade da marca**, pense no que torna sua marca única. Inclua car
 | Diferenciação            | Qualidades únicas que diferenciam sua marca dos concorrentes.                        | Nos destacamos por oferecer um atendimento ao cliente personalizado que vai além do esperado. |
 | Voz da marca             | O tom e o estilo de comunicação que sua marca utiliza.                                | Nossa voz é casual, mas informativa, garantindo clareza sem ser formal demais. |
 | Arquétipo da marca       | O arquétipo que representa a persona da sua marca (O Herói, O Criador, e assim por diante). | Incorporamos o arquétipo do "Explorador", sempre buscando novos desafios e aventuras. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2: Descreva a personalidade da sua marca" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Describe your brand personality" }
 
 ### Etapa 3: Defina a linguagem que deve ser evitada (opcional) {#step-3-define-language-that-should-be-avoided-optional}
 
