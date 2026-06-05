@@ -275,6 +275,7 @@ If you encounter a "Request Timed Out" error while editing a Canvas and need to 
 - **Browser and version:** The browser you're using (for example, Chrome 120, Safari 17) and whether you've tried reproducing the error in a different browser.
 - **Steps to reproduce:** A clear description of the actions that trigger the error, including any specific Canvas steps or configurations involved.
 - **Network logs (optional):** Open your browser developer tools (**Network** tab), reproduce the error, and export the network log as an HTTP Archive (HAR) log file. This helps the support team identify which API call is timing out.
+
 ## Canvas delivery and troubleshooting
 
 ### Are orphaned users eligible to receive Canvas messages?
