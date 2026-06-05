@@ -111,4 +111,4 @@ search_rank: 5
 ## 次のステップ {#next-steps}
 
 - [通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)で、請求関連のイベントや使用量のしきい値に関するアラートを設定します。
-- [メッセージ使用量ダッシュボード]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/)で、SMS、WhatsApp、RCSのクレジット消費量を監視します。
+- [クレジット使用量ダッシュボード]({{site.baseurl}}/credits_usage_dashboard/)で、メッセージクレジットの消費量を監視します。

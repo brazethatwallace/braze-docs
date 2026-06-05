@@ -61,6 +61,10 @@ Sie können einem angepassten Event nach der Erstellung Tags hinzufügen, wenn S
 
 Um die Liste der angepassten Events als CSV-Datei zu exportieren, wählen Sie oben auf der Seite **Alle exportieren**. Die CSV-Datei wird generiert und ein Download-Link wird Ihnen per E-Mail zugesendet.
 
+{% alert note %}
+Es gibt keine feste Dashboard-Obergrenze für die Anzahl unterschiedlicher **angepasster Events** oder **angepasster Attribute**, die Sie in einem Profil definieren oder speichern können. Die praktischen Grenzen hängen von der Datenstruktur, dem Aufnahmevolumen und der Workspace-Performance ab. Wenn Sie einen sehr großen Katalog von Events oder Attributen tracken möchten, arbeiten Sie mit Ihrem Braze-Kontoteam an der Modellierung und Datenhygiene (z. B. [Blocklisting]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) ungenutzter Daten).
+{% endalert %}
+
 ## Nutzungsberichte anzeigen {#viewing-usage-reports}
 
 Der Nutzungsbericht listet alle Canvases, Campaigns und Segmente auf, die ein bestimmtes angepasstes Event verwenden. Diese Liste enthält keine Liquid-Verwendungen.

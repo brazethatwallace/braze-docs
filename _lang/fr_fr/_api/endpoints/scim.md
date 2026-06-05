@@ -21,7 +21,7 @@ guide_featured_list:
     link: /docs/get_see_user_account_information/
     image: /assets/img/braze_icons/eye.svg
   - name: "GET : Effectuer une recherche par e-mail d'un compte utilisateur de tableau de bord existant"
-    link: /docs/get_search_existing_dashboard_user/
+    link: /docs/api/endpoints/scim/get_search_existing_dashboard_user/
     image: /assets/img/braze_icons/eye.svg
   - name: "PUT : Mettre à jour un compte utilisateur du tableau de bord"
     link: /docs/post_update_existing_user_account/
