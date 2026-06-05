@@ -179,6 +179,7 @@ If you're currently using a `.p12` or `.pem` certificate, migrate to a `.p8` key
 | `.p8` authentication key | Does not expire | No green status indicator (this is expected) |
 | `.p12` push certificate | Expires yearly | Green indicator when the certificate is valid |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8 keys versus .p12 certificates" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8 keys versus .p12 certificates" }
 
 When you replace a `.p12` certificate with a `.p8` key (or upload a new credential), push delivery can pause briefly while Braze processes the change. Plan updates during a maintenance window when possible.
 
