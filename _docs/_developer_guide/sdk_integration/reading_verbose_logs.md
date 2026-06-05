@@ -527,18 +527,16 @@ In verbose log payloads, Braze uses abbreviated event names. Here's a reference:
 | `lr` | Location recorded |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Common event abbreviations" }
 
-<!-- sf-kb-phase2-batch -->
-
-## Salesforce Knowledge updates
+## Troubleshooting
 
 ### When might a user have 0 sessions recorded against their profile?
 
-A user profile can show 0 sessions when you import the user through the REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) or CSV import without **First session** or **Last session** fields. Sessions are recorded when users interact with your app through the SDK. For SDK session behavior, see [Session tracking]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/).
+A user profile can show 0 sessions when you import the user through the REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) or CSV import without **First session** or **Last session** fields. Sessions are recorded when users interact with your app through the SDK. For more detail, see [User profile has 0 sessions]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#user-profile-has-0-sessions).
 
-### User Data Discrepancies when performing tasks via SDK/REST API simultaneously or in close succession.
+### User data discrepancies when using the SDK and REST API together
 
-When you use the SDK and REST API at the same time, race conditions can cause data discrepancies. After you call `changeUser()`, flush the SDK queue before making critical REST API calls, avoid batching time-sensitive updates, and consider adding a short delay between SDK and API requests.
+When you use the SDK and REST API at the same time, race conditions can cause data discrepancies. After you call `changeUser()`, allow the SDK to flush pending data before making critical REST API calls, avoid batching time-sensitive updates, and consider adding a short delay between SDK and API requests. For `changeUser()` behavior, see [How changeUser() works]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#how-changeuser-works).
 
-### Data Not Getting to Braze
+### Data not reaching Braze
 
-If data isn't reaching Braze, check API connectivity troubleshooting in the docs. Confirm your firewall allows Braze traffic (including the [Fastly IP list]({{site.baseurl}}/user_guide/message_orchestration/channels/email/email_setup/ip_warming/)), run an MTR trace, and use Fastly Debug if needed.
+If data isn't reaching Braze, confirm your firewall allows outbound traffic to Braze API endpoints and CDN providers. Run an MTR test and use [Fastly Debug](http://www.fastly-debug.com/) while the issue occurs. For allowlisting and connectivity troubleshooting, see [API network connectivity issues]({{site.baseurl}}/api/network_connectivity_issues/).
