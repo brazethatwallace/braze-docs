@@ -321,6 +321,10 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は
             <td class="no-split"><i>Total Clicks</i>は、同じユーザーが複数回クリックしたかどうかにかかわらず、配信されたメッセージ内でクリックしたユーザーの総数（および割合）です。</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i>は、ユーザーがバナーを閉じた合計回数です。閉じる動作が有効になっているバナーでのみ利用可能です。</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} 各ユーザーは1回のみカウントされます。</td>
         </tr>

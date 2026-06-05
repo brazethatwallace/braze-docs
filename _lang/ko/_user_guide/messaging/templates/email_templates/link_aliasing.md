@@ -92,7 +92,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-----------------------|----------------------------------------|
 | `https://www.braze.com` | `https://www.braze.com?lid=slfdldtqdhdk` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Permalink" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="고정 링크" }
 
 ### 추가 쿼리 매개변수가 있는 링크 {#link-with-more-query-parameters}
 
@@ -101,7 +101,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with more query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="추가 쿼리 매개변수가 있는 링크" }
 
 ### HTML 링크 {#html-link}
 
@@ -110,7 +110,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML link" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML 링크" }
 
 ### 앵커가 있는 링크 {#link-with-anchor}
 
@@ -119,7 +119,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="앵커가 있는 링크" }
 
 ### 앵커와 캡처 태그가 있는 링크 {#link-with-anchor-and-capture-tag}
 
@@ -128,7 +128,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%} | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor and capture tag" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="앵커와 캡처 태그가 있는 링크" }
 
 ## 링크 별칭 추적 {#tracking-link-aliases}
 
@@ -335,3 +335,21 @@ Braze에서 먼저 다음 접근 방식을 사용하세요:
 <a href="{{ url }}?">Go to account</a>
 ```
 {% endraw %}
+
+## 문제 해결 {#troubleshooting}
+
+### `lid` 매개변수를 허용하지 않는 대상 {#destinations-that-dont-accept-the-lid-parameter}
+
+이메일 편집기에서 테스트 메시지를 발송하면 Braze가 링크에 {% raw %}`lid={{placeholder}}`{% endraw %}를 추가합니다(플레이스홀더는 발송 시 고유 값으로 변환됩니다). 대상 사이트나 API가 추가 쿼리 매개변수를 허용하지 않으면 편집기에서는 링크가 작동하지만 이메일에서 열 때 실패할 수 있습니다.
+
+`lid` 값이 없으면 Braze는 해당 URL을 추적 및 세분화를 위한 링크 별칭으로 처리하지 않습니다. 이 문서에서 설명하는 링크 별칭 지정, 보고 및 Segment 사용 사례를 유지하려면 백엔드 또는 사이트에서 `lid` 쿼리 매개변수가 있을 때 이를 무시하도록 업데이트하는 것을 권장합니다.
+
+또는 백엔드 변경을 계획하는 동안 대시보드에서 링크 별칭 지정을 해제할 수 있습니다. **설정** > **이메일 환경설정** > **Link Aliasing Settings**로 이동하세요.
+
+대상 시스템을 변경할 수 없는 경우 [Braze 고객지원]({{site.baseurl}}/braze_support/)에 연락하여 워크스페이스에 대한 링크 별칭 지정을 비활성화하세요. 링크 별칭 지정이 해제되면 다음 사항에 유의하세요:
+
+- 새 이메일 메시지와 Content Blocks은 일반적으로 새로운 링크 별칭 마크업(`lid` 쿼리 매개변수 등)을 받지 않습니다.
+- 링크 별칭 지정이 활성화된 상태에서 생성된 기존 메시지에는 HTML에 링크 별칭 마크업이 여전히 포함될 수 있습니다. 더 이상 필요하지 않은 곳에서 남아 있는 `lid` 매개변수를 수동으로 제거해야 할 수 있습니다.
+- 기존 Campaign, Canvas 이메일 단계 또는 Content Blocks을 편집하는 경우 템플릿된 링크가 올바르게 표시되도록 링크 템플릿을 다시 추가해야 할 수 있습니다.
+- 링크 별칭 지정이 활성화된 상태에서 발송된 클릭 보고는 기능이 해제된 후의 보고와 깔끔하게 일치하지 않을 수 있습니다.
+- 링크 별칭 기반 필터(예: **별칭 클릭** 필터)를 사용하는 Segment가 예상하는 오디언스를 반환하지 않을 수 있습니다.
