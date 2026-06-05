@@ -173,3 +173,7 @@ Oui. Cependant, vous pouvez ajouter un filtre d'inclusion de segment pour exclur
 La suppression d'utilisateurs individuels est permanente.
 
 Vous pouvez [annuler les suppressions de segments](#cancel) dans les 7 premiers jours. Cependant, les utilisateurs déjà supprimés avant l'annulation ne peuvent pas être restaurés.
+
+### Puis-je supprimer des utilisateurs via l'API au lieu du tableau de bord ? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+Oui. Pour des lots plus petits, vous pouvez utiliser l'[endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), qui accepte jusqu'à 50 identifiants par requête et est soumis à la [limite de débit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit) de cet endpoint. La suppression par segment via le tableau de bord est mieux adaptée aux très grandes audiences, mais inclut la [période d'attente de 7 jours](#about-user-deletion).

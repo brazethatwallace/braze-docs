@@ -710,10 +710,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 Banner-Schließungen entfernen ein Banner programmatisch aus einer Platzierung, wenn Nutzer:innen es aktiv schließen. Nach dem Schließen wird das Banner für diese Nutzer:in unterdrückt. Beim nächsten Aktualisieren der Platzierungsliste wird ein neues Banner zurückgegeben, sofern die Nutzer:in dafür qualifiziert ist.
 
-{% alert important %}
-Banner-Schließungen befinden sich derzeit im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren Customer-Success-Manager.
-{% endalert %}
-
 ### Voraussetzungen
 
 Dies sind die erforderlichen Mindestversionen des SDK, um Banner-Schließungen zu protokollieren:

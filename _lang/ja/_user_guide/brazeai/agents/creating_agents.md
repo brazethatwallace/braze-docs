@@ -18,19 +18,19 @@ alias: /creating-agents/
 - カスタムAIエージェントの作成と編集の権限。
 - エージェントに達成させたいことのアイデア。Brazeエージェントは以下のアクションをサポートできます。
    - **パーソナライズされたメッセージング：** 件名、見出し、製品内のコピー、その他のコンテンツを生成します。
-   - **ユーザーの振り分け：** キャンバスで、ユーザーの動作、好み、またはカスタム属性に基づいてユーザーを振り分けます。
+   - **ユーザーの振り分け：** Canvasで、ユーザーの動作、好み、またはカスタム属性に基づいてユーザーを振り分けます。
    - **データ管理：** 値を計算する、カタログエントリを充実させる、またはプロファイルフィールドを更新します。
 
 ## 仕組み {#how-it-works}
 
-エージェントを作成する際には、その目的を定義し、どのように振る舞うべきかのガードレールを設定します。公開後、エージェントはBrazeにデプロイされ、パーソナライズされたコピーを生成したり、リアルタイムで判断を下したり、カタログフィールドを更新したりできます。ダッシュボードからいつでもエージェントを一時停止したり更新したりできます。
+エージェントを作成する際には、その目的を定義し、どのように振る舞うべきかのガードレールを設定します。公開後、エージェントはBrazeにデプロイされ、パーソナライズされたコピーを生成したり、リアルタイムで判断を下したり、カタログフィールドを更新したりできます。エージェントの構築中に下書きとして保存でき、ダッシュボードからいつでもエージェントを一時停止したり更新したりできます。
 
 以下のユースケースは、カスタムエージェントを活用するいくつかの方法を示しています。
 
 | ユースケース | 説明 |
 | --- | --- |
 | 顧客フィードバックの対応 | ユーザーのフィードバックをエージェントに渡して、感情を分析し、共感的なフォローアップメッセージを生成します。高価値ユーザーに対しては、エージェントは対応をエスカレートしたり特典を含めたりする場合があります。 |
-| コンテンツのローカライズ | カタログのテキストを別の言語に翻訳してグローバルキャンペーンに活用したり、地域別のチャネルに合わせてトーンや長さを調整したりします。例えば、「Classic Clubmaster Sunglasses」をスペイン語で「Gafas de sol Classic Clubmaster」と翻訳したり、SMSキャンペーン用に説明文を短くしたりします。 |
+| コンテンツのローカライズ | カタログのテキストを別の言語に翻訳してグローバルなCampaignsに活用したり、地域別のチャネルに合わせてトーンや長さを調整したりします。例えば、「Classic Clubmaster Sunglasses」をスペイン語で「Gafas de sol Classic Clubmaster」と翻訳したり、SMS Campaigns用に説明文を短くしたりします。 |
 | レビューやフィードバックを要約する | 感情やフィードバックを新しいフィールドにまとめます。例えば、感情スコアを「肯定的」「中立」「否定的」のように割り当てたり、「多くの顧客がフィット感の良さを挙げているが、配送が遅いと指摘している」のような短いテキスト要約を作成したりします。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -42,7 +42,7 @@ alias: /creating-agents/
 
 1. Brazeダッシュボードで、**エージェントコンソール** > **エージェントマネージャー**に移動します。
 2. **Create agent**を選択します。
-3. キャンバスエージェントかカタログエージェントのどちらかを選択して作成します。
+3. Canvasエージェントかカタログエージェントのどちらかを選択して作成します。
 
 ### ステップ 2: 詳細を設定する {#step-2-set-up-details}
 
@@ -63,18 +63,18 @@ alias: /creating-agents/
 ベストプラクティスについては[指示の書き方]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)を、エージェントへのプロンプトのインスピレーションについては[例]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples)を参照してください。
 
 {% alert tip %}
-キャンバスエージェントの場合、指示文内でLiquidを使用してユーザー属性（名前や姓など）やカスタム属性を参照できます。エージェントの指示内のLiquid変数は、ユーザーがそのステップに入ると自動的にエージェントステップに渡されます。
+Canvasエージェントの場合、指示文内でLiquidを使用してユーザー属性（名前や姓など）やカスタム属性を参照できます。エージェントの指示内のLiquid変数は、ユーザーがそのステップに入ると自動的にエージェントステップに渡されます。
 {% endalert %}
 
 #### コンテキストを追加する {#add-resources}
 
-**+ エージェントコンテキスト**を選択し、エージェントが参照できる内容を選択します。これには以下が含まれます。
+**+ Agent context**を選択し、エージェントが参照できる内容を選択します。これには以下が含まれます。
 
 - [カタログフィールド]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields)：エージェントにカタログデータへのアクセス権限を与えることで、より正確な応答が得られます。
-- [セグメントメンバーシップ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context)：エージェントが、ユーザーがどのセグメントに属しているかに基づいて応答をパーソナライズできるようにします。最大5つのセグメントを選択できます。
+- [Segmentメンバーシップ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context)：エージェントが、ユーザーがどのSegmentに属しているかに基づいて応答をパーソナライズできるようにします。最大5つのSegmentを選択できます。
 - [ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)：エージェントが従うべきブランドボイスとスタイルガイドラインを参照します。例えば、エージェントにジムの会員登録を促すSMSコピーを生成させたい場合、このフィールドを使って事前に定義した太字でモチベーションを高めるガイドラインを参照できます。
-- [すべてのキャンバスコンテキスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)：このエージェントが呼び出された際に、ユーザーのすべてのキャンバスコンテキストデータを分析します。これには**Instructions**セクションで参照されていない変数も含まれます。
-- [ユーザーインタラクションデータ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history)：各ユーザーの最近のキャンペーンおよびキャンバスの開封、クリック、コンバージョンデータをエージェントに提供します。
+- [すべてのCanvasコンテキスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)：このエージェントが呼び出された際に、ユーザーのすべてのCanvasコンテキストデータを分析します。これには**Instructions**セクションで参照されていない変数も含まれます。
+- [ユーザーインタラクションデータ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history)：各ユーザーの最近のCampaignおよびCanvasの開封、クリック、コンバージョンデータをエージェントに提供します。
 
 ### ステップ 4: 出力を選択する {#select-output}
 
@@ -116,7 +116,8 @@ alias: /creating-agents/
 
 エージェントが使用可能になりました！詳細については、[エージェントのデプロイ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)を参照してください。
 
-## 関連記事 {#related-articles}
+## 関連リソース {#related-resources}
 
 - [エージェント向けリファレンス]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [Brazeウェビナー AI in Action：1:1パーソナライゼーションの3つの新しいユースケース](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

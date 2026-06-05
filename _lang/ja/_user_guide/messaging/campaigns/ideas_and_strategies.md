@@ -13,12 +13,12 @@ description: "このランディングページには、キャンペーンのア
 guide_featured_title: "セクション記事"
 guide_featured_list:
   - name: ベストプラクティス
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
   - name: アクティブユーザーキャンペーン
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns
     image: /assets/img/braze_icons/users-01.svg
-  - name: カレンダーに追加リンク
+  - name: カレンダー追加リンク
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/add_to_calendar_links
     image: /assets/img/braze_icons/calendar-date.svg
   - name: 離脱ユーザーの獲得
