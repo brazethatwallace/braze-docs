@@ -23,8 +23,8 @@ Para preencher previamente eventos e atributos personalizados, faça o seguinte:
 ![Navegue até Atributos personalizados, Eventos personalizados ou Produtos.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
 
 {: start="2"}
-2. Para adicionar um atributo personalizado, evento ou produto, acesse a respectiva página e selecione **Adicionar atributos personalizados**, **Adicionar eventos personalizados** ou **Adicionar produtos**.<br><br>Para atributos personalizados, selecione um [tipo de dado]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) para esse atributo (por exemplo, booleano ou string). O tipo de dados de um atributo determina os filtros de segmentação disponíveis para esse atributo. <br><br>![Adicionar novo atributo ou evento]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
-3. Selecione **Salvar**.
+2. Para adicionar um atributo personalizado, evento ou produto, acesse a respectiva página e selecione **Add Custom Attributes**, **Add Custom Events** ou **Add Products**.<br><br>Para atributos personalizados, selecione um [tipo de dado]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) para esse atributo (por exemplo, booleano ou string). O tipo de dados de um atributo determina os filtros de segmentação disponíveis para esse atributo. <br><br>![Adicionar novo atributo ou evento]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
+3. Selecione **Save**.
 
 ### Nomeação de eventos personalizados e atributos personalizados {#naming-custom-events-and-custom-attributes}
 
@@ -32,7 +32,7 @@ Os eventos personalizados e os atributos personalizados diferenciam maiúsculas 
 
 ## Gerenciamento de propriedades {#managing-properties}
 
-Depois de criar um evento personalizado ou produto, selecione **Gerenciar propriedades** desse evento ou produto para adicionar novas propriedades, colocar na lista de bloqueio as propriedades existentes e visualizar quais Campaigns ou Canvas usam essa propriedade em um [evento de gatilho]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
+Depois de criar um evento personalizado ou produto, selecione **Manage Properties** desse evento ou produto para adicionar novas propriedades, colocar na lista de bloqueio as propriedades existentes e visualizar quais Campaigns ou Canvas usam essa propriedade em um [evento de gatilho]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
 
 ![Propriedades personalizadas para um evento personalizado.]({% image_buster /assets/img_archive/manageproperties1.png %}){: style="max-width:80%"}
 
@@ -79,6 +79,8 @@ Se você precisar que todos os dados de usuários existentes correspondam ao nov
 | Booleano | As entradas `1`, `true`, `t` (não diferenciam maiúsculas de minúsculas) são armazenadas como `true` |
 | Booleano | As entradas `0`, `false`, `f` (não diferenciam maiúsculas de minúsculas) são armazenadas como `false` |
 | Número | Números inteiros ou de ponto flutuante (como `1`, `1.5`) são armazenados como números |
+| Número | Strings numéricas (como `"100"` ou `"3.14"`) podem ser convertidas em números quando o atributo é forçado para **Número** |
+| String | Valores numéricos podem ser convertidos para sua forma de string quando o atributo é forçado para **String** |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Coerção de tipos de dados" }
 
 Para saber mais sobre opções de filtro específicas expostas por diferentes comparações de tipos de dados, confira [Configurando relatórios]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). Para saber mais sobre os diferentes tipos de dados disponíveis, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).

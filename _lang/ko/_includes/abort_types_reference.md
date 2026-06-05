@@ -131,7 +131,7 @@
 | `sms_no_sending_numbers` | 이 구독 그룹에 사용 가능한 발신 전화번호가 없습니다. |
 | `sms_fatal_provider_error` | SMS 공급자에서 심각한 오류가 발생하여 메시지를 전달할 수 없습니다. |
 | `sms_gateway_domain_not_allowed` | SMS 게이트웨이 도메인이 허용 목록에 없습니다. |
-| `blocked_recipient_country` | 수신자의 전화번호가 [지역 권한]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/)에 의해 차단된 국가에 있습니다. |
+| `blocked_recipient_country` | 수신자의 전화번호가 [지역 권한]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)에 의해 차단된 국가에 있습니다. |
 | `mms_not_supported` | 이 수신자 또는 발신 번호에 대해 MMS가 지원되지 않습니다. |
 | `no_current_messaging_service` | 이 구독 그룹에 활성 메시징 서비스가 구성되어 있지 않습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }

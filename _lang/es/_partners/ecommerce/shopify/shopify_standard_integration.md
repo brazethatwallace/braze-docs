@@ -159,6 +159,16 @@ Una vez creado el metacampo, rellénalo para tus clientes. Recomendamos los sigu
 - **Escucha los webhooks de creación de clientes:** Configura un webhook para escuchar [los eventos de `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Esto te permite escribir el metacampo cuando se crea un nuevo cliente.
 - **Rellena los clientes existentes:** Utiliza la [Admin API](https://shopify.dev/docs/api/admin-graphql) o la [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para rellenar el metacampo de los clientes creados previamente.
 
+#### Posible condición de carrera {#potential-race-condition}
+
+El webhook `customers/create` de Shopify puede dispararse antes de que el metacampo `braze.external_id` se haya escrito en el perfil de usuario. Cuando esto ocurre:
+
+1. Si el metacampo no existe, Braze llama al punto de conexión configurado (paso 4.2) para obtener el ID externo.
+2. Si esa llamada también falla o se agota el tiempo de espera, Braze crea un perfil de usuario temporal con el ID de cliente de Shopify como ID externo.
+3. En cualquier evento posterior en el que el metacampo esté presente (como `customers/update` u `orders/create` para un evento `ecommerce.order_placed`), Braze detecta automáticamente la discrepancia y fusiona el perfil temporal con el ID externo correcto.
+
+Esto significa que es posible que existan perfiles duplicados temporales, pero se corrigen automáticamente. No necesitas realizar ninguna acción manual para fusionar estos perfiles.
+
 ### Paso 4.2: Crea un punto de conexión para recuperar tu ID externo {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
 Debes crear un punto de conexión público al que Braze pueda llamar para recuperar el ID externo. Esto permite a Braze obtener el ID en situaciones en las que Shopify no puede proporcionar directamente el metacampo `braze.external_id`.

@@ -159,6 +159,16 @@ Nachdem Sie das Metafeld erstellt haben, füllen Sie es für Ihre Kund:innen aus
 - **Auf Webhooks zur Kund:innen-Erstellung lauschen:** Richten Sie einen Webhook ein, um auf [`customer/create`-Events](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks) zu lauschen. Damit können Sie das Metafeld schreiben, wenn eine neue Kund:in angelegt wird.
 - **Bestehende Kund:innen nachfüllen:** Verwenden Sie die [Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer), um das Metafeld für zuvor erstellte Kund:innen zu füllen.
 
+#### Mögliche Race-Condition {#potential-race-condition}
+
+Der Shopify-Webhook `customers/create` kann ausgelöst werden, bevor das Metafeld `braze.external_id` in das Nutzerprofil geschrieben wurde. In diesem Fall:
+
+1. Wenn das Metafeld fehlt, ruft Braze den konfigurierten Endpunkt (Schritt 4.2) auf, um die externe ID abzurufen.
+2. Wenn auch dieser Aufruf fehlschlägt oder ein Timeout auftritt, erstellt Braze ein temporäres Nutzerprofil mit der Shopify-Kund:innen-ID als externe ID.
+3. Bei jedem nachfolgenden Event, bei dem das Metafeld vorhanden ist (z. B. `customers/update` oder `orders/create` für ein `ecommerce.order_placed`-Event), erkennt Braze automatisch die Abweichung und führt das temporäre Profil mit der korrekten externen ID zusammen.
+
+Das bedeutet, dass temporäre doppelte Profile möglich sind, sich aber automatisch korrigieren. Sie müssen keine manuellen Maßnahmen ergreifen, um diese Profile zusammenzuführen.
+
 ### Schritt 4.2: Erstellen Sie einen Endpunkt zum Abrufen Ihrer externen ID {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
 Sie müssen einen öffentlichen Endpunkt erstellen, den Braze zum Abrufen der externen ID aufrufen kann. Dadurch kann Braze die ID in Szenarien abrufen, in denen Shopify das Metafeld `braze.external_id` nicht direkt bereitstellen kann.
@@ -170,10 +180,10 @@ Sie müssen einen öffentlichen Endpunkt erstellen, den Braze zum Abrufen der ex
 Braze sendet die folgenden Parameter an Ihren Endpunkt:
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
-|---|---|---|---|
-| shopify_customer_id | Ja | String | Die Shopify-Kund:innen-ID. |
-| shopify_storefront | Ja | String | Der Storefront-Name für die Anfrage. Bsp.: `<storefront_name>.myshopify.com` |
-| email_address | Nein | String | Die E-Mail-Adresse der angemeldeten Nutzer:in. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Nullwerte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
+|----------------------|----------|-----------|------------------------------------------------------------------|
+| shopify_customer_id  | Ja      | String    | Die Shopify-Kund:innen-ID.                                         |
+| shopify_storefront   | Ja      | String    | Der Storefront-Name für die Anfrage. Bsp.: `<storefront_name>.myshopify.com` |
+| email_address        | Nein       | String    | Die E-Mail-Adresse der angemeldeten Nutzer:in. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Nullwerte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpoint specifications" }
 
 #### Beispiel-Endpunkt {#example-endpoint}

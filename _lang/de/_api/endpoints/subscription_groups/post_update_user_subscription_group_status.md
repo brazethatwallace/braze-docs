@@ -148,4 +148,6 @@ Der Statuscode `201` könnte den folgenden Antworttext zurückgeben.
 Der Endpunkt akzeptiert nur den Wert `email` oder `phone`, nicht beide. Wenn Sie beides angeben, erhalten Sie diese Antwort: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
 
+Damit Ihr Abo-Update auf Telefonnummern angewendet wird, stellen Sie sicher, dass Sie Telefonnummern im E.164-Format gesendet haben (z. B. `+15555550123`), die korrekte `subscription_group_id` verwendet haben und `phone` (nicht sowohl `phone` als auch `email`) im selben Anfragetext übergeben haben. Für Updates mit mehreren Nummern verwenden Sie das `phone`-Array-Format, das unter [SMS und RCS](#sms-and-rcs) gezeigt wird.
+
 {% endapi %}
