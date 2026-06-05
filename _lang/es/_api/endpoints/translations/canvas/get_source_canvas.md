@@ -17,8 +17,6 @@ description: "Este artículo describe los detalles sobre el punto de conexión d
 
 > Utiliza este punto de conexión para ver todas las fuentes de traducción predeterminadas para las etiquetas de traducción de un Canvas. Estos son los valores con el {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Requisitos previos {#prerequisites}
 
 Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.translations.get`.
@@ -35,7 +33,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `step_id`              | Obligatorio | Cadena    | El ID de tu paso en Canvas.        |
 | `message_variation_id` | Obligatorio | Cadena | El ID de tu variación de mensaje. |
 | `locale_id`            | Opcional | Cadena    | El ID (UUID) de la configuración regional.              |
-| `post_launch_draft_version`| Opcional | Booleano | Cuando es `true`, devuelve la última versión de borrador en lugar de la última versión publicada en vivo. El valor predeterminado es `false`, que devuelve la última versión en vivo.
+| `post_launch_draft_version` | Opcional | Booleano | Cuando es `true`, devuelve la última versión de borrador en lugar de la última versión publicada en vivo. El valor predeterminado es `false`, que devuelve la última versión en vivo.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}

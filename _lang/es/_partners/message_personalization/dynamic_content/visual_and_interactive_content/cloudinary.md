@@ -23,9 +23,9 @@ Son posibles métodos de integración más avanzados, como el uso de [Contenido 
 
 ## Requisitos previos {#prerequisites}
 
-| Requisitos     | Descripción |
+| Requisitos | Descripción |
 |-----------------------|-----------------|
-| Cuenta de Cloudinary  | Se requiere una [cuenta de Cloudinary](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) para aprovechar esta asociación  |
+| Cuenta de Cloudinary | Se requiere una [cuenta de Cloudinary](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) para aprovechar esta asociación |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Métodos de integración {#integration-methods}
@@ -140,8 +140,8 @@ Este ejemplo supone que los activos en Cloudinary tienen dos campos SMD definido
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %}
 {% assign locale = {{${language}}}%}
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
 ```
 {% endraw %}
 
@@ -149,15 +149,15 @@ Este ejemplo supone que los activos en Cloudinary tienen dos campos SMD definido
 
 - URL de salida para usuarios con audiencia `internal` y localización `en`:
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - URL de salida para usuarios con audiencia `external` y localización `es`:
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - URL de la imagen alternativa:
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
@@ -171,7 +171,7 @@ El siguiente ejemplo demuestra cómo se puede utilizar la transformación `l_tex
 
 Para obtener más orientación sobre cómo pueden utilizarse los parámetros de transformación para diseñar un activo, ponte en contacto con tu equipo de soporte de Cloudinary.
 
-### Ejemplo de transformación `l_text` {#example-ltext-transformation}
+### Ejemplo de transformación `l_text` {#example-l_text-transformation}
 
 {% raw %}
 ```bash

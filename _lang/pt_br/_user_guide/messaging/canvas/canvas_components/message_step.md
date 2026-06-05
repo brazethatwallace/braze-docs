@@ -48,9 +48,16 @@ Selecione **Using Intelligent Timing** na guia **Delivery Settings**. Aqui, voc�
 
 #### Validações de entrega {#delivery-validations}
 
-As validações de entrega fornecem uma verificação adicional para confirmar que seu público atende aos critérios de entrega no momento do envio da mensagem. Essa configuração é recomendada se o horário de silêncio, o Intelligent Timing ou o limite de taxa estiverem ativados.
+As validações de entrega fornecem uma verificação adicional no momento do envio da mensagem para confirmar que seu público ainda atende aos seus critérios. Recomendamos usá-las quando o horário de silêncio, o Intelligent Timing ou o limite de taxa estiverem ativados. Selecione **Validate audience at message send** e adicione um Segment ou filtros adicionais. Se um usuário não atender às validações, escolha se ele sai do Canvas ou avança para a próxima etapa.
 
-Selecione **Validate audience at message send** e adicione um segmento ou filtros adicionais para validar quando a mensagem for enviada. Se um usuário não atender às validações de entrega definidas para uma etapa de Mensagem, escolha se ele sai do Canvas ou avança para a próxima etapa.
+As validações de entrega avaliam os critérios do perfil do usuário no momento do envio. Filtros relacionados a apps verificam se um usuário usou recentemente ou já usou um app específico, mas não confirmam qual app o usuário está usando na sessão atual.
+
+Se o seu espaço de trabalho tiver vários apps e uma etapa de Mensagem precisar direcionar um app específico, use uma das seguintes abordagens:
+
+- Ao compor a mensagem, [especifique suas plataformas de entrega]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms), como **Mobile Apps** ou **Web Browsers**.
+- Use Liquid para verificar o dispositivo ou app direcionado no momento do envio:
+  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} avalia a plataforma da sessão atual do usuário. Para saber mais, consulte [Informações do dispositivo direcionado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information).
+  - {% raw %}`{{app.${api_id}}}`{% endraw %} avalia qual app está solicitando a mensagem. Combine essa tag com `abort_message()` para evitar envios para o app errado. Para saber mais, consulte [Informações do app direcionado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-app-information).
 
 ![As validações de entrega estão ativadas para validar o público no momento do envio da mensagem. O comportamento de avanço das validações de entrega está configurado para avançar o usuário para a próxima etapa do Canvas se as validações de entrega não forem atendidas.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 

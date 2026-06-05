@@ -143,6 +143,10 @@ So sieht das aus, wenn das Liquid gerendert wird:
 
 ![Beispiel einer Content Card mit gerenderten Katalog-Liquid-Tags.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
 
+{% alert important %}
+Vermeiden Sie in **HTML**-Kanälen wie E-Mail zusätzliche Leerzeichen oder Zeilenumbrüche zwischen dem schließenden {% raw %}`{% catalog_items ... %}`{% endraw %}-Tag und dem Liquid, das die Bild-URL ausgibt (z. B. {% raw %}`{{ items[0].image_link }}`{% endraw %}). Zusätzliche Leerzeichen im Template können verhindern, dass die Bild-URL in der gerenderten Nachricht korrekt aufgelöst wird. Halten Sie den URL-Ausdruck direkt neben dem Katalog-Tag, wie in: {% raw %}`<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">`{% endraw %}.
+{% endalert %}
+
 ### Templates für Katalogartikel
 
 Sie können auch Templates verwenden, um Katalogartikel auf der Grundlage angepasster Attribute dynamisch abzurufen. Nehmen wir zum Beispiel an, eine Nutzerin oder ein Nutzer hat das angepasste Attribut `wishlist`, das ein Array von Spiele-IDs aus Ihrem Katalog enthält.

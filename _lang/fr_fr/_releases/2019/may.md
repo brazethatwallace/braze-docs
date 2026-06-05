@@ -56,7 +56,7 @@ Notre sélecteur de plateforme facilite la sélection de la destination de vos m
 ## Champ Dispatch ID de Currents pour l'e-mail {#dispatch-id-currents-field-for-email}
 
 {% alert update %}
-Le comportement de `dispatch_id` diffère entre Canvas et les campagnes, car Braze traite les étapes du canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». En savoir plus sur le [comportement de `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) dans Canvas et les campagnes.
+Le comportement de `dispatch_id` diffère entre Canvas et les campagnes, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». En savoir plus sur le [comportement de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) dans Canvas et les campagnes.
 
 _Mise à jour notée en août 2019._
 {% endalert %}
@@ -88,11 +88,10 @@ Tous les utilisateurs sur Mailjet verront un pic dans ces chiffres, étant donn�
 Vous pouvez rechercher ces termes actualisés dans notre [glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
 
 {% alert update %}
-Le comportement de `dispatch_id` diffère entre Canvas et les campagnes, car Braze traite les étapes du canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». [En savoir plus sur le comportement de `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) dans Canvas et les campagnes.
+Le comportement de `dispatch_id` diffère entre Canvas et les campagnes, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». [En savoir plus sur le comportement de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) dans Canvas et les campagnes.
 
 _Mise à jour notée en août 2019._
 {% endalert %}
-
 
 ## Canal le plus engagé {#most-engaged-channel}
 

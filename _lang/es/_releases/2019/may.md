@@ -56,7 +56,7 @@ Hemos facilitado la selección de dónde van tus mensajes dentro de la aplicaci�
 ## Campo de ID de envío de Currents para correo electrónico {#dispatch-id-currents-field-for-email}
 
 {% alert update %}
-El comportamiento de `dispatch_id` difiere entre Canvas y las campañas porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que pueden programarse) como eventos desencadenados, incluso cuando están "programados". Más información sobre el [comportamiento de `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) en Canvas y las campañas.
+El comportamiento de `dispatch_id` difiere entre Canvas y las campañas porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que pueden programarse) como eventos desencadenados, incluso cuando están "programados". Más información sobre el [comportamiento de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) en Canvas y las campañas.
 
 _Actualización anotada en agosto de 2019._
 {% endalert %}
@@ -88,11 +88,10 @@ Los usuarios que también utilicen Mailjet verán un repunte en estas cifras, ya
 Puedes buscar estos términos actualizados en nuestro [glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
 
 {% alert update %}
-El comportamiento de `dispatch_id` difiere entre Canvas y las campañas porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que pueden programarse) como eventos desencadenados, incluso cuando están "programados". [Más información sobre el comportamiento de `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) en Canvas y las campañas.
+El comportamiento de `dispatch_id` difiere entre Canvas y las campañas porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que pueden programarse) como eventos desencadenados, incluso cuando están "programados". [Más información sobre el comportamiento de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) en Canvas y las campañas.
 
 _Actualización anotada en agosto de 2019._
 {% endalert %}
-
 
 ## Canal más interactivo {#most-engaged-channel}
 

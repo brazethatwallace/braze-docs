@@ -19,7 +19,7 @@ Segment 데이터를 CSV로 내보내려면 Segment를 편집하는 동안 **사
 
 ![내보내기 옵션이 표시된 사용자 데이터 드롭다운이 있는 Segment 세부 정보 섹션.]({% image_buster /assets/img_archive/csvexport.png %})
 
-메인 **Segments** 페이지에서 Segment의 <i class="fas fa-gear" aria-label="설정"></i> **설정** 드롭다운을 선택하여 CSV 내보내기를 요청할 수도 있습니다.
+메인 **Segments** 페이지에서 Segment의 <i class="fas fa-gear"></i> **설정** 드롭다운을 선택하여 CSV 내보내기를 요청할 수도 있습니다.
 
 ![메인 Segments 페이지의 설정 드롭다운.]({% image_buster /assets/img_archive/csvexport2.png %})
 
@@ -114,6 +114,10 @@ CSV 출력에는 내보내기 시점에 Segment에서 캡처된 각 고객 프�
 CSV 및 API 내보내기에 대한 도움말은 [문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) 문서를 참조하세요.
 {% endalert %}
 
+{% alert note %}
+구독 그룹 데이터는 Segment 내보내기를 통해 사용할 수 없습니다. 구독 상태별로 사용자를 식별하려면 구독 그룹 멤버십을 기반으로 별도의 Segment를 생성하고 해당 Segment를 내보내세요.
+{% endalert %}
+
 ## 대규모 Segment 내보내기 {#exporting-large-segments}
 
 500,000명 이상의 사용자를 포함하는 대규모 사용자 Segment를 내보내는 방법에는 여러 가지가 있습니다.
@@ -133,9 +137,11 @@ CSV 및 API 내보내기에 대한 도움말은 [문제 해결]({{site.baseurl}}
 {% endtab %}
 {% tab 엔드포인트 %}
 
-다음 엔드포인트를 활용하여 특정 Segment의 사용자 데이터를 내보낼 수도 있습니다. 이러한 엔드포인트에는 데이터 제한이 적용됩니다.
+다음 엔드포인트를 활용하여 특정 Segment의 사용자 데이터를 내보낼 수도 있습니다. 이러한 엔드포인트에는 데이터 제한 및 [사용량 제한]({{site.baseurl}}/api/basics/)이 적용됩니다.
 - [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
 - [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)
+
+[Amazon S3 인증정보]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3/#amazon-s3-integration)를 연결한 경우, [Segment CSV 내보내기 세부 정보](#segment-csv-export-details)에 설명된 대로 이메일 다운로드 링크 외에 대규모 내보내기를 버킷으로 전달할 수 있습니다.
 
 {% endtab %}
 {% endtabs %}

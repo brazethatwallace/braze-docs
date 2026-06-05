@@ -23,7 +23,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 ## Funktionsweise {#how-it-works}
 
-Wenn Sie einen Agenten erstellen, definieren Sie dessen Zweck und legen Leitplanken für sein Verhalten fest. Nach der Live-Schaltung kann der Agent in Braze eingesetzt werden, um personalisierte Texte zu generieren, Entscheidungen in Realtime zu treffen oder Katalogfelder zu aktualisieren. Sie können einen Agenten jederzeit über das Dashboard pausieren oder aktualisieren.
+Wenn Sie einen Agenten erstellen, definieren Sie dessen Zweck und legen Leitplanken für sein Verhalten fest. Nach der Live-Schaltung kann der Agent in Braze eingesetzt werden, um personalisierte Texte zu generieren, Entscheidungen in Realtime zu treffen oder Katalogfelder zu aktualisieren. Während Sie Ihren Agenten erstellen, können Sie ihn als Entwurf speichern, und Sie können einen Agenten jederzeit über das Dashboard pausieren oder aktualisieren.
 
 Die folgenden Anwendungsfälle veranschaulichen einige Möglichkeiten, angepasste Agenten zu nutzen.
 
@@ -88,7 +88,7 @@ Wenn Sie ein [erweitertes Ausgabeschema]({{site.baseurl}}/user_guide/brazeai/age
 
 ### 5. Schritt: Agenten testen und erstellen {#step-5-test-and-create-the-agent}
 
-Der **Vorschaubereich** ist eine Instanz des Agenten, die als nebeneinander angeordnetes Panel innerhalb der Konfiguration angezeigt wird. Sie können ihn verwenden, um den Agenten zu testen, während Sie ihn erstellen oder aktualisieren, und ihn auf ähnliche Weise wie Endnutzer:innen zu erleben. Dieser Schritt hilft Ihnen zu bestätigen, dass er sich wie erwartet verhält, und gibt Ihnen die Möglichkeit, vor der Live-Schaltung Feinabstimmungen vorzunehmen.
+Der **Vorschaubereich** ist eine Instanz des Agenten, die als nebeneinander angeordnetes Panel innerhalb der Konfiguration angezeigt wird. Sie können diesen Bereich verwenden, um den Agenten zu testen, während Sie ihn erstellen oder aktualisieren, und ihn auf ähnliche Weise wie Endnutzer:innen zu erleben. Dieser Schritt hilft Ihnen zu bestätigen, dass er sich wie erwartet verhält, und gibt Ihnen die Möglichkeit, vor der Live-Schaltung Feinabstimmungen vorzunehmen.
 
 1. Geben Sie im Feld **Agent testen** Beispielkundendaten oder Kundenantworten ein – alles, was reale Szenarien widerspiegelt, mit denen Ihr Agent konfrontiert sein wird.
 2. Zeigen Sie eine Vorschau der Antwort des Agenten für eine zufällige Nutzer:in, eine bestehende Nutzer:in oder eine angepasste Nutzer:in an.
@@ -116,7 +116,8 @@ Vermeiden Sie es, dem Agenten genau mitzuteilen, was er nicht tun soll. LLMs kö
 
 Ihr Agent ist nun einsatzbereit! Weitere Informationen finden Sie unter [Agenten bereitstellen]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
 
-## Verwandte Artikel {#related-articles}
+## Verwandte Ressourcen {#related-resources}
 
 - [Referenz für Agenten]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [Braze-Webinar über KI in Aktion: 3 neue Anwendungsfälle für 1:1-Personalisierung](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)
