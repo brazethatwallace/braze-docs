@@ -160,7 +160,7 @@ You can track performance within your custom code in-app message using the [`bra
 This method of button tracking replaces the prior automatic click tracking methods (such as `?abButtonId=0`), which have been removed.
 {% endalert %}
 
-Use [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) for HTML with preview messages when you need more than two tracked buttons. Button 1 and Button 2 map to `'0'` and `'1'`; additional buttons use custom IDs (up to 100 unique IDs per campaign). For character restrictions on button IDs, see [Button click tracking limitations]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#javascript-bridge).
+Use [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) for HTML with preview messages when you need more than two tracked buttons. Button 1 and Button 2 map to `'0'` and `'1'`; additional buttons use custom IDs (up to 100 unique IDs per campaign). For character restrictions on button IDs, see [Button tracking](#button-tracking-improvements).
 
 ### Troubleshooting custom HTML links and close behavior
 
