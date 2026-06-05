@@ -20,7 +20,7 @@ channel:
 | KakaoTalk Business channel | Your KakaoTalk account must be a KakaoTalk Business channel to send KakaoTalk messages through Braze. When you create an account, its default status is basic. To make your account a Business channel, you'll need to verify your business and provide relevant documentation. |
 | KakaoTalk Sender Key | A valid KakaoTalk Sender Key. |
 | Contact phone number | A contact phone number for your KakaoTalk channel's administrator. |
-| Braze cluster IPs allowlisted | IP whitelist registration is required for all customers. Register the Braze IP addresses for your cluster before you integrate KakaoTalk in Braze. |
+| Braze cluster IPs allowlisted | IP allowlist registration is required for all customers. Register the Braze IP addresses for your cluster before you integrate KakaoTalk in Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Register Braze IP addresses {#register-braze-ip-addresses}
