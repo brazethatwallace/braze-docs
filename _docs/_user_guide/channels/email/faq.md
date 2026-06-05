@@ -184,7 +184,7 @@ This warning can persist for campaigns duplicated from a campaign that did not h
 
 ### Why hasn't a user received my email message?
 
-There are several reasons why a user might not receive an email that you expected them to get, including:
+There are several reasons why a user does not receive an email that you expected them to get, including:
 
 - They weren't eligible to receive the email.
 - Their email address is invalid or doesn't exist.
