@@ -56,7 +56,7 @@ Os seguintes eventos serão ativados por padrão na integração padrão.
 | Eventos recomendados pela Braze | Eventos personalizados da Shopify | Atributos personalizados da Shopify |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>Produto visualizado</li><li>Carrinho atualizado</li><li>Checkout iniciado</li><li>Pedido feito</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Configuração de dados padrão" }
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
 
 Para saber mais sobre os dados rastreados por meio da integração, consulte [Recursos de dados da Shopify]({{site.baseurl}}/shopify_data_features/).
 
@@ -79,7 +79,7 @@ Com os SDKs da Braze, você pode rastrear eventos personalizados ou atributos pe
 }
 </style>
 
-<table aria-label="(Avançado) Configuração de rastreamento de dados personalizados" style="width: 100%;">
+<table aria-label="(Advanced) Custom data tracking setup" style="width: 100%;">
   <caption>(Avançado) Configuração de rastreamento de dados personalizados</caption>
   <thead>
     <tr>
@@ -159,6 +159,16 @@ Depois que o metacampo for criado, preencha-o para seus clientes. Recomendamos a
 - **Ouça os webhooks de criação de clientes:** Configure um webhook para ouvir os [eventos do `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Isso permite que você escreva o metacampo quando um novo cliente é criado.
 - **Preencha os clientes existentes:** Use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher o metacampo de clientes criados anteriormente.
 
+#### Possível condição de corrida {#potential-race-condition}
+
+O webhook `customers/create` da Shopify pode ser disparado antes que o metacampo `braze.external_id` seja gravado no perfil do usuário. Quando isso acontece:
+
+1. Se o metacampo estiver ausente, a Braze chama o endpoint configurado (Etapa 4.2) para buscar o ID externo.
+2. Se essa chamada também falhar ou atingir o tempo limite, a Braze cria um perfil de usuário temporário com o ID do cliente da Shopify como ID externo.
+3. Em qualquer evento subsequente em que o metacampo esteja presente (como `customers/update` ou `orders/create` para um evento `ecommerce.order_placed`), a Braze detecta automaticamente a incompatibilidade e mescla o perfil temporário com o ID externo correto.
+
+Isso significa que perfis duplicados temporários são possíveis, mas se corrigem automaticamente. Você não precisa tomar nenhuma ação manual para mesclar esses perfis.
+
 ### Etapa 4.2: Crie um endpoint para recuperar seu ID externo {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
 Você deve criar um endpoint público que a Braze possa chamar para recuperar o ID externo. Isso permite que a Braze busque o ID em cenários em que a Shopify não pode fornecer o metacampo `braze.external_id` diretamente.
@@ -169,12 +179,12 @@ Você deve criar um endpoint público que a Braze possa chamar para recuperar o 
 
 A Braze envia os seguintes parâmetros para seu endpoint:
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |----------------------|----------|-----------|------------------------------------------------------------------|
 | shopify_customer_id  | Sim      | String    | O ID do cliente da Shopify.                                         |
 | shopify_storefront   | Sim      | String    | O nome da loja para a solicitação. Ex: `<storefront_name>.myshopify.com` |
 | email_address        | Não       | String    | O endereço de e-mail do usuário conectado. <br><br>Esse campo pode estar ausente em determinados cenários de webhook. Sua lógica de endpoint deve levar em conta os valores nulos aqui (por exemplo, busque o e-mail usando o shopify_customer_id se sua lógica interna exigir isso). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Especificações do endpoint" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpoint specifications" }
 
 #### Exemplo de endpoint {#example-endpoint}
 

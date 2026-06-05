@@ -27,7 +27,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 ## Limite de débit {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='default' %}
+{% multi_lang_include rate_limits.md endpoint='media_library' %}
 
 ## Corps de la requête {#request-body}
 
@@ -149,6 +149,7 @@ Ce tableau répertorie les erreurs de traitement possibles.
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | Le fichier dépasse la taille maximale autorisée. Les images sont limitées à 5 Mo. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | L'espace de travail a atteint son nombre maximal de ressources (200 par défaut pour les entreprises en période d'essai gratuit, illimité dans les autres cas). L'objet `meta` inclut la `limit` actuelle. |
 | `ASSET_UPLOAD_FAILED` | 400 | Le téléchargement de la ressource a échoué en raison de problèmes de traitement. |
+| `INVALID_ASSET_URL` | 400 | La valeur `asset_url` n'est pas un URI valide. L'objet `meta` contient `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | Le fichier ZIP est endommagé ou n'a pas pu être ouvert. L'objet `meta` contient le message `original_error`. |
 | `ZIP_FILE_TOO_LARGE` | 400 | La taille totale non compressée du fichier ZIP dépasse la limite de 5 Mo. L'objet `meta` comprend le `zip_file_name` et le `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Une entrée de fichier à l'intérieur du ZIP n'a pas de nom. Assurez-vous que le fichier ZIP n'est pas endommagé et attribuez un nom à toute entrée de fichier sans nom. |
