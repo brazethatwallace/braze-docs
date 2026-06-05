@@ -43,8 +43,7 @@ Key-value pairs can be added to Android, iOS, and web push notifications. You mi
 
 In the message composer, select the **Settings** tab, select **Add New Pair**, and specify your key-value pairs.
 
-When you add key-value pairs in the dashboard composer, values are sent as strings. Reserved Apple Push Notification service keys (such as `loc-key` for localized alert text) still use the correct types on the device. For custom keys, your app receives string values unless you parse them in your integration.
-
+When you add key-value pairs in the message composer, values are sent as strings. For iOS push, reserved Apple Push Notification service (APNs) alert keys you add through **Alert Options** (such as `loc-args` for localization arguments) are formatted with the correct JSON types in the payload. For custom keys, your app receives string values unless you parse them in your integration.
 
 ### iOS
 
