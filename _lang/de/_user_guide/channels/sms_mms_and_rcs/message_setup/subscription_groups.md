@@ -127,6 +127,7 @@ Braze empfiehlt, zunächst RCS an kleinere Nutzervolumen zu testen und im Laufe 
 Erstellen Sie einen Canvas und geben Sie ihm einen leicht erkennbaren Namen (z. B. „SMS-RCS Abo-Gruppen-Nutzertransfer“). Planen Sie die Campaign dann zu einem für Sie passenden Zeitpunkt.
 
 ### 2. Schritt: Zielgruppe definieren {#step-2-define-your-audience}
+{: #step-2-define-your-audience}
 
 Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann zum Schritt **Sendeeinstellungen** und wählen Sie **Nutzer:innen, die abonniert oder angemeldet sind**.
 
@@ -196,5 +197,7 @@ Wählen Sie beschreibende und klare Abo-Gruppennamen, damit beim Erstellen von S
 ### Gruppen nach Land trennen {#separate-groups-by-country}
 
 SMS-Vorschriften variieren je nach Land. Wir empfehlen, SMS-Abo-Gruppen nach Land zu trennen. Dies hilft Ihnen, Compliance-Standards in allen Regionen einzuhalten, in denen Sie Nachrichten versenden.
+
+Für jede Abo-Gruppe können Sie außerdem unter **Geographic Permissions** eine Länder-Allowlist konfigurieren, sodass SMS, MMS und RCS nur an genehmigte Regionen gesendet werden. Weitere Informationen finden Sie unter [Geografische Berechtigungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/).
 
 In Brasilien ist es beispielsweise verboten, Marketing-Nachrichten außerhalb der Zeiten von 9:00 bis 21:00 Uhr Ortszeit zu versenden, und das Land erstreckt sich über drei Zeitzonen. Um diese Vorschriften einzuhalten, könnten Sie separate Gruppen für den Nachrichtenversand nach Brasilien und in die USA einrichten. Dies verhindert, dass Nutzer:innen in Brasilien Marketing-Nachrichten während verbotener Zeiten erhalten.

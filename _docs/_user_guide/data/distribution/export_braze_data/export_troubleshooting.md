@@ -85,6 +85,10 @@ The CSV export gives a snapshot of existing users who received a given campaign 
 
 ## Dashboard segment export emails
 
+### "Segment is too large" or export fails when my segment looks under 500,000 users
+
+Dashboard segment **size is an estimate**. CSV export uses that estimate to enforce the [500,000-user export limit]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details); the export pipeline may also evaluate size differently than the segment builder UI. If exports fail for a segment near that threshold, use [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) or split the audience into smaller segments, or use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) as described in [Exporting large segments]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-large-segments).
+
 ### Why aren't I receiving segment export emails?
 
 First, check your spam folder for an email from `no-reply@alerts.braze.com`. If the email is there, add that address to your safe sender list so future export messages aren't filtered.

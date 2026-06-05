@@ -32,6 +32,10 @@ O [guia de início rápido do Snowflake](https://quickstarts.snowflake.com/guide
 2. Na sua instância do Redshift, configure as tabelas ou views que deseja sincronizar com a Braze.
 3. Crie uma nova origem e sincronização no dashboard da Braze.
 4. Teste a integração e inicie a sincronização.
+
+{% alert note %}
+As linhas processadas por sincronização dependem do desempenho do seu warehouse, da latência de rede e da quantidade de dados novos que correspondem à consulta de sincronização. Use o **Histórico de sincronização** da integração no dashboard para ver a duração e a contagem de linhas das execuções recentes.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Crie uma conta de serviço e permita o acesso ao(s) projeto(s) e conjunto(s) de dados do BigQuery que contêm os dados que você deseja sincronizar.
