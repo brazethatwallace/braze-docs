@@ -22,10 +22,8 @@ For reference, this information is reflected on the user profile in the email **
 
 ![Email open and click tracking pixel fields on the Engagement tab of a user's profile]({% image_buster /assets/img_archive/open_click_user_profile.png %}){: style="max-width:60%;"}
 
-<!-- sf-kb-phase2-batch -->
+## Click tracking link requirements
 
-## Salesforce Knowledge updates
+Braze click tracking only rewrites links that use `http://` or `https://` URLs. Links that use other schemes, such as `mailto:` or `tel:`, aren't click-tracked.
 
-### Click Tracking Only Available for Links Directed to a HTTP or HTTPS Site (Can you click track phone numbers? etc.)
-
-Ensure docs explicitly state mailto and tel: links are not click-tracked; suggest HTTP redirect workaround.
+To track clicks on phone numbers or email addresses, use an `https://` redirect URL that forwards to the `tel:` or `mailto:` destination instead.
