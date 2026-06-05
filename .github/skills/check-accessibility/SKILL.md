@@ -23,8 +23,10 @@ Classify each changed file from the list above:
 | Changed file pattern | Route |
 |---|---|
 | `_layouts/**`, `_includes/**/*.html`, `assets/js/**`, `assets/css/**`, `assets/scss/**`, `_config*.yml`, `*.html` at repo root, `Gemfile`, `package.json`, `.github/workflows/**` | **Architecture** |
-| `_docs/**/*.md`, `_includes/**/*.md` | **Markdown** |
+| `_docs/**/*.md`, `_includes/**/*.md`, `_includes/**/*.html` | **Markdown** (table checks) |
 | `_lang/**` | Skip silently — localized files are out of scope |
+
+Note: `_includes/**/*.html` matches both routes — run Architecture first, then also run the Markdown (table) path on those same files.
 
 Override with `$ARGUMENTS`:
 - Contains "architecture" → Architecture path only

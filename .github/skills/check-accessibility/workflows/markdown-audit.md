@@ -8,13 +8,19 @@ Medium and low confidence issues pause and ask the author what to do.
 
 ---
 
-## Step 1: Identify the changed markdown files
+## Step 1: Identify the changed files to check
 
-From the context in SKILL.md, collect the list of changed `_docs/**/*.md` and `_includes/**/*.md`
-files. Exclude anything under `_lang/`.
+Collect the following changed files from the context in SKILL.md:
+- `_docs/**/*.md`
+- `_includes/**/*.md`
+- `_includes/**/*.html` — include these too; the script checks HTML `<table>` elements in addition to GFM tables
+
+Exclude anything under `_lang/`.
 
 If the file list is empty after exclusions, report:
-> No changed markdown files found (excluding `_lang/`). Nothing to check.
+> No changed files found for table accessibility checks (excluding `_lang/`). Nothing to check.
+
+**Note on HTML files from `_includes/`:** HTML table violations are always classified as **low confidence** (see Step 3). They will never be auto-fixed — they are always presented to the author with options.
 
 ---
 
