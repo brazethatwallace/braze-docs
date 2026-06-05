@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Personalize a message based on matching custom attributes](#attribute-matching)
+- [Format currency for European number conventions](#european-currency-format)
 - [Subtract two custom attributes to display the difference as a monetary value](#attribute-monetary-difference)
 - [Reference a user's first name if their full name is stored in the first_name field](#attribute-first-name)
 
@@ -568,12 +569,16 @@ There is a shovel here.
 
 ### Format currency for European number conventions {#european-currency-format}
 
-Use the [`money` filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) with `number_with_delimiter` and `replace` to swap decimal and thousands separators for locales that use comma as the decimal separator (for example, Italy or Germany).
+For locales that use a comma as the decimal separator and a period as the thousands separator (for example, Germany or Italy), use the [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) and [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) filters with `replace` to swap separators. Use `#` as a temporary placeholder so periods and commas aren't swapped in the same pass.
 
 {% raw %}
 ```liquid
-{{ 1234.56 | money | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
 ```
+
+**Output:** `1.234.567,89`
+
+**Explanation:** The `money` filter adds decimal places but doesn't add a currency symbol or locale-specific separators. `number_with_delimiter` adds US-style thousands separators, and the `replace` filters convert them to European formatting.
 {% endraw %}
 
 ### Subtract two custom attributes to display the difference as a monetary value {#attribute-monetary-difference}
