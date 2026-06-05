@@ -68,4 +68,4 @@ If a Content Block doesn't render in email preview, check for unclosed anchor ta
 
 ### Why is the drag-and-drop editor ignoring alignment settings?
 
-If the drag-and-drop editor ignores alignment settings, remove custom CSS or HTML blocks, remove custom fonts and check for CSS conflicts, and avoid duplicating row blocks. Contact Braze Support if the issue persists.
+If the drag-and-drop editor ignores alignment settings, remove custom CSS or HTML blocks, remove custom fonts, check for CSS conflicts, and avoid duplicating row blocks. Contact Braze Support if the issue persists.
