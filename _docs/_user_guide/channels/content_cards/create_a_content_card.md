@@ -348,4 +348,6 @@ When you stop a campaign and select **Remove card after the next sync**, Braze r
 
 ### Pinning and unpinning behavior
 
-Changes to pinned card order apply to future sends only. Cards already delivered to a user's feed keep their previous order until the next eligible send or refresh updates the feed.
+When Braze delivers a Content Card, it is either pinned or unpinned. That pinned status does not change for the lifetime of the card.
+
+If you change the pinned setting on a campaign, the update applies to future sends only. It does not change the pinned status of cards already in a user's feed.
