@@ -137,16 +137,14 @@ After the feature is turned on, Braze will automatically assign a timeslot to pe
 Duplicate user profiles cannot be recovered after merging.
 {% endalert %}
 
+## Why are multiple user profiles associated with the same email address?
+
+Braze can store multiple user profiles that share the same email address when profiles are created through different identifiers, imports, or anonymous sessions before identification. This is expected behavior when users don't share a single `external_id`.
+
+Before you merge duplicates, use the [Export user profile by identifier endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) to confirm which profiles exist for an email address and which fields each profile contains. You can also search by email in **Audience** > **User Search** to review duplicates in the dashboard.
+
 ## Related articles
 
 - [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
 - [POST: Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
 - [Delete users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)
-
-<!-- sf-kb-phase2-batch -->
-
-## Salesforce Knowledge updates
-
-### Why are multiple User Profiles associated with the Same Email Address?
-
-Ensure docs on user creation/import and duplicate profiles reference Export Users by Identifier as pre-check. Cross-link related KAs.
