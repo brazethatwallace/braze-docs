@@ -89,7 +89,7 @@ CDN의 클릭 추적 도메인을 구성할 때 호스트 헤더 공격과 같�
 
 ### Amazon SES
 
-Amazon SES를 CDN으로 사용하는 경우, [Amazon SES 설명서](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html)의 **옵션 2: HTTPS 도메인 구성**을 참조하고 Braze 클러스터에 따라 리전별 AWS 추적 도메인을 지정하세요:
+Amazon SES를 이메일 서비스 공급자로 사용하는 경우, [Amazon SES 설명서](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html)의 **옵션 2: HTTPS 도메인 구성**을 참조하고 Braze 클러스터에 따라 리전별 AWS 추적 도메인을 지정하세요:
 
 - **Braze US 클러스터:** `r.us-east-1.awstrack.me`
 - **Braze EU 클러스터:** `r.eu-central-1.awstrack.me`

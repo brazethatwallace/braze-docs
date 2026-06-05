@@ -61,3 +61,11 @@ Page-level styles can override message-level styles. If updating **Fill** on a b
 ### Can I add email attachments to the drag-and-drop editor?
 
 Yes. You can add attachments to your email message by going to **Sending Settings** > **Advanced**.
+
+### Why doesn't my Content Block render in email preview?
+
+If a Content Block doesn't render in email preview, check for unclosed anchor tags. For Connected Content URLs, use the `replace` filter to convert double-encoded ampersands (`&amp;amp;`) to a single encoded ampersand (`&amp;`). Limit Content Block nesting to two levels.
+
+### Why is the drag-and-drop editor ignoring alignment settings?
+
+If the drag-and-drop editor ignores alignment settings, remove custom CSS or HTML blocks, remove custom fonts, check for CSS conflicts, and avoid duplicating row blocks. Contact Braze Support if the issue persists.

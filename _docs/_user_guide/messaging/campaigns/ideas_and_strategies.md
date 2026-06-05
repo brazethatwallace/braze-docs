@@ -13,7 +13,7 @@ description: "This landing page is home to campaign ideas and strategies. Here, 
 guide_featured_title: "Section articles"
 guide_featured_list:
   - name: Best practices
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
   - name: Active user campaigns
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns
