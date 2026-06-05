@@ -321,6 +321,10 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
             <td class="no-split"><i>Total Clicks</i> ist die Gesamtzahl (und der Prozentsatz) der Nutzer:innen, die innerhalb der zugestellten Nachricht geklickt haben, unabhängig davon, ob dieselbe Nutzer:in mehrmals geklickt hat.</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i> ist die Gesamtzahl der Male, die Nutzer:innen das Banner geschlossen haben. Nur für Banner mit aktiviertem Schließverhalten verfügbar.</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} Jede Nutzer:in wird nur einmal gezählt.</td>
         </tr>
