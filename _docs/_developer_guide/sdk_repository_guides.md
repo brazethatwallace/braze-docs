@@ -12,14 +12,16 @@ toc_headers: h2
 
 ## Available repository guides
 
-- [Web SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/)
-- [Android SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/android/)
-- [Swift SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/swift/)
-- [JavaScript SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/javascript/)
-- [Cordova SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/cordova/)
-- [Flutter SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/flutter/)
-- [React Native SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/react_native/)
-- [Roku SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/roku/)
-- [Unity SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/unity/)
-- [.NET MAUI (Xamarin) SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/xamarin/)
+Choose from the following repository guides by platform:
+
+- [Web SDK]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/)
+- [Android SDK]({{site.baseurl}}/developer_guide/sdk_repository_guides/android/)
+- [Swift SDK]({{site.baseurl}}/developer_guide/sdk_repository_guides/swift/)
+- [JavaScript SDK]({{site.baseurl}}/developer_guide/sdk_repository_guides/javascript/)
+- [Cordova SDK]({{site.baseurl}}/developer_guide/sdk_repository_guides/cordova/)
+- [Flutter SDK]({{site.baseurl}}/developer_guide/sdk_repository_guides/flutter/)
+- [React Native SDK]({{site.baseurl}}/developer_guide/sdk_repository_guides/react_native/)
+- [Roku SDK]({{site.baseurl}}/developer_guide/sdk_repository_guides/roku/)
+- [Unity SDK]({{site.baseurl}}/developer_guide/sdk_repository_guides/unity/)
+- [.NET MAUI (Xamarin) SDK]({{site.baseurl}}/developer_guide/sdk_repository_guides/xamarin/)
 
