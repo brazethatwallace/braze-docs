@@ -8,17 +8,17 @@ page_order: 5
 
 tool: Campaigns
 page_type: landing
-description: "Esta página de inicio contiene ideas y estrategias para campañas. Aquí encontrarás artículos sobre temas como localización, reorientación, mejores prácticas y más."
+description: "Esta página de inicio contiene ideas y estrategias para campañas. Aquí encontrarás artículos sobre temas como localización, reorientación, buenas prácticas y más."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
-  - name: Mejores prácticas
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+  - name: Buenas prácticas
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
   - name: Campañas de usuarios activos
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns
     image: /assets/img/braze_icons/users-01.svg
-  - name: Enlaces para agregar al calendario
+  - name: Enlaces para añadir al calendario
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/add_to_calendar_links
     image: /assets/img/braze_icons/calendar-date.svg
   - name: Captar usuarios inactivos
@@ -45,7 +45,7 @@ guide_menu_list:
   - name: Crear mensajes de derecha a izquierda
     link: /docs/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages
     image: /assets/img/braze_icons/globe-02.svg
-  - name: Sistema de correo electrónico de recordatorio de reservas
+  - name: Correo electrónico de recordatorio de reserva
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/booking_use_case
     image: /assets/img/braze_icons/channel-email.svg
 ---

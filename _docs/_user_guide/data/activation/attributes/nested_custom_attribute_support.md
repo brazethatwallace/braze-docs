@@ -280,7 +280,7 @@ Check that a schema has been generated if you don't see the option to insert nes
 
 ## Regenerate schemas {#regenerate-schema}
 
-After a schema has been generated, it can be regenerated once every 24 hours. This section describes how to regenerate your schema. For more detailed information on schemas, see [Generate a schema using the nested object explorer]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+After a schema has been generated, you can regenerate it **once per calendar day** (based on your company's time zone). This section describes how to regenerate your schema. For more detailed information on schemas, see [Generate a schema using the nested object explorer]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
 
 To regenerate the schema for your nested custom attribute:
 
@@ -289,7 +289,7 @@ To regenerate the schema for your nested custom attribute:
 3. In the **Attribute Name** column for your attribute, select <i class="fas fa-plus"></i> to manage the schema.
 4. A modal will appear. Select **Regenerate Schema**.
 
-The option to regenerate schema will be disabled if it has been less than 24 hours since the schema was last regenerated. Regenerating the schema will only detect new objects and will not delete objects that currently exist in the schema.
+The **Regenerate Schema** action is limited to **once per calendar day** in your company's time zone. You can't start another regeneration while a schema job is already **in progress** (the option is unavailable while status is **Generating**). Regenerating the schema only detects new objects and does not delete objects that currently exist in the schema.
 
 {% alert important %}
 To reset the schema for an object array with an existing object, you need to create a new custom attribute. Schema regeneration doesn't delete existing objects.
