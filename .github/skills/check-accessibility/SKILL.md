@@ -54,6 +54,18 @@ Override with `$ARGUMENTS`:
 
 5. **One stop per path.** See each workflow for when to collect and present.
 
+## Enforcement
+
+This skill runs interactively inside Cursor. Two additional enforcement layers run the same
+Python scripts automatically:
+
+| Layer | How it works | Install |
+|---|---|---|
+| **Pre-commit hook** (local) | Runs on every `git commit`. Auto-fixes high-confidence table violations, re-stages fixed files, blocks the commit if any violations remain. | `bash scripts/install_hooks.sh` |
+| **CI status check** (GitHub) | Runs on every PR (`check-content-accessibility.yml`). Strict mode — fails immediately on any violation and posts exact `file:line` guidance as a PR comment. | Enabled by default; set as a required status check in branch protection settings. |
+
+**Skip the local hook in an emergency:** `SKIP_A11Y=1 git commit`
+
 ## Examples
 
 **Typical invocation (auto-detect):**
