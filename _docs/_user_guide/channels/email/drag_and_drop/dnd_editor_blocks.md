@@ -13,8 +13,8 @@ page_order: 1
 
 ### Content Block Does Not Render in Email Preview
 
-Add troubleshooting: content block not rendering - check for open anchor tags; use replace filter for &amp;amp; to &amp; in connected_content URLs; adhere to two-level nesting limit for content blocks.
+If a content block doesn't render in email preview, check for unclosed anchor tags, use the `replace` filter to convert `&amp;amp;` to `&amp;` in Connected Content URLs, and limit content block nesting to two levels.
 
 ### Why is Drag And Drop Editor Ignoring The Alignment Settings of Some Elements?
 
-Consider adding troubleshooting to DnD email docs: remove custom CSS/HTML blocks; remove custom fonts and check for CSS conflicts; avoid duplicating row blocks; raise support ticket if issue persists.
+If the drag-and-drop editor ignores alignment settings, remove custom CSS or HTML blocks, remove custom fonts and check for CSS conflicts, and avoid duplicating row blocks. Contact Braze Support if the issue persists.
