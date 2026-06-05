@@ -344,7 +344,7 @@ On Web, Content Cards refresh on session start only if you call `subscribeToCont
 
 ### Impact of stopping Content Cards campaigns
 
-When you stop a campaign and select **Remove card after the next sync**, Braze removes the card from user feeds on the next refresh. Impression counts may be lower than send counts because users cannot impress cards that were removed before they viewed them.
+When you stop a campaign and select **Remove card after the next sync**, Braze removes the card from user feeds on the next refresh. Impression counts may be lower than send counts because users cannot impress cards that are removed before they view them.
 
 ### Pinning and unpinning behavior
 
