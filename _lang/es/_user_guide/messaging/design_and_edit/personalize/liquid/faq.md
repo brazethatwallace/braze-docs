@@ -47,10 +47,12 @@ También puedes usar una sentencia `{% if X %}` {% endraw %} de Liquid para hace
 {% raw %}
 Existe un atributo predeterminado para la ubicación del usuario: `{{${most_recent_location}}}`.
 
-### ¿Cuál es la diferencia entre {{campaign.${name}}} y {{campaign.${message_name}}}? {#whats-the-difference-between-campaignname-and-campaignmessagename}
+### ¿Cuál es la diferencia entre {{campaign.${name}}} y {{campaign.${message_name}}}? {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
 Tanto `{{campaign.${name}}}` como `{{campaign.${message_name}}}` son etiquetas de personalización de Liquid compatibles. Ambas etiquetas hacen referencia a atributos de la campaña. `{{campaign.${name}}}` indica el nombre de tu campaña, y `{{campaign.${message_name}}}` es el nombre de tu variante de mensaje.
 {% endraw %}
+
+Para el uso en URL y cadenas de consulta (por ejemplo, cuando un nombre contiene `%` o espacios), consulta [Nombres de Campaign en URL]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls).
 
 ### ¿Cómo uso Liquid con objetos anidados? {#how-do-i-use-liquid-with-nested-objects}
 
@@ -112,7 +114,7 @@ Tanto `assign` como `capture` crean variables de Liquid, pero tienen propósitos
 - `assign` es para variables simples que almacenan un solo valor, como un booleano, un número o una cadena simple. También puedes aplicar un solo filtro en la misma línea.
 - `capture` es para almacenar un bloque de texto que puede incluir múltiples variables, cadenas o expresiones complejas.
 
-Usa `capture` cuando el valor sea demasiado complejo para una sola sentencia `assign`, como URLs que utilizan otras variables de Liquid o atributos personalizados como parámetros. `capture` también es preferible cuando implementas variables de Liquid en el cuerpo de llamadas de Contenido conectado.
+Usa `capture` cuando el valor sea demasiado complejo para una sola sentencia `assign`, como URL que utilizan otras variables de Liquid o atributos personalizados como parámetros. `capture` también es preferible cuando implementas variables de Liquid en el cuerpo de llamadas de Contenido conectado.
 
 #### Ejemplos {#examples}
 
@@ -140,3 +142,7 @@ Join our VIP program to unlock free shipping.
 {% endcapture %}
 ```
 {% endraw %}
+
+### ¿Las variables de Liquid se comparten entre la línea del asunto y el cuerpo? {#do-liquid-variables-carry-between-subject-line-and-body}
+
+No. Braze renderiza cada componente del mensaje por separado (como la línea del asunto, el cuerpo HTML, el preencabezado y el título push). Las asignaciones o capturas que hagas en un campo no están disponibles en otro. Repite la llamada de Liquid o Contenido conectado en cada campo que necesite el valor.

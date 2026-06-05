@@ -88,6 +88,14 @@ Wenn anschließend eine neue Dashboard-Nutzerin oder ein neuer Dashboard-Nutzer 
 
 ## Fehlerbehebung {#troubleshooting}
 
+### „Aktion kann nicht ausgeführt werden“ beim Hinzufügen einer Nutzerin oder eines Nutzers {#unable-to-perform-action-when-adding-a-user}
+
+Wenn das Hinzufügen einer Dashboard-Nutzerin oder eines Dashboard-Nutzers mit dem Fehler „Unable to perform action“ (oder einem ähnlichen Fehler) fehlschlägt:
+
+- Entfernen Sie führende oder nachgestellte Leerzeichen und versteckte Zeichen aus der E-Mail-Adresse.
+- Bestätigen Sie, dass die Adresse ein gültiges E-Mail-Format für Ihre Organisation hat. Einige Sonderzeichen werden abgelehnt.
+- Dieselbe E-Mail kann nicht für zwei Dashboard-Nutzer:innen im selben [Cluster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/) verwendet werden. Wenn die Adresse bereits in einem anderen Workspace in diesem Cluster registriert ist, verwenden Sie eine andere Adresse oder einen Alias wie `user+1@company.com`.
+
 ### „E-Mail ist bereits vergeben“ beim Versuch, eine:n Nutzer:in hinzuzufügen {#email-is-already-taken-when-trying-to-add-a-user}
 
 Wenn Sie versuchen, eine:n neue:n Nutzer:in hinzuzufügen und eine Fehlermeldung erhalten, dass die E-Mail bereits vergeben ist, die Person aber nicht in Ihrer Nutzerliste finden können, existiert diese:r Nutzer:in höchstwahrscheinlich in einer anderen Instanz desselben Braze-Dashboard-Clusters.

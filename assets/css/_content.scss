@@ -499,6 +499,13 @@
 		&:hover {
 			opacity: 1 !important;
 		}
+		&:focus:not(:focus-visible) {
+			outline: none;
+		}
+		&:focus-visible {
+			opacity: 1;
+			@include focus-ring();
+		}
 	}
 
 	.heading-copy-feedback {

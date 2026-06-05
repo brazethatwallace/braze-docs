@@ -13,13 +13,13 @@ description: "Esta página fornece uma visão geral do processo de exclusão de 
 
 As sincronizações de exclusão de usuários são compatíveis com todas as fontes de dados disponíveis da Ingestão de dados na nuvem.
 
-## Configuração da integração {#configuring-the-integration}
+## Configure a integração {#configure-the-integration}
 
 Siga o processo padrão para [criar uma nova integração no dashboard da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) para o data warehouse ao qual você deseja se conectar. Certifique-se de incluir uma função que possa acessar a tabela de exclusão. Na página **Create import sync**, defina o **Data Type** como **Delete Users** para que as ações adequadas sejam tomadas durante a execução da integração para excluir usuários.
 
 ![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
-## Configuração de dados de origem {#configuring-source-data}
+## Configure os dados de origem {#configure-source-data}
 
 As tabelas de origem para exclusões de usuários devem incluir um ou mais tipos de identificadores de usuários e um carimbo de data/hora `UPDATED_AT`. Não há suporte para colunas de carga útil para dados de exclusão de usuários.
 
@@ -120,7 +120,7 @@ Com a Ingestão de dados na nuvem da Braze, você configura uma integração ent
 Quando uma sincronização é executada, a Braze se conecta diretamente à sua instância de data warehouse, recupera todos os novos dados da tabela especificada e exclui os perfis de usuários correspondentes no seu dashboard da Braze.
 
 {% alert warning %}
-A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanentemente os usuários, o que pode causar discrepâncias nos seus dados. Consulte [excluir um perfil de usuário]({{site.baseurl}}/help/help_articles/api/delete_user/) para saber mais.
+A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanentemente os usuários, o que pode causar discrepâncias nos seus dados. Para mais informações, consulte [Efeitos da exclusão de perfis de usuário]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles).
 {% endalert %}
 
 <br><br>

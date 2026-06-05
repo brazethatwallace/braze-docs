@@ -88,6 +88,14 @@ Si posteriormente se crea un nuevo usuario del dashboard con la misma dirección
 
 ## Solución de problemas {#troubleshooting}
 
+### "No se puede realizar la acción" al añadir un usuario {#unable-to-perform-action-when-adding-a-user}
+
+Si al añadir un usuario del dashboard se produce un error de "No se puede realizar la acción" (o similar):
+
+- Elimina los espacios iniciales o finales y los caracteres ocultos de la dirección de correo electrónico.
+- Confirma que la dirección tiene un formato de correo electrónico válido para tu organización. Algunos caracteres especiales son rechazados.
+- El mismo correo electrónico no puede utilizarse para dos usuarios del dashboard en el mismo [clúster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/). Si la dirección ya está registrada en otro espacio de trabajo en ese clúster, utiliza una dirección diferente o un alias como `user+1@company.com`.
+
 ### "El correo electrónico ya está en uso" al intentar añadir un usuario {#email-is-already-taken-when-trying-to-add-a-user}
 
 Si intentas añadir un nuevo usuario y recibes un error que indica que el correo electrónico ya está en uso, pero no puedes encontrarlo en tu lista de usuarios, ese usuario probablemente existe en una instancia diferente del mismo clúster del dashboard de Braze.

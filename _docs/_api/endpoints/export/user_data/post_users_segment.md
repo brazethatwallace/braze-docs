@@ -174,6 +174,7 @@ The following is a list of valid `fields_to_export`. Using `fields_to_export` to
 - The number of concurrent segment exports a company can run at the endpoint level is capped at 100. Attempts that surpass this limit result in an error.
 - Attempting to export a segment a second time while the first export job is still running results in a 429 error.
 - A [`403 Forbidden` response]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads) often means the export file isn't ready yet.
+- Subscription group data is not available through segment exports. To identify users by subscription status, create a separate segment based on subscription group membership and export that segment.
 
 ## Response
 

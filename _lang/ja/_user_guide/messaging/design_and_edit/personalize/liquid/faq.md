@@ -12,7 +12,7 @@ description: "この記事では、Liquidに関するよくある質問への回
 
 ### BrazeでLiquidスニペットを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-snippets-in-braze}
 
-多くの場合、キャンペーンやキャンバスに移動し、メール本文やセグメントなどの領域でパーソナライゼーションモーダルにLiquidを挿入することで、Liquidスニペットを組み込むことができます。
+多くの場合、CampaignやCanvasesに移動し、メール本文やSegmentsなどの領域でパーソナライゼーションモーダルにLiquidを挿入することで、Liquidスニペットを組み込むことができます。
 
 #### 詳しくはどこで学べますか？ {#where-can-i-learn-more}
 
@@ -47,14 +47,16 @@ Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パ
 {% raw %}
 ユーザーのロケーションにはデフォルト属性があります：`{{${most_recent_location}}}`。
 
-### {{campaign.${name}}} と {{campaign.${message_name}}} の違いは何ですか？ {#whats-the-difference-between-campaignname-and-campaignmessagename}
+### {{campaign.${name}}} と {{campaign.${message_name}}} の違いは何ですか？ {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
-`{{campaign.${name}}}` と `{{campaign.${message_name}}}` はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもキャンペーン属性を参照します。`{{campaign.${name}}}` はキャンペーンの名前を示し、`{{campaign.${message_name}}}` はメッセージバリアントの名前です。
+`{{campaign.${name}}}` と `{{campaign.${message_name}}}` はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもCampaignの属性を参照します。`{{campaign.${name}}}` はCampaignの名前を示し、`{{campaign.${message_name}}}` はメッセージバリアントの名前です。
 {% endraw %}
+
+URLやクエリ文字列での使用（名前に `%` やスペースが含まれる場合など）については、[URLでのCampaign名]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls)を参照してください。
 
 ### ネストされたオブジェクトでLiquidを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-with-nested-objects}
 
-Brazeには、メッセージで使用できるセグメント用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するセグメントを作成できます。
+Brazeには、メッセージで使用できるSegments用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するSegmentを作成できます。
 
 詳細については、[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation)をご覧ください。
 
@@ -100,7 +102,7 @@ Liquidを使用するContent Blocksで送信されたメッセージに余分な
 #### 例 {#example}
 
 {% raw %}
-`````````liquid
+```liquid
 {% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
 ```
 {% endraw %}
@@ -117,7 +119,7 @@ Liquidを使用するContent Blocksで送信されたメッセージに余分な
 #### 例 {#examples}
 
 {% raw %}
-`````````liquid
+```liquid
 {% comment %}Use assign for custom attributes{% endcomment %}
 {% assign name = {{custom_attribute.${first_name}}} %}
 {% assign price = {{custom_attribute.${price}}} | plus: 0 %}
@@ -140,3 +142,7 @@ Join our VIP program to unlock free shipping.
 {% endcapture %}
 ```
 {% endraw %}
+
+### Liquid変数は件名と本文の間で引き継がれますか？ {#do-liquid-variables-carry-between-subject-line-and-body}
+
+いいえ。Brazeは各メッセージコンポーネント（件名、HTML本文、プリヘッダー、プッシュタイトルなど）を個別にレンダリングします。あるフィールドで行った割り当てやキャプチャは、別のフィールドでは使用できません。値が必要な各フィールドでLiquidまたはコネクテッドコンテンツの呼び出しを繰り返してください。

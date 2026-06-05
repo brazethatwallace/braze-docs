@@ -152,5 +152,7 @@ If subscription group updates intermittently fail or appear out of sync, wait se
 The endpoint accepts only the `email` or `phone` value, not both. If you provide both, you receive this response: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
 
+For your subscription update to apply to phone numbers, confirm you sent E.164-formatted phone numbers (for example, `+15555550123`), used the correct `subscription_group_id`, and passed `phone` (not both `phone` and `email`) in the same request body. For multi-number updates, use the `phone` array format shown in [SMS and RCS](#sms-and-rcs).
+
 {% endapi %}
 
