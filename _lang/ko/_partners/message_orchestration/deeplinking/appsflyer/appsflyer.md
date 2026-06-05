@@ -108,13 +108,17 @@ Braze에서 **파트너 통합** > **기술 파트너**로 이동하여 **AppsFl
 3. Braze 대시보드에서 찾은 데이터 가져오기 키와 REST 엔드포인트를 입력합니다.
 4. **Advanced Privacy**를 끄고 구성을 저장합니다.
 
+{% alert important %}
+AppsFlyer의 Integration 탭에서 Braze REST 엔드포인트를 입력할 때 `https://` 프로토콜이나 `/attribution/appsflyer` 경로 없이 도메인만 입력하세요(예: `rest.fra-02.braze.eu`). AppsFlyer가 자동으로 프로토콜을 앞에 추가하고 경로를 뒤에 추가합니다. 둘 중 하나라도 입력에 포함하면 포스트백 실패가 발생합니다.
+{% endalert %}
+
 이 지침에 대한 추가 정보는 [AppsFlyer 설명서](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration)에서 확인할 수 있습니다.
 
 ### 4단계: 통합 확인 {#step-4-confirm-the-integration}
 
-Braze가 AppsFlyer로부터 기여도 데이터를 수신하면, Braze의 AppsFlyer 기술 파트너 페이지에서 연결 상태 표시기가 "Not Connected"에서 "Connected"로 변경되고 마지막 성공 요청의 타임스탬프가 포함됩니다.
+Braze의 AppsFlyer 기술 파트너 페이지에서 연결 표시기는 2단계에서 데이터 가져오기 API 키를 생성할 때까지 **Not Connected**로 표시됩니다. 키를 생성하면 표시기가 **Connected**로 변경되고 타임스탬프가 표시됩니다. 이 타임스탬프는 AppsFlyer가 마지막으로 포스트백을 보낸 시점이 아니라, Braze에서 통합이 처음 설정된 시점(데이터 가져오기 키가 생성된 시점)을 나타냅니다.
 
-이 상태는 Braze가 기여 설치에 대한 데이터를 수신한 후에만 변경됩니다. Braze는 오가닉 설치를 무시하며(AppsFlyer 포스트백에서 제외), 연결 성공 여부를 판단할 때 이를 계산하지 않습니다.
+AppsFlyer에서 설치 기여도 데이터가 전달되고 있는지 확인하려면 5단계를 사용하여 비오가닉 설치 데이터가 Braze Segment 필터에 표시되는지 확인합니다. Braze는 AppsFlyer 포스트백에서 오가닉 설치를 무시하며 기여 설치 데이터로 저장하지 않습니다.
 
 ### 5단계: 사용자 기여도 데이터 보기 {#step-5-viewing-user-attribution-data}
 

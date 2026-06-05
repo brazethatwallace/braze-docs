@@ -1,12 +1,13 @@
 ---
-hidden: true
-article_title: "Cloud-Datenaufnahme: SQL-Editor (Beta)"
+nav_title: SQL-Editor
+article_title: "Cloud-Datenaufnahme: SQL-Editor"
 description: "Erfahren Sie, wie Sie Cloud-Datenaufnahme-Synchronisierungen mit SQL-Anfragen erstellen und validieren."
+page_order: 11
 page_type: reference
 toc_headers: h2
 ---
 
-# Cloud-Datenaufnahme: SQL-Editor (Beta) {#cloud-data-ingestion-sql-editor-beta}
+# Cloud-Datenaufnahme: SQL-Editor {#cloud-data-ingestion-sql-editor}
 
 > Auf dieser Seite erfahren Sie, wie Sie den SQL-Editor der Braze Cloud-Datenaufnahme (CDI) verwenden, um Synchronisierungen mit SQL-Anfragen zu erstellen und zu validieren.
 
@@ -113,7 +114,7 @@ Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Account-Bezeich
 
 #### Schritt 2.3: RSA-Schlüssel-Einrichtung abschließen {#step-23-complete-rsa-key-setup}
 
-Nachdem Sie Ihre Zugangsdaten und Konfiguration eingegeben haben, wählen Sie **Zugangsdaten speichern** und generieren Sie einen RSA-Schlüssel. Gehen Sie dann zurück zu Snowflake, um die Einrichtung abzuschließen. Fügen Sie den im Dashboard angezeigten öffentlichen Schlüssel der Nutzer:in hinzu, die Sie für die Verbindung von Braze mit Snowflake erstellt haben.
+Nachdem Sie Ihre Zugangsdaten und Konfiguration eingegeben haben, wählen Sie **Save credentials** und generieren Sie einen RSA-Schlüssel. Gehen Sie dann zurück zu Snowflake, um die Einrichtung abzuschließen. Fügen Sie den im Dashboard angezeigten öffentlichen Schlüssel der Nutzer:in hinzu, die Sie für die Verbindung von Braze mit Snowflake erstellt haben.
 
 Weitere Informationen finden Sie unter [Snowflake-Schlüsselpaar-Authentifizierung](https://docs.snowflake.com/en/user-guide/key-pair-auth). Wenn Sie Schlüssel zu einem beliebigen Zeitpunkt rotieren möchten, kann Braze ein neues Schlüsselpaar generieren und den neuen öffentlichen Schlüssel bereitstellen.
 
@@ -121,13 +122,13 @@ Weitere Informationen finden Sie unter [Snowflake-Schlüsselpaar-Authentifizieru
 ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 ```
 
-Wählen Sie in Braze **Verbindung testen**, um den Quellzugriff zu überprüfen, und erstellen Sie dann die Quelle.
+Wählen Sie in Braze **Test connection**, um den Quellzugriff zu überprüfen, und erstellen Sie dann die Quelle.
 
 ### 3. Schritt: Eine neue Synchronisierung erstellen und Ihre SQL-Anfrage schreiben {#step-3-create-a-new-sync-and-write-your-sql-query}
 
 1. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Synchronisierungen**.
-2. Wählen Sie **Datensynchronisierung erstellen**.
-3. Wählen Sie **User Attributes** unter **Datentyp**.
+2. Wählen Sie **Create data sync**.
+3. Wählen Sie **User Attributes** unter **Data Type**.
 4. Referenzieren Sie die Snowflake-Quelle aus Schritt 2.
 5. Wählen Sie **SQL** und schreiben Sie eine SQL-Anfrage, die Nutzerdaten aus Ihrem Warehouse zurückgibt. Ihre SQL-Anfrage definiert die Daten, die mit Braze synchronisiert werden. Das Anfrageergebnis wird zum Schema für Ihre Synchronisierung.
 
@@ -145,7 +146,7 @@ Es werden nur lesende Anfragen unterstützt, einschließlich `JOIN`-Klauseln. We
 
 ### 4. Schritt: Anfrage in der Vorschau anzeigen und validieren {#step-4-preview-and-validate-your-query}
 
-Wählen Sie **Vorschau und Validierung**, um Ihre Anfrage auszuführen.
+Wählen Sie **Preview and validate**, um Ihre Anfrage auszuführen.
 
 Die Vorschau:
 
@@ -163,7 +164,7 @@ Nach der Validierung:
 - Die `UPDATED_AT`-Spalte steuert die inkrementelle Synchronisierung
 - Braze synchronisiert alle anderen Spalten als Attribute
 
-Wenn die Validierung erfolgreich ist, fahren Sie mit **Weiter: Benachrichtigungen** fort und erstellen Sie Ihre Synchronisierung.
+Wenn die Validierung erfolgreich ist, fahren Sie mit **Next: Notifications** fort und erstellen Sie Ihre Synchronisierung.
 
 {% alert important %}
 Eine ungenaue SQL-Konfiguration kann zu unbeabsichtigten Ergebnissen führen, einschließlich eines übermäßigen Verbrauchs von Datenpunkten und weiterer betrieblicher Risiken. Sie sind dafür verantwortlich, dass Ihre Anfragelogik korrekt ist, und sollten alle Ergebnisse sorgfältig in der Vorschau prüfen, bevor Sie eine Synchronisierung aktivieren.
@@ -189,7 +190,7 @@ Wenn kein gültiger Bezeichner erkannt wird, schlägt die Validierung fehl.
 Beachten Sie, dass diese Bezeichner die Groß-/Kleinschreibung beachten und in Großbuchstaben geschrieben werden müssen.
 {% endalert %}
 
-### `UPDATED_AT` einschließen {#include-updatedat}
+### `UPDATED_AT` einschließen {#include-updated_at}
 
 Ihre Anfrage muss eine `UPDATED_AT`-Spalte enthalten.
 
@@ -326,7 +327,7 @@ Wenn „Keine Vorschau verfügbar“ angezeigt wird, kann einer der folgenden zu
 
 Stellen Sie sicher, dass Ihre Anfrage einen gültigen Bezeichner enthält, wie z. B. `external_id`.
 
-### „`UPDATED_AT`-Spalte fehlt“ {#updatedat-column-is-missing}
+### „`UPDATED_AT`-Spalte fehlt“ {#updated_at-column-is-missing}
 
 Fügen Sie eine Zeitstempel-Spalte für die inkrementelle Synchronisierung hinzu.
 

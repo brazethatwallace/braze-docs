@@ -131,7 +131,7 @@
 | `sms_no_sending_numbers` | このサブスクリプショングループで利用可能な送信用電話番号がありません。 |
 | `sms_fatal_provider_error` | SMSプロバイダーで致命的なエラーが発生し、メッセージを配信できませんでした。 |
 | `sms_gateway_domain_not_allowed` | SMSゲートウェイドメインが許可リストに含まれていません。 |
-| `blocked_recipient_country` | 受信者の電話番号が[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/)によりブロックされている国のものです。 |
+| `blocked_recipient_country` | 受信者の電話番号が[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)によりブロックされている国のものです。 |
 | `mms_not_supported` | この受信者または送信番号ではMMSがサポートされていません。 |
 | `no_current_messaging_service` | このサブスクリプショングループにアクティブなメッセージングサービスが設定されていません。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }
@@ -206,7 +206,7 @@
 
 | `abort_type` の値 | 説明 |
 | --- | --- |
-| `blocked_webhook_url` | Webhook URLがセキュリティポリシーによりブロックされました。 |
+| `blocked_webhook_url` | WebhookのURLがセキュリティポリシーによりブロックされました。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Webhooks" }
 
 {% endif %}

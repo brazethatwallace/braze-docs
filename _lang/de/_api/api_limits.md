@@ -46,6 +46,8 @@ Im Folgenden finden Sie die Standard-API-Rate-Limits für verschiedene Anfragety
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | 50 Anfragen pro Minute. |
 | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | 20 Anfragen pro Minute. |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) | 100 Anfragen pro Minute. |
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 100 Anfragen pro Stunde. |
+| [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 100 Anfragen pro Stunde. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
 
 ### Anfragen mit gemeinsamen Rate-Limits {#requests-with-shared-rate-limits}
