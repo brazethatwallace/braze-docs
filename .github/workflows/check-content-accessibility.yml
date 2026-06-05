@@ -5,9 +5,13 @@
 #   WCAG 2.4.6  Heading level skips (e.g. h2 → h4)
 #   WCAG 4.1.2  Inline <iframe> tags without a title attribute
 #
-# Strict mode: ALL violations fail the build, including medium-confidence issues
-# that the local hook would prompt about. The author sees the exact file path and
-# line number for every violation.
+# WARNING MODE: violations are reported but do NOT block merging. This is intentional
+# while false-positive rates are being validated. Upgrade to a required status check
+# once baseline quality is confirmed. See track-a11y-telemetry.yml for the data
+# collection that informs that decision.
+#
+# If you believe a violation is a false positive, add the "a11y-false-positive" label
+# to this PR. The telemetry workflow will record it alongside the violation type.
 #
 # Table accessible names (WCAG 1.3.1) are handled by check-table-accessibility.yml.
 #
@@ -72,6 +76,7 @@ jobs:
       - name: Check content accessibility
         id: lint
         if: steps.changed.outputs.ran == 'true'
+        continue-on-error: true   # Warning-only: violations are reported but do not block merge.
         shell: bash
         run: |
           set +e
@@ -115,6 +120,15 @@ PYEOF
           fi
 
           exit "${LINT_EXIT}"
+
+      - name: Upload violations artifact
+        if: always() && steps.changed.outputs.ran == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-content-violations-pr${{ github.event.pull_request.number }}-run${{ github.run_number }}
+          path: violations.json
+          retention-days: 90
+          if-no-files-found: ignore
 
       - name: Post violations as PR comment
         if: always() && steps.changed.outputs.ran == 'true' && steps.lint.outcome == 'failure'
@@ -167,6 +181,12 @@ PYEOF
               '_Run `/check-accessibility markdown` in the Cursor chat for guided fixes, ' +
               'or install the pre-commit hook (`bash scripts/install_hooks.sh`) to catch ' +
               'these before pushing._'
+            );
+            lines.push('');
+            lines.push(
+              '> **This check is advisory — it will not block your merge.** ' +
+              'If a violation above is incorrect, add the `a11y-false-positive` label to this PR. ' +
+              'We track that signal to improve detection accuracy.'
             );
 
             for (const [criterion, cvs] of Object.entries(byCriterion).sort()) {
