@@ -25,11 +25,11 @@ toc_headers: h2
 이메일 설정을 구성할 때, 발신 이메일 설정은 Braze가 사용자에게 이메일을 보낼 때 사용되는 이름과 이메일 주소를 식별합니다.
 
 {% tabs local %}
-{% tab Display Name Address %}
+{% tab 표시 이름 주소 %}
 
 이 섹션에서는 Braze가 사용자에게 이메일을 보낼 때 사용할 수 있는 이름과 이메일 주소를 추가할 수 있습니다. 표시 이름과 이메일 주소는 이메일 Campaign을 작성할 때 **Sending Info** 옵션에서 사용할 수 있습니다. 발신 이메일 설정에 대한 업데이트는 기존 발송에 소급 적용되지 않습니다.
 
-![다양한 표시 이름과 도메인 필드가 있는 "Outbound Email Settings" 섹션.]({% image_buster /assets/img/email_settings/display_name_address.png %})
+![다양한 표시 이름과 도메인 필드가 있는 발신 이메일 설정 섹션.]({% image_buster /assets/img/email_settings/display_name_address.png %})
 
 #### Liquid로 개인화하기 {#personalize-with-liquid}
 
@@ -52,11 +52,11 @@ Default to English Display Name
 {% endraw %}
 
 {% endtab %}
-{% tab Reply-To Address %}
+{% tab 회신 주소 %}
 
 이 섹션에서 이메일 주소를 추가하면 이메일 Campaign의 회신 주소로 선택할 수 있습니다. **Make Default**를 선택하여 이메일 주소를 기본 주소로 만들 수도 있습니다. 이러한 이메일 주소는 이메일 Campaign을 작성할 때 **Sending Info** 옵션에서 사용할 수 있습니다.
 
-![여러 회신 주소를 입력하는 필드가 있는 "Reply-To Address" 섹션.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
+![여러 회신 주소를 입력하는 필드가 있는 회신 주소 섹션.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
 #### Liquid로 개인화하기
 
@@ -74,7 +74,7 @@ Default to English Display Name
 {% endraw %}
 
 {% endtab %}
-{% tab BCC Address %}
+{% tab BCC 주소 %}
 
 이 섹션에서는 Braze에서 발송하는 발신 이메일 메시지에 추가할 수 있는 BCC 주소를 관리할 수 있습니다. 이메일 메시지에 BCC 주소를 추가하면 사용자가 수신하는 메시지의 동일한 사본이 BCC 받은편지함으로 전송됩니다. 이는 규정 준수 요구 사항이나 고객지원 문제를 위해 사용자에게 보낸 메시지의 사본을 보관하는 데 유용한 도구입니다. BCC 이메일은 이메일 보고서 및 분석에 포함되지 않습니다.
 
@@ -82,7 +82,7 @@ BCC 주소는 Amazon SES, SendGrid, SparkPost에서 사용할 수 있습니다. 
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-![이메일 설정 탭의 BCC Address 섹션.]({% image_buster /assets/img/email_settings/bcc_address.png %}){: style="max-width:75%;" }
+![이메일 설정 탭의 BCC 주소 섹션.]({% image_buster /assets/img/email_settings/bcc_address.png %}){: style="max-width:75%;" }
 
 주소를 추가한 후에는 Campaign 또는 캔버스 단계에서 이메일을 작성할 때 해당 주소를 선택할 수 있습니다. 주소 옆의 **Make Default**를 선택하면 새 이메일 Campaign 또는 Canvas 구성요소를 시작할 때 이 주소가 기본으로 선택됩니다. 메시지 수준에서 이를 재정의하려면 메시지를 설정할 때 **No BCC**를 선택하면 됩니다.
 
@@ -94,7 +94,7 @@ Braze에서 보내는 모든 이메일 메시지에 BCC 주소를 포함해야 �
 
 예를 들어, 고객지원 팀의 이메일에 대한 BCC 주소로 {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %}를 추가할 수 있습니다.
 
-![Liquid를 사용하는 BCC 주소가 있는 이메일 설정 탭의 BCC Address 섹션.]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
+![Liquid를 사용하는 BCC 주소가 있는 이메일 설정 탭의 BCC 주소 섹션.]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
 
 {% endtab %}
 {% endtabs %}
@@ -117,7 +117,7 @@ Braze의 기본 동작은 이메일 하단, 일반적으로 `<body>` 태그에 �
 
 Braze는 현재 이메일 서비스 공급자의 기본 열람 추적 픽셀 위치(이메일 `<body>`의 마지막 태그)를 `<body>`의 첫 번째 태그로 이동하는 것을 지원합니다.
 
-![SendGrid, SparkPost 또는 Amazon SES에 대해 이동 옵션이 있는 "Open Tracking Pixel" 섹션.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
+![SendGrid, SparkPost 또는 Amazon SES에 대해 이동 옵션이 있는 열람 추적 픽셀 섹션.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
 
 위치를 변경하려면:
 
@@ -171,7 +171,7 @@ _*Yahoo와 Gmail은 결국 "mailto:" 헤더를 지원 중단하고 원클릭만 
 헤더 표시 여부는 궁극적으로 메일함 공급자가 결정합니다. Gmail에서 수신자의 원본(텍스트) 이메일에 목록 탈퇴 헤더가 포함되어 있는지 확인하려면 다음을 수행하세요:
 
 1. 이메일에서 **Show Original**을 선택합니다. 이메일의 원본 버전과 헤더가 포함된 새 탭이 열립니다.
-2. "List-Unsubscribe"를 검색합니다.
+2. "List-Unsubscribe"를 검색합니다. 원클릭 탈퇴의 경우, 많은 공급자가 "List-Unsubscribe-Post" 헤더도 포함합니다. 원클릭이 사용 가능할 것으로 예상되는 경우 원본 메시지에 두 헤더가 모두 나타나는지 확인하세요.
 
 헤더가 이메일의 원본 버전에 있지만 표시되지 않는 경우, 메일함 공급자가 탈퇴 옵션을 표시하지 않기로 결정한 것이며, 메일함 공급자가 헤더를 표시하지 않는 이유에 대한 추가 인사이트는 없습니다. 목록 탈퇴 헤더의 표시는 궁극적으로 평판 기반입니다. 대부분의 경우 메일함 공급자에 대한 발신자 평판이 좋을수록 목록 탈퇴 헤더가 나타날 가능성이 높습니다.
 
@@ -277,7 +277,7 @@ CSS 인라인은 이메일 및 새 이메일의 CSS 스타일을 자동으로 �
 ## 가입 페이지 및 바닥글 {#subscription-pages-and-footers}
 
 {% tabs local %}
-{% tab Custom Footer %}
+{% tab 사용자 지정 바닥글 %}
 
 상업 이메일의 경우, [CAN-SPAM 법](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003)은 모든 상업 이메일에 탈퇴 옵션을 포함하도록 요구합니다. 사용자 지정 바닥글 설정을 사용하면 CAN-SPAM을 준수하면서 이메일 옵트아웃 바닥글을 사용자 지정할 수 있습니다. 규정을 준수하려면 이 워크스페이스의 Campaign으로 발송되는 모든 이메일에 사용자 지정 바닥글을 추가해야 합니다.
 
@@ -290,7 +290,7 @@ CSS 인라인은 이메일 및 새 이메일의 CSS 스타일을 자동으로 �
 사용자 지정 바닥글 Liquid 템플릿에 대해 자세히 알아보려면 [사용자 지정 바닥글]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions) 설명서를 확인하세요.
 
 {% endtab %}
-{% tab Custom Unsubscribe Page %}
+{% tab 사용자 지정 구독취소 페이지 %}
 
 Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설정할 수 있습니다. 이 페이지는 사용자가 이메일 하단에서 탈퇴를 선택한 후 표시됩니다. 이 페이지는 750 KB 미만이어야 합니다.
 
@@ -299,7 +299,7 @@ Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설
 이메일 목록 관리 모범 사례에 대해 자세히 알아보려면 [이메일 구독 관리]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)를 참조하세요.
 
 {% endtab %}
-{% tab Custom Opt-In Page %}
+{% tab 사용자 지정 옵트인 페이지 %}
 
 자체 HTML을 사용하여 사용자 지정 옵트인 페이지를 만들 수 있습니다. 이를 이메일에 포함하면 사용자 라이프사이클 전반에 걸쳐 브랜딩과 메시지를 일관되게 유지하려는 경우 특히 유용합니다. 이 페이지는 750 KB 미만이어야 합니다.
 

@@ -17,8 +17,6 @@ description: "This article outlines details about the View translation for a Can
 
 > Use this endpoint to preview a translated message for a Canvas. See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Prerequisites
 
 To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `canvas.translations.get` permission.

@@ -10,7 +10,7 @@ channel:
 
 ---
 
-# Link-Templates
+# Link-Templates {#link-templates}
 
 > Mit Link-Templates können Sie dynamische und wiederverwendbare Links für Ihre E-Mail-Campaigns erstellen, indem Sie Parameter anhängen oder URLs voranstellen. So schaffen Sie Konsistenz bei den URLs in Ihren Campaigns und Nachrichten.
 
@@ -31,7 +31,7 @@ Angenommen, Sie führen eine Werbe-E-Mail-Campaign für eine neue Produkteinfüh
 
 Sie können eine unbegrenzte Anzahl von Link-Templates erstellen, um Ihre verschiedenen Anforderungen zu unterstützen. Um ein Link-Template zu erstellen, gehen Sie wie folgt vor:
 
-1. Gehen Sie zu **Templates** > **E-Mail-Link-Templates**.
+1. Gehen Sie zu **Inhalt** > **E-Mail-Link**.
 2. Wählen Sie **E-Mail-Link-Template erstellen**.
 3. Geben Sie Ihrem Link-Template einen Namen.
 4. (Optional) Fügen Sie eine Beschreibung, ein Team oder einen Tag hinzu, um weitere Details zum Link-Template anzugeben.
@@ -49,22 +49,22 @@ Wenn Sie Link-Templates und [Liquid]({{site.baseurl}}/user_guide/messaging/desig
 Um einen String oder eine URL vor den Links in Ihrer E-Mail-Nachricht hinzuzufügen, gehen Sie wie folgt vor:
 
 1. Erstellen Sie ein neues Link-Template.
-2. Setzen Sie die **Template Position** auf **Before URL**.
+2. Setzen Sie die **Template Position** auf **Vor URL**.
 3. Geben Sie einen String ein, der immer vor Ihre URL gestellt wird.
 
-Die **Template Preview** zeigt Ihnen ein Beispiel, wie das Link-Template vor einer URL eingefügt wird.
+Die **Template-Vorschau** zeigt Ihnen ein Beispiel, wie das Link-Template vor einer URL eingefügt wird.
 
-![Felder für „Template Position“, vorangestellte URL und „Template Preview“ für den Einfügeprozess des Link-Templates vor einer URL.]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
+![Felder für „Template Position“, vorangestellte URL und „Template-Vorschau“ für den Einfügeprozess des Link-Templates vor einer URL.]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
 
 ### Anhängen: Ein Link-Template erstellen, das hinter einer URL eingefügt wird {#append-link-template}
 
 Wenn Sie Abfrageparameter hinter einer URL in Ihrer E-Mail-Nachricht hinzufügen möchten:
 
 1. Erstellen Sie ein neues Link-Template.
-2. Setzen Sie die **Template Position** auf **After URL**.
+2. Setzen Sie die **Template Position** auf **Hinter URL**.
 3. Geben Sie die Abfrageparameter (`value=example`) am Ende jeder URL ein. Sie können mehrere Parameter am Ende einer URL anhängen.
 
-![Felder für „Template Position“, Abfrageparameter und „Template Preview“ für den Einfügeprozess des Link-Templates hinter einer URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
+![Felder für „Template Position“, Abfrageparameter und „Template-Vorschau“ für den Einfügeprozess des Link-Templates hinter einer URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
 
 ## Link-Templates in E-Mail-Campaigns verwenden {#using-link-templates-in-email-campaigns}
 

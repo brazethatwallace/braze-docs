@@ -181,7 +181,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Si un correo electrónico recibe un rebote blando, normalmente se reintentará en un plazo de 72 horas, pero el número de reintentos varía según el receptor.
 
-Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) o excluir a estos usuarios de tu envío con el [filtro de Segment de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los «envíos» y las «entregas» de tus campañas de correo electrónico.
+Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) o excluir a estos usuarios de tu envío con el [filtro de segmento de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los «envíos» y las «entregas» de tus campañas de correo electrónico.
 
 <span class="calculation-line">Cálculo: Recuento </span>
 
@@ -239,7 +239,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Esto se rastrea durante un período de siete días para correo electrónico y se mide por <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. Esto incluye clics en los enlaces de cancelación de suscripción proporcionados por Braze. Después de siete días, otro clic único puede contarse para el mismo usuario si hace clic de nuevo. Para que coincidan los recuentos del dashboard con Currents, filtra por eventos donde `is_unique` sea `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Esto se rastrea durante un período de siete días para correo electrónico y se mide por <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Esto incluye clics en los enlaces de cancelación de suscripción proporcionados por Braze. Después de siete días, otro clic único puede contarse para el mismo usuario si hace clic de nuevo. Para que coincidan los recuentos del dashboard con Currents, filtra por eventos donde `is_unique` sea `true`.
 
 {::nomarkdown}
 <span class="calculation-line">

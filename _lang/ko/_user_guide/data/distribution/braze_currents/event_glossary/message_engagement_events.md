@@ -4023,7 +4023,7 @@ Abort, Content Cards
 
 - `dispatch_id`는 Campaign 발송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하고, 해당 발송의 푸시 메시지 라이프사이클(발송, 반송, 열기 등)을 상관 분석할 수 있습니다.
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
-- `abort_type`은 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `frequency_capped`가 됩니다.
+- 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 Content Card messages every 1 week`
 
 {% endapi %}
@@ -5578,7 +5578,7 @@ Email, Bounce
 #### 속성 세부 정보
 
 - `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
-  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)을 참조하세요.
 
 {% endapi %}
 
@@ -5916,7 +5916,7 @@ Email, Clicks
 #### 속성 세부 정보
 
 - `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
-  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+  - `dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)을 참조하세요.
 
 {% endapi %}
 
@@ -6176,7 +6176,7 @@ Email, Deferral
 #### 속성 세부 정보
 
 - `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
-  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다.
 
 {% endapi %}
 
@@ -6423,7 +6423,7 @@ Email, Delivery
 #### 속성 세부 정보
 
 - `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
-  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다.
 
 {% endapi %}
 
@@ -7501,7 +7501,7 @@ Email, Sends
 #### 등록정보 세부 정보
 
 - `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(전송, 반송, 열기 등)를 그룹화하고 상관관계를 파악할 수 있습니다.
-  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+  - `dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)을 참조하세요.
 - `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어, 국가) 및 Canvas 진입 등록정보로 전송 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가 정보]({{site.baseurl}}/message_extras_tag/)를 참조하세요.
 
 {% endapi %}
@@ -7755,7 +7755,7 @@ Email, Bounce
 #### 등록정보 세부 정보
 
 - `dispatch_id`는 Campaign 전송과 같은 특정 메시지 디스패치에 대한 ID입니다. 동일한 디스패치에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 디스패치에 속하는 이벤트를 그룹화하면 해당 디스패치의 푸시 메시지 생애 주기(전송, 반송, 열기 등)를 그룹화하고 상관관계를 파악할 수 있습니다.
-  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+  - `dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)을 참조하세요.
 
 {% endapi %}
 
@@ -7992,7 +7992,7 @@ Email, Subscription
 #### 등록정보 세부 정보
 
 - `dispatch_id`는 Campaign 전송과 같은 특정 메시지 디스패치에 대한 ID입니다. 동일한 디스패치에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 디스패치에 속하는 이벤트를 그룹화하면 해당 디스패치의 푸시 메시지 생애 주기(전송, 반송, 열기 등)를 그룹화하고 상관관계를 파악할 수 있습니다.
-  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+  - `dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)을 참조하세요.
 
 {% endapi %}
 
@@ -13124,7 +13124,7 @@ RCS, Inbound Received
 RCS, Read
 {% endapitags %}
 
-이 이벤트는 사용자가 기기에서 RCS 메시지를 열 때 생성되며, 메시지 콘텐츠를 보았거나 읽었음을 나타냅니다.
+이 이벤트는 사용자가 기기에서 RCS 메시지를 열어 메시지 콘텐츠를 보았거나 읽었음을 나타낼 때 생성됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}

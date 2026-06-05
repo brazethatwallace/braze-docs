@@ -27,19 +27,19 @@ Zunächst müssen Sie Ihr HTML-E-Mail-Template erstellen. Es muss sich um eine Z
 
 ### 1. Schritt: Zum E-Mail-Template-Editor navigieren {#step-1-go-to-the-email-template-editor}
 
-Gehen Sie zu **Templates** > **Email Templates**.
+Gehen Sie zu **Content** > **Email**. Wählen Sie **Create email template**.
 
-### 2. Schritt: Den Uploader öffnen {#step-2-open-the-uploader}
+### 2. Schritt: Template-Details hinzufügen {#step-2-add-template-details}
 
-Wählen Sie im Abschnitt **Template Type** die Option **HTML Editor** und scrollen Sie nach unten zum Abschnitt **Start from a Basic HTML Template**. Wählen Sie **From File**.
+Geben Sie einen Template-Namen ein. Optional können Sie eine Beschreibung, Teams und Tags hinzufügen.
 
 ### 3. Schritt: Ihr Template hochladen {#step-3-upload-your-template}
 
-Wählen Sie **Upload From File** und wählen Sie Ihr Template von Ihrem Computer aus. Lesen Sie den Abschnitt [Voraussetzungen](#upload-requirements), um sicherzustellen, dass Ihr Template die Upload-Anforderungen erfüllt.
+Wählen Sie im Abschnitt **Template content** unter der Kachel **HTML code editor** die Option **Upload file**. Wählen Sie Ihr Template von Ihrem Computer aus. Lesen Sie den Abschnitt [Voraussetzungen](#upload-requirements), um sicherzustellen, dass Ihr Template die Upload-Anforderungen erfüllt.
 
 ### 4. Schritt: Ihr Template fertigstellen und speichern {#step-4-finish-and-save-your-template}
 
-Stellen Sie sicher, dass Sie Ihr Template speichern, indem Sie **Save Template** auswählen. Sie können dieses Template jetzt in jeder Kampagne oder jedem Canvas verwenden!
+Stellen Sie sicher, dass Sie Ihr Template speichern, indem Sie **Save template** auswählen. Sie können dieses Template jetzt in jeder Kampagne oder jedem Canvas verwenden!
 
 {% alert note %}
 Wenn Sie Änderungen an einem bestehenden Template vornehmen, werden diese Änderungen nicht in Kampagnen übernommen, die mit früheren Versionen dieses Templates erstellt wurden.

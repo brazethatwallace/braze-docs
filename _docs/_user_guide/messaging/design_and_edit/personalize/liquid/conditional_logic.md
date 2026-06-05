@@ -67,10 +67,11 @@ Conditional logic begins with the `if` tag, which states the first condition to 
 
 You have the option to include an `{% else %}` statement in your conditional logic. If none of the conditions that you set are met, the `{% else %}` statement specifies the message that should be sent. In this example, we default to English if a user’s language is not English, Spanish, or Chinese.
 
-#### Case and when tags
-{: #case-and-when-tags}
+#### `case` and `when`
 
 `{% case %}`, `{% when %}`, and `{% endcase %}` work like a switch statement: you set one expression after `case`, and each `when` branch runs when that expression equals the listed value (Liquid uses equality behind the scenes, similar to chaining `if` and `elsif` with `==`). You can list multiple values in one `when` tag by separating them with a comma or `or`. Use `{% else %}` for a fallback when nothing matches, then close with `{% endcase %}`.
+
+Make sure to match the format of your `when` values to the data type. For text (such as a language code), use quotes: `{% when 'es' %}`. For numbers, omit quotes: `{% when 2 %}`.
 
 ```liquid
 {% assign handle = 'cake' %}

@@ -95,6 +95,10 @@ Canvasを停止しても、メッセージの受信を待っているユーザ�
 
 Campaignsにおける多変量およびABテストの概念については、[多変量およびABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 
+### ユーザーがCanvasメッセージステップでグローバルフリークエンシーキャップに達した場合、どうなりますか？ {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+キャップされたチャネルの送信は受信しませんが、メッセージステップはグローバルフリークエンシーキャップによりメッセージが送信されなかった場合でもユーザーを進行させます。ステップごとの進行ケースについては、[ユーザーの進行方法]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance)を参照してください。グローバルフリークエンシーキャップだけではユーザーをCanvasから退出させません。この動作はメッセージステップの**配信バリデーション**とは別のものです。詳細については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)を参照してください。
+
 ### 送信数が推定オーディエンスサイズよりも少ないのはなぜですか？ {#why-are-sends-lower-than-the-estimated-audience-size}
 
 送信数が**推定オーディエンス**よりも少なくなる理由は、[Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)と同様の多くの理由があります。これには、フリークエンシーキャップ、厳格なデバイスまたはブラウザフィルター、再適格性ウィンドウ、レート制限、チャネルレベルの除外（例：プッシュ到達可能性やメールサブスクリプションおよび配信可能性チェック）が含まれます。
@@ -166,7 +170,7 @@ Canvasバリアントのコンバージョン合計がステップ合計の合�
 
 ### APIトリガーのCanvasをユーザーが受信したことを確認するにはどうすればよいですか？ {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
 
-Canvasフィルターを使用して[Segmentを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、ユーザーがCanvasに入ったか、特定のキャンバスステップを受信したかを確認できます。例えば、ユーザーがAPIトリガーのCanvasに入ったことを確認したい場合はCanvasエントリフィルターを使用し、Canvasからメッセージを受信したことを確認したい場合は受信ステップフィルターを使用します。次に、[`/users/export/segment` エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用して、そのSegment内のユーザーをエクスポートします。
+Canvasフィルターを使用して[Segmentを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、ユーザーがCanvasに入ったか、特定のキャンバスステップを受信したかを確認できます。例えば、ユーザーがAPIトリガーのCanvasに入ったことを確認したい場合はCanvasエントリフィルターを使用し、Canvasからメッセージを受信したことを確認したい場合は受信ステップフィルターを使用します。次に、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用して、そのSegment内のユーザーをエクスポートします。
 
 ### Canvasを削除できますか？ {#can-i-delete-a-canvas}
 
@@ -174,7 +178,7 @@ Canvasフィルターを使用して[Segmentを作成]({{site.baseurl}}/user_gui
 
 ### 各Canvasコンポーネントの分析はどのように確認できますか？ {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
-Canvasコンポーネントの分析を確認するには、Canvasに移動し、**Canvasの詳細**ページを下にスクロールします。ここで、各コンポーネントの分析を確認できます。詳細については、[Canvas分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)をご覧ください。
+Canvasコンポーネントの分析を確認するには、Canvasに移動し、**Canvas Details**ページを下にスクロールします。ここで、各コンポーネントの分析を確認できます。詳細については、[Canvas分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)をご覧ください。
 
 ### ユニークユーザー数を確認する場合、Canvas分析とセグメンターのどちらがより正確ですか？ {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
@@ -270,4 +274,4 @@ Canvasの編集中に「リクエストタイムアウト」エラーが発生�
 - **タイムスタンプとタイムゾーン：** エラーが発生した正確な時刻とタイムゾーン。
 - **ブラウザとバージョン：** 使用しているブラウザ（例：Chrome 120、Safari 17）と、別のブラウザでエラーを再現しようとしたかどうか。
 - **再現手順：** エラーをトリガーするアクションの明確な説明（関連する特定のキャンバスステップや設定を含む）。
-- **ネットワークログ（オプション）：** ブラウザの開発者ツール（**ネットワーク**タブ）を開き、エラーを再現し、ネットワークログをHTTPアーカイブ（HAR）ログファイルとしてエクスポートします。これにより、サポートチームがどのAPIコールがタイムアウトしているかを特定できます。
+- **ネットワークログ（オプション）：** ブラウザの開発者ツール（**Network**タブ）を開き、エラーを再現し、ネットワークログをHTTPアーカイブ（HAR）ログファイルとしてエクスポートします。これにより、サポートチームがどのAPIコールがタイムアウトしているかを特定できます。

@@ -356,7 +356,7 @@ Il est important de s'assurer que ces fichiers sont toujours accessibles publiqu
 
 Assurez-vous que les définitions des domaines que votre application est autorisée à ouvrir sont correctes.
 
-- **iOS :** vérifiez les Associated Domains configurés dans Xcode pour votre application ([étape 1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
+- **iOS :** vérifiez les Associated Domains configurés dans Xcode pour votre application ([étape 1c]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
 - **Android :** ouvrez la page d'informations de l'application (appui long sur l'icône de l'application et cliquez sur ⓘ). Dans le menu d'informations de l'application, localisez **Ouvrir par défaut** et appuyez dessus. Cela devrait afficher un écran avec tous les liens vérifiés que l'application est autorisée à ouvrir. Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
 
 #### Le domaine de suivi ne peut pas servir les fichiers .well-known {#tracking-domain-cant-serve-well-known-files}
