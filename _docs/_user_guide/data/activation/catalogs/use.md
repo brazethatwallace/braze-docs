@@ -143,6 +143,10 @@ Here's what this looks like when the Liquid is rendered:
 
 ![Example Content Card with catalog Liquid tags rendered.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
 
+{% alert important %}
+In **HTML** channels such as email, avoid extra spaces or line breaks between the closing `{% raw %}{% catalog_items ... %}{% endraw %}` tag and the Liquid that prints the image URL (for example, `{% raw %}{{ items[0].image_link }}{% endraw %}`). Extra whitespace in the template can prevent the image URL from resolving correctly in the rendered message. Keep the URL expression immediately adjacent to the catalog tag, as in: `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`.
+{% endalert %}
+
 ### Templating catalog items
 
 You can also use templating to dynamically pull catalog items based on custom attributes. For example, let's say a user has the custom attribute `wishlist`, which contains an array of game IDs from your catalog.

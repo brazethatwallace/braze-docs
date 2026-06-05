@@ -216,3 +216,21 @@ SVG 이미지는 Gmail 웹 또는 Gmail iOS에서 렌더링되지 않습니다. 
 ### 릴레이 또는 마스킹된 이메일에 대해 도메인을 등록해야 하나요? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 [Apple의 Private Email Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/)는 반송을 방지하기 위해 Apple Developer Portal에 발송 도메인을 등록해야 합니다. Google Shielded Email은 수동 도메인 등록이나 허용 목록 프로세스가 필요하지 않습니다.
+
+### 반송 사유 `unable to get mx info` 또는 `failed to get IPs from PTR record`는 무엇을 의미하나요? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+[메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 다음과 유사한 반송 사유는 Braze 메시지 구성이 아닌 수신 도메인의 메일 설정(주소에서 `@` 뒤의 도메인)을 확인하는 데 문제가 있음을 나타냅니다:
+
+일반적인 원인은 다음과 같습니다:
+
+- 해당 도메인에 대한 **MX 레코드**가 누락되었거나, 잘못되었거나, 접근할 수 없는 경우
+- 수신 인프라에서 기대하는 **PTR(역방향 DNS)** 검사에 실패하거나 확인할 수 없는 인바운드 메일 호스트 이름
+- 이메일 주소의 유효하지 않거나 잘못 입력된 도메인
+
+**다음 단계:**
+
+- 주소와 도메인 철자를 확인하세요.
+- 주소가 올바른 경우, 해당 도메인의 사서함 소유자 또는 IT 팀에 문의하세요.
+- DNS 공급자를 통해 메일 서버의 PTR 레코드를 포함한 MX 및 관련 DNS 레코드를 점검하도록 요청하세요.
+
+다른 수신자는 보통 영향을 받지 않습니다. 소프트바운스가 보고에 표시되는 방식에 대해서는 [소프트바운스]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce)를 참조하세요.

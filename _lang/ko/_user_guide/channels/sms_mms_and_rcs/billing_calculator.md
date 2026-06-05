@@ -145,8 +145,8 @@ Rich Media 메시지는 미디어 파일(이미지, 동영상) 또는 Rich Card�
 {% endtab %}
 {% endtabs %}
 
-### 메시지 작성기 및 메시지 사용량 대시보드 {#message-composer-and-message-usage-dashboard}
+### 메시지 작성기 및 크레딧 사용량 대시보드 {#message-composer-and-credits-usage-dashboard}
 
 메시지를 작성할 때 메시지 작성기는 레이블(Basic RCS, Single RCS, Rich 또는 Rich Media)을 통해 실시간으로 요금 유형을 표시하여 발송 전에 비용을 추적할 수 있도록 도와줍니다.
 
-[메시지 사용량 대시보드]({{site.baseurl}}/message_usage_dashboard/)에는 이러한 요금 유형이 반영되며, 미국 메시지에 사용된 세그먼트 수를 제공하여 메시지 또는 동작 크레딧 소비를 투명하게 확인할 수 있습니다.
+[크레딧 사용량 대시보드]({{site.baseurl}}/credits_usage_dashboard/)에는 이러한 요금 유형이 반영되며, 미국 메시지에 사용된 세그먼트 수를 제공하여 메시지 크레딧 소비를 투명하게 확인할 수 있습니다.
