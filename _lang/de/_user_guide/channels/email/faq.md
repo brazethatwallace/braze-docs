@@ -216,3 +216,21 @@ Bestätigen Sie zunächst, dass Sie die [Nutzerberechtigungen]({{site.baseurl}}/
 ### Muss ich Domains für Relay- oder maskierte E-Mails registrieren? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 [Apples Private E-Mail-Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) erfordert, dass Sie Ihre Absenderdomains im Apple Developer Portal registrieren, um Bounces zu vermeiden. Google Shielded Email erfordert keinen manuellen Domain-Registrierungs- oder Allowlisting-Prozess.
+
+### Was bedeutet der Bounce-Grund `unable to get mx info` oder `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+Im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) weist ein Bounce-Grund ähnlich dem folgenden auf ein Problem bei der Auflösung der E-Mail-Konfiguration der empfangenden Domain hin (die Domain nach dem `@` in der Adresse), nicht auf die Braze-Nachrichtenerstellung:
+
+Typische Ursachen sind:
+
+- Fehlende, falsche oder nicht erreichbare **MX-Einträge** für diese Domain
+- Hostnamen für eingehende E-Mails, die nicht aufgelöst werden oder die von der empfangenden Infrastruktur erwarteten **PTR-Prüfungen (Reverse DNS)** nicht bestehen
+- Ungültige oder falsch geschriebene Domains in der E-Mail-Adresse
+
+**Nächste Schritte:**
+
+- Überprüfen Sie die Adresse und die Domain-Schreibweise.
+- Wenn die Adresse korrekt ist, kontaktieren Sie die/den Postfachinhaber:in oder das IT-Team für diese Domain.
+- Bitten Sie sie, die MX- und zugehörigen DNS-Einträge, einschließlich der PTR-Einträge für ihre Mailserver, bei ihrem DNS-Anbieter zu überprüfen.
+
+Andere Empfänger:innen sind in der Regel nicht betroffen. Informationen dazu, wie Soft Bounces im Reporting erscheinen, finden Sie unter [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).

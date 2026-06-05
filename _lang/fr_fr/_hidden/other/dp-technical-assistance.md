@@ -18,17 +18,13 @@ Il existe une gamme de lois sur la protection des données qui régissent ce que
 
 Ces lois sur la protection des données accordent aux individus des « droits à la vie privée » sur leurs données personnelles. Les organisations sont tenues de recevoir et de répondre aux demandes des individus qui exercent leurs droits à la vie privée. Les services Braze peuvent vous aider à vous conformer à ces lois sur la protection des données en fournissant des fonctionnalités qui facilitent certaines actions requises par ces lois. Ce document fournit des instructions techniques pour utiliser ces fonctionnalités afin de gérer les demandes relatives aux droits à la vie privée. Il vous appartient de déterminer quelles lois sur la protection des données s'appliquent à votre entreprise et d'agir en conformité avec elles.
 
-{% alert important %}
-Les recommandations de Braze figurant sur cette page ne s'appliquent pas à BrazeAI Decisioning Studio™. Pour gérer toute demande relative aux droits à la vie privée concernant des données personnelles dans BrazeAI Decisioning Studio™, contactez votre gestionnaire de compte.
-{% endalert %}
-
 ## Avis juridique {#legal-disclaimer}
 
 Aucune des informations suivantes n'est destinée à être, ni ne doit être considérée comme, un conseil juridique de la part de Braze. Il vous est conseillé de demander l'avis de votre propre conseiller juridique en ce qui concerne votre situation particulière et la manière dont les lois sur la protection des données s'appliquent à vous et à votre utilisation des services Braze.
 
 ## Terminologie {#terminology}
 
-Aux fins du présent document, toute référence aux données personnelles peut également être comprise comme une référence aux informations personnelles ou aux informations personnellement identifiables (« données personnelles »). Pour des raisons de simplicité, nous nous appuyons généralement sur le langage du RGPD lorsque nous abordons les droits des utilisateurs finaux. La terminologie du RGPD est souvent interchangeable ou étroitement alignée avec un terme ou un concept défini dans d'autres lois sur la protection des données.
+Aux fins du présent document, toute référence aux données personnelles peut également être comprise comme une référence aux informations personnelles ou aux informations personnellement identifiables (« données personnelles »). Pour des raisons de simplicité, nous nous appuyons généralement sur la terminologie du RGPD lorsque nous abordons les droits des utilisateurs finaux. La terminologie du RGPD est souvent interchangeable ou étroitement alignée avec un terme ou un concept défini dans d'autres lois sur la protection des données.
 
 ## Fondamentaux {#the-basics}
 
@@ -45,7 +41,6 @@ En ce qui concerne les services de Braze :
 - Braze est un sous-traitant qui traite les données personnelles dans les services de Braze en votre nom et conformément aux instructions que nous recevons de votre part.
 
 Les termes ci-dessus sont ceux du RGPD, mais, par exemple, les termes comparables dans le cadre du CCPA sont :
-
 - « consommateurs » pour les personnes concernées.
 - « entreprises » pour les responsables du traitement.
 - « fournisseurs de services » pour les sous-traitants.
@@ -70,7 +65,11 @@ En vertu des lois sur la protection des données, les personnes concernées peuv
 
 ### Recommandation de Braze
 
-Afin de fournir des données personnelles de Braze dans un format lisible par machine en réponse à une demande d'accès d'une personne concernée, vous pouvez exporter son profil d'utilisateur final en effectuant un appel API aux [API REST](https://www.braze.com/docs/api/endpoints/export/#user-export) de Braze avec soit son identifiant utilisateur (défini par vous comme l'`external_id` fourni à Braze) et/ou son identifiant d'appareil.
+Afin de fournir des données personnelles de Braze dans un format lisible par machine en réponse à une demande d'accès d'une personne concernée, vous pouvez exporter son profil d'utilisateur final en effectuant un appel API aux [API REST]({{site.baseurl}}/api/endpoints/export/#user-export) de Braze avec soit son identifiant utilisateur (défini par vous comme l'`external_id` fourni à Braze) et/ou son identifiant d'appareil.
+
+#### BrazeAI Decisioning Studio™
+
+Pour répondre à une demande de droit d'accès concernant des données personnelles dans BrazeAI Decisioning Studio™, contactez votre gestionnaire de compte avec le ou les customer_id et/ou e-mail(s) pertinents.
 
 ## Le droit de rectification {#the-right-to-rectification}
 
@@ -78,7 +77,7 @@ Les individus ont le droit de faire corriger leurs données personnelles si cell
 
 ### Recommandation de Braze
 
-Dans le cas où une personne concernée vous demande de rectifier les inexactitudes des données personnelles traitées par vous ou par Braze en votre nom, vous pouvez utiliser les SDK Braze ou les [API REST](https://www.braze.com/docs/api/endpoints/user_data/#user-track-endpoint) de Braze pour corriger ces données personnelles.
+Dans le cas où une personne concernée vous demande de rectifier les inexactitudes des données personnelles traitées par vous ou par Braze en votre nom, vous pouvez utiliser les SDK Braze ou les [API REST]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) de Braze pour corriger ces données personnelles.
 
 ## Le droit à l'effacement {#the-right-to-erasure}
 
@@ -88,7 +87,7 @@ Le droit à l'effacement est également connu sous le nom de « droit à l'oubli
 
 #### Suppression standard {#standard-deletion}
 
-Une fois que vous avez arrêté la collecte des données, vous pouvez utiliser [l'endpoint de l'API REST de suppression d'utilisateur de Braze](https://www.braze.com/docs/api/endpoints/user_data/post_user_delete/) pour supprimer un utilisateur final, ce qui supprimera tous les enregistrements de cet utilisateur final dans les services de Braze :
+Une fois que vous avez arrêté la collecte des données, vous pouvez utiliser [l'endpoint de l'API REST de suppression d'utilisateur de Braze]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) pour supprimer un utilisateur final, ce qui supprimera tous les enregistrements de cet utilisateur final dans les services de Braze :
 
 - Pour les utilisateurs finaux qui disposent d'un external_id au sein des services Braze, vous pouvez utiliser cet ID pour supprimer les données de cet utilisateur final.
 - Pour les utilisateurs finaux anonymes qui n'ont pas d'external_id dans les services Braze, vous pouvez récupérer l'identifiant de l'appareil de cet utilisateur final à l'aide du SDK Braze et utiliser l'identifiant de l'appareil pour trouver le profil de l'utilisateur final associé à cet appareil. Vous pouvez ensuite utiliser l'API de suppression d'utilisateurs pour supprimer le profil associé à cet utilisateur final.
@@ -96,6 +95,10 @@ Une fois que vous avez arrêté la collecte des données, vous pouvez utiliser [
 La suppression d'un utilisateur final des services Braze supprimera définitivement le profil utilisateur centralisé de Braze pour cet utilisateur final tel que défini par l'`external_id` fourni. Cela inclut les informations de profil structurées que Braze a collectées par défaut ou que vous avez configuré les services Braze pour collecter, telles que les informations sur l'appareil, le pays, la langue et l'adresse e-mail.
 
 Notez que l'adresse e-mail ou le numéro de téléphone associé au profil de l'utilisateur final pourrait toujours être stocké par Braze, car ils pourraient être associés au profil d'un autre utilisateur final. Les adresses e-mail et les numéros de téléphone ne sont pas uniques dans les services Braze. Cela signifie que votre équipe pourrait avoir configuré Braze pour stocker la même adresse e-mail ou le même numéro de téléphone sur plusieurs profils utilisateur. Si votre équipe a configuré Braze de cette manière, sachez que vous devrez peut-être supprimer tous les profils utilisateur qui représentent une personne concernée donnée afin de vous conformer à une demande de suppression de cette personne concernée, et votre équipe devra effectuer plusieurs appels API pour supprimer tous les profils utilisateur qui se réfèrent à une personne concernée particulière.
+
+#### BrazeAI Decisioning Studio™
+
+Pour répondre à une demande de droit à l'effacement concernant des données personnelles dans BrazeAI Decisioning Studio™, contactez votre gestionnaire de compte avec le ou les customer_id et/ou e-mail(s) pertinents. Votre gestionnaire de compte peut organiser la suppression de toutes les données personnelles associées trouvées dans l'entrepôt de données.
 
 #### Considérations supplémentaires sur la suppression {#additional-deletion-considerations}
 
@@ -152,7 +155,9 @@ Les personnes concernées peuvent avoir le droit de « bloquer » ou de supprime
 
 ### Recommandation de Braze
 
-Les services Braze ne prennent pas en charge la limitation du traitement de catégories individuelles de données personnelles. Si une personne concernée vous a demandé de restreindre le traitement de certains sous-ensembles de ses données personnelles, vous devez utiliser les [API Braze](https://www.braze.com/docs/api/home/) pour exporter l'ensemble du ou des profils de cet utilisateur final, puis le [supprimer](https://www.braze.com/docs/api/endpoints/user_data/#user-delete-endpoint) de Braze. Les API de Braze peuvent être utilisées pour réimporter ces données dans le cas où l'utilisateur final vous autorise ultérieurement à traiter ces sous-ensembles particuliers de ses données personnelles. De plus, vous devriez recommander à votre utilisateur final de désinstaller ou de se déconnecter de toutes vos applications qui utilisent le SDK Braze afin d'arrêter la collecte de données supplémentaires sur la personne concernée.
+Les services Braze ne prennent pas en charge la limitation du traitement de catégories individuelles de données personnelles. Si une personne concernée vous a demandé de restreindre le traitement de certains sous-ensembles de ses données personnelles, vous devez utiliser les [API Braze]({{site.baseurl}}/api/home/) pour exporter l'ensemble du ou des profils de cet utilisateur final, puis le [supprimer]({{site.baseurl}}/api/endpoints/user_data/#user-delete-endpoint) de Braze. Les API de Braze peuvent être utilisées pour réimporter ces données dans le cas où l'utilisateur final vous autorise ultérieurement à traiter ces sous-ensembles particuliers de ses données personnelles. De plus, vous devriez recommander à votre utilisateur final de désinstaller ou de se déconnecter de toutes vos applications qui utilisent le SDK Braze afin d'arrêter la collecte de données supplémentaires sur la personne concernée.
+
+Pour les clients qui utilisent uniquement BrazeAI Decisioning Studio™, vous ne devez plus envoyer de données à Decisioning Studio.
 
 ## Le droit à la portabilité des données {#the-right-to-data-portability}
 
@@ -160,7 +165,7 @@ Le droit à la portabilité des données permet aux personnes concernées d'obte
 
 ### Recommandation de Braze
 
-De manière similaire au droit d'accès, vous pouvez utiliser l'[API REST](https://www.braze.com/docs/api/endpoints/export/#user-export) de Braze pour exporter les données personnelles d'un utilisateur final et les fournir à la personne concernée conformément à sa demande.
+De manière similaire au droit d'accès, vous pouvez utiliser l'[API REST]({{site.baseurl}}/api/endpoints/export/#user-export) de Braze pour exporter les données personnelles d'un utilisateur final et les fournir à la personne concernée conformément à sa demande. De plus, contactez votre gestionnaire de compte avec le ou les customer_id et/ou e-mail(s) pertinents pour demander une copie de toute donnée personnelle détenue dans BrazeAI Decisioning Studio.
 
 ## Le droit d'opposition {#the-right-to-object}
 
@@ -172,9 +177,10 @@ Les individus peuvent avoir le droit de s'opposer au :
 
 ### Recommandation de Braze
 
-Braze offre la possibilité de marquer un profil utilisateur comme étant désabonné des SMS, e-mails ou notifications push via nos [API REST](https://www.braze.com/docs/api/home/) et via les SDK [iOS](https://www.braze.com/docs/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/), [Android](https://www.braze.com/docs/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/) et [Web](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/). Si des personnes concernées s'opposent à la réception de tels messages, vous pouvez utiliser les API de Braze pour désabonner ces utilisateurs finaux.
+Braze offre la possibilité de marquer un profil utilisateur comme étant désabonné des SMS, e-mails ou notifications push via nos [API REST]({{site.baseurl}}/api/home/) et via les SDK [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/) et [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/). Si des personnes concernées s'opposent à la réception de tels messages, vous pouvez utiliser les API de Braze pour désabonner ces utilisateurs finaux.
 
 Si cela ne suffit pas, pour éviter le traitement des données personnelles de l'utilisateur final par Braze, le profil de l'utilisateur final doit être supprimé de la même manière que celle spécifiée dans le cadre du « droit à l'effacement ».
+
 
 ## Droits liés à la prise de décision automatisée et au profilage {#rights-related-to-automated-decision-making-and-profiling}
 
@@ -192,7 +198,7 @@ En vertu de certaines lois sur la vie privée des États américains, les person
 
 Lors de la création d'audiences dans le but de cibler des publicités vers vos personnes concernées, vous devez vous assurer d'avoir exclu toute personne concernée qui s'est opposée à la publicité ciblée, par exemple les consommateurs californiens qui ont exercé leur droit de « ne pas vendre ou partager » en vertu du CCPA.
 
-Pour plus d'informations sur la façon de créer des audiences à synchroniser avec des plateformes tierces, consultez la rubrique [Synchronisation d'audience](https://www.braze.com/docs/partners/canvas_steps).
+Pour plus d'informations sur la façon de créer des audiences à synchroniser avec des plateformes tierces, consultez la rubrique [Synchronisation d'audience]({{site.baseurl}}/partners/canvas_steps/).
 
 ## Le droit à la non-discrimination {#the-right-to-non-discrimination}
 
