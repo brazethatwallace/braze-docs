@@ -162,7 +162,7 @@ This method of button tracking replaces the prior automatic click tracking metho
 
 Use [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) for HTML with preview messages when you need more than two tracked buttons. Button 1 and Button 2 map to `'0'` and `'1'`; additional buttons use custom IDs (up to 100 unique IDs per campaign). For character restrictions on button IDs, see [Button tracking](#button-tracking-improvements).
 
-### Troubleshooting custom HTML links and close behavior
+### Troubleshoot custom HTML links and close behavior
 
 #### Button clicks do not open the link
 

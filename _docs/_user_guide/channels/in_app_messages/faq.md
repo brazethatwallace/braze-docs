@@ -167,4 +167,4 @@ When **Background Image** is enabled on one page of a multi-page in-app message,
 
 ### How do I test web in-app messages?
 
-Web in-app message test sends require push to be enabled on the test device because the test flow delivers a push notification that opens the app or site where the in-app message displays. As an alternative, launch a live campaign to an internal test segment. For steps, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
+Web in-app message test sends require push to be enabled on the test device because the test flow delivers a push notification that opens the app or site where the in-app message displays. Use a live campaign to an internal test segment instead. For steps, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
