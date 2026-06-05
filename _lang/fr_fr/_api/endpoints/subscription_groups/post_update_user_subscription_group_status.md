@@ -148,4 +148,6 @@ Le code de statut `201` peut renvoyer le corps de réponse suivant.
 L'endpoint n'accepte que la valeur `email` ou `phone`, pas les deux. Si vous fournissez les deux, vous recevrez cette réponse : `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
 
+Pour que votre mise à jour d'abonnement s'applique aux numéros de téléphone, vérifiez que vous avez envoyé des numéros de téléphone au format E.164 (par exemple, `+15555550123`), utilisé le bon `subscription_group_id` et transmis `phone` (et non `phone` et `email` en même temps) dans le même corps de requête. Pour les mises à jour de plusieurs numéros, utilisez le format de tableau `phone` indiqué dans [SMS et RCS](#sms-and-rcs).
+
 {% endapi %}

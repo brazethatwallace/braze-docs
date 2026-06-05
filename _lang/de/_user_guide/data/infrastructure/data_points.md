@@ -42,6 +42,8 @@ Insgesamt werden Datenpunkte gesammelt, wenn die Profildaten von Nutzer:innen ak
 
 In den folgenden Abschnitten finden Sie eine Aufschlüsselung, wie Braze Datenpunkte sammelt. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
 
+Bei der API-Ingestion folgt jedes abrechenbare Update über [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) denselben Regeln wie andere Profilupdates: Beispielsweise zählt jedes protokollierte **angepasste Event** als Datenpunkt, und **angepasste Attribute** zählen in der Regel pro aktualisiertem Attribut in dieser Anfrage (siehe die abrechenbaren Tabellen unten und [Besondere Umstände](#special-circumstances)).
+
 Bei den folgenden Aktionen werden keine Datenpunkte protokolliert:
 - Löschen von Nutzer:innen aus Braze
 - Verwendung von Connected-Content im Messaging

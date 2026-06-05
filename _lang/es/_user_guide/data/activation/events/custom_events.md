@@ -17,7 +17,7 @@ Los eventos personalizados son acciones realizadas por tus usuarios o actualizac
 
 Algunos casos habituales de uso de eventos personalizados son:
 
-- Desencadenar una campaña o Canvas basándose en un evento personalizado utilizando [la entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
+- Desencadenar una Campaign o Canvas basándose en un evento personalizado utilizando [la entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
 - Segmentar usuarios por cuántas veces realizaron un evento personalizado, cuándo fue la última vez que ocurrió el evento, y similares
 - Usar los [análisis de eventos personalizados](#analytics) del dashboard para ver un agregado de la frecuencia con la que ocurrió cada evento
 - Encontrar análisis adicionales usando informes de [embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/#step-2-select-events-for-funnel-steps) y [retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)
@@ -60,6 +60,10 @@ Puedes añadir etiquetas a un evento personalizado después de crearlo si tienes
 ### Exportar datos {#exporting-data}
 
 Para exportar la lista de eventos personalizados como un archivo CSV, selecciona **Exportar todo** en la parte superior de la página. Se generará el archivo CSV y se te enviará un enlace de descarga por correo electrónico.
+
+{% alert note %}
+No existe un límite fijo en el dashboard sobre cuántos **eventos personalizados** o **atributos personalizados** distintos puedes definir o almacenar en un perfil; los límites prácticos dependen de la forma de los datos, el volumen de ingesta y el rendimiento del espacio de trabajo. Si planeas hacer seguimiento de un catálogo muy grande de eventos o atributos, trabaja con tu equipo de cuenta de Braze en el modelado y la higiene de datos (por ejemplo, [bloquear]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) datos no utilizados).
+{% endalert %}
 
 ## Ver informes de uso {#viewing-usage-reports}
 
