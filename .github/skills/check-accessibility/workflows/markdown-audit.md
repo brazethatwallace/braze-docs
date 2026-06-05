@@ -1,10 +1,13 @@
-# Workflow: Markdown Table Accessibility Audit
+# Workflow: Content Accessibility Audit (Markdown and HTML Includes)
 
 ## Overview
 
-Runs `scripts/check_table_accessibility.py` on changed markdown files, interprets the output,
-and applies fixes at three confidence tiers. High-confidence fixes are applied automatically.
-Medium and low confidence issues pause and ask the author what to do.
+Runs two accessibility scripts against changed markdown and HTML include files:
+
+1. `scripts/check_table_accessibility.py` — checks table accessible names (WCAG 1.3.1)
+2. `scripts/check_content_accessibility.py` — checks image alt text (1.1.1), non-descriptive link text (2.4.4), heading hierarchy (2.4.6), and inline iframes (4.1.2)
+
+Findings from both scripts are merged and processed together with the same confidence-tier system. High-confidence fixes are applied automatically. Medium and low confidence issues pause and ask the author what to do.
 
 ---
 
@@ -13,75 +16,99 @@ Medium and low confidence issues pause and ask the author what to do.
 Collect the following changed files from the context in SKILL.md:
 - `_docs/**/*.md`
 - `_includes/**/*.md`
-- `_includes/**/*.html` — include these too; the script checks HTML `<table>` elements in addition to GFM tables
+- `_includes/**/*.html` — include these; both scripts check HTML content
 
 Exclude anything under `_lang/`.
 
 If the file list is empty after exclusions, report:
-> No changed files found for table accessibility checks (excluding `_lang/`). Nothing to check.
+> No changed files found for content accessibility checks (excluding `_lang/`). Nothing to check.
 
-**Note on HTML files from `_includes/`:** HTML table violations are always classified as **low confidence** (see Step 3). They will never be auto-fixed — they are always presented to the author with options.
+**Note on HTML files from `_includes/`:** HTML table violations are always classified as low confidence (see Step 3). They will never be auto-fixed — they are always presented to the author with options.
 
 ---
 
-## Step 2: Run the table accessibility script
+## Step 2: Run both accessibility scripts
 
-Run the script against the changed files only (not a full scan):
+Run the scripts against the changed files. Run both even if the first finds no violations.
 
+**Step 2a — Table accessibility:**
 ```bash
-python3 scripts/check_table_accessibility.py --json /tmp/a11y-violations-$(git rev-parse --short HEAD).json [file1.md] [file2.md ...]
+python3 scripts/check_table_accessibility.py --json /tmp/a11y-table-$(git rev-parse --short HEAD).json [file1.md] [file2.md ...]
 ```
 
-Capture:
-- **Exit code** — `0` means no violations, `1` means violations found
-- **violations.json** — structured list of findings
+**Step 2b — Content accessibility:**
+```bash
+python3 scripts/check_content_accessibility.py --json /tmp/a11y-content-$(git rev-parse --short HEAD).json [file1.md] [file2.md ...]
+```
 
-If exit code is `0`: report "No table accessibility violations found in the changed markdown files." and stop.
+For each script, capture:
+- **Exit code** — `0` = no violations, `1` = violations found
+- **JSON output** — structured list of findings
 
-If the script errors (exit code 2 or unexpected output): report the error, show the raw output, and stop.
+**If either script exits with code 2 or produces unexpected output:** report the raw error and stop. Do not apply any fixes.
+
+After both scripts complete, read both JSON files and merge the findings into a single list ordered by file path, then by line number ascending. Violations from both scripts enter the same classification pass in Step 3.
+
+If both scripts exit 0 and both JSON files are empty arrays:
+> Content accessibility audit complete — no violations found in the [N] changed file(s).
+
+Stop here.
 
 ---
 
 ## Step 3: Classify each violation by confidence tier
 
-Read the violations JSON file written in Step 2 (`/tmp/a11y-violations-$(git rev-parse --short HEAD).json`). For each violation, apply the following classification.
-
 **Tiers are ordered by priority: low > medium > high. If any low- or medium-confidence condition is met for a violation, that tier wins — even if all high-confidence conditions are also satisfied.**
 
 ### High confidence — auto-fix
 
-All three conditions must be true:
-1. Violation message is `"Markdown table is missing an accessible name."` (no IAL exists at all — not a modification case)
-2. The `suggestion_content` contains an `aria-label` derived from a heading that is **specific** — the label is not one of: `Table`, `Overview`, `Details`, `Notes`, `Summary`, `Introduction`, `Background`, `Results`, `Example`, `Examples`, `Reference`, `References`
-3. The table is in a file with **3 or fewer total violations** (bulk-violation files may have systematic issues needing human review)
+#### Table violations (from `check_table_accessibility.py`)
 
-*Each violation is classified independently. A file with 3 violations can contain both high- and low-confidence violations simultaneously — condition 3 is necessary but not sufficient for high confidence.*
+All three conditions must be true:
+1. `violation_type` is absent (table script doesn't set this field) AND `message` is `"Markdown table is missing an accessible name."` (no IAL at all)
+2. The `suggestion_content` contains an `aria-label` derived from a heading that is **specific** — not one of: `Table`, `Overview`, `Details`, `Notes`, `Summary`, `Introduction`, `Background`, `Results`, `Example`, `Examples`, `Reference`, `References`
+3. The table is in a file with **3 or fewer total violations** across both scripts combined
+
+*Each violation is classified independently — condition 3 applies across the merged findings count for the file.*
+
+#### Content violations (from `check_content_accessibility.py`)
+
+- `violation_type: image_missing_alt` where the original image had empty alt — **none are auto-fixed**. All image alt violations are medium confidence (see below). The fix requires author judgment about the image's meaning.
 
 ### Medium confidence — stop and ask
 
+#### Table violations
 Any of these conditions:
-- Violation message is `"Markdown table IAL is missing aria-label="` — an existing IAL is present that needs to be modified (risk of breaking other classes/attributes)
-- The `aria-label` in the suggestion is a generic heading (from the list above)
-- The nearest heading is **strictly more than 20 lines** above the table start line (a heading exactly 20 lines above is high-confidence; the threshold is >20, not ≥20)
+- `message` is `"Markdown table IAL is missing aria-label="` (modifying an existing IAL)
+- The `aria-label` in the suggestion is a generic heading (from the exclusion list above)
+- The nearest heading is **strictly more than 20 lines** above the table start line
+
+#### Content violations
+- `violation_type: image_missing_alt` — author must decide whether to add alt text or confirm decorative intent
+- `violation_type: nondescriptive_link` — fix requires knowing the destination
+- `violation_type: iframe_missing_title` — title wording is contextual
 
 ### Low confidence — stop and ask
 
+#### Table violations
 Any of these conditions:
-- The violation is on an **HTML table** (`<table>` tag), not a markdown GFM table
-- The file has **4 or more violations** total
-- The suggestion would result in a label like `"Table"` — the script's fallback when no heading is found
+- Violation is on an **HTML table** (`<table>` tag)
+- The file has **4 or more total violations** across both scripts combined
+- The suggestion would result in `aria-label="Table"`
+
+#### Content violations
+- `violation_type: heading_skip` — always low confidence; heading level changes affect document structure and require author judgment
 
 ---
 
 ## Step 4: Apply high-confidence fixes
 
 For each high-confidence violation, apply the fix using StrReplace:
-
 - `current_content` = the `current_content` field from the violation
 - `new_content` = the `suggestion_content` field from the violation
 - File = the `file` field
 
-After applying each fix, briefly confirm: `✓ Fixed: [file]:[line] — added aria-label="[label]"`
+After applying each fix, confirm: `✓ Fixed: [file]:[line] — [brief description]`
 
 If multiple high-confidence fixes apply to the same file, apply them all before moving to the next file. Apply fixes from bottom to top (highest line number first) to avoid line-number drift.
 
@@ -89,49 +116,54 @@ If multiple high-confidence fixes apply to the same file, apply them all before 
 
 ## Step 5: Present medium and low confidence issues
 
-After applying all high-confidence fixes, collect the remaining violations and present them
-grouped by file. For each issue, show:
+After applying all high-confidence fixes, collect the remaining violations and present them grouped by file. For each issue:
 
 ---
 
-**[file path]:[table start line]**
+**[file path]:[issue line]**
 
-```markdown
-[First 4 rows of the table, or the full table if under 4 rows]
+```
+[The affected line(s) — for tables, the first 4 rows; for images/links, the full line]
 ```
 
+**WCAG criterion:** [e.g., 2.4.4 Link Purpose]
 **Issue:** [violation message]
 **Suggested fix:**
 ```
-[suggestion_content from the violation]
+[fix_hint from the violation]
 ```
 
 **What would you like to do?**
 
-If AskUserQuestion is available:
+*For table violations:*
 - **Accept the suggestion** — Apply the generated aria-label as-is
 - **Provide a custom label** — I'll describe what this table contains
 - **Mark as layout table** — This is a decorative/layout table; apply `role="presentation"`
 - **Skip for now** — Leave this table unchanged (will be flagged in CI)
 
-Otherwise ask:
-> What would you like to do? (1) Accept the suggestion, (2) Provide a custom label, (3) Mark as layout table with role="presentation", (4) Skip for now
+*For `image_missing_alt` violations:*
+- **Add alt text** — Tell me what the image shows; I'll apply it
+- **Confirm decorative** — This image is purely decorative; the empty alt is intentional
+- **Skip for now** — Leave this image unchanged
+
+*For `nondescriptive_link` violations:*
+- **Replace link text** — Tell me a better description; I'll apply it
+- **Accept context suggestion** — Use the surrounding text to suggest a replacement
+- **Skip for now** — Leave this link unchanged
+
+*For `heading_skip` violations:*
+- **I'll fix manually** — Acknowledged; I'll adjust heading levels myself
+- **Skip for now** — Leave this unchanged
+
+*For `iframe_missing_title` violations:*
+- **Add title** — Tell me what this iframe contains; I'll add the title attribute
+- **Skip for now** — Leave this iframe unchanged
 
 ---
 
 **Non-interactive mode** (`$ARGUMENTS` contains "ci" or "headless"): Skip all prompts. Record every medium- and low-confidence violation as "skipped (non-interactive mode)" and include them in the final summary under "Skipped issues." Apply no fixes for these violations.
 
 Wait for a response before moving to the next medium/low confidence issue. Handle one at a time.
-
-### Handling responses
-
-**Accept the suggestion:** Apply `suggestion_content` as the fix (same StrReplace approach as high-confidence). Confirm the fix.
-
-**Provide a custom label:** Ask: "What label should this table have? Write a short, descriptive phrase (for example: 'Supported SDK versions by platform')." Apply the fix with the custom label substituted into the IAL pattern.
-
-**Mark as layout table:** Apply `{: role="presentation" }` on the line immediately after the last table row (for markdown tables) or add `role="presentation"` to the `<table>` tag (for HTML tables). Confirm the fix.
-
-**Skip for now:** Note it in the final summary. The CI check will flag it when the PR is opened.
 
 ---
 
@@ -141,75 +173,40 @@ After all issues are resolved or skipped, present a summary:
 
 ---
 
-### Table accessibility audit complete
+### Content accessibility audit complete
 
 **Changed files checked:** [N]
-**Violations found:** [N]
+**Violations found:** [N] (table: [N], content: [N])
 
-| Resolution | Count |
-|---|---|
-| Auto-fixed (high confidence) | N |
-| Fixed with your input (medium/low) | N |
-| Skipped (will be flagged in CI) | N |
-
-**Auto-fixed files:**
-- `[file path]` — [N] fix(es) applied
+| WCAG | Type | Count | Resolution |
+|---|---|---|---|
+| 1.3.1 | Table accessible names | N | [auto-fixed / fixed with input / skipped] |
+| 1.1.1 | Image alt text | N | [fixed with input / skipped] |
+| 2.4.4 | Non-descriptive link text | N | [fixed with input / skipped] |
+| 2.4.6 | Heading hierarchy | N | [acknowledged / skipped] |
+| 4.1.2 | Inline iframes | N | [fixed with input / skipped] |
 
 **Skipped issues (action needed before merging):**
-- `[file path]:[line]` — [violation message]
+- `[file path]:[line]` — [WCAG criterion] [violation message]
 
 ---
 
 ## Gotchas
 
-- **Apply fixes bottom-to-top within a file.** The script reports `suggestion_line` as a 1-indexed line number. If you apply fixes top-to-bottom, earlier insertions shift subsequent line numbers and the remaining fixes land on the wrong lines.
-- **Don't replace the entire IAL line for a bare-IAL violation without reading the full existing IAL first.** The existing IAL may have `.reset-td-br-N` classes. The suggested fix from the script already includes these classes — verify the existing classes match before applying.
-- **For HTML table fixes, read the surrounding context first.** Is this a complex data table with multiple `<thead>` rows? A `<caption>` is semantically richer. Is it a simple inline reference table? `aria-label` is fine. Don't blindly apply the script's `aria-label` suggestion for HTML tables without reading the table structure.
-- **Don't run a full scan (`python3 scripts/check_table_accessibility.py` with no args).** This scans all 3,000+ markdown files and will be slow and produce noise. Always pass the specific changed files as arguments.
-- **The script's "nearest heading" fallback is `"Table"`.** If you see `aria-label="Table"` in a suggestion, that means no heading was found — this is a low-confidence case. Don't auto-apply it.
-- **Files under `_docs/_hidden/` are skipped by the script automatically.** If a changed file is under `_hidden/`, don't manually add it to the run list.
+- **Apply fixes bottom-to-top within a file.** If you apply fixes top-to-bottom, earlier insertions shift subsequent line numbers.
+- **Don't run a full scan with no arguments.** This scans all 3,000+ files. Always pass the specific changed files as arguments.
+- **For table IAL fixes, read the existing IAL first.** The existing IAL may have `.reset-td-br-N` classes. Verify they are preserved in the suggestion.
+- **Image alt text fixes require author input** — the script flags presence/absence; only the author knows what the image shows.
+- **Heading skips are always low confidence.** Never auto-fix heading levels — the change could alter how readers understand document structure.
+- **`check_content_accessibility.py` skips code fences but not inline backticks.** A `![](url)` inside a backtick-wrapped inline code span will still be flagged. This is a known limitation.
 
 ---
 
 ## Success Criteria
 
-- [ ] Script run against changed markdown files only (not a full scan)
-- [ ] All violations classified by confidence tier
-- [ ] All high-confidence fixes applied automatically (bottom-to-top per file)
-- [ ] Each medium/low confidence issue presented one at a time with options
-- [ ] Summary presented at the end showing counts and any skipped issues
-- [ ] If the script exits with code 2 or unexpected output, the raw error is surfaced and the workflow stops (no partial fixes applied)
-
----
-
-## Example
-
-**Input:** One changed file `_docs/_user_guide/messaging/push/android/push_primer.md` with 2 violations.
-
-**violations.json (abbreviated):**
-```json
-[
-  {
-    "file": "_docs/_user_guide/messaging/push/android/push_primer.md",
-    "table_start_line": 45,
-    "suggestion_line": 50,
-    "suggestion_content": "| Push permission | Granted | Denied |\n{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=\"Push primer permission outcomes\" }",
-    "current_content": "| Push permission | Granted | Denied |",
-    "message": "Markdown table is missing an accessible name.",
-    "fix_hint": "Add after the last row: {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=\"Push primer permission outcomes\" }"
-  }
-]
-```
-
-**Classification:** Violation message matches high-confidence type. `aria-label` is "Push primer permission outcomes" — specific, not on the generic exclusion list. File has 2 violations (≤3). No low- or medium-confidence conditions met. → **High confidence.**
-
-**Auto-fix applied:** `✓ Fixed: _docs/...push_primer.md:50 — added aria-label="Push primer permission outcomes"`
-
-**Final summary:**
-```
-### Table accessibility audit complete
-Changed files checked: 1 | Violations found: 2
-Auto-fixed (high confidence): 2 | Fixed with your input: 0 | Skipped: 0
-Auto-fixed files:
-- `_docs/_user_guide/messaging/push/android/push_primer.md` — 2 fix(es) applied
-```
+- [ ] Both scripts run against changed files only (not a full scan)
+- [ ] Findings from both scripts are merged and classified in a single pass
+- [ ] High-confidence table fixes applied automatically (bottom-to-top per file)
+- [ ] Each medium/low confidence issue presented one at a time with type-appropriate options
+- [ ] Summary presented at the end showing violation counts by WCAG criterion
+- [ ] If either script exits with code 2 or unexpected output, the raw error is surfaced and the workflow stops (no partial fixes applied)

@@ -1,16 +1,17 @@
 ---
 name: check-accessibility
 description: >
-  Pre-PR accessibility gate for Braze Docs contributors. Run before opening a PR to check for
-  accessibility issues. Detects changed file types and routes automatically: architecture changes
-  (layouts, JS, CSS, templates, config) are audited against known ADA findings and flagged by
-  priority and impact; markdown changes (_docs/, _includes/) run the table accessibility script
-  with confidence-gated auto-fixing. Use when asked to "check accessibility", "run a11y audit",
-  or before opening any PR that touches site files or documentation.
-allowed-tools: Bash(git *), Bash(python3 scripts/check_table_accessibility.py*), Read, Write, StrReplace, Grep
+  Pre-PR WCAG 2.2 Level AA gate for Braze Docs contributors. Run before opening a PR to check
+  documentation and architecture changes against the documentation-relevant subset of WCAG 2.2 AA.
+  Detects changed file types and routes automatically: architecture changes (layouts, JS, CSS,
+  templates) are audited against WCAG 2.2 AA criteria; markdown and include changes run two
+  accessibility scripts (table names + content checks) with confidence-gated auto-fixing. Use when
+  asked to "check accessibility", "run a11y", "WCAG check", or before any PR touching site files or
+  documentation.
+allowed-tools: Bash(git *), Bash(python3 scripts/check_table_accessibility.py*), Bash(python3 scripts/check_content_accessibility.py*), Read, Write, StrReplace, Grep
 ---
 
-# Docs Accessibility Audit
+# Content Accessibility Audit (WCAG 2.2 AA)
 
 ## Context
 - Branch: !`git branch --show-current`
@@ -23,7 +24,7 @@ Classify each changed file from the list above:
 | Changed file pattern | Route |
 |---|---|
 | `_layouts/**`, `_includes/**/*.html`, `assets/js/**`, `assets/css/**`, `assets/scss/**`, `_config*.yml`, `*.html` at repo root, `Gemfile`, `package.json`, `.github/workflows/**` | **Architecture** |
-| `_docs/**/*.md`, `_includes/**/*.md`, `_includes/**/*.html` | **Markdown** (table checks) |
+| `_docs/**/*.md`, `_includes/**/*.md`, `_includes/**/*.html` | **Content** (table + content checks) |
 | `_lang/**` | Skip silently — localized files are out of scope |
 
 Note: `_includes/**/*.html` matches both routes — run Architecture first, then also run the Markdown (table) path on those same files.
@@ -47,7 +48,7 @@ Override with `$ARGUMENTS`:
 
 2. **Confidence-gated markdown fixes.** Three tiers: auto-apply (high), stop and ask (medium/low). See the markdown workflow for thresholds.
 
-3. **Priority × impact ordering.** Lead every findings report with the highest-priority item. Use [references/ada-issues-priority.md](references/ada-issues-priority.md) for the full catalog.
+3. **Criterion × impact ordering.** Lead every findings report with the highest-impact criterion. Use [references/wcag-aa-docs-criteria.md](references/wcag-aa-docs-criteria.md) for the full catalog.
 
 4. **Flag root causes, not symptoms.** When a single pattern is responsible for multiple violations (a function, a template block, a shared include), identify the root once — don't list each downstream instance separately.
 
@@ -56,14 +57,14 @@ Override with `$ARGUMENTS`:
 ## Examples
 
 **Typical invocation (auto-detect):**
-`/docs-accessibility` on a branch with one changed CSS file and two changed markdown files → runs Architecture path first (CSS), then Markdown path (two `.md` files).
+`/check-accessibility` on a branch with one changed CSS file and two changed markdown files → runs Architecture path first (CSS), then Content path (two `.md` files).
 
 **Force a single path:**
-`/docs-accessibility architecture` → Architecture path only, even if markdown files also changed.
+`/check-accessibility architecture` → Architecture path only, even if markdown files also changed.
 
 **Non-interactive (CI or automation):**
-`/docs-accessibility ci` → runs both paths, auto-fixes high-confidence markdown violations, skips medium/low with no prompts, exits with summary report.
+`/check-accessibility ci` → runs both paths, auto-fixes high-confidence violations, skips medium/low with no prompts, exits with summary report.
 
 **Expected routing output (no violations):**
-> Architecture accessibility audit complete — all 1 changed file(s) are clean.
-> No table accessibility violations found in the 2 changed markdown file(s).
+> Architecture accessibility audit complete — no issues found. All 1 changed file(s) are clean.
+> Content accessibility audit complete — no violations found in the 2 changed markdown file(s).
