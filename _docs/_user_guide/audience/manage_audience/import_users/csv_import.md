@@ -427,19 +427,13 @@ If you used [file validation](#file-validation), start with the error report, as
 
 For troubleshooting CSV import, review these common issues below.
 
-### Create user profiles with the REST API
-
-Sending a [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) request with a new `external_id` and user attributes creates a new user profile when that `external_id` does not already exist. CSV import is not required to create profiles through the API.
-
 ### Use email as `external_id`
 
 Braze does not recommend using an email address as `external_id`. If you use email as `external_id`, include both `external_id` and `email` columns in your CSV so users remain targetable on the email channel. Use a comma (`,`) as the column delimiter—not a colon (`:`).
 
 ### Quote characters in `external_id` values
 
-**CSV import:** If an `external_id` cell contains a double quotation mark, escape it by doubling the character (`""`), as described under [Unescaped or unbalanced double quotation marks](#missing-row). CSV import does not use backslash escaping.
-
-**REST API:** When you send `external_id` in a [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) request JSON body, escape embedded double-quote characters with a backslash (`\"`) per JSON string rules. Alternatively, use `braze_id`.
+If an `external_id` cell contains a double quotation mark, escape it by doubling the character (`""`), as described under [Unescaped or unbalanced double quotation marks](#missing-row). CSV import does not use backslash escaping.
 
 ### CSV import isn't available as a segment filter
 
