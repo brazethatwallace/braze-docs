@@ -10,7 +10,7 @@ channel:
   - email
 ---
 
-> This glossary defines metrics on the **Analytics** tab for email campaigns and Canvases. Braze does not offer a hosted "view this email in a browser" page—see [Can I add a "view this email in a browser" link to my emails?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) for a workaround. For other troubleshooting that spans multiple metrics, see [Email FAQ]({{site.baseurl}}/user_guide/channels/email/faq/).
+> This glossary defines metrics on the **Analytics** tab for email campaigns and Canvases. Braze doesn't offer a hosted "view this email in a browser" page—see [Can I add a "view this email in a browser" link to my emails?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) for a workaround. For other troubleshooting that spans multiple metrics, see [Email FAQ]({{site.baseurl}}/user_guide/channels/email/faq/).
 
 <style>
   .calculation-line {
