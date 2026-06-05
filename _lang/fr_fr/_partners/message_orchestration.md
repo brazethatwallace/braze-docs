@@ -63,6 +63,8 @@ valid_partner_list:
   url: /docs/partners/denada/
 - name: Email Love
   url: /docs/partners/email_love/
+- name: EmailShepherd
+  url: /docs/partners/emailshepherd/
 - name: IAM Studio
   url: /docs/partners/iam_studio/
 - name: Knak
