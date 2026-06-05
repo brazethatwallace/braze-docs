@@ -20,13 +20,13 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 Si vous souhaitez utiliser vos modèles HTML personnalisés existants ou des modèles créés par un tiers, ils doivent être recréés dans l'éditeur par glisser-déposer.
 
-Vous ne savez pas si votre message in-app doit être envoyé via une Campaign ou un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) ? Les Campaigns sont plus adaptées aux campagnes de communication ciblées et ponctuelles, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes. Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un message in-app par glisser-déposer.
+Vous ne savez pas si votre message in-app doit être envoyé via une campagne ou un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) ? Les Campaigns sont plus adaptées aux campagnes de communication ciblées et ponctuelles, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes. Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un message in-app par glisser-déposer.
 
 ## Conditions préalables {#prerequisites}
 
 ### Exigences du SDK {#sdk-requirements}
 
-| Version minimale du SDK                                                          | Version recommandée du SDK                                                       |
+| Version minimale du SDK | Version recommandée du SDK |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
@@ -42,7 +42,7 @@ Pour profiter de toutes les fonctionnalités disponibles dans l'éditeur par gli
 
 Voici les exigences minimales individuelles du SDK pour ces fonctionnalités :
 
-| Liens texte*                                                         | Demande d'amorce push                                                           |
+| Liens texte* | Demande d'amorce push |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
@@ -140,9 +140,9 @@ C'est ici que votre message prend vie, habillé du style signature de votre marq
 
 ## Étape 5 : Tester votre message in-app {#step-5-test-your-in-app-message}
 
-La section **Preview & Test** vous permet de prévisualiser vos messages in-app sur différents appareils et d'envoyer un message de test à votre appareil. Vous pouvez ainsi vous assurer que les détails sont cohérents sur toutes vos plateformes pour votre Campaign de message in-app par glisser-déposer.
+La section **Preview & Test** vous permet de prévisualiser vos messages in-app sur différents appareils et d'envoyer un message de test à votre appareil. Vous pouvez ainsi vous assurer que les détails sont cohérents sur toutes vos plateformes pour votre campagne de message in-app par glisser-déposer.
 
-Il est important de toujours tester vos messages in-app avant d'envoyer vos Campaigns afin de visualiser à quoi ressemblera votre message final du point de vue de l'utilisateur.
+Il est important de toujours tester vos messages in-app avant d'envoyer vos campagnes afin de visualiser à quoi ressemblera votre message final du point de vue de l'utilisateur.
 
 ### Prévisualiser le message en tant qu'utilisateur {#preview-message-as-a-user}
 
@@ -186,9 +186,9 @@ Vous ne pouvez pas transférer directement des messages HTML existants dans l'é
 
 Actuellement, l'éditeur est limité aux messages modaux et plein écran uniquement. Vous pouvez basculer entre les types d'affichage dans la section **Message container** du panneau **Message styles**.
 
-#### Puis-je enregistrer mon message in-app en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+#### Puis-je enregistrer mon message in-app en tant que modèle après l'avoir créé dans ma campagne ou mon Canvas ? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future Campaign ou étape Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé en utilisant le bouton **Save as template**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la Campaign OU l'enregistrer en tant que brouillon.
+Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future campagne ou étape Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé en utilisant le bouton **Save as template**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la campagne OU l'enregistrer en tant que brouillon.
 
 ![Une prévisualisation d'un message in-app pour une visite guidée du produit.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 

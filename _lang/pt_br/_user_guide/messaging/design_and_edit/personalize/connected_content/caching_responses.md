@@ -42,7 +42,7 @@ A Braze usa um cache de múltiplas camadas para respostas de Conteúdo conectado
 
 Essas camadas de cache são voláteis e podem remover dados antes do TTL configurado.
 
-#### O que muda quando você usa `:no_cache` {#what-changes-when-you-use-nocache}
+#### O que muda quando você usa `:no_cache` {#what-changes-when-you-use-no_cache}
 
 Para endpoints que não estão hospedados dentro da infraestrutura da Braze, usar `:no_cache` impede que o corpo da resposta do Conteúdo conectado seja armazenado no Memcached. Nesses casos, a resposta existe apenas na memória do processo do worker durante a execução do job de renderização (até ~11 minutos). Para endpoints que resolvem para hosts internos da Braze, as respostas ainda podem ser armazenadas em cache conforme descrito em [Invalidação de cache](#cache-busting).
 
@@ -113,8 +113,8 @@ Com um POST, não é necessário invalidar o cache, pois solicitações POST nã
 
 {% raw %}
 - O cache pode ajudar a reduzir chamadas duplicadas de Conteúdo conectado. No entanto, não é garantido que sempre resulte em uma única chamada de Conteúdo conectado por usuário.
-- O cache de Conteúdo conectado é baseado na URL e no espaço de trabalho. Se a chamada de Conteúdo conectado for para a mesma URL, ela pode ser armazenada em cache entre Campaigns e Canvas.
-- O cache é baseado em uma URL única, não em um ID de usuário ou Campaign. Isso significa que a versão em cache de uma chamada de Conteúdo conectado pode ser usada por múltiplos usuários e Campaigns em um espaço de trabalho se a URL for a mesma.
+- O cache de Conteúdo conectado é baseado no espaço de trabalho, na URL da solicitação, no tipo de conteúdo da solicitação e no corpo da solicitação. Se a chamada de Conteúdo conectado for para a mesma URL, ela pode ser armazenada em cache entre Campaigns e Canvas.
+- O cache é baseado em uma combinação única de URL, tipo de conteúdo e corpo da solicitação, não em um ID de usuário ou Campaign. Isso significa que a versão em cache de uma chamada de Conteúdo conectado pode ser usada por múltiplos usuários e Campaigns em um espaço de trabalho se a URL, o tipo de conteúdo e o corpo da solicitação forem os mesmos.
 - O cache de Conteúdo conectado pode ser ignorado se a marcação da tag incluir qualquer um dos seguintes trechos de alta cardinalidade:
     - `{{${user_id}}}`
     - `{{${braze_id}}}`

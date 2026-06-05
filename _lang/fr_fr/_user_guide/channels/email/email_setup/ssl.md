@@ -85,11 +85,11 @@ Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en
 | SparkPost | Fastly | [Guide étape par étape avec Fastly](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-fastly) |
 | SparkPost | Google Cloud Platform | [Guide étape par étape avec Google Cloud Platform](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-google-cloud-platform) |
 | SparkPost | Microsoft Azure | [Guide étape par étape avec Microsoft Azure](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-microsoft-azure) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ressources supplémentaires" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional resources" }
 
 ### Amazon SES
 
-Si vous utilisez Amazon SES comme CDN, consultez **Option 2: Configuring an HTTPS domain** dans la [documentation d'Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) et spécifiez le domaine de suivi AWS par région en fonction de votre cluster Braze :
+Si vous utilisez Amazon SES comme ESP, consultez **Option 2: Configuring an HTTPS domain** dans la [documentation d'Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) et spécifiez le domaine de suivi AWS par région en fonction de votre cluster Braze :
 
 - **Clusters Braze US :** `r.us-east-1.awstrack.me`
 - **Clusters Braze EU :** `r.eu-central-1.awstrack.me`

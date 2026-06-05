@@ -52,6 +52,12 @@ Si necesitas una plantilla HTML reutilizable, selecciona **Download file** mient
 
 Para más información sobre dónde se encuentran las plantillas, consulta [Plantillas y medios]({{site.baseurl}}/user_guide/messaging/templates/).
 
+### ¿Por qué no puedo cambiar el color de relleno de un botón en el editor de arrastrar y soltar? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+
+Los estilos a nivel de página pueden anular los estilos a nivel de mensaje. Si actualizar **Fill** en un botón o bloque no tiene efecto, intenta lo siguiente:
+1. Abre la [configuración global de estilos de correo electrónico]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) y selecciona **Reset to default** en el estilo de página en conflicto para que el color a nivel de mensaje pueda aplicarse.
+2. Establece el color de nuevo en el bloque.
+
 ### ¿Puedo agregar archivos adjuntos de correo electrónico en el editor de arrastrar y soltar? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
 Sí. Puedes agregar archivos adjuntos a tu mensaje de correo electrónico yendo a **Sending Settings** > **Advanced**.

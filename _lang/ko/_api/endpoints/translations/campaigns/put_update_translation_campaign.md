@@ -19,8 +19,6 @@ description: "이 문서에서는 캠페인에서 번역 업데이트 엔드포�
 
 Campaign이 시작된 후 번역을 업데이트하려면 먼저 [메시지를 초안으로 저장]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/)해야 합니다.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `campaigns.translations.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
