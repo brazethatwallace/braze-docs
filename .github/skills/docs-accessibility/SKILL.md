@@ -7,14 +7,14 @@ description: >
   priority and impact; markdown changes (_docs/, _includes/) run the table accessibility script
   with confidence-gated auto-fixing. Use when asked to "check accessibility", "run a11y audit",
   or before opening any PR that touches site files or documentation.
-allowed-tools: Bash(git *), Bash(python3 scripts/check_table_accessibility.py*), Read, Write, StrReplace
+allowed-tools: Bash(git *), Bash(python3 scripts/check_table_accessibility.py*), Read, Write, StrReplace, Grep
 ---
 
 # Docs Accessibility Audit
 
 ## Context
 - Branch: !`git branch --show-current`
-- Changed files: !`git diff --name-only origin/develop...HEAD 2>/dev/null || git diff --name-only HEAD 2>/dev/null`
+- Changed files: !`git diff --name-only origin/develop...HEAD 2>/dev/null || git diff --name-only $(git merge-base HEAD $(git rev-parse --verify origin/develop 2>/dev/null || git rev-parse --verify develop 2>/dev/null || echo HEAD~1))..HEAD 2>/dev/null`
 
 ## Route Detection
 
@@ -29,8 +29,9 @@ Classify each changed file from the list above:
 Override with `$ARGUMENTS`:
 - Contains "architecture" → Architecture path only
 - Contains "markdown" → Markdown path only
+- Contains "ci" or "headless" → non-interactive mode: skip all prompts, treat medium/low confidence markdown violations as "skip", proceed to final summary
 - Both file types changed → run Architecture first, then Markdown
-- No changed files detected → ask the user to provide file paths
+- No changed files detected → ask the user to provide file paths; classify the provided paths using the route table above and proceed (do not re-run `git diff`)
 
 ## Paths
 
@@ -40,7 +41,7 @@ Override with `$ARGUMENTS`:
 
 ## Core Principles
 
-1. **Never auto-fix architecture issues.** Template and JS accessibility changes have non-obvious side effects. Always stop, present findings, and wait for the author to act.
+1. **No auto-fixes on architecture.** See the architecture workflow — it owns this constraint.
 
 2. **Confidence-gated markdown fixes.** Three tiers: auto-apply (high), stop and ask (medium/low). See the markdown workflow for thresholds.
 
@@ -48,12 +49,19 @@ Override with `$ARGUMENTS`:
 
 4. **Flag root causes, not symptoms.** When a single pattern is responsible for multiple violations (a function, a template block, a shared include), identify the root once — don't list each downstream instance separately.
 
-5. **One stop per path.** Collect all findings for a path before presenting. Don't interrupt mid-audit.
+5. **One stop per path.** See each workflow for when to collect and present.
 
-## Gotchas
+## Examples
 
-- **`_lang/` files are always out of scope.** If a changed markdown file lives under `_lang/`, skip it and note the skip at the end of the report.
-- **`role="presentation"` is valid on genuine layout tables.** A table with no `<th>` or `<thead>` that is used for side-by-side layout (not data) is correct with `role="presentation"`. Don't flag these as violations.
-- **HTML tables: `aria-label` vs `<caption>` is a judgment call.** The script defaults to `aria-label`, but `<caption>` is semantically richer for complex data tables. Always ask before applying an HTML table fix.
-- **Don't auto-fix if the nearest heading is missing or generic** ("Overview", "Details", "Notes", "Table"). A vague label is worse than no label — escalate to medium confidence and ask.
-- **Dynamic context injection may show a short diff on a new branch.** If the changed files list is empty or incomplete, fall back to asking for paths rather than scanning everything.
+**Typical invocation (auto-detect):**
+`/docs-accessibility` on a branch with one changed CSS file and two changed markdown files → runs Architecture path first (CSS), then Markdown path (two `.md` files).
+
+**Force a single path:**
+`/docs-accessibility architecture` → Architecture path only, even if markdown files also changed.
+
+**Non-interactive (CI or automation):**
+`/docs-accessibility ci` → runs both paths, auto-fixes high-confidence markdown violations, skips medium/low with no prompts, exits with summary report.
+
+**Expected routing output (no violations):**
+> Architecture accessibility audit complete — all 1 changed file(s) are clean.
+> No table accessibility violations found in the 2 changed markdown file(s).

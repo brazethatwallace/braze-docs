@@ -101,15 +101,15 @@ Minor improvements; generally safe to batch with other changes.
 
 ## Issue Quick-Reference Table
 
-| ID | Issue | WCAG | Severity | Impact scope | Auto-fixable by AI |
-|----|-------|------|----------|--------------|--------------------|
-| P1-A | Focus-visible rings | 2.4.7 | Critical | Sitewide | No — CSS scope judgment required |
-| P1-B | Skip navigation | 2.4.1 | Critical | Sitewide | No — structural change |
-| P1-C | ARIA validity | 4.1.2 | Critical | Per component | No — semantic judgment required |
-| P2-A | Color contrast | 1.4.3 | High | Sitewide | No — needs ratio verification |
-| P2-B | Live regions | 4.1.3 | High | Dynamic UI | No — JS behavior context needed |
-| P2-C | New-tab warnings | 3.2.2 | High | Links | No — copy and UI judgment |
-| P3-A | iframe titles | 4.1.2 | Medium | Embeds only | No — label wording is contextual |
-| P3-B | Input labels | 1.3.1 | Medium | Forms | No — label wording is contextual |
-| P3-C | Heading semantics | 1.3.1 | Medium | Alerts/layouts | No — document outline judgment |
-| P4-A | Obsolete meta tags | — | Low | `<head>` | Yes — mechanical removal |
+| ID | Issue | Impact scope | Auto-fixable by AI |
+|----|-------|--------------|-------------------|
+| P1-A | Focus-visible rings | Sitewide | No — CSS scope judgment required |
+| P1-B | Skip navigation | Sitewide | No — structural change |
+| P1-C | ARIA validity | Per component | No — semantic judgment required |
+| P2-A | Color contrast | Sitewide | No — needs ratio verification |
+| P2-B | Live regions | Dynamic UI | No — JS behavior context needed |
+| P2-C | New-tab warnings | Links | No — copy and UI judgment |
+| P3-A | iframe titles | Embeds only | No — label wording is contextual |
+| P3-B | Input labels | Forms | No — label wording is contextual |
+| P3-C | Heading semantics | Alerts/layouts | No — document outline judgment |
+| P4-A | Obsolete meta tags | `<head>` | Yes — mechanical removal |

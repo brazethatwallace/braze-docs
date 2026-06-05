@@ -121,6 +121,10 @@ Fix: [what the author should do]
 
 If a file has no issues for any of its applicable checks, note it as clean.
 
+**If no findings were recorded across all checked files:** present the following and stop — do not proceed to Step 4:
+
+> Architecture accessibility audit complete — no issues found. All [N] changed file(s) are clean.
+
 ---
 
 ## Step 4: Present findings
