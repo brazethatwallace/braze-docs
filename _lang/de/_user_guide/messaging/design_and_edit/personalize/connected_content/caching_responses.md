@@ -42,7 +42,7 @@ Braze verwendet einen mehrstufigen Cache für Connected-Content-Antworten mit TT
 
 Diese Cache-Schichten sind flüchtig und können Daten früher als die konfigurierte TTL entfernen.
 
-#### Was sich ändert, wenn Sie `:no_cache` verwenden {#what-changes-when-you-use-nocache}
+#### Was sich ändert, wenn Sie `:no_cache` verwenden {#what-changes-when-you-use-no_cache}
 
 Für Endpunkte, die nicht innerhalb der Braze-Infrastruktur gehostet werden, verhindert die Verwendung von `:no_cache`, dass der Connected-Content-Antwortkörper in Memcached gespeichert wird. In diesen Fällen existiert die Antwort nur im Arbeitsspeicher des Worker-Prozesses für die Dauer des Rendering-Jobs (bis zu ~11 Minuten). Für Endpunkte, die zu Braze-internen Hosts aufgelöst werden, können Antworten weiterhin wie unter [Cache-Busting](#cache-busting) beschrieben zwischengespeichert werden.
 
@@ -113,8 +113,8 @@ Bei einem POST müssen Sie kein Cache-Busting durchführen, da POST-Anfragen sta
 
 {% raw %}
 - Caching kann dazu beitragen, doppelte Connected-Content-Aufrufe zu reduzieren. Es ist jedoch nicht garantiert, dass es immer zu einem einzigen Connected-Content-Aufruf pro Nutzer:in führt.
-- Connected-Content-Caching basiert auf der URL und dem Workspace. Wenn der Connected-Content-Aufruf an dieselbe URL geht, kann er über Campaigns und Canvases hinweg zwischengespeichert werden.
-- Der Cache basiert auf einer eindeutigen URL, nicht auf einer Nutzer-ID oder Campaign. Das bedeutet, dass die zwischengespeicherte Version eines Connected-Content-Aufrufs über mehrere Nutzer:innen und Campaigns in einem Workspace hinweg verwendet werden kann, wenn die URL identisch ist.
+- Connected-Content-Caching basiert auf dem Workspace, der Anfrage-URL, dem Anfrage-Inhaltstyp und dem Anfragekörper. Wenn der Connected-Content-Aufruf an dieselbe URL geht, kann er über Campaigns und Canvases hinweg zwischengespeichert werden.
+- Der Cache basiert auf einer eindeutigen Kombination aus URL, Inhaltstyp und Anfragekörper, nicht auf einer Nutzer-ID oder Campaign. Das bedeutet, dass die zwischengespeicherte Version eines Connected-Content-Aufrufs über mehrere Nutzer:innen und Campaigns in einem Workspace hinweg verwendet werden kann, wenn URL, Inhaltstyp und Anfragekörper identisch sind.
 - Connected-Content-Caching kann übersprungen werden, wenn das Tag-Markup eines der folgenden hochkardinalitären Snippets enthält:
     - `{{${user_id}}}`
     - `{{${braze_id}}}`

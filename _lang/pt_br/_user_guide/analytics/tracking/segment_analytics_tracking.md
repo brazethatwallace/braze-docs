@@ -31,6 +31,8 @@ Após ativar o rastreamento de análise de dados, pode haver um atraso até que 
 
 Acesse **Analytics** > **Revenue Report** para visualizar dados sobre [receita e compras ao longo do tempo para esse segmento]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/).
 
+Os gráficos de receita e compras refletem a atividade registrada após a ativação do rastreamento de análise de dados para esse segmento. Ativar o rastreamento não preenche retroativamente compras anteriores nesses relatórios. Ao comparar segmentos, use apenas intervalos de tempo em que o rastreamento estava ativado para cada segmento selecionado.
+
 ![Dados de receita por segmento]({% image_buster /assets/img_archive/Revenue.png %})
 
 Para comparar visualmente os dados do segmento em qualquer intervalo de tempo personalizado, adicione ou remova segmentos do gráfico. Selecione **By Segment** no menu suspenso **Breakdown** e, em seguida, selecione seus segmentos em **Breakdown values**.
@@ -52,3 +54,9 @@ Visualize dados sobre [eventos personalizados ao longo do tempo para segmentos](
 ## Uso de modelos do Criador de consultas {#using-query-builder-templates}
 
 Quando o rastreamento de análise de dados está ativado, você pode usar os modelos de relatório do Criador de consultas para detalhar métricas de desempenho de Campaigns, Canvas, variantes e etapas por segmentos. Para saber mais, confira [Dados do segmento]({{site.baseurl}}/user_guide/audience/segments/segment_data/#performance-data-by-segment).
+
+## Perguntas frequentes {#frequently-asked-questions}
+
+### O que devo verificar se o rastreamento de análise de dados parece incorreto ou vazio? {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
+
+Confirme se **Analytics Tracking** ainda está ativado em **Segment Details**, se você não excedeu o limite por app (25 segmentos com rastreamento) e aguarde até 24 horas para que os dados sejam preenchidos após a primeira ativação do rastreamento. Se os problemas persistirem, verifique a definição do segmento e o intervalo de datas do relatório e, em seguida, [fale com o Suporte]({{site.baseurl}}/braze_support/).

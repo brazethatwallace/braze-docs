@@ -13,7 +13,7 @@ channel: email
 
 ### ¿Qué ocurre cuando se envía un correo electrónico y varios perfiles tienen la misma dirección de correo electrónico? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Si varios usuarios con direcciones de correo electrónico coincidentes están en un segmento que va a recibir una campaña, se selecciona un perfil de usuario aleatorio con esa dirección de correo electrónico en el momento del envío. De esta forma, el correo electrónico se envía solo una vez y se deduplica, lo que garantiza que no llegue a la misma dirección de correo electrónico varias veces.
+Si varios usuarios con direcciones de correo electrónico coincidentes están en un segmento que va a recibir una campaña, se selecciona un único perfil de usuario con esa dirección de correo electrónico en el momento del envío. De esta forma, el correo electrónico se envía solo una vez y se deduplica, lo que garantiza que no llegue a la misma dirección de correo electrónico varias veces.
 
 **Direcciones de correo electrónico únicas:** Braze no exige que las direcciones de correo electrónico sean únicas entre perfiles. Si dependes de una relación uno a uno entre una dirección de correo electrónico y un perfil, monitorea internamente los duplicados al crear usuarios.
 
@@ -211,9 +211,7 @@ No. Cada parte del correo electrónico (asunto, cuerpo, encabezados, botones, et
 
 ### Mi plantilla de correo electrónico no aparece. ¿Dónde está? {#my-email-template-is-missing-where-is-it}
 
-Ve a **Templates** > **Email Templates**. Puedes filtrar por tipo (HTML o arrastrar y soltar).
-
-Confirma que tienes permiso para ver plantillas; consulta [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Primero, confirma que tienes los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para ver plantillas. Para ver las plantillas de correo electrónico guardadas, ve a **Content** > **Email**. Puedes filtrar las plantillas por estado y tipo (HTML o arrastrar y soltar).
 
 ### ¿Necesito registrar dominios para correos electrónicos de retransmisión o enmascarados? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 

@@ -16,7 +16,7 @@ description: "Erfahren Sie, wie Sie Webhook-Templates erstellen und anpassen, um
 
 ## 1. Schritt: Zum Webhook-Template-Editor navigieren {#step-1-go-to-the-webhook-template-editor}
 
-Gehen Sie im Braze-Dashboard zu **Templates** > **Webhook Templates**.
+Gehen Sie im Braze-Dashboard zu **Inhalt** > **Webhook**.
 
 ![Die Seite „Webhook-Templates“ mit vorgefertigten und gespeicherten Webhook-Templates.]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 

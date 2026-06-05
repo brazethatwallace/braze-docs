@@ -27,19 +27,19 @@ Tout d'abord, vous devez créer votre modèle d'e-mail HTML. Il doit s'agir d'un
 
 ### Étape 1 : Accéder à l'éditeur de modèles d'e-mail {#step-1-go-to-the-email-template-editor}
 
-Accédez à **Templates** > **Email Templates**.
+Accédez à **Content** > **Email**. Sélectionnez **Create email template**.
 
-### Étape 2 : Ouvrir l'outil de téléchargement {#step-2-open-the-uploader}
+### Étape 2 : Ajouter les détails du modèle {#step-2-add-template-details}
 
-Dans la section **Template Type**, sélectionnez **HTML Editor** et faites défiler jusqu'à la section **Start from a Basic HTML Template**. Sélectionnez **From File**.
+Indiquez un nom de modèle. Vous pouvez éventuellement ajouter une description, des équipes et des étiquettes.
 
 ### Étape 3 : Télécharger votre modèle {#step-3-upload-your-template}
 
-Sélectionnez **Upload From File** et choisissez votre modèle depuis votre ordinateur. Consultez la section [Conditions requises](#upload-requirements) pour vous assurer que votre modèle respecte les exigences de téléchargement.
+Dans la section **Template content**, sélectionnez **Upload file** sous la tuile **HTML code editor**. Sélectionnez votre modèle depuis votre ordinateur. Consultez la section [Conditions requises](#upload-requirements) pour vous assurer que votre modèle respecte les exigences de téléchargement.
 
 ### Étape 4 : Finaliser et enregistrer votre modèle {#step-4-finish-and-save-your-template}
 
-N'oubliez pas d'enregistrer votre modèle en sélectionnant **Save Template**. Vous êtes maintenant prêt à utiliser ce modèle dans n'importe quelle campagne ou Canvas de votre choix !
+N'oubliez pas d'enregistrer votre modèle en sélectionnant **Save template**. Vous êtes maintenant prêt à utiliser ce modèle dans n'importe quelle campagne ou Canvas de votre choix.
 
 {% alert note %}
 Si vous apportez des modifications à un modèle existant, ces changements ne seront pas reflétés dans les campagnes créées à l'aide de versions précédentes de ce modèle.

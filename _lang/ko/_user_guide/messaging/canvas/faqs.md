@@ -95,6 +95,10 @@ Canvas를 중지해도 메시지 수신을 대기 중인 사용자가 사용자 
 
 Campaigns의 다변량 및 A/B 테스트 개념에 대해서는 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
 
+### 사용자가 Canvas 메시지 단계에서 글로벌 최대 게재빈도 설정에 도달하면 어떻게 되나요? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+해당 채널에 대한 전송을 받지 못하지만, 메시지 단계는 글로벌 최대 게재빈도 설정으로 인해 메시지가 전송되지 않은 경우에도 사용자를 진행시킵니다. 단계별 진행 사례에 대해서는 [사용자 진행 방식]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance)을 참조하세요. 글로벌 최대 게재빈도 설정만으로는 사용자가 Canvas에서 나가지 않으며, 이 동작은 메시지 단계의 **전달 유효성 검사**와는 별개입니다. 자세한 내용은 [사용량 제한 및 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)을 참조하세요.
+
 ### 전송 수가 예상 오디언스 크기보다 낮은 이유는 무엇인가요? {#why-are-sends-lower-than-the-estimated-audience-size}
 
 전송 수는 [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)와 동일한 여러 이유로 **예상 오디언스**보다 낮을 수 있습니다. 여기에는 빈도 제한, 엄격한 기기 또는 브라우저 필터, 재적격 기간, 사용량 제한, 채널 수준 제외(예: 푸시 도달 가능성 또는 이메일 구독 및 전달 가능성 확인) 등이 포함됩니다.

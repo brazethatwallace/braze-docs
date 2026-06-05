@@ -95,6 +95,10 @@ Para escalonar envios ou usar horários diferentes por jornada, tente os seguint
 
 Para conceitos de testes multivariantes e testes A/B em Campaigns, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
+### O que acontece se um usuário atingir o limite de frequência global em uma etapa de Mensagem do Canvas? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+Ele não recebe o envio para o canal limitado, mas as etapas de Mensagem ainda avançam os usuários quando uma mensagem não é enviada por causa do limite de frequência global. Para os casos de avanço passo a passo, consulte [Como os usuários avançam]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance). O limite de frequência global por si só não remove os usuários de um Canvas; esse comportamento é separado das **Validações de entrega** em uma etapa de Mensagem. Para mais detalhes, consulte [Limite de taxa e limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
 ### Por que os envios são menores que o tamanho estimado do público? {#why-are-sends-lower-than-the-estimated-audience-size}
 
 Os envios podem ser menores que o **Público estimado** por muitas das mesmas razões que em [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), incluindo limites de frequência, filtros rigorosos de dispositivo ou navegador, janelas de reelegibilidade, limite de taxa e exclusões no nível do canal (por exemplo, alcançabilidade de push ou verificações de inscrição e entregabilidade de e-mail).

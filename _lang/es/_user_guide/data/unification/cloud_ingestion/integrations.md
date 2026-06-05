@@ -32,6 +32,10 @@ La [guía de inicio rápido de Snowflake](https://quickstarts.snowflake.com/guid
 2. En tu instancia de Redshift, configura las tablas o vistas que quieras sincronizar con Braze.
 3. Crea una nueva fuente y sincronización en el dashboard de Braze.
 4. Prueba la integración e inicia la sincronización.
+
+{% alert note %}
+Las filas procesadas por sincronización dependen del rendimiento de tu almacén, la latencia de red y la cantidad de datos nuevos que coincidan con la consulta de sincronización. Utiliza el **Historial de sincronización** de la integración en el dashboard para ver la duración y el recuento de filas de las ejecuciones recientes.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Crea una cuenta de servicio y permite el acceso a los proyectos de BigQuery y a los conjuntos de datos que contienen los datos que deseas sincronizar.
@@ -585,7 +589,7 @@ Estos problemas pueden incluir lo siguiente:
 - Problemas de conectividad
 - Falta de recursos
 - Problemas de permisos
-- (Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+- (Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación {#step-33-scheduling}
 Por último, configura tu sincronización como no recurrente o recurrente.
@@ -618,7 +622,7 @@ Estos problemas pueden incluir lo siguiente:
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
@@ -649,7 +653,7 @@ Los correos electrónicos de contacto solo reciben notificaciones de errores glo
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
@@ -681,7 +685,7 @@ Estos problemas pueden incluir lo siguiente:
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
@@ -714,7 +718,7 @@ Estos problemas pueden incluir lo siguiente:
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.

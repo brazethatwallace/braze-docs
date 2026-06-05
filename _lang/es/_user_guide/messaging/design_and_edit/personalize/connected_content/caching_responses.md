@@ -42,7 +42,7 @@ Braze utiliza una caché de múltiples niveles para las respuestas de Contenido 
 
 Estas capas de caché son volátiles y pueden desalojar datos antes del TTL configurado.
 
-#### Qué cambia cuando usas `:no_cache` {#what-changes-when-you-use-nocache}
+#### Qué cambia cuando usas `:no_cache` {#what-changes-when-you-use-no_cache}
 
 Para puntos de conexión que no están alojados dentro de la infraestructura de Braze, usar `:no_cache` evita que el cuerpo de respuesta de Contenido conectado se almacene en Memcached. En estos casos, la respuesta solo existe en la memoria del proceso del trabajador durante la duración del trabajo de representación (hasta ~11 minutos). Para puntos de conexión que resuelven a hosts internos de Braze, las respuestas aún pueden almacenarse en caché como se describe en [Invalidación de caché](#cache-busting).
 
@@ -113,8 +113,8 @@ Con un POST no necesitas invalidar la caché, ya que las solicitudes POST no se 
 
 {% raw %}
 - El almacenamiento en caché puede ayudar a reducir las llamadas duplicadas de Contenido conectado. Sin embargo, no se garantiza que siempre resulte en una única llamada de Contenido conectado por usuario.
-- El almacenamiento en caché de Contenido conectado se basa en la URL y el espacio de trabajo. Si la llamada de Contenido conectado es a la misma URL, se puede almacenar en caché entre campañas y Canvas.
-- La caché se basa en una URL única, no en un ID de usuario o una campaña. Esto significa que la versión en caché de una llamada de Contenido conectado podría usarse entre múltiples usuarios y campañas en un espacio de trabajo si la URL es la misma.
+- El almacenamiento en caché de Contenido conectado se basa en el espacio de trabajo, la URL de solicitud, el tipo de contenido de la solicitud y el cuerpo de la solicitud. Si la llamada de Contenido conectado es a la misma URL, se puede almacenar en caché entre Campaigns y Canvas.
+- La caché se basa en una combinación única de URL, tipo de contenido y cuerpo de la solicitud, no en un ID de usuario o una Campaign. Esto significa que la versión en caché de una llamada de Contenido conectado podría usarse entre múltiples usuarios y Campaigns en un espacio de trabajo si la URL, el tipo de contenido y el cuerpo de la solicitud son los mismos.
 - El almacenamiento en caché de Contenido conectado puede omitirse si el marcado de la etiqueta incluye alguno de los siguientes fragmentos de alta cardinalidad:
     - `{{${user_id}}}`
     - `{{${braze_id}}}`

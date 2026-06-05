@@ -95,6 +95,10 @@ Pour échelonner les envois ou utiliser des horaires différents par chemin, ess
 
 Pour les concepts de tests multivariés et A/B dans les Campaigns, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
+### Que se passe-t-il si un utilisateur est soumis à une limite de fréquence globale à une étape Message Canvas ? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+Il ne reçoit pas cet envoi pour le canal limité, mais les étapes Message font quand même avancer les utilisateurs lorsqu'un message n'est pas envoyé en raison de la limite de fréquence globale. Pour les cas d'avancement étape par étape, consultez [Comment les utilisateurs avancent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance). La limite de fréquence globale seule ne fait pas sortir les utilisateurs d'un Canvas ; ce comportement est distinct des **Validations de distribution** sur une étape Message. Pour plus de détails, consultez [Limite de débit et limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
 ### Pourquoi les envois sont-ils inférieurs à la taille estimée de l'audience ? {#why-are-sends-lower-than-the-estimated-audience-size}
 
 Les envois peuvent être inférieurs à l'**Audience estimée** pour bon nombre des mêmes raisons que pour les [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), notamment les limites de fréquence, les filtres stricts d'appareil ou de navigateur, les fenêtres de rééligibilité, les limites de débit et les exclusions au niveau du canal (par exemple, l'accessibilité push ou les vérifications d'abonnement et de livrabilité des e-mails).
