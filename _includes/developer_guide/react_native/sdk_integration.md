@@ -14,6 +14,12 @@ Starting with SDK version 6.0.0, Braze uses a React Native Turbo Module, which i
 If your iOS app conforms to `RCTAppDelegate` and follows our previous `AppDelegate` setup, review the samples in [Complete native setup](#reactnative_step-2-complete-native-setup) to prevent crashes when subscribing to events in the Turbo Module.
 {% endalert %}
 
+## React and React Native version requirements
+
+Braze doesn't publish separate minimum React versions beyond what the React Native SDK supports. To integrate the SDK, use React Native version 0.71 or later. For the full list of supported React Native versions, see the [React Native SDK GitHub repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+
+When you upgrade React, React Native, or the Braze SDK, review the SDK [CHANGELOG](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) for breaking changes before you deploy.
+
 ## Integrating the React Native SDK
 
 ### Prerequisites
