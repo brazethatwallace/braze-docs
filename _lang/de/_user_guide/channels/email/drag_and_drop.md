@@ -91,7 +91,7 @@ Nachdem Sie den Drag-and-Drop-Editor als Bearbeitungserfahrung ausgewählt haben
 - Ein gespeichertes Drag-and-Drop-E-Mail-Template verwenden.
 
 {% alert note %}
-Um ein vorhandenes benutzerdefiniertes HTML-Template oder von Drittanbietern erstellte Templates zu verwenden, müssen Sie das Template neu erstellen, indem Sie zu **Templates** > **E-Mail-Templates** gehen und **Drag-And-Drop Editor** als Bearbeitungserfahrung auswählen.
+Um ein vorhandenes benutzerdefiniertes HTML-Template oder von Drittanbietern erstellte Templates zu verwenden, müssen Sie das Template neu erstellen, indem Sie zu **Content** > **Email** gehen und **Drag-And-Drop Editor** als Bearbeitungserfahrung auswählen.
 {% endalert %}
 
 Sie können auch über den Bereich **Templates** auf alle Templates zugreifen.
@@ -138,15 +138,7 @@ Sobald Sie das Design und den Aufbau Ihrer E-Mail-Nachricht abgeschlossen haben,
 
 Im rechten Panel wird eine Vorschau mit den von Ihnen hinzugefügten Sendeinformationen angezeigt. Diese Informationen können auch aktualisiert werden, indem Sie zu **Settings** > **Email Preferences** > **Sending Configuration** navigieren.
 
-#### E-Mail-Header personalisieren (erweitert) {#personalizing-your-email-header-advanced}
-
-Unter **Sending Settings** können Sie Personalisierung für E-Mail-Header und E-Mail-Extras hinzufügen, mit denen Sie zusätzliche Daten an andere E-Mail-Anbieter zurücksenden können. Die Personalisierung eines E-Mail-Headers, z. B. durch Einbeziehung des Namens der Empfänger:in, kann auch dazu beitragen, die Wahrscheinlichkeit zu erhöhen, dass Ihre E-Mail geöffnet wird.
-
-{% alert note %}
-Erweiterte Funktionen werden im Campaign- oder Canvas-Composer angezeigt. In den erweiterten Funktionen können Sie Ihre Inline-CSS-Einstellung ändern und Header- oder zusätzliche Schlüssel-Wert-Paare eingeben (falls konfiguriert).
-{% endalert %}
-
-#### E-Mail-Anhänge hinzufügen {#adding-email-attachments}
+#### E-Mail-Anhänge hinzufügen {#add-email-attachments}
 
 Unter **Sending Settings** > **Advanced** können Sie E-Mail-Anhänge mit den folgenden Methoden hinzufügen:
 
@@ -155,6 +147,14 @@ Unter **Sending Settings** > **Advanced** können Sie E-Mail-Anhänge mit den fo
 - **Von URL hinzufügen:** Geben Sie eine URL ein, die auf die Datei verweist, und geben Sie einen Anzeige-Dateinamen an. Da Braze beliebige URLs während der E-Mail-Erstellung nicht auf ihre Größe prüfen kann, wird die Dateigröße zum Sendezeitpunkt überprüft. Beachten Sie, dass Liquid in diesem Feld nicht unterstützt wird.
 
 Spezifische Best Practices finden Sie unter [E-Mail-Richtlinien]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/).
+
+#### E-Mail-Header personalisieren (erweitert) {#personalize-your-email-header-advanced}
+
+Unter **Sending Settings** können Sie Personalisierung für E-Mail-Header und E-Mail-Extras hinzufügen, mit denen Sie zusätzliche Daten an andere E-Mail-Anbieter zurücksenden können. Die Personalisierung eines E-Mail-Headers, z. B. durch Einbeziehung des Namens der Empfänger:in, kann auch dazu beitragen, die Wahrscheinlichkeit zu erhöhen, dass Ihre E-Mail geöffnet wird.
+
+{% alert note %}
+Erweiterte Funktionen werden im Campaign- oder Canvas-Composer angezeigt. In den erweiterten Funktionen können Sie Ihre Inline-CSS-Einstellung ändern und Header- oder zusätzliche Schlüssel-Wert-Paare eingeben (falls konfiguriert).
+{% endalert %}
 
 ### 4. Schritt: E-Mail testen {#step-4-test-your-email}
 

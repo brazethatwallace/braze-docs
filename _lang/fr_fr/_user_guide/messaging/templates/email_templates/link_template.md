@@ -12,7 +12,7 @@ channel:
 
 # Modèles de liens {#link-templates}
 
-> Grâce aux modèles de liens, vous pouvez créer des liens dynamiques et réutilisables pour vos Campaigns par e-mail en ajoutant des paramètres ou en préfixant des URL. Cela permet de garantir la cohérence des URL dans vos Campaigns et messages.
+> Grâce aux modèles de liens, vous pouvez créer des liens dynamiques et réutilisables pour vos campagnes par e-mail en ajoutant des paramètres ou en préfixant des URL. Cela permet de garantir la cohérence des URL dans vos campagnes et messages.
 
 {% alert note %}
 Les modèles de liens sont une fonctionnalité facultative. Si **Modèles de liens d'e-mail** n'apparaît pas dans la section **Modèles**, contactez votre gestionnaire de compte pour activer cette fonctionnalité.
@@ -25,17 +25,17 @@ Les modèles de liens sont le plus souvent utilisés dans les cas d'utilisation 
 - Ajouter des paramètres de requête Google Analytics à tous les liens d'un e-mail donné
 - Préfixer une URL à tous les liens d'un e-mail donné
 
-Imaginons que vous meniez une Campaign promotionnelle par e-mail pour le lancement d'un nouveau produit. Vous pouvez utiliser un modèle de lien qui dirige les utilisateurs vers la page du produit et personnaliser le lien pour inclure le nom de votre utilisateur ou un code promotionnel spécifique. Cela vous permet de suivre combien d'utilisateurs ont cliqué sur le lien et ont effectué un achat. De cette façon, vous pouvez garantir la cohérence de vos liens et mieux suivre vos analyses.
+Imaginons que vous meniez une campagne promotionnelle par e-mail pour le lancement d'un nouveau produit. Vous pouvez utiliser un modèle de lien qui dirige les utilisateurs vers la page du produit et personnaliser le lien pour inclure le nom de votre utilisateur ou un code promotionnel spécifique. Cela vous permet de suivre combien d'utilisateurs ont cliqué sur le lien et ont effectué un achat. De cette façon, vous pouvez garantir la cohérence de vos liens et mieux suivre vos analyses.
 
 ## Créer un modèle de lien {#creating-a-link-template}
 
 Vous pouvez créer un nombre illimité de modèles de liens pour répondre à vos différents besoins. Pour créer un modèle de lien, procédez comme suit :
 
-1. Accédez à **Modèles** > **Modèles de liens d'e-mail**.
+1. Accédez à **Contenu** > **Lien d'e-mail**.
 2. Sélectionnez **Create email link template**.
 3. Donnez un nom à votre modèle de lien.
 4. (Facultatif) Ajoutez une description, une équipe ou une étiquette pour ajouter des détails sur le modèle de lien.
-5. (Facultatif) Activez le basculement pour ajouter automatiquement le modèle de lien aux liens dans les Campaigns par e-mail et les Canvas. Cela s'applique lors de l'ajout d'un nouveau lien à tout e-mail nouveau ou existant.
+5. (Facultatif) Activez le basculement pour ajouter automatiquement le modèle de lien aux liens dans les campagnes par e-mail et les Canvas. Cela s'applique lors de l'ajout d'un nouveau lien à tout e-mail nouveau ou existant.
 
 Il existe deux types de modèles de liens que vous pouvez créer :
 
@@ -66,7 +66,7 @@ Si vous souhaitez ajouter des paramètres de requête après une URL dans votre 
 
 ![Champs Position du modèle, Paramètres de requête et Aperçu du modèle pour le processus d'insertion du modèle de lien après une URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
 
-## Utiliser des modèles de liens dans les Campaigns par e-mail {#using-link-templates-in-email-campaigns}
+## Utiliser des modèles de liens dans les campagnes par e-mail {#using-link-templates-in-email-campaigns}
 
 Une fois vos modèles de liens configurés, vous pouvez les appliquer dans vos e-mails.
 

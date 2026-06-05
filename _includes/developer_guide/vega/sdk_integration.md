@@ -142,7 +142,7 @@ You can pass additional configuration options to `initialize()` to customize the
 
 ```javascript
 await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
-  sessionTimeoutInSeconds: 60,        // Configure session timeout (default is 30 seconds)
+  sessionTimeoutInSeconds: 60,        // Configure session timeout (default is 1800 seconds)
   appVersionNumber: "1.2.3.4",        // Set your app version
   enableLogging: true,                 // Enable SDK logging
 });

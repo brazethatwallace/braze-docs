@@ -75,7 +75,7 @@ Mira [varias Campaigns a la vez para comparar su rendimiento relativo]({{site.ba
 ## Plantilla del ID de envío en mensajes con Liquid {#template-dispatch-id-into-messages-with-liquid}
 
 {% alert note %}
-El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que pueden programarse) como eventos desencadenados, incluso cuando están "programados". Más información sobre [el comportamiento de `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) en Canvas y Campaigns.
+El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que pueden programarse) como eventos desencadenados, incluso cuando están "programados". Más información sobre [el comportamiento de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) en Canvas y Campaigns.
 {% endalert %}
 
 Si quieres hacer un seguimiento del envío de un mensaje desde dentro del mensaje (en una URL, por ejemplo), puedes utilizar la plantilla `dispatch_id`. Puedes encontrar el formato para ello en nuestra lista de etiquetas de personalización compatibles, en [Canvas Attributes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).

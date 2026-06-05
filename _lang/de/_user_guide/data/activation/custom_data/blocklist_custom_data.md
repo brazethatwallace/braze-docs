@@ -14,15 +14,24 @@ description: "Dieser Referenzartikel beschreibt, wie Sie angepasste Events und A
 
 Gelegentlich identifizieren Sie möglicherweise angepasste Attribute, angepasste Events oder Kauf-Events, die entweder zu viele Datenpunkte protokollieren, für Ihre Marketing-Strategie nicht mehr nützlich sind oder versehentlich erfasst wurden.
 
-Um zu verhindern, dass diese Daten an Braze gesendet werden, können Sie ein angepasstes Datenobjekt auf die Blocklist setzen, während Ihr Entwicklerteam daran arbeitet, es aus dem Backend Ihrer App oder Website zu entfernen. Blocklisting verhindert, dass ein bestimmtes angepasstes Datenobjekt von Braze künftig erfasst wird, d. h. es wird bei der Suche nach einem bestimmten Nutzer bzw. einer bestimmten Nutzerin nicht mehr angezeigt.
+Um zu verhindern, dass diese Daten an Braze gesendet werden, können Sie ein angepasstes Datenobjekt auf die Blocklist setzen, während Ihr Entwicklerteam daran arbeitet, es aus dem Backend Ihrer App oder Website zu entfernen. Blocklisting verhindert, dass ein bestimmtes angepasstes Datenobjekt von Braze künftig erfasst wird, d. h. es wird bei der Suche nach einer bestimmten Nutzerin oder einem bestimmten Nutzer nicht mehr angezeigt.
+
+### Blocklisting oder Löschung wählen {#choosing-blocklisting-or-deletion}
+
+- **Blocklisting** behält vorhandene angepasste Attribute, Events oder Käufe in Nutzerprofilen bei, aber Braze verarbeitet keine neuen Daten mehr für diese Objekte.
+- **Löschung** entfernt diese Daten aus Nutzerprofilen. Gelöschte angepasste Attribute und Events werden für sieben Tage in den Status **Trashed** verschoben, in dem Sie sie wiederherstellen können. Nach sieben Tagen löscht Braze sie dauerhaft. Die Löschung stoppt nicht den Eingang neuer Daten. Stellen Sie daher sicher, dass Ihr SDK, Ihre API oder Ihre CSV-Importe diese Daten nicht mehr senden, bevor Sie löschen.
+
+Blocklisting sendet Blocklist-Informationen an das Gerät jeder Nutzerin und jedes Nutzers und kann datenintensiv sein. Das Blocklisting einer sehr großen Anzahl von Attributen, Events oder Käufen (z. B. mehr als 100) kann die App-Performance beeinträchtigen. Wenn Sie diese Daten nicht mehr an Braze senden möchten, ist die Löschung oft der bessere Ansatz, nachdem Sie die Integration gestoppt haben.
+
+Unabhängig davon, ob Sie Blocklisting oder Löschung verwenden, werden diese angepassten Attribute, Events und Käufe nicht mehr auf der Seite **Manage Workspace** angezeigt und als Segment-Filter entfernt. Wenn Sie angepasste Daten löschen, entfernt Braze diese Daten auf Nutzerebene aus Profilen gemäß [Wie die Löschung funktioniert](#how-deletion-works).
 
 Um angepasste Daten auf die Blocklist zu setzen, benötigen Sie die [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) aus dem folgenden Dropdown für Ihren Workspace.
 
 {% details Berechtigungen für das Blocklisting angepasster Daten %}
 
-- Kampagnen anzeigen
-- Kampagnen bearbeiten
-- Kampagnen archivieren
+- Campaigns anzeigen
+- Campaigns bearbeiten
+- Campaigns archivieren
 - Canvases anzeigen
 - Canvases bearbeiten
 - Canvases archivieren
@@ -67,7 +76,7 @@ Daten auf der Blocklist werden nicht vom SDK gesendet, und das Braze-Dashboard v
 ### Angepasste Attribute, angepasste Events und Produkte auf die Blocklist setzen {#blocklisting-custom-attributes-custom-events-and-products}
 
 {% alert important %}
-Wenn ein Event oder Attribut auf die Blocklist gesetzt wird, werden alle Segmente, Kampagnen oder Canvases, die dieses Event oder Attribut verwenden, archiviert.
+Wenn ein Event oder Attribut auf die Blocklist gesetzt wird, werden alle Segmente, Campaigns oder Canvases, die dieses Event oder Attribut verwenden, archiviert.
 {% endalert %}
 
 Um das Tracking eines bestimmten angepassten Attributs, Events oder Produkts zu stoppen, gehen Sie wie folgt vor:
@@ -76,7 +85,7 @@ Um das Tracking eines bestimmten angepassten Attributs, Events oder Produkts zu 
 2. Wählen Sie das angepasste Attribut, Event oder Produkt aus. Bei angepassten Attributen und Events können Sie bis zu 100 gleichzeitig für die Blocklist auswählen.
 3. Wählen Sie **Blocklist**.
 
-![Mehrere ausgewählte angepasste Attribute, die auf der Seite „Angepasste Attribute“ auf die Blocklist gesetzt werden.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
+![Mehrere ausgewählte angepasste Attribute, die auf der Seite „Custom Attributes“ auf die Blocklist gesetzt werden.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
 Sie können bis zu 300 angepasste Attribute und 300 angepasste Events auf die Blocklist setzen. Um das Erfassen bestimmter Geräteattribute zu verhindern, lesen Sie unseren [SDK-Leitfaden]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection).
 
@@ -92,7 +101,7 @@ Wenn ein angepasstes Event oder Attribut auf die Blocklist gesetzt wird, gilt Fo
 - Verweise auf Blocklist-Daten in Entwürfen aktiver Canvases werden als ungültige Werte geladen, was zu Fehlern führen kann
 - Alles, was das Event oder Attribut auf der Blocklist verwendet, wird archiviert
 
-Um dies zu erreichen, sendet Braze die Blocklist-Informationen an jedes Gerät. Dies ist wichtig, wenn Sie eine große Anzahl von Events und Attributen (Hunderttausende oder Millionen) auf die Blocklist setzen möchten, da dies eine datenintensive Operation wäre.
+Um dies zu erreichen, sendet Braze die Blocklist-Informationen an jedes Gerät. Dies ist wichtig, wenn Sie eine große Anzahl von Events und Attributen (Hunderttausende oder Millionen) auf die Blocklist setzen möchten, da dies eine datenintensive Operation ist.
 
 ### Überlegungen zum Blocklisting {#considerations-for-blocklisting}
 
@@ -102,7 +111,7 @@ Bis zu 300 Einträge werden an das SDK für das Blocklisting gesendet. Wenn Sie 
 
 ## Angepasste Daten löschen {#deleting-custom-data}
 
-Beim Erstellen gezielter Campaigns und Segments stellen Sie möglicherweise fest, dass Sie ein angepasstes Event oder angepasstes Attribut nicht mehr benötigen. Wenn Sie beispielsweise ein bestimmtes angepasstes Attribut als Teil einer einmaligen Campaign verwendet haben, können Sie diese Daten nach dem [Blocklisting](#blocklisting-custom-attributes-custom-events-and-products) löschen und die Verweise darauf aus Ihrer App entfernen. Sie können alle Datentypen löschen (z. B. Strings, Zahlen und verschachtelte angepasste Attribute).
+Beim Erstellen gezielter Campaigns und Segmente stellen Sie möglicherweise fest, dass Sie ein angepasstes Event oder angepasstes Attribut nicht mehr benötigen. Wenn Sie beispielsweise ein bestimmtes angepasstes Attribut als Teil einer einmaligen Campaign verwendet haben, können Sie diese Daten nach dem [Blocklisting](#blocklisting-custom-attributes-custom-events-and-products) löschen und die Verweise darauf aus Ihrer App entfernen. Sie können alle Datentypen löschen (z. B. Strings, Zahlen und verschachtelte angepasste Attribute).
 
 {% alert important %}
 Sie müssen [Braze-Admin]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin) sein, um angepasste Daten zu löschen.
