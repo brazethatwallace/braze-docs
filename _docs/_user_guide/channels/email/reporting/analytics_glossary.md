@@ -131,7 +131,7 @@ Percentage
 
 #### Delivery rate benchmarks
 
-*Deliveries* and bounce rate are related but not the same as inbox placement (deliverability). As a starting point, many senders aim for about 98% of messages *Delivered* with a bounce rate no higher than 3%, while also monitoring opens and clicks for engagement signals. For more detail, see [What is a "good" email delivery rate?]({{site.baseurl}}/user_guide/channels/email/faq/#what-is-a-good-email-delivery-rate)
+*Deliveries* and bounce rate are related but not the same as inbox placement (deliverability). As a starting point, many senders aim for about 98% of messages *Delivered* with a bounce rate no higher than 3%, while also monitoring opens and clicks for engagement signals. For more detail, see [What is a "good" email delivery rate?]({{site.baseurl}}/user_guide/channels/email/faq/#what-is-a-good-email-delivery-rate/)
 
 #### SPF and DKIM alignment
 
