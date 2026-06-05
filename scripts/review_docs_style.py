@@ -73,6 +73,10 @@ Apply the Braze Docs Style Guide provided in the user message.
 - Braze terminology: Canvas, workspace (not app group), customers (not clients), allowlist/blocklist, etc.
 - Internal consistency within a file beats isolated style preferences (match dominant usage in the
   same article before suggesting a one-off change).
+- Present tense: target future "will"/"would" for user-action outcomes—not a blanket ban on past
+  tense or on "may"/"may have" for uncertainty. Past tense is appropriate when describing events
+  that already occurred (troubleshooting, delivery logs, incident timelines). Do not rewrite table
+  "Possible cause" rows from past to present tense solely for consistency.
 - Do NOT flag product behavior you cannot verify from the diff alone.
 - Do NOT invent facts or suggest content unrelated to the change.
 - Do NOT suggest adding sections, alerts, FAQs, or blocks that already appear in the numbered
@@ -101,10 +105,15 @@ Respond with ONLY valid JSON (no markdown fences). Schema:
 }
 
 - "line" is the 1-based line number on the RIGHT (new) side of the diff for the exact line you
-  are replacing. It must match the numbered file excerpt (not a nearby blank line or adjacent line).
+  are replacing. It must match the numbered file excerpt (not a nearby blank line, Liquid tag,
+  kramdown attribute line, or adjacent table row).
+- For markdown table rows, anchor the comment on the row you are changing—verify the "Possible
+  cause" cell in suggested_line matches that same row, not the row above or below.
 - Only suggest lines that appear in the unified diff (added or context lines within a hunk).
   GitHub cannot attach inline comments to unchanged lines outside the PR diff.
 - "suggested_line" must be the complete single-line replacement (not a fragment, not multiple lines).
+- "suggested_line" must differ from the current text on that line number in the numbered excerpt.
+  Do not suggest text that is already in the file.
 - Only include inline items when you are confident and the fix is a single-line change.
 - Prefer high-signal issues; omit nitpicks and subjective preferences.
 - If prior automated suggestions on this PR are listed in the user message, do not contradict them
@@ -768,6 +777,141 @@ def _block_exists_in_file(suggested: str, file_lines: list[str]) -> bool:
     return False
 
 
+def _table_row_first_cell(line: str) -> str:
+    stripped = line.strip()
+    if not stripped.startswith("|"):
+        return ""
+    parts = [part.strip() for part in stripped.split("|")]
+    return parts[1] if len(parts) > 2 else ""
+
+
+def _normalize_cause_label(text: str) -> str:
+    normalized = text.lower().replace("'", "")
+    normalized = re.sub(r"[^\w\s]", " ", normalized)
+    for word in (
+        "the",
+        "a",
+        "an",
+        "was",
+        "were",
+        "is",
+        "are",
+        "wasnt",
+        "isnt",
+        "has",
+        "have",
+        "had",
+        "may",
+        "might",
+        "will",
+        "would",
+        "not",
+    ):
+        normalized = re.sub(rf"\b{re.escape(word)}\b", " ", normalized)
+    return re.sub(r"\s+", " ", normalized).strip()
+
+
+def _is_non_commentable_markdown_line(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped:
+        return True
+    if stripped.startswith("{%") or stripped.startswith("{:"):
+        return True
+    if stripped in ("---", "|---|", "| --- |"):
+        return True
+    if re.fullmatch(r"\|[-:\s|]+\|?", stripped):
+        return True
+    return False
+
+
+def _is_wrong_table_row_anchor(
+    file_lines: list[str], line_num: int, suggested: str
+) -> bool:
+    """True when a table-row suggestion clearly belongs on the previous row."""
+    if line_num < 2 or line_num > len(file_lines):
+        return False
+    current = file_lines[line_num - 1]
+    previous = file_lines[line_num - 2]
+    current_cell = _table_row_first_cell(current)
+    previous_cell = _table_row_first_cell(previous)
+    suggested_cell = _table_row_first_cell(suggested)
+    if not current_cell or not previous_cell or not suggested_cell:
+        return False
+    current_norm = _normalize_cause_label(current_cell)
+    previous_norm = _normalize_cause_label(previous_cell)
+    suggested_norm = _normalize_cause_label(suggested_cell)
+    if not suggested_norm:
+        return False
+    if suggested_norm == current_norm:
+        return False
+    return suggested_norm == previous_norm
+
+
+_TENSE_NAG_MSG = re.compile(
+    r"present tense|past tense|might not|'\bmay\b|'\bwas\b", re.IGNORECASE
+)
+_TROUBLESHOOTING_PAST_CAUSE = re.compile(
+    r"\b(was|were|went|bounced|dropped|rejected|accepted|routed|prevented|aborted|"
+    r"unreachable|didn't|did not)\b",
+    re.IGNORECASE,
+)
+
+
+def filter_misapplied_tense_suggestions(inline: list[dict]) -> list[dict]:
+    """Drop present-tense rewrites that misapply the style guide."""
+    kept: list[dict] = []
+    for item in inline:
+        message = item.get("message", "")
+        if not _TENSE_NAG_MSG.search(message):
+            kept.append(item)
+            continue
+
+        path = item["path"]
+        file_path = REPO_ROOT / path
+        if not file_path.exists():
+            kept.append(item)
+            continue
+
+        lines = file_path.read_text(encoding="utf-8", errors="replace").splitlines()
+        line_num = item["line"]
+        if line_num < 1 or line_num > len(lines):
+            kept.append(item)
+            continue
+
+        current = lines[line_num - 1]
+        suggested = item["suggested_line"].rstrip()
+        current_cell = _table_row_first_cell(current) or current
+        suggested_cell = _table_row_first_cell(suggested) or suggested
+
+        if _normalize_cause_label(current_cell) == _normalize_cause_label(suggested_cell):
+            print(
+                f"Skipping tense-only rewrite on `{path}` line {line_num} "
+                "(cause label unchanged aside from tense)"
+            )
+            continue
+
+        if current.strip().startswith("|") and _TROUBLESHOOTING_PAST_CAUSE.search(
+            current_cell
+        ):
+            print(
+                f"Skipping present-tense rewrite on `{path}` line {line_num} "
+                "(troubleshooting past-event cause row)"
+            )
+            continue
+
+        if re.search(r"\bmay(?: have)?\b", current, re.IGNORECASE) and not re.search(
+            r"\bmay(?: have)?\b", suggested, re.IGNORECASE
+        ):
+            print(
+                f"Skipping may/may-have removal on `{path}` line {line_num} "
+                "(epistemic hedging is allowed)"
+            )
+            continue
+
+        kept.append(item)
+    return kept
+
+
 def validate_inline(item: dict) -> dict | None:
     path = item.get("path")
     line = item.get("line")
@@ -787,7 +931,29 @@ def validate_inline(item: dict) -> dict | None:
     if line > len(lines):
         return None
 
+    current_line = lines[line - 1]
+    if _is_non_commentable_markdown_line(current_line):
+        print(
+            f"Skipping suggestion on `{path}` line {line}: "
+            "non-prose markdown (Liquid, kramdown attrs, or table separator)"
+        )
+        return None
+
     suggested_norm = suggested.rstrip()
+    if current_line.rstrip() == suggested_norm:
+        print(
+            f"Skipping no-op suggestion on `{path}` line {line}: "
+            "suggested_line matches current line"
+        )
+        return None
+
+    if _is_wrong_table_row_anchor(lines, line, suggested_norm):
+        print(
+            f"Skipping mis-anchored table suggestion on `{path}` line {line}: "
+            "suggested row matches the previous table row"
+        )
+        return None
+
     if "\n" in suggested_norm:
         if _block_exists_in_file(suggested_norm, lines):
             print(
@@ -1352,6 +1518,7 @@ def main() -> None:
             validated.append(v)
 
     validated = filter_nbsp_removal_suggestions(validated)
+    validated = filter_misapplied_tense_suggestions(validated)
     validated = filter_dismissed_suggestions(
         validated, dismissed_suggested, dismissed_message
     )
