@@ -198,9 +198,9 @@ For further assistance with Canvas troubleshooting, be sure to contact Braze Sup
 
 ### Can I exclude users who are currently in a Canvas journey from a campaign or segment?
 
-No. Braze doesn't provide a segment or campaign filter for users who are currently active in a Canvas journey. Filters such as `Entered Canvas Variation` record whether a user entered a Canvas, not whether they're still in progress.
+Use [segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) such as `Entered Canvas Variation`, `In Canvas Control Group`, or `Received Message from Canvas Step` to target users based on Canvas entry, variant assignment, or step engagement. These filters evaluate entry history and interactions—they don't indicate whether a user is still progressing through an active journey.
 
-To target or suppress users based on active Canvas participation, add [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) steps at Canvas entry and exit to set and clear custom attributes, then filter on those attributes in campaigns or segments. For more information about available Canvas filters, see [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+To include or exclude users based on active Canvas participation, add [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) steps at Canvas entry and exit to set and clear custom attributes, then filter on those attributes in campaigns or segments.
 
 ## Segmentation
 
