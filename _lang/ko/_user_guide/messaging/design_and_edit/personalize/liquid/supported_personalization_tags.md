@@ -40,14 +40,25 @@ search_rank: 1
 
 Campaign, 카드, Canvas 속성은 해당하는 메시징 템플릿에서만 지원됩니다(예: `dispatch_id`는 인앱 메시지 Campaign에서 사용할 수 없습니다).
 
-[Braze에서 소스에 따라 이러한 속성 중 일부가 어떻게 다른지]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/) 자세히 알아보려면 이 도움말 문서를 참조하세요.
+자세한 내용은 [소스별 Campaign 및 Canvas 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/)을 참조하세요.
 
 ### Canvas와 Campaign 태그 차이점 {#canvas-and-campaign-tag-differences}
 
 다음 태그의 동작은 Canvas와 Campaign 간에 다릅니다:
 {% raw %}
-- `dispatch_id` 동작이 다릅니다. Braze는 캔버스 단계를 트리거된 이벤트로 처리하기 때문입니다. "스케줄"된 경우에도 마찬가지입니다(진입 단계는 스케줄할 수 있으므로 제외). 자세한 내용은 [Dispatch ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)을 참조하세요.
+- `dispatch_id` 동작이 다릅니다. Braze는 캔버스 단계를 트리거된 이벤트로 처리하기 때문입니다. "스케줄"된 경우에도 마찬가지입니다(진입 단계는 스케줄할 수 있으므로 제외). 자세한 내용은 [Dispatch ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)을 참조하세요.
 - Canvas에서 `{{campaign.${name}}}` 태그를 사용하면 Canvas 구성요소 이름이 표시됩니다. Campaign에서 이 태그를 사용하면 Campaign 이름이 표시됩니다.
+{% endraw %}
+
+#### URL에서의 Campaign 이름 {#campaign-names-in-urls}
+{: #campaign-names-in-urls}
+
+{% raw %}
+Campaign 및 메시지 배리언트 이름에는 `%`, 공백, `&`와 같이 URL에 안전하지 않은 문자가 포함될 수 있습니다. `{{campaign.${name}}}` 또는 `{{campaign.${message_name}}}`을 `utm_campaign` 매개변수와 같은 링크나 쿼리 문자열에 삽입할 때는 URL이 올바르게 구문 분석되도록 [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) 필터를 적용하세요. 예를 들어:
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
 {% endraw %}
 
 ## 가장 최근에 사용한 기기 정보 {#most-recently-used-device-information}

@@ -115,7 +115,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-<i>直接開封数</i>は、通知を直接押してアプリやWebサイトを開いたユーザーの総数（または割合）です。
+<i>直接開封数</i>は、通知を直接押してアプリやWeb サイトを開いたユーザーの総数（または割合）です。
 {% endif %}
 
 {% if include.metric == "Emailable" %}
@@ -251,7 +251,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>ユニーククリック数</i>は、メッセージ内のリンクを少なくとも1回クリックした受信者の固有数で、<a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> によって測定されます。
+<i>ユニーククリック数</i>は、メッセージ内のリンクを少なくとも1回クリックした受信者の固有数で、<a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> によって測定されます。
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}

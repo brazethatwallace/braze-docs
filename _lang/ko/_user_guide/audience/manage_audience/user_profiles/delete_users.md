@@ -173,3 +173,7 @@ EA 프로그램이 진행됨에 따라 모든 고객이 최대 1억 명의 사�
 개별 사용자 삭제는 영구적입니다.
 
 [Segment 삭제는 취소](#cancel)할 수 있으며, 요청 후 처음 7일 이내에 가능합니다. 그러나 취소 전에 이미 삭제된 사용자는 복원할 수 없습니다.
+
+### 대시보드 대신 API를 사용하여 사용자를 삭제할 수 있나요? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+네. 소규모 배치의 경우 [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)를 사용할 수 있으며, 요청당 최대 50개의 식별자를 허용하고 해당 엔드포인트의 [사용량 제한]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit)이 적용됩니다. Segment 기반 대시보드 삭제는 매우 큰 오디언스에 더 적합하지만 [7일 대기 기간](#about-user-deletion)이 포함됩니다.

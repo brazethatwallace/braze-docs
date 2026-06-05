@@ -18,7 +18,7 @@ description: "이 문서에서는 캠페인 분석 내보내기 Braze 엔드포�
 
 반환되는 데이터에는 메시징 채널별로 전송, 열람, 클릭 또는 전환된 메시지 수가 포함됩니다.
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='campaign' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='campaign' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1 {% endapiref %}
 

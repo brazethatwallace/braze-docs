@@ -16,7 +16,7 @@ description: "이 문서에서는 Canvas 데이터 시리즈 분석 내보내기
 
 > 이 엔드포인트를 사용하여 Canvas의 시계열 데이터를 내보낼 수 있습니다.
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 
