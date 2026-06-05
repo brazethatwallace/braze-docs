@@ -1,5 +1,5 @@
 ---
-nav_title: Brazeの SSL
+nav_title: BrazeのSSL
 article_title: SSLの概要
 page_order: 5
 page_type: reference
@@ -89,7 +89,7 @@ CDNのクリックトラッキングドメインを設定する際は、ホス�
 
 ### Amazon SES
 
-CDNとしてAmazon SESを使用している場合は、[Amazon SESのドキュメント](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html)の **Option 2: Configuring an HTTPS domain** を参照し、Brazeクラスターに基づいてリージョン別のAWSトラッキングドメインを指定してください：
+メールサービスプロバイダー（ESP）としてAmazon SESを使用している場合は、[Amazon SESのドキュメント](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html)の**Option 2: Configuring an HTTPS domain**を参照し、Brazeクラスターに基づいてリージョン別のAWSトラッキングドメインを指定してください：
 
 - **Braze USクラスター:** `r.us-east-1.awstrack.me`
 - **Braze EUクラスター:** `r.eu-central-1.awstrack.me`
