@@ -174,6 +174,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 - Die Anzahl der gleichzeitigen Segmentexporte, die ein Unternehmen auf Endpunktebene ausführen kann, ist auf 100 begrenzt. Versuche, die diese Grenze überschreiten, führen zu einem Fehler.
 - Der Versuch, ein Segment ein zweites Mal zu exportieren, während der erste Exportvorgang noch läuft, führt zu einem 429-Fehler.
 - Eine [`403 Forbidden`-Antwort]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads) bedeutet häufig, dass die Exportdatei noch nicht bereit ist.
+- Abo-Gruppendaten sind über Segmentexporte nicht verfügbar. Um Nutzer:innen nach Abo-Status zu identifizieren, erstellen Sie ein separates Segment basierend auf der Zugehörigkeit zu einer Abo-Gruppe und exportieren Sie dieses Segment.
 
 ## Antwort {#response}
 
