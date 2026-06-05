@@ -21,7 +21,7 @@ guide_featured_list:
     link: /docs/get_see_user_account_information/
     image: /assets/img/braze_icons/eye.svg
   - name: "GET: 이메일로 기존 대시보드 사용자 계정 검색"
-    link: /docs/get_search_existing_dashboard_user/
+    link: /docs/api/endpoints/scim/get_search_existing_dashboard_user/
     image: /assets/img/braze_icons/eye.svg
   - name: "PUT: 대시보드 사용자 계정 업데이트"
     link: /docs/post_update_existing_user_account/

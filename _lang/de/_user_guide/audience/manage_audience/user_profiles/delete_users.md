@@ -173,3 +173,7 @@ Ja. Sie können jedoch einen Segment-Einschlussfilter hinzufügen, um alle Nutze
 Das Löschen einzelner Nutzer:innen ist dauerhaft.
 
 Sie können [Segment-Löschungen](#cancel) innerhalb der ersten 7 Tage abbrechen. Allerdings können Nutzer:innen, die vor dem Abbruch bereits gelöscht wurden, nicht wiederhergestellt werden.
+
+### Kann ich Nutzer:innen über die API statt über das Dashboard löschen? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+Ja. Für kleinere Mengen können Sie den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) verwenden, der bis zu 50 Bezeichner pro Anfrage akzeptiert und dem [Rate-Limit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit) dieses Endpunkts unterliegt. Die segmentbasierte Löschung über das Dashboard eignet sich besser für sehr große Zielgruppen, beinhaltet jedoch die [7-tägige Wartezeit](#about-user-deletion).
