@@ -93,14 +93,5 @@ GIFs with very elongated shapes (for example, 3000 x 2 pixels) or 300 or more fr
 Before using this feature, review [how your data is used and sent to OpenAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
 {% endalert %}
 
-<!-- sf-kb-phase2-batch -->
+If you don't see **AI Image Generator** on the **Media Library** page, confirm you have **Edit Media Library Assets** permission. If the option is still missing, contact your Braze account team to confirm your workspace has access to BrazeAI image generation. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
 
-## Salesforce Knowledge updates
-
-### Generate An Image Using AI
-
-The AI image generator is controlled by the `dalle_assistant` feature flag. If you don't see it, contact Braze Support. You also need Media Library permission. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
-
-### Is it possible to create vanity URLs for Media Library image assets, and if so, how?
-
-Vanity URLs for Media Library assets aren't supported because custom URLs would break CDN delivery. You can replace an image at its existing URL when campaigns already reference that URL. Submit product feedback if you need vanity URL support.
