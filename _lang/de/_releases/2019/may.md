@@ -49,14 +49,14 @@ Braze-Kund:innen können [sich mit Jampp integrieren]({{site.baseurl}}/partners/
 
 ## Plattformauswahl für In-App-Nachrichten {#platform-picker-for-in-app-messages}
 
-Mit unserer Plattformauswahl, die diesen Schritt bei der Erstellung von Kampagnen hervorhebt, können Sie leichter auswählen, wohin Ihre In-App-Nachrichten gesendet werden und für welche Plattformen sie bestimmt sind.
+Mit unserer Plattformauswahl, die diesen Schritt bei der Erstellung von Campaigns hervorhebt, können Sie leichter auswählen, wohin Ihre In-App-Nachrichten gesendet werden und für welche Plattformen sie bestimmt sind.
 
 ![Plattformauswahl]({% image_buster /assets/img/iam_platforms.gif %})
 
 ## Dispatch-ID-Currents-Feld für E-Mail {#dispatch-id-currents-field-for-email}
 
 {% alert update %}
-Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Kampagnen, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/help/help_articles/data/dispatch_id/) in Canvas und Kampagnen.
+Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) in Canvas und Campaigns.
 
 _Update im August 2019 vermerkt._
 {% endalert %}
@@ -65,11 +65,11 @@ In dem Bestreben, unsere Currents-Funktionen weiter zu verbessern, fügen wir `d
 
 Die `dispatch_id` ist die eindeutige ID, die für jede von der Braze-Plattform gesendete Übertragung bzw. Sendung generiert wird.
 
-Während alle Kund:innen, die eine geplante Nachricht erhalten, dieselbe `dispatch_id` erhalten, bekommen Kund:innen, die entweder aktionsbasierte oder API-getriggerte Nachrichten erhalten, eine eindeutige `dispatch_id` pro Nachricht. Mit dem Feld `dispatch_id` können Sie feststellen, welche Instanz einer wiederkehrenden Kampagne für die Conversion verantwortlich ist. So erhalten Sie mehr Insights und Informationen darüber, welche Arten von Kampagnen dazu beitragen, Ihre Geschäftsziele zu erreichen.
+Während alle Kund:innen, die eine geplante Nachricht erhalten, dieselbe `dispatch_id` erhalten, bekommen Kund:innen, die entweder aktionsbasierte oder API-getriggerte Nachrichten erhalten, eine eindeutige `dispatch_id` pro Nachricht. Mit dem Feld `dispatch_id` können Sie feststellen, welche Instanz einer wiederkehrenden Campaign für die Conversion verantwortlich ist. So erhalten Sie mehr Insights und Informationen darüber, welche Arten von Campaigns dazu beitragen, Ihre Geschäftsziele zu erreichen.
 
 ## Feature zur Kampagnensortierung „Nur eigene anzeigen“ {#only-show-mine-campaign-sorting-feature}
 
-Wenn Nutzer:innen in der Kampagnentabelle das Kontrollkästchen `Only Show Mine` aktivieren, werden die Ergebnisse nach Kampagnen gefiltert, die nur von den angemeldeten Nutzer:innen erstellt wurden. Zusätzlich können Nutzer:innen die Suchleiste nutzen, indem sie `created_by_me:true` eingeben.
+Wenn Nutzer:innen in der Kampagnentabelle das Kontrollkästchen `Only Show Mine` aktivieren, werden die Ergebnisse nach Campaigns gefiltert, die nur von den angemeldeten Nutzer:innen erstellt wurden. Zusätzlich können Nutzer:innen die Suchleiste nutzen, indem sie `created_by_me:true` eingeben.
 
 Außerdem ist die Seitenleiste des Kampagnen-Rasters jetzt in der Größe veränderbar!
 
@@ -85,14 +85,13 @@ Mit `dispatch_id` können wiederkehrende Nachrichten die tatsächliche Anzahl ei
 
 Alle Nutzer:innen, die auch Mailjet verwenden, werden einen Anstieg dieser Zahlen feststellen, da der bisherige Zeitrahmen für die Eindeutigkeit über 30 Tage betrug. Sie hätten vor drei (3) Wochen auf diese Änderung aufmerksam gemacht werden müssen. Für SendGrid-Kund:innen sollte es keinen Unterschied geben.
 
-Sie können nach diesen aktualisierten Begriffen in unserem [Glossar zu den Metriken des Berichts]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) suchen.
+Sie können nach diesen aktualisierten Begriffen in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) suchen.
 
 {% alert update %}
-Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Kampagnen, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. [Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/help/help_articles/data/dispatch_id/) in Canvas und Kampagnen.
+Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. [Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) in Canvas und Campaigns.
 
 _Update im August 2019 vermerkt._
 {% endalert %}
-
 
 ## Kanal mit dem größten Engagement {#most-engaged-channel}
 

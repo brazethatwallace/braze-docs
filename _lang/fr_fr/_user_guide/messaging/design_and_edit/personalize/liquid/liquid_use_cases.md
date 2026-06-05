@@ -1373,6 +1373,10 @@ Time zones
 - [Annuler un message en dehors d'une plage horaire au moment de l'envoi](#abort-send-time-hour-range)
 - [Annuler un message en dehors d'une fenêtre horaire dans un fuseau horaire fixe](#abort-fixed-timezone-window)
 
+{% alert note %}
+Si un utilisateur reçoit un message à une heure locale inattendue, le fuseau horaire de son appareil ou de son profil a peut-être changé (par exemple, après un voyage). La distribution en heure locale utilise le fuseau horaire du profil au moment de l'envoi ; les utilisateurs peuvent avoir besoin d'une nouvelle session dans leur région habituelle avant que des valeurs telles que {% raw %}`{{${time_zone}}}`{% endraw %} reflètent ce que vous attendez. Cependant, vous pouvez [insérer dans un modèle le fuseau horaire de l'utilisateur](#users-time-zone).
+{% endalert %}
+
 ### Insérer dans un modèle le fuseau horaire de l'utilisateur {#users-time-zone}
 
 Par défaut, les dates et heures dans Liquid sont affichées en temps universel coordonné (UTC). Pour afficher les dates et heures dans le fuseau horaire local de l'utilisateur, utilisez le filtre `time_zone` avec le filtre `date`.

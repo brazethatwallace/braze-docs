@@ -138,15 +138,7 @@ tool:
 
 右側のパネルのプレビューに、追加した送信情報が表示されます。この情報は、**設定** > **メール設定** > **送信設定**に移動して更新することもできます。
 
-#### メールヘッダーのパーソナライズ（詳細設定） {#personalizing-your-email-header-advanced}
-
-**送信設定**の下で、メールヘッダーとメールエクストラのパーソナライゼーションを追加できます。これにより、他のメールサービスプロバイダー（ESP）に追加データを送信できます。受信者の名前を含めるなど、メールヘッダーをパーソナライズすることで、メールが開封される可能性を高めることもできます。
-
-{% alert note %}
-詳細設定機能は、CampaignまたはCanvasコンポーザーに表示されます。詳細設定機能では、インラインCSS設定を変更したり、ヘッダーまたは追加のキーと値のペアを入力したりできます（設定されている場合）。
-{% endalert %}
-
-#### メール添付ファイルの追加 {#adding-email-attachments}
+#### メール添付ファイルの追加 {#add-email-attachments}
 
 **送信設定** > **詳細設定**で、以下の方法でメール添付ファイルを追加できます。
 
@@ -155,6 +147,14 @@ tool:
 - **URLから追加:** ファイルを指すURLを入力し、表示ファイル名を指定します。Brazeはメール作成中に任意のURLのサイズを調べることができないため、ファイルサイズは送信時に適用されます。このフィールドではLiquidはサポートされていないことに注意してください。
 
 考慮すべき具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)を参照してください。
+
+#### メールヘッダーのパーソナライズ（詳細設定） {#personalize-your-email-header-advanced}
+
+**送信設定**の下で、メールヘッダーとメールエクストラのパーソナライゼーションを追加できます。これにより、他のメールサービスプロバイダーに追加データを送信できます。受信者の名前を含めるなど、メールヘッダーをパーソナライズすることで、メールが開封される可能性を高めることもできます。
+
+{% alert note %}
+詳細設定機能は、CampaignまたはCanvasコンポーザーに表示されます。詳細設定機能では、インラインCSS設定を変更したり、ヘッダーまたは追加のキーと値のペアを入力したりできます（設定されている場合）。
+{% endalert %}
 
 ### ステップ 4: メールをテストする {#step-4-test-your-email}
 
@@ -245,7 +245,7 @@ HTMLレンダリングは、条件付きコメントとCSSメディアクエリ�
 
 ### 言語属性 {#language-attribute}
 
-**設定**タブに移動し、目的の言語を選択することで、言語属性を設定できます。メッセージがダイナミックな言語値を持つユーザーを対象としている場合は、ユーザー属性 {%raw%} `{{${language}}}` {%endraw%} をターゲットにすることもできます。
+**設定**タブに移動し、目的の言語を選択することで、言語属性を設定できます。メッセージがダイナミックな言語値を持つユーザーを対象としている場合は、ユーザー属性{%raw%}`{{${language}}}`{%endraw%}をターゲットにすることもできます。
 
 ![メールの「言語」値を設定する画面。]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
 
@@ -264,10 +264,10 @@ Liquidパーソナライゼーションは、画像ブロックとボタンリ�
 
 #### ダイナミック画像 {#dynamic-images}
 
-画像ソース属性に[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content)または[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めることで、メールメッセージングにダイナミック画像を含めることができます。たとえば、静的な画像の代わりに、画像URLとして {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} を挿入して、画像にユーザーの名を含めることができます。これにより、各ユーザーに合わせてメールをパーソナライズできます。
+画像ソース属性に[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content)または[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めることで、メールメッセージングにダイナミック画像を含めることができます。たとえば、静的な画像の代わりに、画像URLとして{% raw %}`https://example.com/images/?imageBanner={{first_name}}`{% endraw %}を挿入して、画像にユーザーの名を含めることができます。これにより、各ユーザーに合わせてメールをパーソナライズできます。
 
 {% alert important %}
-画像URLは `https://` で始まる必要があります。`http://` を使用するとアプリがクラッシュします。
+画像URLは`https://`で始まる必要があります。`http://`を使用するとアプリがクラッシュします。
 {% endalert %}
 
 ### テキスト方向 {#text-direction}

@@ -239,7 +239,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Le suivi s'effectue sur une période de sept jours pour les e-mails et est mesuré par <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. Cela inclut les clics sur les liens de désabonnement fournis par Braze. Après sept jours, un nouveau clic unique peut être comptabilisé pour le même utilisateur s'il clique à nouveau. Pour faire correspondre les chiffres du tableau de bord à partir de Currents, filtrez les événements où `is_unique` est `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Le suivi s'effectue sur une période de sept jours pour les e-mails et est mesuré par <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Cela inclut les clics sur les liens de désabonnement fournis par Braze. Après sept jours, un nouveau clic unique peut être comptabilisé pour le même utilisateur s'il clique à nouveau. Pour faire correspondre les chiffres du tableau de bord à partir de Currents, filtrez les événements où `is_unique` est `true`.
 
 {::nomarkdown}
 <span class="calculation-line">

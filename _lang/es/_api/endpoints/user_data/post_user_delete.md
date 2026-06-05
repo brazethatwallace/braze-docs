@@ -21,7 +21,7 @@ Se pueden incluir hasta 50 `external_ids`, `user_aliases`, `braze_ids`, `email_a
 Si tienes un caso de uso que no puede resolverse con la eliminación masiva de usuarios a través de la API, ponte en contacto con el [equipo de soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) para obtener ayuda.
 
 {% alert warning %}
-La eliminación de perfiles de usuario no se puede deshacer. Eliminará permanentemente los usuarios, lo que puede causar discrepancias en tus datos. Obtén más información sobre lo que ocurre cuando [eliminas un perfil de usuario utilizando la API]({{site.baseurl}}/help/help_articles/api/delete_user/) en nuestra documentación de ayuda.
+La eliminación de perfiles de usuario no se puede deshacer. La acción de eliminación borra permanentemente a los usuarios, lo que puede causar discrepancias en tus datos. Para más detalles, consulta [Efectos de eliminar perfiles de usuario](#effects-of-deleting-user-profiles).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
@@ -52,12 +52,12 @@ Authorization: Bearer YOUR_REST_API_KEY
 ```
 ### Parámetros de la solicitud {#request-parameters}
 
-| Parámetro         | Obligatorio | Tipo de datos                  | Descripción                                                                                      |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |-------------------|----------|----------------------------|--------------------------------------------------------------------------------------------------|
-| `external_ids`    | Opcional | Matriz de cadenas           | Identificadores externos que hay que eliminar.                                                    |
-| `user_aliases`    | Opcional | Matriz de objetos de alias de usuario | [Alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/) a eliminar. |
-| `braze_ids`       | Opcional | Matriz de cadenas           | Identificadores de usuario de Braze a eliminar.                                                  |
-| `email_addresses` | Opcional | Matriz de cadenas           | Correos electrónicos de usuarios que deben eliminarse. Consulta [Eliminar usuarios por correo electrónico](#deleting-users-by-email) para más información.                                                             |
+| `external_ids` | Opcional | Matriz de cadenas | Identificadores externos que hay que eliminar. |
+| `user_aliases` | Opcional | Matriz de objetos de alias de usuario | [Alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/) a eliminar. |
+| `braze_ids` | Opcional | Matriz de cadenas | Identificadores de usuario de Braze a eliminar. |
+| `email_addresses` | Opcional | Matriz de cadenas | Correos electrónicos de usuarios que deben eliminarse. Consulta [Eliminar usuarios por correo electrónico](#deleting-users-by-email) para más información. |
 | `phone_numbers` | Opcional | Matriz de cadenas | Números de teléfono de usuario que hay que eliminar. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
@@ -109,6 +109,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   "deleted" : (required, integer) number of user IDs queued for deletion
 }
 ```
+
+## Efectos de eliminar perfiles de usuario {#effects-of-deleting-user-profiles}
+
+Cuando eliminas un usuario con este punto de conexión, ocurre lo siguiente:
+
+- El perfil de usuario se elimina (se anula).
+- Los recuentos de usuarios del espacio de trabajo (como el total de usuarios en la [página de inicio de análisis]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) se actualizan para reflejar los usuarios eliminados.
+- El usuario eliminado sigue contando para el porcentaje de conversión agregado. Los recuentos de eventos personalizados y de compras no se actualizan para los usuarios eliminados.
+
+### Múltiples perfiles con una dirección de correo electrónico compartida {#multiple-profiles-with-a-shared-email-address}
+
+Para fusionar perfiles de usuario que comparten la misma dirección de correo electrónico, llama al [punto de conexión `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
 
 ## Solución de problemas {#troubleshooting}
 

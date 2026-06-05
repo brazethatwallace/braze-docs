@@ -15,16 +15,16 @@ guide_featured_list:
     link: /docs/user_guide/administer/personal/accessing_your_account/
     image: /assets/img/braze_icons/user-circle.svg
   - name: API
-    link: /docs/help/help_articles/api/
+    link: /docs/api/basics/
     image: /assets/img/braze_icons/terminal-square.svg
-  - name: キャンペーンとキャンバス
+  - name: CampaignsとCanvas
     link: /docs/user_guide/messaging/
     image: /assets/img/braze_icons/annotation.svg
   - name: Content Cards
     link: /docs/user_guide/channels/content_cards/
     image: /assets/img/braze_icons/sticker-square.svg
   - name: データ
-    link: /docs/help/help_articles/data/
+    link: /docs/user_guide/data/
     image: /assets/img/braze_icons/line-chart-up-01.svg
   - name: ドキュメント
     link: /docs/user_guide/
@@ -35,7 +35,7 @@ guide_featured_list:
   - name: プッシュ
     link: /docs/user_guide/channels/push/
     image: /assets/img/braze_icons/message-square-02.svg
-  - name: セグメント
+  - name: Segments
     link: /docs/user_guide/audience/segments/
     image: /assets/img/braze_icons/users-01.svg
 ---

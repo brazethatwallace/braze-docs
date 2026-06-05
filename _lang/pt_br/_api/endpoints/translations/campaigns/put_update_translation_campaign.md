@@ -19,8 +19,6 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 
 Se você quiser atualizar as traduções após uma campanha ter sido lançada, precisará [salvar sua mensagem como rascunho]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/) primeiro.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `campaigns.translations.update`.

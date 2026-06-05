@@ -22,7 +22,7 @@ You may only **edit** files inside these two directories:
 - `_includes/`
 
 You may **read** (but never edit) files under `.cursor/agents/` and
-`.cursor/rules/` when needed to follow this workflow.
+`.github/skills/` when needed to follow this workflow.
 
 You must never edit files outside `_docs/` and `_includes/`. In particular:
 - NEVER edit anything inside `_lang/` — those are translated files
@@ -130,7 +130,7 @@ than in the page file itself.
 
 ### 3. Verify against the source code
 
-Before making any edit, use `.cursor/rules/reference-repos.mdc` to
+Before making any edit, follow [`.github/skills/reference-repos/SKILL.md`](.github/skills/reference-repos/SKILL.md) to
 locate the relevant source code for the feature or behavior described
 in the ticket.
 

@@ -173,3 +173,7 @@ Yes. However, you can add a segment inclusion filter to exclude all users with t
 Deleting individual users are permanent.
 
 You can [cancel segment deletions](#cancel) within the first 7 days after. However, any users already deleted before cancelling cannot be restored.
+
+### Can I delete users with the API instead of the dashboard?
+
+Yes. For smaller batches, you can use the [`/users/delete` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), which accepts up to 50 identifiers per request and is subject to that endpoint's [rate limit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit). Segment-based dashboard deletion is better suited to very large audiences but includes the [7-day waiting period](#about-user-deletion).

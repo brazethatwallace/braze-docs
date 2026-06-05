@@ -144,7 +144,7 @@ Ja. Behalten Sie dies beim Testen von Nachrichten im Hinterkopf.
 
 ### Muss ein:e Nutzer:in Teil einer SMS-Abo-Gruppe sein, um SMS-Testnachrichten zu erhalten? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
-Ja. Nutzer:innen müssen eine gültige Telefonnummer haben und Teil der SMS-Abo-Gruppe sein, die für den Testversand verwendet wird.
+Ja. Nutzer:innen müssen eine gültige Telefonnummer haben, Teil der SMS-Abo-Gruppe sein, die für den Testversand verwendet wird, und mindestens ein Land unter **Geographic Permissions** für SMS ausgewählt haben.
 
 ### Gibt es eine Möglichkeit zu sehen, ob ein Alias in einem Nutzerprofil existiert? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 

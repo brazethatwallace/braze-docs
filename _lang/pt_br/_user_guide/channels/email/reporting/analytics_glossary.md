@@ -239,7 +239,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. Isso inclui cliques nos links de cancelamento de inscrição fornecidos pela Braze. Após sete dias, outro clique único pode ser contabilizado para o mesmo usuário se ele clicar novamente. Para corresponder às contagens do dashboard a partir do Currents, filtre por eventos em que `is_unique` é `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Isso inclui cliques nos links de cancelamento de inscrição fornecidos pela Braze. Após sete dias, outro clique único pode ser contabilizado para o mesmo usuário se ele clicar novamente. Para corresponder às contagens do dashboard a partir do Currents, filtre por eventos em que `is_unique` é `true`.
 
 {::nomarkdown}
 <span class="calculation-line">

@@ -7,12 +7,12 @@
 # 4) If Phase 2 succeeds and a digest PR was opened, close that digest PR (digest remains in workflow artifacts).
 #
 # The digest PR is not customer docs. Phase 2 PRs touch `_docs` but are drafts for human review.
-# Ad-hoc triage still uses the support-analyzer Cursor rule for cases outside the rules file.
+# Ad-hoc triage still uses the support-analyzer skill for cases outside the Phase 2 rules file.
 #
 # Data sensitivity: Support Cases CSV may contain consumer PII. Keep this repository private,
 # limit branch access, and scope the Looker saved query appropriately. The export script
 # requires SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA=1 in Actions and redacts common
-# credential patterns (AWS keys, SendGrid SG.* keys, GitHub/Slack/Stripe tokens, etc.) before commit.
+# credential patterns (AWS keys, SendGrid SG.* keys, Twilio AC/SK SIDs, GitHub/Slack/Stripe tokens, etc.) before commit.
 #
 # Secrets: LOOKER_CLIENT_ID, LOOKER_CLIENT_SECRET
 # Optional variable: LOOKER_SUPPORT_CASES_QUERY_ID
@@ -142,7 +142,7 @@ jobs:
 
             This pull request was **generated automatically** by the Braze Support analyzer workflow. That process reviews the latest **Braze Support** case export (Looker). **This PR** is an internal digest only (keyword themes and counts)—it does **not** change customer-facing Braze Docs. The same workflow run may open separate **draft** Phase 2 PRs that propose `_docs` edits (see `.github/support_analyzer_phase2_rules.yml`).
 
-            **Do not merge:** This digest PR is for **analysis and triage only**. Use `.github/support_analyzer_weekly_digest.md` in this PR and `_data/support_cases_latest.csv` on branch `support-analyzer-data` with the support-analyzer Cursor rule as needed.
+            **Do not merge:** This digest PR is for **analysis and triage only**. Use `.github/support_analyzer_weekly_digest.md` in this PR and `_data/support_cases_latest.csv` on branch `support-analyzer-data` with the support-analyzer skill (`.github/skills/support-analyzer/SKILL.md`) as needed.
 
             When Phase 2 completes successfully, this digest PR is **closed automatically** (the digest file is also attached as a **workflow artifact** on the run).
 
