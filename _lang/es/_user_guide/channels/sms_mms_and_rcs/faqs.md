@@ -144,7 +144,7 @@ Sí, así es. Ten esto en cuenta al probar mensajes.
 
 ### ¿Un usuario necesita ser parte de un grupo de suscripción de SMS para recibir mensajes de prueba de SMS? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
-Sí, así es. Los usuarios deben tener un número de teléfono válido y ser parte del grupo de suscripción de SMS utilizado para el envío de prueba.
+Sí, así es. Los usuarios deben tener un número de teléfono válido, ser parte del grupo de suscripción de SMS utilizado para el envío de prueba y tener al menos un país seleccionado en **Geographic Permissions** para SMS.
 
 ### ¿Hay alguna forma de ver si existe un alias en un perfil de usuario? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
