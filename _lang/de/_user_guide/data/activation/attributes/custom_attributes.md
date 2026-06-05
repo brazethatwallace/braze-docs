@@ -7,11 +7,15 @@ description: "Diese Seite beschreibt angepasste Attribute und erläutert die ver
 search_rank: 1
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Angepasste Attribute {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-attributes}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Angepasste Attribute {#custom-attributes}
 
 > Auf dieser Seite finden Sie Informationen zu angepassten Attributen, die eine Sammlung eindeutiger Eigenschaften Ihrer Nutzer:innen darstellen. Angepasste Attribute eignen sich am besten zum Speichern von Attributen über Ihre Nutzer:innen oder von Informationen über geringwertige Aktionen innerhalb Ihrer Anwendung.
 
 In Braze gespeicherte angepasste Attribute können zum Aufbau von Zielgruppen-Segmenten und zur Personalisierung von Nachrichten mit Liquid verwendet werden. Denken Sie daran, dass Braze keine Zeitreiheninformationen für angepasste Attribute speichert, sodass Sie keine darauf basierenden Diagramme erhalten können, wie dies bei angepassten Events der Fall ist.
+
+{% alert important %}
+**Namen sind exakte Übereinstimmungen.** Schlüssel für angepasste Attribute sind **case-sensitiv** – zum Beispiel sind `Home_City` und `home_city` zwei verschiedene Attribute. Wenn Sie Daten über die [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) oder ein SDK senden, **entfernt Braze führende und nachgestellte Leerzeichen** aus Attributnamen, sodass `greeting` und ` greeting ` zum selben Schlüssel aufgelöst werden. Verwenden Sie überall, wo Sie ein Attribut referenzieren, dieselbe Schreibweise und Groß-/Kleinschreibung – in **Data Settings** > **Custom Attributes**, API- und SDK-Payloads sowie CSV-Importen. Informationen dazu, wie Braze eingehende Werte konvertiert, wenn Sie [einen Datentyp erzwingen]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#data-type-coercion), finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+{% endalert %}
 
 ## Anwendungsfälle {#use-cases}
 
@@ -81,25 +85,25 @@ Um die Liste der angepassten Attribute als CSV-Datei zu exportieren, wählen Sie
 
 ### Voraussetzungen {#prerequisites}
 
-Das angepasste Attribut darf derzeit nicht in aktiven Campaigns, Canvases oder Segments verwendet werden. Wenn Sie versuchen, den Datentyp zu ändern, während das Attribut noch referenziert wird, zeigt das Dashboard einen Fehler an und blockiert die Änderung.
+Das angepasste Attribut darf derzeit nicht in aktiven Campaigns, Canvases oder Segmenten verwendet werden. Wenn Sie versuchen, den Datentyp zu ändern, während das Attribut noch referenziert wird, zeigt das Dashboard einen Fehler an und blockiert die Änderung.
 
 ### Den Datentyp ändern {#changing-the-data-type}
 
-1. Stoppen Sie alle aktiven Campaigns oder Canvases, die das Attribut in Segments oder Filtern verwenden.
+1. Stoppen Sie alle aktiven Campaigns oder Canvases, die das Attribut in Segmenten oder Filtern verwenden.
 2. Entfernen Sie das Attribut aus allen Segment-, Campaign- und Canvas-Filtern.
 3. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute** (oder **Angepasste Events**), suchen Sie das Attribut und aktualisieren Sie es auf den gewünschten Datentyp.
 4. Aktualisieren Sie die Attributwerte in vorhandenen Nutzerprofilen, damit sie dem neuen Datentyp entsprechen (z. B. über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)).
-5. Wenden Sie das Attribut erneut auf die relevanten Segments, Campaigns und Canvases an und reaktivieren Sie dann alle gestoppten Campaigns oder Canvases.
+5. Wenden Sie das Attribut erneut auf die relevanten Segmente, Campaigns und Canvases an und reaktivieren Sie dann alle gestoppten Campaigns oder Canvases.
 
 ### Wichtige Hinweise {#things-to-know}
 
-- **Nutzerdaten werden nicht rückwirkend aktualisiert.** Wenn ein Nutzerprofil das Attribut mit dem alten Datentyp hatte, bleibt dieser Wert unverändert. Der Segmentierungsfilter sucht nach dem neuen Datentyp, sodass Nutzer:innen mit dem alten Wert von passenden Segments ausgeschlossen werden, bis ihr Profil aktualisiert wird.
+- **Nutzerdaten werden nicht rückwirkend aktualisiert.** Wenn ein Nutzerprofil das Attribut mit dem alten Datentyp hatte, bleibt dieser Wert unverändert. Der Segmentierungsfilter sucht nach dem neuen Datentyp, sodass Nutzer:innen mit dem alten Wert von passenden Segmenten ausgeschlossen werden, bis ihr Profil aktualisiert wird.
 - **Neue Daten müssen dem neuen Datentyp entsprechen.** Nach der Änderung werden API-Aufrufe oder SDK-Events, die den vorherigen Datentyp für dieses Attribut senden, nicht akzeptiert. Nur Werte, die dem neuen Datentyp entsprechen, werden aufgenommen.
-- **Filter werden nicht automatisch aktualisiert.** Segments und Campaign-Filter, die auf das geänderte Attribut verweisen, werden nicht rückwirkend aktualisiert. Sie müssen sie nach der Änderung entfernen und erneut hinzufügen.
+- **Filter werden nicht automatisch aktualisiert.** Segmente und Campaign-Filter, die auf das geänderte Attribut verweisen, werden nicht rückwirkend aktualisiert. Sie müssen sie nach der Änderung entfernen und erneut hinzufügen.
 
 ## Nutzungsberichte anzeigen {#view-usage-reports}
 
-Der Nutzungsbericht listet alle Canvases, Campaigns und Segments auf, die ein bestimmtes angepasstes Attribut verwenden. Diese Liste enthält keine Liquid-Verwendungen.
+Der Nutzungsbericht listet alle Canvases, Campaigns und Segmente auf, die ein bestimmtes angepasstes Attribut verwenden. Diese Liste enthält keine Liquid-Verwendungen.
 
 Sie können bis zu 100 Nutzungsberichte gleichzeitig anzeigen, indem Sie die Kontrollkästchen neben den jeweiligen angepassten Attributen aktivieren und dann **Nutzungsbericht anzeigen** auswählen.
 

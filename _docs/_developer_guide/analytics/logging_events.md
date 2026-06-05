@@ -14,6 +14,8 @@ description: "Learn how to log custom events through the Braze SDK."
 For wrapper SDKs not listed, use the relevant native Android or Swift method instead.
 {% endalert %}
 
+For eCommerce recommended events, see [Log eCommerce events]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 ## Logging a custom event
 
 To log a custom event, use the following event-logging method.

@@ -42,7 +42,7 @@ Braze utilise un cache multi-niveaux pour les réponses du Contenu connecté ave
 
 Ces couches de cache sont volatiles et peuvent évincer les données avant le TTL configuré.
 
-#### Ce qui change lorsque vous utilisez `:no_cache` {#what-changes-when-you-use-nocache}
+#### Ce qui change lorsque vous utilisez `:no_cache` {#what-changes-when-you-use-no_cache}
 
 Pour les endpoints qui ne sont pas hébergés dans l'infrastructure Braze, l'utilisation de `:no_cache` empêche le corps de réponse du Contenu connecté d'être stocké dans Memcached. Dans ces cas, la réponse ne réside que dans la mémoire du processus de travail pendant la durée de la tâche de rendu (jusqu'à environ 11 minutes). Pour les endpoints qui résolvent vers des hôtes internes à Braze, les réponses peuvent toujours être mises en cache comme décrit dans [Invalidation du cache](#cache-busting).
 
@@ -113,8 +113,8 @@ Avec une requête POST, il n'est pas nécessaire d'invalider le cache, car les r
 
 {% raw %}
 - La mise en cache peut aider à réduire les appels de Contenu connecté en double. Cependant, il n'est pas garanti qu'elle aboutisse toujours à un seul appel de Contenu connecté par utilisateur.
-- La mise en cache du Contenu connecté est basée sur l'URL et l'espace de travail. Si l'appel du Contenu connecté utilise une URL identique, il peut être mis en cache entre les Campaigns et les Canvas.
-- Le cache est basé sur une URL unique, et non sur un ID utilisateur ou une Campaign. Cela signifie que la version mise en cache d'un appel de Contenu connecté peut être utilisée par plusieurs utilisateurs et Campaigns dans un espace de travail si l'URL est la même.
+- La mise en cache du Contenu connecté est basée sur l'espace de travail, l'URL de la requête, le type de contenu de la requête et le corps de la requête. Si l'appel du Contenu connecté utilise une URL identique, il peut être mis en cache entre les Campaigns et les Canvas.
+- Le cache est basé sur une combinaison unique d'URL, de type de contenu et de corps de requête, et non sur un ID utilisateur ou une Campaign. Cela signifie que la version mise en cache d'un appel de Contenu connecté peut être utilisée par plusieurs utilisateurs et Campaigns dans un espace de travail si l'URL, le type de contenu et le corps de la requête sont identiques.
 - La mise en cache du Contenu connecté peut être ignorée si le balisage de la balise contient l'un des extraits de code à haute cardinalité suivants :
     - `{{${user_id}}}`
     - `{{${braze_id}}}`

@@ -15,9 +15,7 @@ description: "Cet article présente les détails de l'endpoint permettant de con
 /templates/email/translations/source
 {% endapimethod %}
 
-> Utilisez cet endpoint pour consulter les traductions sources d'un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> Utilisez cet endpoint pour consulter les traductions sources d'un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consultez [Paramètres régionaux dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
 
 ## Conditions préalables {#prerequisites}
 

@@ -88,6 +88,14 @@ Se um novo usuário do dashboard for criado posteriormente com o mesmo endereço
 
 ## Solução de problemas {#troubleshooting}
 
+### "Unable to perform action" ao adicionar um usuário {#unable-to-perform-action-when-adding-a-user}
+
+Se a adição de um usuário do dashboard falhar com o erro "Unable to perform action" (ou similar):
+
+- Remova espaços iniciais ou finais e caracteres ocultos do endereço de e-mail.
+- Confirme se o endereço está em um formato de e-mail válido para a sua organização. Alguns caracteres especiais são rejeitados.
+- O mesmo e-mail não pode ser usado para dois usuários do dashboard no mesmo [cluster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/). Se o endereço já estiver registrado em outro espaço de trabalho nesse cluster, use um endereço diferente ou um alias como `user+1@company.com`.
+
 ### "Email is already taken" ao tentar adicionar um usuário {#email-is-already-taken-when-trying-to-add-a-user}
 
 Se você tentar adicionar um novo usuário e receber um erro informando que o e-mail já está em uso, mas não conseguir encontrá-lo na sua lista de usuários, esse usuário provavelmente existe em uma instância diferente do mesmo cluster do dashboard da Braze.

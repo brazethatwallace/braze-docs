@@ -3432,4 +3432,4 @@ Field | Type | Description
 
 ## Abort types
 
-{% include abort_types_reference.md %}
+{% include abort_types_reference.md combined_content_rendering=true %}
