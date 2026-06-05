@@ -36,7 +36,7 @@ Column definitions are as follows:
 ## Credit ratio table for Message Credits - Sigma
 
 {% details Click to expand %}
-<table aria-label="Credit ratio table for Message Credits - Sigma">
+<table>
     <colgroup>
         <col span="3" style="background-color:#FFFFFF;">
         <col style="background-color:#f0f0f5">
@@ -46,8 +46,13 @@ Column definitions are as follows:
         <th><b>Destination</b></th>
         <th class="credits-column"><b>Credits per 1 Send</b></th>
     </tr>
-<table aria-label="Credit ratio table for Message Credits - Sigma">
+<table>
 <tr>
+        <td>Agent Console</td>
+        <td>Braze Auto</td>
+        <td>1.60</td>
+    </tr>
+    <tr>
         <td>Agent Console</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
