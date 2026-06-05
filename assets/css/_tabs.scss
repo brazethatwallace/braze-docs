@@ -36,6 +36,10 @@
 						text-decoration: none;
 						background-color: $white;
 					}
+					&:focus-visible {
+						outline: 2px solid $braze-purple;
+						outline-offset: 2px;
+					}
 				}
 			}
 
@@ -177,6 +181,10 @@
          &:focus {
            text-decoration: none;
            background-color: $white;
+         }
+         &:focus-visible {
+           outline: 2px solid $braze-purple;
+           outline-offset: 2px;
          }
        }
       }

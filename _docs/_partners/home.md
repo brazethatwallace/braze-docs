@@ -46,6 +46,8 @@ valid_partner_list:
   url: /docs/partners/dyspatch/
 - name: Denada
   url: /docs/partners/denada/
+- name: EmailShepherd
+  url: /docs/partners/emailshepherd/
 - name: Stensul
   url: /docs/partners/stensul/
 - name: Stripo
