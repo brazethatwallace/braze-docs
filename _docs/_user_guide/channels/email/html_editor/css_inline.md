@@ -28,7 +28,7 @@ You can set a default on or off state globally from **Settings** > **Email Prefe
 
 ## Connected Content and CSS inlining
 
-CSS inlining runs **before** [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/about_connected_content/) is evaluated. HTML returned from Connected Content is **not** passed through the same inlining step. Put styles you need from Connected Content directly in the response (inline `style` attributes or embedded rules), or disable inlining for the message if that better matches your template.
+CSS inlining runs **before** [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) is evaluated. HTML returned from Connected Content is **not** passed through the same inlining step. Put styles you need from Connected Content directly in the response (inline `style` attributes or embedded rules), or disable inlining for the message if that better matches your template.
 
 ## Content Blocks in custom HTML templates
 
