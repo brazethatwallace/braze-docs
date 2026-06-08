@@ -85,7 +85,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 - 最終購入日（Brazeは2つの日付のうち遅い方を選択します）
 - アプリの概要
 - Last_X_atフィールド（孤立したプロファイルのフィールドがより新しい場合、Brazeはフィールドを更新します）
-- Campaignのインタラクションデータ（Brazeは最も新しい日付フィールドを選択します）
+- キャンペーンのインタラクションデータ（Brazeは最も新しい日付フィールドを選択します）
 - ワークフローの概要（Brazeは最も新しい日付フィールドを選択します）
 - メッセージとメッセージのエンゲージメント履歴
 - Brazeは、アプリが両方のユーザープロファイルに存在する場合にのみセッションデータをマージします。
@@ -126,7 +126,7 @@ Brazeは、マージ時に3つのユーザータイプを異なる方法で処�
 
 これはリクエストのパターンを示す基本的なリクエスト本文です。
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -172,7 +172,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 以下のリクエストは、メールアドレス `john.smith@braze.com` を持つ最も最近更新された未識別ユーザーを、external ID `john` を持つユーザーにマージします。この例では、`most_recently_updated` を使用することでクエリを未識別ユーザー1件に絞り込みます。つまり、このメールアドレスを持つ未識別ユーザーが2人いた場合、external ID `john` を持つユーザーにマージされるのは1人だけです。
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -197,7 +197,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 `most_recently_updated` を使用して、クエリを1人のユーザーに絞り込みます（`identifier_to_merge` では未識別ユーザー1人、`identifier_to_keep` では識別済みユーザー1人）。
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -221,7 +221,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 メールアドレス `john.smith@braze.com` を持つ未識別ユーザーが2人いる場合、このリクエスト例ではユーザーはマージされません。そのメールアドレスを持つ未識別ユーザーが2人存在するためです。このリクエストは、メールアドレス `john.smith@braze.com` を持つ未識別ユーザーが1人だけの場合にのみ機能します。
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \

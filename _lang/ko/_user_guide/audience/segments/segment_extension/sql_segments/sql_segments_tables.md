@@ -32,19 +32,19 @@ table td {
 
 테이블 | 설명
 ------|------------
-[AGENTCONSOLE_AGENTEXECUTED_SHARED](#AGENTCONSOLE_AGENTEXECUTED_SHARED) | 에이전트 콘솔 에이전트가 실행될 때 (**Snowflake 데이터 공유 전용**)
-[AGENTCONSOLE_RAWLLMREQUEST_SHARED](#AGENTCONSOLE_RAWLLMREQUEST_SHARED) | 각 LLM 호출의 원시 정보 (**Snowflake 데이터 공유 전용**)
-[AGENTCONSOLE_TOOLINVOCATION_SHARED](#AGENTCONSOLE_TOOLINVOCATION_SHARED) | 도구가 실행될 때 (**Snowflake 데이터 공유 전용**)
+[AGENTCONSOLE_AGENTEXECUTED_SHARED](#AGENTCONSOLE_AGENTEXECUTED_SHARED) | 에이전트 콘솔 에이전트가 실행될 때(**Snowflake 데이터 공유 전용**)
+[AGENTCONSOLE_RAWLLMREQUEST_SHARED](#AGENTCONSOLE_RAWLLMREQUEST_SHARED) | 각 LLM 호출의 원시 정보(**Snowflake 데이터 공유 전용**)
+[AGENTCONSOLE_TOOLINVOCATION_SHARED](#AGENTCONSOLE_TOOLINVOCATION_SHARED) | 도구가 실행될 때(**Snowflake 데이터 공유 전용**)
 [USER_CUSTOM_ATTRIBUTES_VIEW_SHARED](#USER_CUSTOM_ATTRIBUTES_VIEW_SHARED) | 사용자별 커스텀 프로필 속성의 주기적 스냅샷
 [USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED) | 유효 날짜 범위가 포함된 기본 프로필 속성 이력
 [USER_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED) | 사용자별 기본 프로필 속성의 주기적 스냅샷
 [USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED) | 사용자별 거의 실시간 기본 프로필 속성
 [CATALOGS_ITEMS_SHARED](#CATALOGS_ITEMS_SHARED) | 삭제되지 않은 카탈로그 항목
-[CHANGELOGS_CAMPAIGN_SHARED](#CHANGELOGS_CAMPAIGN_SHARED) | Campaign이 변경될 때 (**Snowflake 데이터 공유 전용**)
-[CHANGELOGS_CANVAS_SHARED](#CHANGELOGS_CANVAS_SHARED) | Canvas가 변경될 때 (**Snowflake 데이터 공유 전용**)
+[CHANGELOGS_CAMPAIGN_SHARED](#CHANGELOGS_CAMPAIGN_SHARED) | Campaign이 변경될 때(**Snowflake 데이터 공유 전용**)
+[CHANGELOGS_CANVAS_SHARED](#CHANGELOGS_CANVAS_SHARED) | Canvas가 변경될 때(**Snowflake 데이터 공유 전용**)
 [CHANGELOGS_GLOBALCONTROLGROUP_SHARED](#CHANGELOGS_GLOBALCONTROLGROUP_SHARED) | 글로벌 컨트롤 그룹이 변경될 때
 [USERS_BEHAVIORS_CUSTOMEVENT_SHARED](#USERS_BEHAVIORS_CUSTOMEVENT_SHARED) | 사용자가 커스텀 이벤트를 수행할 때
-[USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED](#USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED) | 사용자가 앱을 설치하고 파트너에 기여도가 부여될 때
+[USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED](#USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED) | 사용자가 앱을 설치하고 파트너에게 기여도가 부여될 때
 [USERS_BEHAVIORS_LOCATION_SHARED](#USERS_BEHAVIORS_LOCATION_SHARED) | 사용자가 위치를 기록할 때
 [USERS_BEHAVIORS_PURCHASE_SHARED](#USERS_BEHAVIORS_PURCHASE_SHARED) | 사용자가 구매할 때
 [USERS_BEHAVIORS_UNINSTALL_SHARED](#USERS_BEHAVIORS_UNINSTALL_SHARED) | 사용자가 앱을 삭제할 때
@@ -53,8 +53,8 @@ table td {
 [USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED](#USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED) | 사용자가 News Feed를 조회할 때
 [USERS_BEHAVIORS_APP_SESSIONEND_SHARED](#USERS_BEHAVIORS_APP_SESSIONEND_SHARED) | 사용자가 앱에서 세션을 종료할 때
 [USERS_BEHAVIORS_APP_SESSIONSTART_SHARED](#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED) | 사용자가 앱에서 세션을 시작할 때
-[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | 사용자가 지오펜스 영역을 트리거할 때(예: 지오펜스 진입 또는 이탈). 이 이벤트는 다른 이벤트와 함께 일괄 처리되어 표준 이벤트 엔드포인트를 통해 수신되므로 실시간으로 표시되지 않을 수 있습니다.<br><br>이 테이블에 지오펜스 활동을 기록하려면 각 지오펜스의 고급 설정에서 **진입 분석 활성화** 및 **이탈 분석 활성화**를 선택합니다. 자세한 내용은 [수동으로 지오펜스 생성]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#manually-create-geofences)의 3단계를 참조하세요.
-[USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | 사용자가 지오펜스 영역을 트리거할 때(예: 지오펜스 진입 또는 이탈). 이 이벤트는 전용 지오펜스 엔드포인트를 통해 수신되므로 사용자의 기기가 지오펜스 트리거를 감지하는 즉시 실시간으로 수신됩니다. <br><br>또한 지오펜스 엔드포인트의 사용량 제한으로 인해 일부 지오펜스 이벤트가 RecordEvent로 반영되지 않을 수 있습니다. 그러나 모든 지오펜스 이벤트는 DataEvent로 표현됩니다(일괄 처리로 인해 약간의 지연이 있을 수 있음).
+[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | 사용자가 지오펜스 영역을 트리거할 때(예: 지오펜스 진입 또는 이탈). 이 이벤트는 다른 이벤트와 함께 배치 처리되어 표준 이벤트 엔드포인트를 통해 수신되므로 실시간으로 표시되지 않을 수 있습니다.<br><br>이 테이블에 지오펜스 활동을 기록하려면 각 지오펜스의 고급 설정에서 **진입 분석 활성화** 및 **이탈 분석 활성화**를 선택합니다. 자세한 내용은 [수동으로 지오펜스 생성]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#manually-create-geofences)의 3단계를 참조하세요.
+[USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | 사용자가 지오펜스 영역을 트리거할 때(예: 지오펜스 진입 또는 이탈). 이 이벤트는 전용 지오펜스 엔드포인트를 통해 수신되므로 사용자의 기기가 지오펜스 트리거를 감지하는 즉시 실시간으로 수신됩니다.<br><br>또한 지오펜스 엔드포인트의 사용량 제한으로 인해 일부 지오펜스 이벤트가 RecordEvent로 반영되지 않을 수 있습니다. 그러나 모든 지오펜스 이벤트는 DataEvent로 표현됩니다(배치 처리로 인해 약간의 지연이 있을 수 있음).
 [USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Live Activity push-to-start 토큰이 변경될 때
 [USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Live Activity 업데이트 토큰이 변경될 때
 [USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED](#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED) | 푸시 알림 토큰 상태가 변경될 때
@@ -73,16 +73,16 @@ table td {
 [USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED) | 사용자가 실험 단계 경로에 진입할 때
 [USERS_CANVAS_FREQUENCYCAP_SHARED](#USERS_CANVAS_FREQUENCYCAP_SHARED) | 사용자가 캔버스 단계에서 빈도 제한에 도달할 때
 [USERS_CANVAS_REVENUE_SHARED](#USERS_CANVAS_REVENUE_SHARED) | 사용자가 주요 전환 이벤트 기간 내에 매출을 발생시킬 때
-[USERS_MESSAGES_BANNER_ABORT_SHARED](#USERS_MESSAGES_BANNER_ABORT_SHARED) | 원래 예약된 배너 메시지가 어떤 이유로 중단됨
+[USERS_MESSAGES_BANNER_ABORT_SHARED](#USERS_MESSAGES_BANNER_ABORT_SHARED) | 원래 예약된 배너 메시지가 어떤 이유로 중단된 경우
 [USERS_MESSAGES_BANNER_CLICK_SHARED](#USERS_MESSAGES_BANNER_CLICK_SHARED) | 사용자가 배너를 클릭할 때
 [USERS_MESSAGES_BANNER_IMPRESSION_SHARED](#USERS_MESSAGES_BANNER_IMPRESSION_SHARED) | 사용자가 배너를 조회할 때
-[USERS_MESSAGES_CONTENTCARD_ABORT_SHARED](#USERS_MESSAGES_CONTENTCARD_ABORT_SHARED) | 원래 예약된 Content Card 메시지가 어떤 이유로 중단됨
+[USERS_MESSAGES_CONTENTCARD_ABORT_SHARED](#USERS_MESSAGES_CONTENTCARD_ABORT_SHARED) | 원래 예약된 Content Card 메시지가 어떤 이유로 중단된 경우
 [USERS_MESSAGES_CONTENTCARD_CLICK_SHARED](#USERS_MESSAGES_CONTENTCARD_CLICK_SHARED) | 사용자가 Content Card를 클릭할 때
 [USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED](#USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED) | 사용자가 Content Card를 닫을 때
 [USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED](#USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED) | 사용자가 Content Card를 조회할 때
 [USERS_MESSAGES_CONTENTCARD_SEND_SHARED](#USERS_MESSAGES_CONTENTCARD_SEND_SHARED) | 사용자에게 Content Card를 발송할 때
-[USERS_MESSAGES_EMAIL_ABORT_SHARED](#USERS_MESSAGES_EMAIL_ABORT_SHARED) | 원래 예약된 이메일 메시지가 어떤 이유로 중단됨
-[USERS_MESSAGES_EMAIL_BOUNCE_SHARED](#USERS_MESSAGES_EMAIL_BOUNCE_SHARED) | 이메일 서비스 제공업체가 하드바운스를 반환함. 하드바운스는 영구적인 전달 실패를 의미합니다.
+[USERS_MESSAGES_EMAIL_ABORT_SHARED](#USERS_MESSAGES_EMAIL_ABORT_SHARED) | 원래 예약된 이메일 메시지가 어떤 이유로 중단된 경우
+[USERS_MESSAGES_EMAIL_BOUNCE_SHARED](#USERS_MESSAGES_EMAIL_BOUNCE_SHARED) | 이메일 서비스 제공업체가 하드바운스를 반환한 경우. 하드바운스는 영구적인 전달 실패를 의미합니다.
 [USERS_MESSAGES_EMAIL_CLICK_SHARED](#USERS_MESSAGES_EMAIL_CLICK_SHARED) | 사용자가 이메일의 링크를 클릭할 때
 [USERS_MESSAGES_EMAIL_DEFERRAL_SHARED](#USERS_MESSAGES_EMAIL_DEFERRAL_SHARED) | 이메일이 지연될 때
 [USERS_MESSAGES_EMAIL_DELIVERY_SHARED](#USERS_MESSAGES_EMAIL_DELIVERY_SHARED) | 이메일이 전달될 때
@@ -91,26 +91,26 @@ table td {
 [USERS_MESSAGES_EMAIL_SEND_SHARED](#USERS_MESSAGES_EMAIL_SEND_SHARED) | 사용자에게 이메일을 발송할 때
 [USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED](#USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED) | 이메일이 소프트바운스될 때
 [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED](#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED) | 사용자가 이메일 구독을 취소할 때
-[USERS_MESSAGES_EMAIL_RETRY_SHARED](#USERS_MESSAGES_EMAIL_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한 후 이메일 메시지가 재시도될 때 (**Snowflake 데이터 공유 전용**)
+[USERS_MESSAGES_EMAIL_RETRY_SHARED](#USERS_MESSAGES_EMAIL_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한이 적용된 후 이메일 메시지가 재시도될 때(**Snowflake 데이터 공유 전용**)
 [USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED](#USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED) | 사용자가 피처 플래그를 조회할 때
-[USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED](#USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED) | 원래 예약된 인앱 메시지가 어떤 이유로 중단됨
+[USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED](#USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED) | 원래 예약된 인앱 메시지가 어떤 이유로 중단된 경우
 [USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED](#USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED) | 사용자가 인앱 메시지를 클릭할 때
 [USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED](#USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED) | 사용자가 인앱 메시지를 조회할 때
-[USERS_MESSAGES_LINE_ABORT_SHARED](#USERS_MESSAGES_LINE_ABORT_SHARED) | 예약된 LINE 메시지가 LINE으로 발송되기 전에 전달할 수 없을 때
+[USERS_MESSAGES_LINE_ABORT_SHARED](#USERS_MESSAGES_LINE_ABORT_SHARED) | 예약된 LINE 메시지가 LINE으로 발송되기 전에 전달할 수 없는 경우
 [USERS_MESSAGES_LINE_CLICK_SHARED](#USERS_MESSAGES_LINE_CLICK_SHARED) | 사용자가 LINE 메시지의 링크를 클릭할 때
 [USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED) | 사용자로부터 LINE 메시지가 수신될 때
 [USERS_MESSAGES_LINE_SEND_SHARED](#USERS_MESSAGES_LINE_SEND_SHARED) | LINE 메시지가 LINE으로 발송될 때
-[USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한 후 LINE 메시지가 재시도될 때 (**Snowflake 데이터 공유 전용**)
+[USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한이 적용된 후 LINE 메시지가 재시도될 때(**Snowflake 데이터 공유 전용**)
 [USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Live Activity에 결과 이벤트가 발생할 때
 [USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED](#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED) | Live Activity 메시지가 발송될 때
-[USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | 원래 예약된 뉴스피드 카드 메시지가 어떤 이유로 중단됨
+[USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | 원래 예약된 뉴스피드 카드 메시지가 어떤 이유로 중단된 경우
 [USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED) | 사용자가 뉴스피드 카드를 클릭할 때
 [USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED) | 사용자가 뉴스피드 카드를 조회할 때
-[USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED) | 원래 예약된 푸시 알림 메시지가 어떤 이유로 중단됨
+[USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED) | 원래 예약된 푸시 알림 메시지가 어떤 이유로 중단된 경우
 [USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED) | 푸시 알림이 반송될 때
 [USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED) | 사용자가 알림을 수신한 후 알림을 클릭하지 않고 앱을 열 때
 [USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED) | 앱이 열려 있는 상태에서 사용자가 푸시 알림을 수신할 때. <br><br>이 이벤트는 [Swift SDK](https://github.com/braze-inc/braze-swift-sdk)에서 지원되지 않으며 [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk)에서는 더 이상 사용되지 않습니다.
-[USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED) | 사용자가 푸시 알림을 열거나 푸시 알림 버튼(앱을 열지 않는 닫기 버튼 포함)을 클릭할 때. <br><br>푸시 버튼 동작에는 여러 결과가 있습니다. No, Decline, Cancel 동작은 "클릭"이고, Accept 동작은 "열기"입니다. 두 가지 모두 이 테이블에 표시되지만 **BUTTON_ACTION_TYPE** 열에서 구분할 수 있습니다. 예를 들어, 쿼리를 사용하여 No, Decline 또는 Cancel이 아닌 `BUTTON_ACTION_TYPE`으로 그룹화할 수 있습니다.
+[USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED) | 사용자가 푸시 알림을 열거나 푸시 알림 버튼(앱을 열지 않는 닫기 버튼 포함)을 클릭할 때. <br><br>푸시 버튼 동작에는 여러 결과가 있습니다. 아니요, 거부, 취소 동작은 "클릭"이고, 수락 동작은 "열기"입니다. 두 가지 모두 이 테이블에 표시되지만 **BUTTON_ACTION_TYPE** 열에서 구분할 수 있습니다. 예를 들어, 쿼리를 사용하여 아니요, 거부 또는 취소가 아닌 `BUTTON_ACTION_TYPE`으로 그룹화할 수 있습니다.
 [USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED) | 사용자에게 푸시 알림을 발송할 때
 [USERS_MESSAGES_RCS_ABORT_SHARED](#USERS_MESSAGES_RCS_ABORT_SHARED) | Braze 내에서 오류가 감지되어 RCS 발송이 중단되고 메시지가 삭제될 때
 [USERS_MESSAGES_RCS_CLICK_SHARED](#USERS_MESSAGES_RCS_CLICK_SHARED) | 최종 사용자가 UI 요소를 탭하거나 클릭하여 RCS 메시지와 상호작용할 때
@@ -119,7 +119,7 @@ table td {
 [USERS_MESSAGES_RCS_READ_SHARED](#USERS_MESSAGES_RCS_READ_SHARED) | 최종 사용자가 기기에서 RCS 메시지를 열 때
 [USERS_MESSAGES_RCS_REJECTION_SHARED](#USERS_MESSAGES_RCS_REJECTION_SHARED) | 통신사의 개입으로 RCS 메시지 전달이 실패할 때
 [USERS_MESSAGES_RCS_SEND_SHARED](#USERS_MESSAGES_RCS_SEND_SHARED) | RCS 메시지가 Braze 시스템에서 최종 전달 파트너로 발송될 때
-[USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | 원래 예약된 SMS 메시지가 어떤 이유로 중단됨
+[USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | 원래 예약된 SMS 메시지가 어떤 이유로 중단된 경우
 [USERS_MESSAGES_SMS_CARRIERSEND_SHARED](#USERS_MESSAGES_SMS_CARRIERSEND_SHARED) | SMS 메시지가 통신사로 발송될 때
 [USERS_MESSAGES_SMS_DELIVERY_SHARED](#USERS_MESSAGES_SMS_DELIVERY_SHARED) | SMS 메시지가 전달될 때
 [USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) | Braze가 SMS 서비스 제공업체에 SMS 메시지를 전달할 수 없을 때
@@ -127,28 +127,28 @@ table td {
 [USERS_MESSAGES_SMS_REJECTION_SHARED](#USERS_MESSAGES_SMS_REJECTION_SHARED) | SMS 메시지가 사용자에게 전달되지 않을 때
 [USERS_MESSAGES_SMS_SEND_SHARED](#USERS_MESSAGES_SMS_SEND_SHARED) | SMS 메시지가 발송될 때
 [USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED](#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED) | 사용자가 SMS 메시지에 포함된 Braze 단축 URL을 클릭할 때
-[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한 후 SMS 메시지가 재시도될 때 (**Snowflake 데이터 공유 전용**)
-[USERS_MESSAGES_WEBHOOK_ABORT_SHARED](#USERS_MESSAGES_WEBHOOK_ABORT_SHARED) | 원래 예약된 웹훅 메시지가 어떤 이유로 중단됨
+[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한이 적용된 후 SMS 메시지가 재시도될 때(**Snowflake 데이터 공유 전용**)
+[USERS_MESSAGES_WEBHOOK_ABORT_SHARED](#USERS_MESSAGES_WEBHOOK_ABORT_SHARED) | 원래 예약된 웹훅 메시지가 어떤 이유로 중단된 경우
 [USERS_MESSAGES_WEBHOOK_FAILURE_SHARED](#USERS_MESSAGES_WEBHOOK_FAILURE_SHARED) | 웹훅 메시지가 전달되었지만 엔드포인트에서 오류 응답이 반환될 때
 [USERS_MESSAGES_WEBHOOK_SEND_SHARED](#USERS_MESSAGES_WEBHOOK_SEND_SHARED) | 사용자에 대해 웹훅을 발송할 때
-[USERS_MESSAGES_WEBHOOK_RETRY_SHARED](#USERS_MESSAGES_WEBHOOK_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한 후 웹훅 메시지가 재시도될 때 (**Snowflake 데이터 공유 전용**)
-[USERS_MESSAGES_WHATSAPP_ABORT_SHARED](#USERS_MESSAGES_WHATSAPP_ABORT_SHARED) | 원래 예약된 WhatsApp 메시지가 어떤 이유로 중단됨
+[USERS_MESSAGES_WEBHOOK_RETRY_SHARED](#USERS_MESSAGES_WEBHOOK_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한이 적용된 후 웹훅 메시지가 재시도될 때(**Snowflake 데이터 공유 전용**)
+[USERS_MESSAGES_WHATSAPP_ABORT_SHARED](#USERS_MESSAGES_WHATSAPP_ABORT_SHARED) | 원래 예약된 WhatsApp 메시지가 어떤 이유로 중단된 경우
 [USERS_MESSAGES_WHATSAPP_CLICK_SHARED](#USERS_MESSAGES_WHATSAPP_CLICK_SHARED) | 사용자가 WhatsApp 메시지의 링크 또는 버튼을 클릭할 때
 [USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED](#USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED) | WhatsApp 메시지가 전달될 때
 [USERS_MESSAGES_WHATSAPP_FAILURE_SHARED](#USERS_MESSAGES_WHATSAPP_FAILURE_SHARED) | WhatsApp 메시지가 사용자에게 전달되지 않을 때
 [USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED) | 사용자로부터 WhatsApp 메시지가 수신될 때
 [USERS_MESSAGES_WHATSAPP_READ_SHARED](#USERS_MESSAGES_WHATSAPP_READ_SHARED) | 사용자가 WhatsApp 메시지를 열 때
 [USERS_MESSAGES_WHATSAPP_SEND_SHARED](#USERS_MESSAGES_WHATSAPP_SEND_SHARED) | 사용자에 대해 WhatsApp 메시지를 발송할 때
-[USERS_MESSAGES_WHATSAPP_RETRY_SHARED](#USERS_MESSAGES_WHATSAPP_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한 후 WhatsApp 메시지가 재시도될 때 (**Snowflake 데이터 공유 전용**)
+[USERS_MESSAGES_WHATSAPP_RETRY_SHARED](#USERS_MESSAGES_WHATSAPP_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한이 적용된 후 WhatsApp 메시지가 재시도될 때(**Snowflake 데이터 공유 전용**)
 [USERS_RANDOMBUCKETNUMBERUPDATE_SHARED](#USERS_RANDOMBUCKETNUMBERUPDATE_SHARED) | 사용자의 무작위 버킷 번호가 변경될 때
 [USERS_USERDELETEREQUEST_SHARED](#USERS_USERDELETEREQUEST_SHARED) | 고객 요청에 의해 사용자가 삭제될 때
 [USERS_USERORPHAN_SHARED](#USERS_USERORPHAN_SHARED) | 사용자가 다른 사용자의 프로필과 병합되어 원래 프로필이 고아 상태가 될 때
-[SNAPSHOTS_APP_SHARED](#SNAPSHOTS_APP_SHARED) | 앱 스냅샷 (**Snowflake 데이터 공유 전용**)
-[SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED](#SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED) | Campaign 메시지 배리언트 스냅샷 (**Snowflake 데이터 공유 전용**)
-[SNAPSHOTS_CANVAS_FLOW_STEP_SHARED](#SNAPSHOTS_CANVAS_FLOW_STEP_SHARED) | Canvas Flow 단계 스냅샷 (**Snowflake 데이터 공유 전용**)
-[SNAPSHOTS_CANVAS_STEP_SHARED](#SNAPSHOTS_CANVAS_STEP_SHARED) | 캔버스 단계 스냅샷 (**Snowflake 데이터 공유 전용**)
-[SNAPSHOTS_CANVAS_VARIATION_SHARED](#SNAPSHOTS_CANVAS_VARIATION_SHARED) | Canvas 배리언트 스냅샷 (**Snowflake 데이터 공유 전용**)
-[SNAPSHOTS_EXPERIMENT_STEP_SHARED](#SNAPSHOTS_EXPERIMENT_STEP_SHARED) | 실험 단계 스냅샷 (**Snowflake 데이터 공유 전용**)
+[SNAPSHOTS_APP_SHARED](#SNAPSHOTS_APP_SHARED) | 앱 스냅샷(**Snowflake 데이터 공유 전용**)
+[SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED](#SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED) | Campaign 메시지 배리언트 스냅샷(**Snowflake 데이터 공유 전용**)
+[SNAPSHOTS_CANVAS_FLOW_STEP_SHARED](#SNAPSHOTS_CANVAS_FLOW_STEP_SHARED) | Canvas Flow 단계 스냅샷(**Snowflake 데이터 공유 전용**)
+[SNAPSHOTS_CANVAS_STEP_SHARED](#SNAPSHOTS_CANVAS_STEP_SHARED) | 캔버스 단계 스냅샷(**Snowflake 데이터 공유 전용**)
+[SNAPSHOTS_CANVAS_VARIATION_SHARED](#SNAPSHOTS_CANVAS_VARIATION_SHARED) | Canvas 배리언트 스냅샷(**Snowflake 데이터 공유 전용**)
+[SNAPSHOTS_EXPERIMENT_STEP_SHARED](#SNAPSHOTS_EXPERIMENT_STEP_SHARED) | 실험 단계 스냅샷(**Snowflake 데이터 공유 전용**)
 
 
 ## 에이전트 콘솔 {#agent-console}
@@ -238,7 +238,8 @@ table td {
 `app_group_id` | `string` | 워크스페이스의 BSON ID
 `app_id` | `string` | 앱의 BSON ID
 `user_id` | `string` | [PII] Braze 사용자 ID
-`time` | `int` | 프로필 업데이트의 UNIX 타임스탬프(백필된 행의 경우 백필 시점)
+`time` | `int` | 프로필 업데이트의 UNIX 타임스탬프(초 단위, 백필된 행의 경우 백필 시점)
+`time_ms` | `int` | 프로필 업데이트의 UNIX 타임스탬프(밀리초 단위, 백필된 행의 경우 백필 시점)
 `update_source` | `string` | 프로필 업데이트의 소스
 `sf_updated_at` | `timestamp` | 이 행이 Snowflake에서 업데이트된 시점
 `custom_attributes` | `variant` | [PII] JSON 오브젝트 형태의 커스텀 속성
@@ -251,17 +252,18 @@ table td {
 `app_group_id` | `string` | 워크스페이스의 BSON ID
 `app_id` | `string` | 앱의 BSON ID
 `user_id` | `string` | [PII] Braze 사용자 ID
-`time` | `int` | 프로필 업데이트의 UNIX 타임스탬프(백필된 행의 경우 백필 시점)
+`time` | `int` | 프로필 업데이트의 UNIX 타임스탬프(초 단위, 백필된 행의 경우 백필 시점)
+`time_ms` | `int` | 프로필 업데이트의 UNIX 타임스탬프(밀리초 단위, 백필된 행의 경우 백필 시점)
 `update_source` | `string` | 프로필 업데이트의 소스
 `sf_updated_at` | `timestamp` | 이 행이 Snowflake에서 업데이트된 시점
-`external_id` | `string` | [PII] 사용자의 외부 ID
+`external_user_id` | `string` | [PII] 사용자의 외부 ID
 `first_name` | `string` | [PII] 이름
 `last_name` | `string` | [PII] 성
-`email` | `string` | [PII] 이메일 주소
+`email_address` | `string` | [PII] 이메일 주소
 `gender` | `string` | [PII] 성별
-`phone` | `string` | [PII] 전화번호
+`phone_number` | `string` | [PII] 전화번호
 `dob` | `string` | [PII] 생년월일
-`time_zone` | `string` | [PII] 시간대
+`timezone` | `string` | [PII] 시간대
 `home_city` | `string` | [PII] 거주 도시
 `country` | `string` | [PII] 국가
 `language` | `string` | [PII] 언어
@@ -274,17 +276,18 @@ table td {
 `app_group_id` | `string` | 워크스페이스의 BSON ID
 `user_id` | `string` | [PII] Braze 사용자 ID
 `app_id` | `string` | 앱의 BSON ID
-`time` | `int` | 프로필 업데이트의 UNIX 타임스탬프(백필된 행의 경우 백필 시점)
+`time` | `int` | 프로필 업데이트의 UNIX 타임스탬프(초 단위, 백필된 행의 경우 백필 시점)
+`time_ms` | `int` | 프로필 업데이트의 UNIX 타임스탬프(밀리초 단위, 백필된 행의 경우 백필 시점)
 `update_source` | `string` | 프로필 업데이트의 소스
 `sf_updated_at` | `timestamp` | 이 행이 Snowflake에서 업데이트된 시점
-`external_id` | `string` | [PII] 사용자의 외부 ID
+`external_user_id` | `string` | [PII] 사용자의 외부 ID
 `first_name` | `string` | [PII] 이름
 `last_name` | `string` | [PII] 성
-`email` | `string` | [PII] 이메일 주소
+`email_address` | `string` | [PII] 이메일 주소
 `gender` | `string` | [PII] 성별
-`phone` | `string` | [PII] 전화번호
+`phone_number` | `string` | [PII] 전화번호
 `dob` | `string` | [PII] 생년월일
-`time_zone` | `string` | [PII] 시간대
+`timezone` | `string` | [PII] 시간대
 `home_city` | `string` | [PII] 거주 도시
 `country` | `string` | [PII] 국가
 `language` | `string` | [PII] 언어
@@ -299,20 +302,21 @@ table td {
 `app_group_id` | `string` | 워크스페이스의 BSON ID
 `app_id` | `string` | 앱의 BSON ID
 `user_id` | `string` | [PII] Braze 사용자 ID
-`time` | `int` | 프로필 업데이트의 UNIX 타임스탬프(백필된 행의 경우 백필 시점)
+`time` | `int` | 프로필 업데이트의 UNIX 타임스탬프(초 단위, 백필된 행의 경우 백필 시점)
+`time_ms` | `int` | 프로필 업데이트의 UNIX 타임스탬프(밀리초 단위, 백필된 행의 경우 백필 시점)
 `update_source` | `string` | 프로필 업데이트의 소스
 `sf_updated_at` | `timestamp` | 이 행이 Snowflake에서 업데이트된 시점
-`external_id` | `string` | [PII] 사용자의 외부 ID
+`external_user_id` | `string` | [PII] 사용자의 외부 ID
 `first_name` | `string` | [PII] 이름
 `last_name` | `string` | [PII] 성
-`email` | `string` | [PII] 이메일 주소
+`email_address` | `string` | [PII] 이메일 주소
 `gender` | `string` | [PII] 성별
-`phone` | `string` | [PII] 전화번호
+`phone_number` | `string` | [PII] 전화번호
 `dob` | `string` | [PII] 생년월일
 `home_city` | `string` | [PII] 거주 도시
 `country` | `string` | [PII] 국가
 `language` | `string` | [PII] 언어
-`time_zone` | `string` | [PII] 시간대
+`timezone` | `string` | [PII] 시간대
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED #USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
 
 ## 카탈로그 {#catalogs}
@@ -440,7 +444,7 @@ table td {
 `ll_accuracy` | `null, float` | 기록된 위치의 위도 및 경도 정확도
 `alt_accuracy` | `null, float` | 기록된 위치의 고도 정확도
 `device_id` | `null,`&nbsp;`string` | 위치가 기록된 기기의 ID
-`sdk_version` | `null,`&nbsp;`string` | 위치가 기록될 당시 사용 중인 Braze SDK 버전
+`sdk_version` | `null,`&nbsp;`string` | 위치 기록 당시 사용 중인 Braze SDK 버전
 `platform` | `null,`&nbsp;`string` | 기기의 플랫폼
 `os_version` | `null,`&nbsp;`string` | 기기의 운영체제 버전
 `device_model` | `null,`&nbsp;`string` | 기기의 모델
@@ -652,8 +656,8 @@ table td {
 `external_user_id` | `null,`&nbsp;`string` | [PII] 사용자의 외부 ID
 `time` | `int` | 이벤트가 발생한 UNIX 타임스탬프
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
-`activity_attributes_type` | `null,`&nbsp;`string` | 라이브 활동 속성 유형
-`push_to_start_token` | `null,`&nbsp;`string` | 라이브 활동 push-to-start 토큰
+`activity_attributes_type` | `null,`&nbsp;`string` | 라이브 액티비티 속성 유형
+`push_to_start_token` | `null,`&nbsp;`string` | 라이브 액티비티 push-to-start 토큰
 `device_id` | `null,`&nbsp;`string` | 이벤트가 발생한 기기의 ID
 `sdk_version` | `null,`&nbsp;`string` | 이벤트 당시 사용 중인 Braze SDK 버전
 `ios_push_token_apns_gateway` | `null, int` | 푸시 토큰의 APNS 게이트웨이, iOS 푸시 토큰에만 적용, 1은 개발용, 2는 프로덕션용
@@ -673,8 +677,8 @@ table td {
 `external_user_id` | `null,`&nbsp;`string` | [PII] 사용자의 외부 ID
 `time` | `int` | 이벤트가 발생한 UNIX 타임스탬프
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
-`activity_id` | `null,`&nbsp;`string` | 라이브 활동 식별자
-`update_token` | `null,`&nbsp;`string` | 라이브 활동 업데이트 토큰
+`activity_id` | `null,`&nbsp;`string` | 라이브 액티비티 식별자
+`update_token` | `null,`&nbsp;`string` | 라이브 액티비티 업데이트 토큰
 `device_id` | `null,`&nbsp;`string` | 이벤트가 발생한 기기의 ID
 `sdk_version` | `null,`&nbsp;`string` | 이벤트 당시 사용 중인 Braze SDK 버전
 `ios_push_token_apns_gateway` | `null, int` | 푸시 토큰의 APNS 게이트웨이, iOS 푸시 토큰에만 적용, 1은 개발용, 2는 프로덕션용
@@ -733,11 +737,11 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 메시지 변형의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리에이션의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `send_id` | `null,`&nbsp;`string` | 이 구독 상태 변경 동작이 발생한 메시지 전송 ID
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
-`channel_identifier` | `null,`&nbsp;`string` | [PII] 이벤트가 해당하는 채널에서의 사용자 식별자
+`channel_identifier` | `null,`&nbsp;`string` | [PII] 이벤트 대상 채널에서의 사용자 식별자
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSSUBSCRIPTIONGLOBALSTATECHANGESHARED #USERSBEHAVIORSSUBSCRIPTIONGLOBALSTATECHANGESHARED" }
 
@@ -758,7 +762,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 메시지 변형의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리에이션의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `subscription_group_api_id` | `string` | 구독 그룹 API ID
 `channel` | `null,`&nbsp;`string` | 채널: 구독 그룹의 채널 유형에 따라 'email' 또는 'sms'
@@ -769,7 +773,7 @@ table td {
 `state_change_source` | `null,`&nbsp;`string` | 상태 변경의 소스(REST, SDK, 대시보드 등)
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
-`channel_identifier` | `null,`&nbsp;`string` | [PII] 이벤트가 해당하는 채널에서의 사용자 식별자
+`channel_identifier` | `null,`&nbsp;`string` | [PII] 이벤트 대상 채널에서의 사용자 식별자
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSSUBSCRIPTIONGROUPSTATECHANGESHARED #USERSBEHAVIORSSUBSCRIPTIONGROUPSTATECHANGESHARED" }
 
@@ -1101,7 +1105,7 @@ table td {
 `device_model` | `null,`&nbsp;`string` | 기기의 모델
 `resolution` | `null,`&nbsp;`string` | 기기의 해상도
 `carrier` | `null,`&nbsp;`string` | 기기의 통신사
-`browser` | `null,`&nbsp;`string` | 기기 브라우저 - user_agent에서 추출 - 열기가 발생한 브라우저
+`browser` | `null,`&nbsp;`string` | 열기가 발생한 기기 브라우저 - user_agent에서 추출
 `ad_id` | `null,`&nbsp;`string` | [PII] 광고 식별자
 `ad_id_type` | `null,`&nbsp;`string` | ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id'] 중 하나
 `ad_tracking_enabled` | `null, boolean` | 기기에서 광고 추적이 활성화되어 있는지 여부
@@ -1137,7 +1141,7 @@ table td {
 `device_model` | `null,`&nbsp;`string` | 기기의 모델
 `resolution` | `null,`&nbsp;`string` | 기기의 해상도
 `carrier` | `null,`&nbsp;`string` | 기기의 통신사
-`browser` | `null,`&nbsp;`string` | 기기 브라우저 - user_agent에서 추출 - 열기가 발생한 브라우저
+`browser` | `null,`&nbsp;`string` | 열기가 발생한 기기 브라우저 - user_agent에서 추출
 `button_id` | `null,`&nbsp;`string` | 클릭된 버튼의 ID (이 클릭이 버튼 클릭인 경우)
 `ad_id` | `null,`&nbsp;`string` | [PII] 광고 식별자
 `ad_id_type` | `null,`&nbsp;`string` | ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id'] 중 하나
@@ -1172,7 +1176,7 @@ table td {
 `device_model` | `null,`&nbsp;`string` | 기기의 모델
 `resolution` | `null,`&nbsp;`string` | 기기의 해상도
 `carrier` | `null,`&nbsp;`string` | 기기의 통신사
-`browser` | `null,`&nbsp;`string` | 기기 브라우저 - user_agent에서 추출 - 열기가 발생한 브라우저
+`browser` | `null,`&nbsp;`string` | 열기가 발생한 기기 브라우저 - user_agent에서 추출
 `ad_id` | `null,`&nbsp;`string` | [PII] 광고 식별자
 `ad_id_type` | `null,`&nbsp;`string` | ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id'] 중 하나
 `ad_tracking_enabled` | `null, boolean` | 기기에서 광고 추적이 활성화되어 있는지 여부
@@ -1192,10 +1196,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1223,10 +1227,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1263,10 +1267,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1303,10 +1307,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1342,10 +1346,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1372,10 +1376,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1404,10 +1408,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1439,10 +1443,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1455,7 +1459,7 @@ table td {
 `url` | `null,`&nbsp;`string` | 사용자가 클릭한 URL
 `user_agent` | `null,`&nbsp;`string` | 클릭이 발생한 사용자 에이전트
 `ip_pool` | `null,`&nbsp;`string` | 이메일 발송에 사용된 IP 풀
-`link_id` | `null,`&nbsp;`string` | Braze에서 생성한 클릭된 링크의 고유 ID
+`link_id` | `null,`&nbsp;`string` | Braze가 생성한 클릭된 링크의 고유 ID
 `link_alias` | `null,`&nbsp;`string` | 이 링크 ID와 연결된 별칭
 `esp` | `null,`&nbsp;`string` | 이벤트와 관련된 ESP (SparkPost, SendGrid 또는 Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | 이메일의 발신 도메인
@@ -1511,10 +1515,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1544,10 +1548,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1577,10 +1581,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1592,7 +1596,7 @@ table td {
 `email_address` | `string` | [PII] 사용자의 이메일 주소
 `user_agent` | `null,`&nbsp;`string` | 열기가 발생한 사용자 에이전트
 `ip_pool` | `null,`&nbsp;`string` | 이메일 발송에 사용된 IP 풀
-`machine_open` | `null,`&nbsp;`string` | 사용자 참여 없이 열기 이벤트가 트리거된 경우 'true'로 채워집니다. 예를 들어 MPP가 활성화된 Apple 기기에서 발생합니다. 값은 시간이 지남에 따라 더 세분화될 수 있습니다.
+`machine_open` | `null,`&nbsp;`string` | 사용자 상호작용 없이 열기 이벤트가 트리거된 경우 'true'로 채워집니다. 예를 들어 MPP가 활성화된 Apple 기기에서 발생합니다. 값은 더 세분화된 정보를 제공하기 위해 시간이 지남에 따라 변경될 수 있습니다.
 `esp` | `null,`&nbsp;`string` | 이벤트와 관련된 ESP (SparkPost, SendGrid 또는 Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | 이메일의 발신 도메인
 `is_amp` | `null, boolean` | 이것이 AMP 이벤트인지 여부를 나타냅니다
@@ -1612,10 +1616,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1645,10 +1649,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1679,10 +1683,10 @@ table td {
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1756,7 +1760,7 @@ table td {
 `device_id` | `null,`&nbsp;`string` | 이벤트가 발생한 기기의 ID
 `time` | `int` | 이벤트가 발생한 UNIX 타임스탬프
 `gender` | `null,`&nbsp;`string` | [PII] 사용자의 성별
-`browser` | `null,`&nbsp;`string` | 기기 브라우저 - user_agent에서 추출 - 열기가 발생한 브라우저
+`browser` | `null,`&nbsp;`string` | 열기가 발생한 기기 브라우저 - user_agent에서 추출
 `carrier` | `null,`&nbsp;`string` | 기기의 통신사
 `country` | `null,`&nbsp;`string` | [PII] 사용자의 국가
 `device_model` | `null,`&nbsp;`string` | 기기의 모델
@@ -1783,10 +1787,10 @@ table td {
 `card_api_id` | `null,`&nbsp;`string` | 카드의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1803,7 +1807,7 @@ table td {
 `resolution` | `null,`&nbsp;`string` | 기기의 해상도
 `carrier` | `null,`&nbsp;`string` | 기기의 통신사
 `browser` | `null,`&nbsp;`string` | 기기의 브라우저
-`version` | `string` | 인앱 메시지의 버전 (레거시 또는 트리거)
+`version` | `string` | 인앱 메시지의 버전 (레거시 또는 트리거됨)
 `ad_id` | `null,`&nbsp;`string` | [PII] 광고 식별자
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`, `google_ad_id`, `windows_ad_id` 또는 `roku_ad_id` 중 하나
 `ad_tracking_enabled` | `null, boolean` | 기기에서 광고 추적이 활성화되어 있는지 여부
@@ -1825,10 +1829,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `card_api_id` | `null,`&nbsp;`string` | 카드의 API ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1845,7 +1849,7 @@ table td {
 `resolution` | `null,`&nbsp;`string` | 기기의 해상도
 `carrier` | `null,`&nbsp;`string` | 기기의 통신사
 `browser` | `null,`&nbsp;`string` | 기기의 브라우저
-`version` | `string` | 인앱 메시지의 버전 (레거시 또는 트리거)
+`version` | `string` | 인앱 메시지의 버전 (레거시 또는 트리거됨)
 `button_id` | `null,`&nbsp;`string` | 클릭된 버튼의 ID (이 클릭이 버튼 클릭인 경우)
 `ad_id` | `null,`&nbsp;`string` | [PII] 광고 식별자
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`, `google_ad_id`, `windows_ad_id` 또는 `roku_ad_id` 중 하나
@@ -1866,10 +1870,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `card_api_id` | `null,`&nbsp;`string` | 카드의 API ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -1886,13 +1890,13 @@ table td {
 `resolution` | `null,`&nbsp;`string` | 기기의 해상도
 `carrier` | `null,`&nbsp;`string` | 기기의 통신사
 `browser` | `null,`&nbsp;`string` | 기기의 브라우저
-`version` | `string` | 인앱 메시지의 버전 (레거시 또는 트리거)
+`version` | `string` | 인앱 메시지의 버전 (레거시 또는 트리거됨)
 `ad_id` | `null,`&nbsp;`string` | [PII] 광고 식별자
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`, `google_ad_id`, `windows_ad_id` 또는 `roku_ad_id` 중 하나
 `ad_tracking_enabled` | `null, boolean` | 기기에서 광고 추적이 활성화되어 있는지 여부
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid 렌더링 중 태그된 키-값 페어의 JSON 문자열
-`locale_key` | `null,`&nbsp;`string` | [PII] 이 메시지를 작성하는 데 사용된 번역에 해당하는 키 (예: 'en-us') (기본값의 경우 null)
+`locale_key` | `null,`&nbsp;`string` | [PII] 이 메시지를 작성하는 데 사용된 번역에 해당하는 키 (예: 'en-us') (기본값인 경우 null)
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESINAPPMESSAGEIMPRESSIONSHARED #USERSMESSAGESINAPPMESSAGEIMPRESSIONSHARED" }
 
@@ -2072,12 +2076,12 @@ table td {
 `external_user_id` | `null,`&nbsp;`string` | [PII] 사용자의 외부 ID
 `time` | `int` | 이벤트가 발생한 UNIX 타임스탬프
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
-`activity_id` | `null,`&nbsp;`string` | 라이브 활동 식별자
-`activity_attributes_type` | `null,`&nbsp;`string` | 라이브 활동 속성 유형
-`push_to_start_token` | `null,`&nbsp;`string` | 라이브 활동 시작 푸시 토큰
-`update_token` | `null,`&nbsp;`string` | 라이브 활동 업데이트 토큰
-`live_activity_event_type` | `null,`&nbsp;`string` | 라이브 활동의 이벤트 유형. ['start', 'update', 'end'] 중 하나
-`live_activity_event_outcome` | `null,`&nbsp;`string` | 라이브 활동 이벤트의 결과
+`activity_id` | `null,`&nbsp;`string` | Live Activity 식별자
+`activity_attributes_type` | `null,`&nbsp;`string` | Live Activity 속성 유형
+`push_to_start_token` | `null,`&nbsp;`string` | Live Activity 시작 푸시 토큰
+`update_token` | `null,`&nbsp;`string` | Live Activity 업데이트 토큰
+`live_activity_event_type` | `null,`&nbsp;`string` | Live Activity의 이벤트 유형. ['start', 'update', 'end'] 중 하나
+`live_activity_event_outcome` | `null,`&nbsp;`string` | Live Activity 이벤트의 결과
 `app_group_api_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 API ID
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
@@ -2093,11 +2097,11 @@ table td {
 `external_user_id` | `null,`&nbsp;`string` | [PII] 사용자의 외부 ID
 `time` | `int` | 이벤트가 발생한 UNIX 타임스탬프
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
-`activity_id` | `null,`&nbsp;`string` | 라이브 활동 식별자
-`activity_attributes_type` | `null,`&nbsp;`string` | 라이브 활동 속성 유형
-`push_to_start_token` | `null,`&nbsp;`string` | 라이브 활동 시작 푸시 토큰
-`update_token` | `null,`&nbsp;`string` | 라이브 활동 업데이트 토큰
-`live_activity_event_type` | `null,`&nbsp;`string` | 라이브 활동의 이벤트 유형. ['start', 'update', 'end'] 중 하나
+`activity_id` | `null,`&nbsp;`string` | Live Activity 식별자
+`activity_attributes_type` | `null,`&nbsp;`string` | Live Activity 속성 유형
+`push_to_start_token` | `null,`&nbsp;`string` | Live Activity 시작 푸시 토큰
+`update_token` | `null,`&nbsp;`string` | Live Activity 업데이트 토큰
+`live_activity_event_type` | `null,`&nbsp;`string` | Live Activity의 이벤트 유형. ['start', 'update', 'end'] 중 하나
 `app_group_api_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 API ID
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
@@ -2127,7 +2131,7 @@ table td {
 `device_model` | `null,`&nbsp;`string` | 기기의 모델
 `resolution` | `null,`&nbsp;`string` | 기기의 해상도
 `carrier` | `null,`&nbsp;`string` | 기기의 통신사
-`browser` | `null,`&nbsp;`string` | 기기 브라우저 - user_agent에서 추출 - 열기가 발생한 브라우저
+`browser` | `null,`&nbsp;`string` | 열기가 발생한 기기 브라우저 - user_agent에서 추출
 `abort_type` | `null,`&nbsp;`string` | 중단 유형. 값 목록은 [중단 유형](#abort-types)을 참조하세요.
 `abort_log` | `null,`&nbsp;`string` | [PII] 중단 세부 정보를 설명하는 로그 메시지 (최대 128자)
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
@@ -2157,7 +2161,7 @@ table td {
 `device_model` | `null,`&nbsp;`string` | 기기의 모델
 `resolution` | `null,`&nbsp;`string` | 기기의 해상도
 `carrier` | `null,`&nbsp;`string` | 기기의 통신사
-`browser` | `null,`&nbsp;`string` | 기기 브라우저 - user_agent에서 추출 - 열기가 발생한 브라우저
+`browser` | `null,`&nbsp;`string` | 열기가 발생한 기기 브라우저 - user_agent에서 추출
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESNEWSFEEDCARDCLICKSHARED #USERSMESSAGESNEWSFEEDCARDCLICKSHARED" }
 
@@ -2185,7 +2189,7 @@ table td {
 `device_model` | `null,`&nbsp;`string` | 기기의 모델
 `resolution` | `null,`&nbsp;`string` | 기기의 해상도
 `carrier` | `null,`&nbsp;`string` | 기기의 통신사
-`browser` | `null,`&nbsp;`string` | 기기 브라우저 - user_agent에서 추출 - 열기가 발생한 브라우저
+`browser` | `null,`&nbsp;`string` | 열기가 발생한 기기 브라우저 - user_agent에서 추출
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESNEWSFEEDCARDIMPRESSIONSHARED #USERSMESSAGESNEWSFEEDCARDIMPRESSIONSHARED" }
 
@@ -2202,10 +2206,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -2235,10 +2239,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -2267,10 +2271,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -2307,10 +2311,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -2346,10 +2350,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -2391,10 +2395,10 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | 이 이벤트가 발생한 앱의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 발송 ID
-`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부 사용 Braze ID
+`campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
-`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부 사용 Braze ID
+`canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
@@ -2410,7 +2414,7 @@ table td {
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid 렌더링 중 태그된 키-값 페어의 JSON 문자열
 `is_sampled` | `null,`&nbsp;`string` | 푸시 발송이 샘플링되었으며 전달 이벤트가 예상되는지 여부를 나타냅니다
-`locale_key` | `null,`&nbsp;`string` | [PII] 이 메시지를 작성하는 데 사용된 번역에 해당하는 키 (예: 'en-us') (기본값의 경우 null)
+`locale_key` | `null,`&nbsp;`string` | [PII] 이 메시지를 작성하는 데 사용된 번역에 해당하는 키 (예: 'en-us') (기본값인 경우 null)
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONSENDSHARED #USERSMESSAGESPUSHNOTIFICATIONSENDSHARED" }
 
@@ -2470,7 +2474,7 @@ table td {
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `interaction_type` | `null,`&nbsp;`string` | 클릭을 생성한 상호작용 유형. 예시 문자열 값: Text URL, Reply, OpenURL
-`element_label` | `null,`&nbsp;`string` | 클릭된 요소에 대한 선택적 세부 정보 (예: 추천 답장 또는 버튼의 텍스트)
+`element_label` | `null,`&nbsp;`string` | 클릭된 요소에 대한 선택적 세부 정보 (예: 추천 답변 또는 버튼의 텍스트)
 `element_type` | `null,`&nbsp;`string` | 추천과 버튼에 공통적인 interaction_type이 추천에서 왔는지 버튼에서 왔는지를 지정합니다. 예시: Suggestion, Button
 `campaign_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 API ID
 `url` | `null,`&nbsp;`string` | 사용자가 클릭한 URL
@@ -2635,7 +2639,7 @@ table td {
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSSENDSHARED #USERSMESSAGESRCSSENDSHARED" }
 
-## SMS 메시지 이벤트 및 삭제된 사용자 프로필 {#sms-message-events-and-deleted-user-profiles}
+## SMS 메시지 이벤트와 삭제된 사용자 프로필 {#sms-message-events-and-deleted-user-profiles}
 
 {% alert note %}
 `USERS_MESSAGES_SMS_*` 공유 테이블([`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED), [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) 포함)의 경우, Braze는 이벤트가 Snowflake 데이터 공유 및 Currents용으로 처리될 때 워크스페이스에 Braze 사용자 프로필이 아직 존재하는 경우에만 행을 기록합니다. 처리가 완료되기 전에 해당 사용자가 삭제된 경우, 대시보드의 SMS 워크스페이스 측정기준이 Braze의 보고 경로에서 집계 수를 여전히 반영하더라도 해당 이벤트는 Snowflake 또는 Currents 내보내기에 나타나지 않습니다. 해당 Currents 동작에 대해서는 동일 용어집의 [SMS 거부 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) 및 관련 SMS 이벤트 유형을 참조하세요.
@@ -2655,7 +2659,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `subscription_group_api_id` | `null,`&nbsp;`string` | 구독 그룹의 외부 ID
@@ -2682,7 +2686,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `gender` | `null,`&nbsp;`string` | [PII] 사용자의 성별
@@ -2713,7 +2717,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `gender` | `null,`&nbsp;`string` | [PII] 사용자의 성별
@@ -2745,7 +2749,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `gender` | `null,`&nbsp;`string` | [PII] 사용자의 성별
@@ -2774,7 +2778,7 @@ table td {
 `subscription_group_id` | `null,`&nbsp;`string` | 이 SMS 메시지의 대상 구독 그룹 ID
 `subscription_group_api_id` | `null,`&nbsp;`string` | 이 SMS 메시지의 대상 구독 그룹 API ID
 `inbound_phone_number` | `string` | 메시지가 전송된 수신 번호
-`action` | `string` | 이 메시지에 대한 응답으로 수행된 동작. 예: `Subscribed`, `Unsubscribed` 또는 `None`.
+`action` | `string` | 이 메시지에 대한 응답으로 수행된 동작. 예: `Subscribed`, `Unsubscribed`, 또는 `None`.
 `message_body` | `string` | 사용자의 응답
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | 사용자의 미디어 URL
 `campaign_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Campaign의 내부용 Braze ID
@@ -2782,7 +2786,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계 메시지 배리언트의 API ID
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
@@ -2806,7 +2810,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `gender` | `null,`&nbsp;`string` | [PII] 사용자의 성별
@@ -2840,7 +2844,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `gender` | `null,`&nbsp;`string` | [PII] 사용자의 성별
@@ -2849,7 +2853,7 @@ table td {
 `language` | `null,`&nbsp;`string` | [PII] 사용자의 언어
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 수신자의 전화번호
 `subscription_group_api_id` | `null,`&nbsp;`string` | 구독 그룹의 외부 ID
-`category` | `null,`&nbsp;`string` | 키워드 카테고리 이름으로, 자동 응답 메시지에만 채워집니다: 'Opt-in', 'Opt-out', 'Help' 또는 커스텀 값
+`category` | `null,`&nbsp;`string` | 키워드 카테고리 이름, 자동 응답 메시지에만 채워짐: 'Opt-in', 'Opt-out', 'Help', 또는 커스텀 값
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid 렌더링 중 태그된 키-값 페어의 JSON 문자열
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
@@ -2860,19 +2864,19 @@ table td {
 필드 | 유형 | 설명
 ------|------|------------
 `id` | `string` | 이 이벤트의 글로벌 고유 ID
-`user_id` | `null,`&nbsp;`string` | short_url의 대상 사용자의 Braze ID. short_url이 사용자 클릭 추적을 사용하지 않은 경우 null
-`external_user_id` | `null,`&nbsp;`string` | [PII] short_url의 대상 사용자의 외부 ID(존재하는 경우). short_url이 사용자 클릭 추적을 사용하지 않은 경우 null
+`user_id` | `null,`&nbsp;`string` | short_url의 대상 사용자의 Braze ID, short_url이 사용자 클릭 추적을 사용하지 않은 경우 null
+`external_user_id` | `null,`&nbsp;`string` | [PII] short_url의 대상 사용자의 외부 ID(존재하는 경우), short_url이 사용자 클릭 추적을 사용하지 않은 경우 null
 `app_group_api_id` | `null,`&nbsp;`string` | short_url을 생성하는 데 사용된 워크스페이스의 API ID
 `time` | `int` | short_url이 클릭된 Unix 타임스탬프
 `timezone` | `null,`&nbsp;`string` | 사용자의 시간대
-`campaign_id` | `null,`&nbsp;`string` | short_url이 생성된 Campaign의 Braze ID. Campaign에서 생성되지 않은 경우 null
-`campaign_api_id` | `null,`&nbsp;`string` | short_url이 생성된 Campaign의 API ID. Campaign에서 생성되지 않은 경우 null
-`message_variation_api_id` | `null,`&nbsp;`string` | short_url이 생성된 메시지 배리언트의 API ID. Campaign에서 생성되지 않은 경우 null
-`canvas_id` | `null,`&nbsp;`string` | short_url이 생성된 Canvas의 Braze ID. Canvas에서 생성되지 않은 경우 null
-`canvas_api_id` | `null,`&nbsp;`string` | short_url이 생성된 Canvas의 API ID. Canvas에서 생성되지 않은 경우 null
-`canvas_variation_api_id` | `null,`&nbsp;`string` | short_url이 생성된 Canvas 배리언트의 API ID. Canvas에서 생성되지 않은 경우 null
-`canvas_step_api_id` | `null,`&nbsp;`string` | short_url이 생성된 캔버스 단계의 API ID. Canvas에서 생성되지 않은 경우 null
-`canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | short_url이 생성된 캔버스 단계 메시지 배리언트의 API ID. Canvas에서 생성되지 않은 경우 null
+`campaign_id` | `null,`&nbsp;`string` | short_url이 생성된 Campaign의 Braze ID, Campaign에서 생성되지 않은 경우 null
+`campaign_api_id` | `null,`&nbsp;`string` | short_url이 생성된 Campaign의 API ID, Campaign에서 생성되지 않은 경우 null
+`message_variation_api_id` | `null,`&nbsp;`string` | short_url이 생성된 메시지 배리언트의 API ID, Campaign에서 생성되지 않은 경우 null
+`canvas_id` | `null,`&nbsp;`string` | short_url이 생성된 Canvas의 Braze ID, Canvas에서 생성되지 않은 경우 null
+`canvas_api_id` | `null,`&nbsp;`string` | short_url이 생성된 Canvas의 API ID, Canvas에서 생성되지 않은 경우 null
+`canvas_variation_api_id` | `null,`&nbsp;`string` | short_url이 생성된 Canvas 변형의 API ID, Canvas에서 생성되지 않은 경우 null
+`canvas_step_api_id` | `null,`&nbsp;`string` | short_url이 생성된 캔버스 단계의 API ID, Canvas에서 생성되지 않은 경우 null
+`canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | short_url이 생성된 캔버스 단계 메시지 배리언트의 API ID, Canvas에서 생성되지 않은 경우 null
 `url` | `string` | short_url에 의해 리디렉션되는 메시지에 포함된 원본 URL
 `short_url` | `string` | 클릭된 단축 URL
 `user_agent` | `null,`&nbsp;`string` | short_url을 요청한 사용자 에이전트
@@ -2905,7 +2909,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 BSON ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `subscription_group_api_id` | `null,`&nbsp;`string` | 구독 그룹 API ID
@@ -2931,7 +2935,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `gender` | `null,`&nbsp;`string` | [PII] 사용자의 성별
@@ -2959,7 +2963,7 @@ table td {
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 BSON ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `content_length` | `null, int` | 응답의 콘텐츠 길이
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] 사용자의 외부 ID
@@ -2995,13 +2999,13 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `campaign_name` | `null,`&nbsp;`string` | Campaign의 이름
 `message_variation_name` | `null,`&nbsp;`string` | 메시지 배리언트의 이름
 `canvas_name` | `null,`&nbsp;`string` | Canvas의 이름
-`canvas_variation_name` | `null,`&nbsp;`string` | 이 사용자가 수신한 Canvas 배리언트의 이름
+`canvas_variation_name` | `null,`&nbsp;`string` | 이 사용자가 수신한 Canvas 변형의 이름
 `canvas_step_name` | `null,`&nbsp;`string` | 캔버스 단계의 이름
 `gender` | `null,`&nbsp;`string` | [PII] 사용자의 성별
 `country` | `null,`&nbsp;`string` | [PII] 사용자의 국가
@@ -3036,7 +3040,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 BSON ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `gender` | `null,`&nbsp;`string` | [PII] 사용자의 성별
@@ -3067,7 +3071,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
@@ -3094,7 +3098,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 BSON ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `url` | `null,`&nbsp;`string` | 사용자가 클릭한 URL
@@ -3124,7 +3128,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
@@ -3155,7 +3159,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
@@ -3188,13 +3192,13 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `message_body` | `string` | 사용자의 응답
 `quick_reply_text` | `string` | 사용자가 누른 버튼의 텍스트
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | 사용자의 미디어 URL
-`action` | `string` | 이 메시지에 대한 응답으로 수행된 동작. 예: `Subscribed`, `Unsubscribed` 또는 `None`.
+`action` | `string` | 이 메시지에 대한 응답으로 수행된 동작. 예: `Subscribed`, `Unsubscribed`, 또는 `None`.
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 `catalog_id` | `null,`&nbsp;`string` | 수신 메시지에서 제품이 참조된 경우 해당 제품의 카탈로그 ID. 그렇지 않으면 비어 있습니다.
 `product_id` | `null,`&nbsp;`string` | 구매한 제품의 ID
@@ -3224,7 +3228,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
@@ -3255,7 +3259,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 내부용 Braze ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
@@ -3292,7 +3296,7 @@ table td {
 `message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 메시지 배리언트의 API ID
 `canvas_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 BSON ID
 `canvas_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas의 API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 변형의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | 이 사용자가 수신한 캔버스 단계 메시지 배리언트의 API ID
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
@@ -3305,45 +3309,45 @@ table td {
 
 ### USERS_RANDOMBUCKETNUMBERUPDATE_SHARED {#USERS_RANDOMBUCKETNUMBERUPDATE_SHARED}
 
-| 필드 | 유형 | 설명 |
+| 필드                        | 유형                     | 설명                                               |
 | --------------------------- | ------------------------ | -------------------------------------------------- |
-| `id` | `string`,&nbsp;`null` | 이 이벤트의 글로벌 고유 ID |
-| `app_group_id` | `string`,&nbsp;`null` | 이 사용자가 속한 워크스페이스의 Braze ID |
-| `app_group_api_id` | `string`,&nbsp;`null` | 이 사용자가 속한 워크스페이스의 API ID |
-| `user_id` | `string`,&nbsp;`null` | 이 이벤트를 수행한 사용자의 Braze ID |
-| `external_user_id` | `string`,&nbsp;`null` | [PII] 사용자의 외부 사용자 ID |
-| `time` | `int`,&nbsp;`null` | 이벤트가 발생한 Unix 타임스탬프 |
-| `random_bucket_number` | `int`,&nbsp;`null` | 사용자에게 할당된 현재 무작위 버킷 번호 |
-| `prev_random_bucket_number` | `int`,&nbsp;`null` | 사용자에게 할당된 이전 무작위 버킷 번호 |
-| `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점 |
+| `id`                        | `string`,&nbsp;`null`    | 이 이벤트의 글로벌 고유 ID                         |
+| `app_group_id`              | `string`,&nbsp;`null`    | 이 사용자가 속한 워크스페이스의 Braze ID            |
+| `app_group_api_id`          | `string`,&nbsp;`null`    | 이 사용자가 속한 워크스페이스의 API ID             |
+| `user_id`                   | `string`,&nbsp;`null`    | 이 이벤트를 수행한 사용자의 Braze ID                |
+| `external_user_id`          | `string`,&nbsp;`null`    | [PII] 사용자의 외부 사용자 ID                      |
+| `time`                      | `int`,&nbsp;`null`       | 이벤트가 발생한 Unix 타임스탬프                    |
+| `random_bucket_number`      | `int`,&nbsp;`null`       | 사용자에게 할당된 현재 무작위 버킷 번호            |
+| `prev_random_bucket_number` | `int`,&nbsp;`null`       | 사용자에게 할당된 이전 무작위 버킷 번호            |
+| `sf_created_at`             | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점            |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSRANDOMBUCKETNUMBERUPDATESHARED #USERSRANDOMBUCKETNUMBERUPDATESHARED" }
 
 ### USERS_USERDELETEREQUEST_SHARED {#USERS_USERDELETEREQUEST_SHARED}
 
-| 필드 | 유형 | 설명 |
+| 필드               | 유형                     | 설명                                                          |
 | ------------------ | ------------------------ | ------------------------------------------------------------- |
-| `id` | `string`,&nbsp;`null` | 이 이벤트의 글로벌 고유 ID |
-| `user_id` | `string`,&nbsp;`null` | 삭제된 사용자의 Braze ID |
-| `app_group_id` | `string`,&nbsp;`null` | 이 사용자가 속한 워크스페이스의 Braze ID |
-| `app_group_api_id` | `string`,&nbsp;`null` | 이 사용자가 속한 워크스페이스의 API ID |
-| `time` | `int`,&nbsp;`null` | 사용자 삭제 요청이 처리된 Unix 타임스탬프 |
-| `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점 |
+| `id`               | `string`,&nbsp;`null`    | 이 이벤트의 글로벌 고유 ID                                    |
+| `user_id`          | `string`,&nbsp;`null`    | 삭제된 사용자의 Braze ID                                       |
+| `app_group_id`     | `string`,&nbsp;`null`    | 이 사용자가 속한 워크스페이스의 Braze ID                       |
+| `app_group_api_id` | `string`,&nbsp;`null`    | 이 사용자가 속한 워크스페이스의 API ID                        |
+| `time`             | `int`,&nbsp;`null`       | 사용자 삭제 요청이 처리된 Unix 타임스탬프                     |
+| `sf_created_at`    | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점                       |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSUSERDELETEREQUESTSHARED #USERSUSERDELETEREQUESTSHARED" }
 
 ### USERS_USERORPHAN_SHARED {#USERS_USERORPHAN_SHARED}
 
-| 필드 | 유형 | 설명 |
+| 필드               | 유형                     | 설명                                                                          |
 | ------------------ | ------------------------ | ----------------------------------------------------------------------------- |
-| `id` | `string`,&nbsp;`null` | 이 이벤트의 글로벌 고유 ID |
-| `user_id` | `string`,&nbsp;`null` | 고아 처리된 사용자의 Braze ID |
-| `external_user_id` | `string`,&nbsp;`null` | [PII] 사용자의 외부 사용자 ID |
-| `device_id` | `string`,&nbsp;`null` | 이 사용자에게 연결된 기기의 ID(사용자가 익명인 경우) |
-| `app_group_id` | `string`,&nbsp;`null` | 이 사용자가 속한 워크스페이스의 Braze ID |
-| `app_group_api_id` | `string`,&nbsp;`null` | 이 사용자가 속한 워크스페이스의 API ID |
-| `app_api_id` | `string`,&nbsp;`null` | 고아 처리된 사용자가 속했던 앱의 API ID |
-| `time` | `int`,&nbsp;`null` | 사용자가 고아 처리된 Unix 타임스탬프 |
-| `orphaned_by_id` | `string`,&nbsp;`null` | 고아 처리된 사용자의 프로필과 병합된 사용자의 Braze ID |
-| `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점 |
+| `id`               | `string`,&nbsp;`null`    | 이 이벤트의 글로벌 고유 ID                                                    |
+| `user_id`          | `string`,&nbsp;`null`    | 고아 처리된 사용자의 Braze ID                                                  |
+| `external_user_id` | `string`,&nbsp;`null`    | [PII] 사용자의 외부 사용자 ID                                                 |
+| `device_id`        | `string`,&nbsp;`null`    | 이 사용자에게 연결된 기기의 ID(사용자가 익명인 경우)                           |
+| `app_group_id`     | `string`,&nbsp;`null`    | 이 사용자가 속한 워크스페이스의 Braze ID                                       |
+| `app_group_api_id` | `string`,&nbsp;`null`    | 이 사용자가 속한 워크스페이스의 API ID                                        |
+| `app_api_id`       | `string`,&nbsp;`null`    | 고아 처리된 사용자가 속했던 앱의 API ID                                       |
+| `time`             | `int`,&nbsp;`null`       | 사용자가 고아 처리된 Unix 타임스탬프                                          |
+| `orphaned_by_id`   | `string`,&nbsp;`null`    | 고아 처리된 사용자의 프로필과 병합된 사용자의 Braze ID                          |
+| `sf_created_at`    | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점                                       |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSUSERORPHANSHARED #USERSUSERORPHANSHARED" }
 
 ## 스냅샷 {#snapshots}
@@ -3427,4 +3431,4 @@ table td {
 
 ## 중단 유형 {#abort-types}
 
-{% include abort_types_reference.md %}
+{% include abort_types_reference.md combined_content_rendering=true %}

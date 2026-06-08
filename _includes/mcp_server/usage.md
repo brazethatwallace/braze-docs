@@ -67,10 +67,6 @@ For more information on the `get_canvas_list` function, see [Available API funct
 ### Create an email template
 
 {% tabs %}
-{% tab Claude %}
-!['Create an email template' being asked and answered in Claude.]({% image_buster /assets/img/mcp_server/claude/create_an_email_template.png %}){: style="max-width:85%;"}
-{% endtab %}
-
 {% tab Cursor %}
 !['Create an email template' being asked and answered in Cursor.]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
 {% endtab %}
@@ -81,10 +77,6 @@ For more information on the `create_email_template` function, see [Available API
 ### Update a content block
 
 {% tabs %}
-{% tab Claude %}
-!['Update a content block' being asked and answered in Claude.]({% image_buster /assets/img/mcp_server/claude/update_a_content_block.png %}){: style="max-width:85%;"}
-{% endtab %}
-
 {% tab Cursor %}
 !['Update a content block' being asked and answered in Cursor.]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
 {% endtab %}

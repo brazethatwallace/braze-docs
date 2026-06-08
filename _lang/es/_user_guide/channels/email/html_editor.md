@@ -34,7 +34,7 @@ Usa campañas para mensajes simples y únicos. Usa Canvas para recorridos de usu
 3. Dale a tu campaña un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario.
    * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), puedes filtrar por etiquetas específicas.
-5. Añade y nombra tantas variantes como necesites para tu campaña. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+5. Añade y nombra tantas variantes como necesites para tu campaña. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
 Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
@@ -52,7 +52,7 @@ Si todos los mensajes de tu campaña van a ser similares o tener el mismo conten
 {% endtabs %}
 
 {% alert tip %}
-Si planeas crear HTML personalizado y necesitas que los fondos se mantengan consistentes en la aplicación móvil de Gmail con el modo oscuro del dispositivo activado, consulta [Aplicación móvil de Gmail y colores de fondo en modo oscuro](#gmail-dark-mode).
+Si planeas crear HTML personalizado y necesitas que los fondos se mantengan consistentes en la aplicación móvil de Gmail con el modo oscuro del dispositivo activado, consulta [Aplicación móvil de Gmail y modo oscuro](#gmail-dark-mode).
 {% endalert %}
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='email html editor' %}
@@ -136,6 +136,16 @@ Una vista previa en el panel derecho se completará con la información de enví
 En **Sending Settings** > **Advanced**, activa **inline CSS** para la compatibilidad más amplia con clientes. Si los mensajes se recortan o las imágenes se estiran a la altura de la fila, prueba desactivar temporalmente inline CSS. Algunas plantillas funcionan mejor sin inlining.
 
 También puedes añadir personalización para encabezados de correo electrónico y extras de correo electrónico para enviar datos adicionales a otros proveedores de servicios de correo electrónico.
+
+##### Archivos adjuntos de correo electrónico {#email-attachments}
+
+También puedes añadir archivos adjuntos de correo electrónico mediante los siguientes métodos:
+
+- **Cargar un archivo:** Arrastra y suelta o busca para cargar un archivo directamente desde tu computadora al correo electrónico. Braze valida el tipo y tamaño del archivo (hasta 2&nbsp;MB de forma predeterminada) antes de cargarlo, y luego estos archivos se cargan en la biblioteca de medios. Los archivos que superen el límite de 2&nbsp;MB no se pueden cargar.
+- **Usar la biblioteca de medios:** Busca y selecciona entre los activos ya almacenados en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Se admiten archivos PDF, documentos de Word, archivos de Excel y presentaciones de PowerPoint.
+- **Añadir desde URL:** Introduce una URL que apunte al archivo y proporciona un nombre de archivo para mostrar. Dado que Braze no puede verificar el tamaño de URLs arbitrarias durante la composición del correo electrónico, el tamaño del archivo se aplica en el momento del envío. Ten en cuenta que Liquid no es compatible en este campo.
+
+Consulta las [directrices de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) para conocer las buenas prácticas específicas a considerar.
 
 ##### Encabezados de correo electrónico {#email-headers}
 
@@ -262,7 +272,7 @@ Entrega correos electrónicos basándote en un horario planificado, una acción 
 Para campañas desencadenadas por API, cuando la acción desencadenante se establece en **Interact With Campaign**, seleccionar una opción de **Receive** como la interacción hará que tu nueva campaña se desencadene tan pronto como Braze marque la campaña seleccionada como enviada, incluso si ese mensaje rebota o no se entrega.
 {% endalert %}
 
-También puedes establecer la duración de la campaña, especificar [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) y configurar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
+También puedes establecer la duración de la campaña, especificar [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) y configurar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
 #### Elige los usuarios objetivo {#choose-users-to-target}
 
@@ -305,7 +315,7 @@ Puedes permitir una ventana de hasta 30 días durante la cual Braze cuenta una c
 {% endtab %}
 
 {% tab Canvas %}
-Si aún no lo has hecho, completa las secciones restantes de los componentes de tu Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante e Intelligent Selection, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de los componentes de tu Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariantes e Intelligent Selection, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
 {% endtab %}
 {% endtabs %}
 

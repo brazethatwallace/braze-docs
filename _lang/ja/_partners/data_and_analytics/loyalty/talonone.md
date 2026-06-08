@@ -2,7 +2,7 @@
 nav_title: Talon.One
 article_title: Talon.One
 alias: /partners/talonone/
-description: "この参考記事では、BrazeとTalon.Oneのパートナーシップについて説明しています。Talon.Oneは、文脈に応じた1対1のクーポン、紹介、割引、およびロイヤルティCampaignsを迅速かつ効率的に開始できるプロモーションエンジンです。"
+description: "この参考記事では、BrazeとTalon.Oneのパートナーシップについて説明しています。Talon.Oneは、文脈に応じた1対1のクーポン、紹介、割引、およびロイヤルティキャンペーンを迅速かつ効率的に開始できるプロモーションエンジンです。"
 page_type: partner
 search_tag: Partner
 
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Talon.One
 
-> [Talon.One](https://talon.one/)は、モバイルマーケティングCRMにパーソナライズされたインセンティブを提供し、文脈に応じた1対1のクーポン、紹介、割引、およびロイヤルティCampaignsを迅速かつ効率的に開始することを可能にします。
+> [Talon.One](https://talon.one/)は、モバイルマーケティングCRMにパーソナライズされたインセンティブを提供し、文脈に応じた1対1のクーポン、紹介、割引、およびロイヤルティキャンペーンを迅速かつ効率的に開始することを可能にします。
 
 _この統合はTalon.Oneによって管理されています。_
 

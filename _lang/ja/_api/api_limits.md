@@ -46,6 +46,8 @@ APIレート制限は、システムの適切な使用状況に応じて変更�
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | 1分あたり50件のリクエスト。 |
 | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | 1分あたり20件のリクエスト。 |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) | 1分あたり100件のリクエスト。 |
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 1時間あたり100件のリクエスト。 |
+| [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 1時間あたり100件のリクエスト。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
 
 ### レート制限を共有するリクエスト {#requests-with-shared-rate-limits}

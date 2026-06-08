@@ -190,6 +190,14 @@ API-getriggerte Campaigns ermöglichen es Ihnen, Campaign-Texte, multivariate Te
 
 API-Campaigns werden verwendet, um über die API gesendete Nachrichten zu tracken. Im Gegensatz zu den meisten Campaigns geben Sie nicht die Nachricht, die Empfänger:innen oder den Zeitplan an, sondern übergeben die Bezeichner in Ihren API-Aufrufen.
 
+### Wie kann ich bestätigen, ob meine Nutzer:innen eine API-getriggerte Campaign erhalten haben? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+Sie können [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) mit dem Filter **Received Campaign** und dann die spezifische API-getriggerte Campaign auswählen, die Sie überprüfen möchten. Nachdem Sie das Segment gespeichert haben, verwenden Sie den [`/users/export/segment`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), um die Nutzer:innen in diesem Segment zu exportieren.
+
+### Kann ich eine Campaign löschen? {#can-i-delete-a-campaign}
+
+Nein, aber Sie können [eine Campaign archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### Was ist der Unterschied zwischen aktionsbasierten und API-getriggerten Campaigns? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
 <style>
@@ -259,3 +267,7 @@ Mehrere Faktoren können dazu führen, dass die Anzahl der Sendungen niedriger i
 - **Segment-Neubewertung:** Bei aktionsbasierten oder geplanten Campaigns, die zum Sendezeitpunkt neu ausgewertet werden, sind Nutzer:innen, die beim Einreihen der Campaign im Segment waren, möglicherweise nicht mehr qualifiziert, wenn die Nachricht tatsächlich gesendet wird.
 - **Sendeobergrenzen:** Eine maximale Anzahl von Nutzer:innen (oder eine ähnliche Obergrenze) unter **Zielgruppe** stoppt die Zustellung, wenn die Obergrenze erreicht ist.
 - **Strenge Geräte- oder Browser-Filter:** Filter, die nur die neuesten App-Versionen oder Browser abgleichen, verkleinern die erreichbare Menge zum Sendezeitpunkt im Vergleich zu einer breiten Segment-Vorschau.
+
+### Wo finde ich häufig gestellte Fragen zum globalen Frequency-Capping? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+Für Fragen zu Kalendertagen, stillen Push-Benachrichtigungen, Webhooks, Canvas-Verhalten und verwandten Themen lesen Sie die [Häufig gestellten Fragen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) zu [Rate-Limiting und Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).

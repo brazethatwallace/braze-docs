@@ -11,12 +11,12 @@ description: "Dieser Artikel erklärt das verbundene Zielgruppen-Objekt, einschl
 
 > Ein verbundener Zielgruppen-Filter ist ein dynamischer Zielgruppen-Filter, den Sie direkt in Ihrer API-Anfrage definieren. So können Sie zum Sendezeitpunkt die richtigen Nutzer:innen ansprechen, ohne Segmente im Braze-Dashboard erstellen oder verwalten zu müssen.
 
-Anstatt für jede mögliche Zielgruppenkombination vorab ein Segment zu erstellen, übergeben Sie die Filterkriterien direkt im `audience`-Parameter Ihres API-Aufrufs. Braze wertet jede:n Nutzer:in in Realtime anhand dieser Kriterien aus und stellt die Nachricht nur an Nutzer:innen zu, die den Kriterien entsprechen. Das bedeutet, dass eine einzelne Campaign, ein Canvas oder eine reine API-Nachrichtendefinition eine unbegrenzte Anzahl von Zielgruppenvarianten bedienen kann – vollständig gesteuert durch Ihre Geschäftslogik.
+Anstatt für jede mögliche Zielgruppenkombination vorab ein Segment zu erstellen, übergeben Sie die Filterkriterien direkt in Ihrem API-Aufruf. Je nach Endpunkt wird dieses Objekt als `audience` oder `custom_audience` übergeben. Braze wertet jede:n Nutzer:in in Realtime anhand dieser Kriterien aus und stellt die Nachricht nur an Nutzer:innen zu, die den Kriterien entsprechen. Das bedeutet, dass eine einzelne Campaign, ein Canvas oder eine reine API-Nachrichtendefinition eine unbegrenzte Anzahl von Zielgruppenvarianten bedienen kann – vollständig gesteuert durch Ihre Geschäftslogik.
 
 ## So funktioniert es {#how-it-works}
 
 1. Definieren Sie Ihre Nachricht, indem Sie entweder eine API-getriggerte Campaign oder ein Canvas im Braze-Dashboard erstellen, oder definieren Sie den Nachrichteninhalt vollständig inline mithilfe der [Messaging-Objekte]({{site.baseurl}}/api/objects_filters/#messaging-objects) in Ihrer API-Anfrage. Verwenden Sie [Trigger-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) oder [Canvas-Kontext]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) für dynamische Personalisierung.
-2. Rufen Sie einen unterstützten Endpunkt auf und fügen Sie den `audience`-Parameter mit Ihren Filterkriterien hinzu. Sie können nach angepassten Attributen, Push-Abo-Status, E-Mail-Abo-Status und dem Zeitpunkt der letzten App-Nutzung filtern.
+2. Rufen Sie einen unterstützten Endpunkt auf und fügen Sie Ihre verbundenen Zielgruppen-Filter im `audience`-Parameter hinzu, oder in `custom_audience` für `/messages/live_activity/start`. Sie können nach angepassten Attributen, Push-Abo-Status, E-Mail-Abo-Status und dem Zeitpunkt der letzten App-Nutzung filtern.
 3. Braze wertet die Filter zum Sendezeitpunkt aus und stellt die Nachricht nur an Nutzer:innen zu, die Ihren Kriterien entsprechen.
 
 {% alert tip %}
@@ -27,7 +27,7 @@ Da die Zielgruppe pro Anfrage definiert wird, können Ihre Backend-Systeme konte
 
 ### Kompatible Endpunkte {#compatible-endpoints}
 
-Sie können das verbundene Zielgruppen-Objekt mit dem `audience`-Parameter an diesen Endpunkten verwenden:
+Sie können das verbundene Zielgruppen-Objekt an diesen Endpunkten verwenden:
 
 - [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)
@@ -35,6 +35,7 @@ Sie können das verbundene Zielgruppen-Objekt mit dem `audience`-Parameter an di
 - [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 - [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/)
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) (verwendet `custom_audience`)
 
 ## Anwendungsfälle {#use-cases}
 

@@ -76,6 +76,6 @@ CONTENT.
 ### ISSUE_TO_TROUBLESHOOT
 CONTENT.
 
-`````
+```
 {% endraw %}
 {% enddetails %}

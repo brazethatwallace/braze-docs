@@ -46,7 +46,17 @@ O editor de arrastar e soltar atualmente suporta duas camadas. Você pode defini
 
 ### Posso salvar meu e-mail de arrastar e soltar como modelo depois de criá-lo na minha Campaign ou Canvas? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Não, você deve recriar o e-mail em **Modelos de e-mail** para salvá-lo.
+Não. Não é possível salvar um e-mail de arrastar e soltar de uma Campaign ou Canvas como um **Modelo de e-mail** de arrastar e soltar em **Templates** > **Email Templates**. Recrie o layout em **Templates** > **Email Templates** ou comece a partir de um modelo salvo na próxima vez. Para instruções, consulte [Criar um modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+
+Se você precisar de um modelo HTML reutilizável, selecione **Download file** enquanto edita o corpo de arrastar e soltar, abra o HTML do ZIP e cole a marcação em um [modelo de e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) usando o editor de código HTML. Verifique novamente o Liquid, os links e os ativos hospedados depois.
+
+Para saber mais sobre onde os modelos ficam, consulte [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates/).
+
+### Por que não consigo alterar a cor de preenchimento de um botão no editor de arrastar e soltar? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+
+Os estilos no nível da página podem substituir os estilos no nível da mensagem. Se atualizar o **Fill** em um botão ou bloco não funcionar, tente o seguinte:
+1. Abra as [configurações globais de estilo de e-mail]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) e selecione **Reset to default** no estilo de página conflitante para que a cor no nível da mensagem possa ser aplicada.
+2. Defina a cor novamente no bloco.
 
 ### Posso adicionar anexos de e-mail ao editor de arrastar e soltar? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 

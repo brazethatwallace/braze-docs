@@ -9,7 +9,7 @@ page_type: reference
 
 # À propos de la disponibilité des données d'interaction de messagerie {#about-messaging-interaction-data-availability}
 
-> Cet article couvre les informations relatives aux données d'interaction des campagnes et Canvas ainsi que leur disponibilité.
+> Découvrez les données d'interaction de messagerie pour les campagnes et Canvas, notamment la durée de conservation par Braze et les fonctionnalités qui les utilisent pour le reciblage.
 
 ### Que sont les données d'interaction de messagerie ? {#what-is-messaging-interaction-data}
 

@@ -356,5 +356,13 @@ AASA 파일(iOS) 또는 Digital Asset Links 파일(Android)이 올바른 위치�
 
 앱이 열 수 있는 도메인에 대한 올바른 정의가 있는지 확인합니다.
 
-- **iOS:** Xcode에서 앱에 설정된 Associated Domains를 검토합니다([1c단계]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
+- **iOS:** Xcode에서 앱에 설정된 Associated Domains를 검토합니다([1c단계]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
 - **Android:** 앱 정보 페이지를 엽니다(앱 아이콘을 길게 누르고 ⓘ를 클릭). 앱 정보 메뉴에서 **기본으로 열기**를 찾아 탭합니다. 앱이 열 수 있는 모든 확인된 링크가 표시되는 화면이 나타납니다. 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
+
+#### 추적 도메인에서 .well-known 파일을 제공할 수 없는 경우 {#tracking-domain-cant-serve-well-known-files}
+
+경우에 따라 이메일 서비스 공급자의 제한이나 인프라 제약으로 인해 클릭 추적 도메인에서 필요한 `.well-known` 파일을 호스팅할 수 없을 수 있습니다. 추적 도메인에서 AASA 또는 Digital Asset Links 파일을 호스팅할 수 없는 경우 다음 옵션을 고려하세요:
+
+- **이메일 서비스 공급자에 추적 도메인에서 파일을 호스팅하도록 요청:** 클릭 추적 하위 도메인은 일반적으로 이메일 서비스 공급자(SendGrid, SparkPost 또는 Amazon SES)를 가리키는 CNAME입니다. 이메일 서비스 공급자가 해당 도메인의 트래픽을 종료하므로 `.well-known` 파일을 대신 호스팅할 수 있습니다. SendGrid와 SparkPost 모두 이를 지원합니다. 이메일 서비스 공급자에 직접 문의하여 요청하세요.
+- **딥링크 URL에서 클릭 추적을 선택적으로 비활성화:** 이메일 서비스 공급자가 파일을 호스팅할 수 없는 경우 특정 유니버설 링크에 대해 클릭 추적을 비활성화하여 기본 도메인(AASA 또는 Digital Asset Links 파일을 호스팅할 수 있는 곳)으로 직접 이동하도록 할 수 있습니다. 이 방법은 해당 특정 링크에 대한 클릭 분석 데이터가 손실될 수 있습니다. 자세한 내용은 [링크별 클릭 추적 비활성화](#turning-off-click-tracking-on-a-link-to-link-basis)를 참조하세요.
+- **추적 하위 도메인 앞에 CDN 배치:** 전체 클릭 추적 범위와 딥링킹이 모두 필요한 경우 추적 하위 도메인 앞에 CDN(예: Cloudflare 또는 CloudFront)을 배치할 수 있습니다. CDN이 `.well-known` 파일을 로컬에서 제공하고 다른 모든 트래픽을 이메일 서비스 공급자로 프록시하도록 구성합니다. 이 접근 방식은 더 복잡하지만 클릭 추적과 유니버설 링크 모두를 완전히 제어할 수 있습니다.

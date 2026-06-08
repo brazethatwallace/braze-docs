@@ -66,7 +66,7 @@ return (<>
 {% endtab %}
 {% tab Java %}
 
-```java
+`````````java
 // Get the initial value from the Braze SDK
 FeatureFlag featureFlag = braze.getFeatureFlag("enable_live_chat");
 Boolean liveChatEnabled = featureFlag != null && featureFlag.getEnabled();
@@ -89,7 +89,7 @@ if (liveChatEnabled) {
 {% endtab %}
 {% tab Kotlin %}
 
-```kotlin
+`````````kotlin
 // Get the initial value from the Braze SDK
 val featureFlag = braze.getFeatureFlag("enable_live_chat")
 var liveChatEnabled = featureFlag?.enabled
@@ -112,7 +112,7 @@ if (liveChatEnabled) {
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 // Get the initial value from the Braze SDK
 let featureFlag = braze.featureFlags.featureFlag(id: "enable_live_chat")
 var liveChatEnabled = featureFlag?.enabled ?? false
@@ -147,7 +147,7 @@ liveChatView.isHidden = !liveChatEnabled
 {% tabs %}
 {% tab JavaScript %}
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 import {useState} from "react";
 
@@ -172,7 +172,7 @@ return (<>
 {% endtab %}
 {% tab Java %}
 
-```java
+`````````java
 // liveChatView is the View container for the Live Chat UI
 FeatureFlag featureFlag = braze.getFeatureFlag("navigation_promo_link");
 if (featureFlag != null && featureFlag.getEnabled()) {
@@ -188,7 +188,7 @@ liveChatView.setPromoText(featureFlag.getStringProperty("text"));
 {% endtab %}
 {% tab Kotlin %}
 
-```kotlin
+`````````kotlin
 // liveChatView is the View container for the Live Chat UI
 val featureFlag = braze.getFeatureFlag("navigation_promo_link")
 if (featureFlag?.enabled == true) {
@@ -203,7 +203,7 @@ liveChatView.promoText = featureFlag?.getStringProperty("text")
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 let featureFlag = braze.featureFlags.featureFlag(id: "navigation_promo_link")
 if let featureFlag {
   liveChatView.isHidden = !featureFlag.enabled
@@ -227,17 +227,17 @@ liveChatView.promoText = featureFlag?.stringProperty("text")
 
 フィーチャーフラグを使用して、機能のロールアウトとメッセージングを同期し、プロダクトチームとマーケティングチームの連携を強化します。フィーチャーフラグを通じて機能リリースとメッセージングを調整することで、両チームが戦略を一致させ、一貫したユーザーエクスペリエンスを作成できます。
 
-たとえば、ユーザー向けに新しいロイヤルティ報酬プログラムを開始するとします。マーケティングチームとプロダクトチームにとって、プロモーションのメッセージングと機能のロールアウトのタイミングを完璧に調整するのは難しいことです。しかし、Canvasのフィーチャーフラグを使用すると、プロダクトチームは特定のオーディエンスに対して機能を有効にする高度なロジックを適用でき、マーケティングチームは同じユーザーに対して関連するメッセージングをコントロールできます。
+たとえば、ユーザー向けに新しいロイヤルティ報酬プログラムを開始するとします。マーケティングチームとプロダクトチームにとって、プロモーションのメッセージングと機能のロールアウトのタイミングを完璧に調整するのは難しいことです。しかし、キャンバスのフィーチャーフラグを使用すると、プロダクトチームは特定のオーディエンスに対して機能を有効にする高度なロジックを適用でき、マーケティングチームは同じユーザーに対して関連するメッセージングをコントロールできます。
 
-機能のロールアウトとメッセージングを効率的に調整するために、`show_loyalty_program` という新しいフィーチャーフラグを作成します。最初の段階的リリースでは、フィーチャーフラグを有効にするタイミングと対象をCanvasでコントロールします。この時点では、ロールアウトのパーセンテージは0%のままにし、ターゲットSegmentは選択しません。
+機能のロールアウトとメッセージングを効率的に調整するために、`show_loyalty_program` という新しいフィーチャーフラグを作成します。最初の段階的リリースでは、フィーチャーフラグを有効にするタイミングと対象をキャンバスでコントロールします。この時点では、ロールアウトのパーセンテージは0%のままにし、ターゲットセグメントは選択しません。
 
 ![ロイヤルティ報酬プログラムという名前のフィーチャーフラグ。IDはshow_loyalty_programであり、ホーム画面とプロファイルページに新しいロイヤルティ報酬プログラムが表示されることを示す説明です。]({% image_buster /assets/img/feature_flags/feature-flags-use-case-loyalty.png %})
 
-次に、Canvasで「高価値顧客」Segment向けの `show_loyalty_program` フィーチャーフラグを有効にする[フィーチャーフラグステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/)を作成します。
+次に、キャンバスで「高価値顧客」セグメント向けの `show_loyalty_program` フィーチャーフラグを有効にする[フィーチャーフラグステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/)を作成します。
 
-![オーディエンス分割ステップを含むCanvasの例で、高価値顧客Segmentがshow_loyalty_programフィーチャーフラグを有効にする場合。]({% image_buster /assets/img/feature_flags/feature-flags-use-case-canvas-flow.png %})
+![オーディエンス分割ステップを含むキャンバスの例で、高価値顧客セグメントがshow_loyalty_programフィーチャーフラグを有効にする場合。]({% image_buster /assets/img/feature_flags/feature-flags-use-case-canvas-flow.png %})
 
-これで、このSegmentのユーザーに対して新しいロイヤルティプログラムが表示され始め、有効にした後、メールと調査が自動的に送信され、チームがフィードバックを収集できるようになります。
+これで、このセグメントのユーザーに対して新しいロイヤルティプログラムが表示され始め、有効にした後、メールと調査が自動的に送信され、チームがフィードバックを収集できるようになります。
 
 ### 機能実験 {#feature-experimentation}
 
@@ -254,7 +254,7 @@ liveChatView.promoText = featureFlag?.stringProperty("text")
 {% tabs %}
 {% tab JavaScript %}
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 
 const featureFlag = braze.getFeatureFlag("enable_checkout_v2");
@@ -269,7 +269,7 @@ if (featureFlag?.enabled) {
 {% endtab %}
 {% tab Java %}
 
-```java
+`````````java
 FeatureFlag featureFlag = braze.getFeatureFlag("enable_checkout_v2");
 braze.logFeatureFlagImpression("enable_checkout_v2");
 if (featureFlag != null && featureFlag.getEnabled()) {
@@ -282,7 +282,7 @@ if (featureFlag != null && featureFlag.getEnabled()) {
 {% endtab %}
 {% tab Kotlin %}
 
-```kotlin
+`````````kotlin
 val featureFlag = braze.getFeatureFlag("enable_checkout_v2")
 braze.logFeatureFlagImpression("enable_checkout_v2")
 if (featureFlag?.enabled == true) {
@@ -295,7 +295,7 @@ if (featureFlag?.enabled == true) {
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 let featureFlag = braze.featureFlags.featureFlag(id: "enable_checkout_v2")
 braze.featureFlags.logFeatureFlagImpression(id: "enable_checkout_v2")
 if let featureFlag, featureFlag.enabled {
@@ -314,18 +314,18 @@ A/Bテストは、[フィーチャーフラグ実験]({{site.baseurl}}/developer
 
 ![トラフィックを50%ずつの2つのグループに分割するフィーチャーフラグ実験。]({% image_buster /assets/img/feature_flags/feature-flag-use-case-campaign-experiment.png %})
 
-勝者が決定したら、このCampaignを停止し、すべてのユーザーに対してフィーチャーフラグのロールアウト率を100%に増やすことができます。一方、エンジニアリングチームはこれを次のアプリリリースにハードコーディングします。
+勝者が決定したら、このキャンペーンを停止し、すべてのユーザーに対してフィーチャーフラグのロールアウト率を100%に増やすことができます。一方、エンジニアリングチームはこれを次のアプリリリースにハードコーディングします。
 
 ### セグメンテーション {#segmentation}
 
-**フィーチャーフラグ**フィルターを使用して、フィーチャーフラグが有効になっているかどうかに基づいて、Segmentを作成したりユーザーにターゲットメッセージを送信したりできます。たとえば、アプリのプレミアムコンテンツをコントロールするフィーチャーフラグがあるとします。フィーチャーフラグが有効になっていないユーザーをフィルター処理するSegmentを作成し、そのSegmentに対して、プレミアムコンテンツを表示するためにアカウントをアップグレードするように促すメッセージを送信できます。
+**フィーチャーフラグ**フィルターを使用して、フィーチャーフラグが有効になっているかどうかに基づいて、セグメントを作成したりユーザーにターゲットメッセージを送信したりできます。たとえば、アプリのプレミアムコンテンツをコントロールするフィーチャーフラグがあるとします。フィーチャーフラグが有効になっていないユーザーをフィルター処理するセグメントを作成し、そのセグメントに対して、プレミアムコンテンツを表示するためにアカウントをアップグレードするように促すメッセージを送信できます。
 
 ![]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
 
-Segmentでのフィルタリングの詳細については、[Segmentの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)を参照してください。
+セグメントでのフィルタリングの詳細については、[セグメントの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)を参照してください。
 
 {% alert note %}
-再帰的なSegmentを防ぐため、他のフィーチャーフラグを参照するSegmentを作成することはできません。
+再帰的なセグメントを防ぐため、他のフィーチャーフラグを参照するセグメントを作成することはできません。
 {% endalert %}
 
 ## プランの制限 {#plan-limitations}
@@ -335,17 +335,17 @@ Segmentでのフィルタリングの詳細については、[Segmentの作成](
 | 機能                                                                                                   | 無料バージョン     | 有料バージョン      |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | [アクティブなフィーチャーフラグ](#active-feature-flags)                                                                     | ワークスペースあたり10 | ワークスペースあたり110 |
-| [アクティブなCampaign実験]({{site.baseurl}}/developer_guide/feature_flags/experiments/)          | ワークスペースあたり1  | ワークスペースあたり100 |
-| [フィーチャーフラグCanvasステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | 無制限        | 無制限         |
+| [アクティブなキャンペーン実験]({{site.baseurl}}/developer_guide/feature_flags/experiments/)          | ワークスペースあたり1  | ワークスペースあたり100 |
+| [フィーチャーフラグキャンバスステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | 無制限        | 無制限         |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Plan limitations" }
 
 次のいずれかに該当する場合、フィーチャーフラグはアクティブと見なされ、制限に対してカウントされます。
 
 - ロールアウトが0%を超えている
-- アクティブなCanvasで使用されている
+- アクティブなキャンバスで使用されている
 - アクティブな実験で使用されている
 
-同じフィーチャーフラグがCanvasで使用されていてロールアウトが50%である場合など、複数の条件に一致する場合でも、制限に対してアクティブなフィーチャーフラグは1つとしてのみカウントされます。
+同じフィーチャーフラグがキャンバスで使用されていてロールアウトが50%である場合など、複数の条件に一致する場合でも、制限に対してアクティブなフィーチャーフラグは1つとしてのみカウントされます。
 
 {% alert note %}
 有料バージョンのフィーチャーフラグを購入するには、Brazeアカウントマネージャーにお問い合わせいただくか、Brazeダッシュボードでアップグレードをリクエストしてください。

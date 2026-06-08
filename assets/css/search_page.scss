@@ -113,23 +113,6 @@
   }
 
 
-  .algolia-docsearch-footer {
-      height: 30px;
-      font-size: 0;
-      line-height: 0;
-  }
-  .algolia-docsearch-footer--logo {
-      background-image: url(#{$base_url}/assets/img/algolia.svg);
-      background-repeat: no-repeat;
-      background-position: 100%;
-      overflow: hidden;
-      text-indent: -9000px;
-      padding: 0!important;
-      width: 150px;
-      height: 100%;
-      display: block;
-
-  }
   .ais-Hits-item, .ais-InfiniteHits-item {
     padding: 0px;
     border-style: none;

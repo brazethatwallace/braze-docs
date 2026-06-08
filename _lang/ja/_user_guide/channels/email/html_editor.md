@@ -29,8 +29,8 @@ search_rank: 1
 {% tabs %}
 {% tab Campaign %}
 
-1. **メッセージング** > **Campaigns**に移動し、**キャンペーンを作成**を選択します。
-2. **メール**を選択するか、複数チャネルを対象とするCampaignの場合は**マルチチャネル**を選択します。
+1. **Messaging** > **Campaigns**に移動し、**Create Campaign**を選択します。
+2. **Email**を選択するか、複数チャネルを対象とするCampaignの場合は**Multichannel**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
    * タグを使うと、Campaignの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
@@ -137,6 +137,16 @@ Gmailモバイルアプリ（AndroidおよびiOS）は、デバイスがダー�
 
 メールヘッダーやメールエクストラのパーソナライゼーションを追加して、他のメールサービスプロバイダーに追加データを送信することもできます。
 
+##### メールの添付ファイル {#email-attachments}
+
+以下の方法でメールに添付ファイルを追加することもできます。
+
+- **ファイルをアップロード：** コンピューターからファイルをドラッグ＆ドロップするか、参照して直接アップロードします。Brazeはアップロード前にファイルの種類とサイズ（デフォルトで最大2&nbsp;MB）を検証し、ファイルはメディアライブラリにアップロードされます。2&nbsp;MBの制限を超えるファイルはアップロードできません。
+- **メディアライブラリを使用：** [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)に既に保存されているアセットを参照して選択します。PDF、Word文書、Excelファイル、PowerPointプレゼンテーションがすべてサポートされています。
+- **URLから追加：** ファイルを指すURLを入力し、表示ファイル名を指定します。Brazeはメール作成中に任意のURLのサイズを調べることができないため、ファイルサイズは送信時に適用されます。このフィールドではLiquidはサポートされていません。
+
+具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)を参照してください。
+
 ##### メールヘッダー {#email-headers}
 
 メールヘッダーを追加するには、**Add New Header**を選択します。メールヘッダーには、送信されるメールに関する情報が含まれています。これらの[キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)には、通常、送信者、受信者、認証プロトコル、ルーティング情報が含まれます。Brazeは、メールが受信トレイプロバイダーに到達するために必要なRFC準拠のヘッダー情報を自動的に追加します。
@@ -152,7 +162,7 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
   <caption>メールヘッダー</caption>
 <thead>
   <tr>
@@ -262,11 +272,11 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 APIトリガーCampaignの場合、トリガーアクションが**Interact With Campaign**に設定されている場合、インタラクションとして**Receive**オプションを選択すると、Brazeが選択したCampaignを送信済みとしてマークした時点で新しいCampaignがトリガーされます。これは、そのメッセージがバウンスしたり配信に失敗した場合でも同様です。
 {% endalert %}
 
-Campaignの期間を設定したり、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)を指定したり、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを設定したりすることもできます。
+Campaignの期間を設定したり、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)を指定したり、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを設定したりすることもできます。
 
 #### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentまたはフィルターを選択して[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)します。Brazeは、メールでリーチ可能なユーザー数を含むSegment人口のライブプレビューを表示します。正確なSegmentメンバーシップは送信直前に計算されます。
+次に、Segmentやフィルターを選択して[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)します。Brazeは、メールでリーチ可能なユーザー数を含むSegment人口のライブプレビューを表示します。正確なSegmentメンバーシップは送信直前に計算されます。
 
 {% multi_lang_include target_audiences.md %}
 

@@ -13,9 +13,15 @@ channel: email
 
 ### ¿Qué ocurre cuando se envía un correo electrónico y varios perfiles tienen la misma dirección de correo electrónico? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Si varios usuarios con direcciones de correo electrónico coincidentes están en un segmento que va a recibir una campaña, se selecciona un perfil de usuario aleatorio con esa dirección de correo electrónico en el momento del envío. De esta forma, el correo electrónico se envía solo una vez y se deduplica, lo que garantiza que no llegue a la misma dirección de correo electrónico varias veces.
+Si varios usuarios con direcciones de correo electrónico coincidentes están en un segmento que va a recibir una campaña, se selecciona un único perfil de usuario con esa dirección de correo electrónico en el momento del envío. De esta forma, el correo electrónico se envía solo una vez y se deduplica, lo que garantiza que no llegue a la misma dirección de correo electrónico varias veces.
+
+**Direcciones de correo electrónico únicas:** Braze no exige que las direcciones de correo electrónico sean únicas entre perfiles. Si dependes de una relación uno a uno entre una dirección de correo electrónico y un perfil, monitorea internamente los duplicados al crear usuarios.
+
+**Deduplicación antes de Liquid:** Para envíos en los que Braze deduplica por dirección de correo electrónico dentro de un mismo despacho (por ejemplo, campañas planificadas donde varios miembros del segmento con la misma dirección se procesan juntos), esa deduplicación ocurre antes de que Liquid se ejecute para el perfil elegido para representar esa dirección. Si Liquid aborta para ese perfil (por ejemplo, con [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)), esa dirección no recibe el mensaje en ese despacho, incluidos los perfiles que ya fueron omitidos por la deduplicación. Los envíos desencadenados no aplican esa misma deduplicación de direcciones dentro del despacho; varios perfiles que comparten una dirección pueden seguir siendo elegibles en un mismo lote, por lo que este comportamiento de aborto no se aplica de la misma manera (consulta el siguiente párrafo).
 
 Si varios perfiles comparten una dirección de correo electrónico y uno de ellos cancela la suscripción, Braze actualiza otros perfiles (hasta 100) con esa dirección al mismo estado de suscripción. Esto se aplica a las cancelaciones de suscripción y a otros cambios, como el estado de suscripción global y los estados individuales de los grupos de suscripción.
+
+**Grupos semilla:** Para campañas con [Grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups), Braze selecciona un perfil para la entrega principal cuando varios perfiles comparten una dirección. Ese destinatario principal podría no estar en tu grupo semilla, incluso cuando otro perfil con la misma dirección sí lo está.
 
 Los siguientes escenarios pueden hacer que parezca que un usuario recibió un correo electrónico dos veces:
 
@@ -23,13 +29,15 @@ Los siguientes escenarios pueden hacer que parezca que un usuario recibió un co
 - **Varios perfiles de usuario tienen reenvío de correo electrónico:** Si un usuario tiene varias cuentas en una aplicación determinada pero una cuenta reenvía el correo, el usuario recibe la campaña una vez por buzón de entrada; el correo puede aparecer dos veces en el buzón de entrada donde se reenvían los mensajes. Solo algunos proveedores indican cuándo un correo electrónico fue reenviado desde otra cuenta.
 - **Configuración del correo electrónico en el destinatario:** Algunos clientes fusionan buzones de entrada ("buzón de entrada universal"). Si la misma campaña se dirige a varias cuentas que comparten un buzón de entrada, puede parecer que una persona recibió la campaña dos veces cuando en realidad se enviaron mensajes a dos perfiles distintos. El destinatario puede confirmar si varias cuentas están combinadas en un solo buzón de entrada.
 
-Ten en cuenta que esta deduplicación ocurre cuando los usuarios objetivo están incluidos en el mismo envío. Las campañas desencadenadas (excluyendo las campañas desencadenadas por API) y los Canvas pueden resultar en múltiples envíos a la misma dirección de correo electrónico (incluso dentro de un período en el que los usuarios podrían ser excluidos debido a la reelegibilidad) si diferentes usuarios con direcciones de correo electrónico coincidentes registran el evento desencadenante en momentos diferentes. Por ejemplo, si el usuario A y el usuario B comparten el correo electrónico `johndoe@example.com` pero sus perfiles están en zonas horarias diferentes, cuando el evento desencadenante de la campaña incluye el envío en la zona horaria del usuario, el correo electrónico `johndoe@example.com` recibe dos correos electrónicos.
+Esta deduplicación se aplica cuando los usuarios objetivo están incluidos en el mismo despacho. La reelegibilidad se evalúa por perfil, no por dirección de correo electrónico.
+
+La reelegibilidad de campañas de correo electrónico y pasos en Canvas utiliza el perfil de cada usuario, no el buzón de entrada, por lo que varios perfiles pueden calificar para envíos separados mientras se cumpla esa lógica. Combinado con desencadenantes, esto puede entregar más de un mensaje al mismo buzón de entrada incluso cuando intentas respetar un único período de inelegibilidad a nivel de dirección. Las campañas desencadenadas (excluyendo las campañas desencadenadas por API) y los Canvas también pueden enviar dos veces a una misma dirección cuando diferentes perfiles con direcciones de correo electrónico coincidentes cumplen el desencadenante en momentos diferentes; por ejemplo, si el usuario A y el usuario B comparten `johndoe@example.com` pero están en zonas horarias diferentes mientras la entrega usa zonas horarias locales.
 
 Los usuarios no se deduplican por correo electrónico en la entrada al Canvas, por lo que es posible que no se dedupliquen más allá del primer paso de un Canvas si avanzan en momentos ligeramente diferentes debido a la entrada con límite de velocidad. Cuando un usuario asociado a una dirección de correo electrónico determinada abre o hace clic en un correo electrónico, todos los perfiles de usuario que comparten esa dirección de correo electrónico se marcan como que abrieron o hicieron clic en la campaña.
 
 #### Excepción: campañas desencadenadas por API {#exception-api-triggered-campaigns}
 
-Las campañas desencadenadas por API deduplicarán o enviarán duplicados dependiendo de dónde se defina la audiencia. Los correos electrónicos duplicados deben dirigirse por separado en la llamada a la API utilizando `user_ids` distintos para recibir múltiples detalles. Estos son tres posibles escenarios para las campañas desencadenadas por API:
+Las campañas desencadenadas por API deduplicarán o enviarán duplicados dependiendo de dónde se defina la audiencia. Los correos electrónicos duplicados deben dirigirse por separado en la llamada a la API utilizando `user_ids` distintos para recibir múltiples entregas. Estos son tres posibles escenarios para las campañas desencadenadas por API:
 
 - **Escenario 1: Correos electrónicos duplicados en el segmento objetivo:** Si el mismo correo electrónico aparece en varios perfiles de usuario que están agrupados en los filtros de audiencia del dashboard para una campaña desencadenada por API, solo uno de los perfiles recibe el correo electrónico.
 - **Escenario 2: Correos electrónicos duplicados en diferentes `user_ids` dentro del objeto de destinatarios:** Si el mismo correo electrónico aparece dentro de múltiples valores de `external_user_id` referenciados por el objeto `recipients`, el correo electrónico se envía dos veces.
@@ -159,7 +167,7 @@ Para solucionar esto:
 
 ### ¿La métrica *Aperturas únicas* incluye las *Aperturas por máquina*? {#does-the-unique-opens-metric-include-machine-opens}
 
-No. *Aperturas únicas* cuenta solo las [Otras aperturas]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens), que excluyen los correos electrónicos identificados como aperturas por máquina. Las *Aperturas por máquina* se rastrean por separado. En la vista de **Campaign Analytics** y el **Generador de informes**, puedes ver ambas métricas de forma independiente.
+Sí. *Aperturas únicas* incluye las *Aperturas por máquina*. Puedes ver ambas métricas en la vista de **Campaign Analytics** y en el **Generador de informes**.
 
 ### ¿Por qué mi volumen de entrega de correo electrónico no coincide con mi volumen de envío? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
@@ -203,10 +211,26 @@ No. Cada parte del correo electrónico (asunto, cuerpo, encabezados, botones, et
 
 ### Mi plantilla de correo electrónico no aparece. ¿Dónde está? {#my-email-template-is-missing-where-is-it}
 
-Ve a **Templates** > **Email Templates**. Puedes filtrar por tipo (HTML o arrastrar y soltar).
-
-Confirma que tienes permiso para ver plantillas; consulta [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Primero, confirma que tienes los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para ver plantillas. Para ver las plantillas de correo electrónico guardadas, ve a **Content** > **Email**. Puedes filtrar las plantillas por estado y tipo (HTML o arrastrar y soltar).
 
 ### ¿Necesito registrar dominios para correos electrónicos de retransmisión o enmascarados? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 El [servicio de retransmisión de correo electrónico privado de Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) requiere que registres tus dominios de envío en el Portal de Desarrolladores de Apple para evitar rebotes. Google Shielded Email no requiere un proceso manual de registro de dominio ni de lista de permitidos.
+
+### ¿Qué significa el motivo de rebote `unable to get mx info` o `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+En el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), un motivo de rebote similar al anterior indica un problema al resolver la configuración de correo del dominio receptor (el dominio después del `@` en la dirección), no un problema con la composición del mensaje en Braze:
+
+Las causas típicas incluyen:
+
+- **Registros MX** faltantes, incorrectos o inaccesibles para ese dominio
+- Nombres de host de correo entrante que no se resuelven o que no pasan las verificaciones de **PTR (DNS inverso)** esperadas por la infraestructura receptora
+- Dominios no válidos o mal escritos en la dirección de correo electrónico
+
+**Próximos pasos:**
+
+- Confirma la ortografía de la dirección y el dominio.
+- Si la dirección es correcta, ponte en contacto con el propietario del buzón de entrada o el equipo de TI de ese dominio.
+- Pídeles que auditen los registros MX y los registros de DNS relacionados, incluidos los registros PTR de sus servidores de correo, con su proveedor de DNS.
+
+Los demás destinatarios generalmente no se ven afectados. Para ver cómo aparecen los rebotes blandos en los informes, consulta [Rebote blando]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).

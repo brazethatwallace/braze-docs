@@ -52,6 +52,8 @@ There is a default attribute for the user’s location: `{{${most_recent_locatio
 Both `{{campaign.${name}}}` and `{{campaign.${message_name}}}` are supported Liquid personalization tags. Both tags reference campaign attributes. `{{campaign.${name}}}` denotes the name of your campaign, and `{{campaign.${message_name}}}` is the name of your message variant.
 {% endraw %}
 
+For URL and query string use (for example, when a name contains `%` or spaces), see [Campaign names in URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls).
+
 ### How do I use Liquid with nested objects?
 
 Braze has a built-in feature that generates Liquid code for segments that can be used in a message. Specifically, you can create a segment that matches multiple criteria in an object.
@@ -140,3 +142,64 @@ Join our VIP program to unlock free shipping.
 {% endcapture %}
 ```
 {% endraw %}
+
+### Do Liquid variables carry between subject line and body?
+
+No. Braze renders each message component separately (such as subject line, HTML body, preheader, and push title). Assignments or captures you make in one field are not available in another. Repeat the Liquid or Connected Content call in each field that needs the value.
+
+
+### Can I use Liquid inside the `abort_message` tag?
+
+{% raw %}No. The {% abort_message %} tag accepts a static string in quotes, not Liquid personalization.{% endraw %} Use other Liquid logic before the tag if you need conditional abort behavior.
+
+### Why am I seeing an "Unexpected end token" Liquid error?
+
+This error usually indicates extra or missing curly braces. Do not nest `{{ }}` inside another Liquid tag expression. For example, use {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} rather than wrapping the attribute reference in an additional pair of braces.
+
+### Why does my message abort with "Invalid from email address for recipient:"?
+
+This abort occurs when Liquid in the **From** address produces invalid syntax, such as a missing variable, extra spaces, or disallowed characters. Preview with a test user and verify the rendered **From** address matches your configured sending domain.
+
+### Why is my Content Block missing from **Row** in the drag-and-drop search tool?
+
+Some Content Blocks do not appear under **Row** in the drag-and-drop editor search. Add an HTML block from the **Content** tab (**Advanced**), then insert the Content Block Liquid tag in that HTML block to render the block content.
+
+### How do I create a dynamic Reply-To address?
+
+Use Liquid in the **Reply-To** field when your workspace supports dynamic Reply-To configuration. Pair it with your **From** display name settings as needed. See [Email settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) for workspace-specific options.
+
+### Why does my drag-and-drop Content Block preview differ from the compose view?
+
+When you template a Content Block with Liquid, mobile media queries in the block may not apply in the preview the same way they do when you drag the block directly into a message. Dragging the block preserves layout but decouples it from the source block, so future block edits no longer update the message automatically.
+
+### Are there size limits for Canvas context properties?
+
+Braze does not enforce a hard limit on [Canvas context properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), but keep payloads under approximately 1 KB (~1,000 characters). Larger objects can increase memory use and delay message rendering during high-volume sends.
+
+### Why does my Catalog Liquid snippet return an abort message?
+
+If a Catalog Liquid snippet aborts during send, recreate the snippet from the personalization menu by selecting individual catalog items instead of using a bulk or fully dynamic selection. See [Catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/) and [Selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+
+### Why do I get a Liquid error when previewing certain data types in the dashboard?
+
+Some [Canvas context property]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) types require coercion in Liquid before you use them in comparisons or math. For example, when you need numeric behavior:
+
+{% raw %}
+```liquid
+{{context.${property_name} | plus: 0}}
+```
+{% endraw %}
+
+### Why is Connected Content retry unavailable for my in-app message?
+
+{% raw %}
+The `{% connected_content %}` tag with retry is not supported for all message types, including some in-app message formats. Remove retry parameters or use a supported channel for retried Connected Content calls.
+{% endraw %}
+
+### How do I preview event property values in Message Composer?
+
+Use **Preview as Custom User** and enter sample custom event property values for the user you preview. This is also useful for messages with abort logic when you need preview values that do not trigger an abort.
+
+### Does Braze support an array of arrays in Liquid?
+
+Liquid does not natively support arrays of arrays. Store values as an array of comma-separated strings and use the `split` filter to parse them when needed.

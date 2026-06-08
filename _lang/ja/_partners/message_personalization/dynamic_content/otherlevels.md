@@ -139,7 +139,7 @@ APIレスポンスの一部として、OtherLevelsはAPIコールが成功した
 以下はAPIからのレスポンスの例です。
 
 {% raw %}
-```bash
+`````````bash
 {"$schema":"https://exp-platform-api.prod.awsotherlevels.com/schemas/GenerateMediaResBody.json","message":"success","recipe_id":"LMINHWXV2BBD6JGV5VF3ZNZV7BDDRR7FH5FJH6MMX4BVLTPRKTWQ","media_short_id":"LMINHWX","status":"triggered"}
 ```
 {% endraw %}
@@ -155,7 +155,7 @@ APIレスポンスの一部として、OtherLevelsはAPIコールが成功した
 {% endalert %}
 
 {% raw %}
-```bash
+`````````bash
 curl --location --request POST 'BRAZE_API_ENDPOINT/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer BRAZE_API_KEY' \
@@ -184,8 +184,8 @@ curl --location --request POST 'BRAZE_API_ENDPOINT/users/track' \
 
 GenAI動画をiOSプッシュメッセージとしてユーザーに送信するには、以下の手順に従います。
 
-1. Braze iOSプッシュ通知Campaignを作成します。
-2. Campaignの作成中に、**アセット**セクションに移動し、以下のコネクテッドコンテンツ構文を**URLから追加**フィールドに貼り付けます。
+1. Braze iOSプッシュ通知キャンペーンを作成します。
+2. キャンペーンの作成中に、**アセット**セクションに移動し、以下のコネクテッドコンテンツ構文を**URLから追加**フィールドに貼り付けます。
 
 {% raw %}
 ```
@@ -197,7 +197,7 @@ GenAI動画をiOSプッシュメッセージとしてユーザーに送信する
 
 {: start="3"}
 3. **URLファイル形式**のドロップダウンで、**MP4**を選択します。
-4. Campaignの残りの部分（メッセージ内容、送信スケジュール、ターゲットオーディエンスなど）を、希望する設定に基づいて構成します。
+4. キャンペーンの残りの部分（メッセージ内容、送信スケジュール、ターゲットオーディエンスなど）を、希望する設定に基づいて構成します。
 
 ![コネクテッドコンテンツのアセットフィールドの例。]({% image_buster /assets/img/otherlevels/1.png %})
 

@@ -12,17 +12,17 @@ description: "Esta página de referencia describe los operadores que admite Liqu
 
 Esta tabla enumera los operadores admitidos. Ten en cuenta que los paréntesis son caracteres no válidos en Liquid e impiden que tus etiquetas funcionen.
 
-|   Sintaxis| Descripción del operador|
+| Sintaxis | Descripción del operador |
 |---------|-----------|
 | ==  | igual a        |
-| !=  | no es igual a|
+| !=  | no es igual a |
 |  >  | mayor que  |
 | <   | menor que     |
-| >=| mayor o igual que|
+| >= | mayor o igual que |
 | <= | menor o igual que |
-| or | condición A o condición B|
-| and | condición A y condición B|
-| contains | comprueba si una cadena o un arreglo de cadenas contiene una cadena|
+| or | condición A o condición B |
+| and | condición A y condición B |
+| contains | comprueba si una cadena o un arreglo de cadenas contiene una cadena |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
 
 {% alert note %}
@@ -246,6 +246,10 @@ Stream now!
 También puedes [cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/) basándote en contenido conectado.
 
 ## Solución de problemas {#troubleshooting}
+
+### El envío de prueba no llega al usar `abort_message` {#test-send-doesnt-arrive-when-using-abort_message}
+
+Si usas [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) y un envío de prueba nunca llega, es posible que al usuario de vista previa le falten atributos que tu Liquid espera. La lógica de cancelación se ejecuta durante el renderizado; cuando se activa, Braze no envía el mensaje. Previsualiza con un usuario que tenga los datos de perfil necesarios, o usa **Preview as user** para probar campos de destinatario que proporcionen los mismos valores que tendría tu audiencia de producción.
 
 ### La vista previa puede convertir incorrectamente los tipos de propiedad {#preview-may-incorrectly-coerce-property-types}
 

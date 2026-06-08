@@ -16,7 +16,7 @@ description: "Learn how to create and customize webhook templates for later use 
 
 ## Step 1: Go to the webhook template editor
 
-In the Braze dashboard, go to **Templates** > **Webhook Templates**.
+In the Braze dashboard, go to **Content** > **Webhook**.
 
 ![The "Webhook Templates" page with predesigned and saved webhook templates.]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 

@@ -62,10 +62,18 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     {
       "name": "Created_At",
       "type": "time"
+    },
+    {
+      "name": "Location",
+      "type": "geo"
     }
   ]
 }'
 ```
+
+{% alert note %}
+Você deve fornecer os valores do campo de geolocalização como um vetor `[longitude, latitude]` — por exemplo, `[-73.988103, 40.779109]`. A latitude deve estar entre -90 e 90; a longitude deve estar entre -180 e 180.
+{% endalert %}
 
 ## Resposta {#response}
 

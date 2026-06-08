@@ -372,8 +372,20 @@ $doc_transition_time: 0.25s;
 }
 #doc-main-search {
 	margin: 50px auto auto auto;
+	width: 100%;
 	@media (min-width: $window-xxlarge-px) {
 		max-width: 1500px;
+	}
+	#su_main_search {
+		width: 100%;
+		max-width: 1250px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.su__container {
+		max-width: 100% !important;
+		padding: 0 !important;
+		width: 100% !important;
 	}
 }
 #footer_div {

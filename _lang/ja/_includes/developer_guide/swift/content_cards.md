@@ -36,7 +36,7 @@ func pushViewController() {
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (void)pushViewController {
   BRZContentCardUIViewController *contentCardsController = [[BRZContentCardUIViewController alloc] initWithBraze:self.braze];
   // Implement and set `BrazeContentCardUIViewControllerDelegate` if you wish to intercept click actions.
@@ -55,7 +55,7 @@ func pushViewController() {
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func presentModalViewController() {
   guard let braze = AppDelegate.braze else { return }
   let contentCardsModal = BrazeContentCardUI.ModalViewController(braze: braze)
@@ -68,7 +68,7 @@ func presentModalViewController() {
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (void)presentModalViewController {
   BRZContentCardUIModalViewController *contentCardsModal = [[BRZContentCardUIModalViewController alloc] initWithBraze:AppDelegate.braze];
   // Implement and set `BrazeContentCardUIViewControllerDelegate` if you wish to intercept click actions.

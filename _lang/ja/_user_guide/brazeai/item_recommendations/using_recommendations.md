@@ -65,7 +65,7 @@ page_order: 1.2
 次に、配列インデックスとドット表記を使用して、特定のアイテムとそのフィールドを参照します：
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign items = {{product_recommendation.${recommendation_name}}} %}
 {{ items[0].name }} for {{ items[0].price }}
 ```
@@ -74,7 +74,7 @@ page_order: 1.2
 複数のアイテムを含めるには、各アイテムをインデックスで個別に参照します。`.name`と`.price`は、対応するフィールドをカタログからプルします。
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign items = {{product_recommendation.${recommendation_name}}} %}
 {{ items[0].name }} for {{ items[0].price }}
 {{ items[1].name }} for {{ items[1].price }}
@@ -99,7 +99,7 @@ AIレコメンデーションは複数の製品を配列として返します。
 **Image with Liquid**を切り替え、**Dynamic URL**フィールドに以下を追加します（URLフィールドは改行をサポートしていないため、コードが1行で表示されていることを確認してください）：
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign items = {{product_recommendation.${recommendation_name}}} %}{{ items[0].image_url_field }}
 ```
 {% endraw %}
@@ -119,7 +119,7 @@ AIレコメンデーションは複数の製品を配列として返します。
 HTML画像参照の場合、画像の`src`属性をカタログの画像URLフィールドに設定します。製品名や説明など、別のフィールドをaltテキストとして使用することもできます。
 
 {% raw %}
-```html
+`````````html
 {% assign items = {{product_recommendation.${recommendation_name}}} %}
 <img src="{{ items[0].image_url_field }}" alt="{{ items[0].name }}">
 ```

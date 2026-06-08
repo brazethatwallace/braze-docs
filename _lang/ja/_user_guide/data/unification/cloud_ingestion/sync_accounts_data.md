@@ -258,14 +258,14 @@ CDIを使って、データウェアハウスやファイルストレージを�
 {% endalert %}
 {% endsubtab %}
 {% subtab CSV Accounts with Delete %}
-```plaintext
+`````````plaintext
 ID,NAME,PAYLOAD,DELETED
 85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}",TRUE
 1,"ACCOUNT_2","{""region"": ""EMEA"", ""employees"": 10000}",FALSE
 ```
 {% endsubtab %}
 {% subtab CSV Accounts without Delete %}
-```plaintext
+`````````plaintext
 ID,NAME,PAYLOAD
 85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}"
 1,"ACCOUNT_2","{""region"": ""EMEA"", ""employees"": 10000}"
@@ -283,7 +283,7 @@ ID,NAME,PAYLOAD
 
 {% tabs %}
 {% tab Snowflake %}
-```sql
+`````````sql
 CREATE VIEW BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -301,7 +301,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Redshift %}
-```sql
+`````````sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -319,7 +319,7 @@ SELECT
 ```
 {% endtab %}
 {% tab BigQuery %}
-```sql
+`````````sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     account_id as ID,
@@ -335,7 +335,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SEL
 ```
 {% endtab %}
 {% tab Databricks %}
-```sql
+`````````sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     account_id as ID,
@@ -351,7 +351,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SEL
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
-```sql
+`````````sql
 CREATE VIEW [BRAZE_CLOUD_PRODUCTION].[INGESTION].[ACCOUNTS_SYNC]
 AS SELECT
     account_id as ID,

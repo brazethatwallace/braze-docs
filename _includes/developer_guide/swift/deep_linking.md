@@ -242,6 +242,8 @@ You can customize the `Braze.WebViewController` via the [`BrazeDelegate.braze(_:
 
 The `BrazeDelegate` protocol can be used to customize the handling of URLs such as deep links, web URLs, and universal links. To set the delegate during Braze initialization, set a delegate object on the `Braze` instance. Braze will then call your delegate's implementation of `shouldOpenURL` before handling any URIs.
 
+When a push notification or in-app message uses **Open web URL inside mobile app**, Braze passes `context.useWebView == true` on [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext). When the message opens the URL in the system browser instead, `useWebView` is `false`. Inspect `context.useWebView` in `braze(_:shouldOpenURL:)` to branch your custom handling—for example, to open an in-app `WebViewController` only when the campaign requested in-app display.
+
 #### Universal links {#universal-links}
 
 Braze supports universal links in push notifications, in-app messages, and Content Cards. To enable universal link support, [`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) must be set to `true`.

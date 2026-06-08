@@ -52,6 +52,8 @@ L'endpoint V2 diffère de l'[endpoint V1]({{site.baseurl}}/api/endpoints/subscri
 **Format du numéro de téléphone** : Les numéros de téléphone doivent être au [format E.164](https://en.wikipedia.org/wiki/E.164) (par exemple, `+12223334444`). Les numéros de téléphone qui ne sont pas au format E.164 sont rejetés.
 {% endalert %}
 
+{% multi_lang_include api/orphaned_subscription_states.md %}
+
 ## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='subscription status set' %}

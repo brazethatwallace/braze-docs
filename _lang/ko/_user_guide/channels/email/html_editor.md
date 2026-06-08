@@ -137,6 +137,16 @@ Gmail 모바일 앱(Android 및 iOS)은 기기가 다크 모드일 때 배경색
 
 이메일 헤더와 이메일 추가 정보에 개인화를 추가하여 다른 이메일 서비스 제공업체로 추가 데이터를 보낼 수도 있습니다.
 
+##### 이메일 첨부 파일 {#email-attachments}
+
+다음 방법으로 이메일 첨부 파일을 추가할 수도 있습니다:
+
+- **파일 업로드:** 컴퓨터에서 직접 파일을 드래그 앤 드롭하거나 찾아보기로 이메일에 업로드합니다. Braze는 업로드 전에 파일 유형과 크기(기본적으로 최대 2&nbsp;MB)를 검증한 후 미디어 라이브러리에 업로드합니다. 2&nbsp;MB 제한을 초과하는 파일은 업로드할 수 없습니다.
+- **미디어 라이브러리 사용:** [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에 이미 저장된 자산을 찾아보고 선택합니다. PDF, Word 문서, Excel 파일, PowerPoint 프레젠테이션이 모두 지원됩니다.
+- **URL에서 추가:** 파일을 가리키는 URL을 입력하고 표시 파일 이름을 제공합니다. Braze는 이메일 작성 중에 임의의 URL의 크기를 확인할 수 없으므로, 파일 크기는 발송 시점에 적용됩니다. 이 필드에서는 Liquid가 지원되지 않습니다.
+
+구체적인 모범 사례는 [이메일 가이드라인]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)을 참조하세요.
+
 ##### 이메일 헤더 {#email-headers}
 
 이메일 헤더를 추가하려면 **Add New Header**를 선택합니다. 이메일 헤더에는 발송되는 이메일에 대한 정보가 포함됩니다. 이러한 [키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)에는 일반적으로 발신자, 수신자, 인증 프로토콜 및 라우팅 정보가 포함됩니다. Braze는 이메일이 받은편지함 제공업체에 도달할 수 있도록 RFC에서 요구하는 헤더 정보를 자동으로 추가합니다.
@@ -262,7 +272,7 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 API 트리거 Campaign의 경우, 트리거 동작이 **Interact With Campaign**으로 설정되어 있을 때 상호작용으로 **Receive** 옵션을 선택하면, 해당 메시지가 반송되거나 전달에 실패하더라도 Braze가 선택한 Campaign을 발송 완료로 표시하는 즉시 새 Campaign이 트리거됩니다.
 {% endalert %}
 
-Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 설정할 수도 있습니다.
+Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 설정할 수도 있습니다.
 
 #### 타겟 사용자 선택하기 {#choose-users-to-target}
 

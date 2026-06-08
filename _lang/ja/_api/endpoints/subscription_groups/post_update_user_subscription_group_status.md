@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "この記事では、「ユーザーのサブスクリプショングループステータスの更新」Brazeエンドポイントの詳細について説明します。"
 ---
+
 {% api %}
 # ユーザーのサブスクリプショングループステータスの更新 {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ description: "この記事では、「ユーザーのサブスクリプション
 {% alert note %}
 このエンドポイントを[LINEサブスクリプショングループ]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/)で使用することに興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## レート制限 {#rate-limit}
 
@@ -144,5 +147,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
 {% alert important %}
 このエンドポイントは`email`または`phone`の値のみを受け付け、両方を同時に受け付けることはできません。両方を指定した場合、次の応答が返されます: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
+
+サブスクリプションの更新を電話番号に適用するには、E.164形式の電話番号（例: `+15555550123`）を送信し、正しい`subscription_group_id`を使用し、同じリクエスト本文で`phone`のみ（`phone`と`email`の両方ではなく）を渡していることを確認してください。複数番号の更新には、[SMSとRCS](#sms-and-rcs)に示されている`phone`配列形式を使用してください。
 
 {% endapi %}

@@ -16,7 +16,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Canva
 
 > Verwenden Sie diesen Endpunkt, um Zeitreihendaten für ein Canvas zu exportieren.
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 

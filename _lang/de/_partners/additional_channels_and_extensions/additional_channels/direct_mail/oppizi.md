@@ -45,11 +45,12 @@ Von dieser Seite aus können Sie Ihre Schlüssel nach Bedarf verwalten, widerruf
 
 ### 2. Schritt: Erstellen Sie ein Braze-Webhook-Template {#step-2-create-a-braze-webhook-template}
 
-Erstellen Sie als Nächstes ein Webhook-Template für Oppizi in Braze, das Sie in zukünftigen Campaigns oder Canvases verwenden können.
+Erstellen Sie als Nächstes ein Webhook-Template für Oppizi in Braze, das Sie in zukünftigen Campaigns oder Canvases verwenden können:
 
-1. Gehen Sie in Braze zu **Templates** > **Webhook Templates**.
-
-Füllen Sie in Ihrem Webhook-Template die folgenden Felder aus:
+1. Gehen Sie in Braze zu **Content** > **Webhook**.
+2. Wählen Sie **Create webhook template**.
+3. Geben Sie einen Namen für das Template ein.
+4. Füllen Sie in Ihrem Webhook-Template die folgenden Felder aus:
 
 - **Webhook URL:** `https://webhooks.oppizi.com/events`
 - **Request Body:** **Raw Text**

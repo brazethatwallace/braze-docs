@@ -2,7 +2,7 @@
 nav_title: Criação de cartões
 article_title: Criação de cartões
 alias: /card_creation/
-description: "Este artigo descreve as diferenças entre a criação do cartão de conteúdo no lançamento da campanha ou na entrada da etapa do Canvas versus na primeira impressão."
+description: "Este artigo descreve as diferenças entre a criação do cartão de conteúdo no lançamento da Campaign ou na entrada da etapa do Canvas versus na primeira impressão."
 page_order: 0
 tool: Campaigns
 channel:
@@ -12,7 +12,7 @@ toc_headers: h2
 
 # Criação de cartões {#card-creation}
 
-> Você pode escolher quando a Braze avalia a elegibilidade do público e a personalização para novas campanhas de Content Cards e etapas do Canvas, especificando quando o cartão é criado.
+> Você pode escolher quando a Braze avalia a elegibilidade do público e a personalização para novas Campaigns de Content Cards e etapas do Canvas, especificando quando o cartão é criado.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -67,6 +67,10 @@ Selecione a opção para remover Content Cards quando os usuários concluírem u
 Nas configurações de **Expiration (Time in Feed)**, você pode selecionar **Personalize duration** para definir a expiração do Content Card usando variáveis de contexto.
 
 ![Configurações de expiração mostrando Personalize duration configurada com uma variável de contexto para expiração do Content Card.]({% image_buster /assets/img/content_card_personalize_duration.png %})
+
+{% alert important %}
+Content Cards têm uma expiração máxima de 30 dias, mesmo ao usar duração personalizada com variáveis de contexto. Qualquer valor definido além de 30 dias é limitado a 30 dias. Para mais detalhes, consulte [Expiração do cartão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+{% endalert %}
 
 {% endtab %}
 {% endtabs %}
@@ -127,6 +131,10 @@ Esta seção descreve as principais diferenças entre a criação de cartões no
 
 ## Considerações {#considerations}
 
+### Campaigns multicanal {#multichannel-campaigns}
+
+Campaigns multicanal não suportam cartões na primeira impressão, então todos os Content Cards são enviados no lançamento da Campaign.
+
 ### Usando propriedades de contexto do Canvas {#using-canvas-context-properties}
 
 Ao personalizar Content Cards com [propriedades de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), use a sintaxe `${...}` (por exemplo, {%raw%}`{{context.${property_name}}}`{%endraw%}). A notação de ponto sem essa sintaxe (por exemplo, {%raw%}`{{context.property_name}}`{%endraw%}) pode não ser resolvida corretamente em Content Cards, mesmo que funcione em outros canais como push e e-mail.
@@ -139,7 +147,7 @@ A Braze recomenda não alterar como os cartões são criados após o lançamento
 
 Para públicos grandes, selecione a opção de criar cartões na primeira impressão para que os cartões fiquem disponíveis rapidamente após o lançamento. Campaigns disparadas no início da sessão também podem se beneficiar ao mudar para criação na primeira impressão (disponível por meio de entrega agendada) para melhorar o desempenho.
 
-Quando os cartões são criados na primeira impressão, pode levar de 1 a 2 segundos para processá-los. A duração desse tempo de processamento depende de vários fatores, como o tamanho do cartão e a complexidade das opções de modelo da mensagem. Por exemplo, o tempo de processamento para cartões que usam Conteúdo conectado será pelo menos tão longo quanto o tempo de resposta do Conteúdo conectado.
+Quando os cartões são criados na primeira impressão, pode levar alguns segundos para processá-los. A duração desse tempo de processamento depende de vários fatores, como o tamanho do cartão e a complexidade das opções de modelo da mensagem. Por exemplo, o tempo de processamento para cartões que usam Conteúdo conectado será pelo menos tão longo quanto o tempo de resposta do Conteúdo conectado.
 
 ### Versões anteriores do SDK {#previous-sdk-versions}
 

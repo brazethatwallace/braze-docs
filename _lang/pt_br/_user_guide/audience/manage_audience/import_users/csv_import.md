@@ -148,6 +148,10 @@ Arrays, tokens por push e tipos de dados de eventos personalizados não são sup
 Ao importar atributos padrão, os cabeçalhos de coluna que você usar devem corresponder exatamente à ortografia e capitalização dos atributos de usuário padrão. Caso contrário, a Braze os detectará como [atributos personalizados](#custom-attributes).
 {% endalert %}
 
+{% alert tip %}
+Para a lista completa de atributos padrão que a Braze reconhece (via SDK, API, CSV e Ingestão de dados na nuvem), consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). A tabela a seguir abrange apenas o subconjunto que pode ser definido por meio da importação por CSV.
+{% endalert %}
+
 Os seguintes atributos padrão estão disponíveis para importação de usuários.
 
 | Campo do perfil de usuário | Tipo de dado | Descrição | Obrigatório? |
@@ -444,7 +448,9 @@ Se seu objetivo é criar um segmento sem atualizar dados de perfil, faça upload
 
 Se o seu upload foi concluído com erros, pode haver uma linha malformada no seu arquivo CSV.
 
-Para importar dados corretamente, deve haver uma linha de cabeçalho. Cada linha deve ter o mesmo número de células que a linha de cabeçalho. Linhas com mais ou menos valores que a linha de cabeçalho serão excluídas da importação. Vírgulas em um valor serão interpretadas como separador e podem causar esse erro. Além disso, todos os dados devem ser codificados em UTF-8.
+Para importar dados corretamente, deve haver uma linha de cabeçalho. Cada linha deve ter o mesmo número de células que a linha de cabeçalho. Linhas com mais ou menos valores que a linha de cabeçalho serão excluídas da importação. Vírgulas em um valor serão interpretadas como separador e podem causar esse erro.
+
+Além disso, todos os dados devem ser codificados em UTF-8. Se o arquivo for salvo com uma codificação legada (por exemplo, alguns padrões do Excel), caracteres especiais e URLs nas células podem ser corrompidos e aparecer como pontos de interrogação (`?`) na Braze ou nas mensagens enviadas.
 
 Se o seu arquivo CSV tiver linhas em branco e importar menos linhas do que o total de linhas no arquivo CSV, isso pode não indicar um problema com a importação, já que as linhas em branco não precisariam ser importadas. Verifique o número de linhas que foram importadas corretamente e confirme se corresponde ao número de usuários que você está tentando importar.
 

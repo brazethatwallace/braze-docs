@@ -82,6 +82,12 @@ Accédez à votre [tableau de bord Comm.One](https://ums.cjmplace.com/) et rasse
 
 ![Tableau de bord Comm.One affichant une clé d'expéditeur masquée.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
+{% alert important %}
+Vous ne pouvez intégrer une clé d'expéditeur KakaoTalk que dans un seul espace de travail à la fois. Pour utiliser la même clé d'expéditeur dans un autre espace de travail, vous devez d'abord archiver le groupe d'abonnement KakaoTalk dans l'espace de travail d'origine, puis contacter l'[assistance Braze]({{site.baseurl}}/braze_support/) pour supprimer l'intégration. Une fois l'intégration supprimée par Braze, vous pouvez configurer l'intégration dans le nouvel espace de travail.
+{% endalert %}
+
+![Identifiants pour un canal KakaoTalk Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
+
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
 
@@ -95,13 +101,11 @@ Accédez à votre [tableau de bord Comm.One](https://ums.cjmplace.com/) et rasse
 {% endtab %}
 {% endtabs %}
 
-![Champs sur la page Technology Partners pour CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Identifiants pour un canal KakaoTalk Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 Seuls les canaux associés à un identifiant commun unique peuvent être enregistrés.
 {% endalert %}
+
+![Champs sur la page Technology Partners pour CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 

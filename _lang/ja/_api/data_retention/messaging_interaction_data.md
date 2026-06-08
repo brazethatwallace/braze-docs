@@ -9,7 +9,7 @@ page_type: reference
 
 # メッセージングインタラクションデータの利用可能性について {#about-messaging-interaction-data-availability}
 
-> この記事では、CampaignおよびCanvasのインタラクションデータとその利用可能性について説明します。
+> CampaignおよびCanvasesのメッセージングインタラクションデータについて、Brazeがデータを保持する期間やリターゲティングに使用する機能を含めて説明します。
 
 ### メッセージングインタラクションデータとは {#what-is-messaging-interaction-data}
 
@@ -17,15 +17,15 @@ page_type: reference
 
 ### メッセージングインタラクションデータはいつ利用可能ですか {#when-is-messaging-interaction-data-available}
 
-インタラクションデータは常に利用可能です。アクティブなCampaignsおよびCanvasesの場合、インタラクションデータは常にリアルタイムで利用できます。
+インタラクションデータは常に利用可能です。アクティブなCampaignおよびCanvasesの場合、インタラクションデータは常にリアルタイムで利用できます。
 
-停止されたCampaignsおよびCanvasesの場合、そのインタラクションデータは、アクティブなCampaignsまたはCanvasesのリターゲティングフィルターで使用されていない限り、3か月後に期限切れになります。期限切れのインタラクションデータは長期ストレージに移動され、以下に説明するプロセスを使用して復元しない限り利用できません。
+停止されたCampaignおよびCanvasesの場合、そのインタラクションデータは、アクティブなCampaignまたはCanvasesのリターゲティングフィルターで使用されていない限り、3か月後に期限切れになります。期限切れのインタラクションデータは長期ストレージに移動され、以下に説明するプロセスを使用して復元しない限り利用できません。
 
 期限切れのインタラクションデータは削除されることはなく、いつでも復元できます。
 
 #### インタラクションデータを使用する機能 {#features-that-use-interaction-data}
 
-以下の機能はメッセージングインタラクションデータを使用します：
+以下の機能はメッセージングインタラクションデータを使用します。
 
 - 特定のCampaignまたはCanvasでリターゲティングするリターゲティングフィルター
     - Clicked Alias in Campaign
@@ -42,13 +42,13 @@ page_type: reference
     - Received Campaign Variant
     - Received Message from Campaign
     - Received Message from Canvas Step
-- 特定のタグを持つCampaignsまたはCanvasesでリターゲティングするリターゲティングフィルター
+- 特定のタグを持つCampaignまたはCanvasesでリターゲティングするリターゲティングフィルター
     - Received Message from Campaign or Canvas with Tag
     - Clicked/Opened Campaign or Canvas With Tag
     - Last Received Message from Campaign or Canvas With Tag
 - ユーザープロファイルの**Campaigns Received**および**Canvas Messages Received**リスト
 - `/users/export`エンドポイント
-- CampaignおよびCanvasサマリーページの**ユーザーデータ**CSVエクスポート
+- CampaignおよびCanvasサマリーページの**User Data** CSVエクスポート
 
 これらの機能は、期限切れのインタラクションデータを結果に含めません。期限切れのインタラクションデータをこれらの機能の結果に含めるには、期限切れのデータを持つCampaignまたはCanvasを復元してください。
 
@@ -56,7 +56,7 @@ page_type: reference
 
 #### インタラクションデータを使用しない機能 {#features-that-dont-use-interaction-data}
 
-以下の機能はメッセージングインタラクションデータを**使用しません**。つまり、これらの機能はメッセージングインタラクションデータの期限切れの影響を受けません：
+以下の機能はメッセージングインタラクションデータを**使用しません**。つまり、これらの機能はメッセージングインタラクションデータの期限切れの影響を受けません。
 
 - CampaignおよびCanvasの設定
 - CampaignおよびCanvasの分析
@@ -87,28 +87,28 @@ page_type: reference
 
 ### メッセージングインタラクションデータを復元するには {#how-do-i-restore-messaging-interaction-data}
 
-インタラクションデータを復元するには、以下の手順に従ってください：
+インタラクションデータを復元するには、以下の手順に従ってください。
 
 1. 期限切れのCampaignまたはCanvasに移動します。
 2. CampaignまたはCanvasのランディングページの上部にあるバナーで**Restore interaction data**を選択します。
 
-また、**Campaigns**ページからCampaignsを選択し、**Restore interaction data**を選択することで、複数のCampaignsのインタラクションデータを復元することもできます。
+また、**Campaigns**ページからCampaignを選択し、**Restore interaction data**を選択することで、複数のCampaignのインタラクションデータを復元することもできます。
 
 インタラクションデータの復元にかかる時間はさまざまですが、ほとんどの場合、5〜15分程度です。復元が完了すると、メールが届きます。
 
 #### タグによる復元 {#restoring-by-tag}
 
-特定のタグを持つ期限切れのCampaignsまたはCanvasesのインタラクションデータを復元することもできます。
+特定のタグを持つ期限切れのCampaignまたはCanvasesのインタラクションデータを復元することもできます。
 
 1. **Campaigns**または**Canvas**ページに移動し、該当するタグで検索します。
-2. CampaignsまたはCanvasesを選択します。
-3. **Restore interaction data**を選択して、それらのCampaignsまたはCanvasesのデータを復元します。
+2. CampaignまたはCanvasesを選択します。
+3. **Restore interaction data**を選択して、それらのCampaignまたはCanvasesのデータを復元します。
 
-さらに3か月間非アクティブな状態が続くと、これらのCampaignsまたはCanvasesは再び期限切れになります。
+さらに3か月間非アクティブな状態が続くと、これらのCampaignまたはCanvasesは再び期限切れになります。
 
 #### タグによるリターゲティング {#retargeting-by-tag}
 
-タグによるリターゲティングを行うリターゲティングフィルターを使用するCampaignsは、期限切れの対象から除外されません。タグによるリターゲティングを行うリターゲティングフィルターには以下が含まれます：
+タグによるリターゲティングを行うリターゲティングフィルターを使用するCampaignは、期限切れの対象から除外されません。タグによるリターゲティングを行うリターゲティングフィルターには以下が含まれます。
 
 - Received Message from Campaign or Canvas with Tag
 - Clicked/Opened Campaign or Canvas With Tag
@@ -116,9 +116,9 @@ page_type: reference
 
 ### 過去のメッセージングインタラクションデータの利用可能性 {#when-was-messaging-interaction-data-available-in-the-past}
 
-以前は、CampaignまたはCanvasが以下の条件を満たした場合、メッセージインタラクションデータは削除されていました：
+以前は、CampaignまたはCanvasが以下の条件を満たした場合、メッセージインタラクションデータは削除されていました。
 
 - 25暦月間メッセージを送信していない、かつ
-- アクティブなCampaigns、Canvases、またはContent Cardsのリターゲティングに使用されていない。
+- アクティブなCampaign、Canvases、またはContent Cardsのリターゲティングに使用されていない。
 
-以前にメッセージングインタラクションデータが削除されたCampaignsおよびCanvasesは、Campaigns、Canvases、およびSegmentsのリターゲティングフィルターで使用できません。
+以前にメッセージングインタラクションデータが削除されたCampaignおよびCanvasesは、Campaign、Canvases、およびSegmentsのリターゲティングフィルターで使用できません。

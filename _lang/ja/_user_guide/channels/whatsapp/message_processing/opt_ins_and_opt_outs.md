@@ -91,6 +91,19 @@ Braze SDKとインターフェイスするために、[JavaScript「ブリッジ
 
 ## BrazeのWhatsAppチャネルのオプトアウトを設定する {#set-up-opt-outs-for-your-braze-whatsapp-channel}
 
+### WhatsApp「お知らせとキャンペーン」トグル {#whatsapp-offers-and-announcements-toggle}
+
+WhatsAppは、アプリ設定内に「お知らせとキャンペーン」トグルを提供しており、ユーザーがマーケティングメッセージをオプトアウトできるようにしています。このトグルはBrazeのサブスクリプショングループとは独立して動作します。
+
+- **Brazeのサブスクリプショングループ**は、Brazeの統合（API、ユーザー設定センター、またはSDK）を通じて管理され、メッセージングのターゲットとなるユーザーを制御します。
+- **WhatsAppのネイティブトグル**は、Metaによって制御され、Brazeの外部でプラットフォームレベルで適用されます。
+
+これら2つのレイヤーは設計上、自動的に同期されません。ユーザーがWhatsAppで「お知らせとキャンペーン」トグルをオフにすると、Metaはプラットフォームレベルでマーケティングメッセージの配信をブロックします。これは、ユーザーのBrazeサブスクリプションステータスが「購読中」と表示されている場合でも同様です。ユーザーの設定は配信時点で尊重されます。
+
+{% alert note %}
+Brazeは送信が試行されてMetaがエラーを返すまでオプトアウトシグナルを受信しないため、Brazeのサブスクリプション数には、メッセージが試行されるまでWhatsAppトグルでオプトアウトしたユーザーが反映されない場合があります。これは、そのフィードバックループが発生するまで、リーチの推定値がわずかに過大になる可能性があることを意味します。
+{% endalert %}
+
 ### 一般的なオプトアウトキーワード {#general-opt-out-keywords}
 
 特定の単語をメッセージとして送信したユーザーが今後のメッセージングをオプトアウトできるCampaignまたはCanvasを設定できます。Canvasは、オプトアウトの成功を確認するフォローアップメッセージを含めることができるため、特に有益です。
@@ -228,4 +241,4 @@ STOPメッセージにはこの方法を使用する必要はありません。�
 | `Is` | `STOP` | 大文字小文字に関係なく、「stop」の完全一致の単語をキャッチします。例えば、「stop」はキャッチしますが、「please stop」はキャッチしません。 |
 | `Matches regex` | `STOP` | 正確にその大文字小文字での「STOP」の使用をキャッチします。例えば、「STOP」と「PLEASE STOP」はキャッチしますが、「stop」はキャッチしません。 |
 | `Matches regex` | `(?i)STOP(?-i)` | 大文字小文字に関係なく、「STOP」の使用をキャッチします。例えば、「stop」、「please stop」、「never stop sending me messages」をキャッチします。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" aria-label="「regex」と「is」修飾子の違いを理解する" }

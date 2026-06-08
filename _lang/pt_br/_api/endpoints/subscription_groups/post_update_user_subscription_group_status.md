@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar o status do grupo de inscrições do usuário\"."
 ---
+
 {% api %}
 # Atualizar o status do grupo de inscrições do usuário {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 {% alert note %}
 Se você estiver interessado em usar esse endpoint com [grupos de inscrição LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Limite de taxa {#rate-limit}
 
@@ -144,5 +147,7 @@ O código de status `201` poderia retornar o seguinte corpo de resposta.
 {% alert important %}
 O endpoint aceita apenas o valor `email` ou `phone`, não ambos. Se você fornecer ambos, receberá esta resposta: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
+
+Para que a atualização de inscrição seja aplicada a números de telefone, confirme que você enviou números de telefone no formato E.164 (por exemplo, `+15555550123`), usou o `subscription_group_id` correto e passou `phone` (não `phone` e `email` juntos) no mesmo corpo da solicitação. Para atualizações com vários números, use o formato de array `phone` mostrado em [SMS e RCS](#sms-and-rcs).
 
 {% endapi %}

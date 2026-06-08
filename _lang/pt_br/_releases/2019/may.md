@@ -56,7 +56,7 @@ Facilitamos a seleção de para onde suas mensagens no app estão indo e para qu
 ## Campo dispatch ID do Currents para e-mail {#dispatch-id-currents-field-for-email}
 
 {% alert update %}
-O comportamento do `dispatch_id` difere entre Canvas e Campaigns porque a Braze trata as etapas do Canvas (exceto as etapas de entrada, que podem ser agendadas) como eventos disparados, mesmo quando estão "agendadas". Saiba mais sobre o [comportamento do `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) em Canvas e Campaigns.
+O comportamento do `dispatch_id` difere entre Canvas e Campaigns porque a Braze trata as etapas do Canvas (exceto as etapas de entrada, que podem ser agendadas) como eventos disparados, mesmo quando estão "agendadas". Saiba mais sobre o [comportamento do `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) em Canvas e Campaigns.
 
 _Atualização registrada em agosto de 2019._
 {% endalert %}
@@ -88,11 +88,10 @@ Qualquer usuário que também use o Mailjet verá um aumento nesses números, j�
 Você pode pesquisar esses termos atualizados em nosso [glossário de métricas de relatórios]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
 
 {% alert update %}
-O comportamento do `dispatch_id` difere entre Canvas e Campaigns porque a Braze trata as etapas do Canvas (exceto as etapas de entrada, que podem ser agendadas) como eventos disparados, mesmo quando estão "agendadas". [Saiba mais sobre o comportamento do `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/) em Canvas e Campaigns.
+O comportamento do `dispatch_id` difere entre Canvas e Campaigns porque a Braze trata as etapas do Canvas (exceto as etapas de entrada, que podem ser agendadas) como eventos disparados, mesmo quando estão "agendadas". [Saiba mais sobre o comportamento do `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) em Canvas e Campaigns.
 
 _Atualização registrada em agosto de 2019._
 {% endalert %}
-
 
 ## Canal mais engajado {#most-engaged-channel}
 

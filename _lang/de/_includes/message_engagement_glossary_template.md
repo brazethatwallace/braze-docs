@@ -8,7 +8,12 @@ page_type: glossary
 description: "Dieses Glossar listet die verschiedenen Nachrichtenengagement-Events auf, die Braze mit Currents tracken und an ausgewählte Data Warehouses senden kann."
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
+
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Schemabereich und zugehörige Ressourcen %}
 
 Speicherschemata gelten für die Flat-File-Eventdaten, die wir an Data-Warehouse-Speicherpartner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Für Schemata, die für andere Partner gelten, lesen Sie unsere Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und besuchen Sie die jeweiligen Seiten.
 
@@ -17,6 +22,8 @@ Diese Events sind auch als SQL-Tabellen im [Abfrage-Builder]({{site.baseurl}}/us
 {% endalert %}
 
 Kontaktieren Sie Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Wenn Sie in diesem Artikel nicht finden, was Sie suchen, sehen Sie sich unsere [Bibliothek für Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
+
+{% enddetails %}
 
 {% details Erläuterung der Struktur von Nachrichtenengagement-Events und Plattformwerte %}
 
@@ -56,24 +63,22 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 
 {% enddetails %}
 
-{% alert important %}
-Currents verwirft Events mit übermäßig großen Nutzdaten von mehr als 900&nbsp;KB.
-{% endalert %}
+{% details Hinweise zu Nachrichtenengagement-Events %}
 
-{% alert note %}
-Objekte, die sich auf Canvas Flow beziehen, haben IDs, die zur Gruppierung verwendet und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) in menschenlesbare Namen übersetzt werden können.
-{% endalert %}
+- Currents verwirft Events mit Nutzdaten von mehr als 900&nbsp;KB.
+- Objekte, die sich auf Canvas Flow beziehen, haben IDs, die zur Gruppierung verwendet und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) in menschenlesbare Namen übersetzt werden können.
+- Bei bestimmten Feldern wird der neueste Stand möglicherweise nicht sofort angezeigt, nachdem Sie eine Kampagne oder ein Canvas aktualisiert haben:
+  - `campaign_name`
+  - `canvas_name`
+  - `canvas_step_name`
+  - `conversion_behavior`
+  - `canvas_variation_name`
+  - `experiment_split_name`
+  - `message_variation_name`
+- Wenn Sie vollständige Konsistenz für diese Felder benötigen, warten Sie nach dem letzten Update eine Stunde, bevor Sie Nachrichten an Ihre Nutzer:innen senden.
 
-{% alert note %}
-Bei bestimmten Feldern kann es länger dauern, bis der neueste Stand angezeigt wird, nachdem eine Kampagne oder ein Canvas aktualisiert wurde. Diese Felder sind:
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
-Wenn vollständige Konsistenz erforderlich ist, empfehlen wir, nach dem letzten Update dieser Felder eine Stunde zu warten, bevor Sie Ihre Nachrichten an Ihre Nutzer:innen versenden.
-{% endalert %}
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
