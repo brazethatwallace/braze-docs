@@ -244,7 +244,7 @@ For the drag-and-drop editor, add only the zero-width non-joiners (‌`&zwnj;`) 
 {% endalert %}
 
 {% alert note %}
-In the Apple Mail app, image links in HTML email must use `https://` URLs to be clickable. Use secure links for any image wrapped in an anchor tag when you expect taps from Apple Mail recipients.
+In the Apple Mail app, image links in HTML email must use `https://` URLs to be clickable. Use secure links for any image wrapped in an anchor tag when you expect clicks from Apple Mail recipients.
 {% endalert %}
 
 ### Step 3.3: Check for email errors
