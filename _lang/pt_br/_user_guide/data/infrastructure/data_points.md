@@ -42,6 +42,8 @@ Em suma, os pontos de dados são acumulados quando os dados de perfil de um usu�
 
 Você pode encontrar um detalhamento de como a Braze acumula pontos de dados nas seções a seguir. Se você tiver alguma dúvida sobre as nuances dos pontos de dados da Braze, seu gerente de conta da Braze poderá respondê-la.
 
+Para ingestão via API, cada atualização faturável por meio de [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) segue as mesmas regras de outras atualizações de perfil: por exemplo, cada **evento personalizado** registrado conta como um ponto de dados, e **atributos personalizados** geralmente contam por atributo atualizado naquela solicitação (consulte as tabelas de faturamento abaixo e [Circunstâncias especiais](#special-circumstances)).
+
 As seguintes ações não registram pontos de dados:
 - Exclusão de usuários da Braze
 - Uso de Conteúdo conectado no envio de mensagens

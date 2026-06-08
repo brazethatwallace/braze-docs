@@ -172,3 +172,4 @@ For the full glossary, load [references/glossary.md](references/glossary.md) (lo
 | [docs-discrepancies](../docs-discrepancies/SKILL.md) | Audit `_docs` pages against platform source and open discrepancy PRs |
 | [support-analyzer](../support-analyzer/SKILL.md) | Triage support case CSVs and draft docs updates |
 | [salesforce-migration](../salesforce-migration/SKILL.md) | SF Knowledge Base migration tickets (Phase 1/2) |
+| [check-accessibility](../check-accessibility/SKILL.md) | Pre-PR accessibility gate — run before any PR touching `_docs/`, `_includes/`, layouts, JS, or CSS |

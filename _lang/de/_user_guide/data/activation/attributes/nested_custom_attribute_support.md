@@ -280,16 +280,16 @@ Im folgenden Personalisierungs-Modal wird beispielsweise das verschachtelte ange
 
 ## Schemas neu generieren {#regenerate-schema}
 
-Nachdem ein Schema generiert wurde, kann es einmal alle 24 Stunden neu generiert werden. Dieser Abschnitt beschreibt, wie Sie Ihr Schema neu generieren. Ausführlichere Informationen zu Schemas finden Sie unter [Schema mit dem Nested-Object-Explorer generieren]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Nachdem ein Schema generiert wurde, können Sie es **einmal pro Kalendertag** (basierend auf der Zeitzone Ihres Unternehmens) neu generieren. Dieser Abschnitt beschreibt, wie Sie Ihr Schema neu generieren. Ausführlichere Informationen zu Schemas finden Sie unter [Schema mit dem Nested-Object-Explorer generieren]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
 
 So generieren Sie das Schema für Ihr verschachteltes angepasstes Attribut neu:
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute**.
 2. Suchen Sie nach Ihrem verschachtelten angepassten Attribut.
-3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus"></i> aus, um das Schema zu verwalten.
+3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus" aria-label="Manage schema"></i> aus, um das Schema zu verwalten.
 4. Ein Modal wird angezeigt. Wählen Sie **Schema neu generieren**.
 
-Die Option zur Schema-Neugenerierung ist deaktiviert, wenn seit der letzten Neugenerierung weniger als 24 Stunden vergangen sind. Die Schema-Neugenerierung erkennt nur neue Objekte und löscht keine Objekte, die derzeit im Schema vorhanden sind.
+Die Aktion **Schema neu generieren** ist auf **einmal pro Kalendertag** in der Zeitzone Ihres Unternehmens beschränkt. Sie können keine weitere Neugenerierung starten, während ein Schema-Job bereits **in Bearbeitung** ist (die Option ist nicht verfügbar, solange der Status **Wird generiert** lautet). Die Schema-Neugenerierung erkennt nur neue Objekte und löscht keine Objekte, die derzeit im Schema vorhanden sind.
 
 {% alert important %}
 Um das Schema für ein Objekt-Array mit einem vorhandenen Objekt zurückzusetzen, müssen Sie ein neues angepasstes Attribut erstellen. Die Schema-Neugenerierung löscht keine vorhandenen Objekte.
@@ -301,9 +301,9 @@ Wenn Daten nach der Schema-Neugenerierung nicht wie erwartet angezeigt werden, w
 
 Sie können triggern, wenn sich ein verschachteltes angepasstes Attribut-Objekt ändert. Diese Option ist für Änderungen an Objekt-Arrays nicht verfügbar. Wenn Sie keine Option zum Anzeigen des Pfad-Explorers sehen, überprüfen Sie, ob Sie ein Schema generiert haben.
 
-In einer aktionsbasierten Campaign können Sie beispielsweise eine neue Aktion triggern für **Angepassten Attributwert ändern**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
+In einer aktionsbasierten Campaign können Sie beispielsweise eine neue Aktion triggern für **Change Custom Attribute Value**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
 
-![Aktionsbasierte Campaign-Zustellungseinstellungen mit einem Trigger für die Änderung eines angepassten Attributwerts für verschachtelte Präferenzen.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![Aktionsbasierte Campaign-Zustellungseinstellungen mit einem Trigger „Change Custom Attribute Value“ für verschachtelte Präferenzen.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
 ## Segmentierungsverhalten bei Objekt-Arrays {#segmentation-behavior-with-arrays-of-objects}
 

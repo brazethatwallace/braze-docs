@@ -11,6 +11,19 @@ tool: Canvas
 
 > This page helps you troubleshoot issues with your Canvases.
 
+## "Too many Canvas branches" error
+
+If you see a "Too many Canvas branches" error when launching a scheduled Canvas, the combination of step branching and entry audience size may create Braze cluster performance issues that prevent messages from sending.
+
+Braze shows this message when you launch a Canvas with a scheduled entry—not when you save a draft. To resolve it, try the following:
+
+- Reduce step branching in the Canvas.
+- Reduce the entry audience size.
+- Use [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) to consolidate branching instead of many parallel paths.
+- If your Canvas uses the original editor, [clone it to Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/) and rebuild with Canvas components.
+
+If you still need to launch the Canvas without changes and can't move to Canvas Flow, contact [Support]({{site.baseurl}}/support_contact/).
+
 ## Why did a user not receive a triggered Canvas step?
 
 First, confirm that the custom event is being passed to Braze. Go to **Analytics** > **Custom Events Report**, and then select the respective custom event and date range. If the event doesn't display, confirm that it's set up correctly and that the user performed the correct action.

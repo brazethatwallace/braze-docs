@@ -85,11 +85,18 @@ On-click behavior can be overridden if a specific element (such as a button, lin
 
 #### Step 3.3: Configure dismissal behavior (optional) {#dismiss-behavior}
 
-{% alert important %}
-Banner dismissals are currently in early access. If you're interested in participating in the early access, contact your customer success manager.
-{% endalert %}
+Select the **Banner can be dismissed** checkbox in the **Dismiss Behavior** section to allow users to dismiss the Banner. This option is beneficial in scenarios where you want to promote a limited-time sale for all app users, but allow them to dismiss the message if they aren't interested.
 
-Select the **Banner can be dismissed** checkbox to allow users to dismiss the Banner. This option can be beneficial in scenarios where you want to promote a limited-time sale for all app users, but allow them to dismiss the message if they aren't interested.
+When dismissal is enabled, you can customize the dismiss button in the **Dismiss Behavior** section:
+
+| Setting | Description |
+|---------|-------------|
+| **Button size** | The size of the dismiss button displayed on the Banner. |
+| **Button color** | The color of the dismiss button. |
+| **ARIA label** | The accessible label for the dismiss button, used by screen readers. Defaults to "Close" if left blank. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
+
+When a user dismisses a Banner, it doesn't appear again for that user, even if they still qualify for the campaign's targeting criteria.
 
 #### Step 3.4: Add custom properties (optional) {#custom-properties}
 
