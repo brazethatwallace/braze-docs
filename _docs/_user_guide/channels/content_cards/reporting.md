@@ -36,3 +36,4 @@ For action-based Content Cards, the send is logged shortly after the user perfor
 Regardless of the delivery type or **Card Creation** setting, a Content Card campaign appears in the user's profile under **Campaigns Received** only after they have actually viewed the card in the app. The **Last Received Any Message** and **Last Received Campaign** retargeting filters update at view time for the same reason.
 
 {% multi_lang_include analytics/campaign_analytics.md channel="Content Card" %}
+
