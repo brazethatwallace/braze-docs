@@ -79,3 +79,10 @@ Layout issues are often caused by **custom HTML or CSS** that conflicts with the
 3. In **Row Properties**, review column padding and widths.
 4. When you add custom HTML, prefer table-based layouts, fluid images, and total table widths that fit your email width—fixed pixel images or non-table structures often break in Outlook and other clients.
 
+### Why doesn't my Content Block render in email preview?
+
+If a Content Block doesn't render in email preview, check for unclosed anchor tags. For Connected Content URLs, use the `replace` filter to convert double-encoded ampersands (`&amp;amp;`) to a single encoded ampersand (`&amp;`). Limit Content Block nesting to two levels.
+
+### Why is the drag-and-drop editor ignoring alignment settings?
+
+If the drag-and-drop editor ignores alignment settings, remove custom CSS or HTML blocks, remove custom fonts, check for CSS conflicts, and avoid duplicating row blocks. Contact Braze Support if the issue persists.

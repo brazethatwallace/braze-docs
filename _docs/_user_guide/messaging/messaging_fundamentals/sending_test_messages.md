@@ -243,6 +243,8 @@ The scanner runs automatically on custom HTML messages and evaluates your entire
 
 ![Test push]({% image_buster /assets/img_archive/testpush.png %})
 
+If you see an error that none of the selected users have matching push tokens, the test user does not have a valid push token for the selected platform. The user must have started a session in the app and enabled push for that device. For more information, see [Push enablement and push subscription]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
+
 #### Web push
 
 1. Create your web push.
