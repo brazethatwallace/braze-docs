@@ -360,7 +360,11 @@ When a nested custom attribute contains any invalid values (such as invalid time
 
 ### Why is my `/users/track` response slower than I expect?
 
-Successful `/users/track` calls are usually accepted quickly, but Braze still processes attribute, event, and purchase updates asynchronously. Perceived latency can increase when you approach your [rate limit](#rate-limit), when payloads are large, or when network routing to your [REST endpoint]({{site.baseurl}}/api/basics/#endpoints) is slow. For non-`429` responses on supported contracts, you can use the `X-RateLimit-*` response headers described in [Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau) to see how much of your current window remains. If you need a synchronous acknowledgment per user or stricter ordering between calls, consider [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/).
+Successful `/users/track` calls are usually accepted quickly, but Braze still processes attribute, event, and purchase updates asynchronously. Perceived latency can increase when payloads are large or when network routing to your [REST endpoint]({{site.baseurl}}/api/basics/#endpoints) is slow. If you need a synchronous acknowledgment per user or stricter ordering between calls, consider [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/).
+
+### How do rate limits affect `/users/track`?
+
+When you approach your [rate limit](#rate-limit), you may receive `429` responses. For non-`429` responses on supported contracts, you can use the `X-RateLimit-*` response headers described in [Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau) to see how much of your current window remains.
 
 ### Why do I get `400 Bad Request` with a bad syntax or parse error?
 
