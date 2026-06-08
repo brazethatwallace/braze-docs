@@ -41,6 +41,12 @@ Reference this table for how to keep an idle campaign active:
 | Campaigns that have not sent a message in 11 months | Send one message or make any edit to the campaign | 
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
+### In-app message campaigns
+
+If an in-app message campaign has no impressions and has not been edited for over 30 days, it becomes an idle campaign. An idle in-app message campaign continues to deliver based on its configuration, but the in-app message becomes a templated in-app message.
+
+If your users trigger an impression event or the marketer edits the campaign, it brings the campaign back to active status and the 30-day counter resets.
+
 ## Idle Canvases
 
 On an ongoing basis, idle Canvases that meet the following criteria will be stopped:
