@@ -37,7 +37,9 @@ You should always [preview and test your messages]({{site.baseurl}}/user_guide/m
 
 ## Hyperlinks and anchor text
 
-To add a link in the slideup body, enter the visible link text in the **Body** field and set the destination in **On-click behavior** (for example, **Redirect to URL**). The body text acts as the anchor; you do not enter separate HTML anchor tags in the traditional editor.
+To add a link in a slideup, enter the message copy in the **Body** field and set the destination in **On-click behavior** (for example, **Redirect to URL**). When **On-click behavior** is configured, taps anywhere on the message except the close control trigger that action.
+
+For custom HTML in-app messages, you can use HTML links directly. See [Custom HTML in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/).
 
 ## Mobile devices
 
