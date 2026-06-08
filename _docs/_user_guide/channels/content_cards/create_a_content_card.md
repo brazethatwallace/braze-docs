@@ -94,7 +94,7 @@ Each message type and platform may have its own suggested proportions and requir
 
 #### Pin to top
 
-Braze displays a pinned card at the top of a user's feed and the user can't dismiss it. If a user's feed has multiple pinned cards, Braze orders them chronologically. After you send a card, you can't retroactively update its pinned option. Changing this option after you send a campaign only affects future sends.
+Braze displays a pinned card at the top of a user's feed and the user can't dismiss it. If a user's feed has multiple pinned cards, Braze orders them chronologically. When Braze delivers a Content Card, it is either pinned or unpinned, and that status does not change for the lifetime of the card. If you change the pinned setting on a campaign, the update applies to cards sent in the future only. It does not change the pinned status of cards already in a user's feed.
 
 ![Side-by-side of the Content Card preview in Braze for Mobile and Web with the option "Pin this card to the top of the feed" selected.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -329,25 +329,10 @@ If you want a card to seem like it's always available, you can create a recurrin
 2. Set the campaign re-eligibility to 30 days.
 3. Set the campaign to trigger on "Session Start."
 
-### Full sync versus partial sync
+### Content Card sync and refresh
 
-Content Cards sync in two ways:
-
-- **Full sync** — runs every seven days and when you call `changeUser()`. Braze replaces the cached feed with the latest cards from the server.
-- **Partial sync** — runs when you call `requestContentCardsRefresh()` unless a full sync ran within the last seven days. A partial sync can return zero new cards while the user still sees previously cached cards.
-
-For Web integrations, call `subscribeToContentCardsUpdates()` before `openSession()` so cards refresh automatically at session start. See [Log analytics]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) for your platform.
-
-### Content Cards not refreshing at session start (Web SDK)
-
-On Web, Content Cards refresh on session start only if you call `subscribeToContentCardsUpdates()` before `openSession()`. You can also call `requestContentCardsRefresh()` to refresh the feed manually at any time.
+Content Cards sync on a schedule and when your app refreshes the feed. Sync behavior differs between full and partial syncs, and your SDK integration affects when cards refresh at session start. For implementation details, see [Customize the Content Card feed]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) and [Creating Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
 
 ### Impact of stopping Content Cards campaigns
 
 When you stop a campaign and select **Remove card after the next sync**, Braze removes the card from user feeds on the next refresh. Impression counts may be lower than send counts because users cannot impress cards that are removed before they view them.
-
-### Pinning and unpinning behavior
-
-When Braze delivers a Content Card, it is either pinned or unpinned. That pinned status does not change for the lifetime of the card.
-
-If you change the pinned setting on a campaign, the update applies to future sends only. It does not change the pinned status of cards already in a user's feed.
