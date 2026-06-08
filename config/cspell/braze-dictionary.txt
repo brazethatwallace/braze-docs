@@ -127,6 +127,7 @@ Braze
 brazeai
 brazecall
 Brazei
+Burkina
 brazexml
 BRZURL
 BSUIDs
@@ -138,6 +139,7 @@ Canvas
 CANVASSTEP
 Cardable
 CARRIERSEND
+Caicos
 Cata
 cataboom
 ccdd
@@ -145,6 +147,7 @@ ccemail
 CCPA
 ccpa
 Celebrus
+Celular
 centricity
 Certiverse
 Certona
@@ -167,6 +170,8 @@ codepaths
 codepoints
 Cofounder
 Cofounders
+Comcel
+Comunicacion
 companyid
 Content Cards
 CONTENTCARD
@@ -202,6 +207,7 @@ DAU
 DAWIDA
 debouncer
 Decisioning
+Dealz
 Decorumsoft
 Deeplink
 Deeplinking
@@ -251,6 +257,7 @@ Erdelyi
 Eshop
 ESP
 Espa
+Eswatini
 Eventbrite
 EWONDO
 exfiltration
@@ -261,6 +268,7 @@ Extole’s
 Ezgif
 Factual
 Failz
+Faso
 fanbase
 FAROESE
 Fastly
@@ -287,6 +295,7 @@ flyering
 Fmms
 fontawesome
 FONYI
+focusout
 Foursquare
 Français
 FREQUENCYCAP
@@ -295,6 +304,7 @@ fullscreens
 Fullstory
 Fullstory's
 Fullstory’s
+Futuna
 Gafas
 GAID
 gamified
@@ -396,6 +406,7 @@ Kameloon
 keyup
 Kickbox
 Kickbox's
+Kitts
 Kjlpvt
 KIEMBU
 KINYARWANDA
@@ -453,17 +464,20 @@ Luka
 Luka's
 LUXEMBOURGISH
 LUYIA
+Lycamobile
 Lytics
 MACHAME
 MailBakery
 Mailizio
 Mailizio's
 Mailjet
+Maarten
 mainform
 Makhuwa
 Makonde
 MARKASSPAM
 Marketo
+Marino
 martech
 MATCHEDAUDIENCE
 MAU
@@ -496,6 +510,7 @@ ML
 Montclair
 MORISYEN
 Morty
+Movistar
 mouseleave
 mParticle
 MPID
@@ -568,6 +583,7 @@ ouibounce's
 overconsumption
 oversaturating
 Pangle
+Pegaso
 Pandoc
 parentheticals
 passback
@@ -644,6 +660,7 @@ RGBA
 ridesharing
 Rish
 Rishing
+Rica
 Rokt
 Rokt Calendar
 roleplay
@@ -714,6 +731,8 @@ showtimes
 simondata
 simphone
 Singular
+Singtel
+Sint
 Sisu
 Skyscanner
 Slideup
@@ -796,6 +815,7 @@ Taxi for Email
 TCPA
 tcpdump
 Tealium
+Telcel
 TeleSign
 Tellius
 templatable
@@ -843,6 +863,7 @@ unhide
 Unichrs
 unicodeinput
 Unity
+unitypackage
 unpublishing
 unreviewed
 unsetcustomattribute

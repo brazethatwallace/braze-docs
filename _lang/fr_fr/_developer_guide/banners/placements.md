@@ -710,10 +710,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 Les fermetures de bannières suppriment programmatiquement une bannière d'un placement lorsqu'un utilisateur la ferme activement. Une fois fermée, la bannière est masquée pour cet utilisateur. La prochaine fois que la liste des placements est actualisée, une nouvelle bannière est renvoyée si l'utilisateur est éligible.
 
-{% alert important %}
-Les fermetures de bannières sont actuellement en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
-{% endalert %}
-
 ### Conditions préalables
 
 Voici les versions minimales du SDK requises pour enregistrer les fermetures de bannières :

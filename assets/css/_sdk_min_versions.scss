@@ -40,8 +40,7 @@
             outline: none;
         }
         &:focus-visible {
-            outline: 2px solid $braze-purple;
-            outline-offset: 0;
+            @include focus-ring($offset: 0, $radius: 16px);
         }
     }
 

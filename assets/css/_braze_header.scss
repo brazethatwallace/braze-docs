@@ -209,8 +209,7 @@ $header_transition_time: 0.25s;
         outline: none;
       }
       &:focus-visible {
-        outline: 2px solid $braze-purple;
-        outline-offset: 2px;
+        @include focus-ring();
       }
       svg {
         vertical-align: middle;

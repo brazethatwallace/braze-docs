@@ -2,7 +2,7 @@
 nav_title: Templates
 article_title: Templates
 page_type: landing
-description: "Diese Seite listet Braze-Partner (Technologie-Partner) auf, die Tools zur Erstellung und zum Export von E-Mail-Templates für Braze bereitstellen."
+description: "Diese Seite listet Braze-Technologie-Partner auf, die Tools zur Erstellung und zum Export von E-Mail-Templates für Braze bereitstellen."
 layout: partner_page
 search_tag: Partner
 
@@ -23,6 +23,8 @@ valid_partner_list:
   url: /docs/partners/dyspatch/
 - name: Email Love
   url: /docs/partners/email_love/
+- name: EmailShepherd
+  url: /docs/partners/emailshepherd/
 - name: IAM Studio
   url: /docs/partners/iam_studio/
 - name: Jasper
