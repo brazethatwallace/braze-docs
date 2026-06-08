@@ -13,7 +13,7 @@ tool: Canvas
 
 ## "Too many Canvas branches" error
 
-If you see a **Too many Canvas branches** error when launching a scheduled Canvas, the combination of step branching and entry audience size may create Braze cluster performance issues that prevent messages from sending.
+If you see a "Too many Canvas branches" error when launching a scheduled Canvas, the combination of step branching and entry audience size may create Braze cluster performance issues that prevent messages from sending.
 
 Braze shows this message when you launch a Canvas with a scheduled entry—not when you save a draft. To resolve it, try the following:
 
