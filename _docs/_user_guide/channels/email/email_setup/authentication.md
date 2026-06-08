@@ -69,7 +69,7 @@ For example, if you’re using Gmail, follow these steps:
 
 ![An email that has "PASS" as the DMARC value.]({% image_buster /assets/img_archive/dmarc_example.png %})
 
-#### Troubleshooting DMARC failures
+#### Troubleshoot DMARC failures
 
 If DMARC shows **FAIL** for messages sent through Braze:
 
