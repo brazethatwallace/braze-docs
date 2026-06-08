@@ -37,7 +37,7 @@ Talkable sends data to Braze only on a discrete opt-in event from someone who ha
 
 ## Prerequisites
 
-Before you start, you'll need the following:
+Before you start, you need the following:
 
 | Prerequisite | Description |
 | --- | --- |
@@ -56,20 +56,21 @@ Before you start, you'll need the following:
 
 ### Step 2: Configure the email opt-in action
 
-1. Open the **Email opt-in** action in the Talkable Braze app.
+1. In the Talkable Braze app, open the **Email opt-in** action.
 2. (Optional) Enter a Braze subscription group identifier, add custom attributes, and/or configure a user alias. For more information, see [Customizing Talkable](#customizing-talkable).
-3. Click **Save**. Leave the action disabled for now so you can verify the configuration with a test payload before any live opt-in events start syncing.
+3. Click **Save**. Leave the action disabled so you can verify the configuration with a test payload before any live opt-in events start syncing.
 
 ### Step 3: Test with a sample payload
 
-1. In Talkable, click **Send sample payload** on the **Email opt-in** action to fire a test request to Braze.
+1. In Talkable, click **Send sample payload** on the **Email opt-in** action to send a test request to Braze.
 2. In Braze, go to **Audience** > **User Search** and search by the test email address.
 3. Confirm the profile exists with **Email Subscribe** set to **Opted In** and that any custom attributes, subscription group enrollment, or user alias you configured appear as expected.
 
 ### Step 4: Enable the action for live traffic
 
-1. When the test profile looks correct in Braze, return to Talkable and enable the **Email opt-in** action.
-2. From this point, every Talkable opt-in event syncs the matching profile to Braze in real time.
+When the test profile looks correct in Braze, return to Talkable and enable the **Email opt-in** action.
+
+From this point, every Talkable opt-in event syncs the matching profile to Braze in real time.
 
 ## Default user attributes sent to Braze
 
@@ -88,18 +89,20 @@ On every opt-in event, Talkable creates or updates the matching Braze user profi
 
 ## Customizing Talkable
 
-Three optional customizations are available. Configure any combination; they are independent.
+The following optional customizations are available. Configure any combination; they are independent.
 
 ### Enroll opt-ins in a Braze subscription group
 
 1. In Braze, copy a subscription group ID from **Audience** > **Subscription Group Management**. For more information, see [Managing user subscriptions]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/).
 2. In the Talkable **Email opt-in** action, paste it into the **Subscription group identifier** field.
-3. Talkable enrolls each opt-in in that subscription group as subscribed, scoping referral opt-ins to that group instead of a global subscription. Talkable only adds subscriptions; it never removes them.
+
+Talkable enrolls each opt-in in that subscription group as subscribed, scoping referral opt-ins to that group instead of a global subscription. Talkable only adds subscriptions; it never removes them.
 
 ### Send custom attributes
 
-1. Add any key/value pair to the action's payload editor. The key you enter becomes the attribute name on the Braze user profile.
-2. Values are Liquid-templated. Three variables are available:
+Add any key/value pair to the action's payload editor. The key you enter becomes the attribute name on the Braze user profile.
+
+Values are Liquid-templated. The following variables are available:
 
 {% raw %}
 | Variable | Contents |
@@ -116,8 +119,9 @@ Example: add `talkable_is_advocate` = `{{ person.is_advocate }}` and `talkable_c
 
 ### Identify users with Braze user aliases
 
-1. In the payload editor, add `user_alias.alias_name` (for example, {% raw %}`{{ person.username }}`{% endraw %}) and `user_alias.alias_label` (for example, `username`). For more information, see [User alias object]({{site.baseurl}}/api/objects_filters/user_alias_object/).
-2. When both fields are present, the user is identified by the alias in addition to email, and Braze creates a new aliased profile if no match exists.
+In the payload editor, add `user_alias.alias_name` (for example, {% raw %}`{{ person.username }}`{% endraw %}) and `user_alias.alias_label` (for example, `username`). For more information, see [User alias object]({{site.baseurl}}/api/objects_filters/user_alias_object/).
+
+When both fields are present, the system identifies the user by the alias in addition to email, and Braze creates a new aliased profile if no match exists.
 
 {% alert note %}
 Both alias fields are required. If only one of `alias_name` or `alias_label` is set, Talkable does not send a user alias and the profile is matched by email only.
@@ -125,16 +129,17 @@ Both alias fields are required. If only one of `alias_name` or `alias_label` is 
 
 ## Find and create users in Braze
 
-1. By default, Braze matches the profile by email address. If no matching profile exists, Braze creates a new one.
-2. When a user alias is configured, Braze matches on that alias as well and creates a new aliased profile if no match exists.
-3. External IDs are not used by this integration. To attach Talkable opt-ins to an existing externally identified profile, configure a user alias whose label matches that profile's known alias.
+* By default, Braze matches the profile by email address. If no matching profile exists, Braze creates a new one.
+* When a user alias is configured, Braze matches on that alias as well and creates a new aliased profile if no match exists.
+* External IDs are not used by this integration. To attach Talkable opt-ins to an existing externally identified profile, configure a user alias whose label matches that profile's known alias.
 
 ## Using Talkable with Braze
 
 ### Find a synced user
 
-1. Go to **Audience** > **User Search** and search by email to view a profile Talkable created or updated.
-2. Standard fields (email, phone, first/last name) and any custom attributes you configured appear on the profile; **Email Subscribe** shows **Opted In**.
+Go to **Audience** > **User Search** and search by email to view a profile Talkable created or updated.
+
+Standard fields (email, phone, first/last name) and any custom attributes you configured appear on the profile; **Email Subscribe** shows **Opted In**.
 
 ### Build a referral segment
 
@@ -143,26 +148,18 @@ Both alias fields are required. If only one of `alias_name` or `alias_label` is 
 
 ### Trigger lifecycle messaging
 
-1. Build a Canvas or campaign with action-based delivery. Three Braze trigger types work with this integration: **Update Subscription Status** (for example, email subscription becomes **Opted In**), **Update Subscription Group Status** (when a subscription group is configured), and **Change Custom Attribute Value** (for any Talkable custom attribute you send).
+1. Build a Canvas or campaign with action-based delivery. The following Braze trigger types work with this integration: 
+* **Update Subscription Status** (for example, email subscription becomes **Opted In**)
+* **Update Subscription Group Status** (when a subscription group is configured)
+* **Change Custom Attribute Value** (for any Talkable custom attribute you send).
 2. Personalize messages with the Talkable custom attributes on the profile (campaign name, reward value, referrer, and so on).
 
 ## Considerations
 
-### Email opt-in only
-
-Phone numbers are captured as a standard user attribute, but the integration does not set an SMS subscription state. Talkable does not sync SMS opt-ins.
-
-### Phone format
-
-Braze expects phone numbers in international (E.164) format.
-
-### Real-time, event-driven sync
-
-Talkable sends one request per opt-in event (one user per request). There is no batching and no periodic full sync; volume tracks your referral opt-in volume.
-
-### Reliable delivery
-
-If Braze temporarily returns an error, Talkable retries automatically. Persistent failures send an email alert to the site's administrator.
+* **Email opt-in only:** Phone numbers are captured as a standard user attribute, but the integration does not set an SMS subscription state. Talkable does not sync SMS opt-ins.
+* **Phone format:** Braze expects phone numbers in international (E.164) format.
+* **Real-time, event-driven sync:** Talkable sends one request per opt-in event (one user per request). There is no batching and no periodic full sync; volume tracks your referral opt-in volume.
+* **Reliable delivery:** If Braze temporarily returns an error, Talkable retries automatically. Persistent failures send an email alert to the site's administrator.
 
 ## Troubleshooting
 
@@ -173,7 +170,7 @@ If Braze temporarily returns an error, Talkable retries automatically. Persisten
 | Profile created but not in a subscription group | No subscription group ID configured. | Enter the subscription group ID on the **Email opt-in** action. |
 | User alias not applied | Only one of the two alias fields (name or label) is filled in. | Enter both fields on the action: alias name and alias label. |
 | Profile not appearing | Sample request not yet sent, or the action is disabled. | Click **Send sample payload** in Talkable and ensure the **Email opt-in** action is enabled. |
-| Requests stopped sending after a key rotation | The stored API key was revoked or replaced in Braze. | In Talkable **App Store**, open the Braze app, paste the new REST API key, and click **Save**; re-test with **Send sample payload**. |
+| Requests stopped sending after a key rotation | The stored API key was revoked or replaced in Braze. | In the Talkable **App Store**, open the Braze app, paste the new REST API key, and click **Save**; re-test with **Send sample payload**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }
 
 For more information about the Talkable integration, see the [Talkable Braze integration documentation](https://docs.talkable.com/email_marketing_and_automation/braze/). To contact Talkable support, email [support@talkable.com](mailto:support@talkable.com).
