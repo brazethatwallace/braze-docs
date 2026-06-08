@@ -15,7 +15,7 @@ _This integration is maintained by Talkable._
 
 ## About the integration
 
-Talkable brings advocate-led acquisition into the customer journey that ßBraze powers. The integration moves every referral opt-in Talkable captures into the matching Braze profile in real time, so welcome flows, referral journeys, segmentation, and lifecycle messaging can launch from trusted consent and referral context—all without manual list exports or batch syncs.
+Talkable brings advocate-led acquisition into the customer journey that Braze powers. The integration moves every referral opt-in Talkable captures into the matching Braze profile in real time, so welcome flows, referral journeys, segmentation, and lifecycle messaging can launch from trusted consent and referral context—all without manual list exports or batch syncs.
 
 Talkable captures marketing opt-ins in two scenarios:
 
