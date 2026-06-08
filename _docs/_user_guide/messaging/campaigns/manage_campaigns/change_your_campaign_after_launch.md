@@ -68,7 +68,7 @@ For example:
 1. You pause the campaign at 1 PM.
 2. A rate-limited message is scheduled to send at 1:05 PM.
    - If you resume before 1:05 PM, the message sends.
-   - If you resume after 1:05 PM, the message was canceled during the pause and won't send.
+   - If you resume after 1:05 PM, the message is canceled during the pause and doesn't send.
 
 If some users didn't receive messages because the campaign was paused through their scheduled slot, duplicate the campaign and target only those users rather than relying on **Resume** to deliver the missed messages.
 
