@@ -1203,11 +1203,11 @@ def _retry_failed_translations(
     glossaries,
     styleguides,
 ):
-    """Re-run failed normal (non-chunked) translations sequentially."""
+    """Re-run failed translations sequentially (normal and chunked paths)."""
     retriable = [
         item
         for item in failed_items
-        if not item.get("chunked") and _is_retryable_api_error(item.get("error", ""))
+        if _is_retryable_api_error(item.get("error", ""))
     ]
     if not retriable:
         return [], list(failed_items)
@@ -1229,21 +1229,36 @@ def _retry_failed_translations(
 
         relative = _relative_for_translation(fpath)
         english_content = (REPO_ROOT / fpath).read_text()
-        print(f"  RETRY: {relative} → {lang_info['name']}...")
+        mode = "chunked" if item.get("chunked") else "normal"
+        print(f"  RETRY ({mode}): {relative} → {lang_info['name']}...")
         time.sleep(5)
 
-        result = translate_one(
-            client,
-            prompt,
-            fpath,
-            relative,
-            english_content,
-            lang_key,
-            lang_info,
-            glossaries[lang_key],
-            styleguides[lang_key],
-            api_retries=FAILED_PASS_RETRIES,
-        )
+        if item.get("chunked"):
+            result = translate_one_chunked(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                lang_key,
+                lang_info,
+                glossaries[lang_key],
+                styleguides[lang_key],
+                api_retries=FAILED_PASS_RETRIES,
+            )
+        else:
+            result = translate_one(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                lang_key,
+                lang_info,
+                glossaries[lang_key],
+                styleguides[lang_key],
+                api_retries=FAILED_PASS_RETRIES,
+            )
 
         if result["ok"]:
             recovered.append(result)
@@ -1259,7 +1274,8 @@ def _retry_failed_translations(
 
 
 def translate_one_chunked(client, prompt, fpath, relative, english_content,
-                          lang_key, lang_info, glossary, styleguide):
+                          lang_key, lang_info, glossary, styleguide,
+                          api_retries=None):
     """Translate a large file by splitting into chunks, translating each, and
     reassembling.  Skips the second-pass review (chunks are self-contained and
     the review would require the full file which exceeds context limits)."""
@@ -1285,7 +1301,7 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
                   f"({len(en_chunk) // 1024}KB)...")
             translated = translate_file(
                 client, prompt, en_chunk, tr_chunk or None,
-                lang_info["name"], extra_context,
+                lang_info["name"], extra_context, api_retries=api_retries,
             )
             translated_chunks.append(translated)
 
@@ -1430,10 +1446,9 @@ def cmd_translate(args):
                           f"({result.get('chunks', '?')} chunks)")
                 else:
                     results["failed"].append({
-                        "source": result["source"],
-                        "target": result["target"],
-                        "lang": result["lang"],
-                        "error": result["error"],
+                        k: result[k]
+                        for k in ("source", "target", "lang", "error", "chunked", "chunks")
+                        if k in result
                     })
                     print(f"    {lang_info['name']} FAILED ({result['error']})")
 
