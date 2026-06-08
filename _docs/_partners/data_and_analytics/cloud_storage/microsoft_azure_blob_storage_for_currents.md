@@ -98,3 +98,11 @@ Users that have integrated a cloud data storage solution, and are trying to expo
 
 Currents exports use Apache Avro format (`.avro` files), not JSON. This JSON format requirement applies to dashboard data exports and API exports that use JSON format.
 {% endalert %}
+
+## FAQ
+
+### Can Braze provide IP addresses to allowlist for Azure Blob storage?
+
+Braze doesn't publish a fixed IP allowlist for Currents or dashboard exports to Azure Blob storage. Braze writes to your container using the connection string and container name you provide, and Azure controls network access through your storage account settings (for example, firewall rules on the storage account or private endpoints).
+
+If your security team requires IP-based restrictions, use Azure networking features on your storage account rather than an IP list from Braze. For setup steps, see [Microsoft's documentation on securing Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security).
