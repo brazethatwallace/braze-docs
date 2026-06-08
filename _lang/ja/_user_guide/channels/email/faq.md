@@ -39,9 +39,9 @@ channel: email
 
 APIトリガーCampaignは、オーディエンスがどこで定義されているかに応じて、重複排除するか、重複を送信します。複数の配信を受信するには、APIコール内で異なる`user_ids`を使用して重複メールを個別にターゲットする必要があります。APIトリガーCampaignには3つの可能なシナリオがあります。
 
-- **シナリオ 1：ターゲットSegment内の重複メール：** 同じメールが、APIトリガーCampaignのダッシュボードのオーディエンスフィルターでグループ化された複数のユーザープロファイルに表示される場合、プロファイルの1つだけがメールを受信します。
-- **シナリオ 2：recipientsオブジェクト内の異なる`user_ids`における重複メール：** 同じメールが`recipients`オブジェクトで参照される複数の`external_user_id`値内に表示される場合、メールは2回送信されます。
-- **シナリオ 3：recipientsオブジェクト内の重複`user_ids`による重複メール：** 同じユーザープロファイルを2回追加しようとした場合、プロファイルの1つだけがメールを受信します。
+- **シナリオ1：ターゲットSegment内の重複メール：** 同じメールが、APIトリガーCampaignのダッシュボードのオーディエンスフィルターでグループ化された複数のユーザープロファイルに表示される場合、プロファイルの1つだけがメールを受信します。
+- **シナリオ2：recipientsオブジェクト内の異なる`user_ids`における重複メール：** 同じメールが`recipients`オブジェクトで参照される複数の`external_user_id`値内に表示される場合、メールは2回送信されます。
+- **シナリオ3：recipientsオブジェクト内の重複`user_ids`による重複メール：** 同じユーザープロファイルを2回追加しようとした場合、プロファイルの1つだけがメールを受信します。
 
 {% alert important %}
 APIコールを通じてAPI Campaign（APIトリガーCampaignを除く）を送信し、同じメールアドレスを持つ複数のユーザーがSegmentオーディエンスに指定されている場合、コールにリストされた回数だけそのアドレスに送信されます。これは、APIコールが意図的に構成されていると見なされるためです。
@@ -167,7 +167,7 @@ Gmailはメールメッセージからすべての非HTTP/HTTPSリンクを除�
 
 ### *ユニーク開封数*指標には*マシン開封*が含まれますか？ {#does-the-unique-opens-metric-include-machine-opens}
 
-はい。*ユニーク開封数*には*マシン開封*が含まれます。**Campaign Analytics**ビューおよび**レポートビルダー**で、両方の指標を表示できます。
+はい。*ユニーク開封数*には*マシン開封*が含まれます。**Campaign Analytics**ビューおよび**レポートビルダー**で両方の指標を表示できます。
 
 ### メールの配信量が送信量と一致しないのはなぜですか？ {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
@@ -216,3 +216,21 @@ SVG画像はGmail WebやGmail iOSではレンダリングされません。WEBP�
 ### リレーメールやマスクメールのためにドメインを登録する必要がありますか？ {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 [Appleのプライベートメールリレー]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/)では、バウンスを防ぐためにApple Developer Portalで送信ドメインを登録する必要があります。Googleのシールドメールでは、手動でのドメイン登録や許可リスト登録プロセスは必要ありません。
+
+### バウンス理由の`unable to get mx info`や`failed to get IPs from PTR record`はどういう意味ですか？ {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)で、以下のようなバウンス理由が表示された場合、これはBrazeのメッセージ構成ではなく、受信ドメインのメール設定（アドレスの`@`以降のドメイン）の解決に問題があることを示しています。
+
+一般的な原因には以下が含まれます。
+
+- そのドメインの**MXレコード**が欠落している、不正確である、または到達不能である
+- 受信インフラが期待する**PTR（逆引きDNS）**チェックに失敗する、または解決できない受信メールホスト名
+- メールアドレス内の無効または誤入力されたドメイン
+
+**次のステップ：**
+
+- アドレスとドメインのスペルを確認します。
+- アドレスが正しい場合は、そのドメインのメールボックス所有者またはITチームに連絡します。
+- DNSプロバイダーに対して、メールサーバーのPTRレコードを含むMXおよび関連DNSレコードの監査を依頼するよう伝えます。
+
+他の受信者は通常影響を受けません。ソフトバウンスがレポートにどのように表示されるかについては、[ソフトバウンス]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce)を参照してください。

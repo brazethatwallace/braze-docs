@@ -89,7 +89,7 @@ Ao configurar o domínio de rastreamento de cliques do seu CDN, ative o cabeçal
 
 ### Amazon SES
 
-Se você está usando o Amazon SES como seu CDN, consulte a **Opção 2: Configurando um domínio HTTPS** na [documentação do Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) e especifique o domínio de rastreamento da AWS por região com base no seu cluster da Braze:
+Se você está usando o Amazon SES como seu ESP, consulte a **Opção 2: Configurando um domínio HTTPS** na [documentação do Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) e especifique o domínio de rastreamento da AWS por região com base no seu cluster da Braze:
 
 - **Clusters da Braze nos EUA:** `r.us-east-1.awstrack.me`
 - **Clusters da Braze na UE:** `r.eu-central-1.awstrack.me`

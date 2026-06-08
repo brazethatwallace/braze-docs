@@ -252,6 +252,8 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 
 In the previous example, the `?` before `#` gives Braze a query segment to append `lid`. Without it, the link may not appear in **Link Management**.
 
+Without identifying where to append query parameters, link aliasing does not recognize these URLs and link templates do not apply. If you see errors such as **Failed to be assigned an LID** for a dynamic URL, confirm the `href` uses the `?` or `&` pattern shown in the examples in this section.
+
 ### Drag-and-drop editor considerations
 
 In the drag-and-drop editor, fields that hold a link (such as a button **URL**) validate the underlying `href` before Liquid runs. Spaces, line breaks, and other characters that are not URL-safe can cause unexpected behavior when Braze appends link templates or link aliasing parameters. When you need branching Liquid for the destination, set the URL in an HTML block (see the following section) and reference a single variable in the drag-and-drop URL field instead of putting complex Liquid directly in that field.
@@ -335,3 +337,21 @@ Alternatively, you can capture the URL into one variable:
 <a href="{{ url }}?">Go to account</a>
 ```
 {% endraw %}
+
+## Troubleshooting
+
+### Destinations that don't accept the `lid` parameter
+
+When you send a test message from the email editor, Braze appends {% raw %}`lid={{placeholder}}`{% endraw %} to your links (the placeholder becomes a unique value at send time). If the destination site or API doesn't tolerate extra query parameters, the link can work in the editor, but fail when opened from the email.
+
+Without the `lid` value, Braze doesn't treat the URL as link-aliased for tracking and segmentation. We recommend updating your backend or site so it ignores the `lid` query parameter when present. That preserves link aliasing, reporting, and segment use cases described in this article.
+
+Alternatively, you can turn off link aliasing in the dashboard while you plan a backend change. Go to **Settings** > **Email Preferences** > **Link Aliasing Settings**. 
+
+If you can't change your destination systems, contact [Braze Support]({{site.baseurl}}/braze_support/) to disable link aliasing for your workspace. Note the following considerations if link aliasing is turned off for your workspace:
+
+- New email messages and Content Blocks typically won't receive new link-alias markup (such as the `lid` query parameter).
+- Existing messages that were created while link aliasing was on can still contain link-alias markup in the HTML. You may need to manually remove leftover `lid` parameters where you no longer want them.
+- If you edit an existing campaign, Canvas email step, or Content Block, you may need to add link templates again so templated links display correctly.
+- Click reporting for sends that went out while link aliasing was on may not line up cleanly with reporting after the feature is turned off.
+- Segments that use link-alias-based filters (for example, **Clicked Alias** filters) can stop returning the audiences you expect.

@@ -100,7 +100,7 @@ Les administrateurs ont accès à toutes les fonctionnalités et la possibilité
 - Ajouter, modifier, supprimer, suspendre ou réactiver d'autres [utilisateurs Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users)
 - Exporter les utilisateurs Braze au format CSV
 
-Pour accorder ou retirer les privilèges d'administrateur, sélectionnez **Cet utilisateur est un administrateur**, puis sélectionnez **Mettre à jour l'utilisateur**.
+Pour accorder ou retirer les privilèges d'administrateur, sélectionnez **This user is an admin**, puis sélectionnez **Update user**.
 
 ![Les détails de l'utilisateur sélectionné avec la case à cocher administrateur en surbrillance.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
@@ -113,12 +113,12 @@ Si vous retirez les privilèges d'administrateur d'un utilisateur, il ne pourra 
 
 ### Entreprise {#company}
 
-Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilisateur, cochez ou décochez la case à côté de cette autorisation. Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilisateur, cochez ou décochez la case à côté de cette autorisation. Lorsque vous avez terminé, sélectionnez **Update user**.
 
 | Nom de l'autorisation | Description |
 |----------|-----------|
-| Gérer les paramètres de l'entreprise | Permet aux utilisateurs de modifier les paramètres d'autorisations et la vérification de l'expéditeur. |
-| Créer et supprimer des espaces de travail | Permet aux utilisateurs de créer et de supprimer des espaces de travail. |
+| Manage company settings | Permet aux utilisateurs de modifier les paramètres d'autorisations et la vérification de l'expéditeur. |
+| Create and delete workspaces | Permet aux utilisateurs de créer et de supprimer des espaces de travail. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Autorisations au niveau de l'entreprise" }
 
 {% endtab %}
@@ -126,32 +126,32 @@ Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilis
 
 ### Espace de travail {#workspace}
 
-Vous pouvez attribuer à un utilisateur des autorisations différentes pour chaque espace de travail auquel il appartient dans Braze. Pour gérer ses autorisations au niveau de l'espace de travail, sélectionnez **Sélectionner les espaces de travail et les autorisations**, puis choisissez ses autorisations manuellement ou attribuez un [ensemble d'autorisations ou un rôle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que vous avez créé précédemment. Si vous devez attribuer à un utilisateur des autorisations différentes pour différents espaces de travail, répétez ce processus autant de fois que nécessaire. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+Vous pouvez attribuer à un utilisateur des autorisations différentes pour chaque espace de travail auquel il appartient dans Braze. Pour gérer ses autorisations au niveau de l'espace de travail, sélectionnez **Select workspaces and permissions**, puis choisissez ses autorisations manuellement ou attribuez un [ensemble d'autorisations ou un rôle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que vous avez créé précédemment. Si vous devez attribuer à un utilisateur des autorisations différentes pour différents espaces de travail, répétez ce processus autant de fois que nécessaire. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
 {% subtab Sélection manuelle %}
 
-Sous **Espaces de travail**, choisissez un ou plusieurs espaces de travail dans le menu déroulant. Ensuite, sous **Autorisations**, sélectionnez une ou plusieurs autorisations. Elles seront attribuées à l'utilisateur uniquement pour les espaces de travail que vous avez sélectionnés. Vous pouvez également sélectionner **Attribuer l'accès administrateur de l'espace de travail** si vous souhaitez lui accorder toutes les autorisations pour cet espace de travail.
+Sous **Workspaces**, choisissez un ou plusieurs espaces de travail dans le menu déroulant. Ensuite, sous **Permissions**, sélectionnez une ou plusieurs autorisations. Elles seront attribuées à l'utilisateur uniquement pour les espaces de travail que vous avez sélectionnés. Vous pouvez également sélectionner **Assign workspace admin access** si vous souhaitez lui accorder toutes les autorisations pour cet espace de travail.
 
-Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Lorsque vous avez terminé, sélectionnez **Update user**.
 
 ![Autorisations au niveau de l'espace de travail sélectionnées manuellement dans Braze.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
 
 {% endsubtab %}
 {% subtab Attribuer un ensemble d'autorisations %}
 
-Sous **Espaces de travail**, choisissez un ou plusieurs espaces de travail dans le menu déroulant. Ensuite, sous **Ensembles d'autorisations**, choisissez un ensemble d'autorisations. Elles seront attribuées à l'utilisateur uniquement pour les espaces de travail que vous avez sélectionnés.
+Sous **Workspaces**, choisissez un ou plusieurs espaces de travail dans le menu déroulant. Ensuite, sous **Permission Sets**, choisissez un ensemble d'autorisations. Elles seront attribuées à l'utilisateur uniquement pour les espaces de travail que vous avez sélectionnés.
 
-Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Lorsque vous avez terminé, sélectionnez **Update user**.
 
 ![Autorisations au niveau de l'espace de travail attribuées via un ensemble d'autorisations dans Braze.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
 
 {% endsubtab %}
 {% subtab Attribuer un rôle %}
 
-Sous **Espaces de travail**, choisissez un ou plusieurs espaces de travail dans le menu déroulant. Ensuite, sous **Rôle**, choisissez un rôle. Les autorisations correspondantes seront attribuées à l'utilisateur uniquement pour les espaces de travail que vous avez sélectionnés.
+Sous **Workspaces**, choisissez un ou plusieurs espaces de travail dans le menu déroulant. Ensuite, sous **Role**, choisissez un rôle. Les autorisations correspondantes seront attribuées à l'utilisateur uniquement pour les espaces de travail que vous avez sélectionnés.
 
-Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Lorsque vous avez terminé, sélectionnez **Update user**.
 
 ![Autorisations au niveau de l'espace de travail attribuées via un rôle dans Braze.]({% image_buster /assets/img/braze_permissions/workspace_level_role.png %})
 
@@ -162,9 +162,9 @@ Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
 
 ## Exporter les autorisations utilisateur {#exporting-user-permissions}
 
-Pour télécharger une liste de vos utilisateurs et de leurs autorisations, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis sélectionnez **Exporter les utilisateurs**. Un fichier CSV sera envoyé à votre adresse e-mail sous peu.
+Pour télécharger une liste de vos utilisateurs et de leurs autorisations, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis sélectionnez **Export Users**. Un fichier CSV sera envoyé à votre adresse e-mail sous peu.
 
-![La page « Utilisateurs de l'entreprise » dans Braze avec l'option « Exporter les utilisateurs » en surbrillance.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+![La page « Utilisateurs de l'entreprise » dans Braze avec l'option « Export Users » en surbrillance.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## Liste des autorisations {#list-of-permissions}
 
@@ -355,6 +355,7 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Ressources de la bibliothèque multimédia | View Media Library Assets | Consulter les ressources de la bibliothèque multimédia |
 | Ressources de la bibliothèque multimédia | Delete Media Library Assets | Supprimer définitivement des ressources de la bibliothèque multimédia |
 | Ressources de la bibliothèque multimédia | Edit Media Library Assets | Créer et mettre à jour des ressources de la bibliothèque multimédia |
+| Ressources de la bibliothèque multimédia | Replace Media Library Assets | Remplacer le fichier d'une ressource existante de la bibliothèque multimédia tout en conservant son URL et son ID de ressource |
 | Limites de débit des messages | View Messaging Rate Limits | Consulter les limites de débit des messages au niveau de l'espace de travail |
 | Limites de débit des messages | Edit Messaging Rate Limits | Configurer et modifier les limites de débit des messages au niveau de l'espace de travail |
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Accéder à BrazeAI Operator et l'utiliser pour répondre à des questions, guider la configuration, résoudre des problèmes et trouver des idées |

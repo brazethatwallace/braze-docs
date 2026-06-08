@@ -243,6 +243,10 @@ Email clients that support preview text always pull in enough characters to fill
 For the drag-and-drop editor, add only the zero-width non-joiners (‌`&zwnj;`) without the `<div>` formatting directly in the preheader in the **Sending Settings** section.
 {% endalert %}
 
+{% alert note %}
+In the Apple Mail app, image links in HTML email must use `https://` URLs to be clickable. Use secure links for any image wrapped in an anchor tag when you expect clicks from Apple Mail recipients.
+{% endalert %}
+
 ### Step 3.3: Check for email errors
 
 Before send, the editor flags common issues:

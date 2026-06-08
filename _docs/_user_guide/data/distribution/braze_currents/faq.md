@@ -11,6 +11,22 @@ tool: Currents
 
 > This page provides answers to some frequently asked questions about Currents.
 
+### Can I export campaign or Canvas data for a specific date window?
+
+To pull campaign or Canvas metrics for a defined date range, use one of the following approaches:
+
+- Submit a [product request](https://portal.braze.com/) for date-aligned exports when you need dashboard-style reporting outside standard API windows.
+- Call the [campaign analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) or [Canvas analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) endpoints with `ending_at` and `length` parameters (or use [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) and [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/)) for time-series data.
+- Stream events to your warehouse with [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) when you need ongoing, queryable message engagement data in Amazon S3, Azure Blob Storage, or another supported destination.
+
+### How do I edit a live Currents integration?
+
+To change a live Currents connector, open the integration and click **Edit** in the lower left of the page. Without **Edit**, the integration UI stays read-only and you cannot modify connector settings from the icons alone.
+
+### How does Braze handle Azure Blob Storage Avro files after upload?
+
+Braze does not modify Avro files in [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) after upload completes. Azure may block deletion of a blob while an upload is still in progress.
+
 ### How do I get historical data?
 
 Currents is a real-time, live data stream, which means that events can't be replayed. However, you can store Currents data in a data warehouse such as [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) or [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/), so you can act on past events as you see fit. Data is retained for 30 days, but for more historical data, you can query [Snowflake]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/s3_to_snowflake/).
@@ -79,11 +95,19 @@ When Currents changes occur (such as new event fields or event types), Braze sen
 
 ### How much storage do I need for Currents data?
 
-Storage requirements depend on your event volume and the types of events you're exporting. Braze provides [sample events in Avro format](https://github.com/braze-inc/currents-examples/tree/master/sample-data) that you can use to estimate file sizes for your use case.
+Storage requirements depend on your event volume and the types of events you're exporting. Braze provides [sample events in Avro format](https://github.com/appboy/currents-examples/tree/master/sample-data) that you can use to estimate file sizes for your use case.
 
 ### Why is the campaign name or Canvas step name `NULL` in my Currents data?
 
 When you create a new campaign or Canvas, the name may take some time to propagate through all Braze systems. Events sent through Currents during this window may have `NULL` in the name fields (such as `campaign_name` or `canvas_step_name`). This is also expected if the name was modified shortly before the events were logged. To avoid this, allow some time after creating or renaming a campaign or Canvas step before sending.
+
+### Why are session end events delayed or missing in Currents?
+
+Session end events follow the SDK's normal upload schedule. The Braze SDK caches session data locally and flushes it periodically based on network quality—for example, about every 10 seconds on a strong connection. Until the SDK uploads the event, it doesn't appear in Currents.
+
+If a user force-quits the app or goes offline before the next flush, the session end event may arrive late or not at all. On iOS, session end events often don't flush until the app reopens because the SDK can't send data while the app is in the background.
+
+When you need timelier session boundaries in Currents, call `requestImmediateDataFlush()` at lifecycle points such as when the app moves to the background or returns to the foreground. For more information, see [Data upload and download]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/#data-upload-and-download) and [Session end and session start have similar timestamps (iOS)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/#session-end-and-session-start-have-similar-timestamps-ios).
 
 ### What happens if my storage bucket is unavailable when Currents tries to write data?
 
