@@ -32,7 +32,7 @@ Exploitez les riches données comportementales de Snowplow pour favoriser de pui
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Pipeline Snowplow | Vous devez disposer d'un pipeline Snowplow opérationnel. |
 | Accès à la console Snowplow | Vous devez avoir accès à la console Snowplow pour configurer les transferts d'événements. |
-| Clé API REST Braze | Une clé API REST Braze avec les autorisations suivantes : `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` et `users.alias.update`. <br><br> Vous pouvez la créer dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
+| Clé API REST Braze | Une clé API REST Braze avec les autorisations suivantes : `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` et `users.alias.update`. <br><br> Vous pouvez la créer dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
@@ -70,7 +70,7 @@ Pour chaque type d'objet, vous pouvez configurer les mappages de champs afin de 
 Vérifiez que les événements arrivent bien dans Braze en consultant les pages suivantes de votre compte Braze :
 
 1. **Générateur de requêtes** : dans Braze, accédez à **Analytics** > **Query Builder**. Vous pouvez écrire des requêtes sur les tables suivantes pour prévisualiser les données transmises par Snowplow : `USER_BEHAVIORS_CUSTOMEVENT_SHARED` et `USERS_BEHAVIORS_PURCHASE_SHARED`.
-2. **Tableau de bord d'utilisation de l'API** : dans Braze, accédez à **Settings** > **APIs and Identifiers** pour voir un graphique de l'utilisation de l'API au fil du temps. Vous pouvez filtrer spécifiquement sur la clé API utilisée par Snowplow et consulter les succès comme les échecs.
+2. **Tableau de bord d'utilisation de l'API** : dans Braze, accédez à **Paramètres** > **Clés API** pour voir un graphique de l'utilisation de l'API au fil du temps. Vous pouvez filtrer spécifiquement sur la clé API utilisée par Snowplow et consulter les succès comme les échecs.
 
 ## Envoi de propriétés personnalisées {#sending-custom-properties}
 

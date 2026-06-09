@@ -31,7 +31,7 @@ Ten en cuenta que cada llamada a este punto de conexión devolverá 50 atributos
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `cursor` | Opcional | Cadena | Determina la paginación de los atributos personalizados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de consulta" }
 
 ## Ejemplos de solicitudes {#example-requests}
 

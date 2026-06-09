@@ -311,6 +311,8 @@ Canvasで `campaign.${name}` Liquidタグを使用すると、現在のキャン
 
 ステップ間の接続を移動するには、2つのコンポーネントを接続する矢印を選択し、別のコンポーネントを選択します。接続を削除するには、矢印を選択し、キャンバスコンポーザーのフッターにある**Cancel Connection**を選択します。
 
+単一のバリアントに同じオーディエンスと送信時間を持つ複数の分岐がある場合、Brazeはそれらの分岐間で均等な分割を保証しません。配分は最初に作成された分岐が優先される場合があります。均等な分割を行うには、各分岐に[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)フィルターを使用してください。詳細については、[1つのバリアントを持つキャンバスで複数の分岐がある場合、オーディエンスと送信時間が同一だとどうなりますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches)を参照してください。
+
 ## ステップ 3: コントロールグループを追加する {#step-3-add-a-control-group}
 
 <i class="fas fa-plus-circle"></i> プラスボタンを選択して新しいバリアントを追加することで、キャンバスにコントロールグループを追加できます。

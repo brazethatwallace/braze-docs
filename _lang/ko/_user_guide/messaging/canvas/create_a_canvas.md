@@ -17,7 +17,7 @@ search_rank: 1
 
 ## 1단계: 새 Canvas 설정 {#step-1-set-up-a-new-canvas}
 
-먼저 **Messaging** > **Canvas**로 이동한 다음 **Create Canvas**를 선택합니다.
+먼저 **메시징** > **Canvas**로 이동한 다음 **Canvas 만들기**를 선택합니다.
 
 Canvas 빌더가 Canvas 설정을 단계별로 안내합니다. 이름 지정부터 전환 이벤트 설정, 적절한 사용자를 고객 여정에 유입시키는 것까지 모든 과정을 포함합니다. 아래 각 탭을 선택하여 각 빌더 단계에서 조정할 수 있는 설정을 확인하세요.
 
@@ -282,7 +282,7 @@ Canvas에서 `campaign.${name}` Liquid 태그를 사용하여 현재 Canvas 구�
 
 ![Android 푸시, Content Cards, 이메일 등 사용 가능한 메시징 채널 목록을 표시하는 "메시징 채널"이 선택된 "메시지 설정" 단계.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
-Canvas 구성요소 구성을 완료한 후 **Done**을 선택합니다.
+Canvas 구성요소 구성을 완료한 후 **완료**를 선택합니다.
 
 {% tabs local %}
 {% tab Canvas 진입 등록정보 %}
@@ -309,7 +309,9 @@ Canvas에서 커스텀 이벤트 및 구매 이벤트 등록정보는 행동 경
 
 ### 2.3단계: 연결 편집 {#step-23-edit-connections}
 
-단계 간 연결을 이동하려면 두 구성요소를 연결하는 화살표를 선택한 다음 다른 구성요소를 선택합니다. 연결을 제거하려면 화살표를 선택한 다음 Canvas 작성기 하단의 **Cancel Connection**을 선택합니다.
+단계 간 연결을 이동하려면 두 구성요소를 연결하는 화살표를 선택한 다음 다른 구성요소를 선택합니다. 연결을 제거하려면 화살표를 선택한 다음 Canvas 작성기 하단의 **연결 취소**를 선택합니다.
+
+단일 배리언트에 동일한 오디언스와 발송 시간을 가진 여러 분기가 있는 경우, Braze는 해당 분기 간의 균등한 분배를 보장하지 않습니다. 분배는 먼저 생성된 분기에 유리할 수 있습니다. 균등한 분배를 위해 각 분기에 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) 필터를 사용하세요. 자세한 내용은 [하나의 배리언트에 여러 분기가 있는 Canvas에서 오디언스와 발송 시간이 동일한 경우 어떻게 되나요?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches)를 참조하세요.
 
 ## 3단계: 대조군 추가 {#step-3-add-a-control-group}
 
@@ -337,7 +339,7 @@ Canvas의 지능형 선택은 각 배리언트에 분류된 사용자의 분배�
 
 ## 4단계: 저장 및 시작 {#step-4-save-and-launch}
 
-Canvas 만들기를 완료한 후 **Launch Canvas**를 선택하여 Canvas를 저장하고 시작합니다. Canvas를 시작한 후에는 **Canvas Details** 페이지에서 여정에 대한 분석이 들어오는 대로 확인할 수 있습니다.
+Canvas 만들기를 완료한 후 **Canvas 시작**을 선택하여 Canvas를 저장하고 시작합니다. Canvas를 시작한 후에는 **Canvas 세부 정보** 페이지에서 여정에 대한 분석이 들어오는 대로 확인할 수 있습니다.
 
 나중에 다시 돌아와야 하는 경우 Canvas를 초안으로 저장할 수도 있습니다.
 

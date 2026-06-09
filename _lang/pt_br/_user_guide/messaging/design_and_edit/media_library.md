@@ -20,7 +20,7 @@ tool: Media
 | Permissão "Edit Media Library Assets" | Criar e atualizar ativos da Biblioteca de mídia |
 | Permissão "Delete Media Library Assets" | Excluir permanentemente ativos da Biblioteca de mídia |
 | Permissão "Replace Media Library Assets" | Substituir o arquivo de um ativo existente da Biblioteca de mídia mantendo sua URL e ID de ativo estáveis |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Permissões da Biblioteca de mídia" }
 
 Para saber mais, consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
 
@@ -92,3 +92,5 @@ GIFs com formatos muito alongados (por exemplo, 3000 x 2 pixels) ou com 300 ou m
 {% alert important %}
 Antes de usar esse recurso, revise [como seus dados são usados e enviados para a OpenAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
 {% endalert %}
+
+Se você não vir **Gerador de imagens com IA** na página da **Biblioteca de mídia**, confirme que você tem a permissão **Edit Media Library Assets**. Se a opção ainda não aparecer, entre em contato com a equipe da Braze para confirmar que seu espaço de trabalho tem acesso à geração de imagens com BrazeAI. Se a geração falhar, revise a [política de conteúdo da OpenAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).

@@ -15,7 +15,7 @@ tool:
 
 ## Disponibilité de la fonctionnalité {#feature-availability}
 
-Tous les clients de Braze ont immédiatement accès à Audience Sync vers Google et Facebook, mais les clients qui utilisent des crédits de messages peuvent accéder à l'ensemble des partenaires Audience Sync. Pour débloquer des destinations Audience Sync supplémentaires pour les clients qui n'utilisent pas de crédits de messages, achetez Audience Sync Pro. Contactez votre gestionnaire de compte Braze pour plus de détails.
+Tous les clients de Braze ont immédiatement accès à Audience Sync vers Google et Facebook, mais les clients qui utilisent des crédits d'action peuvent accéder à l'ensemble des partenaires Audience Sync. Pour débloquer des destinations Audience Sync supplémentaires pour les clients qui n'utilisent pas de crédits d'action, achetez Audience Sync Pro. Contactez votre gestionnaire de compte Braze pour plus de détails.
 
 ## Cas d'utilisation {#use-cases}
 
@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | S.O. | Snapchat traite 10 requêtes par seconde et 100 000 utilisateurs par requête. Braze regroupe les utilisateurs par lots toutes les 5 secondes. | Oui | Snapchat prend en charge jusqu'à 1 000 audiences publicitaires. |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Jusqu'à 24 heures | S.O. | Oui | {::nomarkdown}<ul><li>Il n'y a pas de taille minimale d'audience pour les audiences CRM dans The Trade Desk.</li><li>Il n'y a pas de limite au nombre d'audiences prises en charge par The Trade Desk.</li><li>Si vous synchronisez vers une audience dont la région est définie sur l'UE, le numéro de téléphone n'est pas pris en charge.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Entre 24 et 48 heures | TikTok traite 50 requêtes par seconde et 10 000 utilisateurs par demande. Braze regroupe les utilisateurs par lots toutes les 5 secondes. | Oui | {::nomarkdown}<ul><li>TikTok prend en charge jusqu'à 400 audiences publicitaires.</li><li>Les audiences TikTok nécessitent au moins 1 000 utilisateurs pour commencer à diffuser des publicités.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Aperçu" }
 <sup>Lorsque la limite de débit est atteinte, Braze effectue une nouvelle tentative de synchronisation pendant 13 heures.</sup>
 
 ## Fonctionnement {#how-it-works}

@@ -20,7 +20,7 @@ tool: Media
 | "Edit Media Library Assets" 권한 | 미디어 라이브러리 자산 생성 및 업데이트 |
 | "Delete Media Library Assets" 권한 | 미디어 라이브러리 자산 영구 삭제 |
 | "Replace Media Library Assets" 권한 | URL과 자산 ID를 유지하면서 기존 미디어 라이브러리 자산의 파일 교체 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="미디어 라이브러리 권한" }
 
 자세한 내용은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 참조하세요.
 
@@ -92,3 +92,5 @@ URL과 자산 ID를 유지하면서 미디어 라이브러리의 기존 자산 �
 {% alert important %}
 이 기능을 사용하기 전에 [데이터가 OpenAI로 어떻게 사용되고 전송되는지]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy) 검토하세요.
 {% endalert %}
+
+**미디어 라이브러리** 페이지에 **AI Image Generator**가 표시되지 않는 경우, **Edit Media Library Assets** 권한이 있는지 확인하세요. 옵션이 여전히 표시되지 않으면 Braze 고객 팀에 문의하여 워크스페이스에서 BrazeAI 이미지 생성에 액세스할 수 있는지 확인하세요. 생성에 실패하면 [OpenAI 콘텐츠 정책]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy)을 검토하세요.

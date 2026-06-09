@@ -31,7 +31,7 @@ description: "이 문서에서는 커스텀 속성 내보내기 Braze 엔드포�
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `cursor` | 선택 사항 | 문자열 | 커스텀 속성의 페이지네이션을 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="쿼리 매개변수" }
 
 ## 요청 예시 {#example-requests}
 

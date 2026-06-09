@@ -74,7 +74,7 @@ Brazeには、メッセージで使用できるSegments用のLiquidコードを�
 
 ### 中止ロジックとは何ですか？また、どのように使用できますか？ {#what-is-abort-logic-and-how-can-i-use-it}
 
-中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングキャンペーンでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)で詳しくご覧ください。
+中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングCampaignでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)で詳しくご覧ください。
 
 ### forループロジックとは何ですか？また、どのように使用できますか？ {#what-is-for-loop-logic-and-how-can-i-use-it}
 
@@ -146,3 +146,59 @@ Join our VIP program to unlock free shipping.
 ### Liquid変数は件名と本文の間で引き継がれますか？ {#do-liquid-variables-carry-between-subject-line-and-body}
 
 いいえ。Brazeは各メッセージコンポーネント（件名、HTML本文、プリヘッダー、プッシュタイトルなど）を個別にレンダリングします。あるフィールドで行った割り当てやキャプチャは、別のフィールドでは使用できません。値が必要な各フィールドでLiquidまたはコネクテッドコンテンツの呼び出しを繰り返してください。
+
+### `abort_message` タグ内でLiquidを使用できますか？ {#can-i-use-liquid-inside-the-abort_message-tag}
+
+{% raw %}いいえ。{% abort_message %} タグは引用符で囲まれた静的な文字列のみを受け付け、Liquidパーソナライゼーションは使用できません。{% endraw %}条件付きの中止動作が必要な場合は、タグの前に他のLiquidロジックを使用してください。
+
+### 「Unexpected end token」というLiquidエラーが表示されるのはなぜですか？ {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
+
+このエラーは通常、波括弧の過不足を示しています。`{{ }}` を別のLiquidタグ式の中にネストしないでください。例えば、属性参照を追加の波括弧で囲むのではなく、{% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} を使用してください。
+
+### メッセージが「Invalid from email address for recipient:」で中止されるのはなぜですか？ {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
+
+この中止は、**差出人**アドレスのLiquidが無効な構文（変数の欠落、余分なスペース、許可されていない文字など）を生成した場合に発生します。テストユーザーでプレビューし、レンダリングされた**差出人**アドレスが設定済みの送信ドメインと一致していることを確認してください。
+
+### ドラッグ＆ドロップの検索ツールで**Row**にContent Blockが表示されないのはなぜですか？ {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+
+一部のContent Blocksは、ドラッグ＆ドロップエディターの検索で**Row**の下に表示されません。**コンテンツ**タブ（**Advanced**）からHTMLブロックを追加し、そのHTMLブロック内にContent BlockのLiquidタグを挿入して、ブロックのコンテンツをレンダリングしてください。
+
+### ダイナミックな返信先アドレスを作成するにはどうすればよいですか？ {#how-do-i-create-a-dynamic-reply-to-address}
+
+ワークスペースがダイナミックな返信先設定をサポートしている場合、**返信先**フィールドでLiquidを使用してください。必要に応じて**差出人**の表示名設定と組み合わせてください。ワークスペース固有のオプションについては、[メール設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/)を参照してください。
+
+### ドラッグ＆ドロップのContent Blockプレビューが作成ビューと異なるのはなぜですか？ {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
+
+Content BlockをLiquidでテンプレート化すると、ブロック内のモバイルメディアクエリが、ブロックを直接メッセージにドラッグした場合と同じようにプレビューに適用されないことがあります。ブロックをドラッグするとレイアウトは保持されますが、ソースブロックから切り離されるため、今後のブロック編集はメッセージに自動的に反映されなくなります。
+
+### Canvasコンテキストプロパティにサイズ制限はありますか？ {#are-there-size-limits-for-canvas-context-properties}
+
+Brazeは[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)にハードリミットを設けていませんが、ペイロードは約1 KB（約1,000文字）以下に抑えてください。大きなオブジェクトはメモリ使用量を増加させ、大量送信時のメッセージレンダリングを遅延させる可能性があります。
+
+### カタログのLiquidスニペットが中止メッセージを返すのはなぜですか？ {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
+
+カタログのLiquidスニペットが送信時に中止される場合は、一括またはフルダイナミックセレクションを使用する代わりに、パーソナライゼーションメニューから個別のカタログアイテムを選択してスニペットを再作成してください。詳細については、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)と[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)を参照してください。
+
+### ダッシュボードで特定のデータタイプをプレビューするとLiquidエラーが発生するのはなぜですか？ {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
+
+一部の[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)タイプは、比較や計算で使用する前にLiquidでの型変換が必要です。例えば、数値の動作が必要な場合：
+
+{% raw %}
+```liquid
+{{context.${property_name} | plus: 0}}
+```
+{% endraw %}
+
+### アプリ内メッセージでコネクテッドコンテンツのリトライが利用できないのはなぜですか？ {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+
+{% raw %}
+リトライ付きの `{% connected_content %}` タグは、一部のアプリ内メッセージ形式を含むすべてのメッセージタイプでサポートされているわけではありません。リトライパラメーターを削除するか、リトライ付きコネクテッドコンテンツ呼び出しにサポートされているチャネルを使用してください。
+{% endraw %}
+
+### メッセージ作成画面でイベントプロパティの値をプレビューするにはどうすればよいですか？ {#how-do-i-preview-event-property-values-in-message-composer}
+
+**カスタムユーザーとしてプレビュー**を使用し、プレビューするユーザーのサンプルカスタムイベントプロパティ値を入力してください。これは、中止をトリガーしないプレビュー値が必要な中止ロジックを含むメッセージにも便利です。
+
+### BrazeはLiquidで配列の配列をサポートしていますか？ {#does-braze-support-an-array-of-arrays-in-liquid}
+
+Liquidはネイティブで配列の配列をサポートしていません。値をカンマ区切りの文字列の配列として格納し、必要に応じて `split` フィルターを使用して解析してください。

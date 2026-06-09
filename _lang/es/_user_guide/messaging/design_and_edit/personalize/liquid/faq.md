@@ -146,3 +146,60 @@ Join our VIP program to unlock free shipping.
 ### ¿Las variables de Liquid se comparten entre la línea del asunto y el cuerpo? {#do-liquid-variables-carry-between-subject-line-and-body}
 
 No. Braze renderiza cada componente del mensaje por separado (como la línea del asunto, el cuerpo HTML, el preencabezado y el título push). Las asignaciones o capturas que hagas en un campo no están disponibles en otro. Repite la llamada de Liquid o Contenido conectado en cada campo que necesite el valor.
+
+
+### ¿Puedo usar Liquid dentro de la etiqueta `abort_message`? {#can-i-use-liquid-inside-the-abort_message-tag}
+
+{% raw %}No. La etiqueta {% abort_message %} acepta una cadena estática entre comillas, no personalización de Liquid.{% endraw %} Usa otra lógica de Liquid antes de la etiqueta si necesitas un comportamiento de cancelación condicional.
+
+### ¿Por qué veo un error de Liquid "Unexpected end token"? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
+
+Este error generalmente indica llaves adicionales o faltantes. No anides `{{ }}` dentro de otra expresión de etiqueta de Liquid. Por ejemplo, usa {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} en lugar de envolver la referencia del atributo en un par adicional de llaves.
+
+### ¿Por qué mi mensaje se cancela con "Invalid from email address for recipient:"? {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
+
+Esta cancelación ocurre cuando el Liquid en la dirección **De** produce una sintaxis no válida, como una variable faltante, espacios adicionales o caracteres no permitidos. Previsualiza con un usuario de prueba y verifica que la dirección **De** renderizada coincida con tu dominio de envío configurado.
+
+### ¿Por qué mi Content Block no aparece en **Row** en la herramienta de búsqueda de arrastrar y soltar? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+
+Algunos Content Blocks no aparecen en **Row** en la búsqueda del editor de arrastrar y soltar. Añade un bloque HTML desde la pestaña **Content** (**Advanced**), luego inserta la etiqueta de Liquid del Content Block en ese bloque HTML para renderizar el contenido del bloque.
+
+### ¿Cómo creo una dirección de respuesta dinámica? {#how-do-i-create-a-dynamic-reply-to-address}
+
+Usa Liquid en el campo **Responder a** cuando tu espacio de trabajo admita la configuración dinámica de respuesta. Combínalo con la configuración del nombre para mostrar de **De** según sea necesario. Consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) para ver las opciones específicas del espacio de trabajo.
+
+### ¿Por qué la vista previa de mi Content Block de arrastrar y soltar difiere de la vista de redacción? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
+
+Cuando usas una plantilla de Content Block con Liquid, las consultas de medios para móviles en el bloque pueden no aplicarse en la vista previa de la misma manera que cuando arrastras el bloque directamente a un mensaje. Arrastrar el bloque preserva el diseño pero lo desacopla del bloque fuente, por lo que las ediciones futuras del bloque ya no actualizan el mensaje automáticamente.
+
+### ¿Hay límites de tamaño para las propiedades de contexto de Canvas? {#are-there-size-limits-for-canvas-context-properties}
+
+Braze no impone un límite estricto en las [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), pero mantén las cargas útiles por debajo de aproximadamente 1 KB (~1000 caracteres). Los objetos más grandes pueden aumentar el uso de memoria y retrasar el renderizado de mensajes durante envíos de alto volumen.
+
+### ¿Por qué mi fragmento de código de Liquid de catálogo devuelve un mensaje de cancelación? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
+
+Si un fragmento de código de Liquid de catálogo se cancela durante el envío, recrea el fragmento desde el menú de personalización seleccionando elementos individuales del catálogo en lugar de usar una selección masiva o completamente dinámica. Consulta [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) y [Selecciones]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+
+### ¿Por qué obtengo un error de Liquid al previsualizar ciertos tipos de datos en el dashboard? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
+
+Algunos tipos de [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) requieren conversión en Liquid antes de usarlos en comparaciones u operaciones matemáticas. Por ejemplo, cuando necesitas un comportamiento numérico:
+
+{% raw %}
+```liquid
+{{context.${property_name} | plus: 0}}
+```
+{% endraw %}
+
+### ¿Por qué el reintento de Contenido conectado no está disponible para mi mensaje dentro de la aplicación? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+
+{% raw %}
+La etiqueta `{% connected_content %}` con reintento no es compatible con todos los tipos de mensajes, incluidos algunos formatos de mensajes dentro de la aplicación. Elimina los parámetros de reintento o usa un canal compatible para las llamadas de Contenido conectado con reintento.
+{% endraw %}
+
+### ¿Cómo previsualizo los valores de propiedades de eventos en el creador de mensajes? {#how-do-i-preview-event-property-values-in-message-composer}
+
+Usa **Previsualizar como usuario personalizado** e introduce valores de ejemplo de propiedades de eventos personalizados para el usuario que previsualizas. Esto también es útil para mensajes con lógica de cancelación cuando necesitas valores de vista previa que no desencadenen una cancelación.
+
+### ¿Braze admite un array de arrays en Liquid? {#does-braze-support-an-array-of-arrays-in-liquid}
+
+Liquid no admite de forma nativa arrays de arrays. Almacena los valores como un array de cadenas separadas por comas y usa el filtro `split` para analizarlos cuando sea necesario.

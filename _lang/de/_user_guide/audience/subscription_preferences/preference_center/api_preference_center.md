@@ -32,8 +32,8 @@ Durch die Verwendung von Liquid können Sie die Namen Ihrer Abo-Gruppen und den 
 | Aktiviertes Präferenzzentrum | Ihr Braze-Dashboard verfügt über die Berechtigungen zur Nutzung des Präferenzzentrum-Features. |
 | Gültiger Workspace mit einer E-Mail-, SMS- oder WhatsApp-Abo-Gruppe | Ein funktionierender Workspace mit gültigen Nutzer:innen und einer E-Mail-, SMS- oder WhatsApp-Abo-Gruppe. |
 | Gültige:r Nutzer:in | Ein:e Nutzer:in mit einer E-Mail-Adresse und einer externen ID. |
-| Generierter API-Schlüssel mit Präferenzzentrum-Berechtigungen | Gehen Sie im Braze-Dashboard zu **Settings** > **API Keys**, um zu bestätigen, dass Sie Zugriff auf einen API-Schlüssel mit Präferenzzentrum-Berechtigungen haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Generierter API-Schlüssel mit Präferenzzentrum-Berechtigungen | Gehen Sie im Braze-Dashboard zu **Einstellungen** > **API-Schlüssel**, um zu bestätigen, dass Sie Zugriff auf einen API-Schlüssel mit Präferenzzentrum-Berechtigungen haben. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ### 1. Schritt: Den Endpunkt „Präferenzzentrum erstellen“ verwenden {#step-1-use-the-create-preference-center-endpoint}
 
@@ -128,7 +128,7 @@ Nein. Sie können jedoch Liquid nutzen, wenn Sie das HTML für benutzerdefiniert
 
 Wenn Sie beispielsweise die Abmeldungsrate für spanischsprachige Nutzer:innen verfolgen, müssten Sie entweder separate Campaigns verwenden oder Analytics rund um Currents nutzen (z. B. prüfen, wann sich ein:e Nutzer:in abmeldet, und die bevorzugte Sprache dieser/dieses Nutzer:in überprüfen).
 
-Als weiteres Beispiel könnten Sie für das Tracking der Abmeldungsraten für spanischsprachige Nutzer:innen einen Abfrageparameter-String wie `?Spanish=true` zur Abmelde-URL hinzufügen, wenn die Sprache der Nutzer:innen Spanisch ist, und andernfalls einen regulären Abmelde-Link verwenden:
+Als weiteres Beispiel könnten Sie für das Tracking der Abmeldungsraten für spanischsprachige Nutzer:innen einen Abfrageparameter-String wie `?Spanish=true` zur Abmelde-URL hinzufügen, wenn die Sprache der/des Nutzer:in Spanisch ist, und andernfalls einen regulären Abmelde-Link verwenden:
 
 {% raw %}
 ```liquid

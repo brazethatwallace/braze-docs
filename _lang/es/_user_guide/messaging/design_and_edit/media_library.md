@@ -20,7 +20,7 @@ tool: Media
 | Permiso "Edit Media Library Assets" | Crear y actualizar activos de la Biblioteca de medios |
 | Permiso "Delete Media Library Assets" | Eliminar permanentemente activos de la Biblioteca de medios |
 | Permiso "Replace Media Library Assets" | Reemplazar el archivo de un activo existente de la Biblioteca de medios manteniendo estables su URL e ID de activo |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Permisos de la Biblioteca de medios" }
 
 Para más información, consulta [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
 
@@ -58,7 +58,7 @@ Puedes reemplazar el archivo de un activo existente en la Biblioteca de medios m
 
 Para reemplazar un activo, debes tener el permiso "Replace Media Library Assets":
 
-1. Ve a **Content** > **Media Library**.
+1. Ve a **Contenido** > **Biblioteca de medios**.
 2. Selecciona el activo que deseas reemplazar.
 3. En el modal, selecciona **Replace file**.
 4. Carga el archivo de reemplazo.
@@ -92,3 +92,5 @@ Los GIF con formas muy alargadas (por ejemplo, 3000 x 2 píxeles) o con 300 o m�
 {% alert important %}
 Antes de usar esta característica, revisa [cómo se usan y envían tus datos a OpenAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
 {% endalert %}
+
+Si no ves **AI Image Generator** en la página de la **Biblioteca de medios**, confirma que tienes el permiso **Edit Media Library Assets**. Si la opción sigue sin aparecer, ponte en contacto con tu equipo de Braze para confirmar que tu espacio de trabajo tiene acceso a la generación de imágenes de BrazeAI. Si la generación falla, revisa la [política de contenido de OpenAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).

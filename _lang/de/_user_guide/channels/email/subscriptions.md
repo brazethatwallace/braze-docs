@@ -23,7 +23,7 @@ Braze verfügt über drei globale Abo-Status für E-Mail-Nutzer:innen. Diese Sta
 | Opted-in | Eine Nutzer:in hat ausdrücklich bestätigt, dass sie E-Mails erhalten möchte. Wir empfehlen einen expliziten Opt-in-Prozess, um die Zustimmung der Nutzer:innen zum E-Mail-Versand einzuholen. |
 | Abonniert | Eine Nutzer:in hat sich weder abgemeldet noch ausdrücklich für den E-Mail-Empfang entschieden. Dies ist der Standard-Abo-Status, wenn ein Nutzerprofil erstellt wird. |
 | Abgemeldet | Eine Nutzer:in hat sich ausdrücklich von Ihren E-Mails abgemeldet. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abo-Status" }
 
 {% alert note %}
 Braze zählt Änderungen des Abo-Status nicht als Datenpunkte – weder global noch bei Abo-Gruppen.
@@ -81,6 +81,8 @@ Wenn eine Nutzer:in ihre E-Mail-Adresse aktualisiert, wird ihr Abo-Status auf �
 
 Um Änderungen des Abo-Status nachzuvollziehen, überprüfen Sie die **Email Subscription-State Changes** in den Nutzerprofil-Protokollen, um den Verlauf und die Quelle (API oder SDK) einzusehen.
 
+Wenn sich der globale E-Mail-Abo-Status einer Nutzer:in ändert, überträgt Braze diesen Status auf andere Profile, die dieselbe E-Mail-Adresse verwenden – bis zu 100 Profile pro Änderung. Braze garantiert keine Übertragung, wenn mehr als 100 Profile dieselbe E-Mail-Adresse verwenden. Wenn Nutzer:innen, die eine E-Mail-Adresse teilen, unterschiedliche Abo-Status aufweisen, wenden Sie sich an den Braze-Support.
+
 ## Abo-Gruppen {#subscription-groups}
 
 Abo-Gruppen sind Segment-Filter, mit denen Sie Ihre Zielgruppe über die [globalen Abo-Status](#subscription-states) hinaus weiter eingrenzen können. Diese Gruppen ermöglichen es Ihnen, Endnutzer:innen detailliertere Abo-Optionen anzubieten.
@@ -115,7 +117,7 @@ Archivierte Abo-Gruppen können nicht bearbeitet werden und erscheinen nicht meh
 Um Ihre Gruppe auf der Seite **Subscription Groups** zu archivieren, gehen Sie wie folgt vor:
 
 1. Suchen Sie Ihre Gruppe in der Liste der Abo-Gruppen.
-2. Wählen Sie **Archive** aus dem <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;Dropdown-Menü.
+2. Wählen Sie **Archivieren** aus dem <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;Dropdown-Menü.
 
 Braze verarbeitet keine Statusänderungen für Nutzer:innen in archivierten Gruppen. Wenn Sie beispielsweise Abo-Gruppe 1 archivieren, während Alex diese abonniert hat, bleibt Alex „abonniert“, auch wenn er auf einen Abmeldelink klickt. Das spielt keine Rolle, da Abo-Gruppe 1 archiviert ist und Sie keine Nachrichten darüber versenden können.
 
@@ -169,7 +171,7 @@ Wenn Nutzer:innen eine Abmelde-URL in einer E-Mail auswählen, öffnen sie eine 
 
 Um stattdessen eine angepasste Landing-Page zu verwenden:
 
-1. Gehen Sie zu **Email Preferences** > **Subscription Pages and Footers**.
+1. Gehen Sie zu **E-Mail-Präferenzen** > **Abo-Seiten und -Fußzeilen**.
 2. Fügen Sie den HTML-Code für Ihre angepasste Seite hinzu.
 
 Fügen Sie einen Link zur erneuten Anmeldung ein (z. B. {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}), damit Nutzer:innen eine versehentliche Abmeldung rückgängig machen können.
@@ -186,8 +188,8 @@ Wenn Sie die Dashboard-Fußzeile anstelle eines reinen HTML-Content-Blocks verwe
 
 Verwenden Sie eine angepasste Opt-in-Seite, damit Nutzer:innen ihre Benachrichtigungspräferenzen vor dem Abo bestätigen und steuern können. Diese zusätzliche Kommunikation kann dazu beitragen, dass E-Mail-Campaigns nicht in Spam-Ordnern landen.
 
-1. Gehen Sie zu **Settings** > **Email Preferences**.
-2. Wählen Sie **Subscription Pages and Footers**.
+1. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen**.
+2. Wählen Sie **Abo-Seiten und -Fußzeilen**.
 3. Passen Sie das Styling im Abschnitt **Custom opt-in page** an, um zu sehen, wie Ihren Nutzer:innen angezeigt wird, dass sie abonniert wurden.
 
 Nutzer:innen erreichen diese Seite über den Tag {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %}.

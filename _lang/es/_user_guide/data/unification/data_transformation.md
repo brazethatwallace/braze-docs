@@ -29,7 +29,7 @@ Muchas plataformas actuales disponen de "webhooks", o notificaciones de API en t
 
 El resultado final es una integración de webhook que conecta una plataforma fuente de tu elección convirtiendo sus webhooks en actualizaciones de Braze.
 
-{% details More on webhooks %}
+{% details Más sobre webhooks %}
 Los webhooks son notificaciones en tiempo real enviadas a través de una solicitud HTTP POST a un destino específico. Los webhooks se utilizan a menudo para enviar datos de un punto a otro, en el que el webhook puede pasar datos sobre una acción que se ha producido y quién estaba involucrado en esa acción.
 
 Por ejemplo, una plataforma de encuestas puede enviar un webhook a un destino de tu elección cada vez que se reciba una respuesta a un formulario en línea. O bien, una plataforma de atención al cliente puede enviar un webhook a un destino de su elección cada vez que se cree un ticket de atención al cliente.
@@ -43,7 +43,7 @@ La siguiente tabla describe las diferencias entre la versión gratuita y la vers
 |----|----|----|
 | Transformaciones activas | Hasta 5 por empresa | Hasta 55 por empresa |
 | Al mes | 300.000 solicitudes entrantes al mes | 10.300.000 solicitudes entrantes al mes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveles de Transformación de datos" }
 
 {% alert important %}
 Para solicitar una actualización a Transformación de datos Pro, ponte en contacto con tu director de cuentas de Braze o selecciona el botón **Request Upgrade** en el dashboard de Braze.

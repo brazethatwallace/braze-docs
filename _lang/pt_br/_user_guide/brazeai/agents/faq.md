@@ -24,7 +24,7 @@ Os benefícios de usar o modelo Auto da Braze incluem:
 
 ### Onde posso encontrar meu uso atual de agentes? {#where-can-i-find-my-current-agent-usage}
 
-Acesse **Settings** > **Billing** > **Credits Usage** para ver os detalhes do uso de agentes e custos de créditos.
+Acesse **Configurações** > **Faturamento** > **Uso de créditos** para ver os detalhes do uso de agentes e custos de créditos.
 
 ### Posso usar instruções condicionais de Liquid nas instruções do agente? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 

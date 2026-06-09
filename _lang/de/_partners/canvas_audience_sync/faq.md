@@ -23,9 +23,9 @@ Die genaue Zeitspanne können Sie im Abschnitt „Fehlerbehebung“ in der Dokum
 
 Die spezifischen Felder, die für jeden Partner verwendet werden, können je nach den Anforderungen des Partners variieren.
 
-Wenn Sie beispielsweise eine Audience Sync mit Facebook konfigurieren, können Sie eine Vielzahl von First-Party-Feldern wie E-Mail, Telefon, Vorname und Nachname verwenden, während Sie bei Snapchat nur E-Mail, Telefon oder die ID des mobilen Werbers auswählen können.
+Wenn Sie beispielsweise eine Audience Sync mit Facebook konfigurieren, können Sie eine Vielzahl von First-Party-Feldern wie E-Mail, Telefon, Vorname und Nachname verwenden, während Sie bei Snapchat nur E-Mail, Telefon oder die Mobile-Advertiser-ID auswählen können.
 
-Bitte beachten Sie, dass die Nutzer:innen-Felder, die Sie für die Synchronisierung auswählen können, mit den Braze-Standardattributen und den IDs für mobile Werbung korrelieren. Sie müssen sicherstellen, dass Sie diese Daten ordnungsgemäß über unsere SDKs oder APIs übergeben.
+Bitte beachten Sie, dass die Nutzer:innen-Felder, die Sie für die Synchronisierung auswählen können, mit den Braze-Standardattributen und den Mobile-Advertising-IDs korrelieren. Sie müssen sicherstellen, dass Sie diese Daten ordnungsgemäß über unsere SDKs oder APIs übergeben.
 
 ### Was passiert, wenn meine Daten verarbeitet werden, um sie an die einzelnen Audience-Sync-Partner zu senden? {#what-happens-when-my-data-is-being-processed-to-send-to-each-audience-sync-partner}
 
@@ -39,7 +39,7 @@ Dies wird von den Methoden der Partnerintegration bestimmt und nicht von Braze k
 
 ### Wie kann ich meine Integration erneut verbinden? {#how-do-i-reconnect-my-integration}
 
-Wenn die Person, die die Integration ursprünglich verbunden hat, nicht mehr in Ihrem Unternehmen tätig ist, müssen Sie die Integration mit einer neuen Person aktualisieren, indem Sie **Change Account** auswählen. Wählen Sie dann **Confirm** und stellen Sie die Verbindung mit der neuen Person her. Wir empfehlen, den Wechsel durchzuführen, wenn keine aktiven Synchronisierungen stattfinden, z. B. vor einem geplanten Eingang von Nutzer:innen in einen Canvas, da eine Synchronisierung während des Übergangs aktive Canvases unterbrechen kann. Wir empfehlen, den Wechsel durchzuführen, wenn keine aktiven Synchronisierungen stattfinden, z. B. vor einem geplanten Eingang von Nutzer:innen in einen Canvas.
+Wenn die Person, die die Integration ursprünglich verbunden hat, nicht mehr in Ihrem Unternehmen tätig ist, müssen Sie die Integration mit einer neuen Person aktualisieren, indem Sie **Change Account** auswählen. Wählen Sie dann **Bestätigen** und stellen Sie die Verbindung mit der neuen Person her. Wir empfehlen, den Wechsel durchzuführen, wenn keine aktiven Synchronisierungen stattfinden, z. B. vor einem geplanten Eingang von Nutzer:innen in einen Canvas, da eine Synchronisierung während des Übergangs aktive Canvases unterbrechen kann. Wir empfehlen, den Wechsel durchzuführen, wenn keine aktiven Synchronisierungen stattfinden, z. B. vor einem geplanten Eingang von Nutzer:innen in einen Canvas.
 
 Die Person, die die Verbindung wiederherstellt, muss sowohl Lese- als auch Schreibzugriff auf alle Zielgruppen haben, damit Nutzer:innen erfolgreich mit den Partnern synchronisiert werden können. Vergewissern Sie sich, dass die Person, die die Integration wiederherstellt, Zugriff auf dieselben Anzeigenkonten und Zielgruppen hat. Sie brauchen keine bestehenden Canvas-Schritte zu bearbeiten.
 
@@ -53,4 +53,4 @@ Die Person, die die Verbindung wiederherstellt, muss sowohl Lese- als auch Schre
 | Zugriff auf Anzeigenkonto | Dieser Fehler tritt auf, wenn Sie keine Berechtigung für das Anzeigenkonto, eine von Ihnen ausgewählte Zielgruppe oder beides haben. | Arbeiten Sie mit den Administratoren Ihres Anzeigenkontos zusammen, um den richtigen Zugang und die richtigen Berechtigungen zu erhalten. |
 | Ungültige Einstellungen | Dies kann vorkommen, wenn Sie kein bestimmtes Audience-Sync-Ziel in Canvas konfiguriert haben, einschließlich der entsprechenden Felder für Anzeigenkonten, Zielgruppen oder Nutzer:innen. | Vervollständigen Sie die Konfiguration der einzelnen Partner, bevor Sie starten. |
 | Nutzungsbedingungen | Bei einigen Audience-Sync-Zielen, wie z. B. Facebook, ist es vom Anzeigennetzwerk vorgeschrieben, bestimmte Nutzungsbedingungen zu akzeptieren, um das Audience-Sync-Feature nutzen zu können. Dieser Fehler wird ausgelöst, wenn Sie die entsprechenden Bedingungen nicht akzeptiert haben. | Bestätigen Sie, dass Sie die erforderlichen Bedingungen jedes Partners akzeptiert haben. Speziell für Facebook lesen Sie bitte die [Facebook-Fehlerbehebung]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync/#troubleshooting). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Häufige Fehler bei der Erstellung und Verwaltung von Audience Syncs" }

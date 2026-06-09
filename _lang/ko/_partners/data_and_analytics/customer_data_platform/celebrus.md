@@ -17,7 +17,7 @@ _이 통합은 Celebrus에서 유지 관리합니다._
 | Celebrus 계정 | 이 파트너십을 활용하려면 Celebrus 계정이 필요합니다. |
 | 데이터 웨어하우스(선택 사항) | Braze 커스텀 속성용 Celebrus 커넥터를 사용하는 경우, Braze 클라우드 데이터 수집(CDI) 통합에서 지원하는 데이터 웨어하우스가 있어야 하며, Braze 대시보드에서 CDI를 구성해야 합니다. |
 | Braze SDK 구성 설정(선택 사항) | Braze SDK용 Celebrus 커넥터를 사용하는 경우, SDK 엔드포인트와 SDK API 키를 전달해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 구현 {#implementation}
 Celebrus 구현을 설치한 후, Braze용 Celebrus 커넥터를 사용하여 Celebrus 데이터를 Braze에 통합합니다. Braze용 Celebrus 통합에는 Braze SDK와 Braze 커스텀 속성이라는 두 가지 요소가 있습니다. Braze 사용 방식과 필요한 사용 사례에 따라 둘 중 하나 또는 둘 다 배포할 수 있습니다.

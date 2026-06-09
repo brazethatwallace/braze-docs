@@ -29,7 +29,7 @@ Una vez completada tu integración, puedes aprovechar la plataforma JustAI para:
 | Requisito | Descripción |
 |---|---|
 | Cuenta de JustAI | Se requiere una cuenta de [JustAI](https://www.getjust.ai/) para aprovechar esta asociación. Si no tienes una cuenta de JustAI, [programa una llamada de incorporación de 30 minutos](https://www.getjust.ai/book-demo). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de JustAI con Braze {#integrating-justai-with-braze}
 
@@ -58,7 +58,7 @@ JustAI funciona con Canvas y Campaigns mediante Contenido conectado. Si estás c
 {% tabs %}
 {% tab Canvas %}
 
-1. En un Canvas, selecciona **Add Variant** > **Add Variant** hasta tener el número deseado de variantes, y añade pasos a cada variante (como un paso de mensaje de correo electrónico).
+1. En un Canvas, selecciona **Añadir variante** > **Añadir variante** hasta tener el número deseado de variantes, y añade pasos a cada variante (como un paso de mensaje de correo electrónico).
 2. Divide el tráfico de la audiencia como desees. Por ejemplo, si tienes dos variantes, podrías asignar un 50 % a cada una. O podrías tener dos variantes con un 40 % cada una y un grupo de control con un 20 %. Para más información sobre pruebas A/B en Canvas, consulta [Crear un Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/).
 3. En los editores de los pasos de mensaje que quieras usar con Contenido conectado, pega el fragmento de código de Contenido conectado de la consola de JustAI, como el siguiente ejemplo.
 

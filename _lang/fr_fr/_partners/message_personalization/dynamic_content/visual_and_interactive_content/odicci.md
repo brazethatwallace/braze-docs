@@ -39,7 +39,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Un compte Odicci | Un compte Odicci avec accès à la section **Integrations** est nécessaire pour profiter de ce partenariat. |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track` et `campaigns.list`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration d'Odicci {#integrating-odicci}
 
@@ -57,7 +57,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 ### Étape 2 : Obtenir votre clé API REST Braze {#step-2-obtain-your-braze-rest-api-key}
 
 1. Connectez-vous à votre compte Braze.
-2. Accédez à **Developer Console > REST API Keys**.
+2. Accédez à **Console de développement > Clés API REST**.
 3. Créez une nouvelle clé API ou copiez une clé existante disposant de l'autorisation `users.track`.
 
 ### Étape 3 : Activer l'intégration au niveau de l'expérience {#step-3-activate-the-integration-at-the-experience-level}
@@ -95,4 +95,4 @@ Vérifiez que les champs de la section **Field Mapping** sont correctement confi
 
 ### La campagne ne se déclenche pas {#campaign-not-triggering}
 
-Vérifiez les paramètres de la campagne Braze pour vous assurer que l'audience ou les conditions de déclenchement correctes sont définies.
+Vérifiez les paramètres de la campagne dans Braze pour vous assurer que l'audience ou les conditions de déclenchement correctes sont définies.

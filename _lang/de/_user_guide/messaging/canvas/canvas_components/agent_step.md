@@ -51,9 +51,9 @@ Beachten Sie, dass der Datentyp der Ausgabevariable in der [Agentenkonsole]({{si
 | Zahl | Scoring, Schwellenwerte, Routing in [Zielgruppenpfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) |
 | Boolescher Wert | Ja/Nein-Verzweigung in [Decision-Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) |
 | Objekt | Nutzen Sie einen oder mehrere der oben genannten Datentypen mit einem einzigen LLM-Aufruf in einer vorhersagbaren Datenstruktur |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Ausgabe des Agents festlegen" }
 
-Sie können eine Ausgabevariable im gesamten Canvas verwenden, indem Sie dieselbe Template-Syntax wie bei einer Kontextvariable nutzen. Verwenden Sie entweder den Segment-Filter **Context Variable** oder templaten Sie Agent-Antworten direkt mit Liquid: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
+Sie können eine Ausgabevariable im gesamten Canvas verwenden, indem Sie dieselbe Template-Syntax wie bei einer Kontextvariable nutzen. Verwenden Sie entweder den Segment-Filter **Context Variable** oder templaten Sie Agent-Antworten direkt mit Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
 
 Um eine bestimmte Eigenschaft aus einer Objekt-Ausgabevariable zu verwenden, nutzen Sie die Punkt-Notation, um mit Liquid auf diese Eigenschaft zuzugreifen: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
@@ -77,13 +77,14 @@ Nachdem Sie Ihren Agent-Schritt eingerichtet haben, können Sie die Ausgabe dies
 
 ## Fehlerbehandlung {#error-handling}
 
-- Wenn das verbundene Modell einen Rate-Limit-Fehler zurückgibt, versucht Braze es bis zu fünf Mal mit exponentiellem Backoff erneut.
-- Wenn der Agent aus einem anderen Grund fehlschlägt (z. B. ein Timeout-Fehler oder ein ungültiger API-Schlüssel), wird die Ausgabevariable auf `null` gesetzt.
+Informationen dazu, wie Braze mit Agent-Fehlern, Rate-Limit-Fehlern und Aufruf-Flusssteuerungen umgeht, finden Sie unter [Fehlerbehandlung]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) in Braze Agents.
+
+- Wenn der Agent aus einem beliebigen Grund fehlschlägt (z. B. ein Timeout-Fehler oder ein ungültiger API-Schlüssel), wird die Ausgabevariable auf `null` gesetzt.
     - Wenn ein Agent sein tägliches Aufruf-Limit erreicht, wird die Ausgabevariable auf `null` gesetzt.
 - Verwenden Sie [Standard-Liquid-Werte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/), um sich gegen Fehler abzusichern. Beispielsweise können Sie im Modal **Add Personalization** einen Standard-Liquid-Wert eingeben wie {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} oder {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - Antworten werden bei identischen Eingaben zwischengespeichert und können bei wiederholten identischen Aufrufen innerhalb weniger Minuten wiederverwendet werden.
     - Antworten, die zwischengespeicherte Werte verwenden, zählen dennoch zu den Gesamt- und täglichen Aufrufen.
-- Agent-Schritte können bei der Verarbeitung einer großen Anzahl von Nutzer:innen Zeit in Anspruch nehmen. Wenn Sie Nutzer:innen sehen, die in diesem Schritt noch ausstehend sind, überprüfen Sie Ihre Logs, um sicherzustellen, dass Aufrufe stattfinden.
+- Agent-Schritte können bei der Verarbeitung einer großen Anzahl von Nutzer:innen Zeit in Anspruch nehmen. Braze reiht Aufrufe gemäß den [Aufruf-Flusssteuerungen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls) in eine Warteschlange ein, sodass Nutzer:innen bei Versendungen mit hohem Volumen möglicherweise ausstehend bleiben. Überprüfen Sie Ihre Logs, um sicherzustellen, dass Aufrufe stattfinden.
 
 ## Analytics {#analytics}
 

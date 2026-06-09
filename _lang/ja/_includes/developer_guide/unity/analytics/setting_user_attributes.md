@@ -28,47 +28,47 @@ BrazeBinding.SetUserFirstName("first name");
 ```
 {% endtab %}
 {% tab Last name %}
-`````````csharp
+```csharp
 BrazeBinding.SetUserLastName("last name");
 ```
 {% endtab %}
 {% tab Email %}
-`````````csharp
+```csharp
 BrazeBinding.SetUserEmail("email@email.com");
 ```
 {% endtab %}
 {% tab Gender %}
-`````````csharp
+```csharp
 BrazeBinding.SetUserGender(Appboy.Models.Gender);
 ```
 {% endtab %}
 {% tab Birth date %}
-`````````csharp
+```csharp
 BrazeBinding.SetUserDateOfBirth("year(int)", "month(int)", "day(int)");
 ```
 {% endtab %}
 {% tab Country %}
-`````````csharp
+```csharp
 BrazeBinding.SetUserCountry("country name");
 ```
 {% endtab %}
 {% tab Home city %}
-`````````csharp
+```csharp
 BrazeBinding.SetUserHomeCity("city name");
 ```
 {% endtab %}
 {% tab Email subscription %}
-`````````csharp
+```csharp
 BrazeBinding.SetUserEmailNotificationSubscriptionType(AppboyNotificationSubscriptionType);
 ```
 {% endtab %}
 {% tab Push subscription %}
-`````````csharp
+```csharp
 BrazeBinding.SetUserPushNotificationSubscriptionType(AppboyNotificationSubscriptionType);
 ```
 {% endtab %}
 {% tab Phone number %}
-`````````csharp
+```csharp
 BrazeBinding.SetUserPhoneNumber("phone number");
 ```
 {% endtab %}
@@ -78,7 +78,7 @@ BrazeBinding.SetUserPhoneNumber("phone number");
 
 デフォルトのユーザー属性を解除するには、関連するメソッドに`null`を渡します。
 
-`````````csharp
+```csharp
 BrazeBinding.SetUserFirstName(null);
 ```
 
@@ -93,7 +93,7 @@ BrazeBinding.SetUserFirstName(null);
 {% tabs %}
 {% tab String %}
 
-`````````csharp
+```csharp
 AppboyBinding.SetCustomUserAttribute("custom string attribute key", "string custom attribute");
 ```
 
@@ -101,7 +101,7 @@ AppboyBinding.SetCustomUserAttribute("custom string attribute key", "string cust
 
 {% tab Integer %}
 
-`````````csharp
+```csharp
 // Set Integer Attribute
 AppboyBinding.SetCustomUserAttribute("custom int attribute key", 'integer value');
 // Increment Integer Attribute
@@ -111,7 +111,7 @@ AppboyBinding.IncrementCustomUserAttribute("key", increment(int))
 
 {% tab Float %}
 
-`````````csharp
+```csharp
 AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value');
 ```
 
@@ -119,18 +119,18 @@ AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value'
 
 {% tab Boolean %}
 
-`````````csharp
+```csharp
 AppboyBinding.SetCustomUserAttribute("custom boolean attribute key", 'boolean value');
 ```
 {% endtab %}
 
 {% tab Date %}
 
-`````````csharp
+```csharp
 AppboyBinding.SetCustomUserAttributeToNow("custom date attribute key");
 ```
 
-`````````csharp
+```csharp
 AppboyBinding.SetCustomUserAttributeToSecondsFromEpoch("custom date attribute key", 'integer value');
 ```
 
@@ -142,7 +142,7 @@ Brazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601
 
 {% tab Array %}
 
-`````````csharp
+```csharp
 // Setting An Array
 AppboyBinding.SetCustomUserAttributeArray("key", array(List), sizeOfTheArray(int))
 // Adding to an Array
@@ -161,7 +161,7 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 
 カスタム属性を解除するには、`UnsetCustomUserAttribute`メソッドに関連する属性キーを渡します。
 
-`````````csharp
+```csharp
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 ```
 
@@ -173,7 +173,7 @@ REST APIを使用して、ユーザー属性を設定または解除すること
 
 ユーザーのメールまたはプッシュサブスクリプションを設定するには、以下のいずれかの関数を呼び出します。
 
-`````````csharp
+```csharp
 // Email notifications
 AppboyBinding.SetUserEmailNotificationSubscriptionType()
 
@@ -188,7 +188,7 @@ AppboyBinding.SetPushNotificationSubscriptionType()`
 | `OPTED_IN` | 購読中、かつ明示的にオプトイン済み |
 | `SUBSCRIBED` | 購読中、ただし明示的にオプトインしていない |
 | `UNSUBSCRIBED` | 配信停止済み、または明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーサブスクリプションの設定" }
 
 {% alert note %}
 Windowsでは、ユーザーにプッシュ通知を送る際に明示的なオプトインは必要ありません。ユーザーがプッシュ登録されると、デフォルトで`OPTED_IN`ではなく`SUBSCRIBED`に設定されます。詳細については、[サブスクリプションと明示的なオプトインの実装]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)に関するドキュメントを参照してください。
@@ -198,7 +198,7 @@ Windowsでは、ユーザーにプッシュ通知を送る際に明示的なオ�
 |------------------------------------------|-------------|
 | `EmailNotificationSubscriptionType` | 有効なメールアドレスを受信すると、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を`OPTED_IN`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
 | `PushNotificationSubscriptionType` | 有効なプッシュ登録時に、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を`OPTED_IN`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーサブスクリプションの設定" }
 
 {% alert note %}
 これらのタイプは`Appboy.Models.AppboyNotificationSubscriptionType`に属します。
@@ -206,12 +206,12 @@ Windowsでは、ユーザーにプッシュ通知を送る際に明示的なオ�
 
 ### メールサブスクリプションの設定 {#setting-email-subscriptions}
 
-`````````csharp
+```csharp
 AppboyBinding.SetUserEmailNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);
 ```
 
 ### プッシュ通知サブスクリプションの設定 {#setting-push-notification-subscriptions}
 
-`````````csharp
+```csharp
 AppboyBinding.SetUserPushNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);
 ```

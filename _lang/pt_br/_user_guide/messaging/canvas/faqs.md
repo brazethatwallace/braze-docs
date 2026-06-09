@@ -196,6 +196,12 @@ Embora usuários anônimos possam entrar e sair de Canvas, suas ações não sã
 Para assistência adicional com solução de problemas do Canvas, entre em contato com o suporte da Braze dentro de 30 dias da ocorrência do problema, pois temos apenas os últimos 30 dias de registros de diagnóstico.
 {% endalert %}
 
+### Posso excluir usuários que estão atualmente em uma jornada do Canvas de uma Campaign ou Segment? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+
+Use [filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) como `Entered Canvas Variation`, `In Canvas Control Group` ou `Received Message from Canvas Step` para segmentar usuários com base na entrada no Canvas, atribuição de variante ou engajamento com etapas. Esses filtros avaliam o histórico de entrada e interações — eles não indicam se um usuário ainda está progredindo em uma jornada ativa.
+
+Para incluir ou excluir usuários com base na participação ativa no Canvas, adicione etapas de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) na entrada e saída do Canvas para definir e limpar atributos personalizados, e depois filtre por esses atributos em Campaigns ou Segments.
+
 ## Segmentação {#segmentation}
 
 ### Qual é a diferença entre "Não entrou na variação do Canvas" e "Não está no grupo de controle do Canvas"? {#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group}

@@ -27,7 +27,7 @@ Seit dem 7. April 2022 hat Transifex die API-Versionen 2 und 2.5 zugunsten von V
 | Anforderung | Beschreibung |
 | --- | --- |
 | Transifex-Konto | Um diese Partnerschaft nutzen zu können, ist ein [Transifex-Konto](https://www.transifex.com/signin/) erforderlich. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

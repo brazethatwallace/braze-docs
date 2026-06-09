@@ -20,7 +20,7 @@ tool: Media
 | Berechtigung „Edit Media Library Assets“ | Medienbibliothek-Assets erstellen und aktualisieren |
 | Berechtigung „Delete Media Library Assets“ | Medienbibliothek-Assets dauerhaft löschen |
 | Berechtigung „Replace Media Library Assets“ | Die Datei eines vorhandenen Medienbibliothek-Assets ersetzen, wobei URL und Asset-ID stabil bleiben |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Berechtigungen für die Medienbibliothek" }
 
 Weitere Informationen finden Sie unter [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
 
@@ -92,3 +92,5 @@ GIFs mit sehr langgestreckten Formen (z. B. 3000 x 2 Pixel) oder 300 oder mehr F
 {% alert important %}
 Bevor Sie dieses Feature verwenden, lesen Sie, [wie Ihre Daten verwendet und an OpenAI gesendet werden]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
 {% endalert %}
+
+Wenn Sie **AI Image Generator** auf der Seite **Media Library** nicht sehen, bestätigen Sie, dass Sie die Berechtigung **Edit Media Library Assets** haben. Falls die Option weiterhin fehlt, wenden Sie sich an Ihr Braze-Kundenteam, um zu bestätigen, dass Ihr Workspace Zugriff auf die BrazeAI-Bildgenerierung hat. Falls die Generierung fehlschlägt, lesen Sie die [OpenAI-Inhaltsrichtlinie]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).

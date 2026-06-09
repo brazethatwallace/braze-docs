@@ -85,7 +85,7 @@ Wenn Sie die Klick-Tracking-Domain Ihres CDN konfigurieren, aktivieren Sie den `
 | SparkPost | Fastly | [Step-by-step guide with Fastly](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-fastly) |
 | SparkPost | Google Cloud Platform | [Step-by-step guide with Google Cloud Platform](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-google-cloud-platform) |
 | SparkPost | Microsoft Azure | [Step-by-step guide with Microsoft Azure](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-microsoft-azure) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional resources" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zusätzliche Ressourcen" }
 
 ### Amazon SES
 
@@ -111,6 +111,12 @@ Führen Sie einen dig-Befehl aus, um zu bestätigen, dass das Link-Tracking auf 
 Wenn Live-E-Mail-Links während der Einrichtung nicht funktionieren, haben Sie wahrscheinlich DNS vor der ordnungsgemäßen Konfiguration auf Ihr CDN verwiesen. Dies kann als „falscher Link“-Fehler erscheinen. Kontaktieren Sie Ihren CDN-Anbieter und lesen Sie dessen Dokumentation zur Fehlerbehebung der Konfiguration.
 
 Wenn Sie eine Fehlermeldung sehen, dass Ihre Verbindung nicht privat ist, kann dies darauf hinweisen, dass Ihr SSL oder CDN nicht korrekt konfiguriert ist. Führen Sie einen `dig`-Befehl in Ihrem Terminal aus (zum Beispiel `dig CNAME your_link_tracking_subdomain`). Wenn das Ergebnis im Abschnitt `ANSWER SECTION` auf Ihren ESP statt auf Ihr CDN verweist, liegt eine Fehlkonfiguration vor. Damit das Braze SSL-Klick-Tracking funktioniert, sollte der CNAME auf Ihr CDN verweisen. Koordinieren Sie sich mit dem Team, das Ihre SSL- und CDN-Konfiguration verwaltet, für weitere Unterstützung.
+
+#### HTTP 403 bei Weiterleitungslinks {#http-403-on-redirect-links}
+
+Wenn getrackte Weiterleitungslinks **403 Forbidden** zurückgeben, tritt der Fehler häufig bei Ihrem Content Delivery Network (CDN) oder Ihrer Web Application Firewall (WAF) auf – zum Beispiel durch Regeln in AWS WAF oder Amazon CloudFront, die bestimmte User-Agents, Query-Strings oder Weiterleitungsmuster blockieren. Überprüfen Sie die Protokolle und Metriken blockierter Anfragen bei Ihrem CDN- oder Cloud-Anbieter. Für AWS siehe [Troubleshooting issues with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
+
+Um festzustellen, ob das Problem spezifisch für das Klick-Tracking ist, deaktivieren Sie das Klick-Tracking für einen Testlink (siehe [Klick-Tracking auf Link-Ebene deaktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)). Wenn die Ziel-URL geladen wird, wenn das Klick-Tracking deaktiviert ist, aber 403 zurückgibt, wenn das Tracking aktiviert ist, konzentrieren Sie sich auf die Konfiguration Ihrer Klick-Tracking-Domain, Ihres CDN und Ihrer WAF.
 
 ### SSL-Aktivierungsstatus {#ssl-enablement-status}
 

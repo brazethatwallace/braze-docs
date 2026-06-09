@@ -112,6 +112,12 @@ Se os links de e-mail ao vivo quebram durante a configuração, provavelmente vo
 
 Se você vir uma mensagem de erro informando que sua conexão não é privada, isso pode indicar que seu SSL ou CDN não está configurado corretamente. Execute um comando `dig` no seu terminal (por exemplo, `dig CNAME your_link_tracking_subdomain`). Na seção `ANSWER SECTION`, se o resultado apontar para seu ESP em vez do seu CDN, o problema é uma configuração incorreta. Para que o rastreamento de cliques com SSL da Braze funcione, o CNAME deve apontar para seu CDN. Coordene com a equipe que gerencia sua configuração de SSL e CDN para obter assistência adicional.
 
+#### HTTP 403 em links de redirecionamento {#http-403-on-redirect-links}
+
+Se os links de redirecionamento rastreados retornam **403 Forbidden**, a falha geralmente ocorre na sua rede de entrega de conteúdo (CDN) ou no firewall de aplicação web (WAF) — por exemplo, regras no AWS WAF ou Amazon CloudFront que bloqueiam determinados user agents, query strings ou padrões de redirecionamento. Revise os registros e métricas de solicitações bloqueadas com seu CDN ou provedor de nuvem. Para AWS, consulte [Solução de problemas com CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
+
+Para verificar se o problema é específico do rastreamento de cliques, desative o rastreamento de cliques para um link de teste (consulte [Desativando o rastreamento de cliques link a link]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)). Se a URL de destino carrega quando o rastreamento de cliques está desativado, mas retorna 403 quando o rastreamento está ativado, concentre-se na configuração do seu domínio de rastreamento de cliques, CDN e WAF.
+
 ### Status de ativação do SSL {#ssl-enablement-status}
 
 Se você concluiu a configuração do SSL e os links ainda aparecem como HTTP, entre em contato com seu gerente de sucesso do cliente da Braze para confirmar que a Braze ativou o SSL. A Braze ativa o SSL somente após todas as etapas de configuração estarem concluídas.

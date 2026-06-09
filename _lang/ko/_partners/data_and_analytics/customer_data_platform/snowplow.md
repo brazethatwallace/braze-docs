@@ -34,7 +34,7 @@ Snowplow의 풍부한 행동 데이터를 활용하여 Braze에서 강력한 고
 | Snowplow 콘솔 액세스 | 이벤트 전달자를 구성하려면 Snowplow 콘솔에 액세스할 수 있어야 합니다.                                                                                                                                                                                                                                |
 | Braze REST API 키      | 다음 권한이 있는 Braze REST API 키: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename`, `users.alias.update`. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트     | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다.                                                                                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 

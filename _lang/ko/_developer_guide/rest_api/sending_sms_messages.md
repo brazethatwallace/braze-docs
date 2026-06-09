@@ -29,18 +29,18 @@ REST API를 통해 SMS 메시지를 전송하려면 Braze 대시보드에서 API
 
 | 요구 사항 | 설명 |
 | --- | --- |
-| Braze REST API 키 | `messages.send` 권한이 있는 키. 키를 생성하려면 **Settings** > **APIs and Identifiers** > **API Keys**로 이동합니다. |
+| Braze REST API 키 | `messages.send` 권한이 있는 키. 키를 생성하려면 **설정** > **API 키** > **API 키**로 이동합니다. |
 | SMS 구독 그룹 | Braze 워크스페이스에 구성된 SMS 구독 그룹. |
 | 백엔드 서비스 | Braze REST API에 HTTP POST 요청을 보낼 수 있는 백엔드 서비스 또는 스크립팅 환경. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 1단계: API 캠페인 생성 {#step-1-create-an-api-campaign}
 
-1. Braze 대시보드에서 **Messaging** > **Campaigns**로 이동합니다.
-2. **Create Campaign**을 선택한 다음 **API Campaigns**를 선택합니다.
+1. Braze 대시보드에서 **메시징** > **Campaigns**로 이동합니다.
+2. **캠페인 생성**을 선택한 다음 **API Campaigns**를 선택합니다.
 3. "SMS 메시지 알림"과 같은 캠페인 이름과 설명을 입력합니다.
 4. 식별 및 추적을 위한 관련 태그를 추가합니다.
-5. **Add Messaging Channel**을 선택한 다음 **SMS**를 선택합니다.
+5. **메시징 채널 추가**를 선택한 다음 **SMS**를 선택합니다.
 6. 캠페인 페이지에 표시된 **Campaign ID**와 **Message Variation ID**를 기록해 두세요. API 요청을 구성할 때 두 값이 모두 필요합니다.
 
 ## 2단계: API를 사용하여 SMS 메시지 전송 {#step-2-send-an-sms-message-using-the-api}

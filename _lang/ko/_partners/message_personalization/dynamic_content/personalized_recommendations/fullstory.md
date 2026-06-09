@@ -31,7 +31,7 @@ Fullstory의 세션 요약 데이터의 실시간 가치는 연결된 콘텐츠�
 | Braze 연결된 콘텐츠 승인 토큰 활성화 | 얼리 액세스에 대한 아래 참고 사항을 참조하세요. |
 | Braze Canvas 컨텍스트 단계 | 얼리 액세스에 대한 아래 참고 사항을 참조하세요. |
 | 활성화된 Braze AI 에이전트 단계 | 얼리 액세스에 대한 아래 참고 사항을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 {% alert important %}
 Braze 에이전트, Canvas 컨텍스트, 연결된 콘텐츠 승인 토큰은 모두 얼리 액세스 상태입니다. 이 솔루션을 활용하고 싶다면 Braze 고객 성공 매니저에게 이러한 도구의 활성화에 대해 문의하세요.
