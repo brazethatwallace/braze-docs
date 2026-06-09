@@ -68,6 +68,10 @@ Embora o editor de arrastar e soltar simplifique seu fluxo de trabalho com esses
 
 **Linhas** são unidades estruturais que definem a composição horizontal de uma seção da mensagem usando colunas. Você pode usar linhas vazias ou [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Usar mais de uma coluna permite colocar diferentes elementos de conteúdo lado a lado. Dessa forma, você pode adicionar todos os elementos estruturais necessários à sua mensagem, independentemente do modelo selecionado no início.
 
+#### Aninhar imagens dentro de blocos de texto {#nesting-images-inside-text-blocks}
+
+Não é possível aninhar uma imagem dentro de um parágrafo ou outro bloco de texto no editor de arrastar e soltar. Para posicionar uma imagem ao lado ou dentro de um layout de texto, use colunas em uma **Linha**: por exemplo, uma linha com várias colunas no desktop com **Hide on mobile** para essa linha, e uma linha separada apenas para celular (com **Hide on desktop** e **Do not stack on mobile** conforme necessário) para que a imagem e o texto fiquem alinhados corretamente em telas pequenas.
+
 #### Estilo de cartões {#cards-style}
 
 **Estilo de cartões** é uma propriedade de linha que permite adicionar espaçamento entre colunas e arredondar seus cantos. Com a formatação de estilo de cartão, você pode criar layouts visualmente mais atraentes para destacar seu conteúdo mais importante, como novos recursos de produto, depoimentos, ofertas especiais, atualizações de notícias e muito mais.
@@ -206,8 +210,7 @@ O mecanismo subjacente que produz HTML a partir do editor de arrastar e soltar f
 O tamanho médio dos dados HTML exportados foi reduzido, levando a carregamento e renderização mais rápidos, redução de cortes em dispositivos móveis e menor consumo de largura de banda.
 
 A renderização HTML foi aprimorada com base nas seguintes atualizações que minimizam o número de comentários condicionais e consultas de mídia CSS. Como resultado, os arquivos HTML são menores e codificados de forma mais eficiente.
-- Migração de um design baseado em elementos `<div>` para uma base de código formatada em `<table aria-label="Usar o Inbox Vision">` padrão
-  <caption>Usar o Inbox Vision</caption>
+- Migração de um design baseado em elementos `<div>` para uma base de código formatada em `<table>` padrão
 - Os [blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) foram recodificados para maior concisão
 - O código HTML final é comprimido para remover espaços em branco entre tags
 - Divisores transparentes são automaticamente convertidos em preenchimento de conteúdo

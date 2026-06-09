@@ -17,7 +17,7 @@ _Cette intégration est maintenue par Celebrus._
 | Compte Celebrus | Un compte Celebrus est nécessaire pour bénéficier de ce partenariat. |
 | Entrepôt de données (facultatif) | Lorsque vous utilisez le connecteur Celebrus pour les attributs personnalisés de Braze, vous devez disposer d'un entrepôt de données pris en charge par l'intégration Braze Cloud Data Ingestion (CDI) et configurer le CDI dans le tableau de bord de Braze. |
 | Paramètres de configuration du SDK Braze (facultatif) | Lorsque vous utilisez le connecteur Celebrus pour le SDK Braze, vous devez transmettre l'endpoint du SDK et la clé API du SDK. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Mise en œuvre {#implementation}
 Après avoir installé votre implémentation Celebrus, utilisez les connecteurs Celebrus pour Braze afin d'intégrer les données Celebrus dans Braze. L'intégration de Celebrus pour Braze comporte deux éléments : le SDK Braze et les attributs personnalisés de Braze. Vous pouvez déployer l'un ou l'autre, ou les deux, selon la façon dont vous utilisez Braze et les cas d'utilisation dont vous avez besoin.

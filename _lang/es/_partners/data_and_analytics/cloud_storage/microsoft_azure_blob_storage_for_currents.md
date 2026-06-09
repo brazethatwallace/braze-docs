@@ -25,7 +25,7 @@ La integración de Braze y Microsoft Azure Blob Storage te permite exportar dato
 | ----------- | ----------- |
 | Cuenta de almacenamiento de Microsoft Azure y Azure | Se necesita una cuenta de Microsoft Azure y de almacenamiento Azure para aprovechar esta asociación. |
 | Currents | Para exportar datos a Currents, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) para tu cuenta. Currents no es necesario si solo estás configurando el archivado de mensajes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -98,3 +98,11 @@ Los usuarios que hayan integrado una solución de almacenamiento de datos en la 
 
 Las exportaciones de Currents utilizan el formato Apache Avro (archivos `.avro`), no JSON. Este requisito de formato JSON se aplica a las exportaciones de datos del dashboard y a las exportaciones de API que utilizan el formato JSON.
 {% endalert %}
+
+## Preguntas frecuentes {#faq}
+
+### ¿Puede Braze proporcionar direcciones IP para incluir en la lista de permitidos de Azure Blob Storage? {#can-braze-provide-ip-addresses-to-allowlist-for-azure-blob-storage}
+
+Braze no publica una lista fija de IP permitidas para Currents ni para las exportaciones del dashboard a Azure Blob Storage. Braze escribe en tu contenedor utilizando la cadena de conexión y el nombre del contenedor que proporcionas, y Azure controla el acceso a la red a través de la configuración de tu cuenta de almacenamiento (por ejemplo, reglas de firewall en la cuenta de almacenamiento o puntos de conexión privados).
+
+Si tu equipo de seguridad requiere restricciones basadas en IP, utiliza las características de red de Azure en tu cuenta de almacenamiento en lugar de una lista de IP de Braze. Para conocer los pasos de configuración, consulta la [documentación de Microsoft sobre la protección de Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security).

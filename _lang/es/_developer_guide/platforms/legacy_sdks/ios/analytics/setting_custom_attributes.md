@@ -252,7 +252,7 @@ Para configurar una suscripción para tus usuarios (por correo electrónico o pu
 | ------------------- | ---------- |
 | `ABKOptedin` | Suscrito y con adhesión voluntaria explícita |
 | `ABKSubscribed` | Suscrito, pero sin adhesión voluntaria explícita |
-| `ABKUnsubscribed` | No suscrito y/o con exclusión voluntaria explícita |
+| `ABKUnsubscribed` | No suscrito o con exclusión voluntaria explícita |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración de las suscripciones de los usuarios" }
 
 Los usuarios que conceden permiso para que una aplicación les envíe notificaciones push tienen de forma predeterminada el estado `ABKOptedin`, ya que iOS requiere una adhesión voluntaria explícita.

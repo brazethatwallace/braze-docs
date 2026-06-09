@@ -25,7 +25,7 @@ Si un vínculo profundo de esquema personalizado (por ejemplo, `myapp://products
    xcrun simctl openurl booted "myapp://products/123"
    ```
    Si el enlace no funciona aquí, el problema está en el manejo de URL de tu aplicación, no en Braze.
-4. **Comprueba el formato de la URL.** Verifica que la URL en tu Campaign coincida con lo que espera tu controlador. Los errores comunes incluyen componentes de ruta faltantes o uso incorrecto de mayúsculas y minúsculas.
+4. **Comprueba el formato de la URL.** Verifica que la URL en tu campaña coincida con lo que espera tu controlador. Los errores comunes incluyen componentes de ruta faltantes o uso incorrecto de mayúsculas y minúsculas.
 
 ## El enlace universal se abre en Safari en lugar de en la aplicación {#universal-link-opens-in-safari-instead-of-the-app}
 
@@ -178,8 +178,8 @@ Verifica que el dominio de Branch en tu `BrazeDelegate` coincida con tu dominio 
 
 Para diagnosticar dónde se rompe el enlace en la cadena:
 
-1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) — busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
-2. Habilita el [modo de prueba de Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking) — comprueba el dashboard de Branch para ver los eventos de clics en los enlaces.
+1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/): busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
+2. Habilita el [modo de prueba de Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking): comprueba el dashboard de Branch para ver los eventos de clics en los enlaces.
 1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
 2. Habilita el [modo de prueba de Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Comprueba el dashboard de Branch para ver los eventos de clics en los enlaces.
 3. Si Braze registra el enlace, pero Branch no detecta un clic, es probable que el problema esté en la lógica de enrutamiento del `BrazeDelegate`.

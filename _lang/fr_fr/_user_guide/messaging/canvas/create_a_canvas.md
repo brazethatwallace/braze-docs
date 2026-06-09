@@ -105,7 +105,7 @@ Lors de l'utilisation de la livraison en fuseau horaire local, Braze évalue l'�
 {% tab Action-Based Delivery %}
 Avec la livraison par événement, les utilisateurs entreront dans le Canvas et commenceront à recevoir des messages lorsqu'ils effectueront des actions particulières, comme ouvrir votre application, effectuer un achat ou déclencher un événement personnalisé.
 
-Vous pouvez contrôler d'autres aspects du comportement du Canvas depuis la fenêtre **Entry Audience**, y compris les règles de rééligibilité et les paramètres de limite de fréquence. Notez que la livraison par événement n'est pas disponible pour les composants Canvas contenant des In-App Messages.
+Vous pouvez contrôler d'autres aspects du comportement du Canvas depuis la fenêtre **Audience d'entrée**, y compris les règles de rééligibilité et les paramètres de limite de fréquence. Notez que la livraison par événement n'est pas disponible pour les composants Canvas contenant des In-App Messages.
 
 ![Un exemple de livraison par événement. Les utilisateurs entreront dans le Canvas s'ils effectuent un achat, avec une fenêtre d'entrée commençant à 13 h 30 le 10 juin 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
@@ -263,7 +263,7 @@ Vous pouvez modifier n'importe quelle étape de votre flux de travail Canvas en 
 
 ![Un exemple d'étape « Délai » avec le délai défini sur « Jusqu'à un jour spécifique ».]({% image_buster /assets/img_archive/edit_delay_flow.png %})
 
-Vous pouvez également modifier et ajuster rapidement les **Action Settings** de votre étape [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) pour retenir les utilisateurs pendant une fenêtre de temps. Cela priorise leur prochain chemin en fonction des actions effectuées pendant cette période d'évaluation.
+Vous pouvez également modifier et ajuster rapidement les **paramètres d'action** de votre étape [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) pour retenir les utilisateurs pendant une fenêtre de temps. Cela priorise leur prochain chemin en fonction des actions effectuées pendant cette période d'évaluation.
 
 ![La deuxième étape du Canvas, « Paramètres d'action », avec une fenêtre d'évaluation définie sur 1 jour.]({% image_buster /assets/img_archive/action_paths_flow.png %})
 
@@ -278,7 +278,7 @@ Saviez-vous que vous pouvez inclure les noms des composants Canvas dans vos mess
 Utilisez la balise Liquid `campaign.${name}` dans Canvas pour afficher le nom du composant Canvas actuel.
 {% endalert %}
 
-Le composant Message gère les messages envoyés aux utilisateurs. Vous pouvez sélectionner vos **Messaging Channels** et ajuster les **Delivery Settings** pour optimiser l'envoi de messages de votre Canvas. Pour plus de détails sur ce composant, consultez [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
+Le composant Message gère les messages envoyés aux utilisateurs. Vous pouvez sélectionner vos **canaux de communication** et ajuster les **paramètres de livraison** pour optimiser l'envoi de messages de votre Canvas. Pour plus de détails sur ce composant, consultez [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
 
 ![L'étape « Configurer les messages », avec « Canaux de communication » sélectionné, affichant la liste des canaux de communication disponibles, tels que notification push Android, Content Cards, e-mail, et plus encore.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
@@ -310,6 +310,8 @@ Dans la première étape de message suivant un parcours d'actions, vous pouvez u
 ### Étape 2.3 : Modifier les connexions {#step-23-edit-connections}
 
 Pour déplacer une connexion entre des étapes, sélectionnez la flèche reliant les deux composants, puis sélectionnez un composant différent. Pour supprimer la connexion, sélectionnez la flèche puis **Cancel Connection** dans le pied de page du compositeur de Canvas.
+
+Si une seule variante comporte plusieurs branches avec la même audience et le même horaire d'envoi, Braze ne garantit pas une répartition égale entre ces branches. La distribution peut favoriser la branche créée en premier. Pour une répartition égale, utilisez des filtres de [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) sur chaque branche. Pour en savoir plus, consultez [Que se passe-t-il si l'audience et l'horaire d'envoi sont identiques pour un Canvas qui a une variante, mais plusieurs branches ?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 
 ## Étape 3 : Ajouter un groupe de contrôle {#step-3-add-a-control-group}
 

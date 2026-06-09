@@ -153,6 +153,10 @@ Ativar o list-unsubscribe é uma prática recomendada de entregabilidade e um re
 
 Ao [gerenciar suas inscrições no Gmail](https://support.google.com/mail/answer/15621070?sjid=2292320204527911296-NC), o Gmail também pode usar o link de cancelamento de inscrição do corpo da mensagem, mas prioriza o list-unsubscribe se estiver presente no cabeçalho.
 
+### Desativar o cabeçalho list-unsubscribe remove o botão Unsubscribe do Gmail? {#does-turning-off-the-list-unsubscribe-header-remove-the-gmail-unsubscribe-button}
+
+Não. Desativar a configuração de cabeçalho list-unsubscribe da Braze remove o cabeçalho `List-Unsubscribe` das mensagens que a Braze envia, mas não controla se o Gmail exibe uma opção **Unsubscribe** na interface da caixa de e-mail. Conforme mencionado acima, o Gmail ainda pode exibir uma opção de cancelamento de inscrição a partir de links no corpo da mensagem ou usar outra lógica do provedor. A presença do cabeçalho na mensagem bruta é separada da exibição de uma opção de cancelamento de inscrição pelo Gmail para os destinatários. Para saber mais, consulte o [FAQ das diretrizes de remetente de e-mail do Gmail](https://support.google.com/a/answer/14229414).
+
 ### Suporte de provedores de caixa de e-mail {#mailbox-provider-support}
 
 A tabela a seguir resume o suporte dos provedores de caixa de e-mail para cabeçalho "mailto:", URL de list-unsubscribe e cancelamento de inscrição com um clique ([RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058)).

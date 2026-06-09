@@ -15,7 +15,7 @@ search_tag: Partner
 
 ## Sobre essa integração {#about-this-integration}
 
-Você pode aproveitar os insights da Fullstory na Braze para criar imagens momento a momento da experiência de um usuário no site ou no app e fornecer mensagens hipercontextuais. A API de resumo de sessão da Fullstory possibilita a captura de metadados detalhados sobre o comportamento de navegação de um usuário para uso no envio de mensagens da Braze, o que é particularmente poderoso quando aproveitado em uma jornada de mensagens de várias etapas, como um Canvas.
+Você pode aproveitar os insights da Fullstory na Braze para criar imagens momento a momento da experiência de um usuário no site ou no app e fornecer envio de mensagens hipercontextuais. A API de resumo de sessão da Fullstory possibilita a captura de metadados detalhados sobre o comportamento de navegação de um usuário para uso no envio de mensagens da Braze, o que é particularmente poderoso quando aproveitado em uma jornada de envio de mensagens de várias etapas, como um Canvas.
 
 O valor em tempo real dos dados de resumo de sessão da Fullstory é melhor aproveitado por meio do Conteúdo conectado. Ao usar o Conteúdo conectado em uma etapa do Canvas Context, é possível armazenar os dados da Fullstory durante toda a jornada do usuário no Canvas para uso em qualquer etapa subsequente do Canvas. Isso também evita a necessidade de gravar esses dados em um perfil de usuário da Braze por meio de eventos ou atributos personalizados.
 
@@ -31,7 +31,7 @@ Antes de começar, você precisa dos seguintes itens:
 | Um token de autorização de Conteúdo conectado da Braze ativado | Veja a nota abaixo sobre o Acesso Antecipado. |
 | Uma etapa do Canvas Context da Braze | Veja a nota abaixo sobre o Acesso Antecipado. |
 | Etapa de Braze AI Agent ativada | Veja a nota abaixo sobre o Acesso Antecipado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% alert important %}
 Braze Agents, Canvas Context e tokens de autorização de Conteúdo conectado estão todos em Acesso Antecipado. Se você tem interesse em aproveitar essa solução, fale com seu CSM da Braze sobre a ativação dessas ferramentas.

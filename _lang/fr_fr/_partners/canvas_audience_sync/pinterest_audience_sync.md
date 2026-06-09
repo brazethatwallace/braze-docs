@@ -36,7 +36,7 @@ Vous devez vous assurer que les éléments suivants sont créés, complétés et
 | Centre d'affaires Pinterest | [Pinterest](https://www.pinterest.com/business/hub/) | Un outil centralisé pour gérer les ressources Pinterest de votre marque (tels que les comptes publicitaires, les pages, les applications). |
 | Compte publicitaire Pinterest | [Pinterest](https://ads.pinterest.com/) | Un compte publicitaire Pinterest actif lié au Centre d'affaires Pinterest de votre marque.<br><br>Assurez-vous que l'administrateur du Centre d'affaires Pinterest vous a accordé les autorisations d'administrateur pour les comptes publicitaires Pinterest que vous prévoyez d'utiliser avec Braze. |
 | Conditions et politiques Pinterest | Pinterest | Acceptez de vous conformer à toutes les conditions, politiques, directives et documentations requises par Pinterest relatives à votre utilisation de la synchronisation d'audience Pinterest, y compris toutes les conditions, politiques, directives et documentations incorporées par référence, qui peuvent inclure : les Conditions de service, les Conditions de service pour les entreprises, la Politique de confidentialité, les Conditions de service pour les développeurs et les API, les Conditions relatives aux données publicitaires, les Directives publicitaires, l'Accord de services publicitaires, les Directives communautaires et les Directives de marque. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -79,7 +79,7 @@ Sélectionnez **Pinterest** comme partenaire de synchronisation d'audience souha
 Ensuite, sélectionnez le compte publicitaire Pinterest souhaité. Sous le menu déroulant **Choose a New or Existing Audience**, saisissez le nom d'une audience nouvelle ou existante.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Créer une nouvelle audience %}
 
 **Créer une nouvelle audience**<br>
 Saisissez un nom pour la nouvelle audience, sélectionnez **Add Users to Audience**, et sélectionnez les champs que vous souhaitez synchroniser avec Pinterest. Ensuite, enregistrez votre audience en cliquant sur le bouton **Create Audience** en bas de l'éditeur d'étape.
@@ -92,7 +92,7 @@ Braze affiche une notification en haut de l'éditeur d'étape si l'audience est 
 
 Lorsque vous lancez un Canvas avec une nouvelle audience, Braze synchronise les utilisateurs en quasi-temps réel lorsqu'ils entrent dans l'étape de synchronisation d'audience.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Synchroniser avec une audience existante %}
 **Synchroniser avec une audience existante**<br>
 Braze offre également la possibilité d'ajouter des utilisateurs aux audiences Pinterest existantes pour s'assurer que ces audiences sont à jour. Pour synchroniser avec une audience existante, saisissez le nom de l'audience existante dans le menu déroulant et ajoutez-la à l'audience. Braze ajoutera ensuite les utilisateurs en quasi-temps réel lorsqu'ils entreront dans l'étape de synchronisation d'audience.
 
@@ -128,7 +128,7 @@ Le tableau suivant comprend des indicateurs et des descriptions pour vous aider 
 | Utilisateurs en attente | Nombre d'utilisateurs actuellement traités par Braze pour la synchronisation avec Pinterest. |
 | Utilisateurs en erreur | Nombre d'utilisateurs qui n'ont pas été synchronisés avec Pinterest en raison d'une erreur d'API après environ 13 heures de tentatives. Les causes potentielles d'erreurs peuvent inclure un jeton Pinterest non valide ou la suppression de l'audience sur Pinterest. |
 | Sortis du Canvas | Nombre d'utilisateurs ayant quitté le Canvas. Cela se produit lorsque la dernière étape d'un Canvas est un composant de synchronisation d'audience. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprendre les analyses" }
 
 {% alert important %}
 N'oubliez pas qu'il y aura un délai dans la génération des rapports pour les utilisateurs synchronisés et les indicateurs d'erreurs en raison du vidage en masse et de la période de 13 heures de nouvelles tentatives, respectivement.

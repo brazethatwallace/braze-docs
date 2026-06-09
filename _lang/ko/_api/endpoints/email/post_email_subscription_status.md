@@ -50,7 +50,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | ---------| --------- | ----------- |
 | `email` | 필수 | 문자열 또는 배열 | 수정할 이메일 주소를 문자열로 입력하거나, 수정할 이메일 주소를 최대 50개까지 배열로 입력할 수 있습니다. |
 | `subscription_state` | 필수 | 문자열 | "subscribed", "unsubscribed" 또는 "opted_in" 중 하나입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
+
+## SendGrid 이메일 차단 문제 해결 {#troubleshooting-sendgrid-email-blocks}
+
+SendGrid가 수신자를 차단하는 경우, 이 엔드포인트를 사용하여 구독 상태를 업데이트하고 세그먼트 필터로 참여를 검토하세요. 전달 가능성 모니터링을 위해 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 소프트 반송 이벤트를 활용하고, 재발송 전에 구독 상태를 확인하세요.
 
 ## 요청 예시 {#example-request}
 ```

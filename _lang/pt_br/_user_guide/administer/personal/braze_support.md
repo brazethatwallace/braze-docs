@@ -14,7 +14,7 @@ search_rank: 7
 
 ## Acessar o Portal de Suporte {#access-the-support-portal}
 
-Para entrar em contato com a equipe de suporte da Braze, navegue até o dashboard da Braze e selecione **Support**. O menu oferece duas opções:
+Para entrar em contato com a equipe de suporte da Braze, navegue até o dashboard da Braze e selecione **Suporte**. O menu oferece duas opções:
 
 - **Get help with Operator** abre o BrazeAI Operator<sup>TM</sup>, que pode solucionar seu problema na hora usando o contexto da sua conversa e da tela atual. Se o Operator não conseguir resolver seu problema, você pode pedir que ele elabore um ticket de suporte com base na sua conversa. Para saber mais, consulte [registrar tickets de suporte com o BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/).
 - **Get help** leva você diretamente ao Portal de Suporte da Braze (se você for um contato de suporte designado) ou ao nosso formulário de suporte padrão, onde pode enviar e acompanhar casos. Se você não tem certeza se é um contato de suporte da Braze, entre em contato com o administrador da Braze da sua empresa, o gerente de sucesso da Braze ou o proprietário da conta.
@@ -26,7 +26,7 @@ Para entrar em contato com a equipe de suporte da Braze, navegue até o dashboar
 
 Contatos de suporte designados podem acessar todos os casos de suporte da sua empresa, independentemente de quem os enviou. Você pode definir usuários como contatos de suporte designados diretamente na página **Edit user**.
 
-1. Acesse **Settings** > **Company Users** e pesquise o usuário pelo nome ou endereço de e-mail.
+1. Acesse **Configurações** > **Usuários da empresa** e pesquise o usuário pelo nome ou endereço de e-mail.
 2. Selecione o nome do usuário ou passe o mouse sobre a linha do nome do usuário para exibir um menu.
 3. No menu, selecione **Edit** para ser redirecionado à página **Edit user**.
 4. Marque a caixa de seleção **Set this user as a Designated Support Contact for Braze Support Portal**.
@@ -96,6 +96,17 @@ Selecione o nível de severidade apropriado para nos ajudar a atribuir os recurs
 {% alert important %}
 Marcar um problema como "Crítico" significa que sua instância de produção está fora do ar e todo o trabalho na Braze foi interrompido.
 {% endalert %}
+
+## Solução de problemas de carregamento do dashboard {#troubleshooting-dashboard-load-issues}
+
+Se o dashboard da Braze não estiver carregando corretamente, tente o seguinte antes de entrar em contato com o suporte:
+
+1. Abra o dashboard em um navegador diferente ou em uma janela anônima/privada.
+2. [Limpe o cache e os cookies do navegador]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+3. Desative bloqueadores de anúncios e extensões do navegador e recarregue o dashboard.
+4. Se você usa uma VPN, desconecte e tente novamente.
+
+Se o console de desenvolvedor do navegador exibir `ERR_BLOCKED_BY_CLIENT`, uma extensão ou bloqueador de anúncios está bloqueando recursos do dashboard. Desative o bloqueador para a URL do dashboard da Braze e recarregue a página.
 
 ## Solução de problemas de acesso {#troubleshooting-access}
 

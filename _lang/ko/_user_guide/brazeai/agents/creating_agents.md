@@ -30,9 +30,9 @@ alias: /creating-agents/
 | 활용 사례 | 설명 |
 | --- | --- |
 | 고객 피드백 처리 | 사용자 피드백을 에이전트에 전달하여 감정을 분석하고 공감하는 후속 메시지를 생성합니다. 고가치 사용자의 경우 에이전트가 응답을 에스컬레이션하거나 특전을 포함할 수 있습니다. |
-| 콘텐츠 현지화 | 글로벌 Campaign을 위해 카탈로그 텍스트를 다른 언어로 번역하거나 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나 SMS Campaign을 위해 설명을 줄일 수 있습니다. |
+| 콘텐츠 현지화 | 글로벌 Campaign(캠페인)을 위해 카탈로그 텍스트를 다른 언어로 번역하거나 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나 SMS Campaign을 위해 설명을 줄일 수 있습니다. |
 | 리뷰 또는 피드백 요약 | 감정이나 피드백을 새로운 필드로 요약합니다. 예를 들어, 긍정적, 중립적 또는 부정적과 같은 감정 점수를 할당하거나 "대부분의 고객이 좋은 핏을 언급하지만 느린 배송을 지적합니다."와 같은 짧은 텍스트 요약을 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="작동 방식" }
 
 ## 에이전트 생성 {#create-an-agent}
 

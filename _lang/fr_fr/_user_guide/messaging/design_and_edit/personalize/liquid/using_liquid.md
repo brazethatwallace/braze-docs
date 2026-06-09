@@ -208,6 +208,10 @@ Si vous utilisez Liquid dans vos e-mails, veillez à :
 
 {% endalert %}
 
+### Basculer entre les éditeurs HTML et classique {#switching-between-html-and-classic-editors}
+
+Lorsque vous basculez entre les éditeurs HTML et classique, les extraits de code Liquid et les Content Blocks peuvent changer de position dans votre message. Vérifiez votre modèle après avoir changé d'éditeur. Si vous avez besoin d'un contrôle de mise en page plus prévisible, utilisez l'éditeur par glisser-déposer.
+
 ### Insérer des variables pré-formatées {#inserting-pre-formatted-variables}
 
 Vous pouvez insérer des variables pré-formatées avec des valeurs par défaut via la fenêtre modale **Ajouter une personnalisation** située à proximité de tout champ de texte avec modèle.

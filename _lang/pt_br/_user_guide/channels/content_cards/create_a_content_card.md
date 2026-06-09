@@ -60,7 +60,7 @@ Para saber mais sobre o comportamento esperado e a aparência de cada tipo, cons
 | [Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![Um Content Card clássico com um ícone pequeno e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | O cartão clássico tem uma disposição direta com um título em negrito, texto da mensagem e uma imagem opcional posicionada à esquerda do título e do texto. É melhor usar uma imagem quadrada ou ícone com o cartão clássico. |
 | [Captioned Image]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![Um Content Card com legenda mostrando a imagem de um halterofilista e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | O cartão de imagem com legenda destaca seu conteúdo com texto e uma imagem chamativa. |
 | [Image Only]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![Um Content Card somente imagem com apenas texto.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | O cartão somente imagem chama a atenção com espaço para imagens, GIFs e outros conteúdos criativos sem texto. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2: Especifique seus tipos de mensagem" }
 
 ## Etapa 3: Redija um Content Card {#step-3-compose-a-content-card}
 
@@ -94,7 +94,7 @@ Cada tipo de mensagem e plataforma pode ter suas próprias proporções e requis
 
 #### Fixar no topo {#pin-to-top}
 
-A Braze exibe um cartão fixado no topo do feed do usuário, e o usuário não pode descartá-lo. Se o feed de um usuário tiver vários cartões fixados, a Braze os ordena cronologicamente. Depois de enviar um cartão, não é possível atualizar retroativamente sua opção de fixação. Alterar essa opção após o envio de uma Campaign afeta apenas envios futuros.
+A Braze exibe um cartão fixado no topo do feed do usuário, e o usuário não pode descartá-lo. Se o feed de um usuário tiver vários cartões fixados, a Braze os ordena cronologicamente. Quando a Braze entrega um Content Card, ele é fixado ou não fixado, e esse status não muda durante a vida útil do cartão. Se você alterar a configuração de fixação em uma Campaign, a atualização se aplica apenas a cartões enviados no futuro. Ela não altera o status de fixação de cartões que já estão no feed de um usuário.
 
 ![Lado a lado da pré-visualização do Content Card na Braze para celular e web com a opção "Pin this card to the top of the feed" selecionada.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -110,9 +110,9 @@ As seguintes ações estão disponíveis para links de Content Card:
 | [Deep link para o app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Deep link para uma tela existente no seu app. |
 | Registrar evento personalizado | Escolha um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) para disparar. Pode ser usado para exibir outro Content Card ou disparar envios de mensagens adicionais. |
 | Registrar atributo personalizado | Escolha um [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) para definir para o usuário atual. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamento ao clicar" }
 
-As opções **Log Custom Event** e **Log Custom Attribute** exigem a seguinte compatibilidade de versão do SDK:
+As opções **Registrar evento personalizado** e **Registrar atributo personalizado** exigem a seguinte compatibilidade de versão do SDK:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
@@ -328,3 +328,11 @@ Se você quiser que um cartão pareça estar sempre disponível, pode criar uma 
 1. Defina a duração do Content Card para 30 dias.
 2. Defina a reelegibilidade da Campaign para 30 dias.
 3. Configure a Campaign para ser disparada no "Início da sessão".
+
+### Sincronização e atualização de Content Cards {#content-card-sync-and-refresh}
+
+Content Cards sincronizam em um cronograma e quando seu app atualiza o feed. O comportamento de sincronização difere entre sincronizações completas e parciais, e a integração do SDK afeta quando os cartões são atualizados no início da sessão. Para detalhes de implementação, consulte [Personalizar o feed de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) e [Criando Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+
+### Impacto de interromper Campaigns de Content Cards {#impact-of-stopping-content-cards-campaigns}
+
+Quando você interrompe uma Campaign e seleciona **Remove card after the next sync**, a Braze remove o cartão dos feeds dos usuários na próxima atualização. As contagens de impressões podem ser menores que as contagens de envio porque os usuários não podem registrar impressões em cartões que são removidos antes de serem visualizados.

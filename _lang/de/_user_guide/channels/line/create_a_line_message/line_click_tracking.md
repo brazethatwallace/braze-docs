@@ -20,7 +20,7 @@ LINE-Klick-Tracking kann für Text-, Rich- und kartenbasierte Nachrichten verwen
 
 ## Funktionsweise {#how-it-works}
 
-Sie können die Einstellungen für das LINE-Klick-Tracking im Tab **Settings** verwalten, während Sie eine Nachricht verfassen. Wenn es aktiviert ist, werden URLs mit der Standard-Braze-Domain (`https://brz.ai`) oder der für die Abo-Gruppe angegebenen benutzerdefinierten Domain gekürzt und für die Nutzer:innen personalisiert.
+Sie können die Einstellungen für das LINE-Klick-Tracking im Tab **Einstellungen** verwalten, während Sie eine Nachricht verfassen. Wenn es aktiviert ist, werden URLs mit der Standard-Braze-Domain (`https://brz.ai`) oder der für die Abo-Gruppe angegebenen benutzerdefinierten Domain gekürzt und für die Nutzer:innen personalisiert.
 
 Alle URLs, die mit `http://` oder `https://` beginnen, werden gekürzt. Sie können bis zu 25 URLs in einer Nachricht verwenden. Gekürzte URLs, die Liquid-Personalisierung enthalten (wie nutzerspezifisches Tracking oder UTM-Parameter), sind zwei Monate lang gültig.
 
@@ -35,13 +35,13 @@ So richten Sie das Klick-Tracking für eine Textnachricht ein:
 ![LINE-Nachrichten-Editor mit einer Textnachricht, die eine lange URL enthält: https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
-2. Gehen Sie zum Tab **Settings** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+2. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 {% alert note %}
-Sie können Vorschauen des gekürzten Links im Tab **Settings** oder **Preview & Test** anzeigen. Der vollständige Link wird im Editor angezeigt, während Sie Ihre Nachricht erstellen.
+Sie können Vorschauen des gekürzten Links im Tab **Einstellungen** oder **Vorschau & Test** anzeigen. Der vollständige Link wird im Editor angezeigt, während Sie Ihre Nachricht erstellen.
 {% endalert %}
 
-![LINE-Nachrichten-Editor, Tab „Settings“ mit aktiviertem „Click Tracking“ und einer Vorschau-Textnachricht mit gekürzter URL: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
+![LINE-Nachrichten-Editor, Tab „Einstellungen“ mit aktiviertem „Click Tracking“ und einer Vorschau-Textnachricht mit gekürzter URL: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
 
 ### Rich-Nachrichten {#rich-messages}
 
@@ -54,7 +54,7 @@ So richten Sie das Klick-Tracking für eine Rich-Nachricht ein:
 ![LINE-Nachrichten-Editor mit einer Rich-Nachricht mit zwei tippbaren Bereichen, die jeweils eine URL haben.]({% image_buster /assets/img/line/rich_message_click_tracking.png %})
 
 {: start="4"}
-4. Gehen Sie zum Tab **Settings** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+4. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 ### Kartenbasierte Nachrichten {#card-based-messages}
 
@@ -66,7 +66,7 @@ So richten Sie das Klick-Tracking für eine kartenbasierte Nachricht ein:
 ![LINE-Nachrichten-Editor mit einer kartenbasierten Nachricht mit zwei Buttons, die jeweils eine URL haben.]({% image_buster /assets/img/line/card_based_message_click_tracking.png %})
 
 {: start="3"}
-3. Gehen Sie zum Tab **Settings** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+3. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 {% alert note %}
 URLs in den Feldern **Title** oder **Description** werden nicht gekürzt, da diese Felder innerhalb von LINE nicht klickbar sind.

@@ -31,7 +31,7 @@ description: "この記事では、「カタログセレクションを削除」
 | ---------------- | -------- | --------- | ------------------------------ |
 | `catalog_name`   | 必須 | 文字列    | カタログの名前。           |
 | `selection_name` | 必須 | 文字列    | カタログセレクションの名前。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -85,6 +85,6 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 | -------------------- | -------------------------------------------------------- |
 | `catalog-not-found`  | カタログ名が有効であることを確認してください。 |
 | `invalid-selection`  | セレクション名が有効であることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

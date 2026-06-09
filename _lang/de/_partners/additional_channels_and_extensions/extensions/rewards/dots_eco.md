@@ -35,9 +35,9 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 |---|---|
 | DOTS.ECO-Konto | Zugang zu einem DOTS.ECO-Konto. |
 | DOTS.ECO-Zugangsdaten | Für die Anfrage in diesem Artikel benötigen Sie ein DOTS.ECO-App-Token, einen API-Schlüssel und eine Zuordnungs-ID. Um diese abzurufen, wenden Sie sich an Ihren DOTS.ECO-Customer-Success-Manager. |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Settings** > **API Keys**. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## DOTS.ECO integrieren {#integrating-dotseco}
 
@@ -51,7 +51,7 @@ Verwenden Sie diesen Schritt, um die DOTS.ECO-API über Connected-Content aufzur
 
 ### 2. Schritt: Erweitertes JSON verfassen – POST-Anfrage an DOTS.ECO mit Connected-Content stellen {#step-2-compose-advanced-json-make-a-post-request-to-dotseco-using-connected-content}
 
-Wechseln Sie im Schritt **User Update** zum **Advanced JSON Editor** und verwenden Sie Connected-Content, um eine POST-Anfrage an die DOTS.ECO-Zertifikats-API zu stellen.
+Wechseln Sie im Schritt **Nutzeraktualisierung** zum **Advanced JSON Editor** und verwenden Sie Connected-Content, um eine POST-Anfrage an die DOTS.ECO-Zertifikats-API zu stellen.
 
 Verwenden Sie den `capture`-Tag und eine Connected-Content-Anfrage, um den Zertifikats-Endpunkt von DOTS.ECO aufzurufen. Speichern Sie dann die Antwort als angepasste Attribute im Nutzerprofil.
 
@@ -117,12 +117,12 @@ Damit können Sie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen
 
 ## Fehlerbehebung {#troubleshooting}
 
-Überprüfen Sie Connected-Content-Fehler im Braze-Dashboard unter **Settings** > **Message Activity Log**.
+Überprüfen Sie Connected-Content-Fehler im Braze-Dashboard unter **Einstellungen** > **Nachrichten-Aktivitätsprotokoll**.
 
 - **Connected-Content gibt leere Ergebnisse zurück**: Stellen Sie sicher, dass `:save result` gesetzt ist und dass Sie auf die erwarteten Antwortfelder verweisen.
 - **Attribute werden im Nachrichtenschritt nicht angezeigt**:
   - Stellen Sie sicher, dass die Namen der angepassten Attribute in Braze genau mit den Attributen übereinstimmen, die Sie im Nutzeraktualisierungsschritt festgelegt haben.
-  - Verwenden Sie im Nutzeraktualisierungsschritt den Tab **Preview and test**, um zu bestätigen, dass die Attribute befüllt werden. Senden Sie dann einen Test an Nutzer:innen und bestätigen Sie, dass die Attribute in deren Nutzerprofil gespeichert sind.
+  - Verwenden Sie im Nutzeraktualisierungsschritt den Tab **Vorschau und Test**, um zu bestätigen, dass die Attribute befüllt werden. Senden Sie dann einen Test an Nutzer:innen und bestätigen Sie, dass die Attribute in deren Nutzerprofil gespeichert sind.
 - **`422`-Fehler (nicht verarbeitbare Entität)**: Stellen Sie sicher, dass Ihr App-Token und die Impact-Menge gültig sind.
 - **`401`-Fehler**: Stellen Sie sicher, dass das Auth-Token vorhanden und korrekt ist.
-- **Keine Bildvorschau im Nachrichtenschritt**: Wählen Sie im Nutzeraktualisierungsschritt **Send Test to User** und zeigen Sie dann eine Vorschau der Nachricht mit denselben Nutzer:innen an.
+- **Keine Bildvorschau im Nachrichtenschritt**: Wählen Sie im Nutzeraktualisierungsschritt **Test an Nutzer:in senden** und zeigen Sie dann eine Vorschau der Nachricht mit denselben Nutzer:innen an.

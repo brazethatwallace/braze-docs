@@ -33,7 +33,7 @@ Liquid를 사용하면 구독 그룹의 이름과 각 사용자의 상태를 가
 | 이메일, SMS 또는 WhatsApp 구독 그룹이 있는 유효한 워크스페이스 | 유효한 사용자와 이메일, SMS 또는 WhatsApp 구독 그룹이 있는 작동 중인 워크스페이스가 필요합니다. |
 | 유효한 사용자 | 이메일 주소와 외부 ID가 있는 사용자가 필요합니다. |
 | 환경설정 센터 권한이 있는 생성된 API 키 | Braze 대시보드에서 **설정** > **API 키**로 이동하여 환경설정 센터 권한이 있는 API 키에 접근할 수 있는지 확인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ### 1단계: 환경설정 센터 생성 엔드포인트 사용하기 {#step-1-use-the-create-preference-center-endpoint}
 

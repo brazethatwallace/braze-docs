@@ -104,10 +104,10 @@ Pour créer une audience dans mParticle :
 
 | Nom du champ | Description |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Clé API | Se trouve dans le tableau de bord de Braze sous **Settings** > **API Keys**. |
+| Clé API | Se trouve dans le tableau de bord de Braze sous **Paramètres** > **Clés API**. |
 | Système d'exploitation de la clé API | Sélectionnez le système d'exploitation auquel correspond votre clé API Braze. Cette sélection limitera les types de jetons de notification push transférés lors d'une mise à jour d'audience. |
 | Envoyer les segments en tant que | La méthode d'envoi des audiences à Braze. Consultez la section [Transfert des audiences](#forwarding-audiences) pour plus de détails. |
-| Clé API REST de l'espace de travail | Clé API REST de Braze avec toutes les autorisations. Elle peut être créée dans le tableau de bord de Braze sous **Settings** > **API Keys**. |
+| Clé API REST de l'espace de travail | Clé API REST de Braze avec toutes les autorisations. Elle peut être créée dans le tableau de bord de Braze sous **Paramètres** > **Clés API**. |
 | Type d'identité externe | Le type d'identité utilisateur mParticle à transférer en tant qu'ID externe vers Braze. Nous recommandons de laisser la valeur par défaut, Customer ID. |
 | Type d'identité e-mail | Le type d'identité utilisateur mParticle à transférer en tant qu'e-mail vers Braze. |
 | Instance de Braze | Spécifiez vers quel cluster vos données Braze seront transférées. |
@@ -145,7 +145,7 @@ Dans mParticle, accédez à **Setup > Outputs > Add Outputs** et sélectionnez *
 
 | Nom du paramètre | Description |
 | ------------ | ----------- |
-| Clé d'identification de l'application Braze | Votre clé d'identification de l'application Braze se trouve dans le tableau de bord de Braze sous **Settings** > **API Keys**. Notez que les clés API diffèrent pour chaque plateforme (iOS, Android et Web). |
+| Clé d'identification de l'application Braze | Votre clé d'identification de l'application Braze se trouve dans le tableau de bord de Braze sous **Paramètres** > **Clés API**. Notez que les clés API diffèrent pour chaque plateforme (iOS, Android et Web). |
 | Type d'identité externe | Le type d'identité utilisateur mParticle à transférer en tant qu'ID externe vers Braze. Nous recommandons de laisser la valeur par défaut, Customer ID. |
 | Type d'identité e-mail | Le type d'identité utilisateur mParticle à transférer en tant qu'e-mail vers Braze. Nous recommandons de laisser la valeur par défaut, Email. |
 | Instance de Braze | Le cluster vers lequel vos données Braze seront transférées ; il doit être le même que celui de votre tableau de bord. |
@@ -276,6 +276,7 @@ Si les notifications push ne fonctionnent pas lors de l'utilisation du kit d'év
 3. **Method swizzling :** Le kit Apple de mParticle utilise le method swizzling pour transférer automatiquement les jetons de notification push et gérer les événements de notification push. Si vous avez désactivé le swizzling ou si un autre SDK interfère, les jetons de notification push peuvent ne pas atteindre Braze. Vérifiez que le swizzling est activé dans votre configuration mParticle.
 4. **Gestion manuelle des jetons :** Si vous gérez les jetons de notification push manuellement (par exemple, en implémentant `application:didRegisterForRemoteNotificationsWithDeviceToken:`), assurez-vous de transmettre le jeton à mParticle en l'assignant à la propriété du jeton de notification push, par exemple : `MParticle.sharedInstance().pushNotificationToken = deviceToken`. Le kit le transférera ensuite à Braze.
 5. **Incompatibilité d'environnement :** Confirmez que l'environnement du certificat APNs (développement vs. production) correspond à la build de votre application. Pour plus de détails, consultez la [résolution des problèmes de notifications push iOS]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift).
+6. **Timing d'initialisation du kit :** Si vous accédez à l'instance Braze depuis `didFinishLaunchingWithOptions`, le kit mParticle peut ne pas être prêt lorsqu'une notification push arrive. Initialisez la gestion des notifications push dans [`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) (ou le délégué de réponse de notification équivalent) afin que le kit Braze soit actif lorsque l'utilisateur ouvre une notification.
 
 ### Envoi de données inutiles ou en double vers Braze {#sending-unnecessary-or-duplicate-data-to-braze}
 Braze comptabilise un point de donnée chaque fois qu'un attribut est transmis à Braze, même si la valeur est inchangée. Pour cette raison, Braze recommande de ne transférer que les données nécessaires pour agir dans Braze et de s'assurer que seuls les deltas d'attributs sont transmis.

@@ -146,3 +146,60 @@ Join our VIP program to unlock free shipping.
 ### Werden Liquid-Variablen zwischen Betreffzeile und Nachrichtentext übernommen? {#do-liquid-variables-carry-between-subject-line-and-body}
 
 Nein. Braze rendert jede Nachrichtenkomponente separat (z. B. Betreffzeile, HTML-Body, Preheader und Push-Titel). Zuweisungen oder Captures, die Sie in einem Feld vornehmen, sind in einem anderen nicht verfügbar. Wiederholen Sie den Liquid- oder Connected-Content-Aufruf in jedem Feld, das den Wert benötigt.
+
+
+### Kann ich Liquid innerhalb des `abort_message`-Tags verwenden? {#can-i-use-liquid-inside-the-abort_message-tag}
+
+{% raw %}Nein. Der {% abort_message %}-Tag akzeptiert einen statischen String in Anführungszeichen, keine Liquid-Personalisierung.{% endraw %} Verwenden Sie andere Liquid-Logik vor dem Tag, wenn Sie ein bedingtes Abbruchverhalten benötigen.
+
+### Warum erhalte ich den Liquid-Fehler „Unexpected end token“? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
+
+Dieser Fehler weist in der Regel auf zusätzliche oder fehlende geschweifte Klammern hin. Verschachteln Sie `{{ }}` nicht innerhalb eines anderen Liquid-Tag-Ausdrucks. Verwenden Sie zum Beispiel {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %}, anstatt die Attributreferenz in ein zusätzliches Klammernpaar einzuschließen.
+
+### Warum bricht meine Nachricht mit „Invalid from email address for recipient:“ ab? {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
+
+Dieser Abbruch tritt auf, wenn Liquid in der **Absender**-Adresse eine ungültige Syntax erzeugt, z. B. eine fehlende Variable, zusätzliche Leerzeichen oder unzulässige Zeichen. Zeigen Sie eine Vorschau mit einer Testnutzerin oder einem Testnutzer an und überprüfen Sie, ob die gerenderte **Absender**-Adresse mit Ihrer konfigurierten Sendedomain übereinstimmt.
+
+### Warum fehlt mein Content Block unter **Row** im Drag-and-Drop-Suchtool? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+
+Einige Content Blocks werden im Drag-and-Drop-Editor unter **Row** nicht angezeigt. Fügen Sie einen HTML-Block über den Tab **Content** (**Advanced**) hinzu und fügen Sie dann den Content-Block-Liquid-Tag in diesen HTML-Block ein, um den Blockinhalt zu rendern.
+
+### Wie erstelle ich eine dynamische Reply-To-Adresse? {#how-do-i-create-a-dynamic-reply-to-address}
+
+Verwenden Sie Liquid im Feld **Reply-To**, wenn Ihr Workspace die dynamische Reply-To-Konfiguration unterstützt. Kombinieren Sie es bei Bedarf mit Ihren **Absender**-Anzeigenamen-Einstellungen. Weitere Informationen finden Sie unter [E-Mail-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) für Workspace-spezifische Optionen.
+
+### Warum unterscheidet sich die Vorschau meines Drag-and-Drop-Content-Blocks von der Ansicht im Editor? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
+
+Wenn Sie einen Content Block mit Liquid als Template verwenden, werden mobile Media-Queries im Block in der Vorschau möglicherweise nicht auf die gleiche Weise angewendet wie beim direkten Ziehen des Blocks in eine Nachricht. Das Ziehen des Blocks behält das Layout bei, entkoppelt ihn jedoch vom Quellblock, sodass zukünftige Blockänderungen die Nachricht nicht mehr automatisch aktualisieren.
+
+### Gibt es Größenbeschränkungen für Canvas-Kontexteigenschaften? {#are-there-size-limits-for-canvas-context-properties}
+
+Braze erzwingt kein festes Limit für [Canvas-Kontexteigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), aber halten Sie Payloads unter ca. 1 KB (~1.000 Zeichen). Größere Objekte können den Speicherverbrauch erhöhen und das Nachrichten-Rendering bei Massenversendungen verzögern.
+
+### Warum gibt mein Katalog-Liquid-Snippet eine Abbruchnachricht zurück? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
+
+Wenn ein Katalog-Liquid-Snippet beim Versand abbricht, erstellen Sie das Snippet über das Personalisierungsmenü neu, indem Sie einzelne Katalogartikel auswählen, anstatt eine Massen- oder vollständig dynamische Auswahl zu verwenden. Weitere Informationen finden Sie unter [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/) und [Auswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+
+### Warum erhalte ich einen Liquid-Fehler bei der Vorschau bestimmter Datentypen im Dashboard? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
+
+Einige Typen von [Canvas-Kontexteigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) erfordern eine Typumwandlung in Liquid, bevor Sie sie in Vergleichen oder Berechnungen verwenden können. Wenn Sie beispielsweise numerisches Verhalten benötigen:
+
+{% raw %}
+```liquid
+{{context.${property_name} | plus: 0}}
+```
+{% endraw %}
+
+### Warum ist der Connected-Content-Retry für meine In-App-Nachricht nicht verfügbar? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+
+{% raw %}
+Der `{% connected_content %}`-Tag mit Retry wird nicht für alle Nachrichtentypen unterstützt, einschließlich einiger In-App-Nachrichtenformate. Entfernen Sie Retry-Parameter oder verwenden Sie einen unterstützten Kanal für Connected-Content-Aufrufe mit Retry.
+{% endraw %}
+
+### Wie kann ich Event-Eigenschaftswerte im Nachrichten-Editor in der Vorschau anzeigen? {#how-do-i-preview-event-property-values-in-message-composer}
+
+Verwenden Sie **Vorschau als angepasste:r Nutzer:in** und geben Sie Beispielwerte für angepasste Event-Eigenschaften für die Nutzerin oder den Nutzer ein, die/den Sie in der Vorschau anzeigen. Dies ist auch nützlich für Nachrichten mit Abbruchlogik, wenn Sie Vorschauwerte benötigen, die keinen Abbruch auslösen.
+
+### Unterstützt Braze ein Array von Arrays in Liquid? {#does-braze-support-an-array-of-arrays-in-liquid}
+
+Liquid unterstützt nativ keine Arrays von Arrays. Speichern Sie Werte als Array von kommaseparierten Strings und verwenden Sie den `split`-Filter, um sie bei Bedarf zu parsen.

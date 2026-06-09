@@ -22,7 +22,7 @@ Die Integration von Braze und Heap ermöglicht Ihnen den [Import von Heap-Daten 
 | Braze-Datenimport-Schlüssel | Diesen finden Sie im Braze-Dashboard unter **Partnerintegrationen** > **Technologie-Partner**. Wählen Sie dort **Heap** aus. |
 | Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Braze-Currents | Um Daten von Braze nach Heap zu exportieren, müssen [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) in Ihrem Konto aktiviert sein. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 - Erneute Interaktion mit Nutzer:innen, die einen Funnel verlassen haben: Triggern Sie erneute Interaktionsnachrichten, wenn Nutzer:innen den Kauf- oder Abo-Funnel abbrechen.

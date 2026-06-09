@@ -22,7 +22,9 @@ Auf der [Braze Unity Releases-Seite](https://github.com/Appboy/appboy-unity-sdk/
     - Dieses Paket ähnelt dem `Appboy.unitypackage`, mit der Ausnahme, dass das [SDWebImage](https://github.com/SDWebImage/SDWebImage)-Framework nicht enthalten ist. Dieses Paket ist nützlich, wenn Sie das SDWebImage-Framework nicht in Ihrer iOS-App verwenden möchten.
 
 {% alert note %}
-Ab Unity 2.6.0 benötigt das gebündelte Braze Android SDK-Artefakt [AndroidX](https://developer.android.com/jetpack/androidx)-Abhängigkeiten. Wenn Sie zuvor ein `jetified unitypackage` verwendet haben, können Sie bedenkenlos auf das entsprechende `unitypackage` umsteigen.
+Ab Unity 2.6.0 benötigt das gebündelte Braze Android SDK-Artefakt [AndroidX](https://developer.android.com/jetpack/androidx)-Abhängigkeiten. Wenn Sie zuvor ein `jetified` unitypackage verwendet haben, können Sie bedenkenlos auf das entsprechende `unitypackage` umsteigen.
+
+Wenn Android-Builds mit der Meldung „This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled“ fehlschlagen, aktivieren Sie [Custom Gradle Properties Template](https://docs.unity3d.com/Manual/class-PlayerSettingsAndroid.html#Publishing) in Ihren Unity Publishing Settings. Öffnen Sie dann `Assets/Plugins/Android/gradleTemplate.properties` und setzen Sie `android.useAndroidX=true`. Ein funktionierendes Template finden Sie in der [Braze Unity-Beispiel-App](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) und deren [`gradleTemplate.properties`](https://github.com/braze-inc/braze-unity-sdk/blob/master/unity-samples/Assets/Plugins/Android/gradleTemplate.properties)-Datei.
 {% endalert %}
 {% endtab %}
 
@@ -247,7 +249,7 @@ Um die ausführliche Protokollierung im Unity-Editor zu aktivieren, gehen Sie wi
 Um das Braze Unity-Plugin mit Prime31-Plugins zu verwenden, bearbeiten Sie die `AndroidManifest.xml` Ihres Projekts, um die mit Prime31 kompatiblen Activity-Klassen zu verwenden. Ändern Sie alle Referenzen von
 `com.braze.unity.BrazeUnityPlayerActivity` zu `com.braze.unity.prime31compatible.BrazeUnityPlayerActivity`
 
-### Amazon Device Messaging (ADM) {#amazon-device-messaging-adm}
+### Amazon Device Messaging (ADM)
 
 Braze unterstützt die Integration von [ADM Push](https://developer.amazon.com/public/apis/engage/device-messaging) in Unity-Apps. Wenn Sie ADM Push integrieren möchten, erstellen Sie eine Datei namens `api_key.txt`, die Ihren ADM-API-Schlüssel enthält, und legen Sie sie im Ordner `Plugins/Android/assets/` ab. Weitere Informationen zur Integration von ADM mit Braze finden Sie in unserer [Anleitung zur ADM-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=unity).
 

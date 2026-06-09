@@ -37,7 +37,7 @@ En revanche, les autres outils BrazeAI sont conçus pour optimiser les indicateu
 
 Les fonctionnalités des agents Braze comprennent :
 
-- **Configuration flexible :** Utilisez un LLM fourni par Braze ou connectez vos propres [fournisseurs de modèles d'intelligence artificielle]({{site.baseurl}}/partners/ai_model_providers/) (tels qu'OpenAI, Anthropic ou Google Gemini).
+- **Configuration flexible :** Utilisez un LLM fourni par Braze ou connectez vos propres [fournisseurs de modèles d'intelligence artificielle]({{site.baseurl}}/partners/ai_model_providers/) (tels qu'OpenAI, Anthropic, Google Gemini ou Databricks Mosaic).
 - **Intégration fluide :** Déployez les agents directement dans les étapes du Canvas ou les champs du catalogue.
 - **Outils de test et de journalisation :** Prévisualisez les résultats de votre agent en effectuant des tests avec des exemples d'entrées avant le lancement. Consultez les journaux de chaque exécution de l'agent, y compris les entrées et sorties correspondantes.
 - **Contrôles d'utilisation :** Les limites quotidiennes facilitent la gestion des performances et des coûts.
@@ -67,6 +67,12 @@ Les restrictions suivantes s'appliquent :
 - Par défaut, chaque exécution doit se terminer dans un délai de 20 secondes. Passé ce délai, l'agent renvoie une réponse `null` là où il est utilisé.
     - Si vos agents dépassent régulièrement le délai imparti, contactez votre gestionnaire de compte Braze pour augmenter cette limite.
 - Les données d'entrée sont limitées à 25 Ko par requête. Les entrées plus longues sont tronquées.
+
+## Gestion des erreurs {#error-handling}
+
+Si le modèle connecté renvoie une [erreur de limite de débit]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) du fournisseur de LLM lors d'une étape Agent dans Canvas, Braze relance la requête jusqu'à cinq fois en utilisant des délais exponentiels. Pour les autres types d'échecs (comme un dépassement de délai ou une clé API invalide), la sortie de l'agent est définie sur `null`. Si un agent atteint sa limite d'invocation quotidienne, la sortie est également définie sur `null`.
+
+Lorsque de nombreux utilisateurs entrent simultanément dans une étape Agent, le traitement peut prendre plus de temps en raison des [contrôles de flux d'invocation]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Utilisez les [valeurs Liquid par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) pour vous prémunir contre les sorties `null` dans vos messages.
 
 ## Comment mes données sont-elles utilisées et transmises aux LLM fournis par Braze ? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

@@ -42,7 +42,7 @@ Certifique-se de que você faz parte do segmento que está sendo direcionado (se
 
 ![Lista de Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-Você também pode confirmar que o usuário faz parte do segmento usando a **Pesquisa de usuário** ao criar um segmento.
+Você também pode confirmar que o usuário faz parte do segmento usando a **Pesquisa de usuário** ao criar um segmento. A **Pesquisa de usuário** aceita apenas `external_id` ou `braze_id` — não endereços de e-mail ou números de telefone. Para pesquisar por e-mail, telefone, token por push ou alias de usuário, use [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
 ![Seção de pesquisa de usuário com um campo de busca.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -90,7 +90,7 @@ Para encontrar a chave correta do servidor Firebase e substituí-la:
 
 1. Acesse o console do Firebase para o seu app.
 2. Em **Project Overview**, selecione **Project Settings**.
-3. Na guia **Cloud Messaging**, verifique se o Sender ID abaixo das chaves de API corresponde ao que está na Braze (em **Settings** > **App Settings** > **Cloud Messaging API Key**).
+3. Na guia **Cloud Messaging**, verifique se o Sender ID abaixo das chaves de API corresponde ao que está na Braze (em **Configurações** > **Configurações do app** > **Cloud Messaging API Key**).
 
 {% alert warning %}
 Não altere o Sender ID no dashboard da Braze. Fazer isso fará com que os registros de push existentes sejam invalidados. Se o Sender ID não corresponder, você deve encontrar o projeto do Firebase com o Sender ID correspondente.
@@ -98,7 +98,7 @@ Não altere o Sender ID no dashboard da Braze. Fazer isso fará com que os regis
 
 {:start="4"}
 4. Copie a **Server Key** em **Project credentials**.
-5. Na Braze, acesse **Settings** > **App Settings**, selecione seu app e cole a chave do servidor no campo **Cloud Messaging API Key** (substituindo a chave desatualizada).
+5. Na Braze, acesse **Configurações** > **Configurações do app**, selecione seu app e cole a chave do servidor no campo **Cloud Messaging API Key** (substituindo a chave desatualizada).
 6. Selecione **Save**.
 7. Para verificar, envie um push de teste para um dispositivo antes e depois de alterar a chave de API sem abrir o aplicativo. Isso ajuda a confirmar que os usuários continuam recebendo notificações por push sem a necessidade de gerar um novo ID de registro de push (token por push).
 
@@ -172,6 +172,20 @@ Se os deep links funcionam quando o app não está em execução ou quando o lin
 As chaves de autenticação `.p8` da Apple são a abordagem obrigatória para push via APNs na Braze. Diferentemente dos tipos de arquivo de certificado legados, as chaves `.p8` não expiram e suportam todos os seus apps com uma única chave, eliminando a necessidade de renovações anuais de certificados e reduzindo o risco de falhas na entrega de push.
 
 Se você está usando atualmente um certificado `.p12` ou `.pem`, migre para uma chave `.p8` o mais rápido possível. Para instruções sobre como criar e fazer upload de uma chave `.p8`, consulte [Fazer upload do seu certificado de push APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Para orientações da Apple sobre como gerar uma chave `.p8` a partir da sua conta de desenvolvedor, consulte [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+
+### Chaves .p8 versus certificados .p12 {#p8-keys-versus-p12-certificates}
+
+| Credencial | Expiração | Indicador de status no dashboard |
+| --- | --- | --- |
+| Chave de autenticação `.p8` | Não expira | Sem indicador verde de status (isso é esperado) |
+| Certificado de push `.p12` | Expira anualmente | Indicador verde quando o certificado é válido |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Chaves .p8 versus certificados .p12" }
+
+Quando você substitui um certificado `.p12` por uma chave `.p8` (ou faz upload de uma nova credencial), a entrega de push pode pausar brevemente enquanto a Braze processa a alteração. Planeje atualizações durante uma janela de manutenção, quando possível.
+
+Em **Configurações** > **Configurações do app** > **Configurações das notificações por push**, confirme que **App Bundle ID**, **Team ID** e **Key ID** (para chaves `.p8`) correspondem aos valores na sua conta de desenvolvedor da Apple. Vários espaços de trabalho da Braze podem usar a mesma credencial de push da Apple quando o **bundle ID** do app iOS é idêntico; o ambiente da credencial (desenvolvimento versus produção) deve corresponder à forma como o app foi compilado.
+
+Apps com [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) ou posterior podem usar o [gerenciamento dinâmico de gateway APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management), que roteia tokens para o ambiente APNs correto automaticamente.
 
 ## Notificações por push para a web não estão funcionando como esperado {#web-push-notifications-arent-behaving-as-expected}
 

@@ -29,13 +29,13 @@ Si no ves **Braze Auto** como opción en el menú desplegable **Model** al crear
 
 Con esta opción, puedes conectar tu cuenta de Braze con proveedores como OpenAI, Anthropic o Google Gemini. Si traes tu propia clave de API de un proveedor de LLM, los costes de los tokens se facturan directamente a través de tu proveedor, no a través de Braze.
 
-Recomendamos probar periódicamente los modelos más recientes, ya que los modelos antiguos pueden descontinuarse o quedar obsoletos en unos meses. También puedes registrarte para recibir notificaciones de la Consola de Agente en [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para que te avisen cuando Braze detecte que un modelo ya no está disponible.
+Recomendamos probar periódicamente los modelos más recientes, ya que los modelos antiguos pueden descontinuarse o quedar obsoletos en unos meses. Asegúrate de tener créditos suficientes con tu proveedor para ejecutar tus agentes a escala. También puedes registrarte para recibir notificaciones de la Consola de Agente en [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para que te avisen cuando Braze detecte que un modelo ya no está disponible o encuentre problemas de facturación con tu proveedor de LLM.
 
 Para configurarlo:
 
 1. Ve a **Integraciones de socios** > **Socios tecnológicos** y busca tu proveedor.
 2. Introduce la clave de API del proveedor.
-3. Selecciona **Save**.
+3. Selecciona **Guardar**.
 
 A continuación, puedes volver a tu agente y seleccionar tu modelo.
 
@@ -51,7 +51,7 @@ Algunos proveedores de LLM pueden permitirte ajustar el nivel de razonamiento de
 | **Bajo** | Tareas que se benefician de un poco más de razonamiento pero no necesitan un análisis profundo. |
 | **Medio** | Tareas de varios pasos o con matices (como analizar varias entradas para recomendar una acción). |
 | **Alto** | Razonamiento complejo, casos extremos o cuando necesitas que el modelo trabaje los pasos antes de responder. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Niveles de razonamiento" }
 
 Recomendamos empezar con **Mínimo** y probar las respuestas de tu agente. Luego, puedes ajustar el nivel de razonamiento a **Bajo** o **Medio** si encuentras que el agente tiene dificultades para proporcionar respuestas precisas. En casos excepcionales, puede ser necesario un nivel de razonamiento **Alto**, aunque usar este nivel puede resultar en altos costes de tokens y tiempos de respuesta más largos o mayor riesgo de errores de tiempo de espera. Si tu agente tiene dificultades para equilibrar el razonamiento de varios pasos con tiempos de respuesta razonables, considera dividir tu caso de uso en más de un agente que puedan trabajar juntos en un Canvas o catálogo.
 
@@ -71,12 +71,22 @@ Cada proveedor de LLM tiene una combinación ligeramente diferente de capacidade
 - Durante las pruebas, asegúrate de equilibrar la fiabilidad y la precisión con el uso de tokens y la duración de la invocación.
 - Cada caso de uso puede tener un modelo y nivel de razonamiento óptimos diferentes. Recomendamos realizar pruebas exhaustivas para verificar una calidad consistente sin tiempos de espera agotados.
 
-### Límites de velocidad {#rate-limits}
+### Controles de flujo de invocación {#invocation-flow-controls}
 
-Los siguientes límites de velocidad se aplican por espacio de trabajo:
+Los siguientes controles de flujo de invocación se aplican por espacio de trabajo:
 
 - **Modelo con tecnología de Braze:** 1000 invocaciones por minuto
 - **Trae tu propia clave de API:** 2500 invocaciones por minuto
+
+Cuando muchos usuarios entran en un paso de agente a la vez, Braze pone en cola las invocaciones de acuerdo con estos límites, por lo que el procesamiento puede tardar más durante envíos de alto volumen.
+
+### Errores de límite de velocidad {#rate-limit-errors}
+
+Si el proveedor de LLM devuelve un error de límite de velocidad, Braze reintenta la solicitud hasta cinco veces utilizando retirada exponencial. Este comportamiento de reintento se aplica a los pasos de agente de Canvas. Los agentes de catálogo no reintentan las invocaciones fallidas, incluidos los errores de límite de velocidad del proveedor de LLM.
+
+Si todos los reintentos fallan, el panel de detalles de **Logs** muestra **Error** y el mensaje del proveedor (como `Rate limit exceeded`) en **Output**. Cada reintento es visible en los registros, incluida la primera invocación independientemente de su éxito o fallo final. Para un usuario determinado, si se necesitan cuatro reintentos para obtener finalmente un éxito, puedes buscar el ID de usuario y ver los cinco (el original más cuatro reintentos) en **Logs**, y el original más los tres primeros reintentos mostrarán **Error** con `Rate limit exceeded`.
+
+![Detalles del registro de la Consola de Agente mostrando un error de límite de velocidad excedido en el campo Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
 ## Redacción de instrucciones {#writing-instructions}
 
@@ -111,7 +121,7 @@ En la sección **Logs** de la **Consola de Agente**, puedes revisar los detalles
 
 ![Los detalles de un agente que tiene Liquid en sus instrucciones.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
-Para los agentes de catálogo, utiliza **Fields** en la sección **Output** en lugar de JSON Schema; aun así puedes escribir instrucciones que soliciten al modelo una salida de clave-valor que coincida con esos nombres de campo.
+Para los agentes de catálogo, utiliza **Fields** en la sección **Output** en lugar de esquema JSON; aun así puedes escribir instrucciones que soliciten al modelo una salida de clave-valor que coincida con esos nombres de campo.
 
 Para obtener más información sobre las prácticas recomendadas para los prompts, consulta las guías de los siguientes proveedores de modelos:
 
@@ -154,7 +164,7 @@ Si deseas dar formato a las respuestas de un cuestionario de comentarios sencill
 | **likelihood_score** | Número |
 | **explanation** | Cadena |
 | **confidence_score** | Número |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquemas avanzados" }
 
 ![Consola de Agente mostrando tres campos de salida para puntuación de probabilidad, explicación y puntuación de confianza.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -209,13 +219,13 @@ Los datos de interacción de un usuario incluyen sus aperturas, clics y datos de
 Para probar mejoras o iteraciones de un agente, puedes duplicar un agente y luego aplicar los cambios para compararlos con el original. También puedes tratar los agentes duplicados como control de versiones para realizar el seguimiento de las variaciones en los detalles del agente y cualquier impacto en tu mensajería. Para duplicar un agente:
 
 1. Coloca el cursor sobre la fila del agente y selecciona el menú <i class="fas fa-ellipsis-vertical"></i>.
-2. Selecciona **Duplicate**.
+2. Selecciona **Duplicar**.
 
 ## Archivar agentes {#archive-agents}
 
 A medida que crees más agentes personalizados, puedes organizar la página **Gestión de agentes** archivando los agentes que no se utilicen activamente. Para archivar un agente:
 
 1. Coloca el cursor sobre la fila del agente y selecciona el menú <i class="fas fa-ellipsis-vertical"></i>.
-2. Selecciona **Archive**.
+2. Selecciona **Archivar**.
 
 ![Página de gestión de agentes con agentes archivados.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

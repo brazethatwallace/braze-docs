@@ -146,3 +146,60 @@ Join our VIP program to unlock free shipping.
 ### Liquid 변수는 제목란과 본문 사이에서 유지되나요? {#do-liquid-variables-carry-between-subject-line-and-body}
 
 아니요. Braze는 각 메시지 구성요소(제목란, HTML 본문, 프리헤더, 푸시 제목 등)를 별도로 렌더링합니다. 한 필드에서 수행한 할당이나 캡처는 다른 필드에서 사용할 수 없습니다. 값이 필요한 각 필드에서 Liquid 또는 연결된 콘텐츠 호출을 반복하세요.
+
+
+### `abort_message` 태그 안에서 Liquid를 사용할 수 있나요? {#can-i-use-liquid-inside-the-abort_message-tag}
+
+{% raw %}아니요. {% abort_message %} 태그는 따옴표로 묶인 정적 문자열만 허용하며, Liquid 개인화는 지원하지 않습니다.{% endraw %} 조건부 중단 동작이 필요한 경우 태그 앞에서 다른 Liquid 로직을 사용하세요.
+
+### "Unexpected end token" Liquid 오류가 표시되는 이유는 무엇인가요? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
+
+이 오류는 일반적으로 중괄호가 추가되거나 누락되었음을 나타냅니다. `{{ }}`를 다른 Liquid 태그 표현식 안에 중첩하지 마세요. 예를 들어, 속성 참조를 추가 중괄호 쌍으로 감싸는 대신 {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %}를 사용하세요.
+
+### 메시지가 "Invalid from email address for recipient:"로 중단되는 이유는 무엇인가요? {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
+
+이 중단은 **보낸 사람** 주소의 Liquid가 누락된 변수, 추가 공백 또는 허용되지 않는 문자 등 잘못된 구문을 생성할 때 발생합니다. 테스트 사용자로 미리보기하고 렌더링된 **보낸 사람** 주소가 구성된 발송 도메인과 일치하는지 확인하세요.
+
+### 드래그 앤 드롭 검색 도구의 **Row**에서 Content Block이 표시되지 않는 이유는 무엇인가요? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+
+일부 Content Blocks는 드래그 앤 드롭 편집기 검색의 **Row** 아래에 표시되지 않습니다. **콘텐츠** 탭(**고급**)에서 HTML 블록을 추가한 다음, 해당 HTML 블록에 Content Block Liquid 태그를 삽입하여 블록 콘텐츠를 렌더링하세요.
+
+### 동적 회신 주소를 어떻게 만드나요? {#how-do-i-create-a-dynamic-reply-to-address}
+
+워크스페이스에서 동적 회신 주소 구성을 지원하는 경우 **회신 주소** 필드에서 Liquid를 사용하세요. 필요에 따라 **보낸 사람** 표시 이름 설정과 함께 사용하세요. 워크스페이스별 옵션에 대해서는 [이메일 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/)을 참조하세요.
+
+### 드래그 앤 드롭 Content Block 미리보기가 작성 보기와 다른 이유는 무엇인가요? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
+
+Liquid로 Content Block을 템플릿화하면, 블록의 모바일 미디어 쿼리가 블록을 메시지에 직접 드래그할 때와 동일한 방식으로 미리보기에 적용되지 않을 수 있습니다. 블록을 드래그하면 레이아웃은 유지되지만 소스 블록과 분리되므로, 이후 블록 편집 사항이 메시지에 자동으로 업데이트되지 않습니다.
+
+### Canvas 컨텍스트 등록정보에 크기 제한이 있나요? {#are-there-size-limits-for-canvas-context-properties}
+
+Braze는 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)에 대해 엄격한 제한을 적용하지 않지만, 페이로드를 약 1KB(~1,000자) 이하로 유지하세요. 더 큰 오브젝트는 메모리 사용량을 증가시키고 대량 발송 시 메시지 렌더링을 지연시킬 수 있습니다.
+
+### 카탈로그 Liquid 스니펫이 중단 메시지를 반환하는 이유는 무엇인가요? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
+
+카탈로그 Liquid 스니펫이 발송 중 중단되는 경우, 대량 또는 완전 동적 선택을 사용하는 대신 개인화 메뉴에서 개별 카탈로그 항목을 선택하여 스니펫을 다시 생성하세요. [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/) 및 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)을 참조하세요.
+
+### 대시보드에서 특정 데이터 유형을 미리볼 때 Liquid 오류가 발생하는 이유는 무엇인가요? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
+
+일부 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) 유형은 비교나 수학 연산에 사용하기 전에 Liquid에서 형변환이 필요합니다. 예를 들어, 숫자 동작이 필요한 경우:
+
+{% raw %}
+```liquid
+{{context.${property_name} | plus: 0}}
+```
+{% endraw %}
+
+### 인앱 메시지에서 연결된 콘텐츠 재시도를 사용할 수 없는 이유는 무엇인가요? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+
+{% raw %}
+재시도가 포함된 `{% connected_content %}` 태그는 일부 인앱 메시지 형식을 포함한 모든 메시지 유형에서 지원되지 않습니다. 재시도 매개변수를 제거하거나 재시도 연결된 콘텐츠 호출에 지원되는 채널을 사용하세요.
+{% endraw %}
+
+### 메시지 작성기에서 이벤트 등록정보 값을 미리보려면 어떻게 하나요? {#how-do-i-preview-event-property-values-in-message-composer}
+
+**커스텀 사용자로 미리보기**를 사용하고 미리보기할 사용자에 대한 샘플 커스텀 이벤트 등록정보 값을 입력하세요. 이는 중단을 트리거하지 않는 미리보기 값이 필요한 중단 로직이 포함된 메시지에도 유용합니다.
+
+### Braze는 Liquid에서 배열의 배열을 지원하나요? {#does-braze-support-an-array-of-arrays-in-liquid}
+
+Liquid는 기본적으로 배열의 배열을 지원하지 않습니다. 값을 쉼표로 구분된 문자열의 배열로 저장하고 필요할 때 `split` 필터를 사용하여 구문 분석하세요.

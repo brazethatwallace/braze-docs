@@ -2,57 +2,57 @@
 nav_title: ステータス
 article_title: ステータス
 page_order: 5
-description: "キャンペーンおよびキャンバスのステータスと、ダッシュボードでの使用方法について説明します。"
+description: "CampaignおよびCanvasのステータスと、ダッシュボードでの使用方法について説明します。"
 tool:
-    - キャンペーン
-    - キャンバス
+    - Campaigns
+    - Canvas
 ---
 
-# キャンペーンとキャンバスのステータス {#campaign-and-canvas-statuses}
+# CampaignとCanvasのステータス {#campaign-and-canvas-statuses}
 
-> キャンペーンおよびキャンバスのステータスと、ダッシュボードでの使用方法について説明します。
+> CampaignおよびCanvasのステータスと、ダッシュボードでの使用方法について説明します。
 
 ## ステータスでフィルタリングする {#filtering-by-status}
 
-キャンペーンまたはキャンバスをステータスでフィルタリングするには、**All Statuses**を選択し、ステータスを選びます。
+CampaignまたはCanvasをステータスでフィルタリングするには、**すべてのステータス**を選択し、ステータスを選びます。
 
-![Brazeダッシュボードの「All Statuses」ドロップダウン。]({% image_buster /assets/img/messaging_fundamentals/filter-by-status.png %}){: style="max-width:70%;"}
+![Brazeダッシュボードの「すべてのステータス」ドロップダウン。]({% image_buster /assets/img/messaging_fundamentals/filter-by-status.png %}){: style="max-width:70%;"}
 
 ## ステータスを変更する {#changing-the-status}
 
-キャンペーンまたはキャンバスのステータスを変更するには、<i class="fas fa-ellipsis-vertical"></i>メニューを選択し、ステータスを選びます。
+CampaignまたはCanvasのステータスを変更するには、<i class="fas fa-ellipsis-vertical"></i>メニューを選択し、ステータスを選びます。
 
-![Brazeダッシュボードに表示されたキャンバスの一覧。1つのキャンバスのメニューが開いている状態。]({% image_buster /assets/img/messaging_fundamentals/change-status.png %})
+![Brazeダッシュボードに表示されたCanvasの一覧。1つのCanvasのメニューが開いている状態。]({% image_buster /assets/img/messaging_fundamentals/change-status.png %})
 
 ## 利用可能なステータス {#available-statuses}
 
-キャンペーンおよびキャンバスで利用可能なステータスは以下のとおりです。
+CampaignおよびCanvasで利用可能なステータスは以下のとおりです。
 
 | ステータス | 説明 |
 | --- | --- |
-| アクティブ | アクティブなキャンペーンおよびキャンバスは送信処理中です。デフォルトでは、それぞれのページにアクティブなキャンペーンおよびキャンバスが表示されます。 |
-| 下書き | キャンペーンおよびキャンバスの下書きは保存されていますが、起動されていません。編集を続けて送信を開始するには、Brazeダッシュボードで**Messaging**に移動し、**キャンバス**または**キャンペーン**を選択して下書きを選びます。 |
-| アーカイブ | アーカイブされたキャンペーンおよびキャンバスは、送信が終了したメッセージです。これらのキャンペーンおよびキャンバスは、[**ホーム**]({{site.baseurl}}/user_guide/analytics/dashboards/home/)ページおよび[**収益**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/)ページの統計グラフからも削除されます。|
-| 停止済み | 停止済みのキャンペーンおよびキャンバスは一時停止されていますが、引き続き編集できます。キャンバスを再開するには、キャンバスビルダーの**Summary**ステップに移動し、**Resume キャンバス**を選択します。キャンペーンの場合は、<i class="fas fa-ellipsis-vertical"></i>メニューを選択し、**Resume**を選びます。詳細については、[停止済みキャンバスの動作](#stopped-canvas-behavior)を参照してください。 |
-| アイドル | キャンペーンまたはキャンバスがメッセージを送信しなくなると、Brazeはアイドルステータスを割り当て、キャンペーンおよびキャンバスの一覧の整理と管理を支援します。自動的に停止されるキャンペーンまたはキャンバスと、関連する停止日を確認できます。 |
+| アクティブ | アクティブなCampaignおよびCanvasは送信処理中です。デフォルトでは、それぞれのページにアクティブなCampaignおよびCanvasが表示されます。 |
+| 下書き | CampaignおよびCanvasの下書きは保存されていますが、起動されていません。編集を続けて送信を開始するには、Brazeダッシュボードで**メッセージング**に移動し、**Canvas**または**Campaigns**を選択して下書きを選びます。 |
+| アーカイブ | アーカイブされたCampaignおよびCanvasは、送信が終了したメッセージです。これらのCampaignおよびCanvasは、[**ホーム**]({{site.baseurl}}/user_guide/analytics/dashboards/home/)ページおよび[**収益**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/)ページの統計グラフからも削除されます。|
+| 停止済み | 停止済みのCampaignおよびCanvasは一時停止されていますが、引き続き編集できます。Canvasを再開するには、Canvasビルダーの**Summary**ステップに移動し、**Resume Canvas**を選択します。Campaignの場合は、<i class="fas fa-ellipsis-vertical"></i>メニューを選択し、**Resume**を選びます。詳細については、[停止済みCanvasの動作](#stopped-canvas-behavior)を参照してください。 |
+| アイドル | CampaignまたはCanvasがメッセージを送信しなくなると、Brazeはアイドルステータスを割り当て、CampaignおよびCanvasの一覧の整理と管理を支援します。自動的に停止されるCampaignまたはCanvasと、関連する停止日を確認できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="利用可能なステータス" }
 
-### 停止済みキャンバスの動作 {#stopped-canvas-behavior}
+### 停止済みCanvasの動作 {#stopped-canvas-behavior}
 
-キャンバスが停止されると、以下のことが発生します。
+Canvasが停止されると、以下のことが発生します。
 
-- **スケジュールされたメッセージ:** キャンバス内のユーザーの位置に関係なく、スケジュールされたメッセージは送信されません。これには、レート制限によりキューに入れられたユーザーも含まれます。
-- **メール送信:** メール送信はすぐに停止しない場合があります。メールサービスプロバイダー (ESP) が既存のリクエストの処理を続行する可能性があるためです。
-- **遅延ステップ:** [遅延ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/)にいるユーザーは通常どおりそこに留まりますが、設定された期間が終了するとキャンバスを退出します。
-- **下書きの変更:** キャンバスが停止されると、キャンバスへの下書きの変更は破棄されます。
+- **スケジュールされたメッセージ:** Canvas内のユーザーの位置に関係なく、スケジュールされたメッセージは送信されません。これには、レート制限によりキューに入れられたユーザーも含まれます。
+- **メール送信:** メール送信はすぐに停止しない場合があります。メールサービスプロバイダー（ESP）が既存のリクエストの処理を続行する可能性があるためです。
+- **遅延ステップ:** [遅延ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/)にいるユーザーは通常どおりそこに留まりますが、設定された期間が終了するとCanvasを退出します。
+- **下書きの変更:** Canvasが停止されると、Canvasへの下書きの変更は破棄されます。
 
-キャンバスを再開するには、キャンバスビルダーの**Summary**ステップに移動し、**Resume キャンバス**を選択します。再開されると、以前停止されたメッセージはスケジュールどおりに送信されます&#8212;スケジュールされた時間がまだ過ぎていない場合に限ります。
+Canvasを再開するには、Canvasビルダーの**Summary**ステップに移動し、**Resume Canvas**を選択します。再開されると、以前停止されたメッセージはスケジュールどおりに送信されます&#8212;スケジュールされた時間がまだ過ぎていない場合に限ります。
 
 ## ベストプラクティス {#best-practices}
 
 ### ステータスでメッセージを監視する {#monitor-your-messages-by-status}
 
-ステータスでメッセージを監視して、パフォーマンスの詳細を確認できます。たとえば、一連のアクティブなキャンペーンがある場合、エンゲージメント指標で各キャンペーンのパフォーマンスを評価し、必要に応じて調整を行うことができます。停止済みのキャンバスがいくつかある場合は、メッセージングのために再開すべきか、完全にアーカイブすべきかを検討できます。
+ステータスでメッセージを監視して、パフォーマンスの詳細を確認できます。たとえば、一連のアクティブなCampaignがある場合、エンゲージメント指標で各Campaignのパフォーマンスを評価し、必要に応じて調整を行うことができます。停止済みのCanvasがいくつかある場合は、メッセージングのために再開すべきか、完全にアーカイブすべきかを検討できます。
 
 {% alert tip %}
 整理するためのその他の方法をお探しですか？[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)や[タグ]({{site.baseurl}}/user_guide/messaging/governance/tags/)を追加して、一目でより多くのコンテキストを提供しましょう。
@@ -60,4 +60,4 @@ tool:
 
 ### アクティブなメッセージを監査する {#audit-your-active-messages}
 
-アクティブなキャンペーンおよびキャンバスの監査を実施することで、関連性とパフォーマンスを評価し、古くなったキャンペーンおよびキャンバスを削除または更新して、メッセージングを常に最新の状態に保つことができます。
+アクティブなCampaignおよびCanvasの監査を実施することで、関連性とパフォーマンスを評価し、古くなったCampaignおよびCanvasを削除または更新して、メッセージングを常に最新の状態に保つことができます。

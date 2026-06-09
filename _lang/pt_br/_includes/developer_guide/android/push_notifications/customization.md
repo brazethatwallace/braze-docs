@@ -362,7 +362,7 @@ Um **ID de notificação** é um identificador único para uma categoria de mens
 
 ### Prioridade de entrega do Firebase Messaging {#fcm-priority}
 
-O campo [Prioridade de entrega do Firebase Messaging](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message) permite que você controle se um push é enviado com prioridade "normal" ou "alta" para o Firebase Cloud Messaging.
+O campo [Prioridade de entrega do Firebase Messaging](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) permite que você controle se um push é enviado com prioridade "normal" ou "alta" para o Firebase Cloud Messaging.
 
 ### Time to live (TTL) {#ttl}
 
@@ -407,7 +407,7 @@ Os níveis de prioridade que você pode definir em notificações por push do An
 | Padrão  | A maioria das notificações — use se sua mensagem não se enquadrar explicitamente em nenhum dos outros tipos de prioridade | `0` |
 | Baixa      | Informações que você deseja que os usuários saibam, mas que não exigem ação imediata | `-1` |
 | Mín.      | Informações contextuais ou de segundo plano | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prioridade de exibição de notificação #notification-priority" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prioridade de exibição de notificação" }
 
 Para saber mais, consulte a documentação de [notificação do Android](http://developer.android.com/design/patterns/notifications.html) do Google.
 
