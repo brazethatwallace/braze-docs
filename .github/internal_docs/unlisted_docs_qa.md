@@ -103,7 +103,8 @@ Click each URL. It should return HTTP 200 and render either the full page or, fo
 - [ ] [Upgrading Shopify](http://127.0.0.1:5006/docs/shopify_standard_upgrade/) — `private_betas/shopify_beta/shopify_standard_integration_upgrade.md`
 - [ ] [Shopify Upgrade Overview](http://127.0.0.1:5006/docs/shopify_upgrade_overview/) — `private_betas/shopify_beta/shopify_upgrade_overview.md`
 - [ ] [Shopify Collections Sync](http://127.0.0.1:5006/docs/shopify_collections_sync/) — `private_betas/shopify_collections_sync.md`
-- [ ] [Surveys](http://127.0.0.1:5006/docs/braze_surveys/) — `private_betas/surveys.md`
+- [ ] [In-app message surveys](http://127.0.0.1:5006/docs/user_guide/channels/in_app_messages/drag_and_drop/surveys/) — `channels/in_app_messages/drag_and_drop/surveys.md`
+- [ ] [Landing page surveys](http://127.0.0.1:5006/docs/user_guide/messaging/landing_pages/create_landing_pages/surveys/) — `messaging/landing_pages/create_landing_pages/surveys.md`
 - [ ] [Workspace rate limits](http://127.0.0.1:5006/docs/workspace_rate_limits/) — `private_betas/workspace_rate_limits.md`
 
 ## Bulk URL validator
@@ -177,7 +178,8 @@ urls=(
   "http://127.0.0.1:5006/docs/shopify_standard_upgrade/"
   "http://127.0.0.1:5006/docs/shopify_upgrade_overview/"
   "http://127.0.0.1:5006/docs/shopify_collections_sync/"
-  "http://127.0.0.1:5006/docs/braze_surveys/"
+  "http://127.0.0.1:5006/docs/user_guide/channels/in_app_messages/drag_and_drop/surveys/"
+  "http://127.0.0.1:5006/docs/user_guide/messaging/landing_pages/create_landing_pages/surveys/"
   "http://127.0.0.1:5006/docs/workspace_rate_limits/"
 )
 for u in "${urls[@]}"; do
@@ -194,7 +196,7 @@ Open at least one image and one downloadable file from the namespaced asset fold
 
 - [ ] [Sample image (Shopify integration screenshot)](http://127.0.0.1:5006/docs/assets/unlisted_docs/img/shopify/add_personalization.png)
 - [ ] [Sample PDF (Entitlements Handbook 27)](http://127.0.0.1:5006/docs/assets/unlisted_docs/download_file/Braze_Entitlements_Handbook_27.pdf)
-- [ ] On any page that embeds an image (for example [Shopify](http://127.0.0.1:5006/docs/shopify/) or [Surveys](http://127.0.0.1:5006/docs/braze_surveys/)), confirm images render inline rather than showing broken-image icons.
+- [ ] On any page that embeds an image (for example [Shopify](http://127.0.0.1:5006/docs/shopify/) or [In-app message surveys](http://127.0.0.1:5006/docs/user_guide/channels/in_app_messages/drag_and_drop/surveys/)), confirm images render inline rather than showing broken-image icons.
 
 ## Visibility checks (collection metadata)
 
