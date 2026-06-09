@@ -52,6 +52,7 @@ In Convercus Selfservice (the customer-facing admin UI—open it using the URL y
    | `apiEndpoint` | Your Braze REST endpoint, for example `https://rest.iad-01.braze.com`. |
    | Identifier type | Either `external_id` or `user_alias`. Determines how Convercus members are matched to Braze user profiles. |
    | `defaultOptins` | Multi-select of the program's opt-in channels (from `membershipOptins`). Used as the default for the email subscription webhook when the request omits `optins`. The Braze config is treated as **incomplete** until at least one is selected. |
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Configure Braze in Convercus Selfservice" }
 
 2. Create an API key for inbound calls. Create a per-program `X-Convercus-Key` credential. The raw key is shown once at creation, prefixed `cvc_` (format: `cvc_<base64url>`). Store it in Braze when you configure the webhook campaigns and Connected Content blocks in Step 2. Keys can be revoked at any time from the same card; revocation takes effect immediately.
 
@@ -104,6 +105,7 @@ The other actions follow the same pattern, changing only the endpoint and the bo
 | `400` | Request body failed validation. |
 | `401` | `X-Convercus-Key` is missing or invalid. |
 | `5xx` | The upstream Convercus call failed. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Error responses and retries" }
 
 {% alert warning %}
 5xx responses are **not safe to retry without confirming success**—these operations are not idempotent, and retries may double-assign coupons or double-credit point bookings. Disable Braze auto-retry on 5xx for these webhooks, or configure a very low maximum retry count.
@@ -140,6 +142,7 @@ After the integration is live, Convercus events arrive on each user profile in B
 | `push_subscribe` | Push subscription state derived from Convercus push token events (`opted_in` or `unsubscribed`). |
 | Standard profile fields | `email`, `phone`, `first_name`, `last_name`, `dob`, `gender`, `home_city`, `country`. |
 | Custom user properties | Any custom properties defined on the Convercus user object are forwarded as Braze custom attributes. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attributes" }
 
 {% alert note %}
 Within a Braze workspace, members are uniquely identified by `convercus_account_id`. `convercus_user_id` identifies the underlying person across multiple Convercus programs and is provided for cross-program analytics; for segmentation within Braze, use `convercus_account_id`.
@@ -175,6 +178,7 @@ Within a Braze workspace, members are uniquely identified by `convercus_account_
 | `convercus_user_changed` | A user's profile data changes. |
 | `convercus_push_token_created` | A push token is registered for the member. |
 | `convercus_push_token_deleted` | A push token is removed. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom events" }
 
 #### Purchases
 
@@ -190,6 +194,7 @@ For values that must be fresh at send time—current points balance, active coup
 | --- | --- | --- |
 | Member profile | `GET /members/{accountId}/profile` | `member_id`, `first_name`, `last_name`, `email`, `tier_name`, `tier_id`, `points_balance`, `enrollment_date`. |
 | Member coupons | `GET /members/{accountId}/coupons` | List of active, redeemable coupons (status, value, validity window, title, description). Append `?lang=<code>` (for example, `?lang=de`) to localize `title`/`description`; defaults to `en`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Fetch live loyalty data with Connected Content" }
 
 Connected Content endpoints always return HTTP 200 on expected failures so Liquid templates can branch on the `error` field:
 
@@ -199,6 +204,7 @@ Connected Content endpoints always return HTTP 200 on expected failures so Liqui
 | `200 { "error": "member_not_found" }` | The account does not exist in this program. |
 | `200 { "error": "internal_error" }` | Upstream or unexpected failure. |
 | `401` | `X-Convercus-Key` is missing or invalid (handle at integration time, not in Liquid). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Fetch live loyalty data with Connected Content" }
 
 Example — render a member's loyalty status (tier, points, and active offers):
 
