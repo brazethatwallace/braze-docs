@@ -76,6 +76,7 @@ All endpoints live under the base URL `<SERVICE_HOST>/v1/programs/{programId}`. 
 | Assign a coupon to multiple members | `POST /campaigns/{couponId}/assign/batch` — up to 500 members in one call; body accepts optional `valid_from` / `valid_to`. Returns `{ "batchId": "..." }`. |
 | Book earn / burn points | `POST /members/{accountId}/bookings` — create an `EARNBOOKING` or `BURNBOOKING` on a member account. Returns `{ "bookingId": "..." }`. |
 | Sync email subscription preferences | `POST /subscriptions/email` — set the member's opt-ins to `allowed` or `declined`. Opt-in channels resolve as request `optins` > `defaultOptins`. Returns `200` (all OK), `207` (partial — see `succeeded` / `failed`), or `400` (unknown opt-ins or none configured). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure webhooks in Braze" }
 
 Example — assign a coupon to a member:
 
