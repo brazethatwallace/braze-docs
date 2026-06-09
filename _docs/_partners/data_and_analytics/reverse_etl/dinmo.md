@@ -12,6 +12,8 @@ search_tag: Partner
 
 > [DinMo](https://www.dinmo.com/) is a composable customer data platform (CDP) that connects your cloud data warehouse to Braze through reverse Extract, Transform, Load (ETL). Marketing teams can build audience segments from warehouse data, sync user attributes and events into Braze, and keep subscription statuses up to date without CSV uploads or engineering support.
 
+_This integration is managed by DinMo._
+
 The Braze and DinMo integration pushes segments and data models from your warehouse into Braze through the Braze REST API. After you connect a destination in DinMo, activate models or segments to sync user profiles, track custom events and purchases, update subscription group membership, and export audience lists as Braze user attributes.
 
 ## Prerequisites
