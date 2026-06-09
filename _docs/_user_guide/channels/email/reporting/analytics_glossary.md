@@ -113,6 +113,10 @@ Count
 
 <span class="calculation-line">Calculation: (Sends) - (Bounces) </span>
 
+{% alert note %}
+For user-level **received** state and related logic (such as frequency capping), Braze generally marks a user when the send is processed and handed off for delivery—not when the email service provider (ESP) confirms final delivery to the inbox. That avoids timing gaps between ESP confirmation and in-product rules. It may differ from ESP- or third-party delivery reports.
+{% endalert %}
+
 {% endapi %}
 
 {% api %}
@@ -143,6 +147,10 @@ For email, *Bounce %* or *Bounce Rate* is the percentage of messages that were u
 
 An email bounce for customers using SendGrid consists of hard bounces, spam (`spam_report_drops`), and emails sent to invalid addresses (`invalid_emails`).
 
+{% alert note %}
+In [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), temporary ESP deferrals are often represented as soft bounces. Deliverability tools (for example, native SendGrid reporting or Looker models) may use deferrals for the same situation. Deferrals are usually temporary, and mail is often delivered after retries. After extended retries (up to roughly 72 hours for soft bounces in campaign analytics), a message may be treated as undeliverable depending on your ESP. Currents email events are append-only—a logged soft bounce is not removed later if the message eventually delivers.
+{% endalert %}
+
 {::nomarkdown}
 <span class="calculation-line">
     Calculation:
@@ -165,7 +173,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-When an email hard bounces or is marked as spam, Braze marks the email address as invalid but does not update the user's [subscription status]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/). Braze stops any future sends to that email address. To remove an email address from your hard bounce list, use the [Remove hard bounced emails endpoint]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
+When an email hard bounces or is marked as spam, Braze marks the email address as invalid but does not update the user's [subscription status]({{site.baseurl}}/user_guide/channels/email/subscriptions/). Braze stops any future sends to that email address. To remove an email address from your hard bounce list, use the [Remove hard bounced emails endpoint]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
 
 <span class="calculation-line">Calculation: Count </span>
 
@@ -239,7 +247,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. After seven days, another unique click can count for the same user if they click again. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured per <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> (a single send attempt). This includes clicks on Braze-provided unsubscribe links. After seven days, another unique click can count for the same user if they click again. Dashboard email engagement metrics, including _Unique Clicks_, are calculated in Braze and are not reconciled from ESP aggregate reports. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
 
 {::nomarkdown}
 <span class="calculation-line">

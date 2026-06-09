@@ -4469,6 +4469,7 @@ validurls['/docs/help/push#android-push-category'] = '/docs/user_guide/channels/
 validurls['/docs/partners/anthropic'] = '/docs/partners/ai_model_providers/anthropic';
 validurls['/docs/partners/openai'] = '/docs/partners/ai_model_providers/openai';
 validurls['/docs/partners/gemini'] = '/docs/partners/ai_model_providers/google_gemini';
+validurls['/docs/partners/databricks_mosaic'] = '/docs/partners/ai_model_providers/databricks_mosaic';
 validurls['/docs/partners/shopify'] = '/docs/partners/ecommerce/shopify';
 validurls['/docs/partners/datadog'] = '/docs/partners/data_and_analytics/business_intelligence/datadog';
 validurls['/docs/partners/data_and_infrastructure_agility/monitoring/datadog'] = '/docs/partners/data_and_analytics/business_intelligence/datadog';
