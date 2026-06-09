@@ -56,7 +56,7 @@ Grant the following permissions on your Braze REST API key based on the destinat
    * **REST API URL**: Your instance REST endpoint (for example, `https://rest.eu-01.braze.com`)
    * **Dashboard URL**: Your instance dashboard URL (for example, `https://dashboard.eu-01.braze.com`)
    * **API Key**: The key you copied from Braze
-4. Click **Connect** to validate your credentials.
+4. Select **Connect** to validate your credentials.
 
 {% alert note %}
 You must specify both the REST API URL and the dashboard URL. Do not include a trailing slash on the REST API URL.
