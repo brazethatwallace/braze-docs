@@ -152,6 +152,7 @@ Within a Braze workspace, members are uniquely identified by `convercus_account_
 | `allowedOptins` entry for `email consent` or `newsletter` | `opted_in` |
 | `declinedOptIns` entry for those channels (and no allowed entry) | `unsubscribed` |
 | No record either way | `subscribed` (Braze's neutral default) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attributes" }
 
 #### Custom events
 
