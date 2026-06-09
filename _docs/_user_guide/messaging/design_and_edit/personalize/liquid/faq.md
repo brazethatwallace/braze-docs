@@ -46,7 +46,7 @@ For a personalized greeting using a user's first name, pull the standard user pr
 
 You can also use a Liquid {% raw %}`{% if X %}`{% endraw %} statement to do conditional rendering based on anything, such as the day of the week or custom attributes. For more information on the supported Liquid operators that can be used in conditional statements, check out [Operators]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators/).
 
-### How can I personalize a message based on a customer's location?
+### How can I personalize a message based on a user's location?
 
 {% raw %}
 There is a default attribute for the user's location: `{{${most_recent_location}}}`.
