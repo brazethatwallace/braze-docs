@@ -52,9 +52,9 @@ You can also use a Liquid {% raw %}`{% if X %}`{% endraw %} statement to do cond
 There is a default attribute for the user's location: `{{${most_recent_location}}}`.
 {% endraw %}
 
+{% raw %}
 ### What's the difference between {{campaign.${name}}} and {{campaign.${message_name}}}?
 
-{% raw %}
 Both `{{campaign.${name}}}` and `{{campaign.${message_name}}}` are supported Liquid personalization tags. Both tags reference campaign attributes. `{{campaign.${name}}}` denotes the name of your campaign, and `{{campaign.${message_name}}}` is the name of your message variant.
 {% endraw %}
 
