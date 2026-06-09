@@ -147,14 +147,13 @@ Join our VIP program to unlock free shipping.
 
 No. Braze renders each message component separately (such as subject line, HTML body, preheader, and push title). Assignments or captures you make in one field are not available in another. Repeat the Liquid or Connected Content call in each field that needs the value.
 
-
 ### Can I use Liquid inside the `abort_message` tag?
 
-{% raw %}No. The {% abort_message %} tag accepts a static string in quotes, not Liquid personalization.{% endraw %} Use other Liquid logic before the tag if you need conditional abort behavior.
+No. The {% raw %}`{% abort_message %}`{% endraw %} tag accepts a static string in quotes, not Liquid personalization. Use other Liquid logic before the tag if you need conditional abort behavior.
 
 ### Why am I seeing an "Unexpected end token" Liquid error?
 
-This error usually indicates extra or missing curly braces. Do not nest `{{ }}` inside another Liquid tag expression. For example, use {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} rather than wrapping the attribute reference in an additional pair of braces.
+This error usually indicates extra or missing curly braces. Do not nest {% raw %}`{{ }}`{% endraw %} inside another Liquid tag expression. For example, use {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} rather than wrapping the attribute reference in an additional pair of braces.
 
 ### Why does my message abort with "Invalid from email address for recipient:"?
 
