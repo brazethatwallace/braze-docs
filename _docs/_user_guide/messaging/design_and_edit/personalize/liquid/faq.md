@@ -11,7 +11,7 @@ toc_headers: h2
 > On this page, you find answers to frequently asked questions about Liquid.
 
 {% alert note %}
-Braze does not currently support 100% of Shopify's Liquid, only certain portions which we have attempted to outline in our documentation. Test all messages using Liquid before sending them to reduce the risk of errors or using unsupported Liquid.
+Braze does not currently support 100% of Shopify's Liquid, only certain portions, which we have attempted to outline in our documentation. Test all messages using Liquid before sending them to reduce the risk of errors or using unsupported Liquid.
 {% endalert %}
 
 ## About Liquid in Braze
