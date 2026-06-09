@@ -1,7 +1,7 @@
 ---
 nav_title: Convercus
 article_title: Convercus
-description: "This article outlines the partnership between Braze and Convercus, a loyalty and coupon platform that enriches Braze with real-time loyalty data and lets Braze campaigns trigger loyalty actions in Convercus."
+description: "This reference article outlines the partnership between Braze and Convercus, a loyalty and coupon platform that enriches Braze with real-time loyalty data and lets Braze campaigns trigger loyalty actions in Convercus."
 page_type: partner
 search_tag: Partner
 ---
@@ -10,24 +10,20 @@ search_tag: Partner
 
 > [Convercus](https://www.convercus.com/en) is a SaaS loyalty and coupon platform that helps brands and retailers grow customer frequency, basket value, and repurchase rates through omnichannel loyalty programs and personalized coupon campaigns.
 
-Convercus integrates bidirectionally with Braze: it streams loyalty events (account changes, logins, coupon activity, membership updates, purchases) into Braze as custom attributes, custom events, and purchases, and accepts Braze webhooks to assign coupons, book points, and sync email subscription preferences. Marketers can use Convercus loyalty data to personalize Braze campaigns and trigger loyalty actions directly from Braze journeys.
+_This integration is maintained by Convercus._
 
-This integration is maintained by Convercus.
+## About the integration
 
-## About this integration
+The Braze and Convercus integration is bidirectional: loyalty data flows into Braze in real time as custom attributes, custom events, and purchases, and Braze Canvases and campaigns can trigger loyalty actions in Convercus through webhooks. Use synced member tier, points balance, purchases, and coupon activity in Segments, Liquid, and Connected Content. From Braze journeys, you can also assign coupons, book, earn, and burn point transactions, and update email subscription preferences in Convercus.
 
-Convercus is an enterprise loyalty platform powering programs for leading retail, hospitality, and gastronomy brands. The Braze integration is bidirectional: loyalty data flows into Braze in real time, and Braze can trigger loyalty actions back in Convercus from any Canvas or campaign.
-
-For marketers, this means richer audience definition and personalization without manual data exports. Member tier, points balance, purchases, and coupon activity arrive in Braze as custom attributes, custom events, and purchases — ready to use in Segments, Liquid, and Connected Content. From the other direction, Braze journeys can assign coupons, book earn/burn point transactions, and update email subscription preferences directly in Convercus.
-
-Where most loyalty connectors only push data one way, Convercus closes the loop: react in Braze to a loyalty event, take an action in Convercus, and measure the result back in Braze — without engineering tickets in between. The integration is fully hosted by Convercus, so there is no infrastructure for the customer to install.
+Convercus hosts the integration, so you do not install additional infrastructure. Where most loyalty connectors only push data one way, Convercus closes the loop: react in Braze to a loyalty event, take an action in Convercus, and measure the result back in Braze.
 
 ## Use cases
 
-1. **Tier-up celebration** — When a member moves up a loyalty tier in Convercus, trigger a personalized Braze Canvas with a welcome message, a tier-exclusive perk, and the member's new tier and points balance.
-2. **Birthday and milestone bonuses** — From a Braze journey, book bonus points in Convercus on a member's birthday or anniversary, then send a celebratory message confirming the new balance.
-3. **Lapsed-member win-back** — For inactive members, have Braze assign a personalized coupon in Convercus via webhook and deliver it across email, push, and in-app.
-4. **Live points balance in messaging** — Use Connected Content to pull a member's real-time points balance into Braze Liquid, powering cadences such as "you're X points away from your next reward".
+1. **Tier-up celebration:** When a member moves up a loyalty tier in Convercus, trigger a personalized Braze Canvas with a welcome message, a tier-exclusive perk, and the member's new tier and points balance.
+2. **Birthday and milestone bonuses:** From a Braze journey, book bonus points in Convercus on a member's birthday or anniversary, then send a celebratory message confirming the new balance.
+3. **Lapsed-member win-back:** For inactive members, have Braze assign a personalized coupon in Convercus through a webhook and deliver it across email, push, and in-app messages.
+4. **Live points balance in messaging:** Use Connected Content to pull a member's real-time points balance into Braze Liquid, powering cadences such as "you're X points away from your next reward".
 
 ## Prerequisites
 
@@ -36,18 +32,19 @@ Before you start, you need the following:
 | Prerequisite | Description |
 | --- | --- |
 | A Convercus account | An active Convercus program. Contact your Convercus account manager if you are not yet a customer. |
-| A Braze REST API key | A Braze REST API key with the `users.track` permission. Create this key in the dashboard from **Settings > API Keys**. |
-| A Braze REST endpoint | Your Braze REST endpoint (for example, `https://rest.iad-01.braze.com`). See [Braze API endpoints]({{site.baseurl}}/api/basics/#endpoints) for the full list. |
+| A Braze REST API key | A Braze REST API key with the `users.track` permission. Create this key in the Braze dashboard from **Settings** > **API Keys**. |
+| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-A consistent user identifier between systems is required: the value used as `external_id` (or the chosen identifier type) in Braze must match the corresponding member identifier in Convercus, otherwise events will not attribute to the correct profile.
+You need a consistent user identifier between systems: the value used as `external_id` (or the chosen identifier type) in Braze must match the corresponding member identifier in Convercus. Otherwise, events do not attribute to the correct profile.
 
-## Integrate Convercus
+## Integration
 
 ### Step 1: Configure Braze in Convercus Selfservice
 
-In Convercus Selfservice (the customer-facing admin UI — reach it via the URL provided by your Convercus account manager), open the program you want to connect to Braze and use the **Braze integration card** to:
+In Convercus Selfservice (the customer-facing admin UI—open it using the URL your Convercus account manager provides), open the program you want to connect to Braze and use the **Braze integration card** to:
 
-1. **Configure the Braze connection** — fill in the integration form:
+1. Configure the Braze connection by completing the integration form:
 
    | Field | Description |
    | --- | --- |
@@ -56,17 +53,19 @@ In Convercus Selfservice (the customer-facing admin UI — reach it via the URL 
    | Identifier type | Either `external_id` or `user_alias`. Determines how Convercus members are matched to Braze user profiles. |
    | `defaultOptins` | Multi-select of the program's opt-in channels (from `membershipOptins`). Used as the default for the email subscription webhook when the request omits `optins`. The Braze config is treated as **incomplete** until at least one is selected. |
 
-2. **Create an API key for inbound calls** — generate a per-program `X-Convercus-Key` credential. The raw key is shown **once** at creation, prefixed `cvc_` (format: `cvc_<base64url>`). Store it in Braze when you configure the webhook campaigns and Connected Content blocks in Step 2. Keys can be revoked at any time from the same card; revocation takes effect immediately.
+2. Create an API key for inbound calls. Create a per-program `X-Convercus-Key` credential. The raw key is shown once at creation, prefixed `cvc_` (format: `cvc_<base64url>`). Store it in Braze when you configure the webhook campaigns and Connected Content blocks in Step 2. Keys can be revoked at any time from the same card; revocation takes effect immediately.
 
-Once the Braze connection is saved, Convercus immediately starts streaming loyalty events for that program to Braze. No additional infrastructure setup is required.
+After you save the Braze connection, Convercus immediately starts streaming loyalty events for that program to Braze. No additional infrastructure setup is required.
 
-> Each Convercus program is configured independently. A single Convercus tenant can connect different programs to different Braze workspaces, each with its own API key.
+{% alert note %}
+Each Convercus program is configured independently. A single Convercus tenant can connect different programs to different Braze workspaces, each with its own API key.
+{% endalert %}
 
 ### Step 2: Configure webhooks in Braze
 
 To trigger Convercus actions from a Canvas or campaign, create Braze webhook actions that call the Convercus integration service. All requests must include the following headers:
 
-- `X-Convercus-Key: cvc_…` — the API key generated in Step 1.
+- `X-Convercus-Key: cvc_…` - the API key generated in Step 1.
 - `Content-Type: application/json`
 
 All endpoints live under the base URL `<SERVICE_HOST>/v1/programs/{programId}`. Replace `<SERVICE_HOST>` with the host provided by your Convercus account manager and `{programId}` with your Convercus program ID.
@@ -78,9 +77,10 @@ All endpoints live under the base URL `<SERVICE_HOST>/v1/programs/{programId}`. 
 | Book earn / burn points | `POST /members/{accountId}/bookings` — create an `EARNBOOKING` or `BURNBOOKING` on a member account. Returns `{ "bookingId": "..." }`. |
 | Sync email subscription preferences | `POST /subscriptions/email` — set the member's opt-ins to `allowed` or `declined`. Opt-in channels resolve as request `optins` > `defaultOptins`. Returns `200` (all OK), `207` (partial — see `succeeded` / `failed`), or `400` (unknown opt-ins or none configured). |
 
-**Example — assign a coupon to a member:**
+Example — assign a coupon to a member:
 
-```
+{% raw %}
+```text
 POST <SERVICE_HOST>/v1/programs/{programId}/campaigns/{couponId}/assign
 X-Convercus-Key: cvc_…
 Content-Type: application/json
@@ -90,6 +90,7 @@ Content-Type: application/json
   "braze_campaign_id": "{{campaign.${api_id}}}"
 }
 ```
+{% endraw %}
 
 The other actions follow the same pattern, changing only the endpoint and the body. For example, a points booking posts to `/members/{accountId}/bookings` with `booking_type` (`EARNBOOKING` or `BURNBOOKING`), `booking_type_code`, `points`, and `reason`; the email subscription webhook posts to `/subscriptions/email` with `account_id` and `status` (`allowed` or `declined`).
 
@@ -103,11 +104,13 @@ The other actions follow the same pattern, changing only the endpoint and the bo
 | `401` | `X-Convercus-Key` is missing or invalid. |
 | `5xx` | The upstream Convercus call failed. |
 
-> **Warning:** 5xx responses are **not safe to retry blindly** — these operations are not idempotent, and retries may double-assign coupons or double-credit point bookings. Disable Braze auto-retry on 5xx for these webhooks, or configure a very low maximum retry count.
+{% alert warning %}
+5xx responses are **not safe to retry without confirming success**—these operations are not idempotent, and retries may double-assign coupons or double-credit point bookings. Disable Braze auto-retry on 5xx for these webhooks, or configure a very low maximum retry count.
+{% endalert %}
 
 ### Step 3: Verify data in Braze
 
-1. Trigger a loyalty event in Convercus — for example, a status level change, a points transaction, or a coupon redemption.
+1. Trigger a loyalty event in Convercus—for example, a status level change, a points transaction, or a coupon redemption.
 2. Open the matching user in Braze and confirm that the expected custom attribute, custom event, or purchase appears on the profile. Users are matched by `external_id` (or the identifier type chosen in Step 1).
 3. To verify the opposite direction, run a Braze test send that calls one of the webhooks from Step 2 and confirm the action in Convercus (coupon assigned, points booked, or subscription updated).
 
@@ -115,7 +118,7 @@ The other actions follow the same pattern, changing only the endpoint and the bo
 
 ### Step 1: Personalize messages with synced loyalty data
 
-Once the integration is live, Convercus events arrive on each user profile in Braze through the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint and can be used like any other native data:
+After the integration is live, Convercus events arrive on each user profile in Braze through the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint and can be used like any other native data:
 
 1. Use loyalty custom attributes (for example, `convercus_status_level`, `convercus_balance`) in **Segments** to target tier holders, high-balance members, or recently downgraded users.
 2. Use custom events (for example, `convercus_status_level_changed`, coupon and membership events) as **trigger steps** in Canvas or as filters in re-engagement campaigns.
@@ -137,13 +140,15 @@ Once the integration is live, Convercus events arrive on each user profile in Br
 | Standard profile fields | `email`, `phone`, `first_name`, `last_name`, `dob`, `gender`, `home_city`, `country`. |
 | Custom user properties | Any custom properties defined on the Convercus user object are forwarded as Braze custom attributes. |
 
-> Within a Braze workspace, members are uniquely identified by `convercus_account_id`. `convercus_user_id` identifies the underlying person across multiple Convercus programs and is provided for cross-program analytics; for segmentation within Braze, use `convercus_account_id`.
+{% alert note %}
+Within a Braze workspace, members are uniquely identified by `convercus_account_id`. `convercus_user_id` identifies the underlying person across multiple Convercus programs and is provided for cross-program analytics; for segmentation within Braze, use `convercus_account_id`.
+{% endalert %}
 
 **`email_subscribe` mapping**
 
 | Convercus state | Braze `email_subscribe` |
 | --- | --- |
-| `allowedOptIns` entry for `email consent` or `newsletter` | `opted_in` |
+| `allowedOptins` entry for `email consent` or `newsletter` | `opted_in` |
 | `declinedOptIns` entry for those channels (and no allowed entry) | `unsubscribed` |
 | No record either way | `subscribed` (Braze's neutral default) |
 
@@ -171,18 +176,18 @@ Once the integration is live, Convercus events arrive on each user profile in Br
 
 #### Purchases
 
-Convercus transactions of type `EARNTRANSACTION` (points earned from customer spend) are reported to Braze as [purchases]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#purchase-object-specification) and counted in Braze revenue analytics, RFM segmentation, and predictive features — using the transaction ID as the product identifier and the transaction amount and currency as price and currency.
+Convercus transactions of type `EARNTRANSACTION` (points earned from customer spend) are reported to Braze as [purchases]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#purchase-object-specification) and counted in Braze revenue analytics, RFM segmentation, and predictive features—using the transaction ID as the product identifier and the transaction amount and currency as price and currency.
 
-Transactions of type `PAYWITHPOINTSTRANSACTION` (points burn) are **not** reported as purchases — they flow as the `convercus_account_transaction` custom event so they remain available for segmentation. Reversals and cancellations of earn transactions are reported as negative-price purchases, keeping Braze revenue aligned with Convercus.
+Transactions of type `PAYWITHPOINTSTRANSACTION` (points burn) are **not** reported as purchases—they flow as the `convercus_account_transaction` custom event so they remain available for segmentation. Reversals and cancellations of earn transactions are reported as negative-price purchases, keeping Braze revenue aligned with Convercus.
 
 ### Step 2: Fetch live loyalty data with Connected Content
 
-For values that must be fresh at send-time — current points balance, active coupons, latest tier — call Convercus from Braze using [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) instead of relying on the most recently synced attribute. Both endpoints sit under the same base URL as the webhooks and require the `X-Convercus-Key` header.
+For values that must be fresh at send time—current points balance, active coupons, latest tier—call Convercus from Braze using [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) instead of relying on the most recently synced attribute. Both endpoints sit under the same base URL as the webhooks and require the `X-Convercus-Key` header.
 
 | Data | Endpoint | Returns |
 | --- | --- | --- |
 | Member profile | `GET /members/{accountId}/profile` | `member_id`, `first_name`, `last_name`, `email`, `tier_name`, `tier_id`, `points_balance`, `enrollment_date`. |
-| Member coupons | `GET /members/{accountId}/coupons` | List of active, redeemable coupons (status, value, validity window, title, description). Append `?lang=<code>` (e.g. `?lang=de`) to localize `title`/`description`; defaults to `en`. |
+| Member coupons | `GET /members/{accountId}/coupons` | List of active, redeemable coupons (status, value, validity window, title, description). Append `?lang=<code>` (for example, `?lang=de`) to localize `title`/`description`; defaults to `en`. |
 
 Connected Content endpoints always return HTTP 200 on expected failures so Liquid templates can branch on the `error` field:
 
@@ -193,8 +198,9 @@ Connected Content endpoints always return HTTP 200 on expected failures so Liqui
 | `200 { "error": "internal_error" }` | Upstream or unexpected failure. |
 | `401` | `X-Convercus-Key` is missing or invalid (handle at integration time, not in Liquid). |
 
-**Example — render a member's loyalty status (tier, points, and active offers):**
+Example — render a member's loyalty status (tier, points, and active offers):
 
+{% raw %}
 ```liquid
 {% connected_content
   https://<SERVICE_HOST>/v1/programs/{programId}/members/{{custom_attribute.${convercus_account_id}}}/profile
@@ -227,20 +233,21 @@ Connected Content endpoints always return HTTP 200 on expected failures so Liqui
   {% endif %}
 {% endunless %}
 ```
+{% endraw %}
 
 Always wrap Connected Content in conditionals (check `member.error` and empty `coupons`) so a temporary lookup failure never ships a broken message. Cache the profile (`cache_max_age 300`) but not coupons (`cache_max_age 0`), since coupon status can change between sends.
 
 ## Considerations
 
-- **Latency** — Convercus-to-Braze events propagate through Kafka and reach Braze in seconds under normal load.
-- **Braze rate limits** — The integration retries automatically on `429` responses, honoring Braze's `x-ratelimit-retry-after` header with exponential backoff.
-- **Connected Content caching** — Braze caches Connected Content responses for several minutes by default. For values that must be exact at send-time (such as points balance), shorten or bypass the cache window in the Connected Content call.
-- **One configuration per program** — Each loyalty program maps to a single Braze workspace. To connect a second workspace, configure it on a separate program.
-- **Observability** — Per-program API call statistics and error history (both directions) are retained for 90 days and available from the Braze integration card in Selfservice.
+- **Latency:** Convercus-to-Braze events propagate through Kafka and reach Braze in seconds under normal load.
+- **Braze rate limits:** The integration retries automatically on `429` responses, honoring Braze's `x-ratelimit-retry-after` header with exponential backoff.
+- **Connected Content caching:** Braze caches Connected Content responses for several minutes by default. For values that must be exact at send time (such as points balance), shorten or bypass the cache window in the Connected Content call.
+- **One configuration per program:** Each loyalty program maps to a single Braze workspace. To connect a second workspace, configure it on a separate program.
+- **Observability:** Per-program API call statistics and error history (both directions) are retained for 90 days and available from the Braze integration card in Selfservice.
 
 ## Troubleshooting
 
-- **Events do not appear in Braze** — Verify that the value used as the identifier (selected in Step 1) matches the user's `external_id` (or chosen identifier type) in Braze. Mismatched identifiers cause events to be attributed to the wrong profile or dropped.
-- **Webhook returns `401`** — The `X-Convercus-Key` header is missing or the `cvc_…` API key has been revoked. Regenerate the key in Selfservice and update the webhook action in Braze.
-- **Webhook returns `400`** — The request is missing `Content-Type: application/json`, or the payload does not match the documented schema. For the email subscription webhook, a `400` also means the requested opt-ins are unknown to the program or none are configured.
-- **Deeper debugging** — Review the per-program API call statistics and error history on the Braze integration card in Selfservice, or contact your Convercus representative.
+- **Events do not appear in Braze:** Verify that the value used as the identifier (selected in Step 1) matches the user's `external_id` (or chosen identifier type) in Braze. Mismatched identifiers cause events to be attributed to the wrong profile or dropped.
+- **Webhook returns `401`:** The `X-Convercus-Key` header is missing or the `cvc_…` API key has been revoked. Regenerate the key in Selfservice and update the webhook action in Braze.
+- **Webhook returns `400`:** The request is missing `Content-Type: application/json`, or the payload does not match the documented schema. For the email subscription webhook, a `400` also means the requested opt-ins are unknown to the program or none are configured.
+- **Deeper debugging:** Review the per-program API call statistics and error history on the Braze integration card in Selfservice, or contact your Convercus representative.
