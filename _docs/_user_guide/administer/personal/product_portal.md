@@ -11,7 +11,7 @@ description: "This reference article covers how to access and use the Braze Prod
 
 > With the product portal, you can access the Braze product roadmap and submit ideas. This provides you with insight into what we've recently released, new features that we're working on, and ideas we're considering building. In the portal, you can vote for the features you want by ranking a feature's importance to you and leave a comment with feedback or a request.
 
-The product portal can be found at **Community** > **Product Roadmap**.
+The product portal can be found at **Community** > **Product roadmap**.
 
 ![Resources menu in the Braze dashboard]({% image_buster /assets/img/portal.png %}){: style="max-width:40%;"}
 
