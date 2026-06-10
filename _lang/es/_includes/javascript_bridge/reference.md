@@ -50,10 +50,6 @@ Los siguientes métodos JavaScript son compatibles con el HTML personalizado par
 }
 </style>
 
-{% alert note %}
-No puedes hacer referencia a Liquid para insertar <code>customAttributes</code> en métodos puente de JavaScript.
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
 ### Seguimiento de clics en botones {#button-click-tracking}
@@ -72,9 +68,9 @@ Para los mensajes dentro de la aplicación, puedes realizar el seguimiento media
 | Botón 1   | `brazeBridge.logClick('0')` | Solo mensajes dentro de la aplicación |
 | Botón 2   | `brazeBridge.logClick('1')` | Solo mensajes dentro de la aplicación |
 | Seguimiento de botones personalizados | `brazeBridge.logClick('your custom name here')` | Solo mensajes dentro de la aplicación |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button click tracking" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Seguimiento de clics en botones" }
 
-En el caso de los mensajes dentro de la aplicación, puedes realizar el seguimiento de varios eventos de clics en botones por impresión. Por ejemplo, para cerrar un mensaje y registrar un clic en el botón 2:
+En el caso de los mensajes dentro de la aplicación, puedes realizar el seguimiento de varios eventos de clic en botones por impresión. Por ejemplo, para cerrar un mensaje y registrar un clic en el botón 2:
 
 ```html
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>

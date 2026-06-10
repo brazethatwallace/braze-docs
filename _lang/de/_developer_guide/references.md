@@ -10,6 +10,8 @@ toc_headers: h2
 
 > Dies ist eine Liste der Referenzdokumentationen, GitHub-Repositories und Beispiel-Apps, die zu jedem Braze SDK gehören. In der Referenzdokumentation eines SDKs finden Sie die verfügbaren Klassen, Typen, Funktionen und Variablen. Das GitHub-Repository bietet Insights zu den Funktions- und Attribut-Deklarationen, Code-Änderungen und der Versionierung des SDKs. Jedes Repository enthält außerdem vollständig kompilierbare Beispielanwendungen, mit denen Sie die Features von Braze testen oder neben Ihren eigenen Anwendungen implementieren können.
 
+Gespiegelte Repository-README-Inhalte in der Dokumentation finden Sie unter [Repository-Leitfäden]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+
 ## Liste der Ressourcen {#list-of-resources}
 
 {% alert note %}

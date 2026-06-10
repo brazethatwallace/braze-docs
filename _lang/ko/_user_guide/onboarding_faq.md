@@ -84,7 +84,7 @@ Users
 | 가입됨 | Braze에서 고객 프로필을 생성할 때의 기본 푸시 구독 상태입니다. |
 | 옵트인 | 사용자가 푸시 알림 수신을 명시적으로 선호한다고 밝혔습니다. 사용자가 OS 수준의 푸시 프롬프트를 수락하면 Braze는 사용자의 옵트인 상태를 `Opted-In`으로 자동 변경합니다.<br><br>Android 12 이하의 사용자에게는 적용되지 않습니다. |
 | 탈퇴됨 | 사용자가 애플리케이션 또는 브랜드가 제공하는 기타 방법을 통해 푸시 수신을 명시적으로 취소한 경우입니다. 기본적으로 Braze 푸시 Campaigns는 `Subscribed` 또는 `Opted-in`인 사용자만 푸시 대상으로 지정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 구독 상태의 차이점은 무엇인가요?" }
 
 {% endapi %}
 {% api %}

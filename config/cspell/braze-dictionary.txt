@@ -178,6 +178,7 @@ CONTENTCARD
 Contentful
 Contentful's
 Contentsquare
+Convercus
 cookieless
 Cooldown
 cooldowns
@@ -707,6 +708,7 @@ SENA
 Sendbird
 sendds
 Sendgrid
+Selfservice
 senni
 SESSIONEND
 sessionm

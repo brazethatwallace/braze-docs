@@ -36,7 +36,7 @@ Canvas에서 TikTok Audience 단계를 설정하기 전에 다음 항목이 생�
 | TikTok for Business Center 계정 | [TikTok](https://business.tiktok.com/) | 브랜드의 TikTok 자산(광고 계정, 페이지, 앱 등)을 관리하는 중앙 집중식 도구입니다. |
 | TikTok 광고 계정 | [TikTok](https://ads.tiktok.com/) | 브랜드의 Business Center 계정에 연결된 활성 TikTok 광고 계정입니다.<br><br>TikTok Business Center 매니저 관리자가 Braze와 함께 사용할 TikTok 광고 계정에 대한 관리자 권한을 부여했는지 확인하세요. |
 | TikTok 약관 및 정책 | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Pinterest Audience Sync 사용과 관련된 TikTok의 필수 약관, 정책, 가이드라인 및 문서(참조로 포함된 약관, 정책, 가이드라인 및 문서 포함)를 준수하는 데 동의합니다. 여기에는 상업 서비스 약관, 광고 약관, 개인정보 보호정책, 커스텀 오디언스 약관, 개발자 서비스 약관, 개발자 데이터 공유 계약, 광고 정책, 브랜드 가이드라인 및 커뮤니티 가이드라인이 포함될 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -129,7 +129,7 @@ TikTok의 Segment API 사용량 제한은 초당 최대 50개의 쿼리와 요�
 | Users Pending | 현재 Braze에서 TikTok으로 동기화하기 위해 처리 중인 사용자 수입니다. |
 | Users Errored | 약 13시간의 재시도 후 API 오류로 인해 TikTok에 동기화되지 않은 사용자 수입니다. 오류의 잠재적 원인에는 유효하지 않은 TikTok 토큰 또는 TikTok에서 오디언스가 삭제된 경우가 포함될 수 있습니다. |
 | Exited Canvas | Canvas를 종료한 사용자 수입니다. 이는 Canvas의 마지막 단계가 Audience Sync 구성요소인 경우에 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석 이해하기" }
 
 {% alert important %}
 대량 플러셔와 13시간 재시도로 인해 동기화된 사용자 및 오류 발생 사용자 측정기준의 보고에 지연이 있을 수 있습니다.

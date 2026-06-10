@@ -61,7 +61,7 @@ Hier sehen Sie zum Beispiel eine Reihe von Kundenattributen, die sich auf ein be
 | ----------- | ------------- |
 | `Customer_ID` | 12345 |
 | `Target_Canvas` | C4 |
-| `Target_Objective` |  „Churn_Mitigation“ |
+| `Target_Objective` | „Churn_Mitigation“ |
 | `C4_Target_Date` | 3/1/2023 |
 | `C4_Target_Variant` | Treatment |
 | `C4_Treatment` | „P.AI_Model“ |

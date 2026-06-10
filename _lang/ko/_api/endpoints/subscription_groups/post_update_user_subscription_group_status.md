@@ -16,7 +16,7 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 업데이트
 
 > 이 엔드포인트를 사용하여 Braze 대시보드에서 최대 50명의 사용자의 구독 상태를 일괄 업데이트할 수 있습니다.
 
-**Subscription Group** 페이지로 이동하여 구독 그룹의 `subscription_group_id`에 액세스할 수 있습니다.
+**구독 그룹** 페이지로 이동하여 구독 그룹의 `subscription_group_id`에 액세스할 수 있습니다.
 
 **이메일 구독 그룹**에 대한 이 엔드포인트의 예제를 보거나 테스트하려면 다음을 참조하세요:
 
@@ -100,7 +100,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `email` | 필수* | 문자열 또는 문자열 배열 | 사용자의 이메일 주소이며, 문자열 배열로 전달할 수 있습니다. 이메일 주소를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 이메일 주소를 공유하는 경우, Braze는 해당 이메일 주소를 공유하는 모든 사용자의 구독 그룹 변경 사항을 업데이트합니다. |
 | `phone` | 필수* | [E.164](https://en.wikipedia.org/wiki/E.164) 형식의 문자열 | 사용자의 전화번호이며, 문자열 배열로 전달할 수 있습니다. 전화번호를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 전화번호를 공유하는 경우, Braze는 해당 전화번호를 공유하는 모든 사용자에게 동일한 구독 그룹 변경 사항을 업데이트합니다. |
 | `use_double_opt_in_logic` | 선택 사항 | 부울 | SMS 구독 그룹에만 적용되며, 이메일 및 기타 구독 그룹 유형에서는 무시됩니다. 생략 시 기본값은 `false`입니다. SMS 구독 그룹의 경우, 구독 상태가 `subscribed`로 설정될 때 사용자를 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) 워크플로에 진입시키려면 `true`로 설정하세요. 이 방식으로 이중 옵트인 워크플로에 진입한 사용자는 워크플로에 진입한 횟수와 관계없이 하루에 최대 한 번의 옵트인 안내 응답 메시지를 받습니다. 이 매개변수가 생략되거나 `false`로 설정되면 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-requests}
 
@@ -143,6 +143,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
     "message": "success"
 }
 ```
+
+## 간헐적 업데이트 실패 문제 해결 {#troubleshooting-intermittent-update-failures}
+
+구독 그룹 업데이트가 간헐적으로 실패하거나 동기화되지 않는 것처럼 보이는 경우, 업데이트 요청 사이에 몇 분 정도 기다리거나 [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)를 호출하여 다른 업데이트를 보내기 전에 사용자의 상태를 확인하세요.
 
 {% alert important %}
 엔드포인트는 `email` 또는 `phone` 값만 허용하며 둘 다 허용하지 않습니다. 두 가지를 모두 제공하면 다음과 같은 응답을 받게 됩니다: `{"message":"Either an email address or a phone number should be provided, but not both."}`

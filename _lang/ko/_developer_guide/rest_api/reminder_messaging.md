@@ -10,7 +10,7 @@ description: "이 참조 문서에서는 Braze 랜딩 페이지, 커스텀 속�
 
 > Braze [랜딩 페이지]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/), 커스텀 속성, Campaign을 사용하여 사용자가 다가오는 이벤트나 약속에 대한 리마인더 메시지를 언제 받을지 선택할 수 있도록 합니다. 이 접근 방식을 사용하면 기술 지식이 없는 Braze 사용자도 리마인더 가입 페이지의 콘텐츠를 생성하고 편집할 수 있으며, 사용자가 선택한 환경설정은 모든 Braze 기반 메시징에서 세분화, 타겟팅, 개인화를 구동할 수 있습니다.
 
-이 접근 방식을 사용하면 다음을 수행할 수 있습니다:
+이 접근 방식을 사용하면 다음을 수행할 수 있습니다.
 
 - 사용자가 다가오는 이벤트를 기준으로 리마인더 메시지 날짜를 직접 선택할 수 있습니다.
 - Braze 랜딩 페이지를 사용하여 사용자로부터 직접 환경설정을 수집하고 고객 프로필에 기록합니다—별도의 백엔드가 필요하지 않습니다.
@@ -19,14 +19,14 @@ description: "이 참조 문서에서는 Braze 랜딩 페이지, 커스텀 속�
 
 ## 필수 조건 {#prerequisites}
 
-이 가이드를 완료하려면 다음이 필요합니다:
+이 가이드를 완료하려면 다음이 필요합니다.
 
 | 요구 사항 | 설명 |
 | --- | --- |
 | 랜딩 페이지 액세스 | Braze에서 [랜딩 페이지]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)를 생성할 수 있는 액세스 및 권한. |
 | HTML 및 JavaScript 지식 | 랜딩 페이지를 커스터마이즈하기 위한 HTML 및 JavaScript에 대한 기본적인 이해. [옵션 B](#option-b-personal-dates-custom-code-block)에만 필요합니다. |
 | Liquid 지식 | 개인화된 변수를 템플릿화하기 위한 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)에 대한 기본적인 이해. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 1단계: 랜딩 페이지를 생성하고 메시지에서 링크하기 {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 
@@ -46,11 +46,11 @@ description: "이 참조 문서에서는 Braze 랜딩 페이지, 커스텀 속�
 
 사용자 환경설정을 수집하는 방법은 공유 날짜를 수집하는지 개인 날짜를 수집하는지에 따라 달라집니다. 사용 사례에 맞는 옵션을 선택하세요.
 
-### 옵션 A: 공유 날짜 (드래그 앤 드롭 양식 블록) {#option-a-shared-dates-drag-and-drop-form-blocks}
+### 옵션 A: 공유 날짜(드래그 앤 드롭 양식 블록) {#option-a-shared-dates-drag-and-drop-form-blocks}
 
 많은 사용자가 동일한 날짜를 공유하는 이벤트(예: 공휴일 또는 스포츠 이벤트)의 경우, 드래그 앤 드롭 에디터의 내장 [**체크박스** 양식 블록]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#form-blocks)을 사용하여 환경설정을 수집합니다. 각 체크박스는 양식이 제출될 때 사용자 프로필에 부울 커스텀 속성(`true` 또는 `false`)을 기본적으로 설정합니다—커스텀 코드가 필요하지 않습니다.
 
-예를 들어, 커스텀 속성 `super_bowl_2026_reminder`에 매핑되는 "슈퍼볼 2026 리마인더"라는 레이블의 체크박스를 추가합니다. 사용자가 체크박스를 선택하고 양식을 제출하면 Braze가 다음과 같이 설정합니다:
+예를 들어, 커스텀 속성 `super_bowl_2026_reminder`에 매핑되는 "슈퍼볼 2026 리마인더"라는 레이블의 체크박스를 추가합니다. 사용자가 체크박스를 선택하고 양식을 제출하면 Braze가 다음과 같이 설정합니다.
 
 ```
 super_bowl_2026_reminder = true
@@ -58,11 +58,11 @@ super_bowl_2026_reminder = true
 
 이러한 부울 속성은 [Segment 필터]({{site.baseurl}}/user_guide/audience/segments/)에서 직접 사용하여 타겟 오디언스를 구축할 수 있습니다.
 
-### 옵션 B: 개인 날짜 (커스텀 코드 블록) {#option-b-personal-dates-custom-code-block}
+### 옵션 B: 개인 날짜(커스텀 코드 블록) {#option-b-personal-dates-custom-code-block}
 
 각 사용자에게 고유한 날짜(예: 생일 또는 기념일)의 경우, 랜딩 페이지에서 [**커스텀 코드** 블록]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#basic-blocks)을 사용하여 날짜를 캡처하고 `lpBridge` API를 사용하여 Braze에 기록합니다. 이 접근 방식은 날짜 입력(또는 선택기)을 제공하며, 드래그 앤 드롭 양식 블록이 지원하지 않는 [중첩 고객 속성 오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)에 환경설정을 저장할 수 있습니다.
 
-사용자가 {% raw %}`{% landing_page_url %}`{% endraw %} Liquid 태그를 통해 도착하면 Braze가 이미 사용자를 알고 있으므로, 스크립트는 다음만 수행하면 됩니다:
+사용자가 {% raw %}`{% landing_page_url %}`{% endraw %} Liquid 태그를 통해 도착하면 Braze가 이미 사용자를 알고 있으므로, 스크립트는 다음만 수행하면 됩니다.
 
 1. 양식 제출 버튼 클릭을 감지합니다.
 2. 커스텀 입력에서 날짜 값을 읽습니다.
@@ -130,7 +130,7 @@ super_bowl_2026_reminder = true
 
 ## 4단계: 통합 확인하기 {#step-4-verify-your-integration}
 
-설정을 완료한 후 통합을 확인합니다:
+설정을 완료한 후 통합을 확인합니다.
 
 1. 랜딩 페이지 링크를 자신에게 보내고 양식을 작성합니다.
 2. Braze 대시보드에서 고객 프로필로 이동하여 커스텀 속성이 표시되는지 확인합니다.

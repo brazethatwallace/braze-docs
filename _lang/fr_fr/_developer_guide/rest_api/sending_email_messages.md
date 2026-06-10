@@ -31,10 +31,10 @@ Pour suivre ce guide, vous avez besoin des éléments suivants :
 | Élément requis | Description |
 | --- | --- |
 | Clé API REST de Braze | Une clé disposant de la permission `messages.send`. Pour en créer une, accédez à **Paramètres** > **API et identifiants** > **Clés API**. |
-| ID d'application Braze | L'identifiant de votre application au sein de votre espace de travail. Pour le trouver, accédez à **Paramètres** > **Clés API** et consultez la section **App identifiers**. Cette valeur est requise dans le champ `app_id` de l'objet e-mail. Pour plus d'informations, consultez [Identifiant d'application]({{site.baseurl}}/api/identifier_types/). |
+| ID d'application Braze | L'identifiant de votre application au sein de votre espace de travail. Pour le trouver, accédez à **Paramètres** > **Clés API** et consultez la section **Identifiants d'application**. Cette valeur est requise dans le champ `app_id` de l'objet e-mail. Pour plus d'informations, consultez [Identifiant d'application]({{site.baseurl}}/api/identifier_types/). |
 | Contenu HTML de l'e-mail | Le corps HTML de votre e-mail, préparé à l'avance. |
 | Service backend | Un service backend ou un environnement de script capable d'effectuer des requêtes HTTP POST vers l'API REST de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Étape 1 : Créer une campagne API {#step-1-create-an-api-campaign}
 

@@ -33,7 +33,7 @@ Verwenden Sie zum Beispiel einen Data Push, um relevante angepasste Events und A
 | --- | --- |
 | Oracle Crowdtwist-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Oracle Crowdtwist-Konto](https://www.oracle.com/uk/cx/marketing/customer-loyalty/). |
 | Braze-Datentransformations-Endpunkt | Diese Integration stützt sich auf das [Datentransformations-Tool]({{site.baseurl}}/user_guide/data/unification/data_transformation/) von Braze. Wenn Sie eine Datentransformation erstellen, generiert Braze einen eindeutigen Endpunkt, den Sie als Ziel für den Data Push von Crowdtwist hinzufügen können.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

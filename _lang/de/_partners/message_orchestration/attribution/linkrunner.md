@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Linkrunner](https://linkrunner.io/) ist eine mobile Attributions- und Analytics-Plattform, die Ihnen hilft, Ihre Nutzerakquise-Campaigns zu verfolgen und zu analysieren.
 
-*Diese Integration wird von Linkrunner gepflegt.*
+_Diese Integration wird von Linkrunner gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
@@ -28,7 +28,7 @@ Folgendes ist erforderlich, bevor Sie beginnen:
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. |
 | Linkrunner SDK | Sie müssen das [Linkrunner SDK](https://docs.linkrunner.io/introduction) installieren. |
 | Braze SDK | Sie müssen das [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/) integrieren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

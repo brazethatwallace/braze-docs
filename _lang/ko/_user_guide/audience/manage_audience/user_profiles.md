@@ -26,6 +26,10 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 
 일치하는 항목이 발견되면 Braze SDK로 해당 사용자에 대해 기록한 정보를 확인할 수 있습니다. 검색 결과에 여러 고객 프로필이 반환되는 경우 각 프로필을 개별적으로 병합하거나 대량 사용자 병합을 수행할 수 있습니다. 전체 안내는 [중복 사용자 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)을 참조하세요.
 
+{% alert note %}
+**사용자 검색**은 Segment 또는 Campaign 작성기의 **사용자 조회**와 동일하지 않습니다. **사용자 조회**는 특정 사용자가 오디언스와 일치하는지 테스트하며 `external_id` 또는 `braze_id`만 허용합니다. 이 페이지의 **사용자 검색**은 이메일, 전화번호, 푸시 토큰, 사용자 별칭을 지원합니다. 자세한 내용은 [Segment 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)를 참조하세요.
+{% endalert %}
+
 {% alert important %}
 전화번호로 검색할 때 [`E.164`](https://en.wikipedia.org/wiki/e.164) 형식으로 변환됩니다. 전화번호를 `E.164` 형식으로 변환할 수 없는 사용자(예: 국가 코드 또는 지역 코드가 유효하지 않은 경우)는 전화번호로 검색할 수 없습니다.
 {% endalert %}
@@ -61,7 +65,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 | 최근 기기 | 로그인한 기기 수, 각 기기의 세부 정보, 관련 광고 ID(있는 경우). |
 | 커스텀 이벤트 | 이 사용자가 수행한 커스텀 이벤트, 수행 횟수, 각 이벤트를 마지막으로 수행한 시점. |
 | 구매 | 이 사용자에게 귀속된 평생 매출, 마지막 구매, 총 구매 횟수, 각 구매 목록. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab #overview-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="개요 탭" }
 
 이 데이터에 대한 자세한 내용은 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)을 참조하세요.
 
@@ -81,7 +85,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 | 기타 | 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/). |
 | 수신한 Canvas 메시지 | 이 사용자가 수신한 Canvas 메시지와 수신 시점. 전송 시점은 **수신한 Campaigns**와 동일한 채널 규칙을 따릅니다. [수신한 Campaigns에 Campaign이 표시되는 시점](#when-campaigns-appear-in-campaigns-received)을 참조하세요. 메시지가 수신, 열림 또는 클릭되면 Braze는 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, SMS 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사람과 식별자를 공유하는 사용자는 원래 Campaign에 포함되지 않았거나 메시지를 직접 전송받지 않았더라도 이 필터에 일치할 수 있습니다.<br><br>목록에서 메시지를 선택하여 확인합니다. |
 | 예측 | 이 사용자에 대한 [고객이탈 예측]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) 및 [이벤트 예측]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) 점수. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab #engagement-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="참여 탭" }
 
 ### 수신한 Campaigns에 Campaign이 표시되는 시점 {#when-campaigns-appear-in-campaigns-received}
 
@@ -126,7 +130,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 | Content Cards | 클릭<br>해제<br>노출 횟수<br>전송 |
 | 웹훅 | 전송 |
 | WhatsApp | 중단<br>전달<br>실패<br>최대 게재빈도 설정<br>인바운드 수신<br>읽음<br>전송 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="메시지 참여 이벤트" }
 
 ##### 메시지 중단 이벤트 {#message-abort-events}
 

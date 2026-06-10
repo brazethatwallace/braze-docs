@@ -33,7 +33,7 @@ Por ejemplo, utiliza un Data Push para pasar eventos personalizados y atributos 
 | --- | --- |
 | Cuenta de Oracle Crowdtwist | Se necesita una [cuenta de Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) para aprovechar esta asociación. |
 | Punto de conexión de Transformación de datos de Braze | Esta integración se basa en la [herramienta de Transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation/) de Braze. Cuando creas una Transformación de datos, Braze genera un punto de conexión único que puedes añadir como destino para el Data Push de Crowdtwist.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -41,7 +41,7 @@ Braze y Oracle Crowdtwist han creado [plantillas de Transformación de datos]({{
 
 ## Paso 1: Crear una Transformación de datos a partir de la plantilla de Oracle Crowdtwist {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
 
-Ve a **Data Settings > Data Transformation > Create Transformations > Use a Template** y selecciona la plantilla "BRAZE <> CROWDTWIST" que prefieras.
+Ve a **Configuración de datos > Transformación de datos > Crear transformaciones > Usar una plantilla** y selecciona la plantilla "BRAZE <> CROWDTWIST" que prefieras.
 
 Encontrarás cuatro plantillas: una para transformar los eventos de perfil de usuario, actividad de usuario y canje de usuario, y una plantilla maestra que utiliza lógica condicional para aplicarla a varios eventos de Data Push.
 

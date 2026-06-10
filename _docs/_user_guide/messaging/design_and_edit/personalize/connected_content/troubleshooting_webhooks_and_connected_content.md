@@ -155,6 +155,13 @@ For Connected Content, if requests to the target host are halted by the unhealth
 
 If you believe the unhealthy host detection may be causing issues, contact [Braze Support]({{site.baseurl}}/support_contact/).
 
+### Connected Content returns no response body
+
+If a Connected Content call renders as blank in your message preview or send, check:
+
+- **Non-breaking spaces in the URL:** Braze strips non-breaking spaces (`&nbsp;` or Unicode `U+00A0`) from Connected Content URLs before making the request. If your URL was copied from a document or dashboard field that inserted non-breaking spaces between characters, the request may fail or return no usable body. Re-type the URL in plain text or remove hidden spaces, then preview again.
+- **HTTP errors and empty bodies:** For status codes above 300 or blocked hosts, Connected Content can render an empty string. See [Making an API call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) and review failures in the **Message Activity Log**.
+
 ## Automated emails and Message Activity Log entries
 
 ### Setting up automated emails

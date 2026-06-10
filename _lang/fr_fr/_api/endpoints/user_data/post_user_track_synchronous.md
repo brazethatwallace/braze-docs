@@ -68,7 +68,7 @@ Pour chaque composant de requête répertorié dans le tableau suivant, vous dev
 | `attributes` | Facultatif | Un objet d'attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Facultatif | Un objet d'événement | Voir [objet événements]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Facultatif | Un objet d'achat | Voir [objet achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Réponses {#responses}
 

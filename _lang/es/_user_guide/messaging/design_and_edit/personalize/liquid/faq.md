@@ -3,12 +3,18 @@ nav_title: Preguntas frecuentes
 article_title: Preguntas frecuentes
 page_order: 12
 description: "Este artículo ofrece respuestas a preguntas frecuentes sobre Liquid."
-
+toc_headers: h2
 ---
 
 # Preguntas frecuentes {#frequently-asked-questions}
 
-> En esta página encontrarás respuestas a algunas preguntas frecuentes sobre Liquid.<br><br>Actualmente, Braze no es compatible con el 100 % de Liquid de Shopify, solo con ciertas partes que hemos intentado describir en nuestra documentación. Recomendamos encarecidamente probar todos los mensajes que usen Liquid antes de enviarlos para reducir el riesgo de errores o de usar Liquid no compatible.
+> En esta página encontrarás respuestas a preguntas frecuentes sobre Liquid.
+
+{% alert note %}
+Actualmente, Braze no es compatible con el 100 % de Liquid de Shopify, solo con ciertas partes que hemos intentado describir en nuestra documentación. Prueba todos los mensajes que usen Liquid antes de enviarlos para reducir el riesgo de errores o de usar Liquid no compatible.
+{% endalert %}
+
+## Acerca de Liquid en Braze {#about-liquid-in-braze}
 
 ### ¿Cómo uso fragmentos de código de Liquid en Braze? {#how-do-i-use-liquid-snippets-in-braze}
 
@@ -28,25 +34,25 @@ Es la forma más común de usar Liquid en Braze. La plantilla de Liquid consiste
 
 Consulta [Etiquetas de personalización compatibles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) para ver una lista completa de las etiquetas de Liquid compatibles.
 
-### ¿Cómo asigno variables con Liquid? {#how-do-i-assign-variables-with-liquid}
-
-Puedes crear y asignar variables usando la etiqueta `assign`. Esto crea una variable en el creador de mensajes que también puede referenciarse a lo largo de tu mensaje.
-
 ### ¿Usar Liquid registra puntos de datos? {#does-using-liquid-log-data-points}
 
 No.
 
+## Etiquetas de personalización y orígenes de datos {#personalization-tags-and-data-sources}
+
 ### ¿Cómo puedo usar Liquid para enviar un saludo personalizado? {#how-can-i-use-liquid-to-send-a-personalized-greeting}
 
-Para un saludo personalizado usando el nombre del usuario, puedes extraer los atributos estándar del perfil de usuario como {% raw %} `{{${first_name}}}`, `{{${last_name}}}`.
+Para un saludo personalizado usando el nombre del usuario, puedes extraer los atributos estándar del perfil de usuario como {% raw %}`{{${first_name}}}` y `{{${last_name}}}`{% endraw %}.
 
-También puedes usar una sentencia `{% if X %}` {% endraw %} de Liquid para hacer renderizado condicional basado en cualquier cosa, como el día de la semana o atributos personalizados. Para más información sobre los operadores de Liquid compatibles que pueden usarse en sentencias condicionales, consulta [Operadores]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators/).
+También puedes usar una sentencia {% raw %}`{% if X %}`{% endraw %} de Liquid para hacer renderizado condicional basado en cualquier cosa, como el día de la semana o atributos personalizados. Para más información sobre los operadores de Liquid compatibles que pueden usarse en sentencias condicionales, consulta [Operadores]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators/).
 
-### ¿Cómo puedo personalizar un mensaje según la ubicación de un cliente? {#how-can-i-personalize-a-message-based-on-a-customers-location}
+### ¿Cómo puedo personalizar un mensaje según la ubicación de un usuario? {#how-can-i-personalize-a-message-based-on-a-users-location}
 
 {% raw %}
 Existe un atributo predeterminado para la ubicación del usuario: `{{${most_recent_location}}}`.
+{% endraw %}
 
+{% raw %}
 ### ¿Cuál es la diferencia entre {{campaign.${name}}} y {{campaign.${message_name}}}? {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
 Tanto `{{campaign.${name}}}` como `{{campaign.${message_name}}}` son etiquetas de personalización de Liquid compatibles. Ambas etiquetas hacen referencia a atributos de la campaña. `{{campaign.${name}}}` indica el nombre de tu campaña, y `{{campaign.${message_name}}}` es el nombre de tu variante de mensaje.
@@ -66,46 +72,15 @@ Para más información, consulta [Segmentación multicriterio]({{site.baseurl}}/
 Puedes acceder a las propiedades de eventos desencadenados por API con la etiqueta `api_triggered_property`: `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
-### ¿Por qué mi Liquid desencadenado por API falla en Braze? {#why-is-my-api-triggered-liquid-failing-in-braze}
+### ¿Braze admite un array de arrays en Liquid? {#does-braze-support-an-array-of-arrays-in-liquid}
 
-{% raw %}
-Una causa común es un par extra de llaves. Por ejemplo, `{{{api_trigger_properties.${attribute_key}}}}` no es una sintaxis de personalización válida en Braze. Usa exactamente dos llaves de apertura y dos de cierre: `{{api_trigger_properties.${attribute_key}}}`.
-{% endraw %}
+Liquid no admite de forma nativa arrays de arrays. Almacena los valores como un array de cadenas separadas por comas y usa el filtro `split` para analizarlos cuando sea necesario.
 
-### ¿Qué es la lógica de cancelación y cómo puedo usarla? {#what-is-abort-logic-and-how-can-i-use-it}
+## Variables y sintaxis {#variables-and-syntax}
 
-La lógica de cancelación te permite detener el envío de un mensaje si se cumplen las condiciones. Esto es especialmente útil para evitar que se envíen mensajes incompletos a tus usuarios. Para ver ejemplos de lógica de cancelación en tus campañas de marketing, lee más en [Cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+### ¿Cómo asigno variables con Liquid? {#how-do-i-assign-variables-with-liquid}
 
-### ¿Qué es la lógica de bucle for y cómo puedo usarla? {#what-is-for-loop-logic-and-how-can-i-use-it}
-
-Los bucles for también se conocen como [etiquetas de iteración](https://shopify.github.io/liquid/tags/iteration/). Usar la lógica de bucle for en tus fragmentos de código de Liquid te permite recorrer bloques de Liquid hasta que se cumpla una condición.
-
-En Braze, esto podría usarse para verificar elementos en un atributo personalizado de tipo array, o una lista de valores y objetos devueltos por una llamada de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/), [selección]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) o respuesta de [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). Específicamente, puedes usar la lógica de bucle for como parte de tu mensajería para verificar si un producto está en stock o si un producto tiene una calificación mínima.
-
-Por ejemplo, supongamos que tienes un catálogo llamado "Games" que tiene una selección llamada "cheap_games". Para extraer los títulos de los juegos en "cheap_games", podrías usar este fragmento de código de Liquid:
-
-{% raw %}
-```liquid
-{% catalog_selection_items Games cheap_games %}
-{% for item in items %}
- Get this game: {{ item.title }}
-{% endfor %}
-```
-{% endraw %}
-
-Una vez que se cumplan las condiciones establecidas, tu mensaje puede continuar. Usar esta lógica es una forma útil de ahorrar tiempo, en lugar de repetir bloques de Liquid para diferentes condiciones.
-
-### ¿Por qué hay espaciado extra en los mensajes que usan Content Blocks? {#why-is-there-extra-spacing-in-messages-that-use-content-blocks}
-
-Si notas espaciado extra en los mensajes enviados que usan Content Blocks con Liquid, es posible que tengas saltos de párrafo o de línea innecesarios dentro de tus sentencias condicionales. Escribe tus sentencias condicionales en una sola línea en lugar de en múltiples líneas.
-
-#### Ejemplo {#example}
-
-{% raw %}
-```liquid
-{% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
-```
-{% endraw %}
+Puedes crear y asignar variables usando la etiqueta `assign`. Esto crea una variable en el creador de mensajes que también puede referenciarse a lo largo de tu mensaje.
 
 ### ¿Cuándo debo usar `assign` en lugar de `capture`? {#when-should-i-use-assign-versus-capture}
 
@@ -146,3 +121,104 @@ Join our VIP program to unlock free shipping.
 ### ¿Las variables de Liquid se comparten entre la línea del asunto y el cuerpo? {#do-liquid-variables-carry-between-subject-line-and-body}
 
 No. Braze renderiza cada componente del mensaje por separado (como la línea del asunto, el cuerpo HTML, el preencabezado y el título push). Las asignaciones o capturas que hagas en un campo no están disponibles en otro. Repite la llamada de Liquid o Contenido conectado en cada campo que necesite el valor.
+
+### ¿Qué es la lógica de bucle for y cómo puedo usarla? {#what-is-for-loop-logic-and-how-can-i-use-it}
+
+Los bucles for también se conocen como [etiquetas de iteración](https://shopify.github.io/liquid/tags/iteration/). Usar la lógica de bucle for en tus fragmentos de código de Liquid te permite recorrer bloques de Liquid hasta que se cumpla una condición.
+
+En Braze, esto podría usarse para verificar elementos en un atributo personalizado de tipo array, o una lista de valores y objetos devueltos por una llamada de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/), [selección]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) o respuesta de [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). Específicamente, puedes usar la lógica de bucle for como parte de tu mensajería para verificar si un producto está en stock o si un producto tiene una calificación mínima.
+
+Por ejemplo, supongamos que tienes un catálogo llamado "Games" que tiene una selección llamada "cheap_games". Para extraer los títulos de los juegos en "cheap_games", podrías usar este fragmento de código de Liquid:
+
+{% raw %}
+```liquid
+{% catalog_selection_items Games cheap_games %}
+{% for item in items %}
+ Get this game: {{ item.title }}
+{% endfor %}
+```
+{% endraw %}
+
+Una vez que se cumplan las condiciones establecidas, tu mensaje puede continuar. Usar esta lógica es una forma útil de ahorrar tiempo, en lugar de repetir bloques de Liquid para diferentes condiciones.
+
+### ¿Qué es la lógica de cancelación y cómo puedo usarla? {#what-is-abort-logic-and-how-can-i-use-it}
+
+La lógica de cancelación te permite detener el envío de un mensaje si se cumplen las condiciones. Esto es especialmente útil para evitar que se envíen mensajes incompletos a tus usuarios. Para ver ejemplos de lógica de cancelación en tus campañas de marketing, lee más en [Cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+
+### ¿Puedo usar Liquid dentro de la etiqueta `abort_message`? {#can-i-use-liquid-inside-the-abort_message-tag}
+
+No. La etiqueta {% raw %}`{% abort_message %}`{% endraw %} acepta una cadena estática entre comillas, no personalización de Liquid. Usa otra lógica de Liquid antes de la etiqueta si necesitas un comportamiento de cancelación condicional.
+
+## Canvas, catálogos y propiedades de desencadenamiento {#canvas-catalogs-and-trigger-properties}
+
+### ¿Por qué mi Liquid desencadenado por API falla en Braze? {#why-is-my-api-triggered-liquid-failing-in-braze}
+
+{% raw %}
+Una causa común es un par extra de llaves. Por ejemplo, `{{{api_trigger_properties.${attribute_key}}}}` no es una sintaxis de personalización válida en Braze. Usa exactamente dos llaves de apertura y dos de cierre: `{{api_trigger_properties.${attribute_key}}}`.
+{% endraw %}
+
+### ¿Hay límites de tamaño para las propiedades de contexto de Canvas? {#are-there-size-limits-for-canvas-context-properties}
+
+Braze no impone un límite estricto en las [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), pero mantén las cargas útiles por debajo de aproximadamente 1 KB (~1000 caracteres). Los objetos más grandes pueden aumentar el uso de memoria y retrasar el renderizado de mensajes durante envíos de alto volumen.
+
+### ¿Por qué obtengo un error de Liquid al previsualizar ciertos tipos de datos en el dashboard? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
+
+Algunos tipos de [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) requieren conversión en Liquid antes de usarlos en comparaciones u operaciones matemáticas. Por ejemplo, cuando necesitas un comportamiento numérico:
+
+{% raw %}
+```liquid
+{{context.${property_name} | plus: 0}}
+```
+{% endraw %}
+
+### ¿Por qué mi fragmento de código de Liquid de catálogo devuelve un mensaje de cancelación? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
+
+Si un fragmento de código de Liquid de catálogo se cancela durante el envío, recrea el fragmento desde el menú de personalización seleccionando elementos individuales del catálogo en lugar de usar una selección masiva o completamente dinámica. Consulta [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) y [Selecciones]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+
+## Content Blocks y el creador de mensajes {#content-blocks-and-the-message-composer}
+
+### ¿Por qué hay espaciado extra en los mensajes que usan Content Blocks? {#why-is-there-extra-spacing-in-messages-that-use-content-blocks}
+
+Si notas espaciado extra en los mensajes enviados que usan Content Blocks con Liquid, es posible que tengas saltos de párrafo o de línea innecesarios dentro de tus sentencias condicionales. Escribe tus sentencias condicionales en una sola línea en lugar de en múltiples líneas.
+
+#### Ejemplo {#example}
+
+{% raw %}
+```liquid
+{% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
+```
+{% endraw %}
+
+### ¿Por qué mi Content Block no aparece en **Row** en la herramienta de búsqueda de arrastrar y soltar? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+
+Algunos Content Blocks no aparecen en **Row** en la búsqueda del editor de arrastrar y soltar. Añade un bloque HTML desde la pestaña **Content** (**Advanced**), luego inserta la etiqueta de Liquid del Content Block en ese bloque HTML para renderizar el contenido del bloque.
+
+### ¿Por qué la vista previa de mi Content Block de arrastrar y soltar difiere de la vista de redacción? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
+
+Cuando usas una plantilla de Content Block con Liquid, las consultas de medios para móviles en el bloque pueden no aplicarse en la vista previa de la misma manera que cuando arrastras el bloque directamente a un mensaje. Arrastrar el bloque preserva el diseño pero lo desacopla del bloque fuente, por lo que las ediciones futuras del bloque ya no actualizan el mensaje automáticamente.
+
+### ¿Cómo previsualizo los valores de propiedades de eventos en el creador de mensajes? {#how-do-i-preview-event-property-values-in-message-composer}
+
+Usa **Preview as Custom User** e introduce valores de ejemplo de propiedades de eventos personalizados para el usuario que previsualizas. Esto también es útil para mensajes con lógica de cancelación cuando necesitas valores de vista previa que no desencadenen una cancelación.
+
+## Liquid en mensajes de correo electrónico {#liquid-in-email-messages}
+
+### ¿Por qué mi mensaje se cancela con "Invalid from email address for recipient:"? {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
+
+Esta cancelación ocurre cuando el Liquid en la dirección **De** produce una sintaxis no válida, como una variable faltante, espacios adicionales o caracteres no permitidos. Previsualiza con un usuario de prueba y verifica que la dirección **De** renderizada coincida con tu dominio de envío configurado.
+
+### ¿Cómo creo una dirección de respuesta dinámica? {#how-do-i-create-a-dynamic-reply-to-address}
+
+Usa Liquid en el campo **Responder a** cuando tu espacio de trabajo admita la configuración dinámica de respuesta. Combínalo con la configuración del nombre para mostrar de **De** según sea necesario. Consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) para ver las opciones específicas del espacio de trabajo.
+
+## Solución de problemas de errores de Liquid {#troubleshooting-liquid-errors}
+
+### ¿Por qué veo un error de Liquid "Unexpected end token"? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
+
+Este error generalmente indica llaves adicionales o faltantes. No anides {% raw %}`{{ }}`{% endraw %} dentro de otra expresión de etiqueta de Liquid. Por ejemplo, usa {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} en lugar de envolver la referencia del atributo en un par adicional de llaves.
+
+### ¿Por qué el reintento de Contenido conectado no está disponible para mi mensaje dentro de la aplicación? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+
+{% raw %}
+La etiqueta `{% connected_content %}` con reintento no es compatible con todos los tipos de mensajes, incluidos algunos formatos de mensajes dentro de la aplicación. Elimina los parámetros de reintento o usa un canal compatible para las llamadas de Contenido conectado con reintento.
+{% endraw %}

@@ -10,6 +10,8 @@ toc_headers: h2
 
 > 각 Braze SDK에 속한 참조 문서, GitHub 리포지토리 및 샘플 앱의 목록입니다. SDK의 참조 문서에는 사용 가능한 클래스, 유형, 함수 및 변수가 자세히 설명되어 있습니다. GitHub 리포지토리는 해당 SDK의 기능 및 속성 선언, 코드 변경 및 버전 관리에 대한 인사이트를 제공합니다. 각 리포지토리에는 Braze 기능을 테스트하거나 자체 애플리케이션과 함께 구현하는 데 사용할 수 있는 완전히 빌드 가능한 샘플 애플리케이션도 포함되어 있습니다.
 
+문서 내 미러링된 리포지토리 README 콘텐츠는 [리포지토리 가이드]({{site.baseurl}}/developer_guide/sdk_repository_guides/)를 참조하세요.
+
 ## 리소스 목록 {#list-of-resources}
 
 {% alert note %}
@@ -28,7 +30,7 @@ toc_headers: h2
 | Roku SDK | N/A | [GitHub 리포지토리](https://github.com/braze-inc/braze-roku-sdk) | [샘플 앱](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv) |
 | Unity SDK | [선언 파일](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs) | [GitHub 리포지토리](https://github.com/braze-inc/braze-unity-sdk) | [샘플 앱](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) |
 | .NET MAUI SDK (이전 Xamarin) | N/A | [GitHub 리포지토리](https://github.com/braze-inc/braze-xamarin-sdk) | [샘플 앱](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="List of resources" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="리소스 목록" }
 
 ## 샘플 앱 빌드 {#building-a-sample-app}
 

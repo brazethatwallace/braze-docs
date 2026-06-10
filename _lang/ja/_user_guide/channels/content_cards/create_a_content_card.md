@@ -57,10 +57,10 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 | メッセージタイプ | 例 | 説明 |
 |---|---|---|
-| [クラシック]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![ワークアウトクラスの予約を促す小さなアイコンとテキストを含むクラシックContent Card。]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | クラシックカードは、太字のタイトル、メッセージテキスト、およびタイトルとテキストの左側に配置されるオプションの画像を含むシンプルなレイアウトです。クラシックカードには正方形の画像またはアイコンを使用するのが最適です。 |
-| [キャプション付き画像]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![ウェイトリフターの画像とワークアウトクラスの予約を促すテキストを含むキャプション付きContent Card。]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | キャプション付き画像カードは、コピーと目を引く画像でコンテンツを紹介します。 |
-| [画像のみ]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![テキストのみの画像のみContent Card。]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 画像のみカードは、画像、GIF、その他のクリエイティブなテキスト以外のコンテンツ用のスペースで注目を集めます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
+|[クラシック]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic)| ![ワークアウトクラスの予約を促す小さなアイコンとテキストを含むクラシックContent Card。]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |クラシックカードは、太字のタイトル、メッセージテキスト、およびタイトルとテキストの左側に配置されるオプションの画像を含むシンプルなレイアウトです。クラシックカードには正方形の画像またはアイコンを使用するのが最適です。|
+|[キャプション付き画像]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image)| ![ウェイトリフターの画像とワークアウトクラスの予約を促すテキストを含むキャプション付きContent Card。]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | キャプション付き画像カードは、コピーと目を引く画像でコンテンツを紹介します。|
+|[画像のみ]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner)| ![テキストのみの画像のみContent Card。]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 画像のみカードは、画像、GIF、その他のクリエイティブなテキスト以外のコンテンツ用のスペースで注目を集めます。|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 2: メッセージタイプを指定する" }
 
 ## ステップ 3: コンテンツカードを作成する {#step-3-compose-a-content-card}
 
@@ -94,7 +94,7 @@ Content Cardsに画像を追加するには、**Add Image**を選択するか、
 
 #### トップに固定 {#pin-to-top}
 
-Brazeは固定されたカードをユーザーのフィードの上部に表示し、ユーザーはそれを閉じることができません。ユーザーのフィードに複数の固定カードがある場合、Brazeは時系列順に並べます。カードを送信した後、固定オプションを遡って更新することはできません。Campaignの送信後にこのオプションを変更しても、将来の送信にのみ影響します。
+Brazeは固定されたカードをユーザーのフィードの上部に表示し、ユーザーはそれを閉じることができません。ユーザーのフィードに複数の固定カードがある場合、Brazeは時系列順に並べます。BrazeがContent Cardsを配信する際、カードは固定または非固定のいずれかであり、そのステータスはカードの有効期間中変更されません。Campaignの固定設定を変更した場合、更新は将来送信されるカードにのみ適用されます。すでにユーザーのフィードにあるカードの固定ステータスは変更されません。
 
 ![モバイルとWebのBraze Content Cardsプレビューの並列表示。「Pin this card to the top of the feed」オプションが選択されています。]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -106,11 +106,11 @@ Content Cardsのリンクで使用できるアクションは以下のとおり�
 
 | アクション | 説明 |
 |---|---|
-| Web URLにリダイレクト | ネイティブでないWebページを開きます。 |
-| [アプリへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | アプリ内の既存の画面にディープリンクします。 |
-| カスタムイベントをログに記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を選択します。別のContent Cardsの表示や追加のメッセージングのトリガーに使用できます。 |
-| カスタム属性をログに記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を選択します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+| Web URLにリダイレクト | ネイティブでないWebページを開きます。|
+| [アプリへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | アプリ内の既存の画面にディープリンクします。|
+| カスタムイベントをログに記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を選択します。別のContent Cardsの表示や追加のメッセージングのトリガーに使用できます。|
+| カスタム属性をログに記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を選択します。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="クリック時の動作" }
 
 **カスタムイベントをログに記録**と**カスタム属性をログに記録**オプションには、以下のSDKバージョンの互換性が必要です。
 
@@ -328,3 +328,11 @@ Content Cardsは、送信されてから最大30日間利用可能です。30日
 1. Content Cardsの期間を30日に設定します。
 2. Campaignの再適格性を30日に設定します。
 3. Campaignを「セッション開始」時にトリガーするように設定します。
+
+### Content Cardsの同期と更新 {#content-card-sync-and-refresh}
+
+Content Cardsはスケジュールに基づいて同期され、アプリがフィードを更新するときにも同期されます。同期の動作はフル同期と部分同期で異なり、SDKの統合はセッション開始時にカードが更新されるタイミングに影響します。実装の詳細については、[Content Cardsフィードのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/)と[Content Cardsの作成]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)を参照してください。
+
+### Content Cards Campaignsの停止による影響 {#impact-of-stopping-content-cards-campaigns}
+
+Campaignを停止して**Remove card after the next sync**を選択すると、Brazeは次のフィード更新時にユーザーのフィードからカードを削除します。ユーザーが閲覧する前に削除されたカードにはインプレッションが記録されないため、インプレッション数が送信数よりも少なくなる場合があります。

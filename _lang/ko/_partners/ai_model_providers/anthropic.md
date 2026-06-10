@@ -26,7 +26,7 @@ Braze와 Anthropic 통합을 통해 Anthropic API 키를 Braze에 연결하여 �
 |---|---|
 | API 키가 있는 Anthropic 계정 | API 키가 있는 Anthropic 계정이 필요합니다. 도움이 필요하면 관리자 또는 [Anthropic 고객지원](https://support.anthropic.com/)에 문의하세요. |
 | Braze 인스턴스 | [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints) 또는 Braze 온보딩 매니저를 통해 Braze 인스턴스를 확인할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

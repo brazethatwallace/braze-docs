@@ -15,7 +15,7 @@ La página **Preferencias de notificación** es donde puedes configurar quién (
 
 ![Página de preferencias de notificación en el panel de Braze]({% image_buster /assets/img_archive/notification_preferences.png %})
 
-Para acceder a esta página, ve a **Settings** > **Admin Settings** > **Notification Preferences**.
+Para acceder a esta página, ve a **Configuración** > **Configuración de administrador** > **Preferencias de notificación**.
 
 {% alert tip %}
 También puedes integrarte con Slack para recibir notificaciones. Para conocer los pasos, consulta [Enviar mensajes utilizando webhooks entrantes](https://api.slack.com/incoming-webhooks).
@@ -47,7 +47,7 @@ Si eliminas el valor predeterminado de **Destinatarios** de **Todos los usuarios
 | Errores de webhook | Notifica a los destinatarios cuando un punto de conexión de webhook tiene errores. | Correo electrónico |
 | Informe de análisis semanal | Envía un resumen de la actividad del espacio de trabajo de la semana anterior a los destinatarios cada lunes. Los destinatarios reciben un resumen de cada espacio de trabajo al que pertenecen. | Correo electrónico |
 | Límites de volumen de entrada diaria de Canvas/Campaign | Envía notificaciones cada vez que se alcanza un límite de envío. | Correo electrónico |
-| Error de la Consola de Agente | Notifica a los destinatarios cuando un agente de la [Consola de Agente]({{site.baseurl}}/user_guide/brazeai/agents/) ha alcanzado su límite de ejecución con la funcionalidad actual o cuando un agente utiliza modelos que ya no están disponibles. | Correo electrónico |
+| Error de la Consola de Agente | Notifica a los destinatarios cuando un agente de la [Consola de Agente]({{site.baseurl}}/user_guide/brazeai/agents/) ha alcanzado su límite de ejecución, utiliza un modelo que ya no está disponible o encuentra un error de facturación con su proveedor de LLM (solo con clave de API propia). | Correo electrónico |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificaciones disponibles" }
 
 {% alert note %}
@@ -56,7 +56,7 @@ Los [usuarios suspendidos]({{site.baseurl}}/user_guide/administer/global/user_ma
 
 ## Informe de análisis semanal {#weekly-analytics-reporting}
 
-Braze envía opcionalmente un informe semanal por correo electrónico a las personas que designes dentro de tu empresa cada lunes a las 5 am EST. Puedes seleccionar los eventos personalizados que se incluirán en el informe semanal desde **Data Settings** > **Custom Events**.
+Braze envía opcionalmente un informe semanal por correo electrónico a las personas que designes dentro de tu empresa cada lunes a las 5 am EST. Puedes seleccionar los eventos personalizados que se incluirán en el informe semanal desde **Configuración de datos** > **Eventos personalizados**.
 
 Puedes seleccionar hasta cinco eventos para incluir en tu informe semanal:
 

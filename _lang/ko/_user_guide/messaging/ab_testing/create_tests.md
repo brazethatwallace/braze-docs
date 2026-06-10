@@ -90,7 +90,7 @@ Campaign에 전환 이벤트를 설정하면 해당 Campaign을 수신한 수신
 | 푸시 | 문구 <br> 이미지 및 이모지 사용 <br> 딥링크  <br> 숫자 표현 (예: "3배" vs "200% 증가")  <br> 시간 표현 (예: "자정에 종료" vs "6시간 후 종료") | 열기  <br> 전환율 |
 | 이메일 | 제목 <br> 표시 이름 <br> 인사말 <br> 본문 <br> 이미지 및 이모지 사용 <br> 숫자 표현 (예: "3배" vs "200% 증가") <br> 시간 표현 (예: "자정에 종료" vs "6시간 후 종료") | 열기  <br> 전환율 |
 | 인앱 메시지 | "푸시"에 나열된 요소 <br> [인앱 메시지 이미지 사양]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | 클릭 <br> 전환율 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="채널별 팁" }
 
 {% alert tip %}
 A/B 테스트를 실행할 때, 각 배리언트가 전환 퍼널에 어떤 영향을 미쳤는지 이해할 수 있는 [퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)를 생성하는 것을 잊지 마세요. 특히 비즈니스에서 "전환"이 여러 단계나 행동을 포함하는 경우에 유용합니다.

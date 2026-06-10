@@ -26,9 +26,12 @@ Sprechen Sie Nutzer:innen in Echtzeit an, um sie zum Abschluss ihrer Käufe zu e
 
 Beachten Sie Folgendes bei der Verwendung dieses Templates:
 
-- Fügen Sie eine spezifische Zielgruppe hinzu. Derzeit werden die Zielgruppenpfade basierend auf „Made Any Purchase“ getriggert, aber Sie können dies auf bestimmte Produkte anpassen, die Sie ansprechen möchten.
-- Dieses Template setzt voraus, dass Sie eine separate Post-Purchase-Journey haben, sodass ein Kauf dazu führt, dass Nutzer:innen das Canvas verlassen.
-- Füllen Sie die Details im Audience-Sync-Schritt aus.
+- Der Entry-Zeitplan ist API-getriggert. Verwenden Sie den [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/), um Nutzer:innen einzutragen, wenn sie einen Warenkorb abbrechen, oder wechseln Sie zu einem aktionsbasierten Zeitplan mit einem Trigger wie **Angepasstes Event ausführen** oder **Warenkorb-Update-Event ausführen**, wenn dies besser zu Ihrem Setup passt.
+- Die Standard-Conversion trackt **Beliebigen Kauf tätigen (Legacy)**. Passen Sie Konversions-Events und die **Kauf getätigt?**-Aktionspfade-Schritte bei Bedarf auf bestimmte Produkte an.
+- Nutzer:innen verlassen das Canvas, wenn sie in den **Kauf getätigt?**-Aktionspfade-Schritten einen Kauf tätigen. Dieses Template setzt voraus, dass Sie eine separate Post-Purchase-Journey haben.
+- Das Canvas enthält eine E-Mail für **Artikelbasierte Erinnerung**, einen Delay-Schritt, einen intelligenten Kanal-Split für E-Mail und SMS, Kanalnachrichten mit Content Cards (E-Mail, SMS und In-App-Nachricht) sowie einen Audience-Sync-Schritt. Konfigurieren Sie **Ad Retargeting** mit Ihren Partnern und Zielgruppen.
+
+Eine Schritt-für-Schritt-Anleitung finden Sie unter [Warenkorb-Abbruch]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/abandoned_cart/).
 
 {% endtab %}
 {% tab Back In Stock %}
@@ -37,8 +40,8 @@ Beachten Sie Folgendes bei der Verwendung dieses Templates:
 
 Steigern Sie Käufe, indem Sie Ihre Nutzer:innen mit personalisiertem Messaging benachrichtigen, wenn ein Artikel wieder auf Lager ist. Beachten Sie Folgendes bei der Verwendung dieses Templates:
 
-- Wählen Sie unter **Entry Schedule** einen Katalog aus. So können Sie auf Daten wie Produkte, Rabatte und Aktionen zugreifen, um Ihre Nutzer:innen gezielter anzusprechen.
-- Fügen Sie unter **Target Audience** ein Segment hinzu, um Nutzer:innen anzusprechen, die Interesse an einem bestimmten Artikel bekundet haben.
+- Wählen Sie unter **Entry-Zeitplan** einen Katalog aus. So können Sie auf Daten wie Produkte, Rabatte und Aktionen zugreifen, um Ihre Nutzer:innen gezielter anzusprechen.
+- Fügen Sie unter **Zielgruppe** ein Segment hinzu, um Nutzer:innen anzusprechen, die Interesse an einem bestimmten Artikel bekundet haben.
 - Aktualisieren Sie in den Nachrichtenschritten im gesamten Canvas die Liquid-Referenzen auf Ihren Katalog.
 
 {% endtab %}
@@ -48,9 +51,9 @@ Steigern Sie Käufe, indem Sie Ihre Nutzer:innen mit personalisiertem Messaging 
 
 Senden Sie zeitlich abgestimmte, personalisierte Nachrichten, die die Vorteile und Nutzungstipps hervorheben. Beachten Sie Folgendes bei der Verwendung dieses Templates:
 
-- Schließen Sie Nutzer:innen aus, die das Feature bereits übernommen haben. Fügen Sie beispielsweise unter **Target Audience** einen Filter für ein angepasstes Event wie „Activated Feature“ hinzu, das bereits stattgefunden hat.
+- Schließen Sie Nutzer:innen aus, die das Feature bereits übernommen haben. Fügen Sie beispielsweise unter **Zielgruppe** einen Filter für ein angepasstes Event wie „Activated Feature“ hinzu, das bereits stattgefunden hat.
 - Um den Experiment-Pfad-Schritt zu verwenden, definieren Sie ein Konversions-Event. Dieses Event sollte das Event sein, das die Feature-Übernahme signalisiert.
-- Richten Sie den Aktions-Pfad-Schritt im Template mit angepassten Events für „Activated Feature“ und „Taken Tour“ ein.
+- Richten Sie den Aktionspfad-Schritt im Template mit angepassten Events für „Activated Feature“ und „Taken Tour“ ein.
 - Richten Sie die angepassten Attribute im Nachrichtenschritt „Feedback Survey“ ein, um die Stimmung des Feedbacks zu erfassen.
 
 {% endtab %}

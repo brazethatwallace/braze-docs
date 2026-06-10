@@ -212,7 +212,7 @@ Branch 대시보드에서 다음을 확인하세요:
 | `Opening '<URL>': - channel: contentCard` | SDK가 Content Card의 링크를 처리 중입니다 |
 | `useWebView: true` | SDK가 앱 내 WebView에서 URL을 엽니다 |
 | `isUniversalLink: true` | SDK가 해당 URL을 유니버설 링크로 식별했습니다 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use verbose logging" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="상세 로깅 사용" }
 
 이러한 로그를 읽는 방법에 대한 자세한 내용은 [상세 로그 읽기]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)를 참조하세요.
 

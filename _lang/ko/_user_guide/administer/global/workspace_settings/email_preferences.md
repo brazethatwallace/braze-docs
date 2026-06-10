@@ -121,9 +121,9 @@ Braze는 현재 이메일 서비스 공급자의 기본 열람 추적 픽셀 위
 
 위치를 변경하려면:
 
-1. Braze에서 **Settings** > **Email Preferences**로 이동합니다.
+1. Braze에서 **설정** > **이메일 환경설정**으로 이동합니다.
 2. 다음 옵션 중 하나를 선택합니다: **Move for SendGrid**, **Move for SparkPost** 또는 **Move for Amazon SES**
-3. **Save**를 선택합니다.
+3. **저장**을 선택합니다.
 
 저장하면 Braze가 이메일 서비스 공급자에 모든 HTML 이메일의 상단에 열람 추적 픽셀을 배치하도록 특별 지침을 보냅니다.
 
@@ -153,6 +153,10 @@ SSL 활성화는 추적 픽셀의 URL을 HTTP 대신 HTTPS로 래핑합니다. S
 
 [Gmail에서 구독을 관리](https://support.google.com/mail/answer/15621070?sjid=2292320204527911296-NC)할 때, Gmail은 메시지 본문에서 탈퇴 링크를 가져올 수도 있지만, 헤더에 목록 탈퇴가 있는 경우 이를 우선시합니다.
 
+### 목록 탈퇴 헤더를 끄면 Gmail의 탈퇴 버튼이 제거되나요? {#does-turning-off-the-list-unsubscribe-header-remove-the-gmail-unsubscribe-button}
+
+아니요. Braze 목록 탈퇴 헤더 설정을 끄면 Braze가 보내는 메시지에서 `List-Unsubscribe` 헤더가 제거되지만, Gmail이 메일함 UI에 **Unsubscribe** 옵션을 표시하는지 여부는 제어하지 않습니다. 위에서 언급한 바와 같이, Gmail은 메시지 본문의 링크에서 탈퇴 옵션을 표시하거나 다른 공급자 로직을 사용할 수 있습니다. 원본 메시지에 헤더가 나타나는지 여부는 Gmail이 수신자에게 탈퇴 옵션을 표시하는지 여부와 별개입니다. 자세한 내용은 [Gmail 이메일 발신자 가이드라인 FAQ](https://support.google.com/a/answer/14229414)를 참조하세요.
+
 ### 메일함 공급자 지원 {#mailbox-provider-support}
 
 다음 표는 "mailto:" 헤더, 목록 탈퇴 URL, 원클릭 탈퇴([RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058))에 대한 메일함 공급자 지원을 요약합니다.
@@ -164,7 +168,7 @@ SSL 활성화는 추적 픽셀의 URL을 HTTP 대신 HTTPS로 래핑합니다. S
 | Apple Mail | 지원됨 | 지원되지 않음 | 지원되지 않음 |
 | Outlook.com | 지원됨 | 지원되지 않음 | 지원되지 않음 |
 | Yahoo! Mail | 지원됨* | 지원되지 않음 | 지원됨 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mailbox provider support" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="메일함 공급자 지원" }
 
 _*Yahoo와 Gmail은 결국 "mailto:" 헤더를 지원 중단하고 원클릭만 지원할 예정입니다._
 
@@ -179,7 +183,7 @@ _*Yahoo와 Gmail은 결국 "mailto:" 헤더를 지원 중단하고 원클릭만 
 
 ![발송 대상으로 "가입했거나 옵트인한 사용자"를 선택하는 화면.]({% image_buster /assets/img/email_settings/email_unsub_header_workspaces.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-이메일 탈퇴 헤더 기능이 켜져 있으면 이 설정은 회사 수준이 아닌 전체 워크스페이스에 적용됩니다. Campaign 및 Canvas 빌더의 **Target Audience** 단계에서 가입했거나 옵트인한 사용자, 또는 옵트인한 사용자에게 발송하도록 설정된 Campaigns 및 Canvases에 추가됩니다.
+이메일 탈퇴 헤더 기능이 켜져 있으면 이 설정은 회사 수준이 아닌 전체 워크스페이스에 적용됩니다. Campaign 및 Canvas 빌더의 **타겟 오디언스** 단계에서 가입했거나 옵트인한 사용자, 또는 옵트인한 사용자에게 발송하도록 설정된 Campaigns 및 Canvases에 추가됩니다.
 
 "워크스페이스 기본값"을 사용할 때, Braze는 트랜잭션으로 간주되는 Campaign, 즉 "탈퇴한 사용자를 포함한 모든 사용자에게 발송"으로 구성된 Campaign에는 원클릭 탈퇴 헤더를 추가하지 않습니다. 이를 재정의하고 탈퇴한 사용자에게 발송할 때 원클릭 탈퇴 헤더를 추가하려면 메시지 수준 원클릭 목록 탈퇴 설정에서 **Unsubscribe globally from all emails**를 선택할 수 있습니다.
 
@@ -200,7 +204,7 @@ Braze는 다음 버전의 목록 탈퇴 헤더를 지원합니다:
 | 원클릭 (RFC 8058) | 수신자가 한 번의 클릭으로 이메일을 옵트아웃할 수 있는 간단한 방법을 제공합니다. 이는 대량 발신자에 대한 Yahoo 및 Gmail의 요구 사항입니다. |
 | 목록 탈퇴 URL 또는 HTTPS | 수신자에게 탈퇴할 수 있는 웹 페이지로 이동하는 링크를 제공합니다. |
 | Mailto | 탈퇴 요청 메시지가 수신자로부터 브랜드로 전송될 대상으로 이메일 주소를 지정합니다. <br><br> _mailto 목록 탈퇴 요청을 처리하려면, 해당 탈퇴 요청에 탈퇴하는 최종 사용자에 대해 Braze에 저장된 이메일 주소가 포함되어야 합니다. 이는 최종 사용자가 탈퇴하는 이메일의 "보낸 사람 주소", 인코딩된 제목, 또는 최종 사용자가 수신한 이메일의 인코딩된 본문에서 제공될 수 있습니다. 매우 제한된 경우에 일부 받은편지함 공급자가 [RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368) 프로토콜을 준수하지 않아 이메일 주소가 올바르게 전달되지 않을 수 있습니다. 이로 인해 Braze에서 탈퇴 요청을 처리할 수 없게 될 수 있습니다._ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Default list-unsubscribe header" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="기본 목록 탈퇴 헤더" }
 
 Braze가 위의 방법 중 하나를 통해 사용자로부터 목록 탈퇴 요청을 수신하면, 이 사용자의 글로벌 이메일 구독 상태가 탈퇴로 설정됩니다. 일치하는 항목이 없으면 Braze는 이 요청을 처리하지 않습니다.
 
@@ -223,10 +227,10 @@ Braze가 위의 방법 중 하나를 통해 사용자로부터 목록 탈퇴 요
 
 이메일 편집기에서 **Sending Settings** > **Sending Info**로 이동합니다. 다음 옵션 중에서 선택합니다:
 
-- **Use workspace default**: **Email Preferences**에 설정된 **Email Unsubscribe Header** 설정을 사용합니다. 이 설정에 대한 변경 사항은 모든 메시지에 적용됩니다.
+- **Use workspace default**: **이메일 환경설정**에 설정된 **Email Unsubscribe Header** 설정을 사용합니다. 이 설정에 대한 변경 사항은 모든 메시지에 적용됩니다.
 - **Unsubscribe globally from all emails**: Braze 기본 원클릭 탈퇴 헤더를 사용합니다. 탈퇴 버튼을 클릭한 사용자의 글로벌 이메일 구독 상태가 "Unsubscribed"로 설정됩니다.
 - **Unsubscribe from specific subscription group**: 지정된 구독 그룹을 사용합니다. Braze는 탈퇴 버튼을 클릭한 사용자를 선택한 구독 그룹에서 탈퇴시킵니다.
-    - 구독 그룹을 선택할 때 **Target Audiences**에서 **Subscription Group** 필터를 추가하여 이 특정 그룹에 가입한 사용자만 타겟팅합니다. 원클릭 탈퇴에 선택한 구독 그룹은 타겟팅하는 구독 그룹과 일치해야 합니다. 구독 그룹이 일치하지 않으면 이미 탈퇴한 구독 그룹에서 탈퇴하려는 사용자에게 발송할 위험이 있습니다.
+    - 구독 그룹을 선택할 때 **타겟 오디언스**에서 **구독 그룹** 필터를 추가하여 이 특정 그룹에 가입한 사용자만 타겟팅합니다. 원클릭 탈퇴에 선택한 구독 그룹은 타겟팅하는 구독 그룹과 일치해야 합니다. 구독 그룹이 일치하지 않으면 이미 탈퇴한 구독 그룹에서 탈퇴하려는 사용자에게 발송할 위험이 있습니다.
 
 {% alert important %}
 **Unsubscribe from specific subscription group** 설정은 원클릭 목록 탈퇴 헤더에만 적용됩니다. mailto 목록 탈퇴 헤더는 이 옵션을 선택해도 영향을 받지 않습니다. 즉, 이 방법을 사용하여 탈퇴하는 수신자는 특정 구독 그룹이 아닌 글로벌 탈퇴를 기록합니다. 이 설정을 선택할 때 mailto 목록 탈퇴 헤더가 사용자를 전체 탈퇴시키지 않도록 하려면 [고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
@@ -311,7 +315,7 @@ Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설
 {% endtabs %}
 
 {% alert tip %}
-가입 페이지 또는 바닥글의 **Preview** 섹션에서 **Copy preview link**를 선택하면 임의의 사용자에 대해 이메일 바닥글, 구독취소 페이지 또는 옵트인 페이지가 어떻게 보이는지 보여주는 공유 가능한 미리보기 링크를 생성하고 복사할 수 있습니다. 이 링크는 7일 후에 재생성해야 합니다.
+가입 페이지 또는 바닥글의 **미리보기** 섹션에서 **미리보기 링크 복사**를 선택하면 임의의 사용자에 대해 이메일 바닥글, 구독취소 페이지 또는 옵트인 페이지가 어떻게 보이는지 보여주는 공유 가능한 미리보기 링크를 생성하고 복사할 수 있습니다. 이 링크는 7일 후에 재생성해야 합니다.
 {% endalert %}
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
@@ -327,7 +331,7 @@ Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설
 {% enddetails %}
 
 {% details 원클릭 탈퇴 설정을 활성화한 후 과거 이메일 Campaign 및 Canvases를 편집해야 하나요? %}
-메시지 수준 원클릭 목록 탈퇴 설정에 대한 사용 사례가 없는 경우, **Email Preferences**에서 설정이 켜져 있는 한 필요한 조치가 없습니다. Braze는 모든 발신 마케팅 및 프로모션 메시지에 원클릭 탈퇴 헤더를 자동으로 추가합니다. 그러나 메시지별로 원클릭 탈퇴 동작을 구성해야 하는 경우 이전 이메일 Campaign 및 캔버스 단계를 그에 맞게 업데이트해야 합니다.
+메시지 수준 원클릭 목록 탈퇴 설정에 대한 사용 사례가 없는 경우, **이메일 환경설정**에서 설정이 켜져 있는 한 필요한 조치가 없습니다. Braze는 모든 발신 마케팅 및 프로모션 메시지에 원클릭 탈퇴 헤더를 자동으로 추가합니다. 그러나 메시지별로 원클릭 탈퇴 동작을 구성해야 하는 경우 이전 이메일 Campaign 및 캔버스 단계를 그에 맞게 업데이트해야 합니다.
 {% enddetails %}
 
 {% details 원본 메시지나 원시 데이터에서 목록 탈퇴 및 원클릭 탈퇴 헤더를 볼 수 있는데, Gmail이나 Yahoo에서 탈퇴 버튼이 보이지 않는 이유는 무엇인가요? %}
@@ -353,7 +357,7 @@ A/B 테스트가 있는 Campaign의 경우, Braze는 사용자에게 배리언�
 {% enddetails %}
 
 {% details 이메일 환경설정에서 이메일 탈퇴 헤더 설정이 꺼져 있지만, Campaign의 발송 정보에서 원클릭 목록 탈퇴 설정이 "Use workspace default"로 되어 있습니다. 이것은 버그인가요? %}
-아니요. 워크스페이스 설정이 꺼져 있고 메시지 설정이 **Use workspace default**로 설정된 경우, Braze는 **Email Preferences**에 구성된 내용을 따릅니다. 즉, Campaign에 원클릭 탈퇴 헤더를 추가하지 않습니다.
+아니요. 워크스페이스 설정이 꺼져 있고 메시지 설정이 **Use workspace default**로 설정된 경우, Braze는 **이메일 환경설정**에 구성된 내용을 따릅니다. 즉, Campaign에 원클릭 탈퇴 헤더를 추가하지 않습니다.
 {% enddetails %}
 
 {% details 구독 그룹이 아카이브되면 어떻게 되나요? 발송된 이메일의 원클릭 탈퇴가 중단되나요? %}

@@ -24,8 +24,8 @@ Braze와 SmarterSends 파트너십을 통해 Braze의 강력한 기능과 분산
 | SmarterSends 계정 | 이 파트너십을 활용하려면 [SmarterSends 계정](https://smartersends.com)이 필요합니다. |
 | Braze REST API 키 | 다음 권한이 있는 Braze REST API 키: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. 추가 보안을 위해 SmarterSends IP 주소를 허용 목록에 추가하세요(인스턴스에서 확인 가능). |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
-| Braze API Campaign ID | [Braze API Campaign ID]({{site.baseurl}}/api/api_campaigns/)는 SmarterSends를 통해 전송되는 모든 Campaign의 고유 식별자입니다. Braze 대시보드의 **Messaging** > **Campaigns**에서 생성할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze API Campaign ID | [Braze API Campaign ID]({{site.baseurl}}/api/api_campaigns/)는 SmarterSends를 통해 전송되는 모든 Campaign의 고유 식별자입니다. Braze 대시보드의 **메시징** > **Campaigns**에서 생성할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 
@@ -54,8 +54,8 @@ Braze와 SmarterSends 통합을 통해 여러 채널과 위치에서 마케팅 C
 - `segments.data_series`
 - `segments.details`
 - `sends.data_series`
-4. **Whitelist IPs** 섹션에 SmarterSends IP 주소를 추가합니다.
-5. **Save API Key**를 클릭합니다.
+4. **IP 허용 목록** 섹션에 SmarterSends IP 주소를 추가합니다.
+5. **API 키 저장**을 클릭합니다.
 6. 적절한 권한이 있는 API 키를 복사하여 SmarterSends의 **Braze Email Service Provider** 설정에 붙여넣습니다.
 
 ### 2단계: 애플리케이션 ID 생성 또는 복사 {#step-2-create-or-copy-an-application-id}
