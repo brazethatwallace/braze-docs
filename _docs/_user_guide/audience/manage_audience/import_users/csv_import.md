@@ -427,6 +427,14 @@ If you used [file validation](#file-validation), start with the error report, as
 
 For troubleshooting CSV import, review these common issues below.
 
+### Use email as `external_id`
+
+Braze does not recommend using an email address as `external_id`. If you use email as `external_id`, include both `external_id` and `email` columns in your CSV so users remain targetable on the email channel. Use a comma (`,`) as the column delimiter—not a colon (`:`).
+
+### Quote characters in `external_id` values
+
+If an `external_id` cell contains a double quotation mark, escape it by doubling the character (`""`), as described under [Unescaped or unbalanced double quotation marks](#missing-row). CSV import does not use backslash escaping.
+
 ### CSV import isn't available as a segment filter
 
 You can use a CSV import as a segment filter only if you enabled a targeting preference during upload.
