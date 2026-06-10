@@ -37,7 +37,7 @@ To see examples or test this endpoint for **WhatsApp Groups**:
 To use this endpoint, you need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `subscription.status.set` permission.
 
 {% alert note %}
-If you're interested in using this endpoint with [LINE subscription groups]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), contact your customer success manager.
+If you're interested in using this endpoint with [LINE subscription groups]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), contact your customer success manager. <br><br>For LINE subscription groups, we recommend using a custom attribute to track website or app consent separately, and then targeting campaigns using that custom attribute in combination with the LINE subscription state. This approach ensures your subscription state accurately reflects users who have actually subscribed in the LINE app. Manually adding users to LINE subscription groups using the API may lead to out-of-sync states and failed sends since Braze cannot re-subscribe users in the LINE app or send messages to users who have blocked an account in LINE.
 {% endalert %}
 
 ## Differences from V1
@@ -51,6 +51,8 @@ The V2 endpoint differs from the [V1 endpoint]({{site.baseurl}}/api/endpoints/su
 {% alert important %}
 **Phone number format**: Phone numbers must be in [E.164 format](https://en.wikipedia.org/wiki/E.164) (for example, `+12223334444`). Phone numbers that are not in E.164 format are rejected.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Rate limit
 

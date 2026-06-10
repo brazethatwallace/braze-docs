@@ -27,7 +27,7 @@ Verwenden Sie die folgenden Optionen, um anzupassen, welche Daten im Diagramm **
 | Angepasste Events aufschlüsseln nach | Steuert, wie die Zeitreihe für Ihr ausgewähltes angepasstes Event gruppiert wird. Standardmäßig zeigt das Chart den aggregierten Gesamttrend nach Datum an. Wechseln Sie zu **Custom Events by Hour**, um Muster innerhalb eines Tages zu sehen, oder zu **Custom Events per MAU**, um das Event-Volumen gegen Ihre Zahl monatlich aktiver Nutzer:innen zu normalisieren. |
 | Nach Segmenten filtern | Aktivieren Sie diese Option, um Event-Zahlen nach einem oder mehreren Segmenten aufzuschlüsseln. Wenn aktiviert, wählen Sie die Segmente aus, die Sie vergleichen möchten. Das Diagramm zeigt die Anzahl der Nutzer:innen in jedem Segment, die das angepasste Event ausgeführt haben. |
 | KPI-Formel | Ersetzt die rohe Event-Zahl durch eine berechnete Metrik, die aus einem Zähler (z. B. einer Zahl angepasster Events) und einem Nenner (z. B. DAU, MAU oder einer Analytics-fähigen Segmentgröße) besteht. Wenn Sie eine oder mehrere Formeln auswählen, stellt das Chart den Wert jeder Formel über den ausgewählten Zeitraum dar, sodass Sie normalisierte Performance vergleichen können (z. B. „Events pro aktive:n Nutzer:in“) anstelle des gesamten Event-Volumens. Wenn für den ausgewählten Zeitraum und die Formeln keine Daten verfügbar sind, zeigt Braze eine Meldung „Keine Daten“ an – erweitern Sie den Zeitraum oder wählen Sie andere Formeln. Wählen Sie **Manage KPI formulas**, um Formeln zu erstellen oder zu bearbeiten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuring your report" }
 
 ## Daten exportieren {#exporting-data}
 

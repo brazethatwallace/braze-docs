@@ -8,7 +8,12 @@ page_type: glossary
 description: "Este glosario enumera los distintos eventos de interacción con mensajes que Braze puede rastrear y enviar a los almacenes de datos elegidos mediante Currents."
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
+
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Alcance del esquema y recursos relacionados %}
 
 Los esquemas de almacenamiento se aplican a los datos de eventos de archivos planos que enviamos a los socios de almacenamiento en almacén de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Para los esquemas que se aplican a los demás socios, consulta nuestra lista de [socios disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) y revisa sus respectivas páginas.
 
@@ -17,6 +22,8 @@ Estos eventos también están disponibles como tablas SQL en el [Generador de co
 {% endalert %}
 
 Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{site.baseurl}}/braze_support/) si necesitas acceso a derechos de eventos adicionales. Si no encuentras lo que necesitas en este artículo, consulta nuestra [biblioteca de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+
+{% enddetails %}
 
 {% details Explicación de la estructura de eventos de interacción con mensajes y valores de plataforma %}
 
@@ -36,7 +43,7 @@ Ten en cuenta las convenciones de nomenclatura para los ID de usuario.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | El identificador único que Braze asigna automáticamente. |
 | `external_id` | `"EXTERNAL_USER_ID"` | El identificador único del perfil de un usuario configurado por el cliente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ### Valores de plataforma {#platform-values}
 
@@ -52,28 +59,26 @@ Algunos eventos devuelven un valor `platform` que especifica la plataforma del d
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 
-{% alert important %}
-Currents descartará los eventos con cargas útiles excesivamente grandes, superiores a 900&nbsp;KB.
-{% endalert %}
+{% details Consideraciones para los eventos de interacción con mensajes %}
 
-{% alert note %}
-Los objetos relacionados con Canvas Flow tienen ID que pueden utilizarse para agrupar y traducirse a nombres legibles mediante el [punto de conexión Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
-{% endalert %}
+- Currents descarta los eventos con cargas útiles superiores a 900&nbsp;KB.
+- Los objetos relacionados con Canvas Flow tienen ID que puedes utilizar para agrupar y traducir a nombres legibles mediante el [punto de conexión Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+- Algunos campos pueden no mostrar su estado más reciente inmediatamente después de actualizar una campaña o Canvas:
+  - `campaign_name`
+  - `canvas_name`
+  - `canvas_step_name`
+  - `conversion_behavior`
+  - `canvas_variation_name`
+  - `experiment_split_name`
+  - `message_variation_name`
+- Si necesitas una coherencia total para estos campos, espera una hora después de la última actualización antes de enviar mensajes a tus usuarios.
 
-{% alert note %}
-Algunos campos pueden tardar más en mostrar su estado más reciente después de actualizar una campaña o Canvas. Estos campos son:
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
-Si se requiere una coherencia total, te recomendamos esperar una hora desde la última actualización de estos campos antes de enviar la mensajería a tus usuarios.
-{% endalert %}
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->

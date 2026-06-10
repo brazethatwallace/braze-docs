@@ -24,7 +24,7 @@ Android O以降、プッシュ通知を表示するには有効なチャネル�
 Androidはチャネル名のローカライゼーションをサポートしているため、アプリケーションのコード内で1つのチャネルIDを複数のチャネル名の翻訳に関連付けることができます。
 {% endalert %}
 
-これらのチャネルが作成されたら、エンジニアは関連するチャネルIDをマーケティングチームに共有する必要があります。チームはCampaignsやCanvasesで使用するために、チャネル名とチャネルIDをBrazeダッシュボードに入力する必要があります。
+これらのチャネルが作成されたら、エンジニアは関連するチャネルIDをマーケティングチームに共有する必要があります。チームはキャンペーンやキャンバスで使用するために、チャネル名とチャネルIDをBrazeダッシュボードに入力する必要があります。
 
 Brazeダッシュボードにチャネルを追加するには、Androidプッシュ作成画面に移動し、通知チャネルフィールドを選択してから「チャネルを管理」を選択します。
 {% alert important %}
@@ -47,33 +47,33 @@ Brazeでは、ダッシュボードフォールバックチャネルを指定で
 
 ダッシュボードフォールバックチャネルの想定される動作の例を以下に示します。
 
-ダッシュボードフォールバックチャネルが「Marketing」で、チャネルを一度も選択していないAndroidプッシュメッセージが10件あるとします。「Marketing」チャネルがダッシュボードフォールバックチャネルであるため、これらのCampaignsは「Marketing」チャネルを通じて送信されます。
+ダッシュボードフォールバックチャネルが「Marketing」で、チャネルを一度も選択していないAndroidプッシュメッセージが10件あるとします。「Marketing」チャネルがダッシュボードフォールバックチャネルであるため、これらのキャンペーンは「Marketing」チャネルを通じて送信されます。
 
 さらに、「Social Notifications」チャネルで送信するよう選択した15件のメッセージと、「Marketing」チャネルで送信するよう選択した5件のメッセージがあるとします。
 
 その後、ダッシュボードのデフォルトチャネルを「Marketing」から「Updates」に変更することにしたとします。
 
-この場合、以前「Marketing」チャネルを通じて送信されていたチャネル選択のない10件のCampaignsは、フォールバックチャネルを通じて送信されるため、「Updates」チャネルで送信されるようになります。「Social Notifications」チャネルを通じて送信されていた15件のメッセージは、引き続き「Social Notifications」チャネルで送信されます。「Marketing」チャネルを通じて送信されていた5件のメッセージは、引き続き「Marketing」チャネルで送信されます。
+この場合、以前「Marketing」チャネルを通じて送信されていたチャネル選択のない10件のキャンペーンは、フォールバックチャネルを通じて送信されるため、「Updates」チャネルで送信されるようになります。「Social Notifications」チャネルを通じて送信されていた15件のメッセージは、引き続き「Social Notifications」チャネルで送信されます。「Marketing」チャネルを通じて送信されていた5件のメッセージは、引き続き「Marketing」チャネルで送信されます。
 
 無効なチャネルIDがBrazeに提供された場合（開発者がSDKで作成していないチャネルIDを提供した場合など）、SDKデフォルトチャネルを通じて通知が配信されます。そのため、開発中にBrazeのダッシュボードで通知チャネルをテストすることを強くお勧めします。
 
 チャネルの想定される動作をより理解するために、以下の表を参照してください。
 
-|シナリオ |結果  |
-| ---|-------------
-|**会社ABC**がAndroid OをサポートするSDKに更新<br>**会社ABC**がBrazeダッシュボードにチャネルを追加しない<br>**会社ABC**がSDKデフォルトチャネルの名前を変更しない | Android Oデバイスに送信されるプッシュ通知は「General」というチャネルを作成し、通知は「General」チャネルを通じて送信される
-|**会社XYZ**がAndroid OをサポートするSDKに更新<br>**会社XYZ**がBrazeダッシュボードにチャネルを追加しない<br>**会社XYZ**がSDKデフォルトチャネルの名前を「Marketing」に変更 | Android Oデバイスに送信されるプッシュ通知は「Marketing」というチャネルを作成し、通知は「Marketing」チャネルを通じて送信される
-|**会社LMN**がAndroid OをサポートするSDKに更新<br>**会社LMN**がアプリケーションコードで「Promotions」と「Order Updates」の2つのチャネルを定義<br>**会社LMN**が「Promotions」と「Order Updates」のチャネルIDをBrazeダッシュボードに追加<br>**会社LMN**が「Promotions」をダッシュボードフォールバックチャネルに指定<br>**会社LMN**がSDKデフォルトチャネルの名前を「Marketing」に変更 | Android Oデバイスに送信されるプッシュ通知はチャネルを作成しない<br><br>マーケターが「Order Updates」または「Marketing」チャネルで通知を送信するよう明示的に指定しない限り、チャネルがダッシュボードに追加される前に作成されたすべての通知は「Promotions」チャネルを通じて送信される<br><br>SDKデフォルトチャネル「Marketing」は、会社が無効なチャネルIDで通知を送信しようとした場合、または明示的に選択された場合にのみ作成・使用される
-|**会社HIJ**がAndroid Oに更新するが、Braze Android SDKを2.1.0以降に更新しない | Android O以降を実行しているユーザーに送信された通知は表示されない |
+| シナリオ | 結果 |
+| ---|-------------|
+| **会社ABC**がAndroid OをサポートするSDKに更新<br>**会社ABC**がBrazeダッシュボードにチャネルを追加しない<br>**会社ABC**がSDKデフォルトチャネルの名前を変更しない | Android Oデバイスに送信されるプッシュ通知は「General」というチャネルを作成し、通知は「General」チャネルを通じて送信される
+| **会社XYZ**がAndroid OをサポートするSDKに更新<br>**会社XYZ**がBrazeダッシュボードにチャネルを追加しない<br>**会社XYZ**がSDKデフォルトチャネルの名前を「Marketing」に変更 | Android Oデバイスに送信されるプッシュ通知は「Marketing」というチャネルを作成し、通知は「Marketing」チャネルを通じて送信される
+| **会社LMN**がAndroid OをサポートするSDKに更新<br>**会社LMN**がアプリケーションコードで「Promotions」と「Order Updates」の2つのチャネルを定義<br>**会社LMN**が「Promotions」と「Order Updates」のチャネルIDをBrazeダッシュボードに追加<br>**会社LMN**が「Promotions」をダッシュボードフォールバックチャネルに指定<br>**会社LMN**がSDKデフォルトチャネルの名前を「Marketing」に変更 | Android Oデバイスに送信されるプッシュ通知はチャネルを作成しない<br><br>マーケターが「Order Updates」または「Marketing」チャネルで通知を送信するよう明示的に指定しない限り、チャネルがダッシュボードに追加される前に作成されたすべての通知は「Promotions」チャネルを通じて送信される<br><br>SDKデフォルトチャネル「Marketing」は、会社が無効なチャネルIDで通知を送信しようとした場合、または明示的に選択された場合にのみ作成・使用される
+| **会社HIJ**がAndroid Oに更新するが、Braze Android SDKを2.1.0以降に更新しない | Android O以降を実行しているユーザーに送信された通知は表示されない |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Brazeダッシュボードへのチャネルの追加 {#adding-channels-to-the-braze-dashboard}
 
-1. Androidプッシュを含むCampaignまたはCanvasを開き、**Edit Campaign**をクリックします。
+1. Androidプッシュを含むキャンペーンまたはキャンバスを開き、**Edit キャンペーン**をクリックします。
 2. Androidプッシュメッセージ作成画面に移動します。
-3. **Manage Notification Channels**をクリックします。ここで追加されたチャネルは、すべてのCampaignsとCanvasesでグローバルに利用可能になります。チャネルを管理するには、ワークスペースの「Manage Apps」[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions)が必要です。
+3. **Manage Notification Channels**をクリックします。ここで追加されたチャネルは、すべてのキャンペーンとキャンバスでグローバルに利用可能になります。チャネルを管理するには、ワークスペースの「Manage Apps」[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions)が必要です。
 
-通知チャネルを特定のCampaignまたはキャンバスステップに適用すると、**到達可能なユーザー**数（ターゲットオーディエンスステップにあります）はAndroidプッシュで変化しないように見えます。ただし、選択した通知チャネルを購読しているユーザーのみがメッセージを受け取り、Campaignの分析（クリック数など）はこのオーディエンスに基づいて測定されます。
+通知チャネルを特定のキャンペーンまたはキャンバスステップに適用すると、**到達可能なユーザー**数（ターゲットオーディエンスステップにあります）はAndroidプッシュで変化しないように見えます。ただし、選択した通知チャネルを購読しているユーザーのみがメッセージを受け取り、キャンペーンの分析（クリック数など）はこのオーディエンスに基づいて測定されます。
 
 ![]({% image_buster /assets/img_archive/Click_Here.png %})
 
@@ -85,9 +85,9 @@ Brazeでは、ダッシュボードフォールバックチャネルを指定で
 
 ## フォールバックチャネルの指定 {#specifying-your-fallback-channel}
 
-フォールバックチャネルは、メッセージにチャネルが選択されていない場合にBrazeがAndroidメッセージの送信を試みるチャネルです。チャネル選択のないAndroidメッセージを持つCampaignsとCanvasesは、チームがBrazeダッシュボードにチャネルを追加する前に作成されたCampaignsとCanvasesのみです。フォールバックチャネルを変更すると、明示的なチャネル選択のないすべてのCampaignsとCanvasesにグローバルに変更が適用されます。
+フォールバックチャネルは、メッセージにチャネルが選択されていない場合にBrazeがAndroidメッセージの送信を試みるチャネルです。チャネル選択のないAndroidメッセージを持つキャンペーンとキャンバスは、チームがBrazeダッシュボードにチャネルを追加する前に作成されたキャンペーンとキャンバスのみです。フォールバックチャネルを変更すると、明示的なチャネル選択のないすべてのキャンペーンとキャンバスにグローバルに変更が適用されます。
 
-1. 既存のCampaignまたはCanvasを開きます。
+1. 既存のキャンペーンまたはキャンバスを開きます。
 2. Androidプッシュ作成画面に移動します。
 3. 通知チャネルオプションを展開した後、**Manage Notification Channels**を選択します。<br><br>![]({% image_buster /assets/img_archive/Change_Fallback.png %}){: style="max-width:80%;"}<br><br>
 4. チャネルをダッシュボードに追加します（まだ追加されていない場合）。
@@ -96,8 +96,8 @@ Brazeでは、ダッシュボードフォールバックチャネルを指定で
 
 ## Androidプッシュメッセージへのチャネルの追加 {#adding-channels-to-your-android-push-messages}
 
-1. CampaignまたはCanvasのAndroidプッシュ作成画面に移動します。
-2. ドロップダウンから使用するチャネルを選択します。ドロップダウンがなく以下のビューが表示される場合は、Campaignsで選択する前にチャネルを追加する必要があります。
+1. キャンペーンまたはキャンバスのAndroidプッシュ作成画面に移動します。
+2. ドロップダウンから使用するチャネルを選択します。ドロップダウンがなく以下のビューが表示される場合は、キャンペーンで選択する前にチャネルを追加する必要があります。
 
 ![]({% image_buster /assets/img_archive/No_Select.png %})
 

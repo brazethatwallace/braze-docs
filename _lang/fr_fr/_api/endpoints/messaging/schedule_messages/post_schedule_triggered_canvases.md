@@ -14,7 +14,7 @@ description: "Cet article présente en détail l'endpoint Braze Planifier des Ca
 /canvas/trigger/schedule/create
 {% endapimethod %}
 
-> Utilisez cet endpoint pour planifier des messages Canvas via une réception/distribution déclenchée par l'API, ce qui vous permet de décider quelle action doit déclencher l'envoi du message.
+> Utilisez cet endpoint pour planifier des messages Canvas via une distribution déclenchée par l'API, ce qui vous permet de décider quelle action doit déclencher l'envoi du message.
 
 Vous pouvez transmettre un `context` qui sera intégré dans les messages envoyés par les premières étapes du Canvas.
 
@@ -32,7 +32,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 {% multi_lang_include rate_limits.md endpoint='send endpoints' %}
 
-## Corps de la demande {#request-body}
+## Corps de la requête {#request-body}
 
 ```
 Content-Type: application/json
@@ -60,7 +60,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Paramètres de demande {#request-parameters}
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
@@ -70,9 +70,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | Facultatif | Valeur booléenne | Vous devez définir `broadcast` sur « true » lorsque vous envoyez un message à un segment entier ciblé par une campagne ou un Canvas. Ce paramètre est défini sur false par défaut (depuis le 31 août 2017). <br><br> Si `broadcast` est défini sur « true », une liste `recipients` ne peut pas être incluse. Cependant, faites attention lors de la configuration de `broadcast: true`, car en configurant involontairement cet indicateur, vous pourriez envoyer votre message à une audience plus importante que prévue. |
 | `context` | Facultatif | Objet | Paires clé-valeur de personnalisation pour tous les utilisateurs de cet envoi. Voir [objet de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). |
 | `schedule` | Requis | Objet planification | Voir [objet de planification]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
-## Exemple de demande {#example-request}
+## Exemple de requête {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/create' \
 --header 'Content-Type: application/json' \

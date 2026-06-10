@@ -6,7 +6,7 @@ description: "Este artículo ofrece un resumen de Intelligent Timing (antes Entr
 
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
 
 > Utiliza Intelligent Timing para entregar tu mensaje a cada usuario cuando Braze determine el momento óptimo de envío, que es cuando es más probable que el usuario interactúe (abra o haga clic). Esto te facilita comprobar que estás enviando mensajes a tus usuarios en el momento que prefieren y puede generar una mayor interacción.
 
@@ -18,7 +18,7 @@ Braze calcula el momento óptimo de envío basándose en un análisis estadísti
 - Push Direct Opens
 - Push Influenced Opens
 - Clics en correos electrónicos
-- Aperturas de correo electrónico (excluyendo [aperturas de máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens)
+- Aperturas de correo electrónico (excluyendo [aperturas de máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens))
 - Clics en SMS (solo si se habilitan [el acortamiento de enlaces]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) y el seguimiento avanzado)
 
 Por ejemplo, Sam puede abrir tus correos electrónicos por la mañana con regularidad, pero abre tu aplicación e interactúa con las notificaciones por la tarde. Eso significa que Sam recibiría una campaña por correo electrónico con Intelligent Timing por la mañana, mientras que recibiría campañas con notificaciones push por la tarde, cuando es más probable que interactúe.
@@ -64,6 +64,8 @@ La opción «Horas tranquilas» ha sustituido a la configuración **Only send wi
 Cuando las horas tranquilas están activadas, Braze no enviará mensajes durante el período de silencio, incluso si ese momento coincide con la hora óptima de envío de un usuario. Si el momento óptimo para un usuario se encuentra dentro de la ventana tranquila, el mensaje se enviará en el momento más cercano al límite de la ventana.
 
 Por ejemplo, si las horas tranquilas se establecen de 10:00 p. m. a 6:00 a. m. y la hora óptima de un usuario es a las 5:30 a. m., Braze retendrá el mensaje y lo entregará a las 6:00 a. m., la hora más cercana fuera del intervalo de horas tranquilas.
+
+Para obtener más información, consulta [Horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 #### Vista previa de los plazos de entrega {#preview-delivery-times}
 
@@ -153,7 +155,7 @@ Los mensajes se enviarán a los usuarios que hayan entrado en el paso ese día a
 
 Elige una hora alternativa para enviar el mensaje a los usuarios de tu audiencia que no tengan datos de interacción relevantes para que Braze calcule la hora óptima de envío. {% multi_lang_include brazeai/intelligent_suite/fallback_time.md %}
 
-### Paso 3: Añadir un paso de retraso {#step-4-add-a-delay-step}
+### Paso 4: Añadir un paso de retraso {#step-4-add-a-delay-step}
 
 A diferencia de las campañas, no es necesario lanzar tu Canvas 48 horas antes de la fecha de envío, ya que Intelligent Timing se configura a nivel de paso, no a nivel de Canvas.
 
@@ -243,7 +245,7 @@ Intelligent Timing programa mensajes durante la «hora de mayor interacción» d
 
 Si no hay eventos relevantes para un usuario, Intelligent Timing utiliza la configuración alternativa de los ajustes de tu mensaje, ya sea una hora alternativa personalizada o la hora más popular para utilizar la aplicación entre todos los usuarios.
 
-### Campañas {#campaigns}
+### Campaigns {#campaigns}
 
 #### ¿Con cuánta antelación debo lanzar una campaña de Intelligent Timing para entregarla con éxito a todos los usuarios de todas las zonas horarias? {#how-far-in-advance-should-i-launch-an-intelligent-timing-campaign-to-successfully-deliver-it-to-all-users-in-all-time-zones}
 

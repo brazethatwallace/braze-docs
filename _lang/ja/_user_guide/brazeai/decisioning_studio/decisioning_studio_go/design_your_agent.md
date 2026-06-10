@@ -23,7 +23,7 @@ Decisioning Studio Goは、Decisioning Studio Proと比較して機能が簡素�
 | **顧客データ** | エンゲージメントのみ | すべての1Pデータ |
 | **設定** | セルフサービス | AI意思決定サービスサポート |
 | **実験グループ** | Go + ランダムコントロール + オプションのBAU | 完全にカスタマイズ可能 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Go versus Pro capabilities" }
 
 ## Goエージェントの設計 {#design-your-go-agent}
 
@@ -38,11 +38,11 @@ Decisioning Studio Goエージェントを設計する際には、以下の領�
 
 **Brazeでオーディエンスを定義する：**
 
-1. Brazeで、エージェントがターゲットとする顧客を定義するSegmentを作成します。
-2. Decisioning Studio Goポータルで実験設定を行う際、このSegmentをターゲットオーディエンスとして選択します。
+1. Brazeで、エージェントがターゲットとする顧客を定義するセグメントを作成します。
+2. Decisioning Studio Goポータルで実験設定を行う際、このセグメントをターゲットオーディエンスとして選択します。
 
 {% alert tip %}
-Decisioning Studio Goの実験用に専用のSegmentを作成することを検討してください。テストを分離し、測定可能な状態に保つことができます。
+Decisioning Studio Goの実験用に専用のセグメントを作成することを検討してください。テストを分離し、測定可能な状態に保つことができます。
 {% endalert %}
 
 {% endtab %}
@@ -62,7 +62,7 @@ Decisioning Studio Goの実験用に専用のSegmentを作成することを検�
 ディメンションとは、エージェントがカスタマーエクスペリエンスをパーソナライズするために操作できる「レバー」です。件名やヒーロー画像といったクリエイティブディメンションや、メールの頻度や送信時間帯といった送信タイプのディメンションが含まれます。
 
 {% alert note %}
-利用可能な具体的なディメンションは、CEPとCampaignsの設定方法によって異なります。CEPで設定したテンプレートとコンテンツを使って作業してください。
+利用可能な具体的なディメンションは、CEPとキャンペーンの設定方法によって異なります。CEPで設定したテンプレートとコンテンツを使って作業してください。
 {% endalert %}
 
 ### ステップ 3: アクションバンクを設定する {#step-3-configure-your-action-bank}
@@ -81,8 +81,8 @@ Decisioning Studio Goは自動的に実験グループを作成し、パフォ�
 |-------|-------------|
 | **Decisioning Studio Go** | AIによって最適化されたおすすめを受け取る顧客 |
 | **ランダムコントロール** | ランダムに選択されたオプションを受け取る顧客（ベースライン比較） |
-| **通常運用（オプション）** | 既存のCampaignを受け取る顧客（現在のパフォーマンスと比較する場合） |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **通常運用（オプション）** | 既存のキャンペーンを受け取る顧客（現在のパフォーマンスと比較する場合） |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Set up experiment groups" }
 
 {% alert important %}
 正確な比較のためには、顧客が複数の実験グループに属さないようにし、顧客が偏りなくランダムにグループに割り当てられるようにしてください。

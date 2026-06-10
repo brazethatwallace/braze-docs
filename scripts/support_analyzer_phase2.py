@@ -19,8 +19,12 @@ import subprocess
 import sys
 from collections import defaultdict
 from collections.abc import Iterable
+from datetime import datetime
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
+
+_PHASE2_BRANCH_TZ = ZoneInfo("America/New_York")
 
 try:
     import yaml
@@ -123,29 +127,55 @@ def _assignees_for_doc_paths(
     return list(ordered.keys())
 
 
+def _parse_gh_pr_create_stdout(stdout: str) -> str:
+    lines = [ln.strip() for ln in (stdout or "").splitlines() if ln.strip()]
+    if not lines:
+        return ""
+    last = lines[-1]
+    return last if last.startswith("http") else ""
+
+
 def _gh_pr_create(
     *,
     cmd_base: list[str],
     assignees: list[str],
     cwd: Path,
     rule_id: str,
-) -> None:
+) -> str:
+    """Run gh pr create; return PR URL on success."""
     cmd = list(cmd_base)
     for login in assignees:
         cmd.extend(["--assignee", login])
     print("+", " ".join(cmd), file=sys.stderr)
-    r = subprocess.run(cmd, cwd=cwd)
+    r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
     if r.returncode == 0:
-        return
+        return _parse_gh_pr_create_stdout(r.stdout)
     if not assignees:
-        raise subprocess.CalledProcessError(r.returncode, cmd)
+        raise subprocess.CalledProcessError(r.returncode, cmd, r.stdout, r.stderr)
     print(
         f"rule {rule_id}: gh pr create failed with --assignee; retrying without assignees "
         "(check GitHub usernames and repo permissions)",
         file=sys.stderr,
     )
+    if r.stderr:
+        print(r.stderr, file=sys.stderr)
     print("+", " ".join(cmd_base), file=sys.stderr)
-    subprocess.run(cmd_base, cwd=cwd, check=True)
+    r2 = subprocess.run(cmd_base, cwd=cwd, capture_output=True, text=True, check=True)
+    return _parse_gh_pr_create_stdout(r2.stdout)
+
+
+def _write_run_summary(
+    *,
+    path: Path,
+    run_url: str,
+    opened: list[dict[str, Any]],
+) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "run_url": run_url,
+        "opened": opened,
+    }
+    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
 
 def _write_verification_report(
@@ -239,12 +269,87 @@ def _insert_point_before_line(content: str, anchor: str) -> int | None:
     return idx
 
 
-def _apply_edit(content: str, edit: dict[str, Any]) -> tuple[str, bool]:
+def _edit_already_applied(
+    content: str,
+    edit: dict[str, Any],
+    *,
+    root: Path | None = None,
+) -> bool:
+    """True when this edit is already on develop (fingerprint or equivalent prose)."""
+    fp = (edit.get("fingerprint") or "").strip()
+    if fp and (fp in content or f"<!-- {fp} -->" in content):
+        return True
+    for phrase in edit.get("skip_if_contains") or []:
+        text = (phrase or "").strip()
+        if text and text in content:
+            return True
+    for entry in edit.get("skip_if_contains_in_files") or []:
+        if not isinstance(entry, dict):
+            continue
+        rel = (entry.get("file") or "").strip()
+        phrases = entry.get("contains") or entry.get("phrases") or []
+        if not rel or not root:
+            continue
+        other_path = root / rel
+        if not other_path.is_file():
+            continue
+        other_content = other_path.read_text(encoding="utf-8")
+        for phrase in phrases:
+            text = (phrase or "").strip()
+            if text and text in other_content:
+                return True
+    return False
+
+
+def _open_phase2_pr_for_rule(rule_id: str, *, cwd: Path) -> str | None:
+    """Return an open Phase 2 PR URL for this rule, if one exists."""
+    prefix = f"support-analyzer/phase2-{rule_id}-"
+    try:
+        raw = _run_capture(
+            [
+                "gh",
+                "pr",
+                "list",
+                "--state",
+                "open",
+                "--label",
+                "support analyzer",
+                "--json",
+                "headRefName,url",
+                "--limit",
+                "100",
+            ],
+            cwd=cwd,
+        )
+    except subprocess.CalledProcessError:
+        print(
+            f"rule {rule_id}: could not list open PRs; continuing without open-PR dedup",
+            file=sys.stderr,
+        )
+        return None
+    if not raw:
+        return None
+    try:
+        prs = json.loads(raw)
+    except json.JSONDecodeError:
+        return None
+    for pr in prs:
+        head = (pr.get("headRefName") or "").strip()
+        if head.startswith(prefix):
+            return (pr.get("url") or "").strip() or None
+    return None
+
+
+def _apply_edit(
+    content: str,
+    edit: dict[str, Any],
+    *,
+    root: Path | None = None,
+) -> tuple[str, bool]:
     """
-    Return (new_content, changed). Skip if fingerprint already present.
+    Return (new_content, changed). Skip if fingerprint or skip_if_contains matches.
     """
-    fp = edit.get("fingerprint") or ""
-    if fp and fp in content:
+    if _edit_already_applied(content, edit, root=root):
         return content, False
 
     anchor = edit.get("anchor_substring") or ""
@@ -300,12 +405,11 @@ def _validate_edits_anchors(
                 problems.append(f"{rel}: target file missing")
             continue
         content = path.read_text(encoding="utf-8")
-        fp = (edit.get("fingerprint") or "").strip()
-        anchor = (edit.get("anchor_substring") or "").strip()
-        if fp and fp in content:
+        if _edit_already_applied(content, edit, root=root):
             continue
+        anchor = (edit.get("anchor_substring") or "").strip()
         if anchor and anchor not in content:
-            problems.append(f"{rel}: anchor not found (fingerprint not present)")
+            problems.append(f"{rel}: anchor not found (edit not already applied)")
 
     if not problems:
         return
@@ -434,34 +538,15 @@ def _run_rule_verification(
     return failed_required, lines
 
 
-def _open_pr_exists_for_rule(*, cwd: Path, rule_id: str) -> bool:
-    """Avoid stacking duplicate weekly drafts for the same rule."""
-    prefix = f"support-analyzer/phase2-{rule_id}-"
-    raw = _run_capture(
-        [
-            "gh",
-            "pr",
-            "list",
-            "--base",
-            "develop",
-            "--state",
-            "open",
-            "--limit",
-            "500",
-            "--json",
-            "headRefName",
-        ],
-        cwd=cwd,
-    )
-    try:
-        items = json.loads(raw or "[]")
-    except json.JSONDecodeError:
-        return False
-    for item in items:
-        ref = item.get("headRefName") or ""
-        if ref.startswith(prefix):
-            return True
-    return False
+def _phase2_run_date_ymd() -> str:
+    """Eastern date stamp for branch names (matches digest PR workflow timezone)."""
+    return datetime.now(_PHASE2_BRANCH_TZ).strftime("%Y-%m-%d")
+
+
+def _phase2_branch_name(*, rule_id: str, run_id: str, ymd: str | None = None) -> str:
+    """Unique branch per workflow run; date segment aids triage in the GitHub UI."""
+    day = ymd or _phase2_run_date_ymd()
+    return f"support-analyzer/phase2-{rule_id}-{day}-{run_id}"
 
 
 def main() -> None:
@@ -497,6 +582,11 @@ def main() -> None:
         "--assignees-map",
         default=".github/support_analyzer_doc_assignees.csv",
         help="CSV mapping doc paths (prefix or file) → GitHub username for gh pr create --assignee",
+    )
+    p.add_argument(
+        "--run-summary",
+        default=".github/support_analyzer_phase2_run_summary.json",
+        help="Write JSON summary of opened Phase 2 PRs (for CI Slack notifications)",
     )
     args = p.parse_args()
 
@@ -535,7 +625,51 @@ def main() -> None:
     run_url = f"{server}/{repo}/actions/runs/{os.environ.get('GITHUB_RUN_ID', '')}" if repo else ""
 
     verification_report_chunks: list[str] = []
+    opened_prs: list[dict[str, Any]] = []
+    run_summary_path = (
+        (root / args.run_summary).resolve()
+        if not Path(args.run_summary).is_absolute()
+        else Path(args.run_summary).resolve()
+    )
 
+    try:
+        _phase2_process_rules(
+            rules=rules,
+            rows=rows,
+            fieldnames=fieldnames,
+            root=root,
+            run_id=run_id,
+            run_url=run_url,
+            assignees_mapping=assignees_mapping,
+            assignees_map_path=assignees_map_path,
+            args=args,
+            verification_report_chunks=verification_report_chunks,
+            opened_prs=opened_prs,
+        )
+        _write_verification_report(
+            root=root,
+            report_rel=Path(args.verification_report),
+            chunks=verification_report_chunks,
+            run_url=run_url,
+        )
+    finally:
+        _write_run_summary(path=run_summary_path, run_url=run_url, opened=opened_prs)
+
+
+def _phase2_process_rules(
+    *,
+    rules: list[dict[str, Any]],
+    rows: list[dict[str, str]],
+    fieldnames: list[str],
+    root: Path,
+    run_id: str,
+    run_url: str,
+    assignees_mapping: list[tuple[str, str]],
+    assignees_map_path: Path,
+    args: argparse.Namespace,
+    verification_report_chunks: list[str],
+    opened_prs: list[dict[str, Any]],
+) -> None:
     for rule in rules:
         if not rule.get("enabled", True):
             print(f"skip disabled rule {rule.get('id')}", file=sys.stderr)
@@ -605,9 +739,12 @@ def main() -> None:
                 skip_rule = True
                 break
             original = path.read_text(encoding="utf-8")
-            updated, changed = _apply_edit(original, edit)
+            updated, changed = _apply_edit(original, edit, root=root)
             if not changed:
-                print(f"rule {rid}: no change for {rel} (anchor or fingerprint)", file=sys.stderr)
+                print(
+                    f"rule {rid}: no change for {rel} (anchor, fingerprint, skip_if_contains, or skip_if_contains_in_files)",
+                    file=sys.stderr,
+                )
                 continue
             pending_files[path] = updated
 
@@ -618,8 +755,10 @@ def main() -> None:
             continue
 
         pr_cfg = rule.get("pr") or {}
-        branch = f"support-analyzer/phase2-{rid}-{run_id}"
-        title = pr_cfg.get("title") or f"[SA] Phase 2 — {rid}"
+        ymd = _phase2_run_date_ymd()
+        branch = _phase2_branch_name(rule_id=rid, run_id=run_id, ymd=ymd)
+        title_base = pr_cfg.get("title") or f"[SA] Phase 2 — {rid}"
+        title = title_base if ymd in title_base else f"{title_base} — {ymd}"
         draft = pr_cfg.get("draft", True)
         labels = pr_cfg.get("labels") or ["support analyzer"]
         note = (pr_cfg.get("verification_note") or "").strip()
@@ -673,9 +812,10 @@ Automated **Phase 2** doc proposal from `support_analyzer_phase2_rules.yml` (rul
             print(f"[dry-run] would create branch {branch} with {len(pending_files)} file(s)", file=sys.stderr)
             continue
 
-        if _open_pr_exists_for_rule(cwd=root, rule_id=rid):
+        existing_pr = _open_phase2_pr_for_rule(rid, cwd=root)
+        if existing_pr:
             print(
-                f"rule {rid}: skip — an open Phase 2 PR already exists for this rule on develop",
+                f"rule {rid}: skip PR — open Phase 2 draft already exists: {existing_pr}",
                 file=sys.stderr,
             )
             continue
@@ -711,11 +851,19 @@ Automated **Phase 2** doc proposal from `support_analyzer_phase2_rules.yml` (rul
         for lb in labels:
             cmd_base.extend(["--label", lb])
 
-        _gh_pr_create(
+        pr_url = _gh_pr_create(
             cmd_base=cmd_base,
             assignees=assignees_list,
             cwd=root,
             rule_id=rid,
+        )
+        opened_prs.append(
+            {
+                "rule_id": rid,
+                "title": title,
+                "pr_url": pr_url,
+                "assignees": assignees_list,
+            }
         )
         if assignees_list:
             print(
@@ -728,13 +876,6 @@ Automated **Phase 2** doc proposal from `support_analyzer_phase2_rules.yml` (rul
         _run(["git", "fetch", "origin", "develop"], cwd=root)
         _run(["git", "checkout", "develop"], cwd=root)
         _run(["git", "reset", "--hard", "origin/develop"], cwd=root)
-
-    _write_verification_report(
-        root=root,
-        report_rel=Path(args.verification_report),
-        chunks=verification_report_chunks,
-        run_url=run_url,
-    )
 
 
 if __name__ == "__main__":

@@ -26,7 +26,7 @@ Assurez-vous que les éléments suivants sont créés, complétés ou acceptés 
 | --- | --- | --- |
 | Jeton API | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | Un jeton API standard créé dans la plateforme The Trade Desk. Nous recommandons de définir la durée de vie du jeton API à un an maximum afin de minimiser les interruptions de vos Canvas avec The Trade Desk Audience Sync. |
 | Conditions et politiques de The Trade Desk | The Trade Desk | Vous devez accepter une politique de participation UID2/CRM avant de pouvoir envoyer des données à The Trade Desk. Contactez votre conseiller chez The Trade Desk pour confirmer que vous disposez de la signature appropriée pour activer la transmission de données vers The Trade Desk.<br><br> {::nomarkdown}<ul><li>Confirmez que l'accès à la gestion des données CRM est activé sur votre compte&#8212;votre conseiller chez The Trade Desk peut vous aider. Vous devez disposer de votre identifiant annonceur.</li><li>Préparez votre jeton API standard. Vous pouvez suivre les instructions de cette page pour en générer un.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -34,9 +34,9 @@ Assurez-vous que les éléments suivants sont créés, complétés ou acceptés 
 
 Pour commencer, accédez à **Intégrations partenaires** > **Partenaires technologiques** > **The Trade Desk**. Fournissez les informations suivantes depuis votre compte Trade Desk :
 
-- **API token**
-- **Advertiser ID name** (ce nom facultatif identifie le compte annonceur à référencer dans l'étape Audience Sync du Canvas)
-- **Advertiser ID**
+- **Jeton API**
+- **Nom de l'identifiant annonceur** (ce nom facultatif identifie le compte annonceur à référencer dans l'étape Audience Sync du Canvas)
+- **Identifiant annonceur**
 
 Puis sélectionnez **Connect**.
 
@@ -44,7 +44,7 @@ Puis sélectionnez **Connect**.
 
 #### Connecter plusieurs comptes The Trade Desk (facultatif) {#connect-multiple-the-trade-desk-accounts-optional}
 
-Après avoir connecté votre premier compte The Trade Desk, vous pouvez ajouter des comptes annonceurs supplémentaires sur la page partenaire The Trade Desk en sélectionnant **Connect more advertisers**, puis en fournissant l'**Advertiser ID name** et l'**Advertiser ID** pour chaque compte.
+Après avoir connecté votre premier compte The Trade Desk, vous pouvez ajouter des comptes annonceurs supplémentaires sur la page partenaire The Trade Desk en sélectionnant **Connect more advertisers**, puis en fournissant le **nom de l'identifiant annonceur** et l'**identifiant annonceur** pour chaque compte.
 
 ### Étape 2 : Ajouter une étape Audience Sync avec The Trade Desk {#step-2-add-an-audience-sync-step-with-the-trade-desk}
 

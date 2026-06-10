@@ -21,7 +21,7 @@ Las recomendaciones basadas en reglas se basan en una lógica fija que debes est
 
 Cuando decidas qué herramienta de recomendaciones se adapta a tus recursos disponibles y a tus casos de uso, consulta esta tabla de consideraciones:
 
-<table style="text-align: center;">
+<table aria-label="Opciones de la herramienta de recomendaciones" style="text-align: center;">
   <caption>Opciones de la herramienta de recomendaciones</caption>
   <thead>
     <tr>
@@ -73,7 +73,7 @@ Cuando decidas qué herramienta de recomendaciones se adapta a tus recursos disp
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Opciones de la herramienta de recomendaciones" }
 
 ## Creación de una herramienta de recomendaciones {#creating-a-recommendation-engine}
 
@@ -100,7 +100,7 @@ Supongamos que tienes una aplicación de comida saludable y quieres crear una ca
 | **title** | El título de la tarjeta de contenido que se enviará para cada ID, como "Prepárate para comer esta semana" o "Hablemos de tacos". |
 | **link** | El enlace al artículo de la receta. |
 | **image_url** | La imagen que corresponde a la receta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplo" }
 
 Una vez cargado el catálogo en Braze, comprueba la vista previa de un número selecto de elementos del catálogo para confirmar que la información se importó correctamente. Los elementos pueden aparecer en orden aleatorio en la vista previa, pero esto no afectará al resultado de la herramienta de recomendaciones.
 
@@ -187,7 +187,7 @@ Para crear tu herramienta de recomendaciones utilizando Contenido conectado, pri
 | **Convertir una hoja de cálculo** | Convierte una hoja de cálculo en un punto de conexión de API JSON utilizando un servicio como SheetDP y toma nota de la URL de la API que se genera. |
 | **Crear un punto de conexión personalizado** | Crea, aloja y mantén un punto de conexión interno personalizado. |
 | **Utilizar una herramienta de terceros** | Utiliza una herramienta de recomendaciones de terceros, como uno de nuestros [socios de Alloy]({{site.baseurl}}/partners/message_personalization/), entre los que se incluyen [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/) y otros. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplo" }
 
 A continuación, utiliza Liquid en tu mensaje que llama a tu punto de conexión para hacer coincidir un valor de atributo personalizado con el perfil de un usuario y extraer la recomendación correspondiente.
 
@@ -211,7 +211,7 @@ Sustituye lo siguiente:
 | `YOUR_API_URL` | Sustitúyelo por la URL real de tu API. |
 | `RECOMMENDED_ITEM_IDS` | Sustitúyelo por el nombre real de tu atributo personalizado que contiene los ID de los elementos recomendados. Se espera que este atributo sea una cadena de ID separados por punto y coma. |
 | `ITEM_ID` | Sustitúyelo por el nombre real del atributo en la respuesta de tu API que corresponde al ID del elemento. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplo" }
 
 {% alert note %}
 Este es un ejemplo básico y puede que tengas que modificarlo en función de tus necesidades específicas y de la estructura de tus datos. Para obtener información más detallada, consulta la [documentación de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) o consulta con un desarrollador.

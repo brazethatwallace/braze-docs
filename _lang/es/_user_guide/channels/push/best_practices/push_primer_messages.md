@@ -14,7 +14,7 @@ channel: push
 
 ![Mensaje dentro de la aplicación de push primer para una aplicación de streaming. La notificación dice "¿Recibir notificaciones push de Movie Cannon? Las notificaciones pueden incluir nuevas películas, programas de TV u otros avisos y se pueden desactivar en cualquier momento."]({% image_buster /assets/img_archive/push_primer_iam.png %}){: style="float:right;max-width:40%;margin-left:15px;border:none;"}
 
-Para crear un mensaje dentro de la aplicación de push primer en Braze, puedes usar el comportamiento de clic en botón "Solicitar permiso de push" al crear un mensaje dentro de la aplicación para iOS, Android o Web.
+Para crear un mensaje dentro de la aplicación de push primer en Braze, puedes usar el comportamiento de clic en botón "Request Push Permission" al crear un mensaje dentro de la aplicación para iOS, Android o Web.
 
 ## Requisitos previos {#prerequisites}
 
@@ -30,7 +30,7 @@ Además, ten en cuenta los siguientes detalles específicos de cada plataforma:
 |----------|----------------------|
 | **Android 12 y anteriores** | No se recomienda implementar push primers porque el push está habilitado de forma predeterminada. |
 | **Android 13+** | Si un usuario rechaza tu solicitud de permiso de push dos veces, Android bloquea solicitudes posteriores, incluidos los mensajes de push primer de Braze. Para conceder el permiso después de esto, los usuarios deben habilitar manualmente el push para tu aplicación en la configuración de su dispositivo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 {% endtab %}
 
 {% tab swift %}
@@ -40,6 +40,7 @@ Además, ten en cuenta los siguientes detalles específicos de cada plataforma:
 - El aviso no se muestra si la configuración de push de la aplicación está explícitamente activada o desactivada. Solo se muestra para usuarios con [autorización provisional](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications#3544375).
   - **La configuración de push de la aplicación está activada:** Braze no muestra el mensaje dentro de la aplicación, ya que el usuario ya ha optado por la adhesión voluntaria.
   - **La configuración de push de la aplicación está desactivada:** Necesitas redirigir al usuario a la configuración de notificaciones push de tu aplicación dentro de la configuración del dispositivo.
+- **Volver a probar después de rechazar:** Si un usuario rechaza el aviso nativo, iOS no lo muestra de nuevo para esa instalación de la aplicación. Para volver a probar el flujo de push primer, los usuarios normalmente necesitan desinstalar y reinstalar la aplicación, o cambiar el permiso de notificaciones para tu aplicación en **Configuración**.
 
 ### Eliminación manual de código {#manual-code-removal}
 
@@ -131,7 +132,7 @@ Si no estás usando el push primer sin código, añade un filtro donde `Foregrou
 Usar un filtro a nivel de usuario como `Push Subscription Status is not Opted In` excluye a los usuarios que ya han optado por la adhesión voluntaria en otro dispositivo, impidiéndoles recibir el aviso en su nuevo dispositivo.
 {% endalert %}
 
-Más allá de eso, puedes decidir qué segmentos adicionales consideras más apropiados. Por ejemplo, podrías segmentar a usuarios que han completado una segunda compra, usuarios que acaban de crear una cuenta para convertirse en miembros, o incluso usuarios que visitan tu aplicación más de dos veces por semana. Segmentar a los usuarios para estos segmentos cruciales aumenta la probabilidad de que los usuarios opten por la adhesión voluntaria y se habiliten para push.
+Más allá de eso, puedes decidir qué segmentos adicionales consideras más apropiados. Por ejemplo, podrías segmentar a usuarios que han completado una segunda compra, usuarios que acaban de crear una cuenta para convertirse en miembros, o incluso usuarios que visitan tu aplicación más de dos veces por semana. Segmentar a los usuarios en estos segmentos cruciales aumenta la probabilidad de que opten por la adhesión voluntaria y se habiliten para push.
 
 ### Segmentar usuarios con múltiples dispositivos {#targeting-users-with-multiple-devices}
 

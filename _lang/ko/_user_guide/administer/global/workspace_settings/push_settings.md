@@ -8,13 +8,13 @@ channel: push
 
 ---
 
-# 푸시 설정
+# 푸시 설정 {#push-settings}
 
-> **푸시 설정** 페이지에서는 푸시 알림에 대한 주요 설정(예: 푸시 유지 시간(TTL) 및 Android 캠페인의 기본 FCM 우선순위 등)을 구성할 수 있습니다. 이러한 설정은 푸시 알림의 전달과 효과를 최적화하여 사용자에게 더 나은 경험을 제공하는 데 도움이 됩니다.
+> **푸시 설정** 페이지에서는 푸시 알림에 대한 주요 설정(예: 푸시 유지 시간(TTL) 및 Android Campaign의 기본 FCM 우선순위 등)을 구성할 수 있습니다. 이러한 설정은 푸시 알림의 전달과 효과를 최적화하여 사용자에게 더 나은 경험을 제공하는 데 도움이 됩니다.
 
 ## 푸시 TTL이란? {#what-is-push-ttl}
 
-푸시 유지 시간(TTL)은 캠페인이 전송될 때 오프라인 상태인 기기에 Braze가 푸시 알림을 전달하려고 시도하는 기간을 제어합니다. TTL이 만료된 후 기기가 다시 연결되면 메시지가 전달되지 않습니다. 이 설정은 사용자의 기기에 이미 수신된 알림을 제거하지 않으며, 푸시 제공업체가 알림을 전달하려고 시도하는 기간만 제어합니다.
+푸시 유지 시간(TTL)은 Campaign이 전송될 때 오프라인 상태인 기기에 Braze가 푸시 알림을 전달하려고 시도하는 기간을 제어합니다. TTL이 만료된 후 기기가 다시 연결되면 메시지가 전달되지 않습니다. 이 설정은 사용자의 기기에 이미 수신된 알림을 제거하지 않으며, 푸시 제공업체가 알림을 전달하려고 시도하는 기간만 제어합니다.
 
 ## 기본 푸시 TTL 값 설정 {#setting-default-push-ttl-values}
 
@@ -26,9 +26,9 @@ channel: push
 | Firebase Cloud Messaging(FCM) | 28일 |
 | Kindle(ADM) | 31일 |
 | Huawei(HMS) | 15일 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting default Push TTL values" }
 
-이 설정은 특정 메시지에 다른 TTL이 설정되지 않는 한 모든 푸시 캠페인에 전역적으로 적용됩니다. 메시지의 TTL을 조정하려면 [고급 캠페인 설정]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#ttl)을 참조하세요.
+이 설정은 특정 메시지에 다른 TTL이 설정되지 않는 한 모든 푸시 Campaign에 전역적으로 적용됩니다. 메시지의 TTL을 조정하려면 [고급 Campaign 설정]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#ttl)을 참조하세요.
 
 기본 푸시 TTL을 다르게 설정하려면:
 
@@ -38,9 +38,9 @@ channel: push
 
 ![Firebase, 웹, Kindle 및 Huawei 기기에 대한 푸시 TTL 설정.]({% image_buster /assets/img/push_ttl.png %})
 
-## Android 캠페인의 기본 FCM 우선순위 {#default-fcm-priority-for-android-campaigns}
+## Android Campaign의 기본 FCM 우선순위 {#default-fcm-priority-for-android-campaigns}
 
-모든 Android 푸시 캠페인에 대한 기본 Firebase Cloud Messaging(FCM) 우선순위를 설정할 수 있습니다. 이 우선순위는 푸시 알림이 사용자의 기기에 전달되는 방식을 결정합니다.
+모든 Android 푸시 Campaign에 대한 기본 Firebase Cloud Messaging(FCM) 우선순위를 설정할 수 있습니다. 이 우선순위는 푸시 알림이 사용자의 기기에 전달되는 방식을 결정합니다.
 
 FCM 우선순위 옵션은 다음과 같습니다:
 
@@ -48,7 +48,7 @@ FCM 우선순위 옵션은 다음과 같습니다:
 | --- | --- | --- |
 | 보통 | 배터리 사용을 최적화하는 표준 전달 우선순위 | 즉각적인 주의가 필요하지 않은 콘텐츠 |
 | 높음 | 메시지가 즉시 전송됨 | 신속한 전달이 필요한 시간에 민감한 알림 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default FCM Priority for Android Campaigns" }
 
 기본 FCM 우선순위를 설정하려면:
 
@@ -58,10 +58,10 @@ FCM 우선순위 옵션은 다음과 같습니다:
 
 ![Android 전달 우선순위 설정.]({% image_buster /assets/img/push_fcm_priority_settings.png %})
 
-이 설정은 특정 캠페인을 생성할 때 다른 우선순위를 선택하지 않는 한 모든 새 Android 푸시 캠페인에 전역적으로 적용됩니다.
+이 설정은 특정 Campaign을 생성할 때 다른 우선순위를 선택하지 않는 한 모든 새 Android 푸시 Campaign에 전역적으로 적용됩니다.
 
 {% alert note %}
 FCM이 앱에서 사용자에게 표시되는 알림이나 사용자 참여로 이어지지 않는 높은 우선순위 메시지를 자주 보내는 것을 감지하면, 해당 메시지가 자동으로 보통 우선순위로 강등될 수 있습니다.
 {% endalert %}
 
-FCM 우선순위 수준 및 우선순위 강등에 대한 자세한 내용은 [고급 캠페인 설정]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#fcm-priority)을 참조하세요.
+FCM 우선순위 수준 및 우선순위 강등에 대한 자세한 내용은 [고급 Campaign 설정]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#fcm-priority)을 참조하세요.

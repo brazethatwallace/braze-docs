@@ -11,17 +11,17 @@ tool: Reports
 
 > Al visualizar los análisis en Braze, puedes combinar varios puntos de datos para obtener información valiosa sobre tus datos de usuario. Esto se conoce como fórmulas. Usa fórmulas para normalizar tus datos de series temporales en función de tu número total de usuarios activos al mes (MAU) y usuarios activos diarios (DAU).
 
-Las fórmulas te ayudan a comprender las relaciones complejas que existen en tus datos. Por ejemplo, puedes comparar cuántos eventos personalizados completaron los usuarios activos diarios que cumplen los requisitos de un Segment concreto frente a la población general (o frente a otro Segment).
+Las fórmulas te ayudan a comprender las relaciones complejas que existen en tus datos. Por ejemplo, puedes comparar cuántos eventos personalizados completaron los usuarios activos diarios que cumplen los requisitos de un segmento concreto frente a la población general (o frente a otro segmento).
 
 ## Casos de uso {#use-cases}
 
-Las fórmulas, especialmente cuando se combinan con eventos personalizados, pueden ayudarte a comprender los comportamientos de los usuarios dentro de tu aplicación. Las fórmulas también pueden proporcionar una visión más profunda de los patrones de compra de los Segments, incluso si tu empresa utiliza medios contratados junto con Braze, como Google Ads o TV.
+Las fórmulas, especialmente cuando se combinan con eventos personalizados, pueden ayudarte a comprender los comportamientos de los usuarios dentro de tu aplicación. Las fórmulas también pueden proporcionar una visión más profunda de los patrones de compra de los segmentos, incluso si tu empresa utiliza medios contratados junto con Braze, como Google Ads o TV.
 
 Los siguientes son algunos ejemplos de los tipos de patrones de comportamiento que pueden detectarse utilizando fórmulas:
 
-- **Aplicaciones de transporte compartido:** Si tienes un evento personalizado para cuando el usuario cancela un viaje, puedes configurar una función para Viajes cancelados / DAU para encontrar si ciertos Segments de usuarios tienden a cancelar más viajes que otros.
-- **Aplicaciones de comercio electrónico:** Al configurar una función para compras de un determinado ID de producto / MAU, puedes comparar la popularidad de un producto promocionado recientemente entre Segments, incluso si no se han podido rastrear todas las promociones mediante Braze.
-- **Aplicaciones multimedia que utilizan anuncios:** Si la experiencia de los usuarios se ve interrumpida por anuncios entre clips de video o audio, registrar las salidas a mitad de anuncio como un evento personalizado y calcular la proporción de salidas a mitad de anuncio / DAU puede ayudar a encontrar los mejores Segments a los que dirigirse con una Campaign de suscripciones premium sin anuncios.
+- **Aplicaciones de transporte compartido:** Si tienes un evento personalizado para cuando el usuario cancela un viaje, puedes configurar una función para Viajes cancelados / DAU para encontrar si ciertos segmentos de usuarios tienden a cancelar más viajes que otros.
+- **Aplicaciones de comercio electrónico:** Al configurar una función para compras de un determinado ID de producto / MAU, puedes comparar la popularidad de un producto promocionado recientemente entre segmentos, incluso si no se han podido rastrear todas las promociones mediante Braze.
+- **Aplicaciones multimedia que utilizan anuncios:** Si la experiencia de los usuarios se ve interrumpida por anuncios entre clips de video o audio, registrar las salidas a mitad de anuncio como un evento personalizado y calcular la proporción de salidas a mitad de anuncio / DAU puede ayudar a encontrar los mejores segmentos a los que dirigirse con una Campaign de suscripciones premium sin anuncios.
 
 ## Creación de fórmulas {#creating-formulas}
 
@@ -67,8 +67,8 @@ table td {
 | --- | --- |
 | DAU | MAU |
 | Sesiones | DAU |
-| | Tamaño del Segment |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| | Tamaño del segmento |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
 
 ### Dashboard de ingresos {#revenue-dashboard}
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | Compras (todas) | DAU |
 | Compras específicas (como una tarjeta regalo o un ID de producto) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
 
 ### Dashboard de eventos personalizados {#custom-event-dashboard}
 
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | Recuento de eventos personalizados | MAU |
 |  | DAU |
-|  | Tamaño del Segment (solo se pueden utilizar los Segments que tengan habilitado el [seguimiento de análisis]({{site.baseurl}}/viewing_and_understanding_segment_data/) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+|  | Tamaño del segmento (solo se pueden utilizar los segmentos que tengan habilitado el [seguimiento de análisis]({{site.baseurl}}/viewing_and_understanding_segment_data/)) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }

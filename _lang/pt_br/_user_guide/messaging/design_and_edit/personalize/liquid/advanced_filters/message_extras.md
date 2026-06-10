@@ -1,12 +1,12 @@
 ---
 nav_title: Tag message extras
-article_title: Tag Message Extras
+article_title: Tag message extras
 page_order: 1
 description: "Este artigo explica como usar a tag Liquid message extras e como verificar a sintaxe."
 alias: "/message_extras_tag/"
 ---
 
-# Tag Liquid message extras
+# Tag Liquid message extras {#message-extras-liquid-tag}
 
 > Use a tag Liquid `message_extras` para anotar seus eventos de envio com dados dinâmicos do Conteúdo conectado, Catálogos, atributos personalizados (como idioma, país), propriedades de entrada do Canvas ou outras fontes de dados.
 
@@ -24,15 +24,15 @@ Veja um exemplo do formato padrão da tag Liquid para `message_extras`:
 
 Você pode adicionar essas tags conforme necessário para seus pares de chave-valor no corpo da mensagem. No entanto, o comprimento total de todas as chaves e valores não deve exceder 1.000 bytes (1&nbsp;KB). No Currents e no Compartilhamento de dados do Snowflake, você verá um novo campo de evento chamado `message_extras` para seus eventos de envio. Isso gera uma string serializada em JSON em um único campo.
 
-## Como os dados de message extras são enviados usando o Currents
+## Como os dados de message extras são enviados usando o Currents {#how-message-extras-data-is-sent-using-currents}
 
 **Message extras** são pares de chave-valor anexados no momento do envio. A configuração depende do canal. Para e-mail, eles são adicionados usando cabeçalhos. Para push no iOS, eles são incluídos na carga útil do push. Todos os eventos de envio compatíveis exibem o mesmo campo `message_extras` no Currents (e no Snowflake) assim que a mensagem é enviada.
 
-## Canais compatíveis
+## Canais compatíveis {#supported-channels}
 
 A tag `message_extras` é compatível com todos os tipos de mensagem que possuem um evento de envio, além de eventos de impressão de mensagens no app. Usar `message_extras` com mensagens no app requer que certas [versões mínimas do SDK](#iam-sdk) sejam atendidas.
 
-## Como usar a tag `message_extras`
+## Como usar a tag `message_extras` {#how-to-use-the-message_extras-tag}
 
 1. No corpo da mensagem do canal, insira a tag Liquid `message_extras`. Ou você pode usar o modal **Adicionar personalização** e selecionar **Message Extras** como tipo de personalização.
 
@@ -46,9 +46,9 @@ A tag `message_extras` é compatível com todos os tipos de mensagem que possuem
 
 {: start="3"}
 
-3. Após o envio da sua campanha ou Canvas, a Braze anexará os dados dinâmicos no momento do envio por meio dos eventos de envio do Currents ou do Compartilhamento de dados do Snowflake ao campo `message_extras`.
+3. Após o envio da sua Campaign ou Canvas, a Braze anexará os dados dinâmicos no momento do envio por meio dos eventos de envio do Currents ou do Compartilhamento de dados do Snowflake ao campo `message_extras`.
 
-## Verificando a sintaxe
+## Verificando a sintaxe {#checking-syntax}
 
 Qualquer outra entrada que não corresponda ao padrão da tag discutido acima pode não ser transmitida ao Currents ou ao Snowflake. Verifique se sua sintaxe ou formatação não inclui nenhum dos seguintes problemas:
 
@@ -56,25 +56,25 @@ Qualquer outra entrada que não corresponda ao padrão da tag discutido acima po
 - Chaves duplicadas (a Braze enviará por padrão o par de chave-valor encontrado primeiro)
 - Texto extra antes da definição das chaves ou valores
 - Chaves e valores fora de ordem
-  - {% raw %}Por exemplo, ```{% message_extras :value 123 :key test %}```{% endraw %}
+  - {% raw %}Por exemplo, `{% message_extras :value 123 :key test %}`{% endraw %}
 
-## Enviando informações de códigos de promoção para o Currents
+## Enviando informações de códigos de promoção para o Currents {#sending-promotion-code-information-to-currents}
 
 {% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
 
-## Considerações
+## Considerações {#considerations}
 
 - Pares de chave-valor que excedem 1.000 bytes (1&nbsp;KB) são truncados.
 - Espaços em branco contam para a contagem de caracteres. Observe que a Braze remove os espaços em branco iniciais e finais.
 - O JSON resultante gera apenas valores do tipo string.
 - Você pode incluir variáveis Liquid como chave ou valor, mas não pode aninhar tags Liquid adicionais dentro de `message_extras`.
-  - Por exemplo, você poderia usar o seguinte Liquid: {% raw %}```{% assign value = '123' %} {% assign key = 'test' %} {% message_extras :key {{key}} :value {{value}} %}```{% endraw %}
+  - Por exemplo, você poderia usar o seguinte Liquid: {% raw %}`{% assign value = '123' %} {% assign key = 'test' %} {% message_extras :key {{key}} :value {{value}} %}`{% endraw %}
 
-## Perguntas frequentes
+## Perguntas frequentes {#frequently-asked-questions}
 
-#### Como posso associar o campo message_extras nos eventos de envio aos meus eventos de engajamento, como aberturas e cliques?
+#### Como posso associar o campo message_extras nos eventos de envio aos meus eventos de engajamento, como aberturas e cliques? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
 
-Um `dispatch_id` é gerado e fornecido nos seus eventos de envio, podendo ser usado como identificador único para vincular a eventos específicos de clique, abertura ou entrega. Você poderá usar e consultar esse campo no Currents ou no Snowflake. Saiba mais sobre o [comportamento do `dispatch_id`]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Um `dispatch_id` é gerado e fornecido nos seus eventos de envio, podendo ser usado como identificador único para vincular a eventos específicos de clique, abertura ou entrega. Você pode consultar esse campo no Currents ou no Snowflake. Para saber mais, consulte [Comportamento do dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 #### Posso usar message_extras com mensagens no app? {#iam-sdk}
 

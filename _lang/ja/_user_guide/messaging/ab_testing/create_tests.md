@@ -15,12 +15,12 @@ local_redirect: #optimizations
 
 ![「キャンペーンを作成」ボタンを選択した際のドロップダウンで、マルチチャネルまたは単一チャネルを選択します。]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 
-## ステップ 1: Campaignを作成する {#step-1-create-your-campaign}
+## ステップ 1:Campaignを作成する {#step-1-create-your-campaign}
 
 1. **Messaging** > **Campaigns**に移動します。
 2. **Create Campaign**を選択し、多変量テストとABテストが可能なセクションからCampaignのチャネルを選択します。各メッセージングチャネルの詳細なドキュメントについては、[Campaignの作成]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)を参照してください。
 
-## ステップ 2: バリアントを作成する {#step-2-compose-your-variants}
+## ステップ 2:バリアントを作成する {#step-2-compose-your-variants}
 
 メッセージのバリアントを最大8つ作成でき、タイトル、コンテンツ、画像などを差別化できます。メッセージ間の違いの数によって、多変量テストかABテストかが決まります。ABテストは1つの変数を変更した場合の効果を調べるのに対し、多変量テストは2つ以上の変数を調べます。
 
@@ -28,7 +28,7 @@ local_redirect: #optimizations
 
 ![Campaignで「バリアントを追加」を選択する画面。]({% image_buster /assets/img/ab_create_2.png %})
 
-## ステップ 3: Campaignをスケジュールする {#step-3-schedule-your-campaign}
+## ステップ 3:Campaignをスケジュールする {#step-3-schedule-your-campaign}
 
 多変量Campaignのスケジュール設定は、他のBraze Campaignのスケジュール設定と同じです。すべての標準的な[配信タイプ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/)が利用可能です。
 
@@ -38,7 +38,7 @@ local_redirect: #optimizations
 [最適化]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/)（一部のチャネルで利用可能）を使用するには、Campaignを1回限りの配信としてスケジュールしてください。最適化は、繰り返し配信や再エントリが有効になっているCampaignでは利用できません。
 {% endalert %}
 
-## ステップ 4: Segmentを選択し、バリアント間でユーザーを分配する {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
+## ステップ 4:Segmentを選択し、バリアント間でユーザーを分配する {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
 
 ターゲットとするSegmentを選択し、選択したバリアントとオプションの[コントロールグループ](#including-a-control-group)にメンバーを分配します。テスト用のSegment選択のベストプラクティスについては、[Segmentの選択](#choosing-a-segment)を参照してください。
 
@@ -64,13 +64,13 @@ ABテストでレート制限を使用する場合、レート制限はテスト
 
 [インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)を使用するCampaignのコントロールグループのサイズは、バリアントの数に基づきます。各バリアントがユーザーの20%以上に送信される場合、コントロールグループは20%となり、バリアントは残りの80%に均等に分配されます。ただし、各バリアントがユーザーの20%未満に送信されるほど多くのバリアントがある場合、コントロールグループはより小さくなる必要があります。インテリジェントセレクションがテストのパフォーマンス分析を開始すると、コントロールグループは結果に基づいて拡大または縮小します。
 
-## ステップ 5: コンバージョンイベントを指定する（オプション） {#step-5-designate-a-conversion-event-optional}
+## ステップ 5:コンバージョンイベントを指定する（オプション） {#step-5-designate-a-conversion-event-optional}
 
 Campaignにコンバージョンイベントを設定すると、そのCampaignの受信者のうち、受信後に特定のアクションを実行した人数を確認できます。
 
 これは、前のステップで**1次コンバージョン率**を選択した場合にのみテストに影響します。詳細については、[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を参照してください。
 
-## ステップ 6: 確認して起動する {#step-6-review-and-launch}
+## ステップ 6:確認して起動する {#step-6-review-and-launch}
 
 確認ページで多変量Campaignの詳細を確認し、テストを起動します。次に、[テスト結果の理解]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/)の方法を学びましょう。
 
@@ -90,7 +90,7 @@ Campaignにコンバージョンイベントを設定すると、そのCampaign�
 | プッシュ | コピー <br> 画像と絵文字の使用 <br> ディープリンク <br> 数値の表現（例：「3倍」と「200%増加」）<br> 時間の表現（例：「深夜に終了」と「残り6時間で終了」） | 開封数 <br> コンバージョン率 |
 | メール | 件名 <br> 表示名 <br> 挨拶文 <br> 本文コピー <br> 画像と絵文字の使用 <br> 数値の表現（例：「3倍」と「200%増加」）<br> 時間の表現（例：「深夜に終了」と「残り6時間で終了」） | 開封数 <br> コンバージョン率 |
 | アプリ内メッセージ | 「プッシュ」に記載された要素 <br> [アプリ内メッセージの画像仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | クリック数 <br> コンバージョン率 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="チャネル別のヒント" }
 
 {% alert tip %}
 ABテストを実施する際は、[ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)を生成することを忘れないでください。各バリアントがコンバージョンファネルにどのような影響を与えたかを理解できます。特に、ビジネスにおける「コンバージョン」が複数のステップやアクションを伴う場合に有用です。

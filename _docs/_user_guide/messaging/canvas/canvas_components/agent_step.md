@@ -77,13 +77,14 @@ After setting up your Agent step, you can test and preview the output of this st
 
 ## Error handling  
 
-- If the connected model returns a rate limit error, Braze retries up to five times with exponential backoff.  
-- If the agent fails for any other reason (such as a timeout error or invalid API key), the output variable is set to `null`.
+For how Braze handles agent failures, rate limit errors, and invocation flow controls, see [Error handling]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) in Braze Agents.
+
+- If the agent fails for any reason (such as a timeout error or invalid API key), the output variable is set to `null`.
     - If an agent reaches its daily invocation limit, the output variable is set to `null`. 
 - Use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) to buffer against errors. For example, in the **Add Personalization** modal, you can enter a default Liquid value such as {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} or {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - Responses are cached for identical inputs and may be reused for repeated identical invocations within a few minutes.
     - Responses that use cached values do still count toward total and daily invocations.
-- Agent steps may take time to process a large batch of users. If you see users who are still pending in this step, check your logs to verify that invocations are happening.
+- Agent steps may take time to process a large batch of users. Braze queues invocations according to [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls), so users may remain pending during high-volume sends. Check your logs to verify that invocations are happening.
 
 ## Analytics  
 
@@ -112,7 +113,7 @@ The following pattern uses three agents for a travel example: someone searched i
 
 To test your agent's performance and credit consumption against your existing journeys, add an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so only part of your audience enters the branch that contains your Agent step. 
 
-For example, using about 25,000 invocations, send 2,000 users per day down a path with the agent and send the rest to a control path or a path without the agent. Gather data for 1-2 weeks and compare key performance indicators (KPIs), counter-metrics, and agent credit consumption between paths before you increase traffic to the agent-enabled branch.
+For example, you can start by sending a few thousand users per day down a path with the agent and send the rest to a control path or a path without the agent. Gather data for 1-2 weeks and compare key performance indicators (KPIs), counter-metrics, and agent credit consumption between paths. This way, you can build confidence and prove ROI before you increase traffic to the agent-enabled branch, and limit invocation consumption to do it.
 
 ## Frequently asked questions
 
@@ -134,4 +135,4 @@ An Agent step analyzes the context data that the agent is configured to use, as 
 - [Braze Agents overview]({{site.baseurl}}/user_guide/brazeai/agents/)  
 - [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)  
 - [Deploy agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)  
-- [Reference for agents]({{site.baseurl}}/user_guide/brazeai/agents/reference/)  
+- [Reference for agents]({{site.baseurl}}/user_guide/brazeai/agents/reference/)

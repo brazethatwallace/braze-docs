@@ -92,7 +92,7 @@ Wählen Sie **Criteo** als den gewünschten Audience Sync-Partner aus.
 Wählen Sie dann Ihr gewünschtes Criteo-Werbekonto aus. Geben Sie in der Dropdown-Liste **Choose a New or Existing Audience** den Namen einer neuen oder bestehenden Zielgruppe ein.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Eine neue Zielgruppe erstellen %}
 **Eine neue Zielgruppe erstellen**<br>
 Geben Sie einen Namen für die neue Zielgruppe ein, wählen Sie **Add Users to Audience**, und wählen Sie aus, welche Felder Sie mit Criteo synchronisieren möchten. Speichern Sie anschließend Ihre Zielgruppe, indem Sie unten im Schritteditor auf den Button **Create Audience** klicken.
 
@@ -104,7 +104,7 @@ Braze zeigt am oberen Rand des Schritteditors eine Benachrichtigung an, wenn die
 
 Wenn Sie ein Canvas mit einer neuen Zielgruppe starten, synchronisiert Braze die Nutzer:innen nahezu in Realtime, sobald sie die Audience Sync-Komponente betreten.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Mit einer bestehenden Zielgruppe synchronisieren %}
 **Mit einer bestehenden Zielgruppe synchronisieren**<br>
 Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Criteo-Zielgruppen hinzuzufügen, um sicherzustellen, dass diese Zielgruppen auf dem neuesten Stand sind. Um mit einer bestehenden Zielgruppe zu synchronisieren, geben Sie den Namen der bestehenden Zielgruppe in das Dropdown-Menü ein und wählen Sie **Add to the Audience**. Braze fügt dann Nutzer:innen nahezu in Realtime hinzu, sobald sie die Audience Sync-Komponente betreten.
 

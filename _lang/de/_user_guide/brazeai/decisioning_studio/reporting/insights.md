@@ -5,7 +5,7 @@ page_order: 2
 description: "Erfahren Sie, wie Sie den Insights-Bericht verwenden, um zu verstehen, wie Empfehlungsoptionen in Ihrer Aktionsbank in BrazeAI Decisioning Studio generiert werden."
 ---
 
-# Insights-Bericht
+# Insights-Bericht {#insights-report}
 
 > Insights zeigen Ihnen, wie die verschiedenen Empfehlungsoptionen in Ihrer Aktionsbank generiert werden, z. B. die Blockauswahl. Es gibt zwei verschiedene Insights-Berichte: **Agent-Präferenzen** und **SHAPs**.
 
@@ -19,15 +19,15 @@ In der folgenden Tabelle finden Sie weitere Details zu diesem Bericht:
 
 | Feld | Beschreibung |
 |-------|-------------|
-| Dimension | Das Attribut, das zur Organisation der Ergebnisse verwendet wird, z. B. Kanal, Kampagne oder Plattform. |
+| Dimension | Das Attribut, das zur Organisation der Ergebnisse verwendet wird, z. B. Kanal, Campaign oder Plattform. |
 | Vergleichsgruppe | Die Gruppen, die Sie in Ihrem Bericht vergleichen möchten. Sie können mehrere Vergleichsgruppen auswählen. |
 | Parameter | Die Metrik, die auf dieses Attribut angewendet wird, z. B. Öffnungen, Klicks oder Konversionsrate. |
 | Segment | Das [Zielgruppen-Segment]({{site.baseurl}}/user_guide/audience/segments/), das Sie in Braze erstellt haben. |
-| Option             | Die spezifische Empfehlungsoption, die aus der Aktionsbank ausgewählt wurde. |
-| Beschreibung        | Eine kurze Erklärung dessen, was die Option darstellt.            |
-| Anzahl der Auswahlen  | Die Gesamtanzahl, wie oft die Option ausgewählt wurde.         |
-| % der Auswahlen   | Der prozentuale Anteil aller Auswahlen, bei denen diese Option gewählt wurde. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Option | Die spezifische Empfehlungsoption, die aus der Aktionsbank ausgewählt wurde. |
+| Beschreibung | Eine kurze Erklärung dessen, was die Option darstellt. |
+| Anzahl der Auswahlen | Die Gesamtanzahl, wie oft die Option ausgewählt wurde. |
+| % der Auswahlen | Der prozentuale Anteil aller Auswahlen, bei denen diese Option gewählt wurde. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Insights-Bericht" }
 {% endtab %}
 
 {% tab SHAPs %}

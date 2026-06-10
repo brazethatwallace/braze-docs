@@ -137,6 +137,10 @@ Refer to the following table for recommended image sizes. Smaller, high-quality 
 | 5&nbsp;MB maximum | 600 pixels maximum | 480 pixels maximum | PNG, JPEG, GIF |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Image size" }
 
+{% alert note %}
+Gmail web and Gmail mobile apps often do not render SVG (and WEBP support is inconsistent). Use PNG or JPEG for images that must display reliably in Gmail.
+{% endalert %}
+
 ## Deep linking
 
 With push notifications and in-app messages, a [deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) takes users directly to a specified destination within an app. However, deep links require the app to be installed, and emails don't provide a way to know whether recipients have the app. This means deep links in emails can result in errors for recipients who don't have the app installed.

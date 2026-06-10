@@ -27,7 +27,7 @@ Braze recopila automáticamente un nivel básico de información de desinstalaci
 
 Cuando Braze detecta una desinstalación, el usuario se etiqueta como desinstalado. Si utilizas el filtro **No ha desinstalado** en una Campaign, estos usuarios etiquetados se excluyen. Si un usuario reinstala la aplicación pero no la abre, la etiqueta de desinstalación permanece en su perfil. La etiqueta solo se elimina cuando el usuario inicia una nueva sesión en la aplicación reinstalada. Esto significa que un usuario que reinstala pero nunca abre la aplicación sigue apareciendo como desinstalado.
 
-Para obtener más información sobre el uso del seguimiento de desinstalaciones, consulta nuestra entrada de blog [Uninstall Tracking: Una mirada de la industria a sus puntos fuertes y sus limitaciones](https://www.braze.com/blog/uninstall-tracking-an-industry-look-at-its-strengths-and-limitations/).
+Para obtener más información sobre el uso del seguimiento de desinstalaciones, consulta nuestra entrada de blog [Uninstall Tracking: An Industry Look at its Strengths and Limitations](https://www.braze.com/blog/uninstall-tracking-an-industry-look-at-its-strengths-and-limitations/).
 
 ## Activar el seguimiento de desinstalaciones {#turning-on-uninstall-tracking}
 
@@ -61,7 +61,7 @@ Las aplicaciones sin seguimiento de desinstalaciones habilitado informarán de l
 
 El seguimiento de desinstalaciones de Campaigns muestra el número de usuarios que recibieron una Campaign específica y posteriormente desinstalaron tu aplicación en el periodo de tiempo seleccionado. Esta herramienta ofrece información sobre cómo las Campaigns pueden estar fomentando comportamientos negativos no deseados de los usuarios y ayuda a medir la eficacia general de las Campaigns.
 
-Las estadísticas de desinstalación de Campaigns se encuentran en la página **Campaign Analytics** de una Campaign específica. Para las Campaigns multicanal y multivariantes, las desinstalaciones pueden desglosarse por canal y variante, respectivamente.
+Las estadísticas de desinstalación de Campaigns se encuentran en la página **Campaign Analytics** de una Campaign específica. Para las Campaigns multicanal y multivariante, las desinstalaciones pueden desglosarse por canal y variante, respectivamente.
 
 ![Desinstalaciones a nivel de Campaign.]({% image_buster /assets/img_archive/campaign_level_uninstall_tracking.png %})
 
@@ -75,6 +75,10 @@ Braze rastrea las desinstalaciones observando cuándo los mensajes push enviados
 
 FCM y APNs imponen restricciones a Uninstall Tracking. Braze solo incrementa el recuento de desinstalaciones cuando FCM o APNs nos informan de que un usuario ha desinstalado la aplicación, pero estos sistemas de terceros pueden notificarnos las desinstalaciones en cualquier momento. Utiliza Uninstall Tracking para detectar tendencias direccionales en lugar de estadísticas precisas.
 
+Braze trata las siguientes respuestas de FCM como respuestas de eliminación de token (desinstalación): `DEVICE_UNREGISTERED`, `BAD_REGISTRATION` y `SENDER_ID_MISMATCH`.
+
+Para obtener más información sobre el uso del seguimiento de desinstalaciones, consulta nuestra entrada de blog [Uninstall Tracking: An Industry Look at its Strengths and Limitations](https://www.braze.com/blog/uninstall-tracking-an-industry-look-at-its-strengths-and-limitations/).
+
 ## Solución de problemas {#troubleshooting}
 
 ### ¿Por qué de repente veo un pico de desinstalaciones? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
@@ -82,7 +86,7 @@ FCM y APNs imponen restricciones a Uninstall Tracking. Braze solo incrementa el 
 Si observas un pico de desinstalaciones de aplicaciones, puede deberse a que Firebase Cloud Messaging (FCM) y el servicio de notificaciones push de Apple (APNs) revocan tokens antiguos con una frecuencia diferente.
 
 {% alert note %}
-Por motivos de privacidad, los proveedores de notificaciones push de Braze pueden revocar los tokens a intervalos irregulares, lo que significa que el número de desinstalaciones puede dispararse en un periodo de tiempo determinado.<br><br>Para validar estos cambios, supervisa el seguimiento de desinstalaciones junto con una métrica de acción del usuario, como la tasa de apertura directa de notificaciones push. Si las desinstalaciones aumentan considerablemente, pero las aperturas directas se mantienen estables, es probable que el pico refleje la revocación de tokens antiguos por parte de un socio, en lugar del comportamiento real de los usuarios.
+Por motivos de privacidad, los proveedores de notificaciones push de Braze pueden revocar los tokens a intervalos irregulares, lo que significa que el número de desinstalaciones puede dispararse en un periodo de tiempo determinado.<br><br>Para validar estos cambios, supervisa el seguimiento de desinstalaciones junto con una métrica de acción del usuario, como la tasa de apertura directa de notificaciones push. Si las desinstalaciones aumentan considerablemente, pero las aperturas directas se mantienen estables, es probable que el pico refleje la revocación de tokens antiguos por parte de un proveedor, en lugar del comportamiento real de los usuarios.
 {% endalert %}
 
 ### ¿Cómo puedo determinar si una Campaign específica causó desinstalaciones? {#how-do-i-determine-if-a-specific-campaign-caused-uninstalls}

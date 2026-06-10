@@ -19,8 +19,6 @@ description: "이 문서에서는 Canvas에서 번역 업데이트 엔드포인�
 
 Canvas를 시작한 후 번역을 업데이트하려면 먼저 [메시지를 초안으로 저장해야]({{site.baseurl}}/post-launch_edits/) 합니다.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `canvas.translations.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
@@ -42,7 +40,7 @@ Canvas를 시작한 후 번역을 업데이트하려면 먼저 [메시지를 초
 | `message_variation_id` | 필수 | 문자열 | 메시지 변형의 ID입니다. |
 | `locale_id` | 필수 | 문자열 | 로케일의 ID(UUID)입니다. |
 | `translation_map` | 필수 | 오브젝트 | 새 번역을 포함하는 오브젝트입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 모든 번역 ID는 범용 고유 식별자(UUID)로 간주되며, GET 엔드포인트의 응답에서 확인할 수 있습니다.

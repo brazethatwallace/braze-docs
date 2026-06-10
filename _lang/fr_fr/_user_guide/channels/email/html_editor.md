@@ -52,7 +52,7 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 {% endtabs %}
 
 {% alert tip %}
-Si vous prévoyez de créer du HTML personnalisé et que vous souhaitez que les arrière-plans restent cohérents dans l'application mobile Gmail avec le mode sombre activé, consultez [Application mobile Gmail et couleurs d'arrière-plan en mode sombre](#gmail-dark-mode).
+Si vous prévoyez de créer du HTML personnalisé et que vous souhaitez que les arrière-plans restent cohérents dans l'application mobile Gmail avec le mode sombre activé, consultez [Application mobile Gmail et mode sombre](#gmail-dark-mode).
 {% endalert %}
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='email html editor' %}
@@ -113,7 +113,6 @@ Remplacez `#ffffff` par la couleur souhaitée.
 
 {% alert note %}
 Cette approche ne s'applique pas de manière fiable aux éléments `<table>` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
-  <caption>Application mobile Gmail et mode sombre</caption>
 {% endalert %}
 
 Pour plus d'informations sur la syntaxe des dégradés, consultez [Les dégradés CSS sur W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -137,6 +136,16 @@ Sous **Sending Settings** > **Advanced**, activez l'**insertion CSS** pour la co
 
 Vous pouvez également ajouter de la personnalisation pour les en-têtes d'e-mail et des extras d'e-mail pour renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing.
 
+##### Pièces jointes d'e-mail {#email-attachments}
+
+Vous pouvez également ajouter des pièces jointes à vos e-mails par les méthodes suivantes :
+
+- **Importer un fichier :** Glissez-déposez ou parcourez pour importer un fichier directement depuis votre ordinateur vers l'e-mail. Braze valide le type et la taille du fichier (jusqu'à 2&nbsp;Mo par défaut) avant l'importation, puis ces fichiers sont importés dans la bibliothèque multimédia. Les fichiers dépassant la limite de 2&nbsp;Mo ne peuvent pas être importés.
+- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
+- **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des fichiers à partir d'URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
+
+Consultez les [bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) pour les recommandations spécifiques à prendre en compte.
+
 ##### En-têtes d'e-mail {#email-headers}
 
 Pour ajouter des en-têtes d'e-mail, sélectionnez **Add New Header**. Les en-têtes d'e-mail contiennent des informations sur l'e-mail envoyé. Ces [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) incluent généralement l'expéditeur, le destinataire, le protocole d'authentification et les informations de routage. Braze ajoute automatiquement les informations d'en-tête requises par la RFC pour que les e-mails atteignent les fournisseurs de boîtes de réception.
@@ -152,7 +161,7 @@ Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentair
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="En-têtes d'e-mail" id="reserved-fields">
   <caption>En-têtes d'e-mail</caption>
 <thead>
   <tr>
@@ -233,6 +242,10 @@ Les clients de messagerie qui prennent en charge le texte d'aperçu récupèrent
 Pour l'éditeur par glisser-déposer, ajoutez uniquement les caractères de non-jointure de largeur nulle (‌`&zwnj;`) sans le formatage `<div>` directement dans l'accroche dans la section **Sending Settings**.
 {% endalert %}
 
+{% alert note %}
+Dans l'application Apple Mail, les liens d'images dans les e-mails HTML doivent utiliser des URL `https://` pour être cliquables. Utilisez des liens sécurisés pour toute image encapsulée dans une balise d'ancrage lorsque vous attendez des clics de la part de destinataires utilisant Apple Mail.
+{% endalert %}
+
 ### Étape 3.3 : Vérifier les erreurs d'e-mail {#step-33-check-for-email-errors}
 
 Avant l'envoi, l'éditeur signale les problèmes courants :
@@ -262,7 +275,7 @@ Distribuez les e-mails en fonction d'un horaire planifié, d'une action ou d'un 
 Pour les campagnes déclenchées par API, lorsque l'action de déclenchement est définie sur **Interact With Campaign**, la sélection d'une option **Receive** comme interaction entraînera le déclenchement de votre nouvelle campagne dès que Braze marquera la campagne sélectionnée comme envoyée, même si ce message rebondit ou n'est pas distribué.
 {% endalert %}
 
-Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
+Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
 #### Choisir les utilisateurs à cibler {#choose-users-to-target}
 

@@ -34,7 +34,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | ----------- | ----------- |
 | Shopgate-Enterprise-Konto | Ein [Shopgate](https://www.shopgate.com/)-Enterprise-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
 | Shopgate-Einladung | Sie müssen Shopgate zu Ihrem Braze-Konto einladen, um Ihre Apps einzurichten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

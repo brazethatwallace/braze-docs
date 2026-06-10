@@ -55,6 +55,8 @@ https://example.com/{{url_var}}
 
 ### Liquid変数によってレンダリングされたURLの短縮 {#shorten-urls-rendered-by-liquid-variables}
 
+**対応チャネル：** KakaoTalk、LINE、SMS、RCS、WhatsApp
+
 LiquidによってレンダリングされたURLは、APIトリガープロパティに含まれるものも含めて短縮されます。たとえば、{% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %}が有効なURLを表す場合、メッセージを送信する前にそのURLを短縮してトラッキングします。
 
 ### `/messages/send`エンドポイントでのURL短縮 {#shorten-urls-in-messagessend-endpoint}
@@ -63,9 +65,9 @@ LiquidによってレンダリングされたURLは、APIトリガープロパ�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-|`link_shortening_enabled`| オプション | ブール値 | `link_shortening_enabled`を`true`に設定すると、リンク短縮とキャンペーンレベルのクリックトラッキングが有効になります。トラッキングを使用するには、`campaign_id`と`message_variation_id`が必要です。|
-|`user_click_tracking_enabled`| オプション | ブール値 | `user_click_tracking_enabled`を`true`に設定すると、リンク短縮、キャンペーンレベルおよびユーザーレベルのクリックトラッキングが有効になります。トラッキングデータを使用して、URLをクリックしたユーザーのSegmentを作成できます。<br><br>このパラメーターを使用するには、`link_shortening_enabled`が`true`であり、`campaign_id`と`message_variation_id`が必要です。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `link_shortening_enabled` | オプション | ブール値 | `link_shortening_enabled`を`true`に設定すると、リンク短縮とキャンペーンレベルのクリックトラッキングが有効になります。トラッキングを使用するには、`campaign_id`と`message_variation_id`が必要です。|
+| `user_click_tracking_enabled` | オプション | ブール値 | `user_click_tracking_enabled`を`true`に設定すると、リンク短縮、キャンペーンレベルおよびユーザーレベルのクリックトラッキングが有効になります。トラッキングデータを使用して、URLをクリックしたユーザーのSegmentを作成できます。<br><br>このパラメーターを使用するには、`link_shortening_enabled`が`true`であり、`campaign_id`と`message_variation_id`が必要です。|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
 
 リクエストパラメーターの完全なリストについては、[リクエストパラメーター]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)を参照してください。
 
@@ -77,7 +79,7 @@ CampaignまたはCanvasを起動する前に、まずメッセージをプレビ
 
 テストメッセージを送信する前にCampaignまたはCanvasを保存して、メッセージで配信される短縮URLの表現を受け取るようにしてください。テスト送信前にCampaignまたはCanvasが保存されていない場合、テスト送信にはプレースホルダーURLが含まれます。
 
-Canvasesが「短縮SMSリンクをクリック」フィルターに表示されるには、短縮リンクを含むキャンバスステップでも高度なトラッキングが有効になっている必要があります。これにより、ユーザーレベルのクリックトラッキングが可能になります。短縮リンクが基本トラッキングで設定されている場合、SMS短縮リンクのクリックイベントをフィルタリングするオプションは利用できません。
+Canvasesが「短縮SMSリンクをクリック」フィルターに表示されるには、短縮リンクを含むキャンバスステップでも高度なトラッキングが有効になっている必要があります。これにより、ユーザーレベルのクリックトラッキングが可能になります。短縮リンクが基本トラッキングで設定されている場合、SMS短縮リンクのクリックイベントをフィルタリングするオプションは利用できません。同じ高度なトラッキングの要件は、クリックされた短縮SMSリンクに依存するCanvasエントリやアクションパスを設定する場合にも適用されます。
 
 {% alert important %}
 アクティブなCanvas内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、Canvasの下書きがアクティブになったときに生成されます。
@@ -117,7 +119,7 @@ Liquidパーソナライゼーションと短縮URLは、ユーザーが選択�
 ユニバーサルリンクでリンク短縮を実装する前に、ユーザーエクスペリエンスをテストして、期待どおりであることを確認してください。
 {% endalert %}
 
-### `send_ids`はSMSクリックイベントに関連付けられていますか？ {#are-sendids-associated-with-sms-click-events}
+### `send_ids`はSMSクリックイベントに関連付けられていますか？ {#are-send_ids-associated-with-sms-click-events}
 
 いいえ。ただし、高度なトラッキングが有効になっている場合、[クエリビルダー]({{site.baseurl}}/query_builder/)を使用して、次のクエリでCurrentsデータをクエリすることにより、一般的に`send_ids`をクリックイベントに関連付けることができます。
 

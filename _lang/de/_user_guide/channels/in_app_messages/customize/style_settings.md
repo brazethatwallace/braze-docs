@@ -52,7 +52,7 @@ Für modale und Vollbild-In-App-Nachrichten können Sie den Schließen-Button an
 
 ![Optionen zur Anpassung des Schließen-X-Buttons in In-App-Nachrichten, einschließlich Button-Größe, Füllfarbe, Hintergrundfarbe, Rahmenstil und Rahmenradius.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
-### Span-Styling
+### Span-Styling {#span-styling}
 
 Das Hinzufügen von Span-Styling zu Text innerhalb von In-App-Nachrichten ermöglicht eine erweiterte Anpassung des Nachrichtenerscheinungsbilds und erlaubt die Verwendung verschiedener Textfarben, Schriftarten und Größen. Span-Styling bietet Ihren Nutzer:innen ein ansprechenderes und visuell attraktiveres Erlebnis, indem es die Aufmerksamkeit auf wichtige Informationen lenkt und die allgemeine Klarheit der Nachricht verbessert.
 
@@ -158,4 +158,4 @@ Sie können auch Tastaturkürzel verwenden, um Stile zu kopieren und einzufügen
 | ------------ | ---------------------------------------------- | ------------------------------------------------- |
 | Stile kopieren | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
 | Stile einfügen | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tastaturkürzel" }

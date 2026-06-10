@@ -25,11 +25,11 @@ Uma vez lançado, seu agente irá:
 
 ## Configure relatórios BAU {#set-up-bau-reporting}
 
-Por padrão, os relatórios do portal Decisioning Studio Go comparam o grupo do Decisioning Studio Go com o grupo de controle aleatório. Se você tiver uma campanha Business as Usual (BAU) existente que gostaria de comparar, pode configurar relatórios BAU para visualizar os três grupos em um só lugar.
+Por padrão, os relatórios do portal Decisioning Studio Go comparam o grupo do Decisioning Studio Go com o grupo de controle aleatório. Se você tiver uma campanha Business as Usual (BAU) existente com a qual gostaria de comparar, pode configurar relatórios BAU para visualizar os três grupos em um só lugar.
 
 ### Benefícios dos relatórios BAU {#benefits-of-bau-reporting}
 
-O principal benefício de configurar relatórios BAU é a aplicação da filtragem de cliques inválidos do Decisioning Studio Go. Quando aplicada a todos os três grupos de experimento, isso permite a comparação de desempenho de cliques mais precisa e justa ("comparação equilibrada") ao remover ruídos de:
+O principal benefício de configurar relatórios BAU é a aplicação da filtragem de cliques inválidos do Decisioning Studio Go. Quando aplicada a todos os três grupos do experimento, isso permite a comparação de desempenho de cliques mais precisa e justa ("comparação equilibrada") ao remover ruídos de:
 - Cliques suspeitos de máquina
 - Cliques no link de cancelamento de inscrição
 
@@ -55,7 +55,7 @@ Após validar o design do seu experimento, reúna os seguintes detalhes para con
 |-----|---------------|
 | **Braze** | Campaigns e Canvas |
 | **Salesforce Marketing Cloud** | Apenas jornadas |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informações necessárias" }
 
 **ID do público do seu CEP:**
 
@@ -63,18 +63,18 @@ Após validar o design do seu experimento, reúna os seguintes detalhes para con
 |-----|---------------|
 | **Braze** | Apenas Segments |
 | **Salesforce Marketing Cloud** | Apenas extensões de dados |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informações necessárias" }
 
 Se você não tiver um público existente que rastreie seu público BAU, deve criar um.
 
 ### Considerações {#considerations}
 
 - **Apenas KPIs de cliques:** semelhante ao Decisioning Studio Go de forma mais geral, os relatórios BAU cobrem apenas KPIs de cliques, não KPIs de conversão.
-- **Limitações do Canvas:** atualmente, não suportamos filtragem para IDs de etapas específicas do Canvas. Eventos de todas as etapas do Canvas serão incluídos nos dados BAU. Isso pode invalidar comparações contra BAU se apenas certas etapas do Canvas devem ser incluídas.
+- **Limitações do Canvas:** atualmente, não oferecemos suporte à filtragem por IDs de etapas específicas do Canvas. Eventos de todas as etapas do Canvas serão incluídos nos dados BAU. Isso pode invalidar comparações com o BAU se apenas certas etapas do Canvas devem ser incluídas.
 
 ### Configure relatórios BAU
 
-Siga as instruções em seu portal do Decisioning Studio Go. Você deve ter:
+Siga as instruções no portal do Decisioning Studio Go. Você deve ter:
 - Um ou mais IDs de Campaign onde todas as comunicações são comunicações BAU
 - Um ID de público que rastreia os destinatários no público BAU a cada dia
 
@@ -82,19 +82,19 @@ Siga as instruções em seu portal do Decisioning Studio Go. Você deve ter:
 
 Após o lançamento, monitore o desempenho do seu agente no portal do Decisioning Studio Go:
 
-- **Métricas de engajamento:** rastreie as taxas de cliques entre grupos de experimentos
+- **Métricas de engajamento:** rastreie as taxas de cliques entre os grupos do experimento
 - **Progresso de aprendizado:** observe como as recomendações do agente evoluem ao longo do tempo
 - **Comparações de grupos:** compare o desempenho do Decisioning Studio Go com o controle aleatório e o BAU (se configurado)
 
 {% alert tip %}
-Permita pelo menos 2 a 4 semanas de coleta de dados antes de tirar conclusões sobre o desempenho. O agente precisa de interações suficientes para aprender e otimizar efetivamente.
+Aguarde pelo menos 2 a 4 semanas de coleta de dados antes de tirar conclusões sobre o desempenho. O agente precisa de interações suficientes para aprender e otimizar de forma eficaz.
 {% endalert %}
 
 ## Solução de problemas {#troubleshooting}
 
 Se o seu agente não estiver se saindo como esperado:
 
-1. **Verifique a orquestração:** confirme que sua integração CEP está ativa, que Campaigns e jornadas estão em execução e que não há limites globais ou regras semelhantes interferindo na orquestração.
+1. **Verifique a orquestração:** confirme que sua integração CEP está ativa, que as Campaigns e jornadas estão em execução e que não há limites globais ou regras semelhantes interferindo na orquestração.
 2. **Verifique o fluxo de dados:** confirme que os dados do público e os dados de engajamento estão sendo capturados corretamente.
-3. **Revise os grupos de experimento:** garanta a atribuição aleatória adequada e que não haja sobreposição entre os grupos.
+3. **Revise os grupos do experimento:** garanta a atribuição aleatória adequada e que não haja sobreposição entre os grupos.
 4. **Fale com o suporte:** entre em contato com o suporte da Braze para mais assistência.

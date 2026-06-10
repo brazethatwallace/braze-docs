@@ -215,7 +215,7 @@ Todos os quatro tipos são exibidos se tanto `start_date` quanto `end_date` fore
 | Data de início | Especifica uma data de início | Requer `start_date` |
 | Data de término | Especifica uma data de término | Requer `end_date` |
 | Intervalo de datas | Especifica tanto uma data de início quanto de término | Requer tanto `start_date` quanto `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example values" }
 
 - **Valor de substituição:** Substitui `start_date` e `end_date` por um timestamp Unix em segundos para uma data especificada em UTC, como `1696517353`.
 - **Exemplo de uso:** Para todas as variáveis de relativo, data de início, data de término e intervalo de datas:

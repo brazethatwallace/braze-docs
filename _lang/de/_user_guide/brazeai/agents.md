@@ -10,12 +10,12 @@ description: "Braze Agents können Inhalte generieren, intelligente Entscheidung
 > Braze Agents sind KI-gestützte Assistenten, die Sie innerhalb von Braze erstellen können. Agenten können Inhalte generieren, intelligente Entscheidungen treffen und Ihre Daten anreichern, damit Sie personalisiertere Kundenerlebnisse bieten können.
 
 {% alert important %}
-Für den Zugriff auf und die Nutzung von Braze Agents sind Nachrichtenguthaben erforderlich. Sollten Sie derzeit nicht über Nachrichtenguthaben verfügen und Braze Agents nutzen möchten, wenden Sie sich an Ihren Account Manager, um die nächsten Schritte zu besprechen.
+Für den Zugriff auf und die Nutzung von Braze Agents sind Nachrichten- oder Aktionsguthaben erforderlich. Sollten Sie derzeit nicht über Aktionsguthaben verfügen und Braze Agents nutzen möchten, wenden Sie sich an Ihren Account Manager, um die nächsten Schritte zu besprechen.
 {% endalert %}
 
 Sehen Sie sich dieses Video an, um einen Überblick über Braze Agents in der Agentenkonsole zu erhalten.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## Warum sollten Sie Braze Agents einsetzen? {#why-use-braze-agents}
 
@@ -31,13 +31,13 @@ Verwenden Sie Agenten, um Inhalte anhand des spezifischen Kontexts einer Nutzer:
 
 Der Agent lernt jedoch nicht durch Versuch und Irrtum und hat keine Vorstellung von einem übergeordneten Marketingziel, das er messen und maximieren möchte. Selbst wenn Sie ihn anweisen, generell Texte zu verfassen, die Conversions fördern, verfügt er über keinen Mechanismus, um die Conversion-Auswirkungen seines agentenbasierten Schreibens zu „überwachen“ und diese Daten in zukünftige agentenbasierte Aufrufe zu integrieren. Man kann sich dies als „Stimmungs“-Entscheidungsfindung vorstellen, nicht als belohnungsbasierte KI-Entscheidungsfindung.
 
-Im Gegensatz dazu sind andere BrazeAI-Tools darauf ausgelegt, die von ihnen gemessenen Metriken zu maximieren. Beispielsweise sind Agenten sehr gut darin, qualitativ zu beurteilen, inwiefern die Eigenschaften einer Nutzer:in deren Wahrscheinlichkeit oder Neigung beeinflussen, eine bestimmte Handlung auszuführen oder ein bestimmtes Produkt zu mögen. Da der Agent jedoch nicht durch Versuch und Irrtum lernt, hat er keine Vorstellung davon, wie er seine Genauigkeit bei der Vorhersage von Wahrscheinlichkeiten messen und das Signal im Laufe der Zeit verbessern kann. Daher übertrifft die Predictive Suite den Agent-Schritt, wenn man die Genauigkeit der Prognosen und die Verbesserungen im Laufe der Zeit betrachtet.
+Im Gegensatz dazu sind andere BrazeAI-Tools darauf ausgelegt, die von ihnen gemessenen Metriken zu maximieren. Beispielsweise sind Agenten sehr gut darin, qualitativ zu beurteilen, inwiefern die Eigenschaften einer Nutzer:in deren Wahrscheinlichkeit oder Neigung beeinflussen, ein bestimmtes Ereignis auszulösen oder ein bestimmtes Produkt zu mögen. Da der Agent jedoch nicht durch Versuch und Irrtum lernt, hat er keine Vorstellung davon, wie er seine Genauigkeit bei der Vorhersage von Wahrscheinlichkeiten messen und das Signal im Laufe der Zeit verbessern kann. Daher übertrifft die Predictive Suite den Agent-Schritt, wenn man die Genauigkeit der Prognosen und die Verbesserungen im Laufe der Zeit betrachtet.
 
 ## Features {#features}
 
 Zu den Features von Braze Agents gehören:
 
-- **Flexible Einrichtung:** Verwenden Sie ein von Braze bereitgestelltes LLM oder verbinden Sie Ihre eigenen [KI-Modellanbieter]({{site.baseurl}}/partners/ai_model_providers/) (wie OpenAI, Anthropic oder Google Gemini).
+- **Flexible Einrichtung:** Verwenden Sie ein von Braze bereitgestelltes LLM oder verbinden Sie Ihre eigenen [KI-Modellanbieter]({{site.baseurl}}/partners/ai_model_providers/) (wie OpenAI, Anthropic, Google Gemini oder Databricks Mosaic).
 - **Nahtlose Integration:** Setzen Sie Agenten direkt in Canvas-Schritten oder Katalogfeldern ein.
 - **Test- und Protokollierungstools:** Erhalten Sie eine Vorschau auf die Ausgabe Ihres Agenten, indem Sie ihn vor dem Start mit Beispiel-Eingaben testen. Sehen Sie sich die Protokolle für jeden Ausführungsvorgang des Agenten an, einschließlich der Ein- und Ausgaben für diesen Vorgang.
 - **Nutzungskontrollen:** Tägliche Limits unterstützen bei der Verwaltung von Performance und Kosten.
@@ -57,8 +57,7 @@ Agenten werden mit Anweisungen (System-Prompts) konfiguriert, die ihr Verhalten 
 | [Ausgabevariable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | Die Ausgabe, die der Agent erzeugt, wenn er in Canvas-Schritten verwendet wird. Ausgabevariablen speichern das Ergebnis des Agenten, um Inhalte zu personalisieren oder Workflow-Pfade zu steuern. Ausgabevariablen können vom Datentyp String, Zahl oder Boolescher Wert sein. |
 | [Ausführung](#limitations) | Ein einzelner Durchlauf des Agenten. Dies wird auf Ihre täglichen Limits angerechnet. |
 | [Ausgabeformat]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | Die vordefinierte Datenstruktur der Antwort des Agenten. |
-| [Temperatur]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | Der Grad der Abweichung für die Ausgabe des Agenten. Dies bestimmt, wie präzise oder kreativ Ihr Agent sein kann. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wichtige Konzepte" }
 
 ## Einschränkungen {#limitations}
 
@@ -68,6 +67,12 @@ Es gelten die folgenden Einschränkungen:
 - Standardmäßig muss jeder Durchlauf innerhalb von 20 Sekunden abgeschlossen sein. Nach 20 Sekunden gibt der Agent eine `null`-Antwort zurück, wo immer er verwendet wird.
     - Sollten Ihre Agenten regelmäßig eine Zeitüberschreitung haben, wenden Sie sich an Ihren Braze Account Manager, um dieses Limit zu erhöhen.
 - Die Eingabedaten sind auf 25 KB pro Anfrage begrenzt. Längere Eingaben werden gekürzt.
+
+## Fehlerbehandlung {#error-handling}
+
+Wenn das verbundene Modell während eines Canvas-Agent-Schritts einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage bis zu fünfmal mit exponentiellem Backoff. Bei anderen Fehlern (wie einer Zeitüberschreitung oder einem ungültigen API-Schlüssel) wird die Agentenausgabe auf `null` gesetzt. Wenn ein Agent sein tägliches Ausführungslimit erreicht, wird die Ausgabe ebenfalls auf `null` gesetzt.
+
+Wenn viele Nutzer:innen gleichzeitig einen Agent-Schritt betreten, kann die Verarbeitung aufgrund von [Ausführungsflusskontrollen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls) länger dauern. Verwenden Sie [Standard-Liquid-Werte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/), um in Ihren Nachrichten gegen `null`-Ausgaben abzusichern.
 
 ## Wie werden meine Daten verwendet und an die von Braze bereitgestellten LLMs übermittelt? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

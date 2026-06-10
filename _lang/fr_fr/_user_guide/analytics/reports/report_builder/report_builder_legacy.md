@@ -35,7 +35,7 @@ Essayez d'utiliser les mêmes événements de conversion pour les conversions A,
 
 ### Étape 1 : Créer un nouveau rapport {#step-1-create-a-new-report}
 
-Dans le tableau de bord, accédez à **Analyse** > **Générateur de rapports**.
+Dans le tableau de bord, accédez à **Analytics** > **Générateur de rapports**.
 
 Sélectionnez **Créer un nouveau rapport** et choisissez un rapport de comparaison de Campaigns ou un rapport de comparaison de Canvas.
 
@@ -50,7 +50,7 @@ Voici les différences entre ces deux options :
 | **Création du rapport** | Vous pourrez affiner votre liste de Campaigns à l'aide de filtres, puis cocher des Campaigns spécifiques. | Vous créerez votre rapport en utilisant les options de filtre pour affiner votre liste de Campaigns. |
 | **Enregistrement et consultation du rapport** | Vous pouvez enregistrer votre rapport. La prochaine fois que vous le consulterez, vous pourrez voir les mêmes Campaigns que vous aviez précédemment ajoutées, car elles correspondent toujours à votre filtre « Dernier envoi ». | Vous pouvez enregistrer votre rapport. La prochaine fois que vous le consulterez, le rapport se mettra automatiquement à jour pour inclure toutes les Campaigns correspondant actuellement à vos filtres. |
 | **Modification du rapport** | Vous pouvez sélectionner **Modifier le rapport** pour ajouter ou supprimer des Campaigns de votre rapport. | Vous pouvez modifier votre rapport en ajustant vos critères de filtre. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1 : Créer un nouveau rapport" }
 
 {% alert note %}
 Les rapports **Manuels** et **Automatisés** peuvent inclure un maximum de 250 Campaigns par rapport.
@@ -110,9 +110,9 @@ Sélectionner **ventilation par étapes** vous permet de consulter les indicateu
 
 ![Étapes]({% image_buster /assets/img/campaign_comparison/campaign_comparison2.png %}){: style="max-width:90%;"}
 
-### Message
+### Message {#message}
 
-De manière similaire à une ventilation au niveau des étapes, sélectionner **ventilation par message** affiche le nom des étapes dans chaque ligne. Cependant, dans **modifier les colonnes**, vous aurez accès aux indicateurs au niveau du message, tels que les statistiques spécifiques au canal comme les clics d'e-mail et les ouvertures de notifications push.
+De manière similaire à une ventilation au niveau des étapes, sélectionner **ventilation par message** affiche le nom des étapes dans chaque ligne. Cependant, dans **Modifier les colonnes**, vous aurez accès aux indicateurs au niveau du message, tels que les statistiques spécifiques au canal comme les clics d'e-mail et les ouvertures de notifications push.
 
 ![Rapport]({% image_buster /assets/img/campaign_comparison/campaign_comparison3.png %}){: style="max-width:90%;"}
 

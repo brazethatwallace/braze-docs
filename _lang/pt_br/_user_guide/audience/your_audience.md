@@ -162,9 +162,9 @@ Uma vez que os dados de usuários estão na Braze, eles alimentam praticamente t
 
 | Funcionalidade | Descrição |
 | ---- | ---- |
-| [Segmentação]({{site.baseurl}}/user_guide/audience/segments/) | Crie públicos com base em: {::nomarkdown}<ul><li>Atributos e campos personalizados</li> <li>Eventos e comportamentos</li> <li>Engajamento com mensagens</li> <li>Propriedades de dispositivo e canal</li></ul>{:/} <br>Os Segments podem ser reutilizados em Campaigns e Canvas. |
+| [Segmentação]({{site.baseurl}}/user_guide/audience/segments/) | Crie públicos com base em: {::nomarkdown}<ul><li>Atributos e campos personalizados</li> <li>Eventos e comportamentos</li> <li>Engajamento com mensagens</li> <li>Propriedades de dispositivo e canal</li></ul>{:/} <br>Os segmentos podem ser reutilizados em Campaigns e Canvas. |
 | [Personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) | Use dados de usuários para personalizar o conteúdo, como: {::nomarkdown}<ul><li>Nomes e preferências no texto da mensagem</li> <li>Recomendações dinâmicas</li> <li>Conteúdo específico por local ou idioma</li></ul>{:/} |
 | Automação e orquestração  | Acione mensagens e jornadas com base em: {::nomarkdown}<ul><li>Ações do usuário</li> <li>Mudanças de atributos</li> <li>Condições baseadas em tempo</li></ul>{:/} |
 | Coordenação entre canais | Alcance os usuários no canal mais apropriado, respeitando: {::nomarkdown}<ul><li>Status de opt-in</li> <li>Limites de frequência</li> <li>Preferências de canal</li></ul>{:/} |
 | [Análise de dados e insights]({{site.baseurl}}/user_guide/analytics/) | Entenda como diferentes públicos se comportam analisando: {::nomarkdown}<ul><li>Taxas de engajamento</li> <li>Jornadas de conversão</li> <li>Desempenho de segmentos ao longo do tempo</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Funcionalidades de dados do público" }

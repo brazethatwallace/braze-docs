@@ -162,7 +162,7 @@ Lors de la configuration de vos groupes de contrôle globaux et de la consultati
 
 #### Chevauchement des numéros de compartiment aléatoires {#overlapping-random-bucket-numbers}
 
-Votre Groupe de contrôle global est formé à l'aide de numéros de compartiment aléatoires. Par conséquent, si vous exécutez d'autres tests utilisant des filtres de segment basés sur les numéros de compartiment aléatoires, gardez à l'esprit qu'il pourrait y avoir un chevauchement entre les segments que vous créez et les utilisateurs de votre Groupe de contrôle global.
+Votre Groupe de contrôle global est formé à l'aide de numéros de compartiment aléatoires. Par conséquent, si vous exécutez d'autres tests utilisant des filtres de Segment basés sur les numéros de compartiment aléatoires, gardez à l'esprit qu'il pourrait y avoir un chevauchement entre les segments que vous créez et les utilisateurs de votre Groupe de contrôle global.
 
 #### Adresses e-mail en double {#duplicate-email-addresses}
 

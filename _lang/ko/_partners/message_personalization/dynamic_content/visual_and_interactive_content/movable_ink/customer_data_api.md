@@ -26,7 +26,7 @@ Stories, Movable Ink 고객 데이터 API, 그리고 Movable Ink가 행동 데�
 | Movable Ink API 자격 증명 | Movable Ink의 솔루션 팀이 API 자격 증명을 생성해 드립니다. API 자격 증명은 다음으로 구성됩니다:{::nomarkdown}<ul><li>엔드포인트 URL(데이터가 전송될 위치)</li><li>사용자 이름 및 비밀번호(API 인증에 사용)</li></ul>{:/} 필요한 경우 Movable Ink는 기본 승인 헤더 값으로 사용할 수 있도록 사용자 이름과 비밀번호를 base64 인코딩된 값으로 제공할 수 있습니다. |
 | 행동 이벤트 페이로드 | 이벤트 페이로드를 Movable Ink 클라이언트 경험 팀과 공유해야 합니다. 자세한 내용은 [Movable Ink와 이벤트 페이로드 공유하기](#event-payloads)를 참조하세요. |
 | 크리에이티브 자산 및 비즈니스 로직 | Movable Ink에 블록을 구축하는 방법을 안내하는 Adobe Photoshop(PSD) 파일과 대체 이미지를 포함한 크리에이티브 자산을 공유해야 합니다. 또한 파트너 활성화 콘텐츠 블록을 표시하는 방법과 시기에 대한 비즈니스 로직을 제공해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -42,7 +42,7 @@ Stories, Movable Ink 고객 데이터 API, 그리고 Movable Ink가 행동 데�
 
 1. **Webhook URL** 필드에 Movable Ink 엔드포인트 URL을 입력합니다.
 
-![Braze 웹훅 작성기의 작성 탭에서 Movable Ink 엔드포인트 URL과 요청 본문을 JSON 키-값 페어로 설정합니다.]({% image_buster /assets/img/movable_ink/cd_api_webhook_url.png %}){: style="max-width:75%" }
+![Braze 웹훅 작성기의 작성 탭에서 Movable Ink 엔드포인트 URL과 요청 본문을 JSON 키-값 페어로 설정한 화면.]({% image_buster /assets/img/movable_ink/cd_api_webhook_url.png %}){: style="max-width:75%" }
 
 {:start="2"}
 2. **Settings** 탭을 선택합니다.
@@ -52,7 +52,7 @@ Stories, Movable Ink 고객 데이터 API, 그리고 Movable Ink가 행동 데�
 | --- | --- |
 | Content-Type | application/json |
 | Authorization | Movable Ink에서 받은 기본 인증을 입력합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1b: Add your Customer Data API credentials" }
 
 ![Content-Type 및 Authorization에 대한 키-값 페어가 있는 Braze 웹훅 작성기의 Settings 탭.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
 
@@ -90,7 +90,7 @@ Braze는 스케줄, 실행 기반, API 트리거 전달을 지원합니다. [실
 실행 기반 전달의 경우:
 
 1. 트리거 동작을 지정합니다. 이것은 Movable Ink로 웹훅을 트리거하는 이벤트입니다.
-2. **Schedule Delay**가 **Immediately**로 설정되어 있는지 확인합니다. 이벤트 데이터는 이벤트 발생 직후 지연 없이 Movable Ink로 전송되어야 합니다.
+2. **스케줄 지연**이 **Immediately**로 설정되어 있는지 확인합니다. 이벤트 데이터는 이벤트 발생 직후 지연 없이 Movable Ink로 전송되어야 합니다.
 3. 시작 시간을 지정하여 Campaign 기간을 설정합니다. 종료 시간은 일반적으로 적용되지 않지만, 사용 사례에 필요한 경우 설정할 수 있습니다.
 
 {% alert note %}

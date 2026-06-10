@@ -20,16 +20,16 @@ Esta integración también te permite [importar cohortes de usuarios a Braze]({{
 | Requisito | Descripción |
 |---|---|
 | Cuenta Hightouch | Se necesita una cuenta Hightouch para beneficiarse de esta asociación.
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track` y `users.export.ids`. <br><br> Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track` y `users.export.ids`. <br><br> Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
 | Punto de conexión REST de Braze  | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).<br><br>Hightouch necesita el nombre del clúster en el que se encuentra tu instancia de Braze. Por ejemplo, si tu punto de conexión de Braze es `https://rest.iad-01.braze.com`, solo necesitas `iad-01`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
 * Sincroniza datos sobre usuarios y cuentas en Braze para crear campañas hiperpersonalizadas.
 * Actualiza automáticamente tus segmentos de Braze con datos frescos de tu almacén.
 * Ofrece mejores experiencias incorporando a Braze datos de otros puntos de intervención con el cliente.
-* Importa cohortes de usuarios a Braze, lo que te permitirá enviar campañas y Canvas específicos.
+* Importa cohortes de usuarios a Braze, lo que te permitirá enviar Campaigns y Canvas específicos.
 
 ## Integración {#integration}
 
@@ -70,5 +70,5 @@ Encontrarás más instrucciones sobre la sincronización de objetos y eventos en
 ## Demostración de integración {#integration-demo}
 
 <div class="video-container">
-    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" title="Hightouch integration demo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>

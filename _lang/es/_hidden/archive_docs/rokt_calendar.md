@@ -28,7 +28,7 @@ La integración de Braze y Rokt Calendar permite que tus suscriptores de Rokt Ca
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. Deberás proporcionar esta clave a tu director de cuentas de Rokt Calendar.<br><br> Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
 | [Punto de conexión REST de Braze]({{site.baseurl}}/api/basics/#endpoints) | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
 | ID de suscriptor externo | Es el identificador utilizado por el proceso de suscripción de Rokt Calendar para emparejar al suscriptor del calendario con el usuario de Braze. Esto es algo que tú pasas a Rokt Calendar.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Segmentación de la audiencia {#audience-segmentation}
 
@@ -52,7 +52,7 @@ Cuando Rokt Calendar crea un nuevo usuario o hace coincidir un suscriptor existe
 | `rokt:subscription_id` | El ID de suscripción, que sirve como identificador único, relacionado con la suscripción creada | `06423672-b6ba-4536-aa36-70788a7a0a36` |
 | `rokt:subscription_method` | Método de suscripción (webcal/Google) relacionado con la suscripción creada. | `WebCal/f5733866ade2` |
 | `rokt:tags` | Etiquetas de calendario utilizadas relacionadas con la suscripción creada. | `Test Calendar 1/All Teams/f5733866ade2 and Test Calendar 1/TeamI//f5733866ade2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience segmentation #audience-segmentation" }
 
 Rokt Calendar también activará un evento personalizado `subscribe` tan pronto como el usuario se haya suscrito a tu calendario de Rokt, que se puede utilizar en la segmentación de Braze o como desencadenante de una campaña o un componente de Canvas.
 
@@ -83,7 +83,7 @@ En Braze, puedes configurar una campaña de webhook o un webhook dentro de un Ca
 - Enviar un nuevo evento personalizado: permite añadir nuevos eventos a los calendarios de un segmento de suscriptores.
 - Actualizar un evento personalizado: permite actualizar un evento existente en los calendarios de los suscriptores.
 
-Para crear una plantilla de webhook de Rokt Calendar para usar en futuras Campaigns o Canvas, navega a **Templates** > **Webhook Templates** en la plataforma Braze.
+Para crear una plantilla de webhook de Rokt Calendar para usar en futuras campañas o Canvas, navega a **Templates** > **Webhook Templates** en la plataforma Braze.
 
 Si deseas crear una campaña de webhook de Rokt Calendar única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña.
 
@@ -182,7 +182,7 @@ Los siguientes campos incluyen información que puede personalizarse a nivel de 
 | `eventEnd` <br>***Obligatorio**  | La fecha y hora de finalización del evento tal y como aparecerían en el calendario | `2019-02-21T16:00:00` |
 | `eventTz` <br>***Obligatorio**  | La zona horaria del evento tal y como aparecería en el calendario; ten en cuenta que la lista de zonas horarias aplicables se puede encontrar [aquí](https://roktcalendar-api.readme.io/docs/timezones). | `Eastern Standard Time` |
 | `notifyBefore` <br>***Obligatorio**  | El tiempo de recordatorio del evento tal y como aparecería en el calendario; ten en cuenta que se expresa en minutos | `15` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Request body" }
 {% endtab %}
 {% endtabs %}
 

@@ -22,10 +22,10 @@ La asociación entre Braze y SmarterSends te permite combinar la potencia de Bra
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta SmarterSends | Se necesita una [cuenta de SmarterSends](https://smartersends.com) para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con estos permisos: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. Para mayor seguridad, añade la dirección IP de SmarterSends a la lista blanca (disponible en tu instancia). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con estos permisos: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. Para mayor seguridad, añade la dirección IP de SmarterSends a la lista blanca (disponible en tu instancia). |
 | Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 | ID de Campaign de API de Braze | El [ID de Campaign de API de Braze]({{site.baseurl}}/api/api_campaigns/) es el identificador único de todas las campañas enviadas a través de SmarterSends. Se puede crear en el dashboard de Braze en **Messaging** > **Campaigns**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
@@ -41,7 +41,7 @@ Con la integración de Braze y SmarterSends, puedes aprovechar las ventajas del 
 
 ### Paso 1: Crear una clave de API REST {#step-1-create-a-rest-api-key}
 
-1. En Braze, ve a **Settings** > **API Keys** y haz clic en **Create New API Key**.
+1. En Braze, ve a **Configuración** > **Claves de API** y haz clic en **Crear nueva clave de API**.
 2. Introduce un nombre para la clave de API.
 3. Selecciona los siguientes permisos para esta clave para permitir que SmarterSends interactúe con tu espacio de trabajo de Braze.
 - `users.track`
@@ -55,12 +55,12 @@ Con la integración de Braze y SmarterSends, puedes aprovechar las ventajas del 
 - `segments.details`
 - `sends.data_series`
 4. Añade la dirección IP de SmarterSends a la sección **Whitelist IPs**.
-5. Haz clic en **Save API Key**.
+5. Haz clic en **Guardar clave de API**.
 6. Copia y pega la clave de API con los permisos adecuados en la configuración de **Braze Email Service Provider** en SmarterSends.
 
 ### Paso 2: Crear o copiar un ID de aplicación {#step-2-create-or-copy-an-application-id}
 
-1. En tu espacio de trabajo de Braze, ve a **Settings** > **App Settings**.
+1. En tu espacio de trabajo de Braze, ve a **Configuración** > **Configuración de la aplicación**.
 2. Configura una nueva aplicación o utiliza el ID de aplicación de una aplicación existente dentro de tu espacio de trabajo. Ten en cuenta que el ID de la aplicación está etiquetado como **API Key**.
 3. Copia y pega este ID en el campo **App ID** en SmarterSends.
 
@@ -80,4 +80,4 @@ Crea un ID de variante de mensaje para cada grupo que crees en SmarterSends para
 
 ## Personalización {#customization}
 
-Cada instancia de SmarterSends es totalmente personalizable con los colores del logotipo de tu marca y el nombre de dominio personalizado, creando un entorno familiar. Además, para una mayor personalización, puedes definir los atributos y atributos personalizados para dirigirte a los usuarios en campañas basadas en los segmentos dentro de tu espacio de trabajo de Braze.
+Cada instancia de SmarterSends es totalmente personalizable con los colores del logotipo de tu marca y el nombre de dominio personalizado, creando un entorno familiar. Además, para una mayor personalización, puedes definir los atributos y atributos personalizados para dirigirte a los usuarios en campañas basadas en los Segments dentro de tu espacio de trabajo de Braze.

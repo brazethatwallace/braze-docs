@@ -27,7 +27,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Limite de taxa {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='default' %}
+{% multi_lang_include rate_limits.md endpoint='media_library' %}
 
 ## Corpo da solicitação {#request-body}
 
@@ -58,7 +58,7 @@ O corpo da solicitação inclui os seguintes parâmetros:
 | `asset_url` | Opcional | String | Uma URL acessível publicamente para o ativo a ser enviado para a Braze. |
 | `asset_file` | Opcional | Binário | Dados de arquivo binário. |
 | `name` | Opcional | String | Um nome a aparecer na biblioteca de mídia para este ativo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
 
 {% alert important %}
 `asset_url` e `asset_file` são mutuamente exclusivos. Você deve incluir apenas um deles na sua solicitação de API.
@@ -74,15 +74,15 @@ Esta seção explica como o endpoint atribui nomes aos arquivos enviados com bas
 | --- | --- |
 | `name` fornecido | O valor de `name` é usado como o nome do ativo na biblioteca de mídia. |
 | `name` excluído | O nome do arquivo original da URL ou do arquivo enviado é usado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" style="table-layout: fixed; width: 100%;" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Single file uploads" }
 
-#### Uploads de arquivos ZIP {#zip-file-uploads}
+#### Envios de arquivos ZIP {#zip-file-uploads}
 
 | Cenário | Resultado |
 | --- | --- |
 | `name` fornecido | O valor de `name` é usado como prefixo, com um número incremental anexado como sufixo (por exemplo, "My File 1", "My File 2", "My File 3"). |
 | `name` excluído | Cada arquivo mantém seu nome original de dentro do arquivo ZIP. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" style="table-layout: fixed; width: 100%;" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIP file uploads" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -127,7 +127,7 @@ Esta tabela lista possíveis erros de validação.
 | 400 | "Either asset_url or asset_file must be provided." | Nenhum parâmetro de ativo foi fornecido na solicitação. |
 | 400 | "Both asset_url and asset_file cannot be provided. Please provide only one." | Ambos os parâmetros de ativo foram fornecidos; apenas um é permitido. |
 | 403 | "Media Library Public APIs are not enabled for this company." | O recurso da biblioteca de mídia não está ativado para este espaço de trabalho. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
 
 #### Erros de processamento {#processing-errors}
 
@@ -149,12 +149,13 @@ Esta tabela lista possíveis erros de processamento.
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | O arquivo excede o tamanho máximo permitido. Imagens têm um limite de 5 MB. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | O espaço de trabalho atingiu o número máximo de ativos (200 por padrão para empresas em teste gratuito, ilimitado caso contrário). O objeto `meta` inclui o `limit` atual. |
 | `ASSET_UPLOAD_FAILED` | 400 | O upload do ativo falhou devido a problemas de processamento. |
+| `INVALID_ASSET_URL` | 400 | O valor de `asset_url` não é um URI válido. O objeto `meta` inclui `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | O arquivo ZIP está corrompido ou não pôde ser aberto. O objeto `meta` inclui a mensagem `original_error`. |
 | `ZIP_FILE_TOO_LARGE` | 400 | O tamanho total descompactado do arquivo ZIP excede o limite de 5 MB. O objeto `meta` inclui o `zip_file_name` e `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Uma entrada de arquivo dentro do ZIP não tem nome. Certifique-se de que o arquivo ZIP não está corrompido e adicione um nome para quaisquer entradas de arquivo sem nome. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | O arquivo ZIP contém diretórios aninhados, que não são suportados. Todos os arquivos devem estar no nível raiz do ZIP. |
 | `GENERIC_ERROR` | 500 | Ocorreu um erro inesperado durante o upload. O objeto `meta` inclui a mensagem `original_error` para depuração. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
 
 
 ## Resposta {#response}

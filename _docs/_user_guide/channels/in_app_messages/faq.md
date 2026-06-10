@@ -138,3 +138,31 @@ This table compares the in-app message flows that Sam experienced:
 | Standard | An abort event was not logged because Sam didn't perform any actions that would trigger a message.<br><br>Standard in-app messages don't log aborts because the definition of an abort is "didn't see the message despite performing the trigger action." Because in-app messages are delivered to the device before the trigger actions occur, it doesn't make sense to consider in-app messages omitted because of Liquid logic. |
 | Templated | An abort event was logged because Sam performed the trigger action to trigger the templated in-app message, but received an abort in the Liquid templating. <br><br>Templated in-app messages log aborts because the Liquid evaluation occurs after the trigger action has been performed. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comparing in-app message abort behavior" }
+
+### Why is the close button hidden on full-screen HTML in-app messages on Android?
+
+On devices with edge-to-edge displays (including Android 15+), full-screen HTML in-app messages can draw behind the system status bar and hide a close control at the top of the layout.
+
+Braze Android SDK version 37.0.0 and later apply window insets to HTML in-app messages by default so controls stay in the safe area. If users still see overlap, upgrade to the latest Braze Android SDK.
+
+On older SDK versions, developers could enable `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` before this behavior became the default.
+
+### What are known limitations of the drag-and-drop in-app message editor?
+
+The [drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) does not support every customization available in [custom HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) in-app messages. Keep in mind:
+
+- One deep link per message (not different links per device type)
+- Opacity applies to the full message background, not individual elements
+- Message maximum width cannot be set below 325 px
+- Background images and colors apply to the full message, not per platform
+- Message-level styles apply to the entire message
+- Spacer blocks use pixel values only
+- Modal and full-screen message types only
+- Background images stretch to fit the modal
+- Background images and on-click actions persist across pages in multi-page messages
+
+### What does "Event was published, but no subscribers were found" mean in Android SDK logs?
+
+This log line is usually not an error. It often appears when Braze publishes an internal event (such as `NoMatchingTriggerEvent`) and no in-app message or Content Card listener is subscribed at that moment.
+
+If you see this log when you expect a custom event to trigger an in-app message, confirm the event is logged, the user is in the campaign or Canvas audience, and that Content Cards are synced when the message depends on them.

@@ -6,7 +6,7 @@ alias: /partners/tealium_for_currents/
 description: "이 참조 문서에서는 마케팅 스택의 소스 간에 정보를 수집하고 라우팅하는 고객 데이터 플랫폼인 Tealium과 Braze 커런츠 간의 파트너십에 대해 설명합니다."
 page_type: partner
 tool: Currents
-search_tag: 파트너
+search_tag: Partner
 
 ---
 
@@ -23,7 +23,7 @@ Braze와 Tealium 통합을 사용하면 두 시스템 간의 정보 흐름을 �
 | Tealium EventStream 또는 Tealium AudienceStream | 이 파트너십을 활용하려면 [Tealium 계정](https://my.tealiumiq.com/)이 필요합니다. |
 | Currents | 데이터를 Tealium으로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
 | Tealium URL | Tealium 대시보드로 이동하여 수집 URL을 복사하면 얻을 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

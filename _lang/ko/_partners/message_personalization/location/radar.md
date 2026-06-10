@@ -16,7 +16,7 @@ _이 통합은 Radar에서 유지 관리합니다._
 
 ## 통합 정보 {#about-the-integration}
 
-Braze와 Radar의 통합을 통해 풍부한 퍼스트파티 위치 데이터로 정교한 위치 기반 캠페인 트리거를 활용하고 고객 프로필을 보강할 수 있습니다. Radar 지오펜스 또는 여행 추적 이벤트가 생성되면 커스텀 이벤트와 사용자 속성이 실시간으로 Braze로 전송됩니다. 이러한 이벤트와 속성을 사용하여 위치 기반 캠페인을 트리거하고, 라스트 마일 픽업 및 배송 작업을 강화하고, 차량 및 배송 물류를 모니터링하거나, 위치 패턴을 기반으로 사용자 Segment를 구축할 수 있습니다.
+Braze와 Radar의 통합을 통해 풍부한 퍼스트파티 위치 데이터로 정교한 위치 기반 캠페인 트리거를 활용하고 고객 프로필을 보강할 수 있습니다. Radar 지오펜스 또는 여행 추적 이벤트가 생성되면 커스텀 이벤트와 사용자 속성이 실시간으로 Braze로 전송됩니다. 이러한 이벤트와 속성을 사용하여 위치 기반 캠페인을 트리거하고, 라스트 마일 픽업 및 배송 작업을 강화하고, 차량 및 배송 물류를 모니터링하거나, 위치 패턴을 기반으로 사용자 세그먼트를 구축할 수 있습니다.
 
 또한, Radar Geo API를 사용하여 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 통해 마케팅 캠페인을 강화하거나 개인화할 수 있습니다.
 
@@ -28,7 +28,7 @@ Braze와 Radar의 통합을 통해 풍부한 퍼스트파티 위치 데이터로
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | 앱 식별자 | [앱 식별자]({{site.baseurl}}/api/identifier_types/?tab=app%20ids)는 Braze 대시보드의 **설정** > **API 키**에서 찾을 수 있습니다. |
 | iOS API 키<br>Android API 키 | 이러한 API 키는 Braze 대시보드의 **설정** > **앱 설정**에서 찾을 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -36,7 +36,7 @@ Braze와 Radar SDK 간에 데이터를 매핑하려면 두 시스템에서 동�
 
 통합을 활성화하려면 다음과 같이 하세요:
 
-1. Radar의 [통합](https://radar.com/documentation/integrations) 페이지에서 Braze를 찾습니다.
+1. Radar의 [Integrations](https://radar.com/documentation/integrations) 페이지에서 Braze를 찾습니다.
 1. **Enabled**를 **Yes**로 설정합니다.
 3. 앱 식별자와 API 키를 붙여넣습니다.
 
@@ -54,7 +54,7 @@ Braze와 Radar SDK 간에 데이터를 매핑하려면 두 시스템에서 동�
 
 ## 이벤트 및 속성 기반 사용 사례 {#event-and-attribute-based-use-cases}
 
-커스텀 이벤트와 사용자 속성을 사용하여 위치 기반 Segment를 구축하거나 위치 기반 Campaign을 트리거할 수 있습니다.
+커스텀 이벤트와 사용자 속성을 사용하여 위치 기반 세그먼트를 구축하거나 위치 기반 캠페인을 트리거할 수 있습니다.
 
 ### 도로변 픽업에 대한 매장 도착 알림 트리거 {#trigger-a-store-arrival-notification-for-curbside-pickup}
 
@@ -62,11 +62,11 @@ Braze와 Radar SDK 간에 데이터를 매핑하려면 두 시스템에서 동�
 
 !["arrived_at_trip_destination" 커스텀 이벤트가 발생하고 "trip_metadata"가 "curbside"일 때 Campaign이 전달되는 것을 보여주는 실행 기반 전달 Campaign.]({% image_buster /assets/img_archive/radar-campaign.png %})
 
-### 최근 매장 방문자의 오디언스 Segment 구축 {#build-an-audience-segment-of-recent-store-visitors}
+### 최근 매장 방문자의 오디언스 세그먼트 구축 {#build-an-audience-segment-of-recent-store-visitors}
 
 예를 들어, 구매 여부에 관계없이 지난 7일 이내에 매장을 방문한 모든 사용자를 타겟팅할 수 있습니다.
 
-!["radar_geofence_tags"에 my_store 값이 포함되고 "radar_updated_at"이 7일 미만인 Segment.]({% image_buster /assets/img_archive/radar-segment.png %})
+!["radar_geofence_tags"에 my_store 값이 포함되고 "radar_updated_at"이 7일 미만인 세그먼트.]({% image_buster /assets/img_archive/radar-segment.png %})
 
 ## 연결된 콘텐츠 {#connected-content}
 
@@ -76,7 +76,7 @@ Braze와 Radar SDK 간에 데이터를 매핑하려면 두 시스템에서 동�
 
 시작하려면 요청 URL 내에서 사용할 수 있는 Radar의 게시 가능한 API 키가 준비되어 있어야 합니다.
 
-그런 다음, `connected_content` 태그 내에서 [장소 검색 API](https://radar.com/documentation/api#search-places)에 대한 GET 요청을 수행합니다. 장소 검색 API는 장소, 체인점, 카테고리에 대한 위치 데이터베이스로 전 세계에 대한 종합적인 시각을 제공하는 [Radar Places](https://radar.com/documentation/places)를 기반으로 주변 위치를 반환합니다.
+그런 다음, `connected_content` 태그 내에서 [Search Places API](https://radar.com/documentation/api#search-places)에 대한 GET 요청을 수행합니다. Search Places API는 장소, 체인점, 카테고리에 대한 위치 데이터베이스로 전 세계에 대한 종합적인 시각을 제공하는 [Radar Places](https://radar.com/documentation/places)를 기반으로 주변 위치를 반환합니다.
 
 다음 코드 스니펫은 API 호출에서 Radar가 JSON 오브젝트로 반환하는 내용의 예제입니다:
 

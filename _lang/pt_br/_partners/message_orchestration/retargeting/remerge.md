@@ -27,13 +27,14 @@ A integração da Braze com a Remerge ajuda você a desenvolver campanhas robust
 | ID do app para Android | Seu identificador exclusivo do aplicativo Braze para Android (como "com.example"). |
 | ID do app para iOS | Seu identificador exclusivo do aplicativo Braze para iOS (como "012345678"). |
 | Ativar a coleta de IDFA no SDK da Braze | A coleta de IDFA é opcional no SDK da Braze e fica desativada por padrão. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
 ### Etapa 1: Crie seu modelo de webhook da Braze {#step-1-create-your-braze-webhook-template}
 
-Para criar um modelo de webhook da Remerge para futuras campanhas ou Canvas, navegue até **Modelos** > **Modelos de webhook** na plataforma Braze.
+Para criar um modelo de webhook da Remerge para futuras campanhas ou Canvas, acesse **Conteúdo** > **Webhook** na plataforma Braze. Em seguida, selecione **Criar modelo de webhook**.
+
 
 Se você quiser criar uma campanha de webhook única da Remerge ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova campanha.
 
@@ -56,13 +57,13 @@ https://remerge.events/event?partner=braze&app_id=\{% if most_recently_used_devi
 ```
 {% endraw %}
 
-No URL do webhook, você precisa:
+Na URL do webhook, você precisa:
 - Usar a API `https://remerge.events/event` para enviar seus eventos de webhook.
 - Definir o nome do evento. Esse nome aparecerá no seu dashboard da [remerge.io](https://www.remerge.io/).
 - Passar o identificador exclusivo do aplicativo do seu app para Android (como "com.example") e iOS (como "012345678") para a Remerge.
 - Definir uma chave; a Remerge a fornecerá.
 
-![O URL do webhook e a pré-visualização da mensagem exibidos no construtor de webhook da Braze.]({% image_buster /assets/img_archive/webhook_remerge_preview.png %})
+![A URL do webhook e a pré-visualização da mensagem exibidos no construtor de webhook da Braze.]({% image_buster /assets/img_archive/webhook_remerge_preview.png %})
 
 {% alert important %}
 A Braze não coleta automaticamente o IDFA/AAID do dispositivo, então você deve armazenar esses valores por conta própria. Esteja ciente de que pode ser necessário obter o consentimento do usuário para coletar esses dados.

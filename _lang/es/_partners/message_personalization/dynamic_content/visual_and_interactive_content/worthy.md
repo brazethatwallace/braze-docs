@@ -1,7 +1,7 @@
 ---
 nav_title: Worthy
 article_title: Worthy
-description: "Este artículo de referencia describe la asociación entre Braze y Worthy, una plataforma de personalización de mensajes que permite crear experiencias ricas y personalizadas dentro de la aplicación y entregarlas a través de Braze."
+description: "Este artículo de referencia describe la asociación entre Braze y Worthy, una plataforma de personalización de mensajes que te permite crear experiencias ricas y personalizadas dentro de la aplicación y entregarlas a través de Braze."
 alias: /partners/worthy/
 page_type: partner
 search_tag: Partner
@@ -34,17 +34,17 @@ _Esta integración está mantenida por Worthy._
 | --- | --- |
 | Cuenta [Worthy](https://worthy.ai/) | Se requiere una cuenta Worthy para beneficiarse de esta asociación. |
 | SDK de Braze | Tendrás que configurar el SDK de Braze en tu aplicación móvil para enviar mensajes enriquecidos dentro de la aplicación. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 ### Paso 1: Crear mensajes personalizados en Worthy {#step-1-create-personalized-messaging-in-worthy}
 
-Ve a tu aplicación en el dashboard de Worthy, selecciona el **Message Creator** y crea un mensaje personalizado que quieras utilizar para interactuar con tus usuarios.
+Ve a tu aplicación en el dashboard de Worthy, selecciona **Message Creator** y crea un mensaje personalizado que quieras utilizar para interactuar con tus usuarios.
 
 ### Paso 2: Crear una campaña en Braze {#step-2-create-a-braze-campaign}
 
-Crea una [campaña de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) en Braze y establece el **Message Type** en **Custom Code**.
+Crea una [campaña de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) en Braze y establece **Message Type** en **Custom Code**.
 
 ### Paso 3: Copia tu mensaje personalizado en Braze {#step-3-copy-your-personalized-message-into-braze}
 

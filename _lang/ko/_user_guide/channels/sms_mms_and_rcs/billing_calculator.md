@@ -56,7 +56,7 @@ Braze를 사용하여 SMS Campaign 또는 Canvas를 생성할 때, 작성기에�
 | 1072 - 1224자 | 8 세그먼트 |
 | 1225 - 1377자 | 9 세그먼트 |
 | 1378 - 1530자 | 10 세그먼트 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% tab UCS-2 인코딩 %}
 | 문자 수 | 세그먼트 수 |
@@ -71,7 +71,7 @@ Braze를 사용하여 SMS Campaign 또는 Canvas를 생성할 때, 작성기에�
 | 470 - 536자 | 8 세그먼트 |
 | 537 - 603자 | 9 세그먼트 |
 | 604 - 670자 | 10 세그먼트 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% endtabs %}
 
@@ -145,8 +145,8 @@ Rich Media 메시지는 미디어 파일(이미지, 동영상) 또는 Rich Card�
 {% endtab %}
 {% endtabs %}
 
-### 메시지 작성기 및 메시지 사용량 대시보드 {#message-composer-and-message-usage-dashboard}
+### 메시지 작성기 및 크레딧 사용량 대시보드 {#message-composer-and-credits-usage-dashboard}
 
 메시지를 작성할 때 메시지 작성기는 레이블(Basic RCS, Single RCS, Rich 또는 Rich Media)을 통해 실시간으로 요금 유형을 표시하여 발송 전에 비용을 추적할 수 있도록 도와줍니다.
 
-[메시지 사용량 대시보드]({{site.baseurl}}/message_usage_dashboard/)에는 이러한 요금 유형이 반영되며, 미국 메시지에 사용된 세그먼트 수를 제공하여 메시지 크레딧 소비를 투명하게 확인할 수 있습니다.
+[크레딧 사용량 대시보드]({{site.baseurl}}/credits_usage_dashboard/)에는 이러한 요금 유형이 반영되며, 미국 메시지에 사용된 세그먼트 수를 제공하여 메시지 크레딧 소비를 투명하게 확인할 수 있습니다.

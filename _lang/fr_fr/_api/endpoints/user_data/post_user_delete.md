@@ -1,6 +1,6 @@
 ---
 nav_title: "POST : Supprimer les utilisateurs"
-article_title: "POST : Supprimer des utilisateurs"
+article_title: "POST : Supprimer les utilisateurs"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
@@ -21,7 +21,7 @@ Jusqu'à 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `p
 Si vous avez un cas d'utilisation qui ne peut pas être résolu par la suppression en bloc d'utilisateurs via l'API, contactez l'[équipe d'assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) pour obtenir de l'aide.
 
 {% alert warning %}
-La suppression de profils utilisateur est irréversible. Cette action supprime définitivement les utilisateurs, ce qui peut entraîner des écarts dans vos données. Pour en savoir plus sur ce qui se passe lorsque vous [supprimez un profil utilisateur à l'aide de l'API]({{site.baseurl}}/help/help_articles/api/delete_user/), consultez notre documentation d'aide.
+La suppression de profils utilisateur est irréversible. Cette action supprime définitivement les utilisateurs, ce qui peut entraîner des écarts dans vos données. Pour en savoir plus, consultez la section [Effets de la suppression de profils utilisateur](#effects-of-deleting-user-profiles).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids` | Facultatif | Tableau de chaînes de caractères | Identifiants utilisateur Braze à supprimer. |
 | `email_addresses` | Facultatif | Tableau de chaînes de caractères | Adresses e-mail des utilisateurs à supprimer. Pour plus d'informations, reportez-vous à la section [Suppression d'utilisateurs par e-mail](#deleting-users-by-email). |
 | `phone_numbers` | Facultatif | Tableau de chaînes de caractères | Numéros de téléphone des utilisateurs à supprimer. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ### Suppression d'utilisateurs par adresses e-mail et numéros de téléphone {#deleting-users-by-email-addresses-and-phone-numbers}
 
@@ -109,6 +109,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   "deleted" : (required, integer) number of user IDs queued for deletion
 }
 ```
+
+## Effets de la suppression de profils utilisateur {#effects-of-deleting-user-profiles}
+
+Lorsque vous supprimez un utilisateur avec cet endpoint, les événements suivants se produisent :
+
+- Le profil utilisateur est supprimé (mis à null).
+- Le nombre d'utilisateurs de l'espace de travail (tel que le nombre total d'utilisateurs sur la [page d'accueil analytique]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) est mis à jour pour tenir compte des utilisateurs supprimés.
+- L'utilisateur supprimé est toujours comptabilisé dans le pourcentage de conversion agrégé. Les compteurs d'événements personnalisés et d'achats ne sont pas mis à jour pour les utilisateurs supprimés.
+
+### Profils multiples partageant une même adresse e-mail {#multiple-profiles-with-a-shared-email-address}
+
+Pour fusionner des profils utilisateur partageant la même adresse e-mail, appelez l'[endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
 
 ## Résolution des problèmes {#troubleshooting}
 

@@ -3,12 +3,12 @@ nav_title: Messages de rappel choisis par l'utilisateur
 article_title: Messages de rappel choisis par l'utilisateur
 page_order: 5
 page_type: reference
-description: "Cet article de référence explique comment utiliser les pages d'accueil Braze, les attributs personnalisés et les Campaigns pour permettre aux utilisateurs de s'inscrire à des messages de rappel personnalisés concernant des événements ou rendez-vous à venir."
+description: "Cet article de référence explique comment utiliser les pages d'accueil Braze, les attributs personnalisés et les campagnes pour permettre aux utilisateurs de s'inscrire à des messages de rappel personnalisés concernant des événements ou rendez-vous à venir."
 ---
 
 # Messages de rappel choisis par l'utilisateur {#user-selected-reminder-messaging}
 
-> Utilisez les [pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) Braze, les attributs personnalisés et les Campaigns pour permettre aux utilisateurs de choisir quand ils souhaitent recevoir des messages de rappel concernant des événements ou rendez-vous à venir. Cette approche permet aux utilisateurs non techniques de Braze de créer et modifier le contenu des pages d'inscription aux rappels, tandis que les préférences sélectionnées par les utilisateurs peuvent alimenter la segmentation, le ciblage et la personnalisation de l'ensemble de vos messages propulsés par Braze.
+> Utilisez les [pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) Braze, les attributs personnalisés et les campagnes pour permettre aux utilisateurs de choisir quand ils souhaitent recevoir des messages de rappel concernant des événements ou rendez-vous à venir. Cette approche permet aux utilisateurs non techniques de Braze de créer et modifier le contenu des pages d'inscription aux rappels, tandis que les préférences sélectionnées par les utilisateurs peuvent alimenter la segmentation, le ciblage et la personnalisation de l'ensemble de vos messages propulsés par Braze.
 
 Avec cette approche, vous pouvez :
 
@@ -26,7 +26,7 @@ Pour suivre ce guide, vous avez besoin de :
 | Accès aux pages d'accueil | Accès et autorisations pour créer des [pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) dans Braze. |
 | Connaissances en HTML et JavaScript | Familiarité de base avec HTML et JavaScript pour personnaliser votre page d'accueil. Requis uniquement pour l'[Option B](#option-b-personal-dates-custom-code-block). |
 | Connaissances en Liquid | Familiarité de base avec [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) pour créer des modèles de variables personnalisées. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Étape 1 : Créer une page d'accueil et y renvoyer depuis un message {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 
@@ -46,7 +46,7 @@ Lorsqu'un utilisateur clique sur ce lien, Braze l'identifie automatiquement, de 
 
 La manière de recueillir les préférences des utilisateurs dépend de la nature des dates collectées : dates partagées ou dates personnelles. Choisissez l'option qui correspond à votre cas d'usage.
 
-### Option A : Dates partagées (blocs de formulaire par glisser-déposer) {#option-a-shared-dates-dnd-form-blocks}
+### Option A : Dates partagées (blocs de formulaire par glisser-déposer) {#option-a-shared-dates-drag-and-drop-form-blocks}
 
 Pour les événements où de nombreux utilisateurs partagent la même date (comme les jours fériés ou les événements sportifs), utilisez les [blocs de formulaire **Case à cocher**]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#form-blocks) intégrés à l'éditeur par glisser-déposer pour recueillir les préférences. Chaque case à cocher définit nativement un attribut personnalisé de type booléen (`true` ou `false`) sur le profil de l'utilisateur lors de la soumission du formulaire, sans code personnalisé nécessaire.
 
@@ -116,17 +116,17 @@ Pour trouver les ID d'éléments de vos composants de page d'accueil, prévisual
 
 ## Étape 3 : Configurer et déclencher les messages de rappel {#step-3-set-up-and-trigger-reminder-messages}
 
-Après avoir collecté les attributs personnalisés via la page d'accueil, créez des Campaigns pour envoyer des messages aux utilisateurs concernant les événements à venir.
+Après avoir collecté les attributs personnalisés via la page d'accueil, créez des campagnes pour envoyer des messages aux utilisateurs concernant les événements à venir.
 
 ### Option A : Dates partagées {#step-3-option-a-shared-dates}
 
-Si vous avez utilisé des attributs personnalisés booléens (Option A de l'[Étape 2](#option-a-shared-dates-dnd-form-blocks)), utilisez cet attribut comme filtre de Segment pour constituer l'audience de votre message de rappel. Créez ensuite une nouvelle Campaign, planifiée avant l'événement, pour cibler ce groupe avec le contenu de votre choix.
+Si vous avez utilisé des attributs personnalisés booléens (Option A de l'[Étape 2](#option-a-shared-dates-dnd-form-blocks)), utilisez cet attribut comme filtre de Segment pour constituer l'audience de votre message de rappel. Créez ensuite une nouvelle campagne, planifiée avant l'événement, pour cibler ce groupe avec le contenu de votre choix.
 
 ### Option B : Dates personnelles {#step-3-option-b-personal-dates}
 
 Si vous avez utilisé des attributs personnalisés imbriqués (Option B de l'[Étape 2](#option-b-personal-dates-custom-code-block)), utilisez le filtre d'audience **Attribut personnalisé imbriqué** pour sélectionner tous les utilisateurs dont la date de rappel se situe dans une fenêtre spécifique, par exemple dans deux jours.
 
-Pour envoyer des rappels de manière continue, configurez une Campaign récurrente quotidienne afin que chaque jour, les utilisateurs dont les rappels à venir se situent dans votre fenêtre reçoivent leurs messages.
+Pour envoyer des rappels de manière continue, configurez une campagne récurrente quotidienne afin que chaque jour, les utilisateurs dont les rappels à venir se situent dans votre fenêtre reçoivent leurs messages.
 
 ## Étape 4 : Vérifier votre intégration {#step-4-verify-your-integration}
 
@@ -135,7 +135,7 @@ Une fois la configuration terminée, vérifiez votre intégration :
 1. Envoyez-vous un lien vers la page d'accueil et remplissez le formulaire.
 2. Accédez à votre profil utilisateur dans le tableau de bord de Braze et confirmez que l'attribut personnalisé apparaît.
 3. Envoyez un message de rappel test à votre profil et vérifiez que les détails personnalisés s'affichent correctement.
-4. Surveillez attentivement les résultats lors du lancement de votre Campaign.
+4. Surveillez attentivement les résultats lors du lancement de votre campagne.
 
 ## Points à prendre en compte {#considerations}
 

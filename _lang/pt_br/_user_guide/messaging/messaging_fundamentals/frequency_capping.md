@@ -59,7 +59,7 @@ O limite máximo de usuários limita o número de usuários despachados, não o 
 
 ##### Limite máximo de usuários com otimizações {#maximum-user-cap-with-optimizations}
 
-Se você está usando uma otimização como Variante vencedora ou Variante personalizada, a Campaign consistirá em dois envios: o experimento inicial e o envio final.
+Se você está usando uma otimização como Variante Vencedora ou Variante Personalizada, a Campaign consistirá em dois envios: o experimento inicial e o envio final.
 
 Para configurar um limite máximo de usuários nesse cenário, selecione **Limitar o número de pessoas que receberão esta Campaign**, depois selecione **No total, esta Campaign deve** e insira um limite de público. Seu limite de público será dividido pelas porcentagens mostradas no painel de **Testes A/B**.
 
@@ -164,7 +164,7 @@ Em vez de tentar compensar o atraso e enviar as 6.000 mensagens restantes no seg
 | 7      | 10.000    | 10.000                   |
 | 8      | 5.000     | 10.000                   |
 | 9      | 0         | 6.000                    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Limite de taxa e novas tentativas de Conteúdo conectado" }
 
 As solicitações de Conteúdo conectado não são limitadas independentemente e seguirão o limite de taxa de webhook. Isso significa que, se houver uma chamada de Conteúdo conectado para um endpoint único por webhook, você esperaria 5.000 webhooks e também 5.000 chamadas de Conteúdo conectado por minuto. Observe que o cache pode afetar isso e reduzir o número de chamadas de Conteúdo conectado. Além disso, as novas tentativas podem aumentar as chamadas de Conteúdo conectado, então recomendamos verificar se o endpoint de Conteúdo conectado pode lidar com alguma flutuação aqui.
 
@@ -195,7 +195,9 @@ Cada linha de limites de frequência é conectada usando o operador `AND`, e voc
 
 #### Comportamento quando os usuários atingem o limite de frequência em uma etapa do Canvas {#behavior-when-users-are-frequency-capped-on-a-canvas-step}
 
-Se um usuário do Canvas atingir o limite de frequência devido às configurações globais de limite de frequência, o usuário avançará imediatamente para a próxima etapa do Canvas. O usuário não sairá do Canvas por causa do limite de frequência.
+O limite de frequência global sozinho não faz com que os usuários saiam de um Canvas. Em [etapas de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), os usuários ainda avançam quando uma mensagem não é enviada por causa do limite de frequência global, de acordo com [como os usuários avançam]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance) pela etapa.
+
+Isso é separado das **Validações de entrega** em uma etapa de Mensagem. Se um usuário não atender aos critérios de validação de entrega no momento do envio, ele pode sair do Canvas naquela etapa.
 
 ### Regras de entrega {#delivery-rules}
 
@@ -215,7 +217,13 @@ Esse comportamento altera o comportamento padrão quando você desativa o limite
 
 ![Seção de controles de entrega com o limite de frequência ativado.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"}
 
-Diferentes canais dentro de uma Campaign multicanal contam individualmente para o limite de frequência. Por exemplo, se você criar uma Campaign multicanal com push e e-mail e tiver o limite de frequência configurado para ambos os canais, o push conta como uma Campaign de push e a mensagem de e-mail conta como uma Campaign de e-mail. A Campaign também conta como uma "Campaign de qualquer tipo". Se os usuários estão limitados a uma Campaign de push e uma de e-mail por dia, e um usuário recebe essa Campaign multicanal, ele não será mais elegível para Campaigns de push ou e-mail pelo resto do dia (a menos que uma Campaign ignore as regras de limite de frequência).
+#### Como os envios contam para os limites {#how-sends-count-toward-caps}
+
+O limite de frequência é aplicado por despacho: cada vez que a Braze envia uma Campaign ou componente do Canvas para um usuário conta para os seus limites — não cada variante de mensagem ou plataforma dentro daquele envio. Por exemplo, se os usuários estão limitados a cinco Campaigns de push por semana, eles não recebem nenhuma Campaign de push após o quinto despacho até que o limite seja redefinido.
+
+##### Envios multicanais {#multichannel-sends}
+
+Quando um único despacho usa múltiplos canais, esse despacho conta no máximo uma vez por regra de limite de frequência aplicável. Por exemplo, se você criar uma Campaign multicanal que envia e-mail, push para iOS e push para Android em uma única entrega e seu espaço de trabalho tiver regras para push e e-mail, além de uma regra que se aplica a todos os canais, essa entrega conta uma vez para a regra de push, uma vez para a regra de e-mail e uma vez para a regra de todos os canais — não conta uma vez por plataforma de push ou por mensagem dentro do envio. Se os usuários estão limitados a uma Campaign de push e uma de e-mail por dia e recebem essa Campaign multicanal, eles não são elegíveis para Campaigns adicionais de push ou e-mail pelo resto do dia, a menos que uma Campaign ignore as regras de limite de frequência.
 
 Mensagens no app e Content Cards não são contabilizados como ou para limites em Campaigns ou componentes do Canvas de qualquer tipo.
 
@@ -303,7 +311,7 @@ Considere as seguintes Campaigns e regra de limite de frequência por tag:
 |---|---|
 | A tag `promotional` é removida da **Campaign A** depois que seu usuário recebeu a mensagem, mas antes da **Campaign B ser enviada.** | Seu usuário recebe a **Campaign B**. |
 | A tag `promotional` é removida por engano da **Campaign A** depois que seu usuário recebeu a mensagem. <br> A tag é adicionada de volta à **Campaign A** na terça-feira, antes da **Campaign B** ser enviada. | Seu usuário não recebe a **Campaign B**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Caso de uso" }
 
 #### Envio em grande escala {#sending-at-large-scales}
 
@@ -322,17 +330,3 @@ Por exemplo, você pode configurar a seguinte regra:
 > No máximo três Campaigns ou componentes do Canvas de e-mail por semana de todas as Campaigns e etapas do Canvas.
 
 Essa regra determina que nenhum usuário receba mais de 100 e-mails por semana porque, no máximo, os usuários recebem três e-mails por semana de Campaigns ou componentes do Canvas com limite de frequência ativado.
-
-## Perguntas frequentes {#frequently-asked-questions}
-
-### Se eu alterar um limite de envio em um Canvas ativo, isso afeta os usuários que já estão no Canvas? {#if-i-change-a-send-throttle-on-an-active-canvas-does-it-affect-users-already-in-the-canvas}
-
-Sim, quando você aumenta ou diminui um limite de taxa do Canvas, o limite atualizado entrará em vigor para novas mensagens em aproximadamente 30 segundos após a alteração, devido ao cache.
-
-### O limite de frequência faz com que os usuários saiam de um Canvas? {#does-frequency-capping-cause-users-to-exit-a-canvas}
-
-Não. Se um usuário do Canvas atingir o limite de frequência devido às configurações globais de limite de frequência, o usuário avançará imediatamente para a próxima etapa do Canvas. O usuário **não** sairá do Canvas por causa do limite de frequência.
-
-### Como posso identificar usuários que foram limitados por frequência em um Canvas? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
-
-Usuários que atingem o limite de frequência não geram um evento de envio para aquela etapa. Para identificar esses usuários, você pode usar o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para rastrear eventos de mensagens limitadas por frequência. Alternativamente, você pode criar uma [extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para analisar usuários que entraram no Canvas mas não receberam a mensagem esperada.

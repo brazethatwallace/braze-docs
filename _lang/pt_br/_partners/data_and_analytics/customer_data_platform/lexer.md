@@ -11,11 +11,11 @@ search_tag: Partner
 
 > [Lexer](https://lexer.io/), uma plataforma de dados do cliente construída para o varejo, ajuda as marcas a impulsionar vendas incrementais por meio de experiências de cliente aprimoradas, combinando enriquecimento de dados robusto com as ferramentas mais intuitivas e consultoria especializada.
 
-*Esta integração é mantida pela Lexer.*
+_Esta integração é mantida pela Lexer._
 
 ## Sobre a integração {#about-the-integration}
 
-A integração da Braze e da Lexer permite sincronizar dados entre as duas plataformas. Use seus dados do Lexer para criar segmentos valiosos na Braze ou importe os existentes para o Lexer para obter insights.
+A integração da Braze e da Lexer permite sincronizar dados entre as duas plataformas. Use seus dados da Lexer para criar segmentos valiosos na Braze ou importe os existentes para a Lexer para obter insights.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -25,7 +25,7 @@ A integração da Braze e da Lexer permite sincronizar dados entre as duas plata
 | Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões `user` (exceto `user.delete`) e permissões `segment.list`. O conjunto de permissões pode mudar à medida que a Lexer adiciona suporte a mais objetos da Braze, portanto, talvez você queira conceder mais permissões agora ou planejar a atualização dessas permissões no futuro.<br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | Bucket S3 e credenciais do Amazon AWS | Antes de iniciar a integração, é necessário ter credenciais de acesso para um bucket S3 do AWS conectado ao seu hub da Lexer (pode ser um bucket criado por você ou um que a Lexer crie e gerencie para você). Visite [a Lexer](https://learn.lexer.io/docs/amazon-s3) para obter orientação sobre esse requisito. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 

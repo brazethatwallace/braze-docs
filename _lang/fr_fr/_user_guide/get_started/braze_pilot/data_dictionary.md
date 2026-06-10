@@ -44,7 +44,7 @@ th:nth-child(5), td:nth-child(5) {
 }
 </style>
 
-<table>
+<table aria-label="Liste des événements et attributs enregistrés">
   <caption>Liste des événements et attributs enregistrés</caption>
     <thead>
         <tr>

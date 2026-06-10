@@ -1,6 +1,6 @@
 Le raccourcissement de liens et le suivi des clics vous permettent de raccourcir automatiquement les URL contenues dans les messages SMS ou RCS et de collecter des données analytiques sur le taux de clics, fournissant ainsi des indicateurs d'engagement supplémentaires pour mieux comprendre comment les utilisateurs interagissent avec vos campagnes.
 
-Le raccourcissement de liens et le suivi des clics peuvent être activés au [niveau de la variante du message]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) dans les campagnes comme dans les Canvas.
+Le raccourcissement de liens et le suivi des clics peuvent être activés au [niveau de la variante du message]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) dans les Campaigns comme dans les Canvas.
 
 La longueur de l'URL dépend du type de suivi activé :
 - **Le suivi basique** permet le suivi des clics au niveau de la campagne. Les URL statiques auront une longueur de 20 caractères, et les URL personnalisées auront une longueur de 25 caractères.
@@ -55,6 +55,8 @@ https://example.com/{{url_var}}
 
 ### Raccourcir les URL générées par des variables Liquid {#shorten-urls-rendered-by-liquid-variables}
 
+**Canaux pris en charge :** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 Nous raccourcissons les URL générées par Liquid, y compris celles incluses dans les propriétés de déclenchement API. Par exemple, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} représente une URL valide, nous raccourcissons et suivons cette URL avant l'envoi du message.
 
 ### Raccourcir les URL dans l'endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
@@ -63,9 +65,9 @@ Le raccourcissement de liens est également activé pour les messages API unique
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-|`link_shortening_enabled`| Facultatif | Valeur booléenne | Définissez `link_shortening_enabled` sur `true` pour activer le raccourcissement de liens et le suivi des clics au niveau de la campagne. Pour utiliser le suivi, un `campaign_id` et un `message_variation_id` doivent être présents.|
-|`user_click_tracking_enabled`| Facultatif | Valeur booléenne | Définissez `user_click_tracking_enabled` sur `true` pour activer le raccourcissement de liens, ainsi que le suivi des clics au niveau de la campagne et de l'utilisateur. Vous pouvez utiliser les données suivies pour créer des segments d'utilisateurs ayant cliqué sur des URL.<br><br> Pour utiliser ce paramètre, `link_shortening_enabled` doit être défini sur `true`, et un `campaign_id` et un `message_variation_id` doivent être présents. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `link_shortening_enabled` | Facultatif | Valeur booléenne | Définissez `link_shortening_enabled` sur `true` pour activer le raccourcissement de liens et le suivi des clics au niveau de la campagne. Pour utiliser le suivi, un `campaign_id` et un `message_variation_id` doivent être présents. |
+| `user_click_tracking_enabled` | Facultatif | Valeur booléenne | Définissez `user_click_tracking_enabled` sur `true` pour activer le raccourcissement de liens, ainsi que le suivi des clics au niveau de la campagne et de l'utilisateur. Vous pouvez utiliser les données suivies pour créer des segments d'utilisateurs ayant cliqué sur des URL.<br><br> Pour utiliser ce paramètre, `link_shortening_enabled` doit être défini sur `true`, et un `campaign_id` et un `message_variation_id` doivent être présents. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
 
 Pour une liste complète des paramètres de requête, consultez les [paramètres de requête]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
 
@@ -77,7 +79,7 @@ Cet aperçu se met à jour avec la personnalisation pertinente et l'URL raccourc
 
 Assurez-vous d'enregistrer la campagne ou le Canvas avant d'envoyer un message test afin d'obtenir une représentation de l'URL raccourcie telle qu'elle sera envoyée dans votre message. Si la campagne ou le Canvas n'est pas enregistré avant l'envoi test, celui-ci contiendra une URL de marque substitutive.
 
-Pour que les Canvas apparaissent dans le filtre « A cliqué sur un lien SMS raccourci », l'étape du Canvas contenant le lien court doit également être activée avec le suivi avancé, qui permet le suivi des clics au niveau de l'utilisateur. Si le lien court est configuré avec le suivi basique, l'option de filtrage des événements de clic sur les liens courts SMS n'est pas disponible.
+Pour que les Canvas apparaissent dans le filtre « A cliqué sur un lien SMS raccourci », l'étape du Canvas contenant le lien court doit également être activée avec le suivi avancé, qui permet le suivi des clics au niveau de l'utilisateur. Si le lien court est configuré avec le suivi basique, l'option de filtrage des événements de clic sur les liens courts SMS n'est pas disponible. La même exigence de suivi avancé s'applique lorsque vous configurez des entrées Canvas ou des parcours d'actions qui dépendent de liens SMS raccourcis cliqués.
 
 {% alert important %}
 Si un brouillon est créé au sein d'un Canvas actif, aucune URL raccourcie ne sera générée. L'URL raccourcie réelle est générée lorsque le brouillon du Canvas est activé.
@@ -91,11 +93,11 @@ La personnalisation Liquid et les URL raccourcies sont générées dans l'onglet
 
 ## Suivi des clics {#click-tracking}
 
-Lorsque le raccourcissement de liens est activé, le tableau **Performances SMS/MMS/RCS** inclut une colonne intitulée **Total des clics** qui affiche le nombre d'événements de clic par variante ainsi que le taux de clics associé. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
+Lorsque le raccourcissement de liens est activé, le tableau **SMS/MMS/RCS Performance** inclut une colonne intitulée **Total Clicks** qui affiche le nombre d'événements de clic par variante ainsi que le taux de clics associé. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
 
 ![Tableau des indicateurs de performance SMS et MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 
-Les tableaux **Performances historiques** et **Performances SMS/MMS/RCS** incluent également une option pour le **Total des clics** et affichent une série temporelle quotidienne des événements de clic. Les clics sont incrémentés lors de la redirection (par exemple lorsqu'un utilisateur visite un lien) et peuvent être incrémentés plus d'une fois par utilisateur.
+Les tableaux **Historical Performance** et **SMS/MMS/RCS Performance** incluent également une option pour **Total Clicks** et affichent une série temporelle quotidienne des événements de clic. Les clics sont incrémentés lors de la redirection (par exemple lorsqu'un utilisateur visite un lien) et peuvent être incrémentés plus d'une fois par utilisateur.
 
 ## Recibler les utilisateurs {#retargeting-users}
 
@@ -117,7 +119,7 @@ Le raccourcissement de liens ne fonctionne pas avec les liens profonds. En revan
 Testez l'expérience utilisateur avant d'implémenter le raccourcissement de liens avec des liens universels pour vous assurer qu'il répond à vos attentes.
 {% endalert %}
 
-### Les `send_ids` sont-ils associés aux événements de clic SMS ? {#are-sendids-associated-with-sms-click-events}
+### Les `send_ids` sont-ils associés aux événements de clic SMS ? {#are-send_ids-associated-with-sms-click-events}
 
 Non. Cependant, si le suivi avancé est activé, vous pouvez généralement attribuer les `send_ids` aux événements de clic en utilisant le [Générateur de requêtes]({{site.baseurl}}/query_builder/) pour interroger les données Currents avec cette requête :
 

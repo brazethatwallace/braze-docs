@@ -15,7 +15,7 @@ search_tag: Partner
 > A plataforma de dados do cliente da mParticle ajuda você a fazer mais com os seus dados. Os melhores profissionais de marketing usam a mParticle para orquestrar dados em todo o growth stack, para vencer nos momentos mais importantes da jornada do cliente.
 
 A integração entre a Braze e a mParticle permite que você controle com praticidade o fluxo de informações entre os dois sistemas:
-- Sincronize os públicos da mParticle com a Braze para segmentação de campanhas e Canvas na Braze.
+- Sincronize os públicos da mParticle com a Braze para segmentação de Campaign e Canvas na Braze.
 - Compartilhe dados entre as duas plataformas. Isso pode ser feito por meio da integração do kit mParticle e da integração de servidor a servidor.
 - [Envie a interação do usuário da Braze para a mParticle por meio do Currents]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/), tornando-a acionável em todo o growth stack.
 
@@ -27,7 +27,7 @@ A integração entre a Braze e a mParticle permite que você controle com pratic
 | Instância da Braze | Sua instância da Braze pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics/#endpoints) (por exemplo, `US-01` ou `US-02`). |
 | Chave do identificador do app Braze | A chave do identificador do seu app. <br><br>Ela pode ser encontrada em **Gerenciar configurações** > **Chave de API** no dashboard da Braze. |
 | Chave da API REST do espaço de trabalho | (Servidor a servidor) Uma chave da API REST da Braze<br><br>Ela pode ser criada em **Console de desenvolvedor** > **Configurações da API** > **Chave de API** no dashboard da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -102,16 +102,16 @@ Para criar um público na mParticle:
 1. Navegue até **Audiences** > **Single Workspace** > **+ New Audience**.
 2. Para conectar a Braze como uma saída para o seu público, você deve fornecer os seguintes campos:
 
-| Nome do campo               | Descrição                                                                                                                                                                   |
+| Nome do campo | Descrição |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Chave de API                  | Encontrada no dashboard da Braze em **Configurações** > **Chaves de API**.<br><br>Se você estiver usando a navegação antiga, pode encontrar as chaves de API em **Console de desenvolvedor** > **Configurações da API**. |
-| Sistema operacional da chave de API | Selecione a qual sistema operacional sua chave de API da Braze corresponde. Essa seleção limitará os tipos de tokens por push encaminhados em uma atualização de público.                          |
-| Enviar segmentos como         | O método de envio de públicos para a Braze. Consulte a seção [Encaminhamento de públicos](#forwarding-audiences) para mais detalhes.                                                          |
-| Chave da API REST do espaço de trabalho   | Chave da API REST da Braze com permissões completas. Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**.                                                        |
-| Tipo de identidade externa   | O tipo de identidade de usuário da mParticle a ser encaminhado como ID externo para a Braze. Recomendamos manter o valor padrão, Customer ID.                                          |
-| Tipo de identidade de e-mail      | O tipo de identidade de usuário da mParticle a ser encaminhado como e-mail para a Braze.                                                                                                            |
-| Instância da Braze           | Especifique para qual cluster seus dados da Braze serão encaminhados.                                                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Chave de API | No dashboard da Braze, acesse **Settings** > **API Keys**. |
+| Sistema operacional da chave de API | Selecione a qual sistema operacional sua chave de API da Braze corresponde. Essa seleção limitará os tipos de tokens por push encaminhados em uma atualização de público. |
+| Enviar segmentos como | O método de envio de públicos para a Braze. Consulte a seção [Encaminhamento de públicos](#forwarding-audiences) para mais detalhes. |
+| Chave da API REST do espaço de trabalho | Chave da API REST da Braze com permissões completas. Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
+| Tipo de identidade externa | O tipo de identidade de usuário da mParticle a ser encaminhado como ID externo para a Braze. Recomendamos manter o valor padrão, Customer ID. |
+| Tipo de identidade de e-mail | O tipo de identidade de usuário da mParticle a ser encaminhado como e-mail para a Braze. |
+| Instância da Braze | Especifique para qual cluster seus dados da Braze serão encaminhados. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Crie um público na mParticle" }
 
 {:start="3"}
 3. Por fim, **salve** seu público.
@@ -120,7 +120,7 @@ Você deve começar a ver os públicos sincronizando com a Braze em poucos minut
 
 #### Etapa 2: Segmente usuários na Braze {#step-2-segment-users-in-braze}
 
-Na Braze, para criar um segmento desses usuários, navegue até **Segments** em **Engagement** e nomeie seu segmento. A seguir estão dois exemplos de segmentos dependendo da opção que você selecionou para **Enviar segmentos como**. Para mais detalhes sobre cada opção, consulte [Encaminhamento de públicos](#forwarding-audiences).
+Na Braze, para criar um segmento desses usuários, navegue até **Segments** em **Engagement** e nomeie seu segmento. A seguir estão dois exemplos de segmentos dependendo da opção que você selecionou para **Send segments as**. Para mais detalhes sobre cada opção, consulte [Encaminhamento de públicos](#forwarding-audiences).
 
 - **Atributo de array único:** Selecione `SegmentMembershipArray` como seu filtro. Em seguida, use a opção "includes value" e insira o ID de público desejado. ![Filtro de segmento da mParticle "SegmentMembershipArray" definido como "includes value" e ID de público.]({% image_buster /assets/img_archive/mparticle5.png %})<br><br>
 - **Um atributo por segmento:** Selecione seu atributo personalizado como filtro. Em seguida, use a opção "equals" e escolha a lógica apropriada. ![Filtro de segmento da mParticle "in possible parisians" definido como "equals" e "true".]({% image_buster /assets/img_archive/mparticle3.png %})
@@ -145,12 +145,12 @@ Na mParticle, navegue até **Setup > Outputs > Add Outputs** e selecione **Braze
 
 | Nome da configuração | Descrição |
 | ------------ | ----------- |
-| Chave do identificador do app Braze | A chave do identificador do seu app Braze pode ser encontrada no dashboard da Braze em **Configurações** > **Chaves de API**. Observe que as chaves de API serão diferentes para cada plataforma (iOS, Android e Web). |
-| Tipo de identidade externa | O tipo de identidade de usuário da mParticle a ser encaminhado como ID externo para a Braze. Recomendamos manter o valor padrão, Customer ID |
-| Tipo de identidade de e-mail | O tipo de identidade de usuário da mParticle a ser encaminhado como e-mail para a Braze. Recomendamos manter o valor padrão, Email, |
+| Chave do identificador do app Braze | A chave do identificador do seu app Braze pode ser encontrada no dashboard da Braze em **Settings** > **API Keys**. Observe que as chaves de API serão diferentes para cada plataforma (iOS, Android e Web). |
+| Tipo de identidade externa | O tipo de identidade de usuário da mParticle a ser encaminhado como ID externo para a Braze. Recomendamos manter o valor padrão, Customer ID. |
+| Tipo de identidade de e-mail | O tipo de identidade de usuário da mParticle a ser encaminhado como e-mail para a Braze. Recomendamos manter o valor padrão, Email. |
 | Instância da Braze | O cluster para o qual seus dados da Braze serão encaminhados; deve ser o mesmo cluster do seu dashboard. |
 | Ativar encaminhamento de fluxo de eventos | (Servidor a servidor) Quando ativado, todos os eventos serão encaminhados em tempo real. Caso contrário, todos os eventos serão encaminhados em lote. Ao optar por ativar o encaminhamento de fluxo de eventos, certifique-se de que os dados que você está enviando para a Braze respeitarão os [limites de taxa]({{site.baseurl}}/api/api_limits/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configure as configurações de saída da Braze" }
 
 ![]({% image_buster /assets/img_archive/configure_settings.png %})
 
@@ -221,7 +221,7 @@ Nem todos os tipos de dados são suportados entre ambas as plataformas.
 A Braze não suporta timestamps anteriores ao ano 0 ou posteriores ao ano 3000 em atributos personalizados do tipo `Time`. A Braze ingerirá esses valores quando forem enviados pela mParticle, mas o valor será armazenado como uma string.
 {% endalert %}
 
-#### Mapeamento de dados {#data-mapping}
+#### Mapeamento de dados
 
 | Tipo de dado mParticle | Tipo de dado Braze | Descrição |
 | ------------------- | --------------- | ----------- |
@@ -230,7 +230,7 @@ A Braze não suporta timestamps anteriores ao ano 0 ou posteriores ao ano 3000 e
 | Evento personalizado | Evento personalizado | Eventos personalizados da mParticle são reconhecidos pela Braze como um evento personalizado. Atributos de evento são encaminhados como propriedades de evento personalizado.<br><br>Atributos de evento passados para a Braze como propriedades de evento suportam objetos de string, numéricos, booleanos ou de data, mas não suportam arrays ou objetos aninhados. |
 | Evento de comércio de compra | Evento de compra | Eventos de comércio de compra serão mapeados para eventos de compra da Braze. <br><br>Alterne o valor da configuração para agrupar dados de eventos de comércio para registrar compras no nível do pedido ou do produto. Por exemplo, se `false`, um único evento de entrada com dois produtos, promoções ou impressões únicos resultaria em pelo menos dois eventos de saída da Braze. Se definido como `true`, resultaria em um único evento de saída com um array aninhado de produtos, promoções ou impressões, respectivamente.<br><br>Para saber mais sobre os campos de comércio adicionais que serão registrados, consulte a [documentação da mParticle](https://docs.mparticle.com/integrations/braze/event/#purchase-events). <br><br>Ao definir "bundle commerce event data" como `false`, atributos de produto passados para a Braze como propriedades de evento de compra suportam objetos de string, numéricos, booleanos ou de data, mas não suportam arrays ou objetos aninhados.|
 | Todos os outros eventos de comércio | Evento personalizado | Todos os outros eventos de comércio serão mapeados para eventos personalizados. <br><br>Alterne o valor da configuração para agrupar dados de eventos de comércio para registrar compras no nível do pedido ou do produto. Por exemplo, se `false`, um único evento de entrada com dois produtos, promoções ou impressões únicos resultaria em pelo menos dois eventos de saída da Braze. Se definido como `true`, resultaria em um único evento de saída com um array aninhado de produtos, promoções ou impressões, respectivamente.<br><br>Além de certos valores de comércio padrão, atributos de produto serão registrados como propriedades de evento da Braze. Para saber mais sobre os campos de comércio adicionais que serão registrados, consulte a [documentação da mParticle](https://docs.mparticle.com/integrations/braze/event/#other-commerce-events)<br><br>Ao definir "bundle commerce event data" como `false`, atributos de produto passados para a Braze como propriedades de evento suportam objetos de string, numéricos, booleanos ou de data, mas não suportam arrays ou objetos aninhados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mapeamento de dados" }
 
 #### Mapeamento de identidade de usuário {#user-identity-mapping}
 Para cada saída da mParticle, você pode selecionar o tipo de identidade externa a ser enviado para a Braze como o `external_id`. Embora o valor padrão seja customer ID, você pode optar por mapear outro ID, como `MPID`, para enviar para a Braze como o `external_id`. Esteja ciente de que escolher um identificador diferente do customer ID pode influenciar como os dados são enviados na Braze.
@@ -276,6 +276,7 @@ Se as notificações por push não estiverem funcionando ao usar o kit de evento
 3. **Method swizzling:** O kit Apple da mParticle usa method swizzling para encaminhar automaticamente tokens por push e lidar com eventos de notificação por push. Se você desativou o swizzling ou outro SDK está interferindo, os tokens por push podem não chegar à Braze. Verifique se o swizzling está ativado na sua configuração da mParticle.
 4. **Tratamento manual de token:** Se você gerencia tokens por push manualmente (por exemplo, implementando `application:didRegisterForRemoteNotificationsWithDeviceToken:`), certifique-se de que está passando o token para a mParticle atribuindo-o à propriedade de token de notificação por push, por exemplo: `MParticle.sharedInstance().pushNotificationToken = deviceToken`. O kit então o encaminhará para a Braze.
 5. **Incompatibilidade de ambiente:** Confirme que o ambiente da credencial APNs (desenvolvimento vs. produção) corresponde ao build do seu app. Para mais detalhes, consulte [Solução de problemas de push no iOS]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift).
+6. **Timing de inicialização do kit:** Se você acessa a instância da Braze a partir de `didFinishLaunchingWithOptions`, o kit da mParticle pode não estar pronto quando um push chega. Inicialize o tratamento de push em [`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) (ou o delegate de resposta de notificação equivalente) para que o kit Braze esteja ativo quando o usuário abrir uma notificação.
 
 ### Envio de dados desnecessários ou duplicados para a Braze {#sending-unnecessary-or-duplicate-data-to-braze}
 A Braze conta um ponto de dados cada vez que um atributo é passado para a Braze, mesmo que o valor não tenha mudado. Por esse motivo, a Braze recomenda encaminhar apenas os dados necessários para ações dentro da Braze e garantir que apenas deltas de atributos estejam sendo passados.

@@ -42,7 +42,7 @@ URLは、選択した`baseUrl`初期化オプションの[API SDKエンドポイ
 | URL | 情報 |
 |---|-----------|
 | `connect-src https://sdk.iad-01.braze.com` | SDKがBraze APIと通信できるようにします。このURLを、選択した`baseUrl`初期化オプションの[API SDKエンドポイント]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)に一致するように変更してください。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src #connect-src" }
 
 ### `script-src` {#script-src}
 
@@ -51,20 +51,20 @@ URLは、選択した`baseUrl`初期化オプションの[API SDKエンドポイ
 | `script-src https://js.appboycdn.com` | CDNホスト統合を使用する場合に必要です。|
 | `script-src 'unsafe-eval'` | `appboyQueue`への参照を含む統合スニペットを使用する場合に必要です。このディレクティブの使用を避けるには、代わりに[NPMを使用してSDKを統合]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager)してください。|
 | `script-src 'nonce-...'`<br>または<br>`script-src 'unsafe-inline'` | カスタムHTMLなど、特定のアプリ内メッセージに必要です。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 
 ### `img-src` {#img-src}
 
 | URL | 情報 |
 |---|-----------|
 | `img-src: appboy-images.com braze-images.com cdn.braze.eu` | Braze CDNホスト画像を使用する場合に必要です。ホスト名はダッシュボードクラスタによって異なる場合があります。<br><br>**重要:** カスタムフォントを使用している場合は、`font-src`も含める必要があります。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="img-src #img-src" }
 
 ## Font Awesome {#font-awesome}
 
 Font Awesomeの自動組み込みを無効にするには、`doNotLoadFontAwesome`初期化オプションを使用します。
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 
 braze.initialize(apiKey, {

@@ -31,7 +31,7 @@ description: "この記事では、カスタムイベントリストのエクス
 | パラメーター | 必須 | データタイプ | 説明 |
 | -------- | -------- | --------- | ----------- |
 | `page` | オプション | 整数 | 返されるイベント名のページ。デフォルトは0です（最大250件の最初のセットを返します）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```

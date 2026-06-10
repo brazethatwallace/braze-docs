@@ -23,7 +23,7 @@ Braze tiene tres estados de suscripción globales para los usuarios de correo el
 | Adhesión voluntaria | Un usuario ha confirmado explícitamente que desea recibir correo electrónico. Recomendamos un proceso de adhesión voluntaria explícito para obtener el consentimiento de los usuarios para enviar correos electrónicos. |
 | Suscrito | Un usuario no ha cancelado su suscripción ni ha optado explícitamente por recibir correos electrónicos. Este es el estado de suscripción predeterminado cuando se crea un perfil de usuario. |
 | Canceló suscripción | Un usuario ha cancelado explícitamente la suscripción a tus correos electrónicos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de suscripción" }
 
 {% alert note %}
 Braze no cuenta los cambios de estado de suscripción como puntos de datos, ni a nivel global ni en los grupos de suscripción.
@@ -81,6 +81,8 @@ Cuando un usuario actualiza su dirección de correo electrónico, su estado de s
 
 Para solucionar problemas con los cambios de estado de suscripción, revisa **Cambios en el estado de suscripción de correo electrónico** en los registros del perfil de usuario para ver el historial y la fuente (API o SDK).
 
+Cuando el estado de suscripción global de correo electrónico de un usuario cambia, Braze propaga ese estado a otros perfiles que comparten la misma dirección de correo electrónico, hasta 100 perfiles por cambio. Braze no garantiza la propagación cuando más de 100 perfiles comparten la misma dirección de correo electrónico. Si los usuarios que comparten un correo electrónico muestran diferentes estados de suscripción, ponte en contacto con soporte de Braze.
+
 ## Grupos de suscripción {#subscription-groups}
 
 Los grupos de suscripción son filtros de segmento que pueden reducir aún más tu audiencia a partir de los [estados de suscripción globales](#subscription-states). Estos grupos te permiten presentar opciones de suscripción más detalladas a los usuarios finales.
@@ -115,7 +117,7 @@ Los grupos de suscripción archivados no se pueden editar y ya no aparecerán en
 Para archivar tu grupo desde la página **Grupos de suscripción**, haz lo siguiente:
 
 1. Busca tu grupo en la lista de grupos de suscripción.
-2. Selecciona **Archivar** en el menú desplegable <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;.
+2. Selecciona **Archivar** en el menú desplegable <i class="fa-solid fa-ellipsis-vertical" aria-label="Abrir menú de opciones"></i>&nbsp;.
 
 Braze no procesa cambios de estado para los usuarios en grupos archivados. Por ejemplo, si archivas el Grupo de suscripción 1 mientras Alex está suscrito a él, Alex permanece "suscrito" incluso si hace clic en un enlace de cancelación de suscripción. Esto no importa porque el Grupo de suscripción 1 está archivado y no puedes enviar mensajes usándolo.
 

@@ -23,7 +23,7 @@ Because these events follow a defined schema, each supported feature can read th
 
 ### How eCommerce events work
 
-eCommerce events are custom events with predefined names and property schemas. You send them using the Braze SDK or the [`/users/track` REST API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), and Braze validates each event against its schema on ingestion. When validation passes, Braze automatically applies post-processing specific to that event type, such as calculating revenue fields and managing cart state on user profiles.
+eCommerce events are custom events with predefined names and property schemas. You send them using the [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) or the [`/users/track` REST API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), and Braze validates each event against its schema on ingestion. When validation passes, Braze automatically applies post-processing specific to that event type, such as calculating revenue fields and managing cart state on user profiles.
 
 eCommerce events work everywhere other custom events do: triggers and filters for performed custom events, custom events reporting, and more. However, their schema validation unlocks additional capabilities, including:
 
@@ -47,12 +47,21 @@ You cannot customize or rename events.
 
 The six eCommerce recommended events map to stages of the purchase journey. Fire each event at the moment the user completes the corresponding action.
 
-![Diagram of user journey through all six eCommerce recommended events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, and order_refunded.]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![Diagram of user journey through all six eCommerce recommended events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, and order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
+
+{% alert tip %}
+The following examples show the REST API payload for each event.
+For client-side logging, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, and `ecommerce.order_placed` use SDK eCommerce event APIs where available, while `ecommerce.order_cancelled` and `ecommerce.order_refunded` use `logCustomEvent`. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+{% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
-Trigger when a user views a product detail page. This event is compatible with Braze catalog [back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) and [price drop notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/). 
+Trigger when a user views a product detail page. This event is compatible with Braze catalog [back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) and [price drop notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/).
+
+#### Client-side implementation
+
+Use SDK eCommerce event APIs where available. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 #### Event properties
 
@@ -103,11 +112,22 @@ Trigger when a user views a product detail page. This event is compatible with B
 {% endtab %}
 {% tab ecommerce.cart_updated %}
 
-Trigger every time the contents of a user's cart changes. 
+Trigger every time the contents of a user's cart change.
 
-This event uses a replace model, meaning every call must include the full, current cart array, not only the item that changed. Braze overwrites the previous cart state with the array you send.
+#### Client-side implementation
 
-To trigger messaging from this event, use the **Perform Cart Updated Event** trigger in Canvas and campaigns. This trigger includes special handling to stop the cart from progressing through the shopping funnel. 
+Use SDK eCommerce event APIs where available. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
+You can send this event in one of two ways:
+
+- **Full cart replacement:** Omit `action` or set `action` to `replace`. Include the full set of line items in `products` with absolute quantities (total units per variant in the cart). You must include `total_value`.
+- **Incremental cart updates:** Set `action` to `add` or `remove`. Include only the line items that changed. Each `quantity` is the number of units to add or remove, not the total quantity in the cart. For `add`, Braze increases the line quantity or adds a new line. For `remove`, Braze decreases the line quantity and removes the line when the quantity reaches `0`. `total_value` is optional for `add` and `remove`.
+
+{% alert warning %}
+Use either incremental cart updates (`add` or `remove`) or full replacement (no `action` or `replace`) for a given cart. Mixing both approaches for the same `cart_id` is not recommended and may lead to an inconsistent cart state in Braze.
+{% endalert %}
+
+To trigger messaging from this event, use the **Perform Cart Updated Event** trigger in Canvas and campaigns. This trigger includes special handling to stop the cart from progressing through the shopping funnel.
 
 {% alert tip %}
 The cart creates a carts mapping object on the user profile that powers the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag. The cart expires after 30 days without an update. If two user profiles merge, Braze preserves both carts.
@@ -118,12 +138,13 @@ The cart creates a carts mapping object on the user profile that powers the {% r
 | Property        | Data type | Required | Description                                                                                                                   |
 |-----------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `cart_id`       | String    | Yes      | Unique identifier for the cart. Shared across cart, checkout, and order events for the user's cart mapping.                   |
-| `total_value`   | Float     | Yes      | Total monetary value of the cart.                                                                                             |
+| `action`        | String    | No       | `add` (increment quantity or add a line), `remove` (decrement quantity; line removed at `0`), or `replace` (full cart replacement, same as omitting `action`). |
+| `total_value`   | Float     | Conditional | Required when `action` is omitted or `replace`. Optional when `action` is `add` or `remove`.                             |
 | `subtotal_value`| Float     | No       | Subtotal value of the cart (post-discount, pre-tax/shipping).                                                                 |
 | `tax`           | Float     | No       | Total tax applied to the cart.                                                                                                |
 | `shipping`      | Float     | No       | Total shipping cost for the cart.                                                                                             |
 | `currency`      | String    | Yes      | Three-letter ISO 4217 code.                                                                                                   |
-| `products`      | Array     | Yes      | Complete array of items currently in the cart. See product properties sub-table.                                              |
+| `products`      | Array     | Yes      | Line items for this update. For full replacement (no `action` or `replace`), include the full cart with absolute quantities. For `add` or `remove`, include only changed lines; see product properties. |
 | `source`        | String    | Yes      | Source the event originates from.                                                                                             |
 | `metadata`      | Object    | No       | Flexible key-value pairs for additional event-level data.                                                                     |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
@@ -137,12 +158,425 @@ The cart creates a carts mapping object on the user profile that powers the {% r
 | `variant_id`    | String    | Yes      | Variant identifier.                             |
 | `image_url`     | String    | No       | Product image URL.                              |
 | `product_url`   | String    | No       | URL to the product page.                        |
-| `quantity`      | Integer   | Yes      | Number of units in the cart.                    |
+| `quantity`      | Integer   | Yes      | For full replacement (no `action` or `replace`), units in the cart for this line. For `add` or `remove`, how many units to add or remove. |
 | `price`         | Float     | Yes      | Variant unit price.                             |
 | `metadata`      | Object    | No       | Flexible key-value pairs (for example, `color` or `size`).   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
-#### REST API example
+{% comment %}
+
+{% subtabs local %}
+{% subtab Web %}
+
+##### `add`
+
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
+
+```javascript
+braze.logCustomEvent("ecommerce.cart_updated", {
+  cart_id: "cart_abc123",
+  action: "add",
+  currency: "USD",
+  source: "web",
+  products: [
+    {
+      product_id: "SKU-RUN-4821",
+      product_name: "Ultraboost Running Shoe",
+      variant_id: "UB-BLK-11",
+      quantity: 1,
+      price: 189.99,
+    },
+  ],
+});
+```
+##### `remove`
+
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+
+```javascript
+braze.logCustomEvent("ecommerce.cart_updated", {
+  cart_id: "cart_abc123",
+  action: "remove",
+  currency: "USD",
+  source: "web",
+  products: [
+    {
+      product_id: "SKU-SOC-1102",
+      product_name: "Performance Running Socks",
+      variant_id: "SOC-WHT-L",
+      quantity: 1,
+      price: 14.99,
+    },
+  ],
+});
+```
+
+##### `replace`
+
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
+
+```javascript
+braze.logCustomEvent("ecommerce.cart_updated", {
+  cart_id: "cart_abc123",
+  action: "replace",
+  total_value: 234.96,
+  currency: "USD",
+  source: "web",
+  products: [
+    {
+      product_id: "SKU-RUN-4821",
+      product_name: "Ultraboost Running Shoe",
+      variant_id: "UB-BLK-11",
+      image_url: "https://cdn.example.com/shoes/ub-blk-11.jpg",
+      product_url: "https://www.example.com/products/ultraboost-running-shoe?variant=UB-BLK-11",
+      quantity: 1,
+      price: 189.99,
+    },
+    {
+      product_id: "SKU-SOC-1102",
+      product_name: "Performance Running Socks",
+      variant_id: "SOC-WHT-L",
+      image_url: "https://cdn.example.com/socks/soc-wht-l.jpg",
+      product_url: "https://www.example.com/products/performance-running-socks?variant=SOC-WHT-L",
+      quantity: 2,
+      price: 14.99,
+    },
+  ],
+});
+```
+
+{% endsubtab %}
+{% subtab Android %}
+
+##### Add
+
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
+
+```text
+Kotlin
+
+// add — units to add
+Braze.getInstance(context).logCustomEvent(
+  "ecommerce.cart_updated",
+  BrazeProperties(
+    JSONObject()
+      .put("cart_id", "cart_abc123")
+      .put("action", "add")
+      .put("currency", "USD")
+      .put("source", "android")
+      .put(
+        "products",
+        JSONArray().put(
+          JSONObject()
+            .put("product_id", "SKU-RUN-4821")
+            .put("product_name", "Ultraboost Running Shoe")
+            .put("variant_id", "UB-BLK-11")
+            .put("quantity", 1)
+            .put("price", 189.99),
+        ),
+      ),
+  ),
+)
+
+JavaScript
+
+// add — units to add
+Braze.getInstance(context).logCustomEvent(
+    "ecommerce.cart_updated",
+    new BrazeProperties(new JSONObject()
+        .put("cart_id", "cart_abc123")
+        .put("action", "add")
+        .put("currency", "USD")
+        .put("source", "android")
+        .put("products", new JSONArray()
+            .put(new JSONObject()
+                .put("product_id", "SKU-RUN-4821")
+                .put("product_name", "Ultraboost Running Shoe")
+                .put("variant_id", "UB-BLK-11")
+                .put("quantity", 1)
+                .put("price", 189.99)))));
+```
+
+##### Remove
+
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+
+```text
+Kotlin
+
+// remove — units to remove
+Braze.getInstance(context).logCustomEvent(
+  "ecommerce.cart_updated",
+  BrazeProperties(
+    JSONObject()
+      .put("cart_id", "cart_abc123")
+      .put("action", "remove")
+      .put("currency", "USD")
+      .put("source", "android")
+      .put(
+        "products",
+        JSONArray().put(
+          JSONObject()
+            .put("product_id", "SKU-SOC-1102")
+            .put("product_name", "Performance Running Socks")
+            .put("variant_id", "SOC-WHT-L")
+            .put("quantity", 1)
+            .put("price", 14.99),
+        ),
+      ),
+  ),
+)
+
+JavaScript
+
+// remove — units to remove
+Braze.getInstance(context).logCustomEvent(
+    "ecommerce.cart_updated",
+    new BrazeProperties(new JSONObject()
+        .put("cart_id", "cart_abc123")
+        .put("action", "remove")
+        .put("currency", "USD")
+        .put("source", "android")
+        .put("products", new JSONArray()
+            .put(new JSONObject()
+                .put("product_id", "SKU-SOC-1102")
+                .put("product_name", "Performance Running Socks")
+                .put("variant_id", "SOC-WHT-L")
+                .put("quantity", 1)
+                .put("price", 14.99)))));
+```
+
+##### Replace
+
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
+
+```text
+Kotlin
+
+// replace — full cart; total_value required
+Braze.getInstance(context).logCustomEvent(
+  "ecommerce.cart_updated",
+  BrazeProperties(
+    JSONObject()
+      .put("cart_id", "cart_abc123")
+      .put("action", "replace")
+      .put("total_value", 234.96)
+      .put("currency", "USD")
+      .put("source", "android")
+      .put(
+        "products",
+        JSONArray()
+          .put(
+            JSONObject()
+              .put("product_id", "SKU-RUN-4821")
+              .put("product_name", "Ultraboost Running Shoe")
+              .put("variant_id", "UB-BLK-11")
+              .put("quantity", 1)
+              .put("price", 189.99),
+          )
+          .put(
+            JSONObject()
+              .put("product_id", "SKU-SOC-1102")
+              .put("product_name", "Performance Running Socks")
+              .put("variant_id", "SOC-WHT-L")
+              .put("quantity", 2)
+              .put("price", 14.99),
+          ),
+      ),
+  ),
+)
+
+JavaScript
+
+// replace — full cart; total_value required
+Braze.getInstance(context).logCustomEvent(
+    "ecommerce.cart_updated",
+    new BrazeProperties(new JSONObject()
+        .put("cart_id", "cart_abc123")
+        .put("action", "replace")
+        .put("total_value", 234.96)
+        .put("currency", "USD")
+        .put("source", "android")
+        .put("products", new JSONArray()
+            .put(new JSONObject()
+                .put("product_id", "SKU-RUN-4821")
+                .put("product_name", "Ultraboost Running Shoe")
+                .put("variant_id", "UB-BLK-11")
+                .put("quantity", 1)
+                .put("price", 189.99))
+            .put(new JSONObject()
+                .put("product_id", "SKU-SOC-1102")
+                .put("product_name", "Performance Running Socks")
+                .put("variant_id", "SOC-WHT-L")
+                .put("quantity", 2)
+                .put("price", 14.99)))));
+```
+
+{% endsubtab %}
+{% subtab Swift %}
+
+##### Add
+
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
+
+```text
+Swift
+
+// add — units to add
+AppDelegate.braze?.logCustomEvent(
+  name: "ecommerce.cart_updated",
+  properties: [
+    "cart_id": "cart_abc123",
+    "action": "add",
+    "currency": "USD",
+    "source": "ios",
+    "products": [
+      [
+        "product_id": "SKU-RUN-4821",
+        "product_name": "Ultraboost Running Shoe",
+        "variant_id": "UB-BLK-11",
+        "quantity": 1,
+        "price": 189.99,
+      ],
+    ],
+  ]
+)
+
+Objective-C
+
+// add — units to add
+[AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
+                       properties:@{
+  @"cart_id": @"cart_abc123",
+  @"action": @"add",
+  @"currency": @"USD",
+  @"source": @"ios",
+  @"products": @[@{
+    @"product_id": @"SKU-RUN-4821",
+    @"product_name": @"Ultraboost Running Shoe",
+    @"variant_id": @"UB-BLK-11",
+    @"quantity": @1,
+    @"price": @189.99,
+  }],
+}];
+```
+
+##### Remove
+
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+
+```text
+Swift
+
+// remove — units to remove
+AppDelegate.braze?.logCustomEvent(
+  name: "ecommerce.cart_updated",
+  properties: [
+    "cart_id": "cart_abc123",
+    "action": "remove",
+    "currency": "USD",
+    "source": "ios",
+    "products": [
+      [
+        "product_id": "SKU-SOC-1102",
+        "product_name": "Performance Running Socks",
+        "variant_id": "SOC-WHT-L",
+        "quantity": 1,
+        "price": 14.99,
+      ],
+    ],
+  ]
+)
+
+Objective-C
+
+// remove — units to remove
+[AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
+                       properties:@{
+  @"cart_id": @"cart_abc123",
+  @"action": @"remove",
+  @"currency": @"USD",
+  @"source": @"ios",
+  @"products": @[@{
+    @"product_id": @"SKU-SOC-1102",
+    @"product_name": @"Performance Running Socks",
+    @"variant_id": @"SOC-WHT-L",
+    @"quantity": @1,
+    @"price": @14.99,
+  }],
+}];
+```
+
+##### Replace
+
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
+
+```text
+Swift
+
+// replace — full cart; total_value required
+AppDelegate.braze?.logCustomEvent(
+  name: "ecommerce.cart_updated",
+  properties: [
+    "cart_id": "cart_abc123",
+    "action": "replace",
+    "total_value": 234.96,
+    "currency": "USD",
+    "source": "ios",
+    "products": [
+      [
+        "product_id": "SKU-RUN-4821",
+        "product_name": "Ultraboost Running Shoe",
+        "variant_id": "UB-BLK-11",
+        "quantity": 1,
+        "price": 189.99,
+      ],
+      [
+        "product_id": "SKU-SOC-1102",
+        "product_name": "Performance Running Socks",
+        "variant_id": "SOC-WHT-L",
+        "quantity": 2,
+        "price": 14.99,
+      ],
+    ],
+  ]
+)
+
+Objective-C
+
+// replace — full cart; total_value required
+[AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
+                       properties:@{
+  @"cart_id": @"cart_abc123",
+  @"action": @"replace",
+  @"total_value": @234.96,
+  @"currency": @"USD",
+  @"source": @"ios",
+  @"products": @[
+    @{
+      @"product_id": @"SKU-RUN-4821",
+      @"product_name": @"Ultraboost Running Shoe",
+      @"variant_id": @"UB-BLK-11",
+      @"quantity": @1,
+      @"price": @189.99,
+    },
+    @{
+      @"product_id": @"SKU-SOC-1102",
+      @"product_name": @"Performance Running Socks",
+      @"variant_id": @"SOC-WHT-L",
+      @"quantity": @2,
+      @"price": @14.99,
+    },
+  ],
+}];
+```
+
+{% endsubtab %}
+{% subtab REST API %}
+
+##### `add`
+
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```json
 {
@@ -153,6 +587,69 @@ The cart creates a carts mapping object on the user profile that powers the {% r
       "time": "2026-04-28T14:25:33Z",
       "properties": {
         "cart_id": "cart_abc123",
+        "action": "add",
+        "currency": "USD",
+        "source": "web",
+        "products": [
+          {
+            "product_id": "SKU-RUN-4821",
+            "product_name": "Ultraboost Running Shoe",
+            "variant_id": "UB-BLK-11",
+            "quantity": 1,
+            "price": 189.99
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+##### `remove`
+
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+
+```json
+{
+  "events": [
+    {
+      "external_id": "user_98765",
+      "name": "ecommerce.cart_updated",
+      "time": "2026-04-28T14:26:10Z",
+      "properties": {
+        "cart_id": "cart_abc123",
+        "action": "remove",
+        "currency": "USD",
+        "source": "web",
+        "products": [
+          {
+            "product_id": "SKU-SOC-1102",
+            "product_name": "Performance Running Socks",
+            "variant_id": "SOC-WHT-L",
+            "quantity": 1,
+            "price": 14.99
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+##### `replace`
+
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
+
+```json
+{
+  "events": [
+    {
+      "external_id": "user_98765",
+      "name": "ecommerce.cart_updated",
+      "time": "2026-04-28T14:27:00Z",
+      "properties": {
+        "cart_id": "cart_abc123",
+        "action": "replace",
         "total_value": 234.96,
         "subtotal_value": 219.97,
         "tax": 9.0,
@@ -196,10 +693,18 @@ The cart creates a carts mapping object on the user profile that powers the {% r
 }
 ```
 
+{% endsubtab %}
+{% endsubtabs %}
+{% endcomment %}
+
 {% endtab %}
 {% tab ecommerce.checkout_started %}
 
 Trigger when the user initiates the checkout flow (for example, selects "Checkout" or lands on the checkout page).
+
+#### Client-side implementation
+
+Use SDK eCommerce event APIs where available. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 #### Event properties
 
@@ -291,6 +796,10 @@ Trigger when the user initiates the checkout flow (for example, selects "Checkou
 {% tab ecommerce.order_placed %}
 
 Trigger when an order is successfully completed or payment is confirmed.
+
+#### Client-side implementation
+
+Use SDK eCommerce event APIs where available. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 {% alert important %}
 This event is the primary revenue driver. It increments `total_revenue` by the value in `total_value` and increments `total_orders` by 1 on the user profile.
@@ -396,6 +905,10 @@ This event is the primary revenue driver. It increments `total_revenue` by the v
 
 Trigger when an order is cancelled.
 
+#### Client-side implementation
+
+Use `logCustomEvent`. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 {% alert important %}
 This event decrements `total_orders` by 1 on the user profile. It does not affect `total_revenue`; use `order_refunded` to adjust revenue.
 {% endalert %}
@@ -488,6 +1001,10 @@ This event decrements `total_orders` by 1 on the user profile. It does not affec
 {% tab ecommerce.order_refunded %}
 
 Trigger when a full or partial refund is issued.
+
+#### Client-side implementation
+
+Use `logCustomEvent`. For platform-specific implementation examples, refer to [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 {% alert important %}
 This event decrements `total_revenue` by the value in `total_value` and increments `total_refunds` on the user profile. For partial refunds, set `total_value` to the refunded amount only, not the original order total.
@@ -616,7 +1133,7 @@ The following table summarizes what Braze automatically does for each event when
 | `ecommerce.order_placed`     | Increments **Total Revenue** by `total_value` and **Total Orders** by 1 on the user profile.                     |
 | `ecommerce.order_cancelled`  | Decrements **Total Orders** by 1.                                                                                 |
 | `ecommerce.order_refunded`   | Decrements **Total Revenue** by `total_value` and increments **Total Refund Value**.                              |
-| `ecommerce.cart_updated`     | Creates or updates the carts mapping object on the user profile. The cart expires after 30 days without an update.|
+| `ecommerce.cart_updated`     | Creates or updates the carts mapping object on the user profile (full cart payloads, or incremental cart updates with optional `action`: `add`, `remove`, or `replace`). The cart expires after 30 days without an update.|
 | `ecommerce.product_viewed`   | No user profile changes. Available for segmentation, triggering, and BrazeAI<sup>TM</sup> features (like item recommendations).|
 | `ecommerce.checkout_started` | No user profile changes. Available for segmentation and triggering (for example, abandoned checkout flows).        |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
@@ -627,7 +1144,7 @@ Non-USD currency values are automatically converted to USD using the exchange ra
 
 ## Implement eCommerce events 
 
-You can send eCommerce events through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (server-side) or the client [SDK method]({{site.baseurl}}/developer_guide/sdk_integration/) `logCustomEvent`.
+You can send eCommerce events through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (server-side) or through the Braze SDKs (client-side). For SDK implementation examples, see [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 ### Send events server-side
 

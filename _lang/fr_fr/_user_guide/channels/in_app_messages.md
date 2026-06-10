@@ -32,7 +32,7 @@ Grâce au contenu riche offert par les messages in-app, vous pouvez exploiter ce
 | Ventes et promotions | Utilisez des messages in-app modaux pour accueillir les clients avec des médias visuellement attrayants contenant des codes de promotion statiques ou des offres. Incitez-les à effectuer des achats ou des conversions qu'ils n'auraient pas réalisés autrement. |
 | Encourager l'adoption de fonctionnalités | Encouragez les clients à utiliser d'autres parties de votre application ou à profiter d'un service. |
 | Campagnes hautement personnalisées | Placez des messages in-app comme la première chose que vos clients voient lorsqu'ils ouvrent votre application ou site. Ajoutez des fonctionnalités de personnalisation Braze, telles que le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), pour inciter les utilisateurs à agir et ainsi rendre votre communication plus efficace.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
 Voici d'autres cas d'utilisation à envisager :
 

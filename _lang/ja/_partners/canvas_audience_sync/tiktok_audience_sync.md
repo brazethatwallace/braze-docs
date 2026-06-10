@@ -36,7 +36,7 @@ CanvasでTikTokオーディエンスステップを設定する前に、次の�
 | TikTok for Business Centerアカウント | [TikTok](https://business.tiktok.com/) | ブランドのTikTokアセット（広告アカウント、ページ、アプリなど）を管理するための集中型ツールです。 |
 | TikTok広告アカウント | [TikTok](https://ads.tiktok.com/) | ブランドのビジネスセンターアカウントに紐づけられたアクティブなTikTok広告アカウントです。<br><br>TikTokビジネスセンターマネージャーの管理者が、Brazeで使用する予定のTikTok広告アカウントに対する管理者権限を付与していることを確認してください。 |
 | TikTok利用規約とポリシー | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Pinterest Audience Syncの使用に関連するTikTokの必要な条件、ポリシー、ガイドライン、およびドキュメント（それらに参照として組み込まれている条件、ポリシー、ガイドライン、およびドキュメントを含む）に同意すること。これには、商業利用規約、広告利用規約、プライバシーポリシー、カスタムオーディエンス利用規約、開発者利用規約、開発者データ共有契約、広告ポリシー、ブランドガイドライン、コミュニティガイドラインが含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -46,11 +46,11 @@ CanvasでTikTokオーディエンスステップを設定する前に、次の�
 TikTokをBrazeアカウントに接続するには[「管理者」権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin)が必要です。
 {% endalert %}
 
-Brazeダッシュボードで、**パートナー連携** > **テクノロジーパートナー**に移動し、**TikTok**を選択します。TikTok Audience Syncで、**TikTokを接続**を選択します。
+Brazeダッシュボードで、**パートナー連携** > **テクノロジーパートナー**に移動し、**TikTok**を選択します。TikTok Audience Syncで、**Connect TikTok**を選択します。
 
 ![BrazeのTikTokテクノロジーページには、概要セクションとTikTok Audience Syncセクションがあり、Connected TikTokボタンがあります。]({% image_buster /assets/img/tiktok/tiktok1.png %}){: style="max-width:75%;"}
 
-その後、TikTokのOAuthページにリダイレクトされ、Brazeの広告アカウント管理およびオーディエンス管理を承認するよう求められます。**確認**を選択すると、Brazeに戻り、同期するTikTok広告アカウントを選択できます。
+その後、TikTokのOAuthページにリダイレクトされ、Brazeの広告アカウント管理およびオーディエンス管理を承認するよう求められます。**Confirm**を選択すると、Brazeに戻り、同期するTikTok広告アカウントを選択できます。
 
 ![]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
 
@@ -58,7 +58,7 @@ Brazeダッシュボードで、**パートナー連携** > **テクノロジー
 
 ![]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
 
-TikTok接続はBrazeアプリグループレベルで適用されます。TikTokの管理者がTikTokビジネスセンターまたは接続されたTikTokアカウントへのアクセスからあなたを削除した場合、Brazeは無効なトークンを検出します。その結果、TikTokオーディエンスコンポーネントを使用しているアクティブなCanvasesにはエラーが表示され、Brazeはユーザーを同期できなくなります。
+TikTok接続はBrazeアプリグループレベルで適用されます。TikTokの管理者がTikTokビジネスセンターまたは接続されたTikTokアカウントへのアクセスからあなたを削除した場合、Brazeは無効なトークンを検出します。その結果、TikTokオーディエンスコンポーネントを使用しているアクティブなCanvasにはエラーが表示され、Brazeはユーザーを同期できなくなります。
 
 ### ステップ2:CanvasにTikTokオーディエンスコンポーネントを追加する {#step-2-add-a-tiktok-audience-component-in-canvas}
 
@@ -79,7 +79,7 @@ Audience Syncパートナーとして**TikTok**を選択します。
 ![]({% image_buster /assets/img/tiktok/tiktok11.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab 新規オーディエンスの作成 %}
 
 **新規オーディエンスの作成**<br>
 新しいオーディエンスの名前を入力し、**Add Users to Audience**を選択し、TikTokと同期したいフィールドを選択します。次に、ステップエディターの下部にある**Create Audience**ボタンをクリックしてオーディエンスを保存します。
@@ -93,7 +93,7 @@ Audience Syncパートナーとして**TikTok**を選択します。
 新しいオーディエンスを使用してCanvasを起動すると、ユーザーがオーディエンスステップに入る時点で、Brazeはほぼリアルタイムでユーザーを同期します。
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab 既存のオーディエンスとの同期 %}
 
 **既存のオーディエンスとの同期**<br>
 Brazeは、オーディエンスを最新の状態に保つために、ユーザーを既存のTikTokオーディエンスに追加する機能も提供しています。既存のオーディエンスと同期するには、ドロップダウンに既存のオーディエンスの名前を入力し、**Add to the Audience**を選択します。Brazeは、ユーザーがTikTokオーディエンスステップに入ると、ほぼリアルタイムでユーザーを追加します。
@@ -129,7 +129,7 @@ TikTokのSegment APIのレート制限では、1秒あたり50クエリ、1リ�
 | 保留中のユーザー | BrazeがTikTokへの同期のために現在処理中のユーザーの数。 |
 | エラーが発生したユーザー数 | 約13時間のリトライ後、APIエラーのためにTikTokに同期されなかったユーザーの数。エラーの潜在的な原因には、無効なTikTokトークンや、TikTokでオーディエンスが削除された場合が含まれます。 |
 | Canvasを終了済み | Canvasを終了したユーザーの数。これは、Canvasの最後のステップがAudience Syncコンポーネントである場合に発生します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="分析の理解" }
 
 {% alert important %}
 一括フラッシャーと13時間の再試行により、同期されたユーザーとエラーが発生したユーザーの指標のレポートに遅延が発生することに注意してください。
@@ -165,4 +165,4 @@ TikTokでは、1つのIDが複数のTikTokユーザーに関連付けられて�
 
 ### 「Audience Does Not Exist For Canvas」という件名のメールが届くのはなぜですか？ {#why-am-i-receiving-an-email-with-the-subject-audience-does-not-exist-for-canvas}
 
-これは、同期先として選択したオーディエンスがストリーミングオーディエンスでない場合に発生する可能性があります（たとえば、類似オーディエンスやユーザーファイルオーディエンスの場合）。Braze Audience Sync Canvasステップで新しいオーディエンスを作成してみてください。
+これは、同期先として選択したオーディエンスがストリーミングオーディエンスでない場合に発生する可能性があります（たとえば、類似オーディエンスやユーザーファイルオーディエンスの場合）。Braze Audience SyncのCanvasステップで新しいオーディエンスを作成してみてください。

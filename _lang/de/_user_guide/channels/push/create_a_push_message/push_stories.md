@@ -16,7 +16,7 @@ channel:
 | Android-Beispiel (erweitert) | iOS-Beispiel (erweitert) |
 | :-----: | :----------: |
 | ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Storys" }
 
 {% alert note %}
 Ab iOS SDK Version 3.13.0+ wird aufgrund einer Änderung beim Herunterladen von Bildern durch das SDK kein Miniaturbild des ersten Bildes mehr in der komprimierten Ansicht der Push-Benachrichtigung angezeigt. Stellen Sie sicher, dass Ihr Nachrichtentext die Nutzer:innen dazu auffordert, die Push-Benachrichtigung zu erweitern, um die Bilder zu sehen.
@@ -39,7 +39,7 @@ Um Push-Storys zu verwenden, gehen Sie wie folgt vor:
 2. Wählen Sie als **Notification Type** die Option **Push Stories** aus.
 3. Wählen Sie **iOS** oder **Android**. Beachten Sie, dass die Option zum Erstellen einer Push-Story nicht angezeigt wird, wenn Sie beide für eine Push-Nachricht auswählen.
 
-### Push-Story-Composer
+### Push-Story-Composer {#push-story-composer}
 
 Um eine Seite zu erstellen, führen Sie die folgenden Schritte aus:
 

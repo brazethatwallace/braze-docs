@@ -47,8 +47,8 @@ Accédez à **Messaging** > **Campaigns**, puis choisissez une Campaign. Dans vo
 
 Braze générera automatiquement une étiquette Liquid en utilisant l'[URL de votre page d'accueil](#page-url). Consultez le tableau suivant pour générer votre étiquette :
 
-|**Type de personnalisation**| Choisissez **Landing Page**.|
-|**Page d'accueil**| Choisissez la page d'accueil [que vous avez précédemment créée](#prerequisites).|
+| **Type de personnalisation** | Choisissez **Landing Page**. |
+| **Page d'accueil** | Choisissez la page d'accueil [que vous avez précédemment créée](#prerequisites). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 Pour ajouter l'étiquette Liquid à votre message, vous pouvez soit sélectionner **Insert**, soit copier l'extrait de code dans votre presse-papiers et l'ajouter manuellement.

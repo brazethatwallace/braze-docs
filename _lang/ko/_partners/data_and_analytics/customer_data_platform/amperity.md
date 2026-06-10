@@ -21,7 +21,7 @@ Braze와 Amperity 통합은 두 플랫폼에 걸쳐 고객에 대한 통합 뷰�
 - **오디언스 생성 및 전송**: 활성 고객 목록과 관련 커스텀 속성을 반환하는 세그먼트를 구축하여 Braze로 전송합니다.
 - **데이터 업데이트 관리**: Braze로 커스텀 속성 업데이트를 전송하는 빈도를 제어합니다.
 - **데이터 통합**: Amperity가 지원하는 다양한 플랫폼과 Braze 간의 데이터를 통합합니다.
-- **Braze 데이터를 Amazon S3로 동기화**: Braze Currents를 사용하여 Braze 캠페인의 참여 데이터를 통합하고, Apache Avro 형식으로 Amazon S3에 데이터를 동기화할 수 있습니다.
+- **Braze 데이터를 Amazon S3로 동기화**: Braze Currents를 사용하여 Braze Campaigns의 참여 데이터를 통합하고, Apache Avro 형식으로 Amazon S3에 데이터를 동기화할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -32,7 +32,7 @@ Braze와 Amperity 통합은 두 플랫폼에 걸쳐 고객에 대한 통합 뷰�
 | Braze 인스턴스 | Braze 인스턴스는 Braze 온보딩 매니저에게 문의하거나 [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints)에서 확인할 수 있습니다. |
 | Braze REST 엔드포인트 | Braze 엔드포인트 URL. 엔드포인트는 Braze 인스턴스에 따라 달라집니다. |
 | Currents 커넥터(선택 사항) | S3 Currents 커넥터. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 데이터 매핑 {#data-mapping}
 

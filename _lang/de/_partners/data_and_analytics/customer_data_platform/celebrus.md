@@ -17,7 +17,7 @@ _Diese Integration wird von Celebrus gepflegt._
 | Celebrus-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Celebrus-Konto. |
 | Data Warehouse (optional) | Wenn Sie den Celebrus-Konnektor für angepasste Attribute von Braze verwenden, müssen Sie über ein Data Warehouse verfügen, das von der Braze-Cloud-Datenaufnahme (CDI) unterstützt wird, und CDI im Braze-Dashboard konfigurieren. |
 | Braze SDK-Konfigurationseinstellungen (optional) | Wenn Sie den Celebrus-Konnektor für Braze SDK verwenden, müssen Sie den SDK-Endpunkt und den SDK-API-Schlüssel übergeben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Implementierung {#implementation}
 Nach der Installation Ihrer Celebrus-Implementierung verwenden Sie die Celebrus-Konnektoren für Braze, um Celebrus-Daten in Braze zu integrieren. Die Celebrus-Integration für Braze besteht aus zwei Elementen: dem Braze SDK und den angepassten Attributen von Braze. Je nachdem, wie Sie Braze verwenden und welche Anwendungsfälle Sie benötigen, können Sie entweder eines oder beide einsetzen.

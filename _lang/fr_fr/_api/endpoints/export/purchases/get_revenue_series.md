@@ -35,7 +35,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `unit` | Facultatif | Chaîne de caractères | Unité de temps entre les points de données. Peut être « day » ou « hour », la valeur par défaut étant « day ». |
 | `app_id` | Facultatif | Chaîne de caractères | Identifiant API de l'application récupéré à partir de la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Si ce paramètre est omis, les résultats de toutes les applications de l'espace de travail seront renvoyés. |
 | `product` | Facultatif | Chaîne de caractères | Nom du produit par lequel filtrer la réponse. Si ce paramètre est omis, les résultats de toutes les applications seront renvoyés. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de requête {#example-request}
 

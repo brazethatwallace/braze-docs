@@ -20,7 +20,7 @@ Die Integration von Braze und Personalize.AI ermöglicht es Ihnen, Daten von Per
 | Personalize.AI-Instanz | Um die Vorteile dieser Partnerschaft zu nutzen, ist eine Personalize.AI-Instanz erforderlich. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Berechtigungen. <br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -51,7 +51,7 @@ Sobald Ihre Daten exportiert wurden, überträgt Personalize.AI weiterhin Daten 
 
 ## Verwendung dieser Integration {#using-this-integration}
 
-Personalize.AI exportiert Bezeichner für personalisiertes Targeting nach Braze. Diese angepassten Attribute geben Zeitpunkt, Inhalt, Behandlung und Angebote für jede Kund:in an. Je nach Integration können Felder als Ereignis übergeben oder über die [Connected-Content-APIs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis/) abgerufen werden, anstatt im Profil der Kund:in gespeichert zu werden. Personalize.AI unterstützt die Verwendung von `external_id` als Bezeichner.
+Personalize.AI exportiert Bezeichner für personalisiertes Targeting nach Braze. Diese angepassten Attribute geben Zeitpunkt, Inhalt, Behandlung und Angebote für jede:n Kund:in an. Je nach Integration können Felder als Ereignis übergeben oder über die [Connected-Content-APIs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis/) abgerufen werden, anstatt im Profil der/des Kund:in gespeichert zu werden. Personalize.AI unterstützt die Verwendung von `external_id` als Bezeichner.
 
 Die in Braze importierten Datenattribute sind für die Verwendung in Canvases intuitiv benannt und folgen einer einheitlichen Terminologie. Zum Beispiel würde das Attribut `C402_Target_Variant` in Personalize.AI als `"P.AI_Model_Treatment"` nach Braze exportiert werden. Die von Personalize.AI exportierten Attribute sind so konzipiert, dass sie nicht mit bestehenden Attributen oder dem von Ihnen verwendeten Tracking kollidieren. Diese Attribute werden kontinuierlich überprüft, damit Sie sie sicher referenzieren können.
 
@@ -61,11 +61,11 @@ Hier sehen Sie zum Beispiel eine Reihe von Kundenattributen, die sich auf ein be
 | ----------- | ------------- |
 | `Customer_ID` | 12345 |
 | `Target_Canvas` | C4 |
-| `Target_Objective` |  "Churn_Mitigation" |
+| `Target_Objective` | „Churn_Mitigation“ |
 | `C4_Target_Date` | 3/1/2023 |
 | `C4_Target_Variant` | Treatment |
-| `C4_Treatment` | "P.AI_Model" |
+| `C4_Treatment` | „P.AI_Model“ |
 | `C4_Offer_Value` | $3 |
-| `C4_Item_Recom` | "Caesar Salad" |
-| `C4_Subject_Line` | "We miss you" |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `C4_Item_Recom` | „Caesar Salad“ |
+| `C4_Subject_Line` | „We miss you“ |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verwendung dieser Integration" }

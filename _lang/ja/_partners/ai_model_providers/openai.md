@@ -18,7 +18,7 @@ _この連携はOpenAIによって管理されています。_
 
 ## 連携について {#about-the-integration}
 
-BrazeとOpenAIの連携により、OpenAIのAPIキーをBrazeに接続して、カスタムAIエージェントを構築する際にOpenAIモデルを使用できます。この連携により、エージェントはパーソナライズされたコピーの生成、リアルタイムの意思決定、OpenAIの大規模言語モデルを使用したカタログフィールドの更新が可能になります。
+BrazeとOpenAIの連携により、OpenAIのAPIキーをBrazeに接続して、カスタムAIエージェントを構築する際にOpenAIモデルを使用できます。この連携により、エージェントはパーソナライズ済みコピーの生成、リアルタイムの意思決定、OpenAIの大規模言語モデルを使用したカタログフィールドの更新が可能になります。
 
 ## 前提条件 {#prerequisites}
 
@@ -26,7 +26,7 @@ BrazeとOpenAIの連携により、OpenAIのAPIキーをBrazeに接続して、�
 |---|---|
 | APIキーを持つOpenAIアカウント | APIキーを持つOpenAIアカウントが必要です。問題や質問がある場合は、管理者または[OpenAIサポート](https://help.openai.com/)にお問い合わせください。 |
 | Brazeインスタンス | Brazeインスタンスは、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)またはBrazeオンボーディングマネージャーから確認できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 連携 {#integration}
 
@@ -34,7 +34,7 @@ OpenAIのAPIキーをBrazeに接続するには：
 
 1. Brazeダッシュボードで**パートナー連携** > **テクノロジーパートナー**に移動し、OpenAIを見つけます。
 2. OpenAIのAPIキーを入力します。
-3. **Save**を選択します。
+3. **保存**を選択します。
 
 保存後、エージェントコンソールで[カスタムエージェントを作成する]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)際にOpenAIモデルを選択できます。
 

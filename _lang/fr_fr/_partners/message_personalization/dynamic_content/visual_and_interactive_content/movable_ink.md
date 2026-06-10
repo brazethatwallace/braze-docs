@@ -24,7 +24,7 @@ _Cette intégration est maintenue par Movable Ink._
 |---|---|
 | Compte Movable Ink | Un compte Movable Ink est nécessaire pour bénéficier de ce partenariat. |
 | Source de données | Vous devez connecter une source de données à Movable Ink. Cela peut se faire par le biais d'un fichier CSV, de l'importation d'un site web ou d'une API. Veillez à transmettre les données avec un identifiant commun entre Braze et Movable Ink (par exemple, `external_id`).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -42,17 +42,17 @@ Intelligent Creative propose de nombreuses offres dont les utilisateurs peuvent 
 | Capacité Movable Ink | Fonctionnalité | Notification push enrichie | Messages in-app / Content Cards / e-mail | Détails |
 | ---------------------- |---| ---------------------- | -------------------------------- | ------- |
 | Creative Optimizer | Affichage du contenu des tests A/B | ✗ | ✔ | |
-|| Optimiser | ✗ | ✔* | * Vous devez utiliser la solution de création de liens profonds de Branch |
+| Optimiser | ✗ | ✔* | * Vous devez utiliser la solution de création de liens profonds de Branch |
 | Règles de ciblage | Date | ✔* | ✔ | * Pris en charge mais non recommandé car les notifications push sont mises en cache dès leur réception et ne s'actualisent pas |
-|| Jour de la semaine | ✔* | ✔ | * Pris en charge mais non recommandé car les notifications push sont mises en cache dès leur réception et ne s'actualisent pas |
-|| Heure de la journée | ✔* | ✔ | * Pris en charge mais non recommandé car les notifications push sont mises en cache dès leur réception et ne s'actualisent pas |
+| Jour de la semaine | ✔* | ✔ | * Pris en charge mais non recommandé car les notifications push sont mises en cache dès leur réception et ne s'actualisent pas |
+| Heure de la journée | ✔* | ✔ | * Pris en charge mais non recommandé car les notifications push sont mises en cache dès leur réception et ne s'actualisent pas |
 | Stories/Activités comportementales | | ✔* | ✔* | * L'identifiant unique de l'utilisateur utilisé pour Braze doit être lié à l'identifiant de votre ESP |
 | Création de liens profonds dans l'application | | ✔* | ✔* | * Pour offrir une expérience fluide à vos clients, utilisez une solution de création de liens profonds établie via Branch ou une solution validée avec l'équipe Expérience client de Movable Ink. |
 | Applications | Compte à rebours | ✔* | ✔ | * Pris en charge mais non recommandé car les notifications push sont mises en cache dès leur réception et ne s'actualisent pas |
-|| Sondage | ✗ | ✔* | * Après avoir voté, l'utilisateur quittera l'application pour accéder à une page d'accueil mobile |
-|| Grattage | ✔* | ✔* | * En cliquant, l'utilisateur quittera l'application pour accéder à l'expérience de grattage |
-|| Vidéo | ✔* | ✔* | * Uniquement les GIF animés, <br>Pour Android, Braze exige la [prise en charge du format GIF]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android) dans l'implémentation |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| Sondage | ✗ | ✔* | * Après avoir voté, l'utilisateur quittera l'application pour accéder à une page d'accueil mobile |
+| Grattage | ✔* | ✔* | * En cliquant, l'utilisateur quittera l'application pour accéder à l'expérience de grattage |
+| Vidéo | ✔* | ✔* | * Uniquement les GIF animés, <br>Pour Android, Braze exige la [prise en charge du format GIF]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android) dans l'implémentation |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Supported Movable Ink capabilities" }
 
 ## Intégration {#integration}
 
@@ -140,7 +140,7 @@ Pour ce faire, utilisez la syntaxe suivante, en remplaçant l'URL de l'image si 
 {% endraw %}
 Ce modèle prend l'heure actuelle (en secondes), l'ajoute à la fin de l'onglet image de Movable Ink (en tant que paramètre de requête), puis affiche le résultat final. Vous pouvez le prévisualiser à l'aide de l'onglet **Test** — celui-ci évalue le code et affiche un aperçu.
 
-**3.** Enfin, réévaluez l'appartenance au Segment. Pour ce faire, activez l'option `Re-evaluate audience membership and liquid at send-time` située à l'étape **Target Audiences** d'une Campaign. Si cette option n'est pas disponible, contactez votre gestionnaire de la satisfaction client ou l'assistance Braze. Cette option indiquera aux SDK de Braze de redemander la Campaign, en fournissant une URL unique à chaque fois qu'un message in-app est déclenché.
+**3.** Enfin, réévaluez l'appartenance au segment. Pour ce faire, activez l'option `Re-evaluate audience membership and liquid at send-time` située à l'étape **Target Audiences** d'une Campaign. Si cette option n'est pas disponible, contactez votre gestionnaire de la satisfaction client ou l'assistance Braze. Cette option indiquera aux SDK de Braze de redemander la Campaign, en fournissant une URL unique à chaque fois qu'un message in-app est déclenché.
 
 {% endtab %}
 {% tab Content Card %}

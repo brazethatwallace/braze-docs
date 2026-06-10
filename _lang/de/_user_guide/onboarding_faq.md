@@ -84,7 +84,7 @@ Standardmäßig muss der Push-Abo-Status Ihrer Nutzer:innen entweder „abonnier
 | Abonniert | Standard-Push-Abo-Status, wenn ein Nutzerprofil in Braze erstellt wird. |
 | Eingewilligt | Eine Person hat ausdrücklich den Wunsch geäußert, Push-Benachrichtigungen zu erhalten. Braze ändert den Einwilligungsstatus automatisch auf `Opted-In`, wenn eine Person eine Push-Aufforderung auf Betriebssystemebene akzeptiert.<br><br>Dies gilt nicht für Nutzer:innen mit Android 12 oder darunter. |
 | Abgemeldet | Eine Person hat sich über Ihre Anwendung oder andere von Ihrer Marke angebotene Methoden explizit von Push abgemeldet. Standardmäßig richten sich Push-Campaigns von Braze nur an Nutzer:innen, die `Subscribed` oder `Opted-in` für Push sind. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Was ist der Unterschied zwischen den Push-Abo-Status?" }
 
 {% endapi %}
 {% api %}
@@ -393,7 +393,7 @@ Dieses Bewertungsverhalten ist unabhängig davon, [wie weit im Voraus Sie die Ca
 Campaigns
 {% endapitags %}
 
-Die Anzahl der Nutzer:innen, die eine Campaign betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (außer bei einem [Trigger „Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie zunächst nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
+Die Anzahl der Nutzer:innen, die eine Campaign betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (außer bei einem [Trigger „Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie zunächst nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
 
 {% endapi %}
 {% api %}
@@ -517,7 +517,7 @@ Der Segmenter liefert genauere Statistiken für eindeutige Nutzerdaten als Canva
 Canvases
 {% endapitags %}
 
-Die Anzahl der Nutzer:innen, die ein Canvas betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (außer bei einem Trigger [„Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Dies führt dazu, dass Nutzer:innen aus dem Canvas herausfallen, wenn sie nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
+Die Anzahl der Nutzer:innen, die ein Canvas betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (außer bei einem Trigger [„Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Dies führt dazu, dass Nutzer:innen aus dem Canvas herausfallen, wenn sie nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
 
 {% endapi %}
 {% api %}
@@ -571,7 +571,7 @@ So planen Sie einen wiederkehrenden Engagement-Bericht:
 
 1. Navigieren Sie in Ihrem Dashboard-Konto unter **Daten** zu **Engagement-Berichte**.
 2. Klicken Sie auf **+ Neuen Bericht erstellen**.
-3. Fügen Sie die [Campaigns und Canvas-Nachrichten]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (einzeln oder [nach Tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) hinzu, die Sie in Ihrem Bericht zusammenstellen möchten.
+3. Fügen Sie die [Campaigns und Canvas-Nachrichten]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (einzeln oder [nach Tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)) hinzu, die Sie in Ihrem Bericht zusammenstellen möchten.
 4. [Fügen Sie Statistiken]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) zu Ihrem Bericht hinzu.
 5. Wählen Sie die Komprimierung und das Trennzeichen für Ihren Bericht.
 6. Geben Sie die E-Mail-Adressen der Unternehmensnutzer:innen ein, die diesen Bericht erhalten sollen.

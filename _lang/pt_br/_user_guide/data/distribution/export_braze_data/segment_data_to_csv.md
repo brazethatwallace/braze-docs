@@ -19,9 +19,9 @@ Para exportar dados de segmento para um CSV, selecione o menu suspenso **User Da
 
 ![Seção de informações do segmento com o menu suspenso User Data mostrando opções de exportação.]({% image_buster /assets/img_archive/csvexport.png %})
 
-Você também pode solicitar uma exportação CSV na página principal de **Segments**, selecionando o menu suspenso <i class="fas fa-gear" aria-label="Configurações"></i> **Configurações** de um segmento:
+Você também pode solicitar uma exportação CSV na página principal de **Segments**, selecionando o menu suspenso <i class="fas fa-gear"></i> **Settings** de um segmento:
 
-![Menu suspenso Configurações na página principal de Segments.]({% image_buster /assets/img_archive/csvexport2.png %})
+![Menu suspenso Settings na página principal de Segments.]({% image_buster /assets/img_archive/csvexport2.png %})
 
 {% alert tip %}
 Para exportar dados de todos os seus perfis de usuários, crie um segmento sem filtros e solicite uma exportação CSV.
@@ -108,10 +108,14 @@ Quando você exporta dados de usuários de uma etapa do Canvas, o CSV inclui tod
 | unsubscribed_from_emails_at | Data de cancelamento da inscrição do e-mail |
 | opted_in_to_emails_at       | Data de opt-in do e-mail      |
 | user_aliases                | Aliases de usuário, se houver   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 Para obter ajuda com exportações CSV e API, visite nosso artigo de [solução de problemas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+{% endalert %}
+
+{% alert note %}
+Os dados de grupos de inscrições não estão disponíveis por meio de exportações de segmento. Para identificar usuários por status de inscrição, crie um segmento separado com base na associação ao grupo de inscrições e exporte esse segmento.
 {% endalert %}
 
 ## Exportação de segmentos grandes {#exporting-large-segments}
@@ -133,9 +137,11 @@ Você também pode usar [números aleatórios de bucket]({{site.baseurl}}/user_g
 {% endtab %}
 {% tab Endpoints %}
 
-Também é possível usar os seguintes endpoints para exportar dados de usuários de um segmento específico. Note que esses endpoints estão sujeitos a limites de dados.
+Também é possível usar os seguintes endpoints para exportar dados de usuários de um segmento específico. Note que esses endpoints estão sujeitos a limites de dados e [limites de taxa]({{site.baseurl}}/api/basics/).
 - [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
 - [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)
+
+Se você tiver conectado suas [credenciais do Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3/#amazon-s3-integration), exportações grandes podem ser entregues no seu bucket, além do link de download enviado por e-mail, conforme descrito em [Detalhes da exportação CSV de segmento](#segment-csv-export-details).
 
 {% endtab %}
 {% endtabs %}

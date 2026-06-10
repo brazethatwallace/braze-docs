@@ -34,7 +34,7 @@ _Essa integração é mantida pela Worthy._
 | --- | --- |
 | Conta da [Worthy](https://worthy.ai/) | É necessário ter uma conta Worthy para aproveitar essa parceria. |
 | SDK da Braze | Você precisará configurar o SDK da Braze no seu aplicativo móvel para enviar mensagens avançadas no app. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -50,4 +50,4 @@ Crie uma [Campaign de mensagens no app]({{site.baseurl}}/user_guide/channels/in_
 
 No criador de mensagens da Worthy, clique em **Export** e selecione **Braze** para exportar sua mensagem personalizada para uso em Campaigns da Braze. Copie o conteúdo exportado para a caixa de texto HTML em **HTML + Asset Zip** no editor de Campaigns da Braze.
 
-É isso aí! Você pode testar imediatamente sua mensagem personalizada usando a guia **Test** no editor de Campaign da Braze.
+É isso aí! Você pode testar imediatamente sua mensagem personalizada usando a guia **Test** no editor de Campaigns da Braze.

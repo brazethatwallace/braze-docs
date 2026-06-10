@@ -29,6 +29,6 @@ Sie können das Feature auch zur Laufzeit aktivieren, indem Sie `ABKEnableDismis
 
 | `DismissModalOnOutsideTap` | Beschreibung |
 |----------|-------------|
-| `YES`       | Modale In-App Messages werden ausgeblendet, wenn auf eine Stelle außerhalb des Fensters getippt wird.     |
-| `NO`        | Standardmäßig werden modale In-App Messages beim Tippen auf eine Stelle außerhalb des Fensters nicht ausgeblendet. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `YES`       | Modale In-App-Nachrichten werden ausgeblendet, wenn auf eine Stelle außerhalb des Fensters getippt wird.     |
+| `NO`        | Standardmäßig werden modale In-App-Nachrichten beim Tippen auf eine Stelle außerhalb des Fensters nicht ausgeblendet. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modal durch Tippen außerhalb des Fensters ausblenden" }

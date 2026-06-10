@@ -46,7 +46,7 @@ tool:
 |--- | --- | --- |
 | 画像とテキスト | 6:5のアスペクト比<br> 高解像度 1200 x 1000&nbsp;px<br> 最小 600 x 500&nbsp;px | すべての辺でトリミングが発生する可能性がありますが、画像は常にビューポートの上部50%を埋めます |
 | 画像のみ | 3:5のアスペクト比<br> 高解像度 1200 x 2000&nbsp;px<br> 最小 600 x 1000&nbsp;px | 縦長のデバイスでは左右の端でトリミングが発生する可能性があります |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Portrait" }
 
 ### 横向き {#landscape}
 
@@ -54,7 +54,7 @@ tool:
 |--- | --- | --- |
 | 画像とテキスト | 10:3のアスペクト比<br> 高解像度 2000 x 600px<br> 最小 1000 x 300&nbsp;px | すべての辺でトリミングが発生する可能性がありますが、画像は常にビューポートの上部50%を埋めます |
 | 画像のみ | 5:3のアスペクト比<br> 高解像度 2000 x 1200px<br> 最小 1000 x 600&nbsp;px | 縦長のデバイスでは左右の端でトリミングが発生する可能性があります |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Landscape" }
 
 ### 画像セーフゾーン {#image-safe-zone}
 

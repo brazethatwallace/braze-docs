@@ -1,49 +1,49 @@
 ---
-nav_title: "COLOCAR: Sustituir varios elementos del catálogo"
-article_title: "COLOCAR: Sustituir varios elementos del catálogo"
+nav_title: "PUT: Sustituir varios elementos del catálogo"
+article_title: "PUT: Sustituir varios elementos del catálogo"
 search_tag: Endpoint
 page_order: 4
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Braze Sustituir varios elementos del catálogo."
+description: "En este artículo se describen los detalles del punto de conexión de Braze Sustituir varios elementos del catálogo."
 
 ---
 {% api %}
-# Sustituir artículos del catálogo
+# Sustituir elementos del catálogo {#replace-catalog-items}
 {% apimethod put %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
-> Utiliza este punto final para sustituir varios elementos de tu catálogo.
+> Utiliza este punto de conexión para sustituir varios elementos de tu catálogo.
 
-Si un elemento del catálogo no existe, este punto final creará el elemento en tu catálogo. Cada solicitud puede admitir hasta 50 elementos de catálogo. Este punto final es asíncrono.
+Si un elemento del catálogo no existe, este punto de conexión creará el elemento en tu catálogo. Cada solicitud puede admitir hasta 50 elementos de catálogo. Este punto de conexión es asíncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#ab30a4fc-60bc-4460-885c-1b92af8bc061 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.replace_items`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.replace_items`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog item' %}
 
-## Parámetros de la ruta
+## Parámetros de la ruta {#path-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `catalog_name` | Obligatoria | Cadena | Nombre del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `items` | Obligatoria | Matriz | Una matriz que contiene objetos elemento. Cada objeto debe tener un ID. Los objetos artículo deben contener campos que existan en el catálogo. Se permiten hasta 50 objetos de artículo por solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `items` | Obligatorio | Matriz | Una matriz que contiene objetos de elementos. Cada objeto debe tener un ID. Los objetos de elementos deben contener campos que existan en el catálogo. Se permiten hasta 50 objetos de elementos por solicitud. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -55,9 +55,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
       "id": "restaurant1",
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -78,11 +79,19 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 }'
 ```
 
-## Respuesta
+{% alert note %}
+El campo `Location` utiliza el tipo de datos `geo`, que espera una matriz con el formato `[longitude, latitude]`.
+{% endalert %}
 
-Existen tres respuestas de código de estado para este punto final: `202`, `400` y `404`.
+## Respuesta {#response}
 
-### Ejemplo de respuesta positiva
+Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+
+{% alert note %}
+El sistema también puede devolver una respuesta `400` si tu empresa ha alcanzado su límite de almacenamiento del catálogo. La versión gratuita de los catálogos tiene un límite de 100&nbsp;MB. Para más información sobre los niveles de almacenamiento y cómo actualizar, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
+{% endalert %}
+
+### Ejemplo de respuesta correcta {#example-success-response}
 
 El código de estado `202` podría devolver el siguiente cuerpo de respuesta.
 
@@ -92,9 +101,9 @@ El código de estado `202` podría devolver el siguiente cuerpo de respuesta.
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulte la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puede encontrar.
+El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulta [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedes encontrar.
 
 ```json
 {
@@ -114,25 +123,27 @@ El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Co
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
 
 | Error | Solución de problemas |
 | --- | --- |
-| `catalog-not-found` | Compruebe que el nombre del catálogo es válido. |
+| `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
+| `company-size-limit-already-reached` | Se ha alcanzado el límite de almacenamiento del catálogo. Para obtener más información sobre los niveles de almacenamiento, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations). |
+| `company-size-limit-surge` | La solicitud supera el almacenamiento restante del catálogo de tu empresa. Inténtalo de nuevo con una actualización más pequeña. Para obtener más información sobre los niveles de almacenamiento, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations). |
 | `ids-not-string` | Confirma que el ID de cada elemento es una cadena. |
-| `ids-not-unique` | Comprueba que el ID de cada artículo es único. |
-| `ids-too-large` | El límite de caracteres para cada ID de artículo es de 250 caracteres. |
-| `item-array-invalid` | `items` debe ser un array de objetos. |
-| `items-missing-ids` | Algunos artículos no tienen ID de artículo. Confirma que cada elemento tiene un ID. |
-| `items-too-large` | Los valores de los elementos no pueden superar los 5.000 caracteres. |
-| `invalid-ids` | Los caracteres admitidos para los nombres de ID de artículos son letras, números, guiones y guiones bajos. |
-| `invalid-fields` | Confirme que todos los campos que está enviando en la solicitud API ya existen en el catálogo. Esto no está relacionado con el campo ID mencionado en el error. |
-| `invalid-keys-in-value-object` | Las claves de objeto de artículo no pueden incluir `.` ni `$`. |
-| `too-deep-nesting-in-value-object` | Los objetos item no pueden tener más de 50 niveles de anidamiento. |
-| `request-includes-too-many-items` | Su solicitud tiene demasiados elementos. El límite de elementos por solicitud es de 50. |
-| `unable-to-coerce-value` | Los tipos de artículo no se pueden convertir. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `ids-not-unique` | Comprueba que el ID de cada elemento es único. |
+| `ids-too-large` | El límite de caracteres para cada ID de elemento es de 250 caracteres. |
+| `item-array-invalid` | `items` debe ser una matriz de objetos. |
+| `items-missing-ids` | Algunos elementos no tienen ID de elemento. Confirma que cada elemento tiene un ID. |
+| `items-too-large` | Los valores de los elementos no pueden superar los 5000 caracteres. |
+| `invalid-ids` | Los caracteres admitidos para los nombres de ID de elementos son letras, números, guiones y guiones bajos. |
+| `invalid-fields` | Confirma que todos los campos que estás enviando en la solicitud de API ya existen en el catálogo. Esto no está relacionado con el campo ID mencionado en el error. |
+| `invalid-keys-in-value-object` | Las claves de objeto de elemento no pueden incluir `.` ni `$`. |
+| `too-deep-nesting-in-value-object` | Los objetos de elemento no pueden tener más de 50 niveles de anidamiento. |
+| `request-includes-too-many-items` | Tu solicitud tiene demasiados elementos. El límite de elementos por solicitud es de 50. |
+| `unable-to-coerce-value` | Los tipos de elemento no se pueden convertir. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

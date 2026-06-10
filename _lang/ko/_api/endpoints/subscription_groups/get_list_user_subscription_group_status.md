@@ -48,8 +48,6 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 나열 Braze
 | `phone` | 필수* | [E.164](https://en.wikipedia.org/wiki/E.164) 형식의 문자열 | 사용자의 전화번호입니다. 이메일이 포함되지 않은 경우 전화번호를 하나 이상 포함해야 합니다(최대 50개).<br><br> 이메일 주소와 전화번호를 모두 제출하면(`external_id` 없이) 오류가 발생합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
-
 *각 사용자에 대해 `external_id` 또는 `email` 또는 `phone` 중 하나가 필요합니다.
 
 - SMS 및 WhatsApp 구독 그룹의 경우 `external_id` 또는 `phone`이 필요합니다. 둘 다 제출하면 `external_id`만 쿼리에 사용되며 해당 사용자에게 전화번호가 적용됩니다.

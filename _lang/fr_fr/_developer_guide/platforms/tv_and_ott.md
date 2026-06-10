@@ -28,7 +28,7 @@ Voici la liste des fonctionnalités et canaux de communication pris en charge au
 }
 
 </style>
-<table id="tv-feature-table">
+<table aria-label="Plateformes et fonctionnalités" id="tv-feature-table">
   <caption>Plateformes et fonctionnalités</caption>
     <thead>
         <tr>

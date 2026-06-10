@@ -108,10 +108,14 @@ Cuando exportas datos de usuario de un paso en Canvas, el CSV incluye a todos lo
 | unsubscribed_from_emails_at | Fecha de cancelación de suscripción de correos electrónicos |
 | opted_in_to_emails_at       | Fecha de adhesión voluntaria a correos electrónicos      |
 | user_aliases                | Alias de usuario, en su caso   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 Para obtener ayuda con las exportaciones CSV y API, visita nuestro artículo de [solución de problemas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+{% endalert %}
+
+{% alert note %}
+Los datos de los grupos de suscripción no están disponibles a través de las exportaciones de segmentos. Para identificar usuarios por estado de suscripción, crea un segmento aparte basado en la pertenencia a un grupo de suscripción y exporta ese segmento.
 {% endalert %}
 
 ## Exportar segmentos grandes {#exporting-large-segments}
@@ -133,9 +137,11 @@ También puedes utilizar [números de contenedor aleatorios]({{site.baseurl}}/us
 {% endtab %}
 {% tab Puntos de conexión %}
 
-También puedes aprovechar los siguientes puntos de conexión para exportar datos de usuario de un segmento específico. Ten en cuenta que estos puntos de conexión están sujetos a límites de datos.
+También puedes aprovechar los siguientes puntos de conexión para exportar datos de usuario de un segmento específico. Ten en cuenta que estos puntos de conexión están sujetos a límites de datos y [límites de velocidad]({{site.baseurl}}/api/basics/).
 - [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
 - [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)
+
+Si has vinculado tus [credenciales de Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3/#amazon-s3-integration), las exportaciones grandes se pueden entregar en tu contenedor, además del enlace de descarga enviado por correo electrónico, como se describe en [Detalles de la exportación CSV de segmentos](#segment-csv-export-details).
 
 {% endtab %}
 {% endtabs %}

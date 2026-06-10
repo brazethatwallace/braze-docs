@@ -33,7 +33,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant API Canvas]({{site.baseurl}}/api/identifier_types/) |
 | `post_launch_draft_version` | Facultatif | Valeur booléenne | Pour les Canvas qui disposent d'un brouillon post-lancement, définir ce paramètre sur `true` affiche les modifications de brouillon disponibles. La valeur par défaut est `false`. |
 | `include_has_translatable_content` | Facultatif | Valeur booléenne | Lorsque ce paramètre est défini sur `true`, la réponse de l'API inclut un champ `has_translatable_content` pour chaque message. La valeur par défaut est `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de requête {#example-request}
 

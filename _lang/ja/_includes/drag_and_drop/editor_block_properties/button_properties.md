@@ -10,4 +10,4 @@
 | バックグラウンドの色 | ボタンのバックグラウンドの色を変更します。 |
 | ボーダースタイル | ボタンのボーダーのスタイルを決定します。 |
 | ボーダーの角丸 | 角の丸みを決定します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

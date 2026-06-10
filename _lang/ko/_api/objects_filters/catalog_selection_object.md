@@ -54,18 +54,18 @@ tool: Catalogs
 | `results_limit` | 선택 사항 | 정수 | 반환할 최대 결과 수입니다. 1에서 50 사이의 숫자여야 합니다. |
 | `sort_field` | 선택 사항 | 문자열 | 결과를 정렬할 필드입니다. `sort_order`와 함께 사용해야 합니다. `sort_field`와 `sort_order`가 모두 없으면 결과는 무작위 순서로 반환됩니다. |
 | `sort_order` | 선택 사항 | 문자열 | 결과를 정렬하는 순서입니다. 허용되는 값은 `"asc"`(오름차순) 또는 `"desc"`(내림차순)입니다. `sort_field`와 함께 사용해야 합니다. `sort_field`와 `sort_order`가 모두 없으면 결과는 무작위 순서로 반환됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object details" }
 
 ### 필터 오브젝트 {#filter-object}
 
 `filters` 배열의 각 필터 오브젝트는 다음 표에 설명된 필드를 포함합니다.
 
-| 키 | 필수 | 데이터 유형                                   | 설명 |
+| 키 | 필수 | 데이터 유형 | 설명 |
 | --- | -------- | ------------------------------------------- | ----------- |
-| `field`    | 필수 | 문자열                                      | 필터링할 카탈로그 필드입니다. |
-| `operator` | 필수 | 문자열                                      | 필터링에 사용할 비교 연산자입니다. 예를 들어 `"includes value"` 및 `"does not include value"`가 있습니다. |
-| `value`    | 필수 | 다양함(문자열, 숫자, 부울, 시간)     | 비교할 값입니다. 기본 카탈로그 필드의 데이터 유형과 일치해야 합니다(예: 문자열, 숫자, 부울, 시간). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `field` | 필수 | 문자열 | 필터링할 카탈로그 필드입니다. |
+| `operator` | 필수 | 문자열 | 필터링에 사용할 비교 연산자입니다. 예를 들어 `"includes value"` 및 `"does not include value"`가 있습니다. |
+| `value` | 필수 | 다양함(문자열, 숫자, 부울, 시간) | 비교할 값입니다. 기본 카탈로그 필드의 데이터 유형과 일치해야 합니다(예: 문자열, 숫자, 부울, 시간). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filter object" }
 
 {% alert note %}
 API는 선택 요청당 최대 네 개의 필터를 지원합니다. Braze 대시보드에서는 선택당 최대 10개의 필터를 추가할 수 있습니다. 필터는 배열에 나타나는 순서대로 적용됩니다.

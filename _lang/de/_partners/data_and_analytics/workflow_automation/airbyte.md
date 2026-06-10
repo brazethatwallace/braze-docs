@@ -1,7 +1,7 @@
 ---
 nav_title: Airbyte
 article_title: Airbyte
-description: "Dieser referenzierte Artikel behandelt die Integration von Braze und Airbyte. Airbyte ist eine Open-Source-Engine für die Datenintegration, die Sie bei der Konsolidierung Ihrer Daten in Data Warehouses, Seen und Datenbanken unterstützt und Realtime-Ereignisse von Airbyte an Braze weiterleitet."
+description: "Dieser Referenzartikel behandelt die Integration von Braze und Airbyte. Airbyte ist eine Open-Source-Engine für die Datenintegration, die Sie bei der Konsolidierung Ihrer Daten in Data Warehouses, Data Lakes und Datenbanken unterstützt und Realtime-Ereignisse von Airbyte an Braze weiterleitet."
 alias: /partners/airbyte/
 page_type: partner
 search_tag: Airbyte
@@ -10,36 +10,36 @@ search_tag: Airbyte
 
 # Airbyte
 
-> [Airbyte](https://airbyte.com/) ist eine Open-Source-Engine für die Datenintegration, die Sie bei der Konsolidierung Ihrer Daten in Data Warehouses, Seen und Datenbanken unterstützt.
+> [Airbyte](https://airbyte.com/) ist eine Open-Source-Engine für die Datenintegration, die Sie bei der Konsolidierung Ihrer Daten in Data Warehouses, Data Lakes und Datenbanken unterstützt.
 
 _Diese Integration wird von Airbyte gepflegt._
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Airbyte erlaubt es Nutzern:innen, eine Datenpipeline zu erstellen, um Braze-Daten zu sammeln und zu analysieren, indem Sie alle Ihre Anwendungen und Datenbanken mit einem zentralen Data Warehouse verbinden. Nachdem die Daten im zentralen Data Warehouse gesammelt wurden, können die Teams die Daten von Braze mithilfe ihrer bevorzugten Business-Intelligence-Tools effektiv untersuchen.
+Die Integration von Braze und Airbyte ermöglicht es Nutzer:innen, eine Datenpipeline zu erstellen, um Braze-Daten zu sammeln und zu analysieren, indem alle Ihre Anwendungen und Datenbanken mit einem zentralen Data Warehouse verbunden werden. Nachdem die Daten im zentralen Data Warehouse gesammelt wurden, können Datenteams Braze-Daten mithilfe ihrer bevorzugten Business-Intelligence-Tools effektiv untersuchen.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Airbyte Cloud-Konto | Um die Vorteile dieser Integration zu nutzen, benötigen Sie ein [Airbyte Cloud-Konto](https://cloud.airbyte.io/workspaces). |
-| Braze REST API-Schlüssel | Ein REST-API-Schlüssel von Braze mit allen Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST Endpunkt | Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit allen Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-Endpunkt | Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-1. Navigieren Sie in Ihrem Airbyte Cloud-Konto zu **Quellen > + Neue Quelle > Einrichten der Quelle**.
-2. Geben Sie "Braze" als Quellennamen ein und wählen Sie **Braze** aus dem Quellen-Dropdown aus.
-3. Geben Sie die URL Ihres Endpunkts, den REST API-Schlüssel von Braze und das Startdatum an. Klicken Sie auf **Quelle einrichten**.
+1. Navigieren Sie in Ihrem Airbyte Cloud-Konto zu **Sources > + New Source > Set up the Source**.
+2. Geben Sie „Braze“ als Quellennamen ein und wählen Sie **Braze** aus dem Quellen-Dropdown aus.
+3. Geben Sie die URL Ihres Endpunkts, den Braze REST-API-Schlüssel und das Startdatum an. Klicken Sie auf **Set up Source**.
 
-### Unterstützte Sync-Modi
+### Unterstützte Sync-Modi {#supported-sync-modes}
 
-Der Konnektor für Braze-Quellen von Airbyte unterstützt die folgenden [Synchronisationsmodi](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes):
-- **Vollständige Aktualisierung | Überschreiben**: Synchronisieren Sie alle Datensätze aus der Quelle und ersetzen Sie Daten im Ziel durch Überschreiben.
-- **Inkrementelle Synchronisierung | Anhängen**: Synchronisieren Sie neue Datensätze von der Quelle und fügen Sie sie dem Ziel hinzu, ohne Daten zu löschen.
+Der Airbyte-Braze-Quellkonnektor unterstützt die folgenden [Sync-Modi](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes):
+- **Full Refresh | Overwrite**: Alle Datensätze aus der Quelle werden synchronisiert und die Daten im Ziel durch Überschreiben ersetzt.
+- **Incremental Sync | Append**: Neue Datensätze aus der Quelle werden synchronisiert und dem Ziel hinzugefügt, ohne vorhandene Daten zu löschen.
 
-### Unterstützte Streams
+### Unterstützte Streams {#supported-streams}
 
 - [`campaigns`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f3b0b3ef-04fb-4a31-8570-e6ad88dacb18)
 - [`campaigns_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1)
@@ -56,5 +56,5 @@ Der Konnektor für Braze-Quellen von Airbyte unterstützt die folgenden [Synchro
 - [`segments_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e)
 
 {% alert note %}
-Rate-Limits sind je nach Stream unterschiedlich. Weitere Informationen finden Sie in der [Tabelle der Rate-Limits]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type).
+Rate-Limits unterscheiden sich je nach Stream. Weitere Informationen finden Sie in der [Tabelle der Rate-Limits]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type).
 {% endalert %}

@@ -29,7 +29,7 @@ WCAG 2.1을 만족하는 최소 SDK 버전은 v3.4.0에 가깝습니다. 그러�
 | **3.1.2** | 부분 | 이미지에 대한 기본 대체 텍스트 |
 | **2.4.1** | **주요** | 시맨틱 HTML(`h1` 또는 `button`), ARIA 속성, 키보드 탐색, 포커스 관리 |
 | **2.0.5** | 부분 | 포커스 관리, 키보드 탐색, 레이블 |
-{: .reset-td-br-1, .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="Notable accessibility fixes" }
 
 ## 지원되는 접근성 기능 {#supported-accessibility-features}
 

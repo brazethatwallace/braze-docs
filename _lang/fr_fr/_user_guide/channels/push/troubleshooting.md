@@ -42,7 +42,7 @@ Assurez-vous que vous faites partie du segment que vous ciblez (s'il s'agit d'un
 
 ![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-Vous pouvez également confirmer que l'utilisateur fait partie du segment en utilisant **User Lookup** lors de la création d'un segment.
+Vous pouvez également confirmer que l'utilisateur fait partie du segment en utilisant **User Lookup** lors de la création d'un segment. **User Lookup** n'accepte que les `external_id` ou `braze_id`, pas les adresses e-mail ni les numéros de téléphone. Pour effectuer une recherche par e-mail, téléphone, jeton de notification push ou alias d'utilisateur, utilisez [**Rechercher des utilisateurs**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
 ![Section User Lookup avec un champ de recherche.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -78,6 +78,50 @@ Vérifiez que vous utilisez le bon type de notification push. Par exemple, si vo
 
 Lorsque vous testez l'envoi de notifications push avec des utilisateurs internes, assurez-vous que l'utilisateur qui doit recevoir la notification push est actuellement connecté à l'application concernée. Cela peut amener l'utilisateur à ne pas recevoir de notification push ou à recevoir une notification push pour laquelle vous pensez qu'il n'est pas segmenté.
 
+{% alert note %}
+Si vous envoyez des notifications push avec des images sur Android, FCM peut parfois ignorer l'image et n'afficher que le texte dans la notification push. Ce problème est généralement causé par des problèmes de connectivité au serveur.
+{% endalert %}
+
+## Erreur : MismatchSenderID {#error-mismatchsenderid}
+
+MismatchSenderID indique un échec d'authentification avec Firebase Cloud Messaging (FCM). Confirmez que votre Firebase sender ID et votre clé API FCM sont corrects.
+
+Pour trouver la bonne clé serveur Firebase et la remplacer :
+
+1. Accédez à la console Firebase de votre application.
+2. Sous **Project Overview**, sélectionnez **Project Settings**.
+3. Dans l'onglet **Cloud Messaging**, vérifiez que le Sender ID sous les clés API correspond à celui dans Braze (dans **Paramètres** > **Paramètres des applications** > **Cloud Messaging API Key**).
+
+{% alert warning %}
+Ne modifiez pas votre Sender ID dans votre tableau de bord de Braze. Cela invaliderait les enregistrements push existants. Si le Sender ID ne correspond pas, vous devez trouver votre projet Firebase avec le Sender ID correspondant.
+{% endalert %}
+
+{:start="4"}
+4. Copiez la **Server Key** sous **Project credentials**.
+5. Dans Braze, accédez à **Paramètres** > **Paramètres des applications**, sélectionnez votre application et collez la clé serveur dans le champ **Cloud Messaging API Key** (en remplaçant la clé obsolète).
+6. Sélectionnez **Enregistrer**.
+7. Pour vérifier, envoyez une notification push de test à un appareil avant et après avoir changé la clé API sans ouvrir l'application. Cela permet de confirmer que les utilisateurs continuent de recevoir des notifications push sans qu'un nouvel ID d'enregistrement push (jeton de notification push) ne doive être généré.
+
+## Scénarios de résolution des problèmes {#troubleshooting-scenarios}
+
+### Notifications push retardées {#delayed-push-notifications}
+
+Vos notifications push peuvent être retardées pour les raisons suivantes :
+
+- Une connexion de données faible sur l'appareil
+- Du code personnalisé dans l'application qui peut supprimer les notifications push de Braze
+- Les préférences de l'utilisateur pour les notifications push dans les paramètres de l'appareil
+- La priorité du message de la notification push lors de la création dans la campagne ou le Canvas
+- Des retards de trafic ou des problèmes avec les fournisseurs de services push (FCM et APNs)
+
+### Les notifications push s'envoient plus lentement que prévu {#push-notifications-are-sending-slower-than-expected}
+
+Assurez-vous que la configuration de vos notifications push suit ces bonnes pratiques :
+
+- Si vous envoyez à de larges audiences sans tenir compte du statut d'activation des notifications push, cela peut entraîner une vitesse d'envoi plus lente. Envisagez plutôt d'envoyer uniquement aux utilisateurs ayant les notifications push activées pour réduire la taille de votre audience.
+- Si possible, essayez de planifier vos campagnes à l'avance plutôt que de les envoyer immédiatement.
+- Si vous ciblez un grand nombre d'utilisateurs avec des notifications push dans un Canvas, vous pouvez anticiper que les étapes de message suivantes dans le Canvas nécessiteront des temps de traitement différents de ceux d'une campagne qui envoie aux utilisateurs immédiatement. Dans ce cas, les campagnes termineraient généralement l'envoi avant un Canvas, car la première « étape » d'un Canvas consiste à vérifier si les utilisateurs sont éligibles au parcours utilisateur spécifique.
+
 ## Cliquer sur une notification push n'ouvre pas l'application {#clicking-a-push-notification-doesnt-open-the-app}
 
 Si cliquer sur une notification push n'ouvre pas votre application, vérifiez les points suivants en fonction de votre plateforme.
@@ -98,11 +142,11 @@ Si cliquer sur une notification push n'ouvre pas votre application, vérifiez le
 
 ## Les clics sur les notifications push ouvrent de manière inattendue dans l'application {#push-clicks-unexpectedly-open-in-app}
 
-Si vous rencontrez des problèmes avec des liens dans les notifications push qui s'ouvrent de manière inattendue dans votre application au lieu de votre navigateur web, il peut y avoir un problème avec la configuration de votre campagne ou l'implémentation du SDK. Consultez ces étapes pour obtenir de l'aide.
+Si les liens dans vos notifications push s'ouvrent de manière inattendue dans votre application au lieu de votre navigateur web, il peut y avoir un problème avec la configuration de votre campagne ou l'implémentation du SDK. Consultez ces étapes pour obtenir de l'aide.
 
 ### Vérifiez le comportement au clic {#verify-on-click-behavior}
 
-Dans votre campagne ou étape Canvas, vérifiez que **Open web URL inside mobile app** n'est pas sélectionné. Si c'est le cas, désélectionnez l'option et relancez.
+Dans votre campagne ou étape Canvas, vérifiez que l'option **Open web URL inside mobile app** n'est pas sélectionnée. Si c'est le cas, désélectionnez-la et relancez.
 
 ![Champ « Comportement au clic » de la configuration d'une notification push défini sur « Open web URL » avec « Open web URL inside mobile app » décoché.]({% image_buster /assets/img/push_on_click.png %})
 
@@ -119,11 +163,29 @@ Si les liens dans vos notifications push s'ouvrent de manière inattendue dans l
 3. **Vérifiez l'enregistrement push iOS :** Pour iOS, revisitez l'étape 1 du guide d'intégration push sur l'[enregistrement des notifications push auprès d'APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns). Assurez-vous que votre objet délégué est assigné de manière synchrone avant que l'application ne termine son lancement. Cette étape doit être effectuée dans la méthode `application:didFinishLaunchingWithOptions:`.
 4. **Testez votre intégration :** Après avoir effectué les ajustements, testez le comportement des notifications push sur les appareils iOS et Android pour confirmer que le problème est résolu.
 
+### Liens profonds avec l'application toujours en arrière-plan (iOS) {#deep-links-with-app-still-running-in-the-background-ios}
+
+Si les liens profonds fonctionnent lorsque l'application n'est pas en cours d'exécution ou lorsque le lien est utilisé directement, mais pas lorsque l'application est déjà en arrière-plan, le problème peut être lié à la façon dont l'application gère le lien. Vérifiez si vous utilisez des bibliothèques tierces qui utilisent le method swizzling. Nous recommandons de désactiver le swizzling, car cela peut causer des problèmes avec les implémentations de liens profonds.
+
 ## Migrer vers une clé d'authentification .p8 {#migrate-to-a-p8-authentication-key}
 
 Les clés d'authentification Apple `.p8` sont l'approche requise pour les notifications push APNs dans Braze. Contrairement aux types de fichiers de certificat hérités, les clés `.p8` n'expirent pas et prennent en charge toutes vos applications sous une seule clé, éliminant ainsi le besoin de renouvellements annuels de certificats et réduisant le risque d'échecs de distribution des notifications push.
 
 Si vous utilisez actuellement un certificat `.p12` ou `.pem`, migrez vers une clé `.p8` dès que possible. Pour les instructions sur la création et le téléchargement d'une clé `.p8`, consultez [Télécharger votre certificat push APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Pour les recommandations d'Apple sur la génération d'une clé `.p8` depuis votre compte développeur, consultez [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+
+### Clés .p8 et certificats .p12 {#p8-keys-versus-p12-certificates}
+
+| Identifiant | Expiration | Indicateur de statut dans le tableau de bord |
+| --- | --- | --- |
+| Clé d'authentification `.p8` | N'expire pas | Pas d'indicateur de statut vert (c'est normal) |
+| Certificat push `.p12` | Expire chaque année | Indicateur vert lorsque le certificat est valide |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Clés .p8 et certificats .p12" }
+
+Lorsque vous remplacez un certificat `.p12` par une clé `.p8` (ou téléchargez un nouvel identifiant), la distribution des notifications push peut être brièvement interrompue pendant que Braze traite le changement. Planifiez les mises à jour pendant une fenêtre de maintenance si possible.
+
+Dans **Paramètres** > **Paramètres des applications** > **Paramètres des notifications push**, confirmez que l'**App Bundle ID**, le **Team ID** et le **Key ID** (pour les clés `.p8`) correspondent aux valeurs de votre compte Apple Developer. Plusieurs espaces de travail Braze peuvent utiliser le même identifiant push Apple lorsque le **bundle ID** de l'application iOS est identique ; l'environnement de l'identifiant (développement ou production) doit correspondre à la façon dont l'application a été compilée.
+
+Les applications utilisant le [SDK Swift Braze 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) ou version ultérieure peuvent utiliser la [gestion dynamique de la passerelle APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management), qui achemine automatiquement les jetons vers le bon environnement APNs.
 
 ## Les notifications push web ne fonctionnent pas comme prévu {#web-push-notifications-arent-behaving-as-expected}
 
@@ -148,7 +210,7 @@ table {
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Réinitialiser Chrome sur ordinateur" }
 
 {:start="4"}
 4. Dans DevTools, accédez à l'onglet **Application**.
@@ -162,7 +224,7 @@ Vos autorisations push sont maintenant réinitialisées. Ouvrez un nouvel onglet
 
 Si vous avez une notification de votre site visible dans le tiroir de notifications Android :
 
-1. Depuis la notification push, appuyez sur <i class="fas fa-cog" title="Settings"></i> et sélectionnez **Site settings**.
+1. Depuis la notification push, appuyez sur <i class="fas fa-cog" title="Paramètres"></i> et sélectionnez **Site settings**.
 2. Depuis **Site settings**, appuyez sur **Clear & Reset**.
 
 Si vous n'avez pas de notification de votre site ouverte :
@@ -181,8 +243,8 @@ Vos autorisations push sont maintenant réinitialisées. Ouvrez un nouvel onglet
 
 ### Réinitialiser Firefox sur ordinateur {#reset-firefox-on-desktop}
 
-1. À côté de l'URL de votre site, sélectionnez <i class="fa-solid fa-circle-info" alt="info icon"></i> ou <i class="fas fa-lock" alt="lock icon"></i>.
-2. Sous **Permissions**, à côté de **Receive Notifications**, sélectionnez <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> pour effacer les autorisations de notification.
+1. À côté de l'URL de votre site, sélectionnez <i class="fa-solid fa-circle-info" alt="icône d'information"></i> ou <i class="fas fa-lock" alt="icône de cadenas"></i>.
+2. Sous **Permissions**, à côté de **Receive Notifications**, sélectionnez <i class="fa-solid fa-circle-xmark" title="Effacer cette autorisation et redemander"></i> pour effacer les autorisations de notification.
 3. Dans le même menu, sélectionnez **Clear Cookies and Site Data**.
 4. Dans la boîte de dialogue pour confirmer votre choix, sélectionnez **OK**.
 

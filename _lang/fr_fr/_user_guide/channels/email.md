@@ -35,8 +35,8 @@ Vous pouvez personnaliser vos messages e-mail de nombreuses façons, notamment :
 | Messages riches | Profitez de messages HTML riches et dynamiques. |
 | Contenu multimédia | Intégrez facilement du contenu multimédia engageant, comme des vidéos et des images. |
 | Newsletters | Envoyez facilement des newsletters mensuelles ou hebdomadaires pour maintenir l'engagement des utilisateurs. |
-| Transactions | Informez les utilisateurs de leurs achats récents et transmettez des informations importantes sur les produits et les livraisons avec les [e-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Transactions | Informez les utilisateurs de leurs achats récents et transmettez des informations importantes sur les produits et les livraisons avec les [e-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
 ## Services e-mail {#email-services}
 

@@ -151,4 +151,4 @@ Pour intégrer le code de coupon dans une image :
 | `usage_exceeded` | L'utilisation de la campagne de ce code de coupon est complète. Veuillez réessayer ultérieurement. | L'utilisation du code dépasse le nombre d'utilisateurs autorisés à l'utiliser. Par exemple, si la configuration du tableau de bord permet à un code d'être utilisé par 3 000 utilisateurs et que le nombre d'utilisateurs dépasse 3 000, cette erreur sera générée. |
 | `usage_exceeded_by_guest` | Ce code promo a déjà été traité. | L'utilisation du code par un utilisateur dépasse le nombre de fois qu'un utilisateur peut l'utiliser. Par exemple, la configuration du tableau de bord permet à un seul code d'être utilisé trois fois par un utilisateur. Si le code est utilisé plus fréquemment, cette erreur est générée. |
 | `already_used_by_other_guest` | Ce code promo a déjà été utilisé par un autre invité. | Un autre utilisateur a déjà utilisé le code. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messages d'erreur" }

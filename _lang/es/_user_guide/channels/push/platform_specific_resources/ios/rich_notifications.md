@@ -31,6 +31,10 @@ Antes de crear una notificación push enriquecida para iOS, ten en cuenta los si
 Desde enero de 2020, las notificaciones push enriquecidas de iOS pueden manejar imágenes de 1038x1038 que pesen menos de 10&nbsp;MB, pero recomendamos usar el tamaño de archivo más pequeño posible. En la práctica, enviar archivos grandes puede causar estrés innecesario en la red y hacer que los tiempos de espera de descarga sean más frecuentes.
 {% endalert %}
 
+{% alert important %}
+Es posible que las imágenes de las notificaciones push no se muestren como se espera si el tamaño del archivo de la imagen es demasiado grande, la relación de aspecto es incorrecta, el texto excede la longitud máxima del mensaje o el texto del título excede la longitud máxima del título.
+{% endalert %}
+
 ### Recuento de caracteres {#character-count}
 
 Aunque no podemos proporcionar una regla estricta sobre el número preciso de caracteres a incluir en un push, [proporcionamos algunas directrices]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) a considerar al diseñar mensajes de iOS. Puede haber cierta variación dependiendo de la presencia de una imagen, el estado de la notificación y la configuración de visualización del dispositivo del usuario, y el tamaño del dispositivo. En caso de duda, mantenlo breve y conciso.
@@ -41,7 +45,7 @@ Como práctica recomendada, Braze recomienda mantener cada línea de texto tanto
 
 Tus usuarios pueden ver las notificaciones push en una variedad de situaciones diferentes, y podrían ver diferentes longitudes de texto como se indica a continuación.
 
-<table>
+<table aria-label="Notification states">
   <caption>Estados de notificación</caption>
 <thead>
   <tr>
@@ -58,7 +62,7 @@ Tus usuarios pueden ver las notificaciones push en una variedad de situaciones d
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification states" }
 
 ![Ejemplos de notificaciones push mostradas en la pantalla de bloqueo, expandidas y con el dispositivo activo.]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 
@@ -113,7 +117,7 @@ Los siguientes detalles también pueden afectar el truncamiento de texto:
 
 - **Configuración de pantalla del teléfono:** un usuario puede aumentar o disminuir el tamaño de fuente global de la interfaz en su teléfono, generalmente por razones de accesibilidad.
 - **Ancho del dispositivo:** el mensaje podría mostrarse en un teléfono pequeño o en un iPad ancho.
-- **Tipos de contenido:** los emojis y caracteres anchos como "m" y "w" ocupan más espacio que "i" o "t", y las palabras más largas como "engagement" pueden ajustarse de línea de forma más abrupta que las palabras más cortas.
+- **Tipos de contenido:** los emojis y caracteres anchos como "m" y "w" ocupan más espacio que "i" o "t", y las palabras más largas como "interacción" pueden ajustarse de línea de forma más abrupta que las palabras más cortas.
 
 {% endtab %}
 {% endtabs %}

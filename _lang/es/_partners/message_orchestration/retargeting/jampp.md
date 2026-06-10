@@ -34,15 +34,15 @@ Esta integración es compatible con aplicaciones iOS y Android.
 | ID de la aplicación iOS | Tu identificador único de aplicación Braze para iOS (como "012345678"). |
 | Habilitar la recopilación de IDFA en el SDK de Braze | La recopilación de IDFA es opcional dentro del SDK de Braze y está desactivada por defecto. |
 | Recopilación del identificador de publicidad de Google mediante un atributo personalizado | La recopilación del ID de publicidad de Google es opcional para los clientes y puede recogerse como un [atributo personalizado]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 ### Paso 1: Crear una plantilla de webhook en Braze {#step-1-create-a-webhook-template-in-braze}
 
-Para crear una plantilla de webhook de Jampp y utilizarla en futuras campañas o Canvas, ve a **Templates** > **Webhook Templates** en la plataforma Braze.
+Para crear una plantilla de webhook de Jampp y utilizarla en futuras Campaigns o Canvas, ve a **Contenido** > **Webhook** en el dashboard de Braze. Luego, selecciona **Crear plantilla de webhook**.
 
-Si deseas hacer una campaña de webhook de Jampp única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña.
+Si deseas hacer una Campaign de webhook de Jampp única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva Campaign.
 
 En tu nueva plantilla de webhook, rellena los siguientes campos:
 - **Request Body**: Raw Text

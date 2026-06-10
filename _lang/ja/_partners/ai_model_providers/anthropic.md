@@ -26,7 +26,7 @@ BrazeとAnthropicの統合により、Anthropic APIキーをBrazeに接続して
 |---|---|
 | APIキーを持つAnthropicアカウント | APIキーを持つAnthropicアカウントが必要です。ヘルプについては、管理者または[Anthropicサポート](https://support.anthropic.com/)にお問い合わせください。 |
 | Brazeインスタンス | Brazeインスタンスは、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)またはBrazeオンボーディングマネージャーから確認できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 

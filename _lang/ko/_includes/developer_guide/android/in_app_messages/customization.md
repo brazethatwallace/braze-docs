@@ -1,6 +1,6 @@
-{% multi_lang_include developer_guide/prerequisites/android.md %} 또한 [인앱 메시지를 설정]({{site.baseurl}}/developer_guide/in_app_messages)해야 합니다.
+{% multi_lang_include developer_guide/prerequisites/android.md %} 또한 [인앱 메시지를 설정]({{site.baseurl}}/developer_guide/in_app_messages/)해야 합니다.
 
-## 커스텀 매니저 리스너 설정하기
+## 커스텀 매니저 리스너 설정하기 {#setting-custom-manager-listeners}
 
 {% tabs %}
 {% tab global listener %}
@@ -12,15 +12,15 @@ Braze SDK에는 커스텀 리스너가 정의되어 있지 않은 경우 사용�
 
 이 리스너는 커스텀 HTML로 작성된 메시지와 드래그 앤 드롭(DnD) 에디터로 생성된 메시지 __모두__에 적용됩니다. 기존 IAM에는 적용되지 않습니다. 기존 IAM은 Braze의 내장 SDK 렌더링 메시지 유형(예: 슬라이드업, 모달, 전체 화면)으로, 사전 정의된 레이아웃을 사용하여 원래 인앱 메시지 작성기에서 생성됩니다. 커스텀 HTML 및 DnD IAM과 달리 HTML 동작 리스너 플로우를 거치지 않습니다.
 
-커스텀 `IHtmlInAppMessageActionListener`를 설정하면 해당 로직이 _모든_ DnD 메시지의 기본 클릭 동작을 재정의합니다. 마케팅 팀에 이 사항을 반드시 알려주세요. 예상치 못한 방식으로 캠페인에 영향을 줄 수 있습니다.
+커스텀 `IHtmlInAppMessageActionListener`를 설정하면 해당 로직이 _모든_ DnD 메시지의 기본 클릭 동작을 재정의합니다. 마케팅 팀에 이 사항을 반드시 알려주세요. 예상치 못한 방식으로 Campaign에 영향을 줄 수 있습니다.
 {% endtab %}
 {% endtabs %}
 
-### 1단계: 커스텀 매니저 리스너 구현하기
+### 1단계: 커스텀 매니저 리스너 구현하기 {#step-1-implement-the-custom-manager-listener}
 
 {% tabs %}
 {% tab global listener %}
-#### 1.1단계: `IInAppMessageManagerListener` 구현
+#### 1.1단계: `IInAppMessageManagerListener` 구현 {#step-11-implement-iinappmessagemanagerlistener}
 
 [`IInAppMessageManagerListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/index.html)를 구현하는 클래스를 생성합니다.
 
@@ -28,7 +28,7 @@ Braze SDK에는 커스텀 리스너가 정의되어 있지 않은 경우 사용�
 
 `IInAppMessageManagerListener`에는 메시지 클릭 및 버튼에 대한 위임 메서드도 포함되어 있어, 버튼이나 메시지를 클릭할 때 메시지를 가로채어 추가 처리를 수행하는 등의 사용 사례에 활용할 수 있습니다.
 
-#### 1.2단계: IAM 뷰 생명주기 메서드에 후킹하기 (선택 사항)
+#### 1.2단계: IAM 뷰 생명주기 메서드에 후킹하기(선택 사항) {#step-12-hook-into-iam-view-lifecycle-methods-optional}
 
 [`IInAppMessageManagerListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/index.html) 인터페이스에는 인앱 메시지 뷰 생명주기의 특정 시점에서 호출되는 인앱 메시지 뷰 메서드가 있습니다. 이러한 메서드는 다음 순서로 호출됩니다:
 
@@ -110,14 +110,13 @@ class CustomHtmlInAppMessageActionListener(private val mContext: Context) : IHtm
 {% endtab %}
 {% endtabs %}
 
-### 2단계: Braze에 커스텀 매니저 리스너를 사용하도록 지시하기
+### 2단계: Braze에 커스텀 매니저 리스너를 사용하도록 지시하기 {#step-2-instruct-braze-to-use-the-custom-manager-listener}
 
 {% tabs %}
 {% tab global listener %}
-`IInAppMessageManagerListener`를 생성한 후, `BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener()`를 호출하여 `BrazeInAppMessageManager`에
-기본 리스너 대신 커스텀 `IInAppMessageManagerListener`를 사용하도록 지시합니다. Braze에 대한 다른 호출보다 먼저 [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())에서 이 작업을 수행하여, 인앱 메시지가 표시되기 전에 커스텀 리스너가 설정되도록 합니다.
+`IInAppMessageManagerListener`를 생성한 후, `BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener()`를 호출하여 `BrazeInAppMessageManager`에 기본 리스너 대신 커스텀 `IInAppMessageManagerListener`를 사용하도록 지시합니다. Braze에 대한 다른 호출보다 먼저 [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())에서 이 작업을 수행하여, 인앱 메시지가 표시되기 전에 커스텀 리스너가 설정되도록 합니다.
 
-#### 표시 전 인앱 메시지 변경하기
+#### 표시 전 인앱 메시지 변경하기 {#altering-in-app-messages-before-display}
 
 새 인앱 메시지가 수신될 때 이미 표시 중인 인앱 메시지가 있는 경우, 새 메시지는 스택 맨 위에 배치되어 나중에 표시될 수 있습니다.
 
@@ -149,7 +148,7 @@ override fun beforeInAppMessageDisplayed(inAppMessage: IInAppMessage): InAppMess
 | `DISPLAY_LATER` | 메시지가 스택으로 반환되어 다음 사용 가능한 기회에 표시됩니다 |
 | `DISCARD` | 메시지가 삭제됩니다 |
 | `null` | 메시지가 무시됩니다. 이 메서드는 `null`을 반환하지 **않아야** 합니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Altering in-app messages before display" }
 
 자세한 내용은 [`InAppMessageOperation`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/index.html)을 참조하세요.
 
@@ -184,7 +183,7 @@ BrazeInAppMessageManager.getInstance().setCustomHtmlInAppMessageActionListener(C
 {% endtab %}
 {% endtabs %}
 
-## 커스텀 팩토리 설정
+## 커스텀 팩토리 설정 {#setting-custom-factories}
 
 커스텀 팩토리 오브젝트를 통해 여러 기본값을 재정의할 수 있습니다. 원하는 결과를 얻기 위해 필요에 따라 Braze SDK에 등록할 수 있습니다. 그러나 팩토리를 재정의하기로 결정한 경우, 기본값에 명시적으로 위임하거나 Braze 기본값이 제공하는 기능을 다시 구현해야 할 가능성이 높습니다. 다음 코드 스니펫은 `IInAppMessageViewFactory` 및 `IInAppMessageViewWrapperFactory` 인터페이스의 커스텀 구현을 제공하는 방법을 보여줍니다.
 
@@ -204,7 +203,7 @@ class BrazeDemoApplication : Application(){
 ```
 {% endtab %}
 {% tab Java %}
-**인앱 메시지 유형**<br> 
+**인앱 메시지 유형**<br>
 
 ```java
 public class BrazeDemoApplication extends Application {
@@ -234,7 +233,7 @@ Braze 인앱 메시지 유형은 대부분의 커스텀 사용 사례를 충분�
 {% endtab %}
 {% endtabs %}
 
-### 1단계: 팩토리 구현
+### 1단계: 팩토리 구현 {#step-1-implement-the-factory}
 
 {% tabs %}
 {% tab view %}
@@ -331,13 +330,13 @@ class CustomInAppMessageViewWrapper(inAppMessageView: View,
                                     inAppMessageViewLifecycleListener: IInAppMessageViewLifecycleListener,
                                     brazeConfigurationProvider: BrazeConfigurationProvider,
                                     openingAnimation: Animation,
-                                    closingAnimation: Animation, clickableInAppMessageView: View) : 
-    DefaultInAppMessageViewWrapper(inAppMessageView, 
-        inAppMessage, 
-        inAppMessageViewLifecycleListener, 
-        brazeConfigurationProvider, 
-        openingAnimation, 
-        closingAnimation, 
+                                    closingAnimation: Animation, clickableInAppMessageView: View) :
+    DefaultInAppMessageViewWrapper(inAppMessageView,
+        inAppMessage,
+        inAppMessageViewLifecycleListener,
+        brazeConfigurationProvider,
+        openingAnimation,
+        closingAnimation,
         clickableInAppMessageView) {
 
   override fun open(activity: Activity) {
@@ -404,18 +403,17 @@ class CustomInAppMessageAnimationFactory : IInAppMessageAnimationFactory {
 {% endtab %}
 {% endtabs %}
 
-### 2단계: Braze에게 팩토리를 사용하도록 지시하기
+### 2단계: Braze에게 팩토리를 사용하도록 지시하기 {#step-2-instruct-braze-to-use-the-factory}
 
 {% tabs %}
 {% tab view %}
-`IInAppMessageViewFactory`를 생성한 후, `BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewFactory()`를 호출하여 `BrazeInAppMessageManager`에
-기본 뷰 팩토리 대신 커스텀 `IInAppMessageViewFactory`를 사용하도록 지시합니다.
+`IInAppMessageViewFactory`를 생성한 후, `BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewFactory()`를 호출하여 `BrazeInAppMessageManager`에 기본 뷰 팩토리 대신 커스텀 `IInAppMessageViewFactory`를 사용하도록 지시합니다.
 
 {% alert tip %}
 Braze에 대한 다른 호출보다 먼저 `Application.onCreate()`에서 `IInAppMessageViewFactory`를 설정하는 것이 좋습니다. 이렇게 하면 인앱 메시지가 표시되기 전에 커스텀 뷰 팩토리가 설정됩니다.
 {% endalert %}
 
-#### 작동 방식
+#### 작동 방식 {#how-it-works}
 
 `slideup` 인앱 메시지 뷰는 [`IInAppMessageView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.views/-i-in-app-message-view/index.html)를 구현합니다. `full` 및 `modal` 유형 메시지 뷰는 [`IInAppMessageImmersiveView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.views/-i-in-app-message-immersive-view/index.html)를 구현합니다. 이러한 클래스 중 하나를 구현하면 Braze가 적절한 위치에 커스텀 뷰에 클릭 리스너를 추가할 수 있습니다. 모든 Braze 뷰 클래스는 Android의 [`View`](http://developer.android.com/reference/android/view/View.html) 클래스를 확장합니다.
 
@@ -441,18 +439,17 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(C
 {% endsubtabs %}
 {% endtab %}
 {% tab animation %}
-`IInAppMessageAnimationFactory`를 생성한 후, `BrazeInAppMessageManager.getInstance().setCustomInAppMessageAnimationFactory()`를 호출하여 `BrazeInAppMessageManager`에
-기본 애니메이션 팩토리 대신 커스텀 `IInAppMessageAnimationFactory`를 사용하도록 지시합니다.
+`IInAppMessageAnimationFactory`를 생성한 후, `BrazeInAppMessageManager.getInstance().setCustomInAppMessageAnimationFactory()`를 호출하여 `BrazeInAppMessageManager`에 기본 애니메이션 팩토리 대신 커스텀 `IInAppMessageAnimationFactory`를 사용하도록 지시합니다.
 
 Braze에 대한 다른 호출보다 먼저 [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())에서 `IInAppMessageAnimationFactory`를 설정하는 것이 좋습니다. 이렇게 하면 인앱 메시지가 표시되기 전에 커스텀 애니메이션 팩토리가 설정됩니다.
 {% endtab %}
 {% endtabs %}
 
-## 커스텀 스타일
+## 커스텀 스타일 {#custom-styles}
 
 Braze UI 요소는 Android 표준 UI 가이드라인에 맞는 기본 모양과 느낌으로 제공되어 매끄러운 경험을 제공합니다. 이 참조 문서에서는 Android 또는 FireOS 애플리케이션의 커스텀 인앱 메시징 스타일을 다룹니다.
 
-### 기본 스타일 설정
+### 기본 스타일 설정 {#setting-a-default-style}
 
 기본 스타일은 Braze SDK의 [`styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) 파일에서 확인할 수 있습니다:
 
@@ -478,10 +475,10 @@ Braze UI 요소는 Android 표준 UI 가이드라인에 맞는 기본 모양과 
 스타일을 재정의하려면 프로젝트의 `styles.xml` 파일에 전체 스타일을 복사한 후 수정합니다. 모든 속성이 올바르게 설정되려면 전체 스타일을 로컬 `styles.xml` 파일에 복사해야 합니다. 이러한 커스텀 스타일은 레이아웃 전체를 변경하는 것이 아니라 개별 UI 요소를 변경하기 위한 것입니다. 레이아웃 수준의 변경은 커스텀 뷰로 처리해야 합니다.
 
 {% alert note %}
-XML을 수정하지 않고도 Braze 캠페인에서 직접 일부 색상을 커스터마이징할 수 있습니다. Braze 대시보드에서 설정한 색상은 다른 곳에서 설정한 색상보다 우선 적용된다는 점을 기억하세요.
+XML을 수정하지 않고도 Braze Campaign에서 직접 일부 색상을 커스터마이징할 수 있습니다. Braze 대시보드에서 설정한 색상은 다른 곳에서 설정한 색상보다 우선 적용된다는 점을 기억하세요.
 {% endalert %}
 
-### 폰트 커스터마이징
+### 폰트 커스터마이징 {#customizing-the-font}
 
 `res/font` 디렉토리에서 서체를 찾아 커스텀 폰트를 설정할 수 있습니다. 이를 사용하려면 메시지 텍스트, 헤더 및 버튼 텍스트의 스타일을 재정의하고 `fontFamily` 속성을 사용하여 Braze에 커스텀 폰트 패밀리를 사용하도록 지시하세요.
 
@@ -505,9 +502,9 @@ XML을 수정하지 않고도 Braze 캠페인에서 직접 일부 색상을 커�
 다른 커스텀 스타일과 마찬가지로, 모든 속성이 올바르게 설정되려면 전체 스타일을 로컬 `styles.xml` 파일에 복사해야 합니다.
 {% endalert %}
 
-## 메시지 해제
+## 메시지 해제 {#message-dismissals}
 
-### 슬라이드업 메시지를 스와이프하여 해제하기
+### 슬라이드업 메시지를 스와이프하여 해제하기 {#swiping-to-dismiss-slideup-messages}
 
 기본적으로 슬라이드업 인앱 메시지는 스와이프 제스처로 해제할 수 있습니다. 스와이프 방향은 슬라이드업 위치에 따라 다릅니다:
 
@@ -521,9 +518,9 @@ XML을 수정하지 않고도 Braze 캠페인에서 직접 일부 색상을 커�
 슬라이드업 메시지 외부를 탭해도 기본적으로 해제되지 않습니다. 이 동작은 외부 탭 해제를 구성할 수 있는 모달 메시지와 다릅니다. 슬라이드업의 경우 스와이프 제스처 또는 닫기 버튼을 사용하여 메시지를 해제하세요.
 {% endalert %}
 
-### 뒤로 버튼 해제 비활성화
+### 뒤로 버튼 해제 비활성화 {#disabling-back-button-dismissals}
 
-기본적으로 하드웨어 뒤로 버튼은 Braze 인앱 메시지를 해제합니다. 이 동작은 [`BrazeInAppMessageManager.setBackButtonDismissesInAppMessageView()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-manager-base/set-back-button-dismisses-in-app-message-view.html)를 통해 메시지별로 비활성화할 수 있습니다. 
+기본적으로 하드웨어 뒤로 버튼은 Braze 인앱 메시지를 해제합니다. 이 동작은 [`BrazeInAppMessageManager.setBackButtonDismissesInAppMessageView()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-manager-base/set-back-button-dismisses-in-app-message-view.html)를 통해 메시지별로 비활성화할 수 있습니다.
 
 다음 예제에서 `disable_back_button`은 인앱 메시지에 설정된 커스텀 키-값 페어로, 뒤로 버튼으로 메시지를 해제할 수 있는지 여부를 나타냅니다:
 
@@ -572,7 +569,7 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(obje
 이 기능을 비활성화하면 호스트 활동의 하드웨어 뒤로 버튼 기본 동작이 대신 사용됩니다. 이 경우 표시된 인앱 메시지 대신 뒤로 버튼으로 애플리케이션이 닫힐 수 있습니다.
 {% endalert %}
 
-### 외부 탭 해제 활성화
+### 외부 탭 해제 활성화 {#enabling-outside-tap-dismissals}
 
 기본적으로 외부 탭을 사용한 모달 해제는 `false`로 설정되어 있습니다. 이 값을 `true`로 설정하면 사용자가 인앱 메시지 외부를 탭할 때 모달 인앱 메시지가 해제됩니다. 이 동작은 다음을 호출하여 토글할 수 있습니다:
 
@@ -580,7 +577,7 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(obje
 BrazeInAppMessageManager.getInstance().setClickOutsideModalViewDismissInAppMessageView(true)
 ```
 
-## 방향 커스터마이징
+## 방향 커스터마이징 {#customizing-the-orientation}
 
 인앱 메시지의 고정 방향을 설정하려면 먼저 [커스텀 인앱 메시지 매니저 리스너를 설정]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners)합니다. 그런 다음 `beforeInAppMessageDisplayed()` 위임 메서드에서 `IInAppMessage` 오브젝트의 방향을 업데이트합니다:
 
@@ -637,6 +634,6 @@ override fun beforeInAppMessageDisplayed(inAppMessage: IInAppMessage): InAppMess
 
 이를 변경하려면 표시 전 프로세스의 어느 단계에서든 [`enableDarkTheme`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message-themeable/enable-dark-theme.html)을 호출하여 자체 조건 로직을 구현할 수 있습니다.
 
-## Google Play 리뷰 프롬프트 커스터마이징
+## Google Play 리뷰 프롬프트 커스터마이징 {#customizing-the-google-play-review-prompt}
 
 Google이 설정한 제한 사항으로 인해 현재 Braze에서는 커스텀 Google Play 리뷰 프롬프트를 지원하지 않습니다. 일부 사용자는 이러한 프롬프트를 성공적으로 통합할 수 있었지만, [Google Play 할당량](https://developer.android.com/guide/playcore/in-app-review#quotas)으로 인해 성공률이 낮은 경우도 있습니다. 위험을 감수하고 통합하시기 바랍니다. [Google Play 인앱 리뷰 프롬프트](https://developer.android.com/guide/playcore/in-app-review)에 대한 설명서를 참조하세요.

@@ -188,17 +188,17 @@ Ambas funciones toman como argumento `Appboy.Models.AppboyNotificationSubscripti
 | `OPTED_IN` | Suscrito y con adhesión voluntaria explícita |
 | `SUBSCRIBED` | Suscrito, pero sin adhesión voluntaria explícita |
 | `UNSUBSCRIBED` | No suscrito y/o con exclusión voluntaria explícita |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración de suscripciones de usuario" }
 
 {% alert note %}
 Windows no necesita una adhesión voluntaria explícita para enviar notificaciones push a los usuarios. Cuando un usuario se registra para push, se establece de manera predeterminada como `SUBSCRIBED` en lugar de `OPTED_IN`. Para saber más, consulta nuestra documentación sobre [la implementación de suscripciones y adhesiones voluntarias explícitas]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
 {% endalert %}
 
-| Tipo de suscripción                        | Descripción |
+| Tipo de suscripción | Descripción |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType`      | Los usuarios se configurarán como `SUBSCRIBED` automáticamente al recibir una dirección de correo electrónico válida. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor como `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento [Cambiar las suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) para más detalles. |
-| `PushNotificationSubscriptionType`       | Los usuarios se configurarán como `SUBSCRIBED` automáticamente tras un registro push válido. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor como `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento [Cambiar las suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) para más detalles. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `EmailNotificationSubscriptionType` | Los usuarios se configurarán como `SUBSCRIBED` automáticamente al recibir una dirección de correo electrónico válida. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor como `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento [Cambiar las suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) para más detalles. |
+| `PushNotificationSubscriptionType` | Los usuarios se configurarán como `SUBSCRIBED` automáticamente tras un registro push válido. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor como `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento [Cambiar las suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) para más detalles. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración de suscripciones de usuario" }
 
 {% alert note %}
 Estos tipos se incluyen en `Appboy.Models.AppboyNotificationSubscriptionType`.

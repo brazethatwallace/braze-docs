@@ -58,7 +58,7 @@ Añadir estilo span al texto dentro de los mensajes dentro de la aplicación per
 
 ![Opción que se muestra al resaltar texto en un mensaje dentro de la aplicación. Un pequeño icono de pincel indica que puedes envolver con span para aplicar estilo.]({% image_buster /assets/img_archive/span_1.png %}){: style="max-width:40%"}
 
-![Panel lateral de "Span Properties" que permite al usuario final personalizar la familia de fuentes, el peso de la fuente, el tamaño de la fuente, el espaciado entre letras y el color del texto.]({% image_buster /assets/img_archive/span_2.png %}){: style="max-width:40%"}
+![Panel lateral de "Propiedades de span" que permite al usuario final personalizar la familia de fuentes, el peso de la fuente, el tamaño de la fuente, el espaciado entre letras y el color del texto.]({% image_buster /assets/img_archive/span_2.png %}){: style="max-width:40%"}
 
 ### Filas {#rows}
 
@@ -92,7 +92,7 @@ Antes de añadir bloques, configura los [estilos a nivel de mensaje](#set-messag
 
 Cada bloque tiene su propia configuración, como control granular del relleno. El panel del lado derecho cambia automáticamente a un panel de estilos para el elemento de contenido seleccionado. Para más información, consulta [Propiedades de bloques del editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_properties).
 
-A medida que construyes tu mensaje dentro de la aplicación, puedes seleccionar una vista de móvil, tableta o escritorio en la barra de herramientas para previsualizar cómo se verá tu mensaje dentro de la aplicación para tus grupos de usuarios. Esto asegurará que tu contenido sea responsivo y podrás hacer los ajustes necesarios sobre la marcha.
+A medida que construyes tu mensaje dentro de la aplicación, puedes seleccionar una vista de móvil, tableta o escritorio en la barra de herramientas para previsualizar cómo se verá tu mensaje dentro de la aplicación para tus grupos de usuarios. Esto asegurará que tu contenido sea adaptable y podrás hacer los ajustes necesarios sobre la marcha.
 
 ## Detalles creativos {#creative-details}
 
@@ -154,8 +154,8 @@ Después de hacer cambios en el estilo de un elemento, puedes copiar y pegar eso
 
 También puedes usar atajos de teclado para copiar y pegar estilos:
 
-| Acción       | Mac                                            | Windows                                           |
+| Acción | Mac | Windows |
 | ------------ | ---------------------------------------------- | ------------------------------------------------- |
-| Copiar estilos  | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
+| Copiar estilos | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
 | Pegar estilos | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Atajos de teclado" }

@@ -123,7 +123,7 @@ Você pode encontrar esses dados na página [Relatório de receitas]({{site.base
     }
 </style>
 
-<table>
+<table aria-label="Cálculos de receita">
   <caption>Cálculos de receita</caption>
     <thead>
         <tr>

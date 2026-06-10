@@ -51,7 +51,7 @@ To run the dashboard and view your data:
 2. Select one or more campaigns or Canvases.
 3. Select **Run Dashboard** to load the data for your selected filters.
 
-![Campaign and Canvas diagnostics example from May 25 to May 31, 2025 for a welcome series campaign.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
+![Campaign and Canvas diagnostics example from May 25 to May 31, 2025 for a welcome series campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![Campaign and Canvas diagnostics example with graph on hover from May 25 to May 31, 2025 for a welcome series campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
 
 ## Interpreting the data
 
@@ -78,11 +78,16 @@ This time series chart shows a day-by-day breakdown of the different reasons a m
 To keep the chart organized, any abort or drop reason with zero occurrences in your selected time range does not appear on the chart.
 {% endalert %}
 
-### Message outcomes breakdown
+### Message outcomes granular log
 
-This chart shows the breakdown of all message outcomes within your selected time range. It provides a complete picture of:
-- The total number of sends as a proportion of all outcomes.  
-- The proportional breakdown of each abort and drop reason. This helps you quickly identify the most common reasons messages are not being sent.
+Below the time series chart, the dashboard shows a granular table of individual message outcomes for your selected filters and time range. Use this table to review specific records, including the timestamp, user ID, Canvas step, outcome, and channel.
+
+You can filter the table to focus on specific records:
+
+- **Filter by outcome:** Select an outcome from the outcome filter to show only rows with that outcome (for example, `Frequency capped` or `User not eligible`).
+- **Search by user ID:** Enter a user ID in the search field to show rows for that specific user.
+
+When you apply both filters, the table returns rows that match both the selected outcome and the entered user ID.
 
 ### Abort outcomes
 
@@ -130,7 +135,7 @@ The following definitions explain the abort outcomes shown on the dashboard. Out
 | User failed pre-check for Message step | This pre-check runs before delivery validations. When this occurs, the user did not meet the basic pre-check for this Message step (user not found or ineligible for the Message step's channel). **Note:** For a multi-channel Message step, this means the user was not found; channel eligibility is only checked here for single-channel Message steps. |
 | User failed pre-check for triggered message | For a triggered message, Braze runs a first-pass set of basic pre-checks for audience eligibility, re-eligibility, and channel eligibility before creating a message to send from this trigger. |
 | User no longer eligible | The user was initially in the target audience, but no longer matched the audience criteria before Braze sent the message or entered the user into the Canvas. The time between the user initially meeting the audience criteria and falling out of audience could be due to delays from: {::nomarkdown}<ul><li>Intelligent timing</li><li>Quiet Hours</li><li>Local time</li><li>Delivery speed rate limits (not applicable for Canvas entry)</li><li>Messaging pipeline delays</li></ul>{:/} |
-| User not eligible for step | The user exited the Canvas because they didn't meet the set [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) for the Message step or because they were part of a [suppression list]({{site.baseurl}}/user_guide/audience/suppression_lists/). |
+| User not eligible for step | The user didn't meet the set [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) for the Message step or was part of a [suppression list]({{site.baseurl}}/user_guide/audience/suppression_lists/). Depending on the **Delivery validations** settings, the user may have exited the Canvas or proceeded to the next step. |
 | User not re-eligible | The user was eligible to receive the message or enter the Canvas, but the send was canceled because of re-eligibility or re-entry settings. This can happen if the user has already received the campaign or entered the Canvas too recently, if another send for the same campaign is already in progress for this user, or if re-eligibility or re-entry is turned off. |
 | User profile not found | The user either never existed or no longer exists in Braze. Some common cases include: {::nomarkdown}<ul><li> The user was targeted using API messaging, but never existed in Braze. </li><li>The user was deleted before the message was sent or the Canvas step was executed. </li><li>The user was merged with another profile before the message was sent.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }

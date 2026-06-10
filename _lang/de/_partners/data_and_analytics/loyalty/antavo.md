@@ -22,10 +22,10 @@ Die Integration von Antavo und Braze ermöglicht es Ihnen, Daten aus Kundenbindu
 | Anforderung          | Beschreibung                                                                                                                                                                   |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------  |
 | Antavo-Konto       | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Antavo-Konto](https://antavo.com/) mit aktivierter Braze-Integration.                                                |
-| Braze REST-API-Schlüssel   | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `events.list`, `events.data_series` und `events.get`.<br><br>Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden.  |
+| Braze REST-API-Schlüssel   | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `events.list`, `events.data_series` und `events.get`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden.  |
 | Braze REST-Endpunkt  | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                |
-| Braze-App-Bezeichner | Ihr App-Bezeichner-Schlüssel. <br><br>Um diesen Schlüssel im Braze-Dashboard zu finden, gehen Sie zu **Settings** > **API Keys** und suchen Sie den Abschnitt **Identification**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze-App-Bezeichner | Ihr App-Bezeichner-Schlüssel. <br><br>Um diesen Schlüssel im Braze-Dashboard zu finden, gehen Sie zu **Einstellungen** > **API-Schlüssel** und suchen Sie den Abschnitt **Identification**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -54,7 +54,7 @@ So konfigurieren Sie die Feld-Abbildung in Antavo:
 3. Geben Sie das **Remote field** ein, das das entsprechende angepasste Attribut in Braze darstellt, in das die Daten eingefügt werden sollen.
 
 {% alert note %}
-Sie finden Ihre Liste der angepassten Attribute in Braze unter **Data Settings** > **Custom Attributes**. Wenn das von Ihnen eingegebene Feld nicht in Braze definiert ist, wird bei der ersten Synchronisierung automatisch ein neues Feld erzeugt.
+Sie finden Ihre Liste der angepassten Attribute in Braze unter **Dateneinstellungen** > **Angepasste Attribute**. Wenn das von Ihnen eingegebene Feld nicht in Braze definiert ist, wird bei der ersten Synchronisierung automatisch ein neues Feld erzeugt.
 {% endalert %}
 
 {:start="4"}

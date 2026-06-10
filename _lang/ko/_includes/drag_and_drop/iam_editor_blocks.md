@@ -63,7 +63,7 @@
 | 속성 | 설명 |
 | --- | --- |
 | 커스텀 코드 | 인앱 메시지의 HTML, CSS 및 JavaScript를 추가, 편집 또는 삭제할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### 전화번호 캡처 {#phone-capture}
 

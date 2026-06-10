@@ -48,7 +48,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `name` | Obligatorio | Cadena | El nombre de la campaña resultante. |
 | `description` | Opcional | Cadena | El campo de descripción de la campaña resultante. |
 | `tag_names` | Opcional | Cadena | Las etiquetas de la campaña resultante. Deben ser etiquetas existentes. Si añades etiquetas nuevas en la solicitud, sobrescribirán cualquier etiqueta que existiera en la campaña original. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 
 ## Respuesta {#response}

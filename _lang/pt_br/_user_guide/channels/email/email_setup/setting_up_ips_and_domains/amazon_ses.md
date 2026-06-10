@@ -7,11 +7,11 @@ description: "Este artigo de referência explica como configurar o Amazon SES co
 channel: email
 ---
 
-# Configuração do Amazon SES
+# Configuração do Amazon SES {#amazon-ses-setup}
 
 > A Braze usa o Amazon Simple Email Service (SES) como prestador de serviço de e-mail padrão durante a configuração de um novo e-mail. Se a configuração necessária não estiver alinhada com os recursos do Amazon SES, fale com o suporte da Braze para ter a opção de concluir a configuração no SparkPost ou SendGrid.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Antes de iniciar a configuração do Amazon SES, confirme que você tem o seguinte:
 
@@ -20,7 +20,7 @@ Antes de iniciar a configuração do Amazon SES, confirme que você tem o seguin
 - O número de endereços IP para cada pool de IP
 - Sufixo preferido para domínios de rastreamento de cliques (como "clicks" ou "click", "links" ou "link")
 
-## Exemplo de configuração
+## Exemplo de configuração {#setup-example}
 
 Uma configuração típica do Amazon SES é semelhante ao seguinte:
 
@@ -31,17 +31,17 @@ Uma configuração típica do Amazon SES é semelhante ao seguinte:
 | --- | --- | --- | --- | --- |
 | `eu02_braze_marketing` | 1 IP | `eu02_braze_marketing_set1` | `demo.braze.com` | `clicks.demo.braze.com` |
 | `eu02_braze_transactional` | 1 IP | `eu02_braze_transactional_set1` | `dev.braze.com` | `clicks.dev.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Exemplo de configuração" }
 
 {% alert note %}
 O cluster e o nome da subconta são automaticamente adicionados aos pools de IP e conjuntos de configuração.
 {% endalert %}
 
-## Exemplos de configuração de domínio de rastreamento de cliques
+## Exemplos de configuração de domínio de rastreamento de cliques {#click-tracking-domain-configuration-examples}
 
 As tabelas a seguir são exemplos de possíveis configurações de domínio de rastreamento de cliques com base na sua preferência de branding.
 
-### Um domínio de rastreamento de cliques para cada domínio de envio
+### Um domínio de rastreamento de cliques para cada domínio de envio {#one-click-tracking-domain-for-each-sending-domain}
 
 | Pool de IP de marketing | Conjunto de configuração | Subdomínios de envio | Domínios de rastreamento de cliques |
 | --- | --- | --- | --- |
@@ -49,9 +49,9 @@ As tabelas a seguir são exemplos de possíveis configurações de domínio de r
 | braze_marketing - 1 IP | braze_marketing_set2 | `email2.example.com` | `clicks.email2.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set3 | `email3.example.com` | `clicks.email3.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set4 | `email4.example.com` | `clicks.email4.example.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Um domínio de rastreamento de cliques para cada domínio de envio" }
 
-### Um domínio de rastreamento de cliques para todos os domínios de envio
+### Um domínio de rastreamento de cliques para todos os domínios de envio {#one-click-tracking-domain-for-all-sending-domains}
 
 Isso se baseia na regra de que o domínio de rastreamento de cliques precisa corresponder a pelo menos um domínio de envio do conjunto de configuração.
 
@@ -61,9 +61,9 @@ Isso se baseia na regra de que o domínio de rastreamento de cliques precisa cor
 | braze_marketing - 1 IP | braze_marketing_set | `email2.example.com` | `clicks.email1.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set | `email3.example.com` | `clicks.email1.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set | `email4.example.com` | `clicks.email1.example.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Um domínio de rastreamento de cliques para todos os domínios de envio" }
 
-## Considerações
+## Considerações {#considerations}
 
 - Os pools de IP no Amazon SES hospedam apenas o endereço IP em si, enquanto os conjuntos de configuração hospedam os domínios de envio e o domínio de rastreamento de cliques.
 - Cada conjunto de configuração pode ter apenas um pool de IP atribuído por vez, mas é possível criar múltiplos conjuntos de configuração que usam o mesmo pool de IP com domínios de envio diferentes.
@@ -71,8 +71,8 @@ Isso se baseia na regra de que o domínio de rastreamento de cliques precisa cor
 - Cada domínio de envio tem um identificador MAIL FROM vinculado a ele para ajudar nas validações de SPF.
     - O valor para cada domínio de envio é "e".
     - O valor MAIL FROM não altera o endereço De que seus clientes visualizam.
-- Se o Amazon SES for seu prestador de serviço de e-mail, o Microsoft Smart Network Data Services (SNDS) não é compatível.
+- O início e o fim do período de mensagem trap não estão disponíveis se você estiver usando o Amazon SES como seu prestador de serviço de e-mail.
 
-## Próximas etapas
+## Próximas etapas {#next-steps}
 
 - [Configurar SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)

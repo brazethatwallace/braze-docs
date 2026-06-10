@@ -11,7 +11,7 @@ description: "BrazeでAPI呼び出しによってトリガーされる重要か�
 
 # トランザクションメール {#transactional-email}
 
-> トランザクションメールは、お客様と顧客の間で合意された取引を促進するために、自動化された非プロモーションメッセージを送信する目的で構築されています。Brazeのトランザクションメールキャンペーンを使用して、注文確認、パスワードリセット、配送状況の更新など、API呼び出しによってトリガーされる重要かつ時間的制約のある通知を送信できます。
+> トランザクションメールは、お客様と顧客の間で合意された取引を円滑に進めるために、自動化された非プロモーションメッセージを送信する目的で構築されています。Brazeのトランザクションメールキャンペーンを使用して、注文確認、パスワードリセット、配送状況の更新など、API呼び出しによってトリガーされる重要かつ時間的制約のある通知を送信できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -32,7 +32,7 @@ description: "BrazeでAPI呼び出しによってトリガーされる重要か�
 | パスワードリセット | 顧客がアカウントの認証情報をリセットするための安全で時間的制約のあるリンクを配信します。 |
 | 配送通知 | トラッキング情報や配達予定日を含め、注文が発送されたことを顧客に通知します。 |
 | アカウントアラート | 支払い失敗、サブスクリプション変更、セキュリティアラートなど、重要なアカウント関連の通知を送信します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## トランザクションメールとマーケティングメールの違い {#how-transactional-email-differs-from-marketing-email}
 
@@ -44,5 +44,5 @@ description: "BrazeでAPI呼び出しによってトリガーされる重要か�
 
 ## 次のステップ {#next-steps}
 
-- [トランザクションメールを作成する]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+- [トランザクションメールの作成]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
 - [トラッキング]({{site.baseurl}}/user_guide/channels/transactional_email/tracking/)

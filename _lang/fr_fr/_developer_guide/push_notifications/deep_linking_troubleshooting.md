@@ -25,7 +25,7 @@ Si un lien profond de schéma personnalisé (par exemple, `myapp://products/123`
    xcrun simctl openurl booted "myapp://products/123"
    ```
    Si le lien ne fonctionne pas ici, le problème provient de la gestion des URL de votre application, et non de Braze.
-4. **Vérifiez le format de l'URL.** Vérifiez que l'URL de votre Campaign correspond à ce que votre gestionnaire attend. Les erreurs courantes incluent des composants de chemin manquants ou une casse incorrecte.
+4. **Vérifiez le format de l'URL.** Vérifiez que l'URL de votre campagne correspond à ce que votre gestionnaire attend. Les erreurs courantes incluent des composants de chemin manquants ou une casse incorrecte.
 
 ## Le lien universel s'ouvre dans Safari au lieu de l'application {#universal-link-opens-in-safari-instead-of-the-app}
 
@@ -88,7 +88,7 @@ Le transfert de liens universels nécessite l'accès aux droits de l'application
 
 ### Vérifier le problème lié à l'appui long {#check-for-the-long-press-issue}
 
-Si vous appuyez longuement sur un lien universel et sélectionnez **Ouvrir**, iOS peut « rompre » l'association du lien universel pour ce domaine. Il s'agit d'un comportement connu d'iOS. Pour le réinitialiser, appuyez longuement sur le lien à nouveau et sélectionnez **Ouvrir dans [Nom de l'application]**.
+Si vous appuyez longuement sur un lien universel et sélectionnez **Open**, iOS peut « rompre » l'association du lien universel pour ce domaine. Il s'agit d'un comportement connu d'iOS. Pour le réinitialiser, appuyez longuement sur le lien à nouveau et sélectionnez **Open in [App Name]**.
 
 ## Le lien profond provenant d'un e-mail n'ouvre pas l'application {#deep-link-from-email-doesnt-open-the-app}
 
@@ -137,7 +137,7 @@ Si vous utilisez un délégué d'affichage de messages in-app personnalisé ou u
 
 ## « Ouvrir l'URL Web dans l'application » affiche une page vide ou défectueuse {#open-web-url-inside-app-shows-a-blank-or-broken-page}
 
-Si la sélection de **Ouvrir l'URL Web dans l'application** affiche une WebView vide ou défectueuse :
+Si la sélection de **Open Web URL Inside App** affiche une WebView vide ou défectueuse :
 
 1. **Vérifiez que l'URL utilise HTTPS.** La WebView du SDK nécessite des URL conformes à ATS. Les liens HTTP échouent silencieusement.
 2. **Vérifiez les en-têtes Content Security Policy.** Si la page Web cible définit `X-Frame-Options: DENY` ou une `Content-Security-Policy` restrictive, elle bloque le rendu dans une WebView.
@@ -212,7 +212,7 @@ Testez le lien Branch en dehors de Braze pour isoler le problème :
 | `Opening '<URL>': - channel: contentCard` | Le SDK traite un lien provenant d'une Content Card |
 | `useWebView: true` | Le SDK ouvre l'URL dans la WebView intégrée à l'application |
 | `isUniversalLink: true` | Le SDK a identifié l'URL comme un lien universel |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Utiliser la journalisation détaillée" }
 
 Pour plus de détails sur la lecture de ces journaux, consultez [Lecture des journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/).
 

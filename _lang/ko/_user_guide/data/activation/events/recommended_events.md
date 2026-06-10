@@ -15,7 +15,7 @@ description: "이 참조 문서에서는 Braze가 eCommerce 이벤트에 대해 
 
 [eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events/)는 구매 여정의 6단계를 다룹니다: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled`, `order_refunded`. 이러한 이벤트를 성공적으로 전송하면 Braze가 데이터를 유효성 검사하고 점점 늘어나는 플랫폼 기능 세트에서 사용할 수 있도록 합니다.
 
-이러한 기능에는 유기한 탐색, 유기한 장바구니, 유기한 결제, 주문 확인 플로우를 위한 Canvas 템플릿, eCommerce 리포팅, 그리고 _총 매출_, _총 주문 수_, _총 환불 금액_에 대한 계산된 사용자 프로필 필드가 포함됩니다. 또한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통해 중첩된 제품 등록정보 필터링을 사용하여 세그먼트를 구축하고, {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그로 유기한 장바구니 메시지를 개인화하며, [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) 등의 BrazeAI<sup>TM</sup> 기능과 기타 기능을 활용할 수 있습니다.
+이러한 기능에는 유기한 탐색, 유기한 장바구니, 유기한 결제, 주문 확인 플로우를 위한 Canvas 템플릿, eCommerce 리포팅, 그리고 _총 매출_, _총 주문 수_, _총 환불 금액_에 대한 계산된 사용자 프로필 필드가 포함됩니다. 또한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통해 중첩된 제품 등록정보 필터링을 사용하여 Segments를 구축하고, {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그로 유기한 장바구니 메시지를 개인화하며, [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) 등의 BrazeAI<sup>TM</sup> 기능과 기타 기능을 활용할 수 있습니다.
 
 이러한 이벤트는 정의된 스키마를 따르기 때문에, 지원되는 각 기능이 커스텀 등록정보 매핑이나 기능별 구성 없이도 구조화된 데이터를 읽을 수 있습니다.
 
@@ -23,7 +23,7 @@ description: "이 참조 문서에서는 Braze가 eCommerce 이벤트에 대해 
 
 ### eCommerce 이벤트 작동 방식 {#how-ecommerce-events-work}
 
-eCommerce 이벤트는 사전 정의된 이름과 등록정보 스키마를 가진 커스텀 이벤트입니다. Braze SDK 또는 [`/users/track` REST API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 전송하며, Braze는 수집 시 각 이벤트를 해당 스키마에 대해 유효성 검사합니다. 유효성 검사를 통과하면 Braze는 해당 이벤트 유형에 특화된 후처리를 자동으로 적용합니다(예: 매출 필드 계산 및 사용자 프로필의 장바구니 상태 관리).
+eCommerce 이벤트는 사전 정의된 이름과 등록정보 스키마를 가진 커스텀 이벤트입니다. [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) 또는 [`/users/track` REST API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 전송하며, Braze는 수집 시 각 이벤트를 해당 스키마에 대해 유효성 검사합니다. 유효성 검사를 통과하면 Braze는 해당 이벤트 유형에 특화된 후처리를 자동으로 적용합니다(예: 매출 필드 계산 및 사용자 프로필의 장바구니 상태 관리).
 
 eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에서 작동합니다: 수행된 커스텀 이벤트에 대한 트리거 및 필터, 커스텀 이벤트 리포팅 등. 그러나 스키마 유효성 검사를 통해 다음과 같은 추가 기능이 활성화됩니다:
 
@@ -32,7 +32,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 - 유기한 장바구니 플로우를 위한 장바구니 상태 관리
 - Predictive Events, Predictive Churn, 아이템 추천과 같은 BrazeAI<sup>TM</sup> 기능을 위한 더 풍부한 데이터
 
-플랫폼에서 커스텀 이벤트를 지원하는 모든 곳에서 이름으로 eCommerce 이벤트를 참조할 수도 있습니다. 예를 들어, `ecommerce.product_viewed` 이벤트로 액션 기반 Campaign을 트리거하거나, `ecommerce.checkout_started` 이벤트를 필터링하여 세그먼트를 구축하거나, Currents를 통해 `ecommerce.order_placed` 이벤트를 내보낼 수 있습니다.
+플랫폼에서 커스텀 이벤트를 지원하는 모든 곳에서 이름으로 eCommerce 이벤트를 참조할 수도 있습니다. 예를 들어, `ecommerce.product_viewed` 이벤트로 액션 기반 Campaign을 트리거하거나, `ecommerce.checkout_started` 이벤트를 필터링하여 Segment를 구축하거나, Currents를 통해 `ecommerce.order_placed` 이벤트를 내보낼 수 있습니다.
 
 #### 이벤트 이름 지정 {#event-naming}
 
@@ -47,12 +47,21 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 6개의 eCommerce 추천 이벤트는 구매 여정의 단계에 매핑됩니다. 사용자가 해당 동작을 완료하는 시점에 각 이벤트를 발생시키세요.
 
-![6개의 eCommerce 추천 이벤트(product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, order_refunded)를 거치는 사용자 여정 다이어그램]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![6개의 eCommerce 추천 이벤트(product_viewed, cart_updated, checkout_started, order_placed, order_cancelled, order_refunded)를 거치는 사용자 여정 다이어그램]({% image_buster /assets/img/shopify/event_schemas.png %})
+
+{% alert tip %}
+다음 예시는 각 이벤트의 REST API 페이로드를 보여줍니다.
+클라이언트 측 로깅의 경우, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, `ecommerce.order_placed`는 사용 가능한 SDK eCommerce 이벤트 API를 사용하고, `ecommerce.order_cancelled`와 `ecommerce.order_refunded`는 `logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+{% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
 사용자가 제품 상세 페이지를 조회할 때 트리거합니다. 이 이벤트는 Braze 카탈로그의 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) 및 [가격 인하 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/)과 호환됩니다.
+
+#### 클라이언트 측 구현 {#client-side-implementation}
+
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
 
 #### 이벤트 등록정보 {#event-properties}
 
@@ -68,7 +77,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `source`       | 문자열           | 예      | 이벤트가 발생한 소스(예: `web`, `ios`, `android`).                                                                               |
 | `type`         | 문자열 배열 | 아니요       | 재입고 및 가격 인하 알림을 위한 Braze 카탈로그 트리거 기능을 사용하려면 필수입니다. 허용 값: `"price_drop"`, `"back_in_stock"`     |
 | `metadata`     | 오브젝트           | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `sku` (문자열)                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
 
 #### REST API 예시 {#rest-api-example}
 
@@ -105,7 +114,18 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 사용자의 장바구니 내용이 변경될 때마다 트리거합니다.
 
-이 이벤트는 교체 모델을 사용합니다. 즉, 변경된 항목만이 아니라 전체 현재 장바구니 배열을 매번 호출에 포함해야 합니다. Braze는 전송한 배열로 이전 장바구니 상태를 덮어씁니다.
+#### 클라이언트 측 구현
+
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+
+이 이벤트는 다음 두 가지 방법 중 하나로 전송할 수 있습니다:
+
+- **전체 장바구니 교체:** `action`을 생략하거나 `action`을 `replace`로 설정합니다. `products`에 절대 수량(장바구니에 있는 배리언트별 총 수량)으로 전체 라인 항목 세트를 포함합니다. `total_value`를 반드시 포함해야 합니다.
+- **증분 장바구니 업데이트:** `action`을 `add` 또는 `remove`로 설정합니다. 변경된 라인 항목만 포함합니다. 각 `quantity`는 장바구니의 총 수량이 아니라 추가하거나 제거할 단위 수입니다. `add`의 경우 Braze가 라인 수량을 증가시키거나 새 라인을 추가합니다. `remove`의 경우 Braze가 라인 수량을 감소시키고 수량이 `0`에 도달하면 라인을 제거합니다. `total_value`는 `add` 및 `remove`에서 선택 사항입니다.
+
+{% alert warning %}
+주어진 장바구니에 대해 증분 장바구니 업데이트(`add` 또는 `remove`)와 전체 교체(`action` 없음 또는 `replace`) 중 하나만 사용하세요. 동일한 `cart_id`에 대해 두 접근 방식을 혼합하면 Braze에서 일관되지 않은 장바구니 상태가 발생할 수 있으므로 권장하지 않습니다.
+{% endalert %}
 
 이 이벤트에서 메시징을 트리거하려면 Canvas 및 Campaigns에서 **장바구니 업데이트 이벤트 수행** 트리거를 사용하세요. 이 트리거에는 장바구니가 쇼핑 퍼널을 통해 진행되는 것을 중지하는 특별한 처리가 포함되어 있습니다.
 
@@ -118,15 +138,16 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | 등록정보        | 데이터 유형 | 필수 | 설명                                                                                                                   |
 |-----------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `cart_id`       | 문자열    | 예      | 장바구니의 고유 식별자. 사용자의 장바구니 매핑을 위해 장바구니, 결제, 주문 이벤트 간에 공유됩니다.                   |
-| `total_value`   | 플로트     | 예      | 장바구니의 총 금액.                                                                                             |
+| `action`        | 문자열    | 아니요       | `add`(수량 증가 또는 새 라인 추가), `remove`(수량 감소, `0`에서 라인 제거), `replace`(전체 장바구니 교체, `action` 생략과 동일). |
+| `total_value`   | 플로트     | 조건부 | `action`이 생략되거나 `replace`일 때 필수. `action`이 `add` 또는 `remove`일 때 선택 사항.                             |
 | `subtotal_value`| 플로트     | 아니요       | 장바구니의 소계 금액(할인 후, 세금/배송비 전).                                                                 |
 | `tax`           | 플로트     | 아니요       | 장바구니에 적용된 총 세금.                                                                                                |
 | `shipping`      | 플로트     | 아니요       | 장바구니의 총 배송비.                                                                                             |
 | `currency`      | 문자열    | 예      | 3자리 ISO 4217 코드.                                                                                                   |
-| `products`      | 배열     | 예      | 현재 장바구니에 있는 항목의 전체 배열. 제품 등록정보 하위 테이블을 참조하세요.                                              |
+| `products`      | 배열     | 예      | 이 업데이트의 라인 항목. 전체 교체(`action` 없음 또는 `replace`)의 경우 절대 수량으로 전체 장바구니를 포함합니다. `add` 또는 `remove`의 경우 변경된 라인만 포함합니다. 제품 등록정보를 참조하세요. |
 | `source`        | 문자열    | 예      | 이벤트가 발생한 소스.                                                                                             |
 | `metadata`      | 오브젝트    | 아니요       | 추가 이벤트 수준 데이터를 위한 유연한 키-값 페어.                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
 
 #### 제품 등록정보 (`products[]`) {#product-properties-products}
 
@@ -137,12 +158,425 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `variant_id`    | 문자열    | 예      | 배리언트 식별자.                             |
 | `image_url`     | 문자열    | 아니요       | 제품 이미지 URL.                              |
 | `product_url`   | 문자열    | 아니요       | 제품 페이지의 URL.                        |
-| `quantity`      | 정수   | 예      | 장바구니에 있는 수량.                    |
+| `quantity`      | 정수   | 예      | 전체 교체(`action` 없음 또는 `replace`)의 경우 이 라인의 장바구니 내 수량. `add` 또는 `remove`의 경우 추가하거나 제거할 수량. |
 | `price`         | 플로트     | 예      | 배리언트 단가.                             |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`).   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 등록정보 (products[])" }
 
-#### REST API 예시
+{% comment %}
+
+{% subtabs local %}
+{% subtab Web %}
+
+##### `add`
+
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
+
+```javascript
+braze.logCustomEvent("ecommerce.cart_updated", {
+  cart_id: "cart_abc123",
+  action: "add",
+  currency: "USD",
+  source: "web",
+  products: [
+    {
+      product_id: "SKU-RUN-4821",
+      product_name: "Ultraboost Running Shoe",
+      variant_id: "UB-BLK-11",
+      quantity: 1,
+      price: 189.99,
+    },
+  ],
+});
+```
+##### `remove`
+
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+
+```javascript
+braze.logCustomEvent("ecommerce.cart_updated", {
+  cart_id: "cart_abc123",
+  action: "remove",
+  currency: "USD",
+  source: "web",
+  products: [
+    {
+      product_id: "SKU-SOC-1102",
+      product_name: "Performance Running Socks",
+      variant_id: "SOC-WHT-L",
+      quantity: 1,
+      price: 14.99,
+    },
+  ],
+});
+```
+
+##### `replace`
+
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
+
+```javascript
+braze.logCustomEvent("ecommerce.cart_updated", {
+  cart_id: "cart_abc123",
+  action: "replace",
+  total_value: 234.96,
+  currency: "USD",
+  source: "web",
+  products: [
+    {
+      product_id: "SKU-RUN-4821",
+      product_name: "Ultraboost Running Shoe",
+      variant_id: "UB-BLK-11",
+      image_url: "https://cdn.example.com/shoes/ub-blk-11.jpg",
+      product_url: "https://www.example.com/products/ultraboost-running-shoe?variant=UB-BLK-11",
+      quantity: 1,
+      price: 189.99,
+    },
+    {
+      product_id: "SKU-SOC-1102",
+      product_name: "Performance Running Socks",
+      variant_id: "SOC-WHT-L",
+      image_url: "https://cdn.example.com/socks/soc-wht-l.jpg",
+      product_url: "https://www.example.com/products/performance-running-socks?variant=SOC-WHT-L",
+      quantity: 2,
+      price: 14.99,
+    },
+  ],
+});
+```
+
+{% endsubtab %}
+{% subtab Android %}
+
+##### Add
+
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
+
+```text
+Kotlin
+
+// add — units to add
+Braze.getInstance(context).logCustomEvent(
+  "ecommerce.cart_updated",
+  BrazeProperties(
+    JSONObject()
+      .put("cart_id", "cart_abc123")
+      .put("action", "add")
+      .put("currency", "USD")
+      .put("source", "android")
+      .put(
+        "products",
+        JSONArray().put(
+          JSONObject()
+            .put("product_id", "SKU-RUN-4821")
+            .put("product_name", "Ultraboost Running Shoe")
+            .put("variant_id", "UB-BLK-11")
+            .put("quantity", 1)
+            .put("price", 189.99),
+        ),
+      ),
+  ),
+)
+
+JavaScript
+
+// add — units to add
+Braze.getInstance(context).logCustomEvent(
+    "ecommerce.cart_updated",
+    new BrazeProperties(new JSONObject()
+        .put("cart_id", "cart_abc123")
+        .put("action", "add")
+        .put("currency", "USD")
+        .put("source", "android")
+        .put("products", new JSONArray()
+            .put(new JSONObject()
+                .put("product_id", "SKU-RUN-4821")
+                .put("product_name", "Ultraboost Running Shoe")
+                .put("variant_id", "UB-BLK-11")
+                .put("quantity", 1)
+                .put("price", 189.99)))));
+```
+
+##### Remove
+
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+
+```text
+Kotlin
+
+// remove — units to remove
+Braze.getInstance(context).logCustomEvent(
+  "ecommerce.cart_updated",
+  BrazeProperties(
+    JSONObject()
+      .put("cart_id", "cart_abc123")
+      .put("action", "remove")
+      .put("currency", "USD")
+      .put("source", "android")
+      .put(
+        "products",
+        JSONArray().put(
+          JSONObject()
+            .put("product_id", "SKU-SOC-1102")
+            .put("product_name", "Performance Running Socks")
+            .put("variant_id", "SOC-WHT-L")
+            .put("quantity", 1)
+            .put("price", 14.99),
+        ),
+      ),
+  ),
+)
+
+JavaScript
+
+// remove — units to remove
+Braze.getInstance(context).logCustomEvent(
+    "ecommerce.cart_updated",
+    new BrazeProperties(new JSONObject()
+        .put("cart_id", "cart_abc123")
+        .put("action", "remove")
+        .put("currency", "USD")
+        .put("source", "android")
+        .put("products", new JSONArray()
+            .put(new JSONObject()
+                .put("product_id", "SKU-SOC-1102")
+                .put("product_name", "Performance Running Socks")
+                .put("variant_id", "SOC-WHT-L")
+                .put("quantity", 1)
+                .put("price", 14.99)))));
+```
+
+##### Replace
+
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
+
+```text
+Kotlin
+
+// replace — full cart; total_value required
+Braze.getInstance(context).logCustomEvent(
+  "ecommerce.cart_updated",
+  BrazeProperties(
+    JSONObject()
+      .put("cart_id", "cart_abc123")
+      .put("action", "replace")
+      .put("total_value", 234.96)
+      .put("currency", "USD")
+      .put("source", "android")
+      .put(
+        "products",
+        JSONArray()
+          .put(
+            JSONObject()
+              .put("product_id", "SKU-RUN-4821")
+              .put("product_name", "Ultraboost Running Shoe")
+              .put("variant_id", "UB-BLK-11")
+              .put("quantity", 1)
+              .put("price", 189.99),
+          )
+          .put(
+            JSONObject()
+              .put("product_id", "SKU-SOC-1102")
+              .put("product_name", "Performance Running Socks")
+              .put("variant_id", "SOC-WHT-L")
+              .put("quantity", 2)
+              .put("price", 14.99),
+          ),
+      ),
+  ),
+)
+
+JavaScript
+
+// replace — full cart; total_value required
+Braze.getInstance(context).logCustomEvent(
+    "ecommerce.cart_updated",
+    new BrazeProperties(new JSONObject()
+        .put("cart_id", "cart_abc123")
+        .put("action", "replace")
+        .put("total_value", 234.96)
+        .put("currency", "USD")
+        .put("source", "android")
+        .put("products", new JSONArray()
+            .put(new JSONObject()
+                .put("product_id", "SKU-RUN-4821")
+                .put("product_name", "Ultraboost Running Shoe")
+                .put("variant_id", "UB-BLK-11")
+                .put("quantity", 1)
+                .put("price", 189.99))
+            .put(new JSONObject()
+                .put("product_id", "SKU-SOC-1102")
+                .put("product_name", "Performance Running Socks")
+                .put("variant_id", "SOC-WHT-L")
+                .put("quantity", 2)
+                .put("price", 14.99)))));
+```
+
+{% endsubtab %}
+{% subtab Swift %}
+
+##### Add
+
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
+
+```text
+Swift
+
+// add — units to add
+AppDelegate.braze?.logCustomEvent(
+  name: "ecommerce.cart_updated",
+  properties: [
+    "cart_id": "cart_abc123",
+    "action": "add",
+    "currency": "USD",
+    "source": "ios",
+    "products": [
+      [
+        "product_id": "SKU-RUN-4821",
+        "product_name": "Ultraboost Running Shoe",
+        "variant_id": "UB-BLK-11",
+        "quantity": 1,
+        "price": 189.99,
+      ],
+    ],
+  ]
+)
+
+Objective-C
+
+// add — units to add
+[AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
+                       properties:@{
+  @"cart_id": @"cart_abc123",
+  @"action": @"add",
+  @"currency": @"USD",
+  @"source": @"ios",
+  @"products": @[@{
+    @"product_id": @"SKU-RUN-4821",
+    @"product_name": @"Ultraboost Running Shoe",
+    @"variant_id": @"UB-BLK-11",
+    @"quantity": @1,
+    @"price": @189.99,
+  }],
+}];
+```
+
+##### Remove
+
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+
+```text
+Swift
+
+// remove — units to remove
+AppDelegate.braze?.logCustomEvent(
+  name: "ecommerce.cart_updated",
+  properties: [
+    "cart_id": "cart_abc123",
+    "action": "remove",
+    "currency": "USD",
+    "source": "ios",
+    "products": [
+      [
+        "product_id": "SKU-SOC-1102",
+        "product_name": "Performance Running Socks",
+        "variant_id": "SOC-WHT-L",
+        "quantity": 1,
+        "price": 14.99,
+      ],
+    ],
+  ]
+)
+
+Objective-C
+
+// remove — units to remove
+[AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
+                       properties:@{
+  @"cart_id": @"cart_abc123",
+  @"action": @"remove",
+  @"currency": @"USD",
+  @"source": @"ios",
+  @"products": @[@{
+    @"product_id": @"SKU-SOC-1102",
+    @"product_name": @"Performance Running Socks",
+    @"variant_id": @"SOC-WHT-L",
+    @"quantity": @1,
+    @"price": @14.99,
+  }],
+}];
+```
+
+##### Replace
+
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
+
+```text
+Swift
+
+// replace — full cart; total_value required
+AppDelegate.braze?.logCustomEvent(
+  name: "ecommerce.cart_updated",
+  properties: [
+    "cart_id": "cart_abc123",
+    "action": "replace",
+    "total_value": 234.96,
+    "currency": "USD",
+    "source": "ios",
+    "products": [
+      [
+        "product_id": "SKU-RUN-4821",
+        "product_name": "Ultraboost Running Shoe",
+        "variant_id": "UB-BLK-11",
+        "quantity": 1,
+        "price": 189.99,
+      ],
+      [
+        "product_id": "SKU-SOC-1102",
+        "product_name": "Performance Running Socks",
+        "variant_id": "SOC-WHT-L",
+        "quantity": 2,
+        "price": 14.99,
+      ],
+    ],
+  ]
+)
+
+Objective-C
+
+// replace — full cart; total_value required
+[AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
+                       properties:@{
+  @"cart_id": @"cart_abc123",
+  @"action": @"replace",
+  @"total_value": @234.96,
+  @"currency": @"USD",
+  @"source": @"ios",
+  @"products": @[
+    @{
+      @"product_id": @"SKU-RUN-4821",
+      @"product_name": @"Ultraboost Running Shoe",
+      @"variant_id": @"UB-BLK-11",
+      @"quantity": @1,
+      @"price": @189.99,
+    },
+    @{
+      @"product_id": @"SKU-SOC-1102",
+      @"product_name": @"Performance Running Socks",
+      @"variant_id": @"SOC-WHT-L",
+      @"quantity": @2,
+      @"price": @14.99,
+    },
+  ],
+}];
+```
+
+{% endsubtab %}
+{% subtab REST API %}
+
+##### `add`
+
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```json
 {
@@ -153,6 +587,69 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
       "time": "2026-04-28T14:25:33Z",
       "properties": {
         "cart_id": "cart_abc123",
+        "action": "add",
+        "currency": "USD",
+        "source": "web",
+        "products": [
+          {
+            "product_id": "SKU-RUN-4821",
+            "product_name": "Ultraboost Running Shoe",
+            "variant_id": "UB-BLK-11",
+            "quantity": 1,
+            "price": 189.99
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+##### `remove`
+
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+
+```json
+{
+  "events": [
+    {
+      "external_id": "user_98765",
+      "name": "ecommerce.cart_updated",
+      "time": "2026-04-28T14:26:10Z",
+      "properties": {
+        "cart_id": "cart_abc123",
+        "action": "remove",
+        "currency": "USD",
+        "source": "web",
+        "products": [
+          {
+            "product_id": "SKU-SOC-1102",
+            "product_name": "Performance Running Socks",
+            "variant_id": "SOC-WHT-L",
+            "quantity": 1,
+            "price": 14.99
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+##### `replace`
+
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
+
+```json
+{
+  "events": [
+    {
+      "external_id": "user_98765",
+      "name": "ecommerce.cart_updated",
+      "time": "2026-04-28T14:27:00Z",
+      "properties": {
+        "cart_id": "cart_abc123",
+        "action": "replace",
         "total_value": 234.96,
         "subtotal_value": 219.97,
         "tax": 9.0,
@@ -196,10 +693,18 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 }
 ```
 
+{% endsubtab %}
+{% endsubtabs %}
+{% endcomment %}
+
 {% endtab %}
 {% tab ecommerce.checkout_started %}
 
 사용자가 결제 플로우를 시작할 때 트리거합니다(예: "결제"를 선택하거나 결제 페이지에 도착한 경우).
+
+#### 클라이언트 측 구현
+
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
 
 #### 이벤트 등록정보
 
@@ -215,7 +720,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | products       | 배열   | 예      | 결제 중인 항목. 제품 등록정보 하위 테이블을 참조하세요.                                                       |
 | source         | 문자열  | 예      | 이벤트가 발생한 소스.                                                                                |
 | metadata       | 오브젝트  | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `checkout_url` (문자열)                                       |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
 
 #### 제품 등록정보 (`products[]`)
 
@@ -229,7 +734,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `quantity`     | 정수   | 예      | 장바구니에 있는 수량.                             |
 | `price`        | 플로트     | 예      | 배리언트 단가.                                      |
 | `metadata`     | 오브젝트    | 아니요       | 유연한 키-값 페어(예: color, size).            |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 등록정보 (products[])" }
 
 #### REST API 예시
 
@@ -292,6 +797,10 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 주문이 성공적으로 완료되거나 결제가 확인되었을 때 트리거합니다.
 
+#### 클라이언트 측 구현
+
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+
 {% alert important %}
 이 이벤트는 주요 매출 동인입니다. 사용자 프로필에서 `total_value` 값만큼 `total_revenue`를 증가시키고 `total_orders`를 1 증가시킵니다.
 {% endalert %}
@@ -312,7 +821,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `products`      | 배열     | 예      | 주문에 포함된 항목. 제품 등록정보 하위 테이블을 참조하세요.                                         |
 | `source`        | 문자열    | 예      | 이벤트가 발생한 소스.                                                             |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `order_status_url` (문자열)                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
 
 #### 제품 등록정보 (`products[]`)
 
@@ -326,7 +835,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `quantity`      | 정수   | 예      | 장바구니에 있는 수량.                |
 | `price`         | 플로트     | 예      | 배리언트 단가.                         |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`).|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 등록정보 (products[])" }
 
 #### REST API 예시
 
@@ -396,6 +905,10 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 주문이 취소되었을 때 트리거합니다.
 
+#### 클라이언트 측 구현
+
+`logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+
 {% alert important %}
 이 이벤트는 사용자 프로필에서 `total_orders`를 1 감소시킵니다. `total_revenue`에는 영향을 미치지 않습니다. 매출을 조정하려면 `order_refunded`를 사용하세요.
 {% endalert %}
@@ -416,7 +929,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `products`       | 배열   | 예      | 취소된 주문의 항목. 제품 등록정보 하위 테이블을 참조하세요.                                  |
 | `source`         | 문자열  | 예      | 이벤트가 발생한 소스.                                                                |
 | `metadata`       | 오브젝트  | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `order_status_url` (문자열)                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
 
 #### 제품 등록정보 (`products[]`)
 
@@ -430,7 +943,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `quantity`     | 정수   | 예      | 장바구니에 있는 수량.                  |
 | `price`        | 플로트     | 예      | 배리언트 단가.                           |
 | `metadata`     | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 등록정보 (products[])" }
 
 #### REST API 예시
 
@@ -489,6 +1002,10 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 전체 또는 부분 환불이 발생했을 때 트리거합니다.
 
+#### 클라이언트 측 구현
+
+`logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+
 {% alert important %}
 이 이벤트는 사용자 프로필에서 `total_value` 값만큼 `total_revenue`를 감소시키고 `total_refunds`를 증가시킵니다. 부분 환불의 경우, `total_value`를 원래 주문 총액이 아닌 환불 금액만으로 설정하세요.
 {% endalert %}
@@ -505,7 +1022,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `products`        | 배열     | 예      | 환불되는 항목. 제품 등록정보 하위 테이블을 참조하세요.                                              |
 | `source`          | 문자열    | 예      | 이벤트가 발생한 소스.                                                                    |
 | `metadata`        | 오브젝트    | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `order_status_url` (문자열).                      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
 
 #### 제품 등록정보 (`products[]`)
 
@@ -519,7 +1036,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `quantity`      | 정수   | 예      | 장바구니에 있는 수량.                          |
 | `price`         | 플로트     | 예      | 배리언트 단가.                                   |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`).         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 등록정보 (products[])" }
 
 #### REST API 예시 {#rest-api-examples}
 
@@ -616,10 +1133,10 @@ eCommerce 이벤트를 전송하면 Braze는 해당 이벤트 이름에 대한 �
 | `ecommerce.order_placed`     | 사용자 프로필에서 `total_value`만큼 **총 매출**을 증가시키고 **총 주문 수**를 1 증가시킵니다.                     |
 | `ecommerce.order_cancelled`  | **총 주문 수**를 1 감소시킵니다.                                                                                 |
 | `ecommerce.order_refunded`   | `total_value`만큼 **총 매출**을 감소시키고 **총 환불 금액**을 증가시킵니다.                              |
-| `ecommerce.cart_updated`     | 사용자 프로필에 장바구니 매핑 오브젝트를 생성하거나 업데이트합니다. 장바구니는 업데이트 없이 30일이 지나면 만료됩니다.|
+| `ecommerce.cart_updated`     | 사용자 프로필에 장바구니 매핑 오브젝트를 생성하거나 업데이트합니다(전체 장바구니 페이로드 또는 선택적 `action`: `add`, `remove`, `replace`를 사용한 증분 장바구니 업데이트). 장바구니는 업데이트 없이 30일이 지나면 만료됩니다.|
 | `ecommerce.product_viewed`   | 사용자 프로필 변경 없음. 세분화, 트리거, 아이템 추천과 같은 BrazeAI<sup>TM</sup> 기능에 사용할 수 있습니다.|
 | `ecommerce.checkout_started` | 사용자 프로필 변경 없음. 세분화 및 트리거(예: 유기한 결제 플로우)에 사용할 수 있습니다.        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce 이벤트 후처리" }
 
 {% alert important %}
 비 USD 통화 값은 이벤트가 보고된 날짜의 환율을 사용하여 자동으로 USD로 변환됩니다. 이미 USD로 보고하고 있다면 의도하지 않은 변환을 방지하기 위해 통화를 `USD`로 하드코딩하세요.
@@ -627,7 +1144,7 @@ eCommerce 이벤트를 전송하면 Braze는 해당 이벤트 이름에 대한 �
 
 ## eCommerce 이벤트 구현 {#implement-ecommerce-events}
 
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)(서버 측) 또는 클라이언트 [SDK 메서드]({{site.baseurl}}/developer_guide/sdk_integration/) `logCustomEvent`를 통해 eCommerce 이벤트를 전송할 수 있습니다.
+[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)(서버 측) 또는 Braze SDK(클라이언트 측)를 통해 eCommerce 이벤트를 전송할 수 있습니다. SDK 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
 
 ### 서버 측에서 이벤트 전송 {#send-events-server-side}
 
@@ -717,7 +1234,7 @@ USD로만 운영하는 경우, 불필요한 변환을 방지하기 위해 모든
 | 최상위 수준에 추가 등록정보 없음 | 등록정보 아래의 커스텀 필드는 실패를 유발합니다. 대신 `metadata` 오브젝트를 사용하세요.                                         |
 | 값 제약 조건         | 금액 필드는 `0` 이상이어야 합니다. `currency`는 유효한 ISO 4217 문자열이어야 합니다.                                                  |
 | 제품별 필드        | `products[]`의 각 항목에는 `product_id`, `product_name`, `variant_id`, `quantity`, `price`가 포함되어야 합니다.                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="유효성 검사 항목" }
 
 ### 유효성 검사를 하는 이유 {#why-we-validate}
 
@@ -768,7 +1285,7 @@ eCommerce 이벤트는 매출 추적, {% raw %}`{% shopping_cart %}`{% endraw %}
 | `missing_property`     | 필수 필드가 없습니다.                       | `order_placed`가 `order_id` 없이 전송됨.                        |
 | `extra_property`       | 스키마에 정의되지 않은 필드가 추가되었습니다. | `metadata` 내부가 아닌 `properties` 최상위에 커스텀 `gift_wrapped` 필드가 있음. |
 | `unexpected_data_type` | 필드의 유형이 잘못되었습니다.                        | `total_value: "29.99"` (문자열) 대신 `29.99` (숫자)여야 함.   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="API 오류 응답 예시" }
 
 {% alert note %}
 추천 이벤트와 정확히 일치하지 않는 이벤트 이름(예: `ecommerce.OrderPlaced`)은 유효성 검사를 완전히 건너뛰고 일반 커스텀 이벤트로 기록됩니다. 전송한 이름으로 Currents 및 세분화에 표시되지만, 추천 이벤트 처리를 받지 않으며 응답에 `errors` 항목이 포함되지 않습니다.

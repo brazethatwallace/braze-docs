@@ -5,7 +5,7 @@ page_order: 0
 description: "この記事では、さまざまなタイプのLINEメッセージについて説明します。"
 page_type: reference
 tool:
- - Campaigns
+ - キャンペーン
 channel:
  - LINE
 alias: /line/create/message_types/
@@ -53,7 +53,7 @@ URL画像は、以下を組み込むユースケースに使用します:
 | 画像ファイルURL長 | 最大2,000文字  |
 | 画像形式          | PNG、JPEG             |
 | ファイルサイズ     |  最大10&nbsp;MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL image" }
 
 ## リッチメッセージ（イメージマップ） {#rich-messages-image-map}
 
@@ -74,7 +74,7 @@ LINEリッチメッセージは、画像上の特定の領域を選択すると�
 | 画像形式          | PNG（透過可）、JPEG             |
 | アスペクト比          | 1:1（幅:高さ）
 | ファイルサイズ     |  最大10&nbsp;MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image map" }
 
 ### URIリンク {#uri-link}
 
@@ -82,7 +82,7 @@ LINEリッチメッセージは、画像上の特定の領域を選択すると�
 |--------------------------|----------------------------|
 | 文字数      | 最大1,000 |
 | スキーム              | HTTP、HTTPS、LINE、tel |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URI link" }
 
 ### テキスト
 
@@ -106,7 +106,7 @@ LINEカードベースメッセージでは、ユーザーがカルーセルの�
 | カラム数                  | 最大10 |
 | アスペクト比             | 長方形: 1.51:1 <br> 正方形: 1:1  |
 | タイトル                    | 最大40文字
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message" }
 
 
 ### 画像
@@ -117,7 +117,7 @@ LINEカードベースメッセージでは、ユーザーがカルーセルの�
 | 画像形式              | JPEGまたはPNG |
 | 幅                     | 1,024ピクセル  |
 | ファイルサイズ                 | 1 MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 
 ### テキスト
@@ -126,4 +126,4 @@ LINEカードベースメッセージでは、ユーザーがカルーセルの�
 |-------------------------|----------------------------|
 | 文字数              | 最大120（画像またはタイトルなし） <br> 最大60（画像またはタイトル付きメッセージ）  |
 | アクション                 | 最大3 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Text" }

@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Canvasデータサマリー分析のエクスポート"
-article_title: "GET: Canvasデータサマリー分析のエクスポート"
+nav_title: "GET: キャンバスデータサマリー分析のエクスポート"
+article_title: "GET: キャンバスデータサマリー分析のエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Canvasデータサマリー分析のエクスポートBrazeエンドポイントについて説明します。"
+description: "この記事では、キャンバスデータサマリー分析のエクスポートBrazeエンドポイントについて説明します。"
 
 ---
 {% api %}
-# Canvasデータサマリー分析のエクスポート {#export-canvas-data-summary-analytics}
+# キャンバスデータサマリー分析のエクスポート {#export-canvas-data-summary-analytics}
 {% apimethod get %}
 /canvas/data_summary
 {% endapimethod %}
 
-> このエンドポイントを使用して、Canvasの時系列データのロールアップをエクスポートし、Canvas結果の簡潔なサマリーを提供します。
+> このエンドポイントを使用して、キャンバスの時系列データのロールアップをエクスポートし、キャンバス結果の簡潔なサマリーを提供します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1eb1b760-6b00-4c03-bcfb-12646f2ba6da {% endapiref %}
 
@@ -37,7 +37,7 @@ description: "この記事では、Canvasデータサマリー分析のエクス
 | `include_variant_breakdown` | オプション | ブール値 | バリアント統計を含めるかどうか（デフォルトは `false`）。  |
 | `include_step_breakdown` | オプション | ブール値 | ステップ統計を含めるかどうか（デフォルトは `false`）。 |
 | `include_deleted_step_data` | オプション | ブール値 | 削除されたステップの統計を含めるかどうか（デフォルトは `false`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert important %}
 **タイムゾーンの整合:** Brazeダッシュボードの分析は、ダッシュボードで設定された会社のタイムゾーンに基づいて日次で集計されます。統計がダッシュボードと一致するように、タイムスタンプが会社のタイムゾーンと揃っていることを確認してください。たとえば、会社の時刻がUTC+2の場合、タイムスタンプは12AM UTC+2にする必要があります。

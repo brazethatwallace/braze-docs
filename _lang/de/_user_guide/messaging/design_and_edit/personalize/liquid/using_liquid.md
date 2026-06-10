@@ -6,7 +6,7 @@ description: "Dieser Referenzartikel bietet einen Überblick über gängige Liqu
 search_rank: 2
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Liquid verwenden {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Liquid verwenden {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
 
 > Dieser Artikel zeigt Ihnen, wie Sie verschiedene Nutzerattribute verwenden können, um persönliche Informationen dynamisch in Ihr Messaging einzufügen.
 
@@ -82,7 +82,7 @@ Operatoren (wie `==`, `!=`, `>`, `and`, `or`) und Filter (wie `| size`, `| plus`
 | `case`, `when` | Nur Gleichheitsvergleich[^case_when_ops] | Nicht unterstützt |
 | `for` | Nicht unterstützt | Nicht unterstützt |
 | Array-Zugriff (`[ ]`) | Nicht unterstützt | Nicht unterstützt |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wo Operatoren und Filter verwendet werden können" }
 
 [^case_when_ops]: In `case`- und `when`-Tags vergleicht Liquid den `case`-Ausdruck mit jedem `when`-Wert mittels Gleichheit (ähnlich wie die Verkettung von `if` und `elsif` mit `==`). Sie können innerhalb einer `when`-Klausel keine beliebigen Vergleichs- oder logischen Operatoren verwenden, wie es bei `if` und `elsif` möglich ist. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
 
@@ -207,6 +207,10 @@ Wenn Sie Liquid in Ihren E-Mail-Nachrichten verwenden, achten Sie darauf:
 2. Liquid-Code nur innerhalb des `<body>`-Tags zu platzieren. Eine Platzierung außerhalb dieses Tags kann bei der Zustellung zu inkonsistenter Darstellung führen.
 
 {% endalert %}
+
+### Zwischen HTML- und klassischem Editor wechseln {#switching-between-html-and-classic-editors}
+
+Wenn Sie zwischen dem HTML- und dem klassischen Editor wechseln, können Liquid-Snippets und Content Blocks ihre Position in Ihrer Nachricht verschieben. Überprüfen Sie Ihr Template nach dem Wechsel des Editors. Wenn Sie eine besser vorhersagbare Layout-Kontrolle benötigen, verwenden Sie den Drag-and-Drop-Editor.
 
 ### Vorformatierte Variablen einfügen {#inserting-pre-formatted-variables}
 

@@ -18,11 +18,11 @@ local_redirect: #optimizations
 ## 1. Schritt: Erstellen Sie Ihre Campaign {#step-1-create-your-campaign}
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
-2. Wählen Sie **Kampagne erstellen** und einen Kanal für die Campaign aus dem Bereich, der multivariate und A/B-Tests ermöglicht. Eine ausführliche Dokumentation zu jedem Messaging-Kanal finden Sie unter [Kampagne erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/).
+2. Wählen Sie **Create Campaign** und einen Kanal für die Campaign aus dem Bereich, der multivariate und A/B-Tests ermöglicht. Eine ausführliche Dokumentation zu jedem Messaging-Kanal finden Sie unter [Kampagne erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/).
 
 ## 2. Schritt: Verfassen Sie Ihre Varianten {#step-2-compose-your-variants}
 
-Sie können bis zu acht Varianten Ihrer Nachricht erstellen, die sich in Titeln, Inhalten, Bildern und mehr unterscheiden. Die Anzahl der Unterschiede zwischen den Nachrichten bestimmt, ob es sich um einen multivariaten oder einen A/B-Test handelt. Ein A/B-Test untersucht die Wirkung der Änderung einer einzelnen Variablen, während ein multivariater Test zwei oder mehr untersucht.
+Sie können bis zu acht Varianten Ihrer Nachricht erstellen, die sich in Titeln, Inhalten, Bildern und mehr unterscheiden. Die Anzahl der Unterschiede zwischen den Nachrichten bestimmt, ob es sich um einen multivariaten oder einen A/B-Test handelt. Ein A/B-Test untersucht die Wirkung der Änderung einer einzelnen Variable, während ein multivariater Test zwei oder mehr untersucht.
 
 Ideen für den Einstieg in die Differenzierung Ihrer Varianten finden Sie unter [Tipps für verschiedene Kanäle](#tips-different-channels).
 
@@ -68,7 +68,7 @@ Die Größe der Kontrollgruppe für eine Campaign mit [Intelligenter Auswahl]({{
 
 Das Festlegen eines Konversions-Events für eine Campaign ermöglicht es Ihnen zu sehen, wie viele Empfänger:innen dieser Campaign nach dem Erhalt eine bestimmte Aktion durchgeführt haben.
 
-Dies wirkt sich nur auf den Test aus, wenn Sie in den vorherigen Schritten **Primäre Konversionsrate** gewählt haben. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
+Dies wirkt sich nur auf den Test aus, wenn Sie in den vorherigen Schritten **Primary Conversion Rate** gewählt haben. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
 
 ## 6. Schritt: Überprüfen und starten {#step-6-review-and-launch}
 
@@ -90,7 +90,7 @@ Je nachdem, welchen Kanal Sie auswählen, können Sie verschiedene Komponenten I
 | Push | Text <br> Bild- und Emoji-Verwendung <br> Deeplinks <br> Darstellung von Zahlen (z. B. „verdreifachen“ versus „um 200 % steigern“) <br> Darstellung von Zeit (z. B. „endet um Mitternacht“ versus „endet in 6 Stunden“) | Öffnungen <br> Konversionsrate |
 | E-Mail | Betreff <br> Anzeigename <br> Anrede <br> Fließtext <br> Bild- und Emoji-Verwendung <br> Darstellung von Zahlen (z. B. „verdreifachen“ versus „um 200 % steigern“) <br> Darstellung von Zeit (z. B. „endet um Mitternacht“ versus „endet in 6 Stunden“) | Öffnungen <br> Konversionsrate |
 | In-App-Nachricht | Aspekte wie bei „Push“ aufgeführt <br> [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | Klick <br> Konversionsrate |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipps für verschiedene Kanäle" }
 
 {% alert tip %}
 Vergessen Sie bei der Durchführung von A/B-Tests nicht, [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) zu generieren, mit denen Sie verstehen können, wie jede Variante Ihren Konversionstrichter beeinflusst hat – insbesondere wenn „Conversion“ für Ihr Unternehmen mehrere Schritte oder Aktionen umfasst.

@@ -21,7 +21,7 @@ Estes são os deep links para as principais páginas de navegação no app Pilot
 | Configuração | `braze-pilot://navigation/setup` |
 | Mudar idioma | `braze-pilot://navigation/selectlanguage` |
 | Câmera | `braze-pilot://navigation/camera` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
 
 ## Steppington
 Estes são os deep links para o app da marca fictícia Steppington no Pilot.
@@ -39,7 +39,7 @@ Estes são os deep links para o app da marca fictícia Steppington no Pilot.
 | Página Steppington+ | `braze-pilot://navigation/steppington/plus` |
 | Tela de metas | `braze-pilot://navigation/steppington/goals` |
 | Tela de alteração de metas | `braze-pilot://navigation/steppington/changegoals` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
 ### Deep links com parâmetros {#steppington-deep-links-with-parameters}
 
@@ -47,7 +47,7 @@ Estes são os deep links para o app da marca fictícia Steppington no Pilot.
 | --- | --- |
 | Treino | `braze-pilot://navigation/steppington/workout` |
 | Treino ativo | `braze-pilot://navigation/steppington/activeworkout` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
 #### Parâmetros aceitos {#steppington-accepted-parameters}
 
@@ -75,7 +75,7 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Accepted parameters">
   <caption>Parâmetros aceitos</caption>
     <thead>
         <tr>
@@ -205,7 +205,7 @@ th:nth-child(6), td:nth-child(6) {
 | `YOGA_HOME` | ![Um ícone de pessoa em pose de yoga.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
 | `BICYCLE_HOME` | ![Um ícone de bicicleta.]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
 | `DUMBBELL_HOME` | ![Um ícone de haltere.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icon options" }
 
 ## PantsLabyrinth
 Estes são os deep links para o app da marca fictícia PantsLabyrinth no Pilot.
@@ -223,14 +223,14 @@ Estes são os deep links para o app da marca fictícia PantsLabyrinth no Pilot.
 | Tela de listagem | `braze-pilot://navigation/pantslabyrinth/listing` |
 | Página do carrinho | `braze-pilot://navigation/pantslabyrinth/cart` |
 | Página de desejos | `braze-pilot://navigation/pantslabyrinth/wishlist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
 ### Deep links com parâmetros {#pantslabyrinth-deep-links-with-parameters}
 
 | Tela | Deep link |
 | --- | --- |
 | Página de detalhes do item | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
 #### Parâmetros aceitos {#pantslabyrinth-accepted-parameters}
 
@@ -258,7 +258,7 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Accepted parameters">
   <caption>Parâmetros aceitos</caption>
     <thead>
         <tr>
@@ -360,14 +360,14 @@ Estes são os deep links para o app da marca fictícia MovieCanon no Pilot.
 | Tela de apresentação | `braze-pilot://navigation/moviecannon/splash` |
 | Tela de boas-vindas | `braze-pilot://navigation/moviecannon/welcome` |
 | Página de listagem de filmes | `braze-pilot://navigation/moviecannon/moviecannon` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
 ### Deep links com parâmetros {#moviecanon-deep-links-with-parameters}
 
 | Tela | Deep link |
 | --- | --- |
 | Página de detalhes do filme | `braze-pilot://navigation/moviecannon/moviedetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
 #### Parâmetros aceitos {#moviecanon-accepted-parameters}
 
@@ -378,4 +378,4 @@ Estes são os deep links para o app da marca fictícia MovieCanon no Pilot.
 | `thumbnail` | A URL da miniatura a ser exibida antes do filme. | Sim | String | `https://picsum.photos/400` |
 | `video` | O índice na lista de vídeos a ser exibido. | Não | Número | 0 |
 | `description` | A descrição do vídeo. | Sim | String | `This%20video%20is%20awesome%21` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Accepted parameters" }

@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} Erste Schritte: Überblick über die Integration {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} Erste Schritte: Überblick über die Integration {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > Dieser Artikel bietet einen grundlegenden Überblick über den Onboarding-Prozess.
 
@@ -120,7 +120,7 @@ Wenn Sie eine Side-by-Side-Integration mit einer CDP durchführen, werden die Au
 
 Je nachdem, für welche Plattform Sie sich entschieden haben, sind möglicherweise Beispiel-Integrationen zwischen dem Braze SDK und der CDP Ihrer Wahl verfügbar. Weitere Informationen finden Sie in unserer [Liste der CDP-Technologiepartner]({{site.baseurl}}/partners/data_and_analytics/).
 
-### Braze-SDK-Integration
+### Braze-SDK-Integration {#braze-sdk-integration}
 
 Das Braze SDK stellt zwei wichtige Funktionen bereit: Es erfasst und synchronisiert Nutzerdaten in ein konsolidiertes Nutzerprofil und stellt Messaging-Kanäle wie Push-Benachrichtigungen, In-App-Nachrichten und Content Cards bereit.
 
@@ -180,13 +180,14 @@ Nutzer-IDs – in Braze `external_id` genannt – sollten für alle bekannten Nu
 Je nach Anwendungsfall müssen Sie möglicherweise weitere Tools einrichten. Beispielsweise müssen Sie möglicherweise ein Tool wie [Geofences]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences/) konfigurieren, um Ihre Nutzer-Storys zu realisieren. Wir haben festgestellt, dass Kund:innen, die die Möglichkeit haben, diese zusätzlichen Tools nach Abschluss der wesentlichen Integrationsschritte einzurichten, am erfolgreichsten sind.
 
 ## Qualitätssicherung {#qa}
+
 Durch eine QA-Prüfung, die Sie während der Integration durchführen, stellen Sie sicher, dass alles wie erwartet funktioniert. Diese QA lässt sich in zwei allgemeine Kategorien einteilen: Datenaufnahme und Messaging-Kanäle.
 
 {% alert important %}
 Stellen Sie sicher, dass Ihre Produktions- und Testumgebungen eingerichtet sind, bevor Sie mit der QA beginnen.
 {% endalert %}
 
-| **QA der Datenaufnahme**  | **QA des Messagings**                                              |
+| **QA der Datenaufnahme** | **QA des Messagings** |
 |---------------------------|---------------------------------------------------------------|
 | Die Qualitätssicherung bezieht sich auf die Aufnahme, die Speicherung und den Export der Daten. | So stellen Sie sicher, dass Ihre Nachrichten korrekt an Ihre Nutzer:innen gesendet werden und alles hervorragend aussieht. |
 | Führen Sie Tests durch, um sicherzustellen, dass die Daten ordnungsgemäß gespeichert werden. | Erstellen Sie Segmente von Nutzer:innen. |
@@ -199,7 +200,7 @@ Stellen Sie sicher, dass Ihre Produktions- und Testumgebungen eingerichtet sind,
 |                           | Testen Sie, ob Content Cards zugestellt und Metriken protokolliert werden. |
 |                           | Ermöglichen Sie Connected-Content (zum Beispiel AccuWeather). |
 |                           | Vergewissern Sie sich, dass alle Integrationen von Messaging-Kanälen ordnungsgemäß zusammenarbeiten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quality assurance #qa" }
 
 {% alert note %}
 Verwenden Sie bei der QA Ihrer SDK-Integration den [SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging/), um Probleme zu beheben, ohne die ausführliche Protokollierung für Ihre App zu aktivieren.
@@ -227,7 +228,7 @@ Nach der Übergabe an Ihre Marketer werden Sie weiterhin für die Wartung zustä
 
 Aktualisierungen an der Braze-Plattform können Sie über das Braze [GitHub](https://github.com/braze-inc/) verfolgen. Gelegentlich erhält Ihr Administrator auch E-Mails über dringende Updates und Fehlerbehebungen direkt von Braze.
 
-## SDK-Rate-Limits
+## SDK-Rate-Limits {#sdk-rate-limits}
 
 ### Monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 

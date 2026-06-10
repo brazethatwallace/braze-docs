@@ -5,7 +5,7 @@ page_order: 4
 description: "BrazeAI Decisioning Studio에서 타임라인 보고서를 사용하여 성과 측정기준과 함께 주요 이벤트를 확인하는 방법을 알아봅니다."
 ---
 
-# 타임라인 보고서
+# 타임라인 보고서 {#timeline-report}
 
 > 타임라인 보고서는 성과 측정기준과 함께 주요 이벤트의 시각적 기록을 제공합니다. 이러한 이벤트에는 에이전트 실행, 구성 변경, 가드레일 업데이트 등이 포함됩니다.
 
@@ -22,4 +22,4 @@ description: "BrazeAI Decisioning Studio에서 타임라인 보고서를 사용�
 | 레이블 | 이벤트에 부여된 이름 또는 식별자입니다. |
 | 세부 정보 | 이벤트를 설명하는 추가 정보입니다. |
 | 차트에 표시 | 이벤트가 관련 차트에 표시되는지 여부를 나타냅니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Timeline report" }

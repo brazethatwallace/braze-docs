@@ -1,7 +1,7 @@
 ---
 nav_title: Fonctions API disponibles
 article_title: Fonctions API disponibles dans le serveur Braze MCP
-description: "Liste des fonctions API Braze en lecture et écriture accessibles via le serveur MCP."
+description: "Liste des fonctions API Braze en lecture seule et en écriture accessibles via le serveur MCP"
 page_order: 1.5
 ---
 

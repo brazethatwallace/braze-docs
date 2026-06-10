@@ -20,12 +20,12 @@ Bei Campaigns bestimmt der Zustellungstyp, wann Ihre Nutzer:innen in Ihre Campai
 | **Geplant**       | Dieser Zeitplantyp ist für einmalige Nachrichten konzipiert, die Sie sofort senden möchten, z. B. Campaigns zu einem aktuellen Ereignis. <br><br>Wenn Sie Testnachrichten senden, die nur an Sie selbst oder Ihr Team gerichtet sind, können Sie diese mit dieser Option sofort zustellen.                                                                                   |
 | **Aktionsbasiert**    | Aktionsbasierte Zustellungsnachrichten oder ereignisgetriggerte Campaigns und Canvases sind sehr effektiv für transaktionale oder leistungsbasierte Nachrichten. Sie können sie so triggern, dass sie gesendet werden, nachdem ein:e Nutzer:in eine bestimmte Aktion abgeschlossen hat, anstatt Ihre Nachricht an bestimmten Tagen zu senden.                                                                                           |
 | **API-getriggert**   | API-getriggerte Nachrichten ermöglichen es Ihnen, Nachrichteninhalte, multivariate Tests und Regeln zur erneuten Berechtigung im Braze-Dashboard zu verwalten und gleichzeitig die Zustellung dieser Inhalte über Ihre eigenen Server und Systeme zu triggern. <br><br>Die API-Anfrage zum Triggern der Nachricht kann auch zusätzliche Daten enthalten, die in Realtime in die Nachricht eingebunden werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zustellungs- und Eingangstypen" }
 
 ## Zeitbasierte Optionen {#time-based-options}
 
 {% tabs %}
-{% tab campaign %}
+{% tab Campaign %}
 Bei der geplanten Zustellung können Sie aus den folgenden Optionen wählen:
 
 - Sofort nach dem Start der Campaign senden
@@ -33,7 +33,7 @@ Bei der geplanten Zustellung können Sie aus den folgenden Optionen wählen:
 - [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
 {% endtab %}
 
-{% tab canvas %}
+{% tab Canvas %}
 Bei der geplanten Zustellung treten Nutzer:innen nach einem Zeitplan ein, ähnlich wie Sie eine Campaign planen würden. Sie können Nutzer:innen in einen Canvas aufnehmen, sobald er gestartet wird, oder zu einem festgelegten Zeitpunkt.
 
 ### Festgelegte Zeitpunkte {#designated-times}
@@ -45,11 +45,11 @@ Sie können wählen, Ihren Canvas mit einer bestimmten Eingangshäufigkeit zu se
 ## Aktionsbasierte Optionen {#action-based-options}
 
 {% tabs %}
-{% tab campaign %}
+{% tab Campaign %}
 Die aktionsbasierte Zustellung sendet Campaigns an Nutzer:innen, die eine bestimmte Aktion ausführen. Nachdem diese Aktion stattgefunden hat, können Sie entscheiden, wann die Campaign gesendet wird: sofort, nach einer bestimmten Zeit, zu einem bestimmten Zeitpunkt oder zu einem Zeitpunkt in der Zukunft.
 {% endtab %}
 
-{% tab canvas %}
+{% tab Canvas %}
 Die aktionsbasierten Optionen bestimmen, welche Aktionen (oder Trigger) ein:e Nutzer:in ausführen muss, um in einen Canvas einzutreten, und zu welchem genauen Zeitpunkt der Eintritt möglich ist. Sie könnten Ihre Nutzer:innen beispielsweise anhand der folgenden Aktionen bewerten:
 
 - Öffnen Ihrer App
@@ -65,11 +65,11 @@ Das Eingangsfenster Ihres Canvas bestimmt, welche Nutzer:innen den Canvas zur fe
 ## API-Trigger-Optionen {#api-trigger-options}
 
 {% tabs %}
-{% tab campaign %}
+{% tab Campaign %}
 Wenn Sie API-getriggert als Zustellungsoption auswählen, erhalten Sie eine Campaign-ID, um zu identifizieren, welche Campaign mit dem [`/campaigns/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#prerequisites) gesendet werden soll.
 {% endtab %}
 
-{% tab canvas %}
+{% tab Canvas %}
 Wenn Sie API-getriggert als Eingangstyp auswählen, erhalten Sie eine Canvas-ID, um zu identifizieren, welcher Canvas mit dem [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) gesendet werden soll.
 {% endtab %}
 {% endtabs %}

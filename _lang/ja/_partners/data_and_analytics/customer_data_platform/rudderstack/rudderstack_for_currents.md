@@ -10,24 +10,24 @@ search_tag: Partner
 
 # RudderStack と Currents {#rudderstack-for-currents}
 
-> [RudderStack](https://www.rudderstack.com/) では、スタック全体で顧客データを収集、変換、アクティブ化し、クラウドデータウェアハウスを一元的な信頼できる情報源として活用できます。この記事では、Braze Currentsと RudderStack 間の接続を設定する方法の概要を説明します。
+> [RudderStack](https://www.rudderstack.com/) では、スタック全体で顧客データを収集、変換、アクティブ化し、クラウドデータウェアハウスを一元的な信頼できる情報源として活用できます。この記事では、Braze CurrentsとRudderStack間の接続を設定する方法の概要を説明します。
 
-Brazeと RudderStack の統合により、Braze Currentsを利用してBrazeイベントをRudderStackにエクスポートし、より深い分析を促進できます。
+BrazeとRudderStackの統合により、Braze Currentsを利用してBrazeイベントをRudderStackにエクスポートし、より深い分析を促進できます。
 
 ## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | --- | --- |
-| RudderStack アカウント | このパートナーシップを活用するには、[RudderStack アカウント](https://app.rudderstack.com/login)が必要です。 |
+| RudderStackアカウント | このパートナーシップを活用するには、[RudderStackアカウント](https://app.rudderstack.com/login)が必要です。 |
 | Brazeの送信先 | RudderStackで[Brazeを送信先として設定する]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/rudderstack/rudderstack/#integration)ことをお勧めします。 |
 | Currents | RudderStackにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
-### ステップ 1: RudderStack 内でBrazeのデータソースを作成する {#step-1-create-a-data-source-for-braze-within-rudderstack}
+### ステップ 1: RudderStack内でBrazeのデータソースを作成する {#step-1-create-a-data-source-for-braze-within-rudderstack}
 
-まず、RudderStack WebアプリでBrazeソースを作成する必要があります。データソースの作成手順は、[RudderStack](https://www.rudderstack.com/docs/sources/event-streams/cloud-apps/braze-currents/) サイトで確認できます。
+まず、RudderStack WebアプリでBrazeソースを作成する必要があります。データソースの作成手順は、[RudderStack](https://www.rudderstack.com/docs/sources/event-streams/cloud-apps/braze-currents/)サイトで確認できます。
 
 作業が完了すると、RudderStackから書き込みキーを含むWebhook URLが提供されます。このURLは次のステップで使用します。Webhook URLは、Brazeソースの**設定**タブで確認できます。
 

@@ -57,7 +57,7 @@ Mobilfunkanbieter legen eigene Dateigrößenlimits fest, die den Erfolg von MMS-
 | 300&nbsp;KB | Alle Anbieter sollten MMS-Nachrichten dieser Größe zuverlässig verarbeiten können. |
 | 600&nbsp;KB | Dies gilt als die standardmäßige maximale Dateigröße für MMS bei den meisten Anbietern. |
 | 1&nbsp;MB | Die meisten US-amerikanischen und kanadischen Anbieter können MMS-Nachrichten dieser Größe verarbeiten, wobei dies je nach Anbieter variieren kann. Einige Anbieter erlauben möglicherweise größere Dateien. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dateigrößenlimits der Anbieter" }
 
 #### Akzeptierte Dateitypen {#accepted-file-types}
 

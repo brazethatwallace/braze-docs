@@ -29,7 +29,7 @@ Dúvidas? Entre em contato com a JustAI pela [página de agendamento](https://ww
 | Requisito | Descrição |
 |---|---|
 | Conta JustAI | Uma conta na [JustAI](https://www.getjust.ai/) é necessária para aproveitar essa parceria. Se você não tem uma conta JustAI, [agende uma chamada de integração de 30 minutos](https://www.getjust.ai/book-demo). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integrando a JustAI com a Braze {#integrating-justai-with-braze}
 

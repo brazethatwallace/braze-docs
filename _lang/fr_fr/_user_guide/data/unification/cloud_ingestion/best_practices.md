@@ -12,7 +12,7 @@ description: "Cette page fournit un aperçu de l'ingestion de données cloud, de
 
 > L'ingestion de données cloud de Braze vous permet d'établir une connexion directe entre votre entrepôt de données ou votre système de stockage de fichiers et Braze, afin de synchroniser les données pertinentes relatives aux utilisateurs ou aux catalogues. Lorsque vous synchronisez ces données avec Braze, vous pouvez les exploiter pour des cas d'utilisation tels que la personnalisation, le déclenchement ou la segmentation.
 
-## Comprendre la colonne `UPDATED_AT` {#understanding-the-updatedat-column}
+## Comprendre la colonne `UPDATED_AT` {#understanding-the-updated_at-column}
 
 {% alert note %}
 `UPDATED_AT` est pertinent uniquement pour les intégrations d'entrepôts de données, et non pour les synchronisations S3.
@@ -286,7 +286,7 @@ Lors de cette troisième exécution, une nouvelle ligne a été ajoutée pour `c
 Les valeurs `UPDATED_AT` peuvent être postérieures à l'heure de début d'exécution d'une synchronisation donnée. Cependant, cette pratique n'est pas recommandée car elle repousse le dernier horodatage `UPDATED_AT` « dans le futur » et les synchronisations suivantes ne synchroniseront pas les valeurs antérieures.
 {% endalert %}
 
-## Utiliser un horodatage UTC pour la colonne `UPDATED_AT` {#use-a-utc-timestamp-for-the-updatedat-column}
+## Utiliser un horodatage UTC pour la colonne `UPDATED_AT` {#use-a-utc-timestamp-for-the-updated_at-column}
 
 La colonne `UPDATED_AT` doit être en UTC pour éviter les problèmes liés aux changements d'heure. Utilisez de préférence des fonctions UTC uniquement, telles que `SYSDATE()` plutôt que `CURRENT_DATE()`, dès que possible.
 
@@ -313,7 +313,7 @@ Cet exemple illustre le processus général de synchronisation des données pour
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
+<table aria-label="Exemple : gestion des mises à jour ultérieures">
   <caption>Exemple : gestion des mises à jour ultérieures</caption>
     <thead>
         <tr>
@@ -421,7 +421,7 @@ Rien de tout cela n'ayant été synchronisé avec Braze auparavant, ajoutez l'en
 
 Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé toutes les données disponibles jusqu'à « 2023-03-16 15:00:00 ». Ensuite, le matin du jour 2, un processus ETL s'exécute et certains champs de votre table d'utilisateurs sont mis à jour (en surbrillance) :
 
-<table>
+<table aria-label="Exemple : gestion des mises à jour ultérieures">
   <caption>Exemple : gestion des mises à jour ultérieures</caption>
     <thead>
         <tr>
@@ -545,7 +545,7 @@ CDI ne synchronisera que les nouvelles lignes, de sorte que la prochaine synchro
 
 La consommation de points de donnée est identique avec CDI et avec d'autres méthodes d'ingestion telles que les REST API ou les SDK. Il est donc de votre responsabilité de vous assurer que vous n'ajoutez que des attributs nouveaux ou mis à jour dans vos tables sources.
 
-### Séparer la colonne `EXTERNAL_ID` de la colonne `payload` {#separate-externalid-from-payload-column}
+### Séparer la colonne `EXTERNAL_ID` de la colonne `payload` {#separate-external_id-from-payload-column}
 
 L'objet `payload` ne doit pas contenir d'ID externe ni d'autre type d'identifiant.
 
@@ -685,7 +685,7 @@ FROM [braze].[users] ;
 
 {% endtabs %}
 
-### Utiliser l'horodatage `UPDATED_AT` {#use-the-updatedat-timestamp}
+### Utiliser l'horodatage `UPDATED_AT` {#use-the-updated_at-timestamp}
 
 Braze utilise l'horodatage `UPDATED_AT` pour suivre les données qui ont été synchronisées avec succès. CDI suit également le nombre de lignes au dernier horodatage synchronisé. Si de nouvelles lignes sont ajoutées avec ce même horodatage entre deux exécutions, CDI re-synchronise toutes les lignes à cet horodatage, ce qui peut entraîner des données en double. Pour plus de détails et de conseils, consultez [Éviter la re-synchronisation de lignes avec des horodatages en double](#avoid-resyncing-rows-with-duplicate-timestamps).
 

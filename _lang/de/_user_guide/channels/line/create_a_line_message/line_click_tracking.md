@@ -35,13 +35,13 @@ So richten Sie das Klick-Tracking für eine Textnachricht ein:
 ![LINE-Nachrichten-Editor mit einer Textnachricht, die eine lange URL enthält: https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
-2. Gehen Sie zum Tab **Settings** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+2. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 {% alert note %}
-Sie können Vorschauen des gekürzten Links im Tab **Settings** oder **Preview & Test** anzeigen. Der vollständige Link wird im Editor angezeigt, während Sie Ihre Nachricht erstellen.
+Sie können Vorschauen des gekürzten Links im Tab **Einstellungen** oder **Vorschau & Test** anzeigen. Der vollständige Link wird im Editor angezeigt, während Sie Ihre Nachricht erstellen.
 {% endalert %}
 
-![LINE-Nachrichten-Editor, Tab „Settings“ mit aktiviertem „Click Tracking“ und einer Vorschau-Textnachricht mit gekürzter URL: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
+![LINE-Nachrichten-Editor, Tab „Einstellungen“ mit aktiviertem „Click Tracking“ und einer Vorschau-Textnachricht mit gekürzter URL: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
 
 ### Rich-Nachrichten {#rich-messages}
 
@@ -54,7 +54,7 @@ So richten Sie das Klick-Tracking für eine Rich-Nachricht ein:
 ![LINE-Nachrichten-Editor mit einer Rich-Nachricht mit zwei tippbaren Bereichen, die jeweils eine URL haben.]({% image_buster /assets/img/line/rich_message_click_tracking.png %})
 
 {: start="4"}
-4. Gehen Sie zum Tab **Settings** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+4. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 ### Kartenbasierte Nachrichten {#card-based-messages}
 
@@ -66,7 +66,7 @@ So richten Sie das Klick-Tracking für eine kartenbasierte Nachricht ein:
 ![LINE-Nachrichten-Editor mit einer kartenbasierten Nachricht mit zwei Buttons, die jeweils eine URL haben.]({% image_buster /assets/img/line/card_based_message_click_tracking.png %})
 
 {: start="3"}
-3. Gehen Sie zum Tab **Settings** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+3. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 {% alert note %}
 URLs in den Feldern **Title** oder **Description** werden nicht gekürzt, da diese Felder innerhalb von LINE nicht klickbar sind.
@@ -110,7 +110,7 @@ Diese Vorschau wird mit der relevanten Personalisierung und der gekürzten URL a
 Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine gekürzte URL generiert. Die tatsächliche gekürzte URL wird generiert, wenn der Canvas-Entwurf aktiviert wird.
 {% endalert %}
 
-## Reporting
+## Berichte und Auswertung {#reporting}
 
 Die LINE-Performance-Tabelle enthält die Spalte **Total Clicks**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu LINE-Metriken finden Sie unter [LINE-Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/line/reporting/).
 

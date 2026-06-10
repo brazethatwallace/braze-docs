@@ -10,6 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Eliminar números de teléfono no válidos {#remove-invalid-phone-numbers}
+
 {% apimethod post %}
 /sms/invalid_phone_numbers/remove
 {% endapimethod %}
@@ -45,8 +46,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ----------|-----------| ---------|------ |
-| `phone_number` | Obligatorio | Matriz de cadenas en formato e.164 | Un conjunto de hasta 50 números de teléfono para modificar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `phone_number` | Obligatorio | Matriz de cadenas en formato e.164 | Una matriz de hasta 50 números de teléfono para modificar. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 

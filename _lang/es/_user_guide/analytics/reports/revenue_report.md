@@ -50,7 +50,7 @@ Cuando registras ingresos en una moneda sin tipo de cambio, Braze los registra c
     }
 </style>
 
-<table>
+<table aria-label="Comprender los cálculos de ingresos">
   <caption>Comprender los cálculos de ingresos</caption>
     <thead>
         <tr>
@@ -90,7 +90,7 @@ Consulta la tabla **Product Breakdown** para ver una lista de los productos comp
 
 ## Exportar datos de ingresos {#exporting-revenue-data}
 
-Para exportar tus datos de ingresos, selecciona <i class="fas fa-bars" title="Chart context menu"></i> en el gráfico **Performance Over Time** y selecciona tu opción de exportación.
+Para exportar tus datos de ingresos, selecciona <i class="fas fa-bars" title="Menú contextual del gráfico"></i> en el gráfico **Performance Over Time** y selecciona tu opción de exportación.
 
 {% alert tip %}
 ¿Buscas más formas de obtener datos de ingresos? Intenta añadir comportamiento de compra (así como la compra de un producto) a Campaigns o Canvas como [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).

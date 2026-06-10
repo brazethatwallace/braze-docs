@@ -5,4 +5,4 @@
 | Cor de fundo | Modifica a cor do fundo da imagem. |
 | Estilo da borda | Determina o estilo da borda da imagem. |
 | Raio da borda | Determina o quão arredondados são os cantos da imagem. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

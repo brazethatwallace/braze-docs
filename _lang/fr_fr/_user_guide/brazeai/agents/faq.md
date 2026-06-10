@@ -24,7 +24,7 @@ Les avantages du modèle Auto de Braze incluent :
 
 ### Où puis-je consulter mon utilisation actuelle des agents ? {#where-can-i-find-my-current-agent-usage}
 
-Accédez à **Settings** > **Billing** > **Credits Usage** pour voir les détails de votre utilisation des agents et les coûts en crédits.
+Accédez à **Paramètres** > **Facturation** > **Utilisation des crédits** pour voir les détails de votre utilisation des agents et les coûts en crédits.
 
 ### Puis-je utiliser des instructions Liquid conditionnelles dans les instructions de l'agent ? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 
@@ -53,8 +53,8 @@ Si vous constatez que l'agent a du mal avec les tâches que vous lui demandez d'
 Un agent personnalisé peut expirer si :
 
 - Les instructions de l'agent sont incomplètes ou contradictoires
-- Les instructions de l'agent ne couvrent pas tous les scénarios ou n'incluent pas de condition de repli (par exemple, « Si toutes les entrées sont vides, renvoyer "Impossible de personnaliser" »)
-- Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Output** (par exemple, si les instructions de l'agent demandent une chaîne de caractères, mais que dans l'onglet **Output**, la sortie est définie comme un nombre)
+- Les instructions de l'agent ne couvrent pas tous les scénarios ou n'incluent pas de condition de repli (par exemple, « Si toutes les entrées sont vides, renvoyer "Could not personalize" »)
+- Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Output** (par exemple, si les instructions demandent une chaîne de caractères, mais que dans l'onglet **Output**, la sortie est définie comme un nombre)
 - La tâche de l'agent est trop complexe et gagnerait à adopter une [approche par sous-agents](#subagent-approach)
 
 ## Conformité {#compliance}

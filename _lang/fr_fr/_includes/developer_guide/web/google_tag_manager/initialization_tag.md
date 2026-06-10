@@ -35,7 +35,7 @@ Saisissez les informations minimales requises :
 | **API Key**   | Votre [clé API Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), disponible dans le tableau de bord de Braze sous **Settings** > **App Settings**. |
 | **API Endpoint** | L'URL de votre endpoint REST. Votre endpoint dépend de l'URL de Braze pour [votre instance]({{site.baseurl}}/api/basics/#endpoints). |
 | **SDK Version**  | La version `MAJOR.MINOR` la plus récente du SDK Web Braze indiquée dans le [journal des modifications]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Par exemple, si la dernière version est `4.1.2`, saisissez `4.1`. Pour en savoir plus, consultez [À propos de la gestion des versions du SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure the tag" }
 
 Pour accéder à des paramètres d'initialisation supplémentaires, sélectionnez **Braze Initialization Options** et choisissez les options dont vous avez besoin.
 
@@ -61,6 +61,7 @@ La balise d'initialisation Braze propose les options suivantes. La plupart corre
 | **Open Cards in New Tab** | `openCardsInNewTab` | Ouvre les liens des cartes de contenu dans un nouvel onglet lorsque l'interface par défaut du flux est utilisée. |
 | **Service Worker Location** | `serviceWorkerLocation` | Chemin personnalisé pour le fichier du service de traitement (par défaut : `/service-worker.js`). |
 | **Session Timeout (seconds)** | `sessionTimeoutInSeconds` | Délai d'expiration de la session en secondes (valeur par défaut : 1 800). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 4: Choose initialization options" }
 
 {% alert note %}
 Pour activer les [messages in-app HTML personnalisés]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) lorsque vous utilisez la balise d'initialisation Braze de Google Tag Manager, sélectionnez **Allow HTML In-App Messages** dans **Braze Initialization Options**. Cette case correspond à l'option d'initialisation `allowUserSuppliedJavascript` dans `braze.initialize()` et la définit sur `true`. La balise d'initialisation Braze de Google Tag Manager utilise ce libellé à la place du nom de l'option.

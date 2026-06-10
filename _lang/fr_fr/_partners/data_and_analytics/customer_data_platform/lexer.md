@@ -25,7 +25,7 @@ L'intégration de Braze et Lexer vous permet de synchroniser les données entre 
 | Clé API REST Braze | Une clé API REST Braze avec toutes les autorisations `user` (à l'exception de `user.delete`) et les autorisations `segment.list`. Le jeu d'autorisations peut changer au fur et à mesure que Lexer ajoute la prise en charge de nouveaux objets Braze, de sorte que vous pouvez soit accorder davantage d'autorisations dès maintenant, soit prévoir de les mettre à jour ultérieurement.<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST Braze | Votre [URL d'endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 | Compartiment Amazon AWS S3 et identifiants | Avant de commencer l'intégration, vous devez disposer des identifiants d'accès à un compartiment AWS S3 connecté à votre hub Lexer (il peut s'agir d'un compartiment que vous créez ou d'un compartiment que Lexer crée et gère pour vous). Consultez [Lexer](https://learn.lexer.io/docs/amazon-s3) pour obtenir des conseils sur cette exigence. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -66,7 +66,7 @@ Lexer Activate mettra automatiquement à jour vos profils Braze, en ajoutant ou 
 
 ### Étape 2 : Vérifier l'activation {#step-2-verify-activation}
 
-Une fois que l'envoi de votre activation a été confirmé dans Activate, les enregistrements commenceront à se mettre à jour dans Braze. Vos profils ne seront entièrement mis à jour dans Braze qu'après avoir reçu un e-mail de confirmation de Lexer.
+Une fois que l'envoi de votre activation a été confirmé dans Activate, les enregistrements commenceront à se mettre à jour dans Braze. Vos profils ne seront entièrement mis à jour dans Braze qu'après réception d'un e-mail de confirmation de Lexer.
 
 ### Étape 3 : Créer votre segment Braze {#step-3-create-your-braze-segment}
 
@@ -74,4 +74,4 @@ Dans Braze, vous verrez que le nom de votre audience dans Lexer est maintenant u
 
 Pour créer votre segment, accédez à **Segment > + Create Segment** et sélectionnez **Custom Attribute** comme filtre. Ensuite, sélectionnez `lexer_audience` comme attribut et le nom de l'audience Lexer souhaitée. Une fois terminé, **enregistrez** votre audience.
 
-Vous pouvez désormais ajouter ce segment nouvellement créé aux futures Campaigns Braze et Canvas pour cibler ces utilisateurs finaux.
+Vous pouvez désormais ajouter ce segment nouvellement créé aux futures Campaigns et Canvas Braze pour cibler ces utilisateurs finaux.

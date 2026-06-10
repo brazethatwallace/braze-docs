@@ -29,7 +29,7 @@ Una vez completada tu integración, puedes aprovechar la plataforma JustAI para:
 | Requisito | Descripción |
 |---|---|
 | Cuenta de JustAI | Se requiere una cuenta de [JustAI](https://www.getjust.ai/) para aprovechar esta asociación. Si no tienes una cuenta de JustAI, [programa una llamada de incorporación de 30 minutos](https://www.getjust.ai/book-demo). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de JustAI con Braze {#integrating-justai-with-braze}
 
@@ -58,7 +58,7 @@ JustAI funciona con Canvas y Campaigns mediante Contenido conectado. Si estás c
 {% tabs %}
 {% tab Canvas %}
 
-1. En un Canvas, selecciona **Add Variant** > **Add Variant** hasta tener el número deseado de variantes, y añade pasos a cada variante (como un paso de mensaje de correo electrónico).
+1. En un Canvas, selecciona **Añadir variante** > **Añadir variante** hasta tener el número deseado de variantes, y añade pasos a cada variante (como un paso de mensaje de correo electrónico).
 2. Divide el tráfico de la audiencia como desees. Por ejemplo, si tienes dos variantes, podrías asignar un 50 % a cada una. O podrías tener dos variantes con un 40 % cada una y un grupo de control con un 20 %. Para más información sobre pruebas A/B en Canvas, consulta [Crear un Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/).
 3. En los editores de los pasos de mensaje que quieras usar con Contenido conectado, pega el fragmento de código de Contenido conectado de la consola de JustAI, como el siguiente ejemplo.
 
@@ -137,7 +137,7 @@ Asegúrate de previsualizar el correo electrónico en Braze para confirmar que e
 
 Braze Currents permite el seguimiento del rendimiento y la optimización a lo largo del tiempo.
 
-1. En Braze, ve a **Partner Integrations** > **Data Export**.
+1. En Braze, ve a **Integraciones de socios** > **Exportación de datos**.
 2. Selecciona **Create New Test Current** y luego selecciona **Test Amazon S3 Data Export**.
 
 ![Menú desplegable "Create New Test Current" con la opción "Test Amazon S3 Data Export".]({% image_buster /assets/img/just_words/test_amazon_s3.png %}){: style="max-width:80%;"}
@@ -145,12 +145,12 @@ Braze Currents permite el seguimiento del rendimiento y la optimización a lo la
 {: start="3" }
 3. Introduce el ID de acceso S3, la clave de acceso secreta de AWS, el nombre de contenedor y la carpeta proporcionados por JustAI durante la incorporación.
 
-![Sección "Credentials" para la clave de acceso secreta de AWS.]({% image_buster /assets/img/just_words/aws_secret_access_key.png %}){: style="max-width:80%;"}
+![Sección de credenciales para la clave de acceso secreta de AWS.]({% image_buster /assets/img/just_words/aws_secret_access_key.png %}){: style="max-width:80%;"}
 
 {: start="4" }
 4. Selecciona los eventos a rastrear, como envíos, aperturas, clics, cancelaciones de suscripción, conversiones y otros.
 
-![Sección "Message Engagement Events" con eventos para seleccionar.]({% image_buster /assets/img/just_words/message_engagement_events.png %}){: style="max-width:80%;"}
+![Sección de eventos de interacción de mensajes con eventos para seleccionar.]({% image_buster /assets/img/just_words/message_engagement_events.png %}){: style="max-width:80%;"}
 
 {: start="5" }
 5. Lanza el Braze Current.

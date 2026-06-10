@@ -56,7 +56,7 @@ Quel que soit le type d'encodage, chaque message SMS envoyé par Braze est limit
 | 1072 - 1224 caractères | 8 segments |
 | 1225 - 1377 caractères | 9 segments |
 | 1378 - 1530 caractères | 10 segments |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Détail des segments" }
 {% endtab %}
 {% tab Encodage UCS-2 %}
 | Nombre de caractères | Combien de segments ? |
@@ -71,7 +71,7 @@ Quel que soit le type d'encodage, chaque message SMS envoyé par Braze est limit
 | 470 - 536 caractères | 8 segments |
 | 537 - 603 caractères | 9 segments |
 | 604 - 670 caractères | 10 segments |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Détail des segments" }
 {% endtab %}
 {% endtabs %}
 
@@ -133,20 +133,20 @@ L'envoi d'un message texte et d'un fichier média séparé est toujours facturé
 Les messages sont classés comme Rich ou Rich Media.
 
 {% tabs local %}
-{% tab Messages Rich %}
+{% tab Rich %}
 
 Les messages Rich sont des messages texte uniquement, avec ou sans boutons. Ils sont facturés par segment, chaque segment étant limité à 160 octets UTF-8, ce qui signifie que **le nombre de caractères par segment n'est pas fixe**. Un message contenant uniquement 160 caractères anglais simples constitue un segment, mais un message avec un texte plus long et des emojis pourrait représenter plusieurs segments.
 
 {% endtab %}
-{% tab Messages Rich Media %}
+{% tab Rich Media %}
 
 Les messages Rich Media incluent un fichier média (image, vidéo) ou une Rich Card et sont facturés comme un seul message.
 
 {% endtab %}
 {% endtabs %}
 
-### Compositeur de messages et tableau de bord d'utilisation des messages {#message-composer-and-message-usage-dashboard}
+### Compositeur de messages et tableau de bord d'utilisation des crédits {#message-composer-and-credits-usage-dashboard}
 
 Lorsque vous créez votre message, le compositeur de messages affiche le type de facturation en temps réel via un libellé (Basic RCS, Single RCS, Rich ou Rich Media), vous aidant à suivre les coûts avant l'envoi.
 
-Votre [tableau de bord d'utilisation des messages]({{site.baseurl}}/message_usage_dashboard/) reflétera ces types de facturation et indiquera le nombre de segments utilisés pour les messages aux États-Unis, offrant une vue transparente de votre consommation de crédits de messages.
+Votre [tableau de bord d'utilisation des crédits]({{site.baseurl}}/credits_usage_dashboard/) reflétera ces types de facturation et indiquera le nombre de segments utilisés pour les messages aux États-Unis, offrant une vue transparente de votre consommation de crédits de messages.

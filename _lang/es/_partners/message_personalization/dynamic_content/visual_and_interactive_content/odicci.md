@@ -35,17 +35,17 @@ Un comercio minorista utiliza las experiencias gamificadas de Odicci para recopi
 
 Antes de empezar, necesitarás lo siguiente:
 
-| Requisito previo             | Descripción                                                               |
+| Requisito previo | Descripción |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| Una cuenta de Odicci            | Se requiere una cuenta de Odicci con acceso a la sección **Integrations** para aprovechar esta integración.|
-| Clave de API REST de Braze        | Una clave de API REST de Braze con los permisos `users.track` y `campaigns.list`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Una cuenta de Odicci | Se requiere una cuenta de Odicci con acceso a la sección **Integraciones** para aprovechar esta integración. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los permisos `users.track` y `campaigns.list`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de Odicci {#integrating-odicci}
 
 ### Paso 1: Habilitar la integración en Odicci {#step-1-enable-the-integration-in-odicci}
 
-1. Accede a tu cuenta Odicci.
+1. Accede a tu cuenta de Odicci.
 2. Ve a la sección **Settings > Integrations**.
 3. Busca la integración **Braze** y haz clic en **Connect**.
 
@@ -57,7 +57,7 @@ Antes de empezar, necesitarás lo siguiente:
 ### Paso 2: Obtén tu clave de API REST de Braze {#step-2-obtain-your-braze-rest-api-key}
 
 1. Conéctate a tu cuenta de Braze.
-2. Ve a **Developer Console > REST API Keys**.
+2. Ve a **Consola para desarrolladores > Claves de API REST**.
 3. Crea una nueva clave de API o copia una existente con el permiso `users.track`.
 
 ### Paso 3: Activar la integración a nivel de experiencia {#step-3-activate-the-integration-at-the-experience-level}

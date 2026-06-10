@@ -23,16 +23,16 @@ alias: /creating-agents/
 
 ## 작동 방식 {#how-it-works}
 
-에이전트를 생성할 때 목적을 정의하고 동작 방식에 대한 가이드라인을 설정합니다. 라이브 상태가 되면 에이전트를 Braze에 배포하여 개인화된 카피를 생성하고, 실시간 결정을 내리거나, 카탈로그 필드를 업데이트할 수 있습니다. 대시보드에서 언제든지 에이전트를 일시 중지하거나 업데이트할 수 있습니다.
+에이전트를 생성할 때 목적을 정의하고 동작 방식에 대한 가이드라인을 설정합니다. 라이브 상태가 되면 에이전트를 Braze에 배포하여 개인화된 카피를 생성하고, 실시간 결정을 내리거나, 카탈로그 필드를 업데이트할 수 있습니다. 에이전트를 구축하는 동안 초안으로 저장할 수 있으며, 대시보드에서 언제든지 에이전트를 일시 중지하거나 업데이트할 수 있습니다.
 
 다음 활용 사례는 커스텀 에이전트를 활용하는 몇 가지 방법을 보여줍니다.
 
 | 활용 사례 | 설명 |
 | --- | --- |
 | 고객 피드백 처리 | 사용자 피드백을 에이전트에 전달하여 감정을 분석하고 공감하는 후속 메시지를 생성합니다. 고가치 사용자의 경우 에이전트가 응답을 에스컬레이션하거나 특전을 포함할 수 있습니다. |
-| 콘텐츠 현지화 | 글로벌 Campaign을 위해 카탈로그 텍스트를 다른 언어로 번역하거나 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나 SMS Campaign을 위해 설명을 줄일 수 있습니다. |
+| 콘텐츠 현지화 | 글로벌 Campaign(캠페인)을 위해 카탈로그 텍스트를 다른 언어로 번역하거나 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나 SMS Campaign을 위해 설명을 줄일 수 있습니다. |
 | 리뷰 또는 피드백 요약 | 감정이나 피드백을 새로운 필드로 요약합니다. 예를 들어, 긍정적, 중립적 또는 부정적과 같은 감정 점수를 할당하거나 "대부분의 고객이 좋은 핏을 언급하지만 느린 배송을 지적합니다."와 같은 짧은 텍스트 요약을 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="작동 방식" }
 
 ## 에이전트 생성 {#create-an-agent}
 
@@ -66,18 +66,15 @@ alias: /creating-agents/
 Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스텀 속성)을 참조하기 위해 지침에서 Liquid를 사용할 수 있습니다. 에이전트 지침의 모든 Liquid 변수는 사용자가 해당 단계에 진입할 때 자동으로 에이전트 단계로 전달됩니다.
 {% endalert %}
 
-#### 3.1단계: 리소스 추가 {#add-resources}
+#### 컨텍스트 추가 {#add-resources}
 
-에이전트가 참조할 수 있는 항목을 선택하려면 **리소스 추가**를 선택합니다. 여기에는 다음이 포함됩니다:
+에이전트가 참조할 수 있는 항목을 선택하려면 **+ 에이전트 컨텍스트**를 선택합니다. 여기에는 다음이 포함됩니다:
 
 - [카탈로그 필드]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): 보다 정확한 응답을 위해 에이전트에게 카탈로그 데이터에 대한 액세스를 제공합니다.
 - [Segment 멤버십]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): 에이전트가 사용자가 속한 Segments에 따라 응답을 개인화할 수 있도록 합니다. 최대 5개의 Segments를 선택할 수 있습니다.
 - [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): 에이전트가 따를 브랜드 보이스와 스타일 가이드라인을 참조합니다. 예를 들어, 에이전트가 사용자에게 체육관 회원 가입을 유도하는 SMS 카피를 생성하도록 하려면, 이 필드를 사용하여 미리 정의된 대담하고 동기 부여가 되는 가이드라인을 참조할 수 있습니다.
 - [모든 Canvas 컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/): 이 에이전트가 호출될 때 **지침** 섹션에서 참조되지 않은 변수를 포함하여 사용자의 모든 Canvas 컨텍스트 데이터를 분석합니다.
-
-#### 3.2단계: 선택적 설정 추가 {#step-32-add-optional-settings}
-
-**선택적 설정**에서 에이전트가 생성하는 카피의 [온도]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature)를 조정할 수 있습니다. 온도가 높을수록 에이전트가 제공된 정보를 바탕으로 더 창의적인 결과를 생성할 수 있습니다.
+- [사용자 상호작용 데이터]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history): 각 사용자의 최근 Campaign 및 Canvas 열기, 클릭, 전환 데이터를 에이전트에 제공합니다.
 
 ### 4단계: 출력 선택 {#select-output}
 
@@ -91,7 +88,7 @@ Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스�
 
 ### 5단계: 에이전트 테스트 및 생성 {#step-5-test-and-create-the-agent}
 
-**미리보기** 창은 구성 화면 내에서 나란히 패널로 표시되는 에이전트의 인스턴스입니다. 에이전트를 생성하거나 업데이트하는 동안 테스트하는 데 사용할 수 있으며, 최종 사용자와 유사한 방식으로 경험해 볼 수 있습니다. 이 단계는 에이전트가 예상대로 동작하는지 확인하는 데 도움이 되며, 라이브로 전환하기 전에 미세 조정할 기회를 제공합니다.
+**미리보기** 창은 구성 화면 내에서 나란히 패널로 표시되는 에이전트의 인스턴스입니다. 에이전트를 생성하거나 업데이트하는 동안 이 섹션을 사용하여 테스트할 수 있으며, 최종 사용자와 유사한 방식으로 경험해 볼 수 있습니다. 이 단계는 에이전트가 예상대로 동작하는지 확인하는 데 도움이 되며, 라이브로 전환하기 전에 미세 조정할 기회를 제공합니다.
 
 1. **에이전트 테스트** 필드에 예시 고객 데이터 또는 고객 응답을 입력합니다. 에이전트가 처리할 실제 시나리오를 반영하는 내용이면 됩니다.
 2. 무작위 사용자, 기존 사용자 또는 커스텀 사용자에 대한 에이전트의 응답을 미리 봅니다.
@@ -119,7 +116,8 @@ Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스�
 
 에이전트를 사용할 준비가 완료되었습니다! 자세한 내용은 [에이전트 배포]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)를 참조하세요.
 
-## 관련 문서 {#related-articles}
+## 관련 리소스 {#related-resources}
 
 - [에이전트 참조]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [자주 묻는 질문]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [AI 실전 활용: 1:1 개인화를 위한 3가지 새로운 활용 사례에 대한 Braze 웨비나](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

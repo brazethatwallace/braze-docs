@@ -62,7 +62,7 @@ Por padrão, a Tealium não agrupa eventos de consentimento (preferências de in
 | Chave identificadora do app Braze (somente lado a lado) | A chave do identificador do seu app. <br><br>Ela pode ser encontrada em **Braze Dashboard > Manage Settings > API Key**. |
 | Versão do código (somente lado a lado) | Corresponde à versão do SDK e deve estar no formato major.minor (por exemplo, 3.2 e não 3.0.1). A versão do código deve ser 3.0 ou superior. |
 | Chave da API REST (somente de servidor para servidor) | Uma chave da API REST da Braze com as permissões `users.track` e `users.delete`. <br><br>Isso pode ser criado em **Braze Dashboard > Developer Console > REST API Key > Create New API Key**.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Escolha seu tipo de integração {#choose-your-integration-type}
 
@@ -70,7 +70,7 @@ Por padrão, a Tealium não agrupa eventos de consentimento (preferências de in
 | ----------- | ------- |
 | [Lado a lado](#side-by-side-sdk-integration) | Usa o SDK da Tealium para traduzir eventos em chamadas nativas da Braze, permitindo acesso a recursos mais profundos e uso mais abrangente da Braze do que a integração de servidor para servidor.<br><br>Caso pretenda usar comandos remotos da Braze, observe que a Tealium não é compatível com todos os métodos da Braze (por exemplo, Content Cards). Para usar um método da Braze que não esteja mapeado por um comando remoto correspondente, será necessário invocar o método adicionando o código nativo da Braze à sua base de código.|
 | [De servidor para servidor](#server-to-server-integration) | Encaminha dados da Tealium para os endpoints da REST API da Braze.<br><br>Não oferece suporte aos recursos da interface do usuário da Braze, como envio de mensagens no app, Content Cards ou notificações por push. Também existem dados capturados automaticamente, como campos em nível de dispositivo, que não estão disponíveis por meio desse método.<br><br>Considere uma integração lado a lado se quiser usar esses recursos.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Escolha seu tipo de integração" }
 
 ## Integração lado a lado de SDK {#side-by-side-sdk-integration}
 
@@ -84,7 +84,7 @@ A Tealium oferece duas maneiras de integrar o comando remoto móvel. Não há pe
 | --- | --- | --- |
 | **Tag de comando remoto** | Modifique facilmente os mapeamentos e os dados enviados ao comando remoto usando a interface do Tealium iQ.<br><br>Isso permite enviar dados ou eventos adicionais a um SDK de terceiros depois que o app já estiver na loja de aplicativos, sem que o cliente precise atualizar o app. | O módulo de gerenciamento de tags no app depende de uma visualização da web oculta para processar JavaScript. |
 | **Arquivo de configuração JSON**<br>([Recomendado](https://docs.tealium.com/platforms/remote-commands/integrations/braze/#how-it-works)) | O uso do método JSON elimina a necessidade de ter uma visualização da web oculta no app e reduz muito o consumo de memória.<br><br>O arquivo JSON pode ser hospedado de modo remoto ou localmente no app do cliente. | No momento, não há uma interface para gerenciar isso, então o processo é um pouco mais trabalhoso.<br><br>Nota: A Tealium está trabalhando para adicionar uma interface de gerenciamento que resolverá esse problema e trará o mesmo nível de flexibilidade para os comandos remotos JSON que eles têm com a versão de gerenciamento do iQ Tag |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comandos remotos" }
 
 Use os mapeamentos de dados de comandos remotos móveis da Braze para definir atributos padrão de usuários e atributos personalizados e rastrear compras e eventos personalizados. Consulte a tabela a seguir para obter os métodos correspondentes da Braze.
 
@@ -105,7 +105,7 @@ Use os mapeamentos de dados de comandos remotos móveis da Braze para definir at
 | useralias | addAlias() |
 | userattribute | ABKUser() |
 | useridentifier | changeUser() |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comandos remotos" }
 
 Você pode encontrar mais detalhes sobre como configurar o comando remoto móvel da Braze e uma visão geral dos métodos suportados na documentação do desenvolvedor da Tealium:
 - [Comando remoto](https://docs.tealium.com/platforms/remote-commands/integrations/braze/#json-template)
@@ -190,7 +190,7 @@ Nem todos os campos oferecidos são obrigatórios.
 {% endalert %}
 
 {% tabs local %}
-{% tab Track User - Batch and Non-Batch %}
+{% tab Rastrear usuário - Em lote e sem lote %}
 
 Essa ação permite rastrear atributos de usuário, evento e compra, tudo em uma única ação.
 
@@ -205,19 +205,19 @@ Essa ação permite rastrear atributos de usuário, evento e compra, tudo em uma
 | Compra | Use esse campo para rastrear e mapear atributos de compra do usuário, como os do [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/) da Braze.<br><br>- Os atributos de compra `Product ID`, `Currency` e `Price` são obrigatórios para cada compra mapeada.<br>- O atributo de compra `Time` é automaticamente definido para a hora atual, a menos que seja explicitamente mapeado.<br>- Por padrão, novas compras serão criadas se não houver uma. Ao definir `Update Existing Only` como `true`, somente as compras existentes serão atualizadas, e nenhuma nova compra será criada.<br>- Mapeie atributos do tipo matriz para adicionar vários itens de compra. Atributos do tipo matriz devem ter o mesmo comprimento.<br>- Atributos de valor único podem ser usados e se aplicarão a cada item.|
 | Modelo de compra | Os modelos podem ser usados para transformar os dados antes de serem enviados à Braze.<br>- Defina um modelo de compra se você precisar de suporte a objetos aninhados.<br>- Quando um modelo de compra é definido, a configuração definida na seção de compras da sua ação será ignorada.<br>- Consulte o [Guia de modelos](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) da Tealium para saber mais.|
 | Variável do modelo de compra | Forneça variáveis de modelo de produto como entrada de dados. Consulte o [Guia de variáveis de modelo](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) da Tealium para saber mais. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ação" }
 
 ![]({% image_buster /assets/img/tealium/track_user_example.png %})
 
 {% endtab %}
-{% tab Delete User - Non-Batch %}
+{% tab Excluir usuário - Sem lote %}
 
 Essa ação permite excluir usuários do dashboard da Braze.
 
 | Parâmetros | Descrição |
 | ---------- | ----------- |
 | ID de usuário | Use esse campo para mapear o campo de ID de usuário da Tealium para seu equivalente na Braze. <br><br>- Mapeie um ou mais atributos de ID de usuário. Quando várias IDs são especificadas, o primeiro valor não em branco é escolhido com base na seguinte ordem de prioridade: ID externo, ID da Braze, nome do alias e rótulo do alias.<br>- Ao especificar um alias de usuário, o nome do alias e o rótulo do alias devem ser definidos.<br><br>Para saber mais, consulte o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ação" }
 
 ![]({% image_buster /assets/img/tealium/track_user_delete.png %})
 
@@ -247,7 +247,7 @@ Consulte a [documentação de Trace](https://docs.tealium.com/server-side/connec
 ## Demonstração da integração {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1mP84vVWifzNMN7eMYNORNy0y-WZurzBs/view?usp=sharing" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1mP84vVWifzNMN7eMYNORNy0y-WZurzBs/view?usp=sharing" title="Demonstração da integração com a Tealium" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Potenciais excedentes de pontos de dados {#potential-data-point-overages}

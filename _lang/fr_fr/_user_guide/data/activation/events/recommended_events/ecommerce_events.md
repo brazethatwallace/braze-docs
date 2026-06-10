@@ -16,12 +16,18 @@ Comme les événements eCommerce suivent un schéma prévisible, Braze peut cons
 Les événements eCommerce de Braze et leurs propriétés d'événement segmentables ne sont pas comptabilisés dans les [points de donnée]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
 {% endalert %}
 
-## Onglet Transactions {#transactions-tab}
+<a id="transactions-tab" aria-hidden="true"></a>
 
-L'onglet **Transactions** de chaque profil utilisateur offre une vue en temps réel de l'activité commerciale d'un utilisateur en affichant trois indicateurs calculés qui se mettent à jour au fur et à mesure du traitement des événements. Le modèle au niveau de la commande de ces calculs sépare clairement les prix des produits de la valeur totale de la commande.
+## Onglet Commerce {#commerce-tab}
+
+L'onglet **Commerce** de chaque profil utilisateur combine deux modules : **Activité des commandes** (indicateurs calculés de chiffre d'affaires et de commandes) et **Panier actif** (le dernier panier issu des événements `ecommerce.cart_updated`).
+
+### Activité des commandes {#order-activity}
+
+Le module **Activité des commandes** affiche trois indicateurs calculés qui se mettent à jour en temps réel au fur et à mesure du traitement des événements. Le modèle au niveau de la commande de ces calculs sépare clairement les prix des produits de la valeur totale de la commande.
 
 {% alert note %}
-Les événements recommandés pour le commerce électronique ne remplissent pas la section **Historique des achats** de l'onglet **Transactions**. L'historique des achats est alimenté par les événements d'achat hérités. Utilisez les indicateurs du tableau suivant pour le chiffre d'affaires et l'activité de commande provenant des événements recommandés.
+Les événements recommandés pour le commerce électronique ne remplissent pas la section **Historique des achats** de l'onglet **Commerce**. L'historique des achats est alimenté par les événements d'achat hérités. Utilisez les indicateurs du tableau suivant pour le chiffre d'affaires et l'activité de commande provenant des événements recommandés.
 {% endalert %}
 
 | Indicateur | Formule |
@@ -29,20 +35,31 @@ Les événements recommandés pour le commerce électronique ne remplissent pas 
 | Chiffre d'affaires total | somme (`order_placed.total_value`) − somme (`order_refunded.total_value`) |
 | Nombre total de commandes | nombre (distinct `order_placed`) − nombre (distinct `order_cancelled`) |
 | Valeur totale des remboursements | somme (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Order activity metrics" }
 
-![Section Activité des commandes avec le chiffre d'affaires total, le nombre total de commandes et la valeur totale des remboursements.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+### Panier actif {#active-cart}
+
+Le module **Panier actif** affiche le dernier panier sur le profil utilisateur. Cette vue est particulièrement utile pendant vos tests. Vous pouvez l'utiliser pour confirmer le contenu du panier, valider les parcours basés sur le panier ou vérifier que les événements `ecommerce.cart_updated` mettent bien à jour le profil comme prévu.
+
+Le **Panier actif** inclut les éléments suivants :
+
+- **ID du panier** — Identifiant du panier ayant reçu en dernier un événement `ecommerce.cart_updated`.
+- **Dernière mise à jour** — Horodatage de la mise à jour la plus récente du panier.
+- **Valeur totale du panier** — Valeur totale des articles dans le panier actuel.
+- **Voir les produits** — Un lien pour ouvrir la liste des produits dans le panier (jusqu'à 50 produits).
 
 ## Orchestration eCommerce {#ecommerce-orchestration}
 
 ### Segmentation {#segmentation}
 
-Les événements eCommerce se comportent comme des événements personnalisés, ce qui signifie que tous les filtres d'événements personnalisés existants fonctionnent immédiatement. Par exemple, vous pourriez filtrer par « A effectué l'événement personnalisé `ecommerce.order_placed` plus de X fois ».
+Braze propose trois façons de segmenter les utilisateurs en fonction des données eCommerce :
 
-Pour le ciblage basé sur des données produit imbriquées (comme des ID de produit spécifiques, des noms de variantes ou des seuils de prix), utilisez les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) avec le filtrage par propriétés d'événement imbriquées. Cela vous permet de créer des audiences comme « les utilisateurs ayant acheté le produit SKU-123 au cours des 90 derniers jours » ou de combiner des critères sur différentes propriétés de la même commande.
+- **Filtres eCommerce :** utilisez la catégorie **eCommerce** dans le segmenteur, qui contient des filtres alimentés par les événements recommandés pour le commerce électronique (tels que **Last Order Placed**, **Total Revenue** et **Average Order Value**). Pour une liste complète des filtres disponibles, consultez [Filtres de Segment]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+- **Filtres d'événements personnalisés :** comme les événements eCommerce se comportent comme des événements personnalisés, tous les filtres d'événements personnalisés existants fonctionnent immédiatement. Par exemple, vous pouvez filtrer par « A effectué l'événement personnalisé `ecommerce.order_placed` plus de X fois » ou « A effectué pour la première fois l'événement personnalisé `ecommerce.order_placed` ».
+- **Extensions de segments :** pour segmenter sur des propriétés d'événement imbriquées, y compris le tableau de produits imbriqué ou les propriétés des objets de métadonnées, utilisez les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) avec le filtrage par propriétés d'événement imbriquées. Cela vous permet de créer des audiences comme « les utilisateurs ayant acheté le produit SKU-123 au cours des 90 derniers jours » ou de combiner des critères sur différentes propriétés de la même commande.
 
 {% alert important %}
-Les Extensions de segments sont une fonctionnalité payante. Vérifiez que votre forfait inclut l'accès avant de recommander la segmentation par propriétés imbriquées à votre équipe.
+Les Extensions de segments pour les événements recommandés eCommerce sont une fonctionnalité payante en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client. Vérifiez que votre forfait inclut l'accès avant de recommander la segmentation par propriétés imbriquées à votre équipe.
 {% endalert %}
 
 ### Déclenchement {#triggering}
@@ -77,7 +94,7 @@ Utilisez ce modèle lorsque vous souhaitez ramener les visiteurs pour qu'ils rec
 | Événement d'entrée | `ecommerce.product_viewed` |
 | Événements de sortie | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Événement de conversion | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Panier abandonné %}
@@ -91,10 +108,10 @@ Utilisez ce modèle lorsque vous souhaitez rappeler aux utilisateurs les article
 | Événement d'entrée | `ecommerce.cart_updated` |
 | Événements de sortie | `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Événement de conversion | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-L'événement `ecommerce.cart_updated` utilise un modèle de remplacement. Chaque événement envoyé écrase l'état du panier de l'utilisateur. Utilisez l'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %} dans votre message pour afficher dynamiquement le contenu actuel du panier au moment de l'envoi.
+L'événement `ecommerce.cart_updated` prend en charge le remplacement complet du panier (chaque événement peut décrire l'intégralité du panier) ou les mises à jour incrémentales en utilisant les valeurs `add` et `remove` pour la propriété facultative `action`. Choisissez une approche par panier et évitez de mélanger les mises à jour par remplacement et incrémentales pour le même `cart_id`. Utilisez l'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %} dans votre message pour afficher dynamiquement le contenu actuel du panier au moment de l'envoi.
 {% endalert %}
 
 {% endtab %}
@@ -109,7 +126,7 @@ Utilisez ce modèle lorsque vous souhaitez récupérer des achats à l'étape de
 | Événement d'entrée | `ecommerce.checkout_started` |
 | Événement de sortie | Placed Order |
 | Événement de conversion | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Confirmation de commande et enquête %}
@@ -122,7 +139,7 @@ Utilisez ce modèle lorsque vous souhaitez rationaliser la communication post-ac
 | --- | --- |
 | Événement d'entrée | `ecommerce.order_placed` |
 | Événement de conversion | Start Session ou `ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -151,7 +168,7 @@ Les événements recommandés pour le commerce électronique alimentent les mêm
 | Statistiques des segments | Comparaisons de chiffre d'affaires entre les segments dans le tableau de bord Statistiques des segments. |
 | Générateur de rapports | Indicateurs de chiffre d'affaires dans les rapports personnalisés créés dans le Générateur de rapports. |
 | Générateur de tableaux de bord | Indicateurs de chiffre d'affaires dans les tableaux de bord personnalisés créés dans le Générateur de tableaux de bord. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
 Pour les champs calculés non liés à l'utilisateur (par exemple, le chiffre d'affaires d'une campagne ou d'un Canvas), le chiffre d'affaires est calculé de la même manière dans tous les rapports : `price` multiplié par `quantity` par produit dans la commande, sommé sur l'ensemble des produits de chaque événement `order_placed`.
 
@@ -174,7 +191,7 @@ Braze propose plusieurs moyens d'exporter les données d'événements eCommerce 
 | [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | Les événements eCommerce sont partagés en tant qu'événements personnalisés ; recherchez l'espace de noms `ecommerce.*` pour les trouver. Les produits de chaque commande sont disponibles dans la table des achats. |
 | [Exporter les données de segment en CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | Export CSV des membres du segment. Pour inclure les événements eCommerce, sélectionnez-les par nom dans le menu déroulant des événements personnalisés. |
 | [Exporter le profil utilisateur par segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | Données de profil utilisateur pour les membres du segment, renvoyées via l'API. Les événements eCommerce sont inclus en tant qu'événements personnalisés. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
 
 ### Comment segmenter les utilisateurs par produit spécifique ? {#how-do-i-segment-users-by-a-specific-product}
 

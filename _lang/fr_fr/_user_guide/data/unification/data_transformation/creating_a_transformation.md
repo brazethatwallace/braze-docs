@@ -16,7 +16,7 @@ description: "Cet article de référence décrit les étapes pour créer une tra
 | --- | --- |
 | Authentification à deux facteurs ou SSO | Vous devez avoir activé l'[authentification à deux facteurs]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication) (2FA) ou l'[authentification unique]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication) (SSO) pour votre compte. |
 | Autorisations correctes | Vous devez être administrateur de compte ou d'espace de travail, ou disposer de l'autorisation utilisateur « Gérer les transformations ». |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Étape 1 : Identifier une plateforme source {#step-1-identify-a-source-platform}
 

@@ -18,7 +18,8 @@ Environment variables:
                                 (GITHUB_ACTIONS=true) to confirm you accept writing raw Support
                                 Case CSV (may contain consumer PII) to the configured output path.
 
-The export is raw Looker CSV. Treat the file as sensitive; this repo should stay private and
+The export is raw Looker CSV (with common credential patterns redacted so git push protection
+does not block the data branch). Treat the file as sensitive; this repo should stay private and
 access to the data branch limited to people who may handle support content.
 
 Usage:
@@ -27,8 +28,47 @@ Usage:
 """
 
 import os
+import re
 import sys
 from datetime import datetime
+
+# Redact credential-like strings that may appear in case text before git push (push protection).
+# Not a substitute for PII handling; see SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA.
+_SECRET_REDACTIONS: list[tuple[re.Pattern[str], str]] = [
+    (
+        re.compile(r"\b(?:AKIA|ASIA|AIDA|AROA|AIPA|ANPA|ANVA|AGPA)[0-9A-Z]{16}\b"),
+        "[REDACTED_AWS_ACCESS_KEY_ID]",
+    ),
+    (
+        # Leading word boundary only — trailing boundary omitted for CSV punctuation after keys.
+        re.compile(r"\bSG\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}"),
+        "[REDACTED_SENDGRID_API_KEY]",
+    ),
+    (re.compile(r"\bghp_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
+    (re.compile(r"\bgithub_pat_[A-Za-z0-9_]{82,}\b"), "[REDACTED_GITHUB_TOKEN]"),
+    (re.compile(r"\bgho_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
+    (re.compile(r"\bghu_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
+    (re.compile(r"\bghs_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
+    (re.compile(r"\bghr_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
+    # b/a/p/r/s bot-app tokens; e enterprise; o legacy OAuth (GitHub push protection scans all).
+    (re.compile(r"\bxox[bapreso]-[A-Za-z0-9-]{10,}\b"), "[REDACTED_SLACK_TOKEN]"),
+    (
+        re.compile(r"\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{16,}\b"),
+        "[REDACTED_STRIPE_KEY]",
+    ),
+    # Twilio Account SID (AC…) and API Key SID (SK…); 32 hex chars after prefix.
+    (re.compile(r"\bAC[0-9a-fA-F]{32}"), "[REDACTED_TWILIO_ACCOUNT_SID]"),
+    (re.compile(r"\bSK[0-9a-fA-F]{32}"), "[REDACTED_TWILIO_API_KEY_SID]"),
+]
+
+
+def _redact_embedded_secrets(text: str) -> tuple[str, int]:
+    """Return scrubbed text and total number of replacements."""
+    total = 0
+    for pattern, replacement in _SECRET_REDACTIONS:
+        text, n = pattern.subn(replacement, text)
+        total += n
+    return text, total
 
 
 # Default Support Cases explore query ID (from Looker embed URL); override with LOOKER_SUPPORT_CASES_QUERY_ID.
@@ -98,13 +138,20 @@ def main():
     else:
         output_path = os.path.expanduser(output_path)
 
+    csv_text, redactions = _redact_embedded_secrets(csv_resp.text)
+    if redactions:
+        print(
+            f"Redacted {redactions} embedded credential-like value(s) from export before write.",
+            file=sys.stderr,
+        )
+
     parent = os.path.dirname(output_path)
     if parent:
         os.makedirs(parent, exist_ok=True)
     with open(output_path, "w", encoding="utf-8", newline="") as f:
-        f.write(csv_resp.text)
+        f.write(csv_text)
 
-    rows = max(0, len(csv_resp.text.splitlines()) - 1)
+    rows = max(0, len(csv_text.splitlines()) - 1)
     print(f"Exported {rows} data rows (plus header) to {output_path}")
 
 

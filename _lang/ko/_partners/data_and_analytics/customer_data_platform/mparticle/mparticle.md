@@ -27,7 +27,7 @@ Braze와 mParticle 통합을 통해 두 시스템 간의 정보 흐름을 원활
 | Braze 인스턴스 | Braze 인스턴스는 [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints)에서 확인할 수 있습니다(예: `US-01` 또는 `US-02`). |
 | Braze 앱 식별자 키 | 앱 식별자 키입니다. <br><br>이것은 Braze 대시보드의 **설정 관리** > **API 키**에서 찾을 수 있습니다. |
 | 워크스페이스 REST API 키 | (서버 간) Braze REST API 키<br><br>이것은 Braze 대시보드의 **개발자 콘솔** > **API 설정** > **API 키**에서 생성할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -104,14 +104,14 @@ mParticle에서 오디언스를 생성하려면:
 
 | 필드 이름               | 설명                                                                                                                                                                   |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API 키                  | Braze 대시보드의 **설정** > **API 키**에서 찾을 수 있습니다.<br><br>이전 탐색을 사용하는 경우, **개발자 콘솔** > **API 설정**에서 API 키를 찾을 수 있습니다. |
+| API 키                  | Braze 대시보드의 **설정** > **API 키**에서 찾을 수 있습니다. |
 | API 키 운영체제 | Braze API 키가 해당하는 운영체제를 선택합니다. 이 선택은 오디언스 업데이트 시 전달되는 푸시 토큰의 유형을 제한합니다.                          |
 | 세그먼트로 전송         | 오디언스를 Braze로 전송하는 방법입니다. 자세한 내용은 [오디언스 전달](#forwarding-audiences) 섹션을 참조하세요.                                                          |
 | 워크스페이스 REST API 키   | 전체 권한이 있는 Braze REST API 키입니다. Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다.                                                        |
 | 외부 ID 유형   | Braze에 외부 ID로 전달할 mParticle 사용자 ID 유형입니다. 기본값인 Customer ID를 유지하는 것을 권장합니다.                                          |
 | 이메일 ID 유형      | Braze에 이메일로 전달할 mParticle 사용자 ID 유형입니다.                                                                                                            |
 | Braze 인스턴스           | Braze 데이터가 전달될 클러스터를 지정합니다.                                                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create an audience in mParticle #sendsettings" }
 
 {:start="3"}
 3. 마지막으로 오디언스를 **Save**합니다.
@@ -150,7 +150,7 @@ mParticle에서 **Setup > Outputs > Add Outputs**로 이동하여 **Braze**를 �
 | 이메일 ID 유형 | Braze에 이메일로 전달할 mParticle 사용자 ID 유형입니다. 기본값인 Email을 유지하는 것을 권장합니다. |
 | Braze 인스턴스 | Braze 데이터가 전달될 클러스터입니다. 대시보드가 있는 클러스터와 동일해야 합니다. |
 | 이벤트 스트림 전달 활성화 | (서버 간) 활성화하면 모든 이벤트가 실시간으로 전달됩니다. 비활성화하면 모든 이벤트가 일괄로 전달됩니다. 이벤트 스트림 전달을 활성화할 때, Braze에 전달하는 데이터가 [사용량 제한]({{site.baseurl}}/api/api_limits/)을 준수하는지 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configure your Braze output settings" }
 
 ![]({% image_buster /assets/img_archive/configure_settings.png %})
 
@@ -221,7 +221,7 @@ mParticle에서 **Connections > Connect > [원하는 플랫폼] > Connect Output
 Braze는 `Time` 유형 커스텀 속성에서 0년 이전 또는 3000년 이후의 타임스탬프를 지원하지 않습니다. Braze는 mParticle에서 전송된 이러한 값을 수집하지만, 해당 값은 문자열로 저장됩니다.
 {% endalert %}
 
-#### 데이터 매핑 {#data-mapping}
+#### 데이터 매핑
 
 | mParticle 데이터 유형 | Braze 데이터 유형 | 설명 |
 | ------------------- | --------------- | ----------- |
@@ -230,7 +230,7 @@ Braze는 `Time` 유형 커스텀 속성에서 0년 이전 또는 3000년 이후�
 | 커스텀 이벤트 | 커스텀 이벤트 | mParticle 커스텀 이벤트는 Braze에서 커스텀 이벤트로 인식됩니다. 이벤트 속성은 커스텀 이벤트 등록정보로 전달됩니다.<br><br>Braze에 이벤트 등록정보로 전달되는 이벤트 속성은 문자열, 숫자, 부울 또는 날짜 오브젝트를 지원하지만 배열이나 중첩 오브젝트는 지원하지 않습니다. |
 | 구매 커머스 이벤트 | 구매 이벤트 | 구매 커머스 이벤트는 Braze 구매 이벤트에 매핑됩니다. <br><br>커머스 이벤트 데이터 번들 설정 값을 토글하여 주문 수준 또는 제품 수준에서 구매를 기록합니다. 예를 들어, `false`인 경우 두 개의 고유한 제품, 프로모션 또는 노출이 있는 단일 수신 이벤트는 최소 두 개의 발신 Braze 이벤트를 생성합니다. `true`로 설정하면 각각 중첩된 제품, 프로모션 또는 노출 배열이 있는 단일 발신 이벤트를 생성합니다.<br><br>기록되는 추가 커머스 필드에 대한 자세한 내용은 [mParticle 문서](https://docs.mparticle.com/integrations/braze/event/#purchase-events)를 참조하세요. <br><br>"커머스 이벤트 데이터 번들"을 `false`로 설정할 때 Braze에 구매 이벤트 등록정보로 전달되는 제품 속성은 문자열, 숫자, 부울 또는 날짜 오브젝트를 지원하지만 배열이나 중첩 오브젝트는 지원하지 않습니다.|
 | 기타 모든 커머스 이벤트 | 커스텀 이벤트 | 기타 모든 커머스 이벤트는 커스텀 이벤트에 매핑됩니다. <br><br>커머스 이벤트 데이터 번들 설정 값을 토글하여 주문 수준 또는 제품 수준에서 구매를 기록합니다. 예를 들어, `false`인 경우 두 개의 고유한 제품, 프로모션 또는 노출이 있는 단일 수신 이벤트는 최소 두 개의 발신 Braze 이벤트를 생성합니다. `true`로 설정하면 각각 중첩된 제품, 프로모션 또는 노출 배열이 있는 단일 발신 이벤트를 생성합니다.<br><br>특정 기본 커머스 값 외에도 제품 속성은 Braze 이벤트 등록정보로 기록됩니다. 기록되는 추가 커머스 필드에 대한 자세한 내용은 [mParticle 문서](https://docs.mparticle.com/integrations/braze/event/#other-commerce-events)를 참조하세요.<br><br>"커머스 이벤트 데이터 번들"을 `false`로 설정할 때 Braze에 이벤트 등록정보로 전달되는 제품 속성은 문자열, 숫자, 부울 또는 날짜 오브젝트를 지원하지만 배열이나 중첩 오브젝트는 지원하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data mapping" }
 
 #### 사용자 ID 매핑 {#user-identity-mapping}
 각 mParticle 출력에 대해 Braze에 `external_id`로 전송할 외부 ID 유형을 선택할 수 있습니다. 기본값은 Customer ID이지만, `MPID`와 같은 다른 ID를 Braze에 `external_id`로 전송하도록 매핑할 수 있습니다. Customer ID 이외의 식별자를 선택하면 Braze에서 데이터가 전송되는 방식에 영향을 줄 수 있다는 점에 유의하세요.
@@ -276,6 +276,7 @@ iOS에서 Braze 이벤트 키트(임베디드 키트 통합)를 사용할 때 �
 3. **메서드 스위즐링:** mParticle Apple 키트는 메서드 스위즐링을 사용하여 푸시 토큰을 자동으로 전달하고 푸시 알림 이벤트를 처리합니다. 스위즐링을 비활성화했거나 다른 SDK가 간섭하는 경우, 푸시 토큰이 Braze에 도달하지 않을 수 있습니다. mParticle 구성에서 스위즐링이 활성화되어 있는지 확인하세요.
 4. **수동 토큰 처리:** 푸시 토큰을 수동으로 관리하는 경우(예: `application:didRegisterForRemoteNotificationsWithDeviceToken:` 구현), 푸시 알림 토큰 속성에 토큰을 할당하여 mParticle에 전달하고 있는지 확인하세요. 예: `MParticle.sharedInstance().pushNotificationToken = deviceToken`. 그러면 키트가 이를 Braze에 전달합니다.
 5. **환경 불일치:** APNs 자격 증명 환경(개발 vs. 프로덕션)이 앱의 빌드와 일치하는지 확인합니다. 자세한 내용은 [iOS 푸시 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)을 참조하세요.
+6. **키트 초기화 타이밍:** `didFinishLaunchingWithOptions`에서 Braze 인스턴스에 접근하는 경우, 푸시가 도착할 때 mParticle 키트가 아직 준비되지 않았을 수 있습니다. 사용자가 알림을 열 때 Braze 키트가 활성화되도록 [`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)(또는 동등한 알림 응답 델리게이트)에서 푸시 처리를 초기화하세요.
 
 ### Braze에 불필요하거나 중복된 데이터 전송 {#sending-unnecessary-or-duplicate-data-to-braze}
 Braze는 값이 변경되지 않더라도 속성이 Braze에 전달될 때마다 데이터 포인트를 계산합니다. 이러한 이유로 Braze는 Braze 내에서 활용하는 데 필요한 데이터만 전달하고 속성의 변경분(델타)만 전달되도록 하는 것을 권장합니다.

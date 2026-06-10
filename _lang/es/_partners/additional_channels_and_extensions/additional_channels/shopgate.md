@@ -34,7 +34,7 @@ Antes de comenzar, necesitas lo siguiente:
 | ----------- | ----------- |
 | Cuenta Shopgate Enterprise | Se requiere una cuenta [Shopgate](https://www.shopgate.com/) Enterprise para aprovechar esta asociación. |
 | Invitación de Shopgate | Debes invitar a Shopgate a tu cuenta de Braze para configurar tus aplicaciones. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 

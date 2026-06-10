@@ -35,7 +35,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `campaign_id` | Requis | Chaîne de caractères | Voir [Identifiant API de la campagne]({{site.baseurl}}/api/identifier_types/).<br><br> Le `campaign_id` des campagnes API est disponible sur la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) et sur la page **Campaign Details** de votre tableau de bord. Vous pouvez également utiliser l'[endpoint Exporter la liste des campagnes](#campaign-list-endpoint). |
 | `post_launch_draft_version` | Facultatif | Valeur booléenne | Pour les messages disposant d'un brouillon post-lancement, définissez cette valeur sur `true` pour afficher les modifications disponibles dans le brouillon. La valeur par défaut est `false`. |
 | `include_has_translatable_content` | Facultatif | Valeur booléenne | Lorsque la valeur est `true`, la réponse de l'API inclut un champ `has_translatable_content` pour chaque message. La valeur par défaut est `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de requête {#example-request}
 {% raw %}
@@ -92,7 +92,7 @@ La réponse `messages` contient des informations sur chaque message. Voici des e
 ```
 
 {% endtab %}
-{% tab Email %}
+{% tab E-mail %}
 
 ```json
 {
@@ -114,7 +114,7 @@ La réponse `messages` contient des informations sur chaque message. Voici des e
 ```
 
 {% endtab %}
-{% tab In-app messages %}
+{% tab Messages in-app %}
 
 Le format de la réponse dépend du type de message in-app. Les messages in-app de type enquête renvoient les champs `type` et `data`. Les autres types de messages in-app (contextuel, fenêtre modale et plein écran) renvoient les champs `name`, `message` et `extras`.
 
@@ -233,7 +233,7 @@ Le format de la réponse dépend du type de message in-app. Les messages in-app 
 ```
 
 {% endtab %}
-{% tab Control messages %}
+{% tab Messages de contrôle %}
 
 ```json
 {
@@ -252,7 +252,7 @@ Le tableau `conversion_behaviors` contient des informations sur chaque comportem
 
 
 {% tabs %}
-{% tab Clicks email %}
+{% tab Clic sur l'e-mail %}
 
 ```json
 {
@@ -262,7 +262,7 @@ Le tableau `conversion_behaviors` contient des informations sur chaque comportem
 ```
 
 {% endtab %}
-{% tab Opens email %}
+{% tab Ouverture de l'e-mail %}
 
 ```json
 {
@@ -272,7 +272,7 @@ Le tableau `conversion_behaviors` contient des informations sur chaque comportem
 ```
 
 {% endtab %}
-{% tab Makes purchase (any purchase) %}
+{% tab Effectue un achat (tout achat) %}
 
 ```json
 {
@@ -282,7 +282,7 @@ Le tableau `conversion_behaviors` contient des informations sur chaque comportem
 ```
 
 {% endtab %}
-{% tab Makes purchase (specific product) %}
+{% tab Effectue un achat (produit spécifique) %}
 
 ```json
 {
@@ -293,7 +293,7 @@ Le tableau `conversion_behaviors` contient des informations sur chaque comportem
 ```
 
 {% endtab %}
-{% tab Performs custom event %}
+{% tab Effectue un événement personnalisé %}
 
 ```json
 {
@@ -305,7 +305,7 @@ Le tableau `conversion_behaviors` contient des informations sur chaque comportem
 
 
 {% endtab %}
-{% tab Upgrades app %}
+{% tab Met à jour l'application %}
 
 ```json
 {
@@ -315,7 +315,7 @@ Le tableau `conversion_behaviors` contient des informations sur chaque comportem
 }
 ```
 {% endtab %}
-{% tab Uses app %}
+{% tab Utilise l'application %}
 
 ```json
 {

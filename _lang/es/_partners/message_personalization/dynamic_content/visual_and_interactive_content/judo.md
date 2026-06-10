@@ -24,7 +24,7 @@ La integración de Braze y Judo proporciona experiencias a medida en tus Campaig
 |---|---|
 | Cuenta de Judo | Se necesita una cuenta de [Judo](https://www.judo.app/) para beneficiarse de esta asociación. |
 | Judo SDK | El SDK de Judo debe integrarse en tus aplicaciones [iOS](https://github.com/judoapp/judo-ios/) y/o [Android](https://github.com/judoapp/judo-android). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
@@ -58,7 +58,7 @@ iOS](https://github.com/judoapp/judo-braze-ios/wiki#in-app-messaging-setup)
 - [Configuración de mensajería dentro de la aplicación en
 Android](https://github.com/judoapp/judo-braze-android/wiki#in-app-messaging-setup).
 
-## Mediante esta integración {#using-this-integration}
+## Uso de esta integración {#using-this-integration}
 
 Una vez finalizada la integración del lado de la aplicación, puedes probarla ejecutando una Campaign de mensajes dentro de la aplicación de Braze de prueba para una experiencia Judo a fin de verificar que funciona como se espera.
 

@@ -253,7 +253,7 @@ REST APIを使用してユーザー属性を設定することもできます。
 | `ABKOptedin` | 配信登録済み、かつ明示的にオプトイン済み |
 | `ABKSubscribed` | 購読中、ただし明示的にオプトインされていない |
 | `ABKUnsubscribed` | 配信停止済みまたは明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" aria-label="ユーザーサブスクリプションの設定" }
 
 アプリにプッシュ通知の送信を許可するユーザーは、iOSでは明示的なオプトインが必要であるため、デフォルトでステータスが`ABKOptedin`に設定されます。
 

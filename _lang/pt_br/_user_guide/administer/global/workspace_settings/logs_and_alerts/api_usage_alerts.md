@@ -17,7 +17,7 @@ Você pode usar alertas de uso da API para monitorar volumes de solicitações p
 |--------------|---------|
 | Endpoints da REST API | Monitora o uso de todas as chamadas da REST API feitas para o backend da Braze, como enviar mensagens, criar campanhas ou exportar usuários. |
 | Solicitações da API do SDK | Monitora as solicitações da API feitas a partir dos SDKs da Braze em apps clientes, como acionar mensagens no app ou sincronizar dados de usuários.<br><br>_*Disponível apenas para clientes que adquiriram Usuários Ativos Mensais – CY 24-25._ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sobre os alertas de uso da API" }
 
 ## Criando um alerta de uso da API {#creating-an-api-usage-alert}
 
@@ -33,7 +33,7 @@ Para criar um alerta de uso da API:
 
 Ao definir os critérios do alerta, você pode ajustar os seguintes limites:
 
-<table>
+<table aria-label="Limites do alerta #api-usage-alert-thresholds">
   <caption>Limites do alerta</caption>
   <thead>
     <tr>
@@ -63,7 +63,7 @@ Ao definir os critérios do alerta, você pode ajustar os seguintes limites:
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limites do alerta #api-usage-alert-thresholds" }
 
 ## Configurando notificações de alerta {#setting-up-alert-notifications}
 
@@ -108,7 +108,7 @@ Você pode configurar alertas para monitorar a integridade geral da sua API. Por
 | Endpoint | Chave de API | Código de resposta | Condição do limite | Volume do limite | Entre |
 | --- | --- | --- | --- | --- | --- |
 | Todos os endpoints | Todas as chaves de API | `4XX` e `5XX` | Aumentou em 10% | 10 | 1 hora |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Exemplos de alertas" }
 {% endtab %}
 
 {% tab limite de taxa do endpoint %}
@@ -117,7 +117,7 @@ Seja alertado quando seu espaço de trabalho atingir o limite de taxa para o end
 | Endpoint | Chave de API | Código de resposta | Condição do limite | Volume do limite | Entre |
 | --- | --- | --- | --- | --- | --- |
 | `/users/track` | Todas as chaves de API | `429` | Maior ou igual a | 100 | 1 hora |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Exemplos de alertas" }
 {% endtab %}
 
 {% tab Campaigns disparadas por API %}
@@ -126,7 +126,7 @@ Essa configuração de alerta notifica você quando ocorrem erros em Campaigns e
 | Endpoint | Chave de API | Código de resposta | Condição do limite | Volume do limite | Entre |
 | --- | --- | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | Todas as chaves de API | `4XX` e `5XX` | Maior ou igual a | 1 | 1 hora |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Exemplos de alertas" }
 {% endtab %}
 
 {% tab integrações de parceiros %}
@@ -135,7 +135,7 @@ Use a seguinte configuração de alerta para ser notificado quando uma integraç
 | Endpoint | Chave de API | Código de resposta | Condição do limite | Volume do limite | Entre |
 | --- | --- | --- | --- | --- | --- |
 | Todos os endpoints | A chave de API usada para sua integração com parceiros | Todos os códigos de resposta | Menor ou igual a | 0 | 1 dia |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Exemplos de alertas" }
 {% endtab %}
 {% endtabs %}
 

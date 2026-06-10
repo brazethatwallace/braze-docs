@@ -20,7 +20,7 @@ Braze는 사용자에게 속성을 할당하는 방법을 제공합니다. 대�
 
 사용자 속성을 할당하려면 공유된 `ABKUser` 오브젝트에 적절한 필드를 설정해야 합니다.
 
-다음은 이름 속성 설정 예제입니다.
+다음은 이름 속성 설정 예제입니다:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -212,7 +212,7 @@ Appboy.sharedInstance()?.user.unsetCustomAttributeWithKey("your_attribute_key")
 
 ### 커스텀 속성 증가/감소시키기 {#incrementingdecrementing-custom-attributes}
 
-이 코드는 증분 커스텀 속성의 예시입니다. 커스텀 속성의 값을 양의 정수나 음의 정수 또는 long 값만큼 증가시킬 수 있습니다.
+이 코드는 증분 커스텀 속성의 예시입니다. 커스텀 속성의 값을 양의 정수나 음의 정수 또는 long 값만큼 증가시킬 수 있습니다:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -253,7 +253,7 @@ REST API를 사용하여 사용자 속성을 설정할 수도 있습니다. 자�
 | `ABKOptedin` | 구독하고 명시적으로 옵트인한 경우 |
 | `ABKSubscribed` | 구독 중이지만 명시적으로 옵트인하지 않은 경우 |
 | `ABKUnsubscribed` | 구독 취소 및/또는 명시적으로 수신 거부한 경우 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 구독 설정" }
 
 앱에서 푸시 알림을 보낼 수 있도록 권한을 부여한 사용자의 기본 상태는 `ABKOptedin`입니다. iOS에서는 명시적인 옵트인이 필요하기 때문입니다.
 

@@ -87,10 +87,6 @@ Ein Workspace aktualisiert seine Zeitzone von Eastern Time (EST) auf Pacific Tim
 
 Nach dieser Änderung wird eine Nutzer:in, die das angepasste Event am 6. März 2026 um 22:00 Uhr PST ausführt (was 1:00 Uhr EST am 7. März 2026 entspricht), nun in die Zielgruppe aufgenommen, da sie innerhalb der PST-Kalendergrenze für dieses Datum lag.
 
-## Abweichungen in Berichten {#reporting-discrepancies}
-
-Workspace-Zeitzonen bieten eine präzise Kontrolle über den Versand von Kampagnen. Sie sollten sich jedoch möglicher Abweichungen in Berichten bewusst sein, solange sich dieses Feature im Early Access befindet. Gleichen Sie Datenpunkte ab und berücksichtigen Sie die Zeitzone bei der Analyse von Berichten für Workspaces mit spezifischen Zeitzonen-Überschreibungen.
-
 ## Auswirkungen auf Performance-Daten {#impact-on-performance-data}
 
 Die Aktualisierung Ihrer Workspace-Zeitzone beeinflusst, wie Performance-Daten in Ihrem Dashboard aggregiert und angezeigt werden. Da Analytics für Daten wie *täglich aktive Nutzer:innen* (DAU) auf die Workspace-Zeitzone angewiesen sind, um den Beginn und das Ende eines 24-Stunden-Tages zu definieren, verschiebt eine Änderung dieser Einstellung diese Berichtsfenster.

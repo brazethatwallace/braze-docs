@@ -15,12 +15,12 @@ tool:
 
 Para Campaigns, o tipo de entrega determina quando seus usuários entrarão na Campaign e quando ela será enviada. Como um Canvas é construído como uma jornada contínua do usuário, o conceito de agendamento de mensagens é chamado de tipo de entrada.
 
-| Tipos de entrega<nobr> e entrada | Descrição                                                                                                                                                                                                                                                                                                                                      |
+| Tipos de entrega<nobr> e entrada | Descrição |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Agendado**       | Esse tipo de agendamento é projetado para mensagens únicas que você deseja enviar imediatamente, como Campaigns sobre um evento atual. <br><br>Ao enviar mensagens de teste destinadas apenas a você ou à sua equipe, essa opção permite entregá-las imediatamente.                                                                                   |
-| **Baseada em ação**    | Mensagens de entrega baseada em ação, ou Campaigns e Canvas disparados por eventos, são muito eficazes para mensagens transacionais ou baseadas em conquistas. Você pode configurá-las para serem enviadas após o usuário concluir um determinado evento, em vez de enviar sua mensagem em dias específicos.                                                                                           |
-| **Disparada por API**   | Mensagens disparadas por API permitem que você gerencie o texto da mensagem, testes multivariantes e regras de reelegibilidade no dashboard da Braze, enquanto dispara a entrega desse conteúdo a partir dos seus próprios servidores e sistemas. <br><br>A solicitação de API para disparar a mensagem também pode incluir dados adicionais para serem inseridos na mensagem em tempo real por meio de templates. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Agendado** | Esse tipo de agendamento é projetado para mensagens únicas que você deseja enviar imediatamente, como Campaigns sobre um evento atual. <br><br>Ao enviar mensagens de teste destinadas apenas a você ou à sua equipe, essa opção permite entregá-las imediatamente. |
+| **Baseada em ação** | Mensagens de entrega baseada em ação, ou Campaigns e Canvas disparados por eventos, são muito eficazes para mensagens transacionais ou baseadas em conquistas. Você pode configurá-las para serem enviadas após o usuário concluir um determinado evento, em vez de enviar sua mensagem em dias específicos. |
+| **Disparada por API** | Mensagens disparadas por API permitem que você gerencie o texto da mensagem, testes multivariantes e regras de reelegibilidade no dashboard da Braze, enquanto dispara a entrega desse conteúdo a partir dos seus próprios servidores e sistemas. <br><br>A solicitação de API para disparar a mensagem também pode incluir dados adicionais para serem inseridos na mensagem em tempo real por meio de templates. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Delivery and entry types" }
 
 ## Opções baseadas em tempo {#time-based-options}
 

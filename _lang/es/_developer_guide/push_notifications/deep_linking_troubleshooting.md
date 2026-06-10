@@ -178,8 +178,8 @@ Verifica que el dominio de Branch en tu `BrazeDelegate` coincida con tu dominio 
 
 Para diagnosticar dónde se rompe el enlace en la cadena:
 
-1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) — busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
-2. Habilita el [modo de prueba de Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking) — comprueba el dashboard de Branch para ver los eventos de clics en los enlaces.
+1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/): busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
+2. Habilita el [modo de prueba de Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking): comprueba el dashboard de Branch para ver los eventos de clics en los enlaces.
 1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
 2. Habilita el [modo de prueba de Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Comprueba el dashboard de Branch para ver los eventos de clics en los enlaces.
 3. Si Braze registra el enlace, pero Branch no detecta un clic, es probable que el problema esté en la lógica de enrutamiento del `BrazeDelegate`.
@@ -212,7 +212,7 @@ Prueba el enlace de Branch fuera de Braze para aislar el problema:
 | `Opening '<URL>': - channel: contentCard` | El SDK está procesando un enlace desde una Content Card |
 | `useWebView: true` | El SDK abre la URL en la WebView integrada en la aplicación |
 | `isUniversalLink: true` | El SDK identificó la URL como un enlace universal |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Usa el registro detallado" }
 
 Para más detalles sobre cómo leer estos registros, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/).
 

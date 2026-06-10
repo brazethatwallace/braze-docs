@@ -32,7 +32,7 @@ Para habilitar los mensajes dentro de la aplicación HTML a través del SDK Web,
 
 ## Crear un cuestionario {#create}
 
-Al crear un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/), selecciona **Simple Survey** para tu **tipo de mensaje**.
+Al crear un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/), selecciona **Simple Survey** para tu **Message Type**.
 
 Esta plantilla de cuestionario es compatible tanto con aplicaciones móviles como con navegadores web. Recuerda verificar que tus SDK estén en las [versiones mínimas del SDK](#supported-sdk-versions) requeridas para esta característica.
 
@@ -50,7 +50,7 @@ Para comenzar a construir tu cuestionario, agrega tu pregunta en el campo **Head
 
 Puedes agregar hasta 12 opciones en un cuestionario.
 
-Selecciona **Single-choice selection** o **Multiple-choice selection**. El **texto de ayuda** se actualizará automáticamente cuando cambies entre las dos opciones para informar a los usuarios cuántas opciones pueden seleccionar.
+Selecciona **Single-choice selection** o **Multiple-choice selection**. El **Helper text** se actualizará automáticamente cuando cambies entre las dos opciones para informar a los usuarios cuántas opciones pueden seleccionar.
 
 Luego, determina si vas a [recopilar atributos personalizados](#custom-attributes) o [registrar solo las respuestas](#no-attributes).
 
@@ -138,14 +138,14 @@ Las opciones seleccionadas fluirán automáticamente a Currents, bajo el campo `
 
 Para configurar esto, usa un cuestionario de selección de opción única con cinco opciones que van desde "😡 Muy insatisfecho" hasta "😍 Muy satisfecho". Cada opción está mapeada al atributo personalizado `customer_satisfaction`, con un valor numérico del 1 al 5, donde 1 indica el menos satisfecho y 5 el más satisfecho. Ten en cuenta que estos valores numéricos se almacenan como cadenas, ya que los atributos personalizados de tipo cadena son obligatorios para la selección de opción única.
 
-| Opción                                    | Atributo               | Valor |
-|-------------------------------------------|------------------------|-------|
-| 😡 Muy insatisfecho                       | `customer_satisfaction` | 1     |
-| 😟 Insatisfecho                           | `customer_satisfaction` | 2     |
-| 🙂 Ni satisfecho ni insatisfecho          | `customer_satisfaction` | 3     |
-| 😊 Satisfecho                             | `customer_satisfaction` | 4     |
-| 😍 Muy satisfecho                         | `customer_satisfaction` | 5     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Opción | Atributo | Valor |
+|---------------------------------------|------------------------|-------|
+| 😡 Muy insatisfecho | `customer_satisfaction` | 1 |
+| 😟 Insatisfecho | `customer_satisfaction` | 2 |
+| 🙂 Ni satisfecho ni insatisfecho | `customer_satisfaction` | 3 |
+| 😊 Satisfecho | `customer_satisfaction` | 4 |
+| 😍 Muy satisfecho | `customer_satisfaction` | 5 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User satisfaction" }
 
 Cuando un usuario envía el cuestionario, su valor seleccionado se registra como un atributo personalizado. Luego puedes crear Campaigns de seguimiento usando filtros de audiencia. Por ejemplo, dirige mensajes de recuperación a los usuarios cuyo atributo `customer_satisfaction` sea "1" o "2".
 
@@ -158,14 +158,14 @@ Cuando un usuario envía el cuestionario, su valor seleccionado se registra como
 
 Para configurar esto, usa un cuestionario de selección de opción múltiple donde cada opción representa un tema de notificación. En lugar de asignar el mismo atributo con diferentes valores, cada opción se mapea a un atributo booleano distinto que refleja el interés del usuario en ese tema. Si un usuario selecciona una opción, el atributo correspondiente se establece en `true`. Si se deja sin seleccionar, el atributo permanece sin cambios.
 
-| Opción                       | Atributo               | Valor  |
-|------------------------------|------------------------|--------|
-| Actualizaciones de producto  | `wants_product_updates`| `true` |
-| Promociones                  | `wants_promotions`     | `true` |
-| Invitaciones a eventos       | `wants_event_invites`  | `true` |
-| Cuestionarios y comentarios  | `wants_surveys`        | `true` |
-| Consejos y tutoriales        | `wants_tips`           | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Opción | Atributo | Valor |
+|--------------------|------------------------|--------|
+| Actualizaciones de producto | `wants_product_updates`| `true` |
+| Promociones | `wants_promotions` | `true` |
+| Invitaciones a eventos | `wants_event_invites` | `true` |
+| Cuestionarios y comentarios | `wants_surveys` | `true` |
+| Consejos y tutoriales | `wants_tips` | `true` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification preferences" }
 
 {% endtab %}
 {% tab Identificar objetivos del cliente %}
@@ -176,14 +176,14 @@ Para configurar esto, usa un cuestionario de selección de opción múltiple don
 
 Para configurar esto, usa un cuestionario de selección de opción única con cada opción representando un objetivo o intención común. Cada opción está mapeada al atributo personalizado `product_goal` con un valor correspondiente a la intención del usuario seleccionada.
 
-| Opción                        | Atributo         | Valor     |
-|-------------------------------|------------------|-----------|
-| Verificar estado              | `product_goal`   | `status`  |
-| Actualizar mi cuenta          | `product_goal`   | `upgrade` |
-| Programar una cita            | `product_goal`   | `schedule`|
-| Soporte al cliente            | `product_goal`   | `support` |
-| Solo explorando               | `product_goal`   | `browse`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Opción | Atributo | Valor |
+|----------------------------|------------------|-----------|
+| Verificar estado | `product_goal` | `status` |
+| Actualizar mi cuenta | `product_goal` | `upgrade` |
+| Programar una cita | `product_goal` | `schedule`|
+| Soporte al cliente | `product_goal` | `support` |
+| Solo explorando | `product_goal` | `browse` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identify customer goals" }
 
 Cuando un usuario envía el cuestionario, el valor seleccionado se registra como un atributo personalizado en su perfil. Luego puedes usar estos datos para personalizar experiencias futuras o segmentar usuarios según su objetivo principal.
 
@@ -196,14 +196,14 @@ Cuando un usuario envía el cuestionario, el valor seleccionado se registra como
 
 Para configurar esto, usa un cuestionario de selección de opción única con cada opción representando una barrera común para la actualización. Cada opción está mapeada al atributo personalizado `upgrade_reason` con un valor correspondiente que refleja la selección del usuario.
 
-| Opción                    | Atributo         | Valor       |
-|---------------------------|------------------|-------------|
-| Demasiado caro            | `upgrade_reason` | `expensive` |
-| No es valioso             | `upgrade_reason` | `value`     |
-| Difícil de usar           | `upgrade_reason` | `difficult` |
-| Uso un competidor         | `upgrade_reason` | `competitor`|
-| Otra razón                | `upgrade_reason` | `other`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Opción | Atributo | Valor |
+|---------------------|------------------|-------------|
+| Demasiado caro | `upgrade_reason` | `expensive` |
+| No es valioso | `upgrade_reason` | `value` |
+| Difícil de usar | `upgrade_reason` | `difficult` |
+| Uso un competidor | `upgrade_reason` | `competitor`|
+| Otra razón | `upgrade_reason` | `other` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Improve conversion rates" }
 
 Cuando un usuario envía el cuestionario, el valor seleccionado se guarda en su perfil. Luego puedes dirigirte a estos usuarios con Campaigns adaptadas a su objeción específica, como ofertas de descuento o mejoras de usabilidad.
 
@@ -216,16 +216,16 @@ Cuando un usuario envía el cuestionario, el valor seleccionado se guarda en su 
 
 Para configurar esto, usa un cuestionario de selección de opción múltiple donde cada opción representa una característica de tu aplicación. Cada opción está mapeada al atributo personalizado `favorite_features`, y cuando el usuario envía el cuestionario, el atributo se establece como un array de los valores seleccionados.
 
-| Opción               | Atributo           | Valor        |
-|----------------------|--------------------|--------------|
-| Marcadores           | `favorite_features`| `bookmarks`  |
-| Aplicación móvil     | `favorite_features`| `mobile`     |
-| Compartir publicaciones | `favorite_features`| `sharing`    |
-| Soporte al cliente   | `favorite_features`| `support`    |
-| Personalización      | `favorite_features`| `custom`     |
-| Precio / Valor       | `favorite_features`| `value`      |
-| Comunidad            | `favorite_features`| `community`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Opción | Atributo | Valor |
+|-------------------|--------------------|--------------|
+| Marcadores | `favorite_features`| `bookmarks` |
+| Aplicación móvil | `favorite_features`| `mobile` |
+| Compartir publicaciones | `favorite_features`| `sharing` |
+| Soporte al cliente | `favorite_features`| `support` |
+| Personalización | `favorite_features`| `custom` |
+| Precio / Valor | `favorite_features`| `value` |
+| Comunidad | `favorite_features`| `community` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Favorite features" }
 
 Dado que este cuestionario usa selección de opción múltiple, el perfil del usuario se actualizará con una lista de todos los valores de características seleccionados.
 

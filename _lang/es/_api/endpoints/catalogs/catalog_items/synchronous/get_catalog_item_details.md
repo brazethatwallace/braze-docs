@@ -33,7 +33,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 |---|---|---|---|
 | `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
 | `item_id` | Obligatorio | Cadena | El ID del elemento del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
 
 ## Parámetros de la solicitud {#request-parameters}
 
@@ -102,6 +102,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | --- | --- |
 | `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
 | `item-not-found` | Comprueba que el elemento está en el catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

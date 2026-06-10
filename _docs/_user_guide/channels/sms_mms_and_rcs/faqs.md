@@ -144,7 +144,7 @@ Yes, they do. Keep this in mind when testing messages.
 
 ### Does a user need to be part of an SMS subscription group to receive SMS test messages?
 
-Yes, they do. Users must have a valid phone number and be part of the SMS subscription group used for the test send.
+Yes, they do. Users must have a valid phone number, be part of the SMS subscription group used for the test send, and have at least one country selected under **Geographic Permissions** for SMS.
 
 ### Is there a way to see if an alias exists on a user profile?
 
@@ -181,6 +181,23 @@ Additionally, certain situations will require Twilio to re-approve the enablemen
 
 ## RCS
 
+### Why doesn't my RCS message render accurately on iOS devices?
+
+RCS messages may render differently on an iOS device depending on the operating system and messaging app. On iOS devices, the following behaviors may occur:
+
+- Suggested actions from different RCS messages in the same conversation thread may be grouped together and shown in the wrong order.
+- Rich card buttons and suggested actions that are outside the rich card may remain visible even after tapping a rich card button or a suggested action.
+
+{% alert note %}
+Braze sends the RCS payload you compose, while the messaging client controls how suggested actions are ordered, grouped, and hidden. Be sure to test RCS messages, especially those that use rich cards with suggested actions or suggested replies, on both Android and iOS devices before sending.
+{% endalert %}
+
 ### Can I send pre-recorded voicemails with RCS?
 
 Yes, you can use media messages to support audio files.
+
+### Why do REST API SMS opt-ins not match **Total Opt-Ins** on SMS/MMS/RCS Performance?
+
+**Total Opt-Ins** and **Total Opt-Outs** on the [SMS/MMS/RCS Performance]({{site.baseurl}}/user_guide/analytics/dashboards/) dashboard count subscription changes driven by inbound SMS keyword handling (for example, a user texting an opt-in keyword to your short code). They do not include every subscription update made through the REST API, the dashboard, or other sources.
+
+To analyze opt-ins and opt-outs by source, use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) on `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` and filter on `STATE_CHANGE_SOURCE` (for example, **Rest API** versus **Inbound Message**).

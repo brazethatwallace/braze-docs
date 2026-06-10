@@ -22,7 +22,7 @@ L'intégration de Braze et Heap vous permet d'[importer des données Heap vers B
 | Clé d'importation des données Braze | Elle peut être récupérée dans le tableau de bord de Braze depuis **Intégrations partenaires** > **Partenaires technologiques**, puis sélectionnez **Heap**. |
 | Endpoint REST de Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 | Braze Currents | Pour pouvoir exporter des données de Braze vers Heap, vous devez activer [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) sur votre compte. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 - Réengager les utilisateurs qui ont abandonné un entonnoir : déclenchez des messages de réengagement lorsque les utilisateurs abandonnent l'entonnoir d'achat ou d'abonnement.
@@ -43,15 +43,15 @@ Sur cette page, vous trouverez votre clé d'importation des données et un endpo
 
 ### Étape 2 : Segmenter les utilisateurs importés dans Braze {#step-2-segment-imported-users-in-braze}
 
-Dans Braze, naviguez vers **Segments**, nommez votre segment de cohorte Heap et sélectionnez **Heap Cohorts** comme filtre. À partir de là, vous pouvez choisir la cohorte Heap que vous souhaitez inclure. Une fois votre segment de cohorte Heap créé, vous pouvez le sélectionner comme filtre d'audience lors de la création d'une Campaign ou d'un Canvas.
+Dans Braze, naviguez vers **Segments**, nommez votre segment de cohorte Heap et sélectionnez **Heap Cohorts** comme filtre. À partir de là, vous pouvez choisir la cohorte Heap que vous souhaitez inclure. Une fois votre segment de cohorte Heap créé, vous pouvez le sélectionner comme filtre d'audience lors de la création d'une campagne ou d'un Canvas.
 
 ![Dans le générateur de segments de Braze, le filtre d'attributs utilisateur « Heap cohort » est défini sur « includes » et « Heap Test Cohort ».]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### Utilisation de cette intégration {#using-this-integration}
 
-Pour utiliser votre segment Heap, créez une Campaign ou un Canvas Braze et sélectionnez le segment comme audience cible.
+Pour utiliser votre segment Heap, créez une campagne ou un Canvas Braze et sélectionnez le segment comme audience cible.
 
-![Dans le générateur de Campaigns de Braze, à l'étape de ciblage, le filtre « Target users by segment » est défini sur « Heap cohort ».]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
+![Dans le générateur de campagnes de Braze, à l'étape de ciblage, le filtre « Cibler des utilisateurs par segment » est défini sur « Heap cohort ».]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 
 {% alert important %}
 Seuls les utilisateurs qui existent déjà dans Braze pourront être ajoutés ou supprimés d'une cohorte. L'importation de cohortes ne créera pas de nouveaux utilisateurs dans Braze.

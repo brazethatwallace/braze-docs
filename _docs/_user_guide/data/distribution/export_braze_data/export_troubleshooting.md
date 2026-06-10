@@ -58,7 +58,9 @@ In cloud storage, CSV exports are bundled into a ZIP file. Inside the ZIP are mu
 - Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).  
 
 ## API exports  
-When you export data through the APIs with a storage partner connected, the export files are written to your bucket. No email is sent. The underlying objects live in your storage and follow your retention settings, even though the download URLs Braze returns may still be time-limited. Each ZIP file contains JSON objects, one per line. Large exports may be split into multiple ZIP files instead of a single ZIP, which generally makes this method more reliable for heavy exports.  
+When you export data through the APIs with a storage partner connected, the export files are written to your bucket. No email is sent. The underlying objects live in your storage and follow your retention settings, even though the download URLs Braze returns may still be time-limited.
+
+Files typically appear in your bucket as the export runs, so you don't need to wait for the entire job to finish before accessing partial results. Braze uploads each completed batch incrementally instead of holding everything until the end. Large exports are split into multiple compressed files (ZIP or GZIP), each containing JSON objects, one per line. This makes this method more reliable for heavy exports.
 
 ### Common errors
 
@@ -84,6 +86,10 @@ If users are (or were at one point) able to receive the campaign more than once,
 The CSV export gives a snapshot of existing users who received a given campaign or Canvas. Because users can be deleted or merged, the CSV export count can be lower than the unique recipient count. For example, if 1,000 users receive a campaign, the campaign shows 1,000 unique recipients, and the CSV export that same day also shows 1,000 users. If a month later 50 of those 1,000 users are deleted, the CSV export contains 950 users while the incremented unique recipient count is still 1,000.
 
 ## Dashboard segment export emails
+
+### "Segment is too large" or export fails when my segment looks under 500,000 users
+
+Dashboard segment **size is an estimate**. CSV export uses that estimate to enforce the [500,000-user export limit]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details); the export pipeline may also evaluate size differently than the segment builder UI. If exports fail for a segment near that threshold, use [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) or split the audience into smaller segments, or use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) as described in [Exporting large segments]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-large-segments).
 
 ### Why aren't I receiving segment export emails?
 

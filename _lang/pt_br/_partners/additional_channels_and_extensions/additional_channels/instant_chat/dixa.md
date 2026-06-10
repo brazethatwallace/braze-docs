@@ -18,16 +18,16 @@ A integração da Braze com a Dixa oferece uma visão melhor de todos os seus us
 
 Antes de começar, você precisará do seguinte:
 
-| Pré-requisito          | Descrição                                                                                                                                                       |
+| Pré-requisito | Descrição |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Uma conta da Dixa        | É necessário ter uma conta de administrador da Dixa para aproveitar essa parceria.                                                                                           |
-| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com as permissões `users.export.ids` e `email.status`.<br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Um endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância.              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Uma conta da Dixa | É necessário ter uma conta de administrador da Dixa para aproveitar essa parceria. |
+| Uma chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.export.ids` e `email.status`.<br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
+| Um endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
-Exiba os dados da Braze na visualização do agente de atendimento ao cliente enquanto se comunica com seus usuários em diferentes canais de comunicação, como e-mail, Messenger ou chat. Além disso, use a Transformação de Dados da Braze para enviar dados da Dixa para a Braze e pausar o marketing enquanto resolve o problema de um usuário.
+Exiba os dados da Braze na visualização do agente de atendimento ao cliente enquanto se comunica com seus usuários em diferentes canais de comunicação, como e-mail, Messenger ou chat. Além disso, use a Transformação de Dados da Braze para enviar dados da Dixa para a Braze e pausar o marketing enquanto resolve o problema de um usuário, ou use as pesquisas de satisfação da Dixa para segmentação.
 
 ## Integração {#integration}
 
@@ -83,10 +83,12 @@ Veja a seguir um exemplo da integração:
 
 A Dixa usa webhooks para enviar dados para a Braze. Você deve ser um administrador da Dixa para configurar webhooks.
 
+### Rastrear conversas na Dixa {#track-conversations-in-dixa}
+
 O primeiro passo é criar uma transformação de dados na Braze.
 
-1. Acesse **Configurações de dados** > **Transformações de dados** > **Criar transformação**.
-2. Selecione **Start from scratch**, selecione o destino **POST: Track Users** e selecione **Criar transformação**.
+1. Acesse **Data Settings** > **Data Transformations** > **Create transformation**.
+2. Selecione **Start from scratch**, selecione o destino **POST: Track Users** e selecione **Create transformation**.
 3. No editor de transformação, copie o código de exemplo de **Exemplo de ferramenta de transformação** abaixo e insira-o no campo **Transformation code**. Selecione **Save**, copie a **Webhook URL** e abra a Dixa.
 4. Na Dixa, acesse **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
 5. Na página de configurações do webhook, cole a URL da Braze e ative os eventos que deseja rastrear. **Conversation created** é um bom ponto de partida para rastrear as conversas dos clientes.
@@ -128,5 +130,56 @@ const brazecall = {
 };
 
 // Returning the transformed data
+return brazecall;
+```
+
+### Usar a pontuação CSAT na Braze {#use-csat-score-in-braze}
+
+1. Acesse **Data Settings** > **Data Transformations** > **Create transformation**.
+2. Selecione **Start from scratch**, selecione o destino **POST: Track Users** e selecione **Create transformation**.
+3. No editor de transformação, copie o código de exemplo de **Rastrear pontuação CSAT** abaixo e insira-o no campo **Transformation code**. Selecione **Save**, copie a **Webhook URL** e abra a Dixa.
+4. Na Dixa, acesse **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
+5. Na página de configurações do webhook, cole a URL da Braze e ative os eventos que deseja rastrear. **Conversation created** é um bom ponto de partida para rastrear as conversas dos clientes.
+6. Selecione **Save** para concluir a configuração da Dixa.
+
+#### Rastrear pontuação CSAT {#track-csat-score}
+
+```js
+const body = payload?.data;
+
+// values from your webhook
+const score = body.score;         // number
+const comment = body.comment;     // string
+const type = body.type;           // string
+const ratedAt = body.event_timestamp;   // ISO 8601 string
+const contactemail = body.conversation.requester.email;
+
+// ALWAYS identify by email
+const email = contactemail;
+
+if (!email) {
+  // Can't identify a user without email
+  return { attributes: [] };
+}
+
+
+let brazecall = {
+  "attributes": [
+    {
+      // Using the Dixa user email as the external_id to identify the user in Braze
+      "email": contactemail,
+      "_update_existing_only": true,
+
+      // Your new custom object attribute
+      "last_csat": {
+        "score": score,
+        "comment": comment,
+        "type": type,
+        "rated_at": ratedAt
+      }
+    }
+  ]
+};
+
 return brazecall;
 ```

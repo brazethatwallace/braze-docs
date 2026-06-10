@@ -6,7 +6,7 @@ description: "Cet article de référence fournit un aperçu des cas d'utilisatio
 search_rank: 2
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Utiliser Liquid {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Utiliser Liquid {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
 
 > Cet article vous montre comment utiliser différents attributs utilisateur pour insérer dynamiquement des informations personnelles dans vos messages.
 
@@ -82,7 +82,7 @@ Les opérateurs (tels que `==`, `!=`, `>`, `and`, `or`) et les filtres (tels que
 | `case`, `when` | Correspondance d'égalité uniquement[^case_when_ops] | Non pris en charge |
 | `for` | Non pris en charge | Non pris en charge |
 | Accès aux tableaux (`[ ]`) | Non pris en charge | Non pris en charge |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Où utiliser les opérateurs et les filtres" }
 
 [^case_when_ops]: Dans les étiquettes `case` et `when`, Liquid compare l'expression `case` à chaque valeur `when` en utilisant l'égalité (similaire à l'enchaînement de `if` et `elsif` avec `==`). Vous ne pouvez pas utiliser d'opérateurs de comparaison ou logiques arbitraires à l'intérieur d'une clause `when` comme vous le feriez avec `if` et `elsif`. Pour des exemples, consultez [Logique de messagerie conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
 
@@ -207,6 +207,10 @@ Si vous utilisez Liquid dans vos e-mails, veillez à :
 2. Placer le code Liquid uniquement à l'intérieur de la balise `<body>`. Le placer en dehors de cette balise peut entraîner un rendu incohérent lors de la réception.
 
 {% endalert %}
+
+### Basculer entre les éditeurs HTML et classique {#switching-between-html-and-classic-editors}
+
+Lorsque vous basculez entre les éditeurs HTML et classique, les extraits de code Liquid et les Content Blocks peuvent changer de position dans votre message. Vérifiez votre modèle après avoir changé d'éditeur. Si vous avez besoin d'un contrôle de mise en page plus prévisible, utilisez l'éditeur par glisser-déposer.
 
 ### Insérer des variables pré-formatées {#inserting-pre-formatted-variables}
 

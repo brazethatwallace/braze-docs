@@ -125,20 +125,20 @@ Cette fonctionnalité est en accès anticipé.
 
 ### Currents
 
-Currents est un outil de diffusion en continu et en temps quasi réel des analyses d'engagement des messages dans Braze. Il transmet des données au niveau de l'utilisateur pour tous les envois, livraisons, ouvertures, clics, etc., pour les campagnes et les Canvas envoyés depuis l'espace de travail du client. Quelques points à noter : Currents est tarifé par connecteur pour le client, de sorte que tous les nouveaux partenaires Currents doivent passer par un processus d'accès anticipé (EA). Nous demandons à nos partenaires d'avoir cinq clients dans le cadre de l'EA avant de créer l'interface utilisateur personnalisée et de rendre le connecteur disponible publiquement.
-- [Documentation du partenaire]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+Currents est un outil de diffusion en continu et en temps quasi réel des analyses d'engagement des messages dans Braze. Il transmet des données au niveau de l'utilisateur pour tous les envois, livraisons, ouvertures, clics, etc., pour les Campaigns et les Canvas envoyés depuis l'espace de travail du client. Quelques points à noter : Currents est tarifé par connecteur pour le client, de sorte que tous les nouveaux partenaires Currents doivent passer par un processus d'accès anticipé (EA). Nous demandons à nos partenaires d'avoir cinq clients dans le cadre de l'EA avant de créer l'interface utilisateur personnalisée et de rendre le connecteur disponible publiquement.
+- [Documentation du partenaire]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 - [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) — tous les clients qui achètent un connecteur Currents auront accès à ces événements.
 - [Événements liés au comportement de l'utilisateur]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) — tous les clients qui achètent un connecteur Currents n'achètent pas nécessairement un connecteur « tous les événements » qui inclura ces événements.
 
 ### Partage de données Snowflake {#snowflake-data-share}
 
 Les clients qui achètent un connecteur Snowflake Data Share auront automatiquement accès aux événements d'engagement des messages et de comportement des utilisateurs. Lorsque Snowflake Data Share est utilisé en tant qu'intégration de partenaire, Braze provisionne un partage sur l'instance Snowflake du partenaire au nom du client. Le partage de données inter-régions ayant un coût plus élevé pour nos clients, nous demandons aux partenaires souhaitant s'intégrer à Snowflake de prévoir un compte dans `US-EAST-1` et/ou `EU-CENTRAL-1`.
-- [Documentation du partenaire]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [Documentation du partenaire]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 
-## Créer et déclencher des campagnes et des Canvas {#building-and-triggering-campaigns-and-canvases}
+## Créer et déclencher des Campaigns et des Canvas {#building-and-triggering-campaigns-and-canvases}
 
 ### Créer des ressources dans Braze {#creating-assets-in-braze}
-Braze propose un certain nombre d'endpoints qui permettent aux clients et aux partenaires de créer ou mettre à jour des modèles d'e-mail et des Content Blocks dans l'espace de travail d'un client. Ces modèles et Content Blocks peuvent ensuite être utilisés dans les campagnes et Canvas Braze du client.
+Braze propose un certain nombre d'endpoints qui permettent aux clients et aux partenaires de créer ou mettre à jour des modèles d'e-mail et des Content Blocks dans l'espace de travail d'un client. Ces modèles et Content Blocks peuvent ensuite être utilisés dans les Campaigns et Canvas Braze du client.
 - Modèles d'e-mail
     - [Endpoint de création de modèle]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/)
     - [Endpoint de mise à jour de modèle]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/#rate-limit)
@@ -146,23 +146,23 @@ Braze propose un certain nombre d'endpoints qui permettent aux clients et aux pa
     - [Endpoint de création de Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/)
     - [Endpoint de mise à jour de Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)
 
-### Campagnes et Canvas déclenchés par l'API {#api-triggered-campaigns-and-canvases}
+### Campaigns et Canvas déclenchés par l'API {#api-triggered-campaigns-and-canvases}
 
-Les clients peuvent configurer des campagnes et des Canvas pour qu'ils soient déclenchés par l'API. Les requêtes API pour déclencher ces campagnes peuvent être utilisées pour personnaliser et segmenter davantage la campagne en transmettant des propriétés de déclenchement API et des paramètres d'audience ou de destinataire.
-- [Déclencher des campagnes via l'API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body)
-    - Les campagnes sont des messages individuels, tels que des e-mails distincts.
+Les clients peuvent configurer des Campaigns et des Canvas pour qu'ils soient déclenchés par l'API. Les requêtes API pour déclencher ces Campaigns peuvent être utilisées pour personnaliser et segmenter davantage la Campaign en transmettant des propriétés de déclenchement API et des paramètres d'audience ou de destinataire.
+- [Déclencher des Campaigns via l'API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body)
+    - Les Campaigns sont des messages individuels, tels que des e-mails distincts.
 - [Déclencher des Canvas via l'API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#request-body)
     - Canvas est une interface unifiée où les marketeurs peuvent créer des campagnes avec plusieurs messages et étapes pour former un parcours cohérent. Lorsque vous déclenchez un Canvas, vous faites entrer un utilisateur dans le flux Canvas, où il continuera à recevoir des messages jusqu'à ce qu'il ne corresponde plus aux critères du Canvas.
 - [Propriétés de déclenchement API / propriétés d'entrée Canvas]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)
     - Données qui peuvent être intégrées de manière dynamique dans le message au moment de l'envoi.
 
-### Campagnes API {#api-campaigns}
-Lors de la création de campagnes API (différentes des campagnes déclenchées par l'API mentionnées ci-dessus), le tableau de bord de Braze est uniquement utilisé pour générer un `campaign_id`, qui permet au client de suivre les analyses pour le reporting de la campagne. Le message de la campagne lui-même est défini dans la requête API.
-- [Envoyer immédiatement une campagne API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
-- [Planifier une campagne API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
+### Campaigns API {#api-campaigns}
+Lors de la création de Campaigns API (différentes des Campaigns déclenchées par l'API mentionnées ci-dessus), le tableau de bord de Braze est uniquement utilisé pour générer un `campaign_id`, qui permet au client de suivre les analyses pour le reporting de la Campaign. Le message de la Campaign lui-même est défini dans la requête API.
+- [Envoyer immédiatement une Campaign API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
+- [Planifier une Campaign API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 
 ### ID d'envoi {#send-ids}
-Utilisez l'endpoint Braze pour générer un ID d'envoi qui peut être utilisé pour ventiler les analyses de la campagne par envoi. Par exemple, si un `campaign_id` (campagne API) est créé par emplacement, un ID d'envoi pourrait être généré par envoi pour suivre l'efficacité des différents messages pour un emplacement particulier.
+Utilisez l'endpoint Braze pour générer un ID d'envoi qui peut être utilisé pour ventiler les analyses de la Campaign par envoi. Par exemple, si un `campaign_id` (Campaign API) est créé par emplacement, un ID d'envoi pourrait être généré par envoi pour suivre l'efficacité des différents messages pour un emplacement particulier.
 - [ID d'envoi]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids/)
 
 ## Contenu connecté {#connected-content}

@@ -21,7 +21,7 @@ Braze와 RudderStack 통합을 통해 Braze 커런츠를 활용하여 Braze 이�
 | RudderStack 계정 | 이 파트너십을 활용하려면 [RudderStack 계정](https://app.rudderstack.com/login)이 필요합니다. |
 | Braze 대상 | RudderStack에서 [Braze를 대상으로 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/rudderstack/rudderstack/#integration)해 두는 것을 권장합니다. |
 | Currents | 데이터를 RudderStack으로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

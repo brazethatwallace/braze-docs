@@ -30,14 +30,14 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Anfrage-Parameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | `fields` | Erforderlich | Array | Ein Array, das Feldobjekte enthält. Die Feldobjekte sollten den Namen und den Typ der neuen Felder enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Beispielanfrage {#example-request}
 
@@ -62,10 +62,18 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     {
       "name": "Created_At",
       "type": "time"
+    },
+    {
+      "name": "Location",
+      "type": "geo"
     }
   ]
 }'
 ```
+
+{% alert note %}
+Sie müssen Geolocation-Feldwerte als `[longitude, latitude]`-Array angeben – zum Beispiel `[-73.988103, 40.779109]`. Der Breitengrad muss zwischen -90 und 90 liegen; der Längengrad muss zwischen -180 und 180 liegen.
+{% endalert %}
 
 ## Antwort {#response}
 
@@ -114,6 +122,6 @@ Die folgende Tabelle listet mögliche zurückgegebene Fehler und die zugehörige
 | `company-size-limit-already-reached` | Das Limit für die Katalogspeichergröße ist erreicht. |
 | `request-includes-too-many-fields` | Jede Anfrage kann bis zu 50 neue Felder unterstützen. |
 | `catalog-exceeds-fields-limit` | Der Katalog kann nicht mehr als 500 Felder haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

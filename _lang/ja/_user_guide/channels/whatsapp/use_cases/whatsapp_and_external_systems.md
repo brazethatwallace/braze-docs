@@ -20,7 +20,7 @@ channel:
 | 外部システム | APIを使用してチャットボットや自動クライアントサービスシステムを構築・管理できるサードパーティのAIまたはコミュニケーションシステム、あるいはその両方。 |
 | BrazeとWhatsAppの統合 | Brazeが管理するWhatsApp番号 |
 | Braze REST APIキー | `campaigns.trigger.send` 権限を持つREST APIキー。これはBrazeダッシュボードで**設定** > **APIキー**に移動して作成できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 仕組み {#how-it-works}
 
@@ -115,4 +115,4 @@ curl -X POST \
 統合ロジックを拡張して以下のことが可能です：
 - 異なるキーワードを使用して、個別のwebhookキャンペーンをトリガーする。
 - マルチステップのAPIトリガーキャンペーンを使用して、より複雑な会話フローを作成する。
-- チャット情報をBrazeにカスタム属性として記録し、ユーザープロファイルを充実させ、将来のキャンペーンのセグメントに活用する。
+- チャット情報をBrazeにカスタム属性として記録し、ユーザープロファイルを充実させ、将来のCampaignsのセグメンテーションに活用する。

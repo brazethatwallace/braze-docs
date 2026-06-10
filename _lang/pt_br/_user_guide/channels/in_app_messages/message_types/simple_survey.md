@@ -145,7 +145,7 @@ Para configurar isso, use uma pesquisa de seleção de escolha única com cinco 
 | 🙂 Nem satisfeito nem insatisfeito       | `customer_satisfaction` | 3     |
 | 😊 Satisfeito                            | `customer_satisfaction` | 4     |
 | 😍 Muito satisfeito                      | `customer_satisfaction` | 5     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Satisfação do usuário" }
 
 Quando um usuário envia a pesquisa, o valor selecionado é registrado como um atributo personalizado. Você pode então criar Campaigns de acompanhamento usando filtros de público. Por exemplo, direcione mensagens de recuperação para usuários cujo atributo `customer_satisfaction` seja "1" ou "2".
 
@@ -165,7 +165,7 @@ Para configurar isso, use uma pesquisa de seleção de múltipla escolha onde ca
 | Convites para eventos    | `wants_event_invites`  | `true` |
 | Pesquisas e feedback     | `wants_surveys`        | `true` |
 | Dicas e tutoriais        | `wants_tips`           | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Preferências de notificação" }
 
 {% endtab %}
 {% tab Identificar objetivos do cliente %}
@@ -183,7 +183,7 @@ Para configurar isso, use uma pesquisa de seleção de escolha única com cada o
 | Agendar um compromisso       | `product_goal`   | `schedule`|
 | Suporte ao cliente           | `product_goal`   | `support` |
 | Apenas navegando             | `product_goal`   | `browse`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identificar objetivos do cliente" }
 
 Quando um usuário envia a pesquisa, o valor selecionado é registrado como um atributo personalizado no perfil dele. Você pode então usar esses dados para personalizar experiências futuras ou segmentar usuários com base no objetivo principal deles.
 
@@ -203,7 +203,7 @@ Para configurar isso, use uma pesquisa de seleção de escolha única com cada o
 | Difícil de usar          | `upgrade_reason` | `difficult` |
 | Usando um concorrente    | `upgrade_reason` | `competitor`|
 | Outro motivo             | `upgrade_reason` | `other`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Melhorar taxas de conversão" }
 
 Quando um usuário envia a pesquisa, o valor selecionado é salvo no perfil dele. Você pode então direcionar esses usuários com Campaigns adaptadas à objeção específica deles, como ofertas de desconto ou melhorias de usabilidade.
 
@@ -225,7 +225,7 @@ Para configurar isso, use uma pesquisa de seleção de múltipla escolha onde ca
 | Personalização      | `favorite_features`| `custom`     |
 | Preço / Valor       | `favorite_features`| `value`      |
 | Comunidade          | `favorite_features`| `community`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recursos favoritos" }
 
 Como essa pesquisa usa seleção de múltipla escolha, o perfil do usuário será atualizado com uma lista de todos os valores de recursos selecionados.
 

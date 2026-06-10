@@ -45,7 +45,7 @@ Antes de comenzar, confirma que tienes lo siguiente:
 | Credenciales de Contenido conectado de Braze | Una credencial de autenticación básica de Contenido conectado llamada **basic_credentials**, configurada con los valores proporcionados por VideoSmart |
 | Plantilla de **VideoSmart Content Block** | La plantilla de **VideoSmart Content Block** agregada a tu dashboard de Braze (proporcionada por VideoSmart) |
 | Un mensaje de correo electrónico de Braze | Un correo electrónico de Campaign de Braze o un paso de correo electrónico de Canvas donde insertarás el **VideoSmart Content Block** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -122,13 +122,13 @@ Las variables comunes incluyen:
 | `{{ output_data.VARIABLE_NAME }}` | Campos de salida adicionales expuestos por el Content Block |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 5: Usa las variables generadas por la plantilla del VideoSmart Content Block" }
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 5: Usa las variables generadas por la plantilla del VideoSmart Content Block" }
 
 ## Límites de velocidad {#rate-limits}
 
 La API de VideoSmart tiene un límite de velocidad de 10,000 solicitudes por minuto. Si superas este límite, puedes recibir errores o experimentar retrasos en la generación de videos.
 
-Para reducir este riesgo, configura el límite de velocidad de la Campaign en Braze para que la tasa de envío de mensajes se mantenga por debajo de la capacidad de la API de VideoSmart.
+Para reducir este riesgo, configura el límite de velocidad de Campaign en Braze para que la tasa de envío de mensajes se mantenga por debajo de la capacidad de la API de VideoSmart.
 
 Para obtener orientación de Braze sobre velocidad de entrega y límites de velocidad, consulta [Velocidad de entrega y límites de velocidad]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting).
 

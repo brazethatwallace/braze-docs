@@ -23,7 +23,7 @@ A Braze possui três estados globais de inscrição para usuários de e-mail. Es
 | Opted-in | O usuário confirmou explicitamente que deseja receber e-mails. Recomendamos um processo de opt-in explícito para obter o consentimento dos usuários para o envio de e-mails. |
 | Subscribed | O usuário não cancelou a inscrição nem optou explicitamente por receber e-mails. Este é o estado de inscrição padrão quando um perfil de usuário é criado. |
 | Unsubscribed | O usuário cancelou explicitamente a inscrição dos seus e-mails. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de inscrição" }
 
 {% alert note %}
 A Braze não contabiliza alterações no estado de inscrição como pontos de dados, tanto globalmente quanto em relação a grupos de inscrições.
@@ -81,6 +81,8 @@ Quando um usuário atualiza seu endereço de e-mail, o estado de inscrição é 
 
 Para solucionar problemas de alterações no estado de inscrição, consulte **Email Subscription-State Changes** nos registros do perfil de usuário para ver o histórico e a origem (API ou SDK).
 
+Quando o estado global de inscrição de e-mail de um usuário muda, a Braze propaga esse estado para outros perfis que compartilham o mesmo endereço de e-mail, até 100 perfis por alteração. A Braze não garante a propagação quando mais de 100 perfis compartilham o mesmo endereço de e-mail. Se usuários que compartilham um e-mail apresentarem estados de inscrição diferentes, entre em contato com o suporte da Braze.
+
 ## Grupos de inscrições {#subscription-groups}
 
 Grupos de inscrições são filtros de segmento que podem refinar ainda mais seu público a partir dos [estados globais de inscrição](#subscription-states). Esses grupos permitem que você apresente opções de inscrição mais detalhadas aos usuários finais.
@@ -115,7 +117,7 @@ Grupos de inscrições arquivados não podem ser editados e não aparecerão mai
 Para arquivar seu grupo na página **Subscription Groups**, faça o seguinte:
 
 1. Encontre seu grupo na lista de grupos de inscrições.
-2. Selecione **Archive** no menu suspenso <i class="fa-solid fa-ellipsis-vertical"></i>.
+2. Selecione **Archive** no menu suspenso <i class="fa-solid fa-ellipsis-vertical" aria-label="Abrir menu de opções"></i>.
 
 A Braze não processa alterações de estado para usuários em grupos arquivados. Por exemplo, se você arquivar o Grupo de inscrições 1 enquanto Alex está inscrito nele, Alex permanecerá como "inscrito" mesmo que clique em um link de cancelamento de inscrição. Isso não importa porque o Grupo de inscrições 1 está arquivado e você não pode enviar mensagens usando ele.
 
@@ -180,7 +182,7 @@ Você também pode enviar os usuários para o seu site e atualizar o status com 
 Se você usar o rodapé do dashboard em vez de apenas um bloco de conteúdo HTML, o modelo ainda deve conter {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} para salvar. Para usar uma URL de cancelamento de inscrição diferente temporariamente, você pode comentar a tag padrão. Um exemplo é: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
 {% endalert %}
 
-![Página de cancelamento de inscrição personalizada com uma pré-visualização "Sorry to see you go!".]({% image_buster /assets/img/custom_unsubscribe.png %})
+![Página de cancelamento de inscrição personalizada com a pré-visualização "Sorry to see you go!".]({% image_buster /assets/img/custom_unsubscribe.png %})
 
 ### Criando uma página de opt-in personalizada {#creating-a-custom-opt-in-page}
 

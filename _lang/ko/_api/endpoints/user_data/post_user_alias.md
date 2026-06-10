@@ -22,7 +22,7 @@ description: "이 문서에서는 새 사용자 별칭 만들기 Braze 엔드포
 
 **별칭 전용 사용자를 새로 만들려면** 새 사용자 별칭 오브젝트에서 `external_id`를 생략해야 합니다. 사용자가 생성된 후 `/users/track` 엔드포인트를 사용하여 별칭 전용 사용자를 속성, 이벤트 및 구매와 연결하고, `/users/identify` 엔드포인트를 사용하여 `external_id`로 사용자를 식별합니다.
 
-## `alias_label`과 `alias_name`이 이미 존재하는 경우 {#when-the-alias-label-and-name-already-exist}
+## `alias_label`과 `alias_name`이 이미 존재하는 경우 {#when-alias_label-and-alias_name-already-exist}
 
 `alias_label`과 `alias_name`의 조합은 사용자 기반 전체에서 고유해야 합니다. 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)을 참조하세요.
 
@@ -68,7 +68,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/new' \
 --header 'Content-Type: application/json' \
@@ -86,7 +86,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/new' \
 
 ## 응답 {#response}
 
-동일한 `alias_label`과 `alias_name`이 이미 사용자에게 존재하여 별칭이 건너뛰어진 경우에도 응답 본문은 여전히 성공을 나타낼 수 있습니다. 자세한 내용은 [`alias_label`과 `alias_name`이 이미 존재하는 경우](#when-the-alias-label-and-name-already-exist)를 참조하세요.
+동일한 `alias_label`과 `alias_name`이 이미 사용자에게 존재하여 별칭이 건너뛰어진 경우에도 응답 본문은 여전히 성공을 나타낼 수 있습니다. 자세한 내용은 [별칭 라벨과 이름이 이미 존재하는 경우](#when-the-alias-label-and-name-already-exist)를 참조하세요.
 
 ```json
 {

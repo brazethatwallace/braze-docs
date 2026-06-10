@@ -117,6 +117,8 @@ MAU calculations follow specific rules to ensure accurate and consistent billing
 
 {% alert note %}
 Anonymous users also count toward your MAU. For mobile devices, anonymous users are device-dependent. For web users, anonymous users are browser cache-dependent.
+
+MAU counts in Braze can differ from tools such as Amplitude when each product uses a different definition of an active user. Compare configuration in Amplitude (and your Braze MAU rules above) before investigating a discrepancy as a data pipeline issue.
 {% endalert %}
 
 #### MAU calculation example
@@ -143,6 +145,8 @@ MAU snapshots are calculated once per day and never change retroactively. In thi
 
 {% alert note %}
 When you initially integrate Braze, all users will look like new users because Braze has never recorded a session for them before.
+
+Unlike MAU, the *New Users* count can decrease retroactively when Braze merges an anonymous profile into an identified profile and orphans the anonymous profile. Braze removes the orphaned profile from app usage totals, which can lower *New Users* for dates you already viewed. For profile linking behavior, see [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
 {% endalert %}
 
 {% alert important %}
@@ -168,6 +172,10 @@ The MAU value is calculated nightly and won't update until the next day.
 ### Daily sessions
 
 *Daily Sessions* is the number of sessions recorded on a given day. Comparing this value to your DAU count can inform you of how many times your users open the app or visit your website on days where they record at least one session.
+
+{% alert note %}
+*Daily Session Count* for a given date can change when you view the home dashboard on different days. If a user starts a session while offline, the session may not reach Braze until they open the app again. When that session is flushed, Braze attributes it to the date the session started, which can increase the count for that date retroactively.
+{% endalert %}
 
 ### Daily sessions per MAU
 

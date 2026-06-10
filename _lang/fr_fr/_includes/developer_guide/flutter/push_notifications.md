@@ -78,23 +78,23 @@ En raison des limitations de la plateforme sur iOS, le SDK de Braze ne peut trai
 
 Pour obtenir la liste complète des champs de notifications push, reportez-vous au tableau ci-dessous :
 
-| Nom du champ         | Type      | Description |
+| Nom du champ | Type | Description |
 | ------------------ | --------- | ----------- |
-| `payloadType`     | Chaîne de caractères    | Spécifie le type de payload de la notification. Les deux valeurs envoyées par le SDK Braze pour Flutter sont `push_opened` et `push_received`. Seuls les événements `push_opened` sont pris en charge sur iOS. |
-| `url`              | Chaîne de caractères    | Spécifie l'URL qui a été ouverte par la notification. |
-| `useWebview`      | Valeur booléenne   | Si la valeur est `true`, l'URL s'ouvrira dans l'application, dans une fenêtre WebView modale. Si la valeur est `false`, l'URL s'ouvrira dans le navigateur de l'appareil. |
-| `title`            | Chaîne de caractères    | Représente le titre de la notification. |
-| `body`             | Chaîne de caractères    | Représente le corps ou le contenu du texte de la notification. |
-| `summaryText`     | Chaîne de caractères    | Représente le texte résumé de la notification. Celui-ci est mappé à partir de `subtitle` sur iOS. |
-| `badgeCount`      | Nombre   | Représente le nombre de badges de la notification. |
-| `timestamp`        | Nombre | Représente l'heure à laquelle le payload a été reçu par l'application. |
-| `isSilent`        | Valeur booléenne   | Si la valeur est `true`, le payload est reçu en silence. Pour plus de détails sur l'envoi de notifications push silencieuses sur Android, reportez-vous à la section [Notifications push silencieuses sur Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Pour plus de détails sur l'envoi de notifications push silencieuses sur iOS, reportez-vous à la section [Notifications push silencieuses sur iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `isBrazeInternal`| Valeur booléenne   | La valeur sera `true` si un payload de notification a été envoyé pour une fonctionnalité interne du SDK, telle que la synchronisation des indicateurs de fonctionnalités ou le suivi des désinstallations. Le payload est reçu silencieusement par l'utilisateur. |
-| `imageUrl`        | Chaîne de caractères    | Spécifie l'URL associée à l'image de la notification. |
-| `brazeProperties` | Objet    | Représente les propriétés de Braze associées à la campagne (paires clé-valeur). |
-| `ios`              | Objet    | Représente les champs spécifiques à iOS. |
-| `android`          | Objet    | Représente les champs spécifiques à Android. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `payloadType` | Chaîne de caractères | Spécifie le type de payload de la notification. Les deux valeurs envoyées par le SDK Braze pour Flutter sont `push_opened` et `push_received`. Seuls les événements `push_opened` sont pris en charge sur iOS. |
+| `url` | Chaîne de caractères | Spécifie l'URL qui a été ouverte par la notification. |
+| `useWebview` | Valeur booléenne | Si la valeur est `true`, l'URL s'ouvrira dans l'application, dans une fenêtre WebView modale. Si la valeur est `false`, l'URL s'ouvrira dans le navigateur de l'appareil. |
+| `title` | Chaîne de caractères | Représente le titre de la notification. |
+| `body` | Chaîne de caractères | Représente le corps ou le contenu du texte de la notification. |
+| `summaryText` | Chaîne de caractères | Représente le texte résumé de la notification. Celui-ci est mappé à partir de `subtitle` sur iOS. |
+| `badgeCount` | Nombre | Représente le nombre de badges de la notification. |
+| `timestamp` | Nombre | Représente l'heure à laquelle le payload a été reçu par l'application. |
+| `isSilent` | Valeur booléenne | Si la valeur est `true`, le payload est reçu en silence. Pour plus de détails sur l'envoi de notifications push silencieuses sur Android, reportez-vous à la section [Notifications push silencieuses sur Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Pour plus de détails sur l'envoi de notifications push silencieuses sur iOS, reportez-vous à la section [Notifications push silencieuses sur iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
+| `isBrazeInternal` | Valeur booléenne | La valeur sera `true` si un payload de notification a été envoyé pour une fonctionnalité interne du SDK, telle que la synchronisation des indicateurs de fonctionnalités ou le suivi des désinstallations. Le payload est reçu silencieusement par l'utilisateur. |
+| `imageUrl` | Chaîne de caractères | Spécifie l'URL associée à l'image de la notification. |
+| `brazeProperties` | Objet | Représente les propriétés de Braze associées à la campagne (paires clé-valeur). |
+| `ios` | Objet | Représente les champs spécifiques à iOS. |
+| `android` | Objet | Représente les champs spécifiques à Android. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### Étape 3 : Tester l'affichage des notifications push {#step-3-test-displaying-push-notifications}
 

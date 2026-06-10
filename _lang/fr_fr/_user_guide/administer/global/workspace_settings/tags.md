@@ -22,6 +22,10 @@ Pour imbriquer une nouvelle balise, créez une balise, sélectionnez **Nest Tag 
 
 Pour imbriquer une balise existante, accédez à la page **Gestion des balises**, survolez la ligne contenant votre balise et sélectionnez **<i class="fas fa-pencil-alt"></i>Edit**. Ensuite, sélectionnez **Nest Tag Under** et choisissez la balise parente.
 
+### La balise parente est utilisée mais absente de **Nest Tag Under** {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
+
+Lorsqu'une balise parente est appliquée dans le tableau de bord mais n'apparaît pas dans le menu déroulant **Nest Tag Under** lors de la création d'une nouvelle balise, recréez la balise parente en tant que balise autonome afin qu'elle devienne consultable dans la liste. Ce comportement est attendu lorsque la balise parente n'existe que comme dépendance imbriquée ailleurs dans votre espace de travail.
+
 ![La boîte de dialogue de nouvelle balise avec l'option Nest Tag Under sélectionnée.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
 ## Bonnes pratiques {#tags-best-practices}
@@ -37,14 +41,14 @@ table td {
 </style>
 
 
-<table>
+<table aria-label="Bonnes pratiques">
   <caption>Bonnes pratiques</caption>
 <thead>
   <tr>
     <th>Entonnoir</th>
     <th>Objectifs commerciaux</th>
     <th>Régional</th>
-    <th>Campagnes</th>
+    <th>Campaigns</th>
     <th>Vacances</th>
     <th>Transactions</th>
   </tr>

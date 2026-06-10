@@ -21,7 +21,7 @@ La integración de Braze y Amperity ofrece una visión unificada de tus clientes
 - **Crear y enviar audiencias**: Crea segmentos que devuelvan listas de clientes activos y sus atributos personalizados asociados a Braze, y envíalos a Braze.
 - **Gestionar actualizaciones de datos**: Controla la frecuencia de envío de actualizaciones de atributos personalizados a Braze.
 - **Unificar datos**: Unifica datos en varias plataformas compatibles con Amperity y Braze.
-- **Sincronizar datos de Braze con Amazon S3**: Utiliza Braze Currents para integrar los datos de interacción de las campañas de Braze, lo que te permite sincronizar datos con Amazon S3 en formato Apache Avro.
+- **Sincronizar datos de Braze con Amazon S3**: Utiliza Braze Currents para integrar los datos de interacción de las Campaigns de Braze, lo que te permite sincronizar datos con Amazon S3 en formato Apache Avro.
 
 ## Requisitos previos {#prerequisites}
 
@@ -32,7 +32,7 @@ La integración de Braze y Amperity ofrece una visión unificada de tus clientes
 | Instancia de Braze | Tu instancia de Braze puede obtenerse a través de tu administrador de incorporación a Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints). |
 | Punto de conexión REST de Braze | La URL de tu punto de conexión de Braze. Tu punto de conexión dependerá de tu instancia de Braze. |
 | Conector de Currents (opcional) | El conector S3 de Currents. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Mapeado de datos {#data-mapping}
 
@@ -106,13 +106,13 @@ Crea una nueva tabla llamada "Braze Customer Attributes" dentro de tu base de da
 
 #### Paso 2b: Nombrar, validar y guardar la tabla {#step-2b-name-validate-and-save-the-table}
 
-Nombra la tabla "Braze Customer Attributes" y guárdala. Verifica que la tabla sea accesible para el **editor de segmentos** y el editor **Editar atributos** dentro de las campañas.
+Nombra la tabla "Braze Customer Attributes" y guárdala. Verifica que la tabla sea accesible para el **Segment Editor** y el editor **Edit Attributes** dentro de las campañas.
 
 #### Paso 2c: Añadir Braze como destino {#step-2c-add-braze-as-a-destination}
 
-En la plataforma Amperity, ve a la pestaña **Destinos**. Busca la opción de añadir un nuevo destino. Entre las opciones disponibles, selecciona **Braze**.
+En la plataforma Amperity, ve a la pestaña **Destinations**. Busca la opción de añadir un nuevo destino. Entre las opciones disponibles, selecciona **Braze**.
 
-![La sección Nuevo destino con el nombre "Braze API", la descripción "Enviar atributos de audiencia a Braze." y el plugin "Braze".]({% image_buster /assets/img/amperity/destination_name.png %}){: style="max-width:60%;"}
+![La sección Nuevo destino con el nombre "Braze API", la descripción "Send audience attributes to Braze." y el plugin "Braze".]({% image_buster /assets/img/amperity/destination_name.png %}){: style="max-width:60%;"}
 
 #### Paso 2d: Configurar los detalles del destino {#step-2d-configure-destination-details}
 
@@ -124,7 +124,7 @@ En **Braze settings**, proporciona las credenciales de Braze y la configuración
 
 #### Paso 2e: Añadir una plantilla de datos {#step-2e-add-a-data-template}
 
-En la pestaña **Destinos**, abre el menú del destino Braze y selecciona **Add data template**. Introduce un nombre y una descripción para la plantilla (por ejemplo, "Braze" y "Send custom attributes to Braze"), verifica el acceso de los usuarios empresariales y comprueba todos los ajustes de configuración.
+En la pestaña **Destinations**, abre el menú del destino Braze y selecciona **Add data template**. Introduce un nombre y una descripción para la plantilla (por ejemplo, "Braze" y "Send custom attributes to Braze"), verifica el acceso de los usuarios empresariales y comprueba todos los ajustes de configuración.
 
 Si alguna configuración necesaria no se configuró como parte del destino, configúrala como parte de la plantilla de datos. Guarda la plantilla de datos.
 

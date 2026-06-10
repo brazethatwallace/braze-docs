@@ -34,7 +34,7 @@ _Diese Integration wird von Worthy gepflegt._
 | --- | --- |
 | [Worthy](https://worthy.ai/)-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Worthy-Konto. |
 | Braze SDK | Sie müssen das Braze SDK in Ihrer mobilen Anwendung konfigurieren, um reichhaltige In-App-Nachrichten versenden zu können. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -48,6 +48,6 @@ Erstellen Sie eine [In-App-Nachricht-Campaign]({{site.baseurl}}/user_guide/chann
 
 ### 3. Schritt: Kopieren Sie Ihre personalisierte Nachricht in Braze {#step-3-copy-your-personalized-message-into-braze}
 
-Klicken Sie im Worthy Message Creator auf **Export** und wählen Sie **Braze**, um Ihre personalisierte Nachricht zur Verwendung in Braze-Campaigns zu exportieren. Kopieren Sie den exportierten Inhalt in das HTML-Textfeld unter **HTML + Asset Zip** im Campaign-Editor von Braze.
+Klicken Sie im Worthy Message Creator auf **Exportieren** und wählen Sie **Braze**, um Ihre personalisierte Nachricht zur Verwendung in Braze-Campaigns zu exportieren. Kopieren Sie den exportierten Inhalt in das HTML-Textfeld unter **HTML + Asset Zip** im Campaign-Editor von Braze.
 
 Das war's! Sie können Ihre personalisierte Nachricht sofort testen, indem Sie den Tab **Test** im Campaign-Editor von Braze verwenden.

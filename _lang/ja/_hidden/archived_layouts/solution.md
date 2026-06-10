@@ -8,9 +8,9 @@ page_type: reference
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location
@@ -46,7 +46,7 @@ noindex: true
 > <br>
 > [オプション2:他のことをする](#option-two)
 
-## オプション 1: これをする{#option-one}
+## オプション 1: これをする {#option-one}
 
 ここでは、何かを行う方法を説明します。
 

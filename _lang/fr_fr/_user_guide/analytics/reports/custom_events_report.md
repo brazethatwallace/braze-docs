@@ -27,7 +27,7 @@ Utilisez les options suivantes pour personnaliser les données affichées dans l
 | **Breakdown custom events by** | Contrôle la façon dont la série temporelle de l'événement personnalisé sélectionné est regroupée. Par défaut, le graphique affiche la tendance agrégée globale par date. Passez à **Custom Events by Hour** pour voir les tendances intrajournalières, ou à **Custom Events per MAU** pour normaliser le volume d'événements par rapport à votre nombre de MAU. |
 | **Filter by Segments** | Activez cette option pour ventiler le nombre d'événements par un ou plusieurs segments. Lorsqu'elle est activée, sélectionnez les segments que vous souhaitez comparer. Le graphique affiche le nombre d'utilisateurs dans chaque segment ayant effectué l'événement personnalisé. |
 | **KPI formula** | Remplace le nombre brut d'événements par un indicateur calculé à partir d'un numérateur (tel qu'un nombre d'événements personnalisés) et d'un dénominateur (tel que le nombre d'utilisateurs actifs quotidiens, de MAU ou la taille d'un segment activé pour l'analytique). Lorsque vous sélectionnez une ou plusieurs formules, le graphique trace la valeur de chaque formule sur la période sélectionnée afin de comparer les performances normalisées (par exemple, « événements par utilisateur actif ») plutôt que le volume total d'événements. Si aucune donnée n'est disponible pour la période et les formules sélectionnées, Braze affiche un message « no data » — élargissez la période ou choisissez d'autres formules. Sélectionnez **Manage KPI formulas** pour créer ou modifier des formules. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer votre rapport" }
 
 ## Exporter les données {#exporting-data}
 

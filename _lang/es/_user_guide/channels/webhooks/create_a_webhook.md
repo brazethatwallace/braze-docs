@@ -97,7 +97,7 @@ El método HTTP que debes usar varía según el punto de conexión al que estés
 | GET | Recupera información existente, a diferencia de escribir nueva información. Por definición, una solicitud GET no admite un cuerpo de solicitud. |
 | PUT | Actualiza información en el punto de conexión, reemplazando cualquier información existente con lo que está en el cuerpo de la solicitud. |
 | DELETE | Elimina el recurso en la URL HTTP. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
 
 #### Cuerpo de la solicitud {#request-body}
 
@@ -176,7 +176,7 @@ A continuación, construye el resto de tu campaña. Consulta las siguientes secc
 
 Los webhooks pueden entregarse según un horario planificado, una acción o un desencadenante de API. Para más información, consulta [Planificar tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 En este paso también puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para recibir la campaña, o habilitar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
@@ -230,7 +230,7 @@ Cuando se envía la solicitud del webhook, el servidor receptor devolverá un c�
 | `429` (límite de velocidad)  | No | Sí |
 | `Otros 4XX` (error del cliente)  | No | No |
 | `5XX` (error del servidor)   | No | Sí |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
 Braze reintenta los códigos de estado anteriores hasta cinco veces en 30 minutos usando retirada exponencial. Si no podemos alcanzar tu punto de conexión, los reintentos pueden distribuirse a lo largo de un período de 24 horas.<br><br>Cada webhook tiene un tiempo de espera de 90 segundos antes de que se agote.
@@ -248,7 +248,7 @@ Braze no proporciona un informe integrado que liste cada campaña o paso de Canv
 
 #### Solución de problemas y detalles adicionales de errores {#troubleshooting-and-additional-error-details}
 
-Para explicaciones detalladas, pasos de solución de problemas y orientación sobre cómo resolver errores específicos de webhook, consulta [Solución de problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/). También encontrarás más explicaciones sobre cómo funciona nuestro sistema de detección de hosts no saludables y cómo Braze proporciona notificaciones de errores a través de correos electrónicos automatizados y registro adicional en Braze Currents.
+Para explicaciones detalladas, pasos de solución de problemas y orientación sobre cómo resolver errores específicos de webhook, consulta [Solución de problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/). También encontrarás más explicaciones sobre cómo funciona nuestro sistema de detección de hosts no saludables y cómo Braze proporciona notificaciones de errores a través de correos electrónicos automatizados y registro adicional en Braze Currents.
 
 ### Lista de IPs permitidas {#ip-allowlisting}
 

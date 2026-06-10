@@ -46,7 +46,9 @@ Consultez les informations ci-dessous pour connaître les limites de débit par 
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/)                                                                                                                                                                                                                              | 50 requêtes par minute.                                                                                                                                                                                                                                                                                                                                                                   |
 | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/)                                                                                                                                                                                                        | 20 requêtes par minute.                                                                                                                                                                                                                                                                                                                                                                   |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/)                                                                                                                                                                                             | 100 requêtes par minute.                                                                                                                                                                                                                                                                                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 100 requêtes par heure. |
+| [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 100 requêtes par heure. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
 
 ### Requêtes avec limites de débit partagées {#requests-with-shared-rate-limits}
 
@@ -126,7 +128,7 @@ Chaque combinaison unique de ces attributs est considérée comme une audience d
 Les API de Braze sont conçues pour prendre en charge le traitement par lot. Grâce à cette fonctionnalité, Braze peut ingérer un maximum de données en un seul appel API, ce qui vous évite de multiplier les appels. Il est bien plus efficace pour Braze de traiter les données par lots que de les traiter appel par appel. Par exemple, la gestion de 1 000 appels API par lots nécessite moins de ressources que la gestion de 75 000 appels individuels. Le traitement par lot est essentiel pour toute application susceptible de nécessiter plus de 75 000 appels par heure.
 
 {% alert note %}
-Des augmentations de la limite de débit de l'API REST peuvent être envisagées en fonction des besoins des clients qui utilisent les capacités de traitement par lot de l'API.
+Des augmentations de la limite de débit de la REST API peuvent être envisagées en fonction des besoins des clients qui utilisent les capacités de traitement par lot de l'API.
 {% endalert %}
 
 ### Mise en lot des requêtes pour l'endpoint de suivi des utilisateurs {#batch-user-track}
@@ -184,9 +186,9 @@ Chaque requête API envoyée à Braze renvoie les informations suivantes dans le
 | Nom de l'en-tête | Description |
 | ----------------------- | ------------------------------------------------------------------------------------------- |
 | `X-RateLimit-Limit`     | Le nombre maximum de requêtes que vous pouvez effectuer dans un intervalle donné (votre limite de débit). |
-| `X-RateLimit-Remaining` | Le nombre de requêtes restantes dans la fenêtre de limite de débit en cours.                          |
-| `X-RateLimit-Reset`     | L'heure de réinitialisation de la fenêtre de limite de débit en cours, exprimée en secondes epoch UTC.                |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `X-RateLimit-Remaining` | Le nombre de requêtes restantes dans la fenêtre de limite de débit en cours. |
+| `X-RateLimit-Reset`     | L'heure de réinitialisation de la fenêtre de limite de débit en cours, exprimée en secondes epoch UTC. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Monitoring your rate limits" }
 
 Ces informations sont volontairement incluses dans l'en-tête de la réponse API plutôt que dans le tableau de bord de Braze. Votre système peut ainsi réagir en temps réel lors de ses interactions avec notre API. Par exemple, si la valeur de `X-RateLimit-Remaining` passe en dessous d'un certain seuil, vous pouvez ralentir les envois pour vous assurer que tous les e-mails transactionnels sont bien transmis. Si elle atteint zéro, vous pouvez suspendre tous les envois jusqu'à ce que le délai indiqué dans `X-RateLimit-Reset` soit écoulé.
 

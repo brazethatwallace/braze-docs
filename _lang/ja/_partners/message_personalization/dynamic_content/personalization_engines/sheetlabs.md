@@ -21,7 +21,7 @@ SheetlabsとBrazeの統合により、[コネクテッドコンテンツ]({{site
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Sheetlabsアカウント | このパートナーシップを活用するには、[Sheetlabsアカウント](https://sheetlabs.com/)が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -37,7 +37,7 @@ BrazeとSheetlabsの統合により、以下のユースケースを実現でき
 
 ### ステップ 1: スプレッドシートをSheetlabsにインポートする {#step-1-import-your-spreadsheet-into-sheetlabs}
 
-Sheetlabsで、Excelスプレッドシートをアップロードするか、GoogleアカウントをリンクしてGoogle Sheetをインポートします。
+Sheetlabsで、Excelスプレッドシートをアップロードするか、Googleアカウントをリンクして Google Sheetをインポートします。
 
 - Excelスプレッドシートをインポートするには、メニューバーの**Data Tables**をクリックし、次に**Import from CSV/Excel**をクリックします。
 - Google Sheetsからインポートするには、メニューバーの**Data Tables**をクリックし、次に**Import from Google**をクリックします。その後、Googleログイン認証情報を入力してシートをインポートする必要があります。

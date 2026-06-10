@@ -14,7 +14,7 @@ page_order: 2
 
 Puedes utilizar agentes como pasos en un recorrido para personalizar mensajes u orientar la toma de decisiones en tiempo real. Para obtener información detallada sobre los pasos de configuración, consulta el [paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
-### Casos de uso {#canvas-use-cases}
+### Casos de uso {#use-cases}
 
 | Caso de uso | Descripción |
 | --- | --- |
@@ -24,13 +24,13 @@ Puedes utilizar agentes como pasos en un recorrido para personalizar mensajes u 
 | Enrutamiento inteligente | Utiliza los resultados del agente (booleanos o numéricos) para dividir a los usuarios en diferentes rutas de Canvas. Por ejemplo, clasifica a los usuarios como «en riesgo» o «sanos» y ajusta la frecuencia de la mensajería en consecuencia. |
 | Interpretación de cuestionarios o respuestas | Deja que un agente analice las respuestas abiertas de los cuestionarios o los campos de texto libre, y devuelva valores estructurados (por ejemplo, categorizando la intención o la necesidad) que impulsen las rutas posteriores. |
 | Razonamiento en varios pasos | Configura un agente para combinar campos de contexto y tomar decisiones complejas, como recomendar la siguiente mejor acción (correo electrónico, SMS o contacto humano) en función de múltiples atributos del usuario. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Agentes en catálogos {#agents-in-catalogs}
 
 Puedes aplicar un agente a los campos del catálogo para que genere o calcule automáticamente los valores de cada fila. El agente también se ejecutará en las nuevas filas que se añadan al catálogo en el futuro.
 
-### Casos de uso {#catalog-use-cases}
+### Casos de uso
 
 | Caso de uso | Descripción |
 | --- | --- |
@@ -38,9 +38,9 @@ Puedes aplicar un agente a los campos del catálogo para que genere o calcule au
 | Enriquecer atributos del producto | Rellena los valores que falten, como la familia de colores, el estilo o la temporada, basándote en el nombre y los detalles del producto. Por ejemplo, si el nombre de un producto es «Gafas de sol polarizadas Laguna», el agente podría asignar el estilo como «deportivo» y la familia de colores como «azul». |
 | Calcular campos derivados | Utiliza los campos existentes para generar nuevos datos, como una «puntuación de adecuación» basada en atributos o una «etiqueta de popularidad» a partir de las ventas y el número de reseñas. |
 | Clasificar o etiquetar elementos | Asigna etiquetas para la lógica de recomendación, de modo que los modelos de personalización puedan segmentar productos de forma más eficaz. Por ejemplo, etiqueta los productos como «para exterior», «para festivales» o «premium». |
-| Localizar contenido | Traduce el texto del catálogo a otro idioma para Campaigns globales o ajusta el tono y la longitud para canales específicos de cada región. Por ejemplo, traduce «Classic Clubmaster Sunglasses» al español como «Gafas de sol Classic Clubmaster» o acorta las descripciones para las Campaigns de SMS. |
+| Localizar contenido | Traduce el texto del catálogo a otro idioma para campañas globales o ajusta el tono y la longitud para canales específicos de cada región. Por ejemplo, traduce «Classic Clubmaster Sunglasses» al español como «Gafas de sol Classic Clubmaster» o acorta las descripciones para las campañas de SMS. |
 | Resumir reseñas o comentarios | Resume las opiniones o comentarios en un nuevo campo, por ejemplo, asignando puntuaciones de sentimiento como Positivo, Neutro o Negativo, o creando un breve resumen de texto como «La mayoría de los clientes mencionan que el producto se ajusta muy bien, pero señalan que el envío es lento». |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ### Pasos {#steps}
 
@@ -82,7 +82,7 @@ Supongamos que tienes un agente que añade descripciones de productos a un catá
 | --- | --- |
 | **description** | Texto |
 | **confidence_score_out_of_ten** | Número |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definir campos de respuesta" }
 
 Puedes añadir un campo llamado **product_description** a un catálogo y seleccionar **description** como **Response Field** para rellenar la columna con las descripciones del agente.
 
@@ -92,8 +92,8 @@ También puedes anular manualmente la celda generada por el agente seleccionando
 
 ### Gestión de errores en catálogos {#error-handling-in-catalogs}
 
-- Las invocaciones de catálogo fallidas no se reintentan.
-- Si la llamada a la API del proveedor del modelo fundacional devuelve algún error, como un error de clave de API no válida o un error de límite de velocidad, el valor del campo no se actualiza.
+- Las invocaciones de catálogo fallidas no se reintentan, incluidos los [errores de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) del proveedor del LLM.
+- Si la llamada a la API del proveedor del modelo fundacional devuelve algún otro error, como un error de clave de API no válida, el valor del campo no se actualiza.
 - Puedes revisar los registros del agente para obtener detalles sobre las ejecuciones fallidas.
 
 ## Supervisa tu agente {#monitor-your-agent}

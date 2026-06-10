@@ -84,7 +84,7 @@ Par défaut, pour que votre utilisateur reçoive vos messages par notification p
 | Abonné | État d'abonnement aux notifications push par défaut lorsqu'un profil utilisateur est créé dans Braze. |
 | Inscrit | Un utilisateur a explicitement exprimé une préférence pour recevoir des notifications push. Braze déplace automatiquement l'état d'inscription d'un utilisateur vers `Opted-In` si celui-ci accepte une invite de notification push au niveau du système d'exploitation.<br><br>Ceci ne s'applique pas aux utilisateurs sur Android 12 ou antérieur. |
 | Désabonné | Un utilisateur s'est explicitement désabonné des notifications push via votre application ou d'autres méthodes fournies par votre marque. Par défaut, les Campaigns de notification push de Braze ciblent uniquement les utilisateurs qui sont `Subscribed` ou `Opted-in` pour les notifications push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quelle est la différence entre les statuts d'abonnement aux notifications push ?" }
 
 {% endapi %}
 {% api %}
@@ -393,7 +393,7 @@ Ce comportement d'évaluation est distinct de [la planification anticipée de la
 Campaigns
 {% endapitags %}
 
-Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf en cas d'utilisation d'un [déclencheur de changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Les utilisateurs seront alors exclus de la campagne s'ils ne font pas initialement partie de l'audience sélectionnée, avant l'évaluation des actions de déclenchement.
+Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf en cas d'utilisation d'un [déclencheur de changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Les utilisateurs seront alors exclus de la campagne s'ils ne font pas initialement partie de l'audience sélectionnée, avant l'évaluation des actions de déclenchement.
 
 {% endapi %}
 {% api %}
@@ -517,7 +517,7 @@ Le segmenteur fournit une statistique plus précise pour les données d'utilisat
 Canvases
 {% endapitags %}
 
-Le nombre d'utilisateurs entrant dans un Canvas peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf en cas d'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Les utilisateurs seront alors exclus du Canvas s'ils ne font pas partie de l'audience sélectionnée, avant l'évaluation des actions de déclenchement.
+Le nombre d'utilisateurs entrant dans un Canvas peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf en cas d'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Les utilisateurs seront alors exclus du Canvas s'ils ne font pas partie de l'audience sélectionnée, avant l'évaluation des actions de déclenchement.
 
 {% endapi %}
 {% api %}
@@ -571,7 +571,7 @@ Pour planifier un rapport d'engagement récurrent, procédez comme suit :
 
 1. Dans votre tableau de bord, accédez à **Engagement Reports**, sous **Data**.
 2. Cliquez sur **+ Create New Report**.
-3. Ajoutez les [Campaigns et messages Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individuellement ou [par tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) que vous souhaitez compiler dans votre rapport.
+3. Ajoutez les [Campaigns et messages Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individuellement ou [par tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)) que vous souhaitez compiler dans votre rapport.
 4. [Ajoutez des statistiques]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) à votre rapport.
 5. Sélectionnez la compression et le délimiteur pour votre rapport.
 6. Saisissez les adresses e-mail des utilisateurs de l'entreprise qui doivent recevoir ce rapport.

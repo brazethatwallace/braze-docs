@@ -46,7 +46,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `name`           | Obrigatória | String    | O nome da seleção de catálogo. |
 | `description`    | Opcional | String    | Uma descrição da seleção de catálogo. |
 | `external_id`    | Obrigatória | String    | Um identificador único para a seleção. |
-| `source`         | Opcional | String    | A origem dos dados do catálogo. Para catálogos do Shopify, use `"Shopify"`. Os valores aceitos são `"Shopify"` e `"Braze"`. |
+| `source`         | Obrigatória | String    | A origem dos dados do catálogo. Para catálogos do Shopify, use `"Shopify"`. Para catálogos personalizados, use `"custom"`. |
 | `filters`        | Opcional | Array    | Um array de objetos de filtro a serem aplicados aos itens do catálogo. Você pode especificar até quatro filtros por solicitação. Se nenhum filtro for fornecido, todos os itens do catálogo são incluídos. |
 | `results_limit`  | Opcional | Inteiro   | O número máximo de resultados a retornar. Deve ser um número entre 1 e 50. |
 | `sort_field`     | Opcional | String    | O campo para ordenar os resultados. Deve ser usado em conjunto com `sort_order`. Se `sort_field` e `sort_order` não estiverem presentes, os resultados são randomizados. |
@@ -68,6 +68,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     "name": "favorite-restaurants",
     "description": "Favorite restaurants in NYC",
     "external_id": "favorite-nyc-restaurants",
+    "source": "custom",
     "filters": [
       {
         "field": "City",
@@ -96,10 +97,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `boolean`  | `is`                                                    |
 | `time`     | `before`, `after`                                       |
 | `array`    | `includes value`, `does not include value`              |
+| `geo`      | `geo within`, `geo outside`                             |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
 A API suporta um máximo de quatro filtros por solicitação de seleção. No dashboard da Braze, você pode adicionar até 10 filtros por seleção. Os filtros são aplicados na ordem em que aparecem no array.
+{% endalert %}
+
+{% alert note %}
+Quando você aplica um filtro `geo`, o sistema ordena automaticamente os resultados por distância, com o item mais próximo primeiro, independentemente dos parâmetros `sort_field` e `sort_order`.
 {% endalert %}
 
 ## Resposta {#response}

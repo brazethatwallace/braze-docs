@@ -29,7 +29,7 @@ Des questions ? Contactez JustAI via leur [page de réservation](https://www.get
 | Condition | Description |
 |---|---|
 | Compte JustAI | Un compte [JustAI](https://www.getjust.ai/) est requis pour bénéficier de ce partenariat. Si vous n'avez pas de compte JustAI, [planifiez un appel d'onboarding de 30 minutes](https://www.getjust.ai/book-demo). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de JustAI avec Braze {#integrating-justai-with-braze}
 
@@ -58,7 +58,7 @@ JustAI fonctionne avec les Canvas et les Campaigns grâce au Contenu connecté. 
 {% tabs %}
 {% tab Canvas %}
 
-1. Dans un Canvas, sélectionnez **Add Variant** > **Add Variant** jusqu'à obtenir le nombre de variantes souhaité, puis ajoutez des étapes à chaque variante (comme une étape de message e-mail).
+1. Dans un Canvas, sélectionnez **Ajouter une variante** > **Ajouter une variante** jusqu'à obtenir le nombre de variantes souhaité, puis ajoutez des étapes à chaque variante (comme une étape de message e-mail).
 2. Répartissez le trafic d'audience comme souhaité. Par exemple, si vous avez deux variantes, vous pouvez attribuer 50 % à chacune. Ou bien, vous pouvez avoir deux variantes à 40 % chacune et un groupe de contrôle à 20 %. Pour en savoir plus sur les tests A/B pour les Canvas, consultez [Créer un Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/).
 3. Dans les compositeurs des étapes de message que vous souhaitez utiliser avec le Contenu connecté, collez l'extrait de code de Contenu connecté depuis la console JustAI, comme l'extrait suivant.
 
@@ -137,7 +137,7 @@ Assurez-vous de prévisualiser l'e-mail dans Braze pour confirmer que le contenu
 
 Braze Currents permet le suivi des performances et l'optimisation au fil du temps.
 
-1. Dans Braze, accédez à **Partner Integrations** > **Data Export**.
+1. Dans Braze, accédez à **Intégrations partenaires** > **Exportation de données**.
 2. Sélectionnez **Create New Test Current**, puis sélectionnez **Test Amazon S3 Data Export**.
 
 ![Menu déroulant « Create New Test Current » avec l'option « Test Amazon S3 Data Export ».]({% image_buster /assets/img/just_words/test_amazon_s3.png %}){: style="max-width:80%;"}

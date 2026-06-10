@@ -7,11 +7,11 @@ description: "이 문서에서는 커스텀 이벤트 및 속성정보, 세분�
 search_rank: 2
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}커스텀 이벤트 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}커스텀 이벤트 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
 > 이 문서에서는 커스텀 이벤트 및 속성정보, 관련 세분화 필터, Canvas 진입 속성정보, 관련 분석 등에 대해 설명합니다. Braze 이벤트에 대해 전반적으로 알아보려면 [이벤트]({{site.baseurl}}/user_guide/data/activation/events/)를 참조하세요.
 
-커스텀 이벤트는 사용자가 수행한 동작 또는 사용자에 대한 업데이트입니다. 커스텀 이벤트가 기록되면 원하는 수와 유형의 후속 캠페인을 트리거할 수 있습니다. 그런 다음 [세분화 필터](#segmentation-filters)를 사용하여 해당 커스텀 이벤트가 발생한 최근성 및 빈도에 따라 사용자를 세분화할 수 있습니다. 따라서 커스텀 이벤트는 애플리케이션 내에서 가치가 높은 사용자 상호작용을 추적하는 데 가장 적합합니다.
+커스텀 이벤트는 사용자가 수행한 동작 또는 사용자에 대한 업데이트입니다. 커스텀 이벤트가 기록되면 원하는 수와 유형의 후속 Campaign을 트리거할 수 있습니다. 그런 다음 [세분화 필터](#segmentation-filters)를 사용하여 해당 커스텀 이벤트가 발생한 최근성 및 빈도에 따라 사용자를 세분화할 수 있습니다. 따라서 커스텀 이벤트는 애플리케이션 내에서 가치가 높은 사용자 상호작용을 추적하는 데 가장 적합합니다.
 
 ## 활용 사례 {#use-cases}
 
@@ -45,10 +45,6 @@ search_rank: 2
 
 커스텀 데이터 차단 및 삭제에 대한 자세한 내용은 [커스텀 데이터 차단 목록]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)을 참조하세요.
 
-### 개인 식별 정보(PII)로 표시 {#marking-as-personally-identifiable-information-pii}
-
-관리자는 이 페이지에서 커스텀 이벤트를 생성하고 PII로 표시할 수도 있습니다. 이러한 이벤트는 관리자와 "PII로 표시된 커스텀 속성 보기" 권한이 있는 대시보드 사용자에게만 표시됩니다.
-
 ### 설명 추가 {#adding-descriptions}
 
 `Manage Events, Attributes, Purchases` [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 있는 경우 커스텀 이벤트가 생성된 후 설명을 추가할 수 있습니다. 커스텀 이벤트의 **설명 편집**을 선택하고 팀을 위한 메모 등 원하는 내용을 입력하세요.
@@ -61,6 +57,10 @@ search_rank: 2
 
 커스텀 이벤트 목록을 CSV 파일로 내보내려면 페이지 상단에서 **모두 내보내기**를 선택합니다. CSV 파일이 생성되고 다운로드 링크가 이메일로 전송됩니다.
 
+{% alert note %}
+대시보드에서 정의하거나 프로필에 저장할 수 있는 고유한 **커스텀 이벤트** 또는 **커스텀 속성**의 수에 대한 고정된 상한은 없습니다. 실질적인 제한은 데이터 형태, 수집 볼륨 및 워크스페이스 성능에 따라 달라집니다. 매우 많은 수의 이벤트 또는 속성을 추적할 계획이라면 Braze 계정 팀과 모델링 및 데이터 관리(예: 사용하지 않는 데이터 [차단 목록 추가]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/))에 대해 상의하세요.
+{% endalert %}
+
 ## 사용 보고서 보기 {#viewing-usage-reports}
 
 사용 보고서에는 특정 커스텀 이벤트를 사용하는 모든 Canvases, Campaigns 및 Segments가 나열됩니다. 이 목록에는 Liquid 사용은 포함되지 않습니다.
@@ -69,7 +69,7 @@ search_rank: 2
 
 ## 커스텀 이벤트 기록 {#logging-custom-events}
 
-커스텀 이벤트는 추가 설정이 필요합니다. 아래 목록에서 각 플랫폼별 설명서를 참조하세요. 커스텀 이벤트를 기록하는 데 사용되는 메서드와 커스텀 이벤트에 등록정보 및 수량을 추가하는 방법에 대한 정보를 확인할 수 있습니다.
+커스텀 이벤트는 추가 설정이 필요합니다. 아래 목록에서 각 플랫폼별 설명서를 참조하세요. 커스텀 이벤트를 기록하는 데 사용되는 메서드와 커스텀 이벤트에 속성정보 및 수량을 추가하는 방법에 대한 정보를 확인할 수 있습니다.
 
 {% details 플랫폼별 설명서 펼치기 %}
 
@@ -103,11 +103,11 @@ search_rank: 2
 | 커스텀 이벤트가 **X회(최대 = 50) 초과** 발생했는지 확인 | **초과** | 지난 **Y일 (Y = 1,3,7,14,21,30)** |
 | 커스텀 이벤트가 **X회(최대 = 50) 미만** 발생했는지 확인 | **미만** | 지난 **Y일 (Y = 1,3,7,14,21,30)** |
 | 커스텀 이벤트가 **정확히 X회(최대 = 50)** 발생했는지 확인 | **정확히** | 지난 **Y일 (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="세분화 필터" }
 
 ## 분석 {#analytics}
 
-Braze는 커스텀 이벤트가 발생한 횟수와 각 사용자가 마지막으로 수행한 시점을 세분화를 위해 기록합니다. **분석** > **커스텀 이벤트 보고서**로 이동하여 이러한 분석을 확인할 수 있습니다.
+Braze는 커스텀 이벤트가 발생한 횟수와 각 사용자가 마지막으로 수행한 시점을 세분화를 위해 기록합니다. **Analytics** > **커스텀 이벤트 보고서**로 이동하여 이러한 분석을 확인할 수 있습니다.
 
 대시보드의 **커스텀 이벤트 보고서** 페이지에서 각 커스텀 이벤트가 발생한 빈도를 집계로 확인할 수 있습니다. 시계열 위에 겹쳐진 회색 선은 마지막으로 Campaign이 전송된 시점을 나타내며, Campaign이 커스텀 이벤트 활동에 어떤 영향을 미쳤는지 확인하는 데 유용합니다.
 

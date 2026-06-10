@@ -31,7 +31,7 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen ode
 | --- | --- | --- |
 | LinkedIn-Anzeigenkonto | [LinkedIn](https://www.linkedin.com/campaignmanager) | Ein aktives LinkedIn-Anzeigenkonto, das mit Ihrer Marke verknüpft ist.<br><br>Vergewissern Sie sich, dass Sie alle relevanten LinkedIn-Bedingungen für den Zugriff und die Nutzung dieses Kontos akzeptiert haben und dass Ihr LinkedIn-Administrator Ihnen die entsprechenden Berechtigungen zur Verwaltung von Zielgruppen erteilt hat. |
 | LinkedIn-Bedingungen und -Richtlinien | LinkedIn | Sie erklären sich damit einverstanden, alle von LinkedIn geforderten Bedingungen, Richtlinien, Leitlinien und Dokumentationen in Bezug auf Ihre Nutzung von LinkedIn Audience Sync einzuhalten, einschließlich aller darin durch Verweis einbezogenen Bedingungen, Richtlinien, Leitlinien und Dokumentationen, zu denen auch die folgenden von LinkedIn gehören können: Nutzungsbedingungen, Anzeigenvereinbarung, Datenverarbeitungsvereinbarung und Richtlinien der Professional Community. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -45,7 +45,7 @@ Gehen Sie im Braze-Dashboard zu **Technologie-Partner** und wählen Sie **Linked
 
 ![Die LinkedIn-Technologieseite in Braze enthält einen Übersichtsbereich und einen Bereich „LinkedIn Audience Sync“ mit dem Button „Connected LinkedIn“.]({% image_buster /assets/img/linkedin/linkedin3.png %}){: style="max-width:75%;"}
 
-Sie werden dann auf die LinkedIn-OAuth-Seite weitergeleitet, um Braze für die Berechtigungen im Zusammenhang mit Ihrer Audience Sync-Integration zu autorisieren. Nachdem Sie **Confirm** gewählt haben, werden Sie zurück zu Braze geleitet, um auszuwählen, mit welchen LinkedIn-Anzeigenkonten Sie synchronisieren möchten.
+Sie werden dann auf die LinkedIn-OAuth-Seite weitergeleitet, um Braze für die Berechtigungen im Zusammenhang mit Ihrer Audience Sync-Integration zu autorisieren. Nachdem Sie **Bestätigen** gewählt haben, werden Sie zurück zu Braze geleitet, um auszuwählen, mit welchen LinkedIn-Anzeigenkonten Sie synchronisieren möchten.
 
 ![„Braze Self Service“ ist als das zu verbindende Anzeigenkonto ausgewählt.]({% image_buster /assets/img/linkedin/linkedin7.png %}){: style="max-width:75%;"}
 
@@ -86,7 +86,7 @@ Wählen Sie dann das gewünschte LinkedIn-Anzeigenkonto aus. Geben Sie in der Dr
 ![Audience Sync mit LinkedIn, wobei Braze als Anzeigenkonto ausgewählt ist.]({% image_buster /assets/img/linkedin/linkedin20.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Eine neue Zielgruppe erstellen %}
 
 **Eine neue Zielgruppe erstellen**<br>
 Geben Sie einen Namen für die neue Zielgruppe ein, wählen Sie **Add Users to Audience** und wählen Sie aus, welche Felder Sie mit LinkedIn synchronisieren möchten. Für diese Integration unterstützen wir derzeit Folgendes:
@@ -105,7 +105,7 @@ Braze zeigt am oberen Rand des Schritteditors eine Benachrichtigung an, wenn die
 Wenn Sie ein Canvas mit einer neuen Zielgruppe starten, synchronisiert Braze die Nutzer:innen nahezu in Realtime, sobald sie die Audience Sync-Komponente betreten.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Mit einer bestehenden Zielgruppe synchronisieren %}
 
 **Mit einer bestehenden Zielgruppe synchronisieren**<br>
 Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden LinkedIn-Zielgruppen hinzuzufügen, um sicherzustellen, dass diese Zielgruppen aktuell sind. Um mit einer bestehenden Zielgruppe zu synchronisieren, geben Sie den Namen der bestehenden Zielgruppe in das Dropdown-Menü ein und wählen Sie **Add to the Audience**. Braze fügt dann Nutzer:innen nahezu in Realtime hinzu, sobald sie die Audience Sync-Komponente betreten.
@@ -142,7 +142,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit LinkedIn verarbeitet werden. |
 | Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit LinkedIn synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges LinkedIn-Token oder eine auf LinkedIn gelöschte Zielgruppe sein. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies geschieht, wenn der letzte Schritt in einem Canvas eine Audience Sync-Komponente ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
 {% alert important %}
 Denken Sie daran, dass es bei den Metriken „Nutzer:innen synchronisiert“ und „Fehlerhafte Nutzer:innen“ aufgrund des Bulk-Flush und der 13-stündigen Wiederholung zu einer Verzögerung bei der Berichterstattung kommt.
@@ -184,4 +184,4 @@ Derzeit gibt es keine Begrenzung für die Anzahl der Zielgruppen in Ihrem Linked
 
 ### Warum bleibt ein Segment im Status BUILDING stecken und wird nicht aktualisiert? {#why-is-a-segment-stuck-in-building-status-and-not-updated}
 
-Ein Segment gilt als ungenutzt und wird auf ARCHIVED gesetzt, wenn es 30 Tage lang nicht kontinuierlich in einer Entwurfs- oder aktiven Campaign verwendet wurde. Aus diesem Grund kann es vorkommen, dass ein Segment im Status BUILDING „feststeckt“, wenn Updates zu einem ARCHIVIERTEN Segment gestreamt werden, wodurch es in den Status BUILDING versetzt wird, und kurz bevor es wieder archiviert wird, neue Updates zu dem ungenutzten Segment gestreamt werden.
+Ein Segment gilt als ungenutzt und wird auf ARCHIVED gesetzt, wenn es 30 Tage lang nicht kontinuierlich in einer Entwurfs- oder aktiven Campaign verwendet wurde. Aus diesem Grund kann es vorkommen, dass ein Segment im Status BUILDING „feststeckt“, wenn Updates zu einem archivierten Segment gestreamt werden, wodurch es in den Status BUILDING versetzt wird, und kurz bevor es wieder archiviert wird, neue Updates zu dem ungenutzten Segment gestreamt werden.

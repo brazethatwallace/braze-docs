@@ -178,7 +178,7 @@ Os usuários no seu grupo de controle global são impedidos de receber quaisquer
 Resumindo, os usuários no grupo de controle global são filtrados do público da Campaign ou Canvas antes da entrada. Dos usuários que entram na Campaign ou Canvas, uma porcentagem deles é então atribuída à variante de controle.
 {% endalert %}
 
-#### Segmentos do grupo de controle global no console de desenvolvedor {#global-control-group-segments-on-the-developer-console}
+#### Segments do grupo de controle global no console de desenvolvedor {#global-control-group-segments-on-the-developer-console}
 
 Você pode ver vários segmentos de **Global Control** na seção **Additional API Identifiers** da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Isso ocorre porque cada vez que o grupo de controle global é ativado ou desativado, um novo grupo de controle global é formado. Isso resulta em vários segmentos rotulados como "Global Control Group".
 

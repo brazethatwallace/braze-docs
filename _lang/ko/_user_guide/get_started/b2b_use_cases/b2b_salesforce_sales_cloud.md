@@ -41,7 +41,7 @@ Salesforce 고객지원에서 Salesforce Sales Cloud에서 연결된 앱을 만�
 
 고객 참여 플랫폼인 Braze는 랜딩 페이지에서 양식을 작성하는 등의 사용자 흐름을 기반으로 새로운 리드를 생성할 수 있습니다. 이 경우 Braze Salesforce Sales Cloud 웹훅을 사용하여 Salesforce에서 해당 리드를 생성할 수 있습니다.
 
-### 1단계: `client_id` 및 `client_secret` 수집하기 {#step-1-collect-your-clientid-and-clientsecret}
+### 1단계: `client_id` 및 `client_secret` 수집하기 {#step-1-collect-your-client_id-and-client_secret}
 
 1. Salesforce에서 **Platform Tools** > **Apps** > **App Manager**로 이동합니다.
 2. 새로 생성한 Braze 앱을 찾아 **View**를 선택합니다.
@@ -52,9 +52,9 @@ Salesforce 고객지원에서 Salesforce Sales Cloud에서 연결된 앱을 만�
 
 템플릿을 사용하면 Braze 플랫폼 전반에서 이 웹훅을 빠르게 재사용할 수 있습니다.
 
-1. Braze에서 **Templates**로 이동하여 **Webhook Templates**를 선택한 다음 **+ Create Webhook Template**을 선택합니다.
+1. Braze에서 **템플릿**으로 이동하여 **웹훅 템플릿**을 선택한 다음 **+ 웹훅 템플릿 만들기**를 선택합니다.
 2. 템플릿의 이름을 입력합니다(예: "Salesforce Sales Cloud > Create Lead").
-3. **Compose** 탭에서 다음 세부 정보를 입력합니다:
+3. **작성** 탭에서 다음 세부 정보를 입력합니다:
 
 #### 웹훅 작성 {#compose-webhook}
 
@@ -63,7 +63,7 @@ Salesforce 고객지원에서 Salesforce Sales Cloud에서 연결된 앱을 만�
 | 웹훅 URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | HTTP 메서드 | `POST` |
 | 요청 본문 | JSON 키/값 쌍 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="웹훅 작성" }
 
 #### 본문 등록정보 키 값 {#body-property-key-values}
 
@@ -75,7 +75,7 @@ Braze에서 Salesforce로 매핑하려는 각 키/값 쌍에 대해 **+ Add New 
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="본문 등록정보 키 값" }
 
 #### 요청 헤더 {#request-headers}
 
@@ -85,10 +85,10 @@ Braze에서 Salesforce로 매핑하려는 각 키/값 쌍에 대해 **+ Add New 
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요청 헤더" }
 
 {: start="4" }
-4. **Save Template**을 선택합니다.
+4. **템플릿 저장**을 선택합니다.
 
 ![리드를 생성하기 위해 작성된 웹훅 템플릿.]({% image_buster /assets/img/b2b/create_lead_webhook.png %}){: style="max-width:70%;"}
 
@@ -108,9 +108,9 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 ### 2단계: 웹훅 템플릿 설정하기
 
-1. Braze에서 **Templates**로 이동하여 **Webhook Templates**를 선택한 다음 **+ Create Webhook Template**을 선택합니다.
+1. Braze에서 **템플릿**으로 이동하여 **웹훅 템플릿**을 선택한 다음 **+ 웹훅 템플릿 만들기**를 선택합니다.
 2. 템플릿의 이름을 입력합니다(예: "Salesforce Sales Cloud > Update Lead to MQL").
-3. **Compose** 탭에서 다음 세부 정보를 입력합니다:
+3. **작성** 탭에서 다음 세부 정보를 입력합니다:
 
 #### 웹훅 작성
 
@@ -119,7 +119,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 | 웹훅 URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | HTTP 메서드 | `PATCH` |
 | 요청 본문 | JSON 키/값 쌍 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="웹훅 작성" }
 
 #### 본문 등록정보 키 값
 
@@ -128,7 +128,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 | 키 | 값 |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="본문 등록정보 키 값" }
 
 #### 요청 헤더
 
@@ -138,10 +138,10 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요청 헤더" }
 
 {: start="4"}
-4. **Save Template**을 선택합니다.
+4. **템플릿 저장**을 선택합니다.
 
 ![리드를 업데이트하기 위해 작성된 웹훅 템플릿.]({% image_buster /assets/img/b2b/update_lead_webhook.png %}){: style="max-width:70%;"}
 

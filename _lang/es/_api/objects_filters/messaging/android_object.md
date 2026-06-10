@@ -54,7 +54,7 @@ Puedes enviar notificaciones "Big Picture" especificando la clave `appboy_image_
 | `push_icon_image_url` | El valor del parámetro de icono grande debe ser una URL que enlace a donde esté alojada tu imagen. <br> <br> Las imágenes deben recortarse a una relación de aspecto 1:1 y deben tener un tamaño mínimo de 40x40. |
 | `notification_channel` | Si no se especifica, Braze intenta enviar la carga útil de la notificación con el ID del canal [alternativo del dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel). Para más información, consulta [Canales de notificación]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/) y los pasos para [definir canales de notificación]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels) durante la integración. |
 | `send_to_sync` | Para más información sobre los mensajes de `send_to_sync`, consulta las [notificaciones silenciosas de Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/silent_push_notifications/#silent-push-notifications). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles adicionales de los parámetros" }
 
 ## Objeto botón de acción push de Android {#android-push-action-button-object}
 

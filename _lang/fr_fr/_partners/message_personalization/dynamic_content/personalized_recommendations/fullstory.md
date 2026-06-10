@@ -31,7 +31,7 @@ Avant de commencer, vous devez disposer des éléments suivants :
 | Un jeton d'autorisation de contenu connecté Braze activé | Voir la note ci-dessous sur l'accès anticipé. |
 | Une étape de contexte Canvas Braze | Voir la note ci-dessous sur l'accès anticipé. |
 | Étape Agent IA Braze activée | Voir la note ci-dessous sur l'accès anticipé. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% alert important %}
 Les agents Braze, le contexte Canvas et les jetons d'autorisation de contenu connecté sont tous en accès anticipé. Si vous souhaitez tirer parti de cette solution, contactez votre CSM Braze pour activer ces outils.
@@ -62,7 +62,7 @@ En réponse à cette requête, Fullstory fournit un ID de profil de session. Cet
 3. Ajoutez la clé d'en-tête « Authorization ». Indiquez la valeur de l'en-tête fournie par Fullstory à l'étape précédente.
 4. Sous **Allowed Domain**, saisissez **api.fullstory.com**.
 
-![Capture d'écran de Braze montrant les champs de modification du justificatif]({% image_buster /assets/img/fullstory/1.png %}){: style="max-width:50%;"}
+![Capture d'écran de Braze montrant les champs de modification des identifiants]({% image_buster /assets/img/fullstory/1.png %}){: style="max-width:50%;"}
 
 ## Cas d'utilisation {#use-cases}
 
@@ -72,7 +72,7 @@ En utilisant les [flux d'activation](https://help.fullstory.com/hc/en-us/article
 
 En tirant parti des étapes de contexte Canvas et du contenu connecté, vous pouvez utiliser cet ID pour effectuer une requête API à Fullstory, récupérer les données de session et les stocker en tant que variable pour les utiliser plus tard dans le parcours.
 
-![Étape de contexte Canvas Braze montrant la variable de contexte « summary_result » créée et alimentée par un appel de contenu connecté à Fullstory, pour récupérer un résumé de session]({% image_buster /assets/img/fullstory/2.png %})
+![Étape de contexte Canvas Braze montrant la variable de contexte « summary_result » créée et alimentée par un appel de contenu connecté à Fullstory pour récupérer un résumé de session]({% image_buster /assets/img/fullstory/2.png %})
 
 Avec le jeton d'autorisation créé précédemment, utilisez la structure de requête suivante pour extraire les données du résumé de session.
 
@@ -87,7 +87,7 @@ Avec le jeton d'autorisation créé précédemment, utilisez la structure de req
 La réponse est enregistrée sous la forme de l'étiquette Liquid {% raw %}`{{context.${summary_result}.response}}`{% endraw %}. Utilisez cette étiquette de contexte dans les étapes Canvas suivantes.
 {% endalert %}
 
-À ce stade, le Canvas peut accéder à la réponse de l'appel de contenu connecté, qui contient l'intégralité du payload de message pour la session d'un utilisateur.
+À ce stade, le Canvas peut accéder à la réponse de l'appel de contenu connecté, qui contient l'intégralité du payload du message pour la session d'un utilisateur.
 
 {% details Exemple de payload de l'API de résumé de session %}
 

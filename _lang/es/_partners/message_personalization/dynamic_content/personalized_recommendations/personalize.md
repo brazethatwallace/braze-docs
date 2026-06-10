@@ -18,9 +18,9 @@ La integración de Braze y Personalize.AI te permite exportar datos de Personali
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Instancia de Personalize.AI | Se necesita una instancia de Personalize.AI para aprovechar esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos. <br><br>Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos. <br><br>Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
@@ -47,7 +47,7 @@ La integración de Braze y Personalize.AI te permite exportar datos de Personali
     * **API URL:** Añade la URL de tu punto de conexión REST de Braze.
 4. Haz clic en **EXPORT** para exportar los datos a Braze.
 
-Una vez exportados tus datos, Personalize.AI seguirá pasando datos a Braze a los intervalos determinados por la frecuencia de sincronización que establezcas durante la integración.
+Una vez exportados tus datos, Personalize.AI seguirá pasando datos a Braze en los intervalos determinados por la frecuencia de sincronización que estableciste durante la integración.
 
 ## Uso de esta integración {#using-this-integration}
 
@@ -68,4 +68,4 @@ Por ejemplo, aquí tienes un conjunto de atributos de cliente relacionados con u
 | `C4_Offer_Value` | $3 |
 | `C4_Item_Recom` | "Caesar Salad" |
 | `C4_Subject_Line` | "We miss you" |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Uso de esta integración" }

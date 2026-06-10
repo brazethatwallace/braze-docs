@@ -42,6 +42,8 @@ search_rank: 6
 
 다음 섹션에서 Braze가 데이터 포인트를 누적하는 방법에 대한 세부 내용을 확인할 수 있습니다. Braze 데이터 포인트의 세부 사항에 대해 궁금한 점이 있으면 Braze 계정 매니저에게 문의하세요.
 
+API 수집의 경우, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)을 통한 각 청구 가능한 업데이트는 다른 프로필 업데이트와 동일한 규칙을 따릅니다. 예를 들어, 기록된 각 **커스텀 이벤트**는 데이터 포인트로 계산되며, **커스텀 속성**은 일반적으로 해당 요청에서 업데이트된 속성당 하나로 계산됩니다(아래 청구 가능 표 및 [특별한 상황](#special-circumstances) 참조).
+
 다음 작업은 데이터 포인트를 기록하지 않습니다:
 - Braze에서 사용자 삭제
 - 메시징에서 연결된 콘텐츠 사용
@@ -113,7 +115,7 @@ CSV 가져오기를 통해 업로드한 커스텀 속성은 데이터 포인트�
 | Twitter | 팔로잉 |
 | Twitter | 트윗 수 |
 | Facebook | 좋아요 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Non-billable data points (default)" }
 
 {% endtab %}
 {% tab 청구 가능 %}
@@ -167,7 +169,7 @@ table td {
 | Appsflyer 코호트 할당 | 모든 할당 | |
 | 가장 최근 위치 | 가장 최근의 모든 위치 | 지오펜스 데이터는 고객 프로필에 저장되지 않기 때문에 지오펜스 진입 또는 이탈 시 데이터 포인트가 기록되지 않습니다. 지오펜스는 Apple 및 Google 위치 서비스에서 모니터링하며, 사용자가 지오펜스를 트리거할 때만 Braze에 알림이 전달됩니다. |
 | Twitter | 사용자 이름 | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Billable data points" }
 
 {% endtab %}
 {% endtabs %}

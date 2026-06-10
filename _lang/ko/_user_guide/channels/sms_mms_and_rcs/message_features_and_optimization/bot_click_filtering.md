@@ -43,7 +43,7 @@ Braze는 SMS 클릭 이벤트에 대해 다음 Currents 필드를 포함합니�
 | --- | --- | --- |
 | `is_suspected_bot_click` | 부울 | 클릭이 의심되는 봇 클릭인지 여부를 나타냅니다. 봇 클릭 필터링이 회사에 활성화될 때까지 모든 사용자에 대해 `null`을 반환합니다. 활성화되면 이후 모든 새 클릭에 대해 `true` 또는 `false`로 채워집니다. |
 | `suspected_bot_click_reason` | 문자열, 배열 | 의심되는 봇 클릭의 이유를 나타냅니다(예: `user_agent`). 필터링이 비활성화된 경우에도 채워져 잠재적인 봇 활동에 대한 인사이트를 제공합니다. 이 필드는 전역적으로 사용 가능하며, 봇 클릭 필터링이 아직 활성화되지 않은 경우에도 모든 사용자에 대해 이유가 채워집니다. 이를 통해 봇 클릭 필터링을 활성화하기 전에 잠재적인 봇 활동에 대한 인사이트를 얻을 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS 클릭 이벤트의 Currents 필드" }
 
 ## 쿼리 빌더 템플릿 {#query-builder-template}
 

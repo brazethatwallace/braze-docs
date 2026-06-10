@@ -15,13 +15,13 @@ Formeln helfen Ihnen, komplexe Beziehungen in Ihren Daten zu verstehen. Sie kön
 
 ## Anwendungsfälle {#use-cases}
 
-Formeln, insbesondere in Kombination mit angepassten Events, können Ihnen helfen, das Nutzerverhalten innerhalb Ihrer App zu verstehen. Formeln können auch tiefere Insights in das Kaufverhalten von Segments geben, selbst wenn Ihr Unternehmen Paid Media in Verbindung mit Braze verwendet, wie z. B. Google Ads oder TV.
+Formeln, insbesondere in Kombination mit angepassten Events, können Ihnen helfen, das Nutzerverhalten innerhalb Ihrer App zu verstehen. Formeln können auch tiefere Insights in das Kaufverhalten von Segmenten geben, selbst wenn Ihr Unternehmen Paid Media in Verbindung mit Braze verwendet, wie z. B. Google Ads oder TV.
 
 Im Folgenden finden Sie einige Beispiele für die Arten von Verhaltensmustern, die mit Formeln erkannt werden können:
 
 - **Mitfahr-Apps:** Wenn Sie ein angepasstes Event für den Fall haben, dass Nutzer:innen eine Fahrt stornieren, können Sie eine Funktion für stornierte Fahrten / DAU konfigurieren, um herauszufinden, ob bestimmte Nutzersegmente dazu neigen, mehr Fahrten zu stornieren als andere.
-- **E-Commerce-Apps:** Indem Sie eine Funktion für Käufe einer bestimmten Produkt-ID / MAU konfigurieren, können Sie die Beliebtheit eines kürzlich beworbenen Produkts zwischen Segments vergleichen, auch wenn nicht alle Aktionen mit Braze getrackt werden konnten.
-- **Medien-Apps mit Anzeigen:** Wenn das Nutzererlebnis durch Werbung zwischen Video- oder Audioclips unterbrochen wird, kann die Aufzeichnung von Mid-Ad-Exits als angepasstes Event und die Berechnung des Verhältnisses von Mid-Ad-Exits / DAU dabei helfen, die besten Segments für das Targeting einer Campaign für werbefreie Premium-Abos zu finden.
+- **E-Commerce-Apps:** Indem Sie eine Funktion für Käufe einer bestimmten Produkt-ID / MAU konfigurieren, können Sie die Beliebtheit eines kürzlich beworbenen Produkts zwischen Segmenten vergleichen, auch wenn nicht alle Aktionen mit Braze getrackt werden konnten.
+- **Medien-Apps mit Anzeigen:** Wenn das Nutzererlebnis durch Werbung zwischen Video- oder Audioclips unterbrochen wird, kann die Aufzeichnung von Mid-Ad-Exits als angepasstes Event und die Berechnung des Verhältnisses von Mid-Ad-Exits / DAU dabei helfen, die besten Segmente für das Targeting einer Campaign für werbefreie Premium-Abos zu finden.
 
 ## Formeln erstellen {#creating-formulas}
 
@@ -68,7 +68,7 @@ table td {
 | DAU | MAU |
 | Sitzungen | DAU |
 | | Segmentgröße |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
 
 ### Umsatz-Dashboard {#revenue-dashboard}
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | Käufe (alle) | DAU |
 | Bestimmte Käufe (z. B. eine Geschenkkarte oder eine Produkt-ID) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
 
 ### Dashboard für angepasste Events {#custom-event-dashboard}
 
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | Anzahl angepasster Events | MAU |
 |  | DAU |
-|  | Segmentgröße (nur Segments, für die [Analytics-Tracking]({{site.baseurl}}/viewing_and_understanding_segment_data/) aktiviert ist, können verwendet werden) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+|  | Segmentgröße (nur Segmente, für die [Analytics-Tracking]({{site.baseurl}}/viewing_and_understanding_segment_data/) aktiviert ist, können verwendet werden) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }

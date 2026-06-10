@@ -15,9 +15,13 @@ tool:
 
 ## Fonctionnement {#how-it-works}
 
-À chaque envoi de message dans une campagne multivariée, le système sélectionne indépendamment une option aléatoire en fonction des pourcentages que vous avez définis et affecte une variante en fonction du résultat. C'est comme un tirage à pile ou face : des anomalies sont possibles. Si vous avez déjà lancé une pièce 100 fois, vous savez que vous n'obtiendrez probablement pas une répartition exacte de 50-50 entre pile et face à chaque fois, même avec seulement deux possibilités. Vous pourriez obtenir 52 fois pile et 48 fois face.
+La distribution entre les variantes n'est pas toujours uniforme. À chaque envoi de message dans une campagne multivariée, Braze sélectionne indépendamment une option aléatoire en fonction des pourcentages que vous avez définis et affecte une variante en fonction du résultat. C'est comme un tirage à pile ou face : des anomalies sont possibles. Si vous lancez une pièce 100 fois, vous n'obtiendrez probablement pas une répartition exacte de 50-50 entre pile et face, même avec seulement deux possibilités. Vous pourriez obtenir 52 fois pile et 48 fois face.
 
-Si vous avez plusieurs variantes que vous souhaitez répartir de manière égale, assurez-vous que le nombre de variantes est un multiple de 100. Dans le cas contraire, certaines variantes auront un pourcentage d'utilisateurs plus élevé que d'autres. Par exemple, si votre campagne comporte 7 variantes, il ne peut pas y avoir de distribution égale, car 7 ne divise pas 100 en un nombre entier. Dans ce cas, vous auriez 2 variantes à 15 % et 5 variantes à 14 %.
+De même, si vous souhaitez répartir plusieurs variantes de manière égale en utilisant des pourcentages entiers, assurez-vous que le nombre de variantes divise 100 de manière égale. Dans le cas contraire, certaines variantes auront un pourcentage d'utilisateurs plus élevé que d'autres. Par exemple, si votre campagne comporte sept variantes, il ne peut pas y avoir de distribution égale, car sept ne divise pas 100 en un nombre entier. Dans ce cas, vous auriez deux variantes à 15 % et cinq variantes à 14 %.
+
+{% alert tip %}
+Pour répartir les utilisateurs dans un Canvas, vous pouvez ajouter une [étape de l'arbre décisionnel]({{site.baseurl}}/decision_split/) et séparer les utilisateurs en fonction de leurs [numéros de compartiment aléatoires]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/).
+{% endalert %}
 
 ## Distribution des messages in-app {#in-app-message-distribution}
 

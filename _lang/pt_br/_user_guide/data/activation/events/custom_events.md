@@ -7,7 +7,7 @@ description: "Este artigo descreve eventos e propriedades personalizados, segmen
 search_rank: 2
 ---
 
-# [![curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Eventos personalizados {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Eventos personalizados {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
 > Este artigo descreve eventos e propriedades personalizados, filtros de segmentação relacionados, propriedades de entrada do Canvas, análises de dados relevantes e muito mais. Para saber mais sobre os eventos da Braze em geral, consulte [Eventos]({{site.baseurl}}/user_guide/data/activation/events/).
 
@@ -45,10 +45,6 @@ Além disso, se um evento personalizado bloqueado estiver sendo referenciado por
 
 Para mais detalhes sobre bloqueio e exclusão de dados personalizados, consulte [Bloquear dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-### Marcando como informação pessoal identificável (IPI) {#marking-as-personally-identifiable-information-pii}
-
-Administradores também podem criar eventos personalizados e marcá-los como IPI nesta página. Esses eventos são visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as PII".
-
 ### Adicionando descrições {#adding-descriptions}
 
 Você pode adicionar uma descrição a um evento personalizado após sua criação se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Selecione **Editar descrição** para o evento personalizado e insira o que desejar, como uma nota para sua equipe.
@@ -60,6 +56,10 @@ Você pode adicionar tags a um evento personalizado após sua criação se tiver
 ### Exportando dados {#exporting-data}
 
 Para exportar a lista de eventos personalizados como um arquivo CSV, selecione **Exportar tudo** no topo da página. O arquivo CSV será gerado e um link para baixar será enviado por e-mail para você.
+
+{% alert note %}
+Não há um limite fixo no dashboard para a quantidade de **eventos personalizados** ou **atributos personalizados** distintos que você pode definir ou armazenar em um perfil; os limites práticos dependem do formato dos dados, do volume de ingestão e do desempenho do espaço de trabalho. Se você planeja rastrear um catálogo muito grande de eventos ou atributos, trabalhe com a equipe de conta da Braze para modelagem e higienização (por exemplo, [bloqueio]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) de dados não utilizados).
+{% endalert %}
 
 ## Visualizando relatórios de uso {#viewing-usage-reports}
 
@@ -103,17 +103,17 @@ A tabela a seguir mostra os filtros disponíveis para segmentar usuários por ev
 | Verificar se o evento personalizado ocorreu **mais de X (Máx = 50) vezes** | **MAIS QUE** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
 | Verificar se o evento personalizado ocorreu **menos de X (Máx = 50) vezes** | **MENOS QUE** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
 | Verificar se o evento personalizado ocorreu **exatamente X (Máx = 50) vezes** | **EXATAMENTE** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtros de segmentação" }
 
 ## Análise de dados {#analytics}
 
-A Braze registra o número de vezes que eventos personalizados ocorreram e a última vez que foram realizados por cada usuário para segmentação. Visualize essas análises de dados acessando **Análise de dados** > **Relatório de eventos personalizados**.
+A Braze registra o número de vezes que eventos personalizados ocorreram e a última vez que foram realizados por cada usuário para segmentação. Visualize essas análises de dados acessando **Analytics** > **Relatório de eventos personalizados**.
 
 Na página **Relatório de eventos personalizados** no dashboard, você pode visualizar de forma agregada a frequência com que cada evento personalizado ocorre. As linhas cinzas sobrepostas na série temporal indicam a última vez que uma Campaign foi enviada, o que é útil para ver como suas Campaigns afetaram a atividade de eventos personalizados.
 
 ![Gráfico de contagem de eventos personalizados na página de Eventos personalizados no dashboard mostrando tendências para um evento personalizado]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-Você também pode usar **Filtros** para detalhar seus eventos personalizados por hora, média mensal de usuários ativos (MAU), Segments ou fórmulas de KPI.
+Você também pode usar **Filtros** para detalhar seus eventos personalizados por hora, média mensal de usuários ativos (MAU), segmentos ou fórmulas de KPI.
 
 ![Filtros do gráfico de eventos personalizados]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
@@ -123,7 +123,7 @@ Você também pode usar **Filtros** para detalhar seus eventos personalizados po
 
 ### Por que a análise de dados de eventos personalizados não está aparecendo {#why-custom-events-analytics-arent-showing}
 
-Segments criados com dados de eventos personalizados não podem exibir dados históricos anteriores à sua criação.
+Segmentos criados com dados de eventos personalizados não podem exibir dados históricos anteriores à sua criação.
 
 ## Propriedades de eventos personalizados {#custom-event-properties}
 

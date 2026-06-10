@@ -26,7 +26,7 @@ description: "このリファレンス記事では、Brazeのランディング�
 | ランディングページへのアクセス | Brazeで[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)を作成するためのアクセスと権限。 |
 | HTMLとJavaScriptの知識 | ランディングページをカスタマイズするためのHTMLとJavaScriptの基本的な知識。[オプションB](#option-b-personal-dates-custom-code-block)でのみ必要です。 |
 | Liquidの知識 | パーソナライズ済み変数をテンプレート化するための[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)の基本的な知識。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ステップ1: ランディングページを作成し、メッセージからリンクする {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 
@@ -46,7 +46,7 @@ description: "このリファレンス記事では、Brazeのランディング�
 
 ユーザー設定の取得方法は、共通の日付を収集するか、パーソナルな日付を収集するかによって異なります。ユースケースに合ったオプションを選択してください。
 
-### オプションA: 共通の日付（ドラッグ＆ドロップフォームブロック） {#option-a-shared-dates-dnd-form-blocks}
+### オプションA: 共通の日付（ドラッグ＆ドロップフォームブロック） {#option-a-shared-dates-drag-and-drop-form-blocks}
 
 多くのユーザーが同じ日付を共有するイベント（祝日やスポーツイベントなど）の場合、ドラッグ＆ドロップエディターの組み込み[**チェックボックス**フォームブロック]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#form-blocks)を使用して設定を取得します。各チェックボックスは、フォームが送信されるとユーザーのプロファイルにブール値のカスタム属性（`true`または`false`）をネイティブに設定します。カスタムコードは不要です。
 

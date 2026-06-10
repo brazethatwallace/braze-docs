@@ -26,7 +26,7 @@ Os fluxos de trabalho a seguir possuem superfícies de relatório diferentes.
 | --- | --- | --- |
 | Análise de dados nativa de push | Métricas de push como aberturas e aberturas por influência, vinculadas a Campaigns de push da Braze | Análise de dados de Campaigns de push, eventos de engajamento com mensagem do Currents, Criador de relatórios |
 | Eventos personalizados e atributos | Análise de dados que você define e registra por meio de métodos do SDK ou do endpoint `/users/track` | Perfis de usuário, segmentação, Campaigns e Canvas baseados em ação, análise de dados de eventos personalizados |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Análise de dados nativa de push vs. registro de eventos personalizados" }
 
 {% alert important %}
 Registrar um evento personalizado (como `push_notification_opened`) não é o mesmo que o rastreamento nativo de abertura de push da Braze. Eventos personalizados não preenchem as métricas nativas de abertura de Campaigns de push nem a atribuição de push.
@@ -176,7 +176,7 @@ Os exemplos de arquivos auxiliares nesta seção são específicos para iOS (Swi
 {% endalert %}
 
 {% tabs local %}
-{% tab Custom events %}
+{% tab Eventos personalizados %}
 
 #### Salvando eventos personalizados {#saving-custom-events}
 
@@ -318,7 +318,7 @@ func logPendingCustomEventsIfNecessary() {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab Custom attributes %}
+{% tab Atributos personalizados %}
 
 #### Salvando atributos personalizados {#saving-custom-attributes}
 
@@ -436,7 +436,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab User attributes %}
+{% tab Atributos de usuário %}
 
 #### Salvando atributos de usuário {#saving-user-attributes}
 
@@ -563,7 +563,7 @@ func logPendingUserAttributesIfNecessary() {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab Helper files %}
+{% tab Arquivos auxiliares %}
 
 #### Arquivo auxiliar RemoteStorage {#remotestorage-helper-file}
 
@@ -801,9 +801,9 @@ Use a superfície de relatório que corresponde à categoria de análise de dado
 
 | Categoria de análise de dados | Onde visualizar na Braze |
 | --- | --- |
-| Análise de dados nativa de push | Para visualizar as métricas de abertura de push no nível da Campaign, navegue até a página **Análise de dados da Campaign** da sua Campaign de push. Para definições de métricas, consulte [Aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/). Para criar visualizações personalizadas de análise de dados, navegue até **Análise de dados** > **Criador de relatórios (Novo)**. Para etapas de navegação, consulte [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). Para esquemas de eventos em nível de data warehouse, consulte [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). |
-| Eventos personalizados e atributos | Para visualizar tendências de eventos personalizados, navegue até **Análise de dados** > **Relatório de eventos personalizados**. Para mais informações, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/). Para inspecionar valores no nível do usuário, navegue até a página **Pesquisar usuários** e abra um perfil. Para ver as etapas, consulte [Perfis de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Para filtrar públicos por esses valores, navegue até **Público** > **Segments**. Para etapas de navegação, consulte [Criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) e opções de filtro em [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Análise de dados nativa de push | Para visualizar as métricas de abertura de push no nível da Campaign, navegue até a página **Análise de dados da Campaign** da sua Campaign de push. Para definições de métricas, consulte [Aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/). Para criar visualizações personalizadas de análise de dados, navegue até **Analytics** > **Report Builder (New)**. Para etapas de navegação, consulte [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). Para esquemas de eventos em nível de data warehouse, consulte [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). |
+| Eventos personalizados e atributos | Para visualizar tendências de eventos personalizados, navegue até **Analytics** > **Relatório de eventos personalizados**. Para mais informações, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/). Para inspecionar valores no nível do usuário, navegue até a página **Pesquisar usuários** e abra um perfil. Para ver as etapas, consulte [Perfis de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Para filtrar públicos por esses valores, navegue até **Público** > **Segments**. Para etapas de navegação, consulte [Criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) e opções de filtro em [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analisando resultados" }
 
 Para criação de relatórios personalizados, consulte [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
 

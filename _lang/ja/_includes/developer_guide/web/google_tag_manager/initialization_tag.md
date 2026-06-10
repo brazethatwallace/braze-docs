@@ -4,7 +4,7 @@
 
 ### ステップ 1: タグテンプレートギャラリーを開く {#step-1-open-the-tag-template-gallery}
 
-[Google Tag Manager](https://tagmanager.google.com/)でワークスペースを選択し、**テンプレート**を選びます。**タグテンプレート**ペインで、**Search Gallery**を選択します。
+[Google Tag Manager](https://tagmanager.google.com/)でワークスペースを選択し、**Templates**を選びます。**Tag Template**ペインで、**Search Gallery**を選択します。
 
 ![Google Tag Managerのサンプルワークスペースのテンプレートページ。]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
@@ -20,9 +20,9 @@
 
 ### ステップ 3: タグを設定する {#step-3-configure-the-tag}
 
-**テンプレート**セクションから、新しく追加したテンプレートを選択します。
+**Templates**セクションから、新しく追加したテンプレートを選択します。
 
-![Google Tag Managerの「テンプレート」ページに、Braze Initialization Tagテンプレートが表示されている。]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
+![Google Tag Managerの「Templates」ページに、Braze Initialization Tagテンプレートが表示されている。]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
 
 鉛筆アイコンを選択して、**Tag Configuration**のドロップダウンを開きます。
 
@@ -32,10 +32,10 @@
 
 | フィールド         | 説明 |
 | ------------- | ----------- |
-| **API Key**   | [Braze APIキー]({{site.baseurl}}/api/basics/#about-rest-api-keys)。Brazeダッシュボードの**設定** > **アプリ設定**にあります。 |
+| **API Key**   | [Braze APIキー]({{site.baseurl}}/api/basics/#about-rest-api-keys)。Brazeダッシュボードの**Settings** > **App Settings**にあります。 |
 | **API Endpoint** | RESTエンドポイントのURLです。エンドポイントは、[インスタンス]({{site.baseurl}}/api/basics/#endpoints)のBraze URLによって異なります。 |
 | **SDK Version**  | [変更ログ]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web)に記載されている最新のWeb Braze SDKの `MAJOR.MINOR` バージョンです。たとえば、最新バージョンが `4.1.2` の場合、`4.1` と入力します。詳細については、[SDKのバージョン管理について]({{site.baseurl}}/developer_guide/sdk_integration/version_management/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure the tag" }
 
 追加の初期化設定を行うには、**Braze Initialization Options**を選択し、必要なオプションを選びます。
 
@@ -61,6 +61,7 @@ Braze Initialization Tagは以下のオプションを公開しています。�
 | **Open Cards in New Tab** | `openCardsInNewTab` | デフォルトのフィードUIを使用している場合、コンテンツカードのリンクを新しいタブで開きます。 |
 | **Service Worker Location** | `serviceWorkerLocation` | サービスワーカーファイルのカスタムパス（デフォルト: `/service-worker.js`）。 |
 | **Session Timeout (seconds)** | `sessionTimeoutInSeconds` | セッションタイムアウト（秒単位）（デフォルト: 1800）。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 4: Choose initialization options" }
 
 {% alert note %}
 Google Tag ManagerのBraze Initialization Tagを使用する際に[カスタムHTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)を有効にするには、**Braze Initialization Options**で**Allow HTML In-App Messages**を選択します。このチェックボックスは `braze.initialize()` の `allowUserSuppliedJavascript` 初期化オプションに対応し、`true` に設定します。Google Tag ManagerのBraze Initialization Tagは、オプション名ではなくこのラベルを使用します。

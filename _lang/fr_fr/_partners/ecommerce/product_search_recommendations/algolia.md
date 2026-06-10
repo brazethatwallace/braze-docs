@@ -76,7 +76,7 @@ X-Algolia-API-Key: {ALGOLIA_API_KEY}
 X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 ```
 
-#### Exemple de payload de requête {#example-query-payload}
+#### Exemple de payload de requête
 
 ```json
 {
@@ -168,7 +168,7 @@ Après avoir récupéré les résultats d'Algolia, utilisez Liquid pour analyser
 {% tabs local %}
 {% tab Search API %}
 
-#### Exemple de modèle e-mail Liquid pour Search API {#example-liquid-email-template-for-search-api}
+#### Exemple de modèle d'e-mail Liquid pour Search API {#example-liquid-email-template-for-search-api}
 
 {% raw %}
 ```liquid
@@ -188,7 +188,7 @@ Cela génère une liste de produits à partir des résultats de la Search API da
 {% endtab %}
 {% tab Recommend API %}
 
-#### Exemple de modèle e-mail Liquid pour Recommend API {#example-liquid-email-template-for-recommend-api}
+#### Exemple de modèle d'e-mail Liquid pour Recommend API {#example-liquid-email-template-for-recommend-api}
 
 {% raw %}
 ```liquid

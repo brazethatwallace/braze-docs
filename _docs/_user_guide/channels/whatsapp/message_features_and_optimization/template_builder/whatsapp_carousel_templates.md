@@ -12,10 +12,6 @@ toc_headers: h2
 
 > WhatsApp carousel templates allow you to create interactive, multi-card messages that users can swipe through. Each carousel can contain up to 10 cards with images or videos, along with customizable buttons for engagement. This feature is ideal to showcase your products and services, or multi-step content in a visually engaging format.
 
-{% alert note %}
-WhatsApp carousel templates are in early access. Contact your customer success manager if you're interested in participating in this early access.
-{% endalert %}
-
 ## Prerequisites
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}

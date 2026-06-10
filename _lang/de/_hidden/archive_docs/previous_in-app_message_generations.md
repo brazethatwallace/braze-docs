@@ -97,7 +97,7 @@ In-App-Nachrichten im HTML-Format unterstützen eine JavaScript-„Bridge“-Sch
 
 {% multi_lang_include archive/appboyBridge.md platform="web" %}
 
-Für das Analytics-Tracking protokolliert jedes `<a>`- oder `<button>`-Element in Ihrem HTML-Code automatisch eine „Klick“-Aktion für die Campaign, die mit der In-App-Nachricht verknüpft ist. Um einen „Button-Klick“ anstelle eines „Body-Klicks“ zu protokollieren, geben Sie entweder einen String-Wert von abButtonId in der href des Links an (z. B. `<a href="http://mysite.com?abButtonId=0">click me</a>`) oder eine ID im HTML-Element (z. B. `<a id="0" href="http://mysite.com">click me</a>`). Beachten Sie, dass derzeit nur die Button-IDs „0“ und „1“ akzeptiert werden. Ein Link mit einer Button-ID von 0 wird auf dem Dashboard als „Button 1“ dargestellt, während ein Link mit einer Button-ID von 1 als „Button 2“ dargestellt wird.
+Für das Analytics-Tracking protokolliert jedes `<a>`- oder `<button>`-Element in Ihrem HTML-Code automatisch eine „Klick“-Aktion für die Campaign, die mit der In-App-Nachricht verknüpft ist. Um einen „Button-Klick“ anstelle eines „Body-Klicks“ zu protokollieren, geben Sie entweder einen Query-String-Wert von abButtonId in der href des Links an (z. B. `<a href="http://mysite.com?abButtonId=0">click me</a>`) oder eine ID im HTML-Element (z. B. `<a id="0" href="http://mysite.com">click me</a>`). Beachten Sie, dass derzeit nur die Button-IDs „0“ und „1“ akzeptiert werden. Ein Link mit einer Button-ID von 0 wird auf dem Dashboard als „Button 1“ dargestellt, während ein Link mit einer Button-ID von 1 als „Button 2“ dargestellt wird.
 
 >  Um In-App-Nachrichten im HTML-Format über das Web SDK zu aktivieren, müssen Sie Braze die Initialisierungsoption `allowUserSuppliedJavascript` zur Verfügung stellen, zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen – In-App-Nachrichten im HTML-Format können JavaScript ausführen, sodass ein Website-Betreiber sie aktivieren muss.
 
@@ -140,7 +140,7 @@ Für alle in der folgenden Tabelle aufgeführten Arten von In-App-Nachrichten ge
 | Slideup                            |     1:1      |         140         |
 | Modal (nur Bild)                 |     1:1      |         140         |
 | Modal (mit Text)                  |    29:10     |         140         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zeichen- und Bildgrenzen" }
 
 ### Die Dateigröße von In-App-Nachrichten klein halten {#keeping-in-app-message-file-sizes-small}
 
