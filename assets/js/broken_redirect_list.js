@@ -4451,7 +4451,7 @@ validurls['/docs/target_approvals'] = '/docs/docs_pages/redirects/target_approva
 validurls['/docs/shopify_multiple_store'] = '/docs/docs_pages/redirects/multiple_stores/';
 validurls['/docs/shopify_collections_sync'] = '/docs/docs_pages/redirects/shopify_collections_sync/';
 validurls['/docs/shopify_user_reconciliation'] = '/docs/docs_pages/redirects/shopify_user_reconciliation/';
-validurls['/docs/sms_traffic_pumping_fraud'] = '/docs/docs_pages/redirects/sms_traffic_pumping_fraud/';
+validurls['/docs/sms_traffic_pumping_fraud'] = '/docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud/';
 
 // API paths
 validurls['/docs/api/api_key'] = '/docs/api/basics';

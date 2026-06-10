@@ -1,7 +1,6 @@
 ---
 nav_title: Preventing SMS, MMS, and RCS traffic pumping fraud
 description: "Learn how SMS, MMS, and RCS traffic pumping fraud works, why Braze marks certain destinations as High Fraud Risk, and how to reduce exposure with geographic allowlisting and other controls."
-alias: /sms_traffic_pumping_fraud/
 page_type: reference
 page_order: 5
 channel:
