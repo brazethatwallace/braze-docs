@@ -155,6 +155,7 @@ The following table describes the benefits and drawbacks of these two approaches
 
 <table aria-label="Overview of each approach">
   <caption>Overview of each approach</caption>
+    <thead>
     <tr>
         <th></th>
         <th colspan="2" scope="colgroup">Separate workspaces</th>
@@ -167,6 +168,8 @@ The following table describes the benefits and drawbacks of these two approaches
         <th scope="col">Benefits</th>
         <th scope="col">Drawbacks</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <th scope="row">Targeting</th>
         <td>Safest way to keep communications separate. Campaigns are guaranteed to target only specific user profiles.</td>
@@ -216,6 +219,7 @@ The following table describes the benefits and drawbacks of these two approaches
         <td>N/A</td>
         <td>Global statistics will be aggregated for all app instances in the workspace on the Home page.</td>
     </tr>
+    </tbody>
 </table>
 
 ## Best practices
