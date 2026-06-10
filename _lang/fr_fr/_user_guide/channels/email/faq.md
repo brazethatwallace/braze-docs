@@ -54,7 +54,7 @@ Si vous envoyez une campagne API via un appel API (à l'exception des campagnes 
 
 #### Canvas et adresses e-mail en double {#canvas-and-duplicate-email-addresses}
 
-Pour les parcours Canvas, le fait que des adresses e-mail en double reçoivent un seul envoi ou plusieurs peut dépendre du regroupement à l'entrée, du timing des étapes et d'autres facteurs. Considérez ce comportement comme non défini tant que vous ne l'avez pas validé pour votre parcours. Dans la mesure du possible, fusionnez ou consolidez les profils en double. Si vous avez besoin d'une modification du produit, soumettez vos commentaires via votre équipe Braze.
+Pour les parcours Canvas, le fait que des adresses e-mail en double reçoivent un seul envoi ou plusieurs peut dépendre du regroupement à l'entrée, du timing des étapes et d'autres facteurs. Considérez ce comportement comme indéfini tant que vous ne l'avez pas validé pour votre parcours. Dans la mesure du possible, fusionnez ou consolidez les profils en double. Si vous avez besoin d'une modification du produit, soumettez vos commentaires via votre équipe Braze.
 
 ### Que se passe-t-il pour l'état d'abonnement lorsque l'adresse e-mail d'un utilisateur est modifiée vers une adresse partagée par un autre utilisateur ? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -233,11 +233,11 @@ Utilisez les tableaux suivants pour identifier la cause.
 
 | Cause possible | Ce qu'il faut vérifier |
 |---|---|
-| Le fournisseur de boîte aux lettres (MBP) était inaccessible | Un problème temporaire a empêché l'e-mail d'atteindre le MBP du destinataire. Cela se résout généralement avec les nouvelles tentatives. Les fournisseurs de services d'e-mailing retentent les échecs provisoires d'envoi pendant 72 heures maximum. |
+| Le fournisseur de boîte aux lettres (MBP) était injoignable | Un problème temporaire a empêché l'e-mail d'atteindre le MBP du destinataire. Cela se résout généralement avec les nouvelles tentatives. Les fournisseurs de services d'e-mailing retentent les échecs provisoires d'envoi pendant 72 heures maximum. |
 | Le MBP a rejeté l'e-mail | Le serveur de messagerie du destinataire a rejeté l'e-mail. Consultez le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) pour les détails du rebond. |
 | Le MBP a silencieusement supprimé l'e-mail | Le MBP a accepté l'e-mail mais ne l'a pas affiché à l'utilisateur et n'a pas renvoyé de rebond. Cela échappe au contrôle de Braze et ne peut pas être détecté dans les journaux Braze. |
 | L'e-mail est allé dans le dossier de courriers indésirables | Le MBP a identifié le message comme spam et l'a acheminé vers le dossier de courriers indésirables de l'utilisateur. Demandez à l'utilisateur de vérifier son dossier de courriers indésirables. |
-| Le destinataire a un filtrage de courrier personnalisé | L'utilisateur ou son administrateur informatique a peut-être configuré des règles de boîte aux lettres qui filtrent, redirigent ou suppriment les messages entrants. |
+| Le destinataire a un filtrage de messagerie personnalisé | L'utilisateur ou son administrateur informatique a peut-être configuré des règles de boîte aux lettres qui filtrent, redirigent ou suppriment les messages entrants. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cause de non-réception de l'e-mail dans la boîte de réception" }
 
 ### Comment puis-je optimiser les images dans Outlook ? {#how-can-i-optimize-images-in-outlook}

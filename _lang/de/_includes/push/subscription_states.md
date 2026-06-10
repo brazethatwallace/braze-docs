@@ -51,7 +51,7 @@ Um dieses Standardverhalten zu deaktivieren, fügen Sie die folgende Eigenschaft
 {% endtab %}
 
 {% tab swift %}
-Bei iOS zeigt eine Neuinstallation den Push-Abo-Status in der Regel als **`Subscribed`** an, bis die Nutzer:in Benachrichtigungen erlaubt. Nachdem die Nutzer:in in der Betriebssystem-Aufforderung **Erlauben** ausgewählt hat, setzt Braze den Status auf **`Opted-In`**, wenn das automatische Opt-in aktiviert ist. Wenn die Nutzer:in **Nicht erlauben** auswählt und Push später in den iOS-Einstellungen aktiviert, wird der Status aktualisiert, nachdem die Nutzer:in eine Sitzung protokolliert – nicht in dem Moment, in dem sie die Einstellungen ändert.
+Bei iOS zeigt eine Neuinstallation den Push-Abo-Status in der Regel als **`Subscribed`** an, bis die Nutzer:in Benachrichtigungen erlaubt. Nachdem die Nutzer:in **Erlauben** in der Betriebssystem-Aufforderung ausgewählt hat, setzt Braze den Status auf **`Opted-In`**, wenn das automatische Opt-in aktiviert ist. Wenn die Nutzer:in **Nicht erlauben** auswählt und Push später in den iOS-Einstellungen aktiviert, wird der Status aktualisiert, nachdem die Nutzer:in eine Sitzung protokolliert – nicht in dem Moment, in dem sie die Einstellungen ändert.
 
 Ab [Braze Swift SDK Version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0) können Sie dieses Verhalten deaktivieren oder weiter anpassen, indem Sie die Konfiguration `optInWhenPushAuthorized` zur Datei `AppDelegate.swift` Ihres Xcode-Projekts hinzufügen:
 

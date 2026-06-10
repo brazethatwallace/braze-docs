@@ -247,7 +247,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>(단일 발송 시도) 단위로 측정됩니다. 여기에는 Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 7일 후 동일한 사용자가 다시 클릭하면 새로운 고유 클릭으로 집계될 수 있습니다. _고유 클릭_을 포함한 대시보드 이메일 참여 측정기준은 Braze에서 계산되며 ESP 집계 보고서와 조정되지 않습니다. Currents에서 대시보드 수치와 일치시키려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>(단일 발송 시도) 단위로 측정됩니다. 여기에는 Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 7일 후 동일한 사용자가 다시 클릭하면 새로운 고유 클릭으로 집계될 수 있습니다. *고유 클릭*을 포함한 대시보드 이메일 참여 측정기준은 Braze에서 계산되며 ESP 집계 보고서와 조정되지 않습니다. Currents에서 대시보드 수치와 일치시키려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -388,7 +388,7 @@ Percentage
 
 ### 브라우저에서 보기 {#view-in-browser}
 
-Braze에는 "브라우저에서 이 이메일 보기" 기능이 내장되어 있지 않습니다. 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅하고 이메일 편집기의 **링크** 도구를 사용하여 메시지에서 링크를 추가하세요. 자세한 내용은 [이메일에 "브라우저에서 이 이메일 보기" 링크를 추가할 수 있나요?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails)를 참조하세요.
+Braze에는 "브라우저에서 이 이메일 보기" 기능이 내장되어 있지 않습니다. 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅하고 이메일 편집기의 **Link** 도구를 사용하여 메시지에서 링크를 추가하세요. 자세한 내용은 [이메일에 "브라우저에서 이 이메일 보기" 링크를 추가할 수 있나요?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails)를 참조하세요.
 
 ### 용량 초과 및 사서함 가득 참 반송 {#over-quota-and-full-mailbox-bounces}
 
@@ -398,24 +398,24 @@ Segment 및 소스별 반송률을 검토하고, 반복적으로 하드바운스
 
 ### 550 5.7.1 원치 않는 메일 {#550-571-unsolicited-mail}
 
-`550 5.7.1` 응답(예: "Our system has detected that this message is likely unsolicited mail")은 평판 또는 참여 신호가 좋지 않을 때 엄격한 사서함 공급자(예: Gmail)에서 발생하는 경우가 많습니다. 일반적인 원인으로는 스팸 불만, 낮은 참여도, 구매 또는 대여한 목록, 갑작스러운 발송량 급증 등이 있습니다.
+"Our system has detected that this message is likely unsolicited mail"과 같은 `550 5.7.1` 응답은 평판 또는 참여 신호가 좋지 않을 때 엄격한 사서함 공급자(예: Gmail)에서 발생하는 경우가 많습니다. 일반적인 원인으로는 스팸 불만, 낮은 참여도, 구매 또는 임대 목록, 갑작스러운 발송량 급증 등이 있습니다.
 
 동의 기반 목록 성장에 집중하고, 비활성 가입자를 일몰 처리하며, 불만 및 반송률을 모니터링하세요. 자세한 내용은 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/)을 참조하세요.
 
-### 양호한 이메일 전달 가능성 비율 {#good-email-deliverability-rates}
+### 좋은 이메일 전달 가능성 비율 {#good-email-deliverability-rates}
 
 **전달**은 수신 서버가 메시지를 수락하는지 여부이며, *전달 수* 및 반송률과 같은 측정기준으로 측정할 수 있습니다. **전달 가능성**(받은편지함 배치)은 공급자 필터링에 따라 달라지며 단일 Braze 측정기준으로 표시되지 않습니다.
 
 일반적인 가이드로, 전달률은 99%에 가깝게, 하드바운스는 약 1% 미만을 목표로 하고, 열람 및 클릭을 통해 참여 추세를 관찰하세요. 정확한 목표는 업종 및 발송 패턴에 따라 다릅니다. 평판을 지원하는 관행에 대한 자세한 내용은 [이메일 전달 가능성 개선]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) 및 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/)을 참조하세요.
 
-### "Campaign is already in delay window, so not enqueueing another"
+### "Campaign is already in delay window, so not enqueueing another" {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
 
 [액션 기반 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)의 메시지 활동 또는 진단 로그에서 이 처리 결과는 동일한 사용자에 대한 이전 트리거가 아직 Campaign의 전달 기간 내에 있는 동안 Braze가 중복 발송을 차단했음을 의미합니다. 디바운스 잠금은 동일한 트리거 버스트에 대한 다중 대기열 등록을 방지합니다.
 
 다음 중 하나라도 해당되면 Campaign에 **즉시 발송**이 표시되어 있어도 이 결과가 나타날 수 있습니다.
 
 - Campaign이 타이밍에 영향을 미치는 [예외 이벤트]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/#exception-events) 또는 발송 시간 지연을 사용합니다.
-- 사용자에게 [재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) 기간이 있어 해당 기간이 지나야 메시지를 다시 받을 수 있습니다.
+- 사용자에게 [재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) 기간이 있어 해당 기간이 지날 때까지 메시지를 다시 받을 수 없습니다.
 - 트리거가 겹칠 때 우선순위가 더 높은 다른 Campaign 또는 Canvas 메시지 단계가 발송 슬롯을 소비했습니다.
 
 사용자가 메시지를 받았어야 하는데 받지 못한 경우, 동일한 트리거에 대한 이전 결과(예: 이메일 반송 또는 채널 미활성화)를 확인하세요. 동일한 워크플로의 다른 메시지가 이 발송을 방지했을 수 있습니다.

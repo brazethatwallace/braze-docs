@@ -331,7 +331,7 @@ Content Cardsは、送信されてから最大30日間利用可能です。30日
 
 ### Content Cardsの同期と更新 {#content-card-sync-and-refresh}
 
-Content Cardsはスケジュールに基づいて同期され、アプリがフィードを更新するときにも同期されます。同期の動作はフル同期と部分同期で異なり、SDKの統合方法はセッション開始時のカード更新タイミングに影響します。実装の詳細については、[Content Cardsフィードのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/)と[Content Cardsの作成]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)を参照してください。
+Content Cardsはスケジュールに基づいて同期され、アプリがフィードを更新するときにも同期されます。同期の動作はフル同期と部分同期で異なり、SDKの統合はセッション開始時にカードが更新されるタイミングに影響します。実装の詳細については、[Content Cardsフィードのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/)と[Content Cardsの作成]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)を参照してください。
 
 ### Content Cards Campaignsの停止による影響 {#impact-of-stopping-content-cards-campaigns}
 

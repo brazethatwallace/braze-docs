@@ -1,7 +1,7 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
 {% alert tip %}
-Para obtener ayuda a la hora de elegir entre vínculos profundos de esquema personalizado, vínculos universales y «Abrir URL web dentro de la aplicación», consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/). Para la solución de problemas, consulta [Solución de problemas de vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+Para obtener ayuda a la hora de elegir entre vínculos profundos de esquema personalizado, vínculos universales y "Abrir URL web dentro de la aplicación", consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/). Para la solución de problemas, consulta [Solución de problemas de vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
 {% endalert %}
 
 ## Manejo de vínculos profundos {#handling-deep-links}
@@ -89,9 +89,9 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 ## Seguridad del transporte de aplicaciones (ATS) {#app-transport-security-ats}
 
-Según la definición de [Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14), «App Transport Security es una característica que mejora la seguridad de las conexiones entre una aplicación y los servicios web. La característica consiste en requisitos de conexión predeterminados que se ajustan a las mejores prácticas para conexiones seguras. Las aplicaciones pueden anular este comportamiento predeterminado y desactivar la seguridad del transporte».
+Según la definición de [Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14), "App Transport Security es una característica que mejora la seguridad de las conexiones entre una aplicación y los servicios web. La característica consiste en requisitos de conexión predeterminados que se ajustan a las mejores prácticas para conexiones seguras. Las aplicaciones pueden anular este comportamiento predeterminado y desactivar la seguridad del transporte".
 
-ATS se aplica de forma predeterminada. Requiere que todas las conexiones utilicen HTTPS y estén cifradas mediante TLS 1.2 con confidencialidad directa. Consulta los [Requisitos para conectarse mediante ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para obtener más información. Todas las imágenes servidas por Braze a dispositivos finales son gestionadas por una red de entrega de contenidos ("CDN") que admite TLS 1.2 y es compatible con ATS.
+ATS se aplica de forma predeterminada. Requiere que todas las conexiones utilicen HTTPS y estén encriptadas mediante TLS 1.2 con confidencialidad directa. Consulta los [Requisitos para conectarse mediante ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para obtener más información. Todas las imágenes servidas por Braze a dispositivos finales son gestionadas por una red de entrega de contenidos ("CDN") que admite TLS 1.2 y es compatible con ATS.
 
 A menos que se especifiquen como excepciones en el `Info.plist` de tu aplicación, las conexiones que no cumplan estos requisitos fallarán con errores similares a los siguientes.
 
@@ -189,7 +189,7 @@ Para decodificar un enlace codificado, utiliza la propiedad `String` [`removingP
 {% endtab %}
 {% endtabs %}
 
-## Vinculación en profundidad con la configuración de la aplicación {#deep-linking-to-app-settings}
+## Vinculación en profundidad a la configuración de la aplicación {#deep-linking-to-app-settings}
 
 Puedes aprovechar `UIApplicationOpenSettingsURLString` para dirigir a los usuarios a la configuración de tu aplicación desde las notificaciones push y los mensajes dentro de la aplicación de Braze.
 
@@ -234,7 +234,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 ### Personalización predeterminada de WebView {#default-webview-customization}
 
-La clase `Braze.WebViewController` muestra las URL web abiertas por el SDK, normalmente cuando se selecciona «Abrir URL web dentro de la aplicación» para un vínculo profundo web.
+La clase `Braze.WebViewController` muestra las URL web abiertas por el SDK, normalmente cuando se selecciona "Abrir URL web dentro de la aplicación" para un vínculo profundo web.
 
 Puedes personalizar `Braze.WebViewController` mediante el método delegado [`BrazeDelegate.braze(_:willPresentModalWithContext:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:willpresentmodalwithcontext:)-12sqy/).
 

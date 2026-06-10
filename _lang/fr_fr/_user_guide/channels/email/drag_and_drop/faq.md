@@ -9,6 +9,7 @@ tool:
   - Campaigns
   - Canvas
 
+
 ---
 
 # Questions fréquemment posées {#frequently-asked-questions}
@@ -46,7 +47,7 @@ L'éditeur par glisser-déposer prend actuellement en charge deux calques. Vous 
 
 ### Puis-je enregistrer mon e-mail par glisser-déposer en tant que modèle après l'avoir créé dans ma campagne ou mon Canvas ? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Non. Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une campagne ou un Canvas en tant que **modèle d'e-mail** par glisser-déposer dans **Modèles** > **Modèles d'e-mail**. Recréez la mise en page dans **Modèles** > **Modèles d'e-mail**, ou partez d'un modèle enregistré la prochaine fois. Pour les instructions, consultez [Créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+Non. Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une campagne ou un Canvas en tant que **modèle d'e-mail** par glisser-déposer dans **Templates** > **Email Templates**. Recréez la mise en page dans **Templates** > **Email Templates**, ou partez d'un modèle enregistré la prochaine fois. Pour les instructions, consultez [Créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
 
 Si vous avez besoin d'un modèle HTML réutilisable, sélectionnez **Download file** lors de la modification du corps par glisser-déposer, ouvrez le fichier HTML depuis le ZIP, puis collez le balisage dans un [modèle d'e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) à l'aide de l'éditeur de code HTML. Vérifiez à nouveau le Liquid, les liens et les ressources hébergées par la suite.
 
@@ -81,7 +82,7 @@ Les problèmes de mise en page sont souvent causés par du **HTML ou CSS personn
 
 ### Pourquoi mon bloc de contenu ne s'affiche-t-il pas dans la prévisualisation de l'e-mail ? {#why-doesnt-my-content-block-render-in-email-preview}
 
-Si un bloc de contenu ne s'affiche pas dans la prévisualisation de l'e-mail, vérifiez qu'il n'y a pas de balises d'ancrage non fermées. Pour les URL de contenu connecté, utilisez le filtre `replace` pour convertir les esperluettes doublement encodées (`&amp;amp;`) en une seule esperluette encodée (`&amp;`). Limitez l'imbrication des blocs de contenu à deux niveaux.
+Si un bloc de contenu ne s'affiche pas dans la prévisualisation de l'e-mail, vérifiez qu'il n'y a pas de balises d'ancrage non fermées. Pour les URL de Contenu connecté, utilisez le filtre `replace` pour convertir les esperluettes doublement encodées (`&amp;amp;`) en une seule esperluette encodée (`&amp;`). Limitez l'imbrication des blocs de contenu à deux niveaux.
 
 ### Pourquoi l'éditeur par glisser-déposer ignore-t-il les paramètres d'alignement ? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
 

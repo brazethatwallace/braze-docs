@@ -161,7 +161,7 @@ Join our VIP program to unlock free shipping.
 
 ### ドラッグ＆ドロップの検索ツールで**Row**にContent Blockが表示されないのはなぜですか？ {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
 
-一部のContent Blocksは、ドラッグ＆ドロップエディターの検索で**Row**の下に表示されません。**コンテンツ**タブ（**Advanced**）からHTMLブロックを追加し、そのHTMLブロック内にContent BlockのLiquidタグを挿入して、ブロックのコンテンツをレンダリングしてください。
+一部のContent Blocksは、ドラッグ＆ドロップエディターの検索で**Row**の下に表示されません。**コンテンツ**タブ（**詳細**）からHTMLブロックを追加し、そのHTMLブロック内にContent BlockのLiquidタグを挿入して、ブロックのコンテンツをレンダリングしてください。
 
 ### ダイナミックな返信先アドレスを作成するにはどうすればよいですか？ {#how-do-i-create-a-dynamic-reply-to-address}
 

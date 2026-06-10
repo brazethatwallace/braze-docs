@@ -12,7 +12,7 @@ description: "이 문서에서는 Liquid에 대해 자주 묻는 질문에 대�
 
 ### Braze에서 Liquid 스니펫을 어떻게 사용하나요? {#how-do-i-use-liquid-snippets-in-braze}
 
-대부분의 경우 Campaign이나 Canvases로 이동한 후, 이메일 메시지 본문이나 Segment 등의 영역에서 개인화 모달을 통해 Liquid를 삽입하여 Liquid 스니펫을 활용할 수 있습니다.
+대부분의 경우 Campaign이나 Canvases로 이동한 후, 이메일 메시지 본문이나 Segments 등의 영역에서 개인화 모달을 통해 Liquid를 삽입하여 Liquid 스니펫을 활용할 수 있습니다.
 
 #### 더 자세히 알아보려면 어디를 참고하면 되나요? {#where-can-i-learn-more}
 
@@ -56,7 +56,7 @@ URL 및 쿼리 문자열 사용(예: 이름에 `%` 또는 공백이 포함된 �
 
 ### 중첩된 오브젝트에서 Liquid를 어떻게 사용하나요? {#how-do-i-use-liquid-with-nested-objects}
 
-Braze에는 메시지에서 사용할 수 있는 Segment용 Liquid 코드를 생성하는 내장 기능이 있습니다. 구체적으로, 오브젝트 내에서 여러 기준과 일치하는 Segment를 생성할 수 있습니다.
+Braze에는 메시지에서 사용할 수 있는 Segments용 Liquid 코드를 생성하는 내장 기능이 있습니다. 구체적으로, 오브젝트 내에서 여러 기준과 일치하는 Segment를 생성할 수 있습니다.
 
 자세한 내용은 [다중 기준 세분화]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation)를 확인하세요.
 
@@ -74,7 +74,7 @@ Braze에는 메시지에서 사용할 수 있는 Segment용 Liquid 코드를 생
 
 ### 중단 로직이란 무엇이며, 어떻게 사용하나요? {#what-is-abort-logic-and-how-can-i-use-it}
 
-중단 로직을 사용하면 조건이 충족될 때 메시지 발송을 중지할 수 있습니다. 이는 불완전한 메시지가 사용자에게 발송되는 것을 방지하는 데 특히 유용합니다. 마케팅 Campaign에서의 중단 로직 예시에 대해 자세히 알아보려면 [메시지 중단]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)을 참조하세요.
+중단 로직을 사용하면 조건이 충족될 때 메시지 발송을 중지할 수 있습니다. 이는 불완전한 메시지가 사용자에게 발송되는 것을 방지하는 데 특히 유용합니다. 마케팅 Campaigns에서의 중단 로직 예시에 대해 자세히 알아보려면 [메시지 중단]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)을 참조하세요.
 
 ### for 루프 로직이란 무엇이며, 어떻게 사용하나요? {#what-is-for-loop-logic-and-how-can-i-use-it}
 
@@ -170,7 +170,7 @@ Join our VIP program to unlock free shipping.
 
 ### 드래그 앤 드롭 Content Block 미리보기가 작성 보기와 다른 이유는 무엇인가요? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 
-Liquid로 Content Block을 템플릿화하면, 블록의 모바일 미디어 쿼리가 블록을 메시지에 직접 드래그할 때와 동일한 방식으로 미리보기에 적용되지 않을 수 있습니다. 블록을 드래그하면 레이아웃은 유지되지만 소스 블록과 분리되므로, 이후 블록 편집 사항이 메시지에 자동으로 업데이트되지 않습니다.
+Liquid로 Content Block을 템플릿화하면, 블록 내의 모바일 미디어 쿼리가 블록을 메시지에 직접 드래그할 때와 동일한 방식으로 미리보기에 적용되지 않을 수 있습니다. 블록을 드래그하면 레이아웃은 유지되지만 소스 블록과 분리되므로, 이후 블록 편집 사항이 메시지에 자동으로 업데이트되지 않습니다.
 
 ### Canvas 컨텍스트 등록정보에 크기 제한이 있나요? {#are-there-size-limits-for-canvas-context-properties}
 
@@ -193,7 +193,7 @@ Braze는 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messagin
 ### 인앱 메시지에서 연결된 콘텐츠 재시도를 사용할 수 없는 이유는 무엇인가요? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
 
 {% raw %}
-재시도가 포함된 `{% connected_content %}` 태그는 일부 인앱 메시지 형식을 포함한 모든 메시지 유형에서 지원되지 않습니다. 재시도 매개변수를 제거하거나 재시도 연결된 콘텐츠 호출에 지원되는 채널을 사용하세요.
+재시도가 포함된 `{% connected_content %}` 태그는 일부 인앱 메시지 형식을 포함한 모든 메시지 유형에서 지원되지 않습니다. 재시도 매개변수를 제거하거나 재시도된 연결된 콘텐츠 호출에 지원되는 채널을 사용하세요.
 {% endraw %}
 
 ### 메시지 작성기에서 이벤트 등록정보 값을 미리보려면 어떻게 하나요? {#how-do-i-preview-event-property-values-in-message-composer}

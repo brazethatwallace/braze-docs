@@ -175,9 +175,9 @@ Si vous utilisez actuellement un certificat `.p12` ou `.pem`, migrez vers une cl
 
 ### Clés .p8 et certificats .p12 {#p8-keys-versus-p12-certificates}
 
-| Identifiant | Expiration | Indicateur d'état dans le tableau de bord |
+| Identifiant | Expiration | Indicateur de statut dans le tableau de bord |
 | --- | --- | --- |
-| Clé d'authentification `.p8` | N'expire pas | Pas d'indicateur d'état vert (c'est normal) |
+| Clé d'authentification `.p8` | N'expire pas | Pas d'indicateur de statut vert (c'est normal) |
 | Certificat push `.p12` | Expire chaque année | Indicateur vert lorsque le certificat est valide |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Clés .p8 et certificats .p12" }
 

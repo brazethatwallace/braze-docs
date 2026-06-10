@@ -74,7 +74,7 @@ Par exemple, si vous utilisez Gmail, suivez ces étapes :
 Si DMARC affiche **FAIL** pour les messages envoyés via Braze :
 
 1. Ouvrez les en-têtes bruts ou les résultats d'authentification d'un message récent et vérifiez si **SPF** et **DKIM** réussissent ou échouent.
-2. **Alignement :** DMARC réussit lorsque *soit* SPF, *soit* DKIM s'aligne avec le domaine **From**. L'alignement signifie que le domaine **From** correspond au domaine ayant réussi SPF (souvent le domaine **Return-Path** / enveloppe) *ou* au domaine de la signature DKIM **d=**.
+2. **Alignement :** DMARC réussit lorsque *soit* SPF, *soit* DKIM est aligné avec le domaine **From**. L'alignement signifie que le domaine **From** correspond au domaine ayant réussi SPF (souvent le domaine **Return-Path** / enveloppe) *ou* au domaine figurant dans la signature DKIM **d=**.
 3. Si SPF réussit mais que DMARC échoue, le domaine Return-Path peut ne pas être aligné avec votre domaine **From** — vérifiez que vos [domaines d'envoi et de suivi en marque blanche]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) correspondent aux domaines pour lesquels vous publiez SPF et DKIM.
 4. Si DKIM échoue, vérifiez que les enregistrements DNS DKIM fournis par Braze sont présents et inchangés.
 

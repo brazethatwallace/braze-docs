@@ -70,7 +70,7 @@ Les **Lignes** sont des unités structurelles qui définissent la composition ho
 
 #### Imbriquer des images dans des blocs de texte {#nesting-images-inside-text-blocks}
 
-Vous ne pouvez pas imbriquer une image dans un paragraphe ou un autre bloc de texte dans l'éditeur par glisser-déposer. Pour placer une image à côté ou à l'intérieur d'une mise en page de texte, utilisez des colonnes dans une **Ligne** : par exemple, une ligne multi-colonnes sur ordinateur avec **Hide on mobile** pour cette ligne, et une ligne séparée réservée au mobile (avec **Hide on desktop** et **Do not stack on mobile** selon les besoins) afin que l'image et le texte s'alignent correctement sur les petits écrans.
+Vous ne pouvez pas imbriquer une image dans un paragraphe ou un autre bloc de texte dans l'éditeur par glisser-déposer. Pour placer une image à côté ou à l'intérieur d'une mise en page de texte, utilisez des colonnes dans une **Ligne** : par exemple, une ligne multi-colonnes sur ordinateur avec **Hide on mobile** pour cette ligne, et une ligne distincte réservée au mobile (avec **Hide on desktop** et **Do not stack on mobile** selon les besoins) afin que l'image et le texte s'alignent correctement sur les petits écrans.
 
 #### Style Cartes {#cards-style}
 

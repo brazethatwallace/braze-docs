@@ -32,7 +32,7 @@ Los siguientes escenarios pueden hacer que parezca que un usuario recibió un co
 
 Esta deduplicación se aplica cuando los usuarios objetivo están incluidos en el mismo despacho. La reelegibilidad se evalúa por perfil, no por dirección de correo electrónico.
 
-La reelegibilidad de campañas de correo electrónico y pasos en Canvas utiliza el perfil de cada usuario, no el buzón de entrada, por lo que varios perfiles pueden calificar para envíos separados mientras se cumpla esa lógica. Combinado con desencadenantes, esto puede entregar más de un mensaje al mismo buzón de entrada incluso cuando intentas respetar un único período de inelegibilidad a nivel de dirección. Las campañas desencadenadas (excluyendo las campañas desencadenadas por API) y los Canvas también pueden enviar dos veces a una misma dirección cuando diferentes perfiles con direcciones de correo electrónico coincidentes cumplen el desencadenante en momentos diferentes; por ejemplo, si el usuario A y el usuario B comparten `johndoe@example.com` pero están en zonas horarias diferentes mientras la entrega usa zonas horarias locales.
+La reelegibilidad de Campaigns de correo electrónico y pasos en Canvas utiliza el perfil de cada usuario, no el buzón de entrada, por lo que varios perfiles pueden calificar para envíos separados mientras se cumpla esa lógica. Combinado con desencadenantes, esto puede entregar más de un mensaje al mismo buzón de entrada incluso cuando intentas respetar un único período de inelegibilidad a nivel de dirección. Las campañas desencadenadas (excluyendo las campañas desencadenadas por API) y los Canvas también pueden enviar dos veces a una misma dirección cuando diferentes perfiles con direcciones de correo electrónico coincidentes cumplen el desencadenante en momentos diferentes; por ejemplo, si el usuario A y el usuario B comparten `johndoe@example.com` pero están en zonas horarias diferentes mientras la entrega usa zonas horarias locales.
 
 Los usuarios no se deduplican por correo electrónico en la entrada al Canvas, por lo que es posible que no se dedupliquen más allá del primer paso de un Canvas si avanzan en momentos ligeramente diferentes debido a la entrada con límite de velocidad. Cuando un usuario asociado a una dirección de correo electrónico determinada abre o hace clic en un correo electrónico, todos los perfiles de usuario que comparten esa dirección de correo electrónico se marcan como que abrieron o hicieron clic en la campaña.
 
@@ -196,9 +196,9 @@ Esta advertencia puede persistir en campañas duplicadas a partir de una campañ
 La entrega puede parecer incorrecta incluso cuando Braze se comportó según la configuración. Revisa lo siguiente:
 
 - **Perfiles duplicados** que comparten un buzón de entrada (consulta [¿Qué ocurre cuando se envía un correo electrónico y varios perfiles tienen la misma dirección de correo electrónico?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
-- **Listas semilla, destinatarios de prueba o direcciones internas** incluidas en la audiencia o en un envío como CC/BCC.
+- **Listas semilla, destinatarios de prueba o direcciones internas** incluidos en la audiencia o en un envío como CC/BCC.
 - **Temporización del segmento o Canvas:** el usuario coincidió con la audiencia o el paso en Canvas cuando Braze evaluó la elegibilidad, y luego los atributos o el estado de suscripción cambiaron antes de que leyera el mensaje.
-- **Grupos de suscripción:** el usuario seguía optado en un grupo al que se dirigía tu mensaje, incluso si su estado de suscripción global sugería lo contrario.
+- **Grupos de suscripción:** el usuario seguía suscrito a un grupo al que se dirigía tu mensaje, incluso si su estado de suscripción global sugería lo contrario.
 - **Importaciones de API o archivos** que actualizaron al usuario después de la segmentación pero antes de que esperaras que se aplicara el cambio.
 
 Revisa el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), los registros de cambios de la campaña o Canvas y la definición del segmento. Si aún no puedes conciliar el envío, ponte en contacto con soporte de Braze con los identificadores del usuario, el `dispatch_id` (si está disponible) y las marcas de tiempo.
@@ -216,7 +216,7 @@ Hay varias razones por las que un usuario no recibe un correo electrónico que e
 Un evento de entrega en Braze significa que el correo electrónico fue aceptado por el servidor del proveedor de buzón de entrada. Sin embargo, esto no garantiza que el mensaje aparezca en el buzón de entrada del usuario. El proveedor de buzón de entrada puede enrutar el mensaje a correo no deseado o, en casos excepcionales, impedir silenciosamente la visualización del mensaje.
 {% endalert %}
 
-Usa las siguientes tablas para identificar la causa.
+Usa las siguientes tablas para acotar la causa.
 
 #### El correo electrónico no se envió {#the-email-wasnt-sent}
 

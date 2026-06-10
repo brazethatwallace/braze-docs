@@ -4,20 +4,20 @@ Apple プッシュ通知サービス（APNs）は、Appleのプラットフォ�
 
 1. プッシュ証明書とプロビジョニングプロファイルを構成します
 2. デバイスがAPNsに登録し、Brazeにプッシュトークンを提供します
-3. Brazeプッシュキャンペーンを起動します
+3. Brazeプッシュキャンペーンを開始します
 4. Brazeが無効なトークンを削除します
 
-### ステップ1：プッシュ証明書とプロビジョニングプロファイルの構成 {#step-1-configuring-the-push-certificate-and-provisioning-profile}
+### ステップ1:プッシュ証明書とプロビジョニングプロファイルの構成 {#step-1-configuring-the-push-certificate-and-provisioning-profile}
 
 アプリの開発では、プッシュ通知を有効にするためにSSL証明書を作成する必要があります。この証明書はアプリのビルドに使用されるプロビジョニングプロファイルに含まれ、Brazeダッシュボードにもアップロードする必要があります。この証明書により、Brazeはあなたに代わってプッシュ通知を送信することが許可されていることをAPNsに伝えることができます。
 
-[プロビジョニングプロファイル](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html)と証明書には、開発と配布の2つのタイプがあります。混乱を避けるために、配布プロファイルと証明書のみを使用することをお勧めします。開発と配布で異なるプロファイルと証明書を使用する場合は、ダッシュボードにアップロードされた証明書が現在使用しているプロビジョニングプロファイルと一致することを確認してください。
+[プロビジョニングプロファイル](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html)と証明書には、開発と配布の2つのタイプがあります。混乱を避けるために、配布プロファイルと証明書のみを使用することをお勧めします。開発と配布で異なるプロファイルと証明書を使用する場合は、ダッシュボードにアップロードした証明書が現在使用しているプロビジョニングプロファイルと一致していることを確認してください。
 
 {% alert warning %}
 プッシュ証明書の環境（開発環境と本番環境）を変更しないでください。プッシュ証明書を間違った環境に変更すると、ユーザーのプッシュトークンが誤って削除され、プッシュで到達できなくなる可能性があります。
 {% endalert %}
 
-### ステップ2：デバイスがAPNsに登録し、Brazeにプッシュトークンを提供する {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
+### ステップ2:デバイスがAPNsに登録し、Brazeにプッシュトークンを提供します {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
 ユーザーがアプリを開くと、プッシュ通知を受け入れるように求められます。このプロンプトを受け入れると、APNsはその特定のデバイスのプッシュトークンを生成します。Swift SDKは、デフォルトの[自動フラッシュポリシー]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing)を使用して、アプリのプッシュトークンを即時かつ非同期に送信します。ユーザーにプッシュトークンが関連付けられると、ダッシュボードの**エンゲージメント**タブのユーザープロファイルに「プッシュ登録済み」と表示され、Braze Campaignsからプッシュ通知を受け取る資格が得られます。
 
@@ -32,24 +32,24 @@ macOS 13以降、一部のデバイスでは、Xcode 14上で動作するiOS 16�
 - ユーザーがアプリをアンインストールしても、Brazeは即座に通知を受け取らず、トークンはAPNsによって無効化されるまで有効なまま表示されます。
 - いずれAPNsは古いトークンを廃止します。Brazeはこれについてコントロールも可視性も持っていません。
 
-### ステップ3：Brazeプッシュキャンペーンの起動 {#step-3-launching-a-braze-push-campaign}
+### ステップ3:Brazeプッシュキャンペーンの開始 {#step-3-launching-a-braze-push-campaign}
 
-プッシュキャンペーンが起動されると、BrazeはAPNsにメッセージの配信リクエストを行います。具体的には、**ユーザーの最新のデバイスに送信**が選択されている場合を除き、現在の有効なプッシュトークンごとにリクエストがAPNsに渡されます。BrazeがAPNsから成功応答を受信した後、ユーザープロファイルに配信成功を記録しますが、以下の理由によりユーザーが実際のメッセージを受信していない可能性があります。
+プッシュキャンペーンが開始されると、Brazeはメッセージの配信リクエストをAPNsに行います。具体的には、**ユーザーの最新のデバイスに送信**が選択されている場合を除き、現在の有効なプッシュトークンごとにリクエストがAPNsに渡されます。BrazeがAPNsから成功応答を受信した後、ユーザープロファイルに配信成功を記録します。ただし、以下の理由により、ユーザーが実際のメッセージを受信していない可能性があります。
 - デバイスの電源が切れている。
 - デバイスがインターネット（Wi-Fiまたは携帯電話回線）に接続されていない。
 - ユーザーが最近アプリをアンインストールした。
 
 Brazeは、ダッシュボードにアップロードされたSSLプッシュ証明書を使用して認証を行い、提供されたプッシュトークンへのプッシュ通知の送信が許可されていることを確認します。デバイスがオンラインの場合、キャンペーンが送信された後すぐに通知が受信されます。なお、Brazeは通知のデフォルトのAPNs[有効期限](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns#2947607)を30日に設定しています。
 
-### ステップ4：無効なトークンの削除 {#step-4-removing-invalid-tokens}
+### ステップ4:無効なトークンの削除 {#step-4-removing-invalid-tokens}
 
-[APNs](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)が、メッセージを送信しようとしていたプッシュトークンのいずれかが無効であることを通知した場合、それらのトークンは関連付けられたユーザープロファイルから削除されます。
+[APNs](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)が、メッセージを送信しようとしたプッシュトークンのいずれかが無効であることを通知した場合、それらのトークンは関連付けられたユーザープロファイルから削除されます。
 
 {% alert note %}
 APNsでは、トークンが登録解除されても、最初は成功ステータスを返すのが通常です。APNsはトークンの無効化イベントを即座にレポートしないためです。APNsは、無効なトークンに対する`410`ステータスの返却を意図的に遅延させます。この遅延はランダムなスケジュールで実行され、ユーザーのプライバシー保護とアプリのアンインストール追跡防止を目的としています。APNsが`410`ステータスを返すまで、未登録のトークンへの通知送信を安全に継続できます。
 {% endalert %}
 
-## プッシュのエラーログを使う {#using-the-push-error-logs}
+## プッシュのエラーログの使用 {#using-the-push-error-logs}
 
 [メッセージアクティビティログ]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/)を使用すると、Campaignsや送信に関連するメッセージ（特にエラーメッセージ）を確認できます。これにはプッシュ通知エラーも含まれます。このエラーログは、Campaignsが期待どおりに機能していない理由を特定するのに非常に役立つさまざまな警告を提供します。エラーメッセージをクリックすると、特定のインシデントのトラブルシューティングに役立つ関連ドキュメントにリダイレクトされます。
 
@@ -71,11 +71,11 @@ APNsでは、トークンが登録解除されても、最初は成功ステー�
 
 #### デバイストークンがトピック用ではない {#device-token-not-for-topic}
 
-APNsは、プッシュトークンが認証情報に設定されたトピック（バンドルID）と一致しない場合に`DeviceTokenNotForTopic`（HTTPステータス400）を返します。Brazeは**メッセージアクティビティログ**またはプッシュ配信ログにこれを`DeviceTokenNotForTopic`として表示する場合があります。
+APNsは、プッシュトークンが認証情報に構成されたトピック（バンドルID）と一致しない場合に`DeviceTokenNotForTopic`（HTTPステータス400）を返します。Brazeは**メッセージアクティビティログ**またはプッシュ配信ログにこれを`DeviceTokenNotForTopic`として表示する場合があります。
 
 不一致を解決するには：
 
-1. アプリの**バンドルID**がBrazeの**アプリバンドルID**と一致することを確認します（**設定** > **アプリ設定** > **プッシュ通知の設定**）。
+1. アプリの**バンドルID**がBrazeの**アプリバンドルID**（**設定** > **アプリ設定** > **プッシュ通知の設定**）と一致することを確認します。
 2. アプリのビルドに使用したプロビジョニングプロファイルに、そのバンドルIDのプッシュ機能が含まれていることを確認します。
 3. Brazeにアップロードしたプッシュ認証情報がアプリの環境（開発環境と本番環境）と一致することを確認します。
 4. `.p8`キーの場合、Brazeの**チームID**と**キーID**がApple Developerアカウントと一致することを確認します。
@@ -113,9 +113,9 @@ APNsは、プッシュトークンが認証情報に設定されたトピック�
 - アプリで[プッシュ機能が適切に有効化]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-2-enable-push-capabilities)されていることを確認します。
 - プッシュプロビジョニングプロファイルがテスト環境と一致することを確認します。ユニバーサル証明書は、開発または本番のAPNs環境のいずれかに送信するようにBrazeダッシュボードで構成できます。本番アプリ用の開発証明書または開発アプリ用の本番証明書は動作しません。
 - コードにブレークポイントを設定して、`registerPushToken`メソッドを呼び出していることを確認します。
-- デバイスを使ってテストし（プッシュはシミュレーターでは機能しません）、ネットワーク接続が良好であることを確認してください。
+- デバイスを使ってテストし（プッシュはシミュレーターでは機能しません）、ネットワーク接続が良好であることを確認します。
 
-## プッシュ通知は送信されたが、ユーザーのデバイスに表示されない {#push-notifications-sent-but-not-displayed-on-users-devices}
+## プッシュ通知は送信されたがユーザーのデバイスに表示されない {#push-notifications-sent-but-not-displayed-on-users-devices}
 
 ### 「プッシュ登録済み」ユーザーがメッセージ送信後に有効でなくなる {#push-registered-users-no-longer-enabled-after-sending-messages}
 
@@ -164,7 +164,7 @@ APNsは、プッシュトークンが認証情報に設定されたトピック�
 
 プッシュ通知のリンクは、Webビューで開くにはATS準拠である必要があります。WebリンクがHTTPSを使用していることを確認してください。詳細については、[ATSコンプライアンス]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/linking/#app-transport-security-ats)を参照してください。
 
-### プッシュクリックからディープリンクが開かない {#deep-links-from-push-clicks-not-opening}
+### プッシュクリックからのディープリンクが開かない {#deep-links-from-push-clicks-not-opening}
 
 ディープリンクを扱うコードのほとんどはプッシュ通知の開封も扱います。まず、プッシュ通知の開封がログに記録されていることを確認します。記録されていない場合は、その問題を修正してください（修正するとリンク処理も直ることが多いです）。
 

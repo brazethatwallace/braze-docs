@@ -148,7 +148,7 @@ Para e-mail, *% de bounce* ou *taxa de bounce* é a porcentagem de mensagens que
 Um bounce de e-mail para clientes que usam SendGrid consiste em hard bounces, spam (`spam_report_drops`) e e-mails enviados para endereços inválidos (`invalid_emails`).
 
 {% alert note %}
-No [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), adiamentos temporários do ESP são frequentemente representados como soft bounces. Ferramentas de entregabilidade (por exemplo, relatórios nativos do SendGrid ou modelos do Looker) podem usar adiamentos para a mesma situação. Adiamentos geralmente são temporários, e o e-mail costuma ser entregue após novas tentativas. Após tentativas prolongadas (até aproximadamente 72 horas para soft bounces na análise de dados de campanhas), uma mensagem pode ser tratada como não entregável, dependendo do seu ESP. Os eventos de e-mail do Currents são somente de adição — um soft bounce registrado não é removido posteriormente se a mensagem for entregue com sucesso.
+No [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), adiamentos temporários do ESP são frequentemente representados como soft bounces. Ferramentas de entregabilidade (por exemplo, relatórios nativos do SendGrid ou modelos do Looker) podem usar adiamentos para a mesma situação. Adiamentos geralmente são temporários, e o e-mail costuma ser entregue após novas tentativas. Após tentativas prolongadas (até aproximadamente 72 horas para soft bounces na análise de dados de Campaigns), uma mensagem pode ser tratada como não entregável, dependendo do seu ESP. Os eventos de e-mail do Currents são somente de adição — um soft bounce registrado não é removido posteriormente se a mensagem for entregue.
 {% endalert %}
 
 {::nomarkdown}
@@ -189,7 +189,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Se um e-mail receber um soft bounce, geralmente tentaremos novamente dentro de 72 horas, mas o número de tentativas varia de acordo com o destinatário.
 
-Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorá-los no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) ou excluir esses usuários do seu envio com o [filtro de segmento Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
+Embora os soft bounces não sejam rastreados na análise de dados da sua Campaign, você pode monitorá-los no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) ou excluir esses usuários do seu envio com o [filtro de Segment Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
 
 <span class="calculation-line">Cálculo: Contagem </span>
 
@@ -394,11 +394,11 @@ A Braze não inclui um recurso nativo de "Visualizar este e-mail no navegador". 
 
 Um bounce por cota excedida ou caixa de e-mail cheia significa que a caixa de entrada do destinatário não pode aceitar novos e-mails. Você pode ver esses endereços entre novos cadastros com endereços inválidos ou arriscados, ou entre perfis inativos há muito tempo cujas caixas de entrada ficaram cheias enquanto estavam inativos.
 
-Revise as taxas de bounce por segmento e origem, remova ou desative endereços que sofrem hard bounce repetidamente e use opt-in confirmado ou duplo para novos assinantes. Para práticas de higiene de lista, consulte [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/) e [Relatórios de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/#troubleshooting).
+Revise as taxas de bounce por Segment e origem, remova ou desative endereços que sofrem hard bounce repetidamente e use opt-in confirmado ou duplo para novos assinantes. Para práticas de higiene de lista, consulte [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/) e [Relatórios de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/#troubleshooting).
 
 ### 550 5.7.1 e-mail não solicitado {#550-571-unsolicited-mail}
 
-Uma resposta `550 5.7.1` como "Our system has detected that this message is likely unsolicited mail" geralmente vem de provedores de caixa de e-mail rigorosos (por exemplo, Gmail) quando os sinais de reputação ou engajamento parecem ruins. Fatores comuns incluem reclamações de spam, baixo engajamento, listas compradas ou alugadas e picos repentinos de volume.
+Uma resposta `550 5.7.1` como "Nosso sistema detectou que esta mensagem provavelmente é e-mail não solicitado" geralmente vem de provedores de caixa de e-mail rigorosos (por exemplo, Gmail) quando os sinais de reputação ou engajamento parecem ruins. Fatores comuns incluem reclamações de spam, baixo engajamento, listas compradas ou alugadas e picos repentinos de volume.
 
 Concentre-se no crescimento de lista baseado em consentimento, desative assinantes inativos e monitore as taxas de reclamação e bounce. Para saber mais, consulte [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
@@ -408,14 +408,14 @@ Concentre-se no crescimento de lista baseado em consentimento, desative assinant
 
 Como orientação geral, busque uma taxa de entrega próxima de 99% com hard bounces abaixo de aproximadamente 1%, e acompanhe aberturas e cliques para tendências de engajamento. As metas exatas variam por setor e padrão de envio. Para práticas que apoiam a reputação, consulte [Melhorar a entregabilidade de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) e [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
-### "Campaign is already in delay window, so not enqueueing another"
+### "Campaign is already in delay window, so not enqueueing another" {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
 
-No registro de atividades de mensagem ou nos logs de diagnóstico de [campanhas baseadas em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/), esse resultado de processamento significa que a Braze bloqueou um envio duplicado enquanto um gatilho anterior para o mesmo usuário ainda está dentro da janela de entrega da campanha. Um bloqueio de debounce impede múltiplos enfileiramentos para a mesma rajada de gatilhos.
+No registro de atividades de mensagem ou nos logs de diagnóstico de [Campaigns baseadas em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/), esse resultado de processamento significa que a Braze bloqueou um envio duplicado enquanto um gatilho anterior para o mesmo usuário ainda está dentro do período de entrega da Campaign. Um bloqueio de debounce impede múltiplos enfileiramentos para a mesma rajada de gatilhos.
 
-Você pode ver esse resultado mesmo quando a campanha mostra **Enviar imediatamente** se qualquer uma das seguintes condições se aplicar:
+Você pode ver esse resultado mesmo quando a Campaign mostra **Enviar imediatamente** se qualquer uma das seguintes condições se aplicar:
 
-- A campanha usa um [evento de exceção]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/#exception-events) ou uma postergação no momento do envio que afeta o tempo.
-- Os usuários têm um período de [reelegibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/), então não podem receber a mensagem novamente até que essa janela passe.
-- Outra campanha ou etapa de mensagem do Canvas com prioridade mais alta consumiu o slot de envio quando os gatilhos se sobrepõem.
+- A Campaign usa um [evento de exceção]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/#exception-events) ou uma postergação no horário de envio que afeta o tempo.
+- Os usuários têm um período de [reelegibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/), então não podem receber a mensagem novamente até que esse período passe.
+- Outra Campaign ou etapa de mensagem do Canvas com prioridade mais alta consumiu o slot de envio quando os gatilhos se sobrepõem.
 
 Se um usuário deveria ter recebido a mensagem, mas não recebeu, verifique os resultados anteriores para o mesmo gatilho (por exemplo, bounce de e-mail ou canal não ativado). Outra mensagem no mesmo fluxo de trabalho pode ter impedido esse envio.

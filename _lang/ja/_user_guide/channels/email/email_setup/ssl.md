@@ -114,9 +114,9 @@ digコマンドを実行して、リンクトラッキングがCDNを指して�
 
 #### リダイレクトリンクでHTTP 403が発生する場合 {#http-403-on-redirect-links}
 
-トラッキング対象のリダイレクトリンクが**403 Forbidden**を返す場合、多くの場合コンテンツ配信ネットワーク（CDN）やWebアプリケーションファイアウォール（WAF）で障害が発生しています。たとえば、AWS WAFやAmazon CloudFrontで特定のユーザーエージェント、クエリ文字列、またはリダイレクトパターンをブロックするルールが原因となることがあります。CDNまたはクラウドプロバイダーでブロックされたリクエストのログと指標を確認してください。AWSの場合は、[Troubleshooting issues with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)を参照してください。
+トラッキング対象のリダイレクトリンクが**403 Forbidden**を返す場合、多くの場合、コンテンツ配信ネットワーク（CDN）やWebアプリケーションファイアウォール（WAF）で障害が発生しています。たとえば、AWS WAFやAmazon CloudFrontで特定のユーザーエージェント、クエリ文字列、またはリダイレクトパターンをブロックするルールが原因となることがあります。CDNまたはクラウドプロバイダーでブロックされたリクエストのログと指標を確認してください。AWSの場合は、[Troubleshooting issues with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)を参照してください。
 
-問題がクリックトラッキングに固有のものかどうかを確認するには、1つのテストリンクでクリックトラッキングをオフにしてください（[リンク単位でクリックトラッキングをオフにする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)を参照）。クリックトラッキングをオフにすると送信先URLが読み込まれるが、トラッキングをオンにすると403が返される場合は、クリックトラッキングドメイン、CDN、およびWAFの設定に焦点を当ててください。
+問題がクリックトラッキングに固有のものかどうかを確認するには、テストリンク1つでクリックトラッキングをオフにしてください（[リンク単位でクリックトラッキングをオフにする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)を参照）。クリックトラッキングをオフにすると送信先URLが読み込まれるのに、トラッキングをオンにすると403が返される場合は、クリックトラッキングドメイン、CDN、WAFの設定に焦点を当ててください。
 
 ### SSL有効化のステータス {#ssl-enablement-status}
 

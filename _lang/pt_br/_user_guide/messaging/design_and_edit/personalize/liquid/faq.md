@@ -150,7 +150,7 @@ Não. A Braze renderiza cada componente da mensagem separadamente (como linha de
 
 ### Posso usar Liquid dentro da tag `abort_message`? {#can-i-use-liquid-inside-the-abort_message-tag}
 
-{% raw %}Não. A tag {% abort_message %} aceita uma string estática entre aspas, não personalização com Liquid.{% endraw %} Use outra lógica de Liquid antes da tag se precisar de um comportamento condicional de cancelamento.
+{% raw %}Não. A tag {% abort_message %} aceita uma string estática entre aspas, não personalização com Liquid.{% endraw %} Use outra lógica de Liquid antes da tag se precisar de comportamento condicional de cancelamento.
 
 ### Por que estou vendo um erro de Liquid "Unexpected end token"? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
 
@@ -182,7 +182,7 @@ Se um snippet de Liquid de catálogo for cancelado durante o envio, recrie o sni
 
 ### Por que recebo um erro de Liquid ao pré-visualizar certos tipos de dados no dashboard? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
 
-Alguns tipos de [propriedades de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) exigem coerção em Liquid antes de serem usados em comparações ou operações matemáticas. Por exemplo, quando você precisa de comportamento numérico:
+Alguns tipos de [propriedade de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) exigem coerção em Liquid antes de serem usados em comparações ou operações matemáticas. Por exemplo, quando você precisa de comportamento numérico:
 
 {% raw %}
 ```liquid
@@ -190,7 +190,7 @@ Alguns tipos de [propriedades de contexto do Canvas]({{site.baseurl}}/user_guide
 ```
 {% endraw %}
 
-### Por que a tentativa de repetição do Conteúdo conectado não está disponível para minha mensagem no app? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+### Por que a tentativa de repetição de Conteúdo conectado não está disponível para minha mensagem no app? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
 
 {% raw %}
 A tag `{% connected_content %}` com tentativa de repetição não é suportada para todos os tipos de mensagem, incluindo alguns formatos de mensagem no app. Remova os parâmetros de tentativa de repetição ou use um canal suportado para chamadas de Conteúdo conectado com repetição.
@@ -202,4 +202,4 @@ Use **Pré-visualizar como usuário personalizado** e insira valores de amostra 
 
 ### A Braze suporta array de arrays em Liquid? {#does-braze-support-an-array-of-arrays-in-liquid}
 
-O Liquid não suporta nativamente arrays de arrays. Armazene os valores como um array de strings separadas por vírgula e use o filtro `split` para analisá-los quando necessário.
+Liquid não suporta nativamente arrays de arrays. Armazene os valores como um array de strings separadas por vírgula e use o filtro `split` para analisá-los quando necessário.

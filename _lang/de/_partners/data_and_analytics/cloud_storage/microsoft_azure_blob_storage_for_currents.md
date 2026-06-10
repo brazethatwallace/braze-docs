@@ -103,6 +103,6 @@ Currents-Exporte verwenden das Apache-Avro-Format (`.avro`-Dateien), nicht JSON.
 
 ### Kann Braze IP-Adressen für die Freigabeliste von Azure Blob Storage bereitstellen? {#can-braze-provide-ip-addresses-to-allowlist-for-azure-blob-storage}
 
-Braze veröffentlicht keine feste IP-Freigabeliste für Currents oder Dashboard-Exporte nach Azure Blob Storage. Braze schreibt in Ihren Container unter Verwendung des Verbindungs-Strings und Containernamens, den Sie angeben, und Azure steuert den Netzwerkzugriff über Ihre Speicherkontoeinstellungen (z. B. Firewall-Regeln für das Speicherkonto oder private Endpunkte).
+Braze veröffentlicht keine feste IP-Freigabeliste für Currents oder Dashboard-Exporte nach Azure Blob Storage. Braze schreibt in Ihren Container unter Verwendung des Verbindungs-Strings und Containernamens, den Sie angeben, und Azure steuert den Netzwerkzugriff über Ihre Speicherkontoeinstellungen (z. B. Firewallregeln für das Speicherkonto oder private Endpunkte).
 
 Wenn Ihr Sicherheitsteam IP-basierte Einschränkungen benötigt, verwenden Sie die Azure-Netzwerkfunktionen für Ihr Speicherkonto anstelle einer IP-Liste von Braze. Informationen zu den Einrichtungsschritten finden Sie in der [Microsoft-Dokumentation zur Absicherung von Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security).

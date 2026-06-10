@@ -150,7 +150,7 @@ Navigieren Sie in mParticle zu **Setup > Outputs > Add Outputs** und wählen Sie
 | Email identity type | Der mParticle-Nutzeridentitätstyp, der als E-Mail an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „Email“ beizubehalten. |
 | Braze instance | Der Cluster, an den Ihre Braze-Daten weitergeleitet werden; dieser sollte derselbe Cluster sein, auf dem sich Ihr Dashboard befindet. |
 | Enable event stream forwarding | (Server-zu-Server) Wenn aktiviert, werden alle Events in Echtzeit weitergeleitet. Andernfalls werden alle Events in Batches weitergeleitet. Wenn Sie die Event-Stream-Weiterleitung aktivieren, stellen Sie sicher, dass die Daten, die Sie an Braze senden, die [Rate-Limits]({{site.baseurl}}/api/api_limits/) einhalten. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Konfigurieren Sie Ihre Braze-Ausgabeeinstellungen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze-Ausgabeeinstellungen konfigurieren" }
 
 ![]({% image_buster /assets/img_archive/configure_settings.png %})
 

@@ -88,7 +88,7 @@ LLM 제공업체가 사용량 제한 오류를 반환하면, Braze는 지수 백
 
 ![출력 필드에 사용량 제한 초과 오류가 표시된 에이전트 콘솔 로그 세부 정보.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
-## 지침 작성 {#writing-instructions}
+## 지침 작성
 
 지침은 에이전트(시스템 프롬프트)에게 주는 규칙 또는 가이드라인입니다. 에이전트가 실행될 때마다 어떻게 행동해야 하는지를 정의합니다. 시스템 지침은 최대 25KB까지 가능합니다.
 

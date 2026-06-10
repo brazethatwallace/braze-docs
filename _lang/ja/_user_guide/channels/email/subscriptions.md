@@ -74,7 +74,7 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 
 ユーザーのメールサブスクリプション状態は、以下の方法で確認できます。
 
-1. **REST APIエクスポート:** [Segment別ユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子別ユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートします。
+1. **REST APIエクスポート:** [Segmentごとのユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子ごとのユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートします。
 2. **ユーザープロファイル:** [ユーザーを検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)ページでユーザーのプロファイルを見つけ、**エンゲージメント**タブを選択してユーザーのサブスクリプション状態を表示および手動で更新します。
 
 ユーザーがメールアドレスを更新すると、サブスクリプション状態は購読中に設定されます。更新されたメールアドレスがBrazeワークスペース内の別の場所にすでに存在する場合、ユーザーはその既存ユーザーのサブスクリプション状態を引き継ぎます。ただし、**送信設定**で**ユーザーがメール設定を更新したときに再購読する**が有効になっている場合は除きます。
@@ -131,7 +131,7 @@ Brazeは、アーカイブされたグループのユーザーの状態変更を
 
 #### Campaign分析での購読グループの表示 {#viewing-subscription-groups-in-campaign-analytics}
 
-特定のメールCampaignからサブスクリプション状態を変更した（購読または購読解除した）ユーザーの数を、そのCampaignの分析ページで確認できます。
+特定のメールキャンペーンからサブスクリプション状態を変更した（購読または購読解除した）ユーザーの数を、そのCampaignの分析ページで確認できます。
 
 1. Campaignの**Campaign分析**ページで、**メールメッセージパフォーマンス**セクションまでスクロールします。
 2. **購読グループ**の下にある矢印を選択して、顧客が送信した状態変更の合計数を確認します。

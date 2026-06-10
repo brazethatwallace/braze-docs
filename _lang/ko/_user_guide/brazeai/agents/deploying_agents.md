@@ -100,7 +100,7 @@ page_order: 2
 
 에이전트의 **Usage** 섹션에서 카탈로그와 Canvases에서 에이전트가 활발히 사용되고 있는 위치를 참조하고 탐색할 수 있습니다.
 
-![Canvases에 대해 두 개의 활성 에이전트와 하나의 비활성 에이전트를 보여주는 에이전트 Usage 섹션.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
+![Canvases에 대해 두 개의 활성 에이전트와 하나의 비활성 에이전트를 보여주는 에이전트 사용량 섹션.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
 에이전트의 **Logs** 섹션에서 Canvases와 카탈로그에서 발생하는 실제 에이전트 호출을 모니터링할 수 있습니다. 날짜 범위, 결과(성공 또는 실패), 호출 위치 등의 정보로 필터링할 수 있습니다. 현재 페이지에 표시된 로그만 내보내려면 **Export CSV**를 선택할 수도 있습니다.
 

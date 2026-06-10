@@ -40,7 +40,7 @@ Além disso, observe os seguintes detalhes específicos de cada plataforma:
 - O prompt não é exibido se a configuração de push do app estiver explicitamente ativada ou desativada. Ele só é exibido para usuários com [autorização provisória](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications#3544375).
   - **Configuração de push do app ativada:** a Braze não exibe a mensagem no app, pois o usuário já aceitou.
   - **Configuração de push do app desativada:** você precisa redirecionar o usuário para as configurações de notificação por push do app dentro das configurações do dispositivo.
-- **Reteste após recusa:** Se um usuário recusar o prompt nativo, o iOS não o exibe novamente para aquela instalação do app. Para retestar o fluxo de push primer, os usuários normalmente precisam desinstalar e reinstalar o app, ou alterar a permissão de notificação para o seu app em **Configurações**.
+- **Reteste após recusa:** Se um usuário recusar o prompt nativo, o iOS não o exibirá novamente para aquela instalação do app. Para retestar o fluxo de push primer, os usuários geralmente precisam desinstalar e reinstalar o app, ou alterar a permissão de notificação para o seu app em **Configurações**.
 
 ### Remoção manual de código {#manual-code-removal}
 

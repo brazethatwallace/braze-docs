@@ -8,13 +8,13 @@
 
 ### 1단계: 스킴 등록 {#register-a-scheme}
 
-딥링킹을 처리하려면 `Info.plist` 파일에 커스텀 스킴을 명시해야 합니다. 탐색 구조는 사전의 배열로 정의됩니다. 이러한 각 사전에는 문자열 배열이 포함되어 있습니다.
+딥링킹을 처리하려면 `Info.plist` 파일에 커스텀 스킴을 명시해야 합니다. 내비게이션 구조는 사전의 배열로 정의됩니다. 이러한 각 사전에는 문자열 배열이 포함되어 있습니다.
 
 Xcode를 사용하여 `Info.plist` 파일을 편집합니다:
 
 1. 새 키 `URL types`를 추가합니다. Xcode는 자동으로 `Item 0`이라는 사전을 포함하는 배열로 만듭니다.
-2. `Item 0` 내에 `URL identifier` 키를 추가합니다. 값을 커스텀 스킴으로 설정합니다.
-3. `Item 0` 내에 `URL Schemes` 키를 추가합니다. 그러면 자동으로 `Item 0` 문자열을 포함하는 배열이 됩니다.
+2. `Item 0` 내에서 `URL identifier` 키를 추가합니다. 값을 커스텀 스킴으로 설정합니다.
+3. `Item 0` 내에서 `URL Schemes` 키를 추가합니다. 그러면 자동으로 `Item 0` 문자열을 포함하는 배열이 됩니다.
 4. `URL Schemes` >> `Item 0`을 커스텀 스킴으로 설정합니다.
 
 또는 `Info.plist` 파일을 직접 편집하려면 다음 사양을 따를 수 있습니다:
@@ -91,7 +91,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 [Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14)에 의해 정의된 바와 같이, "앱 전송 보안은 앱과 웹 서비스 간의 연결 보안을 향상시키는 기능입니다. 이 기능은 보안 연결을 위한 모범 사례를 준수하는 기본 연결 요구 사항으로 구성되어 있습니다. 앱은 이 기본 동작을 재정의하고 전송 보안을 해제할 수 있습니다."
 
-ATS는 기본적으로 적용됩니다. 모든 연결은 HTTPS를 사용해야 하며, 순방향 비밀성을 지원하는 TLS 1.2를 사용하여 암호화해야 합니다. 자세한 내용은 [ATS를 사용하여 연결하기 위한 요구 사항](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)을 참조하세요. Braze가 최종 기기에 제공하는 모든 이미지는 TLS 1.2를 지원하고 ATS와 호환되는 콘텐츠 전송 네트워크("CDN")에서 처리됩니다.
+ATS는 기본적으로 적용됩니다. 모든 연결은 HTTPS를 사용해야 하며, 순방향 비밀성을 지원하는 TLS 1.2를 사용하여 암호화해야 합니다. 자세한 내용은 [ATS를 사용하여 연결하기 위한 요구 사항](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)을 참조하세요. Braze가 최종 기기에 제공하는 모든 이미지는 TLS 1.2를 지원하고 ATS와 호환되는 콘텐츠 전송 네트워크(CDN)에서 처리됩니다.
 
 애플리케이션의 `Info.plist`에서 예외로 지정되지 않는 한, 이러한 요구 사항을 따르지 않는 연결은 다음과 유사한 오류로 실패합니다.
 
@@ -108,7 +108,7 @@ Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secur
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 ```
 
-ATS 규정 준수는 모바일 앱 내에서 열린 링크(클릭된 링크에 대한 기본 처리)에 대해 적용되며 웹 브라우저를 통해 외부에서 열린 사이트에는 적용되지 않습니다.
+ATS 규정 준수는 모바일 앱 내에서 열린 링크(클릭된 링크에 대한 기본 처리)에 대해 적용되며, 웹 브라우저를 통해 외부에서 열린 사이트에는 적용되지 않습니다.
 
 ### ATS 작업하기 {#working-with-ats}
 
@@ -242,7 +242,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 `BrazeDelegate` 프로토콜을 사용하여 딥링크, 웹 URL, 유니버설 링크 등의 URL 처리를 커스터마이징할 수 있습니다. Braze 초기화 중에 델리게이트를 설정하려면 `Braze` 인스턴스에서 델리게이트 오브젝트를 설정합니다. 그러면 Braze는 URI를 처리하기 전에 델리게이트의 `shouldOpenURL` 구현을 호출합니다.
 
-푸시 알림 또는 인앱 메시지에서 **앱 내에서 웹 URL 열기**를 사용하면 Braze는 [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext)에서 `context.useWebView == true`를 전달합니다. 메시지가 시스템 브라우저에서 URL을 열면 `useWebView`는 `false`입니다. `braze(_:shouldOpenURL:)`에서 `context.useWebView`를 검사하여 커스텀 처리를 분기할 수 있습니다. 예를 들어, Campaign에서 인앱 표시를 요청한 경우에만 인앱 `WebViewController`를 열 수 있습니다.
+푸시 알림 또는 인앱 메시지에서 **앱 내에서 웹 URL 열기**를 사용하면, Braze는 [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext)에서 `context.useWebView == true`를 전달합니다. 메시지가 시스템 브라우저에서 URL을 열 때는 `useWebView`가 `false`입니다. `braze(_:shouldOpenURL:)`에서 `context.useWebView`를 검사하여 커스텀 처리를 분기할 수 있습니다. 예를 들어, Campaign에서 인앱 표시를 요청한 경우에만 인앱 `WebViewController`를 여는 방식입니다.
 
 #### 유니버설 링크 {#universal-links}
 

@@ -116,7 +116,7 @@ dig 명령을 실행하여 링크 추적이 CDN을 가리키고 있는지 확인
 
 추적된 리디렉션 링크가 **403 Forbidden**을 반환하는 경우, 이 오류는 콘텐츠 전달 네트워크(CDN) 또는 웹 애플리케이션 방화벽(WAF)에서 발생하는 경우가 많습니다. 예를 들어 AWS WAF 또는 Amazon CloudFront에서 특정 사용자 에이전트, 쿼리 문자열 또는 리디렉션 패턴을 차단하는 규칙이 원인일 수 있습니다. CDN 또는 클라우드 공급자와 함께 차단된 요청 로그 및 측정기준을 검토하세요. AWS의 경우 [CloudFront 문제 해결](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)을 참조하세요.
 
-문제가 클릭 추적에 한정된 것인지 확인하려면 테스트 링크 하나에 대해 클릭 추적을 비활성화하세요([링크별 클릭 추적 비활성화]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis) 참조). 클릭 추적을 비활성화하면 대상 URL이 로드되지만 추적을 활성화하면 403이 반환되는 경우, 클릭 추적 도메인, CDN 및 WAF 구성에 집중하세요.
+문제가 클릭 추적에 한정된 것인지 확인하려면 테스트 링크 하나에 대해 클릭 추적을 비활성화하세요([링크별 클릭 추적 비활성화]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis) 참조). 클릭 추적을 비활성화했을 때 대상 URL이 로드되지만 추적을 활성화하면 403이 반환되는 경우, 클릭 추적 도메인, CDN 및 WAF 구성에 집중하세요.
 
 ### SSL 활성화 상태 {#ssl-enablement-status}
 

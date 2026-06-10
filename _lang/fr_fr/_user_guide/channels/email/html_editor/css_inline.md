@@ -16,13 +16,13 @@ Pour certains clients de messagerie, l'insertion CSS peut améliorer le rendu de
 
 ## Utilisation de l'insertion CSS {#using-css-inlining}
 
-Vous pouvez activer ou désactiver l'insertion CSS pour n'importe quel e-mail à l'aide de la bascule **Activer l'insertion CSS** dans l'onglet **Informations d'envoi** de l'éditeur HTML.
+Vous pouvez activer ou désactiver l'insertion CSS pour n'importe quel e-mail à l'aide de la bascule **Enable inline CSS** dans l'onglet **Sending Info** de l'éditeur HTML.
 
 ![Case à cocher pour gérer l'insertion CSS dans le compositeur HTML.]({% image_buster /assets/img_archive/css-inline2.png %}){: style="max-width:40%;"}
 
 ### État d'insertion par défaut {#default-inlining-state}
 
-Vous pouvez définir un état par défaut (activé ou désactivé) de manière globale depuis **Paramètres** > **Préférences des e-mails**. Recherchez le paramètre **Insertion CSS**. Ce paramètre détermine la valeur par défaut avec laquelle tous les nouveaux e-mails sont créés. Notez que la modification de ce paramètre n'affectera aucun de vos e-mails existants. Vous pouvez également remplacer cette valeur par défaut à tout moment lors de la rédaction de vos e-mails.
+Vous pouvez définir un état par défaut (activé ou désactivé) de manière globale depuis **Paramètres** > **Préférences des e-mails**. Recherchez le paramètre **CSS Inlining**. Ce paramètre détermine la valeur par défaut avec laquelle tous les nouveaux e-mails sont créés. Notez que la modification de ce paramètre n'affectera aucun de vos e-mails existants. Vous pouvez également remplacer cette valeur par défaut à tout moment lors de la rédaction de vos e-mails.
 
 ![Option d'insertion CSS par défaut pour les nouveaux e-mails, située dans les paramètres des e-mails.]({% image_buster /assets/img_archive/css-inline1.png %})
 
@@ -32,4 +32,4 @@ L'insertion CSS s'exécute **avant** l'évaluation du [contenu connecté]({{site
 
 ## Content Blocks dans les modèles HTML personnalisés {#content-blocks-in-custom-html-templates}
 
-Lorsque vous intégrez un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) avec Liquid dans un modèle d'e-mail ou une campagne en **HTML personnalisé**, les règles CSS du modèle parent peuvent remplacer les styles définis dans le bloc de contenu. Vérifiez les sélecteurs en conflit ou les règles globales dans le wrapper du modèle.
+Lorsque vous intégrez un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) avec Liquid dans un modèle d'e-mail ou une Campaign en **HTML personnalisé**, les règles CSS du modèle parent peuvent remplacer les styles définis dans le bloc de contenu. Vérifiez les sélecteurs en conflit ou les règles globales dans le wrapper du modèle.

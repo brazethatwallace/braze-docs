@@ -26,4 +26,4 @@ Si las Content Cards aparecen correctamente en tu aplicación pero no recibes ni
 
 ## ID de Content Card {#content-card-id}
 
-Cada envío de una campaña a un destinatario genera un nuevo ID de Content Card. Si el mismo usuario recibe la campaña de nuevo en un envío posterior, Braze asigna un nuevo ID. Haz referencia al `id` de la tarjeta al registrar impresiones, clics y descartes en implementaciones personalizadas.
+Cada envío de una Campaign a un destinatario genera un nuevo ID de Content Card. Si el mismo usuario recibe la Campaign de nuevo en un envío posterior, Braze asigna un nuevo ID. Haz referencia al `id` de la tarjeta al registrar impresiones, clics y descartes en implementaciones personalizadas.

@@ -154,7 +154,7 @@ Nein. Braze rendert jede Nachrichtenkomponente separat (z. B. Betreffzeile, HTML
 
 ### Warum erhalte ich den Liquid-Fehler „Unexpected end token“? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
 
-Dieser Fehler weist in der Regel auf zusätzliche oder fehlende geschweifte Klammern hin. Verschachteln Sie `{{ }}` nicht innerhalb eines anderen Liquid-Tag-Ausdrucks. Verwenden Sie zum Beispiel {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %}, anstatt die Attributreferenz in ein zusätzliches Klammernpaar einzuschließen.
+Dieser Fehler weist in der Regel auf zusätzliche oder fehlende geschweifte Klammern hin. Verschachteln Sie `{{ }}` nicht innerhalb eines anderen Liquid-Tag-Ausdrucks. Verwenden Sie zum Beispiel {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} anstatt die Attributreferenz in ein zusätzliches Klammerpaar einzuschließen.
 
 ### Warum bricht meine Nachricht mit „Invalid from email address for recipient:“ ab? {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
 
@@ -166,11 +166,11 @@ Einige Content Blocks werden im Drag-and-Drop-Editor unter **Row** nicht angezei
 
 ### Wie erstelle ich eine dynamische Reply-To-Adresse? {#how-do-i-create-a-dynamic-reply-to-address}
 
-Verwenden Sie Liquid im Feld **Reply-To**, wenn Ihr Workspace die dynamische Reply-To-Konfiguration unterstützt. Kombinieren Sie es bei Bedarf mit Ihren **Absender**-Anzeigenamen-Einstellungen. Weitere Informationen finden Sie unter [E-Mail-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) für Workspace-spezifische Optionen.
+Verwenden Sie Liquid im Feld **Reply-To**, wenn Ihr Workspace die dynamische Reply-To-Konfiguration unterstützt. Kombinieren Sie es bei Bedarf mit Ihren **Absender**-Anzeigenamen-Einstellungen. Weitere Informationen zu Workspace-spezifischen Optionen finden Sie unter [E-Mail-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/).
 
 ### Warum unterscheidet sich die Vorschau meines Drag-and-Drop-Content-Blocks von der Ansicht im Editor? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 
-Wenn Sie einen Content Block mit Liquid als Template verwenden, werden mobile Media-Queries im Block in der Vorschau möglicherweise nicht auf die gleiche Weise angewendet wie beim direkten Ziehen des Blocks in eine Nachricht. Das Ziehen des Blocks behält das Layout bei, entkoppelt ihn jedoch vom Quellblock, sodass zukünftige Blockänderungen die Nachricht nicht mehr automatisch aktualisieren.
+Wenn Sie einen Content Block mit Liquid als Template verwenden, werden mobile Media-Queries im Block in der Vorschau möglicherweise nicht auf die gleiche Weise angewendet wie beim direkten Ziehen des Blocks in eine Nachricht. Das Ziehen des Blocks behält das Layout bei, entkoppelt ihn aber vom Quellblock, sodass zukünftige Blockänderungen die Nachricht nicht mehr automatisch aktualisieren.
 
 ### Gibt es Größenbeschränkungen für Canvas-Kontexteigenschaften? {#are-there-size-limits-for-canvas-context-properties}
 

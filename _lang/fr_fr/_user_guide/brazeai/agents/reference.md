@@ -71,9 +71,9 @@ Chaque fournisseur de LLM propose un mélange légèrement différent de capacit
 - Pendant les tests, veillez à trouver le bon équilibre entre fiabilité et précision d'une part, et consommation de jetons et durée d'invocation d'autre part.
 - Chaque cas d'utilisation peut avoir un modèle et un niveau de réflexion optimaux différents. Nous vous recommandons de tester minutieusement pour vérifier la qualité constante sans dépassements de délai.
 
-### Contrôles de flux d'invocation {#invocation-flow-controls}
+### Contrôles du flux d'invocation {#invocation-flow-controls}
 
-Les contrôles de flux d'invocation suivants s'appliquent par espace de travail :
+Les contrôles du flux d'invocation suivants s'appliquent par espace de travail :
 
 - **Modèle fourni par Braze :** 1 000 invocations par minute
 - **Clé API personnelle :** 2 500 invocations par minute
@@ -212,7 +212,7 @@ Vous pouvez sélectionner des [directives de marque]({{site.baseurl}}/user_guide
 
 ## Historique d'interaction spécifique à l'utilisateur {#user-history}
 
-Les données d'interaction d'un utilisateur incluent ses ouvertures, clics et données de conversion récents pour les Campaign et Canvas. Par exemple, vous pouvez inclure ce contexte pour qu'un agent le prenne en compte lorsqu'il est évalué dans un Canvas. L'historique d'interaction spécifique à l'utilisateur peut également influencer un agent dont le rôle est de rédiger des messages personnalisés.
+Les données d'interaction d'un utilisateur incluent ses ouvertures, clics et données de conversion récents pour les campagnes et Canvas. Par exemple, vous pouvez inclure ce contexte pour qu'un agent le prenne en compte lorsqu'il est évalué dans un Canvas. L'historique d'interaction spécifique à l'utilisateur peut également influencer un agent dont le rôle est de rédiger des messages personnalisés.
 
 ## Dupliquer des agents {#duplicate-agents}
 

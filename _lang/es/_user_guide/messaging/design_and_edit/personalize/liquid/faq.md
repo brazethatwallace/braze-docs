@@ -147,7 +147,6 @@ Join our VIP program to unlock free shipping.
 
 No. Braze renderiza cada componente del mensaje por separado (como la línea del asunto, el cuerpo HTML, el preencabezado y el título push). Las asignaciones o capturas que hagas en un campo no están disponibles en otro. Repite la llamada de Liquid o Contenido conectado en cada campo que necesite el valor.
 
-
 ### ¿Puedo usar Liquid dentro de la etiqueta `abort_message`? {#can-i-use-liquid-inside-the-abort_message-tag}
 
 {% raw %}No. La etiqueta {% abort_message %} acepta una cadena estática entre comillas, no personalización de Liquid.{% endraw %} Usa otra lógica de Liquid antes de la etiqueta si necesitas un comportamiento de cancelación condicional.
@@ -162,15 +161,15 @@ Esta cancelación ocurre cuando el Liquid en la dirección **De** produce una si
 
 ### ¿Por qué mi Content Block no aparece en **Row** en la herramienta de búsqueda de arrastrar y soltar? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
 
-Algunos Content Blocks no aparecen en **Row** en la búsqueda del editor de arrastrar y soltar. Añade un bloque HTML desde la pestaña **Content** (**Advanced**), luego inserta la etiqueta de Liquid del Content Block en ese bloque HTML para renderizar el contenido del bloque.
+Algunos Content Blocks no aparecen en **Row** en el editor de arrastrar y soltar. Agrega un bloque HTML desde la pestaña **Content** (**Advanced**) y luego inserta la etiqueta de Liquid del Content Block en ese bloque HTML para renderizar el contenido del bloque.
 
 ### ¿Cómo creo una dirección de respuesta dinámica? {#how-do-i-create-a-dynamic-reply-to-address}
 
-Usa Liquid en el campo **Responder a** cuando tu espacio de trabajo admita la configuración dinámica de respuesta. Combínalo con la configuración del nombre para mostrar de **De** según sea necesario. Consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) para ver las opciones específicas del espacio de trabajo.
+Usa Liquid en el campo **Reply-To** cuando tu espacio de trabajo admita la configuración dinámica de respuesta. Combínalo con la configuración del nombre para mostrar de **De** según sea necesario. Consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) para ver las opciones específicas del espacio de trabajo.
 
 ### ¿Por qué la vista previa de mi Content Block de arrastrar y soltar difiere de la vista de redacción? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 
-Cuando usas una plantilla de Content Block con Liquid, las consultas de medios para móviles en el bloque pueden no aplicarse en la vista previa de la misma manera que cuando arrastras el bloque directamente a un mensaje. Arrastrar el bloque preserva el diseño pero lo desacopla del bloque fuente, por lo que las ediciones futuras del bloque ya no actualizan el mensaje automáticamente.
+Cuando usas una plantilla de Content Block con Liquid, las consultas de medios para móviles en el bloque pueden no aplicarse en la vista previa de la misma manera que cuando arrastras el bloque directamente a un mensaje. Arrastrar el bloque preserva el diseño pero lo desvincula del bloque de origen, por lo que las ediciones futuras del bloque ya no actualizan el mensaje automáticamente.
 
 ### ¿Hay límites de tamaño para las propiedades de contexto de Canvas? {#are-there-size-limits-for-canvas-context-properties}
 
@@ -198,7 +197,7 @@ La etiqueta `{% connected_content %}` con reintento no es compatible con todos l
 
 ### ¿Cómo previsualizo los valores de propiedades de eventos en el creador de mensajes? {#how-do-i-preview-event-property-values-in-message-composer}
 
-Usa **Previsualizar como usuario personalizado** e introduce valores de ejemplo de propiedades de eventos personalizados para el usuario que previsualizas. Esto también es útil para mensajes con lógica de cancelación cuando necesitas valores de vista previa que no desencadenen una cancelación.
+Usa **Preview as Custom User** e introduce valores de ejemplo de propiedades de eventos personalizados para el usuario que previsualizas. Esto también es útil para mensajes con lógica de cancelación cuando necesitas valores de vista previa que no desencadenen una cancelación.
 
 ### ¿Braze admite un array de arrays en Liquid? {#does-braze-support-an-array-of-arrays-in-liquid}
 

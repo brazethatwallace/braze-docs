@@ -565,7 +565,7 @@ glossaries:
     tags:
       - Install attribution
   - name: Install Attribution Campaign
-    description: インストールが帰属する広告キャンペーンでユーザーをセグメント化します。
+    description: インストールが帰属する広告Campaignでユーザーをセグメント化します。
     tags:
       - Install attribution
   - name: Install Attribution Source

@@ -151,7 +151,7 @@ En versiones anteriores del SDK, los desarrolladores podían habilitar `BrazeCon
 
 El [editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) no admite todas las personalizaciones disponibles en los mensajes dentro de la aplicación con [HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/). Ten en cuenta lo siguiente:
 
-- Un vínculo profundo por mensaje (no diferentes enlaces por tipo de dispositivo)
+- Un vínculo profundo por mensaje (no diferentes vínculos por tipo de dispositivo)
 - La opacidad se aplica a todo el fondo del mensaje, no a elementos individuales
 - El ancho máximo del mensaje no se puede establecer por debajo de 325 px
 - Las imágenes y colores de fondo se aplican a todo el mensaje, no por plataforma

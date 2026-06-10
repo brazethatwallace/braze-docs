@@ -1,8 +1,8 @@
 ---
-nav_title: Log-Analytics
-article_title: Log Analytics
+nav_title: Analytics protokollieren
+article_title: Analytics protokollieren
 page_order: 1
-description: "Dieser Artikel beschreibt, wie Sie Impressionen, Klicks und Schließungen manuell protokollieren und das On-Click-Verhalten für Ihre angepassten Content Cards handhaben."
+description: "Dieser Artikel beschreibt, wie Sie Impressionen, Klicks und Ausblendungen manuell protokollieren und das On-Click-Verhalten für Ihre angepassten Content Cards handhaben."
 toc_headers: "h2"
 
 ---
@@ -11,11 +11,11 @@ toc_headers: "h2"
 
 {% multi_lang_include developer_guide/_shared/logging_analytics/content_cards.md %}
 
-## Eindeutige Schließungen höher als eindeutige Impressionen {#unique-dismissals-higher-than-unique-impressions}
+## Eindeutige Ausblendungen höher als eindeutige Impressionen {#unique-dismissals-higher-than-unique-impressions}
 
-Wenn *Eindeutige Schließungen* die *Eindeutigen Impressionen* übersteigen, hat Ihre angepasste Content-Card-Integration Schließungen protokolliert, ohne für dieselben Karten Impressionen zu protokollieren. Die Standard-Content-Card-UI von Braze protokolliert beides automatisch, sodass diese Abweichung nur bei Verwendung einer angepassten UI auftritt.
+Wenn *Eindeutige Ausblendungen* die *Eindeutigen Impressionen* übersteigen, hat Ihre angepasste Content-Card-Integration Ausblendungen protokolliert, ohne für dieselben Karten Impressionen zu protokollieren. Die Standard-Content-Card-UI von Braze protokolliert beides automatisch, sodass diese Abweichung nur auftritt, wenn Sie eine angepasste UI verwenden.
 
-Protokollieren Sie jedes Mal eine Impression, wenn Sie eine Karte anzeigen, und protokollieren Sie eine Schließung, wenn die Nutzer:innen sie schließen. Methodennamen und Beispiele finden Sie in den nachfolgenden Plattformabschnitten.
+Protokollieren Sie jedes Mal eine Impression, wenn Sie eine Karte anzeigen, und protokollieren Sie eine Ausblendung, wenn Nutzer:innen sie ausblenden. Methodennamen und Beispiele finden Sie in den nachfolgenden Plattformabschnitten.
 
 ## Fehlende Content-Cards-Analytics {#missing-content-cards-analytics}
 
@@ -26,4 +26,4 @@ Wenn Content Cards in Ihrer App korrekt angezeigt werden, Sie aber durchgehend k
 
 ## Content-Card-ID {#content-card-id}
 
-Jeder Campaign-Versand an eine:n Empfänger:in erzeugt eine neue Content-Card-ID. Wenn dieselbe Nutzer:in die Campaign bei einem späteren Versand erneut erhält, weist Braze eine neue ID zu. Referenzieren Sie die Karten-`id`, wenn Sie Impressionen, Klicks und Schließungen in angepassten Implementierungen protokollieren.
+Jeder Campaign-Versand an eine:n Empfänger:in erzeugt eine neue Content-Card-ID. Wenn dieselbe Nutzer:in die Campaign bei einem späteren Versand erneut erhält, weist Braze eine neue ID zu. Referenzieren Sie die Karten-`id`, wenn Sie Impressionen, Klicks und Ausblendungen in angepassten Implementierungen protokollieren.

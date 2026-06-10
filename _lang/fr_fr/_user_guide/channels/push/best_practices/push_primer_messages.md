@@ -149,11 +149,11 @@ Lorsqu'un utilisateur possède plusieurs appareils avec des états d'abonnement 
 - Appareil B : iOS, non abonné aux notifications push
 
 **Filtres de segment qui ne fonctionnent pas :**
-- `Push enabled = false` - L'utilisateur est activé pour le push sur son appareil Android, il n'entre donc pas dans le segment. Le segment n'inclut pas l'appareil iOS.
-- `Push subscription status is not opted in` - L'utilisateur est activé pour le push sur son appareil Android, il n'entre donc pas dans le segment. Le segment n'inclut pas l'appareil iOS.
+- `Push enabled = false` – L'utilisateur est activé pour le push sur son appareil Android, il n'entre donc pas dans le segment. Le segment n'inclut pas l'appareil iOS.
+- `Push subscription status is not opted in` – L'utilisateur est activé pour le push sur son appareil Android, il n'entre donc pas dans le segment. Le segment n'inclut pas l'appareil iOS.
 
 **Filtres de segment qui fonctionnent :**
-- `Push enabled for iOS = false` - L'utilisateur est activé pour le push sur son appareil Android, mais nous ne ciblons que les appareils iOS, donc l'utilisateur entre dans le segment. Le segment inclut l'appareil iOS.
+- `Push enabled for iOS = false` – L'utilisateur est activé pour le push sur son appareil Android, mais nous ne ciblons que les appareils iOS, donc l'utilisateur entre dans le segment. Le segment inclut l'appareil iOS.
 
 {% enddetails %}
 
@@ -164,10 +164,10 @@ Lorsqu'un utilisateur possède plusieurs appareils avec des états d'abonnement 
 - Appareil B : Provisoirement activé mais non abonné
 
 **Filtres de segment qui ne fonctionnent pas :**
-- `Push enabled = false` - L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
-- `Provisionally opted in = true` - L'appareil A est entièrement abonné, ce qui signifie qu'il n'est pas dans un état provisoire. L'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
-- `Push enabled for app > iOS = false` - L'appareil A est abonné aux notifications push sur iOS, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
-- `Push subscription status is not opted in` - L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
+- `Push enabled = false` – L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
+- `Provisionally opted in = true` – L'appareil A est entièrement abonné, ce qui signifie qu'il n'est pas dans un état provisoire. L'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
+- `Push enabled for app > iOS = false` – L'appareil A est abonné aux notifications push sur iOS, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
+- `Push subscription status is not opted in` – L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
 
 **Résultat :** L'utilisation de toute combinaison de ces filtres push entraîne l'exclusion d'au moins un appareil du segment.
 
@@ -181,9 +181,9 @@ Lorsqu'un utilisateur possède plusieurs appareils avec des états d'abonnement 
 - Appareil C : Non abonné aux notifications push
 
 **Filtres de segment qui ne fonctionnent pas :**
-- `Push enabled = false` - L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
-- `Push enabled for app > X = false` - L'appareil A est abonné aux notifications push sur l'application spécifiée, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
-- `Push subscription status is not opted in` - L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
+- `Push enabled = false` – L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
+- `Push enabled for app > X = false` – L'appareil A est abonné aux notifications push sur l'application spécifiée, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
+- `Push subscription status is not opted in` – L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
 
 **Résultat :** L'utilisation de toute combinaison de ces filtres push laisse au moins un appareil non ciblé.
 

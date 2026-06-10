@@ -28,7 +28,7 @@ Você pode definir um estado padrão ligado ou desligado globalmente em **Config
 
 ## Conteúdo conectado e CSS inlining {#connected-content-and-css-inlining}
 
-O CSS inlining é executado **antes** da avaliação do [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). O HTML retornado pelo Conteúdo conectado **não** passa pela mesma etapa de inlining. Coloque os estilos necessários do Conteúdo conectado diretamente na resposta (atributos `style` inline ou regras incorporadas), ou desative o inlining para a mensagem se isso for mais adequado ao seu modelo.
+O CSS inlining é executado **antes** de o [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) ser avaliado. O HTML retornado pelo Conteúdo conectado **não** passa pela mesma etapa de inlining. Coloque os estilos necessários do Conteúdo conectado diretamente na resposta (atributos `style` inline ou regras incorporadas), ou desative o inlining para a mensagem se isso for mais adequado ao seu modelo.
 
 ## Content Blocks em modelos HTML personalizados {#content-blocks-in-custom-html-templates}
 

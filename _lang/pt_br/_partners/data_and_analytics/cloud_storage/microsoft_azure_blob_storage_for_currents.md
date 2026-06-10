@@ -103,6 +103,6 @@ As exportações do Currents usam o formato Apache Avro (arquivos `.avro`), não
 
 ### A Braze pode fornecer endereços IP para lista de permissões do Azure Blob Storage? {#can-braze-provide-ip-addresses-to-allowlist-for-azure-blob-storage}
 
-A Braze não publica uma lista fixa de IPs permitidos para o Currents ou exportações do dashboard para o Azure Blob Storage. A Braze grava no seu contêiner usando a string de conexão e o nome do contêiner que você fornece, e o Azure controla o acesso à rede por meio das configurações da sua conta de armazenamento (por exemplo, regras de firewall na conta de armazenamento ou endpoints privados).
+A Braze não publica uma lista fixa de IPs permitidos para Currents ou exportações do dashboard para o Azure Blob Storage. A Braze grava no seu contêiner usando a string de conexão e o nome do contêiner que você fornece, e o Azure controla o acesso à rede por meio das configurações da sua conta de armazenamento (por exemplo, regras de firewall na conta de armazenamento ou endpoints privados).
 
 Se sua equipe de segurança exigir restrições baseadas em IP, use os recursos de rede do Azure na sua conta de armazenamento em vez de uma lista de IPs da Braze. Para ver as etapas de configuração, consulte a [documentação da Microsoft sobre como proteger o Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security).

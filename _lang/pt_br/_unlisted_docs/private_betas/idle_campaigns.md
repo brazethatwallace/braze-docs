@@ -12,7 +12,7 @@ hidden: true
 Em 2024, os Canvas serão marcados como **Sem atividades** e interrompidos, de forma semelhante às Campaigns. Quando os Canvas estiverem sem atividades ou interrompidos, eles seguirão a lógica descrita neste documento.
 {% endalert %}
 
-Campaigns e Canvas recebem o status de sem atividades quando não enviam mensagens ou não registram entrada de usuários há algum tempo. Essas Campaigns e Canvas serão automaticamente interrompidos nas datas de interrupção associadas. Você pode filtrar por Campaigns e Canvas sem atividades para ajudar a classificar e gerenciar sua lista de Campaigns e Canvas.
+Campaigns e Canvas recebem o status de sem atividades quando não enviam mensagens ou não registram entrada de usuários há algum tempo. Essas Campaigns e Canvas serão automaticamente interrompidos nas datas de interrupção associadas. Você pode filtrar por Campaigns e Canvas sem atividades para ajudar a organizar e gerenciar sua lista de Campaigns e Canvas.
 
 Campaigns e Canvas com datas de término e envios únicos ficam sem atividades por 7 dias antes da interrupção automática. Campaigns e Canvas que não enviaram uma mensagem em 11 meses ficam sem atividades por 1 mês antes da interrupção automática.
 
@@ -26,7 +26,7 @@ De forma contínua, as Campaigns sem atividades que atenderem aos seguintes crit
 
 Para Campaigns sem datas de término, se uma mensagem for enviada ou a Campaign for atualizada, a contagem regressiva de um ano para a interrupção da Campaign será reiniciada. Quando as Campaigns forem interrompidas, a Braze notificará os clientes no dashboard e por e-mail.
 
-As Campaigns serão interrompidas na data mais tardia entre a data de interrupção padrão e um dia após o último prazo de conversão. Envios resultantes de uma Variante vencedora ou Variante personalizada são tratados como envios agendados e serão interrompidos sete dias após o envio da Variante vencedora ou personalizada. Todas as Campaigns serão interrompidas às 4h UTC todos os dias para todos os usuários da Braze.
+As Campaigns serão interrompidas na data mais tardia entre a data de interrupção padrão e um dia após o último prazo de conversão. Envios resultantes de uma Variante Vencedora ou Variante Personalizada são tratados como envios agendados e serão interrompidos sete dias após o envio da Variante Vencedora ou Personalizada. Todas as Campaigns serão interrompidas às 4h UTC todos os dias para todos os usuários da Braze.
 
 Os Content Cards não serão interrompidos até o prazo de expiração e também seguirão os critérios mencionados anteriormente, bem como a regra do prazo de conversão.
 
@@ -80,13 +80,13 @@ Se não houver uma opção para restaurar os dados de interação, isso pode ser
 
 #### A quais Campaigns ou Canvas isso se aplica? {#what-campaigns-or-canvases-does-this-apply-to}
 
-Isso se aplica a Campaigns e Canvas que já atendem aos critérios listados anteriormente, e a Campaigns e Canvas que atenderão aos critérios no futuro.
+Isso se aplica a Campaigns e Canvas que já atendem aos critérios listados anteriormente, e a Campaigns e Canvas que atenderão aos critérios futuramente.
 
 #### Como sei se uma Campaign ou Canvas está sem atividades? {#how-do-i-know-if-a-campaign-or-canvas-is-idle}
 
-Campaigns e Canvas sem atividades serão exibidos nas páginas de lista de Campaigns e Canvas na categoria **Idle**. A data em que a Campaign ou o Canvas será interrompido é listada como uma coluna na lista.
+Campaigns e Canvas sem atividades serão exibidos nas páginas de lista de Campaigns e Canvas na categoria **Sem atividades**. A data em que a Campaign ou o Canvas será interrompido é listada como uma coluna na lista.
 
-![O filtro "Idle" na página "Campaigns".][1]{: style="max-width:60%;"}
+![O filtro "Sem atividades" na página "Campaigns".][1]{: style="max-width:60%;"}
 
 #### O que acontece se uma Campaign ou Canvas sem atividades for atualizado? {#what-happens-if-an-idle-campaign-or-canvas-is-updated}
 
@@ -112,7 +112,7 @@ Por exemplo, se um Content Card expira em 1º de abril, é um envio único e tem
 
 Os Canvas só são interrompidos após os Content Cards serem interrompidos, ou seja, após a duração máxima ter passado.
 
-#### Tenho um experimento de Feature Flag no meu Canvas. Depois que meu Feature Flag for definido, o Canvas permanecerá ativo? {#i-have-a-feature-flag-experiment-in-my-canvas-after-my-feature-flag-is-set-will-the-canvas-remain-active}
+#### Tenho um experimento de Feature Flag no meu Canvas. Após minha Feature Flag ser definida, o Canvas permanecerá ativo? {#i-have-a-feature-flag-experiment-in-my-canvas-after-my-feature-flag-is-set-will-the-canvas-remain-active}
 
 Canvas com etapas de Feature Flag não são interrompidos automaticamente e não ficam sem atividades.
 

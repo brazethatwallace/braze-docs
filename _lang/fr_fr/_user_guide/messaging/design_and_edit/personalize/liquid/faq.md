@@ -18,7 +18,7 @@ Dans de nombreux cas, vous pouvez intégrer des extraits de code Liquid en accé
 
 Pour en savoir plus sur Liquid, consultez notre parcours guidé [Personnalisation dynamique avec Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) sur Braze Learning ! Vous pouvez également consulter la [bibliothèque de cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) pour trouver de l'inspiration et une variété d'exemples de personnalisation utilisant Liquid.
 
-### Quelle est la différence entre l'utilisation de Liquid et du Contenu connecté pour la personnalisation ? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
+### Quelle est la différence entre l'utilisation de Liquid et du contenu connecté pour la personnalisation ? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
 Le Contenu connecté de Braze est un exemple d'étiquette Liquid. Il est également utilisé pour la personnalisation, mais les données proviennent d'un endpoint externe plutôt que de données stockées dans Braze. Consultez notre section dédiée au [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) pour en savoir plus sur les possibilités de personnalisation de vos messages.
 
@@ -147,6 +147,7 @@ Join our VIP program to unlock free shipping.
 
 Non. Braze effectue le rendu de chaque composant du message séparément (ligne d'objet, corps HTML, accroche, titre push, etc.). Les affectations ou captures que vous effectuez dans un champ ne sont pas disponibles dans un autre. Répétez l'appel Liquid ou de Contenu connecté dans chaque champ qui nécessite la valeur.
 
+
 ### Puis-je utiliser Liquid à l'intérieur de l'étiquette `abort_message` ? {#can-i-use-liquid-inside-the-abort_message-tag}
 
 {% raw %}Non. L'étiquette {% abort_message %} accepte une chaîne de caractères statique entre guillemets, pas de personnalisation Liquid.{% endraw %} Utilisez d'autres logiques Liquid avant l'étiquette si vous avez besoin d'un comportement d'abandon conditionnel.
@@ -199,6 +200,6 @@ L'étiquette `{% connected_content %}` avec relance n'est pas prise en charge po
 
 Utilisez **Prévisualiser en tant qu'utilisateur personnalisé** et saisissez des exemples de valeurs de propriétés d'événement personnalisé pour l'utilisateur que vous prévisualisez. Cela est également utile pour les messages avec une logique d'abandon lorsque vous avez besoin de valeurs de prévisualisation qui ne déclenchent pas d'abandon.
 
-### Braze prend-il en charge un tableau de tableaux en Liquid ? {#does-braze-support-an-array-of-arrays-in-liquid}
+### Braze prend-il en charge les tableaux de tableaux en Liquid ? {#does-braze-support-an-array-of-arrays-in-liquid}
 
 Liquid ne prend pas nativement en charge les tableaux de tableaux. Stockez les valeurs sous forme de tableau de chaînes de caractères séparées par des virgules et utilisez le filtre `split` pour les analyser au besoin.

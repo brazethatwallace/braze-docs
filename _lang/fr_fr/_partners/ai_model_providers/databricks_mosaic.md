@@ -18,7 +18,7 @@ _Cette intégration est maintenue par Databricks._
 
 ## À propos de l'intégration {#about-the-integration}
 
-L'intégration entre Braze et Databricks Mosaic vous permet de connecter votre jeton et votre espace de travail Databricks à Braze afin d'utiliser les modèles Databricks lors de la création d'agents IA personnalisés. Braze utilise vos identifiants Databricks Mosaic pour générer du contenu destiné à vos clients. Grâce à cette intégration, vos agents peuvent générer du texte personnalisé, prendre des décisions en temps réel ou mettre à jour des champs de Catalogue à l'aide de modèles Databricks.
+L'intégration entre Braze et Databricks Mosaic vous permet de connecter votre jeton et votre espace de travail Databricks à Braze afin d'utiliser les modèles Databricks lors de la création d'agents IA personnalisés. Braze utilise vos identifiants Databricks Mosaic pour générer du contenu destiné à vos clients. Grâce à cette intégration, vos agents peuvent générer du texte personnalisé, prendre des décisions en temps réel ou mettre à jour des champs de catalogue à l'aide de modèles Databricks.
 
 ## Conditions préalables {#prerequisites}
 
@@ -33,7 +33,7 @@ L'intégration entre Braze et Databricks Mosaic vous permet de connecter votre j
 
 Pour connecter vos identifiants Databricks Mosaic à Braze :
 
-1. Accédez à **Intégrations partenaires** > **Partenaires technologiques** dans le tableau de bord de Braze et recherchez **Databricks Mosaic Integration**.
+1. Dans le tableau de bord de Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** et recherchez **Databricks Mosaic Integration**.
 2. Saisissez votre **jeton Databricks**.
 3. Saisissez le **nom de votre espace de travail Databricks**. Il s'agit du sous-domaine précédant `.cloud.databricks.com` ou `.azuredatabricks.net`.
 4. Sélectionnez **Enregistrer**.

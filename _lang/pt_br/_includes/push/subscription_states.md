@@ -25,11 +25,11 @@ A Braze não altera automaticamente o estado da inscrição push de um usuário 
 
 O estado de inscrição push reflete a preferência de um usuário, mas se ele conta como **contatável** para push no dashboard também depende do [registro de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/) — ou seja, um token de push em primeiro plano válido no perfil. Para saber como a Braze calcula as contagens por canal, consulte [Medir o tamanho do segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
-- **Campaigns e Canvas de push:** Usuários que não estão registrados para push não são incluídos em **Usuários contatáveis** para Push para Android ou push para iOS nas estatísticas de público, mesmo quando o estado de inscrição push é `Subscribed` ou `Opted-In`.
+- **Campaigns e Canvas de push:** Usuários que não estão registrados para push não são incluídos em **Usuários contatáveis** para Push para Android ou Push para iOS nas estatísticas de público, mesmo quando o estado de inscrição push é `Subscribed` ou `Opted-In`.
 - **Outros canais:** Os mesmos usuários ainda podem contar como contatáveis para outros canais para os quais se qualificam (por exemplo, e-mail ou mensagens no app).
 - **Segments:** A associação ao segmento segue seus filtros. Usuários sem registro de push permanecem no segmento, a menos que um filtro os exclua (por exemplo, **Foreground Push Enabled**). A associação total ao segmento pode ser maior do que a soma de usuários exibidos nas linhas de **Usuários contatáveis** específicas de push.
 
-Um perfil de usuário pode exibir o estado de inscrição push `Subscribed` sem que nenhum token de push esteja atribuído. Esses usuários ainda não contam para **Usuários contatáveis** para Push para Android ou push para iOS até que a Braze registre um token válido.
+Um perfil de usuário pode exibir o estado de inscrição push `Subscribed` sem que nenhum token de push esteja atribuído. Esses usuários ainda não contam para **Usuários contatáveis** para Push para Android ou Push para iOS até que a Braze registre um token válido.
 
 Para definições de filtros, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
 

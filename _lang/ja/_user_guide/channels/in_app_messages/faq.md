@@ -41,7 +41,7 @@ MESSAGE HERE
 
 ### ユーザーがアプリ内メッセージを閉じた後、再度受信できますか？ {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-#### Campaign {#campaigns}
+#### Campaigns
 
 アプリ内メッセージCampaignの場合、**配信コントロール**で再適格性を有効にすることで（**ユーザーがCampaignを再度受信できるようにする**）、ユーザーが再びCampaignを受信できるようにすることができます。再度受信できるまでの期間は、設定した再適格性の時間枠と、Brazeが以前の送信をどのように記録したかによって異なります。Campaignの動作（再適格性とメッセージ受信の関係を含む）については、[CampaignとCanvasの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)を参照してください。
 
@@ -139,22 +139,22 @@ BrazeがSamのケースで中止イベントを記録しないのは、中止の
 | テンプレート化 | Samがテンプレート化されたアプリ内メッセージをトリガーするトリガーアクションを実行したが、Liquidテンプレート処理で中止を受けたため、中止イベントが記録されました。<br><br>テンプレート化されたアプリ内メッセージは、トリガーアクションが実行された後にLiquid評価が行われるため、中止を記録します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アプリ内メッセージの中止動作の比較" }
 
-### AndroidでフルスクリーンHTMLアプリ内メッセージの閉じるボタンが非表示になるのはなぜですか？ {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
+### AndroidのフルスクリーンHTMLアプリ内メッセージで閉じるボタンが非表示になるのはなぜですか？ {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 
 エッジツーエッジディスプレイを搭載したデバイス（Android 15以降を含む）では、フルスクリーンHTMLアプリ内メッセージがシステムステータスバーの背後に描画され、レイアウト上部の閉じるコントロールが隠れることがあります。
 
 Braze Android SDKバージョン37.0.0以降では、デフォルトでHTMLアプリ内メッセージにウィンドウインセットが適用されるため、コントロールはセーフエリア内に留まります。それでもユーザーに重なりが見られる場合は、最新のBraze Android SDKにアップグレードしてください。
 
-古いSDKバージョンでは、この動作がデフォルトになる前に、開発者が`BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)`を有効にすることで対応できました。
+古いSDKバージョンでは、この動作がデフォルトになる前に、開発者が `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` を有効にすることで対応できました。
 
 ### ドラッグ＆ドロップのアプリ内メッセージエディターの既知の制限事項は何ですか？ {#what-are-known-limitations-of-the-drag-and-drop-in-app-message-editor}
 
 [ドラッグ＆ドロップエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)は、[カスタムHTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)アプリ内メッセージで利用可能なすべてのカスタマイズをサポートしているわけではありません。以下の点にご注意ください。
 
 - メッセージごとにディープリンクは1つのみ（デバイスタイプごとに異なるリンクは不可）
-- 不透明度はメッセージ背景全体に適用され、個々の要素には適用されません
+- 不透明度はメッセージ背景全体に適用され、個別の要素には適用されません
 - メッセージの最大幅は325 px未満に設定できません
-- 背景画像と背景色はメッセージ全体に適用され、プラットフォームごとには適用されません
+- 背景画像と色はメッセージ全体に適用され、プラットフォームごとには適用されません
 - メッセージレベルのスタイルはメッセージ全体に適用されます
 - スペーサーブロックはピクセル値のみ使用可能です
 - モーダルおよびフルスクリーンのメッセージタイプのみ対応しています

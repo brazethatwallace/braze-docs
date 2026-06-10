@@ -35,7 +35,7 @@ Xcodeを使用して `Info.plist` ファイルを編集します。
 
 ### ステップ 2:スキームの許可リストを追加する {#step-2-add-a-scheme-allowlist}
 
-`canOpenURL(_:)` に渡すURLスキームを宣言するには、アプリのInfo.plistファイルに `LSApplicationQueriesSchemes` キーを追加する必要があります。この許可リストに含まれないスキームを呼び出そうとすると、デバイスのログにエラーが記録され、ディープリンクは開かれません。以下はこのエラーの例です。
+`LSApplicationQueriesSchemes` キーをアプリの Info.plist ファイルに追加して、`canOpenURL(_:)` に渡すURLスキームを宣言する必要があります。この許可リストに含まれないスキームを呼び出そうとすると、デバイスのログにエラーが記録され、ディープリンクは開かれません。以下はこのエラーの例です。
 
 ```
 <Warning>: -canOpenURL: failed for URL: "yourapp://deeplink" – error: "This app is not allowed to query for scheme yourapp"
@@ -91,7 +91,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 [Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14)の定義によれば、「App Transport Securityは、アプリとWebサービス間の接続のセキュリティを向上させる機能です。この機能は、安全な接続のベストプラクティスに準拠したデフォルトの接続要件で構成されています。アプリでこのデフォルト動作をオーバーライドして、トランスポートセキュリティを無効にできます。」
 
-ATSはデフォルトで適用されます。すべての接続がHTTPSを使用し、TLS 1.2で前方秘匿性を備えた暗号化が必要です。詳細については、[ATSを使用して接続するための要件](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)を参照してください。Brazeによりエンドデバイスに提供されるすべての画像は、TLS 1.2をサポートしATSと互換性のあるコンテンツ配信ネットワーク（「CDN」）によって処理されます。
+ATSはデフォルトで適用されます。すべての接続がHTTPSを使用し、TLS 1.2で暗号化され、前方秘匿性が確保される必要があります。詳細については、[ATSを使用して接続するための要件](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)を参照してください。Brazeによりエンドデバイスに提供されるすべての画像は、TLS 1.2をサポートし、ATSと互換性のあるコンテンツ配信ネットワーク（「CDN」）によって処理されます。
 
 アプリケーションの `Info.plist` で例外として明示的に指定されていない限り、これらの要件を満たさない接続は、以下のようなエラーで失敗します。
 
@@ -115,12 +115,12 @@ ATSコンプライアンスは、モバイルアプリ内で開かれたリン�
 ATSは次のいずれかの方法で処理できますが、**ATSの要件に準拠すること**を推奨します。
 
 {% tabs local %}
-{% tab 準拠 %}
-（アプリ内メッセージやプッシュCampaignsなどから）ユーザーを誘導する既存のリンクがATSの要件を満たすようにすることで、Braze統合がATS要件を満たすことができます。ATSの制限を回避する方法はありますが、リンクされたすべてのURLがATSに準拠するようにすることをお勧めします。Appleがアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATSの例外を許可する以下のアプローチがAppleによってサポートされる保証はありません。
+{% tab Comply %}
+Brazeの統合では、（アプリ内メッセージやプッシュCampaignsなどから）ユーザーを誘導する既存のリンクがATSの要件を満たすようにすることで、ATS要件を満たすことができます。ATSの制限を回避する方法はありますが、リンクされたすべてのURLがATSに準拠するようにすることをお勧めします。Appleがアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATSの例外を許可する以下のアプローチがAppleによってサポートされる保証はありません。
 {% endtab %}
 
-{% tab 部分的に無効化 %}
-特定のドメインやスキームのリンクのサブセットをATSルールの例外として処理することを許可できます。Brazeメッセージングチャネルで使用するすべてのリンクがATSに準拠しているか、例外として処理されている場合、Braze統合はATS要件を満たします。
+{% tab Partially disable %}
+特定のドメインやスキームのリンクのサブセットをATSルールの例外として処理することを許可できます。Brazeメッセージングチャネルで使用するすべてのリンクがATSに準拠しているか、例外として処理されている場合、Brazeの統合はATS要件を満たします。
 
 ATSの例外としてドメインを追加するには、アプリの `Info.plist` ファイルに以下を追加します。
 
@@ -142,11 +142,11 @@ ATSの例外としてドメインを追加するには、アプリの `Info.plis
 </dict>
 ```
 
-詳細については、[アプリトランスポートセキュリティのキー](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33)に関するAppleの記事を参照してください。
+詳細については、[App Transport Securityのキー](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33)に関するAppleの記事を参照してください。
 {% endtab %}
 
-{% tab 完全に無効化 %}
-ATSを完全に無効にできます。ただし、セキュリティ保護が失われることと、将来のiOSとの互換性の両方を考慮して、この処理は推奨されません。ATSを無効にするには、アプリの `Info.plist` ファイルに以下を挿入します。
+{% tab Fully disable %}
+ATSを完全に無効にできます。ただし、セキュリティ保護が失われることと、将来のiOSとの互換性の両方を考慮して、この処理は推奨されないことに注意してください。ATSを無効にするには、アプリの `Info.plist` ファイルに以下を挿入します。
 
 ```html
 <key>NSAppTransportSecurity</key>
@@ -191,7 +191,7 @@ SDKでは、有効な `URL` を作成するためにリンクをパーセント�
 
 ## アプリ設定へのディープリンク {#deep-linking-to-app-settings}
 
-Brazeのプッシュ通知やアプリ内メッセージから `UIApplicationOpenSettingsURLString` を利用して、ユーザーをアプリの設定画面にディープリンクできます。
+Brazeのプッシュ通知やアプリ内メッセージから `UIApplicationOpenSettingsURLString` を活用して、ユーザーをアプリの設定画面にディープリンクできます。
 
 ユーザーをアプリからiOS設定に移動させる手順は以下のとおりです。
 1. まず、アプリケーションが[スキームベースのディープリンク](#swift_register-a-scheme)または[ユニバーサルリンク](#swift_universal-links)用に設定されていることを確認します。
@@ -242,13 +242,13 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 `BrazeDelegate` プロトコルを使用して、ディープリンク、Web URL、ユニバーサルリンクなどのURLの処理をカスタマイズできます。Brazeの初期化中にデリゲートを設定するには、`Braze` インスタンスにデリゲートオブジェクトを設定します。その後、URIを処理する前にBrazeがデリゲートの `shouldOpenURL` 実装を呼び出します。
 
-プッシュ通知やアプリ内メッセージで**アプリ内でWeb URLを開く**が使用されている場合、Brazeは [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext) で `context.useWebView == true` を渡します。メッセージがシステムブラウザーでURLを開く場合、`useWebView` は `false` になります。`braze(_:shouldOpenURL:)` で `context.useWebView` を確認して、カスタム処理を分岐させます。たとえば、Campaignがアプリ内表示をリクエストした場合にのみアプリ内 `WebViewController` を開くことができます。
+プッシュ通知やアプリ内メッセージで**アプリ内でWeb URLを開く**を使用すると、Brazeは [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext) で `context.useWebView == true` を渡します。メッセージがシステムブラウザーでURLを開く場合、`useWebView` は `false` になります。`braze(_:shouldOpenURL:)` で `context.useWebView` を確認して、カスタム処理を分岐させます。たとえば、Campaignがアプリ内表示をリクエストした場合にのみアプリ内の `WebViewController` を開くことができます。
 
 #### ユニバーサルリンク {#universal-links}
 
 Brazeでは、プッシュ通知、アプリ内メッセージ、Content Cardsでユニバーサルリンクがサポートされています。ユニバーサルリンクのサポートを有効にするには、[`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) を `true` に設定する必要があります。
 
-有効にすると、[`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application) メソッドを介して、Brazeからアプリの `AppDelegate` にユニバーサルリンクが転送されます。
+有効にすると、Brazeは [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application) メソッドを介してアプリの `AppDelegate` にユニバーサルリンクを転送します。
 
 また、ユニバーサルリンクを処理するようアプリケーションを設定する必要があります。[Appleのドキュメント](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)を参照し、アプリケーションがユニバーサルリンクに関して正しく設定されていることを確認してください。
 
@@ -258,7 +258,7 @@ Brazeでは、プッシュ通知、アプリ内メッセージ、Content Cards�
 {% endalert %}
 
 {% alert note %}
-SDKでは、ドメインの `apple-app-site-association` ファイルに対してクエリは実行されません。ドメイン名のみを確認することで、ユニバーサルリンクと通常のURLが区別されます。そのため、SDKでは[関連ドメインのサポート](https://developer.apple.com/documentation/xcode/supporting-associated-domains)ごとに `apple-app-site-association` で定義される除外ルールは考慮されません。
+SDKでは、ドメインの `apple-app-site-association` ファイルに対してクエリは実行されません。ドメイン名のみを確認することで、ユニバーサルリンクと通常のURLを区別します。そのため、SDKでは[関連ドメインのサポート](https://developer.apple.com/documentation/xcode/supporting-associated-domains)ごとに `apple-app-site-association` で定義される除外ルールは考慮されません。
 {% endalert %}
 
 ## 例 {#examples}

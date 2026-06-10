@@ -149,17 +149,17 @@ Braze Android SDK 버전 37.0.0 이상에서는 기본적으로 HTML 인앱 메�
 
 ### 드래그 앤 드롭 인앱 메시지 에디터의 알려진 제한 사항은 무엇인가요? {#what-are-known-limitations-of-the-drag-and-drop-in-app-message-editor}
 
-[드래그 앤 드롭 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)는 [커스텀 HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) 인앱 메시지에서 사용할 수 있는 모든 커스터마이징을 지원하지는 않습니다. 다음 사항을 유의하세요:
+[드래그 앤 드롭 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)는 [커스텀 HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) 인앱 메시지에서 사용할 수 있는 모든 커스터마이징을 지원하지는 않습니다. 다음 사항을 참고하세요:
 
-- 메시지당 하나의 딥링크만 가능(기기 유형별 다른 링크 불가)
-- 불투명도는 개별 요소가 아닌 전체 메시지 배경에 적용됨
-- 메시지 최대 너비를 325px 미만으로 설정할 수 없음
-- 배경 이미지와 색상은 플랫폼별이 아닌 전체 메시지에 적용됨
-- 메시지 수준 스타일은 전체 메시지에 적용됨
-- 스페이서 블록은 픽셀 값만 사용
-- 모달 및 전체화면 메시지 유형만 지원
-- 배경 이미지는 모달에 맞게 늘어남
-- 배경 이미지와 클릭 시 동작은 다중 페이지 메시지에서 페이지 간에 유지됨
+- 메시지당 하나의 딥링크만 가능합니다(기기 유형별로 다른 링크 불가)
+- 불투명도는 개별 요소가 아닌 전체 메시지 배경에 적용됩니다
+- 메시지 최대 너비는 325px 미만으로 설정할 수 없습니다
+- 배경 이미지와 색상은 플랫폼별이 아닌 전체 메시지에 적용됩니다
+- 메시지 수준 스타일은 전체 메시지에 적용됩니다
+- 스페이서 블록은 픽셀 값만 사용합니다
+- 모달 및 전체화면 메시지 유형만 지원됩니다
+- 배경 이미지는 모달에 맞게 늘어납니다
+- 배경 이미지와 클릭 시 동작은 다중 페이지 메시지에서 페이지 간에 유지됩니다
 
 ### Android SDK 로그에서 "Event was published, but no subscribers were found"는 무엇을 의미하나요? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
 
