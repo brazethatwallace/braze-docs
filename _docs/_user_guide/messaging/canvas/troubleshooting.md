@@ -32,7 +32,7 @@ If the custom event displays, further troubleshoot by doing the following:
 
 - Check the user's profile download to confirm they triggered the event and when they did it. If the event was triggered, compare the timestamp for when the event was triggered to the time the Canvas went live. The event may have been triggered before the Canvas went live.
 - Review changelogs for the Canvas and any segments used in targeting to determine if the user was in the segment when their custom event was triggered. If they weren't in the segment, they wouldn't have received the Canvas step.
-- Verify whether the user was entered into a control group through segmentation and consequently prevented from receiving the Canvas step.
+- Verify whether the user was assigned to the Canvas control group at entry and consequently prevented from receiving the Canvas step.
 - If there is a scheduled delay, check if the user's custom event was triggered before the delay. If the event was triggered before the delay, they wouldn't have received the Canvas step.
 
 {% alert note %}
@@ -89,13 +89,11 @@ To avoid this, ensure your custom attribute or event updates occur more than one
 
 When creating your Canvas, you may have expected your audience to split evenly between your control group and your variant group, like in the following [use case](#use-case). Let's discuss why that is and how to fix it!
 
-The group that a user joins depends on their settings. This can be either the control group or variant group. A user will enter a Canvas when they fit all of your criteria defined in the [Entry Step]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule). When setting up your Canvas, you define what percentage of users will enter each variant and the control group.
+Control group and variant assignment happens at Canvas entry based on the percentages you set in the builder—not through segment filters. A user enters a Canvas when they fit all of your criteria defined in the [Entry Step]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule).
 
-If your control group is large compared to your variant group (and this is not your intent), we recommend the following:
-1. Set your entry audience filter to **is Foreground Push Enabled**.
-2. Set your entry audience filter for **Push Subscription Status**, **Email Subscription Status**, or both to **Opted In** or **Subscribed**.
+If users enter the variant but don't receive messages because they aren't eligible for a channel, use [Send Settings]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings) on each step (for example, **Subscription Settings** set to opted-in users only) instead of adding channel filters to **Target Audience**. For multi-channel Canvases, don't limit the entry audience to a single channel (such as **Foreground Push Enabled**).
 
-When creating a Canvas with a control group, confirm that all users in the entry audience are able to receive messages within the Canvas (such as the Canvas contains push and email messages).
+Users who can't receive a specific channel may still enter a variant. To limit who receives each message type, use per-step send settings instead of entry audience filters.
 
 ### Use case
 
