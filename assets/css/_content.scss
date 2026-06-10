@@ -765,14 +765,9 @@ table td code.highlighter-rouge {
 	}
 }
 
-/* Decorative column highlight for pricing/credit-ratio tables.
-   Uses cell-level selectors (reliable with border-collapse: collapse). */
-table.credits-table {
-	td:last-child,
-	th:last-child {
-		background-color: $grey-athens;
-	}
-}
+/* Pricing/credit-ratio tables use class="credits-table" for future
+   targeted styling if needed. Header highlight is handled by the
+   table > thead rule above. */
 
 /* Definitions table: prevent awkward line breaks in support columns and definition column */
 table.definitions-table {
