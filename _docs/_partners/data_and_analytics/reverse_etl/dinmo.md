@@ -14,7 +14,7 @@ search_tag: Partner
 
 _This integration is managed by DinMo._
 
-The Braze and DinMo integration pushes segments and data models from your warehouse into Braze through the Braze REST API. Once you connect a Braze destination in DinMo, activations send data from your models or segments to Braze.
+The Braze and DinMo integration pushes segments and data models from your warehouse into Braze through the Braze REST API. When you connect a Braze destination in DinMo, activations send data from your models or segments to Braze.
 
 ## Prerequisites
 
