@@ -29,7 +29,7 @@ After your recommendation is finished training, you can personalize your message
 
 You can generate Liquid from the **Add personalization** section in your message composer:
 
-1. In any message composers that support personalization, select <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> to open the personalization window.
+1. In any message composers that support personalization, select <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> **Add personalization** to open the personalization window.
 2. For **Personalization Type**, select **Item Recommendation**.
 3. For **Item Recommendation Name**, select the recommendation you just created.
 4. For **Number of Predicted Items**, enter how many top products you'd like to be inserted. For example, you can display the top three most purchased items.
