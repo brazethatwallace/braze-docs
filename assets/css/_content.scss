@@ -765,6 +765,12 @@ table td code.highlighter-rouge {
 	}
 }
 
+/* Decorative column highlight for pricing/credit-ratio tables.
+   Applied via <col class="col-highlight"> instead of inline background-color. */
+col.col-highlight {
+	background-color: $grey-athens;
+}
+
 /* Definitions table: prevent awkward line breaks in support columns and definition column */
 table.definitions-table {
 	th:nth-child(3),

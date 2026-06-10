@@ -37,6 +37,10 @@ Column definitions are as follows:
 
 {% details Click to expand %}
 <table aria-label="Credit ratio table for Message Credits - Sigma">
+    <colgroup>
+        <col span="3">
+        <col class="col-highlight">
+    </colgroup>
     <tr>
         <th><b>Channel</b></th>
         <th><b>Destination</b></th>
