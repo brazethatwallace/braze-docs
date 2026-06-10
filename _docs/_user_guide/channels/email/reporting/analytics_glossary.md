@@ -131,7 +131,7 @@ Percentage
 
 #### Delivery rate benchmarks
 
-*Deliveries* and bounce rate are related but not the same as inbox placement (deliverability). As a starting point, many senders aim for about 98% of messages *Delivered* with a bounce rate no higher than 3%, while also monitoring opens and clicks for engagement signals. For more detail, see [What is a "good" email delivery rate?]({{site.baseurl}}/user_guide/channels/email/faq/#what-is-a-good-email-delivery-rate/)
+*Deliveries* and bounce rate are related but not the same as inbox placement (deliverability). As a starting point, many senders aim for about 98% of messages *Delivered* with a bounce rate no higher than 3%, while also monitoring opens and clicks for engagement signals. For more detail, see [What is a "good" email delivery rate?]({{site.baseurl}}/user_guide/channels/email/faq#what-is-a-good-email-delivery-rate)
 
 #### SPF and DKIM alignment
 
@@ -322,7 +322,7 @@ For more information, see [Why am I seeing a different number of unsubscribes th
 
 #### Custom unsubscribe page updates
 
-Changes to your [custom unsubscribe page]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) take a few hours to appear in live sends because cached versions of the page are refreshed on a schedule.
+Changes to your [custom unsubscribe page]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) typically appear within a few minutes. Live sends use a short-lived cache of the page that's refreshed when you save changes.
 
 {% endapi %}
 
