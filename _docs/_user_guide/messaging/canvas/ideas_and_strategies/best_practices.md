@@ -54,9 +54,9 @@ Canvas will prevent you from using scheduled send with a time that has already p
 
 For Canvas steps, consider the following details when scheduling your Canvas:
 
-- Schedule changes will only apply to users who aren't already waiting to receive the step.
+- Schedule changes only apply to users who aren't already waiting to receive the step.
 - Audience changes by default apply to all users, unless you schedule changes to apply to users who aren't waiting to receive the step.
-- Editing a Canvas that is scheduled to deliver as soon as deployed and selecting **Update** will essentially cause it to be sent.
+- Editing a Canvas that is scheduled to deliver as soon as deployed and selecting **Update** essentially sends it.
 
 ### Post-launch edits
 
