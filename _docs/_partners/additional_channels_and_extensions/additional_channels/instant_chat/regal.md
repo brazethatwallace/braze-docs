@@ -271,7 +271,7 @@ Create one Data Transformation for each Regal webhook you plan to send to Braze.
 To create a Data Transformation:
 1. Navigate to the **Transformations** page in your Braze dashboard.
 2. Give your transformation a name and click **Create transformation**.
-3. From the list of transformations, click <i class="fa-solid fa-ellipsis-vertical" title="View actions"></i> and select **Copy webhook URL**.
+3. From the list of transformations, select <i class="fa-solid fa-ellipsis-vertical" title="View actions"></i> **View actions** and select **Copy webhook URL**.
 
 ![]({% image_buster /assets/img/regal/copy_webhook_url.png %})
 
