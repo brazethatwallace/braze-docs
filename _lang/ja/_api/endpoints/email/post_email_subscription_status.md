@@ -50,7 +50,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | ---------| --------- | ----------- |
 | `email` | 必須 | 文字列または配列 | 変更するメールアドレスの文字列、または最大50件のメールアドレスの配列。 |
 | `subscription_state` | 必須 | 文字列 | "subscribed"、"unsubscribed"、または "opted_in" のいずれか。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
+
+## SendGridメールブロックのトラブルシューティング {#troubleshooting-sendgrid-email-blocks}
+
+SendGridが受信者をブロックした場合、このエンドポイントでサブスクリプションステータスを更新し、Segmentフィルターでエンゲージメントを確認してください。配信到達性のモニタリングには [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) のソフトバウンスイベントを使用し、再送信前にサブスクリプション状態を確認してください。
 
 ## リクエスト例 {#example-request}
 ```

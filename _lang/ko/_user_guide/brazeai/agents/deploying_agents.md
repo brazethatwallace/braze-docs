@@ -24,7 +24,7 @@ page_order: 2
 | 지능형 라우팅 | 에이전트 출력(부울 또는 숫자)을 사용하여 사용자를 서로 다른 Canvas 경로로 분할합니다. 예를 들어, 사용자를 "위험" 또는 "건강"으로 분류하고 메시징 주기를 그에 맞게 조정합니다. |
 | 설문조사 또는 응답 해석 | 에이전트가 개방형 설문조사 응답이나 자유 텍스트 필드를 구문 분석하여 다운스트림 경로를 유도하는 구조화된 값(예: 의도 또는 필요 분류)을 반환하도록 합니다. |
 | 다단계 추론 | 에이전트가 컨텍스트 필드를 결합하고 여러 사용자 속성을 기반으로 다음 최선의 동작(이메일, SMS 또는 담당자 연결)을 추천하는 등 복잡한 결정을 내리도록 구성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
 
 ## 카탈로그의 에이전트 {#agents-in-catalogs}
 
@@ -40,7 +40,7 @@ page_order: 2
 | 항목 분류 또는 태그 지정 | 개인화 모델이 제품을 더 효과적으로 세분화할 수 있도록 추천 로직용 태그를 할당합니다. 예를 들어, 제품에 "아웃도어", "페스티벌 준비 완료" 또는 "프리미엄" 태그를 지정합니다. |
 | 콘텐츠 현지화 | 글로벌 Campaign을 위해 카탈로그 텍스트를 다른 언어로 번역하거나, 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나, SMS Campaign을 위해 설명을 단축합니다. |
 | 리뷰 또는 피드백 요약 | 감정이나 피드백을 새로운 필드로 요약합니다. 예를 들어, 긍정적, 중립적 또는 부정적 감정 점수를 할당하거나 "대부분의 고객이 좋은 핏을 언급하지만 느린 배송을 지적합니다."와 같은 짧은 텍스트 요약을 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
 
 ### 단계 {#steps}
 
@@ -82,7 +82,7 @@ page_order: 2
 | --- | --- |
 | **description** | 텍스트 |
 | **confidence_score_out_of_ten** | 숫자 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Define response fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="응답 필드 정의" }
 
 카탈로그에 **product_description**이라는 필드를 추가하고 **description**을 **Response Field**로 선택하여 에이전트의 설명으로 열을 채울 수 있습니다.
 
@@ -92,15 +92,15 @@ page_order: 2
 
 ### 카탈로그의 오류 처리 {#error-handling-in-catalogs}
 
-- 실패한 카탈로그 호출은 재시도되지 않습니다.
-- 기반 모델 제공자에 대한 API 호출이 잘못된 API 키 오류나 사용량 제한 오류 등의 오류를 반환하면 필드 값이 업데이트되지 않습니다.
+- 실패한 카탈로그 호출은 LLM 제공자의 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors)를 포함하여 재시도되지 않습니다.
+- 기반 모델 제공자에 대한 API 호출이 잘못된 API 키 오류 등 다른 오류를 반환하면 필드 값이 업데이트되지 않습니다.
 - 실패한 실행에 대한 세부 정보는 에이전트의 로그에서 확인할 수 있습니다.
 
 ## 에이전트 모니터링 {#monitor-your-agent}
 
 에이전트의 **Usage** 섹션에서 카탈로그와 Canvases에서 에이전트가 활발히 사용되고 있는 위치를 참조하고 탐색할 수 있습니다.
 
-![Canvases에 대해 두 개의 활성 에이전트와 하나의 비활성 에이전트를 보여주는 에이전트 Usage 섹션.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
+![Canvases에 대해 두 개의 활성 에이전트와 하나의 비활성 에이전트를 보여주는 에이전트 사용량 섹션.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
 에이전트의 **Logs** 섹션에서 Canvases와 카탈로그에서 발생하는 실제 에이전트 호출을 모니터링할 수 있습니다. 날짜 범위, 결과(성공 또는 실패), 호출 위치 등의 정보로 필터링할 수 있습니다. 현재 페이지에 표시된 로그만 내보내려면 **Export CSV**를 선택할 수도 있습니다.
 

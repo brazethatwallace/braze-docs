@@ -27,15 +27,15 @@ Sehen Sie sich das folgende Video an, um einen optionalen Überblick über die E
 
 | Feature | Erforderliche Nutzer:innenberechtigungen |
 | --- | --- |
-| Nachrichtentypen | Sie benötigen diese Berechtigungen, um Locales und Übersetzungen zu Campaigns und Canvases hinzuzufügen:<br><br> {::nomarkdown}Granulare Berechtigungen: <ul><li>Campaigns bearbeiten</li><li>Canvases bearbeiten</li></ul> Legacy-Berechtigungen: <ul><li>Zugriff auf Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek, Standorte, Aktionscodes und Präferenzzentren</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
+| Nachrichtentypen | Sie benötigen diese Berechtigungen, um Locales und Übersetzungen zu Campaigns und Canvases hinzuzufügen:<br><br> <ul><li>Campaigns bearbeiten</li><li>Canvases bearbeiten</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen"}
 
 {% endtab %}
 {% tab Templates %}
 
 | Feature | Erforderliche Nutzer:innenberechtigungen |
 | --- | --- |
-| Templates | Sie benötigen diese Berechtigungen für den Template-Typ, dem Sie Locales und Übersetzungen hinzufügen möchten:<br><br> {::nomarkdown}Granulare Berechtigungen: <ul><li>E-Mail-Templates bearbeiten</li><li>IAM-Templates bearbeiten</li><li>Content-Block-Templates bearbeiten</li></ul> Legacy-Berechtigungen: <ul><li>Zugriff auf Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek, Standorte, Aktionscodes und Präferenzzentren</li></ul>{:/} |
+| Templates | Sie benötigen diese Berechtigungen für den Template-Typ, dem Sie Locales und Übersetzungen hinzufügen möchten:<br><br> <ul><li>E-Mail-Templates bearbeiten</li><li>IAM-Templates bearbeiten</li><li>Content-Block-Templates bearbeiten</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% endtab %}

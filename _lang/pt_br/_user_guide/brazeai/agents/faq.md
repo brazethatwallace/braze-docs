@@ -54,7 +54,7 @@ Um agente personalizado pode expirar por tempo limite se:
 
 - As instruções do agente estiverem incompletas ou contraditórias
 - As instruções do agente não cobrirem todos os cenários ou não incluírem uma condição de fallback (como "Se todas as entradas estiverem em branco, retorne 'Não foi possível personalizar'")
-- As instruções do agente pedirem que ele produza um formato de saída diferente do especificado na guia **Saída** (por exemplo, se as instruções pedem uma string, mas na guia **Saída** a saída está definida como um número)
+- As instruções do agente pedirem que ele produza um formato de saída diferente do especificado na guia **Output** (por exemplo, se as instruções pedem uma string, mas na guia **Output** a saída está definida como um número)
 - A tarefa do agente for complexa demais e se beneficiaria de uma [abordagem com subagentes](#subagent-approach)
 
 ## Conformidade {#compliance}

@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Mettre à jour le statut du groupe d'abonnement de l'utilisateur."
 ---
+
 {% api %}
 # Mettre à jour le statut du groupe d'abonnement de l'utilisateur {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 {% alert note %}
 Si vous souhaitez utiliser cet endpoint avec les [groupes d'abonnement LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Limite de débit {#rate-limit}
 
@@ -97,7 +100,7 @@ Cette propriété ne doit pas être utilisée pour mettre à jour les informatio
 | `email` | Requis* | Chaîne de caractères ou tableau de chaînes de caractères | L'adresse e-mail de l'utilisateur, qui peut être transmise sous forme de tableau de chaînes de caractères. Doit inclure au moins une adresse e-mail (maximum 50). <br><br>Si plusieurs utilisateurs (`external_id`) du même espace de travail partagent la même adresse e-mail, Braze met à jour tous les utilisateurs partageant cette adresse e-mail avec les modifications du groupe d'abonnement. |
 | `phone` | Requis* | Chaîne de caractères au format [E.164](https://en.wikipedia.org/wiki/E.164) | Le numéro de téléphone de l'utilisateur, qui peut être transmis sous forme de tableau de chaînes de caractères. Doit inclure au moins un numéro de téléphone (jusqu'à 50). <br><br>Si plusieurs utilisateurs (`external_id`) du même espace de travail partagent le même numéro de téléphone, Braze met à jour tous les utilisateurs partageant ce numéro de téléphone avec les mêmes modifications du groupe d'abonnement. |
 | `use_double_opt_in_logic` | Facultatif | Valeur booléenne | S'applique uniquement aux groupes d'abonnement SMS ; ignoré pour les e-mails et les autres types de groupes d'abonnement. La valeur par défaut est `false` si omis. Pour les groupes d'abonnement SMS, définissez sur `true` pour faire entrer l'utilisateur dans le workflow de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) lorsque son statut d'abonnement est défini sur `subscribed`. Les utilisateurs entrant dans le workflow de double abonnement de cette manière reçoivent au maximum une demande d'abonnement par jour, quel que soit le nombre de fois où ils entrent dans le workflow. Si ce paramètre est omis ou défini sur `false`, les utilisateurs sont abonnés sans passer par le workflow de double abonnement. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de la demande" }
 
 ## Exemples de requêtes {#example-requests}
 
@@ -141,8 +144,14 @@ Le code de statut `201` peut renvoyer le corps de réponse suivant.
 }
 ```
 
+## Résolution des échecs de mise à jour intermittents {#troubleshooting-intermittent-update-failures}
+
+Si les mises à jour de groupes d'abonnement échouent de manière intermittente ou semblent désynchronisées, attendez plusieurs minutes entre les requêtes de mise à jour ou appelez [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) pour confirmer l'état de l'utilisateur avant d'envoyer une autre mise à jour.
+
 {% alert important %}
 L'endpoint n'accepte que la valeur `email` ou `phone`, pas les deux. Si vous fournissez les deux, vous recevrez cette réponse : `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
+
+Pour que votre mise à jour d'abonnement s'applique aux numéros de téléphone, vérifiez que vous avez envoyé des numéros de téléphone au format E.164 (par exemple, `+15555550123`), utilisé le bon `subscription_group_id` et transmis `phone` (et non `phone` et `email` en même temps) dans le même corps de requête. Pour les mises à jour de plusieurs numéros, utilisez le format de tableau `phone` indiqué dans [SMS et RCS](#sms-and-rcs).
 
 {% endapi %}

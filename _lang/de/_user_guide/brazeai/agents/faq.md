@@ -13,7 +13,7 @@ page_order: 10
 
 ### Was ist der Unterschied zwischen Canvas-Agents und Katalog-Agents? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
 
-Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas- oder Katalog-Agent erstellen möchten. Dies bestimmt, welche Arten von Anweisungen und Optionen der Agent unterstützen kann. Canvas-Agents verarbeiten Nutzer:innen in Realtime innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder aktualisieren.
+Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas-Agent oder einen Katalog-Agent erstellen möchten. Dies bestimmt, welche Arten von Anweisungen und Optionen der Agent unterstützen kann. Canvas-Agents verarbeiten Nutzer:innen in Realtime innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder aktualisieren.
 
 ### Welche Vorteile bietet das Auto-Modell im Vergleich zum Bring-your-own-Modell (BYO)? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -24,7 +24,7 @@ Vorteile des Braze Auto-Modells:
 
 ### Wo kann ich meine aktuelle Agent-Nutzung einsehen? {#where-can-i-find-my-current-agent-usage}
 
-Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credits-Nutzung**, um Details zu Ihrer Agent-Nutzung und den Credit-Kosten einzusehen.
+Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credit-Nutzung**, um Details zu Ihrer Agent-Nutzung und den Credit-Kosten einzusehen.
 
 ### Kann ich bedingte Liquid-Anweisungen in Agent-Anweisungen verwenden? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 
@@ -46,7 +46,7 @@ Wenn der Agent mit den gestellten Aufgaben Schwierigkeiten hat, ziehen Sie einen
 
 - Agent 1 standardisiert und transformiert eingehende unstrukturierte Canvas-Kontextdaten.
 - Agent 2 referenziert einen Katalog mit Artikeldetails und identifiziert, welche Artikel relevant sein könnten.
-- Agent 3 referenziert einen anderen Katalog, der verschiedene mögliche Beschreibungen für jeden Artikel enthält, und wählt die für die Nutzer:innen relevanteste Artikelbeschreibung für eine E-Mail aus.
+- Agent 3 referenziert einen anderen Katalog, der verschiedene mögliche Beschreibungen für jeden Artikel enthält, und wählt die für die/den Nutzer:in relevanteste Artikelbeschreibung für eine E-Mail aus.
 
 ### Was kann dazu führen, dass ein angepasster Agent häufig ein Timeout hat? {#what-might-cause-a-custom-agent-to-frequently-time-out}
 
@@ -57,7 +57,7 @@ Ein angepasster Agent kann ein Timeout haben, wenn:
 - Die Agent-Anweisungen ein anderes Ausgabeformat verlangen als das im Tab **Ausgabe** festgelegte (z. B. wenn die Agent-Anweisungen einen String verlangen, aber im Tab **Ausgabe** die Ausgabe als Zahl definiert ist)
 - Die Aufgabe des Agents zu komplex ist und von einem [Sub-Agent-Ansatz](#subagent-approach) profitieren würde
 
-## Compliance
+## Compliance {#compliance}
 
 ### Ist die Agentenkonsole DSGVO-/CCPA-konform? {#is-agent-console-gdprccpa-compliant}
 

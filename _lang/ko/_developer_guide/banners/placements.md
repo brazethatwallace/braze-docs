@@ -31,7 +31,7 @@ platform:
 
 ### 2단계: 앱에서 배치 새로고침 {#requestBannersRefresh}
 
-아래에 설명된 새로고침 메서드를 호출하여 배치를 새로고침할 수 있습니다. 사용자의 세션이 만료되거나 `changeUser` 메서드를 사용하여 식별된 사용자를 변경할 때 이러한 배치는 자동으로 캐시됩니다.
+아래에 설명된 새로고침 메서드를 호출하여 배치를 새로고침할 수 있습니다. `subscribeToBannersUpdates`가 활성 상태인 경우, SDK는 새 세션이 시작될 때와 `changeUser`를 호출할 때 캐시된 배치 ID를 자동으로 다시 게시합니다. 이 자동 새로고침은 사용량 제한 토큰을 소비하지 않습니다.
 
 {% alert tip %}
 배너 다운로드 또는 표시 지연을 방지하려면 가능한 한 빨리 배치를 새로고침하세요.
@@ -160,36 +160,56 @@ useEffect(() => {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+배너 업데이트 리스너는 SDK의 인메모리 배너 상태를 반영합니다. 단일 업데이트에는 가장 최근 `requestRefresh` 호출의 배치 ID뿐만 아니라 이미 캐시된 배치(예: 이전 새로고침, 다른 화면 또는 자동 SDK 작업에서)도 포함될 수 있습니다. 특정 배치에만 관심이 있는 경우 리스너에서 각 배너의 배치 ID를 확인하고 나머지는 건너뛰세요. 리스너를 등록한 후 Braze에서 동기화하려는 배치에 대해 `requestRefresh`를 호출하세요.
+{% endalert %}
+
 ```swift
+let placementIds = ["global_banner", "navigation_square_banner"]
 let cancellable = brazeClient.braze()?.banners.subscribeToUpdates { banners in
   banners.forEach { placementId, banner in
     print("Received banner: \(banner) with placement ID: \(placementId)")
   }
 }
+// Always refresh after your subscriber is registered
+brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 ```
 
 {% endtab %}
 {% tab Android %}
+
+{% alert note %}
+배너 업데이트 리스너는 SDK의 인메모리 배너 상태를 반영합니다. 단일 업데이트에는 가장 최근 `requestBannersRefresh` 호출의 배치 ID뿐만 아니라 이미 캐시된 배치(예: 이전 새로고침, 다른 화면 또는 자동 SDK 작업에서)도 포함될 수 있습니다. 특정 배치에만 관심이 있는 경우 리스너에서 각 배너의 배치 ID를 확인하고 나머지는 건너뛰세요. 리스너를 등록한 후 Braze에서 동기화하려는 배치에 대해 `requestBannersRefresh`를 호출하세요.
+{% endalert %}
+
 {% subtabs %}
 {% subtab Java %}
 
 ```java
+ArrayList<String> placementIds = new ArrayList<>();
+placementIds.add("global_banner");
+placementIds.add("navigation_square_banner");
 Braze.getInstance(context).subscribeToBannersUpdates(banners -> {
   for (Banner banner : banners.getBanners()) {
     Log.d(TAG, "Received banner: " + banner.getPlacementId());
   }
 });
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds);
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 ```kotlin
+val placementIds = listOf("global_banner", "navigation_square_banner")
 Braze.getInstance(context).subscribeToBannersUpdates { update ->
   for (banner in update.banners) {
     Log.d(TAG, "Received banner: " + banner.placementId)
   }
 }
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds)
 ```
 
 {% endsubtab %}
@@ -410,10 +430,45 @@ Android 뷰를 사용하는 경우 다음 XML을 사용하세요:
     app:placementId="global_banner" />
 ```
 
-Jetpack Compose를 사용하는 경우 다음을 사용할 수 있습니다:
+Jetpack Compose를 사용하려면 앱 모듈에 `com.braze:android-sdk-jetpack-compose` 아티팩트를 추가하세요. 다른 Braze Android SDK 종속성과 동일한 버전을 사용합니다. 이 모듈은 `android-sdk-ui`와 별도이며 `com.braze.jetpackcompose.banners` 아래에 [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) 컴포저블을 제공합니다.
+
+{% alert note %}
+일부 Compose UI 라이브러리는 자체 `Banner` 컴포저블을 정의합니다. Braze의 API를 호출하려면 `com.braze.jetpackcompose.banners.Banner`를 명시적으로 임포트하세요.
+{% endalert %}
 
 ```kotlin
-Banner(placementId = "global_banner")
+import com.braze.jetpackcompose.banners.Banner
+
+@Composable
+fun myBannerSlot() {
+    Banner(placementId = "global_banner")
+}
+```
+
+선택적으로 `heightCallback`을 전달하여 배너 크기가 변경될 때 렌더링된 높이를 dp 단위로 받을 수 있습니다. 참조는 [`Banner`에 대한 KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)을 확인하세요.
+
+Jetpack Compose 모듈을 추가하지 않는 경우 [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html)를 [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView)로 래핑하세요:
+
+```kotlin
+import android.view.ViewGroup
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidView
+import com.braze.ui.banners.BannerView
+
+@Composable
+fun myBannerSlot() {
+    AndroidView(
+        factory = { context ->
+            BannerView(context, "global_banner").apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        },
+        update = { it.placementId = "global_banner" }
+    )
+}
 ```
 
 Kotlin에서 배너를 가져오려면 다음을 사용하세요:
@@ -654,10 +709,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 ## 해제 기록 {#log-dismissals}
 
 배너 해제는 사용자가 적극적으로 배너를 해제할 때 배치에서 배너를 프로그래밍 방식으로 제거합니다. 해제되면 해당 사용자에 대해 배너가 억제됩니다. 다음에 배치 목록이 새로고침될 때 사용자가 자격이 있는 경우 새 배너가 반환됩니다.
-
-{% alert important %}
-배너 해제는 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 고객 성공 매니저에게 문의하세요.
-{% endalert %}
 
 ### 필수 조건
 

@@ -25,7 +25,7 @@ Die Integration von Braze und Microsoft Azure Blob Storage erlaubt es Ihnen, Dat
 | ----------- | ----------- |
 | Microsoft Azure und Azure-Speicherkonto | Um die Vorteile dieser Partnerschaft nutzen zu können, benötigen Sie ein Microsoft Azure- und Azure-Storage-Konto. |
 | Currents | Um Daten nach Currents zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. Currents ist nicht erforderlich, wenn Sie nur die Nachrichtenarchivierung einrichten möchten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -83,7 +83,7 @@ Vergewissern Sie sich als Nächstes, dass das Kästchen **Make this the default 
 ![Die Microsoft Azure-Datenexportseite in Braze. Auf dieser Seite gibt es Felder für den Verbindungs-String, den Containernamen und das Präfix.]({% image_buster /assets/img/azure_data_export.png %})
 
 {% alert important %}
-Es ist wichtig, Ihren Verbindungs-String auf dem neuesten Stand zu halten. Wenn die Zugangsdaten Ihres Konnektors ablaufen, sendet der Konnektor keine Ereignisse mehr. Wenn dieser Zustand länger als **48 Stunden** anhält, werden die Ereignisse des Konnektors gelöscht und die Daten gehen dauerhaft verloren.
+Es ist wichtig, Ihren Verbindungs-String auf dem neuesten Stand zu halten. Wenn die Zugangsdaten Ihres Konnektors ablaufen, sendet der Konnektor keine Events mehr. Wenn dieser Zustand länger als **48 Stunden** anhält, werden die Events des Konnektors gelöscht und die Daten gehen dauerhaft verloren.
 {% endalert %}
 
 ## Exportverhalten {#export-behavior}
@@ -98,3 +98,11 @@ Nutzer:innen, die eine Cloud-Datenspeicherlösung integriert haben und versuchen
 
 Currents-Exporte verwenden das Apache-Avro-Format (`.avro`-Dateien), nicht JSON. Diese Anforderung an das JSON-Format gilt für Dashboard-Datenexporte und API-Exporte, die das JSON-Format verwenden.
 {% endalert %}
+
+## FAQ
+
+### Kann Braze IP-Adressen für die Freigabeliste von Azure Blob Storage bereitstellen? {#can-braze-provide-ip-addresses-to-allowlist-for-azure-blob-storage}
+
+Braze veröffentlicht keine feste IP-Freigabeliste für Currents oder Dashboard-Exporte nach Azure Blob Storage. Braze schreibt in Ihren Container unter Verwendung des Verbindungs-Strings und Containernamens, den Sie angeben, und Azure steuert den Netzwerkzugriff über Ihre Speicherkontoeinstellungen (z. B. Firewallregeln für das Speicherkonto oder private Endpunkte).
+
+Wenn Ihr Sicherheitsteam IP-basierte Einschränkungen benötigt, verwenden Sie die Azure-Netzwerkfunktionen für Ihr Speicherkonto anstelle einer IP-Liste von Braze. Informationen zu den Einrichtungsschritten finden Sie in der [Microsoft-Dokumentation zur Absicherung von Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security).

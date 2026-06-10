@@ -154,8 +154,8 @@ Après avoir modifié le style d'un élément, vous pouvez copier et coller ces 
 
 Vous pouvez également utiliser des raccourcis clavier pour copier et coller des styles :
 
-| Action       | Mac                                            | Windows                                           |
+| Action | Mac | Windows |
 | ------------ | ---------------------------------------------- | ------------------------------------------------- |
-| Copier les styles  | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
+| Copier les styles | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
 | Coller les styles | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Raccourcis clavier" }

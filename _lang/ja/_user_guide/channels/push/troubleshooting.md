@@ -42,7 +42,7 @@ Brazeのエクスポートエンドポイントを使用してユーザープロ
 
 ![Segmentの一覧]({% image_buster /assets/img_archive/trouble2.png %})
 
-Segmentを作成する際に**ユーザー検索**を使用して、ユーザーがそのSegmentに含まれていることを確認することもできます。
+Segmentを作成する際に**ユーザー検索**を使用して、ユーザーがそのSegmentに含まれていることを確認することもできます。**ユーザー検索**は`external_id`または`braze_id`のみを受け付けます。メールアドレスや電話番号は使用できません。メール、電話番号、プッシュトークン、またはユーザーエイリアスで検索するには、[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)を使用してください。
 
 ![検索フィールドを含むユーザー検索セクション。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -70,7 +70,7 @@ CampaignまたはCanvasにレート制限が設定されている場合、この
 
 #### プッシュ通知の種類 {#push-notification-type}
 
-正しい種類のプッシュ通知を使用しているか確認してください。たとえば、FireTVをターゲットにする場合は、Androidプッシュ通知ではなくKindleプッシュ通知を使用します。同様に、Androidをターゲットにする場合は、iOSプッシュ通知ではなくAndroidプッシュ通知を使用します。Brazeのワークフローの詳細については、以下の記事を参照してください。
+正しい種類のプッシュ通知を使用しているか確認してください。たとえば、FireTVをターゲットにする場合は、Androidプッシュ通知ではなくKindleプッシュ通知を使用します。同様に、Androidをターゲットにする場合は、iOSプッシュCampaignではなくAndroidプッシュ通知を使用します。Brazeのワークフローの詳細については、以下の記事を参照してください。
 - [Appleプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)
 - [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)
 
@@ -119,8 +119,8 @@ Brazeダッシュボードで送信者IDを変更しないでください。変�
 プッシュ通知の設定が以下のベストプラクティスに従っていることを確認してください。
 
 - プッシュ有効ステータスを考慮せずに大規模なオーディエンスに送信している場合、送信速度が遅くなる可能性があります。代わりに、プッシュ有効なユーザーのみに送信してオーディエンスのサイズを縮小することを検討してください。
-- 可能であれば、即時送信ではなく事前にCampaignsをスケジュールしてください。
-- Canvasで多数のユーザーにプッシュ通知をターゲットにしている場合、Canvas内の後続のメッセージステップは、ユーザーに即時送信するCampaignとは異なる処理時間を必要とすることが予想されます。この場合、Campaignsは通常Canvasよりも先に送信を完了します。Canvasの最初の「ステップ」は、ユーザーが特定のユーザージャーニーに適格かどうかを確認することだからです。
+- 可能であれば、即時送信ではなく事前にCampaignをスケジュールしてください。
+- Canvasで多数のユーザーにプッシュ通知をターゲットにしている場合、Canvas内の後続のメッセージステップは、ユーザーに即時送信するCampaignとは異なる処理時間を必要とすることが予想されます。この場合、Campaignは通常Canvasよりも先に送信を完了します。Canvasの最初の「ステップ」は、ユーザーが特定のユーザージャーニーに適格かどうかを確認することだからです。
 
 ## プッシュ通知をタップしてもアプリが開かない {#clicking-a-push-notification-doesnt-open-the-app}
 
@@ -172,6 +172,20 @@ CampaignまたはCanvasステップで、**モバイルアプリ内でWeb URLを
 Appleの`.p8`認証キーは、BrazeでのAPNsプッシュに必要なアプローチです。レガシーの証明書ファイルタイプとは異なり、`.p8`キーは有効期限がなく、単一のキーですべてのアプリをサポートするため、年次の証明書更新が不要になり、プッシュ配信の失敗リスクが軽減されます。
 
 現在`.p12`または`.pem`証明書を使用している場合は、できるだけ早く`.p8`キーに移行してください。`.p8`キーの作成とアップロードの手順については、[APNsプッシュ証明書のアップロード]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)を参照してください。Appleの開発者アカウントから`.p8`キーを生成する方法については、[認証トークンを使用したAPNsとの通信](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/)を参照してください。
+
+### .p8キーと.p12証明書の比較 {#p8-keys-versus-p12-certificates}
+
+| 認証情報 | 有効期限 | ダッシュボードのステータスインジケーター |
+| --- | --- | --- |
+| `.p8`認証キー | 有効期限なし | 緑色のステータスインジケーターなし（これは想定どおりです） |
+| `.p12`プッシュ証明書 | 毎年有効期限切れ | 証明書が有効な場合は緑色のインジケーター |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8キーと.p12証明書の比較" }
+
+`.p12`証明書を`.p8`キーに置き換える（または新しい認証情報をアップロードする）と、Brazeが変更を処理する間、プッシュ配信が一時的に停止する場合があります。可能であれば、メンテナンスウィンドウ中に更新を計画してください。
+
+**設定** > **アプリ設定** > **プッシュ通知の設定**で、**App Bundle ID**、**Team ID**、および**Key ID**（`.p8`キーの場合）がApple Developerアカウントの値と一致していることを確認してください。複数のBrazeワークスペースで、iOSアプリの**バンドルID**が同一であれば、同じAppleプッシュ認証情報を使用できます。認証情報の環境（開発と本番）は、アプリのビルド方法と一致する必要があります。
+
+[Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0)以降のアプリでは、[動的APNsゲートウェイ管理]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management)を使用して、トークンを正しいAPNs環境に自動的にルーティングできます。
 
 ## Webプッシュ通知が期待どおりに動作しない {#web-push-notifications-arent-behaving-as-expected}
 

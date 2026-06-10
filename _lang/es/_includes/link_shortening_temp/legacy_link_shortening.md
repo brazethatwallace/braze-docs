@@ -79,7 +79,7 @@ Esta vista previa se actualiza con la personalización relevante y la URL acorta
 
 Asegúrate de guardar la campaña o Canvas antes de enviar un mensaje de prueba para recibir una representación de la URL acortada que se envía en tu mensaje. Si la campaña o Canvas no se guarda antes de un envío de prueba, el envío de prueba incluirá un marcador de posición de URL.
 
-Para que los Canvas aparezcan en el filtro "Hizo clic en enlace SMS acortado", el paso en Canvas que contiene el enlace corto también debe estar habilitado con seguimiento avanzado, lo que permite el seguimiento de clics a nivel de usuario. Si el enlace corto está configurado con seguimiento básico, la opción de filtrar eventos de clic en enlaces SMS cortos no está disponible.
+Para que los Canvas aparezcan en el filtro "Hizo clic en enlace SMS acortado", el paso en Canvas que contiene el enlace corto también debe estar habilitado con seguimiento avanzado, lo que permite el seguimiento de clics a nivel de usuario. Si el enlace corto está configurado con seguimiento básico, la opción de filtrar eventos de clic en enlaces SMS cortos no está disponible. El mismo requisito de seguimiento avanzado aplica cuando configuras la entrada de Canvas o rutas de acción que dependen de clics en enlaces SMS acortados.
 
 {% alert important %}
 Si se crea un borrador dentro de un Canvas activo, no se generará una URL acortada. La URL acortada real se genera cuando el borrador del Canvas se activa.

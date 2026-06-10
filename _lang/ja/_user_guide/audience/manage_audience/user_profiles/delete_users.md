@@ -108,7 +108,7 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 ### Segmentフィルター {#segment-filters}
 
-ユーザーのSegmentの削除をリクエストすると、**Pending Deletion**という[Segmentフィルター]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)が自動的に作成されます。このフィルターを使用して以下のことができます。
+ユーザーのSegment削除をリクエストすると、**Pending Deletion**という[Segmentフィルター]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)が自動的に作成されます。このフィルターを使用して以下のことができます。
 
 - 特定の削除実行日に関連付けられた正確なユーザーセットを確認する。
 - それらのユーザーをCampaignsから除外して、削除前にメッセージを受信しないようにする。
@@ -173,3 +173,7 @@ EAプログラムの進行に伴い、すべてのお客様が最大1億人の�
 個々のユーザーの削除は永続的です。
 
 最初の7日以内であれば[Segment削除をキャンセル](#cancel)できます。ただし、キャンセル前にすでに削除されたユーザーは復元できません。
+
+### ダッシュボードの代わりにAPIを使用してユーザーを削除できますか？ {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+はい。少量のバッチの場合は、[`/users/delete`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)を使用できます。このエンドポイントはリクエストごとに最大50件の識別子を受け付け、そのエンドポイントの[レート制限]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit)が適用されます。Segmentベースのダッシュボード削除は非常に大規模なオーディエンスに適していますが、[7日間の待機期間](#about-user-deletion)が含まれます。

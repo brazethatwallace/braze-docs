@@ -43,7 +43,7 @@ Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conte
 4. Escolha quando a Braze calcula a elegibilidade do público e a personalização para o Content Card. Isso pode ser na entrada da etapa ou na primeira impressão (recomendado). Etapas que contêm Content Cards podem ser agendadas ou baseadas em ação.
 5. Escolha se deseja remover os Content Cards quando os usuários concluírem uma compra ou realizarem um evento personalizado.
 6. Defina uma expiração para o Content Card (tempo no feed). Isso pode ser após um período de tempo ou em um momento específico.
-7. Filtre seu público, ou os destinatários, para esta etapa conforme necessário em **Delivery Settings**. Você pode refinar ainda mais seu público especificando Segments e adicionando filtros adicionais. As opções de público são verificadas após a postergação, no momento em que as mensagens são enviadas.
+7. Filtre seu público, ou os destinatários, para esta etapa conforme necessário em **Delivery Settings**. Você pode refinar ainda mais seu público especificando segmentos e adicionando filtros adicionais. As opções de público são verificadas após a postergação, no momento em que as mensagens são enviadas.
 8. Escolha quaisquer outros canais de envio de mensagens que você queira combinar com sua mensagem.
 
 {% endtab %}
@@ -60,7 +60,7 @@ Para saber mais sobre o comportamento esperado e a aparência de cada tipo, cons
 | [Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![Um Content Card clássico com um ícone pequeno e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | O cartão clássico tem uma disposição direta com um título em negrito, texto da mensagem e uma imagem opcional posicionada à esquerda do título e do texto. É melhor usar uma imagem quadrada ou ícone com o cartão clássico. |
 | [Captioned Image]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![Um Content Card com legenda mostrando a imagem de um halterofilista e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | O cartão de imagem com legenda destaca seu conteúdo com texto e uma imagem chamativa. |
 | [Image Only]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![Um Content Card somente imagem com apenas texto.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | O cartão somente imagem chama a atenção com espaço para imagens, GIFs e outros conteúdos criativos sem texto. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2: Especifique seus tipos de mensagem" }
 
 ## Etapa 3: Redija um Content Card {#step-3-compose-a-content-card}
 
@@ -94,7 +94,7 @@ Cada tipo de mensagem e plataforma pode ter suas próprias proporções e requis
 
 #### Fixar no topo {#pin-to-top}
 
-A Braze exibe um cartão fixado no topo do feed do usuário, e o usuário não pode descartá-lo. Se o feed de um usuário tiver vários cartões fixados, a Braze os ordena cronologicamente. Depois de enviar um cartão, não é possível atualizar retroativamente sua opção de fixação. Alterar essa opção após o envio de uma Campaign afeta apenas envios futuros.
+A Braze exibe um cartão fixado no topo do feed do usuário, e o usuário não pode descartá-lo. Se o feed de um usuário tiver vários cartões fixados, a Braze os ordena cronologicamente. Quando a Braze entrega um Content Card, ele é fixado ou não fixado, e esse status não muda durante a vida útil do cartão. Se você alterar a configuração de fixação em uma Campaign, a atualização se aplica apenas a cartões enviados no futuro. Ela não altera o status de fixação de cartões que já estão no feed de um usuário.
 
 ![Lado a lado da pré-visualização do Content Card na Braze para celular e web com a opção "Pin this card to the top of the feed" selecionada.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -110,9 +110,9 @@ As seguintes ações estão disponíveis para links de Content Card:
 | [Deep link para o app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Deep link para uma tela existente no seu app. |
 | Registrar evento personalizado | Escolha um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) para disparar. Pode ser usado para exibir outro Content Card ou disparar envios de mensagens adicionais. |
 | Registrar atributo personalizado | Escolha um [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) para definir para o usuário atual. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamento ao clicar" }
 
-As opções **Log Custom Event** e **Log Custom Attribute** exigem a seguinte compatibilidade de versão do SDK:
+As opções **Registrar evento personalizado** e **Registrar atributo personalizado** exigem a seguinte compatibilidade de versão do SDK:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
@@ -133,7 +133,7 @@ Construa o restante da sua Campaign. Continue nas próximas seções para mais d
 
 Content Cards podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours), além de determinar a expiração do Content Card. Defina uma data de expiração específica ou os dias até o cartão expirar, até 30 dias. Todas as variantes têm datas de expiração idênticas.
+Você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/), além de determinar a expiração do Content Card. Defina uma data de expiração específica ou os dias até o cartão expirar, até 30 dias. Todas as variantes têm datas de expiração idênticas.
 
 Se você optar por expirar um cartão após um período definido (por exemplo, após duas semanas), a expiração é calculada a partir do momento do envio do cartão. Para Campaigns agendadas, esse é o horário de lançamento programado. Para Campaigns baseadas em ação, esse é o momento em que o usuário realiza a ação de gatilho. Por exemplo, se um cartão baseado em ação for enviado às 14h hoje com expiração de 1 dia, ele expira às 14h do dia seguinte.
 
@@ -147,7 +147,7 @@ Para Campaigns de Content Card com entrega agendada, você pode escolher quando 
 
 #### Escolha os usuários-alvo {#choose-users-to-target}
 
-Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros para refinar seu público. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse Segment. Lembre-se de que a composição exata do Segment é sempre calculada antes do envio da mensagem.
+Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros para refinar seu público. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse segmento. Lembre-se de que a composição exata do segmento é sempre calculada antes do envio da mensagem.
 
 {% multi_lang_include target_audiences.md %}
 
@@ -228,8 +228,8 @@ Quer que seu conteúdo dure mais de 30 dias? Experimente os [Banners]({{site.bas
 
 Se você ativar a reelegibilidade, a contagem regressiva para quando um usuário pode "reentrar" em uma Campaign começa após o envio da mensagem. O momento específico em que essa contagem começa depende das suas configurações de criação de cartão:
 
-* Content Cards que usam [na primeira impressão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) usam o momento da impressão para calcular a reelegibilidade.
-* Content Cards criados no lançamento da Campaign ou na entrada da etapa do Canvas usam o que for mais recente entre o momento do envio e o momento da impressão.
+- Content Cards que usam [na primeira impressão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) usam o momento da impressão para calcular a reelegibilidade.
+- Content Cards criados no lançamento da Campaign, em Campaigns multicanal ou na entrada da etapa do Canvas usam o que for mais recente entre o momento do envio e o momento da impressão.
 
 #### A expiração de 30 dias e a reelegibilidade {#the-30-day-expiration-and-re-eligibility}
 
@@ -328,3 +328,11 @@ Se você quiser que um cartão pareça estar sempre disponível, pode criar uma 
 1. Defina a duração do Content Card para 30 dias.
 2. Defina a reelegibilidade da Campaign para 30 dias.
 3. Configure a Campaign para ser disparada no "Início da sessão".
+
+### Sincronização e atualização de Content Cards {#content-card-sync-and-refresh}
+
+Content Cards sincronizam em um cronograma e quando seu app atualiza o feed. O comportamento de sincronização difere entre sincronizações completas e parciais, e sua integração de SDK afeta quando os cartões são atualizados no início da sessão. Para detalhes de implementação, consulte [Personalizar o feed de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) e [Criando Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+
+### Impacto de interromper Campaigns de Content Cards {#impact-of-stopping-content-cards-campaigns}
+
+Quando você interrompe uma Campaign e seleciona **Remove card after the next sync**, a Braze remove o cartão dos feeds dos usuários na próxima atualização. As contagens de impressões podem ser menores que as contagens de envio porque os usuários não podem registrar impressões em cartões que são removidos antes de serem visualizados.

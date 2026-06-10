@@ -3,7 +3,7 @@ nav_title: メールメッセージの送信
 article_title: REST APIを使用したメールメッセージの送信
 page_order: 3
 page_type: reference
-description: "この参照記事では、Braze REST APIとAPIキャンペーンを使用してメールメッセージを送信する方法について説明します。"
+description: "この参照記事では、Braze REST APIとAPI Campaignを使用してメールメッセージを送信する方法について説明します。"
 channel:
   - email
 ---
@@ -22,7 +22,7 @@ channel:
 - メッセージ遅延やABテストなど、追加のBraze機能でユースケースを拡張する。
 - オプションで、[APIトリガー配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)に切り替えて、Brazeダッシュボードでメールテンプレートを定義しながら、バックエンドから送信をトリガーする。
 
-REST APIを通じてメールを送信するには、BrazeダッシュボードでAPIキャンペーンを設定し、[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)エンドポイントを使用してメッセージを送信する必要があります。
+REST APIを通じてメールを送信するには、BrazeダッシュボードでAPI Campaignを設定し、[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)エンドポイントを使用してメッセージを送信する必要があります。
 
 ## 前提条件 {#prerequisites}
 
@@ -34,16 +34,16 @@ REST APIを通じてメールを送信するには、Brazeダッシュボード�
 | BrazeアプリID | ワークスペース内のアプリの識別子。確認するには、**設定** > **APIキー**に移動し、**アプリ識別子**セクションを確認します。この値はメールメッセージングオブジェクトの `app_id` フィールドに必須です。詳細については、[アプリ識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | HTMLメールコンテンツ | 事前に準備したメールメッセージのHTML本文。 |
 | バックエンドサービス | Braze REST APIにHTTP POSTリクエストを送信できるバックエンドサービスまたはスクリプティング環境。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## ステップ 1:APIキャンペーンを作成する {#step-1-create-an-api-campaign}
+## ステップ 1:API Campaignを作成する {#step-1-create-an-api-campaign}
 
 1. Brazeダッシュボードで、**Messaging** > **Campaigns**に移動します。
-2. **Create Campaign**を選択し、**API Campaign**を選択します。
-3. キャンペーンの名前と説明を入力します（例:「メールメッセージ通知」）。
+2. **キャンペーンを作成**を選択し、**API Campaign**を選択します。
+3. Campaignの名前と説明を入力します（例:「メールメッセージ通知」）。
 4. 識別と追跡のために関連するタグを追加します。
-5. **Add Messaging Channel**を選択し、**Email**を選択します。
-6. キャンペーンページに表示される**Campaign ID**をメモします。APIリクエストを構築する際にこの値が必要です。オプションで、**Message Variation ID**もメモしてください。送信統計を特定のメッセージバリエーションに帰属させたい場合は、リクエストに含めます。
+5. **メッセージングチャネルを追加**を選択し、**Email**を選択します。
+6. Campaignページに表示される**Campaign ID**をメモします。APIリクエストを構築する際にこの値が必要です。オプションで、**Message Variation ID**もメモしてください。送信統計を特定のメッセージバリエーションに帰属させたい場合は、リクエストに含めます。
 
 ## ステップ 2:APIを使用してメールを送信する {#step-2-send-an-email-using-the-api}
 
@@ -92,7 +92,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 1. [ステップ 2](#step-2-send-an-email-using-the-api)の説明に従って、自分のユーザーIDを受信者としてAPIリクエストを送信します。
 2. メールが受信トレイに配信されたことを確認します。
 3. Brazeダッシュボードでキャンペーン結果ページに移動し、送信が記録されていることを確認します。
-4. キャンペーンをスケールする際に、結果を注意深く監視します。
+4. Campaignをスケールする際に、結果を注意深く監視します。
 
 ## 考慮事項 {#considerations}
 

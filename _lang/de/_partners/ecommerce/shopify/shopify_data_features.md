@@ -19,7 +19,7 @@ Die Shopify-Integration nutzt die [empfohlenen E-Commerce-Events]({{site.baseurl
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
 {% tabs %}
-{% tab Example Payload %}
+{% tab Beispiel-Payload %}
 {% subtabs global %}
 {% subtab Product viewed %}
 ```json
@@ -409,7 +409,7 @@ Die Shopify-Integration nutzt die [empfohlenen E-Commerce-Events]({{site.baseurl
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Shopify events %}
+{% tab Shopify-Events %}
 {% subtabs global %}
 {% subtab Product viewed %}
 **Event**: `ecommerce.product_viewed`<br>
@@ -419,7 +419,7 @@ Die Shopify-Integration nutzt die [empfohlenen E-Commerce-Events]({{site.baseurl
 **Anwendungsfall**: Browse Abandonment
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Liquid-Templating |
 | --- | --- |
 |------------------|-----------------------------------------------------|
 | `product_id`       | `{{event_properties.${product_id}}}`                |
@@ -454,7 +454,7 @@ Für Canvases zum Warenkorb-Abbruch müssen Sie zunächst den Liquid-Tag für de
 Anschließend können Sie die folgenden Warenkorb-Liquid-Tags in Ihre Nachricht einfügen.
 
 {% raw %}
-| Variable         | Liquid templating                                   |
+| Variable         | Liquid-Templating                                   |
 |------------------|-----------------------------------------------------|
 | `cart_id`          | `{{ shopping_cart.cart_id }}`                       |
 | `currency`         | `{{ shopping_cart.currency }}`                      |
@@ -485,7 +485,7 @@ Weitere Informationen darüber, wie Sie eine Liquid-`for`-Schleife einrichten, u
 **Anwendungsfall**: Abbruch der Kaufabwicklung
 
 {% alert important %}
-Wenn eine Kund:in Shop Pay als beschleunigte Checkout-Option nutzt, kann Shopify bestimmte Standard-Checkout-Events umgehen (z. B. den Shopify-Webhook „Checkout gestartet“). Das bedeutet, dass Braze möglicherweise nicht die Daten erhält, die zum Hinzufügen des Checkout-Token-Alias erforderlich sind – was sich auf das Tracking von Checkout-Abbrüchen und die Zuordnung von Nutzerprofilen auswirken kann.
+Wenn eine Kund:in Shop Pay als beschleunigte Checkout-Option nutzt, kann Shopify bestimmte Standard-Checkout-Events überspringen (z. B. den Shopify-Webhook „Checkout gestartet“). Das bedeutet, dass Braze möglicherweise nicht die Daten erhält, die zum Hinzufügen des Checkout-Token-Alias erforderlich sind – was sich auf das Tracking von Checkout-Abbrüchen und die Zuordnung von Nutzerprofilen auswirken kann.
 {% endalert %}
 
 Für Canvases zum Checkout-Abbruch müssen Sie zunächst den folgenden Liquid-Tag verwenden:
@@ -500,7 +500,7 @@ Für Canvases zum Checkout-Abbruch müssen Sie zunächst den folgenden Liquid-Ta
 Anschließend können Sie die folgenden Liquid-Tags in Ihre Nachricht einfügen, um die Produkte in Ihrem Warenkorb zum Zeitpunkt des Checkouts zu referenzieren.
 
 {% raw %}
-| Variable         | Liquid templating                                   |
+| Variable         | Liquid-Templating                                   |
 |------------------|-----------------------------------------------------|
 | `cart_id`          | `{{ shopping_cart.cart_id }}`                       |
 | `currency`         | `{{ shopping_cart.currency }}`                      |
@@ -527,7 +527,7 @@ Anschließend können Sie die folgenden Liquid-Tags in Ihre Nachricht einfügen,
 **Anwendungsfall**: Auftragsbestätigung, Retargeting nach dem Kauf, Upsells oder Cross-Sells
 
 {% raw %}
-| Variable                | Liquid templating                                   |
+| Variable                | Liquid-Templating                                   |
 |-------------------------|-----------------------------------------------------|
 | cart_id                 | `{{event_properties.${cart_id}}}`                   |
 | currency                | `{{event_properties.${currency}}}`                  |
@@ -560,7 +560,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 **Anwendungsfall**: (Transaktional) Fulfillment-Update
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Liquid-Templating |
 | --- | --- |
 | Order ID | `{{event_properties.${order_id}}}` |
 | Total Price | `{{event_properties.${total_price}}}` |
@@ -611,7 +611,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 **Anwendungsfall**: (Transaktional) Fulfillment-Update
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Liquid-Templating |
 | --- | --- |
 | Order ID | `{{event_properties.${order_id}}}` |
 | Total Price | `{{event_properties.${total_price}}}` |
@@ -662,7 +662,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 **Anwendungsfall**: (Transaktional) Zahlungsbestätigung
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Liquid-Templating |
 | --- | --- |
 | Order ID | `{{event_properties.${order_id}}}` |
 | Confirmed Status | `{{event_properties.${confirmed}}}` |
@@ -696,7 +696,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 **Anwendungsfall**: (Transaktional) Bestätigung der Auftragsstornierung
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Liquid-Templating |
 | --- | --- |
 | Order ID | `{{event_properties.${order_id}}}` |
 | Total Price | `{{event_properties.${total_price}}}` |
@@ -732,7 +732,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 **Anwendungsfall**: (Transaktional) Erstattungsbestätigung
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Liquid-Templating |
 | --- | --- |
 | Order ID | `{{event_properties.${order_id}}}` |
 | Order Note | `{event_properties.${note}}}` |
@@ -759,7 +759,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 **Anwendungsfall**: Willkommensserie
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Liquid-Templating |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
 {: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
@@ -779,7 +779,7 @@ Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf
 {% multi_lang_include alerts/note_alerts.md alert='Shopify attributes REST API' %}
 
 {% tabs local %}
-{% tab Example Payload %}
+{% tab Beispiel-Payload %}
 {% subtabs %}
 {% subtab Shopify Tags %}
 ```json
@@ -800,7 +800,7 @@ Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Shopify Custom Attributes %}
+{% tab Angepasste Shopify-Attribute %}
 | Attributname | Beschreibung |
 | --- | --- |
 | `shopify_total_spent` | Der Gesamtbetrag, den die Kund:in über den gesamten Bestellverlauf ausgegeben hat. |
@@ -824,11 +824,11 @@ Diese Seite wird aktualisiert, sobald Shopify dieses Problem behoben hat.
 
 Um eine Liquid-Personalisierung für Ihre angepassten Shopify-Attribute hinzuzufügen, wählen Sie **+ Personalization**. Wählen Sie dann als Personalisierungstyp **Custom Attributes** aus.
 
-![Der Bereich „Add Personalization“ mit der erweiterten Dropdown-Liste „Attribute“.]({% image_buster /assets/img/Shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+![Der Bereich „Add Personalization“ mit der erweiterten Dropdown-Liste „Attribute“.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 Nachdem Sie Ihr angepasstes Attribut ausgewählt haben, geben Sie einen Standardwert ein und kopieren Sie das Liquid-Snippet in Ihre Nachricht.
 
-![Einfügen eines Liquid-Snippets in eine Nachricht.]({% image_buster /assets/img/Shopify/copy_liquid_snippet.png %})
+![Einfügen eines Liquid-Snippets in eine Nachricht.]({% image_buster /assets/img/shopify/copy_liquid_snippet.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -869,13 +869,13 @@ Wenn Sie bereits Braze nutzen und aktive Campaigns oder Canvases haben, prüfen 
 
 1. Aktivieren Sie den historischen Backfill im Schritt **Track Shopify data**.
 
-![Der Schritt „Track Shopify data“ der Shopify-Integration mit ausgewähltem historischem Backfill.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
+![Der Schritt „Track Shopify data“ der Shopify-Integration mit ausgewähltem historischem Backfill.]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
 2. Nachdem Sie Ihre Integration eingerichtet haben, beginnt Braze mit der ersten Datensynchronisation. Sie können den Fortschritt auf dem Tab **Shopify Data** in Ihren Integrationseinstellungen überwachen.
 
-![Die Seite mit den Shopify-Integrationseinstellungen mit einem Lade-Spinner, der anzeigt, dass Events aktiv synchronisiert werden.]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
+![Die Seite mit den Shopify-Integrationseinstellungen mit einem Lade-Spinner, der anzeigt, dass Events aktiv synchronisiert werden.]({% image_buster /assets/img/shopify/historical_data_backfill_syncing.png %})
 
 ### Synchronisierte Daten {#synced-data}
 

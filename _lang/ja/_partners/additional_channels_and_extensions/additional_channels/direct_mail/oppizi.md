@@ -20,14 +20,14 @@ _この統合はOppiziによって管理されています。_
 | Oppiziアカウント | この統合を使用するには、アクティブなOppiziアカウントが必要です。 |
 | Oppizi APIキー | Oppiziアカウントの**Integrations** > **Braze**で確認できます。 |
 | Oppiziダイレクトメールワークフローid | Oppiziの**Direct Mail Workflow**ページでワークフローを作成し、IDを取得します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
 Oppiziとの統合により、以下のことが可能です。
 
 * OppiziのWebhookとダイレクトメールワークフローに接続されたBrazeトリガーを使用して、**自動ダイレクトメールはがきを送信**できます。
-* Oppiziのダイレクトメールワークフローで**しきい値、ウェーブ、リミットを設定**し、キャンペーンの送信をコントロールできます。
+* Oppiziのダイレクトメールワークフローで**しきい値、ウェーブ、リミットを設定**し、Campaignsの送信をコントロールできます。
 * Oppiziの内蔵デザインツールで**プロフェッショナルなはがきをデザイン**できます。デザイン経験は不要です。
 * Oppiziのダッシュボードで**キャンペーンパフォーマンスをリアルタイムに追跡**できます。
 
@@ -47,9 +47,10 @@ BrazeでWebhookテンプレートを使用するには、まずOppizi APIキー�
 
 次に、今後のCampaignsやCanvasesで使用するために、BrazeでOppizi用のWebhookテンプレートを作成します。
 
-1. Brazeで**Templates** > **Webhook Templates**に移動します。
-
-Webhookテンプレートに、以下のフィールドを入力します。
+1. Brazeで**Content** > **Webhook**に移動します。
+2. **Create webhook template**を選択します。
+3. テンプレートの名前を入力します。
+4. Webhookテンプレートに、以下のフィールドを入力します。
 
 - **Webhook URL:** `https://webhooks.oppizi.com/events`
 - **リクエスト本文:** **Raw Text**

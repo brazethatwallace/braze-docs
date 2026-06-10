@@ -145,8 +145,8 @@ Rich Mediaメッセージは、メディアファイル（画像、動画）ま�
 {% endtab %}
 {% endtabs %}
 
-### メッセージ作成画面とメッセージ使用量ダッシュボード {#message-composer-and-message-usage-dashboard}
+### メッセージ作成画面とクレジット使用量ダッシュボード {#message-composer-and-credits-usage-dashboard}
 
 メッセージを作成する際、メッセージ作成画面にはラベル（Basic RCS、Single RCS、Rich、またはRich Media）を通じて課金タイプがリアルタイムで表示され、送信前にコストを把握できます。
 
-[メッセージ使用量ダッシュボード]({{site.baseurl}}/message_usage_dashboard/)にはこれらの課金タイプが反映され、米国向けメッセージで使用されたセグメント数が表示されるため、メッセージクレジットまたはアクションクレジットの消費状況を透明に確認できます。
+[クレジット使用量ダッシュボード]({{site.baseurl}}/credits_usage_dashboard/)にはこれらの課金タイプが反映され、米国向けメッセージで使用されたセグメント数が表示されるため、メッセージクレジットの消費状況を透明に確認できます。

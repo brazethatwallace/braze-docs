@@ -208,6 +208,10 @@ Welcome to the VIP lounge!
 
 {% endalert %}
 
+### HTMLエディターとクラシックエディターの切り替え {#switching-between-html-and-classic-editors}
+
+HTMLエディターとクラシックエディターを切り替えると、LiquidスニペットやContent Blocksの位置がメッセージ内で移動する場合があります。エディターを切り替えた後にテンプレートを確認してください。より予測可能なレイアウト制御が必要な場合は、ドラッグ＆ドロップエディターを使用してください。
+
 ### 事前フォーマット済み変数の挿入 {#inserting-pre-formatted-variables}
 
 テンプレート化されたテキストフィールドの近くにある**Add Personalization**モーダルを使用して、デフォルト値付きの事前フォーマット済み変数を挿入できます。

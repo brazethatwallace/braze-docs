@@ -17,8 +17,6 @@ description: "Dieser Artikel beschreibt die Details des Endpunkts „Übersetzun
 
 > Verwenden Sie diesen Endpunkt, um Übersetzungen für ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/) zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `templates.translations.update`.

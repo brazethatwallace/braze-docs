@@ -32,7 +32,7 @@ window.addEventListener("ab.BridgeReady", function(){
 </script>
 ```
 
-### Métodos do JavaScript Bridge {#bridge}
+### Métodos da ponte JavaScript {#bridge}
 
 Os seguintes métodos JavaScript são suportados dentro do HTML personalizado para mensagens no app e Banners:
 
@@ -49,10 +49,6 @@ Os seguintes métodos JavaScript são suportados dentro do HTML personalizado pa
   word-break: break-word;
 }
 </style>
-
-{% alert note %}
-Não é possível fazer referência ao Liquid para inserir <code>customAttributes</code> em métodos do JavaScript Bridge.
-{% endalert %}
 
 {% multi_lang_include archive/appboyBridge.md %}
 
@@ -72,7 +68,7 @@ Para mensagens no app, você pode rastrear programaticamente "Button 1", "Button
 | Button 1 | `brazeBridge.logClick('0')` | Apenas mensagens no app |
 | Button 2 | `brazeBridge.logClick('1')` | Apenas mensagens no app |
 | Rastreamento de botões personalizados | `brazeBridge.logClick('your custom name here')` | Apenas mensagens no app |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button click tracking" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rastreamento de cliques em botões" }
 
 Para mensagens no app, você pode rastrear múltiplos eventos de cliques em botões por impressão. Por exemplo, para fechar uma mensagem e registrar um clique no Button 2:
 
@@ -80,7 +76,7 @@ Para mensagens no app, você pode rastrear múltiplos eventos de cliques em bot�
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>
 ```
 
-Você também pode rastrear novos nomes de botões personalizados — até 100 nomes exclusivos por Campaign. Por exemplo, `brazeBridge.logClick('blue button')` ou `brazeBridge.logClick('viewed carousel page 3')`.
+Você também pode rastrear novos nomes de botões personalizados — até 100 nomes exclusivos por campanha. Por exemplo, `brazeBridge.logClick('blue button')` ou `brazeBridge.logClick('viewed carousel page 3')`.
 
 {% alert tip %}
 Ao usar métodos JavaScript dentro de um atributo `onclick`, envolva valores de string em aspas simples para evitar conflitos com o atributo HTML entre aspas duplas.
@@ -88,6 +84,6 @@ Ao usar métodos JavaScript dentro de um atributo `onclick`, envolva valores de 
 
 #### Limitações (apenas mensagens no app) {#limitations-in-app-messages-only}
 
-- Você pode ter até 100 IDs de botão exclusivos por Campaign.
+- Você pode ter até 100 IDs de botão exclusivos por campanha.
 - Os IDs de botão podem ter até 255 caracteres cada.
 - Os IDs de botão só podem incluir letras, números, espaços, traços e sublinhados.

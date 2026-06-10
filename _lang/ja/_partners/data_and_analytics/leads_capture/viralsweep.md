@@ -16,7 +16,7 @@ _この統合はViralSweepによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとViralSweepの統合により、ViralSweepプラットフォームで懸賞やコンテストを開催し（メールとSMSのリストを拡大）、CampaignsやCanvasesで使用するために懸賞やコンテストのエントリ情報をBrazeに送信できます。
+BrazeとViralSweepの統合により、ViralSweepプラットフォームで懸賞やコンテストを開催し（メールとSMSのリストを拡大）、キャンペーンやキャンバスで使用するために懸賞やコンテストのエントリ情報をBrazeに送信できます。
 
 ## 前提条件 {#prerequisites}
 

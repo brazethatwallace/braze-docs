@@ -220,7 +220,7 @@ Para configurar uma inscrição para seus usuários (e-mail ou push), chame as f
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | Inscrito e com aceitação explícita |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | Inscrito, mas sem aceitação explícita |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Inscrição cancelada e/ou recusa explícita |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definindo inscrições de usuários" }
 
 Quando um usuário é registrado para receber notificações por push, o navegador o obriga a optar por permitir ou bloquear notificações e, se ele optar por permitir o push, será definido como `OPTED_IN` por padrão.
 

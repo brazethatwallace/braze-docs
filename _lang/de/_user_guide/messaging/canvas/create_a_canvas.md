@@ -41,7 +41,7 @@ Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres C
   {% endtab %}
   {% tab Zielgruppe %}
     Hier wählen Sie Ihre Zielgruppe aus:
-    - Erstellen Sie Ihre Zielgruppe durch Hinzufügen von Segments und Filtern
+    - Erstellen Sie Ihre Zielgruppe durch Hinzufügen von Segmenten und Filtern
     - Verfeinern Sie den Canvas-Wiedereintritt und die Eintrittslimits
     - Sehen Sie eine Zusammenfassung Ihrer Zielgruppe
 
@@ -91,40 +91,38 @@ Sie können eine von drei Möglichkeiten wählen, wie Nutzer:innen in Ihr Canvas
 #### Typen von Entry-Zeitplänen {#entry-schedule-types}
 
 {% tabs local %}
-  {% tab Geplante Zustellung %}
-    Bei der geplanten Zustellung treten Nutzer:innen nach einem Zeitplan ein, ähnlich wie Sie eine Campaign planen würden. Sie können Nutzer:innen in ein Canvas eintragen, sobald es gestartet wird, sie zu einem zukünftigen Zeitpunkt in Ihre Journey eintreten lassen oder auf wiederkehrender Basis (täglich, wöchentlich oder monatlich).
+{% tab Geplante Zustellung %}
+Bei der geplanten Zustellung treten Nutzer:innen nach einem Zeitplan ein, ähnlich wie Sie eine Campaign planen würden. Sie können Nutzer:innen in ein Canvas eintragen, sobald es gestartet wird, sie zu einem zukünftigen Zeitpunkt in Ihre Journey eintreten lassen oder auf wiederkehrender Basis (täglich, wöchentlich oder monatlich).
 
-    Wenn Sie einen monatlich wiederkehrenden Zeitplan auswählen, beachten Sie, dass einige Monate den ausgewählten Tag möglicherweise nicht haben. Angenommen, Sie haben ein Canvas so eingerichtet, dass es monatlich am 31. Tag gesendet wird. In diesem Szenario sendet Braze am letzten Tag des jeweiligen Monats, z. B. am 30. April, da der 31. April nicht existiert.
+Wenn Sie einen monatlich wiederkehrenden Zeitplan auswählen, beachten Sie, dass einige Monate den ausgewählten Tag möglicherweise nicht haben. Angenommen, Sie haben ein Canvas so eingerichtet, dass es monatlich am 31. Tag gesendet wird. In diesem Szenario sendet Braze am letzten Tag des jeweiligen Monats, z. B. am 30. April, da der 31. April nicht existiert.
 
-    In diesem Beispiel treten Nutzer:innen basierend auf den zeitbasierten Optionen jeden Dienstag um 12 Uhr in ihrer Ortszeit wöchentlich in dieses Canvas ein, beginnend am 14. November 2025 bis zum 31. Dezember 2025.
+In diesem Beispiel treten Nutzer:innen basierend auf den zeitbasierten Optionen jeden Dienstag um 12 Uhr in ihrer Ortszeit wöchentlich in dieses Canvas ein, beginnend am 14. November 2025 bis zum 31. Dezember 2025.
 
-    ![Die Seite „Entry-Zeitplan“ mit dem Typ „Geplant“. Aufgrund der Auswahl werden zeitbasierte Optionen angezeigt, einschließlich Häufigkeit, Startzeit, Wiederholung, Tage und mehr.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
+![Die Seite „Entry-Zeitplan“ mit dem Typ „Geplant“. Aufgrund der Auswahl werden zeitbasierte Optionen angezeigt, einschließlich Häufigkeit, Startzeit, Wiederholung, Tage und mehr.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
 
-    Bei der Zustellung in der Ortszeit prüft Braze die Eintrittsberechtigung zweimal: zuerst zur Samoa-Zeit (UTC+13) am geplanten Tag und dann zur Ortszeit der Nutzer:innen. Nutzer:innen müssen beide Prüfungen bestehen, um in das Canvas einzutreten. Wenn Ihre Eintrittsfilter relative Zeitfenster verwenden (z. B. „mehr als 2 Tage her“), ist der 24-Stunden-Zeitraum zum Zeitpunkt der ersten Prüfung möglicherweise noch nicht abgelaufen, was dazu führen kann, dass Nutzer:innen einen Tag zu spät eintreten. Um dies zu vermeiden, verwenden Sie ein breiteres Zeitfenster, z. B. mindestens zwei Tage. Weitere Details finden Sie unter [Wann prüft Braze Nutzer:innen für die Zustellung in der Ortszeit?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
-  {% endtab %}
-  {% tab Aktionsbasierte Zustellung %}
-    Bei der aktionsbasierten Zustellung treten Nutzer:innen in das Canvas ein und beginnen Nachrichten zu erhalten, wenn sie bestimmte Aktionen ausführen, wie z. B. Ihre App öffnen, einen Kauf tätigen oder ein angepasstes Event triggern.
+Bei der Zustellung in der Ortszeit prüft Braze die Eintrittsberechtigung zweimal: zuerst zur Samoa-Zeit (UTC+13) am geplanten Tag und dann zur Ortszeit der Nutzer:innen. Nutzer:innen müssen beide Prüfungen bestehen, um in das Canvas einzutreten. Wenn Ihre Eintrittsfilter relative Zeitfenster verwenden (z. B. „mehr als 2 Tage her“), ist der 24-Stunden-Zeitraum zum Zeitpunkt der ersten Prüfung möglicherweise noch nicht abgelaufen, was dazu führen kann, dass Nutzer:innen einen Tag zu spät eintreten. Um dies zu vermeiden, verwenden Sie ein breiteres Zeitfenster, z. B. mindestens zwei Tage. Weitere Details finden Sie unter [Wann prüft Braze Nutzer:innen für die Zustellung in der Ortszeit?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
+{% endtab %}
+{% tab Aktionsbasierte Zustellung %}
+Bei der aktionsbasierten Zustellung treten Nutzer:innen in das Canvas ein und beginnen Nachrichten zu erhalten, wenn sie bestimmte Aktionen ausführen, wie z. B. Ihre App öffnen, einen Kauf tätigen oder ein angepasstes Event triggern.
 
-    Sie können weitere Aspekte des Canvas-Verhaltens im Fenster **Entry-Zielgruppe** steuern, einschließlich Regeln für die Wiederberechtigung und Frequency-Capping-Einstellungen. Beachten Sie, dass die aktionsbasierte Zustellung für Canvas-Komponenten mit In-App Messages nicht verfügbar ist.
+Sie können weitere Aspekte des Canvas-Verhaltens im Fenster **Entry-Zielgruppe** steuern, einschließlich Regeln für die Wiederberechtigung und Frequency-Capping-Einstellungen. Beachten Sie, dass die aktionsbasierte Zustellung für Canvas-Komponenten mit In-App Messages nicht verfügbar ist.
 
-    ![Ein Beispiel für aktionsbasierte Zustellung. Nutzer:innen treten in das Canvas ein, wenn sie einen Kauf tätigen, mit einem Eintrittsfenster ab 13:30 Uhr am 10. Juni 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
+![Ein Beispiel für aktionsbasierte Zustellung. Nutzer:innen treten in das Canvas ein, wenn sie einen Kauf tätigen, mit einem Eintrittsfenster ab 13:30 Uhr am 10. Juni 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
-  {% alert important %}
-  Wenn Ihr aktionsbasiertes Canvas Nachrichten früher als erwartet sendet, überprüfen Sie, ob der Zeitstempel Ihres angepassten Events mit der aktuellen Zeit statt mit einer zurückdatierten Zeit gesendet wird. Wenn beispielsweise ein aktionsbasiertes Canvas eine dreistündige Verzögerung nach Ausführung eines angepassten Events hat, verwendet Braze den mit dem angepassten Event gesendeten Zeitstempel, um diese Verzögerung zu berechnen. Wenn der Zeitstempel um mehr als drei Stunden zurückdatiert ist, behandelt Braze die Verzögerung als bereits abgelaufen und sendet die Nachricht sofort.
-  {% endalert %}
+{% alert important %}
+Wenn Ihr aktionsbasiertes Canvas Nachrichten früher als erwartet sendet, überprüfen Sie, ob der Zeitstempel Ihres angepassten Events mit der aktuellen Zeit statt mit einer zurückdatierten Zeit gesendet wird. Wenn beispielsweise ein aktionsbasiertes Canvas eine dreistündige Verzögerung nach Ausführung eines angepassten Events hat, verwendet Braze den mit dem angepassten Event gesendeten Zeitstempel, um diese Verzögerung zu berechnen. Wenn der Zeitstempel um mehr als drei Stunden zurückdatiert ist, behandelt Braze die Verzögerung als bereits abgelaufen und sendet die Nachricht sofort.
+{% endalert %}
+{% endtab %}
+{% tab API-getriggerte Zustellung %}
+Bei der API-getriggerten Zustellung treten Nutzer:innen in Ihr Canvas ein und beginnen Nachrichten zu erhalten, nachdem sie über den [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) per API hinzugefügt wurden. Im Dashboard finden Sie auch ein Beispiel für eine cURL-Anfrage sowie die Möglichkeit, optionalen [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) über das [Kontext-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) zuzuweisen.
 
-  {% endtab %}
-  {% tab API-getriggerte Zustellung %}
-    Bei der API-getriggerten Zustellung treten Nutzer:innen in Ihr Canvas ein und beginnen Nachrichten zu erhalten, nachdem sie über den [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) per API hinzugefügt wurden. Im Dashboard finden Sie auch ein Beispiel für eine cURL-Anfrage sowie die Möglichkeit, optionalen [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) über das [Kontext-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) zuzuweisen.
+![Ein Beispiel für API-getriggerte Zustellung mit einer Canvas-ID und einem Beispiel einer cURL-Anfrage.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
 
-    ![Ein Beispiel für API-getriggerte Zustellung mit einer Canvas-ID und einem Beispiel einer cURL-Anfrage.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
-
-    Sie können die folgenden Endpunkte für die API-getriggerte Zustellung verwenden:
-    - [POST: Canvas-Nachrichten über API-getriggerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
-    - [POST: API-getriggerte Canvases planen]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
-    - [POST: Geplante API-getriggerte Canvases aktualisieren]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
-
-  {% endtab %}
+Sie können die folgenden Endpunkte für die API-getriggerte Zustellung verwenden:
+- [POST: Canvas-Nachrichten über API-getriggerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
+- [POST: API-getriggerte Canvases planen]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [POST: Geplante API-getriggerte Canvases aktualisieren]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
+{% endtab %}
 {% endtabs %}
 
 Nachdem Sie Ihre Zustellungsmethode ausgewählt haben, passen Sie die Einstellungen an Ihren Anwendungsfall an und fahren Sie dann mit der Festlegung Ihrer Zielgruppe fort.
@@ -132,7 +130,7 @@ Nachdem Sie Ihre Zustellungsmethode ausgewählt haben, passen Sie die Einstellun
 {% details Deduplizierungsverhalten für Canvases mit dem ursprünglichen Editor %}
 Wenn das Fenster für die Wiederberechtigung kürzer ist als die maximale Dauer des Canvas, kann es vorkommen, dass Nutzer:innen erneut eintreten und Nachrichten von mehr als einer Komponente erhalten. Im Grenzfall, dass der Wiedereintritt von Nutzer:innen dieselbe Komponente wie der vorherige Eintritt erreicht, dedupliziert Braze die Nachrichten dieser Komponente.
 
-Wenn Nutzer:innen erneut in das Canvas eintreten, dieselbe Komponente wie beim vorherigen Eintritt erreichen und für jeden Eintritt für eine In-App-Nachricht berechtigt sind, erhalten sie die Nachricht zweimal (abhängig von der In-App Messages-Priorität), solange sie eine Sitzung zweimal erneut öffnen.
+Wenn Nutzer:innen erneut in das Canvas eintreten, dieselbe Komponente wie beim vorherigen Eintritt erreichen und für jeden Eintritt für eine In-App-Nachricht berechtigt sind, erhalten sie die Nachricht zweimal (abhängig von der In-App-Nachrichten-Priorität), solange sie eine Sitzung zweimal erneut öffnen.
 {% enddetails %}
 
 ### Schritt 1.3: Legen Sie Ihre Entry-Zielgruppe fest {#step-13-set-your-target-entry-audience}
@@ -145,7 +143,7 @@ Unter **Entry Controls** können Sie die Anzahl der Nutzer:innen begrenzen, die 
 
 #### Ihre Zielgruppe testen {#testing-your-audience}
 
-Nachdem Sie Segments und Filter zu Ihrer Zielgruppe hinzugefügt haben, können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie [nach Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), um zu bestätigen, ob sie den Zielgruppenkriterien entsprechen.
+Nachdem Sie Segmente und Filter zu Ihrer Zielgruppe hinzugefügt haben, können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie [nach Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), um zu bestätigen, ob sie den Zielgruppenkriterien entsprechen.
 
 ![Das Feld „User Lookup“, mit dem Sie nach externer Nutzer-ID oder Braze-ID suchen können.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -167,17 +165,17 @@ Braze empfiehlt nicht, **Every time the Canvas is scheduled** für IP-Warming au
 
 #### Ausstiegskriterien festlegen {#setting-exit-criteria}
 
-Das Festlegen der [Ausstiegskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) bestimmt, welche Nutzer:innen ein Canvas verlassen sollen. Wenn Nutzer:innen das Ausnahme-Event ausführen oder den Segments und Filtern entsprechen, erhalten sie keine weiteren Nachrichten.
+Das Festlegen der [Ausstiegskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) bestimmt, welche Nutzer:innen ein Canvas verlassen sollen. Wenn Nutzer:innen das Ausnahme-Event ausführen oder den Segmenten und Filtern entsprechen, erhalten sie keine weiteren Nachrichten.
 
 #### Zielpopulation berechnen {#calculating-target-population}
 
-Im Abschnitt **Target Population** können Sie eine Zusammenfassung Ihrer Zielgruppe sehen, z. B. Ihre ausgewählten Segments und zusätzlichen Filter, sowie eine Aufschlüsselung, wie viele Nutzer:innen pro Messaging-Kanal erreichbar sind. Um die genaue Anzahl der erreichbaren Nutzer:innen in Ihrer Zielgruppe anstelle der Standardschätzung zu berechnen, wählen Sie [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics).
+Im Abschnitt **Zielpopulation** können Sie eine Zusammenfassung Ihrer Zielgruppe sehen, z. B. Ihre ausgewählten Segmente und zusätzlichen Filter, sowie eine Aufschlüsselung, wie viele Nutzer:innen pro Messaging-Kanal erreichbar sind. Um die genaue Anzahl der erreichbaren Nutzer:innen in Ihrer Zielgruppe anstelle der Standardschätzung zu berechnen, wählen Sie [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics).
 
 Beachten Sie Folgendes:
 
 - Die Berechnung genauer Statistiken kann einige Minuten dauern. Diese Funktion berechnet die genauen Statistiken nur auf Segment-Ebene, nicht auf Filter- oder Filtergruppen-Ebene.
 - Während die genauen Statistiken geladen werden, kann eine gerundete Schätzung angezeigt werden. Die genaue Zahl erscheint im Abschnitt **Erreichbare Nutzer:innen**, sobald sie geladen ist. Sie können **Show Additional Stats** auswählen, um eine detaillierte Aufschlüsselung zu erhalten.
-- Bei großen Segments ist es normal, dass selbst bei der Berechnung genauer Statistiken leichte Abweichungen auftreten. Die Genauigkeit dieser Funktion liegt bei 99,999 % oder höher.
+- Bei großen Segmenten ist es normal, dass selbst bei der Berechnung genauer Statistiken leichte Abweichungen auftreten. Die Genauigkeit dieser Funktion liegt bei 99,999 % oder höher.
 
 Um zusätzliche Statistiken anzuzeigen, wie z. B. den durchschnittlichen Lifetime-Umsatz für angesprochene Nutzer:innen, wählen Sie **Show Additional Statistics**.
 
@@ -189,7 +187,7 @@ Um zusätzliche Statistiken anzuzeigen, wie z. B. den durchschnittlichen Lifetim
 
 ### Schritt 1.4: Wählen Sie Ihre Sendeeinstellungen {#step-14-select-your-send-settings}
 
-Wählen Sie **Send Settings**, um Ihre Abo-Einstellungen zu bearbeiten, Rate-Limiting zu aktivieren und Ruhezeiten einzuschalten. Durch Aktivierung von [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) können Sie den Marketing-Druck auf Ihre Nutzer:innen verringern und sicherstellen, dass Sie sie nicht mit zu vielen Nachrichten überhäufen.
+Wählen Sie **Send Settings**, um Ihre Abo-Einstellungen zu bearbeiten, Rate-Limiting zu aktivieren und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) einzuschalten. Durch Aktivierung von [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) können Sie den Marketing-Druck auf Ihre Nutzer:innen verringern und sicherstellen, dass Sie sie nicht mit zu vielen Nachrichten überhäufen.
 
 Für Canvases, die auf E-Mail- und Push-Kanäle abzielen, möchten Sie Ihr Canvas möglicherweise so einschränken, dass nur Nutzer:innen, die ausdrücklich zugestimmt haben, die Nachricht erhalten (ausgenommen abonnierte oder abgemeldete Nutzer:innen). Angenommen, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
@@ -205,7 +203,7 @@ Diese Abo-Einstellungen werden pro Schritt angewendet, was bedeutet, dass sie ke
 Mit dieser Konfiguration sollten Sie im Schritt **Target Audience** keine Filter einschließen, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
 {% endalert %}
 
-Falls gewünscht, legen Sie Ruhezeiten fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Enable Quiet Hours** in Ihren **Send Settings**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und welche Aktion folgen soll, wenn die Nachricht innerhalb dieser Ruhezeiten getriggert wird.
+Falls gewünscht, legen Sie [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Enable Quiet Hours** in Ihren **Send Settings**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und welche Aktion folgen soll, wenn die Nachricht innerhalb dieser Ruhezeiten getriggert wird.
 
 ![Die Seite „Ruhezeiten“ mit einem Kontrollkästchen zum Aktivieren der Ruhezeiten. Wenn aktiviert, können Startzeit, Endzeit und Fallback-Verhalten festgelegt werden.]({% image_buster /assets/img/quiet_hours.png %})
 
@@ -226,7 +224,7 @@ Sie können weitere Varianten hinzufügen, indem Sie den <i class="fas fa-plus-c
 ![Zwei Beispiel-Varianten in einem Braze-Canvas.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-Standardmäßig wird die Canvas-Variantenzuweisung festgelegt, wenn Nutzer:innen in das Canvas eintreten. Das bedeutet: Wenn Nutzer:innen zuerst eine Variante betreten, ist das bei jedem erneuten Eintritt in das Canvas ihre Variante. Es gibt jedoch Möglichkeiten, dieses Verhalten zu umgehen. <br><br>Dazu können Sie einen Zufallszahlengenerator mit Liquid erstellen, ihn zu Beginn jedes Canvas-Eintritts ausführen, den Wert als angepasstes Attribut speichern und dann dieses Attribut verwenden, um Nutzer:innen zufällig aufzuteilen.
+Standardmäßig wird die Canvas-Variantenzuweisung durch eine Funktion aus Nutzer-ID und Canvas-ID bestimmt, was bedeutet, dass Nutzer:innen bei erneutem Eintritt konsistent derselben Variante zugewiesen werden, solange die Prozentsätze der Variantenverteilung unverändert bleiben. Wenn Sie die Variantenverteilung nach dem Start anpassen, können Nutzer:innen bei erneutem Eintritt in das Canvas anderen Varianten zugewiesen werden. <br><br>Wenn Sie die volle Kontrolle über die Variantenzuweisung benötigen, die auch bei Verteilungsänderungen bestehen bleibt, können Sie einen Zufallszahlengenerator mit Liquid erstellen, ihn zu Beginn jedes Canvas-Eintritts ausführen, den Wert als angepasstes Attribut speichern und dann dieses Attribut verwenden, um Nutzer:innen in Verzweigungen aufzuteilen.
 
 {% details Erweitern für die Schritte %}
 
@@ -312,6 +310,8 @@ Im ersten Nachrichtenschritt nach einem Aktionspfad können Sie `event_propertie
 ### Schritt 2.3: Verbindungen bearbeiten {#step-23-edit-connections}
 
 Um eine Verbindung zwischen Schritten zu verschieben, wählen Sie den Pfeil aus, der die beiden Komponenten verbindet, und wählen Sie eine andere Komponente aus. Um die Verbindung zu entfernen, wählen Sie den Pfeil und dann **Cancel Connection** in der Fußzeile des Canvas-Composers.
+
+Wenn eine einzelne Variante mehrere Verzweigungen mit derselben Zielgruppe und Sendezeit hat, garantiert Braze keine gleichmäßige Aufteilung auf diese Verzweigungen. Die Verteilung kann die zuerst erstellte Verzweigung bevorzugen. Für eine gleichmäßige Aufteilung verwenden Sie [zufällige Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)-Filter in jeder Verzweigung. Weitere Informationen finden Sie unter [Was passiert, wenn Zielgruppe und Sendezeit für ein Canvas mit einer Variante, aber mehreren Verzweigungen identisch sind?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 
 ## Schritt 3: Kontrollgruppe hinzufügen {#step-3-add-a-control-group}
 

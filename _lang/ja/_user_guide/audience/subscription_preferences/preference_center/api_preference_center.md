@@ -33,7 +33,7 @@ Liquidを使用すると、サブスクリプショングループの名前と�
 | メール、SMS、またはWhatsAppサブスクリプショングループを持つ有効なワークスペース | 有効なユーザーとメール、SMS、またはWhatsAppサブスクリプショングループを持つ稼働中のワークスペース。 |
 | 有効なユーザー | メールアドレスとexternal IDを持つユーザー。 |
 | ユーザー設定センター権限を持つ生成済みAPIキー | Brazeダッシュボードで、**設定** > **APIキー**に移動し、ユーザー設定センター権限を持つAPIキーにアクセスできることを確認します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ### ステップ 1: ユーザー設定センター作成エンドポイントを使用する {#step-1-use-the-create-preference-center-endpoint}
 

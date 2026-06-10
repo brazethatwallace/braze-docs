@@ -13,23 +13,32 @@ channel: email
 
 ### O que acontece quando um e-mail é enviado e vários perfis têm o mesmo endereço de e-mail? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Se vários usuários com endereços de e-mail correspondentes estiverem em um segmento para receber uma campanha, um perfil de usuário aleatório com esse endereço de e-mail é selecionado no momento do envio. Dessa forma, o e-mail é enviado apenas uma vez e deduplicado, garantindo que não chegue ao mesmo endereço de e-mail várias vezes.
+Se vários usuários com endereços de e-mail correspondentes estiverem em um segmento para receber uma Campaign, um único perfil de usuário com esse endereço de e-mail é selecionado no momento do envio. Dessa forma, o e-mail é enviado apenas uma vez e deduplicado, garantindo que não chegue ao mesmo endereço de e-mail várias vezes.
+
+**Endereços de e-mail únicos:** A Braze não exige endereços de e-mail únicos entre perfis. Se você depende de uma relação um-para-um entre um endereço de e-mail e um perfil, monitore duplicatas internamente ao criar usuários.
+
+**Deduplicação antes do Liquid:** Para envios em que a Braze deduplica por endereço de e-mail dentro de um único despacho (por exemplo, Campaigns agendadas em que vários membros do segmento com o mesmo endereço são processados juntos), essa deduplicação acontece antes de o Liquid ser executado para o perfil escolhido para representar aquele endereço. Se o Liquid abortar para esse perfil (por exemplo, com [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)), esse endereço não recebe a mensagem naquele despacho — incluindo perfis já ignorados pela deduplicação. Envios disparados não aplicam essa mesma deduplicação de endereço dentro do despacho; vários perfis que compartilham um endereço podem permanecer elegíveis em um mesmo lote, então esse comportamento de abort não se aplica da mesma forma (veja o próximo parágrafo).
 
 Se vários perfis compartilham um endereço de e-mail e um perfil cancela a inscrição, a Braze atualiza outros perfis (até 100) com esse endereço para o mesmo estado de inscrição. Isso se aplica a cancelamentos de inscrição e outras alterações, como estado de inscrição global e status de grupos de inscrições individuais.
 
+**Grupos de teste:** Para Campaigns com [Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups), a Braze seleciona um perfil para entrega principal quando vários perfis compartilham um endereço. Esse destinatário principal pode não estar no seu grupo de teste, mesmo quando outro perfil com o mesmo endereço está.
+
 Os cenários a seguir podem fazer parecer que um usuário recebeu um e-mail duas vezes:
 
+- **Listas de teste ou destinatários de teste:** Endereços de teste e destinatários internos de teste podem receber um envio além do seu público principal, o que pode parecer uma duplicata quando uma caixa de entrada corresponde tanto a um perfil quanto a uma entrada de teste.
 - **Ocorreu um erro durante a criação da Campaign ou do Canvas:** O usuário pode não receber literalmente o mesmo envio duas vezes, mas pode receber dois e-mails separados com o mesmo assunto. Quando uma Campaign ou Canvas é duplicado, verifique os detalhes de configuração do e-mail, como imagens ou linhas de assunto. Você também pode consultar os changelogs para ver se a Campaign ou o Canvas foi modificado após o lançamento — uma duplicata pode compartilhar o mesmo assunto do original quando o usuário o recebeu.
 - **Vários perfis de usuário têm encaminhamento de e-mail:** Se um usuário tem várias contas em um determinado app, mas uma conta encaminha e-mails, o usuário recebe a Campaign uma vez por caixa de entrada; o e-mail pode aparecer duas vezes na caixa de entrada para onde as mensagens são encaminhadas. Apenas alguns provedores indicam quando um e-mail foi encaminhado de outra conta.
 - **Configuração de e-mail no destinatário:** Alguns clientes mesclam caixas de entrada ("caixa de entrada universal"). Se a mesma Campaign direciona várias contas que compartilham uma caixa de entrada, pode parecer que uma pessoa recebeu a Campaign duas vezes quando, na verdade, dois perfis distintos foram contatados. O destinatário pode confirmar se várias contas estão combinadas em uma caixa de entrada.
 
-Observe que essa deduplicação ocorre quando os usuários direcionados estão incluídos no mesmo envio. Campaigns disparadas (excluindo Campaigns disparadas por API) e Canvas podem resultar em múltiplos envios para o mesmo endereço de e-mail (mesmo dentro de um período em que os usuários poderiam ser excluídos devido à reelegibilidade) se diferentes usuários com endereços de e-mail correspondentes registrarem o evento de gatilho em momentos diferentes. Por exemplo, se o usuário A e o usuário B compartilham o e-mail `johndoe@example.com`, mas seus perfis estão em fusos horários diferentes, quando o evento de gatilho da Campaign inclui o envio no fuso horário do usuário, o e-mail `johndoe@example.com` recebe dois e-mails.
+Essa deduplicação se aplica quando os usuários direcionados estão no mesmo despacho. A reelegibilidade é avaliada por perfil, não por endereço de e-mail.
+
+A reelegibilidade de Campaigns de e-mail e etapas do Canvas usa o perfil de cada usuário — não a caixa de entrada — então vários perfis podem se qualificar para envios separados enquanto essa lógica é satisfeita. Combinado com gatilhos, isso pode entregar mais de uma mensagem para a mesma caixa de entrada mesmo quando você está tentando respeitar um único período de inelegibilidade no nível do endereço. Campaigns disparadas (excluindo Campaigns disparadas por API) e Canvas também podem enviar duas vezes para o mesmo endereço quando perfis diferentes com endereços de e-mail correspondentes atendem ao gatilho em momentos diferentes — por exemplo, se o usuário A e o usuário B compartilham `johndoe@example.com`, mas estão em fusos horários diferentes enquanto a entrega usa fusos horários locais.
 
 Os usuários não são deduplicados por e-mail na entrada do Canvas, então podem não ser deduplicados além da primeira etapa de um Canvas se progredirem em momentos ligeiramente diferentes devido à entrada com limite de taxa. Quando um usuário associado a um determinado endereço de e-mail abre ou clica em um e-mail, todos os perfis de usuário que compartilham esse endereço de e-mail são marcados como tendo aberto ou clicado na Campaign.
 
 #### Exceção: Campaigns disparadas por API {#exception-api-triggered-campaigns}
 
-Campaigns disparadas por API deduplicarão ou enviarão duplicatas dependendo de onde o público é definido. E-mails duplicados devem ser direcionados separadamente na chamada de API usando `user_ids` distintos para receber múltiplos detalhes. Aqui estão três cenários possíveis para Campaigns disparadas por API:
+Campaigns disparadas por API deduplicarão ou enviarão duplicatas dependendo de onde o público é definido. E-mails duplicados devem ser direcionados separadamente na chamada de API usando `user_ids` distintos para receber múltiplas entregas. Aqui estão três cenários possíveis para Campaigns disparadas por API:
 
 - **Cenário 1: E-mails duplicados no segmento alvo:** Se o mesmo e-mail aparece em vários perfis de usuário que estão agrupados nos filtros de público do dashboard para uma Campaign disparada por API, apenas um dos perfis recebe o e-mail.
 - **Cenário 2: E-mails duplicados em diferentes `user_ids` dentro do objeto de destinatários:** Se o mesmo e-mail aparece em vários valores de `external_user_id` referenciados pelo objeto `recipients`, o e-mail é enviado duas vezes.
@@ -38,6 +47,14 @@ Campaigns disparadas por API deduplicarão ou enviarão duplicatas dependendo de
 {% alert important %}
 Se você enviar uma Campaign de API por meio de uma chamada de API (excluindo Campaigns disparadas por API) e vários usuários forem especificados no público do segmento com o mesmo endereço de e-mail, o envio será feito para esse endereço tantas vezes quantas estiver listado na chamada. Isso ocorre porque as chamadas de API são consideradas intencionalmente construídas.
 {% endalert %}
+
+#### Testes A/B com endereços de e-mail duplicados {#ab-testing-with-duplicate-email-addresses}
+
+Evite [testes multivariantes e A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) em e-mail quando vários perfis podem compartilhar o mesmo endereço de e-mail. As variantes são atribuídas por perfil, o que pode produzir mais de uma mensagem para a mesma caixa de entrada. Se você precisar testar nessa situação, não combine uma etapa de **variante vencedora** com [entrega por fuso horário local]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#local-time-zone-campaigns) de forma que atrase a seleção do vencedor — essas opções juntas podem aumentar a chance de envios duplicados.
+
+#### Canvas e endereços de e-mail duplicados {#canvas-and-duplicate-email-addresses}
+
+Para jornadas do Canvas, se endereços de e-mail duplicados recebem um envio ou mais de um pode depender do lote de entrada, do timing das etapas e de outros fatores. Trate o comportamento como indefinido até que você o valide para a sua jornada. Sempre que possível, mescle ou consolide perfis duplicados. Se você precisar de uma alteração no produto, envie feedback por meio da sua equipe da Braze.
 
 ### O que acontece com o estado de inscrição quando o endereço de e-mail de um usuário é alterado para um compartilhado por outro usuário? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -53,7 +70,7 @@ Normalmente, o "número mágico" é em torno de 98% das mensagens entregues com 
 
 No entanto, uma taxa acima de 98% ainda pode ter problemas de entregabilidade. Por exemplo, se todos os seus bounces vêm de um único domínio, isso é um sinal claro de um problema de reputação com esse provedor.
 
-Além disso, as mensagens podem estar sendo entregues e acabando na pasta de Spam, indicando problemas de reputação potencialmente sérios. É importante monitorar não apenas o número de mensagens sendo entregues, mas também as taxas de abertura e clique para determinar se os usuários estão realmente vendo as mensagens em suas caixas de entrada. Como os provedores geralmente não reportam todas as instâncias de spam, uma taxa de spam de apenas 1% pode ser motivo de preocupação e análise adicional.
+Além disso, as mensagens podem estar sendo entregues e acabando na pasta de spam, indicando problemas de reputação potencialmente sérios. É importante monitorar não apenas o número de mensagens sendo entregues, mas também as taxas de abertura e clique para determinar se os usuários estão realmente vendo as mensagens em suas caixas de entrada. Como os provedores geralmente não reportam todas as instâncias de spam, uma taxa de spam de apenas 1% pode ser motivo de preocupação e análise adicional.
 
 Por fim, seu negócio e os tipos de e-mails que você envia também podem afetar a entrega. Por exemplo, alguém que envia principalmente [e-mails de transação]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/) deve esperar ver uma taxa melhor do que alguém que envia muitas mensagens de marketing.
 
@@ -159,7 +176,7 @@ Para contornar isso:
 
 ### A métrica *Aberturas Únicas* inclui *Aberturas por Máquina*? {#does-the-unique-opens-metric-include-machine-opens}
 
-Não. *Aberturas Únicas* conta apenas [Outras Aberturas]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens), que exclui e-mails identificados como aberturas por máquina. *Aberturas por Máquina* são rastreadas separadamente. Na visualização de **Analytics** da Campaign e no **Criador de relatórios**, você pode visualizar ambas as métricas independentemente.
+Sim. *Aberturas Únicas* inclui *Aberturas por Máquina*. Você pode visualizar ambas as métricas na visualização **Analytics** da Campaign e no **Criador de relatórios**.
 
 ### Por que meu volume de entrega de e-mail não corresponde ao meu volume de envio? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
@@ -174,14 +191,54 @@ Esse aviso pode persistir para Campaigns duplicadas a partir de uma Campaign que
 - Para e-mails HTML, vá para a guia **Texto simples** e selecione **Regenerar a partir do HTML**.
 - Após duplicar, duplique a variante e remova a variante original. **Não** selecione a variante original, ou o aviso pode ser transferido.
 
-### Quais são os motivos pelos quais meu usuário não recebeu uma Campaign de e-mail? {#what-are-reasons-why-my-user-hasnt-received-an-email-campaign}
+### Por que um usuário recebeu um e-mail que não deveria ter recebido? {#why-did-a-user-receive-an-email-they-shouldnt-have}
 
-Os motivos pelos quais um usuário não recebeu uma Campaign de e-mail incluem:
+A entrega pode parecer incorreta mesmo quando a Braze se comportou conforme configurado. Analise os seguintes pontos:
+
+- **Perfis duplicados** que compartilham uma caixa de entrada (veja [O que acontece quando um e-mail é enviado e vários perfis têm o mesmo endereço de e-mail?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
+- **Listas de teste, destinatários de teste ou endereços internos** incluídos no público ou em um envio como CC/BCC.
+- **Timing do segmento ou Canvas:** o usuário correspondia ao público ou à etapa do Canvas quando a Braze avaliou a elegibilidade, e então os atributos ou o estado de inscrição mudaram antes de ele ler a mensagem.
+- **Grupos de inscrições:** o usuário permaneceu inscrito em um grupo que sua mensagem direcionava, mesmo que o estado de inscrição global dele sugerisse o contrário.
+- **Importações de API ou arquivo** que atualizaram o usuário após a segmentação, mas antes de você esperar que a alteração fosse aplicada.
+
+Revise o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), os changelogs da Campaign ou do Canvas e a definição do segmento. Se ainda não conseguir reconciliar o envio, entre em contato com o suporte da Braze com os identificadores do usuário, `dispatch_id` (se disponível) e timestamps.
+
+### Por que um usuário não recebeu minha mensagem de e-mail? {#why-hasnt-a-user-received-my-email-message}
+
+Existem vários motivos pelos quais um usuário não recebe um e-mail que você esperava que ele recebesse, incluindo:
 
 - Ele não era elegível para receber o e-mail.
 - O endereço de e-mail dele é inválido ou não existe.
 - Ele pode ter perdido ou excluído a mensagem.
 - A mensagem pode estar na pasta de spam dele.
+
+{% alert tip %}
+Um evento de entrega na Braze significa que o e-mail foi aceito pelo servidor do provedor de caixa de e-mail. No entanto, isso não garante que a mensagem apareça na caixa de entrada do usuário. O provedor de caixa de e-mail pode rotear a mensagem para spam ou, em casos raros, impedir silenciosamente a exibição da mensagem.
+{% endalert %}
+
+Use as tabelas a seguir para identificar a causa.
+
+#### O e-mail não foi enviado {#the-email-wasnt-sent}
+
+| Causa possível | O que verificar |
+|---|---|
+| O usuário não era elegível para a Campaign ou Canvas | Verifique as configurações de **Público-alvo** (para Campaigns) ou **Público-alvo** (para Canvas) nas [configurações]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) para confirmar que o usuário atendeu a todos os filtros de público, critérios de segmento e regras de entrega no momento do envio. |
+| A mensagem foi abortada | Verifique o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) para motivos de abort, como erros de Liquid ou campos obrigatórios ausentes. |
+| O endereço de e-mail do usuário era inválido ou estava ausente | Em **Pesquisa de usuários**, verifique o perfil do usuário para confirmar que um endereço de e-mail válido estava registrado no momento do envio. |
+| O endereço de e-mail do usuário sofreu hard bounce anteriormente | Um hard bounce marca o endereço de e-mail como inválido e impede envios futuros para esse endereço. Da mesma forma, se um destinatário marcar seu e-mail como spam, a Braze envia apenas e-mails de transação para esse usuário, não Campaigns padrão. Verifique a guia **Engajamento** no perfil do usuário. Para saber mais, consulte [Endereços de e-mail cancelados]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) e [Bounces e e-mails inválidos]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails). |
+| O usuário cancelou a inscrição de e-mail | Verifique o status de inscrição do usuário em **Configurações de contato** na guia **Engajamento**. A Braze não envia e-mails para usuários que cancelaram a inscrição. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Causa para e-mail não enviado" }
+
+#### O e-mail foi enviado, mas não chegou à caixa de entrada {#the-email-was-sent-but-didnt-arrive-in-their-inbox}
+
+| Causa possível | O que verificar |
+|---|---|
+| O provedor de caixa de e-mail (MBP) estava inacessível | Um problema temporário impediu que o e-mail chegasse ao MBP do destinatário. Isso normalmente se resolve com novas tentativas. Os provedores de serviço de e-mail tentam novamente soft bounces por até 72 horas. |
+| O MBP rejeitou o e-mail | O servidor de e-mail do destinatário rejeitou o e-mail. Revise o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) para detalhes do bounce. |
+| O MBP descartou silenciosamente o e-mail | O MBP aceitou o e-mail, mas não o exibiu para o usuário e não retornou um bounce. Isso está fora do controle da Braze e não pode ser detectado nos registros da Braze. |
+| O e-mail foi para a pasta de spam | O MBP identificou a mensagem como spam e a roteou para a pasta de spam ou lixo eletrônico do usuário. Peça ao usuário para verificar a pasta de spam. |
+| O destinatário tem filtragem de e-mail personalizada | O usuário ou o administrador de TI dele pode ter configurado regras de caixa de correio que filtram, redirecionam ou excluem mensagens recebidas. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Causa para e-mail não na caixa de entrada" }
 
 ### Como posso otimizar imagens no Outlook? {#how-can-i-optimize-images-in-outlook}
 
@@ -203,10 +260,26 @@ Não. Cada parte do e-mail (assunto, corpo, cabeçalhos, botões e assim por dia
 
 ### Meu modelo de e-mail está faltando. Onde ele está? {#my-email-template-is-missing-where-is-it}
 
-Acesse **Modelos** > **Modelos de e-mail**. Você pode filtrar por tipo (HTML ou arrastar e soltar).
-
-Confirme que você tem permissão para visualizar modelos — consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Primeiro, confirme que você tem as [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para visualizar modelos. Para ver os modelos de e-mail salvos, acesse **Conteúdo** > **E-mail**. Você pode filtrar modelos por status e tipo (HTML ou arrastar e soltar).
 
 ### Preciso registrar domínios para e-mails de relay ou mascarados? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 O [Relay de E-mail Privado da Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) exige que você registre seus domínios de envio no Portal de Desenvolvedores da Apple para evitar bounces. O Google Shielded Email não exige um processo manual de registro ou lista de permissões de domínio.
+
+### O que significa o motivo de bounce `unable to get mx info` ou `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+No [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), um motivo de bounce semelhante ao descrito acima indica um problema ao resolver a configuração de e-mail do domínio receptor (o domínio após o `@` no endereço), e não com a composição da mensagem na Braze:
+
+As causas típicas incluem:
+
+- **Registros MX** ausentes, incorretos ou inacessíveis para aquele domínio
+- Nomes de host de e-mail de entrada que não resolvem ou que falham nas verificações de **PTR (DNS reverso)** esperadas pela infraestrutura receptora
+- Domínios inválidos ou digitados incorretamente no endereço de e-mail
+
+**Próximos passos:**
+
+- Confirme a ortografia do endereço e do domínio.
+- Se o endereço estiver correto, entre em contato com o proprietário da caixa de correio ou a equipe de TI daquele domínio.
+- Peça que auditem os registros MX e registros DNS relacionados, incluindo registros PTR para seus servidores de e-mail, junto ao provedor DNS.
+
+Outros destinatários geralmente não são afetados. Para saber como soft bounces aparecem nos relatórios, consulte [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).

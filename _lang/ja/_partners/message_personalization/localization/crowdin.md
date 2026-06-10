@@ -1,7 +1,7 @@
 ---
 nav_title: Crowdin
 article_title: Crowdin
-description: "Crowdinの統合を使用して、翻訳メモリ、用語集、機械翻訳を活用しながら、Campaigns、Canvasエクスペリエンス、メールテンプレート、Content Blocksを翻訳できます。"
+description: "Crowdinの統合を使用して、翻訳メモリ、用語集、機械翻訳を活用しながら、キャンペーン、キャンバスエクスペリエンス、メールテンプレート、Content Blocksを翻訳できます。"
 alias: /partners/crowdin/
 page_type: partner
 search_tag: Partner
@@ -12,19 +12,19 @@ search_tag: Partner
 
 > [Crowdin](https://crowdin.com/)は、AI駆動のローカライゼーション管理プラットフォームであり、ソフトウェア、アプリ、マーケティングコンテンツの翻訳を自動化するのに役立ちます。
 
-CrowdinをBrazeに接続して、CampaignsやCanvasエクスペリエンスの翻訳を管理できます。自動同期は機械翻訳、翻訳メモリ、用語集と連携するため、人手による翻訳ワークフローと自動化されたワークフローの一貫性が保たれます。
+CrowdinをBrazeに接続して、キャンペーンやキャンバスエクスペリエンスの翻訳を管理できます。自動同期は機械翻訳、翻訳メモリ、用語集と連携するため、人手による翻訳ワークフローと自動化されたワークフローの一貫性が保たれます。
 
 _この統合はCrowdinによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-CrowdinはBraze向けに2つのアプリを提供しています：[Braze Campaigns & Canvas](https://store.crowdin.com/braze-content-translation)と[Braze Email Templates](https://store.crowdin.com/braze-app)です。ローカライズするBrazeの機能に応じて選択してください。以下の表で比較できます。
+CrowdinはBraze向けに2つのアプリを提供しています：[Braze キャンペーン & キャンバス](https://store.crowdin.com/braze-content-translation)と[Braze Email Templates](https://store.crowdin.com/braze-app)です。ローカライズするBrazeの機能に応じて選択してください。以下の表で比較できます。
 
 ### 適切なCrowdinアプリの選択 {#choose-the-right-crowdin-app}
 
-| チャネルまたは機能 | Braze Campaigns & Canvas | Braze Email Templates |
+| チャネルまたは機能 | Braze キャンペーン & キャンバス | Braze Email Templates |
 | --- | --- | --- |
-| **Campaigns** | ✅ 対応 | ❌ 非対応 |
+| **キャンペーン** | ✅ 対応 | ❌ 非対応 |
 | **キャンバスステップ** | ✅ 対応 | ❌ 非対応 |
 | **メールテンプレート** | ❌ 非対応 | ✅ 対応 |
 | **Content Blocks** | ❌ 非対応 | ✅ 対応 |
@@ -36,16 +36,16 @@ CrowdinはBraze向けに2つのアプリを提供しています：[Braze Campai
 | --- | --- |
 | **Crowdinアカウント** | [Crowdin.comアカウント](https://accounts.crowdin.com/register)または[Crowdin Enterpriseアカウント](https://accounts.crowdin.com/workspace/create)が必要です。 |
 | **Crowdinプロジェクト** | Brazeを接続する前に、CrowdinまたはCrowdin Enterpriseで[翻訳プロジェクトを作成](https://support.crowdin.com/creating-project/)してください。 |
-| **Braze REST APIキー** | Campaigns、Canvas、Content Blocks、カスタム属性、メール、テンプレートの権限を持つBraze REST APIキー。 |
+| **Braze REST APIキー** | キャンペーン、キャンバス、Content Blocks、カスタム属性、メール、テンプレートの権限を持つBraze REST APIキー。 |
 | **Braze RESTエンドポイント** | お使いのBraze RESTエンドポイントURL（例：`https://rest.iad-03.braze.com`）。 |
 | **Braze多言語設定** | Brazeダッシュボードの**設定** > **ローカライゼーション設定**でロケールを設定する必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## Braze Campaigns & Canvas統合 {#braze-campaigns-canvas-integration}
+## Braze キャンペーン & キャンバス統合 {#braze-campaigns-canvas-integration}
 
-ライブメッセージ内のコンテンツをローカライズする場合は、[Braze Campaigns & Canvasアプリ](https://store.crowdin.com/braze-content-translation)を使用して、CampaignsやCanvasの下書きから翻訳可能な文字列をBrazeの多言語サポートと同期します。
+ライブメッセージ内のコンテンツをローカライズする場合は、[Braze キャンペーン & キャンバスアプリ](https://store.crowdin.com/braze-content-translation)を使用して、キャンペーンやキャンバスの下書きから翻訳可能な文字列をBrazeの多言語サポートと同期します。
 
-動画によるウォークスルーについては、[Braze Campaigns & Canvas integration](https://youtu.be/ahG1ET4VRKA)をご覧ください。
+動画によるウォークスルーについては、[Braze キャンペーン & キャンバス integration](https://youtu.be/ahG1ET4VRKA)をご覧ください。
 
 ### ステップ 1:Brazeで多言語設定を行う {#step-1-set-up-multi-language-settings-in-braze}
 
@@ -62,34 +62,34 @@ Crowdinを接続する前に、Brazeでターゲット言語を追加します�
 ### ステップ 2:CrowdinでBrazeプロジェクトを設定する {#step-2-set-up-the-braze-project-in-crowdin}
 
 1. Crowdin EnterpriseまたはCrowdin.comアカウントで、左側メニューの**Store**に移動します。
-2. **Braze Campaigns & Canvas**を検索し、**Install**を選択します。
+2. **Braze キャンペーン & キャンバス**を検索し、**Install**を選択します。
 
-![Crowdin StoreでBraze Campaigns & Canvasが選択され、Installがハイライトされている画面。]({% image_buster /assets/img/crowdin/crowdin_store_campaigns_canvas.png %})
+![Crowdin StoreでBraze キャンペーン & キャンバスが選択され、Installがハイライトされている画面。]({% image_buster /assets/img/crowdin/crowdin_store_campaigns_canvas.png %})
 
 {: start="3"}
 3. この統合を使用するプロジェクトを選択します。
-4. 統合を開くには、プロジェクトの**Integrations** > **Braze Campaigns & Canvas**に移動します。
+4. 統合を開くには、プロジェクトの**Integrations** > **Braze キャンペーン & キャンバス**に移動します。
 
 #### BrazeをCrowdinに接続する {#connecting-braze-to-crowdin}
 
 Braze API認証情報を使用して接続を認可します：
 
-![CrowdinのBraze Campaigns & Canvas接続フォーム。REST APIキー、RESTエンドポイント、Log in with Braze Campaigns & Canvasが表示されています。]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_login.png %})
+![CrowdinのBraze キャンペーン & キャンバス接続フォーム。REST APIキー、RESTエンドポイント、Log in with Braze キャンペーン & キャンバスが表示されています。]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_login.png %})
 
-- **Braze REST APIキー：** Brazeの**設定** > **APIキー** > **APIキー**で作成します。この統合に必要な権限（Campaigns、Canvas、Content Blocks、カスタム属性）を付与してください。
+- **Braze REST APIキー：** Brazeの**設定** > **APIキー** > **APIキー**で作成します。この統合に必要な権限（キャンペーン、キャンバス、Content Blocks、カスタム属性）を付与してください。
 - **Braze RESTエンドポイント：** お使いのBrazeインスタンスのURLを入力します（例：`https://rest.iad-03.braze.com`）。詳細については、[REST APIエンドポイント]({{site.baseurl}}/api/basics/#endpoints)を参照してください。
 
 ![Braze REST APIキーページ。APIキーの作成とRESTエンドポイントのコピーコントロールが表示されています。]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
-**Log in with Braze Campaigns & Canvas**を選択します。
+**Log in with Braze キャンペーン & キャンバス**を選択します。
 
 ### ステップ 3:Crowdinで言語マッピングを設定する {#step-3-configure-language-mapping-in-crowdin}
 
 アカウントを接続したら、Crowdinプロジェクトの各言語を対応するBrazeロケールにマッピングします。
 
-1. **Braze Campaigns & Canvas**統合ダッシュボードで、右上の**Settings**歯車アイコンを選択します。
+1. **Braze キャンペーン & キャンバス**統合ダッシュボードで、右上の**Settings**歯車アイコンを選択します。
 
-![Braze Campaigns & Canvas統合画面。上部のアクションバーにSettingsが表示されています。]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_settings.png %})
+![Braze キャンペーン & キャンバス統合画面。上部のアクションバーにSettingsが表示されています。]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_settings.png %})
 
 {: start="2"}
 2. **General Settings**タブを開きます。
@@ -118,14 +118,14 @@ Crowdinがコンテンツを検出して取得できるように、Brazeメッ�
 
 統合画面には2つの側面があります：
 
-- **右側（Braze）：** CampaignsとCanvases。
+- **右側（Braze）：** キャンペーンとキャンバス。
 - **左側（Crowdin）：** 翻訳用に同期済みのコンテンツ。
 
-![CrowdinとBraze Campaigns & Canvasパネル。CampaignsとロケールのフォルダーSync to Braze、Sync to Crowdinが表示されています。]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_sync_panels.png %})
+![CrowdinとBraze キャンペーン & キャンバスパネル。キャンペーンとロケールのフォルダーSync to Braze、Sync to Crowdinが表示されています。]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_sync_panels.png %})
 
 #### コンテンツの同期 {#syncing-content}
 
-1. **Braze（右側）**で、翻訳するCampaignまたはCanvasのチェックボックスを選択します。
+1. **Braze（右側）**で、翻訳するキャンペーンまたはキャンバスのチェックボックスを選択します。
 2. **Sync to Crowdin**を選択します。
 3. 同期が完了すると、ファイルが**Crowdin（左側）**に表示されます。翻訳者はCrowdinエディターで文字列を開くことができます。
 
@@ -133,13 +133,13 @@ Crowdinがコンテンツを検出して取得できるように、Brazeメッ�
 
 1. Crowdinで翻訳が100%完了したら、**Integrations**タブに戻ります。
 2. **Crowdin（左側）**で完了したコンテンツを選択します。
-3. **Sync to Braze**を選択します。これにより、翻訳された文字列がBraze Campaignの対応する言語バリアントにプッシュされます。
+3. **Sync to Braze**を選択します。これにより、翻訳された文字列がBraze キャンペーンの対応する言語バリアントにプッシュされます。
 
 ### ステップ 6:Brazeで多言語ユーザーとしてメッセージをプレビューする {#step-6-preview-the-message-as-a-multi-language-user-in-braze}
 
 統合を確認するには：
 
-1. **Brazeメッセージ作成画面**でCampaignを開きます。
+1. **Brazeメッセージ作成画面**でキャンペーンを開きます。
 2. **テスト**タブに移動します。
 3. **ユーザーとしてメッセージをプレビュー**を選択します。
 4. 翻訳済みロケールのいずれかに一致する`language`属性を持つユーザープロファイルを検索します。

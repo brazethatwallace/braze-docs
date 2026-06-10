@@ -3,7 +3,7 @@ nav_title: Enviar mensajes de correo electrónico
 article_title: Enviar mensajes de correo electrónico usando la API REST
 page_order: 3
 page_type: reference
-description: "Este artículo de referencia explica cómo enviar mensajes de correo electrónico usando la API REST de Braze y una Campaign de API."
+description: "Este artículo de referencia explica cómo enviar mensajes de correo electrónico usando la API REST de Braze y una Campaña de API."
 channel:
   - email
 ---
@@ -22,7 +22,7 @@ Con este enfoque, puedes:
 - Ampliar el caso de uso con características adicionales de Braze, como retrasos en los mensajes y pruebas A/B.
 - Opcionalmente, cambiar a la [entrega desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) para definir tus plantillas de correo electrónico en el dashboard de Braze y seguir desencadenando los envíos desde tu backend.
 
-Para enviar un correo electrónico a través de la API REST, necesitas configurar una Campaign de API en el dashboard de Braze y luego usar el punto de conexión [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) para enviar el mensaje.
+Para enviar un correo electrónico a través de la API REST, necesitas configurar una Campaña de API en el dashboard de Braze y luego usar el punto de conexión [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) para enviar el mensaje.
 
 ## Requisitos previos {#prerequisites}
 
@@ -30,19 +30,19 @@ Para completar esta guía, necesitas:
 
 | Requisito | Descripción |
 | --- | --- |
-| Clave de API REST de Braze | Una clave con el permiso `messages.send`. Para crear una, ve a **Settings** > **APIs and Identifiers** > **API Keys**. |
-| ID de aplicación de Braze | El identificador de tu aplicación dentro de tu espacio de trabajo. Para encontrarlo, ve a **Settings** > **APIs and Identifiers** y consulta la sección **App identifiers**. Este valor es obligatorio en el campo `app_id` del objeto de mensajería de correo electrónico. Para más información, consulta [Identificador de aplicación]({{site.baseurl}}/api/identifier_types/). |
+| Clave de API REST de Braze | Una clave con el permiso `messages.send`. Para crear una, ve a **Configuración** > **API e identificadores** > **Claves de API**. |
+| ID de aplicación de Braze | El identificador de tu aplicación dentro de tu espacio de trabajo. Para encontrarlo, ve a **Configuración** > **API e identificadores** y consulta la sección **Identificadores de aplicación**. Este valor es obligatorio en el campo `app_id` del objeto de mensajería de correo electrónico. Para más información, consulta [Identificador de aplicación]({{site.baseurl}}/api/identifier_types/). |
 | Contenido HTML del correo electrónico | El cuerpo HTML de tu mensaje de correo electrónico, preparado con antelación. |
 | Servicio de backend | Un servicio de backend o entorno de scripting capaz de realizar solicitudes HTTP POST a la API REST de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Paso 1: Crear una Campaign de API {#step-1-create-an-api-campaign}
+## Paso 1: Crear una Campaña de API {#step-1-create-an-api-campaign}
 
-1. En el dashboard de Braze, ve a **Messaging** > **Campaigns**.
-2. Selecciona **Create Campaign** y luego selecciona **API Campaign**.
+1. En el dashboard de Braze, ve a **Mensajería** > **Campaigns**.
+2. Selecciona **Crear campaña** y luego selecciona **Campaña de API**.
 3. Introduce un nombre y una descripción para tu campaña, como "Notificación de mensaje por correo electrónico".
 4. Añade etiquetas relevantes para la identificación y el seguimiento.
-5. Selecciona **Add Messaging Channel** y luego selecciona **Email**.
+5. Selecciona **Añadir canal de mensajería** y luego selecciona **Email**.
 6. Anota el **Campaign ID** que se muestra en la página de la Campaign. Necesitarás este valor al construir tu solicitud de API. Opcionalmente, anota también el **Message Variation ID**: inclúyelo en tu solicitud si quieres atribuir las estadísticas de envío a una variación de mensaje específica.
 
 ## Paso 2: Enviar un correo electrónico usando la API {#step-2-send-an-email-using-the-api}

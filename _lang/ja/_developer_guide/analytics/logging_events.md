@@ -14,6 +14,8 @@ description: "Braze SDKを通じてカスタムイベントを記録する方法
 リストされていないラッパーSDKの場合は、代わりに関連するネイティブAndroidまたはSwiftメソッドを使用してください。
 {% endalert %}
 
+eコマースの推奨イベントについては、[eコマースイベントを記録する]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+
 ## カスタムイベントをログに記録する {#logging-a-custom-event}
 
 カスタムイベントを記録するには、以下のイベントロギングメソッドを使用します。
@@ -351,9 +353,9 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 イベントプロパティが正常にトラッキングされていることを確認するには、**カスタムイベント**ページからすべてのイベントプロパティを表示できます。
 
-1. **データ設定** > **カスタムイベント** に移動します。
+1. **データ設定** > **カスタムイベント**に移動します。
 2. リストからカスタムイベントを探します。
-3. イベントの **Manage Properties** を選択すると、そのイベントに関連付けられたプロパティの名前が表示されます。
+3. イベントの**Manage Properties**を選択すると、そのイベントに関連付けられたプロパティの名前が表示されます。
 
 ### 値を確認する {#verify-values}
 

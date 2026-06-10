@@ -42,7 +42,7 @@ AppDelegate.braze = braze
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZConfiguration *configuration =
     [[BRZConfiguration alloc] initWithApiKey:@"<BRAZE_API_KEY>"
                                     endpoint:@"<BRAZE_ENDPOINT>"];
@@ -56,12 +56,12 @@ AppDelegate.braze = braze;
 
 ## キーと値のペア {#key-value-pairs}
 
-BrazeでCampaignを作成する際、キーと値のペアを `extras` として設定できます。これはアプリ内メッセージングオブジェクトがアプリにデータを送信する際に使用できます。以下に例を示します。
+Brazeでキャンペーンを作成する際、キーと値のペアを `extras` として設定できます。これはアプリ内メッセージングオブジェクトがアプリにデータを送信する際に使用できます。以下に例を示します。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 let customization = message.extras["custom-display"] as? String
 if customization == "colorful-slideup" {
   // Perform your custom logic.
@@ -71,7 +71,7 @@ if customization == "colorful-slideup" {
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
   NSString *customization = message.extras[@"custom-display"];
   if ([customization isEqualToString:@"colorful-slideup"]) {
@@ -105,7 +105,7 @@ if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func handleExtras(userInfo: [AnyHashable : Any]) {
   print("A push was received")
   if userInfo != nil && (userInfo["IS_SERVER_EVENT"] as? String) != nil && (userInfo["CAMPAIGN_NAME"] as? String) != nil {
@@ -117,7 +117,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (void)handleExtrasFromPush:(NSDictionary *)userInfo {
   NSLog(@"A push was received.");
   if (userInfo !=nil && userInfo[@"IS_SERVER_EVENT"] !=nil && userInfo[@"CAMPAIGN_NAME"]!=nil) {
@@ -155,7 +155,7 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 
 以下の例では、イベントプロパティを最初のサイレントプッシュの一部として送信することで、トリガーされる特定のアプリ内メッセージが設定されています。
 
-![カスタムイベント「In-app message trigger」を実行したユーザーに配信される、アクションベースの配信アプリ内メッセージキャンペーン。ここで「campaign_name」は「IAM Campaign Name Example」に等しい。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![カスタムイベント「In-app message trigger」を実行したユーザーに配信される、アクションベースの配信アプリ内メッセージキャンペーン。ここで「campaign_name」は「IAM キャンペーン Name Example」に等しい。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 {% alert note %}
 なお、これらのアプリ内メッセージは、アプリがフォアグラウンドにある間にサイレントプッシュが受信された場合にのみトリガーされます。
@@ -165,7 +165,7 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 
 事前定義したアプリ内メッセージを手動で表示するには、以下のメソッドを使用します。
 
-```swift
+`````````swift
 if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMessage() {
   AppDelegate.braze?.inAppMessagePresenter?.present(message: inAppMessage)
 }
@@ -178,7 +178,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 let customInAppMessage = Braze.InAppMessage.slideup(
   .init(message: "YOUR_CUSTOM_SLIDEUP_MESSAGE", slideFrom: .bottom, themes: .defaults)
 )
@@ -188,7 +188,7 @@ AppDelegate.braze?.inAppMessagePresenter?.present(message: customInAppMessage)
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZInAppMessageRaw *customInAppMessage = [[BRZInAppMessageRaw alloc] init];
 customInAppMessage.type = BRZInAppMessageRawTypeSlideup;
 customInAppMessage.message = @"YOUR_CUSTOM_SLIDEUP_MESSAGE";

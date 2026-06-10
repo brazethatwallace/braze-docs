@@ -17,7 +17,7 @@ Wir empfehlen außerdem, unseren Braze-Lernkurs [Testing and Troubleshooting](ht
 
 ## Voraussetzungen {#prerequisites}
 
-Um interne Gruppen zu erstellen und zu verwalten, benötigen Sie die [Legacy-Berechtigung „Access Dev Console“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) oder diese [granularen Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions):
+Um interne Gruppen zu erstellen und zu verwalten, benötigen Sie die folgenden [Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
 
 - API-Schlüssel anzeigen
 - API-Schlüssel bearbeiten
@@ -33,8 +33,6 @@ Um interne Gruppen zu erstellen und zu verwalten, benötigen Sie die [Legacy-Ber
 - SDK-Debugger bearbeiten
 - SDK-Debugger anzeigen
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 ## Eine interne Gruppe erstellen {#creating-an-internal-group}
 
 So erstellen Sie eine interne Gruppe:
@@ -49,7 +47,7 @@ So erstellen Sie eine interne Gruppe:
 | **User-Event-Gruppe** | Verwenden Sie diese, um Events oder Protokolle von Ihrem Testgerät zu überprüfen. |
 | **Content-Testgruppe** | Verwenden Sie diese für Push, E-Mail und In-App-Nachrichten, um eine gerenderte Kopie der Nachricht zu senden. |
 | **Seed-Gruppe** | Sendet beim Versand automatisch eine Kopie der E-Mail an alle Mitglieder der Seed-Gruppe. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eine interne Gruppe erstellen" }
 
 {:start="5"}
 
@@ -67,7 +65,7 @@ Nachdem Sie Ihre interne Gruppe erstellt haben, fügen Sie Testnutzer:innen als 
 | **Identifizierte:n Nutzer:in hinzufügen** | Suchen Sie nach der/dem Nutzer:in anhand der externen Nutzer-ID, E-Mail-Adresse, Telefonnummer oder des Push-Tokens. |
 | **Anonyme:n Nutzer:in hinzufügen** | Suchen Sie nach IP-Adresse. Geben Sie dann einen Namen für jede:n Testnutzer:in an, die/den Sie hinzufügen. Dies ist der Name, mit dem alle Event-Protokolle auf der Seite [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) verknüpft werden. |
 | **Nutzer:innen in großer Anzahl hinzufügen** | Kopieren Sie eine Liste von E-Mail-Adressen oder externen IDs und fügen Sie sie ein. Sie können nur Nutzer:innen hinzufügen, die bereits im Dashboard bekannt sind. Weitere Informationen finden Sie unter [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Testnutzer:innen hinzufügen" }
 
 ![Einstellungen für interne Gruppen beim Erstellen einer neuen internen Gruppe]({% image_buster /assets/img_archive/internal_group_add_user.png %})
 
@@ -93,13 +91,13 @@ Seed-Gruppen werden nur für den E-Mail-Kanal unterstützt. Fügen Sie Nutzer:in
 
 Seed-Gruppen sind für API-Kampagnen nicht verfügbar, aber Sie können Seed-Gruppen über einen API-getriggerten Einstieg in die Campaign einbinden. Verwenden Sie dies, um Zustellbarkeitsmetriken zu messen und eine Aufzeichnung Ihrer E-Mail-Inhalte für historische und Archivierungszwecke zu führen.
 
-Nachdem Sie eine interne Gruppe erstellt und als Seed-Gruppe gekennzeichnet haben, wählen Sie sie im Schritt **Zielgruppe** des Campaign-Editors oder im Schritt **Sendeeinstellungen** in einem Canvas aus.
+Nachdem Sie eine interne Gruppe erstellt und als Seed-Gruppe gekennzeichnet haben, wählen Sie sie im Schritt **Target Audiences** des Campaign-Editors oder im Schritt **Send Settings** in einem Canvas aus.
 
 Seed-E-Mails haben `[SEED]` vor der Betreffzeile. Beachten Sie, dass Seed-E-Mails **Folgendes nicht tun**:
 
 - Die Sendezähler in den Dashboard-Analytics erhöhen.
 - E-Mail-Analytics oder Retargeting beeinflussen.
-- Die Liste **Campaign erhalten** im Nutzerprofil aktualisieren.
+- Die Liste **Campaign Received** im Nutzerprofil aktualisieren.
 - Das Frequency-Capping beeinflussen.
 - Die Rate-Limits für die Zustellgeschwindigkeit berücksichtigen oder beeinflussen.
 
@@ -115,15 +113,15 @@ Wenn die E-Mail [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging
 
 #### Für Campaigns {#for-campaigns}
 
-Beim Erstellen einer E-Mail-Campaign bearbeiten Sie Ihre Seed-Gruppen im Abschnitt **Zielgruppe** des Editors.
+Beim Erstellen einer E-Mail-Campaign bearbeiten Sie Ihre Seed-Gruppen im Abschnitt **Target Audiences** des Editors.
 
 {% alert important %}
-Wenn Sie eine Seed-Gruppe so konfigurieren, dass sie automatisch an alle Campaigns angehängt wird, gilt dies nur für neue Campaigns. Es gilt nicht, wenn Sie bestehende Campaigns kopieren. Sie müssen Ihre gewünschten Seed-Gruppen manuell auf die kopierte Campaign im Abschnitt **Zielgruppe** anwenden.
+Wenn Sie eine Seed-Gruppe so konfigurieren, dass sie automatisch an alle Campaigns angehängt wird, gilt dies nur für neue Campaigns. Es gilt nicht, wenn Sie bestehende Campaigns kopieren. Sie müssen Ihre gewünschten Seed-Gruppen manuell auf die kopierte Campaign im Abschnitt **Target Audiences** anwenden.
 {% endalert %}
 
 Seed-Gruppen senden an jede E-Mail-Variante einmal und werden zugestellt, wenn Ihre Nutzer:innen diese bestimmte Variante zum ersten Mal erhalten. Bei geplanten Nachrichten ist dies in der Regel der erste Start der Campaign. Bei aktionsbasierten oder API-getriggerten Campaigns ist dies der Zeitpunkt, zu dem die erste Nachricht an eine:n Nutzer:in gesendet wird.
 
-Wenn Ihre Campaign multivariat ist und Ihre Variante einen Sendeprozentsatz von 0 % hat, wird sie nicht an Seed-Gruppen gesendet. Wenn die Variante bereits gesendet wurde und nicht für erneutes Senden unter **Seed-Gruppen bearbeiten** im Schritt **Zielgruppe** aktualisiert wurde, wird sie standardmäßig nicht erneut gesendet.
+Wenn Ihre Campaign multivariat ist und Ihre Variante einen Sendeprozentsatz von 0 % hat, wird sie nicht an Seed-Gruppen gesendet. Wenn die Variante bereits gesendet wurde und nicht für erneutes Senden unter **Edit Seed Groups** im Schritt **Target** aktualisiert wurde, wird sie standardmäßig nicht erneut gesendet.
 
 {% alert note %}
 Wenn Sie eine wiederkehrende Campaign haben und eine der Varianten aktualisiert wird, können Sie wählen, ob Sie nur an die aktualisierten Varianten, an alle Varianten erneut senden oder das Seed-Gruppen-Senden bei Aktualisierung deaktivieren möchten.

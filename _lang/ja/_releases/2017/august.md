@@ -23,9 +23,9 @@ REST APIメッセージングエンドポイントに[プッシュアクショ�
 - OS、
 - プラットフォーム
 
-## APIトリガーCanvas {#api-triggered-canvas}
+## APIトリガーキャンバス {#api-triggered-canvas}
 
-Campaigns用の既存のエンドポイントと一致するAPIエンドポイント（送信、スケジュール、更新、削除）を介して[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)をトリガーできるようになり、マーケティングの自動化と最適化をさらに進めることができます。
+キャンペーン用の既存のエンドポイントと一致するAPIエンドポイント（送信、スケジュール、更新、削除）を介して[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)をトリガーできるようになり、マーケティングの自動化と最適化をさらに進めることができます。
 
 ## Webプッシュアクションボタン {#web-push-action-buttons}
 
@@ -33,7 +33,7 @@ Chrome用のWeb SDKにプッシュアクションボタンのサポートを追�
 
 ## 新しいAPIエンドポイント {#new-api-endpoints}
 
-新しいAPIエンドポイントを公開しました。/email/hard_bouncesでは、メールアドレスまたは指定された日付範囲でハードバウンスを取得でき、/messages/scheduled_broadcastsでは、スケジュールされたCampaignsおよびスケジュールされたエントリのCanvasesが次に開始される時刻を取得できます。これらの新しいエンドポイントにより、Campaignsのさらなるカスタマイズと最適化が可能になります。[APIエンドポイント]({{site.baseurl}}/developer_guide/rest_api/basics/#what-is-a-rest-api)について詳しくはこちらをご覧ください。
+新しいAPIエンドポイントを公開しました。/email/hard_bouncesでは、メールアドレスまたは指定された日付範囲でハードバウンスを取得でき、/messages/scheduled_broadcastsでは、スケジュールされたキャンペーンおよびスケジュールされたエントリのキャンバスが次に開始される時刻を取得できます。これらの新しいエンドポイントにより、キャンペーンのさらなるカスタマイズと最適化が可能になります。[APIエンドポイント]({{site.baseurl}}/developer_guide/rest_api/basics/#what-is-a-rest-api)について詳しくはこちらをご覧ください。
 
 ## ジオフェンス {#geofences}
 
@@ -47,13 +47,13 @@ Chrome用のWeb SDKにプッシュアクションボタンのサポートを追�
 
 「該当なし」の日付フィルターを追加しました。これにより、メッセージを一度も受信または操作したことのない顧客をターゲットにでき、クリーンな顧客リストを維持してメールの配信到達性を確保できます。[フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#segmentation-filters)について詳しくはこちらをご覧ください。
 
-## Canvasの更新 {#update-to-canvas}
+## キャンバスの更新 {#update-to-canvas}
 
-各Canvasバリアントの上部にパーセンテージが追加され、どのバリアントがより良いパフォーマンスを発揮しているかが一目でわかるようになりました。[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)について詳しくはこちらをご覧ください。
+各キャンバスバリアントの上部にパーセンテージが追加され、どのバリアントがより良いパフォーマンスを発揮しているかが一目でわかるようになりました。[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)について詳しくはこちらをご覧ください。
 
-## インテリジェントセレクションを使用したCanvas {#canvas-with-intelligent-selection}
+## インテリジェントセレクションを使用したキャンバス {#canvas-with-intelligent-selection}
 
-Canvasにインテリジェントセレクションが追加され、Canvasesをより効率的にテストできるようになりました。[Intelligence Suite]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)について詳しくはこちらをご覧ください。
+キャンバスにインテリジェントセレクションが追加され、キャンバスをより効率的にテストできるようになりました。[Intelligence Suite]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)について詳しくはこちらをご覧ください。
 
 ## メール表示名の更新 {#update-to-email-display-names}
 
@@ -61,6 +61,6 @@ Canvasにインテリジェントセレクションが追加され、Canvasesを
 
 ## エンゲージメントレポートCSV集計 {#engagement-reports-csv-aggregation}
 
-選択されているCampaignsやCanvasesの数に関係なく、すべてのCampaignsとすべてのCanvasesの統合データを2つの別々のファイルで受け取ることができるようになりました。必要なときに必要なすべてのデータを入手できます。[エンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/)について詳しくはこちらをご覧ください。
+選択されているキャンペーンやキャンバスの数に関係なく、すべてのキャンペーンとすべてのキャンバスの統合データを2つの別々のファイルで受け取ることができるようになりました。必要なときに必要なすべてのデータを入手できます。[エンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/)について詳しくはこちらをご覧ください。
 
 > [2017年9月のリリースノート]({{site.baseurl}}/releases/2017/september/)に記載されているように、特定の期間のデータを集計したり、定期的にエクスポートを実行するスケジュールを設定したりできるようになりました。

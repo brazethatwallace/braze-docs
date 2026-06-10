@@ -137,6 +137,10 @@ Consultez le tableau suivant pour connaître les tailles d'images recommandées.
 | 5&nbsp;Mo maximum | 600 pixels maximum | 480 pixels maximum | PNG, JPEG, GIF |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Taille des images" }
 
+{% alert note %}
+Les applications web et mobile de Gmail ne rendent généralement pas les SVG (et la prise en charge du WEBP est incohérente). Utilisez le format PNG ou JPEG pour les images qui doivent s'afficher de manière fiable dans Gmail.
+{% endalert %}
+
 ## Liens profonds {#deep-linking}
 
 Avec les notifications push et les messages in-app, un [lien profond]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) dirige les utilisateurs directement vers une destination spécifique au sein d'une application. Cependant, les liens profonds nécessitent que l'application soit installée, et les e-mails ne permettent pas de savoir si les destinataires disposent de l'application. Cela signifie que les liens profonds dans les e-mails peuvent entraîner des erreurs pour les destinataires qui n'ont pas l'application installée.

@@ -8,24 +8,27 @@ page_type: reference
 search_rank: 7
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Soporte de Braze 
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Soporte de Braze {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomthe-braze-support-portal-stylefloatrightwidth120pxborder0-classnoimgborderbraze-support}
+
 > Aprende a acceder al portal de soporte de Braze, enviar y hacer seguimiento de casos de soporte, y proporcionar la información necesaria para una solución de problemas eficiente.
 
 ## Acceder al portal de soporte {#access-the-support-portal}
 
-Para ponerte en contacto con el equipo de soporte de Braze, navega al dashboard de Braze. En el dashboard, selecciona **Support** > **Get help**.
+Para ponerte en contacto con el equipo de soporte de Braze, navega al dashboard de Braze y selecciona **Support**. El menú ofrece dos opciones:
 
-![El menú desplegable "Support" con la opción de obtener ayuda.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:60%;"}
+- **Get help with Operator** abre BrazeAI Operator<sup>TM</sup>, que puede solucionar tu problema en el momento utilizando el contexto de tu conversación y la pantalla actual. Si Operator no puede resolver tu problema, puedes pedirle que redacte un ticket de soporte basado en tu conversación. Para más información, consulta [enviar tickets de soporte con BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/).
+- **Get help** te lleva directamente al portal de soporte de Braze (si eres un contacto de soporte designado) o a nuestro formulario de soporte estándar, donde puedes enviar y hacer seguimiento de casos. Si no estás seguro de si eres un contacto de soporte de Braze, ponte en contacto con el administrador de Braze de tu empresa, tu gestor de éxito de Braze o el propietario de la cuenta.
 
-Dependiendo de tus permisos de Braze y de si eres un contacto de soporte designado, serás dirigido al portal de soporte de Braze, donde puedes enviar y hacer seguimiento de casos, o a nuestro formulario de soporte estándar. Si no estás seguro de si eres un contacto de soporte de Braze, ponte en contacto con el administrador de Braze de tu empresa, tu gestor de éxito de Braze o el propietario de la cuenta.
+![El menú desplegable "Support" mostrando las opciones "Get help with Operator" y "Get help".]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
+
 
 ## Añadir contactos de soporte designados {#adding-designated-support-contacts}
 
 Los contactos de soporte designados pueden acceder a todos los casos de soporte de tu empresa, independientemente de quién los haya enviado. Puedes configurar usuarios como contactos de soporte designados directamente desde la página **Edit user**.
 
-1. Ve a **Settings** > **Company Users** y busca al usuario por su nombre o dirección de correo electrónico.
+1. Ve a **Configuración** > **Usuarios de la empresa** y busca al usuario por su nombre o dirección de correo electrónico.
 2. Selecciona el nombre del usuario o pasa el cursor sobre la fila del nombre del usuario para mostrar un menú.
-3. En el menú, selecciona **Edit** para ser redirigido a la página **Edit user**.
+3. En el menú, selecciona **Editar** para ser redirigido a la página **Editar usuario**.
 4. Marca la casilla de verificación **Set this user as a Designated Support Contact for Braze Support Portal**.
 
 ![La casilla de verificación para configurar un usuario como contacto de soporte designado.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
@@ -60,7 +63,7 @@ Al comunicarte con soporte, es posible que necesites acceder a tu consola para d
 
 ### Proporciona la mayor cantidad de información posible {#provide-as-much-information-as-possible}
 
-Cuanta más información puedas ofrecer, mejor. Incluye detalles específicos como el espacio de trabajo, la URL de la Campaign o el Segment, y cualquier ID externo relevante. Esto puede ayudarnos a solucionar tu problema de manera más eficiente.
+Cuanta más información puedas ofrecer, mejor. Incluye detalles específicos como el espacio de trabajo, la URL de la campaña o el segmento, y cualquier ID externo relevante. Esto puede ayudarnos a solucionar tu problema de manera más eficiente.
 
 ### Proporciona una muestra de usuarios {#provide-a-sample-of-users}
 
@@ -93,6 +96,17 @@ Selecciona el nivel de gravedad apropiado para ayudarnos a asignar los recursos 
 {% alert important %}
 Marcar un problema como "Crítico" significa que tu instancia de producción está caída y todo el trabajo dentro de Braze se ha detenido.
 {% endalert %}
+
+## Solución de problemas de carga del dashboard {#troubleshooting-dashboard-load-issues}
+
+Si el dashboard de Braze no se carga correctamente, prueba lo siguiente antes de ponerte en contacto con soporte:
+
+1. Abre el dashboard en un navegador diferente o en una ventana de incógnito o privada.
+2. [Borra la caché y las cookies de tu navegador]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+3. Desactiva los bloqueadores de anuncios y las extensiones del navegador, y luego recarga el dashboard.
+4. Si usas una VPN, desconéctala e inténtalo de nuevo.
+
+Si la consola para desarrolladores de tu navegador muestra `ERR_BLOCKED_BY_CLIENT`, una extensión o bloqueador de anuncios está bloqueando los recursos del dashboard. Desactiva el bloqueador para la URL de tu dashboard de Braze y recarga la página.
 
 ## Solución de problemas de acceso {#troubleshooting-access}
 

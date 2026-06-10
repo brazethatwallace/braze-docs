@@ -21,7 +21,7 @@ Die Integration von Braze und Amperity bietet eine einheitliche Sicht auf Ihre K
 - **Zielgruppen erstellen und versenden**: Erstellen Sie Segmente, die Listen aktiver Kund:innen und die dazugehörigen angepassten Attribute zurückgeben, und senden Sie diese an Braze.
 - **Daten-Updates verwalten**: Steuern Sie die Häufigkeit, mit der Updates für angepasste Attribute an Braze gesendet werden.
 - **Daten vereinheitlichen**: Vereinheitlichen Sie Daten über verschiedene von Amperity unterstützte Plattformen und Braze.
-- **Braze-Daten mit Amazon S3 synchronisieren**: Verwenden Sie Braze-Currents zur Integration von Engagement-Daten aus Braze Campaigns, um Daten im Apache Avro-Format mit Amazon S3 zu synchronisieren.
+- **Braze-Daten mit Amazon S3 synchronisieren**: Verwenden Sie Braze-Currents zur Integration von Engagement-Daten aus Braze-Kampagnen, um Daten im Apache Avro-Format mit Amazon S3 zu synchronisieren.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -32,7 +32,7 @@ Die Integration von Braze und Amperity bietet eine einheitliche Sicht auf Ihre K
 | Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints). |
 | Braze-REST-Endpunkt | Ihre Braze-Endpunkt-URL. Ihr Endpunkt hängt von Ihrer Braze-Instanz ab. |
 | Currents-Konnektor (optional) | Der S3-Currents-Konnektor. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Datenabbildung {#data-mapping}
 

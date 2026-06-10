@@ -111,4 +111,4 @@ This graph gives you the ability to quickly see your total data point usage vers
 ## Next steps
 
 - [Notification preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) to configure alerts for billing-related events and usage thresholds.
-- [Message usage dashboard]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/) to monitor SMS, WhatsApp, and RCS credit consumption.
+- [Credits usage dashboard]({{site.baseurl}}/credits_usage_dashboard/) to monitor message credit consumption.

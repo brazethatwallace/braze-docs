@@ -9,47 +9,47 @@ search_tag: Partner
 
 # Antavo Loyalty Cloud
 
-> [Antavo](https://antavo.com/) は、包括的なロイヤルティプログラムを構築し、ブランド愛を育み、顧客行動を変えるエンタープライズグレードの SaaS ロイヤルティテクノロジープロバイダーです。
+> [Antavo](https://antavo.com/) は、包括的なロイヤルティプログラムを構築し、ブランド愛を育み、顧客行動を変えるエンタープライズグレードのSaaSロイヤルティテクノロジープロバイダーです。
 
-_この統合は Antavo によって管理されています。_
+_この統合はAntavoによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-AntavoとBrazeの統合により、ロイヤルティプログラム関連データを使用してパーソナライズされたCampaignsを構築し、カスタマーエクスペリエンスを向上させることができます。Antavoは2つのプラットフォーム間のロイヤルティデータ同期をサポートしています。これはAntavoからBrazeへの一方向データ同期のみです。この統合は `external_id` Brazeフィールドをサポートしており、Antavoはこのフィールドを使用してロイヤルティ会員IDを同期します。
+AntavoとBrazeの統合により、ロイヤルティプログラム関連データを使用してパーソナライズされたCampaignを構築し、カスタマーエクスペリエンスを向上させることができます。Antavoは2つのプラットフォーム間のロイヤルティデータ同期をサポートしています。これはAntavoからBrazeへの一方向データ同期のみです。この統合は`external_id` Brazeフィールドをサポートしており、Antavoはこのフィールドを使用してロイヤルティ会員IDを同期します。
 
 ## 前提条件 {#prerequisites}
 
 | 必要条件          | 説明                                                                                                                                                                   |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------  |
-| Antavo アカウント       | このパートナーシップを利用するには、Brazeとの統合を有効にした [Antavo](https://antavo.com/) アカウントが必要です。                                                |
-| Braze REST APIキー   | `users.track`、`events.list`、`events.data_series`、`events.get` の権限を持つ Braze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**で作成できます。  |
-| Braze REST エンドポイント  | [REST エンドポイント URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントはインスタンスの Braze URL に依存します。                |
-| Braze アプリ識別子 | アプリ識別子キー。<br><br>Brazeダッシュボードでこのキーを確認するには、**設定** > **APIキー**に移動し、**Identification** セクションを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Antavoアカウント       | このパートナーシップを利用するには、Brazeとの統合を有効にした[Antavo](https://antavo.com/)アカウントが必要です。                                                |
+| Braze REST APIキー   | `users.track`、`events.list`、`events.data_series`、`events.get`の権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**で作成できます。  |
+| Braze RESTエンドポイント  | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントはインスタンスのBraze URLに依存します。                |
+| Brazeアプリ識別子 | アプリ識別子キー。<br><br>Brazeダッシュボードでこのキーを確認するには、**設定** > **APIキー**に移動し、**Identification**セクションを確認してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
-### ステップ1: AntavoでBrazeに接続する {#step-1-connect-braze-in-antavo}
+### ステップ 1: AntavoでBrazeに接続する {#step-1-connect-braze-in-antavo}
 
-Antavoで **Modules** > **Braze** に移動し、**Configure** をクリックします。AntavoのBraze統合設定ページに初めてアクセスすると、2つのシステムを接続するよう求められます。
+Antavoで**Modules** > **Braze**に移動し、**Configure**をクリックします。AntavoのBraze統合設定ページに初めてアクセスすると、2つのシステムを接続するよう求められます。
 
 以下の認証情報を入力します。
 
-- **Instance URL:** プロビジョニング先のインスタンスの Braze REST エンドポイント。
-- **API Token (Identifier):** AntavoがBrazeにリクエストを送信する際に使用する Braze REST APIキー。
-- **App Identifier:** Braze アプリ識別子。
+- **Instance URL:** プロビジョニング先のインスタンスのBraze RESTエンドポイント。
+- **API Token (Identifier):** AntavoがBrazeにリクエストを送信する際に使用するBraze REST APIキー。
+- **App Identifier:** Brazeアプリ識別子。
 
-認証情報を入力したら、**Connect** をクリックします。
+認証情報を入力したら、**Connect**をクリックします。
 
 ![Instance URL、API Token、App Identifierが表示されているAntavoのConnect Braze画面。]({% image_buster /assets/img/antavo/connect_braze.png %})
 
-### ステップ2: フィールドマッピングを設定する {#step-2-configure-field-mapping}
+### ステップ 2: フィールドマッピングを設定する {#step-2-configure-field-mapping}
 
-接続が確立されると、Antavoの **Sync Fields** ページに自動的にリダイレクトされ、2つのシステム間のフィールド同期を設定できます。このページには **Modules** > **Braze** からいつでもアクセスできます。
+接続が確立されると、Antavoの**Sync Fields**ページに自動的にリダイレクトされ、2つのシステム間のフィールド同期を設定できます。このページには**Modules** > **Braze**からいつでもアクセスできます。
 
 Antavoでフィールドマッピングを設定するには:
 
-1. **Add new field** <i class="fas fa-plus" alt=""></i> をクリックします。
+1. **Add new field** <i class="fas fa-plus" alt=""></i>をクリックします。
 2. ドロップダウンフィールドを使用して、Brazeに同期するAntavoの**Loyalty field**を選択します。
 3. データの取り込み先となるBrazeの対応するカスタム属性を表す**Remote field**を入力します。
 
@@ -59,8 +59,8 @@ Antavoでフィールドマッピングを設定するには:
 
 {:start="4"}
 4. フィールドの組み合わせを追加するには、ステップ1〜3を繰り返します。
-5. 同期データのリストからフィールドを削除するには、行の末尾にある <i class="fa-solid fa-rectangle-xmark" title="削除"></i> をクリックします。
-6. **Save** をクリックします。
+5. 同期データのリストからフィールドを削除するには、行の末尾にある<i class="fa-solid fa-rectangle-xmark" title="削除"></i>をクリックします。
+6. **Save**をクリックします。
 
 Antavoで設定されたフィールドのいずれかの値が変更されると、その単一の値の同期がトリガーされるだけでなく、フィールドマッピングに追加されたすべてのフィールドがリクエストに含まれます。
 

@@ -22,7 +22,7 @@ Braze와 Treasure Data 통합을 사용하면 두 시스템 간의 정보 흐름
 | Treasure Data | 이 파트너십을 활용하려면 [Treasure Data 계정](https://console.treasuredata.com/users/sign_in)이 필요합니다. |
 | Currents | 데이터를 Treasure Data로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
 | Treasure Data URL | Treasure Data 대시보드로 이동하여 수집 URL을 복사하면 얻을 수 있습니다.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 {% alert note %}
 Treasure Data는 각 이벤트를 배치 단위로 기록합니다. 이벤트 수를 얻기 위해 Treasure Data를 쿼리하는 방법에 대한 자세한 내용은 [데이터 쿼리하기](https://docs.treasuredata.com/articles/int/braze-currents-import-integration/a/h2__592056238)를 참조하세요.<br><br>Treasure Data의 새로운 Braze 스트리밍 커넥터와 통합하려는 경우, [Braze Currents 스트리밍 가져오기 통합](https://docs.treasuredata.com/articles/#!int/braze-currents-import-integration/q/braze/qid/72364/qp/4)의 자세한 설정 단계를 참조하세요. Braze 내 통합 또는 설정에 대해 궁금한 점이 있으면 Braze 계정 팀에 문의하세요.

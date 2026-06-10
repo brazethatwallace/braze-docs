@@ -52,21 +52,23 @@ eCommerce 추천 이벤트는 **Commerce** 탭의 **구매 내역** 섹션에 �
 
 ### 세분화 {#segmentation}
 
-eCommerce 이벤트는 커스텀 이벤트처럼 동작하므로, 기존의 모든 커스텀 이벤트 필터를 즉시 사용할 수 있습니다. 예를 들어, "커스텀 이벤트 `ecommerce.order_placed`를 X회 이상 수행한 사용자"로 필터링할 수 있습니다.
+Braze는 eCommerce 데이터를 기반으로 사용자를 세분화하는 세 가지 방법을 제공합니다:
 
-중첩된 제품 데이터(특정 제품 ID, 배리언트 이름 또는 가격 임계값 등)를 기반으로 타겟팅하려면 중첩된 이벤트 속성정보 필터링이 가능한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용하세요. 이를 통해 "지난 90일 동안 제품 SKU-123을 구매한 사용자"와 같은 오디언스를 구축하거나, 동일한 주문의 여러 등록정보를 결합한 기준을 만들 수 있습니다.
+- **eCommerce 필터:** 세그먼터의 **eCommerce** 카테고리를 사용하세요. 이 카테고리에는 eCommerce 추천 이벤트로 구동되는 필터(**Last Order Placed**, **Total Revenue**, **Average Order Value** 등)가 포함되어 있습니다. 사용 가능한 필터의 전체 목록은 [Segment 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 참조하세요.
+- **커스텀 이벤트 필터:** eCommerce 이벤트는 커스텀 이벤트처럼 동작하므로, 기존의 모든 커스텀 이벤트 필터를 즉시 사용할 수 있습니다. 예를 들어, "커스텀 이벤트 `ecommerce.order_placed`를 X회 이상 수행한 사용자" 또는 "커스텀 이벤트 `ecommerce.order_placed`를 처음 수행한 사용자"로 필터링할 수 있습니다.
+- **세그먼트 확장:** 중첩된 제품 배열이나 메타데이터 오브젝트 등록정보를 포함한 중첩된 이벤트 속성정보를 기반으로 세분화하려면, 중첩된 이벤트 속성정보 필터링이 가능한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용하세요. 이를 통해 "지난 90일 동안 제품 SKU-123을 구매한 사용자"와 같은 오디언스를 구축하거나, 동일한 주문의 여러 등록정보를 결합한 기준을 만들 수 있습니다.
 
 {% alert important %}
-세그먼트 확장은 유료 기능입니다. 팀에 중첩된 등록정보 세분화를 권장하기 전에 플랜에 액세스 권한이 포함되어 있는지 확인하세요.
+eCommerce 추천 이벤트에 대한 세그먼트 확장은 유료 기능이며 얼리 액세스 중입니다. 얼리 액세스에 참여하고 싶으시면 고객 성공 매니저에게 문의하세요. 팀에 중첩된 등록정보 세분화를 권장하기 전에 플랜에 액세스 권한이 포함되어 있는지 확인하세요.
 {% endalert %}
 
 ### 트리거 {#triggering}
 
-다른 커스텀 이벤트와 마찬가지로, Braze 전체에서 eCommerce 이벤트와 함께 수행된 커스텀 이벤트 트리거를 사용할 수 있습니다. 유기한 장바구니 플로우의 경우, **장바구니 업데이트 이벤트 수행** 트리거를 사용하여 장바구니 업데이트를 올바르게 캡처하세요.
+다른 커스텀 이벤트와 마찬가지로, Braze 전체에서 eCommerce 이벤트와 함께 수행된 커스텀 이벤트 트리거를 사용할 수 있습니다. 유기한 장바구니 플로우의 경우, **Perform Cart Updated Event** 트리거를 사용하여 장바구니 업데이트를 올바르게 캡처하세요.
 
 또한 Braze는 전용 **Places Order** 트리거를 제공하며, 이를 통해 모든 주문 또는 특정 제품이 포함된 주문을 기반으로 여정을 시작하거나 동작을 수행할 수 있습니다. 이 트리거를 제품 이름, `product_id` 또는 `variant_id`로 필터링하여 특정 구매 시나리오를 타겟팅할 수 있습니다. 자세한 내용은 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)을 참조하세요.
 
-![모든 주문을 완료하는 옵션이 선택된 Places Order 트리거]({% image_buster /assets/img/recommended_events/places_order_trigger.png %})
+![모든 주문을 완료하는 옵션이 선택된 Places Order 트리거.]({% image_buster /assets/img/recommended_events/places_order_trigger.png %})
 
 ### Liquid 개인화 {#liquid-personalization}
 

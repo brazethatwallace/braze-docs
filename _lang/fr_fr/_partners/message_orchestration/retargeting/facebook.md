@@ -34,7 +34,7 @@ Si vous participez au test des comptes Meta Work en version bêta, assurez-vous 
 | [Gestionnaire d'entreprise Facebook](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Un outil centralisé pour gérer les ressources Facebook de votre marque (par exemple, les comptes publicitaires, les pages, les applications). |
 | [Compte publicitaire Facebook](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Un compte publicitaire Facebook actif lié au gestionnaire d'entreprise de votre marque que vous souhaitez utiliser avec les audiences personnalisées de Braze.<br><br>Assurez-vous que l'administrateur de votre gestionnaire d'entreprise Facebook vous a accordé les autorisations d'administrateur sur les comptes publicitaires Facebook que vous prévoyez d'utiliser avec Braze, et que vous avez accepté les conditions générales de votre compte publicitaire. Sinon, vous ne pourrez accéder à aucun compte publicitaire Facebook dans Braze. |
 | [Conditions des audiences personnalisées Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php)| Vous devez accepter les conditions des audiences personnalisées Facebook pour les comptes publicitaires Facebook que vous prévoyez d'utiliser avec Braze.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 

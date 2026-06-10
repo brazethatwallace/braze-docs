@@ -49,24 +49,24 @@ Sie können einen Agenten auf Katalogfelder anwenden, sodass er automatisch Wert
 Um einen Agenten zu Ihrem Katalogfeld hinzuzufügen:
 
 1. Fügen Sie in Ihrem Katalog ein neues Feld hinzu.
-2. Wählen Sie **Apply AI agent** aus.
+2. Wählen Sie **KI-Agent anwenden** aus.
 3. Weisen Sie diesem Feld einen Agenten zu.
 4. Wählen Sie aus, welche Spalten als Eingabe übergeben werden sollen. Wenn keine ausgewählt sind, hat der Agent Zugriff auf alle Spalten im Katalog.
 5. Entscheiden Sie, ob der Agent Felder neu berechnen soll, wenn Katalogzeilen aktualisiert werden. Wenn Sie diese Option nicht auswählen, wird der Agent nur einmal pro Zeile ausgeführt.
-6. Wählen Sie **Add fields** aus, um den Agenten bereitzustellen und die Kostenschätzungen zu überprüfen. Das Modal **Cost estimation** zeigt an, wie oft der Agent auf diesem Katalog ausgeführt wird – in etwa entsprechend der Gesamtzahl der Zeilen. Um fortzufahren, wählen Sie **Confirm** aus.
+6. Wählen Sie **Felder hinzufügen** aus, um den Agenten bereitzustellen und die Kostenschätzungen zu überprüfen. Das Modal **Kostenschätzung** zeigt an, wie oft der Agent auf diesem Katalog ausgeführt wird – in etwa entsprechend der Gesamtzahl der Zeilen. Um fortzufahren, wählen Sie **Bestätigen** aus.
 
 ### Wie Katalogagenten ausgeführt werden {#how-catalog-agents-run}
 
-Nach dem Start führt der Agent jede Zeile aus und wertet sie aus, wobei er die ausgewählten Spalten in seinen Kontext einbezieht, um eine Ausgabe zu erzeugen. Agenten werden auf allen neuen Zeilen ausgeführt, die nach der Bereitstellung des Agenten hinzugefügt werden. Wenn Sie **Recalculate when catalog rows update** ausgewählt haben, werden alle Werte für dieses Feld aktualisiert, wenn sich vorhandene Quellfelder ändern.
+Nach dem Start führt der Agent jede Zeile aus und wertet sie aus, wobei er die ausgewählten Spalten in seinen Kontext einbezieht, um eine Ausgabe zu erzeugen. Agenten werden auf allen neuen Zeilen ausgeführt, die nach der Bereitstellung des Agenten hinzugefügt werden. Wenn Sie **Beim Aktualisieren von Katalogzeilen neu berechnen** ausgewählt haben, werden alle Werte für dieses Feld aktualisiert, wenn sich vorhandene Quellfelder ändern.
 
-Sie können die Felder in Ihrem Katalog, die Agenten verwenden, aktualisieren und bearbeiten. Um einen Agenten aus einer Spalte zu entfernen, deaktivieren Sie **Apply AI agent**. Dadurch wird die Spalte wieder in eine reguläre Spalte zurückgesetzt, und die Felder behalten die letzten Werte bei, die der Agent bei seiner letzten Ausführung im Katalog angewendet hat.
+Sie können die Felder in Ihrem Katalog, die Agenten verwenden, aktualisieren und bearbeiten. Um einen Agenten aus einer Spalte zu entfernen, deaktivieren Sie **KI-Agent anwenden**. Dadurch wird die Spalte wieder in eine reguläre Spalte zurückgesetzt, und die Felder behalten die letzten Werte bei, die der Agent bei seiner letzten Ausführung im Katalog angewendet hat.
 
 Zirkuläre Referenzen in Katalogen werden nicht unterstützt, d. h. das folgende Szenario kann nicht auftreten:
 
 - Agentische Spalte 1 verwendet agentische Spalte 2 als Eingabe
 - Agentische Spalte 2 verwendet agentische Spalte 1 als Eingabe
 
-![Die Option „Apply AI agent“ für ein Katalogfeld auswählen.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
+![Die Option „KI-Agent anwenden“ für ein Katalogfeld auswählen.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
 
 {% alert note %}
 Katalogagenten können nur Eingabewerte von bis zu 25 KB pro Zeile verarbeiten.
@@ -74,7 +74,7 @@ Katalogagenten können nur Eingabewerte von bis zu 25 KB pro Zeile verarbeiten.
 
 #### Antwortfelder definieren {#define-response-fields}
 
-Wenn Ihr Agent [Felder]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) als Ausgabeformat verwendet, können Sie das entsprechende Feld des Agenten als **Response Field** auswählen, um es im Katalogfeld zu verwenden.
+Wenn Ihr Agent [Felder]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) als Ausgabeformat verwendet, können Sie das entsprechende Feld des Agenten als **Antwortfeld** auswählen, um es im Katalogfeld zu verwenden.
 
 Angenommen, Sie haben einen Agenten, der Produktbeschreibungen zu einem Katalog hinzufügt und die folgenden Felder zur Strukturierung des Ausgabeformats verwendet:
 
@@ -84,25 +84,25 @@ Angenommen, Sie haben einen Agenten, der Produktbeschreibungen zu einem Katalog 
 | **confidence_score_out_of_ten** | Zahl |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Antwortfelder definieren" }
 
-Sie können ein Feld namens **product_description** zu einem Katalog hinzufügen und **description** als **Response Field** auswählen, um die Spalte mit den Beschreibungen des Agenten zu füllen.
+Sie können ein Feld namens **product_description** zu einem Katalog hinzufügen und **description** als **Antwortfeld** auswählen, um die Spalte mit den Beschreibungen des Agenten zu füllen.
 
-![Ein Feld „product_description“ mit dem angewendeten Agenten „Descriptor“. Die Ausgabe „description“ ist als Response Field ausgewählt.]({% image_buster /assets/img/ai_agent/response_field.png %}){: style="max-width:80%;"}
+![Ein Feld „product_description“ mit dem angewendeten Agenten „Descriptor“. Die Ausgabe „description“ ist als Antwortfeld ausgewählt.]({% image_buster /assets/img/ai_agent/response_field.png %}){: style="max-width:80%;"}
 
-Sie können die vom Agenten generierte Zelle auch manuell überschreiben, indem Sie **Edit Item** auswählen und die vom Agenten generierte Beschreibung mit Ihren Änderungen aktualisieren. Um zur vom Agenten generierten Beschreibung zurückzukehren, wählen Sie das Aktualisierungssymbol in der Zelle aus.
+Sie können die vom Agenten generierte Zelle auch manuell überschreiben, indem Sie **Artikel bearbeiten** auswählen und die vom Agenten generierte Beschreibung mit Ihren Änderungen aktualisieren. Um zur vom Agenten generierten Beschreibung zurückzukehren, wählen Sie das Aktualisierungssymbol in der Zelle aus.
 
 ### Fehlerbehandlung in Katalogen {#error-handling-in-catalogs}
 
-- Fehlgeschlagene Katalogaufrufe werden nicht wiederholt.
-- Wenn der API-Aufruf an den Basismodellanbieter einen Fehler zurückgibt, beispielsweise einen ungültigen API-Schlüssel oder einen Rate-Limit-Fehler, wird der Feldwert nicht aktualisiert.
+- Fehlgeschlagene Katalogaufrufe werden nicht wiederholt, auch nicht bei [Rate-Limit-Fehlern]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) des LLM-Anbieters.
+- Wenn der API-Aufruf an den Basismodellanbieter einen anderen Fehler zurückgibt, beispielsweise einen ungültigen API-Schlüssel, wird der Feldwert nicht aktualisiert.
 - Sie können die Protokolle des Agenten überprüfen, um Details zu fehlgeschlagenen Ausführungen zu erhalten.
 
 ## Ihren Agenten überwachen {#monitor-your-agent}
 
-Im Abschnitt **Usage** Ihres Agenten können Sie einsehen und dorthin navigieren, wo der Agent in Katalogen und Canvases aktiv verwendet wird.
+Im Abschnitt **Nutzung** Ihres Agenten können Sie einsehen und dorthin navigieren, wo der Agent in Katalogen und Canvases aktiv verwendet wird.
 
-![Der Abschnitt „Usage“ zeigt zwei aktive Agenten und einen inaktiven Agenten für Canvases an.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
+![Der Abschnitt „Usage“ des Agenten zeigt zwei aktive Agenten und einen inaktiven Agenten für Canvases an.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-Im Abschnitt **Logs** Ihres Agenten können Sie die tatsächlichen Agentenaufrufe überwachen, die in Ihren Canvases und Katalogen stattfinden. Sie können nach Informationen wie dem Datumsbereich, dem Ergebnis (Erfolg oder Fehler) oder dem Aufrufstandort filtern. Sie können auch **Export CSV** auswählen, um nur die auf der aktuellen Seite angezeigten Protokolle zu exportieren.
+Im Abschnitt **Protokolle** Ihres Agenten können Sie die tatsächlichen Agentenaufrufe überwachen, die in Ihren Canvases und Katalogen stattfinden. Sie können nach Informationen wie dem Datumsbereich, dem Ergebnis (Erfolg oder Fehler) oder dem Aufrufstandort filtern. Sie können auch **CSV exportieren** auswählen, um nur die auf der aktuellen Seite angezeigten Protokolle zu exportieren.
 
 {% alert tip %}
 Sie können auch Fehler bezüglich des täglichen Aufruflimits im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) überwachen.
@@ -110,7 +110,7 @@ Sie können auch Fehler bezüglich des täglichen Aufruflimits im [Nachrichten-A
 
 ![Protokolle für einen Agenten „AI Sentiment Score“.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
 
-Wählen Sie **View** für einen bestimmten Agentenaufruf aus, um die Eingabe, Ausgabe und Nutzer-ID anzuzeigen.
+Wählen Sie **Anzeigen** für einen bestimmten Agentenaufruf aus, um die Eingabe, Ausgabe und Nutzer-ID einzusehen.
 
 ![Das Detail-Panel für einen Agenten „Random Sports Assignment“, das die Eingabeaufforderung, die Ausgabeantwort und eine zugehörige Nutzer-ID anzeigt.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 

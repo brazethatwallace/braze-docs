@@ -1,6 +1,6 @@
 ---
 nav_title: FAQ
-article_title: 캔버스 FAQ
+article_title: Canvas FAQ
 page_order: 8
 alias: "/canvas_v2_101/"
 description: "이 문서에서는 Canvas에 대해 자주 묻는 질문에 대한 답변을 제공합니다."
@@ -95,6 +95,10 @@ Canvas를 중지해도 메시지 수신을 대기 중인 사용자가 사용자 
 
 Campaign의 다변량 및 A/B 테스트 개념에 대해서는 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
 
+### 사용자가 Canvas 메시지 단계에서 글로벌 최대 게재빈도 설정에 도달하면 어떻게 되나요? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+해당 채널에 대한 전송을 받지 못하지만, 메시지 단계는 글로벌 최대 게재빈도 설정으로 인해 메시지가 전송되지 않은 경우에도 사용자를 진행시킵니다. 단계별 진행 사례에 대해서는 [사용자 진행 방식]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance)을 참조하세요. 글로벌 최대 게재빈도 설정만으로는 사용자가 Canvas에서 나가지 않으며, 이 동작은 메시지 단계의 **전달 유효성 검사**와는 별개입니다. 자세한 내용은 [사용량 제한 및 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)을 참조하세요.
+
 ### 전송 수가 예상 오디언스 크기보다 낮은 이유는 무엇인가요? {#why-are-sends-lower-than-the-estimated-audience-size}
 
 전송 수는 [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)과 동일한 여러 이유로 **예상 오디언스**보다 낮을 수 있습니다. 여기에는 빈도 제한, 엄격한 기기 또는 브라우저 필터, 재적격 기간, 사용량 제한, 채널 수준 제외(예: 푸시 도달 가능성 또는 이메일 구독 및 전달 가능성 확인) 등이 포함됩니다.
@@ -109,7 +113,7 @@ Canvas 고유의 요인도 적용됩니다:
 - **최대 진입 또는 오디언스 제한:** 기본 Segment가 더 크더라도 진입 또는 전송 제한이 추가 사용자를 차단합니다.
 - **리포팅 기간:** 분석 범위에 추정치와 비교하는 모든 전송이 포함되지 않을 수 있습니다.
 
-### _고유 수신자_가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### _고유 수신자_가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 _고유 수신자_는 Braze가 Canvas 및 Campaign 리포팅에서 **일별 고유 수신자**를 추적하기 때문에 예상보다 높을 수 있습니다. 이는 사용자가 여정에서 메시지를 수신할 때마다 정확한 전환 기여도를 지원합니다.
 
@@ -162,6 +166,16 @@ _고유 수신자_는 Braze가 Canvas 및 Campaign 리포팅에서 **일별 고�
 
 Canvas 배리언트의 전환 합계가 단계 합계의 합보다 큰 것은 일반적입니다. 이는 사용자가 배리언트에 진입하자마자 해당 배리언트에 대한 전환 이벤트를 수행할 수 있기 때문입니다. 그러나 이 동일한 전환 이벤트는 캔버스 단계에 대해서는 집계되지 않습니다. 따라서 Canvas에 진입하고 첫 번째 캔버스 단계를 수신하기 전에 전환 이벤트를 수행한 사용자는 배리언트 전환 합계에는 집계되지만 단계 합계에는 집계되지 않습니다. Canvas에 진입했지만 어떤 단계도 수신하기 전에 Canvas를 나간 사용자도 마찬가지입니다.
 
+사용자가 배리언트에 진입하고 어떤 단계에서도 메시지를 받지 않았지만 전환하는 경우도 가능합니다. 이 경우 단계 수준에서는 전환이 기록되지 않습니다. 그러나 사용자가 기술적으로 전환했기 때문에 Canvas 수준에서는 전환이 기록됩니다.
+
+### API 트리거 Canvas를 사용자가 수신했는지 어떻게 확인할 수 있나요? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+
+Canvas 필터를 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)하면 사용자가 Canvas에 진입했는지 또는 특정 캔버스 단계를 수신했는지 확인할 수 있습니다. 예를 들어, 사용자가 API 트리거 Canvas에 진입했는지 확인하려면 Canvas 진입 필터를 사용하고, Canvas에서 메시지를 수신했는지 확인하려면 수신 단계 필터를 사용하세요. 그런 다음 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하여 해당 Segment의 사용자를 내보낼 수 있습니다.
+
+### Canvas를 삭제할 수 있나요? {#can-i-delete-a-canvas}
+
+아니요. 하지만 [Canvas를 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving/)할 수 있습니다.
+
 ### 각 Canvas 구성요소의 분석을 어떻게 볼 수 있나요? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
 Canvas 구성요소의 분석을 보려면 Canvas로 이동하여 **Canvas 세부 정보** 페이지를 아래로 스크롤하세요. 여기에서 각 구성요소의 분석을 볼 수 있습니다. 자세한 내용은 [Canvas 분석]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)을 확인하세요.
@@ -181,6 +195,12 @@ Canvas에 진입하는 사용자 수는 오디언스와 트리거가 평가되�
 {% alert tip %}
 Canvas 문제 해결에 대한 추가 지원이 필요한 경우, 문제 발생 후 30일 이내에 Braze 고객지원에 문의하세요. 최근 30일간의 진단 로그만 보유하고 있습니다.
 {% endalert %}
+
+### 현재 Canvas 여정에 있는 사용자를 Campaign 또는 Segment에서 제외할 수 있나요? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+
+`Entered Canvas Variation`, `In Canvas Control Group`, `Received Message from Canvas Step` 등의 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 사용하여 Canvas 진입, 배리언트 할당 또는 단계 참여를 기준으로 사용자를 타겟팅할 수 있습니다. 이러한 필터는 진입 이력과 상호작용을 평가하며, 사용자가 현재 활성 여정을 진행 중인지 여부를 나타내지는 않습니다.
+
+활성 Canvas 참여를 기준으로 사용자를 포함하거나 제외하려면 Canvas 진입 및 종료 시점에 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 단계를 추가하여 커스텀 속성을 설정하고 해제한 다음, Campaign 또는 Segment에서 해당 속성을 기준으로 필터링하세요.
 
 ## 세분화 {#segmentation}
 

@@ -21,7 +21,7 @@ channel:
 
 Der App-Bezeichner-API-Schlüssel oder die `app_id` ist ein Parameter, der Aktivitäten mit einer bestimmten App in Ihrem Workspace verknüpft. Er legt fest, mit welcher App innerhalb des Workspace Sie interagieren. Sie werden beispielsweise feststellen, dass Sie eine `app_id` für Ihre iOS-App, eine `app_id` für Ihre Android-App und eine `app_id` für Ihre Web-Integration haben.
 
-Sie finden Ihre `app_id`, indem Sie zu **Einstellungen** > **App-Einstellungen** navigieren und den Abschnitt **Identification** suchen.
+Sie finden Ihre `app_id`, indem Sie zu **Einstellungen** > **App Settings** navigieren und den Abschnitt **Identification** suchen.
 
 ### Was passiert, wenn mehrere Nutzer:innen dieselbe Telefonnummer haben? {#what-happens-if-multiple-users-have-the-same-phone-number}
 
@@ -144,7 +144,7 @@ Ja. Behalten Sie dies beim Testen von Nachrichten im Hinterkopf.
 
 ### Muss ein:e Nutzer:in Teil einer SMS-Abo-Gruppe sein, um SMS-Testnachrichten zu erhalten? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
-Ja. Nutzer:innen müssen eine gültige Telefonnummer haben und Teil der SMS-Abo-Gruppe sein, die für den Testversand verwendet wird.
+Ja. Nutzer:innen müssen eine gültige Telefonnummer haben, Teil der SMS-Abo-Gruppe sein, die für den Testversand verwendet wird, und mindestens ein Land unter **Geographic Permissions** für SMS ausgewählt haben.
 
 ### Gibt es eine Möglichkeit zu sehen, ob ein Alias in einem Nutzerprofil existiert? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
@@ -195,3 +195,9 @@ Braze sendet den von Ihnen erstellten RCS-Payload, während der Messaging-Client
 ### Kann ich vorab aufgezeichnete Sprachnachrichten mit RCS senden? {#can-i-send-pre-recorded-voicemails-with-rcs}
 
 Ja, Sie können Mediennachrichten verwenden, um Audio-Dateien zu unterstützen.
+
+### Warum stimmen REST-API-SMS-Opt-ins nicht mit **Total Opt-Ins** in der SMS/MMS/RCS-Performance überein? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
+
+**Total Opt-Ins** und **Total Opt-Outs** im Dashboard [SMS/MMS/RCS-Performance]({{site.baseurl}}/user_guide/analytics/dashboards/) zählen Abo-Änderungen, die durch eingehende SMS-Keyword-Verarbeitung ausgelöst werden (z. B. wenn ein:e Nutzer:in ein Opt-in-Keyword an Ihren Shortcode sendet). Sie umfassen nicht jedes Abo-Update, das über die REST API, das Dashboard oder andere Quellen vorgenommen wird.
+
+Um Opt-ins und Opt-outs nach Quelle zu analysieren, verwenden Sie den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) auf `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` und filtern Sie nach `STATE_CHANGE_SOURCE` (z. B. **Rest API** versus **Inbound Message**).

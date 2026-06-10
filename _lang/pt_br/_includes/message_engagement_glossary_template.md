@@ -8,7 +8,12 @@ page_type: glossary
 description: "Este glossário lista os vários eventos de engajamento com mensagem que a Braze pode rastrear e enviar para data warehouses escolhidos usando o Currents."
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
+
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Escopo do esquema e recursos relacionados %}
 
 Os esquemas de armazenamento se aplicam aos dados de eventos de arquivo simples que enviamos aos parceiros de armazenamento de data warehouse (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage). Para esquemas que se aplicam a outros parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) e verifique suas respectivas páginas.
 
@@ -17,6 +22,8 @@ Esses eventos também estão disponíveis como tabelas SQL no [Criador de consul
 {% endalert %}
 
 Fale com o gerente da sua conta ou abra um [ticket de suporte]({{site.baseurl}}/braze_support/) se precisar de acesso a direitos de eventos adicionais. Se não encontrar o que precisa neste artigo, consulte nossa [Biblioteca de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+
+{% enddetails %}
 
 {% details Explicação da estrutura de eventos de engajamento com mensagem e valores de plataforma %}
 
@@ -56,24 +63,22 @@ Certos eventos retornam um valor `platform` que especifica a plataforma do dispo
 
 {% enddetails %}
 
-{% alert important %}
-O Currents descartará eventos com cargas úteis excessivamente grandes, superiores a 900&nbsp;KB.
-{% endalert %}
+{% details Considerações sobre eventos de engajamento com mensagem %}
 
-{% alert note %}
-Os objetos relacionados ao Canvas Flow têm IDs que podem ser usados para agrupamento e traduzidos em nomes legíveis por meio do [endpoint Exportar detalhes do Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
-{% endalert %}
+- O Currents descarta eventos com cargas úteis superiores a 900&nbsp;KB.
+- Os objetos relacionados ao Canvas Flow têm IDs que podem ser usados para agrupamento e traduzidos em nomes legíveis por meio do [endpoint Exportar detalhes do Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+- Alguns campos podem não exibir seu estado mais recente imediatamente após a atualização de uma Campaign ou Canvas:
+  - `campaign_name`
+  - `canvas_name`
+  - `canvas_step_name`
+  - `conversion_behavior`
+  - `canvas_variation_name`
+  - `experiment_split_name`
+  - `message_variation_name`
+- Se for necessária consistência completa para esses campos, aguarde uma hora após a última atualização antes de enviar as mensagens aos seus usuários.
 
-{% alert note %}
-Alguns campos podem levar mais tempo para exibir seu estado mais recente após a atualização de uma Campaign ou Canvas. Esses campos são:
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
-Se for necessária consistência completa, recomendamos aguardar uma hora a partir da última atualização desses campos antes de enviar as mensagens aos seus usuários.
-{% endalert %}
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->

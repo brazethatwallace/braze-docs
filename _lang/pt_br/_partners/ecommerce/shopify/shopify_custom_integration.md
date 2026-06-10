@@ -576,7 +576,7 @@ function CartLineUpdateButton({children, lines}) {
 
 Acesse a página de parceiros do Shopify para iniciar sua configuração. Primeiro, selecione **Begin Setup** para instalar o aplicativo da Braze pela Shopify App Store. Siga as etapas guiadas para concluir o processo de instalação.
 
-![Página de configuração da integração com o Shopify no dashboard da Braze.]({% image_buster /assets/img/Shopify/braze_shopify_integration_page.png %})
+![Página de configuração da integração com o Shopify no dashboard da Braze.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
 ### Etapa 2: Ativar os SDKs da Braze {#step-2-enable-braze-sdks}
 
@@ -584,13 +584,13 @@ Para lojas Shopify Hydrogen ou headless, selecione a opção **Custom setup**.
 
 Antes de continuar com o processo de integração, confirme que você ativou o Braze SDK em seu site do Shopify.
 
-![Etapa de configuração para ativar os SDKs da Braze.]({% image_buster /assets/img/Shopify/enable_braze_sdks_setup.png %})
+![Etapa de configuração para ativar os SDKs da Braze.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
 ### Etapa 3: Rastrear dados do Shopify {#step-3-track-shopify-data}
 
 Aprimore sua integração adicionando mais eventos e atributos do Shopify, que serão alimentados por webhooks do Shopify. Para informações detalhadas sobre os dados rastreados por meio dessa integração, consulte [Recursos de dados do Shopify]({{site.baseurl}}/shopify_data_features/).
 
-![Etapa de configuração para rastrear dados do Shopify.]({% image_buster /assets/img/Shopify/track_shopify_data_setup.png %})
+![Etapa de configuração para rastrear dados do Shopify.]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
 ### Etapa 4: Preenchimento histórico (opcional) {#step-4-historical-backfill-optional}
 
@@ -598,7 +598,7 @@ Por meio da configuração personalizada, você tem a opção de incluir o mesmo
 
 Se preferir realizar o preenchimento posteriormente, você pode concluir a configuração inicial agora e retornar a essa etapa mais tarde.
 
-![Seção para configurar o backfill de dados históricos.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
+![Seção para configurar o backfill de dados históricos.]({% image_buster /assets/img/shopify/historical_backfill_setup.png %})
 
 Para a lista completa de dados no carregamento inicial, comportamento de relatórios de receita e monitoramento da sincronização, consulte [Preenchimento histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
@@ -646,7 +646,7 @@ O SDK deve ser inicializado (ouvindo a atividade) no dispositivo do usuário par
 
 Selecione seu tipo de `external_id` no menu suspenso.
 
-![Seção "Coletar assinantes".]({% image_buster /assets/img/Shopify/external_id_standard.png %})
+![Seção "Coletar assinantes".]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 Usar um endereço de e-mail ou um endereço de e-mail com hash como seu ID externo da Braze pode ajudar a simplificar o gerenciamento de identidade em suas fontes de dados. No entanto, é importante considerar os possíveis riscos à privacidade do usuário e à segurança dos dados.<br><br>
@@ -734,7 +734,7 @@ Você tem a opção de coletar suas aceitações de marketing por e-mail ou SMS 
 
 Se você usar os canais de e-mail ou SMS, poderá sincronizar seus estados de aceitação de marketing por e-mail e SMS na Braze. Se você sincronizar as aceitações de marketing por e-mail do Shopify, a Braze criará automaticamente um grupo de inscrições para e-mail para todos os usuários associados a essa loja específica. Você precisa criar um nome exclusivo para esse grupo de inscrições.
 
-![Seção "Coletar assinantes" com a opção de coletar aceitação de marketing por e-mail ou SMS.]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
+![Seção "Coletar assinantes" com a opção de coletar aceitação de marketing por e-mail ou SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 Conforme mencionado na [visão geral do Shopify]({{site.baseurl}}/shopify_overview/), se você quiser usar um formulário de captura de terceiros, seus desenvolvedores precisarão integrar o código do Braze SDK. Isso permitirá que você capture o endereço de e-mail e o status global da inscrição de e-mail dos envios de formulários. Especificamente, você precisa implementar e testar esses métodos em seu arquivo `theme.liquid`:<br><br>
@@ -746,7 +746,7 @@ Conforme mencionado na [visão geral do Shopify]({{site.baseurl}}/shopify_overvi
 
 Você pode sincronizar todos os produtos de sua loja Shopify com um catálogo da Braze para uma personalização mais profunda do envio de mensagens. As atualizações automáticas ocorrem quase em tempo real para que seu catálogo sempre reflita os detalhes mais recentes dos produtos. Para saber mais, confira a [sincronização de produtos do Shopify]({{site.baseurl}}/shopify_catalogs/).
 
-![Etapa de configuração para sincronizar os dados do produto com a Braze.]({% image_buster /assets/img/Shopify/sync_product_data.png %})
+![Etapa de configuração para sincronizar os dados do produto com a Braze.]({% image_buster /assets/img/shopify/sync_product_data.png %})
 
 ### Etapa 8: Ativar canais {#step-8-activate-channels}
 
@@ -760,7 +760,7 @@ Para ativar mensagens no app, Content Cards e Feature Flags usando a integraçã
 
 Depois de concluir todas as etapas, selecione **Finish Setup** para retornar à página do parceiro. Em seguida, ative a incorporação do app da Braze em sua página de administração do Shopify, conforme indicado pelo banner exibido.
 
-![Banner que diz para ativar a incorporação do app da Braze no Shopify para que você possa concluir a configuração de sua integração.]({% image_buster /assets/img/Shopify/shopify_app_embed_banner.png %})
+![Banner que diz para ativar a incorporação do app da Braze no Shopify para que você possa concluir a configuração de sua integração.]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 
 #### Exemplo de código {#example-code}
 

@@ -32,12 +32,12 @@ Um diese Anleitung abzuschließen, benötigen Sie:
 | Braze REST-API-Schlüssel | Ein Schlüssel mit der Berechtigung `messages.send`. Um einen zu erstellen, navigieren Sie zu **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. |
 | SMS-Abo-Gruppe | Eine in Ihrem Braze-Workspace konfigurierte SMS-Abo-Gruppe. |
 | Backend-Dienst | Ein Backend-Dienst oder eine Skriptumgebung, die HTTP-POST-Anfragen an die Braze REST API senden kann. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## 1. Schritt: Erstellen Sie eine API-Kampagne {#step-1-create-an-api-campaign}
 
 1. Gehen Sie im Braze-Dashboard zu **Messaging** > **Campaigns**.
-2. Wählen Sie **Create Campaign** und anschließend **API Campaigns**.
+2. Wählen Sie **Kampagne erstellen** und anschließend **API-Kampagnen**.
 3. Geben Sie einen Namen und eine Beschreibung für Ihre Kampagne ein, beispielsweise „SMS-Benachrichtigung“.
 4. Fügen Sie relevante Tags zur Identifizierung und zum Tracking hinzu.
 5. Wählen Sie **Add Messaging Channel** und anschließend **SMS**.

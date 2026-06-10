@@ -95,7 +95,7 @@ Le <i>nombre total de conversions</i> correspond au nombre total de fois où un 
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
-<i>Réception/distribution</i> est le nombre total de demandes de messages acceptées par le serveur de réception. Cela ne signifie pas que le message a été distribué sur un appareil, mais seulement qu'il a été accepté par le serveur.
+<i>Réception/distribution</i> est le nombre total (ou le pourcentage) de demandes de messages acceptées par le serveur de réception. Cela ne signifie pas que le message a été distribué sur un appareil, mais seulement qu'il a été accepté par le serveur.
 {% endif %}
 
 {% if include.metric == "Deliveries %" %}
@@ -115,7 +115,7 @@ Le <i>taux de réception/distribution échouée</i> est le pourcentage d'envois 
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-Le nombre d'<i>ouvertures directes</i> est le nombre total d'utilisateurs qui ont ouvert votre application ou votre site web en appuyant directement sur la notification.
+Le nombre d'<i>ouvertures directes</i> est le nombre total (ou le pourcentage) d'utilisateurs qui ont ouvert votre application ou votre site web en appuyant directement sur la notification.
 {% endif %}
 
 {% if include.metric == "Emailable" %}
@@ -131,7 +131,7 @@ On parle d'<i>échec</i> lorsque le message WhatsApp n'a pas pu être envoyé pa
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
-Les <i>ouvertures influencées</i> correspondent au nombre total (et au pourcentage) d'utilisateurs qui ont ouvert l'application après l'envoi de la notification push, sans l'ouvrir directement.
+Les <i>ouvertures influencées</i> correspondent au nombre total (ou au pourcentage) d'utilisateurs qui ont ouvert l'application après l'envoi de la notification push, sans l'ouvrir directement.
 {% endif %}
 
 {% if include.metric == "Lifetime Revenue" %}
@@ -231,7 +231,7 @@ Le nombre de <i>soumissions d'enquête</i> est le nombre total de clics sur le b
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
-Le <i>nombre total de clics</i> est le nombre de destinataires uniques qui ont cliqué sur un lien dans le message envoyé.
+Le <i>nombre total de clics</i> est le nombre (ou le pourcentage) de destinataires uniques qui ont cliqué sur un lien dans le message envoyé.
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
@@ -251,7 +251,7 @@ Le <i>chiffre d'affaires total</i> est le chiffre d'affaires total, en dollars, 
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-Les <i>clics uniques</i> correspondent au nombre distinct de destinataires ayant cliqué au moins une fois sur un lien dans un message et sont mesurés par <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>.
+Les <i>clics uniques</i> correspondent au nombre distinct de destinataires ayant cliqué au moins une fois sur un lien dans un message et sont mesurés par <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
@@ -269,7 +269,7 @@ Les <i>impressions uniques</i> correspondent au nombre total d'utilisateurs ayan
 {% endif %}
 
 {% if include.metric == "Unique Opens" %}
-Les <i>ouvertures uniques</i> correspondent au nombre total de messages envoyés qui ont été ouverts au moins une fois par un utilisateur unique et qui sont suivis sur une période de sept jours.
+Les <i>ouvertures uniques</i> correspondent au nombre total (ou au pourcentage) de messages envoyés qui ont été ouverts au moins une fois par un utilisateur unique et qui sont suivis sur une période de sept jours.
 {% endif %}
 
 {% if include.metric == "Unsubscribers or Unsub" %}

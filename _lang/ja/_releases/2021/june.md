@@ -8,9 +8,9 @@ description: "この記事には2021年6月のリリースノートが含まれ�
 
 # 2021年6月 {#june-2021}
 
-## トランザクションメールCampaign {#transactional-email-campaigns}
+## トランザクションメールキャンペーン {#transactional-email-campaigns}
 
-トランザクションメールは、送信者と受信者間で合意されたトランザクションを円滑に進めるために送信されるメールです。Brazeの[トランザクションメールCampaign]({{site.baseurl}}/api/api_campaigns/transactional_campaigns/)は、注文確認、パスワードリセット、請求アラート、その他のビジネスクリティカルな通知など、自動化された非宣伝的なメールメッセージの送信を目的として構築されています。また、対応する[トランザクションメールエンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/)も作成されました。トランザクションメールと新しいエンドポイントは、一部のBrazeパッケージのみで利用できます。
+トランザクションメールは、送信者と受信者間で合意されたトランザクションを円滑に進めるために送信されるメールです。Brazeの[トランザクションメールキャンペーン]({{site.baseurl}}/api/api_campaigns/transactional_campaigns/)は、注文確認、パスワードリセット、請求アラート、その他のビジネスクリティカルな通知など、自動化された非宣伝的なメールメッセージの送信を目的として構築されています。また、対応する[トランザクションメールエンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/)も作成されました。トランザクションメールと新しいエンドポイントは、一部のBrazeパッケージのみで利用できます。
 
 ## イベントプロパティのネストされたオブジェクトのサポート {#nested-object-support-for-event-properties}
 
@@ -36,8 +36,8 @@ Brazeでの購入イベントの詳細について知りたいですか？詳し
 
 ### Digioh - アンケート {#digioh-surveys}
 
-[Digioh]({{site.baseurl}}/partners/digioh/)は、リストの拡大、ファーストパーティデータの取り込み、BrazeのCampaignsでのデータの活用を支援します。ドラッグ＆ドロップビルダーを使用すると、ブランドに合わせたフォーム、ポップアップ、ユーザー設定センター、ランディングページ、顧客とのつながりを築くアンケートなどを簡単に作成できます。
+[Digioh]({{site.baseurl}}/partners/digioh/)は、リストの拡大、ファーストパーティデータの取り込み、Brazeのキャンペーンでのデータの活用を支援します。ドラッグ＆ドロップビルダーを使用すると、ブランドに合わせたフォーム、ポップアップ、ユーザー設定センター、ランディングページ、顧客とのつながりを築くアンケートなどを簡単に作成できます。
 
 ### AppsFlyer Audiences - アトリビューション/分析 {#appsflyer-audiences-attributionanalytics}
 
-[AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/)は、モバイルマーケティングにおける分析やアトリビューションを計測するプラットフォームです。マーケティング分析、モバイルアトリビューション、ディープリンクにより、アプリの分析と最適化を支援します。[AppsFlyer Audiences]({{site.baseurl}}/partners/appsflyer_audiences/)を使用すると、オーディエンスSegmentsを構築し、これらのSegmentsを直接Brazeに渡して、強力なカスタマーエンゲージメントCampaignsを作成できます。
+[AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/)は、モバイルマーケティングにおける分析やアトリビューションを計測するプラットフォームです。マーケティング分析、モバイルアトリビューション、ディープリンクにより、アプリの分析と最適化を支援します。[AppsFlyer Audiences]({{site.baseurl}}/partners/appsflyer_audiences/)を使用すると、オーディエンスセグメントを構築し、これらのセグメントを直接Brazeに渡して、強力なカスタマーエンゲージメントキャンペーンを作成できます。

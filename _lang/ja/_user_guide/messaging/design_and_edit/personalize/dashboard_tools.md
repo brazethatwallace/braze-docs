@@ -53,7 +53,7 @@ Liquidの一部の操作では、操作したい値を変数として保存す�
 
 以下を使用できます。
 
-```liquid
+`````````liquid
 {% assign value_one = {{custom_attribute.${one}}} %}
 {% assign result = value_one | plus: {{custom_attribute.${two}}} %}
 ```
@@ -64,13 +64,13 @@ Liquidの一部の操作では、操作したい値を変数として保存す�
 
 まず、`assign` タグを使用して、カスタム属性 `current_rewards_balance` を「balance」という用語に置き換えます。これにより、操作可能な `balance` という名前の変数が作成されます。
 
-```liquid
+`````````liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
 ```
 
 次に、`plus` フィルターを使用して、各ユーザーのギフトカード残高と報酬残高（`{{balance}}` で表される）を合算します。
 
-```liquid
+`````````liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
 You have ${{custom_attribute.${giftcard_balance} | plus: {{balance}}}} to spend!
 ```

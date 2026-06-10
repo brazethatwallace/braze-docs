@@ -80,6 +80,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -95,6 +99,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
   ]
 }'
 ```
+
+{% alert note %}
+Le type de données `geo` stocke une coordonnée géographique sous forme de tableau au format `[longitude, latitude]`. Par exemple, `[-73.988103, 40.779109]`.
+{% endalert %}
 
 ## Réponse {#response}
 
@@ -136,6 +144,10 @@ Le code de statut `201` pourrait renvoyer le corps de réponse suivant.
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {

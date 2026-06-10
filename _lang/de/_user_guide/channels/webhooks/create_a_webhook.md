@@ -176,7 +176,7 @@ Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitte
 
 Webhooks können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Für aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und die [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) festlegen.
+Für aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und die [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) festlegen.
 
 In diesem Schritt können Sie auch Zustellungs-Kontrollgruppen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) werden können, die Campaign zu erhalten, oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln aktivieren.
 
@@ -248,7 +248,7 @@ Braze bietet keinen integrierten Bericht, der jede Campaign oder jeden Canvas-Sc
 
 #### Fehlerbehebung und zusätzliche Fehlerdetails {#troubleshooting-and-additional-error-details}
 
-Ausführliche Erklärungen, Schritte zur Fehlerbehebung und Anleitungen zur Behebung spezifischer Webhook-Fehler finden Sie unter [Fehlerbehebung bei Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/). Dort finden Sie auch weitere Erklärungen zur Funktionsweise unseres Systems zur Erkennung fehlerhafter Hosts und wie Braze Fehlerbenachrichtigungen über automatisierte E-Mails und zusätzliche Protokollierung in Braze-Currents bereitstellt.
+Ausführliche Erklärungen, Schritte zur Fehlerbehebung und Anleitungen zur Behebung spezifischer Webhook-Fehler finden Sie unter [Fehlerbehebung bei Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/). Dort finden Sie auch weitere Erklärungen zur Funktionsweise unseres Systems zur Erkennung fehlerhafter Hosts und wie Braze Fehlerbenachrichtigungen über automatisierte E-Mails und zusätzliche Protokollierung in Braze-Currents bereitstellt.
 
 ### IP-Allowlisting {#ip-allowlisting}
 

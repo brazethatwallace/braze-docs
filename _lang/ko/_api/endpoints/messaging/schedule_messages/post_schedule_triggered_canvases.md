@@ -70,7 +70,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | 선택 사항 | 부울 | Campaign 또는 Canvas가 타겟팅하는 전체 Segment에 메시지를 보낼 때 `broadcast`를 true로 설정해야 합니다. 이 매개변수는 기본적으로 false로 설정됩니다(2017년 8월 31일 기준). <br><br> `broadcast`가 true로 설정되면 `recipients` 목록을 포함할 수 없습니다. 그러나 `broadcast: true`를 설정할 때 주의하세요. 이 플래그를 의도치 않게 설정하면 예상보다 더 많은 오디언스에게 메시지를 보낼 수 있습니다. |
 | `context` | 선택 사항 | 오브젝트 | 이 전송의 모든 사용자에 대한 개인화 키-값 페어입니다. [Canvas 컨텍스트 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)를 참조하세요. |
 | `schedule` | 필수 | 스케줄 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 예시 요청 {#example-request}
 ```

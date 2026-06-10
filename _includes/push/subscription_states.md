@@ -51,6 +51,8 @@ To disable this default behavior, add the following property to your Android Stu
 {% endtab %}
 
 {% tab swift %}
+On iOS, a new install typically shows push subscription state **`Subscribed`** until the user allows notifications. After the user selects **Allow** on the OS prompt, Braze sets the state to **`Opted-In`** when automatic opt-in is enabled. If the user selects **Don't Allow** and later turns push on in iOS Settings, the state updates after the user logs a session—not at the moment they change Settings.
+
 Starting with [Braze Swift SDK version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), you can disable or further customize this behavior by adding the `optInWhenPushAuthorized` configuration to your Xcode project's `AppDelegate.swift` file:
 
 ```swift
@@ -77,6 +79,12 @@ Push enablement refers to whether a user has granted OS- or browser-level permis
 When automatic opt-in is enabled (the default), Braze updates a user's push subscription state to `Opted-In` when they authorize push notifications for your app or re-enable permissions in their system settings (for example, on iOS, Android 13+, and supported web browsers). Otherwise, the user's push subscription state remains `Subscribed` until you explicitly change it using an SDK method or REST API call.
 
 Braze does not automatically change a user's push subscription state to `Unsubscribed` when they opt out of notifications at the OS, browser, or app level. To update a user's push subscription state, you must update it in Braze. For example, if a user disables push from an in-app preference center, update the push subscription state to `Unsubscribed` in Braze. Braze does not update user profiles based on your preference center. To align subscription states with a user's in-app preferences, call the appropriate methods using the [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration) (iOS or Android) or [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api).
+
+### Imported push tokens (iOS)
+
+When you [import iOS push tokens]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#push-token-import) with `push_token_import`, the user's push subscription state is typically **`Subscribed`** until they log a session in your Braze-integrated app. After the first session, Braze may update the state to **`Opted-In`** if [automatic opt-in](#automatic-opt-in-default) applies (for example, when the user authorizes push on iOS and `optInWhenPushAuthorized` is enabled).
+
+Review **Contact Settings** on the user's profile after import and again after the user's first in-app session to confirm the expected state.
 
 ### Checking push subscription state
 

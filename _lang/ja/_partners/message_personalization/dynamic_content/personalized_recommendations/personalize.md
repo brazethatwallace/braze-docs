@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Personalize.AI
 
-> [Personalize.AI](https://www.zs.com/solutions/artificial-intelligence-and-analytics/personalize-ai/)はBrazeと連携し、Brazeから送信されるパーソナライズされたメッセージやオファーを配信することで、収益の増加を実現します。
+> [Personalize.AI](https://www.zs.com/solutions/artificial-intelligence-and-analytics/personalize-ai/)はBrazeと連携し、Brazeから送信されるパーソナライズされたメッセージやオファーを配信することで、増分収益を生み出します。
 
 BrazeとPersonalize.AIの統合により、メッセージのパーソナライゼーションとターゲティングのためにPersonalize.AIからBrazeプラットフォームにデータをエクスポートできます。
 
@@ -20,7 +20,7 @@ BrazeとPersonalize.AIの統合により、メッセージのパーソナライ�
 | Personalize.AIインスタンス | このパートナーシップを利用するには、Personalize.AIインスタンスが必要です。 |
 | Braze REST APIキー | すべての権限を持つBraze REST APIキー。<br><br>これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -68,4 +68,4 @@ Brazeにインポートされたデータ属性には、一貫した用語に従
 | `C4_Offer_Value` | $3 |
 | `C4_Item_Recom` | "Caesar Salad" |
 | `C4_Subject_Line` | "We miss you" |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Using this integration" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="この統合の使用方法" }

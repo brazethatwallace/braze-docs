@@ -3,7 +3,7 @@ nav_title: 再入荷
 article_title: 再入荷
 page_order: 2
 page_type: reference
-description: "この記事では、Braze Canvasテンプレートを使用して、在庫切れだった商品が再入荷した際にパーソナライズされたメッセージでユーザーに通知し、購入を促進する方法について説明します。"
+description: "この記事では、Braze キャンバステンプレートを使用して、在庫切れだった商品が再入荷した際にパーソナライズされたメッセージでユーザーに通知し、購入を促進する方法について説明します。"
 tool: Canvas
 ---
 
@@ -11,7 +11,7 @@ tool: Canvas
 
 > 再入荷テンプレートを使用して、以前閲覧したり関心を示したりした在庫切れ商品が購入可能になったユーザーをターゲットにしたメッセージを作成できます。これにより、商品が再び入手可能になった重要なタイミングでユーザーにアプローチし、欲しい商品を手に入れられるよう支援します。
 
-この記事では、ユーザーライフサイクルのコンバージョンステップ向けに設計された**再入荷**テンプレートのユースケースについて説明します。完了すると、商品が再入荷した際にユーザーにプッシュ通知（Webまたはモバイル）、SMS、またはメールを送信し、最大2回のリマインダーを送信するCanvasを作成できます。
+この記事では、ユーザーライフサイクルのコンバージョンステップ向けに設計された**再入荷**テンプレートのユースケースについて説明します。完了すると、商品が再入荷した際にユーザーにプッシュ通知（Webまたはモバイル）、SMS、またはメールを送信し、最大2回のリマインダーを送信するキャンバスを作成できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -24,24 +24,24 @@ tool: Canvas
 
 ここでは、スラックス、ジーンズ、キュロットなど、さまざまなパンツを専門とする消費者直販の衣料品小売業者PantsLabyrinthで働いているとしましょう。再入荷テンプレートを使用して、人気のジーンズ「Classic Straight Leg」が再入荷した際に、さまざまなチャネルで顧客に通知できます。
 
-Canvasを作成する前に、ストレートレッグパンツの在庫情報を含む[カタログを設定]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)し、Classic Straight Legジーンズの[再入荷通知を設定]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#setting-up-back-in-stock-notifications)しました。ユーザーがアプリでClassic Straight Legジーンズをお気に入りに追加するカスタムイベントを実行した後に通知を購読するように設定しました。
+キャンバスを作成する前に、ストレートレッグパンツの在庫情報を含む[カタログを設定]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)し、Classic Straight Legジーンズの[再入荷通知を設定]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#setting-up-back-in-stock-notifications)しました。ユーザーがアプリでClassic Straight Legジーンズをお気に入りに追加するカスタムイベントを実行した後に通知を購読するように設定しました。
 
-再入荷テンプレートにアクセスするには、新しいCanvasを作成する際に、**Use a Canvas template** > **Braze templates**を選択します。次に、**Back in Stock**の横にある**Apply Template**を選択します。これで、テンプレートをニーズに合わせてカスタマイズできます。
+再入荷テンプレートにアクセスするには、新しいキャンバスを作成する際に、**Use a Canvas template** > **Braze templates**を選択します。次に、**Back in Stock**の横にある**Apply Template**を選択します。これで、テンプレートをニーズに合わせてカスタマイズできます。
 
 ### ステップ 1: 詳細を設定する {#step-1-set-up-the-details}
 
-Canvasの詳細を目標に合わせて調整しましょう。
+キャンバスの詳細を目標に合わせて調整しましょう。
 
 1. テンプレート名の横にある**Edit**を選択します。
 
-![Canvasの現在のタイトルと説明。]({% image_buster /assets/img/canvas_templates/back_in_stock_old_name_description.png %}){: style="max-width:45%;"}
+![キャンバスの現在のタイトルと説明。]({% image_buster /assets/img/canvas_templates/back_in_stock_old_name_description.png %}){: style="max-width:45%;"}
 
 {:start="2"}
-2. Canvas名を更新して、このCanvasがClassic Straight Legの再入荷時にユーザーをターゲットにするものであることを明示します。
-3. 説明を更新して、このCanvasにパーソナライズされたメッセージが含まれていることを説明します。
-4. **Promotional**タグの下にネストされている**Back in Stock**タグを追加して、Canvasホームページでフィルタリングできるようにします。
+2. キャンバス名を更新して、このキャンバスがClassic Straight Legの再入荷時にユーザーをターゲットにするものであることを明示します。
+3. 説明を更新して、このキャンバスにパーソナライズされたメッセージが含まれていることを説明します。
+4. **Promotional**タグの下にネストされている**Back in Stock**タグを追加して、キャンバスホームページでフィルタリングできるようにします。
 
-![Canvas名が「Back in Stock - Classic Straight Leg」で、簡単なCanvas説明が記載された「Set Up Canvas Details」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_1.png %})
+![キャンバス名が「Back in Stock - Classic Straight Leg」で、簡単なキャンバス説明が記載された「Set Up キャンバス Details」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_1.png %})
 
 ### ステップ 2: コンバージョンイベントを割り当てる {#step-2-assign-conversion-events}
 
@@ -51,13 +51,13 @@ Canvasの詳細を目標に合わせて調整しましょう。
 
 ### ステップ 3: エントリスケジュールをカスタマイズする {#step-3-tailor-the-entry-schedule}
 
-エントリスケジュールは**Action-Based**のままにして、ユーザーがアクションを実行した際にCanvasに入るようにします。テンプレートでは既に**Perform a Back in Stock Event**に設定されています。
+エントリスケジュールは**Action-Based**のままにして、ユーザーがアクションを実行した際にキャンバスに入るようにします。テンプレートでは既に**Perform a Back in Stock Event**に設定されています。
 
 このステップでは2つの調整を行います。
 
 1. Classic Straight Legジーンズの情報を含むカタログを選択します。ここでは「Straight Leg Pants」という名前にしています。
 
-![アクションベースのCanvasの「Entry Schedule」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_3.png %})
+![アクションベースのキャンバスの「Entry Schedule」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_3.png %})
 
 {: start="2"}
 2. **Start Time (Required)**を希望の開始日時に設定します。
@@ -68,15 +68,15 @@ Canvasの詳細を目標に合わせて調整しましょう。
 
 Classic Straight Legジーンズを購入する可能性が高いと思われるユーザーをターゲットオーディエンスとして定義します。
 
-1. ターゲットSegment「Favorited - Classic Straight Leg Jeans」を選択します。これは、アプリまたはWebサイトでClassic Straight Legジーンズをお気に入りに追加したユーザーで構成されています。
+1. ターゲットセグメント「Favorited - Classic Straight Leg Jeans」を選択します。これは、アプリまたはWebサイトでClassic Straight Legジーンズをお気に入りに追加したユーザーで構成されています。
 2. 「Jeans」を「0」回より多く購入したユーザーを含めるフィルターを選択します。
 
-![「Favorited - Classic Straight Leg Jeans」というSegmentが設定された「Target Audience」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})
+![「Favorited - Classic Straight Leg Jeans」というセグメントが設定された「Target Audience」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})
 
 {: start="3"}
-3. エントリコントロールを調整して、Canvasの最大期間後にユーザーがCanvasに再エントリできるようにし、ユーザーが同じステップを同時にトリガーする可能性を防ぎます。
+3. エントリコントロールを調整して、キャンバスの最大期間後にユーザーがキャンバスに再エントリできるようにし、ユーザーが同じステップを同時にトリガーする可能性を防ぎます。
 
-![Canvasの最大期間でこのCanvasへの再エントリを許可するチェックボックスがある「Entry Controls」セクション。]({% image_buster /assets/img/canvas_templates/back_in_stock_6.png %})
+![キャンバスの最大期間でこのキャンバスへの再エントリを許可するチェックボックスがある「Entry Controls」セクション。]({% image_buster /assets/img/canvas_templates/back_in_stock_6.png %})
 
 {: start="4"}
 4. 終了条件を調整して、Classic Straight Legジーンズのお気に入り解除というカスタムイベントを実行したユーザーを除外します。
@@ -89,12 +89,12 @@ Classic Straight Legジーンズを購入する可能性が高いと思われる
 
 ![購読中またはオプトインしたユーザーをターゲットにする「Send Settings」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_8.png %})
 
-### ステップ 6: Canvasをカスタマイズする {#step-6-customize-your-canvas}
+### ステップ 6: キャンバスをカスタマイズする {#step-6-customize-your-canvas}
 
-次に、ユーザーに送信するチャネルとコンテンツをカスタマイズしてCanvasを構築します。テンプレートの4つのチャネル（モバイルおよびWebプッシュ、SMS、メール）をすべて使用し、[インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)フィルターを使用しているため、追加や削除は不要です。
+次に、ユーザーに送信するチャネルとコンテンツをカスタマイズしてキャンバスを構築します。テンプレートの4つのチャネル（モバイルおよびWebプッシュ、SMS、メール）をすべて使用し、[インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)フィルターを使用しているため、追加や削除は不要です。
 
 {% alert tip %}
-[Canvasエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)を使用して、参照している製品に基づいてCanvas内のメッセージをカスタマイズできます。
+[キャンバスエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)を使用して、参照している製品に基づいてキャンバス内のメッセージをカスタマイズできます。
 {% endalert %}
 
 各メッセージステップを確認してコンテンツを更新することから、カスタマイズを始めましょう。
@@ -106,12 +106,12 @@ Classic Straight Legジーンズを購入する可能性が高いと思われる
     - 購入していないユーザーに送信される「Push+Email Alert」メッセージ
 4. アクションパスステップを更新して、**Purchase**アクショングループを選択します。次に、**Make a specific purchase**を選択し、製品としてClassic Straight Legジーンズを選択します。
 
-![製品が再入荷したことをユーザーに通知するメッセージが表示されたモバイルプッシュのCanvasステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_9.png %})
+![製品が再入荷したことをユーザーに通知するメッセージが表示されたモバイルプッシュのキャンバスステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_9.png %})
 
-### ステップ 7: Canvasをテストして起動する {#step-7-test-and-launch-your-canvas}
+### ステップ 7: キャンバスをテストして起動する {#step-7-test-and-launch-your-canvas}
 
-Canvasをテストおよび確認して期待通りに動作することを確認したら、**Launch Canvas**を選択して起動します。これで、Classic Straight Legジーンズをお気に入りに追加し、メッセージングチャネルを購読しているユーザーは、再入荷時に通知を受け取ります！
+キャンバスをテストおよび確認して期待通りに動作することを確認したら、**Launch キャンバス**を選択して起動します。これで、Classic Straight Legジーンズをお気に入りに追加し、メッセージングチャネルを購読しているユーザーは、再入荷時に通知を受け取ります！
 
 {% alert tip %}
-Canvasの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)をご確認ください。
+キャンバスの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)をご確認ください。
 {% endalert %}

@@ -45,13 +45,13 @@ BrazeとPunchhの統合により、2つのプラットフォーム間でギフ�
 #### 注意すべき重要事項 {#important-things-to-note}
 
 - Punchhでは、Brazeにデフォルトのユーザー属性を送信する動作を無効にできる機能が追加されています。これにより、顧客に対してデータポイントの超過料金が発生しません。これは、アダプターのセットアップ中に設定されます。
-- 定期的なキャンペーンでカスタムSegmentsを使用する場合は、キャンペーンが実行されるたびにIDが変更されるため、キャンペーンIDの代わりにキャンペーン名を使用する必要があります。
+- 定期的なキャンペーンでカスタムセグメントを使用する場合は、キャンペーンが実行されるたびにIDが変更されるため、キャンペーンIDの代わりにキャンペーン名を使用する必要があります。
 - 各Punchhギフティングキャンペーンで使用できるコミュニケーションチャネルには、リッチメッセージ、プッシュ通知、SMS、メールがあります。
 - BrazeからPunchhカスタムセグメントに送信されたユーザーは、削除できません。既存のカスタムセグメントには新規ゲストのみを追加できます。既存のPunchhカスタムセグメントからゲストを削除する必要がある場合は、新しいPunchhカスタムセグメントにユーザーを送信するために、新しいWebhookキャンペーンをBrazeで作成する必要があります。
 
 ## 統合 {#integration}
 
-Punchhは、Brazeの顧客が利用できる複数のエンドポイントを提供しています。これは、次のPunchh APIエンドポイントを使用してPunchhプラットフォームにexternal IDを追加するのに役立ちます。external IDを追加したら、Punchhでアダプターを作成し、Braze認証情報を入力して、同期したいイベントを選択します。次に、PunchhセグメントIDを使用して、Canvasジャーニーで顧客同期をトリガーするPunchh webhookを作成できます。
+Punchhは、Brazeの顧客が利用できる複数のエンドポイントを提供しています。これは、次のPunchh APIエンドポイントを使用してPunchhプラットフォームにexternal IDを追加するのに役立ちます。external IDを追加したら、Punchhでアダプターを作成し、Braze認証情報を入力して、同期したいイベントを選択します。次に、PunchhセグメントIDを使用して、キャンバスジャーニーで顧客同期をトリガーするPunchh webhookを作成できます。
 
 統合で同期が正しく行われるようにするには、Punchh `user_id`とBraze `external_id`がどちらのプラットフォームでも利用可能でなければなりません。
 - PunchhからBrazeに送信されるイベントには、識別子としてBraze `external_id`が含まれます。Punchhが`external_source_id`を使用するように設定されている場合、その値がBraze `external_id`として設定されます。そうでない場合、統合はデフォルトでPunchh `user_id`をBraze `external_id`として設定します。
@@ -106,7 +106,7 @@ curl --location --request POST 'https://server_name_goes_here.punchh.com/api2/mo
 {% tab ユーザー更新APIの例 %}
 この例では、ユーザープロファイルを使用して外部識別子を更新できます。これを行うには、`external_source`を「customer_id」として、`external_source_id`を「111111111111111111」として文字列データ型で送信します。
 
-```bash
+`````````bash
 curl --location --request PUT 'https://server_name_goes_here.punchh.com/api2/mobile/users' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
@@ -157,13 +157,13 @@ BrazeとPunchhの統合を設定するには、次の手順を実行します。
 
 ## BrazeでPunchh webhookを作成する {#create-punchh-webhook-in-braze}
 
-Brazeは、PunchhカスタムSegmentsを使用してwebhook経由でユーザーをPunchhセグメントに追加できます。
+Brazeは、Punchhカスタムセグメントを使用してwebhook経由でユーザーをPunchhセグメントに追加できます。
 
 1. Punchhでカスタムセグメントを作成し、以下に示すPunchhセグメントダッシュボードURLに含まれている`custom_segment_id`をメモします。従来のセグメントビルダーまたはベータセグメントビルダーの両方を使用できます。ただし、classicは最終的に非推奨になるため、ベータが推奨されています。<br><br>Punchhプラットフォームで**Guest** > **Segment** > **Custom List** > **New Custom List**に移動します。<br><br>![]({% image_buster /assets/img/punchh/update1.png %})<br><br>
 
 2. Brazeでwebhookキャンペーンを作成するには、ユーザーをカスタムセグメントに追加するためのPunchhエンドポイントをwebhook URLとして使用します。ここでは、URLから取得した`custom_segment_id`と`user_id`をキーと値のペアとして指定できます。<br><br>![]({% image_buster /assets/img/punchh/punchh4.png %})<br><br>
 
-3. このwebhookは、単独のキャンペーンとして、またはCanvas内のステップとして設定できます。または、この特定のPunchhセグメントにユーザーを追加するwebhookが複数のCampaignsまたはCanvasesで使用される場合は、[テンプレート]({{site.baseurl}}/user_guide/messaging/templates/webhook_templates/)として設定できます。<br><br>
+3. このwebhookは、単独のキャンペーンとして、またはキャンバス内のステップとして設定できます。または、この特定のPunchhセグメントにユーザーを追加するwebhookが複数のキャンペーンまたはキャンバスで使用される場合は、[テンプレート]({{site.baseurl}}/user_guide/messaging/templates/webhook_templates/)として設定できます。<br><br>
 webhook内の`user_id`キーは、PunchhユーザーIDにマッピングされます。ユーザーをPunchhカスタムセグメントに追加するには、Brazeで作成されたすべてのwebhookにこの識別子を追加する必要があります。`punch_user_id`カスタム属性は、[Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#pre-formatted-variables)を使用して、`user_id`キーの値として動的に入力できます。`punchh_user_id`カスタム属性変数を挿入するには、任意のテンプレートテキストフィールドの右上にある青色の「プラス」アイコンを使用します。<br><br>![]({% image_buster /assets/img/punchh/update3.png %}){: style="max-width:65%;"}<br><br>![]({% image_buster /assets/img/punchh/update4.png %}){: style="max-width:65%;"}<br><br>
 
 4. webhookが保存されたら、以下に示すように、ユーザーの同期に使用できます。たとえば、このBraze webhookキャンペーンを起動すると、136人のゲストがPunchhカスタムセグメントに追加されます。<br><br>![BrazeとPunchhの統合に伴い、保存されたwebhookを使用してユーザーを同期する例。]({% image_buster /assets/img/punchh/punchh6.png %})
@@ -172,13 +172,13 @@ BrazeでのWebhookの使用方法の詳細については、[Webhookの作成]({
 
 ## ユースケースキャンペーン {#use-case-campaigns}
 
-### CampaignとCanvasの設定 {#campaign-and-canvas-configuration}
+### キャンペーンとキャンバスの設定 {#campaign-and-canvas-configuration}
 
 #### トリガー {#triggering}
 
-Brazeに送信されるPunchhイベント（リワードイベントやゲストイベントなど）によりトリガーされるBrazeメッセージングのユースケースは、[アクションベースのキャンペーン]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/#action-based-delivery)、または該当するPunchhイベントによってトリガーされるCanvasesとして作成できます。
+Brazeに送信されるPunchhイベント（リワードイベントやゲストイベントなど）によりトリガーされるBrazeメッセージングのユースケースは、[アクションベースのキャンペーン]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/#action-based-delivery)、または該当するPunchhイベントによってトリガーされるキャンバスとして作成できます。
 
-トリガーを追加すると、Brazeで作成されたイベントのリストが表示されます。CampaignまたはCanvasをトリガーし、イベントを記録したユーザーに送信するイベントを選択します。
+トリガーを追加すると、Brazeで作成されたイベントのリストが表示されます。キャンペーンまたはキャンバスをトリガーし、イベントを記録したユーザーに送信するイベントを選択します。
 
 ![]({% image_buster /assets/img/punchh/update5.png %})
 
@@ -186,7 +186,7 @@ Brazeに送信されるPunchhイベント（リワードイベントやゲスト
 
 #### セグメンテーション {#segmentation}
 
-多くの場合、PunchhイベントによってトリガーされるBraze CampaignsとCanvasesは「すべてのユーザー」オーディエンスに設定できます。これは、これらのイベントをトリガーするユーザーのセグメンテーションがPunchh内で決定されるためです。ただし、イベントによってトリガーされるBrazeメッセージを受信するユーザーのオーディエンスをさらに絞り込む場合は、キャンペーン作成画面の**Target Audiences**セクションまたはCanvas作成画面の**Entry Audience**で、追加のフィルターとSegmentsを追加します。
+多くの場合、PunchhイベントによってトリガーされるBraze キャンペーンとキャンバスは「すべてのユーザー」オーディエンスに設定できます。これは、これらのイベントをトリガーするユーザーのセグメンテーションがPunchh内で決定されるためです。ただし、イベントによってトリガーされるBrazeメッセージを受信するユーザーのオーディエンスをさらに絞り込む場合は、キャンペーン作成画面の**Target Audiences**セクションまたはキャンバス作成画面の**Entry Audience**で、追加のフィルターとセグメントを追加します。
 
 ### ユースケース {#use-cases}
 
@@ -230,7 +230,7 @@ Brazeウェルカムキャンペーンを設定するには、次のステップ
 
 ギフティングにマスオファーキャンペーンを使用する場合、マスオファーキャンペーンはPunchh内で設定し、メッセージングキャンペーンはBrazeで設定する必要があります。
 
-BrazeセグメントをCampaignsに利用する場合や、Punchhプラットフォームでゲストにギフトを送る前にBrazeからコミュニケーションを送信する場合には、Punchhギフティングキャンペーンに[カスタムPunchhセグメント]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh/#step-3-create-punchh-webhook-in-braze)が必要になります。
+Brazeセグメントをキャンペーンに利用する場合や、Punchhプラットフォームでゲストにギフトを送る前にBrazeからコミュニケーションを送信する場合には、Punchhギフティングキャンペーンに[カスタムPunchhセグメント]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh/#step-3-create-punchh-webhook-in-braze)が必要になります。
 
 Brazeでこのオファーを受け取るユーザーのセグメントを作成することは、Punchh内で使用できない属性を使用する場合にのみ推奨されます。それ以外の場合は、Punchhセグメンテーションを使用できます。Brazeメッセージングキャンペーンは、ユーザーがリワード（Punchhによってトリガーされるリワードイベント）を受け取ることによって、アクションベースのキャンペーンとして作成されます。
 

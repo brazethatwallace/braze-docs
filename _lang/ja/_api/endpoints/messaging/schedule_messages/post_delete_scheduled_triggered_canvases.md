@@ -1,20 +1,20 @@
 ---
-nav_title: "POST:スケジュールされたAPIトリガーCanvasesを削除"
-article_title: "POST:スケジュールされたAPIトリガーCanvasesを削除"
+nav_title: "POST:スケジュールされたAPIトリガーキャンバスを削除"
+article_title: "POST:スケジュールされたAPIトリガーキャンバスを削除"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「スケジュールされたAPIトリガーCanvasesを削除」Brazeエンドポイントの詳細について説明します。"
+description: "この記事では、「スケジュールされたAPIトリガーキャンバスを削除」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# スケジュールされたAPIトリガーCanvasesを削除 {#delete-scheduled-api-triggered-canvases}
+# スケジュールされたAPIトリガーキャンバスを削除 {#delete-scheduled-api-triggered-canvases}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
-> 「スケジュールを削除」エンドポイントを使用すると、以前にスケジュールしたAPIトリガーCanvasesのメッセージを、送信前にキャンセルできます。
+> 「スケジュールを削除」エンドポイントを使用すると、以前にスケジュールしたAPIトリガーキャンバスのメッセージを、送信前にキャンセルできます。
 
 スケジュールされたメッセージやトリガーが、送信予定時刻の間近またはその最中に削除された場合、ベストエフォートで更新されます。そのため、Brazeは対象ユーザーの全員、一部、またはゼロ人に対して直前の削除を適用する可能性があります。
 

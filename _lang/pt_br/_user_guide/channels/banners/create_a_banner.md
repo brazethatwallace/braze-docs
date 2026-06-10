@@ -75,7 +75,7 @@ Para personalizar as propriedades de fundo, configurações de borda e mais da s
 
 #### Etapa 3.2: Definir o comportamento ao clicar (opcional) {#step-32-define-on-click-behavior-optional}
 
-Quando um usuário clica em um link no Banner, você pode optar por direcioná-lo para uma área mais profunda do seu app ou redirecioná-lo para outra página da web. Além disso, você pode escolher [registrar um atributo personalizado ou evento]({{site.baseurl}}/developer_guide/analytics/), que atualiza o perfil do usuário com dados personalizados quando ele clica no Banner.
+Quando um usuário clica em um link no Banner, você pode optar por direcioná-lo para uma área mais profunda do seu app ou redirecioná-lo para outra página da web. Além disso, você pode escolher [registrar um atributo personalizado ou evento]({{site.baseurl}}/developer_guide/analytics/), que atualiza o perfil do usuário com dados personalizados quando ele clica no Banner. Para um rastreamento de cliques mais granular, atribua um identificador personalizado a cada elemento interativo usando o campo **Identifier for Reporting** no painel de propriedades.
 
 {% alert important %}
 {::nomarkdown}
@@ -85,11 +85,18 @@ O comportamento ao clicar pode ser substituído se um elemento específico (como
 
 #### Etapa 3.3: Configurar o comportamento de dispensa (opcional) {#dismiss-behavior}
 
-{% alert important %}
-A dispensa de Banners está atualmente em acesso antecipado. Se você tem interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente.
-{% endalert %}
+Marque a caixa de seleção **Banner can be dismissed** na seção **Dismiss Behavior** para permitir que os usuários dispensem o Banner. Essa opção é útil em cenários em que você deseja promover uma venda por tempo limitado para todos os usuários do app, mas permitir que eles dispensem a mensagem caso não tenham interesse.
 
-Marque a caixa de seleção **Banner can be dismissed** para permitir que os usuários dispensem o Banner. Essa opção pode ser útil em cenários em que você deseja promover uma venda por tempo limitado para todos os usuários do app, mas permitir que eles dispensem a mensagem caso não tenham interesse.
+Quando a dispensa está ativada, você pode personalizar o botão de dispensa na seção **Dismiss Behavior**:
+
+| Configuração | Descrição |
+|---------|-------------|
+| **Button size** | O tamanho do botão de dispensa exibido no Banner. |
+| **Button color** | A cor do botão de dispensa. |
+| **ARIA label** | O rótulo acessível para o botão de dispensa, usado por leitores de tela. O padrão é "Close" se deixado em branco. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurações do botão de dispensa" }
+
+Quando um usuário dispensa um Banner, ele não aparece novamente para esse usuário, mesmo que ele ainda atenda aos critérios de direcionamento da campanha.
 
 #### Etapa 3.4: Adicionar propriedades personalizadas (opcional) {#custom-properties}
 
@@ -106,11 +113,11 @@ Para adicionar uma propriedade personalizada, selecione **Settings** > **Propert
 Para cada propriedade que deseja adicionar, preencha o seguinte:
 
 | Campo | Descrição | Exemplo |
-|-------|-----------|---------|
+|-------|-------------|---------|
 | Tipo de propriedade | O tipo de dado da propriedade. Os tipos suportados incluem string, booleano, número, timestamp, URL de imagem e objeto JSON. | String |
 | Chave da propriedade | O identificador único da propriedade. Essa chave é usada no SDK para acessar a propriedade. | `color` |
 | Valor | O valor atribuído à propriedade. Deve corresponder ao tipo de propriedade selecionado. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Adicionar propriedades personalizadas" }
 
 Quando terminar, selecione **Done**.
 
@@ -133,6 +140,12 @@ A [prioridade do Banner]({{site.baseurl}}/user_guide/channels/banners/#priority)
 Se você tem várias campanhas de Banner usando o mesmo ID de posicionamento, recomendamos usar o organizador de prioridade por arrastar e soltar para definir a prioridade exata.
 {% endalert %}
 
+#### Configurar reelegibilidade (opcional) {#re-eligibility}
+
+Por padrão, os usuários que dispensam um Banner nunca se tornam reelegíveis para essa campanha. Para permitir que usuários que dispensaram o Banner o vejam novamente, acesse a etapa **Delivery Controls** e selecione **Allow users to become re-eligible to receive campaign**. Quando ativado, defina um período de espera em minutos, horas, dias ou semanas.
+
+A contagem regressiva começa a partir do momento em que o usuário dispensa o Banner. Após o período expirar, o usuário se torna automaticamente reelegível — sem necessidade de reiniciar a campanha. A reelegibilidade é rastreada por usuário e por campanha.
+
 #### Escolher seu público {#choose-your-audience}
 
 1. Em **Target Audiences**, escolha Segments ou filtros para refinar seu público. Você recebe automaticamente uma pré-visualização da população aproximada do Segment. A associação exata ao Segment é calculada antes do envio da mensagem.
@@ -151,6 +164,8 @@ A Braze permite que você acompanhe [eventos de conversão]({{site.baseurl}}/use
 {% tab Canvas %}
 
 Se ainda não fez isso, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar [testes multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing/) e [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), e mais, consulte a etapa [Construir seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) da nossa documentação de Canvas.
+
+Para controlar a reelegibilidade em etapas de Banner no Canvas, use as configurações de reentrada do Canvas. Para saber mais, consulte [Reelegibilidade para Campaigns e Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/).
 
 {% endtab %}
 {% endtabs %}

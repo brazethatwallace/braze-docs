@@ -27,42 +27,42 @@ m.Braze.setFirstName("Alex")
 ```
 {% endtab %}
 {% tab Last name %}
-```brightscript
+`````````brightscript
 m.Braze.setLastName("Smith")
 ```
 {% endtab %}
 {% tab Email %}
-```brightscript
+`````````brightscript
 m.Braze.setEmail("alex@example.com")
 ```
 {% endtab %}
 {% tab Gender %}
-```brightscript
+`````````brightscript
 m.Braze.setGender("m") ' Accepts: "m", "f", "o", "n", "u", "p"
 ```
 {% endtab %}
 {% tab Birth date %}
-```brightscript
+`````````brightscript
 m.Braze.setDateOfBirth(1990, 5, 15) ' Year, month, day
 ```
 {% endtab %}
 {% tab Country %}
-```brightscript
+`````````brightscript
 m.Braze.setCountry("United States")
 ```
 {% endtab %}
 {% tab Language %}
-```brightscript
+`````````brightscript
 m.Braze.setLanguage("en")
 ```
 {% endtab %}
 {% tab Home city %}
-```brightscript
+`````````brightscript
 m.Braze.setHomeCity("New York")
 ```
 {% endtab %}
 {% tab Phone number %}
-```brightscript
+`````````brightscript
 m.Braze.setPhoneNumber("+1234567890")
 ```
 {% endtab %}
@@ -78,7 +78,7 @@ m.Braze.setPhoneNumber("+1234567890")
 {% tab String %}
 `string`値でカスタム属性を設定するには：
 
-```brightscript
+`````````brightscript
 m.Braze.setCustomAttribute("stringAttribute", "stringValue")
 ```
 {% endtab %}
@@ -86,7 +86,7 @@ m.Braze.setCustomAttribute("stringAttribute", "stringValue")
 {% tab Integer %}
 `integer`値でカスタム属性を設定するには：
 
-```brightscript
+`````````brightscript
 m.Braze.setCustomAttribute("intAttribute", 5)
 ```
 {% endtab %}
@@ -94,7 +94,7 @@ m.Braze.setCustomAttribute("intAttribute", 5)
 {% tab Floating-points %}
 Brazeは、`float`と`double`の値をまったく同じように扱います。いずれかの値でカスタム属性を設定するには：
 
-```brightscript
+`````````brightscript
 m.Braze.setCustomAttribute("floatAttribute", 3.5)
 ```
 {% endtab %}
@@ -102,7 +102,7 @@ m.Braze.setCustomAttribute("floatAttribute", 3.5)
 {% tab Boolean %}
 `boolean`値でカスタム属性を設定するには：
 
-```brightscript
+`````````brightscript
 m.Braze.setCustomAttribute("boolAttribute", true)
 ```
 {% endtab %}
@@ -110,7 +110,7 @@ m.Braze.setCustomAttribute("boolAttribute", true)
 {% tab Date %}
 `date`値でカスタム属性を設定するには：
 
-```brightscript
+`````````brightscript
 dateAttribute = CreateObject("roDateTime")
 dateAttribute.fromISO8601String("1992-11-29 00:00:00.000")
 m.Braze.setCustomAttribute("dateAttribute", dateAttribute)
@@ -120,7 +120,7 @@ m.Braze.setCustomAttribute("dateAttribute", dateAttribute)
 {% tab Array %}
 `array`値でカスタム属性を設定するには：
 
-```brightscript
+`````````brightscript
 stringArray = createObject("roArray", 3, true)
 stringArray.Push("string1")
 stringArray.Push("string2")
@@ -138,7 +138,7 @@ m.Braze.setCustomAttribute("arrayAttribute", stringArray)
 
 このコードは、カスタム属性のインクリメントの例です。カスタム属性の値は、正または負の整数値でインクリメントできます。
 
-```brightscript
+`````````brightscript
 m.Braze.incrementCustomUserAttribute("intAttribute", 3)
 ```
 
@@ -146,7 +146,7 @@ m.Braze.incrementCustomUserAttribute("intAttribute", 3)
 
 カスタム属性を解除するには、`unsetCustomAttribute`メソッドに関連する属性キーを渡します。
 
-```brightscript
+`````````brightscript
 m.Braze.unsetCustomAttribute("attributeName")
 ```
 
@@ -171,6 +171,6 @@ SDKから、ユーザーに対して以下のメールのサブスクリプシ�
 
 メールのサブスクリプションステータスを設定するメソッドは`setEmailSubscriptionState()`です。ユーザーは、有効なメールアドレスを受信すると自動的に`Subscribed`に設定されます。ただし、明示的なオプトインのプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OptedIn`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)を参照してください。
 
-```brightscript
+`````````brightscript
 m.Braze.setEmailSubscriptionState(BrazeConstants().SUBSCRIPTION_STATES.OPTED_IN)
 ```

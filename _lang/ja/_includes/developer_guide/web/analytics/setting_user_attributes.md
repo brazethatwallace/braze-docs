@@ -220,7 +220,7 @@ braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | 配信登録済み、かつ明示的にオプトイン済み |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | 購読中、ただし明示的にオプトインしていない |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | 配信停止済みまたは明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーサブスクリプションの設定" }
 
 ユーザーがプッシュに登録されると、ブラウザは通知を許可するかブロックするかの選択を求めます。プッシュを許可することを選択した場合、デフォルトで`OPTED_IN`に設定されます。
 

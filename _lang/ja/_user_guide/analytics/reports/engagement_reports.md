@@ -32,11 +32,11 @@ tool:
 
 ## 新しいレポートの作成 {#creating-a-new-report}
 
-### ステップ 1:レポートを作成する {#step-1-create-a-report}
+### ステップ 1: レポートを作成する {#step-1-create-a-report}
 
 ダッシュボードアカウントで、**Analytics** > **Engagement Reports** に移動します。**+ Create New Report** を選択します。
 
-### ステップ 2:メッセージを追加する {#step-2-add-messages}
+### ステップ 2: メッセージを追加する {#step-2-add-messages}
 
 レポートにまとめたいCampaignsおよびCanvasメッセージを追加します。メッセージの選択方法は2つあります。
 
@@ -57,7 +57,7 @@ tool:
 レポートを生成するには、タグが少なくとも1つのCampaignまたはCanvasに一致する必要があります。**特定のルールに基づいてCampaignsとCanvasesを自動的に選択**を使用してエラーが表示された場合は、少なくとも1つのCampaignまたはCanvasがタグやその他のフィルターに一致していることを確認してください（例えば、リストされたすべてのタグを必要とする場合、一致するすべてのメッセージがすべてのタグを持っている必要があります）。
 {% endalert %}
 
-### ステップ 3:統計を追加する {#add-statistics-to-your-reports}
+### ステップ 3: 統計を追加する {#add-statistics-to-your-reports}
 
 **統計を追加**ステップでは、選択したCampaignsまたはCanvasesの種類に応じた統計が表示されます。例えば、メールメッセージを選択した場合、関連するメール統計のみが表示されます。メールとプッシュの組み合わせを選択した場合、それら2つのチャネルの統計が表示されます。
 
@@ -77,9 +77,9 @@ tool:
 | アプリ内メッセージ | インプレッション数、クリック数、第1ボタンクリック数、第2ボタンクリック数 |
 | Webhook | 送信数、エラー数 |
 | SMS | 送信数、キャリアへの送信数、確認済み配信数、配信失敗数、拒否数 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 3: 統計を追加する #add-statistics-to-your-reports" }
 
-### ステップ 4:レポート設定を完了する {#step-4-complete-report-setup}
+### ステップ 4: レポート設定を完了する {#step-4-complete-report-setup}
 
 レポートに名前を付け、レポートのフォーマットを選択し、受信者を選択します。デフォルトでは、エンゲージメントレポートはZIPファイルとして送信され、データはカンマ区切り（各データがカンマで区切られる）です。
 
@@ -119,11 +119,11 @@ tool:
 
 ![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
-### ステップ 5:確認して起動する {#step-5-review-and-launch}
+### ステップ 5: 確認して起動する {#step-5-review-and-launch}
 
 レポート設定の最終ステップでは、設定したオプションの読み取り専用の概要が表示されます。レポートを確認し、問題がなければ **Launch Report** を選択します。
 
-### ステップ 6:メールを確認する {#step-6-check-your-email}
+### ステップ 6: メールを確認する {#step-6-check-your-email}
 
 選択した時間またはスケジュールに従って、レポートへのリンクが記載されたメールが届きます。**これらのリンクはレポート送信後1時間で期限切れになります。**提供されたリンクを選択すると、CSVファイルを含むZIPファイルが自動的にダウンロードされます（すべてのCampaigns用に1つ）。
 
@@ -140,7 +140,7 @@ tool:
 スプレッドシートで合計が正しくない場合は、エクスポートの追加フィルターをクリアしてください。日次の行を合計して、同じ期間のCanvasまたはCampaignの合計と照合できます。
 
 {% alert note %}
-日次、週次、またはその他の定期的なバケットではなく、CampaignまたはCanvas全体で集計された行を取得したい場合は、**Data Display**を**Show Data by Entire Campaign or Canvas**に設定してください。行数や日付がCSVで正しくない場合は、[CampaignまたはCanvas全体でデータを表示する](#show-data-by-entire-campaign-or-canvas)を参照してください。
+日次、週次、またはその他の定期的なバケットではなく、CampaignまたはCanvas全体で集計された行を取得したい場合は、**Data Display** を **Show Data by Entire Campaign or Canvas** に設定してください。行数や日付がCSVで正しくない場合は、[CampaignまたはCanvas全体でデータを表示する](#show-data-by-entire-campaign-or-canvas)を参照してください。
 {% endalert %}
 
 #### HTMLアプリ内メッセージでのボタンクリックの重複 {#duplicate-button-clicks-in-html-in-app-messages}

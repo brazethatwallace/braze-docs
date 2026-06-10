@@ -28,13 +28,13 @@ Aproveite os ricos dados de comportamento da Snowplow para promover interações
 
 ## Pré-requisitos {#prerequisites}
 
-| Requisito             | Descrição                                                                                                                                                                                                                                                                              |
+| Requisito | Descrição |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pipeline da Snowplow       | Você precisa de um pipeline da Snowplow em funcionamento.                                                                                                                                                                                                                                          |
-| Acesso ao Console da Snowplow | Você deve ter acesso ao Console da Snowplow para configurar os encaminhadores de eventos.                                                                                                                                                                                                                                |
-| Chave da API REST da Braze      | Uma chave da API REST da Braze com as seguintes permissões: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` e `users.alias.update`. <br><br> Você pode criar isso no dashboard da Braze em **Settings** > **API Keys**. |
-| Endpoint REST da Braze     | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância.                                                                                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Pipeline da Snowplow | Você precisa de um pipeline da Snowplow em funcionamento. |
+| Acesso ao Console da Snowplow | Você deve ter acesso ao Console da Snowplow para configurar os encaminhadores de eventos. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` e `users.alias.update`. <br><br> Você pode criar isso no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -55,7 +55,7 @@ Para criar o encaminhador de eventos:
 3. Digite sua chave de API da Braze e o endpoint da API REST.
 4. Salve a conexão.
 
-### Etapa 2: Configurar o encaminhador de eventos {#step-2-configure-the-event-forwarder}
+### Etapa 2: Configure o encaminhador de eventos {#step-2-configure-the-event-forwarder}
 
 Ao configurar o encaminhador, você pode escolher quais eventos da Snowplow serão encaminhados e mapeá-los para os tipos de objetos da Braze:
 
@@ -65,12 +65,12 @@ Ao configurar o encaminhador, você pode escolher quais eventos da Snowplow ser�
 
 Para cada tipo de objeto, você pode configurar mapeamentos de campo para especificar como os dados de eventos da Snowplow são mapeados para os campos da Braze. Consulte a documentação [Creating forwarders](https://docs.snowplow.io/docs/destinations/forwarding-events/creating-forwarders/) da Snowplow para obter instruções detalhadas de configuração e mapeamento de campos.
 
-### Etapa 3: Validar a integração {#step-3-validate-the-integration}
+### Etapa 3: Valide a integração {#step-3-validate-the-integration}
 
 Confirme se os eventos estão chegando à Braze verificando as seguintes páginas em sua conta da Braze:
 
 1. **Criador de consultas**: Na Braze, navegue até **Analytics** > **Query Builder**. Você pode escrever consultas nas tabelas a seguir para ter uma prévia dos dados encaminhados pela Snowplow: `USER_BEHAVIORS_CUSTOMEVENT_SHARED` e `USERS_BEHAVIORS_PURCHASE_SHARED`.
-2. **Dashboard de uso da API**: Na Braze, navegue até **Settings** > **APIs and Identifiers** para ver um gráfico do uso da API ao longo do tempo. Você pode filtrar especificamente pela chave de API que a Snowplow usa e ver os sucessos e as falhas.
+2. **Dashboard de uso da API**: Na Braze, navegue até **Configurações** > **APIs e identificadores** para ver um gráfico do uso da API ao longo do tempo. Você pode filtrar especificamente pela chave de API que a Snowplow usa e ver os sucessos e as falhas.
 
 ## Envio de propriedades personalizadas {#sending-custom-properties}
 

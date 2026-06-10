@@ -27,15 +27,15 @@ description: "この記事では、メッセージでロケールを使用する
 
 | 機能 | 必要なユーザー権限 |
 | --- | --- |
-| メッセージ&nbsp;タイプ | CampaignsおよびCanvasesにロケールと翻訳を追加するには、以下の権限が必要です。<br><br> {::nomarkdown}詳細な権限: <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul> レガシー権限: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
+| メッセージ&nbsp;タイプ | キャンペーンおよびキャンバスにロケールと翻訳を追加するには、以下の権限が必要です。<br><br> <ul><li>Edit キャンペーン</li><li>Edit キャンバス</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件"}
 
 {% endtab %}
 {% tab テンプレート %}
 
 | 機能 | 必要なユーザー権限 |
 | --- | --- |
-| テンプレート | ロケールと翻訳を追加するテンプレートタイプに応じて、以下の権限が必要です。<br><br> {::nomarkdown}詳細な権限: <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul> レガシー権限: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
+| テンプレート | ロケールと翻訳を追加するテンプレートタイプに応じて、以下の権限が必要です。<br><br> <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 {% endtab %}
@@ -43,11 +43,11 @@ description: "この記事では、メッセージでロケールを使用する
 
 ## ロケールの使用 {#use-locales}
 
-### ステップ1: ロケールを設定する {#step-1-set-up-locales}
+### ステップ1:ロケールを設定する {#step-1-set-up-locales}
 
 メッセージに翻訳を追加する前に、まず[サポートするロケールを作成]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/)する必要があります。ロケールは、メッセージングで利用可能な言語（およびオプションで地域）のバリアントを定義します。
 
-### ステップ2: 翻訳するコンテンツをマークする {#step-2-mark-content-for-translation}
+### ステップ2:翻訳するコンテンツをマークする {#step-2-mark-content-for-translation}
 
 翻訳したいテキストをLiquid翻訳タグ {% raw %}`{% translation your_id_here %}`と`{% endtranslation %}`{% endraw %} で囲み、タグIDを割り当てます。翻訳タグIDはメッセージ内で一意である必要があります。テキストを明確に説明するセマンティックなID名の使用を検討してください（例: {% raw %}`{% translation header %}`{% endraw %}）。
 
@@ -131,7 +131,7 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 
 {% enddetails %}
 
-### ステップ3: メッセージにロケールを追加する {#step-3-add-locales-to-your-message}
+### ステップ3:メッセージにロケールを追加する {#step-3-add-locales-to-your-message}
 
 メッセージに翻訳タグを追加した後、エディターで**言語を管理**を選択し（メールおよびContent Blocksのドラッグ＆ドロップエディターでは**言語**）、翻訳を追加するロケールを少なくとも1つ選択します。
 
@@ -149,7 +149,7 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 各Content Blockに、メッセージに追加したすべてのロケールの翻訳が含まれていることを確認してください。Content Blockに追加したロケールの翻訳がない場合、そのロケールのユーザーには元の言語で表示されます。
 {% endalert %}
 
-### ステップ4: 翻訳を追加する {#step-4-add-translations}
+### ステップ4:翻訳を追加する {#step-4-add-translations}
 
 ロケールを選択した後、以下のいずれかの方法でメッセージに翻訳を追加します。
 
@@ -169,21 +169,21 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 {% endtab %}
 {% tab 翻訳APIを使用 %}
 
-パートナー翻訳APIを使用して、CampaignsおよびCanvasesの翻訳を管理・更新します。これは、外部システムでローカライゼーションを行っている場合や、翻訳パートナーと直接接続したい場合に便利です。
+パートナー翻訳APIを使用して、キャンペーンおよびキャンバスの翻訳を管理・更新します。これは、外部システムでローカライゼーションを行っている場合や、翻訳パートナーと直接接続したい場合に便利です。
 
-Canvasesで翻訳エンドポイントを使用するには、以下のパラメーターを含めてください。
+キャンバスで翻訳エンドポイントを使用するには、以下のパラメーターを含めてください。
   - `workflow_id`
   - `step_id`
   - `message_variation_id`
 
 {% alert note %}
-Canvasの起動後に作成されたキャンバスステップで翻訳APIを使用する場合、APIに渡す`message_variation_id`は空またはブランクになります。
+キャンバスの起動後に作成されたキャンバスステップで翻訳APIを使用する場合、APIに渡す`message_variation_id`は空またはブランクになります。
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ5: 翻訳をプレビューする {#step-5-preview-translations}
+### ステップ5:翻訳をプレビューする {#step-5-preview-translations}
 
 メッセージをプレビューするには、**ユーザーとしてプレビュー**ドロップダウンから**多言語ユーザー**オプションを選択します。これにより、異なるロケール定義を切り替えて、メッセージのすべての翻訳をプレビューできます。
 
@@ -191,9 +191,9 @@ Canvasの起動後に作成されたキャンバスステップで翻訳APIを�
 
 ## 翻訳の管理 {#manage-translations}
 
-### Canvasステップまたはキャンペーンの複製と翻訳 {#duplicate-canvas-steps-or-campaigns-and-translations}
+### キャンバスステップまたはキャンペーンの複製と翻訳 {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-Canvasステップ、Campaign、またはバリアントを複製すると、翻訳も含まれます。これはワークスペース間のコピーでも同様で、コピー先のワークスペースにロケールが定義されている場合に適用されます。CanvasまたはCampaignに変更を加える際は、翻訳を確認し、必要に応じて更新してください。
+キャンバスステップ、キャンペーン、またはバリアントを複製すると、翻訳も含まれます。これはワークスペース間のコピーでも同様で、コピー先のワークスペースにロケールが定義されている場合に適用されます。キャンバスまたはキャンペーンに変更を加える際は、翻訳を確認し、必要に応じて更新してください。
 
 ### Content Blocksに翻訳を保存する {#save-translations-in-content-blocks}
 

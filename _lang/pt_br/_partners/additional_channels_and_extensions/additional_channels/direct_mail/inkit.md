@@ -36,7 +36,7 @@ Na plataforma da Inkit, crie um modelo para ser usado na sua Campaign da Braze e
 
 ### Etapa 2: crie seu modelo de webhook da Braze {#step-2-create-your-braze-webhook-template}
 
-Para criar um modelo de webhook da Inkit a ser usado em futuras Campaigns ou Canvas, navegue até **Modelos** > **Modelos de webhook** na plataforma Braze.
+Para criar um modelo de webhook da Inkit a ser usado em futuras Campaigns ou Canvas, acesse **Conteúdo** > **Webhook** na plataforma Braze. Em seguida, selecione **Create webhook template**.
 
 Se você quiser criar uma Campaign única de webhook da Inkit ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova Campaign.
 

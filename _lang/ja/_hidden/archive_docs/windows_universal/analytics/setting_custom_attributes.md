@@ -43,39 +43,39 @@ Appboy.SharedInstance.AppboyUser.FirstName = "User's First Name"
 
 {% tabs %}
 {% tab Boolean %}
-```csharp
+`````````csharp
 bool SetCustomAttribute(STRING_KEY, BOOL_VALUE);
 ```
 {% endtab %}
 {% tab Integer %}
-```csharp
+`````````csharp
 bool SetCustomAttribute(STRING_KEY, INT_VALUE);
 ```
 {% endtab %}
 {% tab Double or Float %}
-```csharp
+`````````csharp
 bool SetCustomAttribute(STRING_KEY, DOUBLE_VALUE);
 ```
 Brazeでは、FLOAT値とDOUBLE値がデータベースでまったく同じように処理されます。
 {% endtab %}
 {% tab String %}
-```csharp
+`````````csharp
 bool SetCustomAttribute(STRING_KEY, "STRING_VALUE");
 ```
 {% endtab %}
 {% tab Long %}
-```csharp
+`````````csharp
 bool SetCustomAttribute(STRING_KEY, LONG_VALUE);
 ```
 {% endtab %}
 {% tab Date %}
-```csharp
+`````````csharp
 bool SetCustomAttribute(STRING_KEY, "DATE_VALUE");
 ```
 >  Brazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（例: `2013-07-16T19:20:30+01:00`）または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式（例: `2016-12-14T13:32:31.601-0800`）のいずれかである必要があります。
 {% endtab %}
 {% tab Array %}
-```csharp
+`````````csharp
 // Setting a custom attribute with an array value
 Appboy.SharedInstance.EventLogger.SetCustomAttributeArray("custom_attribute_array_test", testSetArray);
 // Adding to a custom attribute with an array value
@@ -90,7 +90,7 @@ Appboy.SharedInstance.EventLogger.RemoveFromCustomAttributeArray("custom_attribu
 
 このコードは、インクリメントカスタム属性の例です。カスタム属性の値は、正または負の整数値でインクリメントできます。
 
-```csharp
+`````````csharp
 bool IncrementCustomAttribute(STRING_KEY, INCREMENT_INTEGER_VALUE);
 ```
 
@@ -98,7 +98,7 @@ bool IncrementCustomAttribute(STRING_KEY, INCREMENT_INTEGER_VALUE);
 
 カスタム属性は、次のメソッドを使用して設定を解除することもできます。
 
-```csharp
+`````````csharp
 bool UnsetCustomAttribute(STRING_KEY);
 ```
 
