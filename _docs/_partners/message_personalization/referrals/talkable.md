@@ -46,23 +46,23 @@ Before you start, you need the following:
 | A Braze REST endpoint | Your Braze REST endpoint URL (for example, `https://rest.iad-01.braze.com`). Both US (`.com`) and EU (`.eu`) Braze clusters are supported. For more information, see [REST API endpoints]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integrating Talkable
+## Integration
 
 ### Step 1: Install the Braze app in Talkable
 
 1. Sign in to your Talkable admin and open the menu, then go to **All Site Settings** > **App Store**.
-2. Locate **Braze** and click **Install**.
-3. Enter your Braze REST endpoint and a REST API key with `users.track` permissions, then click **Save**.
+2. Locate **Braze** and select **Install**.
+3. Enter your Braze REST endpoint and a REST API key with `users.track` permissions, then select **Save**.
 
 ### Step 2: Configure the email opt-in action
 
 1. In the Talkable Braze app, open the **Email opt-in** action.
 2. (Optional) Enter a Braze subscription group identifier, add custom attributes, and/or configure a user alias. For more information, see [Customizing Talkable](#customizing-talkable).
-3. Click **Save**. Leave the action disabled so you can verify the configuration with a test payload before any live opt-in events start syncing.
+3. Select **Save**. Leave the action disabled so you can verify the configuration with a test payload before any live opt-in events start syncing.
 
 ### Step 3: Test with a sample payload
 
-1. In Talkable, click **Send sample payload** on the **Email opt-in** action to send a test request to Braze.
+1. In Talkable, select **Send sample payload** on the **Email opt-in** action to send a test request to Braze.
 2. In Braze, go to **Audience** > **User Search** and search by the test email address.
 3. Confirm the profile exists with **Email Subscribe** set to **Opted In** and that any custom attributes, subscription group enrollment, or user alias you configured appear as expected.
 
@@ -87,7 +87,7 @@ On every opt-in event, Talkable creates or updates the matching Braze user profi
 | User alias | Not applicable | Added only when a user alias is configured. For more information, see [Customizing Talkable](#customizing-talkable). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default user attributes sent to Braze" }
 
-## Customizing Talkable
+## Customize Talkable
 
 The following optional customizations are available. Configure any combination; they are independent.
 
@@ -100,7 +100,7 @@ Talkable enrolls each opt-in in that subscription group as subscribed, scoping r
 
 ### Send custom attributes
 
-Add any key/value pair to the action's payload editor. The key you enter becomes the attribute name on the Braze user profile.
+Add any key-value pair to the action's payload editor. The key you enter becomes the attribute name on the Braze user profile.
 
 Values are Liquid-templated. The following variables are available:
 
@@ -133,13 +133,13 @@ Both alias fields are required. If only one of `alias_name` or `alias_label` is 
 * When a user alias is configured, Braze matches on that alias as well and creates a new aliased profile if no match exists.
 * External IDs are not used by this integration. To attach Talkable opt-ins to an existing externally identified profile, configure a user alias whose label matches that profile's known alias.
 
-## Using Talkable with Braze
+## Use Talkable with Braze
 
 ### Find a synced user
 
 Go to **Audience** > **User Search** and search by email to view a profile Talkable created or updated.
 
-Standard fields (email, phone, first/last name) and any custom attributes you configured appear on the profile; **Email Subscribe** shows **Opted In**.
+Standard fields (email, phone, first name, or last name) and any custom attributes you configured appear on the profile; **Email Subscribe** shows **Opted In**.
 
 ### Build a referral segment
 
@@ -163,14 +163,14 @@ Standard fields (email, phone, first/last name) and any custom attributes you co
 
 ## Troubleshooting
 
-| Symptom | Likely cause | Fix |
+| Error | Likely cause | Fix |
 | --- | --- | --- |
 | 401 Unauthorized | REST API key is missing the `users.track` permissions, or the endpoint points to the wrong cluster. | Re-issue the key with the `users.track` permissions and confirm the REST endpoint matches your Braze cluster. |
 | REST endpoint rejected at install | The URL is not a Braze REST endpoint. | Use your cluster's REST endpoint, for example `https://rest.iad-01.braze.com`. A dashboard URL does not work. |
 | Profile created but not in a subscription group | No subscription group ID configured. | Enter the subscription group ID on the **Email opt-in** action. |
 | User alias not applied | Only one of the two alias fields (name or label) is filled in. | Enter both fields on the action: alias name and alias label. |
-| Profile not appearing | Sample request not yet sent, or the action is disabled. | Click **Send sample payload** in Talkable and ensure the **Email opt-in** action is enabled. |
-| Requests stopped sending after a key rotation | The stored API key was revoked or replaced in Braze. | In the Talkable **App Store**, open the Braze app, paste the new REST API key, and click **Save**; re-test with **Send sample payload**. |
+| Profile not appearing | Sample request not yet sent, or the action is disabled. | Select **Send sample payload** in Talkable and ensure the **Email opt-in** action is enabled. |
+| Requests stopped sending after a key rotation | The stored API key was revoked or replaced in Braze. | In the Talkable **App Store**, open the Braze app, paste the new REST API key, and select **Save**; re-test with **Send sample payload**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }
 
 For more information about the Talkable integration, see the [Talkable Braze integration documentation](https://docs.talkable.com/email_marketing_and_automation/braze/). To contact Talkable support, email [support@talkable.com](mailto:support@talkable.com).
