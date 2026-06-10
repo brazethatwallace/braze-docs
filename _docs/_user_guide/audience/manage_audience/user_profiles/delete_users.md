@@ -90,7 +90,7 @@ You have 7 days to cancel pending segment deletions. To cancel, go to **Audience
 
 ![The 'Delete Users' tab in the 'Manage Audience' section of the Braze dashboard.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-Next to a pending segment deletion, select <i class="fa-solid fa-eye"></i> **View** to open the deletion record details.
+Next to a pending segment deletion, select <i class="fa-solid fa-eye"></i> **View details** to open the deletion record details.
 
 ![A pending segment deletion on the 'Delete Users' tab.]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -134,7 +134,7 @@ On this page, you can find the following general information for all current and
 | Status | Shows whether the deletion request is pending, in progress, or complete. |  
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
 
-For more details about a specific request, select <i class="fa-solid fa-eye"></i> **View** to show the deletion record details. Here you can also [cancel pending segment deletions](#cancel).
+For more details about a specific request, select <i class="fa-solid fa-eye"></i> **View details** to show the deletion record details. Here you can also [cancel pending segment deletions](#cancel).
 
 ![A pending segment deletion on the 'Delete Users' tab.]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
