@@ -225,7 +225,7 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 
 If you have a notification from your site visible in your Android notification drawer:
 
-1. From the push notification, tap <i class="fas fa-cog" title="Settings"></i> **Settings** and select **Site settings**.
+1. From the push notification, select <i class="fas fa-cog" title="Settings"></i> **Settings** and select **Site settings**.
 2. From **Site settings**, tap **Clear & Reset**.
 
 If you don't have a notification from your site open:
