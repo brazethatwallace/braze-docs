@@ -283,4 +283,6 @@ For a campaign with a single scheduled send, **Last sent** matches the launch ti
 
 ### Why does a stopped historical campaign no longer show metrics on the **Analytics** page?
 
-If a campaign was stopped more than 90 days ago, interaction data may have expired and metrics may no longer appear on the **Analytics** page. Select **Restore interaction data** on the campaign to view metrics again. For more information, see [Messaging interaction data]({{site.baseurl}}/messaging_interaction_data/).
+The **Analytics** tab defaults to the last 90 days. If the campaign last sent outside that window, metrics can show as zero until you expand the date range on the **Analytics** page. For more information, see [Campaign analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Restore interaction data** applies to retargeting filters and user interaction history—not to **Analytics** metrics. For more information, see [Messaging interaction data]({{site.baseurl}}/messaging_interaction_data/).
