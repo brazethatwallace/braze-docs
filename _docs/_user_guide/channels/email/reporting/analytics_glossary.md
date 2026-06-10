@@ -428,7 +428,7 @@ Braze does not include a built-in "View this email in a browser" feature. Host t
 
 ### Custom unsubscribe page updates
 
-Changes to your [custom unsubscribe page]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) typically appear within a few minutes. Live sends use a short-lived cache of the page that's refreshed when you save changes.
+Changes to your [custom unsubscribe page]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) appear within a few minutes. Live sends use a short-lived cache of the page that's refreshed when you save changes.
 
 ### Over-quota and full mailbox bounces
 
