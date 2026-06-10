@@ -24,7 +24,7 @@ When you upgrade React, React Native, or the Braze SDK, review the SDK [CHANGELO
 
 ### Prerequisites
 
-To integrate the SDK, React Native version 0.71 or later is required. For the full list of supported versions, see our [React Native SDK GitHub repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+For supported React Native versions and upgrade guidance, see [React and React Native version requirements](#react-and-react-native-version-requirements).
 
 ### Step 1: Integrate the Braze library
 
