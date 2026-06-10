@@ -76,7 +76,7 @@ By default, the test looks for associations between user’s custom events and t
 
 The relationships between custom events and message preferences are displayed in the table on the **Initial Send** tab.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Custom Event Data tables for Variant 1 and Variant 2 showing custom event impact scores that indicate how each event influences variant preference.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 If the test can't find a meaningful relationship between custom events and path preferences, the test falls back to a session-based analysis method, and no custom event data tables are shown.
 
@@ -117,7 +117,7 @@ The three cards on this page show your projected lift, overall results, and the 
 
 The table on this page shows the metrics for each variant from the Personalized Variant send. Your **Audience %** adds up to the percentage of the target segment you reserved for the Personalized Variant group.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Personalized Variant send results table showing performance metrics for Variant A, Variant B, and All Variations, including audience percentage, sends, deliveries, opens, clicks, and conversions.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -171,34 +171,34 @@ For triggered in-app message campaigns that include delayed displays, control gr
 
 One multivariate and A/B test can (and should!) inspire ideas for future tests, as well as guide you toward changes in your messaging strategy. Possible follow-up actions include the following:
 
-#### Change your messaging strategy based on test results
+### Change your messaging strategy based on test results
 
 Your multivariate results may lead you to change the way you word or format your messaging.
 
-#### Change the way you understand your users
+### Change the way you understand your users
 
 Each test will shed light on your users' behaviors, how users respond to different messaging channels, and the differences (and similarities) among your segments.
 
-#### Improve the way you structure future tests
+### Improve the way you structure future tests
 
 Was your sample size too small? Were the differences between your variants too subtle? Each test provides an opportunity to learn how to improve future tests. If your confidence is low, your sample size is too small and should be enlarged for future tests. If you find no clear difference between how your variants performed, it's possible that the differences were too subtle to have a discernible effect on users' responses.
 
-#### Run a follow-up test with a larger sample size
+### Run a follow-up test with a larger sample size
 
 Larger samples will increase the chances of detecting small differences between variants.
 
-#### Run a follow-up test using a different messaging channel
+### Run a follow-up test using a different messaging channel
 
 If you find that a particular strategy is very effective in one channel, you may want to test that strategy in other channels. If one type of message is effective in one channel but not effective in another, you may be able to conclude that certain channels are more conducive to certain types of messages. Or, perhaps there is a difference between users who are more likely to enable push notifications and those who are more likely to pay attention to in-app messages. Ultimately, running this sort of test will help you learn about how your audience interacts with your different communication channels.
 
-#### Run a follow-up test on a different segment of users
+### Run a follow-up test on a different segment of users
 
 To do this, create another test with the same messaging channel and variants, but choose a different segment of users. For instance, if one type of messaging was extremely effective for engaged users, it may be useful to investigate its effect on lapsed users. It's possible that the lapsed users will respond similarly, or they may prefer another one of the other variants. This test will help you learn more about your different segments and how they respond to different types of messages. Why make assumptions about your segments when you can base your strategy on data?
 
-#### Run a follow-up test based on insights from a previous test
+### Run a follow-up test based on insights from a previous test
 
 Use the insights you gather from past tests to guide your future ones. Does a previous test hint at one messaging technique being more effective? Are you unsure about what specific aspect of a variant made it better? Running follow-up tests based on these questions will help you generate insightful findings about your users.
 
-#### Compare the long-term impact of different variants
+### Compare the long-term impact of different variants
 
 If you're A/B testing re-engagement messages, don't forget to compare the long-term impact of different variants using [Retention Reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/). You can use Retention Reports to analyze how each variant impacted any user behavior of your choice days, weeks, a month after message receipt, and see if there is uplift.
