@@ -14,7 +14,7 @@ search_tag: Partner
 
 _This integration is managed by DinMo._
 
-The Braze and DinMo integration pushes segments and data models from your warehouse into Braze through the Braze REST API. After you connect a destination in DinMo, activate models or segments to sync user profiles, track custom events and purchases, update subscription group membership, and export audience lists as Braze user attributes.
+The Braze and DinMo integration pushes segments and data models from your warehouse into Braze through the Braze REST API. Once you connect a Braze destination in DinMo, activations send data from your models or segments to Braze.
 
 ## Prerequisites
 
@@ -28,6 +28,8 @@ The Braze and DinMo integration pushes segments and data models from your wareho
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
+
+With this integration, you can:
 
 * Sync user attributes from your warehouse into Braze to personalize campaigns and Canvases.
 * Send custom events and purchase events from warehouse data into Braze for behavioral targeting.
