@@ -12,19 +12,22 @@ module Tags
       end
       def render(context)
           tabs = super.scan(/data\-tab=\"(.*?)\"/)
-          tabslist = '<ul class="ab-nav ab-nav-tabs ' + @tabclass + '_ul" id="' + @tabid + '_nav">' + "\n"
+          tabslist = '<ul role="tablist" class="ab-nav ab-nav-tabs ' + @tabclass + '_ul" id="' + @tabid + '_nav">' + "\n"
           if tabs.length > 0
             tabs.each_with_index do |tab, ind|
               itemid = (0...12).map { (97 + rand(26)).chr }.join
               tabslug = tab[0].gsub(/[^0-9a-z]/i, '')
               tabslug = Digest::MD5.hexdigest(tab[0]) if tabslug.empty?
 
+              tab_aria_selected = ind == 0 ? 'true' : 'false'
+              tab_tabindex      = ind == 0 ? '0'    : '-1'
+
               # scan returns array of results, only care about first match
-              tabslist += '    <li tabindex="0" id="mt_' + itemid + '" class="coderow ' + tabslug
+              tabslist += '    <li role="presentation" id="mt_' + itemid + '" class="coderow ' + tabslug
               if ind == 0
                 tabslist += ' active'
               end
-              tabslist += '"><a class="' + @tabclass + '" data-tab-target="' + @tabid + '" data-tab="' + tabslug + '">' + tab[0] + '</a></li>' + "\n"
+              tabslist += '"><a role="tab" tabindex="' + tab_tabindex + '" aria-selected="' + tab_aria_selected + '" class="' + @tabclass + '" data-tab-target="' + @tabid + '" data-tab="' + tabslug + '">' + tab[0] + '</a></li>' + "\n"
             end
           end
           tabslist += '</ul>'  + "\n"
@@ -58,7 +61,7 @@ module Tags
           tabslug = @tab.gsub(/[^0-9a-z]/i, '')
           tabslug = Digest::MD5.hexdigest(@tab) if tabslug.empty?
 
-          return '<div id="mc_' + contentid + '" class="ab-tab-pane ' + tabslug + '_tab " data-tab="' + @tab + '">' + content + "</div>"
+          return '<div id="mc_' + contentid + '" role="tabpanel" tabindex="0" class="ab-tab-pane ' + tabslug + '_tab " data-tab="' + @tab + '">' + content + "</div>"
       end
     end
 
@@ -73,7 +76,7 @@ module Tags
       end
       def render(context)
           tabs = super.scan(/data\-sub\_tab=\"(.*?)\"/)
-          tabslist = '<ul class="ab-sub_nav ab-sub_nav-sub_tabs ' + @tabclass + '_ul" id="' + @tabid + '_nav">' + "\n"
+          tabslist = '<ul role="tablist" class="ab-sub_nav ab-sub_nav-sub_tabs ' + @tabclass + '_ul" id="' + @tabid + '_nav">' + "\n"
           if tabs.length > 0
             tabs.each_with_index do |tab, ind|
               itemid = (0...12).map { (97 + rand(26)).chr }.join
@@ -81,12 +84,15 @@ module Tags
               tabslug = tab[0].gsub(/[^0-9a-z]/i, '')
               tabslug = Digest::MD5.hexdigest(tab[0]) if tabslug.empty?
 
+              tab_aria_selected = ind == 0 ? 'true' : 'false'
+              tab_tabindex      = ind == 0 ? '0'    : '-1'
+
               # scan returns array of results, only care about first match
-              tabslist += '    <li tabindex="0" id="st_' + itemid + '" class="coderow ' + tabslug + '_sub_tab'
+              tabslist += '    <li role="presentation" id="st_' + itemid + '" class="coderow ' + tabslug + '_sub_tab'
               if ind == 0
                 tabslist += ' sub_active'
               end
-              tabslist += '"><a class="' + @tabclass + '" data-sub_tab-target="' + @tabid + '" data-sub_tab="' + tabslug + '_sub_tab">' + tab[0] + '</a></li>' + "\n"
+              tabslist += '"><a role="tab" tabindex="' + tab_tabindex + '" aria-selected="' + tab_aria_selected + '" class="' + @tabclass + '" data-sub_tab-target="' + @tabid + '" data-sub_tab="' + tabslug + '_sub_tab">' + tab[0] + '</a></li>' + "\n"
             end
           end
           tabslist += '</ul>'  + "\n"
@@ -120,7 +126,7 @@ module Tags
           tabslug = @tab.gsub(/[^0-9a-z]/i, '')
           tabslug = Digest::MD5.hexdigest(@tab) if tabslug.empty?
 
-          return '<div id="sc_' + contentid + '" class="ab-sub_tab-pane ' + tabslug + '_sub_tab " data-sub_tab="' + @tab + '">' + content + "</div>"
+          return '<div id="sc_' + contentid + '" role="tabpanel" tabindex="0" class="ab-sub_tab-pane ' + tabslug + '_sub_tab " data-sub_tab="' + @tab + '">' + content + "</div>"
       end
     end
 end

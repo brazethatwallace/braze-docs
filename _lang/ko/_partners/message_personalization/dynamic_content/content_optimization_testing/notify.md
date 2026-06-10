@@ -22,7 +22,7 @@ Braze와 Notify 통합을 통해 마케터는 다양한 플랫폼에서 효과�
 | Braze REST API 키 | `users.export.segment` 및 `campaigns.trigger.send` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | CNAME 구성 | Notify가 메시징에 대한 사용자 참여를 추적하여 모델에 추가 정보를 제공할 수 있도록 이메일에 사용되는 추적 픽셀을 위한 하위 도메인을 생성해야 합니다. 하위 도메인 URL을 생성한 후 Notify와 공유하세요. |
 | 데이터베이스 옵트인 내보내기 | 지난 1년(12개월)간의 Campaign 및 구매 데이터를 Notify에 전송합니다. 이 내보내기는 Notify 예측 모델을 학습시키는 데 사용됩니다. <br><br> **필드:** <br><br> **이메일:** 이메일의 SHA256 해시로, 소문자로 변환하고 앞뒤 공백을 제거한 것입니다.<br><br>**Segment:** 활동 수준(활성 또는 비활성)을 정의하는 세그먼트 정보입니다.<br><br>**하위 세그먼트:** 구매 활동 수준 등 기타 관련 활동 정보입니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

@@ -15,12 +15,6 @@ page_order: 1
 ## Step 1: Connect your Shopify store
 
 1. In Braze, go to **Partner Integrations** > **Technology Partners** and then search for “Shopify”.
-
-{% alert note %}
-If you’re using the older navigation, you can find **Technology Partners** under **Integrations**.
-{% endalert %}
-
-{: start="2"}
 2. On the Shopify partner page, select **Begin setup** to start the integration process.<br><br>![Shopify integration page with button to begin setup.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br> 
 3. In the Shopify app store, install the Braze application.<br><br>![The Braze app store page with a button to install the application.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
@@ -164,6 +158,16 @@ After the metafield is created, populate it for your customers. We recommend the
 
 - **Listen to customer creation webhooks:** Set up a webhook to listen for [`customer/create` events](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). This allows you to write the metafield when a new customer is created.
 - **Backfill existing customers:** Use the [Admin API](https://shopify.dev/docs/api/admin-graphql) or [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) to backfill the metafield for previously created customers.
+
+#### Potential race condition
+
+The Shopify `customers/create` webhook may fire before the `braze.external_id` metafield is written to the user profile. When this happens:
+
+1. If the metafield is missing, Braze calls the configured endpoint (Step 4.2) to fetch the external ID.
+2. If that call also fails or times out, Braze creates a temporary user profile with the Shopify customer ID as the external ID.
+3. On any subsequent event where the metafield is present (such as `customers/update` or `orders/create` for an `ecommerce.order_placed` event), Braze automatically detects the mismatch and merges the temporary profile with the correct external ID.
+
+This means temporary duplicate profiles are possible but self-correct automatically. You do not need to take manual action to merge these profiles.
 
 ### Step 4.2: Create an endpoint to retrieve your external ID
 

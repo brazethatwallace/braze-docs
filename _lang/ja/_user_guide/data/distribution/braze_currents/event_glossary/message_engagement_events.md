@@ -29,7 +29,7 @@ lazy_partner_tabs: true
 
 ### イベントの構造 {#event-structure}
 
-このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報のタイプを示します。開発者とビジネスインテリジェンス戦略チームは、構成要素をしっかり理解したうえで、受信したCurrentsイベントデータを使用してデータドリブン型のレポートやグラフを作成したり、その他の貴重なデータ指標を活用したりすることができます。
+このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報のタイプを示しています。開発者とビジネスインテリジェンス戦略チームは、構成要素をしっかり理解したうえで、受信したCurrentsイベントデータを使用してデータドリブン型のレポートやグラフを作成したり、その他の貴重なデータ指標を活用したりすることができます。
 
 ![メッセージエンゲージメントイベントの内訳。メール配信停止イベントを示し、リストされたプロパティはユーザー固有のプロパティ、Campaignまたはキャンバストラッキングプロパティ、イベント固有のプロパティごとにグループ化されている。]({% image_buster /assets/img/message_engagement_event.png %})
 
@@ -91,7 +91,7 @@ lazy_partner_tabs: true
 Agent
 {% endapitags %}
 
-これは、エージェントコンソールのエージェントが実行された際の Kafka レコードスキーマです。
+これは、エージェントコンソールのエージェントが実行された際のKafkaレコードスキーマです。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -187,7 +187,7 @@ Agent
 Agent
 {% endapitags %}
 
-これは、ツールが実行された際の Kafka レコードスキーマです。ツールとは、目的を達成するために LLM に提供される関数です。
+これは、ツールが実行された際のKafkaレコードスキーマです。ツールとは、目的を達成するためにLLMに提供される関数です。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -626,23 +626,23 @@ Subscription
 
 #### プロパティの詳細 {#property-details}
 
-- `state_change_source` は、完全なソース名の文字列を返します。例えば、ソースが CSV インポートの場合、文字列 `CSV Import` が返されます。利用可能なソースを以下に示します。
+- `state_change_source` は、完全なソース名の文字列を返します。例えば、ソースがCSVインポートの場合、文字列 `CSV Import` が返されます。利用可能なソースを以下に示します。
 
 | ソース | 説明 |
 | --- | --- |
-| SDK | SDK エンドポイント |
+| SDK | SDKエンドポイント |
 | ダッシュボード | ユーザーのサブスクリプション状態がダッシュボードの**ユーザープロファイル**ページから更新された場合 |
 | サブスクリプションページ | ユーザー設定センター以外のメールリンクを介してユーザーが配信停止した場合 |
-| REST API | REST API エンドポイント |
-| CSV インポート | CSVユーザーインポート |
+| REST API | REST APIエンドポイント |
+| CSVインポート | CSVユーザーインポート |
 | ユーザー設定センター | ユーザー設定センターからユーザーが更新された場合 |
-| 受信メッセージ | SMS などのチャネルを経由するエンドユーザーからのインバウンドメッセージによってユーザーが更新された場合 |
+| 受信メッセージ | SMSなどのチャネルを経由するエンドユーザーからのインバウンドメッセージによってユーザーが更新された場合 |
 | 移行 | 内部移行または保守スクリプトによってユーザーが更新された場合 |
 | ユーザーマージ | ユーザーのマージプロセスによってユーザーが更新された場合 |
 | キャンバスユーザー更新ステップ | キャンバスユーザー更新ステップによってユーザーが更新された場合 |
 | プッシュトークン登録 | トークン登録プロセスによってユーザーが更新された場合 |
-| リスト配信停止 | ユーザーがBrazeの mailto またはワンクリックリスト配信停止ヘッダーを使用して配信停止した場合 |
-| その他 | デモまたはプロバイダーの同期ジョブ、SMS および WhatsApp イベントコールバックなど、その他のソースが含まれます |
+| リスト配信停止 | ユーザーがBrazeのmailtoまたはワンクリックリスト配信停止ヘッダーを使用して配信停止した場合 |
+| その他 | デモまたはプロバイダーの同期ジョブ、SMSおよびWhatsAppイベントコールバックなど、その他のソースが含まれます |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="プロパティの詳細" }
 
 
@@ -658,7 +658,7 @@ Subscription
 このイベントは、サブスクリプショングループ内のユーザーのサブスクリプション状態が変化したときに発生します。
 
 {% alert important %}
-サブスクリプショングループは、現時点ではメール、SMS、RCS、WhatsApp チャネルでのみ利用可能です。
+サブスクリプショングループは、現時点ではメール、SMS、RCS、WhatsAppチャネルでのみ利用可能です。
 {% endalert %}
 
 {% tabs %}
@@ -2428,7 +2428,7 @@ Canvas, Entry
 Canvas, Progression
 {% endapitags %}
 
-このイベントは、ユーザーがCanvasのステップを進み、何らかの結果を得たときに発生します。このイベントは、ステップへの開始時または終了時には発生しないことに注意してください。現在、分岐ステップ（オーディエンスパス、条件分岐、アクションパス、実験）とAdvanceの結果のみがステップ進行イベントを生成します。
+このイベントは、ユーザーがCanvasのステップを何らかの結果を伴って進行したときに発生します。このイベントは、ステップへのエントリ時または退出時には発生しないことに注意してください。現在、分岐ステップ（オーディエンスパス、条件分岐、アクションパス、実験）およびAdvanceの結果のみがステップ進行イベントを生成します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -4021,7 +4021,7 @@ Abort, Content Cards
 
 #### プロパティの詳細
 
-- `dispatch_id` は、特定のメッセージ配信（Campaign送信など）の ID です。同じディスパッチから発生するすべてのプッシュイベントは、同じ `dispatch_id` を含みます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、Campaign送信などの特定のメッセージ配信の ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 - `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 Content Card messages every 1 week`
@@ -5578,7 +5578,7 @@ Email, Bounce
 #### プロパティの詳細
 
 - `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -5916,7 +5916,7 @@ Email, Clicks
 #### プロパティの詳細
 
 - `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -7501,13 +7501,12 @@ Email, Sends
 #### プロパティの詳細
 
 - `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 - `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
 
 {% endapi %}
 
 {% api %}
-
 ## メールソフトバウンスイベント {#email-soft-bounce-events}
 
 {% apitags %}
@@ -7756,12 +7755,11 @@ Email, Bounce
 #### プロパティの詳細
 
 - `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 
 {% endapi %}
 
 {% api %}
-
 ## メール配信停止イベント {#email-unsubscribe-events}
 
 {% apitags %}
@@ -7771,7 +7769,7 @@ Email, Subscription
 このイベントは、エンドユーザーがメールの「配信停止」をクリックしたときに発生します。
 
 {% alert important %}
-`Unsubscribe` イベントは、ユーザーがメール内の配信停止リンク（メール本文やフッター内の通常の配信停止リンク、または[list-unsubscribeヘッダー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header)を使用した場合）をクリックした際に発生する特殊なクリックイベントと見なされます。ユーザーの状態が配信停止に変わった時点では発生しません。サブスクリプション状態の変更がAPI経由で送信された場合、またはカスタム（Braze以外の）配信停止リンクで行われた場合、Currentsではメール配信停止イベントはトリガーされません。
+`Unsubscribe` イベントは、ユーザーがメール内の配信停止リンク（メール本文やフッター内の通常の配信停止リンク、または[list-unsubscribeヘッダー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)を使用した場合）をクリックした際に発生する特殊なクリックイベントと見なされます。ユーザーの状態が配信停止に変わった時点では発生しません。サブスクリプション状態の変更がAPI経由で送信された場合、またはカスタム（Braze以外の）配信停止リンクで行われた場合、Currentsではメール配信停止イベントはトリガーされません。
 {% endalert %}
 
 {% tabs %}
@@ -7994,7 +7992,7 @@ Email, Subscription
 #### プロパティの詳細
 
 - `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -11652,7 +11650,7 @@ Push, Opens
 #### プロパティの詳細
 
 - `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して、`ad_id` の送信を有効にしてください。
+- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、アカウントマネージャーに連絡して、`ad_id` の送信を有効にしてください。
 - `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
@@ -12170,7 +12168,7 @@ Push, Sends
 #### プロパティの詳細
 
 - `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して、`ad_id` の送信を有効にしてください。
+- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、アカウントマネージャーに連絡して、`ad_id` の送信を有効にしてください。
 - `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/) を参照してください。
 - `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
@@ -12660,7 +12658,7 @@ RCS, Clicks
 RCS, Delivery
 {% endapitags %}
 
-このイベントは、RCSメッセージがユーザーのモバイル端末に正常に配信されたときに生成されます。
+このイベントは、RCSメッセージがユーザーのモバイルデバイスに正常に配信されたときに生成されます。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13571,7 +13569,7 @@ RCS, Rejection
 RCS, Sends
 {% endapitags %}
 
-このイベントは、Brazeからラストマイル配信パートナーへ RCS メッセージが送信された際に生成されます。
+このイベントは、BrazeからラストマイルデリバリーパートナーへRCSメッセージが送信された際に生成されます。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13805,7 +13803,7 @@ RCS, Sends
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -13816,7 +13814,7 @@ RCS, Sends
 Abort, SMS
 {% endapitags %}
 
-このイベントは、SMS メッセージが Liquid の中止などに基づいて中止された場合に発生します。
+このイベントは、SMSメッセージがLiquidの中止などに基づいて中止された場合に発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14035,10 +14033,10 @@ Abort, SMS
 SMS, Sends
 {% endapitags %}
 
-このイベントは、SMS が通信事業者に送信されたときに発生します。
+このイベントは、SMSが通信事業者に送信されたときに発生します。
 
 {% alert important %}
-`CarrierSend` は、レガシーインフラストラクチャのユーザーに対してのみサポートされます。
+`CarrierSend` は、レガシーインフラストラクチャのユーザーに対してのみサポートされています。
 {% endalert %}
 
 {% tabs %}
@@ -14267,7 +14265,7 @@ SMS, Sends
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -14779,7 +14777,7 @@ SMS, Inbound Received
 
 Brazeがインバウンドメッセージを受信すると、その電話番号を共有するすべてのユーザーにインバウンドメッセージを帰属させます。その結果、Brazeインスタンス内の複数のユーザーが同じ電話番号を共有している場合、インバウンドメッセージごとに複数のイベントを受信する可能性があります。以前にそのユーザーに送信されたメッセージに基づいて特定のユーザーIDへのアトリビューションが必要な場合は、SMS配信イベントを使用して、Brazeの番号から最後にメッセージを受信したユーザーIDにインバウンド受信イベントを帰属させることができます。
 
-BrazeがこのインバウンドメッセージがBrazeから送信されたアウトバウンドのCampaignまたはCanvasコンポーネントへの返信であることを検出した場合、CampaignまたはCanvasのメタデータもイベントに含まれます。Brazeは、インバウンドメッセージをアウトバウンドメッセージから4時間以内に届いた返信として定義します。ただし、Brazeの番号から送信された最後のアウトバウンドSMSメッセージの帰属Campaign情報には1分間のキャッシュがあります。
+BrazeがこのインバウンドメッセージがBrazeから送信されたアウトバウンドのCampaignまたはCanvasコンポーネントへの返信であることを検出した場合、CampaignまたはCanvasのメタデータもイベントに含まれます。Brazeは、インバウンドメッセージをアウトバウンドメッセージから4時間以内に届いた返信として定義します。ただし、最後のアウトバウンドSMSの帰属Campaign情報には1分間のキャッシュがあります。
 
 
 {% tabs %}

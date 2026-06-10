@@ -32,7 +32,7 @@ Braze와 Amperity 통합은 두 플랫폼에 걸쳐 고객에 대한 통합 뷰�
 | Braze 인스턴스 | Braze 인스턴스는 Braze 온보딩 매니저에게 문의하거나 [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints)에서 확인할 수 있습니다. |
 | Braze REST 엔드포인트 | Braze 엔드포인트 URL. 엔드포인트는 Braze 인스턴스에 따라 달라집니다. |
 | Currents 커넥터(선택 사항) | S3 Currents 커넥터. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 데이터 매핑 {#data-mapping}
 

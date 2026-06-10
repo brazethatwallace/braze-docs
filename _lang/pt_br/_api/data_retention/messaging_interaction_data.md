@@ -9,7 +9,7 @@ page_type: reference
 
 # Sobre a disponibilidade dos dados de interação de mensagens {#about-messaging-interaction-data-availability}
 
-> Este artigo aborda informações sobre os dados de interação de Campaigns e Canvas e sua disponibilidade.
+> Saiba mais sobre os dados de interação de mensagens para Campaigns e Canvas, incluindo por quanto tempo a Braze os mantém e quais recursos os utilizam para redirecionamento.
 
 ### O que são dados de interação de mensagens? {#what-is-messaging-interaction-data}
 
@@ -121,4 +121,4 @@ Anteriormente, os dados de interação de mensagens eram excluídos quando uma C
 - Não havia enviado mensagens em 25 meses corridos, E
 - Não era usado para redirecionamento em nenhuma Campaign, Canvas ou Content Cards ativo.
 
-Campaigns e Canvas com dados de interação de mensagens excluídos anteriormente não podem ser usados em filtros de redirecionamento para Campaigns, Canvas e segmentos.
+Campaigns e Canvas com dados de interação de mensagens excluídos anteriormente não podem ser usados em filtros de redirecionamento para Campaigns, Canvas e Segments.

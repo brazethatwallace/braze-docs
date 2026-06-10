@@ -40,12 +40,6 @@ Para criar uma extensão de segmento SQL com atualização completa:
 Para criar uma extensão de segmento SQL com atualização incremental:
 
 1. Acesse **Público** > **Extensões de segmento**.
-
-{% alert note %}
-Se estiver usando a [navegação mais antiga]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/), você pode encontrar essa página em **Engajamento** > **Segments** > **Extensões de segmento**.
-{% endalert %}
-
-{:start="2"}
 2. Selecione **Criar nova extensão** e selecione **Atualização incremental**.<br><br>
    ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Adicione um nome para sua extensão de segmento e insira seu SQL. Consulte a seção [Escrevendo SQL](#writing-sql) para requisitos e recursos.<br><br>
@@ -70,7 +64,7 @@ O gerador de SQL com IA utiliza o [GPT](https://openai.com/gpt-4), desenvolvido 
 Para usar o gerador de SQL com IA, faça o seguinte:
 
 1. Selecione **Launch AI SQL Generator** após criar um [segmento SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/) usando atualização completa ou incremental.
-2. Digite seu prompt e selecione **Generate** para transformar seu prompt em SQL.
+2. Digite seu prompt e selecione **Gerar** para transformar seu prompt em SQL.
 3. Revise o SQL gerado para ter certeza de que está correto e, em seguida, salve o segmento.
 
 #### Exemplos de prompts {#example-prompts}
@@ -148,7 +142,7 @@ No exemplo a seguir, o segmento resultante conteria usuários que realizaram o e
 Os segmentos de atualização incremental levam em conta eventos tardios, que são eventos que ocorreram há mais de dois dias (por exemplo, eventos do SDK que não foram enviados no momento em que foram capturados).
 {% endalert %}
 
-#### Regras adicionais {#additional-rules}
+#### Regras adicionais
 
 Além disso, sua consulta de atualização incremental deve aderir às seguintes regras:
 
@@ -201,7 +195,7 @@ Se você criou um segmento no qual espera que os usuários entrem e saiam regula
 
 ## Gerenciando suas extensões de segmento {#managing-your-segment-extensions}
 
-Na página **Segment Extensions**, os segmentos gerados usando SQL são indicados com <i class="fas fa-code" alt="Extensão de segmento SQL"></i> ao lado do nome.
+Na página **Segment Extensions**, os segmentos gerados usando SQL são indicados com <i class="fas fa-code" alt="SQL Segment Extension"></i> ao lado do nome.
 
 Selecione uma extensão de segmento SQL para visualizar onde a extensão está sendo usada, arquivar a extensão ou [atualizar manualmente a associação do segmento](#refreshing-segment-membership).
 

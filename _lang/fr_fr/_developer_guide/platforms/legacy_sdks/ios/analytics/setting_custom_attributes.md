@@ -253,7 +253,7 @@ Pour configurer un abonnement pour vos utilisateurs (par e-mail ou notification 
 | `ABKOptedin` | Abonné, avec consentement explicite |
 | `ABKSubscribed` | Abonné, sans consentement explicite |
 | `ABKUnsubscribed` | Désabonné ou refus explicite |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuration des abonnements utilisateur" }
 
 Les utilisateurs qui autorisent une application à leur envoyer des notifications push ont par défaut le statut `ABKOptedin`, car iOS exige un consentement explicite.
 

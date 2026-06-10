@@ -31,7 +31,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Ein aktiviertes Braze Connected-Content-Autorisierungs-Token | Siehe den Hinweis unten zu Early Access. |
 | Ein Braze-Canvas-Kontext-Schritt | Siehe den Hinweis unten zu Early Access. |
 | Aktivierter Braze-KI-Agent-Schritt | Siehe den Hinweis unten zu Early Access. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% alert important %}
 Braze Agents, Canvas-Kontext und Connected-Content-Autorisierungs-Token befinden sich alle im Early Access. Wenn Sie diese Lösung nutzen möchten, sprechen Sie mit Ihrem Braze-CSM über die Aktivierung dieser Tools.
@@ -45,7 +45,7 @@ Braze Agents, Canvas-Kontext und Connected-Content-Autorisierungs-Token befinden
 
 So erstellen Sie einen [Fullstory API-Schlüssel](https://developer.fullstory.com/server/authentication/):
 
-1. Navigieren Sie in Fullstory zu **Settings** > **API Keys**.
+1. Navigieren Sie in Fullstory zu **Einstellungen** > **API-Schlüssel**.
 2. Wählen Sie die Berechtigungsstufe **Standard** aus.
 3. Kopieren Sie den Schlüsselwert sofort, da er nur einmal angezeigt wird.
 
@@ -57,7 +57,7 @@ In der Antwort auf diese Anfrage stellt Fullstory eine Session-Profil-ID bereit.
 
 ### 2. Schritt: Connected-Content-Token-Authentifizierung erstellen {#step-2-create-the-connected-content-token-authentication}
 
-1. Navigieren Sie in Braze zu **Settings** > **Workspace Settings** > **Connected Content** > **Add Credential** > **Token Authentication**.
+1. Navigieren Sie in Braze zu **Einstellungen** > **Workspace-Einstellungen** > **Connected Content** > **Zugangsdaten hinzufügen** > **Token-Authentifizierung**.
 2. Benennen Sie die Authentifizierung `fullstory`.
 3. Fügen Sie den Header-Schlüssel „Authorization“ hinzu. Geben Sie den Header-Wert ein, den Fullstory im vorherigen Schritt bereitgestellt hat.
 4. Geben Sie unter **Allowed Domain** den Wert **api.fullstory.com** ein.

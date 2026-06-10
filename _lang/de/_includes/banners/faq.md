@@ -41,11 +41,11 @@ Wenn ein:e Nutzer:in eine neue Sitzung startet oder Banner nach der Aktion aktua
 
 ## Können Nutzer:innen ein Banner schließen? {#can-users-dismiss-a-banner}
 
-{% alert important %}
-Die Möglichkeit, Nutzer:innen ein Banner manuell schließen zu lassen, befindet sich im Early Access. Weitere Details finden Sie unter [Schließverhalten konfigurieren]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior). Wenn Sie am Early Access teilnehmen möchten, kontaktieren Sie Ihren Customer-Success-Manager.
-{% endalert %}
+Ja. Sie können Nutzer:innen erlauben, ein Banner manuell zu schließen, indem Sie das Schließverhalten im Banner-Composer aktivieren. Weitere Details finden Sie unter [Schließverhalten konfigurieren]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior).
 
-Nutzer:innen können Banner nur dann manuell schließen, wenn das Schließverhalten aktiviert ist und Ihr Workspace am Early Access teilnimmt. Wenn das Schließen nicht aktiviert oder für Ihren Workspace nicht verfügbar ist, können Sie die Sichtbarkeit von Bannern steuern, indem Sie die Segment-Berechtigung der Nutzer:innen verwalten. Wenn ein:e Nutzer:in die Targeting-Kriterien für eine Banner-Campaign nicht mehr erfüllt, wird das Banner bei der nächsten Sitzung nicht mehr angezeigt.
+Nutzer:innen können Banner nur dann manuell schließen, wenn das Schließverhalten aktiviert ist. Wenn das Schließen nicht aktiviert ist, können Sie die Sichtbarkeit von Bannern steuern, indem Sie die Segment-Berechtigung der Nutzer:innen verwalten. Wenn ein:e Nutzer:in die Targeting-Kriterien für eine Banner-Campaign nicht mehr erfüllt, wird das Banner bei der nächsten Sitzung nicht mehr angezeigt.
+
+Wenn ein:e Nutzer:in ein Banner schließt, ist diese Person standardmäßig nicht mehr für diese Campaign berechtigt. Um geschlossene Banner erneut anzuzeigen, [konfigurieren Sie die erneute Berechtigung]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility) im Schritt **Delivery Controls** der Campaign. Canvas-Banner-Schritte verwenden stattdessen die Canvas-Wiedereintrittseinstellungen zur Steuerung der erneuten Berechtigung.
 
 {% alert important %}
 [Banner-Schließungen]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) befinden sich derzeit im Early Access. Wenn Sie am Early Access teilnehmen möchten, kontaktieren Sie Ihren Customer-Success-Manager.
@@ -55,7 +55,7 @@ Wenn Sie beispielsweise ein Werbebanner anzeigen, bis ein:e Nutzer:in einen Kauf
 
 ## Kann ich die Analytics von Banner-Campaigns über die Braze-API exportieren? {#can-i-export-banners-campaign-analytics-using-the-braze-api}
 
-Ja. Über den [Endpunkt `/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) können Sie Daten darüber abrufen, wie viele Banner-Campaigns angesehen, angeklickt oder konvertiert wurden.
+Ja. Über den [Endpunkt `/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) können Sie Daten darüber abrufen, wie oft Banner-Campaigns angesehen, angeklickt oder konvertiert wurden.
 
 ## Wann werden Nutzer:innen segmentiert? {#when-are-users-segmented}
 

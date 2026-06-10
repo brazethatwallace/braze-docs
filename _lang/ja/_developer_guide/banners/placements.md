@@ -31,7 +31,7 @@ platform:
 
 ### ステップ2:アプリの配置を更新する {#requestBannersRefresh}
 
-配置は、以下に説明する更新メソッドを呼び出すことで更新できます。これらの配置は、ユーザーのセッションが期限切れになったとき、または`changeUser`メソッドを使用して識別済みユーザーを変更したときに自動的にキャッシュされます。
+配置は、以下に説明する更新メソッドを呼び出すことで更新できます。`subscribeToBannersUpdates`がアクティブな場合、SDKは新しいセッションの開始時および`changeUser`を呼び出したときに、キャッシュされた配置IDを自動的に再パブリッシュします。この自動更新はレート制限トークンを消費しません。
 
 {% alert tip %}
 バナーのダウンロードや表示の遅延を避けるため、できるだけ早く配置を更新してください。
@@ -420,7 +420,7 @@ Banner globalBanner = Braze.getInstance(context).getBanner("global_banner");
 {% endsubtab %}
 
 {% subtab Kotlin %}
-Androidビューを使用している場合は、次のXMLを使用します。
+Android Viewsを使用している場合は、次のXMLを使用します。
 
 ```xml
 <com.braze.ui.banners.BannerView
@@ -709,10 +709,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 ## 非表示を記録する {#log-dismissals}
 
 バナーの非表示は、ユーザーが能動的にバナーを閉じたときに、プログラムで配置からバナーを削除します。一度非表示にすると、そのユーザーに対してバナーは抑制されます。次に配置リストが更新されたとき、ユーザーが対象であれば新しいバナーが返されます。
-
-{% alert important %}
-バナーの非表示は現在、早期アクセス段階です。早期アクセスへの参加に興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
 
 ### 前提条件
 

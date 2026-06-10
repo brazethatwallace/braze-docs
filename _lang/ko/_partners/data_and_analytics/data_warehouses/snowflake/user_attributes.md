@@ -11,15 +11,11 @@ toc_headers: h2
 
 > 이 페이지는 Snowflake의 기본 속성 및 커스텀 속성 뷰에 대한 참조 문서입니다. 기본 속성에 대한 세 가지 뷰와 커스텀 속성에 대한 세 가지 뷰가 있으며, 각각 고유한 성능 고려 사항을 가진 특정 사용 사례를 위해 설계되었습니다.
 
-{% alert important %}
-고객 프로필 속성은 현재 Snowflake 데이터 공유 고객을 대상으로 베타 서비스 중입니다. Snowflake 데이터 공유를 사용 중이며 이 베타에 액세스하려면 고객 성공 매니저 또는 Braze 고객지원에 문의하세요.
-{% endalert %}
-
 ## 대시보드와의 데이터 일치성 {#data-parity-with-the-dashboard}
 
 드문 경우이지만, 이 페이지의 Snowflake 뷰에 있는 기본 및 커스텀 속성 값이 Braze 대시보드의 고객 프로필에 표시되는 내용과 일치하지 않을 수 있습니다.
 
-베타 기간 중에는 불일치가 발생할 수 있습니다. 예를 들어, Snowflake에서 속성이 `NULL`로 표시되지만 대시보드에서는 해당 사용자에 대한 값이 표시될 수 있습니다.
+예를 들어, Snowflake에서 속성이 `NULL`로 표시되지만 대시보드에서는 해당 사용자에 대한 값이 표시될 수 있습니다.
 
 광범위한 불일치가 발견되면 고객 성공 매니저 또는 Braze 고객지원에 문의하세요.
 
@@ -80,7 +76,7 @@ toc_headers: h2
 * **제한 사항:** 데이터가 실시간으로 최신 상태가 아닙니다.
 
 {% alert note %}
-`TIME` 필드는 고객 프로필 업데이트 시간을 나타냅니다. 백필된 데이터의 경우 `TIME`은 백필 시간입니다.
+`TIME` 필드는 고객 프로필 업데이트 시간을 초 단위로 나타내며, `TIME_MS` 필드는 밀리초 단위의 정밀도로 나타냅니다. 백필된 데이터의 경우 `TIME` 및 `TIME_MS` 값은 백필 시간입니다.
 {% endalert %}
 
 ### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` 스키마 {#user_default_attributes_view_shared-schema}
@@ -91,16 +87,17 @@ toc_headers: h2
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
+| `TIMEZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -115,6 +112,7 @@ toc_headers: h2
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
@@ -137,7 +135,7 @@ toc_headers: h2
     * 대규모 데이터셋(예: 1억 명 이상의 사용자)에 대한 쿼리는 수 분이 소요될 수 있습니다.
 
 {% alert note %}
-`TIME` 필드는 고객 프로필 업데이트 시간을 나타냅니다. 백필된 데이터의 경우 `TIME`은 백필 시간입니다.
+`TIME` 필드는 고객 프로필 업데이트 시간을 초 단위로 나타내며, `TIME_MS` 필드는 밀리초 단위의 정밀도로 나타냅니다. 백필된 데이터의 경우 `TIME` 및 `TIME_MS` 값은 백필 시간입니다.
 {% endalert %}
 
 ### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` 스키마 {#user_latest_state_default_attributes_view_shared-schema}
@@ -148,19 +146,20 @@ toc_headers: h2
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
+| `TIMEZONE` | VARCHAR |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 ### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` 스키마 {#user_latest_state_custom_attribute_view_shared-schema}
@@ -170,6 +169,7 @@ toc_headers: h2
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
@@ -190,7 +190,7 @@ toc_headers: h2
 * `EFF_DT`와 `END_DT`는 사용자 속성 상태의 시작과 끝을 나타냅니다.
 
 {% alert note %}
-`TIME` 필드는 고객 프로필 업데이트 시간을 나타냅니다. 백필된 데이터의 경우 `TIME`은 백필 시간입니다.
+`TIME` 필드는 고객 프로필 업데이트 시간을 초 단위로 나타내며, `TIME_MS` 필드는 밀리초 단위의 정밀도로 나타냅니다. 백필된 데이터의 경우 `TIME` 및 `TIME_MS` 값은 백필 시간입니다.
 {% endalert %}
 
 ### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` 스키마 {#user_default_attributes_history_view_shared-schema}
@@ -201,16 +201,17 @@ toc_headers: h2
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
+| `TIMEZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -226,6 +227,7 @@ toc_headers: h2
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |

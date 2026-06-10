@@ -12,7 +12,7 @@ module Tags
       end
       def render(context)
           tabs = super.scan(/data\-sdk\-tab=\"sdk\-(.*?)\"/)
-          tabslist = '<ul class="sdk-ab-nav sdk-ab-nav-tabs ' + @tabclass + '_ul" id="' + @tabid + '_nav">' + "\n"
+          tabslist = '<ul role="tablist" class="sdk-ab-nav sdk-ab-nav-tabs ' + @tabclass + '_ul" id="' + @tabid + '_nav">' + "\n"
           if tabs.length > 0
             tabs.each_with_index do |tab, ind|
               itemid = (0...12).map { (97 + rand(26)).chr }.join
@@ -20,12 +20,15 @@ module Tags
               tabslug = tab[0].gsub(/[^0-9a-z]/i, '')
               tabslug = Digest::MD5.hexdigest(tab[0]) if tabslug.empty?
 
+              tab_aria_selected = ind == 0 ? 'true' : 'false'
+              tab_tabindex      = ind == 0 ? '0'    : '-1'
+
               # scan returns array of results, only care about first match
-              tabslist += '    <li id="sdkt_' + itemid + '" class="sdkrow ' + tabslug
+              tabslist += '    <li role="presentation" id="sdkt_' + itemid + '" class="sdkrow ' + tabslug
               if ind == 0
                 tabslist += ' active'
               end
-              tabslist += '"><a class="' + @tabclass + '" data-sdk-tab-target="' + @tabid + '" data-sdk-tab="' + tabslug + '">' + tab[0] + '</a></li>' + "\n"
+              tabslist += '"><a role="tab" tabindex="' + tab_tabindex + '" aria-selected="' + tab_aria_selected + '" class="' + @tabclass + '" data-sdk-tab-target="' + @tabid + '" data-sdk-tab="' + tabslug + '">' + tab[0] + '</a></li>' + "\n"
             end
           end
           tabslist += '</ul>'  + "\n"
@@ -60,7 +63,7 @@ module Tags
           tabslug = Digest::MD5.hexdigest(@tab) if tabslug.empty?
           content = content.gsub(/<(h[1-6]) id=\"/, '<\1 id="' + tabslug + '_')
 
-          return '<div id="sdkc_' + contentid + '"  class="sdk-ab-tab-pane ' + tabslug + '_tab " data-sdk-tab="sdk-' + @tab + '">' + content + "</div>"
+          return '<div id="sdkc_' + contentid + '" role="tabpanel" tabindex="0" class="sdk-ab-tab-pane ' + tabslug + '_tab " data-sdk-tab="sdk-' + @tab + '">' + content + "</div>"
       end
     end
 
@@ -75,7 +78,7 @@ module Tags
       end
       def render(context)
           tabs = super.scan(/data\-sdk\-sub\_tab=\"(.*?)\"/)
-          tabslist = '<ul class="sdk-ab-sub_nav sdk-ab-sub_nav-sub_tabs ' + @tabclass + '_ul" id="' + @tabid + '_nav">' + "\n"
+          tabslist = '<ul role="tablist" class="sdk-ab-sub_nav sdk-ab-sub_nav-sub_tabs ' + @tabclass + '_ul" id="' + @tabid + '_nav">' + "\n"
 
           if tabs.length > 0
             tabs.each_with_index do |tab, ind|
@@ -84,12 +87,15 @@ module Tags
               tabslug = tab[0].gsub(/[^0-9a-z]/i, '')
               tabslug = Digest::MD5.hexdigest(tab[0]) if tabslug.empty?
 
+              tab_aria_selected = ind == 0 ? 'true' : 'false'
+              tab_tabindex      = ind == 0 ? '0'    : '-1'
+
               # scan returns array of results, only care about first match
-              tabslist += '    <li id="sdkst_' + itemid + '" class="coderow ' + tabslug + '_sub_sdk_tab'
+              tabslist += '    <li role="presentation" id="sdkst_' + itemid + '" class="coderow ' + tabslug + '_sub_sdk_tab'
               if ind == 0
                 tabslist += ' sub_active'
               end
-              tabslist += '"><a class="' + @tabclass + '" data-sdk-sub_tab-target="' + @tabid + '" data-sdk-sub_tab="' + tabslug + '_sub_sdk_tab">' + tab[0] + '</a></li>' + "\n"
+              tabslist += '"><a role="tab" tabindex="' + tab_tabindex + '" aria-selected="' + tab_aria_selected + '" class="' + @tabclass + '" data-sdk-sub_tab-target="' + @tabid + '" data-sdk-sub_tab="' + tabslug + '_sub_sdk_tab">' + tab[0] + '</a></li>' + "\n"
             end
           end
           tabslist += '</ul>'  + "\n"
@@ -123,7 +129,7 @@ module Tags
           tabslug = @tab.gsub(/[^0-9a-z]/i, '')
           tabslug = Digest::MD5.hexdigest(@tab) if tabslug.empty?
 
-          return '<div id="sdksc_' + contentid + '"  class="sdk-ab-sub_tab-pane ' + tabslug + '_sub_sdk_tab " data-sdk-sub_tab="' + @tab + '">' + content + "</div>"
+          return '<div id="sdksc_' + contentid + '" role="tabpanel" tabindex="0" class="sdk-ab-sub_tab-pane ' + tabslug + '_sub_sdk_tab " data-sdk-sub_tab="' + @tab + '">' + content + "</div>"
       end
     end
 end

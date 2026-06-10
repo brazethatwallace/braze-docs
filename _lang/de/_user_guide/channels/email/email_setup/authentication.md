@@ -18,13 +18,13 @@ Für **BIMI** (Brand Indicators for Message Identification) ist keine besondere 
 
 ## Methoden der Authentifizierung {#methods-of-authentication}
 
-### Sender Policy Framework (SPF) {#sender-policy-framework-spf}
+### Sender Policy Framework (SPF) {#spf}
 
 Diese Methode bestätigt, dass die IP-Adresse, von der aus Braze E-Mails versendet, berechtigt ist, in Ihrem Namen E-Mails zu versenden. SPF ist Ihre Basisauthentifizierung und wird durch die Veröffentlichung der Texteinträge in den DNS-Einstellungen erreicht. Der empfangende Server überprüft die DNS-Einträge und stellt fest, ob sie authentisch sind. Diese Methode dient dazu, den E-Mail-Absender zu überprüfen.
 
 Braze richtet Ihren SPF-Eintrag ein, wenn wir Ihre IPs und Domains konfigurieren. Abgesehen vom Hinzufügen der von uns bereitgestellten DNS-Einträge sind keine weiteren Maßnahmen erforderlich.
 
-### Domain Keys Identified Mail (DKIM) {#domain-keys-identified-mail-dkim}
+### Domain Keys Identified Mail (DKIM) {#dkim}
 
 Diese Methode bestätigt, dass Ihre Braze-E-Mail-Versanddomain berechtigt ist, in Ihrem Namen E-Mails zu versenden. Diese Methode dient dazu, die Authentizität des Absenders und die Integrität der Nachricht zu überprüfen. Außerdem werden individuelle kryptografische digitale Signaturen verwendet, damit ISPs sicherstellen können, dass die zugestellte E-Mail mit der von Ihnen gesendeten E-Mail übereinstimmt.
 
@@ -32,7 +32,7 @@ Braze signiert die E-Mail mit Ihrem geheimen Private Key. Die ISPs überprüfen 
 
 Braze richtet Ihren DKIM-Eintrag ein, wenn wir Ihre IPs und Domains konfigurieren. Abgesehen vom Hinzufügen der von uns bereitgestellten DNS-Einträge sind keine weiteren Maßnahmen erforderlich.
 
-### Domain-based Message Authentication, Reporting, and Conformance (DMARC) {#domain-based-message-authentication-reporting-and-conformance-dmarc}
+### Domain-based Message Authentication, Reporting, and Conformance (DMARC) {#dmarc}
 
 [Domain-based Message Authentication, Reporting & Conformance (DMARC)](https://dmarc.org/) ist ein E-Mail-Authentifizierungsprotokoll für E-Mail-Absender, um die Legitimität ihrer E-Mails nachzuweisen. Es stärkt das Vertrauen der Empfänger-Postfächer und fördert die Zustellung von E-Mails. DMARC ermöglicht es E-Mail-Absendern festzulegen, wie mit E-Mails umgegangen werden soll, die nicht über Sender Policy Framework (SPF) oder Domain Keys Identified Mail (DKIM) authentifiziert wurden. Dies wird erreicht, indem überprüft wird, dass sowohl SPF- als auch DKIM-Prüfungen bestanden werden.
 
@@ -68,3 +68,14 @@ Wenn Sie beispielsweise Gmail verwenden, gehen Sie wie folgt vor:
 3. Überprüfen Sie, ob für **DMARC** der Status „PASS“ angezeigt wird.
 
 ![Eine E-Mail, die „PASS“ als DMARC-Wert anzeigt.]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+#### Fehlerbehebung bei DMARC-Fehlschlägen {#troubleshoot-dmarc-failures}
+
+Wenn DMARC für über Braze gesendete Nachrichten **FAIL** anzeigt:
+
+1. Öffnen Sie die Roh-Header oder Authentifizierungsergebnisse einer kürzlich gesendeten Nachricht und prüfen Sie, ob **SPF** und **DKIM** jeweils bestanden werden oder fehlschlagen.
+2. **Alignment:** DMARC wird bestanden, wenn *entweder* SPF *oder* DKIM mit der **From**-Domain übereinstimmt. Alignment bedeutet, dass die **From**-Domain mit der Domain übereinstimmt, die SPF bestanden hat (häufig die **Return-Path**- / Envelope-Domain) *oder* mit der Domain in der DKIM-**d=**-Signatur.
+3. Wenn SPF bestanden wird, DMARC aber fehlschlägt, stimmt die Return-Path-Domain möglicherweise nicht mit Ihrer **From**-Domain überein – überprüfen Sie, ob Ihre [Whitelabel-Versand- und Tracking-Domains]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) mit den Domains übereinstimmen, für die Sie SPF und DKIM veröffentlichen.
+4. Wenn DKIM fehlschlägt, überprüfen Sie, ob die von Braze bereitgestellten DKIM-DNS-Einträge vorhanden und unverändert sind.
+
+Drittanbieter-Checker (z. B. [MXToolbox](https://mxtoolbox.com/dmarc.aspx)) helfen bei der Überprüfung veröffentlichter Einträge. Validieren Sie jedoch immer auch mit einer Live-Nachricht von Braze.

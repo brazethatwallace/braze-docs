@@ -33,7 +33,7 @@ Esta tabla describe las diferencias clave entre los enlaces universales y los v�
 | Propósito                | Vincular fácilmente contenido web y de la aplicación en dispositivos iOS y Android | Vincular a contenido específico de la aplicación |
 | Función               | Dirige a páginas web o contenido de la aplicación según el contexto           | Abre pantallas específicas de la aplicación   |
 | Instalación de la aplicación       | Abre la aplicación si está instalada, de lo contrario abre contenido web | Requiere que la aplicación esté instalada |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How universal links and App Links work" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cómo funcionan los enlaces universales y los App Links" }
 
 ## Casos de uso {#use-cases}
 
@@ -225,15 +225,16 @@ Finalmente, puedes probar tus vínculos profundos. Envíate un enlace a través 
 Los enlaces de seguimiento de clics normalmente se configuran como parte de tu incorporación para correo electrónico. Si esto no se completó durante la incorporación del cliente, ponte en contacto con tu director de cuentas para obtener ayuda.
 {% endalert %}
 
-Nuestros socios de envío de correo electrónico, SendGrid y SparkPost, usan dominios de seguimiento de clics para envolver todos los enlaces e incluir parámetros de URL para el seguimiento de clics en los correos electrónicos de Braze.
+Nuestros socios de envío de correo electrónico usan dominios de seguimiento de clics para envolver todos los enlaces e incluir parámetros de URL para el seguimiento de clics en los correos electrónicos de Braze.
 
 Por ejemplo, un enlace como `https://www.example.com` se convierte en algo como `https://links.email.example.com/uni/wf/click?upn=abcdef123456…`.
 
 Para permitir que los enlaces de correo electrónico con seguimiento de clics funcionen como enlaces universales o App Links, necesitarás realizar alguna configuración adicional. Asegúrate de añadir el dominio de seguimiento de clics (`links.email.example.com`) como un dominio que la aplicación tiene permitido abrir. Además, el dominio de seguimiento de clics debe servir los archivos AASA (iOS) o Digital Asset Links (Android). Esto ayudará a garantizar que los enlaces de correo electrónico con seguimiento de clics funcionen sin problemas.
 
-Si no quieres que cada enlace de seguimiento de clics sea un enlace universal o App Link, puedes especificar qué enlaces deben ser enlaces universales según el socio de envío de correo electrónico. Consulta las siguientes secciones para más detalles.
+Si no quieres que cada enlace de seguimiento de clics sea un enlace universal o App Link, puedes especificar qué enlaces deben ser enlaces universales según el socio de envío de correo electrónico. Consulta las siguientes pestañas para más detalles.
 
-### SendGrid
+{% tabs %}
+{% tab SendGrid %}
 
 Para tratar un enlace de seguimiento de clics de SendGrid como un enlace universal:
 
@@ -255,7 +256,8 @@ Por ejemplo:
 
 Con esta configuración, los enlaces con `/uni/` en la ruta URL funcionarán como enlaces universales, mientras que todos los demás enlaces funcionarán como enlaces web.
 
-### SparkPost
+{% endtab %}
+{% tab SparkPost %}
 
 Para tratar un enlace de seguimiento de clics de SparkPost como un enlace universal, añade el siguiente atributo a la sección de atributos del editor de arrastrar y soltar para correo electrónico, o edita manualmente el HTML del enlace para incluir el siguiente atributo en la etiqueta anchor de tu enlace: `data-msys-sublink="custom_path"`.
 
@@ -268,6 +270,83 @@ Por ejemplo:
 ```
 
 Luego, asegúrate de que tu aplicación está configurada para manejar la ruta personalizada correctamente. Consulta el artículo de SparkPost sobre [Using SparkPost click tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links). Este artículo contiene código de ejemplo para [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) y [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost).
+
+{% endtab %}
+{% tab Amazon SES %}
+
+Usa rutas personalizadas para añadir segmentos de ruta a las URL de seguimiento de clics de correo electrónico. Esto crea patrones de URL predecibles que los sistemas operativos móviles pueden reconocer para enlaces universales y App Links.
+
+Cuando los usuarios tocan enlaces de correo electrónico en dispositivos móviles, las rutas personalizadas te ayudan a controlar si los enlaces se abren en tu aplicación móvil principal, una aplicación especializada o el navegador móvil (por ejemplo, páginas de productos, programas de fidelización, enlaces para cancelar suscripción o páginas legales).
+
+Para tratar un enlace de seguimiento de clics de Amazon SES como un enlace universal o App Link:
+
+1. Añade atributos `ses:custom-path` a tus etiquetas anchor en el HTML del correo electrónico, o añade el atributo en la sección **Attributes** del editor de arrastrar y soltar para correo electrónico. La ruta personalizada se inserta en la URL de seguimiento de clics envuelta.
+
+Por ejemplo:
+
+```html
+<!-- Opens main shopping app -->
+<a href="https://yourstore.com/product" ses:custom-path="shop">Shop Now</a>
+<!-- Opens loyalty app -->
+<a href="https://yourstore.com/rewards" ses:custom-path="rewards">My Rewards</a>
+<!-- Opens specialized app -->
+<a href="https://yourstore.com/limited" ses:custom-path="limited">Limited Edition</a>
+<!-- Stays in browser -->
+<a href="https://yourstore.com/unsubscribe" ses:no-track>Unsubscribe</a>
+```
+
+Asegúrate de que tus rutas personalizadas cumplan con estos requisitos:
+
+- **Formato:** Solo caracteres alfanuméricos, puntos, guiones bajos y guiones
+- **Longitud:** De 1 a 32 caracteres
+- **Distinción entre mayúsculas y minúsculas:** Las rutas distinguen entre mayúsculas y minúsculas para cumplir con los requisitos del SO móvil
+
+{:start="2"}
+2. Confirma que tus URL de seguimiento envueltas incluyen el segmento de ruta personalizada. Los enlaces siguen este formato: `track.yourstore.com/L1/{customPath}/...`
+
+Por ejemplo:
+
+- `track.yourstore.com/L1/shop/...`
+- `track.yourstore.com/L1/rewards/...`
+
+{:start="3"}
+3. Configura tus archivos de asociación de sitio en tu dominio de seguimiento de clics para que las rutas coincidan con `/L1/{customPath}/`.
+
+**iOS (Apple App Site Association):**
+
+```json
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "TEAMID.com.yourcompany.mainapp",
+      "paths": ["/L1/shop/*", "/L1/rewards/*"]
+    }, {
+      "appID": "TEAMID.com.yourcompany.limitedapp",
+      "paths": ["/L1/limited/*"]
+    }]
+  }
+}
+```
+
+**Android (Digital Asset Links):**
+
+```json
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.yourcompany.mainapp",
+    "sha256_cert_fingerprints": ["..."]
+  },
+  "include": ["/L1/shop/*", "/L1/rewards/*"]
+}]
+```
+
+Asegúrate de que tu aplicación está configurada para manejar estos enlaces envueltos. Añade tu dominio de seguimiento de clics a los dominios asociados de tu aplicación (iOS) o a los intent filters (Android), y aloja el archivo AASA o Digital Asset Links en ese dominio como se describió anteriormente en este artículo.
+
+{% endtab %}
+{% endtabs %}
 
 ### Desactivar el seguimiento de clics enlace por enlace {#turning-off-click-tracking-on-a-link-to-link-basis}
 
@@ -343,6 +422,10 @@ Selecciona lo siguiente para el atributo personalizado:
 
 Si tus enlaces universales no funcionan como se espera en tus correos electrónicos, como por ejemplo cuando el destinatario navega desde su aplicación de correo electrónico al navegador web antes de finalmente redirigir a la aplicación, consulta estos consejos para solucionar problemas con la configuración de tu enlace universal.
 
+#### Outlook muestra `[?it=` o texto de URL sin formato en lugar de un botón {#outlook-shows-it-or-raw-url-text-instead-of-a-button}
+
+Outlook puede mostrar texto de llamada a la acción como `[?it=` o imprimir parte del `href` cuando un enlace no usa un esquema de URL válido **`http://` o `https://`**. Los esquemas personalizados, los esquemas faltantes o las URL mal formadas no se tratan como hipervínculos, por lo que el cliente muestra el texto del atributo en su lugar. Confirma que cada botón, enlace de imagen y URL con seguimiento usa un destino completo `https://` (o `http://`). Esto se aplica tanto a los enlaces universales como a los enlaces web estándar.
+
 #### Verifica la ubicación del archivo de enlace {#verify-link-file-location}
 
 Asegúrate de que el archivo AASA (iOS) o el archivo Digital Asset Links (Android) está ubicado en el lugar correcto:
@@ -356,7 +439,7 @@ Es importante asegurarse de que estos archivos siempre sean accesibles públicam
 
 Asegúrate de que tienes las definiciones correctas para los dominios que tu aplicación tiene permitido abrir.
 
-- **iOS:** Revisa los Associated Domains configurados en Xcode para tu aplicación ([paso 1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). Comprueba que el dominio de seguimiento de clics está incluido en esa lista.
+- **iOS:** Revisa los Associated Domains configurados en Xcode para tu aplicación ([Paso 1c: Activa Associated Domains en tu proyecto Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Comprueba que el dominio de seguimiento de clics está incluido en esa lista.
 - **Android:** Abre la página de información de la aplicación (mantén presionado el icono de la aplicación y haz clic en ⓘ). Dentro del menú de información de la aplicación, localiza **Open by default** y tócalo. Esto debería mostrar una pantalla con todos los enlaces verificados que la aplicación tiene permitido abrir. Comprueba que el dominio de seguimiento de clics está incluido en esa lista.
 
 #### El dominio de seguimiento no puede servir archivos .well-known {#tracking-domain-cant-serve-well-known-files}

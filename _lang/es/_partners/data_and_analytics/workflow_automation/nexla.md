@@ -19,9 +19,9 @@ La integración de Braze y Nexla permite a los clientes que utilizan [Currents](
 | Requisito | Descripción |
 |---|---|
 | Cuenta Nexla | Se necesita una [cuenta Nexla](https://www.nexla.com/get-demo) para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Punto de conexión REST de Braze  | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
@@ -36,7 +36,7 @@ Si aún no tienes una cuenta Nexla, visita el [sitio web](https://www.nexla.com)
 ### Paso 2: Añade tu fuente {#step-2-add-your-source}
 
 #### Si Braze es tu origen de datos {#if-braze-is-your-data-source}
-1. En la plataforma Nexla, ve a **Flows > Create a New Flow** en la barra de herramientas de la izquierda.
+1. En la plataforma Nexla, ve a **Flows** > **Create a New Flow** en la barra de herramientas de la izquierda.
 2. Haz clic en **Create New Source**, selecciona el conector de Braze y haz clic en **Next**.
 3. Selecciona **Add a New Credential**, asigna un nombre a la credencial, añade tu clave de API de Braze y el punto de conexión REST, y haz clic en **Save**.
 4. Por último, selecciona tus datos y haz clic en **Save**.

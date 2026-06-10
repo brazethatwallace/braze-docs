@@ -2,7 +2,7 @@
 nav_title: TikTok
 article_title: Sincronização do público do Canvas com o TikTok
 alias: /tiktok_audience_sync/
-description: "Este artigo de referência abordará como usar o Braze Audience Sync no TikTok para fornecer anúncios com base em disparadores comportamentais, segmentação e muito mais."
+description: "Este artigo de referência aborda como usar o Braze Audience Sync com o TikTok para veicular anúncios com base em disparadores comportamentais, segmentação e muito mais."
 tool:
   - Canvas
 page_order: 8
@@ -11,13 +11,13 @@ page_order: 8
 
 # Sincronização do público com o TikTok {#audience-sync-to-tiktok}
 
-Usando o Braze Audience Sync para o TikTok, as marcas podem optar por adicionar dados de usuários de sua própria integração Braze ao TikTok Audiences para fornecer anúncios com base em disparadores comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS, webhook, etc.) em um Canvas da Braze.
+Usando o Braze Audience Sync com o TikTok, as marcas podem optar por adicionar dados de usuários de sua própria integração Braze ao TikTok Audiences para veicular anúncios com base em disparadores comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS, webhook, etc.) em um Canvas da Braze.
 
 **Os casos de uso comuns para a sincronização do público incluem**:
 
 - Direcionamento a usuários de alto valor por meio de vários canais para impulsionar compras ou engajamento
 - Redirecionamento de usuários menos responsivos a outros canais de marketing
-- Criar públicos de supressão para evitar que os usuários recebam anúncios quando já são consumidores fiéis da sua marca
+- Criação de públicos de supressão para evitar que os usuários recebam anúncios quando já são consumidores fiéis da sua marca
 - Criação de públicos Actalike para adquirir novos usuários com mais eficiência
 
 Esse recurso permite que as marcas controlem quais dados primários específicos são compartilhados com o TikTok. Na Braze, as integrações com as quais você pode e não pode compartilhar seus dados primários recebem a máxima consideração. Para saber mais, consulte nossa [política de privacidade](https://www.braze.com/privacy).
@@ -35,8 +35,8 @@ O Braze Audience Sync com o TikTok é uma integração do Audience Sync Pro. Par
 | ----------- | ------ | ----------- |
 | Conta do TikTok for Business Center | [TikTok](https://business.tiktok.com/) | Uma ferramenta centralizada para gerenciar os ativos do TikTok da sua marca (como contas de anúncios, páginas, apps). |
 | Conta de anúncios do TikTok | [TikTok](https://ads.tiktok.com/) | Uma conta ativa de anúncios do TikTok vinculada à conta do Business Center da sua marca.<br><br>Certifique-se de que o administrador do TikTok Business Center tenha concedido a você permissões de administrador para as contas de anúncios do TikTok que você planeja usar com a Braze. |
-| Termos e políticas do TikTok | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Concordar em cumprir todos os termos, políticas, diretrizes e documentação exigidos pelo TikTok relacionados ao seu uso do Pinterest Audience Sync, incluindo quaisquer termos, políticas, diretrizes e documentação incorporados por referência a eles, que podem incluir: os Termos de Serviço Comerciais, os Termos de Publicidade, a Política de Privacidade, os Termos de Público Personalizado, os Termos de Serviço do Desenvolvedor, o Contrato de Compartilhamento de Dados do Desenvolvedor, as Políticas de Publicidade, as Diretrizes da Marca e as Diretrizes da Comunidade. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Termos e políticas do TikTok | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Concordar em cumprir todos os termos, políticas, diretrizes e documentação exigidos pelo TikTok relacionados ao seu uso do Audience Sync, incluindo quaisquer termos, políticas, diretrizes e documentação incorporados por referência, que podem incluir: os Termos de Serviço Comerciais, os Termos de Publicidade, a Política de Privacidade, os Termos de Público Personalizado, os Termos de Serviço do Desenvolvedor, o Contrato de Compartilhamento de Dados do Desenvolvedor, as Políticas de Publicidade, as Diretrizes da Marca e as Diretrizes da Comunidade. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -95,7 +95,7 @@ Ao lançar um Canvas com um novo público, a Braze sincroniza os usuários quase
 {% endtab %}
 {% tab Sincronizar com um público existente %}
 
-**Sincronização com um público existente**<br>
+**Sincronizar com um público existente**<br>
 A Braze também oferece a capacidade de adicionar usuários aos públicos existentes do TikTok para garantir que esses públicos estejam atualizados. Para sincronizar com um público existente, digite o nome do público existente no menu suspenso e selecione **Add to the Audience**. A Braze adicionará usuários quase em tempo real quando eles entrarem na etapa do TikTok Audience.
 
 ![Visualização expandida da etapa do Canvas de público personalizado. Aqui, a conta de anúncios desejada e o público existente são selecionados.]({% image_buster /assets/img/audience_sync/tiktok.png %})
@@ -129,7 +129,7 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | Usuários pendentes | Número de usuários que estão sendo processados pela Braze para sincronização com o TikTok. |
 | Usuários com erro | Número de usuários que não foram sincronizados com o TikTok devido a um erro de API após cerca de 13 horas de tentativas. As possíveis causas de erros podem incluir um token TikTok inválido ou se o público foi excluído no TikTok. |
 | Saíram do Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa de um Canvas é um componente de sincronização do público. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compreensão da análise de dados" }
 
 {% alert important %}
 Lembre-se de que haverá um atraso nos relatórios das métricas de usuários sincronizados e usuários com erro devido à descarga em massa e à nova tentativa de 13 horas, respectivamente.
@@ -161,7 +161,7 @@ Você pode ter até 400 públicos por conta de anúncios do TikTok.
 
 Isso ocorre porque, no TikTok, um ID pode estar associado a vários usuários do TikTok. Isso acontece com mais frequência quando os clientes usam IDs de anúncios móveis (iOS IDFA e Android GAID), porque um dispositivo pode ter vários usuários do TikTok conectados.
 
-Além disso, o TikTok também conta os usuários do Pangle como usuários correspondidos, o que, em alguns casos, pode resultar em uma taxa de correspondência elevada. No entanto, quando se usa o público para a entrega de anúncios, o tamanho real do público entregável pode não ser tão alto quanto o tamanho do usuário correspondente, pois depende do posicionamento e de outros fatores de influência.
+Além disso, o TikTok também conta os usuários do Pangle como usuários correspondidos, o que, em alguns casos, pode resultar em uma taxa de correspondência elevada. No entanto, quando se usa o público para a veiculação de anúncios, o tamanho real do público entregável pode não ser tão alto quanto o tamanho do usuário correspondente, pois depende do posicionamento e de outros fatores de influência.
 
 ### Por que estou recebendo um e-mail com o assunto "O público não existe para o Canvas"? {#why-am-i-receiving-an-email-with-the-subject-audience-does-not-exist-for-canvas}
 

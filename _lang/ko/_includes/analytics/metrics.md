@@ -235,7 +235,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>총 닫기</i> 횟수는 Campaign의 Content Cards가 닫기된 횟수입니다.
+<i>총 닫기</i> 횟수는 Campaign의 Content Cards가 닫힌 횟수입니다.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -251,7 +251,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>고유 클릭 수</i>는 메시지 내의 링크를 최소한 한 번 클릭한 수신자의 고유한 수이며, <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> 에 의해 측정됩니다.
+<i>고유 클릭 수</i>는 메시지 내의 링크를 최소한 한 번 클릭한 수신자의 고유한 수이며, <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 에 의해 측정됩니다.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}

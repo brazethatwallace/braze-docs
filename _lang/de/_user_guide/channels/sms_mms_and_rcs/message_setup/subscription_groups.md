@@ -26,7 +26,7 @@ Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubs
 | --------- | ---------- |
 | Abonniert | Nutzer:in ist für den Empfang von SMS und RCS aus einer bestimmten Abo-Gruppe angemeldet. Eine Nutzer:in kann abonniert werden, indem der Abo-Status über die Braze-Abo-API aktualisiert wird oder indem ein Opt-in-Schlüsselwort per SMS gesendet wird. Eine Nutzer:in muss bei einer SMS- oder RCS-Abo-Gruppe abonniert sein, um SMS, RCS oder beides zu empfangen. Wenn [Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) aktiviert ist, müssen Nutzer:innen ihre Opt-in-Absicht bestätigen, bevor ihr Abo-Status auf `Subscribed` aktualisiert wird. |
 | Abgemeldet | Nutzer:in hat sich ausdrücklich vom Nachrichtenempfang Ihrer SMS- und RCS-Abo-Gruppe und den darin enthaltenen Sendetelefonnummern abgemeldet. Die Abmeldung kann durch Senden eines Opt-out-Schlüsselworts per SMS erfolgen, oder Sie können Nutzer:innen über die [Braze-Abo-API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) abmelden. Nutzer:innen, die von einer SMS- und RCS-Abo-Gruppe abgemeldet sind, erhalten keine SMS oder RCS mehr von Sendetelefonnummern, die zu dieser Abo-Gruppe gehören.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abo-Gruppenstatus" }
 
 ### Status einer Nutzer:in festlegen {#set-a-users-state}
 
@@ -66,6 +66,10 @@ In Übereinstimmung mit internationalen [Telekommunikations-Compliance-Richtlini
 {% endalert %}
 
 ![SMS-Composer mit geöffnetem Abo-Gruppen-Dropdown und „Messaging Service A for SMS“ von der Nutzer:in hervorgehoben.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
+
+## Best Practices für SMS-Abo-Gruppen {#sms-subscription-group-best-practices}
+
+Entwerfen Sie separate SMS-Abo-Gruppen für jeden Nachrichtenzweck (z. B. transaktional versus Marketing) und für jeden Workspace. Wenn Sie in mehreren Ländern tätig sind, sollten Sie separate Gruppen nach Region in Betracht ziehen, um lokale Compliance-Regeln zu unterstützen – beispielsweise die Einschränkungen Brasiliens für werbliche Sendefenster.
 
 ## Abo-Gruppen aktivieren {#enable-subscription-groups}
 
@@ -127,6 +131,7 @@ Braze empfiehlt, zunächst RCS an kleinere Nutzervolumen zu testen und im Laufe 
 Erstellen Sie einen Canvas und geben Sie ihm einen leicht erkennbaren Namen (z. B. „SMS-RCS Abo-Gruppen-Nutzertransfer“). Planen Sie die Campaign dann zu einem für Sie passenden Zeitpunkt.
 
 ### 2. Schritt: Zielgruppe definieren {#step-2-define-your-audience}
+{: #step-2-define-your-audience}
 
 Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann zum Schritt **Sendeeinstellungen** und wählen Sie **Nutzer:innen, die abonniert oder angemeldet sind**.
 
@@ -134,7 +139,7 @@ Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann 
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Segment erstellen** | Erstellen Sie ein Segment, das alle Nutzer:innen in einer Abo-Gruppe oder eine Teilmenge mithilfe von Segmentierungsfiltern enthält (z. B. zufällige 5–10 %). Segmente werden vor jedem Versand aktualisiert, um Ihre aktuelle Nutzerbasis widerzuspiegeln. |
 | **Campaign- oder Canvas-Filter anwenden** | Verfeinern Sie die Zielgruppe im Schritt **Zielgruppe** Ihrer Campaign oder Ihres Canvas. Passen Sie die Targeting-Optionen an, ohne die Seite zu verlassen, für zusätzliche Flexibilität. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Zielgruppe definieren" }
 
 ### 3. Schritt: Nutzeraktualisierung-Schritt konfigurieren {#step-3-configure-a-user-update-step}
 
@@ -177,7 +182,7 @@ Informationen zur Einrichtung von RCS-Absendern und Abo-Gruppen finden Sie auch 
 
 ### Separate Abo-Gruppen festlegen {#designate-separate-subscription-groups}
 
-- **Nachrichtentyp:** Erstellen Sie separate Abo-Gruppen für jeden Nachrichtentyp, z. B. Transaktional und Marketing.
+- **Nachrichtentyp:** Erstellen Sie separate Abo-Gruppen für jeden Nachrichtentyp, z. B. transaktional und Marketing.
 - **Workspace:** Erstellen Sie separate Abo-Gruppen für jeden Workspace, um Klarheit und Organisation zu gewährleisten.
 
 Betrachten Sie das folgende Beispiel mit vier Abo-Gruppen über zwei Workspaces:
@@ -196,5 +201,7 @@ Wählen Sie beschreibende und klare Abo-Gruppennamen, damit beim Erstellen von S
 ### Gruppen nach Land trennen {#separate-groups-by-country}
 
 SMS-Vorschriften variieren je nach Land. Wir empfehlen, SMS-Abo-Gruppen nach Land zu trennen. Dies hilft Ihnen, Compliance-Standards in allen Regionen einzuhalten, in denen Sie Nachrichten versenden.
+
+Für jede Abo-Gruppe können Sie außerdem unter **Geographic Permissions** eine Länder-Allowlist konfigurieren, sodass SMS, MMS und RCS nur an genehmigte Regionen gesendet werden. Weitere Informationen finden Sie unter [Geografische Berechtigungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/).
 
 In Brasilien ist es beispielsweise verboten, Marketing-Nachrichten außerhalb der Zeiten von 9:00 bis 21:00 Uhr Ortszeit zu versenden, und das Land erstreckt sich über drei Zeitzonen. Um diese Vorschriften einzuhalten, könnten Sie separate Gruppen für den Nachrichtenversand nach Brasilien und in die USA einrichten. Dies verhindert, dass Nutzer:innen in Brasilien Marketing-Nachrichten während verbotener Zeiten erhalten.

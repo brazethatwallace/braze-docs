@@ -10,7 +10,7 @@ description: "이 참조 문서에서는 AI 카피라이팅 도우미를 통해 
 
 > 맞춤형 브랜드 가이드라인을 사용하여 브랜드의 목소리, 어조, 개성에 맞게 AI가 생성한 카피의 스타일을 조정하세요.
 
-**설정** > **브랜드 가이드라인**으로 이동하여 브랜드 가이드라인을 만들고 관리할 수 있습니다. [AI 카피라이팅 도우미]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/)에서도 만들 수 있습니다.
+**콘텐츠** > **브랜드 가이드라인**으로 이동하여 브랜드 가이드라인을 만들고 관리할 수 있습니다. [AI 카피라이팅 도우미]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/)에서도 만들 수 있습니다.
 
 ## 브랜드 가이드라인 생성 {#creating-brand-guidelines}
 

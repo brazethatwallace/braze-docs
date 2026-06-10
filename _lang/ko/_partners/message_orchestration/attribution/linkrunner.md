@@ -28,7 +28,7 @@ Braze와 Linkrunner 통합을 사용하면 기여도 데이터를 가져와 어�
 | iOS 또는 Android 앱 | 이 통합은 iOS 및 Android 앱을 지원합니다. 플랫폼에 따라 애플리케이션에 코드 스니펫이 필요할 수 있습니다. |
 | Linkrunner SDK | [Linkrunner SDK](https://docs.linkrunner.io/introduction)를 설치해야 합니다. |
 | Braze SDK | [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/)를 통합해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -66,10 +66,10 @@ try await LinkrunnerSDK.shared.signup(userData: userData)
 
 ### 2단계: Braze에서 API 키 생성 {#step-2-create-api-key-in-braze}
 
-Braze 대시보드에서 **설정** > **설정 및 테스트** > **API 키** > **API 키**로 이동합니다.
+Braze 대시보드에서 **설정** > **설정 및 테스트** > **API 키**로 이동합니다.
 
 1. **API 키 생성**을 선택합니다.
-2. **사용자 데이터**에서 다음 권한을 선택합니다.
+2. **사용자 데이터**에서 다음 권한을 선택합니다:
    - `users.track`
    - `users.export.ids`
 3. API 키를 저장합니다.

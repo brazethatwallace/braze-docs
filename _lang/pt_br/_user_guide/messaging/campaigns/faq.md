@@ -190,6 +190,14 @@ Campaigns disparadas por API permitem que você gerencie o texto da Campaign, te
 
 Campaigns da API são usadas para rastrear as mensagens enviadas usando a API. Diferentemente da maioria das Campaigns, você não especifica a mensagem, os destinatários ou a programação, mas sim passa os identificadores nas suas chamadas de API.
 
+### Como posso confirmar se meus usuários receberam uma Campaign disparada por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+Você pode [criar um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando o filtro **Received Campaign** e selecionar a Campaign disparada por API específica que deseja verificar. Após salvar o segmento, use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para exportar os usuários desse segmento.
+
+### Posso excluir uma Campaign? {#can-i-delete-a-campaign}
+
+Não, mas você pode [arquivar uma Campaign]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### Qual é a diferença entre Campaigns baseadas em ação e Campaigns disparadas por API? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
 <style>
@@ -259,3 +267,7 @@ Vários fatores podem fazer com que o número de envios seja menor do que o tama
 - **Reavaliação do segmento:** Para Campaigns baseadas em ação ou programadas que reavaliam no momento do envio, os usuários que estavam no segmento quando a Campaign foi enfileirada podem não se qualificar mais quando a mensagem é realmente enviada.
 - **Limites de envio:** Um número máximo de usuários (ou limite similar) em **Público-alvo** interrompe a entrega quando o limite é atingido.
 - **Filtros rigorosos de dispositivo ou navegador:** Filtros que correspondem apenas às versões mais recentes de apps ou navegadores reduzem o conjunto alcançável no momento do envio em comparação com uma pré-visualização ampla de segmento.
+
+### Onde estão as perguntas frequentes sobre limite de frequência global? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+Para perguntas sobre dias corridos, push silencioso, webhooks, comportamento do Canvas e tópicos relacionados, consulte as [Perguntas frequentes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) de [Limite de taxa e limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).

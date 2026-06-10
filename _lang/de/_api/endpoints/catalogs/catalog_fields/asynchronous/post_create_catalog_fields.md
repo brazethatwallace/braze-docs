@@ -62,10 +62,18 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     {
       "name": "Created_At",
       "type": "time"
+    },
+    {
+      "name": "Location",
+      "type": "geo"
     }
   ]
 }'
 ```
+
+{% alert note %}
+Sie müssen Geolocation-Feldwerte als `[longitude, latitude]`-Array angeben – zum Beispiel `[-73.988103, 40.779109]`. Der Breitengrad muss zwischen -90 und 90 liegen; der Längengrad muss zwischen -180 und 180 liegen.
+{% endalert %}
 
 ## Antwort {#response}
 

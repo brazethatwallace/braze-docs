@@ -61,7 +61,7 @@ Para mais detalhes, veja [Exemplo de API de array de objetos]({{site.baseurl}}/u
 
 Para remover uma atribuição de perfil, defina-a como `null`. Alguns campos, como `external_id` e `user_alias`, não podem ser removidos depois de serem adicionados a um perfil de usuário.
 
-#### Resolução de identificador {#identifier-resolution}
+### Resolução de identificador {#identifier-resolution}
 
 A menos que você esteja realizando uma [importação de token por push anônimo](#push-token-import), cada objeto de atributos de usuário deve incluir pelo menos um identificador: `external_id`, `user_alias`, `braze_id`, `email` ou `phone`. Sempre que possível, inclua apenas um identificador por objeto para evitar ambiguidade sobre qual perfil de usuário está sendo atualizado ou criado.
 
@@ -111,7 +111,7 @@ Os seguintes tipos de dados podem ser armazenados como um atributo personalizado
 | Tipo de dados | Notas |
 | --- | --- |
 | Matrizes | Há suporte para matrizes de atributos personalizados. Quando você adiciona um elemento, ele é anexado ao final do array. Se o elemento já existir, ele é movido de sua posição atual para o final.<br><br>Apenas valores únicos são armazenados. Por exemplo, importar `['hotdog','hotdog','hotdog','pizza']` resulta em `['hotdog', 'pizza']`.<br><br>Você pode definir um array diretamente (por exemplo, `"my_array_custom_attribute":[ "Value1", "Value2" ]`), adicionar a um array existente com `"my_array_custom_attribute" : { "add" : ["Value3"] }` ou remover valores com `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`.<br><br>O número máximo de elementos padrão em um array é 500. Você pode atualizar o número máximo de arrays no dashboard da Braze, em **Configurações de dados** > **Atributos personalizados**. Para saber mais, consulte [Matrizes]({{site.baseurl}}/developer_guide/analytics/#arrays). |
-| Vetor de objetos | Use um array de objetos para definir uma lista de objetos onde cada objeto contém um conjunto de atributos. Use este tipo para armazenar múltiplos conjuntos de dados relacionados a um usuário, como estadias em hotéis ou preferências. <br><br>Por exemplo, defina um atributo personalizado chamado `hotel_stays` em um perfil de usuário como um array onde cada objeto representa uma estadia separada, com atributos como `hotel_name`, `check_in_date` e `nights_stayed`.<br><br>Arrays de objetos não possuem limite no número de itens, mas têm um tamanho máximo de 100&nbsp;KB. Se uma atualização fizer com que o array exceda esse limite, a Braze descarta a atualização e o atributo permanece inalterado.<br><br>Adicione itens com `$add`, remova itens com `$remove` e atualize itens com `$update`. Para mais detalhes, veja [Exemplo de API de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Exemplo de SDK de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) e [Exemplo de array de objetos](#array-of-objects-example). |
+| Vetor de objetos | Use um array de objetos para definir uma lista de objetos onde cada objeto contém um conjunto de atributos. Use este tipo para armazenar múltiplos conjuntos de dados relacionados a um usuário, como estadias em hotéis, histórico de compras ou preferências. <br><br>Por exemplo, defina um atributo personalizado chamado `hotel_stays` em um perfil de usuário como um array onde cada objeto representa uma estadia separada, com atributos como `hotel_name`, `check_in_date` e `nights_stayed`.<br><br>Arrays de objetos não possuem limite no número de itens, mas têm um tamanho máximo de 100&nbsp;KB. Se uma atualização fizer com que o array exceda esse limite, a Braze descarta a atualização e o atributo permanece inalterado.<br><br>Para solicitações da REST API, adicione itens com `add`, remova itens com `remove` e atualize itens com `update`. Para métodos do SDK, use `$add`, `$remove` e `$update` na carga útil passada ao SDK. Para mais detalhes, veja [Exemplo de API de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Exemplo de SDK de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) e [Exemplo de array de objetos](#array-of-objects-example). |
 | Booleanos | `true` ou `false` |
 | Datas | Devem ser armazenadas no formato [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) ou em qualquer um dos seguintes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Note que "T" é um designador de tempo, não um espaço reservado, e não deve ser alterado ou removido. <br><br>Atributos de tempo sem fuso horário são definidos como meia-noite UTC por padrão (e são formatados no dashboard como o equivalente à meia-noite UTC no fuso horário da empresa). Para especificar um fuso horário, adicione um deslocamento UTC ao timestamp (por exemplo, `2024-11-10T18:00:00-05:00` para EST). Se o deslocamento de fuso horário estiver ausente ou formatado incorretamente, o valor será definido como UTC por padrão. <br><br>Os horários são exibidos no dashboard no fuso horário da sua empresa. Por exemplo, `2024-11-10T18:00:00-05:00` (18:00 EST) apareceria como o horário equivalente no fuso horário configurado da sua empresa. <br><br>Eventos com timestamps no futuro são definidos como o horário atual por padrão. <br><br>Para atributos personalizados regulares, se o ano for menor que 0 ou maior que 3000, a Braze armazena o valor como uma string no perfil do usuário. |
 | Floats | Os atributos personalizados float são números positivos ou negativos com um ponto decimal. Por exemplo, você pode usar floats para armazenar saldos de contas ou classificações de usuários para produtos ou serviços. |
@@ -323,7 +323,23 @@ A Braze verifica uma vez por mês para encontrar qualquer perfil anônimo com a 
 {% endtab %}
 {% endtabs %}
 
-### Importação de tokens por push do Android {#importing-android-push-tokens}
+### Importação de tokens por push do iOS {#import-ios-push-tokens}
+
+Ao migrar tokens por push do iOS com `/users/track`, o campo `gateway` não é definido no token por push. A Braze assume que os tokens importados pela API são tokens de push de primeiro plano válidos, mas não consegue determinar a qual ambiente APNs o token pertence.
+
+Sem o campo gateway, a Braze usa a configuração de ambiente de fallback do seu app ao enviar notificações por push. Isso pode levar a erros `BadDeviceToken` se o ambiente real do token for diferente do fallback configurado. Por exemplo, um token de desenvolvimento enviado pelo gateway de produção falhará.
+
+Para evitar problemas de entrega:
+
+- Certifique-se de que a configuração de ambiente do seu app no dashboard da Braze corresponda aos tokens que você está importando.
+- Para apps de produção, importe apenas tokens de produção.
+- Para ambientes de teste, verifique se tanto a configuração do seu app quanto os tokens importados usam o ambiente de desenvolvimento.
+
+{% alert note %}
+Tokens registrados através do SDK da Braze incluem o campo gateway automaticamente, pois o SDK detecta o ambiente a partir dos entitlements do seu app.
+{% endalert %}
+
+### Importação de tokens por push do Android {#import-android-push-tokens}
 
 {% alert important %}
 A seguinte consideração se aplica apenas para apps Android. Apps iOS não requerem essas etapas porque essa plataforma tem apenas um framework para exibir push, e as notificações por push são renderizadas imediatamente, desde que a Braze tenha os tokens por push e certificados necessários.

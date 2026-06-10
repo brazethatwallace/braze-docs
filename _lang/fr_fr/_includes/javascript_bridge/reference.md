@@ -50,10 +50,6 @@ Les méthodes JavaScript suivantes sont prises en charge dans le code HTML perso
 }
 </style>
 
-{% alert note %}
-Vous ne pouvez pas faire référence à Liquid pour insérer des <code>customAttributes</code> dans les méthodes du pont JavaScript.
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
 ### Suivi des clics de bouton {#button-click-tracking}
@@ -72,7 +68,7 @@ Pour les messages in-app, vous pouvez suivre par programmation « Button 1 », �
 | Button 1 | `brazeBridge.logClick('0')` | Messages in-app uniquement |
 | Button 2 | `brazeBridge.logClick('1')` | Messages in-app uniquement |
 | Suivi personnalisé des boutons | `brazeBridge.logClick('your custom name here')` | Messages in-app uniquement |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button click tracking" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Suivi des clics de bouton" }
 
 Pour les messages in-app, vous pouvez suivre plusieurs événements de clic sur un bouton par impression. Par exemple, pour fermer un message et enregistrer un clic sur Button 2 :
 

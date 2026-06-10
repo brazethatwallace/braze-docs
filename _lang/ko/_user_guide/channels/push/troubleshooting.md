@@ -28,7 +28,7 @@ channel: push
 
 푸시는 가입됨 또는 옵트인한 사용자에게만 발송할 수 있습니다. **고객 프로필** 섹션의 [참여]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) 탭에서 고객 프로필을 확인하여 테스트 중인 워크스페이스에 대해 푸시에 활성 등록되어 있는지 확인하세요. 여러 앱에 등록되어 있는 경우 **Push Registered For** 필드에 목록이 표시됩니다:
 
-![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
+![푸시 등록 대상]({% image_buster /assets/img_archive/trouble1.png %})
 
 Braze 내보내기 엔드포인트를 사용하여 고객 프로필을 내보낼 수도 있습니다:
 - [식별자별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)
@@ -40,9 +40,9 @@ Braze 내보내기 엔드포인트를 사용하여 고객 프로필을 내보낼
 
 타겟팅하는 Segment에 포함되어 있는지 확인하세요(라이브 Campaign이고 테스트가 아닌 경우). **고객 프로필**에서 사용자가 현재 포함된 Segment 목록을 확인할 수 있습니다. 세분화는 실시간으로 업데이트되므로 이 값은 항상 변할 수 있다는 점을 기억하세요.
 
-![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
+![Segment 목록]({% image_buster /assets/img_archive/trouble2.png %})
 
-Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다.
+Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다. **User Lookup**은 `external_id` 또는 `braze_id`만 허용하며, 이메일 주소나 전화번호는 사용할 수 없습니다. 이메일, 전화번호, 푸시 토큰 또는 사용자 별칭으로 검색하려면 [**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)을 사용하세요.
 
 ![검색 필드가 있는 User Lookup 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -52,7 +52,7 @@ Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Seg
 
 대시보드에서 [글로벌 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over)을 확인하여 이를 수행할 수 있습니다. Campaign이 최대 게재빈도 설정 규칙을 따르도록 설정된 경우, 이 설정의 영향을 받는 사용자 수가 표시됩니다.
 
-![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
+![Campaign 세부 정보]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### 사용량 제한 {#rate-limits}
 
@@ -90,7 +90,7 @@ MismatchSenderID는 Firebase Cloud Messaging(FCM)의 인증 실패를 나타냅�
 
 1. 앱의 Firebase 콘솔로 이동하세요.
 2. **Project Overview**에서 **Project Settings**를 선택하세요.
-3. **Cloud Messaging** 탭에서 API 키 아래의 발신자 ID가 Braze의 것과 일치하는지 확인하세요(**Settings** > **App Settings** > **Cloud Messaging API Key**).
+3. **Cloud Messaging** 탭에서 API 키 아래의 발신자 ID가 Braze의 것과 일치하는지 확인하세요(**설정** > **앱 설정** > **Cloud Messaging API Key**).
 
 {% alert warning %}
 Braze 대시보드에서 발신자 ID를 변경하지 마세요. 변경하면 기존 푸시 등록이 무효화됩니다. 발신자 ID가 일치하지 않는 경우, 일치하는 발신자 ID가 있는 Firebase 프로젝트를 찾아야 합니다.
@@ -98,8 +98,8 @@ Braze 대시보드에서 발신자 ID를 변경하지 마세요. 변경하면 �
 
 {:start="4"}
 4. **Project credentials** 아래의 **Server Key**를 복사하세요.
-5. Braze에서 **Settings** > **App Settings**로 이동하여 앱을 선택한 다음, **Cloud Messaging API Key** 필드에 서버 키를 붙여넣으세요(기존 키를 교체).
-6. **Save**를 선택하세요.
+5. Braze에서 **설정** > **앱 설정**으로 이동하여 앱을 선택한 다음, **Cloud Messaging API Key** 필드에 서버 키를 붙여넣으세요(기존 키를 교체).
+6. **저장**을 선택하세요.
 7. 확인을 위해, API 키를 변경하기 전과 후에 앱을 열지 않은 상태에서 기기로 테스트 푸시를 보내세요. 이렇게 하면 새로운 푸시 등록 ID(푸시 토큰)를 생성하지 않아도 사용자가 계속 푸시 알림을 받을 수 있는지 확인할 수 있습니다.
 
 ## 문제 해결 시나리오 {#troubleshooting-scenarios}
@@ -148,7 +148,7 @@ Braze 대시보드에서 발신자 ID를 변경하지 마세요. 변경하면 �
 
 Campaign 또는 캔버스 단계에서 **Open web URL inside mobile app**이 선택되어 있지 않은지 다시 확인하세요. 선택되어 있다면 선택을 해제하고 다시 시작하세요.
 
-![푸시 구성의 "On-click behavior" 필드가 "Open web URL"로 설정되어 있고 "Open web URL inside mobile app"이 선택 해제된 상태.]({% image_buster /assets/img/push_on_click.png %})
+![푸시 구성의 "클릭 시 동작" 필드가 "Open web URL"로 설정되어 있고 "Open web URL inside mobile app"이 선택 해제된 상태.]({% image_buster /assets/img/push_on_click.png %})
 
 클릭 시 동작 "Open web URL"의 기본 상호작용은 SDK 버전에 따라 다릅니다. SDK 버전 iOS 2.29.0 및 Android 2.0.0 이상에서는 이 옵션이 기본적으로 선택되어 있으며 웹 URL이 앱 내 웹뷰에서 열립니다. 이전 버전에서는 이 옵션이 기본적으로 해제되어 있으며 웹 URL이 기기의 기본 웹 브라우저에서 열립니다.
 
@@ -172,6 +172,20 @@ Campaign 또는 캔버스 단계에서 **Open web URL inside mobile app**이 선
 Apple `.p8` 인증 키는 Braze에서 APNs 푸시에 필요한 방식입니다. 레거시 인증서 파일 유형과 달리 `.p8` 키는 만료되지 않으며 단일 키로 모든 앱을 지원하므로, 연간 인증서 갱신이 필요 없고 푸시 전달 실패 위험이 줄어듭니다.
 
 현재 `.p12` 또는 `.pem` 인증서를 사용 중이라면 가능한 한 빨리 `.p8` 키로 마이그레이션하세요. `.p8` 키 생성 및 업로드 방법은 [APNs 푸시 인증서 업로드]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)를 참조하세요. 개발자 계정에서 `.p8` 키를 생성하는 방법에 대한 Apple의 안내는 [인증 토큰을 사용하여 APNs와 통신](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/)을 참조하세요.
+
+### .p8 키와 .p12 인증서 비교 {#p8-keys-versus-p12-certificates}
+
+| 자격 증명 | 만료 | 대시보드 상태 표시기 |
+| --- | --- | --- |
+| `.p8` 인증 키 | 만료되지 않음 | 녹색 상태 표시기 없음(정상) |
+| `.p12` 푸시 인증서 | 매년 만료 | 인증서가 유효할 때 녹색 표시기 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8 키와 .p12 인증서 비교" }
+
+`.p12` 인증서를 `.p8` 키로 교체하거나 새 자격 증명을 업로드하면, Braze가 변경 사항을 처리하는 동안 푸시 전달이 잠시 중단될 수 있습니다. 가능하면 유지보수 기간 동안 업데이트를 계획하세요.
+
+**설정** > **앱 설정** > **푸시 알림 설정**에서 **App Bundle ID**, **Team ID**, **Key ID**(`.p8` 키의 경우)가 Apple Developer 계정의 값과 일치하는지 확인하세요. iOS 앱 **번들 ID**가 동일한 경우 여러 Braze 워크스페이스에서 동일한 Apple 푸시 자격 증명을 사용할 수 있습니다. 자격 증명 환경(개발 대 프로덕션)은 앱이 빌드된 방식과 일치해야 합니다.
+
+[Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) 이상의 앱은 [동적 APNs 게이트웨이 관리]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management)를 사용하여 토큰을 올바른 APNs 환경으로 자동 라우팅할 수 있습니다.
 
 ## 웹 푸시 알림이 예상대로 작동하지 않음 {#web-push-notifications-arent-behaving-as-expected}
 
@@ -210,7 +224,7 @@ table {
 
 Android 알림 서랍에 사이트의 알림이 표시되는 경우:
 
-1. 푸시 알림에서 <i class="fas fa-cog" title="Settings"></i>을 탭하고 **Site settings**를 선택하세요.
+1. 푸시 알림에서 <i class="fas fa-cog" title="설정"></i>을 탭하고 **Site settings**를 선택하세요.
 2. **Site settings**에서 **Clear & Reset**을 탭하세요.
 
 사이트의 알림이 열려 있지 않은 경우:
@@ -229,8 +243,8 @@ Android 알림 서랍에 사이트의 알림이 표시되는 경우:
 
 ### 데스크탑에서 Firefox 재설정 {#reset-firefox-on-desktop}
 
-1. 사이트 URL 옆의 <i class="fa-solid fa-circle-info" alt="info icon"></i> 또는 <i class="fas fa-lock" alt="lock icon"></i>을 선택하세요.
-2. **Permissions**에서 **Receive Notifications** 옆의 <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i>을 선택하여 알림 권한을 지우세요.
+1. 사이트 URL 옆의 <i class="fa-solid fa-circle-info" alt="정보 아이콘"></i> 또는 <i class="fas fa-lock" alt="잠금 아이콘"></i>을 선택하세요.
+2. **Permissions**에서 **Receive Notifications** 옆의 <i class="fa-solid fa-circle-xmark" title="이 권한을 지우고 다시 요청"></i>을 선택하여 알림 권한을 지우세요.
 3. 같은 메뉴에서 **Clear Cookies and Site Data**를 선택하세요.
 4. 선택을 확인하는 대화 상자에서 **OK**를 선택하세요.
 

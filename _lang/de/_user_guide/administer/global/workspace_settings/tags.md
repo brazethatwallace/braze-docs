@@ -22,6 +22,10 @@ Um ein neues Tag zu verschachteln, erstellen Sie ein Tag, wählen Sie **Nest Tag
 
 Um ein vorhandenes Tag zu verschachteln, gehen Sie zur **Tag-Management**-Seite, bewegen Sie den Mauszeiger über eine Zeile mit Ihrem Tag und wählen Sie **<i class="fas fa-pencil-alt"></i>Edit**. Wählen Sie dann **Nest Tag Under** und wählen Sie das übergeordnete Tag aus.
 
+### Übergeordnetes Tag wird verwendet, fehlt aber in **Nest Tag Under** {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
+
+Wenn ein übergeordnetes Tag im Dashboard angewendet wird, aber beim Erstellen eines neuen Tags nicht im Dropdown **Nest Tag Under** erscheint, erstellen Sie das übergeordnete Tag als eigenständiges Tag neu, damit es in der Liste durchsuchbar wird. Dieses Verhalten ist zu erwarten, wenn das übergeordnete Tag nur als verschachtelte Abhängigkeit an anderer Stelle in Ihrem Workspace existiert.
+
 ![Der Dialog für ein neues Tag mit ausgewählter Option „Nest Tag Under“.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
 ## Best Practices {#tags-best-practices}
@@ -37,7 +41,7 @@ table td {
 </style>
 
 
-<table aria-label="Best Practices #tags-best-practices">
+<table aria-label="Best Practices">
   <caption>Best Practices</caption>
 <thead>
   <tr>

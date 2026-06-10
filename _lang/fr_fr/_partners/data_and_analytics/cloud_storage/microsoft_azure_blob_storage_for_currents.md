@@ -25,7 +25,7 @@ L'intégration de Braze et Microsoft Azure Blob Storage vous permet de réexport
 | ----------- | ----------- |
 | Microsoft Azure et compte de stockage Azure | Un compte Microsoft Azure et un compte de stockage Azure sont nécessaires pour tirer parti de ce partenariat. |
 | Currents | Pour exporter des données vers Currents, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. Currents n'est pas requis si vous ne configurez que l'archivage des messages. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -73,7 +73,7 @@ Enfin, faites défiler la page vers le bas et sélectionnez les événements d'e
 
 La configuration suivante définit les informations d'identification utilisées pour :
 1. Les exportations de segments via l'API
-2. Les exportations CSV (campagnes, segments, exportation de données utilisateur Canvas via le tableau de bord)
+2. Les exportations CSV (Campaign, Segment, exportation de données utilisateur Canvas via le tableau de bord)
 3. Les rapports d'engagement
 
 Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** > **Microsoft Azure** et fournissez votre chaîne de connexion, le nom du conteneur de stockage Azure et le préfixe de stockage Azure.
@@ -98,3 +98,11 @@ Les utilisateurs qui ont intégré une solution de stockage de données en nuage
 
 Les exportations Currents utilisent le format Apache Avro (fichiers `.avro`), et non JSON. Cette exigence de format JSON s'applique aux exportations de données du tableau de bord et aux exportations d'API qui utilisent le format JSON.
 {% endalert %}
+
+## FAQ
+
+### Braze peut-il fournir des adresses IP à ajouter à une liste d'autorisation pour Azure Blob Storage ? {#can-braze-provide-ip-addresses-to-allowlist-for-azure-blob-storage}
+
+Braze ne publie pas de liste fixe d'adresses IP autorisées pour les exportations Currents ou les exportations du tableau de bord vers Azure Blob Storage. Braze écrit dans votre conteneur en utilisant la chaîne de connexion et le nom du conteneur que vous fournissez, et Azure contrôle l'accès réseau via les paramètres de votre compte de stockage (par exemple, les règles de pare-feu du compte de stockage ou les endpoints privés).
+
+Si votre équipe de sécurité exige des restrictions basées sur les adresses IP, utilisez les fonctionnalités réseau d'Azure sur votre compte de stockage plutôt qu'une liste d'adresses IP fournie par Braze. Pour les étapes de configuration, consultez la [documentation de Microsoft sur la sécurisation d'Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security).

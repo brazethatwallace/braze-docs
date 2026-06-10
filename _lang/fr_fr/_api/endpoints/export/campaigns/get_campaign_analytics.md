@@ -18,7 +18,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter les ana
 
 Les données renvoyées comprennent le nombre de messages envoyés, ouverts, cliqués ou convertis par canal de communication.
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='campaign' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='campaign' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1 {% endapiref %}
 

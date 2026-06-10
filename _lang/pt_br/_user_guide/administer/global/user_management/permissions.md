@@ -17,30 +17,30 @@ tool: Dashboard
 
 ## Criar um conjunto de permissões {#create-a-permission-set}
 
-Use conjuntos de permissões para agrupar permissões relacionadas a áreas de assunto ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Configurações de permissões** e selecione **Criar conjunto de permissões**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
+Use conjuntos de permissões para agrupar permissões relacionadas a áreas de assunto ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Configurações de permissões** e selecione **Criar conjunto de permissões**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab exemplos de conjuntos de permissões %}
-|Nome|Permissões|
+| Nome | Permissões |
 |-----------|----------------|
-|Desenvolvedores|"View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger".|
-|Profissionais de marketing|"View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents".|
-|Gerenciamento de usuários|"Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams".|
+| Desenvolvedores | "View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger". |
+| Profissionais de marketing | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents". |
+| Gerenciamento de usuários | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo de conjunto de permissões" }
 {% endtab %}
 {% endtabs %}
 
 ## Criar um papel {#creating-a-role}
 
-Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas individuais com controles de acesso ao espaço de trabalho. Isso é especialmente útil se você tem muitas marcas ou espaços de trabalho regionais em um único dashboard. Com papéis, você pode adicionar usuários do dashboard aos espaços de trabalho corretos e conceder diretamente as permissões associadas. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
+Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas individuais com controles de acesso ao espaço de trabalho. Isso é especialmente útil se você tem muitas marcas ou espaços de trabalho regionais em um único dashboard. Com papéis, você pode adicionar usuários do dashboard aos espaços de trabalho corretos e conceder diretamente as permissões associadas. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab exemplos de papéis %}
 | Nome do papel    | Espaço de trabalho | Permissões
 ----------- | ----------- | ---------
 | Profissional de marketing - Marcas de moda | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
-| Profissional de marketing - Marcas de skincare | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers".|
-| Gerenciamento de usuários - Todas as marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams"|
+| Profissional de marketing - Marcas de skincare | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
+| Gerenciamento de usuários - Todas as marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams" |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemplos de papéis" }
 {% endtab %}
 {% endtabs %}
@@ -82,6 +82,17 @@ Os usuários podem encontrar mensagens como "Você precisa da permissão 'View L
 {% alert note %}
 Não é possível mesclar ou importar permissões de usuário de um usuário do dashboard para outro.
 {% endalert %}
+
+## Nuances das permissões de usuário {#nuances-of-user-permissions}
+
+Tenha em mente os seguintes comportamentos ao atribuir acesso ao dashboard:
+
+- **Administrador do espaço de trabalho versus administrador da empresa:** Administradores do espaço de trabalho gerenciam permissões dentro dos espaços de trabalho atribuídos. Administradores da empresa têm autoridade em toda a empresa, incluindo a exclusão de outros usuários do dashboard.
+- **Usuários limitados:** Usuários limitados com a permissão "Edit Dashboard Users" podem gerenciar outros usuários limitados, mas não podem criar ou gerenciar contas de administrador da empresa.
+- **Escopo de gerenciamento de usuários do dashboard:** Na página de detalhes do usuário, as permissões aparecem apenas para os espaços de trabalho que o editor pode acessar. Um usuário limitado que pode editar usuários em um espaço de trabalho pode não ver as caixas de seleção de permissões de outro espaço de trabalho.
+- **Exportar dados de usuários:** A exportação de dados de usuários requer acesso no nível do espaço de trabalho, além da permissão de exportação.
+- **Permissões compostas:** Algumas áreas exigem múltiplas permissões. Por exemplo, configurar [Parceiros de tecnologia]({{site.baseurl}}/partners/) normalmente requer tanto o acesso ao parceiro quanto uma permissão básica de leitura para os recursos relacionados do espaço de trabalho.
+- **Importar e atualizar dados de usuários:** Essa permissão inclui a capacidade de editar perfis de usuários do app por meio de fluxos de importação, não apenas registros de usuários do dashboard.
 
 ## Editar as permissões de um usuário {#edit-a-users-permissions}
 
@@ -355,6 +366,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Ativos da biblioteca de mídia | View Media Library Assets | Visualizar ativos da biblioteca de mídia |
 | Ativos da biblioteca de mídia | Delete Media Library Assets | Excluir permanentemente ativos da biblioteca de mídia |
 | Ativos da biblioteca de mídia | Edit Media Library Assets | Criar e atualizar ativos da biblioteca de mídia |
+| Ativos da biblioteca de mídia | Replace Media Library Assets | Substituir o arquivo de um ativo existente da biblioteca de mídia mantendo a URL e o ID do ativo estáveis |
 | Limites de taxa de envio de mensagens | View Messaging Rate Limits | Visualizar limites de taxa de envio de mensagens no nível do espaço de trabalho |
 | Limites de taxa de envio de mensagens | Edit Messaging Rate Limits | Configurar e editar limites de taxa de envio de mensagens no nível do espaço de trabalho |
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Acessar e usar o BrazeAI Operator para responder perguntas, navegar pela configuração, solucionar problemas e gerar ideias |

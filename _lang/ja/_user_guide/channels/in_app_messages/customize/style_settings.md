@@ -106,7 +106,7 @@ page_order: 1
 
 **メッセージスタイル**タブからメッセージの背景に画像を追加できます。
 
-1. キャンバスエリアで背景コンテナを選択します。これはメッセージのスクロール可能なセクションです。
+1. Canvasエリアで背景コンテナを選択します。これはメッセージのスクロール可能なセクションです。
 2. **メッセージスタイル**タブで、**背景画像**をオンにします。
 3. メディアライブラリから画像を追加するか、画像がホストされているURLを入力します。
 
@@ -118,7 +118,7 @@ page_order: 1
 
 ![Liquidパーソナライゼーションを追加するアイコン。]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
-アプリ内メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を追加するには、エディターツールバーから<i class="fa-solid fa-circle-plus"></i> **Add Personalization**を選択します。ここでは、デフォルト属性、デバイス属性、カスタム属性など、さまざまなパーソナライゼーションタイプを追加できます。
+アプリ内メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を追加するには、エディターツールバーから<i class="fa-solid fa-circle-plus"></i> **パーソナライゼーションを追加**を選択します。ここでは、デフォルト属性、デバイス属性、カスタム属性など、さまざまなパーソナライゼーションタイプを追加できます。
 
 次に、生成されたLiquidスニペットをメッセージに挿入します。アプリ内メッセージのデザインと構築が完了したら、**プレビュー＆テスト**に移動してメッセージをプレビューします。
 
@@ -146,7 +146,7 @@ page_order: 1
 
 ![スタイルをコピーするオプションのドロップダウンメニュー。]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. 要素を選択した状態で、プロパティパネル名の横にある<i class="fas fa-paintbrush" title="スタイルのコピーまたは貼り付け"></i>を選択します（たとえば、ボタンを選択している場合は「Button properties」の横）。
+1. 要素を選択した状態で、プロパティパネル名の横にある<i class="fas fa-paintbrush" title="スタイルのコピーまたは貼り付け"></i>を選択します（たとえば、ボタンを選択している場合は「ボタンプロパティ」の横）。
 2. **スタイルをコピー**をクリックし、コピーしたスタイルを適用する要素を選択します。
 3. <i class="fas fa-paintbrush" title="スタイルのコピーまたは貼り付け"></i>を再度選択し、**スタイルを貼り付け**を選択します。
 
@@ -158,4 +158,4 @@ page_order: 1
 | ------------ | ---------------------------------------------- | ------------------------------------------------- |
 | スタイルをコピー | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
 | スタイルを貼り付け | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="キーボードショートカット" }
