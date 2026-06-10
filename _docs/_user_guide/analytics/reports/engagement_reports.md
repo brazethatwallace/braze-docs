@@ -153,4 +153,7 @@ If links in a scheduled engagement report email don't open correctly in your mai
 
 1. Forward the report to a Gmail inbox and open the links in Google Chrome.
 2. In the engagement report settings, confirm **Report Schedule** is configured to send when you expect (for example, immediately after the report is generated rather than on a delayed schedule).
-3. If your workspace sends email through SendGrid, confirm link shortening is enabled in your SendGrid account settings so long URLs aren't truncated by the mail client.
+
+{% alert note %}
+Engagement report notification emails are sent through Braze's email system, not your workspace email configuration. Settings in your workspace email service provider (ESP) don't apply to these emails.
+{% endalert %}
