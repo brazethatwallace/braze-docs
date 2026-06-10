@@ -32,7 +32,7 @@ Brazeには、ユーザーに属性を割り当てるメソッドが用意され
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.firstName = "first_name"
 ```
 
@@ -61,14 +61,14 @@ Brazeでは、デフォルトユーザー属性以外にも、複数の異なる
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 [[Appboy sharedInstance].user setCustomAttributeWithKey:@"your_attribute_key" andStringValue:"your_attribute_value"];
 ```
 
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", andStringValue: "your_attribute_value")
 ```
 
@@ -80,14 +80,14 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 [[Appboy sharedInstance].user setCustomAttributeWithKey:@"your_attribute_key" andIntegerValue:yourIntegerValue];
 ```
 
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", andIntegerValue: yourIntegerValue)
 ```
 
@@ -101,14 +101,14 @@ Brazeでは、データベース内での`float`値と`double`値の扱いが同
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 [[Appboy sharedInstance].user setCustomAttributeWithKey:@"your_attribute_key" andDoubleValue:yourDoubleValue];
 ```
 
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", andDoubleValue: yourDoubleValue)
 ```
 
@@ -120,14 +120,14 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 [[Appboy sharedInstance].user setCustomAttributeWithKey:@"your_attribute_key" andBOOLValue:yourBOOLValue];
 ```
 
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", andBOOLValue: yourBoolValue)
 ```
 
@@ -141,14 +141,14 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 [[Appboy sharedInstance].user setCustomAttributeWithKey:@"your_attribute_key" andDateValue:yourDateValue];
 ```
 
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", andDateValue:yourDateValue)
 ```
 
@@ -163,7 +163,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 // Setting a custom attribute with an array value
 [[Appboy sharedInstance].user setCustomAttributeArrayWithKey:@"array_name" array:@[@"value1",  @"value2"]];
 // Adding to a custom attribute with an array value
@@ -177,7 +177,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 // Setting a custom attribute with an array value
 Appboy.sharedInstance()?.user.setCustomAttributeArrayWithKey("array_name", array: ["value1",  "value2"])
 // Adding to a custom attribute with an array value
@@ -196,14 +196,14 @@ Appboy.sharedInstance()?.user.removeFromCustomAttributeArrayWithKey("array_name"
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 [[Appboy sharedInstance].user unsetCustomAttributeWithKey:@"your_attribute_key"];
 ```
 
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.unsetCustomAttributeWithKey("your_attribute_key")
 ```
 
@@ -217,14 +217,14 @@ Appboy.sharedInstance()?.user.unsetCustomAttributeWithKey("your_attribute_key")
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 [[Appboy sharedInstance].user incrementCustomUserAttribute:@"your_attribute_key" by:incrementIntegerValue];
 ```
 
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key", by: incrementIntegerValue)
 ```
 
@@ -253,7 +253,7 @@ REST APIを使用してユーザー属性を設定することもできます。
 | `ABKOptedin` | 配信登録済み、かつ明示的にオプトイン済み |
 | `ABKSubscribed` | 購読中、ただし明示的にオプトインされていない |
 | `ABKUnsubscribed` | 配信停止済みまたは明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" aria-label="ユーザーサブスクリプションの設定" }
 
 アプリにプッシュ通知の送信を許可するユーザーは、iOSでは明示的なオプトインが必要であるため、デフォルトでステータスが`ABKOptedin`に設定されます。
 
@@ -264,14 +264,14 @@ REST APIを使用してユーザー属性を設定することもできます。
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 [[Appboy sharedInstance].user setEmailNotificationSubscriptionType: ABKNotificationSubscriptionType]
 ```
 
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.setEmailNotificationSubscriptionType(ABKNotificationSubscriptionType)
 ```
 
@@ -283,14 +283,14 @@ Appboy.sharedInstance()?.user.setEmailNotificationSubscriptionType(ABKNotificati
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 [[Appboy sharedInstance].user setPushNotificationSubscriptionType: ABKNotificationSubscriptionType]
 ```
 
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificationSubscriptionType)
 ```
 

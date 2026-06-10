@@ -348,7 +348,7 @@ Geräte mit Android 12 werden aufgrund von Änderungen bei den angepassten Push-
 
 Wenn Sie eine Android-Push-Nachricht erstellen, ist diese Funktion im Dropdown-Menü **Notification Type** verfügbar.
 
-![Der Push-Campaign-Editor zeigt die Position des Dropdown-Menüs „Notification Type“ (oberhalb der Standard-Push-Vorschau).]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![Der Push-Campaign-Editor zeigt die Position des Dropdown-Menüs „Notification Type“ oberhalb der Standard-Push-Vorschau.]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
 ## Einstellungen {#settings}
 
@@ -358,11 +358,11 @@ Für Android-Push-Benachrichtigungen, die über das Braze-Dashboard versendet we
 
 ### Benachrichtigungs-ID {#notification-id}
 
-Eine **Notification ID** ist ein eindeutiger Bezeichner für eine von Ihnen gewählte Nachrichtenkategorie, der dem Messaging-Dienst mitteilt, dass er nur die jüngste Nachricht mit dieser ID berücksichtigen soll. Wenn Sie eine Benachrichtigungs-ID festlegen, können Sie nur die aktuellste und relevanteste Nachricht versenden, anstatt einen Stapel veralteter, irrelevanter Nachrichten.
+Eine **Benachrichtigungs-ID** ist ein eindeutiger Bezeichner für eine von Ihnen gewählte Nachrichtenkategorie, der dem Messaging-Dienst mitteilt, dass er nur die jüngste Nachricht mit dieser ID berücksichtigen soll. Wenn Sie eine Benachrichtigungs-ID festlegen, können Sie nur die aktuellste und relevanteste Nachricht versenden, anstatt einen Stapel veralteter, irrelevanter Nachrichten.
 
 ### Priorität der Firebase-Nachrichtenzustellung {#fcm-priority}
 
-Mit dem Feld [Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message) können Sie festlegen, ob ein Push mit „normaler“ oder „hoher“ Priorität an Firebase Cloud Messaging gesendet wird.
+Mit dem Feld [Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) können Sie festlegen, ob ein Push mit „normaler“ oder „hoher“ Priorität an Firebase Cloud Messaging gesendet wird.
 
 ### Lebensdauer (TTL) {#ttl}
 
@@ -407,7 +407,7 @@ Die Prioritätsstufen, die Sie bei Push-Benachrichtigungen für Android oder Fir
 | Standard  | Die meisten Benachrichtigungen – verwenden Sie diese Option, wenn Ihre Nachricht nicht ausdrücklich unter eine der anderen Prioritätsarten fällt | `0` |
 | Niedrig      | Informationen, die Sie Ihren Nutzer:innen mitteilen möchten, die aber keine sofortige Aktion erfordern | `-1` |
 | Min.      | Kontextuelle oder Hintergrundinformationen | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Benachrichtigungs-Anzeigepriorität #notification-priority" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Benachrichtigungs-Anzeigepriorität" }
 
 Weitere Informationen finden Sie in der Google-Dokumentation zu [Android-Benachrichtigungen](http://developer.android.com/design/patterns/notifications.html).
 

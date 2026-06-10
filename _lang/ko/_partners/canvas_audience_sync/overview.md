@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchat은 초당 10개의 쿼리를 처리하고 요청당 100,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | 예 | Snapchat은 최대 1,000개의 광고 오디언스를 지원합니다. |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | 최대 24시간 | N/A | 예 | {::nomarkdown}<ul><li>The Trade Desk에서 CRM 오디언스에 대한 최소 오디언스 크기는 없습니다.</li><li>The Trade Desk가 지원하는 오디언스 수에는 제한이 없습니다.</li><li>EU 지역으로 설정된 오디언스에 동기화하는 경우 전화번호는 지원되지 않습니다.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | 24~48시간 | TikTok은 초당 50개의 쿼리를 처리하고 요청당 10,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | 예 | {::nomarkdown}<ul><li>TikTok은 최대 400개의 광고 오디언스를 지원합니다.</li><li>TikTok 오디언스는 광고 게재를 시작하려면 최소 1,000명의 사용자가 필요합니다.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="개요" }
 <sup>사용량 제한에 도달하면 Braze는 13시간 동안 동기화를 재시도합니다.</sup>
 
 ## 작동 방식 {#how-it-works}

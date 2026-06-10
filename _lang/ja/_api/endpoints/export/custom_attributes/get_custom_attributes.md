@@ -31,7 +31,7 @@ description: "この記事では、Brazeのカスタム属性エクスポート�
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `cursor` | オプション | 文字列 | カスタム属性のページネーションを決定します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="クエリパラメーター" }
 
 ## リクエスト例 {#example-requests}
 

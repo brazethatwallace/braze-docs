@@ -33,7 +33,7 @@ Braze 데이터 변환 템플릿을 사용하면 데이터 푸시의 요소 중 
 | --- | --- |
 | Oracle Crowdtwist 계정 | 이 파트너십을 활용하려면 [Oracle Crowdtwist 계정](https://www.oracle.com/uk/cx/marketing/customer-loyalty/)이 필요합니다. |
 | Braze 데이터 변환 엔드포인트 | 이 통합은 Braze의 [데이터 변환 도구]({{site.baseurl}}/user_guide/data/unification/data_transformation/)에 의존합니다. 데이터 변환을 생성하면 Braze는 고유한 엔드포인트를 생성하며, 이를 Crowdtwist의 데이터 푸시 대상으로 추가할 수 있습니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

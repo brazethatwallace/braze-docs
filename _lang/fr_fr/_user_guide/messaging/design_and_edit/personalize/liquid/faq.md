@@ -1,12 +1,12 @@
 ---
 nav_title: FAQ
-article_title: Questions fréquentes
+article_title: Questions fréquemment posées
 page_order: 12
 description: "Cet article fournit des réponses aux questions fréquemment posées sur Liquid."
 
 ---
 
-# Questions fréquentes {#frequently-asked-questions}
+# Questions fréquemment posées {#frequently-asked-questions}
 
 > Sur cette page, vous trouverez des réponses aux questions fréquemment posées sur Liquid.<br><br>Braze ne prend pas actuellement en charge 100 % du Liquid de Shopify, mais seulement certaines parties que nous avons tenté de décrire dans notre documentation. Nous vous recommandons vivement de tester tous les messages utilisant Liquid avant de les envoyer afin de réduire le risque d'erreurs ou d'utilisation de Liquid non pris en charge.
 
@@ -146,3 +146,59 @@ Join our VIP program to unlock free shipping.
 ### Les variables Liquid sont-elles partagées entre la ligne d'objet et le corps du message ? {#do-liquid-variables-carry-between-subject-line-and-body}
 
 Non. Braze effectue le rendu de chaque composant du message séparément (ligne d'objet, corps HTML, accroche, titre push, etc.). Les affectations ou captures que vous effectuez dans un champ ne sont pas disponibles dans un autre. Répétez l'appel Liquid ou de Contenu connecté dans chaque champ qui nécessite la valeur.
+
+### Puis-je utiliser Liquid à l'intérieur de l'étiquette `abort_message` ? {#can-i-use-liquid-inside-the-abort_message-tag}
+
+{% raw %}Non. L'étiquette {% abort_message %} accepte une chaîne de caractères statique entre guillemets, pas de personnalisation Liquid.{% endraw %} Utilisez d'autres logiques Liquid avant l'étiquette si vous avez besoin d'un comportement d'abandon conditionnel.
+
+### Pourquoi est-ce que je vois une erreur Liquid « Unexpected end token » ? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
+
+Cette erreur indique généralement des accolades en trop ou manquantes. N'imbriquez pas `{{ }}` à l'intérieur d'une autre expression d'étiquette Liquid. Par exemple, utilisez {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} plutôt que d'envelopper la référence d'attribut dans une paire d'accolades supplémentaire.
+
+### Pourquoi mon message s'interrompt-il avec « Invalid from email address for recipient: » ? {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
+
+Cet abandon se produit lorsque le Liquid dans l'adresse **De** produit une syntaxe invalide, comme une variable manquante, des espaces supplémentaires ou des caractères non autorisés. Prévisualisez avec un utilisateur test et vérifiez que l'adresse **De** rendue correspond à votre domaine d'envoi configuré.
+
+### Pourquoi mon Content Block n'apparaît-il pas dans **Row** dans l'outil de recherche du glisser-déposer ? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+
+Certains Content Blocks n'apparaissent pas sous **Row** dans la recherche de l'éditeur glisser-déposer. Ajoutez un bloc HTML depuis l'onglet **Content** (**Advanced**), puis insérez l'étiquette Liquid du Content Block dans ce bloc HTML pour afficher le contenu du bloc.
+
+### Comment créer une adresse de réponse dynamique ? {#how-do-i-create-a-dynamic-reply-to-address}
+
+Utilisez Liquid dans le champ **Reply-To** lorsque votre espace de travail prend en charge la configuration dynamique de l'adresse de réponse. Associez-le à vos paramètres de nom d'affichage **De** selon vos besoins. Consultez [Paramètres des e-mails]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) pour les options spécifiques à l'espace de travail.
+
+### Pourquoi la prévisualisation de mon Content Block en glisser-déposer diffère-t-elle de la vue de composition ? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
+
+Lorsque vous intégrez un Content Block avec Liquid via un modèle, les media queries mobiles du bloc peuvent ne pas s'appliquer de la même manière dans la prévisualisation que lorsque vous glissez le bloc directement dans un message. Glisser le bloc préserve la mise en page mais le découple du bloc source, de sorte que les modifications futures du bloc ne mettent plus automatiquement à jour le message.
+
+### Existe-t-il des limites de taille pour les propriétés de contexte Canvas ? {#are-there-size-limits-for-canvas-context-properties}
+
+Braze n'impose pas de limite stricte sur les [propriétés de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), mais maintenez les payloads en dessous d'environ 1 Ko (~1 000 caractères). Des objets plus volumineux peuvent augmenter l'utilisation de la mémoire et retarder le rendu des messages lors d'envois à fort volume.
+
+### Pourquoi mon extrait de code Liquid de catalogue renvoie-t-il un message d'abandon ? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
+
+Si un extrait de code Liquid de catalogue s'interrompt lors de l'envoi, recréez l'extrait depuis le menu de personnalisation en sélectionnant des éléments de catalogue individuels au lieu d'utiliser une sélection en masse ou entièrement dynamique. Consultez [Catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/) et [Sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+
+### Pourquoi est-ce que j'obtiens une erreur Liquid lors de la prévisualisation de certains types de données dans le tableau de bord ? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
+
+Certains types de [propriétés de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) nécessitent une conversion en Liquid avant de les utiliser dans des comparaisons ou des calculs. Par exemple, lorsque vous avez besoin d'un comportement numérique :
+
+{% raw %}
+```liquid
+{{context.${property_name} | plus: 0}}
+```
+{% endraw %}
+
+### Pourquoi la relance du Contenu connecté n'est-elle pas disponible pour mon message in-app ? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+
+{% raw %}
+L'étiquette `{% connected_content %}` avec relance n'est pas prise en charge pour tous les types de messages, y compris certains formats de messages in-app. Supprimez les paramètres de relance ou utilisez un canal pris en charge pour les appels de Contenu connecté avec relance.
+{% endraw %}
+
+### Comment prévisualiser les valeurs des propriétés d'événement dans le composeur de messages ? {#how-do-i-preview-event-property-values-in-message-composer}
+
+Utilisez **Prévisualiser en tant qu'utilisateur personnalisé** et saisissez des exemples de valeurs de propriétés d'événement personnalisé pour l'utilisateur que vous prévisualisez. Cela est également utile pour les messages avec une logique d'abandon lorsque vous avez besoin de valeurs de prévisualisation qui ne déclenchent pas d'abandon.
+
+### Braze prend-il en charge un tableau de tableaux en Liquid ? {#does-braze-support-an-array-of-arrays-in-liquid}
+
+Liquid ne prend pas nativement en charge les tableaux de tableaux. Stockez les valeurs sous forme de tableau de chaînes de caractères séparées par des virgules et utilisez le filtre `split` pour les analyser au besoin.

@@ -385,6 +385,7 @@ validurls['/docs/hidden/private_betas/view_pii'] = '/docs/user_guide/administer/
 validurls['/docs/hidden/private_betas/partners/adobe'] = '/docs/partners/data_and_analytics/customer_data_platform/adobe';
 validurls['/docs/hidden/private_betas/link_aliasing'] = '/docs/user_guide/messaging/templates/email_templates/link_aliasing';
 validurls['/docs/hidden/private_betas/shopify'] = '/docs/partners/ecommerce/shopify';
+validurls['/docs/braze_surveys'] = '/docs/user_guide/channels/in_app_messages/drag_and_drop/surveys';
 validurls['/docs/hidden/private_betas/twilio'] = '/docs/releases/deprecations/twilio';
 
 validurls['/docs/api/tls_deprecation'] = '/docs/releases/deprecations/tls_deprecation';
@@ -4263,6 +4264,7 @@ validurls['/docs/user_guide/engagement_tools/canvas/get_started/canvas_entry_pro
 validurls['/docs/user_guide/engagement_tools/canvas/get_started/editing_canvases_after_launch'] = '/docs/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch';
 validurls['/docs/user_guide/engagement_tools/in-app_messages/create'] = '/docs/user_guide/channels/in_app_messages/traditional';
 validurls['/docs/user_guide/engagement_tools/landing_pages/create'] = '/docs/user_guide/messaging/landing_pages/create_landing_pages';
+validurls['/docs/user_guide/messaging/landing_pages/surveys'] = '/docs/user_guide/messaging/landing_pages/create_landing_pages/surveys';
 validurls['/docs/user_guide/engagement_tools/landing_pages/landing_page_analytics'] = '/docs/user_guide/messaging/landing_pages/tracking_users';
 validurls['/docs/user_guide/engagement_tools/landing_pages/lp_bridge'] = '/docs/user_guide/messaging/landing_pages/create_landing_pages';
 validurls['/docs/user_guide/engagement_tools/landing_pages/overview'] = '/docs/user_guide/messaging/landing_pages';

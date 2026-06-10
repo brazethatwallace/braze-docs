@@ -23,7 +23,7 @@ Braze dispose de trois états d'abonnement globaux pour les utilisateurs d'e-mai
 | Abonnement confirmé (opted-in) | Un utilisateur a explicitement confirmé qu'il souhaite recevoir des e-mails. Nous recommandons un processus d'abonnement explicite pour obtenir le consentement des utilisateurs avant l'envoi d'e-mails. |
 | Abonné (subscribed) | Un utilisateur ne s'est ni désabonné ni explicitement abonné à la réception d'e-mails. Il s'agit de l'état d'abonnement par défaut lors de la création d'un profil utilisateur. |
 | Désabonné (unsubscribed) | Un utilisateur s'est explicitement désabonné de vos e-mails. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="États d'abonnement" }
 
 {% alert note %}
 Braze ne comptabilise pas les changements d'état d'abonnement dans vos points de donnée, que ce soit au niveau global ou au niveau des groupes d'abonnement.
@@ -81,6 +81,8 @@ Lorsqu'un utilisateur met à jour son adresse e-mail, son état d'abonnement est
 
 Pour résoudre les problèmes liés aux changements d'état d'abonnement, consultez **Email Subscription-State Changes** dans les journaux du profil utilisateur pour l'historique et la source (API ou SDK).
 
+Lorsque l'état d'abonnement e-mail global d'un utilisateur change, Braze propage cet état aux autres profils partageant la même adresse e-mail, jusqu'à 100 profils par changement. Braze ne garantit pas la propagation lorsque plus de 100 profils partagent la même adresse e-mail. Si des utilisateurs partageant une adresse e-mail affichent des états d'abonnement différents, contactez l'assistance Braze.
+
 ## Groupes d'abonnement {#subscription-groups}
 
 Les groupes d'abonnement sont des filtres de segment qui permettent d'affiner davantage votre audience à partir des [états d'abonnement globaux](#subscription-states). Ces groupes vous permettent de proposer des options d'abonnement plus granulaires aux utilisateurs finaux.
@@ -127,11 +129,11 @@ Vous pouvez consulter le graphique **Subscription Group Timeseries** sur la page
 
 Si le décompte de la série temporelle diverge fortement d'un segment utilisant **Email Subscription Status is Unsubscribed**, rappelez-vous que le graphique comptabilise l'appartenance à ce **groupe d'abonnement**, tandis que ce filtre reflète l'état d'abonnement e-mail **global** — par exemple, des utilisateurs peuvent être globalement abonnés mais désabonnés d'un groupe spécifique.
 
-#### Consultation des groupes d'abonnement dans l'analyse des campagnes {#viewing-subscription-groups-in-campaign-analytics}
+#### Consultation des groupes d'abonnement dans l'analyse des Campaigns {#viewing-subscription-groups-in-campaign-analytics}
 
-Vous pouvez voir le nombre d'utilisateurs qui ont modifié leur état d'abonnement (abonné ou désabonné) à partir d'une campagne e-mail spécifique sur la page d'analyse de cette campagne.
+Vous pouvez voir le nombre d'utilisateurs qui ont modifié leur état d'abonnement (abonné ou désabonné) à partir d'une Campaign e-mail spécifique sur la page d'analyse de cette Campaign.
 
-1. Depuis la page **Campaign Analytics** de votre campagne, faites défiler jusqu'à la section **Email Message Performance**.
+1. Depuis la page **Campaign Analytics** de votre Campaign, faites défiler jusqu'à la section **Email Message Performance**.
 2. Sélectionnez la flèche sous **Subscription Groups** pour voir le décompte agrégé des changements d'état, tels que soumis par vos clients.
 
 ![La page « Email Message Performance » affichant le décompte agrégé des changements d'état soumis par les clients.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
@@ -157,7 +159,7 @@ Lorsqu'un utilisateur sélectionne « Se désabonner de tous les types d'e-mails
 
 Si vous ne souhaitez pas utiliser le pied de page par défaut, créez un pied de page e-mail personnalisé à l'échelle de l'espace de travail et intégrez-le dans chaque e-mail en utilisant {% raw %}`{{${email_footer}}}`{% endraw %}.
 
-Cela vous évite de créer un nouveau pied de page pour chaque modèle d'e-mail ou campagne e-mail. Pour les étapes détaillées, consultez [Pied de page e-mail personnalisé]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/).
+Cela vous évite de créer un nouveau pied de page pour chaque modèle d'e-mail ou Campaign e-mail. Pour les étapes détaillées, consultez [Pied de page e-mail personnalisé]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/).
 
 #### Gestion des états d'abonnement pour les adresses IP chinoises {#managing-subscription-states-for-chinese-ip-addresses}
 
@@ -180,7 +182,7 @@ Vous pouvez également rediriger les utilisateurs vers votre site et mettre à j
 Si vous utilisez le pied de page du tableau de bord au lieu d'un simple bloc de contenu HTML, le modèle doit toujours contenir {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} pour être enregistré. Pour utiliser temporairement une URL de désabonnement différente, vous pouvez commenter l'étiquette par défaut. Par exemple : {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
 {% endalert %}
 
-![Page de désabonnement personnalisée avec un aperçu « Sorry to see you go! ».]({% image_buster /assets/img/custom_unsubscribe.png %})
+![Page de désabonnement personnalisée avec un aperçu « Désolé de vous voir partir ! ».]({% image_buster /assets/img/custom_unsubscribe.png %})
 
 ### Création d'une page d'abonnement personnalisée {#creating-a-custom-opt-in-page}
 
@@ -196,11 +198,11 @@ Les utilisateurs accèdent à cette page via l'étiquette {% raw %}`{{${set_user
 Utilisez un processus de double abonnement pour améliorer votre portée. Braze envoie un e-mail de confirmation supplémentaire dans lequel l'utilisateur confirme ses préférences de notification via un lien. Après confirmation, l'abonnement de l'utilisateur est confirmé.
 {% endalert %}
 
-![E-mail d'abonnement personnalisé avec le message « Glad to see you still want to hear from us ».]({% image_buster /assets/img/custom_optin.png %})
+![E-mail d'abonnement personnalisé avec le message « Heureux de voir que vous souhaitez toujours avoir de nos nouvelles ».]({% image_buster /assets/img/custom_optin.png %})
 
-## Abonnements et ciblage des campagnes {#subscriptions-and-campaign-targeting}
+## Abonnements et ciblage des Campaigns {#subscriptions-and-campaign-targeting}
 
-Par défaut, Braze cible les campagnes avec des messages push ou e-mail vers les utilisateurs qui sont abonnés ou dont l'abonnement est confirmé. Modifiez cela dans **Target Audience** en sélectionnant le menu déroulant à côté de **Send to these users:**.
+Par défaut, Braze cible les Campaigns avec des messages push ou e-mail vers les utilisateurs qui sont abonnés ou dont l'abonnement est confirmé. Modifiez cela dans **Target Audience** en sélectionnant le menu déroulant à côté de **Send to these users:**.
 
 Braze prend en charge trois états de ciblage :
 

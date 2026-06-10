@@ -26,7 +26,7 @@ Existen dos estados de suscripción para los usuarios de SMS y RCS: `subscribed`
 | --------- | ---------- |
 | Suscrito | El usuario está suscrito para recibir SMS y RCS de un grupo de suscripción específico. Un usuario puede suscribirse ya sea actualizando su estado de suscripción a través de la API de suscripción de Braze o enviando un mensaje de texto con una palabra clave de adhesión voluntaria. Un usuario debe estar suscrito a un grupo de suscripción de SMS o RCS para recibir SMS, RCS o ambos. Cuando la [doble adhesión voluntaria]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) está habilitada, los usuarios deben confirmar su intención de adhesión antes de que su estado de suscripción se actualice a `Subscribed`. |
 | Dado de baja | El usuario ha optado explícitamente por no recibir mensajes de tu grupo de suscripción de SMS y RCS y de los números de teléfono de envío dentro del grupo de suscripción. Pueden cancelar la suscripción enviando un mensaje de texto con una palabra clave de cancelación, o puedes cancelar la suscripción de los usuarios a través de la [API de suscripción de Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Los usuarios dados de baja de un grupo de suscripción de SMS y RCS ya no recibirán ningún SMS o RCS de los números de teléfono de envío que pertenezcan al grupo de suscripción.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de los grupos de suscripción" }
 
 ### Establecer el estado de un usuario {#set-a-users-state}
 
@@ -66,6 +66,10 @@ De acuerdo con las [normativas y directrices internacionales de telecomunicacion
 {% endalert %}
 
 ![Compositor de SMS con el menú desplegable del grupo de suscripción abierto y "Messaging Service A for SMS" resaltado por el usuario.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
+
+## Mejores prácticas para grupos de suscripción de SMS {#sms-subscription-group-best-practices}
+
+Diseña grupos de suscripción de SMS separados para cada propósito de mensajería (por ejemplo, transaccional versus marketing) y para cada espacio de trabajo. Cuando operas en varios países, considera grupos separados por región para cumplir con las normas de conformidad locales; por ejemplo, las restricciones de Brasil sobre las ventanas de envío promocional.
 
 ## Habilitar grupos de suscripción {#enable-subscription-groups}
 
@@ -134,8 +138,8 @@ Define tu audiencia usando uno de los siguientes métodos. A continuación, ve a
 | Método | Descripción |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Crear un segmento** | Crea un segmento que incluya a todos los usuarios en un grupo de suscripción o un subconjunto usando filtros de segmentación (como un 5-10 % aleatorio). Los segmentos se actualizan antes de cada envío para reflejar tu base de usuarios actual. |
-| **Aplicar filtros de campaña o Canvas** | Refina la audiencia en el paso **Target Audience** de tu campaña o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
+| **Aplicar filtros de campaña o Canvas** | Refina la audiencia en el paso **Público objetivo** de tu campaña o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Definir tu audiencia" }
 
 ### Paso 3: Configurar un paso de Actualización de usuario {#step-3-configure-a-user-update-step}
 

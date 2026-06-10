@@ -50,6 +50,8 @@ function refresh() {
 }
 ```
 
+Pour ouvrir les liens des Content Cards dans un nouvel onglet du navigateur au lieu du même onglet, définissez `openCardsInNewTab: true` dans les options d'initialisation de votre SDK Web. Pour plus d'informations sur les options d'initialisation, consultez le [guide du dépôt du SDK Web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/).
+
 {% endtab %}
 {% tab android %}
 

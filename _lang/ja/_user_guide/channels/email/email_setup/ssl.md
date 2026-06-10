@@ -56,7 +56,7 @@ CDNの設定は、常にBrazeによるDNSレコードの検証が完了した後
 クリックおよび開封トラッキングでは、配信パートナーがブランド化されたサブドメインを使用してリンクを変換し、CDNがそれらの変換されたリンクにSSL証明書を適用します。パートナーは、リンクや画像を正しく表示するために、受信者のブラウザに有効な証明書を提示する必要があることが多いです。Brazeは証明書のリクエストや管理を行わないため、CDNを通じてこの設定を行う必要があります。
 
 {% alert note %}
-SSLのクリックおよび開封トラッキングに記載されているCDNを使用できない場合や使用したくない場合は、カスタムSSL設定をセットアップできます。代替のCDNやカスタムプロキシを使用すると、設定がより複雑になる場合があります。[SendGrid](https://sendgrid.com/docs/ui/account-and-settings/custom-ssl-configurations/) および [SparkPost](https://www.sparkpost.com/docs/tech-resources/using-proxy-https-tracking-domain/) のドキュメントを参照してください。
+SSLのクリックおよび開封トラッキングに記載されているCDNを使用できない場合や使用したくない場合は、カスタムSSL設定をセットアップできます。代替のCDNやカスタムプロキシを使用すると、設定がより複雑になる場合があります。[SendGrid](https://sendgrid.com/docs/ui/account-and-settings/custom-ssl-configurations/)および[SparkPost](https://www.sparkpost.com/docs/tech-resources/using-proxy-https-tracking-domain/)のドキュメントを参照してください。
 {% endalert %}
 
 ### その他のリソース {#additional-resources}
@@ -67,7 +67,7 @@ CDN設定のトラブルシューティングについては、CDNプロバイ�
 
 特定のCDNの設定方法については、メールサービスプロバイダー（ESP）パートナーによる以下のリソースを参照してください。お使いのCDNが一覧にない場合でも、CDNがSSL証明書を適用できることを確認してください。
 
-CDNのクリックトラッキングドメインを設定する際は、ホストヘッダー攻撃などの潜在的なセキュリティ問題を防ぐために、`X-Forwarded-Host` ヘッダーを有効にしてください。手順については、CDNのドキュメントまたはサポートチームを参照してください。
+CDNのクリックトラッキングドメインを設定する際は、ホストヘッダー攻撃などの潜在的なセキュリティ問題を防ぐために、`X-Forwarded-Host`ヘッダーを有効にしてください。手順については、CDNのドキュメントまたはサポートチームを参照してください。
 
 | パートナー | CDN | ドキュメント |
 | --- | --- | --- |
@@ -85,7 +85,7 @@ CDNのクリックトラッキングドメインを設定する際は、ホス�
 | SparkPost | Fastly | [Step-by-step guide with Fastly](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-fastly) |
 | SparkPost | Google Cloud Platform | [Step-by-step guide with Google Cloud Platform](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-google-cloud-platform) |
 | SparkPost | Microsoft Azure | [Step-by-step guide with Microsoft Azure](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-microsoft-azure) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional resources" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="その他のリソース" }
 
 ### Amazon SES
 
@@ -104,13 +104,19 @@ CDNの設定、証明書、プロキシの問題はCDNプロバイダーに対�
 
 ### ドメインレジストリの問題 {#domain-registry-issues}
 
-digコマンドを実行して、リンクトラッキングがCDNを指していることを確認してください。ターミナルで `dig CNAME link_tracking_subdomain` を実行します。`ANSWER SECTION` にCNAMEの指し先が表示されます。CDNではなくメールサービスプロバイダー（SendGridまたはSparkPost）を指している場合は、ドメインレジストリをCDNを指すように再設定してください。
+digコマンドを実行して、リンクトラッキングがCDNを指していることを確認してください。ターミナルで`dig CNAME link_tracking_subdomain`を実行します。`ANSWER SECTION`にCNAMEの指し先が表示されます。CDNではなくメールサービスプロバイダー（SendGridまたはSparkPost）を指している場合は、ドメインレジストリをCDNを指すように再設定してください。
 
 ### CDNの問題 {#cdn-issues}
 
 セットアップ中にライブメールのリンクが破損する場合は、適切な設定が完了する前にDNSをCDNに向けた可能性があります。これは「間違ったリンク」エラーとして表示されることがあります。CDNプロバイダーに連絡し、そのドキュメントを確認して設定のトラブルシューティングを行ってください。
 
-接続がプライベートではないというエラーメッセージが表示される場合は、SSLまたはCDNが正しく設定されていない可能性があります。ターミナルで `dig` コマンドを実行してください（例：`dig CNAME your_link_tracking_subdomain`）。`ANSWER SECTION` で、結果がCDNではなくESPを指している場合、設定ミスが原因です。BrazeのSSLクリックトラッキングが機能するには、CNAMEがCDNを指している必要があります。SSLとCDNの設定を管理しているチームと連携して、さらなるサポートを受けてください。
+接続がプライベートではないというエラーメッセージが表示される場合は、SSLまたはCDNが正しく設定されていない可能性があります。ターミナルで`dig`コマンドを実行してください（例：`dig CNAME your_link_tracking_subdomain`）。`ANSWER SECTION`で、結果がCDNではなくESPを指している場合、設定ミスが原因です。BrazeのSSLクリックトラッキングが機能するには、CNAMEがCDNを指している必要があります。SSLとCDNの設定を管理しているチームと連携して、さらなるサポートを受けてください。
+
+#### リダイレクトリンクでHTTP 403が発生する場合 {#http-403-on-redirect-links}
+
+トラッキング対象のリダイレクトリンクが**403 Forbidden**を返す場合、多くの場合コンテンツ配信ネットワーク（CDN）やWebアプリケーションファイアウォール（WAF）で障害が発生しています。たとえば、AWS WAFやAmazon CloudFrontで特定のユーザーエージェント、クエリ文字列、またはリダイレクトパターンをブロックするルールが原因となることがあります。CDNまたはクラウドプロバイダーでブロックされたリクエストのログと指標を確認してください。AWSの場合は、[Troubleshooting issues with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)を参照してください。
+
+問題がクリックトラッキングに固有のものかどうかを確認するには、1つのテストリンクでクリックトラッキングをオフにしてください（[リンク単位でクリックトラッキングをオフにする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)を参照）。クリックトラッキングをオフにすると送信先URLが読み込まれるが、トラッキングをオンにすると403が返される場合は、クリックトラッキングドメイン、CDN、およびWAFの設定に焦点を当ててください。
 
 ### SSL有効化のステータス {#ssl-enablement-status}
 

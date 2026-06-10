@@ -26,7 +26,7 @@ Para saber mais sobre o Stories, a API de dados de clientes da Movable Ink e com
 | Credenciais da API da Movable Ink | A equipe de soluções da Movable Ink gerará credenciais de API para você. As credenciais da API consistem em:{::nomarkdown}<ul><li>Um URL de endpoint (para onde os dados serão enviados)</li><li>Nome de usuário e senha (usados para autenticar a API)</li></ul>{:/} Se desejar, a Movable Ink poderá fornecer o nome de usuário e a senha como um valor codificado em base64 a ser usado como um valor de cabeçalho de autorização básica. |
 | Cargas úteis de eventos comportamentais | Será necessário compartilhar as cargas úteis do evento com a equipe de experiência do cliente da Movable Ink. Consulte [Compartilhamento de cargas úteis de eventos](#event-payloads) com a Movable Ink para obter detalhes. |
 | Ativos criativos e lógica de negócios | Será necessário compartilhar ativos criativos com a Movable Ink, incluindo arquivos do Adobe Photoshop (PSD) que orientem a Movable Ink sobre como criar o bloco e uma imagem de fallback. Você também precisará fornecer a lógica de negócios para saber como e quando exibir o bloco de conteúdo ativado pelo parceiro. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -52,7 +52,7 @@ Para saber mais sobre o Stories, a API de dados de clientes da Movable Ink e com
 | --- | --- |
 | Content-Type | application/json |
 | Authorization | Insira a autenticação básica que você recebeu da Movable Ink. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1b: Adicione suas credenciais da API de dados de clientes" }
 
 ![Guia Configurações do criador do webhook na Braze com pares de chave-valor para Content-Type e Authorization.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
 

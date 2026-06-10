@@ -50,7 +50,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | ---------| --------- | ----------- |
 | `email` | Requis | Chaîne de caractères ou tableau | Adresse e-mail sous forme de chaîne de caractères à modifier, ou un tableau contenant jusqu'à 50 adresses e-mail à modifier. |
 | `subscription_state` | Requis | Chaîne de caractères | « subscribed », « unsubscribed » ou « opted_in ». |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
+
+## Résolution des problèmes de blocage d'e-mails SendGrid {#troubleshooting-sendgrid-email-blocks}
+
+Lorsque SendGrid bloque un destinataire, mettez à jour le statut d'abonnement avec cet endpoint et vérifiez l'engagement à l'aide des filtres de segment. Utilisez les événements de rebond temporaire de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) pour surveiller la livrabilité, et confirmez l'état d'abonnement avant de relancer les envois.
 
 ## Exemple de requête {#example-request}
 ```

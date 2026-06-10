@@ -36,7 +36,7 @@ Vous devez vous assurer que les éléments suivants sont créés, complétés et
 | Compte TikTok for Business Center | [TikTok](https://business.tiktok.com/) | Un outil centralisé pour gérer les ressources TikTok de votre marque (comme les comptes publicitaires, les pages, les applications). |
 | Compte publicitaire TikTok | [TikTok](https://ads.tiktok.com/) | Un compte publicitaire TikTok actif lié au compte Business Center de votre marque.<br><br>Assurez-vous que l'administrateur de votre TikTok Business Center vous a accordé des droits d'administrateur sur les comptes publicitaires TikTok que vous prévoyez d'utiliser avec Braze. |
 | Conditions d'utilisation et politiques de TikTok | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Accepter de vous conformer à l'ensemble des conditions, politiques, directives et documents requis par TikTok en lien avec votre utilisation de Pinterest Audience Sync, y compris tous les termes, politiques, directives et documents qui y sont incorporés par référence, pouvant inclure : les Conditions commerciales de service, les Conditions de publicité, la Politique de confidentialité, les Conditions d'audience personnalisée, les Conditions de service du développeur, l'Accord de partage des données du développeur, les Politiques publicitaires, les Lignes directrices de la marque et les Lignes directrices de la communauté. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -129,7 +129,7 @@ Le tableau suivant présente les indicateurs et leurs descriptions pour vous aid
 | Utilisateurs en attente | Nombre d'utilisateurs actuellement traités par Braze pour être synchronisés avec TikTok. |
 | Utilisateurs en erreur | Nombre d'utilisateurs qui n'ont pas été synchronisés sur TikTok en raison d'une erreur de l'API après environ 13 heures de tentatives. Les causes potentielles incluent un jeton TikTok invalide ou la suppression de l'audience sur TikTok. |
 | Sortis du Canvas | Nombre d'utilisateurs ayant quitté le Canvas. Cela se produit lorsque la dernière étape d'un Canvas est un composant Audience Sync. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprendre les analyses" }
 
 {% alert important %}
 N'oubliez pas qu'il y aura un délai dans le reporting des indicateurs d'utilisateurs synchronisés et d'utilisateurs en erreur, en raison respectivement du vidage en masse et de la période de relance de 13 heures.

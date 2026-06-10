@@ -38,7 +38,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `offset` | Optional | Integer | Optionaler Anfangspunkt in der Liste, ab dem abgerufen werden soll. |
 | `sort_direction` | Optional | String | Geben Sie den Wert `asc` ein, um die Abmeldungen von den ältesten zu den neuesten zu sortieren. Geben Sie `desc` ein, um von den neuesten zu den ältesten zu sortieren. Wenn `sort_direction` nicht angegeben ist, ist die Standardreihenfolge von den neuesten zu den ältesten. |
 | `email` | Optional <br>(siehe Anmerkung) | String | Falls angegeben, wird zurückgegeben, ob sich die Nutzer:in abgemeldet hat oder nicht. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert note %}
 Sie müssen ein `end_date` sowie entweder eine `email` oder ein `start_date` angeben.

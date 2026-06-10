@@ -26,6 +26,10 @@ Para acceder al perfil de un usuario, ve a la página **Buscar usuarios** y busc
 
 Si se encuentra una coincidencia, puedes ver la información que has registrado para este usuario con el SDK de Braze. De lo contrario, si tu búsqueda devuelve varios perfiles de usuario, puedes fusionar cada perfil individualmente o realizar una fusión masiva de usuarios. Para un recorrido completo, consulta [Fusionar usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
+{% alert note %}
+**Buscar usuarios** no es lo mismo que **Búsqueda de usuarios** en el compositor de Segments o Campaigns. **Búsqueda de usuarios** comprueba si un usuario específico coincide con tu audiencia y solo acepta `external_id` o `braze_id`. **Buscar usuarios** en esta página admite correo electrónico, teléfono, token de notificaciones push y alias de usuario. Para más información, consulta [Probar segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments).
+{% endalert %}
+
 {% alert important %}
 Cuando se utiliza un número de teléfono en la búsqueda, se convierte al formato [`E.164`](https://en.wikipedia.org/wiki/e.164). Los usuarios cuyos números de teléfono no se pueden convertir al formato `E.164` (por ejemplo, porque el número de teléfono tiene un código de país o código de área no válido) no se pueden buscar por número de teléfono.
 {% endalert %}
@@ -61,7 +65,7 @@ La pestaña **Resumen** contiene información básica sobre un usuario y sus int
 | Dispositivos recientes | En cuántos dispositivos ha iniciado sesión, detalles de cada dispositivo y sus ID de publicidad asociados (si los hay). |
 | Eventos personalizados | Qué eventos personalizados ha realizado este usuario, cuántas veces y cuándo realizó cada evento por última vez. |
 | Compras | Ingresos de por vida atribuidos a este usuario, su última compra, número total de compras y una lista de cada compra. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab #overview-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pestaña Resumen" }
 
 Para más información sobre estos datos, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
@@ -74,14 +78,14 @@ La pestaña **Interacción** contiene información sobre las interacciones de un
 | Categoría de interacción | Contiene |
 | --- | --- |
 | Configuración de contacto | Estado de suscripción para correo electrónico, SMS y push, y los grupos de suscripción con los que este usuario está asociado para estos tres canales. Esta sección también incluye información del registro de cambios para tokens de notificaciones push. Consulta [correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions/), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) y [push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/) para obtener información sobre cómo se configuran las suscripciones y las adhesiones voluntarias. |
-| Campaigns recibidas | **Campaigns recibidas** refleja los tiempos de envío y visualización específicos de cada canal. La mayoría de los canales registran un envío cuando Braze pasa el mensaje al proveedor de entrega, incluso cuando el mensaje no se entrega finalmente. **Content Cards** son diferentes: las campañas aparecen aquí solo después de que el usuario visualiza la tarjeta en la aplicación. Para un desglose por canal, consulta [Cuándo aparecen las campañas en Campaigns recibidas](#when-campaigns-appear-in-campaigns-received). Cuando un mensaje se recibe, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la campaña o no recibieron directamente el mensaje.<br><br> Selecciona una campaña de la lista para verla. |
+| Campaigns recibidas | **Campaigns recibidas** refleja los tiempos de envío y visualización específicos de cada canal. La mayoría de los canales registran un envío cuando Braze pasa el mensaje al proveedor de entrega, incluso cuando el mensaje no se entrega finalmente. Las **Content Cards** son diferentes: las campañas aparecen aquí solo después de que el usuario visualiza la tarjeta en la aplicación. Para un desglose por canal, consulta [Cuándo aparecen las campañas en Campaigns recibidas](#when-campaigns-appear-in-campaigns-received). Cuando un mensaje se recibe, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la campaña o no recibieron directamente el mensaje.<br><br> Selecciona una campaña de la lista para verla. |
 | Segments | Segments en los que este usuario está incluido. Selecciona un segmento de la lista para verlo. |
 | Estadísticas de comunicación | Cuándo este usuario recibió mensajes tuyos por última vez de cada canal. |
 | Atribución de instalación | Información sobre cómo y cuándo un usuario instaló tu aplicación. Obtén más información sobre [comprender las instalaciones de usuarios]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/). |
 | Varios | El [número de contenedor aleatorio]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) del usuario. |
 | Mensajes de Canvas recibidos | Mensajes de Canvas que este usuario ha recibido y cuándo. Los tiempos de envío siguen las mismas reglas de canal que **Campaigns recibidas**; consulta [Cuándo aparecen las campañas en Campaigns recibidas](#when-campaigns-appear-in-campaigns-received). Cuando un mensaje se recibe, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la campaña o no recibieron directamente el mensaje.<br><br> Selecciona un mensaje de la lista para verlo. |
 | Predicciones | Puntuaciones de [predicción de cancelación]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) y [predicción de eventos]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) para este usuario. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab #engagement-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pestaña Interacción" }
 
 ### Cuándo aparecen las campañas en Campaigns recibidas {#when-campaigns-appear-in-campaigns-received}
 
@@ -126,7 +130,7 @@ Los siguientes eventos de interacción con mensajes están disponibles para corr
 | Content Cards | Clic<br>Descarte<br>Impresión<br>Envío |
 | Webhooks | Envío |
 | WhatsApp | Cancelación<br>Entrega<br>Fallo<br>Limitación de frecuencia<br>Recepción de entrada<br>Lectura<br>Envío |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos de interacción con mensajes" }
 
 ##### Eventos de cancelación de mensajes {#message-abort-events}
 

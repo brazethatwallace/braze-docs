@@ -34,7 +34,7 @@ Braze와 Shopgate 통합을 사용하면 푸시 알림, 인앱 콘텐츠, 위치
 | ----------- | ----------- |
 | Shopgate Enterprise 계정 | 이 파트너십을 활용하려면 [Shopgate](https://www.shopgate.com/) Enterprise 계정이 필요합니다. |
 | Shopgate 초대 | 앱을 설정하려면 Braze 계정에 Shopgate를 초대해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

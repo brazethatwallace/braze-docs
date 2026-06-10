@@ -21,7 +21,7 @@ Braze와 RudderStack 통합을 통해 Braze 커런츠를 활용하여 Braze 이�
 | RudderStack 계정 | 이 파트너십을 활용하려면 [RudderStack 계정](https://app.rudderstack.com/login)이 필요합니다. |
 | Braze 대상 | RudderStack에서 [Braze를 대상으로 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/rudderstack/rudderstack/#integration)해 두는 것을 권장합니다. |
 | Currents | 데이터를 RudderStack으로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -29,7 +29,7 @@ Braze와 RudderStack 통합을 통해 Braze 커런츠를 활용하여 Braze 이�
 
 먼저 RudderStack 웹 앱에서 Braze 소스를 생성해야 합니다. 데이터 소스 생성에 대한 지침은 [RudderStack](https://www.rudderstack.com/docs/sources/event-streams/cloud-apps/braze-currents/) 사이트에서 확인할 수 있습니다.
 
-완료되면 RudderStack에서 쓰기 키가 포함된 웹훅 URL을 제공하며, 다음 단계에서 이를 사용해야 합니다. 웹훅 URL은 Braze 소스의 **Settings** 탭에서 찾을 수 있습니다.
+완료되면 RudderStack에서 쓰기 키가 포함된 웹훅 URL을 제공하며, 다음 단계에서 이를 사용해야 합니다. 웹훅 URL은 Braze 소스의 **설정** 탭에서 찾을 수 있습니다.
 
 ### 2단계: Current 생성 {#step-2-create-current}
 

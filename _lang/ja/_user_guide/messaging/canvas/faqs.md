@@ -196,6 +196,12 @@ Canvasに入るユーザー数は、オーディエンスとトリガーの評�
 Canvasのトラブルシューティングについてさらにサポートが必要な場合は、問題発生から30日以内にBrazeサポートにお問い合わせください。直近30日間の診断ログのみ保持しています。
 {% endalert %}
 
+### 現在Canvasジャーニー中のユーザーをCampaignやSegmentから除外できますか？ {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+
+[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)（`Entered Canvas Variation`、`In Canvas Control Group`、`Received Message from Canvas Step`など）を使用して、Canvasエントリ、バリアント割り当て、またはステップエンゲージメントに基づいてユーザーをターゲットできます。これらのフィルターはエントリ履歴とインタラクションを評価するもので、ユーザーがアクティブなジャーニーをまだ進行中かどうかを示すものではありません。
+
+アクティブなCanvas参加に基づいてユーザーを含めたり除外したりするには、Canvasのエントリと退出に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを追加してカスタム属性を設定およびクリアし、CampaignsやSegmentsでそれらの属性をフィルターとして使用します。
+
 ## セグメンテーション {#segmentation}
 
 ### 「Canvasバリエーションに入っていない」と「Canvasコントロールグループに含まれていない」の違いは何ですか？ {#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group}

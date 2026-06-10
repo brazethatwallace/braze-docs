@@ -22,7 +22,7 @@ Depois que os Banners são integrados a um app ou site, os profissionais de mark
 | Personalização de ofertas | Mostre promoções e incentivos personalizados com base no histórico de navegação, conteúdo do carrinho, nível de inscrição e status de fidelidade de cada usuário. |
 | Engajamento de novos usuários | Guie novos usuários através de fluxos de integração e configuração de conta. |
 | Vendas e promoções | Destaque conteúdo em destaque, produtos em tendência e campanhas de marca em andamento de forma persistente e direta na sua página inicial, sem interromper a experiência do usuário. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Why use Banners?" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Por que usar Banners?" }
 
 ## Recursos {#features}
 
@@ -30,7 +30,7 @@ Os recursos dos Banners incluem:
 
 - **Construção de conteúdo fácil:** Crie e visualize seu Banner usando um editor visual de arrastar e soltar com suporte para imagens, texto, botões, formulários de captura de e-mail, código personalizado e muito mais.
 - **Posicionamentos flexíveis:** Defina múltiplos locais dentro do seu aplicativo ou site onde os Banners podem aparecer, permitindo direcionamento preciso a contextos ou experiências de usuário específicas.
-- **Personalização dinâmica:** Os Banners só podem ser atualizados no início de uma nova sessão ou durante a sessão, se o cliente solicitar explicitamente a atualização. Os Banners não são atualizados automaticamente em uma nova sessão. Se o cliente não solicitar a atualização, o Banner não será atualizado.
+- **Personalização dinâmica:** Os Banners podem ser atualizados durante uma sessão ativa quando seu app chama explicitamente `requestBannersRefresh()`, ou automaticamente no início de uma nova sessão quando `subscribeToBannersUpdates()` foi implementado e `requestBannersRefresh()` foi chamado pelo menos uma vez anteriormente para os IDs de posicionamento relevantes.
 - **Priorização nativa:** Defina a prioridade de exibição para quando vários Banners visam o mesmo posicionamento, garantindo que a mensagem certa chegue aos usuários no momento certo.
 - **Bloco de editor de código personalizado:** Use o bloco de editor de código personalizado para adicionar HTML personalizado para personalização avançada ou integração perfeita com seus estilos web existentes.
 

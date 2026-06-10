@@ -30,7 +30,7 @@ De plus, notez les détails spécifiques à chaque plateforme suivants :
 |----------|----------------------|
 | **Android 12 et versions antérieures** | L'implémentation de push primers n'est pas recommandée car le push est activé par défaut. |
 | **Android 13+** | Si un utilisateur refuse votre invite d'autorisation push deux fois, Android bloque les invites ultérieures, y compris les messages de push primer de Braze. Pour accorder l'autorisation après cela, les utilisateurs doivent activer manuellement le push pour votre application dans les paramètres de leur appareil. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 {% endtab %}
 
 {% tab swift %}
@@ -40,6 +40,7 @@ De plus, notez les détails spécifiques à chaque plateforme suivants :
 - L'invite ne s'affiche pas si le paramètre push de l'application est explicitement activé ou désactivé. Elle ne s'affiche que pour les utilisateurs disposant d'une [autorisation provisoire](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications#3544375).
   - **Le paramètre push de l'application est activé :** Braze n'affiche pas le message in-app, car l'utilisateur s'est déjà abonné.
   - **Le paramètre push de l'application est désactivé :** Vous devez rediriger l'utilisateur vers les paramètres de notification push de votre application dans les paramètres de l'appareil.
+- **Retester après un refus :** Si un utilisateur refuse l'invite native, iOS ne l'affiche plus pour cette installation de l'application. Pour retester le flux de push primer, les utilisateurs doivent généralement désinstaller et réinstaller l'application, ou modifier l'autorisation de notification pour votre application dans **Réglages**.
 
 ### Suppression manuelle du code {#manual-code-removal}
 

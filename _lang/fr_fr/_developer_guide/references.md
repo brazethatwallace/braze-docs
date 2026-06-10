@@ -1,6 +1,6 @@
 ---
-nav_title: "Références et exemples d'applications"
-article_title: "Références, dépôts et exemples d'applications du SDK Braze"
+nav_title: Références et exemples d'applications
+article_title: Références, dépôts et exemples d'applications du SDK Braze
 page_order: 5.5
 description: "Il s'agit d'une liste de documentation de référence, de dépôts GitHub et d'exemples d'applications appartenant à chaque SDK Braze."
 toc_headers: h2
@@ -10,10 +10,12 @@ toc_headers: h2
 
 > Il s'agit d'une liste de documentation de référence, de dépôts GitHub et d'exemples d'applications appartenant à chaque SDK Braze. La documentation de référence d'un SDK détaille les classes, types, fonctions et variables disponibles. Le dépôt GitHub fournit quant à lui des informations sur les déclarations de fonctions et d'attributs, les modifications de code et le versionnage du SDK. Chaque dépôt comprend également des exemples d'applications prêtes à compiler, que vous pouvez utiliser pour tester les fonctionnalités de Braze ou implémenter en parallèle de vos propres applications.
 
+Pour le contenu des fichiers README des dépôts dans la documentation, consultez les [guides des dépôts]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+
 ## Liste des ressources {#list-of-resources}
 
 {% alert note %}
-Actuellement, certains SDK n'ont pas de documentation de référence dédiée, mais nous y travaillons activement.
+Actuellement, certains SDK ne disposent pas de documentation de référence dédiée, mais nous y travaillons activement.
 {% endalert %}
 
 | Plateforme          | Référence                                                                                                                                    | Dépôt                                                                 | Exemple d'application                                                                |

@@ -36,7 +36,7 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt, vervollständigt 
 | TikTok for Business Center Konto | [TikTok](https://business.tiktok.com/) | Ein zentrales Tool zur Verwaltung der TikTok-Assets Ihrer Marke (wie Anzeigenkonten, Seiten, Apps). |
 | TikTok-Anzeigenkonto | [TikTok](https://ads.tiktok.com/) | Ein aktives TikTok-Anzeigenkonto, das mit dem Business Center-Konto Ihrer Marke verknüpft ist.<br><br>Vergewissern Sie sich, dass Ihr TikTok Business Center Manager-Admin Ihnen Administratorrechte für die TikTok-Anzeigenkonten erteilt hat, die Sie mit Braze verwenden möchten. |
 | TikTok-Bedingungen und -Richtlinien | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Sie erklären sich damit einverstanden, alle erforderlichen Bedingungen, Richtlinien und Dokumentationen von TikTok in Bezug auf Ihre Nutzung von Pinterest Audience Sync einzuhalten, einschließlich aller Bedingungen, Richtlinien und Dokumentationen, auf die darin verwiesen wird, wie z. B.: die kommerziellen Nutzungsbedingungen, die Werbebedingungen, die Datenschutzrichtlinie, die Bedingungen für angepasste Zielgruppen, die Nutzungsbedingungen für Entwickler:innen, die Vereinbarung über die gemeinsame Nutzung von Entwicklerdaten, die Werberichtlinien, die Markenrichtlinien und die Community-Richtlinien. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -129,7 +129,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit TikTok verarbeitet werden. |
 | Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit TikTok synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges TikTok-Token sein oder die Löschung der Zielgruppe auf TikTok. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die den Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience Sync-Komponente ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
 {% alert important %}
 Beachten Sie, dass es bei den Metriken „Nutzer:innen synchronisiert“ und „Fehlerhafte Nutzer:innen“ aufgrund des Bulk-Flushers bzw. der 13-stündigen Wiederholungsversuche zu Verzögerungen bei der Berichterstattung kommen kann.
