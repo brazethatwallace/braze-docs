@@ -42,8 +42,7 @@ Column definitions are as follows:
         <th><b>Destination</b></th>
         <th class="credits-column"><b>Credits per 1 Send</b></th>
     </tr>
-<table>
-<tr>
+    <tr>
         <td>Agent Console</td>
         <td>Braze Auto</td>
         <td>1.60</td>
