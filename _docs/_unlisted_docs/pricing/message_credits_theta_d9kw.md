@@ -36,7 +36,7 @@ Column definitions are as follows:
 ## Credit ratio table for Message Credits - Theta
 
 {% details Click to expand %}
-<table>
+<table aria-label="Credit ratio table for Message Credits - Theta">
     <tr>
         <th><b>Channel</b></th>
         <th><b>Destination</b></th>
