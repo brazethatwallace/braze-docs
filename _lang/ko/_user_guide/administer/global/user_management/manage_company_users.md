@@ -36,9 +36,11 @@ Braze 계정에 사용자를 추가하려면 관리자 권한이 있어야 합�
 
 팀에서 Gmail을 사용하고 이메일 주소 추가에 문제가 있는 경우, 이메일 주소에 더하기 기호(+)를 추가하여 별칭을 만들 수 있습니다(예: "+1" 또는 "+test"). 예를 들어, `contractor@braze.com`의 별칭을 `contractor+1@braze.com`으로 만들 수 있습니다. `contractor+1@braze.com`으로 보낸 이메일은 여전히 `contractor@braze.com`으로 전달되지만, 별칭은 고유한 이메일 주소로 인식됩니다.
 
+별칭 없이 여러 회사에서 하나의 계정을 사용하려면 [다중 회사 개발자 사용]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers)을 참조하세요. SSO를 사용하는 경우, 여러 이메일 주소로 등록하기 전에 [싱글 사인온(SSO) 고려 사항]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso)을 검토하세요.
+
 ### Braze 계정의 이메일 주소를 변경할 수 있나요? {#can-i-change-my-braze-accounts-email-address}
 
-보안상의 이유로 사용자는 Braze 계정에 연결된 이메일 주소를 변경할 수 없습니다. 사용자가 이메일 주소를 업데이트하려면 관리자가 원하는 이메일 주소로 [새 계정을 생성](#adding-braze-users)해야 합니다.
+보안상의 이유로 사용자는 Braze 계정에 연결된 이메일 주소를 변경할 수 없습니다. 사용자가 이메일 주소를 업데이트하려면 관리자가 원하는 이메일 주소로 [새 계정을 생성](#adding-company-users)해야 합니다.
 
 ## 사용자 액세스 및 책임 할당 {#assigning-user-access-and-responsibilities}
 
@@ -87,6 +89,14 @@ Braze는 다음 계정 데이터를 보관합니다:
 삭제된 사용자와 동일한 이메일 주소로 새 대시보드 사용자를 생성하더라도, Braze는 삭제된 사용자가 생성한 자산을 새 사용자와 다시 연결하지 않습니다. 새 대시보드 사용자는 처음부터 시작하며, 대시보드의 기존 자산에 대한 생성자로 표시되지 않습니다.
 
 ## 문제 해결 {#troubleshooting}
+
+### 사용자 추가 시 "동작을 수행할 수 없습니다" 오류 {#unable-to-perform-action-when-adding-a-user}
+
+대시보드 사용자를 추가할 때 "동작을 수행할 수 없습니다"(또는 유사한) 오류가 발생하는 경우:
+
+- 이메일 주소에서 앞뒤 공백 및 숨겨진 문자를 제거합니다.
+- 해당 주소가 조직에서 유효한 이메일 형식인지 확인합니다. 일부 특수 문자는 거부됩니다.
+- 동일한 [클러스터]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/)에서 두 명의 대시보드 사용자에게 동일한 이메일을 사용할 수 없습니다. 해당 주소가 이미 해당 클러스터의 다른 워크스페이스에 등록되어 있는 경우, 다른 주소 또는 `user+1@company.com`과 같은 별칭을 사용하세요.
 
 ### 사용자를 추가하려고 할 때 "이메일이 이미 사용 중입니다" 오류 {#email-is-already-taken-when-trying-to-add-a-user}
 

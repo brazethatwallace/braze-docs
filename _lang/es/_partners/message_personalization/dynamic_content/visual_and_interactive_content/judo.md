@@ -58,7 +58,7 @@ iOS](https://github.com/judoapp/judo-braze-ios/wiki#in-app-messaging-setup)
 - [Configuración de mensajería dentro de la aplicación en
 Android](https://github.com/judoapp/judo-braze-android/wiki#in-app-messaging-setup).
 
-## Mediante esta integración {#using-this-integration}
+## Uso de esta integración {#using-this-integration}
 
 Una vez finalizada la integración del lado de la aplicación, puedes probarla ejecutando una Campaign de mensajes dentro de la aplicación de Braze de prueba para una experiencia Judo a fin de verificar que funciona como se espera.
 

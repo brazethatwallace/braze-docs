@@ -20,16 +20,16 @@ search_rank: 1
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
-메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaigns는 단일 타겟 메시징에 적합하고, Canvases는 다단계 사용자 여정에 더 적합합니다.
+메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign은 단일 타겟 메시징에 적합하고, Canvas는 다단계 사용자 여정에 더 적합합니다.
 
 {% tabs %}
 {% tab Campaign %}
 
 1. **메시징** > **Campaigns**로 이동하여 **캠페인 생성**을 선택합니다.
-2. **SMS/MMS/RCS**를 선택하거나, 여러 채널을 타겟팅하는 Campaigns의 경우 **멀티채널**을 선택합니다.
+2. **SMS/MMS/RCS**를 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **멀티채널**을 선택합니다.
 3. Campaign에 명확하고 의미 있는 이름을 지정합니다.
 4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) 및 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가합니다.
-   * 태그를 사용하면 Campaigns를 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 사용할 때 특정 태그로 필터링할 수 있습니다.
+   * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 사용할 때 특정 태그로 필터링할 수 있습니다.
 5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 추가된 각 배리언트에 대해 다른 플랫폼, 메시지 유형 및 레이아웃을 선택할 수 있습니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
    * Braze에서는 단일 Campaign 내에 SMS와 RCS 배리언트를 모두 포함할 수 있으므로 각각의 성과를 비교할 수 있습니다.
 
@@ -267,7 +267,7 @@ RCS 렌더링은 사용자의 운영체제, 기기 제조사, 통신사 및 메�
 
 메시지는 스케줄된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
-실행 기반 전달의 경우 Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)도 설정할 수 있습니다.
+실행 기반 전달의 경우 Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)도 설정할 수 있습니다.
 
 이 단계에서는 사용자가 Campaign을 [다시 수신할 수 있도록]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
@@ -306,7 +306,7 @@ Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [�
 
 Campaign 또는 Canvas의 마지막 부분을 완성한 후 세부 정보를 검토하고 테스트한 다음 발송합니다!
 
-다음으로 [SMS, MMS 및 RCS 보고]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/)를 확인하여 Campaigns의 결과에 액세스하는 방법을 알아보세요.
+다음으로 [SMS, MMS 및 RCS 보고]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/)를 확인하여 Campaign의 결과에 액세스하는 방법을 알아보세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

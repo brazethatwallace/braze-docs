@@ -31,9 +31,15 @@ description: "이 참조 문서에서는 슬라이드업 인앱 메시지의 메
 | 레이아웃 | 자산 크기 | 참고 |
 |--- | --- | --- |
 | 이미지 + 텍스트 | 1:1 종횡비<br>고해상도 150 x 150&nbsp;px<br> 최소 50 x 50&nbsp;px | 다양한 종횡비의 이미지가 잘리지 않고 정사각형 이미지 컨테이너에 맞게 조정됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Image and copy behavior" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="이미지 및 텍스트 동작" }
 
 이미지와 메시지의 가장 중요한 영역이 예상대로 표시되는지 확인하려면 항상 다양한 기기에서 [메시지를 미리보기하고 테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)해야 합니다. 작성기에서 메시지를 미리볼 때 실제 기기에서의 렌더링은 다를 수 있습니다.
+
+## 하이퍼링크 및 앵커 텍스트 {#hyperlinks-and-anchor-text}
+
+슬라이드업에 링크를 추가하려면 **본문** 필드에 메시지 텍스트를 입력하고 **클릭 시 동작**에서 대상을 설정합니다(예: **URL로 리디렉션**). **클릭 시 동작**이 구성되면 닫기 제어를 제외한 메시지의 아무 곳이나 탭하면 해당 동작이 트리거됩니다.
+
+커스텀 HTML 인앱 메시지의 경우 HTML 링크를 직접 사용할 수 있습니다. [커스텀 HTML 인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)를 참조하세요.
 
 ## 모바일 기기 {#mobile-devices}
 

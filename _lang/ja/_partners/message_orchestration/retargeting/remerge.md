@@ -31,11 +31,12 @@ BrazeとRemergeの統合により、ユーザーデータをWebhookイベント�
 
 ## 統合 {#integration}
 
-### ステップ 1: Braze Webhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
+### ステップ1: Braze Webhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 
-今後のCampaignsまたはCanvases用のRemerge Webhookテンプレートを作成するには、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**に移動します。
+今後のCampaignsまたはCanvases用のRemerge Webhookテンプレートを作成するには、Brazeプラットフォームの**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
-単発のRemerge Webhook Campaignを作成したい場合、または既存のテンプレートを使用したい場合は、新しいCampaignを作成する際にBrazeで**Webhook**を選択します。
+
+単発のRemerge Webhookキャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
 
 新しいWebhookテンプレートで、以下のフィールドに記入してください:
 - **リクエスト本文**: Raw Text
@@ -58,7 +59,7 @@ https://remerge.events/event?partner=braze&app_id=\{% if most_recently_used_devi
 
 Webhook URLでは、以下の操作を行う必要があります:
 - `https://remerge.events/event` APIを使用してWebhookイベントを送信します。
-- イベント名を設定します。この名前は [remerge.io](https://www.remerge.io/) ダッシュボードに表示されます。
+- イベント名を設定します。この名前は[remerge.io](https://www.remerge.io/)ダッシュボードに表示されます。
 - AndroidとiOSのアプリの一意のアプリケーション識別子（Android:「com.example」、iOS:「012345678」など）をRemergeに渡します。
 - キーを定義します。これはRemergeから提供されます。
 
@@ -82,10 +83,10 @@ Remerge WebhookにはHTTPメソッドとリクエストヘッダーが必要で�
 
 このWebhookのリクエスト本文を定義する必要はありません。
 
-## ステップ 2: リクエストをプレビューする {#step-2-preview-your-request}
+## ステップ2: リクエストをプレビューする {#step-2-preview-your-request}
 
 メッセージをプレビューして、リクエストがさまざまなユーザーに対して正しくレンダリングされていることを確認します。AndroidとiOSの両方のユーザーに対して、プレビューとテストリクエストの送信を推奨します。リクエストが成功すると、APIは `HTTP 204` で応答します。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい [Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) を作成するときに、**保存済み Webhookテンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}

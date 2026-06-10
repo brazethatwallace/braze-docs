@@ -47,7 +47,7 @@ Wenn Sie den Standardwert **Empfänger:innen** von **Alle Dashboard-Nutzer:innen
 | Webhook-Fehler | Benachrichtigt Empfänger:innen, wenn ein Webhook-Endpunkt Fehler aufweist. | E-Mail |
 | Wöchentlicher Analytics-Bericht | Sendet jeden Montag eine Zusammenfassung der Workspace-Aktivitäten der vergangenen Woche an die Empfänger:innen. Empfänger:innen erhalten eine Zusammenfassung für jeden Workspace, dem sie angehören. | E-Mail |
 | Tägliche Canvas-/Campaign-Eingangsvolumenlimits | Sendet Benachrichtigungen jedes Mal, wenn ein Sendelimit erreicht wird. | E-Mail |
-| Agentenkonsole-Fehler | Benachrichtigt Empfänger:innen, wenn ein [Agentenkonsole-Agent]({{site.baseurl}}/user_guide/brazeai/agents/) sein Ausführungslimit mit der aktuellen Funktionalität erreicht hat oder wenn ein Agent Modelle verwendet, die nicht mehr verfügbar sind. | E-Mail |
+| Agentenkonsole-Fehler | Benachrichtigt Empfänger:innen, wenn ein [Agentenkonsole-Agent]({{site.baseurl}}/user_guide/brazeai/agents/) sein Ausführungslimit erreicht hat, ein Modell verwendet, das nicht mehr verfügbar ist, oder ein Abrechnungsfehler bei seinem LLM-Anbieter auftritt (nur bei Nutzung eines eigenen API-Schlüssels). | E-Mail |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verfügbare Benachrichtigungen" }
 
 {% alert note %}

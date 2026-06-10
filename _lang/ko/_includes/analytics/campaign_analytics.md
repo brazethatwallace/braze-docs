@@ -37,6 +37,10 @@
 
 이 패널에서 수신자에게 전송된 메시지 수, 주요 전환율, 이 메시지로 발생한 총 매출 등 전반적인 측정기준을 확인할 수 있습니다. 이 페이지에서 전달, 오디언스 및 전환 설정도 검토할 수 있습니다.
 
+{% alert note %}
+대시보드와 Snowflake의 분석 수치는 약간 다를 수 있습니다. Braze는 대시보드의 수치를 측정하고 Snowflake에 행을 별도로 기록합니다. Snowflake가 더 정확한 데이터 소스이므로, 이 두 소스 간에 차이가 있는 경우 Snowflake 데이터를 참조하는 것이 좋습니다.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 WhatsApp 채널에는 읽기 비율이 포함됩니다. 이 측정기준은 읽음 확인을 켜놓은 사용자에게만 제공되며, 사용자마다 다를 수 있습니다.
@@ -317,6 +321,10 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
             <td class="no-split"><i>Total Clicks</i>는 동일한 사용자가 여러 번 클릭했는지 여부와 관계없이 전달된 메시지 내에서 클릭한 사용자의 총 수(및 백분율)입니다.</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i>는 사용자가 배너를 닫은 총 횟수입니다. 닫기 동작이 활성화된 배너에서만 사용할 수 있습니다.</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} 각 사용자는 한 번만 카운트됩니다.</td>
         </tr>
@@ -377,7 +385,7 @@ _Unique Recipients_는 실제로 본 배너를 의미합니다.
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> 로 측정됩니다. Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 이 수치는 5~10% 사이가 일반적이며, 10%를 초과하면 매우 우수한 수준입니다!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 로 측정됩니다. Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 이 수치는 5~10% 사이가 일반적이며, 10%를 초과하면 매우 우수한 수준입니다!
             </td>
         </tr>
         <tr>
@@ -481,7 +489,7 @@ _연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQ
 
 이 통계는 Braze가 개발한 독점 분석 모델을 사용하여 기계 열람이 존재하지 않는 것처럼 캠페인의 고유 열람율 추정치를 재구성합니다. 이메일 발신자로부터 일부 열람 이벤트에 대한 *Machine Opens* 레이블을 받지만(위 참조), 이러한 레이블은 실제 열람을 기계 열람으로 잘못 분류하는 경우가 많습니다. 즉, *Other Opens*는 실제 사용자에 의한 열람 수를 과소 추정할 가능성이 높습니다. 대신 Braze는 각 캠페인의 클릭 데이터를 사용하여 실제 사용자가 메시지를 열어본 비율을 추론합니다. 이를 통해 Apple의 MPP를 비롯한 다양한 기계 열람 메커니즘을 보완합니다.
 
-_Estimated Real Open Rate_는 이메일 발송이 시작된 후 36시간이 지나면 계산되며, 이후 매 24시간마다 재계산됩니다. 캠페인이 반복되면 다른 발송이 발생한 후 36시간 후에 추정치가 재계산됩니다.
+_Estimated Real Open Rate_는 이메일 발송이 시작된 후 24시간이 지나면 계산되며, 이후 매 72시간마다 재계산됩니다.
 
 이 측정기준은 지속적으로 재계산되므로, _Estimated Real Open Rate_ 값은 새로운 참여 신호(예: 열람 및 클릭)가 수신되어 모델에 반영됨에 따라 시간이 지나면서 변경될 수 있습니다. 실제로 _Estimated Real Open Rate_는 캠페인이 활성 상태인 동안 매일 업데이트될 수 있습니다.
 

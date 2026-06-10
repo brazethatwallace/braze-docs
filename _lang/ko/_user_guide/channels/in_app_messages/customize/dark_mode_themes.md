@@ -10,7 +10,7 @@ channel:
 
 # 다크 모드 테마 {#dark-mode-themes}
 
-> 이 문서는 [기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)에 적용됩니다. 다크 모드는 사용자에게 시스템 전체 색상 환경설정을 지정할 수 있는 기회를 제공합니다([Android 10](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) 및 [iOS 13](https://developer.apple.com/documentation/appkit/supporting_dark_mode_in_your_interface/)에서 도입). "다크" 테마는 배터리 수명을 절약하고 사용자의 눈의 피로를 줄이는 동시에 앱 개발자에게 다크 색상 테마를 구현할 수 있는 방법을 제공하기 위한 것입니다.
+> 이 문서는 [기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)에 적용됩니다. 다크 모드는 사용자에게 시스템 전체 색상 환경설정을 지정할 수 있는 기능을 제공합니다([Android 10](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) 및 [iOS 13](https://developer.apple.com/documentation/appkit/supporting_dark_mode_in_your_interface/)에서 도입). "다크" 테마는 배터리 수명을 절약하고 사용자의 눈의 피로를 줄이는 동시에 앱 개발자에게 다크 색상 테마를 구현할 수 있는 방법을 제공하기 위한 것입니다.
 
 Braze 인앱 메시지는 사용자의 환경설정에 따라 적절한 색상 메시지를 전달하고 앱 디자인과의 일관성을 유지할 수 있도록 대체 다크 테마 추가를 지원합니다.
 
@@ -22,9 +22,9 @@ Android 10 이상 또는 iOS 13 이상 버전을 사용하는 사용자는 기�
 
 ## 다크 모드 테마 설정 {#setting-a-dark-mode-theme}
 
-[인앱 메시지를 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)할 때 **디자인** 탭에 있는 다크 모드를 사용하면 기기에서 다크 모드를 사용 중인 사용자를 위한 대체 색상 테마를 추가할 수 있습니다.
+[인앱 메시지를 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)할 때 **Design** 탭에 있는 다크 모드를 사용하면 기기에서 다크 모드를 사용 중인 사용자를 위한 대체 색상 테마를 추가할 수 있습니다.
 
-![인앱 메시지를 생성할 때 스타일 탭에서 라이트 모드 스타일과 다크 모드 스타일 간에 전환하는 사용자.]({% image_buster /assets/img_archive/iam-dark-mode.gif %})
+![인앱 메시지를 생성할 때 Style 탭에서 라이트 모드 스타일과 다크 모드 스타일 간에 전환하는 사용자.]({% image_buster /assets/img_archive/iam-dark-mode.gif %})
 
 이 옵션이 활성화되면 색상 선택기를 사용하거나 기존 [색상 프로필]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile)을 선택하여 기존 다크 또는 라이트 테마를 재사용함으로써 인앱 메시지의 다크 테마 색상을 선택할 수 있습니다.
 
@@ -34,9 +34,13 @@ Android 10 이상 또는 iOS 13 이상 버전을 사용하는 사용자는 기�
 
 ### 다크 모드를 일관되게 사용하기 {#using-dark-mode-consistently}
 
-모든 인앱 메시지에 다크 모드를 사용하려면 **템플릿** > **인앱 메시지 템플릿**으로 이동합니다.
+모든 인앱 메시지에 다크 모드를 사용하려면 먼저 다크 모드 테마에 맞는 색상 프로필을 생성합니다.
 
-거기에서 드롭다운에서 [색상 프로필 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile)을 선택합니다. 다크 모드 테마에 맞는 색상 프로필을 생성합니다. 그런 다음 인앱 메시지의 다크 모드 버전을 생성할 때마다 해당 색상 프로필을 선택하여 인앱 메시지의 외관을 일관되게 유지할 수 있습니다.
+1. **Content** > **In-App Message**로 이동합니다.
+2. **Create Templates**를 선택하고 드롭다운에서 [Color Profile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile)을 선택합니다.
+3. 색상 프로필을 생성하고 저장합니다.
+
+인앱 메시지의 다크 모드 버전을 생성할 때 해당 색상 프로필을 선택하면 인앱 메시지의 외관을 일관되게 유지할 수 있습니다.
 
 ## 호환성 {#compatibility}
 
@@ -44,7 +48,7 @@ Android 10 이상 또는 iOS 13 이상 버전을 사용하는 사용자는 기�
 - Braze iOS SDK v3.21.0 이상, Braze Android SDK v3.8.0 이상이 필요합니다.
 
 {% alert note %}
-다크 모드 앱은 Android 10 및 iOS 13에서 도입되었습니다. 최소한 이 버전으로 휴대폰을 업그레이드하지 않은 사용자에게는 라이트 테마만 표시됩니다. <br><br>선택한 오디언스에 적합한 모든 사용자에게 Campaign이 계속 제공되며, 사용자의 다크 모드 설정이나 OS 버전에 관계없이 적용됩니다.
+다크 모드 앱은 Android 10 및 iOS 13에서 도입되었습니다. 최소한 이 버전으로 휴대폰을 업그레이드하지 않은 사용자에게는 라이트 테마만 표시됩니다. <br><br>사용자의 다크 모드 설정이나 OS 버전에 관계없이, 선택한 오디언스에 적합한 모든 사용자에게 Campaign이 계속 제공됩니다.
 {% endalert %}
 
 ## HTML 인앱 메시지 사용 {#using-html-in-app-messages}

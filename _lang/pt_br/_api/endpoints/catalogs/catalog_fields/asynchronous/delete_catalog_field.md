@@ -31,7 +31,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | -------------- | -------- | --------- | -------------------------- |
 | `catalog_name` | Obrigatória | String | Nome do catálogo. |
 | `field_name` | Obrigatória | String | Nome do campo do catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -87,6 +87,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `field-referenced-by-selection` | Verifique se o campo de catálogo está sendo usado atualmente por uma seleção. |
 | `field-is-inventory` | Verifique se o campo de catálogo é usado como um campo de inventário. |
 | `invalid-field-name` | Verifique se o nome do campo do catálogo é válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 {% endapi %}

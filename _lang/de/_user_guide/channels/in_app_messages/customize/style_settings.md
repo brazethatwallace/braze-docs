@@ -158,4 +158,4 @@ Sie können auch Tastaturkürzel verwenden, um Stile zu kopieren und einzufügen
 | ------------ | ---------------------------------------------- | ------------------------------------------------- |
 | Stile kopieren | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
 | Stile einfügen | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tastaturkürzel" }

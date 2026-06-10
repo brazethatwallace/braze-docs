@@ -22,13 +22,17 @@ Para aninhar uma nova tag, crie uma tag, selecione **Nest Tag Under** e escolha 
 
 Para aninhar uma tag existente, acesse a página **Gerenciamento de tags**, passe o cursor sobre a linha com a tag e selecione **<i class="fas fa-pencil-alt"></i>Edit**. Em seguida, selecione **Nest Tag Under** e escolha a tag principal.
 
+### A tag principal está em uso, mas não aparece em **Nest Tag Under** {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
+
+Quando uma tag principal está aplicada no dashboard, mas não aparece no menu suspenso **Nest Tag Under** ao criar uma nova tag, recrie a tag principal como uma tag independente para que ela se torne pesquisável na lista. Esse comportamento é esperado quando a tag principal existe apenas como uma dependência aninhada em outro lugar do seu espaço de trabalho.
+
 ![A caixa de diálogo de nova tag com a opção Nest Tag Under selecionada.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
 ## Práticas recomendadas {#tags-best-practices}
 
 Use tags para organizar suas campanhas, Canvas e segmentos por objetivos de negócios, etapas do funil, regiões e muito mais.
 
-A tabela a seguir mostra exemplos de tags que um app de eCommerce pode considerar úteis:
+A tabela a seguir mostra exemplos de tags que um app de e-commerce pode considerar úteis:
 
 <style>
 table td {
@@ -37,7 +41,7 @@ table td {
 </style>
 
 
-<table aria-label="Best practices #tags-best-practices">
+<table aria-label="Práticas recomendadas">
   <caption>Práticas recomendadas</caption>
 <thead>
   <tr>

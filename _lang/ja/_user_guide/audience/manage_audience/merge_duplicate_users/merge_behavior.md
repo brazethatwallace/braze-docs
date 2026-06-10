@@ -45,9 +45,9 @@ description: "削除対象としてマークされたユーザー、テストユ
 
 ## 削除対象としてマークされたユーザー {#users-marked-for-deletion}
 
-[一括ユーザー削除ツール]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)を使用してSegmentを削除すると、Brazeはそれらのユーザープロファイルに7日以内の削除フラグを付けます。Brazeは、保持するプロファイルであってもマージするプロファイルであっても、削除対象としてマークされたプロファイルをマージしません。
+[一括ユーザー削除ツール]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)を使用してセグメントを削除すると、Brazeはそれらのユーザープロファイルに7日以内の削除フラグを付けます。Brazeは、保持するプロファイルであってもマージするプロファイルであっても、削除対象としてマークされたプロファイルをマージしません。
 
-削除対象としてマークされたプロファイルをマージする必要がある場合は、まず[Segmentの削除をキャンセル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/#cancel)するか、ユーザーを削除対象から除外して、プロファイルのフラグを解除してください。
+削除対象としてマークされたプロファイルをマージする必要がある場合は、まず[セグメントの削除をキャンセル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/#cancel)するか、ユーザーを削除対象から除外して、プロファイルのフラグを解除してください。
 
 ## テストユーザー {#test-users}
 

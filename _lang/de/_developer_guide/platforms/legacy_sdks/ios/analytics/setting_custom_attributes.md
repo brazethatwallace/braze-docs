@@ -253,7 +253,7 @@ Um ein Abo für Ihre Nutzer:innen einzurichten (entweder E-Mail oder Push), rufe
 | `ABKOptedin` | Abonniert und ausdrücklich angemeldet |
 | `ABKSubscribed` | Abonniert, aber nicht ausdrücklich angemeldet |
 | `ABKUnsubscribed` | Abbestellt und/oder ausdrücklich abgemeldet |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Einrichten von Nutzer-Abos" }
 
 Nutzer:innen, die einer App die Erlaubnis erteilen, ihnen Push-Benachrichtigungen zu senden, haben standardmäßig den Status `ABKOptedin`, da iOS eine ausdrückliche Zustimmung verlangt.
 

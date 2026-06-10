@@ -90,7 +90,7 @@ Campaignにコンバージョンイベントを設定すると、そのCampaign�
 | プッシュ | コピー <br> 画像と絵文字の使用 <br> ディープリンク <br> 数値の表現（例：「3倍」と「200%増加」）<br> 時間の表現（例：「深夜に終了」と「残り6時間で終了」） | 開封数 <br> コンバージョン率 |
 | メール | 件名 <br> 表示名 <br> 挨拶文 <br> 本文コピー <br> 画像と絵文字の使用 <br> 数値の表現（例：「3倍」と「200%増加」）<br> 時間の表現（例：「深夜に終了」と「残り6時間で終了」） | 開封数 <br> コンバージョン率 |
 | アプリ内メッセージ | 「プッシュ」に記載された要素 <br> [アプリ内メッセージの画像仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | クリック数 <br> コンバージョン率 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="チャネル別のヒント" }
 
 {% alert tip %}
 ABテストを実施する際は、[ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)を生成することを忘れないでください。各バリアントがコンバージョンファネルにどのような影響を与えたかを理解できます。特に、ビジネスにおける「コンバージョン」が複数のステップやアクションを伴う場合に有用です。

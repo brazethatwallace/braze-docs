@@ -167,4 +167,4 @@ Sobald Nutzerdaten in Braze vorhanden sind, unterstützen sie nahezu jede Engage
 | Automatisierung und Orchestrierung | Triggern Sie Nachrichten und Journeys basierend auf: {::nomarkdown}<ul><li>Nutzeraktionen</li> <li>Attributänderungen</li> <li>Zeitbasierten Bedingungen</li></ul>{:/} |
 | Kanalübergreifende Koordination | Erreichen Sie Nutzer:innen auf dem am besten geeigneten Kanal unter Berücksichtigung von: {::nomarkdown}<ul><li>Opt-in-Status</li> <li>Häufigkeitsbegrenzungen</li> <li>Kanalpräferenzen</li></ul>{:/} |
 | [Analytics und Insights]({{site.baseurl}}/user_guide/analytics/) | Verstehen Sie das Verhalten verschiedener Zielgruppen durch Analyse von: {::nomarkdown}<ul><li>Engagement-Raten</li> <li>Conversion-Pfaden</li> <li>Segment-Performance im Zeitverlauf</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Features für Zielgruppendaten" }

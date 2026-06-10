@@ -35,7 +35,7 @@ guide_menu_list:
   - name: 通知チャネル
     link: /docs/user_guide/channels/push/platform_specific_resources/android/notification_channels
     image: /assets/img/braze_icons/phone-02.svg
-  - name: 高度なプッシュCampaign設定
+  - name: 高度なプッシュキャンペーン設定
     link: /docs/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings
     image: /assets/img/braze_icons/bar-chart-01.svg
   - name: Push Max

@@ -41,7 +41,7 @@ Cuando configures los ajustes OAuth necesarios para la aplicación conectada, ma
 
 Como plataforma de interacción con los clientes, Braze puede generar nuevos clientes potenciales basándose en flujos de usuario, como rellenar un formulario en una página de inicio. Cuando eso ocurra, puedes utilizar un webhook de Braze para Salesforce Sales Cloud para crear un cliente potencial correspondiente en Salesforce.
 
-### Paso 1: Recopila tu `client_id` y `client_secret` {#step-1-collect-your-clientid-and-clientsecret}
+### Paso 1: Recopila tu `client_id` y `client_secret` {#step-1-collect-your-client_id-and-client_secret}
 
 1. En Salesforce, ve a **Platform Tools** > **Apps** > **App Manager**.
 2. Busca tu aplicación Braze recién creada y selecciona **View**.
@@ -166,7 +166,7 @@ Añade un paso posterior a tu actualización de usuario para comprobar si un usu
 
 #### Añadir un paso en Canvas para comprobar los usuarios que superaron el umbral de MQL {#adding-canvas-step-to-check-for-users-who-passed-the-mql-threshold}
 
-1. Añade un paso de **ruta de audiencia** con dos grupos: "MQL Threshold" y "Everyone Else".
+1. Añade un paso de **ruta de audiencia** con dos grupos: "MQL Threshold" y "El resto".
 2. En el grupo "MQL Threshold", busca a los usuarios que actualmente no tengan un estado de "MQL" (por ejemplo, `lead_stage` es igual a "Lead"), pero que tengan una puntuación de cliente potencial superior al umbral que hayas definido (por ejemplo, `lead_score` mayor que 50). Si es así, avanzan al siguiente paso; si no, salen.
 
 ![El grupo de ruta de audiencia "MQL Threshold" con filtros para un `lead_stage` igual a "Lead" y un `lead_score` superior a "50".]({% image_buster /assets/img/b2b/salesforce_check_mql.png %}){: style="max-width:70%;"}

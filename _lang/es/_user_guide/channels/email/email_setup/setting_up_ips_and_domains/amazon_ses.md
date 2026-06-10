@@ -31,7 +31,7 @@ Una configuración típica de Amazon SES se ve de la siguiente manera:
 | --- | --- | --- | --- | --- |
 | `eu02_braze_marketing` | 1 IP | `eu02_braze_marketing_set1` | `demo.braze.com` | `clicks.demo.braze.com` |
 | `eu02_braze_transactional` | 1 IP | `eu02_braze_transactional_set1` | `dev.braze.com` | `clicks.dev.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Setup example" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Ejemplo de configuración" }
 
 {% alert note %}
 El clúster y el nombre de subcuenta se añaden automáticamente a los pools de IP y los conjuntos de configuración.
@@ -49,7 +49,7 @@ Las siguientes tablas son ejemplos de posibles configuraciones de dominios de se
 | braze_marketing - 1 IP | braze_marketing_set2 | `email2.example.com` | `clicks.email2.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set3 | `email3.example.com` | `clicks.email3.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set4 | `email4.example.com` | `clicks.email4.example.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="One click tracking domain for each sending domain" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Un dominio de seguimiento de clics para cada dominio de envío" }
 
 ### Un dominio de seguimiento de clics para todos los dominios de envío {#one-click-tracking-domain-for-all-sending-domains}
 
@@ -61,7 +61,7 @@ Esto se basa en la regla de que el dominio de seguimiento de clics debe coincidi
 | braze_marketing - 1 IP | braze_marketing_set | `email2.example.com` | `clicks.email1.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set | `email3.example.com` | `clicks.email1.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set | `email4.example.com` | `clicks.email1.example.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="One click tracking domain for all sending domains" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Un dominio de seguimiento de clics para todos los dominios de envío" }
 
 ## Consideraciones {#considerations}
 
@@ -71,7 +71,7 @@ Esto se basa en la regla de que el dominio de seguimiento de clics debe coincidi
 - Cada dominio de envío tiene un identificador MAIL FROM asociado para ayudar con las validaciones SPF.
     - El valor para cada dominio de envío es "e".
     - El valor MAIL FROM no cambia la dirección del remitente que ven tus clientes.
-- Si Amazon SES es tu proveedor de servicios de correo electrónico, Microsoft Smart Network Data Services (SNDS) no es compatible.
+- El inicio y el fin del periodo de mensajes trampa no están disponibles si utilizas Amazon SES como tu proveedor de servicios de correo electrónico.
 
 ## Próximos pasos {#next-steps}
 

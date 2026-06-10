@@ -3,7 +3,7 @@ nav_title: SMSメッセージを送信する
 article_title: REST APIを使用したSMSメッセージの送信
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、Braze REST APIとAPI Campaignを使用してSMSメッセージを送信する方法を説明します。"
+description: "このリファレンス記事では、Braze REST APIとAPIキャンペーンを使用してSMSメッセージを送信する方法を説明します。"
 channel:
   - SMS
 ---
@@ -21,7 +21,7 @@ channel:
 - メッセージ遅延、フォローアップリターゲティング、ABテストといった追加のBraze機能でユースケースを拡張する。
 - 必要に応じて、[APIトリガー配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)に切り替えることで、メッセージテンプレートをBrazeダッシュボードで定義しつつ、送信はバックエンドからトリガーし続けることができます。
 
-REST API経由でSMSメッセージを送信するには、BrazeダッシュボードでAPI Campaignを設定し、[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)エンドポイントを使用してメッセージを送信する必要があります。
+REST API経由でSMSメッセージを送信するには、BrazeダッシュボードでAPIキャンペーンを設定し、[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)エンドポイントを使用してメッセージを送信する必要があります。
 
 ## 前提条件 {#prerequisites}
 
@@ -34,14 +34,14 @@ REST API経由でSMSメッセージを送信するには、Brazeダッシュボ�
 | バックエンドサービス | Braze REST APIに対してHTTP POSTリクエストを送信できるバックエンドサービスまたはスクリプト環境。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## ステップ1：API Campaignを作成する {#step-1-create-an-api-campaign}
+## ステップ1：APIキャンペーンを作成する {#step-1-create-an-api-campaign}
 
-1. Brazeダッシュボードで、**Messaging** > **Campaigns**に移動します。
-2. **Create Campaign**を選択し、次に**API Campaigns**を選択します。
-3. Campaignの名前と説明を入力します（例：「SMS通知」）。
+1. Brazeダッシュボードで、**メッセージング** > **Campaigns**に移動します。
+2. **キャンペーンを作成**を選択し、次に**API Campaigns**を選択します。
+3. キャンペーンの名前と説明を入力します（例：「SMS通知」）。
 4. 識別とトラッキングのために関連タグを追加します。
-5. **Add Messaging Channel**を選択し、次に**SMS**を選択します。
-6. Campaignページに表示されている**Campaign ID**と**Message Variation ID**をメモしておきます。APIリクエストを構築する際に両方の値が必要です。
+5. **メッセージングチャネルを追加**を選択し、次に**SMS**を選択します。
+6. キャンペーンページに表示されている**Campaign ID**と**Message Variation ID**をメモしておきます。APIリクエストを構築する際に両方の値が必要です。
 
 ## ステップ2：APIを使ってSMSメッセージを送信する {#step-2-send-an-sms-message-using-the-api}
 
@@ -88,11 +88,11 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 1. [ステップ2](#step-2-send-an-sms-message-using-the-api)で説明した通りにAPIリクエストを送信します。その際、受信者として自身のユーザーIDを使用します。
 2. SMSメッセージが自分の携帯電話に届いていることを確認します。
-3. Brazeダッシュボードで、Campaignの結果ページに移動し、送信が記録されていることを確認します。
-4. Campaignを拡大するにつれて、結果を注意深く監視します。
+3. Brazeダッシュボードで、キャンペーンの結果ページに移動し、送信が記録されていることを確認します。
+4. キャンペーンを拡大するにつれて、結果を注意深く監視します。
 
 ## 考慮事項 {#considerations}
 
-- SMSキャンペーンが関連規制および通信事業者の要件に準拠していることを確認してください。すべてのメッセージにオプトアウトの手順（「STOPと送信してオプトアウト」など）を含めてください。詳細については、[SMSに関する法令]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)および[オプトイン・オプトアウトキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/)を参照してください。
+- SMSキャンペーンが関連規制および通信事業者の要件に準拠していることを確認してください。すべてのメッセージにオプトアウトの手順（「STOPと送信してオプトアウト」など）を含めてください。詳細については、[SMSに関する法令]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)および[オプトインとオプトアウトのキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/)を参照してください。
 - Brazeの[パーソナライゼーション機能]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/)を使用して、ダイナミックなコンテンツやユーザー固有のデータを含め、SMSコンテンツをエンドユーザーに合わせてカスタマイズできます。
 - Braze REST APIは、メッセージのスケジュール設定やCampaignsのトリガーなどを行うための追加の[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を提供しています。

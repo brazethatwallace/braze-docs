@@ -30,7 +30,7 @@ Las características de los Banners incluyen:
 
 - **Creación sencilla de contenido:** Crea y previsualiza tu Banner utilizando un editor visual de arrastrar y soltar compatible con imágenes, texto, botones, formularios de captura de correo electrónico, código personalizado y mucho más.
 - **Ubicaciones flexibles:** Define múltiples ubicaciones dentro de tu aplicación o sitio web donde puedan aparecer los Banners, lo que permite una segmentación precisa a contextos específicos o experiencias de usuario.
-- **Personalización dinámica:** Los Banners solo pueden actualizarse al inicio de una nueva sesión o a mitad de sesión si el cliente solicita explícitamente la actualización. Los Banners no se actualizan automáticamente en una nueva sesión. Si el cliente no solicita la actualización, el Banner no se actualizará.
+- **Personalización dinámica:** Los Banners solo pueden actualizarse al inicio de una nueva sesión o a mitad de sesión si solicitas explícitamente la actualización. Los Banners no se actualizan automáticamente en una nueva sesión. Si no solicitas la actualización, el Banner no se actualizará.
 - **Priorización nativa:** Establece la prioridad de visualización cuando varios Banners se dirigen a la misma ubicación, asegurándote de que el mensaje adecuado llegue a los usuarios en el momento adecuado.
 - **Bloque de editor de código personalizado:** Utiliza el bloque de editor de código personalizado para añadir HTML personalizado y así realizar personalizaciones avanzadas o integrarlo fácilmente con tus estilos web actuales.
 
@@ -40,17 +40,17 @@ Las características de los Banners incluyen:
 
 Las ubicaciones de Banner son ubicaciones específicas de tu aplicación o sitio web [que creas con el SDK de Braze]({{site.baseurl}}/developer_guide/banners/placements/) y que designan dónde pueden aparecer los Banners.
 
-Las ubicaciones más habituales son la parte superior de la página de inicio, las páginas de detalles de los productos y los procesos de pago. Una vez creadas las ubicaciones, los Banners se pueden [asignar en tu campaña de Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/).
+Las ubicaciones más habituales son la parte superior de la página de inicio, las páginas de detalles de los productos y los procesos de pago. Una vez creadas las ubicaciones, los Banners se pueden [asignar en tu Campaign de Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/).
 
 No hay un límite fijo en el número de ubicaciones que puedes crear por espacio de trabajo, y puedes crear tantos ID de ubicación como requiera tu experiencia. Cada ubicación debe ser única dentro de un espacio de trabajo. Un único ID de ubicación puede ser referenciado por hasta 25 mensajes activos al mismo tiempo.
 
 {% alert important %}
-Evita modificar los ID de ubicación después de lanzar una campaña de Banner.
+Evita modificar los ID de ubicación después de lanzar una Campaign de Banner.
 {% endalert %}
 
 ### Prioridad del Banner {#priority}
 
-Cuando varios mensajes de Banner hacen referencia al mismo ID de ubicación, los Banners se muestran por orden de prioridad: alta, media o baja. De forma predeterminada, los Banners están configurados en media, pero puedes [establecer manualmente la prioridad]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#set-banner-priority-optional) cuando crees o edites tu campaña de Banner.
+Cuando varios mensajes de Banner hacen referencia al mismo ID de ubicación, los Banners se muestran por orden de prioridad: alta, media o baja. De forma predeterminada, los Banners están configurados en media, pero puedes [establecer manualmente la prioridad]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#set-banner-priority-optional) cuando crees o edites tu Campaign de Banner.
 
 Si varios Banners tienen la misma prioridad, se mostrará primero el Banner más reciente para el que el usuario sea elegible.
 
@@ -62,7 +62,7 @@ Si varios Banners tienen la misma prioridad, se mostrará primero el Banner más
 
 Los mensajes de Banner se entregan a tu aplicación o sitio web como contenido HTML, normalmente representado dentro de un iframe. Esto garantiza que tus Banners se muestren de forma coherente en todos los dispositivos y te ayuda a mantener sus estilos y scripts separados del resto del código.
 
-Los iframes permiten actualizaciones de contenido dinámicas y personalizadas que no requieren cambios en tu código base. Cada iframe recupera y muestra el HTML de cada sesión de usuario utilizando la lógica de segmentación y personalización de la campaña.
+Los iframes permiten actualizaciones de contenido dinámicas y personalizadas que no requieren cambios en tu código base. Cada iframe recupera y muestra el HTML de cada sesión de usuario utilizando la lógica de segmentación y personalización de la Campaign.
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
@@ -76,7 +76,7 @@ Esto es lo que debes saber sobre las dimensiones y el tamaño de los Banners:
 
 ## Limitaciones {#limitations}
 
-Cada espacio de trabajo puede admitir hasta 200 campañas activas de Banner. Si se alcanza este límite, tendrás que [archivar o desactivar]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) una campaña existente antes de crear una nueva.
+Cada espacio de trabajo puede admitir hasta 200 Campaigns de Banner activas. Si se alcanza este límite, tendrás que [archivar o desactivar]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) una Campaign existente antes de crear una nueva.
 
 Además, los mensajes de Banner no admiten las siguientes características:
 
@@ -93,7 +93,7 @@ Permitir que los usuarios descarten manualmente un Banner está en acceso antici
 ## Próximos pasos {#next-steps}
 
 - [Crear ubicaciones de Banner en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Crear una campaña de Banner en Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
+- [Crear una Campaign de Banner en Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
 - [Tutorial: Mostrar un Banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
 
 {% alert tip %}

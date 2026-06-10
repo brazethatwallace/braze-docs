@@ -122,7 +122,7 @@ For scheduling concepts across Braze, see [Schedule your campaign]({{site.baseur
 
 ### Delivery controls
 
-Depending on delivery type, you can adjust [re-eligibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (whether users may enter the campaign again) and respect workspace [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) rules. You may also configure [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) so messages don't send during restricted windows.
+Depending on delivery type, you can adjust [re-eligibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (whether users may enter the campaign again) and respect workspace [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) rules. You may also configure [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) so messages don't send during restricted windows.
 
 ## Step 3: Target audiences {#step-3-target-audiences}
 

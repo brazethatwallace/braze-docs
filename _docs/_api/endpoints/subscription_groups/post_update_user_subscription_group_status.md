@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "This article outlines details about the Update user's subscription group status Braze endpoint."
 ---
+
 {% api %}
 # Update user's subscription group status
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 {% alert note %}
 If you're interested in using this endpoint with [LINE subscription groups]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), contact your customer success manager.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Rate limit
 
@@ -141,9 +144,15 @@ The status code `201` could return the following response body.
 }
 ```
 
+## Troubleshooting intermittent update failures
+
+If subscription group updates intermittently fail or appear out of sync, wait several minutes between update requests or call [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) to confirm the user's state before sending another update.
+
 {% alert important %}
 The endpoint accepts only the `email` or `phone` value, not both. If you provide both, you receive this response: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
+
+For your subscription update to apply to phone numbers, confirm you sent E.164-formatted phone numbers (for example, `+15555550123`), used the correct `subscription_group_id`, and passed `phone` (not both `phone` and `email`) in the same request body. For multi-number updates, use the `phone` array format shown in [SMS and RCS](#sms-and-rcs).
 
 {% endapi %}
 

@@ -19,8 +19,6 @@ description: "この記事では、「Canvas内の翻訳を更新」エンドポ
 
 Canvasを起動した後に翻訳を更新したい場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/post-launch_edits/)する必要があります。
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 前提条件 {#prerequisites}
 
 このエンドポイントを使用するには、`canvas.translations.update` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。

@@ -69,14 +69,14 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 
 日次エクスポートのスライスには、`event_timestamp`ではなく`create_timestamp`を使用してください。イベントは発生後にシステムに書き込まれることがあります（遅延到着）。`event_timestamp`でスライスすると、遅延到着したレコードが永久に欠落します。
 
-```sql
+`````````sql
 -- Correct: use create_timestamp to ensure late-arriving events are captured
 SELECT *
 FROM events_data
 WHERE DATE(create_timestamp) = {t-1} -- on run date t, export all records created yesterday
 ```
 
-```sql
+`````````sql
 -- Incorrect: slicing on event_timestamp will permanently lose late-arriving events
 SELECT *
 FROM events_data

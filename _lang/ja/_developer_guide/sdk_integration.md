@@ -1,16 +1,18 @@
 ---
-nav_title: SDK を統合する
+nav_title: SDKを統合する
 article_title: Braze SDKを統合する
-description: "Braze SDKの統合方法を学習する。"
+description: "Braze SDKの統合方法について説明します。"
 page_order: 2.0
 ---
 
-# ![Brazeロゴ]({% image_buster /assets/Braze_Primary_Icon_BLACK.svg %}){: style="float:right;width:120px;border:0;" class="noimgborder"}Braze SDKを統合する
+# ![Brazeロゴ]({% image_buster /assets/Braze_Primary_Icon_BLACK.svg %}){: style="float:right;width:120px;border:0;" class="noimgborder"}Braze SDKを統合する {#braze-logo-image_buster-assetsbraze_primary_icon_blacksvg-stylefloatrightwidth120pxborder0-classnoimgborderintegrate-the-braze-sdk}
 
-> Braze SDKの統合方法を学習する。各SDKは、独自のGitHub公開リポジトリでホストされており、Brazeの機能をテストしたり、独自のアプリケーションと一緒に実装したりするために使用できる、完全にビルド可能なサンプルアプリが含まれている。詳しくは、[参照資料、リポジトリ、サンプルアプリ]({{site.baseurl}}/developer_guide/references/)を参照してください。SDK に関する一般的な情報については、[はじめに] を参照してください。統合の概要]({{site.baseurl}}/developer_guide/getting_started/integration_overview/)。
+> Braze SDKの統合方法について説明します。各SDKは独自のGitHub公開リポジトリでホストされており、Brazeの機能をテストしたり、独自のアプリケーションと一緒に実装したりするために使用できる、完全にビルド可能なサンプルアプリが含まれています。詳しくは、[参照資料、リポジトリ、サンプルアプリ]({{site.baseurl}}/developer_guide/references/)を参照してください。SDKに関する一般的な情報については、[はじめに：統合の概要]({{site.baseurl}}/developer_guide/getting_started/integration_overview/)を参照してください。
+
+ドキュメント内のミラーされたSDK READMEコンテンツについては、[リポジトリガイド]({{site.baseurl}}/developer_guide/sdk_repository_guides/)を参照してください。
 
 {% alert tip %}
-SDKを統合した後、[SDK認証を]({{site.baseurl}}/developer_guide/sdk_integration/authentication/)イネーブルメントすることで、不正なSDKリクエストを防止し、セキュリティを強化できる。SDK認証は、Web、Android、SWIFT、React Native、Flutter、Unity、Cordova、.NET MAUI（Xamarin）、Expoで利用可能だ。
+SDKを統合した後、[SDK認証]({{site.baseurl}}/developer_guide/sdk_integration/authentication/)を有効にすることで、不正なSDKリクエストを防止し、セキュリティをさらに強化できます。SDK認証は、Web、Android、Swift、React Native、Flutter、Unity、Cordova、.NET MAUI（Xamarin）、Expoで利用可能です。
 {% endalert %}
 
 {% sdktabs %}
@@ -60,5 +62,5 @@ SDKを統合した後、[SDK認証を]({{site.baseurl}}/developer_guide/sdk_inte
 {% endsdktabs %}
 
 {% alert note %}
-SDKインテグレーションのQAを行う際、[SDKデバッガーを]({{site.baseurl}}/developer_guide/sdk_integration/debugging)使用すれば、アプリの冗長ロギングをオンにすることなく、問題のトラブルシューティングを行うことができる。
+SDK統合のQAを行う際は、[SDKデバッガー]({{site.baseurl}}/developer_guide/sdk_integration/debugging/)を使用すると、アプリの詳細ログを有効にすることなく問題をトラブルシューティングできます。
 {% endalert %}

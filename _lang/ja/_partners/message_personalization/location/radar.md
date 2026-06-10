@@ -16,9 +16,9 @@ _この統合はRadarによって管理されます。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとRadarの統合により、高度なロケーションベースのCampaignトリガーと、豊富なファーストパーティロケーションデータを使用したユーザープロファイルエンリッチメントにアクセスできます。Radarのジオフェンスまたは移動追跡イベントが生成されると、カスタムイベントとユーザー属性がリアルタイムでBrazeに送信されます。これらのイベントおよび属性は、ロケーションベースのCampaignsのトリガー、ラストマイルのピックアップおよび配送オペレーションの推進、フリートおよび配送物流の監視、またはロケーションパターンに基づくユーザーSegmentsの構築に使用できます。
+BrazeとRadarの統合により、高度なロケーションベースのキャンペーントリガーと、豊富なファーストパーティロケーションデータを使用したユーザープロファイルエンリッチメントにアクセスできます。Radarのジオフェンスまたは移動追跡イベントが生成されると、カスタムイベントとユーザー属性がリアルタイムでBrazeに送信されます。これらのイベントおよび属性は、ロケーションベースのキャンペーンのトリガー、ラストマイルのピックアップおよび配送オペレーションの推進、フリートおよび配送物流の監視、またはロケーションパターンに基づくユーザーセグメントの構築に使用できます。
 
-さらに、Radar Geo APIを使用して、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を通じてマーケティングCampaignsを充実させたりパーソナライズしたりすることもできます。
+さらに、Radar Geo APIを使用して、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を通じてマーケティングキャンペーンを充実させたりパーソナライズしたりすることもできます。
 
 ## 前提条件 {#prerequisites}
 
@@ -54,19 +54,19 @@ Braze SDKとRadar SDK間でデータをマッピングするには、両方の�
 
 ## イベントベースおよび属性ベースのユースケース {#event-and-attribute-based-use-cases}
 
-カスタムイベントとユーザー属性を使用して、ロケーションベースのSegmentsを作成したり、ロケーションベースのCampaignsをトリガーしたりすることができます。
+カスタムイベントとユーザー属性を使用して、ロケーションベースのセグメントを作成したり、ロケーションベースのキャンペーンをトリガーしたりすることができます。
 
 ### カーブサイドピックアップの店舗到着通知をトリガーする {#trigger-a-store-arrival-notification-for-curbside-pickup}
 
 ユーザーがカーブサイドピックアップのために店舗に到着したときに、到着の手順を案内するプッシュ通知を送信します。
 
-![アクションベースの配信Campaignで、「arrived_at_trip_destination」カスタムイベントが発生し、「trip_metadata」が「curbside」に等しい場合にCampaignが配信されることを示す画面。]({% image_buster /assets/img_archive/radar-campaign.png %})
+![アクションベースの配信キャンペーンで、「arrived_at_trip_destination」カスタムイベントが発生し、「trip_metadata」が「curbside」に等しい場合にキャンペーンが配信されることを示す画面。]({% image_buster /assets/img_archive/radar-campaign.png %})
 
-### 最近の来店者のオーディエンスSegmentを作成する {#build-an-audience-segment-of-recent-store-visitors}
+### 最近の来店者のオーディエンスセグメントを作成する {#build-an-audience-segment-of-recent-store-visitors}
 
 たとえば、購買の有無にかかわらず、過去7日間に店舗を訪問したすべてのユーザーをターゲットにします。
 
-![「radar_geofence_tags」に値 my_store が含まれ、「radar_updated_at」が7日前以内であるSegment。]({% image_buster /assets/img_archive/radar-segment.png %})
+![「radar_geofence_tags」に値 my_store が含まれ、「radar_updated_at」が7日前以内であるセグメント。]({% image_buster /assets/img_archive/radar-segment.png %})
 
 ## コネクテッドコンテンツ {#connected-content}
 
@@ -142,7 +142,7 @@ Braze SDKとRadar SDK間でデータをマッピングするには、両方の�
 `connect_content`タグからわかるように、JSONオブジェクトはURLの後に`:save nearbyplaces`を追加することで、ローカル変数`nearbyplaces`に保存されます。
 出力内容をテストするには、{% raw %}`{{nearbyplaces.places}}`{% endraw%}を参照します。
 
-ユースケースをまとめると、Campaignの構文は以下のようになります。以下のコードは、`nearbyplaces.places`オブジェクトを反復処理し、一意の値を抽出し、それらを人間が読みやすい区切り文字で連結してメッセージにします。
+ユースケースをまとめると、キャンペーンの構文は以下のようになります。以下のコードは、`nearbyplaces.places`オブジェクトを反復処理し、一意の値を抽出し、それらを人間が読みやすい区切り文字で連結してメッセージにします。
 
 {% raw %}
 ```

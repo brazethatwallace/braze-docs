@@ -65,6 +65,8 @@ Braze는 사용자의 앱 과거 상호작용 및 각 메시징 채널과의 상
 
 예를 들어, 방해금지 시간이 오후 10시부터 오전 6시까지로 설정되어 있고 사용자의 최적 시간이 오전 5시 30분인 경우, Braze는 메시지를 보류하고 방해금지 시간대 밖의 가장 가까운 시간인 오전 6시에 전달합니다.
 
+자세한 내용은 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 참조하세요.
+
 #### 전달 시간 미리보기 {#preview-delivery-times}
 
 하루 중 시간대별로 얼마나 많은 사용자가 메시지를 받을지 예상하려면 미리보기 차트(Campaign만 해당)를 사용하세요.

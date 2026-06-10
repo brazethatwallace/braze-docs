@@ -92,8 +92,8 @@ You can also manually override the agent-generated cell by selecting **Edit Item
 
 ### Error handling in catalogs  
 
-- Failed catalog invocations do not retry.
-- If the API call to the foundational model provider returns any error, such as an invalid API key error or a rate limit error, the field value does not update.
+- Failed catalog invocations do not retry, including on [rate limit errors]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider.
+- If the API call to the foundational model provider returns any other error, such as an invalid API key error, the field value does not update.
 - You can review the agent's logs for details on failed runs.
 
 ## Monitor your agent

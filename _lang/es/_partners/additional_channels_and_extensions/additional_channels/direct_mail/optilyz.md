@@ -40,7 +40,7 @@ Para integrarte con optilyz, usa la [API de optilyz](https://www.optilyz.com/doc
 
 ### Paso 1: Crea tu plantilla de webhook de Braze {#step-1-create-your-braze-webhook-template}
 
-Para crear una plantilla de webhook de optilyz que puedas usar en futuras campañas o Canvas, navega a **Plantillas** > **Plantillas de Webhook** en la plataforma Braze.
+Para crear una plantilla de webhook de optilyz que puedas usar en futuras Campaigns o Canvas, ve a **Contenido** > **Webhook** en la plataforma Braze. Luego, selecciona **Crear plantilla de webhook**.
 
 Si deseas crear una campaña de webhook de optilyz única o usar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña.
 

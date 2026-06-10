@@ -9,11 +9,11 @@ platform: API
 
 ---
 
-# Entrega desencadenada por API
+# Entrega desencadenada por API {#api-triggered-delivery}
 
 > Las campañas desencadenadas por API o campañas desencadenadas por servidor son ideales para casos de uso transaccionales más avanzados. Las campañas desencadenadas por API de Braze permiten a los especialistas en marketing gestionar el texto de la campaña, las pruebas multivariante y las reglas de reelegibilidad dentro del panel de Braze, mientras desencadenan la entrega de ese contenido desde sus propios servidores y sistemas. La solicitud de API para desencadenar el mensaje también puede incluir datos adicionales que se incorporan a la plantilla del mensaje en tiempo real.
 
-## Configurar una campaña desencadenada por API
+## Configurar una campaña desencadenada por API {#setting-up-an-api-triggered-campaign}
 
 Configurar una campaña desencadenada por API requiere algunos pasos. Primero, crea una nueva campaña multicanal o de un solo canal (con pruebas multivariante).
 
@@ -21,18 +21,19 @@ Configurar una campaña desencadenada por API requiere algunos pasos. Primero, c
 Una campaña desencadenada por API es diferente de una [campaña de API]({{site.baseurl}}/developer_guide/rest_api/api_campaigns/#api-campaigns).
 {% endalert %}
 
-A continuación, configura tu texto y notificaciones de la misma manera que lo harías normalmente para notificaciones planificadas y selecciona **Entrega desencadenada por API**. Para más información sobre cómo desencadenar estas campañas desde tu servidor, consulta este artículo sobre [envío de campañas desencadenadas por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+A continuación, configura tu texto y notificaciones de la misma manera que lo harías normalmente para notificaciones planificadas y selecciona **API-Triggered Delivery**. Para más información sobre cómo desencadenar estas campañas desde tu servidor, consulta este artículo sobre [envío de campañas desencadenadas por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
 
 ![]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
 
-## Uso del contenido con plantilla incluido en una solicitud de API
+## Uso del contenido con plantilla incluido en una solicitud de API {#using-the-templated-content-included-with-an-api-request}
 
-Además de desencadenar el mensaje, también puedes incluir contenido con la solicitud de API para incorporarlo como plantilla en el mensaje dentro del objeto `trigger_properties`. Este contenido puede referenciarse en el cuerpo del mensaje. Por ejemplo, puedes incluir:
-``{% raw %} {{ api_trigger_properties.${ some_value_included_with_request }}} {% endraw %}``. Consulta el siguiente ejemplo de notificación social para contexto adicional:
+Además de desencadenar el mensaje, también puedes incluir contenido con la solicitud de API para incorporarlo como plantilla en el mensaje dentro del objeto `trigger_properties`. Este contenido puede referenciarse en el cuerpo del mensaje. Usa exactamente dos llaves por cada etiqueta de Liquid en `trigger_properties` y en el texto del mensaje. Un ejemplo es: {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Una `{` o `}` adicional es una causa común de [fallos de personalización desencadenada por API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+
+Consulta el siguiente ejemplo de notificación social para contexto adicional.
 
 ![La propiedad de desencadenamiento mencionada anteriormente incluida en el mensaje para autocompletar el nombre del usuario seguido del texto: "liked your photo! Click here to see what they've been up to.".]({% image_buster /assets/img_archive/api_triggered_photo_social_example_1.png %}){: style="max-width:70%;"}
 
-## Reelegibilidad con campañas desencadenadas por API
+## Reelegibilidad con campañas desencadenadas por API {#re-eligibility-with-api-triggered-campaigns}
 
 El número de veces que un usuario recibe una campaña desencadenada por API puede limitarse mediante la configuración de reelegibilidad. Esto significa que el usuario recibirá la campaña solo una vez o una vez en una ventana determinada, independientemente de cuántas veces se active el desencadenador de API.
 

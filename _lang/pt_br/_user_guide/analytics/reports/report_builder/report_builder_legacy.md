@@ -37,36 +37,36 @@ Tente usar os mesmos eventos de conversão para conversão A, B e assim por dian
 
 No dashboard, navegue até **Analytics** > **Report Builder**.
 
-Selecione **Create New Report** e escolha entre um relatório de comparação de Campaigns ou um relatório de comparação de Canvas.
+Selecione **Criar novo relatório** e escolha entre um relatório de comparação de Campaigns ou um relatório de comparação de Canvas.
 
-Se você optar por executar um relatório sobre Campaigns, poderá escolher entre um relatório **Manual** ou **Automated**. Os relatórios podem conter Campaigns ou Canvas, mas não ambos juntos. Quaisquer Campaigns e Canvas que tenham enviado mensagens nos últimos 12 meses serão elegíveis para um relatório.
+Se você optar por executar um relatório sobre Campaigns, poderá escolher entre um relatório **Manual** ou **Automatizado**. Os relatórios podem conter Campaigns ou Canvas, mas não ambos juntos. Quaisquer Campaigns e Canvas que tenham enviado mensagens nos últimos 12 meses serão elegíveis para um relatório.
 
 ![Dashboard de Campaigns]({% image_buster /assets/img/campaign_comparison/create_report.png %}){: style="max-width:80%;"}
 
 A seguir estão as diferenças entre essas duas opções:
 
-| **Ação** | **Manual** | **Automated** |
+| **Ação** | **Manual** | **Automatizado** |
 | ---- | ---------- | ------------- |
 | **Criação do relatório** | Você poderá refinar sua lista de Campaigns usando filtros e, em seguida, marcar Campaigns específicas. | Você criará seu relatório usando as opções de filtro para refinar sua lista de Campaigns. |
 | **Salvar e visualizar o relatório** | Você pode salvar seu relatório. Na próxima vez que visualizá-lo, poderá ver as mesmas Campaigns adicionadas anteriormente, pois elas ainda se enquadram no filtro "Last Sent". | Você pode salvar seu relatório. Na próxima vez que visualizá-lo, o relatório será atualizado automaticamente para incluir todas as Campaigns que correspondem aos seus filtros. |
-| **Editar o relatório** | Você pode selecionar **Edit Report** para adicionar ou remover Campaigns do seu relatório. | Você pode editar seu relatório ajustando os critérios de filtro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| **Editar o relatório** | Você pode selecionar **Editar relatório** para adicionar ou remover Campaigns do seu relatório. | Você pode editar seu relatório ajustando os critérios de filtro. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1: Criar um novo relatório" }
 
 {% alert note %}
-Tanto os relatórios **Manual** quanto os **Automated** podem incluir no máximo 250 Campaigns em um relatório.
+Tanto os relatórios **Manual** quanto os **Automatizado** podem incluir no máximo 250 Campaigns em um relatório.
 {% endalert %}
 
 Os relatórios de Canvas funcionam de forma semelhante a um relatório manual de Campaigns, pois as seleções de Canvas e as atualizações do relatório também devem ser feitas manualmente. Você pode incluir no máximo cinco Canvas em um relatório.
 
 ### Etapa 2: Escolher suas métricas {#step-2-choose-your-metrics}
 
-Depois de criar seu relatório, você encontrará uma tabela em branco com Campaigns em cada linha. A tabela será preenchida após você selecionar **Edit Columns** e escolher as métricas que deseja adicionar.
+Depois de criar seu relatório, você encontrará uma tabela em branco com Campaigns em cada linha. A tabela será preenchida após você selecionar **Editar colunas** e escolher as métricas que deseja adicionar.
 
 ![Opções de Campaigns]({% image_buster /assets/img/campaign_comparison/campaign_comparison_columns.png %}){: style="max-width:80%;"}
 
 Sua tabela será preenchida com as métricas escolhidas. Para definições dessas métricas, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/). Algumas métricas estão disponíveis apenas para relatórios de comparação de Campaigns.
 
-Você também pode alternar os cálculos de **Average** para qualquer taxa ou métrica numérica e **Total** para qualquer métrica numérica.
+Você também pode alternar os cálculos de **Média** para qualquer taxa ou métrica numérica e **Total** para qualquer métrica numérica.
 
 ### Etapa 3: Escolher um período de tempo {#step-3-choose-a-time-period}
 
@@ -80,7 +80,7 @@ Nomeie seu relatório antes de salvá-lo. Se um relatório for salvo sem nome, a
 
 ![Nota de Campaign]({% image_buster /assets/img/campaign_comparison/comparison_name.png %}){: style="max-width:60%;"}
 
-Quando estiver pronto, selecione **Save**. Os relatórios salvos podem ser visualizados posteriormente na página do **Report Builder**.
+Quando estiver pronto, selecione **Salvar**. Os relatórios salvos podem ser visualizados posteriormente na página do **Criador de relatórios**.
 
 ## Relatório de comparação de Campaigns com Campaigns multivariantes {#campaign-comparison-report-with-multivariate-campaigns}
 
@@ -112,7 +112,7 @@ Selecionar **detalhamento por etapas** permite visualizar métricas no nível de
 
 ### Mensagem {#message}
 
-Semelhante ao detalhamento por etapa, selecionar **detalhamento por mensagem** mostra o nome das etapas em cada linha. No entanto, em **Edit Columns**, você terá acesso a métricas no nível de mensagem, como estatísticas específicas de canal, como cliques em e-mail e aberturas de push.
+Semelhante ao detalhamento por etapa, selecionar **detalhamento por mensagem** mostra o nome das etapas em cada linha. No entanto, em **Editar colunas**, você terá acesso a métricas no nível de mensagem, como estatísticas específicas de canal, como cliques em e-mail e aberturas de push.
 
 ![Relatório]({% image_buster /assets/img/campaign_comparison/campaign_comparison3.png %}){: style="max-width:90%;"}
 
@@ -126,26 +126,26 @@ Ao acessar um **relatório automatizado** salvo, o relatório será atualizado a
 
 ## Editando relatórios {#editing-reports}
 
-Em um **relatório manual**, você pode editar um relatório selecionando **Edit**. A partir daí, você pode selecionar ou desmarcar Campaigns para incluir no seu relatório.
+Em um **relatório manual**, você pode editar um relatório selecionando **Editar**. A partir daí, você pode selecionar ou desmarcar Campaigns para incluir no seu relatório.
 
 Em um **relatório automatizado**, alterne seus filtros para refinar os resultados do seu relatório.
 
 ## Exportando relatórios {#exporting-reports}
 
-Você também pode selecionar **Export** para baixar seu relatório em CSV.
+Você também pode selecionar **Exportar** para baixar seu relatório em CSV.
 
 Se seu relatório contiver Campaigns multivariantes, sua exportação incluirá dois arquivos CSV:
 
 - Um arquivo contendo apenas as métricas de nível superior de cada Campaign
 - Um arquivo contendo métricas no nível de variante
 
-O arquivo contendo métricas de variante terá `variant_` adicionado ao início do seu nome. Na primeira vez que você exportar um relatório automatizado, receberá um pop-up solicitando permissão para baixar múltiplos arquivos — clique em **Allow**.
+O arquivo contendo métricas de variante terá `variant_` adicionado ao início do seu nome. Na primeira vez que você exportar um relatório automatizado, receberá um pop-up solicitando permissão para baixar múltiplos arquivos — clique em **Permitir**.
 
 ![Download de Campaign]({% image_buster /assets/img/campaign_comparison/download.png %}){: style="max-width:60%;"}
 
 ### Exportando relatórios de comparação de Canvas {#exporting-canvas-comparison-reports}
 
-Sua exportação em CSV refletirá a visualização de detalhamento em que você estava quando selecionou **Export**. Por exemplo, se você estava na visualização de detalhamento por etapa, sua exportação conterá dados sobre as métricas de etapa. Para exportar dados de um detalhamento diferente, você precisará navegar até esse detalhamento primeiro e selecionar **Export** a partir de lá.
+Sua exportação em CSV refletirá a visualização de detalhamento em que você estava quando selecionou **Exportar**. Por exemplo, se você estava na visualização de detalhamento por etapa, sua exportação conterá dados sobre as métricas de etapa. Para exportar dados de um detalhamento diferente, você precisará navegar até esse detalhamento primeiro e selecionar **Exportar** a partir de lá.
 
 Se você baixar um relatório de Canvas com detalhamento por variante, receberá dois arquivos CSV:
 

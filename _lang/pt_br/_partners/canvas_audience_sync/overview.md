@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/D | O Snapchat processa 10 consultas por segundo e 100.000 usuários por solicitação. A Braze agrupa usuários em lote a cada 5 segundos. | Sim | O Snapchat suporta até 1.000 públicos de anúncios. |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Até 24 horas | N/D | Sim | {::nomarkdown}<ul><li>Não há tamanho mínimo de público para públicos de CRM no The Trade Desk.</li><li>Não há limite para a quantidade de públicos que o The Trade Desk suporta.</li><li>Se você sincronizar com um público com a região definida como UE, o número de telefone não é suportado.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Entre 24 e 48 horas | O TikTok processa 50 consultas por segundo e 10.000 usuários por solicitação. A Braze agrupa usuários em lote a cada 5 segundos. | Sim | {::nomarkdown}<ul><li>O TikTok suporta até 400 públicos de anúncios.</li><li>O público do TikTok precisa de pelo menos 1.000 usuários para começar a veicular anúncios.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Visão geral" }
 <sup>Quando o limite de taxa for atingido, a Braze tentará novamente as sincronizações por 13 horas.</sup>
 
 ## Como funciona {#how-it-works}

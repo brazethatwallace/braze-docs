@@ -15,7 +15,7 @@ search_tag: Partner
 
 ## この連携について {#about-this-integration}
 
-BrazeとCataBoomの連携を使用して、パーソナライズされたゲームリンクをメッセージに追加できます。ユーザー識別子と属性をCatapult CampaignsとBrazeの間でリアルタイムに受け渡すことができます。そのデータを使用して、パーソナライズされたCampaigns、トリガー、フォローアップジャーニーを実行できます。
+BrazeとCataBoomの連携を使用して、パーソナライズされたゲームリンクをメッセージに追加できます。ユーザー識別子と属性をCatapultのCampaignsとBrazeの間でリアルタイムに受け渡すことができます。そのデータを使用して、パーソナライズされたCampaigns、トリガー、フォローアップジャーニーを実行できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -26,7 +26,7 @@ BrazeとCataBoomの連携を使用して、パーソナライズされたゲー�
 | Catapultアカウント | この連携を使用するにはCatapultアカウントが必要です。 |
 | Braze REST APIキー（オプション） | Catapult webhookを使用する場合、ユースケースに必要なユーザーデータ権限を持つBraze REST APIキーが必要です。Brazeの**設定** > **APIキー** > **APIキー**でキーを作成してください。 |
 | Braze RESTエンドポイント（オプション） | Catapult webhookを使用する場合、[お使いのBrazeインスタンス]({{site.baseurl}}/api/basics/#endpoints)のBraze URLに一致するRESTエンドポイントURLを使用してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ステップ 1: ゲーム体験を作成する {#step-1-create-your-game-experience}
 

@@ -9,7 +9,7 @@ page_type: reference
 
 # Use Braze Canvas templates
 
-> Braze has a selection of Canvas templates available for you to reference and use as best practices for common use cases. While these templates can't be edited, you can view them in **Templates** > **Braze templates** or use them in your Canvases.
+> Braze has a selection of Canvas templates available for you to reference and use as best practices for common use cases. While these templates can't be edited, you can view them in **Content** > **Canvas** > **Braze templates** or use them in your Canvases.
 
 ![Braze templates in the Canvas templates section with thirteen available templates.]({% image_buster /assets/img/braze_canvas_templates.png %})
 
@@ -26,9 +26,12 @@ Engage with users in real-time to encourage them to complete their purchases.
 
 Consider the following when using this template:
 
-- Add a specific audience. Currently, the audience paths are triggered based on "Made Any Purchase", but you can tailor this to specific products you want to target.
-- This template assumes you have a separate post-purchase journey, so making a purchase will cause users to exit the Canvas.
-- Fill out the details in the Audience Sync step.
+- The entry schedule is API-triggered. Use the [`/canvas/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) to enter users when they abandon a cart, or switch to an action-based schedule with a trigger such as **Perform Custom Event** or **Perform Cart Updated Event** if that fits your setup.
+- Default conversion tracks **Make any purchase (Legacy)**. Tailor conversion events and **Made purchase?** Action Paths steps to specific products if needed.
+- Users exit the Canvas when they make a purchase in the **Made purchase?** Action Paths steps. This template assumes you have a separate post-purchase journey.
+- The Canvas includes an email for **Itemized Reminder**, a Delay step, an Intelligent Channel split for email and SMS, channel messages with Content Cards (email, SMS, and in-app message), and an Audience Sync step. Configure **Ad Retargeting** with your partners and audiences.
+
+For a step-by-step walkthrough, see [Abandoned intent]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/abandoned_cart/).
 
 {% endtab %}
 {% tab Back In Stock %}

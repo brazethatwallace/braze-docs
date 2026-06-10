@@ -77,6 +77,8 @@ valid_partner_list:
   url: /docs/partners/blueconic/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Dynamics 365 Customer Insights
   url: /docs/partners/dynamics_365_customer_insights
 - name: GrowthLoop
@@ -155,6 +157,8 @@ valid_partner_list:
   url: /docs/partners/voucherify/
 - name: Census
   url: /docs/partners/census/
+- name: DinMo
+  url: /docs/partners/dinmo/
 - name: Airbyte
   url: /docs/partners/airbyte/
 - name: Fivetran

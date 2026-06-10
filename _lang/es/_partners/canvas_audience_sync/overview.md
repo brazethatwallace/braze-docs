@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchat procesa 10 consultas por segundo y 100.000 usuarios por solicitud. Braze agrupa a los usuarios cada 5 segundos. | Sí | Snapchat admite hasta 1.000 audiencias de anuncios. |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Hasta 24 horas | N/A | Sí | {::nomarkdown}<ul><li>No hay un tamaño mínimo de audiencia para las audiencias de CRM en The Trade Desk.</li><li>No hay límite en la cantidad de audiencias que admite The Trade Desk.</li><li>Si sincronizas con una audiencia con una región configurada en la UE, el número de teléfono no es compatible.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Entre 24 y 48 horas | TikTok procesa 50 consultas por segundo y 10.000 usuarios por solicitud. Braze agrupa a los usuarios cada 5 segundos. | Sí | {::nomarkdown}<ul><li>TikTok admite hasta 400 audiencias de anuncios.</li><li>Las audiencias de TikTok requieren al menos 1.000 usuarios para empezar a mostrar anuncios.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Resumen" }
 <sup>Cuando se alcance el límite de velocidad, Braze reintentará las sincronizaciones durante 13 horas.</sup>
 
 ## Cómo funciona {#how-it-works}
@@ -94,7 +94,7 @@ Si el error está relacionado con la integración general del socio (como un pro
 
 Si el error está relacionado con problemas con el componente de Audience Sync (como "La audiencia no existe") en Canvas, se envía un correo electrónico al usuario que configuró el Canvas. Si ese usuario ya no existe, entonces recae en el administrador de la empresa.
 
-Para configurar quién recibirá estos correos electrónicos, ponte en contacto con tu administrador del éxito del cliente para añadir destinatarios en **Preferencias de notificación**. Dado que esta característica cambiará el comportamiento actual, tendrás que añadir inmediatamente destinatarios a esta nueva preferencia de notificación, ya que Braze no incluye a nadie de forma predeterminada mediante adhesión voluntaria, y así asegurarte de que no se pierda ningún correo electrónico de error.
+Para configurar quién recibirá estos correos electrónicos, ponte en contacto con tu administrador del éxito del cliente para añadir destinatarios en **Preferencias de notificación**. Dado que esta característica cambiará el comportamiento actual, tendrás que añadir inmediatamente destinatarios a esta nueva preferencia de notificación, ya que Braze no incluye a nadie de forma predeterminada mediante adhesión voluntaria, para asegurarte de que no se pierda ningún correo electrónico de error.
 
 ## Consideraciones sobre la privacidad de datos {#data-privacy-considerations}
 

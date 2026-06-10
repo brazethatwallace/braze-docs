@@ -31,7 +31,7 @@ description: "この記事では、「カタログフィールドの削除」Bra
 | -------------- | -------- | --------- | -------------------------- |
 | `catalog_name` | 必須 | 文字列 | カタログの名前。 |
 | `field_name` | 必須 | 文字列 | カタログフィールドの名前。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -87,6 +87,6 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 | `field-referenced-by-selection` | カタログフィールドが現在セレクションで使用されていないか確認してください。 |
 | `field-is-inventory` | カタログフィールドがインベントリフィールドとして使用されていないか確認してください。 |
 | `invalid-field-name` | カタログフィールド名が有効であることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

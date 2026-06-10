@@ -29,6 +29,8 @@ Conversion tracking begins when a user receives the campaign or enters the campa
 
 Conversion tracking begins when a user enters the Canvas. For Canvas steps, conversions are attributed while the user is active in that step. When the user advances to another step, conversion tracking stops for the previous step and starts for the next step.
 
+While a user is in a **Delay** or other non-message step, conversions that occur during that wait are still attributed to the previous message step until the user moves forward. After the user receives the last message step in their path, conversions can still be recorded until the Canvas conversion deadline (counted from Canvas entry), even if there are no further message steps.
+
 {% endtab %}
 {% endtabs %}
 
@@ -44,7 +46,7 @@ Note the following about how Braze handles multiple conversions:
 
 - **Single-channel campaigns**: Conversions occur on a per-user basis, not a per-device basis. Within a single channel, a user converts only once per conversion event, even if a message is sent to multiple devices. For example, if a campaign has only one conversion event set to "Makes any purchase" and a user makes two separate purchases within the conversion deadline, Braze counts only one conversion.
 - **Multichannel campaigns**: For multichannel campaigns, each channel has its own conversion opportunity. A user can convert once per channel after receiving a message on that channel. This means if a user receives messages on multiple channels (for example, both email and push) and performs the conversion action, Braze counts one conversion for each channel, which can result in conversion rates exceeding 100%.
-- **Canvas message steps**: Braze attributes conversions that occur within the conversion deadline to the last Canvas message step the user received. After they receive the next message step, attribution moves to that step. Braze measures that window from when the user enters the Canvas, not from each message individually. Braze still counts conversions during delay periods between steps.
+- **Canvas message steps**: Braze attributes conversions that occur within the conversion deadline to the last Canvas message step the user received. After they receive the next message step, attribution moves to that step. Braze measures that window from when the user enters the Canvas, not from each message individually. Conversions that happen during delays between message steps count toward the prior message step's attribution until the user advances; conversions after the final message step still count until the Canvas conversion deadline.
 - If a user performs one conversion event within the conversion deadlines of two separate campaigns or Canvases that they received, the conversion registers on both.
 - A user counts as converted if they performed the specific conversion event in the window, even if they did not open or click the message.
 

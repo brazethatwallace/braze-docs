@@ -42,7 +42,7 @@ Make sure you fall into the segment that you are targeting (if this is a live ca
 
 ![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment.
+You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment. **User Lookup** accepts only `external_id` or `braze_id`—not email addresses or phone numbers. To search by email, phone, push token, or user alias, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
 ![User Lookup section with a search field.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -172,6 +172,22 @@ Apple `.p8` authentication keys are the required approach for APNs push in Braze
 
 If you're currently using a `.p12` or `.pem` certificate, migrate to a `.p8` key as soon as possible. For instructions on creating and uploading a `.p8` key, see [Upload your APNs push certificate]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). For Apple's guidance on generating a `.p8` key from your developer account, see [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
 
+### .p8 keys versus .p12 certificates
+
+| Credential | Expiration | Dashboard status indicator |
+| --- | --- | --- |
+| `.p8` authentication key | Does not expire | No green status indicator (this is expected) |
+| `.p12` push certificate | Expires yearly | Green indicator when the certificate is valid |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8 keys versus .p12 certificates" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8 keys versus .p12 certificates" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8 keys versus .p12 certificates" }
+
+When you replace a `.p12` certificate with a `.p8` key (or upload a new credential), push delivery can pause briefly while Braze processes the change. Plan updates during a maintenance window when possible.
+
+In **Settings** > **App Settings** > **Push Notification Settings**, confirm that **App Bundle ID**, **Team ID**, and **Key ID** (for `.p8` keys) match the values in your Apple Developer account. Multiple Braze workspaces can use the same Apple push credential when the iOS app **bundle ID** is identical; the credential environment (development versus production) must match how the app was built.
+
+Apps on [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) or later can use [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management), which routes tokens to the correct APNs environment automatically.
+
 ## Web push notifications aren't behaving as expected
 
 If you're experiencing issues with push notifications in your browser, you may need to reset your site's notification permissions and clear your site's storage. Refer to these steps for help.
@@ -209,7 +225,7 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 
 If you have a notification from your site visible in your Android notification drawer:
 
-1. From the push notification, tap <i class="fas fa-cog" title="Settings"></i> and select **Site settings**.
+1. From the push notification, select <i class="fas fa-cog" title="Settings"></i> **Settings** and select **Site settings**.
 2. From **Site settings**, tap **Clear & Reset**.
 
 If you don't have a notification from your site open:
@@ -229,7 +245,7 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 ### Reset Firefox on desktop
 
 1. Next to your site URL, select <i class="fa-solid fa-circle-info" alt="info icon"></i> or <i class="fas fa-lock" alt="lock icon"></i>.
-2. Under **Permissions**, next to **Receive Notifications**, select <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> to clear notification permissions.
+2. Under **Permissions**, next to **Receive Notifications**, select <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> **Clear permission** to clear notification permissions.
 3. On the same menu, select **Clear Cookies and Site Data**.
 4. In the dialog to confirm your choice, select **OK**.
 

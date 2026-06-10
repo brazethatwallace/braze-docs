@@ -137,4 +137,32 @@ BrazeがSamのケースで中止イベントを記録しないのは、中止の
 | --- | --- |
 | 標準 | Samがメッセージをトリガーするアクションを実行していないため、中止イベントは記録されませんでした。<br><br>標準アプリ内メッセージは中止を記録しません。中止の定義は「トリガーアクションを実行したにもかかわらずメッセージを表示しなかった」ことだからです。アプリ内メッセージはトリガーアクションが発生する前にデバイスに配信されるため、Liquidロジックにより除外されたアプリ内メッセージを中止と見なすことは適切ではありません。 |
 | テンプレート化 | Samがテンプレート化されたアプリ内メッセージをトリガーするトリガーアクションを実行したが、Liquidテンプレート処理で中止を受けたため、中止イベントが記録されました。<br><br>テンプレート化されたアプリ内メッセージは、トリガーアクションが実行された後にLiquid評価が行われるため、中止を記録します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アプリ内メッセージの中止動作の比較" }
+
+### AndroidのフルスクリーンHTMLアプリ内メッセージで閉じるボタンが非表示になるのはなぜですか？ {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
+
+エッジツーエッジディスプレイを搭載したデバイス（Android 15以降を含む）では、フルスクリーンHTMLアプリ内メッセージがシステムステータスバーの背後に描画され、レイアウト上部の閉じるコントロールが隠れることがあります。
+
+Braze Android SDKバージョン37.0.0以降では、デフォルトでHTMLアプリ内メッセージにウィンドウインセットが適用されるため、コントロールはセーフエリア内に留まります。それでもユーザーに重なりが見られる場合は、最新のBraze Android SDKにアップグレードしてください。
+
+古いSDKバージョンでは、この動作がデフォルトになる前に、開発者が `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` を有効にすることで対応できました。
+
+### ドラッグ＆ドロップのアプリ内メッセージエディターの既知の制限事項は何ですか？ {#what-are-known-limitations-of-the-drag-and-drop-in-app-message-editor}
+
+[ドラッグ＆ドロップエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)は、[カスタムHTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)アプリ内メッセージで利用可能なすべてのカスタマイズをサポートしているわけではありません。以下の点にご注意ください。
+
+- メッセージごとにディープリンクは1つのみ（デバイスタイプごとに異なるリンクは不可）
+- 不透明度はメッセージ背景全体に適用され、個別の要素には適用されません
+- メッセージの最大幅は325 px未満に設定できません
+- 背景画像と色はメッセージ全体に適用され、プラットフォームごとには適用されません
+- メッセージレベルのスタイルはメッセージ全体に適用されます
+- スペーサーブロックはピクセル値のみ使用可能です
+- モーダルおよびフルスクリーンのメッセージタイプのみ対応しています
+- 背景画像はモーダルに合わせて引き伸ばされます
+- 背景画像とクリック時アクションは、マルチページメッセージのページ間で維持されます
+
+### Android SDKログの「Event was published, but no subscribers were found」とはどういう意味ですか？ {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
+
+このログ行は通常エラーではありません。Brazeが内部イベント（`NoMatchingTriggerEvent`など）を発行し、その時点でアプリ内メッセージまたはContent Cardsのリスナーが登録されていない場合に表示されることが多いです。
+
+カスタムイベントがアプリ内メッセージをトリガーすることを期待しているときにこのログが表示される場合は、イベントが記録されていること、ユーザーがCampaignまたはCanvasのオーディエンスに含まれていること、およびメッセージがContent Cardsに依存している場合はContent Cardsが同期されていることを確認してください。

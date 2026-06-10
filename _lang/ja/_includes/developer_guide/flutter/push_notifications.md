@@ -57,7 +57,7 @@ Brazeが検出して処理したプッシュ通知イベントをリッスンす
 Brazeプッシュ通知イベントは、AndroidとiOSの両方で利用できます。プラットフォームの違いにより、iOSではユーザーが通知を操作した場合にのみBrazeプッシュイベントが検出されます。
 {% endalert %}
 
-```dart
+`````````dart
 // Create stream subscription
 StreamSubscription pushEventsStreamSubscription;
 
@@ -91,7 +91,7 @@ iOSのプラットフォーム制限のため、Braze SDKはアプリがフォ�
 | `isSilent` | ブール値 | `true`の場合、ペイロードはサイレントに受信されます。Androidのサイレントプッシュ通知の送信の詳細については、[Androidでのサイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)を参照してください。iOSのサイレントプッシュ通知の送信の詳細については、[iOSでのサイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)を参照してください。 |
 | `isBrazeInternal` | ブール値 | フィーチャーフラグの同期やアンインストール追跡などの内部SDK機能に対して通知ペイロードが送信された場合、これは`true`になります。ペイロードはユーザーに対してサイレントに受信されます。 |
 | `imageUrl` | 文字列 | 通知画像に関連するURLを指定します。 |
-| `brazeProperties` | オブジェクト | Campaignに関連するBrazeプロパティ（キーと値のペア）を表します。 |
+| `brazeProperties` | オブジェクト | キャンペーンに関連するBrazeプロパティ（キーと値のペア）を表します。 |
 | `ios` | オブジェクト | iOS固有のフィールドを表します。 |
 | `android` | オブジェクト | Android固有のフィールドを表します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
@@ -101,7 +101,7 @@ iOSのプラットフォーム制限のため、Braze SDKはアプリがフォ�
 ネイティブレイヤーでプッシュ通知を設定した後、統合をテストするには：
 
 1. Flutterアプリケーションでアクティブユーザーを設定します。これを行うには、`braze.changeUser('your-user-id')`を呼び出してプラグインを初期化します。
-2. **Campaigns**に移動し、新しいプッシュ通知Campaignを作成します。テストしたいプラットフォームを選択します。
+2. **キャンペーン**に移動し、新しいプッシュ通知キャンペーンを作成します。テストしたいプラットフォームを選択します。
 3. テスト通知を作成し、**Test**タブに移動します。テストユーザーと同じ`user-id`を追加し、**Send Test**をクリックします。
 4. まもなくデバイスに通知が届くはずです。通知が表示されない場合は、通知センターで確認するか、設定を更新する必要がある場合があります。
 

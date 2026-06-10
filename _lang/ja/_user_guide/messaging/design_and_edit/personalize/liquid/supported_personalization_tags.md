@@ -40,14 +40,25 @@ search_rank: 1
 
 Campaign、カード、Canvasの属性は、対応するメッセージングテンプレートでのみサポートされています（例えば、`dispatch_id` はアプリ内メッセージCampaignでは使用できません）。
 
-[Braze内のソースによってこれらの属性がどのように異なるか]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/)の詳細については、このヘルプ記事を参照してください。
+詳細については、[ソース別のCampaignおよびCanvas属性]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/)を参照してください。
 
 ### CanvasとCampaignのタグの違い {#canvas-and-campaign-tag-differences}
 
 以下のタグの動作は、CanvasとCampaignで異なります。
 {% raw %}
-- `dispatch_id` の動作が異なるのは、Brazeがキャンバスステップを（「スケジュール済み」であっても）トリガーイベントとして扱うためです（スケジュール可能なエントリステップを除く）。詳細については、[ディスパッチ ID の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+- `dispatch_id` の動作が異なるのは、Brazeがキャンバスステップを（「スケジュール済み」であっても）トリガーイベントとして扱うためです（スケジュール可能なエントリステップを除く）。詳細については、[ディスパッチ ID の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 - Canvasで `{{campaign.${name}}}` タグを使用すると、Canvasコンポーネント名が表示されます。Campaignでこのタグを使用すると、Campaign名が表示されます。
+{% endraw %}
+
+#### URL 内のCampaign名 {#campaign-names-in-urls}
+{: #campaign-names-in-urls}
+
+{% raw %}
+Campaignおよびメッセージバリアント名には、`%`、スペース、`&` など、URLセーフでない文字が含まれる場合があります。`{{campaign.${name}}}` または `{{campaign.${message_name}}}` をリンクやクエリ文字列（`utm_campaign` パラメーターなど）に挿入する場合は、URLが正しく解析されるように [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) フィルターを適用してください。例えば：
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
 {% endraw %}
 
 ## 最近使用したデバイスの情報 {#most-recently-used-device-information}
@@ -162,7 +173,7 @@ User is in list of apps
 
 `assign` タグを使用して、メッセージ作成画面で変数を作成できます。変数にはユニークな名前を使用することを推奨します。サポートされているパーソナライゼーションタグ（`language` など）と類似した名前の変数を作成すると、メッセージングロジックに影響を与える可能性があります。
 
-変数を作成した後、メッセージングロジックやメッセージ内でその変数を参照できます。このタグは、[コネクテッドコンテンツ]({% image_buster /assets/img_archive/personalized_firstname_.png %})機能から返されるコンテンツを再フォーマットしたい場合に便利です。詳細については、Shopify のドキュメントの[変数タグ](https://docs.shopify.com/themes/liquid/tags/variable-tags)を参照してください。
+変数を作成した後、メッセージングロジックやメッセージ内でその変数を参照できます。このタグは、[コネクテッドコンテンツ]({% image_buster /assets/img_archive/personalized_firstname_.png %})機能から返されるコンテンツを再フォーマットしたい場合に便利です。詳細については、Shopifyのドキュメントの[変数タグ](https://docs.shopify.com/themes/liquid/tags/variable-tags)を参照してください。
 
 {% alert tip %}
 毎回のメッセージで同じ変数を割り当てていませんか？`assign` タグを何度も書く代わりに、そのタグをコンテンツブロックとして保存し、メッセージの先頭に配置できます。
@@ -216,11 +227,11 @@ Sale on Converse!
 
 次に、`converse_viewer` が true の場合にセールメッセージを送信します。それ以外の場合はメッセージを中止します。
 
-これは、Brazeのメッセージ作成画面で反復タグを使用する方法の簡単な例です。詳細については、Shopify のドキュメントの[反復タグ](https://docs.shopify.com/themes/liquid/tags/iteration-tags)を参照してください。
+これは、Brazeのメッセージ作成画面で反復タグを使用する方法の簡単な例です。詳細については、Shopifyのドキュメントの[反復タグ](https://docs.shopify.com/themes/liquid/tags/iteration-tags)を参照してください。
 
 ## 構文タグ {#syntax-tags}
 
-構文タグを使用して、Liquid のレンダリング方法を制御できます。`echo` タグを使用して式を返すことができます。これは式を波括弧で囲むのと同じですが、Liquid タグ内でこのタグを使用できます。また、`liquid` タグを使用して、各タグにデリミタを付けずに Liquid のブロックを記述できます。`liquid` タグを使用する場合、各タグは独自の行に記述する必要があります。詳細と例については、Shopify のドキュメントの[構文タグ](https://shopify.dev/api/liquid/tags#syntax-tags)を参照してください。
+構文タグを使用して、Liquid のレンダリング方法を制御できます。`echo` タグを使用して式を返すことができます。これは式を波括弧で囲むのと同じですが、Liquid タグ内でこのタグを使用できます。また、`liquid` タグを使用して、各タグにデリミタを付けずに Liquid のブロックを記述できます。`liquid` タグを使用する場合、各タグは独自の行に記述する必要があります。詳細と例については、Shopifyのドキュメントの[構文タグ](https://shopify.dev/api/liquid/tags#syntax-tags)を参照してください。
 
 [空白制御](https://shopify.github.io/liquid/basics/whitespace/)を使用すると、タグの周囲の空白を削除でき、Liquid の出力の見た目をさらに制御できます。
 

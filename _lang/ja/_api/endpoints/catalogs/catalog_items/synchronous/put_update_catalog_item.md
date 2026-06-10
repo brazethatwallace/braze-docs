@@ -17,7 +17,7 @@ description: "この記事では、「カタログ項目を置換」Brazeエン�
 
 > このエンドポイントを使用して、カタログの項目を置換します。
 
-`item_id` が見つからない場合、このエンドポイントはカタログにアイテムを作成します。このエンドポイントは同期的です。
+`item_id`が見つからない場合、このエンドポイントはカタログにアイテムを作成します。このエンドポイントは同期的です。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b2871ed7-734e-4a37-b8f1-e11584e569f5 {% endapiref %}
 
@@ -55,9 +55,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
     {
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -68,6 +69,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
   ]
 }'
 ```
+
+{% alert note %}
+`Location` フィールドは `geo` データタイプを使用しており、`[経度, 緯度]` の形式の配列を期待します。
+{% endalert %}
 
 ## 応答 {#response}
 
@@ -123,7 +128,7 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 | `item-array-invalid` | `items` はオブジェクトの配列でなければなりません。 |
 | `items-too-large` | 各項目の文字数制限は5,000文字です。 |
 | `request-includes-too-many-items` | 1つのリクエストにつき1つのカタログ項目のみ作成できます。 |
-| `too-deep-nesting-in-value-object` | アイテムオブジェクトは50レベル以上のネストを持つことはできません。 |
+| `too-deep-nesting-in-value-object` | アイテムオブジェクトは50レベルを超えるネストを持つことはできません。 |
 | `unable-to-coerce-value` | アイテムタイプは変換できません。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 

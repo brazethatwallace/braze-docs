@@ -1,5 +1,6 @@
 ---
 nav_title: Kundenverhalten und Nutzer-Events
+article_title: Kundenverhalten und Nutzer-Events
 layout: customer_behavior_events_glossary
 page_order: 4
 excerpt_separator: ""
@@ -9,11 +10,19 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Schemabereich und zugehörige Ressourcen %}
+
+Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehouse-Speicherpartner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Einige der hier aufgeführten Kombinationen von Events und Zielen sind noch nicht allgemein verfügbar. Informationen darüber, welche Events von verschiedenen Partnern unterstützt werden, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und auf den jeweiligen Seiten.
+
 {% alert tip %}
 Diese Events sind auch als SQL-Tabellen im [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) und in der [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) verfügbar. Informationen zu SQL-Tabellenschemata und Spaltendetails finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
 {% endalert %}
 
 Wenden Sie sich an Ihre Braze-Vertretung oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Wenn Sie auf dieser Seite nicht finden, was Sie suchen, sehen Sie sich unsere [Bibliothek der Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) oder unsere [Beispieldaten von Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
+
+{% enddetails %}
 
 {% details Erläuterung der Struktur von Kundenverhaltens- und Nutzer-Events sowie Plattformwerte %}
 
@@ -43,14 +52,16 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 
 {% enddetails %}
 
-{% alert important %}
-Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehouse-Speicherpartner (wie Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Einige der hier aufgeführten Kombinationen von Events und Zielen sind noch nicht allgemein verfügbar. Informationen darüber, welche Events von verschiedenen Partnern unterstützt werden, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und auf den jeweiligen Seiten.<br><br>Beachten Sie außerdem, dass Currents Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB verwirft.
-{% endalert %}
+{% details Hinweise zu Kundenverhaltens- und Nutzer-Events %}
 
-{% alert note %}
-Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (beispielsweise als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur für SDK-initiierte Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder nicht für den/die Nutzer:in gesetzt sind, können diese Felder `null` sein.
-{% endalert %}
+- Currents verwirft Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB.
+- Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (beispielsweise als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur für SDK-initiierte Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder nicht für die Nutzer:innen gesetzt sind, können diese Felder `null` sein.
 
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## Update-Events für zufällige Bucket-Nummern {#random-bucket-number-update-events}
@@ -148,7 +159,7 @@ Dieses Event tritt ein, wenn ein bestimmtes angepasstes Event getriggert wird. V
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.CustomEvent
 
@@ -287,7 +298,7 @@ Dieses Event wird ausgelöst, wenn eine App-Installation einer Quelle zugeordnet
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.InstallAttribution
 
@@ -424,7 +435,7 @@ Dieses Event wird getriggert, wenn ein:e Nutzer:in einen bestimmten Standort bes
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.Location
 
@@ -600,7 +611,7 @@ Käufe sind spezielle angepasste Events und werden mit einem JSON-kodierten Stri
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.Purchase
 
@@ -763,7 +774,7 @@ Wenn ein:e Nutzer:in die erste Sitzung startet, werden sowohl ein `FirstSession`
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.FirstSession
 
@@ -899,7 +910,7 @@ Dieses Event tritt ein, wenn ein:e Nutzer:in Ihre Anwendung verlässt und damit 
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.SessionEnd
 
@@ -1039,7 +1050,7 @@ Wenn ein:e Nutzer:in die erste Sitzung startet, werden sowohl ein `FirstSession`
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.SessionStart
 
@@ -1173,7 +1184,7 @@ Dieses Event tritt ein, wenn Braze das Live-Activity-Push-to-Start-Token mit dem
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.liveactivity.PushToStartTokenChange
 
@@ -1307,7 +1318,7 @@ Dieses Event tritt ein, wenn Braze das Live-Activity-Update-Token mit dem/der Nu
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.liveactivity.UpdateTokenChange
 
@@ -1457,7 +1468,7 @@ Dieses Event tritt ein, wenn ein Push-Token eingefügt, aktualisiert oder entfer
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.pushnotification.TokenStateChange
 
@@ -1561,9 +1572,12 @@ Dieses Event tritt ein, wenn ein Push-Token eingefügt, aktualisiert oder entfer
 #### Details zu den Eigenschaften
 
 - Das Feld `push_token_foreground_push_disabled` gibt an, ob das Push-Token Push-Benachrichtigungen im Vordergrund oder im Hintergrund empfangen kann.
-  - Wenn der/die Nutzer:in die Berechtigung für Push-Benachrichtigungen auf dem Gerät ausdrücklich erteilt hat, ist der Wert `false`, und das Token kann Push-Benachrichtigungen im Vordergrund empfangen.
-  - Wenn der/die Nutzer:in die Berechtigung für Push-Benachrichtigungen auf dem Gerät ausdrücklich abgelehnt hat, ist der Wert `true`, und das Token ist nur für Hintergrund-Push-Benachrichtigungen zulässig.
-  - Wenn die Push-Berechtigung unbekannt ist, bleibt dieses Feld leer. Standardmäßig versucht Braze, Push-Benachrichtigungen im Vordergrund an das Token zu senden.
+  - Wenn die Nutzer:innen die Berechtigung für Push-Benachrichtigungen auf ihrem Gerät ausdrücklich erteilt haben, ist der Wert `false`, und das Token kann Push-Benachrichtigungen im Vordergrund empfangen.
+  - Wenn die Nutzer:innen die Berechtigung für Push-Benachrichtigungen auf ihrem Gerät ausdrücklich abgelehnt haben, ist der Wert `true`, und das Token ist nur für Hintergrund-Push-Benachrichtigungen zulässig.
+  - Wenn die Push-Berechtigung noch nicht festgelegt wurde (z. B. wenn die Nutzer:innen noch nicht auf die Betriebssystem-Abfrage reagiert haben), ist der Wert `true`, und das Token ist nur für Hintergrund-Push-Benachrichtigungen zulässig.
+  - Dieses Feld kann `null` sein (oder leer, je nach Zielformat) bei älteren SDK-Token-Registrierungen, die den Berechtigungsstatus noch nicht gemeldet haben, sowie bei Web-Push-Tokens. Behandeln Sie `null` wie `false` (Vordergrund-Push möglich), da Braze weiterhin versucht, Vordergrund-Push-Benachrichtigungen an diese Tokens zu senden.
+  - Ein Push-Sendeversuch aktualisiert dieses Feld nicht. Wenn ein Versand erfolgreich ist, wird kein `TokenStateChange`-Event ausgelöst. Wenn ein Versand aufgrund eines ungültigen Tokens einen Bounce verursacht, löst Braze ein „remove“-Event aus und löscht das Token.
+  - Dieses Feld ändert sich nur, wenn Braze ein Token-Status-Update vom SDK erhält (z. B. eine spätere Sitzungssynchronisierung, die den Push-Berechtigungsstatus meldet).
 - Das Feld `push_token_provisionally_opted_in` gilt ausschließlich für iOS-Push-Tokens.
   - Wenn Sie eine [vorläufige Autorisierung]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push) eingerichtet haben, wird dieses Feld für vorläufige Tokens auf `true` gesetzt. Alle anderen Push-Tokens haben den Wert `false`.
 - Das Feld `sdk_version` wird nur ausgefüllt, wenn die Token-Statusänderung durch das SDK initiiert wird.
@@ -1577,9 +1591,15 @@ Dieses Event tritt ein, wenn ein Push-Token eingefügt, aktualisiert oder entfer
 
 Ein „add“-Event wird erfasst, wenn ein neues Token registriert wird. Dies geschieht, wenn ein:e Nutzer:in die App zum ersten Mal auf einem neuen Gerät öffnet oder wenn ein Token über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)-Endpunkt mit `push_tokens` für eine:n Nutzer:in gesetzt wird, der/die zuvor noch keines hatte.
 
+{% alert note %}
+Ab iOS Swift SDK 13.3.0 und Android SDK 40.0.0 werden Push-Berechtigungsstatus und Push-Token gemeinsam gesendet. Bei neuen Registrierungen über diese SDKs wird `push_token_foreground_push_disabled` bereits beim „add“-Event ausgefüllt (in der Regel `false`, wenn Benachrichtigungen aktiviert sind).<br><br>
+
+Ältere Token-Registrierungen können dieses Feld weiterhin als `null` haben, bis das SDK später den Push-Berechtigungsstatus meldet. Web-Push-Tokens können dieses Feld ebenfalls konstruktionsbedingt als `null` haben.
+{% endalert %}
+
 ##### Aktualisieren {#update}
 
-Ein „update“-Event wird erfasst, wenn sich eine Eigenschaft eines bestehenden Tokens ändert, ohne dass sich der Token-String selbst ändert. Das Token hat denselben String, denselben/dieselbe Nutzer:in und dieselbe App, aber eines oder mehrere der folgenden Felder haben sich geändert: `foreground_push_disabled`, APNs-Gateway, Web-Push-Schlüssel, `provisionally_opted_in` oder `device_id`.
+Ein „update“-Event wird erfasst, wenn sich eine Eigenschaft eines bestehenden Tokens ändert, ohne dass sich der Token-String selbst ändert. Das Token hat denselben String, denselben/dieselbe Nutzer:in und dieselbe App, aber eines oder mehrere der folgenden Felder haben sich geändert: `foreground_push_disabled`, APNs-Gateway, Web-Push-Schlüssel, `provisionally_opted_in` oder `device_id`. Diese Updates stammen aus Token-Status-Synchronisierungs-Events (z. B. wenn das SDK einen neuen Berechtigungsstatus meldet), nicht aus Push-Sendeergebnissen.
 
 {% alert note %}
 In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wiederherstellung zu einem neuen „add“-Event mit einem neuen `push_token` und einer neuen `device_id` (da das SDK eine neue `device_id` generiert und das Betriebssystem einen neuen Push-Token-String bereitstellt). Dadurch werden zwei separate Token- und Geräteeinträge im Nutzerprofil erstellt, wobei der ältere Eintrag später durch Uninstall-Tracking oder Kampagnenversand bereinigt wird.<br><br>
@@ -1594,6 +1614,8 @@ Ein eigenständiges „remove“-Event wird erfasst, wenn Braze ein Token entfer
 - Push-Bounce (APNs, FCM oder HMS melden das Token als ungültig oder abgelaufen)
 - Deinstallationserkennung durch Silent Push
 - Token über die REST API oder den APNs-Feedback-Dienst entfernt
+
+Wenn ein Push-Bounce die Token-Entfernung triggert, löst Braze `push_token_state_change_type = "remove"` für dieses Token aus. Es wird kein „update“-Event ausgelöst, das `push_token_foreground_push_disabled` ändert.
 
 ##### Hinzufügen- und Entfernen-Paare {#add-and-remove-pairs}
 

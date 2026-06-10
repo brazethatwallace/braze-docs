@@ -26,7 +26,7 @@ description: "このリファレンス記事では、Brazeのランディング�
 | ランディングページへのアクセス | Brazeで[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)を作成するためのアクセスと権限。 |
 | HTMLとJavaScriptの知識 | ランディングページをカスタマイズするためのHTMLとJavaScriptの基本的な知識。[オプションB](#option-b-personal-dates-custom-code-block)でのみ必要です。 |
 | Liquidの知識 | パーソナライズ済み変数をテンプレート化するための[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)の基本的な知識。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ステップ1: ランディングページを作成し、メッセージからリンクする {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 
