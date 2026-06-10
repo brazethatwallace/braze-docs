@@ -34,7 +34,7 @@ The following flow describes how Braze renders and sends messages for provider-b
 
 ## Where Connected Content responses can live temporarily
 
-Braze uses a multi-tier cache for Connected Content responses with TTLs between five minutes and four hours, depending on your use of `:cache`, `:cache_max_age`, and other caching rules:
+Braze uses a multi-tier cache for Connected Content responses with TTLs between five minutes and four hours, depending on your use of `:cache_max_age` and other caching rules:
 
 - **In-process memory cache:** Transient cache within the worker process. Data can live only for the duration of the job (up to ~11 minutes based on worker timeout).
 - **Local machine cache:** A per-worker cache, such as a local Memcached instance.
@@ -55,7 +55,7 @@ For endpoints that are not hosted inside Braze infrastructure, using `:no_cache`
 
 ## Default cache settings
 
-The cache age is up to five minutes (300 seconds). You can update this by adding `:cache_max_age` or `:cache` to the Connected Content call, followed by the TTL in seconds. An example is:
+The cache age is up to five minutes (300 seconds). You can update this by adding the `:cache_max_age` parameter to the Connected Content call. An example is:
 
 {% raw %}
 ```
@@ -63,11 +63,9 @@ The cache age is up to five minutes (300 seconds). You can update this by adding
 ```
 {% endraw %}
 
-`:cache` and `:cache_max_age` are interchangeable aliases—either option sets cache TTL in seconds (minimum 5 minutes, maximum 4 hours). If you omit a duration, Braze applies the default five-minute cache window.
-
 GET requests are cached by default. You can disable caching by adding the `:no_cache` parameter to the Connected Content call.
 
-POST requests are not cached by default, but you can enable caching by adding `:cache_max_age` or `:cache` to the Connected Content call. The minimum cache time is 5 minutes, and the maximum cache time is 4 hours.
+POST requests are not cached by default, but you can enable caching by adding the `:cache_max_age` parameter to the Connected Content call. The minimum cache time is 5 minutes, and the maximum cache time is 4 hours.
 
 {% alert note %}
 Cache settings aren’t guaranteed. Caching can reduce calls to your endpoints, so we recommend using multiple calls per endpoint within the cache duration rather than being overly reliant on caching.
@@ -81,7 +79,7 @@ The Connected Content response body can be up to 1&nbsp;MB. If the response body
 
 Connected Content will cache the value it returns from GET endpoints for a minimum of five minutes. If a cache time is not specified, the default cache time is five minutes.
 
-Connected Content cache time can be configured to be longer with `:cache_max_age` or `:cache`, as shown in the following example. The minimum cache time is five minutes and the maximum cache time is four hours. Connected Content data is cached in-memory using a volatile cache system, such as Memcached. 
+Connected Content cache time can be configured to be longer with `:cache_max_age`, as shown in the following example. The minimum cache time is five minutes and the maximum cache time is four hours. Connected Content data is cached in-memory using a volatile cache system, such as Memcached. 
 
 As a result, regardless of the specified cache time, Connected Content data may be evicted from Braze’s in-memory cache earlier than specified. This means the cache durations are suggestions and may not actually represent the duration that the data is guaranteed to be cached by Braze and you may see more Connected Content requests than you may expect with a given cache duration.
 
@@ -109,7 +107,7 @@ To prevent Connected Content from caching the value it returns from a GET reques
 Be certain the provided Connected Content endpoint can handle large bursts of traffic before using this option, or you will likely see increased sending latency (increased delays or wider time intervals between request and response) due to Braze making Connected Content requests for every single message.
 {% endalert %}
 
-With a POST you don’t need to cache bust, because POST requests are not cached by default. To cache a POST response, add `:cache_max_age` or `:cache`; to avoid caching a POST, omit both options.
+With a POST you don’t need to cache bust, because POST requests are not cached by default. To cache a POST response, add `:cache_max_age`; to avoid caching a POST, omit `:cache_max_age`.
 
 ## Things to know
 
