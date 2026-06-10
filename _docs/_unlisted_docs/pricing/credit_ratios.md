@@ -12,16 +12,19 @@ hidden: true
 ## Credit Ratio Table
 
 {% details Click to expand %}
-<table aria-label="Credit Ratio Table">
+<table class="credits-table" aria-label="Credit Ratio Table">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Channel</b></th>
         <th><b>Destination</b></th>
         <th class="credits-column"><b>Credits per 1 Send</b></th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td>WhatsApp</td>
         <td>Argentina Authentication</td>
@@ -707,6 +710,7 @@ hidden: true
         <td>United Kingdom Utility</td>
         <td>5.8</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}

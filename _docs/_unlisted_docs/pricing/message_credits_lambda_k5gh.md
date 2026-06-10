@@ -36,11 +36,12 @@ Column definitions are as follows:
 ## Credit ratio table for Message Credits - Lambda
 
 {% details Click to expand %}
-<table aria-label="Credit ratio table for Message Credits - Lambda">
+<table class="credits-table" aria-label="Credit ratio table for Message Credits - Lambda">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Channel</b></th>
         <th><b>Destination</b></th>
@@ -51,6 +52,8 @@ Column definitions are as follows:
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
+    </thead>
+    <tbody>
 <tr>
         <td>Agent Console</td>
         <td>BYO LLM API Key</td>
@@ -2041,6 +2044,7 @@ Column definitions are as follows:
         <td>United States - Rich Media</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}

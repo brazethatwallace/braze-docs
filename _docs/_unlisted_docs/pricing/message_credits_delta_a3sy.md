@@ -36,16 +36,19 @@ Column definitions are as follows:
 ## Credit ratio table for Message Credits - Delta
 
 {% details Click to expand %}
-<table aria-label="Credit ratio table for Message Credits - Delta">
+<table class="credits-table" aria-label="Credit ratio table for Message Credits - Delta">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Channel</b></th>
         <th><b>Destination</b></th>
         <th class="credits-column"><b>Credits per 1 Send</b></th>
     </tr>
+    </thead>
+    <tbody>
 <tr>
         <td>Agent Console</td>
         <td>Braze Auto</td>
@@ -2271,6 +2274,7 @@ Column definitions are as follows:
         <td>United States - Single - Deprecated</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
