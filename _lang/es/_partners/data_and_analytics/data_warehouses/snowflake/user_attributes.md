@@ -75,7 +75,9 @@ Estas vistas proporcionan instantáneas periódicas de los atributos del perfil 
 * Ejecución más rápida de la consulta, sobre todo al filtrar por atributos distintos de `USER_ID`.
 * **Limitación:** Los datos no están actualizados en tiempo real.
 
-{% include partners/snowflake_user_attributes_date_fields_note.md %}
+{% alert note %}
+El campo `TIME` representa la hora en segundos de la actualización del perfil de usuario; el campo `TIME_MS` indica lo mismo con precisión de milisegundos. Para los datos rellenados retroactivamente, los valores de `TIME` y `TIME_MS` corresponden a la hora del relleno retroactivo.
+{% endalert %}
 
 ### Esquema de `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_default_attributes_view_shared-schema}
 
@@ -132,7 +134,9 @@ Estas vistas proporcionan actualizaciones casi en tiempo real de los atributos d
     * Las consultas sin filtros de USER_ID requieren la agregación de todos los usuarios, lo que conlleva tiempos de ejecución significativamente más largos.
     * Las consultas en un gran conjunto de datos (como más de 100 millones de usuarios) pueden tardar muchos minutos.
 
-{% include partners/snowflake_user_attributes_date_fields_note.md %}
+{% alert note %}
+El campo `TIME` representa la hora en segundos de la actualización del perfil de usuario; el campo `TIME_MS` indica lo mismo con precisión de milisegundos. Para los datos rellenados retroactivamente, los valores de `TIME` y `TIME_MS` corresponden a la hora del relleno retroactivo.
+{% endalert %}
 
 ### Esquema de `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_latest_state_default_attributes_view_shared-schema}
 
@@ -185,7 +189,9 @@ Estas vistas almacenan registros de cambios históricos de los atributos de los 
 * Los datos se capturan en instantáneas cada 12 horas, lo que significa que varias actualizaciones en esta ventana se combinan en un único registro. Los cambios individuales dentro de este periodo no se conservan por separado.
 * `EFF_DT` y `END_DT` marcan el inicio y el final del estado de atributo de un usuario.
 
-{% include partners/snowflake_user_attributes_date_fields_note.md %}
+{% alert note %}
+El campo `TIME` representa la hora en segundos de la actualización del perfil de usuario; el campo `TIME_MS` indica lo mismo con precisión de milisegundos. Para los datos rellenados retroactivamente, los valores de `TIME` y `TIME_MS` corresponden a la hora del relleno retroactivo.
+{% endalert %}
 
 ### Esquema de `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` {#user_default_attributes_history_view_shared-schema}
 
