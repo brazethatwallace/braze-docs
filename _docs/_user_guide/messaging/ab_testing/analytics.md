@@ -155,7 +155,7 @@ Whether or not your test has a clear winner, it can be helpful to run a [follow-
 
 For in-app message campaigns with A/B or multivariate splits, the percentages you configure are assignment targets. Reported impressions rarely match those percentages exactly, because only users who perform the trigger action log impressions, and control-group users who trigger log an impression even though they never see a message.
 
-In in-app message campaigns, the way users are tracked and how impressions are logged can cause discrepancies in the expected split between the control group and variant. This is because the actual impressions logged may not reflect this split, and Braze ultimately has no control over the individual user behavior of who will perform the trigger.
+In in-app message campaigns, the way users are tracked and how impressions are logged can cause discrepancies in the expected split between the control group and variant. This is because the actual impressions logged may not reflect this split, and Braze ultimately has no control over the individual user behavior of who performs the trigger.
 
 For example, let's say a campaign has a target audience of 200 users at launch, with 100 users in the control group and 100 users in the variant.
 
