@@ -93,7 +93,9 @@ Brazeは以下のメタフィールドオブジェクトとそれぞれのタイ
 | `number_integer`                                 | 整数                                                   |
 | `single_line_text_field`, `list.single_line_text_field` | 文字列、文字列の配列                              |
 | `url`, `list.url`                                | 文字列（URL）、文字列の配列（URL）                      |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure additional product data (optional) #step-3" }
+| `metaobject_reference`, `list.metaobject_reference` | 文字列、文字列の配列                                |
+| `mixed_reference`, `list.mixed_reference`        | 文字列、文字列の配列                                    |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3: 追加の商品データを設定する（オプション） #step-3" }
 
 {% endsubtab %}
 {% subtab サポートされていないメタフィールド %}
@@ -189,7 +191,7 @@ Shopifyパートナーページから、商品タグ、コレクション、商�
 | `product_tags`       | 配列           | `["Summer", "Sale", "New"]`<br><br>商品タグの同期が必要です。                 |
 | `collection_ids`     | 配列           | `[123456789012, 987654321098]`（ShopifyコレクションID）<br><br>Shopifyコレクションの同期が必要です。 |
 | メタフィールド列     | タイプにより異なる | 同期された各メタフィールドは、そのキーで名前が付けられた個別の列として表示されます。詳細については、ステップ3の「商品メタフィールド」タブの[サポートされているメタフィールド](#step-3)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported Shopify catalog data" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="サポートされているShopifyカタログデータ" }
 
 {% alert warning %}
 Shopifyカタログは、Shopifyによって管理されています。カタログを更新するには、Shopifyストアで直接変更を行ってください。変更は自動的にBrazeに同期されます。Shopifyカタログを削除するには、BrazeのShopifyパートナーページに移動し、[同期を非アクティブにしてください](#deactivate)。
@@ -717,4 +719,4 @@ Shopify商品同期でエラーが発生した場合は、次のいずれかの�
 | サーバーエラー | 商品を同期しようとしたときに、Shopify側でサーバーエラーが発生した場合に起こります。 | [同期を非アクティブにし](#deactivate)、商品の在庫全体を再同期します。 |
 | 重複するSKU | カタログアイテムIDとしてSKUを使用している場合に、複数の商品に同じSKUが設定されていると発生します。カタログアイテムIDは一意である必要があるため、すべての商品に一意のSKUが必要です。 | Shopifyで商品とバリアントの一覧をすべて監査して、重複するSKUがないことを確認します。SKUが重複している場合は、Shopifyストアアカウントで一意のSKUに更新します。修正後、[同期を非アクティブにし](#deactivate)、商品の在庫全体を再同期します。 |
 | カタログ制限の超過 | カタログ制限を超えた場合に発生します。Brazeは、利用可能なストレージがないため、同期を完了することや、同期をアクティブな状態で維持することができなくなります。 | この問題には2つのソリューションがあります。<br><br>1. アカウントマネージャーに連絡してティアをアップグレードし、カタログ制限を増やします。<br><br>2. 次のいずれかを削除して、ストレージ領域を解放します。<br>- 他のカタログからのカタログアイテム<br>- 他のカタログ<br>- 作成されたセレクション<br><br> いずれのソリューションを取った場合でも、同期を非アクティブにしてから再同期を実行する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="トラブルシューティング" }

@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Personalizar un mensaje basado en atributos personalizados coincidentes](#attribute-matching)
+- [Formatear moneda para convenciones numéricas europeas](#european-currency-format)
 - [Restar dos atributos personalizados para mostrar la diferencia como valor monetario](#attribute-monetary-difference)
 - [Hacer referencia al nombre de un usuario si su nombre completo está almacenado en el campo first_name](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Formatear moneda para convenciones numéricas europeas {#european-currency-format}
+
+Para las configuraciones regionales que usan una coma como separador decimal y un punto como separador de miles (por ejemplo, Alemania o Italia), usa los filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) y [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) con `replace` para intercambiar los separadores. Usa `#` como marcador de posición temporal para que los puntos y las comas no se intercambien en la misma pasada.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Resultado:** `1.234.567,89`
+
+**Explicación:** El filtro `money` añade decimales pero no añade un símbolo de moneda ni separadores específicos de la configuración regional. `number_with_delimiter` añade separadores de miles al estilo estadounidense, y los filtros `replace` los convierten al formato europeo.
 {% endraw %}
 
 ### Restar dos atributos personalizados para mostrar la diferencia como valor monetario {#attribute-monetary-difference}
@@ -1392,9 +1407,9 @@ Para asignar una variable que refleje la fecha y hora actuales en la zona horari
 ```
 {% endraw %}
 
-- `now`: Esto recupera la fecha y hora actuales en UTC.
-- `time_zone`: Esto recupera la zona horaria local del usuario desde el atributo predeterminado usando la etiqueta de personalización {% raw %}`{{${time_zone}}}`{% endraw %}.
-- `date`: Esto formatea la fecha y hora local del usuario según tus especificaciones. En el ejemplo anterior, el sistema muestra una cadena formateada como "February 26, 2026". Para más opciones de formato, consulta [strftime.net](strftime.net).
+- `now`: Recupera la fecha y hora actuales en UTC.
+- `time_zone`: Recupera la zona horaria local del usuario desde el atributo predeterminado usando la etiqueta de personalización {% raw %}`{{${time_zone}}}`{% endraw %}.
+- `date`: Formatea la fecha y hora local del usuario según tus especificaciones. En el ejemplo anterior, el sistema muestra una cadena formateada como "February 26, 2026". Para más opciones de formato, consulta [strftime.net](strftime.net).
 
 #### Aplicar la zona horaria del usuario con atributos personalizados {#apply-the-users-time-zone-with-custom-attributes}
 

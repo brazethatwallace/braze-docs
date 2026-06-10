@@ -61,7 +61,7 @@ Pour plus de détails, consultez l'[exemple d'API de tableau d'objets]({{site.ba
 
 Pour supprimer un attribut de profil, définissez-le sur `null`. Certains champs, tels que `external_id` et `user_alias`, ne peuvent pas être supprimés après avoir été ajoutés à un profil utilisateur.
 
-#### Résolution des identifiants {#identifier-resolution}
+### Résolution des identifiants {#identifier-resolution}
 
 À moins que vous n'effectuiez une [importation anonyme de jetons de notification push](#push-token-import), chaque objet d'attributs utilisateur doit inclure au moins un identifiant : `external_id`, `user_alias`, `braze_id`, `email` ou `phone`. Dans la mesure du possible, incluez un seul identifiant par objet afin d'éviter toute ambiguïté quant au profil utilisateur mis à jour ou créé.
 
@@ -216,7 +216,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Migration des jetons de notification push {#migrating-push-tokens}
+## Migration des jetons de notification push {#migrate-push-tokens}
 
 Si vous envoyiez des notifications push avant d'intégrer Braze, que ce soit par vous-même ou via un autre fournisseur, la migration des jetons de notification push vous permet de continuer à envoyer des notifications push à vos utilisateurs disposant de jetons enregistrés.
 
@@ -323,7 +323,23 @@ Braze effectue une vérification mensuelle afin d'identifier tout profil anonyme
 {% endtab %}
 {% endtabs %}
 
-### Importation de jetons de notification push Android {#importing-android-push-tokens}
+### Importation de jetons de notification push iOS {#import-ios-push-tokens}
+
+Lors de la migration de jetons de notification push iOS avec `/users/track`, le champ `gateway` n'est pas défini sur le jeton de notification push. Braze considère que les jetons importés via l'API sont des jetons de notification push de premier plan valides, mais ne peut pas déterminer à quel environnement APNs le jeton appartient.
+
+Sans le champ gateway, Braze utilise le paramètre d'environnement de secours configuré pour votre application lors de l'envoi de notifications push. Cela peut entraîner des erreurs `BadDeviceToken` si l'environnement réel du jeton diffère de l'environnement de secours configuré. Par exemple, un jeton de développement envoyé via la passerelle de production échouera.
+
+Pour éviter les problèmes de distribution :
+
+- Assurez-vous que le paramètre d'environnement de votre application dans le tableau de bord de Braze correspond aux jetons que vous importez.
+- Pour les applications en production, importez uniquement les jetons de production.
+- Pour les environnements de test, vérifiez que la configuration de votre application et les jetons importés utilisent l'environnement de développement.
+
+{% alert note %}
+Les jetons enregistrés via le SDK Braze incluent automatiquement le champ gateway, car le SDK détecte l'environnement à partir des droits de votre application.
+{% endalert %}
+
+### Importation de jetons de notification push Android {#import-android-push-tokens}
 
 {% alert important %}
 La remarque suivante s'applique uniquement aux applications Android. Les applications iOS ne nécessitent pas ces étapes, car cette plateforme ne dispose que d'un seul framework pour l'affichage des notifications push, et celles-ci s'affichent immédiatement dès lors que Braze dispose des jetons et certificats de notification push nécessaires.

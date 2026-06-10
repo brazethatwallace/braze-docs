@@ -207,7 +207,7 @@ No momento, o envio de mensagens RCS com o Otimizador de conteúdo não suporta 
 
 ## Editar uma etapa lançada {#edit-a-launched-step}
 
-Após o lançamento do seu Canvas, você pode atualizar uma etapa do Otimizador de conteúdo em execução abrindo-a no editor do Canvas. Você pode:
+Após o lançamento do seu Canvas, você pode atualizar uma etapa do Otimizador de conteúdo em execução abrindo-a no editor de Canvas. Você pode:
 
 - Adicionar novas variantes a qualquer componente existente, manualmente ou usando sugestões geradas por IA, até o limite de cinco variantes por componente.
 - Desativar variantes para parar de enviá-las aos usuários.
@@ -217,7 +217,7 @@ Quando você publica as alterações, o otimizador é reiniciado e começa a red
 
 As seguintes configurações não podem ser alteradas após o lançamento:
 
-- O conteúdo das variantes ativas existentes
+- O conteúdo de variantes ativas existentes
 - Quais componentes estão sendo testados
 - O evento de otimização
 
@@ -232,14 +232,14 @@ Para etapas de SMS/MMS/RCS, o grupo de inscrições e o tipo de mensagem também
 - Se esta é a primeira vez que você usa o Otimizador de conteúdo, considere usar uma etapa de [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para que apenas parte do seu público entre no ramo que contém a etapa do Otimizador de conteúdo. Por exemplo, você pode enviar metade dos seus usuários por uma jornada com a etapa do Otimizador de conteúdo e a outra metade por uma jornada de controle que envia a etapa Mensagem com o conteúdo habitual do seu negócio. Então, colete dados por 2 a 3 semanas e compare quaisquer indicadores-chave de desempenho (KPIs) ou contra-métricas antes de aumentar o tráfego para as jornadas com etapas do Otimizador de conteúdo.
   - Para uma comparação eficaz um a um, recomendamos que sua etapa do Otimizador de conteúdo contenha o conteúdo habitual do seu negócio como uma das variantes para cada componente.
 - Antes de atualizar uma etapa em execução, aguarde até que os rankings de desempenho de todas as variantes dos componentes se estabilizem — ou seja, as mesmas variantes estejam consistentemente ganhando e perdendo por três a quatro dias seguidos. Isso normalmente leva cerca de sete dias, e um número maior de eventos de otimização produz um sinal mais forte e preciso.
-- Evite atualizar cedo demais. Cada vez que você publica alterações, o otimizador é reiniciado do zero. Se você atualizar antes que a etapa tenha tido tempo de identificar o que está funcionando, você impede que ela capitalize suas descobertas — e a etapa nunca tem a chance de direcionar tráfego significativo para as combinações com melhor desempenho.
-- Quando estiver pronto para atualizar, uma boa abordagem é desativar variantes com baixo desempenho e adicionar novas que se baseiem nas características das suas melhores variantes.
+- Evite atualizar cedo demais. Cada vez que você publica alterações, o otimizador é reiniciado. Se você atualizar antes que a etapa tenha tempo de identificar o que está funcionando, você impede que ela capitalize suas descobertas — e a etapa nunca tem a oportunidade de direcionar tráfego significativo para as combinações com melhor desempenho.
+- Quando estiver pronto para atualizar, a abordagem recomendada é desativar variantes com baixo desempenho e adicionar novas que se baseiem nas características das suas melhores variantes.
 
 ## Considerações {#considerations}
 
 - As configurações de múltiplos idiomas não são suportadas nas etapas do Otimizador de conteúdo. Em vez disso, recomendamos usar uma etapa do Otimizador de conteúdo por idioma e ramificar as jornadas individualmente.
 - As Liquid tags para componentes do Otimizador de conteúdo não são suportadas em etapas Mensagem, então o Liquid é abortado em etapas Mensagem.
-- Após uma etapa do Otimizador de conteúdo ser lançada, você não pode alterar quais componentes estão sendo testados, o conteúdo das variantes ativas existentes ou o evento de otimização. Para etapas de SMS/MMS/RCS, o grupo de inscrições e o tipo de mensagem também não podem ser alterados.
+- Após uma etapa do Otimizador de conteúdo ser lançada, você não pode alterar quais componentes estão sendo testados, o conteúdo de variantes ativas existentes ou o evento de otimização. Para etapas de SMS/MMS/RCS, o grupo de inscrições e o tipo de mensagem também não podem ser alterados.
 
 ## Análise de dados {#analytics}
 

@@ -45,10 +45,6 @@ search_rank: 2
 
 カスタムデータのブロックリスト登録と削除の詳細については、「[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)」を参照してください。
 
-### 個人を特定できる情報（PII）としてマークする {#marking-as-personally-identifiable-information-pii}
-
-管理者は、このページからカスタムイベントを作成し、PIIとしてマークすることもできます。これらのイベントは、管理者および「PIIとしてマークされたカスタム属性を表示」権限を持つダッシュボードユーザーにのみ表示されます。
-
 ### 説明の追加 {#adding-descriptions}
 
 `Manage Events, Attributes, Purchases`の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)がある場合、カスタムイベントの作成後に説明を追加できます。カスタムイベントの**説明を編集**を選択し、チームへのメモなど任意の内容を入力してください。
@@ -107,7 +103,7 @@ search_rank: 2
 | カスタムイベントが**X回（最大50回）を超えて**発生したかどうかを確認する | **MORE THAN** | 過去**Y日間（Y = 1,3,7,14,21,30）** |
 | カスタムイベントが**X回（最大50回）未満**発生したかどうかを確認する | **LESS THAN** | 過去**Y日間（Y = 1,3,7,14,21,30）** |
 | カスタムイベントが**正確にX回（最大50回）**発生したかどうかを確認する | **EXACTLY** | 過去**Y日間（Y = 1,3,7,14,21,30）** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segmentation filters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="セグメンテーションフィルター" }
 
 ## 分析 {#analytics}
 
