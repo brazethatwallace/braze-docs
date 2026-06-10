@@ -20,10 +20,13 @@ The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two k
 
 <table aria-label="About the editor" style="width: 100%; table-layout: fixed;">
     <caption>Content and Rows editor components</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Content</th>
         <th style="width: 50%;">Rows</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="The 'Rows' tab that includes different structural combinations for your email layout." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two k
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="The 'Content' tab that includes basic blocks, media, and advanced" style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="About the editor" }
 
@@ -67,6 +71,10 @@ Although the drag-and-drop editor simplifies your workflow with these blocks, yo
 ### Rows
 
 **Rows** are structural units that define the horizontal composition of a section of the message by using columns. You can either empty rows or [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Using more than one column allows you to put different content elements side by side. This way, you can add all the structural elements you need to your message, regardless of the template you selected when you started.
+
+#### Nesting images inside text blocks
+
+You cannot nest an image inside a paragraph or other text block in the drag-and-drop editor. To place an image beside or within a text layout, use columns in a **Row**: for example, a multi-column row on desktop with **Hide on mobile** for that row, and a separate mobile-only row (with **Hide on desktop** and **Do not stack on mobile** as needed) so the image and text align cleanly on small screens.
 
 #### Cards Style
 

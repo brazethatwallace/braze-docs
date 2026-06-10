@@ -27,7 +27,7 @@ Em 7 de abril de 2022, a Transifex descontinuou as versões 2 e 2.5 da sua API p
 | Requisito | Descrição |
 | --- | --- |
 | Conta Transifex | Uma [conta Transifex](https://www.transifex.com/signin/) é necessária para aproveitar esta parceria. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 

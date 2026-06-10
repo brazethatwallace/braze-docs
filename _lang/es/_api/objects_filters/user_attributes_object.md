@@ -61,7 +61,7 @@ Para más detalles, consulta [Ejemplo de API de matriz de objetos]({{site.baseur
 
 Para eliminar un atributo de perfil, ponlo en `null`. Algunos campos, como `external_id` y `user_alias`, no se pueden eliminar después de añadirlos al perfil de usuario.
 
-#### Resolución de identificadores {#identifier-resolution}
+### Resolución de identificadores {#identifier-resolution}
 
 A menos que estés realizando una [importación anónima de tokens de notificaciones push](#push-token-import), cada objeto de atributos de usuario debe incluir al menos un identificador: `external_id`, `user_alias`, `braze_id`, `email` o `phone`. Siempre que sea posible, incluye solo un identificador por objeto para evitar ambigüedades sobre qué perfil de usuario se está actualizando o creando.
 
@@ -111,7 +111,7 @@ Los siguientes tipos de datos pueden almacenarse como un atributo personalizado:
 | Tipo de datos | Notas |
 | --- | --- |
 | Matrices | Se admiten matrices de atributos personalizados. Cuando añades un elemento, se añade al final de la matriz. Si el elemento ya existe, se mueve desde su posición actual hasta el final.<br><br>Solo se almacenan valores únicos. Por ejemplo, importar `['hotdog','hotdog','hotdog','pizza']` da como resultado `['hotdog', 'pizza']`.<br><br>Puedes establecer una matriz directamente (por ejemplo, `"my_array_custom_attribute":[ "Value1", "Value2" ]`), añadir a una matriz existente con `"my_array_custom_attribute" : { "add" : ["Value3"] }`, o eliminar valores con `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`.<br><br>La cantidad máxima de elementos predeterminada en una matriz es 500. Puedes actualizar la cantidad máxima de matrices en el panel de Braze, en **Configuración de datos** > **Atributos personalizados**. Para más información, consulta [Matrices]({{site.baseurl}}/developer_guide/analytics/#arrays). |
-| Matriz de objetos | Utiliza una matriz de objetos para definir una lista de objetos en la que cada objeto contenga un conjunto de atributos. Utiliza este tipo para almacenar varios conjuntos de datos relacionados con un usuario, como estancias en hoteles o preferencias. <br><br>Por ejemplo, define un atributo personalizado llamado `hotel_stays` en un perfil de usuario como una matriz en la que cada objeto representa una estancia independiente, con atributos como `hotel_name`, `check_in_date` y `nights_stayed`.<br><br>Las matrices de objetos no tienen límite en la cantidad de elementos, pero sí tienen un tamaño máximo de 100&nbsp;KB. Si una actualización hace que la matriz supere este límite, Braze descarta la actualización y el atributo permanece sin cambios.<br><br>Añade elementos con `$add`, elimina elementos con `$remove` y actualiza elementos con `$update`. Para más detalles, consulta [Ejemplo de API de matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Ejemplo de SDK de matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) y [Ejemplo de matriz de objetos](#array-of-objects-example). |
+| Matriz de objetos | Utiliza una matriz de objetos para definir una lista de objetos en la que cada objeto contenga un conjunto de atributos. Utiliza este tipo para almacenar varios conjuntos de datos relacionados con un usuario, como estancias en hoteles, historial de compras o preferencias. <br><br>Por ejemplo, define un atributo personalizado llamado `hotel_stays` en un perfil de usuario como una matriz en la que cada objeto representa una estancia independiente, con atributos como `hotel_name`, `check_in_date` y `nights_stayed`.<br><br>Las matrices de objetos no tienen límite en la cantidad de elementos, pero sí tienen un tamaño máximo de 100&nbsp;KB. Si una actualización hace que la matriz supere este límite, Braze descarta la actualización y el atributo permanece sin cambios.<br><br>Para las solicitudes de REST API, añade elementos con `add`, elimina elementos con `remove` y actualiza elementos con `update`. Para los métodos del SDK, utiliza `$add`, `$remove` y `$update` en la carga útil pasada al SDK. Para más detalles, consulta [Ejemplo de API de matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Ejemplo de SDK de matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) y [Ejemplo de matriz de objetos](#array-of-objects-example). |
 | Booleanos | `true` o `false` |
 | Fechas | Deben almacenarse en formato [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) o en cualquiera de los siguientes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Ten en cuenta que la "T" es un indicador de tiempo, no un marcador de posición, y no debe cambiarse ni eliminarse. <br><br>Los atributos de tiempo sin zona horaria se establecen de forma predeterminada a medianoche UTC (y se formatean en el dashboard como el equivalente a medianoche UTC en la zona horaria de la empresa). Para especificar una zona horaria, añade un desplazamiento UTC a la marca de tiempo (por ejemplo, `2024-11-10T18:00:00-05:00` para EST). Si el desplazamiento de zona horaria falta o tiene un formato incorrecto, el valor se establece de forma predeterminada en UTC. <br><br>Las horas se muestran en el dashboard en la zona horaria de tu empresa. Por ejemplo, `2024-11-10T18:00:00-05:00` (6:00 PM EST) aparecería como la hora equivalente en la zona horaria configurada de tu empresa. <br><br>Los eventos con marcas de tiempo en el futuro se establecen de forma predeterminada en la hora actual. <br><br>Para los atributos personalizados habituales, si el año es inferior a 0 o superior a 3000, Braze almacena el valor como una cadena en el perfil de usuario. |
 | Flotantes | Los atributos personalizados flotantes son números positivos o negativos con un punto decimal. Por ejemplo, puedes utilizar flotantes para almacenar saldos de cuentas o valoraciones de usuarios de productos o servicios. |
@@ -323,7 +323,23 @@ Braze comprueba una vez al mes si hay algún perfil anónimo con la marca `push_
 {% endtab %}
 {% endtabs %}
 
-### Importar tokens de notificaciones push de Android {#importing-android-push-tokens}
+### Importar tokens de notificaciones push de iOS {#import-ios-push-tokens}
+
+Al migrar tokens de notificaciones push de iOS con `/users/track`, el campo `gateway` no se establece en el token de notificaciones push. Braze asume que los tokens importados a través de la API son tokens de notificaciones push de primer plano válidos, pero no puede determinar a qué entorno de APNs pertenece el token.
+
+Sin el campo gateway, Braze utiliza la configuración del entorno alternativo de tu aplicación al enviar notificaciones push. Esto puede provocar errores `BadDeviceToken` si el entorno real del token difiere del entorno alternativo configurado. Por ejemplo, un token de desarrollo enviado a través del gateway de producción fallará.
+
+Para evitar problemas de entrega:
+
+- Asegúrate de que la configuración del entorno de tu aplicación en el dashboard de Braze coincida con los tokens que estás importando.
+- Para aplicaciones en producción, importa solo tokens de producción.
+- Para entornos de prueba, verifica que tanto la configuración de tu aplicación como los tokens importados utilicen el entorno de desarrollo.
+
+{% alert note %}
+Los tokens registrados a través del SDK de Braze incluyen el campo gateway automáticamente, ya que el SDK detecta el entorno a partir de los permisos de tu aplicación.
+{% endalert %}
+
+### Importar tokens de notificaciones push de Android {#import-android-push-tokens}
 
 {% alert important %}
 La siguiente consideración solo se aplica a las aplicaciones Android. Las aplicaciones iOS no requieren estos pasos porque esa plataforma solo tiene un marco para mostrar notificaciones push, y estas se muestran inmediatamente siempre que Braze tenga los tokens de notificaciones push y certificados necesarios.
@@ -331,7 +347,7 @@ La siguiente consideración solo se aplica a las aplicaciones Android. Las aplic
 
 Si debes enviar notificaciones push de Android a tus usuarios antes de que se complete la integración del SDK de Braze, utiliza pares clave-valor para validar las notificaciones push.
 
-Debes tener un receptor para gestionar y mostrar cargas útiles push. Para notificar al receptor la carga útil push, añade los pares clave-valor necesarios a la Campaign push. Los valores de estos pares dependen del socio de push específico que hayas utilizado antes de Braze.
+Debes tener un receptor para gestionar y mostrar cargas útiles push. Para notificar al receptor la carga útil push, añade los pares clave-valor necesarios a la campaña push. Los valores de estos pares dependen del socio de push específico que hayas utilizado antes de Braze.
 
 {% alert note %}
 Para algunos proveedores de notificaciones push, Braze necesita aplanar los pares clave-valor para que puedan interpretarse correctamente. Para aplanar los pares clave-valor de una aplicación Android específica, ponte en contacto con tu administrador del éxito del cliente.

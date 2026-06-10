@@ -84,7 +84,7 @@ Par défaut, pour que votre utilisateur reçoive vos messages par notification p
 | Abonné | État d'abonnement aux notifications push par défaut lorsqu'un profil utilisateur est créé dans Braze. |
 | Inscrit | Un utilisateur a explicitement exprimé une préférence pour recevoir des notifications push. Braze déplace automatiquement l'état d'inscription d'un utilisateur vers `Opted-In` si celui-ci accepte une invite de notification push au niveau du système d'exploitation.<br><br>Ceci ne s'applique pas aux utilisateurs sur Android 12 ou antérieur. |
 | Désabonné | Un utilisateur s'est explicitement désabonné des notifications push via votre application ou d'autres méthodes fournies par votre marque. Par défaut, les Campaigns de notification push de Braze ciblent uniquement les utilisateurs qui sont `Subscribed` ou `Opted-in` pour les notifications push. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What's the difference between the push subscription statuses?" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quelle est la différence entre les statuts d'abonnement aux notifications push ?" }
 
 {% endapi %}
 {% api %}

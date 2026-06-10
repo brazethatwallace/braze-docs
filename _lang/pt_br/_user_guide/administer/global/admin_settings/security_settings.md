@@ -99,31 +99,15 @@ Se a 2FA for aplicada no nível da empresa, os usuários que não a configurarem
 A 2FA é obrigatória para todos os usuários da empresa somente se o login único (SSO) não estiver ativado. Se o SSO estiver em uso, a 2FA não precisa ser aplicada no nível da empresa.
 {% endalert %}
 
-## Configuração da autenticação de dois fatores (2FA) {#setting-up-two-factor-authentication-2fa}
+## Configurar a 2FA manualmente {#manually-set-up-2fa}
 
-### Configuração da 2FA com Authy {#setting-up-2fa-with-authy}
+Para ativar manualmente a autenticação de dois fatores (2FA) na sua conta Braze, siga estas etapas:
 
-1. Baixe o app Authy na loja de apps do seu dispositivo.
-2. Na Braze, insira seu número de telefone.
-3. Toque na notificação enviada ao seu dispositivo solicitando que você abra o app Authy.
-4. Abra o app Authy no seu dispositivo para obter o código.
-5. Na Braze, insira o código de verificação que você recebeu do Authy.
-
-Se você encontrar problemas durante o processo de configuração e for redirecionado para a página inicial ou tela de login da Braze, tente o seguinte:
-
-- Use o modo de navegação anônima ou privada: tente a configuração novamente em uma janela de navegação anônima ou privada. Isso pode contornar problemas causados por extensões ou plugins do navegador.
-- Tente um perfil de navegador diferente: se o problema persistir, considere usar um perfil de navegador diferente para eliminar conflitos com plugins instalados.
-
-### Configuração da 2FA quando não é obrigatória {#setting-up-2fa-when-it-isnt-enforced}
-
-Para ativar manualmente a autenticação de dois fatores (2FA) na sua conta Braze quando ela não é obrigatória, siga estas etapas:
-
-1. Baixe um app de 2FA como Authy, Google Authenticator, Okta Verify ou similar na App Store (iOS), Google Play Store (Android) ou na web. Ou, se preferir configurar a 2FA com e-mail ou SMS, pule para a etapa 2.
-2. Na Braze, acesse Gerenciar conta, role até a seção **Autenticação de dois fatores** e selecione **Iniciar configuração**.
-3. Insira sua senha no modal de login e selecione **Verificar senha**.
-4. No modal **Configuração da autenticação de dois fatores**, insira seu número de telefone e selecione **Ativar**.
-5. Copie o código de sete dígitos gerado pelo seu app de 2FA, e-mail ou mensagem SMS, volte à Braze e cole-o no modal **Configuração da autenticação de dois fatores**. Selecione **Verificar**.
-6. (Opcional) Para evitar inserir a 2FA nos próximos 30 dias, ative a opção **Lembrar esta conta por 30 dias**.
+1. Na Braze, selecione o ícone do seu perfil no cabeçalho global e selecione **Gerenciar sua conta**. Role até a seção **Autenticação de dois fatores** e selecione **Iniciar configuração**.
+2. Insira sua senha no modal de login e selecione **Verificar senha**.
+3. No modal **Configuração da autenticação de dois fatores**, insira seu número de telefone e selecione **Ativar**.
+4. Copie o código de sete dígitos gerado pelo seu e-mail ou mensagem SMS, volte à Braze e cole-o no modal **Configuração da autenticação de dois fatores**. Selecione **Verificar**.
+5. (Opcional) Para evitar inserir a 2FA nos próximos 30 dias, ative a opção **Lembrar esta conta por 30 dias**.
 
 ## Acesso elevado {#elevated-access}
 
@@ -285,7 +269,7 @@ Os seguintes atributos podem ser designados como IPI e ocultados dos usuários d
 | Atributos padrão | Atributos personalizados |
 | ------------------- | ----------------- |
 | {::nomarkdown} <ul> <li>Endereço de e-mail </li> <li> Número de telefone </li> <li> Nome </li> <li> Sobrenome </li> <li> Gênero </li> <li> Data de nascimento </li> <li> IDs de dispositivo </li> <li> Localização mais recente </li> </ul> {:/} | {::nomarkdown} <ul> <li> Todos os atributos personalizados<ul><li>Atributos personalizados individuais podem ser marcados como IPI se você não precisar ocultar todos os atributos.</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Atributos potenciais de IPI" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Potential PII attributes" }
 
 ### Áreas limitadas {#limited-areas}
 
@@ -298,7 +282,7 @@ O seguinte pressupõe que todos os campos estão definidos como IPI, e os usuár
 | {::nomarkdown} <ul> <li> Segments </li> <li> Campaigns </li> <li> Canvas </li> </ul> {:/} | No menu suspenso **Dados de usuários**: {::nomarkdown} <ul> <li> O usuário não terá a opção <b>Exportar endereços de e-mail em CSV</b>. </li> <li> O usuário não receberá os atributos padrão e personalizados anteriores no arquivo CSV ao selecionar <b>Exportar dados de usuários em CSV</b>. </li> </ul> {:/} | |
 | Grupo de teste interno | O usuário não terá acesso aos atributos padrão anteriores de qualquer usuário adicionado ao grupo de teste interno. | |
 | Registro de atividades de envio de mensagem | O usuário não terá acesso aos atributos padrão anteriores de quaisquer usuários identificados no registro de atividades de envio de mensagem. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Áreas limitadas" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Limited areas" }
 
 {% alert note %}
 Ao pré-visualizar uma mensagem, a permissão **Visualizar IPI** não é aplicada, então os usuários podem ver os [atributos padrão anteriores](#potential-pii-attributes) se eles foram referenciados na mensagem por meio de Liquid.
@@ -319,7 +303,7 @@ Você é responsável por determinar as preferências corretas para o seu espaç
 | Evento personalizado | properties |  |
 | Evento de compra | properties |  |
 | Evento de envio de mensagem | message_extras | Vários tipos de evento contêm um campo `message_extras`. A preferência se aplica a todos os tipos de evento de envio de mensagem que suportam `message_extras`, incluindo tipos de evento adicionados no futuro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos relevantes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Relevant fields" }
 
 {% alert warning %}
 **A exclusão é permanente!** Se você optar por remover quaisquer campos do Snowflake para usuários excluídos, a configuração se aplica a todos os dados históricos nos seus espaços de trabalho e a quaisquer eventos de usuários excluídos no futuro. Após a Braze executar o processo para aplicar as configurações aos dados históricos de eventos de usuários excluídos, você **não poderá restaurar** os dados.

@@ -108,13 +108,17 @@ Aqui, você encontra o endpoint REST e gera sua chave de importação de dados d
 3. Forneça a chave de importação de dados e o endpoint REST que você encontrou no dashboard da Braze.
 4. Desative a opção **Advanced Privacy** e salve sua configuração.
 
+{% alert important %}
+Ao inserir o endpoint REST da Braze na guia de integração da AppsFlyer, digite apenas o domínio (por exemplo, `rest.fra-02.braze.eu`) sem o protocolo `https://` e sem o caminho `/attribution/appsflyer`. A AppsFlyer adiciona automaticamente o protocolo e o caminho. Incluir qualquer um deles na sua entrada causa falhas no postback.
+{% endalert %}
+
 Informações adicionais sobre essas instruções estão disponíveis na [documentação da AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration).
 
 ### Etapa 4: confirme a integração {#step-4-confirm-the-integration}
 
-Depois que a Braze recebe dados de atribuição da AppsFlyer, o indicador de status de conexão na página de parceiros de tecnologia da AppsFlyer na Braze muda de "Not Connected" para "Connected" e inclui um registro de data e hora da última solicitação bem-sucedida.
+Na página de parceiros de tecnologia da AppsFlyer na Braze, o indicador de conexão mostra **Not Connected** até que você gere uma chave de API de importação de dados na etapa 2. Depois que você gera a chave, o indicador muda para **Connected** e exibe um registro de data e hora. Esse registro reflete quando a integração foi configurada pela primeira vez na Braze (quando a chave de importação de dados foi criada), e não quando a AppsFlyer enviou o último postback.
 
-Esse status é alterado somente depois que a Braze recebe dados sobre uma atribuição de instalação. A Braze ignora as instalações orgânicas (as exclui do postback da AppsFlyer) e não as conta ao determinar se a conexão foi bem-sucedida.
+Para confirmar que os dados de atribuição de instalação estão fluindo da AppsFlyer, use a etapa 5 para verificar se os dados de instalações não orgânicas aparecem nos filtros de segmento da Braze. A Braze ignora as instalações orgânicas dos postbacks da AppsFlyer e não as armazena como dados de instalação atribuída.
 
 ### Etapa 5: visualização de dados de atribuição de usuários {#step-5-viewing-user-attribution-data}
 

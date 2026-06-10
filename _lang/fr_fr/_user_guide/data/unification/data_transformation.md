@@ -43,7 +43,7 @@ Le tableau suivant décrit les différences entre la version gratuite et la vers
 |----|----|----|
 | Transformations actives | Jusqu'à 5 par entreprise | Jusqu'à 55 par entreprise |
 | Par mois | 300 000 requêtes entrantes par mois | 10 300 000 requêtes entrantes par mois |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data Transformation tiers" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveaux de la Transformation des données" }
 
 {% alert important %}
 Pour demander une mise à niveau vers Data Transformation Pro, contactez votre gestionnaire de compte Braze ou sélectionnez le bouton **Request Upgrade** dans le tableau de bord de Braze.

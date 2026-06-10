@@ -38,7 +38,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `offset` | Facultatif | Entier | Point de départ facultatif dans la liste à partir duquel récupérer les résultats. |
 | `sort_direction` | Facultatif | Chaîne de caractères | Indiquez la valeur `asc` pour trier les désabonnements du plus ancien au plus récent. Indiquez la valeur `desc` pour trier du plus récent au plus ancien. Si `sort_direction` n'est pas inclus, l'ordre par défaut est du plus récent au plus ancien. |
 | `email` | Facultatif <br>(voir la note) | Chaîne de caractères | Si ce paramètre est fourni, l'endpoint indiquera si l'utilisateur s'est désabonné ou non. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
 Vous devez fournir une `end_date`, ainsi qu'un `email` ou une `start_date`.

@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## Create a permission set
 
-Use permission sets to bundle permissions related to specific subject areas or actions. You can apply permissions sets to dashboard users who need the same access across different workspaces. To create a permission set, go to **Settings** > **Permission Settings**, then select **Create permission set**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
+Use permission sets to bundle permissions related to specific subject areas or actions. You can apply permission sets to dashboard users who need the same access across different workspaces. To create a permission set, go to **Settings** > **Permission Settings**, then select **Create permission set**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab example permission sets %}
@@ -32,7 +32,7 @@ Use permission sets to bundle permissions related to specific subject areas or a
 
 ## Creating a role
 
-Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the right workspaces and directly grant them the associated permissions. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
+Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the right workspaces and directly grant them the associated permissions. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab example roles %}
@@ -82,6 +82,17 @@ Users may encounter messages like "You need “View Landing Pages” permissions
 {% alert note %}
 It isn't possible to merge or import user permissions from one dashboard user to another.
 {% endalert %}
+
+## Nuances of user permissions
+
+Keep the following behaviors in mind when you assign dashboard access:
+
+- **Workspace Admin versus Company Admin:** Workspace Admins manage permissions within assigned workspaces. Company Admins have company-wide authority, including deleting other dashboard users.
+- **Limited users:** Limited users with the "Edit Dashboard Users" permission can manage other limited users but cannot create or manage Company Admin accounts.
+- **Manage Dashboard Users scope:** On the user detail page, permissions appear only for workspaces the editor can access. A limited user who can edit users in one workspace may not see another workspace's permission checkboxes.
+- **Export User Data:** Exporting user data requires workspace-level access in addition to the export permission.
+- **Composite permissions:** Some areas require multiple permissions. For example, configuring [Technology Partners]({{site.baseurl}}/partners/) typically requires both partner access and a baseline read permission for the related workspace features.
+- **Import and Update User Data:** This permission includes the ability to edit app user profiles through import flows, not only dashboard user records.
 
 ## Edit a user's permissions
 
@@ -355,6 +366,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Media Library Assets | View Media Library Assets | View media library assets |
 | Media Library Assets | Delete Media Library Assets | Permanently delete media library assets |
 | Media Library Assets | Edit Media Library Assets | Create and update media library assets |
+| Media Library Assets | Replace Media Library Assets | Replace the file of an existing media library asset while keeping its URL and asset ID stable |
 | Messaging Rate Limits | View Messaging Rate Limits | View workspace-level messaging rate limits |
 | Messaging Rate Limits | Edit Messaging Rate Limits | Configure and edit workspace-level messaging rate limits |
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Access and use Braze Operator to answer questions, navigate setup, troubleshoot issues, and brainstorm ideas |

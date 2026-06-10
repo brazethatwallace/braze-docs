@@ -101,6 +101,8 @@ If you want to report on Canvas variants or steps, select **Canvases** for rows 
 
 Statistics for deleted message variants are not displayed when you break down your report by campaigns or Canvases. However, channel-level totals include all statistics regardless of whether the variant was deleted. For example, _Sends_ for email include all email sends, but if you break down those statistics by campaign, the numbers may be lower because sends for deleted message variants are filtered out.
 
+In the same report, _Unique Recipients_ can be higher than _Unique Impressions_ when a message variant was deleted after send. Campaign-level _Unique Recipients_ can still include users who received the deleted variant, while _Unique Impressions_ omit stats from deleted variants in message-level aggregations.
+
 ## Viewing a report
 
 After running your report, you can view your results in table format on the report page. 

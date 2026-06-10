@@ -4,7 +4,6 @@
   "repo": "braze-inc/braze-docs",
 
   "stale_days": 7,
-  "early_stale_days": 2,
 
   "slack_bot_token": "xoxb_YOUR_SLACK_BOT_TOKEN_HERE",
   "slack_channel": "C0CHANNELID",

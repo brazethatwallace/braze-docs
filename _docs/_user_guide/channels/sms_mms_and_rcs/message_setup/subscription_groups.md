@@ -67,6 +67,10 @@ In adherence with international [telecommunication compliance and guidelines]({{
 
 ![SMS composer with the subscription group dropdown open and "Messaging Service A for SMS" highlighted by the user.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
 
+## SMS subscription group best practices
+
+Design separate SMS subscription groups for each messaging purpose (for example, transactional versus marketing) and for each workspace. When you operate in multiple countries, consider separate groups by region to support local compliance rules—for example, Brazil's restrictions on promotional send windows.
+
 ## Enable subscription groups
 
 To enable subscription groups for SMS, MMS, or RCS, refer to the following:
@@ -127,6 +131,7 @@ Braze recommends that you test sending RCS to smaller volumes of users initially
 Create a Canvas and name it something easily identifiable (such as “SMS-RCS Subscription Group User Transfer”). Then, schedule the campaign whenever is convenient for you.
 
 ### Step 2: Define your audience
+{: #step-2-define-your-audience}
 
 Define your audience using one of the following methods. Next, go to the **Send Settings** step and select **Users who are subscribed or opted-in**.
 
@@ -196,5 +201,7 @@ Choose descriptive and clear subscription group names so that the correct group 
 ### Separate groups by country
 
 SMS regulations vary by country. We suggest separating SMS subscription groups by country. This helps you meet compliance standards in all regions where you send messages.
+
+For each subscription group, you can also configure a country allowlist under **Geographic Permissions** so SMS, MMS, and RCS are only sent to approved regions. For more information, see [Geographic permissions]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/).
 
 For example, in Brazil, sending marketing messages outside the hours of 9 am and 9 pm local time is prohibited, and the country spans three time zones. To comply with these regulations, you might set up separate groups for sending messages to Brazil and the United States. This prevents users in Brazil from receiving marketing messages during prohibited hours.

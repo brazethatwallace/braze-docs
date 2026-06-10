@@ -35,7 +35,7 @@ Estes são os status disponíveis para Campaigns e Canvas:
 | Arquivado | Campaigns e Canvas arquivados são mensagens que não estão mais sendo enviadas. Essas Campaigns e Canvas também são removidos dos gráficos estatísticos nas páginas [**Início**]({{site.baseurl}}/user_guide/analytics/dashboards/home/) e [**Receita**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/). |
 | Parado | Campaigns e Canvas parados estão pausados, mas você ainda pode editá-los. Para retomar um Canvas, acesse a etapa **Summary** do criador de Canvas e selecione **Resume Canvas**. Para Campaigns, selecione o menu <i class="fas fa-ellipsis-vertical"></i> e depois **Resume**. Para saber mais, consulte [Comportamento de Canvas parado](#stopped-canvas-behavior). |
 | Sem atividades | Quando uma Campaign ou Canvas não está mais enviando mensagens, a Braze atribuirá um status de sem atividades para ajudar a organizar e gerenciar sua lista de Campaigns e Canvas. Você pode visualizar quais Campaigns ou Canvas serão automaticamente parados e a data de parada associada. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Status disponíveis" }
 
 ### Comportamento de Canvas parado {#stopped-canvas-behavior}
 

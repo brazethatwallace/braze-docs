@@ -95,7 +95,7 @@ You can add up to 10 pages per in-app message.
 
 To duplicate an existing page:
 
-1. Hover over the page in the list and select <i class="fas fa-ellipsis-vertical"></i> to open more options.
+1. Hover over the page in the list and select <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Select **Duplicate**.
 3. Name the page something meaningful. This will help you when connecting pages together.
 
@@ -104,7 +104,7 @@ To duplicate an existing page:
 
 To delete or rename a page:
 
-1. Hover over the page in the list and select <i class="fas fa-ellipsis-vertical"></i> to open more options.
+1. Hover over the page in the list and select <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Select **Rename** or **Delete**.
 
 {% endtab %}

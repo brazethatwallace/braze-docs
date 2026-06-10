@@ -34,7 +34,7 @@ Um diese Anleitung abzuschließen, benötigen Sie:
 | Braze App-ID | Der Bezeichner für Ihre App innerhalb Ihres Workspace. Um ihn zu finden, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** und prüfen Sie den Abschnitt **App-Bezeichner**. Dieser Wert ist im Feld `app_id` des E-Mail-Messaging-Objekts erforderlich. Weitere Informationen finden Sie unter [App-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
 | HTML-E-Mail-Inhalt | Der HTML-Body Ihrer E-Mail-Nachricht, im Voraus vorbereitet. |
 | Backend-Dienst | Ein Backend-Dienst oder eine Skriptumgebung, die HTTP-POST-Anfragen an die Braze REST API senden kann. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## 1. Schritt: Eine API-Kampagne erstellen {#step-1-create-an-api-campaign}
 

@@ -147,3 +147,9 @@ If you want rows aggregated by entire campaign or Canvas instead of daily, weekl
 
 If you use HTML in-app messages and **Body clicks** look high in the engagement report, you may be firing click logging twice—for example by calling `brazeBridge.logClick()` for a generic body click and also `brazeBridge.logClick('body click')` (or another ID) on the same interaction. Search your markup for `brazeBridge.logClick(` and align with one pattern per control. For recommended usage, see [Button tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
 
+#### Broken links in emailed engagement reports
+
+If links in a scheduled engagement report email don't open correctly in your mail client, try these steps:
+
+1. Forward the report to a Gmail inbox and open the links in Google Chrome.
+2. In the engagement report settings, confirm **Report Schedule** is configured to send when you expect (for example, immediately after the report is generated rather than on a delayed schedule).

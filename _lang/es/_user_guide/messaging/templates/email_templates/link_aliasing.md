@@ -52,7 +52,7 @@ Para crear un alias de enlace, abre el cuerpo de tu correo electrónico en la Ca
 En **Link Management**:
 
 1. Braze genera automáticamente alias de enlace predeterminados únicos para cada uno de tus enlaces.
-2. Dale un nombre al alias. Los alias deben tener nombres únicos por variante de Campaign de correo electrónico o componente de Canvas.
+2. Dale un nombre al alias. Los alias deben tener nombres únicos por variante de campaña de correo electrónico o componente de Canvas.
 
 También puedes establecer un alias que se usará para hacer referencia a un enlace específico cuando trabajes con informes o segmentación.
 
@@ -252,6 +252,8 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 
 En el ejemplo anterior, el `?` antes de `#` le da a Braze un segmento de consulta para añadir `lid`. Sin él, el enlace puede no aparecer en **Link Management**.
 
+Sin identificar dónde añadir parámetros de consulta, el aliasing de enlaces no reconoce estas URLs y las plantillas de enlace no se aplican. Si ves errores como **Failed to be assigned an LID** para una URL dinámica, confirma que el `href` usa el patrón `?` o `&` mostrado en los ejemplos de esta sección.
+
 ### Consideraciones del editor de arrastrar y soltar {#drag-and-drop-editor-considerations}
 
 En el editor de arrastrar y soltar, los campos que contienen un enlace (como la **URL** de un botón) validan el `href` subyacente antes de que Liquid se ejecute. Los espacios, saltos de línea y otros caracteres que no son seguros para URLs pueden causar un comportamiento inesperado cuando Braze añade plantillas de enlace o parámetros de aliasing de enlaces. Cuando necesites Liquid condicional para el destino, establece la URL en un bloque HTML (consulta la siguiente sección) y haz referencia a una sola variable en el campo de **URL** de arrastrar y soltar en lugar de poner Liquid complejo directamente en ese campo.
@@ -335,3 +337,21 @@ Alternativamente, puedes capturar la URL en una variable:
 <a href="{{ url }}?">Go to account</a>
 ```
 {% endraw %}
+
+## Solución de problemas {#troubleshooting}
+
+### Destinos que no aceptan el parámetro `lid` {#destinations-that-dont-accept-the-lid-parameter}
+
+Cuando envías un mensaje de prueba desde el editor de correo electrónico, Braze añade {% raw %}`lid={{placeholder}}`{% endraw %} a tus enlaces (el marcador de posición se convierte en un valor único en el momento del envío). Si el sitio de destino o la API no tolera parámetros de consulta adicionales, el enlace puede funcionar en el editor, pero fallar cuando se abre desde el correo electrónico.
+
+Sin el valor `lid`, Braze no trata la URL como enlace con alias para el seguimiento y la segmentación. Recomendamos actualizar tu backend o sitio para que ignore el parámetro de consulta `lid` cuando esté presente. Esto preserva el aliasing de enlaces, los informes y los casos de uso de segmentación descritos en este artículo.
+
+Alternativamente, puedes desactivar el aliasing de enlaces en el dashboard mientras planificas un cambio en el backend. Ve a **Settings** > **Email Preferences** > **Link Aliasing Settings**.
+
+Si no puedes cambiar tus sistemas de destino, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/) para desactivar el aliasing de enlaces en tu espacio de trabajo. Ten en cuenta las siguientes consideraciones si el aliasing de enlaces se desactiva para tu espacio de trabajo:
+
+- Los nuevos mensajes de correo electrónico y Content Blocks normalmente no recibirán nuevo marcado de alias de enlace (como el parámetro de consulta `lid`).
+- Los mensajes existentes que fueron creados mientras el aliasing de enlaces estaba activado pueden seguir conteniendo marcado de alias de enlace en el HTML. Es posible que necesites eliminar manualmente los parámetros `lid` sobrantes donde ya no los desees.
+- Si editas una Campaign existente, un paso de correo electrónico de Canvas o un Content Block, es posible que necesites añadir plantillas de enlace nuevamente para que los enlaces con plantilla se muestren correctamente.
+- Los informes de clics para envíos que se realizaron mientras el aliasing de enlaces estaba activado pueden no coincidir de forma limpia con los informes después de que la característica se desactive.
+- Los segmentos que usan filtros basados en alias de enlace (por ejemplo, filtros de **Hizo clic en alias**) pueden dejar de devolver las audiencias que esperas.

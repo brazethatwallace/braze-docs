@@ -37,7 +37,7 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen und
 | Pinterest Business Hub | [Pinterest](https://www.pinterest.com/business/hub/) | Ein zentrales Tool zur Verwaltung der Pinterest-Assets Ihrer Marke (z. B. Anzeigenkonten, Seiten, Apps). |
 | Pinterest-Anzeigenkonto | [Pinterest](https://ads.pinterest.com/) | Ein aktives Pinterest-Anzeigenkonto, das mit dem Pinterest Business Hub Ihrer Marke verknüpft ist.<br><br>Stellen Sie sicher, dass Ihr Pinterest Business Hub-Administrator Ihnen Administratorrechte für die Pinterest-Anzeigenkonten erteilt hat, die Sie mit Braze verwenden möchten. |
 | Pinterest-Bedingungen und -Richtlinien | Pinterest | Sie erklären sich damit einverstanden, alle erforderlichen Bedingungen, Richtlinien, Leitfäden und Dokumentationen von Pinterest in Bezug auf Ihre Nutzung von Pinterest Audience Sync einzuhalten, einschließlich aller Bedingungen, Richtlinien, Leitfäden und Dokumentationen, auf die darin verwiesen wird, wie z. B.: die Allgemeinen Geschäftsbedingungen, die Geschäftsbedingungen für Unternehmen, die Datenschutzrichtlinie, die Servicebedingungen für Entwickler und APIs, die Bedingungen für Anzeigendaten, die Werberichtlinien, die Vereinbarung über Werbedienste, die Community-Richtlinien und die Markenrichtlinien. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -129,7 +129,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit Pinterest verarbeitet werden. |
 | Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Pinterest synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Pinterest-Token oder eine auf Pinterest gelöschte Zielgruppe sein. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies geschieht, wenn der letzte Schritt in einem Canvas eine Audience Sync-Komponente ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
 {% alert important %}
 Beachten Sie, dass es aufgrund des Bulk-Flushers bzw. der 13-stündigen Wiederholungsversuche zu Verzögerungen bei der Berichterstattung über synchronisierte Nutzer:innen und fehlerhafte Metriken kommen kann.

@@ -4,15 +4,15 @@ article_title: Objet Messagerie e-mail
 page_order: 5
 page_type: reference
 channel: email
-description: "Cet article de référence explique les différents composants de l’objet E-mail de Braze."
+description: "Cet article de référence explique les différents composants de l'objet e-mail de Braze."
 
 ---
 
-# Objet E-mail
+# Objet e-mail {#email-object}
 
-> L'objet `email` vous permet de modifier ou de créer des e-mails par l'intermédiaire de nos [points d'envoi de messages.]({{site.baseurl}}/api/endpoints/messaging)
+> L'objet `email` vous permet de modifier ou de créer des e-mails par l'intermédiaire de nos [endpoints d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/).
 
-## Objet E-mail
+## Objet e-mail
 
 ```json
 {
@@ -36,20 +36,20 @@ description: "Cet article de référence explique les différents composants de 
 ```
 
 - [Identifiant de l'application]({{site.baseurl}}/api/identifier_types/)
-  - Toute adresse `app_id` valide provenant d'une application configurée dans votre espace de travail fonctionne pour tous les utilisateurs de votre espace de travail, que l'utilisateur ait ou non l'application spécifique sur son profil.
-- Pour plus d'informations et de bonnes pratiques sur les accroches, consultez notre article d'aide sur le [style du corps de l'e-mail.]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips/#body-styling)
+  - Toute valeur `app_id` valide provenant d'une application configurée dans votre espace de travail fonctionne pour tous les utilisateurs de votre espace de travail, que l'utilisateur ait ou non l'application spécifique sur son profil.
+- Pour plus d'informations et de bonnes pratiques sur les accroches, consultez [Style des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/).
 
 {% alert warning %}
-Braze recommande d’éviter d’utiliser les liens Google Drive pour les `url` de pièces jointes, car cela peut bloquer les appels de nos serveurs pour obtenir le fichier ce qui empêche l’envoi d’e-mails.
+Braze recommande d'éviter d'utiliser les liens Google Drive pour l'`url` de vos pièces jointes, car cela peut bloquer les appels de nos serveurs pour récupérer le fichier et empêcher l'envoi de l'e-mail.
 {% endalert %}
 
-Les types de fichiers joints valides comprennent : `txt`, `csv`, `log`, `css`, `ics`, `jpg`, `jpe`, `jpeg`, `gif`, `png`, `bmp`, `psd`, `tif`, `tiff`, `svg`, `indd`, `ai`, `eps`, `doc`, `docx`, `rtf`, `odt`, `ott`, `pdf`, `pub`, `pages`, `mobi`, `epub`, `mp3`, `m4a`, `m4v`, `wma`, `ogg`, `flac`, `wav`, `aif`, `aifc`, `aiff`, `mp4`, `mov`, `avi`, `mkv`, `mpeg`, `mpg`, `wmv`, `xls`, `xlsx`, `ods`, `numbers`, `odp`, `ppt`, `pptx`, `pps`, `key`, `zip`, `vcf` et `pkpass`.
+Les types de pièces jointes valides comprennent : `txt`, `csv`, `log`, `css`, `ics`, `jpg`, `jpe`, `jpeg`, `gif`, `png`, `bmp`, `psd`, `tif`, `tiff`, `svg`, `indd`, `ai`, `eps`, `doc`, `docx`, `rtf`, `odt`, `ott`, `pdf`, `pub`, `pages`, `mobi`, `epub`, `mp3`, `m4a`, `m4v`, `wma`, `ogg`, `flac`, `wav`, `aif`, `aifc`, `aiff`, `mp4`, `mov`, `avi`, `mkv`, `mpeg`, `mpg`, `wmv`, `xls`, `xlsx`, `ods`, `numbers`, `odp`, `ppt`, `pptx`, `pps`, `key`, `zip`, `vcf` et `pkpass`.
 
-Un `email_template_id` peut être récupéré au bas des modèles d’e-mail créés avec l’éditeur HTML. Voici un exemple de ce à quoi ressemble cet ID :
+Un `email_template_id` peut être récupéré en bas de tout modèle d'e-mail créé avec l'éditeur HTML. Voici un exemple de ce à quoi ressemble cet ID :
 
 ![Section Identifiant API d'un modèle d'e-mail HTML.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:70%;"}
 
-## Exemple d’objet d’e-mail avec pièce jointe
+## Exemple d'objet e-mail avec pièce jointe {#example-email-object-with-attachment}
 
 ```json
 {
@@ -66,11 +66,11 @@ Un `email_template_id` peut être récupéré au bas des modèles d’e-mail cr�
 }
 ```
 
-## Authentification des pièces jointes aux e-mails
+## Authentification des pièces jointes aux e-mails {#authentication-for-email-file-attachments}
 
-1. Naviguez vers **Paramètres** > **Contenu connecté** et cliquez sur **Ajouter un justificatif** pour ajouter vos justificatifs d'authentification.
-2. Entrez un nom, puis ajoutez un nom d'utilisateur et un mot de passe.
-3. Dans l'objet E-mail de l’endpoint `/messages/send`, incluez une propriété `basic_auth_credential` spécifiant le nom de l’identifiant dans les détails de la pièce jointe. Reportez-vous à l'exemple suivant avec le nom d’identifiant `company_basic_auth_credential_name` :
+1. Accédez à **Paramètres** > **Contenu connecté** et cliquez sur **Ajouter un identifiant** pour ajouter vos identifiants d'authentification.
+2. Saisissez un nom, puis ajoutez un nom d'utilisateur et un mot de passe.
+3. Dans l'objet e-mail de l'endpoint `/messages/send`, incluez une propriété `basic_auth_credential` spécifiant le nom de l'identifiant dans les détails de la pièce jointe. Reportez-vous à l'exemple suivant avec le nom d'identifiant `company_basic_auth_credential_name` :
 
 ```json
 {
@@ -91,3 +91,11 @@ Un `email_template_id` peut être récupéré au bas des modèles d’e-mail cr�
 }
 ```
 
+## Récupération, mise en cache et performances des pièces jointes {#attachment-retrieval-caching-and-performance}
+
+Lorsque Braze récupère un fichier à partir de l'`url` d'une pièce jointe :
+
+- **Mise en cache :** Braze peut réutiliser un fichier récemment récupéré pendant environ 24 heures. Si chaque envoi doit récupérer immédiatement une nouvelle version du fichier, utilisez une URL distincte par version (par exemple, un chemin ou un paramètre de requête qui change lorsque le fichier est modifié).
+- **Délais d'expiration :** Les hôtes doivent répondre rapidement. Si l'URL de la pièce jointe est lente ou ne répond pas, l'envoi du message peut échouer — visez des réponses en deux minutes environ.
+- **Sécurité :** Ne placez pas d'informations personnelles identifiables (PII) ni de secrets dans les URL des pièces jointes (y compris les chaînes de requête), car les URL peuvent apparaître dans les journaux ou les systèmes en aval.
+- **Pare-feu :** Si l'URL n'est accessible que depuis des réseaux spécifiques, autorisez le trafic provenant de Braze conformément à la [liste d'autorisation des IP de Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Utilisez les [identifiants d'authentification basique](#authentication-for-email-file-attachments) lorsque le fichier nécessite une connexion.

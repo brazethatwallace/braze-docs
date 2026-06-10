@@ -44,15 +44,6 @@ Brazeアプリを初めて使用する際、**Apps**メニュー（メディア�
 
 Brazeメディアライブラリにファイルを保存したい場合、標準的なCanvaデザインでこのフローを使用します。
 
-以下の動画では、CanvaからBrazeメディアライブラリにデザインを送信する方法を紹介しています。
-
-動画：CanvaでBrazeアプリを開き、メディアライブラリエクスポートを開始します。
-
-{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
-
-動画：Brazeワークスペースを選択し、メディアライブラリへのエクスポートを完了します。
-{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
-
 1. デザインの**Apps**メニューからBrazeアプリを開きます。まだ接続していない場合は、**Connect**を選択し、[Brazeアカウントを認証する](#step-2-authorize-your-braze-account)の手順を完了します。
 2. 送信先のワークスペースを選択し、必要に応じてファイル名を入力して、**Start Export**を選択します。
 
@@ -88,6 +79,6 @@ Canvaファイルが**メール**デザインタイプの場合、このフロ�
 ![CanvaのメールデザインをBrazeに公開した後の成功メッセージとCheck it outボタン。]({% image_buster /assets/img/canva_integration/canva-email-publish-success.png %})
 
 {: start="6"}
-6. Brazeで、キャンペーンまたはキャンバスでテンプレートを使用する前に、**From**アドレス、プリヘッダー、配信停止リンクなどの必要なメール設定を完了します。
+6. Brazeで、CampaignまたはCanvasでテンプレートを使用する前に、**From**アドレス、プリヘッダー、配信停止リンクなどの必要なメール設定を完了します。
 
 ![Canvaから開いたBrazeのメールテンプレート。送信情報とプレビューが表示されています。]({% image_buster /assets/img/canva_integration/braze-email-template-from-canva.png %})

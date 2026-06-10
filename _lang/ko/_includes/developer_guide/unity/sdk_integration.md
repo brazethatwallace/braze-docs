@@ -22,7 +22,9 @@ Braze [`.unitypackage`](https://docs.unity3d.com/Manual/AssetPackages.html)는 C
     - 이 패키지는 [SDWebImage](https://github.com/SDWebImage/SDWebImage) 프레임워크가 포함되지 않는다는 점을 제외하면 `Appboy.unitypackage`와 유사합니다. iOS 앱에 SDWebImage 프레임워크를 포함하지 않으려는 경우에 유용합니다.
 
 {% alert note %}
-Unity 2.6.0부터 번들로 제공되는 Braze Android SDK 아티팩트에는 [AndroidX](https://developer.android.com/jetpack/androidx) 종속성이 필요합니다. 이전에 `jetified unitypackage`를 사용했다면 해당하는 `unitypackage`로 안전하게 전환할 수 있습니다.
+Unity 2.6.0부터 번들로 제공되는 Braze Android SDK 아티팩트에는 [AndroidX](https://developer.android.com/jetpack/androidx) 종속성이 필요합니다. 이전에 `jetified` unitypackage를 사용했다면 해당하는 `unitypackage`로 안전하게 전환할 수 있습니다.
+
+Android 빌드가 "This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled" 오류로 실패하는 경우, Unity 퍼블리싱 설정에서 [Custom Gradle Properties Template](https://docs.unity3d.com/Manual/class-PlayerSettingsAndroid.html#Publishing)을 활성화하세요. 그런 다음 `Assets/Plugins/Android/gradleTemplate.properties`를 열고 `android.useAndroidX=true`로 설정합니다. 작동하는 템플릿은 [Braze Unity 샘플 앱](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples)과 해당 [`gradleTemplate.properties`](https://github.com/braze-inc/braze-unity-sdk/blob/master/unity-samples/Assets/Plugins/Android/gradleTemplate.properties) 파일을 참조하세요.
 {% endalert %}
 {% endtab %}
 

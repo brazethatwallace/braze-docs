@@ -41,7 +41,7 @@ Además, no podemos garantizar exactamente cómo será esa distribución. Si qui
 
 ### ¿Cómo se evalúan las audiencias de Canvas? {#how-are-canvas-audiences-evaluated}
 
-De forma predeterminada, los filtros y segmentos para los pasos completos en Canvas se comprueban en el momento del envío. El paso División de decisiones realiza una evaluación justo después de recibir un paso anterior (o antes de un retraso).
+De forma predeterminada, los filtros y Segments para los pasos completos en Canvas se comprueban en el momento del envío. El paso División de decisiones realiza una evaluación justo después de recibir un paso anterior (o antes de un retraso).
 
 ### ¿Cuándo se desencadena un evento de excepción? {#when-does-an-exception-event-trigger}
 
@@ -81,7 +81,7 @@ Detener un Canvas no hará que los usuarios que están esperando recibir mensaje
 
 Si los _Mensajes enviados_ son siempre cero para un Canvas que contiene un paso de mensaje dentro de la aplicación, esto se debe a que la entrega de mensajes dentro de la aplicación funciona de forma diferente a otros canales de mensajería.
 
-Los mensajes dentro de la aplicación son "solicitados" por el SDK, en lugar de ser "enviados" desde Braze. Los mensajes dentro de la aplicación para usuarios elegibles se entregan automáticamente al inicio de la sesión y "esperan" al evento desencadenante antes de mostrarse. Dado que los usuarios elegibles reciben el mensaje cuando inician una sesión, Braze no lo registra como un evento de envío. Cuando los usuarios realizan el evento desencadenante, el mensaje se muestra y Braze registra una impresión y marca el paso de Canvas (o la campaña) como recibido en el perfil del usuario. En consecuencia, el total de _Envíos_ será cero para los mensajes dentro de la aplicación.
+Los mensajes dentro de la aplicación son "solicitados" por el SDK, en lugar de ser "enviados" desde Braze. Los mensajes dentro de la aplicación para usuarios elegibles se entregan automáticamente al inicio de la sesión y "esperan" al evento desencadenante antes de mostrarse. Dado que los usuarios elegibles reciben el mensaje cuando inician una sesión, Braze no lo registra como un evento de envío. Cuando los usuarios realizan el evento desencadenante, el mensaje se muestra y Braze registra una impresión y marca el paso de Canvas (o Campaign) como recibido en el perfil del usuario. En consecuencia, el total de _Envíos_ será cero para los mensajes dentro de la aplicación.
 
 ### ¿Puedo programar diferentes horas de envío para cada variante en el mismo paso de mensaje de Canvas o envío multivariante? {#can-i-schedule-different-send-times-for-each-variant-in-the-same-canvas-message-step-or-multivariate-send}
 
@@ -91,9 +91,9 @@ Para escalonar envíos o usar diferentes horarios por ruta, prueba los siguiente
 
 - Pasos de mensaje separados con pasos de retraso entre ellos para que cada mensaje tenga su propia planificación.
 - Ramas o un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para que los usuarios sigan rutas con diferentes tiempos.
-- Campañas separadas si el caso de uso no necesita permanecer dentro de un solo Canvas.
+- Campaigns separadas si el caso de uso no necesita permanecer dentro de un solo Canvas.
 
-Para conceptos de pruebas multivariantes y A/B en campañas, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+Para conceptos de pruebas multivariantes y A/B en Campaigns, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 ### ¿Qué ocurre si un usuario tiene un límite de frecuencia global en un paso de mensaje de Canvas? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
 
@@ -101,21 +101,21 @@ No recibe ese envío para el canal limitado, pero los pasos de mensaje siguen ha
 
 ### ¿Por qué los envíos son menores que el tamaño estimado de la audiencia? {#why-are-sends-lower-than-the-estimated-audience-size}
 
-Los envíos pueden ser menores que la **Audiencia estimada** por muchas de las mismas razones que en las [campañas]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), incluyendo límites de frecuencia, filtros estrictos de dispositivo o navegador, ventanas de reelegibilidad, límites de velocidad y exclusiones a nivel de canal (por ejemplo, alcanzabilidad push o verificaciones de suscripción y capacidad de entrega de correo electrónico).
+Los envíos pueden ser menores que la **Audiencia estimada** por muchas de las mismas razones que en las [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), incluyendo límites de frecuencia, filtros estrictos de dispositivo o navegador, ventanas de reelegibilidad, límites de velocidad y exclusiones a nivel de canal (por ejemplo, alcanzabilidad push o verificaciones de suscripción y capacidad de entrega de correo electrónico).
 
 También se aplican factores específicos de Canvas:
 
 - **Entrada basada en acciones o desencadenada por API:** Los usuarios solo entran (y reciben pasos) después de realizar el comportamiento de entrada, por lo que los envíos realizados van por detrás de la estimación inicial hasta que esas acciones ocurran.
-- **Rutas de audiencia:** Los usuarios se dirigen a la rama de mayor prioridad para la que califican, por lo que las ramas posteriores pueden recibir menos usuarios de lo que sugiere un conteo plano de segmentos.
+- **Rutas de audiencia:** Los usuarios se dirigen a la rama de mayor prioridad para la que califican, por lo que las ramas posteriores pueden recibir menos usuarios de lo que sugiere un conteo plano de Segments.
 - **Verificaciones de audiencia y hora de envío:** Los pasos completos reevalúan los filtros en el momento del envío a menos que configures lo contrario. Los usuarios que calificaban cuando se creó el Canvas pueden quedar fuera antes de que se envíe un mensaje.
 - **Grupos de control:** Los grupos de control globales o de Canvas retienen una parte de los entrantes de la mensajería.
 - **Horas tranquilas y retrasos:** Los mensajes pueden retenerse o reprogramarse, desplazando los envíos fuera de la ventana de informes que estás consultando.
-- **Límites máximos de entrada o audiencia:** Los límites de entrada o envío detienen a usuarios adicionales incluso cuando el segmento subyacente es más grande.
+- **Límites máximos de entrada o audiencia:** Los límites de entrada o envío detienen a usuarios adicionales incluso cuando el Segment subyacente es más grande.
 - **Ventana de informes:** El rango de análisis puede no incluir todos los envíos que estás comparando con la estimación.
 
 ### ¿Por qué los _destinatarios únicos_ son más altos que el número de usuarios que segmenté? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
-Los _Destinatarios únicos_ pueden ser más altos que la audiencia esperada porque Braze rastrea **destinatarios únicos diarios** para los informes de Canvas y campañas. Esto permite una atribución de conversión precisa cada vez que un usuario recibe un mensaje en el recorrido.
+Los _Destinatarios únicos_ pueden ser más altos que la audiencia esperada porque Braze rastrea **destinatarios únicos diarios** para los informes de Canvas y Campaigns. Esto permite una atribución de conversión precisa cada vez que un usuario recibe un mensaje en el recorrido.
 
 Por ejemplo, si un usuario recibe un paso de Canvas el lunes y de nuevo el viernes, y convierte después de cada envío, Braze puede contar dos filas de destinatarios y dos conversiones dentro del alcance. Con entradas recurrentes o reelegibilidad, el mismo conjunto pequeño de perfiles puede producir múltiples _Destinatarios únicos_ a lo largo de varios días.
 
@@ -170,7 +170,7 @@ Ten en cuenta que también es posible que un usuario entre en una variante, no r
 
 ### ¿Cómo puedo confirmar si mis usuarios recibieron un Canvas desencadenado por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
 
-Puedes [crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando un filtro de Canvas para confirmar si los usuarios entraron en el Canvas o recibieron un paso específico de Canvas. Por ejemplo, usa un filtro de entrada en Canvas si quieres confirmar que los usuarios entraron en el Canvas desencadenado por API, o un filtro de paso recibido si quieres confirmar que recibieron un mensaje del Canvas. Luego, usa el [punto de conexión `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para exportar los usuarios de ese segmento.
+Puedes [crear un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando un filtro de Canvas para confirmar si los usuarios entraron en el Canvas o recibieron un paso específico de Canvas. Por ejemplo, usa un filtro de entrada en Canvas si quieres confirmar que los usuarios entraron en el Canvas desencadenado por API, o un filtro de paso recibido si quieres confirmar que recibieron un mensaje del Canvas. Luego, usa el [punto de conexión `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para exportar los usuarios de ese Segment.
 
 ### ¿Puedo eliminar un Canvas? {#can-i-delete-a-canvas}
 
@@ -182,7 +182,7 @@ Para ver los análisis de un componente de Canvas, ve a tu Canvas y desplázate 
 
 ### Al observar el número de usuarios únicos, ¿qué es más preciso, los análisis de Canvas o el segmentador? {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
-El segmentador es una estadística más precisa para datos de usuarios únicos en comparación con las estadísticas de Canvas o campañas. Esto se debe a que las estadísticas de Canvas y campañas son números que Braze incrementa cuando algo sucede, lo que significa que hay variables que podrían hacer que este número sea diferente al del segmentador. Por ejemplo, los usuarios pueden convertir más de una vez para un Canvas o una campaña.
+El segmentador es una estadística más precisa para datos de usuarios únicos en comparación con las estadísticas de Canvas o Campaigns. Esto se debe a que las estadísticas de Canvas y Campaigns son números que Braze incrementa cuando algo sucede, lo que significa que hay variables que podrían hacer que este número sea diferente al del segmentador. Por ejemplo, los usuarios pueden convertir más de una vez para un Canvas o una Campaign.
 
 ### ¿Por qué el número de usuarios que entran en un Canvas no coincide con el número esperado? {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
 
@@ -195,6 +195,12 @@ Aunque los usuarios anónimos pueden entrar y salir de Canvas, sus acciones no s
 {% alert tip %}
 Para obtener más ayuda con la solución de problemas de Canvas, asegúrate de ponerte en contacto con el soporte de Braze dentro de los 30 días posteriores a la ocurrencia del problema, ya que solo disponemos de los registros de diagnóstico de los últimos 30 días.
 {% endalert %}
+
+### ¿Puedo excluir a los usuarios que están actualmente en un recorrido de Canvas de una Campaign o un Segment? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+
+Usa [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) como `Entered Canvas Variation`, `In Canvas Control Group` o `Received Message from Canvas Step` para segmentar usuarios según la entrada en Canvas, la asignación de variante o la interacción con un paso. Estos filtros evalúan el historial de entrada e interacciones; no indican si un usuario sigue avanzando en un recorrido activo.
+
+Para incluir o excluir usuarios según su participación activa en Canvas, añade pasos de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) en la entrada y salida del Canvas para establecer y borrar atributos personalizados, y luego filtra por esos atributos en Campaigns o Segments.
 
 ## Segmentación {#segmentation}
 
@@ -258,7 +264,7 @@ Ten en cuenta que si Intelligent Timing está activado, el mensaje se enviará d
 
 El evento de excepción se aplica usando Rutas de acción, que están separadas de los pasos de mensaje. Las horas tranquilas se aplican en el componente de mensaje. Esto significa que si un usuario ya pasó la ruta de acción (y no fue excluido con el evento de excepción), luego se encuentra con las horas tranquilas cuando llega al componente de mensaje, y tenía su Canvas configurado de modo que el mensaje se reenvíe después del período de horas tranquilas, el evento de excepción ya no se aplicará. Ten en cuenta que este caso de uso no es común.
 
-Para segmentos y filtros, el paso de mensaje tiene validaciones de entrega que permiten a los usuarios configurar segmentos y filtros adicionales que se validan en el momento del envío. Esto previene el caso límite mencionado de las horas tranquilas.
+Para Segments y filtros, el paso de mensaje tiene validaciones de entrega que permiten a los usuarios configurar Segments y filtros adicionales que se validan en el momento del envío. Esto previene el caso límite mencionado de las horas tranquilas.
 
 ##### Configuración de planificación "en" o "en el siguiente" {#in-or-on-the-next-schedule-setting}
 

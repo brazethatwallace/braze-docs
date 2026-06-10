@@ -224,7 +224,7 @@ You can add additional variants by selecting the <i class="fas fa-plus-circle"><
 ![Two example variants in a Braze Canvas.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-By default, the Canvas variant assignment is locked in when users enter the Canvas, meaning that if a user first enters a variant, that will be their variant every time they re-enter the Canvas. However, there are ways to circumvent this behavior. <br><br>To do so, you can create a random number generator using Liquid, run it at the beginning of each user's Canvas entry, store the value as a custom attribute, and then use that attribute to randomly divide users.
+By default, Canvas variant assignment is determined by a function of the user ID and Canvas ID, meaning that a given user is consistently assigned to the same variant on re-entry, as long as the variant distribution percentages remain unchanged. If you adjust the variant distribution after launch, users may be assigned to different variants when they re-enter the Canvas. <br><br>If you need full control over variant assignment that persists even when distribution changes, you can create a random number generator using Liquid, run it at the beginning of each user's Canvas entry, store the value as a custom attribute, and then use that attribute to divide users into branches.
 
 {% details Expand for steps %}
 
@@ -310,6 +310,8 @@ In the first Message step following an Action Path, you can use `event_propertie
 ### Step 2.3: Edit connections
 
 To move a connection between steps, select the arrow connecting the two components and select a different component. To remove the connection, select the arrow followed by **Cancel Connection** in the footer of the Canvas composer.
+
+If a single variant has multiple branches with the same audience and send time, Braze does not guarantee an even split across those branches. Distribution may favor the branch that was created first. For an even split, use [Random Bucket Number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) filters on each branch. For more information, see [What happens if the audience and send time are identical for a Canvas that has one variant, but multiple branches?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 
 ## Step 3: Add a control group
 

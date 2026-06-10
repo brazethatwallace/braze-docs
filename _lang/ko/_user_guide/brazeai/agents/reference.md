@@ -29,7 +29,7 @@ Braze 기반 **Auto** 모델은 카탈로그 검색 및 Segment 멤버십과 같
 
 이 옵션을 사용하면 OpenAI, Anthropic 또는 Google Gemini와 같은 제공업체와 Braze 계정을 연결할 수 있습니다. LLM 제공업체로부터 자체 API 키를 가져오면 토큰 비용이 Braze가 아닌 제공업체를 통해 직접 청구됩니다.
 
-레거시 모델은 몇 개월 후에 중단되거나 사용 중지될 수 있으므로 최신 모델을 정기적으로 테스트하는 것이 좋습니다. [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)에서 에이전트 콘솔 알림에 가입하면 Braze가 모델이 더 이상 사용할 수 없음을 감지했을 때 알림을 받을 수 있습니다.
+레거시 모델은 몇 개월 후에 중단되거나 사용 중지될 수 있으므로 최신 모델을 정기적으로 테스트하는 것이 좋습니다. 에이전트를 대규모로 실행하기 위해 제공업체에 충분한 크레딧이 있는지 확인하세요. [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)에서 에이전트 콘솔 알림에 가입하면 Braze가 모델이 더 이상 사용할 수 없거나 LLM 제공업체와의 청구 문제를 감지했을 때 알림을 받을 수 있습니다.
 
 설정 방법:
 
@@ -51,7 +51,7 @@ Braze에서 제공하는 LLM을 사용할 때, 해당 모델의 제공업체는 
 | **낮음** | 약간 더 많은 추론이 도움이 되지만 깊은 분석이 필요하지 않은 작업. |
 | **중간** | 다단계 또는 미묘한 작업(예: 여러 입력을 분석하여 동작을 추천). |
 | **높음** | 복잡한 추론, 엣지 케이스, 또는 모델이 답변하기 전에 단계를 거쳐야 할 때. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사고 수준" }
 
 **최소**로 시작하여 에이전트의 응답을 테스트하는 것을 권장합니다. 에이전트가 정확한 답변을 제공하는 데 어려움을 겪는 경우 사고 수준을 **낮음** 또는 **중간**으로 조정할 수 있습니다. 드문 경우에 **높음** 사고 수준이 필요할 수 있지만, 이 수준을 사용하면 높은 토큰 비용과 더 긴 응답 시간 또는 타임아웃 오류의 위험이 높아질 수 있습니다. 에이전트가 다단계 추론과 합리적인 응답 시간 사이에서 균형을 맞추는 데 어려움을 겪는 경우, 사용 사례를 Canvas 또는 카탈로그에서 함께 작동할 수 있는 둘 이상의 에이전트로 분리하는 것을 고려하세요.
 
@@ -71,12 +71,22 @@ Braze에서 제공하는 LLM을 사용할 때, 해당 모델의 제공업체는 
 - 테스트 중에는 신뢰성과 정확성을 토큰 사용량 및 호출 시간과 균형 있게 맞추세요.
 - 각 사용 사례마다 최적의 모델과 사고 수준이 다를 수 있습니다. 타임아웃 없이 일관된 품질을 확인하기 위해 철저히 테스트하는 것을 권장합니다.
 
-### 사용량 제한
+### 호출 흐름 제어
 
-다음 사용량 제한은 워크스페이스당 적용됩니다:
+다음 호출 흐름 제어는 워크스페이스당 적용됩니다:
 
 - **Braze 기반 모델:** 분당 1,000회 호출
 - **자체 API 키 가져오기:** 분당 2,500회 호출
+
+많은 사용자가 동시에 에이전트 단계에 진입하면, Braze는 이러한 제한에 따라 호출을 대기줄에 넣으므로 대량 발송 시 처리 시간이 더 오래 걸릴 수 있습니다.
+
+### 사용량 제한 오류
+
+LLM 제공업체가 사용량 제한 오류를 반환하면, Braze는 지수 백오프를 사용하여 최대 5회까지 요청을 재시도합니다. 이 재시도 동작은 Canvas 에이전트 단계에 적용됩니다. 카탈로그 에이전트는 LLM 제공업체의 사용량 제한 오류를 포함하여 실패한 호출을 재시도하지 않습니다.
+
+모든 재시도가 실패하면, **로그** 세부 정보 패널에 **오류**가 표시되고 **출력**에 제공업체 메시지(예: `Rate limit exceeded`)가 표시됩니다. 모든 재시도는 로그에 표시되며, 최종 성공 또는 실패 여부에 관계없이 첫 번째 호출도 포함됩니다. 특정 사용자의 경우, 성공하기까지 4번의 재시도가 필요했다면 사용자 ID를 검색하여 **로그**에서 5개(원본 + 4번의 재시도)를 모두 확인할 수 있으며, 원본과 처음 3번의 재시도는 `Rate limit exceeded`와 함께 **오류**로 표시됩니다.
+
+![출력 필드에 사용량 제한 초과 오류가 표시된 에이전트 콘솔 로그 세부 정보.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
 ## 지침 작성
 
@@ -97,7 +107,7 @@ Braze에서 제공하는 LLM을 사용할 때, 해당 모델의 제공업체는 
 
 에이전트 지침 작성에 대한 영감을 얻으려면 [Braze 에이전트 사용 사례 라이브러리]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/)를 참조하세요.
 
-### Liquid 사용
+### Liquid 사용 {#using-liquid}
 
 에이전트의 지침에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 포함하면 응답에 추가적인 개인화 레이어를 더할 수 있습니다. 에이전트가 받는 정확한 Liquid 변수를 지정할 수 있으며, 이를 프롬프트의 컨텍스트에 포함할 수 있습니다. 예를 들어, "이름"을 명시적으로 작성하는 대신 Liquid 스니펫 {% raw %}`{{${first_name}}}`{% endraw %}을 사용할 수 있습니다:
 
@@ -119,9 +129,9 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 - [Anthropic](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
-## 출력
+## 출력 {#outputs}
 
-### 기본 스키마
+### 기본 스키마 {#basic-schemas}
 
 기본 스키마는 에이전트가 반환하는 간단한 출력입니다. 문자열, 숫자, 부울, 문자열 배열 또는 숫자 배열이 될 수 있습니다.
 
@@ -133,7 +143,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 ![기본 스키마로 숫자가 선택된 에이전트 콘솔.]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
 
-### 고급 스키마
+### 고급 스키마 {#advanced-schemas}
 
 고급 스키마 옵션에는 필드를 수동으로 구조화하거나 JSON을 사용하는 방법이 있습니다.
 
@@ -154,7 +164,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 | **likelihood_score** | 숫자 |
 | **explanation** | 문자열 |
 | **confidence_score** | 숫자 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="고급 스키마" }
 
 ![likelihood score, explanation, confidence score에 대한 세 가지 출력 필드를 보여주는 에이전트 콘솔.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -184,19 +194,19 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 {% endtab %}
 {% endtabs %}
 
-## 카탈로그 및 필드
+## 카탈로그 및 필드 {#catalogs-and-fields}
 
 에이전트가 참조할 특정 카탈로그를 선택하고, 관련이 있을 때 제품 및 기타 비사용자 데이터를 이해하는 데 필요한 컨텍스트를 에이전트에 제공하세요. 에이전트는 도구를 사용하여 관련 항목만 찾고, 이를 LLM에 보내 토큰 사용을 최소화합니다.
 
 ![에이전트가 검색할 "restaurants" 카탈로그 및 "Loyalty_Program" 열이 선택된 화면.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-## Segment 멤버십 컨텍스트
+## Segment 멤버십 컨텍스트 {#segment-membership-context}
 
 에이전트가 Canvas에서 사용될 때 각 사용자의 Segment 멤버십을 교차 참조하기 위해 최대 5개의 Segment를 선택할 수 있습니다. 에이전트에 "로열티 사용자" Segment에 대한 Segment 멤버십이 선택되어 있고, 에이전트가 Canvas에서 사용된다고 가정해 보겠습니다. 사용자가 에이전트 단계에 들어가면, 에이전트는 에이전트 콘솔에서 지정한 각 Segment에 각 사용자가 멤버인지 교차 참조할 수 있으며, 각 사용자의 멤버십(또는 비멤버십)을 LLM의 컨텍스트로 사용할 수 있습니다.
 
 ![에이전트 멤버십 접근을 위해 선택된 "로열티 사용자" Segment.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
-## 브랜드 가이드라인
+## 브랜드 가이드라인 {#brand-guidelines}
 
 에이전트가 응답에서 준수해야 할 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)을 선택할 수 있습니다. 예를 들어, 에이전트가 사용자에게 체육관 멤버십 가입을 유도하는 SMS 카피를 생성하도록 하려면, 이 필드를 사용하여 미리 정의된 대담하고 동기 부여가 되는 가이드라인을 참조할 수 있습니다.
 
@@ -204,14 +214,14 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 사용자의 상호작용 데이터에는 최근 Campaign 및 Canvas 열기, 클릭, 전환 데이터가 포함됩니다. 예를 들어, Canvas에서 평가될 때 에이전트가 참조할 수 있도록 이 컨텍스트를 포함할 수 있습니다. 사용자별 상호작용 기록은 에이전트가 개인화된 메시지 카피를 작성하는 역할을 할 때도 영향을 줄 수 있습니다.
 
-## 에이전트 복제
+## 에이전트 복제 {#duplicate-agents}
 
 에이전트의 개선 사항이나 반복을 테스트하기 위해, 에이전트를 복제한 다음 변경 사항을 적용하여 원본과 비교할 수 있습니다. 에이전트 복제를 에이전트 세부 정보의 변화를 추적하고 메시징에 미치는 영향을 확인하는 버전 관리로 활용할 수도 있습니다. 에이전트를 복제하려면:
 
 1. 에이전트의 행 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i> 메뉴를 선택합니다.
 2. **복제**를 선택합니다.
 
-## 에이전트 아카이브
+## 에이전트 아카이브 {#archive-agents}
 
 더 많은 커스텀 에이전트를 생성함에 따라, 활발히 사용되지 않는 에이전트를 아카이브하여 **에이전트 관리** 페이지를 정리할 수 있습니다. 에이전트를 아카이브하려면:
 
@@ -219,7 +229,6 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 2. **아카이브**를 선택합니다.
 
 ![아카이브된 에이전트가 있는 에이전트 관리 페이지.]({% image_buster /assets/img/ai_agent/archived_agents.png %})
-
 
 ## Canvas 에이전트 예시 {#canvas-agent-examples}
 

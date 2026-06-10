@@ -37,7 +37,7 @@ Antes de empezar, necesitas lo siguiente:
 | Credenciales DOTS.ECO | La solicitud de este artículo requiere un token de aplicación DOTS.ECO, una clave de API y un ID de asignación. Para recuperarlos, ponte en contacto con tu administrador del éxito del cliente en DOTS.ECO. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. Crea esta clave en el panel de Braze en **Configuración** > **Claves de API**. |
 | Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de DOTS.ECO {#integrating-dotseco}
 

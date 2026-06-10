@@ -25,13 +25,14 @@ Si varios perfiles comparten una dirección de correo electrónico y uno de ello
 
 Los siguientes escenarios pueden hacer que parezca que un usuario recibió un correo electrónico dos veces:
 
+- **Listas semilla o destinatarios de prueba:** Las direcciones semilla y los destinatarios de prueba internos pueden recibir un envío además de tu audiencia principal, lo que puede parecer un duplicado cuando un buzón de entrada coincide tanto con un perfil como con una entrada semilla.
 - **Se produjo un error durante la creación de la campaña o el Canvas:** Es posible que el usuario no reciba literalmente el mismo envío dos veces, pero puede recibir dos correos electrónicos separados con la misma línea del asunto. Cuando se duplica una campaña o un Canvas, verifica los detalles de configuración del correo electrónico, como las imágenes o las líneas del asunto. También puedes consultar los registros de cambios para ver si la campaña o el Canvas se modificó después del lanzamiento; un duplicado puede compartir la misma línea del asunto que el original cuando el usuario lo recibió.
 - **Varios perfiles de usuario tienen reenvío de correo electrónico:** Si un usuario tiene varias cuentas en una aplicación determinada pero una cuenta reenvía el correo, el usuario recibe la campaña una vez por buzón de entrada; el correo puede aparecer dos veces en el buzón de entrada donde se reenvían los mensajes. Solo algunos proveedores indican cuándo un correo electrónico fue reenviado desde otra cuenta.
 - **Configuración del correo electrónico en el destinatario:** Algunos clientes fusionan buzones de entrada ("buzón de entrada universal"). Si la misma campaña se dirige a varias cuentas que comparten un buzón de entrada, puede parecer que una persona recibió la campaña dos veces cuando en realidad se enviaron mensajes a dos perfiles distintos. El destinatario puede confirmar si varias cuentas están combinadas en un solo buzón de entrada.
 
 Esta deduplicación se aplica cuando los usuarios objetivo están incluidos en el mismo despacho. La reelegibilidad se evalúa por perfil, no por dirección de correo electrónico.
 
-La reelegibilidad de campañas de correo electrónico y pasos en Canvas utiliza el perfil de cada usuario, no el buzón de entrada, por lo que varios perfiles pueden calificar para envíos separados mientras se cumpla esa lógica. Combinado con desencadenantes, esto puede entregar más de un mensaje al mismo buzón de entrada incluso cuando intentas respetar un único período de inelegibilidad a nivel de dirección. Las campañas desencadenadas (excluyendo las campañas desencadenadas por API) y los Canvas también pueden enviar dos veces a una misma dirección cuando diferentes perfiles con direcciones de correo electrónico coincidentes cumplen el desencadenante en momentos diferentes; por ejemplo, si el usuario A y el usuario B comparten `johndoe@example.com` pero están en zonas horarias diferentes mientras la entrega usa zonas horarias locales.
+La reelegibilidad de Campaigns de correo electrónico y pasos en Canvas utiliza el perfil de cada usuario, no el buzón de entrada, por lo que varios perfiles pueden calificar para envíos separados mientras se cumpla esa lógica. Combinado con desencadenantes, esto puede entregar más de un mensaje al mismo buzón de entrada incluso cuando intentas respetar un único período de inelegibilidad a nivel de dirección. Las campañas desencadenadas (excluyendo las campañas desencadenadas por API) y los Canvas también pueden enviar dos veces a una misma dirección cuando diferentes perfiles con direcciones de correo electrónico coincidentes cumplen el desencadenante en momentos diferentes; por ejemplo, si el usuario A y el usuario B comparten `johndoe@example.com` pero están en zonas horarias diferentes mientras la entrega usa zonas horarias locales.
 
 Los usuarios no se deduplican por correo electrónico en la entrada al Canvas, por lo que es posible que no se dedupliquen más allá del primer paso de un Canvas si avanzan en momentos ligeramente diferentes debido a la entrada con límite de velocidad. Cuando un usuario asociado a una dirección de correo electrónico determinada abre o hace clic en un correo electrónico, todos los perfiles de usuario que comparten esa dirección de correo electrónico se marcan como que abrieron o hicieron clic en la campaña.
 
@@ -46,6 +47,14 @@ Las campañas desencadenadas por API deduplicarán o enviarán duplicados depend
 {% alert important %}
 Si envías una campaña de API a través de una llamada a la API (excluyendo las campañas desencadenadas por API), y se especifican múltiples usuarios en la audiencia del segmento con la misma dirección de correo electrónico, se envía a esa dirección tantas veces como aparezca en la llamada. Esto se debe a que se asume que las llamadas a la API están construidas intencionalmente.
 {% endalert %}
+
+#### Pruebas A/B con direcciones de correo electrónico duplicadas {#ab-testing-with-duplicate-email-addresses}
+
+Evita las [pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) en correo electrónico cuando varios perfiles pueden compartir la misma dirección de correo electrónico. Las variantes se asignan por perfil, lo que puede producir más de un mensaje al mismo buzón de entrada. Si debes realizar pruebas en esa situación, no combines un paso de **variante ganadora** con la [entrega en zona horaria local]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#local-time-zone-campaigns) de una manera que retrase la selección del ganador; esas opciones juntas pueden aumentar la probabilidad de envíos duplicados.
+
+#### Canvas y direcciones de correo electrónico duplicadas {#canvas-and-duplicate-email-addresses}
+
+Para los recorridos en Canvas, que las direcciones de correo electrónico duplicadas reciban un envío o más de uno puede depender del procesamiento por lotes de entrada, la temporización de los pasos y otros factores. Considera el comportamiento como indefinido hasta que lo valides para tu recorrido. Cuando sea posible, fusiona o consolida los perfiles duplicados. Si necesitas un cambio en el producto, envía tus comentarios a través de tu equipo de Braze.
 
 ### ¿Qué ocurre con el estado de suscripción cuando la dirección de correo electrónico de un usuario cambia a una compartida por otro usuario? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -182,14 +191,54 @@ Esta advertencia puede persistir en campañas duplicadas a partir de una campañ
 - Para correos electrónicos HTML, ve a la pestaña **Plaintext** y luego selecciona **Regenerate from HTML**.
 - Después de duplicar, duplica la variante y luego elimina la variante original. **No** selecciones la variante original, o la advertencia puede trasladarse.
 
-### ¿Cuáles son las razones por las que mi usuario no ha recibido una campaña de correo electrónico? {#what-are-reasons-why-my-user-hasnt-received-an-email-campaign}
+### ¿Por qué un usuario recibió un correo electrónico que no debería haber recibido? {#why-did-a-user-receive-an-email-they-shouldnt-have}
 
-Las razones por las que un usuario no ha recibido una campaña de correo electrónico incluyen:
+La entrega puede parecer incorrecta incluso cuando Braze se comportó según la configuración. Revisa lo siguiente:
+
+- **Perfiles duplicados** que comparten un buzón de entrada (consulta [¿Qué ocurre cuando se envía un correo electrónico y varios perfiles tienen la misma dirección de correo electrónico?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
+- **Listas semilla, destinatarios de prueba o direcciones internas** incluidos en la audiencia o en un envío como CC/BCC.
+- **Temporización del segmento o Canvas:** el usuario coincidió con la audiencia o el paso en Canvas cuando Braze evaluó la elegibilidad, y luego los atributos o el estado de suscripción cambiaron antes de que leyera el mensaje.
+- **Grupos de suscripción:** el usuario seguía suscrito a un grupo al que se dirigía tu mensaje, incluso si su estado de suscripción global sugería lo contrario.
+- **Importaciones de API o archivos** que actualizaron al usuario después de la segmentación pero antes de que esperaras que se aplicara el cambio.
+
+Revisa el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), los registros de cambios de la campaña o Canvas y la definición del segmento. Si aún no puedes conciliar el envío, ponte en contacto con soporte de Braze con los identificadores del usuario, el `dispatch_id` (si está disponible) y las marcas de tiempo.
+
+### ¿Por qué un usuario no ha recibido mi mensaje de correo electrónico? {#why-hasnt-a-user-received-my-email-message}
+
+Hay varias razones por las que un usuario no recibe un correo electrónico que esperabas que recibiera, entre ellas:
 
 - No era elegible para recibir el correo electrónico.
 - Su dirección de correo electrónico no es válida o no existe.
 - Es posible que haya perdido o eliminado el mensaje.
 - El mensaje puede estar en su carpeta de correo no deseado.
+
+{% alert tip %}
+Un evento de entrega en Braze significa que el correo electrónico fue aceptado por el servidor del proveedor de buzón de entrada. Sin embargo, esto no garantiza que el mensaje aparezca en el buzón de entrada del usuario. El proveedor de buzón de entrada puede enrutar el mensaje a correo no deseado o, en casos excepcionales, impedir silenciosamente la visualización del mensaje.
+{% endalert %}
+
+Usa las siguientes tablas para acotar la causa.
+
+#### El correo electrónico no se envió {#the-email-wasnt-sent}
+
+| Posible causa | Qué verificar |
+|---|---|
+| El usuario no era elegible para la campaña o el Canvas | Verifica la configuración de **Target Audiences** (para campañas) o **Target Audience** (para Canvas) en los [ajustes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) para confirmar que el usuario cumplía con todos los filtros de audiencia, criterios de segmento y reglas de entrega en el momento del envío. |
+| El mensaje fue abortado | Verifica el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) en busca de motivos de aborto, como errores de Liquid o campos obligatorios faltantes. |
+| La dirección de correo electrónico del usuario no era válida o faltaba | En **Búsqueda de usuarios**, verifica el perfil del usuario para confirmar que tenía una dirección de correo electrónico válida registrada en el momento del envío. |
+| La dirección de correo electrónico del usuario tuvo un rebote duro previamente | Un rebote duro marca la dirección de correo electrónico como no válida e impide futuros envíos a esa dirección. De manera similar, si un destinatario marca tu correo electrónico como correo no deseado, Braze solo envía correos electrónicos transaccionales a ese usuario, no campañas estándar. Verifica la pestaña **Engagement** en el perfil del usuario. Para más información, consulta [Direcciones de correo electrónico canceladas]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) y [Rebotes y correos electrónicos no válidos]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails). |
+| El usuario canceló la suscripción al correo electrónico | Verifica el estado de suscripción del usuario en **Contact Settings** en la pestaña **Engagement**. Braze no envía correos electrónicos a usuarios que han cancelado la suscripción. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Causa de que el correo electrónico no se envió" }
+
+#### El correo electrónico se envió, pero no llegó a su buzón de entrada {#the-email-was-sent-but-didnt-arrive-in-their-inbox}
+
+| Posible causa | Qué verificar |
+|---|---|
+| El proveedor de buzón de entrada (MBP) no estaba accesible | Un problema temporal impidió que el correo electrónico llegara al MBP del destinatario. Esto normalmente se resuelve solo con reintentos. Los proveedores de servicios de correo electrónico reintentan los rebotes blandos durante un máximo de 72 horas. |
+| El MBP rechazó el correo electrónico | El servidor de correo del destinatario rechazó el correo electrónico. Revisa el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) para obtener detalles del rebote. |
+| El MBP descartó silenciosamente el correo electrónico | El MBP aceptó el correo electrónico pero no lo mostró al usuario y no devolvió un rebote. Esto está fuera del control de Braze y no se puede detectar en los registros de Braze. |
+| El correo electrónico fue a la carpeta de correo no deseado | El MBP identificó el mensaje como correo no deseado y lo enrutó a la carpeta de correo no deseado o basura del usuario. Pide al usuario que revise su carpeta de correo no deseado. |
+| El destinatario tiene filtrado de correo personalizado | El usuario o su administrador de TI puede haber configurado reglas de buzón de entrada que filtran, redirigen o eliminan los mensajes entrantes. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Causa de que el correo electrónico no llegó al buzón de entrada" }
 
 ### ¿Cómo puedo optimizar las imágenes en Outlook? {#how-can-i-optimize-images-in-outlook}
 
@@ -216,3 +265,21 @@ Primero, confirma que tienes los [permisos de usuario]({{site.baseurl}}/user_gui
 ### ¿Necesito registrar dominios para correos electrónicos de retransmisión o enmascarados? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 El [servicio de retransmisión de correo electrónico privado de Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) requiere que registres tus dominios de envío en el Portal de Desarrolladores de Apple para evitar rebotes. Google Shielded Email no requiere un proceso manual de registro de dominio ni de lista de permitidos.
+
+### ¿Qué significa el motivo de rebote `unable to get mx info` o `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+En el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), un motivo de rebote similar al anterior indica un problema al resolver la configuración de correo del dominio receptor (el dominio después del `@` en la dirección), no un problema con la composición del mensaje en Braze:
+
+Las causas típicas incluyen:
+
+- **Registros MX** faltantes, incorrectos o inaccesibles para ese dominio
+- Nombres de host de correo entrante que no se resuelven o que no pasan las verificaciones de **PTR (DNS inverso)** esperadas por la infraestructura receptora
+- Dominios no válidos o mal escritos en la dirección de correo electrónico
+
+**Próximos pasos:**
+
+- Confirma la ortografía de la dirección y el dominio.
+- Si la dirección es correcta, ponte en contacto con el propietario del buzón de entrada o el equipo de TI de ese dominio.
+- Pídeles que auditen los registros MX y los registros de DNS relacionados, incluidos los registros PTR de sus servidores de correo, con su proveedor de DNS.
+
+Los demás destinatarios generalmente no se ven afectados. Para ver cómo aparecen los rebotes blandos en los informes, consulta [Rebote blando]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).

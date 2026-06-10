@@ -10,7 +10,7 @@ channel: email
 
 # SSL chez Braze {#ssl-at-braze}
 
-> Le protocole SSL (Secure Socket Layer) chiffre une URL avec HTTPS au lieu de HTTP. HTTPS indique qu'un certificat SSL ou TLS (sécurité de la couche de transport) valide et fiable existe et que le site web peut être consulté en toute sécurité.
+> Le protocole SSL (Secure Socket Layer) chiffre une URL avec HTTPS au lieu de HTTP. HTTPS indique qu'un certificat SSL ou TLS valide et fiable existe et que le site web peut être consulté en toute sécurité.
 
 {% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
 
@@ -24,11 +24,13 @@ La sécurisation de votre site Internet et de vos liens avec SSL est une pratiqu
 
 Braze transforme vos liens en utilisant votre sous-domaine de suivi de liens personnalisé afin de suivre les clics et les ouvertures. Par défaut, ces liens commencent par HTTP. Les utilisateurs disposant de navigateurs ou d'extensions qui restreignent le trafic non sécurisé peuvent rencontrer des difficultés pour passer par la redirection avant l'URL de destination, même si l'URL est sécurisée. Cela peut entraîner des images endommagées et un suivi inexact. Appliquez le protocole SSL au sous-domaine de suivi de liens pour garantir des redirections sécurisées.
 
-### Exigence des navigateurs {#browser-requirement}
+## Exigences {#requirements}
+
+### Navigateurs {#browser}
 
 Les principaux navigateurs tels que Google Chrome restreignent le trafic via des URL non sécurisées pour protéger les utilisateurs. L'utilisation du SSL permet de confirmer que le contenu est fiable et minimise les problèmes tels que les liens et images cassés dans les e-mails.
 
-### Exigence des domaines HSTS {#hsts-domains-requirement}
+### Domaines HSTS {#hsts-domains}
 
 Si vous disposez d'un domaine HTTP Strict Transport Security (HSTS), configurez le SSL et paramétrez un réseau de diffusion de contenu pour envoyer les certificats de sécurité requis. Sans SSL, les liens vers les images et les pages web ne fonctionneront pas.
 
@@ -39,9 +41,10 @@ Obtenez un certificat SSL auprès d'un tiers, généralement un réseau de diffu
 Pour démarrer la configuration SSL, contactez votre gestionnaire de la satisfaction client Braze afin de lancer une configuration complète de l'e-mail Braze.
 
 Une fois que Braze a lancé la configuration, suivez ces étapes :
+
 1. Braze fournira des enregistrements DNS à ajouter à votre registre de domaine.
 2. Braze vérifiera si les enregistrements ont été correctement ajoutés à votre registre.
-3. Ensuite, vous sélectionnerez un CDN et obtiendrez des certificats SSL auprès d'un fournisseur tiers.
+3. Ensuite, sélectionnez un CDN et obtenez des certificats SSL auprès d'un fournisseur tiers.
 4. À ce stade, vous configurez votre CDN. Notez que Braze ne peut pas vous aider à résoudre les problèmes de configuration du CDN. Contactez votre fournisseur de CDN pour toute assistance supplémentaire.
 5. Contactez votre gestionnaire de la satisfaction client pour activer le SSL.
 
@@ -62,7 +65,7 @@ Si vous ne pouvez pas ou ne souhaitez pas utiliser les CDN répertoriés pour le
 ### Ressources supplémentaires {#additional-resources}
 
 {% alert important %}
-Pour la résolution des problèmes de configuration de votre CDN, contactez votre fournisseur de CDN.
+Pour la résolution des problèmes de configuration de votre CDN, contactez votre fournisseur de CDN ou consultez la section [Résolution des problèmes]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/) pour des conseils généraux.
 {% endalert %}
 
 Consultez les ressources suivantes fournies par les partenaires ESP sur la configuration de certains CDN. Même si votre CDN spécifique n'est pas répertorié, vous devez vous assurer qu'il est capable d'appliquer des certificats SSL.
@@ -89,29 +92,15 @@ Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en
 
 ### Amazon SES
 
-Si vous utilisez Amazon SES comme CDN, consultez **Option 2: Configuring an HTTPS domain** dans la [documentation d'Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) et spécifiez le domaine de suivi AWS par région en fonction de votre cluster Braze :
+Si vous utilisez Amazon SES comme ESP, consultez **Option 2: Configuring an HTTPS domain** dans la [documentation d'Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) et spécifiez le domaine de suivi AWS par région en fonction de votre cluster Braze :
 
 - **Clusters Braze US :** `r.us-east-1.awstrack.me`
 - **Clusters Braze EU :** `r.eu-central-1.awstrack.me`
 
+{% alert important %}
+Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en-tête `X-Forwarded-Host` pour prévenir d'éventuels problèmes de sécurité tels que les attaques par en-tête d'hôte. Consultez votre fournisseur de CDN pour connaître les étapes à suivre.
+{% endalert %}
+
 ## Résolution des problèmes {#troubleshooting}
 
-Bien que la configuration du CDN, les certificats et les problèmes de proxy doivent être gérés avec votre fournisseur de CDN, utilisez ces conseils pour identifier les problèmes courants liés au suivi SSL des clics.
-
-### Faibles taux d'ouverture des e-mails {#low-email-open-rates}
-
-Si vous constatez soudainement de faibles taux d'ouverture des e-mails, vérifiez que le certificat SSL est à jour. S'il a expiré, vous devez renouveler ce certificat SSL auprès de votre CDN ou de votre fournisseur de certificats.
-
-### Problèmes de registre de domaine {#domain-registry-issues}
-
-Exécutez une commande dig pour vérifier que le suivi de liens pointe vers le CDN. Dans votre terminal, exécutez `dig CNAME link_tracking_subdomain`. Dans la section `ANSWER SECTION`, vous verrez où pointe votre CNAME. S'il pointe vers le fournisseur de services d'e-mailing (SendGrid ou SparkPost) et non vers votre CDN, reconfigurez votre registre de domaine pour qu'il pointe vers votre CDN.
-
-### Problèmes de CDN {#cdn-issues}
-
-Si les liens des e-mails en production ne fonctionnent plus pendant la configuration, vous avez probablement dirigé le DNS vers votre CDN avant que la configuration ne soit terminée. Cela peut se manifester par une erreur de type « mauvais lien ». Contactez votre fournisseur de CDN et consultez sa documentation pour résoudre le problème de configuration.
-
-Si vous voyez un message d'erreur indiquant que votre connexion n'est pas privée, cela peut signifier que votre SSL ou votre CDN n'est pas correctement configuré. Exécutez une commande `dig` dans votre terminal (par exemple, `dig CNAME your_link_tracking_subdomain`). Dans la section `ANSWER SECTION`, si le résultat pointe vers votre ESP au lieu de votre CDN, il s'agit d'un problème de configuration. Pour que le suivi SSL des clics de Braze fonctionne, le CNAME doit pointer vers votre CDN. Coordonnez-vous avec l'équipe qui gère votre configuration SSL et CDN pour obtenir de l'aide.
-
-### État d'activation du SSL {#ssl-enablement-status}
-
-Si vous avez terminé la configuration SSL et que les liens apparaissent toujours en HTTP, contactez votre gestionnaire de la satisfaction client Braze pour confirmer que Braze a bien activé le SSL. Braze n'active le SSL qu'une fois toutes les étapes de configuration terminées.
+Bien que la configuration du CDN, les certificats et les problèmes de proxy doivent être gérés avec votre fournisseur de CDN, utilisez ces conseils pour identifier les problèmes courants liés au suivi SSL des clics. Pour des conseils de résolution des problèmes, consultez la section [Résolution des problèmes]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/).

@@ -7,11 +7,13 @@ page_type: reference
 description: "Este artigo de referência explica como acessar e usar o portal do produto da Braze para enviar feedback pelo dashboard."
 ---
 
-# Portal do produto ![Menu de recursos no dashboard da Braze]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"} {#product-portal-resources-menu-in-the-braze-dashboard-image_buster-assetsimgportalpng-stylefloatrightmax-width33margin-left15pxmargin-top15px}
+# Portal do produto {#product-portal}
 
 > Com o portal do produto, você pode acessar o roadmap de produto da Braze e enviar ideias. Isso oferece insight sobre o que lançamos recentemente, novos recursos em que estamos trabalhando e ideias que estamos considerando desenvolver. No portal, você pode votar nos recursos que deseja, classificando a importância de um recurso para você, e deixar um comentário com feedback ou uma solicitação.
 
-O portal do produto pode ser encontrado em **Community** > **Product Roadmap**.
+O portal do produto pode ser encontrado em **Community** > **Product roadmap**.
+
+![Menu de recursos no dashboard da Braze]({% image_buster /assets/img/portal.png %}){: style="max-width:40%;"}
 
 ## O que há no portal {#whats-in-the-portal}
 

@@ -26,9 +26,12 @@ Engaje os usuários em tempo real para incentivá-los a concluir suas compras.
 
 Considere o seguinte ao usar este modelo:
 
-- Adicione um público específico. Atualmente, as jornadas do público são disparadas com base em "Realizou qualquer compra", mas você pode personalizar isso para produtos específicos que deseja direcionar.
-- Este modelo pressupõe que você tenha uma jornada pós-compra separada, então realizar uma compra fará com que os usuários saiam do Canvas.
-- Preencha os detalhes na etapa de Audience Sync.
+- O cronograma de entrada é disparado por API. Use o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) para inserir usuários quando eles abandonarem um carrinho, ou mude para um cronograma baseado em ação com um gatilho como **Realizar evento personalizado** ou **Realizar evento de atualização de carrinho**, se isso se adequar à sua configuração.
+- A conversão padrão rastreia **Realizar qualquer compra (Legado)**. Adapte os eventos de conversão e as etapas de jornadas de ação **Realizou compra?** para produtos específicos, se necessário.
+- Os usuários saem do Canvas quando realizam uma compra nas etapas de jornadas de ação **Realizou compra?**. Este modelo pressupõe que você tenha uma jornada pós-compra separada.
+- O Canvas inclui um e-mail para **Lembrete detalhado**, uma etapa de postergação, uma divisão de canal inteligente para e-mail e SMS, mensagens de canal com Content Cards (e-mail, SMS e mensagem no app) e uma etapa de Audience Sync. Configure o **Redirecionamento de anúncios** com seus parceiros e públicos.
+
+Para um passo a passo detalhado, consulte [Carrinho abandonado]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/abandoned_cart/).
 
 {% endtab %}
 {% tab Back In Stock %}

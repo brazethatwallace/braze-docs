@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | -- | Snapchat verarbeitet 10 Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | Ja | Snapchat unterstützt bis zu 1.000 Zielgruppen. |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Bis zu 24 Stunden | -- | Ja | {::nomarkdown}<ul><li>Es gibt keine Mindestgröße für CRM-Zielgruppen in The Trade Desk.</li><li>Es gibt kein Limit für die Anzahl der Zielgruppen, die The Trade Desk unterstützt.</li><li>Wenn Sie mit einer Zielgruppe synchronisieren, deren Region auf die EU eingestellt ist, wird die Telefonnummer nicht unterstützt.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Zwischen 24 und 48 Stunden | TikTok verarbeitet 50 Abfragen pro Sekunde und 10.000 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | Ja | {::nomarkdown}<ul><li>TikTok unterstützt bis zu 400 Zielgruppen.</li><li>Die Zielgruppen von TikTok benötigen mindestens 1.000 Nutzer:innen, um mit dem Adserving zu beginnen.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Übersicht" }
 <sup>Wenn das Rate-Limit erreicht ist, versucht Braze, die Synchronisierung 13 Stunden lang zu wiederholen.</sup>
 
 ## Funktionsweise {#how-it-works}
@@ -94,7 +94,7 @@ Wenn der Fehler mit der gesamten Partnerintegration zusammenhängt (z. B. ein Au
 
 Wenn der Fehler auf Probleme mit der Audience Sync-Komponente (z. B. „Zielgruppe existiert nicht“) in Canvas zurückzuführen ist, wird eine E-Mail an die Person gesendet, die das Canvas eingerichtet hat. Wenn diese Person nicht mehr existiert, wird die E-Mail an den Unternehmensadministrator weitergeleitet.
 
-Um zu konfigurieren, wer diese E-Mails erhalten soll, wenden Sie sich an Ihren Customer-Success-Manager, um unter **Notification Preferences** Empfänger:innen hinzuzufügen. Da dieses Feature das derzeitige Verhalten ändert, müssen Sie die Empfänger:innen sofort zu dieser neuen Benachrichtigungseinstellung hinzufügen, da Braze standardmäßig kein Opt-in vorsieht, und um sicherzustellen, dass keine Fehler-E-Mails verpasst werden.
+Um zu konfigurieren, wer diese E-Mails erhalten soll, wenden Sie sich an Ihren Customer-Success-Manager, um unter **Präferenzen für Benachrichtigungen** Empfänger:innen hinzuzufügen. Da dieses Feature das derzeitige Verhalten ändert, müssen Sie die Empfänger:innen sofort zu dieser neuen Benachrichtigungseinstellung hinzufügen, da Braze standardmäßig kein Opt-in vorsieht, und um sicherzustellen, dass keine Fehler-E-Mails verpasst werden.
 
 ## Überlegungen zum Datenschutz {#data-privacy-considerations}
 

@@ -12,6 +12,18 @@ tool: Media
 
 > A Biblioteca de mídia permite que você gerencie seus ativos em um único local centralizado.
 
+## Pré-requisitos {#prerequisites}
+
+| Requisitos | Descrição |
+|---|---|
+| Permissão "View Media Library Assets" | Visualizar ativos da Biblioteca de mídia |
+| Permissão "Edit Media Library Assets" | Criar e atualizar ativos da Biblioteca de mídia |
+| Permissão "Delete Media Library Assets" | Excluir permanentemente ativos da Biblioteca de mídia |
+| Permissão "Replace Media Library Assets" | Substituir o arquivo de um ativo existente da Biblioteca de mídia mantendo sua URL e ID de ativo estáveis |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Permissões da Biblioteca de mídia" }
+
+Para saber mais, consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+
 ## Biblioteca de mídia versus CDN {#media-library-versus-cdn}
 
 Usar a Biblioteca de mídia em vez de uma Content Delivery Network (CDN) oferece melhor cache e desempenho para mensagens no app. Todos os ativos da Biblioteca de mídia encontrados em uma mensagem no app serão pré-armazenados em cache para exibição mais rápida e estarão disponíveis para exibição offline. Além disso, a Biblioteca de mídia é integrada aos criadores da Braze, permitindo que profissionais de marketing selecionem ou adicionem tags às imagens em vez de copiar e colar URLs de imagens.
@@ -26,6 +38,7 @@ Na Biblioteca de mídia, você pode ver o tipo de ativo, tamanho, dimensões, UR
 * Fazer upload de uma pasta com suas imagens (até 50 imagens)
 * [Gerar uma imagem usando IA](#generate-ai) e armazená-la na Biblioteca de mídia
 * Recortar uma imagem existente para criar a proporção certa para suas mensagens
+* Substituir o arquivo de um ativo existente mantendo sua URL estável
 * Adicionar tags ou equipes para ajudar a organizar melhor suas imagens
 * Pesquisar por tags ou equipes na grade da Biblioteca de mídia
 * Arrastar e soltar imagens ou pastas para fazer upload
@@ -38,6 +51,31 @@ Depois, ao redigir uma mensagem na Braze, você pode importar suas imagens da Bi
 ![Duas formas comuns de acessar a Biblioteca de mídia dependendo do criador de mensagens. Uma mostra o editor de arrastar e soltar de e-mail com o título "Images and GIFs" e um botão "Add from Media Library". A outra mostra os editores padrão, como push e mensagens no app, com o título "Media" e um botão "Add Image".]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
 
 {% alert tip %} Para mais ajuda com a Biblioteca de mídia, confira nossas [Perguntas frequentes sobre a Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq/). {% endalert %}
+
+## Substituir um arquivo {#replace-a-file}
+
+Você pode substituir o arquivo de um ativo existente na Biblioteca de mídia mantendo sua URL e ID de ativo estáveis. Como a URL não muda, qualquer mensagem ou Campaign que faça referência a esse ativo — incluindo e-mails já enviados — refletirá automaticamente o arquivo atualizado. Isso é útil quando você deseja atualizar um ativo compartilhado (como um logotipo) em um único lugar, em vez de atualizar cada Campaign individualmente.
+
+Para substituir um ativo, você precisa ter a permissão "Replace Media Library Assets":
+
+1. Acesse **Conteúdo** > **Biblioteca de mídia**.
+2. Selecione o ativo que deseja substituir.
+3. No modal, selecione **Replace file**.
+4. Faça upload do arquivo de substituição.
+
+![Modal de edição da Biblioteca de mídia mostrando os botões Replace file, Crop image e Delete para um ativo.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
+
+### Requisitos e limitações {#requirements-and-limitations}
+
+- O arquivo de substituição deve ter a mesma extensão de arquivo que o original. Por exemplo, você não pode substituir um ativo `.png` por um arquivo `.jpg`.
+- Ativos de vídeo não podem ser substituídos.
+- Após a substituição, o arquivo atualizado pode levar algum tempo para ser exibido para todos os consumidores devido ao cache da CDN.
+
+### Canais com cópias de imagem processadas {#channels-with-processed-image-copies}
+
+Alguns canais criam uma cópia otimizada da imagem quando a mensagem é configurada, resultando em uma URL separada. Substituir o ativo original da Biblioteca de mídia não atualiza o que os consumidores veem para mensagens criadas usando esses canais, incluindo mensagens no app, Content Cards, notificações por push e banners.
+
+Você também pode substituir um ativo programaticamente usando o endpoint [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/).
 
 ## Especificações de imagem {#image-specifications}
 
@@ -54,3 +92,5 @@ GIFs com formatos muito alongados (por exemplo, 3000 x 2 pixels) ou com 300 ou m
 {% alert important %}
 Antes de usar esse recurso, revise [como seus dados são usados e enviados para a OpenAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
 {% endalert %}
+
+Se você não vir **Gerador de imagens com IA** na página da **Biblioteca de mídia**, confirme que você tem a permissão **Edit Media Library Assets**. Se a opção ainda não aparecer, entre em contato com a equipe da Braze para confirmar que seu espaço de trabalho tem acesso à geração de imagens com BrazeAI. Se a geração falhar, revise a [política de conteúdo da OpenAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).

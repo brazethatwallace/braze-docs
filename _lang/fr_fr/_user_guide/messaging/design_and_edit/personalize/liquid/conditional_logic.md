@@ -67,10 +67,11 @@ La logique conditionnelle commence par la balise `if`, qui définit la première
 
 Vous avez la possibilité d'inclure une instruction `{% else %}` dans votre logique conditionnelle. Si aucune des conditions que vous avez définies n'est remplie, l'instruction `{% else %}` spécifie le message qui doit être envoyé. Dans cet exemple, nous utilisons l'anglais par défaut si la langue de l'utilisateur n'est ni l'anglais, ni l'espagnol, ni le chinois.
 
-#### Balises case et when {#case-and-when-tags}
-{: #case-and-when-tags}
+#### `case` et `when` {#case-and-when}
 
 `{% case %}`, `{% when %}` et `{% endcase %}` fonctionnent comme une instruction switch : vous définissez une expression après `case`, et chaque branche `when` s'exécute lorsque cette expression est égale à la valeur indiquée (Liquid utilise l'égalité en arrière-plan, de manière similaire à l'enchaînement de `if` et `elsif` avec `==`). Vous pouvez lister plusieurs valeurs dans une même balise `when` en les séparant par une virgule ou `or`. Utilisez `{% else %}` comme solution de repli lorsqu'aucune valeur ne correspond, puis fermez avec `{% endcase %}`.
+
+Assurez-vous de faire correspondre le format de vos valeurs `when` au type de données. Pour du texte (comme un code de langue), utilisez des guillemets : `{% when 'es' %}`. Pour les nombres, omettez les guillemets : `{% when 2 %}`.
 
 ```liquid
 {% assign handle = 'cake' %}

@@ -63,6 +63,10 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
+| `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `blacklisted_media_url` | Die Medien-URL ist auf der Sperrliste und kann nicht in Nachrichten verwendet werden. |
 | `blocked_media_url` | Die Medien-URL wurde durch Sicherheitsrichtlinien blockiert. |
 | `invalid_media_url` | Die Medien-URL ist ungültig oder konnte nicht aufgelöst werden. |
@@ -76,6 +80,10 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
+| `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `ssl_error` | Bei einer Anfrage ist ein SSL-Fehler aufgetreten. |
 | `invalid_http_status` | Eine HTTP-Anfrage hat einen nicht erfolgreichen Statuscode zurückgegeben. |
 | `http_timeout` | Bei einer HTTP-Anfrage wurde das Zeitlimit überschritten, bevor eine Antwort empfangen wurde. |
@@ -123,7 +131,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `sms_no_sending_numbers` | Für diese Abo-Gruppe sind keine Absender-Telefonnummern verfügbar. |
 | `sms_fatal_provider_error` | Beim SMS-Anbieter ist ein schwerwiegender Fehler aufgetreten, der die Nachrichtenzustellung verhindert hat. |
 | `sms_gateway_domain_not_allowed` | Die SMS-Gateway-Domain befindet sich nicht auf der Zulassungsliste. |
-| `blocked_recipient_country` | Die Telefonnummer des/der Empfänger:in befindet sich in einem Land, das durch Ihre [geografischen Berechtigungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/) blockiert ist. |
+| `blocked_recipient_country` | Die Telefonnummer des/der Empfänger:in befindet sich in einem Land, das durch Ihre [geografischen Berechtigungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/) blockiert ist. |
 | `mms_not_supported` | MMS wird für diese/n Empfänger:in oder diese Absendernummer nicht unterstützt. |
 | `no_current_messaging_service` | Für diese Abo-Gruppe ist kein aktiver Messaging-Dienst konfiguriert. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }

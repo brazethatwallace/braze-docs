@@ -33,7 +33,7 @@ Eine Anleitung zur Erstellung einer Datenquelle finden Sie auf der [Tealium-Webs
 
 ### 2. Schritt: Current erstellen {#step-2-create-current}
 
-Navigieren Sie in Braze zu **Currents** > **+ Create Current** > **Tealium Export**. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail und Ihre Tealium-URL an.
+Navigieren Sie in Braze zu **Currents** > **+ Create Current** > **Tealium-Export**. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail und Ihre Tealium-URL an.
 
 Wählen Sie dann aus der Liste der verfügbaren Ereignisse aus, was Sie tracken möchten. Standardmäßig enthalten alle an Tealium gesendeten Ereignisse die `external_user_id` der Nutzer:innen. Sie können jedoch das Kontrollkästchen **Include events from anonymous users** aktivieren, um auch Ereignisse ohne `external_user_id` an Tealium zu senden.
 

@@ -27,7 +27,7 @@ description: "이 참조 문서는 CSV 및 API 워크플로우에서 내보내�
 - `AccessDenied` 오류가 표시되면 파일이 이미 만료되었거나 준비되기 전에 열려고 시도했을 수 있습니다. 큰 보고서는 생성하는 데 시간이 더 오래 걸리므로, 몇 분 기다린 후 다시 시도해 보세요.
 - `ExpiredToken` 오류는 4시간의 유효 기간이 지났음을 의미합니다. 내보내기를 다시 실행하여 새로운 링크를 생성하세요.
 - `Looks like the file doesn't exist anymore` 메시지는 일반적으로 이메일은 전송되었지만 파일이 S3에 아직 업로드 완료되지 않았을 때 나타납니다. 몇 분만 기다리면 보통 해결됩니다.
-- 특정 필드(예: `-`, `=`, `+`, 또는 `@`)의 시작 부분에 아포스트로피가 추가되는 것은 정상적인 동작입니다. 예를 들어, `-1943`은 CSV에서 `'-1943`으로 변환됩니다. Braze는 스프레드시트 프로그램이 데이터를 잘못 해석하는 것을 방지하기 위해 이렇게 처리합니다. 이는 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)에서 반환되는 것과 같은 JSON 내보내기에는 적용되지 않습니다.
+- 특정 필드(예: `-`, `=`, `+`, 또는 `@`)의 시작 부분에 아포스트로피가 추가되는 것은 정상적인 동작입니다. 예를 들어, `-1943`은 CSV에서 `'-1943`으로 변환됩니다. Braze는 스프레드시트 프로그램이 데이터를 잘못 해석하는 것을 방지하기 위해 이렇게 처리합니다. 이는 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-large-segments)에서 반환되는 것과 같은 JSON 내보내기에는 적용되지 않습니다.
 
 ## API 내보내기 {#api-exports}
 클라우드 스토리지 없이 Export API를 통해 내보낼 경우, Braze는 파일을 자체 S3 버킷에 기록합니다. 이메일은 발송되지 않으며, 대신 API 응답에 임시 다운로드 URL이 포함됩니다. 내보내기 파일은 ZIP 형식으로 제공되며, 각 ZIP 파일에는 여러 JSON 파일이 포함되어 있고, 각 JSON 파일에는 한 줄에 한 명의 사용자가 기록됩니다.
@@ -71,7 +71,7 @@ CSV 내보내기 시, Braze에서 다운로드 링크를 이메일로 발송합�
 
 ## Campaign 및 Canvas 분석 {#campaign-and-canvas-analytics}
 
-### CSV 내보내기의 사용자 수가 _발송된 메시지_ 또는 _고유 수신자_와 일치하지 않는 경우 {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
+### CSV 내보내기의 사용자 수가 _발송된 메시지_ 또는 _고유 수신자_와 일치하지 않는 경우 {#number-of-users-in-csv-export-doesnt-match-_messages-sent_-or-_unique-recipients_}
 
 Campaign의 CSV 내보내기에서 _발송된 메시지_ 및 _고유 수신자_와 다른 사용자 수가 표시될 수 있는 이유는 다음과 같습니다.
 
@@ -84,6 +84,10 @@ Campaign의 CSV 내보내기에서 _발송된 메시지_ 및 _고유 수신자_�
 CSV 내보내기는 특정 Campaign 또는 Canvas를 수신한 기존 사용자의 스냅샷을 제공합니다. 사용자가 삭제되거나 병합될 수 있으므로, CSV 내보내기 수가 고유 수신자 수보다 적을 수 있습니다. 예를 들어, 1,000명의 사용자가 Campaign을 수신하면 Campaign에는 1,000명의 고유 수신자가 표시되고, 같은 날 CSV 내보내기에도 1,000명의 사용자가 표시됩니다. 한 달 후 해당 1,000명 중 50명이 삭제되면, CSV 내보내기에는 950명의 사용자가 포함되지만 누적된 고유 수신자 수는 여전히 1,000명입니다.
 
 ## 대시보드 Segment 내보내기 이메일 {#dashboard-segment-export-emails}
+
+### "Segment가 너무 큽니다" 또는 Segment가 500,000명 미만으로 보이는데 내보내기가 실패하는 경우 {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
+
+대시보드 Segment **크기는 추정치입니다**. CSV 내보내기는 해당 추정치를 사용하여 [500,000명 사용자 내보내기 제한]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details)을 적용하며, 내보내기 파이프라인은 Segment 빌더 UI와 다르게 크기를 평가할 수도 있습니다. 해당 임계값 근처의 Segment에서 내보내기가 실패하면, [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)를 사용하거나 오디언스를 더 작은 Segment로 분할하거나, [대규모 Segment 내보내기]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)에 설명된 대로 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하세요.
 
 ### Segment 내보내기 이메일을 받지 못하는 이유 {#why-arent-i-receiving-segment-export-emails}
 

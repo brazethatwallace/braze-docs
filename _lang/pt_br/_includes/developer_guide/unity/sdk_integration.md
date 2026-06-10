@@ -23,6 +23,8 @@ Há vários pacotes do Braze Unity disponíveis para baixar na [página de lanç
 
 {% alert note %}
 A partir do Unity 2.6.0, o artefato agrupado do Braze Android SDK requer dependências do [AndroidX](https://developer.android.com/jetpack/androidx). Se você estava usando um `jetified unitypackage`, faça a transição com segurança para o `unitypackage` correspondente.
+
+Se os builds do Android falharem com "This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled", ative o [Custom Gradle Properties Template](https://docs.unity3d.com/Manual/class-PlayerSettingsAndroid.html#Publishing) nas suas configurações de publicação do Unity. Em seguida, abra `Assets/Plugins/Android/gradleTemplate.properties` e defina `android.useAndroidX=true`. Para um modelo funcional, consulte o [app de amostra do Braze Unity](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) e seu arquivo [`gradleTemplate.properties`](https://github.com/braze-inc/braze-unity-sdk/blob/master/unity-samples/Assets/Plugins/Android/gradleTemplate.properties).
 {% endalert %}
 {% endtab %}
 
@@ -247,7 +249,7 @@ Para ativar o registro detalhado no Unity Editor, faça o seguinte:
 Para usar o plug-in Braze Unity com os plug-ins Prime31, edite o `AndroidManifest.xml` do seu projeto para usar as classes Activity compatíveis com o Prime31. Altere todas as referências de
 `com.braze.unity.BrazeUnityPlayerActivity` para `com.braze.unity.prime31compatible.BrazeUnityPlayerActivity`
 
-### Amazon Device Messaging (ADM) {#amazon-device-messaging-adm}
+### Amazon Device Messaging (ADM)
 
 A Braze oferece suporte à integração do [ADM push](https://developer.amazon.com/public/apis/engage/device-messaging) em apps Unity. Se quiser integrar o ADM push, crie um arquivo chamado `api_key.txt` contendo sua chave de API do ADM e coloque-o na pasta `Plugins/Android/assets/`. Para saber mais sobre a integração do ADM com a Braze, acesse nossas [instruções de integração push do ADM]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=unity).
 

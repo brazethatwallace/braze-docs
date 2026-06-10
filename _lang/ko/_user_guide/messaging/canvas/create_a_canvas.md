@@ -17,7 +17,7 @@ search_rank: 1
 
 ## 1단계: 새 Canvas 설정 {#step-1-set-up-a-new-canvas}
 
-먼저 **Messaging** > **Canvas**로 이동한 다음 **Create Canvas**를 선택합니다.
+먼저 **메시징** > **Canvas**로 이동한 다음 **Canvas 만들기**를 선택합니다.
 
 Canvas 빌더가 Canvas 설정을 단계별로 안내합니다. 이름 지정부터 전환 이벤트 설정, 적절한 사용자를 고객 여정에 유입시키는 것까지 모든 과정을 포함합니다. 아래 각 탭을 선택하여 각 빌더 단계에서 조정할 수 있는 설정을 확인하세요.
 
@@ -224,7 +224,7 @@ Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선�
 ![Braze Canvas의 두 가지 배리언트 예시.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-기본적으로 캔버스 배리언트 할당은 사용자가 Canvas에 진입할 때 고정됩니다. 즉, 사용자가 처음 배리언트에 진입하면 Canvas에 재진입할 때마다 해당 배리언트가 됩니다. 그러나 이 동작을 우회하는 방법이 있습니다. <br><br>이를 위해 Liquid를 사용하여 난수 생성기를 만들고, 각 사용자의 Canvas 진입 시작 시 실행하고, 값을 커스텀 속성으로 저장한 다음 해당 속성을 사용하여 사용자를 무작위로 분배할 수 있습니다.
+기본적으로 캔버스 배리언트 할당은 사용자 ID와 Canvas ID의 함수에 의해 결정됩니다. 즉, 배리언트 분배 비율이 변경되지 않는 한 주어진 사용자는 재진입 시 일관되게 동일한 배리언트에 할당됩니다. 시작 후 배리언트 분배를 조정하면 사용자가 Canvas에 재진입할 때 다른 배리언트에 할당될 수 있습니다. <br><br>분배가 변경되더라도 유지되는 배리언트 할당을 완전히 제어해야 하는 경우, Liquid를 사용하여 난수 생성기를 만들고, 각 사용자의 Canvas 진입 시작 시 실행하고, 값을 커스텀 속성으로 저장한 다음 해당 속성을 사용하여 사용자를 분기로 나눌 수 있습니다.
 
 {% details 단계 펼치기 %}
 
@@ -282,7 +282,7 @@ Canvas에서 `campaign.${name}` Liquid 태그를 사용하여 현재 Canvas 구�
 
 ![Android 푸시, Content Cards, 이메일 등 사용 가능한 메시징 채널 목록을 표시하는 "메시징 채널"이 선택된 "메시지 설정" 단계.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
-Canvas 구성요소 구성을 완료한 후 **Done**을 선택합니다.
+Canvas 구성요소 구성을 완료한 후 **완료**를 선택합니다.
 
 {% tabs local %}
 {% tab Canvas 진입 등록정보 %}
@@ -309,7 +309,9 @@ Canvas에서 커스텀 이벤트 및 구매 이벤트 등록정보는 행동 경
 
 ### 2.3단계: 연결 편집 {#step-23-edit-connections}
 
-단계 간 연결을 이동하려면 두 구성요소를 연결하는 화살표를 선택한 다음 다른 구성요소를 선택합니다. 연결을 제거하려면 화살표를 선택한 다음 Canvas 작성기 하단의 **Cancel Connection**을 선택합니다.
+단계 간 연결을 이동하려면 두 구성요소를 연결하는 화살표를 선택한 다음 다른 구성요소를 선택합니다. 연결을 제거하려면 화살표를 선택한 다음 Canvas 작성기 하단의 **연결 취소**를 선택합니다.
+
+단일 배리언트에 동일한 오디언스와 발송 시간을 가진 여러 분기가 있는 경우, Braze는 해당 분기 간의 균등한 분할을 보장하지 않습니다. 분배는 먼저 생성된 분기를 선호할 수 있습니다. 균등한 분할을 위해 각 분기에 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) 필터를 사용하세요. 자세한 내용은 [하나의 배리언트가 있지만 여러 분기가 있는 Canvas에서 오디언스와 발송 시간이 동일한 경우 어떻게 되나요?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches)를 참조하세요.
 
 ## 3단계: 대조군 추가 {#step-3-add-a-control-group}
 
@@ -317,7 +319,7 @@ Canvas에서 커스텀 이벤트 및 구매 이벤트 등록정보는 행동 경
 
 Braze는 대조군에 배치된 사용자의 전환을 추적하지만 메시지는 받지 않습니다. 정확한 테스트를 유지하기 위해 전환 이벤트 선택 화면에 표시된 것과 동일한 기간 동안 배리언트와 대조군의 전환 수를 추적합니다.
 
-**Variant Name** 헤더를 더블 클릭하여 메시지 간 분배를 조정할 수 있습니다.
+**배리언트 이름** 헤더를 더블 클릭하여 메시지 간 분배를 조정할 수 있습니다.
 
 이 예시에서는 Canvas가 두 개의 배리언트로 나뉘어 있습니다. 배리언트 1에는 사용자의 70%가 포함됩니다. 두 번째 배리언트는 나머지 30%의 사용자가 포함된 대조군입니다.
 
@@ -337,7 +339,7 @@ Canvas의 지능형 선택은 각 배리언트에 분류된 사용자의 분배�
 
 ## 4단계: 저장 및 시작 {#step-4-save-and-launch}
 
-Canvas 만들기를 완료한 후 **Launch Canvas**를 선택하여 Canvas를 저장하고 시작합니다. Canvas를 시작한 후에는 **Canvas Details** 페이지에서 여정에 대한 분석이 들어오는 대로 확인할 수 있습니다.
+Canvas 만들기를 완료한 후 **Canvas 시작**을 선택하여 Canvas를 저장하고 시작합니다. Canvas를 시작한 후에는 **Canvas 세부 정보** 페이지에서 여정에 대한 분석이 들어오는 대로 확인할 수 있습니다.
 
 나중에 다시 돌아와야 하는 경우 Canvas를 초안으로 저장할 수도 있습니다.
 

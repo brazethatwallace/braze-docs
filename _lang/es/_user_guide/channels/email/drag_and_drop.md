@@ -68,6 +68,10 @@ Aunque el editor de arrastrar y soltar simplifica tu flujo de trabajo con estos 
 
 Las **filas** son unidades estructurales que definen la composición horizontal de una sección del mensaje mediante columnas. Puedes usar filas vacías o [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Usar más de una columna te permite colocar diferentes elementos de contenido uno al lado del otro. De esta manera, puedes añadir todos los elementos estructurales que necesites a tu mensaje, independientemente de la plantilla que hayas seleccionado al comenzar.
 
+#### Anidar imágenes dentro de bloques de texto {#nesting-images-inside-text-blocks}
+
+No puedes anidar una imagen dentro de un párrafo u otro bloque de texto en el editor de arrastrar y soltar. Para colocar una imagen al lado o dentro de un diseño de texto, usa columnas en una **fila**: por ejemplo, una fila de varias columnas en escritorio con **Hide on mobile** para esa fila, y una fila separada solo para móvil (con **Hide on desktop** y **Do not stack on mobile** según sea necesario) para que la imagen y el texto se alineen correctamente en pantallas pequeñas.
+
 #### Estilo de tarjetas {#cards-style}
 
 **Estilo de tarjetas** es una propiedad de fila que te permite añadir espaciado entre columnas y redondear sus esquinas. Con el formato de estilo de tarjetas, puedes crear diseños más atractivos visualmente para destacar tu contenido más importante, como nuevas características de productos, testimonios, ofertas especiales, novedades y más.
@@ -77,7 +81,7 @@ Las **filas** son unidades estructurales que definen la composición horizontal 
 ¿No tienes claro si tu mensaje de correo electrónico debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
 
 {% alert note %}
-No puedes guardar un correo electrónico de arrastrar y soltar desde una campaña o Canvas directamente en **Plantillas** > **Plantillas de correo electrónico** como una plantilla de correo electrónico. Primero construye en **Plantillas**, o consulta [¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de construirlo dentro de mi campaña o Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) para recrear una plantilla de arrastrar y soltar o exportar HTML con **Download file**.
+No puedes guardar un correo electrónico de arrastrar y soltar desde una campaña o Canvas directamente en **Templates** > **Email Templates** como una plantilla de correo electrónico. Primero construye en **Templates**, o consulta [¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de construirlo dentro de mi campaña o Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) para recrear una plantilla de arrastrar y soltar o exportar HTML con **Download file**.
 {% endalert %}
 
 Una vez que hayas seleccionado dónde construir tu mensaje, veamos los pasos para crear un correo electrónico con arrastrar y soltar.
@@ -138,15 +142,7 @@ Una vez que hayas terminado de diseñar y construir tu mensaje de correo electr�
 
 Una vista previa en el panel derecho se completará con la información de envío que hayas añadido. Esta información también se puede actualizar navegando a **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Personalizar el encabezado de tu correo electrónico (avanzado) {#personalizing-your-email-header-advanced}
-
-En **Sending Settings**, puedes añadir personalización para los encabezados del correo electrónico y extras del correo electrónico, lo que te permite enviar datos adicionales a otros proveedores de servicios de correo electrónico. Personalizar un encabezado de correo electrónico, como incluir el nombre del destinatario, también puede contribuir a la probabilidad de que tu correo electrónico sea abierto.
-
-{% alert note %}
-La funcionalidad avanzada aparecerá en el compositor de la campaña o Canvas. En la funcionalidad avanzada, puedes modificar tu configuración de CSS en línea e introducir un encabezado o pares clave-valor adicionales (si están configurados).
-{% endalert %}
-
-#### Añadir archivos adjuntos al correo electrónico {#adding-email-attachments}
+#### Añadir archivos adjuntos al correo electrónico {#add-email-attachments}
 
 En **Sending Settings** > **Advanced**, puedes añadir archivos adjuntos al correo electrónico mediante los siguientes métodos:
 
@@ -155,6 +151,14 @@ En **Sending Settings** > **Advanced**, puedes añadir archivos adjuntos al corr
 - **Añadir desde URL:** Introduce una URL que apunte al archivo y proporciona un nombre de archivo para mostrar. Dado que Braze no puede verificar el tamaño de URL arbitrarias durante la composición del correo electrónico, el tamaño del archivo se aplica en el momento del envío. Ten en cuenta que Liquid no es compatible en este campo.
 
 Consulta las [Directrices de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) para conocer las mejores prácticas específicas a considerar.
+
+#### Personalizar el encabezado de tu correo electrónico (avanzado) {#personalize-your-email-header-advanced}
+
+En **Sending Settings**, puedes añadir personalización para los encabezados del correo electrónico y extras del correo electrónico, lo que te permite enviar datos adicionales a otros proveedores de servicios de correo electrónico. Personalizar un encabezado de correo electrónico, como incluir el nombre del destinatario, también puede contribuir a la probabilidad de que tu correo electrónico sea abierto.
+
+{% alert note %}
+La funcionalidad avanzada aparecerá en el compositor de la campaña o Canvas. En la funcionalidad avanzada, puedes modificar tu configuración de CSS en línea e introducir un encabezado o pares clave-valor adicionales (si están configurados).
+{% endalert %}
 
 ### Paso 4: Prueba tu correo electrónico {#step-4-test-your-email}
 
@@ -206,8 +210,8 @@ El motor subyacente que produce HTML a partir del editor de arrastrar y soltar h
 El tamaño promedio de los datos HTML exportados se ha reducido, lo que lleva a una carga y renderizado más rápidos, menor recorte en dispositivos móviles y menor consumo de ancho de banda.
 
 El renderizado HTML ha mejorado gracias a las siguientes actualizaciones que minimizan el número de comentarios condicionales y consultas de medios CSS. Como resultado, los archivos HTML son más pequeños y están codificados de manera más eficiente.
-- Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table aria-label="Use Inbox Vision">`
-  <caption>Use Inbox Vision</caption>
+- Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table aria-label="Usar Inbox Vision">`
+  <caption>Usar Inbox Vision</caption>
 - Los [bloques de editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) han sido recodificados para mayor concisión
 - El código HTML final se comprime para eliminar espacios en blanco entre etiquetas
 - Los divisores transparentes se convierten automáticamente en relleno de contenido

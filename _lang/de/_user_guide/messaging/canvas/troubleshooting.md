@@ -11,6 +11,19 @@ tool: Canvas
 
 > Diese Seite hilft Ihnen bei der Fehlerbehebung von Problemen mit Ihren Canvases.
 
+## Fehler „Zu viele Canvas-Branches“ {#too-many-canvas-branches-error}
+
+Wenn beim Starten eines geplanten Canvas der Fehler „Zu viele Canvas-Branches“ angezeigt wird, kann die Kombination aus Schritt-Verzweigungen und der Größe der Entry-Zielgruppe zu Performance-Problemen im Braze-Cluster führen, die das Senden von Nachrichten verhindern.
+
+Braze zeigt diese Meldung an, wenn Sie einen Canvas mit geplantem Eintritt starten – nicht beim Speichern eines Entwurfs. Um das Problem zu beheben, versuchen Sie Folgendes:
+
+- Reduzieren Sie die Schritt-Verzweigungen im Canvas.
+- Reduzieren Sie die Größe der Entry-Zielgruppe.
+- Verwenden Sie [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/), um Verzweigungen zu konsolidieren, anstatt viele parallele Pfade zu verwenden.
+- Wenn Ihr Canvas den ursprünglichen Editor verwendet, [klonen Sie ihn zu Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/) und bauen Sie ihn mit Canvas-Komponenten neu auf.
+
+Wenn Sie den Canvas dennoch ohne Änderungen starten müssen und nicht zu Canvas Flow wechseln können, kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/).
+
 ## Warum hat ein:e Nutzer:in einen getriggerten Canvas-Schritt nicht erhalten? {#why-did-a-user-not-receive-a-triggered-canvas-step}
 
 Bestätigen Sie zunächst, dass das angepasste Event an Braze übergeben wird. Gehen Sie zu **Analytics** > **Bericht zu angepassten Events**, und wählen Sie dann das entsprechende angepasste Event und den Zeitraum aus. Wenn das Event nicht angezeigt wird, bestätigen Sie, dass es korrekt eingerichtet ist und dass die Nutzer:innen die richtige Aktion ausgeführt haben.
@@ -60,7 +73,7 @@ Die Anzahl der gesendeten oder zugestellten Nachrichten weicht häufig von der g
 - **Kanalberechtigung:** Nutzer:innen haben möglicherweise keine E-Mail-Adressen, Push-Token oder den für diesen Kanal in diesem Schritt erforderlichen Abo-Status.
 - **Kontrollgruppen:** Eine globale oder Canvas-Kontrollgruppe kann Nutzer:innen vom Messaging ausschließen.
 - **Ruhezeiten, intelligentes Timing und Rate-Limits:** Diese Einstellungen können Sendungen verzögern oder unterdrücken.
-- **In-App Messages-Schritte:** In-App Messages können null _Sendungen_ anzeigen, während Impressionen vorhanden sind. Dies ist erwartetes Verhalten, da die In-App-Zustellung anders funktioniert als Push-Benachrichtigungen oder E-Mail. Siehe [Warum kann ein Canvas null Sendungen anzeigen, obwohl Impressionen protokolliert werden?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) in den Canvas-FAQ.
+- **In-App-Messages-Schritte:** In-App Messages können null _Sendungen_ anzeigen, während Impressionen vorhanden sind. Dies ist erwartetes Verhalten, da die In-App-Zustellung anders funktioniert als Push-Benachrichtigungen oder E-Mail. Siehe [Warum kann ein Canvas null Sendungen anzeigen, obwohl Impressionen protokolliert werden?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) in den Canvas-FAQ.
 
 Für E-Mail und andere Kanäle gelten viele der gleichen Faktoren wie für Campaigns. Eine detaillierte Liste finden Sie unter [Warum sind die Sendungen niedriger als die geschätzte Zielgruppengröße?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
 
