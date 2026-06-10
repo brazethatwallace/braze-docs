@@ -24,7 +24,7 @@ This is a great place to get a high-level overview to check how your Canvas is p
 
 ### Reachable users and exact statistics {#reachable-users-and-exact-statistics}
 
-When **[Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics)** is running for audiences tied to your Canvas, Braze may briefly show a rounded estimate in the **Reachable users** area. The exact total replaces the estimate when the calculation finishes. Select **Show Additional Stats** for a full per-channel breakdown. The Canvas builder documents the same flow under **Target Population**; see [Calculating target population]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population).
+When **[Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)** is running for audiences tied to your Canvas, Braze may briefly show a rounded estimate in the **Reachable users** area. The exact total replaces the estimate when the calculation finishes. Select **Show Additional Stats** for a full per-channel breakdown. The Canvas builder documents the same flow under **Target Population**; see [Calculating target population]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population).
 
 ![]({% image_buster /assets/img_archive/Journey_5.png %})
 
