@@ -27,7 +27,7 @@ To start using attribute triggers, create a campaign or Canvas component and sel
 
 !["Action-Based delivery" section with a dropdown to select a trigger.]({% image_buster /assets/img_archive/trigger_attribute.png %})
 
-### Update subscription status
+## Update subscription status
 
 Use the `Update Subscription Status` trigger to target users when their subscription status is updated. 
 
@@ -37,7 +37,7 @@ For example, you can target users when their email or push subscription status c
 This trigger doesn't apply when a new user is created with the default email global state of `subscribed` and there is a subsequent request to update the state to `subscribed` since the subscription status has not changed.
 {% endalert %}
 
-### Update subscription group status
+## Update subscription group status
 
 Use the `Update Subscription Group Status` trigger to target users when their subscription group status for Email, SMS or WhatsApp is updated. 
 
@@ -55,11 +55,11 @@ Available update sources vary per channel:
 
 For example, you may want to only send your welcome SMS when the update comes from the REST API and not an inbound message, since Braze already automatically responds to certain inbound SMS.
 
-### Change custom attribute value
+## Change custom attribute value
 
 For change attribute, the trigger is evaluated first, then the audience criteria. This differs from the default behavior of audience criteria evaluated first, then trigger. To avoid a race condition, ensure the attribute used as the trigger is not the same as the attribute used to qualify your audience.
 
-#### Any new value option
+### Any new value option
 
 Use the `Change Custom Attribute Value` trigger with the `any new value` option to target users when a boolean, integer, or string value changes to any new value.
 
@@ -81,7 +81,7 @@ Your rewards tier was just changed to {{custom_attribute.${AA_current_rewards_ti
 ```
 {% endraw %}
 
-#### Specific value
+### Specific value
 
 Use the `Change Custom Attribute Value` trigger with the `specific value` option to target users when a boolean, integer, or string custom attribute changes to a specific value. 
 

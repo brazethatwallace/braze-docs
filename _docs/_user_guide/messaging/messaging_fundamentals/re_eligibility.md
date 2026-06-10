@@ -32,7 +32,7 @@ For triggered campaigns with re-eligibility turned on, users who [did not actual
 
 Additionally, if you're trying to send a message immediately with a re-eligibility of zero minutes, we'll always attempt to schedule it right away, regardless of how a user has received previous versions of the campaign or Canvas.
 
-#### Re-eligibility with API-triggered campaigns
+### Re-eligibility with API-triggered campaigns
 
 The number of times a user receives an API-triggered campaign can be limited using re-eligibility settings. This means the user will receive the campaign only once or once in a given window, regardless of how many times the API trigger is fired.
 
