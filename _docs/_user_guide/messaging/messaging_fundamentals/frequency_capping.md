@@ -335,11 +335,11 @@ This rule determines that no users receive more than 100 emails per week because
 
 ### If I change a send throttle on an active Canvas, does it affect users already in the Canvas?
 
-Yes, when you increase or decrease a Canvas rate limit, the updated limit will take effect for new messages within approximately 30 seconds of the change due to caching.
+Yes, when you increase or decrease a Canvas rate limit, the updated limit takes effect for new messages within approximately 30 seconds of the change due to caching.
 
 ### Does frequency capping cause users to exit a Canvas?
 
-No. If a Canvas user is frequency-capped because of global frequency capping settings, the user will immediately advance to the next Canvas step. The user will **not** exit the Canvas because of the frequency cap.
+No. If a Canvas user is frequency-capped because of global frequency capping settings, the user immediately advances to the next Canvas step. The user does **not** exit the Canvas because of the frequency cap.
 
 ### How can I identify users who were frequency capped in a Canvas?
 

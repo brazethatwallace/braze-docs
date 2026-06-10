@@ -63,7 +63,7 @@ For change attribute, the trigger is evaluated first, then the audience criteria
 
 Use the `Change Custom Attribute Value` trigger with the `any new value` option to target users when a boolean, integer, or string value changes to any new value.
 
-For example, target users when their number of reward points changes to let them know how many points they now have. In this example, let's say that a user has 85 reward points and you've set up a campaign to trigger when the reward point attribute changes to any new value. If this user's reward point attribute value changes to any new value (such as 83, 84, 86, and so on), then the campaign will trigger.
+For example, target users when their number of reward points changes to let them know how many points they now have. In this example, let's say that a user has 85 reward points and you've set up a campaign to trigger when the reward point attribute changes to any new value. If this user's reward point attribute value changes to any new value (such as 83, 84, 86, and so on), then the campaign triggers.
 
 Consider the next example use case with a tier update notification. You might want to alert users if their rewards tier changes. To accomplish this use case, set up a campaign that triggers off of `Change Custom Attribute Value` and set it to trigger when the custom attribute rewards tier changes to any new value.
 
