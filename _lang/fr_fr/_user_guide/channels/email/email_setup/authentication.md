@@ -51,7 +51,7 @@ Définissez une politique DMARC sur le domaine racine afin qu'elle s'applique à
 | None | Indique au fournisseur de messagerie de ne prendre aucune mesure contre les messages en échec. |
 | Quarantine | Indique au fournisseur de messagerie d'envoyer les messages en échec dans le dossier spam. |
 | Reject | Indique au fournisseur de messagerie que les messages en échec iront dans le dossier spam et doivent être bloqués. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fonctionnement" }
 
 #### Comment vérifier l'authentification DMARC de votre domaine {#how-to-check-your-domains-dmarc-authentication}
 
@@ -68,3 +68,14 @@ Par exemple, si vous utilisez Gmail, suivez ces étapes :
 3. Vérifiez que vous avez un état « PASS » pour **DMARC**.
 
 ![Un e-mail dont la valeur DMARC est « PASS ».]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+#### Résoudre les échecs DMARC {#troubleshoot-dmarc-failures}
+
+Si DMARC affiche **FAIL** pour les messages envoyés via Braze :
+
+1. Ouvrez les en-têtes bruts ou les résultats d'authentification d'un message récent et vérifiez si **SPF** et **DKIM** réussissent ou échouent.
+2. **Alignement :** DMARC réussit lorsque *soit* SPF, *soit* DKIM est aligné avec le domaine **From**. L'alignement signifie que le domaine **From** correspond au domaine ayant réussi SPF (souvent le domaine **Return-Path** / enveloppe) *ou* au domaine figurant dans la signature DKIM **d=**.
+3. Si SPF réussit mais que DMARC échoue, le domaine Return-Path peut ne pas être aligné avec votre domaine **From** — vérifiez que vos [domaines d'envoi et de suivi en marque blanche]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) correspondent aux domaines pour lesquels vous publiez SPF et DKIM.
+4. Si DKIM échoue, vérifiez que les enregistrements DNS DKIM fournis par Braze sont présents et inchangés.
+
+Les vérificateurs tiers (par exemple, [MXToolbox](https://mxtoolbox.com/dmarc.aspx)) permettent de confirmer les enregistrements publiés ; validez toujours également avec un message réel envoyé depuis Braze.

@@ -25,6 +25,7 @@ If multiple profiles share an email address and one profile unsubscribes, Braze 
 
 The following scenarios can make it seem like a user received an email twice:
 
+- **Seed lists or test recipients:** Seed addresses and internal test recipients can receive a send in addition to your main audience, which can look like a duplicate when an inbox matches both a profile and a seed entry.
 - **An error occurred during campaign or Canvas creation:** The user may not receive the same send twice, but may receive two separate emails with the same subject line. When a campaign or Canvas is duplicated, check email configuration details such as images or subject lines. You can also refer to changelogs to see if the campaign or Canvas was modified after launch—a duplicate may share the same subject line as the original when the user received it.
 - **Multiple user profiles have email forwarding:** If a user has multiple accounts in a given app but one account forwards mail, the user receives the campaign once per inbox; mail can appear twice in the inbox where messages are forwarded. Only some providers indicate when an email was forwarded from another account.
 - **Email configuration at the recipient:** Some clients merge inboxes ("universal inbox"). If the same campaign targets multiple accounts that share one inbox, it can look like one person got the campaign twice when two distinct profiles were actually messaged. The recipient can confirm whether multiple accounts are combined in one inbox.
@@ -46,6 +47,14 @@ API-triggered campaigns will deduplicate or send deduplicates depending on where
 {% alert important %}
 If you send an API campaign through an API call (excluding API-triggered campaigns), and multiple users are specified in the segment audience with the same email address, it sends to that address as many times as listed in the call. This is because API calls are assumed to be purposefully constructed.
 {% endalert %}
+
+#### A/B testing with duplicate email addresses
+
+Avoid [multivariate and A/B tests]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) on email when multiple profiles can share the same email address. Variants are assigned per profile, which can produce more than one message to the same inbox. If you must test in that situation, do not combine a **winning variant** step with [local time zone delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#local-time-zone-campaigns) in a way that delays selecting the winner—those options together can increase the chance of duplicate sends.
+
+#### Canvas and duplicate email addresses
+
+For Canvas journeys, whether duplicate email addresses receive one send or more than one can depend on entry batching, step timing, and other factors. Treat behavior as undefined until you validate it for your journey. Where possible, merge or consolidate duplicate profiles. If you need a product change, submit feedback through your Braze team.
 
 ### What happens to the subscription state when a user's email address changes to one shared by another user?
 
@@ -181,6 +190,18 @@ This warning can persist for campaigns duplicated from a campaign that did not h
 
 - For HTML emails, go to the **Plaintext** tab, then select **Regenerate from HTML**.
 - After duplicating, duplicate the variant, then remove the original variant. **Do not** select the original variant, or the warning can carry over.
+
+### Why did a user receive an email they shouldn't have?
+
+Delivery can look wrong even when Braze behaved as configured. Work through the following:
+
+- **Duplicate profiles** that share one inbox (see [What happens when an email is sent out, and multiple profiles have the same email address?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
+- **Seed lists, test recipients, or internal addresses** included in the audience or on a send as CC/BCC.
+- **Segment or Canvas timing:** the user matched the audience or Canvas step when Braze evaluated eligibility, then attributes or subscription state changed before they read the message.
+- **Subscription groups:** the user remained opted in to a group your message targeted even if their global subscription state suggested otherwise.
+- **API or file imports** that updated the user after segmentation but before you expected the change to apply.
+
+Review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), campaign or Canvas changelogs, and segment definition. If you still cannot reconcile the send, contact Braze Support with user identifiers, `dispatch_id` (if available), and timestamps.
 
 ### Why hasn't a user received my email message?
 

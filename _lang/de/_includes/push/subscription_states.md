@@ -15,7 +15,7 @@ Standardmäßig muss der Push-Abo-Status Ihrer Nutzer:innen entweder `Subscribed
 | `Subscribed` | Standard-Push-Abo-Status, wenn ein Nutzerprofil in Braze erstellt wird. |
 | `Opted-In` | Eine Nutzer:in hat sich ausdrücklich für den Erhalt von Push-Benachrichtigungen entschieden. Braze setzt den Opt-in-Status einer Nutzer:in automatisch auf `Opted-In`, wenn die Nutzer:in eine Push-Aufforderung auf Betriebssystemebene akzeptiert.<br><br>Dies gilt nicht für Nutzer:innen von Android 12 oder darunter. |
 | `Unsubscribed` | Eine Nutzer:in hat sich über Ihre Anwendung oder andere von Ihrer Marke angebotene Methoden explizit von Push abgemeldet. Standardmäßig richten sich Braze-Push-Campaigns nur an Nutzer:innen, die für Push `Subscribed` oder `Opted-in` sind. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push subscription states #push-sub-states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Abo-Status" }
 
 {% alert important %}
 Braze ändert den Push-Abo-Status einer Nutzer:in nicht automatisch in `Unsubscribed`. Beachten Sie, dass wenn der Push-Abo-Status einer Nutzer:in `Unsubscribed` ist, der Filter `Foreground Push Enabled` der Nutzer:in in der Segmentierung `false` ist.
@@ -51,6 +51,8 @@ Um dieses Standardverhalten zu deaktivieren, fügen Sie die folgende Eigenschaft
 {% endtab %}
 
 {% tab swift %}
+Bei iOS zeigt eine Neuinstallation den Push-Abo-Status in der Regel als **`Subscribed`** an, bis die Nutzer:in Benachrichtigungen erlaubt. Nachdem die Nutzer:in **Erlauben** in der Betriebssystem-Aufforderung ausgewählt hat, setzt Braze den Status auf **`Opted-In`**, wenn das automatische Opt-in aktiviert ist. Wenn die Nutzer:in **Nicht erlauben** auswählt und Push später in den iOS-Einstellungen aktiviert, wird der Status aktualisiert, nachdem die Nutzer:in eine Sitzung protokolliert – nicht in dem Moment, in dem sie die Einstellungen ändert.
+
 Ab [Braze Swift SDK Version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0) können Sie dieses Verhalten deaktivieren oder weiter anpassen, indem Sie die Konfiguration `optInWhenPushAuthorized` zur Datei `AppDelegate.swift` Ihres Xcode-Projekts hinzufügen:
 
 ```swift
@@ -77,6 +79,12 @@ Push-Aktivierung bezieht sich darauf, ob eine Nutzer:in auf Betriebssystem- oder
 Wenn das automatische Opt-in aktiviert ist (Standard), aktualisiert Braze den Push-Abo-Status einer Nutzer:in auf `Opted-In`, wenn sie Push-Benachrichtigungen für Ihre App autorisiert oder die Berechtigungen in den Systemeinstellungen wieder aktiviert (zum Beispiel unter iOS, Android 13+ und unterstützten Webbrowsern). Andernfalls bleibt der Push-Abo-Status der Nutzer:in `Subscribed`, bis Sie ihn explizit über eine SDK-Methode oder einen REST-API-Aufruf ändern.
 
 Braze ändert den Push-Abo-Status einer Nutzer:in nicht automatisch in `Unsubscribed`, wenn sie sich auf Betriebssystem-, Browser- oder App-Ebene von Benachrichtigungen abmeldet. Um den Push-Abo-Status einer Nutzer:in zu aktualisieren, müssen Sie ihn in Braze aktualisieren. Wenn eine Nutzer:in beispielsweise Push über ein In-App-Präferenzzentrum deaktiviert, aktualisieren Sie den Push-Abo-Status in Braze auf `Unsubscribed`. Braze aktualisiert Nutzerprofile nicht basierend auf Ihrem Präferenzzentrum. Um Abo-Status mit den In-App-Präferenzen einer Nutzer:in abzugleichen, rufen Sie die entsprechenden Methoden über das [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration) (iOS oder Android) oder die [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api) auf.
+
+### Importierte Push-Token (iOS) {#imported-push-tokens-ios}
+
+Wenn Sie [iOS-Push-Token importieren]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#push-token-import) mit `push_token_import`, ist der Push-Abo-Status der Nutzer:in in der Regel **`Subscribed`**, bis sie eine Sitzung in Ihrer Braze-integrierten App protokolliert. Nach der ersten Sitzung kann Braze den Status auf **`Opted-In`** aktualisieren, wenn das [automatische Opt-in](#automatic-opt-in-default) greift (zum Beispiel wenn die Nutzer:in Push unter iOS autorisiert und `optInWhenPushAuthorized` aktiviert ist).
+
+Überprüfen Sie die **Kontakteinstellungen** im Profil der Nutzer:in nach dem Import und erneut nach der ersten In-App-Sitzung der Nutzer:in, um den erwarteten Status zu bestätigen.
 
 ### Push-Abo-Status prüfen {#checking-push-subscription-state}
 

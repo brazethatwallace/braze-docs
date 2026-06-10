@@ -20,7 +20,7 @@ Braze와 Personalize.AI 통합을 통해 Personalize.AI에서 Braze 플랫폼으
 | Personalize.AI 인스턴스 | 이 파트너십을 활용하려면 Personalize.AI 인스턴스가 필요합니다. |
 | Braze REST API 키 | 모든 권한이 포함된 Braze REST API 키. <br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 
@@ -47,7 +47,7 @@ Braze와 Personalize.AI 통합을 통해 Personalize.AI에서 Braze 플랫폼으
     * **API URL:** Braze REST 엔드포인트 URL을 추가합니다.
 4. **EXPORT**를 클릭하여 Braze로 데이터를 내보냅니다.
 
-데이터가 내보내기되면, Personalize.AI는 통합 시 설정한 동기화 빈도에 따라 결정된 간격으로 계속해서 Braze에 데이터를 전달합니다.
+데이터가 내보내지면, Personalize.AI는 통합 시 설정한 동기화 빈도에 따라 결정된 간격으로 계속해서 Braze에 데이터를 전달합니다.
 
 ## 이 통합 사용하기 {#using-this-integration}
 
@@ -68,4 +68,4 @@ Braze로 가져온 데이터 속성은 일관된 용어를 따르며 Canvases에
 | `C4_Offer_Value` | $3 |
 | `C4_Item_Recom` | "Caesar Salad" |
 | `C4_Subject_Line` | "We miss you" |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="이 통합 사용하기" }

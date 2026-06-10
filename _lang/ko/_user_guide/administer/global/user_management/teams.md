@@ -34,6 +34,14 @@ Teams가 커스텀 속성, 언어 또는 국가로 정의된 경우, 해당 Team
 
 Braze 관리자와 "회사 설정 관리 가능"이라는 회사 수준 권한이 있는 제한된 사용자는 제한된 접근 권한이 있는 회사 사용자에게 Teams 수준 권한을 할당할 수 있습니다. Teams에 할당되면, 회사 사용자는 Teams 생성 시 정의된 사용자 언어, 위치 또는 커스텀 속성과 같은 특정 Teams에서 사용 가능한 데이터만 읽거나 쓸 수 있습니다.
 
+### 사용자를 삭제하지 않고 회사 사용자 권한 제한하기 {#limit-company-user-permissions-without-deleting-a-user}
+
+회사 사용자의 계정을 유지하면서 로그인을 중지하려면 [사용자를 일시 중지]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users)하세요. 일시 중지하면 계정이 비활성 상태가 되어 사용자가 로그인할 수 없습니다.
+
+사용자가 제한된 기능으로 계속 로그인할 수 있어야 하는 경우, **설정** > **회사 사용자**로 이동하여 사용자를 선택하고 권한을 편집합니다. Campaigns, Canvases, Segments 및 사용자 데이터에 대한 워크스페이스 수준 권한을 제거하고 최소한의 접근 권한만 남겨두세요. 예를 들어 "미디어 라이브러리 자산 보기"만 남길 수 있습니다. 자세한 내용은 [사용자 권한 편집]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions)을 참조하세요.
+
+Teams 권한은 워크스페이스 권한 위에서 작동합니다. 사용자를 Teams에 할당하는 경우, 필요한 최소한의 Teams 수준 권한만 부여하고 Campaigns, Canvases, Segments 또는 고객 프로필에 대한 권한은 부여하지 마세요. 사용자는 워크스페이스에 남아 로그인할 수 있지만, 대부분의 메시징 또는 오디언스 작업을 수행할 수 없습니다.
+
 사용자를 Teams에 할당하려면 **설정** > **회사 사용자**로 이동하여 Teams에 추가할 사용자를 선택합니다.
 
 그런 다음 아래 단계를 수행합니다:

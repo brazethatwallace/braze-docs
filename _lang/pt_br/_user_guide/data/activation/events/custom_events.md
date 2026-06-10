@@ -45,10 +45,6 @@ Além disso, se um evento personalizado bloqueado estiver sendo referenciado por
 
 Para mais detalhes sobre bloqueio e exclusão de dados personalizados, consulte [Bloquear dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-### Marcando como informação pessoal identificável (IPI) {#marking-as-personally-identifiable-information-pii}
-
-Administradores também podem criar eventos personalizados e marcá-los como IPI nesta página. Esses eventos são visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as PII".
-
 ### Adicionando descrições {#adding-descriptions}
 
 Você pode adicionar uma descrição a um evento personalizado após sua criação se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Selecione **Editar descrição** para o evento personalizado e insira o que desejar, como uma nota para sua equipe.

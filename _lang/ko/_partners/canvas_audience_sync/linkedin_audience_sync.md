@@ -31,7 +31,7 @@ Canvas에서 LinkedIn 오디언스 동기화 단계를 설정하기 전에 다�
 | --- | --- | --- |
 | LinkedIn 광고 계정 | [LinkedIn](https://www.linkedin.com/campaignmanager) | 브랜드에 연결된 활성 LinkedIn 광고 계정.<br><br>해당 계정에 액세스하고 사용하기 위한 관련 LinkedIn 이용약관에 동의했는지, 그리고 LinkedIn 관리자가 오디언스를 관리할 수 있는 적절한 권한을 부여했는지 확인하세요. |
 | LinkedIn 약관 및 정책 | LinkedIn | LinkedIn Audience Sync 사용과 관련된 LinkedIn의 필수 약관, 정책, 가이드라인 및 문서(여기에 참조로 포함된 약관, 정책, 가이드라인 및 문서 포함)를 준수하는 데 동의합니다. 여기에는 LinkedIn의 서비스 약관, 광고 계약, 데이터 처리 계약 및 전문 커뮤니티 가이드라인이 포함될 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -79,7 +79,7 @@ Canvas에 구성요소를 추가하고 Audience Sync를 선택합니다. **Custo
 
 원하는 Audience Sync 파트너로 **LinkedIn**을 선택합니다.
 
-![여러 파트너를 선택할 수 있는 "Set up Audience Sync" 세부 정보.]({% image_buster /assets/img/linkedin/linkedin.png %}){: style="max-width:70%;"}
+![여러 파트너를 선택할 수 있는 "오디언스 동기화 설정" 세부 정보.]({% image_buster /assets/img/linkedin/linkedin.png %}){: style="max-width:70%;"}
 
 그런 다음 원하는 LinkedIn 광고 계정을 선택합니다. **Choose a New or Existing Audience** 드롭다운에서 새 오디언스 또는 기존 오디언스의 이름을 입력합니다.
 
@@ -142,7 +142,7 @@ LinkedIn의 API 사용량 제한은 초당 쿼리 10건, 요청당 사용자 수
 | Users Pending | 현재 Braze에서 LinkedIn으로 동기화하기 위해 처리 중인 사용자 수. |
 | Users Errored | 약 13시간의 재시도 후 API 오류로 인해 LinkedIn에 동기화되지 않은 사용자 수. 오류의 잠재적 원인에는 유효하지 않은 LinkedIn 토큰 또는 LinkedIn에서 오디언스가 삭제된 경우가 포함될 수 있습니다. |
 | Exited Canvas | Canvas를 종료한 사용자 수. Canvas의 마지막 단계가 Audience Sync 구성요소인 경우 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석 이해하기" }
 
 {% alert important %}
 대량 플러셔와 13시간 재시도로 인해 동기화된 사용자 및 오류 발생 사용자 측정기준의 보고에 지연이 있을 수 있습니다.

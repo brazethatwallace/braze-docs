@@ -34,15 +34,15 @@ REST API를 통해 이메일을 발송하려면 Braze 대시보드에서 API 캠
 | Braze 앱 ID | 워크스페이스 내 앱의 식별자입니다. 확인하려면 **설정** > **API 키**로 이동하여 **앱 식별자** 섹션을 확인합니다. 이 값은 이메일 메시징 오브젝트의 `app_id` 필드에 필수입니다. 자세한 내용은 [앱 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
 | HTML 이메일 콘텐츠 | 사전에 준비된 이메일 메시지의 HTML 본문입니다. |
 | 백엔드 서비스 | Braze REST API에 HTTP POST 요청을 보낼 수 있는 백엔드 서비스 또는 스크립팅 환경입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 1단계: API 캠페인 생성 {#step-1-create-an-api-campaign}
 
-1. Braze 대시보드에서 **Messaging** > **Campaigns**로 이동합니다.
-2. **Create Campaign**을 선택한 다음 **API Campaign**을 선택합니다.
+1. Braze 대시보드에서 **메시징** > **Campaigns**로 이동합니다.
+2. **캠페인 생성**을 선택한 다음 **API Campaign**을 선택합니다.
 3. 캠페인의 이름과 설명을 입력합니다(예: "이메일 메시지 알림").
 4. 식별 및 추적을 위한 관련 태그를 추가합니다.
-5. **Add Messaging Channel**을 선택한 다음 **Email**을 선택합니다.
+5. **메시징 채널 추가**를 선택한 다음 **이메일**을 선택합니다.
 6. 캠페인 페이지에 표시된 **Campaign ID**를 기록합니다. API 요청을 구성할 때 이 값이 필요합니다. 선택적으로 **Message Variation ID**도 기록해 두세요. 발송 통계를 특정 메시지 변형에 귀속시키려면 요청에 이 값을 포함합니다.
 
 ## 2단계: API를 사용하여 이메일 발송 {#step-2-send-an-email-using-the-api}

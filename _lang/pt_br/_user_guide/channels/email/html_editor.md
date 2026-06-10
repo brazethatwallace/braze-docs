@@ -113,7 +113,6 @@ Substitua `#ffffff` pela cor desejada.
 
 {% alert note %}
 Essa abordagem não se aplica de forma confiável apenas a elementos `<table>`, então defina o gradiente na célula em vez de apenas na tabela.
-  <caption>App móvel do Gmail e modo escuro</caption>
 {% endalert %}
 
 Para mais informações sobre a sintaxe de gradientes, consulte [Gradientes CSS no W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -241,6 +240,10 @@ Clientes de e-mail que suportam texto de pré-visualização sempre puxam caract
 ```
 
 Para o editor de arrastar e soltar, adicione apenas os zero-width non-joiners (‌`&zwnj;`) sem a formatação `<div>` diretamente no pré-cabeçalho na seção **Sending Settings**.
+{% endalert %}
+
+{% alert note %}
+No app Apple Mail, links de imagem em e-mails HTML devem usar URLs `https://` para serem clicáveis. Use links seguros para qualquer imagem envolvida em uma tag de âncora quando você esperar cliques de destinatários do Apple Mail.
 {% endalert %}
 
 ### Etapa 3.3: Verifique erros de e-mail {#step-33-check-for-email-errors}

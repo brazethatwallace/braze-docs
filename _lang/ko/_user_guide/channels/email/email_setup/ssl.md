@@ -24,11 +24,13 @@ SSL로 웹사이트와 링크를 보호하는 것은 민감한 고객 정보를 
 
 Braze는 클릭 및 오픈을 추적하기 위해 브랜드 링크 추적 서브도메인을 사용하여 링크를 변환합니다. 기본적으로 이러한 링크는 HTTP로 시작합니다. 비보안 트래픽을 제한하는 브라우저나 확장 프로그램을 사용하는 사용자는 대상 URL이 보안 URL이라 하더라도 리디렉션을 통과하는 데 어려움을 겪을 수 있습니다. 이로 인해 이미지가 깨지거나 추적이 부정확해질 수 있습니다. 링크 추적 서브도메인에 SSL을 적용하여 안전한 리디렉션을 보장하세요.
 
-### 브라우저 요구 사항 {#browser-requirement}
+## 요구 사항 {#requirements}
+
+### 브라우저 {#browser}
 
 Google Chrome과 같은 주요 브라우저는 사용자를 보호하기 위해 비보안 URL을 통한 트래픽을 제한합니다. SSL을 사용하면 콘텐츠가 신뢰할 수 있음을 확인하는 데 도움이 되며, 이메일 내 깨진 링크나 이미지 같은 문제를 최소화합니다.
 
-### HSTS 도메인 요구 사항 {#hsts-domains-requirement}
+### HSTS 도메인 {#hsts-domains}
 
 HTTP Strict Transport Security(HSTS) 도메인이 있는 경우 SSL을 설정하고 CDN을 구성하여 필요한 보안 인증서를 전송하도록 해야 합니다. SSL이 없으면 이미지 및 웹 링크가 깨집니다.
 
@@ -39,6 +41,7 @@ HTTP Strict Transport Security(HSTS) 도메인이 있는 경우 SSL을 설정하
 SSL 설정을 시작하려면 Braze 고객 성공 매니저에게 문의하여 Braze 이메일 설정 전체를 시작하세요.
 
 Braze가 설정을 시작한 후 다음 단계를 따르세요:
+
 1. Braze가 도메인 레지스트리에 추가할 DNS 레코드를 제공합니다.
 2. Braze가 레코드가 레지스트리에 올바르게 추가되었는지 확인합니다.
 3. 이후 CDN을 선택하고 타사 제공업체로부터 SSL 인증서를 발급받습니다.
@@ -62,7 +65,7 @@ SSL 클릭 및 오픈 추적에 나열된 CDN을 사용할 수 없거나 사용�
 ### 추가 리소스 {#additional-resources}
 
 {% alert important %}
-CDN 구성 문제 해결은 CDN 공급자에게 문의하세요.
+CDN 구성 문제 해결은 CDN 공급자에게 문의하거나 일반적인 안내는 [문제 해결]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/)을 참조하세요.
 {% endalert %}
 
 특정 CDN을 구성하는 방법에 대한 이메일 서비스 공급자 파트너의 다음 리소스를 참조하세요. 사용 중인 CDN이 목록에 없더라도 해당 CDN이 SSL 인증서를 적용할 수 있는지 확인해야 합니다.
@@ -85,7 +88,7 @@ CDN의 클릭 추적 도메인을 구성할 때 호스트 헤더 공격과 같�
 | SparkPost | Fastly | [Fastly 단계별 가이드](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-fastly) |
 | SparkPost | Google Cloud Platform | [Google Cloud Platform 단계별 가이드](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-google-cloud-platform) |
 | SparkPost | Microsoft Azure | [Microsoft Azure 단계별 가이드](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-microsoft-azure) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional resources" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="추가 리소스" }
 
 ### Amazon SES
 
@@ -94,24 +97,10 @@ Amazon SES를 이메일 서비스 공급자로 사용하는 경우, [Amazon SES 
 - **Braze US 클러스터:** `r.us-east-1.awstrack.me`
 - **Braze EU 클러스터:** `r.eu-central-1.awstrack.me`
 
+{% alert important %}
+CDN의 클릭 추적 도메인을 구성할 때 호스트 헤더 공격과 같은 잠재적 보안 문제를 방지하기 위해 `X-Forwarded-Host` 헤더를 활성화하세요. 자세한 단계는 CDN 공급자에게 문의하세요.
+{% endalert %}
+
 ## 문제 해결 {#troubleshooting}
 
-CDN 구성, 인증서 및 프록시 문제는 CDN에서 처리해야 하지만, 다음 팁을 사용하여 일반적인 SSL 클릭 추적 문제를 식별할 수 있습니다.
-
-### 낮은 이메일 열람률 {#low-email-open-rates}
-
-갑자기 이메일 열람률이 낮아진 경우, SSL 인증서가 최신 상태인지 확인하세요. 만료된 경우 CDN 또는 인증서 공급자를 통해 SSL 인증서를 갱신해야 합니다.
-
-### 도메인 레지스트리 문제 {#domain-registry-issues}
-
-dig 명령을 실행하여 링크 추적이 CDN을 가리키고 있는지 확인하세요. 터미널에서 `dig CNAME link_tracking_subdomain`을 실행합니다. `ANSWER SECTION`에서 CNAME이 가리키는 위치가 표시됩니다. 이메일 서비스 공급자(SendGrid 또는 SparkPost)를 가리키고 CDN을 가리키지 않는 경우, 도메인 레지스트리를 CDN을 가리키도록 재구성하세요.
-
-### CDN 문제 {#cdn-issues}
-
-설정 중에 라이브 이메일 링크가 깨지는 경우, 적절한 구성 전에 DNS를 CDN으로 지정했을 가능성이 높습니다. 이는 "잘못된 링크" 오류로 나타날 수 있습니다. CDN 공급자에게 문의하고 해당 설명서를 검토하여 구성 문제를 해결하세요.
-
-연결이 비공개가 아니라는 오류 메시지가 표시되면 SSL 또는 CDN이 올바르게 구성되지 않았을 수 있습니다. 터미널에서 `dig` 명령을 실행하세요(예: `dig CNAME your_link_tracking_subdomain`). `ANSWER SECTION`에서 결과가 CDN 대신 이메일 서비스 공급자를 가리키는 경우, 이는 잘못된 구성 문제입니다. Braze SSL 클릭 추적이 작동하려면 CNAME이 CDN을 가리켜야 합니다. 추가 지원을 위해 SSL 및 CDN 구성을 관리하는 팀과 협력하세요.
-
-### SSL 활성화 상태 {#ssl-enablement-status}
-
-SSL 설정을 완료했는데도 링크가 여전히 HTTP로 표시되는 경우, Braze 고객 성공 매니저에게 연락하여 Braze에서 SSL이 활성화되었는지 확인하세요. Braze는 모든 설정 단계가 완료된 후에만 SSL을 활성화합니다.
+CDN 구성, 인증서 및 프록시 문제는 CDN에서 처리해야 하지만, 다음 팁을 사용하여 일반적인 SSL 클릭 추적 문제를 식별할 수 있습니다. 문제 해결 안내는 [문제 해결]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/)을 참조하세요.

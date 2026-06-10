@@ -38,7 +38,7 @@ description: "この記事では、配信停止メールのリストの取得ま
 | `offset` | オプション | 整数 | 取得を開始するリスト内のオプションの開始点です。 |
 | `sort_direction` | オプション | 文字列 | 値`asc`を渡すと、配信停止を古いものから新しいものへ並べ替えます。`desc`を渡すと、新しいものから古いものへ並べ替えます。`sort_direction`が含まれていない場合、デフォルトの順序は新しいものから古いものです。 |
 | `email` | オプション <br>(注を参照) | 文字列 | 指定すると、そのユーザーが配信停止しているかどうかを返します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert note %}
 `end_date`と、`email`または`start_date`のいずれかを指定する必要があります。

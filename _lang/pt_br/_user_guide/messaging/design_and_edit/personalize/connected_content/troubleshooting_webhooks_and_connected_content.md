@@ -155,6 +155,13 @@ Para Conteúdo conectado, se as solicitações ao host de destino forem interrom
 
 Se você acredita que a detecção de host não íntegro pode estar causando problemas, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact/).
 
+### Conteúdo conectado não retorna corpo de resposta {#connected-content-returns-no-response-body}
+
+Se uma chamada de Conteúdo conectado aparece em branco na pré-visualização ou no envio da mensagem, verifique:
+
+- **Espaços não separáveis na URL:** A Braze remove espaços não separáveis (`&nbsp;` ou Unicode `U+00A0`) das URLs de Conteúdo conectado antes de fazer a solicitação. Se a URL foi copiada de um documento ou campo do dashboard que inseriu espaços não separáveis entre os caracteres, a solicitação pode falhar ou não retornar um corpo utilizável. Redigite a URL em texto simples ou remova os espaços ocultos e pré-visualize novamente.
+- **Erros HTTP e corpos vazios:** Para códigos de status acima de 300 ou hosts bloqueados, o Conteúdo conectado pode renderizar uma string vazia. Consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) e revise as falhas no **Registro de atividades de envio de mensagem**.
+
 ## E-mails automatizados e entradas no Registro de atividades de envio de mensagem {#automated-emails-and-message-activity-log-entries}
 
 ### Configurando e-mails automatizados {#setting-up-automated-emails}
@@ -181,16 +188,16 @@ Esses e-mails são enviados apenas uma vez por dia no nível do espaço de traba
 
 Para se inscrever e receber esses e-mails, faça o seguinte:
 
-1. Acesse **Settings** > **Admin Settings** > **Notification Preferences**.
+1. Acesse **Configurações** > **Configurações de administrador** > **Preferências de notificação**.
 2. Selecione **Connected Content Errors** e **Webhook Errors** na seção **Canvas & Campaigns**.
 
 ### Entradas no Registro de atividades de envio de mensagem {#message-activity-log-entries}
 
-Se ocorrer uma falha, haverá pelo menos uma entrada no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) relacionada a ela. Se a solicitação for reenviada e eventualmente tiver sucesso, esses detalhes estarão disponíveis no Currents e no Snowflake Data Share. Mesmo que uma solicitação eventualmente tenha sucesso após uma nova tentativa, os erros ainda podem acionar o e-mail automatizado.
+Se ocorrer uma falha, haverá pelo menos uma entrada no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) relacionada a ela. Se a solicitação for reenviada e eventualmente tiver sucesso, esses detalhes estarão disponíveis no Currents e no Compartilhamento de dados do Snowflake. Mesmo que uma solicitação eventualmente tenha sucesso após uma nova tentativa, os erros ainda podem acionar o e-mail automatizado.
 
 ### Insights adicionais de falhas no Braze Currents {#additional-failure-insights-in-braze-currents}
 
-Para aumentar a transparência em relação a problemas relacionados a webhooks, a Braze transmite eventos detalhados de falha de webhook para o Currents e o Snowflake Data Sharing. Esses eventos incluem solicitações de webhook com falha (como respostas HTTP `4xx` ou `5xx`), proporcionando mais observabilidade sobre como problemas de webhook podem impactar a entrega de mensagens. Os eventos de falha incluem erros terminais, bem como erros que estão sendo reenviados.
+Para aumentar a transparência em relação a problemas relacionados a webhooks, a Braze transmite eventos detalhados de falha de webhook para o Currents e o Compartilhamento de dados do Snowflake. Esses eventos incluem solicitações de webhook com falha (como respostas HTTP `4xx` ou `5xx`), proporcionando mais observabilidade sobre como problemas de webhook podem impactar a entrega de mensagens. Os eventos de falha incluem erros terminais, bem como erros que estão sendo reenviados.
 
 {% alert note %}
 Solicitações de Conteúdo conectado não estão incluídas nesses eventos de falha de webhook.

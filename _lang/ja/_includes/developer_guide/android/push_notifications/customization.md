@@ -2,7 +2,7 @@
 
 ## プッシュイベント用のコールバックを使用する {#push-callback}
 
-Brazeには、プッシュ通知が受信されたとき、開かれたとき、または却下されたときのための [`subscribeToPushNotificationEvents()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-push-notification-events.html) コールバックが用意されています。アプリケーションが実行されていないときに発生するイベントを見逃さないように、このコールバックを `Application.onCreate()` に配置することをお勧めします。
+Brazeには、プッシュ通知が受信されたとき、開かれたとき、または却下されたときのための[`subscribeToPushNotificationEvents()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-push-notification-events.html)コールバックが用意されています。アプリケーションが実行されていないときに発生するイベントを見逃さないように、このコールバックを`Application.onCreate()`に配置することをお勧めします。
 
 {% alert note %}
 以前にアプリケーションでこの機能にカスタムブロードキャストレシーバーを使用していた場合は、この統合オプションを優先して、レシーバーを安全に削除できます。
@@ -41,7 +41,7 @@ Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).subscribeToPushNotificationEvents { event ->
     val parsedData = event.notificationPayload
 
@@ -72,27 +72,27 @@ Braze.getInstance(context).subscribeToPushNotificationEvents { event ->
 {% endtabs %}
 
 {% alert tip %}
-通知アクションボタンを使用すると、`opens app` または `deep link` アクションを持つボタンがクリックされたときに `BRAZE_PUSH_INTENT_NOTIFICATION_OPENED` インテントが起動します。ディープリンクとエクストラの処理は変わりません。`close` アクション付きのボタンは `BRAZE_PUSH_INTENT_NOTIFICATION_OPENED` インテントを起動せず、通知を自動的に閉じます。
+通知アクションボタンを使用すると、`opens app`または`deep link`アクションを持つボタンがクリックされたときに`BRAZE_PUSH_INTENT_NOTIFICATION_OPENED`インテントが起動します。ディープリンクとエクストラの処理は変わりません。`close`アクション付きのボタンは`BRAZE_PUSH_INTENT_NOTIFICATION_OPENED`インテントを起動せず、通知を自動的に閉じます。
 {% endalert %}
 
 {% alert important %}
-`Application.onCreate` でプッシュ通知リスナーを作成し、アプリが終了状態にある間にエンドユーザーが通知をタップした場合でもリスナーがトリガーされるようにしてください。
+`Application.onCreate`でプッシュ通知リスナーを作成し、アプリが終了状態にある間にエンドユーザーが通知をタップした場合でもリスナーがトリガーされるようにしてください。
 {% endalert %}
 
 ## 通知表示のカスタマイズ {#customization-display}
 
 ### ステップ 1:カスタム通知ファクトリーを作成する {#step-1-create-your-custom-notification-factory}
 
-サーバー側では面倒な方法や利用できない方法でプッシュ通知をカスタマイズしたい場合があります。通知表示を完全に制御できるように、独自の [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) を定義してBrazeで表示する通知オブジェクトを作成する機能が追加されました。
+サーバー側では面倒な方法や利用できない方法でプッシュ通知をカスタマイズしたい場合があります。通知表示を完全に制御できるように、独自の[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)を定義してBrazeで表示する通知オブジェクトを作成する機能が追加されました。
 
-カスタムの `IBrazeNotificationFactory` が設定されている場合、ユーザーに通知が表示される前に、プッシュ受信時にBrazeがファクトリーの `createNotification()` メソッドを呼び出します。Brazeは、Brazeプッシュデータを含む `Bundle` と、ダッシュボードまたはメッセージング API 経由で送信されたカスタムのキーと値のペアを含む別の `Bundle` を渡します。
+カスタムの`IBrazeNotificationFactory`が設定されている場合、ユーザーに通知が表示される前に、プッシュ受信時にBrazeがファクトリーの`createNotification()`メソッドを呼び出します。Brazeは、Brazeプッシュデータを含む`Bundle`と、ダッシュボードまたはメッセージングAPI経由で送信されたカスタムのキーと値のペアを含む別の`Bundle`を渡します。
 
-Brazeは、Brazeプッシュ通知からのデータを含む [`BrazeNotificationPayload`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/index.html) を渡します。
+Brazeは、Brazeプッシュ通知からのデータを含む[`BrazeNotificationPayload`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/index.html)を渡します。
 
 {% tabs %}
 {% tab JAVA %}
 
-`````````java
+```java
 // Factory method implemented in your custom IBrazeNotificationFactory
 @Override
 public Notification createNotification(BrazeNotificationPayload brazeNotificationPayload) {
@@ -107,7 +107,7 @@ public Notification createNotification(BrazeNotificationPayload brazeNotificatio
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 // Factory method implemented in your custom IBrazeNotificationFactory
 override fun createNotification(brazeNotificationPayload: BrazeNotificationPayload): Notification {
   // Example of getting notification title
@@ -121,54 +121,54 @@ override fun createNotification(brazeNotificationPayload: BrazeNotificationPaylo
 {% endtab %}
 {% endtabs %}
 
-カスタムの `createNotification()` メソッドから `null` を返して通知をまったく表示しないことも、`BrazeNotificationFactory.getInstance().createNotification()` を使用してそのデータのデフォルトの `notification` オブジェクトを取得し、表示前に変更することも、完全に別個の `notification` オブジェクトを生成して表示することもできます。
+カスタムの`createNotification()`メソッドから`null`を返して通知をまったく表示しないことも、`BrazeNotificationFactory.getInstance().createNotification()`を使用してそのデータのデフォルトの`notification`オブジェクトを取得し、表示前に変更することも、完全に別個の`notification`オブジェクトを生成して表示することもできます。
 
 {% alert note %}
-Brazeのプッシュデータキーに関するドキュメントは、[Android SDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html) を参照してください。
+Brazeのプッシュデータキーに関するドキュメントは、[Android SDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html)を参照してください。
 {% endalert %}
 
 ### ステップ 2:カスタム通知ファクトリーを設定する {#step-2-set-your-custom-notification-factory}
 
-Brazeにカスタム通知ファクトリーを使用するように指示するには、`setCustomBrazeNotificationFactory` メソッドを使用して [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) を設定します。
+Brazeにカスタム通知ファクトリーを使用するように指示するには、`setCustomBrazeNotificationFactory`メソッドを使用して[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)を設定します。
 
 {% tabs %}
 {% tab JAVA %}
 
 
-`````````java
+```java
 setCustomBrazeNotificationFactory(IBrazeNotificationFactory brazeNotificationFactory);
 ```
 
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 setCustomBrazeNotificationFactory(brazeNotificationFactory: IBrazeNotificationFactory)
 ```
 
 {% endtab %}
 {% endtabs %}
 
-カスタム `IBrazeNotificationFactory` を設定する場所として推奨されるのは、`Application.onCreate()` アプリケーションライフサイクルメソッド（アクティビティではない）です。これにより、アプリプロセスがアクティブなときはいつでも通知ファクトリーが正しく設定されます。
+カスタム`IBrazeNotificationFactory`を設定する場所として推奨されるのは、`Application.onCreate()`アプリケーションライフサイクルメソッド（アクティビティではない）です。これにより、アプリプロセスがアクティブなときはいつでも通知ファクトリーが正しく設定されます。
 
 {% alert important %}
 ゼロから独自の通知を作成するのは高度なユースケースであり、十分なテストとBrazeのプッシュ機能に対する深い理解がある場合にのみ行うべきです。たとえば、通知がプッシュ開封を正しくログに記録することを確認する必要があります。
 {% endalert %}
 
-カスタム [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) の設定を解除し、プッシュのデフォルトのBraze処理に戻すには、カスタム通知ファクトリーセッターに `null` を渡します。
+カスタム[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)の設定を解除し、プッシュのデフォルトのBraze処理に戻すには、カスタム通知ファクトリーセッターに`null`を渡します。
 
 {% tabs %}
 {% tab JAVA %}
 
 
-`````````java
+```java
 setCustomBrazeNotificationFactory(null);
 ```
 
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 setCustomBrazeNotificationFactory(null)
 ```
 
@@ -179,40 +179,40 @@ setCustomBrazeNotificationFactory(null)
 
 Braze SDKバージョン3.1.1では、HTMLをデバイスに送信することで、プッシュ通知内で多色テキストを表示できます。
 
-![文字に複数の異なる色、斜体、背景色が指定された Android プッシュメッセージ「Multicolor Push test message」。]({% image_buster /assets/img/multicolor_android_push.png %}){: style="max-width:40%;"}
+![文字に複数の異なる色、斜体、背景色が指定されたAndroidプッシュメッセージ「Multicolor Push test message」。]({% image_buster /assets/img/multicolor_android_push.png %}){: style="max-width:40%;"}
 
 この例は、以下のHTMLでレンダリングされます。
 
-`````````html
+```html
 <p><span style="color: #99cc00;">M</span>u<span style="color: #008080;">lti</span>Colo<span style="color: #ff6600;">r</span> <span style="color: #000080;">P</span><span style="color: #00ccff;">u</span><span style="color: #ff0000;">s</span><span style="color: #808080;">h</span></p>
 
 <p><em>test</em> <span style="text-decoration: underline; background-color: #ff6600;"><strong>message</strong></span></p>
 ```
 
-Androidでは、プッシュ通知内で有効なHTML要素やタグが制限されていることに注意してください。たとえば、`marquee` は使用できません。
+Androidでは、プッシュ通知内で有効なHTML要素やタグが制限されていることに注意してください。たとえば、`marquee`は使用できません。
 
 {% alert important %}
 多色テキストの表示はデバイス固有であり、Androidデバイスやバージョンによっては表示されない場合があります。
 {% endalert %}
 
-プッシュ通知で多色テキストを表示するには、`braze.xml` または `BrazeConfig` を更新します。
+プッシュ通知で多色テキストを表示するには、`braze.xml`または`BrazeConfig`を更新します。
 
 {% tabs local %}
 {% tab braze.xml %}
-`braze.xml` に以下を追加します。
+`braze.xml`に以下を追加します。
 
-`````````xml
+```xml
 <bool translatable="false" name="com_braze_push_notification_html_rendering_enabled">true</bool>
 ```
 {% endtab %}
 
 {% tab BrazeConfig %}
-[`BrazeConfig`]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/runtime_configuration/#runtime-configuration) に以下を追加します。
+[`BrazeConfig`]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/runtime_configuration/#runtime-configuration)に以下を追加します。
 
 {% subtabs local %}
 {% subtab JAVA %}
 
-`````````java
+```java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .setPushHtmlRenderingEnabled(true)
   .build();
@@ -222,7 +222,7 @@ Braze.configure(this, brazeConfig);
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 val brazeConfig = BrazeConfig.Builder()
     .setPushHtmlRenderingEnabled(true)
     .build()
@@ -235,9 +235,9 @@ Braze.configure(this, brazeConfig)
 
 ### サポートされているHTMLタグ {#supported-html-tags}
 
-現在、GoogleはAndroid向けのサポート対象HTMLタグを公式ドキュメントに直接記載していません。この情報は[Gitリポジトリの `Html.java` ファイル](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/text/Html.java)でのみ確認できます。以下の表を参照する際は、この情報がこのファイルから抽出されたものであり、サポートされているHTMLタグは変更される可能性があることに留意してください。
+現在、GoogleはAndroid向けのサポート対象HTMLタグを公式ドキュメントに直接記載していません。この情報は[GitリポジトリのHtml.javaファイル](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/text/Html.java)でのみ確認できます。以下の表を参照する際は、この情報がこのファイルから抽出されたものであり、サポートされているHTMLタグは変更される可能性があることに留意してください。
 
-<table aria-label="Supported HTML tags">
+<table aria-label="サポートされているHTMLタグ">
   <thead>
     <tr>
       <th>カテゴリー</th>
@@ -326,7 +326,7 @@ Braze.configure(this, brazeConfig)
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported HTML tags" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="サポートされているHTMLタグ" }
 
 ## インライン画像のレンダリング {#rendering-inline-images}
 
@@ -348,7 +348,7 @@ Android 12を実行しているデバイスでは、カスタムプッシュ通�
 
 Androidプッシュメッセージを作成する場合、この機能は**通知タイプ**ドロップダウンで使用できます。
 
-![プッシュキャンペーンエディターで、標準のプッシュプレビューの上部に位置する「通知タイプ」ドロップダウンの場所を示している。]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![プッシュCampaignエディターで、標準のプッシュプレビューの上部に位置する「通知タイプ」ドロップダウンの場所を示している。]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
 ## 設定 {#settings}
 
@@ -356,13 +356,13 @@ Brazeダッシュボードから送信されるAndroidプッシュ通知には�
 
 ![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
-### 通知 ID {#notification-id}
+### 通知ID {#notification-id}
 
-**通知 ID** は、選択したメッセージカテゴリの一意の識別子です。その ID からの最新のメッセージのみを尊重するようメッセージングサービスに通知する役割を果たします。通知 IDを設定すると、古くて無関係なメッセージのスタックではなく、最新で関連性の高いメッセージだけを送信できます。
+**通知ID**は、選択したメッセージカテゴリの一意の識別子です。そのIDからの最新のメッセージのみを尊重するようメッセージングサービスに通知する役割を果たします。通知IDを設定すると、古くて無関係なメッセージのスタックではなく、最新で関連性の高いメッセージだけを送信できます。
 
 ### Firebase メッセージング配信の優先度 {#fcm-priority}
 
-[Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message) フィールドでは、「通常」または「高」のどちらの優先度でプッシュをFirebase Cloud Messagingに送信するかを制御できます。
+[Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages)フィールドでは、「通常」または「高」のどちらの優先度でプッシュをFirebase Cloud Messagingに送信するかを制御できます。
 
 ### 有効時間（TTL） {#ttl}
 
@@ -380,9 +380,9 @@ Brazeダッシュボードから送信されるAndroidプッシュ通知には�
 
 画像を含むプッシュ通知の場合、折りたたまれたビューにはメッセージテキストが表示され、通知が展開されると、要約テキストが画像のキャプションとして表示されます。
 
-### カスタム URI {#custom-uri}
+### カスタムURI {#custom-uri}
 
-**カスタム URI** 機能を使用すると、通知がクリックされたときの誘導先 Web URLまたはAndroidリソースを指定できます。カスタム URIが指定されていない場合、通知をクリックするとユーザーはアプリに誘導されます。カスタム URIを使用してアプリ内でディープリンクし、アプリ外部のリソースにユーザーを誘導することができます。この設定は、[メッセージング API]({{site.baseurl}}/api/endpoints/messaging/) またはダッシュボードのプッシュコンポーザーの**詳細設定**から行うことができます。
+**カスタムURI**機能を使用すると、通知がクリックされたときの誘導先Web URLまたはAndroidリソースを指定できます。カスタムURIが指定されていない場合、通知をクリックするとユーザーはアプリに誘導されます。カスタムURIを使用してアプリ内でディープリンクし、アプリ外部のリソースにユーザーを誘導することができます。この設定は、[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)またはダッシュボードのプッシュコンポーザーの**詳細設定**から行うことができます。
 
 ![Brazeプッシュコンポーザーのディープリンクの高度な設定。]({% image_buster /assets/img_archive/deep_link.png %})
 
@@ -400,14 +400,14 @@ Android Oでは、通知の優先度が通知チャネルのプロパティに�
 
 AndroidまたはFire OSプッシュ通知で設定できる優先度レベルは次のとおりです。
 
-| 優先度 | 説明／使用目的 | `priority` 値（APIメッセージ用） |
+| 優先度 | 説明／使用目的 | `priority`値（APIメッセージ用） |
 |----------|--------------------------|-------------------------------------|
 | 最大      | 緊急または一刻を争うメッセージ | `2` |
 | 高     | 友人からの新着メッセージなど、重要なコミュニケーション | `1` |
 | デフォルト  | ほとんどの通知 - メッセージが他の優先度タイプのいずれにも明示的に該当しない場合に使用します | `0` |
 | 低      | ユーザーに知ってもらいたいが、すぐに行動を起こす必要のない情報 | `-1` |
 | 最小      | 文脈に応じた情報またはバックグラウンド情報 | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority #notification-priority" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="通知の表示優先度" }
 
 詳細については、Googleの[Android通知](http://developer.android.com/design/patterns/notifications.html)に関するドキュメントを参照してください。
 
@@ -415,10 +415,10 @@ AndroidまたはFire OSプッシュ通知で設定できる優先度レベルは
 
 Android Oでは、通知音は通知チャネルのプロパティになりました。開発者と協力して設定時にチャネルのサウンドを定義し、通知を送信するときにダッシュボードを使用して適切なチャネルを選択する必要があります。
 
-Android Oより前のバージョンを実行しているデバイスの場合、Brazeを使用するとダッシュボードコンポーザーを通じて個々のプッシュメッセージのサウンドを設定できます。これを行うには、デバイスのローカルサウンドリソースを指定します（例: `android.resource://com.mycompany.myapp/raw/mysound`）。このフィールドに「default」を指定すると、デフォルトの通知音がデバイスで再生されます。これは、[メッセージング API]({{site.baseurl}}/api/endpoints/messaging/) またはダッシュボードのプッシュコンポーザーの**詳細設定**で指定できます。
+Android Oより前のバージョンを実行しているデバイスの場合、Brazeを使用するとダッシュボードコンポーザーを通じて個々のプッシュメッセージのサウンドを設定できます。これを行うには、デバイスのローカルサウンドリソースを指定します（例：`android.resource://com.mycompany.myapp/raw/mysound`）。このフィールドに「default」を指定すると、デフォルトの通知音がデバイスで再生されます。これは、[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)またはダッシュボードのプッシュコンポーザーの**詳細設定**で指定できます。
 
 ![Brazeプッシュコンポーザーのサウンドの高度な設定。]({% image_buster /assets/img_archive/sound_android.png %})
 
-完全なサウンドリソースURI（例: `android.resource://com.mycompany.myapp/raw/mysound`）をダッシュボードプロンプトに入力します。
+完全なサウンドリソースURI（例：`android.resource://com.mycompany.myapp/raw/mysound`）をダッシュボードプロンプトに入力します。
 
 ユーザー群全体に特定のサウンドでメッセージを送信する場合、[通知チャネルの設定](https://developer.android.com/training/notify-user/channels)を通じてサウンドを間接的に指定し（O+デバイス向け）、*さらに*ダッシュボードから個別のサウンドを送信する（&#60;Oデバイス向け）ことをお勧めします。

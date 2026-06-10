@@ -50,7 +50,7 @@ Hier sind einige Beispiele für gängige Anwendungsfälle von Web-Push-Nachricht
 | App-Download | Leiten Sie Web-Nutzer:innen zu Ihrer mobilen App, damit sie noch mehr Wert aus Ihren Produkten ziehen können. Nutzen Sie Personalisierung, um App-Vorteile basierend auf ihren aktuellen Engagement-Mustern hervorzuheben. |
 | Rabatte und Aktionen | Steigern Sie das Bewusstsein der Kund:innen für zeitlich begrenzte Ereignisse und Aktionen. Kommunizieren Sie über mehrere Kanäle, einschließlich Web-Push, um die Bekanntheit der Aktionen Ihrer Marke zu erhöhen. |
 | Abgebrochener Einkauf | Senden Sie automatisierte Erinnerungen an Nutzer:innen, die ihre Transaktionen nicht abgeschlossen haben, um sie zurück zum Checkout-Prozess zu bringen. <br><br>Untersuchungen von Braze haben ergeben, dass Web-Push 53 % effektiver als E-Mail und 23 % wirkungsvoller als mobiler Push ist, wenn es darum geht, Empfänger:innen dazu zu bringen, zurückzukehren und einen Kauf abzuschließen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mögliche Anwendungsfälle" }
 
 ## Unterstützte Browser {#supported-browsers}
 

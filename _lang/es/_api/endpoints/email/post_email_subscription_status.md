@@ -52,6 +52,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `subscription_state` | Obligatorio | Cadena | "subscribed", "unsubscribed" u "opted_in". |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
+## Solución de problemas de bloqueos de correo electrónico de SendGrid {#troubleshooting-sendgrid-email-blocks}
+
+Cuando SendGrid bloquea a un destinatario, actualiza el estado de suscripción con este punto de conexión y revisa la interacción con filtros de segmento. Utiliza los eventos de rebote suave de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para monitorear la capacidad de entrega, y confirma el estado de suscripción antes de reintentar los envíos.
+
 ## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/email/status' \

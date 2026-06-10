@@ -212,7 +212,7 @@ Testen Sie den Branch-Link außerhalb von Braze, um das Problem einzugrenzen:
 | `Opening '<URL>': - channel: contentCard` | Das SDK verarbeitet einen Link aus einer Content Card |
 | `useWebView: true` | Das SDK öffnet die URL in der In-App-WebView |
 | `isUniversalLink: true` | Das SDK hat die URL als Universal Link identifiziert |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ausführliche Protokollierung verwenden" }
 
 Weitere Informationen zum Lesen dieser Protokolle finden Sie unter [Ausführliche Protokolle lesen]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/).
 

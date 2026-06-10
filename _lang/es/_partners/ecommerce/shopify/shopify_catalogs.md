@@ -93,7 +93,9 @@ Braze admite los siguientes objetos de metacampos y algunos de sus tipos respect
 | `number_integer`                                 | Entero                                                 |
 | `single_line_text_field`, `list.single_line_text_field` | Cadena, Matriz de cadenas                       |
 | `url`, `list.url`                                | Cadena (URL), Matriz de cadenas (URLs)                 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure additional product data (optional) #step-3" }
+| `metaobject_reference`, `list.metaobject_reference` | Cadena, Matriz de cadenas                          |
+| `mixed_reference`, `list.mixed_reference`        | Cadena, Matriz de cadenas                               |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configura datos de producto adicionales (opcional)" }
 
 {% endsubtab %}
 {% subtab Metacampos no compatibles %}
@@ -189,7 +191,7 @@ Cambiar tus selecciones sincronizadas puede afectar a Campaigns, Canvas o selecc
 | `product_tags`       | matriz         | `["Summer", "Sale", "New"]`<br><br>Requiere la sincronización de etiquetas de productos.                 |
 | `collection_ids`     | matriz         | `[123456789012, 987654321098]` (IDs de colección de Shopify)<br><br>Requiere la sincronización de colecciones de Shopify. |
 | `Metafield columns`  | Varía según el tipo | Cada metacampo sincronizado aparece como una columna separada nombrada por su clave. Consulta [Metacampos compatibles](#step-3) en la pestaña "Metacampos de productos" del paso 3 para más información. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported Shopify catalog data" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Datos de catálogo de Shopify compatibles" }
 
 {% alert warning %}
 Tu catálogo de Shopify es administrado por Shopify. Para actualizar tu catálogo, realiza los cambios directamente en tu tienda Shopify y se sincronizarán automáticamente con Braze. Para eliminar tu catálogo de Shopify, ve a la página del socio de Shopify en Braze y [desactiva la sincronización](#deactivate).
@@ -717,4 +719,4 @@ Si la sincronización de tu producto de Shopify se encuentra con un error, podr�
 | Error del servidor | Esto ocurre si hay un error de servidor por parte de Shopify cuando intentamos sincronizar tus productos. | [Desactiva la sincronización](#deactivate) y vuelve a sincronizar todo tu inventario de productos. |
 | SKU duplicado | Esto ocurre si utilizas un SKU como ID de artículo del catálogo y tienes productos con el mismo SKU. Como el ID de artículo del catálogo debe ser único, todos tus productos deben tener SKU únicos. | Audita tu lista completa de productos y variantes en Shopify para asegurarte de que no hay SKU duplicados. Si los hay, actualízalos para que sean SKU únicos solo en la cuenta de tu tienda Shopify. Una vez corregido esto, [desactiva la sincronización](#deactivate) y vuelve a sincronizar todo tu inventario de productos. |
 | Límite de catálogo superado | Esto ocurre si superas el límite de tu catálogo. Braze no podrá finalizar la sincronización o mantenerla activa debido a que no hay más almacenamiento disponible. | Hay dos soluciones a este problema:<br><br>1. Ponte en contacto con tu director de cuentas para subir de nivel y aumentar el límite de tu catálogo.<br><br>2. Libera espacio de almacenamiento eliminando cualquiera de los siguientes elementos:<br>- Artículos de otros catálogos<br>- Otros catálogos<br>- Selecciones creadas<br><br> Después de utilizar cualquiera de las dos soluciones, hay que desactivar la sincronización y volver a sincronizarla. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Solución de problemas" }

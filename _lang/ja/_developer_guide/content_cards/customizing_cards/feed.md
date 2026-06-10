@@ -50,6 +50,8 @@ function refresh() {
 }
 ```
 
+Content Cardsのリンクを同じタブではなく新しいブラウザタブで開くには、Web SDKの初期化オプションで`openCardsInNewTab: true`を設定します。初期化オプションの詳細については、[Web SDKリポジトリガイド]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/)を参照してください。
+
 {% endtab %}
 {% tab android %}
 
@@ -58,14 +60,14 @@ Android SDKから[`requestContentCardsRefresh`](https://braze-inc.github.io/braz
 {% subtabs local %}
 {% subtab Java %}
 
-`````````java
+```java
 Braze.getInstance(context).requestContentCardsRefresh();
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).requestContentCardsRefresh()
 ```
 
@@ -83,7 +85,7 @@ Swiftでは、オプションの完了ハンドラまたはネイティブのSwi
 
 #### 完了ハンドラ {#completion-handler}
 
-`````````swift
+```swift
 AppDelegate.braze?.contentCards.requestRefresh { result in
   // Implement completion handler
 }
@@ -91,13 +93,13 @@ AppDelegate.braze?.contentCards.requestRefresh { result in
 
 #### Async/Await
 
-`````````swift
+```swift
 let contentCards = await AppDelegate.braze?.contentCards.requestRefresh()
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
 
-`````````objc
+```objc
 [AppDelegate.braze.contentCards requestRefreshWithCompletion:^(NSArray<BRZContentCardRaw *> * contentCards, NSError * error) {
   // Implement completion handler
 }];
@@ -138,7 +140,7 @@ Content Cardsの表示順序を変更できます。これにより、時間的�
 
 `showContentCards():`の[`filterFunction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards)パラメーターを使用して、フィード内のContent Cardsの表示順序をカスタマイズします。以下に例を示します。
 
-`````````javascript
+```javascript
 braze.showContentCards(null, (cards) => {
   return sortBrazeCards(cards); // Where sortBrazeCards is your sorting function that returns the sorted card array
 });
@@ -153,7 +155,7 @@ braze.showContentCards(null, (cards) => {
 以下はデフォルトの`IContentCardsUpdateHandler`であり、カスタマイズの出発点として使用できます。
 
 {% details Javaの例を表示 %}
-`````````java
+```java
 public class DefaultContentCardsUpdateHandler implements IContentCardsUpdateHandler {
 
   // Interface that must be implemented and provided as a public CREATOR
@@ -221,7 +223,7 @@ public class DefaultContentCardsUpdateHandler implements IContentCardsUpdateHand
 {% enddetails %}
 
 {% details Kotlinの例を表示 %}
-`````````kotlin
+```kotlin
 class DefaultContentCardsUpdateHandler : IContentCardsUpdateHandler {
   override fun handleCardUpdate(event: ContentCardsUpdatedEvent): List<Card> {
     val sortedCards = event.allCards
@@ -287,7 +289,7 @@ class DefaultContentCardsUpdateHandler : IContentCardsUpdateHandler {
 {% subtab Jetpack Compose %}
 Jetpack ComposeでContent Cardsをフィルタリングおよびソートするには、`cardUpdateHandler`パラメータを設定します。以下に例を示します。
 
-`````````kotlin
+```kotlin
 ContentCardsList(
     cardUpdateHandler = {
         it.sortedWith { cardA, cardB ->
@@ -323,7 +325,7 @@ ContentCardsList(
 
 静的な[`Attributes.defaults`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/defaults)変数を直接変更して、カードフィードの順序をカスタマイズします。
 
-`````````swift
+```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
 attributes.transform = { cards in
     cards.sorted {
@@ -371,7 +373,7 @@ Web SDKでは、「空のフィード」の文言をプログラムで置き換�
 
 このメッセージの表示に使用されるスタイルは[`Braze.ContentCardsDisplay.Empty`](https://github.com/braze-inc/braze-android-sdk/blob/2e386dfa59a87bfc24ef7cb6ff5adf6b16f44d24/android-sdk-ui/src/main/res/values/styles.xml#L522-L530)で確認でき、次のコードスニペットに示されています。
 
-`````````xml
+```xml
 <style name="Braze.ContentCardsDisplay.Empty">
   <item name="android:lineSpacingExtra">1.5dp</item>
   <item name="android:text">@string/com_braze_feed_empty</item>
@@ -388,7 +390,7 @@ Content Cardsのスタイル要素のカスタマイズについて詳しくは�
 {% subtab Jetpack Compose %}
 Jetpack Composeで「空のフィード」エラーメッセージをカスタマイズするには、`emptyString`を[`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html)に渡します。また、[`emptyTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html#1193499348%2FProperties%2F-1725759721)を`ContentCardListStyling`に渡して、このメッセージをさらにカスタマイズすることもできます。
 
-`````````kotlin
+```kotlin
 ContentCardsList(
     emptyString = "No messages today",
     style = ContentCardListStyling(
@@ -397,9 +399,9 @@ ContentCardsList(
 )
 ```
 
-代わりに表示したいコンポーザブルがある場合は、`emptyComposable`を[`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html)に渡します。`emptyComposable`を指定した場合、`emptyString`は使用されません。
+代わりに表示したいComposableがある場合は、`emptyComposable`を[`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html)に渡します。`emptyComposable`を指定した場合、`emptyString`は使用されません。
 
-`````````kotlin
+```kotlin
 ContentCardsList(
     emptyComposable = {
         Image(
@@ -418,7 +420,7 @@ ContentCardsList(
 
 関連する[`Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/defaults)を設定して、ビューコントローラーの空の状態をカスタマイズします。
 
-`````````swift
+```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
 attributes.emptyStateMessage = "This is a custom empty state message"
 attributes.emptyStateMessageFont = .preferredFont(forTextStyle: .title1)
@@ -445,7 +447,7 @@ Content Cardsはアプリ内でフィルタリングして特定のカードの�
 
 ### ステップ1:カードにキーと値のペアを設定する {#step-1-set-key-value-pairs-on-cards}
 
-Content Cards キャンペーンを作成する際に、各カードに[キーと値のペアデータ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior/)を設定します。このキーと値のペアを使用してカードを分類します。キーと値のペアは、カードのデータモデルの`extras`プロパティに保存されます。
+Content Cards Campaignを作成する際に、各カードに[キーと値のペアデータ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior/)を設定します。このキーと値のペアを使用してカードを分類します。キーと値のペアは、カードのデータモデルの`extras`プロパティに保存されます。
 
 この例では、カードが表示されるContent Cardsフィードを指定するキー`feed_type`を使用してキーと値のペアを設定します。値は、`home_screen`や`marketing`など、カスタムフィードに応じた任意の値になります。
 
@@ -458,7 +460,7 @@ Content Cards キャンペーンを作成する際に、各カードに[キー�
 
 次の例では、`Transactional`タイプのカードのContent Cardsフィードを表示します。
 
-`````````javascript
+```javascript
 
 /**
  * @param {String} feed_type - value of the "feed_type" KVP to filter
@@ -472,7 +474,7 @@ function showCardsByFeedType(feed_type) {
 
 次に、カスタムフィードのトグルを設定できます。
 
-`````````javascript
+```javascript
 // show the "Transactional" feed when this button is clicked
 document.getElementById("show-transactional-feed").onclick = function() {
   showCardsByFeedType("Transactional");
@@ -493,7 +495,7 @@ document.getElementById("show-transactional-feed").onclick = function() {
 ダッシュボードで[`Card.getExtras()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html)によって設定されたキーと値のペアを使用してカスタム[`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html)を実装し、先ほど設定した`feed_type`の値と一致しないカードをリストから削除するように変更することで、Content Cardsをフィルタリングできます。
 
 {% details Javaの例を表示 %}
-`````````java
+```java
 private IContentCardsUpdateHandler getUpdateHandlerForFeedType(final String desiredFeedType) {
   return new IContentCardsUpdateHandler() {
     @Override
@@ -534,7 +536,7 @@ private IContentCardsUpdateHandler getUpdateHandlerForFeedType(final String desi
 {% enddetails %}
 
 {% details Kotlinの例を表示 %}
-`````````kotlin
+```kotlin
 private fun getUpdateHandlerForFeedType(desiredFeedType: String): IContentCardsUpdateHandler {
   return IContentCardsUpdateHandler { event ->
     // Use the default card update handler for a first
@@ -576,7 +578,7 @@ private fun getUpdateHandlerForFeedType(desiredFeedType: String): IContentCardsU
 [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html)を作成したら、それを使用する[`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html)を作成します。このカスタムフィードは、他の`ContentCardsFragment`と同様に使用できます。アプリのさまざまな部分で、ダッシュボードで設定したキーに基づいて、異なるContent Cardsフィードを表示します。各`ContentCardsFragment`フィードには、各フラグメントのカスタム`IContentCardsUpdateHandler`により、固有のカードセットが表示されます。
 
 {% details Javaの例を表示 %}
-`````````java
+```java
 // We want a Content Cards feed that only shows "Transactional" cards.
 ContentCardsFragment customContentCardsFragment = new ContentCardsFragment();
 customContentCardsFragment.setContentCardUpdateHandler(getUpdateHandlerForFeedType("Transactional"));
@@ -584,7 +586,7 @@ customContentCardsFragment.setContentCardUpdateHandler(getUpdateHandlerForFeedTy
 {% enddetails %}
 
 {% details Kotlinの例を表示 %}
-`````````kotlin
+```kotlin
 // We want a Content Cards feed that only shows "Transactional" cards.
 val customContentCardsFragment = ContentCardsFragment()
 customContentCardsFragment.contentCardUpdateHandler = getUpdateHandlerForFeedType("Transactional")
@@ -595,7 +597,7 @@ customContentCardsFragment.contentCardUpdateHandler = getUpdateHandlerForFeedTyp
 {% subtab Jetpack Compose %}
 このフィードに表示されるContent Cardsをフィルタリングするには、`cardUpdateHandler`を使用します。以下に例を示します。
 
-`````````kotlin
+```kotlin
 ContentCardsList(
      cardUpdateHandler = {
          it.filter { card ->
@@ -614,14 +616,14 @@ The following example will show the Content Cards feed for `Transactional` type 
 {% subtabs %}
 {% subtab Swift %}
 
-`````````swift
+```swift
 // Filter cards by the `Transactional` feed type based on your key-value pair.
 let transactionalCards = cards.filter { $0.extras["feed_type"] as? String == "Transactional" }
 ```
 
 さらに一歩進めて、ビューコントローラーに表示されるカードは、`Attributes`構造体の`transform`プロパティを設定して、条件でフィルタリングされたカードのみを表示するようにフィルタリングできます。
 
-`````````swift
+```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
 attributes.transform = { cards in
   cards.filter { $0.extras["feed_type"] as? String == "Transactional" }
@@ -634,7 +636,7 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 {% endsubtab %}
 {% subtab Objective-C %}
 
-`````````objc
+```objc
 // Filter cards by the `Transactional` feed type based on your key-value pair.
 NSMutableArray<BRZContentCardRaw *> *transactionalCards = [[NSMutableArray alloc] init];
 for (BRZContentCardRaw *card in AppDelegate.braze.contentCards.cards) {

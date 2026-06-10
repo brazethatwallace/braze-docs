@@ -26,7 +26,7 @@ Lo siguiente es necesario antes de habilitar la integración:
 |---|---|
 | Cuenta de Flybuy | Una cuenta de Flybuy con al menos un proyecto. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos de `users.track`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 

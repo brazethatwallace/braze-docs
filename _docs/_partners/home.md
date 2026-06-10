@@ -358,6 +358,8 @@ valid_partner_list:
   url: /docs/partners/sessionm/
 - name: Tapcart
   url: /docs/partners/tapcart/
+- name: Talkable
+  url: /docs/partners/talkable/
 - name: Mention Me
   url: /docs/partners/mention_me/
 - name: JustAI
@@ -416,6 +418,8 @@ valid_partner_list:
   url: /docs/partners/gemini/
 - name: Anthropic
   url: /docs/partners/anthropic/
+- name: Databricks Mosaic
+  url: /docs/partners/databricks_mosaic/
 - name: Algolia
   url: /docs/partners/algolia/
 - name: Canva

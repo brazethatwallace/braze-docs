@@ -29,7 +29,7 @@ If you don't see **Braze Auto** as an option in the **Model** dropdown when crea
 
 With this option, you can connect your Braze account with providers like OpenAI, Anthropic, or Google Gemini. If you bring your own API key from an LLM provider, token costs are billed directly through your provider, not through Braze.
 
-We recommend routinely testing the most recent models, as legacy models may be discontinued or deprecated after a few months. You can also sign up for Agent Console notifications in [Notification Preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) to be alerted when Braze detects a model is no longer available.
+We recommend routinely testing the most recent models, as legacy models may be discontinued or deprecated after a few months. Make sure you have sufficient credits with your provider to run your agents at scale. You can also sign up for Agent Console notifications in [Notification Preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) to be alerted when Braze detects a model is no longer available or encounters billing issues with your LLM provider.
 
 To set this up:
 
@@ -71,12 +71,22 @@ Each LLM provider has a slightly different mix of model capabilities, costs, and
 - During testing, make sure to balance the reliability and accuracy with token usage and invocation duration.
 - Each use case may have a different optimal model and thinking level. We recommend thoroughly testing to check for consistent quality without timeouts.
 
-### Rate limits
+### Invocation flow controls
 
-The following rate limits apply per workspace:
+The following invocation flow controls apply per workspace:
 
 - **Braze-powered model:** 1,000 invocations per minute 
-- **Bringing your own API key:** 2,500 invocations per minute 
+- **Bringing your own API key:** 2,500 invocations per minute
+
+When many users enter an Agent step at once, Braze queues invocations according to these limits, so processing may take longer during high-volume sends.
+
+### Rate limit errors
+
+If the LLM provider returns a rate limit error, Braze retries the request up to five times using exponential backoff. This retry behavior applies to Canvas Agent steps. Catalog agents do not retry failed invocations, including rate limit errors from the LLM provider.
+
+If all retries fail, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Every retry is visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
+
+![Agent Console log details showing a rate limit exceeded error in the Output field.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
 ## Writing instructions
 

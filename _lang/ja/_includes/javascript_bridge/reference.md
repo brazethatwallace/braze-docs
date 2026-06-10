@@ -50,10 +50,6 @@ window.addEventListener("ab.BridgeReady", function(){
 }
 </style>
 
-{% alert note %}
-Liquidを参照して、<code>customAttributes</code>をJavaScriptブリッジメソッドに挿入することはできません。
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
 ### ボタンクリックのトラッキング {#button-click-tracking}
@@ -72,15 +68,15 @@ Liquidを参照して、<code>customAttributes</code>をJavaScriptブリッジ�
 | ボタン1 | `brazeBridge.logClick('0')` | アプリ内メッセージのみ |
 | ボタン2 | `brazeBridge.logClick('1')` | アプリ内メッセージのみ |
 | カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` | アプリ内メッセージのみ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button click tracking" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ボタンクリックのトラッキング" }
 
 アプリ内メッセージでは、1回のインプレッションごとに複数のボタンクリックイベントをトラッキングできます。例えば、メッセージを閉じてボタン2のクリックを記録するには：
 
-`````````html
+```html
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>
 ```
 
-また、新しいカスタムボタン名をトラッキングすることもできます（キャンペーンあたり最大100個のユニークな名前）。例えば、`brazeBridge.logClick('blue button')`や`brazeBridge.logClick('viewed carousel page 3')`などです。
+また、新しいカスタムボタン名をトラッキングすることもできます（Campaignあたり最大100個のユニークな名前）。例えば、`brazeBridge.logClick('blue button')`や`brazeBridge.logClick('viewed carousel page 3')`などです。
 
 {% alert tip %}
 `onclick`属性内でJavaScriptメソッドを使用する場合、ダブルクォートで囲まれたHTML属性との衝突を避けるため、文字列値はシングルクォートで囲んでください。
@@ -88,6 +84,6 @@ Liquidを参照して、<code>customAttributes</code>をJavaScriptブリッジ�
 
 #### 制限事項（アプリ内メッセージのみ） {#limitations-in-app-messages-only}
 
-- キャンペーンあたり最大100個のユニークなボタンIDを設定できます。
+- Campaignあたり最大100個のユニークなボタンIDを設定できます。
 - ボタンIDはそれぞれ最大255文字です。
 - ボタンIDには、英字、数字、スペース、ダッシュ、およびアンダースコアのみを使用できます。

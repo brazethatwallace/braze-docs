@@ -23,7 +23,7 @@ Braze tiene tres estados de suscripción globales para los usuarios de correo el
 | Adhesión voluntaria | Un usuario ha confirmado explícitamente que desea recibir correo electrónico. Recomendamos un proceso de adhesión voluntaria explícito para obtener el consentimiento de los usuarios para enviar correos electrónicos. |
 | Suscrito | Un usuario no ha cancelado su suscripción ni ha optado explícitamente por recibir correos electrónicos. Este es el estado de suscripción predeterminado cuando se crea un perfil de usuario. |
 | Canceló suscripción | Un usuario ha cancelado explícitamente la suscripción a tus correos electrónicos. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de suscripción" }
 
 {% alert note %}
 Braze no cuenta los cambios de estado de suscripción como puntos de datos, ni a nivel global ni en los grupos de suscripción.
@@ -81,13 +81,15 @@ Cuando un usuario actualiza su dirección de correo electrónico, su estado de s
 
 Para solucionar problemas con los cambios de estado de suscripción, revisa **Cambios en el estado de suscripción de correo electrónico** en los registros del perfil de usuario para ver el historial y la fuente (API o SDK).
 
+Cuando el estado de suscripción global de correo electrónico de un usuario cambia, Braze propaga ese estado a otros perfiles que comparten la misma dirección de correo electrónico, hasta 100 perfiles por cambio. Braze no garantiza la propagación cuando más de 100 perfiles comparten la misma dirección de correo electrónico. Si los usuarios que comparten un correo electrónico muestran diferentes estados de suscripción, ponte en contacto con soporte de Braze.
+
 ## Grupos de suscripción {#subscription-groups}
 
 Los grupos de suscripción son filtros de segmento que pueden reducir aún más tu audiencia a partir de los [estados de suscripción globales](#subscription-states). Estos grupos te permiten presentar opciones de suscripción más detalladas a los usuarios finales.
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-Por ejemplo, supongamos que envías múltiples categorías de Campaigns de correo electrónico (promocionales, boletines informativos o actualizaciones de producto). En ese caso, puedes usar grupos de suscripción para permitir que tus clientes elijan de qué categorías de correo electrónico desean suscribirse o cancelar la suscripción de forma masiva desde una sola página, usando un [centro de preferencias de correo electrónico](#email-preference-center). Alternativamente, podrías usar grupos de suscripción para permitir que tus clientes elijan con qué frecuencia desean recibir correos electrónicos, creando grupos de suscripción para correos electrónicos diarios, semanales o mensuales.
+Por ejemplo, supongamos que envías múltiples categorías de campañas de correo electrónico (promocionales, boletines informativos o actualizaciones de producto). En ese caso, puedes usar grupos de suscripción para permitir que tus clientes elijan de qué categorías de correo electrónico desean suscribirse o cancelar la suscripción de forma masiva desde una sola página, usando un [centro de preferencias de correo electrónico](#email-preference-center). Alternativamente, podrías usar grupos de suscripción para permitir que tus clientes elijan con qué frecuencia desean recibir correos electrónicos, creando grupos de suscripción para correos electrónicos diarios, semanales o mensuales.
 
 Usa los [puntos de conexión de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups/) para administrar programáticamente los grupos de suscripción que has almacenado en el dashboard de Braze en la página **Grupo de suscripción**.
 
@@ -184,7 +186,7 @@ Si usas el pie de página del dashboard en lugar de solo un bloque de contenido 
 
 ### Creación de una página personalizada de adhesión voluntaria {#creating-a-custom-opt-in-page}
 
-Usa una página personalizada de adhesión voluntaria para permitir que los usuarios reconozcan y controlen las preferencias de notificación antes de suscribirse. Esta comunicación adicional puede ayudar a que las Campaigns de correo electrónico no terminen en las carpetas de correo no deseado.
+Usa una página personalizada de adhesión voluntaria para permitir que los usuarios reconozcan y controlen las preferencias de notificación antes de suscribirse. Esta comunicación adicional puede ayudar a que las campañas de correo electrónico no terminen en las carpetas de correo no deseado.
 
 1. Ve a **Configuración** > **Preferencias de correo electrónico**.
 2. Selecciona **Páginas de suscripción y pies de página**.

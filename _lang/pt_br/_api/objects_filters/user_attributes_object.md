@@ -61,7 +61,7 @@ Para mais detalhes, veja [Exemplo de API de array de objetos]({{site.baseurl}}/u
 
 Para remover uma atribuição de perfil, defina-a como `null`. Alguns campos, como `external_id` e `user_alias`, não podem ser removidos depois de serem adicionados a um perfil de usuário.
 
-#### Resolução de identificador {#identifier-resolution}
+### Resolução de identificador {#identifier-resolution}
 
 A menos que você esteja realizando uma [importação de token por push anônimo](#push-token-import), cada objeto de atributos de usuário deve incluir pelo menos um identificador: `external_id`, `user_alias`, `braze_id`, `email` ou `phone`. Sempre que possível, inclua apenas um identificador por objeto para evitar ambiguidade sobre qual perfil de usuário está sendo atualizado ou criado.
 
@@ -323,7 +323,23 @@ A Braze verifica uma vez por mês para encontrar qualquer perfil anônimo com a 
 {% endtab %}
 {% endtabs %}
 
-### Importação de tokens por push do Android {#importing-android-push-tokens}
+### Importação de tokens por push do iOS {#import-ios-push-tokens}
+
+Ao migrar tokens por push do iOS com `/users/track`, o campo `gateway` não é definido no token por push. A Braze assume que os tokens importados pela API são tokens de push de primeiro plano válidos, mas não consegue determinar a qual ambiente APNs o token pertence.
+
+Sem o campo gateway, a Braze usa a configuração de ambiente de fallback do seu app ao enviar notificações por push. Isso pode levar a erros `BadDeviceToken` se o ambiente real do token for diferente do fallback configurado. Por exemplo, um token de desenvolvimento enviado pelo gateway de produção falhará.
+
+Para evitar problemas de entrega:
+
+- Certifique-se de que a configuração de ambiente do seu app no dashboard da Braze corresponda aos tokens que você está importando.
+- Para apps de produção, importe apenas tokens de produção.
+- Para ambientes de teste, verifique se tanto a configuração do seu app quanto os tokens importados usam o ambiente de desenvolvimento.
+
+{% alert note %}
+Tokens registrados através do SDK da Braze incluem o campo gateway automaticamente, pois o SDK detecta o ambiente a partir dos entitlements do seu app.
+{% endalert %}
+
+### Importação de tokens por push do Android {#import-android-push-tokens}
 
 {% alert important %}
 A seguinte consideração se aplica apenas para apps Android. Apps iOS não requerem essas etapas porque essa plataforma tem apenas um framework para exibir push, e as notificações por push são renderizadas imediatamente, desde que a Braze tenha os tokens por push e certificados necessários.

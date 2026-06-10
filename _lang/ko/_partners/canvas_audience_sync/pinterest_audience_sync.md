@@ -36,7 +36,7 @@ Canvas에서 Pinterest Audience 단계를 설정하기 전에 다음 항목이 �
 | Pinterest Business Hub | [Pinterest](https://www.pinterest.com/business/hub/) | 브랜드의 Pinterest 자산(광고 계정, 페이지, 앱 등)을 관리하는 중앙 집중식 도구입니다. |
 | Pinterest 광고 계정 | [Pinterest](https://ads.pinterest.com/) | 브랜드의 Pinterest Business Hub에 연결된 활성 Pinterest 광고 계정입니다.<br><br>Pinterest Business Hub 관리자가 Braze와 함께 사용할 Pinterest 광고 계정에 대한 관리자 권한을 부여했는지 확인하세요. |
 | Pinterest 약관 및 정책 | Pinterest | Pinterest Audience Sync 사용과 관련된 Pinterest의 필수 약관, 정책, 가이드라인 및 문서를 준수하는 데 동의합니다. 여기에는 서비스 약관, 비즈니스 서비스 약관, 개인정보 보호정책, 개발자 및 API 서비스 약관, 광고 데이터 약관, 광고 가이드라인, 광고 서비스 계약, 커뮤니티 가이드라인 및 브랜드 가이드라인이 포함될 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -48,11 +48,11 @@ Pinterest를 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl
 
 Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동하여 **Pinterest**를 선택합니다. Pinterest Audience Sync 아래에서 **Connect Pinterest**를 선택합니다.
 
-![Braze의 Pinterest 기술 페이지로, 개요 섹션과 Pinterest Audience Sync 섹션이 포함되어 있으며 Connect Pinterest 버튼이 있습니다.]({% image_buster /assets/img/pinterest/pinterest1.png %}){: style="max-width:80%;"}
+![개요 섹션과 Pinterest Audience Sync 섹션이 포함된 Braze의 Pinterest 기술 페이지로, Connect Pinterest 버튼이 있습니다.]({% image_buster /assets/img/pinterest/pinterest1.png %}){: style="max-width:80%;"}
 
 그러면 Pinterest OAuth 페이지로 리디렉션되어 Braze에 광고 계정 관리 및 오디언스 관리 권한을 부여합니다.
 
-**Confirm**을 선택하면 Braze로 다시 리디렉션되어 동기화할 Pinterest 광고 계정을 선택할 수 있습니다.
+**확인**을 선택하면 Braze로 다시 리디렉션되어 동기화할 Pinterest 광고 계정을 선택할 수 있습니다.
 
 ![Pinterest에 연결할 수 있는 사용 가능한 광고 계정 목록.]({% image_buster /assets/img/pinterest/pinterest2.png %}){: style="max-width:80%;"}
 
@@ -128,7 +128,7 @@ Pinterest의 Segment API 사용량 제한은 사용자당 초당 7개의 쿼리�
 | Users Pending | 현재 Braze에서 Pinterest로 동기화하기 위해 처리 중인 사용자 수입니다. |
 | Users Errored | 약 13시간의 재시도 후 API 오류로 인해 Pinterest에 동기화되지 않은 사용자 수입니다. 오류의 잠재적 원인에는 유효하지 않은 Pinterest 토큰 또는 Pinterest에서 오디언스가 삭제된 경우가 포함될 수 있습니다. |
 | Exited Canvas | Canvas를 종료한 사용자 수입니다. 이는 Canvas의 마지막 단계가 Audience Sync 구성요소인 경우 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석 이해하기" }
 
 {% alert important %}
 동기화된 사용자 및 오류 측정기준에 대한 보고는 각각 대량 플러셔 및 13시간 재시도로 인해 지연이 발생할 수 있습니다.

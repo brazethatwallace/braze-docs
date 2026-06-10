@@ -10,7 +10,7 @@ channel: email
 
 # 이메일 인증 {#email-authentication}
 
-> 이메일 인증은 이메일의 출처에 대한 검증 가능한 정보를 제공하는 기술 모음입니다.<br><br>적절한 인증은 인터넷 서비스 공급자(ISP)가 사용자를 바람직한 이메일 발신자로 인식하고 메일을 즉시 전달할 수 있도록 하는 데 매우 중요합니다. 인증이 없으면 해당 아웃리치는 사기성 아웃리치로 간주됩니다.
+> 이메일 인증은 이메일의 출처에 대한 검증 가능한 정보를 제공하는 기술 모음입니다.<br><br>적절한 인증은 인터넷 서비스 공급자(ISP)가 사용자를 바람직한 이메일 발신자로 인식하고 메일을 즉시 전달할 수 있도록 하는 데 매우 중요합니다. 인증이 없으면 해당 아웃리치는 사기성으로 간주됩니다.
 
 {% alert note %}
 **BIMI**(Brand Indicators for Message Identification)의 경우 Braze와 별도로 조율할 필요가 없습니다. 필수 DNS 레코드와 인증서는 사용자 측에서 관리합니다.
@@ -51,7 +51,7 @@ DMARC 레코드는 또한 이메일 서버에 DMARC 레코드에 나열된 보�
 | None | 메일박스 제공자에게 실패한 메시지에 대해 아무 조치도 취하지 않도록 지시합니다. |
 | Quarantine | 메일박스 제공자에게 실패한 메시지를 스팸 폴더로 보내도록 지시합니다. |
 | Reject | 메일박스 제공자에게 실패한 메시지가 스팸 폴더로 이동하며 차단되어야 한다고 지시합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="작동 방식" }
 
 #### 도메인의 DMARC 인증을 확인하는 방법 {#how-to-check-your-domains-dmarc-authentication}
 
@@ -63,8 +63,19 @@ DMARC 레코드는 또한 이메일 서버에 DMARC 레코드에 나열된 보�
 
 예를 들어 Gmail을 사용하는 경우 다음 단계를 따르세요:
 
-1. 이메일 메시지에서 **More** <i class="fa-solid fa-ellipsis"></i>를 클릭합니다.
-2. **Show original**을 선택합니다.
+1. 이메일 메시지에서 **더보기** <i class="fa-solid fa-ellipsis"></i>를 클릭합니다.
+2. **원본 보기**를 선택합니다.
 3. **DMARC**에 "PASS" 상태가 있는지 확인합니다.
 
 ![DMARC 값이 "PASS"인 이메일 예시.]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+#### DMARC 실패 문제 해결 {#troubleshoot-dmarc-failures}
+
+Braze를 통해 전송된 메시지에서 DMARC가 **FAIL**로 표시되는 경우:
+
+1. 최근 메시지의 원본 헤더 또는 인증 결과를 열고 **SPF**와 **DKIM**이 각각 통과했는지 실패했는지 확인합니다.
+2. **정렬:** DMARC는 SPF *또는* DKIM 중 *하나*가 **From** 도메인과 정렬되면 통과합니다. 정렬이란 **From** 도메인이 SPF를 통과한 도메인(보통 **Return-Path** / 봉투 도메인) *또는* DKIM **d=** 서명의 도메인과 일치하는 것을 의미합니다.
+3. SPF는 통과했지만 DMARC가 실패하는 경우, Return-Path 도메인이 **From** 도메인과 정렬되지 않을 수 있습니다. [화이트라벨 전송 및 추적 도메인]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)이 SPF 및 DKIM을 게시한 도메인과 일치하는지 확인하세요.
+4. DKIM이 실패하는 경우, Braze에서 제공한 DKIM DNS 레코드가 존재하고 변경되지 않았는지 확인합니다.
+
+서드파티 검사 도구(예: [MXToolbox](https://mxtoolbox.com/dmarc.aspx))를 사용하면 게시된 레코드를 확인하는 데 도움이 됩니다. 항상 Braze에서 보낸 실제 메시지로도 검증하세요.

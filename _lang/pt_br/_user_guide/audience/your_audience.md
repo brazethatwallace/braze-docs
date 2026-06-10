@@ -167,4 +167,4 @@ Uma vez que os dados de usuários estão na Braze, eles alimentam praticamente t
 | Automação e orquestração  | Acione mensagens e jornadas com base em: {::nomarkdown}<ul><li>Ações do usuário</li> <li>Mudanças de atributos</li> <li>Condições baseadas em tempo</li></ul>{:/} |
 | Coordenação entre canais | Alcance os usuários no canal mais apropriado, respeitando: {::nomarkdown}<ul><li>Status de opt-in</li> <li>Limites de frequência</li> <li>Preferências de canal</li></ul>{:/} |
 | [Análise de dados e insights]({{site.baseurl}}/user_guide/analytics/) | Entenda como diferentes públicos se comportam analisando: {::nomarkdown}<ul><li>Taxas de engajamento</li> <li>Jornadas de conversão</li> <li>Desempenho de segmentos ao longo do tempo</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience data features" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Funcionalidades de dados do público" }

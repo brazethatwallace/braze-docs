@@ -61,7 +61,7 @@ REST API 요청에서 `$add`, `$remove` 또는 `$update`를 사용하면 Braze�
 
 프로필 속성을 제거하려면 `null`로 설정합니다. `external_id` 및 `user_alias` 같은 일부 필드는 고객 프로필에 추가한 후에는 제거할 수 없습니다.
 
-#### 식별자 확인 {#identifier-resolution}
+### 식별자 확인 {#identifier-resolution}
 
 [익명 푸시 토큰 가져오기](#push-token-import)를 수행하지 않는 한, 각 사용자 속성 오브젝트에는 최소한 하나의 식별자(`external_id`, `user_alias`, `braze_id`, `email` 또는 `phone`)가 포함되어야 합니다. 가능하면 어떤 고객 프로필이 업데이트되거나 생성되는지에 대한 모호성을 피하기 위해 오브젝트당 하나의 식별자만 포함하세요.
 
@@ -118,7 +118,7 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 | 정수 | 정수 커스텀 속성은 "inc" 필드와 추가할 양을 가진 오브젝트를 할당하여 증가시킬 수 있습니다. <br><br>예시: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | 중첩 커스텀 속성 | 중첩 커스텀 속성은 속성 집합을 다른 속성의 등록정보로 정의합니다. 커스텀 속성 오브젝트를 정의할 때 해당 오브젝트에 속성 집합을 추가합니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)을 참조하세요. |
 | 문자열 | 문자열 커스텀 속성은 텍스트 데이터를 저장하는 데 사용되는 문자 시퀀스입니다. 예를 들어 문자열을 사용하여 이름과 성, 이메일 주소 또는 환경설정을 저장할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attribute data types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 속성 데이터 유형" }
 
 {% alert tip %}
 커스텀 이벤트와 커스텀 속성을 언제 사용해야 하는지에 대한 지침은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) 및 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 참조하세요.
@@ -175,7 +175,7 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 | subscription_groups| `subscription_group_id` 및 `subscription_state` 문자열이 포함된 오브젝트 배열(예: `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`). `subscription_state`에 사용할 수 있는 값은 "subscribed" 및 "unsubscribed"입니다.|
 | time_zone | (문자열) [IANA 시간대 데이터베이스](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)의 시간대 이름(예: "America/New_York" 또는 "Eastern Time (US & Canada)"). 유효한 시간대 값만 설정됩니다. |
 | twitter | `id`(정수), `screen_name`(문자열, X(구 Twitter) 핸들), `followers_count`(정수), `friends_count`(정수), `statuses_count`(정수) 중 하나를 포함하는 해시입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze 고객 프로필 필드" }
 
 이 API를 통해 명시적으로 설정된 언어 값은 Braze가 기기에서 자동으로 수신하는 로케일 정보보다 우선합니다.
 
@@ -234,7 +234,7 @@ Braze를 통합하기 전에 자체적으로 또는 다른 제공업체를 통�
 |----------------------|------------|
 | **서비스 워커**  | 기본적으로 웹 SDK는 `manageServiceWorkerExternally` 또는 `serviceWorkerLocation`과 같은 다른 옵션이 지정되지 않는 한 `./service-worker`에서 서비스 워커를 찾습니다. 서비스 워커가 제대로 설정되어 있지 않으면 사용자의 푸시 토큰이 만료될 수 있습니다. |
 | **만료된 토큰**   | 사용자가 60일 이내에 웹 세션을 시작하지 않으면 푸시 토큰이 만료됩니다. Braze는 만료된 푸시 토큰을 마이그레이션할 수 없으므로, 사용자를 재참여시키기 위해 [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)를 보내야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Web token considerations" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="웹 토큰 고려 사항" }
 
 ### API를 통한 수동 마이그레이션 {#manual-migration-through-api}
 
@@ -323,7 +323,23 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 {% endtab %}
 {% endtabs %}
 
-### Android 푸시 토큰 가져오기 {#importing-android-push-tokens}
+### iOS 푸시 토큰 가져오기 {#import-ios-push-tokens}
+
+`/users/track`으로 iOS 푸시 토큰을 마이그레이션할 때 푸시 토큰에 `gateway` 필드가 설정되지 않습니다. Braze는 API를 통해 가져온 토큰이 유효한 포그라운드 푸시 토큰이라고 가정하지만, 해당 토큰이 어떤 APNs 환경에 속하는지는 판별할 수 없습니다.
+
+gateway 필드가 없으면 Braze는 푸시 알림을 보낼 때 앱에 설정된 대체 환경 설정을 사용합니다. 토큰의 실제 환경이 설정된 대체 환경과 다른 경우 `BadDeviceToken` 오류가 발생할 수 있습니다. 예를 들어, 개발 토큰이 프로덕션 게이트웨이를 통해 전송되면 실패합니다.
+
+전달 문제를 방지하려면:
+
+- Braze 대시보드의 앱 환경 설정이 가져오는 토큰과 일치하는지 확인하세요.
+- 프로덕션 앱의 경우 프로덕션 토큰만 가져오세요.
+- 테스트 환경의 경우 앱 구성과 가져온 토큰이 모두 개발 환경을 사용하는지 확인하세요.
+
+{% alert note %}
+Braze SDK를 통해 등록된 토큰은 SDK가 앱의 자격 증명에서 환경을 감지하므로 gateway 필드가 자동으로 포함됩니다.
+{% endalert %}
+
+### Android 푸시 토큰 가져오기 {#import-android-push-tokens}
 
 {% alert important %}
 다음 고려 사항은 Android 앱에만 적용됩니다. iOS 앱은 푸시를 표시하기 위한 단일 프레임워크만 있으므로 이러한 단계가 필요하지 않으며, Braze가 필요한 푸시 토큰과 인증서를 가지고 있는 한 푸시 알림이 즉시 표시됩니다.
