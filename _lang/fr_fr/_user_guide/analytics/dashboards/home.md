@@ -23,13 +23,13 @@ La page **Accueil** comporte deux sections principales :
 
 Vous pouvez reprendre là où vous vous étiez arrêté dans le tableau de bord de Braze grâce à un accès direct aux fichiers que vous avez récemment modifiés ou créés. Cette section apparaît en haut de la page **Accueil** du tableau de bord de Braze.
 
-Vous pouvez revenir aux campagnes, Canvas et segments récemment modifiés ou créés. Chaque carte est accompagnée d'étiquettes indiquant le type de contenu (campagne, Canvas, segment) et l'état (actif, brouillon, archivé, arrêté).
+Vous pouvez revenir aux Campaigns, Canvas et Segments récemment modifiés ou créés. Chaque carte est accompagnée d'étiquettes indiquant le type de contenu (Campaign, Canvas, Segment) et l'état (actif, brouillon, archivé, arrêté).
 
 {% alert note %}
-La section **Reprendre là où vous vous étiez arrêté** apparaît après que vous avez modifié ou créé une campagne, un Canvas ou un segment.
+La section **Reprendre là où vous vous étiez arrêté** apparaît après que vous avez modifié ou créé une Campaign, un Canvas ou un Segment.
 {% endalert %}
 
-![Un brouillon de Canvas, un segment actif et un brouillon de campagne dans la section « Reprendre là où vous vous étiez arrêté ».]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
+![Un brouillon de Canvas, un Segment actif et un brouillon de Campaign dans la section « Reprendre là où vous vous étiez arrêté ».]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
 ## Aperçu des performances {#performance-overview}
 
@@ -45,7 +45,7 @@ Par exemple, si vous définissez votre plage de dates sur **7 derniers jours** e
 
 ### Afficher le détail {#show-breakdown}
 
-Sélectionnez **Show Breakdown** pour chaque ligne des statistiques de l'aperçu des performances afin de visualiser la valeur de chaque statistique par jour pour la plage de dates spécifiée.
+Sélectionnez **Afficher le détail** pour chaque ligne des statistiques de l'aperçu des performances afin de visualiser la valeur de chaque statistique par jour pour la plage de dates spécifiée.
 
 ![Développer]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
@@ -59,24 +59,24 @@ Vous pouvez tracer des statistiques pour :
 - Bannières
 - Content Cards
 - Utilisateurs actifs quotidiens
-  - (Facultatif) Répartition par segment
+  - (Facultatif) Répartition par Segment
 - E-mail
 - Messages in-app
 - Formules d'indicateurs clés de performance
-  - Sélectionnez **Manage KPI Formulas** pour créer une formule ou modifier une formule existante.
+  - Sélectionnez **Gérer les formules d'indicateurs** pour créer une formule ou modifier une formule existante.
 - LINE
 - Utilisateurs actifs par mois (MAU)
 - Nouveaux utilisateurs
 - Push
-  - (Facultatif) Répartition par segment
+  - (Facultatif) Répartition par Segment
 - Sessions
-  - (Facultatif) Répartition par segment ou version de l'application
+  - (Facultatif) Répartition par Segment ou version de l'application
 - Sessions par heure
 - Sessions par MAU
 - SMS
 - Adhérence
 - Désinstallations
-  - (Facultatif) Répartition par segment
+  - (Facultatif) Répartition par Segment
 - Utilisateurs
 - Webhooks
 - WhatsApp
@@ -135,7 +135,7 @@ Les instantanés de MAU sont calculés une fois par jour et ne changent jamais r
 
 ### Utilisateurs actifs quotidiens {#daily-active-users}
 
-*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos campagnes de communication pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
+*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos campagnes pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
 
 ### Nouveaux utilisateurs {#new-users}
 
@@ -143,6 +143,8 @@ Les instantanés de MAU sont calculés une fois par jour et ne changent jamais r
 
 {% alert note %}
 Lors de l'intégration initiale de Braze, tous les utilisateurs apparaîtront comme de nouveaux utilisateurs, car Braze n'a jamais enregistré de session pour eux auparavant.
+
+Contrairement aux MAU, le nombre de *Nouveaux utilisateurs* peut diminuer rétroactivement lorsque Braze fusionne un profil anonyme avec un profil identifié et rend le profil anonyme orphelin. Braze retire le profil orphelin des totaux d'utilisation de l'application, ce qui peut réduire le nombre de *Nouveaux utilisateurs* pour des dates que vous avez déjà consultées. Pour en savoir plus sur le comportement de liaison des profils, consultez [Cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
 {% endalert %}
 
 {% alert important %}

@@ -22,10 +22,10 @@ A integração entre a Antavo e a Braze permite que você use dados relacionados
 | Requisito | Descrição |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Conta Antavo | Para aproveitar essa parceria, é necessário ter uma conta [Antavo](https://antavo.com/) com a integração Braze ativada. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões: `users.track`, `events.list`, `events.data_series` e `events.get`.<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões: `users.track`, `events.list`, `events.data_series` e `events.get`.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-| Identificador do app Braze | A chave do identificador do seu app. <br><br>Para localizar essa chave no dashboard da Braze, acesse **Settings** > **API Keys** e encontre a seção **Identification**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Identificador do app Braze | A chave do identificador do seu app. <br><br>Para localizar essa chave no dashboard da Braze, acesse **Configurações** > **Chaves de API** e encontre a seção **Identification**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -54,7 +54,7 @@ Para configurar o mapeamento de campos na Antavo:
 3. Informe o **Remote field** que representa o atributo personalizado equivalente na Braze no qual os dados serão preenchidos.
 
 {% alert note %}
-Você pode encontrar sua lista de atributos personalizados na Braze em **Data Settings** > **Custom Attributes**. Se o campo que você inserir não estiver definido na Braze, um novo campo será gerado automaticamente com a primeira sincronização.
+Você pode encontrar sua lista de atributos personalizados na Braze em **Configurações de dados** > **Atributos personalizados**. Se o campo que você inserir não estiver definido na Braze, um novo campo será gerado automaticamente com a primeira sincronização.
 {% endalert %}
 
 {:start="4"}
@@ -70,9 +70,9 @@ Quando qualquer valor dos campos configurados é alterado na Antavo, não apenas
 Para minimizar o uso de pontos de dados, recomendamos mapear apenas os campos que serão acionados na Braze.
 {% endalert %}
 
-#### Tipos de dados suportados {#supported-data-types}
+#### Tipos de dados compatíveis {#supported-data-types}
 
-A integração suporta todos os [tipos de dados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-storage) de atributos personalizados da Braze, a saber: número (inteiro, flutuante), string, array, booleano, objeto, array de objetos e data.
+A integração é compatível com todos os [tipos de dados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-storage) de atributos personalizados da Braze, a saber: número (inteiro, flutuante), string, array, booleano, objeto, array de objetos e data.
 
 ![Perfil da Braze mostrando diferentes atributos personalizados.]({% image_buster /assets/img/antavo/braze_profile.png %})
 

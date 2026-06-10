@@ -26,7 +26,7 @@ Weitere Informationen über Stories, die Movable Ink Customer Data API und darü
 | Movable Ink API-Zugangsdaten | Das Movable Ink Solutions-Team generiert API-Zugangsdaten für Sie. Die API-Zugangsdaten bestehen aus:{::nomarkdown}<ul><li>Einer Endpunkt-URL (an die die Daten gesendet werden)</li><li>Benutzername und Passwort (zur Authentifizierung der API)</li></ul>{:/} Falls gewünscht, kann Movable Ink den Benutzernamen und das Passwort als base64-kodierten Wert bereitstellen, der als Basic-Authorization-Header-Wert verwendet werden kann. |
 | Payloads für Verhaltens-Events | Sie müssen Ihre Event-Payloads mit Ihrem Movable Ink Client Experience Team teilen. Weitere Informationen finden Sie unter [Event-Payloads mit Movable Ink teilen](#event-payloads). |
 | Kreative Assets und Geschäftslogik | Sie müssen Movable Ink kreative Assets zur Verfügung stellen, einschließlich Adobe Photoshop (PSD)-Dateien, die Movable Ink zeigen, wie der Block erstellt werden soll, sowie ein Fallback-Bild. Außerdem müssen Sie die Geschäftslogik bereitstellen, die festlegt, wie und wann der vom Partner aktivierte Content-Block angezeigt werden soll. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -45,23 +45,23 @@ Weitere Informationen über Stories, die Movable Ink Customer Data API und darü
 ![Tab „Verfassen“ des Webhook-Composers in Braze mit der Movable Ink Endpunkt-URL und dem Anfrage-Body auf JSON-Schlüssel-Wert-Paare eingestellt.]({% image_buster /assets/img/movable_ink/cd_api_webhook_url.png %}){: style="max-width:75%" }
 
 {:start="2"}
-2. Wählen Sie den Tab **Settings**.
+2. Wählen Sie den Tab **Einstellungen**.
 3. Fügen Sie die folgenden Anfrage-Header als Schlüssel-Wert-Paare hinzu:
 
 | Schlüssel | Wert |
 | --- | --- |
 | Content-Type | application/json |
 | Authorization | Geben Sie die Basic-Authentifizierung ein, die Sie von Movable Ink erhalten haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1b: Customer Data API-Zugangsdaten hinzufügen" }
 
-![Tab „Settings“ des Webhook-Composers in Braze mit Schlüssel-Wert-Paaren für Content-Type und Authorization.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
+![Tab „Einstellungen“ des Webhook-Composers in Braze mit Schlüssel-Wert-Paaren für Content-Type und Authorization.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
 
 #### Schritt 1c: Konfigurieren Sie Ihren Payload {#step-1c-configure-your-payload}
 
-1. Kehren Sie zum Tab **Compose** zurück.
-2. Erstellen Sie für Ihren **Request Body** entweder einen eigenen Anfrage-Body mit JSON-Schlüssel-Wert-Paaren oder geben Sie Ihren Event-Payload als Rohtext ein. Beispiele für Standard-E-Commerce-Events finden Sie in den [Beispiel-Payloads](#sample-payloads).
+1. Kehren Sie zum Tab **Verfassen** zurück.
+2. Erstellen Sie für Ihren **Anfrage-Body** entweder einen eigenen Anfrage-Body mit JSON-Schlüssel-Wert-Paaren oder geben Sie Ihren Event-Payload als Rohtext ein. Beispiele für Standard-E-Commerce-Events finden Sie in den [Beispiel-Payloads](#sample-payloads).
 
-![Tab „Compose“ des Webhook-Composers in Braze mit JSON-Schlüssel-Wert-Paaren für ID, Zeitstempel, Nutzer-ID und Event-Typ.]({% image_buster /assets/img/movable_ink/cd_api_webhook_kvp.png %}){: style="max-width:75%" }
+![Tab „Verfassen“ des Webhook-Composers in Braze mit JSON-Schlüssel-Wert-Paaren für ID, Zeitstempel, Nutzer-ID und Event-Typ.]({% image_buster /assets/img/movable_ink/cd_api_webhook_kvp.png %}){: style="max-width:75%" }
 
 #### Schritt 1d: Testen Sie Ihren Webhook {#step-1d}
 

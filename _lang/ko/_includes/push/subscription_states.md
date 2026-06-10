@@ -15,7 +15,7 @@ Braze의 '푸시 구독 상태'는 푸시 알림 수신에 대한 **사용자의
 | `Subscribed` | Braze에서 고객 프로필을 생성할 때의 기본 푸시 구독 상태입니다. |
 | `Opted-In` | 사용자가 푸시 알림 수신을 명시적으로 선호한다고 밝혔습니다. Braze는 사용자가 OS 수준의 푸시 프롬프트를 수락하면 사용자의 옵트인 상태를 자동으로 `Opted-In`으로 변경합니다.<br><br>Android 12 이하 사용자에게는 적용되지 않습니다. |
 | `Unsubscribed` | 사용자가 애플리케이션 또는 브랜드가 제공하는 기타 방법을 통해 푸시 수신을 명시적으로 취소한 경우입니다. 기본적으로 Braze 푸시 Campaigns는 푸시에 대해 `Subscribed` 또는 `Opted-in`인 사용자만을 대상으로 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push subscription states #push-sub-states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 구독 상태 #push-sub-states" }
 
 {% alert important %}
 Braze는 사용자의 푸시 구독 상태를 `Unsubscribed`로 자동 변경하지 않습니다. 사용자의 푸시 구독 상태가 `Unsubscribed`인 경우 세분화에서 해당 사용자의 `Foreground Push Enabled` 필터는 `false`임을 기억하세요.
@@ -51,6 +51,8 @@ Braze는 사용자의 푸시 구독 상태를 `Unsubscribed`로 자동 변경하
 {% endtab %}
 
 {% tab swift %}
+iOS에서 새로 설치하면 일반적으로 사용자가 알림을 허용할 때까지 푸시 구독 상태가 **`Subscribed`**로 표시됩니다. 사용자가 OS 프롬프트에서 **허용**을 선택하면, 자동 옵트인이 활성화된 경우 Braze가 상태를 **`Opted-In`**으로 설정합니다. 사용자가 **허용 안 함**을 선택한 후 나중에 iOS 설정에서 푸시를 켜면, 설정을 변경하는 시점이 아니라 사용자가 세션을 기록한 후에 상태가 업데이트됩니다.
+
 [Braze Swift SDK 버전 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)부터는 Xcode 프로젝트의 `AppDelegate.swift` 파일에 `optInWhenPushAuthorized` 구성을 추가하여 이 동작을 비활성화하거나 추가로 커스텀할 수 있습니다:
 
 ```swift
@@ -77,6 +79,12 @@ Braze REST API의 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoint
 자동 옵트인이 활성화된 경우(기본값), Braze는 사용자가 앱에 대한 푸시 알림을 승인하거나 시스템 설정에서 권한을 다시 활성화할 때(예: iOS, Android 13+, 지원되는 웹 브라우저) 사용자의 푸시 구독 상태를 `Opted-In`으로 업데이트합니다. 그렇지 않으면 SDK 메서드 또는 REST API 호출을 사용하여 명시적으로 변경할 때까지 사용자의 푸시 구독 상태는 `Subscribed`로 유지됩니다.
 
 Braze는 사용자가 OS, 브라우저 또는 앱 수준에서 알림을 옵트아웃할 때 사용자의 푸시 구독 상태를 `Unsubscribed`로 자동 변경하지 않습니다. 사용자의 푸시 구독 상태를 업데이트하려면 Braze에서 직접 업데이트해야 합니다. 예를 들어, 사용자가 인앱 환경설정 센터에서 푸시를 비활성화하면 Braze에서 푸시 구독 상태를 `Unsubscribed`로 업데이트하세요. Braze는 환경설정 센터를 기반으로 고객 프로필을 자동 업데이트하지 않습니다. 구독 상태를 사용자의 인앱 환경설정과 일치시키려면 [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration)(iOS 또는 Android) 또는 [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api)를 사용하여 적절한 메서드를 호출하세요.
+
+### 가져온 푸시 토큰(iOS) {#imported-push-tokens-ios}
+
+[iOS 푸시 토큰을 가져올]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#push-token-import) 때 `push_token_import`를 사용하면, 사용자의 푸시 구독 상태는 일반적으로 Braze 통합 앱에서 세션을 기록할 때까지 **`Subscribed`**입니다. 첫 번째 세션 이후, [자동 옵트인](#automatic-opt-in-default)이 적용되는 경우(예: 사용자가 iOS에서 푸시를 승인하고 `optInWhenPushAuthorized`가 활성화된 경우) Braze가 상태를 **`Opted-In`**으로 업데이트할 수 있습니다.
+
+가져오기 후와 사용자의 첫 인앱 세션 이후에 고객 프로필의 **연락처 설정**을 확인하여 예상 상태를 확인하세요.
 
 ### 푸시 구독 상태 확인 {#checking-push-subscription-state}
 

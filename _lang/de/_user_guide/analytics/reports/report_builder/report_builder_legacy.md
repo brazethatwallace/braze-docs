@@ -50,7 +50,7 @@ Im Folgenden finden Sie die Unterschiede zwischen diesen beiden Optionen:
 | **Bericht erstellen** | Sie können Ihre Campaign-Liste mithilfe von Filtern eingrenzen und dann bestimmte Campaigns auswählen. | Sie erstellen Ihren Bericht, indem Sie die Filteroptionen verwenden, um Ihre Campaign-Liste einzugrenzen. |
 | **Bericht speichern und anzeigen** | Sie können Ihren Bericht speichern. Wenn Sie ihn das nächste Mal aufrufen, sehen Sie dieselben Campaigns, die Sie zuvor hinzugefügt haben, da diese Campaigns weiterhin unter Ihren „Zuletzt gesendet“-Filter fallen. | Sie können Ihren Bericht speichern. Wenn Sie ihn das nächste Mal aufrufen, wird der Bericht automatisch aktualisiert und enthält alle Campaigns, die derzeit Ihren Filtern entsprechen. |
 | **Bericht bearbeiten** | Sie können **Bericht bearbeiten** auswählen, um Campaigns zu Ihrem Bericht hinzuzufügen oder daraus zu entfernen. | Sie können Ihren Bericht bearbeiten, indem Sie Ihre Filterkriterien anpassen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Neuen Bericht erstellen" }
 
 {% alert note %}
 Sowohl **manuelle** als auch **automatisierte** Berichte können maximal 250 Campaigns in einem Bericht enthalten.

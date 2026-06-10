@@ -14,7 +14,7 @@ page_order: 7
 
 **오디언스 동기화의 일반적인 활용 사례는 다음과 같습니다:**
 
-- The Trade Desk에서 기존 사용자를 개인화된 Campaign으로 리타겟팅합니다.
+- The Trade Desk에서 기존 사용자를 개인화된 Campaign(캠페인)으로 리타겟팅합니다.
 - 제외 타겟팅을 위해 퍼스트파티 데이터를 The Trade Desk로 전송합니다.
 - 사용자를 신규 또는 기존 오디언스 또는 CRM 데이터 Segments에 동기화합니다.
 
@@ -26,7 +26,7 @@ Canvas에서 The Trade Desk와의 오디언스 동기화 단계를 설정하기 
 | --- | --- | --- |
 | API 토큰 | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | The Trade Desk 플랫폼에서 생성된 표준 API 토큰입니다. The Trade Desk 오디언스 동기화를 사용하는 Canvases의 중단을 최소화하기 위해 API 토큰 수명을 최대 1년으로 설정하는 것을 권장합니다. |
 | The Trade Desk 약관 및 정책 | The Trade Desk | The Trade Desk로 데이터를 전송하려면 UID2/CRM 참여 정책에 동의해야 합니다. The Trade Desk 담당자에게 연락하여 The Trade Desk로의 데이터 전달을 활성화하기 위한 적절한 서명이 완료되었는지 확인하세요.<br><br> {::nomarkdown}<ul><li>계정에서 CRM 데이터 관리 액세스가 활성화되어 있는지 확인하세요&#8212;The Trade Desk 담당자가 도움을 줄 수 있습니다. 광고주 ID가 필요합니다.</li><li>표준 API 토큰을 준비하세요. 이 페이지의 안내에 따라 생성할 수 있습니다.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

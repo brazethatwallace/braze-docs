@@ -28,26 +28,25 @@ Brazeデータ変換テンプレートを使用することで、Brazeに関係�
 
 ## 前提条件 {#prerequisites}
 
-
 | 必要条件 | 説明 |
 | --- | --- |
 | Oracle Crowdtwistアカウント | このパートナーシップを利用するには、[Oracle Crowdtwistアカウント](https://www.oracle.com/uk/cx/marketing/customer-loyalty/)が必要です。 |
 | Brazeデータ変換エンドポイント | この統合は、Brazeの[データ変換ツール]({{site.baseurl}}/user_guide/data/unification/data_transformation/)に依存しています。データ変換を作成すると、Brazeは、Crowdtwistのデータプッシュの送信先として追加できるユニークなエンドポイントを生成します。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
 BrazeとOracle Crowdtwistは、顧客がユーザープロファイル、ユーザーリデンプション、およびユーザーアクティビティイベントを活用した独自のデータ変換を開発できるように、[データ変換テンプレート]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation?redirected=1#step-2-create-a-transformation)を作成しました。
 
-## ステップ1:Oracle Crowdtwistテンプレートからデータ変換を作成する {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
+## ステップ1: Oracle Crowdtwistテンプレートからデータ変換を作成する {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
 
-**Data Settings > Data Transformation > Create Transformations > Use a Template**に移動し、お好みの「BRAZE <> CROWDTWIST」テンプレートを選択します。
+**データ設定** > **データ変換** > **変換を作成** > **テンプレートを使用**に移動し、お好みの「BRAZE <> CROWDTWIST」テンプレートを選択します。
 
 ユーザープロファイル、ユーザーアクティビティ、ユーザーリデンプションの各イベントを変換するためのテンプレートが1つずつ、合計4つのテンプレートがあります。さらに、条件ロジックを使用してさまざまなデータプッシュイベントに適用するマスターテンプレートもあります。
 
 [Oracle CrowdtwistのData Pushドキュメント](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/DataPush.html)に示されているように、Data Pushオブジェクトには異なるメタデータが含まれているため、適切なBrazeオブジェクトを作成するには、それぞれ独自の変換コードが必要になります。マスターテンプレートは、3つのタイプのオブジェクトをそれぞれ受け入れるために1つのデータ変換を設定し、各オブジェクトからの値で適切な出力を作成する方法を示しています。
 
-## ステップ2:テンプレートの更新とテスト {#step-2-update-and-test-template}
+## ステップ2: テンプレートの更新とテスト {#step-2-update-and-test-template}
 
 以下に、注釈付きテンプレートを掲載します。これらのテンプレートの本体は、`/users/track`送信先に適用されるように設計されています。注釈は `//` 行頭と緑色のテキストでマークされており、変換コードの動作に影響を与えることなく削除できます。
 
@@ -114,7 +113,7 @@ return brazecall;
 
 {% endtab %}
 {% tab User Activity Event Template %}
-`````````javascript
+```javascript
 let brazecall = {
 "events": [
    {
@@ -134,7 +133,7 @@ return brazecall;
 ```
 {% endtab %}
 {% tab Redemption Event Template %}
-`````````javascript
+```javascript
 let brazecall = {
  "attributes": [
    {
@@ -152,7 +151,7 @@ return brazecall;
 ```
 {%endtab%}
 {% tab Master Template %}
-`````````javascript
+```javascript
 //The master template uses JavaScript's conditional operators to determine the output of the Data Transformation. This example shows how to apply JavaScript to your transformation to allow for a dynamic range of sources or inputs.
 
  // We open the transformation with a simple "if" function. We're checking if the value "payload.tierInfo" is present. "tierInfo" is a value that is always populated in the User Profile Live Push object, but is not present in the others.

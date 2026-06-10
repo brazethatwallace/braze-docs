@@ -23,7 +23,7 @@ A Braze possui três estados globais de inscrição para usuários de e-mail. Es
 | Opted-in | O usuário confirmou explicitamente que deseja receber e-mails. Recomendamos um processo de opt-in explícito para obter o consentimento dos usuários para o envio de e-mails. |
 | Subscribed | O usuário não cancelou a inscrição nem optou explicitamente por receber e-mails. Este é o estado de inscrição padrão quando um perfil de usuário é criado. |
 | Unsubscribed | O usuário cancelou explicitamente a inscrição dos seus e-mails. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de inscrição" }
 
 {% alert note %}
 A Braze não contabiliza alterações no estado de inscrição como pontos de dados, tanto globalmente quanto em relação a grupos de inscrições.
@@ -80,6 +80,8 @@ Você pode verificar o estado de inscrição de e-mail de um usuário das seguin
 Quando um usuário atualiza seu endereço de e-mail, o estado de inscrição é definido como subscribed. Se o endereço de e-mail atualizado já existir em outro lugar em um espaço de trabalho da Braze, o usuário herda o estado de inscrição desse usuário existente, a menos que a opção **Resubscribe users when they update their email setting** esteja ativada em **Sending Configuration**.
 
 Para solucionar problemas de alterações no estado de inscrição, consulte **Email Subscription-State Changes** nos registros do perfil de usuário para ver o histórico e a origem (API ou SDK).
+
+Quando o estado global de inscrição de e-mail de um usuário muda, a Braze propaga esse estado para outros perfis que compartilham o mesmo endereço de e-mail, até 100 perfis por alteração. A Braze não garante a propagação quando mais de 100 perfis compartilham o mesmo endereço de e-mail. Se usuários que compartilham um e-mail apresentarem estados de inscrição diferentes, entre em contato com o suporte da Braze.
 
 ## Grupos de inscrições {#subscription-groups}
 

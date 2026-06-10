@@ -60,7 +60,7 @@ Pour en savoir plus sur le comportement attendu et l'apparence de chaque type, c
 | [Classique]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![Une Content Card classique avec une petite icône et du texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | La carte classique a une disposition simple avec un titre en gras, un texte de message et une image optionnelle placée à gauche du titre et du texte. Il est préférable d'utiliser une image carrée ou une icône avec la carte classique. |
 | [Image légendée]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![Une Content Card avec image légendée montrant un haltérophile et du texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | La carte avec image légendée met en valeur votre contenu avec du texte et une image accrocheuse. |
 | [Image uniquement]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![Une Content Card Image uniquement avec du texte seulement.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | La carte Image uniquement attire l'attention avec un espace dédié aux images, GIF et autres contenus créatifs non textuels. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Spécifier vos types de messages" }
 
 ## Étape 3 : Rédiger une Content Card {#step-3-compose-a-content-card}
 
@@ -94,7 +94,7 @@ Chaque type de message et chaque plateforme peut avoir ses propres proportions e
 
 #### Épingler en haut {#pin-to-top}
 
-Braze affiche une carte épinglée en haut du flux de l'utilisateur, et celui-ci ne peut pas la fermer. Si le flux d'un utilisateur contient plusieurs cartes épinglées, Braze les classe par ordre chronologique. Après l'envoi d'une carte, vous ne pouvez pas modifier rétroactivement son option d'épinglage. Modifier cette option après l'envoi d'une Campaign n'affecte que les envois futurs.
+Braze affiche une carte épinglée en haut du flux de l'utilisateur, et celui-ci ne peut pas la fermer. Si le flux d'un utilisateur contient plusieurs cartes épinglées, Braze les classe par ordre chronologique. Lorsque Braze distribue une Content Card, elle est soit épinglée, soit non épinglée, et ce statut ne change pas pendant toute la durée de vie de la carte. Si vous modifiez le paramètre d'épinglage d'une Campaign, la mise à jour s'applique uniquement aux cartes envoyées à l'avenir. Elle ne modifie pas le statut d'épinglage des cartes déjà présentes dans le flux d'un utilisateur.
 
 ![Aperçu côte à côte de la Content Card dans Braze pour mobile et web avec l'option « Pin this card to the top of the feed » sélectionnée.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -110,7 +110,7 @@ Les actions suivantes sont disponibles pour les liens des Content Cards :
 | [Lien profond vers l'application]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Créer un lien profond vers un écran existant de votre application. |
 | Enregistrer un événement personnalisé | Choisir un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) à déclencher. Peut être utilisé pour afficher une autre Content Card ou déclencher des messages supplémentaires. |
 | Enregistrer un attribut personnalisé | Choisir un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) à définir pour l'utilisateur actuel. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportement au clic" }
 
 Les options **Enregistrer un événement personnalisé** et **Enregistrer un attribut personnalisé** nécessitent la compatibilité avec les versions de SDK suivantes :
 
@@ -294,7 +294,7 @@ Imaginons que vous avez une Campaign déclenchée au démarrage d'une session av
 
 Vous pouvez supprimer manuellement les cartes des flux de tous les utilisateurs à tout moment en arrêtant la Campaign.
 
-1. Ouvrez la Campaign de Content Cards et sélectionnez Arrêter la Campaign.
+1. Ouvrez la Campaign de Content Cards et sélectionnez **Arrêter la Campaign**.
 2. Lorsque vous y êtes invité, sélectionnez **Remove card after the next sync**. La carte est supprimée lors du prochain rafraîchissement du flux.
 
 ##### Suppression automatique des cartes {#action-based-card-removal}
@@ -328,3 +328,11 @@ Si vous souhaitez qu'une carte semble toujours disponible, vous pouvez créer un
 1. Définissez la durée de la Content Card à 30 jours.
 2. Définissez la rééligibilité de la Campaign à 30 jours.
 3. Configurez la Campaign pour se déclencher au « démarrage de session ».
+
+### Synchronisation et rafraîchissement des Content Cards {#content-card-sync-and-refresh}
+
+Les Content Cards se synchronisent selon un calendrier et lorsque votre application rafraîchit le flux. Le comportement de synchronisation diffère entre les synchronisations complètes et partielles, et votre intégration SDK affecte le moment où les cartes se rafraîchissent au démarrage de la session. Pour les détails d'implémentation, consultez [Personnaliser le flux de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) et [Créer des Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+
+### Impact de l'arrêt des Campaigns de Content Cards {#impact-of-stopping-content-cards-campaigns}
+
+Lorsque vous arrêtez une Campaign et sélectionnez **Remove card after the next sync**, Braze supprime la carte des flux des utilisateurs lors du prochain rafraîchissement. Le nombre d'impressions peut être inférieur au nombre d'envois, car les utilisateurs ne peuvent pas voir les cartes supprimées avant qu'ils ne les consultent.

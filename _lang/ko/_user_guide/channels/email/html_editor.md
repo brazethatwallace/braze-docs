@@ -29,15 +29,15 @@ search_rank: 1
 {% tabs %}
 {% tab Campaign %}
 
-1. **Messaging** > **Campaigns**으로 이동하여 **Create Campaign**을 선택합니다.
-2. **Email**을 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **Multichannel**을 선택합니다.
+1. **메시징** > **Campaigns**으로 이동하여 **캠페인 생성**을 선택합니다.
+2. **이메일**을 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **멀티채널**을 선택합니다.
 3. Campaign에 명확하고 의미 있는 이름을 지정합니다.
-4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)와 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가합니다.
+4. 필요에 따라 [팀]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)과 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가합니다.
    * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 사용할 때 특정 태그로 필터링할 수 있습니다.
 5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
 
 {% alert tip %}
-Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 먼저 메시지를 작성하세요. 그런 다음 **Add Variant** 드롭다운에서 **Copy from Variant**를 선택할 수 있습니다.
+Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 먼저 메시지를 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
 {% endalert %}
 {% endtab %}
 {% tab Canvas %}
@@ -45,7 +45,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 1. Canvas 작성기를 사용하여 [Canvas를 만듭니다]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/).
 2. Canvas를 설정한 후, Canvas 빌더에서 단계를 추가합니다. 단계에 명확하고 의미 있는 이름을 지정합니다.
 3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay)을 선택하고 필요에 따라 지연을 지정합니다.
-4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segment를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 지연 후 메시지가 발송되는 시점에 확인됩니다.
+4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segments를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 지연 후 메시지가 발송되는 시점에 확인됩니다.
 5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)을 선택합니다.
 6. 메시지와 함께 사용할 다른 메시징 채널을 선택합니다.
 {% endtab %}
@@ -112,7 +112,7 @@ Gmail 모바일 앱(Android 및 iOS)은 기기가 다크 모드일 때 배경색
 `#ffffff`를 원하는 색상으로 교체하세요.
 
 {% alert note %}
-이 방법은 `<table>` 요소에만 단독으로 적용하면 안정적으로 작동하지 않으므로, 테이블이 아닌 셀에 그라디언트를 설정하세요.
+이 방법은 `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` 요소에만 단독으로 적용하면 안정적으로 작동하지 않으므로, 테이블이 아닌 셀에 그라디언트를 설정하세요.
   <caption>Gmail 모바일 앱과 다크 모드</caption>
 {% endalert %}
 
@@ -129,11 +129,11 @@ Gmail 모바일 앱(Android 및 iOS)은 기기가 다크 모드일 때 배경색
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
-오른쪽 패널의 미리보기에 추가한 발송 정보가 표시됩니다. 이 정보는 **Settings** > **Email Preferences** > **Sending Configuration**으로 이동하여 업데이트할 수도 있습니다.
+오른쪽 패널의 미리보기에 추가한 발송 정보가 표시됩니다. 이 정보는 **설정** > **이메일 환경설정** > **발송 구성**으로 이동하여 업데이트할 수도 있습니다.
 
 #### 고급 {#advanced}
 
-**Sending Settings** > **Advanced**에서 가장 넓은 클라이언트 지원을 위해 **inline CSS**를 켭니다. 메시지가 잘리거나 이미지가 행 높이로 늘어나는 경우, 인라인 CSS를 일시적으로 **끄기**로 해보세요. 일부 템플릿은 인라인 처리 없이 더 잘 작동합니다.
+**Sending Settings** > **Advanced**에서 가장 넓은 클라이언트 지원을 위해 **인라인 CSS**를 켭니다. 메시지가 잘리거나 이미지가 행 높이로 늘어나는 경우, 인라인 CSS를 일시적으로 **끄기**로 해보세요. 일부 템플릿은 인라인 처리 없이 더 잘 작동합니다.
 
 이메일 헤더와 이메일 추가 정보에 개인화를 추가하여 다른 이메일 서비스 제공업체로 추가 데이터를 보낼 수도 있습니다.
 
@@ -162,7 +162,7 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 }
 </style>
 
-<table aria-label="Email headers" id="reserved-fields">
+<table aria-label="이메일 헤더" id="reserved-fields">
   <caption>이메일 헤더</caption>
 <thead>
   <tr>
@@ -243,6 +243,10 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 드래그 앤 드롭 편집기의 경우, **Sending Settings** 섹션의 프리헤더에 `<div>` 서식 없이 제로 너비 비결합자(‌`&zwnj;`)만 직접 추가합니다.
 {% endalert %}
 
+{% alert note %}
+Apple Mail 앱에서 HTML 이메일의 이미지 링크가 클릭 가능하려면 `https://` URL을 사용해야 합니다. Apple Mail 수신자의 클릭이 예상되는 경우 앵커 태그로 감싼 모든 이미지에 보안 링크를 사용하세요.
+{% endalert %}
+
 ### 3.3단계: 이메일 오류 확인하기 {#step-33-check-for-email-errors}
 
 발송 전에 편집기가 일반적인 문제를 표시합니다:
@@ -276,7 +280,7 @@ Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_
 
 #### 타겟 사용자 선택하기 {#choose-users-to-target}
 
-다음으로, Segment 또는 필터를 선택하여 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. Braze는 이메일을 통해 도달 가능한 사용자 수를 포함하여 Segment 모집단의 실시간 미리보기를 표시합니다. 정확한 Segment 멤버십은 발송 직전에 계산됩니다.
+다음으로, Segments 또는 필터를 선택하여 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. Braze는 이메일을 통해 도달 가능한 사용자 수를 포함하여 Segment 모집단의 실시간 미리보기를 표시합니다. 정확한 Segment 멤버십은 발송 직전에 계산됩니다.
 
 {% multi_lang_include target_audiences.md %}
 
@@ -296,10 +300,10 @@ Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_
 - **사용자 B**는 이메일에 옵트인했지만 푸시가 활성화되어 있지 않습니다. 이 사용자는 이메일을 받지만 푸시를 받지 않습니다.
 - **사용자 C**는 이메일에 옵트인했고 푸시가 활성화되어 있습니다. 이 사용자는 이메일과 푸시를 모두 받습니다.
 
-이를 위해 **Audience Summary**에서 이 Campaign을 "옵트인한 사용자에게만" 보내도록 선택합니다. 이 옵션은 옵트인한 사용자만 이메일을 받도록 하며, Braze는 기본적으로 푸시가 활성화된 사용자에게만 푸시를 보냅니다.
+이를 위해 **오디언스 요약**에서 이 Campaign을 "옵트인한 사용자에게만" 보내도록 선택합니다. 이 옵션은 옵트인한 사용자만 이메일을 받도록 하며, Braze는 기본적으로 푸시가 활성화된 사용자에게만 푸시를 보냅니다.
 
 {% alert important %}
-이 구성에서는 **Target Audiences** 단계에서 오디언스를 단일 채널로 제한하는 필터(예: `Foreground Push Enabled = True` 또는 `Email Subscription = Opted-In`)를 포함하지 마세요.
+이 구성에서는 **타겟 오디언스** 단계에서 오디언스를 단일 채널로 제한하는 필터(예: `Foreground Push Enabled = True` 또는 `Email Subscription = Opted-In`)를 포함하지 마세요.
 {% endalert %}
 
 #### 전환 이벤트 선택하기 {#choose-conversion-events}

@@ -188,7 +188,7 @@ Ambas as funções recebem `Appboy.Models.AppboyNotificationSubscriptionType` co
 | `OPTED_IN` | Inscrito e com opt-in explícito |
 | `SUBSCRIBED` | Inscrito, mas sem opt-in explícito |
 | `UNSUBSCRIBED` | Cancelou a inscrição e/ou fez opt-out explícito |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuração de inscrições de usuários" }
 
 {% alert note %}
 O Windows não exige opt-in explícito para enviar notificações por push aos usuários. Quando um usuário é registrado para push, ele é definido como `SUBSCRIBED` em vez de `OPTED_IN` por padrão. Para saber mais, consulte nossa documentação sobre [implementação de inscrições e opt-ins explícitos]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
@@ -198,7 +198,7 @@ O Windows não exige opt-in explícito para enviar notificações por push aos u
 |------------------------------------------|-------------|
 | `EmailNotificationSubscriptionType`      | Os usuários serão definidos como `SUBSCRIBED` automaticamente ao receberem um endereço de e-mail válido. No entanto, recomendamos que você estabeleça um processo de opt-in explícito e defina esse valor como `OPTED_IN` após receber o consentimento explícito do usuário. Consulte nosso documento [Alterando inscrições de usuários]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) para mais detalhes. |
 | `PushNotificationSubscriptionType`       | Os usuários serão definidos como `SUBSCRIBED` automaticamente mediante registro push válido. No entanto, recomendamos que você estabeleça um processo de opt-in explícito e defina esse valor como `OPTED_IN` após receber o consentimento explícito do usuário. Consulte nosso documento [Alterando inscrições de usuários]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) para mais detalhes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuração de inscrições de usuários" }
 
 {% alert note %}
 Esses tipos pertencem a `Appboy.Models.AppboyNotificationSubscriptionType`.

@@ -153,6 +153,10 @@ list-unsubscribeを有効にすることは、配信到達性のベストプラ�
 
 [Gmailでサブスクリプションを管理する](https://support.google.com/mail/answer/15621070?sjid=2292320204527911296-NC)場合、Gmailはメッセージ本文から配信停止リンクを取得することもできますが、ヘッダーにlist-unsubscribeが存在する場合はそちらを優先します。
 
+### list-unsubscribeヘッダーをオフにするとGmailの配信停止ボタンは削除されますか？ {#does-turning-off-the-list-unsubscribe-header-remove-the-gmail-unsubscribe-button}
+
+いいえ。Brazeのlist-unsubscribeヘッダー設定をオフにすると、Brazeが送信するメッセージから`List-Unsubscribe`ヘッダーが削除されますが、GmailがメールボックスUIに**Unsubscribe**オプションを表示するかどうかは制御しません。上記のとおり、Gmailはメッセージ本文内のリンクから配信停止オプションを表示したり、他のプロバイダーロジックを使用したりする場合があります。生メッセージにヘッダーが表示されるかどうかと、Gmailが受信者に配信停止オプションを表示するかどうかは別の問題です。詳細については、[GmailのメールSender Guidelines FAQ](https://support.google.com/a/answer/14229414)を参照してください。
+
 ### メールボックスプロバイダーのサポート {#mailbox-provider-support}
 
 以下の表は、「mailto:」ヘッダー、list-unsubscribe URL、およびワンクリック配信停止（[RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058)）に対するメールボックスプロバイダーのサポートをまとめたものです。
@@ -164,7 +168,7 @@ list-unsubscribeを有効にすることは、配信到達性のベストプラ�
 | Apple Mail | サポート対象 | サポート対象外 | サポート対象外 |
 | Outlook.com | サポート対象 | サポート対象外 | サポート対象外 |
 | Yahoo! Mail | サポート対象* | サポート対象外 | サポート対象 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mailbox provider support" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="メールボックスプロバイダーのサポート" }
 
 _*YahooとGmailは最終的に「mailto:」ヘッダーを廃止し、ワンクリックのみをサポートする予定です。_
 
@@ -200,7 +204,7 @@ Brazeは以下のバージョンのlist-unsubscribeヘッダーをサポート�
 | ワンクリック（RFC 8058） | ワンクリックで受信者がメールからオプトアウトするための簡単な方法を提供します。これはYahooとGmailが大量送信者に対して求める要件です。 |
 | List-Unsubscribe URLまたはHTTPS | 受信者に配信停止できるWebページへのリンクを提供します。 |
 | Mailto | 受信者からブランドに送信される配信停止リクエストメッセージの送信先としてメールアドレスを指定します。<br><br> _mailto list-unsubscribeリクエストを処理するには、そのような配信停止リクエストに、配信停止するエンドユーザーのBrazeに保存されているメールアドレスが含まれている必要があります。これは、エンドユーザーが配信停止するメールの「差出人アドレス」、エンコードされた件名、またはエンドユーザーが受信したメールのエンコードされた本文から提供される場合があります。非常に限られたケースでは、一部の受信トレイプロバイダーが[RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368)プロトコルに準拠しておらず、メールアドレスが正しく渡されないことがあります。これにより、Brazeで配信停止リクエストを処理できない場合があります。_ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Default list-unsubscribe header" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="デフォルトのlist-unsubscribeヘッダー" }
 
 Brazeが上記のいずれかの方法でユーザーからlist-unsubscribeリクエストを受信すると、このユーザーのグローバルメールサブスクリプション状態が配信停止に設定されます。一致するものがない場合、Brazeはこのリクエストを処理しません。
 

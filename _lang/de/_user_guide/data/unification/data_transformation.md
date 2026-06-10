@@ -43,7 +43,7 @@ Die folgende Tabelle beschreibt die Unterschiede zwischen der kostenlosen und de
 |----|----|----|
 | Aktive Transformationen | Bis zu 5 pro Unternehmen | Bis zu 55 pro Unternehmen |
 | Pro Monat | 300.000 eingehende Anfragen pro Monat | 10.300.000 eingehende Anfragen pro Monat |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data Transformation tiers" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Datentransformationsebenen" }
 
 {% alert important %}
 Um ein Upgrade auf Data Transformation Pro anzufordern, wenden Sie sich an Ihren Braze Account Manager oder wählen Sie den Button **Request Upgrade** im Braze-Dashboard.

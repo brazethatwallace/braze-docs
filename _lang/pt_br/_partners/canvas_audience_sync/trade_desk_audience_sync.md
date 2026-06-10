@@ -26,7 +26,7 @@ Certifique-se de que os itens a seguir foram criados, concluídos ou aceitos ant
 | --- | --- | --- |
 | Token de API | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | Um token de API padrão criado na plataforma do The Trade Desk. Recomendamos definir a validade do token de API para até um ano para evitar interrupções nos seus Canvas com o Audience Sync do The Trade Desk. |
 | Termos e Políticas do The Trade Desk | The Trade Desk | Você deve concordar com uma política de participação UID2/CRM antes de ser habilitado para enviar dados ao The Trade Desk. Fale com seu representante no The Trade Desk para confirmar que você tem a assinatura apropriada para ativar a entrega de dados ao The Trade Desk.<br><br> {::nomarkdown}<ul><li>Confirme que o Acesso ao Gerenciamento de Dados de CRM está ativado na sua conta&#8212;seu representante no The Trade Desk pode ajudar com isso. Você deve ter seu ID de anunciante.</li><li>Tenha seu token de API padrão pronto. Você pode seguir as instruções nesta página para gerar um.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -34,17 +34,17 @@ Certifique-se de que os itens a seguir foram criados, concluídos ou aceitos ant
 
 Para começar, acesse **Integrações de parceiros** > **Parceiros de tecnologia** > **The Trade Desk**. Forneça os seguintes dados da sua conta do Trade Desk:
 
-- **API token**
-- **Advertiser ID name** (este nome opcional identifica a conta do anunciante para referência na etapa de Audience Sync do Canvas)
-- **Advertiser ID**
+- **Token de API**
+- **Nome do ID do anunciante** (este nome opcional identifica a conta do anunciante para referência na etapa de Audience Sync do Canvas)
+- **ID do anunciante**
 
-Em seguida, selecione **Connect**.
+Em seguida, selecione **Conectar**.
 
 ![Um exemplo de um Audience Sync não conectado para o The Trade Desk.]({% image_buster /assets/img/audience_sync/trade_desk/connect_sync.png %}){: style="max-width:90%;"}
 
 #### Conectar múltiplas contas do The Trade Desk (opcional) {#connect-multiple-the-trade-desk-accounts-optional}
 
-Depois de conectar sua primeira conta do The Trade Desk, você pode adicionar contas de anunciante adicionais na página de parceiros do The Trade Desk selecionando **Connect more advertisers** e fornecendo o **Advertiser ID name** e o **Advertiser ID** para cada conta.
+Depois de conectar sua primeira conta do The Trade Desk, você pode adicionar contas de anunciante adicionais na página de parceiros do The Trade Desk selecionando **Conectar mais anunciantes** e fornecendo o **Nome do ID do anunciante** e o **ID do anunciante** para cada conta.
 
 ### Etapa 2: Adicionar uma etapa de Audience Sync com o The Trade Desk {#step-2-add-an-audience-sync-step-with-the-trade-desk}
 
@@ -62,12 +62,12 @@ Em seguida, configure os detalhes da sua sincronização:
 ![Configuração do Audience Sync com um campo de público contendo o nome "valentines2025".]({% image_buster /assets/img/audience_sync/trade_desk/choose_audience.png %}){: style="max-width:90%;"}
 
 {: start="3"}
-3. Selecione uma ação para **Add Users to Audience** ou **Remove Users from Audience**.
+3. Selecione uma ação para **Adicionar usuários ao público** ou **Remover usuários do público**.
 
 ![Configuração do Audience Sync para adicionar usuários ao público.]({% image_buster /assets/img/audience_sync/trade_desk/audience_sync_step2.png %}){: style="max-width:90%;"}
 
 {: start="4"}
-4. Escolha um dos seguintes campos para correspondência: **Email**, **Phone** ou **Mobile Advertiser ID**.
+4. Escolha um dos seguintes campos para correspondência: **E-mail**, **Telefone** ou **ID de anunciante móvel**.
 
 {% alert note %}
 Se você estiver sincronizando com um público no The Trade Desk com uma região definida como UE, o número de telefone não é suportado pelo The Trade Desk. Fale com o The Trade Desk para suporte a número de telefone na região da UE.

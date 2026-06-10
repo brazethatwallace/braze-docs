@@ -252,6 +252,8 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 
 In the previous example, the `?` before `#` gives Braze a query segment to append `lid`. Without it, the link may not appear in **Link Management**.
 
+Without identifying where to append query parameters, link aliasing does not recognize these URLs and link templates do not apply. If you see errors such as **Failed to be assigned an LID** for a dynamic URL, confirm the `href` uses the `?` or `&` pattern shown in the examples in this section.
+
 ### Drag-and-drop editor considerations
 
 In the drag-and-drop editor, fields that hold a link (such as a button **URL**) validate the underlying `href` before Liquid runs. Spaces, line breaks, and other characters that are not URL-safe can cause unexpected behavior when Braze appends link templates or link aliasing parameters. When you need branching Liquid for the destination, set the URL in an HTML block (see the following section) and reference a single variable in the drag-and-drop URL field instead of putting complex Liquid directly in that field.

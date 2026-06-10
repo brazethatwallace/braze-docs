@@ -85,7 +85,7 @@ Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en
 | SparkPost | Fastly | [Guide étape par étape avec Fastly](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-fastly) |
 | SparkPost | Google Cloud Platform | [Guide étape par étape avec Google Cloud Platform](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-google-cloud-platform) |
 | SparkPost | Microsoft Azure | [Guide étape par étape avec Microsoft Azure](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-microsoft-azure) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional resources" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ressources supplémentaires" }
 
 ### Amazon SES
 
@@ -111,6 +111,12 @@ Exécutez une commande dig pour vérifier que le suivi de liens pointe vers le C
 Si les liens des e-mails en production ne fonctionnent plus pendant la configuration, vous avez probablement dirigé le DNS vers votre CDN avant que la configuration ne soit terminée. Cela peut se manifester par une erreur de type « mauvais lien ». Contactez votre fournisseur de CDN et consultez sa documentation pour résoudre le problème de configuration.
 
 Si vous voyez un message d'erreur indiquant que votre connexion n'est pas privée, cela peut signifier que votre SSL ou votre CDN n'est pas correctement configuré. Exécutez une commande `dig` dans votre terminal (par exemple, `dig CNAME your_link_tracking_subdomain`). Dans la section `ANSWER SECTION`, si le résultat pointe vers votre ESP au lieu de votre CDN, il s'agit d'un problème de configuration. Pour que le suivi SSL des clics de Braze fonctionne, le CNAME doit pointer vers votre CDN. Coordonnez-vous avec l'équipe qui gère votre configuration SSL et CDN pour obtenir de l'aide.
+
+#### HTTP 403 sur les liens de redirection {#http-403-on-redirect-links}
+
+Si les liens de redirection suivis renvoient une erreur **403 Forbidden**, la défaillance se produit souvent au niveau de votre réseau de diffusion de contenu (CDN) ou de votre pare-feu d'application web (WAF) — par exemple, des règles sur AWS WAF ou Amazon CloudFront qui bloquent certains agents utilisateurs, chaînes de requête ou schémas de redirection. Examinez les journaux et les indicateurs de requêtes bloquées avec votre CDN ou votre fournisseur cloud. Pour AWS, consultez [Résolution des problèmes avec CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
+
+Pour déterminer si le problème est spécifique au suivi des clics, désactivez le suivi des clics pour un lien de test (voir [Désactiver le suivi des clics lien par lien]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)). Si l'URL de destination se charge lorsque le suivi des clics est désactivé mais renvoie une erreur 403 lorsqu'il est activé, concentrez-vous sur la configuration de votre domaine de suivi des clics, de votre CDN et de votre WAF.
 
 ### État d'activation du SSL {#ssl-enablement-status}
 

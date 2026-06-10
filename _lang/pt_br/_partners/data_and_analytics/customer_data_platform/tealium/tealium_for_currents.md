@@ -22,7 +22,7 @@ A integração da Braze com a Tealium permite que você controle perfeitamente o
 | ----------- | ----------- |
 | Tealium EventStream ou Tealium AudienceStream | É necessário ter uma [conta da Tealium](https://my.tealiumiq.com/) para usar essa parceria. |
 | Currents | Para exportar dados de volta para a Tealium, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) configurado em sua conta. |
-| URL da Tealium | Pode ser obtida navegando até o dashboard da Tealium e copiando a URL de ingestão.|
+| URL da Tealium | Pode ser obtida navegando até o dashboard da Tealium e copiando a URL de ingestão. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}

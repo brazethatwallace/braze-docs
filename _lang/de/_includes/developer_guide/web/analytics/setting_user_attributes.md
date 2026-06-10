@@ -220,7 +220,7 @@ Um ein Abo für Ihre Nutzer:innen einzurichten (entweder per E-Mail oder per Pus
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | Abonniert und ausdrücklich angemeldet |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | Abonniert, aber nicht ausdrücklich angemeldet |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Abbestellt und/oder ausdrücklich abgemeldet |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-Abos einrichten" }
 
 Wenn sich Nutzer:innen für Push registrieren, fordert der Browser sie auf, Benachrichtigungen zuzulassen oder zu blockieren. Wenn sie Push zulassen, wird standardmäßig `OPTED_IN` gesetzt.
 

@@ -41,7 +41,7 @@ Os percentuais são calculados com base no intervalo de datas atual em comparaç
 
 Por exemplo, se você definir o intervalo de datas como **Últimos 7 dias** e seus *Usuários ativos diários* mostrarem um aumento percentual de 1,8%, isso significa que você teve 1,8% mais usuários ativos diários nesta semana em comparação com a semana passada.
 
-![Bloco de métrica no dashboard Início.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Mostrar detalhamento {#show-breakdown}
 
@@ -143,6 +143,8 @@ Os snapshots de MAU são calculados uma vez por dia e nunca mudam retroativament
 
 {% alert note %}
 Quando você integra a Braze pela primeira vez, todos os usuários aparecerão como novos, pois a Braze nunca registrou uma sessão para eles antes.
+
+Diferentemente do MAU, a contagem de *Novos usuários* pode diminuir retroativamente quando a Braze mescla um perfil anônimo em um perfil identificado e torna o perfil anônimo órfão. A Braze remove o perfil órfão dos totais de uso do app, o que pode reduzir a contagem de *Novos usuários* para datas que você já visualizou. Para saber mais sobre o comportamento de vinculação de perfis, consulte [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
 {% endalert %}
 
 {% alert important %}

@@ -12,7 +12,7 @@ description: "Este artigo fornece respostas para perguntas frequentes sobre Liqu
 
 ### Como uso snippets de Liquid na Braze? {#how-do-i-use-liquid-snippets-in-braze}
 
-Em muitos casos, você pode incorporar snippets de Liquid navegando até suas Campaigns ou Canvas e inserindo Liquid no modal de personalização em áreas como o corpo do e-mail ou nos seus Segments.
+Em muitos casos, você pode incorporar snippets de Liquid navegando até suas Campaigns ou Canvas e inserindo Liquid no modal de personalização em áreas como o corpo do e-mail ou nos seus segmentos.
 
 #### Onde posso saber mais? {#where-can-i-learn-more}
 
@@ -56,7 +56,7 @@ Para uso em URLs e query strings (por exemplo, quando um nome contém `%` ou esp
 
 ### Como uso Liquid com objetos aninhados? {#how-do-i-use-liquid-with-nested-objects}
 
-A Braze tem um recurso integrado que gera código Liquid para Segments que podem ser usados em uma mensagem. Especificamente, você pode criar um Segment que corresponda a múltiplos critérios em um objeto.
+A Braze tem um recurso integrado que gera código Liquid para segmentos que podem ser usados em uma mensagem. Especificamente, você pode criar um segmento que corresponda a múltiplos critérios em um objeto.
 
 Para saber mais, confira [Segmentação com múltiplos critérios]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation).
 
@@ -146,3 +146,60 @@ Join our VIP program to unlock free shipping.
 ### As variáveis de Liquid são compartilhadas entre a linha de assunto e o corpo? {#do-liquid-variables-carry-between-subject-line-and-body}
 
 Não. A Braze renderiza cada componente da mensagem separadamente (como linha de assunto, corpo HTML, pré-cabeçalho e título de push). Atribuições ou capturas feitas em um campo não ficam disponíveis em outro. Repita a chamada de Liquid ou Conteúdo conectado em cada campo que precisar do valor.
+
+
+### Posso usar Liquid dentro da tag `abort_message`? {#can-i-use-liquid-inside-the-abort_message-tag}
+
+{% raw %}Não. A tag {% abort_message %} aceita uma string estática entre aspas, não personalização com Liquid.{% endraw %} Use outra lógica de Liquid antes da tag se precisar de um comportamento condicional de cancelamento.
+
+### Por que estou vendo um erro de Liquid "Unexpected end token"? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
+
+Esse erro geralmente indica chaves extras ou ausentes. Não aninhe `{{ }}` dentro de outra expressão de tag Liquid. Por exemplo, use {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} em vez de envolver a referência do atributo em um par adicional de chaves.
+
+### Por que minha mensagem é cancelada com "Invalid from email address for recipient:"? {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
+
+Esse cancelamento ocorre quando o Liquid no campo **De** produz uma sintaxe inválida, como uma variável ausente, espaços extras ou caracteres não permitidos. Faça a pré-visualização com um usuário teste e verifique se o endereço **De** renderizado corresponde ao seu domínio de envio configurado.
+
+### Por que meu Content Block não aparece em **Row** na ferramenta de busca do editor de arrastar e soltar? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+
+Alguns Content Blocks não aparecem em **Row** na busca do editor de arrastar e soltar. Adicione um bloco HTML a partir da guia **Content** (**Advanced**) e insira a Liquid tag do Content Block nesse bloco HTML para renderizar o conteúdo do bloco.
+
+### Como crio um endereço de resposta (Reply-To) dinâmico? {#how-do-i-create-a-dynamic-reply-to-address}
+
+Use Liquid no campo **Reply-To** quando seu espaço de trabalho suportar configuração dinâmica de Reply-To. Combine com as configurações de nome de exibição do campo **De** conforme necessário. Consulte [Configurações de e-mail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) para opções específicas do espaço de trabalho.
+
+### Por que a pré-visualização do meu Content Block no editor de arrastar e soltar difere da visualização de composição? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
+
+Quando você usa um Content Block com Liquid como modelo, as media queries para dispositivos móveis no bloco podem não ser aplicadas na pré-visualização da mesma forma que quando você arrasta o bloco diretamente para uma mensagem. Arrastar o bloco preserva o layout, mas o desacopla do bloco de origem, então edições futuras no bloco não atualizam mais a mensagem automaticamente.
+
+### Existem limites de tamanho para propriedades de contexto do Canvas? {#are-there-size-limits-for-canvas-context-properties}
+
+A Braze não impõe um limite rígido para [propriedades de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), mas mantenha as cargas úteis abaixo de aproximadamente 1 KB (~1.000 caracteres). Objetos maiores podem aumentar o uso de memória e atrasar a renderização de mensagens durante envios de alto volume.
+
+### Por que meu snippet de Liquid de catálogo retorna uma mensagem de cancelamento? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
+
+Se um snippet de Liquid de catálogo for cancelado durante o envio, recrie o snippet a partir do menu de personalização selecionando itens individuais do catálogo em vez de usar uma seleção em massa ou totalmente dinâmica. Consulte [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) e [Seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+
+### Por que recebo um erro de Liquid ao pré-visualizar certos tipos de dados no dashboard? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
+
+Alguns tipos de [propriedades de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) exigem coerção em Liquid antes de serem usados em comparações ou operações matemáticas. Por exemplo, quando você precisa de comportamento numérico:
+
+{% raw %}
+```liquid
+{{context.${property_name} | plus: 0}}
+```
+{% endraw %}
+
+### Por que a tentativa de repetição do Conteúdo conectado não está disponível para minha mensagem no app? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+
+{% raw %}
+A tag `{% connected_content %}` com tentativa de repetição não é suportada para todos os tipos de mensagem, incluindo alguns formatos de mensagem no app. Remova os parâmetros de tentativa de repetição ou use um canal suportado para chamadas de Conteúdo conectado com repetição.
+{% endraw %}
+
+### Como pré-visualizo valores de propriedades de evento no criador de mensagens? {#how-do-i-preview-event-property-values-in-message-composer}
+
+Use **Pré-visualizar como usuário personalizado** e insira valores de amostra de propriedades de evento personalizado para o usuário que você está pré-visualizando. Isso também é útil para mensagens com lógica de cancelamento quando você precisa de valores de pré-visualização que não disparem um cancelamento.
+
+### A Braze suporta array de arrays em Liquid? {#does-braze-support-an-array-of-arrays-in-liquid}
+
+O Liquid não suporta nativamente arrays de arrays. Armazene os valores como um array de strings separadas por vírgula e use o filtro `split` para analisá-los quando necessário.

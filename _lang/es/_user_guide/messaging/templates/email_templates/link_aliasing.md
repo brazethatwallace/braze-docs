@@ -52,7 +52,7 @@ Para crear un alias de enlace, abre el cuerpo de tu correo electrónico en la Ca
 En **Link Management**:
 
 1. Braze genera automáticamente alias de enlace predeterminados únicos para cada uno de tus enlaces.
-2. Dale un nombre al alias. Los alias deben tener nombres únicos por variante de Campaign de correo electrónico o componente de Canvas.
+2. Dale un nombre al alias. Los alias deben tener nombres únicos por variante de campaña de correo electrónico o componente de Canvas.
 
 También puedes establecer un alias que se usará para hacer referencia a un enlace específico cuando trabajes con informes o segmentación.
 
@@ -251,6 +251,8 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 {% endraw %}
 
 En el ejemplo anterior, el `?` antes de `#` le da a Braze un segmento de consulta para añadir `lid`. Sin él, el enlace puede no aparecer en **Link Management**.
+
+Sin identificar dónde añadir parámetros de consulta, el aliasing de enlaces no reconoce estas URLs y las plantillas de enlace no se aplican. Si ves errores como **Failed to be assigned an LID** para una URL dinámica, confirma que el `href` usa el patrón `?` o `&` mostrado en los ejemplos de esta sección.
 
 ### Consideraciones del editor de arrastrar y soltar {#drag-and-drop-editor-considerations}
 

@@ -26,6 +26,10 @@ To access a user's profile, go to the **Search Users** page and search for a use
 
 If a match is found, you can view the information you've recorded for this user with the Braze SDK. Otherwise, if your search returns multiple user profiles, you can merge each profile individually or perform a bulk user merge. For a full walkthrough, see [Merge duplicate users]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
+{% alert note %}
+**Search Users** is not the same as **User Lookup** in the segment or campaign composer. **User Lookup** tests whether a specific user matches your audience and accepts only `external_id` or `braze_id`. **Search Users** on this page supports email, phone, push token, and user alias. For more information, see [Testing segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments).
+{% endalert %}
+
 {% alert important %}
 When a phone number is used in the search, it is changed into [`E.164`](https://en.wikipedia.org/wiki/e.164) format. Users whose phone numbers cannot be changed into `E.164` format (for example, because the phone number has an invalid country code or area code) cannot be searched by phone number.
 {% endalert %}

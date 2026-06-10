@@ -16,7 +16,7 @@ page_type: reference
 Content Optimizer is currently in beta. For help getting started, contact your customer success manager.
 {% endalert %}
 
-## Creating a Content Optimizer step
+## Create a Content Optimizer step
 
 For best results, use the Content Optimizer agent in Canvases where users enter the step gradually over time. If all users enter the step at once, the agent won’t have time to learn from early results. 
 
@@ -205,6 +205,24 @@ At this time, RCS messaging with Content Optimizer does not support SMS fallback
 {% endtab %}
 {% endtabs %}
 
+## Edit a launched step
+
+After your Canvas is launched, you can update a running Content Optimizer step by opening it in the Canvas editor. You can:
+
+- Add new variants to any existing component, either manually or using AI-generated suggestions, up to the five-variant limit per component.
+- Deactivate variants to stop sending them to users.
+- Re-activate previously deactivated variants, as long as doing so keeps the component at or below the five-variant limit.
+
+When you publish changes, the optimizer resets and begins reallocating traffic from scratch across all active variants and combinations. Historical data from before the edit is retained and viewable in the **Content Analytics** tab.
+
+The following settings cannot be changed after launch:
+
+- The content of existing active variants
+- Which components are being tested
+- The optimization event
+
+For SMS/MMS/RCS steps, the subscription group and message type also cannot be changed after launch.
+
 ## Best practices
 
 - In general, we recommend testing more components rather than fewer for the Content Optimizer step. For example, instead of testing two components for email, test three.
@@ -213,15 +231,21 @@ At this time, RCS messaging with Content Optimizer does not support SMS fallback
 - If you’re optimizing for opens, keep your testing focused on the subject line.
 - If this is your first time using Content Optimizer, consider using an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so only part of your audience enters the branch that contains the Content Optimizer step. For example, you could send half your users down a path with the Content Optimizer step and send the other half of your users down a control path that sends the Message Step with your current business-as-usual content. Then, gather data for 2-3 weeks and compare any key performance indicators (KPIs) or counter-metrics before you increase traffic to the paths with Content Optimizer steps. 
   - For an effective one-to-one comparison, we recommend that your Content Optimizer step contains your business-as-usual content as one of the variants for each component.
+- Before updating a running step, wait for the performance rankings across all component variants to stabilize—meaning the same variants are consistently winning and losing for three to four days in a row. This typically takes about seven days, and a higher number of optimization events produces stronger, more accurate signal.
+- Avoid updating too early. Each time you publish changes, the optimizer resets. If you update before the step has time to identify what is working, you prevent it from capitalizing on its findings—and the step never gets the opportunity to shift meaningful traffic toward the best-performing combinations.
+- When you're ready to update, the recommended approach is to deactivate low-performing variants and add new ones that build on the traits of your top performers.
 
 ## Considerations
 
 - Multi-language settings aren't supported in Content Optimizer steps. Instead, we recommend using one Content Optimizer step per language and branching paths individually.
 - Liquid tags for Content Optimizer components aren't supported in Message steps, so the Liquid aborts in Message steps.
+- After a Content Optimizer step is launched, you can't change which components are being tested, the content of existing active variants, or the optimization event. For SMS/MMS/RCS steps, the subscription group and message type also can't be changed.
 
 ## Analytics
 
 To review performance, open the step-level analytics panel to see metrics by content variant and overall combination performance. The Content Optimizer step uses the [same analytics as the Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics).
+
+If you've updated the step after launch, the send allocation chart marks when each content edit occurred. Data from deactivated variants is retained and remains viewable in the analytics panel, so you can compare performance across the full lifetime of the step.
 
 ![Content Optimizer analytics for three buttons and the percentage of allocation of sends, which trend upwards.]({% image_buster /assets/img/content_optimizer/content_optimizer_analytics.png %})
 

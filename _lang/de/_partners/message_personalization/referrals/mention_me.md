@@ -22,7 +22,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Ein Mention Me-Konto   | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Mention Me-Konto](https://mention-me.com/login).                                                                     |
 | Ein Braze REST-API-Schlüssel  | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track` und `templates.email.create`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Ein Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 

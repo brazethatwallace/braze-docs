@@ -41,7 +41,7 @@ MESSAGE HERE
 
 ### Os usuários podem receber uma mensagem no app novamente após descartá-la? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
 Para Campaigns de mensagem no app, você pode permitir que os usuários se tornem elegíveis para receber a Campaign novamente ativando a reelegibilidade em **Controles de entrega** (**Permitir que os usuários se tornem reelegíveis para receber a Campaign**). A rapidez com que podem recebê-la novamente depende do período de reelegibilidade que você definir e de como a Braze registrou o envio anterior. Consulte [Reelegibilidade para Campaigns e Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) para o comportamento de Campaigns, incluindo como a reelegibilidade se relaciona com o recebimento da mensagem.
 
@@ -69,7 +69,7 @@ Sim, mas apenas uma mensagem no app pode ser exibida por ocorrência de um [even
 
 Quando várias mensagens compartilham o mesmo nível de prioridade, a mensagem criada mais recentemente é exibida primeiro. Para gatilhos de início de sessão, a próxima mensagem mais recente é exibida em uma sessão subsequente; para outros tipos de gatilho, a próxima mensagem mais recente é exibida na próxima vez que o evento de gatilho ocorrer, o que pode ser dentro da mesma sessão ou em uma sessão posterior.
 
-Para controlar a ordem de exibição dentro de um grupo de prioridade, acesse as configurações de entrega de qualquer uma das Campaigns e selecione **Set Exact Priority**, depois arraste e solte as Campaigns na ordem desejada. Para mais detalhes, consulte [Escolher uma prioridade]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
+Para controlar a ordem de exibição dentro de um grupo de prioridade, acesse as configurações de entrega de qualquer uma das Campaigns e selecione **Definir prioridade exata**, depois arraste e solte as Campaigns na ordem desejada. Para mais detalhes, consulte [Escolher uma prioridade]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
 
 ### Como a Braze calcula a expiração de uma mensagem no app definida como "após 1 dia(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -137,4 +137,32 @@ Esta tabela compara os fluxos de mensagem no app que Sam experimentou:
 | --- | --- |
 | Padrão | Um evento de aborto não foi registrado porque Sam não realizou nenhuma ação que dispararia uma mensagem.<br><br>Mensagens no app padrão não registram abortos porque a definição de um aborto é "não viu a mensagem apesar de ter realizado a ação-gatilho". Como as mensagens no app são entregues ao dispositivo antes das ações de gatilho ocorrerem, não faz sentido considerar mensagens no app omitidas por causa da lógica Liquid. |
 | Com modelo | Um evento de aborto foi registrado porque Sam realizou a ação-gatilho para disparar a mensagem no app com modelo, mas recebeu um aborto no modelo Liquid.<br><br>Mensagens no app com modelo registram abortos porque a avaliação Liquid ocorre após a ação-gatilho ter sido realizada. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparação do comportamento de aborto de mensagens no app" }
+
+### Por que o botão de fechar está oculto em mensagens no app HTML de tela inteira no Android? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
+
+Em dispositivos com telas de borda a borda (incluindo Android 15+), mensagens no app HTML de tela inteira podem ser desenhadas atrás da barra de status do sistema e ocultar um controle de fechar no topo do layout.
+
+O SDK da Braze para Android versão 37.0.0 e posteriores aplicam insets de janela a mensagens no app HTML por padrão, para que os controles permaneçam na área segura. Se os usuários ainda virem sobreposição, faça upgrade para a versão mais recente do SDK da Braze para Android.
+
+Em versões anteriores do SDK, os desenvolvedores podiam ativar `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` antes de esse comportamento se tornar o padrão.
+
+### Quais são as limitações conhecidas do editor de arrastar e soltar de mensagens no app? {#what-are-known-limitations-of-the-drag-and-drop-in-app-message-editor}
+
+O [editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) não suporta todas as personalizações disponíveis em mensagens no app de [HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/). Tenha em mente:
+
+- Um deep link por mensagem (não links diferentes por tipo de dispositivo)
+- A opacidade se aplica ao fundo inteiro da mensagem, não a elementos individuais
+- A largura máxima da mensagem não pode ser definida abaixo de 325 px
+- Imagens e cores de fundo se aplicam à mensagem inteira, não por plataforma
+- Estilos no nível da mensagem se aplicam à mensagem inteira
+- Blocos de espaçamento usam apenas valores em pixels
+- Apenas tipos de mensagem modal e tela inteira
+- Imagens de fundo são esticadas para caber no modal
+- Imagens de fundo e ações ao clicar persistem entre páginas em mensagens de várias páginas
+
+### O que significa "Event was published, but no subscribers were found" nos logs do SDK Android? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
+
+Essa linha de log geralmente não é um erro. Ela aparece frequentemente quando a Braze publica um evento interno (como `NoMatchingTriggerEvent`) e nenhum listener de mensagem no app ou Content Cards está inscrito naquele momento.
+
+Se você vir esse log quando espera que um evento personalizado dispare uma mensagem no app, confirme que o evento está sendo registrado, que o usuário está no público da Campaign ou Canvas e que os Content Cards estão sincronizados quando a mensagem depende deles.
