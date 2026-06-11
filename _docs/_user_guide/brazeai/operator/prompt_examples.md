@@ -3,7 +3,6 @@ nav_title: Prompt library
 article_title: Prompt library for BrazeAI Operator
 page_order: 5
 page_type: reference
-layout: operator_prompt_glossary
 description: "Browse example prompts for BrazeAI Operator, organized by the dashboard page you're viewing when you open Operator."
 ---
 
@@ -15,7 +14,8 @@ description: "Browse example prompts for BrazeAI Operator, organized by the dash
 For best results, open Operator from the relevant dashboard page before using these prompts. For more information, see [Leverage page-aware context]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context).
 {% endalert %}
 
-## Home page
+{% sdktabs local %}
+{% sdktab Home page %}
 
 ### Data analysis
 
@@ -51,7 +51,8 @@ Based on what's on this dashboard, what are the first 5 places I should visit in
 Give me a 5-bullet health check of our engagement program for the last 30 days, with the biggest opportunities.
 ```
 
-## Campaigns
+{% endsdktab %}
+{% sdktab Campaigns %}
 
 ### Maintenance and organization
 
@@ -87,7 +88,8 @@ I'm feeling overwhelmed, I want to get started with Agent Console but don't know
 Summarize this Campaign Digest in 5 bullets: biggest wins, biggest issues, and what changed vs the prior period.
 ```
 
-## Canvas
+{% endsdktab %}
+{% sdktab Canvas %}
 
 ### Campaign and Canvas performance
 
@@ -109,7 +111,8 @@ What are 3 ways to restructure our onboarding Canvases to reduce drop-off and im
 Show my idle Canvases and summarize what they last sent and when users last entered (last 90 days).
 ```
 
-## Individual campaign
+{% endsdktab %}
+{% sdktab Individual campaign %}
 
 ### Campaign performance
 
@@ -129,7 +132,8 @@ Compare this campaign's conversion rate vs our other in-app campaigns in this qu
 Show the top 10 active campaigns by engagement rate in the last 30 days (by channel).
 ```
 
-## Segments
+{% endsdktab %}
+{% sdktab Segments %}
 
 ### Audience management
 
@@ -149,7 +153,8 @@ How can we use the [your segment name] segment to build a re-engagement journey 
 What channels performed best for campaigns targeting 'C&L Newsletter Clickers' vs 'Openers but not Clickers' in the last 30 days?
 ```
 
-## Segment Extensions
+{% endsdktab %}
+{% sdktab Segment Extensions %}
 
 ### Cost savings
 
@@ -169,7 +174,8 @@ How should we structure frequency-capping extensions (email/SMS/48h) to reduce o
 How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 90 days (7-day window)?
 ```
 
-## Email Performance
+{% endsdktab %}
+{% sdktab Email Performance %}
 
 ### Campaign performance
 
@@ -181,7 +187,8 @@ Compare our email Open Rate and Click-Through Rate vs industry benchmarks for th
 Which email campaigns had the lowest CTR (with high opens) in the last 30 days?
 ```
 
-## Query Builder
+{% endsdktab %}
+{% sdktab Query Builder %}
 
 ### Cost savings
 
@@ -193,7 +200,8 @@ How can we reduce Query Builder credit usage without losing reporting coverage? 
 Which saved queries haven't been run in 90 days—can you help me identify candidates to archive?
 ```
 
-## Agent Console
+{% endsdktab %}
+{% sdktab Agent Console %}
 
 ### Onboarding
 
@@ -201,10 +209,14 @@ Which saved queries haven't been run in 90 days—can you help me identify candi
 What can I do on the Knowledge Sources page, and what's the fastest way to get my first source set up?
 ```
 
-## Report Builder
+{% endsdktab %}
+{% sdktab Report Builder %}
 
 ### Strategy and optimization
 
 ```
 What are 3 high-impact reports we should create here to monitor weekly campaign & Canvas health and catch issues early?
 ```
+
+{% endsdktab %}
+{% endsdktabs %}
