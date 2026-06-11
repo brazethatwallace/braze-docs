@@ -15,12 +15,6 @@ page_order: 1
 ## ステップ 1:Shopifyストアを接続する {#step-1-connect-your-shopify-store}
 
 1. Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、「Shopify」を検索します。
-
-{% alert note %}
-古いナビゲーションを使用している場合は、**テクノロジーパートナー**は**統合**の下にあります。
-{% endalert %}
-
-{: start="2"}
 2. Shopifyパートナーページで、**Begin setup**を選択して統合プロセスを開始します。<br><br>![セットアップを開始するボタンが表示されたShopify統合ページ。]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Shopifyアプリストアで、Brazeアプリケーションをインストールします。<br><br>![アプリケーションをインストールするボタンが表示されたBrazeアプリストアページ。]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
@@ -72,7 +66,7 @@ Shopifyオンラインストアでは、標準設定を選択すると、Braze W
 
 **Track Shopify data**ステップで、統合の一部として初期履歴データの読み込みを含めるチェックボックスを選択します。
 
-インポートされる内容、収益レポートの動作、セットアップのスクリーンショット、およびアクティブなキャンペーンやキャンバスで既にBrazeを使用している場合のガイダンスについては、[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)を参照してください。
+インポートされる内容、収益レポートの動作、セットアップのスクリーンショット、およびアクティブなCampaignsやCanvasesで既にBrazeを使用している場合のガイダンスについては、[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)を参照してください。
 
 ### （詳細）カスタムデータトラッキング設定 {#advanced-custom-data-tracking-setup}
 
@@ -165,6 +159,16 @@ braze.logCustomEvent(
 - **顧客作成webhookをリッスンする:** [`customer/create`イベント](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks)をリッスンするwebhookを設定します。これにより、新しい顧客の作成時にメタフィールドを書き込むことができます。
 - **既存の顧客をバックフィルする:** [Admin API](https://shopify.dev/docs/api/admin-graphql)または[Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)を使用して、以前に作成した顧客のメタフィールドをバックフィルします。
 
+#### 潜在的な競合 {#potential-race-condition}
+
+Shopifyの`customers/create` webhookは、`braze.external_id`メタフィールドがユーザープロファイルに書き込まれる前に発火する場合があります。この場合:
+
+1. メタフィールドが存在しない場合、Brazeは設定されたエンドポイント（ステップ4.2）を呼び出してexternal IDを取得します。
+2. その呼び出しも失敗またはタイムアウトした場合、BrazeはShopify顧客IDをexternal IDとして一時的なユーザープロファイルを作成します。
+3. メタフィールドが存在する後続のイベント（`customers/update`や`ecommerce.order_placed`イベントの`orders/create`など）では、Brazeは自動的に不一致を検出し、一時的なプロファイルを正しいexternal IDとマージします。
+
+つまり、一時的な重複プロファイルが発生する可能性がありますが、自動的に修正されます。これらのプロファイルを手動でマージする必要はありません。
+
 ### ステップ 4.2:external IDを取得するエンドポイントを作成する {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
 Brazeが呼び出してexternal IDを取得できる公開エンドポイントを作成する必要があります。これにより、Shopifyが`braze.external_id`メタフィールドを直接提供できないシナリオでも、BrazeがIDを取得できます。
@@ -184,7 +188,7 @@ Brazeは、次のパラメーターをエンドポイントに送信します。
 
 #### サンプルエンドポイント {#example-endpoint}
 
-`````````http
+```http
 GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
 ```
 
@@ -200,7 +204,6 @@ Brazeは、external IDのJSONを返す`200`ステータスコードを期待し�
 `shopify_customer_id`と`email_address`（存在する場合）がShopifyの顧客値と一致することを検証することが重要です。[Shopify Admin API](https://shopify.dev/docs/api/admin-graphql)または[Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)を使用してこれらのパラメーターを検証し、正しい`braze.external_id`メタフィールドを取得できます。
 
 #### 障害時の動作とマージ {#failure-behavior-and-merging}
-
 `200`以外のステータスコードは失敗と見なされます。
 
 - **マージへの影響:** エンドポイントが失敗した場合（`200`以外を返す、またはタイムアウトした場合）、Brazeはexternal IDを取得できません。そのため、ShopifyユーザーとBrazeユーザープロファイルの間のマージは、その時点では行われません。
@@ -226,7 +229,7 @@ ShopifyからメールまたはSMSマーケティングのオプトインを収�
 ![メールまたはSMSマーケティングのオプトインを収集するオプションが表示された「Collect subscribers」セクション。]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
-[Shopify概要]({{site.baseurl}}/shopify_overview/)で説明されているように、サードパーティ製のキャプチャフォームを使用する場合は、開発者がBraze SDKコードを統合する必要があります。これにより、フォーム送信からメールアドレスとグローバルメールサブスクリプションステータスをキャプチャできます。具体的には、`theme.liquid`ファイルに以下のメソッドを実装してテストする必要があります。<br><br>
+[Shopifyの概要]({{site.baseurl}}/shopify_overview/)で説明されているように、サードパーティ製のキャプチャフォームを使用する場合は、開発者がBraze SDKコードを統合する必要があります。これにより、フォーム送信からメールアドレスとグローバルメールサブスクリプションステータスをキャプチャできます。具体的には、`theme.liquid`ファイルに以下のメソッドを実装してテストする必要があります。<br><br>
 - [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): ユーザープロファイルにメールアドレスを設定します
 - [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): グローバルメールサブスクリプションステータスを更新します
 {% endalert %}

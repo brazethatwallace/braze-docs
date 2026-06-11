@@ -41,9 +41,9 @@ MESSAGE HERE
 
 ### ¿Pueden los usuarios recibir un mensaje dentro de la aplicación de nuevo después de descartarlo? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
-Para campañas de mensajes dentro de la aplicación, puedes permitir que los usuarios vuelvan a ser elegibles para recibir la campaña activando la reelegibilidad en **Controles de entrega** (**Allow users to become re-eligible to receive campaign**). La rapidez con la que pueden recibirla de nuevo depende de la ventana de reelegibilidad que establezcas y de cómo Braze registró el envío anterior. Consulta [Reelegibilidad para Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) para conocer el comportamiento de las campañas, incluyendo cómo la reelegibilidad se relaciona con la recepción de mensajes.
+Para campañas de mensajes dentro de la aplicación, puedes permitir que los usuarios vuelvan a ser elegibles para recibir la campaña activando la reelegibilidad en **Controles de entrega** (**Permitir que los usuarios vuelvan a ser elegibles para recibir la campaña**). La rapidez con la que pueden recibirla de nuevo depende de la ventana de reelegibilidad que establezcas y de cómo Braze registró el envío anterior. Consulta [Reelegibilidad para Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) para conocer el comportamiento de las campañas, incluyendo cómo la reelegibilidad se relaciona con la recepción de mensajes.
 
 Si la reelegibilidad está desactivada, los usuarios generalmente no recibirán esa misma campaña de nuevo basándose únicamente en los criterios de calificación después de haberla recibido.
 
@@ -69,7 +69,7 @@ Sí, pero solo se puede mostrar un mensaje dentro de la aplicación por cada ocu
 
 Cuando varios mensajes comparten el mismo nivel de prioridad, se muestra primero el mensaje creado más recientemente. Para los desencadenantes de inicio de sesión, el siguiente mensaje más reciente se muestra en una sesión posterior; para otros tipos de desencadenantes, el siguiente mensaje más reciente se muestra la próxima vez que ocurra ese evento desencadenante, lo cual puede ser dentro de la misma sesión o en una sesión posterior.
 
-Para controlar el orden de visualización dentro de un grupo de prioridad, ve a la configuración de entrega de cualquiera de las campañas y selecciona **Set Exact Priority**, luego arrastra y suelta las campañas en el orden deseado. Para más detalles, consulta [Elegir una prioridad]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
+Para controlar el orden de visualización dentro de un grupo de prioridad, ve a la configuración de entrega de cualquiera de las campañas y selecciona **Establece la prioridad exacta**, luego arrastra y suelta las campañas en el orden deseado. Para más detalles, consulta [Elegir una prioridad]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
 
 ### ¿Cómo calcula Braze la expiración de un mensaje dentro de la aplicación configurada como "después de 1 día(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -137,4 +137,32 @@ Esta tabla compara los flujos de mensajes dentro de la aplicación que experimen
 | --- | --- |
 | Estándar | No se registró un evento de cancelación porque Sam no realizó ninguna acción que desencadenaría un mensaje.<br><br>Los mensajes dentro de la aplicación estándar no registran cancelaciones porque la definición de una cancelación es "no vio el mensaje a pesar de realizar la acción desencadenante". Dado que los mensajes dentro de la aplicación se entregan al dispositivo antes de que ocurran las acciones desencadenantes, no tiene sentido considerar como cancelados los mensajes dentro de la aplicación omitidos debido a la lógica de Liquid. |
 | Con plantilla | Se registró un evento de cancelación porque Sam realizó la acción desencadenante para desencadenar el mensaje dentro de la aplicación con plantilla, pero recibió una cancelación en la plantilla de Liquid.<br><br>Los mensajes dentro de la aplicación con plantilla registran cancelaciones porque la evaluación de Liquid ocurre después de que se ha realizado la acción desencadenante. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparación del comportamiento de cancelación de mensajes dentro de la aplicación" }
+
+### ¿Por qué el botón de cierre está oculto en los mensajes dentro de la aplicación HTML de pantalla completa en Android? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
+
+En dispositivos con pantallas de borde a borde (incluido Android 15+), los mensajes dentro de la aplicación HTML de pantalla completa pueden dibujarse detrás de la barra de estado del sistema y ocultar un control de cierre en la parte superior del diseño.
+
+La versión 37.0.0 y posteriores del SDK de Braze para Android aplican márgenes de ventana a los mensajes dentro de la aplicación HTML de forma predeterminada para que los controles permanezcan en el área segura. Si los usuarios siguen viendo superposición, actualiza a la última versión del SDK de Braze para Android.
+
+En versiones anteriores del SDK, los desarrolladores podían habilitar `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` antes de que este comportamiento se convirtiera en el predeterminado.
+
+### ¿Cuáles son las limitaciones conocidas del editor de arrastrar y soltar para mensajes dentro de la aplicación? {#what-are-known-limitations-of-the-drag-and-drop-in-app-message-editor}
+
+El [editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) no admite todas las personalizaciones disponibles en los mensajes dentro de la aplicación con [HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/). Ten en cuenta lo siguiente:
+
+- Un vínculo profundo por mensaje (no diferentes vínculos por tipo de dispositivo)
+- La opacidad se aplica a todo el fondo del mensaje, no a elementos individuales
+- El ancho máximo del mensaje no se puede establecer por debajo de 325 px
+- Las imágenes y colores de fondo se aplican a todo el mensaje, no por plataforma
+- Los estilos a nivel de mensaje se aplican a todo el mensaje
+- Los bloques de espaciado solo usan valores en píxeles
+- Solo tipos de mensaje modal y de pantalla completa
+- Las imágenes de fondo se estiran para ajustarse al modal
+- Las imágenes de fondo y las acciones de clic persisten entre páginas en mensajes de varias páginas
+
+### ¿Qué significa "Event was published, but no subscribers were found" en los registros del SDK de Android? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
+
+Esta línea de registro generalmente no es un error. A menudo aparece cuando Braze publica un evento interno (como `NoMatchingTriggerEvent`) y ningún listener de mensajes dentro de la aplicación o Content Cards está suscrito en ese momento.
+
+Si ves este registro cuando esperas que un evento personalizado desencadene un mensaje dentro de la aplicación, confirma que el evento se registró, que el usuario está en la audiencia de la campaña o Canvas, y que Content Cards están sincronizadas cuando el mensaje depende de ellas.

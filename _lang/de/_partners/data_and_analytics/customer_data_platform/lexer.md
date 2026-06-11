@@ -25,7 +25,7 @@ Die Integration von Braze und Lexer erlaubt es Ihnen, Daten zwischen den beiden 
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit allen `user`-Berechtigungen (außer `user.delete`) und `segment.list`-Berechtigungen. Der Berechtigungssatz kann sich ändern, wenn Lexer die Unterstützung für weitere Braze-Objekte hinzufügt. Sie sollten also entweder jetzt mehr Berechtigungen erteilen oder ein Update dieser Berechtigungen in der Zukunft planen.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze REST-Endpunkt | Ihre [URL für den REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Amazon AWS S3-Bucket und Zugangsdaten | Bevor Sie mit der Integration beginnen, müssen Sie über Zugangsdaten für einen AWS S3-Bucket verfügen, der mit Ihrem Lexer-Hub verbunden ist (dies kann ein Bucket sein, den Sie erstellen, oder einer, den Lexer für Sie erstellt und verwaltet). Besuchen Sie [Lexer](https://learn.lexer.io/docs/amazon-s3) für eine Anleitung zu dieser Anforderung. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -37,7 +37,7 @@ Navigieren Sie in Lexer zu **Manage > Integration**, wählen Sie die Kachel **Br
   - **AWS S3 [bucket region](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html)**
   - **AWS S3 bucket path**: Dieser Pfad sollte mit dem Pfad übereinstimmen, den Sie bei der [Verbindung Ihres S3-Buckets mit Braze]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) angegeben haben. Dieses Feld sollte leer sein, wenn Sie Braze keine Angaben gemacht haben.
   - **AWS S3 secret access key**: Besuchen Sie Amazon für Informationen zur [Erstellung eines Zugangsschlüssels](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/).
-- **Braze export segment ID**: Die ID des Segments, das Sie in Braze erstellt haben und das alle Nutzer:innen enthält, die Sie in Lexer exportieren möchten. Wenn es Nutzer:innen gibt, die Sie nicht in Lexer exportieren möchten, können Sie sie aus dem Segment ausschließen, das Sie in Braze erstellt haben. Um den Bezeichner Ihres Segments zu finden, klicken Sie in Braze auf das gewünschte Segment und suchen Sie den **Segment API Identifier**.
+- **Braze export segment ID**: Die ID des Segments, das Sie in Braze erstellt haben und das alle Nutzer:innen enthält, die Sie in Lexer exportieren möchten. Wenn es Nutzer:innen gibt, die Sie nicht in Lexer exportieren möchten, können Sie sie aus dem Segment ausschließen, das Sie in Braze erstellt haben. Um den Bezeichner Ihres Segments zu finden, klicken Sie in Braze auf das gewünschte Segment und suchen Sie den **Segment-API-Bezeichner**.
 
 ![]({% image_buster /assets/img/lexer/braze_integrate_screen.png %})
 

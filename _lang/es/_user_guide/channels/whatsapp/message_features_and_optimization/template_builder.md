@@ -20,7 +20,7 @@ channel:
 
 ### Paso 1: Ve a las plantillas de WhatsApp {#step-1-go-to-whatsapp-templates}
 
-Ve a **Contenido** > **Plantillas de WhatsApp** y selecciona **Crear nueva plantilla**.
+Ve a **Content** > **WhatsApp** y selecciona **Create new template**.
 
 ![Página de plantillas de WhatsApp con botón para crear una nueva plantilla.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -30,17 +30,17 @@ Completa los siguientes campos:
 
 | Campo | Descripción |
 | ----- | ----- |
-| **Cuenta** | La cuenta de WhatsApp Business (WABA) a la que deseas enviar la plantilla. Todos los grupos de suscripción y números de teléfono dentro de una WABA compartirán el acceso a la plantilla. |
-| **Idioma** | El idioma de esta plantilla. WhatsApp requiere una plantilla separada para cada idioma. |
-| **Nombre de la plantilla** | Un nombre único para tu plantilla. Los nombres de plantilla solo pueden contener letras minúsculas, números y guiones bajos. |
+| **Account** | La cuenta de WhatsApp Business (WABA) a la que deseas enviar la plantilla. Todos los grupos de suscripción y números de teléfono dentro de una WABA compartirán el acceso a la plantilla. |
+| **Language** | El idioma de esta plantilla. WhatsApp requiere una plantilla separada para cada idioma. |
+| **Template name** | Un nombre único para tu plantilla. Los nombres de plantilla solo pueden contener letras minúsculas, números y guiones bajos. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
 
 ### Paso 3: Elige un diseño {#step-3-choose-a-layout}
 
-En **Diseño**, selecciona el tipo de plantilla:
+En **Layout**, selecciona el tipo de plantilla:
 
-- **Predeterminado:** Un mensaje estándar de WhatsApp. Este es el diseño que se cubre en este artículo.
-- **Carrusel:** Un mensaje con tarjetas desplazables horizontalmente. Para más información, consulta [Plantillas de carrusel]({{site.baseurl}}/whatsapp_carousel_templates/).
+- **Default:** Un mensaje estándar de WhatsApp. Este es el diseño que se cubre en este artículo.
+- **Carousel:** Un mensaje con tarjetas desplazables horizontalmente. Para más información, consulta [Plantillas de carrusel]({{site.baseurl}}/whatsapp_carousel_templates/).
 
 ### Paso 4: Construye tu plantilla {#step-4-build-your-template}
 
@@ -48,9 +48,9 @@ En **Diseño**, selecciona el tipo de plantilla:
 
 Añade un encabezado que aparezca encima del cuerpo del mensaje. Puedes elegir:
 
-- **Texto:** Un encabezado de texto corto.
-- **Multimedia:** Una imagen, video o documento (solo URL). Braze almacena la referencia multimedia y envía una muestra a Meta para su aprobación.
-- **Ninguno:** Sin encabezado
+- **Text:** Un encabezado de texto corto.
+- **Media:** Una imagen, video o documento (solo URL). Braze almacena la referencia multimedia y envía una muestra a Meta para su aprobación.
+- **None:** Sin encabezado
 
 #### Cuerpo {#body}
 
@@ -85,12 +85,12 @@ Añade hasta 10 botones a tu plantilla. Los tipos de botones tienen diferentes c
 
 Antes de enviar, previsualiza cómo aparecerá tu mensaje para los destinatarios:
 
-- **Previsualizar como usuario:** Ve una vista previa genérica del mensaje.
-- **Previsualizar como un usuario específico:** Selecciona un perfil de usuario para previsualizar cómo se renderizará la plantilla con los datos de ese usuario.
+- **Preview as a user:** Ve una vista previa genérica del mensaje.
+- **Preview as a specific user:** Selecciona un perfil de usuario para previsualizar cómo se renderizará la plantilla con los datos de ese usuario.
 
 ### Paso 6: Envía para revisión {#step-6-submit-for-review}
 
-Selecciona **Submit** para enviar tu plantilla a Meta para su revisión, lo que normalmente tarda unos minutos pero puede tardar hasta 24 horas. La plantilla aparece en tu página de **Plantillas de WhatsApp** cuando se envía, y el estado se actualiza cuando actualizas la página de **Plantillas de WhatsApp**.
+Selecciona **Submit** para enviar tu plantilla a Meta para su revisión, lo que normalmente tarda unos minutos pero puede tardar hasta 24 horas. La plantilla aparece en tu página de **WhatsApp templates** cuando se envía, y el estado se actualiza cuando actualizas la página de **WhatsApp templates**.
 
 ## Categorías de plantillas compatibles {#supported-template-categories}
 

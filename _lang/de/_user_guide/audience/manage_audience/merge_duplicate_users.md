@@ -137,6 +137,12 @@ Nachdem das Feature aktiviert wurde, weist Braze automatisch ein Zeitfenster zu,
 Doppelte Nutzerprofile können nach dem Zusammenführen nicht wiederhergestellt werden.
 {% endalert %}
 
+## Warum sind mehrere Nutzerprofile mit derselben E-Mail-Adresse verknüpft? {#why-are-multiple-user-profiles-associated-with-the-same-email-address}
+
+Braze speichert mehrere Nutzerprofile, die dieselbe E-Mail-Adresse teilen, wenn Profile über verschiedene Bezeichner, Importe oder anonyme Sitzungen vor der Identifizierung erstellt werden. Dies ist ein erwartetes Verhalten, wenn Nutzer:innen keine gemeinsame `external_id` haben.
+
+Bevor Sie Duplikate zusammenführen, verwenden Sie den [Endpunkt „Nutzerprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/), um zu bestätigen, welche Profile für eine E-Mail-Adresse existieren und welche Felder jedes Profil enthält. Sie können auch in **Audience** > **User Search** nach E-Mail suchen, um Duplikate im Dashboard zu überprüfen.
+
 ## Verwandte Artikel {#related-articles}
 
 - [Zusammenführungsverhalten von Nutzer:innen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)

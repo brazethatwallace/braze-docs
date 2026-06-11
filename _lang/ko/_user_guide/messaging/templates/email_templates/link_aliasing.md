@@ -69,10 +69,6 @@ Braze는 모든 링크 URL에 `lid`(링크 식별자라고도 함)라는 추가 
 1. **설정** > **워크스페이스 설정** 아래의 **이메일 환경설정**으로 이동합니다.
 2. **Link Aliasing Settings** 탭을 선택합니다.
 
-{% alert important %}
-[이전 탐색]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/)을 사용하는 경우 이러한 설정은 **설정 관리** 아래에 있습니다.
-{% endalert %}
-
 여기에서 링크 별칭을 정렬, 검색하고 추적을 해제할 수 있습니다.
 
 ![다양한 캠페인과 연결된 활성 및 비활성 링크 별칭을 보여주는 추적된 링크 별칭 페이지.]({% image_buster /assets/img/tracked_aliases.png %})
@@ -96,7 +92,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-----------------------|----------------------------------------|
 | `https://www.braze.com` | `https://www.braze.com?lid=slfdldtqdhdk` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Permalink" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="고정 링크" }
 
 ### 추가 쿼리 매개변수가 있는 링크 {#link-with-more-query-parameters}
 
@@ -105,7 +101,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with more query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="추가 쿼리 매개변수가 있는 링크" }
 
 ### HTML 링크 {#html-link}
 
@@ -114,7 +110,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML link" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML 링크" }
 
 ### 앵커가 있는 링크 {#link-with-anchor}
 
@@ -123,7 +119,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="앵커가 있는 링크" }
 
 ### 앵커와 캡처 태그가 있는 링크 {#link-with-anchor-and-capture-tag}
 
@@ -132,7 +128,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%} | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor and capture tag" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="앵커와 캡처 태그가 있는 링크" }
 
 ## 링크 별칭 추적 {#tracking-link-aliases}
 
@@ -142,7 +138,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 링크 참여 측정기준을 추적하려면 링크가 HTTP 또는 HTTPS로 시작하는지 확인하세요. 특정 링크의 클릭 추적을 해제하려면 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)를 참조하세요.
 {% endalert %}
 
-Braze에서는 추적할 링크를 무제한으로 선택할 수 있지만, 가장 최근에 열어본 링크에 대해서만 사용자를 리타겟팅할 수 있습니다. 사용자 프로필에는 가장 최근에 클릭한 100개의 링크가 포함됩니다. 예를 들어, 500개의 링크를 추적하고 사용자가 500개 모두를 클릭한 경우, 가장 최근에 클릭한 100개의 링크를 기반으로 리타겟팅하거나 세그먼트를 생성할 수 있습니다.
+Braze에서는 추적할 링크를 무제한으로 선택할 수 있지만, 가장 최근에 열어본 링크에 대해서만 사용자를 리타겟팅할 수 있습니다. 사용자 프로필에는 가장 최근에 클릭한 100개의 링크가 포함됩니다. 예를 들어, 500개의 링크를 추적하고 사용자가 500개 모두를 클릭한 경우, 가장 최근에 클릭한 100개의 링크를 기반으로 리타겟팅하거나 Segment를 생성할 수 있습니다.
 
 ![두 개의 링크가 선택된 Link Management 탭.]({% image_buster /assets/img/link_management_dnd.png %})
 
@@ -168,7 +164,7 @@ Braze에서 이메일에 링크 별칭이 있고 사용자가 이를 클릭하�
 
 #### 링크 추적 해제 {#untracking-links}
 
-링크 추적을 해제해도 추적 해제된 별칭에 대한 필터가 있는 기존 세그먼트가 재할당되지 않습니다. 이전 데이터는 새로운 데이터로 대체될 때까지 사용자 프로필에 남아 있습니다.
+링크 추적을 해제해도 추적 해제된 별칭에 대한 필터가 있는 기존 Segment가 재할당되지 않습니다. 이전 데이터는 새로운 데이터로 대체될 때까지 사용자 프로필에 남아 있습니다.
 
 아카이브된 메시지의 링크는 자동으로 추적이 해제됩니다. 그러나 아카이브된 메시지가 아카이브 해제되면 링크를 다시 추적해야 합니다. 링크 별칭이 추적되면 링크 보고는 최상위 도메인이나 전체 URL 대신 별칭으로 인덱싱됩니다.
 
@@ -210,7 +206,7 @@ Currents로 참여 데이터를 내보내는 경우, 링크 별칭 지정이 활
 ```
 
 {% alert update %}
-`dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 Canvas 단계(스케줄할 수 있는 진입 단계 제외)를 "스케줄"된 경우에도 트리거된 이벤트로 처리하기 때문입니다. Canvas와 Campaigns에서의 [`dispatch_id` 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+`dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 Canvas 단계(스케줄할 수 있는 진입 단계 제외)를 "스케줄"된 경우에도 트리거된 이벤트로 처리하기 때문입니다. Canvas와 Campaigns에서의 [`dispatch_id` 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)에 대해 자세히 알아보세요.
 
 _2019년 8월에 업데이트되었습니다._
 {% endalert %}
@@ -246,7 +242,7 @@ Liquid로 생성된 URL에서 [링크 템플릿]({{site.baseurl}}/user_guide/mes
 
 프래그먼트(`#` 및 그 이후의 모든 내용)는 일반 링크 요청 시 서버로 전송되지 않습니다. Braze는 `lid`를 쿼리 문자열에 삽입하며, 이는 `#` 앞에 위치해야 합니다. `href`에 Liquid와 `#` 프래그먼트가 있지만 `#` 앞에 `?` 또는 `&`가 없으면 Braze가 안전하게 `lid`를 추가할 수 없으므로 해당 링크가 **Link Management**에 표시되지 않거나 링크 별칭으로 추적되지 않을 수 있습니다.
 
-이는 드래그 앤 드롭 편집기에서 버튼 URL이 Liquid와 해시 기반 패턴을 혼합할 때(예: 정적 경로 다음에 `#`, 그 다음에 추가 키-값 쌍) 특히 흔합니다. 이 경우 `#` 바로 앞에 `?`를 추가하여 쿼리 문자열(`lid` 포함)이 프래그먼트 앞에서 구문 분석되도록 합니다.
+이는 드래그 앤 드롭 편집기에서 버튼 URL이 Liquid와 해시 기반 패턴을 혼합할 때(예: 정적 경로 다음에 `#`, 그 다음에 추가 키-값 페어) 특히 흔합니다. 이 경우 `#` 바로 앞에 `?`를 추가하여 쿼리 문자열(`lid` 포함)이 프래그먼트 앞에서 구문 분석되도록 합니다.
 
 {% raw %}
 ```text
@@ -255,6 +251,8 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 {% endraw %}
 
 위 예시에서 `#` 앞의 `?`는 Braze에 `lid`를 추가할 쿼리 세그먼트를 제공합니다. 이것이 없으면 해당 링크가 **Link Management**에 표시되지 않을 수 있습니다.
+
+쿼리 매개변수를 추가할 위치를 식별할 수 없으면 링크 별칭 지정이 이러한 URL을 인식하지 못하며 링크 템플릿이 적용되지 않습니다. 동적 URL에 대해 **LID 할당 실패**와 같은 오류가 표시되면 `href`가 이 섹션의 예시에 표시된 `?` 또는 `&` 패턴을 사용하는지 확인하세요.
 
 ### 드래그 앤 드롭 편집기 고려 사항 {#drag-and-drop-editor-considerations}
 
@@ -339,3 +337,21 @@ Braze에서 먼저 다음 접근 방식을 사용하세요:
 <a href="{{ url }}?">Go to account</a>
 ```
 {% endraw %}
+
+## 문제 해결 {#troubleshooting}
+
+### `lid` 매개변수를 허용하지 않는 대상 {#destinations-that-dont-accept-the-lid-parameter}
+
+이메일 편집기에서 테스트 메시지를 발송하면 Braze가 링크에 {% raw %}`lid={{placeholder}}`{% endraw %}를 추가합니다(플레이스홀더는 발송 시 고유 값으로 변환됩니다). 대상 사이트나 API가 추가 쿼리 매개변수를 허용하지 않으면 편집기에서는 링크가 작동하지만 이메일에서 열 때 실패할 수 있습니다.
+
+`lid` 값이 없으면 Braze는 해당 URL을 추적 및 세분화를 위한 링크 별칭으로 처리하지 않습니다. 이 문서에서 설명하는 링크 별칭 지정, 보고 및 Segment 사용 사례를 유지하려면 백엔드 또는 사이트에서 `lid` 쿼리 매개변수가 있을 때 이를 무시하도록 업데이트하는 것을 권장합니다.
+
+또는 백엔드 변경을 계획하는 동안 대시보드에서 링크 별칭 지정을 해제할 수 있습니다. **설정** > **이메일 환경설정** > **Link Aliasing Settings**로 이동하세요.
+
+대상 시스템을 변경할 수 없는 경우 [Braze 고객지원]({{site.baseurl}}/braze_support/)에 연락하여 워크스페이스에 대한 링크 별칭 지정을 비활성화하세요. 워크스페이스에서 링크 별칭 지정이 해제되면 다음 사항에 유의하세요:
+
+- 새 이메일 메시지와 Content Blocks은 일반적으로 새로운 링크 별칭 마크업(`lid` 쿼리 매개변수 등)을 받지 않습니다.
+- 링크 별칭 지정이 활성화된 상태에서 생성된 기존 메시지에는 HTML에 링크 별칭 마크업이 여전히 포함될 수 있습니다. 더 이상 필요하지 않은 곳에서 남아 있는 `lid` 매개변수를 수동으로 제거해야 할 수 있습니다.
+- 기존 Campaign, Canvas 이메일 단계 또는 Content Blocks을 편집하는 경우 템플릿된 링크가 올바르게 표시되도록 링크 템플릿을 다시 추가해야 할 수 있습니다.
+- 링크 별칭 지정이 활성화된 상태에서 발송된 클릭 보고는 기능이 해제된 후의 보고와 깔끔하게 일치하지 않을 수 있습니다.
+- 링크 별칭 기반 필터(예: **별칭 클릭** 필터)를 사용하는 Segment가 예상하는 오디언스를 반환하지 않을 수 있습니다.

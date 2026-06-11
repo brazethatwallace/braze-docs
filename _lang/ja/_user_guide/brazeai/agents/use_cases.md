@@ -14,10 +14,10 @@ toc_headers: h2
 ## ユーザーのコンテキストに基づいてパーソナライズされたメッセージを作成する {#write-personalized-messaging-based-on-a-users-context}
 
 {% apitags %}
-キャンバス agent
+Canvas agent
 {% endapitags %}
 
-このユースケースでは、キャンバス エージェントがアプリ内で検索したが予約しなかったユーザーに対して、メールの件名、プリヘッダー、プッシュ通知のタイトルと本文を連携して生成する方法を説明します。目標は、各チャネルの文字数制限を守りながら、ローカライズされたブランドセーフなメッセージングでチェックアウトを促進するキャンバスジャーニーでユーザーをリターゲティングすることです。
+このユースケースでは、Canvasエージェントがアプリ内で検索したが予約しなかったユーザーに対して、メールの件名、プリヘッダー、プッシュ通知のタイトルと本文を連携して生成する方法を説明します。目標は、各チャネルの文字数制限を守りながら、ローカライズされたブランドセーフなメッセージングでチェックアウトを促進するCanvasジャーニーでユーザーをリターゲティングすることです。
 
 ### 前提条件 {#prerequisites}
 
@@ -28,7 +28,7 @@ toc_headers: h2
 - ユーザーが最後に検索した都市のコンテキスト変数
 - ユーザーの最新のアンケート回答のコンテキスト変数
 - **エージェントコンテキスト**
-    - **すべてのキャンバスコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
+    - **すべてのCanvasコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
     - **ブランドガイドライン:** `<Brand guidelines name>` — エージェントがこれらの指示で参照されるボイス、トーン、フォーマットルールを適用するために必要です。
 
 ### 指示 {#instructions}
@@ -89,10 +89,10 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 ## ユーザーフィードバックを分析して次のステップを決定する {#analyze-user-feedback-to-determine-next-steps}
 
 {% apitags %}
-キャンバス agent
+Canvas agent
 {% endapitags %}
 
-このユースケースでは、キャンバス エージェントが旅行後のアンケートからユーザーフィードバックを分析し、センチメントとトピックを分類する方法を説明します。このエージェントの目標は、別の CRM プラットフォームの次のステップを決定することです。
+このユースケースでは、Canvasエージェントが旅行後のアンケートからユーザーフィードバックを分析し、センチメントとトピックを分類する方法を説明します。このエージェントの目標は、別のCRMプラットフォームの次のステップを決定することです。
 
 ### 前提条件
 
@@ -102,7 +102,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 - ユーザーの最新の旅行先のコンテキスト変数
 - テキストとしてのユーザーフィードバックのコンテキスト変数
 - **エージェントコンテキスト**
-    - **すべてのキャンバスコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
+    - **すべてのCanvasコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
 
 ### 指示
 
@@ -150,101 +150,21 @@ Input & Output Example:
 
 {% api %}
 
-## エンゲージメントアンケートに基づいてコンバージョンの可能性を判定する {#determine-conversion-likelihood-based-on-engagement-surveys}
-
-{% apitags %}
-キャンバス agent
-{% endapitags %}
-
-このユースケースでは、キャンバス エージェントがアプリの無料サブスクライバーのコンバージョン率を判定する方法を説明します。エージェントはユーザーの行動を分析し、コンバージョンの可能性が高いサブスクライバーのセグメントに割り当てることができます。目標は、無料サブスクライバーを有料サブスクライバーに転換するためのさまざまなリテンション戦略の推奨を返すことです。
-
-### 前提条件
-
-これらの指示は、以下の情報が利用可能であることを前提としています。
-
-- カスタム属性:
-    - 無料トライアル開始からの日数
-    - 無料トライアル中のフライトおよびホテル検索数
-    - 無料トライアル中に使用されたプレミアム機能の数
-- アプリが最後に開かれた日のコンテキスト変数
-- **エージェントコンテキスト**
-    - **すべてのキャンバスコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
-    - **セグメントメンバーシップ:** ユーザーが「Has Valid Payment Method on File」セグメントに属しているかどうかを確認します
-
-### 指示
-
-{% raw %}
-```
-Role:
-You are an expert Retention and Conversion Analyst for UponVoyage Premium. Your role is to evaluate users currently in their 30-day free trial to determine their likelihood to convert to a paid subscription, based on the quality and depth of their engagement, not just their frequency.
-
-Inputs & Goals:
-The user is currently in the "UponVoyage Premium" free trial. Your goal is to analyze their behavioral signals to assign them to a Conversion Segment and recommend a Retention Strategy.
-
-You will get the following user-specific inputs:
-{{custom_attribute.${days_since_trial_start}}} - number of days since they started the trial
-{{custom_attribute.${searches_count}}} - total number of flight/hotel searches during trial
-{{custom_attribute.${premium_features_used}}} - count of Premium-only features used (e.g., Lounge Access, Price Protection)
-{{custom_attribute.${most_searched_category}}} - e.g., "Luxury Hotels", "Budget Hostels", "Family Resorts", "Business Travel"
-{{context.${last_app_session}}} - date of last app open
-
-User membership in segment: "Has Valid Payment Method on File" (True/False)
-
-Rules:
-- Analyze Engagement Depth: High search volume alone does not equal high conversion. Look for use of Premium Features (the core value driver).
-- Determine Segment Label:
-High: Frequent activity AND usage of at least one Premium feature. User clearly sees value.
-Medium: Frequent activity (searches) but LOW/NO usage of Premium features. User is engaged with the app but not yet hooked on the subscription.
-Low: Minimal activity (< 3 searches) regardless of features.
-Cold: No activity in the last 7 days.
-- Identify Primary Barrier: Based on the data, what is stopping them? (e.g., "Price Sensitivity" if they search Budget options; "Feature Unawareness" if they search Luxury but don't use Premium perks).
-- Assign Retention Strategy:
-High: "Push Annual Plan Upgrade"
-Medium: "Educate on Premium Benefits" (Show them what they are missing)
-Low/Cold: "Re-engagement Offer" (Deep discount or extension)
-- Data Safety: Do not generate numerical probability scores (e.g., "85%"). Stick to the defined labels.
-
-Final Output Specification:
-You must return an object containing exactly four keys: "segment_label", "primary_barrier", "retention_strategy", and "explanation".
-- segment_label: String (High, Medium, Low, Cold)
-- primary_barrier: String (Price_Sensitivity, Feature_Unawareness, Low_Intent, None)
-- retention_strategy: String (Push_Annual_Plan, Educate_Benefits, Re_engagement_Offer)
-- explanation: String. Brief rationale tying engagement signals to segment, barrier, and strategy (for review or debugging).
-
-Input & Output Example:
-<input_example>
-{{custom_attribute.${days_since_trial_start}}}: 20
-{{custom_attribute.${searches_count}}}: 15
-{{custom_attribute.${premium_features_used}}}: 0
-{{custom_attribute.${most_searched_category}}}: "Budget Hostels"
-{{context.${last_app_session}}}: Yesterday
-The user IS in the segment: "Has Valid Payment Method on File".
-</input_example>
-<output_example>
-{"segment_label": "Medium", "primary_barrier": "Feature_Unawareness", "retention_strategy": "Educate_Benefits", "explanation": "High search volume (15) but zero Premium feature use—they are engaged but not seeing subscription value. Budget Hostels suggests price sensitivity context; barrier Feature_Unawareness; Educate_Benefits fits the Medium segment."}
-</output_example>
-```
-{% endraw %}
-
-{% endapi %}
-
-{% api %}
-
 ## 受信メッセージをオプトアウト意図で分類する {#classify-inbound-messages-for-opt-out-intent}
 
 {% apitags %}
-キャンバス agent
+Canvas agent
 {% endapitags %}
 
-このユースケースでは、キャンバス エージェントが受信した顧客メッセージを1件ずつ評価し、今後のメッセージングのオプトアウトリクエスト（例: STOP、配信停止、同意の撤回）として扱うべきかどうかを返す方法を説明します。目標は、厳密なブール値を出力してジャーニーを保守的に分岐させ、同意撤回後のメッセージ送信リスクを低減しつつ、ユーザーが明らかに質問をしている場合やエンゲージメントを続けている場合の誤検知を回避することです。
+このユースケースでは、Canvasエージェントが受信した顧客メッセージを1件ずつ評価し、今後のメッセージングのオプトアウトリクエスト（例: STOP、配信停止、同意の撤回）として扱うべきかどうかを返す方法を説明します。目標は、厳密なブール値を出力してジャーニーを保守的に分岐させ、同意撤回後のメッセージ送信リスクを低減しつつ、ユーザーが明らかに質問をしている場合やエンゲージメントを続けている場合の誤検知を回避することです。
 
 ### 前提条件
 
 これらの指示は、以下の情報が利用可能であることを前提としています。
 
-- エージェントが利用可能な受信メッセージテキスト（例: ユーザーの最新の SMS 返信やその他の受信テキストのコンテキスト変数）
+- エージェントが利用可能な受信メッセージテキスト（例: ユーザーの最新のSMS返信やその他の受信テキストのコンテキスト変数）
 - **エージェントコンテキスト**
-    - **すべてのキャンバスコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
+    - **すべてのCanvasコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
 
 ### 指示
 
@@ -375,7 +295,7 @@ Price Tier: $$$
 Catalog agent
 {% endapitags %}
 
-このユースケースでは、カタログエージェントが、ロケール、UI 配置、文字数制限を定義するカタログ行を使用して、英語の UI およびマーケティング文字列を各地域のターゲット言語に翻訳する方法を説明します。目標は、カタログカラムにマッピングするローカライズされたテキストを生成し、短縮、ロケール選択、または手動レビューが適用される場合に説明を付けることです。
+このユースケースでは、カタログエージェントが、ロケール、UI配置、文字数制限を定義するカタログ行を使用して、英語のUIおよびマーケティング文字列を各地域のターゲット言語に翻訳する方法を説明します。目標は、カタログカラムにマッピングするローカライズされたテキストを生成し、短縮、ロケール選択、または手動レビューが適用される場合に説明を付けることです。
 
 ### 前提条件
 

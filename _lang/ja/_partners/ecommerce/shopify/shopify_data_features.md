@@ -1,20 +1,20 @@
 ---
-nav_title: Shopify のデータ機能
-article_title: Shopify のデータ機能
-description: "このリファレンス記事では、Shopify のデータ機能について説明します。"
+nav_title: Shopifyのデータ機能
+article_title: Shopifyのデータ機能
+description: "このリファレンス記事では、Shopifyのデータ機能について説明します。"
 page_type: partner
 search_tag: Partner
 alias: /shopify_data_features/
 page_order: 4
 ---
 
-# Shopify のデータ機能 {#shopify-data-features}
+# Shopifyのデータ機能 {#shopify-data-features}
 
-> この記事では、Shopifyの機能の概要を示します。これには、追跡対象のShopifyデータ、ペイロード例、履歴バックフィル、および製品の同期などが含まれます。
+> この記事では、Shopifyの機能の概要を説明します。追跡対象のShopifyデータ、ペイロード例、履歴バックフィル、および製品の同期が含まれます。
 
 ## 追跡対象のShopifyイベント {#tracked-shopify-events}
 
-Shopifyインテグレーションでは、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)を使用して、主要な買い物行動をキャプチャします。これらのイベントを使用した実装例およびマーケティング戦略については、[eコマースユースケース]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/)を参照してください。
+Shopifyインテグレーションでは、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)を使用して、主要な買い物行動をキャプチャします。これらのイベントを使用した実装例やマーケティング戦略については、[eコマースユースケース]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/)を参照してください。
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -426,7 +426,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 | `product_name `    | `{{event_properties.${product_name}}}`              |
 | `variant_id`       | `{{event_properties.${variant_id}}}`                |
 | `image_url `       | `{{event_properties.${image_url}}}`                 |
-| `product_url`      | `<your-store.myshopify.com>{{event_properties.${product_url}}}` <br><br>URLの前にShopifyサイトドメインを追加します。 |
+| `product_url`      | `<your-store.myshopify.com>{{event_properties.${product_url}}}` <br><br>URLの前にShopifyサイトドメインを追加してください。 |
 | `price`            | `{{event_properties.${price}}}`                     |
 | `currency`         | `{{event_properties.${currency}}}`                  |
 | `source`           | `{{event_properties.${source}}}`                    |
@@ -443,10 +443,10 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 **データソース**: Braze SDK<br>
 **ユースケース**: カート放棄
 
-放棄カートキャンバスでは、まず最初のショッピングカートのLiquidタグを追加し、メッセージ内のショッピングカートのコンテキストを取得する必要があります。
+放棄カートCanvasでは、まず最初のショッピングカートのLiquidタグを追加して、メッセージ内のショッピングカートのコンテキストを取得する必要があります。
 
 {% raw %}
-`````````liquid
+```liquid
 {% shopping_cart {{context.${cart_id}}} %}
 ```
 {% endraw %}
@@ -473,7 +473,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 {% endraw %}
 
 {% alert tip %}
-Liquidの`for`ループを構築してすべての製品をメールにダイナミックに追加する方法の詳細については、[メール用の放棄カート商品のパーソナライゼーション]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart)を参照してください。
+Liquidの`for`ループを構築してすべての製品をメールにダイナミックに追加する方法の詳細については、[メール用の放棄カート商品パーソナライゼーション]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart)を参照してください。
 {% endalert %}
 
 {% endsubtab %}
@@ -488,16 +488,16 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 顧客がShop Payを高速チェックアウトオプションとして使用した場合、Shopifyは特定の標準チェックアウトイベント（Shopifyチェックアウト開始Webhookなど）をスキップすることがあります。これにより、Brazeがチェックアウトトークンエイリアスの追加に必要なデータを受信できず、チェックアウト放棄のトラッキングやユーザープロファイルの照合に影響を与える可能性があります。
 {% endalert %}
 
-放棄チェックアウトキャンバスでは、まず次のLiquidタグを使用する必要があります。
+放棄チェックアウトCanvasでは、まず次のLiquidタグを使用する必要があります。
 
 {% raw %}
-`````````liquid
+```liquid
 {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
 {{context.${cart_id}}}
 ```
 {% endraw %}
 
-次に、以下のLiquidタグをメッセージに追加し、チェックアウト時にカート内の商品を参照できます。
+次に、以下のLiquidタグをメッセージに追加して、チェックアウト時のカート内の商品を参照できます。
 
 {% raw %}
 | 変数         | Liquidテンプレート                                   |
@@ -548,7 +548,7 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 {% endraw %}
 
 {% alert tip %}
-Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含まれていません。そのため、[メール用の注文確認とフィードバック調査]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey)で説明されているように、カタログLiquidのパーソナライゼーションを使用する必要があります。
+Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含まれていません。そのため、[メール用の注文確認とフィードバック調査]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey)で説明されているように、カタログLiquidパーソナライゼーションを使用する必要があります。
 {% endalert %}
 
 {% endsubtab %}
@@ -766,7 +766,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 {% endraw %}
 
 {% alert note %}
-現在、Shopifyインテグレーションでは、Brazeの[購入イベント]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-events)への入力はサポートされていません。そのため、購入フィルター、Liquidタグ、アクションベースのトリガー、および分析には`ecommerce.order_placed`イベントを使用する必要があります。
+現在、Shopifyインテグレーションでは、Brazeの[購入イベント]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-events)への入力はサポートされていません。そのため、購入フィルター、Liquidタグ、アクションベースのトリガー、および分析には`ecommerce.order_placed`イベントを使用してください。
 {% endalert %}
 
 {% endsubtab %}
@@ -820,7 +820,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 このページは、Shopifyがこの問題を解決した後に更新されます。
 {% endalert %}
 
-### Liquidのパーソナライゼーション {#liquid-personalization}
+### Liquidパーソナライゼーション {#liquid-personalization}
 
 Shopifyカスタム属性にLiquidパーソナライゼーションを追加するには、**+ パーソナライゼーション**を選択します。次に、パーソナライゼーションタイプとして**カスタム属性**を選択します。
 
@@ -860,7 +860,7 @@ Braze SDKが収集するデータの詳細については、[SDKデータ収集]
 BrazeがShopifyの顧客をインポートする際、設定で選択した`external_id`タイプを割り当てます。
 
 {% alert note %}
-アクティブなキャンペーンやキャンバスを持つ既存のBrazeユーザーの場合、履歴バックフィルを有効にする前に、インポートされた顧客と注文イベントがセグメントやジャーニーにどのように影響するかを確認してください。
+アクティブなCampaignsやCanvasesを持つ既存のBrazeユーザーの場合、履歴バックフィルを有効にする前に、インポートされた顧客と注文イベントがSegmentsやジャーニーにどのように影響するかを確認してください。
 {% endalert %}
 
 {% multi_lang_include shopify.md section='Custom external ID historical backfill' %}

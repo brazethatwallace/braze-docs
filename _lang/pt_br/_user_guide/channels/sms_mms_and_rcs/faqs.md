@@ -144,7 +144,7 @@ Sim, contam. Tenha isso em mente ao testar mensagens.
 
 ### Um usuário precisa fazer parte de um grupo de inscrições de SMS para receber mensagens de teste de SMS? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
-Sim. Os usuários devem ter um número de telefone válido e fazer parte do grupo de inscrições de SMS usado para o envio de teste.
+Sim. Os usuários devem ter um número de telefone válido, fazer parte do grupo de inscrições de SMS usado para o envio de teste e ter pelo menos um país selecionado em **Geographic Permissions** para SMS.
 
 ### Existe uma maneira de verificar se um alias existe em um perfil de usuário? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
@@ -189,9 +189,15 @@ As mensagens RCS podem ser renderizadas de forma diferente em dispositivos iOS d
 - Botões de rich cards e ações sugeridas que estão fora do rich card podem permanecer visíveis mesmo após tocar em um botão de rich card ou em uma ação sugerida.
 
 {% alert note %}
-A Braze envia o payload de RCS que você compõe, enquanto o cliente de mensagens controla como as ações sugeridas são ordenadas, agrupadas e ocultadas. Certifique-se de testar as mensagens RCS, especialmente aquelas que usam rich cards com ações sugeridas ou respostas sugeridas, em dispositivos Android e iOS antes de enviar.
+A Braze envia a carga útil de RCS que você compõe, enquanto o cliente de mensagens controla como as ações sugeridas são ordenadas, agrupadas e ocultadas. Certifique-se de testar as mensagens RCS, especialmente aquelas que usam rich cards com ações sugeridas ou respostas sugeridas, em dispositivos Android e iOS antes de enviar.
 {% endalert %}
 
 ### Posso enviar mensagens de voz pré-gravadas com RCS? {#can-i-send-pre-recorded-voicemails-with-rcs}
 
 Sim, você pode usar mensagens de mídia para enviar arquivos de áudio.
+
+### Por que os opt-ins de SMS via REST API não correspondem ao **Total de opt-ins** no desempenho de SMS/MMS/RCS? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
+
+**Total de opt-ins** e **Total de descadastramentos** no dashboard de [desempenho de SMS/MMS/RCS]({{site.baseurl}}/user_guide/analytics/dashboards/) contam alterações de inscrição geradas pelo processamento de palavras-chave de SMS recebidos (por exemplo, um usuário enviando uma palavra-chave de opt-in para o seu short code). Eles não incluem todas as atualizações de inscrição feitas pela REST API, pelo dashboard ou por outras fontes.
+
+Para analisar opt-ins e descadastramentos por origem, use o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) em `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` e filtre por `STATE_CHANGE_SOURCE` (por exemplo, **Rest API** versus **Inbound Message**).

@@ -224,14 +224,14 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 ![Braze Canvasの2つのバリアント例。]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-デフォルトでは、Canvasのバリアント割り当てはユーザーがキャンバスに入った時点でロックされます。つまり、ユーザーが最初にあるバリアントに入った場合、キャンバスに再エントリするたびにそのバリアントが割り当てられます。ただし、この動作を回避する方法があります。<br><br>これを行うには、Liquidを使用して乱数ジェネレーターを作成し、各ユーザーのキャンバスエントリの最初に実行し、その値をカスタム属性として保存してから、その属性を使用してユーザーをランダムに分割します。
+デフォルトでは、Canvasのバリアント割り当てはユーザーIDとCanvas IDの関数によって決定されます。つまり、バリアント配分の割合が変更されない限り、特定のユーザーは再エントリ時に常に同じバリアントに割り当てられます。起動後にバリアント配分を調整した場合、ユーザーがキャンバスに再エントリする際に異なるバリアントに割り当てられる可能性があります。<br><br>バリアント配分の変更後も持続する完全な制御が必要な場合は、Liquidを使用して乱数ジェネレーターを作成し、各ユーザーのキャンバスエントリの最初に実行し、その値をカスタム属性として保存してから、その属性を使用してユーザーを分岐に分割できます。
 
 {% details 手順を展開 %}
 
 1. 乱数を保存するカスタム属性を作成します。「lottery_number」や「random_assignment」など、見つけやすい名前を付けてください。属性は[ダッシュボード]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)で作成するか、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)へのAPI呼び出しで作成できます。<br><br>
-2. キャンバスの最初にWebhook Campaignを作成します。このCampaignが乱数を作成し、カスタム属性として保存する手段となります。詳細は[Webhookの作成]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook)を参照してください。URLを `/users/track` エンドポイントに設定します。<br><br>
-3. 乱数ジェネレーターを作成します。[こちらに記載されているコード](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486)を使用して作成できます。これは各ユーザーのユニークなエントリ時間を利用して乱数を生成します。生成された数値をWebhook Campaign内のLiquid変数として設定します。<br><br>
-4. Webhook Campaignの `/users/track` 呼び出しをフォーマットして、ステップ1で作成したカスタム属性を、現在のユーザーのプロファイルに生成した乱数に設定するようにします。このステップが実行されると、ユーザーがCampaignに入るたびに変わる乱数が正常に作成されます。<br><br>
+2. キャンバスの最初にWebhookキャンペーンを作成します。このキャンペーンが乱数を作成し、カスタム属性として保存する手段となります。詳細は[Webhookの作成]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook)を参照してください。URLを `/users/track` エンドポイントに設定します。<br><br>
+3. 乱数ジェネレーターを作成します。[こちらに記載されているコード](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486)を使用して作成できます。これは各ユーザーのユニークなエントリ時間を利用して乱数を生成します。生成された数値をWebhookキャンペーン内のLiquid変数として設定します。<br><br>
+4. Webhookキャンペーンの `/users/track` 呼び出しをフォーマットして、ステップ1で作成したカスタム属性を、現在のユーザーのプロファイルに生成した乱数に設定するようにします。このステップが実行されると、ユーザーがキャンペーンに入るたびに変わる乱数が正常に作成されます。<br><br>
 5. キャンバスの分岐を、ランダムに選択されたバリアントで分割するのではなく、オーディエンスルールに基づいて分割するように調整します。各分岐のオーディエンスルールで、カスタム属性に基づいてオーディエンスフィルターを設定します。<br><br>たとえば、ある分岐のオーディエンスフィルターを「lottery_number が3未満」に設定し、別の分岐のオーディエンスフィルターを「lottery_number が3より大きく6未満」に設定できます。
 
 {% enddetails %}
@@ -310,6 +310,8 @@ Canvasで `campaign.${name}` Liquidタグを使用すると、現在のキャン
 ### ステップ 2.3: 接続を編集する {#step-23-edit-connections}
 
 ステップ間の接続を移動するには、2つのコンポーネントを接続する矢印を選択し、別のコンポーネントを選択します。接続を削除するには、矢印を選択し、キャンバスコンポーザーのフッターにある**Cancel Connection**を選択します。
+
+単一のバリアントに同じオーディエンスと送信時間を持つ複数の分岐がある場合、Brazeはそれらの分岐間で均等な分割を保証しません。配分は最初に作成された分岐が優先される場合があります。均等な分割を行うには、各分岐に[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)フィルターを使用してください。詳細については、[1つのバリアントを持つキャンバスで、オーディエンスと送信時間が同一の複数の分岐がある場合はどうなりますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches)を参照してください。
 
 ## ステップ 3: コントロールグループを追加する {#step-3-add-a-control-group}
 

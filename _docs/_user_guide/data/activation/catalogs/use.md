@@ -17,7 +17,7 @@ The following video walks through how to use catalogs in a message.
 
 ### Step 1: Add personalization type {#step-one-personalization}
 
-In the message composer of your choice, select the <i class="fas fa-plus-circle"></i> plus icon to open the **Add Personalization** modal and select **Catalog Items** for the **Personalization type**. Then, select your catalog name. Using our previous example, we'll select the "Games" catalog.
+In the message composer of your choice, select <i class="fas fa-plus-circle"></i> **Add Personalization** and select **Catalog Items** for the **Personalization type**. Then, select your catalog name. Using our previous example, we'll select the "Games" catalog.
 
 ![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
@@ -150,6 +150,10 @@ For example, to add the `image_link` from our Games catalog to our promotional m
 Here's what this looks like when the Liquid is rendered:
 
 ![Example Content Card with catalog Liquid tags rendered.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
+
+{% alert important %}
+In **HTML** channels such as email, avoid extra spaces or line breaks between the closing `{% raw %}{% catalog_items ... %}{% endraw %}` tag and the Liquid that prints the image URL (for example, `{% raw %}{{ items[0].image_link }}{% endraw %}`). Extra whitespace in the template can prevent the image URL from resolving correctly in the rendered message. Keep the URL expression immediately adjacent to the catalog tag, as in: `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`.
+{% endalert %}
 
 ### Templating catalog items
 

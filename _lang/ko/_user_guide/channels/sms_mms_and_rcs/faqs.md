@@ -144,7 +144,7 @@ Braze에는 링크를 자동으로 단축하고 클릭률 분석을 제공하는
 
 ### SMS 테스트 메시지를 받으려면 사용자가 SMS 구독 그룹에 속해 있어야 하나요? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
-네, 그렇습니다. 사용자는 유효한 전화번호를 가지고 있어야 하며, 테스트 전송에 사용되는 SMS 구독 그룹에 속해 있어야 합니다.
+네, 그렇습니다. 사용자는 유효한 전화번호를 가지고 있어야 하며, 테스트 전송에 사용되는 SMS 구독 그룹에 속해 있어야 하고, SMS의 **지역 권한**에서 하나 이상의 국가가 선택되어 있어야 합니다.
 
 ### 사용자 프로필에 별칭이 존재하는지 확인할 수 있는 방법이 있나요? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
@@ -195,3 +195,9 @@ Braze는 작성한 RCS 페이로드를 전송하며, 메시징 클라이언트�
 ### RCS로 사전 녹음된 음성 메일을 보낼 수 있나요? {#can-i-send-pre-recorded-voicemails-with-rcs}
 
 네, 미디어 메시지를 사용하여 오디오 파일을 지원할 수 있습니다.
+
+### REST API SMS 옵트인이 SMS/MMS/RCS 성과의 **총 옵트인**과 일치하지 않는 이유는 무엇인가요? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
+
+[SMS/MMS/RCS 성과]({{site.baseurl}}/user_guide/analytics/dashboards/) 대시보드의 **총 옵트인** 및 **총 옵트아웃**은 인바운드 SMS 키워드 처리에 의해 발생한 구독 변경을 집계합니다(예: 사용자가 짧은 코드로 옵트인 키워드를 문자로 보내는 경우). REST API, 대시보드 또는 기타 소스를 통해 이루어진 모든 구독 업데이트가 포함되는 것은 아닙니다.
+
+소스별 옵트인 및 옵트아웃을 분석하려면 `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED`에서 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)를 사용하고 `STATE_CHANGE_SOURCE`(예: **Rest API** 대 **Inbound Message**)로 필터링하세요.

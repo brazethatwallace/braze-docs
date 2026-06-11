@@ -34,7 +34,7 @@ Wenn Sie an den Beta-Tests für Meta Work Accounts teilnehmen, stellen Sie siche
 | [Facebook Business Manager](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Ein zentrales Tool zur Verwaltung der Facebook-Assets Ihrer Marke (z. B. Werbekonten, Seiten, Apps). |
 | [Facebook-Werbekonto](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Ein aktives Facebook-Werbekonto, das mit dem Business Manager Ihrer Marke verknüpft ist und das Sie mit Braze Custom Audiences verwenden möchten.<br><br>Stellen Sie sicher, dass Ihr Facebook Business Manager-Administrator Ihnen Administratorrechte für die Facebook-Werbekonten erteilt hat, die Sie mit Braze verwenden möchten, und dass Sie die Geschäftsbedingungen für Ihr Werbekonto akzeptiert haben. Andernfalls können Sie innerhalb von Braze nicht auf Facebook-Werbekonten zugreifen. |
 | [Facebook Custom Audiences-Bedingungen](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Sie müssen die Facebook Custom Audiences-Bedingungen für Ihre Facebook-Werbekonten akzeptieren, die Sie mit Braze verwenden möchten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

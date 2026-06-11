@@ -37,12 +37,12 @@ Dependendo do que você gostaria de fazer na Lob, será necessário usar o endpo
 
 | URL base | Endpoints disponíveis |
 | ------------ | ------------------- |
-| `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states`|
+| `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Etapa 2: Crie seu modelo de webhook da Braze {#step-2-create-your-braze-webhook-template}
 
-Para criar um modelo de webhook da Lob para usar em futuras Campaigns ou Canvas, acesse **Modelos** > **Modelos de webhook** no dashboard da Braze.
+Para criar um modelo de webhook da Lob para usar em futuras Campaigns ou Canvas, acesse **Conteúdo** > **Webhook** no dashboard da Braze. Em seguida, selecione **Criar modelo de webhook**.
 
 Se você gostaria de criar uma Campaign de webhook da Lob única ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova Campaign.
 

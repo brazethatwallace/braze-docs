@@ -45,25 +45,26 @@ Braze에서 웹훅 템플릿을 사용하려면 먼저 Oppizi API 키를 생성�
 
 ### 2단계: Braze 웹훅 템플릿 만들기 {#step-2-create-a-braze-webhook-template}
 
-다음으로, 향후 Campaigns 또는 Canvases에서 사용할 Oppizi용 웹훅 템플릿을 Braze에서 만듭니다.
+다음으로, 향후 Campaigns 또는 Canvases에서 사용할 Oppizi용 웹훅 템플릿을 Braze에서 만듭니다:
 
-1. Braze에서 **Templates** > **Webhook Templates**로 이동합니다.
-
-웹훅 템플릿에서 다음 필드를 입력합니다:
+1. Braze에서 **Content** > **Webhook**으로 이동합니다.
+2. **Create webhook template**을 선택합니다.
+3. 템플릿 이름을 입력합니다.
+4. 웹훅 템플릿에서 다음 필드를 입력합니다:
 
 - **Webhook URL:** `https://webhooks.oppizi.com/events`
 - **Request Body:** **Raw Text**
 
 요청 메서드 및 헤더의 경우, Oppizi는 템플릿에 다음 HTTP 헤더와 함께 HTTP 메서드를 포함하도록 요구합니다. 다음 필드를 입력합니다:
 
-- **HTTP 메서드:** POST
-- **요청 헤더:**
+- **HTTP Method:** POST
+- **Request Headers:**
   - **Authorization:** `Bearer <oppiziAPIKey>`
   - **Content-Type:** `application/json`
 
 ![Braze의 Oppizi 웹훅 헤더 예시.]({% image_buster /assets/img/oppizi/oppizi_braze_webhook_headers.png %})
 
-**요청 본문**에는 **oppiziWorkflowID** 필드를 포함해야 합니다. 이 ID는 Oppizi에서 워크플로를 생성할 때 생성되며, 수신자를 추가할 다이렉트 메일 워크플로를 지정하는 데 필요합니다. Oppizi의 각 다이렉트 메일 워크플로에는 고유 ID가 있으므로, Braze에서 Oppizi 웹훅 템플릿을 만드는 경우 항상 워크플로 ID를 올바른 ID로 업데이트해야 합니다.
+**Request Body**에는 **oppiziWorkflowID** 필드를 포함해야 합니다. 이 ID는 Oppizi에서 워크플로를 생성할 때 생성되며, 수신자를 추가할 다이렉트 메일 워크플로를 지정하는 데 필요합니다. Oppizi의 각 다이렉트 메일 워크플로에는 고유 ID가 있으므로, Braze에서 Oppizi 웹훅 템플릿을 만드는 경우 항상 워크플로 ID를 올바른 ID로 업데이트해야 합니다.
 
 {% alert note %}
 다이렉트 메일을 보내는 데 필요한 수신자의 우편 주소에 대한 필수 커스텀 속성이 Braze 계정에 설정되어 있는지 확인하세요.

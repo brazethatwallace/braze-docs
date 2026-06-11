@@ -8,7 +8,7 @@ description: "Cet article de référence explique comment gérer les balises dan
 
 # Gestion des balises {#managing-tags}
 
-> Vous pouvez gérer les balises que vous utilisez pour les campagnes, les Canvas et les segments depuis un emplacement centralisé. Pour renommer, supprimer ou ajouter des balises, accédez à **Settings** > **Tag Management**.
+> Vous pouvez gérer les balises que vous utilisez pour les campagnes, les Canvas et les segments depuis un emplacement centralisé. Pour renommer, supprimer ou ajouter des balises, accédez à **Paramètres** > **Gestion des balises**.
 
 Pour savoir comment ajouter des balises aux campagnes, Canvas, segments et données personnalisées, consultez [Balises]({{site.baseurl}}/user_guide/messaging/governance/tags/).
 
@@ -20,7 +20,11 @@ Pour mieux organiser vos balises, vous pouvez les imbriquer sous une balise pare
 
 Pour imbriquer une nouvelle balise, créez une balise, sélectionnez **Nest Tag Under**, puis choisissez la balise existante sous laquelle imbriquer votre nouvelle balise.
 
-Pour imbriquer une balise existante, accédez à la page **Tag Management**, survolez la ligne contenant votre balise et sélectionnez **<i class="fas fa-pencil-alt"></i>Edit**. Ensuite, sélectionnez **Nest Tag Under** et choisissez la balise parente.
+Pour imbriquer une balise existante, accédez à la page **Gestion des balises**, survolez la ligne contenant votre balise et sélectionnez **<i class="fas fa-pencil-alt"></i>Edit**. Ensuite, sélectionnez **Nest Tag Under** et choisissez la balise parente.
+
+### La balise parente est utilisée mais absente de **Nest Tag Under** {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
+
+Lorsqu'une balise parente est appliquée dans le tableau de bord mais n'apparaît pas dans le menu déroulant **Nest Tag Under** lors de la création d'une nouvelle balise, recréez la balise parente en tant que balise autonome afin qu'elle devienne consultable dans la liste. Ce comportement est attendu lorsque la balise parente n'existe que comme dépendance imbriquée ailleurs dans votre espace de travail.
 
 ![La boîte de dialogue de nouvelle balise avec l'option Nest Tag Under sélectionnée.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
@@ -37,7 +41,7 @@ table td {
 </style>
 
 
-<table aria-label="Best practices #tags-best-practices">
+<table aria-label="Bonnes pratiques">
   <caption>Bonnes pratiques</caption>
 <thead>
   <tr>

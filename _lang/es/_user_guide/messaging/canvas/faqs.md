@@ -95,6 +95,10 @@ Para escalonar envíos o usar diferentes horarios por ruta, prueba los siguiente
 
 Para conceptos de pruebas multivariantes y A/B en Campaigns, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
+### ¿Qué ocurre si un usuario tiene un límite de frecuencia global en un paso de mensaje de Canvas? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+No recibe ese envío para el canal limitado, pero los pasos de mensaje siguen haciendo avanzar a los usuarios cuando un mensaje no se envía debido al límite de frecuencia global. Para los casos de avance paso a paso, consulta [Cómo avanzan los usuarios]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance). El límite de frecuencia global por sí solo no hace que los usuarios salgan de un Canvas; ese comportamiento es independiente de las **Delivery validations** en un paso de mensaje. Para más detalles, consulta [Límite de velocidad y limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
 ### ¿Por qué los envíos son menores que el tamaño estimado de la audiencia? {#why-are-sends-lower-than-the-estimated-audience-size}
 
 Los envíos pueden ser menores que la **Audiencia estimada** por muchas de las mismas razones que en las [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), incluyendo límites de frecuencia, filtros estrictos de dispositivo o navegador, ventanas de reelegibilidad, límites de velocidad y exclusiones a nivel de canal (por ejemplo, alcanzabilidad push o verificaciones de suscripción y capacidad de entrega de correo electrónico).
@@ -102,16 +106,16 @@ Los envíos pueden ser menores que la **Audiencia estimada** por muchas de las m
 También se aplican factores específicos de Canvas:
 
 - **Entrada basada en acciones o desencadenada por API:** Los usuarios solo entran (y reciben pasos) después de realizar el comportamiento de entrada, por lo que los envíos realizados van por detrás de la estimación inicial hasta que esas acciones ocurran.
-- **Rutas de audiencia:** Los usuarios se dirigen a la rama de mayor prioridad para la que califican, por lo que las ramas posteriores pueden recibir menos usuarios de lo que sugiere un conteo plano de Segment.
+- **Rutas de audiencia:** Los usuarios se dirigen a la rama de mayor prioridad para la que califican, por lo que las ramas posteriores pueden recibir menos usuarios de lo que sugiere un conteo plano de Segments.
 - **Verificaciones de audiencia y hora de envío:** Los pasos completos reevalúan los filtros en el momento del envío a menos que configures lo contrario. Los usuarios que calificaban cuando se creó el Canvas pueden quedar fuera antes de que se envíe un mensaje.
 - **Grupos de control:** Los grupos de control globales o de Canvas retienen una parte de los entrantes de la mensajería.
 - **Horas tranquilas y retrasos:** Los mensajes pueden retenerse o reprogramarse, desplazando los envíos fuera de la ventana de informes que estás consultando.
 - **Límites máximos de entrada o audiencia:** Los límites de entrada o envío detienen a usuarios adicionales incluso cuando el Segment subyacente es más grande.
 - **Ventana de informes:** El rango de análisis puede no incluir todos los envíos que estás comparando con la estimación.
 
-### ¿Por qué los _destinatarios únicos_ son más altos que el número de usuarios que segmenté? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### ¿Por qué los _destinatarios únicos_ son más altos que el número de usuarios que segmenté? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
-Los _Destinatarios únicos_ pueden ser más altos que la audiencia esperada porque Braze rastrea **destinatarios únicos diarios** para los informes de Canvas y Campaign. Esto permite una atribución de conversión precisa cada vez que un usuario recibe un mensaje en el recorrido.
+Los _Destinatarios únicos_ pueden ser más altos que la audiencia esperada porque Braze rastrea **destinatarios únicos diarios** para los informes de Canvas y Campaigns. Esto permite una atribución de conversión precisa cada vez que un usuario recibe un mensaje en el recorrido.
 
 Por ejemplo, si un usuario recibe un paso de Canvas el lunes y de nuevo el viernes, y convierte después de cada envío, Braze puede contar dos filas de destinatarios y dos conversiones dentro del alcance. Con entradas recurrentes o reelegibilidad, el mismo conjunto pequeño de perfiles puede producir múltiples _Destinatarios únicos_ a lo largo de varios días.
 
@@ -162,17 +166,27 @@ Hay un Canvas de un solo paso con horas tranquilas habilitadas:
 
 Es habitual que el total de conversiones de una variante de Canvas sea mayor que la suma del total de sus pasos. Esto ocurre porque un usuario puede realizar un evento de conversión para una variante tan pronto como entra en ella. Sin embargo, ese mismo evento de conversión no cuenta para un paso de Canvas. Así, cualquier usuario que entre en el Canvas y realice el evento de conversión antes de recibir el primer paso de Canvas se contará en el total de conversiones de la variante, pero no en el total del paso. Lo mismo aplica para un usuario que entra en el Canvas pero sale antes de recibir cualquier paso.
 
+Ten en cuenta que también es posible que un usuario entre en una variante, no reciba ningún mensaje de un paso y luego convierta. En este caso, no se registra una conversión a nivel de paso. Sin embargo, dado que el usuario técnicamente convirtió, se registra una conversión a nivel de Canvas.
+
+### ¿Cómo puedo confirmar si mis usuarios recibieron un Canvas desencadenado por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+
+Puedes [crear un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando un filtro de Canvas para confirmar si los usuarios entraron en el Canvas o recibieron un paso específico de Canvas. Por ejemplo, usa un filtro de entrada en Canvas si quieres confirmar que los usuarios entraron en el Canvas desencadenado por API, o un filtro de paso recibido si quieres confirmar que recibieron un mensaje del Canvas. Luego, usa el [punto de conexión `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para exportar los usuarios de ese Segment.
+
+### ¿Puedo eliminar un Canvas? {#can-i-delete-a-canvas}
+
+No, pero puedes [archivar un Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### ¿Cómo puedo ver los análisis de cada uno de mis componentes de Canvas? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
 Para ver los análisis de un componente de Canvas, ve a tu Canvas y desplázate hacia abajo en la página **Canvas Details**. Aquí podrás ver los análisis de cada componente. Consulta [Análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) para más detalles.
 
 ### Al observar el número de usuarios únicos, ¿qué es más preciso, los análisis de Canvas o el segmentador? {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
-El segmentador es una estadística más precisa para datos de usuarios únicos en comparación con las estadísticas de Canvas o Campaigns. Esto se debe a que las estadísticas de Canvas y Campaigns son números que Braze incrementa cuando algo sucede, lo que significa que hay variables que podrían hacer que este número sea diferente al del segmentador. Por ejemplo, los usuarios pueden convertir más de una vez para un Canvas o Campaign.
+El segmentador es una estadística más precisa para datos de usuarios únicos en comparación con las estadísticas de Canvas o Campaigns. Esto se debe a que las estadísticas de Canvas y Campaigns son números que Braze incrementa cuando algo sucede, lo que significa que hay variables que podrían hacer que este número sea diferente al del segmentador. Por ejemplo, los usuarios pueden convertir más de una vez para un Canvas o una Campaign.
 
 ### ¿Por qué el número de usuarios que entran en un Canvas no coincide con el número esperado? {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
 
-El número de usuarios que entran en un Canvas puede diferir del número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, la audiencia se evalúa antes del desencadenante (a menos que se use un desencadenante de [cambio en atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Esto hará que los usuarios salgan del Canvas si no forman parte de la audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
+El número de usuarios que entran en un Canvas puede diferir del número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, la audiencia se evalúa antes del desencadenante (a menos que se use un desencadenante de [cambio en atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Esto hará que los usuarios salgan del Canvas si no forman parte de la audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
 
 ### ¿Qué ocurre con los usuarios anónimos durante su recorrido en Canvas? {#what-happens-to-anonymous-users-during-their-canvas-journey}
 
@@ -181,6 +195,12 @@ Aunque los usuarios anónimos pueden entrar y salir de Canvas, sus acciones no s
 {% alert tip %}
 Para obtener más ayuda con la solución de problemas de Canvas, asegúrate de ponerte en contacto con el soporte de Braze dentro de los 30 días posteriores a la ocurrencia del problema, ya que solo disponemos de los registros de diagnóstico de los últimos 30 días.
 {% endalert %}
+
+### ¿Puedo excluir a los usuarios que están actualmente en un recorrido de Canvas de una Campaign o un Segment? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+
+Usa [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) como `Entered Canvas Variation`, `In Canvas Control Group` o `Received Message from Canvas Step` para segmentar usuarios según la entrada en Canvas, la asignación de variante o la interacción con un paso. Estos filtros evalúan el historial de entrada e interacciones; no indican si un usuario sigue avanzando en un recorrido activo.
+
+Para incluir o excluir usuarios según su participación activa en Canvas, añade pasos de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) en la entrada y salida del Canvas para establecer y borrar atributos personalizados, y luego filtra por esos atributos en Campaigns o Segments.
 
 ## Segmentación {#segmentation}
 

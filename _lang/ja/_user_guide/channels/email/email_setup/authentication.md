@@ -18,13 +18,13 @@ channel: email
 
 ## 認証方法 {#methods-of-authentication}
 
-### Sender Policy Framework（SPF） {#sender-policy-framework-spf}
+### Sender Policy Framework（SPF） {#spf}
 
 この方法は、Brazeのメール送信IPアドレスがあなたに代わってメールを送信する権限を持っていることを確認します。SPFは基本的な認証であり、DNS設定にテキストレコードを公開することで実現されます。受信サーバーはDNSレコードを確認し、それが正当であるかどうかを判断します。この方法はメール送信者を検証するために設計されています。
 
 Brazeは、IPとドメインの設定時にSPFレコードをセットアップします。Brazeが提供するDNSレコードを追加する以外に、追加の対応は必要ありません。
 
-### Domain Keys Identified Mail（DKIM） {#domain-keys-identified-mail-dkim}
+### Domain Keys Identified Mail（DKIM） {#dkim}
 
 この方法は、Brazeのメール送信ドメインがあなたに代わってメールを送信する権限を持っていることを確認します。この方法は送信者の正当性を検証し、メッセージの完全性が保持されていることを検証するために設計されています。また、個別の暗号デジタル署名を使用するため、ISPは配信するメールがあなたが送信したメールと同一であることを確認できます。
 
@@ -32,7 +32,7 @@ Brazeはあなたの秘密キーでメールに署名します。ISPはカスタ
 
 Brazeは、IPとドメインの設定時にDKIMレコードをセットアップします。Brazeが提供するDNSレコードを追加する以外に、追加の対応は必要ありません。
 
-### Domain-based Message Authentication, Reporting, and Conformance（DMARC） {#domain-based-message-authentication-reporting-and-conformance-dmarc}
+### Domain-based Message Authentication, Reporting, and Conformance（DMARC） {#dmarc}
 
 [Domain-based Message Authentication, Reporting & Conformance（DMARC）](https://dmarc.org/)は、メール送信者がメールの正当性を証明するためのメール認証プロトコルであり、メールボックス受信者の信頼を高め、メールの受け入れを促進します。DMARCにより、メール送信者はSender Policy Framework（SPF）またはDomain Keys Identified Mail（DKIM）で認証されなかったメールの処理方法を指定できます。これは、SPFとDKIMの両方のチェックが通過していることを検証することで実現されます。
 
@@ -51,7 +51,7 @@ DMARCレコードは、DMARCレコードに記載されたレポート用メー�
 | None | 失敗したメッセージに対してアクションを実行しないようメールボックスプロバイダーに指示します。 |
 | Quarantine | 失敗したメッセージをスパムフォルダーに送信するようメールボックスプロバイダーに指示します。 |
 | Reject | 失敗したメッセージはスパムフォルダーに送られ、ブロックされるべきであるとメールボックスプロバイダーに指示します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="仕組み" }
 
 #### ドメインのDMARC認証を確認する方法 {#how-to-check-your-domains-dmarc-authentication}
 
@@ -63,8 +63,19 @@ DMARCレコードは、DMARCレコードに記載されたレポート用メー�
 
 たとえば、Gmailを使用している場合は、以下の手順に従います。
 
-1. メールメッセージの**その他** <i class="fa-solid fa-ellipsis"></i> をクリックします。
+1. メールメッセージの**その他** <i class="fa-solid fa-ellipsis"></i>をクリックします。
 2. **メッセージのソースを表示**を選択します。
 3. **DMARC**のステータスが「PASS」であることを確認します。
 
 ![DMARCの値が「PASS」であるメールの例。]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+#### DMARC失敗のトラブルシューティング {#troubleshoot-dmarc-failures}
+
+Brazeを通じて送信されたメッセージでDMARCが**FAIL**と表示される場合：
+
+1. 最近のメッセージの生ヘッダーまたは認証結果を開き、**SPF**と**DKIM**がそれぞれ通過しているか失敗しているかを確認します。
+2. **アライメント:** DMARCは、SPFまたはDKIMの*いずれか*が**From**ドメインとアライメントしている場合に通過します。アライメントとは、**From**ドメインがSPFを通過したドメイン（多くの場合**Return-Path**/エンベロープドメイン）*または*DKIMの**d=**署名のドメインと一致することを意味します。
+3. SPFは通過しているがDMARCが失敗する場合、Return-Pathドメインが**From**ドメインとアライメントしていない可能性があります。[Whitelabel（独自ドメイン利用）の送信ドメインとトラッキングドメイン]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)が、SPFとDKIMを公開しているドメインと一致していることを確認してください。
+4. DKIMが失敗する場合、Brazeが提供したDKIM DNSレコードが存在し、変更されていないことを確認してください。
+
+サードパーティチェッカー（例：[MXToolbox](https://mxtoolbox.com/dmarc.aspx)）は公開されたレコードの確認に役立ちますが、Brazeからの実際のメッセージでも必ず検証してください。

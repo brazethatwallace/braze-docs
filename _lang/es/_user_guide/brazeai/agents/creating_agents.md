@@ -23,7 +23,7 @@ Antes de empezar, necesitarás lo siguiente:
 
 ## Cómo funciona {#how-it-works}
 
-Cuando creas un agente, defines su propósito y estableces las pautas sobre cómo debe comportarse. Una vez que esté en vivo, el agente se puede implementar en Braze para generar textos personalizados, tomar decisiones en tiempo real o actualizar campos del catálogo. Puedes pausar o actualizar un agente en cualquier momento desde el dashboard.
+Cuando creas un agente, defines su propósito y estableces las pautas sobre cómo debe comportarse. Una vez que esté en vivo, el agente se puede implementar en Braze para generar textos personalizados, tomar decisiones en tiempo real o actualizar campos del catálogo. Mientras construyes tu agente, puedes guardarlo como borrador, y puedes pausar o actualizar un agente en cualquier momento desde el dashboard.
 
 Los siguientes casos de uso muestran algunas formas de aprovechar los agentes personalizados.
 
@@ -71,7 +71,7 @@ Para los agentes de Canvas, puedes utilizar Liquid en tus instrucciones para hac
 Selecciona **+ Contexto del agente** para elegir lo que tu agente puede consultar. Esto incluye lo siguiente:
 
 - [Campos del catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): Permite que el agente acceda a los datos de tu catálogo para obtener respuestas más precisas.
-- [Pertenencia a Segments]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permite que el agente personalice las respuestas en función de los Segments a los que pertenezca el usuario. Puedes seleccionar hasta cinco Segments.
+- [Pertenencia a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permite que el agente personalice las respuestas en función de los segmentos a los que pertenezca el usuario. Puedes seleccionar hasta cinco segmentos.
 - [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): Consulta las directrices sobre el tono y el estilo de la marca que debe seguir el agente. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a inscribirse en un gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
 - [Todo el contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/): Analiza todos los datos de contexto de Canvas de un usuario cuando se invoque este agente, incluidas las variables que no se mencionan en la sección **Instrucciones**.
 - [Datos de interacción del usuario]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history): Proporciona al agente los datos recientes de aperturas, clics y conversiones de Campaign y Canvas de cada usuario.
@@ -116,7 +116,8 @@ Evita decirle al agente exactamente lo que no quieres que haga. Los LLM pueden s
 
 ¡Tu agente ya está listo para usar! Para obtener más información, consulta [Implementar agentes]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
 
-## Artículos relacionados {#related-articles}
+## Recursos relacionados {#related-resources}
 
 - [Referencia para agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [Preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [Seminario web de Braze sobre IA en acción: 3 nuevos casos de uso para la personalización 1:1](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

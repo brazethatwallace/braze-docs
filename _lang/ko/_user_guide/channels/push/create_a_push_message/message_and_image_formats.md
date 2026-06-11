@@ -12,7 +12,7 @@ channel: push
 
 > 이 참조 문서에서는 푸시 알림의 메시지 및 이미지 형식에 대해 설명합니다.
 
-최상의 결과를 얻으려면 푸시 메시지를 작성할 때 다음 이미지 크기 및 메시지 길이 가이드라인을 참조하세요. 이미지 유무, 알림 상태(iOS), 사용자 기기의 디스플레이 설정, 기기 크기에 따라 다소 차이가 있을 수 있습니다. 확실하지 않은 경우 문구를 짧고 간결하게 유지하세요.
+최상의 결과를 얻으려면 푸시 메시지를 작성할 때 다음 이미지 크기 및 메시지 길이 가이드라인을 참조하세요. 이미지 유무, 알림 상태(iOS), 사용자 기기의 표시 설정, 기기 크기에 따라 다소 차이가 있을 수 있습니다. 확실하지 않은 경우 문구를 짧고 간결하게 유지하세요.
 
 ## iOS 및 Android 푸시 {#ios-and-android-push}
 
@@ -26,13 +26,7 @@ channel: push
 (Android) 확장 알림 | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
 
-{% alert note %}
-GIF는 Android 푸시 알림에서 지원되지 않습니다. 이는 Braze의 제한이 아닌 Android 플랫폼의 제한입니다.
-
-Android의 인앱 메시지 및 Content Cards에서 GIF를 지원하려면 [Glide](https://bumptech.github.io/glide/) 또는 [Fresco](https://frescolib.org/)와 같은 서드파티 이미지 라이브러리를 통합하면 됩니다.
-
-iOS에서는 푸시 알림이 GIF를 지원합니다. 인앱 메시지 및 Content Cards에는 커스텀 GIF 이미지 프로바이더가 필요합니다.
-{% endalert %}
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 {% endtab %}
 {% tab 텍스트 %}
@@ -102,7 +96,7 @@ Android (FCM) | 4 KB
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 Chrome | 192 x 192 이상
 Firefox | 192 x 192 이상
-Safari | 192 x 192 이상 (macOS 13 이상의 Safari 16 이상에서 캠페인별로 아이콘 구성 가능)
+Safari | 192 x 192 이상 (macOS 13 이상의 Safari 16 이상에서 Campaign별로 아이콘 구성 가능)
 Opera | 192x192 이상
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 

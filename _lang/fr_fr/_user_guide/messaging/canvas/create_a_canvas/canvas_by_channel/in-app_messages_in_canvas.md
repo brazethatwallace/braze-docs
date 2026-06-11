@@ -20,6 +20,8 @@ Avant de pouvoir utiliser des messages in-app dans votre Canvas, assurez-vous d'
 
 Dans le générateur de Canvas, ajoutez une étape [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) et sélectionnez **In-App Message** comme **Messaging Channel**. Vous pouvez personnaliser [la date d'expiration de votre message](#in-app-message-expiration) et le [comportement d'avancement](#advancement-behavior) associé.
 
+Si votre espace de travail comporte plusieurs applications, ciblez la bonne application en utilisant les **plateformes de distribution**, les étiquettes Liquid {% raw %}`{{targeted_device.${platform}}}`{% endraw %} ou {% raw %}`{{app.${api_id}}}`{% endraw %}, et non les validations de distribution. Les messages in-app ne s'affichent que lorsque l'utilisateur ouvre l'application ciblée et remplit les critères de déclenchement de l'étape. Pour plus d'informations, consultez [Validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations).
+
 ## Ajouter un message in-app à votre parcours utilisateur {#adding-an-in-app-message-to-your-user-journey}
 
 Pour ajouter un message in-app à votre Canvas, procédez comme suit :
@@ -48,6 +50,12 @@ Vous pouvez choisir la date d'expiration du message in-app. Pendant cette pério
 | **À une date et une heure spécifiques** | Sélectionnez une date et une heure spécifiques auxquelles le message in-app ne sera plus disponible. | Si vous avez une promotion qui se termine le 30 novembre 2024, sélectionnez cette option pour que les utilisateurs ne voient plus le message in-app associé lorsque la promotion prend fin. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="In-app message expiration" }
 
+Lorsqu'un utilisateur démarre une session, Braze vérifie si son éligibilité ou l'expiration de ses messages in-app a changé et envoie les informations d'expiration mises à jour à son appareil.
+
+Si un message in-app est configuré pour expirer à une date et une heure spécifiques qui sont déjà passées lorsque l'utilisateur atteint l'étape Message, cet utilisateur ne recevra pas le message in-app. Il continuera à travers le Canvas selon votre [comportement d'avancement](#advancement-behavior) pour cette étape.
+
+Cela se produit souvent lorsqu'une étape précédente, comme une étape de [délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/), maintient les utilisateurs sur un parcours plus long. Par exemple, si vous lancez un Canvas le 22 mai avec un délai de 72 heures suivi d'un message in-app qui expire le 23 mai à minuit, les utilisateurs atteindront l'étape Message après l'heure d'expiration et ne verront pas le message in-app.
+
 ## Cas d'utilisation {#use-cases}
 
 Braze vous recommande d'envisager l'utilisation de cette fonctionnalité dans vos Canvas promotionnels et d'onboarding.
@@ -62,8 +70,8 @@ Les promotions, coupons et soldes ont souvent des dates d'expiration fixes. Le C
 .tg th{word-break:normal;}
 </style>
 
-<table aria-label="Use cases" class="tg">
-  <caption>Use cases</caption>
+<table aria-label="Cas d'utilisation" class="tg">
+  <caption>Cas d'utilisation</caption>
 <thead>
   <tr>
     <th>Étape Canvas</th>
@@ -113,8 +121,8 @@ Les messages in-app expirent en même temps que la promotion pour éviter toute 
 
 La première impression que vous faites à un utilisateur est peut-être la plus importante. Elle peut déterminer ses futures visites dans votre application. Vos premières communications avec vos utilisateurs doivent être judicieusement planifiées et encourager des visites fréquentes pour favoriser l'utilisation.
 
-<table aria-label="Use cases" class="tg">
-  <caption>Use cases</caption>
+<table aria-label="Cas d'utilisation" class="tg">
+  <caption>Cas d'utilisation</caption>
 <thead>
   <tr>
     <th>Étape Canvas</th>

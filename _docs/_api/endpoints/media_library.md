@@ -16,5 +16,8 @@ guide_featured_list:
   - name: "POST: Upload new asset by URL"
     link: /docs/api/endpoints/media_library/manage_assets/create/
     image: /assets/img/braze_icons/message-plus-square.svg
+  - name: "PUT: Replace an asset in the media library"
+    link: /docs/api/endpoints/media_library/manage_assets/replace_file/
+    image: /assets/img/braze_icons/pencil-01.svg
   
 ---

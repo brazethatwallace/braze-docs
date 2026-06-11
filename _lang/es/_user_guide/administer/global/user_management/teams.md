@@ -34,6 +34,14 @@ Si un equipo se define por un atributo personalizado, un idioma o un país, pued
 
 Los administradores de Braze y los usuarios limitados con el permiso a nivel de empresa "Puede administrar la configuración de empresa" pueden asignar permisos a nivel de equipo a un usuario de la empresa con acceso limitado. Cuando se asigna a un equipo, los usuarios de la empresa se limitan a leer o escribir únicamente los datos disponibles para sus equipos específicos, como el idioma del usuario, la ubicación o el atributo personalizado, según se definió al crear el equipo.
 
+### Limitar los permisos de un usuario de la empresa sin eliminar al usuario {#limit-company-user-permissions-without-deleting-a-user}
+
+Para impedir que un usuario de la empresa inicie sesión sin eliminar su cuenta, [suspende al usuario]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users). La suspensión pone la cuenta en un estado inactivo en el que el usuario no puede iniciar sesión.
+
+Si el usuario debe poder seguir iniciando sesión con capacidades limitadas, ve a **Configuración** > **Usuarios de la empresa**, selecciona al usuario y edita sus permisos. Elimina los permisos a nivel de espacio de trabajo para Campaigns, Canvas, Segments y datos de usuario, y deja solo el acceso mínimo, por ejemplo, "Ver activos de la biblioteca de medios". Para más información, consulta [Editar los permisos de un usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+
+Los permisos de equipo funcionan sobre los permisos de espacio de trabajo. Si asignas al usuario a un equipo, otorga solo los permisos mínimos a nivel de equipo que necesite y no otorgues permisos para Campaigns, Canvas, Segments o perfiles de usuario. El usuario permanece en el espacio de trabajo y puede iniciar sesión, pero no puede realizar la mayoría de las acciones de mensajería o audiencia.
+
 Para asignar un usuario a un equipo, ve a **Configuración** > **Usuarios de la empresa** y selecciona el usuario que deseas añadir a tu equipo.
 
 Luego sigue estos pasos:
@@ -43,7 +51,7 @@ Luego sigue estos pasos:
 ![Permisos a nivel de espacio de trabajo con el conjunto de permisos de plantilla de Banner.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Selecciona **+ Add team-level permissions** y luego selecciona el **equipo** al que deseas añadir a este usuario.
+2. Selecciona **+ Añadir permisos a nivel de equipo** y luego selecciona el **equipo** al que deseas añadir a este usuario.
 3. Asigna permisos específicos desde la sección de permisos del **equipo**.
 
 ![Permisos de plantilla de página de inicio a nivel de equipo.]({% image_buster /assets/img/teams.png %})
