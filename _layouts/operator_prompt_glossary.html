@@ -30,8 +30,7 @@ hide_binary_feedback: false
 <script type="text/javascript">
 $(document).ready(function() {
   var content = document.getElementById('operator-prompt-content');
-  var tabsContainer = document.getElementById('operator-prompt-tabs');
-  if (!content || !tabsContainer) return;
+  if (!content) return;
 
   var headings = Array.prototype.slice.call(content.querySelectorAll('h2'));
   if (!headings.length) return;
@@ -64,7 +63,8 @@ $(document).ready(function() {
     ul.appendChild(li);
   });
 
-  tabsContainer.appendChild(ul);
+  // Tab nav insertion is deferred until after section grouping so it lands
+  // after the pre-H2 content (H1, blockquote, alert) and before the first panel.
 
   // 2. Wrap each H2 + its following siblings (until the next H2) into a tabpanel div.
   //    Pre-H2 content (H1, blockquote, alert) is left outside and always visible.
@@ -92,6 +92,15 @@ $(document).ready(function() {
     firstNode.parentNode.insertBefore(panel, firstNode);
     group.nodes.forEach(function(n) { panel.appendChild(n); });
   });
+
+  // Insert tab nav directly before the first panel so it lands after the pre-H2
+  // content (H1, blockquote, alert) and before the tabpanel sections.
+  var firstPanel = content.querySelector('.operator-tab-section');
+  if (firstPanel) {
+    content.insertBefore(ul, firstPanel);
+  } else {
+    content.appendChild(ul);
+  }
 
   // 3 & 4. Tab activation — called on load and on every tab click.
   function activateTab(slug) {
@@ -176,7 +185,6 @@ $(document).ready(function() {
     </div>
     {%- endunless -%}
     {% include ai_translation_banner.html %}
-    <div id="operator-prompt-tabs"></div>
     <div id="operator-prompt-content">
       {{ content }}
     </div>
