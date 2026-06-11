@@ -27,6 +27,37 @@ hide_binary_feedback: false
 {%- assign hide_feedback = layout.hide_feedback -%}
 {%- endunless -%}
 
+<style>
+  /* Pill-style tabs matching the SDK integration page look.
+     Scoped with two IDs to beat _tabs.scss specificity (2,1,2). */
+  #api-main #operator-prompt-content ul.ab-nav.ab-nav-tabs {
+    border-bottom: none !important;
+    margin-bottom: 20px;
+  }
+  #api-main #operator-prompt-content ul.ab-nav.ab-nav-tabs > li {
+    float: left;
+    margin-bottom: 4px;
+    margin-right: 10px;
+    padding: 5px 15px;
+    border: 1px solid #def6f9;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #212123;
+  }
+  #api-main #operator-prompt-content ul.ab-nav.ab-nav-tabs > li.active {
+    border-color: #801ED7;
+    color: #801ED7;
+    background-color: #fff;
+    cursor: default;
+  }
+  #api-main #operator-prompt-content ul.ab-nav.ab-nav-tabs > li:hover:not(.active) {
+    color: #801ED7;
+  }
+</style>
+
 <script type="text/javascript">
 $(document).ready(function() {
   var content = document.getElementById('operator-prompt-content');
