@@ -32,7 +32,7 @@ For best results, open Operator from the relevant dashboard page before using th
 - Based on what's on this dashboard, what are the first 5 places I should visit in Braze to understand our setup (data, channels, sending, and targeting)?
 - Give me a 5-bullet health check of our engagement program for the last 30 days, with the biggest opportunities.
 
-## Campaign Digest
+## Campaigns
 
 ### Maintenance and organization
 
@@ -62,7 +62,7 @@ For best results, open Operator from the relevant dashboard page before using th
 - What are 3 ways to restructure our onboarding Canvases to reduce drop-off and improve activation?
 - Show my idle Canvases and summarize what they last sent and when users last entered (last 90 days).
 
-## Campaigns
+## Individual campaign
 
 ### Campaign performance
 

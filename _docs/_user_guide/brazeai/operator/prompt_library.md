@@ -133,11 +133,11 @@ Give me a 5-bullet health check of our engagement program for the last 30 days, 
 ## Identify idle campaigns to pause, refresh, or archive
 
 {% apitags %}
-Campaign Digest
+Campaigns
 Maintenance and organization
 {% endapitags %}
 
-Open Operator from the Campaign Digest page and use this prompt to surface idle campaigns and get a recommended action for each.
+Open Operator from the Campaigns page and use this prompt to surface idle campaigns and get a recommended action for each.
 
 ```
 Show me the 5 idle active campaigns and recommend which to pause, refresh, or archive.
@@ -150,11 +150,11 @@ Show me the 5 idle active campaigns and recommend which to pause, refresh, or ar
 ## Reduce complex audiences without losing targeting accuracy
 
 {% apitags %}
-Campaign Digest
+Campaigns
 Maintenance and organization
 {% endapitags %}
 
-Open Operator from the Campaign Digest page and use this prompt to simplify complex audience configurations across your campaigns.
+Open Operator from the Campaigns page and use this prompt to simplify complex audience configurations across your campaigns.
 
 ```
 What are 3 ways to reduce 'complex audience' in these campaigns without losing targeting accuracy?
@@ -164,14 +164,14 @@ What are 3 ways to reduce 'complex audience' in these campaigns without losing t
 
 {% api %}
 
-## Show top campaigns by engagement rate from Campaign Digest
+## Show top campaigns by engagement rate from Campaigns
 
 {% apitags %}
-Campaign Digest
+Campaigns
 Maintenance and organization
 {% endapitags %}
 
-Open Operator from the Campaign Digest page and use this prompt to rank your most active campaigns by engagement rate across channels.
+Open Operator from the Campaigns page and use this prompt to rank your most active campaigns by engagement rate across channels.
 
 ```
 Show the top 10 active campaigns by engagement rate in the last 30 days (by channel)
@@ -184,11 +184,11 @@ Show the top 10 active campaigns by engagement rate in the last 30 days (by chan
 ## Understand and simplify complex audiences
 
 {% apitags %}
-Campaign Digest
+Campaigns
 Audience management
 {% endapitags %}
 
-Open Operator from the Campaign Digest page and use this prompt to understand what the complex audience flag means and how to resolve it.
+Open Operator from the Campaigns page and use this prompt to understand what the complex audience flag means and how to resolve it.
 
 ```
 What does "Complex audience" mean here, and how can I simplify those campaigns without losing targeting?
@@ -201,11 +201,11 @@ What does "Complex audience" mean here, and how can I simplify those campaigns w
 ## Reduce complex audiences in campaigns
 
 {% apitags %}
-Campaign Digest
+Campaigns
 Audience management
 {% endapitags %}
 
-Open Operator from the Campaign Digest page and use this prompt to get targeted steps for simplifying your audience configurations.
+Open Operator from the Campaigns page and use this prompt to get targeted steps for simplifying your audience configurations.
 
 ```
 What are 3 ways to reduce 'complex audience' in these campaigns without losing targeting accuracy?
@@ -215,14 +215,14 @@ What are 3 ways to reduce 'complex audience' in these campaigns without losing t
 
 {% api %}
 
-## Get started with Agent Console from Campaign Digest
+## Get started with Agent Console from Campaigns
 
 {% apitags %}
-Campaign Digest
+Campaigns
 Onboarding
 {% endapitags %}
 
-Open Operator from the Campaign Digest page and use this prompt to get a guided starting point for Agent Console based on your active campaigns.
+Open Operator from the Campaigns page and use this prompt to get a guided starting point for Agent Console based on your active campaigns.
 
 ```
 I'm feeling overwhelmed, I want to get started with Agent Console but don't know how. Based on my currently running campaigns, what might I do?
@@ -232,14 +232,14 @@ I'm feeling overwhelmed, I want to get started with Agent Console but don't know
 
 {% api %}
 
-## Summarize Campaign Digest in 5 bullets
+## Summarize Campaigns in 5 bullets
 
 {% apitags %}
-Campaign Digest
+Campaigns
 Onboarding
 {% endapitags %}
 
-Open Operator from the Campaign Digest page and use this prompt to get a quick read on what's changed since the prior period.
+Open Operator from the Campaigns page and use this prompt to get a quick read on what's changed since the prior period.
 
 ```
 Summarize this Campaign Digest in 5 bullets: biggest wins, biggest issues, and what changed vs the prior period.
@@ -320,7 +320,7 @@ Show my idle Canvases and summarize what they last sent and when users last ente
 ## Show campaign engagement metrics for the last 30 days
 
 {% apitags %}
-Campaigns
+Individual campaign
 Campaign performance
 {% endapitags %}
 
@@ -337,7 +337,7 @@ Show this campaign's key engagement metrics (open/click rates) for the last 30 d
 ## Show attributed revenue and conversions for a campaign
 
 {% apitags %}
-Campaigns
+Individual campaign
 Campaign performance
 {% endapitags %}
 
@@ -354,7 +354,7 @@ How much Attributed Revenue and Conversions did this campaign drive in the last 
 ## Compare campaign conversion rate to other in-app campaigns
 
 {% apitags %}
-Campaigns
+Individual campaign
 Campaign performance
 {% endapitags %}
 
@@ -371,7 +371,7 @@ Compare this campaign's conversion rate vs our other in-app campaigns in this qu
 ## Show top campaigns by engagement rate from Campaigns page
 
 {% apitags %}
-Campaigns
+Individual campaign
 Campaign performance
 {% endapitags %}
 
