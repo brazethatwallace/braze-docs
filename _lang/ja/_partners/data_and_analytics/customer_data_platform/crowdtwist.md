@@ -1,66 +1,66 @@
 ---
-nav_title: オラクル・クラウドツイスト
-article_title: クラウドツイスト
-description: "この記事では、特別に作成されたBrazeのデータ変換テンプレートとCrowdtwistのデータプッシュオブジェクトによって、BrazeとOracle Crowdtwistのパートナーシップについて概説する。"
+nav_title: Oracle Crowdtwist
+article_title: Crowdtwist
+description: "この記事では、特別に作成されたBrazeデータ変換テンプレートとCrowdtwistのデータプッシュオブジェクトを活用した、BrazeとOracle Crowdtwistのパートナーシップについて説明します。"
+alias: /partners/crowdtwist/
 page_type: partner
 search_tag: Partner
 
 ---
 
-# オラクル・クラウドツイスト
+# Oracle Crowdtwist
 
-> [Oracle Crowdtwistは](https://www.oracle.com/uk/cx/marketing/customer-loyalty/)、ブランドがパーソナライズされたカスタマーエクスペリエンスを提供できるようにする、クラウドネイティブなカスタマー・ロイヤルティ・ソリューションのリーディング・カンパニーである。同社のソリューションは、100以上の既成概念にとらわれないエンゲージメントパスを提供し、マーケターがより完全な顧客ビューを開発するための迅速なTime-to-Valueを提供する。
+> [Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/)は、ブランドがパーソナライズされたカスタマーエクスペリエンスを提供できるようにする、クラウドネイティブなカスタマーロイヤルティソリューションのリーディングカンパニーです。同社のソリューションは100以上のすぐに使えるエンゲージメントパスを提供し、マーケターがより完全な顧客ビューを構築するための迅速なTime-to-Valueを実現します。
 
-Oracle Crowdtwistのデータプッシュ機能では、Crowdtwistのプラットフォームで更新が発生するたびに、ユーザーやイベントのメタデータを渡すことができる。
+Oracle Crowdtwistのデータプッシュ機能では、Crowdtwistのプラットフォームで更新が発生するたびに、ユーザーやイベントのメタデータを渡すことができます。
 
-このガイドでは、Oracle Crowdtwistのユーザープロファイル、ユーザーアクティビティ、およびユーザーリデンプションライブプッシュフィードをBraze環境に統合する方法のプロファイルを説明する。このドキュメントでは明確に説明されていないが、2つのデータ・プッシュ・タイプが利用可能である。 
+このガイドでは、Oracle Crowdtwistのユーザープロファイル、ユーザーアクティビティ、およびユーザーリデンプションのライブプッシュフィードをBraze環境に統合する方法について説明します。このドキュメントでは明示的にカバーされていませんが、さらに2つのデータプッシュタイプが利用可能であり、そのセットアップは以下に概説する同じ原則に従います。
 
-* [Live Pushユーザープロファイル](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/PushUserProfile-withTiersv2.html)：新規プロファイルの作成と既存プロファイルの更新を含む。
+* [Live Pushユーザープロファイル](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/PushUserProfile-withTiersv2.html): 新規プロファイルの作成と既存プロファイルの更新を含みます。
 
-* [ライブプッシュユーザーのアクティビティ](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html)：ユーザー・アクティビティの完了データを含む。
+* [Live Pushユーザーアクティビティ](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html): ユーザーアクティビティの完了データを含みます。
 
-* [ライブプッシュユーザー還元](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserRedemption.html)：ユーザー報酬の償還に関するデータを含む。 
+* [Live Pushユーザーリデンプション](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserRedemption.html): ユーザー報酬の引き換えに関するデータを含みます。
 
-Brazeデータ変換テンプレートを使用することで、Brazeに関係のないデータプッシュの要素をフィルターで除外し、Brazeで必要な値を割り当てて、使用可能な「送信先」で活用できるようにすることができる。
+Brazeデータ変換テンプレートを使用することで、Brazeに関係のないデータプッシュの要素をフィルターで除外し、Brazeで必要な値を割り当てて、利用可能な「送信先」で活用できるようにすることができます。
 
-例えば、データプッシュを使用して、関連するカスタムイベントや属性をBrazeに渡すことができる。また、ユーザーのポイント残高のように、ユーザープロファイルのデータが更新されると同時に、カスタム属性をBrazeに記録するために使用することもできる。 
+例えば、データプッシュを使用して、ユーザーがロイヤルティティアを変更したり報酬を引き換えたりした際に、関連するカスタムイベントや属性をBrazeに渡すことができます。また、ユーザーのポイント残高のように、メンバーのユーザープロファイルでデータが更新されると同時に、カスタム属性をBrazeに記録するために使用することもできます。
 
-## 前提条件
-
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | --- | --- |
-| オラクル・クラウドトウィストのアカウント | このパートナーシップを利用するには、[Oracle Crowdtwistアカウントが](https://www.oracle.com/uk/cx/marketing/customer-loyalty/)必要である。 |
-| Brazeデータ変換エンドポイント| この統合は、Brazeの[データ変換ツールに]({{site.baseurl}}/user_guide/data/data_transformation/overview)依存している。データ変換を作成すると、Brazeは、Crowdtwistのデータプッシュの送信先として追加できるユニークなエンドポイントを生成する。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Oracle Crowdtwistアカウント | このパートナーシップを利用するには、[Oracle Crowdtwistアカウント](https://www.oracle.com/uk/cx/marketing/customer-loyalty/)が必要です。 |
+| Brazeデータ変換エンドポイント | この統合は、Brazeの[データ変換ツール]({{site.baseurl}}/user_guide/data/unification/data_transformation/)に依存しています。データ変換を作成すると、Brazeは、Crowdtwistのデータプッシュの送信先として追加できるユニークなエンドポイントを生成します。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 統合 {#integration}
 
-BrazeとOracle Crowdtwistは、顧客がユーザープロファイル、ユーザー償還、およびユーザーアクティビティイベントを活用した独自のデータ変換を開発できるように、[データ変換テンプレートを]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation?redirected=1#step-2-create-a-transformation)作成した。 
+BrazeとOracle Crowdtwistは、顧客がユーザープロファイル、ユーザーリデンプション、およびユーザーアクティビティイベントを活用した独自のデータ変換を開発できるように、[データ変換テンプレート]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation?redirected=1#step-2-create-a-transformation)を作成しました。
 
-## ステップ 1: Oracle Crowdtwistテンプレートからデータ変換を作成する
+## ステップ1: Oracle Crowdtwistテンプレートからデータ変換を作成する {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
 
-**データ設定 > データ変換 > 変換を作成 > テンプレートを使用**> に移動し、お好みの「BRAZE<> CROWDTWIST」テンプレートを選択する。 
+**データ設定** > **データ変換** > **変換を作成** > **テンプレートを使用**に移動し、お好みの「BRAZE <> CROWDTWIST」テンプレートを選択します。
 
-ユーザープロファイル、ユーザーアクティビティ、ユーザー償還の各イベントを変換するための4つのテンプレートと、様々なデータプッシュイベントに適用する条件ロジックを使用するマスターテンプレートがある。
+ユーザープロファイル、ユーザーアクティビティ、ユーザーリデンプションの各イベントを変換するためのテンプレートが1つずつ、合計4つのテンプレートがあります。さらに、条件ロジックを使用してさまざまなデータプッシュイベントに適用するマスターテンプレートもあります。
 
-[Oracle CrowdtwistのData Pushドキュメントに](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/DataPush.html)示されているように、Data Pushオブジェクトには異なるメタデータが含まれているため、適切なBrazeオブジェクトを作成するには、それぞれ独自の変換コードが必要になる。マスターテンプレートは、3つのタイプのオブジェクトをそれぞれ受け入れるために1つのデータ変換を設定し、各オブジェクトからの値で適切な出力を作成する方法を示している。
+[Oracle CrowdtwistのData Pushドキュメント](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/DataPush.html)に示されているように、Data Pushオブジェクトには異なるメタデータが含まれているため、適切なBrazeオブジェクトを作成するには、それぞれ独自の変換コードが必要になります。マスターテンプレートは、3つのタイプのオブジェクトをそれぞれ受け入れるために1つのデータ変換を設定し、各オブジェクトからの値で適切な出力を作成する方法を示しています。
 
-## ステップ 2:テンプレートの更新とテスト
+## ステップ2: テンプレートの更新とテスト {#step-2-update-and-test-template}
 
-以下に、注釈付きテンプレートを掲載する。これらのテンプレートの本体は、`/users/track` 送信先に適用されるように設計されている。注釈は、`//` 行頭と緑色のテキストでマークされ、変換コードの動作に影響を与えることなく削除することができる。 
+以下に、注釈付きテンプレートを掲載します。これらのテンプレートの本体は、`/users/track`送信先に適用されるように設計されています。注釈は `//` 行頭と緑色のテキストでマークされており、変換コードの動作に影響を与えることなく削除できます。
 
-この変換はJavaScriptを使い、「brazecall」と呼ばれるオブジェクトを構築する。このオブジェクトで、Braze REST APIエンドポイントに送信するリクエストボディを作成する。これらの送信先へのリクエストに必要な構造については、「送信先」セクションのリンクを参照のこと。    
+この変換はJavaScriptを使い、「brazecall」と呼ばれるオブジェクトを構築します。このオブジェクトで、Braze REST APIエンドポイントに送信するリクエストボディを作成します。これらの送信先へのリクエストに必要な構造については、「送信先」セクションのリンクを参照してください。
 
 {% alert note %}
-各 "キー "の "値 "が`payload.` で始まっていることに注目してほしい。ペイロードはOracle Crowdtwistから受け取ったデータオブジェクトを表す。JavaScriptのドット記法を使用して、Brazeオブジェクトの要素に入力するデータを選択する。例えば、`external_id: payload.thirdPartyId` と表示された場合、これはOracle Crowdtwistに保存されている`third_party_id` の値によってBraze外部IDが設定されていることを意味する。Oracle Crowdtwistから送られてくるオブジェクトのスキーマや構成の詳細については、[Oracleのドキュメントを](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html)参照のこと。
+各「キー」の「値」が `payload.` で始まっていることに注目してください。ペイロードはOracle Crowdtwistから受け取ったデータオブジェクトを表します。JavaScriptのドット記法を使用して、Brazeオブジェクトの要素に入力するデータを選択します。例えば、`external_id: payload.thirdPartyId` と表示された場合、これはOracle Crowdtwistに保存されている `third_party_id` の値によってBrazeのexternal IDが設定されていることを意味します。Oracle Crowdtwistから送られてくるオブジェクトのスキーマや構成の詳細については、[Oracleのドキュメント](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html)を参照してください。
 {% endalert %}
 
 {% alert important %}
- Oracle Crowdtwistから送られてきたオブジェクトを使って、Brazeにユーザーを作成する。値`false` を持つ`update_existing_only` キーを含めることで、属性またはイベントオブジェクトがBrazeに存在しない識別子を含む場合、Brazeはイベントまたは属性オブジェクトに含まれる属性を持つユーザープロファイルを作成する。Oracle CrowdtwistがBrazeに既に存在するプロファイルのみを更新することを望む場合は、各属性またはイベントオブジェクトでこの属性を`true` に設定する。
+Oracle Crowdtwistから送られてきたオブジェクトを使って、Brazeにユーザーを作成します。値 `false` を持つ `update_existing_only` キーを含めることで、属性またはイベントオブジェクトがBrazeに存在しない識別子を含む場合、Brazeはイベントまたは属性オブジェクトに含まれる属性を持つユーザープロファイルを作成します。Oracle CrowdtwistがBrazeに既に存在するプロファイルのみを更新するようにしたい場合は、各属性またはイベントオブジェクトでこの属性を `true` に設定してください。
 {% endalert %}
 
-### データ変換テンプレート
+### データ変換テンプレート {#data-transformation-templates}
 {% tabs %}
 {% tab User Profile Event Template%}
 ```javascript
@@ -81,7 +81,7 @@ let brazecall = {
        "resetDate": payload.tierInfo.resetDate,
        "dateReached":payload.tierInfo.dateReached,
         "scoreNeededToReach": payload.tierInfo.scoreNeededToReach,
-        "nextLevel":{ 
+        "nextLevel":{
         "minValue":payload.tierInfo.nextLevel.minValue,
         "maxValue":payload.tierInfo.nextLevel.maxValue,
         "title":payload.tierInfo.nextLevel.title
@@ -96,7 +96,7 @@ let brazecall = {
      "external_id": payload.thirdPartyId,
      "email": payload.emailAddress,
      "name": "assignedByEvent",
-//Below we can see how to write a timestamp in your object, which is a required value for some objects, like the Event Object. 
+//Below we can see how to write a timestamp in your object, which is a required value for some objects, like the Event Object.
      "time": new Date().toISOString(),
      "properties": {
        "assigned_by_event": payload.tierInfo.assignedByEvent,
@@ -152,7 +152,7 @@ return brazecall;
 {%endtab%}
 {% tab Master Template %}
 ```javascript
-//The master template uses JavaScript's conditional operators to determine the output of the Data Transformation. This example shows how to apply JavaScript to your transformation to allow for a dynamic range of sources or inputs. 
+//The master template uses JavaScript's conditional operators to determine the output of the Data Transformation. This example shows how to apply JavaScript to your transformation to allow for a dynamic range of sources or inputs.
 
  // We open the transformation with a simple "if" function. We're checking if the value "payload.tierInfo" is present. "tierInfo" is a value that is always populated in the User Profile Live Push object, but is not present in the others.
 
@@ -170,7 +170,7 @@ let brazecall = {
        "resetDate": payload.tierInfo.resetDate,
        "dateReached":payload.tierInfo.dateReached,
         "scoreNeededToReach": payload.tierInfo.scoreNeededToReach,
-        "nextLevel":{ 
+        "nextLevel":{
         "minValue":payload.tierInfo.nextLevel.minValue,
         "maxValue":payload.tierInfo.nextLevel.maxValue,
         "title":payload.tierInfo.nextLevel.title
@@ -234,22 +234,22 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### 送信先
+### 送信先 {#destinations}
 
-このガイドのテンプレートは、"Track Users "送信先に配信するように作成されているが、関連する[REST APIドキュメントを]({{site.baseurl}}/api/home)参照しながら、[Brazeのデータ変換ガイドに]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation/#step-2-create-a-transformation)記載されているどのエンドポイントにも送信できるようにテンプレートを設計することができる。
+このガイドのテンプレートは「Track Users」送信先に配信するように作成されていますが、関連する[REST APIドキュメント]({{site.baseurl}}/api/home/)を参照しながら、[Brazeのデータ変換ガイド]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation/#step-2-create-a-transformation)に記載されているどのエンドポイントにも送信できるようにテンプレートを設計することができます。
 
-### テスト
+### テスト {#testing}
 
-テンプレートを自分好みに修正したら、それが正しく動作するかどうかを検証しなければならない。Validate "をクリックすると、コード出力のプレビューが表示され、選択した送信先で受け入れられるリクエストかどうかが確認できる。 
+テンプレートをお好みに修正したら、正しく動作するかどうかを検証する必要があります。**Validate**をクリックすると、コードの出力プレビューが表示され、選択した送信先で受け入れられるリクエストかどうかを確認できます。
 
 ![Brazeデータ変換UIのスクリーンショット]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
 
-output "フィールドに表示されるオブジェクトに満足したら、**"Activate "**をクリックし、データ変換エンドポイントがデータを受け入れる準備を整える。 
+「output」フィールドに表示されるオブジェクトに問題がなければ、**Activate**をクリックして、データ変換エンドポイントがデータを受け入れる準備を整えます。
 
-データ変換のWebhook URLは左側のサイドパネルにある。これをコピーし、Oracle CrowdtwistのIntegration Hub内の構成に使用する。
+データ変換のWebhook URLは左側のサイドパネルにあります。これをコピーし、Oracle CrowdtwistのIntegration Hub内の設定に使用してください。
 
 {% alert important %}
-Braze Data Transformationエンドポイントには、毎分1000リクエストのレート制限がある。このデータをBrazeで利用できるようにする速度を検討し、より高いデータ変換レート制限が必要な場合は、Brazeアカウントマネージャーに相談する。
+Brazeデータ変換エンドポイントには、毎分1000リクエストのレート制限があります。このデータをBrazeで利用できるようにする速度を検討し、より高いデータ変換レート制限が必要な場合は、Brazeアカウントマネージャーにご相談ください。
 {% endalert %}
 
-データ変換は非常にダイナミックなツールであり、JavaScriptを理解し、REST APIのドキュメントを参考にすれば、このドキュメントで説明されている以外の目的でも設計することができる。データ変換テンプレートの複雑な変更に関するサポートやトラブルシューティングについては、カスタマー・サクセス・マネージャーにご相談ください。
+データ変換は非常にダイナミックなツールであり、JavaScriptを理解し、REST APIドキュメントを参考にすれば、このドキュメントで説明されている以外の目的にも設計することができます。データ変換テンプレートの複雑な変更に関するサポートやトラブルシューティングについては、カスタマーサクセスマネージャーにご相談ください。

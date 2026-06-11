@@ -42,7 +42,7 @@ Make sure you fall into the segment that you are targeting (if this is a live ca
 
 ![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment.
+You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment. **User Lookup** accepts only `external_id` or `braze_id`—not email addresses or phone numbers. To search by email, phone, push token, or user alias, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
 ![User Lookup section with a search field.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -77,6 +77,49 @@ Check that you're using the correct type of push notification. For example, if y
 #### Current app
 
 When testing push sends with internal users, make sure that the user who you want to receive the push notification is currently logged into the relevant app. This can lead to the user either not receiving a push or receiving a push you believe they aren't segmented for.
+
+{% alert note %}
+If you're sending push messages with images on Android, FCM can sometimes discard the image and only display the text in the push message. This issue is usually caused by server connectivity issues.
+{% endalert %}
+
+## Error: MismatchSenderID
+
+MismatchSenderID indicates an authentication failure with Firebase Cloud Messaging (FCM). Confirm your Firebase sender ID and FCM API key are correct.
+
+To find the proper Firebase Server Key and replace it:
+
+1. Go to the Firebase console for your app.
+2. Under **Project Overview**, select **Project Settings**.
+3. In the **Cloud Messaging** tab, check that the Sender ID below the API keys matches the one in Braze (in **Settings** > **App Settings** > **Cloud Messaging API Key**).
+
+{% alert warning %}
+Do not change your Sender ID in your Braze dashboard. Doing so will cause existing push registrations to be invalidated. If the Sender ID does not match, you must find your Firebase project with the matching Sender ID.
+{% endalert %}
+
+4. Copy the **Server Key** under **Project credentials**.
+5. In Braze, go to **Settings** > **App Settings**, select your app, and paste the server key into the **Cloud Messaging API Key** field (replacing the outdated key).
+6. Select **Save**.
+7. To verify, send a test push to a device before and after changing the API key without opening the application. This helps confirm that users continue to receive push notifications without requiring a new push registration ID (push token) to be generated.
+
+## Troubleshooting scenarios
+
+### Delayed push notifications
+
+Your push notifications can be delayed for these reasons:
+
+- A weak data connection on the device
+- Custom code in the app that can suppress Braze push notifications
+- User preferences for push notifications in the device's settings
+- Message priority of the push when created in the campaign or Canvas
+- Traffic delays or issues with the push service providers (FCM and APNs)
+
+### Push notifications are sending slower than expected
+
+Make sure your push notification setup follows these best practices:
+
+- If you're sending to large audiences without considering push-enabled status, this may lead to a slower sending speed. Instead, consider sending to push-enabled users only to reduce the size of your audience.
+- If possible, try to schedule your campaigns ahead of time rather than immediately.
+- If you're targeting a larger number of users with push notifications in a Canvas, you can anticipate that subsequent message steps in the Canvas will require different processing times than a campaign that sends to users immediately. In this case, campaigns would typically finish sending before a Canvas, as the first "step" of a Canvas is to check whether users qualify for the specific user journey.
 
 ## Clicking a push notification doesn't open the app
 
@@ -119,11 +162,31 @@ If links in your push notifications are opening in the app unexpectedly, it migh
 3. **Verify iOS push registration:** For iOS, revisit step 1 of the push integration guide on [registering push notifications with APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns). Ensure your delegate object is assigned synchronously before the app finishes launching. This step should be completed in the `application:didFinishLaunchingWithOptions:` method.
 4. **Test your integration:** After making adjustments, test the push notification behavior on both iOS and Android devices to confirm the issue is resolved.
 
+### Deep links with app still running in the background (iOS)
+
+If deep links work when the app is not running or when the link is used directly, but not when the application is already running in the background, the issue may be related to how the app handles the link. Check whether you're using any third-party libraries that use method swizzling. We recommend turning swizzling off, as it can cause issues with deep link implementations.
+
 ## Migrate to a .p8 authentication key
 
 Apple `.p8` authentication keys are the required approach for APNs push in Braze. Unlike legacy certificate file types, `.p8` keys don't expire and support all of your apps under a single key, eliminating the need for annual certificate renewals and reducing the risk of push delivery failures.
 
 If you're currently using a `.p12` or `.pem` certificate, migrate to a `.p8` key as soon as possible. For instructions on creating and uploading a `.p8` key, see [Upload your APNs push certificate]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). For Apple's guidance on generating a `.p8` key from your developer account, see [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+
+### .p8 keys versus .p12 certificates
+
+| Credential | Expiration | Dashboard status indicator |
+| --- | --- | --- |
+| `.p8` authentication key | Does not expire | No green status indicator (this is expected) |
+| `.p12` push certificate | Expires yearly | Green indicator when the certificate is valid |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8 keys versus .p12 certificates" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8 keys versus .p12 certificates" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8 keys versus .p12 certificates" }
+
+When you replace a `.p12` certificate with a `.p8` key (or upload a new credential), push delivery can pause briefly while Braze processes the change. Plan updates during a maintenance window when possible.
+
+In **Settings** > **App Settings** > **Push Notification Settings**, confirm that **App Bundle ID**, **Team ID**, and **Key ID** (for `.p8` keys) match the values in your Apple Developer account. Multiple Braze workspaces can use the same Apple push credential when the iOS app **bundle ID** is identical; the credential environment (development versus production) must match how the app was built.
+
+Apps on [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) or later can use [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management), which routes tokens to the correct APNs environment automatically.
 
 ## Web push notifications aren't behaving as expected
 
@@ -148,7 +211,7 @@ table {
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reset Chrome on desktop" }
 
 {:start="4"}
 4. In DevTools, navigate to the **Application** tab.
@@ -162,7 +225,7 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 
 If you have a notification from your site visible in your Android notification drawer:
 
-1. From the push notification, tap <i class="fas fa-cog" title="Settings"></i> and select **Site settings**.
+1. From the push notification, select <i class="fas fa-cog" title="Settings"></i> **Settings** and select **Site settings**.
 2. From **Site settings**, tap **Clear & Reset**.
 
 If you don't have a notification from your site open:
@@ -182,7 +245,7 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 ### Reset Firefox on desktop
 
 1. Next to your site URL, select <i class="fa-solid fa-circle-info" alt="info icon"></i> or <i class="fas fa-lock" alt="lock icon"></i>.
-2. Under **Permissions**, next to **Receive Notifications**, select <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> to clear notification permissions.
+2. Under **Permissions**, next to **Receive Notifications**, select <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> **Clear permission** to clear notification permissions.
 3. On the same menu, select **Clear Cookies and Site Data**.
 4. In the dialog to confirm your choice, select **OK**.
 
@@ -220,4 +283,3 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 For detailed information about common push error messages (such as `DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered`, and others), refer to [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
 
 Still need help? Open a [support ticket]({{site.baseurl}}/braze_support/).
-

@@ -1,131 +1,130 @@
 ---
-nav_title: Connecting Multiple Stores
-article_title: Shopify Multiple Store Support
+nav_title: 여러 스토어 연결
+article_title: Shopify 다중 스토어 지원
 alias: /shopify_connecting_multiple_stores/
 page_order: 6
-description: "This reference article covers how to connect and configure multiple Shopify stores to a single workspace."
+description: "이 참조 문서에서는 여러 Shopify 스토어를 단일 워크스페이스에 연결하고 구성하는 방법을 다룹니다."
 ---
 
-# 여러 Shopify 스토어 연결
+# 여러 Shopify 스토어 연결 {#connect-multiple-shopify-stores}
 
-> Connect multiple Shopify store domains to a single workspace to have a holistic view of your customers across all markets. Build and launch automation programs and journeys in a single workspace without duplicating efforts across regional stores.  
+> 여러 Shopify 스토어 도메인을 단일 워크스페이스에 연결하여 모든 시장에 걸쳐 고객을 통합적으로 파악할 수 있습니다. 지역별 스토어에서 중복 작업 없이 단일 워크스페이스에서 자동화 프로그램과 여정을 구축하고 시작하세요.
 
 {% alert important %}
-This feature doesn't support Shopify Markets or Markets Pro. If you would like to request support for these, submit a [product request]({{site.baseurl}}/user_guide/administrative/access_braze/portal/).
+이 기능은 Shopify Markets 또는 Markets Pro를 지원하지 않습니다. 이에 대한 지원을 요청하려면 [제품 요청]({{site.baseurl}}/user_guide/administer/personal/product_portal/)을 제출하세요.
 {% endalert %}
 
-## 요구 사항
+## 요구 사항 {#requirements}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Enable multiple stores | Contact your customer success manager to enable Shopify multiple store support. |
-| Set up a Shopify store | Be sure that you've already [set up at least one Shopify store with Braze]({{site.baseurl}}/shopify_overview/). |
-| Unique Shopify storefront domains for each region | Multiple store support is intended for use with unique Shopify store domains for different regional storefronts. <br><br>If you want to connect multiple sub-brands to Braze, we recommend creating separate workspaces for each sub-brand. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Shopify 스토어 설정 | 이미 [Braze와 Shopify 스토어를 하나 이상 설정]({{site.baseurl}}/shopify_overview/)했는지 확인하세요. |
+| 각 지역별 고유한 Shopify 스토어프론트 도메인 | 다중 스토어 지원은 서로 다른 지역 스토어프론트에 대해 고유한 Shopify 스토어 도메인을 사용하기 위한 것입니다. <br><br>여러 하위 브랜드를 Braze에 연결하려면 각 하위 브랜드에 대해 별도의 워크스페이스를 생성하는 것을 권장합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
-## Connecting an additional store
-After you install the Braze app to your Shopify store and install your first store, select **\+ Connect New Store**.
+## 추가 스토어 연결 {#connecting-an-additional-store}
+Shopify 스토어에 Braze 앱을 설치하고 첫 번째 스토어를 설치한 후 **+ Connect New Store**를 선택합니다.
 
-![Shopify 통합 페이지의 "+ 새 스토어 연결" 버튼을 클릭합니다.]({% image_buster /assets/img/Shopify/begin_setup_button.png %}){: style="max-width:80%;"}
+![Shopify 통합 페이지의 "+ Connect New Store" 버튼.]({% image_buster /assets/img/shopify/begin_setup_button.png %}){: style="max-width:80%;"}
 
-For your additional Shopify regional store, select **Begin setup**.
+추가 Shopify 지역 스토어의 경우 **Begin setup**을 선택합니다.
 
-!["설정 시작" 버튼이 있는 "통합 설정" 섹션입니다.]({% image_buster /assets/img/Shopify/multiple_stores.png %}){: style="max-width:80%;"}
+!["Begin setup" 버튼이 있는 "Integration settings" 섹션.]({% image_buster /assets/img/shopify/multiple_stores.png %}){: style="max-width:80%;"}
 
-Like your first Shopify store integration, you can choose either between a standard or custom setup.
+첫 번째 Shopify 스토어 통합과 마찬가지로 표준 또는 커스텀 설정 중에서 선택할 수 있습니다.
 
-![표준 또는 커스텀 설정으로 Braze 웹 SDK를 구현할 수 있는 옵션이 있는 "Braze SDK 활성화" 섹션을 클릭합니다.]({% image_buster /assets/img/Shopify/standard_or_custom.png %}){: style="max-width:80%;"}
+![표준 또는 커스텀 설정으로 Braze 웹 SDK를 구현할 수 있는 옵션이 있는 "Enable the Braze SDKs" 섹션.]({% image_buster /assets/img/shopify/standard_or_custom.png %}){: style="max-width:80%;"}
 
-Choose the option that best fits your needs:
+필요에 가장 적합한 옵션을 선택하세요:
 
 {% multi_lang_include shopify.md section='Integration Tabs' %}
 
-To view each store integration and configure advanced settings, select a store in the dropdown menu.
+각 스토어 통합을 확인하고 고급 설정을 구성하려면 드롭다운 메뉴에서 스토어를 선택합니다.
 
-![드롭다운 메뉴가 있는 "통합 설정"에서 Shopify 스토어를 선택합니다.]({% image_buster /assets/img/Shopify/store_dropdown_menu.png %})
+![Shopify 스토어를 선택할 수 있는 드롭다운 메뉴가 있는 "Integration settings".]({% image_buster /assets/img/shopify/store_dropdown_menu.png %})
 
-## Syncing users across stores
+## 스토어 간 사용자 동기화 {#syncing-users-across-stores}
 
-### Shopify alias
+### Shopify 별칭 {#shopify-alias}
 
-When you connect multiple stores, synced Shopify users who have logged in or placed an order will receive a new alias in the format: {% raw %}`shopify_customer_id_{{storename}}`{% endraw %}.
+여러 스토어를 연결하면 로그인하거나 주문한 동기화된 Shopify 사용자는 {% raw %}`shopify_customer_id_{{storename}}`{% endraw %} 형식의 새 별칭을 받게 됩니다.
 
-### Braze external ID
+### Braze 외부 ID {#braze-external-id}
 
-You can choose from the following options for your Braze external ID:
+Braze 외부 ID에 대해 다음 옵션 중에서 선택할 수 있습니다:
 
-|Option|Description|
+| 옵션 | 설명 |
 |------|-----------|
-|Shopify Customer ID|If you use Shopify's customer ID as your Braze external ID, each store will generate a unique customer ID for each user. This means that if a user interacts with multiple stores, they will have separate profiles in Braze.|
-|Email, Hashed Email, or Custom External ID|If you use the email, hashed email, or custom external ID types, users who engage with multiple stores will have their profiles merged into a single consolidated profile when they log in or place an order.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Shopify 고객 ID | Shopify의 고객 ID를 Braze 외부 ID로 사용하면 각 스토어에서 각 사용자에 대해 고유한 고객 ID를 생성합니다. 즉, 사용자가 여러 스토어와 상호작용하면 Braze에서 별도의 프로필을 갖게 됩니다. |
+| 이메일, 해시된 이메일 또는 커스텀 외부 ID | 이메일, 해시된 이메일 또는 커스텀 외부 ID 유형을 사용하면 여러 스토어에 참여하는 사용자가 로그인하거나 주문할 때 프로필이 하나의 통합 프로필로 병합됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze external ID" }
 
-### Merged fields
+### 병합되는 필드 {#merged-fields}
 
-When a user profile is synced, the following fields will be merged. For full details on merging behavior, refer to [Merge behavior]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior).
+사용자 프로필이 동기화되면 다음 필드가 병합됩니다. 병합 동작에 대한 자세한 내용은 [병합 동작]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)을 참조하세요.
 
-- Device information
-- Total session count (combined from both profiles)
-- Custom event and purchase data
-- Custom event properties for segmentation (for example, “X times in Y days” where X ≤ 50 and Y ≤ 30)
-- Event count (combined from both profiles)
+- 기기 정보
+- 총 세션 수(두 프로필에서 합산)
+- 커스텀 이벤트 및 구매 데이터
+- 세분화를 위한 커스텀 이벤트 속성정보(예: X ≤ 50이고 Y ≤ 30인 경우 "Y일 동안 X회")
+- 이벤트 수(두 프로필에서 합산)
 - 첫 번째 및 마지막 이벤트 날짜(Braze는 가장 빠른 날짜와 가장 최근 날짜를 선택)
-- Campaign interaction data (most recent date fields)
-- Workflow summaries (most recent date fields)
-- Message and engagement history
-- Subscription groups
+- Campaign 상호작용 데이터(가장 최근 날짜 필드)
+- 워크플로 요약(가장 최근 날짜 필드)
+- 메시지 및 참여 기록
+- 구독 그룹
 
-### Collecting subscribers (optional)
+### 가입자 수집(선택 사항) {#collecting-subscribers-optional}
 
-You can choose to collect subscribers directly through Braze (in your Shopify connector settings) or through API and SDK alternatives that sync data from Shopify.
+Braze를 통해 직접(Shopify 커넥터 설정에서) 또는 Shopify에서 데이터를 동기화하는 API 및 SDK 대안을 통해 가입자를 수집할 수 있습니다.
 
 {% tabs local %}
-{% tab Shopify connector %}
-In the **Manage users** step of your Shopify connector settings, you can use Braze to collect email and SMS subscriber opt-ins and organize them into a dedicated subscription group:
+{% tab Shopify 커넥터 %}
+Shopify 커넥터 설정의 **사용자 관리** 단계에서 Braze를 사용하여 이메일 및 SMS 가입자 옵트인을 수집하고 전용 구독 그룹으로 구성할 수 있습니다:
 
-1. Create a unique subscription group for each store you connect. This helps you maintain accurate data about where subscribers are coming from.
-2. Enable email and SMS subscriber collection.
+1. 연결하는 각 스토어에 대해 고유한 구독 그룹을 생성합니다. 이렇게 하면 가입자가 어디에서 오는지에 대한 정확한 데이터를 유지할 수 있습니다.
+2. 이메일 및 SMS 가입자 수집을 활성화합니다.
 {% endtab %}
 
-{% tab Braze API or SDKs %}
-Alternatively, you can sync email and SMS marketing opt-in information directly from Shopify using the Braze API or SDKs.
+{% tab Braze API 또는 SDK %}
+또는 Braze API 또는 SDK를 사용하여 Shopify에서 직접 이메일 및 SMS 마케팅 옵트인 정보를 동기화할 수 있습니다.
 
-|Option|Resources|
+| 옵션 | 리소스 |
 |------|---------|
-|API |- [Subscription group endpoints]({{site.baseurl}}/api/endpoints/subscription_groups/) to directly replace what is supported by the integration<br>- [`Users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups) to set subscription group data or the [global email subscription state]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)<br>- [Braze preference center]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/) for more customized marketing opt-in collection options|
-|SDKs |- [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype)|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| API | - 통합에서 지원하는 것을 직접 대체하는 [구독 그룹 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/)<br>- 구독 그룹 데이터 또는 [글로벌 이메일 구독 상태]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)를 설정하는 [`Users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups)<br>- 더 맞춤화된 마케팅 옵트인 수집 옵션을 위한 [Braze 환경설정 센터]({{site.baseurl}}/user_guide/channels/email/subscriptions/) |
+| SDK | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Collecting subscribers (optional)" }
 {% endtab %}
 {% endtabs %}
 
-## Shopify data 
+## Shopify 데이터 {#shopify-data}
 
-### Synced attributes
+### 동기화되는 속성 {#synced-attributes}
 
-When you connect more than one store, the following attributes will be synced with the most recent state of the Shopify profile:
-- First Name
-- Last Name
-- Email
-- Gender
-- Date of Birth
-- Country
-- City
-- Last Used App
-- Language
-- Time Zone
-- Shopify Tags
-- Shopify Order Count
-- Shopify Total Spent
+두 개 이상의 스토어를 연결하면 다음 속성이 Shopify 프로필의 가장 최근 상태와 동기화됩니다:
+- 이름
+- 성
+- 이메일
+- 성별
+- 생년월일
+- 국가
+- 도시
+- 마지막 사용 앱
+- 언어
+- 시간대
+- Shopify 태그
+- Shopify 주문 수
+- Shopify 총 지출액
 
-### Supported events
+### 지원되는 이벤트 {#supported-events}
 
-#### eCommerce recommended events 
+#### eCommerce 권장 이벤트 {#ecommerce-recommended-events}
 
-When you connect multiple stores, incoming eCommerce recommended events will include a source event property. This property identifies which storefront URL the event originated from, allowing you to use this information for segmentation or triggering specific use cases.
+여러 스토어를 연결하면 수신되는 eCommerce 권장 이벤트에 소스 이벤트 속성정보가 포함됩니다. 이 속성정보는 이벤트가 발생한 스토어프론트 URL을 식별하여 세분화 또는 특정 사용 사례 트리거에 이 정보를 활용할 수 있게 합니다.
 
-![`ecommerce.order_placed` 커스텀 이벤트를 수행하는 사용자를 입력하는 트리거가 있는 액션 기반 캔버스입니다.]({% image_buster /assets/img/Shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
+![`ecommerce.order_placed` 커스텀 이벤트를 수행하는 사용자가 진입하도록 트리거가 설정된 액션 기반 Canvas.]({% image_buster /assets/img/shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
 
-The supported eCommerce recommended events within the Shopify integration are:
+Shopify 통합 내에서 지원되는 eCommerce 권장 이벤트는 다음과 같습니다:
 
 - `ecommerce.product_viewed`
 - `ecommerce.cart_updated`
@@ -134,26 +133,25 @@ The supported eCommerce recommended events within the Shopify integration are:
 - `ecommerce.order_cancelled`
 - `ecommerce.order_refunded`
 
-#### Shopify custom events 
+#### Shopify 커스텀 이벤트 {#shopify-custom-events}
 
-Incoming Shopify custom events include an event property called `shopify_storefront`. This property indicates which storefront URL the event came from, allowing you to leverage it for segmentation or triggering use cases.
+수신되는 Shopify 커스텀 이벤트에는 `shopify_storefront`라는 이벤트 속성정보가 포함됩니다. 이 속성정보는 이벤트가 발생한 스토어프론트 URL을 나타내며, 세분화 또는 사용 사례 트리거에 활용할 수 있습니다.
 
-![`shopify_paid_order` 커스텀 이벤트를 수행하는 사용자를 입력하는 트리거가 있는 액션 기반 캔버스입니다.]({% image_buster /assets/img/Shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
+![`shopify_paid_order` 커스텀 이벤트를 수행하는 사용자가 진입하도록 트리거가 설정된 액션 기반 Canvas.]({% image_buster /assets/img/shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
 
-Supported Shopify custom events include:
+지원되는 Shopify 커스텀 이벤트는 다음과 같습니다:
 
 - `shopify_fulfilled_order`
 - `shopify_partially_fulfilled_order`
 - `shopify_paid_order`
 - `shopify_account_login`
 
-For a complete overview of all event payloads, refer to [Shopify data features]({{site.baseurl}}/shopify_data_features/).
+모든 이벤트 페이로드에 대한 전체 개요는 [Shopify 데이터 기능]({{site.baseurl}}/shopify_data_features/)을 참조하세요.
 
-### Shopify product sync 
+### Shopify 제품 동기화 {#shopify-product-sync}
 
-When you connect and configure each Shopify store in Braze, you can optionally enable the Shopify product sync as part of the integration.
+Braze에서 각 Shopify 스토어를 연결하고 구성할 때 통합의 일부로 Shopify 제품 동기화를 선택적으로 활성화할 수 있습니다.
 
-각 스토어에 대해 제품 동기화를 활성화하는 경우 Braze는 카탈로그 이름에 Shopify 스토어 이름을 포함합니다. 이렇게 하면 다른 스토어와 제품을 구분할 수 있습니다.
+각 스토어에 대해 제품 동기화를 활성화하면 Braze는 카탈로그 이름에 Shopify 스토어 이름을 포함합니다. 이렇게 하면 서로 다른 스토어의 제품을 구분할 수 있습니다.
 
-![Shopify 스토어 이름으로 카탈로그를 생성합니다.]({% image_buster /assets/img/Shopify/catalog_store_name.png %})
-
+![카탈로그 이름에 Shopify 스토어 이름이 포함된 Shopify 카탈로그.]({% image_buster /assets/img/shopify/catalog_store_name.png %})

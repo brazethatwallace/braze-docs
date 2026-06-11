@@ -6,7 +6,7 @@ description: "Erfahren Sie, wie Sie angepasste Events über das Braze SDK protok
 
 ---
 
-# Angepasste Events protokollieren
+# Angepasste Events protokollieren {#log-custom-events}
 
 > Erfahren Sie, wie Sie angepasste Events über das Braze SDK protokollieren können.
 
@@ -14,7 +14,9 @@ description: "Erfahren Sie, wie Sie angepasste Events über das Braze SDK protok
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.
 {% endalert %}
 
-## Protokollieren eines angepassten Events
+Informationen zu empfohlenen E-Commerce-Events finden Sie unter [E-Commerce-Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
+## Protokollieren eines angepassten Events {#logging-a-custom-event}
 
 Um ein angepasstes Event zu protokollieren, verwenden Sie die folgende Event-Protokollierungsmethode.
 
@@ -26,12 +28,12 @@ Für eine Standard-Web-SDK-Implementierung können Sie die folgende Methode verw
 braze.logCustomEvent("YOUR_EVENT_NAME");
 ```
 
-Wenn Sie stattdessen den Google Tag Manager verwenden möchten, können Sie den Tag-Typ **Angepasstes Event** verwenden, um die [`logCustomEvent`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) aufzurufen und angepasste Events an Braze zu senden – optional mit angepassten Event-Eigenschaften. Gehen Sie dazu wie folgt vor:
+Wenn Sie stattdessen den Google Tag Manager verwenden möchten, können Sie den Tag-Typ **Custom Event** verwenden, um die [`logCustomEvent`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) aufzurufen und angepasste Events an Braze zu senden – optional mit angepassten Event-Eigenschaften. Gehen Sie dazu wie folgt vor:
 
-1. Geben Sie den **Event-Namen** an, indem Sie entweder eine Variable verwenden oder einen Event-Namen eingeben.
-2. Verwenden Sie den Button **Zeile hinzufügen**, um Event-Eigenschaften hinzuzufügen.
+1. Geben Sie den **Event Name** an, indem Sie entweder eine Variable verwenden oder einen Event-Namen eingeben.
+2. Verwenden Sie den Button **Add Row**, um Event-Eigenschaften hinzuzufügen.
 
-![Ein Dialogfeld mit den Konfigurationseinstellungen für Braze Action Tags. Die Einstellungen umfassen „Tag-Typ" (angepasstes Event), „Event-Name" (Klick auf Button) und „Event-Eigenschaften".]({% image_buster /assets/img/web-gtm/gtm-custom-event.png %})
+![Ein Dialogfeld mit den Konfigurationseinstellungen für Braze Action Tags. Die Einstellungen umfassen „tag type“ (Custom Event), „event name“ (button click) und „event properties“.]({% image_buster /assets/img/web-gtm/gtm-custom-event.png %})
 {% endtab %}
 
 {% tab android %}
@@ -74,7 +76,7 @@ braze.logCustomEvent('YOUR_EVENT_NAME');
 {% endtab %}
 
 {% tab cordova %}
-Verwenden Sie die Braze cordova-Plugin-Methode:
+Verwenden Sie die Braze Cordova-Plugin-Methode:
 
 ```javascript
 BrazePlugin.logCustomEvent("YOUR_EVENT_NAME");
@@ -86,7 +88,7 @@ Die `logCustomEvent`-API akzeptiert:
 
 Für Eigenschaftswerte verwenden Sie `string` (bis zu 255 Zeichen), `numeric`, `boolean`, Arrays oder verschachtelte JSON-Objekte.
 
-Implementierungsdetails finden Sie in der Braze cordova SDK-Quelle:
+Implementierungsdetails finden Sie in der Braze Cordova SDK-Quelle:
 - [`www/BrazePlugin.js` `logCustomEvent`-Methode (Zeilen 138–140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L138-L140)
 - [`www/BrazePlugin.js` JSDoc (Zeilen 128–140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L128-L140)
 - [Android-Handler in `src/android/BrazePlugin.kt` (Zeilen 108–115)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/android/BrazePlugin.kt#L108-L115)
@@ -133,7 +135,7 @@ AppboyBinding.LogCustomEvent("YOUR_EVENT_NAME");
 {% endtab %}
 {% endtabs %}
 
-## Hinzufügen von Metadaten-Eigenschaften
+## Hinzufügen von Metadaten-Eigenschaften {#adding-metadata-properties}
 
 Wenn Sie ein angepasstes Event protokollieren, können Sie Metadaten zu diesem Event hinzufügen, indem Sie ein Eigenschaftenobjekt mit dem Event übergeben. Eigenschaften werden als Schlüssel-Wert-Paare definiert. Schlüssel sind Strings, und Werte können `string`, `numeric`, `boolean`, [`Date`](http://www.w3schools.com/jsref/jsref_obj_date.asp)-Objekte, Arrays oder verschachtelte JSON-Objekte sein.
 
@@ -143,8 +145,8 @@ Um Metadaten-Eigenschaften hinzuzufügen, verwenden Sie die folgende Event-Proto
 {% tab web %}
 ```javascript
 braze.logCustomEvent("YOUR-EVENT-NAME", {
-  you: "can", 
-  pass: false, 
+  you: "can",
+  pass: false,
   orNumbers: 42,
   orDates: new Date(),
   or: ["any", "array", "here"],
@@ -267,7 +269,7 @@ BrazePlugin.logCustomEvent("YOUR-EVENT-NAME", {
 });
 ```
 
-Die offizielle cordova-Beispiel-App enthält String-, numerische, boolesche, Array- und verschachtelte Objekteigenschaften:
+Die offizielle Cordova-Beispiel-App enthält String-, numerische, boolesche, Array- und verschachtelte Objekteigenschaften:
 - [`sample-project/www/js/index.js` (Zeilen 230–251)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/sample-project/www/js/index.js#L230-L251)
 
 Beispielprojekt-Auszug:
@@ -329,7 +331,7 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 Die Schlüssel `time` und `event_name` sind reserviert und können nicht als angepasste Event-Eigenschaften verwendet werden.
 {% endalert %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 Es gibt drei wichtige Überprüfungen, damit Ihre angepassten Event-Eigenschaften wie erwartet protokolliert werden:
 
@@ -339,7 +341,7 @@ Es gibt drei wichtige Überprüfungen, damit Ihre angepassten Event-Eigenschafte
 
 Bei der Protokollierung eines angepassten Events können mehrere Eigenschaften protokolliert werden.
 
-### Events überprüfen
+### Events überprüfen {#verify-events}
 
 Erkundigen Sie sich bei Ihren Entwickler:innen, welche Event-Eigenschaften getrackt werden. Beachten Sie, dass bei allen Event-Eigenschaften zwischen Groß- und Kleinschreibung unterschieden wird. Weitere Informationen zum Tracking angepasster Events finden Sie in diesen Artikeln basierend auf Ihrer Plattform:
 
@@ -347,45 +349,45 @@ Erkundigen Sie sich bei Ihren Entwickler:innen, welche Event-Eigenschaften getra
 * [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
 * [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
 
-### Protokoll überprüfen
+### Protokoll überprüfen {#verify-log}
 
 Um zu bestätigen, dass die Event-Eigenschaften erfolgreich getrackt werden, können Sie alle Event-Eigenschaften auf der Seite **Angepasste Events** einsehen.
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events**.
 2. Suchen Sie Ihr angepasstes Event in der Liste.
-3. Wählen Sie für Ihr Event **Eigenschaften verwalten**, um die Namen der mit einem Event verknüpften Eigenschaften anzuzeigen.
+3. Wählen Sie für Ihr Event **Manage Properties**, um die Namen der mit einem Event verknüpften Eigenschaften anzuzeigen.
 
-### Werte überprüfen
+### Werte überprüfen {#verify-values}
 
-Nachdem Sie [Ihre:n Nutzer:in als Testnutzer:in hinzugefügt haben]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users), führen Sie die folgenden Schritte aus, um Ihre Werte zu überprüfen: 
+Nachdem Sie [Ihre:n Nutzer:in als Testnutzer:in hinzugefügt haben]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users), führen Sie die folgenden Schritte aus, um Ihre Werte zu überprüfen:
 
 1. Führen Sie das angepasste Event innerhalb der App aus.
 2. Warten Sie etwa 10 Sekunden, bis die Daten übertragen wurden.
-3. Aktualisieren Sie das [Event-Benutzerprotokoll]({{site.baseurl}}/user_guide/administrative/app_settings/event_user_log_tab/), um das angepasste Event und den Wert der damit übergebenen Eigenschaft anzuzeigen.
+3. Aktualisieren Sie das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/), um das angepasste Event und den Wert der damit übergebenen Event-Eigenschaft anzuzeigen.
 
-## Fehlerbehebung bei angepassten Events
+## Fehlerbehebung bei angepassten Events {#troubleshooting-custom-events}
 
 Verwenden Sie diese Szenarien zur Fehlerbehebung bei der Protokollierung angepasster Events über SDKs.
 
-### Überprüfen des Triggers für angepasste Events
+### Überprüfen des Triggers für angepasste Events {#verifying-the-custom-event-trigger}
 
 Wenn ein angepasstes Event nicht angezeigt wird, stimmt die getrackte Aktion in Ihrer App möglicherweise nicht mit der Aktion überein, die Sie testen.
 
 - Bestätigen Sie mit Ihrem Entwickler:innen-Team, welche App-Aktion das angepasste Event triggert.
 - Prüfen Sie nach SDK-Upgrades auf veraltete Code-Pfade, z. B. Verweise auf `appboy` statt `braze`.
 
-### Angepasste Events werden einem anonymen Profil zugeordnet
+### Angepasste Events werden einem anonymen Profil zugeordnet {#custom-events-are-logged-to-an-anonymous-profile}
 
 Wenn Sie eine:n Nutzer:in nicht identifizieren, bevor Sie ein angepasstes Event protokollieren, kann Braze dieses Event einem anonymen Profil zuordnen.
 
 - Rufen Sie `changeUser()` auf, bevor Sie das angepasste Event ausführen, damit Braze es einem identifizierten Nutzerprofil zuordnet.
-- Testen Sie mit einer/einem identifizierten Testnutzer:in und überprüfen Sie dann das [Event-Benutzerprotokoll]({{site.baseurl}}/user_guide/administrative/app_settings/event_user_log_tab/).
+- Testen Sie mit einer/einem identifizierten Testnutzer:in und überprüfen Sie dann das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/).
 
-### Überprüfen der Einrichtung der Protokollierung angepasster Events
+### Überprüfen der Einrichtung der Protokollierung angepasster Events {#verifying-custom-event-logging-setup}
 
 Wenn angepasste Events nicht wie erwartet angezeigt werden, bestätigen Sie, dass Ihr Entwickler:innen-Team die Protokollierung angepasster Events für die richtige App-Aktion implementiert hat.
 
 - Bitten Sie Ihr Entwickler:innen-Team zu überprüfen, ob das Event korrekt protokolliert und durch die erwartete Nutzer:innen-Aktion getriggert wird.
 - Wenn Ihr Team ein Ticket beim Braze Support eröffnet, fügen Sie [ausführliche Protokolle]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) und relevante Code-Snippets bei.
 - Wenn Ihre App Swift oder Android verwendet, kann Ihr Entwickler:innen-Team die [Voraussetzungen für den SDK-Debugger](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites) nutzen, um ausführliche Protokolle zu generieren.
-- Wenn Ihr Entwickler:innen-Team das Problem nicht identifizieren kann, eröffnen Sie ein [Braze Support-Ticket]({{site.baseurl}}/user_guide/administrative/access_braze/support/).
+- Wenn Ihr Entwickler:innen-Team das Problem nicht identifizieren kann, eröffnen Sie ein [Braze Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/).

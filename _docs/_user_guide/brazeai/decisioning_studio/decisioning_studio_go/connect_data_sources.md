@@ -25,7 +25,7 @@ Decisioning Studio Go supports the following CEPs for data access:
 |-----|-----------------|-----------------|
 | **Braze** | Segments | Braze Currents export |
 | **Salesforce Marketing Cloud** | Data Extensions | SQL Query Automation |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
 
 ## Data requirements by CEP
 

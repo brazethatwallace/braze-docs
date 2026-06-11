@@ -1,50 +1,48 @@
 ---
-nav_title: "COLOCAR: Actualizar las traducciones de una plantilla de correo electrónico"
-article_title: "COLOCAR: Actualizar traducciones para una plantilla de correo electrónico"
-search_tag: Punto de conexión
+nav_title: "PUT: Actualizar traducciones de una plantilla de correo electrónico"
+article_title: "PUT: Actualizar traducciones de una plantilla de correo electrónico"
+search_tag: Endpoint
 page_order: 4
 
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto final Actualizar traducciones para una plantilla de correo electrónico."
+description: "Este artículo describe los detalles del punto de conexión Actualizar traducciones de una plantilla de correo electrónico."
 ---
 
 {% api %}
-# Actualizar las traducciones de una plantilla de correo electrónico
+# Actualizar traducciones de una plantilla de correo electrónico {#update-translations-for-an-email-template}
 {% apimethod put %}
-/plantillas/correo electrónico/traducciones/
+/templates/email/translations/
 {% endapimethod %}
 
-> Utiliza este punto final para actualizar las traducciones de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates). Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) para obtener más información sobre las características de traducción.
+> Usa este punto de conexión para actualizar las traducciones de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+## Requisitos previos {#prerequisites}
 
-## Requisitos previos
+Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `templates.translations.update`.
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `templates.translations.update`.
-
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parámetros de la ruta
+## Parámetros de ruta {#path-parameters}
 
-No hay parámetros de ruta para este punto final.
+No hay parámetros de ruta para este punto de conexión.
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `template_id` | Obligatoria | Cadena | El ID de tu plantilla de correo electrónico. |
-| `locale_id` | Obligatoria | Cadena | El ID de la configuración regional. |
-| `translations_map` | Obligatoria | Cadena | El mapa de las traducciones para tu plantilla de correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `template_id` | Obligatorio | Cadena | El ID de tu plantilla de correo electrónico. |
+| `locale_id` | Obligatorio | Cadena | El ID de la configuración regional. |
+| `translations_map` | Obligatorio | Cadena | El mapa de las traducciones de tu plantilla de correo electrónico. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
-Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto final GET.
+Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.
 {% endalert %}
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```json
 {
@@ -58,11 +56,11 @@ Todos los ID de traducción se consideran identificadores únicos universales (U
 }
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-Hay cuatro respuestas de código de estado para este punto final: `200`, `400`, `404` y `429`.
+Hay cuatro respuestas de código de estado para este punto de conexión: `200`, `400`, `404` y `429`.
 
-### Ejemplo de respuesta positiva
+### Ejemplo de respuesta correcta {#example-success-response}
 
 ```json
 {
@@ -70,9 +68,9 @@ Hay cuatro respuestas de código de estado para este punto final: `200`, `400`, 
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulte la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puede encontrar.
+El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulta [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedes encontrar.
 
 ```json
 {

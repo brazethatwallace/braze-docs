@@ -1,48 +1,48 @@
 ---
-nav_title: RudderStack for Currents
-article_title: RudderStack for Currents
-description: "This article outlines the partnership between Braze Currents and RudderStack, an open-source customer data infrastructure that offers a seamless Braze integration for your Android, iOS, and web applications."
+nav_title: Currents용 RudderStack
+article_title: Currents용 RudderStack
+description: "이 문서에서는 Android, iOS 및 웹 애플리케이션을 위한 원활한 Braze 통합을 제공하는 오픈 소스 고객 데이터 인프라인 RudderStack과 Braze 커런츠 간의 파트너십에 대해 설명합니다."
 page_type: partner
 tool: Currents
 search_tag: Partner
 
 ---
 
-# RudderStack for Currents
+# Currents용 RudderStack {#rudderstack-for-currents}
 
-> [RudderStack](https://www.rudderstack.com/) enables you to collect, transform, and activate your customer data across your stack, leveraging your cloud data warehouse as the central source of truth. This article gives an overview of how to set up a connection between Braze Currents and RudderStack.
+> [RudderStack](https://www.rudderstack.com/)을 사용하면 클라우드 데이터 웨어하우스를 중앙 신뢰 소스로 활용하여 스택 전반에서 고객 데이터를 수집, 변환 및 활성화할 수 있습니다. 이 문서에서는 Braze 커런츠와 RudderStack 간의 연결을 설정하는 방법에 대한 개요를 제공합니다.
 
-The Braze and RudderStack integration allows you to leverage Braze Currents to export your Braze events to RudderStack to drive deeper analytics.
+Braze와 RudderStack 통합을 통해 Braze 커런츠를 활용하여 Braze 이벤트를 RudderStack으로 내보내 더 심층적인 분석을 수행할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | --- | --- |
-| RudderStack account | A [RudderStack account](https://app.rudderstack.com/login) is required to take advantage of this partnership. |
-| Braze destination | We suggest having [set up Braze as a destination]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/rudderstack/rudderstack/#integration) in RudderStack. |
-| Currents | To export data back into RudderStack, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| RudderStack 계정 | 이 파트너십을 활용하려면 [RudderStack 계정](https://app.rudderstack.com/login)이 필요합니다. |
+| Braze 대상 | RudderStack에서 [Braze를 대상으로 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/rudderstack/rudderstack/#integration)해 두는 것을 권장합니다. |
+| Currents | 데이터를 RudderStack으로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Create a data source for Braze within RudderStack
+### 1단계: RudderStack 내에서 Braze용 데이터 소스 생성 {#step-1-create-a-data-source-for-braze-within-rudderstack}
 
-First, you must create a Braze source on the RudderStack web app. Instructions for creating a data source can be found on the [RudderStack](https://www.rudderstack.com/docs/sources/event-streams/cloud-apps/braze-currents/) site.
+먼저 RudderStack 웹 앱에서 Braze 소스를 생성해야 합니다. 데이터 소스 생성에 대한 지침은 [RudderStack](https://www.rudderstack.com/docs/sources/event-streams/cloud-apps/braze-currents/) 사이트에서 확인할 수 있습니다.
 
-Once completed, RudderStack will provide a webhook URL, including the write key, which you will need to use in the next step. You can find the webhook URL in the **Settings** tab of your Braze source.
+완료되면 RudderStack에서 쓰기 키가 포함된 웹훅 URL을 제공하며, 다음 단계에서 이를 사용해야 합니다. 웹훅 URL은 Braze 소스의 **설정** 탭에서 찾을 수 있습니다.
 
-### Step 2: Create Current
+### 2단계: Current 생성 {#step-2-create-current}
 
-In Braze, navigate to **Currents > + Create Current > RudderStack Export**. Provide an integration name, contact email, RudderStack webhook URL (which goes in the key field), and RudderStack region. 
+Braze에서 **Currents > + Create Current > RudderStack Export**로 이동합니다. 통합 이름, 연락처 이메일, RudderStack 웹훅 URL(키 필드에 입력), RudderStack 리전을 입력합니다.
 
-### Step 3: Export events
+### 3단계: 이벤트 내보내기 {#step-3-export-events}
 
-Next, select the events you would like to export. Lastly, click **Launch Current**
+다음으로 내보내려는 이벤트를 선택합니다. 마지막으로 **Launch Current**을 클릭합니다.
 
-All events sent to RudderStack will include the user’s `external_user_id`. At this time, Braze does not send event data to RudderStack for users who do not have their `external_user_id` set.
+RudderStack으로 전송되는 모든 이벤트에는 사용자의 `external_user_id`가 포함됩니다. 현재 Braze는 `external_user_id`가 설정되지 않은 사용자에 대해서는 RudderStack으로 이벤트 데이터를 전송하지 않습니다.
 
-## Integration details
+## 통합 세부 정보 {#integration-details}
 
-Braze supports exporting all data listed in the [Currents event glossaries]({{site.baseurl}}/user_guide/data/braze_currents/) to RudderStack.
+Braze는 [Currents 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)에 나열된 모든 데이터를 RudderStack으로 내보내는 것을 지원합니다.
 
-The payload structure for exported data is the same as the payload structure for custom HTTP connectors, which can be viewed in the [examples repository for custom HTTP connectors](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors).
+내보낸 데이터의 페이로드 구조는 커스텀 HTTP 커넥터의 페이로드 구조와 동일하며, [커스텀 HTTP 커넥터 예제 리포지토리](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors)에서 확인할 수 있습니다.

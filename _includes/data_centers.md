@@ -2,7 +2,7 @@
 | Dashboard URL | REST endpoint | SDK endpoint |
 | --- | --- | --- |
 | `https://dashboard.au-01.braze.com` | `https://rest.au-01.braze.com` | `sdk.au-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 {% endif %}
 
 {% if include.datacenters == "EU" %}
@@ -10,21 +10,28 @@
 | --- | --- | --- |
 | `https://dashboard-01.braze.eu` | `https://rest.fra-01.braze.eu` | `sdk.fra-01.braze.eu` |
 | `https://dashboard-02.braze.eu` | `https://rest.fra-02.braze.eu` | `sdk.fra-02.braze.eu` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 {% endif %}
 
 {% if include.datacenters == "ID" %}
 | Dashboard URL | REST endpoint | SDK endpoint |
 | --- | --- | --- |
 | `https://dashboard.id-01.braze.com` | `https://rest.id-01.braze.com` | `sdk.id-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 {% endif %}
 
 {% if include.datacenters == "JP" %}
 | Dashboard URL | REST endpoint | SDK endpoint |
 | --- | --- | --- |
 | `https://dashboard.jp-01.braze.com` | `https://rest.jp-01.braze.com` | `sdk.jp-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+{% endif %}
+
+{% if include.datacenters == "KR" %}
+| Dashboard URL | REST endpoint | SDK endpoint |
+| --- | --- | --- |
+| `https://dashboard.kr-01.braze.com` | `https://rest.kr-01.braze.com` | `sdk.kr-01.braze.com` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 {% endif %}
 
 {% if include.datacenters == "US" %}
@@ -39,7 +46,7 @@
 | `https://dashboard-07.braze.com` | `https://rest.iad-07.braze.com` | `sdk.iad-07.braze.com` |
 | `https://dashboard-08.braze.com` | `https://rest.iad-08.braze.com` | `sdk.iad-08.braze.com` |
 | `https://dashboard.us-10.braze.com` | `https://rest.us-10.braze.com` | `sdk.us-10.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 {% endif %}
 
 {% if include.datacenters == "instances" %}
@@ -59,7 +66,8 @@
 |AU-01| `https://dashboard.au-01.braze.com`| `https://rest.au-01.braze.com` | `sdk.au-01.braze.com` |
 |ID-01| `https://dashboard.id-01.braze.com`| `https://rest.id-01.braze.com` | `sdk.id-01.braze.com` |
 |JP-01| `https://dashboard.jp-01.braze.com` | `https://rest.jp-01.braze.com` | `sdk.jp-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+|KR-01| `https://dashboard.kr-01.braze.com` | `https://rest.kr-01.braze.com` | `sdk.kr-01.braze.com` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Table" }
 {% endif %}
 
 <!--The following section is the list of IPs for IP allowlisting-->
@@ -143,7 +151,12 @@ For instance `JP-01`, these are the relevant IP addresses:
 - `54.250.120.139`
 - `18.181.114.232`
 - `3.114.38.100`
-
+{% endsubtab %}
+{% subtab South Korea (KR) %}
+For instance `KR-01`, these are the relevant IP addresses:
+- `43.200.215.4`
+- `52.79.67.175`
+- `52.79.113.60`
 
 {% endsubtab %}
 {% endsubtabs %}

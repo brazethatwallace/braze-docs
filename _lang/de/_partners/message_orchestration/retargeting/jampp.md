@@ -2,7 +2,7 @@
 nav_title: Jampp
 article_title: Jampp
 alias: /partners/jampp/
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und Jampp, einer Performance-Marketing-Plattform, die für die Akquisition und das Retargeting von mobilen Kund:in verwendet wird."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Jampp, einer Performance-Marketing-Plattform für die Akquisition und das Retargeting von mobilen Kund:innen."
 page_type: partner
 search_tag: Partner
 
@@ -10,43 +10,43 @@ search_tag: Partner
 
 # Jampp
 
-> [Jampp](https://www.jampp.com/) ist eine Performance-Marketing-Plattform für die Akquisition und das Retargeting von Mobile-Kund:in. Jampp kombiniert Verhaltensdaten mit prädiktiver und programmatischer Technologie, um Einnahmen für Werbetreibende zu generieren, indem persönliche, relevante Anzeigen geschaltet werden, die Verbraucher:in zum ersten oder häufigeren Kauf inspirieren.
+> [Jampp](https://www.jampp.com/) ist eine Performance-Marketing-Plattform für die Akquisition und das Retargeting von mobilen Kund:innen. Jampp kombiniert Verhaltensdaten mit prädiktiver und programmatischer Technologie, um Einnahmen für Werbetreibende zu generieren, indem persönliche, relevante Anzeigen geschaltet werden, die Verbraucher:innen zum ersten oder häufigeren Kauf inspirieren.
 
 _Diese Integration wird von Jampp gepflegt._
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Jampp erlaubt es Nutzern:innen von Braze, Ereignisse über Braze-to-Braze-Webhook-Ereignisse mit Jampp zu synchronisieren. Dadurch können Kund:in ihre Retargeting-Initiativen innerhalb ihres mobilen Werbe-Ökosystems reichhaltigere Datensätze hinzufügen.
+Die Integration von Braze und Jampp ermöglicht es Unternehmensnutzer:innen, Ereignisse über Braze-Webhook-Ereignisse mit Jampp zu synchronisieren. Dadurch können Kund:innen ihren Retargeting-Initiativen innerhalb ihres mobilen Werbe-Ökosystems reichhaltigere Datensätze hinzufügen.
 
-Einige Beispiele, wann Sie Kunden:in mit einer Anzeige retargeten möchten:
-- Wenn sich der Status des E-Mail- oder Push-Abos eines Kunden ändert.
-- Wie ein Kunde mit einer Messaging-Kampagne von Braze interagiert hat.
-- Wenn der Kunde einen bestimmten Geofence getriggert hat.
+Einige Beispiele, wann Sie Kund:innen mit einer Anzeige retargeten möchten:
+- Wenn sich der Status des E-Mail- oder Push-Abos einer Kund:in ändert.
+- Wie eine Kund:in mit einer Braze-Messaging-Kampagne interagiert hat.
+- Wenn die Kund:in einen bestimmten Geofence getriggert hat.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Diese Integration unterstützt iOS- und Android-Apps.
 
 | Anforderung | Beschreibung |
 |---|---|
-| Jampp Konto | Um diese Partnerschaft nutzen zu können, benötigen Sie ein [Jampp-Konto](https://www.jampp.com/). |
-| Android App ID | Ihr eindeutiger Bezeichner der Braze-Anwendung für Android (z. B. "com.example"). |
-| iOS App ID | Ihr eindeutiger Bezeichner der Braze-Anwendung für iOS (z. B. "012345678"). |
-| Enablement der IDFA-Sammlung im Braze SDK | Die Erfassung von IDFA ist im Braze SDK optional und standardmäßig deaktiviert. | 
-| Erfassung der Google Advertising ID über ein angepasstes Attribut | Die Erfassung der Google Werbe-ID ist für Kund:in optional und kann als [angepasstes Attribut]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types) erfasst werden.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Jampp-Konto | Um diese Partnerschaft nutzen zu können, ist ein [Jampp-Konto](https://www.jampp.com/) erforderlich. |
+| Android-App-ID | Ihr eindeutiger Braze-Anwendungsbezeichner für Android (z. B. „com.example“). |
+| iOS-App-ID | Ihr eindeutiger Braze-Anwendungsbezeichner für iOS (z. B. „012345678“). |
+| Aktivierung der IDFA-Erfassung im Braze SDK | Die IDFA-Erfassung ist im Braze SDK optional und standardmäßig deaktiviert. |
+| Erfassung der Google Advertising ID über ein angepasstes Attribut | Die Erfassung der Google Advertising ID ist für Kund:innen optional und kann als [angepasstes Attribut]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types) erfasst werden.
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
-### Schritt 1: Erstellen Sie eine Webhook-Vorlage in Braze
+### 1. Schritt: Erstellen Sie ein Webhook-Template in Braze {#step-1-create-a-webhook-template-in-braze}
 
-Um eine Jampp Webhook-Vorlage zu erstellen, die Sie in zukünftigen Kampagnen oder Canvase verwenden können, navigieren Sie auf der Braze-Plattform zu **Templates** > **Webhook Templates**.
+Um ein Jampp-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie im Braze-Dashboard zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
 
-Wenn Sie eine einmalige Jampp-Webhook-Kampagne erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Kampagne **Webhook** in Braze aus.
+Wenn Sie eine einmalige Jampp-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 
-Füllen Sie in Ihrem neuen Webhook Template die folgenden Felder aus:
-- **Anfrage Körper**: Rohtext
-- **Webhook URL**:
+Füllen Sie in Ihrem neuen Webhook-Template die folgenden Felder aus:
+- **Request Body**: Rohtext
+- **Webhook-URL**:
 {% raw %}
 ```liquid
 {% assign event_name = 'your_jampp_event_name' %}
@@ -64,36 +64,34 @@ http://tracking.jampp.com/event?kind={{event_name}}&rnd={{rnd}}&app={% if {{most
 {% endraw %}
 
 In der Webhook-URL müssen Sie:
-- Legen Sie den Namen des Ereignisses fest. Dieser Name wird in Ihrem Jampp Dashboard angezeigt.
-- Übergeben Sie den eindeutigen Bezeichner Ihrer App für Android (z. B. "com.example") und iOS (z. B. "012345678").
-- Fügen Sie [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#using-liquid) für das entsprechende angepasste Attribut ein, das Sie als Google Advertising ID tracken. Beachten Sie, dass die ID der Google-Werbung in diesem Beispiel als `aaid` aufgeführt ist, aber Sie müssen sie durch den Namen des angepassten Attributs ersetzen, den Ihre Entwickler:in festgelegt haben.
+- Den Namen des Ereignisses festlegen. Dieser Name wird in Ihrem Jampp-Dashboard angezeigt.
+- Den eindeutigen Anwendungsbezeichner Ihrer App für Android (z. B. „com.example“) und iOS (z. B. „012345678“) übergeben.
+- [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#using-liquid) für das entsprechende angepasste Attribut einfügen, das Sie als Google Advertising ID tracken. Beachten Sie, dass die Google Advertising ID in diesem Beispiel als `aaid` aufgeführt ist, Sie diese jedoch durch den Namen des angepassten Attributs ersetzen müssen, den Ihre Entwickler:innen festgelegt haben.
 
-![Die Webhook-URL und die Vorschau der Nachrichten, die im Braze-Webhook-Builder angezeigt werden.]({% image_buster /assets/img/jampp_webhook.png %})
+![Die Webhook-URL und die Nachrichtenvorschau im Braze-Webhook-Builder.]({% image_buster /assets/img/jampp_webhook.png %})
 
 {% alert important %}
-Braze sammelt den Identifier for Advertisers (IDFA/AAID) des Geräts nicht automatisch, so dass Sie diese Werte selbst einspeichern müssen. Beachten Sie, dass Sie möglicherweise die Zustimmung der Nutzer:innen zur Erfassung dieser Daten benötigen.
+Braze erfasst die Geräte-IDFA/AAID nicht automatisch, sodass Sie diese Werte selbst speichern müssen. Beachten Sie, dass Sie möglicherweise die Zustimmung der Nutzer:innen zur Erfassung dieser Daten benötigen.
 {% endalert %}
 
-#### Kopfzeilen der Anfrage und Methode
+#### Anfrage-Header und Methode {#request-headers-and-method}
 
-Der Webhook von Jampp erfordert eine HTTP-Methode und einen Anfrage-Header.
+Der Jampp-Webhook erfordert eine HTTP-Methode und einen Anfrage-Header.
 
 - **HTTP-Methode**: GET
 - **Anfrage-Header**:
-  - **Content-Typ**: application/json
+  - **Content-Type**: application/json
 
-![Die Anfrage-Header, die HTTP-Methode und die Vorschau der Nachrichten, die im Braze-Webhook-Builder angezeigt werden.]({% image_buster /assets/img/jampp_method.png %})
+![Die Anfrage-Header, die HTTP-Methode und die Nachrichtenvorschau im Braze-Webhook-Builder.]({% image_buster /assets/img/jampp_method.png %})
 
-#### Anfragetext
+#### Anfragetext {#request-body}
 
 Sie müssen für diesen Webhook keinen Anfragetext definieren.
 
-### Schritt 2: Vorschau auf Ihre Anfrage
+### 2. Schritt: Vorschau Ihrer Anfrage {#step-2-preview-your-request}
 
-Vorschau der Nachricht, um sicherzustellen, dass die Anfrage für verschiedene Nutzer:innen korrekt wiedergegeben wird. Wir empfehlen die Vorschau und das Versenden von Testanfragen sowohl für Android- als auch für iOS-Nutzer:innen. Wenn die Anfrage erfolgreich ist, antwortet die API mit `HTTP 204`.
+Zeigen Sie eine Vorschau der Nachricht an, um sicherzustellen, dass die Anfrage für verschiedene Nutzer:innen korrekt dargestellt wird. Wir empfehlen, Testanfragen sowohl für Android- als auch für iOS-Nutzer:innen in der Vorschau anzuzeigen und zu versenden. Wenn die Anfrage erfolgreich ist, antwortet die API mit `HTTP 204`.
 
 {% alert important %}
-Denken Sie daran, Ihr Template zu speichern, bevor Sie die Seite verlassen! <br>Aktualisierte Webhook-Templates finden Sie in der Liste **Gespeicherte Webhook-Templates**, wenn Sie eine neue [Webhook-Kampagne]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/) erstellen.
+Denken Sie daran, Ihr Template zu speichern, bevor Sie die Seite verlassen! <br>Aktualisierte Webhook-Templates finden Sie in der Liste **Gespeicherte Webhook-Templates**, wenn Sie eine neue [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) erstellen.
 {% endalert %}
-
-

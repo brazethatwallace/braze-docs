@@ -1,48 +1,46 @@
 ---
-nav_title: "OBTER: Veja os valores de origem padrão para as tags de tradução do canva"
-article_title: "OBTER: Veja os valores de origem padrão para as tags de tradução do canva"
+nav_title: "GET: Ver valores de origem padrão para tags de tradução do Canvas"
+article_title: "GET: Ver valores de origem padrão para tags de tradução do Canvas"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint de origem de tradução do canva."
+description: "Este artigo descreve detalhes sobre o endpoint de origem de tradução do Canvas."
 ---
 
 {% api %}
-# Veja os valores de origem padrão para as tags de tradução de um canva
+# Ver valores de origem padrão para as tags de tradução de um Canvas {#view-default-source-values-for-a-canvass-translation-tags}
 {% apimethod get %}
-/canva/traduções/origem
+/canvas/translations/source
 {% endapimethod %}
 
-> Use este endpoint para ver todas as fontes de tradução padrão para as tags de tradução de um canva. Estes são os valores com o {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Veja [Locais em mensagens]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) para saber mais sobre os recursos de tradução.
+> Use este endpoint para ver todas as fontes de tradução padrão para as tags de tradução de um Canvas. Estes são os valores com o {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `canvas.translations.get`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parâmetros de consulta
+## Parâmetros de consulta {#query-parameters}
 
 | Parâmetro              | Obrigatória | Tipo de dados | Descrição                        |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id`          | Obrigatória | String    | O ID do canva.              |
-| `step_id`              | Obrigatória | String    | O ID de sua etapa do canva.        |
-|`message_variation_id`| Obrigatória | String | O ID da sua variação de mensagem. |
+| `workflow_id`          | Obrigatória | String    | O ID do Canvas.              |
+| `step_id`              | Obrigatória | String    | O ID da sua etapa do Canvas.        |
+| `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
 | `locale_id`            | Opcional | String    | O ID (UUID) do local.              |
-| `post_launch_draft_version`| Opcional | Booleano | Quando `true` retorna a versão mais recente do rascunho em vez da versão publicada mais recente. Padrão para `false` retornando a versão publicada mais recente.
+| `post_launch_draft_version` | Opcional | booleano | Quando `true`, retorna a versão de rascunho mais recente em vez da versão publicada mais recente. O padrão é `false`, retornando a versão publicada mais recente.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.
 {% endalert %}
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations/source?workflow_id={workflow_id}&step_id={step_id}&message_variation_id={message_variation_id}&locale_id={locale_uuid}&post_launch_draft_version=true' \
@@ -50,11 +48,11 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Resposta
+## Resposta {#response}
 
-Há quatro respostas de código de status para esse endpoint: `200`, `400`, `404`, e `429`.
+Há quatro respostas de código de status para esse endpoint: `200`, `400`, `404` e `429`.
 
-### Exemplo de resposta bem-sucedida
+### Exemplo de resposta bem-sucedida {#example-success-response}
 
 O código de status `200` poderia retornar o seguinte cabeçalho e corpo de resposta.
 
@@ -70,7 +68,7 @@ O código de status `200` poderia retornar o seguinte cabeçalho e corpo de resp
 }
 ```
 
-### Exemplo de resposta de erro
+### Exemplo de resposta de erro {#example-error-response}
 
 O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para obter mais informações sobre os erros que você pode encontrar.
 

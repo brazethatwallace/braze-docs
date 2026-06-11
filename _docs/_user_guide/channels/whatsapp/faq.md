@@ -38,6 +38,9 @@ Yes, you can add up to 10 WhatsApp Business accounts per workspace, and each bus
 
 ![Diagram of the Braze and WhatsApp ecosystem, showing how workspaces and WhatsApp Business accounts connect to each other: you can connect one subscription group to one phone number, multiple WhatsApp Business accounts to one workspace, and one workspace to multiple Meta Business Portfolios.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %}) 
 
+#### Can I change my WhatsApp Business Account currency?
+No. Meta controls the currency for your WhatsApp Business Account, and Braze can't change or convert it. To use a different currency, [create a separate WhatsApp Business Account]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/) with that currency, or contact Meta support to ask whether they can update the currency on your existing account.
+
 ### WhatsApp business account phone numbers 
 
 #### Do I need a phone number for my WhatsApp business account? 
@@ -134,7 +137,7 @@ WhatsApp allows for variable parameters to be inserted into message templates. M
 The Braze team does not have visibility into template rejections. You should work directly with your WhatsApp Business manager to edit and resubmit the template. Make sure to provide a sample template where necessary. Double-check that your template follows Meta's [business](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) or [commerce](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) policies.
 
 #### Can the rich media be targeted or personalized in Braze? 
-Images can be uploaded from the media library but cannot be dynamically targeted. For URLs, the last part of the link can be dynamically populated using Liquid. 
+Images can be uploaded from the media library but cannot be dynamically targeted. For URLs, the last part of the link can be [dynamically populated using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#use-liquid-personalization-in-urls). 
 
 ### Deliverability 
 
@@ -196,3 +199,7 @@ WhatsApp is a channel focused on 2-way messaging and thus anchors on conversatio
 Factors that affect phone number quality rating include an end-user blocking a business (and the reasons they provide when they block a business) and an end-user reporting a business. 
 
 When a quality rating is low, the phone number status changes from **Connected** to **Flagged**. If the quality doesn't improve over seven days, the status returns to **Connected**. However, the messaging limit will decrease to the next level. For example, a phone number that used to have a 100,000 messaging limit now has a 10,000 messaging limit.
+
+#### What if my template was falsely flagged for violating WhatsApp's Commerce Policy?
+
+If you believe Meta falsely flagged your template, use the review link in the email from WhatsApp to request a re-review. The WhatsApp Business team reviews the decision and reverses it if appropriate.

@@ -3,6 +3,8 @@ layout: default
 hide_toc: true
 hide_bottom_nav: false
 hide_breadcrumb: false
+hide_feedback: true
+hide_binary_feedback: false
 ---
 
 
@@ -31,15 +33,44 @@ hide_breadcrumb: false
 {%- unless hide_feedback -%}
 {%- assign hide_feedback = layout.hide_feedback -%}
 {%- endunless -%}
+{%- assign glossary_loc = site.data.i18n[site.language] -%}
+{%- assign i18n_en = site.data.i18n.en -%}
 
 {% unless hide_nav %}
 <!-- button id="sidebar_toggle" class="btn btn-info d-print-none" data-toggle="collapse" aria-expanded="true" href="#nav_bar" >
    <i class="fas"></i>
 </button -->
 
+<script type="application/json" id="glossary-liquid-use-cases-i18n-json">
+{
+  "noResults": {{ glossary_loc.glossary_liquid_use_cases_no_results | jsonify }},
+  "showing": {{ glossary_loc.glossary_liquid_use_cases_showing | jsonify }}
+}
+</script>
+<script type="application/json" id="glossary-liquid-use-case-tag-labels-json">
+{{ glossary_loc.liquid_use_case_tag_labels | default: i18n_en.liquid_use_case_tag_labels | jsonify }}
+</script>
 <script type="text/javascript">
 
 $(document).ready(function() {
+  var liquidUseCasesI18n = { noResults: '', showing: '' };
+  var liquidUseCaseTagLabels = {};
+  try {
+    var _lui = document.getElementById('glossary-liquid-use-cases-i18n-json');
+    if (_lui && _lui.textContent) {
+      liquidUseCasesI18n = JSON.parse(_lui.textContent);
+    }
+  } catch (e) { /* keep defaults */ }
+  try {
+    var _lutl = document.getElementById('glossary-liquid-use-case-tag-labels-json');
+    if (_lutl && _lutl.textContent) {
+      liquidUseCaseTagLabels = JSON.parse(_lutl.textContent) || {};
+    }
+  } catch (e) { liquidUseCaseTagLabels = {}; }
+  function glossaryFormatCount(template, count, total) {
+    if (!template) return '';
+    return String(template).replace(/__COUNT__/g, String(count)).replace(/__TOTAL__/g, String(total));
+  }
   function string_to_slug(str) {
     str = str.replace(/^\s+|\s+$/g, ''); // trim
     str = str.toLowerCase();
@@ -130,17 +161,35 @@ $(document).ready(function() {
       var filter_div = $('<div>').addClass('api_filter_div');
       var filter_label = $('<label>').attr('for','api_' + filter_slug);
       var filter_cb = $('<input>').attr('id','api_' + filter_slug).attr('type','checkbox').attr('name','filter_' + filter_slug).val(v)
-      filter_label.append(filter_cb).append(' ' + alltags[v]);
+      var labelText = (liquidUseCaseTagLabels && Object.prototype.hasOwnProperty.call(liquidUseCaseTagLabels, v)) ? liquidUseCaseTagLabels[v] : alltags[v];
+      filter_label.append(filter_cb).append(' ' + labelText);
       filter_div.append(filter_label);
       tag_div.append(filter_div);
     })
   }
 
 
+    var noResultsTimer = null;
+    var countTimer = null;
+    var innerTimer = null;
+    var lastAnnouncedCount = -1;
+    var altChar = false;
+
     function search_apis(api_hash) {
       var result_cnt = 0;
-      $('#results_msg').hide();
+      var resultsMsg = $('#results_msg');
+      var resultsCount = $('#results_count');
+      var resultsCountLive = $('#results_count_live');
+      var resultsMsgLive = $('#results_msg_live');
+
+      clearTimeout(noResultsTimer);
+      clearTimeout(countTimer);
+      clearTimeout(innerTimer);
+      resultsCount.hide();
+      resultsMsg.hide();
       var api_div = $('#api_list .api_div');
+      var total_cnt = 0;
+      api_div.each(function() { total_cnt += $(this).find('h3').length; });
       var search_str = $('#api_search').val().toLowerCase();
       var selected_vals = [];
       $('.api_filter_div input[type="checkbox"]:checked').each(function(k,v){
@@ -182,13 +231,43 @@ $(document).ready(function() {
           }
           else {
             curdiv.show();
-            result_cnt++;
+            result_cnt += curdiv.find('h3').length;
           }
         }
       })
-      if (!result_cnt && !showall) {
-        $('#results_msg').html('<p>No APIs matching these filters</p>');
-        $('#results_msg').show();
+      if (!showall) {
+        if (!result_cnt) {
+          resultsMsg.show().text(liquidUseCasesI18n.noResults || '');
+          noResultsTimer = setTimeout(function() {
+            resultsCountLive.text('');
+            resultsMsgLive.text('');
+            innerTimer = setTimeout(function() {
+              resultsMsgLive.text(liquidUseCasesI18n.noResults || '');
+            }, 150);
+          }, 900);
+        } else {
+          var message = glossaryFormatCount(liquidUseCasesI18n.showing, result_cnt, total_cnt);
+          resultsCount.show().text(message);
+          resultsMsgLive.text('');
+          countTimer = setTimeout(function() {
+            var message = glossaryFormatCount(liquidUseCasesI18n.showing, result_cnt, total_cnt);
+            var liveMessage = message;
+            if (result_cnt === lastAnnouncedCount) {
+              altChar = !altChar;
+              if (altChar) liveMessage += ' ';
+            }
+            lastAnnouncedCount = result_cnt;
+            resultsCountLive.text('');
+            innerTimer = setTimeout(function() {
+              resultsCountLive.text(liveMessage);
+            }, 150);
+          }, 900);
+        }
+      } else {
+        resultsMsg.text('');
+        resultsCountLive.text('');
+        resultsMsgLive.text('');
+        lastAnnouncedCount = -1;
       }
     };
 
@@ -210,7 +289,7 @@ $(document).ready(function() {
       search_apis();
     }
 
-    $('#api_search').on('keyup',function(e){
+    $('#api_search').on('input',function(e){
       search_apis();
     });
 
@@ -237,7 +316,11 @@ $(document).ready(function() {
 <div class="col d-print-block " id="main_content" >
 
     <div id="api-main">
-    <div id="content_start"></div>
+    <div class="sr-only">
+      <div id="results_count_live" role="status" aria-atomic="true"></div>
+      <div id="results_msg_live" role="alert" aria-atomic="true"></div>
+    </div>
+    <div id="content_start" tabindex="-1"></div>
     {%- unless hide_breadcrumb -%}
     <div id="breadcrumb">
     </div>
@@ -247,9 +330,12 @@ $(document).ready(function() {
     {% multi_lang_include layouts/liquid_use_case_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="search" placeholder="Search" aria-label="Search use cases" />
+        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.glossary_liquid_use_cases_search_placeholder }}" aria-label="{{ glossary_loc.glossary_liquid_use_cases_search_aria }}" aria-describedby="search-hint" />
+        <span id="search-hint" class="sr-only">{{ glossary_loc.glossary_liquid_use_cases_search_hint }}</span>
         <div id="api_filter_list"></div>
     </div>
+
+    <div id="results_count"></div>
 
     <div id="api_list" class="flex mx-auto api_div">
       {{content}}
@@ -274,11 +360,14 @@ $(document).ready(function() {
 
     {% include footer.html class="footer_api" %}
 </div>
-{%- unless hide_toc -%}
 <!-- button id="toc_toggle" class="btn btn-info collapsed notoc d-print-none" data-toggle="collapse" aria-expanded="false" href="#toc_col" >
    <i class="fas"></i>
 </button -->
 <div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
+  {%- unless hide_toc -%}
   <div id="toc" ></div>
+  {%- endunless -%}
+  {% unless hide_binary_feedback -%}
+  {% include binary_feedback.html  %}
+  {% endunless -%}
 </div>
-{%- endunless -%}

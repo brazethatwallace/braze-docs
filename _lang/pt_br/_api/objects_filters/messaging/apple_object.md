@@ -5,13 +5,13 @@ page_order: 1
 page_type: reference
 channel: push
 platform: iOS
-description: "Este artigo de referência lista e explica os diferentes objetos Apple usados no Braze."
+description: "Este artigo de referência lista e explica os diferentes objetos Apple usados na Braze."
 
 ---
 
-# Objeto push da Apple
+# Objeto push da Apple {#apple-push-object}
 
-> O objeto `apple_push` permite que você defina ou solicite informações relacionadas ao conteúdo do Apple Push e do Apple Push Alert por meio de nossos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
+> O objeto `apple_push` permite que você defina ou solicite informações relacionadas ao conteúdo do Apple Push e do Apple Push Alert por meio de nossos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/).
 
 ## Objeto push da Apple
 
@@ -41,13 +41,13 @@ description: "Este artigo de referência lista e explica os diferentes objetos A
 }
 ```
 
-É necessário incluir um objeto Apple push no site `messages` se quiser que os usuários que você direcionou recebam um push em seus dispositivos iOS. O número total de bytes em sua string `alert`, no objeto `extra` e em outros parâmetros opcionais não deve exceder 1912. A API de envio de mensagens retorna um erro se você exceder o tamanho de mensagem permitido pela Apple. As mensagens que incluem as chaves `ab` ou `aps` no objeto `extra` são rejeitadas.
+É necessário incluir um objeto Apple push em `messages` se quiser que os usuários direcionados recebam um push em seus dispositivos iOS. O número total de bytes na sua string `alert`, no objeto `extra` e em outros parâmetros opcionais não deve exceder 1912. A API de envio de mensagens retorna um erro se você exceder o tamanho de mensagem permitido pela Apple. As mensagens que incluem as chaves `ab` ou `aps` no objeto `extra` são rejeitadas.
 
 {% alert note %}
-Se estiver enviando o objeto de push da Apple como parte de uma carga útil de atividades ao vivo, inclua a string `sound` no objeto `alert`.
+Se estiver enviando o objeto de push da Apple como parte de uma carga útil de Live Activities, inclua a string `sound` no objeto `alert`.
 {% endalert %}
 
-### Objeto de alerta push da Apple
+### Objeto de alerta push da Apple {#apple-push-alert-object}
 
 Na maioria dos casos, `alert` pode ser especificado como uma string em um objeto `apple_push`.
 
@@ -64,7 +64,7 @@ Na maioria dos casos, `alert` pode ser especificado como uma string em um objeto
 }
 ```
 
-#### Exemplo
+#### Exemplo {#example}
 
 ```json
 {
@@ -85,22 +85,22 @@ Na maioria dos casos, `alert` pode ser especificado como uma string em um objeto
 }
 ```
 
-## Objeto de botão de ação por push da Apple
+## Objeto de botão de ação por push da Apple {#apple-push-action-button-object}
 
 Você deve incluir o campo `category` no objeto Apple push para usar os botões de ação por push do iOS. A inclusão do campo `category` exibe todos os botões de ação por push associados; inclua o campo `buttons` somente se quiser definir adicionalmente as ações de clique individuais dos botões. O SDK da Braze fornece um conjunto de botões de ação por push padrão para você usar, mostrado na tabela a seguir. Você também pode usar seus próprios botões se eles tiverem sido registrados no app.
 
-### Objeto de botão de ação por push da Apple para os botões padrão do Braze
+### Objeto de botão de ação por push da Apple para os botões padrão da Braze {#apple-push-action-button-object-for-braze-default-buttons}
 
-| Identificador de categoria   | Texto do botão | Identificador de ação do botão | Ações permitidas         |
+| Identificador de categoria | Texto do botão | Identificador de ação do botão | Ações permitidas |
 |-----------------------|-------------|--------------------------|-------------------------|
-| `ab_cat_accept_decline` | Aceitar      | `ab_pb_accept`             | OPEN_APP, URI, ou DEEP_LINK |
-| `ab_cat_accept_decline` | Recusar     | `ab_pb_decline`            | FECHAR                   |
-| `ab_cat_yes_no`         | Sim         | `ab_pb_yes`                | OPEN_APP, URI, ou DEEP_LINK |
-| `ab_cat_yes_no`         | Não          | `ab_pb_no`                 | FECHAR                   |
-| `ab_cat_confirm_cancel` | Confirmar     | `ab_pb_confirm`            | OPEN_APP, URI, ou DEEP_LINK |
-| `ab_cat_confirm_cancel` | Cancelar      | `ab_pb_cancel`             | FECHAR                   |
-| `ab_cat_more`           | Mais        | `ab_pb_more`               | OPEN_APP, URI, ou DEEP_LINK |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `ab_cat_accept_decline` | Aceitar | `ab_pb_accept` | OPEN_APP, URI ou DEEP_LINK |
+| `ab_cat_accept_decline` | Recusar | `ab_pb_decline` | CLOSE |
+| `ab_cat_yes_no` | Sim | `ab_pb_yes` | OPEN_APP, URI ou DEEP_LINK |
+| `ab_cat_yes_no` | Não | `ab_pb_no` | CLOSE |
+| `ab_cat_confirm_cancel` | Confirmar | `ab_pb_confirm` | OPEN_APP, URI ou DEEP_LINK |
+| `ab_cat_confirm_cancel` | Cancelar | `ab_pb_cancel` | CLOSE |
+| `ab_cat_more` | Mais | `ab_pb_more` | OPEN_APP, URI ou DEEP_LINK |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Apple push action button object for Braze default buttons" }
 
 ```json
 {
@@ -111,7 +111,7 @@ Você deve incluir o campo `category` no objeto Apple push para usar os botões 
 }
 ```
 
-### Objeto de botão de ação por push da Apple para categorias definidas por seu app
+### Objeto de botão de ação por push da Apple para categorias definidas pelo seu app {#apple-push-action-button-object-for-categories-defined-by-your-app}
 
 ```json
 {

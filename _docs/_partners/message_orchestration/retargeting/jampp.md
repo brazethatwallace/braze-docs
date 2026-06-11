@@ -34,13 +34,13 @@ This integration supports iOS and Android apps.
 | iOS app ID | Your unique Braze application identifier for iOS (such as "012345678"). |
 | Enable IDFA collection in Braze SDK | IDFA collection is optional within the Braze SDK and disabled by default. | 
 | Collection of Google advertising ID via custom attribute | Google advertising ID collection is optional for customers and can be collected as a [custom attribute]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types).
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integration
 
 ### Step 1: Create a webhook template in Braze
 
-To create a Jampp webhook template to use in future campaigns or Canvases, navigate to **Templates** > **Webhook Templates** in the Braze platform.
+To create a Jampp webhook template to use in future campaigns or Canvases, go to **Content** > **Webhook** in the Braze dashboard. Then, select **Create **Create webhook template**.
 
 If you would like to make a one-off Jampp webhook campaign or use an existing template, select **Webhook** in Braze when creating a new campaign.
 

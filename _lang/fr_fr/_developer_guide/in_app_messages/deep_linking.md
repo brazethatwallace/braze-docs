@@ -1,14 +1,14 @@
 ---
 page_order: 1
 nav_title: Création de liens profonds
-article_title: Création de liens profonds de messages in-app pour le SDK de Braze
+article_title: Création de liens profonds dans les messages in-app pour le SDK de Braze
 channel:
   - push notifications
 ---
 
-# Création de liens profonds dans les messages in-app
+# Création de liens profonds dans les messages in-app {#in-app-message-deep-linking}
 
-> Découvrez comment créer des liens profonds dans un message in-app pour le SDK de Braze.
+> Découvrez comment créer des liens profonds dans un message in-app à l'aide du SDK de Braze.
 
 {% sdktabs %}
 {% sdktab android %}

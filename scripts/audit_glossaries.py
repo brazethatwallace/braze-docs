@@ -26,6 +26,25 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
 
+# Single source of truth for the Braze product-name allowlist — shared with
+# ``scripts/auto_translate.py``'s runtime glossary override so the two
+# scripts can't drift apart. The previous "keep in sync" duplication was
+# flagged by Copilot on PR #13303.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _glossary_protected_terms import PROTECTED_PRODUCT_TERMS  # noqa: E402
+
+
+def _protected_value(term, lang_key):
+    """Canonical glossary value for a protected product term, or ``None``.
+
+    Returns ``None`` if ``term`` is not in the protected allowlist; the
+    locale-specific override if one exists (e.g. ``Canvases`` → ``Canvas``
+    in Romance locales); otherwise falls back to the English term.
+    """
+    if term not in PROTECTED_PRODUCT_TERMS:
+        return None
+    return PROTECTED_PRODUCT_TERMS[term].get(lang_key, term)
+
 LANG_MAP = {
     "de":    {"platform": "de",    "android": "values-de",  "swift": "de",    "grapesjs": "de"},
     "es":    {"platform": "es",    "android": "values-es",  "swift": "es",    "grapesjs": "es"},
@@ -195,13 +214,34 @@ def _parse_grapesjs_strings(path):
 # Comparison engine
 # ---------------------------------------------------------------------------
 
-def find_mismatches(glossary, source_pairs, source_name):
+def _bounded_substring_match(key_lower: str, haystack_lower: str) -> bool:
+    """True if key_lower appears in haystack_lower as a whole token/phrase.
+
+    Uses non-alphanumeric boundaries on both sides (or string start/end) so
+    naive substring traps are avoided, e.g. \"connect\" inside \"connection\",
+    \"review\" inside \"preview\", \"log\" inside \"changelog\".
+    English locale keys are ASCII-heavy; this deliberately does not use \\b so
+    hyphen and apostrophe boundaries still work (e.g. \"user\" in \"user's\").
+    """
+    if not key_lower or not haystack_lower:
+        return False
+    escaped = re.escape(key_lower)
+    pattern = re.compile(rf"(?<![A-Za-z0-9]){escaped}(?![A-Za-z0-9])")
+    return bool(pattern.search(haystack_lower))
+
+
+def find_mismatches(
+    glossary, source_pairs, source_name, include_substring_mismatches=False
+):
     """Compare glossary entries against source localization pairs.
 
     For each glossary English term, look for exact matches in the source
-    English strings. Substring matches are only reported when the source
-    string is a close variant (e.g. plural, "Edit X") rather than a full
-    sentence that happens to contain the term.
+    English strings. When ``include_substring_mismatches`` is true (CLI:
+    ``--include-substring-mismatches``), also report short source strings where
+    the term appears with different translations; those rows are not
+    auto-fixed. Substring detection requires the glossary key to appear as a
+    whole word/phrase (non-alphanumeric boundaries), so letter-only overlaps
+    like "connect" in "connection" or "review" in "preview" are not flagged.
 
     Returns list of mismatch dicts.
     """
@@ -225,15 +265,23 @@ def find_mismatches(glossary, source_pairs, source_name):
                 })
             continue
 
-        # 2) Substring: only for short source strings that are close variants
-        #    (at most 2x the glossary term length to avoid sentence matches)
+        if not include_substring_mismatches:
+            continue
+
+        # Substring: only for short source strings that are close variants
+        # (at most ~2x the glossary term length to avoid sentence matches).
+        # Require whole-token boundaries so we do not flag "Connect" vs
+        # "Connection Error" or "Review" vs "Preview".
         if len(gloss_en) < 4:
             continue
         max_src_len = max(len(gloss_en) * 2.5, len(gloss_en) + 15)
         for src_en, src_trans in source_pairs.items():
             if len(src_en) > max_src_len:
                 continue
-            if gloss_en_lower in src_en.lower() and src_en.lower() != gloss_en_lower:
+            src_lower = src_en.lower()
+            if src_lower != gloss_en_lower and _bounded_substring_match(
+                gloss_en_lower, src_lower
+            ):
                 if not _translations_match(gloss_trans, src_trans):
                     mismatches.append({
                         "term": gloss_en,
@@ -419,6 +467,18 @@ def apply_fixes(report):
         for term, term_mismatches in mismatches_by_term.items():
             if term not in glossary:
                 continue
+            # Never let an upstream dashboard/SDK translation override a
+            # protected Braze product term (e.g. 'Segment' → 'Segmento
+            # faturável', 'Canvas' → 'キャンバス'). These would silently
+            # re-introduce the glossary drift that translation_prompt.md
+            # specifically forbids.
+            protected = _protected_value(term, lang_key)
+            if protected is not None and glossary[term] == protected:
+                print(
+                    f"  {lang_key}: skipping '{term}' — protected product "
+                    f"term; translation_prompt requires English."
+                )
+                continue
             source_values = {m["source_value"] for m in term_mismatches}
             if len(source_values) == 1:
                 new_val = term_mismatches[0]["source_value"]
@@ -447,7 +507,12 @@ def apply_fixes(report):
         for m in lang_data.get("missing", []):
             term = m["term"]
             if term.lower() not in glossary_lower:
-                glossary[term] = m["source_translation"]
+                # Protected product terms always land as their English
+                # canonical, regardless of what the upstream source says.
+                protected = _protected_value(term, lang_key)
+                glossary[term] = (
+                    protected if protected is not None else m["source_translation"]
+                )
                 glossary_lower.add(term.lower())
                 lang_added += 1
 
@@ -550,8 +615,35 @@ def generate_markdown_report(report, fix_results=None):
         if substr:
             header = "Skipped — substring mismatches (needs human review)" if fixed_mode else "Substring mismatches"
             lines.append(f"**{header}**\n")
-            lines.append("| Term | Glossary | Source English | Source Translation | Source repo |")
-            lines.append("|------|----------|---------------|-------------------|-------------|")
+            lines.append(
+                "These rows are **not** auto-fixed: the English UI string in a source repo "
+                "is a *longer phrase* that merely **contains** the glossary’s English key, so "
+                "the right translation is ambiguous.\n\n"
+                "**Matching rule:** The audit only treats a hit as a substring when the "
+                "glossary key appears as a **whole word or phrase** inside that longer "
+                "English string (non-alphanumeric boundaries on both sides). That suppresses "
+                "spurious overlaps such as **Connect** inside **Connection** or **Review** "
+                "inside **Preview**, while still allowing cases like **Mobile** in "
+                "**Mobile Landscape**.\n\n"
+                "**How to read the table**\n\n"
+                "| Column | Meaning |\n"
+                "|--------|--------|\n"
+                "| **Glossary key (English)** | The English string used as the key in that language’s glossary JSON under `scripts/glossaries/` (same term docs use as the UI reference). |\n"
+                "| **Current glossary translation** | What the glossary maps that key to today in this language. |\n"
+                "| **Source UI string (English)** | The **full** English string from the product/SDK locale file where the glossary key appears as a **whole word or phrase** (e.g. “Mobile Landscape” for key “Mobile”, or “Edit campaign” for key “Campaign”). |\n"
+                "| **Source UI translation** | The localized string shipped with that **full** English source string. |\n"
+                "| **Source repo** | Which repository that English/translation pair came from. |\n\n"
+                "Use this to decide whether to align the glossary with the source, keep both "
+                "intentionally different (different surfaces), or fix data upstream.\n"
+            )
+            lines.append(
+                "| Glossary key (English) | Current glossary translation | "
+                "Source UI string (English) | Source UI translation | Source repo |"
+            )
+            lines.append(
+                "|--------------------------|------------------------------|"
+                "------------------------------|-------------------------|-------------|"
+            )
             for m in substr[:30]:
                 lines.append(
                     f"| {m['term']} | {m['glossary_value']} "
@@ -604,6 +696,7 @@ def run_audit(args):
     total_missing = 0
     total_glossary_entries = 0
     total_source_strings = 0
+    include_substring = getattr(args, "include_substring_mismatches", False)
 
     for lang_key, mappings in LANG_MAP.items():
         glossary_path = GLOSSARY_DIR / f"{lang_key}.json"
@@ -626,7 +719,9 @@ def run_audit(args):
             print(f"    {len(pairs)} string pairs loaded")
             total_source_strings += len(pairs)
             all_source_pairs.update(pairs)
-            mismatches = find_mismatches(glossary, pairs, "platform")
+            mismatches = find_mismatches(
+                glossary, pairs, "platform", include_substring
+            )
             all_mismatches.extend(mismatches)
             if mismatches:
                 print(f"    {len(mismatches)} mismatches found")
@@ -638,7 +733,9 @@ def run_audit(args):
             pairs = parse_android_sdk(android_repo, mappings["android"])
             total_source_strings += len(pairs)
             all_source_pairs.update(pairs)
-            mismatches = find_mismatches(glossary, pairs, "android-sdk")
+            mismatches = find_mismatches(
+                glossary, pairs, "android-sdk", include_substring
+            )
             all_mismatches.extend(mismatches)
             if pairs:
                 print(f"  Android SDK: {len(pairs)} pairs, {len(mismatches)} mismatches")
@@ -648,7 +745,9 @@ def run_audit(args):
             pairs = parse_swift_sdk(swift_repo, mappings["swift"])
             total_source_strings += len(pairs)
             all_source_pairs.update(pairs)
-            mismatches = find_mismatches(glossary, pairs, "swift-sdk")
+            mismatches = find_mismatches(
+                glossary, pairs, "swift-sdk", include_substring
+            )
             all_mismatches.extend(mismatches)
             if pairs:
                 print(f"  Swift SDK: {len(pairs)} pairs, {len(mismatches)} mismatches")
@@ -658,7 +757,9 @@ def run_audit(args):
             pairs = parse_grapesjs(grapesjs_repo, mappings["grapesjs"])
             total_source_strings += len(pairs)
             all_source_pairs.update(pairs)
-            mismatches = find_mismatches(glossary, pairs, "grapesjs")
+            mismatches = find_mismatches(
+                glossary, pairs, "grapesjs", include_substring
+            )
             all_mismatches.extend(mismatches)
             if pairs:
                 print(f"  GrapesJS: {len(pairs)} pairs, {len(mismatches)} mismatches")
@@ -738,6 +839,14 @@ def main():
     parser.add_argument(
         "--output", default="glossary_audit_report.json",
         help="Output path for the JSON report (default: glossary_audit_report.json)",
+    )
+    parser.add_argument(
+        "--include-substring-mismatches",
+        action="store_true",
+        help=(
+            "Report fuzzy substring mismatches (noisy; not auto-fixed). "
+            "Default is exact mismatches only."
+        ),
     )
     args = parser.parse_args()
     sys.exit(run_audit(args))

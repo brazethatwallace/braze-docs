@@ -1,49 +1,49 @@
 ---
-nav_title: "PUBLICAR: Crear catálogo"
-article_title: "PUBLICAR: Crear catálogo"
+nav_title: "POST: Crear catálogo"
+article_title: "POST: Crear catálogo"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Crear catálogo de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Crear catálogo de Braze."
 
 ---
 {% api %}
-# Crear catálogo
+# Crear catálogo {#create-catalog}
 {% apimethod post %}
 /catalogs
 {% endapimethod %}
 
-> Utiliza este punto final para crear un catálogo.
+> Utiliza este punto de conexión para crear un catálogo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#af9f3e2d-b7e7-49e7-aa64-f4652892be6e {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.create`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.create`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `catalogs` | Obligatoria | Matriz | Una matriz que contiene objetos de catálogo. Sólo se permite un objeto de catálogo para esta solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalogs` | Obligatorio | Matriz | Una matriz que contiene objetos de catálogo. Solo se permite un objeto de catálogo para esta solicitud. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-### Parámetros del objeto del catálogo
+### Parámetros del objeto del catálogo {#catalog-object-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `name` | Obligatoria | Cadena | El nombre del catálogo que quieres crear. |
-| `description` | Obligatoria | Cadena | La descripción del catálogo que quieres crear. |
-| `fields` | Obligatoria | Matriz | Una matriz de objetos en la que el objeto contiene las claves `name` y `type`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `name` | Obligatorio | Cadena | El nombre del catálogo que quieres crear. |
+| `description` | Obligatorio | Cadena | La descripción del catálogo que quieres crear. |
+| `fields` | Obligatorio | Matriz | Una matriz de objetos en la que el objeto contiene las claves `name` y `type`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Content-Type: application/json' \
@@ -80,6 +80,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -96,11 +100,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 }'
 ```
 
-## Respuesta
+{% alert note %}
+El tipo de datos `geo` almacena una coordenada geográfica como una matriz con el formato `[longitude, latitude]`. Por ejemplo, `[-73.988103, 40.779109]`.
+{% endalert %}
 
-Hay dos respuestas de código de estado para este punto final: `201` y `400`.
+## Respuesta {#response}
 
-### Ejemplo de respuesta satisfactoria
+Hay dos respuestas de código de estado para este punto de conexión: `201` y `400`.
+
+### Ejemplo de respuesta correcta {#example-success-response}
 
 El código de estado `201` podría devolver el siguiente cuerpo de respuesta.
 
@@ -136,6 +144,10 @@ El código de estado `201` podría devolver el siguiente cuerpo de respuesta.
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -156,9 +168,9 @@ El código de estado `201` podría devolver el siguiente cuerpo de respuesta.
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulte la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puede encontrar.
+El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulta la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedes encontrar.
 
 ```json
 {
@@ -178,25 +190,25 @@ El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Co
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
 
 | Error | Solución de problemas |
 | --- | --- |
-| `catalog-array-invalid` | `catalogs` debe ser un array de objetos. |
+| `catalog-array-invalid` | `catalogs` debe ser una matriz de objetos. |
 | `catalog-name-already-exists` | Ya existe un catálogo con ese nombre. |
-| `catalog-name-too-large`  | El límite de caracteres para el nombre de un catálogo es de 250. |
+| `catalog-name-too-large` | El límite de caracteres para el nombre de un catálogo es de 250. |
 | `description-too-long` | El límite de caracteres para la descripción es de 250. |
 | `field-names-not-unique` | Se hace referencia dos veces al mismo nombre de campo. |
-| `field-names-too-large` | El límite de caracteres para un nombre de campo es 250. |
+| `field-names-too-large` | El límite de caracteres para un nombre de campo es de 250. |
 | `id-not-first-column` | El `id` debe ser el primer campo de la matriz. Comprueba que el tipo es una cadena. |
-| `invalid-catalog-name` | El nombre del catálogo sólo puede incluir letras, números, guiones y guiones bajos. |
-| `invalid-field-names` | Los campos sólo pueden incluir letras, números, guiones y guiones bajos. |
+| `invalid-catalog-name` | El nombre del catálogo solo puede incluir letras, números, guiones y guiones bajos. |
+| `invalid-field-names` | Los campos solo pueden incluir letras, números, guiones y guiones bajos. |
 | `invalid-field-types` | Asegúrate de que los tipos de campo son válidos. |
-| `invalid-fields` | `fields` no está formateado correctamente. |
-| `too-many-catalog-atoms` | Sólo puedes crear un catálogo por solicitud. |
-| `too-many-fields` | El límite de campos es 500. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `invalid-fields` | `fields` no tiene el formato correcto. |
+| `too-many-catalog-atoms` | Solo puedes crear un catálogo por solicitud. |
+| `too-many-fields` | El límite de campos es de 500. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

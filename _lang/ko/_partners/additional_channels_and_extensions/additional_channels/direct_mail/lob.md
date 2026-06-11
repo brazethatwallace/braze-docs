@@ -1,8 +1,8 @@
 ---
 nav_title: Lob
-article_title: Lob 
+article_title: Lob
 alias: /partners/lob/
-description: "This reference article outlines the partnership between Braze and Lob.com, which allows you to send direct mail-like letters, postcards, and checks through the mail."
+description: "이 참조 문서에서는 Braze와 Lob.com 간의 파트너십에 대해 설명합니다. 이 파트너십을 통해 우편으로 다이렉트 메일과 유사한 편지, 엽서, 수표를 발송할 수 있습니다."
 page_type: partner
 search_tag: Partner
 
@@ -10,108 +10,112 @@ search_tag: Partner
 
 # Lob
 
-> [Lob.com](https://lob.com) is an online service that allows you to send direct mail to your users.
+> [Lob.com](https://lob.com)은 사용자에게 다이렉트 메일을 발송할 수 있는 온라인 서비스입니다.
 
-_This integration is maintained by Lob._
+_이 통합은 Lob에서 유지 관리합니다._
 
-## About the integration
+## 통합 소개 {#about-the-integration}
 
-With this integration, you can:
+이 통합을 통해 다음을 수행할 수 있습니다.
 
-- Send mail-like letters, postcards, and checks through the mail using Braze webhooks and the Lob API.
-- Share Lob events with Braze as custom attributes and events using Braze Data Transformation and Lob webhooks.
+- Braze 웹훅과 Lob API를 사용하여 우편으로 편지, 엽서, 수표를 발송합니다.
+- Braze 데이터 변환과 Lob 웹훅을 사용하여 Lob 이벤트를 커스텀 속성 및 이벤트로 Braze에 공유합니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-|Requirement| Description|
+| 요구 사항 | 설명 |
 | ---| ---|
-|Lob account | A Lob account is required to take advantage of this partnership. |
-| Lob API key | You Lob API key can be found under the settings section under your name in the Lob dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Lob 계정 | 이 파트너십을 활용하려면 Lob 계정이 필요합니다. |
+| Lob API 키 | Lob API 키는 Lob 대시보드에서 이름 아래의 설정 섹션에서 찾을 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Sending mail using Braze webhooks
+## Braze 웹훅을 사용하여 우편 발송하기 {#sending-mail-using-braze-webhooks}
 
-### Step 1: Choose a Lob endpoint
+### 1단계: Lob 엔드포인트 선택하기 {#step-1-choose-a-lob-endpoint}
 
-Depending on what you'd like to do you in Lob, you'll need to use the corresponding endpoint in your webhook's HTTP request. For detailed information on each endpoint, see [Lob's API reference documentation](https://lob.com/docs#intro).
+Lob에서 수행하려는 작업에 따라 웹훅의 HTTP 요청에서 해당 엔드포인트를 사용해야 합니다. 각 엔드포인트에 대한 자세한 내용은 [Lob의 API 참조 문서](https://lob.com/docs#intro)를 참조하세요.
 
-| Base URL | Available endpoints |
+| 기본 URL | 사용 가능한 엔드포인트 |
 | ------------ | ------------------- |
 | `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Choose a Lob endpoint" }
 
-### Step 2: Create your Braze webhook template
+### 2단계: Braze 웹훅 템플릿 만들기 {#step-2-create-your-braze-webhook-template}
 
-To create a Lob webhook template to use in future campaigns or Canvases, go to **Templates** > **Webhook Templates** in the Braze dashboard. 
+향후 Campaign 또는 Canvas에서 사용할 Lob 웹훅 템플릿을 만들려면 Braze 대시보드에서 **콘텐츠** > **웹훅**으로 이동합니다. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
-If you'd like to make a one-off Lob webhook campaign or use an existing template, select **Webhook** in Braze when creating a new campaign.
+일회성 Lob 웹훅 Campaign을 만들거나 기존 템플릿을 사용하려면 새 Campaign을 만들 때 Braze에서 **웹훅**을 선택합니다.
 
-In your new Webhook template, fill out the following fields:
+새 웹훅 템플릿에서 다음 필드를 입력합니다.
 
-- **Webhook URL**: `<LOB_API_ENDPOINT>`
-- **Request Body**: Raw Text
+- **웹훅 URL**: `<LOB_API_ENDPOINT>`
+- **요청 본문**: Raw Text
 
-#### Request headers and method
+#### 요청 헤더 및 메서드 {#request-headers-and-method}
 
-Lob requires an HTTP Header for authorization and an HTTP method. The following will already be included within the template as a key-value pair, but in the **Settings** tab, you must replace the `<LOB_API_KEY>` with your Lob API key. This key must include a ":" directly after the key and be encoded in base 64. 
+Lob에는 인증을 위한 HTTP 헤더와 HTTP 메서드가 필요합니다. 다음 항목은 이미 키-값 페어로 템플릿에 포함되어 있지만, **설정** 탭에서 `<LOB_API_KEY>`를 Lob API 키로 교체해야 합니다. 이 키는 키 바로 뒤에 ":"를 포함해야 하며 base 64로 인코딩되어야 합니다.
 
-- **HTTP Method**: POST
-- **Request Headers**:
+- **HTTP 메서드**: POST
+- **요청 헤더**:
   - **Authorization**: Basic `{{'<LOB_API_KEY>:' | base64_encode}}`
   - **Content-Type**: application/json
 
 ![Braze 웹훅 빌더 작성 탭에 표시된 요청 본문 코드와 웹훅 URL.]({% image_buster /assets/img_archive/lob_full_request.png %})
 
-#### 요청 본문
+#### 요청 본문 {#request-body}
 
-The following is an example request body for the Lob postcards endpoint. While this request body is provided in the base Lob template in Braze, if you wish to use other endpoints, you must adjust your Liquid fields accordingly.
+다음은 Lob 엽서 엔드포인트에 대한 요청 본문 예시입니다. 이 요청 본문은 Braze의 기본 Lob 템플릿에 제공되지만, 다른 엔드포인트를 사용하려면 Liquid 필드를 적절히 조정해야 합니다.
 
 {% raw %}
 ```json
-"description": "Demo Postcard",
-"to": {
+{
+  "description": "Demo Postcard",
+  "to": {
     "name": "{{${first_name}}} {{${last_name}}}",
     "address_line1": "{{custom_attribute.${address_line1}}}",
-    "address_city": "{{custom_attribute.${address_city}}}"
+    "address_city": "{{custom_attribute.${address_city}}}",
     "address_zip": "{{custom_attribute.${address_zip}}}",
     "address_country": "{{custom_attribute.${address_country}}}"
-},
-"front": "https://lob.com/postcardfront.pdf",
-"back": "https://lob.com/postcardback.pdf"
+  },
+  "front": "https://lob.com/postcardfront.pdf",
+  "back": "https://lob.com/postcardback.pdf",
+  "use_type": "marketing",
+  "size": "6x11"
+}
 ```
 {% endraw %}
 
-### Step 3: Preview your request
+### 3단계: 요청 미리보기 {#step-3-preview-your-request}
 
-At this point, your campaign should be ready to test and send. Check the Lob dashboard and the Braze developer console error message logs if you run into errors. For example, the following error was caused by an incorrectly formatted authentication header. 
-
-{% alert important %}
-Remember to save your template before leaving the page! <br>Updated webhook templates can be found in the **Saved Webhook Templates** list when creating a new [webhook campaign]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/).
-{% endalert %}
-
-![A message error log showing the time, app name, channel, and error message. 오류 메시지에는 메시지 경고와 상태 코드가 포함됩니다.]({% image_buster /assets/img_archive/error_log.png %})
-
-## Sharing events using Lob webhooks 
-
-[Braze Data Transformation]({{site.baseurl}}/user_guide/data/data_transformation/overview) lets you build and manage webhooks for automating data flow from external platforms into Braze. Each transformation is given a unique endpoint, which other platforms can use for their webhook's destination.
+이 시점에서 Campaign을 테스트하고 발송할 준비가 되어 있어야 합니다. 오류가 발생하면 Lob 대시보드와 Braze 개발자 콘솔 오류 메시지 로그를 확인하세요. 예를 들어, 다음 오류는 잘못된 형식의 인증 헤더로 인해 발생했습니다.
 
 {% alert important %}
-Lob의 데이터 트랜스포메이션 템플릿은 데이터 포인트를 기록하는 [`/users/track` 엔드포인트를]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 사용하여 이벤트를 전송합니다. 과도한 데이터 로깅을 방지하기 위해 Lob 웹훅 설정에서 속도 제한을 설정하는 것이 좋습니다.
+페이지를 떠나기 전에 템플릿을 저장하는 것을 잊지 마세요! <br>업데이트된 웹훅 템플릿은 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)을 만들 때 **저장된 웹훅 템플릿** 목록에서 찾을 수 있습니다.
 {% endalert %}
 
-### Step 1: Create a transformation in Braze
+![시간, 앱 이름, 채널, 오류 메시지를 보여주는 메시지 오류 로그. 오류 메시지에는 메시지 경고와 상태 코드가 포함됩니다.]({% image_buster /assets/img_archive/error_log.png %})
 
-1. In the Braze Dashboard, go to **Data Settings** > **Data Transformations**, then select **Create Transformation**.
-2. Enter a short, descriptive name for your transformation.
-3. Under **Editing experience**, select **Use a template**, then search for Lob and check the box.
-4. When you're finished, select **Create Transformation**. You'll be redirected to the transformation editor, which you'll use in the next step.
+## Lob 웹훅을 사용하여 이벤트 공유하기 {#sharing-events-using-lob-webhooks}
 
-### Step 2: Fill out the Lob template
+[Braze 데이터 변환]({{site.baseurl}}/user_guide/data/unification/data_transformation/)을 사용하면 외부 플랫폼에서 Braze로의 데이터 흐름을 자동화하기 위한 웹훅을 구축하고 관리할 수 있습니다. 각 변환에는 고유한 엔드포인트가 부여되며, 다른 플랫폼에서 웹훅 대상으로 사용할 수 있습니다.
 
-With this template, you can transform one of your Lob events into a custom event or attribute that can be used in Braze. Follow the in-line comments to finish building out the template.
+{% alert important %}
+Lob의 데이터 변환 템플릿은 데이터 포인트를 기록하는 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 이벤트를 전송합니다. 과도한 데이터 로깅을 방지하기 위해 Lob 웹훅 설정에서 사용량 제한을 설정하는 것이 좋습니다.
+{% endalert %}
+
+### 1단계: Braze에서 변환 만들기 {#step-1-create-a-transformation-in-braze}
+
+1. Braze 대시보드에서 **데이터 설정** > **데이터 변환**으로 이동한 다음 **변환 생성**을 선택합니다.
+2. 변환에 대한 짧고 설명적인 이름을 입력합니다.
+3. **편집 환경**에서 **템플릿 사용**을 선택한 다음 Lob을 검색하고 체크박스를 선택합니다.
+4. 완료되면 **변환 생성**을 선택합니다. 다음 단계에서 사용할 변환 편집기로 리디렉션됩니다.
+
+### 2단계: Lob 템플릿 작성하기 {#step-2-fill-out-the-lob-template}
+
+이 템플릿을 사용하면 Lob 이벤트 중 하나를 Braze에서 사용할 수 있는 커스텀 이벤트 또는 속성으로 변환할 수 있습니다. 인라인 주석을 따라 템플릿 구축을 완료하세요.
 
 {% alert tip %}
-For detailed information about Lob's webhook payload structure, see [Lob: Using webhooks](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks).
+Lob의 웹훅 페이로드 구조에 대한 자세한 내용은 [Lob: 웹훅 사용하기](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks)를 참조하세요.
 {% endalert %}
 
 ```json
@@ -153,7 +157,7 @@ let brazecall = {
 return brazecall;
 ```
 
-### Step 3: Create a webhook in Lob
+### 3단계: Lob에서 웹훅 만들기 {#step-3-create-a-webhook-in-lob}
 
-1. When you're finished building your template, select **Activate**, then copy the **Webhook URL** to your clipboard.
-2. In Lob, [create a new webhook](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks#receiving-a-webhook-1), then use your webhook URL from Braze to receive the webhook.
+1. 템플릿 구축이 완료되면 **활성화**를 선택한 다음 **웹훅 URL**을 클립보드에 복사합니다.
+2. Lob에서 [새 웹훅을 만든](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks#receiving-a-webhook-1) 다음 Braze의 웹훅 URL을 사용하여 웹훅을 수신합니다.

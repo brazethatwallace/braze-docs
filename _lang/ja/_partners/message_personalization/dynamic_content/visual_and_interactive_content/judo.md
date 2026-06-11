@@ -1,7 +1,7 @@
 ---
 nav_title: Judo
 article_title: Judo
-description: "この参考記事では、BrazeとJudoのパートナーシップについて概説している。Judoは、iOSおよびAndroidアプリに位置情報コンテキストとトラッキングを追加できる、コード不要のサーバー駆動型UIプラットフォームである。"
+description: "このリファレンス記事では、BrazeとJudoのパートナーシップについて説明します。Judoは、iOSおよびAndroidアプリにロケーションコンテキストとトラッキングを追加できる、コード不要のサーバー駆動型UIプラットフォームです。"
 alias: /partners/judo/
 page_type: partner
 search_tag: Partner
@@ -10,80 +10,78 @@ search_tag: Partner
 
 # Judo
 
-> [Judo](https://judo.app) はサーバー駆動型 UI プラットフォームであり、パブリッシャーがアプリを更新せずに、リッチで魅力的なアプリ内ユーザーエクスペリエンスを効率的に提供できるようにします。
+> [Judo](https://judo.app)はサーバー駆動型UIプラットフォームであり、パブリッシャーがアプリを更新せずに、リッチで魅力的なアプリ内ユーザーエクスペリエンスを効率的に提供できるようにします。
 
-_この統合は Judo によって管理されます。_
+_この統合はJudoによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Braze と Judo の統合により、キャンペーンとキャンバスで特別にカスタマイズされたエクスペリエンスが実現します。Braze キャンペーンには、シンプルなテンプレート化されたランディングページエクスペリエンスの代わりに、複数の画面、モーダル、動画、カスタムフォント、サポート設定 (コードを使わず作成され、アプリ更新なしでデプロイされるアクセシビリティ機能やダークモードなど) からなるコンテンツを組み込むことができます。Judo エクスペリエンスでパーソナライズされたコンテンツをサポートするために、Braze のデータを使用することもできます。ユーザーイベントとエクスペリエンスからのデータは、アトリビューションとターゲティングのためにBrazeにフィードバックできる。
+BrazeとJudoの統合により、CampaignsとCanvasesで特別にカスタマイズされたエクスペリエンスが実現します。Braze Campaignには、シンプルなテンプレート化されたランディングページエクスペリエンスの代わりに、複数の画面、モーダル、動画、カスタムフォント、サポート設定（コードを使わず作成され、アプリ更新なしでデプロイされるダークモードやアクセシビリティなど）からなるコンテンツを組み込むことができます。Judoエクスペリエンスでパーソナライズされたコンテンツをサポートするために、Brazeのデータを使用することもできます。ユーザーイベントとエクスペリエンスからのデータは、アトリビューションとターゲティングのためにBrazeにフィードバックできます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-| 柔道アカウント | このパートナーシップを活用するには、[Judo](https://www.judo.app/) アカウントが必要です。 |
-| 柔道SDK | Judo SDK は、[iOS](https://github.com/judoapp/judo-ios/) アプリおよび/または[Android](https://github.com/judoapp/judo-android) アプリに統合する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Judoアカウント | このパートナーシップを活用するには、[Judo](https://www.judo.app/)アカウントが必要です。 |
+| Judo SDK | Judo SDKは、[iOS](https://github.com/judoapp/judo-ios/)アプリおよび/または[Android](https://github.com/judoapp/judo-android)アプリに統合する必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## ユースケース
+## ユースケース {#use-cases}
 
-**オンボーディング**:Judo を使用するアプリパブリッシャーは、リッチでネイティブなオンボーディングエクスペリエンスを構築、デプロイします。これらのエクスペリエンスを、Braze により調整されるパーソナライズされたクロスチャネルオンボーディングの要素として利用できます。さまざまなアプリフローの有効性をテストするために、エクスペリエンスをパーソナライズし、アプリの更新を使用せずに迅速に更新できます。
+**オンボーディング**：Judoを使用するアプリパブリッシャーは、リッチでネイティブなオンボーディングエクスペリエンスを構築、デプロイします。これらのエクスペリエンスを、Brazeにより調整されるパーソナライズされたクロスチャネルのオンボーディングジャーニーの要素として利用できるようになりました。さまざまなアプリ内フローの有効性をテストするために、エクスペリエンスをパーソナライズし、アプリの更新なしで迅速に更新できます。
 
-**コンバージョン**:アプリパブリッシャーは Braze のデータを使用して、パーソナライズされたリッチなアプリ内エクスペリエンスを作成し、Judo の統合フックを使用して、アプリ内購入、有料サブスクリプション、またはコンテキストに基づくマーチャンダイジングを促進することができます。これらのエクスペリエンスへのアクセスは、Braze で作成されたエンゲージメントマーケティングキャンペーンによってトリガーできます。
+**コンバージョン**：アプリパブリッシャーはBrazeのデータを使用して、パーソナライズされたリッチなアプリ内エクスペリエンスを作成し、Judoの統合フックを使用して、アプリ内購入、有料サブスクリプション、または文脈に応じたマーチャンダイジングを促進することができます。これらのエクスペリエンスへのアクセスは、Brazeで作成されたエンゲージメントマーケティングCampaignsによってトリガーできます。
 
-**イベント駆動型コンテンツ**：スポーツやエンターテインメント分野では、Judo は主として、イベントのプレビュー、プロモーション、要約のためのリッチなエクスペリエンスを構築する目的で使用されています。この機能は、他の業種でも季節的なコンテンツやニュースに基づくコンテンツに幅広く応用できます。イベントをタイムリーに宣伝またはハイライトするメッセージングをリッチなアプリ内エクスペリエンスにリンクできるため、パブリッシャーは状況に即して対応することで、エンゲージメントを促進できます。
+**イベント駆動型コンテンツ**：スポーツやエンターテイメント分野では、Judoは主として、イベントのプレビュー、プロモーション、要約のためのリッチなエクスペリエンスを構築する目的で使用されています。この機能は、他の業種でも季節的なコンテンツやニュースに基づくコンテンツに幅広く応用できます。イベントをタイムリーに宣伝またはハイライトするメッセージングをリッチなアプリ内エクスペリエンスにリンクすることで、パブリッシャーは状況に即した対応によりエンゲージメントを促進できます。
 
-## サイドバイサイドの SDK 統合
+## サイドバイサイドのSDK統合 {#side-by-side-sdk-integration}
 
-Judoは、モバイルアプリにJudoとBraze SDKを並べて統合するために必要な作業の一部を自動化する追加ライブラリを提供している。 
+Judoは、モバイルアプリにJudoとBraze SDKを並べて統合するために必要な作業の一部を自動化する追加ライブラリーを提供しています。
 
-### ステップ1:Judo Braze 統合ライブラリをインストールする
+### ステップ1：Judo-Braze統合ライブラリーをインストールする {#step-1-install-the-judo-braze-integration-library}
 
-アプリにJudo-Braze統合ライブラリをインストールしてセットアップする。これにより、イベント追跡が自動的に有効になります。
+アプリにJudo-Braze統合ライブラリーをインストールしてセットアップします。これにより、イベントトラッキングが自動的に有効になります。
 
 - [iOSのインストール
 手順](https://github.com/judoapp/judo-braze-ios/wiki#installation)
-- [Android のインストール
-手順](https://github.com/judoapp/judo-braze-android/wiki#installation)。
+- [Androidのインストール
+手順](https://github.com/judoapp/judo-braze-android/wiki#installation)
 
-### ステップ2:アプリ内メッセージングを設定する
+### ステップ2：アプリ内メッセージングを設定する {#step-2-configure-in-app-messaging}
 
-このステップでは、iOS および Android 用のカスタム `ABKInAppMessageControllerDelegate` および`IInAppMessageManagerListener` 実装を作成します。
+このステップでは、iOSおよびAndroid用のカスタム`ABKInAppMessageControllerDelegate`および`IInAppMessageManagerListener`実装を作成します。
 
-各統合ライブラリに同梱されているアプリ内メッセージ設定ドキュメントを参照のこと：
+各統合ライブラリーに同梱されているアプリ内メッセージ設定ドキュメントを参照してください：
 
 - [iOSアプリ内メッセージ
 セットアップ](https://github.com/judoapp/judo-braze-ios/wiki#in-app-messaging-setup)
 - [Androidアプリ内メッセージ
-の設定](https://github.com/judoapp/judo-braze-android/wiki#in-app-messaging-setup)。.
+セットアップ](https://github.com/judoapp/judo-braze-android/wiki#in-app-messaging-setup)
 
-## この統合を使う
+## この統合を使う {#using-this-integration}
 
-アプリ側の統合が完了したら、Judo エクスペリエンスの Braze アプリ内メッセージキャンペーンを実行してこの統合をテストし、期待どおりに実行されていることを確認できます。
+アプリ側の統合が完了したら、Judoエクスペリエンス用のBrazeアプリ内メッセージCampaignをテスト実行して、期待どおりに動作することを確認できます。
 
-### ステップ1:カスタムコードのアプリ内メッセージキャンペーンを作成する
+### ステップ1：カスタムコードのアプリ内メッセージCampaignを作成する {#step-1-create-a-custom-code-in-app-message-campaign}
 
-Brazeプラットフォームから、**カスタムコードの**メッセージタイプでBrazeアプリ内メッセージキャンペーンを作成する。次に、カスタムタイプとして [**HTML Upload**] を選択します。メッセージのコンテンツに、ベースのアプリ内メッセージングのフィールドが取り込まれていることを確認してください。このコンテンツはユーザーには表示されません。
+Brazeプラットフォームから、**Custom Code**メッセージタイプでBrazeアプリ内メッセージCampaignを作成します。次に、カスタムタイプとして**HTML Upload**を選択します。メッセージのコンテンツに、ベースのアプリ内メッセージングのフィールドが取り込まれていることを確認してください。このコンテンツはユーザーには表示されません。
 
-![カスタムコード」メッセージタイプを選択したときのダッシュボードのイメージ。]({% image_buster /assets/img/judo/braze-campaign-select-custom-type.png %})
+![「Custom Code」メッセージタイプを選択したときのダッシュボードの画像。]({% image_buster /assets/img/judo/braze-campaign-select-custom-type.png %})
 
-次に、以下の最小限のHTMLスニペットを使って、フォームのバリデーションを満たす： 
+次に、以下の最小限のHTMLスニペットを使って、フォームのバリデーションを満たします：
 ```
 <a href="appboy://close">X</a>
 ```
 
-JudoがこれをJudoエクスペリエンスに書き換えて置き換えるので、これはあなたのデバイスの本番では表示されないことに注意してほしい。
+JudoがこれをJudoエクスペリエンスに書き換えて置き換えるため、これはデバイスの本番環境では表示されないことに注意してください。
 
-![キャンペーンの作成ステップに追加されたフォーム検証コードを示す画像。]({% image_buster /assets/img/judo/braze-html-boilerplate.png %})
+![Campaignの作成ステップに追加されたフォーム検証コードを示す画像。]({% image_buster /assets/img/judo/braze-html-boilerplate.png %})
 
-### ステップ2:柔道のキーと値のペアを設定する
-![この統合に必要な１つのキー値ペアを示す。「キー」は「judo-experience」、「値」は Judo リンクである。]({% image_buster /assets/img/judo/braze-campaign-extras-judo-experience.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
+### ステップ2：Judo用のキーバリューペアを設定する {#step-2-set-a-key-value-pair-for-judo}
+![この統合に必要な1つのキーバリューペアを示す画像。「key」は「judo-experience」、「value」はJudoリンクです。]({% image_buster /assets/img/judo/braze-campaign-extras-judo-experience.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-キャンペーンに[カスタムキーバリューペアを]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/key_value_pairs/)設定する。キーは`judo-experience` 。ここに表示したい柔道体験のURLを記入する。その後、Judo-Braze 統合ライブラリはハンドラーでこのキー値ペアを検出し、このペアを使用して Judo エクスペリエンスを標準 Braze アプリ内メッセージ UI の代わりに挿入します。
+Campaignに[カスタムキーバリューペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)を設定します。キーは`judo-experience`です。ここに表示したいJudoエクスペリエンスのURLを入力します。その後、Judo-Braze統合ライブラリーはハンドラーでこのキーバリューペアを検出し、Judoエクスペリエンスを標準のBrazeアプリ内メッセージUIの代わりに挿入します。
 <br><br>
-### ステップ3:キャンペーンを終える
+### ステップ3：Campaignを完了する {#step-3-finishing-the-campaign}
 
-最後に、キャンペーンを完了し、キャンペーンのトリガーを設定し、[**配信**] セクションと [**ターゲットユーザー**] セクションで Segments からユーザーを選択します。Brazeアプリ内メッセージのさまざまな構成要素については、アプリ内メッセージの[記事を]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/create/)参照。
-
-
+最後に、Campaignを完了し、Campaignのトリガーを設定し、**配信**セクションと**ターゲットユーザー**セクションでSegmentsからユーザーを選択します。Brazeアプリ内メッセージのさまざまなコンポーネントについては、アプリ内メッセージの[記事]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)を参照してください。

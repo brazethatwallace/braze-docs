@@ -65,7 +65,7 @@ To compose your Banner, you can choose to:
 
 #### Step 3.1: Style the Banner
 
-You can drag and drop blocks and rows into the canvas area to start building your message.
+You can drag and drop blocks and rows into the canvas area to start building your message. For a reference of Banner editor blocks and links to shared property details, see [Editor blocks (Banners)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -75,7 +75,7 @@ To customize your message's background properties, border settings, and more, se
 
 #### Step 3.2: Define on-click behavior (optional)
 
-When a user clicks a link in the Banner, you can choose to navigate them deeper into your app or redirect them to another webpage. Additionally, you can choose to [log a custom attribute or event]({{site.baseurl}}/developer_guide/analytics/), which updates your user's profile with custom data when they click the Banner.
+When a user clicks a link in the Banner, you can choose to navigate them deeper into your app or redirect them to another webpage. Additionally, you can choose to [log a custom attribute or event]({{site.baseurl}}/developer_guide/analytics/), which updates your user's profile with custom data when they click the Banner. For more granular click tracking, assign a custom identifier to each interactive element using the **Identifier for Reporting** field in its properties panel.
 
 {% alert important %}
 {::nomarkdown}
@@ -83,7 +83,22 @@ On-click behavior can be overridden if a specific element (such as a button, lin
 {:/}
 {% endalert %}
 
-#### Step 3.3: Add custom properties (optional) {#custom-properties}
+#### Step 3.3: Configure dismissal behavior (optional) {#dismiss-behavior}
+
+Select the **Banner can be dismissed** checkbox in the **Dismiss Behavior** section to allow users to dismiss the Banner. This option is beneficial in scenarios where you want to promote a limited-time sale for all app users, but allow them to dismiss the message if they aren't interested.
+
+When dismissal is enabled, you can customize the dismiss button in the **Dismiss Behavior** section:
+
+| Setting | Description |
+|---------|-------------|
+| **Button size** | The size of the dismiss button displayed on the Banner. |
+| **Button color** | The color of the dismiss button. |
+| **ARIA label** | The accessible label for the dismiss button, used by screen readers. Defaults to "Close" if left blank. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
+
+When a user dismisses a Banner, it doesn't appear again for that user, even if they still qualify for the campaign's targeting criteria.
+
+#### Step 3.4: Add custom properties (optional) {#custom-properties}
 
 You can add custom properties to a Banner to attach structured metadata, such as strings or JSON objects. These properties don’t affect how the Banner is displayed but can be [accessed through the Braze SDK]({{site.baseurl}}/developer_guide/banners/placements/) to modify your app’s behavior or appearance. For example, you could:
 
@@ -102,7 +117,7 @@ For each property you'd like to add, fill out the following:
 | Property type | The data type for the property. Supported types include string, boolean, number, timestamp, image URL, and JSON object. | String |
 | Property key | The unique identifier for the property. This key is used in the SDK to access the property. | `color` |
 | Value | The value assigned to the property. Must match the selected property type. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
 
 When you're finished, select **Done**.
 
@@ -125,6 +140,12 @@ When you're finished, select **Done**.
 If you have multiple Banner campaigns using the same placement ID, we recommend using the drag-and-drop priority sorter to define the exact priority.
 {% endalert %}
 
+#### Configure re-eligibility (optional) {#re-eligibility}
+
+By default, users who dismiss a Banner are never re-eligible for that campaign. To let dismissed users see the Banner again, go to the **Delivery Controls** step and select **Allow users to become re-eligible to receive campaign**. When enabled, set a cooldown window in minutes, hours, days, or weeks.
+
+The countdown starts from when the user dismisses the Banner. After the window expires, the user is automatically re-eligible—no campaign restart required. Re-eligibility is tracked per user per campaign.
+
 #### Choose your audience
 
 1. In **Target Audiences**, choose segments or filters to narrow your audience. You automatically receive a preview of the approximate segment population. Exact segment membership is calculated before the message is sent.
@@ -133,8 +154,6 @@ If you have multiple Banner campaigns using the same placement ID, we recommend 
 
 {:start="2"}
 2. In **Assign Conversions**, track how often users perform specific actions after receiving a campaign by defining conversion events with up to a 30-day window to count the action as a conversion.
-
-{% multi_lang_include target_audiences.md %}
 
 #### Choose conversion events
 
@@ -145,6 +164,8 @@ Braze allows you to track [conversion events]({{site.baseurl}}/user_guide/messag
 {% tab Canvas %}
 
 If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement [multivariate testing]({{site.baseurl}}/user_guide/messaging/ab_testing/) and [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) step of our Canvas documentation.
+
+To control re-eligibility for Canvas Banner steps, use the Canvas re-entry settings. For more information, see [Re-eligibility for campaigns and Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/).
 
 {% endtab %}
 {% endtabs %}

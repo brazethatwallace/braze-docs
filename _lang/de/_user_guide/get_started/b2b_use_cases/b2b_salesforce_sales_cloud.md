@@ -3,191 +3,192 @@ nav_title: Salesforce Sales Cloud
 article_title: Leads mit Salesforce Sales Cloud verwalten
 page_order: 3
 page_type: reference
-description: "Erfahren Sie, wie Sie mit Braze-Webhooks über den Endpunkt Salesforce sobjects/Lead Leads in Salesforce Sales Cloud erstellen und aktualisieren können."
+description: "Erfahren Sie, wie Sie mit Braze-Webhooks über den Salesforce-Endpunkt sobjects/Lead Leads in Salesforce Sales Cloud erstellen und aktualisieren können."
 ---
 
-# Leads mit Salesforce Sales Cloud verwalten
+# Leads mit Salesforce Sales Cloud verwalten {#manage-leads-with-salesforce-sales-cloud}
 
-> [Salesforce](https://www.salesforce.com/) ist eine der weltweit führenden cloudbasierten Customer Relationship Management (CRM)-Plattformen, die Unternehmen bei der Verwaltung ihres gesamten Vertriebsprozesses unterstützt, einschließlich Lead-Generierung, Opportunity Tracking und Account Management.<br><br>Auf dieser Seite wird gezeigt, wie Sie mit Braze-Webhooks über eine von der Community vorgeschlagene Integration Leads in Salesforce Sales Cloud erstellen und aktualisieren können.
+> [Salesforce](https://www.salesforce.com/) ist eine der weltweit führenden cloudbasierten Customer-Relationship-Management-Plattformen (CRM), die Unternehmen bei der Verwaltung ihres gesamten Vertriebsprozesses unterstützt – einschließlich Lead-Generierung, Opportunity-Tracking und Konto-Management.<br><br>Auf dieser Seite erfahren Sie, wie Sie mit Braze-Webhooks über eine von der Community eingereichte Integration Leads in Salesforce Sales Cloud erstellen und aktualisieren können.
 
 {% alert important %}
 Dies ist eine von der Community eingereichte Integration, die nicht direkt von Braze unterstützt wird. Nur offizielle, von Braze bereitgestellte Webhook-Templates werden von Braze unterstützt.
 {% endalert %}
 
-## Funktionsweise
+## Funktionsweise {#how-it-works}
 
-Die Integration von Braze und Salesforce Sales Cloud verwendet Braze-Webhooks zum Erstellen und Aktualisieren von Leads in Salesforce Sales Cloud über den Endpunkt Salesforce [sobjects/Lead](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.html).
+Die Integration von Braze und Salesforce Sales Cloud verwendet Braze-Webhooks zum Erstellen und Aktualisieren von Leads in Salesforce Sales Cloud über den Salesforce-Endpunkt [sobjects/Lead](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.html).
 
-Braze bietet derzeit zwei Integrationen in Salesforce Sales Cloud für die folgenden Anwendungsfälle an:
+Braze bietet derzeit zwei Integrationen für Salesforce Sales Cloud für die folgenden Anwendungsfälle an:
 1. [Erstellen eines Leads in Salesforce Sales Cloud](#creating-lead)
-2. [Update eines Leads in Salesforce Sales Cloud](#updating-lead)
+2. [Aktualisieren eines Leads in Salesforce Sales Cloud](#updating-lead)
 
 {% alert note %}
-Diese Integration dient ausschließlich dazu, Salesforce von Braze aus zu aktualisieren, und zwar als Teil Ihrer Bemühungen um die Akquisition und Pflege von Leads. Um Daten von Salesforce zurück nach Braze zu synchronisieren, sehen Sie sich das [B2B-Datenmodell]({{site.baseurl}}/user_guide/getting_started/b2b_use_cases/b2b_data_models/) an oder wenden Sie sich an einen unserer [Technologiepartner]({{site.baseurl}}/partners/home/).
+Diese Integration dient ausschließlich dazu, Salesforce von Braze aus zu aktualisieren – als Teil Ihrer Bemühungen zur Lead-Akquisition und -Pflege. Um Daten von Salesforce zurück nach Braze zu synchronisieren, sehen Sie sich das [B2B-Datenmodell]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/) an oder wenden Sie sich an einen unserer [Technologie-Partner]({{site.baseurl}}/partners/home/).
 {% endalert %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Für diese Integration müssen Sie eine verbundene App in Salesforce Sales Cloud erstellen, indem Sie die Schritte in der Salesforce Dokumentation befolgen: [Konfigurieren Sie eine Connected App für den OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
+Bevor Sie mit dieser Integration fortfahren können, muss der Salesforce-Support Ihnen die Möglichkeit geben, verbundene Apps zu erstellen. Sie können dies anfordern, indem Sie eine [Salesforce-Supportanfrage](https://help.salesforce.com/s/articleView?id=005167035&type=1) einreichen.
 
-Wenn Sie die erforderlichen OAuth-Einstellungen für die verbundene App konfigurieren, behalten Sie alle oAuth-Einstellungen mit ihren Standardwerten und -auswahlen bei, mit Ausnahme der folgenden:
-1. Wählen Sie **Enablement für den Gerätefluss** aus. Sie können die **Callback URL** leer lassen, da sie standardmäßig als Platzhalter verwendet wird.
-2. Fügen Sie für ausgewählte **OAuth-Bereiche** **Nutzerdaten über APIs (api) verwalten** hinzu.
-3. Wählen Sie **Enablement Client Zugangsdaten Fluss**.
+Nachdem der Salesforce-Support Ihnen die Möglichkeit gewährt hat, eine verbundene App in Salesforce Sales Cloud zu erstellen, befolgen Sie die Schritte in der Salesforce-Dokumentation: [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
+
+Wenn Sie die erforderlichen OAuth-Einstellungen für die verbundene App konfigurieren, behalten Sie alle OAuth-Einstellungen mit ihren Standardwerten und -auswahlen bei, mit Ausnahme der folgenden:
+1. Wählen Sie **Enable for device flow** aus. Sie können die **Callback URL** leer lassen, da sie standardmäßig auf einen Platzhalter gesetzt wird.
+2. Fügen Sie für die ausgewählten **OAuth Scopes** den Eintrag **Manage user data via APIs (api)** hinzu.
+3. Wählen Sie **Enable Client Credentials Flow** aus.
 
 ## Erstellen eines Leads in Salesforce Sales Cloud {#creating-lead}
 
-Als Customer-Engagement-Plattform kann Braze neue Leads auf der Grundlage von Nutzer:in generieren, z.B. durch Ausfüllen eines Formulars auf einer Landing Page. Wenn dies geschieht, können Sie einen Braze-to-Braze-Webhook für Sales Cloud verwenden, um einen entsprechenden Lead in Salesforce zu erstellen.
+Als Customer-Engagement-Plattform kann Braze neue Leads auf Basis von Nutzer:innen-Flows generieren, z. B. beim Ausfüllen eines Formulars auf einer Landing-Page. In diesem Fall können Sie einen Braze Salesforce Sales Cloud Webhook verwenden, um einen entsprechenden Lead in Salesforce zu erstellen.
 
-### Schritt 1: Sammeln Sie Ihre `client_id` und `client_secret`
+### 1. Schritt: `client_id` und `client_secret` erfassen {#step-1-collect-your-client_id-and-client_secret}
 
-1. Gehen Sie in Salesforce zu **Plattform-Tools** > **Apps** > **App Manager**:in.
-2. Suchen Sie Ihre neu erstellte Braze App und wählen Sie **Ansicht**.
-3. Wählen Sie unter **Verbraucher:in Schlüssel und Geheimnis** die Option **Verbraucherdetails verwalten**.
-4. Auf der daraufhin angezeigten Seite notieren Sie sich Ihren **Verbraucher:in-Schlüssel** und Ihr **Verbraucher-Geheimnis**. Der **Verbraucher:in-Schlüssel** ist Ihr `client_id`, und das **Verbraucher-Geheimnis** ist Ihr `client_secret`.
+1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager**.
+2. Suchen Sie Ihre neu erstellte Braze-App und wählen Sie **View**.
+3. Wählen Sie unter **Consumer Key and Secret** die Option **Manage Consumer Details**.
+4. Notieren Sie sich auf der angezeigten Seite Ihren **Consumer Key** und Ihr **Consumer Secret**. Der **Consumer Key** ist Ihre `client_id` und das **Consumer Secret** ist Ihr `client_secret`.
 
-### Schritt 2: Richten Sie Ihr Webhook Template ein
+### 2. Schritt: Webhook-Template einrichten {#step-2-set-up-your-webhook-template}
 
-Verwenden Sie Templates, um diesen Webhook schnell auf der gesamten Braze-Plattform wiederzuverwenden. 
+Verwenden Sie Templates, um diesen Webhook schnell auf der gesamten Braze-Plattform wiederzuverwenden.
 
-1. Gehen Sie in Braze zu **Vorlagen**, wählen Sie **Webhook-Vorlagen** und dann **\+ Webhook-Vorlage erstellen**.
-2. Geben Sie einen Namen für das Template an, z. B. "Salesforce Sales Cloud > Lead erstellen".
-3. Auf dem Tab **Verfassen** geben Sie die folgenden Details ein:
+1. Gehen Sie in Braze zu **Templates**, wählen Sie **Webhook Templates** und dann **+ Create Webhook Template**.
+2. Geben Sie einen Namen für das Template an, z. B. „Salesforce Sales Cloud > Lead erstellen“.
+3. Geben Sie auf dem Tab **Verfassen** die folgenden Details ein:
 
-#### Webhook zusammenstellen 
+#### Webhook verfassen {#compose-webhook}
 
 | Feld | Details |
 | --- | --- |
 | Webhook-URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | HTTP-Methode | `POST` |
-| Anfragetext | JSON-Schlüssel-Wert-Paare |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+| Anfragetext | JSON-Schlüssel/Wert-Paare |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook verfassen" }
 
-#### Körper Eigenschaft Schlüsselwerte
+#### Schlüssel/Wert-Paare für Body-Eigenschaften {#body-property-key-values}
 
-Wählen Sie **\+ Neue Body-Eigenschaft hinzufügen** für jedes der Schlüssel-Wert-Paare, die Sie von Braze auf Salesforce übertragen möchten. Sie können jedes beliebige Feld abbilden, so dass die folgende Tabelle nur ein Beispiel ist.
-
-| Schlüssel | Wert |
-| --- | --- |
-| Vorname | {% raw %}`{{${first_name}}}`{% endraw %} |
-| Nachname | {% raw %}`{{${last_name}}}`{% endraw %} |
-| E-Mail | {% raw %}`{{${email_address}}}`{% endraw %} |
-| Unternehmen | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
-
-#### Anfrage-Header
-
-Wählen Sie **\+ Neuen Header hinzufügen** für jeden der folgenden Anfrage-Header.
+Wählen Sie **+ Add New Body Property** für jedes Schlüssel/Wert-Paar, das Sie von Braze nach Salesforce übertragen möchten. Sie können beliebige Felder zuordnen – die folgende Tabelle ist nur ein Beispiel.
 
 | Schlüssel | Wert |
 | --- | --- |
-| Autorisierung | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
-| Content-Typ | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+| firstName | {% raw %}`{{${first_name}}}`{% endraw %} |
+| lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
+| email | {% raw %}`{{${email_address}}}`{% endraw %} |
+| company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schlüssel/Wert-Paare für Body-Eigenschaften" }
+
+#### Anfrage-Header {#request-headers}
+
+Wählen Sie **+ Add New Header** für jeden der folgenden Anfrage-Header.
+
+| Schlüssel | Wert |
+| --- | --- |
+| Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
+| Content-Type | `application/json` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anfrage-Header" }
 
 {: start="4" }
-4\. Wählen Sie **Template speichern**.
+4. Wählen Sie **Save Template**.
 
-![Ein ausgefülltes Webhook Template, um einen Lead zu erstellen.]({% image_buster /assets/img/b2b/create_lead_webhook.png %}){: style="max-width:70%;"}
- 
-## Update eines Leads in Salesforce Sales Cloud {#updating-lead}
+![Ein ausgefülltes Webhook-Template zum Erstellen eines Leads.]({% image_buster /assets/img/b2b/create_lead_webhook.png %}){: style="max-width:70%;"}
 
-Um einen Braze Salesforce Sales Cloud Webhook einzurichten, der Leads in Salesforce aktualisiert, benötigen Sie einen gemeinsamen Bezeichner zwischen Salesforce Sales Cloud und Braze. Im folgenden Beispiel wird die Salesforce `lead_id` als Braze `external_id` verwendet, aber Sie können dies auch durch die Verwendung eines `user_alias` erreichen. Einzelheiten hierzu finden Sie unter [B2B Daten]({{site.baseurl}}/user_guide/getting_started/b2b_use_cases/b2b_data_models)
+## Aktualisieren eines Leads in Salesforce Sales Cloud {#updating-lead}
 
-Dieses Beispiel zeigt speziell, wie Sie die Lead-Stufe eines Leads auf "MQL" (Marketing Qualified Lead) aktualisieren, nachdem ein Lead einen bestimmten Schwellenwert überschritten hat. Dies ist ein zentraler Bestandteil unseres [B2B-Lead-Scoring-Workflow-Anwendungsfalls]({{site.baseurl}}/user_guide/getting_started/b2b_use_cases/lead_scoring/).
+Um einen Braze Salesforce Sales Cloud Webhook einzurichten, der Leads in Salesforce aktualisiert, benötigen Sie einen gemeinsamen Bezeichner zwischen Salesforce Sales Cloud und Braze. Im folgenden Beispiel wird die Salesforce `lead_id` als Braze `external_id` verwendet, aber Sie können dies auch mit einem `user_alias` erreichen. Weitere Informationen finden Sie unter [B2B-Daten]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/).
 
-### Schritt 1: Sammeln Sie Ihre `client_id` und `client_secret`
+Dieses Beispiel zeigt konkret, wie Sie die Lead-Stufe eines Leads auf „MQL“ (Marketing Qualified Lead) aktualisieren, nachdem ein Lead einen bestimmten Schwellenwert überschritten hat. Dies ist ein zentraler Bestandteil unseres Anwendungsfalls [B2B-Lead-Scoring-Workflow]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/).
 
-1. Gehen Sie in Salesforce zu **Plattform-Tools** > **Apps** > **App Manager**:in.
-2. Suchen Sie Ihre neu erstellte Braze App und wählen Sie **Ansicht**.
-3. Wählen Sie unter **Verbraucher:in Schlüssel und Geheimnis** die Option **Verbraucherdetails verwalten**.
-4. Auf der daraufhin angezeigten Seite notieren Sie sich Ihren **Verbraucher:in-Schlüssel** und Ihr **Verbraucher-Geheimnis**.
-    - Der **Verbraucher:in-Schlüssel** ist Ihr `client_id`, und das **Verbraucher-Geheimnis** ist Ihr `client_secret`.
+### 1. Schritt: `client_id` und `client_secret` erfassen
 
-### Schritt 2: Richten Sie Ihr Webhook Template ein
+1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager**.
+2. Suchen Sie Ihre neu erstellte Braze-App und wählen Sie **View**.
+3. Wählen Sie unter **Consumer Key and Secret** die Option **Manage Consumer Details**.
+4. Notieren Sie sich auf der angezeigten Seite Ihren **Consumer Key** und Ihr **Consumer Secret**.
+    - Der **Consumer Key** ist Ihre `client_id` und das **Consumer Secret** ist Ihr `client_secret`.
 
-1. Gehen Sie in Braze zu **Vorlagen**, wählen Sie **Webhook-Vorlagen** und dann **\+ Webhook-Vorlage erstellen**.
-2. Geben Sie einen Namen für das Template an, z. B. "Salesforce Sales Cloud > Update Lead to MQL".
-3. Auf dem Tab **Verfassen** geben Sie die folgenden Details ein:
+### 2. Schritt: Webhook-Template einrichten
 
-#### Webhook zusammenstellen 
+1. Gehen Sie in Braze zu **Templates**, wählen Sie **Webhook Templates** und dann **+ Create Webhook Template**.
+2. Geben Sie einen Namen für das Template an, z. B. „Salesforce Sales Cloud > Lead auf MQL aktualisieren“.
+3. Geben Sie auf dem Tab **Verfassen** die folgenden Details ein:
+
+#### Webhook verfassen
 
 | Feld | Details |
 | --- | --- |
-|Webhook-URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
+| Webhook-URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | HTTP-Methode | `PATCH` |
-| Anfragetext | JSON-Schlüssel-Wert-Paare |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+| Anfragetext | JSON-Schlüssel/Wert-Paare |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook verfassen" }
 
-#### Körper Eigenschaft Schlüsselwerte
+#### Schlüssel/Wert-Paare für Body-Eigenschaften
 
-Wählen Sie **\+ Neue Body-Eigenschaft hinzufügen** für das folgende Schlüssel-Wert-Paar. Beachten Sie, dass `Lead_Stage__c` ein Beispielname ist. Das angepasste Feld, das Sie für das Tracking von MQLs in Salesforce verwenden, kann einen anderen Namen haben, also stellen Sie sicher, dass sie übereinstimmen.
+Wählen Sie **+ Add New Body Property** für das folgende Schlüssel/Wert-Paar. Beachten Sie, dass `Lead_Stage__c` ein Beispielname ist. Das angepasste Feld, das Sie für das Tracking von MQLs in Salesforce verwenden, kann einen anderen Namen haben – stellen Sie sicher, dass die Namen übereinstimmen.
 
 | Schlüssel | Wert |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schlüssel/Wert-Paare für Body-Eigenschaften" }
 
 #### Anfrage-Header
 
-Wählen Sie **\+ Neuen Header hinzufügen** für jeden der folgenden Anfrage-Header.
+Wählen Sie **+ Add New Header** für jeden der folgenden Anfrage-Header.
 
 | Schlüssel | Wert |
 | --- | --- |
-| Autorisierung | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
-| Content-Typ | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+| Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
+| Content-Type | `application/json` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anfrage-Header" }
 
 {: start="4"}
-4\. Wählen Sie **Template speichern**.
+4. Wählen Sie **Save Template**.
 
-![Ein ausgefülltes Webhook Template zum Update eines Leads.]({% image_buster /assets/img/b2b/update_lead_webhook.png %}){: style="max-width:70%;"}
+![Ein ausgefülltes Webhook-Template zum Aktualisieren eines Leads.]({% image_buster /assets/img/b2b/update_lead_webhook.png %}){: style="max-width:70%;"}
 
-## Verwendung dieser Webhooks in einem operativen Arbeitsablauf
+## Verwendung dieser Webhooks in einem operativen Workflow {#using-these-webhooks-in-an-operational-workflow}
 
-Sie können Ihre Templates schnell zu Ihren operativen Arbeitsabläufen in Braze hinzufügen, z.B:
+Sie können Ihre Templates schnell zu Ihren operativen Workflows in Braze hinzufügen, z. B.:
 
-1. Teil einer [Kampagne für neue Nutzer:innen](#new-lead), die einen Lead in Salesforce erstellt
-2. Teil eines [Lead Scoring Canvas](#lead-scoring), der Nutzer:innen, die Ihren MQL-Schwellenwert überschritten haben, auf "MQL" aktualisiert und die Salesforce Sales Cloud mit denselben Informationen aktualisiert
+1. Als Teil einer [Campaign für neue Leads](#new-lead), die einen Lead in Salesforce erstellt
+2. Als Teil eines [Lead-Scoring-Canvas](#lead-scoring), der Nutzer:innen, die Ihren MQL-Schwellenwert überschritten haben, auf „MQL“ aktualisiert und Salesforce Sales Cloud mit denselben Informationen aktualisiert
 
-### Neue Kampagne {#new-lead}
+### Campaign für neue Leads {#new-lead}
 
-Um einen Lead in Salesforce zu erstellen, wenn ein Nutzer:innen seine E-Mail Adresse angibt, können Sie eine Kampagne erstellen, die das Template "Update Lead" Webhook verwendet und triggert, wenn ein Nutzer:innen seine E-Mail Adresse hinzufügt (z.B. ein Webformular ausfüllt).
+Um einen Lead in Salesforce zu erstellen, wenn Nutzer:innen ihre E-Mail-Adresse angeben, können Sie eine Campaign erstellen, die das Webhook-Template „Update Lead“ verwendet und getriggert wird, wenn Nutzer:innen ihre E-Mail-Adresse hinzufügen (z. B. ein Webformular ausfüllen).
 
-![Schritt 2 der Erstellung einer Kampagne, die aktionsbasiert ist und die Aktion triggern soll: "Eine E-Mail Adresse hinzufügen".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![Schritt 2 der Erstellung einer aktionsbasierten Campaign mit der Aktion „Eine E-Mail-Adresse hinzufügen“ als Trigger.]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
-### Lead Scoring Canvas für das Überschreiten der Marketing Qualified Lead (MQL)-Schwelle {#lead-scoring}
+### Lead-Scoring-Canvas für das Überschreiten des Marketing-Qualified-Lead-(MQL)-Schwellenwerts {#lead-scoring}
 
-Dieser Webhook wird im Anwendungsfall [Lead Scoring]({{site.baseurl}}/user_guide/getting_started/b2b_use_cases/lead_scoring/#lead-handoff) behandelt, aber Sie können auch nach MQLs suchen und Salesforce direkt innerhalb des Lead Scoring Canvas aktualisieren (im Gegensatz zur Erstellung einer separaten Webhook-Kampagne): 
+Dieser Webhook wird im Anwendungsfall [Lead-Scoring]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff) behandelt, aber Sie können auch direkt innerhalb des Lead-Scoring-Canvas nach MQLs suchen und Salesforce aktualisieren (anstatt eine separate Webhook-Campaign zu erstellen):
 
-Fügen Sie Ihrer Nutzer:innen-Aktualisierung einen weiteren Schritt hinzu, um zu prüfen, ob ein Nutzer:in die von Ihnen definierte MQL-Schwelle gelangt ist. Wenn sie sich gekreuzt haben, aktualisieren Sie den Status des Nutzers:innen auf "MQL" und aktualisieren dann Salesforce mit demselben "MQL"-Status, indem Sie dieses Webhook Template verwenden. Salesforce kümmert sich um den Rest, indem es diesen Lead anhand der von Ihnen definierten Lead-Routing-Regeln an die entsprechenden Teams weiterleitet.  
+Fügen Sie Ihrer Nutzeraktualisierung einen weiteren Schritt hinzu, um zu prüfen, ob Nutzer:innen den von Ihnen definierten MQL-Schwellenwert überschritten haben. Wenn ja, aktualisieren Sie den Status auf „MQL“ und aktualisieren dann Salesforce mit demselben „MQL“-Status über dieses Webhook-Template. Salesforce kümmert sich um den Rest, indem es diesen Lead anhand Ihrer definierten Lead-Routing-Regeln an die entsprechenden Vertriebsteams weiterleitet.
 
-#### Hinzufügen eines Canvas-Schrittes zur Überprüfung von Nutzer:innen, die den MQL-Schwellenwert überschritten haben 
+#### Canvas-Schritt hinzufügen, um Nutzer:innen zu prüfen, die den MQL-Schwellenwert überschritten haben {#adding-canvas-step-to-check-for-users-who-passed-the-mql-threshold}
 
-1. Fügen Sie einen **Zielgruppen-Pfad-Schritt** mit zwei Gruppen hinzu: "MQL-Schwelle" und "Alle anderen".
-2. Suchen Sie in der Gruppe "MQL-Schwelle" nach Nutzern:innen, die derzeit nicht den Status "MQL" haben (z.B. `lead_stage` ist gleich "Lead"), aber einen Lead-Score haben, der über der von Ihnen definierten Schwelle liegt (z.B. `lead_score` größer als 50). Wenn ja, gehen sie zum nächsten Schritt über, wenn nicht, verlassen sie die Seite.
+1. Fügen Sie einen **Zielgruppenpfad**-Schritt mit zwei Gruppen hinzu: „MQL-Schwellenwert“ und „Alle anderen“.
+2. Suchen Sie in der Gruppe „MQL-Schwellenwert“ nach Nutzer:innen, die derzeit nicht den Status „MQL“ haben (z. B. `lead_stage` gleich „Lead“), aber einen Lead-Score haben, der über dem von Ihnen definierten Schwellenwert liegt (z. B. `lead_score` größer als 50). Wenn ja, gehen sie zum nächsten Schritt über; wenn nicht, verlassen sie den Flow.
 
-![Die Zielgruppe-Pfad-Gruppe "MQL Threshold" mit Filtern für eine `lead_stage` gleich "Lead" und eine `lead_score` größer als "50".]({% image_buster /assets/img/b2b/salesforce_check_mql.png %}){: style="max-width:70%;"}
+![Die Zielgruppenpfad-Gruppe „MQL Threshold“ mit Filtern für `lead_stage` gleich „Lead“ und `lead_score` mehr als „50“.]({% image_buster /assets/img/b2b/salesforce_check_mql.png %}){: style="max-width:70%;"}
 
 {: start="3" }
-3\. Fügen Sie einen Schritt **zum Update des Nutzers** hinzu, der den Wert des Attributs `lead_stage` des Nutzers:innen auf "MQL" aktualisiert.
+3. Fügen Sie einen **Nutzeraktualisierung**-Schritt hinzu, der den Wert des Attributs `lead_stage` auf „MQL“ aktualisiert.
 
-![Der Schritt "Update auf MQL" Nutzer:in, der das Attribut `lead_stage` aktualisiert, so dass es den Wert "MQL" hat.]({% image_buster /assets/img/b2b/salesforce_update_mql.png %}){: style="max-width:70%;"}
+![Der Nutzeraktualisierung-Schritt „Update to MQL“, der das Attribut `lead_stage` auf den Wert „MQL“ aktualisiert.]({% image_buster /assets/img/b2b/salesforce_update_mql.png %}){: style="max-width:70%;"}
 
 {: start="4" }
-4\. Fügen Sie einen Webhook-Schritt hinzu, der Salesforce mit der neuen MQL-Stufe aktualisiert.
+4. Fügen Sie einen Webhook-Schritt hinzu, der Salesforce mit der neuen MQL-Stufe aktualisiert.
 
-![Der Webhook-Schritt "Update Salesforce" mit abgeschlossenen Details.]({% image_buster /assets/img/b2b/salesforce_webhook.png %}){: style="max-width:70%;"}
+![Der Webhook-Schritt „Update Salesforce“ mit ausgefüllten Details.]({% image_buster /assets/img/b2b/salesforce_webhook.png %}){: style="max-width:70%;"}
 
-Jetzt aktualisiert Ihr Canvas Fluss Nutzer:innen, die Ihren MQL-Schwellenwert überschritten haben!
+Jetzt aktualisiert Ihr Canvas-Flow Nutzer:innen, die Ihren MQL-Schwellenwert überschritten haben!
 
-![Ein Canvas-Schritt zum Update von Nutzern:innen, der prüft, ob ein Nutzer:innen den MQL-Schwellenwert überschreitet, und, falls dies der Fall ist, Salesforce aktualisiert.]({% image_buster /assets/img/b2b/salesforce_canvas.png %}){: style="max-width:50%;"}
+![Ein Canvas-Nutzeraktualisierung-Schritt, der prüft, ob Nutzer:innen den MQL-Schwellenwert überschreiten, und bei Überschreitung Salesforce aktualisiert.]({% image_buster /assets/img/b2b/salesforce_canvas.png %}){: style="max-width:50%;"}
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
-Diese Workflows verfügen nur über begrenzte Debugging-Möglichkeiten in Salesforce. Wir empfehlen daher, das Braze [Message Activity Log]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab#message-activity-log) zu Rate zu ziehen, um herauszufinden, warum ein Webhook fehlgeschlagen ist und ob ein Fehler aufgetreten ist.
+Diese Workflows bieten nur begrenzte Debugging-Möglichkeiten innerhalb von Salesforce. Wir empfehlen daher, das Braze [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#message-activity-log) zu Rate zu ziehen, um herauszufinden, warum ein Webhook fehlgeschlagen ist und ob Fehler aufgetreten sind.
 
-Ein Fehler, der durch eine ungültige URL für den Abruf des oAuth-Tokens verursacht wird, wird beispielsweise als `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL` angezeigt.
+Ein Fehler, der durch eine ungültige URL für den Abruf des OAuth-Tokens verursacht wird, wird beispielsweise als `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL` angezeigt.
 
-![Ein Fehler-Antwortkörper, der besagt, dass die URL keine gültige URL ist.]({% image_buster /assets/img/b2b/error_message_invalid_url.png %})
-
+![Ein Fehler-Antworttext, der besagt, dass die URL keine gültige URL ist.]({% image_buster /assets/img/b2b/error_message_invalid_url.png %})

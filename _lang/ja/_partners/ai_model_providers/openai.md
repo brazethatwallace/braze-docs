@@ -1,39 +1,41 @@
 ---
-nav_title: オープンAI
-article_title: オープンAI
-description: "この参考記事では、BrazeとOpenAIのパートナーシップについて概説しており、OpenAIのモデルをBrazeに接続し、カスタムAIエージェントで使用することができる。"
+nav_title: OpenAI
+article_title: OpenAI
+description: "このリファレンス記事では、BrazeとOpenAIのパートナーシップについて説明しています。OpenAIモデルをBrazeに接続し、カスタムAIエージェントで使用できます。"
 alias: /partners/openai/
 page_type: partner
 search_tag: Partner
 
 ---
 
-# オープンAI
+# OpenAI
 
-> [OpenAIは](https://openai.com/)、GPTのような高度なAIモデルを作成し、自然言語の理解と生成をイネーブルメントし、ブランドが有意義な顧客とのインタラクションを構築し、拡張できるようにする。 
+> [OpenAI](https://openai.com/)は、GPTのような高度なAIモデルを開発しており、自然言語の理解と生成を可能にすることで、ブランドが有意義な顧客インタラクションを構築・拡張できるようにしています。
 
-_この統合はOpenAIによって維持されている。_
+{% multi_lang_include alerts/important_alerts.md alert='Braze Agents' %}
 
-## 統合について
+_この連携はOpenAIによって管理されています。_
 
-BrazeとOpenAIの統合により、OpenAIのAPIキーをBrazeに接続し、カスタムAIエージェントを構築する際にOpenAIのモデルを使用することができる。この統合により、エージェントはパーソナライズされたコピーを生成し、リアルタイムで意思決定を行い、OpenAIの大規模な言語モデルを使用してカタログフィールドを更新することができる。
+## 連携について {#about-the-integration}
 
-## 前提条件
+BrazeとOpenAIの連携により、OpenAIのAPIキーをBrazeに接続して、カスタムAIエージェントを構築する際にOpenAIモデルを使用できます。この連携により、エージェントはパーソナライズ済みコピーの生成、リアルタイムの意思決定、OpenAIの大規模言語モデルを使用したカタログフィールドの更新が可能になります。
+
+## 前提条件 {#prerequisites}
 
 | 要件 | 説明 |
 |---|---|
-| APIキーを持つOpenAIのアカウント | APIキーを持つOpenAIのアカウント。問題や質問があれば、管理者または[OpenAIのサポートに](https://help.openai.com/)連絡すること。 |
-| Brazeインスタンス | Brazeインスタンスは、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)またはBrazeオンボーディングマネージャーから見つけることができる。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| APIキーを持つOpenAIアカウント | APIキーを持つOpenAIアカウントが必要です。問題や質問がある場合は、管理者または[OpenAIサポート](https://help.openai.com/)にお問い合わせください。 |
+| Brazeインスタンス | Brazeインスタンスは、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)またはBrazeオンボーディングマネージャーから確認できます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 連携 {#integration}
 
-OpenAI APIキーをBrazeに接続する：
+OpenAIのAPIキーをBrazeに接続するには：
 
-1. ダッシュボードの**パートナー連携**>**テクノロジーパートナーから**OpenAIを探す。
-2. OpenAIのAPIキーを入力する。
-3. [**保存**] を選択します。
+1. Brazeダッシュボードで**パートナー連携** > **テクノロジーパートナー**に移動し、OpenAIを見つけます。
+2. OpenAIのAPIキーを入力します。
+3. **保存**を選択します。
 
-保存後、エージェントコンソールで[カスタムエージェントを作成する]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)際にOpenAIモデルを選択できる。
+保存後、エージェントコンソールで[カスタムエージェントを作成する]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)際にOpenAIモデルを選択できます。
 
-統合に関する問題や質問があれば、[OpenAIのサポートに](https://help.openai.com/)連絡すること。
+連携に関する問題や質問がある場合は、[OpenAIサポート](https://help.openai.com/)にお問い合わせください。

@@ -56,7 +56,7 @@ Regardless of the encoding type, each SMS message sent out by Braze has a limit 
 | 1072 - 1224 characters | 8 segments |
 | 1225 - 1377 characters | 9 segments |
 | 1378 - 1530 characters | 10 segments |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% tab UCS-2 encoding %}
 | Number of characters | How many segments? |
@@ -71,7 +71,7 @@ Regardless of the encoding type, each SMS message sent out by Braze has a limit 
 | 470 - 536 characters | 8 segments |
 | 537 - 603 characters | 9 segments |
 | 604 - 670 characters | 10 segments |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% endtabs %}
 
@@ -145,8 +145,8 @@ Rich media messages include a media file (image, video) or a Rich Card and are b
 {% endtab %}
 {% endtabs %}
 
-### Message composer and Message Usage dashboard
+### Message composer and Credits Usage dashboard
 
 As you create your message, the message composer will display the billing type in real-time through a label (Basic RCS, Single RCS, Rich, or Rich Media), helping you track costs before you send.
 
-Your [Message Usage dashboard]({{site.baseurl}}/message_usage_dashboard/) will reflect these billing types and will provide the number of segments used for US messages, providing a transparent view of your message credit consumption.
+Your [Credits Usage dashboard]({{site.baseurl}}/credits_usage_dashboard/) will reflect these billing types and will provide the number of segments used for US messages, providing a transparent view of your message credit consumption.

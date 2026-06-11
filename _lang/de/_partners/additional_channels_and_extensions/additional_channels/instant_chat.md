@@ -1,4 +1,4 @@
 ---
-nav_title: Instant Chat & Conversational Messaging
+nav_title: Instant Chat und Conversational Messaging
 config_only: true
 ---

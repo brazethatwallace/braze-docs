@@ -1,39 +1,40 @@
 ---
-nav_title: "OBTER: Veja informações sobre Blocos de Conteúdo"
-article_title: "OBTER: Consulte Informações sobre blocos de conteúdo"
+nav_title: "GET: Ver informações sobre Content Blocks"
+article_title: "GET: Ver informações sobre Content Blocks"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o endpoint da Braze \"Consulte informações sobre blocos de conteúdo\""
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para ver informações sobre Content Blocks."
 ---
 
 {% api %}
-# Consulte as informações do bloco de conteúdo
+# Ver informações do bloco de conteúdo {#see-content-block-information}
 {% apimethod get %}
 /content_blocks/info
 {% endapimethod %}
 
-> Use esse ponto de extremidade para chamar informações de seus [blocos de conteúdo]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/) existentes.
+> Use este endpoint para consultar informações dos seus [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) existentes.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#589adda3-0def-4369-9ddc-eae71923c0ee {% endapiref %}
 
-## Pré-requisitos
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `content_blocks.info`.
+## Pré-requisitos {#prerequisites}
 
-## Limite de taxa
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `content_blocks.info`.
+
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| `content_block_id`  | Obrigatória | String | O identificador do bloco de conteúdo. <br><br>Você pode encontrar isso listando as informações do bloco de conteúdo por meio de uma chamada de API ou acessando a página [Chaves de API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/), rolando até a parte inferior e pesquisando o identificador de API do bloco de conteúdo.|
-| `include_inclusion_data`  | Opcional | Booleano | Quando definido como `true`, a API retorna o identificador da API de variação de mensagens de campanhas e Canvas em que esse bloco de conteúdo está incluído, para ser usado em chamadas subsequentes.  Os resultados excluem campanhas ou telas arquivadas ou excluídas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `content_block_id` | Obrigatória | String | O identificador do bloco de conteúdo. <br><br>Você pode encontrá-lo listando as informações do bloco de conteúdo por meio de uma chamada de API ou acessando a página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/), rolando até a parte inferior e pesquisando o identificador de API do seu bloco de conteúdo. |
+| `include_inclusion_data` | Opcional | booleano | Quando definido como `true`, a API retorna o identificador de API da variação de mensagem de Campaigns e Canvas em que esse bloco de conteúdo está incluído, para ser usado em chamadas subsequentes. Os resultados excluem Campaigns ou Canvas arquivados ou excluídos. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/content_blocks/info?content_block_id={{content_block_id}}&include_inclusion_data=false' \
@@ -41,7 +42,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/content_blocks/i
 ```
 {% endraw %}
 
-## Resposta
+## Resposta {#response}
 
 ```json
 {
@@ -59,17 +60,17 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/content_blocks/i
 }
 ```
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
 A tabela a seguir lista os possíveis erros retornados e as etapas de solução de problemas associadas.
 
 | Erro | Solução de problemas |
 | --- | --- |
-| `Content Block ID cannot be blank` | Confira se um bloco de conteúdo está listado em sua solicitação e entre aspas (`""`). |
-| `Content Block ID is invalid for this workspace` | Esse bloco de conteúdo não existe ou está em uma conta ou espaço de trabalho diferente da empresa. |
+| `Content Block ID cannot be blank` | Verifique se um bloco de conteúdo está listado na sua solicitação e está entre aspas (`""`). |
+| `Content Block ID is invalid for this workspace` | Esse bloco de conteúdo não existe ou está em uma conta de empresa ou espaço de trabalho diferente. |
 | `Content Block has been deleted—content not available` | Esse bloco de conteúdo, embora possa ter existido anteriormente, foi excluído. |
-| `Include Inclusion Data—error` | Esse parâmetro aceita apenas valores booleanos (verdadeiro ou falso). Certifique-se de que o valor de `include_inclusion_data` não esteja encapsulado entre aspas (`""`), o que faz com que o valor seja enviado como uma string. Consulte [os parâmetros da solicitação](#request-parameters) para obter detalhes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Include Inclusion Data—error` | Esse parâmetro aceita apenas valores booleanos (true ou false). Verifique se o valor de `include_inclusion_data` não está entre aspas (`""`), o que faz com que o valor seja enviado como uma string. Consulte os [parâmetros de solicitação](#request-parameters) para mais detalhes. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 
 {% endapi %}

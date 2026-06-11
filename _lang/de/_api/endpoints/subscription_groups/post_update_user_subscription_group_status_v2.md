@@ -11,7 +11,7 @@ channel:
 ---
 
 {% api %}
-# Abo-Gruppenstatus von Nutzer:innen aktualisieren (V2)
+# Abo-Gruppenstatus von Nutzer:innen aktualisieren (V2) {#update-users-subscription-group-status-v2}
 {% apimethod post %}
 /v2/subscription/status/set
 {% endapimethod %}
@@ -32,15 +32,15 @@ Um Beispiele zu sehen oder diesen Endpunkt für **WhatsApp-Gruppen** zu testen:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81a5fe65-588b-4b61-82d8-5ce68b681409 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `subscription.status.set`.
 
 {% alert note %}
-Wenn Sie diesen Endpunkt mit [LINE-Abo-Gruppen]({{site.baseurl}}/user_guide/message_building_by_channel/line/line_users/subscription_groups/) verwenden möchten, wenden Sie sich bitte an Ihren Customer-Success-Manager.
+Wenn Sie diesen Endpunkt mit [LINE-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/) verwenden möchten, wenden Sie sich bitte an Ihren Customer-Success-Manager. <br><br>Für LINE-Abo-Gruppen empfehlen wir, ein angepasstes Attribut zu verwenden, um die Einwilligung über die Website oder App separat zu verfolgen, und dann Campaigns mithilfe dieses angepassten Attributs in Kombination mit dem LINE-Abo-Status zu targeten. Dieser Ansatz stellt sicher, dass Ihr Abo-Status korrekt die Nutzer:innen widerspiegelt, die sich tatsächlich in der LINE-App angemeldet haben. Das manuelle Hinzufügen von Nutzer:innen zu LINE-Abo-Gruppen über die API kann zu nicht synchronisierten Zuständen und fehlgeschlagenen Sendungen führen, da Braze Nutzer:innen nicht erneut in der LINE-App abonnieren oder Nachrichten an Nutzer:innen senden kann, die ein Konto in LINE blockiert haben.
 {% endalert %}
 
-## Unterschiede zu V1
+## Unterschiede zu V1 {#differences-from-v1}
 
 Der V2-Endpunkt unterscheidet sich vom [V1-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) in folgenden Punkten:
 
@@ -52,11 +52,13 @@ Der V2-Endpunkt unterscheidet sich vom [V1-Endpunkt]({{site.baseurl}}/api/endpoi
 **Telefonnummernformat**: Telefonnummern müssen im [E.164-Format](https://en.wikipedia.org/wiki/E.164) angegeben werden (zum Beispiel `+12223334444`). Telefonnummern, die nicht im E.164-Format vorliegen, werden abgelehnt.
 {% endalert %}
 
+{% multi_lang_include api/orphaned_subscription_states.md %}
+
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='subscription status set' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -82,26 +84,26 @@ Authorization: Bearer YOUR-REST-API-KEY
 Bei der Erstellung neuer Nutzer:innen über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) können Sie Abo-Gruppen innerhalb des Nutzerattribut-Objekts festlegen. So können Sie in einem einzigen API-Aufruf eine:n Nutzer:in erstellen und den Abo-Gruppenstatus festlegen.
 {% endalert %}
 
-## Anfrageparameter
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Erforderlich | String | Die `id` Ihrer Abo-Gruppe. |
 | `subscription_state` | Erforderlich | String | Verfügbare Werte sind `unsubscribed` (nicht in Abo-Gruppe) oder `subscribed` (in Abo-Gruppe). |
-| `external_ids` | Erforderlich* | String-Array | Die `external_id` des Nutzers bzw. der Nutzer:innen, kann bis zu 50 `id`s umfassen. |
+| `external_ids` | Erforderlich* | String-Array | Die `external_id` der Nutzer:innen, kann bis zu 50 `id`s umfassen. |
 | `emails` | Erforderlich* | String oder String-Array | Die E-Mail-Adresse der Nutzer:innen, kann als String-Array übergeben werden. Es muss mindestens eine E-Mail-Adresse angegeben werden (maximal 50). <br><br>Wenn mehrere Nutzer:innen (`external_id`) im selben Workspace dieselbe E-Mail-Adresse haben, werden alle Nutzer:innen, die diese E-Mail-Adresse teilen, mit den Änderungen der Abo-Gruppe aktualisiert. |
-| `phones` | Erforderlich* | String im [E.164](https://en.wikipedia.org/wiki/E.164)-Format | Sie können die Telefonnummern der Nutzer:innen als String-Array übergeben. Es muss mindestens eine Telefonnummer enthalten sein (bis zu 50). Telefonnummern müssen im E.164-Format angegeben werden (zum Beispiel `+12223334444`). <br><br>Wenn mehrere Nutzer:innen (`external_id`) im selben Workspace dieselbe Telefonnummer haben, werden alle Nutzer:innen, die diese Telefonnummer teilen, mit denselben Änderungen der Abo-Gruppe aktualisiert.|
-| `use_double_opt_in_logic` | Optional | Boolescher Wert | Standardmäßig `false`, wenn nicht angegeben. Setzen Sie diesen Parameter für SMS-Abo-Gruppen auf `true`, um die Nutzer:innen in den [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/keywords/double_opt_in/)-Workflow aufzunehmen, wenn ihr Abo-Status auf `subscribed` gesetzt wird. Wenn dieser Parameter weggelassen oder auf `false` gesetzt wird, werden Nutzer:innen abonniert, ohne den Double-Opt-in-Workflow zu durchlaufen. Dieser Parameter gilt nicht für E-Mail-Abo-Gruppen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `phones` | Erforderlich* | String im [E.164](https://en.wikipedia.org/wiki/E.164)-Format | Sie können die Telefonnummern der Nutzer:innen als String-Array übergeben. Es muss mindestens eine Telefonnummer enthalten sein (bis zu 50). Telefonnummern müssen im E.164-Format angegeben werden (zum Beispiel `+12223334444`). <br><br>Wenn mehrere Nutzer:innen (`external_id`) im selben Workspace dieselbe Telefonnummer haben, werden alle Nutzer:innen, die diese Telefonnummer teilen, mit denselben Änderungen der Abo-Gruppe aktualisiert. |
+| `use_double_opt_in_logic` | Optional | Boolescher Wert | Standardmäßig `false`, wenn nicht angegeben. Setzen Sie diesen Parameter für SMS-Abo-Gruppen auf `true`, um die Nutzer:innen in den [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)-Workflow aufzunehmen, wenn ihr Abo-Status auf `subscribed` gesetzt wird. Nutzer:innen, die auf diese Weise in den Double-Opt-in-Workflow aufgenommen werden, erhalten höchstens eine Opt-in-Anfrage-Antwortnachricht pro Tag, unabhängig davon, wie oft sie in den Workflow aufgenommen werden. Wenn dieser Parameter weggelassen oder auf `false` gesetzt wird, werden Nutzer:innen abonniert, ohne den Double-Opt-in-Workflow zu durchlaufen. Dieser Parameter gilt nicht für E-Mail-Abo-Gruppen. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert important %}
-**Auswahl des Bezeichners**: 
+**Auswahl des Bezeichners**:
 - Um sowohl E-Mail- als auch SMS-Abo-Gruppen in einem einzigen API-Aufruf zu aktualisieren, verwenden Sie `external_ids`. Es ist nicht möglich, sowohl `emails` als auch `phones` in derselben Anfrage anzugeben.
 - Wenn Sie `emails` oder `phones` anstelle von `external_ids` verwenden, führen Sie separate API-Aufrufe durch – einen für E-Mail-Abo-Gruppen und einen für SMS-Abo-Gruppen.
 - Sie können `emails`, `phones` oder `external_ids` einzeln senden.
 {% endalert %}
 
-### Beispielanfragen
+### Beispielanfragen {#example-requests}
 
 Das folgende Beispiel verwendet `external_ids`, um sowohl E-Mail- als auch SMS-Abo-Gruppen in einem einzigen API-Aufruf zu aktualisieren. Dies ist nur bei Verwendung von `external_ids` möglich – bei Verwendung von `emails` oder `phones` können Sie nicht sowohl E-Mail- als auch SMS-Abo-Gruppen in einem Aufruf aktualisieren.
 
@@ -125,7 +127,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
 }
 ```
 
-## E-Mail
+## E-Mail {#email}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/status/set' \
@@ -143,7 +145,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
 '
 ```
 
-## SMS und WhatsApp
+## SMS und WhatsApp {#sms-and-whatsapp}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/status/set' \

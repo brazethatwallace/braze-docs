@@ -5,18 +5,18 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel enthält Einzelheiten zum Endpunkt Export angepasster Events Braze."
+description: "Dieser Artikel enthält Einzelheiten zum Braze-Endpunkt „Angepasste Events exportieren“."
 
 ---
 {% api %}
-# Angepasste Events exportieren
+# Angepasste Events exportieren {#export-custom-events}
 {% apimethod get %}
-/Ereignisse
+/events
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine Liste der angepassten Events zu exportieren, die für Ihre App aufgezeichnet wurden. Die Ereignisse werden in Gruppen von 50, alphabetisch sortiert, zurückgegeben.
+> Verwenden Sie diesen Endpunkt, um eine Liste der angepassten Events zu exportieren, die für Ihre App aufgezeichnet wurden. Die Events werden in Gruppen von 50, alphabetisch sortiert, zurückgegeben.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `events.get`.
 
@@ -24,18 +24,18 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='events' %}
 
-## Abfrageparameter
+## Abfrageparameter {#query-parameters}
 
-Beachten Sie, dass jeder Aufruf dieses Endpunkts 50 Ereignisse zurückgibt. Bei mehr als 50 Ereignissen verwenden Sie die Kopfzeile `Link`, um die Daten auf der nächsten Seite abzurufen, wie in der folgenden Beispielantwort gezeigt.
+Beachten Sie, dass jeder Aufruf dieses Endpunkts 50 Events zurückgibt. Bei mehr als 50 Events verwenden Sie den `Link`-Header, um die Daten auf der nächsten Seite abzurufen, wie in der folgenden Beispielantwort gezeigt.
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `cursor` | Optional | String | Bestimmt die Paginierung der angepassten Events. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Abfrageparameter" }
 
-## Beispiel-Anfragen
+## Beispielanfragen {#example-requests}
 
-### Ohne Cursor
+### Ohne Cursor {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/events' \
@@ -43,7 +43,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### Mit Cursor
+### Mit Cursor {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpcDow' \
@@ -51,7 +51,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {
@@ -69,12 +69,12 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 }
 ```
 
-### Schwerwiegende Fehler Antwortcodes {#fatal-export}
+### Antwortcodes bei schwerwiegenden Fehlern {#fatal-export}
 
-Für Statuscodes und zugehörige Nachrichten, die zurückgegeben werden, wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, referenzieren Sie [Schwerwiegende Fehler]({{site.baseurl}}/api/errors/#fatal-errors).
+Statuscodes und zugehörige Fehlermeldungen, die zurückgegeben werden, wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, finden Sie unter [Schwerwiegende Fehler]({{site.baseurl}}/api/errors/#fatal-errors).
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

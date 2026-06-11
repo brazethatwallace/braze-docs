@@ -10,6 +10,8 @@ toc_headers: h2
 
 > This is a list of reference documentation, GitHub repositories, and sample apps belonging to each Braze SDK. An SDK's reference documentation details its available classes, types, functions, and variables. While the GitHub repository provides insight into that SDK's function and attribute declarations, code changes, and versioning. Each repository also includes fully-buildable sample applications you can use to test Braze features or implement alongside your own applications.
 
+For mirrored repository README content in docs, see [Repository guides]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+
 ## List of resources
 
 {% alert note %}
@@ -28,7 +30,7 @@ Currently, some SDKs do not have dedicated reference documentation&#8212;but we'
 | Roku SDK          | N/A                                                                                                                                                         | [GitHub repository](https://github.com/braze-inc/braze-roku-sdk)            | [Sample app](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv)            |
 | Unity SDK         | [Declaration file](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)     | [GitHub repository](https://github.com/braze-inc/braze-unity-sdk)          | [Sample app](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples)          |
 | .NET MAUI SDK (formerly Xamarin)      | N/A                                                                                                                                                         | [GitHub repository](https://github.com/braze-inc/braze-xamarin-sdk)      | [Sample app](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples)      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="List of resources" }
 
 ## Building a sample app
 

@@ -16,7 +16,7 @@ RCS is a modern messaging system that offers more features than traditional SMS,
 | Visual components | Access | Throughput | MMS enabled | 1-way vs. 2-way |
 | --- | --- | --- | --- | --- |
 | - Brand name<br>- logo<br>- optional caption<br> - verified badge | 4—6 weeks for carrier approval | Throughput and delivery rely on the recipient having an active data connection (mobile data or Wi-Fi). RCS doesn’t rely on fixed network-imposed limits like SMS does; RCS messages are sent over data networks rather than the traditional cellular signaling channels used by SMS. | N/A | 2-way |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details" }
 
 ##### Pros and cons
 
@@ -24,13 +24,13 @@ RCS is a modern messaging system that offers more features than traditional SMS,
 | ---- |
 | **Verified trust and branding**<br> Unlike traditional SMS, where your brand appears as a random 5-digit short code or long code, RCS allows for verified sender profiles. These profiles include your brand's logo, name, and a "verified" checkmark. |
 | **Rich messaging features**<br> RCS supports carousels, high-resolution videos, and suggested action buttons (such as "Book Now", "Track Package", or "Pay Bill"). Users can complete complex tasks without leaving their messaging app, which can lead to higher conversion rates than a plain text link. |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 | Cons |
 | ---- |
 | **Fragmented support**<br> Though Google has pushed RCS heavily for Android, and Apple has recently introduced RCS support for iOS, the implementation can still be uneven across different carriers and regions. If a user's phone or carrier doesn't support RCS, the message usually sends as a plain SMS, consequently losing all the "rich" RCS features. |
 | **Platform inconsistencies**<br> RCS user experience varies depending on the recipient's carrier, device model, and what messaging app they use (for example, Google Messages or iMessage). |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 {% endtab %}
 {% tab SMS Short Codes %}
@@ -46,7 +46,7 @@ Some countries allow you to choose a specific number for an increased fee. These
 | Length | Access | Throughput | MMS enabled | 1-way vs. 2-way |
 | --- | --- | --- | --- | --- |
 | 5-6 digits | 4-12 week application| 100 messages per second or more | Yes | 2-way |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details" }
 
 ##### Pros and cons
 
@@ -54,14 +54,14 @@ Some countries allow you to choose a specific number for an increased fee. These
 | ---- |
 | **Speed and scalability**<br> Short codes are specifically designed for high-volume traffic. They can send messages at faster rates than long codes and, because they are pre-vetted directly by the carriers, they have the lowest risk of being flagged by automated spam filters. |
 | **Easy memorability for "Call to Action"**<br> For marketing campaigns, (for example, "Text WIN to 55555"), a short code is much easier for users to remember and type than a 10-digit number. This makes short codes the gold standard for radio, TV, and billboard advertisements, where the user only has a few seconds to see or hear the number. |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 | Cons |
 | ---- |
 | **Short codes are available in fewer countries**<br> Short codes are not available in all countries. Contact your Braze account team to inquire about countries you plan to send messages in. |
 | **Longer application process**<br> Unlike long codes and alphanumeric sender IDs, which can be provisioned within 1-2 weeks at times, a short code can take 4-12 weeks or longer to be provisioned. Every major carrier must manually approve your specific application before the code is active on their network. If you have a marketing launch next week, a short code is not an option. |
 | **Higher cost**<br> Short codes tend to be the most expensive sender type because of the setup and yearly lease fees. |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 {% endtab %}
 {% tab SMS Long Codes %}
@@ -75,7 +75,7 @@ A long code is a standard phone number used to send and receive SMS messages. Th
 | Length | Access | Throughput | MMS enabled | 1-way vs. 2-way |
 | --- | --- | --- | --- | --- |
 | 10 digits | 4-6 week application (can be shorter or longer for different countries) | In the United States, long code throughput depends on your 10DLC trust score; in international markets, throughput can vary or increase in some circumstances, but typically starts around 10 message segments per second (MPS). | Yes | 2-way (depending on where you're sending) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details" }
 
 ##### Pros and cons
 
@@ -83,13 +83,13 @@ A long code is a standard phone number used to send and receive SMS messages. Th
 | ---- |
 | **Familiarity and trust**<br> Long codes look like personal phone numbers, often including a local area code. For brands, this represents a balance between professional presence and a personal, approachable feel. |
 | **Greater availability worldwide**<br>Long codes are available in over 100 major countries worldwide. Contact your customer success manager or [Braze support]({{site.baseurl}}/braze_support/) for a list of available countries.|
-{: .reset-td-br-1}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 | Cons |
 | --- |
 | **Slower sending speeds and daily messaging limits**<br> Long codes are not built for "blast" marketing the way short codes are. If you try to send a time-sensitive flash sale to 100,000 people at once from a long code, it could take hours for all the messages to deliver. In the US, carriers like T-Mobile may also impose daily sending limits for 10DLC based on your brand's trust score. |
 | **Stricter filtering risk**<br> Because long codes look like personal phone numbers, carriers monitor them closely to prevent "person-to-person" numbers from being used for spam. Even with a registered 10DLC campaign, if your message content is too "spammy" or doesn't follow strict formatting, you have a much higher risk of being blocked by carriers compared to a pre-approved short code. |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 {% endtab %}
 {% tab SMS Alphanumeric Sender ID %}
@@ -105,14 +105,14 @@ They can have up to 11 characters and contain upper (A-Z) and lower (a-z) case l
 | Length | Access | Throughput | MMS enabled | 1-way vs. 2-way |
 | --- | --- | --- | --- | --- |
 | Up to 11 characters | Available immediately if pre-registration is not required. Otherwise, 1-4 weeks in most countries where registration is required. | Varies depending on country | No | 1-way |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details" }
 
 ##### Pros and cons
 
 | Pros | Cons |
 | ---- | ---- | 
 | {::nomarkdown} <ul><li> Improved brand recognition </li><li> In many international markets, local carriers pre-register and vet alphanumeric senders so your messages are less likely to be caught in aggressive carrier spam filters that might otherwise block random long codes </li><li> Available within 1 week if pre-registration is not required </li></ul> {:/} | {::nomarkdown} <ul><li> <a href='/docs/user_guide/message_building_by_channel/sms/keywords/#two-way-messaging-custom-keyword-responses/'>Two-way messaging</a> is not supported </li><li> Not all countries support this feature. For example, it is supported in the UK but is blocked in the US. </li><li> Some countries have an extensive pre-registration process that requires legal documentation to be submitted and longer lead times. </li></ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pros and cons" }
 
 For more information on alphanumeric sender IDs, contact your customer success manager. 
 {% endtab %}
@@ -127,7 +127,7 @@ Toll-free numbers have distinct three-digit area codes (for example, 800, 888, 8
 | Length | Access | Throughput | MMS enabled | 1-way vs. 2-way |
 | --- | --- | --- | --- | --- |
 | 10 digits	 | 2-4 week application | Starts at 3 MPS (segments per second), can be increased for additional fees | Yes | 2-way |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details" }
 
 ##### Pros and cons
 
@@ -135,13 +135,13 @@ Toll-free numbers have distinct three-digit area codes (for example, 800, 888, 8
 | ---- |
 | **Professional image**<br> Toll-free numbers are widely recognized and trusted in North America for business communication, providing a professional and authoritative touch. |
 | **Flexible throughput; no carrier sending limits**<br> Unlike standard long codes, which may set throughput or carrier sending limits depending on the country, toll-free numbers can have throughput increased to help support higher volumes and have no daily carrier sending limits in the US.|
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 | Cons |
 | --- |
 | **Impersonal and geographic neutrality**<br> Because toll-free numbers lack a local area code, they can feel too "corporate" or anonymous. For a local service business, a toll-free number may perform worse than a standard long code because it lacks the community connection and can sometimes be mistaken for a random telemarketing line. |
 | **Extra Layer of STOP Filtering**<br> Toll-Free numbers have a layer of opt-out handling outside of Braze that cannot be removed or customized. When a user texts "STOP" to your toll-free number, the user will be opted-out of further messaging from your number, and will receive a network-generated auto-reply. They will not receive further messages from your toll-free number until they text "START" to be removed from the toll-free number's blocklist. |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 {% endtab %} 
 {% endtabs %}
@@ -187,7 +187,7 @@ Braze will assist with gathering all materials and information needed to submit 
 | Terms and conditions | Comprehensive terms and conditions may be fully presented beneath the call-to-action or accessible through a link near the call-to-action. | {::nomarkdown}<ul><li>Program (brand) name</li><li>Message frequency disclosure</li><li>Product description</li><li>Customer care contact information</li><li>Opt-out information</li><li>"Message and data rates may apply" disclosure.</li></ul>{:/} |
 | Message flow | Recurring-messages programs should confirm opt-in with a single text message that explicitly states which program the user enrolled to, and provide clear opt-out instructions.<br><br> Braze processes opt-in, opt-out, and help messages, automatically updating the subscription group state for the user and their associated phone number on all inbound requests.<br><br> Note that these default keywords and responses may also be customized. | {::nomarkdown}<ul><li>Opt-In Confirmation:<ul><li>Program (brand) name OR product description</li><li>Opt-out information</li><li>Customer care contact information</li><li>Message frequency disclosure</li><li>"Message and data rates may apply" disclosure.</li></ul></li><li>HELP response:<ul><li>Program (brand) name OR product description</li><li>Customer care contact information (support email or phone number).</li></ul></li><li>Opt-out (STOP) response:<ul><li>Program (brand) name OR product description</li><li>Confirmation that no further messages will be delivered.</li></ul></li></ul>{:/} |
 | Program messages | Program messages are sent in the normal course of the Short Code program, after the user has received an opt-in confirmation. | {::nomarkdown}<ul><li>Opt-out instructions should be provided at regular intervals and at least once per month.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS short codes" }
 
 When all your application materials are ready, Braze submits the application to our providers on your behalf. The application is then reviewed and approved by local operators who may provide additional feedback or request additional information. After all operators give approval, you can immediately configure the short code for use in Braze.
 

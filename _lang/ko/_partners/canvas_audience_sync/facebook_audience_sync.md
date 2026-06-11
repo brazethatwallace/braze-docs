@@ -1,222 +1,230 @@
 ---
 nav_title: Facebook
-article_title: Canvas Audience Sync to Facebook
-description: "This reference article will cover how to use Braze Audience Sync to Facebook to deliver advertisements based upon behavioral triggers, segmentation, and more."
+article_title: Facebook으로 Canvas 오디언스 동기화
+description: "이 참조 문서에서는 Braze 오디언스 동기화를 Facebook에 사용하여 행동 트리거, 세분화 등을 기반으로 광고를 전달하는 방법을 다룹니다."
 page_order: 2
 alias: /audience_sync_facebook/
 
-Tool:
+tool:
   - Canvas
 
 ---
 
-# Audience Sync to Facebook
+# Facebook으로 오디언스 동기화 {#audience-sync-to-facebook}
 
-> Using the Braze Audience Sync to Facebook, you can elect to add your own users' data from your Braze integration to Facebook custom audiences to deliver advertisements based on behavioral triggers, segmentation, and more.
+> Braze 오디언스 동기화를 Facebook에 사용하면 Braze 통합에서 자체 사용자 데이터를 Facebook 커스텀 오디언스에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 전달할 수 있습니다.
 
-Any criteria you'd typically use to trigger a message (push, email, SMS, or webhook) in a Braze Canvas based on your user data can now be used to trigger an ad to that user in Facebook using custom audiences. 예를 들어 오디언스 동기화를 Facebook에 구성하면 이메일, 전화, 이름, 성 등 다양한 퍼스트 파티 필드를 사용할 수 있습니다.
+사용자 데이터를 기반으로 Braze Canvas에서 메시지(푸시, 이메일, SMS 또는 웹훅)를 트리거하는 데 일반적으로 사용하는 모든 기준을 이제 커스텀 오디언스를 사용하여 Facebook에서 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다. 예를 들어 오디언스 동기화를 Facebook에 구성하면 이메일, 전화, 이름, 성 등 다양한 퍼스트파티 필드를 사용할 수 있습니다.
 
-**Common use cases for syncing custom audiences include**:
+**커스텀 오디언스 동기화의 일반적인 사용 사례는 다음과 같습니다**:
 
-- Targeting high-value users with multiple channels to drive purchases or engagement.
-- Retargeting users who are less responsive to other marketing channels.
-- Creating suppression audiences to prevent users from receiving advertisements when they're already loyal consumers of your brand.
-- Creating lookalike audiences to acquire new users more efficiently.
+- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 참여를 유도합니다.
+- 다른 마케팅 채널에 반응이 적은 사용자를 리타겟팅합니다.
+- 이미 브랜드의 충성 고객인 사용자가 광고를 받지 않도록 억제 오디언스를 생성합니다.
+- 유사 오디언스를 생성하여 신규 사용자를 더 효율적으로 확보합니다.
 
-This feature allows brands to control what specific first-party data is shared with Facebook. At Braze, the integrations you can and cannot share your first-party data with are given the utmost consideration. For more information, refer to our [privacy policy](https://www.braze.com/privacy).
+이 기능을 통해 브랜드는 Facebook과 공유되는 특정 퍼스트파티 데이터를 제어할 수 있습니다. Braze에서는 퍼스트파티 데이터를 공유할 수 있는 통합과 공유할 수 없는 통합에 대해 최대한 신중하게 고려합니다. 자세한 내용은 [개인정보 보호정책](https://www.braze.com/privacy)을 참조하세요.
 
-## User syncing and rate limit considerations
- 
-사용자가 오디언스 동기화 단계에 도달하면, Braze는 Facebook의 마케팅 API 속도 제한을 준수하면서 거의 실시간으로 동기화합니다. Braze는 5초마다 가능한 한 많은 사용자를 일괄 처리하여 Facebook으로 전송합니다. 
+## 사용자 동기화 및 사용량 제한 고려 사항 {#user-syncing-and-rate-limit-considerations}
 
-Facebook의 마케팅 API 속도 제한에 따라 광고 계정당 1시간 동안 최대 190,000건의 API 요청을 허용하지 않습니다. 고객이 이 제한에 도달하면 Braze는 최대 13시간 동안 동기화를 다시 시도합니다. 그래도 동기화가 되지 않으면 Braze는 이러한 사용자를 사용자 오류 측정기준 아래에 나열합니다.
+사용자가 오디언스 동기화 단계에 도달하면, Braze는 Facebook의 마케팅 API 사용량 제한을 준수하면서 거의 실시간으로 동기화합니다. Braze는 5초마다 가능한 한 많은 사용자를 일괄 처리하여 Facebook으로 전송합니다.
 
-## 필수 조건
+Facebook의 마케팅 API 사용량 제한에 따라 광고 계정당 1시간 동안 최대 &#126;190,000건의 API 요청이 허용됩니다. 고객이 이 제한에 도달하면 Braze는 최대 &#126;13시간 동안 동기화를 다시 시도합니다. 그래도 동기화가 되지 않으면 Braze는 이러한 사용자를 오류 발생 사용자 측정기준 아래에 나열합니다.
 
-You'll need to confirm that you have the following items created and completed before setting up your Facebook Audience step in Canvas. 
+## 필수 조건 {#prerequisites}
 
-| Requirement | Origin | Description |
+Canvas에서 Facebook 오디언스 단계를 설정하기 전에 다음 항목이 생성되고 완료되었는지 확인해야 합니다.
+
+| 요구 사항 | 출처 | 설명 |
 | ----------- | ------ | ----------- |
-| Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | A centralized tool to manage your brand's Facebook assets (for example, ad accounts, pages, and apps). |
-| Facebook Ad Account | [Facebook](https://www.facebook.com/business/help/910137316041095) | An active Facebook ad account tied to your brand's business manager.<br><br>Ensure that your Facebook Business Manager admin has granted you either "Manage Campaigns" or "Manage ad accounts" permissions to the Facebook ad accounts you plan to use with Braze. Also, ensure that you have accepted your ad account terms and conditions. |
-| Facebook Custom Audiences Terms | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Accept Facebook's Custom Audiences Terms for your Facebook ad accounts you plan to use with Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Facebook 비즈니스 매니저 | [Facebook](https://www.facebook.com/business/help/113163272211510) | 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구입니다. |
+| Facebook 광고 계정 | [Facebook](https://www.facebook.com/business/help/910137316041095) | 브랜드의 비즈니스 매니저에 연결된 활성 Facebook 광고 계정입니다.<br><br>Facebook 비즈니스 매니저 관리자가 Braze와 함께 사용할 Facebook 광고 계정에 대해 "Manage Campaigns" 또는 "Manage ad accounts" 권한을 부여했는지 확인하세요. 또한 광고 계정 이용약관에 동의했는지 확인하세요. |
+| Facebook 커스텀 오디언스 약관 | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Braze와 함께 사용할 Facebook 광고 계정에 대해 Facebook의 커스텀 오디언스 약관에 동의하세요. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Connect to Facebook
+### 1단계: Facebook에 연결하기 {#step-1-connect-to-facebook}
 
 {% alert important %}
-Facebook을 Braze 계정에 연결하려면 ['관리자' 권한이]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) 있어야 합니다.
+Facebook을 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)이 있어야 합니다.
 {% endalert %}
 
-In the Braze dashboard, go to **Partner Integrations** > **Technology Partners** and select **Facebook**. Under Facebook Audience Export, select **Connect Facebook**.
+Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동하여 **Facebook**을 선택합니다. Facebook 오디언스 내보내기에서 **Connect Facebook**을 선택합니다.
 
-![개요 섹션과 연결된 페이스북 버튼이 있는 페이스북 오디언스 내보내기 섹션이 포함된 Braze의 페이스북 기술 페이지입니다.]({% image_buster /assets/img/fb/afb_1.png %}){: style="max-width:85%;"}
+![개요 섹션과 Connect Facebook 버튼이 있는 Facebook 오디언스 내보내기 섹션이 포함된 Braze의 Facebook 기술 페이지입니다.]({% image_buster /assets/img/fb/afb_1.png %}){: style="max-width:85%;"}
 
 Facebook 광고 계정에 커스텀 오디언스를 생성할 수 있도록 Braze에 권한을 부여하는 Facebook oAuth 대화창이 나타납니다.
 
-!['X로 연결'이라는 프롬프트가 표시된 첫 번째 Facebook 대화 상자. 여기서, X는 Facebook 사용자 아이디입니다.]({% image_buster /assets/img/fb/afb_3.png %}){: style="max-width:30%;"}  ![광고 계정에 대한 광고 관리 권한을 묻는 두 번째 Facebook 대화 상자입니다.]({% image_buster /assets/img/fb/afb_2.png %}){: style="max-width:40%;"}
+!["X로 연결"이라는 프롬프트가 표시된 첫 번째 Facebook 대화 상자. 여기서 X는 Facebook 사용자 이름입니다.]({% image_buster /assets/img/fb/afb_3.png %}){: style="max-width:30%;"}  ![광고 계정에 대한 광고 관리 권한을 묻는 두 번째 Facebook 대화 상자입니다.]({% image_buster /assets/img/fb/afb_2.png %}){: style="max-width:40%;"}
 
-After linking Braze to your Facebook account, select the ad accounts you would like to sync within your Braze workspace. When you're connected, you'll be taken back to the partner page, where you can view which accounts are connected and disconnect existing accounts.
+Braze를 Facebook 계정에 연결한 후 Braze 워크스페이스 내에서 동기화할 광고 계정을 선택합니다. 연결되면 파트너 페이지로 돌아가서 연결된 계정을 확인하고 기존 계정의 연결을 해제할 수 있습니다.
 
 ![Facebook 기술 파트너 페이지의 업데이트된 버전으로 광고 계정이 성공적으로 연결되었음을 보여줍니다.]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:85%;"}
 
-Facebook 연결은 Braze 워크스페이스 수준에서 적용됩니다. If your Facebook admin removes you from your Facebook Business Manager or access to the connected Facebook accounts, Braze will detect an invalid token. As a result, your active Canvases using Facebook Audience components will show errors, and Braze will not be able to sync users. 
+Facebook 연결은 Braze 워크스페이스 수준에서 적용됩니다. Facebook 관리자가 Facebook 비즈니스 매니저에서 사용자를 제거하거나 연결된 Facebook 계정에 대한 액세스를 제거하면 Braze는 유효하지 않은 토큰을 감지합니다. 그 결과 Facebook 오디언스 구성요소를 사용하는 활성 Canvases에 오류가 표시되며, Braze는 사용자를 동기화할 수 없게 됩니다.
 
 {% alert important %}
-For customers who have previously undergone the Facebook App Review process for [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) and [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard), your System User Token will still be valid for the Facebook Audience component. Facebook 파트너 페이지를 통해서는 Facebook 시스템 사용자 토큰을 편집하거나 취소할 수 없습니다. Instead, you can connect your Facebook account to replace your Facebook System User Token within your Braze workspace. 
+이전에 [광고 관리](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) 및 [광고 관리 표준 액세스](https://developers.facebook.com/docs/marketing-api/access#standard)에 대한 Facebook 앱 검토 프로세스를 거친 고객의 경우, 시스템 사용자 토큰은 Facebook 오디언스 구성요소에 대해 여전히 유효합니다. Facebook 파트너 페이지를 통해서는 Facebook 시스템 사용자 토큰을 편집하거나 취소할 수 없습니다. 대신 Facebook 계정을 연결하여 Braze 워크스페이스 내에서 Facebook 시스템 사용자 토큰을 교체할 수 있습니다.
 
-<br><br>The Facebook oAuth configuration will also apply to [Facebook exports using Segments]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites).
+<br><br>Facebook oAuth 구성은 [Segments를 사용한 Facebook 내보내기]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)에도 적용됩니다.
 {% endalert %}
 
-### Step 2: Accept custom audiences terms of service
+### 2단계: 커스텀 오디언스 서비스 약관 동의하기 {#step-2-accept-custom-audiences-terms-of-service}
 
-Before building out your Canvas, you must accept the following Facebook terms of service at the following links:
+Canvas를 구축하기 전에 다음 링크에서 Facebook 서비스 약관에 동의해야 합니다:
 
-- **Customer List Custom Audiences Terms for your personal account:** `https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`.
+- **개인 계정에 대한 고객 목록 커스텀 오디언스 약관:** `https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`.
 - **비즈니스 계정에 대한 Facebook 비즈니스 도구 약관:** `https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`.
 
-![고객 목록 맞춤 오디언스에 대해 수락해야 할 약관의 예입니다.]({% image_buster /assets/img/fb_audience_sync/fb_sync_tos.png %}){: style="max-width:85%;"}
+![고객 목록 커스텀 오디언스에 대해 수락해야 할 약관의 예입니다.]({% image_buster /assets/img/fb_audience_sync/fb_sync_tos.png %}){: style="max-width:85%;"}
 ![Facebook 비즈니스 도구에 대해 수락해야 할 약관의 예입니다.]({% image_buster /assets/img/fb_audience_sync/fb_sync_tos2.png %}){: style="max-width:85%;"}
 
-통합 시 Facebook 계정을 감사하는 데 대한 자세한 내용은 [FAQ 섹션](#terms)을 참조하십시오.
+통합 시 Facebook 계정을 감사하는 데 대한 자세한 내용은 [FAQ 섹션](#terms)을 참조하세요.
 
-### 3단계: 캔버스에 Facebook 오디언스 컴포넌트 추가하기
+### 3단계: Canvas에 Facebook 오디언스 구성요소 추가하기 {#step-3-add-a-facebook-audience-component-in-canvas}
 
-Add a component in your Canvas and select **Facebook Audience**.
+Canvas에 구성요소를 추가하고 **Facebook Audience**를 선택합니다.
 
-![Canvas에 추가할 구성 요소 목록입니다.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Audience Sync 구성 요소입니다.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Canvas에 추가할 구성요소 목록입니다.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![오디언스 동기화 구성요소입니다.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
-### 4단계: Sync setup
+### 4단계: 동기화 설정 {#step-4-sync-setup}
 
-Select on the **Custom Audience** button to open the component editor. 그런 다음 **Facebook**을(를) 오디언스 동기화 파트너로 선택합니다.
+**Custom Audience** 버튼을 선택하여 구성요소 편집기를 엽니다. 그런 다음 **Facebook**을 오디언스 동기화 파트너로 선택합니다.
 
-!["오디언스 동기화 설정"에서 파트너 선택 옵션이 있습니다.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![파트너 선택 옵션이 있는 "오디언스 동기화 설정" 화면입니다.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
-Select the desired Facebook ad account. Under the **Choose a New or Existing Audience** dropdown, type in the name of a new or existing audience. 
+원하는 Facebook 광고 계정을 선택합니다. **Choose a New or Existing Audience** 드롭다운에서 새 오디언스 또는 기존 오디언스의 이름을 입력합니다.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab 새 오디언스 생성 %}
 
-1. Enter a name for the new custom audience.
-2. Select **Add Users to Audience**, and choose the fields you would like to sync with Facebook. 
-3. Next, select **Create Audience** to save your audience.
+1. 새 커스텀 오디언스의 이름을 입력합니다.
+2. **Add Users to Audience**를 선택하고 Facebook과 동기화할 필드를 선택합니다.
+3. 그런 다음 **Create Audience**를 선택하여 오디언스를 저장합니다.
 
-![이메일, 전화, 이름, 성 정보가 일치하는 오디언스에 대한 오디언스 동기화 설정을 지정할 수 있습니다.]({% image_buster /assets/img/audience_sync/fb_sync.png %})
+![이메일, 전화, 이름, 성 정보가 일치하는 오디언스에 대한 오디언스 동기화 설정입니다.]({% image_buster /assets/img/audience_sync/fb_sync.png %})
 
-You'll be notified at the top of the step editor if the audience is created successfully or if an error occurs during this process. You can also reference this audience for user removal later in the Canvas journey because the audience was created in draft mode.
+오디언스가 성공적으로 생성되었거나 이 과정에서 오류가 발생하면 단계 편집기 상단에 알림이 표시됩니다. 오디언스가 초안 모드로 생성되었으므로 나중에 Canvas 여정에서 사용자 제거를 위해 이 오디언스를 참조할 수도 있습니다.
 
-When you launch a Canvas with a new audience, Braze will create the new custom audience upon launching the Canvas and subsequently sync users in near real-time as they enter the Audience Sync step.
+새 오디언스로 Canvas를 시작하면 Braze는 Canvas 시작 시 새 커스텀 오디언스를 생성하고, 이후 사용자가 오디언스 동기화 단계에 진입하면 거의 실시간으로 동기화합니다.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab 기존 오디언스와 동기화 %}
 
-Braze offers the ability to either add or remove users from existing Facebook custom audiences to confirm that these audiences are up-to-date. To sync with an existing audience, do the following:
+Braze는 기존 Facebook 커스텀 오디언스에서 사용자를 추가하거나 제거하여 이러한 오디언스를 최신 상태로 유지할 수 있는 기능을 제공합니다. 기존 오디언스와 동기화하려면 다음을 수행하세요:
 
-1. Type the existing audience name in the dropdown.
-2. Choose whether you want to **Add to the Audience** or **Remove from the Audience**. 
-3. Braze will either add or remove users in near real-time as they enter the Facebook Audience step. 
+1. 드롭다운에서 기존 오디언스 이름을 입력합니다.
+2. **Add to the Audience** 또는 **Remove from the Audience** 중 원하는 옵션을 선택합니다.
+3. Braze는 사용자가 Facebook 오디언스 단계에 진입하면 거의 실시간으로 사용자를 추가하거나 제거합니다.
 
 ![오디언스 동기화 설정을 통해 이메일, 전화, 이름, 성 정보를 제거할 수 있습니다.]({% image_buster /assets/img/audience_sync/fb_sync3.png %})
 
 {% alert important %}
-Facebook prohibits removing users from custom audiences where the audience sizes are too low (typically fewer than 1,000 users). 그 결과, Braze는 오디언스가 적절한 오디언스 규모에 도달할 때까지 오디언스 동기화 단계에서 사용자를 동기화할 수 없습니다.
+Facebook은 오디언스 크기가 너무 작은(일반적으로 1,000명 미만) 커스텀 오디언스에서 사용자를 제거하는 것을 금지합니다. 그 결과, Braze는 오디언스가 적절한 규모에 도달할 때까지 오디언스 동기화 단계에서 사용자 제거를 동기화할 수 없습니다.
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-### Step 5: Launch Canvas
+### 5단계: Canvas 시작하기 {#step-5-launch-canvas}
 
-After configuring your Facebook Audience component, it's time to launch the Canvas! 새로운 커스텀 오디언스가 생성되고, Facebook 오디언스 단계를 통해 유입된 사용자는 Facebook에서 이 커스텀 오디언스로 전달됩니다. If your Canvas contains subsequent steps, your users will then advance to the next step in their user journey.
+Facebook 오디언스 구성요소를 구성한 후 Canvas를 시작할 차례입니다! 새로운 커스텀 오디언스가 생성되고, Facebook 오디언스 단계를 통해 유입된 사용자는 Facebook에서 이 커스텀 오디언스로 전달됩니다. Canvas에 후속 단계가 포함되어 있으면 사용자는 사용자 여정의 다음 단계로 진행합니다.
 
-The **History** tab of the custom audience in the Facebook Audience Manager will reflect the number of users sent to the audience from Braze. 사용자가 해당 단계에 다시 들어가면 Facebook으로 다시 전송됩니다.
+Facebook 오디언스 매니저에서 커스텀 오디언스의 **History** 탭에는 Braze에서 오디언스로 전송된 사용자 수가 반영됩니다. 사용자가 해당 단계에 다시 들어가면 Facebook으로 다시 전송됩니다.
 
 ![활동, 활동 세부 정보, 변경된 항목, 날짜 및 시간에 대한 열이 있는 오디언스 기록 표가 포함된 특정 Facebook 오디언스에 대한 오디언스 세부 정보 및 기록 탭.]({% image_buster /assets/img/fb_audience_sync/audience_history.png %}){: style="max-width:80%;"}
 
-## Understanding analytics
+## 분석 이해하기 {#understanding-analytics}
 
-The following table includes metrics and descriptions to help you better understand analytics from your Audience Sync component.
+다음 표에는 오디언스 동기화 구성요소의 분석을 더 잘 이해하는 데 도움이 되는 측정기준과 설명이 포함되어 있습니다.
 
-| Metric | Description |
+| 측정기준 | 설명 |
 | --- | --- |
-| Entered | Number of users who entered this component to be synced to Facebook. |
-| Proceeded to Next Step | How many users advanced to the next component, if there is one. All users will auto-advance if this is the last step in the Canvas branch. |
-| Users Synced | Number of users who have successfully been synced to Facebook. |
-| Users Not Synced | Number of users that have not been synced due to missing fields to match. Fields are matched using an "OR" operator, meaning as long as a user has one of the fields in Facebook, Facebook will match the user even if there's no match on all other fields. |
-| Users Pending | Number of users currently being processed by Braze to sync into Facebook. |
-| Users Errored | Number of users who were not synced to Facebook due to an API error after about 13 hours of retries. Potential causes of errors can include an invalid Facebook token or if the custom audience was deleted on Facebook. |
-| Exited Canvas | Number of users who have exited the Canvas. This occurs when the last step in a Canvas is a Facebook step. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 진입함 | Facebook에 동기화하기 위해 이 구성요소에 진입한 사용자 수입니다. |
+| 다음 단계로 진행함 | 다음 구성요소로 진행한 사용자 수입니다(다음 구성요소가 있는 경우). Canvas 브랜치의 마지막 단계인 경우 모든 사용자가 자동으로 진행합니다. |
+| 동기화된 사용자 | Facebook에 성공적으로 동기화된 사용자 수입니다. |
+| 동기화되지 않은 사용자 | 일치시킬 필드가 누락되어 동기화되지 않은 사용자 수입니다. 필드는 "OR" 연산자를 사용하여 일치시키므로, 사용자가 Facebook의 필드 중 하나만 있으면 다른 모든 필드에서 일치하지 않더라도 Facebook이 해당 사용자를 일치시킵니다. |
+| 대기 중인 사용자 | 현재 Braze에서 Facebook으로 동기화하기 위해 처리 중인 사용자 수입니다. |
+| 오류 발생 사용자 | 약 13시간의 재시도 후 API 오류로 인해 Facebook에 동기화되지 않은 사용자 수입니다. 오류의 잠재적 원인에는 유효하지 않은 Facebook 토큰 또는 Facebook에서 커스텀 오디언스가 삭제된 경우가 포함됩니다. |
+| Canvas 종료함 | Canvas를 종료한 사용자 수입니다. Canvas의 마지막 단계가 Facebook 단계인 경우 발생합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
-동기화된 사용자에 대한 보고가 지연되고 내부 처리로 인해 측정기준에 오류가 발생했습니다.
+동기화된 사용자 및 오류 발생 사용자 측정기준에 대한 보고는 내부 처리로 인해 지연될 수 있습니다.
 {% endalert %}
 
-## Frequently asked questions
+## 자주 묻는 질문 {#frequently-asked-questions}
 
-### How long does it take for my audiences to populate in my Audience Sync partner dashboard?
+### 오디언스 동기화 파트너 대시보드에서 오디언스가 채워지는 데 얼마나 걸리나요? {#how-long-does-it-take-for-my-audiences-to-populate-in-my-audience-sync-partner-dashboard}
 
-The time it takes to populate an audience depends on the specific partner. All networks will process the requests from Braze and attempt to match users. It can take up to 24 hours for custom audiences to be updated.
+오디언스가 채워지는 데 걸리는 시간은 특정 파트너에 따라 다릅니다. 모든 네트워크는 Braze의 요청을 처리하고 사용자를 일치시키려고 시도합니다. 커스텀 오디언스가 업데이트되는 데 최대 24시간이 걸릴 수 있습니다.
 
-### What should I do next if I receive an invalid token error?
+### 유효하지 않은 토큰 오류를 받으면 어떻게 해야 하나요? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-You can simply disconnect and reconnect your Facebook account on the Facebook partner page. Confirm with your Facebook Business Manager admin that you have the appropriate permissions to the ad account you wish to sync with.
+Facebook 파트너 페이지에서 Facebook 계정의 연결을 해제하고 다시 연결하면 됩니다. Facebook 비즈니스 매니저 관리자에게 동기화하려는 광고 계정에 대한 적절한 권한이 있는지 확인하세요.
 
-### Why is my Canvas not allowed to launch?
+### Canvas를 시작할 수 없는 이유는 무엇인가요? {#why-is-my-canvas-not-allowed-to-launch}
 
-- Make sure your system user token is authenticated and has access to the desired ad accounts in Facebook Business Manager.
-- Make sure you have selected an ad account, entered a name for the new custom audience, and selected fields to match.
-- You may have reached the 500 custom audience limit on Facebook. Go to the Facebook Audience Manager to delete some unneeded ones before creating any new custom audiences using Canvas.
+- 시스템 사용자 토큰이 인증되었고 Facebook 비즈니스 매니저에서 원하는 광고 계정에 대한 액세스 권한이 있는지 확인하세요.
+- 광고 계정을 선택하고, 새 커스텀 오디언스의 이름을 입력하고, 일치시킬 필드를 선택했는지 확인하세요.
+- Facebook에서 500개의 커스텀 오디언스 제한에 도달했을 수 있습니다. Facebook 오디언스 매니저로 이동하여 Canvas를 사용하여 새 커스텀 오디언스를 생성하기 전에 불필요한 오디언스를 삭제하세요.
 
-### How do I know if users have matched after passing users to Facebook?
+### 사용자를 Facebook에 전달한 후 사용자가 일치했는지 어떻게 알 수 있나요? {#how-do-i-know-if-users-have-matched-after-passing-users-to-facebook}
 
-Facebook doesn't provide this information for privacy reasons.
+Facebook은 개인정보 보호를 위해 이 정보를 제공하지 않습니다.
 
-### Does Braze support value-based custom audiences?
+### Braze는 가치 기반 커스텀 오디언스를 지원하나요? {#does-braze-support-value-based-custom-audiences}
 
-At this time, value-based custom audiences aren't supported by Braze. If you're interested in syncing these types of custom audiences, submit [product feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal/).
+현재 가치 기반 커스텀 오디언스는 Braze에서 지원되지 않습니다. 이러한 유형의 커스텀 오디언스를 동기화하는 데 관심이 있으시면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal/)을 제출해 주세요.
 
-### Does Braze hash data before sending it to Audience Sync partners?
+### Braze는 오디언스 동기화 파트너에게 데이터를 보내기 전에 해시 처리하나요? {#does-braze-hash-data-before-sending-it-to-audience-sync-partners}
 
-Once email data is normalized, Braze hashes it with SHA256.
+이메일 데이터가 정규화되면 Braze는 SHA256으로 해시 처리합니다.
 
-**IDFA/AAID/전화:** SHA256으로 Braze 해시. The audience types we sync to are always one of the following:
+**IDFA/AAID/전화:** Braze는 SHA256으로 해시 처리합니다. 동기화하는 오디언스 유형은 항상 다음 중 하나입니다:
 
 - IDFA_SHA256
 - AAID_SHA256
 - EMAIL_SHA256
 - PHONE_SHA256.
 
-In terms of frequency, Braze will only hash user personally identifiable information (PII) as users enter into the Audience Sync step in the user journey in preparation for the sync.
+빈도 측면에서 Braze는 동기화 준비를 위해 사용자가 사용자 여정의 오디언스 동기화 단계에 진입할 때만 사용자 개인 식별 정보(PII)를 해시 처리합니다.
 
-### How do I resolve an issue with syncing a value-based lookalike custom audience?
+### 가치 기반 유사 커스텀 오디언스 동기화 문제를 어떻게 해결하나요? {#how-do-i-resolve-an-issue-with-syncing-a-value-based-lookalike-custom-audience}
 
-At this time, value-based lookalike custom audiences are not supported by Braze. If you attempt to sync to this audience, this can cause errors for your Audience Sync step. To resolve this, follow these steps:
+현재 가치 기반 유사 커스텀 오디언스는 Braze에서 지원되지 않습니다. 이 오디언스에 동기화를 시도하면 오디언스 동기화 단계에서 오류가 발생할 수 있습니다. 이를 해결하려면 다음 단계를 따르세요:
 
-1. Go to your Facebook Ad Manager dashboard and select **Audiences**.
-2. Select **Create audience** > **Custom audience**.
-3. Select **Customer list**.
-4. Upload your CSV or list without the **Value** column. Select **No, continue with a customer list that doesn't include customer value**.
-5. Finish creating your custom audience.
-6. In Braze, update the Facebook Audience Sync step with the custom audience you created.
+1. Facebook 광고 매니저 대시보드로 이동하여 **Audiences**를 선택합니다.
+2. **Create audience** > **Custom audience**를 선택합니다.
+3. **Customer list**를 선택합니다.
+4. **Value** 열 없이 CSV 또는 목록을 업로드합니다. **No, continue with a customer list that doesn't include customer value**를 선택합니다.
+5. 커스텀 오디언스 생성을 완료합니다.
+6. Braze에서 생성한 커스텀 오디언스로 Facebook 오디언스 동기화 단계를 업데이트합니다.
 
-### I’ve received an email related to Facebook custom audience terms of service. What should I do to resolve this?
+### Facebook 커스텀 오디언스 서비스 약관과 관련된 이메일을 받았습니다. 이를 해결하려면 어떻게 해야 하나요? {#ive-received-an-email-related-to-facebook-custom-audience-terms-of-service-what-should-i-do-to-resolve-this}
 
-Facebook 오디언스 동기화 기능을 사용하려면 본 서비스 약관에 동의해야 합니다. 
+Facebook 오디언스 동기화 기능을 사용하려면 이 서비스 약관에 동의해야 합니다.
 
-- If your ad account is directly associated with your personal Facebook account, you can accept the terms of service from in your personal account here: `https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`.
+- 광고 계정이 개인 Facebook 계정에 직접 연결된 경우, 여기에서 개인 계정의 서비스 약관에 동의할 수 있습니다: `https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`.
 - 광고 계정이 회사의 비즈니스 매니저 계정에 연결된 경우, Facebook 비즈니스 매니저 계정에서 서비스 약관에 동의해야 합니다: `https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`.
 
-After you have accepted your Facebook custom audience terms of service, do the following:
+Facebook 커스텀 오디언스 서비스 약관에 동의한 후 다음을 수행하세요:
 
-1. Refresh your Facebook access token with Braze by disconnecting and reconnecting your Facebook account.
-2. Re-enable your Facebook Audience Sync step by editing and updating your Canvas.
+1. Facebook 계정의 연결을 해제하고 다시 연결하여 Braze에서 Facebook 액세스 토큰을 새로고침합니다.
+2. Canvas를 편집하고 업데이트하여 Facebook 오디언스 동기화 단계를 다시 활성화합니다.
 
-Then, Braze can sync users as soon as they reach the Facebook Audience Sync step.
+그러면 Braze는 사용자가 Facebook 오디언스 동기화 단계에 도달하는 즉시 사용자를 동기화할 수 있습니다.
 
-## Troubleshooting
+### **Connected Facebook** 및 **Number of Facebook Friends Using App** 필터는 어떻게 되었나요? {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
+
+**Number of Facebook Friends Using App** 및 **Connected Facebook** Braze 세분화 필터는 더 이상 사용되지 않습니다. Facebook과 Braze SDK는 더 이상 해당 필터가 의존하던 기본 데이터를 수집하지 않습니다.
+
+더 이상 사용되지 않는 필터를 커스텀 속성, 커스텀 이벤트 또는 참여 기반 Segments로 대체하세요. 예를 들어 **Connected Facebook** 대신 Facebook 로그인 또는 소셜 연결을, **Number of Facebook Friends Using App** 대신 추천, 초대, 공유를 사용할 수 있습니다.
+
+Canvas 리타겟팅의 경우 [4단계: 동기화 설정](#step-4-sync-setup)에서 설명한 대로 이메일, 전화, 이름, 성으로 사용자를 일치시킵니다. 도달 범위를 확장하려면 고가치 Segment를 Facebook에 동기화하고 Meta 광고 매니저에서 유사 오디언스를 생성하세요.
+
+## 문제 해결 {#troubleshooting}
 
 <style>
 table th:nth-child(1) {
@@ -233,112 +241,126 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Troubleshooting">
   <thead>
     <tr>
-      <th>Error</th>
-      <th>Description</th>
-      <th>Steps to resolve</th>
+      <th>오류</th>
+      <th>설명</th>
+      <th>해결 단계</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><b>Invalid Token</b></td>
-      <td>Typical causes are if the user who connected the integration changes their password, credentials expire, and more.</td>
-      <td>Go to <b>Partner Integrations</b> > <b>Facebook</b> and disconnect and reconnect your account. Refer to <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>this troubleshooting section</a> for additional steps to audit your Facebook account.</td>
+      <td><b>유효하지 않은 토큰</b></td>
+      <td>일반적인 원인은 통합을 연결한 사용자가 비밀번호를 변경하거나, 자격 증명이 만료되는 경우 등입니다.</td>
+      <td><b>파트너 통합</b> > <b>Facebook</b>으로 이동하여 계정의 연결을 해제하고 다시 연결합니다. Facebook 계정을 감사하기 위한 추가 단계는 <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>이 문제 해결 섹션</a> 을 참조하세요.</td>
     </tr>
     <tr>
-      <td><b>Audience Size Too Low</b></td>
-      <td>This error can occur if you created an Audience Sync step that removes users from your audiences. If your audience size approaches zero, the network may flag that the audience size is too small to serve.</td>
-      <td> Use an Audience Sync strategy that regularly adds and removes users, where it doesn’t fully deplete the audience size.</td>
+      <td><b>오디언스 크기가 너무 작음</b></td>
+      <td>이 오류는 오디언스에서 사용자를 제거하는 오디언스 동기화 단계를 생성한 경우 발생할 수 있습니다. 오디언스 크기가 0에 가까워지면 네트워크에서 오디언스 크기가 너무 작아 서비스할 수 없다고 표시할 수 있습니다.</td>
+      <td>오디언스 크기를 완전히 소진하지 않도록 정기적으로 사용자를 추가하고 제거하는 오디언스 동기화 전략을 사용하세요.</td>
     </tr>
     <tr>
-      <td><b>Audience Does Not Exist</b></td>
-      <td>The Audience Sync step uses an audience that does not exist or was deleted. This can also be triggered if you no longer have the necessary permission to access the audience.</td>
-      <td>Have an admin check on the partner platform to see whether the audience still exists. <br><br>If it exists, confirm whether the user who connected the integration has permission to the audience. If they do not, the user must be granted access to that audience. <br><br>If the audience was intentionally removed, add an active audience and create a new audience on the step.</td>
+      <td><b>오디언스가 존재하지 않음</b></td>
+      <td>오디언스 동기화 단계가 존재하지 않거나 삭제된 오디언스를 사용합니다. 오디언스에 액세스하는 데 필요한 권한이 더 이상 없는 경우에도 트리거될 수 있습니다.</td>
+      <td>관리자에게 파트너 플랫폼에서 오디언스가 여전히 존재하는지 확인하도록 요청하세요. <br><br>존재하는 경우, 통합을 연결한 사용자가 오디언스에 대한 권한이 있는지 확인합니다. 권한이 없는 경우 해당 오디언스에 대한 액세스 권한을 부여해야 합니다. <br><br>오디언스가 의도적으로 제거된 경우, 활성 오디언스를 추가하고 해당 단계에서 새 오디언스를 생성합니다.</td>
     </tr>
     <tr>
-      <td><b>Ad Account Access Attempt</b></td>
-      <td>You don’t have permissions for the ad account or audience that you selected.</td>
-      <td>Work with the administrators of your ad account to get proper access and permissions.</td>
+      <td><b>광고 계정 액세스 시도</b></td>
+      <td>선택한 광고 계정 또는 오디언스에 대한 권한이 없습니다.</td>
+      <td>광고 계정 관리자와 협력하여 적절한 액세스 권한을 얻으세요.</td>
     </tr>
     <tr>
-      <td><b>Terms of Service Not Accepted</b></td>
-      <td>For some Audience Sync destinations, like Facebook, it's required by the ad network to accept specific terms of services to use the Audience Sync feature. This error will trigger if you haven't accepted the appropriate terms. As a result, you may have also received an email with this subject from Braze: “Your authorization credentials for Facebook are invalid.”</td>
-      <td>Check that you accepted Facebook's required terms.</td>
+      <td><b>서비스 약관 미동의</b></td>
+      <td>Facebook과 같은 일부 오디언스 동기화 대상의 경우, 오디언스 동기화 기능을 사용하려면 광고 네트워크에서 특정 서비스 약관에 동의해야 합니다. 적절한 약관에 동의하지 않은 경우 이 오류가 트리거됩니다. 그 결과 Braze에서 "Your authorization credentials for Facebook are invalid."라는 제목의 이메일을 받았을 수도 있습니다.</td>
+      <td>Facebook의 필수 약관에 동의했는지 확인하세요.</td>
     </tr>
     <tr>
-      <td><b>All Users Are Erroring Out</b></td>
-      <td>If all users are erroring on a step despite confirming that these users have values for the selected fields on the step, this could indicate an issue with your Facebook account.</td>
-      <td>Follow the steps in <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>this troubleshooting section</a> to check your account for any issues.
+      <td><b>모든 사용자에서 오류 발생</b></td>
+      <td>해당 단계에서 선택한 필드에 대한 값이 있는 사용자임을 확인했음에도 불구하고 모든 사용자에서 오류가 발생하는 경우, Facebook 계정에 문제가 있을 수 있습니다.</td>
+      <td><a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>이 문제 해결 섹션</a> 의 단계를 따라 계정에 문제가 있는지 확인하세요.
       </td>
     </tr>
     <tr>
-      <td><b>Failed to create audience</b></td>
-      <td>On the Facebook Technology Partner page, you are seeing “Connected”, but there’s an error on the Facebook Audience Sync step when syncing an audience, “Failed to create audience 'audience name'". Authorization of your Facebook account failed. 기술 파트너 페이지를 방문하여 계정을 다시 연결하세요.</td>
-      <td>Follow the steps in <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>this troubleshooting section</a> to check your account for any issues.
+      <td><b>오디언스 생성 실패</b></td>
+      <td>Facebook 기술 파트너 페이지에서 "Connected"로 표시되지만, 오디언스를 동기화할 때 Facebook 오디언스 동기화 단계에서 "Failed to create audience 'audience name'"이라는 오류가 발생합니다. Facebook 계정 인증에 실패했습니다. 기술 파트너 페이지를 방문하여 계정을 다시 연결하세요.</td>
+      <td><a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>이 문제 해결 섹션</a> 의 단계를 따라 계정에 문제가 있는지 확인하세요.
       </td>
+    </tr>
+    <tr>
+      <td><b>드롭다운에 광고 계정이 표시되지 않음</b></td>
+      <td>Facebook 오디언스 단계를 구성할 때 예상하는 광고 계정이 광고 계정 선택기에 나열되지 않습니다.</td>
+      <td>Facebook 앱이 마케팅 API 사용에 필요한 액세스 수준으로 <code>ads_management</code>에 대한 <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">앱 검토</a> 를 완료했는지 확인하세요. <a href="https://business.facebook.com/">Facebook 비즈니스 매니저</a> 에서 시스템 사용자 토큰이 올바른 권한을 가지고 있고 Braze에서 사용하는 광고 계정과 연결되어 있으며, 광고 계정 약관에 동의했는지 확인하세요. <br><br>새 Canvas에서는 드롭다운이 작동하지만 이미 편집한 Canvas에서는 작동하지 않는 경우, 브라우저를 강제 새로고침(또는 캐시 삭제)하고 해당 광고 계정에 대한 액세스 권한이 있는 사용자로 로그인되어 있는지 확인하세요.</td>
+    </tr>
+    <tr>
+      <td><b>액세스 토큰 유효성 검사 오류</b></td>
+      <td>Braze를 Facebook에 연결하거나 오디언스를 동기화할 때 Facebook 액세스 토큰 유효성 검사에 대한 오류가 표시됩니다.</td>
+      <td>브라우저에서 Facebook에서 로그아웃합니다. Braze에서 <b>파트너 통합</b> &gt; <b>Facebook</b>으로 이동하여 저장된 Facebook 자격 증명을 제거한 다음 Facebook을 다시 연결합니다. Braze의 Facebook 기술 파트너 페이지에서 옵션이 있는 경우 통합의 연결을 해제하고 다시 연결합니다. <br><br>문제가 계속되면 <a href="#audit-your-facebook-account">Facebook 계정 감사하기</a> 를 따르세요.</td>
+    </tr>
+    <tr>
+      <td><b>오디언스 내보내기 또는 동기화 권한 오류</b></td>
+      <td>Facebook 오디언스 내보내기 또는 동기화가 인증, 관리자 또는 광고 계정 오류로 실패합니다.</td>
+      <td><a href="https://developers.facebook.com/">Meta for Developers</a> 에서 앱을 열고 <b>App roles</b>에서 사용자에게 <b>Admin</b> 역할이 있는지 확인합니다. <b>App settings</b> &gt; <b>Advanced</b>에서 <b>Advertising accounts</b>에 Braze와 함께 사용하는 계정이 포함되어 있는지 확인합니다. <a href="https://business.facebook.com/latest/settings">비즈니스 설정</a> 에서 연결하는 사용자 또는 시스템 사용자가 올바른 광고 계정에 대한 액세스 권한이 있는지 확인합니다.</td>
     </tr>
   </tbody>
 </table>
 
-### Audit your Facebook account
+### Facebook 계정 감사하기 {#audit-your-facebook-account}
 
-If you experience additional issues with your integration, refer to the following sections and steps to audit your Facebook account. 
+통합에 추가적인 문제가 발생하면 다음 섹션과 단계를 참조하여 Facebook 계정을 감사하세요.
 
-#### Review account permissions
+#### 계정 권한 검토하기 {#review-account-permissions}
 
-1. Review [Facebook's documentation](https://www.facebook.com/business/help/186007118118684?id=829106167281625) on how to manage these permissions in their platform. For Facebook Business Manager, you need at least either an **Admin** or **Employee** Business Manager role with access to the necessary ad accounts.
-2. As an **Employee**, confirm that the Admin grants you full **Manage Ad Account** permissions for each ad account to create an audience or sync users to the audience. 
-3. After that has been granted, you must disconnect and reconnect your account.
+1. 플랫폼에서 이러한 권한을 관리하는 방법에 대한 [Facebook 설명서](https://www.facebook.com/business/help/186007118118684?id=829106167281625)를 검토하세요. Facebook 비즈니스 매니저의 경우, 필요한 광고 계정에 대한 액세스 권한이 있는 **Admin** 또는 **Employee** 비즈니스 매니저 역할이 최소한 필요합니다.
+2. **Employee**인 경우, 관리자가 각 광고 계정에 대해 오디언스를 생성하거나 오디언스에 사용자를 동기화할 수 있도록 전체 **Manage Ad Account** 권한을 부여했는지 확인합니다.
+3. 권한이 부여된 후 계정의 연결을 해제하고 다시 연결해야 합니다.
 
-#### Accept the terms of service {#terms}
+#### 서비스 약관 동의하기 {#terms}
 
-Accept any pending Terms of Service (TOS) from Facebook. Facebook periodically will require you (the user) and the business manager to re-approve their terms of service.
+Facebook의 보류 중인 서비스 약관(TOS)에 동의합니다. Facebook은 주기적으로 사용자와 비즈니스 매니저에게 서비스 약관을 다시 승인하도록 요구합니다.
 
-1. The connected user needs to accept all terms of service for each of their ad accounts:
-- Custom Audience TOS for your personal Facebook account:
+1. 연결된 사용자는 각 광고 계정에 대한 모든 서비스 약관에 동의해야 합니다:
+- 개인 Facebook 계정에 대한 커스텀 오디언스 TOS:
 `https://business.facebook.com/ads/manage/customaudiences/tos/?act=<AD_ACCOUNT_ID>`
 
 ![광고 계정을 관리할 수 있는 모든 권한이 있는 계정입니다.]({% image_buster /assets/img/fb_audience_sync/ad_account_permission.png %}){: style="max-width:70%;"}
 
-To find your account and business ID, follow these steps:
+계정 ID와 비즈니스 ID를 찾으려면 다음 단계를 따르세요:
 
-1. Go to your [Facebook Ads Manager account](https://adsmanager.facebook.com/).
-2. Confirm you're using the right ad account by verifying it in the dropdown menu.
-3. In the URL, find the account ID after `act=` and the business ID after `business_id=`
+1. [Facebook 광고 매니저 계정](https://adsmanager.facebook.com/)으로 이동합니다.
+2. 드롭다운 메뉴에서 올바른 광고 계정을 사용하고 있는지 확인합니다.
+3. URL에서 `act=` 뒤의 계정 ID와 `business_id=` 뒤의 비즈니스 ID를 찾습니다.
 
 ![계정 ID와 비즈니스 ID가 강조 표시된 URL입니다.]({% image_buster /assets/img/fb_audience_sync/fb_businessid_url.png %}){: style="max-width:90%;"}
 
 {:start="4"}
 
-4. Read and select **Accept** for the Custom Audience Terms. We recommend confirming which account the terms of service are being signed for by using the dropdown at the top of the terms.
+4. 커스텀 오디언스 약관을 읽고 **Accept**를 선택합니다. 약관 상단의 드롭다운을 사용하여 서비스 약관에 서명하는 계정을 확인하는 것이 좋습니다.
 
 ![서비스 약관에 서명하는 계정을 표시하는 드롭다운입니다.]({% image_buster /assets/img/fb_audience_sync/confirm_accept_tos.png %}){: style="max-width:90%;"}
 
 {:start="5"}
-5\. You must select **Accept** for the terms of service. After, you'll see this message: "You have accepted these terms of service on behalf of Braze".
-6\. Refresh your Facebook access token with Braze by disconnecting and reconnecting your Facebook account.
-7\. Re-enable your Facebook Audience Sync step by editing and updating your Canvas. Braze will then be able to sync users as soon as they reach the Facebook audience step.
-8\. If the issue persists, try using a separate user with admin permissions to manually accept the terms through the Ads Manager.
+5. 서비스 약관에 대해 **Accept**를 선택해야 합니다. 그 후 "You have accepted these terms of service on behalf of Braze"라는 메시지가 표시됩니다.
+6. Facebook 계정의 연결을 해제하고 다시 연결하여 Braze에서 Facebook 액세스 토큰을 새로고침합니다.
+7. Canvas를 편집하고 업데이트하여 Facebook 오디언스 동기화 단계를 다시 활성화합니다. 그러면 Braze는 사용자가 Facebook 오디언스 단계에 도달하는 즉시 사용자를 동기화할 수 있습니다.
+8. 문제가 지속되면 관리자 권한이 있는 별도의 사용자를 사용하여 광고 매니저를 통해 수동으로 약관에 동의해 보세요.
 
-#### Complete any pending tasks 
+#### 보류 중인 작업 완료하기 {#complete-any-pending-tasks}
 
-Check if you have any pending tasks with Facebook that could be blocking you from using Facebook Ads services:
+Facebook 광고 서비스 사용을 차단할 수 있는 Facebook의 보류 중인 작업이 있는지 확인하세요:
 
-1. [Log into Facebook Ads Manager](https://adsmanager.facebook.com/).
-2. Select the ad account you are having issues with.
-3. In the navigation, select your **Account Overview**. <br> ![계정 개요가 선택된 탐색 화면입니다.]({% image_buster /assets/img/fb_audience_sync/ads_manager_accouint_overview.png %})
-4. Check if there are any alerts that need to be addressed. <br> ![만료된 신용 카드가 있는 계정입니다.]({% image_buster /assets/img/fb_audience_sync/resolve_alerts.png %})
+1. [Facebook 광고 매니저에 로그인합니다](https://adsmanager.facebook.com/).
+2. 문제가 있는 광고 계정을 선택합니다.
+3. 탐색에서 **Account Overview**를 선택합니다. <br> ![Account Overview가 선택된 탐색 화면입니다.]({% image_buster /assets/img/fb_audience_sync/ads_manager_accouint_overview.png %})
+4. 해결해야 할 알림이 있는지 확인합니다. <br> ![만료된 신용카드가 있는 계정입니다.]({% image_buster /assets/img/fb_audience_sync/resolve_alerts.png %})
 
 {:start="5"}
 
-5. Check if there are any setup tasks that need to be completed. <br> ![계정 설정이 부분적으로 완료된 계정입니다.]({% image_buster /assets/img/fb_audience_sync/confirm_tasks.png %})
+5. 완료해야 할 설정 작업이 있는지 확인합니다. <br> ![계정 설정이 부분적으로 완료된 계정입니다.]({% image_buster /assets/img/fb_audience_sync/confirm_tasks.png %})
 
-#### Connect with a different user
+#### 다른 사용자로 연결하기 {#connect-with-a-different-user}
 
-As another troubleshooting step, we recommend that a different admin user try to connect their account by doing the following:
+또 다른 문제 해결 단계로, 다른 관리자 사용자가 다음을 수행하여 계정을 연결해 보는 것이 좋습니다:
 
-1. Disconnect the current integration.
-2. A separate user with admin permissions connects their Facebook user account.
-
+1. 현재 통합의 연결을 해제합니다.
+2. 관리자 권한이 있는 별도의 사용자가 자신의 Facebook 사용자 계정을 연결합니다.

@@ -15,13 +15,13 @@ tool: Canvas
 
 ![A Message step named "Lunch promo" using the push channel.]({% image_buster /assets/img/canvas_components/message_step1.png %}){: style="float:right;max-width:25%;margin-left:15px;"}
 
-## Creating a message
+## Create a message
 
 To create a Message component, first add a step to your Canvas. Drag and drop the component from the sidebar, or select the <i class="fas fa-plus-circle"></i> plus button at the bottom of a step and select **Message**. 
 
 ### Step 1: Select your messaging channel
 
-You can select from the following messaging channels: 
+You can select from the following messaging channels:
 - Banners
 - Content Cards
 - Email
@@ -44,26 +44,38 @@ You can enable [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intellig
 
 Select **Using Intelligent Timing** in the **Delivery Settings** tab. Here, you can select either the most popular time or a specific fallback time. If Quiet Hours are enabled, the Message step also allows you to override this setting.
 
+![The Delivery Settings tab for Message component settings. Quiet Hours are enabled, and the checkbox for Using Intelligent Timing is selected to deliver the message at an optimal time.]({% image_buster /assets/img/canvas_components/message_step4.png %}){: style="max-width:90%;"}
+
 #### Delivery validations
 
-Delivery validations provide an additional check to confirm your audience meets the delivery criteria at message send. This setting is recommended if Quiet Hours, Intelligent Timing, or rate limiting are activated. You can add a segment or additional filters to validate at the time of the message being sent. If a user doesn't meet the set delivery validations for a Message step, they will exit the Canvas at the step.
+Delivery validations provide an additional check at message send to confirm your audience still meets your criteria. We recommend using it when Quiet Hours, Intelligent Timing, or rate limiting are enabled. Select **Validate audience at message send**, then add a segment or additional filters. If a user doesn't meet the validations, choose whether they exit the Canvas or advance to the next step.
 
-![The Delivery Settings tab for Message component settings. Quiet Hours are enabled, and the checkbox for Using Intelligent Timing is selected to deliver the message at an optimal time. Delivery Validations are enabled to validate the audience at message send.]({% image_buster /assets/img/canvas_components/message_step4.png %}){: style="max-width:90%;"}
+Delivery validations evaluate user profile criteria at send time. App-related filters check whether a user recently used or ever used a specific app, but they don't confirm which app a user is using in their current session.
+
+If your workspace has multiple apps and a Message step should target a specific app, use one of the following approaches instead:
+
+- When composing the message, [specify your delivery platforms]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms), such as **Mobile Apps** or **Web Browsers**.
+- Use Liquid to check the targeted device or app at send time:
+  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} evaluates the platform for the user's current session. For more information, see [Targeted device information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information).
+  - {% raw %}`{{app.${api_id}}}`{% endraw %} evaluates which app is requesting the message. Combine this tag with `abort_message()` to prevent sends to the wrong app. For more information, see [Targeted app information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-app-information).
+
+![Delivery Validations are enabled to validate the audience at message send. Delivery validations advancement behavior is set to progress the user to the next step in the Canvas if delivery validations are not met.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 
 ## How users advance
 
-All users who enter the Message step will advance to the next step when any one of the following conditions is met:
+All users who enter the Message step advance to the next step when any one of the following conditions is met:
 
 - Any message is sent
 - A message is frequency capped and not sent
 - A message is aborted
-- A user isn't reachable by channel, so the message is not sent
+- A user is not reachable by channel, so the message is not sent
+- A user does not meet the criteria in **Delivery validations**
 
 {% raw %}
 If an action-based Canvas is triggered by an inbound SMS message, you can reference SMS properties in the first step (Message step) or a Message step that is nested under an Action Path step. For example, in the Message step, you could use `{{sms.${inbound_message_body}}}` or `{{sms.${inbound_media_urls}}}`.
 {% endraw %}
 
-## Referencing context properties
+## Reference context properties
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
@@ -121,6 +133,4 @@ Refer to the following table for definitions of Message component metrics:
 | _Unique Recipients_ | The number of users who have received messages from this step. |
 | _Primary Conversion Event_ | The number of times a defined event occurred after interacting with or viewing a received message from a Braze campaign. You define this event when building the campaign. |
 | _Revenue_ | The total revenue in dollars from campaign recipients within the set primary conversion window. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }

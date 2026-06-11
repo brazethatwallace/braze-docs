@@ -74,7 +74,7 @@ URLs in the **Title** or **Description** fields will not be shortened because th
 
 ## Custom domains
 
-LINE click tracking allows you to use your own domain to personalize the look and feel of your shortened URLs, helping portray a consistent brand image. For more information, refer to [Custom domains]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/link_shortening/custom_domains).
+LINE click tracking allows you to use your own domain to personalize the look and feel of your shortened URLs, helping portray a consistent brand image. For more information, refer to [Custom domains]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains).
 
 ## Liquid personalization in URLs
 
@@ -98,7 +98,7 @@ https://example.com/{{url_var}}
 
 ## Shorten URLs rendered by Liquid variables
 
-Braze shortens URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, we will shorten and track that URL before sending the LINE message.
+Braze shortens URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, we shorten and track that URL before sending the LINE message.
 
 ## Testing
 

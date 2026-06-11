@@ -18,7 +18,7 @@ doc_menu_list:
   - name: 사용자 가이드
     bg_color: '#3accdd'
     image: /assets/img/braze_icons/users-01.svg
-    link: /docs/user_guide/introduction/
+    link: /docs/user_guide/home/
     description: "Braze 플랫폼을 사용하여 더욱 영향력 있는 고객 경험을 조성하는 방법을 알아보세요."
   - name: 개발자 가이드
     bg_color: '#f7918e'
@@ -29,12 +29,12 @@ doc_menu_list:
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/settings-02.svg
     link: /docs/partners/home/
-    description: "기술 파트너가 Braze 경험과 고객 관계를 커스텀화할 수 있도록 도와드립니다."
+    description: "기술 파트너가 Braze 경험과 고객 관계를 커스터마이즈할 수 있도록 도와드립니다."
   - name: API 가이드
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/code-browser.svg
     link: /docs/api/home/
-    description: "Braze는 사용자 추적, 메시지 발송, 데이터 내보내기 등을 직접 수행할 수 있게 해주는 고성능 REST API를 제공합니다."
+    description: "Braze는 사용자 추적, 메시지 발송, 데이터 내보내기 등을 수행할 수 있는 고성능 REST API를 제공합니다."
   - name: 새로운 소식
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/annotation-dots.svg
@@ -47,22 +47,22 @@ doc_menu_list:
     description: "규정 준수 문서에는 구매한 제품 또는 서비스에 적용되는 특정 약관이 설명되어 있습니다."
 
 popular_topic_list:
-  - name: Braze API 사전
-    link: /docs/api/home/
+  - name: 위치 추적
+    link: /docs/user_guide/audience/locations_and_geofences/location_tracking/
+  - name: "POST: 사용자 추적 엔드포인트"
+    link: /docs/api/endpoints/user_data/post_user_track/
   - name: API 개요
     link: /docs/api/basics/
-  - name: "POST&#58; 사용자 추적 엔드포인트"
-    link: /docs/api/endpoints/user_data/post_user_track/
-  - name: 사용자 가져오기
-    link: /docs/user_guide/data/user_data_collection/user_import/
-  - name: 웹 SDK 설정
+  - name: Braze SDK 통합
     link: /docs/developer_guide/sdk_integration/?sdktab=web
-  - name: 커스텀 이벤트
-    link: /docs/user_guide/data/custom_data/custom_events/
-  - name: 커스텀 속성
-    link: /docs/user_guide/data/custom_data/custom_attributes/
-  - name: Braze 커런츠
-    link: /docs/user_guide/data/braze_currents/
+  - name: 사용자 속성 오브젝트
+    link: /docs/api/objects_filters/user_attributes_object/
+  - name: Braze Agents
+    link: /docs/user_guide/brazeai/agents/
+  - name: Currents
+    link: /docs/user_guide/data/distribution/braze_currents/
+  - name: 클라우드 데이터 수집
+    link: /docs/user_guide/data/unification/cloud_ingestion/
 
 helpful_resources_list:
   - name: 혁신 선언문

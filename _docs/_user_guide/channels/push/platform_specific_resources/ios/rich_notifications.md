@@ -31,6 +31,10 @@ Before you create a rich push notification for iOS, note the following details:
 As of January 2020, iOS rich push notifications can handle images 1038x1038 that are under 10&nbsp;MB, but we recommend using as small a file size as possible. In practice, sending large files can cause both unnecessary network stress and make download timeouts more common.
 {% endalert %}
 
+{% alert important %}
+Push notification images may not show as expected if the file size for the image is too big, the aspect ratio is incorrect, the text exceeds the maximum message length, or the title text exceeds the maximum title length.
+{% endalert %}
+
 ### Character count
 
 While we can't provide a hard and fast rule for the precise number of characters to include in a push, we [provide some guidelines]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) to consider while designing iOS messages. There may be some variance depending on the presence of an image, the notification state and display setting of the user's device, and the size of the device. When in doubt, keep it short and sweet.
@@ -41,7 +45,8 @@ As a best practice, Braze recommends keeping each line of text for both the opti
 
 Your users may view push notifications in a variety of different situations, and could see different lengths of text as follows.
 
-<table>
+<table aria-label="Notification states">
+  <caption>Notification states</caption>
 <thead>
   <tr>
     <th>Lock screen or Notification Center</th>
@@ -57,7 +62,7 @@ Your users may view push notifications in a variety of different situations, and
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification states" }
 
 ![Example push notifications for push displayed on the lock screen, when expanded, and when device is active.]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 

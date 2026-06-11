@@ -46,7 +46,7 @@ Fullscreen in-app messages will fill the entire height of a device and crop hori
 |--- | --- | --- |
 | Image and text | 6:5 aspect ratio<br> High-res 1200 x 1000&nbsp;px<br> Minimum 600 x 500&nbsp;px | Cropping can occur on all sides, but the image will always fill the top 50% of the viewport |
 | Image only | 3:5 aspect ratio<br> High-res 1200 x 2000&nbsp;px<br> Minimum 600 x 1000&nbsp;px | Cropping can occur on the left and right edges on taller devices |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Portrait" }
 
 ### Landscape
 
@@ -54,7 +54,7 @@ Fullscreen in-app messages will fill the entire height of a device and crop hori
 |--- | --- | --- |
 | Image and text | 10:3 aspect ratio<br> High-res 2000 x 600px<br> Minimum 1000 x 300&nbsp;px | Cropping can occur on all sides, but the image will always fill the top 50% of the viewport |
 | Image only | 5:3 aspect ratio<br> High-res 2000 x 1200px<br> Minimum 1000 x 600&nbsp;px | Cropping can occur on the left and right edges on taller devices |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Landscape" }
 
 ### Image safe zone
 

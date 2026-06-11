@@ -6,7 +6,7 @@ description: "Aprenda como registrar eventos personalizados através do SDK da B
 
 ---
 
-# Registre eventos personalizados
+# Registre eventos personalizados {#log-custom-events}
 
 > Aprenda como registrar eventos personalizados através do SDK da Braze.
 
@@ -14,7 +14,9 @@ description: "Aprenda como registrar eventos personalizados através do SDK da B
 Para wrapper SDKs não listados, use o método nativo relevante do Android ou Swift.
 {% endalert %}
 
-## Registro de um evento personalizado
+Para eventos recomendados de eCommerce, consulte [Registrar eventos de eCommerce]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
+## Registro de um evento personalizado {#logging-a-custom-event}
 
 Para registrar um evento personalizado, use o seguinte método de registro de eventos.
 
@@ -26,10 +28,10 @@ Para uma implementação padrão do SDK Web, você pode usar o seguinte método:
 braze.logCustomEvent("YOUR_EVENT_NAME");
 ```
 
-Se você preferir usar o Google Tag Manager, pode usar o tipo de tag **Evento Personalizado** para chamar o [método `logCustomEvent`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) e enviar eventos personalizados para a Braze, incluindo opcionalmente propriedades de eventos personalizados. Para fazer isso:
+Se você preferir usar o Google Tag Manager, pode usar o tipo de tag **Evento personalizado** para chamar o [método `logCustomEvent`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) e enviar eventos personalizados para a Braze, incluindo opcionalmente propriedades de eventos personalizados. Para fazer isso:
 
-1. Digite o **Nome do Evento** usando uma variável ou digitando um nome de evento.
-2. Use o botão **Adicionar Linha** para adicionar propriedades de eventos.
+1. Digite o **Nome do evento** usando uma variável ou digitando um nome de evento.
+2. Use o botão **Adicionar linha** para adicionar propriedades de eventos.
 
 ![Uma caixa de diálogo mostrando as definições de configuração da tag de ação da Braze. As configurações incluídas são "tipo de tag" (evento personalizado), "nome do evento" (clique no botão) e "propriedades do evento".]({% image_buster /assets/img/web-gtm/gtm-custom-event.png %})
 {% endtab %}
@@ -133,7 +135,7 @@ AppboyBinding.LogCustomEvent("YOUR_EVENT_NAME");
 {% endtab %}
 {% endtabs %}
 
-## Adicionando propriedades de metadados
+## Adicionando propriedades de metadados {#adding-metadata-properties}
 
 Quando você registra um evento personalizado, tem a opção de adicionar metadados sobre esse evento passando um objeto de propriedades junto com ele. As propriedades são definidas como pares chave-valor. As chaves são strings e os valores podem ser `string`, `numeric`, `boolean`, objetos [`Date`](http://www.w3schools.com/jsref/jsref_obj_date.asp), arrays ou objetos JSON aninhados.
 
@@ -143,8 +145,8 @@ Para adicionar propriedades de metadados, use o seguinte método de registro de 
 {% tab web %}
 ```javascript
 braze.logCustomEvent("YOUR-EVENT-NAME", {
-  you: "can", 
-  pass: false, 
+  you: "can",
+  pass: false,
   orNumbers: 42,
   orDates: new Date(),
   or: ["any", "array", "here"],
@@ -329,7 +331,7 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 As chaves `time` e `event_name` são reservadas e não podem ser usadas como propriedades de eventos personalizados.
 {% endalert %}
 
-## Melhores práticas
+## Melhores práticas {#best-practices}
 
 Existem três verificações importantes a serem realizadas para que as propriedades do seu evento personalizado sejam registradas conforme o esperado:
 
@@ -339,7 +341,7 @@ Existem três verificações importantes a serem realizadas para que as propried
 
 Várias propriedades podem ser registradas cada vez que um evento personalizado é registrado.
 
-### Verificar eventos
+### Verificar eventos {#verify-events}
 
 Verifique com seus desenvolvedores quais propriedades de eventos estão sendo rastreadas. Lembre-se de que todas as propriedades de eventos diferenciam maiúsculas de minúsculas. Para mais informações sobre rastreamento de eventos personalizados, confira estes artigos com base na sua plataforma:
 
@@ -347,45 +349,45 @@ Verifique com seus desenvolvedores quais propriedades de eventos estão sendo ra
 * [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
 * [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
 
-### Verificar registro
+### Verificar registro {#verify-log}
 
 Para confirmar que as propriedades do evento estão sendo rastreadas com sucesso, você pode visualizar todas as propriedades do evento na página de **Eventos personalizados**.
 
-1. Acesse **Configurações de Dados** > **Eventos personalizados**.
+1. Acesse **Configurações de dados** > **Eventos personalizados**.
 2. Localize seu evento personalizado na lista.
-3. Para seu evento, selecione **Gerenciar Propriedades** para visualizar os nomes das propriedades associadas a um evento.
+3. Para seu evento, selecione **Gerenciar propriedades** para visualizar os nomes das propriedades associadas a um evento.
 
-### Verificar valores
+### Verificar valores {#verify-values}
 
-Após [adicionar seu usuário como um usuário teste]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users), siga estas etapas para verificar seus valores: 
+Após [adicionar seu usuário como um usuário teste]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users), siga estas etapas para verificar seus valores:
 
 1. Execute o evento personalizado dentro do app.
 2. Aguarde cerca de 10 segundos para que os dados sejam enviados.
-3. Atualize o [registro de usuários de eventos]({{site.baseurl}}/user_guide/administrative/app_settings/event_user_log_tab/) para ver o evento personalizado e o valor da propriedade do evento que foi passado com ele.
+3. Atualize o [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) para ver o evento personalizado e o valor da propriedade do evento que foi passado com ele.
 
-## Solução de problemas de eventos personalizados
+## Solução de problemas de eventos personalizados {#troubleshooting-custom-events}
 
 Use estes cenários para solucionar problemas de registro de eventos personalizados nos SDKs.
 
-### Verificando o gatilho do evento personalizado
+### Verificando o gatilho do evento personalizado {#verifying-the-custom-event-trigger}
 
 Se um evento personalizado não aparece, a ação rastreada no seu app pode não corresponder à ação que você está testando.
 
 - Confirme com sua equipe de desenvolvimento qual ação do app dispara o evento personalizado.
 - Verifique se há caminhos de código obsoletos após upgrades do SDK, como referências a `appboy` em vez de `braze`.
 
-### Eventos personalizados são registrados em um perfil anônimo
+### Eventos personalizados são registrados em um perfil anônimo {#custom-events-are-logged-to-an-anonymous-profile}
 
 Se você não identificar um usuário antes de registrar um evento personalizado, a Braze pode associar esse evento a um perfil anônimo.
 
 - Chame `changeUser()` antes de executar o evento personalizado para que a Braze registre o evento em um perfil de usuário identificado.
-- Teste com um usuário teste identificado e depois revise o [registro de usuários de eventos]({{site.baseurl}}/user_guide/administrative/app_settings/event_user_log_tab/).
+- Teste com um usuário teste identificado e depois revise o [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/).
 
-### Verificando a configuração do registro de eventos personalizados
+### Verificando a configuração do registro de eventos personalizados {#verifying-custom-event-logging-setup}
 
 Se os eventos personalizados não estão aparecendo conforme o esperado, confirme que sua equipe de desenvolvimento implementou o registro de eventos personalizados para a ação correta do app.
 
 - Peça à sua equipe de desenvolvimento para verificar se o evento está sendo registrado corretamente e disparado a partir da ação esperada do usuário.
 - Quando sua equipe abrir um ticket com o suporte da Braze, inclua [logs detalhados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) e trechos de código relevantes.
-- Se seu app usa Swift ou Android, sua equipe de desenvolvimento pode usar os [pré-requisitos do depurador do SDK](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites) para ajudar a gerar logs detalhados.
-- Se sua equipe de desenvolvimento não conseguir identificar o problema, abra um [ticket de suporte da Braze]({{site.baseurl}}/user_guide/administrative/access_braze/support/).
+- Se seu app usa Swift ou Android, sua equipe de desenvolvimento pode usar os [pré-requisitos do Depurador do SDK](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites) para ajudar a gerar logs detalhados.
+- Se sua equipe de desenvolvimento não conseguir identificar o problema, abra um [ticket de suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).

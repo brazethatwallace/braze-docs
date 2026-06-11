@@ -36,9 +36,11 @@ Every email address used in an [instance]({{site.baseurl}}/user_guide/administer
 
 If your team uses Gmail and you're experiencing issues adding an email address, you can create an alias by adding a plus sign (+) like "+1" or "+test" to the email address. For example, `contractor@braze.com` can have an alias of `contractor+1@braze.com`. Emails to `contractor+1@braze.com` will still be delivered to `contractor@braze.com`, but the alias will be recognized as a unique email address.
 
+To use one account across multiple companies without aliases, see [Use multi-company developers]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers). If you use SSO, review [Considerations for Single Sign-On (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso) before registering with multiple email addresses.
+
 ### Can I change my Braze account's email address?
 
-For security reasons, users cannot change the email address associated with their Braze account. If a user wants to update their email address, an administrator should [create a new account](#adding-braze-users) for them with their preferred email address.
+For security reasons, users cannot change the email address associated with their Braze account. If a user wants to update their email address, an administrator should [create a new account](#adding-company-users) for them with their preferred email address.
 
 ## Assigning user access and responsibilities
 
@@ -58,7 +60,9 @@ Administrators can also suspend a user by selecting their name from the list and
 
 ## Deleting company users
 
-To delete a user, go to **Settings** > **Company Users**, find their username, and select <i class="fa fa-trash-can"></i> **Delete user**.
+To delete a user, go to **Settings** > **Company Users**, find the user's name, and select <i class="fa fa-trash-can"></i> **Delete user**. 
+
+Only administrators can delete company users, and company users cannot delete their own accounts. An administrator cannot delete their own dashboard account; another administrator must delete it for them.
 
 ![Delete a user.]({% image_buster /assets/img_archive/delete_user_new.png %})
 
@@ -85,6 +89,14 @@ When a dashboard user is deleted, there is no significant impact on the assets t
 If a new dashboard user is subsequently created with the same email address as the deleted user, Braze will not re-associate the assets created by the deleted user with the new user. The new dashboard user will start with a clean slate and will not be credited as the creator of any existing assets in the dashboard.
 
 ## Troubleshooting
+
+### "Unable to perform action" when adding a user
+
+If adding a dashboard user fails with an "Unable to perform action" (or similar) error:
+
+- Remove leading or trailing spaces and hidden characters from the email address.
+- Confirm the address is a valid email format for your organization. Some special characters are rejected.
+- The same email cannot be used for two dashboard users in the same [cluster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/). If the address is already registered in another workspace on that cluster, use a distinct address or an alias such as `user+1@company.com`.
 
 ### "Email is already taken" when trying to add a user
 

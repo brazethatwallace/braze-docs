@@ -1,5 +1,5 @@
 ---
-page_order: 3
+page_order: 1
 nav_title: Currents
 article_title: Currents
 
@@ -10,53 +10,35 @@ description: "このランディングページには、Currents という名前
 tool: currents
 search_rank: 9
 guide_top_header: "Braze Currents"
-guide_top_text: "エンゲージメント戦略の影響を理解することは、ユーザーとのコミュニケーションの反復と最適化に関する情報を提供するうえで重要です。この貴重なエンゲージメントデータを以降の作戦と緊密に統合し、データサイエンスへの投資効果が増幅されるようにするため、Braze プラットフォームでは、連携から幅広いイベントデータを追跡し、分析、リターゲティング、およびお客様のシステム内の他のユースケースに使用します。<br> <br>Currentsツールは、エンゲージメントイベントのリアルタイムデータストリームであり、Brazeプラットフォームからの最も堅牢でありながら詳細なエクスポートです。それは、Avroファイルタイプのデータを多くの<a href='https://www.braze.com/docs/user_guide/data_and_analytics/braze_currents/available_partners/'>データパートナー</a>の1つに提供し、Brazeが作成するユニークで価値のあるデータを使用して、他の最高クラスのプラットフォームでビジネスインテリジェンス (BI) および分析の取り組みを強化することを可能にします。"
+guide_top_text: "エンゲージメント戦略の影響を理解することは、ユーザーとのコミュニケーションの改善と最適化を進めるうえで非常に重要です。この貴重なエンゲージメントデータを他のオペレーションと緊密に統合し、データサイエンスへの投資効果を最大化するために、Braze プラットフォームでは連携を通じて幅広いイベントデータを追跡し、分析、リターゲティング、およびお客様のシステム内でのその他のユースケースに活用できます。<br> <br>Currents ツールは、エンゲージメントイベントのリアルタイムデータストリームであり、Braze プラットフォームからの最も堅牢かつ詳細なエクスポートです。Avro ファイルタイプのデータを多くの<a href='/docs/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners'>データパートナー</a>の1つに提供し、Braze が生成するユニークで価値のあるデータを活用して、他の最高クラスのプラットフォームでビジネスインテリジェンス (BI) および分析の取り組みを強化できます。"
 
 guide_featured_title: "セクションの記事"
 guide_featured_list:
-- name: "Currentsの設定"
-  link: /docs/user_guide/data/braze_currents/setting_up_currents/
-  image: /assets/img/braze_icons/building-01.svg
-- name: "利用可能なパートナー"
-  link: /docs/user_guide/data/braze_currents/available_partners/
-  image: /assets/img/braze_icons/heart-hand.svg
-- name: "イベント配信のセマンティクス"
-  link: /docs/user_guide/data/braze_currents/event_delivery_semantics/
-  image: /assets/img/braze_icons/data.svg
-- name: "メッセージエンゲージメントイベント"
-  link: /docs/user_guide/data/braze_currents/event_glossary/message_engagement_events/
-  image: /assets/img/braze_icons/message-plus-square.svg
-- name: "顧客行動イベント"
-  link: /docs/user_guide/data/braze_currents/event_glossary/customer_behavior_events/
-  image: /assets/img/braze_icons/users-01.svg
-- name: "現在の変更点"
-  link: /docs/user_guide/data/braze_currents/currents_changelog/
-  image: /assets/img/braze_icons/arrows-right.svg
-- name: "Braze で Currents を使用する方法"
-  link: /docs/user_guide/data/braze_currents/how_braze_uses_currents/
-  image: /assets/img/braze_icons/expand-05.svg
-- name: "アマゾンからデータを転送する"
-  link: /docs/user_guide/data/braze_currents/s3_to_snowflake/
-  image: /assets/img/braze_icons/amazon.svg
-- name: "Redshift へのデータ転送"
-  link: /docs/user_guide/data/braze_currents/transferring_data_to_redshift/
-  image: /assets/img/braze_icons/switch-horizontal-01.svg
-- name: "Currents の FAQ"
-  link: /docs/user_guide/data/braze_currents/faq/
-  image: /assets/img/braze_icons/annotation-question.svg
+  - name: Currents の設定
+    link: /docs/user_guide/data/distribution/braze_currents/setting_up_currents
+    image: /assets/img/braze_icons/building-01.svg
+  - name: Currents イベント用語集
+    link: /docs/user_guide/data/distribution/braze_currents/event_glossary
+    image: /assets/img/braze_icons/data.svg
+  - name: ユースケース
+    link: /docs/user_guide/data/distribution/braze_currents/use_cases
+    image: /assets/img/braze_icons/expand-05.svg
+  - name: FAQ
+    link: /docs/user_guide/data/distribution/braze_currents/faq
+    image: /assets/img/braze_icons/annotation-question.svg
 ---
 
 ## Currents の機能
 
 Currents では、次のことができます。
-* データウェアハウスまたは詳細な分析のために[分析パートナー]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/)の1つにBrazeイベントデータをストリームします。
-* ビジネスインテリジェンスツール、機械学習アルゴリズムなどを強化するために、Brazeイベントデータを継続的にストリームします。
-* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium/)、[Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/)、[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/)を使用して、Brazeイベントデータをさまざまな他のシステムにルーティングします。
+* Braze イベントデータをデータウェアハウスまたは[分析パートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)の1つにストリーミングし、詳細な分析を行います。
+* ビジネスインテリジェンスツール、機械学習アルゴリズムなどを強化するために、Braze イベントデータを継続的にストリーミングします。
+* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium/)、[Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/)、[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/) を使用して、Braze イベントデータをさまざまな他のシステムにルーティングします。
 
-Currents からアクセスされるイベントデータを使用してできることは他にも多数あります。事実である証拠として、[Braze でも Currents を使用]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/)しています。
+Currents からアクセスできるイベントデータを使用してできることは他にも多数あります。[Braze でも Currents を活用]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)しています。
 
 ## Currents へのアクセス方法
 
-Currents コネクターは、弊社のプロレベルおよびエンタープライズレベルの多くのパッケージにすでに含まれています。Currentsの使用に興味がある場合は、アカウントマネージャーに連絡する。アカウントマネージャーとデータスペシャリストが、[Currents の設定と連携]({{site.baseurl}}/user_guide/data/braze_currents/setting_up_currents/)をサポートできます。
+Currents コネクターは、弊社のプロレベルおよびエンタープライズレベルの多くのパッケージにすでに含まれています。Currents の使用に興味がある場合は、アカウントマネージャーにお問い合わせください。アカウントマネージャーとデータスペシャリストが、[Currents の設定と連携]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)をサポートいたします。
 
 <br><br>

@@ -25,7 +25,7 @@ You'll need the following to integrate LINE with Braze:
 - [LINE developers account](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE messaging API channel](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Sending LINE messages from Braze draws from your account's Message Credits.
+Sending LINE messages from Braze draws from your account's Message or Action Credits.
 
 {% alert note %}
 **Setting `native_line_id`**: You can set `native_line_id` by sending user updates to Braze (for example, with the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint, [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import), or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)). If your client-side SDK doesn’t have a dedicated field for `native_line_id`, send it in server-side user updates using one of these methods.
@@ -38,7 +38,7 @@ Sending LINE messages from Braze draws from your account's Message Credits.
 | Unverified account | An unreviewed account that can be obtained by anyone (individual or corporate). This account is represented with a gray badge and won't appear in search results within the LINE app. |
 | Verified account | An account that has passed the LINE Yahoo screening. This account is represented with a blue badge and will appear in search results within the LINE app.<br><br>This account is only available for accounts based in Japan, Taiwan, Thailand, and Indonesia.  |
 | Premium account | An account that has passed the LINE Yahoo screening. This account is represented with a green badge and will appear in search results within the LINE app. This account type is automatically granted during the screening at LINE's discretion. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of LINE accounts" }
 
 ### Required account type
 
@@ -99,11 +99,15 @@ After the integration process completes, Braze will automatically pull that chan
 | Channel ID | Select your provider and then go to **Channels** > your channel > **Basic settings** |
 | Channel secret | Select your provider and then go to **Channels** > your channel > **Basic settings**. |
 | Channel access token | Select your provider and then go to **Channels** > your channel > **Messaging API**. If there isn't a channel access token, select **Issue**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
+
+{% alert note %}
+If you need to update or rotate the channel secret for an already integrated LINE channel, contact [Braze Support]({{site.baseurl}}/braze_support/) to request an update.
+{% endalert %}
 
 {: start="3"}
 3. Go to your **Settings** page > **Response settings** and do the following:
-   - Turn off **Greeting message**. This can be handled in Braze via trigger on follow.
+   - Turn off **Greeting message**. This can be handled in Braze by triggering on follow.
    - Turn off **Auto-response messages**. All triggered messaging should be through Braze. This won't prevent you from sending directly from the LINE console.
    - Turn on **Webhooks**.
 

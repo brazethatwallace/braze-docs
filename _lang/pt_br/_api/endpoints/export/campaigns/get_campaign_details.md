@@ -5,39 +5,39 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar informações da campanha\"."
+description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar detalhes da campanha\"."
 
 ---
 {% api %}
-# Exportar detalhes da campanha
+# Exportar detalhes da campanha {#export-campaign-details}
 {% apimethod get %}
 /campaigns/details
 {% endapimethod %}
 
 > Use este endpoint para recuperar informações relevantes sobre uma campanha específica, que pode ser identificada pelo `campaign_id`.
 
-Se quiser recuperar dados de Canvas, consulte o endpoint [Exportar informações de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+Se quiser recuperar dados de Canvas, consulte o endpoint [Exportar detalhes do Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `campaigns.details`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obrigatória | String | Veja [identificador da API da campanha]({{site.baseurl}}/api/identifier_types/).<br><br> O `campaign_id` para campanhas de API pode ser encontrado na página [API Keys]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) e na página **Informações da campanha** dentro do seu dashboard; ou você pode usar o [endpoint "Exportar lista de campanhas"](#campaign-list-endpoint). |
+| `campaign_id` | Obrigatória | String | Consulte [identificador de API da campanha]({{site.baseurl}}/api/identifier_types/).<br><br> O `campaign_id` para campanhas de API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) e na página **Campaign Details** dentro do seu dashboard; ou você pode usar o [endpoint Exportar lista de campanhas](#campaign-list-endpoint). |
 | `post_launch_draft_version` | Opcional | booleano | Para mensagens que têm um rascunho pós-lançamento, definir isso como `true` mostrará quaisquer alterações de rascunho disponíveis. Padrão: `false`. |
 | `include_has_translatable_content` | Opcional | booleano | Quando definido como `true`, a resposta da API inclui um campo `has_translatable_content` para cada mensagem. Padrão: `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/details?campaign_id={{campaign_identifier}}' \
@@ -45,7 +45,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 {% endraw %}
 
-## Respostas
+## Respostas {#responses}
 
 ```json
 {
@@ -76,7 +76,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 }
 ```
 
-### Mensagens por canal
+### Mensagens por canal {#messages-by-channel}
 
 A resposta `messages` conterá informações sobre cada mensagem. A seguir, exemplos de respostas de mensagens para cada canal:
 
@@ -92,7 +92,7 @@ A resposta `messages` conterá informações sobre cada mensagem. A seguir, exem
 ```
 
 {% endtab %}
-{% tab Email %}
+{% tab E-mail %}
 
 ```json
 {
@@ -114,11 +114,11 @@ A resposta `messages` conterá informações sobre cada mensagem. A seguir, exem
 ```
 
 {% endtab %}
-{% tab In-app messages %}
+{% tab Mensagens no app %}
 
 O formato da resposta depende do tipo de mensagem no app. Mensagens no app do tipo pesquisa retornam os campos `type` e `data`. Outros tipos de mensagens no app (slideup, modal e tela cheia) retornam os campos `name`, `message` e `extras`.
 
-#### Pesquisas
+#### Pesquisas {#surveys}
 
 ```json
 {
@@ -146,7 +146,7 @@ O formato da resposta depende do tipo de mensagem no app. Mensagens no app do ti
 }
 ```
 
-#### Slideup, modal, mensagens no app em tela cheia
+#### Slideup, modal, mensagens no app em tela cheia {#slideup-modal-fullscreen-in-app-messages}
 
 ```json
 {
@@ -202,7 +202,7 @@ O formato da resposta depende do tipo de mensagem no app. Mensagens no app do ti
 {% endtab %}
 {% tab WhatsApp %}
 
-#### Mensagens de modelo
+#### Mensagens de modelo {#template-messages}
 
 ```json
 {
@@ -217,7 +217,7 @@ O formato da resposta depende do tipo de mensagem no app. Mensagens no app do ti
 }
 ```
 
-#### Mensagens de resposta
+#### Mensagens de resposta {#response-messages}
 
 ```json
 {
@@ -233,7 +233,7 @@ O formato da resposta depende do tipo de mensagem no app. Mensagens no app do ti
 ```
 
 {% endtab %}
-{% tab Control messages %}
+{% tab Mensagens de controle %}
 
 ```json
 {
@@ -246,13 +246,13 @@ O formato da resposta depende do tipo de mensagem no app. Mensagens no app do ti
 {% endtabs %}
 
 
-### Comportamentos de conversão
+### Comportamentos de conversão {#conversion-behaviors}
 
 O array `conversion_behaviors` contém informações sobre o comportamento de cada evento de conversão definido para a campanha. Esses comportamentos estão na ordem estabelecida pela campanha. Por exemplo, o Evento de Conversão A é o primeiro item no array, o Evento de Conversão B é o segundo, e assim por diante. A seguir, exemplos de respostas de comportamento para eventos de conversão:
 
 
 {% tabs %}
-{% tab Clicks email %}
+{% tab Clica no e-mail %}
 
 ```json
 {
@@ -262,7 +262,7 @@ O array `conversion_behaviors` contém informações sobre o comportamento de ca
 ```
 
 {% endtab %}
-{% tab Opens email %}
+{% tab Abre e-mail %}
 
 ```json
 {
@@ -272,7 +272,7 @@ O array `conversion_behaviors` contém informações sobre o comportamento de ca
 ```
 
 {% endtab %}
-{% tab Makes purchase (any purchase) %}
+{% tab Faz compra (qualquer compra) %}
 
 ```json
 {
@@ -282,7 +282,7 @@ O array `conversion_behaviors` contém informações sobre o comportamento de ca
 ```
 
 {% endtab %}
-{% tab Makes purchase (specific product) %}
+{% tab Faz compra (produto específico) %}
 
 ```json
 {
@@ -293,7 +293,7 @@ O array `conversion_behaviors` contém informações sobre o comportamento de ca
 ```
 
 {% endtab %}
-{% tab Performs custom event %}
+{% tab Realiza evento personalizado %}
 
 ```json
 {
@@ -305,7 +305,7 @@ O array `conversion_behaviors` contém informações sobre o comportamento de ca
 
 
 {% endtab %}
-{% tab Upgrades app %}
+{% tab Faz upgrade do app %}
 
 ```json
 {
@@ -315,7 +315,7 @@ O array `conversion_behaviors` contém informações sobre o comportamento de ca
 }
 ```
 {% endtab %}
-{% tab Uses app %}
+{% tab Usa o app %}
 
 ```json
 {
@@ -329,7 +329,7 @@ O array `conversion_behaviors` contém informações sobre o comportamento de ca
 {% endtabs %}
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

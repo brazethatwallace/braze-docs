@@ -5,44 +5,44 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Exportar la lista de segmentos de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Exportar la lista de segmentos de Braze."
 
 ---
 {% api %}
-# Exportar lista de segmentos
+# Exportar lista de segmentos {#export-segment-list}
 {% apimethod get %}
 /segments/list
 {% endapimethod %}
 
-> Utilice este punto final para exportar una lista de segmentos, cada uno de los cuales incluirá su nombre, identificador de API de segmento y si tiene activado el seguimiento analítico.
+> Utiliza este punto de conexión para exportar una lista de segmentos, cada uno de los cuales incluirá su nombre, identificador de API del segmento y si tiene habilitado el seguimiento de análisis.
 
-Los segmentos se devuelven en grupos de 100 ordenados por hora de creación (de más antiguo a más reciente por defecto). No se incluyen los segmentos archivados.
+Los segmentos se devuelven en grupos de 100 ordenados por hora de creación (de más antiguo a más reciente de forma predeterminada). No se incluyen los segmentos archivados.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1349e6f4-3ce7-4e60-b3e9-951c99c0993f {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `segments.list`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `segments.list`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro| Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | -------- | -------- | --------- | ----------- |
-| `page` | Opcional | Entero | La página de segmentos a devolver, por defecto 0 (devuelve el primer conjunto de hasta 100). |
-| `sort_direction` | Opcional | Cadena | \- Ordenar la hora de creación de más reciente a más antigua: introduce el valor `desc`.<br> \- Ordenar la hora de creación de más antiguo a más reciente: introduce el valor `asc`. <br><br>Si no se incluye `sort_direction`, el orden predeterminado es del más antiguo al más reciente. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `page` | Opcional | Entero | La página de segmentos a devolver, de forma predeterminada es 0 (devuelve el primer conjunto de hasta 100). |
+| `sort_direction` | Opcional | Cadena | - Ordenar la hora de creación de más reciente a más antigua: introduce el valor `desc`.<br> - Ordenar la hora de creación de más antiguo a más reciente: introduce el valor `asc`. <br><br>Si no se incluye `sort_direction`, el orden predeterminado es de más antiguo a más reciente. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=1&sort_direction=desc' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {
@@ -60,7 +60,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 ```
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

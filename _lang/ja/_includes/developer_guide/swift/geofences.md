@@ -1,41 +1,41 @@
 {% alert important %}
-iOS 14以降、おおよその位置情報の権限のみを選択したユーザーに対しては、ジオフェンスが確実に動作しない。
+iOS 14以降、おおよその位置情報の権限のみを選択したユーザーに対しては、ジオフェンスが確実に動作しません。
 {% endalert %}
 
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
 ## ジオフェンスの設定 {#setting-up-geofences}
 
-### ステップ 1: Brazeで有効にする
+### ステップ 1: Brazeで有効にする {#step-1-enable-in-braze}
 
 {% multi_lang_include developer_guide/_shared/enable_geofences_in_braze.md %}
 
-### ステップ 2:アプリの位置情報サービスをイネーブルメントする
+### ステップ 2: アプリの位置情報サービスを有効にする {#step-2-enable-your-apps-location-services}
 
-デフォルトでは、Brazeの位置情報サービスのイネーブルメントは有効になっていない。アプリでそれらをイネーブルメントするには、次のステップを完了する。ステップごとのチュートリアルについては、チュートリアルを[参照せよ。Brazeのロケーションとジオフェンス](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/)。
+デフォルトでは、Brazeの位置情報サービスは有効になっていません。アプリで有効にするには、以下のステップを完了してください。ステップごとのチュートリアルについては、[チュートリアル: Brazeのロケーションとジオフェンス](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/)を参照してください。
 
-#### ステップ 2.1: モジュ`BrazeLocation`ールを追加する
+#### ステップ 2.1: `BrazeLocation`モジュールを追加する {#step-21-add-the-brazelocation-module}
 
-Xcodeで、**一般**タブを開け。**フレームワーク、ライブラリー、および埋め込みコンテンツ**の下に、モジュ`BrazeLocation`ールを追加する。
+Xcodeで、**General**タブを開きます。**Frameworks, Libraries, and Embedded Content**の下に、`BrazeLocation`モジュールを追加します。
 
 ![XcodeプロジェクトにBrazeLocationモジュールを追加する]({% image_buster /assets/img/sdk_geofences/add-brazeLocation-module-xcode.png %})
 
-#### ステップ 2.2:`Info.plist` を更新する
+#### ステップ 2.2: `Info.plist`を更新する {#step-22-update-your-infoplist}
 
-アプリケーションで位置情報の追跡が必要である理由を説明する`info.plist`以下のキーのいずれかに値を`String`割り当てよ。この文字列は、ユーザーが位置情報サービスのイネーブルメントを求められる際に表示される。だから、この機能をイネーブルメントすることでアプリにどんな価値があるかを明確に説明するように。
+`info.plist`で、アプリケーションが位置情報を追跡する必要がある理由を説明する`String`値を以下のキーのいずれかに割り当てます。この文字列は、ユーザーが位置情報サービスの許可を求められる際に表示されるため、この機能を有効にすることでアプリにどのような価値があるかを明確に説明してください。
 
-- `NSLocationAlwaysAndWhenInUseUsageDescription` 
+- `NSLocationAlwaysAndWhenInUseUsageDescription`
 - `NSLocationWhenInUseUsageDescription`
 
-![Info.plist Xcodeのロケーション文字列]({% image_buster /assets/img/sdk_geofences/info-plist-location-strings.png %})
+![XcodeでのInfo.plistの位置情報文字列]({% image_buster /assets/img/sdk_geofences/info-plist-location-strings.png %})
 
 {% alert important %}
-Appleは廃止した`NSLocationAlwaysUsageDescription`。詳細については、[Appleの開発者ドキュメントを](https://developer.apple.com/documentation/bundleresources/information-property-list/nslocationalwaysusagedescription)参照せよ。
+Appleは`NSLocationAlwaysUsageDescription`を非推奨にしました。詳細については、[Appleの開発者ドキュメント](https://developer.apple.com/documentation/bundleresources/information-property-list/nslocationalwaysusagedescription)を参照してください。
 {% endalert %}
 
-### ステップ 3:コード内でジオフェンスをイネーブルメントする
+### ステップ 3: コード内でジオフェンスを有効にする {#step-3-enable-geofences-in-your-code}
 
-アプリコード内で、ジオフェンスを有効にするには、\`Geofence\`インスタンス[`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/)を初期化する`Geofence`オブジェクト`configuration`の\`enabled\`プロパティ`true`を`true``location.geofencesEnabled`に設定する。その他の`location`設定オプションについては、[Braze SWIFT SDKリファレンスを](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class)参照せよ。
+アプリのコード内で、[`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/)インスタンスを初期化する`configuration`オブジェクトの`location.geofencesEnabled`を`true`に設定してジオフェンスを有効にします。その他の`location`設定オプションについては、[Braze Swift SDKリファレンス](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class)を参照してください。
 
 {% tabs %}
 {% tab swift %}
@@ -59,7 +59,7 @@ AppDelegate.braze = braze
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZConfiguration *configuration =
     [[BRZConfiguration alloc] initWithApiKey:brazeApiKey
                                     endpoint:brazeEndpoint];
@@ -78,22 +78,22 @@ AppDelegate.braze = braze;
 {% endtab %}
 {% endtabs %}
 
-#### ステップ 3.1:バックグラウンドレポートを有効にする（任意）
+#### ステップ 3.1: バックグラウンドレポートを有効にする（任意） {#step-31-enable-background-reporting-optional}
 
-デフォルトでは、ジオフェンスイベントはアプリがフォアグラウンドにある場合、またはすべてのアプリケーション状態を監視する権限`Always`を持っている場合にのみ監視される。
+デフォルトでは、ジオフェンスイベントはアプリがフォアグラウンドにある場合、またはすべてのアプリケーション状態を監視する`Always`権限を持っている場合にのみ監視されます。
 
-ただし、アプリがバックグラウンドにある場合や[許可`When In Use`](#swift_request-authorization)を得ている場合、ジオフェンスイベントも監視することを選択できる。 
+ただし、アプリがバックグラウンドにある場合や[`When In Use`権限](#swift_request-authorization)を持っている場合にも、ジオフェンスイベントを監視することを選択できます。
 
-これらの追加のジオフェンスイベントを監視するには、Xcodeプロジェクトを開封し、次に**「署名」→&「機能**」に移動する。**バックグラウンド**モードで、**位置情報の更新に**チェックを入れる。
+これらの追加のジオフェンスイベントを監視するには、Xcodeプロジェクトを開き、**Signing & Capabilities**に移動します。**Background Modes**で、**Location updates**にチェックを入れます。
 
-![Xcodeでは、バックグラウンドモード＞位置情報の更新]({% image_buster /assets/img/sdk_geofences/xcode-background-modes-location-updates.png %})
+![Xcodeで、Background Modes > Location updates]({% image_buster /assets/img/sdk_geofences/xcode-background-modes-location-updates.png %})
 
-次に、アプリのコードで`allowBackgroundGeofenceUpdates`をイネーブルメントする。これにより、Brazeは位置情報の更新を継続的に監視することで、アプリの「使用中」ステータスを延長できる。この設定は、アプリがバックグラウンドにある時だけ機能する。アプリが再起動すると、既存のバックグラウンドプロセスはすべて一時停止され、代わりにフォアグラウンドプロセスが優先される。
+次に、アプリのコードで`allowBackgroundGeofenceUpdates`を有効にします。これにより、Brazeは位置情報の更新を継続的に監視することで、アプリの「When In Use」ステータスを延長できます。この設定は、アプリがバックグラウンドにある場合にのみ機能します。アプリが再度開かれると、既存のバックグラウンドプロセスはすべて一時停止され、代わりにフォアグラウンドプロセスが優先されます。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(
   apiKey: "<BRAZE_API_KEY>",
   endpoint: "<BRAZE_ENDPOINT>"
@@ -114,7 +114,7 @@ AppDelegate.braze = braze
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZConfiguration *configuration =
     [[BRZConfiguration alloc] initWithApiKey:brazeApiKey
                                     endpoint:brazeEndpoint];
@@ -135,27 +135,27 @@ AppDelegate.braze = braze;
 {% endtabs %}
 
 {% alert important %}
-バッテリーの消耗とレート制限を防ぐため、アプリの特定のニーズに合った値に`distanceFilter`設定せよ。`distanceFilter` をより高い値に設定すると、アプリがユーザーの場所を要求しすぎないようにします。
+バッテリーの消耗とレート制限を防ぐため、アプリの特定のニーズに合った値に`distanceFilter`を設定してください。`distanceFilter`をより高い値に設定すると、アプリがユーザーの位置情報を頻繁にリクエストしすぎるのを防ぐことができます。
 {% endalert %}
 
-### ステップ 4: 承認を要求する {#request-authorization}
+### ステップ 4: 承認をリクエストする {#request-authorization}
 
-ユーザーから権限を要求する際は、権限`Always`か権限`When In Use`のいずれかを要求する。
+ユーザーから承認をリクエストする際は、`When In Use`または`Always`のいずれかの承認をリクエストします。
 
 {% tabs local %}
 {% tab When In Use %}
-`When In Use` 権限を要求するには、`requestWhenInUseAuthorization()` メソッドを使用します。
+`When In Use`承認をリクエストするには、`requestWhenInUseAuthorization()`メソッドを使用します。
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 var locationManager = CLLocationManager()
 locationManager.requestWhenInUseAuthorization()
 ```
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
-```objc
+`````````objc
 CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 [locationManager requestWhenInUseAuthorization];
 ```
@@ -164,24 +164,24 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 {% endtab %}
 
 {% tab Always %}
-デフォルトでは、`requestAlwaysAuthorization()` はアプリに `When In Use` 権限のみを付与し、しばらく経過した後に、`Always` 権限をユーザーにもう一度要求します。
+デフォルトでは、`requestAlwaysAuthorization()`はアプリに`When In Use`承認のみを付与し、しばらく経過した後に`Always`承認をユーザーに再度リクエストします。
 
-ただし、最初に  を呼び出し`requestWhenInUseAuthorization()`、最初の`When In Use`  認証を受け取った後に  `requestAlwaysAuthorization()`を呼び出すことで、ユーザーに即座にプロンプトを表示させることもできる。
+ただし、最初に`requestWhenInUseAuthorization()`を呼び出し、初回の`When In Use`承認を受け取った後に`requestAlwaysAuthorization()`を呼び出すことで、ユーザーに即座にプロンプトを表示することもできます。
 
 {% alert important %}
-`Always` 権限を求める即時プロンプトを出せるのは一度のみです。
+`Always`承認を求める即時プロンプトを出せるのは一度のみです。
 {% endalert %}
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 var locationManager = CLLocationManager()
 locationManager.requestAlwaysAuthorization()
 ```
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
-```objc
+`````````objc
 CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 [locationManager requestAlwaysAuthorization];
 ```
@@ -190,28 +190,20 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 {% endtab %}
 {% endtabs %}
 
-### ステップ 5: バックグラウンドプッシュを確認する
-
-Braze では、バックグラウンドプッシュ通知を使用してジオフェンスがデバイスと同期されます。サーバーからのジオフェンス更新を適切に処理するため、[サイレントプッシュ通知を設定]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)するには以下の手順に従うこと。
-
-{% alert note %}
-Brazeのジオフェンス同期通知を受信した際に、アプリケーションが不要なアクションを行わないようにするには、[サイレントプッシュ]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications)通知を[無視]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications)する方法の記事に従うこと。
-{% endalert %}
-
 ## 手動でジオフェンスをリクエストする {#manually-request-geofences}
 
-Braze SDKがバックエンドにジオフェンスを要求すると、ユーザーの現在位置をレポートし、レポートされた位置に基づいて最適に関連性が高いと判断されたジオフェンスを受け取る。
+Braze SDKがバックエンドにジオフェンスをリクエストすると、ユーザーの現在位置をレポートし、レポートされた位置に基づいて最適に関連性が高いと判断されたジオフェンスを受け取ります。
 
-最も関連性の高いジオフェンスを受信するために、SDKがレポートする位置をコントロールするには、希望する座標を提供してジオフェンスを手動でリクエストできる。
+最も関連性の高いジオフェンスを受信するためにSDKがレポートする位置をコントロールするには、希望する座標を提供してジオフェンスを手動でリクエストできます。
 
-### ステップ 1: `automaticGeofenceRequests` を `false` に設定します
+### ステップ 1: `automaticGeofenceRequests`を`false`に設定する {#step-1-set-automaticgeofencerequests-to-false}
 
-[`init(configuration)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/init(configuration:)) に渡される `configuration` オブジェクトで、自動ジオフェンスリクエストを無効にできます。`automaticGeofenceRequests` を `false` に設定します。
+[`init(configuration)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/init(configuration:))に渡される`configuration`オブジェクトで、自動ジオフェンスリクエストを無効にできます。`automaticGeofenceRequests`を`false`に設定します。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(
   apiKey: "{BRAZE_API_KEY}",
   endpoint: "{BRAZE_ENDPOINT}"
@@ -224,7 +216,7 @@ AppDelegate.braze = braze
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZConfiguration *configuration =
   [[BRZConfiguration alloc] initWithApiKey:{BRAZE_API_KEY}
                                   endpoint:{BRAZE_ENDPOINT}];
@@ -236,21 +228,21 @@ AppDelegate.braze = braze;
 {% endtab %}
 {% endtabs %}
 
-### ステップ 2:手動で`requestGeofences`呼び出す
+### ステップ 2: 手動で`requestGeofences`を呼び出す {#step-2-call-requestgeofences-manually}
 
-コードでは、適切な緯度と経度でジオフェンスをリクエストする。
+コード内で、適切な緯度と経度を指定してジオフェンスをリクエストします。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 ```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [AppDelegate.braze requestGeofencesWithLatitude:latitude
                                       longitude:longitude];
 ```
@@ -258,36 +250,36 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 {% endtab %}
 {% endtabs %}
 
-## よくある質問 (FAQ) {#faq}
+## よくある質問（FAQ） {#faq}
 
-#### なぜ自分の端末でジオフェンス通知が届かないんだ？
+#### デバイスでジオフェンスが受信されないのはなぜですか？ {#why-am-i-not-receiving-geofences-on-my-device}
 
-デバイスでジオフェンスが受信されているかどうかを確認するには、まず[SDKデバッガ]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk)ーツールを使ってSDKのログを確認する。その後、サーバーからジオフェンスが正常に受信されているか、また顕著なエラーがあるかどうかを確認できる。
+デバイスでジオフェンスが受信されているかどうかを確認するには、まず[SDKデバッガーツール]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#debugging-the-braze-sdk)を使用してSDKのログを確認してください。サーバーからジオフェンスが正常に受信されているか、また顕著なエラーがあるかどうかを確認できます。
 
-以下は、ジオフェンスが端末で受信されないその他の可能性のある理由だ：
+以下は、デバイスでジオフェンスが受信されないその他の考えられる理由です。
 
-##### iOSオペレーティングシステムの制限
+##### iOSオペレーティングシステムの制限 {#ios-operating-system-limitations}
 
-iOSオペレーティングシステムでは、特定のアプリに対して最大20個のジオフェンスしか保存できない。ジオフェンスを有効にすると、Braze ではこれら20個の利用可能スロットの一部が使用されます。
+iOSオペレーティングシステムでは、特定のアプリに対して最大20個のジオフェンスしか保存できません。ジオフェンスを有効にすると、Brazeはこれら20個の利用可能スロットの一部を使用します。
 
-アプリ内の他のジオフェンス関連機能が誤って、または意図せず妨げられるのを防ぐには、ダッシュボードで個々のアプリに対して位置情報ジオフェンスをイネーブルメントする必要がある。位置情報サービスが正しく動作するには、アプリで利用可能なジオフェンススポットがすべて使用されていないことを確認してください。
+アプリ内の他のジオフェンス関連機能が誤って、または意図せず妨げられるのを防ぐには、ダッシュボードで個々のアプリに対して位置情報ジオフェンスを有効にする必要があります。位置情報サービスが正しく動作するには、アプリで利用可能なジオフェンススポットがすべて使用されていないことを確認してください。
 
-##### レート制限
+##### レート制限 {#rate-limiting}
 
-Brazeは不要なリクエストを避けるため、1セッションあたり1回のジオフェンス更新に制限している。
+Brazeは不要なリクエストを避けるため、1セッションあたり1回のジオフェンス更新に制限しています。
 
-#### Brazeと非Brazeのジオフェンス機能を両方使っている場合、どう動作するのか？
+#### Brazeと非Brazeのジオフェンス機能を両方使っている場合、どのように動作しますか？ {#how-does-it-work-if-i-am-using-both-braze-and-non-braze-geofence-features}
 
-前述の通り、iOSでは単一のアプリが最大20個のジオフェンスを保存できる。このストレージは、Brazeと非Brazeのジオフェンスの両方で共有され、[CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager)によって管理される。
+前述の通り、iOSでは単一のアプリが最大20個のジオフェンスを保存できます。このストレージは、Brazeと非Brazeのジオフェンスの両方で共有され、[CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager)によって管理されます。
 
-例えば、アプリに非Brazeのジオフェンスが20個含まれている場合、Brazeのジオフェンスをトラッキングするストレージは存在しない（逆も同様だ）。新しいジオフェンスを受信するには、[Appleの位置情報API](https://developer.apple.com/documentation/corelocation)を使用して、デバイス上の既存のジオフェンスの一部を監視を停止する必要がある。
+例えば、アプリに非Brazeのジオフェンスが20個含まれている場合、Brazeのジオフェンスを追跡するストレージは存在しません（逆も同様です）。新しいジオフェンスを受信するには、[Appleの位置情報API](https://developer.apple.com/documentation/corelocation)を使用して、デバイス上の既存のジオフェンスの一部の監視を停止する必要があります。
 
-#### ジオフェンス機能は、デバイスがオフラインの状態で使用できるか？
+#### ジオフェンス機能は、デバイスがオフラインの状態で使用できますか？ {#can-the-geofences-feature-be-used-while-a-device-is-offline}
 
-デバイスは、更新が行われる時だけインターネットに接続する必要がある。サーバーからジオフェンスを正常に受信した後、デバイスがオフライン状態であっても、ジオフェンスのエントリや退場を記録することが可能である。これは、デバイスの位置情報はインターネット接続とは別個に動作するためだ。
+デバイスは、更新が行われるときだけインターネットに接続する必要があります。サーバーからジオフェンスを正常に受信した後は、デバイスがオフライン状態であっても、ジオフェンスのエントリや退出を記録することが可能です。これは、デバイスの位置情報がインターネット接続とは別個に動作するためです。
 
-例えば、あるデバイスがセッション開始時にジオフェンスを正常に受信・登録した後、オフライン状態になったとする。登録済みのジオフェンスのいずれかに入ると、Brazeキャンペーンがトリガーされる。
+例えば、あるデバイスがセッション開始時にジオフェンスを正常に受信・登録した後、オフライン状態になったとします。その後、登録済みのジオフェンスのいずれかに入ると、Braze キャンペーンをトリガーできます。
 
-#### アプリがバックグラウンド状態になったり終了したりすると、なぜジオフェンスが監視されなくなるのか？
+#### アプリがバックグラウンド状態になったり終了したりすると、なぜジオフェンスが監視されなくなるのですか？ {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 
-許可`Always`がない場合、Appleはアプリが使用されていない間、位置情報サービスが動作するのを制限する。これはオペレーティングシステムによって強制されるものであり、Braze SDKのコントロール範囲外である。Brazeはアプリがバックグラウンドにある間もサービスを実行するための個別の設定を提供しているが、ユーザーからの明示的な許可を得ずに終了されたアプリについては、これらの制限を回避する方法はない。
+`Always`権限がない場合、Appleはアプリが使用されていない間、位置情報サービスの動作を制限します。これはオペレーティングシステムによって強制されるものであり、Braze SDKのコントロール範囲外です。Brazeはアプリがバックグラウンドにある間もサービスを実行するための個別の設定を提供していますが、ユーザーからの明示的な承認を得ずに終了されたアプリについては、これらの制限を回避する方法はありません。

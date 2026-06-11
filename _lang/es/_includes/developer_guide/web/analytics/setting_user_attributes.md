@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/web.md %}
 
-## Atributos predeterminados del usuario
+## Atributos predeterminados del usuario {#default-user-attributes}
 
-### Métodos predefinidos
+### Métodos predefinidos {#predefined-methods}
 
 Braze proporciona métodos predefinidos para configurar los siguientes atributos de usuario dentro de la [clase `User`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html):
 
@@ -16,7 +16,7 @@ Braze proporciona métodos predefinidos para configurar los siguientes atributos
 - Ciudad natal
 - Número de teléfono
 
-### Configuración de atributos predeterminados
+### Configuración de atributos predeterminados {#setting-default-attributes}
 
 {% tabs %}
 {% tab using methods %}
@@ -54,9 +54,11 @@ window.braze.getUser().setGender("f")
 {% endtab %}
 {% endtabs %}
 
-### Eliminar atributos predeterminados
+### Eliminar atributos predeterminados {#unsetting-default-attributes}
 
-Para eliminar un atributo de usuario predeterminado, pasa `null` al método relacionado. Por ejemplo:
+Puedes eliminar o desactivar un atributo de usuario a través del código de tu aplicación, una solicitud a la REST API o un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) en Canvas. Para atributos de tipo array y booleano, usa `null`. Para otros tipos de datos, usa una cadena vacía (`""`).
+
+Para eliminar un atributo de usuario predeterminado con el SDK Web, pasa `null` al método relacionado. Por ejemplo:
 
 {% tabs local %}
 {% tab First name %}
@@ -76,13 +78,13 @@ braze.getUser().setDateOfBirth(null, null, null);
 {% endtab %}
 {% endtabs %}
 
-## Atributos personalizados del usuario
+## Atributos personalizados del usuario {#custom-user-attributes}
 
-### Establecer atributos personalizados
+### Establecer atributos personalizados {#setting-custom-attributes}
 
 {% tabs %}
 {% tab using methods %}
-Además de los métodos de atributos de usuario predeterminados, también puedes establecer [atributos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types) para tus usuarios. Para obtener las especificaciones completas del método, consulta [nuestros JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
+Además de los métodos de atributos de usuario predeterminados, también puedes establecer [atributos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types) para tus usuarios. Para obtener las especificaciones completas de los métodos, consulta [nuestros JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
 
 {% subtabs local %}
 {% subtab String %}
@@ -138,7 +140,7 @@ braze.getUser().setCustomUserAttribute(
 {% endsubtab %}
 {% subtab Array %}
 
-La cantidad predeterminada y máxima de elementos en un array es 500. Puedes actualizar la cantidad máxima de elementos en el dashboard de Braze, en **Configuración de datos** > **Atributos personalizados**. Los arrays que superen la cantidad máxima de elementos se truncarán para contener la cantidad máxima de elementos.
+La cantidad predeterminada y máxima de elementos en un array es 500. Puedes actualizar la cantidad máxima de arrays en el panel de Braze, en **Configuración de datos** > **Atributos personalizados**. Los arrays que superen la cantidad máxima de elementos se truncarán para contener la cantidad máxima de elementos.
 
 
 Para establecer un atributo personalizado con un valor `array`:
@@ -181,7 +183,7 @@ La plantilla GTM no admite propiedades anidadas en eventos o compras. Puedes uti
 {% endtab %}
 {% endtabs %}
 
-### Eliminar atributos personalizados
+### Eliminar atributos personalizados {#unsetting-custom-attributes}
 
 Para eliminar un atributo personalizado, pasa `null` al método relacionado.
 
@@ -189,9 +191,9 @@ Para eliminar un atributo personalizado, pasa `null` al método relacionado.
 braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, null);
 ```
 
-### Atributos personalizados anidados
+### Atributos personalizados anidados {#nesting-custom-attributes}
 
-También puedes anidar propiedades dentro de atributos personalizados. En el siguiente ejemplo, un objeto `favorite_book` con propiedades anidadas se establece como un atributo personalizado en el perfil de usuario. Para obtener más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support).
+También puedes anidar propiedades dentro de atributos personalizados. En el siguiente ejemplo, un objeto `favorite_book` con propiedades anidadas se establece como un atributo personalizado en el perfil de usuario. Para obtener más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -205,11 +207,11 @@ const favoriteBook = {
 braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 ```
 
-### Uso de la API REST
+### Uso de la REST API {#using-the-rest-api}
 
-También puedes utilizar nuestra API REST para establecer o eliminar atributos de usuario. Para obtener más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+También puedes utilizar nuestra REST API para establecer o eliminar atributos de usuario. Para obtener más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
-## Configuración de suscripciones de usuarios
+## Configuración de suscripciones de usuarios {#setting-user-subscriptions}
 
 Para configurar una suscripción para tus usuarios (ya sea por correo electrónico o push), llama a las funciones `setEmailNotificationSubscriptionType()` o `setPushNotificationSubscriptionType()`, respectivamente. Ambas funciones toman el tipo de enumeración `braze.User.NotificationSubscriptionTypes` como argumento. Este tipo tiene tres estados diferentes:
 
@@ -217,20 +219,20 @@ Para configurar una suscripción para tus usuarios (ya sea por correo electróni
 | ------------------- | ---------- |
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | Suscrito y con adhesión voluntaria explícita |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | Suscrito, pero sin adhesión voluntaria explícita |
-| `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | No suscrito y/o con cancelación explícita |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | No suscrito o con cancelación explícita |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración de suscripciones de usuarios" }
 
 Cuando un usuario se registra para recibir notificaciones push, el navegador le obliga a elegir entre permitir o bloquear las notificaciones, y si elige permitirlas, se establece como `OPTED_IN` de forma predeterminada.
 
 Visita [Gestionar las suscripciones de los usuarios]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions) para obtener más información sobre la implementación de las suscripciones y las adhesiones voluntarias explícitas.
 
-### Cancelar la suscripción de un usuario al correo electrónico
+### Cancelar la suscripción de un usuario al correo electrónico {#unsubscribing-a-user-from-email}
 
 ```javascript
 braze.getUser().setEmailNotificationSubscriptionType(braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED);
 ```
 
-### Cancelar la suscripción de un usuario a las notificaciones push
+### Cancelar la suscripción de un usuario a las notificaciones push {#unsubscribing-a-user-from-push}
 
 ```java
 braze.getUser().setPushNotificationSubscriptionType(braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED);

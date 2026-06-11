@@ -6,21 +6,23 @@ description: "Braze SDK를 통해 커스텀 이벤트를 기록하는 방법을 
 
 ---
 
-# 커스텀 이벤트 기록
+# 커스텀 이벤트 기록 {#log-custom-events}
 
 > Braze SDK를 통해 커스텀 이벤트를 기록하는 방법을 알아보세요.
 
 {% alert note %}
-목록에 없는 래퍼 SDK의 경우 관련 네이티브 Android 또는 Swift 방법을 대신 사용하세요.
+목록에 없는 래퍼 SDK의 경우 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.
 {% endalert %}
 
-## 커스텀 이벤트 로깅하기
+이커머스 권장 이벤트에 대해서는 [이커머스 이벤트 기록]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
 
-커스텀 이벤트를 기록하려면 다음 이벤트 로깅 방법을 사용하세요.
+## 커스텀 이벤트 로깅하기 {#logging-a-custom-event}
+
+커스텀 이벤트를 기록하려면 다음 이벤트 로깅 메서드를 사용하세요.
 
 {% tabs %}
 {% tab web %}
-표준 웹 SDK 구현의 경우 다음 방법을 사용할 수 있습니다:
+표준 웹 SDK 구현의 경우 다음 메서드를 사용할 수 있습니다:
 
 ```javascript
 braze.logCustomEvent("YOUR_EVENT_NAME");
@@ -35,7 +37,7 @@ braze.logCustomEvent("YOUR_EVENT_NAME");
 {% endtab %}
 
 {% tab android %}
-네이티브 Android의 경우 다음 방법을 사용할 수 있습니다:
+네이티브 Android의 경우 다음 메서드를 사용할 수 있습니다:
 
 {% subtabs %}
 {% subtab java %}
@@ -74,7 +76,7 @@ braze.logCustomEvent('YOUR_EVENT_NAME');
 {% endtab %}
 
 {% tab cordova %}
-Braze Cordova 플러그인 방법을 사용하세요:
+Braze Cordova 플러그인 메서드를 사용하세요:
 
 ```javascript
 BrazePlugin.logCustomEvent("YOUR_EVENT_NAME");
@@ -133,18 +135,18 @@ AppboyBinding.LogCustomEvent("YOUR_EVENT_NAME");
 {% endtab %}
 {% endtabs %}
 
-## 메타데이터 등록정보 추가하기
+## 메타데이터 등록정보 추가하기 {#adding-metadata-properties}
 
 커스텀 이벤트를 기록할 때, 이벤트와 함께 등록정보 오브젝트를 전달하여 해당 커스텀 이벤트에 대한 메타데이터를 추가할 수 있습니다. 등록정보는 키-값 페어로 정의됩니다. 키는 문자열이며 값은 `string`, `numeric`, `boolean`, [`Date`](http://www.w3schools.com/jsref/jsref_obj_date.asp) 오브젝트, 배열 또는 중첩된 JSON 오브젝트일 수 있습니다.
 
-메타데이터 등록정보를 추가하려면 다음 이벤트 로깅 방법을 사용하세요.
+메타데이터 등록정보를 추가하려면 다음 이벤트 로깅 메서드를 사용하세요.
 
 {% tabs %}
 {% tab web %}
 ```javascript
 braze.logCustomEvent("YOUR-EVENT-NAME", {
-  you: "can", 
-  pass: false, 
+  you: "can",
+  pass: false,
   orNumbers: 42,
   orDates: new Date(),
   or: ["any", "array", "here"],
@@ -329,7 +331,7 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 `time` 및 `event_name` 키는 예약되어 있으며 커스텀 이벤트 등록정보로 사용할 수 없습니다.
 {% endalert %}
 
-## 모범 사례
+## 모범 사례 {#best-practices}
 
 커스텀 이벤트 등록정보가 예상대로 기록되도록 하려면 세 가지 중요한 확인 사항을 점검해야 합니다:
 
@@ -339,15 +341,15 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 커스텀 이벤트가 기록될 때마다 여러 등록정보가 함께 기록될 수 있습니다.
 
-### 이벤트 확인
+### 이벤트 확인 {#verify-events}
 
-개발자에게 어떤 이벤트 속성정보가 추적되고 있는지 확인하세요. 모든 이벤트 등록정보는 대소문자를 구분한다는 점을 유의하세요. 커스텀 이벤트 추적에 대한 추가 정보는 플랫폼에 따라 다음 문서를 확인하세요:
+개발자에게 어떤 이벤트 등록정보가 추적되고 있는지 확인하세요. 모든 이벤트 등록정보는 대소문자를 구분한다는 점을 유의하세요. 커스텀 이벤트 추적에 대한 추가 정보는 플랫폼에 따라 다음 문서를 확인하세요:
 
 * [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
 * [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
 * [웹]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
 
-### 로그 확인
+### 로그 확인 {#verify-log}
 
 이벤트 등록정보가 성공적으로 추적되었는지 확인하려면 **커스텀 이벤트** 페이지에서 모든 이벤트 등록정보를 볼 수 있습니다.
 
@@ -355,37 +357,37 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 2. 목록에서 커스텀 이벤트를 찾습니다.
 3. 이벤트에 대해 **등록정보 관리**를 선택하여 이벤트와 관련된 등록정보의 이름을 확인합니다.
 
-### 값 확인
+### 값 확인 {#verify-values}
 
-[테스트 사용자로 사용자를 추가]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users)한 후, 다음 단계에 따라 값을 확인하세요: 
+[테스트 사용자로 사용자를 추가]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users)한 후, 다음 단계에 따라 값을 확인하세요:
 
 1. 앱 내에서 커스텀 이벤트를 수행합니다.
 2. 데이터가 플러시될 때까지 약 10초 정도 기다립니다.
-3. [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administrative/app_settings/event_user_log_tab/)를 새로고침하여 커스텀 이벤트 및 함께 전달된 이벤트 속성정보 값을 확인합니다.
+3. [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)를 새로고침하여 커스텀 이벤트 및 함께 전달된 이벤트 등록정보 값을 확인합니다.
 
-## 커스텀 이벤트 문제 해결
+## 커스텀 이벤트 문제 해결 {#troubleshooting-custom-events}
 
 다음 시나리오를 활용하여 SDK 전반에서 커스텀 이벤트 로깅 문제를 해결하세요.
 
-### 커스텀 이벤트 트리거 확인
+### 커스텀 이벤트 트리거 확인 {#verifying-the-custom-event-trigger}
 
 커스텀 이벤트가 나타나지 않는 경우, 앱에서 추적된 동작이 테스트 중인 동작과 일치하지 않을 수 있습니다.
 
 - 개발자 팀에 어떤 앱 동작이 커스텀 이벤트를 트리거하는지 확인하세요.
 - SDK 업그레이드 후 `braze` 대신 `appboy`를 참조하는 등 더 이상 사용되지 않는 코드 경로가 있는지 확인하세요.
 
-### 커스텀 이벤트가 익명 프로필에 기록됨
+### 커스텀 이벤트가 익명 프로필에 기록됨 {#custom-events-are-logged-to-an-anonymous-profile}
 
 커스텀 이벤트를 기록하기 전에 사용자를 식별하지 않으면, Braze가 해당 이벤트를 익명 프로필에 연결할 수 있습니다.
 
 - 커스텀 이벤트를 수행하기 전에 `changeUser()`를 호출하여 Braze가 식별된 고객 프로필에 기록하도록 하세요.
-- 식별된 테스트 사용자로 테스트한 후 [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administrative/app_settings/event_user_log_tab/)를 검토하세요.
+- 식별된 테스트 사용자로 테스트한 후 [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)를 검토하세요.
 
-### 커스텀 이벤트 로깅 설정 확인
+### 커스텀 이벤트 로깅 설정 확인 {#verifying-custom-event-logging-setup}
 
 커스텀 이벤트가 예상대로 나타나지 않는 경우, 개발자 팀이 올바른 앱 동작에 대해 커스텀 이벤트 로깅을 구현했는지 확인하세요.
 
 - 개발자 팀에 이벤트가 올바르게 기록되고 예상된 사용자 동작에서 트리거되는지 확인하도록 요청하세요.
 - 팀이 Braze 고객지원에 티켓을 열 때 [상세 로그]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) 및 관련 코드 스니펫을 포함하세요.
 - 앱이 Swift 또는 Android를 사용하는 경우, 개발자 팀은 [SDK 디버거 필수 조건](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites)을 사용하여 상세 로그를 생성할 수 있습니다.
-- 개발자 팀이 문제를 식별할 수 없는 경우, [Braze 고객지원 티켓]({{site.baseurl}}/user_guide/administrative/access_braze/support/)을 열어주세요.
+- 개발자 팀이 문제를 식별할 수 없는 경우, [Braze 고객지원 티켓]({{site.baseurl}}/user_guide/administer/personal/braze_support/)을 열어주세요.

@@ -5,44 +5,44 @@ article_title: Braze ユーザーガイド
 layout: user_guide
 
 user_top_header: "Braze ユーザーガイド"
-user_top_text: "ここでは、マーケターや管理者が Braze を使い始めるために必要なすべての知識と、有意義でデータドリブン型の顧客インタラクションを設計する方法を学ぶことができます。"
-description: "これはユーザーガイドのランディングページです。ここでは、マーケティング担当者や管理者は、Braze を使い始めるために必要なすべての知識と、有意義でデータドリブン型の顧客とのインタラクションを設計する方法を学習できます。"
+user_top_text: "ここでは、マーケターや管理者がBrazeを使い始めるために必要なすべての知識と、有意義でデータドリブン型の顧客インタラクションを設計する方法を学ぶことができます。"
+description: "これはユーザーガイドのランディングページです。ここでは、マーケターや管理者がBrazeを使い始めるために必要なすべての知識と、有意義でデータドリブン型の顧客インタラクションを設計する方法を学ぶことができます。"
 
 user_menu_list:
-  - name: アカウントを管理する
+  - name: 会社ユーザーを管理する
     image: /assets/img/braze_icons/settings-01-braze-purple-dark.svg
     bg_color: '#C9C4FF'
-    link: /docs/user_guide/administrative/app_settings/company_settings/
-    description: 会社の設定やユーザーなどを管理できる。
-  - name: Brazeにログインする
+    link: /docs/user_guide/administer/global/user_management/manage_company_users/
+    description: Brazeユーザーを追加し、関連する会社ユーザー設定を管理します
+  - name: アカウントにアクセスする
     image: /assets/img/braze_icons/log-in-04-braze-pink-dark.svg
     bg_color: '#F8D3E8'
-    link: /docs/user_guide/administrative/access_braze/accessing_your_account/
-    description: プラットフォームにログインする。
+    link: /docs/user_guide/administer/personal/accessing_your_account/
+    description: SSOまたはBraze URLでサインインし、問題をトラブルシューティングします
   - name: キャンバスを作成する
     bg_color: '#FFD4BC'
-    link: /docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/
+    link: /docs/user_guide/messaging/canvas/create_a_canvas/
     image: /assets/img/braze_icons/users-01-braze-orange-dark.svg
-    description: このガイドでは、カスタマージャーニーの構築を始める方法を説明する。
+    description: キャンバスを最初から最後まで作成して起動します
 
 popular_topic_list:
-  - name: ユーザーインポート
-    link: /docs/user_guide/data/user_data_collection/user_import/
-  - name: カスタムイベント
-    link: /docs/user_guide/data/custom_data/custom_events/
-  - name: ユーザー購読の管理
-    link: /docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/
-  - name: Braze Currents
-    link: /docs/user_guide/data/braze_currents/
-  - name: カスタム属性
-    link: /docs/user_guide/data/custom_data/custom_attributes/
-  - name: アプリ内メッセージをカスタマイズする
-    link: /docs/user_guide/message_building_by_channel/in-app_messages/traditional/customize/
-  - name: Liquid
-    link: /docs/user_guide/personalization_and_dynamic_content/liquid/
-  - name: APIコールを行う
-    link: /docs/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/
+  - name: 位置情報の追跡
+    link: /docs/user_guide/audience/locations_and_geofences/location_tracking/
+  - name: リンク短縮
+    link: /docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/
+  - name: Currents
+    link: /docs/user_guide/data/distribution/braze_currents/
+  - name: クラウドデータ取り込み
+    link: /docs/user_guide/data/unification/cloud_ingestion/
+  - name: アプリ内メッセージ
+    link: /docs/user_guide/channels/in_app_messages/
+  - name: Content Cards
+    link: /docs/user_guide/channels/content_cards/
   - name: メッセージエンゲージメントイベント
-    link: /docs/user_guide/data/braze_currents/event_glossary/message_engagement_events/
+    link: /docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/
+  - name: カスタム属性
+    link: /docs/user_guide/data/activation/attributes/custom_attributes/
+  - name: CSVでユーザーをインポートする
+    link: /docs/user_guide/audience/manage_audience/import_users/csv_import/
 
 ---

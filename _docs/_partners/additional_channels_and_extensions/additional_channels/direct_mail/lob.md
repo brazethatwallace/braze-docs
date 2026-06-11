@@ -27,7 +27,7 @@ With this integration, you can:
 | ---| ---|
 |Lob account | A Lob account is required to take advantage of this partnership. |
 | Lob API key | You Lob API key can be found under the settings section under your name in the Lob dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Sending mail using Braze webhooks
 
@@ -38,11 +38,11 @@ Depending on what you'd like to do you in Lob, you'll need to use the correspond
 | Base URL | Available endpoints |
 | ------------ | ------------------- |
 | `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Choose a Lob endpoint" }
 
 ### Step 2: Create your Braze webhook template
 
-To create a Lob webhook template to use in future campaigns or Canvases, go to **Templates** > **Webhook Templates** in the Braze dashboard. 
+To create a Lob webhook template to use in future campaigns or Canvases, go to **Content** > **Webhook** in the Braze dashboard. Then, select **Create webhook template**.
 
 If you'd like to make a one-off Lob webhook campaign or use an existing template, select **Webhook** in Braze when creating a new campaign.
 

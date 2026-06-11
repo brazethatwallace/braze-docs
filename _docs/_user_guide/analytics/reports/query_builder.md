@@ -94,10 +94,7 @@ To generate SQL with the AI Query Builder:
 - Familiarize yourself with the [SQL writing rules]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) for this feature. Not following these rules will cause an error.
 - You can send up to 20 prompts per minute with the AI Query Builder.
 
-### How is my data used and sent to OpenAI?
-<!-- Contact Legal for changes. -->
-
-In order to generate your SQL, Braze will send your prompts to OpenAI’s API Platform. All queries sent to OpenAI from Braze are anonymized, meaning that OpenAI will not be able to identify from whom the query was sent unless you include uniquely identifiable information in the content you provide. As detailed in [OpenAI’s API Platform Commitments](https://openai.com/policies/api-data-usage-policies), data sent to OpenAI’s API via Braze is not used to train or improve their models and will be deleted after 30 days. Please ensure that you adhere to OpenAI’s policies relevant to you, including the [Usage Policy](https://openai.com/policies/usage-policies). Braze makes no warranty of any kind with respect to any AI-generated content. 
+#{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Writing custom SQL queries {#custom-sql}
 
@@ -107,7 +104,7 @@ To view table details within the Query Builder:
 
 1. From the **Query Builder** page, open the **Reference** panel and select **Available Data Tables** to view available data tables and their names.
 3. Select <i class="fas fa-chevron-down" alt=""></i> **See Details** to view the table description and information about the table columns, such as data types.
-4. To insert the table name in your SQL, select <i class="fas fa-copy" title="Copy table name to SQL editor"></i>.
+4. To insert the table name in your SQL, select <i class="fas fa-copy" title="Copy table name to SQL editor"></i> **Copy table name to SQL editor**.
 
 To use pre-written queries provided by Braze, select **Query Template** when first creating a report in the Query Builder.
 
@@ -134,7 +131,7 @@ If you query for the `CANVAS_ID`, `CANVAS_VARIATION_API_ID`, or `CAMPAIGN_ID`, t
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Writing custom SQL queries" }
 
 This query retrieves all three IDs and their associated name columns with a maximum of 100 rows:
 
@@ -218,7 +215,7 @@ All four types are shown if both `start_date` and `end_date` are used with the s
 | Start date | Specifies a start date | Requires `start_date` |
 | End date | Specifies an end date | Requires `end_date` |
 | Date range | Specifies both a start and end date | Requires both `start_date` and `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example values" }
 
 - **Replacement value:** Replaces `start_date` and `end_date` with a Unix timestamp in seconds for a specified date in UTC, such as `1696517353`.
 - **Usage example:** For all of relative, start date, end date, and date range variables:

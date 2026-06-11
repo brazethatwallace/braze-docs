@@ -24,7 +24,7 @@ There are four primary B2B objects that you need to execute B2B campaigns.
 | Contacts | Typically, individuals who have been qualified and converted from a lead to a contact to pursue a sales opportunity. |
 | Opportunities | A record that tracks the details of a potential sale or deal in progress
 | Accounts | A record of an organization that is a qualified potential customer, an existing customer, a partner, or a competitor who has a relationship of similar significance. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Create a B2B data model" }
 
 Within Braze, these four objects are combined and reduced into two objects: user profiles and business objects.
 
@@ -32,7 +32,7 @@ Within Braze, these four objects are combined and reduced into two objects: user
 | --- | --- | --- |
 | User profiles | These map directly to leads and contacts in your sales CRM system. Because leads are captured by Braze, they are automatically created as leads in your sales CRM system. As they are converted to contacts, the contact IDs and details sync back to Braze. |Leads<br> Contacts |
 | Business objects | These map to any non-user objects in your sales CRM system. This includes your sales specific objects, such as account objects and opportunity objects. | Accounts<br> Opportunities |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
 
 ## Step 1: Create your business objects in Braze
 
@@ -44,7 +44,7 @@ There are two methods to create and manage your business objects in Braze, catal
 | --- | --- |
 | [Catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs) | These are independent data objects (supplemental data objects) on the primary user profile in Braze. In a B2B context, you would likely have catalogs for your accounts and opportunities. |
 | [Connected sources]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) | These allow Braze to directly query your data warehouse. You're likely already syncing your lead, contact, opportunity, and account objects to your data warehouse on a regular basis, so you can point Braze segmentation directly to that warehouse and activate it in a zero-copy environment. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your business objects in Braze" }
 
 {% tabs %}
 {% tab Catalogs %}
@@ -64,13 +64,17 @@ The tables below include a few examples of fields you can map over from your CRM
 
 In this use case, Salesforce is the example CRM system. You can map over any field that is included in your CRM's objects.
 
-<table border="1">
+<table aria-label="Map over your CRM fields" border="1">
+  <caption>Map over your CRM fields</caption>
+  <thead>
   <tr>
     <th><b>Braze object</b></th>
     <th><b>Braze field</b></th>
     <th><b>CRM object (Salesforce)</b></th>
     <th><b>CRM field (Salesforce)</b></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="4">Catalog &gt; Account catalog</td>
     <td><code>id</code></td>
@@ -92,6 +96,7 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
     <td><code>account</code></td>
     <td><code>OTHER_FIELDS</code></td>
   </tr>
+  </tbody>
 </table>
 
 ##### Example table of mapped account fields
@@ -103,13 +108,17 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
 
 In this use case, Salesforce is the example CRM system. You can map over any field that is included in your CRM's objects.
 
-<table border="1">
+<table aria-label="Example table of mapped account fields" border="1">
+  <caption>Example table of mapped account fields</caption>
+  <thead>
   <tr>
     <th><b>Braze object</b></th>
     <th><b>Braze field</b></th>
     <th><b>CRM object (Salesforce)</b></th>
     <th><b>CRM field (Salesforce)</b></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="4">Catalog &gt; Opportunity catalog</td>
     <td><code>id</code></td>
@@ -131,6 +140,7 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
     <td><code>OTHER_FIELDS</code></td>
   </tr>
   </tr>
+  </tbody>
 </table>
 
 ##### Example table of mapped opportunity fields
@@ -167,7 +177,7 @@ First, make sure Braze and your CRM of choice have a common identifier to share 
 | `Aliases.salesforce_contact_id` | Contact | `id` | - User alias label: `salesforce_contact_id` <br>- User alias name: `contact_id` |
 | `AccountId` | Contact | `AccountId` | 
 | `OpportunityId` (optional, scalar) <br>or<br> `Opportunities` (optional, array) | Opportunity | `id` | 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze object: User" }
 
 {% alert note %}
 We recommend using [aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases) instead of `external_id` to map Salesforce lead and contact identifiers back to Braze. This is because it reduces the amount of lookups required when identifying and running your product-led growth style initiatives.

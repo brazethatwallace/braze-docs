@@ -27,7 +27,7 @@ You can also pass your AppsFlyer audiences (cohorts) directly to Braze with the 
 | AppsFlyer SDK | In addition to the required Braze SDK, you must install the [AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started).
 | Email domain setup complete | You must have completed the [IP and domain setup step]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) of setting up your email during Braze onboarding. |
 | SSL certificate | Your [SSL certificate]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl#acquiring-an-ssl-certificate) must be configured. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -108,13 +108,17 @@ Here, you find the REST endpoint and generate your Braze data import key. After 
 3. Provide the data import key and REST endpoint that you found in the Braze dashboard. 
 4. Toggle **Advanced Privacy** off and save your configuration.
 
+{% alert important %}
+When entering the Braze REST endpoint in AppsFlyer's Integration tab, enter only the domain (for example, `rest.fra-02.braze.eu`) without the `https://` protocol and without the `/attribution/appsflyer` path. AppsFlyer automatically prepends the protocol and appends the path. Including either in your input causes postback failures.
+{% endalert %}
+
 Additional information on these instructions is available in [AppsFlyer's documentation](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration).
 
 ### Step 4: Confirm the integration
 
-After Braze receives attribution data from AppsFlyer, the status connection indicator on the AppsFlyer technology partners page in Braze changes from "Not Connected" to "Connected" and includes a timestamp of the last successful request.
+On the AppsFlyer technology partners page in Braze, the connection indicator shows **Not Connected** until you generate a data import API key in Step 2. After you generate the key, the indicator changes to **Connected** and displays a timestamp. That timestamp reflects when the integration was first set up in Braze (when the data import key was created), not when AppsFlyer last sent a postback.
 
-This status changes only after Braze receives data about an attributed install. Braze ignores organic installs (excludes them from the AppsFlyer postback) and does not count them when determining if the connection is successful.
+To confirm that install attribution data is flowing from AppsFlyer, use Step 5 to verify that non-organic install data appears in Braze segment filters. Braze ignores organic installs from AppsFlyer postbacks and does not store them as attributed install data.
 
 ### Step 5: Viewing user attribution data
 
@@ -128,7 +132,7 @@ If your integration was successful, Braze maps all non-organic install data to s
 | `campaign` | Attributed Campaign |
 | `af_adset` | Attributed Adgroup |
 | `af_ad` | Attributed Ad |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
 
 You can segment your user base by attribution data in the Braze dashboard using the Install Attribution filters.
 

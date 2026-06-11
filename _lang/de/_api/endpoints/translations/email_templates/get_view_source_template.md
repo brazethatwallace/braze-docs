@@ -1,25 +1,23 @@
 ---
-nav_title: "GET: Quellübersetzungen für Templates für E-Mails anzeigen"
-article_title: "GET: View Source Translations for E-Mail Template"
-search_tag: Endpunkt
+nav_title: "GET: Quellübersetzungen für E-Mail-Template anzeigen"
+article_title: "GET: Quellübersetzungen für E-Mail-Template anzeigen"
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "In diesem Artikel erfahren Sie mehr über die Quelltextübersetzungen für einen E-Mail Template Endpunkt."
+description: "Dieser Artikel beschreibt den Endpunkt zum Anzeigen der Quellübersetzungen für ein E-Mail-Template."
 ---
 
 {% api %}
-# Anzeigen der Quellübersetzungen für eine E-Mail-Vorlage
+# Quellübersetzungen für ein E-Mail-Template anzeigen {#view-the-source-translations-for-an-email-template}
 {% apimethod get %}
-/Templates/E-Mail/Übersetzungen/Quelle
+/templates/email/translations/source
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um die Quellübersetzungen für eine [E-Mail-Vorlage]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates) einzusehen. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [„Locales in Nachrichten]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/)“.
+> Verwenden Sie diesen Endpunkt, um die Quellübersetzungen für ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/) anzuzeigen. Weitere Informationen zu Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `templates.email.info`.
 
@@ -27,14 +25,14 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Abfrageparameter
+## Abfrageparameter {#query-parameters}
 
-| Parameter     | Erforderlich | Datentyp | Beschreibung                     |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | Erforderlich | String    | Die ID für Ihr E-Mail Template. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `template_id` | Erforderlich | String | Die ID für Ihr E-Mail-Template. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/translations/source?template_id={template_id}'
@@ -44,13 +42,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
 ---template_id: "6ad1507f-ca10-44c4-95bf-aj39fm10fm1ps"
 ```
 
-## Antwort
+## Antwort {#response}
 
-Es gibt vier Status Code Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
+Es gibt vier Statuscode-Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `200` könnte den folgenden Response Header und Body zurückgeben.
+Der Statuscode `200` könnte den folgenden Response-Header und -Body zurückgeben.
 
 ```json
 {
@@ -64,9 +62,9 @@ Der Status Code `200` könnte den folgenden Response Header und Body zurückgebe
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die auftreten können.
 
 ```json
 {

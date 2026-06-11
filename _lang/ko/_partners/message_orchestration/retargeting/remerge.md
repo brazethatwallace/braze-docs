@@ -2,7 +2,7 @@
 nav_title: Remerge
 article_title: Remerge
 alias: /partners/remerge/
-description: "This reference article outlines the partnership between Braze and Remerge, a purpose-built app for retargeting at scale, arming you with tools to efficiently segment app audiences and retarget users."
+description: "이 참조 문서에서는 대규모 앱 리타겟팅을 위해 특별히 설계된 Remerge와 Braze 간의 파트너십을 설명하며, 앱 오디언스를 효율적으로 세분화하고 사용자를 리타겟팅할 수 있는 도구를 제공합니다."
 page_type: partner
 search_tag: Partner
 
@@ -10,40 +10,41 @@ search_tag: Partner
 
 # Remerge
 
-> [Remerge](https://www.remerge.io/) is purpose-built for app retargeting at scale, arming you with tools to efficiently segment app audiences and retarget users.
+> [Remerge](https://www.remerge.io/)는 대규모 앱 리타겟팅을 위해 특별히 설계되었으며, 앱 오디언스를 효율적으로 세분화하고 사용자를 리타겟팅할 수 있는 도구를 제공합니다.
 
-_This integration is maintained by Remerge._
+_이 통합은 Remerge에서 유지 관리합니다._
 
-## About the integration
+## 통합 소개 {#about-the-integration}
 
-The Braze and Remerge integration helps you develop robust, cross-channel lifecycle marketing campaigns by sending user data to Remerge via webhook events to help retarget users through their mobile demand-side platform.
+Braze와 Remerge 통합은 웹훅 이벤트를 통해 사용자 데이터를 Remerge로 전송하여 모바일 수요측 플랫폼을 통해 사용자를 리타겟팅할 수 있도록 지원함으로써, 강력한 크로스채널 라이프사이클 마케팅 캠페인을 개발하는 데 도움을 줍니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 |---|---|
-| Remerge account | A Remerge account is required to take advantage of this partnership. |
-| Remerge webhook key | This key will be provided by Remerge. |
-| Android app ID | Your unique Braze application identifier for Android (such as "com.example"). |
-| iOS app ID | Your unique Braze application identifier for iOS (such as "012345678"). |
-| Enable IDFA collection in Braze SDK | IDFA collection is optional within the Braze SDK and disabled by default. | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Remerge 계정 | 이 파트너십을 활용하려면 Remerge 계정이 필요합니다. |
+| Remerge 웹훅 키 | 이 키는 Remerge에서 제공합니다. |
+| Android 앱 ID | Android용 고유 Braze 애플리케이션 식별자(예: "com.example"). |
+| iOS 앱 ID | iOS용 고유 Braze 애플리케이션 식별자(예: "012345678"). |
+| Braze SDK에서 IDFA 수집 활성화 | IDFA 수집은 Braze SDK 내에서 선택 사항이며 기본적으로 비활성화되어 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Create your Braze webhook template
+### 1단계: Braze 웹훅 템플릿 생성 {#step-1-create-your-braze-webhook-template}
 
-To create a Remerge webhook template for future campaigns or Canvases, navigate to the **Templates** > **Webhook Templates** in the Braze platform. 
+향후 Campaigns 또는 Canvases에서 사용할 Remerge 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **콘텐츠** > **웹훅**으로 이동합니다. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
-If you would like to create a one-off Remerge webhook campaign or use an existing template, select **Webhook** in Braze when creating a new campaign.
 
-In your new Webhook template, fill out the following fields:
+일회성 Remerge 웹훅 Campaign을 생성하거나 기존 템플릿을 사용하려면 새 Campaign을 생성할 때 Braze에서 **Webhook**을 선택합니다.
+
+새 웹훅 템플릿에서 다음 필드를 입력합니다:
 - **Request Body**: Raw Text
 - **Webhook URL**:
 {% raw %}
 ```liquid
-{% assign event_name = 'your_remerge_event_name' %} 
-{% assign android_app_id = 'your_android_app_id' %} 
+{% assign event_name = 'your_remerge_event_name' %}
+{% assign android_app_id = 'your_android_app_id' %}
 {% assign iOS_app_id = 'your_iOS_app_id' %}
 
 {% capture json %}{'name':'event_name','active':true,'joined':{{'now' | date: '%s' }}}{% endcapture %}
@@ -56,21 +57,21 @@ https://remerge.events/event?partner=braze&app_id=\{% if most_recently_used_devi
 ```
 {% endraw %}
 
-In the webhook URL, you must:
-- Use the `https://remerge.events/event` API to send your webhook events.
-- Set the event name. This name will appear in your [remerge.io](https://www.remerge.io/) dashboard.
-- Pass your app's unique application identifier for Android (such as "com.example") and iOS (such as "012345678") to remerge.
+웹훅 URL에서 다음을 수행해야 합니다:
+- `https://remerge.events/event` API를 사용하여 웹훅 이벤트를 전송합니다.
+- 이벤트 이름을 설정합니다. 이 이름은 [remerge.io](https://www.remerge.io/) 대시보드에 표시됩니다.
+- Android(예: "com.example") 및 iOS(예: "012345678")용 앱의 고유 애플리케이션 식별자를 Remerge에 전달합니다.
 - 키를 정의합니다. Remerge에서 제공합니다.
 
-![Braze 웹훅 빌더에 표시되는 웹훅 URL 및 메시지 미리보기입니다.]({% image_buster /assets/img_archive/webhook_remerge_preview.png %})
+![Braze 웹훅 빌더에 표시되는 웹훅 URL 및 메시지 미리보기.]({% image_buster /assets/img_archive/webhook_remerge_preview.png %})
 
 {% alert important %}
-Braze does not automatically collect the device IDFA/AAID, so you must store these values yourself. Be aware that you may require user consent to collect this data.
+Braze는 기기 IDFA/AAID를 자동으로 수집하지 않으므로 이러한 값을 직접 저장해야 합니다. 이 데이터를 수집하려면 사용자 동의가 필요할 수 있다는 점에 유의하세요.
 {% endalert %}
 
-#### Request headers and method
+#### 요청 헤더 및 메서드 {#request-headers-and-method}
 
-The Remerge webhook requires an HTTP method and request header.
+Remerge 웹훅에는 HTTP 메서드와 요청 헤더가 필요합니다.
 
 - **HTTP Method**: GET
 - **Request Headers**:
@@ -78,16 +79,14 @@ The Remerge webhook requires an HTTP method and request header.
 
 ![Braze 웹훅 빌더에 표시되는 요청 헤더, HTTP 메서드 및 메시지 미리보기.]({% image_buster /assets/img_archive/httpmethod_remerge.png %})
 
-#### 요청 본문
+#### 요청 본문 {#request-body}
 
-You do not have to define a request body for this webhook.
+이 웹훅에 대해 요청 본문을 정의할 필요가 없습니다.
 
-## Step 2: Preview your request
+## 2단계: 요청 미리보기 {#step-2-preview-your-request}
 
-Preview the message to ensure the request is rendering properly for different users. We recommend previewing and sending test requests for both Android and iOS users. If the request is successful, the API will respond with `HTTP 204`.
+메시지를 미리보기하여 다양한 사용자에 대해 요청이 올바르게 렌더링되는지 확인합니다. Android 및 iOS 사용자 모두에 대해 미리보기 및 테스트 요청을 전송하는 것을 권장합니다. 요청이 성공하면 API는 `HTTP 204`로 응답합니다.
 
 {% alert important %}
-Remember to save your template before leaving the page! <br>Updated webhook templates can be found in the **Saved Webhook Templates** list when creating a new [webhook campaign]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/).
+페이지를 떠나기 전에 템플릿을 저장하세요! <br>업데이트된 웹훅 템플릿은 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)을 생성할 때 **저장된 웹훅 템플릿** 목록에서 찾을 수 있습니다.
 {% endalert %}
-
-

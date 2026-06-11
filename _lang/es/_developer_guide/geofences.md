@@ -1,6 +1,6 @@
 ---
 nav_title: Geovallas
-article_title: Geovallas para el SDK Braze SWIFT
+article_title: Geovallas
 page_order: 3.51
 description: "Aprende a configurar geovallas para el SDK de Braze."
 platform:
@@ -9,13 +9,13 @@ platform:
   - Swift
   - Xamarin
   - React Native
-Tool:
+tool:
   - Location
 ---
 
-# Geovallas
+# Geovallas {#geofences}
 
-> Aprende a configurar geovallas para el SDK de Braze. Una [geovalla]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences) es un área geográfica virtual que forma un círculo alrededor de una posición global específica y se representa combinando la latitud, la longitud y un radio.
+> Aprende a configurar geovallas para el SDK de Braze. Una [geovalla]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences/#about-locations-and-geofences) es un área geográfica virtual que forma un círculo alrededor de una posición global específica y se representa combinando la latitud, la longitud y un radio.
 
 {% sdktabs %}
 {% sdktab android %}

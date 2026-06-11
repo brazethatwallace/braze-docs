@@ -1,158 +1,158 @@
 ---
 nav_title: Pinterest
-article_title: キャンバスのオーディエンスと Pinterest の同期
-description: "このリファレンス記事では、Braze Audience Sync to Pinterest を使用して、行動トリガーやセグメンテーションなどに基づいて広告を配信する方法について説明します。"
+article_title: CanvasオーディエンスのPinterestへの同期
+description: "このリファレンス記事では、Braze Audience Sync to Pinterestを使用して、行動トリガーやセグメンテーションなどに基づいて広告を配信する方法について説明します。"
 page_order: 5
 alias: "/audience_sync_pinterest/"
 
-Tool:
+tool:
   - Canvas
 
 ---
 
 # Audience Sync to Pinterest
 
-Braze Audience Sync to Pinterest を使用すると、ブランドは独自の Braze 統合からのユーザーデータを Pinterest オーディエンスに追加して、行動トリガーやセグメンテーションなどに基づいて広告を配信できます。ユーザーデータに基づいて Braze キャンバスでメッセージ (プッシュ、メール、SMS、Webhook など) をトリガーするために通常使用する基準を、Pinterest オーディエンス内の該当ユーザーに対して広告をトリガーするときに使用できるようになりました。
+Braze Audience Sync to Pinterestを使用すると、ブランドは独自のBraze統合からのユーザーデータをPinterestオーディエンスに追加して、行動トリガーやセグメンテーションなどに基づいて広告を配信できます。ユーザーデータに基づいてBraze Canvasでメッセージ（プッシュ、メール、SMS、Webhookなど）をトリガーするために通常使用する基準を、Pinterestオーディエンス内の該当ユーザーに対して広告をトリガーするためにも使用できるようになりました。
 
 **オーディエンス同期の一般的なユースケースは次のとおりです。**
 
 - 複数のチャネルを通じて価値の高いユーザーをターゲットにして、購入やエンゲージメントを促進する
-- 他のマーケティングチャネルに対してレスポンシブでないユーザーをリターゲティングする
+- 他のマーケティングチャネルに対して反応が薄いユーザーをリターゲティングする
 - すでに自社ブランドの忠実な消費者であるユーザーが広告を受け取ることを防ぐための抑制オーディエンスを作成する
 - 新規ユーザーをより効率的に獲得するための類似行動オーディエンスを作成する
 
-この機能により、ブランドはPinterestと共有する特定のファーストパーティデータをコントロールできます。Braze では、ファーストパーティデータを共有できる統合と共有できない統合を最大限に考慮しています。詳細については、私たちの[プライバシーポリシー](https://www.braze.com/privacy)を参照してください。
+この機能により、ブランドはPinterestと共有する特定のファーストパーティデータをコントロールできます。Brazeでは、ファーストパーティデータを共有できる統合と共有できない統合について最大限の配慮を行っています。詳細については、[プライバシーポリシー](https://www.braze.com/privacy)を参照してください。
 
 {% alert important %}
-**Audience Sync Pro 免責条項**<br>
-Braze Audience Sync to Pinterest は Audience Sync Pro 統合です。この統合の詳細については、Brazeアカウントマネージャーに問い合わせること。
+**Audience Sync Pro免責条項**<br>
+Braze Audience Sync to PinterestはAudience Sync Pro統合です。この統合の詳細については、Brazeアカウントマネージャーにお問い合わせください。
 {% endalert %}
 
-## 前提条件 
-キャンバスで Pinterest オーディエンスステップを設定する前に、以下の項目が作成、完了、または受け入れられていることを確認する必要があります。
+## 前提条件 {#prerequisites}
+
+CanvasでPinterestオーディエンスステップを設定する前に、以下の項目が作成、完了、または承諾されていることを確認する必要があります。
 
 | 要件 | 提供元 | 説明 |
 | --- | --- | --- |
-| Pinterestビジネスハブ | [Pinterest](https://www.pinterest.com/business/hub/) | ブランドのPinterestアセット(広告アカウント、ページ、アプリなど)を管理するための集中管理ツールです。 |
-| Pinterestの広告アカウント | [Pinterest](https://ads.pinterest.com/) | ブランドの Pinterest Business Hub に関連付けられているアクティブな Pinterest 広告アカウント。<br><br>Pinterest Business Hub 管理者が、Braze で使用する Pinterest 広告アカウントの管理者権限をユーザーに付与していることを確認します。 |
-| Pinterest terms& ポリシー | Pinterest | Pinterest Audience Sync の利用に関連するPinterest のすべての必須条件、ポリシー、ガイドライン、ドキュメントを遵守することに同意するものとします。これには、引用により組み込まれるすべての条件、ポリシー、ガイドライン、および文書 (利用規約、ビジネス利用規約、プライバシーポリシー、開発者および API 利用規約、広告データ利用規約、広告ガイドライン、広告サービス契約、コミュニティガイドライン、ブランドガイドラインなどを含む) が含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Pinterestビジネスハブ | [Pinterest](https://www.pinterest.com/business/hub/) | ブランドのPinterestアセット（広告アカウント、ページ、アプリなど）を管理するための集中管理ツールです。 |
+| Pinterest広告アカウント | [Pinterest](https://ads.pinterest.com/) | ブランドのPinterestビジネスハブに関連付けられたアクティブなPinterest広告アカウント。<br><br>Pinterestビジネスハブの管理者が、Brazeで使用するPinterest広告アカウントの管理者権限を付与していることを確認してください。 |
+| Pinterestの利用規約とポリシー | Pinterest | Pinterest Audience Syncの利用に関連するPinterestのすべての必須条件、ポリシー、ガイドライン、ドキュメントを遵守することに同意するものとします。これには、引用により組み込まれるすべての条件、ポリシー、ガイドライン、およびドキュメント（利用規約、ビジネス利用規約、プライバシーポリシー、開発者およびAPI利用規約、広告データ利用規約、広告ガイドライン、広告サービス契約、コミュニティガイドライン、ブランドガイドラインなどを含む）が含まれます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="前提条件" }
 
-## 統合 
+## 統合 {#integration}
 
-### ステップ1:Pinterest に接続する
+### ステップ1:Pinterestに接続する {#step-1-connect-to-pinterest}
 
 {% alert important %}
-PinterestをBrazeアカウントに接続するには[「管理者」権限が]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)必要。
+PinterestをBrazeアカウントに接続するには[「管理者」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)が必要です。
 {% endalert %}
 
-Braze ダッシュボードで、[**パートナー連携**] > [**テクノロジーパートナー**] に移動し、[**Pinterest**] を選択します。Pinterest オーディエンス同期で、[**Pinterest を接続**] を選択します。
+Brazeダッシュボードで、**パートナー連携** > **テクノロジーパートナー**に移動し、**Pinterest**を選択します。Pinterest Audience Syncで、**Connect Pinterest**を選択します。
 
-![Braze の Pinterest テクノロジーページ。「概要」セクション、「Pinterest オーディエンス同期」セクション、「接続済みの Pinterest 」ボタンが表示されている。]({% image_buster /assets/img/pinterest/pinterest1.png %}){: style="max-width:80%;"}
+![BrazeのPinterestテクノロジーページ。概要セクションとPinterest Audience Syncセクション、およびConnected Pinterestボタンが表示されている。]({% image_buster /assets/img/pinterest/pinterest1.png %}){: style="max-width:80%;"}
 
-その後、広告アカウント管理とオーディエンス管理を Braze に許可する [Pinterest OAuth] ページにリダイレクトされます。
+その後、広告アカウント管理とオーディエンス管理をBrazeに許可するPinterest OAuthページにリダイレクトされます。
 
-[**Confirm**] を選択すると、Braze に戻るので、そこで同期する Pinterest 広告アカウントを選択します。 
+**Confirm**を選択すると、Brazeに戻るので、そこで同期するPinterest広告アカウントを選択します。
 
-![Pinterest に接続できる利用可能な広告アカウントのリスト。]({% image_buster /assets/img/pinterest/pinterest2.png %}){: style="max-width:80%;"}
+![Pinterestに接続できる利用可能な広告アカウントのリスト。]({% image_buster /assets/img/pinterest/pinterest2.png %}){: style="max-width:80%;"}
 
-接続に成功すると、パートナーページに戻ります。そこでどのアカウントが接続されているかを確認したり、既存のアカウントを切断したりすることができます。
+接続に成功すると、パートナーページに戻ります。そこでどのアカウントが接続されているかを確認したり、既存のアカウントを切断したりできます。
 
-![広告アカウントが接続されたことを示す更新後の Pinterest テクノロジーパートナーページ。]({% image_buster /assets/img/pinterest/pinterest3.png %}){: style="max-width:80%;"}
+![広告アカウントが正常に接続されたことを示す更新後のPinterestテクノロジーパートナーページ。]({% image_buster /assets/img/pinterest/pinterest3.png %}){: style="max-width:80%;"}
 
-Pinterest 接続は Braze ワークスペースレベルで適用されます。Pinterest 管理者が Pinterest Business Hub からユーザーを削除したり、接続されている Pinterest アカウントにアクセスしたりすると、Braze は無効なトークンを検出します。その結果、Pinterest オーディエンスコンポーネントを使用しているアクティブなキャンバスにはエラーが表示され、Braze はユーザーを同期できません。
+Pinterest接続はBrazeワークスペースレベルで適用されます。Pinterest管理者がPinterestビジネスハブからユーザーを削除したり、接続されているPinterestアカウントへのアクセスを取り消したりすると、Brazeは無効なトークンを検出します。その結果、Pinterestオーディエンスコンポーネントを使用しているアクティブなCanvasesにはエラーが表示され、Brazeはユーザーを同期できなくなります。
 
-### ステップ2:Pinterest を使用したオーディエンス同期ステップの追加
+### ステップ2:PinterestでAudience Syncステップを追加する {#step-2-add-an-audience-sync-step-with-pinterest}
 
-キャンバスにコンポーネントを追加し、[**オーディエンスの同期**] を選択します。
+Canvasにコンポーネントを追加し、**Audience Sync**を選択します。
 
 ![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
-### ステップ 3:同期セットアップ
+### ステップ3:同期セットアップ {#step-3-sync-setup}
 
-[**カスタムオーディエンス**] ボタンをクリックしてコンポーネントエディターを開きます。
+**Custom Audience**ボタンをクリックしてコンポーネントエディターを開きます。
 
-**Pinterest** を目的のオーディエンス同期パートナーとして選択します。
+**Pinterest**を目的のAudience Syncパートナーとして選択します。
 
 ![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
-次に、目的のPinterest 広告アカウントを選択します。**新規または既存のオーディエンスの選択ドロップダウン**で、新規または既存のオーディエンスの名前を入力します。
+次に、目的のPinterest広告アカウントを選択します。**Choose a New or Existing Audience**ドロップダウンで、新規または既存のオーディエンスの名前を入力します。
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab 新規オーディエンスの作成 %}
 
 **新規オーディエンスの作成**<br>
-新しいオーディエンスの名前を入力し、[**ユーザーをオーディエンスに追加**] を選択し、Pinterest と同期するフィールドを選択します。次に、ステップエディタの下部にある**オーディエンス**を作成ボタンをクリックして、オーディエンスを保存します。
+新しいオーディエンスの名前を入力し、**Add Users to Audience**を選択し、Pinterestと同期するフィールドを選択します。次に、ステップエディターの下部にある**Create Audience**ボタンをクリックして、オーディエンスを保存します。
 
-![カスタムオーディエンスキャンバスステップの展開ビュー。ここで、目的の広告アカウントを選択し、新しいオーディエンスが作成される。]({% image_buster /assets/img/audience_sync/pinterest_sync.png %})
+![カスタムオーディエンスCanvasステップの展開ビュー。ここで、目的の広告アカウントを選択し、新しいオーディエンスが作成される。]({% image_buster /assets/img/audience_sync/pinterest_sync.png %})
 
-オーディエンスが正常に作成された場合、またはエラーが発生した場合、Brazeはステップエディタの上部に通知を表示する。ユーザーは、後でキャンバスジャーニーでユーザーを削除するためにこのオーディエンスを参照することができます。これは、オーディエンスが下書きで作成されたためです。
+オーディエンスが正常に作成された場合、またはエラーが発生した場合、Brazeはステップエディターの上部に通知を表示します。ユーザーは、後でCanvasジャーニーでユーザーを削除するためにこのオーディエンスを参照できます。これは、オーディエンスが下書きモードで作成されたためです。
 
-![キャンバスコンポーネントで新しいオーディエンスが作成された後に表示されるアラート。]({% image_buster /assets/img/audience_sync/pinterest_sync3.png %})
+![Canvasコンポーネントで新しいオーディエンスが作成された後に表示されるアラート。]({% image_buster /assets/img/audience_sync/pinterest_sync3.png %})
 
-新しいオーディエンスを使用してキャンバスを起動すると、ユーザーがオーディエンス同期ステップに入る時点で、Braze はユーザーをほぼリアルタイムで同期します。
+新しいオーディエンスを使用してCanvasを起動すると、ユーザーがAudience Syncステップに入る時点で、Brazeはユーザーをほぼリアルタイムで同期します。
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab 既存のオーディエンスとの同期 %}
 **既存のオーディエンスとの同期**<br>
-また、Braze は、これらのオーディエンスが最新であることを確認するために、既存の Pinterest オーディエンスにユーザーを追加する機能も提供します。既存のオーディエンスと同期するには、ドロップダウンに既存のオーディエンスの名前を入力し、オーディエンスに追加します。ユーザーがオーディエンス同期ステップに入る時点で、Braze はほぼリアルタイムでユーザーを追加します。
+Brazeは、既存のPinterestオーディエンスにユーザーを追加して、オーディエンスを最新の状態に保つ機能も提供しています。既存のオーディエンスと同期するには、ドロップダウンに既存のオーディエンスの名前を入力し、オーディエンスに追加します。ユーザーがAudience Syncステップに入る時点で、Brazeはほぼリアルタイムでユーザーを追加します。
 
-![カスタムオーディエンスキャンバスステップの展開ビュー。ここで、希望する広告アカウントと既存のオーディエンスが選択される。]({% image_buster /assets/img/audience_sync/pinterest_sync2.png %})
+![カスタムオーディエンスCanvasステップの展開ビュー。ここで、希望する広告アカウントと既存のオーディエンスが選択される。]({% image_buster /assets/img/audience_sync/pinterest_sync2.png %})
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ4:キャンバスの起動
+### ステップ4:Canvasを起動する {#step-4-launch-canvas}
 
-Audience Sync to Pinterest を設定したら、キャンバスを起動します。新しいオーディエンスが作成され、オーディエンス同期ステップを通過するユーザーは Pinterest のこのオーディエンスに送られます。キャンバスに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
+Audience Sync to Pinterestを設定したら、Canvasを起動します。新しいオーディエンスが作成され、Audience Syncステップを通過するユーザーはPinterest上のこのオーディエンスに送られます。Canvasに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
-Pinterest でオーディエンスを表示するには、広告マネージャーアカウントを入力し、[Ads] ドロップダウンから [Audience] を選択します。[Audience] ページで、各オーディエンスが100に達した後のオーディエンスのサイズを確認できます。
+Pinterestでオーディエンスを表示するには、広告マネージャーアカウントにログインし、**Ads**ドロップダウンから**Audiences**を選択します。**Audience**ページで、各オーディエンスが約100に達した後のサイズを確認できます。
 
-![オーディエンスの名前、オーディエンス ID、オーディエンスの種類、オーディエンスのサイズを含む、指定された Pinterest オーディエンスのオーディエンス詳細。]({% image_buster /assets/img/pinterest/pinterest11.png %})
+![オーディエンスの名前、オーディエンスID、オーディエンスの種類、オーディエンスのサイズを含む、指定されたPinterestオーディエンスのオーディエンス詳細。]({% image_buster /assets/img/pinterest/pinterest11.png %})
 
-## ユーザの同期とレート制限に関する考慮事項
+## ユーザーの同期とレート制限に関する考慮事項 {#user-syncing-and-rate-limit-considerations}
 
-ユーザーがオーディエンス同期のステップに達すると、BrazeはPinterestのマーケティングAPIのレート制限を尊重しながら、ほぼリアルタイムで同期する。Brazeは、5秒ごとに可能な限り多くのユーザーをバッチ処理してからPinterestに送信する。
+ユーザーがAudience Syncステップに達すると、BrazeはPinterestのマーケティングAPIのレート制限を尊重しながら、ほぼリアルタイムで同期します。Brazeは5秒ごとに可能な限り多くのユーザーをバッチ処理してからPinterestに送信します。
 
-PinterestのセグメンテーションAPIのレート制限では、ユーザー1人あたり毎秒7クエリ、1リクエストあたり1,900ユーザーを超えてはならない。顧客がこの制限に達した場合、Brazeは最大13時間まで同期を再試行する。それでも同期できない場合、BrazeはこれらのユーザーをUsers Erroredメトリックの下にリストアップする。
+PinterestのSegment APIのレート制限では、ユーザー1人あたり毎秒7クエリ、1リクエストあたり1,900ユーザーを超えることはできません。顧客がこの制限に達した場合、Brazeは最大約13時間まで同期を再試行します。それでも同期できない場合、BrazeはこれらのユーザーをUsers Errored指標の下にリストします。
 
-## 分析の理解
+## 分析の理解 {#understanding-analytics}
 
-次の表に、オーディエンス同期コンポーネントからの分析をよりよく理解するのに役立つ指標と説明を示します。
+次の表に、Audience Syncコンポーネントの分析をよりよく理解するための指標と説明を示します。
 
 | 指標 | 説明 |
 | --- | --- |
-| 入力 | Pinterest と同期するためにこのコンポーネントに入ったユーザーの数。 |
-| 次のステップに進む | 次のコンポーネントがある場合、次のコンポーネントに進んだユーザーの数は?これがキャンバスブランチの最後のステップである場合、すべてのユーザーは自動的に進みます。 |
-| ユーザーの同期 | Pinterest に正常に同期されたユーザーの人数。 |
-| 同期されていないユーザー | 一致するフィールドが不足しているため、同期されていないユーザーの数。 |
-| 保留中のユーザー | Braze がPinterest に同期するために現在処理されているユーザーの個数。 |
-| エラーが発生したユーザー数 | 約13 時間の再試行後にAPI エラーのためにPinterest に同期されなかったユーザーの数。エラーの原因としては、Pinterest トークンが無効である場合や、Pinterest でオーディエンスが削除された場合などが考えられます。 |
-| 終了済みのキャンバス | キャンバスを終了したユーザーの人数。これは、キャンバスの最後のステップがオーディエンス同期コンポーネントである場合に発生します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 入力 | Pinterestと同期するためにこのコンポーネントに入ったユーザーの数。 |
+| 次のステップに進む | 次のコンポーネントがある場合、次のコンポーネントに進んだユーザーの数。これがCanvasブランチの最後のステップである場合、すべてのユーザーは自動的に進みます。 |
+| ユーザーの同期 | Pinterestに正常に同期されたユーザーの数。 |
+| 同期されていないユーザー | 一致するフィールドが不足しているため、同期されなかったユーザーの数。 |
+| 保留中のユーザー | BrazeがPinterestへの同期のために現在処理しているユーザーの数。 |
+| エラーが発生したユーザー数 | 約13時間の再試行後にAPIエラーのためにPinterestに同期されなかったユーザーの数。エラーの原因としては、Pinterestトークンが無効である場合や、Pinterestでオーディエンスが削除された場合などが考えられます。 |
+| Canvasを終了 | Canvasを終了したユーザーの数。これは、Canvasの最後のステップがAudience Syncコンポーネントである場合に発生します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="分析の理解" }
 
 {% alert important %}
-一括フラッシャーと13時間の再試行のために、同期されたユーザーとエラーが発生したユーザーの指標のレポートに遅延が発生することに注意してください。
-{% endalert %}   
+一括フラッシャーと13時間の再試行により、同期されたユーザーとエラーが発生したユーザーの指標のレポートにそれぞれ遅延が発生することに注意してください。
+{% endalert %}
 
-## よくある質問
+## よくある質問 {#frequently-asked-questions}
 
-### オーディエンスが Pinterest に反映されるまでどのくらいの時間がかかりますか?
+### オーディエンスがPinterestに反映されるまでどのくらいの時間がかかりますか？ {#how-long-will-it-take-for-my-audiences-to-populate-in-pinterest}
 
-オーディエンスのサイズは、Pinterest の広告マネージャーの [**オーディエンス**] ページで 24 ～ 48時間以内に更新されます。
+オーディエンスのサイズは、Pinterestの広告マネージャーの**Audiences**ページで24〜48時間以内に更新されます。
 
-### Pinterest にユーザーを渡した後、ユーザーがマッチングされたかどうかは、どうすればわかりますか?
+### Pinterestにユーザーを渡した後、ユーザーがマッチしたかどうかはどうすればわかりますか？ {#how-do-i-know-if-users-have-matched-after-passing-users-to-pinterest}
 
-Pinterest は、独自のデータプライバシーポリシーにこの情報を提供しません。
+Pinterestは、独自のデータプライバシーポリシーによりこの情報を提供していません。
 
-### 無効なトークンエラーが表示された場合、次に何をすればよいですか?
+### 無効なトークンエラーが表示された場合、次に何をすればよいですか？ {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-同期する広告アカウントに対する適切な権限があることを、Pinterest Business Hub の管理者に確認してください。また、Pinterest パートナーページで Pinterest アカウントを切断してから、接続しなおすこともできます。 
+同期する広告アカウントに対する適切な権限があることを、Pinterestビジネスハブの管理者に確認してください。また、PinterestパートナーページでPinterestアカウントを切断してから再接続することもできます。
 
-### キャンバスを起動できないのはなぜですか?
+### Canvasを起動できないのはなぜですか？ {#why-is-my-canvas-not-allowed-to-launch}
 
-Pinterest パートナーページで Pinterest アカウントが Braze に正常に接続されていることを確認してください。広告アカウントを選択し、新しいオーディエンスの名前を入力し、一致するフィールドを選択したことを確認してください。
+PinterestパートナーページでPinterestアカウントがBrazeに正常に接続されていることを確認してください。広告アカウントを選択し、新しいオーディエンスの名前を入力し、一致するフィールドを選択したことを確認してください。
 
-### Audience 同期ステップで広告アカウントを選択できないのはなぜですか?
+### Audience Syncステップで広告アカウントを選択できないのはなぜですか？ {#why-cant-i-select-my-ad-account-for-my-audience-sync-step}
 
-トークンが正しいアカウント権限で生成されたことを確認します。Pinterest の広告アカウントのオーディエンスが多すぎる場合、広告アカウントを選択するドロップダウンがタイムアウトになることがあります。これに該当する場合は、広告アカウントのオーディエンスの量を減らすことをお勧めします。
-
+トークンが正しいアカウント権限で生成されたことを確認してください。Pinterest広告アカウントのオーディエンスが多すぎる場合、広告アカウントを選択するドロップダウンがタイムアウトすることがあります。この場合は、広告アカウントのオーディエンス数を減らすことをお勧めします。

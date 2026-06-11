@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-콘텐츠 카드에는 최대 게재빈도 설정이 적용되지 않습니다.
+Content Cards에는 최대 게재빈도 설정이 적용되지 않습니다.
 {% endalert %}
 
 {% endif %}
@@ -25,7 +25,7 @@
 {% if include.alert == 'Segment profiles first app use' %}
 
 {% alert note %}
-Braze는 사용자가 앱을 처음 사용할 때까지 프로필을 생성하지 않으므로 아직 앱을 열지 않은 사용자를 타겟팅할 수 없습니다.
+Braze는 사용자가 앱을 처음 사용할 때까지 프로필을 생성하지 않으므로, 아직 앱을 열지 않은 사용자를 타겟팅할 수 없습니다.
 {% endalert %}
 
 {% endif %}
@@ -34,6 +34,26 @@ Braze는 사용자가 앱을 처음 사용할 때까지 프로필을 생성하�
 
 {% alert note %}
 모든 속성의 소스는 Braze REST API입니다.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+워크스페이스당 최대 350개의 구독 그룹을 추가할 수 있습니다.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'GIF platform support' %}
+
+{% alert note %}
+Android 푸시 알림에서는 GIF가 지원되지 않습니다. 이는 Braze의 제한이 아니라 Android 플랫폼의 제한입니다.
+<br><br>
+- Android에서 인앱 메시지 및 Content Cards의 경우, [Glide](https://bumptech.github.io/glide/) 또는 [Fresco](https://frescolib.org/)와 같은 서드파티 이미지 라이브러리를 통합하여 GIF를 지원할 수 있습니다.
+<br>
+- iOS에서는 푸시 알림이 GIF를 지원합니다. 인앱 메시지 및 Content Cards의 경우 커스텀 GIF 이미지 프로바이더가 필요합니다.
 {% endalert %}
 
 {% endif %}

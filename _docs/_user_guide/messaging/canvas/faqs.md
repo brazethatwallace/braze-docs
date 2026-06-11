@@ -83,6 +83,42 @@ If _Messages sent_ are always zero for a Canvas containing an in-app message ste
 
 In-app messages are "pulled" by the SDK, rather than "pushed" from Braze. In-app messages for eligible users are delivered automatically on session start and "wait" for the trigger event before displaying. Because eligible users receive the message when they start a session, Braze doesn't report this as a send event. When users perform the trigger event, the message displays and Braze logs an impression and marks the Canvas step (or campaign) as received on the user profile. Consequently, the _Sends_ total will be zero for in-app messages.
 
+### Can I schedule different send times for each variant in the same Canvas Message step or multivariate send?
+
+No. Variants in the same multivariate configuration or Message step share one delivery schedule. You can't assign one variant to send at 6 pm and another at 7 pm for that same scheduled send.
+
+To stagger sends or use different times per path, try the following methods:
+
+- Separate Message steps with Delay steps between them so each message has its own schedule.
+- Branches or an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so users follow paths with different timing.
+- Separate campaigns if the use case doesn't need to stay inside one Canvas.
+
+For multivariate and A/B concepts in campaigns, see [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+
+### What happens if a user is global frequency capped at a Canvas Message step?
+
+They don't receive that send for the capped channel, but Message steps still advance users when a message isn't sent because of global frequency capping. For the step-by-step advancement cases, see [How users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance). Global frequency capping alone doesn't exit users from a Canvas; that behavior is separate from **Delivery validations** on a Message step. For more detail, see [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
+### Why are sends lower than the estimated audience size?
+
+Sends can be lower than the **Estimated audience** for many of the same reasons as [campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), including frequency caps, strict device or browser filters, re-eligibility windows, rate limiting, and channel-level exclusions (for example, push reachability or email subscription and deliverability checks).
+
+Canvas-specific factors also apply:
+
+- **Action-based or API-triggered entry:** Users only enter (and receive steps) after they perform the entry behavior, so realized sends trail the upfront estimate until those actions occur.
+- **Audience Paths:** Users are routed to the highest-priority branch they qualify for, so downstream branches may receive fewer users than a flat segment count suggests.
+- **Audience and send-time checks:** Full steps re-evaluate filters at send time unless you configure otherwise. Users who qualified when the Canvas was built may drop out before a message sends.
+- **Control groups:** Global or Canvas control groups withhold a share of entrants from messaging.
+- **Quiet Hours and delays:** Messages can be held or rescheduled, shifting sends out of the reporting window you're viewing.
+- **Maximum entry or audience caps:** Entry or send caps stop additional users even when the underlying segment is larger.
+- **Reporting window:** The analytics range may not include every send you're comparing to the estimate.
+
+### Why is _Unique Recipients_ higher than the number of users I targeted?
+
+_Unique Recipients_ can be higher than the audience you expected because Braze tracks **unique daily recipients** for Canvas and campaign reporting. That supports accurate conversion attribution each time a user receives a message in the journey.
+
+For example, if a user receives a Canvas step on Monday and again on Friday and converts after each send, Braze can count two recipient rows and two in-scope conversions. With recurring entries or re-eligibility, the same small set of profiles can produce multiple _Unique Recipients_ over several days.
+
 ## Analytics and conversions
 
 ### How are user conversions tracked in a Canvas?
@@ -128,7 +164,17 @@ There is a one-step Canvas with Quiet Hours enabled:
 
 ### Why is my Canvas step conversion rate not equal to my Canvas variant total conversion rate?
 
-It's common for a Canvas variant's conversion total to be greater than the sum of its step total. This occurs because a user can perform a conversion event for a variant as soon as they enter the variant. However, this same conversion event doesn't count toward a Canvas step. So, any user who enters the Canvas, and performs the conversion event before receiving the first Canvas step, will be counted toward the variant conversion total, and not toward the step total. The same is true for a user who enters the Canvas but exits the Canvas before receiving any step.
+It is common for a Canvas variant's conversion total to be greater than the sum of its step total. This occurs because a user can perform a conversion event for a variant as soon as they enter the variant. However, this same conversion event doesn't count toward a Canvas step. So any user who enters the Canvas and performs the conversion event before receiving the first Canvas step is counted toward the variant conversion total and not toward the step total. The same is true for a user who enters the Canvas but exits the Canvas before receiving any step.
+
+Note that it is also possible for a user to enter a variant, not be sent any message from a step, and then convert. In this case, a conversion is not logged at the step level. However, because the user did technically convert, a conversion is logged at the Canvas level. 
+
+### How can I confirm if my users received an API-triggered Canvas?
+
+You can [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) using a Canvas filter to confirm whether users entered the Canvas or received a specific Canvas step. For example, use a Canvas entry filter if you want to confirm that users entered the API-triggered Canvas, or a received step filter if you want to confirm that they received a message from the Canvas. Then, use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) to export the users in that segment.
+
+### Can I delete a Canvas?
+
+No, but you can [archive a Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
 
 ### How can I view analytics for each of my Canvas components?
 
@@ -149,6 +195,12 @@ While anonymous users can enter and exit Canvases, their actions aren't associat
 {% alert tip %}
 For further assistance with Canvas troubleshooting, be sure to contact Braze Support within 30 days of your issue's occurrence as we only have the last 30 days of diagnostic logs.
 {% endalert %}
+
+### Can I exclude users who are currently in a Canvas journey from a campaign or segment?
+
+Use [segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) such as `Entered Canvas Variation`, `In Canvas Control Group`, or `Received Message from Canvas Step` to target users based on Canvas entry, variant assignment, or step engagement. These filters evaluate entry history and interactions—they don't indicate whether a user is still progressing through an active journey.
+
+To include or exclude users based on active Canvas participation, add [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) steps at Canvas entry and exit to set and clear custom attributes, then filter on those attributes in campaigns or segments.
 
 ## Segmentation
 

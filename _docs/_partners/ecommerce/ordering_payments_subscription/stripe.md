@@ -23,7 +23,7 @@ By integrating Braze and Stripe, you can:
 | ----------- | ----------- |
 | Stripe account | A Stripe account with access to webhooks is required to take advantage of this partnership. |
 | Braze Data Transformation | A [Data Transformation URL]({{site.baseurl}}/data_transformation/) is necessary to receive data from Stripe. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

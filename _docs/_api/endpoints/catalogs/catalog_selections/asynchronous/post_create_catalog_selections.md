@@ -97,10 +97,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `boolean`  | `is`                                                    |
 | `time`     | `before`, `after`                                       |
 | `array`    | `includes value`, `does not include value`              |
+| `geo`      | `geo within`, `geo outside`                             |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
 The API supports a maximum of four filters per selection request. In the Braze dashboard, you can add up to 10 filters per selection. Filters are applied in the order they appear in the array.
+{% endalert %}
+
+{% alert note %}
+When you apply a `geo` filter, the system automatically sorts results by distance with the nearest item first, regardless of the `sort_field` and `sort_order` parameters.
 {% endalert %}
 
 ## Response

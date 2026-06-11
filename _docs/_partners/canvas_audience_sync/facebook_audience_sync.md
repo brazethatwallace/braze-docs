@@ -40,7 +40,7 @@ You'll need to confirm that you have the following items created and completed b
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | A centralized tool to manage your brand's Facebook assets (for example, ad accounts, pages, and apps). |
 | Facebook Ad Account | [Facebook](https://www.facebook.com/business/help/910137316041095) | An active Facebook ad account tied to your brand's business manager.<br><br>Ensure that your Facebook Business Manager admin has granted you either "Manage Campaigns" or "Manage ad accounts" permissions to the Facebook ad accounts you plan to use with Braze. Also, ensure that you have accepted your ad account terms and conditions. |
 | Facebook Custom Audiences Terms | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Accept Facebook's Custom Audiences Terms for your Facebook ad accounts you plan to use with Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -148,7 +148,7 @@ The following table includes metrics and descriptions to help you better underst
 | Users Pending | Number of users currently being processed by Braze to sync into Facebook. |
 | Users Errored | Number of users who were not synced to Facebook due to an API error after about 13 hours of retries. Potential causes of errors can include an invalid Facebook token or if the custom audience was deleted on Facebook. |
 | Exited Canvas | Number of users who have exited the Canvas. This occurs when the last step in a Canvas is a Facebook step. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 There is a delay in reporting for users synced and users errored metrics due to internal processing.
@@ -216,6 +216,14 @@ After you have accepted your Facebook custom audience terms of service, do the f
 
 Then, Braze can sync users as soon as they reach the Facebook Audience Sync step.
 
+### What happened to the **Connected Facebook** and **Number of Facebook Friends Using App** filters?
+
+The **Number of Facebook Friends Using App** and **Connected Facebook** Braze segmentation filters are deprecated. Facebook and the Braze SDKs no longer collect the underlying data those filters relied on.
+
+Replace the deprecated filters with custom attributes, custom events, or engagement-based segments—for example, Facebook login or social linking instead of **Connected Facebook**, or referrals, invites, and shares instead of **Number of Facebook Friends Using App**.
+
+For Canvas retargeting, match users with email, phone, first name, and last name, as demonstrated in [Step 4: Sync setup](#step-4-sync-setup). To expand reach, sync a high-value segment to Facebook and create a lookalike audience in Meta Ads Manager.
+
 ## Troubleshooting
 
 <style>
@@ -233,7 +241,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Troubleshooting">
   <thead>
     <tr>
       <th>Error</th>
@@ -278,6 +286,21 @@ table td {
       <td>On the Facebook Technology Partner page, you are seeing “Connected”, but there’s an error on the Facebook Audience Sync step when syncing an audience, “Failed to create audience 'audience name'". Authorization of your Facebook account failed. Visit the Technology Partners page to reconnect your account.</td>
       <td>Follow the steps in <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>this troubleshooting section</a> to check your account for any issues.
       </td>
+    </tr>
+    <tr>
+      <td><b>Ad account missing from dropdown</b></td>
+      <td>When you configure the Facebook Audience step, an ad account you expect is not listed in the ad account picker.</td>
+      <td>Confirm your Facebook app completed <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">App Review</a> for <code>ads_management</code> with the access level Facebook requires for Marketing API use. In <a href="https://business.facebook.com/">Facebook Business Manager</a>, confirm the system user token has the right permissions and is associated with the ad accounts you use in Braze, and that ad account terms are accepted. <br><br>If the dropdown works on a new Canvas but not on a Canvas you already edited, try a hard refresh of your browser (or clear your cache) and confirm you are signed in as a user who still has access to those ad accounts.</td>
+    </tr>
+    <tr>
+      <td><b>Error validating access token</b></td>
+      <td>You see an error about validating the Facebook access token when connecting Braze to Facebook or when syncing audiences.</td>
+      <td>Sign out of Facebook in your browser. In Braze, go to <b>Partner Integrations</b> &gt; <b>Facebook</b>, remove the saved Facebook credentials, then connect Facebook again. On Facebook's Technology Partners page for Braze, disconnect and reconnect the integration if the option is available. <br><br>If issues continue, follow <a href="#audit-your-facebook-account">Audit your Facebook account</a>.</td>
+    </tr>
+    <tr>
+      <td><b>Audience export or sync permission errors</b></td>
+      <td>Exporting or syncing a Facebook audience fails with authorization, admin, or ad account errors.</td>
+      <td>In <a href="https://developers.facebook.com/">Meta for Developers</a>, open your app and confirm your user has an <b>Admin</b> role under <b>App roles</b>. Under <b>App settings</b> &gt; <b>Advanced</b>, confirm <b>Advertising accounts</b> includes the accounts you use with Braze. In <a href="https://business.facebook.com/latest/settings">Business settings</a>, confirm the connecting user or system user has access to the correct ad account.</td>
     </tr>
   </tbody>
 </table>

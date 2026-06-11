@@ -17,7 +17,7 @@ tool: Campaigns
 ### Step 1: Select a trigger event
 
 Select a trigger event. This can include any of the following:
-- Making a purchase
+- Placing an order
 - Starting a session
 - Performing a custom event
 - Performing the campaign's primary conversion event
@@ -79,6 +79,10 @@ In addition, triggered in-app messages still abide by in-app message delivery ru
 ### Step 2: Select delay length
 
 Select how long to wait before sending the campaign after the trigger criteria are met. If the delay length chosen is longer than the message's duration for sending, no users will receive the campaign. 
+
+{% alert important %}
+Braze uses the timestamp sent with the custom event to evaluate the delay for an action-based campaign. If that timestamp is backdated, Braze may treat the delay as already elapsed and send the message immediately or earlier than expected. To avoid unintended delivery timing, send the custom event timestamp with the current time.
+{% endalert %}
 
 Additionally, users who complete the trigger event after your campaign is launched will be the first to start receiving the message after the delay has passed. Users who have completed the trigger event before the campaign launches will not qualify to receive the campaign.
 
@@ -147,7 +151,7 @@ Any of these things will prevent a user who has completed the trigger event from
 - Liquid [`abort_message` logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)  was used and the message was aborted based on the `abort_message` logic or rules.
 - The time delay caused the user to become qualified to receive the campaign after the duration has ended.
 - The time delay caused the user to become qualified to receive the campaign outside of the specified portion of the day.
-- The user has already received the campaign, and users do not become re-eligible.
+- The user has already received the campaign (including attribution through shared channel identifiers—for example, if they share an email with someone who received, opened, or clicked it), and users do not become re-eligible.
 - While users are re-eligible to receive the campaign, they can only re-trigger it after a certain period of time, and that period of time has not yet elapsed.
 
 [Segmenting]({{site.baseurl}}/user_guide/audience/segments/) a triggered campaign on user data recorded at the time of the event may cause a [race condition]({{site.baseurl}}/help/best_practices/race_conditions/#race-conditions). This happens when the user attribute on which the campaign is segmented gets changed, but the change hasn't been processed for the user when the campaign is sent. Since campaigns check for segment membership on entry, this can lead to the user not receiving the campaign.
@@ -157,6 +161,12 @@ For example, imagine you want to send an event-triggered campaign to male users 
 As a best practice, ensure that the attribute on which the campaign is segmented is flushed to Braze servers before the event. If this isn't possible, the best way to guarantee delivery is to use [custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) to attach the relevant user properties to the event and apply a property filter for the specific event property instead of a segmentation filter. For our example, you would add a `gender` property to the custom event `registration` so that Braze is guaranteed to have the data you need when your campaign is triggered.
 
 Additionally, if a campaign is action-based and has a delay, you can check the option to **Re-evaluate segment membership at send-time** to ensure users are still part of the target audience when the message is sent.
+
+### Audience criteria evaluation
+
+For campaigns that involve a delay before sending (including rate limiting, local time zone, Intelligent Timing, or a trigger schedule), when the segment is re-evaluated depends on campaign type and settings.
+
+In action-based campaigns with a delay, if you select **Re-evaluate segment membership at send-time**, users are re-evaluated before the message is sent, so only users who still meet the segment criteria at send time receive the message.
 
 If your campaign is triggered by a specific custom event and you select a segment as the audience, users must perform the same custom event to be included in the segment. This means users need to be part of the audience before an action-based campaign can be triggered. The general workflow for a triggered campaign is as follows:
 

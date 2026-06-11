@@ -53,65 +53,65 @@ Você também pode aumentar o limite de taxa desse endpoint para 40 solicitaçõ
 - Sua solicitação inclui o parâmetro `fields_to_export` para listar todos os campos que você deseja receber.
 
 {% alert important %}
-Se você incluir `canvases_received` ou `campaigns_received` no parâmetro `fields_to_export`, sua solicitação não será elegível para o limite de taxa mais rápido. Recomendamos incluir esses campos apenas em sua solicitação se você tiver um caso de uso específico para eles.
+Se você incluir `canvases_received` ou `campaigns_received` no parâmetro `fields_to_export`, sua solicitação não será elegível para o limite de taxa mais rápido. Recomendamos incluir esses campos apenas se você tiver um caso de uso específico para eles.
 {% endalert %}
 
 <!---/users/delete-->
 
 {% elsif include.endpoint == "users delete" %}
-Aplicamos um limite de taxa compartilhado de 20.000 solicitações por minuto para esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/users/alias/new`, `/users/identify`, `/users/merge` e `/users/alias/update`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Aplicamos um limite de taxa compartilhado de 20.000 solicitações por minuto a esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/users/alias/new`, `/users/identify`, `/users/merge` e `/users/alias/update`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 <!---/users/alias/new-->
 
 {% elsif include.endpoint == "users alias new" %}
-Aplicamos um limite de taxa compartilhado de 20.000 solicitações por minuto para esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/users/delete`, `/users/identify`, `/users/merge` e `/users/alias/update`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Aplicamos um limite de taxa compartilhado de 20.000 solicitações por minuto a esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/users/delete`, `/users/identify`, `/users/merge` e `/users/alias/update`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 <!---/users/alias/update-->
 
 {% elsif include.endpoint == "users alias update" %}
-Aplicamos um limite de taxa compartilhado de 20.000 solicitações por minuto para esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/users/delete`, `/users/alias/new`, `/users/identify` e `/users/merge`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Aplicamos um limite de taxa compartilhado de 20.000 solicitações por minuto a esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/users/delete`, `/users/alias/new`, `/users/identify` e `/users/merge`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 <!---/users/identify-->
 
 {% elsif include.endpoint == "users identify" %}
-Aplicamos um limite de taxa compartilhado de 20.000 solicitações por minuto para esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/users/delete`, `/users/alias/new`, `/users/merge` e `/users/alias/update`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Aplicamos um limite de taxa compartilhado de 20.000 solicitações por minuto a esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/users/delete`, `/users/alias/new`, `/users/merge` e `/users/alias/update`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 <!---/users/merge-->
 
 {% elsif include.endpoint == "users merge" %}
-Aplicamos um limite de taxa compartilhado de 20.000 solicitações por minuto para esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/users/delete`, `/users/alias/new`, `/users/identify` e `/users/alias/update`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Aplicamos um limite de taxa compartilhado de 20.000 solicitações por minuto a esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/users/delete`, `/users/alias/new`, `/users/identify` e `/users/alias/update`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 <!---/custom_attributes-->
 
 {% elsif include.endpoint == "custom_attributes" %}
-Aplicamos um limite de taxa compartilhado de 1.000 solicitações por hora para esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/events`, `/events/list` e `/purchases/product_list`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Aplicamos um limite de taxa compartilhado de 1.000 solicitações por hora a esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/events`, `/events/list` e `/purchases/product_list`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 <!---/events-->
 
 {% elsif include.endpoint == "events" %}
-Aplicamos um limite de taxa compartilhado de 1.000 solicitações por hora para esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/custom_attributes`, `/events/list` e `/purchases/product_list`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Aplicamos um limite de taxa compartilhado de 1.000 solicitações por hora a esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/custom_attributes`, `/events/list` e `/purchases/product_list`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 <!---/events/list-->
 
 {% elsif include.endpoint == "events list" %}
-Aplicamos um limite de taxa compartilhado de 1.000 solicitações por hora para esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/custom_attributes`, `/events` e `/purchases/product_list`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Aplicamos um limite de taxa compartilhado de 1.000 solicitações por hora a esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/custom_attributes`, `/events` e `/purchases/product_list`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 <!---/purchases/product_list-->
 
 {% elsif include.endpoint == "purchases product list" %}
-Aplicamos um limite de taxa compartilhado de 1.000 solicitações por hora para esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/custom_attributes`, `/events` e `/events/list`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Aplicamos um limite de taxa compartilhado de 1.000 solicitações por hora a esse endpoint. Esse limite de taxa é compartilhado com os endpoints `/custom_attributes`, `/events` e `/events/list`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 <!---/messages/send-->
 <!---/campaigns/trigger/send-->
 <!---/canvas/trigger/send-->
 
 {% elsif include.endpoint == "send endpoints" %}
-Ao usar filtros de público conectado em sua solicitação, aplicamos um limite de taxa de 250 solicitações por minuto para esse endpoint. Caso contrário, se estiver especificando um `external_id`, esse endpoint terá um limite de taxa padrão de 250.000 solicitações por hora compartilhado entre `/messages/send`, `/campaigns/trigger/send` e `/canvas/trigger/send`, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Ao usar filtros de Connected Audience em sua solicitação, aplicamos um limite de taxa de 250 solicitações por minuto a esse endpoint. Caso contrário, se estiver especificando um `external_id`, esse endpoint tem um limite de taxa padrão de 250.000 solicitações por hora compartilhado entre os endpoints documentados em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/#requests-with-shared-rate-limits).
 
-Os endpoints da Braze suportam agrupamento de solicitações da API. Uma única solicitação para os endpoints de envio de mensagens pode alcançar qualquer um dos seguintes itens:
+Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/api/api_limits/#batching-api-requests). Uma única solicitação para os endpoints de envio de mensagens pode alcançar qualquer um dos seguintes itens:
 
 - Até 50 `external_ids` específicos, cada um com parâmetros de mensagem individuais
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de público conectado
+- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 <!---/transactional/v1/campaigns/{campaign_id}/send -->
 
@@ -149,6 +149,10 @@ Esse endpoint tem um limite de taxa de 20 solicitações por minuto.
 {% elsif include.endpoint == "cdi job sync status" %}
 Esse endpoint tem um limite de taxa de 100 solicitações por minuto.
 
+<!---/media_library/create, /media_library/replace_file--->
+{% elsif include.endpoint == "media_library" %}
+Esse endpoint tem um limite de taxa de 100 solicitações por hora, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+
 {% endif %}
 
 <!---Additional if statement for Messaging endpoints-->
@@ -159,7 +163,7 @@ Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/a
 
 - Até 50 `external_ids` específicos, cada um com parâmetros de mensagem individuais
 - Um segmento de qualquer tamanho criado no dashboard da Braze, especificado por seu `segment_id`
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/)
+- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 {% endif %}
 
@@ -168,7 +172,7 @@ Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/a
 Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/api/api_limits/#batching-api-requests). Uma única solicitação para os endpoints de envio de mensagens pode alcançar qualquer um dos seguintes itens:
 
 - Até 50 `external_ids` específicos, cada um com parâmetros de mensagem individuais
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/)
+- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 {% endif %}
 
@@ -188,7 +192,7 @@ Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/a
 
 - Até 50 `external_ids` específicos
 - Um segmento de qualquer tamanho criado no dashboard da Braze, especificado por seu `segment_id`
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/)
+- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 {% endif %}
 
@@ -212,7 +216,7 @@ Esse endpoint tem um limite de taxa compartilhado de 50 solicitações por minut
 
 {% if include.endpoint == "asynchronous catalog fields" or include.endpoint == "asynchronous catalog selections" %}
 
-Esse endpoint tem um limite de taxa compartilhado de 50 solicitações por minuto entre todos os endpoints assíncronos de campos de catálogo e seleções, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Esse endpoint tem um limite de taxa compartilhado de 50 solicitações por minuto entre todos os endpoints assíncronos de campos e seleções de catálogo, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 {% endif %}
 

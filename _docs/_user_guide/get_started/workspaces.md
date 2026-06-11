@@ -8,7 +8,7 @@ description: "Everything you do in the Braze platform happens within a workspace
 
 # Get started: Workspaces
 
-Everything you do in the Braze platform happens within a workspace. Workspaces act as separate silos of data, and allow you to keep different brands or activities separate. Multiple versions of your website or mobile app can send data to the same workspace. We refer to the different sites and apps that are collected within a workspace as "app instances."
+> Everything you do in the Braze platform happens within a workspace. Workspaces act as separate silos of data and let you keep different brands or activities separate. Multiple versions of your website or mobile app can send data to the same workspace. We refer to the different sites and apps that are collected within a workspace as "app instances."
 
 ## Understanding workspaces
 
@@ -153,68 +153,73 @@ The following table describes the benefits and drawbacks of these two approaches
   }
 </style>
 
-<table>
+<table aria-label="Overview of each approach">
+  <caption>Overview of each approach</caption>
+    <thead>
     <tr>
         <th></th>
-        <th colspan="2">Separate workspaces</th>
-        <th colspan="2">Shared workspaces</th>
+        <th colspan="2" scope="colgroup">Separate workspaces</th>
+        <th colspan="2" scope="colgroup">Shared workspaces</th>
     </tr>
     <tr>
         <th></th>
-        <th>Benefits</th>
-        <th>Drawbacks</th>
-        <th>Benefits</th>
-        <th>Drawbacks</th>
+        <th scope="col">Benefits</th>
+        <th scope="col">Drawbacks</th>
+        <th scope="col">Benefits</th>
+        <th scope="col">Drawbacks</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
-        <td>Targeting</td>
+        <th scope="row">Targeting</th>
         <td>Safest way to keep communications separate. Campaigns are guaranteed to target only specific user profiles.</td>
         <td>Unable to send cross-promotional messaging even if you know a user has another user profile in a different workspace.</td>
         <td>Can send cross-promotional messaging if you know a user has multiple apps in your workspace.<br><br>Can reference user data from across apps. For example, John has X attribute relevant to App 1, and Y attribute relevant to App 2, which can both be referenced in one campaign.</td>
         <td>More room for human error—you could accidentally target users across multiple app instances.<br><br>To send in-app messages, you must have app-specific custom events so that one campaign doesn't display on another app by accident. For example, <code>app_1_action</code> versus <code>app_2_action</code>.</td>
     </tr>
     <tr>
-        <td>Custom events and attributes</td>
+        <th scope="row">Custom events and attributes</th>
         <td>Custom attributes and events are guaranteed to be specific to an app instance.</td>
         <td>Cannot track user behavior across workspaces.<br><br><b>Tip:</b> You can leverage multiple Currents connectors to accomplish this.</td>
         <td>Can track user behavior across all app instances in the workspace.</td>
         <td>Custom attributes and events would apply to all app instances, which could make it hard to tell what data in a user profile is relevant to what app instance. For example, is "date_of_parking" relevant for App 1 or App 2? To combat this, make sure to use well-structured naming conventions.</td>
     </tr>
     <tr>
-        <td>Frequency capping</td>
+        <th scope="row">Frequency capping</th>
         <td>Frequency capping can be defined separately for each app instance (based on workspace).</td>
         <td>N/A</td>
         <td>N/A</td>
         <td>Frequency capping applies to all campaigns, not on a per-app basis, which makes it harder to prevent over-messaging customers.</td>
     </tr>
     <tr>
-        <td>Subscription status for user profiles</td>
+        <th scope="row">Subscription status for user profiles</th>
         <td>Each user profile's subscription status is unique to each app instance.</td>
         <td>N/A</td>
         <td>N/A</td>
         <td>A user profile's subscription statuses are combined across app instances.<br><br><b>Tip:</b> You could use <a href='/docs/user_guide/data/activation/attributes/custom_attributes'>custom attributes</a> to manage your users' subscriptions instead.</td>
     </tr>
     <tr>
-        <td>Company user permissions</td>
+        <th scope="row">Company user permissions</th>
         <td>N/A</td>
         <td>Updating <a href='/docs/user_guide/administer/global/user_management/permissions'>user permissions</a> for a dashboard user must be done separately for each workspace the user needs access to.</td>
         <td><a href='/docs/user_guide/administer/global/user_management/permissions'>User permissions</a> can be set once for a dashboard user, and they will have the same permissions for all app instances in the workspace.</td>
         <td>N/A</td>
     </tr>
     <tr>
-        <td>Duplicating content</td>
+        <th scope="row">Duplicating content</th>
         <td>N/A</td>
         <td>Cannot duplicate segments, push or Content Card campaigns, or Canvases across workspaces.</td>
         <td>Can <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicate campaigns across workspaces</a> for the following supported channels: SMS, in-app messages, email, email templates, and Content Blocks. <br><br>Can duplicate segments, campaigns, and Canvases to reuse content from one app instance to another.</td>
         <td>N/A</td>
     </tr>
     <tr>
-        <td>Analytics</td>
+        <th scope="row">Analytics</th>
         <td>Global statistics will be accurate on the Home page.</td>
         <td>N/A</td>
         <td>N/A</td>
         <td>Global statistics will be aggregated for all app instances in the workspace on the Home page.</td>
     </tr>
+    </tbody>
 </table>
 
 ## Best practices

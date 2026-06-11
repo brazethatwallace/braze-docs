@@ -1,49 +1,49 @@
 ---
-nav_title: "POST: 카탈로그 만들기"
+nav_title: "POST: 카탈로그 생성"
 article_title: "POST: 카탈로그 생성"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "이 문서에서는 카탈로그 Braze 엔드포인트 만들기에 대한 자세한 내용을 설명합니다."
+description: "이 문서에서는 카탈로그 생성 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
 
 ---
 {% api %}
-# 카탈로그 만들기
+# 카탈로그 생성 {#create-catalog}
 {% apimethod post %}
 /catalogs
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 카탈로그를 만듭니다.
+> 이 엔드포인트를 사용하여 카탈로그를 생성합니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#af9f3e2d-b7e7-49e7-aa64-f4652892be6e {% endapiref %}
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `catalogs.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `catalogs` | 필수 | 배열 | 카탈로그 객체가 포함된 배열입니다. 이 요청에는 하나의 카탈로그 개체만 허용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalogs` | 필수 | 배열 | 카탈로그 오브젝트가 포함된 배열입니다. 이 요청에는 하나의 카탈로그 오브젝트만 허용됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-### 카탈로그 개체 매개변수
+### 카탈로그 오브젝트 매개변수 {#catalog-object-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `name` | Required | 문자열 | 생성하려는 카탈로그의 이름입니다. |
-| `description` | Required | 문자열 | 생성하려는 카탈로그에 대한 설명입니다. |
-| `fields` | 필수 | 배열 | 객체에 키 `name` 및 `type` 가 포함된 객체 배열입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `name` | 필수 | 문자열 | 생성하려는 카탈로그의 이름입니다. |
+| `description` | 필수 | 문자열 | 생성하려는 카탈로그에 대한 설명입니다. |
+| `fields` | 필수 | 배열 | `name` 및 `type` 키를 포함하는 오브젝트의 배열입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
 
-## 예시 요청
+## 요청 예시 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Content-Type: application/json' \
@@ -80,6 +80,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -96,11 +100,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 }'
 ```
 
-## 응답
+{% alert note %}
+`geo` 데이터 유형은 지리적 좌표를 `[longitude, latitude]` 형식의 배열로 저장합니다. 예를 들어, `[-73.988103, 40.779109]`입니다.
+{% endalert %}
 
-이 엔드포인트에 대한 상태 코드 응답은 `201` 와 `400` 두 가지입니다.
+## 응답 {#response}
 
-### 성공 응답의 예
+이 엔드포인트에 대한 상태 코드 응답은 `201`과 `400` 두 가지입니다.
+
+### 성공 응답 예시 {#example-success-response}
 
 `201` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다.
 
@@ -136,6 +144,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -156,9 +168,9 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 }
 ```
 
-### 오류 응답의 예
+### 오류 응답 예시 {#example-error-response}
 
-`400` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다. 발생할 수 있는 오류에 대한 자세한 내용은 [문제 해결을](#troubleshooting) 참조하세요.
+`400` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다. 발생할 수 있는 오류에 대한 자세한 내용은 [문제 해결](#troubleshooting)을 참조하세요.
 
 ```json
 {
@@ -178,25 +190,25 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 }
 ```
 
-## 문제 해결
+## 문제 해결 {#troubleshooting}
 
-다음 표에는 가능한 반환 오류와 관련된 문제 해결 단계가 나와 있습니다.
+다음 표에는 반환될 수 있는 오류와 관련 문제 해결 단계가 나와 있습니다.
 
 | 오류 | 문제 해결 |
 | --- | --- |
-| `catalog-array-invalid` | `catalogs` 는 객체의 배열이어야 합니다. |
+| `catalog-array-invalid` | `catalogs`는 오브젝트의 배열이어야 합니다. |
 | `catalog-name-already-exists` | 해당 이름의 카탈로그가 이미 존재합니다. |
-| `catalog-name-too-large`  | 카탈로그 이름의 글자 수 제한은 250자입니다. |
+| `catalog-name-too-large` | 카탈로그 이름의 글자 수 제한은 250자입니다. |
 | `description-too-long` | 설명 글자 수 제한은 250자입니다. |
-| `field-names-not-unique` | 동일한 필드 이름이 두 번 참조됩니다. |
+| `field-names-not-unique` | 동일한 필드 이름이 두 번 참조되었습니다. |
 | `field-names-too-large` | 필드 이름의 글자 수 제한은 250자입니다. |
-| `id-not-first-column` | `id` 은 배열의 첫 번째 필드여야 합니다. 유형이 문자열인지 확인합니다. |
+| `id-not-first-column` | `id`는 배열의 첫 번째 필드여야 합니다. 유형이 문자열인지 확인하세요. |
 | `invalid-catalog-name` | 카탈로그 이름에는 문자, 숫자, 하이픈, 밑줄만 포함할 수 있습니다. |
 | `invalid-field-names` | 필드에는 문자, 숫자, 하이픈, 밑줄만 포함할 수 있습니다. |
-| `invalid-field-types` | 필드 유형이 유효한지 확인합니다. |
-| `invalid-fields` | `fields` 의 형식이 올바르지 않습니다. |
-| `too-many-catalog-atoms` | 요청당 하나의 카탈로그만 만들 수 있습니다. |
+| `invalid-field-types` | 필드 유형이 유효한지 확인하세요. |
+| `invalid-fields` | `fields`의 형식이 올바르지 않습니다. |
+| `too-many-catalog-atoms` | 요청당 하나의 카탈로그만 생성할 수 있습니다. |
 | `too-many-fields` | 필드 개수 제한은 500개입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

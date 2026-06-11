@@ -17,6 +17,10 @@ In brief, the Braze SDK:
 * Captures marketing engagement data and custom data specific to your business
 * Powers push notifications, in-app messages, and Content Card messaging channels
 
+Watch the following video for a brief introduction to Braze SDK integration basics and core functionality.
+
+{% multi_lang_include video.html id="il152jayp0" source="wistia" %}
+
 ## App performance
 
 Braze should have no negative impact on your app's performance.
@@ -46,7 +50,7 @@ The Braze SDK caches data (sessions, custom events, etc.) and uploads it periodi
 |Great    |10 Seconds|
 |Good    |30 Seconds|
 |Poor    |60 Seconds|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Data upload and download" }
 
 If there is no network connection, data is cached locally on the device until the network connection is re-established. When the connection is re-established, the data will be uploaded to Braze.
 

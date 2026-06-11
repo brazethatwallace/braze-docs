@@ -1,45 +1,47 @@
 ---
-nav_title: "取得:キャンバスデータ系列分析をエクスポート"
-article_title: "取得:エクスポートキャンバスデータシリーズ分析"
-search_tag: エンドポイント
+nav_title: "GET: Canvasデータシリーズ分析のエクスポート"
+article_title: "GET: Canvasデータシリーズ分析のエクスポート"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、エクスポートキャンバスデータシリーズ分析Brazeエンドポイントの詳細について説明します。"
+description: "この記事では、Canvasデータシリーズ分析のエクスポートBrazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# キャンバスデータ系列分析をエクスポート
+# Canvasデータシリーズ分析のエクスポート {#export-canvas-data-series-analytics}
 {% apimethod get %}
 /canvas/data_series
 {% endapimethod %}
 
-> このエンドポイントを使用して、キャンバスの時系列データをエクスポートします。
+> このエンドポイントを使用して、Canvasの時系列データをエクスポートします。
+
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`canvas.data_series`の権限が必要です。
+このエンドポイントを使用するには、`canvas.data_series` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | 必須かどうか | 文字列 | [キャンバス API 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
-| `ending_at` | 必須 | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データエクスポートを終了する日付。リクエストの時刻にデフォルト設定されます。 |
-| `starting_at` | オプション* | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データエクスポートを開始する日付。<br><br>* `length` または `starting_at` のいずれかが必要です。 |
-| `length` | オプション* | 文字列 | 返されるシリーズに `ending_at` が含まれるまでの最大日数。1以上14以下でなければなりません。<br><br>* `length` または `starting_at` のいずれかが必要です。 |
-| `include_variant_breakdown` | オプション | ブール値 | バリアント統計を含めるかどうか（デフォルトは`false`）。  |
-| `include_step_breakdown` | オプション | ブール値 | ステップ統計を含めるかどうか（デフォルトは`false`）。 |
-| `include_deleted_step_data` | オプション | ブール値 | 削除されたステップのステップ統計を含めるかどうか（デフォルトは`false`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | 必須 | 文字列 | [Canvas API識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `ending_at` | 必須 | 日時 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列) | データエクスポートを終了する日付。デフォルトはリクエストの時刻です。 |
+| `starting_at` | オプション* | 日時 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列) | データエクスポートを開始する日付。<br><br>* `length` または `starting_at` のいずれかが必要です。 |
+| `length` | オプション* | 文字列 | 返されるシリーズに含める `ending_at` までの最大日数。1以上14以下（両端を含む）でなければなりません。<br><br>* `length` または `starting_at` のいずれかが必要です。 |
+| `include_variant_breakdown` | オプション | ブール値 | バリアント統計を含めるかどうか（デフォルトは `false`）。  |
+| `include_step_breakdown` | オプション | ブール値 | ステップ統計を含めるかどうか（デフォルトは `false`）。 |
+| `include_deleted_step_data` | オプション | ブール値 | 削除されたステップのステップ統計を含めるかどうか（デフォルトは `false`）。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 {% raw %}
 ```
@@ -48,7 +50,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_seri
 ```
 {% endraw %}
 
-## 応答
+## 応答 {#response}
 
 ```json
 {
@@ -115,7 +117,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_seri
 ```
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
 {% endalert %}
 
 {% endapi %}

@@ -40,7 +40,7 @@ Pour les clients ayant acheté le forfait Monthly Active Users CY 24-25, Univers
 Pour les clients soumis aux anciennes limites de débit, chaque requête `/users/track` peut contenir jusqu'à 75 objets d'attributs, 75 objets d'événements et 75 objets d'achats. Chaque objet peut mettre à jour un utilisateur, pour un maximum combiné de 225 objets par requête. Un même profil utilisateur peut être mis à jour par plusieurs objets.
 {% enddetails %}
 
-Pour plus d'informations, consultez [Limites de débit de l'API]({{site.baseurl}}/api/api_limits/). Contactez votre Customer Success Manager pour demander une augmentation.
+Pour plus d'informations, consultez [Limites de débit de l'API]({{site.baseurl}}/api/api_limits/). Contactez votre gestionnaire de la satisfaction client pour demander une augmentation.
 
 <!---/users/export/ids-->
 
@@ -49,7 +49,7 @@ Si vous avez réalisé l'onboarding avec Braze le 22 août 2024 ou après, cet e
 
 Vous pouvez également augmenter la limite de débit de cet endpoint à 40 requêtes par seconde en respectant les conditions suivantes :
 
-- Votre espace de travail dispose de la limite de débit par défaut (250 requêtes par minute) activée. Contactez votre Account Manager Braze pour obtenir de l'aide afin de supprimer toute limite de débit préexistante dont vous pourriez disposer.
+- Votre espace de travail dispose de la limite de débit par défaut (250 requêtes par minute) activée. Contactez votre gestionnaire de compte Braze pour obtenir de l'aide afin de supprimer toute limite de débit préexistante dont vous pourriez disposer.
 - Votre requête inclut le paramètre `fields_to_export` pour lister tous les champs que vous souhaitez recevoir.
 
 {% alert important %}
@@ -106,17 +106,17 @@ Nous appliquons une limite de débit partagée de 1 000 requêtes par heure à c
 <!---/canvas/trigger/send-->
 
 {% elsif include.endpoint == "send endpoints" %}
-Lorsque vous utilisez des filtres d'audience connectée dans votre requête, nous appliquons une limite de débit de 250 requêtes par minute à cet endpoint. Sinon, si vous spécifiez un `external_id`, cet endpoint présente une limite de débit par défaut de 250 000 requêtes par heure, partagée entre `/messages/send`, `/campaigns/trigger/send` et `/canvas/trigger/send`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits/).
+Lorsque vous utilisez des filtres Connected Audience dans votre requête, nous appliquons une limite de débit de 250 requêtes par minute à cet endpoint. Sinon, si vous spécifiez un `external_id`, cet endpoint présente une limite de débit par défaut de 250 000 requêtes par heure, partagée entre les endpoints documentés dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits/#requests-with-shared-rate-limits).
 
-Les endpoints Braze prennent en charge le traitement par lots des requêtes API. Une seule requête aux endpoints d'envoi de messages peut atteindre n'importe lequel des éléments suivants :
+Les endpoints Braze prennent en charge le [traitement par lots des requêtes API]({{site.baseurl}}/api/api_limits/#batching-api-requests). Une seule requête aux endpoints d'envoi de messages peut atteindre n'importe lequel des éléments suivants :
 
 - Jusqu'à 50 `external_ids` spécifiques, chacun avec des paramètres de message individuels
-- Un segment d'audience de toute taille, défini dans la requête comme un objet Connected Audience
+- Un segment d'audience de toute taille, défini dans la requête comme un objet [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 <!---/transactional/v1/campaigns/{campaign_id}/send -->
 
 {% elsif include.endpoint == "transactional email" %}
-L'endpoint `/transactional/v1/campaigns/{campaign_id}/send` est un endpoint payant facturé en unités par heure (par exemple, 50 000 par heure selon votre forfait). Il n'existe pas de limite de débit distincte par endpoint : vous pouvez envoyer au-delà du volume qui vous est alloué, mais seul le volume alloué est couvert par le SLA. Les requêtes adressées à cet endpoint sont prises en compte dans votre [limite de débit globale de l'API externe]({{site.baseurl}}/api/api_limits/). Si vous dépassez cette limite (par exemple, 250 000 requêtes par heure sur tous les endpoints), Braze renvoie une erreur 429 et les requêtes sont limitées. Le compteur de volume transactionnel est réinitialisé toutes les heures, de sorte qu'après une heure, un nouveau contingent est disponible. Dans le cadre du volume couvert par le SLA, 99,9 % des e-mails seront envoyés en moins d'une minute.
+L'endpoint `/transactional/v1/campaigns/{campaign_id}/send` est un endpoint payant facturé en unités par heure (par exemple, 50 000 par heure selon votre forfait). Il n'existe pas de limite de débit distincte par endpoint : vous pouvez envoyer au-delà du volume qui vous est alloué, mais seul le volume alloué est couvert par le SLA. Les requêtes adressées à cet endpoint sont prises en compte dans votre [limite de débit globale de l'API externe]({{site.baseurl}}/api/api_limits/). Si vous dépassez cette limite (par exemple, 250 000 requêtes par heure sur l'ensemble des endpoints), Braze renvoie une erreur 429 et les requêtes sont limitées. Le compteur de volume transactionnel est réinitialisé toutes les heures, de sorte qu'après une heure, un nouveau contingent est disponible. Dans le cadre du volume couvert par le SLA, 99,9 % des e-mails seront envoyés en moins d'une minute.
 
 <!---POST /preference_center/v1 and PUT /preference_center/v1/{preferenceCenterExternalID}-->
 {% elsif include.endpoint == "post or put preference center" %}
@@ -149,26 +149,30 @@ Cet endpoint a une limite de débit de 20 requêtes par minute.
 {% elsif include.endpoint == "cdi job sync status" %}
 Cet endpoint a une limite de débit de 100 requêtes par minute.
 
+<!---/media_library/create, /media_library/replace_file--->
+{% elsif include.endpoint == "media_library" %}
+Cet endpoint a une limite de débit de 100 requêtes par heure, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits/).
+
 {% endif %}
 
 <!---Additional if statement for Messaging endpoints-->
 
 {% if include.category == "message endpoints" %}
 
-Les endpoints Braze prennent en charge les [requêtes d'API en lots]({{site.baseurl}}/api/api_limits/#batching-api-requests). Une seule requête aux endpoints d'envoi de messages peut atteindre n'importe lequel des éléments suivants :
+Les endpoints Braze prennent en charge le [traitement par lots des requêtes API]({{site.baseurl}}/api/api_limits/#batching-api-requests). Une seule requête aux endpoints d'envoi de messages peut atteindre n'importe lequel des éléments suivants :
 
 - Jusqu'à 50 `external_ids` spécifiques, chacun avec des paramètres de message individuels
 - Un segment de toute taille créé dans le tableau de bord de Braze, spécifié par son `segment_id`
-- Un segment d'audience de toute taille, défini dans la requête en tant qu'objet [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/)
+- Un segment d'audience de toute taille, défini dans la requête comme un objet [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 {% endif %}
 
 {% if include.category == "send messages endpoints" %}
 
-Les endpoints Braze prennent en charge les [requêtes d'API en lots]({{site.baseurl}}/api/api_limits/#batching-api-requests). Une seule requête aux endpoints d'envoi de messages peut atteindre n'importe lequel des éléments suivants :
+Les endpoints Braze prennent en charge le [traitement par lots des requêtes API]({{site.baseurl}}/api/api_limits/#batching-api-requests). Une seule requête aux endpoints d'envoi de messages peut atteindre n'importe lequel des éléments suivants :
 
 - Jusqu'à 50 `external_ids` spécifiques, chacun avec des paramètres de message individuels
-- Un segment d'audience de toute taille, défini dans la requête en tant qu'objet [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/)
+- Un segment d'audience de toute taille, défini dans la requête comme un objet [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 {% endif %}
 
@@ -176,7 +180,7 @@ Les endpoints Braze prennent en charge les [requêtes d'API en lots]({{site.base
 
 {% if include.endpoint == "translation endpoints" %}
 
-Cet endpoint est soumis à une limite de débit de 250 000 requêtes par minute.
+Cet endpoint a une limite de débit de 250 000 requêtes par minute.
 
 {% endif %}
 
@@ -184,11 +188,11 @@ Cet endpoint est soumis à une limite de débit de 250 000 requêtes par minute.
 
 {% if include.category == "message send endpoint" %}
 
-Les endpoints Braze prennent en charge les [requêtes d'API en lots]({{site.baseurl}}/api/api_limits/#batching-api-requests). Une seule requête aux endpoints d'envoi de messages peut atteindre n'importe lequel des éléments suivants :
+Les endpoints Braze prennent en charge le [traitement par lots des requêtes API]({{site.baseurl}}/api/api_limits/#batching-api-requests). Une seule requête aux endpoints d'envoi de messages peut atteindre n'importe lequel des éléments suivants :
 
 - Jusqu'à 50 `external_ids` spécifiques
 - Un segment de toute taille créé dans le tableau de bord de Braze, spécifié par son `segment_id`
-- Un segment d'audience de toute taille, défini dans la requête en tant qu'objet [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/)
+- Un segment d'audience de toute taille, défini dans la requête comme un objet [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)
 
 {% endif %}
 

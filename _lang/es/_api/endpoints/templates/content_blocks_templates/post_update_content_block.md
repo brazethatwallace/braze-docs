@@ -1,31 +1,35 @@
 ---
-nav_title: "PUBLICAR: Actualizar bloque de contenido"
-article_title: "PUBLICAR: Actualizar bloque de contenido"
-search_tag: Punto de conexión
+nav_title: "POST: Actualizar bloque de contenido"
+article_title: "POST: Actualizar bloque de contenido"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Actualizar bloques de contenido de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Actualizar Content Blocks de Braze."
 
 ---
 {% api %}
-# Actualizar bloque de contenido
+# Actualizar bloque de contenido {#update-content-block}
 {% apimethod post %}
 /content_blocks/update
 {% endapimethod %}
 
-> Utiliza este punto final para actualizar un [Bloque de contenido]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/).
+> Utiliza este punto de conexión para actualizar un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
+
+{% alert tip %}
+También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) utilizando la función [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks). Esto permite que herramientas de IA como Claude y Cursor actualicen bloques de contenido mediante indicaciones en lenguaje natural.
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
-## Requisitos previos
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `content_blocks.update`.
+## Requisitos previos {#prerequisites}
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `content_blocks.update`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -43,19 +47,19 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `content_block_id`|	Obligatoria |	Cadena | El identificador de la API de tu bloque de contenido.|
+| `content_block_id` | Obligatorio | Cadena | El identificador de API de tu bloque de contenido. |
 | `name` | Opcional | Cadena | Nombre del bloque de contenido. Debe tener menos de 100 caracteres. |
 | `description` | Opcional | Cadena | Descripción del bloque de contenido. Debe tener menos de 250 caracteres. |
-| `content` | Opcional | Cadena | Contenido HTML o de texto dentro de los bloques de contenido.
-| `state` | Opcional | Cadena | Elige `active` o `draft`. Predetermina `active` si no se especifica. |
-| `tags` | Opcional | Matriz de cadenas | [Las etiquetas]({{site.baseurl}}/user_guide/administrative/app_settings/tags/) ya deben existir. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `content` | Opcional | Cadena | Contenido HTML o de texto dentro de los Content Blocks. |
+| `state` | Opcional | Cadena | Elige `active` o `draft`. El valor predeterminado es `active` si no se especifica. |
+| `tags` | Opcional | Matriz de cadenas | Las [etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags/) ya deben existir. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/update' \
 --header 'Content-Type: application/json' \
@@ -70,7 +74,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/upd
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {
@@ -81,31 +85,31 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/upd
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
 
 | Error | Solución de problemas |
 | --- | --- |
-| `Content cannot be blank` |
+| `Content cannot be blank` | |
 | `Content must be a string` | Asegúrate de que tu contenido está entre comillas (`""`). |
 | `Content must be smaller than 50kb` | El contenido de tu bloque de contenido debe ser inferior a 50 KB en total. |
-| `Content contains malformed liquid` | El Liquid proporcionado no es válido ni analizable. Vuelve a intentarlo con un Liquid válido o ponte en contacto con el servicio de asistencia. |
-| `Content Block cannot be referenced within itself` |
-| `Content Block description cannot be blank` |
+| `Content contains malformed liquid` | El Liquid proporcionado no es válido ni analizable. Vuelve a intentarlo con un Liquid válido o ponte en contacto con soporte. |
+| `Content Block cannot be referenced within itself` | |
+| `Content Block description cannot be blank` | |
 | `Content Block description must be a string` | Asegúrate de que la descripción de tu bloque de contenido está entre comillas (`""`). |
-| `Content Block description must be shorter than 250 characters` |
-| `Content Block name cannot be blank` |
-| `Content Block name must be shorter than 100 characters` |
-| `Content Block name can only contain alphanumeric characters` | Los nombres de los bloques de contenido pueden incluir cualquiera de los siguientes caracteres: las letras (mayúsculas o minúsculas) `A` a `Z`, los números `0` a `9`, guiones `-` y guiones bajos `_`. No puede contener caracteres no alfanuméricos como emojis, `!`, `@`, `~`, `&` y otros caracteres "especiales". |
+| `Content Block description must be shorter than 250 characters` | |
+| `Content Block name cannot be blank` | |
+| `Content Block name must be shorter than 100 characters` | |
+| `Content Block name can only contain alphanumeric characters` | Los nombres de los bloques de contenido pueden incluir cualquiera de los siguientes caracteres: las letras (mayúsculas o minúsculas) `A` a `Z`, los números `0` a `9`, guiones `-` y guiones bajos `_`. No pueden contener caracteres no alfanuméricos como emojis, `!`, `@`, `~`, `&` y otros caracteres "especiales". |
 | `Content Block with this name already exists` | Prueba con otro nombre. |
-| `Content Block name cannot be updated for active Content Blocks` |
-| `Content Block state must be either active or draft` |
-| `Active Content Block can not be updated to Draft. Create a new Content Block.` |
+| `Content Block name cannot be updated for active Content Blocks` | |
+| `Content Block state must be either active or draft` | |
+| `Active Content Block can not be updated to Draft. Create a new Content Block.` | |
 | `Tags must be an array` | Las etiquetas deben formatearse como una matriz de cadenas, por ejemplo `["marketing", "promotional", "transactional"]`. |
 | `All tags must be strings` | Asegúrate de que tus etiquetas estén entre comillas (`""`). |
-| `Some tags could not be found` | Para añadir una etiqueta al crear un Bloque de contenido, la etiqueta debe existir ya en Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Some tags could not be found` | Para añadir una etiqueta al crear un bloque de contenido, la etiqueta debe existir ya en Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 
 {% endapi %}

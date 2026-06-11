@@ -1,6 +1,6 @@
 ---
 nav_title: "Objet Web"
-article_title: Objet Messagerie Web
+article_title: Objet de messagerie Web
 page_order: 12
 page_type: reference
 channel: push
@@ -8,11 +8,11 @@ platform: Web
 description: "Cet article de référence répertorie et explique les différents objets Web utilisés chez Braze."
 
 ---
-# Objet Notification push Web
+# Objet notification push Web {#web-push-object}
 
-> L'objet `web_push` vous permet de définir ou de demander des informations relatives au contenu de web push et d'alertes web push via nos [points d'envoi de messages.]({{site.baseurl}}/api/endpoints/messaging)
+> L'objet `web_push` vous permet de définir ou de demander des informations relatives au contenu de notification push Web et d'alertes push Web via nos [endpoints d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/).
 
-## Objet Notification push Web
+## Objet notification push Web
 
 ```json
 {
@@ -30,9 +30,9 @@ description: "Cet article de référence répertorie et explique les différents
 }
 ```
 
-La valeur de `image_url` doit être une URL qui renvoie à l’emplacement où votre image est hébergée. Les images doivent être recadrées selon un rapport hauteur/largeur 1:1.
+La valeur de `image_url` doit être une URL qui renvoie vers l'emplacement où votre image est hébergée. Les images doivent être recadrées selon un rapport hauteur/largeur de 1:1.
 
-## Objet Bouton d’action push Web
+## Objet bouton d'action push Web {#web-push-action-button-object}
 
 ```json
 {

@@ -1,24 +1,24 @@
 > 쿼리 빌더를 사용하여 Snowflake에서 Braze 데이터를 활용한 보고서를 생성하는 방법을 알아보세요. 쿼리 빌더는 시작할 수 있도록 미리 작성된 SQL [쿼리 템플릿]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/)과 함께 제공되며, 직접 커스텀 SQL 쿼리를 작성하여 더 많은 인사이트를 얻을 수도 있습니다.
 
-## 필수 조건
+## 필수 조건 {#prerequisites}
 
-쿼리 빌더를 사용하려면 일부 고객 데이터에 직접 액세스할 수 있는 ['PII 보기' 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)이 필요합니다.
+쿼리 빌더는 일부 고객 데이터에 직접 액세스할 수 있으므로, 사용하려면 ["PII 보기" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다.
 
-## 쿼리 빌더 사용
+## 쿼리 빌더 사용 {#using-the-query-builder}
 
-### 1단계: SQL 쿼리 생성
+### 1단계: SQL 쿼리 생성 {#step-1-create-an-sql-query}
 
-새 쿼리를 생성하려면 **분석** > **쿼리 빌더**로 이동한 다음 **SQL 쿼리 생성**을 선택합니다.
+새 쿼리를 생성하려면 **Analytics** > **쿼리 빌더**로 이동한 다음 **SQL 쿼리 생성**을 선택합니다.
 
 !["SQL 쿼리 생성" 드롭다운에 있는 "쿼리 템플릿" 및 "SQL 편집기" 옵션.]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
 쿼리를 작성하는 데 영감이나 도움이 필요하다면 **쿼리 템플릿**을 선택하고 [미리 만들어진 템플릿]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/)을 선택하세요. 빈 쿼리로 시작하려면 **SQL 편집기**를 선택합니다.
 
-보고서에는 현재 날짜와 시간으로 자동으로 이름이 지정됩니다. 이름 위에 마우스를 올리고 <i class="fas fa-pencil" alt="Edit"></i>을 선택하여 SQL 쿼리에 의미 있는 이름을 지정하세요.
+보고서에는 현재 날짜와 시간으로 자동으로 이름이 지정됩니다. 이름 위에 마우스를 올리고 <i class="fas fa-pencil" alt="편집"></i>을 선택하여 SQL 쿼리에 의미 있는 이름을 지정하세요.
 
-![보고서 이름 예시: "2025년 5월 채널 참여도".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
+![보고서 이름 예시: "Channel engagement for May 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
 
-### 2단계: 쿼리 구축
+### 2단계: 쿼리 구축 {#step-2-build-your-query}
 
 쿼리를 구축할 때 AI의 도움을 받거나 직접 구축할 수 있습니다.
 
@@ -32,7 +32,7 @@ AI 쿼리 빌더는 OpenAI에서 제공하는 [GPT](https://openai.com/gpt-4)를
 
 ![SQL AI 쿼리 빌더.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
-#### 팁
+#### 팁 {#tips}
 
 - 사용 가능한 [Snowflake 데이터 테이블]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/)을 숙지하세요. 이러한 테이블에 존재하지 않는 데이터를 요청하면 ChatGPT가 가짜 테이블을 만들어낼 수 있습니다.
 - 이 기능에 대한 [SQL 작성 규칙]({{site.baseurl}}/user_guide/data_and_analytics/query_builder/#custom-sql)을 숙지하세요. 이 규칙을 따르지 않으면 오류가 발생합니다.
@@ -70,20 +70,20 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 
 | ID 이름 | 연관된 이름 열 |
 | --- | --- |
-| `CANVAS_ID` | 캔버스 이름 |
-| `CANVAS_VARIATION_API_ID` | 캔버스 배리언트 이름 |
-| `CAMPAIGN_ID` | 캠페인 이름 |
-{: .reset-td-br-1 .reset-td-br-2 }
+| `CANVAS_ID` | Canvas Name |
+| `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
+| `CAMPAIGN_ID` | Campaign Name |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tips" }
 
 이 쿼리는 최대 100개의 행으로 세 개의 ID와 연관된 이름 열을 모두 조회합니다:
 
 ```sql
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID
-FROM USERS_MESSAGES_EMAIL_SEND_SHARED 
+FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
 ```
 
-#### 문제 해결
+#### 문제 해결 {#troubleshooting}
 
 다음과 같은 이유로 쿼리가 실패할 수 있습니다:
 
@@ -94,25 +94,25 @@ LIMIT 100
 {% endtab %}
 {% endtabs %}
 
-### 3단계: 보고서 생성
+### 3단계: 보고서 생성 {#step-3-generate-your-report}
 
 쿼리 구축을 마쳤으면 **쿼리 실행**을 선택합니다. 오류나 [보고서 시간 초과](#report-timeouts)가 없으면 쿼리에서 CSV 파일이 생성됩니다.
 
 CSV 보고서를 다운로드하려면 **내보내기**를 선택합니다.
 
-![템플릿 쿼리 "지난 30일 동안의 채널 참여도 및 매출"에 대한 결과를 보여주는 쿼리 빌더.]({% image_buster /assets/img_archive/query_builder.png %})
+![템플릿 쿼리 "Channel engagement and revenue for the last 30 days"에 대한 결과를 보여주는 쿼리 빌더.]({% image_buster /assets/img_archive/query_builder.png %})
 
 {% alert important %}
 각 보고서는 하루에 한 번만 결과를 생성할 수 있습니다. 같은 보고서를 하루에 여러 번 실행하면 각 보고서에서 동일한 결과가 표시됩니다.
 {% endalert %}
 
-## 보고서 시간 초과
+## 보고서 시간 초과 {#report-timeouts}
 
 6분 이상 실행되는 보고서는 시간 초과됩니다. 오랜만에 실행하는 첫 번째 쿼리라면 처리하는 데 시간이 더 걸릴 수 있으며, 따라서 시간 초과될 가능성이 더 높습니다. 이런 경우 보고서를 다시 실행해 보세요.
 
-여러 번 시도한 후에도 보고서가 계속 시간 초과되는 경우 [고객지원팀에 문의하세요]({{site.baseurl}}/help/support#braze-support).
+여러 번 시도한 후에도 보고서가 계속 시간 초과되는 경우 [고객지원팀에 문의하세요]({{site.baseurl}}/help/support/#braze-support).
 
-## 중단 사유 쿼리
+## 중단 사유 쿼리 {#querying-abort-reasons}
 
 `USERS_MESSAGES_*_ABORT_SHARED` 테이블의 `ABORT_TYPE` 열을 쿼리하여 메시지가 전송되지 않은 이유를 분석할 수 있습니다. `ABORT_TYPE` 필드에는 중단의 구체적인 사유를 설명하는 문자열 값이 포함되어 있으며, 함께 제공되는 `ABORT_LOG` 필드에는 추가 세부 정보(예: 트리거된 최대 게재빈도 설정 규칙)가 포함됩니다.
 
@@ -128,11 +128,11 @@ ORDER BY abort_count DESC
 
 `ABORT_TYPE` 값과 설명의 전체 목록은 [중단 유형]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
 
-## 데이터 및 결과
+## 데이터 및 결과 {#data-and-results}
 
-모든 쿼리는 지난 60일 동안의 데이터를 표시합니다. 결과를 내보낼 때는 최대 1,000개 행까지만 포함됩니다. 더 많은 양의 데이터가 필요한 보고서의 경우 [커런츠]({{site.baseurl}}/user_guide/data/braze_currents/) 또는 [내보내기 API 엔드포인트]({{site.baseurl}}/api/endpoints/export)와 같은 도구를 사용할 수 있습니다.
+모든 쿼리는 지난 60일 동안의 데이터를 표시합니다. 결과를 내보낼 때는 최대 1,000개 행까지만 포함됩니다. 더 많은 양의 데이터가 필요한 보고서의 경우 [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) 또는 [내보내기 API 엔드포인트]({{site.baseurl}}/api/endpoints/export/)와 같은 도구를 사용할 수 있습니다.
 
-## Snowflake 크레딧
+## Snowflake 크레딧 {#snowflake-credits}
 
 각 회사는 한 달에 5개의 Snowflake 크레딧을 사용할 수 있으며, 모든 워크스페이스에서 공유됩니다. 쿼리를 실행하거나 테이블을 미리 볼 때마다 Snowflake 크레딧의 일부가 사용됩니다.
 

@@ -1,36 +1,36 @@
 ---
-nav_title: "PUBLICAR: Programar campañas desencadenadas por la API"
-article_title: "PUBLICAR: Programar campañas desencadenadas por API"
-search_tag: Punto de conexión
+nav_title: "POST: Programar campañas desencadenadas por la API"
+article_title: "POST: Programar campañas desencadenadas por la API"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Programar campañas desencadenadas por API de Braze."
+description: "En este artículo se describen los detalles del punto final de Braze Programar campañas desencadenadas por API."
 
 ---
 {% api %}
-# Programar campañas desencadenadas por la API
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints  %}
+# Programar campañas desencadenadas por la API {#schedule-api-triggered-campaigns}
+{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /campaigns/trigger/schedule/create
 {% endapimethod %}
 
-> Utiliza este punto final para enviar mensajes de campaña creados en el panel a través de una entrega desencadenada por la API, permitiéndote decidir qué acción debe desencadenar el envío del mensaje.
+> Utiliza este punto final para enviar mensajes de Campaign creados en el dashboard a través de una entrega desencadenada por la API, lo que te permite decidir qué acción debe desencadenar el envío del mensaje.
 
-Puedes introducir `trigger_properties`, que se incluirá como plantilla en el propio mensaje.
+Puedes introducir `trigger_properties`, que se incluirán como plantilla en el propio mensaje.
 
-Ten en cuenta que para enviar mensajes con este punto final, debes tener un [ID de campaña]({{site.baseurl}}/api/identifier_types/), creado al crear una [campaña desencadenada por API]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/api_triggered_delivery/).
+Ten en cuenta que para enviar mensajes con este punto final, debes tener un [ID de Campaign]({{site.baseurl}}/api/identifier_types/), creado al crear una [Campaign desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b7e61de7-f2c2-49c9-9e46-b85a0aa01bba {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.trigger.schedule.create`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='default' category='send messages endpoints' %}
+{% multi_lang_include rate_limits.md endpoint='send endpoints' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -57,20 +57,20 @@ Authorization: Bearer YOUR-REST-API-KEY
   }
 }
 ```
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`|Obligatoria|Cadena| Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types/)|
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de Campaign]({{site.baseurl}}/api/identifier_types/). |
 | `send_id` | Opcional | Cadena | Ver [identificador de envío]({{site.baseurl}}/api/identifier_types/). |
 | `recipients` | Opcional | Matriz de objetos destinatarios | Ver [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object/). |
-| `audience` | Opcional | Objeto de audiencia conectado | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-|`broadcast`| Opcional | Booleano | Debes establecer `broadcast` en verdadero cuando envíes un mensaje a un segmento completo al que se dirige una campaña o Canvas. Este parámetro está predeterminado como falso (a 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
+| `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+| `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en true cuando envíes un mensaje a un Segment completo al que se dirige una Campaign o Canvas. Este parámetro está predeterminado como false (desde el 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
 | `trigger_properties` | Opcional | Objeto | Pares clave-valor de personalización para todos los usuarios de este envío. Ver [propiedades del desencadenante]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). |
-| `schedule` | Obligatoria | Objeto de programación | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+| `schedule` | Obligatorio | Objeto de programación | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/schedule/create' \
 --header 'Content-Type: application/json' \
@@ -142,9 +142,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-### Ejemplo de respuesta satisfactoria
+### Ejemplo de respuesta correcta {#example-success-response}
 
 ```json
 {

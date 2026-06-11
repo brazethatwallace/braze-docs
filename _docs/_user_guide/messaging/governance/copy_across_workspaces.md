@@ -64,14 +64,14 @@ Note that the following is not a comprehensive list of what is copied across wor
 |---|---|
 | Description | Territories | 
 | Type | Tags | 
-| Actions (nested) | Segments | 
+| Actions (nested) | Segments and filters | 
 | Conversion behaviors (nested) | [Approvals]({{site.baseurl}}/user_guide/messaging/governance/approvals/) | 
 | Quiet time configurations | Trigger schedule | 
 | Frequency capping configurations | Campaign summaries | 
-| Recipient subscription state | Filters | 
+| Recipient subscription state |  | 
 | Recurring schedule |  | 
 | Is Transactional |  | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 {% endtab %}
 {% tab canvas %}
@@ -80,14 +80,16 @@ Note that the following is not a comprehensive list of what is copied across wor
 |---|---|
 | Description | Territories | 
 | Type | Tags | 
-| Actions (nested) | Segments | 
+| Actions (nested) | Segments and filters | 
 | Conversion behaviors (nested) | [Approvals]({{site.baseurl}}/user_guide/messaging/governance/approvals/) | 
 | Quiet time configurations | Trigger schedule | 
 | Frequency capping configurations | Canvas summaries | 
-| Recipient subscription state | Filters | 
+| Recipient subscription state |  | 
 | Recurring schedule | Exit criteria | 
 | Is Transactional |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
+
+Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) steps) aren't copied to the destination workspace. Reconfigure those filters after you copy.
 
 {% endtab %}
 {% endtabs %}
@@ -103,7 +105,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Campaign interaction |  Campaign ID | 
 | Custom event name |  | 
 | Product name |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% tab canvas %}
@@ -114,7 +116,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Canvas interaction |  Canvas ID | 
 | Custom event name |  | 
 | Product name |  | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% endtabs %}
@@ -130,7 +132,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Campaign interaction |  Campaign ID | 
 | Custom event name |  | 
 | Product name |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% tab canvas %}
@@ -141,7 +143,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Canvas interaction |  Canvas ID | 
 | Custom event name |  | 
 | Product name |  | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% endtabs %}
@@ -157,7 +159,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Type |  Seed group IDs | 
 |  |  Link template IDs | 
 |  |  Internal user group IDs | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% tab canvas %}
@@ -168,7 +170,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Type |  Seed group IDs | 
 |  |  Link template IDs | 
 |  |  Internal user group IDs | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% endtabs %}
@@ -187,7 +189,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Subject |  Link template | 
 |  |  Link aliasing |
 |  | Translations |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -200,7 +202,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Subject |  Link template | 
 |  |  Link aliasing |
 |  | Translations |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% endtabs %}
@@ -217,7 +219,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Preheader |  | 
 | Inline CSS |  | 
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% tab canvas %}
@@ -229,7 +231,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Preheader |  | 
 | Inline CSS |  | 
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% endtabs %}
@@ -246,7 +248,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Subject | Territories | 
 | Headers | Tags | 
 | | Translations |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% tab canvas %}
@@ -258,7 +260,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Subject | Territories | 
 | Headers | Tags | 
 | | Translations |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -274,7 +276,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Description | API keys | 
 | Content | Territories | 
 | HTML and drag-and-drop content | Tags | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% tab canvas %}
@@ -285,7 +287,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Description | API keys | 
 | Content | Territories | 
 | HTML and drag-and-drop content | Tags | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% endtabs %}
@@ -301,7 +303,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Link shortening | VCF media items | 
 | Click tracking |  | 
 | Media items |  | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -312,14 +314,14 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Link shortening | VCF media items | 
 | Click tracking |  | 
 | Media items |  | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% endtabs %}
 
 ## Copying messages that contain Liquid
 
-Liquid references within message bodies are copied over to the destination workspace, but the references may not function as expected. This means if a Canvas from Workspace A is copied to Workspace B, then Workspace B can't reference Workspace A's details, including Liquid references. For example, fields like trigger actions and audience filters aren't copied over.
+Liquid references within message bodies are copied over to the destination workspace, but the references may not function as expected. This means if a Canvas from Workspace A is copied to Workspace B, then Workspace B can't reference Workspace A's details, including Liquid references. For example, fields like trigger actions, audience filters, and [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) filter criteria aren't copied over.
 
 Keep track of the following Liquid references with dependencies when copying campaigns and Canvases across workspaces:
 

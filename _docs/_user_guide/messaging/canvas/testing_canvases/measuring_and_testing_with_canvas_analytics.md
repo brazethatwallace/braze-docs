@@ -22,7 +22,11 @@ The top of the **Canvas Details** page contains top-line Canvas statistics. Thes
 
 This is a great place to get a high-level overview to check how your Canvas is performing against your goal.
 
-![]({% image_buster /assets/img_archive/Journey_5.png %})
+### Reachable users and exact statistics {#reachable-users-and-exact-statistics}
+
+When **[Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)** is running for audiences tied to your Canvas, Braze may briefly show a rounded estimate in the **Reachable users** area. The exact total replaces the estimate when the calculation finishes. Select **Show Additional Stats** for a full per-channel breakdown. The Canvas builder documents the same flow under **Target Population**; see [Calculating target population]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population).
+
+![The Canvas Details page showing top-line statistics including messages sent, conversion rate, total entries, total revenue, total exits, and estimated audience, with channel and statistics filters.]({% image_buster /assets/img_archive/Journey_5.png %})
 
 ### Changes Since Last Viewed
 
@@ -30,7 +34,7 @@ The number of updates to the Canvas from other members of your team is tracked b
 
 ## Performance visualization
 
-As you move down the **Canvas Details** page, you can see the performance for each component such as how many users entered, proceeded to the next step, or exited the Canvas. 
+As you move down the **Canvas Details** page, you can see performance for each component—such as how many users entered, proceeded to the next step, or exited the Canvas. Select a specific Canvas step or component to focus the panel on that part of the journey and review its metrics in more detail.
 
 {% alert note %}
 For Canvas Flow, a user will exit the Canvas after entering and receiving the message payload in the last step of the user journey.
@@ -54,7 +58,7 @@ In the **Analyze Variants** tab, you can see a breakdown of performance by varia
 
 You can quickly infer effective variants and identify the right cadences, content, triggers, timing, and more.
 
-![]({% image_buster /assets/img_archive/analyze_variants.png %})
+![The Analyze Canvas modal with the Analyze Variants tab selected, showing a comparison table for Path 1 and Path 2 with entries, sends, revenue, conversion rates, percent change, and confidence metrics.]({% image_buster /assets/img_archive/analyze_variants.png %})
 
 Basic metrics include the following:  
 
@@ -62,7 +66,7 @@ Basic metrics include the following:
 - **Total Entries:** The total number of users that have entered the Canvas variant.
 - **Total Sends:** The total number of messages sent in the Canvas variant.
 - **Total Steps:** The total number of steps in the Canvas variant.
-- **Total Revenue:** The total revenue in dollars from Canvas recipients within the set primary conversion window.
+- **Total Revenue:** The total revenue in dollars from Canvas recipients within the set primary conversion window. _Total Revenue_ is the sum of purchases attributed to users who received that variant during that window. Purchases still count toward _Total Revenue_ even when the user does not perform the configured primary conversion event, as long as the purchase falls within the attribution rules for the window.
 
 {% alert note %}
 Like conversions, revenue is technically tracked at the Canvas level, but is attributed to the most recent component and most recent variant from which the user has received a message (or entered, if they haven't received a message yet).<br><br>

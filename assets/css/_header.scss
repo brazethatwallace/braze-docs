@@ -25,8 +25,11 @@ $header_transition_time: 0.25s;
 
 	#header_toggle {
 		z-index: 550;
-		&:focus {
+		&:focus:not(:focus-visible) {
 			outline: none;
+		}
+		&:focus-visible {
+			@include focus-ring($white);
 		}
 		span {
 		}
@@ -158,6 +161,12 @@ $header_transition_time: 0.25s;
 			img {
 				max-height: 30px;
 			}
+			&:focus:not(:focus-visible) {
+				outline: none;
+			}
+			&:focus-visible {
+				@include focus-ring($white);
+			}
 		}
 	}
 
@@ -205,13 +214,22 @@ $header_transition_time: 0.25s;
 			@media (min-width: $window-xlarge-px) {
 				font-size: $header_nav_font_size;
 			}
-			font-family: $braze-heavy;
+			font-family: $braze-bold;
 		}
 
 		.navbar-nav {
 			.nav-link {
-				color: $header-nav;
-				line-height: 1;
+			color: $header-nav;
+			line-height: 1;
+			&:focus:not(:focus-visible) {
+				outline: none;
+			}
+		&:focus-visible {
+			outline: none;
+			> div {
+				@include focus-ring($white);
+			}
+		}
 				@media (min-width: $window-medium-px) {
 					font-size: $header_nav_font_size;
 					padding-top: 0px;
@@ -226,7 +244,7 @@ $header_transition_time: 0.25s;
 					padding-right: 15px;
 				}
 				div {
-					font-family: $braze-heavy !important;
+					font-family: $braze-bold !important;
 					display: inline;
 					border-bottom-width: 2px;
 					border-color: transparent;
@@ -285,9 +303,11 @@ $header_transition_time: 0.25s;
 	.lang-select {
 		background-color: transparent;
 		color: $header-nav;
-		&:focus,
-		&:focus-visible {
+		&:focus:not(:focus-visible) {
 			outline: none;
+		}
+		&:focus-visible {
+			@include focus-ring($white);
 		}
 	}
 	.nav-item-lang-li {
@@ -309,7 +329,7 @@ $header_transition_time: 0.25s;
 		font-size: 16px;
 		display: flex;
 		gap: 10px;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 		@media (max-width: $window-mobile-px) {
 			//max-width: 100px;
 			font-size: $header_nav_font_size;
@@ -389,6 +409,12 @@ $header_transition_time: 0.25s;
 					font-size: 16px;
 					&:hover {
 						background-color: transparent;
+					}
+					&:focus:not(:focus-visible) {
+						outline: none;
+					}
+					&:focus-visible {
+						@include focus-ring($white);
 					}
 					&.active {
 						background-color: transparent;

@@ -1,7 +1,7 @@
 ---
 nav_title: Worthy
 article_title: Worthy
-description: "Este artigo de referência descreve a parceria entre o Braze e a Worthy, uma plataforma de personalização de mensagens que permite criar experiências ricas e personalizadas no app e fornecê-las por meio do Braze."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Worthy, uma plataforma de personalização de mensagens que permite criar experiências ricas e personalizadas no app e entregá-las por meio da Braze."
 alias: /partners/worthy/
 page_type: partner
 search_tag: Partner
@@ -10,17 +10,17 @@ search_tag: Partner
 
 # Worthy
 
-> A integração entre a [Worthy](https://worthy.ai/) e o Braze permite que você crie experiências ricas e personalizadas no app usando o editor de arrastar e soltar da Worthy e as forneça por meio do Braze. Além disso, o Worthy faz automaticamente o seguinte:
+> A integração entre a [Worthy](https://worthy.ai/) e a Braze permite que você crie experiências ricas e personalizadas no app usando o editor de arrastar e soltar da Worthy e as entregue por meio da Braze. Além disso, a Worthy faz automaticamente o seguinte:
 
 _Essa integração é mantida pela Worthy._
 
-## Sobre a integração
+## Sobre a integração {#about-the-integration}
 
-- Criar um servidor de conteúdo conectado e uma API segura para seu envio de mensagens.
-- Construa suas mensagens no app com análise de dados e rastreamento de cliques que aparecerão diretamente no Braze.
-- Exporte automaticamente o HTML por meio do editor de arrastar e soltar da Worthy para usar em campanhas de mensagens no app com **código personalizado** no Braze, com as conexões API necessárias e o conteúdo dinâmico que você configurar.
+- Criar um servidor de Conteúdo conectado e uma API segura para seu envio de mensagens.
+- Construir suas mensagens no app com análise de dados e rastreamento de cliques que aparecerão diretamente na Braze.
+- Exportar automaticamente o HTML por meio do editor de arrastar e soltar da Worthy para usar em Campaigns de mensagens no app com **Custom Code** na Braze, com as conexões de API necessárias e o conteúdo dinâmico que você configurar.
 
-## Casos de uso
+## Casos de uso {#use-cases}
 
 - Experiências de boas-vindas personalizadas com base nas seleções de integração do usuário
 - Experiências no app para eventos e promoções especiais
@@ -28,27 +28,26 @@ _Essa integração é mantida pela Worthy._
 - Testar rapidamente possíveis ideias de produtos de app
 - Avisos ricos, notícias e atualizações da comunidade
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 | --- | --- |
 | Conta da [Worthy](https://worthy.ai/) | É necessário ter uma conta Worthy para aproveitar essa parceria. |
-| SDK do Braze | Você precisará configurar o SDK do Braze no seu aplicativo móvel para enviar mensagens avançadas no app. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| SDK da Braze | Você precisará configurar o SDK da Braze no seu aplicativo móvel para enviar mensagens avançadas no app. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Integração
+## Integração {#integration}
 
-### Etapa 1: Crie envios de mensagens personalizados no Worthy
+### Etapa 1: Crie mensagens personalizadas na Worthy {#step-1-create-personalized-messaging-in-worthy}
 
-Navegue até seu app no dashboard da Worthy, selecione o **Message Creator** e crie uma mensagem personalizada que deseja usar para engajamento com seus usuários.
+Navegue até seu app no dashboard da Worthy, selecione o **Message Creator** e crie uma mensagem personalizada que deseja usar para engajar seus usuários.
 
-### Etapa 2: Criar uma campanha no Braze
+### Etapa 2: Crie uma Campaign na Braze {#step-2-create-a-braze-campaign}
 
-Crie uma [campanha de mensagens]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/create/) no app com código personalizado no Braze e defina o **Tipo de mensagem** como **Código personalizado**.
+Crie uma [Campaign de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) na Braze e defina o **Message Type** como **Custom Code**.
 
-### Etapa 3: Copie sua mensagem personalizada no Braze
+### Etapa 3: Copie sua mensagem personalizada na Braze {#step-3-copy-your-personalized-message-into-braze}
 
-No criador de mensagens Worthy, clique em **Exportar** e selecione **Braze** para exportar sua mensagem personalizada para uso em campanhas do Braze. Copie o conteúdo exportado para a caixa de texto HTML em **HTML + Asset Zip** no editor de campanhas do Braze.
+No criador de mensagens da Worthy, clique em **Export** e selecione **Braze** para exportar sua mensagem personalizada para uso em Campaigns da Braze. Copie o conteúdo exportado para a caixa de texto HTML em **HTML + Asset Zip** no editor de Campaigns da Braze.
 
-É isso aí! Você pode testar imediatamente sua mensagem personalizada usando a guia **Testar** no editor de campanha do Braze. 
-
+É isso aí! Você pode testar imediatamente sua mensagem personalizada usando a guia **Test** no editor de Campaigns da Braze.

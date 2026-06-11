@@ -1,39 +1,39 @@
 ---
-nav_title: "OBTER: Exportar IDs de produtos"
-article_title: "OBTER: Exportar IDs de produtos"
+nav_title: "GET: Exportar IDs de produtos"
+article_title: "GET: Exportar IDs de produtos"
 search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre sobre o endpoint da Braze \"Exportar IDs de produtos\"."
+description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar IDs de produtos\"."
 
 ---
 {% api %}
-# Exportar IDs de produtos
+# Exportar IDs de produtos {#export-product-ids}
 {% apimethod get %}
 /purchases/product_list
 {% endapimethod %}
 
-> Use esse ponto de extremidade para retornar uma lista paginada de IDs de produtos.
+> Use esse endpoint para retornar uma lista paginada de IDs de produtos.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#dff4ed40-81f5-451d-9d44-accc0e932285{% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `purchases.product_list`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='purchases product list' %}
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `page` | Opcional | String | A página da lista de produtos que você deseja visualizar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 {% raw %}
 ```
@@ -41,7 +41,7 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
 ```
 {% endraw %}
 
-## Resposta
+## Resposta {#response}
 
 ```json
 {
@@ -55,5 +55,5 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
 {% endapi %}
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}

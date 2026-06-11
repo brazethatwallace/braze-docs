@@ -19,8 +19,6 @@ description: "This article outlines details about the Update translation in a ca
 
 If you want to update translations after a campaign has been launched, you'll need to [save your message as a draft]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/) first.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Prerequisites
 
 To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `campaigns.translations.update` permission.
@@ -41,7 +39,7 @@ There are no path parameters for this endpoint.
 | `message_variation_id` | Required | String | The ID of your message variation. |
 | `locale_id`| Required | String | The ID (UUID) of the locale. |
 | `translation_map` | Required | Object | Object containing the new translations. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 All translation IDs are considered universal unique identifiers (UUIDs), which can be found in the GET endpoint's response.

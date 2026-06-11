@@ -22,6 +22,12 @@ Up to 50 user aliases may be specified per request.
 
 **Creating a new alias-only user** requires the `external_id` to be omitted from the new user alias object. After the user is created, use the `/users/track` endpoint to associate the alias-only user with attributes, events, and purchases, and the `/users/identify` endpoint to identify the user with an `external_id`.
 
+## When `alias_label` and `alias_name` already exist
+
+The combination of `alias_label` and `alias_name` must be unique across your user base. For more information, see [User aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).
+
+If you send a request where the `alias_label` and `alias_name` pair already exists for any user (whether on the same user or another), the endpoint still returns a successful response (for example, `"aliases_processed": 1`, `"message": "success"`). In that case, no new alias is added to the user in the request. Because the `alias_label` and `alias_name` pair is already in use, the request does not make any changes, and it can appear that the alias was never added to the user in question.
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5cf18e64-fd02-452f-8c90-9a0f7c4d0487 {% endapiref %}
 
 ## Prerequisites
@@ -50,7 +56,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
 | `user_aliases` | Required | Array of new user alias objects | See [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object/).<br><br> For more information on `alias_name` and `alias_label`, check out our [User Aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases) documentation.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Endpoint request body with new user alias object specification
 
@@ -79,6 +85,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/new' \
 ```
 
 ## Response
+
+When an alias is skipped because the same `alias_label` and `alias_name` already exist for a user, the response body may still indicate success. See [When the alias label and name already exist](#when-the-alias-label-and-name-already-exist) for details.
 
 ```json
 {

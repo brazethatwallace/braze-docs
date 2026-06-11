@@ -1,7 +1,7 @@
 ---
 nav_title: Pypestream
 article_title: Pypestream
-description: "この参考記事では、ブランドとのデジタル・エンゲージメントを強化できるフルスタックの会話AIプラットフォームであるBrazeとPypestreamのパートナーシップについて概説している。"
+description: "この参考記事では、ブランドとのデジタルエンゲージメントを強化できるフルスタックの会話型AIプラットフォームであるBrazeとPypestreamのパートナーシップについて説明します。"
 alias: /partners/pypestream/
 page_type: partner
 search_tag: Partner
@@ -10,41 +10,41 @@ search_tag: Partner
 
 # Pypestream
 
-> [Pypestream](https://www.pypestream.com) はフルスタックの会話型 AI プラットフォームであり、特許取得済みのオールインワン型のクラウドメッセージングを提供し、ブランドを「常時稼働」状態のデジタルエンティティに変換します。Pypestream によりブランドは、没入型のユーザーエクスペリエンス、高度な NLU 機能、バックエンドシステムへのリアルタイム統合を利用し、大規模なオムニチャネルの会話に参加できるようになります。
+> [Pypestream](https://www.pypestream.com) はフルスタックの会話型AIプラットフォームであり、特許取得済みのオールインワン型クラウドメッセージングを提供し、ブランドを「常時稼働」状態のデジタルエンティティに変換します。Pypestreamにより、ブランドは没入型のユーザーエクスペリエンス、高度なNLU機能、バックエンドシステムへのリアルタイム統合を活用しながら、すべての顧客と大規模なオムニチャネルの会話を行えるようになります。
 
-_この統合は Pypestream によって管理されます。_
+_この統合はPypestreamによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Braze と Pypestream の統合により、最初のアウトリーチから、会話エクスぺリエンスへのルーティング、インテリジェントなリターゲティングによるオムニチャネルのフォローアップまで、エンドツーエンドのカスタマーライフサイクルをシームレスに調整できます。 
+BrazeとPypestreamの統合により、最初のアウトリーチから会話エクスペリエンスへのルーティング、インテリジェントなリターゲティングによるオムニチャネルのフォローアップまで、エンドツーエンドのカスタマーライフサイクルをシームレスにオーケストレーションできます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-| Pypestreamアカウント | このパートナーシップを活用するには、[Pypestream アカウント](https://www.pypestream.com/contact-us/)が必要です。<br><br>サブスクライブ後は、Pypestream チームが、Braze と統合する会話型 AI ソリューションの構築を開始するための専用の環境の設定を支援します。 |
-| Braze REST API キー | `users.track` 権限を持つ Braze REST API キー。<br><br> これは、Brazeダッシュボードの**「設定」**>「**APIキー**」から作成できる。 |
-| Braze RESTエンドポイント  | REST エンドポイントのURL。エンドポイントはインスタンスの [Braze URL]({{site.baseurl}}/api/basics/) に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Pypestreamアカウント | このパートナーシップを活用するには、[Pypestreamアカウント](https://www.pypestream.com/contact-us/)が必要です。<br><br>サブスクライブ後、Pypestreamチームが、Brazeと統合する会話型AIソリューションの構築を開始するための専用環境の設定を支援します。 |
+| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics/)に応じて異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## ユースケース
+## ユースケース {#use-cases}
 
-Braze と Pypestream の連携により、キャンバスで以下のような一般的なユースケースを実現できます。
-* **インテリジェントなリターゲティング**：Pypestream で収集されたリッチなデータポイントをすべて活用して、ユーザーがブランドとの会話を終えた後に Braze キャンバスでユーザーをリターゲティングします。
-* **ダイナミックターゲット設定**：特定のコホートやセグメンテーションに基づいて既存顧客や見込み顧客にコンタクトし、Pypestreamを介してカスタマイズされた会話エクスペリエンスを提供する。
-* **状況に即した顧客インサイト**:エンドユーザー (既存の顧客または見込み客) が Web サイトでやり取りをした後で、Pypestream Event Listener から取り込んだ Web ページタグと、Braze に保存されている顧客データを組み合わせることで、完全にパーソナライズされ、コンテキストに即した会話型インタラクションを提供できます。
+BrazeとPypestreamの連携により、キャンバスで以下のような一般的なユースケースを実現できます。
+* **インテリジェントなリターゲティング**：Pypestreamで収集されたリッチなデータポイントをすべて活用して、ユーザーがブランドとの会話エンゲージメントを終えた後にBraze キャンバスでリターゲティングします。
+* **ダイナミックターゲティング**：特定のコホートやセグメントに基づいて既存顧客や見込み顧客にコンタクトし、Pypestreamを介してカスタマイズされた会話エクスペリエンスを提供します。
+* **文脈に応じた顧客インサイト**：エンドユーザー（既存の顧客または見込み客）がWebサイトでやり取りをした後、Pypestream Event Listenerから取り込んだWebページタグとBrazeに保存されている顧客データを組み合わせることで、完全にパーソナライズされ、コンテキストに即した会話型インタラクションを提供できます。
 
-## 統合
+## 統合 {#integration}
 
-Pypestreamはサーバーレスの統合レイヤーを活用し、様々なプラットフォームへのカスタム統合を行う。このレイヤーは、構築される会話フローのデータ要件をサポートするために、サービスやシステムとのインターフェースに使用される。これらの統合は、アクションノード統合と呼ばれ、通常、Python で記述され、Pypestream プラットフォームを使用してデプロイされます。アクションノードがインスタンス化されると、Braze APIのどのエンドポイントにも柔軟に統合できるようになり、結果をさまざまな方法で評価できるようになる。 
+Pypestreamはサーバーレスの統合レイヤーを活用し、さまざまなプラットフォームへのカスタム統合を行います。このレイヤーは、構築される会話フローのデータ要件をサポートするために、サービスやシステムとのインターフェースに使用されます。これらの統合はアクションノード統合と呼ばれ、通常Pythonで記述され、Pypestreamプラットフォームを使用してデプロイされます。アクションノードがインスタンス化されると、Braze APIのどのエンドポイントにも柔軟に統合でき、結果をさまざまな方法で評価できるようになります。
 
 {% alert note %}
-Pypestream アクションノードの概要と設定手順については、この [Pypestream の記事](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070)を参照してください。このドキュメントにアクセスするには、Pypestream の顧客である必要があります。
+Pypestreamアクションノードの概要と設定手順については、この[Pypestreamの記事](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070)を参照してください。このドキュメントにアクセスするには、Pypestreamの顧客である必要があります。
 {% endalert %}
 
-### ステップ1:エンドポイントの設定を行う
+### ステップ1:エンドポイントの設定を行う {#step-1-set-endpoint-configurations}
 
-Raze REST エンドポイント URL や Braze API キーなどの主要な設定値は、ソリューションの `app.py` ファイルで設定する必要があります。 
+Braze RESTエンドポイントURLやBraze APIキーなどの主要な設定値は、ソリューションの`app.py`ファイルで設定する必要があります。
 
 ```
 import os
@@ -71,9 +71,9 @@ PARAMS = {
 }
 ```
 
-### ステップ2:アクション・ノード・テンプレートを開発する
+### ステップ2:アクションノードテンプレートを開発する {#step-2-develop-action-node-template}
 
-アクションノードは、前のステップで設定されたそれぞれのBrazeエンドポイントを使用して、ソリューションが相互作用するように展開された環境を活用する。このステップでは、特定のBrazeエンドポイントを統合するためのアクションノードを開発する。統合を開発する際のガイドとして、以下のテンプレートを使用する： 
+アクションノードは、前のステップで設定されたそれぞれのBrazeエンドポイントを使用して、ソリューションがデプロイされた環境を活用します。このステップでは、特定のBrazeエンドポイントを統合するためのアクションノードを開発します。統合を開発する際のガイドとして、以下のテンプレートを使用してください。
 
 ```
 # -*- coding: utf-8 -*-
@@ -142,7 +142,7 @@ class BrazeExample:
             resp = requests.post(req_url,
                                 params=req_params,
                                 headers=req_headers)
-            
+
             log('BrazeExample API response: {}'.format(resp.text))
 
             if resp.status_code == 400:
@@ -155,37 +155,36 @@ class BrazeExample:
 
         return {'success': 'error'}
 ```
-### ステップ3:ソリューション・デザインを更新する
+### ステップ3:ソリューションデザインを更新する {#step-3-update-the-solution-designs}
 
-Braze REST APIと統合する最後のステップでは、前のステップで開発したアクションノードを使用するように、Pypestreamの[Design Studio](https://platform.pypestream.com/design-studio/)内でフローを設定する。 
+Braze REST APIと統合する最後のステップでは、前のステップで開発したアクションノードを使用するように、Pypestreamの[Design Studio](https://platform.pypestream.com/design-studio/)内でフローを設定します。
 
 {% alert note %}
-Design Studio でモードを設定する方法の概要については、[Pypestream の記事](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070)を参照してください。このドキュメントにアクセスするには、Pypestream の顧客である必要があります。
+Design Studioでモードを設定する方法の概要については、この[Pypestreamの記事](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070)を参照してください。このドキュメントにアクセスするには、Pypestreamの顧客である必要があります。
 {% endalert %}
 
-## 統合のユースケース
+## 統合のユースケース {#integration-use-case}
 
-前提条件が満たされ、アクションノード構造が作成されると、開発者はブランクのキャンバスを使用して、Braze API エンドポイントとのインタラクションを開始します。この例は、アクションノードを Braze [`/user/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)に統合するために必要な手順を示します。具体的には、Pypestream 会話フローに入る特定のユーザーを追跡するためにユーザープロファイルを作成します。
+前提条件が満たされ、アクションノード構造が作成されると、開発者はBraze APIエンドポイントとのインタラクションを行うためのブランクのキャンバスを使用できます。この例では、アクションノードをBrazeの[`/user/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)に統合するために必要な手順を示します。具体的には、Pypestreamの会話フローに入る特定のユーザーを追跡するためにユーザープロファイルを作成します。
 
-### ステップ1:会話の中でユーザーからデータを収集する
+### ステップ1:会話の中でユーザーからデータを収集する {#step-1-collect-data-from-the-user-in-conversation}
 
-ユーザーが Pypestream セッションに入ると、収集されるデータの詳細は、その時点でのユースケースに完全に依存します。Brazeでユーザープロフィールを作成するには、会話で必要なフィールドを収集する必要がある。
-目的のエンドポイントに必要な
+ユーザーがPypestreamセッションに入ると、収集されるデータの詳細は、その時点でのユースケースに完全に依存します。Brazeでユーザープロファイルを作成するには、目的のエンドポイントに必要なフィールドを会話で収集する必要があります。
 
-たとえば、ソリューションが Braze `/user/track` エンドポイントの会話中にユーザーから次の情報を収集するとします。 
+たとえば、ソリューションがBrazeの`/user/track`エンドポイントの会話中にユーザーから次の情報を収集するとします。
 
 * 名
 * 姓
 * メールアドレス
 * 生年月日
-* 居住地の市町村
-* オペレーティング・システム
+* 居住地の市区町村
+* オペレーティングシステム
 
-将来的にこのユーザーをリターゲティングできる機能により、このユーザーのエンゲージメントを追跡するために、このデータを Braze プラットフォームに送信できます。一般的なアプリケーションを見るには、[ユースケース・リストを](#use-cases)チェックしよう。
+このデータをBrazeプラットフォームに送信して、このユーザーのエンゲージメントを追跡し、将来的にリターゲティングすることが可能になります。一般的なアプリケーションについては、[ユースケースリスト](#use-cases)をご覧ください。
 
-### ステップ2:アクションノード構造体にデータを入力する
+### ステップ2:アクションノード構造にデータを入力する {#step-2-populate-data-in-the-action-node-structure}
 
-アクションノードを開発するための同じ構造を活用することで、ユーザーから収集したデータをアクションノードに入力し、当社の`/user/track` エンドポイントを経由してBrazeに送信することができる。
+アクションノードを開発するための同じ構造を活用して、ユーザーから収集したデータをアクションノードに入力し、`/user/track`エンドポイントを経由してBrazeに送信できます。
 
 ```
 # -*- coding: utf-8 -*-
@@ -264,7 +263,7 @@ class BrazeExample:
             resp = requests.post(req_url,
                                 params=req_params,
                                 headers=req_headers)
-            
+
             log('BrazeExample API response: {}'.format(resp.text))
 
             if resp.status_code == 400:
@@ -278,7 +277,6 @@ class BrazeExample:
         return {'success': 'error'}
 ```
 
-### ステップ3:アクションノードの成功/失敗時にリダイレクトするようにソリューションフローを更新する。
+### ステップ3:アクションノードの成功/失敗時にリダイレクトするようにソリューションフローを更新する {#step-3-update-solution-flows-to-redirect-upon-successfailure-of-action-node}
 
-最後に、各ソリューションの設計では、アクション・ノードAPI呼び出しが成功したかどうかに基づいて、ユーザーをノードにルーティングすることができる。アクションノードがエラーメッセージを受信した場合、エンドユーザーを慎重に処理する必要があります。
-
+最後に、各ソリューションの設計では、アクションノードAPI呼び出しが成功したかどうかに基づいて、ユーザーをノードにルーティングできます。アクションノードがエラーメッセージを受信した場合、エンドユーザーを慎重に処理する必要があります。

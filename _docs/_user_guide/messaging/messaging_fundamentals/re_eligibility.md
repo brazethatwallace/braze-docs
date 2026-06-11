@@ -24,11 +24,15 @@ By default, Braze sends a message to a user only once, even if they re-qualify m
 {% tab campaign %}
 To turn on re-eligibility for a campaign, select the **Allow users to become re-eligible to receive campaign** checkbox in the **Delivery Controls** section. The maximum time for re-eligibility for a campaign is 720 days.
 
-For triggered campaigns with re-eligibility turned on, users who [did not actually receive the campaign message]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#why-did-a-user-not-receive-my-triggered-campaign) (despite completing the trigger event) will automatically qualify for the message the next time they complete the trigger event. This is because re-eligibility is based on message receipt and not campaign entry. By making users re-eligible for a triggered campaign, you are allowing them to actually receive (and not simply trigger) the message more than once.
+For triggered campaigns with re-eligibility turned on, users who [did not actually receive the campaign message]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#why-did-a-user-not-receive-my-triggered-campaign) (despite completing the trigger event) will automatically qualify for the message the next time they complete the trigger event. This is because re-eligibility is based on message receipt and not campaign entry. By making users re-eligible for a triggered campaign, you allow them to actually receive (and not simply trigger) the message more than once.
+
+{% alert note %}
+"Receipt" includes attribution through shared channel identifiers: when a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same email or phone number, so a user who was never directly sent the message can be marked as having received it and may not become re-eligible.
+{% endalert %}
 
 Additionally, if you're trying to send a message immediately with a re-eligibility of zero minutes, we'll always attempt to schedule it right away, regardless of how a user has received previous versions of the campaign or Canvas.
 
-#### Re-eligibility with API-triggered campaigns
+### Re-eligibility with API-triggered campaigns
 
 The number of times a user receives an API-triggered campaign can be limited using re-eligibility settings. This means the user will receive the campaign only once or once in a given window, regardless of how many times the API trigger is fired.
 
@@ -68,7 +72,11 @@ Consider the following scenario:
 * A campaign is set to send monthly on the 15th with re-eligibility set to 30 days.
 * There are fewer than 30 days between February 15 and March 15. 
 
-This means users who received the campaign on February 15 will not be eligible for the campaign to be sent on March 15. If the campaign is set to send daily at 8 am with re-eligibility of 1 day, and there's a latency in sending the message, users who received the campaign at 8:30 am will not be re-eligible yet on the following day at 8 am.
+This means users who received the campaign on February 15 are not eligible for the campaign to be sent on March 15. (A user can be marked as having "received" the campaign due to shared channel identifiers—for example, if they share an email or phone number with someone who received, opened, or clicked the message.) If the campaign is set to send daily at 8 am with re-eligibility of 1 day, and there's a latency in sending the message, users who received the campaign at 8:30 am are not re-eligible yet on the following day at 8 am.
+
+## Re-eligibility for Content Cards
+
+When re-eligibility is enabled for Content Card campaigns or Canvas steps, a user can receive another card while an earlier card from the same campaign is still in their feed, which can look like duplicate cards. To reduce duplicates, turn off re-eligibility, or lengthen the re-eligibility window so the first card [expires from the feed]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) before the user qualifies for another send.
 
 ## Multivariate testing
 

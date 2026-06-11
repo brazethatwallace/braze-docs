@@ -1,12 +1,12 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Erstellen eines universellen Delegaten
+## Erstellen eines universellen Delegaten {#creating-a-universal-delegate}
 
-Das Android SDK bietet die Möglichkeit, ein einzelnes Delegatenobjekt festzulegen, um alle von Braze geöffneten Deeplinks über Content-Cards, In-App-Nachrichten und Push-Benachrichtigungen anzupassen.
+Das Android SDK bietet die Möglichkeit, ein einzelnes Delegatenobjekt festzulegen, um alle von Braze geöffneten Deeplinks über Content Cards, In-App-Nachrichten und Push-Benachrichtigungen individuell zu verarbeiten.
 
-Ihr Delegatenobjekt sollte die [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html)-Schnittstelle implementieren und mit [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html) festgelegt werden. In den meisten Fällen sollte der Delegat in Ihrer App in `Application.onCreate()` festgelegt werden.
+Ihr Delegatenobjekt sollte die [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html)-Schnittstelle implementieren und mit [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html) festgelegt werden. In den meisten Fällen sollte der Delegat in `Application.onCreate()` Ihrer App festgelegt werden.
 
-Im Folgenden finden Sie ein Beispiel für das Überschreiben des Standard [`UriAction`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.actions/-uri-action/index.html) mit angepassten Absichtsflags und einem angepassten Verhalten für YouTube-URLs:
+Im Folgenden finden Sie ein Beispiel für das Überschreiben des Standardverhaltens von [`UriAction`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.actions/-uri-action/index.html) mit angepassten Intent-Flags und angepasstem Verhalten für YouTube-URLs:
 
 {% tabs %}
 {% tab JAVA %}
@@ -86,9 +86,9 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 {% endtab %}
 {% endtabs %}
 
-## Deeplinks zu den App-Einstellungen setzen
+## Deeplinking zu den App-Einstellungen {#deep-linking-to-app-settings}
 
-Um Deeplinks zu erlauben, die Einstellungen Ihrer App direkt zu öffnen, benötigen Sie eine nangepassten `BrazeDeeplinkHandler`. Im folgenden Beispiel bewirkt das Vorhandensein eines angepassten Schlüssel-Wert-Paares namens `open_notification_page`, dass der Deeplink die Einstellungsseite der App öffnet:
+Um Deeplinks zu erlauben, die direkt die Einstellungen Ihrer App öffnen, benötigen Sie einen angepassten `BrazeDeeplinkHandler`. Im folgenden Beispiel bewirkt das Vorhandensein eines angepassten Schlüssel-Wert-Paares namens `open_notification_page`, dass der Deeplink die Einstellungsseite der App öffnet:
 
 {% tabs %}
 {% tab JAVA %}
@@ -142,24 +142,24 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
 {% endtab %}
 {% endtabs %}
 
-## Passen der WebView-Aktivität an {#Custom_Webview_Activity}
+## Anpassen der WebView-Aktivität {#Custom_Webview_Activity}
 
-Bei der Öffnung von Deeplinks innerhalb der App durch Braze werden diese von verarbeitet[`BrazeWebViewActivity`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-web-view-activity/index.html).
+Wenn Braze Website-Deeplinks innerhalb der App öffnet, werden diese von [`BrazeWebViewActivity`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-web-view-activity/index.html) verarbeitet.
 
 {% alert note %}
-Bei angepassten HTML-In-App-Nachrichten werden`target="_blank"` die konfigurierten Links im Standard-Webbrowser des Geräts geöffnet und nicht von verarbeitet`BrazeWebViewActivity`.
+Bei angepassten HTML-In-App-Nachrichten werden Links mit `target="_blank"` im Standard-Webbrowser des Geräts geöffnet und nicht von `BrazeWebViewActivity` verarbeitet.
 {% endalert %}
 
 Um dies zu ändern:
 
-1. Erstellen Sie eine neue Aktivität, die die Ziel-URL von `Intent.getExtras()` mit dem Schlüssel `com.braze.Constants.BRAZE_WEBVIEW_URL_EXTRA` behandelt. Ein Beispiel finden Sie unter[`BrazeWebViewActivity.kt`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/BrazeWebViewActivity.kt) .
-2. Fügen Sie diese Aktivität zu `AndroidManifest.xml` hinzu und setzen Sie `exported` auf `false`.
+1. Erstellen Sie eine neue Activity, die die Ziel-URL von `Intent.getExtras()` mit dem Schlüssel `com.braze.Constants.BRAZE_WEBVIEW_URL_EXTRA` verarbeitet. Ein Beispiel finden Sie unter [`BrazeWebViewActivity.kt`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/BrazeWebViewActivity.kt).
+2. Fügen Sie diese Activity zu `AndroidManifest.xml` hinzu und setzen Sie `exported` auf `false`.
     ```xml
     <activity
         android:name=".MyCustomWebViewActivity"
         android:exported="false" />
     ```
-3. Legen Sie Ihre angepasste Aktivität in einem `BrazeConfig` [builder Objekt](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-custom-web-view-activity-class.html) fest. Erstellen Sie den Builder und übergeben Sie ihn an[`Braze.configure()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html)in Ihrer [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()).
+3. Legen Sie Ihre angepasste Activity in einem `BrazeConfig`-[Builder-Objekt](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-custom-web-view-activity-class.html) fest. Erstellen Sie den Builder und übergeben Sie ihn an [`Braze.configure()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html) in Ihrer [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()).
 {% tabs %}
 {% tab JAVA %}
 
@@ -185,11 +185,20 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-## Verwendung von Jetpack Compose
+## Fehlerbehebung {#troubleshooting}
+
+Wenn Deeplinks aus Push-Benachrichtigungen auf Android nicht funktionieren, probieren Sie die folgenden Schritte:
+
+1. **Testen Sie den Deeplink außerhalb von Braze.** Öffnen Sie die Deeplink-URL aus einer anderen App, z. B. E-Mail oder einem Browser. Wenn Ihre App sich nicht öffnet, ist der Deeplink möglicherweise nicht korrekt in Ihrer `AndroidManifest.xml` konfiguriert. Weitere Informationen finden Sie in der Android-Dokumentation zu [Deep Links erstellen](https://developer.android.com/training/app-links/deep-linking).
+2. **Prüfen Sie, ob die automatische Deeplink-Verarbeitung aktiviert ist.** Stellen Sie sicher, dass `com_braze_handle_push_deep_links_automatically` in `braze.xml` auf `true` gesetzt ist, oder legen Sie diese Option über die [Laufzeitkonfiguration]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android) fest. Ohne diese Einstellung öffnet Braze Ihre App und das Deeplink-Ziel nicht automatisch, wenn jemand auf eine Push-Benachrichtigung tippt.
+3. **Überprüfen Sie Ihren Deeplink-Handler-Delegaten.** Wenn Sie einen angepassten `IBrazeDeeplinkHandler` festgelegt haben, stellen Sie sicher, dass Ihre `gotoUri`-Implementierung die URI verarbeitet und nicht verwirft.
+4. **Testen Sie kanalübergreifend.** Wenn derselbe Deeplink in einer In-App-Nachricht funktioniert, aber nicht über Push, liegt das Problem wahrscheinlich in Ihrer Push-Deeplink-Verarbeitung und nicht im Deeplink selbst.
+
+## Verwendung von Jetpack Compose {#using-jetpack-compose}
 
 Um Deeplinks bei der Verwendung von Jetpack Compose mit NavHost zu verarbeiten:
 
-1. Bitte stellen Sie sicher, dass die Aktivität, die Ihren Deeplink verarbeitet, im Android Manifest registriert ist.
+1. Stellen Sie sicher, dass die Activity, die Ihren Deeplink verarbeitet, im Android Manifest registriert ist.
     ```xml
     <activity
       ...
@@ -203,7 +212,7 @@ Um Deeplinks bei der Verwendung von Jetpack Compose mit NavHost zu verarbeiten:
       </intent-filter>
     </activity>
     ```
-2. Bitte geben Sie in NavHost an, welche Deeplinks verarbeitet werden sollen.
+2. Geben Sie in NavHost an, welche Deeplinks verarbeitet werden sollen.
     ```kotlin
     composableWithCompositionLocal(
         route = "YOUR_ROUTE_HERE",
@@ -223,7 +232,7 @@ Um Deeplinks bei der Verwendung von Jetpack Compose mit NavHost zu verarbeiten:
         )
     }
     ```
-3. Je nach Architektur Ihrer App müssen Sie möglicherweise auch die neue Absicht verarbeiten, die an Ihre aktuelle Aktivität gesendet wird.
+3. Je nach Architektur Ihrer App müssen Sie möglicherweise auch den neuen Intent verarbeiten, der an Ihre aktuelle Activity gesendet wird.
     ```kotlin
     DisposableEffect(Unit) {
         val listener = Consumer<Intent> {

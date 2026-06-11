@@ -14,16 +14,16 @@ search_tag: Partner
 
 _Esta integración está mantenida por Jampp._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Jampp permite a los usuarios de Braze sincronizar eventos en Jampp a través de eventos webhook de Braze. Como resultado, los clientes pueden añadir conjuntos de datos más ricos a sus iniciativas de retargeting dentro de sus ecosistemas de publicidad móvil.
+La integración de Braze y Jampp permite a los usuarios de la empresa sincronizar eventos en Jampp a través de eventos webhook de Braze. Como resultado, los clientes pueden añadir conjuntos de datos más ricos a sus iniciativas de reorientación dentro de sus ecosistemas de publicidad móvil.
 
-Algunos ejemplos de casos en los que se puede reorientar a los clientes con un anuncio:
-- Cuando cambia el estado del correo electrónico o de la suscripción push de un cliente.
-- Cómo interactuó un cliente con una campaña de mensajería Braze.
+Algunos ejemplos de casos en los que querrías reorientar a los clientes con un anuncio:
+- Cuando cambia el estado de suscripción de correo electrónico o push de un cliente.
+- Cómo interactuó un cliente con una campaña de mensajería de Braze.
 - Si el cliente ha desencadenado una geovalla específica.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Esta integración es compatible con aplicaciones iOS y Android.
 
@@ -32,21 +32,21 @@ Esta integración es compatible con aplicaciones iOS y Android.
 | Cuenta Jampp | Se necesita una [cuenta Jampp](https://www.jampp.com/) para beneficiarse de esta asociación. |
 | ID de la aplicación Android | Tu identificador único de aplicación Braze para Android (como "com.example"). |
 | ID de la aplicación iOS | Tu identificador único de aplicación Braze para iOS (como "012345678"). |
-| Habilitar la recogida de IDFA en el SDK de Braze | La recogida de IDFA es opcional dentro del SDK de Braze y está desactivada por defecto. | 
-| Recopilación del identificador de publicidad de Google mediante un atributo personalizado | La recogida del ID de publicidad de Google es opcional para los clientes y puede recogerse como un [atributo personalizado]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types).
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Habilitar la recopilación de IDFA en el SDK de Braze | La recopilación de IDFA es opcional dentro del SDK de Braze y está desactivada por defecto. |
+| Recopilación del identificador de publicidad de Google mediante un atributo personalizado | La recopilación del ID de publicidad de Google es opcional para los clientes y puede recogerse como un [atributo personalizado]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types).
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
-### Paso 1: Crear una plantilla de webhook en Braze
+### Paso 1: Crear una plantilla de webhook en Braze {#step-1-create-a-webhook-template-in-braze}
 
-Para crear una plantilla de webhook Jampp y utilizarla en futuras campañas o Canvases, vaya a **Plantillas** > **Plantillas de webhook** en la plataforma Braze.
+Para crear una plantilla de webhook de Jampp y utilizarla en futuras Campaigns o Canvas, ve a **Contenido** > **Webhook** en el dashboard de Braze. Luego, selecciona **Crear plantilla de webhook**.
 
-Si desea hacer una campaña Jampp webhook única o utilizar una plantilla existente, seleccione **Webhook** en Braze al crear una nueva campaña.
+Si deseas hacer una Campaign de webhook de Jampp única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva Campaign.
 
-En tu nueva plantilla Webhook, rellena los siguientes campos:
-- **Cuerpo de la solicitud**: Texto sin procesar
-- **URL del webhook**:
+En tu nueva plantilla de webhook, rellena los siguientes campos:
+- **Request Body**: Raw Text
+- **Webhook URL**:
 {% raw %}
 ```liquid
 {% assign event_name = 'your_jampp_event_name' %}
@@ -63,37 +63,35 @@ http://tracking.jampp.com/event?kind={{event_name}}&rnd={{rnd}}&app={% if {{most
 ```
 {% endraw %}
 
-En la URL del webhook, debe:
-- Establece el nombre del evento. Este nombre aparecerá en su panel de Jampp.
-- Pasa el identificador único de tu aplicación para Android (como "com.example") e iOS (como "012345678").
-- Inserte [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#using-liquid) para el atributo personalizado adecuado que esté rastreando como ID de publicidad de Google. Tenga en cuenta que el ID de publicidad de Google aparece como `aaid` en este ejemplo, pero tendrá que sustituirlo por el nombre de atributo personalizado que establezcan sus desarrolladores.
+En la URL del webhook, debes:
+- Establecer el nombre del evento. Este nombre aparecerá en tu dashboard de Jampp.
+- Pasar el identificador único de tu aplicación para Android (como "com.example") e iOS (como "012345678").
+- Insertar [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#using-liquid) para el atributo personalizado adecuado que estés rastreando como ID de publicidad de Google. Ten en cuenta que el ID de publicidad de Google aparece como `aaid` en este ejemplo, pero tendrás que sustituirlo por el nombre de atributo personalizado que establezcan tus desarrolladores.
 
-![La URL del webhook y la vista previa del mensaje se muestran en el constructor de webhook Braze.]({% image_buster /assets/img/jampp_webhook.png %})
+![La URL del webhook y la vista previa del mensaje mostrados en el constructor de webhook de Braze.]({% image_buster /assets/img/jampp_webhook.png %})
 
 {% alert important %}
-Braze no recoge automáticamente el IDFA/AAID del dispositivo, por lo que debe almacenar estos valores usted mismo. Tenga en cuenta que puede necesitar el consentimiento del usuario para recopilar estos datos.
+Braze no recopila automáticamente el IDFA/AAID del dispositivo, por lo que debes almacenar estos valores tú mismo. Ten en cuenta que puedes necesitar el consentimiento del usuario para recopilar estos datos.
 {% endalert %}
 
-#### Encabezados de solicitud y método
+#### Encabezados de solicitud y método {#request-headers-and-method}
 
-El webhook de Jampp requiere un método HTTP y una cabecera de solicitud.
+El webhook de Jampp requiere un método HTTP y un encabezado de solicitud.
 
-- **Método HTTP**: OBTENER
+- **Método HTTP**: GET
 - **Encabezados de solicitud**:
   - **Content-Type**: application/json
 
-![Los encabezados de solicitud, el método HTTP y la vista previa del mensaje mostrados en el creador de webhook Braze.]({% image_buster /assets/img/jampp_method.png %})
+![Los encabezados de solicitud, el método HTTP y la vista previa del mensaje mostrados en el constructor de webhook de Braze.]({% image_buster /assets/img/jampp_method.png %})
 
-#### Cuerpo de la solicitud
+#### Cuerpo de la solicitud {#request-body}
 
-No es necesario definir un cuerpo de petición para este webhook.
+No es necesario definir un cuerpo de solicitud para este webhook.
 
-### Paso 2: Vista previa de su solicitud
+### Paso 2: Previsualizar tu solicitud {#step-2-preview-your-request}
 
-Previsualice el mensaje para asegurarse de que la solicitud se muestra correctamente para los distintos usuarios. Recomendamos previsualizar y enviar solicitudes de prueba tanto para usuarios de Android como de iOS. Si la solicitud tiene éxito, la API responderá con `HTTP 204`.
+Previsualiza el mensaje para asegurarte de que la solicitud se muestra correctamente para los distintos usuarios. Recomendamos previsualizar y enviar solicitudes de prueba tanto para usuarios de Android como de iOS. Si la solicitud es correcta, la API responderá con `HTTP 204`.
 
 {% alert important %}
-Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas webhook actualizadas pueden encontrarse en la lista **Plantillas webhook guardadas** al crear una nueva [campaña webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/).
+Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Plantillas de Webhook guardadas** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}
-
-

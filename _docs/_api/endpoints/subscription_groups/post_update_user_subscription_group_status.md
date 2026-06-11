@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "This article outlines details about the Update user's subscription group status Braze endpoint."
 ---
+
 {% api %}
 # Update user's subscription group status
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 {% alert note %}
 If you're interested in using this endpoint with [LINE subscription groups]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), contact your customer success manager.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Rate limit
 
@@ -97,7 +100,7 @@ This property should not be used for updating a user's profile information. Use 
 | `email` | Required* | String or array of strings | The email address of the user, can be passed as an array of strings. Must include at least one email address (with a maximum of 50). <br><br>If multiple users (`external_id`) in the same workspace share the same email address, then Braze updates all users that share the email address with the subscription group changes. |
 | `phone` | Required* | String in [E.164](https://en.wikipedia.org/wiki/E.164) format | The phone number of the user, can be passed as an array of strings. Must include at least one phone number (up to 50). <br><br>If multiple users (`external_id`) in the same workspace share the same phone number, then Braze updates all users that share the phone number with the same subscription group changes. |
 | `use_double_opt_in_logic` | Optional | Boolean | Applies only to SMS subscription groups; ignored for email and other subscription group types. Defaults to `false` if omitted. For SMS subscription groups, set to `true` to enter the user into the [SMS double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) workflow when their subscription status is set to `subscribed`. Users entered into the double opt-in workflow in this way receive at most one opt-in prompt reply message per day, regardless of the number of times they are entered into the workflow. If this parameter is omitted or set to `false`, users are subscribed without entering the double opt-in workflow. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example requests
 
@@ -141,9 +144,15 @@ The status code `201` could return the following response body.
 }
 ```
 
+## Troubleshooting intermittent update failures
+
+If subscription group updates intermittently fail or appear out of sync, wait several minutes between update requests or call [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) to confirm the user's state before sending another update.
+
 {% alert important %}
 The endpoint accepts only the `email` or `phone` value, not both. If you provide both, you receive this response: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
+
+For your subscription update to apply to phone numbers, confirm you sent E.164-formatted phone numbers (for example, `+15555550123`), used the correct `subscription_group_id`, and passed `phone` (not both `phone` and `email`) in the same request body. For multi-number updates, use the `phone` array format shown in [SMS and RCS](#sms-and-rcs).
 
 {% endapi %}
 

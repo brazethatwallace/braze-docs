@@ -17,10 +17,10 @@ To send emails to Apple's private email relay, register your sending domains wit
 
 If a user decides to disable the email forwarding to your app's relay email, Braze will receive email bounce information as usual. These users can manage apps that use sign-in with Apple from their Apple ID settings page (see [Apple's documentation](https://support.apple.com/en-us/HT210426)).
 
+## Configure your email provider
+
 {% tabs %}
 {% tab SendGrid %}
-
-## Configure SendGrid 
 
 If you use SendGrid as an email provider, you can send emails to Apple without making DNS changes. 
 
@@ -34,8 +34,6 @@ If your desired "From" address is an `abmail` address, include that in your subd
 
 {% endtab %}
 {% tab SparkPost %}
-
-## Configure SparkPost 
 
 To set up Apple Private Relay for SparkPost, follow these steps: 
 
@@ -53,7 +51,7 @@ If a sending domain is also used as a bounce domain, you won't be able to store 
 |----------|-----------------------------|-----------------------------------------------|
 | US       | `smtp.sparkpostmail.com`    | `"v=spf1 redirect=_spf.sparkpostmail.com"`    |
 | EU       | `smtp.eu.sparkpostmail.com` | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When the sending domain is also the bounce domain" }
 
 {% alert important %}
 To avoid SPF failures, you must create the MX and TXT records and have them propagated in the DNS **before** deleting the CNAME record.
@@ -66,8 +64,6 @@ To avoid SPF failures, you must create the MX and TXT records and have them prop
 
 {% endtab %}
 {% tab Amazon SES %}
-
-## Configure Amazon SES
 
 To set up Apple Private Relay, you should ideally have a custom MAIL FROM domain set up.
 

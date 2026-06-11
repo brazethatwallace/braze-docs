@@ -12,30 +12,30 @@ description: "En esta página encontrarás artículos de ayuda que pueden ayudar
 guide_featured_title: "Temas"
 guide_featured_list:
   - name: Cuenta
-    link: /docs/user_guide/administrative/access_braze/troubleshooting/
+    link: /docs/user_guide/administer/personal/accessing_your_account/
     image: /assets/img/braze_icons/user-circle.svg
   - name: API
-    link: /docs/help/help_articles/api/
+    link: /docs/api/basics/
     image: /assets/img/braze_icons/terminal-square.svg
-  - name: Campañas y Canvas
-    link: /docs/help/help_articles/campaigns_and_canvas/
+  - name: Campaigns y Canvas
+    link: /docs/user_guide/messaging/
     image: /assets/img/braze_icons/annotation.svg
-  - name: Tarjetas de contenido
-    link: /docs/help/help_articles/content_cards/
+  - name: Content Cards
+    link: /docs/user_guide/channels/content_cards/
     image: /assets/img/braze_icons/sticker-square.svg
   - name: Datos
-    link: /docs/help/help_articles/data/
+    link: /docs/user_guide/data/
     image: /assets/img/braze_icons/line-chart-up-01.svg
   - name: Documentación
-    link: /docs/help/help_articles/docs/
+    link: /docs/user_guide/
     image: /assets/img/braze_icons/file-06.svg
   - name: Correo electrónico
-    link: /docs/help/help_articles/email/
+    link: /docs/user_guide/channels/email/
     image: /assets/img/braze_icons/mail-01.svg
   - name: Push
-    link: /docs/help/help_articles/push/
+    link: /docs/user_guide/channels/push/
     image: /assets/img/braze_icons/message-square-02.svg
-  - name: Segmentos
-    link: /docs/help/help_articles/segments/
+  - name: Segments
+    link: /docs/user_guide/audience/segments/
     image: /assets/img/braze_icons/users-01.svg
 ---

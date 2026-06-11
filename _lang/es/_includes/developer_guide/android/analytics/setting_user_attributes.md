@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Atributos predeterminados del usuario
+## Atributos predeterminados del usuario {#default-user-attributes}
 
-### Métodos predefinidos
+### Métodos predefinidos {#predefined-methods}
 
 Braze proporciona métodos predefinidos para establecer los siguientes atributos de usuario dentro de la clase [`BrazeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html). Para obtener especificaciones sobre los métodos, consulta [nuestro KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html).
 
@@ -20,7 +20,7 @@ Braze proporciona métodos predefinidos para establecer los siguientes atributos
 Todos los valores de cadena como nombre, apellidos, país y ciudad de origen están limitados a 255 caracteres.
 {% endalert %}
 
-### Configuración de atributos predeterminados
+### Configuración de atributos predeterminados {#setting-default-attributes}
 
 Para establecer un atributo predeterminado para un usuario, llama al método `getCurrentUser()` en tu instancia de Braze para obtener una referencia al usuario actual de tu aplicación. A continuación, puedes llamar a métodos para establecer un atributo de usuario.
 
@@ -48,7 +48,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### Eliminar atributos predeterminados
+### Eliminar atributos predeterminados {#unsetting-default-attributes}
 
 Para eliminar un atributo de usuario, pasa `null` al método correspondiente.
 
@@ -76,11 +76,11 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-## Atributos personalizados del usuario
+## Atributos personalizados del usuario {#custom-user-attributes}
 
-Además de los atributos de usuario predeterminados, Braze también te permite definir atributos personalizados utilizando varios tipos de datos diferentes. Para obtener más información sobre la opción de segmentación de cada atributo, consulta [Recopilación de datos de usuario]({{site.baseurl}}/developer_guide/analytics).
+Además de los atributos de usuario predeterminados, Braze también te permite definir atributos personalizados utilizando varios tipos de datos diferentes. Para obtener más información sobre la opción de segmentación de cada atributo, consulta [Recopilación de datos de usuario]({{site.baseurl}}/developer_guide/analytics/).
 
-### Establecer atributos personalizados
+### Establecer atributos personalizados {#setting-custom-attributes}
 
 {% tabs local %}
 {% tab String %}
@@ -121,7 +121,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
     brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_INT_VALUE);
-    
+
     // Integer attributes may also be incremented using code like the following:
     brazeUser.incrementCustomUserAttribute("your_attribute_key", YOUR_INCREMENT_VALUE);
   }
@@ -291,7 +291,7 @@ Las fechas pasadas a Braze con este método deben estar en el formato [ISO 8601]
 {% endtab %}
 {% tab Array %}
 
-La cantidad predeterminada y máxima de elementos en una matriz es 500. Puedes actualizar la cantidad máxima de matrices en el panel de Braze, en **Configuración de datos** > **Atributos personalizados**. Las matrices que superan la cantidad máxima de elementos se truncan para contener la cantidad máxima de elementos. Para obtener más información sobre las matrices de atributos personalizados y su comportamiento, consulta [Matrices]({{site.baseurl}}/developer_guide/analytics/#arrays).
+La cantidad predeterminada y máxima de elementos en una matriz es 500. Puedes actualizar la cantidad máxima de matrices en el panel de Braze, en **Data Settings** > **Custom Attributes**. Las matrices que superan la cantidad máxima de elementos se truncan para contener la cantidad máxima de elementos. Para obtener más información sobre las matrices de atributos personalizados y su comportamiento, consulta [Matrices]({{site.baseurl}}/developer_guide/analytics/#arrays).
 
 {% subtabs global %}
 {% subtab JAVA %}
@@ -328,7 +328,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### Eliminar atributos personalizados
+### Eliminar atributos personalizados {#unsetting-custom-attributes}
 
 Para eliminar un atributo personalizado, pasa la clave del atributo correspondiente al método `unsetCustomUserAttribute`.
 
@@ -356,9 +356,9 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### Atributos personalizados anidados
+### Atributos personalizados anidados {#nesting-custom-attributes}
 
-También puedes anidar propiedades dentro de atributos personalizados. En el siguiente ejemplo, un objeto `favorite_book` con propiedades anidadas se establece como un atributo personalizado en el perfil de usuario. Para obtener más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support).
+También puedes anidar propiedades dentro de atributos personalizados. En el siguiente ejemplo, un objeto `favorite_book` con propiedades anidadas se establece como un atributo personalizado en el perfil de usuario. Para obtener más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
 
 {% tabs %}
 {% tab JAVA %}
@@ -393,11 +393,11 @@ braze.getCurrentUser { user ->
 {% endtab %}
 {% endtabs %}
 
-### Uso de la API REST
+### Uso de la REST API {#using-the-rest-api}
 
-También puedes utilizar nuestra API REST para establecer o eliminar atributos de usuario. Para obtener más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+También puedes utilizar nuestra REST API para establecer o eliminar atributos de usuario. Para obtener más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
-## Configuración de suscripciones de usuarios
+## Configuración de suscripciones de usuarios {#setting-user-subscriptions}
 
 Para configurar una suscripción para tus usuarios (por correo electrónico o push), llama a las funciones `setEmailNotificationSubscriptionType()` o `setPushNotificationSubscriptionType()`, respectivamente. Estas dos funciones toman como argumento el tipo de enumeración `NotificationSubscriptionType`. Este tipo tiene tres estados diferentes:
 
@@ -412,7 +412,7 @@ Para configurar una suscripción para tus usuarios (por correo electrónico o pu
 Android no requiere ninguna adhesión voluntaria explícita para enviar notificaciones push a los usuarios. Cuando un usuario se registra para push, se establece de manera predeterminada como `SUBSCRIBED` en lugar de `OPTED_IN`. Consulta [Gestionar las suscripciones de los usuarios]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions) para obtener más información sobre la implementación de las suscripciones y las adhesiones voluntarias explícitas.
 {% endalert %}
 
-### Configuración de las suscripciones por correo electrónico
+### Configuración de las suscripciones por correo electrónico {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab JAVA %}
@@ -438,7 +438,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### Configuración de la suscripción a notificaciones push
+### Configuración de la suscripción a notificaciones push {#setting-push-notification-subscription}
 
 {% tabs %}
 {% tab JAVA %}

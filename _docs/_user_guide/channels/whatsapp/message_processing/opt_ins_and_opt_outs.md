@@ -91,6 +91,19 @@ Use the [phone number capture form]({{site.baseurl}}/user_guide/messaging/templa
 
 ## Set up opt-outs for your Braze WhatsApp channel
 
+### WhatsApp "Offers and Announcements" toggle
+
+WhatsApp provides an "Offers and Announcements" toggle in the app settings that allows users to opt out of marketing messages. This toggle operates independently from Braze subscription groups:
+
+- **Braze subscription groups** are managed through your Braze integration (API, preference center, or SDK) and control which users you target for messaging.
+- **WhatsApp's native toggle** is controlled by Meta and enforced at the platform level, outside of Braze.
+
+These two layers don't sync automatically by design. When a user turns off the "Offers and Announcements" toggle in WhatsApp, Meta blocks marketing message delivery at the platform level, even if the user's Braze subscription status shows as "Subscribed". The user's preference is respected at the point of delivery.
+
+{% alert note %}
+Because Braze doesn't receive an opt-out signal until a send attempt is made and Meta returns an error, subscription counts in Braze may not reflect users who have opted out through the WhatsApp toggle until a message is attempted. This means reach estimates may be slightly overstated until that feedback loop occurs.
+{% endalert %}
+
 ### General opt-out keywords
 
 You can set up a campaign or Canvas that allows users who message in particular words to opt-out of future messaging. Canvases can be especially beneficial as they allow you to include a follow-up message that confirms the successful opt-out. 
@@ -228,5 +241,5 @@ In this table, `STOP` is used as an example trigger word to demonstrate how the 
 | `Is` | `STOP` | Catches any whole word use of "stop" regardless of case. For example, this catches "stop" but not "please stop". |
 | `Matches regex` | `STOP` | Catches any use of "STOP" in that exact case. For example, this catches "STOP" and "PLEASE STOP" but not "stop". |
 | `Matches regex` | `(?i)STOP(?-i)` | Catches any use of "STOP" in any case. For example, this catches "stop", "please stop", and "never stop sending me messages". |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Understanding the difference between "regex" and "is" modifiers" }
 

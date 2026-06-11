@@ -10,13 +10,13 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Establecer atributos personalizados para iOS
+# Establecer atributos personalizados para iOS {#set-custom-attributes-for-ios}
 
 Braze proporciona métodos para asignar atributos a los usuarios. Podrás filtrar y segmentar a tus usuarios según estos atributos en el dashboard.
 
-Antes de la implementación, asegúrate de revisar los ejemplos de las opciones de segmentación que ofrecen los eventos personalizados, los atributos personalizados y los eventos de compra en nuestras [mejores prácticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), así como nuestras notas sobre [las convenciones de denominación de eventos]({{site.baseurl}}/user_guide/data/custom_data/event_naming_conventions/).
+Antes de la implementación, asegúrate de revisar los ejemplos de las opciones de segmentación que ofrecen los eventos personalizados, los atributos personalizados y los eventos de compra en nuestras [mejores prácticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), así como nuestras notas sobre [las convenciones de denominación de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
 
-## Asignar atributos predeterminados al usuario
+## Asignar atributos predeterminados al usuario {#assigning-default-user-attributes}
 
 Para asignar atributos de usuario, tienes que establecer el campo apropiado en el objeto compartido `ABKUser`.
 
@@ -52,11 +52,11 @@ Los siguientes atributos deben establecerse en el objeto `ABKUser`:
 - `userID`
 - `gender`
 
-## Asignar atributos personalizados al usuario
+## Asignar atributos personalizados al usuario {#assigning-custom-user-attributes}
 
 Además de los atributos predeterminados de usuario, Braze también te permite definir atributos personalizados utilizando varios tipos de datos diferentes. Consulta nuestra [recopilación de datos de usuario]({{site.baseurl}}/developer_guide/analytics/) para obtener más información sobre las opciones de segmentación que te ofrece cada uno de estos atributos.
 
-### Atributo personalizado con un valor de cadena
+### Atributo personalizado con un valor de cadena {#custom-attribute-with-a-string-value}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -75,7 +75,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### Atributo personalizado con un valor entero
+### Atributo personalizado con un valor entero {#custom-attribute-with-an-integer-value}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -94,7 +94,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### Atributo personalizado con valor doble
+### Atributo personalizado con valor doble {#custom-attribute-with-a-double-value}
 
 Braze trata de la misma manera los valores `float` y `double` dentro de nuestra base de datos.
 
@@ -115,7 +115,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### Atributo personalizado con valor booleano
+### Atributo personalizado con valor booleano {#custom-attribute-with-a-boolean-value}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -134,7 +134,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### Atributo personalizado con un valor de fecha
+### Atributo personalizado con un valor de fecha {#custom-attribute-with-a-date-value}
 
 Las fechas pasadas a Braze con este método deben estar en el formato [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) (p. ej., `2013-07-16T19:20:30+01:00`) o en el formato `yyyy-MM-dd'T'HH:mm:ss:SSSZ` (`2016-12-14T13:32:31.601-0800`).
 
@@ -155,7 +155,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### Atributo personalizado con un valor de matriz
+### Atributo personalizado con un valor de matriz {#custom-attribute-with-an-array-value}
 
 La cantidad predeterminada y máxima de elementos en una matriz es de 500. Puedes actualizar la cantidad máxima de elementos de las matrices en el dashboard de Braze, en **Configuración de datos** > **Atributos personalizados**. Las matrices que superan la cantidad máxima de elementos se truncan para contener la cantidad máxima de elementos.
 
@@ -189,7 +189,7 @@ Appboy.sharedInstance()?.user.removeFromCustomAttributeArrayWithKey("array_name"
 {% endtab %}
 {% endtabs %}
 
-### Desactivar un atributo personalizado
+### Desactivar un atributo personalizado {#unsetting-a-custom-attribute}
 
 Los atributos personalizados también se pueden desactivar utilizando el siguiente método:
 
@@ -210,9 +210,9 @@ Appboy.sharedInstance()?.user.unsetCustomAttributeWithKey("your_attribute_key")
 {% endtab %}
 {% endtabs %}
 
-### Aumentar/disminuir atributos personalizados
+### Incrementar/decrementar atributos personalizados {#incrementingdecrementing-custom-attributes}
 
-Este código es un ejemplo de atributo personalizado que se incrementa. Puedes incrementar el valor de un atributo personalizado en cualquier valor entero o largo positivo o negativo:
+Este código es un ejemplo de un atributo personalizado que se incrementa. Puedes incrementar el valor de un atributo personalizado en cualquier valor entero o largo positivo o negativo:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -231,20 +231,20 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 {% endtab %}
 {% endtabs %}
 
-### Configurar un atributo personalizado a través de la API REST
+### Configurar un atributo personalizado a través de la REST API {#setting-a-custom-attribute-via-the-rest-api}
 
-También puedes utilizar nuestra API REST para establecer atributos de usuario. Consulta la [documentación de la API de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) para más detalles.
+También puedes utilizar nuestra REST API para establecer atributos de usuario. Consulta la [documentación de la API de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) para más detalles.
 
-### Límites del valor del atributo personalizado
+### Límites del valor del atributo personalizado {#custom-attribute-value-limits}
 
 Los valores de atributos personalizados tienen una longitud máxima de 255 caracteres; los valores más largos se truncarán.
 
-#### Información adicional
+#### Información adicional {#additional-information}
 
 - Puedes encontrar más detalles en el [archivo `ABKUser.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h).
 - Consulta la [documentación de `ABKUser`](http://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_user.html) para obtener más información.
 
-## Configuración de las suscripciones de los usuarios
+## Configuración de las suscripciones de los usuarios {#setting-up-user-subscriptions}
 
 Para configurar una suscripción para tus usuarios (por correo electrónico o push), llama a las funciones `setEmailNotificationSubscriptionType` o `setPushNotificationSubscriptionType`, respectivamente. Estas dos funciones toman como argumento el tipo de enumeración `ABKNotificationSubscriptionType`. Este tipo tiene tres estados diferentes:
 
@@ -252,14 +252,14 @@ Para configurar una suscripción para tus usuarios (por correo electrónico o pu
 | ------------------- | ---------- |
 | `ABKOptedin` | Suscrito y con adhesión voluntaria explícita |
 | `ABKSubscribed` | Suscrito, pero sin adhesión voluntaria explícita |
-| `ABKUnsubscribed` | No suscrito y/o con exclusión voluntaria explícita |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `ABKUnsubscribed` | No suscrito o con exclusión voluntaria explícita |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración de las suscripciones de los usuarios" }
 
 Los usuarios que conceden permiso para que una aplicación les envíe notificaciones push tienen de forma predeterminada el estado `ABKOptedin`, ya que iOS requiere una adhesión voluntaria explícita.
 
-Los usuarios se configurarán en `ABKSubscribed` automáticamente al recibir una dirección de correo electrónico válida; sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor en `OptedIn` al recibir el consentimiento explícito de tu usuario. Consulta la sección [Gestión de las suscripciones de los usuarios]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) para obtener más detalles.
+Los usuarios se configurarán en `ABKSubscribed` automáticamente al recibir una dirección de correo electrónico válida; sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor en `OptedIn` al recibir el consentimiento explícito de tu usuario. Consulta la sección [Gestión de las suscripciones de los usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions/) para obtener más detalles.
 
-### Configuración de las suscripciones por correo electrónico
+### Configuración de las suscripciones por correo electrónico {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -278,7 +278,7 @@ Appboy.sharedInstance()?.user.setEmailNotificationSubscriptionType(ABKNotificati
 {% endtab %}
 {% endtabs %}
 
-### Configuración de suscripciones a notificaciones push
+### Configuración de suscripciones a notificaciones push {#setting-push-notification-subscriptions}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -297,4 +297,4 @@ Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificatio
 {% endtab %}
 {% endtabs %}
 
-Consulta la sección [Gestión de las suscripciones de los usuarios]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) para obtener más detalles.
+Consulta la sección [Gestión de las suscripciones de los usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions/) para obtener más detalles.

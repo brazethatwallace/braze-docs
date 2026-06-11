@@ -55,6 +55,8 @@ https://example.com/{{url_var}}
 
 ### Shorten URLs rendered by Liquid variables
 
+**Supported channels:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 We shorten URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, we shorten and track that URL before sending the message. 
 
 ### Shorten URLs in `/messages/send` endpoint
@@ -65,7 +67,7 @@ Link shortening is also turned on for API-only messages through the [`/messages/
 | --------- | ---------| --------- | ----------- |
 |`link_shortening_enabled`| Optional | Boolean | Set `link_shortening_enabled` to `true` to turn on link shortening and campaign-level click tracking. To use tracking, a `campaign_id` and `message_variation_id` must be present.|
 |`user_click_tracking_enabled`| Optional | Boolean | Set `user_click_tracking_enabled` to `true` to turn on link shortening, and campaign-level and user-level click tracking. You can use the tracked data to create segments of users who clicked URLs.<br><br> To use this parameter, `link_shortening_enabled` must be `true`, and a `campaign_id` and `message_variation_id` must be present. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
 
 For a full list of request parameters, go to [request parameters]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
 
@@ -77,7 +79,7 @@ This preview updates with relevant personalization and the shortened URL. The nu
 
 Make sure to save the campaign or Canvas before sending a test message to receive a representation of the shortened URL that is dispatched in your message. If the campaign or Canvas isn't saved before a test send, the test send includes a placeholder URL.
 
-For Canvases to appear in the "Clicked shortened SMS link" filter, the Canvas step containing the short link must also be enabled with advanced tracking, which allows user-level click tracking. If the short link is configured with basic tracking, the option to filter SMS short link click events isn't available.
+For Canvases to appear in the "Clicked shortened SMS link" filter, the Canvas step containing the short link must also be enabled with advanced tracking, which allows user-level click tracking. If the short link is configured with basic tracking, the option to filter SMS short link click events isn't available. The same advanced tracking requirement applies when you configure Canvas entry or action paths that depend on clicked shortened SMS links.
 
 {% alert important %}
 If a draft is created within an active Canvas, a shortened URL won't be generated. The actual shortened URL is generated when the Canvas draft is made active.

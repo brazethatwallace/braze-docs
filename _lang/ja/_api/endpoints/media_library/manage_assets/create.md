@@ -1,35 +1,39 @@
 ---
-nav_title: "POST:メディアライブラリーにアセットをアップロードする"
-article_title: "POST:メディアライブラリーにアセットをアップロードする"
-search_tag: エンドポイント
+nav_title: "POST: メディアライブラリにアセットをアップロードする"
+article_title: "POST: メディアライブラリにアセットをアップロードする"
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "この記事は`POST /media_library/create`エンドポイントの詳細を説明する。"
+description: "この記事では、`POST /media_library/create` エンドポイントの詳細について説明します。"
 ---
 
 {% api %}
-# メディアライブラリーにアセットをアップロードする
+# メディアライブラリにアセットをアップロードする {#upload-an-asset-to-the-media-library}
 {% apimethod post %}
 /media_library/create
 {% endapimethod %}
 
-> このエンドポイントを使用すると、外部でホストされているURL（`asset_url`）またはリクエスト本文で送信されたバイナリファイルデータ（`asset_file`）のいずれかを使用して、[Brazeメディアライブラリー](https://www.braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library)にアセットを追加できる。このエンドポイントは画像と、画像を含むZIPファイルをサポートしている。
+> このエンドポイントを使用すると、外部でホストされているURL（`asset_url`）またはリクエスト本文で送信されたバイナリファイルデータ（`asset_file`）のいずれかを使用して、[Brazeメディアライブラリ](https://www.braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library)にアセットを追加できます。このエンドポイントは画像と、画像を含むZIPファイルをサポートしています。
 
-## 前提条件
+{% alert tip %}
+このエンドポイントは、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server/)から[`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library)関数を使用して呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメディアライブラリにアセットをアップロードできます。
+{% endalert %}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`media_library.create`の権限が必要です。
+## 前提条件 {#prerequisites}
 
-## レート制限
+このエンドポイントを使用するには、`media_library.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-{% multi_lang_include rate_limits.md endpoint='default' %}
+## レート制限 {#rate-limit}
 
-## Request body
+{% multi_lang_include rate_limits.md endpoint='media_library' %}
 
-を含めると`asset_url`、エンドポイントはURLからファイルをダウンロードする。を含めると`asset_file`、エンドポイントはリクエスト本文のバイナリデータを使用する。
+## リクエスト本文 {#request-body}
 
-: `asset_url`のリクエストボディの例
+`asset_url`を含めると、エンドポイントはURLからファイルをダウンロードします。`asset_file`を含めると、エンドポイントはリクエスト本文のバイナリデータを使用します。
+
+`asset_url`のリクエスト本文の例：
 
 ```json
 {
@@ -38,7 +42,7 @@ description: "この記事は`POST /media_library/create`エンドポイント�
 }
 ```
 
-: `asset_file`のリクエストボディの例
+`asset_file`のリクエスト本文の例：
 
 ```json
 {
@@ -47,44 +51,44 @@ description: "この記事は`POST /media_library/create`エンドポイント�
 }
 ```
 
-リクエスト本文には以下のパラメータが含まれる：
+リクエスト本文には以下のパラメーターが含まれます。
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `asset_url` | オプション | string | Brazeにアップロードするアセットの、一般に公開されているURL。 |
-| `asset_file` | オプション | 二進法 | バイナリファイルデータ。 |
-| `name` | オプション | string | このアセットのメディアライブラリーに表示される名前。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `asset_url` | オプション | 文字列 | Brazeにアップロードするアセットの、一般にアクセス可能なURL。 |
+| `asset_file` | オプション | バイナリ | バイナリファイルデータ。 |
+| `name` | オプション | 文字列 | このアセットのメディアライブラリに表示される名前。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
 
 {% alert important %}
-`asset_url` と`asset_file`は互いに排他的である。APIリクエストにはどちらか一方のみを含める必要がある。
+`asset_url`と`asset_file`は相互に排他的です。APIリクエストにはどちらか一方のみを含める必要があります。
 {% endalert %}
 
-### アップロードされたファイル名
+### アップロードされたファイル名 {#uploaded-file-names}
 
-このセクションでは、エンドポイントがアップロードされたファイルに名前を割り当てる方法を説明する。その方法は、パラメータ`name`を含めるかどうかによって異なる。
+このセクションでは、`name`パラメーターを含めるかどうかに基づいて、エンドポイントがアップロードされたファイルに名前を割り当てる方法について説明します。
 
-#### 単一ファイルのアップロード
+#### 単一ファイルのアップロード {#single-file-uploads}
 
-| シナリオ | 結果: |
+| シナリオ | 結果 |
 | --- | --- |
-| `name` 提供された | この`name`値はメディアライブラリーにおけるアセット名として使用される。 |
-| `name` 除外された | URLまたはアップロードされたファイルの元のファイル名が使用される。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" style="table-layout: fixed; width: 100%;" }
+| `name`を指定した場合 | `name`の値がメディアライブラリのアセット名として使用されます。 |
+| `name`を省略した場合 | URLまたはアップロードされたファイルの元のファイル名が使用されます。 |
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Single file uploads" }
 
-#### ZIPファイルのアップロード
+#### ZIPファイルのアップロード {#zip-file-uploads}
 
-| シナリオ | 結果: |
+| シナリオ | 結果 |
 | --- | --- |
-| `name` 提供された | この`name`値は接頭辞として使用され、末尾には連番が追加される（例：「My File 1」、「My File 2」、「My File 3」）。 |
-| `name` 除外された | 各ファイルは、ZIPファイル内の元のファイル名を保持する。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" style="table-layout: fixed; width: 100%;" }
+| `name`を指定した場合 | `name`の値がプレフィックスとして使用され、サフィックスとして連番が追加されます（例：「My File 1」、「My File 2」、「My File 3」）。 |
+| `name`を省略した場合 | 各ファイルはZIPファイル内の元のファイル名を保持します。 |
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIP file uploads" }
 
-## リクエスト例
+## リクエスト例 {#example-request}
 
-このセクションには2つのリクエスト`curl`例が含まれる。1つはURLを使用してアセットを追加するものであり、もう1つはバイナリファイルデータを使用するものである。
+このセクションには2つの`curl`リクエスト例が含まれています。1つはURLを使用してアセットを追加する例、もう1つはバイナリファイルデータを使用する例です。
 
-このリクエストは、メディアライブラリーにアセットを追加する例を示している`asset_url`。
+このリクエストは、`asset_url`を使用してメディアライブラリにアセットを追加する例を示しています。
 
 ```
 curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
@@ -93,7 +97,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 --data '{"asset_url": "https://cdn.example.com/assets/cat.jpg", "name": "Cat Graphic"}'
 ```
 
-このリクエストは、メディアライブラリーにアセットを追加する例を示している`asset_file`。
+このリクエストは、`asset_file`を使用してメディアライブラリにアセットを追加する例を示しています。
 
 ```
 curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
@@ -102,13 +106,13 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 --data '{"asset_file":<BINARY FILE DATA>, "name":"Cat Graphic"}'
 ```
 
-### エラー応答
+### エラー応答 {#error-responses}
 
-このセクションでは、発生する可能性のあるエラーとその対応するメッセージおよび説明を列挙する。 
+このセクションでは、発生する可能性のあるエラーとその対応するメッセージおよび説明を一覧にしています。
 
-#### 検証エラー
+#### バリデーションエラー {#validation-errors}
 
-検証エラーは、次のような構造体を返す：
+バリデーションエラーは次のような構造を返します。
 
 ```json
 {
@@ -116,18 +120,18 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 }
 ```
 
-この表は、発生しうる検証エラーの一覧である。
+以下の表は、発生する可能性のあるバリデーションエラーの一覧です。
 
 | HTTPステータス | メッセージ | 説明 |
 | --- | --- | --- |
-| 400 | どちらかasset_url一方を提供asset_fileしなければならない。 | リクエストに資産パラメータが指定されていない。 |
-| 400 | と  の両asset_url方を提供asset_fileすることはできない。一つだけ提供してください。 | 両方の資産パラメータが提供されたが、許可されているのは一つだけだ。 |
-| 403 | この会社ではメディアライブラリーの公開APIのイネーブルメントは行われていない。 | このワークスペースではメディアライブラリーのイネーブルメントが有効になっていない。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 400 | "Either asset_url or asset_file must be provided." | リクエストにアセットパラメーターが指定されていません。 |
+| 400 | "Both asset_url and asset_file cannot be provided. Please provide only one." | 両方のアセットパラメーターが指定されましたが、許可されているのは1つだけです。 |
+| 403 | "Media Library Public APIs are not enabled for this company." | このワークスペースではメディアライブラリ機能が有効になっていません。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
 
-#### 処理エラー
+#### 処理エラー {#processing-errors}
 
-処理エラーはエラーコード付きで異なる応答を返す：
+処理エラーはエラーコード付きの異なる応答を返します。
 
 ```json
 {
@@ -137,30 +141,31 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 }
 ```
 
-この表は、発生する可能性のある処理エラーを一覧表示している。
+以下の表は、発生する可能性のある処理エラーの一覧です。
 
 | エラーコード | HTTPステータス | 説明 |
 | --- | --- | --- |
-| `UNSUPPORTED_FILE_TYPE` | 400 | アップロードされたファイル形式はサポートされていない。その`meta`オブジェクトには、却下されたものが`file_type`含まれている。 |
-| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | ファイルが最大許容サイズを超えている。画像, 写真は5MBの制限がある。 |
-| `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | ワークスペースはアセットの最大数に達した（無料トライアル企業ではデフォルトで200、それ以外は無制限）。オブジェクト`meta`には現在のものが`limit`含まれる。 |
-| `ASSET_UPLOAD_FAILED` | 400 | 処理の問題により、アセットのアップロードに失敗した。 |
-| `ZIP_UPLOAD_ERROR` | 400 | ZIPファイルが破損しているか、開封できない。オブジェクト`meta`にはメッセージ`original_error`が含まれている。 |
-| `ZIP_FILE_TOO_LARGE` | 400 | ZIPファイルの圧縮前の総サイズは5MBの制限を超えている。その`meta`オブジェクトには、`zip_file_name`とが含まれている`zip_file_size`。 |
-| `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | ZIPファイル内のファイルエントリには名前がない。ZIPファイルが破損していないことを確認し、名前が付けられていないファイルエントリには名前を付けること。 |
-| `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | ZIPファイルにはネストされたディレクトリが含まれているが、これはサポートされていない。すべてのファイルはZIPのルートレベルに置かなければならない。 |
-| `GENERIC_ERROR` | 500 | アップロード中に予期せぬエラーが発生した。その`meta`オブジェクトにはデバッグ用のメッセージ`original_error`が含まれている。もう一度試すか、[サポートに]({{site.baseurl}}/support_contact/)連絡する。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `UNSUPPORTED_FILE_TYPE` | 400 | アップロードされたファイル形式はサポートされていません。`meta`オブジェクトには、拒否された`file_type`が含まれています。 |
+| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | ファイルが最大許容サイズを超えています。画像には5 MBの制限があります。 |
+| `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | ワークスペースがアセットの最大数に達しました（無料トライアル企業ではデフォルトで200、それ以外は無制限）。`meta`オブジェクトには現在の`limit`が含まれています。 |
+| `ASSET_UPLOAD_FAILED` | 400 | 処理の問題により、アセットのアップロードに失敗しました。 |
+| `INVALID_ASSET_URL` | 400 | `asset_url`の値が有効なURIではありません。`meta`オブジェクトには`asset_url`が含まれています。 |
+| `ZIP_UPLOAD_ERROR` | 400 | ZIPファイルが破損しているか、開くことができません。`meta`オブジェクトには`original_error`メッセージが含まれています。 |
+| `ZIP_FILE_TOO_LARGE` | 400 | ZIPファイルの非圧縮時の合計サイズが5 MBの制限を超えています。`meta`オブジェクトには`zip_file_name`と`zip_file_size`が含まれています。 |
+| `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | ZIP内のファイルエントリに名前がありません。ZIPファイルが破損していないことを確認し、名前のないファイルエントリに名前を追加してください。 |
+| `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | ZIPファイルにネストされたディレクトリが含まれていますが、これはサポートされていません。すべてのファイルはZIPのルートレベルに配置する必要があります。 |
+| `GENERIC_ERROR` | 500 | アップロード中に予期しないエラーが発生しました。`meta`オブジェクトにはデバッグ用の`original_error`メッセージが含まれています。再試行するか、[サポート]({{site.baseurl}}/support_contact/)にお問い合わせください。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
 
 
-## 応答
+## 応答 {#response}
 
-このエンドポイントには5つのステータスコード応答がある： `200`, `400`,`403` `429`, , および `500`。
+このエンドポイントには5つのステータスコード応答があります：`200`、`400`、`403`、`429`、および`500`。
 
-以下のJSONは、レスポンスの期待される形状を示している。
+以下のJSONは、応答の想定される形式を示しています。
 
 ```json
-{ 
+{
     "new_assets": [
         {
             "name": (String) the name of the asset,

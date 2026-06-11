@@ -24,7 +24,7 @@ There are two subscription states for WhatsApp users: `subscribed` and `unsubscr
 | --- | --- |
 | Subscribed | User has explicitly confirmed that they want to receive WhatsApp messages from a specific company. Users can be subscribed by having their subscription state updated through the Braze subscription API or by deploying an opt-in strategy, as per WhatsApp's guidelines. |
 | Unsubscribed | User either hasn’t explicitly given consent for opt-in or their opt-in status has been explicitly removed. <br><br> Users unsubscribed from a WhatsApp subscription group will no longer receive any WhatsApp messages from sending phone numbers that belong to the subscription group. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="WhatsApp subscription states" }
 
 ### Setting users' WhatsApp subscription groups
 
@@ -37,6 +37,18 @@ There are two subscription states for WhatsApp users: `subscribed` and `unsubscr
 - **User Profile:** Individual user profiles can be accessed through the Braze dashboard from **Audience** > **Search Users**. Here, you can look up user profiles by email address, phone number, or external user ID. When you're inside a user profile, under the **Engagement** tab, you can view a user’s WhatsApp subscription group and their status.
 
 - **Rest API:** Individual user profiles subscription group can be viewed by the [List user’s subscription groups endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) or [List user’s subscription group status endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) by using Braze's REST API. 
+
+## Archive subscription groups
+
+If you need to stop using a WhatsApp subscription group, you can archive it to mark it as inactive. 
+
+Archiving a subscription group marks it as inactive but does not delete it from your workspace. If you need to remove a WhatsApp phone number or subscription group entirely, you must first archive the subscription group in the Subscription Group Manager before requesting deletion from Braze support.
+
+To archive a subscription group:
+
+1. Go to **Audience** > **Subscription Group Management**.
+2. Find the WhatsApp subscription group you want to archive.
+3. Hover over the status for the subscription group and select <i class="fa-solid fa-box-archive"></i> **Archive**.
 
 ## WhatsApp opt-in and opt-out process
 

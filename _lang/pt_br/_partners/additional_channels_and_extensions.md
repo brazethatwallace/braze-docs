@@ -1,6 +1,6 @@
 ---
 nav_title: "Canais e extensões adicionais"
-article_title: Canais e extensões adicionais
+article_title: "Canais e extensões adicionais"
 page_order: 11
 
 page_type: landing
@@ -43,6 +43,10 @@ valid_partner_list:
   url: /docs/partners/komo/
 - name: Odicci
   url: /docs/partners/odicci/
+- name: CataBoom
+  url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Digioh
   url: /docs/partners/digioh/
 - name: Knak

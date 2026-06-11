@@ -61,7 +61,7 @@ Keep in mind, your preview may not be identical to the final render on a user's 
 {% endtab %}
 {% tab Content Card %}
 
-{% alert warning %}
+{% alert important %}
 To send a test to either [content test groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) or individual users, push must be enabled on your test devices with valid push tokens registered for the test user before sending. For iOS users, you must tap the push notification sent by Braze in order to view the test Content Card. This behavior only applies to test Content Cards.
 {% endalert %}
 
@@ -94,6 +94,16 @@ In the **Preview** tab of your composer, the view of your message might not be i
 - Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values) if the Liquid returns no information?
 - Is your copy clear, concise, and correct?
 - Do your links direct the user to where they should go?
+- Is your test user opted into push with a valid push token?
+
+### Troubleshooting broken images
+
+If a Content Card image is not rendering or appears broken:
+
+- **Verify the URL is correct and URL-encoded:** Special characters in the URL (such as spaces or query parameters) must be properly encoded. Otherwise, the image request fails.
+- **Check content security policies:** If your organization has a content security policy (CSP) or internal IT security rules, the policy may block the image domain. Confirm that the image URL's domain is allowed by your CSP.
+- **Use HTTPS:** Image URLs should use `https://` rather than `http://` to avoid mixed-content blocking in browsers and apps.
+- **Open the URL directly in a browser:** If the image doesn't load in a browser, the issue is with the image URL or hosting—not with Braze.
 
 ### Debug
 
@@ -145,6 +155,8 @@ From there, you can review your message settings and content to drill down and d
 4. Select **Send Test** to send your drafted email to your inbox.
 
 ![Test Email]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
+
+If your email campaign includes a large image and isn't displaying as expected in Outlook, consider reducing the actual file dimensions of the image with an image editing or resizing tool instead of only scaling it with CSS or HTML.
 
 {% endtab %}
 {% tab In-app message %}
@@ -231,6 +243,8 @@ The scanner runs automatically on custom HTML messages and evaluates your entire
 
 ![Test push]({% image_buster /assets/img_archive/testpush.png %})
 
+If you see an error that none of the selected users have matching push tokens, the test user does not have a valid push token for the selected platform. The user must have started a session in the app and enabled push for that device. For more information, see [Push enablement and push subscription]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
+
 #### Web push
 
 1. Create your web push.
@@ -240,7 +254,9 @@ The scanner runs automatically on custom HTML messages and evaluates your entire
 
 ![Test web push]({% image_buster /assets/img_archive/testwebpush.png %})
 
-If you have already accepted push messages from the Braze dashboard, the push will come through in the corner of your screen. Otherwise, click **Allow** when prompted, and the message will appear.
+If you have already accepted push messages from the Braze dashboard, the message displays in the corner of your screen. Otherwise, select **Allow** when prompted, and the message displays.
+
+If you see an error that none of the selected users have matching push tokens for Web Push, verify that the test user has a valid push token registered for the selected platform. To receive a push token, the user must be configured to receive push notifications for the app on their device. For more details, see [Push enablement and push subscription]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 {% endtab %}
 {% tab SMS/MMS and RCS %}
@@ -273,7 +289,7 @@ After creating your webhook, you can do a test send to check the webhook respons
 {% endtab %}
 {% endtabs %}
 
-## Testing personalized campaigns 
+## Test personalized campaigns 
 
 If you are testing campaigns that populate user data or use custom event properties, you'll need to take additional or different steps.
 
@@ -365,6 +381,15 @@ You can test custom event properties by manually inputting values with Liquid.
 
 {% endtab %}
 {% endtabs %}
+
+## Limitations
+
+There are a few situations where test messages don't behave the same way as campaigns or Canvases sent to real users. In these instances, consider launching the campaign or Canvas to a limited set of test users to validate this behavior.
+
+- Viewing the Braze preference center from test messages will cause the **Save Preferences** button to be grayed out.
+- For testing in-app messages and Content Cards, the target user must have a push token for the target device.
+- For testing unsubscribe links in emails, make sure your test user's email address is in the respective workspace.
+- The `List-Unsubscribe` header is not included in emails sent by the test message functionality.
 
 ## Troubleshooting
 

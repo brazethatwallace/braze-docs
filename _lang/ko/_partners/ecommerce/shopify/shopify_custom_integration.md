@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify 커스텀 통합 설정
-article_title: "Shopify 커스텀 통합 설정"
+article_title: Shopify 커스텀 통합 설정
 description: "이 참조 문서에서는 커스텀 스토어프론트를 사용하여 Shopify Hydrogen 스토어 또는 헤드리스 Shopify 스토어에 연결하는 방법을 다룹니다."
 page_type: partner
 search_tag: Partner
@@ -8,7 +8,7 @@ alias: /shopify_custom_integration/
 page_order: 3
 ---
 
-# Shopify 커스텀 통합 설정
+# Shopify 커스텀 통합 설정 {#shopify-custom-integration-setup}
 
 > 이 페이지에서는 커스텀 스토어프론트를 사용하여 Braze를 Shopify Hydrogen 스토어 또는 헤드리스 Shopify 스토어와 통합하는 방법을 안내합니다.
 
@@ -16,7 +16,7 @@ page_order: 3
 
 Shopify 헤드리스 스토어를 Braze와 통합하려면 다음 두 가지 목표를 완료해야 합니다:
 
-1. **Braze Web SDK를 초기화하고 로드하여 온사이트 추적 활성화**<br><br> Shopify 웹사이트에 코드를 수동으로 추가하여 Braze 온사이트 추적을 활성화합니다. Shopify 헤드리스 스토어에 Braze SDK를 구현하면 세션, 익명 사용자 행동, 결제 전 쇼핑객 동작, 그리고 개발팀과 함께 포함하기로 선택한 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/custom_data/custom_events/) 또는 [커스텀 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/)을 포함한 온사이트 활동을 추적할 수 있습니다. 인앱 메시지나 콘텐츠 카드와 같이 SDK에서 지원하는 채널도 추가할 수 있습니다.
+1. **Braze Web SDK를 초기화하고 로드하여 온사이트 추적 활성화**<br><br> Shopify 웹사이트에 코드를 수동으로 추가하여 Braze 온사이트 추적을 활성화합니다. Shopify 헤드리스 스토어에 Braze SDK를 구현하면 세션, 익명 사용자 행동, 결제 전 쇼핑객 동작, 그리고 개발팀과 함께 포함하기로 선택한 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) 또는 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 포함한 온사이트 활동을 추적할 수 있습니다. 인앱 메시지나 Content Cards와 같이 SDK에서 지원하는 채널도 추가할 수 있습니다.
 
 {: start="2"}
 2. **Braze Shopify 통합 설치**<br><br> Shopify 스토어를 Braze에 연결하면 Shopify 웹훅을 통해 고객, 결제, 주문 및 제품 데이터에 접근할 수 있습니다.
@@ -27,7 +27,7 @@ Shopify 헤드리스 스토어를 Braze와 통합하려면 다음 두 가지 목
 
 이러한 목표를 완료하려면 다음 단계를 따르세요:
 
-## Braze Web SDK 초기화 및 로드
+## Braze Web SDK 초기화 및 로드 {#initialize-and-load-the-braze-web-sdk}
 
 ### 1단계: Braze 웹사이트 앱 생성 {#step-1}
 
@@ -43,10 +43,10 @@ Braze에서 **설정** > **앱 설정**으로 이동한 다음 **앱 추가**를
 2. 로그인을 위한 [콜백 URI](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen#step-2-set-up-the-environment)를 추가합니다. (도메인이 추가되면 URI가 자동으로 추가됩니다.)
 3. [Shopify 환경 변수](https://shopify.dev/docs/storefronts/headless/hydrogen/environments#create-a-new-environment-variable)를 설정합니다:
   - [1단계](#step-1)에서 생성한 웹사이트 앱의 값을 사용하여 두 개의 환경 변수를 생성합니다.
-    - `BRAZE_API_KEY` 
+    - `BRAZE_API_KEY`
     - `BRAZE_API_URL`
 
-### 3단계: 온사이트 추적 활성화
+### 3단계: 온사이트 추적 활성화 {#step-3-enable-onsite-tracking}
 
 첫 번째 단계는 Braze Web SDK를 초기화하는 것입니다. NPM 패키지를 설치하여 수행하는 것을 권장합니다:
 
@@ -77,18 +77,18 @@ import { useEffect } from 'react';
 
 export function Layout({children}) {
   const nonce = useNonce();
-  // @type {RootLoader} 
+  // @type {RootLoader}
   const data = useRouteLoaderData('root');
-  
+
   // Add useEffect call to initialize Braze SDK
   useEffect(() => {
     if(!braze.isInitialized()) {
       braze.initialize(data.brazeApiKey, {
         baseUrl: data.brazeApiUrl,
       });
-      braze.openSession()    
+      braze.openSession()
     }
-  }, [data]) 
+  }, [data])
 
   return (...);
 }
@@ -133,7 +133,7 @@ export async function loader(args) {
 콘텐츠 보안 정책(일반적으로 `entry.server.jsx` Hydrogen 파일에 위치)은 로컬 및 프로덕션 환경 모두에서 Braze 스크립트의 기능에 영향을 줄 수 있습니다. Oxygen을 통해 Shopify로 전송되는 미리보기 빌드 또는 커스텀 배포를 통해 테스트하는 것을 권장합니다. 문제가 발생하면 JavaScript가 작동할 수 있도록 CSP를 구성해야 합니다.
 {% endalert %}
 
-### 4단계: Shopify 계정 로그인 이벤트 추가
+### 4단계: Shopify 계정 로그인 이벤트 추가 {#step-4-add-a-shopify-account-login-event}
 
 쇼핑객이 계정에 로그인하고 사용자 정보를 Braze에 동기화할 때를 추적합니다. 여기에는 Braze 외부 ID로 고객을 식별하기 위해 `changeUser` 메서드를 호출하는 것이 포함됩니다.
 
@@ -152,7 +152,7 @@ export function trackCustomerLogin(customerData, storefrontUrl) {
   const customerId = customerData.id.substring(customerData.id.lastIndexOf('/') + 1)
   const customerSessionKey = `ab.shopify.shopify_customer_${customerId}`;
   const alreadySetCustomerInfo = sessionStorage.getItem(customerSessionKey);
-  
+
   if(!alreadySetCustomerInfo) {
     const user = braze.getUser()
 
@@ -200,7 +200,7 @@ export function Layout({children}) {
         baseUrl: data.brazeApiUrl,
         enableLogging: true,
       });
-      braze.openSession()    
+      braze.openSession()
     }
 
     // Add call to trackCustomerLogin function
@@ -258,7 +258,7 @@ export const CUSTOMER_FRAGMENT = `#graphql
 4. 마지막으로 로더 함수에서 고객 데이터를 로드합니다:
 
 ```java
-// Add import for GraphQL Query 
+// Add import for GraphQL Query
 import { CUSTOMER_DETAILS_QUERY } from './graphql/customer-account/CustomerDetailsQuery';
 
 export async function loader(args) {
@@ -288,7 +288,7 @@ export async function loader(args) {
     publicStoreDomain: env.PUBLIC_STORE_DOMAIN,
     brazeApiKey: env.BRAZE_API_KEY,
     brazeApiUrl: env.BRAZE_API_URL,
-    // Add the property below to the returned value 
+    // Add the property below to the returned value
     customerData: customerData,
     shop: getShopAnalytics({
       storefront,
@@ -306,9 +306,9 @@ export async function loader(args) {
 }
 ```
 
-### 5단계: Product Viewed 및 Cart Updated 이벤트 추적 추가
+### 5단계: Product Viewed 및 Cart Updated 이벤트 추적 추가 {#step-5-add-tracking-for-product-viewed-and-cart-updated-events}
 
-#### Product Viewed 이벤트
+#### Product Viewed 이벤트 {#product-viewed-events}
 
 1. `Tracking.jsx` 파일에 다음 함수를 추가합니다:
 
@@ -331,7 +331,7 @@ export function trackProductViewed(product, storefrontUrl) {
   }
   braze.logCustomEvent(
     "ecommerce.product_viewed",
-    eventData 
+    eventData
   )
 }
 ```
@@ -344,11 +344,11 @@ import { trackProductViewed } from '~/tracking';
 import { useEffect } from 'react';
 
 export default function Product() {
-  // @type {LoaderReturnData} 
-  // retrieve storefrontUrl to be passed into trackProductViewed 
+  // @type {LoaderReturnData}
+  // retrieve storefrontUrl to be passed into trackProductViewed
   const {product, storefrontUrl} = useLoaderData();
-  
-  // Add useEffect hook for tracking product_viewed event 
+
+  // Add useEffect hook for tracking product_viewed event
   useEffect(() => {
     trackProductViewed(product, storefrontUrl)
   }, [])
@@ -388,7 +388,7 @@ async function loadCriticalData({context, params, request}) {
 }
 ```
 
-#### Cart Updated 이벤트
+#### Cart Updated 이벤트 {#cart-updated-events}
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify cart token alias' %}
 
@@ -415,15 +415,15 @@ export function trackCartUpdated(cart, storefrontUrl) {
     source: storefrontUrl,
     metadata: {},
   };
-  
+
   braze.logCustomEvent(
     "ecommerce.cart_updated",
-    eventData 
+    eventData
   )
 }
 
 export function setCartToken(cart) {
-  const cartId = cart.id.substring(cart.id.lastIndexOf('/') + 1) 
+  const cartId = cart.id.substring(cart.id.lastIndexOf('/') + 1)
   const cartToken = cartId.substring(0, cartId.indexOf("?key="));
   if (cartToken) {
     const cartSessionKey = `ab.shopify.shopify_cart_${cartToken}`;
@@ -439,7 +439,7 @@ export function setCartToken(cart) {
 ```
 
 {: start="2"}
-2. Braze가 등록정보에 접근할 수 있도록 fetcher 액션에서 `cart` 오브젝트를 반환합니다. `app/routes/cart.jsx` 파일로 이동하여 `action` 함수에 다음을 추가합니다:
+2. Braze가 속성에 접근할 수 있도록 fetcher 액션에서 `cart` 오브젝트를 반환합니다. `app/routes/cart.jsx` 파일로 이동하여 `action` 함수에 다음을 추가합니다:
 
 ```java
 export async function action({request, context}) {
@@ -451,7 +451,7 @@ export async function action({request, context}) {
     case CartForm.ACTIONS.LinesAdd:
       result = await cart.addLines(inputs.lines);
       break;
-    ... 
+    ...
   }
 
   const cartId = result?.cart?.id;
@@ -463,11 +463,11 @@ export async function action({request, context}) {
     status = 303;
     headers.set('Location', redirectTo);
   }
-  
+
   return data(
     {
       cart: cartResult,
-      // Add these two properties to the returned value 
+      // Add these two properties to the returned value
       updatedCart: await cart.get(),
       storefrontUrl: context.env.PUBLIC_STORE_DOMAIN,
       errors,
@@ -487,7 +487,7 @@ Remix fetcher에 대한 자세한 내용은 [useFetcher](https://remix.run/docs/
 3. Hydrogen 스토어는 일반적으로 장바구니 오브젝트 상태를 관리하는 `CartForm` 컴포넌트를 정의하며, 이는 장바구니에서 항목을 추가, 제거 및 수량 변경할 때 사용됩니다. `AddToCartButton` 컴포넌트에 또 다른 `useEffect` 훅을 추가하여 폼 fetcher 상태가 변경될 때마다(사용자 장바구니가 업데이트될 때마다) `trackCartUpdated` 함수를 호출합니다:
 
 ```java
-// Add imports 
+// Add imports
 import { trackCartUpdated, setCartToken } from '~/tracking';
 import { useEffect } from 'react';
 import { useFetcher } from '@remix-run/react';
@@ -499,10 +499,10 @@ export function AddToCartButton({
   lines,
   onClick,
 }) {
-	
-  // Define a new Fetcher to be used for tracking cart updates 
+
+  // Define a new Fetcher to be used for tracking cart updates
   const fetcher = useFetcher({ key: "cart-fetcher" });
-  
+
   // Add useEffect hook for tracking cart_updated event and setting cart token alias
   useEffect(() => {
     if(fetcher.state === "idle" && fetcher.data) {
@@ -570,44 +570,39 @@ function CartLineUpdateButton({children, lines}) {
 }
 ```
 
-## Braze Shopify 통합 설치
+## Braze Shopify 통합 설치 {#install-the-braze-shopify-integration}
 
-### 1단계: Shopify 스토어 연결
+### 1단계: Shopify 스토어 연결 {#step-1-connect-your-shopify-store}
 
 Shopify 파트너 페이지로 이동하여 설정을 시작합니다. 먼저 **설정 시작**을 선택하여 Shopify App Store에서 Braze 애플리케이션을 설치합니다. 안내된 단계를 따라 설치 프로세스를 완료합니다.
 
-![Braze 대시보드의 Shopify 통합 설정 페이지.]({% image_buster /assets/img/Shopify/braze_shopify_integration_page.png %})
+![Braze 대시보드의 Shopify 통합 설정 페이지.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
-### 2단계: Braze SDK 활성화
+### 2단계: Braze SDK 활성화 {#step-2-enable-braze-sdks}
 
 Shopify Hydrogen 또는 헤드리스 스토어의 경우 **커스텀 설정** 옵션을 선택합니다.
 
 온보딩 프로세스를 계속하기 전에 Shopify 웹사이트에서 Braze SDK를 활성화했는지 확인합니다.
 
-![Braze SDK 활성화 설정 단계.]({% image_buster /assets/img/Shopify/enable_braze_sdks_setup.png %})
+![Braze SDK 활성화 설정 단계.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
-### 3단계: Shopify 데이터 추적
+### 3단계: Shopify 데이터 추적 {#step-3-track-shopify-data}
 
 Shopify 웹훅을 통해 제공되는 더 많은 Shopify 이벤트와 속성을 추가하여 통합을 강화합니다. 이 통합을 통해 추적되는 데이터에 대한 자세한 내용은 [Shopify 데이터 기능]({{site.baseurl}}/shopify_data_features/)을 참조하세요.
 
-![Shopify 데이터 추적 설정 단계.]({% image_buster /assets/img/Shopify/track_shopify_data_setup.png %})
+![Shopify 데이터 추적 설정 단계.]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
-### 4단계: 과거 데이터 백필(선택 사항)
+### 4단계: 과거 데이터 백필(선택 사항) {#step-4-historical-backfill-optional}
 
-커스텀 설정을 통해 Shopify 통합을 연결하기 전 지난 90일간의 Shopify 고객 및 주문을 로드할 수 있는 옵션이 있습니다. 이 초기 데이터 로드를 포함하려면 초기 데이터 로드 옵션의 체크박스를 선택합니다.
+커스텀 설정을 통해 [표준 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup)과 동일한 과거 Shopify 데이터 로드를 선택적으로 포함할 수 있습니다: 통합을 완료한 날짜로부터 지난 90일간의 주문 이벤트와 지난 1년간의 고객 프로필. 이 초기 데이터 로드를 포함하려면 초기 데이터 로드 옵션의 체크박스를 선택합니다.
 
 나중에 백필을 수행하려면 지금 초기 설정을 완료하고 나중에 이 단계로 돌아올 수 있습니다.
 
-![과거 데이터 백필 설정 섹션.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
+![과거 데이터 백필 설정 섹션.]({% image_buster /assets/img/shopify/historical_backfill_setup.png %})
 
-이 표에는 백필을 통해 초기에 로드되는 데이터가 포함되어 있습니다.
+초기 로드에 포함되는 전체 데이터 목록, 매출 보고 동작 및 동기화 모니터링에 대해서는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 참조하세요.
 
-| Braze 권장 이벤트 | Shopify 커스텀 이벤트 | Braze 표준 속성 | Braze 구독 상태 |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>이메일</li><li>이름</li><li>성</li><li>전화번호</li><li>도시</li><li>국가</li></ul>{:/} | {::nomarkdown}<ul><li>이 Shopify 스토어와 연결된 이메일 마케팅 구독</li><li>이 Shopify 스토어와 연결된 SMS 마케팅 구독</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
-
-### 5단계: 커스텀 데이터 추적 설정(고급)
+### 5단계: 커스텀 데이터 추적 설정(고급) {#step-5-custom-data-tracking-setup-advanced}
 
 Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커스텀 이벤트 또는 커스텀 속성을 추적할 수 있습니다. 커스텀 이벤트는 스토어에서의 고유한 상호작용을 캡처합니다. 예를 들면:
 
@@ -618,7 +613,8 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Step 5: Custom data tracking setup (advanced)" style="width: 100%;">
+  <caption>Step 5: Custom data tracking setup (advanced)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">커스텀 이벤트</th>
@@ -650,7 +646,7 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 
 드롭다운에서 `external_id` 유형을 선택합니다.
 
-!["가입자 수집" 섹션.]({% image_buster /assets/img/Shopify/external_id_standard.png %})
+!["가입자 수집" 섹션.]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 이메일 주소 또는 해시된 이메일 주소를 Braze 외부 ID로 사용하면 데이터 소스 전반에서 ID 관리를 간소화할 수 있습니다. 그러나 사용자 개인정보 보호 및 데이터 보안에 대한 잠재적 위험을 고려하는 것이 중요합니다.<br><br>
@@ -667,7 +663,7 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 - **Shopify 고객 ID, 이메일 또는 해시된 이메일을 선택한 경우:** 6.1~6.3단계를 건너뛰고 바로 6.4단계로 넘어갑니다.
 {% endalert %}
 
-#### 6.1단계: `braze.external_id` 메타필드 생성
+#### 6.1단계: `braze.external_id` 메타필드 생성 {#step-61-create-the-brazeexternal_id-metafield}
 
 1. Shopify 관리자 패널에서 **설정** > **메타필드**로 이동합니다.
 2. **고객** > **정의 추가**를 선택합니다.
@@ -679,31 +675,31 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 - **고객 생성 웹훅 수신:** [`customer/create` 이벤트](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks)를 수신하도록 웹훅을 설정합니다. 이를 통해 새 고객이 생성될 때 메타필드를 작성할 수 있습니다.
 - **기존 고객 백필:** [Admin API](https://shopify.dev/docs/api/admin-graphql) 또는 [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)를 사용하여 이전에 생성된 고객의 메타필드를 백필합니다.
 
-#### 6.2단계: 외부 ID를 검색할 엔드포인트 생성
+#### 6.2단계: 외부 ID를 검색할 엔드포인트 생성 {#step-62-create-an-endpoint-to-retrieve-your-external-id}
 
 외부 ID를 검색하기 위해 Braze가 호출할 수 있는 공용 엔드포인트를 생성해야 합니다. 이를 통해 Shopify에서 `braze.external_id` 메타필드를 직접 제공할 수 없는 시나리오에서 Braze가 ID를 가져올 수 있습니다.
 
-##### 엔드포인트 사양
+##### 엔드포인트 사양 {#endpoint-specifications}
 
-**방법:** GET
+**메서드:** GET
 
 Braze는 다음 매개변수를 엔드포인트로 전송합니다:
 
-| 매개변수            | 필수 | 데이터 유형 | 설명                                                      |
+| 매개변수 | 필수 | 데이터 유형 | 설명 |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | 예      | 문자열    | Shopify 고객 ID입니다.                                         |
-| shopify_storefront   | 예      | 문자열    | 요청에 대한 스토어프론트 이름입니다. 예: `<storefront_name>.myshopify.com` |
-| email_address        | 아니요       | 문자열    | 로그인한 사용자의 이메일 주소입니다. <br><br>특정 웹훅 시나리오에서는 이 필드가 누락될 수 있습니다. 엔드포인트 로직은 여기서 null 값을 고려해야 합니다(예: 내부 로직에 필요한 경우 shopify_customer_id를 사용하여 이메일을 가져옵니다). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+| shopify_customer_id | 필수 | 문자열 | Shopify 고객 ID입니다. |
+| shopify_storefront | 필수 | 문자열 | 요청에 대한 스토어프론트 이름입니다. 예: `<storefront_name>.myshopify.com` |
+| email_address | 선택 사항 | 문자열 | 로그인한 사용자의 이메일 주소입니다. <br><br>특정 웹훅 시나리오에서는 이 필드가 누락될 수 있습니다. 엔드포인트 로직은 여기서 null 값을 고려해야 합니다(예: 내부 로직에 필요한 경우 shopify_customer_id를 사용하여 이메일을 가져옵니다). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="엔드포인트 사양" }
 
-##### 엔드포인트 예시
+##### 엔드포인트 예시 {#example-endpoint}
 
 ```http
 GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 
-##### 예상 응답
+##### 예상 응답 {#expected-response}
 Braze는 외부 ID JSON을 반환하는 `200` 상태 코드를 기대합니다:
 ```json
 {
@@ -711,34 +707,34 @@ Braze는 외부 ID JSON을 반환하는 `200` 상태 코드를 기대합니다:
 }
 ```
 
-##### 유효성 검사
+##### 유효성 검사 {#validation}
 
 `shopify_customer_id` 및 `email_address`(있는 경우)가 Shopify의 고객 값과 일치하는지 확인하는 것이 중요합니다. [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql) 또는 [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)를 사용하여 이러한 매개변수의 유효성을 검사하고 올바른 `braze.external_id` 메타필드를 검색할 수 있습니다.
 
-##### 실패 동작 및 병합
+##### 실패 동작 및 병합 {#failure-behavior-and-merging}
 `200` 이외의 상태 코드는 모두 실패로 간주됩니다.
 
 - **병합 영향:** 엔드포인트가 실패하면(`200`이 아닌 값을 반환하거나 시간 초과), Braze는 외부 ID를 검색할 수 없습니다. 따라서 Shopify 사용자와 Braze 고객 프로필 간의 병합은 해당 시점에 이루어지지 않습니다.
 - **재시도 로직:** Braze는 표준 즉시 네트워크 재시도를 시도할 수 있지만, 실패가 지속되면 다음 적격 이벤트(예: 사용자가 프로필을 업데이트하거나 결제를 완료할 때)까지 병합이 연기됩니다.
 - **지원 가능성:** 적시에 사용자 병합을 지원하려면 엔드포인트의 가용성이 높고 선택적 `email_address` 필드를 원활하게 처리하는지 확인하세요.
 
-#### 6.3단계: 외부 ID 입력
+#### 6.3단계: 외부 ID 입력 {#step-63-input-your-external-id}
 
 [6단계](#step-6)를 반복하고 Braze 외부 ID 유형으로 커스텀 외부 ID를 선택한 후 엔드포인트 URL을 입력합니다.
 
-##### 고려 사항
+##### 고려 사항 {#considerations}
 
 - Braze가 엔드포인트에 요청을 보낼 때 외부 ID가 생성되지 않은 경우 통합은 `changeUser` 함수가 호출될 때 기본적으로 Shopify 고객 ID를 사용합니다. 이 단계는 익명 사용자 프로필을 식별된 고객 프로필과 병합하는 데 매우 중요합니다. 따라서 일시적으로 워크스페이스 내에 여러 유형의 외부 ID가 존재할 수 있습니다.
-- `braze.external_id` 메타필드에서 외부 ID를 사용할 수 있으면 통합에서 이 외부 ID에 우선순위를 지정하여 할당합니다. 
+- `braze.external_id` 메타필드에서 외부 ID를 사용할 수 있으면 통합에서 이 외부 ID에 우선순위를 지정하여 할당합니다.
     - 이전에 Shopify 고객 ID가 Braze 외부 ID로 설정된 경우 `braze.external_id` 메타필드 값으로 대체됩니다.
 
-#### 6.4단계: Shopify에서 이메일 또는 SMS 옵트인 수집(선택 사항)
+#### 6.4단계: Shopify에서 이메일 또는 SMS 옵트인 수집(선택 사항) {#step-64-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
 Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집할 수 있는 옵션이 있습니다.
 
 이메일 또는 SMS 채널을 사용하는 경우 이메일 및 SMS 마케팅 옵트인 상태를 Braze에 동기화할 수 있습니다. Shopify에서 이메일 마케팅 옵트인을 동기화하면 Braze는 해당 특정 스토어와 연결된 모든 사용자에 대해 이메일 구독 그룹을 자동으로 생성합니다. 이 구독 그룹에 고유한 이름을 생성해야 합니다.
 
-![이메일 또는 SMS 마케팅 옵트인 수집 옵션이 있는 "가입자 수집" 섹션.]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
+![이메일 또는 SMS 마케팅 옵트인 수집 옵션이 있는 "가입자 수집" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 [Shopify 개요]({{site.baseurl}}/shopify_overview/)에서 언급한 바와 같이, 서드파티 캡처 폼을 사용하려면 개발자가 Braze SDK 코드를 통합해야 합니다. 이를 통해 폼 제출에서 이메일 주소와 글로벌 이메일 구독 상태를 캡처할 수 있습니다. 구체적으로 `theme.liquid` 파일에 다음 메서드를 구현하고 테스트해야 합니다:<br><br>
@@ -746,26 +742,26 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집할 수 있는 �
 - [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): 글로벌 이메일 구독 상태를 업데이트합니다
 {% endalert %}
 
-### 7단계: 제품 동기화(선택 사항)
+### 7단계: 제품 동기화(선택 사항) {#step-7-sync-products-optional}
 
 Shopify 스토어의 모든 제품을 Braze 카탈로그에 동기화하여 더 깊은 메시징 개인화를 구현할 수 있습니다. 자동 업데이트가 거의 실시간으로 이루어지므로 카탈로그에 항상 최신 제품 세부 정보가 반영됩니다. 자세한 내용은 [Shopify 제품 동기화]({{site.baseurl}}/shopify_catalogs/)를 확인하세요.
 
-![Braze에 제품 데이터를 동기화하는 설정 단계.]({% image_buster /assets/img/Shopify/sync_product_data.png %})
+![Braze에 제품 데이터를 동기화하는 설정 단계.]({% image_buster /assets/img/shopify/sync_product_data.png %})
 
-### 8단계: 채널 활성화
+### 8단계: 채널 활성화 {#step-8-activate-channels}
 
-Shopify 직접 통합을 사용하여 인앱 메시지, 콘텐츠 카드 및 기능 플래그를 활성화하려면 SDK에 각 채널을 추가합니다. 아래에서 각 채널에 대해 제공된 설명서 링크를 따르세요:
+Shopify 직접 통합을 사용하여 인앱 메시지, Content Cards 및 피처 플래그를 활성화하려면 SDK에 각 채널을 추가합니다. 아래에서 각 채널에 대해 제공된 설명서 링크를 따르세요:
 
 - **인앱 메시지:** 리드 캡처 폼 사용 사례를 위한 인앱 메시지 활성화에 대해서는 [인앱 메시지]({{site.baseurl}}/developer_guide/in_app_messages/)를 참조하세요.
-- **콘텐츠 카드:** 받은편지함 또는 웹사이트 배너 사용 사례를 위한 콘텐츠 카드 활성화에 대해서는 [콘텐츠 카드]({{site.baseurl}}/developer_guide/content_cards/)를 참조하세요.
-- **기능 플래그:** 사이트 실험 사용 사례를 위한 기능 플래그 활성화에 대해서는 [기능 플래그]({{site.baseurl}}/developer_guide/feature_flags/)를 참조하세요.
+- **Content Cards:** 받은편지함 또는 웹사이트 배너 사용 사례를 위한 Content Cards 활성화에 대해서는 [Content Cards]({{site.baseurl}}/developer_guide/content_cards/)를 참조하세요.
+- **피처 플래그:** 사이트 실험 사용 사례를 위한 피처 플래그 활성화에 대해서는 [피처 플래그]({{site.baseurl}}/developer_guide/feature_flags/)를 참조하세요.
 
-### 9단계: 설정 완료
+### 9단계: 설정 완료 {#step-9-finish-setup}
 
 모든 단계를 완료한 후 **설정 완료**를 선택하여 파트너 페이지로 돌아갑니다. 그런 다음 표시되는 배너에 안내된 대로 Shopify 관리자 페이지에서 Braze 앱 임베드를 활성화합니다.
 
-![통합 설정을 완료하기 위해 Shopify에서 Braze 앱 임베드를 활성화하라는 배너.]({% image_buster /assets/img/Shopify/shopify_app_embed_banner.png %})
+![통합 설정을 완료하기 위해 Shopify에서 Braze 앱 임베드를 활성화하라는 배너.]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 
-#### 코드 예제
+#### 코드 예제 {#example-code}
 
 [shopify-hydrogen-example](https://github.com/braze-inc/shopify-hydrogen-example/)은 이전 단계에서 다룬 모든 코드를 포함하는 예제 Hydrogen 앱입니다.

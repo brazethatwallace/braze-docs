@@ -25,7 +25,11 @@ See this article's [Consumption count](#consumption-count) section to understand
 
 To view your data point usage, go to **Settings** > **Billing** and select the **Total Data Points Usage** tab.
 
-For more information on the data point dashboard components, refer to [Billing]({{site.baseurl}}/user_guide/administer/global/billing/).
+### Data point refresh schedule
+
+Data point usage is cached (not real-time) every 24 hours. Until the cache refreshes, different dashboard users may see the same totals even if they open the tab at different times on the same day. For the same caching behavior on other billing views, see [Total data points dashboard]({{site.baseurl}}/user_guide/administer/global/billing/#total-data-points-dashboard).
+
+For more information on the data point dashboard components, see [Billing]({{site.baseurl}}/user_guide/administer/global/billing/).
 
 {% alert tip %}
 **Don't waste data points. Only update changing data!**<br><br>
@@ -37,6 +41,8 @@ To minimize data point usage, we recommend setting up a program to prevent sendi
 In sum, data points are accumulated when a user's profile data is updated or when they perform specific actions. Essentially, data points are counts of each of your user's `session starts`, `session ends`, `events`, and `purchases`.
 
 You can find a breakdown of how Braze accumulates data points in the following sections. If you ever have any questions about the nuances of Braze data points, your Braze account manager can answer them.
+
+For API ingestion, each billable update through [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) follows the same rules as other profile updates: for example, each **custom event** logged counts as a data point, and **custom attributes** generally count per attribute updated in that request (see the billable tables below and [Special circumstances](#special-circumstances)).
 
 The following actions do not log data points:
 - Deleting users from Braze
@@ -109,7 +115,7 @@ The following tables are intended to be illustrative. For exact naming conventio
 | Twitter | Following |
 | Twitter | Number of tweets |
 | Facebook | Likes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Non-billable data points (default)" }
 
 {% endtab %}
 {% tab Billable %}
@@ -163,7 +169,7 @@ table td {
 | Appsflyer cohort assignment | All assignments | |
 | Most recent location | All most recent locations | Entering or exiting geofences doesn't log data points because geofence data is not stored against the user profile. Geofences are monitored by Apple and Google location services; Braze only gets notified upon a user triggering a geofence. |
 | Twitter | Username | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Billable data points" }
 
 {% endtab %}
 {% endtabs %}

@@ -50,6 +50,8 @@ function refresh() {
 }
 ```
 
+To open Content Card links in a new browser tab instead of the same tab, set `openCardsInNewTab: true` in your Web SDK initialization options. For more information about initialization options, see [Web SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/).
+
 {% endtab %}
 {% tab android %}
 
@@ -107,6 +109,15 @@ let contentCards = await AppDelegate.braze?.contentCards.requestRefresh()
 {% endsubtabs %}
 {% endtab %}
 {% endtabs %}
+
+### Full sync vs. partial sync
+
+The Braze SDK uses two types of sync when retrieving Content Cards from the server:
+
+- **Full sync:** Pulls down all Content Cards a user is eligible for. Full syncs occur automatically every 7 days or whenever `changeUser()` is called.
+- **Partial sync:** Pulls down only new Content Cards since the last request. If the user isn't eligible for any new cards, the response returns zero cards. Partial syncs occur each time `requestContentCardsRefresh()` is called (unless 7 days have passed since the last full sync, in which case a full sync is triggered instead).
+
+Partial syncs reduce server load and device battery usage. Content Cards that have already been received are stored locally on the SDK, so users will continue to see their available cards even when a partial sync returns zero new cards.
 
 ### Rate limit
 

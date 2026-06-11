@@ -22,6 +22,10 @@ To nest a new tag, create a tag, select **Nest Tag Under**, and choose which exi
 
 To nest an existing tag, go to the **Tag Management** page, hover over a row with your tag, and select **<i class="fas fa-pencil-alt"></i>Edit**. Then, select **Nest Tag Under** and choose the parent tag.
 
+### Parent tag is in use but missing from **Nest Tag Under**
+
+When a parent tag is applied in the dashboard but does not appear in the **Nest Tag Under** dropdown while you create a new tag, re-create the parent as a standalone tag so it becomes searchable in the list. This behavior is expected when the parent exists only as a nested dependency elsewhere in your workspace.
+
 ![The new tag dialog with the Nest Tag Under option selected.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
 ## Best practices {#tags-best-practices}
@@ -37,7 +41,8 @@ table td {
 </style>
 
 
-<table>
+<table aria-label="Best practices #tags-best-practices">
+  <caption>Best practices</caption>
 <thead>
   <tr>
     <th>Funnel</th>

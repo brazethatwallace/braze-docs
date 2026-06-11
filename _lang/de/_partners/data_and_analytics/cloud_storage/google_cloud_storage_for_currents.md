@@ -1,35 +1,35 @@
 ---
-nav_title: Google-Cloudspeicher
-article_title: Google-Cloudspeicher
+nav_title: Google Cloud Storage
+article_title: Google Cloud Storage
 alias: /partners/google_cloud_storage_for_currents/
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und Google Cloud Storage, einem massiv skalierbaren Objektspeicher für unstrukturierte Daten."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Google Cloud Storage, einem massiv skalierbaren Objektspeicher für unstrukturierte Daten."
 page_type: partner
 tool: Currents
 search_tag: Partner
 
 ---
 
-# Google-Cloudspeicher
+# Google Cloud Storage
 
-> [Google Cloud Storage](https://cloud.google.com/storage/) ist ein massiv skalierbarer Objektspeicher für unstrukturierte Daten, der von Google als Teil der Cloud Computing Produkt Suite angeboten wird.
+> [Google Cloud Storage](https://cloud.google.com/storage/) ist ein massiv skalierbarer Objektspeicher für unstrukturierte Daten, der von Google als Teil der Cloud-Computing-Produkt-Suite angeboten wird.
 
 {% alert important %}
-Wenn Sie zwischen Cloud-Speicheranbietern wechseln, wenden Sie sich an Ihren Customer-Success-Manager:in von Braze, um weitere Unterstützung bei der Einrichtung und Validierung Ihrer neuen Integration zu erhalten.
+Wenn Sie zwischen Cloud-Speicheranbietern wechseln, wenden Sie sich an Ihren Customer-Success-Manager von Braze, um weitere Unterstützung bei der Einrichtung und Validierung Ihrer neuen Integration zu erhalten.
 {% endalert %}
 
-Die Integration von Braze und Google Cloud Storage erlaubt es Ihnen, Daten von Currents zu Google Cloud Storage zu streamen. Sie können später einen ETL-Prozess (Extract, Transform, Load) verwenden, um Ihre Daten an andere Standorte zu übertragen, z. B. Google BigQuery.
+Die Integration von Braze und Google Cloud Storage erlaubt es Ihnen, Currents-Daten zu Google Cloud Storage zu streamen. Sie können später einen ETL-Prozess (Extract, Transform, Load) verwenden, um Ihre Daten an andere Ziele zu übertragen, z. B. Google BigQuery.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Google Cloud Storage Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Google Cloud Storage-Konto. |
-| Currents | Um Daten zurück in Google Cloud Storage zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. Currents ist nicht erforderlich, wenn Sie nur die Archivierung von Nachrichten einrichten möchten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Google Cloud Storage-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Google Cloud Storage-Konto. |
+| Currents | Um Daten zurück in Google Cloud Storage zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. Currents ist nicht erforderlich, wenn Sie nur die Nachrichtenarchivierung einrichten möchten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-Für die Integration mit Google Cloud Storage müssen Sie die entsprechenden Zugangsdaten einrichten, die es Braze erlauben, Informationen über die Speicher-Buckets zu erhalten, in die geschrieben wird (`storage.buckets.get`) und Objekte innerhalb dieses Buckets zu erstellen (`storage.objects.create`). 
+Für die Integration mit Google Cloud Storage müssen Sie die entsprechenden Zugangsdaten einrichten, die es Braze erlauben, Informationen über die Speicher-Buckets zu erhalten, in die geschrieben wird (`storage.buckets.get`), und Objekte innerhalb dieses Buckets zu erstellen (`storage.objects.create`).
 
 {% alert note %}
 Workload Identity Federation (WIF) wird als Authentifizierungsmethode für Currents nicht unterstützt. Sie müssen ein Dienstkonto mit einem JSON Private Key verwenden.
@@ -37,13 +37,13 @@ Workload Identity Federation (WIF) wird als Authentifizierungsmethode für Curre
 
 Verwenden Sie dazu die folgenden Anweisungen, die Sie durch die Erstellung einer Rolle und eines Dienstkontos führen, die einen Private Key für Ihre Currents-Integration erzeugen.
 
-### Schritt 1: Rolle erstellen
+### 1. Schritt: Rolle erstellen {#step-1-create-role}
 
-Erstellen Sie eine neue Rolle in Ihrer Google Cloud Platform-Konsole, indem Sie zu **IAM & admin** > **Rollen** > **\+ Rolle erstellen** navigieren.
+Erstellen Sie eine neue Rolle in Ihrer Google Cloud Platform-Konsole, indem Sie zu **IAM & admin** > **Roles** > **+ Create Role** navigieren.
 
 ![]({% image_buster /assets/img/gcs1.png %})
 
-Geben Sie der Rolle einen Namen, wählen Sie dann **+Berechtigungen hinzufügen** und wählen Sie Folgendes aus:
+Geben Sie der Rolle einen Namen, wählen Sie dann **+Add Permissions** und wählen Sie Folgendes aus:
 
 - `storage.objects.create`
 - `storage.objects.delete`
@@ -52,48 +52,48 @@ Geben Sie der Rolle einen Namen, wählen Sie dann **+Berechtigungen hinzufügen*
 - `storage.buckets.get`
 
 {% alert note %}
-Die Berechtigung `storage.objects.delete` ist optional. Sie erlaubt es Braze, unvollständige Dateien zu bereinigen.<br><br>In seltenen Fällen kann es vorkommen, dass Google Cloud die Verbindung vorzeitig beendet, was dazu führt, dass Braze unvollständige Dateien in Google Cloud Storage schreibt. In den meisten Fällen wird Braze einen neuen Versuch unternehmen und eine neue Datei mit den richtigen Daten erstellen, wobei die alte Datei im Google Cloud Storage verbleibt.
+Die Berechtigung `storage.objects.delete` ist optional. Sie erlaubt es Braze, unvollständige Dateien zu bereinigen.<br><br>In seltenen Fällen kann es vorkommen, dass Google Cloud die Verbindung vorzeitig beendet, was dazu führt, dass Braze unvollständige Dateien in Google Cloud Storage schreibt. In den meisten Fällen wird Braze einen neuen Versuch unternehmen und eine neue Datei mit den richtigen Daten erstellen, wobei die alte Datei in Google Cloud Storage verbleibt.
 {% endalert %}
 
-Wenn Sie fertig sind, wählen Sie **Erstellen**.
+Wenn Sie fertig sind, wählen Sie **Create**.
 
 ![]({% image_buster /assets/img/gcs2.png %})
 
-### Schritt 2: Ein neues Dienst-Konto erstellen
+### 2. Schritt: Ein neues Dienstkonto erstellen {#step-2-create-a-new-service-account}
 
-#### Schritt 2.1: Erstellen Sie das Konto für den Dienst
+#### Schritt 2.1: Dienstkonto erstellen {#step-21-create-the-service-account}
 
-Erstellen Sie ein neues Dienstkonto in Ihrer Google Cloud Platform-Konsole, indem Sie zu **IAM & admin** > **Dienstkonten** navigieren und **Dienstkonto erstellen** auswählen.
+Erstellen Sie ein neues Dienstkonto in Ihrer Google Cloud Platform-Konsole, indem Sie zu **IAM & admin** > **Service Accounts** navigieren und **Create Service Account** auswählen.
 
 ![]({% image_buster /assets/img/gcs3.png %})
 
-Als nächstes geben Sie dem Dienstkonto einen Namen und gewähren ihm Zugriff auf Ihre neu erstellte angepasste Rolle.
+Als Nächstes geben Sie dem Dienstkonto einen Namen und gewähren ihm Zugriff auf Ihre neu erstellte angepasste Rolle.
 
-![In der Google Cloud Platform geben Sie auf der Seite "Dienste erstellen" den Namen Ihrer Rolle in das Feld "Rolle auswählen" ein.]({% image_buster /assets/img/gcs4.png %})
+![Auf der Google Cloud Platform geben Sie auf der Seite „Dienste erstellen“ den Namen Ihrer Rolle in das Feld „Select a Role“ ein.]({% image_buster /assets/img/gcs4.png %})
 
-#### Schritt 2.2: Einen Schlüssel erstellen
+#### Schritt 2.2: Schlüssel erstellen {#step-22-create-a-key}
 
-Verwenden Sie unten auf der Seite den Button **Schlüssel erstellen**, um einen **JSON** Private Key zur Verwendung in Braze zu erstellen. Nachdem der Schlüssel erstellt wurde, wird er auf Ihren Computer heruntergeladen.
+Verwenden Sie unten auf der Seite den Button **Create Key**, um einen **JSON** Private Key zur Verwendung in Braze zu erstellen. Nachdem der Schlüssel erstellt wurde, wird er auf Ihren Computer heruntergeladen.
 
 ![]({% image_buster /assets/img/gcs5.png %})
 
-### Schritt 3: Currents in Braze einrichten
+### 3. Schritt: Currents in Braze einrichten {#step-3-set-up-currents-in-braze}
 
-Navigieren Sie in Braze zu **Currents** > **\+ Create Current** > **Google Cloud Storage Data Export** und geben Sie den Namen Ihrer Integration und Ihre E-Mail an.
+Navigieren Sie in Braze zu **Currents** > **+ Create Current** > **Google Cloud Storage Data Export** und geben Sie den Namen Ihrer Integration und Ihre Kontakt-E-Mail an.
 
-Als Nächstes laden Sie Ihren Private Key im JSON-Format unter **GCS JSON Credentials** hoch und geben den Bucket-Namen und das GCS-Präfix (optional) an. Beachten Sie, dass Sie diese Zugangsdaten über Google Cloud Platform generieren müssen, wie in den vorherigen Schritten beschrieben.
+Als Nächstes laden Sie Ihren JSON Private Key unter **GCS JSON Credentials** hoch und geben den GCS-Bucket-Namen und das GCS-Präfix (optional) an. Beachten Sie, dass Sie diese Zugangsdaten über Google Cloud Platform generieren müssen, wie in den vorherigen Schritten beschrieben.
 
 {% alert important %}
 Es ist wichtig, dass Sie Ihre Zugangsdaten immer auf dem neuesten Stand halten. Wenn die Zugangsdaten für Ihren Konnektor ablaufen, sendet der Konnektor keine Ereignisse mehr. Wenn dieser Zustand länger als **5 Tage** anhält, werden die Ereignisse des Konnektors gelöscht und die Daten gehen dauerhaft verloren.
 {% endalert %}
 
-![Die Google Cloud Storage Currents Seite in Braze. Auf dieser Seite gibt es Felder für den Integrationsnamen, die E-Mail des Kontakts, die GCS JSON-Zugangsdaten, den Bucket-Namen und das Präfix.]({% image_buster /assets/img/gcs6.png %})
+![Die Google Cloud Storage Currents-Seite in Braze. Auf dieser Seite gibt es Felder für den Integrationsnamen, die Kontakt-E-Mail, die GCS-JSON-Zugangsdaten, den GCS-Bucket-Namen und das Präfix.]({% image_buster /assets/img/gcs6.png %})
 
 Scrollen Sie schließlich zum Ende der Seite und wählen Sie aus, welche Nachrichten-Engagement-Events oder Kundenverhalten-Events Sie exportieren möchten. Wenn Sie fertig sind, starten Sie Ihren Current.
 
-### Schritt 4: Google Cloud Storage-Exporte einrichten
+### 4. Schritt: Google Cloud Storage-Exporte einrichten {#step-4-set-up-google-cloud-storage-exports}
 
-Um den Export von Google Cloud Storage (GCS) einzurichten, gehen Sie zu **Technologiepartner** > **Google Cloud Storage**, geben Sie Ihre Zugangsdaten für GCS ein und wählen Sie **Dies als Standardziel für den Datenexport** aus.
+Um Google Cloud Storage (GCS)-Exporte einzurichten, gehen Sie zu **Technologie-Partner** > **Google Cloud Storage**, geben Sie Ihre GCS-Zugangsdaten ein und wählen Sie **Make this the default data export destination**.
 
 Denken Sie daran, dass die Organisation und der Inhalt der exportierten Dateien bei der Integration von AWS S3, Microsoft Azure und Google Cloud Storage identisch sind.
 
@@ -101,11 +101,11 @@ Denken Sie daran, dass die Organisation und der Inhalt der exportierten Dateien 
 Achten Sie darauf, dass Sie den vollständigen JSON-Wert eingeben, der [von Google Cloud generiert](https://cloud.google.com/iam/docs/keys-create-delete) wird.
 {% endalert %}
 
-![Die Google Cloud Storage Seite im Braze-Dashboard.]({% image_buster /assets/img/gcs7.png %}){: style="max-width:70%;"}
+![Die Google Cloud Storage-Seite im Braze-Dashboard.]({% image_buster /assets/img/gcs7.png %}){: style="max-width:70%;"}
 
-### Schritt 5: Testen Sie Ihre Zugangsdaten für das Dienstkonto (optional)
+### 5. Schritt: Zugangsdaten des Dienstkontos testen (optional) {#step-5-test-your-service-account-credentials-optional}
 
-Ihr Google Cloud IAM Dienst-Konto muss über die folgenden Berechtigungen verfügen:
+Ihr Google Cloud IAM-Dienstkonto muss über die folgenden Berechtigungen verfügen:
 
 - `storage.objects.create`
 - `storage.objects.delete`
@@ -113,26 +113,26 @@ Ihr Google Cloud IAM Dienst-Konto muss über die folgenden Berechtigungen verfü
 - `storage.objects.get`
 - `storage.buckets.get`
 
-Um diese Berechtigungen im Braze-Dashboard zu überprüfen, gehen Sie auf die Seite **Google Cloud Storage** und wählen Sie **Zugangsdaten testen**.
+Um diese Berechtigungen im Braze-Dashboard zu überprüfen, gehen Sie auf die Seite **Google Cloud Storage** und wählen Sie **Test Credentials**.
 
 ![Der Abschnitt mit den Zugangsdaten für Google Cloud Storage im Braze-Dashboard.]({% image_buster /assets/img/gcs8.png %}){: style="max-width:70%;"}
 
-## Verhalten beim Exportieren
+## Exportverhalten {#export-behavior}
 
-Nutzer:innen, die eine Lösung zur Speicherung von Daten in der Cloud integriert haben und versuchen, APIs, Dashboard-Berichte oder CSV-Berichte zu exportieren, werden folgendes feststellen:
+Nutzer:innen, die eine Cloud-Datenspeicherlösung integriert haben und versuchen, APIs, Dashboard-Berichte oder CSV-Berichte zu exportieren, werden Folgendes feststellen:
 
 - Alle API-Exporte geben keine Download-URL im Antwortkörper zurück und müssen über den Datenspeicher abgerufen werden.
-- Alle Dashboard-Berichte und CSV-Berichte werden an die E-Mail des Nutzers:innen zum Download gesendet (keine Speicherberechtigung erforderlich) und auf dem Datenspeicher gesichert.
+- Alle Dashboard-Berichte und CSV-Berichte werden an die E-Mail der Nutzer:innen zum Download gesendet (keine Speicherberechtigung erforderlich) und auf dem Datenspeicher gesichert.
 
 {% alert important %}
-**JSON-Format erforderlich**: Für JSON-Exporte verwendet Braze das JSONL-Format (newline-delimited JSON), bei dem jede Zeile ein eigenes JSON-Objekt enthält. Dieses Format unterscheidet sich vom Standard-JSON, das ein einzelnes JSON-Array oder -Objekt ist. Jede Zeile in der exportierten Datei ist ein gültiges JSON-Objekt, aber die Datei als Ganzes ist kein einzelnes gültiges JSON-Dokument. Wenn Sie diese Dateien verarbeiten, parsen Sie jede Zeile einzeln als separates JSON-Objekt, anstatt zu versuchen, die gesamte Datei als ein einziges JSON-Dokument zu parsen.
+**JSON-Format erforderlich**: Für JSON-Exporte verwendet Braze das JSONL-Format (Newline-delimited JSON), bei dem jede Zeile ein eigenes JSON-Objekt enthält. Dieses Format unterscheidet sich vom Standard-JSON, das ein einzelnes JSON-Array oder -Objekt ist. Jede Zeile in der exportierten Datei ist ein gültiges JSON-Objekt, aber die Datei als Ganzes ist kein einzelnes gültiges JSON-Dokument. Wenn Sie diese Dateien verarbeiten, parsen Sie jede Zeile einzeln als separates JSON-Objekt, anstatt zu versuchen, die gesamte Datei als ein einziges JSON-Dokument zu parsen.
 
-Currents exportiert im Apache Avro-Format (`.avro` Dateien), nicht in JSON. Diese Anforderung an das JSON-Format gilt für Dashboard-Datenexporte und API-Exporte, die das JSON-Format verwenden.
+Currents-Exporte verwenden das Apache-Avro-Format (`.avro`-Dateien), nicht JSON. Diese Anforderung an das JSON-Format gilt für Dashboard-Datenexporte und API-Exporte, die das JSON-Format verwenden.
 {% endalert %}
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
-### Google Cloud Storage-Zugangsdaten sind ungültig
+### Google Cloud Storage-Zugangsdaten sind ungültig {#google-cloud-storage-credentials-are-invalid}
 
 Wenn Sie beim Versuch, Ihre Zugangsdaten einzugeben, die folgende Fehlermeldung erhalten:
 
@@ -140,7 +140,7 @@ Wenn Sie beim Versuch, Ihre Zugangsdaten einzugeben, die folgende Fehlermeldung 
 Google Cloud Storage Credentials are invalid. Please ensure that your credentials string, bucket name, and prefix are valid. You do not have read permission.
 ```
 
-Stellen Sie sicher, dass Ihr Google Cloud IAM Dienst-Konto über die folgenden Berechtigungen verfügt:
+Stellen Sie sicher, dass Ihr Google Cloud IAM-Dienstkonto über die folgenden Berechtigungen verfügt:
 
 - `storage.objects.create`
 - `storage.objects.delete`

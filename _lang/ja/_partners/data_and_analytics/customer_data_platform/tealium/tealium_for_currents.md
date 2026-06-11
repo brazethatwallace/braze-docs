@@ -3,7 +3,7 @@ nav_title: Tealium for Currents
 article_title: Tealium for Currents
 page_order: 3
 alias: /partners/tealium_for_currents/
-description: "この参考記事では、Braze Currentsと、マーケティング・スタックのソース間で情報を収集し、ルーティングする顧客データ・プラットフォームであるTealiumとのパートナーシップについて概説している。"
+description: "この参考記事では、Braze Currentsと、マーケティングスタックのソース間で情報を収集しルーティングする顧客データプラットフォームであるTealiumとのパートナーシップについて概説します。"
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -14,37 +14,37 @@ search_tag: Partner
 
 > [Tealium](https://www.tealium.com) は、複数のソースから情報を収集し、マーケティングスタックの他のさまざまな場所に情報をルーティングする顧客データプラットフォームです。
 
-BrazeとTealiumの統合により、2つのシステム間の情報の流れをシームレスにコントロールすることができる。Currents では、データを Tealium に接続し、グローススタック全体で実用的なデータにすることもできます。 
+BrazeとTealiumの統合により、2つのシステム間の情報の流れをシームレスにコントロールできます。Currentsを使用すると、データをTealiumに接続し、グローススタック全体で活用可能なデータにすることもできます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Tealium EventStream or Tealium AudienceStream | このパートナーシップを活用するには、[Tealium アカウント](https://my.tealiumiq.com/)が必要です。 |
-| Currents | Tealium にデータを再度エクスポートするには、アカウントに [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) を設定する必要があります。 |
-| Tealium URL | これは、Tealium のダッシュボードに移動し、取り込み URL をコピーすることで取得できます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Tealium EventStream または Tealium AudienceStream | このパートナーシップを活用するには、[Tealiumアカウント](https://my.tealiumiq.com/)が必要です。 |
+| Currents | Tealiumにデータをエクスポートするには、アカウントに [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) を設定する必要があります。 |
+| Tealium URL | Tealiumのダッシュボードに移動し、取り込みURLをコピーすることで取得できます。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:Tealium内にBraze用のデータソースを作成する。
+### ステップ 1: Tealium内にBraze用のデータソースを作成する {#step-1-create-a-data-source-for-braze-within-tealium}
 
-データソースを作成する手順は、[Tealium](https://docs.tealium.com/server-side/data-sources/webhooks/braze-currents/) サイトにあります。完了すると、Tealium からデータソース URL が提供されます。この URL をコピーして、次のステップで使用します。
+データソースを作成する手順は、[Tealium](https://docs.tealium.com/server-side/data-sources/webhooks/braze-currents/) サイトにあります。完了すると、TealiumからデータソースURLが提供されます。このURLをコピーして、次のステップで使用します。
 
-### ステップ2:Current を作成する
+### ステップ 2: Currentを作成する {#step-2-create-current}
 
-Braze で、**Currents** > **\+ Create Current** > **Tealium エクスポート** に移動します。統合名、連絡先メール、および Tealium URL を指定します。 
+Brazeで、**Currents** > **+ Create Current** > **Tealium Export** に移動します。統合名、連絡先メール、およびTealium URLを指定します。
 
-次に、利用可能なイベントのリストから追跡するイベントを選択します。デフォルトでは、Tealium に送信されるすべてのイベントには、ユーザーの`external_user_id` が含まれます。ただし、**匿名ユーザーのイベントを含めるs**チェックボックスを選択して、`external_user_id`を持たないイベントをTealiumに送信することもできます。
+次に、利用可能なイベントのリストから追跡するイベントを選択します。デフォルトでは、Tealiumに送信されるすべてのイベントにはユーザーの `external_user_id` が含まれます。ただし、**Include events from anonymous users** チェックボックスを選択すると、`external_user_id` を持たないイベントもTealiumに送信できます。
 
-統合を設定した後、**Launch Current**を選択します。
+統合を設定した後、**Launch Current** を選択します。
 
 {% alert important %}
-Tealium URL を最新の状態に保つことが重要です。コネクタのURLが正しくない場合、Brazeはイベントを送信できない。これが**5 日** 以上続く場合、コネクタのイベントはドロップされ、データは永続的に失われます。
+Tealium URLを最新の状態に保つことが重要です。コネクタのURLが正しくない場合、Brazeはイベントを送信できません。これが**5日間**以上続く場合、コネクタのイベントはドロップされ、データは永続的に失われます。
 {% endalert %}
 
-## 統合の詳細
+## 統合の詳細 {#integration-details}
 
-Braze では、「[Currents イベント用語集]({{site.baseurl}}/user_guide/data/braze_currents/)」にリストされているすべてのデータ ([メッセージエンゲージメント]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/)イベントおよび[顧客行動]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/)イベントのすべてのプロパティを含む) を Tealium にエクスポートできます。
+Brazeでは、[Currentsイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)にリストされているすべてのデータ（[メッセージエンゲージメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)イベントおよび[顧客行動]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)イベントのすべてのプロパティを含む）をTealiumにエクスポートできます。
 
-エクスポートされたデータのペイロードの構造は、カスタム HTTP コネクターのペイロード構造と同じです。これは、[カスタム HTTP コネクターのサンプルリポジトリ](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors)で確認できます。
+エクスポートされたデータのペイロード構造は、カスタムHTTPコネクタのペイロード構造と同じです。これは、[カスタムHTTPコネクタのサンプルリポジトリ](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors)で確認できます。

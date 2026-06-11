@@ -1,41 +1,41 @@
 ---
-nav_title: "取得:カスタム属性をエクスポートする"
-article_title: "取得:カスタム属性をエクスポートする"
+nav_title: "GET: カスタム属性をエクスポートする"
+article_title: "GET: カスタム属性をエクスポートする"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、BrazeのExport custom attributesエンドポイントの詳細について概説する。"
+description: "この記事では、Brazeのカスタム属性エクスポートエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# カスタム属性をエクスポートする
+# カスタム属性をエクスポートする {#export-custom-attributes}
 {% apimethod get %}
 /custom_attributes
 {% endapimethod %}
 
-> アプリに記録されたカスタム属性のリストをエクスポートするには、このエンドポイントを使用する。属性は50のグループに分けられ、アルファベット順にソートされて返される。
+> このエンドポイントを使用して、アプリに記録されたカスタム属性のリストをエクスポートできます。属性は50件ずつのグループに分けられ、アルファベット順にソートされて返されます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`custom_attributes.get`の権限が必要です。
+このエンドポイントを使用するには、`custom_attributes.get` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='custom_attributes' %}
 
-## クエリーパラメーター
+## クエリパラメーター {#query-parameters}
 
-このエンドポイントへの各コールにより、50の属性が返されます。50を超える属性については、次のレスポンス例に示すように、`Link` ヘッダーを使用して次のページのデータを取得します。
+このエンドポイントへの各コールでは50件の属性が返されます。50件を超える属性については、次のレスポンス例に示すように、`Link` ヘッダーを使用して次のページのデータを取得します。
 
-| パラメータ | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `cursor` | オプション | 文字列 | カスタム属性のページネーションを決定する。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `cursor` | オプション | 文字列 | カスタム属性のページネーションを決定します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="クエリパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-requests}
 
-### カーソルなし
+### カーソルなし {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/custom_attributes' \
@@ -43,7 +43,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/custom_attributes' 
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### カーソル付き
+### カーソル付き {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?cursor=c2tpcDow' \
@@ -51,7 +51,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答
+## 応答 {#response}
 
 ```json
 {
@@ -72,10 +72,10 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ### 致命的なエラーの応答コード {#fatal-export}
 
-リクエストが致命的なエラーに遭遇した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラー]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
+リクエストで致命的なエラーが発生した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラー]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
 {% endalert %}
 
 {% endapi %}

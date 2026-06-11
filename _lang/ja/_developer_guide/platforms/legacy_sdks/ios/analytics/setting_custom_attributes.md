@@ -3,22 +3,22 @@ nav_title: カスタム属性を設定する
 article_title: iOS向けにカスタム属性を設定する
 platform: iOS
 page_order: 3
-description: "この参照記事では、iOS アプリケーションでカスタム属性を設定する方法を説明します。"
+description: "このリファレンス記事では、iOSアプリケーションでカスタム属性を設定する方法について説明します。"
 
 noindex: true
 ---
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# iOS向けにカスタム属性を設定する
+# iOS向けにカスタム属性を設定する {#set-custom-attributes-for-ios}
 
-Braze には、ユーザーに属性を割り当てるメソッドが用意されています。ダッシュボード上でこれらの属性に基づいて、ユーザーのフィルター処理やセグメント化を行うことができます。
+Brazeには、ユーザーに属性を割り当てるメソッドが用意されています。ダッシュボード上でこれらの属性に基づいて、ユーザーのフィルター処理やセグメント化を行うことができます。
 
-実装前に、[ベストプラクティス]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection)のカスタムイベント、カスタム属性、および購入イベントによって提供されるセグメンテーションオプションの例と、[イベント命名規則]({{site.baseurl}}/user_guide/data/custom_data/event_naming_conventions/)に関する注意事項を必ず確認してください。
+実装前に、[ベストプラクティス]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection)のカスタムイベント、カスタム属性、および購入イベントによって提供されるセグメンテーションオプションの例と、[イベント命名規則]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/)に関する注意事項を必ず確認してください。
 
-## デフォルトユーザー属性の割り当て
+## デフォルトユーザー属性の割り当て {#assigning-default-user-attributes}
 
-ユーザー属性を割り当てるには、共有 `ABKUser` オブジェクトで適切なフィールドを設定する必要があります。
+ユーザー属性を割り当てるには、共有`ABKUser`オブジェクトで適切なフィールドを設定する必要があります。
 
 以下は名属性の設定例です。
 
@@ -39,7 +39,7 @@ Appboy.sharedInstance()?.user.firstName = "first_name"
 {% endtab %}
 {% endtabs %}
 
-`ABKUser` オブジェクトでは、以下の属性を設定する必要があります。
+`ABKUser`オブジェクトでは、以下の属性を設定する必要があります。
 
 - `firstName`
 - `lastName`
@@ -52,11 +52,11 @@ Appboy.sharedInstance()?.user.firstName = "first_name"
 - `userID`
 - `gender`
 
-## カスタムユーザー属性の割り当て
+## カスタムユーザー属性の割り当て {#assigning-custom-user-attributes}
 
-Braze では、デフォルトユーザー属性以外にも、複数の異なるデータタイプを使用してカスタム属性を定義できます。これらの各属性で提供されるセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics/)を参照してください。
+Brazeでは、デフォルトユーザー属性以外にも、複数の異なるデータタイプを使用してカスタム属性を定義できます。これらの各属性で提供されるセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics/)を参照してください。
 
-### 文字列値のカスタム属性
+### 文字列値のカスタム属性 {#custom-attribute-with-a-string-value}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -75,7 +75,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### 整数値のカスタム属性
+### 整数値のカスタム属性 {#custom-attribute-with-an-integer-value}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -94,9 +94,9 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### double 値のカスタム属性
+### double値のカスタム属性 {#custom-attribute-with-a-double-value}
 
-Braze では、データベース内での `float` 値と `double` 値の扱いが同じです。
+Brazeでは、データベース内での`float`値と`double`値の扱いが同じです。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -115,7 +115,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### ブール値のカスタム属性
+### ブール値のカスタム属性 {#custom-attribute-with-a-boolean-value}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -134,9 +134,9 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### 日付値のカスタム属性
+### 日付値のカスタム属性 {#custom-attribute-with-a-date-value}
 
-この方法で Braze に渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) 形式（例: `2013-07-16T19:20:30+01:00`）または `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 形式（`2016-12-14T13:32:31.601-0800`）でなければなりません。
+このメソッドでBrazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（例: `2013-07-16T19:20:30+01:00`）または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式（`2016-12-14T13:32:31.601-0800`）でなければなりません。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -155,9 +155,9 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### 配列値のカスタム属性
+### 配列値のカスタム属性 {#custom-attribute-with-an-array-value}
 
-配列内の要素のデフォルトおよび最大数は 500 です。最大配列数は、Braze ダッシュボードの**データ設定** > **カスタム属性**で更新できます。要素数が最大値を超える配列は、最大要素数に切り捨てられます。
+配列内の要素のデフォルトおよび最大数は500です。最大配列数は、Brazeダッシュボードの**データ設定** > **カスタム属性**で更新できます。要素数が最大値を超える配列は、最大要素数に切り捨てられます。
 
 
 {% tabs %}
@@ -189,7 +189,7 @@ Appboy.sharedInstance()?.user.removeFromCustomAttributeArrayWithKey("array_name"
 {% endtab %}
 {% endtabs %}
 
-### カスタム属性の設定解除
+### カスタム属性の設定解除 {#unsetting-a-custom-attribute}
 
 カスタム属性は、次のメソッドを使用して設定を解除することもできます。
 
@@ -210,9 +210,9 @@ Appboy.sharedInstance()?.user.unsetCustomAttributeWithKey("your_attribute_key")
 {% endtab %}
 {% endtabs %}
 
-### カスタム属性のインクリメント / デクリメント
+### カスタム属性のインクリメント/デクリメント {#incrementingdecrementing-custom-attributes}
 
-このコードは、カスタム属性のインクリメントの例です。カスタム属性の値は、正または負の整数か、long 値でインクリメントできます。
+このコードは、カスタム属性のインクリメントの例です。カスタム属性の値は、正または負の整数値やlong値でインクリメントできます。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -231,35 +231,35 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 {% endtab %}
 {% endtabs %}
 
-### REST API によるカスタム属性の設定
+### REST APIによるカスタム属性の設定 {#setting-a-custom-attribute-via-the-rest-api}
 
-REST API を使用してユーザー属性を設定することもできます。詳細については、[ユーザー API のドキュメント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
+REST APIを使用してユーザー属性を設定することもできます。詳細については、[ユーザーAPIのドキュメント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
 
-### カスタム属性値の制限
+### カスタム属性値の制限 {#custom-attribute-value-limits}
 
-カスタム属性値の最大長は 255 文字です。これより長い値は切り捨てられます。
+カスタム属性値の最大長は255文字です。これより長い値は切り捨てられます。
 
-#### 追加情報
+#### 追加情報 {#additional-information}
 
-- 詳細は [`ABKUser.h` ファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h)を参照してください。
-- 詳細については、[`ABKUser` のドキュメント](http://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_user.html)を参照してください。
+- 詳細は[`ABKUser.h`ファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h)を参照してください。
+- 詳細については、[`ABKUser`のドキュメント](http://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_user.html)を参照してください。
 
-## ユーザーサブスクリプションの設定
+## ユーザーサブスクリプションの設定 {#setting-up-user-subscriptions}
 
-ユーザーのサブスクリプション（メールまたはプッシュ）を設定するには、それぞれ関数 `setEmailNotificationSubscriptionType` または `setPushNotificationSubscriptionType` を呼び出します。これらの関数では、いずれも引数として列挙型 `ABKNotificationSubscriptionType` を使用します。この型には、次の 3 つの状態があります。
+ユーザーのサブスクリプション（メールまたはプッシュ）を設定するには、それぞれ関数`setEmailNotificationSubscriptionType`または`setPushNotificationSubscriptionType`を呼び出します。これらの関数では、いずれも引数として列挙型`ABKNotificationSubscriptionType`を使用します。この型には、次の3つの状態があります。
 
 | サブスクリプションのステータス | 定義 |
 | ------------------- | ---------- |
 | `ABKOptedin` | 配信登録済み、かつ明示的にオプトイン済み |
 | `ABKSubscribed` | 購読中、ただし明示的にオプトインされていない |
 | `ABKUnsubscribed` | 配信停止済みまたは明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" aria-label="ユーザーサブスクリプションの設定" }
 
-アプリにプッシュ通知の送信を許可するユーザーは、iOS では明示的なオプトインが必要であるため、デフォルトでステータスが `ABKOptedin` に設定されます。
+アプリにプッシュ通知の送信を許可するユーザーは、iOSでは明示的なオプトインが必要であるため、デフォルトでステータスが`ABKOptedin`に設定されます。
 
-ユーザーは、有効なメールアドレスを受信すると自動的に `ABKSubscribed` に設定されます。ただし、明示的なオプトインのプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を `OptedIn` に設定することをお勧めします。詳細については、「[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/)」を参照してください。
+ユーザーは、有効なメールアドレスを受信すると自動的に`ABKSubscribed`に設定されます。ただし、明示的なオプトインのプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OptedIn`に設定することをお勧めします。詳細については、「[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/subscriptions/)」を参照してください。
 
-### メールサブスクリプションの設定
+### メールサブスクリプションの設定 {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -278,7 +278,7 @@ Appboy.sharedInstance()?.user.setEmailNotificationSubscriptionType(ABKNotificati
 {% endtab %}
 {% endtabs %}
 
-### プッシュ通知サブスクリプションの設定
+### プッシュ通知サブスクリプションの設定 {#setting-push-notification-subscriptions}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -297,4 +297,4 @@ Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificatio
 {% endtab %}
 {% endtabs %}
 
-詳細については、「[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/)」を参照してください。
+詳細については、「[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/subscriptions/)」を参照してください。

@@ -1,25 +1,54 @@
 ---
 nav_title: Voucherify
-noindex: true
-alias: /partners/voucherify/
-layout: dev_guide
-guide_top_header: "Voucherify"
-guide_top_text: "Voucherifyは、パーソナライズされたクーポン、ギフトカード、ロイヤルティカード、紹介コードなどを、ユーザーがBrazeアカウントを通じて自動的に送信できるオールインワンのプロモーション・プラットフォームであり、あらゆるステップで利用状況やキャンペーンの成長を追跡できる。"
-description: "このランディングページは、統合方法、コネクテッドコンテンツを使用したデータの取得方法、カスタム属性を使用したディストリビューション、Voucherifyおよびプロモーションコードリストなど、Voucherify に関するあらゆる情報のホームページです。"
-guide_featured_list:
-- name: Voucherify
-  link: /docs/partners/ecommerce/loyalty/voucherify/voucherify/
-  image: /assets/img/braze_icons/percent-02.svg
-- name: コネクテッドコンテンツを使用したデータの取得
-  link: /docs/partners/ecommerce/loyalty/voucherify/voucherify_fetching_data_through_braze_connected_content/
-  image: /assets/img/braze_icons/link-05.svg
-- name: カスタム属性を持つディストリビューション
-  link: /docs/partners/ecommerce/loyalty/voucherify/voucherify_distribution_with_braze_custom_attributes/
-  image: /assets/img/braze_icons/send-01.svg
-- name: Voucherifyとプロモーションコード一覧
-  link: /docs/partners/ecommerce/loyalty/voucherify/voucherify_using_braze_promotion_codes_list/
-  image: /assets/img/braze_icons/announcement-02.svg
-  
+article_title: Voucherify
+page_order: 1
+alias:
+  - /partners/voucherify/
+  - /partners/voucherify/voucherify/
+  - /partners/voucherify/connected_content/
+  - /partners/voucherify/custom_attributes/
+  - /partners/voucherify/promotion/
+description: "この参考記事では、BrazeとVoucherifyの提携について概説しています。Voucherifyは、パーソナライズされたクーポン、ギフトカード、ロイヤルティカード、紹介コードなどを、ユーザーがBrazeアカウントを通じて自動的に送信できるオールインワンのプロモーションプラットフォームで、あらゆるステップで利用状況やキャンペーンの成長を追跡できます。"
+page_type: partner
+search_tag: Partner
+
 ---
 
-<br> 
+# Voucherify
+
+> [Voucherify](https://www.voucherify.io/)は、プロモーション、クーポン、ロイヤルティプログラム、紹介、パーソナライズされたインセンティブを管理できるインセンティブ最適化エンジンです。Brazeとの連携により、キャンペーンやキャンバス内でダイナミックなインセンティブを配信し、インセンティブアクションをトリガーし、システム間でプロモーションデータを同期できます。カスタムバックエンドシステムを構築する必要はありません。
+
+## 前提条件 {#prerequisites}
+
+VoucherifyをBrazeで使用するには、以下が必要です。
+
+- Voucherifyアカウント
+- Brazeアカウント
+- Voucherify API認証情報
+- Brazeコネクテッドコンテンツ、カスタム属性、またはその両方へのアクセス
+
+## 統合の概要 {#integration-overview}
+
+VoucherifyとBrazeを統合すると、以下のことが可能になります。
+
+- コネクテッドコンテンツを使用してリアルタイムでインセンティブを取得する
+- Brazeからインセンティブアクションをトリガーする
+- セグメンテーション用のイベントをBrazeに送信する
+- インセンティブデータをBrazeユーザープロファイルに保存する
+- パーソナルバウチャーコードを含むカスタム属性をBrazeに送信する
+
+## 統合リソース {#integration-resources}
+
+以下のリソースを使用して、統合のセットアップと管理を行ってください。
+
+- [Braze – Voucherify概要](https://docs.voucherify.io/integrations/braze-overview)：統合の概要とサポートされるユースケース。
+- [Brazeへのイベントストリーミング](https://docs.voucherify.io/integrations/stream-events-to-braze)：Voucherifyイベント（利用など）をBrazeに送信します。
+- [BrazeからVoucherifyへのデータ送信](https://docs.voucherify.io/integrations/send-data-from-braze)：BrazeのキャンペーンからVoucherifyアクションをトリガーします。
+- [Brazeコネクテッドコンテンツの概要](https://docs.voucherify.io/integrations/braze-connected-content-overview)：Brazeメッセージにインセンティブをダイナミックに取得します。
+- [Brazeカスタム属性へのディストリビューション](https://docs.voucherify.io/integrations/braze-custom-attributes)：VoucherifyデータをBrazeユーザープロファイルに保存します。
+- [Brazeへのクーポンエクスポート](https://docs.voucherify.io/integrations/braze-promotion-codes)：Brazeのキャンペーンで使用するプロモーションコードを同期します。
+
+## その他のリソース {#additional-resources}
+
+- [Brazeを離れずにロイヤルティを高速実行する](https://www.voucherify.io/blog/speedrunning-loyalty-without-leaving-braze)：Voucherifyを使用してインセンティブとバリデーションロジックを強化し、Brazeで高速かつ実験主導のロイヤルティプログラムを実行する方法を学びます。
+- [インセンティブ成熟度スコアカード](https://scorecard.voucherify.io/braze)：インセンティブ戦略を評価し、最適化の機会を特定します。

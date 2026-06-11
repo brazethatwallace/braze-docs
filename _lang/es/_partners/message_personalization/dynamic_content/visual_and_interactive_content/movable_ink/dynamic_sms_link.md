@@ -6,72 +6,72 @@ page_type: partner
 search_tag: Partner
 ---
 
-# Vista previa del enlace SMS dinámico
+# Vista previa del enlace SMS dinámico {#dynamic-sms-link-preview}
 
 > Con la vista previa dinámica de enlaces SMS de Movable Ink, puedes aprovechar la inmersión de los MMS al mismo coste que los SMS. Esto te permite utilizar Braze y Movable Ink para entregar experiencias de mensajería enriquecida rentables y personalizadas.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | --- | --- |
-| Cuenta Movable Ink | Se necesita una cuenta Movable Ink para beneficiarse de esta asociación. |
+| Cuenta de Movable Ink | Se necesita una cuenta de Movable Ink para beneficiarse de esta asociación. |
 | Origen de datos | Necesitas conectar un origen de datos a Movable Ink. Esto puede hacerse mediante CSV, importación del sitio web o API. |
 | Capacidad de envío de MMS | Confirma que estás configurado para MMS a través de Braze.
-| [Acortamiento de enlaces]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/) | Confirma que el acortamiento de enlaces está activado. | 
+| [Acortamiento de enlaces]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) | Confirma que el acortamiento de enlaces está activado. |
 | Tarjeta de contacto | Tu marca (el remitente) debe estar guardada como contacto en el teléfono del usuario para que la vista previa del enlace funcione con iOS. Esto puede hacerse con una tarjeta de contacto u otro método. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
 Sigue los pasos que se indican a continuación para enviar enlaces SMS dinámicos para los sistemas operativos iOS y Android.
 
 ### iOS
 
 {% alert important %}
-Para permitir imágenes de vista previa de enlaces para iOS, los usuarios deben añadir tu marca (el remitente) como contacto.
+Para permitir imágenes de vista previa de enlaces en iOS, los usuarios deben añadir tu marca (el remitente) como contacto.
 {% endalert %}
 
-#### Paso 1: Crea una campaña de tarjetas de contacto
+#### Paso 1: Crea una campaña de tarjetas de contacto {#step-1-create-a-contact-card-campaign}
 
-Después de que los usuarios guarden tu marca como contacto, ya sea a través de una [tarjeta de contacto]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/mms/contact_card/) o de otro método, podrán ver las indicaciones de **Tocar para cargar vista previa** y los enlaces de Movable Ink.
+Después de que los usuarios guarden tu marca como contacto, ya sea a través de una [tarjeta de contacto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card/) o de otro método, podrán ver las indicaciones de **Tap to Load Preview** y los enlaces de Movable Ink.
 
 ![1]{: style="max-width:30%;"}
 
-#### Paso 2: Enviar enlaces de Movable Ink
+#### Paso 2: Enviar enlaces de Movable Ink {#step-2-send-movable-ink-links}
 
-1. Crea una campaña SMS en Movable Ink y genera tu URL click-through.
-2. En el panel de Braze, ve a **Campañas** y configura una nueva campaña SMS/MMS desde el desplegable **Crear campaña**.
-3. En el creador de campañas SMS:
+1. Crea una campaña SMS en Movable Ink y genera tu URL de click-through.
+2. En el dashboard de Braze, ve a **Campaigns** y configura una nueva campaña SMS/MMS desde el desplegable **Crear campaña**.
+3. En el compositor de la campaña SMS:
     - Configura tu grupo de suscripción.
     - Introduce tu mensaje.
-    - Añade tu enlace Movable Ink **en último lugar**, después del resto del texto del cuerpo del mensaje. <br><br>![2]{: style="max-width:50%;"}
+    - Añade tu enlace de Movable Ink **en último lugar**, después del resto del texto del cuerpo del mensaje. <br><br>![2]{: style="max-width:50%;"}
 
 {% alert tip %}
-Echa un vistazo a [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/) para conocer la personalización de Liquid.  
+Echa un vistazo a [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) para repasar la personalización con Liquid.
 {% endalert %}
 
 {: start="4"}
-4\. Ya estás listo para probar y lanzar tu campaña de vista previa de enlaces SMS dinámicos.
+4. Ya estás listo para probar y lanzar tu campaña de vista previa de enlaces SMS dinámicos.
 
 ![3]{: style="max-width:70%;"}
 
-Cuando los usuarios carguen la vista previa del enlace, se mostrará una imagen personalizada con la posibilidad de enlazar con tu sitio web, aplicación o página de destino.
+Cuando los usuarios carguen la vista previa del enlace, se mostrará una imagen personalizada con la posibilidad de enlazar con tu sitio web, aplicación o página de inicio.
 
 ![4]{: style="max-width:30%;"}
 
-### Android (dispositivos Google y Samsung)
+### Android (dispositivos Google y Samsung) {#android-google-and-samsung-devices}
 
-Los usuarios de Android no están obligados a guardar tu marca como contacto para recibir vistas previas de enlaces SMS dinámicos. Sin embargo, sigue siendo recomendable para que el dispositivo pueda cargar automáticamente las vistas previas de los enlaces.
+Los usuarios de Android no necesitan guardar tu marca como contacto para recibir vistas previas de enlaces SMS dinámicos. Sin embargo, sigue siendo recomendable para que el dispositivo pueda cargar automáticamente las vistas previas de los enlaces.
 
 ![5]{: style="max-width:30%;"}
 
-Los usuarios que no hayan guardado tu marca como contacto y hayan activado las vistas previas automáticas tendrán que seleccionar **Tocar para cargar vista previa** para cargar la imagen de vista previa.
+Los usuarios que no hayan guardado tu marca como contacto y hayan activado las vistas previas automáticas tendrán que seleccionar **Tap to load preview** para cargar la imagen de vista previa.
 
 ![6]{: style="max-width:30%;"}
 
-## Consideraciones
+## Consideraciones {#considerations}
 
-- Incluye sólo un enlace de vista previa en tu mensaje. No se generarán contenidos con varios enlaces en el cuerpo de tu SMS. 
+- Incluye solo un enlace de vista previa en tu mensaje. No se generará contenido con varios enlaces en el cuerpo de tu SMS.
 - No incluyas ningún carácter después de tu enlace de vista previa o la experiencia podría romperse.
 
 

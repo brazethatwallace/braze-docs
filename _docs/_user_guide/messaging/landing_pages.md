@@ -11,7 +11,7 @@ alias: /landing_pages/
 
 > Braze landing pages are standalone web pages that can drive your user acquisition and engagement strategy.
 
-Use landing pages to grow your audience, capture user data, promote special offers, and support multichannel campaigns.
+Use landing pages to grow your audience, capture user data, promote special offers, and support multichannel campaigns. For a reference of landing page drag-and-drop blocks, see [Editor blocks (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
 
 {% alert note %}
 Landing page and custom domain availability depends on your Braze package. Contact your account manager or customer success manager to get started.
@@ -31,13 +31,15 @@ Before you can access, create, and publish landing pages, you either need admini
 
 ## Plan tiers
 
-The number of published landing pages and custom domains you can use depends on your plan type: free or paid (incremental).
+The number of published landing pages, custom domains, and features you can use depends on your plan type: free or pro (incremental).
 
-| Feature                                                                                                   | Free tier     | Paid tier (incremental)     |
+| Feature                                                                                                   | Free tier     | Pro tier (incremental)     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Published landing pages                                                                 | Five per company | 20 additional |
 | Custom domains          | One per company | Five additional |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+| [Liquid personalization]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | Not available | Available |
+| Prefilled form fields | Not available | Available |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan tiers" }
 
 ## Adding Google Tag Manager to a landing page
 
@@ -64,6 +66,12 @@ For details on implementing Google Tag Manager, see [Google's documentation](htt
 
 The landing page body size can be up to 500 KB.
 
+### Can landing pages handle high-traffic scenarios?
+
+Yes, non-personalized landing pages can handle high-traffic scenarios effectively. When a non-personalized landing page is first requested, Braze caches it through Cloudflare. This means all subsequent requests for the same link are served from cache, so performance is not degraded on high-volume requests. This cache lasts 24 hours, and cached page views don't count toward rate limits.
+
+For personalized landing pages (using Liquid personalization), rate limits apply to uncached requests. To maintain optimal performance, see [Personalization considerations]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
+
 ### Are there any technical requirements to publish a landing page?
 
 No, there aren't any technical requirements.
@@ -74,4 +82,11 @@ Yes. Use the **Custom Code** block in the drag-and-drop editor to add or edit HT
 
 ### Can I create a webhook inside a landing page?
 
-No, this isn't currently supported.
+No, but the **Submitted a Landing Page form** event can act as a trigger for Canvases or webhook campaigns:
+
+- **Canvas:** Use the **Submitted a Landing Page form** event as a Canvas entry trigger and add a webhook step.
+- **Campaign:** Use the **Submitted a Landing Page form** event to trigger based on form submission. 
+
+When the page isn't sent through a Braze channel (such as through a website or ad), a new user profile may be created on submission—even if that person already exists in Braze. To handle this, set up a Canvas triggered by **Submitted a Landing Page form** and add a Braze-to-Braze webhook step that calls the [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) endpoint to merge the new profile into the existing one.
+
+When you use the `landing_page_url` Liquid tag to share the page, form submissions are automatically tied to the existing user profile. You can then reference the user attributes submitted on the landing page through Liquid for subsequent templating. 
