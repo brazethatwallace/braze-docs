@@ -19,7 +19,7 @@ The following video walks through how to use catalogs in a message.
 
 In the message composer of your choice, select <i class="fas fa-plus-circle"></i> **Add Personalization** and select **Catalog Items** for the **Personalization type**. Then, select your catalog name. Using our previous example, we'll select the "Games" catalog.
 
-![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
+![Add Personalization modal with Catalog Items selected, Games catalog chosen, and a Liquid preview showing the catalog_items tag.]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
 We can immediately see the following Liquid preview:
 
@@ -64,7 +64,7 @@ You aren't limited to one item in a message. Use the **Add Personalization** mod
 
 Check out this example where we add the `id` of three games, Tales, Teslagrad, and Acaratus, for **Catalog Items** and select `title` for **Information to Display**.
 
-![]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
+![Add Personalization modal showing three catalog item IDs selected and title chosen for Information to Display, with a Liquid preview listing each item title.]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
 
 We can further personalize our message by adding some text around our Liquid:
 
@@ -212,7 +212,7 @@ If a catalog item contains user profile fields (within a Liquid personalization 
 
 For example, if a catalog named "Messages" has an item with this Liquid:
 
-![]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
+![Catalog table row with id greet_msg and Welcome_Message column containing Welcome to our store with a first name Liquid variable.]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
 
 To render the following Liquid content:
 
