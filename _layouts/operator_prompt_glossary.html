@@ -28,6 +28,10 @@ hide_binary_feedback: false
 {%- endunless -%}
 
 <style>
+  /* Site-wide config has line_numbers: true for all block code — hide the gutter here. */
+  #api-main #operator-prompt-content .rouge-gutter { display: none; }
+  #api-main #operator-prompt-content .rouge-code { max-width: 100%; }
+
   /* Pill-style tabs matching the SDK integration page look.
      Scoped with two IDs to beat _tabs.scss specificity (2,1,2). */
   #api-main #operator-prompt-content ul.ab-nav.ab-nav-tabs {
