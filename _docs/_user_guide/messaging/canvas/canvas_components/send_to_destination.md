@@ -25,7 +25,7 @@ This step allows users from Canvas 1 to be sent to Canvas 2. When users from Can
 
 ### Entry behavior
 
-Send to Destination enters users into the destination Canvas as soon as they reach this step. This step acts as a one-time entry point into the destination Canvas. Users who meet the destination Canvas entry and audience criteria begin that Canvas journey. Users who don't meet those criteria at that moment don't enter the destination Canvas and continue in the source Canvas.
+The Send to Destination step enters users into the destination Canvas as soon as they reach this step. This step acts as a one-time entry point into the destination Canvas. Users who meet the destination Canvas entry and audience criteria begin that Canvas journey. Users who don't meet those criteria at that moment don't enter the destination Canvas and continue in the source Canvas.
 
 If the destination Canvas uses a scheduled entry schedule, the Send to Destination step bypasses that entry schedule. It also bypasses [**Limit entrance volume**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) under **Entry Controls** on the destination Canvas when it's set to **Every time Canvas is schedule**. Users sent from this step don't wait for the next scheduled evaluation window—they're evaluated and entered when they reach the Send to Destination step if they meet the destination Canvas entry and audience criteria.
 
