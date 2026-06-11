@@ -41,4 +41,18 @@ $(document).ready(function() {
         $(dvid).delay(300).animate({'opacity': 0},500)
       });
     });
+    var copyBlocks = new ClipboardJS('.copy-block-btn');
+    copyBlocks.on('success', function(e) {
+      var feedback = $(e.trigger).closest('.copy-block').find('.copy-feedback');
+      feedback.html('Copied').animate({'opacity': 1}, 300, function() {
+        feedback.delay(600).animate({'opacity': 0}, 500);
+      });
+      e.clearSelection();
+    });
+    copyBlocks.on('error', function(e) {
+      var feedback = $(e.trigger).closest('.copy-block').find('.copy-feedback');
+      feedback.html('Error').animate({'opacity': 1}, 300, function() {
+        feedback.delay(600).animate({'opacity': 0}, 500);
+      });
+    });
   });

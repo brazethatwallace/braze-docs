@@ -1,0 +1,7 @@
+<div class="copy-block">
+  <p class="copy-block-text">{{ include.content }}</p>
+  <span class="copy-feedback"></span>
+  <button class="btn copy-block-btn" data-clipboard-text="{{ include.content | escape }}" title="Copy to clipboard">
+    <img class="clippy" src="{{ site.baseurl }}/assets/img/copy_icon.png" alt="Copy to clipboard" style="max-width:30px;max-height:30px;">
+  </button>
+</div>
