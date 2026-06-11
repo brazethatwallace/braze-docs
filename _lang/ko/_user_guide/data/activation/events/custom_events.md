@@ -45,10 +45,6 @@ search_rank: 2
 
 커스텀 데이터 차단 및 삭제에 대한 자세한 내용은 [커스텀 데이터 차단 목록]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)을 참조하세요.
 
-### 개인 식별 정보(PII)로 표시 {#marking-as-personally-identifiable-information-pii}
-
-관리자는 이 페이지에서 커스텀 이벤트를 생성하고 PII로 표시할 수도 있습니다. 이러한 이벤트는 관리자와 "PII로 표시된 커스텀 속성 보기" 권한이 있는 대시보드 사용자에게만 표시됩니다.
-
 ### 설명 추가 {#adding-descriptions}
 
 `Manage Events, Attributes, Purchases` [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 있는 경우 커스텀 이벤트가 생성된 후 설명을 추가할 수 있습니다. 커스텀 이벤트의 **설명 편집**을 선택하고 팀을 위한 메모 등 원하는 내용을 입력하세요.
@@ -73,7 +69,7 @@ search_rank: 2
 
 ## 커스텀 이벤트 기록 {#logging-custom-events}
 
-커스텀 이벤트는 추가 설정이 필요합니다. 아래 목록에서 각 플랫폼별 설명서를 참조하세요. 커스텀 이벤트를 기록하는 데 사용되는 메서드와 커스텀 이벤트에 등록정보 및 수량을 추가하는 방법에 대한 정보를 확인할 수 있습니다.
+커스텀 이벤트는 추가 설정이 필요합니다. 아래 목록에서 각 플랫폼별 설명서를 참조하세요. 커스텀 이벤트를 기록하는 데 사용되는 메서드와 커스텀 이벤트에 속성정보 및 수량을 추가하는 방법에 대한 정보를 확인할 수 있습니다.
 
 {% details 플랫폼별 설명서 펼치기 %}
 
@@ -107,7 +103,7 @@ search_rank: 2
 | 커스텀 이벤트가 **X회(최대 = 50) 초과** 발생했는지 확인 | **초과** | 지난 **Y일 (Y = 1,3,7,14,21,30)** |
 | 커스텀 이벤트가 **X회(최대 = 50) 미만** 발생했는지 확인 | **미만** | 지난 **Y일 (Y = 1,3,7,14,21,30)** |
 | 커스텀 이벤트가 **정확히 X회(최대 = 50)** 발생했는지 확인 | **정확히** | 지난 **Y일 (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segmentation filters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="세분화 필터" }
 
 ## 분석 {#analytics}
 

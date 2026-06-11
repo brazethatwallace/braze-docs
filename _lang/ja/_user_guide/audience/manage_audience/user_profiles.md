@@ -94,7 +94,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 - **メール:** Brazeは、メッセージがメールサービスプロバイダー（ESP）に引き渡された時点で送信を記録します。その引き渡し後、Liquidロジック、レート制限、またはユーザーが到達不能としてマークされたことによるメッセージの中止は行われません。次のイベントは通常、配信またはバウンスです。
 - **プッシュ:** Brazeは、メッセージがプッシュプロバイダー（例えば、Apple Push Notification service（APNs）やFirebase Cloud Messaging（FCM））に引き渡された時点で送信を記録します。プロバイダーは通常、即座に配信を試みます。デバイスが利用できない場合（例えば、オフラインの場合）、プロバイダーはメッセージの有効期限が切れるまで再試行する場合があります。
 - **アプリ内メッセージ:** Brazeは、Campaignが起動された時点で送信を記録します。
-- **Content Cards:** Brazeが_送信済み_イベントを記録するタイミングは、配信タイプと**カード作成**設定によって異なります。Content Cards Campaignがユーザープロファイルの**受信したCampaign**に表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。詳細については、Content Cardsレポートの記事の[送信が記録されるタイミング]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#when-sends-are-logged)および[受信したCampaignとリターゲティングフィルター]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#campaigns-received-and-retargeting-filters)を参照してください。
+- **Content Cards:** Brazeが*送信済み*イベントを記録するタイミングは、配信タイプと**カード作成**設定によって異なります。Content Cards Campaignがユーザープロファイルの**受信したCampaign**に表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。詳細については、Content Cardsレポートの記事の[送信が記録されるタイミング]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#when-sends-are-logged)および[受信したCampaignとリターゲティングフィルター]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#campaigns-received-and-retargeting-filters)を参照してください。
 - **SMS、WhatsApp、webhook:** Brazeは、メッセージがそのチャネルの配信パス（例えば、SMSまたはWhatsAppプロバイダー、またはwebhookエンドポイント）に入った時点で送信を記録します。
 
 {% alert note %}

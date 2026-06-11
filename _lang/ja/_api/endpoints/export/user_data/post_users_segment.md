@@ -93,7 +93,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `segment_id` | 必須 | 文字列 | エクスポートするSegmentの識別子。[Segment識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br>特定のSegmentの`segment_id`は、Brazeアカウントの[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページから確認できます。または、[Segment一覧エンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)を使用することもできます。 |
 | `callback_endpoint` | オプション | 文字列 | エクスポートが利用可能になったときにダウンロードURLをPOSTするエンドポイント。 |
 | `fields_to_export` | 必須* | 文字列の配列 | エクスポートするユーザーデータフィールドの名前。このパラメーターに`custom_attributes`を含めることで、すべてのカスタム属性をエクスポートすることもできます。エクスポートできるフィールドの完全なリストについては、[エクスポートするフィールド](#fields-to-export)を参照してください。 |
-| `custom_attributes_to_export` | オプション | 文字列の配列 | エクスポートする特定のカスタム属性の名前（最大500個）。このパラメーターを使用する場合は、`fields_to_export`から`custom_attributes`を省略してください。省略しないと、Brazeはこのリストに関係なくすべてのカスタム属性をエクスポートします。ダッシュボードでカスタム属性の作成および管理を行うには、**データ設定** > **カスタム属性**に移動します。 |
+| `custom_attributes_to_export` | オプション | 文字列の配列 | エクスポートする特定のカスタム属性の名前（最大500個）。このパラメーターを使用する場合は、`fields_to_export`から`custom_attributes`を省略してください。省略しないと、Brazeはこのリストに関係なくすべてのカスタム属性をエクスポートします。ダッシュボードでカスタム属性を作成および管理するには、**データ設定** > **カスタム属性**に移動してください。 |
 | `output_format` | オプション | 文字列 | ファイルの出力形式。デフォルトは`zip`ファイル形式です。独自のS3バケットを使用している場合は、`zip`または`gzip`を指定できます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
@@ -147,7 +147,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `created_from` | 文字列 | ユーザープロファイルの作成に使用された方法（例: SDK、REST API、CSVインポート）。 |
 | `custom_attributes` | オブジェクト | このユーザーのカスタム属性のキーと値のペア。 |
 | `custom_events` | 配列 | 過去90日間にこのユーザーに帰属するカスタムイベント。 |
-| `devices` | 配列 | ユーザーのデバイスに関する情報。プラットフォームに応じて、次の情報が含まれます。<br><br>- `model`: デバイスのモデル名<br>- `os`: デバイスのオペレーティングシステム<br>- `carrier`: デバイスのサービスキャリア（利用可能な場合）<br>- `idfv`: (iOS) Brazeデバイス識別子、AppleのVendor用識別子（存在する場合）<br>- `idfa`: (iOS) 広告用識別子（存在する場合）<br>- `device_id`: (Android) Brazeデバイス識別子<br>- `google_ad_id`: (Android) Google Play広告識別子（存在する場合）<br>- `roku_ad_id`: (Roku) Roku広告識別子<br>- `ad_tracking_enabled`: デバイスで広告トラッキングが有効になっている場合、trueまたはfalse |
+| `devices` | 配列 | ユーザーのデバイスに関する情報。プラットフォームに応じて、次の情報が含まれる場合があります。<br><br>- `model`: デバイスのモデル名<br>- `os`: デバイスのオペレーティングシステム<br>- `carrier`: デバイスのサービスキャリア（利用可能な場合）<br>- `idfv`: (iOS) Brazeデバイス識別子、AppleのVendor用識別子（存在する場合）<br>- `idfa`: (iOS) 広告用識別子（存在する場合）<br>- `device_id`: (Android) Brazeデバイス識別子<br>- `google_ad_id`: (Android) Google Play広告識別子（存在する場合）<br>- `roku_ad_id`: (Roku) Roku広告識別子<br>- `ad_tracking_enabled`: デバイスで広告トラッキングが有効になっている場合、trueまたはfalse |
 | `dob` | 文字列 | `YYYY-MM-DD`形式のユーザーの生年月日。 |
 | `email` | 文字列 | ユーザーのメールアドレス。 |
 | `external_id` | 文字列 | 識別済みユーザーの一意のユーザー識別子。 |

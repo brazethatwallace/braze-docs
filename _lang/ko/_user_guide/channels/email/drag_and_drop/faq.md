@@ -62,22 +62,22 @@ tool:
 
 네. **발송 설정** > **고급**으로 이동하여 이메일 메시지에 첨부 파일을 추가할 수 있습니다.
 
-### 드래그 앤 드롭 이메일의 원본 HTML을 다운로드하려면 어떻게 해야 하나요? {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
+### 드래그 앤 드롭 이메일의 원본 HTML을 다운로드하려면 어떻게 하나요? {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
 
 1. Campaign 또는 Canvas를 열고 이메일 메시지를 편집합니다.
 2. **이메일 본문 편집**을 선택하여 드래그 앤 드롭 편집기를 엽니다.
 3. **파일 다운로드**(편집기 하단)를 선택합니다. 아카이브를 추출하여 생성된 HTML에 접근합니다.
 
-해당 HTML을 [HTML 블록]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content)이나 HTML 편집기에 붙여넣어 세부적인 편집을 수행할 수 있습니다. 예를 들어, [특정 링크에 대한 클릭 추적을 끄는]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis) 경우에 유용합니다.
+해당 HTML을 [HTML 블록]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content)이나 HTML 편집기에 붙여넣어 저수준 편집을 수행할 수 있습니다. 예를 들어, [특정 링크에 대한 클릭 추적 끄기]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis) 등이 있습니다.
 
 ### 드래그 앤 드롭 레이아웃이 깨지는 이유는 무엇인가요? {#why-is-my-drag-and-drop-layout-breaking}
 
 레이아웃 문제는 편집기가 생성하는 마크업과 충돌하는 **커스텀 HTML 또는 CSS**로 인해 발생하는 경우가 많습니다. 다음 단계를 시도해 보세요:
 
 1. 커스텀 HTML 블록을 제거하거나 분리하여 문제가 사라지는지 확인합니다.
-2. **드래그 앤 드롭 이메일 편집기** 설정에서 모든 클라이언트에서 로드되지 않을 수 있는 커스텀 글꼴을 확인합니다.
+2. **드래그 앤 드롭 이메일 편집기** 설정에서 모든 클라이언트에서 로드되지 않을 수 있는 커스텀 폰트를 확인합니다.
 3. **행 속성**에서 열 패딩과 너비를 검토합니다.
-4. 커스텀 HTML을 추가할 때는 테이블 기반 레이아웃, 유동적 이미지, 이메일 너비에 맞는 전체 테이블 너비를 사용하는 것이 좋습니다. 고정 픽셀 이미지나 비테이블 구조는 Outlook 및 기타 클라이언트에서 깨지는 경우가 많습니다.
+4. 커스텀 HTML을 추가할 때는 테이블 기반 레이아웃, 유동적 이미지, 이메일 너비에 맞는 전체 테이블 너비를 사용하세요. 고정 픽셀 이미지나 비테이블 구조는 Outlook 및 기타 클라이언트에서 깨지는 경우가 많습니다.
 
 ### 이메일 미리보기에서 콘텐츠 블록이 렌더링되지 않는 이유는 무엇인가요? {#why-doesnt-my-content-block-render-in-email-preview}
 
@@ -85,4 +85,4 @@ tool:
 
 ### 드래그 앤 드롭 편집기가 정렬 설정을 무시하는 이유는 무엇인가요? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
 
-드래그 앤 드롭 편집기가 정렬 설정을 무시하는 경우, 커스텀 CSS 또는 HTML 블록을 제거하고, 커스텀 글꼴을 제거하고, CSS 충돌을 확인하고, 행 블록 복제를 피하세요. 문제가 지속되면 Braze 고객지원에 문의하세요.
+드래그 앤 드롭 편집기가 정렬 설정을 무시하는 경우, 커스텀 CSS 또는 HTML 블록을 제거하고, 커스텀 폰트를 제거하고, CSS 충돌을 확인하고, 행 블록 복제를 피하세요. 문제가 지속되면 Braze 고객지원에 문의하세요.

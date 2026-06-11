@@ -157,6 +157,8 @@ valid_partner_list:
   url: /docs/partners/voucherify/
 - name: Census
   url: /docs/partners/census/
+- name: DinMo
+  url: /docs/partners/dinmo/
 - name: Airbyte
   url: /docs/partners/airbyte/
 - name: Fivetran

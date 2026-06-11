@@ -34,7 +34,7 @@ macOS 13부터 특정 기기에서는 Xcode 14에서 실행되는 iOS 16 시뮬�
 
 ### 3단계: Braze 푸시 Campaign 시작 {#step-3-launching-a-braze-push-campaign}
 
-푸시 Campaign이 시작되면 Braze는 APNs에 메시지 전달을 요청합니다. 특히, **사용자의 가장 최근 기기로 전송**이 선택되지 않는 한, 현재 유효한 각 푸시 토큰에 대해 요청이 APNs에 전달됩니다. Braze가 APNs로부터 성공적인 응답을 받으면, 사용자 프로필에 성공적인 전달을 기록하지만, 사용자가 실제 메시지를 받지 못했을 수 있는 이유는 다음과 같습니다:
+푸시 Campaign이 시작되면 Braze는 APNs에 메시지 전달을 요청합니다. 특히, **사용자의 가장 최근 기기로 전송**이 선택되지 않는 한, 현재 유효한 각 푸시 토큰에 대해 요청이 APNs에 전달됩니다. Braze가 APNs로부터 성공적인 응답을 받으면 사용자 프로필에 성공적인 전달을 기록하지만, 다음과 같은 이유로 사용자가 실제 메시지를 받지 못했을 수 있습니다:
 - 기기가 꺼져 있습니다.
 - 기기가 인터넷(Wi-Fi 또는 셀룰러)에 연결되어 있지 않습니다.
 - 최근에 앱을 제거했습니다.
@@ -65,7 +65,7 @@ APNs는 토큰이 등록 해제되더라도 처음에는 성공 상태를 반환
 
 #### 푸시 토큰에 등록되지 않은 전송 수신됨 {#received-unregistered-sending}
 
-- `AppDelegate.braze?.notifications.register(deviceToken:)` 메서드에서 Braze로 전송되는 푸시 토큰이 유효한지 확인합니다. **메시지 활동 로그**에서 푸시 토큰을 확인할 수 있습니다. 문자와 숫자 조합이 포함된 긴 문자열(예: `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`)이어야 합니다. 푸시 토큰이 다르게 보인다면 Braze에 푸시 토큰을 전송하는 [코드]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-4-register-push-tokens-with-braze)를 확인하세요.
+- `AppDelegate.braze?.notifications.register(deviceToken:)` 메서드에서 Braze로 전송되는 푸시 토큰이 유효한지 확인합니다. **메시지 활동 로그**에서 푸시 토큰을 확인할 수 있습니다. `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`과 같이 문자와 숫자 조합이 포함된 긴 문자열이어야 합니다. 푸시 토큰이 다르게 보인다면 Braze에 푸시 토큰을 전송하는 [코드]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-4-register-push-tokens-with-braze)를 확인하세요.
 - 푸시 프로비저닝 프로필이 테스트 중인 환경과 일치하는지 확인합니다. 유니버설 인증서는 개발 또는 프로덕션 APNs 환경으로 보내도록 Braze 대시보드에서 구성할 수 있습니다. 프로덕션 앱에 개발 인증서를 사용하거나 개발 앱에 프로덕션 인증서를 사용하는 경우 작동하지 않습니다.
  - Braze에 업로드한 푸시 토큰이 푸시 토큰을 보낸 앱을 빌드하는 데 사용한 프로비저닝 프로필과 일치하는지 확인합니다.
 
@@ -149,7 +149,7 @@ APNs는 푸시 토큰이 자격 증명에 구성된 주제(번들 ID)와 일치�
 
 다음은 푸시 등록에 문제가 있거나 사용자의 토큰이 푸시된 후 APNs에 의해 유효하지 않은 것으로 Braze에 반환되었음을 나타냅니다:
 
-![사용자의 연락처 설정을 표시하는 고객 프로필. 푸시 아래에 "앱 없음"이 표시됩니다.]({% image_buster /assets/img_archive/registration_problem.png %}){: style="max-width:50%"}
+![사용자의 연락처 설정을 표시하는 고객 프로필. 푸시 아래에 "No Apps"가 표시됩니다.]({% image_buster /assets/img_archive/registration_problem.png %}){: style="max-width:50%"}
 
 ## 푸시 클릭이 기록되지 않음 {#push-clicks-not-logged}
 

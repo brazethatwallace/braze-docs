@@ -70,7 +70,7 @@ Es gelten die folgenden Einschränkungen:
 
 ## Fehlerbehandlung {#error-handling}
 
-Wenn das verbundene Modell während eines Canvas-Agent-Schritts einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage bis zu fünf Mal mit exponentiellem Backoff. Bei anderen Fehlern (wie einer Zeitüberschreitung oder einem ungültigen API-Schlüssel) wird die Agentenausgabe auf `null` gesetzt. Wenn ein Agent sein tägliches Ausführungslimit erreicht, wird die Ausgabe ebenfalls auf `null` gesetzt.
+Wenn das verbundene Modell während eines Canvas-Agent-Schritts einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage bis zu fünfmal mit exponentiellem Backoff. Bei anderen Fehlern (wie einer Zeitüberschreitung oder einem ungültigen API-Schlüssel) wird die Agentenausgabe auf `null` gesetzt. Wenn ein Agent sein tägliches Ausführungslimit erreicht, wird die Ausgabe ebenfalls auf `null` gesetzt.
 
 Wenn viele Nutzer:innen gleichzeitig einen Agent-Schritt betreten, kann die Verarbeitung aufgrund von [Ausführungsflusskontrollen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls) länger dauern. Verwenden Sie [Standard-Liquid-Werte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/), um in Ihren Nachrichten gegen `null`-Ausgaben abzusichern.
 

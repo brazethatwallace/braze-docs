@@ -243,7 +243,7 @@ Für den Drag-and-Drop-Editor fügen Sie nur die Zero-Width-Non-Joiner (‌`&zwn
 {% endalert %}
 
 {% alert note %}
-In der Apple-Mail-App müssen Bild-Links in HTML-E-Mails `https://`-URLs verwenden, um klickbar zu sein. Verwenden Sie sichere Links für jedes Bild, das in einem Anchor-Tag eingebettet ist, wenn Sie Klicks von Apple-Mail-Empfänger:innen erwarten.
+In der Apple-Mail-App müssen Bild-Links in HTML-E-Mails `https://`-URLs verwenden, um klickbar zu sein. Verwenden Sie sichere Links für jedes Bild, das in einem Anker-Tag eingebettet ist, wenn Sie Klicks von Apple-Mail-Empfänger:innen erwarten.
 {% endalert %}
 
 ### Schritt 3.3: Auf E-Mail-Fehler prüfen {#step-33-check-for-email-errors}

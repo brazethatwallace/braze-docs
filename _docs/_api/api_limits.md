@@ -212,6 +212,12 @@ Understanding the optimal delay between endpoints is crucial when making consecu
 
 Under normal conditions, the time for our data eventual consistency to occur is 10-100ms (1/10 of a second). However, there can be some cases where it takes longer for that consistency to occur, so we recommend that you allow for a 5-minute delay between making subsequent calls to minimize the probability of error.
 
+## Payload size limits
+
+Braze API requests are subject to payload size limits, separate from rate limits. Most endpoints accept request bodies up to 4&nbsp;MB. When a request exceeds the applicable limit, Braze may reject it with HTTP `413 Request Entity Too Large` or HTTP `400 Bad Request`, depending on the endpoint.
+
+The [`/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/) endpoint has a 2&nbsp;MB payload limit and returns HTTP `400` when the request body exceeds that limit. For endpoint-specific limits and error handling, see [User data endpoints]({{site.baseurl}}/api/endpoints/user_data/).
+
 ### Rate limit reset
 
 Rate limits reset on the clock hour, not on a rolling window. For example, if the limit is 250,000 requests per hour, you could make 50,000 requests between 10:00 PM and 10:59 PM and another 250,000 requests between 11:00 PM and 11:59 PM, because the counter resets at the top of each hour.

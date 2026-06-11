@@ -203,7 +203,7 @@ A entrega pode parecer incorreta mesmo quando a Braze se comportou conforme conf
 
 Revise o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), os changelogs da Campaign ou do Canvas e a definição do segmento. Se ainda não conseguir reconciliar o envio, entre em contato com o suporte da Braze com os identificadores do usuário, `dispatch_id` (se disponível) e timestamps.
 
-### Quais são os motivos pelos quais meu usuário não recebeu minha mensagem de e-mail? {#why-hasnt-a-user-received-my-email-message}
+### Por que um usuário não recebeu minha mensagem de e-mail? {#why-hasnt-a-user-received-my-email-message}
 
 Existem vários motivos pelos quais um usuário não recebe um e-mail que você esperava que ele recebesse, incluindo:
 
@@ -213,16 +213,16 @@ Existem vários motivos pelos quais um usuário não recebe um e-mail que você 
 - A mensagem pode estar na pasta de spam dele.
 
 {% alert tip %}
-Um evento de entrega na Braze significa que o e-mail foi aceito pelo servidor do provedor de caixa de e-mail. No entanto, isso não garante que a mensagem apareça na caixa de entrada do usuário. O provedor de caixa de e-mail pode encaminhar a mensagem para spam ou, em casos raros, impedir silenciosamente a exibição da mensagem.
+Um evento de entrega na Braze significa que o e-mail foi aceito pelo servidor do provedor de caixa de e-mail. No entanto, isso não garante que a mensagem apareça na caixa de entrada do usuário. O provedor de caixa de e-mail pode rotear a mensagem para spam ou, em casos raros, impedir silenciosamente a exibição da mensagem.
 {% endalert %}
 
 Use as tabelas a seguir para identificar a causa.
 
 #### O e-mail não foi enviado {#the-email-wasnt-sent}
 
-| Possível causa | O que verificar |
+| Causa possível | O que verificar |
 |---|---|
-| O usuário não era elegível para a Campaign ou Canvas | Verifique as configurações de **Públicos-alvo** (para Campaigns) ou **Público-alvo** (para Canvas) nas [configurações]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) para confirmar que o usuário atendeu a todos os filtros de público, critérios de segmento e regras de entrega no momento do envio. |
+| O usuário não era elegível para a Campaign ou Canvas | Verifique as configurações de **Público-alvo** (para Campaigns) ou **Público-alvo** (para Canvas) nas [configurações]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) para confirmar que o usuário atendeu a todos os filtros de público, critérios de segmento e regras de entrega no momento do envio. |
 | A mensagem foi abortada | Verifique o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) para motivos de abort, como erros de Liquid ou campos obrigatórios ausentes. |
 | O endereço de e-mail do usuário era inválido ou estava ausente | Em **Pesquisa de usuários**, verifique o perfil do usuário para confirmar que um endereço de e-mail válido estava registrado no momento do envio. |
 | O endereço de e-mail do usuário sofreu hard bounce anteriormente | Um hard bounce marca o endereço de e-mail como inválido e impede envios futuros para esse endereço. Da mesma forma, se um destinatário marcar seu e-mail como spam, a Braze envia apenas e-mails de transação para esse usuário, não Campaigns padrão. Verifique a guia **Engajamento** no perfil do usuário. Para saber mais, consulte [Endereços de e-mail cancelados]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) e [Bounces e e-mails inválidos]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails). |
@@ -231,12 +231,12 @@ Use as tabelas a seguir para identificar a causa.
 
 #### O e-mail foi enviado, mas não chegou à caixa de entrada {#the-email-was-sent-but-didnt-arrive-in-their-inbox}
 
-| Possível causa | O que verificar |
+| Causa possível | O que verificar |
 |---|---|
 | O provedor de caixa de e-mail (MBP) estava inacessível | Um problema temporário impediu que o e-mail chegasse ao MBP do destinatário. Isso normalmente se resolve com novas tentativas. Os provedores de serviço de e-mail tentam novamente soft bounces por até 72 horas. |
 | O MBP rejeitou o e-mail | O servidor de e-mail do destinatário rejeitou o e-mail. Revise o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) para detalhes do bounce. |
 | O MBP descartou silenciosamente o e-mail | O MBP aceitou o e-mail, mas não o exibiu para o usuário e não retornou um bounce. Isso está fora do controle da Braze e não pode ser detectado nos registros da Braze. |
-| O e-mail foi para a pasta de spam | O MBP identificou a mensagem como spam e a encaminhou para a pasta de spam ou lixo eletrônico do usuário. Peça ao usuário para verificar a pasta de spam. |
+| O e-mail foi para a pasta de spam | O MBP identificou a mensagem como spam e a roteou para a pasta de spam ou lixo eletrônico do usuário. Peça ao usuário para verificar a pasta de spam. |
 | O destinatário tem filtragem de e-mail personalizada | O usuário ou o administrador de TI dele pode ter configurado regras de caixa de correio que filtram, redirecionam ou excluem mensagens recebidas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Causa para e-mail não na caixa de entrada" }
 

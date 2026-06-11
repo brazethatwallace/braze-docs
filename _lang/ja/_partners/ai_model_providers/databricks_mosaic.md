@@ -25,7 +25,7 @@ BrazeとDatabricks Mosaicの連携により、Databricksのトークンとワー
 | 要件 | 説明 |
 |---|---|
 | 個人アクセストークン付きのDatabricksアカウント | [個人アクセストークン](https://docs.databricks.com/en/dev-tools/auth/pat.html)を持つDatabricksアカウント。ヘルプが必要な場合は、管理者または[Databricksサポート](https://help.databricks.com/)にお問い合わせください。 |
-| Databricksワークスペース名 | Databricksアカウントのワークスペース名（またはインスタンス）。これは `.cloud.databricks.com` または `.azuredatabricks.net` の前のサブドメインです（例: `dbc-eb57d699-f22c`）。 |
+| Databricksワークスペース名 | Databricksアカウントのワークスペース名（またはインスタンス）。これは`.cloud.databricks.com`または`.azuredatabricks.net`の前のサブドメインです（例: `dbc-eb57d699-f22c`）。 |
 | Brazeインスタンス | Brazeインスタンスは、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)またはBrazeオンボーディングマネージャーから確認できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
@@ -34,12 +34,12 @@ BrazeとDatabricks Mosaicの連携により、Databricksのトークンとワー
 Databricks Mosaicの認証情報をBrazeに接続するには:
 
 1. Brazeダッシュボードで**パートナー連携** > **テクノロジーパートナー**に移動し、**Databricks Mosaic Integration**を見つけます。
-2. **Databricks Token**を入力します。
-3. **Databricks Workspace Name**を入力します。これは `.cloud.databricks.com` または `.azuredatabricks.net` の前のサブドメインです。
-4. **Save**を選択します。
+2. **Databricksトークン**を入力します。
+3. **Databricksワークスペース名**を入力します。これは`.cloud.databricks.com`または`.azuredatabricks.net`の前のサブドメインです。
+4. **保存**を選択します。
 
 保存後、Brazeは接続日時とともに接続済みステータスを表示します。エージェントコンソールで[カスタムエージェントを作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)する際に、Databricksモデルを選択できます。
 
-連携を削除するには、**Databricks Mosaic Integration**ページで**Disconnect**を選択します。
+連携を削除するには、**Databricks Mosaic Integration**ページで**切断**を選択します。
 
 連携に関する問題や質問がある場合は、[Databricksサポート](https://help.databricks.com/)にお問い合わせください。

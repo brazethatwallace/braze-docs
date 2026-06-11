@@ -49,7 +49,7 @@ description: "이 참조 문서에서는 Braze 이메일 오브젝트의 다양�
 
 ![HTML 이메일 템플릿의 API 식별자 섹션.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:70%;"}
 
-## 첨부 파일이 있는 이메일 오브젝트 예시 {#example-email-object-with-attachment}
+## 첨부 파일이 포함된 이메일 오브젝트 예시 {#example-email-object-with-attachment}
 
 ```json
 {
@@ -95,7 +95,7 @@ description: "이 참조 문서에서는 Braze 이메일 오브젝트의 다양�
 
 Braze가 첨부 파일 `url`에서 파일을 가져올 때:
 
-- **캐싱:** Braze는 최근에 가져온 파일을 약 24시간 동안 재사용할 수 있습니다. 매 발송 시 새 버전의 파일을 즉시 가져와야 하는 경우, 버전별로 고유한 URL을 사용하세요(예: 파일이 변경될 때 경로 또는 쿼리가 변경되도록).
+- **캐싱:** Braze는 최근에 가져온 파일을 약 24시간 동안 재사용할 수 있습니다. 매 발송 시 새 버전의 파일을 즉시 가져와야 하는 경우, 버전별로 고유한 URL을 사용하세요(예: 파일이 변경될 때 경로 또는 쿼리가 변경되도록 설정).
 - **타임아웃:** 호스트는 빠르게 응답해야 합니다. 첨부 파일 URL이 느리거나 응답하지 않으면 메시지 발송이 실패할 수 있습니다. 약 2분 이내에 응답하는 것을 목표로 하세요.
-- **보안:** 첨부 파일 URL(쿼리 문자열 포함)에 개인 식별 정보(PII)나 비밀 정보를 포함하지 마세요. URL은 로그나 다운스트림 시스템에 노출될 수 있습니다.
+- **보안:** 첨부 파일 URL(쿼리 문자열 포함)에 개인 식별 정보(PII)나 비밀 정보를 포함하지 마세요. URL이 로그나 다운스트림 시스템에 노출될 수 있습니다.
 - **방화벽:** URL이 특정 네트워크에서만 접근 가능한 경우, [연결된 콘텐츠 IP 허용 목록]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting)에 따라 Braze의 트래픽을 허용하세요. 파일에 로그인이 필요한 경우 [기본 인증 자격 증명](#authentication-for-email-file-attachments)을 사용하세요.

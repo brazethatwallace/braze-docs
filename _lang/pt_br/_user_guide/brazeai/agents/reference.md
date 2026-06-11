@@ -29,7 +29,7 @@ Se você não vê **Braze Auto** como opção no menu suspenso **Model** ao cria
 
 Com esta opção, você pode conectar sua conta da Braze com provedores como OpenAI, Anthropic ou Google Gemini. Se você trouxer sua própria chave de API de um provedor de LLM, os custos de token são cobrados diretamente pelo seu provedor, não pela Braze.
 
-Recomendamos testar rotineiramente os modelos mais recentes, pois modelos legados podem ser descontinuados ou depreciados após alguns meses. Certifique-se de ter créditos suficientes com seu provedor para executar seus agentes em escala. Você também pode se inscrever para receber notificações do Console do agente em [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para ser alertado quando a Braze detectar que um modelo não está mais disponível ou encontrar problemas de cobrança com seu provedor de LLM.
+Recomendamos testar rotineiramente os modelos mais recentes, pois modelos legados podem ser descontinuados ou depreciados após alguns meses. Certifique-se de que você tem créditos suficientes com seu provedor para executar seus agentes em escala. Você também pode se inscrever para receber notificações do Console do agente em [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para ser alertado quando a Braze detectar que um modelo não está mais disponível ou encontrar problemas de cobrança com seu provedor de LLM.
 
 Para configurar isso:
 
@@ -84,9 +84,9 @@ Quando muitos usuários entram em uma etapa de agente ao mesmo tempo, a Braze en
 
 Se o provedor de LLM retornar um erro de limite de taxa, a Braze tenta novamente a solicitação até cinco vezes usando backoff exponencial. Esse comportamento de nova tentativa se aplica a etapas de agente em Canvas. Agentes de catálogo não tentam novamente invocações que falharam, incluindo erros de limite de taxa do provedor de LLM.
 
-Se todas as tentativas falharem, o painel de detalhes de **Logs** mostra **Error** e a mensagem do provedor (como `Rate limit exceeded`) em **Output**. Cada nova tentativa é visível nos registros, incluindo a primeira invocação, independentemente do seu sucesso ou falha final. Para um determinado usuário, se forem necessárias quatro tentativas para finalmente obter sucesso, você pode pesquisar o ID do usuário e ver todas as cinco (original mais quatro tentativas) nos **Logs**, e a original mais as três primeiras tentativas mostrarão **Error** com `Rate limit exceeded`.
+Se todas as tentativas falharem, o painel de detalhes de **Logs** mostra **Error** e a mensagem do provedor (como `Rate limit exceeded`) em **Output**. Cada nova tentativa é visível nos logs, incluindo a primeira invocação, independentemente do seu eventual sucesso ou falha. Para um determinado usuário, se forem necessárias quatro novas tentativas para finalmente obter sucesso, você pode pesquisar o ID do usuário e ver todas as cinco (original mais quatro novas tentativas) nos **Logs**, e a original mais as três primeiras novas tentativas mostrarão **Error** com `Rate limit exceeded`.
 
-![Detalhes do registro do Console do agente mostrando um erro de limite de taxa excedido no campo Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
+![Detalhes do log do Console do agente mostrando um erro de limite de taxa excedido no campo Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
 ## Escrevendo instruções {#writing-instructions}
 

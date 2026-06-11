@@ -61,7 +61,7 @@ REST APIリクエストで`$add`、`$remove`、`$update`を使用した場合、
 
 プロファイル属性を削除するには、`null`に設定します。`external_id`や`user_alias`などの一部のフィールドは、ユーザープロファイルに追加された後に削除することはできません。
 
-#### 識別子の解決 {#identifier-resolution}
+### 識別子の解決 {#identifier-resolution}
 
 [匿名プッシュトークンインポート](#push-token-import)を実行している場合を除き、各ユーザー属性オブジェクトには少なくとも1つの識別子（`external_id`、`user_alias`、`braze_id`、`email`、または`phone`）を含める必要があります。可能な限り、オブジェクトごとに1つの識別子のみを含めて、どのユーザープロファイルが更新または作成されるかがあいまいにならないようにしてください。
 
@@ -118,7 +118,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | 整数 | 「inc」フィールドと追加する量を持つオブジェクトを割り当てることで、整数カスタム属性をインクリメントできます。<br><br>例: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | 階層化カスタム属性 | 階層化カスタム属性は、属性のセットを別の属性のプロパティとして定義します。カスタム属性オブジェクトを定義するときに、そのオブジェクトに一連の属性を追加します。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)を参照してください。 |
 | 文字列 | 文字列カスタム属性は、テキストデータを格納するために使用される一連の文字です。たとえば、文字列を使用して、姓名、メールアドレス、好みを保存できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attribute data types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタム属性のデータタイプ" }
 
 {% alert tip %}
 カスタムイベントとカスタム属性のどちらを使用するかについては、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)および[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を参照してください。
@@ -175,7 +175,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | subscription_groups| `subscription_group_id`および`subscription_state`の文字列を持つオブジェクト配列（`[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`など）。`subscription_state`の利用可能な値は「subscribed」と「unsubscribed」です。|
 | time_zone | （文字列）[IANAタイムゾーンデータベース](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)のタイムゾーン名（例：「America/New_York」または「Eastern Time (US & Canada)」）。有効なタイムゾーン値のみが設定されます。 |
 | twitter | `id`（整数）、`screen_name`（文字列、X（旧Twitter）ハンドル）、`followers_count`（整数）、`friends_count`（整数）、`statuses_count`（整数）のいずれかを含むハッシュ。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields #braze-user-profile-fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeユーザープロファイルフィールド" }
 
 このAPIによって明示的に設定された言語値は、Brazeがデバイスから自動的に受信するロケール情報よりも優先されます。
 
@@ -234,7 +234,7 @@ Webプッシュトークンの性質上、Webプッシュを実装する際に�
 |----------------------|------------|
 | **サービスワーカー**  | デフォルトでは、Web SDKは`./service-worker`でサービスワーカーを探します。ただし、`manageServiceWorkerExternally`や`serviceWorkerLocation`などの別のオプションが指定されている場合を除きます。サービスワーカーの設定が適切でないと、ユーザーのプッシュトークンが期限切れになる可能性があります。 |
 | **期限切れトークン**   | ユーザーが60日間Webセッションを開始していない場合、プッシュトークンは期限切れになります。Brazeは期限切れのプッシュトークンを移行できないため、再エンゲージするには[プッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)を送信する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Web token considerations" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webトークンに関する考慮事項" }
 
 ### APIを使用した手動移行 {#manual-migration-through-api}
 
@@ -323,7 +323,23 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 {% endtab %}
 {% endtabs %}
 
-### Androidプッシュトークンのインポート {#importing-android-push-tokens}
+### iOSプッシュトークンのインポート {#import-ios-push-tokens}
+
+`/users/track`でiOSプッシュトークンを移行する場合、プッシュトークンに`gateway`フィールドは設定されません。Brazeは、APIを通じてインポートされたトークンが有効なフォアグラウンドプッシュトークンであると想定しますが、そのトークンがどのAPNs環境に属しているかは判断できません。
+
+gatewayフィールドがない場合、Brazeはプッシュ通知を送信する際にアプリの設定済みフォールバック環境設定を使用します。トークンの実際の環境が設定済みフォールバックと異なる場合、`BadDeviceToken`エラーが発生する可能性があります。たとえば、本番ゲートウェイを通じて送信された開発トークンは失敗します。
+
+配信の問題を回避するには：
+
+- Brazeダッシュボードのアプリの環境設定が、インポートするトークンと一致していることを確認してください。
+- 本番アプリの場合は、本番トークンのみをインポートしてください。
+- テスト環境の場合は、アプリの設定とインポートされたトークンの両方が開発環境を使用していることを確認してください。
+
+{% alert note %}
+Braze SDKを通じて登録されたトークンには、SDKがアプリのエンタイトルメントから環境を検出するため、gatewayフィールドが自動的に含まれます。
+{% endalert %}
+
+### Androidプッシュトークンのインポート {#import-android-push-tokens}
 
 {% alert important %}
 以下の考慮事項はAndroidアプリのみに当てはまります。iOSアプリではこれらのステップは必要ありません。iOSプラットフォームはプッシュを表示するためのフレームワークが1つしかなく、Brazeが必要なプッシュトークンと証明書を持っている限り、プッシュ通知は即座にレンダリングされるためです。

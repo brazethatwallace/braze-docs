@@ -19,7 +19,7 @@ A Braze exibe essa mensagem quando você lança um Canvas com entrada agendada �
 
 - Reduza as ramificações de etapas no Canvas.
 - Reduza o tamanho do público de entrada.
-- Use [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) para consolidar ramificações em vez de muitos caminhos paralelos.
+- Use [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) para consolidar ramificações em vez de muitas jornadas paralelas.
 - Se o seu Canvas usa o editor original, [clone-o para o Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/) e reconstrua com componentes do Canvas.
 
 Se você ainda precisar lançar o Canvas sem alterações e não puder migrar para o Canvas Flow, entre em contato com o [Suporte]({{site.baseurl}}/support_contact/).

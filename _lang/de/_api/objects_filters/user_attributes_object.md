@@ -61,7 +61,7 @@ Weitere Informationen finden Sie unter [Objekt-Array – API-Beispiel]({{site.ba
 
 Um ein Profilattribut zu entfernen, setzen Sie es auf `null`. Einige Felder, wie `external_id` und `user_alias`, können nicht mehr entfernt werden, nachdem sie einem Nutzerprofil hinzugefügt wurden.
 
-#### Bezeichner-Auflösung {#identifier-resolution}
+### Bezeichner-Auflösung {#identifier-resolution}
 
 Sofern Sie keinen [anonymen Push-Token-Import](#push-token-import) durchführen, muss jedes Nutzer:innen-Attribute-Objekt mindestens einen Bezeichner enthalten: `external_id`, `user_alias`, `braze_id`, `email` oder `phone`. Fügen Sie nach Möglichkeit nur einen Bezeichner pro Objekt hinzu, um Unklarheiten darüber zu vermeiden, welches Nutzerprofil aktualisiert oder erstellt wird.
 
@@ -175,7 +175,7 @@ Eine kund:innenorientierte Referenz der Standardattribute, die nach Kategorien g
 | subscription_groups| Array von Objekten mit `subscription_group_id` und `subscription_state` String, zum Beispiel `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Verfügbare Werte für `subscription_state` sind „subscribed“ und „unsubscribed“.|
 | time_zone | (String) Name der Zeitzone aus der [IANA-Zeitzonendatenbank](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (zum Beispiel „America/New_York“ oder „Eastern Time (US & Canada)“). Es werden nur gültige Zeitzonenwerte festgelegt. |
 | twitter | Hash mit einem der folgenden Werte: `id` (Ganzzahl), `screen_name` (String, X (ehemals Twitter) Handle), `followers_count` (Ganzzahl), `friends_count` (Ganzzahl), `statuses_count` (Ganzzahl). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields #braze-user-profile-fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze-Nutzerprofilfelder" }
 
 Sprachwerte, die explizit über diese API festgelegt werden, haben Vorrang vor den Gebietsschemainformationen, die Braze automatisch vom Gerät erhält.
 
@@ -323,7 +323,23 @@ Braze überprüft einmal im Monat, ob es anonyme Profile mit dem `push_token_imp
 {% endtab %}
 {% endtabs %}
 
-### Importieren von Android-Push-Tokens {#importing-android-push-tokens}
+### Importieren von iOS-Push-Tokens {#import-ios-push-tokens}
+
+Beim Migrieren von iOS-Push-Tokens mit `/users/track` wird das Feld `gateway` nicht auf dem Push-Token gesetzt. Braze geht davon aus, dass über die API importierte Tokens gültige Vordergrund-Push-Tokens sind, kann jedoch nicht bestimmen, zu welcher APNs-Umgebung das Token gehört.
+
+Ohne das Gateway-Feld verwendet Braze die konfigurierte Fallback-Umgebungseinstellung Ihrer App beim Senden von Push-Benachrichtigungen. Dies kann zu `BadDeviceToken`-Fehlern führen, wenn die tatsächliche Umgebung des Tokens von der konfigurierten Fallback-Umgebung abweicht. Beispielsweise schlägt ein Entwicklungs-Token fehl, das über das Produktions-Gateway gesendet wird.
+
+Um Zustellungsprobleme zu vermeiden:
+
+- Stellen Sie sicher, dass die Umgebungseinstellung Ihrer App im Braze-Dashboard mit den Tokens übereinstimmt, die Sie importieren.
+- Importieren Sie für Produktions-Apps nur Produktions-Tokens.
+- Überprüfen Sie bei Testumgebungen, dass sowohl Ihre App-Konfiguration als auch die importierten Tokens die Entwicklungsumgebung verwenden.
+
+{% alert note %}
+Tokens, die über das Braze SDK registriert werden, enthalten das Gateway-Feld automatisch, da das SDK die Umgebung anhand der Berechtigungen Ihrer App erkennt.
+{% endalert %}
+
+### Importieren von Android-Push-Tokens {#import-android-push-tokens}
 
 {% alert important %}
 Die folgenden Überlegungen gelten nur für Android-Apps. iOS-Apps erfordern diese Schritte nicht, da diese Plattform nur über ein Framework für die Anzeige von Push-Benachrichtigungen verfügt und Push-Benachrichtigungen sofort gerendert werden, solange Braze über die erforderlichen Push-Tokens und Zertifikate verfügt.
@@ -331,7 +347,7 @@ Die folgenden Überlegungen gelten nur für Android-Apps. iOS-Apps erfordern die
 
 Wenn Sie Android-Push-Benachrichtigungen an Ihre Nutzer:innen senden müssen, bevor die Braze-SDK-Integration abgeschlossen ist, verwenden Sie Schlüssel-Wert-Paare, um Push-Benachrichtigungen zu validieren.
 
-Sie müssen über einen Empfänger verfügen, der Push-Nutzdaten verarbeiten und anzeigen kann. Um den Empfänger über die Push-Nutzdaten zu benachrichtigen, fügen Sie der Push-Campaign die erforderlichen Schlüssel-Wert-Paare hinzu. Die Werte dieser Paare hängen von dem Push-Partner ab, den Sie vor Braze verwendet haben.
+Sie müssen über einen Empfänger verfügen, der Push-Payloads verarbeiten und anzeigen kann. Um den Empfänger über den Push-Payload zu benachrichtigen, fügen Sie der Push-Campaign die erforderlichen Schlüssel-Wert-Paare hinzu. Die Werte dieser Paare hängen von dem Push-Partner ab, den Sie vor Braze verwendet haben.
 
 {% alert note %}
 Bei einigen Anbietern von Push-Benachrichtigungen muss Braze die Schlüssel-Wert-Paare vereinfachen, damit sie korrekt interpretiert werden können. Um Schlüssel-Wert-Paare für eine bestimmte Android-App zu vereinfachen, wenden Sie sich bitte an Ihren Customer-Success-Manager.

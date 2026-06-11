@@ -16,7 +16,7 @@ page_type: reference
 O Otimizador de conteúdo está atualmente em beta. Para começar, entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
 
-## Criando uma etapa do Otimizador de conteúdo {#creating-a-content-optimizer-step}
+## Criar uma etapa do Otimizador de conteúdo {#create-a-content-optimizer-step}
 
 Para melhores resultados, use o agente Otimizador de conteúdo em Canvas onde os usuários entram na etapa gradualmente ao longo do tempo. Se todos os usuários entrarem na etapa de uma vez, o agente não terá tempo para aprender com os resultados iniciais.
 
@@ -106,7 +106,7 @@ Para cada componente selecionado, defina um conjunto de versões alternativas de
   - Escrever suas próprias variantes manualmente.
   - Usar sugestões geradas por IA para explorar novas opções rapidamente.
 
-![Interface de Configurações do Otimizador de conteúdo mostrando opções para adicionar e configurar componentes de conteúdo para otimização de e-mail. Cada componente tem campos de entrada para inserir diferentes variantes. O texto visível inclui nomes de componentes e campos para inserir texto de variantes.]({% image_buster /assets/img/content_optimizer/content_optimizer_settings.png %})
+![Interface de configurações do Otimizador de conteúdo mostrando opções para adicionar e configurar componentes de conteúdo para otimização de e-mail. Cada componente tem campos de entrada para inserir diferentes variantes. O texto visível inclui nomes de componentes e campos para inserir texto de variantes.]({% image_buster /assets/img/content_optimizer/content_optimizer_settings.png %})
 
 {% endtab %}
 {% tab Notificações por push %}
@@ -205,6 +205,24 @@ No momento, o envio de mensagens RCS com o Otimizador de conteúdo não suporta 
 {% endtab %}
 {% endtabs %}
 
+## Editar uma etapa lançada {#edit-a-launched-step}
+
+Após o lançamento do seu Canvas, você pode atualizar uma etapa do Otimizador de conteúdo em execução abrindo-a no editor de Canvas. Você pode:
+
+- Adicionar novas variantes a qualquer componente existente, manualmente ou usando sugestões geradas por IA, até o limite de cinco variantes por componente.
+- Desativar variantes para parar de enviá-las aos usuários.
+- Reativar variantes previamente desativadas, desde que isso mantenha o componente dentro do limite de cinco variantes.
+
+Quando você publica as alterações, o otimizador é reiniciado e começa a redistribuir o tráfego do zero entre todas as variantes e combinações ativas. Os dados históricos anteriores à edição são mantidos e podem ser visualizados na guia **Análise de conteúdo**.
+
+As seguintes configurações não podem ser alteradas após o lançamento:
+
+- O conteúdo de variantes ativas existentes
+- Quais componentes estão sendo testados
+- O evento de otimização
+
+Para etapas de SMS/MMS/RCS, o grupo de inscrições e o tipo de mensagem também não podem ser alterados após o lançamento.
+
 ## Práticas recomendadas {#best-practices}
 
 - Em geral, recomendamos testar mais componentes em vez de menos na etapa do Otimizador de conteúdo. Por exemplo, em vez de testar dois componentes para e-mail, teste três.
@@ -213,15 +231,21 @@ No momento, o envio de mensagens RCS com o Otimizador de conteúdo não suporta 
 - Se você está otimizando para aberturas, mantenha seus testes focados na linha de assunto.
 - Se esta é a primeira vez que você usa o Otimizador de conteúdo, considere usar uma etapa de [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para que apenas parte do seu público entre no ramo que contém a etapa do Otimizador de conteúdo. Por exemplo, você pode enviar metade dos seus usuários por uma jornada com a etapa do Otimizador de conteúdo e a outra metade por uma jornada de controle que envia a etapa Mensagem com o conteúdo habitual do seu negócio. Então, colete dados por 2 a 3 semanas e compare quaisquer indicadores-chave de desempenho (KPIs) ou contra-métricas antes de aumentar o tráfego para as jornadas com etapas do Otimizador de conteúdo.
   - Para uma comparação eficaz um a um, recomendamos que sua etapa do Otimizador de conteúdo contenha o conteúdo habitual do seu negócio como uma das variantes para cada componente.
+- Antes de atualizar uma etapa em execução, aguarde até que os rankings de desempenho de todas as variantes dos componentes se estabilizem — ou seja, as mesmas variantes estejam consistentemente ganhando e perdendo por três a quatro dias seguidos. Isso normalmente leva cerca de sete dias, e um número maior de eventos de otimização produz um sinal mais forte e preciso.
+- Evite atualizar cedo demais. Cada vez que você publica alterações, o otimizador é reiniciado. Se você atualizar antes que a etapa tenha tempo de identificar o que está funcionando, você impede que ela capitalize suas descobertas — e a etapa nunca tem a oportunidade de direcionar tráfego significativo para as combinações com melhor desempenho.
+- Quando estiver pronto para atualizar, a abordagem recomendada é desativar variantes com baixo desempenho e adicionar novas que se baseiem nas características das suas melhores variantes.
 
 ## Considerações {#considerations}
 
 - As configurações de múltiplos idiomas não são suportadas nas etapas do Otimizador de conteúdo. Em vez disso, recomendamos usar uma etapa do Otimizador de conteúdo por idioma e ramificar as jornadas individualmente.
 - As Liquid tags para componentes do Otimizador de conteúdo não são suportadas em etapas Mensagem, então o Liquid é abortado em etapas Mensagem.
+- Após uma etapa do Otimizador de conteúdo ser lançada, você não pode alterar quais componentes estão sendo testados, o conteúdo de variantes ativas existentes ou o evento de otimização. Para etapas de SMS/MMS/RCS, o grupo de inscrições e o tipo de mensagem também não podem ser alterados.
 
 ## Análise de dados {#analytics}
 
 Para revisar o desempenho, abra o painel de análise de dados no nível da etapa para ver métricas por variante de conteúdo e desempenho geral das combinações. A etapa do Otimizador de conteúdo usa a [mesma análise de dados da etapa Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics).
+
+Se você atualizou a etapa após o lançamento, o gráfico de alocação de envios marca quando cada edição de conteúdo ocorreu. Os dados de variantes desativadas são mantidos e permanecem visíveis no painel de análise de dados, para que você possa comparar o desempenho ao longo de toda a vida útil da etapa.
 
 ![Análise de dados do Otimizador de conteúdo para três botões e a porcentagem de alocação de envios, que apresenta tendência de alta.]({% image_buster /assets/img/content_optimizer/content_optimizer_analytics.png %})
 

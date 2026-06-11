@@ -139,7 +139,7 @@ Les profils utilisateur en double ne peuvent pas être récupérés après la fu
 
 ## Pourquoi plusieurs profils utilisateur sont-ils associés à la même adresse e-mail ? {#why-are-multiple-user-profiles-associated-with-the-same-email-address}
 
-Braze conserve plusieurs profils utilisateur partageant la même adresse e-mail lorsque les profils sont créés via des identifiants différents, des importations ou des sessions anonymes avant identification. Il s'agit d'un comportement attendu lorsque les utilisateurs ne partagent pas un même `external_id`.
+Braze conserve plusieurs profils utilisateur partageant la même adresse e-mail lorsque les profils sont créés via différents identifiants, importations ou sessions anonymes avant identification. Il s'agit d'un comportement attendu lorsque les utilisateurs ne partagent pas un même `external_id`.
 
 Avant de fusionner les doublons, utilisez l'[endpoint d'exportation de profil utilisateur par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) pour confirmer quels profils existent pour une adresse e-mail et quels champs chaque profil contient. Vous pouvez également effectuer une recherche par e-mail dans **Audience** > **User Search** pour examiner les doublons dans le tableau de bord.
 

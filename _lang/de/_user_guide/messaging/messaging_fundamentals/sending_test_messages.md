@@ -243,7 +243,7 @@ Der Scanner wird automatisch bei benutzerdefinierten HTML-Nachrichten ausgeführ
 
 ![Test-Push]({% image_buster /assets/img_archive/testpush.png %})
 
-Wenn Sie einen Fehler sehen, dass keine der ausgewählten Nutzer:innen übereinstimmende Push-Token haben, haben die Testnutzer:innen kein gültiges Push-Token für die ausgewählte Plattform. Die Nutzer:innen müssen eine Sitzung in der App gestartet und Push für dieses Gerät aktiviert haben. Weitere Informationen finden Sie unter [Push-Aktivierung und Push-Abo-Status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
+Wenn Sie einen Fehler sehen, dass keine der ausgewählten Nutzer:innen übereinstimmende Push-Token haben, hat die Testnutzer:in kein gültiges Push-Token für die ausgewählte Plattform. Die Nutzer:innen müssen eine Sitzung in der App gestartet und Push für dieses Gerät aktiviert haben. Weitere Informationen finden Sie unter [Push-Aktivierung und Push-Abo-Status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
 
 #### Web-Push {#web-push}
 

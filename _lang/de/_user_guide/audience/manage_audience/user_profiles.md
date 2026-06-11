@@ -27,7 +27,7 @@ Um auf das Profil einer Nutzerin oder eines Nutzers zuzugreifen, gehen Sie zur S
 Wenn eine Übereinstimmung gefunden wird, können Sie die Informationen einsehen, die Sie für diese Nutzerin oder diesen Nutzer mit dem Braze SDK erfasst haben. Wenn Ihre Suche hingegen mehrere Nutzerprofile zurückgibt, können Sie jedes Profil einzeln zusammenführen oder eine Massenzusammenführung durchführen. Eine vollständige Anleitung finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
 {% alert note %}
-**Nutzer:innen suchen** ist nicht dasselbe wie **Nutzer:innen nachschlagen** im Segment- oder Campaign-Composer. **Nutzer:innen nachschlagen** prüft, ob eine bestimmte Nutzerin oder ein bestimmter Nutzer Ihrer Zielgruppe entspricht, und akzeptiert nur `external_id` oder `braze_id`. **Nutzer:innen suchen** auf dieser Seite unterstützt E-Mail, Telefonnummer, Push-Token und Nutzer-Alias. Weitere Informationen finden Sie unter [Segmente testen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments).
+**Nutzer:innen suchen** ist nicht dasselbe wie **Nutzer:innen-Lookup** im Segment- oder Campaign-Composer. **Nutzer:innen-Lookup** prüft, ob eine bestimmte Nutzerin oder ein bestimmter Nutzer Ihrer Zielgruppe entspricht, und akzeptiert nur `external_id` oder `braze_id`. **Nutzer:innen suchen** auf dieser Seite unterstützt E-Mail, Telefonnummer, Push-Token und Nutzer-Alias. Weitere Informationen finden Sie unter [Segmente testen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments).
 {% endalert %}
 
 {% alert important %}

@@ -276,11 +276,11 @@ Ensuite, assurez-vous que votre application est configurée pour gérer correcte
 
 Utilisez des chemins personnalisés pour ajouter des segments de chemin aux URL de suivi des clics des e-mails. Cela crée des modèles d'URL prévisibles que les systèmes d'exploitation mobiles peuvent reconnaître pour les liens universels et les App Links.
 
-Lorsque les utilisateurs appuient sur des liens d'e-mail sur des appareils mobiles, les chemins personnalisés vous aident à contrôler si les liens s'ouvrent dans votre application mobile principale, une application spécialisée ou le navigateur mobile (par exemple, pages produits, programmes de fidélité, liens de désabonnement ou pages juridiques).
+Lorsque les utilisateurs appuient sur des liens d'e-mail sur des appareils mobiles, les chemins personnalisés vous aident à contrôler si les liens s'ouvrent dans votre application mobile principale, une application spécialisée ou le navigateur mobile (par exemple les pages produits, les programmes de fidélité, les liens de désabonnement ou les pages juridiques).
 
 Pour traiter un lien de suivi des clics Amazon SES comme un lien universel ou un App Link :
 
-1. Ajoutez des attributs `ses:custom-path` à vos balises d'ancrage dans le HTML de l'e-mail, ou ajoutez l'attribut dans la section **Attributes** de l'éditeur par glisser-déposer pour l'e-mail. Le chemin personnalisé est inséré dans l'URL de suivi des clics encapsulée.
+1. Ajoutez des attributs `ses:custom-path` à vos balises d'ancrage dans le HTML de l'e-mail, ou ajoutez l'attribut dans la section **Attributs** de l'éditeur par glisser-déposer pour l'e-mail. Le chemin personnalisé est inséré dans l'URL de suivi des clics encapsulée.
 
 Par exemple :
 
@@ -424,7 +424,7 @@ Si vos liens universels ne fonctionnent pas comme prévu dans vos e-mails, par e
 
 #### Outlook affiche `[?it=` ou du texte d'URL brut au lieu d'un bouton {#outlook-shows-it-or-raw-url-text-instead-of-a-button}
 
-Outlook peut afficher du texte d'appel à l'action comme `[?it=` ou imprimer une partie du `href` lorsqu'un lien n'utilise pas un schéma d'URL **`http://` ou `https://`** valide. Les schémas personnalisés, les schémas manquants ou les URL mal formées ne sont pas traités comme des hyperliens, de sorte que le client affiche le texte de l'attribut à la place. Confirmez que chaque bouton, lien d'image et URL suivie utilise une destination complète `https://` (ou `http://`). Cela s'applique aussi bien aux liens universels qu'aux liens web standard.
+Outlook peut afficher du texte d'appel à l'action comme `[?it=` ou imprimer une partie du `href` lorsqu'un lien n'utilise pas un schéma d'URL **`http://` ou `https://`** valide. Les schémas personnalisés, les schémas manquants ou les URL mal formées ne sont pas traités comme des hyperliens, de sorte que le client affiche le texte de l'attribut à la place. Confirmez que chaque bouton, lien d'image et URL suivie utilise une destination `https://` (ou `http://`) complète. Cela s'applique aussi bien aux liens universels qu'aux liens web standard.
 
 #### Vérifier l'emplacement du fichier de liens {#verify-link-file-location}
 

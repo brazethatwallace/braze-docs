@@ -53,7 +53,7 @@ O tipo de dado da variável de saída é definido no [Console do agente]({{site.
 | Objeto | Aproveite um ou mais dos tipos de dados acima com uma única chamada de LLM em uma estrutura de dados previsível |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Definir a saída do agente" }
 
-Você pode usar uma variável de saída em todo o Canvas usando a mesma sintaxe de modelo que usaria com uma variável de contexto. Use o filtro de segmento **Context Variable** ou insira as respostas do agente diretamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
+Você pode usar uma variável de saída em todo o Canvas usando a mesma sintaxe de modelo que usaria com uma variável de contexto. Use o filtro de Segment **Context Variable** ou insira as respostas do agente diretamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
 
 Para usar uma propriedade específica de uma variável de saída do tipo objeto, use a notação de ponto para acessar essa propriedade usando Liquid: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 

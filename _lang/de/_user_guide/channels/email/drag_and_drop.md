@@ -70,7 +70,7 @@ Obwohl der Drag-and-Drop-Editor Ihren Workflow mit diesen Blöcken vereinfacht, 
 
 #### Bilder in Textblöcken verschachteln {#nesting-images-inside-text-blocks}
 
-Sie können ein Bild nicht innerhalb eines Absatzes oder eines anderen Textblocks im Drag-and-Drop-Editor verschachteln. Um ein Bild neben oder innerhalb eines Textlayouts zu platzieren, verwenden Sie Spalten in einer **Zeile**: zum Beispiel eine mehrspaltige Zeile auf dem Desktop mit **Hide on mobile** für diese Zeile und eine separate Zeile nur für Mobilgeräte (mit **Hide on desktop** und **Do not stack on mobile** nach Bedarf), damit Bild und Text auf kleinen Bildschirmen sauber ausgerichtet sind.
+Sie können im Drag-and-Drop-Editor kein Bild innerhalb eines Absatzes oder eines anderen Textblocks verschachteln. Um ein Bild neben oder innerhalb eines Textlayouts zu platzieren, verwenden Sie Spalten in einer **Zeile**: zum Beispiel eine mehrspaltige Zeile auf dem Desktop mit **Hide on mobile** für diese Zeile und eine separate, nur für Mobilgeräte bestimmte Zeile (mit **Hide on desktop** und **Do not stack on mobile** nach Bedarf), damit Bild und Text auf kleinen Bildschirmen sauber ausgerichtet sind.
 
 #### Cards-Stil {#cards-style}
 
@@ -210,7 +210,8 @@ Die zugrunde liegende Engine, die HTML aus dem Drag-and-Drop-Editor erzeugt, wur
 Unser durchschnittlicher exportierter HTML-Daten-Footprint wurde reduziert, was zu schnellerem Laden und Rendering, weniger mobilem Clipping und geringerem Bandbreitenverbrauch führt.
 
 Das HTML-Rendering wurde durch die folgenden Updates verbessert, die die Anzahl der bedingten Kommentare und CSS-Media-Queries minimieren. Dadurch sind HTML-Dateien kleiner und effizienter codiert.
-- Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table>`-formatierten Codebasis
+- Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table aria-label="Inbox Vision verwenden">`-formatierten Codebasis
+  <caption>Inbox Vision verwenden</caption>
 - [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) wurden für Kompaktheit neu codiert
 - Der finale HTML-Code wird komprimiert, um Leerzeichen zwischen Tags zu entfernen
 - Transparente Trennlinien werden automatisch in Inhalts-Padding umgewandelt

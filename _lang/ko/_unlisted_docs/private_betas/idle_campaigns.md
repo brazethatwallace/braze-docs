@@ -34,9 +34,9 @@ Content Cards는 만료 기한까지 중지되지 않으며, 앞서 언급한 �
 
 | 유휴 상태 사유                                                                              | Campaign을 활성화하는 단계                     |
 |-----------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| 스케줄된 일회성 발송 Campaign으로, 발송 날짜가 지난 경우                 | 향후 발송을 스케줄합니다                            |
-| 스케줄 또는 동작 기반 Campaign으로, 종료 날짜가 있고 종료 날짜가 지난 경우 | 종료 날짜를 연장합니다                               |
-| 종료 날짜가 없는 Campaign으로, 1년 동안 메시지를 발송하지 않은 경우                                | 메시지를 하나 발송하거나 Campaign을 편집합니다 |
+| 스케줄된 일회성 발송이며 발송 날짜가 지난 Campaigns                 | 향후 발송을 스케줄합니다                            |
+| 스케줄 또는 동작 기반이며 종료 날짜가 있고 종료 날짜가 지난 Campaigns | 종료 날짜를 연장합니다                               |
+| 종료 날짜가 없고 1년 동안 메시지를 발송하지 않은 Campaigns                                | 메시지를 하나 발송하거나 Campaign을 편집합니다 |
 | 종료 날짜와 일회성 발송이 있는 Campaigns | 향후 발송을 스케줄합니다 |
 | 11개월 동안 메시지를 발송하지 않은 Campaigns | 메시지를 하나 발송하거나 Campaign을 편집합니다 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -63,9 +63,9 @@ Canvas의 [최대 기간](https://www.braze.com/docs/user_guide/engagement_tools
 
 | 유휴 상태 사유                                                                                                  | Canvas를 활성화하는 단계                     |
 |-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
-| 스케줄된 일회성 발송 Canvas로, 최대 기간이 발송 날짜를 초과한 경우                 | 향후 발송을 스케줄합니다                          |
-| 스케줄 또는 동작 기반 Canvas로, 종료 날짜가 있고 최대 기간이 종료 날짜를 초과한 경우 | 종료 날짜를 연장합니다                             |
-| 종료 날짜가 없는 Canvas로, 1년 동안 메시지를 발송하지 않은 경우                                                      | 메시지를 하나 발송하거나 Canvas를 편집합니다 |
+| 스케줄된 일회성 발송이며 최대 기간이 발송 날짜를 초과한 Canvases                 | 향후 발송을 스케줄합니다                          |
+| 스케줄 또는 동작 기반이며 종료 날짜가 있고 최대 기간이 종료 날짜를 초과한 Canvases | 종료 날짜를 연장합니다                             |
+| 종료 날짜가 없고 1년 동안 메시지를 발송하지 않은 Canvases                                                      | 메시지를 하나 발송하거나 Canvas를 편집합니다 |
 | 종료 날짜와 일회성 발송이 있는 Canvases | 향후 발송을 스케줄합니다 |
 | 11개월 동안 메시지를 발송하지 않은 Canvases | 메시지를 하나 발송하거나 Canvas를 편집합니다 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -92,9 +92,9 @@ Canvas의 [최대 기간](https://www.braze.com/docs/user_guide/engagement_tools
 
 메시지를 발송하지 않은 Campaign이나 사용자를 진입시키지 않은 Canvas가 업데이트되면 카운트다운이 초기화됩니다.
 
-#### 1년 동안 메시지를 발송하지 않은 Campaigns(또는 1년 동안 사용자를 진입시키지 않은 Canvases)가 미래의 종료 날짜를 가지고 있으면 어떻게 되나요? {#what-happens-to-campaigns-that-havent-sent-a-message-in-one-year-or-canvases-that-havent-entered-users-in-one-year-but-have-an-end-date-in-the-future}
+#### 1년 동안 메시지를 발송하지 않은 Campaigns(또는 1년 동안 사용자를 진입시키지 않은 Canvases)가 미래에 종료 날짜가 있는 경우 어떻게 되나요? {#what-happens-to-campaigns-that-havent-sent-a-message-in-one-year-or-canvases-that-havent-entered-users-in-one-year-but-have-an-end-date-in-the-future}
 
-이러한 Campaigns 및 Canvases는 종료 날짜 이후 7일 후 UTC 오전 4시에 중지됩니다.
+이러한 Campaigns 및 Canvases는 종료 날짜 이후 7일째 UTC 오전 4시에 중지됩니다.
 
 ##### Campaigns가 자동으로 중지되는 것을 막을 수 있나요? {#can-i-stop-campaigns-from-automatically-stopping}
 
@@ -108,7 +108,7 @@ Canvas의 [최대 기간](https://www.braze.com/docs/user_guide/engagement_tools
 
 Campaigns의 Content Cards는 만료 기한과 적절한 버퍼 기간까지 중지되지 않습니다. 버퍼 기간(Campaign이 일회성 발송인지, 종료 날짜가 있는지, 종료 날짜가 없는지에 따라 다름)과 만료 기한 중 더 늦은 시점에 중지됩니다.
 
-예를 들어, Content Card가 4월 1일에 만료되고, 일회성 발송이며, 전환 기한이 10일인 경우 4월 12일(전환 기한 이후 10일 + 1일)에 중지됩니다. Content Card가 4월 1일에 만료되고, API 트리거 방식이며, 3월 15일 이후 메시지를 발송하지 않은 경우 다음 해 3월 15일에 만료됩니다.
+예를 들어, Content Card가 4월 1일에 만료되고 일회성 발송이며 전환 기한이 10일인 경우, 4월 12일(전환 기한 이후 10일 + 1일)에 중지됩니다. Content Card가 4월 1일에 만료되고 API 트리거 방식이며 3월 15일 이후 메시지를 발송하지 않은 경우, 다음 해 3월 15일에 만료됩니다.
 
 Canvases는 Content Cards가 중지된 후에만 중지되며, 이는 최대 기간이 경과했음을 의미합니다.
 

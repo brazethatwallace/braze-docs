@@ -286,7 +286,7 @@ To regenerate the schema for your nested custom attribute:
 
 1. Go to **Data Settings** > **Custom Attributes**.
 2. Search for your nested custom attribute.
-3. In the **Attribute Name** column for your attribute, select <i class="fas fa-plus"></i> to manage the schema.
+3. In the **Attribute Name** column for your attribute, select <i class="fas fa-plus"></i> **Manage schema** to manage the schema.
 4. A modal will appear. Select **Regenerate Schema**.
 
 The **Regenerate Schema** action is limited to **once per calendar day** in your company's time zone. You can't start another regeneration while a schema job is already **in progress** (the option is unavailable while status is **Generating**). Regenerating the schema only detects new objects and does not delete objects that currently exist in the schema.

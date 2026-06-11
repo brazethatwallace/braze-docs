@@ -70,7 +70,7 @@ Braze 에이전트의 기능은 다음과 같습니다:
 
 ## 오류 처리 {#error-handling}
 
-Canvas 에이전트 단계에서 연결된 모델이 LLM 제공업체로부터 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors)를 반환하면, Braze는 지수 백오프를 사용하여 최대 5회까지 요청을 재시도합니다. 시간 초과나 잘못된 API 키와 같은 기타 실패의 경우, 에이전트 출력은 `null`로 설정됩니다. 에이전트가 일일 실행 한도에 도달하면 출력도 `null`로 설정됩니다.
+Canvas 에이전트 단계에서 연결된 모델이 LLM 제공업체로부터 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors)를 반환하면, Braze는 지수 백오프를 사용하여 최대 5회까지 요청을 재시도합니다. 시간 초과나 잘못된 API 키와 같은 기타 실패의 경우, 에이전트 출력은 `null`로 설정됩니다. 에이전트가 일일 실행 한도에 도달한 경우에도 출력은 `null`로 설정됩니다.
 
 많은 사용자가 동시에 에이전트 단계에 진입하면, [실행 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls)로 인해 처리 시간이 더 오래 걸릴 수 있습니다. 메시지에서 null 출력에 대비하려면 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하세요.
 

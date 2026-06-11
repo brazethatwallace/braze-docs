@@ -197,9 +197,9 @@ Braze가 구성된 대로 동작했더라도 전달이 잘못된 것처럼 보�
 
 - 하나의 받은편지함을 공유하는 **중복 프로필**([이메일이 발송될 때 여러 프로필이 동일한 이메일 주소를 가지고 있으면 어떻게 되나요?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address) 참조).
 - 오디언스에 포함되었거나 CC/BCC로 발송에 포함된 **시드 목록, 테스트 수신자 또는 내부 주소**.
-- **Segment 또는 Canvas 타이밍:** Braze가 적격성을 평가할 때 사용자가 오디언스 또는 캔버스 단계에 일치했지만, 메시지를 읽기 전에 속성 또는 구독 상태가 변경된 경우.
+- **Segment 또는 Canvas 타이밍:** Braze가 적격성을 평가할 때 사용자가 오디언스 또는 캔버스 단계에 일치했지만, 메시지를 읽기 전에 속성이나 구독 상태가 변경된 경우.
 - **구독 그룹:** 글로벌 구독 상태가 달리 시사하더라도 메시지가 타겟팅한 그룹에 사용자가 옵트인 상태를 유지한 경우.
-- **API 또는 파일 가져오기**가 세분화 이후 변경이 적용될 것으로 예상하기 전에 사용자를 업데이트한 경우.
+- **API 또는 파일 가져오기**로 세분화 이후 변경 사항이 적용될 것으로 예상하기 전에 사용자가 업데이트된 경우.
 
 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), Campaign 또는 Canvas 체인지로그, Segment 정의를 검토하세요. 발송을 여전히 확인할 수 없는 경우, 사용자 식별자, `dispatch_id`(가능한 경우) 및 타임스탬프와 함께 Braze 고객지원에 문의하세요.
 
@@ -213,7 +213,7 @@ Braze가 구성된 대로 동작했더라도 전달이 잘못된 것처럼 보�
 - 메시지가 스팸 폴더에 있을 수 있습니다.
 
 {% alert tip %}
-Braze의 전달 이벤트는 이메일이 사서함 공급자의 서버에 의해 수락되었음을 의미합니다. 그러나 이것이 메시지가 사용자의 받은편지함에 나타나는 것을 보장하지는 않습니다. 사서함 공급자는 메시지를 스팸으로 라우팅하거나, 드문 경우 메시지 표시를 조용히 차단할 수 있습니다.
+Braze의 전달 이벤트는 이메일이 사서함 공급자의 서버에 의해 수락되었음을 의미합니다. 그러나 이것이 메시지가 사용자의 받은편지함에 나타나는 것을 보장하지는 않습니다. 사서함 공급자가 메시지를 스팸으로 라우팅하거나, 드문 경우 메시지 표시를 조용히 차단할 수 있습니다.
 {% endalert %}
 
 다음 표를 사용하여 원인을 좁혀보세요.
@@ -223,7 +223,7 @@ Braze의 전달 이벤트는 이메일이 사서함 공급자의 서버에 의�
 | 가능한 원인 | 확인 사항 |
 |---|---|
 | 사용자가 Campaign 또는 Canvas에 적격하지 않았습니다 | **Target Audiences**(Campaign의 경우) 또는 **Target Audience**(Canvas의 경우) [설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)을 확인하여 발송 시점에 사용자가 모든 오디언스 필터, Segment 기준 및 전달 규칙을 충족했는지 확인하세요. |
-| 메시지가 중단되었습니다 | [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 Liquid 오류 또는 필수 필드 누락과 같은 중단 사유를 확인하세요. |
+| 메시지가 중단되었습니다 | [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 Liquid 오류나 필수 필드 누락과 같은 중단 사유를 확인하세요. |
 | 사용자의 이메일 주소가 유효하지 않거나 누락되었습니다 | **사용자 검색**에서 사용자의 프로필을 확인하여 발송 시점에 유효한 이메일 주소가 등록되어 있었는지 확인하세요. |
 | 사용자의 이메일 주소가 이전에 하드바운스되었습니다 | 하드바운스는 이메일 주소를 유효하지 않은 것으로 표시하고 해당 주소로의 향후 발송을 차단합니다. 마찬가지로, 수신자가 이메일을 스팸으로 표시하면 Braze는 해당 사용자에게 표준 Campaign이 아닌 트랜잭션 이메일만 발송합니다. 사용자 프로필의 **참여** 탭을 확인하세요. 자세한 내용은 [탈퇴된 이메일 주소]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) 및 [반송 및 유효하지 않은 이메일]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails)을 참조하세요. |
 | 사용자가 이메일을 탈퇴했습니다 | **참여** 탭의 **연락처 설정**에서 사용자의 구독 상태를 확인하세요. Braze는 탈퇴한 사용자에게 이메일을 발송하지 않습니다. |

@@ -69,6 +69,7 @@ Message Credits:
 Credit Unit Rates: <input type="text" id="credit_rate" value="0" />
 <div id="message_error"></div><br /><br />
 <table aria-label="Message Credits - Calculator">
+  <thead>
   <tr>
     <th>
       Channel
@@ -89,6 +90,8 @@ Credit Unit Rates: <input type="text" id="credit_rate" value="0" />
       Implied Rates
     </th>
   </tr>
+  </thead>
+  <tbody>
   <tr><td>SMS - US / CA</td><td id="sms_-_us_ca_united_states_ratio"></td><td>United States</td><td id="sms_-_us_ca_united_states_multiplier"></td><td id="sms_-_us_ca_united_states_credit"></td><td id="sms_-_us_ca_united_states_rates"></td></tr>
   <tr><td>SMS - US / CA</td><td id="sms_-_us_ca_united_states_toll_free_ratio"></td><td>United States Toll Free</td><td id="sms_-_us_ca_united_states_toll_free_multiplier"></td><td id="sms_-_us_ca_united_states_toll_free_credit"></td><td id="sms_-_us_ca_united_states_toll_free_rates"></td></tr>
   <tr><td>SMS - US / CA</td><td id="sms_-_us_ca_canada_ratio"></td><td>Canada</td><td id="sms_-_us_ca_canada_multiplier"></td><td id="sms_-_us_ca_canada_credit"></td><td id="sms_-_us_ca_canada_rates"></td></tr>
@@ -465,6 +468,7 @@ Credit Unit Rates: <input type="text" id="credit_rate" value="0" />
   <tr><td>WhatsApp</td><td id="whatsapp_united_kingdom_marketing_ratio"></td><td>United Kingdom Marketing</td><td id="whatsapp_united_kingdom_marketing_multiplier"></td><td id="whatsapp_united_kingdom_marketing_credit"></td><td id="whatsapp_united_kingdom_marketing_rates"></td></tr>
   <tr><td>WhatsApp</td><td id="whatsapp_united_kingdom_service_ratio"></td><td>United Kingdom Service</td><td id="whatsapp_united_kingdom_service_multiplier"></td><td id="whatsapp_united_kingdom_service_credit"></td><td id="whatsapp_united_kingdom_service_rates"></td></tr>
   <tr><td>WhatsApp</td><td id="whatsapp_united_kingdom_utility_ratio"></td><td>United Kingdom Utility</td><td id="whatsapp_united_kingdom_utility_multiplier"></td><td id="whatsapp_united_kingdom_utility_credit"></td><td id="whatsapp_united_kingdom_utility_rates"></td></tr>
+  </tbody>
   </table>
 </div>
 

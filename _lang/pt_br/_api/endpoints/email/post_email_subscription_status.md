@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Solução de problemas com bloqueios de e-mail do SendGrid {#troubleshooting-sendgrid-email-blocks}
 
-Quando o SendGrid bloqueia um destinatário, atualize o status da inscrição com esse endpoint e revise o engajamento com filtros de segmento. Use os eventos de soft bounce do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para monitoramento de entregabilidade e confirme o estado da inscrição antes de tentar novos envios.
+Quando o SendGrid bloqueia um destinatário, atualize o status da inscrição com esse endpoint e revise o engajamento usando filtros de segmento. Use os eventos de soft bounce do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para monitoramento de entregabilidade e confirme o estado da inscrição antes de tentar reenviar.
 
 ## Exemplo de solicitação {#example-request}
 ```

@@ -224,7 +224,7 @@ Você pode adicionar variantes adicionais selecionando o botão de mais <i class
 ![Dois exemplos de variantes em um Canvas da Braze.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-Por padrão, a atribuição de variante do Canvas é fixada quando os usuários entram no Canvas. Ou seja, se um usuário entrar em uma variante pela primeira vez, essa será sua variante toda vez que reentrar no Canvas. No entanto, existem formas de contornar esse comportamento. <br><br>Para isso, você pode criar um gerador de números aleatórios usando Liquid, executá-lo no início de cada entrada do usuário no Canvas, armazenar o valor como um atributo personalizado e usar esse atributo para dividir os usuários aleatoriamente.
+Por padrão, a atribuição de variante do Canvas é determinada por uma função do ID do usuário e do ID do Canvas, o que significa que um determinado usuário é atribuído de forma consistente à mesma variante ao reentrar, desde que as porcentagens de distribuição de variantes permaneçam inalteradas. Se você ajustar a distribuição de variantes após o lançamento, os usuários podem ser atribuídos a variantes diferentes quando reentrarem no Canvas. <br><br>Se você precisar de controle total sobre a atribuição de variantes que persista mesmo quando a distribuição mudar, pode criar um gerador de números aleatórios usando Liquid, executá-lo no início de cada entrada do usuário no Canvas, armazenar o valor como um atributo personalizado e usar esse atributo para dividir os usuários em ramificações.
 
 {% details Expandir para ver as etapas %}
 
@@ -278,7 +278,7 @@ Você sabia que pode incluir nomes de componentes do Canvas nas suas mensagens e
 Use a Liquid tag `campaign.${name}` no Canvas para exibir o nome do componente atual do Canvas.
 {% endalert %}
 
-O componente de mensagem gerencia as mensagens enviadas aos usuários. Você pode selecionar seus **canais de envio de mensagens** e ajustar as **configurações de entrega** para otimizar o envio de mensagens do Canvas. Para mais detalhes sobre este componente, confira [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
+O componente de mensagem gerencia as mensagens enviadas aos usuários. Você pode selecionar seus **Canais de envio de mensagens** e ajustar as **Configurações de entrega** para otimizar o envio de mensagens do Canvas. Para mais detalhes sobre este componente, confira [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
 
 ![A etapa "Configurar mensagens", com "Canais de envio de mensagens" selecionado, exibindo a lista de canais de envio de mensagens disponíveis, como push para Android, Content Cards, e-mail e mais.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 

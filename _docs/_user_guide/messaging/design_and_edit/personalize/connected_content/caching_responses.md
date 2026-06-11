@@ -16,13 +16,13 @@ To prevent caching, you can specify `:no_cache`, which may cause increased netwo
 {% details Connected Content rendering and data handling (advanced) %}
 This section provides a more detailed, end-to-end view of how Braze renders Liquid and Connected Content and where data can exist temporarily before a message is sent. This may help with privacy and data-handling reviews.
 
-#### What is and isn’t stored
+## What is and isn’t stored
 
 - **Connected Content response body:** Not permanently stored by Braze. It can be held temporarily in memory and, when caching is enabled, stored in cache with a time-to-live (TTL).
 - **Connected Content request metadata:** Request metadata, such as the fully rendered URL, HTTP status code, and response duration, are logged for troubleshooting and monitoring. These logs are kept for up to 30 days. 
 - **Final rendered message:** Exists in memory during rendering. This may also be stored elsewhere depending on your configuration and channel (for example, Message Archiving or Content Cards).
 
-#### Rendering flow (high level)
+## Rendering flow (high level)
 
 The following flow describes how Braze renders and sends messages for provider-based channels such as email, SMS, and push. SDK-delivered channels like  Content Cards use the same underlying Liquid and Connected Content rendering but differ in when the content is generated and how it is delivered.
 
@@ -32,7 +32,7 @@ The following flow describes how Braze renders and sends messages for provider-b
 4. The response is injected into the Liquid template and the message is fully rendered.
 5. For provider-based channels, the rendered message is sent to the channel provider and then to the user. For SDK-delivered channels such as Content Cards, the rendered content is synced to the Braze SDK and can be generated at first impression or display time, at which point it is shown to the user.
 
-#### Where Connected Content responses can live temporarily
+## Where Connected Content responses can live temporarily
 
 Braze uses a multi-tier cache for Connected Content responses with TTLs between five minutes and four hours, depending on your use of `:cache_max_age` and other caching rules:
 
@@ -42,11 +42,11 @@ Braze uses a multi-tier cache for Connected Content responses with TTLs between 
 
 These cache layers are volatile and can evict data earlier than the configured TTL.
 
-#### What changes when you use `:no_cache`
+## What changes when you use `:no_cache`
 
 For endpoints that are not hosted inside Braze infrastructure, using `:no_cache` prevents the Connected Content response body from being stored in Memcached. In these cases, the response only lives in the worker process memory for the duration of the rendering job (up to ~11 minutes). For endpoints that resolve to hosts internal to Braze, responses may still be cached as described in [Cache busting](#cache-busting).
 
-#### Where the final rendered output can live
+## Where the final rendered output can live
 
 - **Message Archiving:** If Message Archiving is enabled, Braze may write the final rendered message to your configured cloud storage bucket. If your Connected Content response is included in the rendered message, it will be included in the archived copy.
 - **User devices:** After delivery, the fully rendered message content can persist on user devices for an unknown amount of time.
@@ -63,9 +63,9 @@ The cache age is up to five minutes (300 seconds). You can update this by adding
 ```
 {% endraw %}
 
-GET requests are cached. You can configure this by adding the `:no_cache` parameter to the Connected Content call.
+GET requests are cached by default. You can disable caching by adding the `:no_cache` parameter to the Connected Content call.
 
-POST requests are not cached by default, but can be cached by adding the `:cache_max_age` parameter to the Connected Content call. The minimum cache time is 5 minutes, and the maximum cache time is 4 hours.
+POST requests are not cached by default, but you can enable caching by adding the `:cache_max_age` parameter to the Connected Content call. The minimum cache time is 5 minutes, and the maximum cache time is 4 hours.
 
 {% alert note %}
 Cache settings aren’t guaranteed. Caching can reduce calls to your endpoints, so we recommend using multiple calls per endpoint within the cache duration rather than being overly reliant on caching.

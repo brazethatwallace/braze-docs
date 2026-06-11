@@ -32,4 +32,4 @@ CSS 인라이닝은 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/
 
 ## 커스텀 HTML 템플릿의 Content Blocks {#content-blocks-in-custom-html-templates}
 
-**커스텀 HTML** 이메일 템플릿이나 Campaign 내에서 Liquid를 사용하여 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)을 가져오면, 상위 템플릿의 CSS 규칙이 콘텐츠 블록 내부에 정의된 스타일을 재정의할 수 있습니다. 템플릿 래퍼에서 충돌하는 선택자나 전역 규칙이 있는지 확인하세요.
+**커스텀 HTML** 이메일 템플릿이나 Campaign에서 Liquid를 사용하여 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)을 가져올 때, 상위 템플릿의 CSS 규칙이 콘텐츠 블록 내부에 정의된 스타일을 재정의할 수 있습니다. 템플릿 래퍼에서 충돌하는 선택자나 전역 규칙이 있는지 확인하세요.

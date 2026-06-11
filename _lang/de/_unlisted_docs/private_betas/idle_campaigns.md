@@ -12,21 +12,21 @@ hidden: true
 Ab 2024 werden Canvases als **Inaktiv** markiert und gestoppt, ähnlich wie Campaigns. Wenn Canvases inaktiv oder gestoppt sind, folgen sie der in diesem Dokument beschriebenen Logik.
 {% endalert %}
 
-Campaigns und Canvases erhalten den Status „Inaktiv“, wenn sie seit einiger Zeit keine Nachrichten mehr gesendet oder keine Nutzer:innen mehr aufgenommen haben. Diese Campaigns und Canvases werden automatisch zu ihrem zugehörigen Stoppdatum gestoppt. Sie können nach inaktiven Campaigns und Canvases filtern, um Ihre Liste von Campaigns und Canvases zu sortieren und zu verwalten.
+Campaigns und Canvases erhalten den Status „Inaktiv“, wenn sie seit einiger Zeit keine Nachrichten gesendet oder keine Nutzer:innen aufgenommen haben. Diese Campaigns und Canvases werden automatisch zu ihrem zugehörigen Stoppdatum gestoppt. Sie können nach inaktiven Campaigns und Canvases filtern, um Ihre Liste von Campaigns und Canvases zu sortieren und zu verwalten.
 
-Campaigns und Canvases mit Enddatum und einmaligem Versand sind 7 Tage lang inaktiv, bevor sie automatisch gestoppt werden. Campaigns und Canvases, die seit 11 Monaten keine Nachricht gesendet haben, sind 1 Monat lang inaktiv, bevor sie automatisch gestoppt werden.
+Campaigns und Canvases mit Enddaten und einmaligen Sendungen sind 7 Tage lang inaktiv, bevor sie automatisch gestoppt werden. Campaigns und Canvases, die seit 11 Monaten keine Nachricht gesendet haben, sind 1 Monat lang inaktiv, bevor sie automatisch gestoppt werden.
 
 ## Inaktive Campaigns {#idle-campaigns}
 
 Fortlaufend werden inaktive Campaigns, die die folgenden Kriterien erfüllen, gestoppt:
 
-- Ein geplanter einmaliger Versand liegt mehr als sieben Tage nach dem Versanddatum
+- Eine geplante einmalige Sendung liegt mehr als sieben Tage nach ihrem Sendedatum
 - Eine geplante oder aktionsbasierte Campaign mit einem Enddatum liegt mehr als sieben Tage nach ihrem Enddatum
 - Eine Campaign ohne Enddatum, die seit einem Jahr keine Nachrichten gesendet hat
 
-Bei Campaigns ohne Enddatum wird der Einjahres-Countdown zum Stoppen der Campaign zurückgesetzt, wenn eine Nachricht gesendet oder die Campaign aktualisiert wird. Wenn Campaigns gestoppt werden, benachrichtigt Braze die Kund:innen im Dashboard und per E-Mail.
+Bei Campaigns ohne Enddaten wird der Einjahres-Countdown zum Stoppen der Campaign zurückgesetzt, wenn eine Nachricht gesendet oder die Campaign aktualisiert wird. Wenn Campaigns gestoppt werden, benachrichtigt Braze die Kund:innen in ihrem Dashboard und per E-Mail.
 
-Campaigns werden zum späteren der beiden folgenden Zeitpunkte gestoppt: dem Standard-Stoppdatum oder einem Tag nach der letzten Conversion-Frist. Versendungen, die aus einer Gewinnervariante oder personalisierten Variante resultieren, werden als geplante Versendungen behandelt und sieben Tage nach dem Versand der Gewinnervariante oder personalisierten Variante gestoppt. Alle Campaigns werden täglich um 4 Uhr UTC für alle Braze-Nutzer:innen gestoppt.
+Campaigns werden zum späteren der beiden folgenden Zeitpunkte gestoppt: dem Standard-Stoppdatum oder einem Tag nach ihrer letzten Conversion-Frist. Sendungen, die aus einer Gewinnervariante oder personalisierten Variante resultieren, werden als geplante Sendungen behandelt und sieben Tage nach dem Versand der Gewinnervariante oder personalisierten Variante gestoppt. Alle Campaigns werden täglich um 4 Uhr UTC für alle Braze-Nutzer:innen gestoppt.
 
 Content Cards werden erst nach Ablauf ihrer Gültigkeitsfrist gestoppt und unterliegen ebenfalls den oben genannten Kriterien sowie der Conversion-Frist-Regel.
 
@@ -34,11 +34,11 @@ In dieser Tabelle erfahren Sie, wie Sie eine inaktive Campaign aktiv halten:
 
 | Grund für den Inaktiv-Status                                                                              | Schritte, um die Campaign zu aktivieren                     |
 |-----------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| Campaigns mit geplantem einmaligem Versand, deren Versanddatum überschritten ist                 | Einen zukünftigen Versand planen                            |
-| Campaigns, die geplant oder aktionsbasiert sind, ein Enddatum haben und das Enddatum überschritten ist | Das Enddatum verlängern                               |
-| Campaigns ohne Enddatum, die seit einem Jahr keine Nachrichten gesendet haben                                | Eine Nachricht senden oder die Campaign bearbeiten |
-| Campaigns mit Enddatum und einmaligem Versand | Einen zukünftigen Versand planen |
-| Campaigns, die seit 11 Monaten keine Nachricht gesendet haben | Eine Nachricht senden oder die Campaign bearbeiten |
+| Campaigns mit geplanten einmaligen Sendungen, deren Sendedatum überschritten ist                 | Planen Sie eine zukünftige Sendung                            |
+| Campaigns, die geplant oder aktionsbasiert sind, Enddaten haben und deren Enddatum überschritten ist | Verlängern Sie das Enddatum                               |
+| Campaigns ohne Enddatum, die seit einem Jahr keine Nachrichten gesendet haben                                | Senden Sie eine Nachricht oder nehmen Sie eine beliebige Änderung an der Campaign vor |
+| Campaigns mit Enddaten und einmaligen Sendungen | Planen Sie eine zukünftige Sendung |
+| Campaigns, die seit 11 Monaten keine Nachricht gesendet haben | Senden Sie eine Nachricht oder nehmen Sie eine beliebige Änderung an der Campaign vor |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### In-App-Nachricht-Campaigns {#in-app-message-campaigns}
@@ -51,11 +51,11 @@ Wenn Ihre Nutzer:innen ein Impressions-Ereignis auslösen oder der Marketer die 
 
 Fortlaufend werden inaktive Canvases, die die folgenden Kriterien erfüllen, gestoppt:
 
-- Ein geplanter einmaliger Versand liegt mehr als 7 Tage nach dem Versanddatum und der maximalen Dauer
-- Ein geplanter oder aktionsbasierter Canvas mit einem Enddatum liegt mehr als 7 Tage nach dem Enddatum und der maximalen Dauer
+- Eine geplante einmalige Sendung liegt mehr als 7 Tage nach ihrem Sendedatum und ihrer maximalen Dauer
+- Ein geplanter oder aktionsbasierter Canvas mit einem Enddatum liegt mehr als 7 Tage nach seinem Enddatum und seiner maximalen Dauer
 - Ein Canvas ohne Enddatum hat seit über 12 Monaten keine Nutzer:innen aufgenommen oder wurde nicht bearbeitet, und seine maximale Dauer ist abgelaufen
 
-Bei Canvases ohne Enddatum wird der Einjahres-Countdown zum Stoppen des Canvas zurückgesetzt, wenn ein:e Nutzer:in aufgenommen wird oder der Canvas aktualisiert wird. Wenn Canvases gestoppt werden, benachrichtigt Braze die Kund:innen im Dashboard und per E-Mail.
+Bei Canvases ohne Enddaten wird der Einjahres-Countdown zum Stoppen des Canvas zurückgesetzt, wenn ein:e Nutzer:in aufgenommen wird oder der Canvas aktualisiert wird. Wenn Canvases gestoppt werden, benachrichtigt Braze die Kund:innen in ihrem Dashboard und per E-Mail.
 
 Die [maximale Dauer](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) eines Canvas ist die längstmögliche Zeit, die ein:e Nutzer:in benötigen kann, um einen bestimmten Canvas abzuschließen. Diese Dauer umfasst Ablauffristen für Content Cards und In-App-Nachrichten.
 
@@ -63,11 +63,11 @@ In dieser Tabelle erfahren Sie, wie Sie einen inaktiven Canvas aktiv halten:
 
 | Grund für den Inaktiv-Status                                                                                                  | Schritte, um den Canvas zu aktivieren                     |
 |-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
-| Canvases mit geplantem einmaligem Versand und maximaler Dauer nach dem Versanddatum                 | Einen zukünftigen Versand planen                          |
-| Canvases, die geplant oder aktionsbasiert sind, ein Enddatum haben und die maximale Dauer nach dem Enddatum überschritten ist | Das Enddatum verlängern                             |
-| Canvases ohne Enddatum, die seit einem Jahr keine Nachrichten gesendet haben                                                      | Eine Nachricht senden oder den Canvas bearbeiten |
-| Canvases mit Enddatum und einmaligem Versand | Einen zukünftigen Versand planen |
-| Canvases, die seit 11 Monaten keine Nachricht gesendet haben | Eine Nachricht senden oder den Canvas bearbeiten |
+| Canvases mit geplanten einmaligen Sendungen, deren maximale Dauer nach dem Sendedatum überschritten ist                 | Planen Sie eine zukünftige Sendung                          |
+| Canvases, die geplant oder aktionsbasiert sind, Enddaten haben und deren maximale Dauer nach dem Enddatum überschritten ist | Verlängern Sie das Enddatum                             |
+| Canvases ohne Enddaten, die seit einem Jahr keine Nachrichten gesendet haben                                                      | Senden Sie eine Nachricht oder nehmen Sie eine beliebige Änderung am Canvas vor |
+| Canvases mit Enddaten und einmaligen Sendungen | Planen Sie eine zukünftige Sendung |
+| Canvases, die seit 11 Monaten keine Nachricht gesendet haben | Senden Sie eine Nachricht oder nehmen Sie eine beliebige Änderung am Canvas vor |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 Wenn es keine Option zur Wiederherstellung von Interaktionsdaten gibt, kann dies folgende Gründe haben:
@@ -84,7 +84,7 @@ Dies gilt für Campaigns und Canvases, die die zuvor aufgeführten Kriterien ber
 
 #### Wie erkenne ich, ob eine Campaign oder ein Canvas inaktiv ist? {#how-do-i-know-if-a-campaign-or-canvas-is-idle}
 
-Inaktive Campaigns und Canvases werden auf den Listenseiten für Campaigns und Canvases unter der Kategorie **Inaktiv** angezeigt. Das Datum, an dem die Campaign oder der Canvas gestoppt wird, ist als Spalte in der Liste aufgeführt.
+Inaktive Campaigns und Canvases werden auf den Listenseiten für Campaigns und Canvases unter der Kategorie **Inaktiv** angezeigt. Das Datum, an dem die Campaign oder der Canvas gestoppt wird, wird als Spalte in der Liste aufgeführt.
 
 ![Der Filter „Inaktiv“ auf der Seite „Campaigns“.][1]{: style="max-width:60%;"}
 
@@ -106,9 +106,9 @@ Standardmäßig sind alle Nutzer:innen mit Administratorberechtigungen für E-Ma
 
 #### Wie funktioniert das Stoppen von Content Cards? {#how-does-stopping-content-cards-work}
 
-Content Cards in Campaigns werden erst nach Ablauf ihrer Gültigkeitsfrist und der entsprechenden Pufferzeit gestoppt. Sie werden zum späteren der beiden folgenden Zeitpunkte gestoppt: der Pufferzeit (je nachdem, ob die Campaign ein einmaliger Versand ist, ein Enddatum hat oder kein Enddatum hat) und der Gültigkeitsfrist.
+Content Cards in Campaigns werden erst nach Ablauf ihrer Gültigkeitsfrist und der entsprechenden Pufferzeit gestoppt. Sie werden zum späteren der beiden folgenden Zeitpunkte gestoppt: der Pufferzeit (je nachdem, ob die Campaign eine einmalige Sendung ist, ein Enddatum hat oder kein Enddatum hat) und der Gültigkeitsfrist.
 
-Wenn beispielsweise eine Content Card am 1. April abläuft, ein einmaliger Versand ist und eine Conversion-Frist von 10 Tagen hat, wird sie am 12. April gestoppt (10 Tage nach der Conversion-Frist plus ein Tag). Wenn eine Content Card am 1. April abläuft, API-getriggert ist und seit dem 15. März keine Nachrichten gesendet hat, läuft sie am 15. März des nächsten Jahres ab.
+Wenn beispielsweise eine Content Card am 1. April abläuft, eine einmalige Sendung ist und eine Conversion-Frist von 10 Tagen hat, wird sie am 12. April gestoppt (10 Tage nach der Conversion-Frist plus ein Tag). Wenn eine Content Card am 1. April abläuft, API-getriggert ist und seit dem 15. März keine Nachrichten gesendet hat, läuft sie am 15. März des nächsten Jahres ab.
 
 Canvases werden erst gestoppt, nachdem die Content Cards gestoppt wurden, d. h. ihre maximale Dauer abgelaufen ist.
 

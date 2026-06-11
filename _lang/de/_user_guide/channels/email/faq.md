@@ -54,7 +54,7 @@ Vermeiden Sie [multivariate und A/B-Tests]({{site.baseurl}}/user_guide/engagemen
 
 #### Canvas und doppelte E-Mail-Adressen {#canvas-and-duplicate-email-addresses}
 
-Bei Canvas-Journeys kann es von der Eintritts-Batchverarbeitung, dem Schritt-Timing und anderen Faktoren abhängen, ob doppelte E-Mail-Adressen einen oder mehrere Versande erhalten. Betrachten Sie das Verhalten als undefiniert, bis Sie es für Ihre Journey validiert haben. Führen Sie nach Möglichkeit doppelte Profile zusammen oder konsolidieren Sie sie. Wenn Sie eine Produktänderung benötigen, reichen Sie Feedback über Ihr Braze-Team ein.
+Bei Canvas-Journeys kann es von der Eintritts-Batchverarbeitung, dem Schritt-Timing und anderen Faktoren abhängen, ob doppelte E-Mail-Adressen einen oder mehrere Versände erhalten. Betrachten Sie das Verhalten als undefiniert, bis Sie es für Ihre Journey validiert haben. Führen Sie nach Möglichkeit doppelte Profile zusammen oder konsolidieren Sie sie. Wenn Sie eine Produktänderung benötigen, reichen Sie Feedback über Ihr Braze-Team ein.
 
 ### Was passiert mit dem Abo-Status, wenn die E-Mail-Adresse einer/eines Nutzers:in auf eine geändert wird, die von einer/einem anderen Nutzer:in geteilt wird? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -197,7 +197,7 @@ Die Zustellung kann falsch aussehen, selbst wenn Braze wie konfiguriert funktion
 
 - **Doppelte Profile**, die einen Posteingang teilen (siehe [Was passiert, wenn eine E-Mail versendet wird und mehrere Profile dieselbe E-Mail-Adresse haben?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
 - **Seed-Listen, Testempfänger:innen oder interne Adressen**, die in der Zielgruppe enthalten sind oder als CC/BCC bei einem Versand hinzugefügt wurden.
-- **Segment- oder Canvas-Timing:** Die/der Nutzer:in entsprach der Zielgruppe oder dem Canvas-Schritt, als Braze die Berechtigung ausgewertet hat, dann änderten sich Attribute oder der Abo-Status, bevor sie/er die Nachricht gelesen hat.
+- **Segment- oder Canvas-Timing:** Die/der Nutzer:in entsprach der Zielgruppe oder dem Canvas-Schritt, als Braze die Berechtigung ausgewertet hat, und dann änderten sich Attribute oder der Abo-Status, bevor sie/er die Nachricht gelesen hat.
 - **Abo-Gruppen:** Die/der Nutzer:in war weiterhin in einer Gruppe angemeldet, die Ihre Nachricht angesprochen hat, auch wenn ihr/sein globaler Abo-Status etwas anderes vermuten ließ.
 - **API- oder Dateiimporte**, die die/den Nutzer:in nach der Segmentierung, aber bevor Sie die Änderung erwartet haben, aktualisiert haben.
 
@@ -222,11 +222,11 @@ Verwenden Sie die folgenden Tabellen, um die Ursache einzugrenzen.
 
 | Mögliche Ursache | Was zu prüfen ist |
 |---|---|
-| Die/der Nutzer:in war nicht für die Campaign oder das Canvas berechtigt | Überprüfen Sie die **Target Audiences**- (für Campaigns) oder **Target Audience**-[Einstellungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) (für Canvas), um zu bestätigen, dass die/der Nutzer:in zum Sendezeitpunkt alle Zielgruppen-Filter, Segment-Kriterien und Zustellregeln erfüllt hat. |
+| Die/der Nutzer:in war nicht für die Campaign oder das Canvas berechtigt | Überprüfen Sie die **Target Audiences** (für Campaigns) oder **Target Audience** (für Canvas) [Einstellungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), um zu bestätigen, dass die/der Nutzer:in zum Sendezeitpunkt alle Zielgruppen-Filter, Segment-Kriterien und Zustellregeln erfüllt hat. |
 | Die Nachricht wurde abgebrochen | Überprüfen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) auf Abbruchgründe, wie Liquid-Fehler oder fehlende Pflichtfelder. |
 | Die E-Mail-Adresse der/des Nutzers:in war ungültig oder fehlte | Überprüfen Sie in der **Nutzersuche** das Profil der/des Nutzers:in, um sicherzustellen, dass zum Sendezeitpunkt eine gültige E-Mail-Adresse hinterlegt war. |
 | Die E-Mail-Adresse der/des Nutzers:in hatte zuvor einen Hard Bounce | Ein Hard Bounce markiert die E-Mail-Adresse als ungültig und verhindert zukünftige Sendungen an diese Adresse. Ebenso sendet Braze, wenn ein:e Empfänger:in Ihre E-Mail als Spam markiert, nur Transaktions-E-Mails an diese:n Nutzer:in, keine Standard-Campaigns. Überprüfen Sie den Tab **Engagement** im Profil der/des Nutzers:in. Weitere Informationen finden Sie unter [Abgemeldete E-Mail-Adressen]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) und [Bounces und ungültige E-Mails]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails). |
-| Die/der Nutzer:in hat E-Mails abbestellt | Überprüfen Sie den Abo-Status der/des Nutzers:in unter **Kontakteinstellungen** im Tab **Engagement**. Braze sendet keine E-Mails an Nutzer:innen, die sich abgemeldet haben. |
+| Die/der Nutzer:in hat E-Mails abgemeldet | Überprüfen Sie den Abo-Status der/des Nutzers:in unter **Kontakteinstellungen** im Tab **Engagement**. Braze sendet keine E-Mails an Nutzer:innen, die abgemeldet sind. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ursache für nicht gesendete E-Mail" }
 
 #### Die E-Mail wurde gesendet, ist aber nicht im Posteingang angekommen {#the-email-was-sent-but-didnt-arrive-in-their-inbox}
@@ -235,9 +235,9 @@ Verwenden Sie die folgenden Tabellen, um die Ursache einzugrenzen.
 |---|---|
 | Der Postfachanbieter (MBP) war nicht erreichbar | Ein vorübergehendes Problem verhinderte, dass die E-Mail den MBP der/des Empfängers:in erreichte. Dies löst sich in der Regel durch Wiederholungsversuche von selbst. E-Mail-Anbieter wiederholen Soft Bounces bis zu 72 Stunden lang. |
 | Der MBP hat die E-Mail zurückgewiesen | Der Mailserver der/des Empfängers:in hat die E-Mail abgelehnt. Überprüfen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) auf Bounce-Details. |
-| Der MBP hat die E-Mail stillschweigend verworfen | Der MBP hat die E-Mail akzeptiert, sie aber der/dem Nutzer:in nicht angezeigt und keinen Bounce zurückgegeben. Dies liegt außerhalb der Kontrolle von Braze und kann in Braze-Protokollen nicht erkannt werden. |
+| Der MBP hat die E-Mail stillschweigend verworfen | Der MBP hat die E-Mail akzeptiert, sie aber der/dem Nutzer:in nicht angezeigt und keinen Bounce zurückgegeben. Dies liegt außerhalb der Kontrolle von Braze und kann in den Braze-Protokollen nicht erkannt werden. |
 | Die E-Mail ist im Spam-Ordner gelandet | Der MBP hat die Nachricht als Spam identifiziert und in den Spam- oder Junk-Ordner der/des Nutzers:in geleitet. Bitten Sie die/den Nutzer:in, den Spam-Ordner zu überprüfen. |
-| Die/der Empfänger:in hat benutzerdefinierte E-Mail-Filterung | Die/der Nutzer:in oder deren/dessen IT-Administrator:in hat möglicherweise Postfachregeln konfiguriert, die eingehende Nachrichten filtern, umleiten oder löschen. |
+| Die/der Empfänger:in hat benutzerdefinierte E-Mail-Filterung | Die/der Nutzer:in oder ihr/sein IT-Administrator hat möglicherweise Postfachregeln konfiguriert, die eingehende Nachrichten filtern, umleiten oder löschen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ursache für E-Mail nicht im Posteingang" }
 
 ### Wie kann ich Bilder in Outlook optimieren? {#how-can-i-optimize-images-in-outlook}

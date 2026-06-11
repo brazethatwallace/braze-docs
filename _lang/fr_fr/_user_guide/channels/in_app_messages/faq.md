@@ -141,13 +141,13 @@ Ce tableau compare les flux de messages in-app que Sam a expérimentés :
 
 ### Pourquoi le bouton de fermeture est-il masqué sur les messages in-app HTML plein écran sur Android ? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 
-Sur les appareils avec des affichages bord à bord (y compris Android 15+), les messages in-app HTML plein écran peuvent s'afficher derrière la barre d'état du système et masquer un contrôle de fermeture en haut de la mise en page.
+Sur les appareils avec des écrans bord à bord (y compris Android 15+), les messages in-app HTML plein écran peuvent s'afficher derrière la barre d'état du système et masquer un contrôle de fermeture en haut de la mise en page.
 
-Le SDK Android de Braze version 37.0.0 et ultérieure applique par défaut les marges intérieures de fenêtre aux messages in-app HTML afin que les contrôles restent dans la zone sûre. Si les utilisateurs constatent toujours un chevauchement, effectuez une mise à niveau vers la dernière version du SDK Android de Braze.
+Le SDK Android de Braze version 37.0.0 et ultérieure applique par défaut les marges intérieures de fenêtre aux messages in-app HTML afin que les contrôles restent dans la zone sûre. Si les utilisateurs constatent toujours un chevauchement, mettez à jour vers la dernière version du SDK Android de Braze.
 
 Sur les versions antérieures du SDK, les développeurs pouvaient activer `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` avant que ce comportement ne devienne le comportement par défaut.
 
-### Quelles sont les limitations connues de l'éditeur par glisser-déposer pour les messages in-app ? {#what-are-known-limitations-of-the-drag-and-drop-in-app-message-editor}
+### Quelles sont les limitations connues de l'éditeur de messages in-app par glisser-déposer ? {#what-are-known-limitations-of-the-drag-and-drop-in-app-message-editor}
 
 L'[éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) ne prend pas en charge toutes les personnalisations disponibles dans les messages in-app en [HTML personnalisé]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/). Gardez à l'esprit :
 

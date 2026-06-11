@@ -75,7 +75,7 @@ Um die Hintergrundeigenschaften, Rahmeneinstellungen und mehr Ihrer Nachricht an
 
 #### Schritt 3.2: Klickverhalten definieren (optional) {#step-32-define-on-click-behavior-optional}
 
-Wenn Nutzer:innen auf einen Link im Banner klicken, können Sie sie tiefer in Ihre App navigieren oder auf eine andere Webseite weiterleiten. Zusätzlich können Sie [ein angepasstes Attribut oder Event protokollieren]({{site.baseurl}}/developer_guide/analytics/), wodurch das Profil der Nutzer:innen mit angepassten Daten aktualisiert wird, wenn sie auf das Banner klicken.
+Wenn Nutzer:innen auf einen Link im Banner klicken, können Sie sie tiefer in Ihre App navigieren oder auf eine andere Webseite weiterleiten. Zusätzlich können Sie [ein angepasstes Attribut oder Event protokollieren]({{site.baseurl}}/developer_guide/analytics/), wodurch das Profil der Nutzer:innen mit angepassten Daten aktualisiert wird, wenn sie auf das Banner klicken. Für ein detaillierteres Klick-Tracking weisen Sie jedem interaktiven Element über das Feld **Identifier for Reporting** in dessen Eigenschaftenpanel einen angepassten Bezeichner zu.
 
 {% alert important %}
 {::nomarkdown}
@@ -94,7 +94,7 @@ Wenn das Schließen aktiviert ist, können Sie den Schließen-Button im Abschnit
 | **Button size** | Die Größe des Schließen-Buttons, der auf dem Banner angezeigt wird. |
 | **Button color** | Die Farbe des Schließen-Buttons. |
 | **ARIA label** | Das barrierefreie Label für den Schließen-Button, das von Screenreadern verwendet wird. Standardmäßig „Close“, wenn leer gelassen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Einstellungen für den Schließen-Button" }
 
 Wenn Nutzer:innen ein Banner schließen, wird es für diese Nutzer:innen nicht erneut angezeigt, selbst wenn sie weiterhin die Targeting-Kriterien der Kampagne erfüllen.
 
@@ -117,7 +117,7 @@ Füllen Sie für jede Eigenschaft, die Sie hinzufügen möchten, Folgendes aus:
 | Eigenschaftstyp | Der Datentyp für die Eigenschaft. Unterstützte Typen sind String, Boolescher Wert, Zahl, Zeitstempel, Bild-URL und JSON-Objekt. | String |
 | Eigenschaftsschlüssel | Der eindeutige Bezeichner für die Eigenschaft. Dieser Schlüssel wird im SDK verwendet, um auf die Eigenschaft zuzugreifen. | `color` |
 | Wert | Der der Eigenschaft zugewiesene Wert. Muss dem ausgewählten Eigenschaftstyp entsprechen. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Angepasste Eigenschaften hinzufügen" }
 
 Wenn Sie fertig sind, wählen Sie **Done**.
 

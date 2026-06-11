@@ -148,7 +148,7 @@ Bei E-Mails ist *Bounce %* oder *Bounce-Rate* der Prozentsatz der Nachrichten, d
 Ein E-Mail-Bounce für Kund:innen, die SendGrid verwenden, umfasst Hard Bounces, Spam (`spam_report_drops`) und E-Mails, die an ungültige Adressen gesendet wurden (`invalid_emails`).
 
 {% alert note %}
-In [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) werden temporäre ESP-Zurückstellungen häufig als Soft Bounces dargestellt. Zustellbarkeits-Tools (z. B. native SendGrid-Berichte oder Looker-Modelle) verwenden möglicherweise Zurückstellungen für dieselbe Situation. Zurückstellungen sind in der Regel vorübergehend, und die E-Mail wird nach erneuten Versuchen oft zugestellt. Nach längeren Wiederholungsversuchen (bis zu ca. 72 Stunden für Soft Bounces in Campaign-Analytics) kann eine Nachricht je nach ESP als unzustellbar behandelt werden. Currents-E-Mail-Ereignisse sind append-only – ein protokollierter Soft Bounce wird nicht nachträglich entfernt, wenn die Nachricht schließlich zugestellt wird.
+In [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) werden temporäre ESP-Zurückstellungen häufig als Soft Bounces dargestellt. Zustellbarkeits-Tools (z. B. native SendGrid-Berichte oder Looker-Modelle) verwenden möglicherweise Zurückstellungen für dieselbe Situation. Zurückstellungen sind in der Regel vorübergehend, und die E-Mail wird nach Wiederholungsversuchen oft zugestellt. Nach längeren Wiederholungsversuchen (bis zu ca. 72 Stunden für Soft Bounces in Campaign-Analytics) kann eine Nachricht je nach ESP als unzustellbar behandelt werden. Currents-E-Mail-Ereignisse sind append-only – ein protokollierter Soft Bounce wird nicht nachträglich entfernt, wenn die Nachricht schließlich zugestellt wird.
 {% endalert %}
 
 {::nomarkdown}
@@ -406,11 +406,11 @@ Setzen Sie auf einwilligungsbasiertes Listenwachstum, setzen Sie inaktive Abonne
 
 **Zustellung** gibt an, ob der empfangende Server Ihre Nachricht akzeptiert; Sie können dies mit Metriken wie *Zustellungen* und Bounce-Rate messen. **Zustellbarkeit** (Posteingangsplatzierung) hängt von der Filterung des Anbieters ab und wird nicht als einzelne Braze-Metrik angezeigt.
 
-Als allgemeine Richtlinie sollten Sie eine Zustellrate nahe 99 % mit Hard Bounces unter ca. 1 % anstreben und Öffnungen sowie Klicks für Engagement-Trends beobachten. Die genauen Zielwerte variieren je nach Branche und Versandmuster. Informationen zu Praktiken, die Ihre Reputation unterstützen, finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) und [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
+Als allgemeine Richtlinie sollten Sie eine Zustellrate von nahezu 99 % mit Hard Bounces unter ca. 1 % anstreben und Öffnungen sowie Klicks für Engagement-Trends beobachten. Die genauen Zielwerte variieren je nach Branche und Versandmuster. Informationen zu Praktiken, die Ihre Reputation unterstützen, finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) und [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
-### „Campaign is already in delay window, so not enqueueing another“
+### „Campaign is already in delay window, so not enqueueing another“ {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
 
-In der Nachrichtenaktivität oder in Diagnoseprotokollen für [aktionsbasierte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) bedeutet dieses Verarbeitungsergebnis, dass Braze einen doppelten Versand blockiert hat, während ein früherer Trigger für dieselbe:n Nutzer:in noch innerhalb des Zustellfensters der Campaign liegt. Eine Entprellungssperre verhindert mehrfaches Einreihen in die Warteschlange für denselben Trigger-Burst.
+In der Nachrichtenaktivität oder den Diagnoseprotokollen für [aktionsbasierte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) bedeutet dieses Verarbeitungsergebnis, dass Braze einen doppelten Versand blockiert hat, während ein früherer Trigger für dieselbe:n Nutzer:in noch innerhalb des Zustellfensters der Campaign liegt. Eine Entprellungssperre verhindert mehrfaches Einreihen in die Warteschlange für denselben Trigger-Burst.
 
 Dieses Ergebnis kann auch auftreten, wenn die Campaign **Sofort senden** anzeigt, sofern eine der folgenden Bedingungen zutrifft:
 

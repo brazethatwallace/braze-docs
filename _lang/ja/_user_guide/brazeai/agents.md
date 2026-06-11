@@ -70,9 +70,9 @@ Brazeエージェントの機能には以下が含まれます。
 
 ## エラーハンドリング {#error-handling}
 
-接続されたモデルがCanvasエージェントステップの実行中にLLMプロバイダーから[レート制限エラー]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors)を返した場合、Brazeはエクスポネンシャルバックオフを使用して最大5回までリクエストを再試行します。その他の障害（タイムアウトや無効なAPIキーなど）の場合、エージェントの出力は`null`に設定されます。エージェントが日次実行制限に達した場合も、出力は`null`に設定されます。
+Canvasエージェントステップの実行中に、接続されたモデルがLLMプロバイダーから[レート制限エラー]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors)を返した場合、Brazeはエクスポネンシャルバックオフを使用して最大5回までリクエストを再試行します。その他の障害（タイムアウトや無効なAPIキーなど）の場合、エージェントの出力は`null`に設定されます。エージェントが日次実行制限に達した場合も、出力は`null`に設定されます。
 
-多くのユーザーが同時にエージェントステップに入ると、[実行フロー制御]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls)により処理に時間がかかる場合があります。メッセージ内のnull出力に備えて、[Liquidのデフォルト値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)を使用してください。
+多くのユーザーが同時にエージェントステップに入ると、[実行フロー制御]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls)により処理に時間がかかる場合があります。メッセージ内のnull出力に対するバッファとして、[Liquidのデフォルト値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)を使用してください。
 
 ## データはどのように利用され、Braze提供のLLMに送信されますか？ {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

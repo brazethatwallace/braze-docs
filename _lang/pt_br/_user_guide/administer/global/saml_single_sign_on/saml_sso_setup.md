@@ -20,8 +20,8 @@ Durante a configuração, será solicitado que você forneça uma URL de login e
 |---|---|
 | URL do Assertion Consumer Service (ACS) | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> Para domínios da União Europeia, a URL do ACS é `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> Em alguns IdPs, isso também pode ser chamado de URL de resposta, URL de login, URL de público ou URI de público. |
 | Entity ID | `braze_dashboard` |
-| Chave de API do RelayState | Acesse **Settings** > **API Keys** e crie uma chave de API com permissões `sso.saml.login`. Em seguida, insira a chave de API gerada como o parâmetro `RelayState` no seu IdP. Para etapas detalhadas, consulte [Configurando seu RelayState](#setting-up-your-relaystate). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+| Chave de API do RelayState | Acesse **Configurações** > **Chaves de API** e crie uma chave de API com permissões `sso.saml.login`. Em seguida, insira a chave de API gerada como o parâmetro `RelayState` no seu IdP. Para etapas detalhadas, consulte [Configurando seu RelayState](#setting-up-your-relaystate). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Configurando o SAML SSO {#setting-up-saml-sso}
 
@@ -38,7 +38,7 @@ Se você planeja usar o Okta como seu provedor de identidade, certifique-se de u
 | `email` | Obrigatório | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | Opcional | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | Opcional | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1: Configure your identity provider" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1: Configure seu provedor de identidade" }
 
 {% alert note %}
 A Braze exige apenas `email` na asserção SAML.
@@ -48,7 +48,7 @@ A Braze exige apenas `email` na asserção SAML.
 
 Quando você terminar de configurar a Braze no seu provedor de identidade, ele fornecerá uma URL de destino e um certificado `x.509` para inserir na sua conta da Braze.
 
-Depois que o gerente da sua conta ativar o SAML SSO para a sua conta, acesse **Settings** > **Admin Settings** > **Security Settings** e alterne a seção SAML SSO para **ON**.
+Depois que o gerente da sua conta ativar o SAML SSO para a sua conta, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e alterne a seção SAML SSO para **ON**.
 
 Na mesma página, insira o seguinte:
 
@@ -57,7 +57,7 @@ Na mesma página, insira o seguinte:
 | SAML Name | Isso aparecerá como o texto do botão na tela de login.<br>Normalmente é o nome do seu provedor de identidade, como "Okta". |
 | Target URL | Isso é fornecido após configurar a Braze no seu IdP.<br> Alguns IdPs chamam isso de URL de SSO ou endpoint SAML 2.0. |
 | Certificado | O certificado `x.509` fornecido pelo seu provedor de identidade.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure Braze" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Configure a Braze" }
 
 Certifique-se de que o seu certificado `x.509` siga este formato ao adicioná-lo ao dashboard:
 
@@ -77,12 +77,12 @@ Salve suas configurações de segurança e faça logout. Em seguida, faça login
 
 ## Configurando seu RelayState {#setting-up-your-relaystate}
 
-1. Na Braze, acesse **Settings** > **APIs and Identifiers**.
-2. Na guia **API Keys**, selecione o botão **Create API key**.
-3. No campo **API key name**, insira um nome para a sua chave.
-4. Expanda o menu suspenso **SSO** em **Permissions** e marque **sso.saml.login**.<br><br>![A seção "Permissions" com sso.saml.login marcado.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
-5. Selecione **Create API key**.
-6. Na guia **API Keys**, copie o identificador ao lado da chave de API que você criou.
+1. Na Braze, acesse **Configurações** > **APIs e identificadores**.
+2. Na guia **Chaves de API**, selecione o botão **Criar chave de API**.
+3. No campo **Nome da chave de API**, insira um nome para a sua chave.
+4. Expanda o menu suspenso **SSO** em **Permissões** e marque **sso.saml.login**.<br><br>![A seção "Permissões" com sso.saml.login marcado.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+5. Selecione **Criar chave de API**.
+6. Na guia **Chaves de API**, copie o identificador ao lado da chave de API que você criou.
 7. Cole a chave de API do RelayState no RelayState do seu IdP (também pode aparecer como "Relay State" ou "Default Relay State" dependendo do seu IdP).
 
 ## Comportamento do SSO {#sso-behavior}
@@ -91,7 +91,7 @@ Os membros que optarem por usar SSO não poderão mais usar suas senhas como faz
 
 ## Restrição {#restriction}
 
-Você pode restringir os membros da sua organização para que façam login apenas com Google SSO ou SAML SSO. Para ativar as restrições, acesse **Security Settings** e selecione **Enforce Google SSO only login** ou **Enforce custom SAML SSO only login**.
+Você pode restringir os membros da sua organização para que façam login apenas com Google SSO ou SAML SSO. Para ativar as restrições, acesse **Configurações de segurança** e selecione **Enforce Google SSO only login** ou **Enforce custom SAML SSO only login**.
 
 ![Exemplo de configuração da seção "Authentication Rules" com um comprimento mínimo de senha de 8 caracteres e reutilização de senha de 3 vezes. As senhas expirarão após 180 dias, e os usuários serão desconectados após 1.440 minutos de inatividade.]({% image_buster /assets/img/sso3.png %})
 
@@ -169,7 +169,7 @@ Se você está recebendo o erro `ERROR_CODE_SSO_INVALID_RELAY_STATE`, seu RelayS
 
 ### O login bem-sucedido por SSO redireciona você para a página de login da Braze? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
 
-Isso pode acontecer quando o RelayState não está configurado corretamente. Confirme que você criou uma chave de API (em **Settings** > **API Keys**) para login pelo IdP e definiu essa chave de API como o parâmetro `RelayState` no seu IdP. O RelayState identifica em qual conta da empresa você está fazendo login. Para instruções passo a passo, consulte [Configurando seu RelayState](#setting-up-your-relaystate).
+Isso pode acontecer quando o RelayState não está configurado corretamente. Confirme que você criou uma chave de API (em **Configurações** > **Chaves de API**) para login pelo IdP e definiu essa chave de API como o parâmetro `RelayState` no seu IdP. O RelayState identifica em qual conta da empresa você está fazendo login. Para instruções passo a passo, consulte [Configurando seu RelayState](#setting-up-your-relaystate).
 
 Se ainda não conseguir fazer login, [fale com o suporte da Braze]({{site.baseurl}}/braze_support/) com um rastreamento SAML, se possível. Para ajuda na captura de um rastreamento, consulte [Obtendo um rastreamento SAML](#obtaining-a-saml-trace).
 
@@ -182,6 +182,20 @@ Se você está usando outro IdP, verifique se a sua empresa fez upload do certif
 ### Você está usando uma integração manual? {#are-you-using-a-manual-integration}
 
 Se a sua empresa não baixou o app da Braze na loja de apps do seu IdP, você precisa baixar a integração pré-construída. Por exemplo, se o Okta é o seu IdP, você baixaria o app da Braze na [página de integração](https://www.okta.com/integrations/braze/) deles.
+
+## Google SSO
+
+Se a sua empresa usa Google SSO em vez de SAML SSO personalizado, fale com o gerente da sua conta da Braze para ativar o Google SSO no seu espaço de trabalho. Depois de ativado, acesse **Configurações de segurança** e selecione **Enforce Google SSO only login** para exigir a autenticação do Google para todos os usuários da empresa.
+
+Quando a exigência de Google SSO está ativada, os usuários devem fazer login com a autenticação do Google e não poderão mais usar uma senha da Braze. Cada usuário deve fazer login com a conta do Google que corresponde ao endereço de e-mail do dashboard da Braze. Se um usuário selecionar uma conta do Google diferente durante o login, a Braze rejeitará a tentativa de autenticação.
+
+### Solução de problemas do login com Google SSO {#troubleshooting-google-sso-sign-in}
+
+Se alguns usuários não conseguem fazer login com Google SSO, verifique o seguinte:
+
+- O e-mail da conta do Google do usuário corresponde exatamente ao endereço de e-mail do dashboard da Braze.
+- O usuário tem acesso a uma conta do Google para o endereço de e-mail da empresa.
+- O usuário não está suspenso na Braze (**Configurações** > **Usuários da empresa**).
 
 ## Próximas etapas {#next-steps}
 

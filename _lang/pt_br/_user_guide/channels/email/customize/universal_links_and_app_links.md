@@ -343,7 +343,7 @@ Por exemplo:
 }]
 ```
 
-Certifique-se de que seu app está configurado para tratar esses links encapsulados. Adicione o domínio de rastreamento de cliques aos associated domains do seu app (iOS) ou intent filters (Android) e hospede o arquivo AASA ou Digital Asset Links nesse domínio, conforme descrito anteriormente neste artigo.
+Certifique-se de que seu app está configurado para tratar esses links encapsulados. Adicione o domínio de rastreamento de cliques aos domínios associados do seu app (iOS) ou intent filters (Android), e hospede o arquivo AASA ou Digital Asset Links nesse domínio conforme descrito anteriormente neste artigo.
 
 {% endtab %}
 {% endtabs %}

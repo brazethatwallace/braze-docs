@@ -73,7 +73,7 @@ Die Anzahl der gesendeten oder zugestellten Nachrichten weicht häufig von der g
 - **Kanalberechtigung:** Nutzer:innen haben möglicherweise keine E-Mail-Adressen, Push-Token oder den für diesen Kanal in diesem Schritt erforderlichen Abo-Status.
 - **Kontrollgruppen:** Eine globale oder Canvas-Kontrollgruppe kann Nutzer:innen vom Messaging ausschließen.
 - **Ruhezeiten, intelligentes Timing und Rate-Limits:** Diese Einstellungen können Sendungen verzögern oder unterdrücken.
-- **In-App-Message-Schritte:** In-App Messages können null _Sendungen_ anzeigen, während Impressionen vorhanden sind. Dies ist erwartetes Verhalten, da die In-App-Zustellung anders funktioniert als Push-Benachrichtigungen oder E-Mail. Siehe [Warum kann ein Canvas null Sendungen anzeigen, obwohl Impressionen protokolliert werden?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) in den Canvas-FAQ.
+- **In-App-Messages-Schritte:** In-App Messages können null _Sendungen_ anzeigen, während Impressionen vorhanden sind. Dies ist erwartetes Verhalten, da die In-App-Zustellung anders funktioniert als Push-Benachrichtigungen oder E-Mail. Siehe [Warum kann ein Canvas null Sendungen anzeigen, obwohl Impressionen protokolliert werden?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) in den Canvas-FAQ.
 
 Für E-Mail und andere Kanäle gelten viele der gleichen Faktoren wie für Campaigns. Eine detaillierte Liste finden Sie unter [Warum sind die Sendungen niedriger als die geschätzte Zielgruppengröße?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
 

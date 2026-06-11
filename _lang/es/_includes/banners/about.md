@@ -30,7 +30,7 @@ Las características de los Banners incluyen:
 
 - **Creación sencilla de contenido:** Crea y previsualiza tu Banner utilizando un editor visual de arrastrar y soltar compatible con imágenes, texto, botones, formularios de captura de correo electrónico, código personalizado y mucho más.
 - **Ubicaciones flexibles:** Define múltiples ubicaciones dentro de tu aplicación o sitio web donde puedan aparecer los Banners, lo que permite una segmentación precisa a contextos específicos o experiencias de usuario.
-- **Personalización dinámica:** Los Banners pueden actualizarse durante una sesión activa cuando tu aplicación llama explícitamente a `requestBannersRefresh()`, o automáticamente al inicio de una nueva sesión cuando se ha implementado `subscribeToBannersUpdates()` y se ha llamado previamente a `requestBannersRefresh()` al menos una vez para los ID de ubicación correspondientes.
+- **Personalización dinámica:** Los Banners solo pueden actualizarse al inicio de una nueva sesión o a mitad de sesión si solicitas explícitamente la actualización. Los Banners no se actualizan automáticamente en una nueva sesión. Si no solicitas la actualización, el Banner no se actualizará.
 - **Priorización nativa:** Establece la prioridad de visualización cuando varios Banners se dirigen a la misma ubicación, asegurándote de que el mensaje adecuado llegue a los usuarios en el momento adecuado.
 - **Bloque de editor de código personalizado:** Utiliza el bloque de editor de código personalizado para añadir HTML personalizado y así realizar personalizaciones avanzadas o integrarlo fácilmente con tus estilos web actuales.
 

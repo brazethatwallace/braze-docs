@@ -31,7 +31,7 @@ Estas son las versiones mínimas del SDK necesarias para crear ubicaciones de ba
 
 ### Paso 2: Actualiza las ubicaciones en tu aplicación {#requestBannersRefresh}
 
-Las ubicaciones se pueden actualizar llamando a los métodos de actualización que se describen a continuación. Estas ubicaciones se almacenarán automáticamente en caché cuando expire la sesión de un usuario o cuando cambies los usuarios identificados utilizando el método `changeUser`.
+Las ubicaciones se pueden actualizar llamando a los métodos de actualización que se describen a continuación. Si `subscribeToBannersUpdates` está activo, el SDK vuelve a publicar automáticamente los ID de ubicación almacenados en caché al inicio de cada nueva sesión y cuando llamas a `changeUser`. Esta actualización automática no consume un token de límite de velocidad.
 
 {% alert tip %}
 Actualiza las ubicaciones lo antes posible para evitar retrasos en la descarga o visualización de los banners.

@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Nachricht basierend auf übereinstimmenden angepassten Attributen personalisieren](#attribute-matching)
+- [Währung für europäische Zahlenkonventionen formatieren](#european-currency-format)
 - [Zwei angepasste Attribute subtrahieren und die Differenz als Geldwert anzeigen](#attribute-monetary-difference)
 - [Vornamen referenzieren, wenn der vollständige Name im first_name-Feld gespeichert ist](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Währung für europäische Zahlenkonventionen formatieren {#european-currency-format}
+
+Für Regionen, die ein Komma als Dezimaltrennzeichen und einen Punkt als Tausendertrennzeichen verwenden (z. B. Deutschland oder Italien), verwenden Sie die Filter [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) und [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) mit `replace`, um die Trennzeichen zu tauschen. Verwenden Sie `#` als temporären Platzhalter, damit Punkte und Kommas nicht im selben Durchgang vertauscht werden.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Ausgabe:** `1.234.567,89`
+
+**Erklärung:** Der `money`-Filter fügt Dezimalstellen hinzu, aber kein Währungssymbol oder regionsspezifische Trennzeichen. `number_with_delimiter` fügt US-amerikanische Tausendertrennzeichen hinzu, und die `replace`-Filter wandeln sie in das europäische Format um.
 {% endraw %}
 
 ### Zwei angepasste Attribute subtrahieren und die Differenz als Geldwert anzeigen {#attribute-monetary-difference}
@@ -1334,7 +1349,7 @@ SMS
 
 ### Verschiedene Nachrichten basierend auf eingehenden SMS-Schlüsselwörtern senden {#sms-keyword-response}
 
-Dieser Anwendungsfall nutzt die dynamische Schlüsselwortverarbeitung, um auf bestimmte eingehende Nachrichten mit unterschiedlichem Nachrichtentext zu antworten. Beispielsweise können Sie verschiedene Antworten senden, wenn jemand „START“ im Vergleich zu „JOIN“ schreibt.
+Dieser Anwendungsfall nutzt die dynamische SMS-Schlüsselwortverarbeitung, um auf bestimmte eingehende Nachrichten mit unterschiedlichem Nachrichtentext zu antworten. Beispielsweise können Sie verschiedene Antworten senden, wenn jemand „START“ im Vergleich zu „JOIN“ schreibt.
 
 {% raw %}
 ```liquid

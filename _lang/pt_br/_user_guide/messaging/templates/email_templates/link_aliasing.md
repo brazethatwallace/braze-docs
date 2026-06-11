@@ -252,7 +252,7 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 
 No exemplo acima, o `?` antes do `#` fornece à Braze um segmento de consulta para adicionar o `lid`. Sem ele, o link pode não aparecer em **Link Management**.
 
-Sem identificar onde adicionar parâmetros de consulta, o alias de link não reconhece essas URLs e os modelos de link não são aplicados. Se você vir erros como **Failed to be assigned an LID** para uma URL dinâmica, confirme que o `href` usa o padrão `?` ou `&` mostrado nos exemplos desta seção.
+Sem identificar onde adicionar parâmetros de consulta, o alias de link não reconhece essas URLs e os modelos de link não são aplicados. Se você encontrar erros como **Failed to be assigned an LID** para uma URL dinâmica, confirme que o `href` usa o padrão `?` ou `&` mostrado nos exemplos desta seção.
 
 ### Considerações do editor de arrastar e soltar {#drag-and-drop-editor-considerations}
 

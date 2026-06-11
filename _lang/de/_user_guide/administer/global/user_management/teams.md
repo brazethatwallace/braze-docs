@@ -34,6 +34,14 @@ Wenn ein Team durch ein angepasstes Attribut, eine Sprache oder ein Land definie
 
 Braze-Administrator:innen und eingeschränkte Nutzer:innen mit der unternehmensweiten Berechtigung „Unternehmenseinstellungen verwalten“ können einem/einer Unternehmensnutzer:in mit eingeschränktem Zugriff Berechtigungen auf Team-Ebene zuweisen. Wenn Unternehmensnutzer:innen einem Team zugewiesen werden, sind sie darauf beschränkt, nur Daten zu lesen oder zu schreiben, die ihren jeweiligen Teams zur Verfügung stehen, wie z. B. Nutzersprache, Standort oder angepasstes Attribut, wie bei der Erstellung des Teams festgelegt.
 
+### Berechtigungen von Unternehmensnutzer:innen einschränken, ohne sie zu löschen {#limit-company-user-permissions-without-deleting-a-user}
+
+Um zu verhindern, dass sich ein:e Unternehmensnutzer:in anmeldet, ohne das Konto zu löschen, [suspendieren Sie den/die Nutzer:in]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users). Durch die Suspendierung wird das Konto in einen inaktiven Zustand versetzt, in dem sich der/die Nutzer:in nicht anmelden kann.
+
+Wenn der/die Nutzer:in sich weiterhin mit eingeschränkten Möglichkeiten anmelden können soll, gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen**, wählen Sie den/die Nutzer:in aus und bearbeiten Sie die Berechtigungen. Entfernen Sie Berechtigungen auf Workspace-Ebene für Campaigns, Canvases, Segmente und Nutzerdaten und belassen Sie nur minimalen Zugriff – zum Beispiel „Medienbibliothek-Assets anzeigen“. Weitere Informationen finden Sie unter [Berechtigungen eines/einer Nutzer:in bearbeiten]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+
+Team-Berechtigungen bauen auf Workspace-Berechtigungen auf. Wenn Sie den/die Nutzer:in einem Team zuweisen, gewähren Sie nur die minimal erforderlichen Berechtigungen auf Team-Ebene und vergeben Sie keine Berechtigungen für Campaigns, Canvases, Segmente oder Nutzerprofile. Der/die Nutzer:in bleibt im Workspace und kann sich anmelden, kann aber die meisten Messaging- oder Zielgruppenaktionen nicht ausführen.
+
 Um eine:n Nutzer:in einem Team zuzuweisen, navigieren Sie zu **Einstellungen** > **Unternehmensnutzer:innen** und wählen Sie eine:n Nutzer:in aus, den/die Sie Ihrem Team hinzufügen möchten.
 
 Führen Sie dann die folgenden Schritte aus:

@@ -11,9 +11,9 @@ toc_headers: "h2"
 
 {% multi_lang_include developer_guide/_shared/logging_analytics/content_cards.md %}
 
-## ユニーク却下数がユニークインプレッション数を超えている場合 {#unique-dismissals-higher-than-unique-impressions}
+## ユニーク却下数がユニークインプレッション数を上回る場合 {#unique-dismissals-higher-than-unique-impressions}
 
-*ユニーク却下数*が*ユニークインプレッション数*を超えている場合、カスタムContent Cardsの統合で、該当するカードのインプレッションを記録せずに却下を記録しています。BrazeのデフォルトのContent Cards UIは両方を自動的に記録するため、この不一致はカスタムUIを使用している場合にのみ発生します。
+*ユニーク却下数*が*ユニークインプレッション数*を上回っている場合、カスタムContent Cardsの統合で、該当するカードのインプレッションを記録せずに却下を記録しています。BrazeのデフォルトのContent Cards UIは両方を自動的に記録するため、この不一致はカスタムUIを使用している場合にのみ発生します。
 
 カードを表示するたびにインプレッションを記録し、ユーザーがカードを却下したときに却下を記録してください。メソッド名と例については、以下のプラットフォームセクションを参照してください。
 

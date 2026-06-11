@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [일치하는 커스텀 속성에 따라 메시지 개인화하기](#attribute-matching)
+- [유럽식 숫자 표기법에 맞게 통화 포맷하기](#european-currency-format)
 - [두 커스텀 속성을 빼서 차이를 금액으로 표시하기](#attribute-monetary-difference)
 - [전체 이름이 first_name 필드에 저장된 경우 사용자의 이름 참조하기](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### 유럽식 숫자 표기법에 맞게 통화 포맷하기 {#european-currency-format}
+
+소수점 구분 기호로 쉼표를, 천 단위 구분 기호로 마침표를 사용하는 로케일(예: 독일 또는 이탈리아)의 경우, [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) 및 [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) 필터와 `replace`를 함께 사용하여 구분 기호를 교체합니다. 마침표와 쉼표가 같은 패스에서 교체되지 않도록 `#`을 임시 플레이스홀더로 사용합니다.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**출력:** `1.234.567,89`
+
+**설명:** `money` 필터는 소수점 자릿수를 추가하지만 통화 기호나 로케일별 구분 기호는 추가하지 않습니다. `number_with_delimiter`는 미국식 천 단위 구분 기호를 추가하고, `replace` 필터가 이를 유럽식 포맷으로 변환합니다.
 {% endraw %}
 
 ### 두 커스텀 속성을 빼서 차이를 금액으로 표시하기 {#attribute-monetary-difference}
@@ -858,7 +873,7 @@ Miscellaneous
 
 ### 마케팅 이메일을 차단한 고객에게 이메일 발송 피하기 {#misc-avoid-blocked-emails}
 
-이 사용 사례는 Content Blocks에 저장된 차단된 사용자 목록을 가져와 해당 차단된 사용자가 향후 Campaign이나 Canvases에서 커뮤니케이션이나 타겟팅되지 않도록 확인합니다.
+이 사용 사례는 Content Blocks에 저장된 차단된 사용자 목록을 가져와 해당 차단된 사용자가 향후 Campaigns이나 Canvases에서 커뮤니케이션이나 타겟팅되지 않도록 확인합니다.
 
 {% alert important %}
 이 Liquid를 사용하려면 먼저 차단된 이메일 목록을 Content Blocks에 저장해야 합니다. 목록에는 이메일 주소 사이에 추가 공백이나 문자가 삽입되지 않아야 합니다(예: `test@braze.com,abc@braze.com`).

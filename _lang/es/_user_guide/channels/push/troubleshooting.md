@@ -148,7 +148,7 @@ Si tienes problemas con enlaces en notificaciones push que se abren inesperadame
 
 En tu campaña o paso en Canvas, verifica que **Open web URL inside mobile app** no esté seleccionado. Si lo está, desmarca la selección y vuelve a lanzar.
 
-![Campo "On-click behavior" de la configuración de una notificación push establecido en "Open web URL" con "Open web URL inside mobile app" desmarcado.]({% image_buster /assets/img/push_on_click.png %})
+![Campo "Comportamiento al hacer clic" de la configuración de una notificación push establecido en "Open web URL" con "Open web URL inside mobile app" desmarcado.]({% image_buster /assets/img/push_on_click.png %})
 
 La interacción predeterminada para el comportamiento al hacer clic "Open web URL" difiere según la versión del SDK. Para las versiones del SDK iOS 2.29.0 y Android 2.0.0 y superiores, esta opción está seleccionada de forma predeterminada y las URL web se abrirán en una vista web dentro de la aplicación. Antes de estas versiones, esta opción está desmarcada de forma predeterminada y las URL web se abren en el navegador web predeterminado del dispositivo.
 
@@ -183,7 +183,7 @@ Si actualmente estás usando un certificado `.p12` o `.pem`, migra a una clave `
 
 Cuando reemplazas un certificado `.p12` con una clave `.p8` (o cargas una nueva credencial), la entrega push puede pausarse brevemente mientras Braze procesa el cambio. Planifica las actualizaciones durante una ventana de mantenimiento cuando sea posible.
 
-En **Settings** > **App Settings** > **Push Notification Settings**, confirma que **App Bundle ID**, **Team ID** y **Key ID** (para claves `.p8`) coincidan con los valores de tu cuenta de Apple Developer. Varios espacios de trabajo de Braze pueden usar la misma credencial push de Apple cuando el **bundle ID** de la aplicación iOS es idéntico; el entorno de la credencial (desarrollo frente a producción) debe coincidir con la forma en que se compiló la aplicación.
+En **Settings** > **App Settings** > **Push Notification Settings**, confirma que **App Bundle ID**, **Team ID** y **Key ID** (para claves `.p8`) coincidan con los valores en tu cuenta de Apple Developer. Varios espacios de trabajo de Braze pueden usar la misma credencial push de Apple cuando el **bundle ID** de la aplicación iOS es idéntico; el entorno de la credencial (desarrollo frente a producción) debe coincidir con la forma en que se compiló la aplicación.
 
 Las aplicaciones con [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) o posterior pueden usar la [gestión dinámica de la puerta de enlace de APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management), que enruta los tokens al entorno de APNs correcto automáticamente.
 

@@ -11,7 +11,7 @@ Der Apple Push Notification Service (APNs) ist die Infrastruktur für das Senden
 
 Bei der Entwicklung Ihrer App müssen Sie ein SSL-Zertifikat erstellen, um Push-Benachrichtigungen zu aktivieren. Dieses Zertifikat wird in das Bereitstellungsprofil Ihrer App aufgenommen und muss außerdem in das Braze-Dashboard hochgeladen werden. Das Zertifikat ermöglicht es Braze, APNs mitzuteilen, dass wir in Ihrem Namen Push-Benachrichtigungen senden dürfen.
 
-Es gibt zwei Arten von [Bereitstellungsprofilen](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) und Zertifikaten: Entwicklung und Verteilung. Um Unklarheiten zu vermeiden, empfehlen wir, nur Verteilungsprofile und Zertifikate zu verwenden. Wenn Sie unterschiedliche Profile und Zertifikate für die Entwicklung und Verteilung verwenden möchten, stellen Sie sicher, dass das in das Dashboard hochgeladene Zertifikat mit dem derzeit verwendeten Bereitstellungsprofil übereinstimmt.
+Es gibt zwei Arten von [Bereitstellungsprofilen](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) und Zertifikaten: Entwicklung und Verteilung. Um Unklarheiten zu vermeiden, empfehlen wir, nur Verteilungsprofile und -zertifikate zu verwenden. Wenn Sie unterschiedliche Profile und Zertifikate für die Entwicklung und Verteilung verwenden möchten, stellen Sie sicher, dass das in das Dashboard hochgeladene Zertifikat mit dem derzeit verwendeten Bereitstellungsprofil übereinstimmt.
 
 {% alert warning %}
 Ändern Sie nicht die Push-Zertifikat-Umgebung (Entwicklung oder Produktion). Wenn Sie das Push-Zertifikat in die falsche Umgebung ändern, kann dies dazu führen, dass Ihren Nutzer:innen versehentlich ihr Push-Token entzogen wird, sodass sie nicht mehr per Push erreichbar sind.
@@ -19,7 +19,7 @@ Es gibt zwei Arten von [Bereitstellungsprofilen](https://developer.apple.com/lib
 
 ### 2. Schritt: Geräte registrieren sich für APNs und versorgen Braze mit Push-Token {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
-Wenn Nutzer:innen Ihre App öffnen, werden sie aufgefordert, Push-Benachrichtigungen zu akzeptieren. Stimmen sie der Aufforderung zu, generieren die APNs ein Push-Token für das betreffende Gerät. Das Swift SDK sendet das Push-Token für Apps, die die [standardmäßige Auto-Flush-Richtlinie]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing) verwenden, sofort und asynchron. Nachdem wir ein Push-Token mit einer/einem Nutzer:in verknüpft haben, wird diese:r im Dashboard auf dem Nutzerprofil unter dem Tab **Engagement** als „Push registriert“ angezeigt und ist berechtigt, Push-Benachrichtigungen von Braze-Campaigns zu erhalten.
+Wenn Nutzer:innen Ihre App öffnen, werden sie aufgefordert, Push-Benachrichtigungen zu akzeptieren. Stimmen sie der Aufforderung zu, generieren die APNs ein Push-Token für das betreffende Gerät. Das Swift SDK sendet das Push-Token für Apps, die die [standardmäßige Auto-Flush-Richtlinie]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing) verwenden, sofort und asynchron. Nachdem wir ein Push-Token mit einer Nutzer:in verknüpft haben, wird diese im Dashboard auf ihrem Nutzerprofil unter dem Tab **Engagement** als „Push registriert“ angezeigt und ist berechtigt, Push-Benachrichtigungen von Braze Campaigns zu erhalten.
 
 {% alert note %}
 Ab macOS 13 können Sie auf bestimmten Geräten Push-Benachrichtigungen mithilfe eines Simulators für iOS 16 testen, der unter Xcode 14 läuft. Weitere Einzelheiten finden Sie in den [Release Notes zu Xcode 14](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes).
@@ -34,8 +34,8 @@ Ab macOS 13 können Sie auf bestimmten Geräten Push-Benachrichtigungen mithilfe
 
 ### 3. Schritt: Starten einer Braze-Push-Campaign {#step-3-launching-a-braze-push-campaign}
 
-Beim Starten einer Push-Campaign stellt Braze Anfragen an APNs, um Ihre Nachricht zuzustellen. Insbesondere werden die Anfragen für jedes derzeit gültige Push-Token an APNs weitergeleitet, es sei denn, die Option **An das neueste Gerät einer/eines Nutzer:in senden** ist ausgewählt. Nachdem Braze eine erfolgreiche Antwort von APNs erhalten hat, protokollieren wir eine erfolgreiche Zustellung im Nutzerprofil, auch wenn die/der Nutzer:in die eigentliche Nachricht aus folgenden Gründen möglicherweise nicht erhalten hat:
-- Das Gerät ist ausgeschaltet.
+Beim Starten einer Push-Campaign stellt Braze Anfragen an APNs, um Ihre Nachricht zuzustellen. Insbesondere werden die Anfragen für jedes derzeit gültige Push-Token an APNs weitergeleitet, es sei denn, die Option **An das neueste Gerät einer Nutzer:in senden** ist ausgewählt. Nachdem Braze eine erfolgreiche Antwort von APNs erhalten hat, protokollieren wir eine erfolgreiche Zustellung im Nutzerprofil, auch wenn die Nutzer:in die eigentliche Nachricht aus folgenden Gründen möglicherweise nicht erhalten hat:
+- Ihr Gerät ist ausgeschaltet.
 - Das Gerät ist nicht mit dem Internet verbunden (WLAN oder Mobilfunk).
 - Die App wurde kürzlich deinstalliert.
 
@@ -69,11 +69,11 @@ Darüber hinaus stellt Braze unter dem Tab **Engagement** ein Push-Changelog fü
 - Vergewissern Sie sich, dass das Push-Bereitstellungsprofil mit der Umgebung übereinstimmt, in der Sie testen. Universelle Zertifikate können im Braze-Dashboard so konfiguriert werden, dass sie entweder an die APNs-Entwicklungs- oder die Produktionsumgebung gesendet werden. Die Verwendung eines Entwicklungszertifikats für eine Produktionsanwendung oder eines Produktionszertifikats für eine Entwicklungsanwendung wird nicht funktionieren.
  - Überprüfen Sie, ob das Push-Token, das Sie auf Braze hochgeladen haben, mit dem Bereitstellungsprofil übereinstimmt, das Sie zum Erstellen der App verwendet haben, von der Sie das Push-Token gesendet haben.
 
-#### Geräte-Token nicht für Thema {#device-token-not-for-topic}
+#### Geräte-Token nicht für das Thema {#device-token-not-for-topic}
 
-APNs gibt `DeviceTokenNotForTopic` (HTTP-Status 400) zurück, wenn das Push-Token nicht zum Thema (Bundle-ID) passt, das für Ihre Zugangsdaten konfiguriert ist. Braze kann dies im **Nachrichten-Aktivitätsprotokoll** oder in den Push-Zustellungsprotokollen als `DeviceTokenNotForTopic` anzeigen.
+APNs gibt `DeviceTokenNotForTopic` (HTTP-Status 400) zurück, wenn das Push-Token nicht mit dem Thema (Bundle-ID) übereinstimmt, das für Ihre Zugangsdaten konfiguriert ist. Braze kann dies im **Nachrichten-Aktivitätsprotokoll** oder in den Push-Zustellungsprotokollen als `DeviceTokenNotForTopic` anzeigen.
 
-So beheben Sie die Abweichung:
+So beheben Sie die Nichtübereinstimmung:
 
 1. Bestätigen Sie, dass die **Bundle-ID** der App mit der **App Bundle ID** in Braze übereinstimmt (**Einstellungen** > **App Settings** > **Einstellungen für Push-Benachrichtigungen**).
 2. Überprüfen Sie, ob das Bereitstellungsprofil, das zum Erstellen der App verwendet wurde, die Push-Funktion für diese Bundle-ID enthält.
@@ -81,15 +81,15 @@ So beheben Sie die Abweichung:
 4. Überprüfen Sie bei `.p8`-Schlüsseln, ob **Team ID** und **Key ID** in Braze mit Ihrem Apple-Entwicklerkonto übereinstimmen.
 5. Laden Sie einen gültigen `.p8`-Schlüssel oder ein `.p12`-Zertifikat erneut hoch, wenn die Zugangsdaten rotiert oder widerrufen wurden.
 
-Bevorzugen Sie `.p8`-Authentifizierungsschlüssel, wenn möglich. Informationen zu Zugangsdatentypen und Dashboard-Statusanzeigen finden Sie unter [Zu einem .p8-Authentifizierungsschlüssel migrieren]({{site.baseurl}}/user_guide/channels/push/troubleshooting/#migrate-to-a-p8-authentication-key).
+Bevorzugen Sie nach Möglichkeit `.p8`-Authentifizierungsschlüssel. Informationen zu Zugangsdatentypen und Dashboard-Statusanzeigen finden Sie unter [Zu einem .p8-Authentifizierungsschlüssel migrieren]({{site.baseurl}}/user_guide/channels/push/troubleshooting/#migrate-to-a-p8-authentication-key).
 
 #### BadDeviceToken beim Senden an Push-Token {#baddevicetoken-sending-to-push-token}
 
-`BadDeviceToken` ist ein APNs-Fehlercode. Er stammt nicht von Braze. Es kann eine Reihe von Gründen dafür geben, dass diese Antwort zurückgegeben wird, wie beispielsweise:
+`BadDeviceToken` ist ein APNs-Fehlercode und stammt nicht von Braze. Es kann eine Reihe von Gründen dafür geben, dass diese Antwort zurückgegeben wird, darunter:
 
 - Die App hat ein Push-Token empfangen, das für die auf das Dashboard hochgeladenen Zugangsdaten ungültig war.
 - Push wurde für diesen Workspace deaktiviert.
-- Die/der Nutzer:in hat Push abbestellt.
+- Die Nutzer:in hat Push abbestellt.
 - Die App wurde deinstalliert.
 - Apple hat das Push-Token erneuert, wodurch das alte Token ungültig wurde.
 - Die App wurde für eine Produktionsumgebung erstellt, aber die auf Braze hochgeladenen Push-Zugangsdaten sind für eine Entwicklungsumgebung eingestellt (oder umgekehrt).
@@ -104,7 +104,7 @@ Wenn die Anwendung Sie nicht auffordert, sich für Push-Benachrichtigungen zu re
 
 Stellen Sie sicher, dass Ihre App richtig konfiguriert ist, um Push-Benachrichtigungen zuzulassen. Zu den häufig zu überprüfenden Fehlerpunkten gehören:
 
-- Überprüfen Sie, ob Sie von Ihrer App aufgefordert werden, Push-Benachrichtigungen zuzulassen. Normalerweise erscheint diese Aufforderung beim ersten Öffnen der App, aber sie kann auch so programmiert werden, dass sie an anderen Stellen erscheint. Wenn sie nicht dort erscheint, wo sie sein sollte, liegt das Problem wahrscheinlich bei der Grundkonfiguration der Push-Funktionen Ihrer App.
+- Überprüfen Sie, ob Sie von Ihrer App aufgefordert werden, Push-Benachrichtigungen zuzulassen. Normalerweise erscheint diese Aufforderung beim ersten Öffnen der App, sie kann aber auch so programmiert werden, dass sie an anderen Stellen erscheint. Wenn sie nicht dort erscheint, wo sie sein sollte, liegt das Problem wahrscheinlich bei der Grundkonfiguration der Push-Funktionen Ihrer App.
   - Überprüfen Sie, ob die Schritte für die [Push-Integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) erfolgreich abgeschlossen wurden.
   - Vergewissern Sie sich, dass das Bereitstellungsprofil Ihrer App Berechtigungen für Push enthält. Stellen Sie sicher, dass Sie alle verfügbaren Bereitstellungsprofile aus Ihrem Apple-Entwicklerkonto abrufen. Um dies zu bestätigen, führen Sie die folgenden Schritte aus:
     1. Navigieren Sie in Xcode zu **Preferences > Accounts** (oder verwenden Sie die Tastenkombination <kbd>Command</kbd>+<kbd>,</kbd>).
@@ -119,15 +119,15 @@ Stellen Sie sicher, dass Ihre App richtig konfiguriert ist, um Push-Benachrichti
 
 ### „Push-registrierte“ Nutzer:innen werden nach dem Senden von Nachrichten nicht mehr aktiviert {#push-registered-users-no-longer-enabled-after-sending-messages}
 
-Dies deutet wahrscheinlich darauf hin, dass das Push-Token der/des Nutzer:in ungültig war. Dafür kann es mehrere Gründe geben:
+Dies deutet wahrscheinlich darauf hin, dass das Push-Token der Nutzer:in ungültig war. Dafür kann es mehrere Gründe geben:
 
-#### Dashboard und App-Zertifikat stimmen nicht überein {#dashboard-and-app-certificate-mismatch}
+#### Dashboard- und App-Zertifikat stimmen nicht überein {#dashboard-and-app-certificate-mismatch}
 
 Wenn das Push-Zertifikat, das Sie im Dashboard hochgeladen haben, nicht dasselbe ist wie das im Bereitstellungsprofil, mit dem Ihre App erstellt wurde, lehnen die APNs das Token ab. Vergewissern Sie sich, dass Sie das richtige Zertifikat hochgeladen und eine weitere Sitzung in der App abgeschlossen haben, bevor Sie eine weitere Testbenachrichtigung versuchen.
 
 #### Anwendung wurde deinstalliert {#application-was-uninstalled}
 
-Wenn eine/ein Nutzer:in Ihre Anwendung deinstalliert hat, ist das Push-Token ungültig und wird beim nächsten Senden entfernt.
+Wenn eine Nutzer:in Ihre Anwendung deinstalliert hat, ist ihr Push-Token ungültig und wird beim nächsten Senden entfernt.
 
 #### Bereitstellungsprofil neu generieren {#regenerating-your-provisioning-profile}
 
@@ -145,11 +145,11 @@ Bei iOS-Versionen, die Push nicht über das Framework `UserNotifications` integr
 
 ### Nutzer:in ist für die zu testende App nicht „push-registriert“ {#user-not-push-registered-for-the-app-being-tested}
 
-Überprüfen Sie das Nutzerprofil der/des Nutzer:in, an die/den Sie eine Testnachricht senden möchten. Unter dem Tab **Engagement** sollte eine Liste der „pushbaren Apps“ angezeigt werden. Vergewissern Sie sich, dass die App, an die Sie Testnachrichten senden möchten, in dieser Liste enthalten ist. Nutzer:innen werden als „Push registriert“ angezeigt, wenn sie ein Push-Token für eine beliebige App in Ihrem Workspace haben, es könnte sich also um ein falsches Positiv handeln.
+Überprüfen Sie das Nutzerprofil der Nutzer:in, an die Sie eine Testnachricht senden möchten. Unter dem Tab **Engagement** sollte eine Liste der „pushbaren Apps“ angezeigt werden. Vergewissern Sie sich, dass die App, an die Sie Testnachrichten senden möchten, in dieser Liste enthalten ist. Nutzer:innen werden als „Push registriert“ angezeigt, wenn sie ein Push-Token für eine beliebige App in Ihrem Workspace haben, es könnte sich also um ein falsches Positiv handeln.
 
-Das Folgende deutet auf ein Problem mit der Push-Registrierung hin oder darauf, dass das Token der/des Nutzer:in von den APNs nach dem Push-Vorgang als ungültig an Braze zurückgegeben wurde:
+Das Folgende deutet auf ein Problem mit der Push-Registrierung hin oder darauf, dass das Token der Nutzer:in von den APNs nach dem Push-Vorgang als ungültig an Braze zurückgegeben wurde:
 
-![Ein Nutzerprofil, das die Kontakteinstellungen einer/eines Nutzer:in anzeigt. Unter „Push“ wird „Keine Apps“ angezeigt.]({% image_buster /assets/img_archive/registration_problem.png %}){: style="max-width:50%"}
+![Ein Nutzerprofil, das die Kontakteinstellungen einer Nutzer:in anzeigt. Unter „Push“ wird „Keine Apps“ angezeigt.]({% image_buster /assets/img_archive/registration_problem.png %}){: style="max-width:50%"}
 
 ## Nicht protokollierte Push-Klicks {#push-clicks-not-logged}
 
@@ -166,6 +166,6 @@ Links in Push-Benachrichtigungen müssen ATS-konform sein, damit sie in Webansic
 
 ### Deeplinks von Push-Klicks werden nicht geöffnet {#deep-links-from-push-clicks-not-opening}
 
-Der Großteil des Codes, der Deeplinks verarbeitet, verarbeitet auch Push-Öffnungen. Stellen Sie zunächst sicher, dass Push-Öffnungen protokolliert werden. Falls nicht, beheben Sie dieses Problem (da die Behebung häufig auch die Link-Verarbeitung verbessert).
+Der Großteil des Codes, der Deeplinks verarbeitet, verarbeitet auch Push-Öffnungen. Stellen Sie zunächst sicher, dass Push-Öffnungen protokolliert werden. Falls nicht, beheben Sie dieses Problem (da die Behebung häufig auch die Link-Verarbeitung korrigiert).
 
 Wenn Öffnungen protokolliert werden, prüfen Sie, ob es sich um ein Problem mit Deeplinks im Allgemeinen oder nur mit Deeplinks bei der Verarbeitung von Push-Klicks handelt. Um dies herauszufinden, testen Sie per Klick auf eine In-App-Nachricht, ob ein Deeplink funktioniert.

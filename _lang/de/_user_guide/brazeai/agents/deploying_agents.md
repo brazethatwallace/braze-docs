@@ -100,7 +100,7 @@ Sie können die vom Agenten generierte Zelle auch manuell überschreiben, indem 
 
 Im Abschnitt **Nutzung** Ihres Agenten können Sie einsehen und dorthin navigieren, wo der Agent in Katalogen und Canvases aktiv verwendet wird.
 
-![Der Abschnitt „Nutzung“ des Agenten zeigt zwei aktive Agenten und einen inaktiven Agenten für Canvases an.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
+![Der Abschnitt „Usage“ des Agenten zeigt zwei aktive Agenten und einen inaktiven Agenten für Canvases an.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
 Im Abschnitt **Protokolle** Ihres Agenten können Sie die tatsächlichen Agentenaufrufe überwachen, die in Ihren Canvases und Katalogen stattfinden. Sie können nach Informationen wie dem Datumsbereich, dem Ergebnis (Erfolg oder Fehler) oder dem Aufrufstandort filtern. Sie können auch **CSV exportieren** auswählen, um nur die auf der aktuellen Seite angezeigten Protokolle zu exportieren.
 
