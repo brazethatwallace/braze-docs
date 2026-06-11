@@ -5,7 +5,7 @@
 1. Was the user in the segment at session start, when the SDK requests new in-app messages?
 2. Was the user eligible or re-eligible to receive the in-app message per campaign targeting rules?
 3. Was the user affected by a frequency cap?
-4. Was the user in a control group? Check whether your campaign is configured is configured for AB Testing.
+4. Was the user in a control group? Check whether your campaign is configured for AB Testing.
 5. Was a different, higher priority in-app message displayed in place of the expected message?
 6. Was my device in the correct orientation specified by the campaign?
 7. Was my message suppressed by the default 30-second minimum time interval between triggers, enforced by the SDK?
@@ -34,7 +34,7 @@
 3. Depending on circumstances, in-app messages will either download or load relevant images from disk prior to display. If you are on a slow network connection or a very low performance devices, this process may take time. Ensure that your images are optimized to be as small as possible.
 {% endcase %}
 
-For more in-depth discussion of these scenarios, visit <a id="troubleshooting-in-app-advanced">the advanced troubleshooting section</a>.
+For more in-depth discussion of these scenarios, see [Advanced Troubleshooting](#troubleshooting-in-app-advanced).
 
 ## Issues with Impressions and Click Analytics
 
@@ -54,7 +54,7 @@ This is expected behavior and can happen when:
 - Even if re-eligibility is turned off, users who received the campaign may have more than one device. The campaign trigger updates on the next session start, so a device won't know if another device has already triggered the campaign until the user starts a new session.
 - If your in-app message has a scheduled delay for a few minutes after the trigger event occurs, users may have received the message more than once.
 
-For more information on re-eligibility, see [Re-eligibility for campaigns and Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/reeligibility/).
+For more information on re-eligibility, see [Re-eligibility for campaigns and Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/).
 
 ### Impressions are lower than expected
 
@@ -81,7 +81,7 @@ Other reasons include:
 
 ## Advanced Troubleshooting {#troubleshooting-in-app-advanced}
 
-Most in-app message issues can be broken down into two main categories: delivery and display. To troubleshoot why an expected in-app message did not display on your device, confirm that the <a id="troubleshooting-in-app-message-delivery">in-app message was delivered to the device</a>, then <a id="troubleshooting-in-app-message-display">troubleshoot message display</a>.
+Most in-app message issues can be broken down into two main categories: delivery and display. To troubleshoot why an expected in-app message did not display on your device, confirm that the [in-app message was delivered to the device](#troubleshooting-in-app-message-delivery), then [troubleshoot message display](#troubleshooting-in-app-message-display).
 
 ### Troubleshooting delivery {#troubleshooting-in-app-message-delivery}
 
@@ -92,27 +92,34 @@ The SDK requests in-app messages from Braze servers on session start. To check i
 1. Add yourself as a [test user]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#adding-test-users) on the dashboard.
 2. Set up an in-app message campaign targeted at your user.
 3. Ensure that a new session occurs in your application.
-4. Use the [event user logs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) to check that your device is requesting in-app messages on session start. Find the SDK Request associated with your test user's session start event.
-  - If your app was meant to request triggered in-app messages, you should see `trigger` in the **Requested Responses** field under **Response Data**.
-  - If your app was meant to request original in-app messages, you should see  `in_app` in the **Requested Responses** field under **Response Data**.
+4. Use the [event user logs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) to check that your device is requesting in-app messages on session start. Find the SDK Request associated with your test user's session start event. In **Response Data**:
+   - In the raw JSON, confirm `respond_with` includes `"triggers": true`.
+   - The **Requested Responses** row lists top-level keys in the response. For in-app messages, expect **`triggers`**.
+   - **Trigger In-App Message** rows list each in-app message returned for that request.
+
+   Then triage:
+   - **No `triggers` key and no Trigger In-App Message rows** — The session may not have started, the SDK may not be initialized correctly, or triggers were not requested.
+   - **`triggers` present but empty (`[]`)** — Delivery or targeting issue. Continue to [Troubleshoot messages not being returned](#troubleshoot-messages-not-being-returned).
+   - **Trigger In-App Message rows present but nothing displays on the device** — Display issue. Continue to [Troubleshooting display](#troubleshooting-in-app-message-display).
+   - Each trigger payload includes a **`type`**: `inapp` (standard) or `templated_iam` (requires a template request before display). For details, see [Types of in-app messages]({{ site.baseurl }}/developer_guide/in_app_messages/triggering_messages/#types-of-in-app-messages).
 5. Use the [event user logs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) to check if the correct in-app messages are being returned in the response data.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
-##### Troubleshoot messages not being requested
+##### Troubleshoot messages not being requested {#troubleshoot-messages-not-being-requested}
 
 If your in-app messages are not being requested, your app might not be tracking sessions correctly, as in-app messages are refreshed upon session start. Also, be sure that your app is actually starting a session based on your app's session timeout semantics:
 
 ![The SDK request found in the event user logs displaying a successful session start event.]({% image_buster /assets/img_archive/event_user_log_session_start.png %})
 
-##### Troubleshoot messages not being returned
+##### Troubleshoot messages not being returned {#troubleshoot-messages-not-being-returned}
 
 If your in-app messages are not being returned, you're likely experiencing a campaign targeting issue:
 
 1. Your segment does not contain your user.
-  - Check your user's [**Engagement**]({{ site.baseurl }}/user_guide/engagement_tools/segments/using_user_search/#engagement-tab) tab to see if the correct segment appears under **Segments**.
+  - Check your user's [**Engagement**]({{ site.baseurl }}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) tab to see if the correct segment appears under **Segments**.
 2. Your user has previously received the in-app message and was not re-eligible to receive it again.
-  - Check the [campaign re-eligibility settings]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/) under the **Delivery** step of the **Campaign Composer** and make sure the re-eligibility settings align with your testing setup.
+  - Check the [campaign re-eligibility settings]({{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/re_eligibility/) under the **Delivery** step of the **Campaign Composer** and make sure the re-eligibility settings align with your testing setup.
 3. Your user hit the frequency cap for the campaign.
-  - Check the campaign [frequency cap settings]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping) and ensure they align with your testing setup.
+  - Check the campaign [frequency cap settings]({{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/frequency_capping/) and ensure they align with your testing setup.
 4. If there was a control group on the campaign, your user may have fallen into the control group.
   - You can check if this has happened by creating a segment with a received campaign variant filter, where the campaign variant is set to **Control**, and checking if your user fell into that segment.
   - When creating campaigns for integration testing purposes, make sure to opt out of adding a control group.
@@ -124,22 +131,21 @@ If your app is successfully requesting and receiving in-app messages, but they a
 
 1. Is the trigger event firing as expected? To test for this, try configuring the message to trigger using a different action (like session start) and verify whether it displays.
 {% if include.sdk == "iOS" %}
-2. Triggered in-app messages are rate-limited based on the [minimum time interval between triggers]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers), which defaults to 30 seconds.
+2. Triggered in-app messages are rate-limited based on the [minimum time interval between triggers]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=swift#overriding-the-default-rate-limit), which defaults to 30 seconds.
 {% elsif include.sdk == "Android" %}
-2. Triggered in-app messages are rate-limited based on the [minimum time interval between triggers]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers), which defaults to 30 seconds.
+2. Triggered in-app messages are rate-limited based on the [minimum time interval between triggers]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=android#overriding-the-default-rate-limit), which defaults to 30 seconds.
 {% elsif include.sdk == "Web" %}
-2. Triggered in-app messages are rate-limited based on the [minimum time interval between triggers]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers), which defaults to 30 seconds.
+2. Triggered in-app messages are rate-limited based on the [minimum time interval between triggers]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web#overriding-the-default-rate-limit), which defaults to 30 seconds.
 {% endif %}
 3. Failed image downloads will prevent in-app messages with images from displaying. Check your device logs to ensure that image downloads are not failing. Try removing your image temporarily from your message to see if that causes it to display.
 {% case include.sdk %}
   {% when "iOS", "Android" %}
 4. If you have set a delegate to customize in-app message handling, check your delegate to ensure it is not affecting the in-app message display.
   {% when "Web" %}
-5. If you have custom in-app message handling through `braze.subscribeToInAppMessage` or `appboy.subscribeToNewInAppMessages`, check that subscription to ensure it is not affecting in-app message display.
+5. If you use custom in-app message handling through [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), verify the callback isn't suppressing display.
 {% endcase %}
 {% case include.sdk %}
   {% when "iOS", "Android" %}
 6. If the device orientation does not match the orientation specified by the in-app message, the in-app message will not display. Make sure that your device is in the correct orientation.
 {% endcase %}
 7. If your in-app message is triggered by session start and you've set an extended session timeout, this will affect how quickly you can show messages. For instance, if your session timeout is set to 300 seconds, closing and re-opening the app in less than that time will not refresh the session, so an in-app message triggered by a session start will not display.
-
