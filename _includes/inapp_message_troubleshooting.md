@@ -89,20 +89,22 @@ The SDK requests in-app messages from Braze servers on session start. To check i
 
 #### Check if messages are requested and returned
 
-1. Add yourself as a [test user]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#adding-test-users) on the dashboard.
+1. Add yourself as a [test user]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#adding-test-users) on the dashboard.
 2. Set up an in-app message campaign targeted at your user.
 3. Ensure that a new session occurs in your application.
-4. Use the [event user logs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) to check that your device is requesting in-app messages on session start. Find the SDK Request associated with your test user's session start event. In **Response Data**:
+4. Use the [event user logs]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) to check that your device is requesting in-app messages on session start. Find the SDK Request associated with your test user's session start event. In **Response Data**:
    - In the raw JSON, confirm `respond_with` includes `"triggers": true`.
    - The **Requested Responses** row lists top-level keys in the response. For in-app messages, expect **`triggers`**.
    - **Trigger In-App Message** rows list each in-app message returned for that request.
 
    Then triage:
-   - **No `triggers` key and no Trigger In-App Message rows** — The session may not have started, the SDK may not be initialized correctly, or triggers were not requested.
-   - **`triggers` present but empty (`[]`)** — Delivery or targeting issue. Continue to [Troubleshoot messages not being returned](#troubleshoot-messages-not-being-returned).
-   - **Trigger In-App Message rows present but nothing displays on the device** — Display issue. Continue to [Troubleshooting display](#troubleshooting-in-app-message-display).
-   - Each trigger payload includes a **`type`**: `inapp` (standard) or `templated_iam` (requires a template request before display). For details, see [Types of in-app messages]({{ site.baseurl }}/developer_guide/in_app_messages/triggering_messages/#types-of-in-app-messages).
-5. Use the [event user logs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) to check if the correct in-app messages are being returned in the response data.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+   - If there are no `triggers` key or **Trigger In-App Message** rows, the session may not have started, the SDK may not be initialized correctly, or triggers were not requested.
+   - If `triggers` are present but empty (`[]`), you may have a delivery or targeting issue. See [Troubleshoot messages not being returned](#troubleshoot-messages-not-being-returned).
+   - If **Trigger In-App Message** rows are present but nothing displays on the device, you may have a display issue. See [Troubleshooting display](#troubleshooting-in-app-message-display).
+   - Each trigger payload includes a `type`: `inapp` (standard) or `templated_iam` (requires a template request before display). For details, see [Types of in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/#types-of-in-app-messages).
+5. Use the [event user logs]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) to check if the correct in-app messages are being returned in the response data.
+
+![Event user log with SDK requests and response data.]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 ##### Troubleshoot messages not being requested {#troubleshoot-messages-not-being-requested}
 
