@@ -1,6 +1,6 @@
 ---
 nav_title: Geofences
-article_title: GeoFences für das Braze Swift SDK
+article_title: Geofences
 page_order: 3.51
 description: "Erfahren Sie, wie Sie Geofences für das Braze SDK einrichten."
 platform:
@@ -9,13 +9,13 @@ platform:
   - Swift
   - Xamarin
   - React Native
-Tool:
+tool:
   - Location
 ---
 
-# Geofences
+# Geofences {#geofences}
 
-> Erfahren Sie, wie Sie Geofences für das Braze SDK einrichten. Ein [Geofence]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences) ist ein virtueller geografischer Bereich, der einen Kreis um eine bestimmte globale Position bildet und durch die Kombination von Breitengrad, Längengrad und einem Radius dargestellt wird.
+> Erfahren Sie, wie Sie Geofences für das Braze SDK einrichten. Ein [Geofence]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences/#about-locations-and-geofences) ist ein virtueller geografischer Bereich, der einen Kreis um eine bestimmte globale Position bildet und durch die Kombination von Breitengrad, Längengrad und einem Radius dargestellt wird.
 
 {% sdktabs %}
 {% sdktab android %}

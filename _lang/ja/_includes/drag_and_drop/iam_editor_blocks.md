@@ -1,154 +1,118 @@
-## アプリ内メッセージエディタブロックの使用
+## アプリ内メッセージエディターブロック {#in-app-message-editor-blocks}
 
-アプリ内メッセージの**ビルド**セクションの下に、エディターブロックがある。これを使うには、エディターブロックを列の中にドラッグする。カラム幅に自動調整される。各エディターブロックは、埋め込みのきめ細かなコントロールなど、独自の設定を持っています。右側のパネルは、選択されたコンテンツ要素のプロパティパネルに自動的に切り替わる。
+エディターブロックは、アプリ内メッセージの**Build**セクションにあります。ブロックを列にドラッグすると、列の幅に自動調整されます。ブロックを選択すると、右側のパネルで設定を編集できます。
 
-## 種類
+**ドラッグ＆ドロップエディター**でアプリ内メッセージを作成する方法の詳細については、[ドラッグ＆ドロップでアプリ内メッセージを作成する]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)を参照してください。
 
-次の表で、エディターブロックの各タイプの使用方法を説明します。
+### タイトルとパラグラフ {#title-and-paragraph}
 
-| 名前 | 説明 |
-| --- | --- |
-| タイトル | メッセージにタイトルテキストを入力します。 |
-| パラグラフ | メッセージに段落テキストを入力する。 |
-| ボタン | 標準ボタンを追加する。このブロックのプロパティでは、編集、リンクの設定、分析の記録が可能である。 |
-| ラジオボタン | ユーザーが選択できるオプションのリストを追加します。ユーザープロファイルが送信されると、関連するカスタム属性が記録される。この属性は保存されるために文字列でなければならない。他のデータ型のカスタム属性は、ユーザープロファイルに保存されない。 |
-| 画像 | [メディアライブラリー]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/)から画像を挿入する。 |
-| リンク | ユーザーがクリックして指定したURL に移動できるハイパーリンクを挿入します。テキスト内またはスタンドアロンで埋め込むことができます。 |
-| スペーサー | 他のブロックの間にスペースまたはパディングを追加する。 |
-| カスタムコード | 高度なカスタマイズのために、カスタムHTML、CSS、またはJavaScript を挿入して実行します。  |
-| 電話キャプチャ | 電話番号のフォームフィールドを挿入します。送信されると、ユーザーは[SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)または[WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/)の[サブスクリプショングループ]({{site.baseurl}}/whatsapp_subscription_groups/)に登録される。 |
-| メールキャプチャ | メールアドレスのフォームフィールドを挿入します。送信されると、メールアドレスが Braze のでユーザープロファイルに追加されます。 |
-| ドロップダウン      | ユーザーが選択できる項目の事前定義リストを含むドロップダウンを挿入する。任意のカスタム属性文字列をリストに追加できます。 |
-| チェックボックス      | チェックボックスを挿入する。ユーザがボックスをチェックすると、ブロックの属性は`true` に設定されます。チェックを外すと、その属性は`false` に設定されます。 |
-| チェックボックスグループ| ユーザーは提示された複数の選択肢から選択できる。値は、定義済みの配列カスタム属性に設定されるか、追加される。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+メッセージにタイトルまたはパラグラフテキストを追加します。
 
-## プロパティ
+{% multi_lang_include drag_and_drop/editor_block_properties/title_paragraph.md %}
 
-各エディターブロックのプロパティの詳細は以下の表に記載されている。
+### ボタン {#button}
 
-### タイトルとパラグラフ
+スタイル、リンク、分析を設定可能な標準ボタンを追加します。
 
-| プロパティ | 説明 |
-| --- | --- |
-| フォントファミリ | テキストのフォントスタイル |
-| フォントの太さ | テキストの太さを決定する |
-| 文字サイズ | テキストのサイズを指定します |
-| ライン高さ | テキストの行間の距離を変更する |
-| 文字間隔 | 各文字間の距離を変更する |
-| 文字の配置 | テキストを左揃え、中央揃え、右揃え、両端揃えにする |
-| テキストの色 | テキストの色を変更する |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
-### ボタン
+#### クリック時の動作 {#on-click-behavior}
 
-| プロパティ | 説明 |
-| --- | --- |
-| ボタンの幅 | ボタンの幅を自動または手動に変更します |
-| フォントファミリ | テキストのフォントスタイルです |
-| フォントの太さ | テキストの太さを決定する |
-| 文字サイズ | テキストのサイズを指定します |
-| 文字間隔 | 各文字間の距離を変更する |
-| ボタンの配置 | ボタンを左、中央、右方向に移動する |
-| ボタンテキストの色 | ボタンのテキストの色を変更します |
-| 背景色 | ボタンの背景色を変更します |
-| 境界線のスタイル | ボタンの境界線のスタイルを設定します | 
-| 境界半径 | 角の丸みを決定する |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
-### 画像
+### ラジオボタン {#radio-button}
+
+ユーザーが1つ選択できるオプションのリストを追加します。送信されると、ユーザープロファイルに関連する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)が記録されます。保存するには文字列である必要があります。他のデータタイプのカスタム属性はユーザープロファイルに保存されません。
+
+{% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
+
+### 画像 {#image}
+
+[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)から画像を挿入します。
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-| プロパティ | 説明 |
-| --- | --- |
-| URL | 画像のホストアドレス |
-| 位置揃え | 画像を左、中央、または右方向に移動する |
-| 背景色 | 画像の背景の色を変更する |
-| 境界線のスタイル | 画像の境界線のスタイルを決定する | 
-| 境界半径 | 画像の角の丸みを設定します |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
 
-### リンク
+画像の仕様については、[アプリ内メッセージの画像仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#in-app-messages)を参照してください。
 
-| プロパティ | 説明 |
-| --- | --- |
-| フォントファミリ | テキストのフォントスタイルです |
-| フォントの太さ | テキストの太さを決定する |
-| 文字間隔 | 各文字間の距離を変更する |
-| テキストの色 | テキストの色を変更する |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+#### クリック時の動作
 
-### スペーサー
+{% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
-| プロパティ | 説明 |
-| --- | --- |
-| 背景色 | スペーサーの背景色を変更する |
-| 高さ | スペーサーの高さを変更する。また、スペーサーのサイズ変更ハンドルを使用して変更することもできる。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+### リンク {#link}
 
-### カスタムコード
+ユーザーがクリックして指定したURLに移動できるハイパーリンクを挿入します。テキスト内に埋め込むことも、スタンドアロンで使用することもできます。
 
-| プロパティ | 説明 |
-| --- | --- |
-| カスタムコード | アプリ内メッセージのHTML、CSS、JavaScriptを追加、編集、削除できる。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
-### 電話キャプチャ
+#### クリック時の動作
+
+{% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
+
+### スペーサー {#spacer}
+
+他のブロックの間にスペースまたはパディングを追加します。
+
+{% multi_lang_include drag_and_drop/editor_block_properties/spacer.md %}
+
+### カスタムコード {#custom-code}
+
+高度なカスタマイズのために、カスタムHTML、CSS、またはJavaScriptを挿入します。
 
 | プロパティ | 説明 |
 | --- | --- |
-| 購読グループ | ユーザーが電話番号を登録することで加入する[SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)または[WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/)の[サブスクリプショングループ]({{site.baseurl}}/whatsapp_subscription_groups/)。すべての国からの電話番号を収集するオプションがある。 |
-| 文字の配置 | テキストを左揃え、中央揃え、右揃え、両端揃えにする |
-| プレスホルダーのテキスト | 表示するプレースホルダの電話番号 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| カスタムコード | アプリ内メッセージのHTML、CSS、JavaScriptを追加、編集、削除できます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
-### メールキャプチャ
+### 電話キャプチャ {#phone-capture}
 
-| プロパティ | 説明 |
-| --- | --- |
-| フォントファミリ | テキストのフォントスタイル |
-| フォントの太さ | テキストの太さを決定する |
-| 文字サイズ | テキストのサイズを指定します |
-| ライン高さ | テキストの行間の距離を変更する |
-| テキストの色 | テキストの色を変更する |
-| 文字間隔 | 各文字間の距離を変更する |
-| 文字の配置 | テキストを左揃え、中央揃え、右揃え、両端揃えにする |
-| プレスホルダーのテキスト | 表示するプレースホルダの電子メールアドレス |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+電話番号のフォームフィールドを挿入します。送信されると、ユーザーは[SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)または[WhatsAppサブスクリプショングループ]({{site.baseurl}}/whatsapp_subscription_groups/)に登録されます。
 
-## アクション
+{% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
-メッセージ内のボタン、リンク、または画像をユーザーがタップした際に発生するアクションを設定できる。アクションをパーソナライズするためにも[Liquid]({{site.baseurl}}/liquid/)を使える。各エディタブロックのアクションの詳細は、次の表に示されています。
+### メールキャプチャ {#email-capture}
 
-### ボタン
+メールアドレスのフォームフィールドを挿入します。送信されると、メールアドレスがBrazeのそのユーザーのプロファイルに追加されます。
 
-| アクション (Action) | 説明 |
-| --- | --- |
-| ボタンをクリックするとフォームを送信 | フォームを送信し、選択したクリック時の動作を実行します。これをオフにすると、クリック時動作のみを実行します。 |
-| プラットフォームごとに個別の動作を設定する | 各プラットフォームのボタンの動作を個別にカスタマイズします。 |
-| オン・クリック動作 | ユーザーがボタンをクリックした際のアクションを決定する。例えば、メッセージを閉じる、ウェブURLを開く、アプリの特定ページへのディープリンク、別のページへ移動、[プッシュ通知の許可を要求する]({{site.baseurl}}/push_primer/)といったアクションである。 |
-| カスタム属性またはイベントをログに記録 | ボタンをクリックするとユーザーのプロファイルがカスタムデータで更新されるかどうかを決定する。レポートの識別子を選択することもできます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
-### 画像
+### ショートテキスト {#short-text}
 
-画像の仕様については、[アプリ内メッセージ画像仕様]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#in-app-messages)を参照すること。
+標準属性項目（名や姓など）または任意のカスタム属性文字列をサポートするフォームフィールドを挿入します。
 
-| アクション (Action) | 説明 |
-| --- | --- |
-| オルトテキスト | 画像の読み込みに失敗した場合に、画像の代わりに表示されるコピー。スクリーンリーダーは画像を説明するために alt テキストを読み上げるので、平易な言葉を使って画像に関する重要な情報を提供します。 |
-| 画像をクリックするとフォームを送信 | フォームを送信し、選択したクリック時の動作を実行します。これをオフにすると、クリック時動作のみを実行します。 |
-| プラットフォームごとに個別の動作を設定する | 画像の動作をプラットフォームごとに個別にカスタマイズする。 |
-| オン・クリック動作 | ユーザーが画像をクリックした際のアクションを決定する。例えば、メッセージを閉じる、ウェブURLを開く、アプリの特定ページへのディープリンク、別のページへ移動、[プッシュ通知の許可を要求する]({{site.baseurl}}/push_primer/)といったアクションである。 |
-| カスタム属性またはイベントをログに記録 | 画像をクリックするとユーザーのプロファイルがカスタムデータで更新されるかどうかを決定する。レポートの識別子を選択することもできます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/short_text_properties.md %}
 
-### リンク
+### ドロップダウン {#dropdown}
 
-| アクション (Action) | 説明 |
-| --- | --- |
-| URL | 移動先のハイパーリンク |
-| レポート用の識別子 | レポートに使用する識別子を決定する |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+ユーザーが1つ選択できる事前定義された項目リストを含むドロップダウンを挿入します。任意のカスタム属性文字列をリストに追加できます。
 
+{% multi_lang_include drag_and_drop/editor_block_properties/dropdown_properties.md %}
+
+### チェックボックス {#checkbox}
+
+チェックボックスを挿入します。ユーザーがボックスをチェックすると、ブロックの[ブール値カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types)が`true`に設定されます。チェックを外したままにすると、その属性は`false`に設定されます。
+
+{% multi_lang_include drag_and_drop/editor_block_properties/checkbox_properties.md %}
+
+### チェックボックスグループ {#checkbox-group}
+
+ユーザーは複数の選択肢から選択できます。値は、定義済みの[配列カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types)に設定されるか、追加されます。
+
+{% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
+
+### ロングテキスト {#long-text}
+
+調査スタイルのフロー向けの複数行テキストフィールドです。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)またはBrazeカスタマーサクセスマネージャーにお問い合わせください。
+
+{% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
+
+<!-- Saved row is not yet released. Uncomment when available.
+### Saved row
+
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+-->
+
+## 知っておくべきこと {#things-to-know}
+
+- **動画:** 標準コンポーザーには専用の動画ブロックは含まれていません。必要に応じて**カスタムコード**を使用してプレーヤーを埋め込んでください。詳細については、[アプリ内メッセージ：よくある質問]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/)を参照してください。

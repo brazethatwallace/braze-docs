@@ -18,7 +18,7 @@ Connecting Cloudinary to Braze gives brands access to visual media stored in Clo
 This page outlines four possible, but not exhaustive, integration methods between Cloudinary and Braze. These integration methods primarily rely on modifying asset links manually copied from Cloudinary’s Media Library. 
 
 {% alert important %}
-More advanced integration methods, including using [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) to call Cloudinary’s [Admin API](https://cloudinary.com/documentation/admin_api#banner) are possible, but the approach will vary between customers. Contact your Cloudinary and Braze customer success manager for guidance.
+More advanced integration methods, including using [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) to call Cloudinary’s [Admin API](https://cloudinary.com/documentation/admin_api#banner) are possible, but the approach will vary between customers. Contact your Cloudinary and Braze customer success manager for guidance.
 {% endalert %}
 
 ## Prerequisites
@@ -26,7 +26,7 @@ More advanced integration methods, including using [Connected Content]({{site.ba
 | Requirements     | Description |                        
 |-----------------------|-----------------|
 | Cloudinary Account  | A [Cloudinary Account](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) is required to take advantage of this partnership  |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration methods
 
@@ -72,12 +72,12 @@ The most direct way to use images and videos directly from Cloudinary's DAM in y
 ```
 {% endraw %}
 
-Refer to [Video]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/customize/video/) for specific Android and iOS considerations. 
+Refer to [Video]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/) for specific Android and iOS considerations. 
 
 {% endtab %}
-{% tab Convert videoes into GIFs %}
+{% tab Convert videos into GIFs %}
 
-## Convert videoes to GIFs for emails
+## Convert videos to GIFs for emails
 
 Use the `f_auto:animated` [Cloudinary Transformation](https://cloudinary.com/documentation/image_transformations/) to automatically convert video assets to GIFs. This is of particular value if you're using the Braze email channel, as GIFs are optimized to reduce email payloads, which, if too high, can cause deliverability issues. 
 
@@ -140,8 +140,8 @@ This example presumes that assets in Cloudinary have two defined SMD fields (“
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %} 
 {% assign locale = {{${language}}}%} 
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner"> 
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner"> 
 ```
 {% endraw %}
 
@@ -149,15 +149,15 @@ This example presumes that assets in Cloudinary have two defined SMD fields (“
 
 - Output URL for users with audience `internal` and locale `en`: 
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - Output URL for users with audience `external` and locale `es`: 
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - Fallback image URL: 
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}

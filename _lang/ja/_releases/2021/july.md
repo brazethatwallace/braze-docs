@@ -1,37 +1,37 @@
---- 
+---
 nav_title: 7月
 page_order: 5
 noindex: true
 page_type: update
-description: "この記事には2021年7月のリリースノートが含まれている。"
+description: "この記事には2021年7月のリリースノートが含まれています。"
 ---
 
-# 2021年7月
+# 2021年7月 {#july-2021}
 
-## アプリ内の簡単なアンケートメッセージ
+## 簡単な調査アプリ内メッセージ {#simple-survey-in-app-message}
 
-[簡単な調査アプリ内メッセージテンプレート]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/templates/simple_survey/)を使用して、キャンペーン戦略を強化するユーザー属性、インサイト、および好みを収集します。例えば、ユーザーにアプリをどのように使いたいかを尋ねたり、個人的な好みについて詳しく知ったり、特定の機能に対する満足度を質問したりすることができます。このアンケートテンプレートは、モバイルアプリとウェブブラウザの両方に対応している。
+[簡単な調査アプリ内メッセージテンプレート]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey/)を使用して、キャンペーン戦略を強化するユーザー属性、インサイト、および好みを収集します。例えば、ユーザーにアプリをどのように使いたいかを尋ねたり、個人的な好みについて詳しく知ったり、特定の機能に対する満足度を質問したりすることができます。このアンケートテンプレートは、モバイルアプリとWebブラウザの両方に対応しています。
 
-## 流動ユースケース ライブラリー
+## Liquidユースケースライブラリー {#liquid-use-case-library}
 
-Liquid でその1つのことを実行する方法を知りたいですか?インスピレーションが必要なだけですか?記念日や誕生日、プラットフォームターゲティングなど、様々なユースケースを集めた[Liquidユースケースライブラリを]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/liquid_use_cases/)チェックしよう。
+Liquidであれをどうやるか知りたいですか？インスピレーションをお探しですか？記念日や誕生日、プラットフォームターゲティングなど、さまざまなユースケースを集めた[Liquidユースケースライブラリー]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/)をチェックしてください。
 
-## 電子メール追跡
+## メールトラッキング {#email-tracking}
 
-開封ピクセル追跡とクリック追跡を、ユーザープロファイルごとに無効にできるようになりました。このような柔軟性があるため、お客様がが各自のユーザープロファイルを追跡対象外と指定したときに地域の個人情報保護法を遵守できます。詳しくは、[Eメール・トラッキングの]({{site.baseurl}}/user_guide/analytics/tracking/email_tracking/)記事をご覧いただきたい。
+開封ピクセルトラッキングとクリックトラッキングを、ユーザープロファイルごとに無効にできるようになりました。この柔軟性により、個々のユーザープロファイルがトラッキング対象外であることを示した場合に、地域のプライバシー法を遵守できます。詳しくは、[開封ピクセルとクリックトラッキング]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking/)をご覧ください。
 
-## SDK によるデータ収集のオプション
+## SDKデータ収集オプション {#sdk-data-collection-options}
 
-Braze SDK を統合して柔軟なデータ収集を可能にする方法について詳しくは、[SDK データ収集オプション]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/)に関する新しいドキュメントをご覧ください。
+Braze SDKを統合して柔軟なデータ収集を可能にする方法について詳しくは、[SDKデータ収集オプション]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)に関する新しいドキュメントをご覧ください。
 
-## SSLの概要
+## SSLの概要 {#ssl-overview}
 
-BrazeのSSLについての詳細、SSLが重要な理由、SSL証明書の取得方法については、新しい[SSL概要の]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/)記事をご覧ください。
+BrazeにおけるSSLの詳細、SSLが重要な理由、SSL証明書の取得方法については、新しい[SSL概要]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)の記事をご覧ください。
 
-## AmplitudeユーザープロファイルAPIエンドポイント
+## AmplitudeユーザープロファイルAPIエンドポイント {#amplitude-user-profile-api-endpoints}
 
-Amplitude のユーザープロファイル API はAmplitude ユーザープロファイル に対応しています。これには、ユーザー・プロパティ、計算されたユーザー・プロパティ、ユーザーを含むコホートのコホートIDのリスト、および推奨事項が含まれる。詳細については、[AmplitudeユーザプロファイルAPI エンドポイント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api/)を参照してください。
+AmplitudeのユーザープロファイルAPIは、Amplitudeユーザープロファイルを提供します。これには、ユーザープロパティ、計算されたユーザープロパティ、ユーザーを含むコホートのコホートIDのリスト、およびおすすめが含まれます。詳細については、[AmplitudeユーザープロファイルAPIエンドポイント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api/)を参照してください。
 
-## キャンペーン詳細エンドポイント 
+## キャンペーン詳細エンドポイント {#campaign-details-endpoint}
 
-[`/campaigns/details` エンドポイントに]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/)、アプリ内メッセージチャンネル専用の`message` レスポンスが追加された。これに関するドキュメントは、[ここで]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/#messages)にあります。
+[`/campaigns/details` エンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/)に、アプリ内メッセージチャネル専用の `message` 応答が追加されました。これに関するドキュメントは[こちら]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/#messages)をご覧ください。

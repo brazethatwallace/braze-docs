@@ -1,42 +1,43 @@
 ---
-nav_title: "取得:キャンペーンのエクスポートの詳細"
-article_title: "取得:キャンペーンの詳細のエクスポート"
-search_tag: エンドポイント
+nav_title: "GET: キャンペーンの詳細のエクスポート"
+article_title: "GET: キャンペーンの詳細のエクスポート"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「キャンペーンの詳細のエクスポート」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「キャンペーンの詳細のエクスポート」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# キャンペーンのエクスポートの詳細
+# キャンペーンの詳細のエクスポート {#export-campaign-details}
 {% apimethod get %}
 /campaigns/details
 {% endapimethod %}
 
 > このエンドポイントを使用して、`campaign_id` で識別できる、指定されたキャンペーンの関連情報を取得します。
 
-キャンバスデータを取得する場合は、「[キャンバス詳細のエクスポート]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)」エンドポイントを参照してください。
+キャンバスデータを取得する場合は、[キャンバスの詳細のエクスポート]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)エンドポイントを参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`campaigns.details`の権限が必要です。
+このエンドポイントを使用するには、`campaigns.details` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | 必須かどうか | string | [キャンペーン API 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br> API キャンペーンの `campaign_id` は、[API キー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/)ページ、またはダッシュボードの**キャンペーンの詳細**ページで確認できます。または、[「キャンペーンリストのエクスポート」エンドポイント](#campaign-list-endpoint)を使用することもできます。 |
-| `post_launch_draft_version` | オプション | ブール値 | 開始後の下書きがあるメッセージの場合、これを`true` に設定すると、利用可能な下書きの変更が表示されます。デフォルトは `false` です |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | 必須 | 文字列 | [キャンペーン API 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br> API キャンペーンの `campaign_id` は、[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページ、またはダッシュボードの**Campaign Details**ページで確認できます。または、[キャンペーンリストのエクスポートエンドポイント](#campaign-list-endpoint)を使用することもできます。 |
+| `post_launch_draft_version` | オプション | ブール値 | 開始後の下書きがあるメッセージの場合、これを `true` に設定すると、利用可能な下書きの変更が表示されます。デフォルトは `false` です。 |
+| `include_has_translatable_content` | オプション | ブール値 | `true` に設定すると、API レスポンスに各メッセージの `has_translatable_content` フィールドが含まれます。デフォルトは `false` です。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/details?campaign_id={{campaign_identifier}}' \
@@ -44,7 +45,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 {% endraw %}
 
-## 回答
+## レスポンス {#responses}
 
 ```json
 {
@@ -65,8 +66,9 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
     "teams" : (array) the names of the Teams associated with the campaign,
     "messages": {
         "message_variation_id": (string) { // <=This is the actual id
-            "channel": (string) the channel type of the message, must be either email, ios_push, webhook, content_cards, trigger_in_app_message, or sms,
-            "name": (string) the name of the message in the dashboard (eg., "Variation 1")
+            "channel": (string) the channel type of the message, must be either email, ios_push, webhook, content_card, in-app_message, or sms,
+            "name": (string) the name of the message in the dashboard (for example, "Variation 1"),
+            "has_translatable_content": (boolean) whether the message has translatable content (only present if `include_has_translatable_content` is true); `true` if locales are configured and the message contains at least one translation tag; `false` if no locales are configured or no translation tags detected; `null` if detection could not be completed,
             ... channel-specific fields for this message, see the following messages section ...
         }
     },
@@ -74,7 +76,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 }
 ```
 
-### チャネル別のメッセージ
+### チャネル別のメッセージ {#messages-by-channel}
 
 `messages` レスポンスには、各メッセージに関する情報が含まれます。チャネルごとのメッセージレスポンスの例を次に示します。
 
@@ -90,7 +92,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Email %}
+{% tab メール %}
 
 ```json
 {
@@ -112,9 +114,11 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab In-app messages %}
+{% tab アプリ内メッセージ %}
 
-#### アンケート
+レスポンスの形式は、アプリ内メッセージのタイプによって異なります。アンケートのアプリ内メッセージは `type` と `data` フィールドを返します。その他のアプリ内メッセージタイプ（スライドアップ、モーダル、フルスクリーン）は `name`、`message`、`extras` フィールドを返します。
+
+#### アンケート {#surveys}
 
 ```json
 {
@@ -142,7 +146,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 }
 ```
 
-#### スライドアップ、モーダル、フルスクリーンアプリ内メッセージ
+#### スライドアップ、モーダル、フルスクリーンアプリ内メッセージ {#slideup-modal-fullscreen-in-app-messages}
 
 ```json
 {
@@ -154,7 +158,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Push %}
+{% tab プッシュ %}
 
 ```json
 {
@@ -198,7 +202,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 {% endtab %}
 {% tab WhatsApp %}
 
-#### テンプレートメッセージ
+#### テンプレートメッセージ {#template-messages}
 
 ```json
 {
@@ -213,7 +217,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 }
 ```
 
-#### 応答メッセージ
+#### レスポンスメッセージ {#response-messages}
 
 ```json
 {
@@ -229,7 +233,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Control messages %}
+{% tab コントロールメッセージ %}
 
 ```json
 {
@@ -242,13 +246,13 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 {% endtabs %}
 
 
-### 変換動作
+### コンバージョン動作 {#conversion-behaviors}
 
-`conversion_behaviors` 配列には、キャンペーンに設定されたコンバージョンイベントの動作に関する情報が含まれます。これらの動作は、キャンペーンによって設定された順序で行われます。たとえば、変換イベントA は配列の最初の項目、変換イベントB は2 番目の項目、というようになります。以下に、コンバージョンイベント ビヘイビアのレスポンスの例を示します。
+`conversion_behaviors` 配列には、キャンペーンに設定された各コンバージョンイベントの動作に関する情報が含まれます。これらの動作は、キャンペーンで設定された順序で並んでいます。たとえば、コンバージョンイベント A は配列の最初の項目、コンバージョンイベント B は2番目の項目、というようになります。以下に、コンバージョンイベント動作のレスポンスの例を示します。
 
 
 {% tabs %}
-{% tab Clicks email %}
+{% tab メールのクリック %}
 
 ```json
 {
@@ -258,7 +262,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Opens email %}
+{% tab メールの開封 %}
 
 ```json
 {
@@ -268,7 +272,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Makes purchase (any purchase) %}
+{% tab 購入（任意の購入） %}
 
 ```json
 {
@@ -278,7 +282,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Makes purchase (specific product) %}
+{% tab 購入（特定の製品） %}
 
 ```json
 {
@@ -289,7 +293,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Performs custom event %}
+{% tab カスタムイベントの実行 %}
 
 ```json
 {
@@ -301,7 +305,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 
 {% endtab %}
-{% tab Upgrades app %}
+{% tab アプリのアップグレード %}
 
 ```json
 {
@@ -311,7 +315,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 }
 ```
 {% endtab %}
-{% tab Uses app %}
+{% tab アプリの使用 %}
 
 ```json
 {
@@ -325,7 +329,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 {% endtabs %}
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)」を参照してください。
+CSV および API のエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。
 {% endalert %}
 
 {% endapi %}

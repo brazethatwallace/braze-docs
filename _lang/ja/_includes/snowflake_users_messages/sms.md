@@ -195,33 +195,33 @@ erDiagram
     }
 
     %% Relationships for Group Labels
-    GROUP_1["Campaign Snapshots and Log"] { }
+    GROUP_1["キャンペーン Snapshots and Log"] { }
     CHANGELOGS_CAMPAIGN_SHARED ||--o{ GROUP_1 : joins
     SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED ||--o{ GROUP_1 : joins
     GROUP_1 ||--o{ EVENT : joins
 
-    GROUP_2["Campaign Events"] { }
+    GROUP_2["キャンペーン Events"] { }
     CAMPAIGN_ENROLLMENT_EVENT ||--o{ GROUP_2 : joins
     CAMPAIGN_CONVERSION_EVENT ||--o{ GROUP_2 : joins
     GROUP_2 ||--o{ EVENT : joins
 
-    GROUP_3["Canvas Events"] { }
+    GROUP_3["キャンバス Events"] { }
     CANVAS_ENTRY_EVENT ||--o{ GROUP_3 : joins
     CANVAS_EXPERIMENT_STEP_ENTRY_EVENT ||--o{ GROUP_3 : joins
     CANVAS_EXIT_EVENT ||--o{ GROUP_3 : joins
     GROUP_3 ||--o{ EVENT : joins
 
-    GROUP_4["Canvas Steps"] { }
+    GROUP_4["キャンバス Steps"] { }
     CANVAS_VARIATION ||--o{ GROUP_4 : joins
     CANVAS_STEP ||--o{ GROUP_4 : joins
     GROUP_4 ||--o{ EVENT : joins
 
-    GROUP_5["Canvas Experiments"] { }
+    GROUP_5["キャンバス Experiments"] { }
     CANVAS_EXPERIMENT_STEP_CONVERSION_EVENT ||--o{ GROUP_5 : joins
     CANVAS_CONVERSION_EVENT ||--o{ GROUP_5 : joins
     GROUP_5 ||--o{ EVENT : joins
 
-    GROUP_6["Canvas Snapshots and Log"] { }
+    GROUP_6["キャンバス Snapshots and Log"] { }
     CHANGELOGS_CANVAS_SHARED ||--o{ GROUP_6 : joins
     SNAPSHOTS_CANVAS_FLOW_STEP_SHARED ||--o{ GROUP_6 : joins
     SNAPSHOTS_CANVAS_STEP_SHARED ||--o{ GROUP_6 : joins
@@ -230,8 +230,8 @@ erDiagram
     GROUP_6 ||--o{ EVENT : joins
 ```
 
-- `PK` 主キー
-- `FK` 外部キー
+- `PK` = 主キー
+- `FK` = 外部キー
 
 ## リレーションシップテーブル
 
@@ -262,7 +262,7 @@ erDiagram
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
-        "ABORT_TYPE": "Type of abort, one of ['liquid_abort_message', 'quiet_hours', 'rate_limit']",
+        "ABORT_TYPE": "Type of abort. Refer to the abort types reference for a full list of values.",
         "ABORT_LOG": "[PII] Log message describing abort details (up to 128 chars)",
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }

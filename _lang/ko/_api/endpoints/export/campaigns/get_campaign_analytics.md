@@ -1,43 +1,45 @@
 ---
 nav_title: "GET: 캠페인 분석 내보내기"
-article_title: "GET: 내보내기 캠페인 분석"
+article_title: "GET: 캠페인 분석 내보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "이 문서에서는 내보내기 캠페인 분석 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
+description: "이 문서에서는 캠페인 분석 내보내기 Braze 엔드포인트에 대해 자세히 설명합니다."
 
 ---
 {% api %}
-# 캠페인 분석 내보내기
+# 캠페인 분석 내보내기 {#export-campaign-analytics}
 {% apimethod get %}
 /campaigns/data_series
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 캠페인에 대한 다양한 통계의 일별 시리즈를 시간별로 검색할 수 있습니다.
+> 이 엔드포인트를 사용하여 시간 경과에 따른 캠페인의 다양한 통계를 일별 시리즈로 조회할 수 있습니다.
 
-반환된 데이터에는 메시징 채널별로 전송, 열기, 클릭 또는 변환된 메시지 수가 포함됩니다.
+반환되는 데이터에는 메시징 채널별로 전송, 열람, 클릭 또는 전환된 메시지 수가 포함됩니다.
+
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='campaign' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1 {% endapiref %}
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `campaigns.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='export campaign analytics' %}
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Required | 문자열 | [캠페인 API 식별자를]({{site.baseurl}}/api/identifier_types/) 참조하세요.<br><br> API 캠페인용 `campaign_id` 은 대시보드 내의 [API 키]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) 페이지와 **캠페인 세부정보** 페이지에서 찾을 수 있으며, [캠페인 목록 엔드포인트를]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) 사용할 수도 있습니다. |
-| `length` | 필수 | 정수 | 반환된 시리즈에 포함할 `ending_at` 전 최대 일수. 1에서 100 사이여야 합니다(포함). |
-| `ending_at` | 선택 사항 | 날짜 시간 <br>[(ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열[)](https://en.wikipedia.org/wiki/ISO_8601)  | 데이터 시리즈가 종료되어야 하는 날짜. 요청 시점으로 기본 설정됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | 필수 | 문자열 | [Campaign API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요.<br><br> API 캠페인의 `campaign_id`는 대시보드 내 [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지와 **Campaign Details** 페이지에서 확인할 수 있으며, [캠페인 목록 엔드포인트]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/)를 사용할 수도 있습니다. |
+| `length` | 필수 | 정수 | 반환되는 시리즈에 포함할 `ending_at` 이전 최대 일수입니다. 1에서 100 사이(포함)여야 합니다. |
+| `ending_at` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 시리즈가 종료되어야 하는 날짜입니다. 기본값은 요청 시점입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 요청 예시
+## 요청 예시 {#example-request}
 
 {% raw %}
 ```
@@ -46,9 +48,9 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 ```
 {% endraw %}
 
-## 응답
+## 응답 {#responses}
 
-### 멀티채널 응답
+### 멀티채널 응답 {#multichannel-response}
 
 ```json
 {
@@ -149,7 +151,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 }
 ```
 
-### 다변량 응답
+### 다변량 응답 {#multivariate-response}
 
 ```json
 {
@@ -222,10 +224,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 }
 ```
 
-가능한 메시지 유형은 `email`, `trigger_in_app_message`, `webhook`, `android_push`, `ios_push`, `kindle_push`, `web_push`입니다. 모든 푸시 메시지 유형에는 `android_push` 에 대해 동일한 통계가 표시됩니다.
+가능한 메시지 유형은 `email`, `trigger_in_app_message`, `webhook`, `android_push`, `ios_push`, `kindle_push`, `web_push`입니다. 모든 푸시 메시지 유형은 `android_push`와 동일한 통계를 표시합니다.
 
 {% alert tip %}
-CSV 및 API 내보내기 문제 해결에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)를 방문하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

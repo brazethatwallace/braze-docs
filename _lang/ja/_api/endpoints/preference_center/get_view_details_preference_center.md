@@ -1,50 +1,50 @@
 ---
-nav_title: "取得:ユーザー設定センターの詳細を表示する"
-article_title: "取得:環境設定センターの詳細の表示"
+nav_title: "GET: ユーザー設定センターの詳細を表示する"
+article_title: "GET: ユーザー設定センターの詳細を表示する"
 search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "この記事では、「ユーザー設定センターの詳細を表示」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「ユーザー設定センターの詳細を表示する」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# ユーザー設定センターの詳細を表示する
+# ユーザー設定センターの詳細を表示する {#view-details-for-preference-center}
 {% apimethod get %}
 /preference_center/v1/{preferenceCenterExternalID}
 {% endapimethod %}
 
-> このエンドポイントを使用して、ユーザー設定センターの詳細 (作成日時や更新日時など) を表示します。
+> このエンドポイントを使用して、ユーザー設定センターの詳細（作成日時や更新日時など）を表示します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6a47fd7c-2997-4832-aedb-d101a2dd03a5 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`preference_center.get`の権限が必要です。
+このエンドポイントを使用するには、`preference_center.get` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
-このエンドポイントには、1 分あたり、ワークスペース あたり、レート制限 1,000 のリクエストがあります。
+{% multi_lang_include rate_limits.md endpoint='get preference center' %}
 
-## パスパラメーター
+## パスパラメーター {#path-parameters}
 
-| パラメータ | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| 必須 | 文字列 | ユーザー設定センターの ID。 |
-{: role="presentation" }
+| `preferenceCenterExternalID` | 必須 | 文字列 | ユーザー設定センターのID。 |
+{: aria-label="Path parameters" }
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-このエンドポイントのリクエストパラメータはありません。
+このエンドポイントにリクエストパラメーターはありません。
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/preference_center_external_id \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答
+## 応答 {#response}
 ```json
 {
   "name": "My Preference Center",

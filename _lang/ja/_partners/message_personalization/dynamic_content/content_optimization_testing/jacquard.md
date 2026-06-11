@@ -3,51 +3,49 @@ nav_title: Jacquard
 article_title: Jacquard
 alias: /partners/jacquard/
 page_order: 1
-description: "この参考記事では、Braze Currentsとコネクテッドコンテンツを使用し、Webhookを通じてサブスクライバーからクリック追跡情報を収集する、BrazeとJacquard Dynamic Optimisationのパートナーシップについて概説している。Jacquard は、これらのイベントを言語バリアントに関連付けて、リアルタイムで言語を最適化します。"
+description: "この参考記事では、Braze Currentsとコネクテッドコンテンツを使用し、Webhookを通じてサブスクライバーからクリック追跡情報を収集する、BrazeとJacquard Dynamic Optimisationのパートナーシップについて概説しています。Jacquardは、これらのイベントを言語バリアントに関連付けて、リアルタイムで言語を最適化します。"
 page_type: partner
 search_tag: Partner
 ---
 
-# Jacquard のダイナミック最適化
+# Jacquard Dynamic Optimisation
 
 > [Jacquard](https://www.jacquard.com/) は、人工知能、計算言語学、そして顧客中心の精神を融合し、ブランドボイスに合わせてカスタマイズされたチャネルにわたり、ブランドのメッセージを大規模に展開できるようにします。
 
-Jacquard Xによるダイナミックな最適化は、Braze Currentsとコネクテッドコンテンツを使用し、Webhookを通じてサブスクライバーからクリック追跡情報を収集する。Jacquard は、これらのイベントを言語バリアントに関連付けて、リアルタイムで言語を最適化します。 
+Jacquard Xを活用したDynamic Optimisationは、Braze Currentsとコネクテッドコンテンツを使用し、Webhookを通じてサブスクライバーからクリック追跡情報を収集します。Jacquardは、これらのイベントを言語バリアントに関連付けて、リアルタイムで言語を最適化します。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-| Jacquard アカウント | このパートナーシップを活用するには、[Jacquard アカウント](https://www.jacquard.com/)が必要です。 |
-| Jacquard 接続サーバートークン | Jacquard 言語にアクセスするための、Braze キャンペーンのパスワードとして機能する長い文字列。<br><br>このトークンがまだ提供されていない場合は、Jacquard カスタマーサクセスマネージャーにリクエストできます。 |
-| Currents | Currents にデータを再度エクスポートするには、アカウントに [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Jacquardアカウント | このパートナーシップを活用するには、[Jacquardアカウント](https://www.jacquard.com/)が必要です。 |
+| Jacquard接続サーバートークン | Jacquardの言語にアクセスするための、Braze キャンペーンのパスワードとして機能する長い文字列です。<br><br>このトークンがまだ提供されていない場合は、Jacquardカスタマーサクセスマネージャーにリクエストできます。 |
+| Currents | Currentsにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:Jacquard Amazon S3の認証情報をリクエストする
+### ステップ1: Jacquard Amazon S3の認証情報をリクエストする {#step-1-request-jacquard-amazon-s3-credentials}
 
-クリック・トラッキング・イベントをBrazeから受け取るには、Jacquardが専用のAmazon S3バケットをセットアップする必要がある。このプロセスを開始するには、Jacquardカスタマー・サクセス・マネージャーに連絡すること。バケットが作成されると、Current を作成するための一意の認証情報が提供されます。 
+クリック追跡イベントをBrazeから受け取るには、Jacquardが専用のAmazon S3バケットをセットアップする必要があります。このプロセスを開始するには、Jacquardカスタマーサクセスマネージャーに連絡してください。バケットが作成されると、Currentを作成するための一意の認証情報が提供されます。
 
-### ステップ2:Current を作成する
+### ステップ2: Currentを作成する {#step-2-create-current}
 
-1. Braze で、**[Currents] > [新しい Currents を作成] > [Amazon S3 データのエクスポート]** を選択します。 
-2. 次に Current に名前を付け、連絡先メールを入力します。
-3. 認証情報ボックスに、Jacquard AWS アクセスキー ID とシークレットアクセスキーを追加します。次に、AWS S3バケット名として "frasee-braze-currents-exports "を追加する。 
-4. 最後に、Jacquard カスタマーサクセスマネージャーから受け取った AWS S3バケットフォルダーを追加します。これはお客様の社名である可能性があります。
-5. [**一般設定**] の [匿名ユーザーのイベントを含める] ボックスをオンにし、[**エンゲージイベントの管理**] で [メールクリック] をオンにします。
-6. 終了したら、[**Currents を起動**] を選択します。
+1. Brazeで、**Currents > Create New Current > Amazon S3 Data Export**を選択します。
+2. 次にCurrentに名前を付け、連絡先メールアドレスを入力します。
+3. 認証情報ボックスに、Jacquard AWSアクセスキーIDとシークレットアクセスキーを追加します。次に、AWS S3バケット名として「phrasee-braze-currents-exports」を追加します。
+4. 最後に、Jacquardカスタマーサクセスマネージャーから受け取ったAWS S3バケットフォルダーを追加します。これはお客様の会社名である可能性があります。
+5. **General Settings**で「Include events from anonymous users」ボックスをオンにし、**Manage Engagement Events**で「Email Click」をオンにします。
+6. 完了したら、**Launch Current**を選択します。
 
-### ステップ3:個人を特定できる情報（PII）の削除を要請すること。
+### ステップ3: 個人を特定できる情報（PII）の削除をリクエストする {#step-3-request-to-remove-personally-identifiable-information-pii}
 
-次に、Brazeのアカウントチームに連絡し、パーソナライゼーションされた情報がJacquardに送信されないようにする。
+次に、Brazeアカウントチームに連絡し、個人を特定できる情報がJacquardに送信されないようにします。
 
-デフォルトでは、Current にはメールや住所などの特定の PII 属性が含まれます。JacquardはPIIを受け取ることはできないし、受け取ることもないので、Jacquardに渡されるすべてのイベントデータについてこれをオフにするよう、Brazeのアカウントチームにリクエストすることが重要である。
+デフォルトでは、Currentにはメールや住所などの特定のPII属性が含まれます。JacquardはPIIを受け取ることができず、また受け取ることもないため、Jacquardに渡されるすべてのイベントデータについてこれをオフにするよう、Brazeアカウントチームにリクエストすることが重要です。
 
-### ステップ4:Jacquard X コードスニペット 
+### ステップ4: Jacquard Xコードスニペット {#step-4-jacquard-x-code-snippets}
 
-必要なコードスニペットについては、Jacquardアカウントチームに問い合わせること。
+必要なコードスニペットについては、Jacquardアカウントチームにお問い合わせください。
 
-これらのスニペットは[コネクテッドコンテンツを]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)使用し、メールに配置された後、ダイナミックな言語とトラッキングピクセルを取り込み、Jacquard Xを使用してリアルタイムで言語を最適化できる。
-
-
+これらのスニペットは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用し、メールに配置された後、動的に言語とトラッキングピクセルを取り込み、Jacquard Xを使用してリアルタイムで言語を最適化できるようにします。

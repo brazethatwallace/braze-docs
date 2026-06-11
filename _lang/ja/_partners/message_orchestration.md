@@ -4,11 +4,11 @@ article_title: メッセージオーケストレーションパートナー
 page_order: 2
 
 page_type: landing
-description: "このランディングページには、リターゲティング、メールテンプレート、プロモーション、アトリビューションなどを使用してメッセージを調整できるBrazeパートナー（Alloys）が一覧表示されています。"
+description: "このランディングページには、リターゲティング、メールテンプレート、プロモーション、アトリビューションなどを使用してメッセージのオーケストレーションを行えるBrazeパートナー（Alloys）が一覧表示されています。"
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Message Orchestration"
+partner_top_header: "メッセージオーケストレーション"
 
 valid_partner_list:
 - name: Jacquard
@@ -23,6 +23,8 @@ valid_partner_list:
   url: /docs/partners/branch_for_deeplinking/
 - name: Kochava
   url: /docs/partners/kochava/
+- name: Linkrunner
+  url: /docs/partners/linkrunner/
 - name: Singular
   url: /docs/partners/singular/
 - name: Contentful
@@ -49,13 +51,21 @@ valid_partner_list:
   url: /docs/partners/remerge/
 - name: Alpaco
   url: /docs/partners/alpaco/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Blayer
   url: /docs/partners/blayer/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Dyspatch
   url: /docs/partners/dyspatch/
+- name: Denada
+  url: /docs/partners/denada/
 - name: Email Love
   url: /docs/partners/email_love/
-- name: IAMスタジオ
+- name: EmailShepherd
+  url: /docs/partners/emailshepherd/
+- name: IAM Studio
   url: /docs/partners/iam_studio/
 - name: Knak
   url: /docs/partners/knak/
@@ -86,7 +96,7 @@ valid_partner_list:
 - name: Punchh
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/punchh/
 - name: LINE
-  url: /docs/partners/message_orchestration/additional_channels/messaging/line/  
+  url: /docs/partners/message_orchestration/additional_channels/messaging/line/
 - name: Shopify
   url: /docs/partners/ecommerce/shopify
 - name: Yotpo
@@ -110,7 +120,7 @@ valid_partner_list:
 - name: Nift
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/nift/
 - name: Sendbird
-  url: /docs/partners/message_orchestration/additional_channels/messaging/sendbird/  
+  url: /docs/partners/message_orchestration/additional_channels/messaging/sendbird/
 - name: Regal
   url: /docs/partners/message_orchestration/additional_channels/messaging/regal/
 - name: Kognitiv
@@ -121,7 +131,7 @@ valid_partner_list:
   url: /docs/partners/message_orchestration/channel_extensions/surveys/typeform/
 - name: Friendbuy
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/friendbuy/
-- name: マイポストカード
+- name: mypostcard
   url: /docs/partners/message_orchestration/additional_channels/direct_mail/mypostcard/
 - name: Dixa
   url: /docs/partners/message_orchestration/additional_channels/instant_chat/dixa/
@@ -129,6 +139,6 @@ valid_partner_list:
   url: /docs/partners/message_orchestration/channel_extensions/ecommerce/narvar/
 - name: Tapcart
   url: /docs/partners/message_orchestration/channel_extensions/ecommerce/tapcart/
-- name: ジャスパー
+- name: Jasper
   url: /docs/partners/jasper/
 ---

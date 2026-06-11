@@ -14,104 +14,104 @@ hidden: true
 
 _Esta integración la mantiene Rokt Calendar._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Rokt Calendar permite que tus suscriptores de Rokt Calendar y sus datos sean enviados a Braze a través de Braze webhook. A continuación, puede utilizar estos datos en Braze Canvases para la segmentación de la audiencia y la segmentación de viajes utilizando cualquiera de los siguientes [atributos de Rokt Calendar](#audience-segmentation) personalizados. 
+La integración de Braze y Rokt Calendar permite que tus suscriptores de Rokt Calendar y sus datos se envíen a Braze a través de un webhook de Braze. Después puedes usar estos datos en Canvas de Braze para la segmentación de recorridos y la segmentación de audiencia utilizando cualquiera de los siguientes [atributos de Rokt Calendar](#audience-segmentation) personalizados.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito  | Descripción |
 | ------------ | ----------- |
-| Cuenta Rokt Calendar | Para beneficiarse de esta asociación es necesario disponer de una cuenta de Rokt Calendar específica para cada cliente. Póngase en contacto con [sales-calendar@rokt.com](mailto:sales-calendar@rokt.com) para hablar con un gestor de cuentas  |
-| Configuración del Calendario Rokt | Tu gestor de cuentas de Rokt Calendar trabajará contigo para configurar el calendario de la forma que mejor se adapte a tus necesidades, incluyendo ajustes como:<br>\- Indicador de fusión<br>\- Indicador de error de ID de abonado<br>\- Captura de correo electrónico, si es necesario |
-| Credenciales OAuth de Rokt Calendar | Esta clave proporcionada por el gestor de tu cuenta de Rokt Calendar te permitirá conectar tus cuentas de Braze y Rokt Calendar.<br><br>Puede crearse en el salpicadero de Braze, en **Configuración** > **Contenido conectado**. |
-| Clave REST API de Braze | Una clave de API REST de Braze con permisos `users.track`. Deberás proporcionar esta clave al gestor de tu cuenta de Rokt Calendar.<br><br> Puede crearse en el panel Braze desde **Configuración** > **Claves API**. |
-| [Punto final REST Braze]({{site.baseurl}}/api/basics/#endpoints) | La URL de tu punto final REST. Tu punto final dependerá de la URL Braze de tu instancia. |
-| ID de abonado externo | Es el identificador utilizado por el proceso de suscripción al Calendario Rokt para emparejar al suscriptor del calendario con el usuario Braze. Esto es algo que pasas a Rokt Calendar.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Cuenta de Rokt Calendar | Se necesita una cuenta de Rokt Calendar específica para cada cliente para aprovechar esta asociación. Ponte en contacto con [sales-calendar@rokt.com](mailto:sales-calendar@rokt.com) para hablar con un director de cuentas  |
+| Configuración de Rokt Calendar | Tu director de cuentas de Rokt Calendar trabajará contigo para configurar el calendario de la forma que mejor se adapte a tus necesidades, incluyendo ajustes como:<br>- Indicador de fusión<br>- Indicador de respaldo de SubscriberID<br>- Captura de correo electrónico, si es necesario |
+| Credenciales OAuth de Rokt Calendar | Esta clave proporcionada por tu director de cuentas de Rokt Calendar te permitirá conectar tus cuentas de Braze y Rokt Calendar.<br><br>Se puede crear en el dashboard de Braze en **Settings** > **Connected Content**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. Deberás proporcionar esta clave a tu director de cuentas de Rokt Calendar.<br><br> Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
+| [Punto de conexión REST de Braze]({{site.baseurl}}/api/basics/#endpoints) | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
+| ID de suscriptor externo | Es el identificador utilizado por el proceso de suscripción de Rokt Calendar para emparejar al suscriptor del calendario con el usuario de Braze. Esto es algo que tú pasas a Rokt Calendar.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Segmentación de la audiencia {#audience-segmentation}
 
-Cuando Rokt Calendar crea un nuevo usuario o hace coincidir un suscriptor existente con un usuario Braze, Rokt Calendar enviará los siguientes atributos de suscripción personalizados que puede filtrar dentro de Braze:
+Cuando Rokt Calendar crea un nuevo usuario o hace coincidir un suscriptor existente con un usuario de Braze, Rokt Calendar enviará los siguientes atributos de suscripción personalizados que puedes filtrar dentro de Braze:
 
 | Atributo personalizado  | Definición       | Ejemplo          |
 | ----------------  | ---------------- | ---------------- |
-| `rokt:account_code` | Código de la cuenta del Calendario Rokt | `brazetest/f5733866ade2` y `brazetest/ff10919f1078` |
-| `rokt:account_id` |ID de la cuenta de Rokt Calendar | `d0ce4299-7d6c-4888-bfd8-c7e867a0fa6c/f5733866ade2` |
+| `rokt:account_code` | Código de la cuenta de Rokt Calendar | `brazetest/f5733866ade2` y `brazetest/ff10919f1078` |
+| `rokt:account_id` | ID de la cuenta de Rokt Calendar | `d0ce4299-7d6c-4888-bfd8-c7e867a0fa6c/f5733866ade2` |
 | `rokt:account_name` | Nombre de la cuenta de Rokt Calendar | `Braze Test/f5733866ade2` |
-| `rokt:calendar_code` | Código del calendario Rokt | `test-calendar-1/f5733866ade2` |
-| `rokt:calendar_id` | ID del calendario Rokt | `9a9007c7-f5a4-e811-b13c-06424c4f2724/f5733866ade2` |
-| `rokt:calendar_title` | Título del calendario Rokt | `Test Calendar 1/f5733866ade2` |
+| `rokt:calendar_code` | Código del calendario de Rokt Calendar | `test-calendar-1/f5733866ade2` |
+| `rokt:calendar_id` | ID del calendario de Rokt Calendar | `9a9007c7-f5a4-e811-b13c-06424c4f2724/f5733866ade2` |
+| `rokt:calendar_title` | Título del calendario de Rokt Calendar | `Test Calendar 1/f5733866ade2` |
 | `rokt:country_code` | Código de país relacionado con la suscripción creada | `AU/f5733866ade2` |
 | `rokt:device_name` | Tipo de dispositivo relacionado con la suscripción creada | `Desktop/f5733866ade2` |
 | `rokt:geo_country` | País de origen relacionado con la suscripción creada | `Australia/f5733866ade2` |
-| `rokt:optIn1` | Si el usuario ha optado por el primero de los 2 opt-ins relacionados con la suscripción creada | `True/f5733866ade2` |
-| `rokt:optIn2` | Si el usuario ha optado por el segundo de los 2 opt-ins relacionados con la suscripción creada | `True/f5733866ade2` |
+| `rokt:optIn1` | Si el usuario ha optado por la primera de las 2 adhesiones voluntarias relacionadas con la suscripción creada | `True/f5733866ade2` |
+| `rokt:optIn2` | Si el usuario ha optado por la segunda de las 2 adhesiones voluntarias relacionadas con la suscripción creada | `True/f5733866ade2` |
 | `rokt:source` | La fuente de la suscripción creada | `brazetest.Rokt Calendarapp.com/f5733866ade2` |
 | `rokt:subscriber_email` | La dirección de correo electrónico introducida por el usuario durante el proceso de suscripción | `test@email.com/f5733866ade2` |
 | `rokt:subscription_id` | El ID de suscripción, que sirve como identificador único, relacionado con la suscripción creada | `06423672-b6ba-4536-aa36-70788a7a0a36` |
 | `rokt:subscription_method` | Método de suscripción (webcal/Google) relacionado con la suscripción creada. | `WebCal/f5733866ade2` |
 | `rokt:tags` | Etiquetas de calendario utilizadas relacionadas con la suscripción creada. | `Test Calendar 1/All Teams/f5733866ade2 and Test Calendar 1/TeamI//f5733866ade2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience segmentation #audience-segmentation" }
 
-Rokt Calendar también activará un evento personalizado `subscribe` tan pronto como el usuario se haya suscrito a su calendario Rokt que se puede utilizar tanto en la segmentación Braze o ser utilizado como un disparador para una campaña o componente Canvas.
+Rokt Calendar también activará un evento personalizado `subscribe` tan pronto como el usuario se haya suscrito a tu calendario de Rokt, que se puede utilizar en la segmentación de Braze o como desencadenante de una campaña o un componente de Canvas.
 
-## Integración
+## Integración {#integration}
 
-### Paso 1: Crear una audiencia de suscriptores del calendario
+### Paso 1: Crear una audiencia de suscriptores del calendario {#step-1-building-an-audience-of-calendar-subscribers}
 
-Para enviar eventos de calendario desde Canvas, primero debes tener configurado un calendario Rokt con usuarios ya suscritos. Para ello, deberá informar a sus usuarios de dónde y cómo suscribirse al calendario. Rokt Calendar te recomienda que:
+Para enviar eventos de calendario desde Canvas, primero debes tener configurado un calendario de Rokt con usuarios ya suscritos. Para ello, deberás informar a tus usuarios de dónde y cómo suscribirse al calendario. Rokt Calendar te recomienda que:
 
-#### Proporcionar puntos de integración de suscripciones
-Para crear una audiencia de suscriptores al calendario, tendrá que ofrecer un destino al que el usuario pueda navegar y suscribirse. Algunos ejemplos de puntos de integración de suscripciones son:
-  - Añada un botón de calendario a su sitio web
-  - Añadir un enlace de calendario en un correo electrónico o SMS 
-  - Añade un botón de calendario a tu aplicación
+#### Proporcionar puntos de integración de suscripciones {#provide-subscription-integration-points}
+Para crear una audiencia de suscriptores del calendario, tendrás que ofrecer un destino al que el usuario pueda navegar y suscribirse. Algunos ejemplos de puntos de integración de suscripciones incluyen:
+  - Añadir un botón de calendario a tu sitio web
+  - Añadir un enlace de calendario en un correo electrónico o SMS
+  - Añadir un botón de calendario a tu aplicación
   - Añadir un enlace al calendario en las redes sociales
 
-#### Promocionar el calendario
-Para crear una audiencia de suscriptores, tendrás que promocionar el calendario entre tu público para que sepan cómo suscribirse. Algunos ejemplos de promoción de calendarios son:
-  - Publicaciones en las redes sociales
+#### Promocionar el calendario {#promote-the-calendar}
+Para crear una audiencia de suscriptores, tendrás que promocionar el calendario entre tu audiencia para que sepan cómo suscribirse. Algunos ejemplos de promoción del calendario incluyen:
+  - Publicaciones en redes sociales
   - Boletines y actualizaciones por correo electrónico
   - Entradas de blog
-  - Notificaciones en la aplicación
+  - Notificaciones dentro de la aplicación
 
-### Paso 2: Crear un webhook de Calendario Rokt en Braze
+### Paso 2: Crear un webhook de Rokt Calendar en Braze {#step-2-create-a-rokt-calendar-webhook-in-braze}
 
-En Braze, puede configurar una campaña webhook o un webhook dentro de un Canvas para cualquiera de los dos:
+En Braze, puedes configurar una campaña de webhook o un webhook dentro de un Canvas para:
 
-- Enviar un nuevo evento personalizado: Permite añadir nuevos eventos a un segmento de los calendarios de los abonados.
-- Actualizar un evento personalizado: Permitir la actualización de un evento existente en los calendarios de los abonados.
+- Enviar un nuevo evento personalizado: permite añadir nuevos eventos a los calendarios de un segmento de suscriptores.
+- Actualizar un evento personalizado: permite actualizar un evento existente en los calendarios de los suscriptores.
 
-Para crear una plantilla de webhook de Calendario Rokt para usar en futuras campañas o Lienzos, navega a **Plantillas** > **Plantillas de Webhook** en la plataforma Braze. 
+Para crear una plantilla de webhook de Rokt Calendar para usar en futuras campañas o Canvas, navega a **Templates** > **Webhook Templates** en la plataforma Braze.
 
-Si desea crear una campaña de webhook de Calendario Rokt única o utilizar una plantilla existente, seleccione **Webhook** en Braze al crear una nueva campaña.
+Si deseas crear una campaña de webhook de Rokt Calendar única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña.
 
 {% tabs %}
 {% tab Send a new event %}
-Una vez que hayas seleccionado la plantilla de webhook Rokt Calendar, deberías ver lo siguiente:
-- **URL del webhook**: {% raw %}`{% assign accountCode = {{custom_attribute.${rokt:account_code}}}[0] | split: '/' | first %}https://api.roktcalendar.com/v1/subscriptionevent/{{accountCode}}`{% endraw %}
-- **Cuerpo de la solicitud**: Texto sin procesar
+Una vez que hayas seleccionado la plantilla de webhook de Rokt Calendar, deberías ver lo siguiente:
+- **Webhook URL**: {% raw %}`{% assign accountCode = {{custom_attribute.${rokt:account_code}}}[0] | split: '/' | first %}https://api.roktcalendar.com/v1/subscriptionevent/{{accountCode}}`{% endraw %}
+- **Request Body**: Raw Text
 {% endtab %}
 {% tab Update an existing event %}
-Una vez que hayas seleccionado la plantilla de webhook Rokt Calendar, deberías ver lo siguiente:
-- **URL del webhook**: {% raw %}`{% assign accountCode = {{custom_attribute.${rokt:account_code}}}[0] | split: '/' | first %}https://api.roktcalendar.com/v1/subscriptionevent/{{accountCode}}/update`{% endraw %}
-- **Cuerpo de la solicitud**: Texto sin procesar
+Una vez que hayas seleccionado la plantilla de webhook de Rokt Calendar, deberías ver lo siguiente:
+- **Webhook URL**: {% raw %}`{% assign accountCode = {{custom_attribute.${rokt:account_code}}}[0] | split: '/' | first %}https://api.roktcalendar.com/v1/subscriptionevent/{{accountCode}}/update`{% endraw %}
+- **Request Body**: Raw Text
 {% endtab %}
 {% endtabs %}
 
-#### Encabezados de solicitud y método
+#### Encabezados de solicitud y método {#request-headers-and-method}
 
-Rokt Calendar requiere un `HTTP Header` para la autorización que incluya tu nombre de credencial de contenido conectado de Rokt Calendar. Lo siguiente ya estará incluido dentro de la plantilla como pares clave-valor, pero en la pestaña **Configuración**, debe sustituir `<Rokt-Calendar-API>` por el nombre de la credencial que se encuentra en `Manage Settings > Connected Content > Credential`.
+Rokt Calendar requiere un `HTTP Header` para la autorización que incluya el nombre de tu credencial de contenido conectado de Rokt Calendar. Lo siguiente ya estará incluido dentro de la plantilla como pares clave-valor, pero en la pestaña **Settings**, debes sustituir `<Rokt-Calendar-API>` por el nombre de la credencial que se encuentra en `Manage Settings > Connected Content > Credential`.
 
 {% raw %}
-- **Método HTTP**: POST
-- **Encabezado de solicitud**:
-  - **Autorización**: Portador `{% connected_content https://api.roktcalendar.com/oauth2/token :method post :basic_auth <Rokt-Calendar-API> :body grant_type=client_credentials :save token :retry %}{{token.access_token}}`
+- **HTTP Method**: POST
+- **Request Header**:
+  - **Authorization**: Bearer `{% connected_content https://api.roktcalendar.com/oauth2/token :method post :basic_auth <Rokt-Calendar-API> :body grant_type=client_credentials :save token :retry %}{{token.access_token}}`
   - **Content-Type**: application/json
 {% endraw %}
 
-#### Cuerpo de la solicitud
+#### Cuerpo de la solicitud {#request-body}
 
 {% tabs local %}
 {% tab Send a new event %}
@@ -174,27 +174,26 @@ Los siguientes campos incluyen información que puede personalizarse a nivel de 
 
 | Campo             | Definición       | Ejemplo          |
 | ----------------  | ---------------- | ---------------- |
-| `eventId` <br>**\*Requerido** | Un identificador único para el evento que se va a añadir o actualizar | `Event_00001`
-| `eventTitle` <br>**\*Requerido** | El título del evento tal y como aparecería en el calendario | Rebajas de verano 2019
-| `eventDescr` | La descripción del acontecimiento tal y como aparecería en el calendario | La venta dura tres días; haz clic en este enlace `www.mybusiness.com/sale` para ver las ofertas. |
-| `eventLocation` | La ubicación del evento tal y como aparecería en el calendario, tenga en cuenta que esto se utiliza a menudo como una segunda llamada a la acción, que es complementaria a la eventTitle. | Abre el evento para obtener un 50 % de descuento |
-| `eventStart` <br>**\*Requerido**  | La fecha y hora de inicio del evento tal y como aparecerían en el calendario | `2019-02-21T15:00:00` |
-| `eventEnd` <br>**\*Requerido**  | La fecha y hora de inicio del evento tal y como aparecerían en el calendario | `2019-02-21T16:00:00` |
-| `eventTz` <br>**\*Requerido**  | La zona horaria del evento tal y como aparecería en el calendario, tenga en cuenta que la lista de zonas horarias aplicables se puede encontrar [aquí](https://roktcalendar-api.readme.io/docs/timezones). | `Eastern Standard Time` |
-| `notifyBefore` <br>**\*Requerido**  | La hora de recordatorio del evento tal y como aparecería en el calendario, tenga en cuenta que se expresa en minutos | `15` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `eventId` <br>***Obligatorio** | Un identificador único para el evento que se va a añadir o actualizar | `Event_00001`
+| `eventTitle` <br>***Obligatorio** | El título del evento tal y como aparecería en el calendario | Rebajas de verano 2019
+| `eventDescr` | La descripción del evento tal y como aparecería en el calendario | La venta dura tres días; haz clic en este enlace `www.mybusiness.com/sale` para ver las ofertas. |
+| `eventLocation` | La ubicación del evento tal y como aparecería en el calendario; ten en cuenta que esto se utiliza a menudo como una segunda llamada a la acción, complementaria al eventTitle. | Abre el evento para obtener un 50 % de descuento |
+| `eventStart` <br>***Obligatorio**  | La fecha y hora de inicio del evento tal y como aparecerían en el calendario | `2019-02-21T15:00:00` |
+| `eventEnd` <br>***Obligatorio**  | La fecha y hora de finalización del evento tal y como aparecerían en el calendario | `2019-02-21T16:00:00` |
+| `eventTz` <br>***Obligatorio**  | La zona horaria del evento tal y como aparecería en el calendario; ten en cuenta que la lista de zonas horarias aplicables se puede encontrar [aquí](https://roktcalendar-api.readme.io/docs/timezones). | `Eastern Standard Time` |
+| `notifyBefore` <br>***Obligatorio**  | El tiempo de recordatorio del evento tal y como aparecería en el calendario; ten en cuenta que se expresa en minutos | `15` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Request body" }
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %}
-Para obtener una lista de zonas horarias válidas, consulta [https://roktcalendar-api.readme.io](https://roktcalendar-api.readme.io/reference/timezones)/reference/timezones.
+Para obtener una lista de zonas horarias válidas, consulta [https://roktcalendar-api.readme.io/reference/timezones](https://roktcalendar-api.readme.io/reference/timezones).
 {% endalert %}
 
-### Paso 3: Vista previa de su solicitud
+### Paso 3: Previsualizar tu solicitud {#step-3-preview-your-request}
 
-Previsualiza tu solicitud en el panel de **Previsualización** o navega a la pestaña de **Prueba**, donde puedes seleccionar un usuario al azar, un usuario existente, o personalizar el tuyo propio para probar tu webhook.
+Previsualiza tu solicitud en el panel de **Preview** o navega a la pestaña **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook.
 
 {% alert important %}
-Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas webhook actualizadas pueden encontrarse en la lista **Plantillas webhook guardadas** al crear una nueva [campaña webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/).
+Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas se pueden encontrar en la lista **Saved Webhook Templates** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}
-

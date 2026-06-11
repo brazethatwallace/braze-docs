@@ -2,10 +2,10 @@
 
 ## Uso de una devolución de llamada para eventos push {#push-callback}
 
-Braze proporciona una [`subscribeToPushNotificationEvents()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-push-notification-events.html) devolución de llamada para cuando se reciben, abren o descartan notificaciones push. Se recomienda colocar esta devolución de llamada en tu `Application.onCreate()` para no perderte ningún evento que ocurra mientras tu aplicación no se esté ejecutando.
+Braze proporciona una devolución de llamada [`subscribeToPushNotificationEvents()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-push-notification-events.html) para cuando se reciben, abren o descartan notificaciones push. Se recomienda colocar esta devolución de llamada en tu `Application.onCreate()` para no perderte ningún evento que ocurra mientras tu aplicación no se esté ejecutando.
 
 {% alert note %}
-Si antes utilizabas un Receptor de difusión personalizado para esta funcionalidad en tu aplicación, puedes eliminarlo sin problemas en favor de esta opción de integración.
+Si antes utilizabas un receptor de difusión personalizado para esta funcionalidad en tu aplicación, puedes eliminarlo sin problemas en favor de esta opción de integración.
 {% endalert %}
 
 {% tabs %}
@@ -81,13 +81,13 @@ Crea tu receptor de notificaciones push en `Application.onCreate` para asegurart
 
 ## Personalización de la visualización de notificaciones {#customization-display}
 
-### Paso 1: Crea tu fábrica de notificaciones personalizada
+### Paso 1: Crea tu fábrica de notificaciones personalizada {#step-1-create-your-custom-notification-factory}
 
-En algunos casos, es posible que desees personalizar las notificaciones push de formas que serían engorrosas o no estarían disponibles en el servidor. Para darte un control completo de la visualización de notificaciones, hemos añadido la posibilidad de definir tus propias [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) objetos de notificación para que los muestre Braze.
+En algunos casos, es posible que desees personalizar las notificaciones push de formas que serían engorrosas o no estarían disponibles en el servidor. Para darte un control completo de la visualización de notificaciones, hemos añadido la posibilidad de definir tu propia [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para crear objetos de notificación que Braze mostrará.
 
-Si se configura un `IBrazeNotificationFactory` personalizado, Braze llamará al método `createNotification()` de tu fábrica tras la recepción push antes de que se muestre la notificación al usuario. Braze pasará un `Bundle` que contiene datos push de Braze y otro `Bundle` que contiene pares clave-valor personalizados enviados a través del panel o de las API de mensajería:
+Si se configura un `IBrazeNotificationFactory` personalizado, Braze llamará al método `createNotification()` de tu fábrica tras la recepción push antes de que se muestre la notificación al usuario. Braze pasará un `Bundle` que contiene datos push de Braze y otro `Bundle` que contiene pares clave-valor personalizados enviados a través del dashboard o de las API de mensajería:
 
-Braze pasará un archivo [`BrazeNotificationPayload`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/index.html) que contiene los datos de la notificación push de Braze.
+Braze pasará un [`BrazeNotificationPayload`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/index.html) que contiene los datos de la notificación push de Braze.
 
 {% tabs %}
 {% tab JAVA %}
@@ -124,12 +124,12 @@ override fun createNotification(brazeNotificationPayload: BrazeNotificationPaylo
 Puedes devolver `null` desde tu método personalizado `createNotification()` para no mostrar la notificación en absoluto, utilizar `BrazeNotificationFactory.getInstance().createNotification()` para obtener nuestro objeto predeterminado `notification` para esos datos y modificarlo antes de mostrarlo, o generar un objeto `notification` completamente independiente para mostrarlo.
 
 {% alert note %}
-Para obtener documentación sobre las teclas de datos push de Braze, consulta el [SDK de Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html).
+Para obtener documentación sobre las claves de datos push de Braze, consulta el [SDK de Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html).
 {% endalert %}
 
-### Paso 2: Configura tu fábrica de notificaciones personalizada
+### Paso 2: Configura tu fábrica de notificaciones personalizada {#step-2-set-your-custom-notification-factory}
 
-Para indicar a Braze que utilice tu fábrica de notificaciones personalizada, utiliza el método `setCustomBrazeNotificationFactory` para configurar tus [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html):
+Para indicar a Braze que utilice tu fábrica de notificaciones personalizada, utiliza el método `setCustomBrazeNotificationFactory` para configurar tu [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html):
 
 {% tabs %}
 {% tab JAVA %}
@@ -152,10 +152,10 @@ setCustomBrazeNotificationFactory(brazeNotificationFactory: IBrazeNotificationFa
 El lugar recomendado para configurar tu `IBrazeNotificationFactory` personalizado es el método de ciclo de vida de la aplicación `Application.onCreate()` (no la actividad). Esto permitirá que la fábrica de notificaciones se configure correctamente siempre que el proceso de tu aplicación esté activo.
 
 {% alert important %}
-Crear tu propia notificación desde cero es un caso de uso avanzado y sólo debe hacerse con pruebas exhaustivas y un conocimiento profundo de la funcionalidad push de Braze. Por ejemplo, debes asegurarte de que tus registros de notificación push se abren correctamente.
+Crear tu propia notificación desde cero es un caso de uso avanzado y solo debe hacerse con pruebas exhaustivas y un conocimiento profundo de la funcionalidad push de Braze. Por ejemplo, debes asegurarte de que tu notificación registre correctamente las aperturas push.
 {% endalert %}
 
-Para desactivar tu sistema personalizado [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) y volver a la gestión predeterminada de Braze para push, pasa `null` a nuestro configurador de fábrica de notificaciones personalizadas:
+Para desactivar tu [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) personalizado y volver a la gestión predeterminada de Braze para push, pasa `null` a nuestro configurador de fábrica de notificaciones personalizadas:
 
 {% tabs %}
 {% tab JAVA %}
@@ -175,7 +175,7 @@ setCustomBrazeNotificationFactory(null)
 {% endtab %}
 {% endtabs %}
 
-## Representación de texto multicolor
+## Representación de texto multicolor {#rendering-multicolor-text}
 
 En la versión 3.1.1 del SDK de Braze, se puede enviar HTML a un dispositivo para mostrar texto multicolor en las notificaciones push.
 
@@ -195,7 +195,7 @@ Ten en cuenta que Android limita los elementos y etiquetas HTML válidos en tus 
 La representación del texto multicolor depende del dispositivo y puede que no se muestre en función del dispositivo Android o la versión.
 {% endalert %}
 
-Para mostrar texto multicolor en una notificación push, puedes actualizar tu`braze.xml`  o `BrazeConfig`:
+Para mostrar texto multicolor en una notificación push, puedes actualizar tu `braze.xml` o `BrazeConfig`:
 
 {% tabs local %}
 {% tab braze.xml %}
@@ -218,7 +218,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .build();
 Braze.configure(this, brazeConfig);
 ```
- 
+
 {% endsubtab %}
 {% subtab KOTLIN %}
 
@@ -233,11 +233,11 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-### Etiquetas HTML compatibles
+### Etiquetas HTML compatibles {#supported-html-tags}
 
-Actualmente, Google no incluye una lista de las etiquetas HTML compatibles con Android directamente en su documentación; esta información solo se puede encontrar en [el archivo`Html.java` de](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/text/Html.java) tu [repositorio Git](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/text/Html.java). Ten esto en cuenta al consultar la siguiente tabla, ya que esta información se ha extraído de este archivo y las etiquetas HTML compatibles podrían estar sujetas a cambios.
+Actualmente, Google no incluye una lista de las etiquetas HTML compatibles con Android directamente en su documentación&#8212;esta información solo se puede encontrar en el [archivo `Html.java` de su repositorio Git](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/text/Html.java). Ten esto en cuenta al consultar la siguiente tabla, ya que esta información se ha extraído de este archivo y las etiquetas HTML compatibles podrían estar sujetas a cambios.
 
-<table>
+<table aria-label="Etiquetas HTML compatibles">
   <thead>
     <tr>
       <th>Categoría</th>
@@ -257,7 +257,7 @@ Actualmente, Google no incluye una lista de las etiquetas HTML compatibles con A
     </tr>
     <tr>
       <td><code>&lt;u&gt;</code></td>
-      <td>Subrayar texto</td>
+      <td>Texto subrayado</td>
     </tr>
     <tr>
       <td><code>&lt;s&gt;</code>, <code>&lt;strike&gt;</code>, <code>&lt;del&gt;</code></td>
@@ -269,7 +269,7 @@ Actualmente, Google no incluye una lista de las etiquetas HTML compatibles con A
     </tr>
     <tr>
       <td><code>&lt;sub&gt;</code></td>
-      <td>Texto subíndice</td>
+      <td>Texto en subíndice</td>
     </tr>
     <tr>
       <td><code>&lt;tt&gt;</code></td>
@@ -282,11 +282,11 @@ Actualmente, Google no incluye una lista de las etiquetas HTML compatibles con A
     </tr>
     <tr>
       <td><code>&lt;font color="..."&gt;</code></td>
-      <td>Establece el color de primer plano.</td>
+      <td>Establece el color de primer plano</td>
     </tr>
     <tr>
       <td><code>&lt;span&gt;</code> (con CSS en línea)</td>
-      <td>Estilos en línea (e.g., color, fondo)</td>
+      <td>Estilos en línea (p. ej., color, fondo)</td>
     </tr>
     <tr>
       <td rowspan="4">Párrafo y bloque</td>
@@ -326,43 +326,43 @@ Actualmente, Google no incluye una lista de las etiquetas HTML compatibles con A
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etiquetas HTML compatibles" }
 
-## Representación de imágenes en línea
+## Representación de imágenes en línea {#rendering-inline-images}
 
-### Cómo funciona
+### Cómo funciona {#how-it-works}
 
-Puedes mostrar una imagen más grande en tus notificaciones push de Android utilizando la función de envío de imágenes en línea. Con este diseño, los usuarios no tendrán que expandir manualmente el push para ampliar la imagen. A diferencia de las notificaciones push normales de Android, las imágenes push en línea tienen una relación de aspecto de 3:2.
+Puedes mostrar una imagen más grande en tus notificaciones push de Android utilizando la función de imágenes en línea. Con este diseño, los usuarios no tendrán que expandir manualmente el push para ampliar la imagen. A diferencia de las notificaciones push normales de Android, las imágenes push en línea tienen una relación de aspecto de 3:2.
 
 ![]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
 
-### Compatibilidad
+### Compatibilidad {#compatibility}
 
-Aunque puedes enviar imágenes en línea a cualquier dispositivo, los dispositivos y SDK que no cumplan con las versiones mínimas mostrarán una imagen estándar en su lugar. Para que las imágenes en línea se muestren correctamente, se requiere tanto el SDK de Android Braze v10.0.0+ como un dispositivo con Android M+. El SDK también debe estar habilitado para que la imagen se pueda renderizar.
+Aunque puedes enviar imágenes en línea a cualquier dispositivo, los dispositivos y SDK que no cumplan con las versiones mínimas mostrarán una imagen estándar en su lugar. Para que las imágenes en línea se muestren correctamente, se requiere tanto el SDK de Android de Braze v10.0.0+ como un dispositivo con Android M+. El SDK también debe estar habilitado para que la imagen se pueda renderizar.
 
 {% alert note %}
 Los dispositivos con Android 12 se mostrarán de forma diferente debido a los cambios en los estilos personalizados de las notificaciones push.
 {% endalert %}
 
-### Envío de una imagen en línea push
+### Envío de una imagen en línea push {#sending-an-inline-image-push}
 
-Al crear un mensaje push de Android, esta característica está disponible en el desplegable **Tipo de notificación**.
+Al crear un mensaje push de Android, esta característica está disponible en el desplegable **Notification Type**.
 
-![El editor de campañas push muestra la ubicación del menú desplegable «Tipo de notificación» (encima de la vista previa estándar de push).]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![El editor de Campaign push muestra la ubicación del menú desplegable "Notification Type" (encima de la vista previa estándar de push).]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
-## Configuración
+## Configuración {#settings}
 
-Hay muchas configuraciones avanzadas disponibles para las notificaciones push de Android enviadas a través del panel de Braze. En este artículo se describirán estas características y cómo utilizarlas con éxito.
+Hay muchas configuraciones avanzadas disponibles para las notificaciones push de Android enviadas a través del dashboard de Braze. En este artículo se describen estas características y cómo utilizarlas con éxito.
 
 ![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### ID de notificación {#notification-id}
 
-Un **ID de notificación** es un identificador único para una categoría de mensajes de tu elección que informa al servicio de mensajería para que sólo respete el mensaje más reciente de ese ID. Establecer un ID de notificación te permite enviar sólo el mensaje más reciente y relevante, en lugar de una pila de mensajes desfasados e irrelevantes.
+Un **ID de notificación** es un identificador único para una categoría de mensajes de tu elección que informa al servicio de mensajería para que solo respete el mensaje más reciente de ese ID. Establecer un ID de notificación te permite enviar solo el mensaje más reciente y relevante, en lugar de una pila de mensajes desfasados e irrelevantes.
 
-### Prioridad de entrega de la mensajería Firebase {#fcm-priority}
+### Prioridad de entrega de Firebase Messaging {#fcm-priority}
 
-El campo [Prioridad de entrega de la mensajería de Firebase](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message) te permite controlar si un push se envía con prioridad "normal" o "alta" a la mensajería en la nube de Firebase.
+El campo [Prioridad de entrega de Firebase Messaging](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) te permite controlar si un push se envía con prioridad "normal" o "alta" a Firebase Cloud Messaging.
 
 ### Tiempo de vida (TTL) {#ttl}
 
@@ -370,55 +370,55 @@ El campo **Tiempo de vida** (TTL) te permite establecer un tiempo personalizado 
 
 ### Texto resumido {#summary-text}
 
-El texto de resumen te permite establecer texto adicional en la vista ampliada de notificaciones. También sirve como pie de foto para las notificaciones con imágenes.
+El texto resumido te permite establecer texto adicional en la vista ampliada de notificaciones. También sirve como pie de foto para las notificaciones con imágenes.
 
-![Un mensaje de Android con el título «Este es el título de la notificación» y el texto resumen «Este es el texto resumen de la notificación».]({% image_buster /assets/img/android/push/collapsed-android-notification.png %}){: style="max-width:65%;"}
+![Un mensaje de Android con el título "This is the title for the notification." y el texto resumido "This is the summary text for the notification."]({% image_buster /assets/img/android/push/collapsed-android-notification.png %}){: style="max-width:65%;"}
 
-El texto resumido se mostrará bajo el cuerpo del mensaje en la vista ampliada. 
+El texto resumido se mostrará bajo el cuerpo del mensaje en la vista ampliada.
 
-![Un mensaje de Android con el título «Este es el título de la notificación» y el texto resumen «Este es el texto resumen de la notificación».]({% image_buster /assets/img/android/push/expanded-android-notification.png %}){: style="max-width:65%;"}
+![Un mensaje de Android con el título "This is the title for the notification." y el texto resumido "This is the summary text for the notification."]({% image_buster /assets/img/android/push/expanded-android-notification.png %}){: style="max-width:65%;"}
 
-Para las notificaciones push que incluyan imágenes, el texto del mensaje se mostrará en la vista contraída, mientras que el texto del resumen se mostrará como pie de imagen cuando se expanda la notificación. 
+Para las notificaciones push que incluyan imágenes, el texto del mensaje se mostrará en la vista contraída, mientras que el texto resumido se mostrará como pie de imagen cuando se expanda la notificación.
 
-### URIs personalizadas {#custom-uri}
+### URI personalizadas {#custom-uri}
 
-La característica **URI personalizada** te permite especificar una URL Web o un recurso Android al que navegar cuando se haga clic en la notificación. Si no se especifica una URI personalizada, al hacer clic en la notificación los usuarios acceden a tu aplicación. Puedes utilizar el URI personalizado para establecer vínculos profundos dentro de tu aplicación y dirigir a los usuarios a recursos que existen fuera de ella. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging/) o de nuestro panel en **Configuración avanzada** en el compositor push, como se muestra en la imagen:
+La característica **URI personalizada** te permite especificar una URL web o un recurso Android al que navegar cuando se haga clic en la notificación. Si no se especifica una URI personalizada, al hacer clic en la notificación los usuarios acceden a tu aplicación. Puedes utilizar la URI personalizada para establecer vínculos profundos dentro de tu aplicación y dirigir a los usuarios a recursos que existen fuera de ella. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging/) o de nuestro dashboard en **Advanced Settings** en el compositor push, como se muestra en la imagen:
 
-![La configuración avanzada de vínculos profundos en el creador push de Braze.]({% image_buster /assets/img_archive/deep_link.png %})
+![La configuración avanzada de vínculos profundos en el compositor push de Braze.]({% image_buster /assets/img_archive/deep_link.png %})
 
 ### Prioridad de visualización de notificaciones {#notification-priority}
 
 {% alert important %}
-El ajuste Prioridad de visualización de notificaciones ya no se utiliza en dispositivos con Android O o posterior. Para los dispositivos más nuevos, establezca la prioridad a través de [la configuración del canal de notificación](https://developer.android.com/training/notify-user/channels#importance).
+El ajuste de prioridad de visualización de notificaciones ya no se utiliza en dispositivos con Android O o posterior. Para los dispositivos más nuevos, establece la prioridad a través de la [configuración del canal de notificación](https://developer.android.com/training/notify-user/channels#importance).
 {% endalert %}
 
-El nivel de prioridad de una notificación push afecta a cómo se muestra su notificación en la bandeja de notificaciones en relación con otras notificaciones. También puede afectar a la velocidad y forma de entrega, ya que los mensajes normales y de menor prioridad pueden enviarse con una latencia ligeramente superior o por lotes para preservar la duración de la batería, mientras que los mensajes de alta prioridad siempre se envían inmediatamente.
+El nivel de prioridad de una notificación push afecta a cómo se muestra tu notificación en la bandeja de notificaciones en relación con otras notificaciones. También puede afectar a la velocidad y forma de entrega, ya que los mensajes normales y de menor prioridad pueden enviarse con una latencia ligeramente superior o por lotes para preservar la duración de la batería, mientras que los mensajes de alta prioridad siempre se envían inmediatamente.
 
-En Android O, la prioridad de notificación pasó a ser una propiedad de los canales de notificación. Tendrás que trabajar con tu desarrollador para definir la prioridad de un canal durante su configuración y luego utilizar el panel de control para seleccionar el canal adecuado al enviar tus sonidos de notificación. Para los dispositivos que ejecutan versiones de Android anteriores a O, es posible especificar un nivel de prioridad para las notificaciones de Android a través del panel de Braze y la API de mensajería. 
+En Android O, la prioridad de notificación pasó a ser una propiedad de los canales de notificación. Tendrás que trabajar con tu desarrollador para definir la prioridad de un canal durante su configuración y luego utilizar el dashboard para seleccionar el canal adecuado al enviar tus sonidos de notificación. Para los dispositivos que ejecutan versiones de Android anteriores a O, es posible especificar un nivel de prioridad para las notificaciones de Android a través del dashboard de Braze y la API de mensajería.
 
-Para enviar mensajes a toda tu base de usuarios con una prioridad específica, te recomendamos que especifiques indirectamente la prioridad a través de [la configuración del canal de notificación](https://developer.android.com/training/notify-user/channels#importance) (para dispositivos O+) *y* envíes la prioridad individual desde el panel (para dispositivos <O).
+Para enviar mensajes a toda tu base de usuarios con una prioridad específica, te recomendamos que especifiques indirectamente la prioridad a través de la [configuración del canal de notificación](https://developer.android.com/training/notify-user/channels#importance) (para dispositivos O+) *y* envíes la prioridad individual desde el dashboard (para dispositivos &#60;O).
 
 Los niveles de prioridad que puedes establecer en las notificaciones push de Android o Fire OS son:
 
-| Prioridad | Descripción/uso previsto | `priority` valor (para mensajes API) |
+| Prioridad | Descripción/uso previsto | Valor de `priority` (para mensajes API) |
 |----------|--------------------------|-------------------------------------|
 | Máx.      | Mensajes urgentes o en los que el tiempo es un factor crítico | `2` |
 | Alta     | Comunicación importante, como un nuevo mensaje de un amigo | `1` |
-| Predeterminado  | La mayoría de las notificaciones: utilízalo si tu mensaje no entra explícitamente en ninguno de los otros tipos de prioridad. | `0` |
+| Predeterminado  | La mayoría de las notificaciones: utilízalo si tu mensaje no entra explícitamente en ninguno de los otros tipos de prioridad | `0` |
 | Baja      | Información que quieres que conozcan los usuarios pero que no requiere una acción inmediata | `-1` |
-| Mín.      | Información contextual o de fondo. | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Mín.      | Información contextual o de fondo | `-2` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prioridad de visualización de notificaciones" }
 
-Para obtener más información, consulta la documentación sobre [notificaciones de Android](http://developer.android.com/design/patterns/notifications.html) de Google.
+Para obtener más información, consulta la documentación de Google sobre [notificaciones de Android](http://developer.android.com/design/patterns/notifications.html).
 
 ### Sonidos {#sounds}
 
-En Android O, los sonidos de notificación pasaron a ser una propiedad de los canales de notificación. Tendrás que trabajar con tu desarrollador para definir el sonido de un canal durante su configuración y luego utilizar el panel para seleccionar el canal adecuado al enviar tus notificaciones.
+En Android O, los sonidos de notificación pasaron a ser una propiedad de los canales de notificación. Tendrás que trabajar con tu desarrollador para definir el sonido de un canal durante su configuración y luego utilizar el dashboard para seleccionar el canal adecuado al enviar tus notificaciones.
 
-Para los dispositivos que ejecutan versiones de Android anteriores a O, Braze te permite configurar el sonido de un mensaje push individual a través del compositor del panel. Puedes hacerlo especificando un recurso de sonido local en el dispositivo (por ejemplo, `android.resource://com.mycompany.myapp/raw/mysound`). Si especificas "predeterminado" en este campo, se reproducirá el sonido de notificación predeterminado en el dispositivo. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging/) o del panel en **Configuración avanzada** en el compositor push.
+Para los dispositivos que ejecutan versiones de Android anteriores a O, Braze te permite configurar el sonido de un mensaje push individual a través del compositor del dashboard. Puedes hacerlo especificando un recurso de sonido local en el dispositivo (por ejemplo, `android.resource://com.mycompany.myapp/raw/mysound`). Si especificas "default" en este campo, se reproducirá el sonido de notificación predeterminado en el dispositivo. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging/) o del dashboard en **Advanced Settings** en el compositor push.
 
-![La configuración avanzada del sonido en el creador push de Braze.]({% image_buster /assets/img_archive/sound_android.png %})
+![La configuración avanzada del sonido en el compositor push de Braze.]({% image_buster /assets/img_archive/sound_android.png %})
 
-Introduce el URI completo del recurso de sonido (por ejemplo, `android.resource://com.mycompany.myapp/raw/mysound`) en la consulta del panel.
+Introduce la URI completa del recurso de sonido (por ejemplo, `android.resource://com.mycompany.myapp/raw/mysound`) en el campo del dashboard.
 
-Para enviar un mensaje con un sonido específico a toda tu base de usuarios, te recomendamos que especifiques indirectamente el sonido a través de [la configuración del canal de notificaciones](https://developer.android.com/training/notify-user/channels) (para dispositivos O+) *y* envíes el sonido individual desde el panel (para dispositivos <O).
+Para enviar un mensaje con un sonido específico a toda tu base de usuarios, te recomendamos que especifiques indirectamente el sonido a través de la [configuración del canal de notificaciones](https://developer.android.com/training/notify-user/channels) (para dispositivos O+) *y* envíes el sonido individual desde el dashboard (para dispositivos &#60;O).

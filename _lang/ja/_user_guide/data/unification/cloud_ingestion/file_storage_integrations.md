@@ -2,82 +2,82 @@
 nav_title: ファイルストレージの連携
 article_title: ファイルストレージの連携
 description: "このページでは、Braze クラウドデータ取り込みと、S3 から Braze への関連データの同期方法について説明します。"
-page_order: 3
+page_order: 4
 page_type: reference
 
 ---
 
-# ファイルストレージの連携
+# ファイルストレージの連携 {#file-storage-integrations}
 
 > このページでは、クラウドデータ取り込みのサポートを設定し、S3 から Braze に関連データを同期する方法について説明します。
 
-## 仕組み
+## 仕組み {#how-it-works}
 
-S3 用のクラウドデータ取り込み (CDI) を使用して、AWS アカウントの 1 つ以上の S3 バケットを Braze と直接統合できます。新規ファイルが S3 にパブリッシュされると、メッセージが SQS に投稿され、Braze のクラウドデータ取り込みがそれらの新規ファイルを取り込みます。 
+S3 用のクラウドデータ取り込み (CDI) を使用して、AWS アカウントの1つ以上の S3 バケットを Braze と直接統合できます。新規ファイルが S3 にパブリッシュされると、メッセージが SQS に投稿され、Braze のクラウドデータ取り込みがそれらの新規ファイルを取り込みます。
 
 クラウドデータ取り込みは、以下をサポートしています。
 
-- JSONファイル
+- JSON ファイル
 - CSVファイル
-- パーケットファイル
+- Parquet ファイル
 - 属性、カスタムイベント、購入イベント、ユーザー削除、カタログデータ
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 連携には次のリソースが必要です。
 
- - データストレージ用の S3 バケット 
- - 新規ファイル通知用の SQS キュー 
- - Braze接続用のIAMロール  
+ - データストレージ用の S3 バケット
+ - 新規ファイル通知用の SQS キュー
+ - Braze アクセス用の IAM ロール
 
-### AWSの定義
+### AWS の定義 {#aws-definitions}
 
-まず、この作業で使用される用語を定義する。
+まず、この作業で使用される用語を定義します。
 
 | 用語 | 定義 |
 | --- | --- |
 | Amazon リソースネーム (ARN) | ARN は、AWS リソースの一意の識別子です。 |
-| アイデンティティとアクセス管理 (IAM) | IAM は、AWS リソースへのアクセスを安全にコントロール可能にする Web サービスです。このチュートリアルでは、IAMポリシーを作成し、それをIAMロールに割り当てて、S3バケットをBrazeクラウドデータインジェストと統合します。 |
+| アイデンティティとアクセス管理 (IAM) | IAM は、AWS リソースへのアクセスを安全にコントロールできる Web サービスです。このチュートリアルでは、IAM ポリシーを作成し、それを IAM ロールに割り当てて、S3 バケットを Braze クラウドデータ取り込みと統合します。 |
 | Amazon Simple Queue Service (SQS) | SQS は、分散ソフトウェアシステムとコンポーネントを統合できるホストキューです。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS definitions" }
 
-## AWS でのクラウドデータ取り込みの設定
+## AWS でのクラウドデータ取り込みの設定 {#setting-up-cloud-data-ingestion-in-aws}
 
-### ステップ 1:ソースバケットの作成
+### ステップ 1: ソースバケットの作成 {#step-1-create-a-source-bucket}
 
 AWS アカウントでデフォルト設定の汎用 S3 バケットを作成します。S3 バケットは、フォルダーが一意である限り、同期間で再利用できます。
 
 デフォルト設定は次のとおりです。
 
 - ACL 無効
-- すべてのパブリックアクセスをブロックする
-- バケットのバージョン管理を無効にする
+- すべてのパブリックアクセスをブロック
+- バケットのバージョン管理を無効化
 - SSE-S3 暗号化
-  - SSE-S3はサポートされている唯一のサーバーサイド暗号化方式である。Amazon KMSの暗号化はサポートされていない。
+  - SSE-S3 はサポートされている唯一のサーバーサイド暗号化方式です。Amazon KMS の暗号化はサポートされていません。
 
-バケットを作成したリージョンを覚えておけ。次のステップでは同じリージョンにSQSキューを作成するからだ。
+バケットを作成したリージョンをメモしておいてください。次のステップでは同じリージョンに SQS キューを作成します。
 
-### ステップ 2:SQS キューの作成
+### ステップ 2: SQS キューの作成 {#step-2-create-sqs-queue}
 
-作成したバケットにオブジェクトが追加されたときに追跡するSQS キューを作成します。ここでは、デフォルト設定設定s を使用します。 
+作成したバケットにオブジェクトが追加されたときに追跡する SQS キューを作成します。ここでは、デフォルトの設定を使用します。
 
-SQSキューはグローバルに一意でなければならない（例えば、CDI同期には1つしか使用できず、別のワークスペースで再利用することはできない）。
+SQS キューはグローバルに一意でなければなりません（例えば、CDI 同期には1つしか使用できず、別のワークスペースで再利用することはできません）。
 
 {% alert important %}
-このSQS は、バケットを作成したリージョンと同じリージョンに必ず作成してください。
+この SQS は、バケットを作成したリージョンと同じリージョンに必ず作成してください。
 {% endalert %}
 
-この設定では ARN とSQS のURL を頻繁に使用するため、それらを必ずメモしてください。
+この設定では ARN と SQS の URL を頻繁に使用するため、それらを必ずメモしてください。
 
-![「詳細設定」を選択し、例としてJSONオブジェクトを用いて、キューにアクセスできるユーザーを定義する。]({% image_buster /assets/img/cloud_ingestion/s3_ARN.png %})
+![「詳細設定」を選択し、例として JSON オブジェクトを用いて、キューにアクセスできるユーザーを定義する画面。]({% image_buster /assets/img/cloud_ingestion/s3_ARN.png %})
 
-### ステップ 3:アクセスポリシーの設定
+### ステップ 3: アクセスポリシーの設定 {#step-3-set-up-access-policy}
 
-アクセスポリシーを設定するには、**詳細オプション** を選択します。 
+アクセスポリシーを設定するには、**詳細オプション**を選択します。
 
-次の文をキューのアクセスポリシーに追加します。注意して、`YOUR-BUCKET-NAME-HERE` をバケット名に、`YOUR-SQS-ARN` をSQS キューの ARN に、`YOUR-AWS-ACCOUNT-ID` をAWS アカウント ID に置き換えてください。 
+次のステートメントをキューのアクセスポリシーに追加します。`YOUR-BUCKET-NAME-HERE` をバケット名に、`YOUR-SQS-ARN` を SQS キューの ARN に、`YOUR-AWS-ACCOUNT-ID` を AWS アカウント ID にそれぞれ置き換えてください。
 
-``` json 
+``` json
 {
   "Sid": "braze-cdi-s3-sqs-publish",
   "Effect": "Allow",
@@ -94,26 +94,26 @@ SQSキューはグローバルに一意でなければならない（例えば�
       "aws:SourceArn": "arn:aws:s3:::YOUR-BUCKET-NAME-HERE"
     }
   }
-} 
+}
 ```
 
-### ステップ 4:S3 バケットへのイベント通知の追加
+### ステップ 4: S3 バケットへのイベント通知の追加 {#step-4-add-an-event-notification-to-the-s3-bucket}
 
-1. ステップ 1 で作成したバケットで、[**プロパティ**] > [**イベント通知**] に移動します。
+1. ステップ 1 で作成したバケットで、**Properties** > **Event notifications** に移動します。
 2. 設定に名前を付けます。オプションで、ファイルのサブセットのみを Braze で取り込む場合は、対象とするプレフィックスまたはサフィックスを指定します。
-3. [**宛先**] で [**SQS キュー**] を選択し、ステップ2で作成した SQS の ARN を指定します。
+3. **Destination** で **SQS queue** を選択し、ステップ 2 で作成した SQS の ARN を指定します。
 
 {% alert note %}
-S3バケットのルートフォルダにファイルをアップロードした後、一部のファイルをバケット内の特定のフォルダに移動すると、予期しないエラーが発生することがある。代わりにイベント通知をプレフィックス内のファイルについてのみ送信するように変更するか、プレフィックス外のファイルを S3 バケットに入れないようにするか、またはプレフィックスなしで連携を更新すること (すべてのファイルが取り込まれる) ができます。
+S3 バケットのルートフォルダーにファイルをアップロードした後、一部のファイルをバケット内の特定のフォルダーに移動すると、予期しないエラーが発生することがあります。代わりに、イベント通知をプレフィックス内のファイルについてのみ送信するように変更するか、プレフィックス外のファイルを S3 バケットに入れないようにするか、またはプレフィックスなしで連携を更新すること（すべてのファイルが取り込まれる）ができます。
 {% endalert %}
 
-### ステップ 5: IAM ポリシーの作成
+### ステップ 5: IAM ポリシーの作成 {#step-5-create-an-iam-policy}
 
-ソースバケットの操作を Braze に許可する IAM ポリシーを作成します。まず、アカウント管理者として AWS 管理コンソールにサインインします。 
+ソースバケットの操作を Braze に許可する IAM ポリシーを作成します。まず、アカウント管理者として AWS 管理コンソールにサインインします。
 
-1. AWS コンソールの [IAM] セクションに移動し、ナビゲーションバーの [**ポリシー**] を選択してから [**ポリシーを作成**] を選択します。<br><br>![AWSコンソールの「ポリシーを作成」ボタン。]({% image_buster /assets/img/create_policy_1_list.png %})<br><br>
+1. AWS コンソールの [IAM] セクションに移動し、ナビゲーションバーの **Policies** を選択してから **Create Policy** を選択します。<br><br>![AWS コンソールの「Create policy」ボタン。]({% image_buster /assets/img/create_policy_1_list.png %})<br><br>
 
-2. **JSON** タブを開き、**Policy Document** セクションに以下のコード スニペットを入力します。`YOUR-BUCKET-NAME-HERE` をバケット名に、`YOUR-SQS-ARN-HERE` をSQS キュー名に置き換えるよう注意してください。 
+2. **JSON** タブを開き、**Policy Document** セクションに以下のコードスニペットを入力します。`YOUR-BUCKET-NAME-HERE` をバケット名に、`YOUR-SQS-ARN-HERE` を SQS キュー名にそれぞれ置き換えてください。
 
 ```json
 {
@@ -142,110 +142,131 @@ S3バケットのルートフォルダにファイルをアップロードした
     ]
 }
 
-```  
+```
 
 {: start="3"}
-3\.入力が終わったら、[**ポリシーの確認**] を選択します。
+3. 入力が終わったら、**Review Policy** を選択します。
 
-4. ポリシーの名前と説明を指定し、[**ポリシーの作成**] を選択します。  
+4. ポリシーの名前と説明を指定し、**Create Policy** を選択します。
 
-![「new-policy-name」という名前のポリシーの例だ。]({% image_buster /assets/img/create_policy_3_name.png %})
+![「new-policy-name」という名前のポリシーの例。]({% image_buster /assets/img/create_policy_3_name.png %})
 
 ![ポリシーの説明フィールド。]({% image_buster /assets/img/create_policy_4_created.png %})
 
-### ステップ 6: IAM ロールを作成する
+### ステップ 6: IAM ロールの作成 {#step-6-create-an-iam-role}
 
-AWS での設定を完了するには、IAM ロールを作成し、ステップ 4 の IAM ポリシーをそれにアタッチします。 
+AWS での設定を完了するには、IAM ロールを作成し、ステップ 5 の IAM ポリシーをそれにアタッチします。
 
-1. IAM ポリシーを作成したコンソールの同じ [IAM] セクションで、[**ロール**] > [**ロールの作成**] に移動します。 
+1. IAM ポリシーを作成したコンソールの同じ [IAM] セクションで、**Roles** > **Create Role** に移動します。
 
-![「役割を作成」ボタン。]({% image_buster /assets/img/create_role_1_list.png %})
+![「Create role」ボタン。]({% image_buster /assets/img/create_role_1_list.png %})
 
 {: start="2"}
-2\.Braze AWS アカウントID をBraze ダッシュボードからコピーします。[**クラウドデータ取り込み**] に移動し、[**新しいデータ同期を作成**] を選択し、[**S3 インポート**] を選択します。
-3\.AWS で、信頼できるエンティティセレクターのタイプとして [**別の AWS アカウント**] を選択します。BrazeアカウントIDを提供せよ。**external IDを要求する**チェックボックスを選択する。
-4. Brazeで、**データ設定**＞**クラウドデータ取り込み**に移動し、**新規データ同期の作成**を選択する。データソースセクションから**S3インポート**を選択する。
-5. 自動生成された**BrazeアカウントID**をコピーする。 
+2. AWS で、信頼できるエンティティセレクターのタイプとして **Another AWS Account** を選択します。Braze アカウント ID を入力します。**Require external ID** チェックボックスを選択します。
+3. Braze で、**データ設定** > **クラウドデータ取り込み** > **ソース** に移動し、**データソースを追加** を選択して、ファイルソースセクションから **Amazon S3** を選択します。
+4. 自動生成された **Braze アカウント ID** をコピーします。
 
-![認証情報セクションに、BrazeアカウントIDフィールドがある。]({% image_buster /assets/img/braze_account_id.png %})
+![ソース名と S3 接続詳細セクションが表示された「新しいソースの追加」ページ。]({% image_buster /assets/img/braze_account_id.png %})
 
 {: start="6"}
-6. AWSでは、アカウントIDを貼り付けてから**「次へ」**を選択する。
+5. AWS で、アカウント ID を貼り付けてから **Next** を選択します。
 
-![S3 の [ロールの作成] ページ。このページには、ロール名、ロールの説明、信頼できるエンティティ、ポリシー、および権限境界のフィールドがあります。]({% image_buster /assets/img/create_role_2_another.png %})<br><br>
+![S3 の「Create Role」ページ。このページには、ロール名、ロールの説明、信頼できるエンティティ、ポリシー、および権限境界のフィールドがあります。]({% image_buster /assets/img/create_role_2_another.png %})<br><br>
 
 {: start="7"}
-7. ステップ 4 で作成したポリシーをロールにアタッチします。検索バーでポリシーを検索し、ポリシーの横のチェックマークを選択してアタッチします。完了したら [**次へ**] を選択します。
+6. ステップ 4 で作成したポリシーをロールにアタッチします。検索バーでポリシーを検索し、ポリシーの横のチェックマークを選択してアタッチします。完了したら **Next** を選択します。
 
-![新しいポリシー名を選択したロールARN。]({% image_buster /assets/img/create_role_3_attach.png %})
+![新しいポリシー名が選択されたロール ARN。]({% image_buster /assets/img/create_role_3_attach.png %})
 
-ロールに名前と説明を指定し、[**Create Role**] を選択します。
+ロールに名前と説明を指定し、**Create Role** を選択します。
 
-![「new-role-name」という名前のロールの例だ。]({% image_buster /assets/img/create_role_4_name.png %})
+![「new-role-name」という名前のロールの例。]({% image_buster /assets/img/create_role_4_name.png %})
 
 {: start="8"}
-8. 作成したロールのARNと生成したexternal IDをメモしておけ。クラウドデータ取り込みの統合を作成する際に必要になるからだ。
+7. 作成したロールの ARN と生成した External ID をメモしておいてください。クラウドデータ取り込みの連携を作成する際に必要になります。
 
-## Braze でのクラウドデータ取り込みの設定
+## Braze でのクラウドデータ取り込みの設定 {#setting-up-cloud-data-ingestion-in-braze}
 
-{% alert important %}
-2026年2月以降にオンボーディングする顧客は、新しいCDI UIを早期に利用できるようになる可能性がある。このUIでは、ソースと同期が別々に設定される。この新しいUIでは、まず認証情報、バケット、リージョンを使ってS3ソースを作成する。次に、SQSのURLとフォルダパス（任意）で同期を作成する。
-{% endalert %}
-
-1. 新しい連携を作成するには、[**データ設定**] > [**クラウドデータ取り込み**] を開き、[**新しいデータ同期を作成**] を選択して、[ファイルソース] セクションから [**S3 インポート**]を選択します。 
-2. AWS の設定プロセスからの情報を入力して新しい同期を作成します。次の項目を指定します。
+1. まず、Braze ダッシュボードで新しいソースを作成します。**データ設定** > **クラウドデータ取り込み** > **ソース** に移動し、**データソースを追加** を選択して、**Amazon S3** を選択します。
+2. ソースの名前を選択し、AWS の設定プロセスからの情報を入力して新しいソースを作成します。次の項目を指定します。
 
   - ロールの ARN
   - External ID
-  - SQS URL (新しい連携ごとに一意である必要があります)
   - バケット名
-  - フォルダーパス (オプション、ワークスペース内の同期間で一意である必要があります)
-  - 地域
+  - リージョン
 
-![S3に表示されるセキュリティ認証情報の例。新しいインポート同期を作成する場合。]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_1.png %})
+![認証情報（AWS 設定と Braze 設定）および設定フィールドが表示された S3 接続詳細セクション。]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_1.png %})
 
 {: start="3"}
-3\.統合に名前を付け、この統合のデータ型を選択する。 
-
-![「cdi-s3-as-source-integration」の同期詳細を設定する。データ型はユーザー属性とする。]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_2.png %})
+3. **Test connection** を選択して、Braze がバケットにアクセスできることを確認します。テストが成功したら、**Connect to Source** を選択します。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
 
 {: start="4"}
-4\.アクセスや権限の問題で同期が切れた場合に通知を受け取る連絡先メールアドレスを追加します。オプションで、ユーザーレベルのエラーと同期の成功の通知をオンにします。 
+4. 次に、新しい同期を作成します。**データ設定** > **クラウドデータ取り込み** > **同期** に移動し、**データ同期を作成** を選択します。
 
-![同期エラー通知の設定を行う。]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_3.png %})
+![同期名とデータソース設定が表示された「新しい同期の作成」ページ。]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_3.png %})
 
 {: start="5"}
-5. 最後に、**接続テスト**を選択して、Brazeがあなたのバケットにアクセスできることを確認し、取り込み可能なファイル（それらのファイル内のデータではなく）を一覧表示する。次に、同期を保存する。 
+5. 同期の名前を選択します。次に、アクティブな S3 ソースを選択し、同期のソーステーブルを入力します。データタイプを選択し、**Test Connection** を選択します。
 
 ![データプレビューで接続をテストするオプション。]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_4.png %})
 
-## 必要なファイル形式
+6. AWS の設定プロセスからの残りの情報を入力します。次の項目を指定します。
+- SQS URL（新しい連携ごとに一意である必要があります）
+- フォルダーパス（オプション、ワークスペース内の同期間で一意である必要があります）
 
-クラウドデータ取り込みは、JSON、CSV、および Parquet のファイルをサポートします。それぞれのファイルには、サポートされている 1 列以上の識別子列と、ペイロード列1列 (JSON 文字列) が必要です。
+7. データタイプを選択し、**Test Connection** を選択して、Braze が取り込み可能なファイル（ファイル内のデータではなく）を一覧表示できることを確認します。成功したら、**Next: Notifications** を選択します。
+8. アクセスや権限の問題で同期が中断した場合に通知を受け取る連絡先メールアドレスを追加します。オプションで、ユーザーレベルのエラーと同期の成功の通知をオンにします。
+9. 同期を作成します。
 
-Brazeは、AWSによって強制される以上の追加のファイル名要件を強制しない。ファイル名は一意でなければなりません。一意性のためにタイムスタンプを付加することを推奨する。
 
-### ユーザー識別子
+## 必要なファイル形式 {#required-file-formats}
 
-ソースファイルには、1 つ以上のユーザー 識別子列またはキーを含めることができます。各行には1 つの識別子のみを含める必要がありますが、ソースファイルには複数の識別子型を含めることができます。
+クラウドデータ取り込みは、JSON、CSV、および Parquet のファイルをサポートしています。必要な列はデータタイプによって異なります。
+
+- ユーザーデータ（属性、カスタムイベント、購入イベント）はユーザー識別子とペイロードを使用します
+- カタログデータはカタログ識別子を使用します
+
+S3 をカタログデータに使用している場合は、このページと[カタログデータの同期と削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)を併せて参照し、カタログ固有の要件と動作を確認してください。
+
+Braze は、AWS によって強制される以上の追加のファイル名要件を強制しません。ファイル名は一意でなければなりません。一意性を確保するためにタイムスタンプを付加することを推奨します。
+
+サポートされているすべてのファイルタイプ（属性、カスタムイベント、購入、カタログ、ユーザー削除）の例については、[braze-examples](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion/braze-examples/payloads/file_storage) のサンプルファイルを参照してください。
+
+### ユーザー識別子 {#user-identifiers}
+
+ユーザーデータの同期（属性、カスタムイベント、購入イベント）では、ソースファイルの各行に正確に1つのユーザー識別子と `PAYLOAD` 列が必要です。ソースファイルには異なる識別子タイプの行を含めることができますが、各行では1つの識別子のみを使用する必要があります。
 
 | 識別子 | 説明 |
 | --- | --- |
-| `EXTERNAL_ID` | これは更新したいユーザーの識別子である。これは Braze で使用されている `external_id` 値と一致しなければなりません。 |
-| `ALIAS_NAME` と `ALIAS_LABEL` | これら2つの列は、ユーザーエイリアスオブジェクトを作成する。`alias_name` は一意の識別子でなければならず、`alias_label` はエイリアスのタイプを指定する。ユーザーは、異なるラベルを持つ複数のエイリアスを持つことができますが、`alias_label` ごとに `alias_name` を1つしか持つことができません。 |
-| `BRAZE_ID` | Brazeのユーザー識別子。これは Braze SDK によって生成されます。クラウドデータ取り込み経由で Braze ID を使用して新規ユーザーを作成することはできません。新規ユーザーを作成するには、外部ユーザー ID またはユーザーエイリアスを指定します。 |
-| `EMAIL` | ユーザーのEメールアドレス。同じメールアドレスを持つプロファイルが複数存在する場合、最後に更新されたプロファイルが優先されて更新されます。メールと電話の両方が指定された場合は、メールをプライマリ識別子として使用します。 |
-| `PHONE` | ユーザーの電話番号。同じ電話番号を持つプロファイルが複数存在する場合、最後に更新されたプロファイルが優先されて更新されます。 |
-|`PAYLOAD` | Brazeでユーザーに同期させたいフィールドのJSON文字列。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `EXTERNAL_ID` | 更新したいユーザーを識別します。これは Braze で使用されている `external_id` 値と一致する必要があります。 |
+| `ALIAS_NAME` と `ALIAS_LABEL` | これら2つの列は、ユーザーエイリアスオブジェクトを作成します。`alias_name` は一意の識別子でなければならず、`alias_label` はエイリアスのタイプを指定します。ユーザーは異なるラベルを持つ複数のエイリアスを持つことができますが、`alias_label` ごとに `alias_name` は1つしか持てません。 |
+| `BRAZE_ID` | Braze のユーザー識別子です。これは Braze SDKによって生成されます。クラウドデータ取り込み経由で Braze ID を使用して新規ユーザーを作成することはできません。新規ユーザーを作成するには、external ID またはユーザーエイリアスを指定します。 |
+| `EMAIL` | ユーザーのメールアドレスです。同じメールアドレスを持つプロファイルが複数存在する場合、最後に更新されたプロファイルが優先されて更新されます。メールと電話の両方を含める場合は、Braze はメールをプライマリ識別子として使用します。 |
+| `PHONE` | ユーザーの電話番号です。同じ電話番号を持つプロファイルが複数存在する場合、最後に更新されたプロファイルが優先されて更新されます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers #user-identifiers" }
+
+識別子に加えて、各行には Braze のユーザーに同期させたいフィールドの JSON 文字列を含む `PAYLOAD` 列が必要です。
 
 {% alert note %}
-データウェアハウスソースとは異なり、`UPDATED_AT` 列は必須ではなく、サポートもされていません。
+データウェアハウスソースとは異なり、`UPDATED_AT` 列はファイルストレージ同期では必須ではなく、サポートもされていません。
 {% endalert %}
+
+### カタログ識別子 {#catalog-identifiers}
+
+カタログ同期では、ソースファイルに以下の列を含める必要があります。カタログファイルはユーザーデータファイルとは異なる識別子を使用します。
+
+| 列 | 必須 | 説明 |
+| --- | --- | --- |
+| `ID` | はい | カタログアイテムの一意の識別子です。Braze でアイテムの作成、更新、または削除に使用されます。 |
+| `PAYLOAD` | はい | 同期するカタログフィールドと値の JSON 文字列です。Braze のカタログのスキーマと一致する必要があります。 |
+| `DELETED` | いいえ | `true` の場合、一致する `ID` のカタログアイテムが Braze のカタログから削除されます。作成または更新操作の場合は、この列を省略するか `false` に設定します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Catalog identifiers #catalog-identifiers" }
+
+### 例 {#examples}
 
 {% tabs %}
 {% tab JSON Attributes %}
-``` json  
+````````` json
 {"external_id":"s3-qa-0","payload":"{\"name\": \"GT896\", \"age\": 74, \"subscriber\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}"}
 {"external_id":"s3-qa-1","payload":"{\"name\": \"HSCJC\", \"age\": 86, \"subscriber\": false, \"retention\": {\"previous_purchases\": 0, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600824\"}"}
 {"external_id":"s3-qa-2","payload":"{\"name\": \"YTMQZ\", \"age\": 43, \"subscriber\": false, \"retention\": {\"previous_purchases\": 23, \"vip\": true}, \"last_visit\": \"2023-08-08T16:03:26.600831\"}"}
@@ -253,32 +274,32 @@ Brazeは、AWSによって強制される以上の追加のファイル名要件
 {"external_id":"s3-qa-4","payload":"{\"name\": \"WMYS7\", \"age\": 11, \"subscriber\": true, \"retention\": {\"previous_purchases\": 0, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600844\"}"}
 {"external_id":"s3-qa-5","payload":"{\"name\": \"KCBLK\", \"age\": 47, \"subscriber\": true, \"retention\": {\"previous_purchases\": 11, \"vip\": true}, \"last_visit\": \"2023-08-08T16:03:26.600850\"}"}
 {"external_id":"s3-qa-6","payload":"{\"name\": \"T93MJ\", \"age\": 47, \"subscriber\": true, \"retention\": {\"previous_purchases\": 10, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600856\"}"}
-```  
+```
 {% alert important %}
-ソースファイルのすべての行に有効なJSONが含まれている必要があります。含まれていない場合、ファイルはスキップされます。
+ソースファイルのすべての行に有効な JSON が含まれている必要があります。含まれていない場合、ファイルはスキップされます。
 {% endalert %}
 {% endtab %}
 {% tab JSON Custom Events %}
-``` json  
+````````` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
-```  
+```
 {% alert important %}
-ソースファイルのすべての行に有効なJSONが含まれている必要があります。含まれていない場合、ファイルはスキップされます。
+ソースファイルのすべての行に有効な JSON が含まれている必要があります。含まれていない場合、ファイルはスキップされます。
 {% endalert %}
 {% endtab %}
 {% tab JSON Purchase Events %}
-``` json  
+````````` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
-```  
+```
 {% alert important %}
-ソースファイルのすべての行に有効なJSONが含まれている必要があります。含まれていない場合、ファイルはスキップされます。
+ソースファイルのすべての行に有効な JSON が含まれている必要があります。含まれていない場合、ファイルはスキップされます。
 {% endalert %}
 
 {% endtab %}
 {% tab CSV Attributes %}
-```plaintext  
+`````````plaintext
 external_id,payload
 s3-qa-load-0-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""SNXIM"", ""age"": 54, ""subscriber"": true, ""retention"": {""previous_purchases"": 19, ""vip"": true}, ""last_visit"": ""2023-08-08T16:03:26.598806""}"
 s3-qa-load-1-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""0J747"", ""age"": 73, ""subscriber"": false, ""retention"": {""previous_purchases"": 22, ""vip"": false}, ""last_visit"": ""2023-08-08T16:03:26.598816""}"
@@ -286,103 +307,108 @@ s3-qa-load-2-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""EP1U0"", ""age""
 ```
 {% endtab %}
 {% tab CSV Catalogs  %}
-```plaintext  
+`````````plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-オプションのDELETED列を含める。が の`DELETED`とき`true`、そのカタログアイテムは Braze のカタログから削除される。[カタログ項目の削除を](#deleting-catalog-items)参照せよ。
+オプションの `DELETED` 列を含めます。`DELETED` が `true` の場合、そのカタログアイテムは Braze のカタログから削除されます。必要な列の完全なリストについては、[カタログ識別子](#catalog-identifiers)を参照してください。削除の動作については、[カタログアイテムの削除](#deleting-catalog-items)を参照してください。エンドツーエンドのカタログ設定フロー（ターゲットカタログの作成と同期の動作を含む）については、[カタログデータの同期と削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)を参照してください。
 {% endtab %}
 
-{% endtabs %}  
+{% endtabs %}
 
-サポートされているすべてのファイルタイプの例については、[Braze-examplesの](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion/braze-examples/payloads/file_storage)サンプルファイルを参照のこと。  
+## データの削除 {#deleting-data}
 
-## データの削除
+S3 向けクラウドデータ取り込みは、ファイルアップロードを通じてユーザーとカタログアイテムの削除をサポートしています。それぞれに別々の同期とファイル形式を使用します。
 
-S3向けクラウドデータ取り込みは、ファイルアップロードを通じてユーザーとカタログ項目の削除をサポートする。それぞれに別々の同期とファイル形式を使う。
+- **[ユーザーの削除](#deleting-users)** – データタイプ **Delete Users** で同期を作成し、ユーザー識別子のみを含むファイル（ペイロードなし）をアップロードします。
+- **[カタログアイテムの削除](#deleting-catalog-items)** – 既存のカタログ同期を使用し、削除対象のアイテムをマークする `deleted`（または `DELETED`）列を追加します。
 
-- **[ユーザー削除](#deleting-users)** – データタイプ「**ユーザー削除**」で同期を作成し、ユーザー識別子のみを含むファイル（ペイロードなし）をアップロードする。
-- **[カタログ項目の削除](#deleting-catalog-items)** – 既存のカタログ同期を使用し、削除対象の項目をマークする列`deleted`（または`DELETED`）を追加する。
+### ユーザーの削除 {#deleting-users}
 
-### ユーザーを削除する
+S3 のファイルを使って Braze でユーザープロファイルを削除するには：
 
-S3のファイルを使ってBrazeでユーザープロファイルを削除するには：
+1. 新しいクラウドデータ取り込み同期を作成します（他の同期と同じ [AWS と Braze の設定](#setting-up-cloud-data-ingestion-in-aws)を使用します）。
+2. Braze で同期を設定する際、**Data Type** を **Delete Users** に設定します。
+3. S3 バケットに、ユーザー識別子列のみを含むファイルをアップロードします。`PAYLOAD` 列を含めないでください。ペイロードが存在すると、誤削除を防ぐために同期が失敗します。
 
-1. 新しいクラウドデータ取り込み同期を作成する（他の同期と同じ[AWSとBrazeの設定](#setting-up-cloud-data-ingestion-in-aws)を使用する）。
-2. Brazeで同期を設定する際、**データタイプを**「**ユーザー削除」**に設定する。
-3. S3バケットに、ユーザー識別子カラムのみを含むファイルをアップロードする。列`PAYLOAD`を含めてはいけない。ペイロードが存在すると同期が失敗する。誤削除を防ぐためだ。
-
-ファイルの各行は、次のいずれかを用いて正確に1人のユーザーを識別子として識別しなければならない：
+ファイルの各行は、次のいずれかを使用して正確に1人のユーザーを識別する必要があります。
 
 | 識別子 | 説明 |
 | --- | --- |
-| `EXTERNAL_ID` | Brazeで使用`external_id`されるものと一致する。 |
-| `ALIAS_NAME` と `ALIAS_LABEL` | 両方の列を合わせて、ユーザーを別名で識別子として使用する。 |
-| `BRAZE_ID` | Brazeが生成したユーザー ID（既存ユーザーのみ）。 |
+| `EXTERNAL_ID` | Braze で使用される `external_id` と一致します。 |
+| `ALIAS_NAME` と `ALIAS_LABEL` | 両方の列を合わせて、ユーザーをエイリアスで識別します。 |
+| `BRAZE_ID` | Braze が生成したユーザー ID（既存ユーザーのみ）。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
 
 {% alert important %}
-ユーザーを削除すると復元できない。削除する予定のユーザーのみを含める。詳細については、[「Cloud Data Ingestion を使用したユーザーの削除」]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/)を参照せよ。
+ユーザーの削除は永続的で元に戻すことはできません。削除する予定のユーザーのみを含めてください。詳細については、[クラウドデータ取り込みを使用したユーザーの削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/)を参照してください。
 {% endalert %}
 
-**例 – JSON（ユーザーが削除する場合）：**
-```jsonl
+**例 – JSON（ユーザー削除）：**
+`````````jsonl
 {"external_id":"user-to-delete-001"}
 {"external_id":"user-to-delete-002"}
 {"braze_id":"braze-id-from-profile"}
 ```
 
-**例 – CSV（ユーザーが削除する場合）:**
-```plaintext
+**例 – CSV（ユーザー削除）：**
+`````````plaintext
 external_id
 user-to-delete-001
 user-to-delete-002
 ```
 
-同期が実行されると、Brazeはバケット内の新規ファイルを処理し、対応するユーザープロファイルを削除する。
+同期が実行されると、Braze はバケット内の新規ファイルを処理し、対応するユーザープロファイルを削除します。
 
-### カタログ項目の削除
+### カタログアイテムの削除 {#deleting-catalog-items}
 
 ファイルストレージを使用してカタログからアイテムを削除するには：
 
-1. [カタログデータ]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)（データ型：**Catalog**）[を同期]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)するのに使うのと同じS3同期を使う。
-2. CSVファイルやJSONファイルに、オプションの列**`deleted`**（または**`DELETED`**）を追加せよ。
-3. Brazeのカタログから削除したいアイテムには、すべて「削除」`true``deleted`を設定する。
+1. [カタログデータの同期]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)（データタイプ：**Catalogs**）に使用するのと同じ S3 同期を使用します。
+2. CSV ファイルや JSON ファイルに、オプションの **`deleted`**（または **`DELETED`**）列を追加します。
+3. Braze のカタログから削除したいカタログアイテムには、`deleted` を `true` に設定します。
 
-各行にはまだ と `ID`が必要`PAYLOAD`だ。削除対象の行については、ペイロードは最小限でよい。Brazeはアイテムを削除する`ID`。
+各行にはまだ `ID` と `PAYLOAD` が必要です。削除対象の行については、ペイロードは最小限で構いません。Braze は `ID` でアイテムを削除します。
 
 **例 – JSON（カタログアイテム削除）：**
-```jsonl
+`````````jsonl
 {"id":"85","payload":"{\"product_name\": \"Product 85\", \"price\": 85.85}"}
 {"id":"1","payload":"{\"product_name\": \"Product 1\", \"price\": 1.01}","deleted":true}
 ```
 
 **例 – CSV（カタログアイテム削除）：**
-```plaintext
+`````````plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
 
-同期が実行されると、行が原因`deleted: true`で対応するカタログアイテムがBrazeから削除される。カタログデータの完全な同期と削除の動作については、[「カタログデータの同期と削除」]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)を参照せよ。
+同期が実行されると、`deleted: true` の行に対応するカタログアイテムが Braze から削除されます。カタログデータの完全な同期と削除の動作については、[カタログデータの同期と削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)を参照してください。
 
-## 知っておくべきこと
+## 知っておくべきこと {#things-to-know}
 
-- S3 ソースバケットに追加するファイルが512 MBを超えてはなりません。512 MBを超えるファイルはエラーになり、Braze に同期されません。
-- 1ファイルあたりの行数に制限はありませんが、同期の速度を向上させるために、小さなファイルを使用することをお勧めします。例えば500 MB のファイルの取り込みは、100 MBのファイルを5つに分けて取り込む場合よりもかなり時間がかかります。
-- 一度にアップロードできるファイルの数に制限はありません。
-- ファイル内やファイル間の順序付けはサポートされていません。競合が予想される状況を監視している場合には、定期的に更新をバッチ処理することをお勧めします。
+- S3 ソースバケットに追加するファイルは 512&nbsp;MB を超えてはなりません。512&nbsp;MB を超えるファイルはエラーになり、Braze に同期されません。
+- 1ファイルあたりの行数に追加の制限はありませんが、同期の速度を向上させるために、小さなファイルを使用することをお勧めします。例えば、500&nbsp;MB のファイルの取り込みは、100&nbsp;MB のファイルを5つに分けて取り込む場合よりもかなり時間がかかります。
+- 一定期間内にアップロードできるファイルの数に追加の制限はありません。
+- ファイル内やファイル間の順序付けはサポートされていません。競合が予想される状況を監視している場合は、定期的に更新をバッチ処理することをお勧めします。
 
-## トラブルシューティング
+## トラブルシューティング {#troubleshooting}
 
-### ファイルのアップロードと処理
+### ファイルのアップロードと処理 {#uploading-files-and-processing}
 
-CDIは、同期が作成された後に追加されたファイルのみを処理する。このプロセスで、Braze は追加される新しいファイルを探します。これにより、SQS への新しいメッセージがトリガーされます。これにより、新しいファイルを処理するために新しい同期が開始される。
+CDI は、同期が作成された後に追加されたファイルのみを処理します。このプロセスでは、Braze が新しいファイルの追加を検知し、SQS への新しいメッセージがトリガーされます。これにより、新しいファイルを処理するための新しい同期が開始されます。
 
-既存のファイルを使って、Brazeがバケットにアクセスでき、取り込むファイルを検出できることを確認できる。ただし、それらのファイルはBrazeに同期されない。CDIがそれらを処理するには、同期したい既存のファイルをすべてS3に再アップロードする必要がある。 
+既存のファイルを使って、Braze がバケットにアクセスでき、取り込むファイルを検出できることを確認できますが、それらのファイルは Braze に同期されません。CDI がそれらを処理するには、同期したい既存のファイルを S3 に再アップロードする必要があります。
 
-### 予期せぬファイルエラーを処理する
+### 予期しないファイルエラーの処理 {#handling-unexpected-file-errors}
 
 エラーや失敗ファイルが多い場合は、CDI のターゲットフォルダー以外のフォルダーにある S3 バケットに、別のプロセスがファイルを追加している可能性があります。
 
-ファイルがソースバケットにアップロードされたが、ソースフォルダーには含まれていない場合、CDI は SQS 通知を処理しますが、ファイルに対してアクションを実行しないため、エラーとして表示されることがあります。
+ファイルがソースバケットにアップロードされたがソースフォルダーには含まれていない場合、CDI は SQS 通知を処理しますが、ファイルに対してアクションを実行しないため、エラーとして表示されることがあります。
+
+問題が S3 通知や SQS 送信先の権限に関連している場合（例えば、送信先の検証エラー）は、AWS のドキュメントを参照してください。
+
+- [Amazon S3 コンソールを使用したイベント通知の有効化と設定](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html)
+- [送信先へのイベント通知メッセージの発行権限の付与](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html)
+- [Amazon SQS の問題のトラブルシューティング](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-troubleshooting.html)

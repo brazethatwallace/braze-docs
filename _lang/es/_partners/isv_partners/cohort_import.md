@@ -4,15 +4,15 @@ alias: /cohort_import/
 hidden: true
 ---
 
-# Integración de la importación de cohortes de socios
+# Integración de la importación de cohortes de socios {#partner-cohort-import-integration}
 
-> La función de integración de cohortes de socios permite a nuestros socios integrarse con Braze para enviar cohortes de usuarios generadas en la aplicación del socio.
+> La función de integración de importación de cohortes de socios permite a nuestros socios integrarse con Braze para enviar cohortes de usuarios generadas en la aplicación del socio.
 
-## URL de clústeres
+## URL de clústeres {#cluster-urls}
 
-Braze aloja nuestra aplicación en varios clústeres repartidos por Estados Unidos y la UE. La URL de los puntos finales de importación será diferente en función del clúster en el que esté alojada la instancia de la empresa del cliente:
+Braze aloja nuestra aplicación en varios clústeres repartidos por todo el mundo. La URL de los puntos de conexión de importación depende del clúster en el que esté alojada la instancia de la empresa del cliente:
 
-| INSTANCIA | ENDPOINT DE REST |
+| INSTANCIA | PUNTO DE CONEXIÓN REST |
 | ----- | ------------------------------- |
 | US-01 | `https://rest.iad-01.braze.com` |
 | US-02 | `https://rest.iad-02.braze.com` |
@@ -25,47 +25,49 @@ Braze aloja nuestra aplicación en varios clústeres repartidos por Estados Unid
 | EU-01 | `https://rest.fra-01.braze.eu`  |
 | EU-02 | `https://rest.fra-02.braze.eu`  |
 | AU-01 | `https://rest.au-01.braze.com`  |
+| JP-01 | `https://rest.jp-01.braze.com` |
 | ID-01 | `https://rest.id-01.braze.com`  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| KR-01 | `https://rest.kr-01.braze.com` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL de clústeres" }
 
-## URL del punto final
+## URL de los puntos de conexión {#endpoint-urls}
 
-Además de que las URL de nivel superior son específicas de cada grupo, cada punto final también es específico de cada socio. Por ejemplo, al importar a nuestro cluster US01, la URL tendría el formato `https://rest.iad-01.braze.com/partners/[partner_name]/…`, donde `[partner_name]` suele ser el nombre de la empresa del socio. Los detalles específicos de cada punto final se describen en las secciones siguientes.
+Además de que las URL de nivel superior son específicas de cada clúster, cada punto de conexión también es específico de cada socio. Por ejemplo, al importar a nuestro clúster US01, la URL tendría el formato `https://rest.iad-01.braze.com/partners/[partner_name]/…`, donde `[partner_name]` suele ser el nombre de la empresa del socio. Los detalles específicos de cada punto de conexión se describen en las secciones siguientes.
 
-## Autenticación
+## Autenticación {#authentication}
 
 Para importar datos de cohortes a Braze, se necesitan dos claves de autenticación.
 
-### Clave de API del socio
+### Clave de API del socio {#partner-api-key}
 
-La clave API de socio identifica al socio de integración y autentica la solicitud como válida para la importación. La clave debe incluirse en el cuerpo de la solicitud en el campo `partner_api_key`.
+La clave de API del socio identifica al socio de integración y autentica la solicitud como válida para la importación. La clave debe incluirse en el cuerpo de la solicitud en el campo `partner_api_key`.
 
-Al configurar la integración en la aplicación del socio, se debe pedir al cliente que especifique su clúster Braze para que la integración sepa qué URL de clúster y clave API de socio debe utilizar al importar datos.
+Al configurar la integración en la aplicación del socio, se debe pedir al cliente que especifique su clúster de Braze para que la integración sepa qué URL de clúster y clave de API del socio debe utilizar al importar datos.
 
-Braze proporcionará la(s) clave(s) de API al socio antes de que este comience el desarrollo de la integración. En general, proporcionaremos una única clave válida para todos los clústeres de EE.UU., y otra clave válida para nuestro clúster de la UE.
+Braze proporcionará la(s) clave(s) de API del socio antes de que este comience el desarrollo de la integración. En general, proporcionaremos una única clave válida para todos los clústeres de EE. UU. y otra clave válida para nuestro clúster de la UE.
 
-### Clave de importación de datos del cliente
+### Clave de importación de datos del cliente {#client-data-import-key}
 
 La clave de importación de datos del cliente identifica el espacio de trabajo del cliente en el que debe importarse la cohorte. La clave debe incluirse en el cuerpo de la solicitud en el campo `client_secret`.
 
-Esta clave se genera en el panel de control del cliente, en los ajustes de integración del socio. Al configurar la integración en la aplicación del socio, se debe pedir al cliente que especifique su clave de importación de datos para que la integración sepa a qué cliente y espacio de trabajo enviar los datos.
+Esta clave se genera en el dashboard del cliente, en la configuración de integraciones del socio. Al configurar la integración en la aplicación del socio, se debe pedir al cliente que especifique su clave de importación de datos para que la integración sepa a qué cliente y espacio de trabajo enviar los datos.
 
-## Especificaciones de los extremos de la API
+## Especificaciones de los puntos de conexión de la API {#api-endpoint-specifications}
 
-### Punto final del nombre de la cohorte
+### Punto de conexión del nombre de la cohorte {#cohort-name-endpoint}
 
-El punto final Nombre de cohorte puede utilizarse para especificar el nombre de una cohorte basándose en su ID. Este endpoint debe llamarse siempre que se exporte inicialmente una cohorte a Braze, o cuando se cambie el nombre de una cohorte ya conocida por Braze.
+El punto de conexión del nombre de la cohorte puede utilizarse para especificar el nombre de una cohorte basándose en su ID. Este punto de conexión debe llamarse siempre que se exporte inicialmente una cohorte a Braze, o cuando se cambie el nombre de una cohorte ya conocida por Braze.
 
-| Campo | Tipo | Obligatoria | Notas |
+| Campo | Tipo | Obligatorio | Notas |
 | ----- | ---- | -------- | ----- |
-| `partner_api_key` | Cadena | Sí | Clave API específica del socio, utilizada en todas las solicitudes del socio a Braze. Esta clave será específica del clúster (véase la [clave de API del socio](#partner-api-key)), por lo que el socio deberá conocer el clúster en el que se escribirán las cohortes. |
+| `partner_api_key` | Cadena | Sí | Clave de API específica del socio, utilizada en todas las solicitudes del socio a Braze. Esta clave será específica del clúster (consulta [Clave de API del socio](#partner-api-key)), por lo que el socio deberá conocer el clúster en el que se escribirán las cohortes. |
 | `client_secret` | Cadena | Sí | Clave de importación de datos del cliente a cuya cohorte pertenece. |
 | `cohort_id` | Cadena | Sí | Identificador de la cohorte. Este identificador debe ser único para el cliente especificado. |
-| `name` | Cadena | Sí | Nombre especificado por el cliente para la cohorte |
-| `created_at` | Cadena | Sí | Sello de tiempo en formato ISO-8601 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `name` | Cadena | Sí | Nombre especificado por el cliente para la cohorte. |
+| `created_at` | Cadena | Sí | Marca de tiempo en formato ISO-8601. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Punto de conexión del nombre de la cohorte" }
 
-#### Ejemplo de solicitud:
+#### Ejemplo de solicitud: {#example-request}
 
 `POST: https://rest.iad-01.braze.com/partners/[partner_name]/cohorts`
 ```
@@ -78,17 +80,17 @@ El punto final Nombre de cohorte puede utilizarse para especificar el nombre de 
 }
 ```
 
-### Punto final de la cohorte de usuarios
+### Punto de conexión de la cohorte de usuarios {#user-cohort-endpoint}
 
-El punto final Cohorte de usuarios permite especificar qué usuarios se han añadido o eliminado de una cohorte determinada. Se debe llamar a este punto final cuando se actualiza una cohorte. Sólo deben enviarse a Braze los usuarios que hayan entrado recientemente en la cohorte o que la hayan abandonado desde la última actualización.
+El punto de conexión de la cohorte de usuarios permite especificar qué usuarios se han añadido o eliminado de una cohorte determinada. Se debe llamar a este punto de conexión cuando se actualiza una cohorte. Solo deben enviarse a Braze los usuarios que hayan entrado recientemente en la cohorte o que la hayan abandonado desde la última actualización.
 
-| Campo | Tipo | Obligatoria | Notas |
+| Campo | Tipo | Obligatorio | Notas |
 | ----- | ---- | -------- | ----- |
-| `partner_api_key` | Cadena | Sí | Clave API específica del socio, utilizada en todas las solicitudes del socio a Braze. Esta clave será específica del clúster (véase [Clave API de socio](#partner-api-key)), por lo que la integración deberá conocer el clúster en el que se escribirán las cohortes. |
+| `partner_api_key` | Cadena | Sí | Clave de API específica del socio, utilizada en todas las solicitudes del socio a Braze. Esta clave será específica del clúster (consulta [Clave de API del socio](#partner-api-key)), por lo que la integración deberá conocer el clúster en el que se escribirán las cohortes. |
 | `client_secret` | Cadena | Sí | Clave de importación de datos del cliente a cuya cohorte pertenece. |
 | `cohort_id` | Cadena | Sí | Identificador de la cohorte. El identificador debe ser único para el cliente especificado. |
-| `cohort_changes` | Conjunto de objetos | Sí | Los objetos pueden tener dos campos. Se requiere uno, `user_ids`, que puede ser una matriz de `external_ids`, `device_ids`, y `aliases`. Cada elemento es un ID para un usuario cuyo estatus en la cohorte ha cambiado. El segundo campo, `should_remove`, es un booleano opcional que indica si los usuarios de este objeto deben eliminarse de la cohorte en lugar de añadirse. Por defecto es false. La longitud máxima combinada de los ID de usuario en una sola solicitud es de 1.000.<br/><br/>Los usuarios identificados pueden coincidir por su `external_id` o `alias`. Los usuarios anónimos pueden ser emparejados por su `device_id`. Si pasas un ID de dispositivo para un usuario identificado, Braze no añadirá ni eliminará a ese usuario. Debes utilizar ID externos o alias para los usuarios identificados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `cohort_changes` | Matriz de objetos | Sí | Los objetos pueden tener dos campos. Uno, `user_ids`, es obligatorio y puede ser una matriz de `external_ids`, `device_ids` y `aliases`. Cada elemento es un ID de un usuario cuyo estado en la cohorte ha cambiado. El segundo campo, `should_remove`, es un booleano opcional que indica si los usuarios de este objeto deben eliminarse de la cohorte en lugar de añadirse. El valor predeterminado es false. La longitud máxima combinada de los ID de usuario en una sola solicitud es de 1000.<br/><br/>Los usuarios identificados pueden coincidir por su `external_id` o `alias`. Los usuarios anónimos pueden coincidir por su `device_id`. Si pasas un ID de dispositivo para un usuario identificado, Braze no añadirá ni eliminará a ese usuario. Debes utilizar ID externos o alias para los usuarios identificados. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Punto de conexión de la cohorte de usuarios" }
 
 #### Ejemplo de solicitud:
 
@@ -104,30 +106,30 @@ El punto final Cohorte de usuarios permite especificar qué usuarios se han aña
 }
 ```
 
-## Limitación de velocidad
+## Límite de velocidad {#rate-limiting}
 
-Además del máximo de 1.000 ID de usuario por solicitud en el punto final de la cohorte de usuarios, estas solicitudes de punto final tienen una tasa limitada a 250.000 solicitudes por hora.
+Además del máximo de 1000 ID de usuario por solicitud en el punto de conexión de la cohorte de usuarios, estas solicitudes de punto de conexión tienen un límite de velocidad de 250 000 solicitudes por hora.
 
-## Filtro de cohortes
+## Filtro de cohortes {#cohort-filter}
 
-Braze añadirá un filtro que permitirá a un usuario del cuadro de mandos incluir o excluir usuarios de un público objetivo si pertenecen a una cohorte de socios. El filtro proporcionará una lista desplegable con los nombres de todas las cohortes conocidas por Braze para ese cliente. Este filtro sólo será visible para los clientes con los que el socio y Braze hayan acordado asociarse en esta integración.
+Braze añadirá un filtro que permitirá a un usuario del dashboard incluir o excluir usuarios de una audiencia objetivo si pertenecen a una cohorte de socios. El filtro proporcionará una lista desplegable con los nombres de todas las cohortes conocidas por Braze para ese cliente. Este filtro solo será visible para los clientes con los que el socio y Braze hayan acordado asociarse en esta integración.
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
-Consulte en la tabla siguiente los códigos de error específicos de los puntos finales de Importación de cohortes y cómo solucionarlos.
+Consulta en la tabla siguiente los códigos de error específicos de los puntos de conexión de importación de cohortes y cómo solucionarlos.
 
 | Código de error | Descripción |
 | ----- | ---- |
 | `400` | `cohort_id` debe ser una cadena válida |
-|  | `cohort_changes` debe ser una matriz de objetos, cada uno de ellos con la clave `user_ids` y/o `device_ids`, que corresponda a una matriz de cadenas, o un objeto `aliases`  |
-|  | Sólo se permiten 1000 `user_ids`, `device_ids`, y `aliases` por solicitud. |
+|  | `cohort_changes` debe ser una matriz de objetos, cada uno de ellos con la clave `user_ids` y/o `device_ids`, que corresponda a una matriz de cadenas, o un objeto `aliases` |
+|  | Solo se permiten 1000 `user_ids`, `device_ids` y `aliases` por solicitud |
 |  | `name` debe ser una cadena no vacía |
-|  | `created_at` debe ser una hora válida como cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)  |
-| `401` | Clave API de socio no válida |
+|  | `created_at` debe ser una hora válida como cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) |
+| `401` | Clave de API del socio no válida |
 |  | Secreto de cliente no válido |
-|  | Socio no habilitado para cliente con secreto de cliente: **<client secret>** |
+|  | Socio no habilitado para cliente con secreto de cliente: **&#60;client secret&#62;** |
 |  | Acceso no autorizado |
 | `423` | Recurso bloqueado |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
-Para una solución de problemas adicional, consulta [Errores & Respuestas]({{site.baseurl}}/api/errors/), que cubre los distintos errores y respuestas del servidor que pueden surgir al utilizar la API de Braze.
+Para una solución de problemas adicional, consulta [Errores y respuestas]({{site.baseurl}}/api/errors/), que cubre los distintos errores y respuestas del servidor que pueden surgir al utilizar la API de Braze.

@@ -50,7 +50,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | ---------| --------- | ----------- |
 | `email` | Required | String or array | String email address to modify, or an array of up to 50 email addresses to modify. |
 | `subscription_state` | Required | String | Either "subscribed", "unsubscribed", or "opted_in". |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+
+## Troubleshooting SendGrid email blocks
+
+When SendGrid blocks a recipient, update subscription status with this endpoint and review engagement with segment filters. Use [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) soft-bounce events for deliverability monitoring, and confirm subscription state before retrying sends.
 
 ## Example request
 ```

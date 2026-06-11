@@ -53,8 +53,9 @@ When generating the JWT, the following fields are expected:
 | ----- | -------- | ----------------------------------- |
 | `alg` | Yes  | The supported algorithm is `RS256`. |
 | `typ` | Yes  | The type should equal `JWT`.        |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 **JWT Payload**
 
@@ -62,8 +63,9 @@ When generating the JWT, the following fields are expected:
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Yes  | The "subject" should equal the User ID you supply Braze SDK when calling `changeUser`  |
 | `exp` | Yes | The "expiration" of when you want this token to expire.                                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 {% alert tip %}
 To learn more about JSON Web Tokens, or to browse the many open source libraries that simplify this signing process, check out [https://jwt.io](https://jwt.io).
@@ -720,7 +722,7 @@ In the dashboard **Manage Settings** page, each app has three SDK Authentication
 | **Disabled** | Braze will not verify the JWT supplied for a user. (Default Setting)|
 | **Optional** | Braze will verify requests for logged-in users, but will not reject invalid requests. |
 | **Required** | Braze will verify requests for logged-in users and will reject invalid JWTs.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
 
 ![]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -777,7 +779,7 @@ Data is available in real-time, and you can hover over points in the chart to se
 | 26 | `MISSING_TOKEN` | No token was provided in the request.| Make sure you are passing a token when calling `changeUser(id, token)` and that your token is not blank.|
 | 27 | `NO_MATCHING_PUBLIC_KEYS` | No public keys matched the provided token.| The private key used in the JWT does not match any public keys configured for your app. Confirm that you added the public keys to the correct app in your workspace that matches this API Key.|
 | 28 | `PAYLOAD_USER_ID_MISMATCH` | Not all user IDs in the request payload match as is required.| This is unexpected and can result in a malformed payload. Open a support ticket for assistance. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Error codes #error-codes" }
 
 ## Frequently Asked Questions (FAQ) {#faq}
 
@@ -819,4 +821,20 @@ Requests will retry periodically using an exponential backoff approach. After 50
 
 #### Can you use SDK authentication for anonymous users? {#faq-anonymous-users}
 
-No. SDK authentication will no-op for anonymous users.
+No. SDK authentication works by your website asserting someone's identity, so it only applies to identified users. As an anonymous user, there is no identity to assert.
+
+Enforcement starts after `changeUser` is called. Before a user is identified (for example, while browsing anonymously before signing up), the SDK can still send data to Braze without a JWT. After `changeUser` is called, requests for that identified profile require a valid JWT.
+
+This means a typical user journey might look like:
+
+1. A user visits your site or opens your app anonymously. Braze collects this activity without a JWT.
+2. The user signs up or logs in, and your app calls `changeUser` with an `external_id`.
+3. Braze continues collecting activity for that user, and SDK authentication is enforced for requests for that identified profile.
+
+#### Does SDK authentication work with user aliases? {#faq-aliases}
+
+No. SDK authentication requires an `external_id`. You can't set it up when only a `braze_id` or `alias_id` is available, so alias-only profiles can't use SDK authentication.
+
+#### Does enabling SDK authentication block unauthenticated activity collection? {#faq-unauthenticated-collection}
+
+No. SDK authentication does not block legitimate anonymous activity collection. It only applies after a profile is identified with `changeUser`.

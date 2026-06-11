@@ -1,154 +1,118 @@
-## Uso de bloques de editor de mensajes dentro de la aplicación
+## Bloques de editor de mensajes dentro de la aplicación {#in-app-message-editor-blocks}
 
-Los bloques de editor se encuentran en la sección **«Crear»** para los mensajes dentro de la aplicación. Para utilizarlos, arrastre un bloque de edición dentro de una columna. Se ajustará automáticamente al ancho de la columna. Cada bloque del editor tiene sus propios ajustes, como el control granular del relleno. El panel de la derecha cambia automáticamente a un panel de propiedades para el elemento de contenido seleccionado.
+Los bloques de editor se encuentran en la sección **Build** para los mensajes dentro de la aplicación. Arrastra un bloque dentro de una columna; se ajustará automáticamente al ancho de la columna. Selecciona un bloque para editar su configuración en el panel de la derecha.
 
-## Tipos
+Para más información sobre cómo crear mensajes dentro de la aplicación en el **editor de arrastrar y soltar**, consulta [Crear un mensaje dentro de la aplicación con arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/).
 
-La siguiente tabla describe cómo puede utilizar cada tipo de bloque editor.
+### Título y párrafo {#title-and-paragraph}
 
-| Apellidos | Descripción |
-| --- | --- |
-| Título | Introduce un texto de título en el mensaje. |
-| Párrafo | Introduce un párrafo de texto en el mensaje. |
-| Botón | Añade un botón estándar. Las propiedades de este bloque permiten editar, establecer enlaces y registrar análisis. |
-| Botón de radio | Añade una lista de opciones entre las que los usuarios pueden seleccionar una. Cuando se envía, el perfil de usuario registra el atributo personalizado asociado, que debe ser una cadena para poder guardarse. Los atributos personalizados con otros tipos de datos no se guardan en el perfil de usuario. |
-| Imagen | Inserta una imagen de la [biblioteca multimedia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). |
-| Enlace | Inserta un hipervínculo en el que los usuarios pueden hacer clic para navegar a una URL específica. Se puede integrar en el texto o utilizarse de forma independiente. |
-| Espaciador | Añade espacio o relleno entre otros bloques. |
-| Código personalizado | Inserta y ejecuta HTML, CSS o JavaScript personalizados para una personalización avanzada.  |
-| Captura telefónica | Inserta un campo de formulario para números de teléfono. Una vez enviado, el usuario queda suscrito al [grupo de suscripción]({{site.baseurl}}/whatsapp_subscription_groups/) [por]({{site.baseurl}}/sms_rcs_subscription_groups/) [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/). |
-| Captura de correo electrónico | Inserta un campo de formulario para direcciones de correo electrónico. Una vez enviada, la dirección de correo electrónico se añade al perfil de usuario en Braze. |
-| Desplegable      | Inserta un menú desplegable con una lista predefinida de elementos entre los que los usuarios pueden seleccionar uno. Puedes añadir cualquier cadena de atributos personalizados a la lista. |
-| Casilla de verificación      | Inserta una casilla de verificación. Si el usuario marca la casilla, el atributo del bloque se establece en `true`. Si no se comprueba, tu atributo se establece en `false`. |
-| Grupo de casillas de verificación| Los usuarios pueden seleccionar entre varias opciones presentadas. Los valores se establecen o se añaden a un atributo personalizado de matriz definido. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Añade texto de título o párrafo al mensaje.
 
-## Propiedades
+{% multi_lang_include drag_and_drop/editor_block_properties/title_paragraph.md %}
 
-En las tablas siguientes se detallan las propiedades de cada bloque de edición.
+### Botón {#button}
 
-### Título y párrafo
+Añade un botón estándar con estilo, enlaces y análisis configurables.
 
-| Propiedad | Descripción |
-| --- | --- |
-| Familia de fuente | El estilo de fuente para el texto |
-| Peso de fuente | Determina el grosor del texto. |
-| Tamaño de fuente | Determina el tamaño del texto. |
-| Altura de la línea | Modifica la distancia entre líneas de texto |
-| Espaciado de letras | Modifica la distancia entre cada carácter |
-| Alineación de texto | Mueve el texto para alinearlo a la izquierda, al centro, a la derecha o justificado |
-| Color de texto | Modifica el color del texto |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
-### Botón
+#### Comportamiento al hacer clic {#on-click-behavior}
 
-| Propiedad | Descripción |
-| --- | --- |
-| Ancho del botón | Modifica el ancho del botón para que sea automático o manual. |
-| Familia de fuente | Este es el estilo de fuente para el texto. |
-| Peso de fuente | Determina el grosor del texto. |
-| Tamaño de fuente | Determina el tamaño del texto. |
-| Espaciado de letras | Modifica la distancia entre cada carácter |
-| Alineación de botones | Mueve el botón hacia la izquierda, el centro o la derecha. |
-| Color de texto del botón | Modifica el color del texto del botón. |
-| Color de fondo | Modifica el color del fondo del botón. |
-| Estilo del borde | Determina el estilo del borde del botón. | 
-| Radio del borde | Determina cómo de redondeadas quieres las esquinas |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
-### Imagen
+### Botón de radio {#radio-button}
+
+Añade una lista de opciones entre las que los usuarios pueden seleccionar una. Cuando se envía, el perfil de usuario registra el [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) asociado, que debe ser una cadena para poder guardarse. Los atributos personalizados con otros tipos de datos no se guardan en el perfil de usuario.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
+
+### Imagen {#image}
+
+Inserta una imagen de la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-| Propiedad | Descripción |
-| --- | --- |
-| URL | La dirección alojada para la imagen. |
-| Alineación | Mueve la imagen hacia la izquierda, el centro o la derecha. |
-| Color de fondo | Modifica el color del fondo de la imagen. |
-| Estilo del borde | Determina el estilo del borde de la imagen. | 
-| Radio del borde | Determina el grado de redondeo que deseas para las esquinas de la imagen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
 
-### Enlace
+Para conocer las especificaciones de las imágenes, consulta nuestras [especificaciones de imágenes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#in-app-messages).
 
-| Propiedad | Descripción |
-| --- | --- |
-| Familia de fuente | Este es el estilo de fuente para el texto. |
-| Peso de fuente | Determina el grosor del texto. |
-| Espaciado de letras | Modifica la distancia entre cada carácter |
-| Color de texto | Modifica el color del texto |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+#### Comportamiento al hacer clic
 
-### Espaciador
+{% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
-| Propiedad | Descripción |
-| --- | --- |
-| Color de fondo | Modifica el color de fondo del espaciador |
-| Altura | Modifica la altura del separador. También puedes modificarlo utilizando los tiradores de redimensionamiento del espaciador. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+### Enlace {#link}
 
-### Código personalizado
+Inserta un hipervínculo en el que los usuarios pueden hacer clic para navegar a una URL específica. Se puede integrar en el texto o utilizarse de forma independiente.
 
-| Propiedad | Descripción |
-| --- | --- |
-| Código personalizado | Te permite añadir, editar o eliminar HTML, CSS y JavaScript para un mensaje in-app. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
-### Captura de teléfono
+#### Comportamiento al hacer clic
+
+{% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
+
+### Espaciador {#spacer}
+
+Añade espacio o relleno entre otros bloques.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/spacer.md %}
+
+### Código personalizado {#custom-code}
+
+Inserta HTML, CSS o JavaScript personalizados para una personalización avanzada.
 
 | Propiedad | Descripción |
 | --- | --- |
-| Grupo de suscripción | El [grupo de suscripción]({{site.baseurl}}/whatsapp_subscription_groups/) [por]({{site.baseurl}}/sms_rcs_subscription_groups/) [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/) al que se suscribirá el usuario al recopilar su número de teléfono, con la opción de recopilar números de todos los países. |
-| Alineación de texto | Mueve el texto para alinearlo a la izquierda, al centro, a la derecha o justificado |
-| Texto del marcador de posición | Un número de teléfono marcador de posición para mostrar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Código personalizado | Te permite añadir, editar o eliminar HTML, CSS y JavaScript para un mensaje dentro de la aplicación. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
-### Captura de correo electrónico
+### Captura de teléfono {#phone-capture}
 
-| Propiedad | Descripción |
-| --- | --- |
-| Familia de fuente | El estilo de fuente para el texto |
-| Peso de fuente | Determina el grosor del texto. |
-| Tamaño de fuente | Determina el tamaño del texto. |
-| Altura de la línea | Modifica la distancia entre líneas de texto |
-| Color de texto | Modifica el color del texto |
-| Espaciado de letras | Modifica la distancia entre cada carácter |
-| Alineación de texto | Mueve el texto para alinearlo a la izquierda, al centro, a la derecha o justificado |
-| Texto del marcador de posición | Una dirección de correo electrónico de marcador de posición para mostrar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Inserta un campo de formulario para números de teléfono. Cuando se envía, el usuario queda suscrito al [grupo de suscripción de SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) o al [grupo de suscripción de WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/).
 
-## Acciones
+{% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
-Puedes asignar una acción que se produzca cuando un usuario pulse un botón, un enlace o una imagen del mensaje. También puedes utilizar [Liquid]({{site.baseurl}}/liquid/) para realizar la personalización de las acciones. En las siguientes tablas se proporcionan detalles sobre las acciones de cada bloque de editor.
+### Captura de correo electrónico {#email-capture}
 
-### Botón
+Inserta un campo de formulario para direcciones de correo electrónico. Cuando se envía, la dirección de correo electrónico se añade al perfil de ese usuario en Braze.
 
-| Acción | Descripción |
-| --- | --- |
-| Enviar formulario cuando se haya hecho clic en el botón | Envía el formulario y realiza la acción seleccionada al hacer clic. Desactiva esta opción para que solo se produzca el comportamiento al hacer clic. |
-| Establecer comportamientos separados para cada plataforma | Personaliza el comportamiento del botón para cada plataforma por separado. |
-| Comportamiento al hacer clic | Determina la acción que se realizará cuando el usuario haga clic en el botón, como cerrar el mensaje, abrir la URL web, realizar un enlace profundo a una página específica de la aplicación, ir a otra página o [solicitar permiso para enviar notificaciones push]({{site.baseurl}}/push_primer/). |
-| Registrar atributos o eventos personalizados | Determina si al hacer clic en el botón se actualizará el perfil de usuario con datos personalizados. También puedes seleccionar el identificador para la presentación de informes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
-### Imagen
+### Texto corto {#short-text}
 
-Para conocer las especificaciones de las imágenes, consulta las [especificaciones]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#in-app-messages) de [imágenes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#in-app-messages).
+Inserta un campo de formulario que admite atributos estándar (como nombre y apellido) o una cadena de atributo personalizado de tu elección.
 
-| Acción | Descripción |
-| --- | --- |
-| Texto alternativo | La copia escrita que aparece en lugar de una imagen si ésta no se carga. Los lectores de pantalla leen el texto alternativo para explicar las imágenes, por lo que debes utilizar un lenguaje sencillo para proporcionar información clave sobre una imagen. |
-| Enviar formulario cuando se haya hecho clic en la imagen | Envía el formulario y realiza la acción seleccionada al hacer clic. Desactiva esta opción para que solo se produzca el comportamiento al hacer clic. |
-| Establecer comportamientos separados para cada plataforma | Personaliza el comportamiento de la imagen para cada plataforma por separado. |
-| Comportamiento al hacer clic | Determina la acción que se realizará cuando el usuario haga clic en la imagen, como cerrar el mensaje, abrir la URL web, realizar un enlace profundo a una página específica de la aplicación, ir a otra página o [solicitar permiso para enviar notificaciones push]({{site.baseurl}}/push_primer/). |
-| Registrar atributos o eventos personalizados | Determina si al hacer clic en la imagen se actualizará el perfil de usuario con datos personalizados. También puedes seleccionar el identificador para la presentación de informes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/short_text_properties.md %}
 
-### Enlace
+### Desplegable {#dropdown}
 
-| Acción | Descripción |
-| --- | --- |
-| URL | El hipervínculo para navegar a |
-| Identificador para la elaboración de informes | Determina qué identificador se utiliza para la presentación de informes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Inserta un menú desplegable con una lista predefinida de elementos entre los que los usuarios pueden seleccionar uno. Puedes añadir cualquier cadena de atributos personalizados a la lista.
 
+{% multi_lang_include drag_and_drop/editor_block_properties/dropdown_properties.md %}
+
+### Casilla de verificación {#checkbox}
+
+Inserta una casilla de verificación. Si el usuario marca la casilla, el [atributo personalizado booleano]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types) del bloque se establece en `true`. Si no se marca, su atributo se establece en `false`.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/checkbox_properties.md %}
+
+### Grupo de casillas de verificación {#checkbox-group}
+
+Los usuarios pueden seleccionar entre varias opciones. Los valores se establecen o se añaden a un [atributo personalizado de matriz]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types) definido.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
+
+### Texto largo {#long-text}
+
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) o con tu administrador del éxito del cliente de Braze.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
+
+<!-- Saved row is not yet released. Uncomment when available.
+### Saved row
+
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+-->
+
+## Cosas que debes saber {#things-to-know}
+
+- **Video:** El compositor estándar no incluye un bloque de video dedicado. Usa **Código personalizado** para insertar un reproductor si es necesario. Para más información, consulta [Mensajes dentro de la aplicación: preguntas frecuentes]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).

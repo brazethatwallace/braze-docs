@@ -1,7 +1,7 @@
 ---
 nav_title: Notify
 article_title: Notify
-description: "Este artigo de referência descreve a parceria entre o Braze e a Notify, uma solução de personalização omnicanal em tempo real que oferece personalização em todo o ciclo de vida do cliente."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Notify, uma solução de personalização omnicanal em tempo real que oferece personalização em todo o ciclo de vida do cliente."
 alias: /partners/notify/
 page_type: partner
 search_tag: Partner
@@ -11,33 +11,33 @@ search_tag: Partner
 
 > [Notify](https://fr.notify-group.com/) é uma solução de software impulsionada por IA que se integra perfeitamente com ferramentas de gestão de relacionamento com o cliente para aprimorar estratégias de marketing e facilitar o engajamento em múltiplos canais.
 
-A integração do Braze e do Notify permite que os profissionais de marketing promovam efetivamente o engajamento em várias plataformas. Em vez de depender de métodos tradicionais de marketing, uma campanha acionada pela API Braze pode usar as capacidades do Notify para entregar mensagens personalizadas através de múltiplos canais, incluindo e-mail, SMS, notificações por push e mais.
+A integração da Braze com a Notify permite que profissionais de marketing promovam efetivamente o engajamento em várias plataformas. Em vez de depender de métodos tradicionais de marketing, uma Campaign disparada por API da Braze pode usar as capacidades da Notify para entregar mensagens personalizadas por meio de múltiplos canais, incluindo e-mail, SMS, notificações por push e mais.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Antes de começar, você precisará do seguinte:
 
-| Requisito          | Descrição                                                                                                                                |
+| Requisito | Descrição |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-|  Chave da API REST do Braze  | Uma chave da API REST da Braze com as permissões `users.export.segment` e `campaigns.trigger.send`. <br><br> Isso pode ser criado no dashboard do Braze em **Configurações** > **Chaves de API**. |
-| Configuração de CNAME | Um subdomínio deve ser criado para o rastreamento do pixel usado no e-mail para o Notify rastrear o engajamento do usuário com o envio de mensagens para informar melhor o modelo. Compartilhe a URL do subdomínio com o Notify após sua criação. |
-| Exportação de aceitação de banco de dados | Envie os dados da campanha e de compras do ano passado (12 meses) para o Notify. ​Esta exportação será usada para treinar o modelo preditivo Notify. <br><br> **Campos:** <br><br> **Envio de e-mail:** Um hash SHA256 do e-mail, convertido para minúsculas e com quaisquer espaços em branco no início ou no final removidos.<br><br>**Segmento:** As informações do segmento que definem o nível de atividade (ativo ou inativo).<br><br>**Sub-segmento:** Qualquer outra informação relevante sobre atividades, como nível de atividade de compra.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.export.segment` e `campaigns.trigger.send`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Configuração de CNAME | Um subdomínio deve ser criado para o pixel de rastreamento usado no e-mail para que a Notify rastreie o engajamento do usuário com as mensagens e alimente melhor o modelo. Compartilhe a URL do subdomínio com a Notify após a criação. |
+| Exportação de opt-in do banco de dados | Envie os dados de Campaigns e de compras do último ano (12 meses) para a Notify. ​Essa exportação será usada para treinar o modelo preditivo da Notify. <br><br> **Campos:** <br><br> **E-mail:** Um hash SHA256 do e-mail, convertido para minúsculas e com quaisquer espaços em branco no início ou no final removidos.<br><br>**Segment:** As informações do Segment que definem o nível de atividade (ativo ou inativo).<br><br>**Subsegmento:** Qualquer outra informação relevante sobre atividades, como nível de atividade de compra.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Integração
+## Integração {#integration}
 
-### Etapa 1: Crie sua campanha
+### Etapa 1: Crie sua Campaign {#step-1-create-your-campaign}
 
-Crie uma [campanha acionada por API]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/api_triggered_delivery) no Braze. Então, compartilhe a campanha `api_identifier` com o Notify.
+Crie uma [Campaign disparada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) na Braze. Em seguida, compartilhe o `api_identifier` da Campaign com a Notify.
 
-### Etapa 2: Crie seu segmento no Braze
+### Etapa 2: Crie seu Segment na Braze {#step-2-create-your-segment-in-braze}
 
-Em seguida, crie o segmento de usuários que eles gostariam de segmentar com a campanha criada na [Etapa 1](#step-1-create-your-campaign). Em seguida, compartilhe o ID do segmento com o Notify.
+Em seguida, crie o Segment de usuários que você deseja alcançar com a Campaign criada na [Etapa 1](#step-1-create-your-campaign). Depois, compartilhe o ID do Segment com a Notify.
 
-### Etapa 3: Busque seu segmento
+### Etapa 3: Busque seu Segment {#step-3-fetch-your-segment}
 
-Em seguida, o Notify exportará os usuários no segmento anexado à campanha.
+A Notify então exportará os usuários no Segment vinculado à Campaign.
 
-### Etapa 4: Notificar aciona a campanha
+### Etapa 4: A Notify dispara a Campaign {#step-4-notify-triggers-the-campaign}
 
-Usando o `/campaigns/trigger/send` endpoint, a IA da Notify aciona a campanha Braze criada na [Etapa 1](#step-1-create-your-campaign) para enviar aos usuários no momento que eles consideram mais provável de engajar.
+Usando o endpoint `/campaigns/trigger/send`, a IA da Notify dispara a Campaign da Braze criada na [Etapa 1](#step-1-create-your-campaign) para enviar aos usuários no momento em que considera haver maior probabilidade de engajamento.

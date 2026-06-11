@@ -22,7 +22,7 @@ Use the MyPostcard and Braze integration to effortlessly send your customers pri
 | MyPostcard B2B account           | Registering with MyPostcard is required to take advantage of this integration.                                          |
 | B2B API key and credentials        | You can find your API Key and the credentials in the MyPostcard B2B Admin Tool.                                         |
 | Approved MyPostcard B2B campaign | To take advantage of this integration, you need to set up a print mailing campaign in the MyPostcard B2B tool. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -34,15 +34,11 @@ To elevate your direct mail campaigns, it’s crucial to move beyond traditional
 
 ## Integration
 
-To integrate with MyPostcard, [log in or sign up](https://www.mypostcard.com/b2b/admin/) and create your first campaign to use it through [Braze webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks).
+To integrate with MyPostcard, [log in or sign up](https://www.mypostcard.com/b2b/admin/) and create your first campaign to use it through [Braze webhooks]({{site.baseurl}}/user_guide/channels/webhooks/).
 
 ### Step 1: Create your Braze webhook template
 
-Create a MyPostcard webhook template to use in future campaigns or Canvases by navigating to **Templates** > **Webhook Templates** in the Braze platform.
-
-{% alert note %}
-If you are using the [older navigation]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/), go to **Engagement** > **Templates & Media** > **Webhook Templates**.
-{% endalert %}
+To create a MyPostcard webhook template to use in future campaigns or Canvases, go to **Content** > **Webhook** in the Braze platform. Then, select **Create webhook template**. 
 
 If you would like to create a one-off MyPostcard webhook campaign or use an existing template, select **Webhook** in Braze when creating a new campaign. Fill out the following fields:
 
@@ -50,14 +46,15 @@ If you would like to create a one-off MyPostcard webhook campaign or use an exis
 |---------------|-----------------------------------------------------------|
 | **Webhook URL** | The webhook URL as shown in the B2B Admin Tool.             |
 | **Request Body** | Raw Text (JSON format found in the B2B Admin Tool).        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your Braze webhook template" }
 
 #### Request method and headers
 
 MyPostcard requires an HTTP method along with the following HTTP headers to be included in the template.
 
 {% raw %}
-<table>
+<table aria-label="Request method and headers">
+  <caption>Request method and headers</caption>
   <thead>
     <tr>
       <th><strong>Field</strong></th>
@@ -84,7 +81,7 @@ MyPostcard requires an HTTP method along with the following HTTP headers to be i
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request method and headers" }
 
 #### Request body
 
@@ -99,6 +96,6 @@ Next, preview your request in the **Preview** panel or go to the **Test** tab, w
 ![Test Webhook Tab with different fields to validate the implementation.]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 
 {% alert important %}
-Remember to save your template before leaving the page! <br>Updated webhook templates can be found in the **Saved Webhook Templates** list when creating a new [webhook campaign]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/). 
+Remember to save your template before leaving the page! <br>Updated webhook templates can be found in the **Saved Webhook Templates** list when creating a new [webhook campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/). 
 {% endalert %}
 

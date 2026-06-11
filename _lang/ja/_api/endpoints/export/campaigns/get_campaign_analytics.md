@@ -1,43 +1,45 @@
 ---
-nav_title: "取得:キャンペーン分析をエクスポートする"
-article_title: "取得:キャンペーン分析をエクスポートする"
-search_tag: エンドポイント
+nav_title: "GET: キャンペーン分析をエクスポートする"
+article_title: "GET: キャンペーン分析をエクスポートする"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、キャンペーン分析のエクスポートBrazeエンドポイントの詳細について概説する。"
+description: "この記事では、キャンペーン分析のエクスポートBrazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# キャンペーン分析をエクスポートする
+# キャンペーン分析をエクスポートする {#export-campaign-analytics}
 {% apimethod get %}
 /campaigns/data_series
 {% endapimethod %}
 
-> このエンドポイントを使用して、一定期間にわたるキャンペーンのさまざまな統計の日次情報を取得します。
+> このエンドポイントを使用して、一定期間にわたるキャンペーンのさまざまな統計の日次データを取得します。
 
-返されるデータには、メッセージング・チャネル別に、送信、開封、クリック、変換されたメッセージの数が含まれる。
+返されるデータには、メッセージングチャネル別に送信、開封、クリック、またはコンバージョンされたメッセージの数が含まれます。
+
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='campaign' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`campaigns.data_series`の権限が必要です。
+このエンドポイントを使用するには、`campaigns.data_series` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='export campaign analytics' %}
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | 必須かどうか | string | [キャンペーン API 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br> API キャンペーンの `campaign_id` は、[API キー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/)ページ、またはダッシュボードの**キャンペーンの詳細**ページで確認できます。または、[「キャンペーンをリスト」エンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/)を使用することもできます。 |
-| `length` | 必須かどうか | 整数 | 返されるシリーズに `ending_at` が含まれるまでの最大日数。1以上100以下でなければなりません。 |
-| `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データシリーズが終了する日付。リクエストの時刻にデフォルト設定されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | 必須 | 文字列 | [キャンペーンAPI 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br>APIキャンペーンの`campaign_id`は、[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページおよびダッシュボードの**Campaign Details**ページで確認できます。また、[キャンペーン一覧エンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/)を使用することもできます。 |
+| `length` | 必須 | 整数 | 返されるシリーズに含める `ending_at` までの最大日数。1以上100以下（両端を含む）でなければなりません。 |
+| `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データシリーズが終了する日付。デフォルトはリクエストの時刻です。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 {% raw %}
 ```
@@ -46,9 +48,9 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 ```
 {% endraw %}
 
-## 回答
+## 応答 {#responses}
 
-### マルチチャンネル対応
+### マルチチャネル応答 {#multichannel-response}
 
 ```json
 {
@@ -149,7 +151,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 }
 ```
 
-### 多変量応答
+### 多変量応答 {#multivariate-response}
 
 ```json
 {
@@ -222,10 +224,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 }
 ```
 
-可能なメッセージタイプは、`email`、`trigger_in_app_message`、`webhook`、`android_push`、`ios_push`、`kindle_push`、`web_push` です。すべてのプッシュメッセージタイプは、`android_push` に同じ統計が表示されます。
+使用可能なメッセージタイプは、`email`、`trigger_in_app_message`、`webhook`、`android_push`、`ios_push`、`kindle_push`、`web_push` です。すべてのプッシュメッセージタイプには、`android_push` と同じ統計が表示されます。
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
 {% endalert %}
 
 {% endapi %}

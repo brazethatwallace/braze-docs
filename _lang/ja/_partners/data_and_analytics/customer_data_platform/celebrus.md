@@ -1,34 +1,34 @@
 ---
 nav_title: Celebrus
 article_title: Celebrus 統合
-description: "Braze と Celebrus の統合。"
+description: "BrazeとCelebrusの統合。"
 ---
 
 # Celebrus
 
-> Celebrus は Web アプリチャネルとモバイルアプリチャネルで Braze SDK とシームレスに統合され、チャネルアクティビティデータを Braze に取り込みやすくなります。これには、特定期間におけるデジタル資産全体のビジター・トラフィックに関する包括的な洞察も含まれる。<br><br>さらに Celebrus は、個々の顧客の豊富なプロファイルデータを取得し、Braze と同期できます。これにより、包括的で正確かつ詳細なファーストパーティデータに基づき、効果的なBrazeアナリティクスとコミュニケーション戦略を策定することができる。この機能は Celebrus の機械学習を活用したシグナルによりさらに強化されます。これにより、大規模なタグ付け作業を必要とせずに、簡単にデータを取り込むことができます。堅牢なファーストパーティの ID グラフを導入することで、すべてのデータに即座にアクセスしてすぐに使用できるようになります。 
+> CelebrusはWebアプリチャネルとモバイルアプリチャネルでBraze SDKとシームレスに統合され、チャネルアクティビティデータをBrazeに取り込みやすくなります。これには、特定期間におけるデジタルアセット全体のビジタートラフィックに関する包括的なインサイトも含まれます。<br><br>さらにCelebrusは、個々の顧客の豊富なプロファイルデータを取得し、Brazeと同期できます。これにより、包括的で正確かつ詳細なファーストパーティデータに基づき、効果的なBraze分析とコミュニケーション戦略を策定できます。この機能はCelebrusの機械学習を活用したシグナルによりさらに強化されます。これにより、大規模なタグ付け作業を必要とせずに、簡単にデータを取り込むことができます。堅牢なファーストパーティのIDグラフを導入することで、すべてのデータに即座にアクセスしてすぐに使用できるようになります。
 
-_この統合は Celebrus によって管理されます。_
+_この統合はCelebrusによって管理されます。_
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-| Celebrus アカウント | このパートナーシップを活用するには、Celebrus アカウントが必要です。 |
-| データウェアハウス（オプション） | Celebrus コネクターを Braze のカスタム属性に使用する場合は、Braze クラウドデータ取り込み (CDI) 統合でサポートされるデータウェアハウスが必要です。また、Braze ダッシュボードで CDI を設定する必要があります。 |
-| Braze SDKの構成設定（オプション） | Braze SDK に Celebrus コネクターを使用する場合は、SDK エンドポイントと SDK API キーを渡す必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Celebrusアカウント | このパートナーシップを活用するには、Celebrusアカウントが必要です。 |
+| データウェアハウス（オプション） | Brazeカスタム属性用のCelebrusコネクターを使用する場合は、Brazeクラウドデータ取り込み（CDI）統合でサポートされるデータウェアハウスが必要です。また、BrazeダッシュボードでCDIを設定する必要があります。 |
+| Braze SDKの設定（オプション） | Braze SDK用のCelebrusコネクターを使用する場合は、SDKエンドポイントとSDK APIキーを渡す必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 実装
-Celebrusの実装をインストールした後、Braze用のCelebrusコネクタを使用してCelebrusデータをBrazeに統合する。Braze の Celebrus 統合には、Braze SDK とBraze のカスタム属性という2つの要素があります。Braze の使い方と必要なユースケースに応じて、いずれかまたは両方をデプロイできます。
+## 実装 {#implementation}
+Celebrusの実装をインストールした後、Braze用のCelebrusコネクターを使用してCelebrusデータをBrazeに統合します。BrazeのCelebrus統合には、Braze SDKとBrazeカスタム属性という2つの要素があります。Brazeの使い方と必要なユースケースに応じて、いずれかまたは両方をデプロイできます。
 
-Web チャネルに Braze SDK がまだ実装されていない場合は、Celebrus を使用して Braze SDK をデプロイできます。Celebrusは、WebページにBraze SDKを追加し、Celebrusアイデンティティグラフを使用してWeb訪問者にBrazeアイデンティティを設定する。顧客の属性は、クラウドデータ取り込み (CDI) を使用して Braze と同期できます。このためには、Braze CDI によってサポートされるデータウェアハウスと、Braze での CDI の設定が必要です。
+WebチャネルにBraze SDKがまだ実装されていない場合は、Celebrusを使用してBraze SDKをデプロイできます。CelebrusはWebページにBraze SDKを追加し、CelebrusのIDグラフを使用してWeb訪問者のBraze IDを設定します。顧客属性は、クラウドデータ取り込み（CDI）を介してBrazeと同期できます。このためには、Braze CDIによってサポートされるデータウェアハウスと、BrazeでのCDIの設定が必要です。
 
-### Braze SDK用Celebrusコネクタ
+### Braze SDK用Celebrusコネクター {#celebrus-connector-for-braze-sdk}
 
-BrazeSDK用Celebrusコネクタは、Brazeのハイレベルなウェブおよびモバイルアプリのチャネルデータを提供する。Braze SDK では、Celebrus ID グラフの Celebrus `System Identity` が Braze 統合の識別子として使用されます。その他の識別子は、Braze Custom Attributes Celebrus コネクターを介してカスタム属性を同期するためにサポートされています。
+Braze SDK用Celebrusコネクターは、BrazeのハイレベルなWebおよびモバイルアプリのチャネルデータを提供します。Braze SDKでは、CelebrusのIDグラフのCelebrus `System Identity`がBraze統合の識別子として使用されます。その他の識別子は、Brazeカスタム属性用Celebrusコネクターを介してカスタム属性を同期するためにサポートされています。
 
-このコネクターによりチャネルに Braze SDK がデプロイされ、設定されます。このため、Braze SDK データストリームでいくつかの設定を行い、次の3つの設定の値を指定する必要があります。
+このコネクターによりチャネルにBraze SDKがデプロイされ、設定されます。このため、Braze SDKデータストリームでいくつかの設定を行い、次の3つの設定の値を指定する必要があります。
 
 ```
     response.addParameter("sdk_endpoint", "sdk.xxxxxx.braze.com");
@@ -37,26 +37,25 @@ BrazeSDK用Celebrusコネクタは、Brazeのハイレベルなウェブおよ�
 ```
 
 {% alert important %}
-Braze SDK 用の Celebrus コネクターは、ユーザーを識別し、識別子を Celebrus の ID グラフに追加するために Braze SDK を挿入および初期化します。このコネクタは、ユーザープロファイルにデータを記録したり、他のBraze SDKメソッドをトリガーしたりしない。<br><br>[Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)経由でデータを記録したり、Braze SDKがサポートする他の機能を利用したりするために、コードベース内で必要なメソッドを直接呼び出すことができる。
+Braze SDK用のCelebrusコネクターは、ユーザーを識別し、識別子をCelebrusのIDグラフに追加するためにBraze SDKを挿入および初期化します。このコネクターは、ユーザープロファイルにデータを記録したり、他のBraze SDKメソッドをトリガーしたりしません。<br><br>コードベース内で必要なメソッドを直接呼び出すことで、[Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)経由でデータを記録したり、Braze SDKがサポートする他の機能を利用したりできます。
 {% endalert%}
 
-### Brazeカスタム属性用Celebrusコネクター
+### Brazeカスタム属性用Celebrusコネクター {#celebrus-connector-for-braze-custom-attributes}
 
-#### ステップ1:Celebrus で接続の詳細を設定する 
+#### ステップ 1: Celebrusで接続の詳細を設定する {#step-1-configure-connected-details-in-celebrus}
 
-Braze カスタム属性用の Celebrus コネクターは、カスタム属性を中間データベースに送信します。このときカスタム属性は、Braze での受け取り形式で事前に形式設定されています。Celebrusでは、使用しているデータベースの種類（SnowflakeやRedshiftなど）によって異なるデータベースの接続詳細を設定する。 
+Brazeカスタム属性用のCelebrusコネクターは、カスタム属性を中間データベースに送信します。このときカスタム属性は、Brazeでの受け取り形式で事前にフォーマットされています。Celebrusでは、使用しているデータベースの種類（SnowflakeやRedshiftなど）に応じて、データベースの接続詳細を設定します。
 
-#### ステップ2:Braze ダッシュボードでクラウドデータ取り込みを設定する
+#### ステップ 2: Brazeダッシュボードでクラウドデータ取り込みを設定する {#step-2-configure-cloud-data-ingestion-in-your-braze-dashboard}
 
-この統合では、Braze のクラウドデータ取り込みを使用します。「[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/cloud_ingestion/integrations/)」の手順に従って、使用するウェアハウスのタイプに応じて[クラウドデータ取り込みの設定]({{site.baseurl}}/user_guide/data/cloud_ingestion/overview/)を行います。 
+この統合では、Brazeのクラウドデータ取り込みを使用します。[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)の手順に従って、使用するウェアハウスのタイプに応じて[クラウドデータ取り込みの設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)を行います。
 
-#### ステップ3:Celebrus から Braze にデータを同期する
+#### ステップ 3: CelebrusからBrazeにデータを同期する {#step-3-sync-data-from-celebrus-to-braze}
 
-Celebrus は、メール、電話、`external_id` またはユーザーエイリアスなどの一意の識別子をキャプチャし、個別に割り当て、CDI を使用して Braze に送信します。これにより、同一の個人に関するデータを Braze と同期できます。
+Celebrusは、メール、電話番号、`external_id`またはユーザーエイリアスなどの一意の識別子をキャプチャして個人に割り当て、CDIを介してBrazeに送信します。これにより、同一の個人に関するデータをBrazeと同期できます。
 
-Celebrus は、属性値が変更された場合にのみ、定義されている識別子を使用して、Celebrus プロファイルビルダーで定義された顧客属性を送信します。なお、Celebrus プロファイルビルダーで定義された属性名は、デフォルトで Braze で使用されます。そのため、[Braze の命名規則に準拠するように]({{site.baseurl}}/api/objects_filters/user_attributes_object/)、これらの名前を更新してください。
+Celebrusは、属性値が変更された場合にのみ、定義されている識別子を使用して、Celebrusプロファイルビルダーで定義された顧客属性を送信します。なお、Celebrusプロファイルビルダーで定義された属性名は、デフォルトでBrazeで使用されます。そのため、[Brazeの命名規則]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)に準拠するように、これらの名前を更新してください。
 
 {% alert important %}
-現時点では、このリリースではイベントと購入はサポートされていません。<br><br> この統合では、属性を文字列値として送信するため、一部の属性はリストになる（シグナルなど）。今のところ、リストを配列に変換することはできない。ネストされた属性はない。
+現時点では、このリリースではイベントと購入はサポートされていません。<br><br>この統合では、属性を文字列値として送信するため、一部の属性はリストになります（シグナルなど）。現時点では、リストを配列に変換することはできません。ネストされた属性はありません。
 {% endalert%}
-

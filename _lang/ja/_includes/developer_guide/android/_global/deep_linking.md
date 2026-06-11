@@ -1,12 +1,12 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## ユニバーサルデリゲートの作成
+## ユニバーサルデリゲートの作成 {#creating-a-universal-delegate}
 
-Android SDK は、コンテンツカード、アプリ内メッセージ、プッシュ通知にわたって Braze によって開かれたすべてのディープリンクをカスタム処理するように単一のデリゲートオブジェクトを設定する機能を提供しています。
+Android SDKは、Content Cards、アプリ内メッセージ、プッシュ通知にわたってBrazeによって開かれたすべてのディープリンクをカスタム処理するための単一のデリゲートオブジェクトを設定する機能を提供しています。
 
-デリゲートオブジェクトは[`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html)インターフェイスを実装し、[`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html)を使用して設定する必要があります。ほとんどの場合、デリゲートはアプリの`Application.onCreate()`で設定する必要があります。
+デリゲートオブジェクトは[`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html)インターフェイスを実装し、[`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html)を使用して設定する必要があります。ほとんどの場合、デリゲートはアプリの`Application.onCreate()`で設定します。
 
-以下は、カスタムインテントフラグと YouTube URL のカスタム動作でデフォルトの[`UriAction`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.actions/-uri-action/index.html)動作を上書きする例です。
+以下は、カスタムインテントフラグとYouTube URLのカスタム動作でデフォルトの[`UriAction`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.actions/-uri-action/index.html)動作をオーバーライドする例です。
 
 {% tabs %}
 {% tab JAVA %}
@@ -50,7 +50,7 @@ public class CustomDeeplinkHandler implements IBrazeDeeplinkHandler {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 
   override fun gotoUri(context: Context, uriAction: UriAction) {
@@ -86,14 +86,14 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 {% endtab %}
 {% endtabs %}
 
-## アプリ設定へのディープリンク
+## アプリ設定へのディープリンク {#deep-linking-to-app-settings}
 
-ディープリンクでアプリの設定を直接開くようにするには、カスタムの`BrazeDeeplinkHandler`が必要です。以下の例では、`open_notification_page`と呼ばれるカスタムのキーと値のペアが存在すると、ディープリンクがアプリの設定ページを開きます。
+ディープリンクでアプリの設定を直接開けるようにするには、カスタムの`BrazeDeeplinkHandler`が必要です。以下の例では、`open_notification_page`というカスタムのキーと値のペアが存在する場合、ディープリンクがアプリの設定ページを開きます。
 
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 BrazeDeeplinkHandler.setBrazeDeeplinkHandler(new IBrazeDeeplinkHandler() {
   @Override
   public void gotoUri(Context context, UriAction uriAction) {
@@ -118,7 +118,7 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(new IBrazeDeeplinkHandler() {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
   override fun gotoUri(context: Context, uriAction: UriAction) {
     val extras = uriAction.extras
@@ -144,26 +144,26 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
 
 ## WebViewアクティビティのカスタマイズ {#Custom_Webview_Activity}
 
-Brazeがアプリ内でWeb サイトのディープリンクを開封する場合、そのディープリンクはによって処理される[`BrazeWebViewActivity`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-web-view-activity/index.html)。
+Brazeがアプリ内でWebサイトのディープリンクを開く場合、そのディープリンクは[`BrazeWebViewActivity`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-web-view-activity/index.html)によって処理されます。
 
 {% alert note %}
-カスタムHTMLのアプリ内メッセージにおいて、リンクはデフォルトのウェブブラウザで開く`target="_blank"`ように設定されており、によって処理されない`BrazeWebViewActivity`。
+カスタムHTMLのアプリ内メッセージでは、`target="_blank"`が設定されたリンクはデバイスのデフォルトWebブラウザで開かれ、`BrazeWebViewActivity`では処理されません。
 {% endalert %}
 
-これを変更するには、以下を行います。
+これを変更するには、以下の手順を行います。
 
-1. キー`com.braze.Constants.BRAZE_WEBVIEW_URL_EXTRA`で`Intent.getExtras()`から対象の URL を扱うアクティビティを新規作成します。例については、を参照せよ[`BrazeWebViewActivity.kt`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/BrazeWebViewActivity.kt)。
+1. キー`com.braze.Constants.BRAZE_WEBVIEW_URL_EXTRA`で`Intent.getExtras()`からターゲットURLを処理する新しいアクティビティを作成します。例については、[`BrazeWebViewActivity.kt`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/BrazeWebViewActivity.kt)を参照してください。
 2. そのアクティビティを`AndroidManifest.xml`に追加し、`exported`を`false`に設定します。
     ```xml
     <activity
         android:name=".MyCustomWebViewActivity"
         android:exported="false" />
     ```
-3. カスタムアクティビティを`BrazeConfig`[ビルダーオブジェクト](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-custom-web-view-activity-class.html)に設定します。ビルダーを作成し、それをに渡しなさい[`Braze.configure()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html)。[`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())
+3. カスタムアクティビティを`BrazeConfig`[ビルダーオブジェクト](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-custom-web-view-activity-class.html)に設定します。ビルダーをビルドし、[`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())内で[`Braze.configure()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html)に渡します。
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
     .setCustomWebViewActivityClass(MyCustomWebViewActivity::class)
     ...
@@ -174,7 +174,7 @@ Braze.configure(this, brazeConfig);
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val brazeConfig = BrazeConfig.Builder()
     .setCustomWebViewActivityClass(MyCustomWebViewActivity::class.java)
     ...
@@ -185,11 +185,20 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-## Jetpack Composeを使う
+## トラブルシューティング {#troubleshooting}
 
-Jetpack ComposeとNavHostを使用する際のディープリンクの扱い方：
+プッシュ通知からのディープリンクがAndroidで動作しない場合は、以下の手順を試してください。
 
-1. ディープリンクを処理するアクティビティがAndroidマニフェストに登録されていることを確認せよ。
+1. **Braze以外でディープリンクをテストします。**メールやブラウザなど、別のアプリからディープリンクURLを開いてみてください。アプリが開かない場合、`AndroidManifest.xml`でディープリンクが正しく設定されていない可能性があります。詳細については、Androidの[Create Deep Links](https://developer.android.com/training/app-links/deep-linking)ドキュメントを参照してください。
+2. **自動ディープリンク処理が有効になっていることを確認します。**`braze.xml`で`com_braze_handle_push_deep_links_automatically`が`true`に設定されているか、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)でこのオプションを設定しているか確認してください。この設定がないと、プッシュ通知をタップしたときにBrazeがアプリとディープリンクの送信先を自動的に開きません。
+3. **ディープリンクハンドラーデリゲートを確認します。**カスタムの`IBrazeDeeplinkHandler`を設定している場合、`gotoUri`の実装がURIを正しく処理し、ドロップしていないことを確認してください。
+4. **チャネル間でテストします。**同じディープリンクがアプリ内メッセージでは動作するがプッシュからは動作しない場合、問題はディープリンク自体ではなく、プッシュのディープリンク処理にある可能性が高いです。
+
+## Jetpack Composeの使用 {#using-jetpack-compose}
+
+Jetpack ComposeとNavHostを使用する際にディープリンクを処理するには、以下の手順を行います。
+
+1. ディープリンクを処理するアクティビティがAndroidマニフェストに登録されていることを確認します。
     ```xml
     <activity
       ...
@@ -203,7 +212,7 @@ Jetpack ComposeとNavHostを使用する際のディープリンクの扱い方�
       </intent-filter>
     </activity>
     ```
-2. NavHostでは、どのディープリンクを処理させるかを指定する。
+2. NavHostで、処理するディープリンクを指定します。
     ```kotlin
     composableWithCompositionLocal(
         route = "YOUR_ROUTE_HERE",
@@ -223,7 +232,7 @@ Jetpack ComposeとNavHostを使用する際のディープリンクの扱い方�
         )
     }
     ```
-3. アプリのアーキテクチャによっては、現在のアクティビティに送信される新しいインテントも処理する必要があるかもしれない。
+3. アプリのアーキテクチャによっては、現在のアクティビティに送信される新しいインテントも処理する必要がある場合があります。
     ```kotlin
     DisposableEffect(Unit) {
         val listener = Consumer<Intent> {

@@ -1,17 +1,9 @@
-{% if include.section == "Prerequisites" %}
-## Prerequisites
+{% if include.section == "multi-language prerequisites" %}
 
-To edit and manage [multi-language support]({{site.baseurl}}/multi_language_support/), you need the following [user permissions]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) for your workspace:
-
-- View Localization Settings
-- Edit Localization Settings
-- Delete Localization Settings
-
-To add the locale to a message, you need the "Edit Campaigns" permission.
-
-{% alert important %}
-Multi-language support is currently in early access. Contact your Braze account manager if you’re interested in participating in this early access.
-{% endalert %}
+| Feature | Required user permissions |
+| --- | --- |
+| Multi-language locales | You need these permissions to create and manage multi-language locales:<br><br> {::nomarkdown} <ul><li>Edit Localization Settings</li><li>Delete Localization Settings</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% endif %}
 
@@ -46,6 +38,6 @@ Yes, but be sure to check that the HTML styling is not translated with the conte
 | The translation file includes locales that don't exist in **Multi-Language Support** settings.                                                           | These locales will not be saved in Braze.                                                                      |
 | The translation file includes text blocks that don't exist in the current message (such as the current draft at the time the translations are uploaded). | The text blocks that don't exist in your current message will not be saved from the translation file to Braze. |
 | Removing a locale from the message after that locale has already been uploaded to the message as part of the translation file.                           | Removing the locale will remove any translations associated with the locale in your message.                   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What validations or extra checks does Braze do?" }
 
 {% endif %}

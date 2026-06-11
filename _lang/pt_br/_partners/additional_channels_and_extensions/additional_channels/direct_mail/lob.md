@@ -1,8 +1,8 @@
 ---
 nav_title: Lob
-article_title: Lob 
+article_title: Lob
 alias: /partners/lob/
-description: "Este artigo de referência descreve a parceria entre Braze e Lob.com, que permite enviar cartas, postais e cheques semelhantes a mala direta pelo correio."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Lob.com, que permite enviar cartas, cartões-postais e cheques semelhantes a mala direta pelo correio."
 page_type: partner
 search_tag: Partner
 
@@ -14,104 +14,108 @@ search_tag: Partner
 
 _Esta integração é mantida pela Lob._
 
-## Sobre a integração
+## Sobre a integração {#about-the-integration}
 
 Com essa integração, você pode:
 
-- Envie cartas, postais e cheques semelhantes a mala direta pelo correio usando webhooks do Braze e a API da Lob.
-- Compartilhe eventos da Lob com o Braze como atributos e eventos personalizados usando a Transformação de Dados do Braze e webhooks da Lob.
+- Enviar cartas, cartões-postais e cheques semelhantes a mala direta pelo correio usando webhooks da Braze e a API da Lob.
+- Compartilhar eventos da Lob com a Braze como atributos e eventos personalizados usando a Transformação de Dados da Braze e webhooks da Lob.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-|Requisito| Descrição|
-| ---| ---|
-|Conta da Lob | É necessário ter uma conta Lob para aproveitar essa parceria. |
-| Chave de API do Lob | A sua chave de API da Lob pode ser encontrada na seção de configurações, abaixo do seu nome, no dashboard da Lob. |
+| Requisito | Descrição |
+| --- | --- |
+| Conta da Lob | É necessário ter uma conta da Lob para aproveitar essa parceria. |
+| Chave de API da Lob | Sua chave de API da Lob pode ser encontrada na seção de configurações, abaixo do seu nome, no dashboard da Lob. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Enviando mala usando webhooks do Braze
+## Enviando mala direta usando webhooks da Braze {#sending-mail-using-braze-webhooks}
 
-### Etapa 1: Escolha um endpoint da Lob
+### Etapa 1: Escolha um endpoint da Lob {#step-1-choose-a-lob-endpoint}
 
-Dependendo do que você gostaria de fazer na Lob, você precisará usar o endpoint correspondente na solicitação HTTP do seu webhook. Para informações detalhadas sobre cada endpoint, consulte [a documentação de referência da API da Lob](https://lob.com/docs#intro).
+Dependendo do que você gostaria de fazer na Lob, será necessário usar o endpoint correspondente na solicitação HTTP do seu webhook. Para informações detalhadas sobre cada endpoint, consulte [a documentação de referência da API da Lob](https://lob.com/docs#intro).
 
-| URL base | Pontos de extremidade disponíveis |
+| URL base | Endpoints disponíveis |
 | ------------ | ------------------- |
-| `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states`|
+| `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Etapa 2: Crie seu modelo de webhook do Braze
+### Etapa 2: Crie seu modelo de webhook da Braze {#step-2-create-your-braze-webhook-template}
 
-Para criar um modelo de webhook da Lob para usar em campanhas futuras ou Canvases, acesse **Modelos** > **Modelos de Webhook** no painel do Braze. 
+Para criar um modelo de webhook da Lob para usar em futuras Campaigns ou Canvas, acesse **Conteúdo** > **Webhook** no dashboard da Braze. Em seguida, selecione **Criar modelo de webhook**.
 
-Se você gostaria de fazer uma campanha de webhook da Lob única ou usar um modelo existente, selecione **Webhook** no Braze ao criar uma nova campanha.
+Se você gostaria de criar uma Campaign de webhook da Lob única ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova Campaign.
 
 Em seu novo modelo de webhook, preencha os seguintes campos:
 
 - **URL do webhook**: `<LOB_API_ENDPOINT>`
 - **Corpo da solicitação**: Texto bruto
 
-#### Cabeçalhos de solicitação e método
+#### Cabeçalhos de solicitação e método {#request-headers-and-method}
 
-A Lob requer um cabeçalho HTTP para autorização e um método HTTP. O seguinte já estará incluído no modelo como um par de valores chave, mas na guia **Settings (Configurações)**, você deve substituir o `<LOB_API_KEY>` pela sua chave de API do Lob. Essa chave deve incluir um ":" logo após a chave e ser codificada em base 64. 
+A Lob requer um cabeçalho HTTP para autorização e um método HTTP. O seguinte já estará incluído no modelo como um par chave-valor, mas na guia **Configurações**, você deve substituir o `<LOB_API_KEY>` pela sua chave de API da Lob. Essa chave deve incluir um ":" logo após a chave e ser codificada em base 64.
 
 - **Método HTTP**: POST
 - **Cabeçalhos de solicitação**:
-  - **Autorização**: Básico `{{'<LOB_API_KEY>:' | base64_encode}}`
+  - **Authorization**: Basic `{{'<LOB_API_KEY>:' | base64_encode}}`
   - **Content-Type**: application/json
 
-![O código do corpo da solicitação e o URL do webhook são exibidos na guia de composição do criador de webhooks do Braze.]({% image_buster /assets/img_archive/lob_full_request.png %})
+![Código do corpo da solicitação e URL do webhook exibidos na guia de composição do criador de webhooks da Braze.]({% image_buster /assets/img_archive/lob_full_request.png %})
 
-#### Corpo da solicitação
+#### Corpo da solicitação {#request-body}
 
-A seguir, um exemplo de corpo de solicitação para o endpoint de cartões postais da Lob. Esse corpo de solicitação seja fornecido no modelo básico da Lob na Braze, mas você deverá ajustar seus campos Liquid se desejar usar outros endpoints.
+A seguir, um exemplo de corpo de solicitação para o endpoint de cartões-postais da Lob. Embora esse corpo de solicitação seja fornecido no modelo base da Lob na Braze, se você desejar usar outros endpoints, será necessário ajustar seus campos Liquid adequadamente.
 
 {% raw %}
 ```json
-"description": "Demo Postcard",
-"to": {
+{
+  "description": "Demo Postcard",
+  "to": {
     "name": "{{${first_name}}} {{${last_name}}}",
     "address_line1": "{{custom_attribute.${address_line1}}}",
-    "address_city": "{{custom_attribute.${address_city}}}"
+    "address_city": "{{custom_attribute.${address_city}}}",
     "address_zip": "{{custom_attribute.${address_zip}}}",
     "address_country": "{{custom_attribute.${address_country}}}"
-},
-"front": "https://lob.com/postcardfront.pdf",
-"back": "https://lob.com/postcardback.pdf"
+  },
+  "front": "https://lob.com/postcardfront.pdf",
+  "back": "https://lob.com/postcardback.pdf",
+  "use_type": "marketing",
+  "size": "6x11"
+}
 ```
 {% endraw %}
 
-### Etapa 3: veja uma prévia da sua solicitação
+### Etapa 3: Visualize sua solicitação {#step-3-preview-your-request}
 
-Nesse ponto, sua campanha deve estar pronta para ser testada e enviada. Verifique o dashboard do Lob e os registros de mensagens de erro do console de desenvolvedor do Braze se encontrar erros. Por exemplo, o erro a seguir foi causado por um cabeçalho de autenticação formatado incorretamente. 
+Nesse ponto, sua Campaign deve estar pronta para ser testada e enviada. Verifique o dashboard da Lob e os registros de mensagens de erro do console de desenvolvedor da Braze se encontrar erros. Por exemplo, o erro a seguir foi causado por um cabeçalho de autenticação formatado incorretamente.
 
 {% alert important %}
-Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhook salvos** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/).
+Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}
 
 ![Um registro de erros de mensagens que mostra a hora, o nome do app, o canal e a mensagem de erro. A mensagem de erro inclui o alerta de mensagem e o código de status.]({% image_buster /assets/img_archive/error_log.png %})
 
-## Compartilhando eventos usando webhooks da Lob 
+## Compartilhando eventos usando webhooks da Lob {#sharing-events-using-lob-webhooks}
 
-[A Transformação de Dados do Braze]({{site.baseurl}}/user_guide/data/data_transformation/overview) permite que você construa e gerencie webhooks para automatizar o fluxo de dados de plataformas externas para o Braze. Cada transformação recebe um endpoint exclusivo, que outras plataformas podem usar como destino do seu webhook.
+A [Transformação de Dados da Braze]({{site.baseurl}}/user_guide/data/unification/data_transformation/) permite que você crie e gerencie webhooks para automatizar o fluxo de dados de plataformas externas para a Braze. Cada transformação recebe um endpoint exclusivo, que outras plataformas podem usar como destino do seu webhook.
 
 {% alert important %}
-O modelo de Transformação de Dados da Lob envia eventos usando seu [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track), que registra pontos de dados. Recomendamos definir um limite de frequência nas configurações do seu webhook da Lob para evitar o registro excessivo de dados.
+O modelo de Transformação de Dados da Lob envia eventos usando seu [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), que registra pontos de dados. Recomendamos definir um limite de taxa nas configurações do seu webhook da Lob para evitar o registro excessivo de dados.
 {% endalert %}
 
-### Etapa 1: Crie uma transformação no Braze
+### Etapa 1: Crie uma transformação na Braze {#step-1-create-a-transformation-in-braze}
 
-1. No Painel do Braze, acesse **Configurações de Dados** > **Transformações de Dados**, em seguida, selecione **Criar Transformação**.
+1. No dashboard da Braze, acesse **Configurações de dados** > **Transformações de dados** e selecione **Criar transformação**.
 2. Insira um nome curto e descritivo para sua transformação.
-3. Sob **Experiência de edição**, selecione **Usar um modelo**, em seguida, pesquise por Lob e marque a caixa.
-4. Quando terminar, selecione **Criar transformação**. Você será redirecionado para o editor de transformação, que você usará na próxima etapa.
+3. Em **Experiência de edição**, selecione **Usar um modelo**, pesquise por Lob e marque a caixa.
+4. Quando terminar, selecione **Criar transformação**. Você será redirecionado para o editor de transformação, que usará na próxima etapa.
 
-### Etapa 2: Preencha o modelo Lob
+### Etapa 2: Preencha o modelo da Lob {#step-2-fill-out-the-lob-template}
 
-Com este modelo, você pode transformar um dos seus eventos Lob em um evento ou atributo personalizado que pode ser usado no Braze. Siga os comentários em linha para terminar de construir o modelo.
+Com este modelo, você pode transformar um dos seus eventos da Lob em um evento ou atributo personalizado que pode ser usado na Braze. Siga os comentários em linha para terminar de construir o modelo.
 
 {% alert tip %}
-Para informações detalhadas sobre a estrutura de carga útil do webhook do Lob, veja [Lob: Usando webhooks](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks).
+Para informações detalhadas sobre a estrutura de carga útil do webhook da Lob, consulte [Lob: Usando webhooks](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks).
 {% endalert %}
 
 ```json
@@ -153,7 +157,7 @@ let brazecall = {
 return brazecall;
 ```
 
-### Etapa 3: Crie um webhook no Lob
+### Etapa 3: Crie um webhook na Lob {#step-3-create-a-webhook-in-lob}
 
-1. Quando terminar de construir seu modelo, selecione **Ativar**, em seguida, copie a **URL do webhook** para sua área de transferência.
-2. No Lob, [crie um novo webhook](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks#receiving-a-webhook-1), em seguida, use sua URL do webhook do Braze para receber o webhook.
+1. Quando terminar de construir seu modelo, selecione **Ativar** e copie a **URL do webhook** para sua área de transferência.
+2. Na Lob, [crie um novo webhook](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks#receiving-a-webhook-1) e use a URL do webhook da Braze para receber o webhook.

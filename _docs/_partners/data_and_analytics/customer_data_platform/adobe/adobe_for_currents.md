@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Adobe](https://www.adobe.com/) is a customer data platform that allows brands to connect and map their Adobe data (custom attributes and segments) to Braze in real time.
 
-The Braze and Adobe integration allows you to seamlessly control the flow of information between the two systems. With [Currents]({{site.baseurl}}/user_guide/data/braze_currents/), you can also connect data to Adobe to make it actionable across the entire growth stack. 
+The Braze and Adobe integration allows you to seamlessly control the flow of information between the two systems. With [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), you can also connect data to Adobe to make it actionable across the entire growth stack. 
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ The Braze and Adobe integration allows you to seamlessly control the flow of inf
 | Currents | To export data back into Adobe, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
 | Adobe Experience Platform account | An [Adobe Experience Platform account](https://experience.adobe.com/#/platform/home) is required to take advantage of this partnership. |
 | Permission to create a connector | You need permissions to create a streaming source connection to use this integration. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -59,7 +59,7 @@ Braze timestamps are expressed in seconds. To accurately reflect timestamps in A
 
 ### Step 3: Gather credentials
 
-Collect the following creditials to input into Braze, which will allow Braze to send data to Adobe Experience Platform.
+Collect the following credentials to input into Braze, which will allow Braze to send data to Adobe Experience Platform.
 
 | Field         |Description                          |
 |---------------|-------------------------------------|
@@ -69,7 +69,7 @@ Collect the following creditials to input into Braze, which will allow Braze to 
 | Sandbox Name  | The sandbox associated with your Adobe Experience Platform source.   |
 | Dataflow ID   | The dataflow ID associated with your Adobe Experience Platform source.   |
 | Streaming Endpoint  | The streaming endpoint associated with your Adobe Experience Platform source. Braze automatically converts this to the batch streaming endpoint. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Gather credentials" }
 
 ### Step 4: Configure Currents to stream data to your data source
 

@@ -44,7 +44,7 @@ class ContentCardsApplication : Application() {
 }
 ```
 
-```kotlin file=ContentCardsInboxScreen.kt
+`````````kotlin file=ContentCardsInboxScreen.kt
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.clickable
@@ -210,7 +210,7 @@ lines-ContentCardsInboxScreen.kt=57,62
 
 {% scrolly %}
 
-```kotlin file=MainApplication.kt
+`````````kotlin file=MainApplication.kt
 import android.app.Application
 import com.braze.Braze
 import com.braze.support.BrazeLogger
@@ -234,7 +234,7 @@ class ContentCardsApplication : Application() {
 }
 ```
 
-```kotlin file=ContentCardInboxActivity.kt
+`````````kotlin file=ContentCardInboxActivity.kt
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -335,7 +335,7 @@ class ContentCardsActivity : ComponentActivity() {
 }
 ```
 
-```xml file=content_card_inbox.xml
+`````````xml file=content_card_inbox.xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -411,7 +411,7 @@ lines-ContentCardInboxActivity.kt=90,93
 
 {% scrolly %}
 
-```swift file=AppDelegate.swift
+`````````swift file=AppDelegate.swift
 import SwiftUI
 import BrazeKit
 import BrazeUI
@@ -454,7 +454,7 @@ struct ContentView: View {
 
 ```
 
-```swift file=SampleApp.swift
+`````````swift file=SampleApp.swift
 import SwiftUI
 
 @main
@@ -469,7 +469,7 @@ struct SampleApp: App {
 }
 ```
 
-```swift file=BrazeInboxView.swift
+`````````swift file=BrazeInboxView.swift
 import SwiftUI
 import UIKit
 import BrazeKit
@@ -579,7 +579,7 @@ lines-BrazeInboxView.swift=8,43,49-56
 
 {% scrolly %}
 
-```js file=main.js
+`````````js file=main.js
 import * as braze from "@braze/web-sdk";
 
 // Uncomment this if you'd like to run braze web SDK methods in the console
@@ -683,7 +683,7 @@ braze.subscribeToContentCardsUpdates((updates) => {
 braze.requestContentCardsRefresh();
 ```
 
-```html file=index.html
+`````````html file=index.html
 <!DOCTYPE html>
 <html lang="en">
   <head>

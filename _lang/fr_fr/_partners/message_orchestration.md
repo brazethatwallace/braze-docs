@@ -1,14 +1,14 @@
 ---
-nav_title: "L'orchestration des messages"
-article_title: "Partenaires pour l'orchestration des messages"
+nav_title: Orchestration des messages
+article_title: Partenaires d'orchestration des messages
 page_order: 2
 
 page_type: landing
-description: "Cette page d'accueil répertorie les partenaires de Braze (Alloys) qui vous permettent d'orchestrer vos messages grâce au reciblage, à des modèles d'e-mail, à des promotions, à l'attribution, et plus encore."
+description: "Cette page répertorie les partenaires de Braze (Alloys) qui vous permettent d'orchestrer vos messages grâce au reciblage, aux modèles d'e-mail, aux promotions, à l'attribution, et bien plus encore."
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Message Orchestration"
+partner_top_header: "Orchestration des messages"
 
 valid_partner_list:
 - name: Jacquard
@@ -23,6 +23,8 @@ valid_partner_list:
   url: /docs/partners/branch_for_deeplinking/
 - name: Kochava
   url: /docs/partners/kochava/
+- name: Linkrunner
+  url: /docs/partners/linkrunner/
 - name: Singular
   url: /docs/partners/singular/
 - name: Contentful
@@ -49,12 +51,20 @@ valid_partner_list:
   url: /docs/partners/remerge/
 - name: Alpaco
   url: /docs/partners/alpaco/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Blayer
   url: /docs/partners/blayer/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Dyspatch
   url: /docs/partners/dyspatch/
-- name: "L'e-mail de l'amour"
+- name: Denada
+  url: /docs/partners/denada/
+- name: Email Love
   url: /docs/partners/email_love/
+- name: EmailShepherd
+  url: /docs/partners/emailshepherd/
 - name: IAM Studio
   url: /docs/partners/iam_studio/
 - name: Knak
@@ -67,9 +77,9 @@ valid_partner_list:
   url: /docs/partners/stensul/
 - name: Stripo
   url: /docs/partners/stripo/
-- name: Taxi for email
+- name: Taxi for Email
   url: /docs/partners/message_orchestration/channel_extensions/email_templates/taxi_for_email/
-- name: Talon.one
+- name: Talon.One
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/talonone/
 - name: Voucherify
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/voucherify/
@@ -79,14 +89,14 @@ valid_partner_list:
   url: /docs/partners/message_orchestration/channel_extensions/surveys/iterate/
 - name: EduMe
   url: /docs/partners/message_orchestration/learning/edume/
-- name: Optilyz
+- name: optilyz
   url: /docs/partners/message_orchestration/additional_channels/direct_mail/optilyz/
 - name: Digioh
   url: /docs/partners/message_orchestration/channel_extensions/surveys/digioh/
 - name: Punchh
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/punchh/
-- name: LIGNE
-  url: /docs/partners/message_orchestration/additional_channels/messaging/line/  
+- name: LINE
+  url: /docs/partners/message_orchestration/additional_channels/messaging/line/
 - name: Shopify
   url: /docs/partners/ecommerce/shopify
 - name: Yotpo
@@ -110,7 +120,7 @@ valid_partner_list:
 - name: Nift
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/nift/
 - name: Sendbird
-  url: /docs/partners/message_orchestration/additional_channels/messaging/sendbird/  
+  url: /docs/partners/message_orchestration/additional_channels/messaging/sendbird/
 - name: Regal
   url: /docs/partners/message_orchestration/additional_channels/messaging/regal/
 - name: Kognitiv

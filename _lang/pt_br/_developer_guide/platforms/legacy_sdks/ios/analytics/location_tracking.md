@@ -4,7 +4,7 @@ article_title: Monitoramento de localização para iOS
 platform: iOS
 page_order: 6
 description: "Este artigo mostra como configurar o monitoramento de localização para seu aplicativo iOS."
-Tool:
+tool:
   - Location
 
 noindex: true

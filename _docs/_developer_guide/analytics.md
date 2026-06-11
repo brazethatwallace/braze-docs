@@ -26,7 +26,7 @@ During your Braze implementation, be sure to discuss marketing goals with your t
 
 ## Automatically collected data
 
-Certain user data is collected automatically by our SDK—for example, First Used App, Last Used App, Total Session Count, Device OS, etc. If you follow our integration guides to implement our SDKs, you will be able to take advantage of this [default data collection]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/). Checking this list can help you avoid storing the same information about users more than once. With the exception of session start and end, all other automatically tracked data does not count toward your data point usage.
+Certain user data is collected automatically by our SDK—for example, First Used App, Last Used App, Total Session Count, Device OS, etc. If you follow our integration guides to implement our SDKs, you will be able to take advantage of this [default data collection]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/). Checking this list can help you avoid storing the same information about users more than once. With the exception of session start and end, all other automatically tracked data does not count toward your data point usage.
 
 See our [SDK primer]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/) article to allowlist processes that block the default collection of certain data items.
 
@@ -46,7 +46,7 @@ Custom events are actions taken by your users; they're best suited for tracking 
 | Check if the custom event occurred **more than X (Max = 50) number of times** | **MORE THAN** | in the past **Y Days (Y = 1,3,7,14,21,30)** |
 | Check if the custom event occurred **less than X (Max = 50) number of times** | **LESS THAN** | in the past **Y Days (Y = 1,3,7,14,21,30)** |
 | Check if the custom event occurred **exactly X (Max = 50) number of times** | **EXACTLY** | in the past **Y Days (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom events" }
 
 Braze notes the number of times these events have occurred as well as the last time they were performed by each user for segmentation. On the **Custom Events** analytics page, you can view in aggregate how often each custom event occurs, as well as by segment over time for more detailed analysis. This is particularly useful to view how your campaigns have affected custom event activity by looking at the gray lines Braze overlays on the time-series to indicate the last time a campaign was sent.
 
@@ -68,7 +68,7 @@ For example, if an eCommerce application wanted to send a message to a user when
 
 ![A custom event example that will send a campaign to a user who has abandoned their cart and left the cart value at more than 100 and less than 200.]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png")
 
-Custom event properties can also be used for personalization within the messaging template. Any campaign using [Action-Based Delivery]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/) with a trigger event can use custom event properties from that event for messaging personalization. If a gaming application wanted to send a message to users who had completed a level, it could further personalize the message with a property for the time it took users to complete that level. In this example, the message is personalized for three different segments using [conditional logic]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/conditional_logic/). The custom event property called ``time_spent``, can be included in the message by calling ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
+Custom event properties can also be used for personalization within the messaging template. Any campaign using [Action-Based Delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) with a trigger event can use custom event properties from that event for messaging personalization. If a gaming application wanted to send a message to users who had completed a level, it could further personalize the message with a property for the time it took users to complete that level. In this example, the message is personalized for three different segments using [conditional logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/). The custom event property called ``time_spent``, can be included in the message by calling ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
 {% raw %}
 ```liquid
@@ -110,7 +110,7 @@ The following table describes available segmentation options for string attribut
 | Check if the string attribute **does not match** an inputted string| **DOES NOT EQUAL** | **STRING** |
 | Check if the string attribute **exists** on a user's profile | **IS BLANK** | **N/A** |
 | Check if the string attribute **does not exist** on a user's profile | **IS NOT BLANK** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Strings (alphanumeric characters)" }
 
 {% alert important %}
 When segmenting using the **DOES NOT MATCH REGEX** filter, it is required that there already exists a custom attribute with a value assigned in that user profile. Braze suggests using "OR" logic to check if a custom attribute is blank in order to properly target users.
@@ -120,7 +120,7 @@ When segmenting using the **DOES NOT MATCH REGEX** filter, it is required that t
 For more on how to use our regular expressions filter, check out this documentation on [Perl compatible regular expressions (PCRE)](http://www.regextester.com/pregsyntax.html).
 <br>
 More resources on regex:
-- [Regex with Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
+- [Regex with Braze]({{site.baseurl}}/user_guide/audience/segments/regex/)
 - [Regex Debugger and Tester](https://regex101.com/)
 - [Regex Tutorial](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -153,7 +153,7 @@ The following table describes available segmentation options for array attribute
 | Check if the array attribute **contains a value which partially matches** an inputted value **OR** regular expression | **MATCHES REGEX** | **STRING** **OR** **REGULAR EXPRESSION** |
 | Check if the array attribute **has any value** | **HAS A VALUE** | **N/A** |
 | Check if the array attribute **is empty** | **IS EMPTY** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Arrays" }
 
 {% alert note %}
 We use [Perl compatible regular expressions (PCRE)](http://www.regextester.com/pregsyntax.html).
@@ -181,7 +181,7 @@ The following table describes available segmentation options for time attributes
 | Check if the time attribute is **less than X number** of **days in the future** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  |
 | Check if the time attribute **exists** on a user's profile | **BLANK** | **N/A** |
 | Check if the time attribute **does not exist** on a user's profile | **IS NOT BLANK** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dates" }
 
 #### Numbers {#integers}
 
@@ -201,7 +201,7 @@ The following table describes available segmentation options for numeric attribu
 | Check if the numeric attribute **does not equal** a **number**| **DOES NOT EQUAL** | **NUMBER** |
 | Check if the numeric attribute **exists** on a user's profile | **EXISTS** | **N/A** |
 | Check if the numeric attribute **does not exist** on a user's profile | **DOES NOT EXIST** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Numbers #integers" }
 
 #### Booleans (true/false)
 
@@ -214,7 +214,7 @@ The following table describes available segmentation options for boolean attribu
 | Check if the boolean value **is** | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET**, or **FALSE OR NOT SET** |
 | Check if the boolean value **exists** on a user's profile | **EXISTS**  | **N/A** |
 | Check if the boolean value **does not exist** on a user's profile | **DOES NOT EXIST**  | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Booleans (true/false)" }
 
 ## Purchase events / revenue tracking
 
@@ -234,7 +234,7 @@ The following table describes available segmentation options for purchase events
 | Check if the purchase occurred **more than X (Max = 50) number of times** | **MORE THAN** | in the past **Y Days (Y = 1,3,7,14,21,30)** |
 | Check if the purchase occurred **less than X (Max = 50) number of times** | **LESS THAN** | in the past **Y Days (Y = 1,3,7,14,21,30)** |
 | Check if the purchase occurred **exactly X (Max = 50) number of times** | **EXACTLY** | in the past **Y Days (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Purchase events / revenue tracking" }
 
 {% alert note %}
 If you would like to segment on the number of times a specific purchase has occurred, you should also record that purchase individually as an [incrementing custom attribute](#integers).
@@ -287,7 +287,7 @@ Adding these attributes would afford you the ability to send campaigns to users,
 
 1. Remind users who haven't logged on in seven days but who have a promotional credit that their credit exists and they should come back to the app to use it!
 2. Message users who give low driver ratings to get direct customer feedback to see why they didn't enjoy their rides.
-3. Use our [message templating and personalization features]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/) to drag the unique promotion code attribute into messaging directed at users.
+3. Use our [message templating and personalization features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) to drag the unique promotion code attribute into messaging directed at users.
 
 ## Best practices
 

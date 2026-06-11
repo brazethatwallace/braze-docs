@@ -1,18 +1,18 @@
 ---
-nav_title: 탐색 딥링크
-article_title: Braze Pilot 내 네비게이션 딥링크
+nav_title: 내비게이션 딥링크
+article_title: Braze Pilot의 내비게이션 딥링크
 page_order: 4
 page_type: reference
-description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필요한 통합 단계에 대해 간략하게 설명합니다."
+description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필요한 통합 단계를 간략하게 설명합니다."
 ---
 
-# Braze Pilot 내 네비게이션 딥링크
+# Braze Pilot의 내비게이션 딥링크 {#navigation-deep-links-in-braze-pilot}
 
-> Braze Pilot은 Braze 메시징에서 Pilot 앱의 특정 부분으로의 딥링킹을 지원합니다. 이를 통해 참여 유도 사용 사례를 생성하여 사용자를 파일럿 애플리케이션의 다양한 부분으로 유도할 수 있습니다. 사용자를 위해 앱 내 특정 페이지의 콘텐츠를 커스텀 설정하기 위해 선택적 딥링크 매개변수를 사용할 수도 있습니다. 딥링킹에 대한 자세한 내용은 ['앱 내 콘텐츠로의 딥링킹'을]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking) 참조하십시오.
+> Braze Pilot은 Braze 메시징에서 Pilot 앱의 특정 부분으로의 딥링킹을 지원합니다. 이를 통해 참여 사용 사례를 생성하여 사용자를 Pilot 애플리케이션의 다양한 부분으로 유도할 수 있습니다. 선택 사항인 딥링크 매개변수를 사용하여 앱 내 특정 페이지의 콘텐츠를 사용자에 맞게 커스텀할 수도 있습니다. 딥링킹에 대한 자세한 내용은 [인앱 콘텐츠로 딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)을 참조하세요.
 
-## General
+## 기본설정 {#general}
 
-다음은 Pilot 앱의 주요 탐색 페이지에 대한 딥링크입니다. 
+다음은 Pilot 앱의 주요 내비게이션 페이지에 대한 딥링크입니다.
 
 | 화면 | 딥링크 |
 | --- | --- |
@@ -21,36 +21,35 @@ description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필
 | 설정 | `braze-pilot://navigation/setup` |
 | 언어 변경 | `braze-pilot://navigation/selectlanguage` |
 | 카메라 | `braze-pilot://navigation/camera` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
 
 ## Steppington
+다음은 Pilot 내 Steppington 가상 브랜드 앱의 딥링크입니다.
 
-다음은 파일럿 내 스텝핑턴 가상 브랜드 앱의 딥링크입니다.
-
-### 예시 딥링크
+### 예시 딥링크 {#steppington-example-deep-link}
 
 `braze-pilot://navigation/steppington/workout?title=Running&icon=HEART_DETAILS&image=https://picsum.photos/400&info=This%20workout%20is%20awesome%21&workout=5k%20Run&calories=600&length=25&workout_info_left_text=Road%20Run&workout_info_left_icon=RUNNING_HOME&workout_info_center_text=120%20BPM&workout_info_center_icon=HEART_DETAILS&workout_info_right_text=25%3A00&workout_info_right_icon=TIMER_DETAILS`
 
-### 매개변수가 없는 딥링크
+### 매개변수가 없는 딥링크 {#steppington-deep-links-without-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
 | 스플래시 화면 | `braze-pilot://navigation/steppington/splash` |
 | 홈 | `braze-pilot://navigation/steppington/home` |
-| 스텝턴+ 페이지 | `braze-pilot://navigation/steppington/plus` |
+| Steppington+ 페이지 | `braze-pilot://navigation/steppington/plus` |
 | 목표 화면 | `braze-pilot://navigation/steppington/goals` |
 | 목표 변경 화면 | `braze-pilot://navigation/steppington/changegoals` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
-### 매개변수를 포함한 딥링크
+### 매개변수가 있는 딥링크 {#steppington-deep-links-with-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
 | 운동 | `braze-pilot://navigation/steppington/workout` |
 | 활성 운동 | `braze-pilot://navigation/steppington/activeworkout` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
-#### 허용되는 매개변수
+#### 허용되는 매개변수 {#steppington-accepted-parameters}
 
 <style>
 table td {
@@ -76,13 +75,14 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Accepted parameters">
+  <caption>허용되는 매개변수</caption>
     <thead>
         <tr>
             <th>매개변수</th>
             <th>설명</th>
             <th>필수</th>
-            <th>기본값 (지정되지 않은 경우)</th>
+            <th>기본값(지정되지 않은 경우)</th>
             <th>유형</th>
             <th>예시</th>
         </tr>
@@ -90,15 +90,15 @@ th:nth-child(6), td:nth-child(6) {
     <tbody>
         <tr>
             <td><code>title</code></td>
-            <td>화면 상단에 사용할 제목.</td>
+            <td>화면 상단에 사용할 제목입니다.</td>
             <td>예</td>
             <td></td>
             <td>문자열</td>
-            <td>실행 중</td>
+            <td>Running</td>
         </tr>
         <tr>
             <td><code>icon</code></td>
-            <td>사용할 아이콘을 나타내는 문자열.</td>
+            <td>사용할 아이콘을 나타내는 문자열입니다.</td>
             <td>아니요</td>
             <td><code>RUNNING_HOME</code></td>
             <td>문자열</td>
@@ -106,7 +106,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>image</code></td>
-            <td>해당 항목의 이미지 URL.</td>
+            <td>항목 이미지의 URL입니다.</td>
             <td>예</td>
             <td></td>
             <td>문자열</td>
@@ -114,31 +114,31 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>info</code></td>
-            <td>운동 시작 버튼 위에 표시될 운동 정보.</td>
+            <td>운동 시작 버튼 위에 표시될 운동 정보입니다.</td>
             <td>예</td>
             <td></td>
             <td>문자열</td>
-            <td>이 운동 정말 최고야!</td>
+            <td>This%20workout%20is%20awesome%21</td>
         </tr>
         <tr>
             <td><code>workout</code></td>
-            <td>운동의 이름. 보내다 <code>st_completed_class</code> 이벤트.</td>
+            <td>운동의 이름입니다. <code>st_completed_class</code> 이벤트에서 전송됩니다.</td>
             <td>예</td>
             <td></td>
             <td>숫자</td>
-            <td>5k 달리기</td>
+            <td>5k%20Run</td>
         </tr>
         <tr>
             <td><code>calories</code></td>
-            <td>활성 운동 화면에 표시될 칼로리 수. 보내다 <code>st_completed_class</code> 이벤트.</td>
+            <td>활성 운동 화면에 표시될 칼로리 수입니다. <code>st_completed_class</code> 이벤트에서 전송됩니다.</td>
             <td>아니요</td>
-            <td>500과 1,250 사이의 난수</td>
+            <td>500에서 1,250 사이의 랜덤 숫자</td>
             <td>숫자</td>
             <td>600</td>
         </tr>
         <tr>
             <td><code>length</code></td>
-            <td>운동 시간. 보내다 <code>st_completed_class</code> 이벤트.</td>
+            <td>운동 시간입니다. <code>st_completed_class</code> 이벤트에서 전송됩니다.</td>
             <td>아니요</td>
             <td></td>
             <td>숫자</td>
@@ -146,15 +146,15 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>workout_info_left_text</code></td>
-            <td>활성 운동 화면의 왼쪽 카드에 표시될 텍스트.</td>
+            <td>활성 운동 화면의 왼쪽 카드에 사용될 텍스트입니다.</td>
             <td>아니요</td>
             <td></td>
             <td>문자열</td>
-            <td>도로 달리기</td>
+            <td>Road%20Run</td>
         </tr>
         <tr>
             <td><code>workout_info_left_icon</code></td>
-            <td>활성 운동 화면의 왼쪽 카드에 사용될 아이콘.</td>
+            <td>활성 운동 화면의 왼쪽 카드에 사용될 아이콘입니다.</td>
             <td>아니요</td>
             <td></td>
             <td>문자열</td>
@@ -162,15 +162,15 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>workout_info_center_text</code></td>
-            <td>활성 운동 화면의 중앙 카드에 표시될 텍스트.</td>
+            <td>활성 운동 화면의 가운데 카드에 사용될 텍스트입니다.</td>
             <td>아니요</td>
             <td></td>
             <td>문자열</td>
-            <td>120% BPM</td>
+            <td>120%20BPM</td>
         </tr>
         <tr>
             <td><code>workout_info_center_icon</code></td>
-            <td>활성 운동 화면의 중앙 카드에 사용될 아이콘.</td>
+            <td>활성 운동 화면의 가운데 카드에 사용될 아이콘입니다.</td>
             <td>아니요</td>
             <td></td>
             <td>문자열</td>
@@ -178,15 +178,15 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>workout_info_right_text</code></td>
-            <td>활성 운동 화면의 오른쪽 카드에 표시될 텍스트.</td>
+            <td>활성 운동 화면의 오른쪽 카드에 사용될 텍스트입니다.</td>
             <td>아니요</td>
             <td></td>
             <td>문자열</td>
-            <td>25%:00</td>
+            <td>25%3A00</td>
         </tr>
         <tr>
             <td><code>workout_info_right_icon</code></td>
-            <td>활성 운동 화면의 오른쪽 카드에 사용될 아이콘.</td>
+            <td>활성 운동 화면의 오른쪽 카드에 사용될 아이콘입니다.</td>
             <td>아니요</td>
             <td></td>
             <td>문자열</td>
@@ -195,27 +195,26 @@ th:nth-child(6), td:nth-child(6) {
     </tbody>
 </table>
 
-##### 아이콘 옵션
+##### 아이콘 옵션 {#icon-options}
 
-| Icon | 이미지 |
+| 아이콘 | 이미지 |
 | --- | --- |
-| `RUNNING_HOME` | ![러닝화의 아이콘.]({% image_buster /assets/img/braze_pilot/running_home_icon.png %}){:style="max-width:30%"} |
+| `RUNNING_HOME` | ![러닝화 아이콘.]({% image_buster /assets/img/braze_pilot/running_home_icon.png %}){:style="max-width:30%"} |
 | `HEART_DETAILS` | ![하트 아이콘.]({% image_buster /assets/img/braze_pilot/heart_details_icon.png %}){:style="max-width:30%"} |
 | `TIMER_DETAILS` | ![스톱워치 아이콘.]({% image_buster /assets/img/braze_pilot/timer_details_icon.png %}){:style="max-width:30%"} |
-| `YOGA_HOME` | ![요가 자세를 취한 사람의 아이콘.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
+| `YOGA_HOME` | ![요가 자세를 취한 사람 아이콘.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
 | `BICYCLE_HOME` | ![자전거 아이콘.]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
 | `DUMBBELL_HOME` | ![덤벨 아이콘.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icon options" }
 
 ## PantsLabyrinth
+다음은 Pilot 내 PantsLabyrinth 가상 브랜드 앱의 딥링크입니다.
 
-다음은 파일럿에 있는 팬츠라비린스 가상의 브랜드 앱에 대한 딥링크입니다.
-
-### 예시 딥링크
+### 예시 딥링크 {#pantslabyrinth-example-deep-link}
 
 `braze-pilot://navigation/pantslabyrinth/itemdetails?name=Jeans&price=85&image=https://picsum.photos/400&description=This%20item%20is%20awesome%21&quantity=2&size=Large&colors=%230000FF,%23FF0000&color_strings=White,Blue&selected_color=1`
 
-### 매개변수가 없는 딥링크
+### 매개변수가 없는 딥링크 {#pantslabyrinth-deep-links-without-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
@@ -224,16 +223,16 @@ th:nth-child(6), td:nth-child(6) {
 | 목록 화면 | `braze-pilot://navigation/pantslabyrinth/listing` |
 | 장바구니 페이지 | `braze-pilot://navigation/pantslabyrinth/cart` |
 | 위시리스트 페이지 | `braze-pilot://navigation/pantslabyrinth/wishlist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
-### 매개변수를 포함한 딥링크
+### 매개변수가 있는 딥링크 {#pantslabyrinth-deep-links-with-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
 | 상품 상세 페이지 | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
-#### 허용되는 매개변수
+#### 허용되는 매개변수 {#pantslabyrinth-accepted-parameters}
 
 <style>
 table td {
@@ -259,13 +258,14 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Accepted parameters">
+  <caption>허용되는 매개변수</caption>
     <thead>
         <tr>
             <th>매개변수</th>
             <th>설명</th>
             <th>필수</th>
-            <th>기본값 (지정되지 않은 경우)</th>
+            <th>기본값(지정되지 않은 경우)</th>
             <th>유형</th>
             <th>예시</th>
         </tr>
@@ -273,15 +273,15 @@ th:nth-child(6), td:nth-child(6) {
     <tbody>
         <tr>
             <td><code>name</code></td>
-            <td>아이템의 이름.</td>
+            <td>항목의 이름입니다.</td>
             <td>예</td>
             <td></td>
             <td>문자열</td>
-            <td>청바지</td>
+            <td>Jeans</td>
         </tr>
         <tr>
             <td><code>price</code></td>
-            <td>해당 품목의 가격.</td>
+            <td>항목의 가격입니다.</td>
             <td>예</td>
             <td></td>
             <td>문자열</td>
@@ -289,7 +289,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>image</code></td>
-            <td>해당 항목의 이미지 URL.</td>
+            <td>항목 이미지의 URL입니다.</td>
             <td>예</td>
             <td></td>
             <td>문자열</td>
@@ -297,15 +297,15 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>description</code></td>
-            <td>해당 품목에 대한 설명.</td>
+            <td>항목에 대한 설명입니다.</td>
             <td>예</td>
             <td></td>
             <td>문자열</td>
-            <td>이 아이템은 정말 최고예요!</td>
+            <td>This%20item%20is%20awesome%21</td>
         </tr>
         <tr>
             <td><code>quantity</code></td>
-            <td>해당 품목의 수량.</td>
+            <td>항목의 수량입니다.</td>
             <td>아니요</td>
             <td>1</td>
             <td>숫자</td>
@@ -313,31 +313,31 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>size</code></td>
-            <td>항목의 크기를 나타내는 문자열.</td>
+            <td>항목의 크기를 나타내는 문자열입니다.</td>
             <td>아니요</td>
             <td>M</td>
             <td>문자열</td>
-            <td>라지</td>
+            <td>Large</td>
         </tr>
         <tr>
             <td><code>colors</code></td>
-            <td>쉼표로 구분된 16진수 색상 목록. 해당 상품에 사용 가능한 색상은 다음과 같습니다.</td>
+            <td>쉼표로 구분된 16진수 색상 목록입니다. 해당 항목에 사용 가능한 색상입니다.</td>
             <td>아니요</td>
-            <td>#0000000</td>
+            <td>%23000000</td>
             <td>문자열</td>
-            <td>#0000FF,#FF0000</td>
+            <td>%230000FF,%23FF0000</td>
         </tr>
         <tr>
             <td><code>color_strings</code></td>
-            <td>쉼표로 구분된 색상 문자열 목록. 텍스트 내의 색상을 나타냅니다.</td>
+            <td>쉼표로 구분된 색상 문자열 목록입니다. 텍스트로 색상을 나타냅니다.</td>
             <td>아니요</td>
-            <td>검정</td>
+            <td>Black</td>
             <td>문자열</td>
-            <td>파랑, 빨강</td>
+            <td>Blue, Red</td>
         </tr>
         <tr>
             <td><code>selected_color</code></td>
-            <td>사용자가 화면에 도착했을 때 색상 선택기에서 선택될 색상의 선택된 색상 인덱스. 값이 지정되지 않으면 첫 번째로 선택된 색상이 적용됩니다.</td>
+            <td>사용자가 화면에 도착했을 때 색상 선택기에서 선택될 색상의 인덱스입니다. 값을 지정하지 않으면 첫 번째 색상이 선택됩니다.</td>
             <td>아니요</td>
             <td>0</td>
             <td>숫자</td>
@@ -347,36 +347,35 @@ th:nth-child(6), td:nth-child(6) {
 </table>
 
 ## MovieCanon
+다음은 Pilot 내 MovieCanon 가상 브랜드 앱의 딥링크입니다.
 
-다음은 파일럿 내 스텝핑턴 가상 브랜드 앱의 딥링크입니다.
-
-### 예시 딥링크
+### 예시 딥링크 {#moviecanon-example-deep-link}
 
 `braze-pilot://navigation/moviecannon/moviedetails?id=1&title=Jaws&thumbnail=https://picsum.photos/400&video=0&description=This%20video%20is%20awesome%21`
 
-### 매개변수가 없는 딥링크
+### 매개변수가 없는 딥링크 {#moviecanon-deep-links-without-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
 | 스플래시 화면 | `braze-pilot://navigation/moviecannon/splash` |
 | 환영 화면 | `braze-pilot://navigation/moviecannon/welcome` |
 | 영화 목록 페이지 | `braze-pilot://navigation/moviecannon/moviecannon` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
-### 매개변수를 포함한 딥링크
+### 매개변수가 있는 딥링크 {#moviecanon-deep-links-with-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
-| 영화 상세 정보 페이지 | `braze-pilot://navigation/moviecannon/moviedetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 영화 상세 페이지 | `braze-pilot://navigation/moviecannon/moviedetails` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
-#### 허용되는 매개변수
+#### 허용되는 매개변수 {#moviecanon-accepted-parameters}
 
 | 매개변수 | 설명 | 필수 | 유형 | 예시 |
 | --- | --- | --- | --- | --- |
-| `id` | 영화의 ID. | 예 | 숫자 | 1 |
-| `title` | 영화 제목. | 예 | 문자열 | 죠스 |
-| `thumbnail` | 영화 재생 전에 표시될 썸네일의 웹 주소. | 예 | 문자열 | `https://picsum.photos/400` |
-| `video` | 표시될 동영상 목록의 인덱스 | 아니요 | 숫자 | 0 |
-| `description` | 동영상 설명. | 예 | 문자열 | `This%20video%20is%20awesome%21` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+| `id` | 영화의 ID입니다. | 예 | 숫자 | 1 |
+| `title` | 영화의 제목입니다. | 예 | 문자열 | Jaws |
+| `thumbnail` | 영화 재생 전에 표시될 썸네일의 웹 URL입니다. | 예 | 문자열 | `https://picsum.photos/400` |
+| `video` | 표시할 동영상 목록의 인덱스입니다. | 아니요 | 숫자 | 0 |
+| `description` | 동영상에 대한 설명입니다. | 예 | 문자열 | `This%20video%20is%20awesome%21` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Accepted parameters" }

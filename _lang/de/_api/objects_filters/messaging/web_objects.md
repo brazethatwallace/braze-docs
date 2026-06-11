@@ -1,18 +1,18 @@
 ---
 nav_title: "Web-Objekt"
-article_title: Internet Messaging Objekt
+article_title: Web-Messaging-Objekt
 page_order: 12
 page_type: reference
 channel: push
 platform: Web
-description: "In diesem referenzierten Artikel werden die verschiedenen Internet-Objekte, die bei Braze verwendet werden, aufgelistet und erklärt."
+description: "Dieser Referenzartikel listet und erklärt die verschiedenen Web-Objekte, die bei Braze verwendet werden."
 
 ---
-# Web-Push Objekt
+# Web-Push-Objekt {#web-push-object}
 
-> Mit dem Objekt `web_push` können Sie über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) Informationen zu Web-Push- und Web-Push-Alert-Inhalten definieren oder anfragen.
+> Mit dem Objekt `web_push` können Sie über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging/) Informationen zu Web-Push- und Web-Push-Alert-Inhalten definieren oder anfragen.
 
-## Web-Push Objekt
+## Web-Push-Objekt
 
 ```json
 {
@@ -30,9 +30,9 @@ description: "In diesem referenzierten Artikel werden die verschiedenen Internet
 }
 ```
 
-Der Wert für `image_url` sollte eine URL sein, die auf den Ort verweist, an dem Ihr Bild gehostet wird. Die Bilder müssen auf ein Seitenverhältnis von 1:1 beschnitten werden.
+Der Wert für `image_url` sollte eine URL sein, die auf den Speicherort Ihres Bildes verweist. Bilder müssen auf ein Seitenverhältnis von 1:1 zugeschnitten werden.
 
-## Internet Push-Action-Button Objekt
+## Web-Push-Action-Button-Objekt {#web-push-action-button-object}
 
 ```json
 {

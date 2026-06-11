@@ -9,72 +9,70 @@ search_tag: Partner
 
 # Wyng
 
-> [Wyng은](https://wyng.com/) 중요한 순간에 소비자의 참여를 유도하고, 선호도 및 기타 제로파티 데이터를 수집하며, 실시간으로 개인화된 대화형 디지털 경험(퀴즈, 선호도 센터, 프로모션)을 구축할 수 있는 툴을 제공합니다.
+> [Wyng](https://wyng.com/)은 중요한 순간에 소비자의 참여를 유도하고, 선호도 및 기타 제로파티 데이터를 수집하며, 실시간으로 개인화할 수 있는 대화형 디지털 경험(퀴즈, 환경설정 센터, 프로모션)을 구축하는 도구를 제공합니다.
 
-_This integration is maintained by Wyng._
+_이 통합은 Wyng에서 유지 관리합니다._
 
-## About the integration
+## 통합 소개 {#about-the-integration}
 
-The Braze and Wyng integration allows you to leverage zero-party data earned via Wyng experiences to personalize interactions in Braze Campaigns and Braze Canvas. Wyng can also power a preference center, so consumers can control the data and preferences (including communication preferences) they share with your brand.
+Braze와 Wyng 통합을 사용하면 Wyng 경험을 통해 수집한 제로파티 데이터를 활용하여 Braze Campaigns 및 Braze Canvas에서 상호작용을 개인화할 수 있습니다. Wyng은 환경설정 센터를 지원하여 소비자가 브랜드와 공유하는 데이터 및 선호도(커뮤니케이션 선호도 포함)를 직접 제어할 수 있도록 합니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Wyng account | A Wyng account is required to take advantage of this partnership. |
-| Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Wyng 계정 | 이 파트너십을 활용하려면 Wyng 계정이 필요합니다. |
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Connect the Braze integration
+### 1단계: Braze 통합 연결 {#step-1-connect-the-braze-integration}
 
-In Wyng, go to [**Integrations**](https://wyng.com/dashboard/integrations/) and select the **Add** tab. 다음으로, **Braze** 위로 마우스를 가져가서 통합을 위해 **Connect**를 클릭합니다.
+Wyng에서 [**Integrations**](https://wyng.com/dashboard/integrations/)로 이동하여 **Add** 탭을 선택합니다. 다음으로, **Braze** 위로 마우스를 가져가서 통합을 위해 **Connect**를 클릭합니다.
 
 ![Wyng 플랫폼의 Braze 파트너 타일.]({% image_buster /assets/img/wyng/2.png %}){: style="max-width:80%;"}
 
-### 2단계: Configure the Braze connector
+### 2단계: Braze 커넥터 구성 {#step-2-configure-the-braze-connector}
 
-1. 열리는 구성 창에서 Braze REST API 키를 입력하세요.
-![자격 증명 프롬프트 모습을 보여주는 이미지.]({% image_buster /assets/img/wyng/4.png %}){: style="max-width:80%;"}<br><br>
-2. 다음으로, 드롭다운을 사용하여 Braze와 공유할 Wyng 캠페인을 선택합니다.![Braze와 공유할 Braze 커넥터를 선택하라는 프롬프트를 보여주는 기존 Wyng 캠페인 이미지.]({% image_buster /assets/img/wyng/5.png %}){: style="max-width:80%;"}<br><br>
-3. 다음으로, 가입, 속성 및 이벤트 오브젝트, 커스텀 이벤트를 설정해야 합니다.<br><br>
-- **Subscriptions setup (required)**<br>
-To subscribe users to subscription groups, click **Add Subscription** and add your subscription group name and ID. 여러 그룹 이름과 ID를 추가하려면 **구독 추가** 버튼을 다시 클릭하십시오.<br>![구독 그룹 이름과 ID를 묻는 이미지입니다.]({% image_buster /assets/img/wyng/8.png %}){: style="max-width:80%;"}<br><br>
+1. 열리는 구성 창에서 Braze REST API 키를 입력합니다.
+![자격 증명 프롬프트의 모습을 보여주는 이미지.]({% image_buster /assets/img/wyng/4.png %}){: style="max-width:80%;"}<br><br>
+2. 다음으로, 드롭다운을 사용하여 Braze와 공유할 Wyng 캠페인을 선택합니다.![Braze와 공유할 기존 Wyng 캠페인을 선택하라는 Braze 커넥터 프롬프트를 보여주는 이미지.]({% image_buster /assets/img/wyng/5.png %}){: style="max-width:80%;"}<br><br>
+3. 다음으로, 구독, 속성 및 이벤트 오브젝트, 커스텀 이벤트를 설정해야 합니다.<br><br>
+- **구독 설정(필수)**<br>
+사용자를 구독 그룹에 가입시키려면 **Add Subscription**을 클릭하고 구독 그룹 이름과 ID를 추가합니다. 여러 그룹 이름과 ID를 추가하려면 **Add Subscription** 버튼을 다시 클릭합니다.<br>![구독 그룹 이름과 ID를 입력하라는 이미지.]({% image_buster /assets/img/wyng/8.png %}){: style="max-width:80%;"}<br><br>
 - **사용자 추적 설정**<br>
-Click **Add custom property** to add attribute and event object pairs to send to the `/users/track` endpoint. Use this to add hard-coded attribute values for each data transaction sent for the integration. 여러 속성을 추가하려면 **커스텀 속성** 버튼을 다시 클릭하십시오.<br>![속성 커스텀 속성을 추가하라는 메시지가 표시된 이미지입니다.]({% image_buster /assets/img/wyng/9.png %}){: style="max-width:80%;"}<br><br>
+**Add custom property**를 클릭하여 `/users/track` 엔드포인트로 전송할 속성 및 이벤트 오브젝트 쌍을 추가합니다. 이를 사용하여 통합을 위해 전송되는 각 데이터 트랜잭션에 하드코딩된 속성 값을 추가할 수 있습니다. 여러 속성을 추가하려면 **Add custom property** 버튼을 다시 클릭합니다.<br>![속성 커스텀 속성을 추가하라는 프롬프트가 표시된 이미지.]({% image_buster /assets/img/wyng/9.png %}){: style="max-width:80%;"}<br><br>
 - **커스텀 이벤트 전송**<br>
-Optionally, you can enable **Sending custom event**. 활성화된 경우 이벤트 이름과 해당 앱 ID를 포함해야 합니다.<br>![필요한 경우 커스텀 이벤트를 보내도록 요청하는 이미지입니다.]({% image_buster /assets/img/wyng/10.png %}){: style="max-width:80%;"}<br><br>
-4. 마지막으로, 사용 사례에 따라 Wyng 필드를 Braze API 필드에 매핑해야 합니다. Click **Select a field** to choose fields to map, and afterwards, **Save** your integration. 저장되면 이러한 매핑된 필드는 **Integrations > Manage** 아래에서 찾을 수 있습니다.
-![다양한 Wyng 필드를 특정 Braze 필드에 매핑할 수 있는 예]({% image_buster /assets/img/wyng/11.png %}){: style="max-width:80%;"}
-![사용 가능한 동기화 필드 목록입니다.]({% image_buster /assets/img/wyng/12.png %}){: style="max-width:80%;margin-top:2px"}
+선택적으로 **Sending custom event**를 활성화할 수 있습니다. 활성화된 경우 이벤트 이름과 해당 앱 ID를 포함해야 합니다.<br>![필요한 경우 커스텀 이벤트를 전송하라는 프롬프트가 표시된 이미지.]({% image_buster /assets/img/wyng/10.png %}){: style="max-width:80%;"}<br><br>
+4. 마지막으로, 사용 사례에 따라 Wyng 필드를 Braze API 필드에 매핑해야 합니다. **Select a field**를 클릭하여 매핑할 필드를 선택한 다음 통합을 **Save**합니다. 저장되면 이러한 매핑된 필드는 **Integrations > Manage** 아래에서 확인할 수 있습니다.
+![다양한 Wyng 필드를 특정 Braze 필드에 매핑할 수 있는 예시.]({% image_buster /assets/img/wyng/11.png %}){: style="max-width:80%;"}
+![사용 가능한 동기화 필드 목록.]({% image_buster /assets/img/wyng/12.png %}){: style="max-width:80%;margin-top:2px"}
 
-### 3단계: Test your integration
+### 3단계: 통합 테스트 {#step-3-test-your-integration}
 
-In Wyng, test submitting the form in your Wyng campaign. You can also submit it in the preview campaign if you do not want to add a record to the main production campaign. You should see a successful transaction in the **Integration** dashboard.
+Wyng에서 Wyng 캠페인의 양식 제출을 테스트합니다. 메인 프로덕션 캠페인에 레코드를 추가하지 않으려면 미리보기 캠페인에서 제출할 수도 있습니다. **Integration** 대시보드에서 성공적인 트랜잭션을 확인할 수 있습니다.
 
-## Using this integration
+## 이 통합 사용하기 {#using-this-integration}
 
-Once the data connector is in place, any fields created in Wyng and added to Braze can be used just like any other data field to trigger campaigns, segment audiences, or feed personalized content.
+데이터 커넥터가 설정되면 Wyng에서 생성되어 Braze에 추가된 모든 필드를 다른 데이터 필드와 마찬가지로 캠페인 트리거, 오디언스 세분화 또는 개인화된 콘텐츠 제공에 사용할 수 있습니다.
 
-Applications are broad, and specific questions can be addressed to [contact@wyng.com](mailto:contact@wyng.com) or your specific account manager.
+활용 범위는 광범위하며, 구체적인 질문은 [contact@wyng.com](mailto:contact@wyng.com) 또는 담당 계정 매니저에게 문의할 수 있습니다.
 
-## Troubleshooting
+## 문제 해결 {#troubleshooting}
 
-### Failed submission
+### 제출 실패 {#failed-submission}
 
-제출 실패의 경우, Braze에 데이터를 보낼 때, 실패한 제출 및 관련 오류 메시지를 검토하려면 **로그 보기** 링크를 클릭하십시오.
+Braze에 데이터를 전송할 때 제출이 실패한 경우, **View Log** 링크를 클릭하여 실패한 제출 및 관련 오류 메시지를 검토합니다.
 
-!['로그 보기' 링크는 작업 헤더 아래에 있습니다.]({% image_buster /assets/img/wyng/14.png %}){: style="max-width:80%;"}
+![작업 헤더 아래에 있는 "View Log" 링크.]({% image_buster /assets/img/wyng/14.png %}){: style="max-width:80%;"}
 
-로그 페이지에는 실패한 제출, 재시도 횟수, 제출의 데이터, 오류 및 제출을 다시 푸시하는 링크가 표시됩니다.
+로그 페이지에는 실패한 제출, 재시도 횟수, 제출 데이터, 오류 및 제출을 다시 푸시하는 링크가 표시됩니다.
 
-![실패한 제출물이 표시되는 예시입니다.]({% image_buster /assets/img/wyng/15.jpg %}){: style="max-width:80%;"}
+![실패한 제출이 표시되는 예시.]({% image_buster /assets/img/wyng/15.jpg %}){: style="max-width:80%;"}
 
-**오류 보기** 섹션은 오류 코드와 오류의 원인에 대한 추가 정보를 표시합니다. 그런 다음 오류 코드를 Braze와 대조하여 원인을 확인할 수 있습니다.
+**View Error** 섹션에는 오류 코드와 오류 원인에 대한 추가 정보가 표시됩니다. 그런 다음 오류 코드를 Braze와 대조하여 원인을 확인할 수 있습니다.
 
-![Wyng 플랫폼에 표시된 예제 오류 로그입니다.]({% image_buster /assets/img/wyng/16.jpg %}){: style="max-width:80%;"}
+![Wyng 플랫폼에 표시된 예시 오류 로그.]({% image_buster /assets/img/wyng/16.jpg %}){: style="max-width:80%;"}
 
-추가 질문이 있는 경우 Wyng 지원팀[(support@wyng.com](mailto:contact@wyng.com))에 문의하여 도움을 받으세요.
-
-
+추가 질문이 있는 경우 Wyng 고객지원팀([support@wyng.com](mailto:contact@wyng.com))에 문의하여 도움을 받으세요.

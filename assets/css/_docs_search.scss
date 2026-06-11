@@ -10,8 +10,7 @@ $search_footer_height: 50px;
 $search_offset: 65px;
 $search_font_color: #58585a;
 $search_tag_color: $grey-athens;
-#doc-search-form_div,
-.algolia_overlay {
+#doc-search-form_div {
 	justify-content: center;
 	display: flex;
 	margin: auto;
@@ -58,56 +57,6 @@ $search_tag_color: $grey-athens;
 			border-width: 2px;
 		}
 	}
-	#doc-search-panel {
-		border: none;
-		box-shadow: none;
-		#algolia_footer {
-			height: $search_footer_height;
-			margin: 0 15px 0 15px;
-
-			.algolia-docsearch-footer {
-				height: $search_footer_height;
-				font-size: 0;
-				line-height: 0;
-				position: absolute;
-				left: 0;
-				margin: auto 10px;
-			}
-			#algolia-docsearch-advanced {
-				height: $search_footer_height;
-				font-size: 13px;
-				line-height: 50px;
-				font-family: $braze-medium;
-				color: $braze-purple-dark;
-				position: absolute;
-				right: 0;
-				margin: auto 15px auto 0;
-				cursor: pointer;
-				a {
-					color: $braze-purple;
-					&:hover {
-						color: $braze-purple;
-						text-decoration: none;
-					}
-				}
-			}
-			.algolia-docsearch-footer--logo {
-				background-image: url("#{$base_url}/assets/img/algolia.svg");
-				background-repeat: no-repeat;
-				background-position: 5px center;
-				background-size: 110px 16px;
-				overflow: hidden;
-				text-indent: -9000px;
-				padding: 0 !important;
-				width: 120px;
-				height: 100%;
-				display: block;
-			}
-		}
-
-		z-index: 700;
-	}
-
 	.lab_header {
 		font-size: 18px;
 		margin-top: 20px;
@@ -124,8 +73,11 @@ $search_tag_color: $grey-athens;
 				var(--aa-input-background-color-alpha)
 			);
 			button {
-				&:focus {
+				&:focus:not(:focus-visible) {
 					outline: none;
+				}
+				&:focus-visible {
+					@include focus-ring();
 				}
 			}
 			@media (min-width: $window-medium-px) {
@@ -145,9 +97,8 @@ $search_tag_color: $grey-athens;
 			position: relative;
 			width: 100%;
 			&:focus-within {
-				border-color: none;
+				border-color: transparent;
 				box-shadow: none;
-				outline: currentColor none medium;
 			}
 			.aa-InputWrapperPrefix {
 				margin-top: 10px;
@@ -198,7 +149,7 @@ $search_tag_color: $grey-athens;
 
 		div {
 			&.title {
-				font-family: $braze-medium;
+				font-family: $braze-bold;
 				font-size: 14px;
 				color: $search_color;
 				line-height: 1.5;
@@ -271,14 +222,17 @@ section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
     border-radius: 16px;
 	background: white;
 	color: black;
-	outline: none;
-	outline: none;
+	&:focus-within {
+		border-color: transparent;
+	}
 }
 #su_main_search button.su__btn.su__search_btn.su__animate-zoom.su__flex-vcenter.su__position-absolute.su__zindex.su__bg-transparent.su__rtlleft svg path {
     fill: #3e34d3;
 }
-input#search-box-autocomplete:focus-visible {
-	border: 2px solid white !important;
+/* Design review: verify purple outline is visible against search panel bg */
+#su_main_search input#search-box-autocomplete:focus-visible {
+	border-color: transparent !important;
+	@include focus-ring();
   }
 
  #su_main_search .svg-search {
@@ -345,8 +299,8 @@ input#search-box-autocomplete:focus-visible {
 .su__suggestions-list {
 	padding: 10px 0px !important;
 }
-#su_main_search #search-box-autocomplete:focus {
-	border: 2px solid black !important; 
+#su_main_search #search-box-autocomplete:focus:not(:focus-visible) {
+	border: 2px solid black !important;
   }
   #su_main_search span.su_source_label_font { color: #101828; }
 #su_main_search span[title="Api"] { background: #f7caf5; }

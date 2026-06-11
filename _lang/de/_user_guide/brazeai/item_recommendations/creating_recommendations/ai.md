@@ -1,176 +1,178 @@
 ---
 nav_title: KI-Empfehlungen
 article_title: KI-Artikelempfehlungen erstellen
-description: "Dieser Artikel beschreibt, wie Sie eine KI-Artikelempfehlung für Katalogposten erstellen."
+description: "Dieser Artikel beschreibt, wie Sie eine KI-Artikelempfehlung für Artikel in einem Katalog erstellen."
 page_order: 1
 ---
 
-# Erstellen Sie KI-Artikelempfehlungen
+# KI-Artikelempfehlungen erstellen {#create-ai-item-recommendations}
 
-> Erfahren Sie, wie Sie ein KI-Empfehlungssystem aus Artikeln in Ihrem Katalog erstellen können.
+> Erfahren Sie, wie Sie ein KI-Empfehlungssystem aus Artikeln in Ihrem Katalog erstellen.
 
-## Über KI-Artikel-Empfehlungen
+## Über KI-Artikelempfehlungen {#about-ai-item-recommendations}
 
-Nutzen Sie KI-Artikel-Empfehlungen, um die beliebtesten Produkte zu berechnen oder personalisierte KI-Empfehlungen für einen bestimmten [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) zu erstellen. Anschließend können Sie die Personalisierung nutzen, um die Produkte in Nachrichten einzufügen.
+Nutzen Sie KI-Artikelempfehlungen, um die beliebtesten Produkte zu berechnen oder personalisierte KI-Empfehlungen für einen bestimmten [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) zu erstellen. Nachdem Sie Ihre Empfehlung erstellt haben, können Sie die Personalisierung nutzen, um diese Produkte in Ihre Nachrichten einzufügen.
 
 {% alert tip %}
-[Personalisierte KI-Empfehlungen](#recommendation-types) funktionieren am besten bei sehr großen Inventaren und mindestens 30.000 Nutzern mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten.
+[KI-Personalisierte Empfehlungen](#recommendation-types) funktionieren am besten mit mindestens einigen hundert Katalogartikeln, höchstens 100.000 Katalogartikeln und in der Regel mindestens 30.000 Nutzer:innen mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten, auch wenn **Beliebteste** als Fallback verwendet wird.
 {% endalert %}
 
 {% multi_lang_include brazeai/recommendations/ai.md section="Plan-specific features" %}
 
-## KI-Artikelempfehlungen erstellen
+## KI-Artikelempfehlung erstellen {#creating-an-ai-item-recommendation}
 
-### Voraussetzungen
+### Voraussetzungen {#prerequisites}
 
-Bevor Sie beginnen, sollten Sie Folgendes beachten:
+Bevor Sie beginnen, benötigen Sie Folgendes:
 
-- Sie müssen mindestens einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) haben, um einen der unten beschriebenen Empfehlungstypen zu verwenden.
-- Sie benötigen über Kauf- oder Ereignisdaten in Braze (benutzerdefinierte Ereignisse oder das Kaufobjekt), die einen Verweis auf eindeutige Produkt-IDs aus einem Katalog enthalten.
+- Mindestens einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/), um einen der unten beschriebenen Empfehlungstypen zu verwenden.
+- Kauf- oder Event-Daten in Braze (angepasste Events, das Event „Bestellung aufgegeben“ oder das Kauf-Objekt), die eine Referenz auf den Artikel enthalten und mit den Katalog-Artikel-IDs übereinstimmen müssen.
 
-### Schritt 1: Eine neue Empfehlung erstellen
+### 1. Schritt: Eine neue Empfehlung erstellen {#step-1-create-a-new-recommendation}
 
-Sie können eine KI-Artikel-Empfehlung von jeder Stelle des Dashboards aus erstellen:
+Sie können eine KI-Artikelempfehlung von zwei Stellen im Dashboard aus erstellen:
 
 {% tabs local %}
-{% tab From the navigation menu %}
-1. Gehen Sie zu **Analytics** > **AI-Artikel-Empfehlung**.
-2. Wählen Sie **Vorhersage erstellen** > **KI-Artikel-Empfehlung**.
+{% tab Über das Navigationsmenü %}
+1. Gehen Sie zu **Analytics** > **AI Item Recommendation**.
+2. Wählen Sie **Create Prediction** > **AI Item Recommendation**.
 {% endtab %}
 
-{% tab From a catalog %}
-Sie können auch eine Empfehlung direkt aus einem einzelnen Katalog erstellen. Wählen Sie Ihren Katalog auf der Seite **Kataloge** aus und wählen Sie dann **Empfehlung erstellen**.
+{% tab Aus einem Katalog %}
+Sie können eine Empfehlung auch direkt aus einem einzelnen Katalog erstellen. Wählen Sie Ihren Katalog auf der Seite **Catalogs** aus und wählen Sie dann **Create Recommendation**.
 {% endtab %}
 {% endtabs %}
 
-### Schritt 2: Details zur Empfehlung hinzufügen
+### 2. Schritt: Details zur Empfehlung hinzufügen {#step-2-add-recommendation-details}
 
 Geben Sie Ihrer Empfehlung einen Namen und eine optionale Beschreibung.
 
-![Schritt "Empfehlungsdetails" mit den Feldern Name und Beschreibung.]({% image_buster /assets/img/item_recs_1.png %})
+![Schritt „Empfehlungsdetails“ mit den Feldern für Name und Beschreibung.]({% image_buster /assets/img/item_recs_1.png %})
 
-### Schritt 3: Definieren Sie Ihre Empfehlung {#recommendation-type}
+### 3. Schritt: Ihre Empfehlung definieren {#recommendation-type}
 
-Wählen Sie einen Empfehlungstyp aus. Jeder Typ verwendet die Daten der letzten sechs Monate zur Interaktion mit einem Artikel, z.B. Daten zu einem Kauf oder angepassten Events. Ausführlichere Informationen und Anwendungsfälle finden Sie unter [Typen und Anwendungsfälle]({{site.baseurl}}/user_guide/brazeai/recommendations/).
+Wählen Sie einen Empfehlungstyp aus. Jeder Typ verwendet die Artikelinteraktionsdaten der letzten sechs Monate, z. B. Kauf-, Bestellungs- oder angepasste Event-Daten. Ausführlichere Informationen und Anwendungsfälle finden Sie unter [Typen und Anwendungsfälle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/).
 
 {% alert tip %}
-Wenn Sie die Option **Neueste** oder **KI personalisiert** verwenden, erhalten Benutzer, deren Daten nicht ausreichen, um individuelle Empfehlungen zu erstellen, als Ausweichlösung **die beliebtesten** Artikel. Der Anteil der Nutzer, die den **beliebtesten** Fallback erhalten, wird auf der **Analytics-Seite** angezeigt.
+Wenn Sie **Neueste** oder **KI-Personalisiert** verwenden, erhalten Nutzer:innen, deren Daten nicht ausreichen, um individuelle Empfehlungen zu erstellen, als Fallback die **beliebtesten** Artikel. Auf der **Analytics**-Seite wird eine Schätzung des Anteils der Nutzer:innen angezeigt, die den **Beliebteste**-Fallback erhalten. Der **Beliebteste**-Fallback gibt nur Artikel zurück, die im verknüpften Katalog vorhanden sind.
 {% endalert %}
 
-#### Schritt 3.1: Frühere Käufe oder Interaktionen ausschließen (optional)
+#### Schritt 3.1: Frühere Käufe oder Interaktionen ausschließen (optional) {#step-31-exclude-prior-purchases-or-interactions-optional}
 
-Um zu vermeiden, dass Artikel vorgeschlagen werden, die ein Benutzer bereits gekauft oder mit denen er interagiert hat, wählen Sie **Keine Artikel empfehlen, mit denen Benutzer zuvor interagiert** haben. Diese Option ist nur verfügbar, wenn der **Empfehlungstyp** auf **AI personalisiert** eingestellt ist.
+Um zu vermeiden, dass Artikel vorgeschlagen werden, die Nutzer:innen bereits gekauft oder mit denen sie interagiert haben, wählen Sie **Do not recommend items users have previously interacted with**. Diese Option ist nur verfügbar, wenn der Empfehlungs-**Typ** auf **AI Personalized** eingestellt ist.
 
-![Definieren Sie den Schritt „Ihre Empfehlung festlegen“ mit „KI-personalisiert“ als Typ und der Option „Keine Artikel empfehlen, mit denen Nutzer:innen zuvor interagiert haben“ ausgewählt.]({% image_buster /assets/img/item_recs_2-3.png %})
+![Schritt „Ihre Empfehlung definieren“ mit „KI-Personalisiert“ als Typ und der ausgewählten Option „Keine Artikel empfehlen, mit denen Nutzer:innen zuvor interagiert haben“.]({% image_buster /assets/img/item_recs_2-3.png %})
 
-Diese Einstellung verhindert, dass Nachrichten die Artikel wiederverwenden, die ein Benutzer bereits gekauft oder mit denen er interagiert hat, vorausgesetzt, die Empfehlung wurde kürzlich aktualisiert. Artikel, die Sie zwischen den Empfehlungsaktualisierungen gekauft haben oder mit denen Sie interagiert haben, können weiterhin angezeigt werden. Für die kostenlose Version der Artikel-Empfehlungen werden wöchentlich Aktualisierungen vorgenommen. In der Pro-Version erfolgt die Aktualisierung der KI-Artikelempfehlungen alle 24 Stunden.
+Diese Einstellung verhindert, dass Nachrichten Artikel wiederverwenden, die Nutzer:innen bereits gekauft oder mit denen sie interagiert haben – vorausgesetzt, die Empfehlung wurde kürzlich aktualisiert. Artikel, die zwischen den Empfehlungsaktualisierungen gekauft oder mit denen interagiert wurde, können weiterhin angezeigt werden. Bei der kostenlosen Version der Artikelempfehlungen werden wöchentlich Aktualisierungen vorgenommen. Bei der Pro-Version der KI-Artikelempfehlungen erfolgt die Aktualisierung alle 24 Stunden.
 
-Wenn Sie beispielsweise die Pro-Version der KI-Artikel-Empfehlungen verwenden und ein Nutzer etwas kauft und dann innerhalb von 30 Minuten eine Marketing-E-Mail erhält, wird der Artikel, den er gerade gekauft hat, möglicherweise nicht rechtzeitig aus der E-Mail ausgeschlossen. Nachrichten, die später gesendet werden, enthalten diesen Artikel aber nicht mehr.
+Wenn Sie beispielsweise die Pro-Version der KI-Artikelempfehlungen verwenden und Nutzer:innen etwas kaufen und dann innerhalb von 30 Minuten eine Marketing-E-Mail erhalten, wird der gerade gekaufte Artikel möglicherweise nicht rechtzeitig aus der E-Mail ausgeschlossen. Nachrichten, die nach 24 Stunden gesendet werden, enthalten diesen Artikel jedoch nicht mehr.
 
-#### Schritt 3.2: Katalog auswählen
+#### Schritt 3.2: Katalog auswählen {#step-32-select-a-catalog}
 
 Falls noch nicht ausgefüllt, wählen Sie den [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) aus, aus dem diese Empfehlung Artikel beziehen soll.
 
-#### Schritt 3.3: Eine Auswahl hinzufügen (optional)
+#### Schritt 3.3: Eine Auswahl hinzufügen (optional) {#step-33-add-a-selection-optional}
 
-Wenn Sie mehr Kontrolle über Ihre Empfehlung wünschen, wählen Sie eine [Auswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/), um benutzerdefinierte Filter anzuwenden. Mit Auswahlen können Empfehlungen nach bestimmten Spalten im Katalog wie Marke, Größe oder Standort gefiltert werden. Auswahlen, die Liquid enthalten, können nicht in Ihrer Empfehlung verwendet werden.
+Wenn Sie mehr Kontrolle über Ihre Empfehlung wünschen, wählen Sie eine [Auswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/), um angepasste Filter anzuwenden. Auswahlen filtern Empfehlungen nach bestimmten Spalten im Katalog, z. B. Marke, Größe oder Standort. Auswahlen, die Liquid enthalten, können nicht in Ihrer Empfehlung verwendet werden.
 
 ![Ein Beispiel für die Auswahl „auf Lager“, die für die Empfehlung ausgewählt wurde.]({% image_buster /assets/img/item_recs_2-2.png %})
 
 {% alert tip %}
-Wenn Sie keine Auswahl finden können, vergewissern Sie sich zunächst, dass sie im Katalog eingerichtet ist.
+Wenn Sie Ihre Auswahl nicht finden können, vergewissern Sie sich zunächst, dass sie in Ihrem Katalog eingerichtet ist.
 {% endalert %}
 
-### Schritt 4: Wählen Sie die Interaktion, um Empfehlungen auszusprechen
+### 4. Schritt: Interaktion für Empfehlungen auswählen {#step-4-select-the-interaction-to-drive-recommendations}
 
-Wählen Sie das Ereignis aus, auf das Sie die Empfehlung abstimmen möchten. Bei diesem Ereignis handelt es sich in der Regel um einen Kauf, aber es kann auch jede andere Interaktion mit einem Artikel sein.
+Wählen Sie das Event aus, für das diese Empfehlung optimiert werden soll. Bei diesem Event handelt es sich in der Regel um einen Kauf, es kann aber auch jede andere Interaktion mit einem Artikel sein.
 
-Möglich sind:
+Sie können optimieren für:
 
-- Kaufereignisse mit dem [Kaufobjekt]({{site.baseurl}}/api/objects_filters/purchase_object/)
-- Benutzerdefinierte Ereignisse, die einen Kauf darstellen
-- Benutzerdefinierte Ereignisse, die eine andere Artikelinteraktion darstellen (z. B. Produktansichten, Klicks oder Medienwiedergabe)
+- Kauf-Events mit dem [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/)
+- Angepasste Events, die einen Kauf darstellen
+- Angepasste Events, die eine andere Artikelinteraktion darstellen (z. B. Produktansichten, Klicks oder Medienwiedergabe)
+- Bestellungen mit dem [Event „Bestellung aufgegeben“]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
 
-Unter **Benutzerdefiniertes Ereignis** können Sie ein Ereignis aus der Liste auswählen.
+Wenn Sie **Custom Event** wählen, wählen Sie Ihr Event aus der Liste aus.
 
-![Das angepasste Event "Abgeschlossener Kauf" ausgewählt, wie Events derzeit getrackt werden.]({% image_buster /assets/img/item_recs_3.png %})
+![Das angepasste Event „purchase“ als aktuell verwendete Tracking-Methode ausgewählt.]({% image_buster /assets/img/item_recs_3.png %})
 
 {% alert note %}
-Angepasste Events müssen über ausreichende Daten verfügen, bevor sie in der Ereignisliste angezeigt werden. Sollte Ihr angepasstes Event nicht angezeigt werden, könnte dies daran liegen, dass das Braze-Backend es noch nicht verarbeitet hat oder dass nicht genügend Daten für das Modelltraining vorhanden sind. KI-Empfehlungen basieren auf historischen Daten, um Insights zu generieren. Daher sind neu erstellte oder selten triggertierte Ereignisse erst verfügbar, wenn mehr Daten gesammelt wurden.
+Angepasste Events müssen über ausreichende Daten verfügen, bevor sie in der Event-Liste angezeigt werden. Sollte Ihr angepasstes Event nicht angezeigt werden, könnte dies daran liegen, dass das Braze-Backend es noch nicht verarbeitet hat oder dass nicht genügend Daten für das Modelltraining vorhanden sind. KI-Empfehlungen basieren auf historischen Daten, um Insights zu generieren. Daher sind neu erstellte oder selten getriggerte Events erst verfügbar, wenn mehr Daten gesammelt wurden.
 {% endalert %}
 
-### Schritt 5: Wählen Sie den entsprechenden Eigenschaftsnamen {#property-name}
+### 5. Schritt: Den entsprechenden Eigenschaftsnamen auswählen {#property-name}
 
-Um eine Empfehlung zu erstellen, müssen Sie Braze mitteilen, welches Feld Ihres Interaktionsereignisses (Kaufobjekt oder benutzerdefiniertes Ereignis) die eindeutige Kennung hat, die mit dem Feld `id` eines Artikels im Katalog übereinstimmt. Nicht sicher? [Anforderungen anzeigen](#requirements).
+Um eine Empfehlung zu erstellen, müssen Sie Braze mitteilen, welches Feld Ihres Interaktions-Events (Event „Bestellung aufgegeben“, Kauf-Objekt oder angepasstes Event) den eindeutigen Bezeichner enthält, der mit dem Feld `id` eines Artikels im Katalog übereinstimmt. Nicht sicher? [Anforderungen anzeigen](#requirements).
 
-Wählen Sie dieses Feld für den **Eigenschaftsnamen**.
+Wählen Sie dieses Feld für den **Property Name** aus.
 
-Das Feld **Eigenschaftsname** wird mit einer Liste von Feldern vorausgefüllt, die über das SDK an Braze gesendet werden. Wenn genügend Daten zur Verfügung gestellt werden, werden diese Eigenschaften auch in der Reihenfolge der Wahrscheinlichkeit, dass es sich um die richtige Eigenschaft handelt, eingeordnet. Wählen Sie daraus das aus, das zu dem Katalogfeld `id` passt.
+Das Feld **Property Name** wird mit einer Liste von Feldern vorausgefüllt, die über das SDK an Braze gesendet werden. Wenn genügend Daten vorhanden sind, werden diese Eigenschaften auch nach der Wahrscheinlichkeit sortiert, dass es sich um die richtige Eigenschaft handelt. Wählen Sie diejenige aus, die dem Feld `id` des Katalogs entspricht.
 
-![Der ausgewählte "purchase_item"Eigenschaftsname, der den ID-Werten der Artikel im Katalog entspricht.]({% image_buster /assets/img/item_recs_4.png %})
+![Der ausgewählte Eigenschaftsname „purchase_item“, der den Artikel-IDs im Katalog entspricht.]({% image_buster /assets/img/item_recs_4.png %})
 
 #### Anforderungen {#requirements}
 
-Es gibt einige Vorbedingungen zur Auswahl von Eigenschaften:
+Für die Auswahl Ihrer Eigenschaft gelten einige Anforderungen:
 
 - Sie muss dem Feld `id` des ausgewählten Katalogs zugeordnet sein.
-- **Wenn Sie Kaufobjekt ausgewählt haben,** muss sie die `product_id` oder ein `properties`-Ereignisfeld sein.
-- **Wenn Sie Benutzerdefiniertes Ereignis ausgewählt haben,** Muss ein Feld aus dem `properties` Ihres benutzerdefinierten Ereignisses sein.
-- Verschachtelte Felder müssen in der Dropdown-Liste **Eigenschaftsname** in Punktschreibweise im Format `event_property.nested_property` eingegeben werden. Wenn Sie zum Beispiel die verschachtelte Eigenschaft `district_name` in der Ereigniseigenschaft `location` auswählen, geben Sie `location.district_name` ein.
-- **Bei der Verwendung von [E-Commerce-Ereignissen]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/) zum Trainieren von Artikelempfehlungen:** Fügen Sie hinzu`products.product_id`, um auf die ID des Produkts aus Ereignissen zuzugreifen.
-- Das Feld kann sich innerhalb eines Arrays von Produkten befinden oder mit einem Array von IDs enden. In beiden Fällen werden die Produkt-IDs als separate aufeinanderfolgende Ereignisse mit demselben Zeitstempel behandelt.
+- **Wenn Sie das Event „Bestellung aufgegeben“ ausgewählt haben oder [E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) zum Trainieren von Artikelempfehlungen verwenden:** Geben Sie `products.product_id` für die Produkt-ID ein.
+  - Das Feld kann sich innerhalb eines Arrays von Produkten befinden oder mit einem Array von IDs enden. In beiden Fällen wird jede Produkt-ID als separates, aufeinanderfolgendes Event mit demselben Zeitstempel behandelt.
+- **Wenn Sie Kauf-Objekt ausgewählt haben:** Muss die `product_id` oder ein Feld der `properties` Ihres Interaktions-Events sein.
+- **Wenn Sie Angepasstes Event ausgewählt haben:** Muss ein Feld der `properties` Ihres angepassten Events sein.
+- Verschachtelte Felder müssen in der Dropdown-Liste **Property Name** in Punktnotation im Format `event_property.nested_property` eingegeben werden. Wenn Sie zum Beispiel die verschachtelte Eigenschaft `district_name` innerhalb der Event-Eigenschaft `location` auswählen möchten, geben Sie `location.district_name` ein.
 
-#### Beispiel-Zuordnungen
+#### Beispielzuordnungen {#example-mappings}
 
-Die folgenden Beispiel-Zuordnungen beziehen sich beide auf diesen Beispielkatalog:
+Die folgenden Beispielzuordnungen beziehen sich beide auf diesen Beispielkatalog:
 
 <style type="text/css">
 .tg td{word-break:normal;}
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Beispielzuordnungen" class="tg">
+  <caption>Beispielzuordnungen</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
-    <th class="tg-0pky">Titel</th>
-    <th class="tg-0pky">Preis</th>
+    <th class="tg-0pky">title</th>
+    <th class="tg-0pky">price</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td class="tg-0pky">ADI-BL-7</td>
-    <td class="tg-0pky">Adidas Schwarz Größe 7</td>
+    <td class="tg-0pky">Adidas Black Size 7</td>
     <td class="tg-0pky">100.00 USD</td>
   </tr>
   <tr>
     <td class="tg-0pky">ADI-RD-8</td>
-    <td class="tg-0pky">Adidas Rot Größe 8</td>
+    <td class="tg-0pky">Adidas Red Size 8</td>
     <td class="tg-0pky">100.00 USD</td>
   </tr>
   <tr>
     <td class="tg-0pky">ADI-WH-9</td>
-    <td class="tg-0pky">Adidas Weiß Größe 9</td>
+    <td class="tg-0pky">Adidas White Size 9</td>
     <td class="tg-0pky">100.00 USD</td>
   </tr>
   <tr>
     <td class="tg-0pky">ADI-PP-10</td>
-    <td class="tg-0pky">Adidas Lila Größe 10</td>
+    <td class="tg-0pky">Adidas Purple Size 10</td>
     <td class="tg-0pky">75.00 USD</td>
   </tr>
 </tbody>
 </table>
 
 {% tabs %}
-{% tab Custom event %}
+{% tab Angepasstes Event %}
 
-Nehmen wir an, Sie möchten das benutzerdefinierte Ereignis `added_to_cart` verwenden, damit Sie ähnliche Produkte empfehlen können, bevor der Kunde zur Kasse geht. Das Ereignis `added_to_cart` enthält die Ereigniseigenschaft `product_sku`.
+Nehmen wir an, Sie möchten das angepasste Event `added_to_cart` verwenden, um ähnliche Produkte zu empfehlen, bevor die Kund:in zur Kasse geht. Das Event `added_to_cart` enthält die Event-Eigenschaft `product_sku`.
 
-Daher muss die Eigenschaft `product_sku` mindestens einen der Werte aus Spalte `id` im Musterkatalog enthalten: "ADI-BL-7", "ADI-RD-8", "ADI-WH-9" oder "ADI-PP-10". Sie benötigen nicht für jeden Katalogartikel Ereignisse, aber doch so viele, dass das Empfehlungssystem genügend Inhalte bekommt.
+Die Eigenschaft `product_sku` muss daher mindestens einen der Werte aus der Spalte `id` im Beispielkatalog enthalten: „ADI-BL-7“, „ADI-RD-8“, „ADI-WH-9“ oder „ADI-PP-10“. Sie benötigen nicht für jeden Katalogartikel Events, aber genügend, damit das Empfehlungssystem ausreichend Inhalte hat, um damit zu arbeiten.
 
-##### Beispiel für ein benutzerdefiniertes Ereignisobjekt
+##### Beispiel für ein angepasstes Event-Objekt {#example-custom-event-object}
 
-Das Ereignis enthält `"product_sku": "ADI-BL-7"`, die mit dem ersten Artikel im Musterkatalog übereinstimmt.
+Dieses Event enthält `"product_sku": "ADI-BL-7"`, das mit dem ersten Artikel im Beispielkatalog übereinstimmt.
 
 ```json
 {
@@ -188,9 +190,9 @@ Das Ereignis enthält `"product_sku": "ADI-BL-7"`, die mit dem ersten Artikel im
 }
 ```
 
-##### Beispiel für ein benutzerdefiniertes Ereignisobjekt mit einem Array von Produkten
+##### Beispiel für ein angepasstes Event-Objekt mit einem Array von Produkten {#example-custom-event-object-with-an-array-of-products}
 
-Wenn die Ereigniseigenschaften mehrere Produkte aus einem Array enthalten, wird jede Produkt-ID als separates aufeinanderfolgendes Ereignis behandelt. Das Ereignis kann mit der Eigenschaft `products.sku` den ersten und dritten Artikel im Musterkatalog finden.
+Wenn die Event-Eigenschaften mehrere Produkte in einem Array enthalten, wird jede Produkt-ID als separates, aufeinanderfolgendes Event behandelt. Dieses Event kann mit der Eigenschaft `products.sku` den ersten und dritten Artikel im Beispielkatalog zuordnen.
 
 ```json
 {
@@ -212,9 +214,9 @@ Wenn die Ereigniseigenschaften mehrere Produkte aus einem Array enthalten, wird 
 }
 ```
 
-##### Beispiel für ein benutzerdefiniertes Ereignisobjekt mit einem verschachtelten Objekt, das ein Produkt-ID-Array enthält
+##### Beispiel für ein angepasstes Event-Objekt mit einem verschachtelten Objekt, das ein Produkt-ID-Array enthält {#example-custom-event-object-with-a-nested-object-containing-a-product-id-array}
 
-Wenn es sich bei Ihren Produkt-IDs um Werte in einem Array statt um Objekte handelt, können Sie dieselbe Notation verwenden und jede Produkt-ID wird als separates, sequenzielles Ereignis behandelt. Dies kann im folgenden Ereignis auch mit verschachtelten Objekten kombiniert werden. Dazu konfigurieren Sie die Eigenschaft als `purchase.product_skus`, damit sie mit dem ersten und dritten Objekt im Beispielkatalog übereinstimmt.
+Wenn Ihre Produkt-IDs Werte in einem Array statt Objekte sind, können Sie dieselbe Notation verwenden, und jede Produkt-ID wird als separates, aufeinanderfolgendes Event behandelt. Dies lässt sich im folgenden Event flexibel mit verschachtelten Objekten kombinieren, indem Sie die Eigenschaft als `purchase.product_skus` konfigurieren, um den ersten und dritten Artikel im Beispielkatalog zuzuordnen.
 
 ```json
 {
@@ -236,17 +238,17 @@ Wenn es sich bei Ihren Produkt-IDs um Werte in einem Array statt um Objekte hand
 ```
 
 {% endtab %}
-{% tab Purchase object %}
+{% tab Kauf-Objekt %}
 
-Ein Kaufobjekt wird von der API übergeben, wenn ein Kauf getätigt wird.
+Ein Kauf-Objekt wird über die API übergeben, wenn ein Kauf getätigt wurde.
 
-Was die Zuordnung betrifft, so gilt für Kaufobjekte eine ähnliche Logik wie für benutzerdefinierte Ereignisse, mit dem Unterschied, dass Sie zwischen der Verwendung des `product_id` des Kaufobjekts oder eines Feldes im `properties` Objekt wählen können.
+Was die Zuordnung betrifft, gilt für Kauf-Objekte eine ähnliche Logik wie für angepasste Events, mit dem Unterschied, dass Sie zwischen der `product_id` des Kauf-Objekts oder einem Feld im `properties`-Objekt wählen können.
 
-Beachten Sie: Sie benötigen nicht für jeden Katalogartikel Ereignisse, aber doch so viele, dass das Empfehlungssystem genügend Inhalte bekommt.
+Beachten Sie: Sie benötigen nicht für jeden Katalogartikel Events, aber genügend, damit das Empfehlungssystem ausreichend Inhalte hat, um damit zu arbeiten.
 
-##### Beispiel eines Kaufobjekts, das einer Produkt-ID zugeordnet ist
+##### Beispiel eines Kauf-Objekts, das einer Produkt-ID zugeordnet ist {#example-purchase-object-mapped-to-product-id}
 
-Das Ereignis enthält `"product_id": "ADI-BL-7`, die mit dem ersten Artikel im Musterkatalog übereinstimmt.
+Dieses Event enthält `"product_id": "ADI-BL-7"`, das dem ersten Artikel im Katalog entspricht.
 
 ```json
 {
@@ -269,9 +271,9 @@ Das Ereignis enthält `"product_id": "ADI-BL-7`, die mit dem ersten Artikel im M
 }
 ```
 
-##### Beispiel für ein Kaufobjekt, das einem Eigenschaftsfeld zugeordnet ist
+##### Beispiel für ein Kauf-Objekt, das einem Eigenschaftsfeld zugeordnet ist {#example-purchase-object-mapped-to-a-properties-field}
 
-Dieses Ereignis hat die Eigenschaft `"sku": "ADI-RD-8"`, die auf den zweiten Artikel im Katalog verweist.
+Dieses Event hat die Eigenschaft `"sku": "ADI-RD-8"`, die dem zweiten Artikel im Katalog entspricht.
 
 ```json
 {
@@ -296,10 +298,36 @@ Dieses Ereignis hat die Eigenschaft `"sku": "ADI-RD-8"`, die auf den zweiten Art
 ```
 
 {% endtab %}
+{% tab Event „Bestellung aufgegeben“ %}
+
+##### Beispiel eines Objekts „Bestellung aufgegeben“, das einer Produkt-ID zugeordnet ist {#example-order-placed-object-mapped-to-product-id}
+
+```json
+{
+  "name": "ecommerce.order_placed",
+  "properties": {
+    "order_id": "order_123",
+    "total_value": 200.0,
+    "currency": "USD",
+    "products": [
+      {
+        "product_id": "ADI-BL-7",
+        "product_name": "Adidas Black Size 7",
+        "variant_id": "ADI-BL-7-default",
+        "quantity": 1,
+        "price": 100.0
+      }
+    ],
+    "source": "storefront"
+  }
+}
+```
+
+{% endtab %}
 {% endtabs %}
 
-### Schritt 6: Empfehlungen verbessern
+### 6. Schritt: Empfehlung trainieren {#step-6-train-the-recommendation}
 
-Wenn Sie so weit sind, gehen Sie auf **Empfehlung erstellen**. Dieser Vorgang kann zwischen 10 Minuten und 36 Stunden in Anspruch nehmen. Sie erhalten eine E-Mail-Aktualisierung, wenn die Empfehlung erfolgreich trainiert wurde, oder eine Erklärung, warum die Erstellung möglicherweise fehlgeschlagen ist.
+Wenn Sie so weit sind, wählen Sie **Create Recommendation**. Dieser Vorgang kann zwischen 10 Minuten und 36 Stunden dauern. Sie erhalten eine E-Mail-Benachrichtigung, wenn die Empfehlung erfolgreich trainiert wurde, oder eine Erklärung, warum die Erstellung möglicherweise fehlgeschlagen ist.
 
-Sie finden die Empfehlung auf der Seite **Vorhersagen**, wo Sie sie dann nach Bedarf bearbeiten oder archivieren können. Die Empfehlungen werden automatisch einmal pro Woche (kostenpflichtig) oder pro Monat (kostenlos) neu trainiert.
+Sie finden die Empfehlung auf der Seite **Predictions**, wo Sie sie nach Bedarf bearbeiten oder archivieren können. Empfehlungen werden automatisch einmal pro Woche (kostenpflichtig) oder pro Monat (kostenlos) neu trainiert.

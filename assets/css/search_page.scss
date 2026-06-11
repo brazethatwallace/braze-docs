@@ -14,7 +14,7 @@
     border-bottom: none;
     margin: 0;
     padding: 0;
-    font-family: $braze-heavy;
+    font-family: $braze-bold;
     color: $search_font_color;
   }
   .ais-search-box--input {
@@ -36,7 +36,7 @@
 
     }
     .ais-refinement-list--item__active {
-      font-family: $braze-medium;
+      font-family: $braze-bold;
     }
   }
   .ais-search-box {
@@ -113,23 +113,6 @@
   }
 
 
-  .algolia-docsearch-footer {
-      height: 30px;
-      font-size: 0;
-      line-height: 0;
-  }
-  .algolia-docsearch-footer--logo {
-      background-image: url(#{$base_url}/assets/img/algolia.svg);
-      background-repeat: no-repeat;
-      background-position: 100%;
-      overflow: hidden;
-      text-indent: -9000px;
-      padding: 0!important;
-      width: 150px;
-      height: 100%;
-      display: block;
-
-  }
   .ais-Hits-item, .ais-InfiniteHits-item {
     padding: 0px;
     border-style: none;
@@ -147,7 +130,7 @@
       background-color: $grey-athens;
     }
     .hit-name {
-      font-family: $braze-medium;
+      font-family: $braze-bold;
       display: inline-block;
       color: $braze-purple-dark;
     }
@@ -170,7 +153,7 @@
       font-family: $braze-regular;
       em {
         color: $search_font_color;
-        font-family: $braze-medium;
+        font-family: $braze-bold;
       }
     }
     .hit-content {

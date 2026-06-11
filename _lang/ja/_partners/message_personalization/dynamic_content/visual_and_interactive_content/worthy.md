@@ -1,7 +1,7 @@
 ---
 nav_title: Worthy
 article_title: Worthy
-description: "このリファレンス記事では、Braze と Worthy のパートナーシップについて説明します。Worthy は、パーソナライズされたリッチなアプリ内エクスペリエンスを作成し、Braze を通じて配信できるメッセージパーソナライゼーションプラットフォームです。"
+description: "このリファレンス記事では、BrazeとWorthyのパートナーシップについて説明します。Worthyは、パーソナライズされたリッチなアプリ内エクスペリエンスを作成し、Brazeを通じて配信できるメッセージパーソナライゼーションプラットフォームです。"
 alias: /partners/worthy/
 page_type: partner
 search_tag: Partner
@@ -10,45 +10,44 @@ search_tag: Partner
 
 # Worthy
 
-> [Worthy](https://worthy.ai/)とBrazeインテグレーションでは、Worthyのドラッグアンドドロップエディタを使って豊富なパーソナライズされたを作成し、Brazeを通して配信することができます。さらに、Worthy は自動的に以下を実行します。
+> [Worthy](https://worthy.ai/)とBrazeの連携では、Worthyのドラッグアンドドロップエディターを使ってパーソナライズされたリッチなアプリ内エクスペリエンスを作成し、Brazeを通じて配信できます。さらに、Worthyは自動的に以下を実行します。
 
-_この統合は Worthy によって管理されます。_
+_この連携はWorthyによって管理されています。_
 
-## 統合について
+## 連携について {#about-the-integration}
 
-- メッセージングのためにコネクテッドコンテンツサーバーとセキュアな API を作成する。
-- 分析とクリックトラッキングを使用して、Braze に直接表示されるアプリ内メッセージを作成する。
-- Braze の**カスタムコード**アプリ内メッセージキャンペーンで使用する HTML を、Worthy のドラッグ＆ドロップエディターで自動的にエクスポートする。これには、お客様が設定する必要な API 接続とダイナミックコンテンツが含まれます。
+- メッセージングのためのコネクテッドコンテンツサーバーとセキュアなAPIを作成します。
+- 分析とクリックトラッキングを備えたアプリ内メッセージを構築し、Brazeに直接表示します。
+- Worthyのドラッグアンドドロップエディターを使用してHTMLを自動的にエクスポートし、Brazeの**Custom Code**アプリ内メッセージCampaignで使用します。必要なAPI接続と設定したダイナミックなコンテンツが含まれます。
 
-## ユースケース
+## ユースケース {#use-cases}
 
-- ユーザーオンボーディングの選択に基づくカスタムウェルカムエクスペリエンス
-- スペシャルイベントやプロモーションのアプリ体験
+- ユーザーのオンボーディング選択に基づくカスタムウェルカムエクスペリエンス
+- スペシャルイベントやプロモーションのアプリ内エクスペリエンス
 - アプリの動作に基づく顧客フィードバックと評価の収集
-- アプリ商品アイデアの早期検証
-- 豊富な通知、ニュース、コミュニティー更新
+- アプリ製品アイデアの迅速なテスト
+- リッチな通知、ニュース、コミュニティの更新
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | --- | --- |
-| [Worthy](https://worthy.ai/) アカウント | このパートナーシップを活用するには、Worthy アカウントが必要です。 |
-| Braze SDK | リッチなアプリ内メッセージを送信するには、モバイルアプリケーションで Braze SDK を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| [Worthy](https://worthy.ai/)アカウント | このパートナーシップを活用するには、Worthyアカウントが必要です。 |
+| Braze SDK | リッチなアプリ内メッセージを送信するには、モバイルアプリケーションでBraze SDKを設定する必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 連携 {#integration}
 
-### ステップ1:Worthy でパーソナライズされたメッセージングを作成する
+### ステップ1：Worthyでパーソナライズされたメッセージングを作成する {#step-1-create-personalized-messaging-in-worthy}
 
-Worthy ダッシュボードでアプリに移動し、[**Message Creator**] を選択し、ユーザーを獲得するために使用するパーソナライズされたメッセージを作成します。
+Worthyダッシュボードでアプリに移動し、**Message Creator**を選択して、ユーザーのエンゲージメントに使用するパーソナライズされたメッセージを作成します。
 
-### ステップ2:Braze キャンペーンの作成
+### ステップ2：BrazeでCampaignを作成する {#step-2-create-a-braze-campaign}
 
-Brazeで[アプリ内メッセージ キャンペーン]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/create/)を作成し、**Message Type**を**カスタムコード**に設定します。
+Brazeで[アプリ内メッセージCampaign]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)を作成し、**メッセージタイプ**を**Custom Code**に設定します。
 
-### ステップ3:パーソナライズされたメッセージを Braze にコピーする
+### ステップ3：パーソナライズされたメッセージをBrazeにコピーする {#step-3-copy-your-personalized-message-into-braze}
 
-Worthyメッセージクリエータで、**Export**をクリックし、**Braze**を選択して、パーソナライズされたメッセージをBraze キャンペーン s で使用するためにエクスポートします。エクスポートされたコンテンツを、Braze キャンペーンエディターの [**HTML + アセット zip**] の下の HTML テキストボックスにコピーします。
+Worthyメッセージクリエーターで**エクスポート**をクリックし、**Braze**を選択して、パーソナライズされたメッセージをBraze Campaignで使用するためにエクスポートします。エクスポートされたコンテンツを、Braze Campaignエディターの**HTML + Asset Zip**の下にあるHTMLテキストボックスにコピーします。
 
-以上でBraze キャンペーンエディターの [**テスト**] タブを使用して、パーソナライズされたメッセージをすぐにテストできます。 
-
+以上です！Braze Campaignエディターの**Test**タブを使用して、パーソナライズされたメッセージをすぐにテストできます。

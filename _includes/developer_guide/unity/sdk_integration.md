@@ -22,7 +22,9 @@ There are several Braze Unity packages available for download on the [Braze Unit
     - This package is similar to `Appboy.unitypackage` except for the [SDWebImage](https://github.com/SDWebImage/SDWebImage) framework is not present. This package is useful if you do not want the SDWebImage framework present in your iOS app.
 
 {% alert note %}
-As of Unity 2.6.0, the bundled Braze Android SDK artifact requires  [AndroidX](https://developer.android.com/jetpack/androidx) dependencies. If you were previously using a `jetified unitypackage`, then you can safely transition to the corresponding `unitypackage`.
+As of Unity 2.6.0, the bundled Braze Android SDK artifact requires [AndroidX](https://developer.android.com/jetpack/androidx) dependencies. If you were previously using a `jetified` unitypackage, you can safely transition to the corresponding `unitypackage`.
+
+If Android builds fail with "This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled", enable [Custom Gradle Properties Template](https://docs.unity3d.com/Manual/class-PlayerSettingsAndroid.html#Publishing) in your Unity Publishing Settings. Then open `Assets/Plugins/Android/gradleTemplate.properties` and set `android.useAndroidX=true`. For a working template, see the [Braze Unity sample app](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) and its [`gradleTemplate.properties`](https://github.com/braze-inc/braze-unity-sdk/blob/master/unity-samples/Assets/Plugins/Android/gradleTemplate.properties) file.
 {% endalert %}
 {% endtab %}
 
@@ -74,7 +76,7 @@ If you only wish to import the iOS or Android plugin, deselect the `Plugins/Andr
 {% tab Android %}
 #### Step 3.1: Configure `AndroidManifest.xml`
 
-To fullo [`AndroidManifest.xml`](https://docs.unity3d.com/Manual/android-manifest.html) to function. If your app does not have an `AndroidManifest.xml`, you can use the following as a template. Otherwise, if you already have an `AndroidManifest.xml`, ensure that any of the following missing sections are added to your existing `AndroidManifest.xml`.
+Configure [`AndroidManifest.xml`](https://docs.unity3d.com/Manual/android-manifest.html) so the Braze SDK can function. If your app does not have an `AndroidManifest.xml`, you can use the following as a template. Otherwise, if you already have an `AndroidManifest.xml`, ensure that any of the following missing sections are added to your existing `AndroidManifest.xml`.
 
 1. Go to the `Assets/Plugins/Android/` directory and open your `AndroidManifest.xml` file. This is the [default location in the Unity editor](https://docs.unity3d.com/Manual/android-manifest.html).
 2. In your `AndroidManifest.xml`, add the required permissions and activities from in the following template.

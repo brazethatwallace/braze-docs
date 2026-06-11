@@ -9,12 +9,12 @@
 
 {% comment %} Google Tag Manager (noscript) {% endcomment %}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{site.gta_tag_key}}"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+title="Google Tag Manager" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% comment %} End Google Tag Manager (noscript) {% endcomment %}
 
 {% unless page.config_only %}
 <div class="container-fluid d-print-block " id="basic_page">
-    <div id="content_start"></div>
+    <div id="content_start" tabindex="-1"></div>
     {{ content }}
 </div>
 {% include footer.html %}

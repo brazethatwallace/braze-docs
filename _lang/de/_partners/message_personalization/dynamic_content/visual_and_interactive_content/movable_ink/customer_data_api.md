@@ -1,159 +1,159 @@
 ---
-nav_title: Verbindung mit der Kundendaten-API
-article_title: Verbinden Sie sich mit der Movable Ink Kundendaten API
-description: "Dieser referenzierte Artikel beschreibt, wie Sie mit Hilfe der Kundendaten-API eine Verbindung zur Aktivierung von in Braze gespeicherten Kundendaten herstellen, um personalisierte Inhalte in Movable Ink zu generieren."
+nav_title: Verbindung mit der Customer Data API
+article_title: Verbindung mit der Movable Ink Customer Data API herstellen
+description: "Dieser Referenzartikel beschreibt, wie Sie eine Verbindung herstellen, um in Braze gespeicherte Kunden-Event-Daten zu aktivieren und mit der Customer Data API personalisierte Inhalte in Movable Ink zu generieren."
 page_type: partner
 search_tag: Partner
 ---
 
-# Verbinden Sie sich mit der Movable Ink Kundendaten API
+# Verbindung mit der Movable Ink Customer Data API herstellen {#connect-to-the-movable-ink-customer-data-api}
 
-> Die Integration der Kundendaten-APIs von Braze und Movable Ink ermöglicht Marketern, die in Braze gespeicherten Kundendaten zu aktivieren, um personalisierte Inhalte in Movable Ink zu generieren.
+> Die Integration der Customer Data API von Braze und Movable Ink ermöglicht es Marketern, in Braze gespeicherte Kunden-Event-Daten zu aktivieren, um personalisierte Inhalte in Movable Ink zu generieren.
 
-Movable Ink ist in der Lage, Verhaltensverhalten-Events von Braze über deren Kundendaten-API aufzunehmen. Die Ereignisse werden in den Nutzerprofilen auf der Grundlage der eindeutigen Nutzer:innen ID (UUID) gespeichert, die an Movable Ink übermittelt wird.
+Movable Ink kann Verhaltens-Events von Braze über die Customer Data API aufnehmen. Die Events werden in den Nutzerprofilen basierend auf der eindeutigen Nutzer-ID (UUID) gespeichert, die an Movable Ink übermittelt wird.
 
-Weitere Informationen über Stories, die Movable Ink Customer Data API und darüber, wie Movable Ink Verhaltensdaten nutzt, finden Sie in den folgenden Support Center-Artikeln:
+Weitere Informationen über Stories, die Movable Ink Customer Data API und darüber, wie Movable Ink Verhaltensdaten nutzt, finden Sie in den folgenden Support-Center-Artikeln:
 
-- [Leistungsstarke Inhalte mit Verhaltensdaten](https://support.movableink.com/hc/en-us/sections/360001239453-Power-content-with-behavioral-data)
-- [Kundendaten API Einführung und Leitfaden](https://support.movableink.com/hc/en-us/articles/13815957200663-Customer-Data-API-introduction-and-guide)
-- [FAQ: Kundendaten API](https://support.movableink.com/hc/en-us/articles/12423178752279-FAQ-Customer-Data-API)
+- [Inhalte mit Verhaltensdaten unterstützen](https://support.movableink.com/hc/en-us/sections/360001239453-Power-content-with-behavioral-data)
+- [Customer Data API – Einführung und Leitfaden](https://support.movableink.com/hc/en-us/articles/13815957200663-Customer-Data-API-introduction-and-guide)
+- [FAQ: Customer Data API](https://support.movableink.com/hc/en-us/articles/12423178752279-FAQ-Customer-Data-API)
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 |---|---|
-| Movable Ink Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Movable Ink-Konto. |
-| Movable Ink API-Zugangsdaten | Das Team von Movable Ink Solutions generiert für Sie API Zugangsdaten. Die API Zugangsdaten bestehen aus:{::nomarkdown}<ul><li>Eine Endpunkt-URL (an die die Daten gesendet werden)</li><li>Benutzername und Passwort (für die Authentifizierung der API)</li></ul>{:/} Falls gewünscht, kann Movable Ink den Benutzernamen und das Passwort als base64-kodierten Wert bereitstellen, der als Basisautorisierungs-Header-Wert verwendet werden kann. |
-| Nutzdaten für Verhaltensereignisse | Sie müssen Ihre Ereignis-Payloads mit Ihrem Movable Ink Client Experience Team teilen. Weitere Informationen finden Sie unter [Gemeinsame Nutzung von Ereignis-Payloads](#event-payloads) mit Movable Ink. |
-| Kreative Assets und Geschäftslogik | Sie müssen Movable Ink kreative Assets zur Verfügung stellen, einschließlich Adobe Photoshop (PSD)-Dateien, die Movable Ink zeigen, wie der Block zu erstellen ist, und ein Fallback-Bild. Sie müssen auch eine Geschäftslogik dafür bereitstellen, wie und wann der vom Partner aktivierte Content-Block angezeigt werden soll. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Movable Ink Konto | Ein Movable Ink Konto ist erforderlich, um diese Partnerschaft zu nutzen. |
+| Movable Ink API-Zugangsdaten | Das Movable Ink Solutions-Team generiert API-Zugangsdaten für Sie. Die API-Zugangsdaten bestehen aus:{::nomarkdown}<ul><li>Einer Endpunkt-URL (an die die Daten gesendet werden)</li><li>Benutzername und Passwort (zur Authentifizierung der API)</li></ul>{:/} Falls gewünscht, kann Movable Ink den Benutzernamen und das Passwort als base64-kodierten Wert bereitstellen, der als Basic-Authorization-Header-Wert verwendet werden kann. |
+| Payloads für Verhaltens-Events | Sie müssen Ihre Event-Payloads mit Ihrem Movable Ink Client Experience Team teilen. Weitere Informationen finden Sie unter [Event-Payloads mit Movable Ink teilen](#event-payloads). |
+| Kreative Assets und Geschäftslogik | Sie müssen Movable Ink kreative Assets zur Verfügung stellen, einschließlich Adobe Photoshop (PSD)-Dateien, die Movable Ink zeigen, wie der Block erstellt werden soll, sowie ein Fallback-Bild. Außerdem müssen Sie die Geschäftslogik bereitstellen, die festlegt, wie und wann der vom Partner aktivierte Content-Block angezeigt werden soll. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### Schritt 1: Erstellen Sie eine Webhook-Kampagne in Braze
+### 1. Schritt: Erstellen Sie eine Webhook-Campaign in Braze {#step-1-create-a-webhook-campaign-in-braze}
 
-#### Schritt 1a: Erstellen Sie eine neue Kampagne
+#### Schritt 1a: Erstellen Sie eine neue Campaign {#step-1a-create-a-new-campaign}
 
-1. [Erstellen Sie eine Webhook-Kampagne]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/) in Braze.
-2. Geben Sie Ihrer Kampagne einen Namen und eine optionale Beschreibung.
-3. Wählen Sie als Template die **leere Vorlage** aus.
+1. [Erstellen Sie in Braze eine Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+2. Geben Sie Ihrer Campaign einen Namen und eine optionale Beschreibung.
+3. Wählen Sie als Template **Blank Template** aus.
 
-#### Schritt 1b: Fügen Sie Ihre Kundendaten API-Zugangsdaten hinzu
+#### Schritt 1b: Fügen Sie Ihre Customer Data API-Zugangsdaten hinzu {#step-1b-add-your-customer-data-api-credentials}
 
-1. Geben Sie in das Feld **Webhook URL** die URL des Movable Ink Endpunkts ein.
+1. Geben Sie im Feld **Webhook URL** die Movable Ink Endpunkt-URL ein.
 
-![Tab des Webhook-Composers in Braze mit der Movable Ink Endpunkt-URL und dem Anfrage-Text auf JSON Schlüssel-Wert-Paare eingestellt.]({% image_buster /assets/img/movable_ink/cd_api_webhook_url.png %}){: style="max-width:75%" }
+![Tab „Verfassen“ des Webhook-Composers in Braze mit der Movable Ink Endpunkt-URL und dem Anfrage-Body auf JSON-Schlüssel-Wert-Paare eingestellt.]({% image_buster /assets/img/movable_ink/cd_api_webhook_url.png %}){: style="max-width:75%" }
 
 {:start="2"}
-2\. Wählen Sie den Tab **Einstellungen**.
-3\. Fügen Sie die folgenden Anfrage-Header als Schlüssel-Wert-Paare hinzu:
+2. Wählen Sie den Tab **Einstellungen**.
+3. Fügen Sie die folgenden Anfrage-Header als Schlüssel-Wert-Paare hinzu:
 
 | Schlüssel | Wert |
 | --- | --- |
-| Content-Typ | application/json |
-| Autorisierung | Geben Sie die Basisauthentifizierung ein, die Sie von Movable Ink erhalten haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Content-Type | application/json |
+| Authorization | Geben Sie die Basic-Authentifizierung ein, die Sie von Movable Ink erhalten haben. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1b: Customer Data API-Zugangsdaten hinzufügen" }
 
-![Tab Einstellungen des Webhook-Composers in Braze mit Schlüssel-Wert-Paaren für Content-Type und Authorization.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
+![Tab „Einstellungen“ des Webhook-Composers in Braze mit Schlüssel-Wert-Paaren für Content-Type und Authorization.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
 
-#### Schritt 1c: Konfigurieren Sie Ihre Nutzlast
+#### Schritt 1c: Konfigurieren Sie Ihren Payload {#step-1c-configure-your-payload}
 
 1. Kehren Sie zum Tab **Verfassen** zurück.
-2. Für Ihren **Anfragekörper** erstellen Sie entweder Ihren eigenen Anfragekörper mit JSON Schlüssel-Wert-Paaren oder geben Ihre Ereignis-Nutzdaten als Rohtext ein. Beispiele für E-Commerce-Standardereignisse finden Sie in den [Beispiel-Payloads](#sample-payloads).
+2. Erstellen Sie für Ihren **Anfrage-Body** entweder einen eigenen Anfrage-Body mit JSON-Schlüssel-Wert-Paaren oder geben Sie Ihren Event-Payload als Rohtext ein. Beispiele für Standard-E-Commerce-Events finden Sie in den [Beispiel-Payloads](#sample-payloads).
 
-![Tab des Webhook-Composers in Braze mit JSON Schlüssel-Wert-Paaren für ID, Zeitstempel, Nutzer:innen und Ereignistyp.]({% image_buster /assets/img/movable_ink/cd_api_webhook_kvp.png %}){: style="max-width:75%" }
+![Tab „Verfassen“ des Webhook-Composers in Braze mit JSON-Schlüssel-Wert-Paaren für ID, Zeitstempel, Nutzer-ID und Event-Typ.]({% image_buster /assets/img/movable_ink/cd_api_webhook_kvp.png %}){: style="max-width:75%" }
 
 #### Schritt 1d: Testen Sie Ihren Webhook {#step-1d}
 
-Sie müssen Ihrem Movable Ink Client Experience Team eine Beispiel-Nutzlast zur Verfügung stellen. Sie können diese Nutzdaten auf der Registerkarte **Test** auf der Grundlage der von Ihnen erstellten Nutzdaten generieren.
+Sie müssen Ihrem Movable Ink Client Experience Team einen Beispiel-Payload zur Verfügung stellen. Sie können diesen Payload im Tab **Test** basierend auf dem von Ihnen erstellten Payload generieren.
 
 {% alert important %}
-Movable Ink empfiehlt, mit dem Testen Ihres Webhooks in Braze zu warten, bis Ihr Movable Ink Client Experience Team bestätigt hat, dass es die Abbildung abgeschlossen hat und bereit ist, einen Test zu empfangen. Wenn diese Abbildung nicht vollständig ist, werden Sie beim Testen wahrscheinlich eine Fehlermeldung erhalten.
+Movable Ink empfiehlt, mit dem Testen Ihres Webhooks in Braze zu warten, bis Ihr Movable Ink Client Experience Team bestätigt hat, dass die Abbildung abgeschlossen ist und ein Test empfangen werden kann. Wenn diese Abbildung nicht vollständig ist, erhalten Sie beim Testen wahrscheinlich eine Fehlermeldung.
 {% endalert %}
 
 Um Ihren Webhook zu testen, gehen Sie wie folgt vor:
 
-1. Wählen Sie die Registerkarte **Test**.
-2. Vorschau der Nachricht als Nutzer:innen, um eine Beispiel-Nutzlast für diesen Nutzer zu sehen. Sie haben die Wahl zwischen einer Vorschau als zufälliger Benutzer, als bestimmter Benutzer oder als angepasster Nutzer:innen.
-3. Wenn alles gut aussieht, klicken Sie auf **Test senden**, um eine Testanfrage zu senden.
+1. Wählen Sie den Tab **Test**.
+2. Zeigen Sie eine Vorschau der Nachricht als Nutzer:in an, um einen Beispiel-Event-Payload für diese:n Nutzer:in zu sehen. Sie können zwischen einer Vorschau als zufällige:r Nutzer:in, bestimmte:r Nutzer:in oder angepasste:r Nutzer:in wählen.
+3. Wenn alles gut aussieht, klicken Sie auf **Send test**, um eine Testanfrage zu senden.
 
-![Webhook-Antwortnachricht in Braze, die eine 200 OK-Antwort anzeigt.]({% image_buster /assets/img/movable_ink/cd_api_webhook_response.png %}){: style="max-width:75%" }
+![Webhook-Antwortnachricht in Braze mit einer 200-OK-Antwort.]({% image_buster /assets/img/movable_ink/cd_api_webhook_response.png %}){: style="max-width:75%" }
 
-### Schritt 2: Schließen Sie die Einrichtung Ihrer Kampagne ab
+### 2. Schritt: Schließen Sie die Einrichtung Ihrer Campaign ab {#step-2-finalize-your-campaign-setup}
 
-#### Schritt 2a: Zeitplan für Ihre Kampagne
+#### Schritt 2a: Planen Sie Ihre Campaign {#step-2a-schedule-your-campaign}
 
-Wenn Sie den Webhook fertiggestellt und getestet haben, [planen Sie Ihre Kampagne]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types). 
+Wenn Sie den Webhook fertiggestellt und getestet haben, [planen Sie Ihre Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Braze unterstützt geplante, aktionsbasierte und API-ausgelöste Zustellungen. Die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/) ist in der Regel die beste Lösung für die meisten verhaltensorientierten Ereignisanwendungen. Wenn Sie Fragen dazu haben, was für Ihren Anwendungsfall sinnvoll ist, wenden Sie sich an Ihre Customer-Success-Manager von Braze und Movable Ink.
+Braze unterstützt geplante, aktionsbasierte und API-getriggerte Zustellungen. Die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) ist in der Regel die beste Lösung für die meisten Anwendungsfälle mit Verhaltens-Events. Bei Fragen dazu, was für Ihren Anwendungsfall sinnvoll ist, wenden Sie sich an Ihre Customer-Success-Manager von Braze und Movable Ink.
 
 Für aktionsbasierte Zustellung:
 
-1. Geben Sie die Aktion triggern an. Dies ist das Ereignis, das den Webhook für Movable Ink triggern wird.
-2. Stellen Sie sicher, dass die **Zeitplan-Verzögerung** auf **Sofort** eingestellt ist. Die Daten eines Ereignisses sollten sofort nach dem Eintreten des Ereignisses an Movable Ink gesendet werden, ohne Verzögerung.
-3. Legen Sie die Dauer der Kampagne fest, indem Sie eine Startzeit angeben. Eine Endzeit ist wahrscheinlich nicht zutreffend, kann aber bei Bedarf für den Anwendungsfall festgelegt werden.
+1. Geben Sie die Trigger-Aktion an. Dies ist das Event, das den Webhook an Movable Ink triggert.
+2. Stellen Sie sicher, dass **Schedule Delay** auf **Immediately** eingestellt ist. Event-Daten sollten sofort nach dem Eintreten des Events ohne Verzögerung an Movable Ink gesendet werden.
+3. Legen Sie die Dauer der Campaign fest, indem Sie eine Startzeit angeben. Eine Endzeit ist wahrscheinlich nicht erforderlich, kann aber bei Bedarf für den Anwendungsfall festgelegt werden.
 
 {% alert note %}
-Um sicherzustellen, dass die Daten in Echtzeit zu Movable Ink gestreamt werden, wählen Sie nicht die Option **Kampagne an Nutzer:innen in ihrer Ortszeit senden**.
+Um sicherzustellen, dass die Daten in Echtzeit an Movable Ink gestreamt werden, wählen Sie nicht die Option **Send campaign to users in their local time zone**.
 {% endalert %}
 
-#### Schritt 2b: Bestimmen Sie Ihre Zielgruppe
+#### Schritt 2b: Bestimmen Sie Ihre Zielgruppe {#step-2b-specify-your-audience}
 
-Bestimmen Sie als nächstes, welche Nutzer:innen Sie für diese Kampagne anvisieren möchten. Einzelheiten finden Sie unter [Targeting Nutzer:innen]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/targeting_users/).
+Bestimmen Sie als Nächstes, welche Nutzer:innen Sie für diese Campaign ansprechen möchten. Einzelheiten finden Sie unter [Nutzer:innen ansprechen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/).
 
-Stellen Sie sicher, dass Sie keine A/B-Tests in Ihrer Kampagne verwenden, indem Sie das **Kontrollgruppen-Kontrollkästchen** deaktivieren. Wenn eine Kontrollgruppe enthalten ist, werden bei einem bestimmten Prozentsatz der Nutzer:innen keine Daten an Movable Ink gesendet. Alle Ihre Zielgruppen sollten sich für die Variante und nicht für die Kontrollgruppe entscheiden.
+Stellen Sie sicher, dass Sie keine A/B-Tests in Ihrer Campaign verwenden, indem Sie das Kontrollkästchen **Control Group** deaktivieren. Wenn eine Kontrollgruppe enthalten ist, werden bei einem bestimmten Prozentsatz der Nutzer:innen keine Daten an Movable Ink gesendet. Ihre gesamte Zielgruppe sollte der Variante zugeordnet werden, nicht der Kontrollgruppe.
 
-![A/B-Tests Panel in einer Braze-Kampagne mit 100%iger Verteilung der Variante 1 und ohne Kontrollgruppe.]({% image_buster /assets/img/movable_ink/cd_api_webhook_ab.png %})
+![A/B-Tests-Panel in einer Braze-Campaign mit 100 % Variantenverteilung für Variante 1 und ohne Kontrollgruppe.]({% image_buster /assets/img/movable_ink/cd_api_webhook_ab.png %})
 
-#### Schritt 2c: Wählen Sie Konversions-Events (optional)
+#### Schritt 2c: Wählen Sie Konversions-Events (optional) {#step-2c-choose-conversion-events-optional}
 
-Falls gewünscht, können Sie dieser Kampagne innerhalb von Braze Konversions-Events zuweisen.
+Falls gewünscht, können Sie dieser Campaign innerhalb von Braze Konversions-Events zuweisen.
 
-Da der Webhook jedoch nur zum Streamen von Daten gedacht ist, ist die Attribution auf dieser Ebene wahrscheinlich weniger nützlich als die Betrachtung der Attribution auf Kampagnenebene, nachdem die Verhaltensdaten von Braze zur Personalisierung von Inhalten verwendet wurden.
+Da der Webhook jedoch nur zum Streamen von Daten gedacht ist, ist die Attribution auf dieser Ebene wahrscheinlich weniger nützlich als die Betrachtung der Attribution auf Campaign-Ebene, nachdem die Verhaltensdaten von Braze zur Personalisierung von Inhalten verwendet wurden.
 
-### Schritt 3: Kampagne starten
+### 3. Schritt: Campaign starten {#step-3-launch-the-campaign}
 
-Überprüfen Sie Ihre Webhook-Einrichtung und starten Sie Ihre Kampagne.
+Überprüfen Sie Ihre Webhook-Einrichtung und starten Sie Ihre Campaign.
 
-## Überlegungen
+## Überlegungen {#considerations}
 
-### Ausrichten auf einen eindeutigen Nutzer:in Bezeichner
+### Abstimmung auf einen eindeutigen Nutzer-Bezeichner {#aligning-on-a-unique-user-identifier}
 
-Stellen Sie sicher, dass der eindeutige Bezeichner (UUID), den Sie als `mi_u` verwenden, in Braze verfügbar ist und in die an Movable Ink gesendeten Ereignis-Payloads aufgenommen werden kann.
+Stellen Sie sicher, dass der eindeutige Nutzer-Bezeichner (UUID), den Sie als `mi_u` verwenden, in Braze verfügbar ist und in die an Movable Ink gesendeten Event-Payloads aufgenommen werden kann.
 
-Dadurch wird sichergestellt, dass die Verhaltensereignisse, auf die Movable Ink bei der Erstellung eines Bildes referenziert, mit demselben Kundenverhalten verknüpft sind, für das sie die Verhaltensereignisse erhalten haben. Wenn der UUID-Wert nicht mit dem von Braze `external_id` übereinstimmt, muss die UUID erfasst und an Braze als Attribut oder in den Event-Eigenschaften eines Braze-Events übergeben werden, um diesen Bezeichner zu nutzen.
+Dadurch wird sichergestellt, dass die Verhaltens-Events, auf die Movable Ink bei der Erstellung eines Bildes referenziert, mit derselben Kund:in verknüpft sind, für die die Verhaltens-Events empfangen wurden. Wenn der UUID-Wert nicht mit der Braze `external_id` übereinstimmt, muss die UUID erfasst und als Attribut oder in den Event-Eigenschaften eines Braze-Events an Braze übergeben werden, um diesen Bezeichner zu nutzen.
 
-Braze trackt das Nutzerverhalten über mehrere Plattformen hinweg (z.B. Internet und mobile App), so dass ein einzelner Nutzer:innen mehrere verschiedene anonyme IDs haben kann. Diese IDs können in das einzige bekannte Stories Nutzerprofil zusammengeführt werden, wenn ein `identify` Ereignis an Movable Ink gesendet wird, solange das `identify` Ereignis sowohl einen anonymen Bezeichner als auch den einzigen bekannten Bezeichner enthält.
+Braze trackt das Nutzerverhalten über mehrere Plattformen hinweg (z. B. Internet und mobile App), sodass eine einzelne Nutzer:in mehrere verschiedene anonyme IDs haben kann. Diese IDs können in das einzige bekannte Stories-Nutzerprofil zusammengeführt werden, wenn ein `identify`-Event an Movable Ink gesendet wird, solange das `identify`-Event sowohl einen anonymen Bezeichner als auch den einzigen bekannten Bezeichner enthält.
 
-Sobald Movable Ink eine `user_id` für einen einzelnen Nutzer:innen erhält, müssen alle zukünftigen Ereignisse für diesen Nutzer:innen dieselbe `user_id` enthalten.
+Sobald Movable Ink eine `user_id` für eine einzelne Nutzer:in erhält, müssen alle zukünftigen Events für diese Nutzer:in dieselbe `user_id` enthalten.
 
-### Gemeinsame Nutzung von Ereignis-Payloads mit Movable Ink {#event-payloads}
+### Event-Payloads mit Movable Ink teilen {#event-payloads}
 
-Bevor Sie den Konnektor zur Kundendaten-API von Movable Ink einrichten, stellen Sie sicher, dass Sie Ihre Event-Payloads mit Ihrem Movable Ink Client Experience Team teilen. Dies ermöglicht Movable Ink die Abbildung Ihrer Ereignisse auf das Ereignisschema und verhindert, dass API-Aufrufe abgelehnt werden oder fehlschlagen.
+Bevor Sie den Konnektor zur Customer Data API von Movable Ink einrichten, stellen Sie sicher, dass Sie Ihre Event-Payloads mit Ihrem Movable Ink Client Experience Team teilen. Dies ermöglicht Movable Ink die Abbildung Ihrer Events auf das Event-Schema und verhindert, dass API-Aufrufe abgelehnt werden oder fehlschlagen.
 
-Sie können in Braze eine Event-Nutzlast mit beliebigen Event-Eigenschaften erzeugen. Generieren Sie eine Beispiel-Nutzlast für einen zufälligen Nutzer oder durch die Suche nach einer bestimmten Nutzer:innen-ID. Siehe [Schritt 1d](#step-1d) oben für Details.
+Sie können in Braze einen Event-Payload mit beliebigen Event-Eigenschaften erzeugen. Generieren Sie einen Beispiel-Payload für eine:n zufällige:n Nutzer:in oder durch die Suche nach einer bestimmten Nutzer-ID. Siehe [Schritt 1d](#step-1d) oben für Details.
 
-Teilen Sie diese Beispiel-Nutzlast mit Ihrem Movable Ink Client Experience Team. Vergewissern Sie sich, dass keine sensiblen persönlichen Bezeichner (wie z.B. E-Mail Adresse, Telefonnummer oder vollständige Geburtsdaten) in der Nutzlast der Probe enthalten sind. 
+Teilen Sie diesen Beispiel-Payload mit Ihrem Movable Ink Client Experience Team. Vergewissern Sie sich, dass keine sensiblen personenbezogenen Daten im Beispiel-Payload enthalten sind (wie z. B. E-Mail-Adresse, Telefonnummer oder vollständige Geburtsdaten).
 
-Wenn Sie mehr über angepasste Event-Eigenschaften und das erwartete Format der in den Eigenschaften enthaltenen Daten erfahren möchten, referenzieren Sie auf [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-event-properties).
+Wenn Sie mehr über angepasste Event-Eigenschaften und das erwartete Format der in den Eigenschaften enthaltenen Daten erfahren möchten, lesen Sie [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
 
-### Bekannte versus anonyme Nutzer:innen
+### Bekannte versus anonyme Nutzer:innen {#known-versus-anonymous-users}
 
-In Braze können Ereignisse unter einem anonymen Nutzerprofil aufgezeichnet werden. Welche Bezeichner bei der Ereignisprotokollierung mit dem Nutzerprofil verknüpft werden, hängt davon ab, wie der Nutzer erstellt wurde (über das Braze SDK oder die APIs) und in welcher Phase des Nutzer:in sich der Nutzer befindet.
+In Braze können Events unter einem anonymen Nutzerprofil aufgezeichnet werden. Welche Bezeichner bei der Event-Protokollierung mit dem Nutzerprofil verknüpft werden, hängt davon ab, wie die Nutzer:in erstellt wurde (über das Braze SDK oder die APIs) und in welcher Phase des Nutzerlebenszyklus sich die Nutzer:in befindet.
 
-#### Nur Braze-Ereignisse für bekannte Nutzer:innen weiterleiten
+#### Nur Braze-Events für bekannte Nutzer:innen weiterleiten {#only-forwarding-braze-events-for-known-users}
 
-Verwenden Sie in Ihrer Webhook-Kampagne den Filter `External User ID`, um nur Nutzer:innen anzusprechen, die eine `external_id` mit dem Filter `External User ID` `is not blank` haben.
+Verwenden Sie in Ihrer Webhook-Campaign den Filter `External User ID`, um nur Nutzer:innen anzusprechen, die eine `external_id` haben, mit dem Filter `External User ID` `is not blank`.
 
-#### Weiterleitung von Braze-Ereignissen für anonyme und bekannte Nutzer:innen
+#### Braze-Events für anonyme und bekannte Nutzer:innen weiterleiten {#forwarding-braze-events-for-anonymous-and-known-users}
 
-Wenn Sie Braze-Ereignisse von anonymen Nutzer:innen (Nutzer:innen, deren Profil noch kein `external_id` zugewiesen wurde) weiterleiten möchten, müssen Sie entscheiden, welchen Bezeichner Sie als `anonymous_id` für Movable Ink verwenden möchten, bis ein `external_id` verfügbar ist. Wählen Sie eine `anonymous_id`, die in Ihrem Nutzerprofil auf Braze konstant bleibt. Sie können die Liquid-Logik im Körper des Webhooks verwenden, um zu entscheiden, ob ein `anonymous_id` oder ein `user_id` übergeben werden soll.
+Wenn Sie Braze-Events von anonymen Nutzer:innen (Nutzer:innen, deren Profil noch keine `external_id` zugewiesen wurde) weiterleiten möchten, müssen Sie entscheiden, welchen Bezeichner Sie als `anonymous_id` für Movable Ink verwenden möchten, bis eine `external_id` verfügbar ist. Wählen Sie eine `anonymous_id`, die in Ihrem Braze-Nutzerprofil konstant bleibt. Sie können die Liquid-Logik im Webhook-Body verwenden, um zu entscheiden, ob eine `anonymous_id` oder eine `user_id` übergeben werden soll.
 
-Weitere Informationen finden Sie in den Beispiel-Webhooks unter [Beispiel-Nutzdaten](#sample-payloads).
+Weitere Informationen finden Sie in den Beispiel-Webhooks unter [Beispiel-Payloads](#sample-payloads).
 
-## Beispiel-Nutzdaten
+## Beispiel-Payloads {#sample-payloads}
 
-### Ereignis Produktansicht
+### Produktansichts-Event {#product-view-event}
 
 {% tabs local %}
 {% tab Example Braze Trigger Event %}
@@ -228,7 +228,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
 {% endtab %}
 {% tab Example webhook %}
 
-In diesem Beispiel wird eine gehashte E-Mail Adresse als `anonymous_id` für Nutzer:innen verwendet, die keine `external_id` haben.
+In diesem Beispiel wird eine gehashte E-Mail-Adresse als `anonymous_id` für Nutzer:innen verwendet, die keine `external_id` haben.
 
 {% raw %}
 
@@ -275,7 +275,7 @@ In diesem Beispiel wird eine gehashte E-Mail Adresse als `anonymous_id` für Nut
 {% endtab %}
 {% endtabs %}
 
-### Ereignis Kategorieansicht
+### Kategorieansichts-Event {#category-view-event}
 
 {% tabs local %}
 {% tab Example Braze Trigger Event %}
@@ -330,7 +330,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
 {% endtab %}
 {% tab Example webhook %}
 
-Dieses Beispiel zeigt einen Webhook, der nur Ereignisse für bekannte Nutzer:innen trackt (Nutzer:innen mit einem `external_id`).
+Dieses Beispiel zeigt einen Webhook, der nur Events für bekannte Nutzer:innen trackt (Nutzer:innen mit einer `external_id`).
 
 {% raw %}
 
@@ -358,7 +358,7 @@ Dieses Beispiel zeigt einen Webhook, der nur Ereignisse für bekannte Nutzer:inn
 {% endtab %}
 {% endtabs %}
 
-### Ereignis bezeichnen
+### Identify-Event
 
 {% tabs local %}
 {% tab Example Braze Trigger Event %}
@@ -400,7 +400,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
 {% endtab %}
 {% tab Example webhook %}
 
-In diesem Beispiel wird eine gehashte E-Mail Adresse als `anonymous_id` für Nutzer:innen verwendet, die keine `external_id` haben.
+In diesem Beispiel wird eine gehashte E-Mail-Adresse als `anonymous_id` für Nutzer:innen verwendet, die keine `external_id` haben.
 
 {% raw %}
 
@@ -425,6 +425,3 @@ In diesem Beispiel wird eine gehashte E-Mail Adresse als `anonymous_id` für Nut
 
 {% endtab %}
 {% endtabs %}
-
-
-

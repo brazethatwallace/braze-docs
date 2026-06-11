@@ -9,7 +9,7 @@ search_tag: Partner
 
 # SessionM Loyalty Platform
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) is a customer engagement and loyalty platform that provides campaign management features and loyalty management solutions to help marketers drive targeted outreach to increase engagement and profitability.
+> [SessionM](https://sessionm.com/) is a customer engagement and loyalty platform, part of Capillary Technologies, that provides campaign management features and loyalty management solutions to help marketers drive targeted outreach to increase engagement and profitability.
 
 ## Prerequisites
 
@@ -25,11 +25,7 @@ search_tag: Partner
 | SessionM | A SessionM Connect REST endpoint | Your endpoint will depend on the SessionM URL of your instance. Contact your SessionM technical account manager or Delivery team to provide. |
 | SessionM | A SessionM Connect REST Authorization string | The SessionM Connect Basic Authorization string associated with your instance. This authentication string can be used for all connect based calls including get_user_offers. Please contact your SessionM technical account manager or Delivery team to provide. |
 | SessionM | A SessionM Connect REST Retailer ID | A unique guid identification to the specific customer associated with your instance. Contact your SessionM technical account manager or Delivery team to provide. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-{% alert note %} 
-If you are using the [older navigation]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/), you can create an API key at **Developer Console** > **API Settings**. 
-{% endalert %} 
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -117,7 +113,7 @@ SessionM then adds the offer to the customer's wallet in the issued state.
 
 ### Step 2: Call SessionM Offer Wallet API
 
-In campaign or Canvas step with the SessionM offers, use [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/) to make an API call to the [SessionM `get_user_offers` endpoint](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/).
+In campaign or Canvas step with the SessionM offers, use [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) to make an API call to the [SessionM `get_user_offers` endpoint](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/).
 
 In the Connected Content request, specify the user's SessionM `user_id` and your `retailer_id` to retrieve the full list of active offers the customer has in their wallet. Each request to this endpoint can include a single user. Contact the SessionM team for the encoded string key for the basic authorization header in your Connected Content call.
 

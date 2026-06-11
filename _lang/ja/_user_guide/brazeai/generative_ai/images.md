@@ -2,24 +2,24 @@
 nav_title: 画像
 article_title: BrazeAIで画像を生成
 page_order: 10
-description: "DALL·E 3、OpenAI からのAI システム、およびBraze サードパーティのプロバイダーを使用してメディアライブラリーのイメージを生成する方法について説明します。"
+description: "DALL·E 3（OpenAIのAIシステムであり、Brazeのサードパーティプロバイダー）を使用して、メディアライブラリ用の画像を生成する方法を学びます。"
 ---
 
-# BrazeAIで画像を生成
+# BrazeAIで画像を生成 {#generate-images-with-brazeai}
 
 > {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
-## メディアライブラリーについて
+## メディアライブラリについて {#about-the-media-library}
 
-メディアライブラリを使用すると、アセットを1か所で一元管理できます。Braze メディアライブラリにアクセスするには、[**テンプレート**] > [**メディアライブラリ**] に移動します。詳細については、[メディアライブラリー]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/)を参照してください。
+メディアライブラリを使用すると、アセットを1か所で一元管理できます。Brazeのメディアライブラリにアクセスするには、**コンテンツ** > **メディアライブラリ**に移動します。詳細については、[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)を参照してください。
 
-## 画像の生成
+## 画像を生成する {#generating-an-image}
 
-1. メディアライブラリに移動し、<i class="fas fa-wand-magic-sparkles"></i> **AI 画像ジェネレーター**を選択します。
-2. 生成する画像の説明を最大300文字で入力します。説明が詳細であればあるほど、結果は良くなります。この機能は、参照が利用できないため、画像のテキスト入力アップロードのみをサポートします。
-3. [**画像を生成**] を選択します。画像が生成されるまでに約1分かかることがあります。
-4. メディアライブラリに追加する画像の [<i class="fas fa-download" title="メディアライブラリに画像を追加"></i>] を選択します。
+1. メディアライブラリに移動し、<i class="fas fa-wand-magic-sparkles"></i> **AI Image Generator**を選択します。
+2. 生成する画像の説明を最大300文字で入力します。説明が詳細であればあるほど、結果は良くなります。この機能はテキスト入力のみをサポートしています。参照として画像をアップロードすることはできません。
+3. **Generate Images**を選択します。画像が生成されるまでに約1分かかることがあります。
+4. メディアライブラリに追加したい画像の<i class="fas fa-download" title="Add image to Media Library"></i>を選択します。
 
-![メディアライブラリのAIイメージジェネレーターモーダル。]({% image_buster /assets/img_archive/media_library_dalle.png %}){: style="max-width:75%"}
+![メディアライブラリのAI画像ジェネレーターモーダル。]({% image_buster /assets/img_archive/media_library_dalle.png %}){: style="max-width:75%"}
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}

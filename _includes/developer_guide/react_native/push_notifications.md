@@ -127,18 +127,25 @@ For a full list of push notification fields, refer to the table below:
 | `badge_count`      | Number   | Represents the badge count of the notification. |
 | `timestamp`        | Number | Represents the time at which the payload was received by the application. |
 | `is_silent`        | Boolean   | If `true`, the payload is received silently. For details on sending Android silent push notifications, refer to [Silent push notifications on Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). For details on sending iOS silent push notifications, refer to [Silent push notifications on iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal`| Boolean   | This will be `true` if a notification payload was sent for an internal SDK feature, such as geofences sync, Feature Flag sync, or uninstall tracking. The payload is received silently for the user. |
+| `is_braze_internal`| Boolean   | This will be `true` if a notification payload was sent for an internal SDK feature, such as Feature Flag sync or uninstall tracking. The payload is received silently for the user. |
 | `image_url`        | String    | Specifies the URL associated with the notification image. |
 | `braze_properties` | Object    | Represents Braze properties associated with the campaign (key-value pairs). |
 | `ios`              | Object    | Represents iOS-specific fields. |
 | `android`          | Object    | Represents Android-specific fields. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### Step 3: Enable deep linking (optional)
 
 To enable Braze to handle deep links inside React components when a push notification is clicked, first implement the steps described in [React Native Linking](https://reactnative.dev/docs/linking) library, or with your solution of choice. Then, follow the additional steps below.
 
-To learn more about what deep links are, see our [FAQ article]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking).
+To learn more about what deep links are, see our [FAQ article]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+
+{% alert important %}
+If you're migrating an existing React Native push integration, re-test deep linking after you upgrade the Braze SDK, React Native, Expo, or related libraries. Confirm that:
+- [React Native Linking](https://reactnative.dev/docs/linking) is still configured and handling your deep link URLs.
+- Your iOS initial push payload handling (see [Step 3.1: Store the push notification payload on app launch](#step-3-1)) is implemented and still called on app launch.
+- Any native delegate or listener methods you use to handle push click events are still registered and invoked as expected.
+{% endalert %}
 
 {% tabs local %}
 {% tab Android Native %}
@@ -187,7 +194,7 @@ To handle deep links from push notifications on iOS, you must also configure lin
 {% endalert %}
 
 This includes registering a custom URL scheme and implementing a URL handler in your `AppDelegate`. For full setup instructions, see [Handling deep links]({{site.baseurl}}/developer_guide/platforms/swift/in_app_messages/deep_linking/?tab=objective-c) in the native iOS documentation.
-#### Step 3.1: Store the push notification payload on app launch
+#### Step 3.1: Store the push notification payload on app launch {#step-3-1}
 {% alert note %}
 Skip step 3.1 if you're using the Braze Expo plugin, as this functionality is handled automatically.
 {% endalert %}
@@ -513,3 +520,14 @@ For iOS integrations, you can also reference our [push notification setup tutori
 If your device token won't register with Braze, first review [Push notifications stopped working](#troubleshooting-stopped-working).
 
 If your issue persists, there may be a separate dependency interfering with your Braze push notification configuration. You can try removing it or manually call `Braze.registerPushToken` instead.
+
+#### Deep links from push notifications don't open {#troubleshooting-deep-links}
+
+If deep links from push notifications stop opening after a migration, check the following:
+
+1. Verify your [React Native Linking](https://reactnative.dev/docs/linking) setup is still valid in your upgraded app.
+2. For iOS native integrations, confirm you implemented `populateInitialPayloadFromLaunchOptions` and `Braze.getInitialPushPayload` so that, when the app is launched from a terminated state, it can retrieve the initial push payload and pass its `url` into your deep link handler.
+3. If you're using the Braze Expo plugin, verify `androidHandlePushDeepLinksAutomatically` is set correctly for your implementation.
+4. Review recently added dependencies for overrides to notification handling or app delegate behavior.
+
+If you've completed these checks and the issue persists, [open a support ticket]({{site.baseurl}}/user_guide/administrative/access_braze/support/) and include SDK logs plus reproduction steps.

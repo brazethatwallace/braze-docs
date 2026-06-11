@@ -1,40 +1,41 @@
 ---
-nav_title: "GET: Exportar detalles del lienzo"
+nav_title: "GET: Exportar detalles del Canvas"
 article_title: "GET: Exportar detalles del Canvas"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Exportar detalles de Canvas de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Exportar detalles de Canvas de Braze."
 
 ---
 {% api %}
-# Exportar detalles del lienzo
+# Exportar detalles del Canvas {#export-canvas-details}
 {% apimethod get %}
 /canvas/details
 {% endapimethod %}
 
-> Utilice este punto final para exportar metadatos sobre un lienzo, como el nombre, la hora de creación, el estado actual, etc.
+> Usa este punto de conexión para exportar metadatos sobre un Canvas, como el nombre, la hora de creación, el estado actual y más.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5188873c-13a3-4aaf-a54b-9fa1daeac5f8 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.details`.
+Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.details`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obligatoria | Cadena | Ver [Identificador API de Canvas]({{site.baseurl}}/api/identifier_types/) |
-| `post_launch_draft_version` | Opcional | Booleano | Para los lienzos que tienen un borrador posterior al lanzamiento, en la configuración de esto`true` se mostrarán los cambios disponibles en el borrador. Predeterminado `false` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | Obligatorio | Cadena | Consulta [Identificador de API de Canvas]({{site.baseurl}}/api/identifier_types/) |
+| `post_launch_draft_version` | Opcional | Booleano | Para los Canvas que tienen un borrador posterior al lanzamiento, establecer esto en `true` muestra los cambios de borrador disponibles. Predeterminado: `false`. |
+| `include_has_translatable_content` | Opcional | Booleano | Cuando se establece en `true`, la respuesta de la API incluye un campo `has_translatable_content` para cada mensaje. Predeterminado: `false`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 {% raw %}
 ```
@@ -43,10 +44,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 {% endraw %}
 
-## Respuestas
+## Respuestas {#responses}
 
 {% alert note %}
-Todos los pasos de Canvas tienen un campo `next_paths`, que es una matriz de datos `{name, next_step_id}`. Para los pasos de mensaje, el`next_step_ids`campo estará presente, pero no contendrá datos para otros pasos en Canvas.
+Todos los pasos en Canvas tienen un campo `next_paths`, que es una matriz de datos `{name, next_step_id}`. Para los pasos de mensaje, el campo `next_step_ids` estará presente, pero no contendrá datos para otros pasos en Canvas.
 {% endalert %}
 
 ```json
@@ -92,6 +93,7 @@ Todos los pasos de Canvas tienen un campo `next_paths`, que es una matriz de dat
       "messages": {
           "message_variation_id": (string) {  // <=This is the actual id
               "channel": (string) the channel type of the message (for example, "email"),
+              "has_translatable_content": (boolean) whether the message has translatable content (only present if `include_has_translatable_content` is true); `true` if locales are configured and the message contains at least one translation tag; `false` if no locales are configured or no translation tags detected; `null` if detection could not be completed,
               // channel-specific fields for this message, see Campaign Details endpoint API Response for example message responses
           }
       }
@@ -102,9 +104,9 @@ Todos los pasos de Canvas tienen un campo `next_paths`, que es una matriz de dat
 }
 ```
 
-### Mensajes por canal
+### Mensajes por canal {#messages-by-channel}
 
-A continuación se muestra un ejemplo de respuesta que incluye mensajes Canvas enviados a través de diferentes canales (correo electrónico, push, SMS y mensajes in-app):
+A continuación se muestra un ejemplo de respuesta que incluye mensajes de Canvas enviados a través de diferentes canales (correo electrónico, push, SMS y mensajes dentro de la aplicación):
 
 ```json
 {
@@ -218,7 +220,7 @@ A continuación se muestra un ejemplo de respuesta que incluye mensajes Canvas e
 ```
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

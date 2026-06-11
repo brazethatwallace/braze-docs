@@ -20,7 +20,7 @@ The following features are supported to help improve the quality of your content
 | Offensive language detection | Scans your message for any potentially offensive or inappropriate language, allowing you to revise your content and maintain respectful communication. |
 | Accidental content check   | Detects any inclusion of code, markup language, or test messages that might have been added unintentionally, including any Liquid code that didn't render for a test user. |
 | Multi-language support     | Although not officially supported by OpenAI, GPT can understand [multiple languages](https://openai.com/research/gpt-4#:~:text=GPT%2D4%203%2Dshot%20accuracy%20on%20MMLU%20across%20languages). Keep in mind that Braze doesn't pass any information about the language or locale of your copy when it's sent to OpenAI, so your results may vary depending on the language you're writing in. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported features" }
 
 ## Using BrazeAI<sup>TM</sup> to QA content
 

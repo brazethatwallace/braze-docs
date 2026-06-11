@@ -1,196 +1,194 @@
 ---
-nav_title: アンペア
-article_title: アンペア
+nav_title: Amperity
+article_title: Amperity
 alias: /partners/amperity/
-description: "この参考記事では、Brazeと包括的な企業顧客データプラットフォームであるAmperityのパートナーシップについて概説しており、Amperityユーザーの同期、データの統一、AWS S3バケットを使用したBrazeへのデータ送信などを可能にしている。"
+description: "このリファレンス記事では、BrazeとAmperityのパートナーシップについて概説しています。Amperityは包括的な企業向け顧客データプラットフォームであり、Amperityユーザーの同期、データの統合、AWS S3バケットを使用したBrazeへのデータ送信などを可能にします。"
 page_type: partner
 search_tag: Partner
 
 ---
 
-# アンペア
+# Amperity
 
-> [Amperity](https://amperity.com/) は、包括的な企業向け顧客データプラットフォームであり、ブランドが顧客を理解し、戦略的な意思決定を行い、消費者により良いサービスを提供するために常に適切な措置を取れるよう支援します。Amperity は、データ管理の統合、分析、インサイト、およびアクティベーションにおけるインテリジェントな機能を提供します。
+> [Amperity](https://amperity.com/)は、包括的な企業向け顧客データプラットフォームであり、ブランドが顧客を理解し、戦略的な意思決定を行い、消費者により良いサービスを提供するために常に適切な行動を取れるよう支援します。Amperityは、データ管理の統合、分析、インサイト、およびアクティベーションにおけるインテリジェントな機能を提供します。
 
-_この統合は Amperity によって管理されます。_
+_この統合はAmperityによって管理されています。_
 
 {% multi_lang_include video.html id="06G0lxaSjgk" align="right" %}
 
-Braze と Amperity の統合により、2つのプラットフォームにわたる顧客の統合ビューが提供されます。この統合により、以下のことが可能になる：
-- **顧客プロファイルを同期する**:ユーザーデータとカスタム属性をAmperityからBrazeにマッピングする。 
-- **オーディエンスを作成、送信する**:アクティブな顧客とこれらの顧客に関連付けられているカスタム属性のリストを Braze に返すセグメントを作成して、Braze に送信します。
-- **データの更新を管理する**:カスタム属性の更新をBrazeに送信する頻度を制御する。
-- **データを統合する**:Amperityがサポートする様々なプラットフォームとBrazeでデータを統合する。
-- **BrazeのデータをAmazon S3に同期する**：Braze Currentsを使用して、Brazeキャンペーンからのエンゲージメントデータを統合し、Apache AvroフォーマットでAmazon S3にデータを同期できる。
+BrazeとAmperityの統合により、2つのプラットフォームにわたる顧客の統合ビューが提供されます。この統合により、以下のことが可能になります：
+- **顧客プロファイルを同期する**：ユーザーデータとカスタム属性をAmperityからBrazeにマッピングします。
+- **オーディエンスを作成して送信する**：アクティブな顧客とそれに関連付けられたカスタム属性のリストを返すSegmentを作成し、Brazeに送信します。
+- **データの更新を管理する**：カスタム属性の更新をBrazeに送信する頻度を制御します。
+- **データを統合する**：AmperityがサポートするさまざまなプラットフォームとBrazeでデータを統合します。
+- **BrazeのデータをAmazon S3に同期する**：Braze Currentsを使用して、BrazeのCampaignsからのエンゲージメントデータを統合し、Apache AvroフォーマットでAmazon S3にデータを同期できます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Amperity アカウント | このパートナーシップを活用するには、[Amperity アカウント](https://amperity.com/request-a-demo)が必要です。 |
-| Braze REST API キー | `users.track` 権限を持つ Braze REST API キー。<br> これは Braze ダッシュボードの [**開発者コンソール**] > [**REST API キー**] > [**新しい API キーを作成**] で作成できます。 |
-| ブレイズインスタンス | Braze インスタンスは Braze オンボーディングマネージャーから入手できます。また、[API 概要ページ]({{site.baseurl}}/api/basics#endpoints)でも確認できます。 |
-| Braze REST エンドポイント | あなたのBrazeエンドポイントURL。エンドポイントはBrazeインスタンスに依存する。 |
-| Currents コネクター (オプション) | S3 Currents コネクター。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Amperityアカウント | このパートナーシップを活用するには、[Amperityアカウント](https://amperity.com/request-a-demo)が必要です。 |
+| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br> これはBrazeダッシュボードの**開発者コンソール** > **REST APIキー** > **新規作成**で作成できます。 |
+| Brazeインスタンス | Brazeインスタンスは、Brazeオンボーディングマネージャーから入手するか、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)で確認できます。 |
+| Braze RESTエンドポイント | BrazeエンドポイントURL。エンドポイントはBrazeインスタンスに依存します。 |
+| Currentsコネクター（オプション） | S3 Currentsコネクター。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## データマッピング
+## データマッピング {#data-mapping}
 
-標準属性とカスタム属性の両方を Amperity から Braze に送信できます。これにより、Amperity からさまざまなソースのデータを使用して、Braze の顧客プロファイルを強化できます。送信できる属性は、Amperity システムのデータと、Braze で設定した属性によって異なります。
+標準属性とカスタム属性の両方をAmperityからBrazeに送信できます。これにより、Amperityを通じてさまざまなソースのデータでBrazeの顧客プロファイルを強化できます。送信できる具体的な属性は、Amperityシステムのデータと、Brazeで設定した属性によって異なります。
 
-これらの属性については、以下をお読みいただきたい。
+これらの属性について以下で説明します。
 
-### 標準属性 
+### 標準属性 {#standard-attributes}
 
-[プロファイル属性]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)は、顧客が誰であるかを示します。これらは多くの場合、次のような顧客の身元情報に関連付けられています。
+[プロファイル属性]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)は、顧客が誰であるかを示します。これらは多くの場合、次のような顧客の身元情報に関連付けられています：
 - 名前
 - 生年月日
 - メールアドレス
 - 電話番号
 
-### カスタム属性 
+### カスタム属性 {#custom-attributes}
 
-Braze の[カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/)は、ブランドが決定するフィールドです。Brazeにすでに存在するカスタム属性をAmperityで管理したい場合は、Amperityから送信される出力を、Brazeワークスペースにすでにある名前に合わせる。これには次のものが含まれます。
+Brazeの[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)は、ブランドが決定するフィールドです。Brazeにすでに存在するカスタム属性をAmperityで管理したい場合は、Amperityから送信される出力を、Brazeワークスペースにすでにある名前に合わせてください。これには次のものが含まれます：
 - 購入履歴
 - ロイヤルティステータス
 - 価値階層
-- 最近のエンゲージメント・データ
+- 最近のエンゲージメントデータ
 
-AmperityからBrazeに送信されるカスタム属性の名前を確認する。Amperityは、一致する名前がないときはいつでもカスタム属性を追加する。
+AmperityからBrazeに送信されるカスタム属性の名前を確認してください。一致する名前がない場合、Amperityはカスタム属性を追加します。
 
-Braze 内で一致する `external_id` または`braze_id` を持つユーザーのカスタム属性のみが更新されます。
+カスタム属性は、Braze内で一致する`external_id`または`braze_id`を持つユーザーのみ更新されます。
 
-### Amperity オーディエンス
+### Amperityオーディエンス {#amperity-audiences}
 
-AmperityからBrazeに同期されたオーディエンスは、カスタム属性としてユーザープロファイルに記録される。これらは、Brazeでそれらのユーザーをターゲットにするために使用できる。
+AmperityからBrazeに同期されたオーディエンスは、カスタム属性としてユーザープロファイルに記録されます。これらは、Brazeでそれらのユーザーをターゲットにするために使用できます。
 
-![カスタムデータカテゴリに表示されるカスタム属性を持つフィルタのドロップダウンリスト。]({% image_buster /assets/img/amperity/custom_attributes_filters.png %}){: style="max-width:60%;"}
+![カスタムデータカテゴリにカスタム属性が表示されたフィルターのドロップダウンリスト。]({% image_buster /assets/img/amperity/custom_attributes_filters.png %}){: style="max-width:60%;"}
 
-!["l12m_frequency" や"l12m_monetary".]({% image_buster /assets/img/amperity/search_custom_attributes_filters.png %}などのカスタム属性のドロップダウンリスト){: style="max-width:40%;"}
+![「l12m_frequency」や「l12m_monetary」などのカスタム属性のドロップダウンリスト。]({% image_buster /assets/img/amperity/search_custom_attributes_filters.png %}){: style="max-width:40%;"}
 
-### データ型
+### データタイプ {#data-types}
 
-サポートされているデータタイプは以下の通りである：
+サポートされているデータタイプは以下の通りです：
 - ブール値
 - 日付
 - 日時
 - 小数
 - フロート
 - 整数
-- String
+- 文字列
 - 可変長文字列
 
-使用されるデータ型は属性の性質によって異なる。たとえば、メールアドレスは文字列で、顧客の年齢は整数です。
+使用されるデータタイプは属性の性質によって異なります。たとえば、メールアドレスは文字列で、顧客の年齢は整数です。
 
-### 属性の重複
+### 属性の重複 {#duplication-of-attributes}
 
-デフォルトのユーザープロファイルフィールドと重複するカスタム属性の送信は避ける。たとえば誕生日は、Braze 標準属性項目と一致させるため、「dob」という名前のユーザープロファイルフィールドとして Braze に送信する必要があります。birthday"、"Birthdate"、またはその他の文字列として送信された場合、カスタム属性が作成され、"dob "フィールドの値は更新されない。
+デフォルトのユーザープロファイルフィールドと重複するカスタム属性の送信は避けてください。たとえば、誕生日はBraze標準属性項目と一致させるため、「dob」という名前のユーザープロファイルフィールドとしてBrazeに送信する必要があります。「birthday」、「Birthdate」、またはその他の文字列として送信された場合、カスタム属性が作成され、「dob」フィールドの値は更新されません。
 
-### データポイント
+### データポイント {#data-points}
 
-Amperity は、Braze との同期間に行われた変更と、送信のステータスを追跡します。Amperityは、前回の同期以降に変更されたリストメンバーシップとその他の選択された属性のみをBrazeに送信する。  
+Amperityは、Brazeとの同期間に行われた変更と送信全体のステータスを追跡します。Amperityは、前回の同期以降に変更されたリストメンバーシップとその他の選択された属性のみをBrazeに送信します。
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:Brazeの設定の詳細をキャプチャする
+### ステップ1：Brazeの設定詳細を取得する {#step-1-capture-configuration-details-for-braze}
 
-1. [**User Data**] で、`users.track` 権限を持つ Braze ワークスペースの Braze REST APIキーを作成します。`users.track` エンドポイントは、Amperity オーディエンスをカスタム属性として Braze に同期します。
-2. Brazeインスタンスの[REST APIエンドポイントを]({{site.baseurl}}/api/basics#endpoints)決定する。例えば、BrazeのURLが`https://dashboard-03.braze.com` 、REST APIのエンドポイントが`https://rest.iad-03.braze.com` 、インスタンスが "US-03 "の場合。
-3. Amperity から Braze に送信できる一連の[ユーザープロファイルフィールド]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)と[カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/)を決定します。
+1. **User Data**で、`users.track`権限を持つBrazeワークスペースのBraze REST APIキーを作成します。`users.track`エンドポイントは、Amperityオーディエンスをカスタム属性としてBrazeに同期します。
+2. Brazeインスタンスの[REST APIエンドポイント]({{site.baseurl}}/api/basics/#endpoints)を確認します。たとえば、BrazeのURLが`https://dashboard-03.braze.com`の場合、REST APIエンドポイントは`https://rest.iad-03.braze.com`で、インスタンスは「US-03」です。
+3. AmperityからBrazeに送信できる[ユーザープロファイルフィールド]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)と[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)のリストを決定します。
 
-### ステップ2:Braze を宛先として設定する - DataGrid オペレーター
+### ステップ2：Brazeを送信先として設定する — DataGrid Operator {#step-2-set-up-braze-as-a-destinationdatagrid-operator}
 
-#### ステップ 2a: 顧客プロファイルテーブルを作成する
+#### ステップ2a：顧客プロファイルテーブルを作成する {#step-2a-build-the-customer-profiles-table}
 
-Amperity の Customer 360 データベース内に、「Braze Customer Attributes」という名前の新しいテーブルを作成します。このテーブルには、ブランドが Amperity で管理するすべての Braze 属性が含まれている必要があります。これには、Braze が必要とするデフォルトのユーザープロファイルフィールドとカスタム属性の両方が含まれます。[Amperity ドキュメント](https://docs.amperity.com/datagrid/destination_braze.html#customer-profiles-table)に示されているように、SQL を使用してこのテーブルの構造を定義します。
+AmperityのCustomer 360データベース内に、「Braze Customer Attributes」という名前の新しいテーブルを作成します。このテーブルには、ブランドがAmperityで管理するすべてのBraze属性が含まれている必要があります。これには、Brazeが必要とするデフォルトのユーザープロファイルフィールドとカスタム属性の両方が含まれます。[Amperityドキュメント](https://docs.amperity.com/datagrid/destination_braze.html#customer-profiles-table)に示されているように、SQLを使用してこのテーブルの構造を定義します。
 
-#### ステップ 2b: テーブルに名前を付け、検証し、保存する
+#### ステップ2b：テーブルに名前を付け、検証し、保存する {#step-2b-name-validate-and-save-the-table}
 
-テーブル名を "Braze Customer Attributes "とし、保存する。テーブルが**セグメントエディター**およびキャンペーン内の**属性編集**エディターにアクセス可能であることを確認する。
+テーブル名を「Braze Customer Attributes」とし、保存します。テーブルが**Segment Editor**およびCampaigns内の**Edit Attributes**エディターにアクセス可能であることを確認します。
 
-#### ステップ 2c: Braze を宛先として追加する
+#### ステップ2c：Brazeを送信先として追加する {#step-2c-add-braze-as-a-destination}
 
-Amperity プラットフォームで [**Destinations**] タブに移動します。新しい目的地を追加するオプションを探す。利用可能なオプションから [**Braze**] を選択します。
+Amperityプラットフォームで**Destinations**タブに移動します。新しい送信先を追加するオプションを探します。利用可能なオプションから**Braze**を選択します。
 
-![名前が「Braze API」、説明が「Send audience attributes to Braze」、プラグインが「Braze」である「New Destination」セクション。]({% image_buster /assets/img/amperity/destination_name.png %}){: style="max-width:60%;"}
+![名前が「Braze API」、説明が「Send audience attributes to Braze.」、プラグインが「Braze」である「New Destination」セクション。]({% image_buster /assets/img/amperity/destination_name.png %}){: style="max-width:60%;"}
 
-#### ステップ 2d: 宛先の詳細を設定する
+#### ステップ2d：送信先の詳細を設定する {#step-2d-configure-destination-details}
 
-[Amperityのドキュメント](https://docs.amperity.com/datagrid/destination_braze.html#add-destination)に示されているように、[**Braze settings**] で Braze の認証情報と宛先設定を指定します。最後のステップで収集した構成の詳細を入力し、Braze識別子を定義する。マッチング可能な識別子は以下の通りである：
-- `braze_id`:自動的に割り当てられるBrazeの識別子で、Brazeで作成されたときに特定のユーザーに関連付けられ、変更できない。
-- `external_id`:顧客が割り当てた識別子で、通常はUUIDである。 
+[Amperityドキュメント](https://docs.amperity.com/datagrid/destination_braze.html#add-destination)に示されているように、**Braze settings**でBrazeの認証情報と送信先設定を指定します。前のステップで収集した設定詳細を入力し、Braze識別子を定義します。マッチングに使用できる識別子は以下の通りです：
+- `braze_id`：自動的に割り当てられるBrazeの識別子で、Brazeで作成されたときに特定のユーザーに関連付けられ、変更できません。
+- `external_id`：顧客が割り当てた識別子で、通常はUUIDです。
 
-![Braze設定セクションのインスタンスは "US-03"、ユーザー識別子は"external_id", 、セグメント名は空白、S3バケットは "amperity-training-abc123"、S3フォルダは "braze-attributes "である。]({% image_buster /assets/img/amperity/braze_settings.png %}){: style="max-width:60%;"}
+![Braze設定セクション。インスタンスは「US-03」、ユーザー識別子は「external_id」、セグメント名は空白、S3バケットは「amperity-training-abc123」、S3フォルダは「braze-attributes」。]({% image_buster /assets/img/amperity/braze_settings.png %}){: style="max-width:60%;"}
 
-#### ステップ2e:データ・テンプレートを追加する
+#### ステップ2e：データテンプレートを追加する {#step-2e-add-a-data-template}
 
-[**Destinations**] タブで Braze 宛先のメニューを開き、[**Add data template**] を選択します。テンプレートの名前と説明（例えば、"Braze "と "Send custom attributes to Braze"）を入力し、ビジネスユーザーのアクセスを確認し、すべての構成設定をチェックする。 
+**Destinations**タブでBraze送信先のメニューを開き、**Add data template**を選択します。テンプレートの名前と説明（たとえば「Braze」と「Send custom attributes to Braze」）を入力し、ビジネスユーザーのアクセスを確認し、すべての設定をチェックします。
 
-必要な設定がデスティネーションの一部として構成されていない場合は、データテンプレートの一部として構成する。データ・テンプレートを保存する。
+必要な設定が送信先の一部として構成されていない場合は、データテンプレートの一部として構成します。データテンプレートを保存します。
 
-![名前が「Braze Audience Attributes」で説明が「Send audience attributes to Braze」である「Data Template Name」セクション。]({% image_buster /assets/img/amperity/data_template_name.png %}){: style="max-width:60%;"}
+![名前が「Braze Audience Attributes」で説明が「Send audience attributes to Braze.」である「Data Template Name」セクション。]({% image_buster /assets/img/amperity/data_template_name.png %}){: style="max-width:60%;"}
 
-#### ステップ2f:設定を保存する 
+#### ステップ2f：設定を保存する {#step-2f-save-the-configuration}
 
-必要な情報を入力したら、この設定を保存します。Braze が宛先として設定されたので、Amp360 と AmpIQ のユーザーはデータを Braze に同期できます。
+必要な情報を入力したら、設定を保存します。Brazeが送信先として設定されたので、Amp360とAmpIQのユーザーはデータをBrazeに同期できます。
 
-### ステップ3:データをBrazeに同期させる
+### ステップ3：データをBrazeに同期する {#step-3-sync-data-to-braze}
 
-AmperityのテナントでBrazeが有効になっていることを確認する。有効になっていない場合は、DataGrid オペレーターまたは Amperity の担当者に支援を依頼してください。
+AmperityのテナントでBrazeが有効になっていることを確認します。有効になっていない場合は、DataGrid OperatorまたはAmperityの担当者に支援を依頼してください。
 
-次に、該当する Amp360 または AmpIQ の同期手順に従います。
+次に、該当するAmp360またはAmpIQの同期手順に従います。
 
-#### 同期オプション 1：Amp360経由でBrazeにクエリー結果を送信する
+#### 同期オプション1：Amp360経由でBrazeにクエリ結果を送信する {#syncing-option-1-send-query-results-to-braze-via-amp360}
 
-Amp360のユーザーは、SQLを使って自由形式のクエリーを書き、その結果をBrazeに送信するスケジュールを設定することができる。
+Amp360のユーザーは、SQLを使って自由形式のクエリを作成し、その結果をBrazeに送信するスケジュールを設定できます。
 
-##### ステップ1:Amperityでクエリーを作成する
+##### ステップ1：Amperityでクエリを作成する {#step-1-create-a-query-in-amperity}
 
-Amperityのクエリー機能に移動し、目的の顧客データセットを得るためのSQLクエリーを構築する。その結果には、Brazeに送りたい特定の属性が含まれているはずだ。購入履歴を持つユーザーのリストを返すAmperityクエリーの例を参照のこと。
+Amperityのクエリ機能に移動し、目的の顧客データセットを得るためのSQLクエリを構築します。結果には、Brazeに送信したい特定の属性が含まれている必要があります。購入履歴を持つユーザーのリストを返すAmperityクエリの例を参照してください。
 
-##### ステップ2:Amperityに新しいオーケストレーションを追加する
+##### ステップ2：Amperityに新しいオーケストレーションを追加する {#step-2-add-a-new-orchestration-in-amperity}
 
-1. **Orchestration**セクションに行き、新しいオーケストレーションを追加するオプションをクリックする。 
-2. オーケストレーションが何をすべきかを指定する。これには通常、実行されるべきSQLクエリと、その結果の送信先を指定することが含まれる。この場合、アクティブな顧客のリストを生成するために作成したSQLクエリーを選択し、結果の送信先としてBrazeを指定する。
-3. オーケストレーションをいつ、どのくらいの頻度で実行するかを定義する。たとえば、毎日特定の時間にオーケストレーションを実行できます。
-4. オーケストレーションを好みに設定したら保存する。Amperityのオーケストレーションリストに追加される。
-5. オーケストレーションをテストして、期待通りに動作することを確認する。手動でオーケストレーションをトリガーし、Brazeで結果をチェックすることでこれを行うことができる。
+1. **Orchestration**セクションに移動し、新しいオーケストレーションを追加するオプションをクリックします。
+2. オーケストレーションが何を行うべきかを指定します。これには通常、実行するSQLクエリと結果の送信先を指定することが含まれます。この場合、アクティブな顧客のリストを生成するために作成したSQLクエリを選択し、結果の送信先としてBrazeを指定します。
+3. オーケストレーションをいつ、どのくらいの頻度で実行するかを定義します。たとえば、毎日特定の時間にオーケストレーションを実行できます。
+4. オーケストレーションを好みに合わせて設定したら保存します。Amperityのオーケストレーションリストに追加されます。
+5. オーケストレーションをテストして、期待通りに動作することを確認します。手動でオーケストレーションをトリガーし、Brazeで結果を確認することで検証できます。
 
-##### ステップ3:オーケストレーションを実行する 
+##### ステップ3：オーケストレーションを実行する {#step-3-run-the-orchestration}
 
-オーケストレーションを実行してクエリを実行し、結果をBrazeに送信する。これは手動で行うことも、オーケストレーション設定で設定したスケジュールで行うこともできます。
+オーケストレーションを実行してクエリを実行し、結果をBrazeに送信します。これは手動で行うことも、オーケストレーション設定で設定したスケジュールで行うこともできます。
 
-#### 同期オプション 2：AmpIQ を介して Braze にオーディエンスを送信する
+#### 同期オプション2：AmpIQ経由でBrazeにオーディエンスを送信する {#syncing-option-2-send-audiences-to-braze-via-ampiq}
 
-AmpIQユーザーは、SQL以外のインターフェイスを使ってAmperityでセグメントを作成し、Brazeのような下流のデスティネーションに同期させることができる。ユーザーは宛先を選択し、各宛先に送信する属性のリストを設定できます。
+AmpIQユーザーは、SQL以外のインターフェイスを使ってAmperityでSegmentを作成し、Brazeなどの下流の送信先に同期できます。ユーザーは送信先を選択し、各送信先に送信する属性のリストを設定できます。
 
-##### ステップ1:Amperityでセグメントを作成する 
+##### ステップ1：AmperityでSegmentを作成する {#step-1-create-a-segment-in-amperity}
 
-Amperityで顧客のリストを返すセグメントを作成する。このセグメントは、Braze で更新するカスタム属性に関連付けられている必要があります。
+Amperityで顧客のリストを返すSegmentを作成します。このSegmentは、Brazeで更新するカスタム属性に関連付けられている必要があります。
 
 {% alert note %}
-Amperity のドキュメントで、Braze に送信できるさまざまなセグメントタイプの例を確認してください。
+Amperityのドキュメントで、Brazeに送信できるさまざまなSegmentタイプの例を確認してください。
 {% endalert %}
 
-##### ステップ2:Amperityでキャンペーンを構築する
+##### ステップ2：AmperityでCampaignを構築する {#step-2-build-a-campaign-in-amperity}
 
-1. **キャンペーン・**セクションに行き、新しいキャンペーンを作成するオプションをクリックする。
-2. 特に複数のキャンペーンを行っている場合は、後でキャンペーンを識別するのに役立つ、説明的でユニークな名前を付ける。
-3. このキャンペーンでターゲットにする顧客のセグメントを選択します。これは先ほど作成したセグメントです。<br>![ターゲティングから除外するセグメントのドロップダウンフィールド。]({% image_buster /assets/img/amperity/select_segments.png %}){: style="max-width:50%;"}<br><br>
-4. キャンペーンの一部として送信したいデータを選択する。これにはさまざまな顧客属性が含まれる可能性があります。![「Edit Campaign Attributes」モーダルでは、宛先とカスタマー属性を選択できる。]({% image_buster /assets/img/amperity/edit_campaign_attributes.png %}){: style="max-width:90%;"}<br><br>
-5. キャンペーンデータの送信先として [**Braze**] を選択します。
-6. いつ、どれくらいの頻度でキャンペーンを実施するかを選択する。これは1回限りのイベントでも、定期的なスケジュールでも構わない。
-7. キャンペーンを保存してテストを実行し、期待通りに機能することを確認する。
+1. **Campaign**セクションに移動し、新しいCampaignを作成するオプションをクリックします。
+2. 特に複数のCampaignsがある場合に後で識別しやすいよう、説明的でユニークな名前を付けます。
+3. このCampaignでターゲットにする顧客のSegmentを選択します。これは先ほど作成したSegmentです。<br>![ターゲティングから除外するSegmentのドロップダウンフィールド。]({% image_buster /assets/img/amperity/select_segments.png %}){: style="max-width:50%;"}<br><br>
+4. Campaignの一部として送信したいデータを選択します。これにはさまざまな顧客属性が含まれる可能性があります。![「Edit Campaign Attributes」モーダルでは、送信先と顧客属性を選択できます。]({% image_buster /assets/img/amperity/edit_campaign_attributes.png %}){: style="max-width:90%;"}<br><br>
+5. Campaignデータの送信先として**Braze**を選択します。
+6. いつ、どのくらいの頻度でCampaignを実行するかを選択します。これは1回限りのイベントでも、定期的なスケジュールでも構いません。
+7. Campaignを保存してテストを実行し、期待通りに機能することを確認します。
 
-##### ステップ3:キャンペーンを実施する
+##### ステップ3：Campaignを実行する {#step-3-run-the-campaign}
 
-Brazeにセグメントを送信するためにキャンペーンを実行する。これは手動で行うことも、キャンペーン設定で設定したスケジュールに基づいて行うこともできる。
-
-
-### Amperity と Braze Currents を組み合わせて使用する
-Braze CurrentsのデータをAmperityに送信する：
-1. Amazon S3バケットにデータを送信するために[Braze Currentをセットアップ]({{site.baseurl}}/user_guide/data/braze_currents/setting_up_currents/)する。
-2. [そのAmazon S3バケットからApache Avroファイルを読み込む](https://docs.amperity.com/datagrid/source_amazon_s3.html)ようにAmperityを設定する。
-3. フィードを設定し、標準的なワークフローを使用してデータロードを自動化する。
+BrazeにSegmentを送信するためにCampaignを実行します。これは手動で行うことも、Campaign設定で設定したスケジュールに基づいて行うこともできます。
 
 
+### AmperityとBraze Currentsを組み合わせて使用する {#using-amperity-with-braze-currents}
+Braze CurrentsのデータをAmperityに送信するには：
+1. Amazon S3バケットにデータを送信するために[Braze Currentをセットアップ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)します。
+2. [そのAmazon S3バケットからApache Avroファイルを読み込む](https://docs.amperity.com/datagrid/source_amazon_s3.html)ようにAmperityを設定します。
+3. フィードを設定し、標準的なワークフローを使用してデータロードを自動化します。

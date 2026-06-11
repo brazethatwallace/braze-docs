@@ -1,12 +1,11 @@
 ---
 permalink: /support_contact/
-nav_title: ヘルプ | Braze
+nav_title: Help | Braze
 hide_nav: true
 layout: basic
 hide_toc: true
 ---
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
-
+<!-- Legacy Algolia/DocSearch CSS and autocomplete JS removed; support suggestions use SearchUnify (see in-page fetch to searchunify.com). -->
 
 <style type="text/css">
   .legal-disclaimer{
@@ -45,7 +44,9 @@ lable.lable-gpt {
     .container-fluid {
         width: 910px !important;
     }
-    .main-border {
+    /* Tablet: matches .main-border width at this breakpoint. */
+    .main-border,
+    .operator-callout {
         width: 950px !important;
     }
     .svg-hr svg {
@@ -89,7 +90,7 @@ lable.lable-gpt {
     }
     .svg1 svg {
       width: 300px !important;;
-    } 
+    }
     .svg2 svg {
       width: 300px !important;;
     }
@@ -102,11 +103,16 @@ lable.lable-gpt {
         display: none !important;
     }
 
+    /* Mobile: matches .main-border width at this breakpoint. */
+    .main-border,
+    .operator-callout {
+        width: 407px !important;
+    }
+
     .main-border {
         border-radius: 14px;
         border: 2px solid #D0D5DD;
         background: #FFF;
-        width: 407px !important;
         box-shadow: 0 4px 27px 0 rgba(0, 0, 0, 0.02);
     }
 
@@ -216,7 +222,7 @@ button.submit-btn {
     height: 300px;
 }
 
-   
+
 .svg2 svg path {
   stroke-dasharray: 1250;   /* total path length */
   stroke-dashoffset: 1250;  /* initially hidden */
@@ -240,7 +246,7 @@ button.submit-btn {
   }
   .steps svg {
     margin-top: 14px;
-   
+
 }
   div#suggestionsBox h1 {
     font-size: 20px;
@@ -259,7 +265,7 @@ button.submit-btn {
   div#suggestionsBox li {
       font-size: 14px;
   }
-  
+
    .gpt-text {
     margin-top: 2px;
    }
@@ -291,7 +297,7 @@ button.submit-btn {
     padding-left: var(--md, 12px);
     justify-content: space-between;
     align-items: center;
-   
+
 }
   input#subject {
     border-radius: var(--inner, 8px);
@@ -322,11 +328,17 @@ button.submit-btn {
     margin-bottom: 29px;
   }
 
+  /* Width matches the .main-border form container at this breakpoint.
+     Update both selectors together if the layout changes. */
+  .main-border,
+  .operator-callout {
+    width: 1314px;
+  }
+
   .main-border {
     border-radius: 14px;
     border: 2px solid #D0D5DD;
     background: #FFF;
-    width:1314px;
     box-shadow: 0 4px 27px 0 rgba(0, 0, 0, 0.02);
 }
 
@@ -346,7 +358,7 @@ div#ticket_resources {
 }
 #main-container label {
   font-weight: bold;
-  
+
   color: #101828;
 leading-trim: both;
 text-edge: cap;
@@ -396,72 +408,6 @@ line-height: 18px; /* 138.462% */
     padding-left: 15px;
     border: none;
   }
-}
-
-.algolia-autocomplete-listbox-2 {
-    display: inline !important;
-}
-
-#algolia-autocomplete-listbox-2 {
-  position: relative !important;
-}
-
-.algolia-autocomplete {
-  line-height: normal;
-  display: inline !important;
-}
-#search-input {
-    padding: 0 0 20px;
-    position: relative;
-}
-
-#search-input input[type="text"] {
-    padding: .5em 0 .5em 0;
-    outline: 0;
-    border: 0;
-    border-bottom: solid 2px #c9c9c9;
-    width: 100%;
-    font-size: 15px;
-    display: inline-block;
-    background-image:url(/docs/assets/img/search_black_shark.svg);
-    background-position: right 10px top 9px;
-    background-size: 14px 14px;
-    background-repeat: no-repeat;
-}
-
-#search-input .fa-search {
-  line-height: normal;
-  position: relative;
-  top: 15px;
-  left: 5px;
-}
-
-.aa-suggestion {
-  margin-top: 5px;
-  line-height: 25px;
-}
-
-#ticket_search div.aa-suggestion {
-  color: #6d6d70;
-  cursor: pointer;
-  display: inline;
-  border-bottom-width: 0px;
-}
-
-#ticket_search aa-suggestions:hover div {
-  text-decoration: none;
-  color: #6d6d70;
-  border-bottom-width: 2px;
-  border-color: #3accdd;
-}
-
-
-#ticket_search aa-suggestion--highlight{
-
-}
-
-#ticket_search .algolia-docsearch-footer {
-  padding-top: 5px;
 }
 
 .gradient-line {
@@ -628,33 +574,6 @@ a:hover {
   color: #3accdd;
   text-decoration: none;
 }
-#support-search-panel .aa-Panel {
-  top: 0px !important;
-  position: static;
-  box-shadow: none;
-}
-#support-search-panel .aa-Item {
-  top: 0px !important;
-  position: static;
-  box-shadow: none;
-  min-height: 1.8em;
-  line-height: 1.3em;
-}
-#support-search-panel .aa-PanelLayout {
-  padding-top: 0px;
-}
-#support-search-div {
-  padding-bottom: 15px;
-}
-#support-search-div .aa-Form {
-  box-shadow: none;
-  border-color: transparent;
-  border-radius: 0px;
-  border-bottom: solid 2px #c9c9c9;
-}
-#support-search-div .aa-Form button {
-  padding-top: 10px;
-}
 .hidden {
               display: none !important;
             }
@@ -738,8 +657,17 @@ a:hover {
         .form-group textarea:focus,
         .form-group select:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible,
+        .form-group select:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible),
+        .form-group select:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -766,7 +694,7 @@ a:hover {
             margin-right: 10px;
         }
 
-       
+
 
         /* Support Link */
         .support-link {
@@ -810,22 +738,22 @@ a:hover {
             .steps {
                 flex-direction: column;
             }
-            
+
             .step {
                 margin-bottom: 20px;
                 text-align: left;
                 display: flex;
                 align-items: center;
             }
-            
+
             .step:before {
                 margin: 0 15px 0 0;
             }
-            
+
             .button-container {
                 flex-direction: column;
             }
-            
+
             .submit-btn {
                 width: 100%;
                 margin-bottom: 10px;
@@ -837,7 +765,7 @@ a:hover {
         .popover {
             max-width: 400px;
         }
-        
+
         /* Header Styles */
         h1 {
             color: #2c3e50;
@@ -903,8 +831,15 @@ a:hover {
         .form-group input[type="text"]:focus,
         .form-group textarea:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -978,7 +913,7 @@ a:hover {
             .steps {
                 flex-direction: column;
             }
-            
+
             .step {
                 margin-bottom: 20px;
                 text-align: left;
@@ -992,16 +927,16 @@ a:hover {
             border-radius: 4px;
             line-height: 26px;
         }
-        
+
         #suggestionsBox h1, #suggestionsBox h2, #suggestionsBox h3 {
             color: #2c3e50;
             margin-top: 0;
         }
-        
-        #suggestionsBox ul { padding-left: 20px; }        
+
+        #suggestionsBox ul { padding-left: 20px; }
         #suggestionsBox li { margin-bottom: 8px; }
         span.highlight { color: black !important; }
-        
+
         .su_citation {
           border: none;
           color: #081A59;
@@ -1023,19 +958,29 @@ a:hover {
           padding:12px;
       }
 
+
 </style>
 
 <div>
     <div class="container-fluid" id="main-container">
       <div class="row main-form">
           <div class="col" >
-              <h1 class="h1">お困りの場合</h1>
+              <h1 class="h1">お困りですか？</h1>
               <div class="gradient-line"></div>
           </div>
    </div>
+        <aside class="operator-callout" aria-label="ヒント: BrazeAI Operator">
+          <div class="operator-callout-content">
+            <div class="operator-callout-title">
+              <strong>BrazeAI Operator&#8482;でトラブルシューティングを迅速に</strong>
+              <span class="operator-callout-badge">New</span>
+            </div>
+            <p class="operator-callout-body">Operatorは多くの問題をリアルタイムでトラブルシューティングできます。解決できない場合は、チケットの作成をサポートします。<a href="https://dashboard.braze.com/?openOperator=troubleshooting" target="_blank" rel="noopener noreferrer">Operatorでサポートを受ける<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only">（新しいタブで開きます）</span></a></p>
+          </div>
+        </aside>
         <div class="main-border">
         <div class="steps">
-            <div class="step active">基本詳細</div>
+            <div class="step active">基本情報</div>
             <svg xmlns="http://www.w3.org/2000/svg" width="282" height="2" viewBox="0 0 282 2" fill="none">
   <path d="M0 1L282 1.00002" stroke="#5711E5" stroke-dasharray="3 3"/>
 </svg>
@@ -1045,7 +990,7 @@ a:hover {
   <path d="M0 1L282 1.00002"  stroke-dasharray="3 3"/>
 </svg>
 </div>
-            <div class="step">ケースを提出する</div>
+            <div class="step">ケースを送信する</div>
         </div>
 
         <div class='svg-hr'>
@@ -1056,7 +1001,7 @@ a:hover {
 
 <div class="form-container">
         <form id="supportForm">
-            <!-- Step 1 -->
+            <!-- ステップ 1 -->
             <div id="step1">
                 <div class="form-group">
                     <label for="subject" class="required">件名</label>
@@ -1064,14 +1009,14 @@ a:hover {
                 </div>
 
                 <div class="form-group">
-                    <label for="description" class="required">Description</label>
+                    <label for="description" class="required">説明</label>
                     <textarea id="description" name="description" required></textarea>
                 </div>
 
-                <button type="button" class="submit-btn" id="toStep2" >Continue to Suggested Content</button>
+                <button type="button" class="submit-btn" id="toStep2" >推奨コンテンツに進む</button>
             </div>
 
-            <!-- Step 2 -->
+            <!-- ステップ 2 -->
             <div id="step2" style="display:none;">
                 <h2 class='gpt-heading'></h2>
                  <h2 class='gpt-heading'></h2>
@@ -1082,13 +1027,13 @@ a:hover {
   <path d="M9.14095 7.94993L7.54095 4.37893C7.46284 4.20119 7.33468 4.05003 7.17211 3.9439C7.00954 3.83776 6.81959 3.78125 6.62545 3.78125C6.4313 3.78125 6.24135 3.83776 6.07878 3.9439C5.91621 4.05003 5.78806 4.20119 5.70995 4.37893L4.10995 7.94993L0.584947 9.57193C0.408701 9.6548 0.259678 9.78611 0.155296 9.95053C0.0509136 10.1149 -0.0045166 10.3057 -0.0045166 10.5004C-0.0045166 10.6952 0.0509136 10.8859 0.155296 11.0503C0.259678 11.2148 0.408701 11.3461 0.584947 11.4289L4.10695 13.0509L5.70695 16.6219C5.78506 16.7997 5.91321 16.9508 6.07578 17.057C6.23835 17.1631 6.4283 17.2196 6.62245 17.2196C6.81659 17.2196 7.00654 17.1631 7.16911 17.057C7.33168 16.9508 7.45984 16.7997 7.53795 16.6219L9.13795 13.0509L12.6599 11.4289C12.8362 11.3461 12.9852 11.2148 13.0896 11.0503C13.194 10.8859 13.2494 10.6952 13.2494 10.5004C13.2494 10.3057 13.194 10.1149 13.0896 9.95053C12.9852 9.78611 12.8362 9.6548 12.6599 9.57193L9.14095 7.94993Z" fill="#801ED7"/>
   <path d="M17.0259 6.41957L17.8209 4.63457L19.5819 3.82857C19.6699 3.78709 19.7443 3.72143 19.7964 3.63928C19.8485 3.55712 19.8761 3.46185 19.8761 3.36457C19.8761 3.2673 19.8485 3.17203 19.7964 3.08987C19.7443 3.00772 19.6699 2.94206 19.5819 2.90057L17.8209 2.09257L17.0259 0.292575C16.9869 0.203559 16.9229 0.127833 16.8415 0.074658C16.7602 0.0214831 16.6651 -0.00683594 16.5679 -0.00683594C16.4708 -0.00683594 16.3757 0.0214831 16.2943 0.074658C16.213 0.127833 16.1489 0.203559 16.1099 0.292575L15.3149 2.07757L13.5449 2.89257C13.4569 2.93406 13.3826 2.99972 13.3305 3.08187C13.2784 3.16403 13.2507 3.2593 13.2507 3.35658C13.2507 3.45385 13.2784 3.54912 13.3305 3.63128C13.3826 3.71343 13.4569 3.77909 13.5449 3.82057L15.3059 4.62657L16.1009 6.42657C16.142 6.51509 16.2076 6.58992 16.29 6.64212C16.3724 6.69433 16.4681 6.7217 16.5657 6.72096C16.6632 6.72022 16.7585 6.69141 16.8401 6.63796C16.9218 6.58452 16.9863 6.5087 17.0259 6.41957Z" fill="#E9371F"/>
 </svg>
-<div class='gpt-text'>生成中...</div>
-<div class='gpt-text1'>あなたのために回答を作成した </div>
+<div class='gpt-text'>生成中... </div>
+<div class='gpt-text1'>回答を生成しました </div>
                  </div>
 
                 <div id="suggestionsBox">
                 <div class= "for-line">
-                
+
                 <div class="svg1"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="9" viewBox="0 0 1250 9" fill="none">
   <path d="M1246.26 0H3.74224C1.67546 0 0 2.01472 0 4.5C0 6.98528 1.67546 9 3.74224 9H1246.26C1248.32 9 1250 6.98528 1250 4.5C1250 2.01472 1248.32 0 1246.26 0Z" fill="url(#paint0_linear_45139_47694)" fill-opacity="0.4"/>
   <defs>
@@ -1111,28 +1056,28 @@ a:hover {
 </svg></div>
 </div>
                 </div>
-             
+
 
 
 
 
                 <div id="articles">
-                    <h3>Related Articles:</h3>
+                    <h3>関連記事:</h3>
                     <div id="articles-list"></div>
                 </div>
                 </div>
 
                 <div class="flex-display">
                 <div class= "legal-disclaimer">
-                  <em>Disclaimer: This reply was generated by AI and is for information only. Please confirm the linked sources in the Braze Documentation.</em>
+                  <em>免責事項: この回答はAIによって生成されたものであり、情報提供のみを目的としています。リンク先のソースをBrazeドキュメントでご確認ください。</em>
                 </div>
                 <div class="gpt-res-buttons">
-                <button type="button" class="submit-btn" id="backToStep1" style="background-color:grey;">Back</button>
+                <button type="button" class="submit-btn" id="backToStep1" style="background-color:grey;">戻る</button>
                 <div class="btn-right">
 
-                <lable class='lable-gpt'>Did this resolve your issue?</lable>
-                <button type="button" class="submit-btn" onclick="window.location.href='/docs/'" >Yes, close this Window </button>
-                <button type="button" class="submit-btn" id="toStep3">No, continue with ticket creation</button>
+                <lable class='lable-gpt'>問題は解決しましたか？</lable>
+                <button type="button" class="submit-btn" onclick="window.location.href='/docs/'" >はい、このウィンドウを閉じます</button>
+                <button type="button" class="submit-btn" id="toStep3">いいえ、チケット作成を続けます</button>
                 </div>
                 </div>
                 </div>
@@ -1145,17 +1090,17 @@ a:hover {
 
 <div class="form-container1"  style="display:none;">
  <div id="step3" >
-<div id="firefox_warning" style="display:none;">Firefox ユーザーの場合、このサイトを許可リストに入れるか、<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Tracking_Protection?utm_source=mozilla&utm_medium=firefox-console-errors&utm_campaign=default" target="_blank">トラッキング保護設定</a>にチェックを入れてください。そうしないと、チケットが送信されない場合があります。</div>
+<div id="firefox_warning" style="display:none;">Firefoxをご利用の方は、このサイトを許可リストに追加するか、<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Tracking_Protection?utm_source=mozilla&utm_medium=firefox-console-errors&utm_campaign=default" target="_blank">トラッキング保護設定</a> をご確認ください。設定によっては、チケットが送信されない場合があります。</div>
 
 <div id="ticket_mainform" class="container">
     <form  id="ticket_form">
       <div id="step3">
-        <h2>必要なものが見つからない？サポートチームに連絡する。</h2>
+        <h2>お探しの情報が見つかりませんか？サポートチームにお問い合わせください。</h2>
         <!-- Row 1 -->
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="ticket_topic" class="required">私たちがお手伝いできることは？ </label>
+              <label for="ticket_topic" class="required">どのようなことでお困りですか？ </label>
               <select id="ticket_topic" name="00N0V000009G0MG" class="form-control"></select>
             </div>
           </div>
@@ -1166,12 +1111,12 @@ a:hover {
             </div>
           </div>
         </div>
-  
+
         <!-- Row 2 -->
         <div class="row">
           <div class="col-md-6" id="subcategory_div" style="display:none;">
             <div class="form-group">
-              <label for="ticket_subcategory" class="required">My question is about... </label>
+              <label for="ticket_subcategory" class="required">ご質問の内容は... </label>
               <select id="ticket_subcategory" name="00N0V000009G0ML" class="form-control"></select>
             </div>
           </div>
@@ -1182,68 +1127,68 @@ a:hover {
             </div>
           </div> -->
         </div>
-  
+
         <!-- <h2>Not finding what you need? Contact our Support team.</h2> -->
-  
+
         <!-- Row 3 -->
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="ticket_name" class="required">Name</label>
-              <input type="text" id="ticket_name" name="Name" placeholder="Enter your name" class="form-control" required>
+              <label for="ticket_name" class="required">お名前</label>
+              <input type="text" id="ticket_name" name="Name" placeholder="お名前を入力してください" class="form-control" required>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="ticket_email" class="required">Email address </label>
-              <input type="email" id="ticket_email" name="Email" placeholder="Enter email" class="form-control" required>
+              <label for="ticket_email" class="required">メールアドレス </label>
+              <input type="email" id="ticket_email" name="Email" placeholder="メールアドレスを入力してください" class="form-control" required>
             </div>
           </div>
         </div>
-  
+
         <!-- Row 4 -->
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="ticket_ccemail">CC Email address</label>
-              <input type="email" id="ticket_ccemail" name="CCEmail" placeholder="Enter CC email" class="form-control">
+              <label for="ticket_ccemail">CCメールアドレス</label>
+              <input type="email" id="ticket_ccemail" name="CCEmail" placeholder="CCメールアドレスを入力してください" class="form-control">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="ticket_priority" class="required">Issue severity </label>
+              <label for="ticket_priority" class="required">問題の重大度 </label>
               <select id="ticket_priority" name="priority" class="form-control">
-                <option value="Critical">Critical: System is down or severe data integrity issues</option>
-                <option value="High">High: Severe loss of functionality or a campaign will not send</option>
-                <option value="Medium">Medium: Degraded performance or issue causing significant business impact</option>
-                <option value="Low" selected>Low: Question about Braze functionality or analytics</option>
+                <option value="Critical">Critical: システムがダウンしている、または深刻なデータ整合性の問題</option>
+                <option value="High">High: 機能の重大な喪失、またはCampaignが送信されない</option>
+                <option value="Medium">Medium: パフォーマンスの低下、またはビジネスに大きな影響を与える問題</option>
+                <option value="Low" selected>Low: Brazeの機能や分析に関する質問</option>
               </select>
             </div>
           </div>
         </div>
-  
+
         <!-- Subject (Full width) -->
         <div class="form-group">
-          <label for="ticket_subject" class="required">Subject </label>
-          <input type="text" id="ticket_subject" name="Subject" placeholder="What's your question about?" class="form-control" required>
+          <label for="ticket_subject" class="required">件名 </label>
+          <input type="text" id="ticket_subject" name="Subject" placeholder="ご質問の内容は何ですか？" class="form-control" required>
         </div>
-  
+
         <!-- Question (Full width) -->
         <div class="form-group">
-          <label for="ticket_issue" class="required">Question </label>
-          <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Include details such as platform, SDK version, REST API endpoints, steps to reproduce..."></textarea>
+          <label for="ticket_issue" class="required">質問内容 </label>
+          <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="プラットフォーム、SDKバージョン、REST APIエンドポイント、再現手順などの詳細を含めてください..."></textarea>
         </div>
-  
+
         <!-- Info text -->
         <div class="form-group small-text">
-          <p>In order to provide you with technical support or address service or technical problems, be aware that Braze may need to access your dashboard and data. Braze technical support operates during standard business hours across multiple time zones to serve our global customer base. For specific support hours in your region or for issues logged outside of business hours, please refer to the support handbook. Response times may vary based on when your request is submitted, your support tier, and the severity of the issue.</p>
+          <p>テクニカルサポートの提供やサービス・技術的な問題への対応のため、Brazeがお客様のダッシュボードやデータにアクセスする必要がある場合があります。Brazeのテクニカルサポートは、グローバルなお客様にサービスを提供するため、複数のタイムゾーンにわたる標準営業時間内に対応しています。お住まいの地域のサポート時間や営業時間外に報告された問題については、サポートハンドブックをご参照ください。応答時間は、リクエストの送信時間、サポートティア、問題の重大度によって異なる場合があります。</p>
         </div>
-  
+
         <!-- Submit button -->
         <div class="form-group text-right">
-          <button type="submit" name="Submit" value="Submit" class="btn btn-black" id="ticket_submit_button" role="button"> SUBMIT </button>
+          <button type="submit" name="Submit" value="Submit" class="btn btn-black" id="ticket_submit_button" role="button"> 送信 </button>
         </div>
-  
+
       </div>
     </form>
   </div>
@@ -1254,7 +1199,7 @@ a:hover {
 
 
 </div>
- 
+
 
 
 </div>
@@ -1301,17 +1246,12 @@ nextButton.addEventListener('keypress', function(e) {
         return null;
       }
 
-       const sid = getCookie('_gz_sid');  
+       const sid = getCookie('_gz_sid');
        const taid = getCookie('_gz_taid');
 
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    
-function support_doc_submit(){
-  window.location = base_url + '/search/?query=' + encodeURIComponent($('#support-search-form .aa-Form .aa-Input').val());
-  return false;
-}
 
 String.prototype.mapReplace = function(map) {
   var mstr = this;
@@ -1340,7 +1280,7 @@ var ticket_lookuptable = {
   'Label': '* What can we help you with?',
   'SelectDefault': 'Select a topic...',
   'LinksTitle': ['Marketer documentation','Developer documentation','Marketer troubleshooting guide','Frequently Asked Questions'],
-  'Links': ['{{site.baseurl}}/user_guide/introduction/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/help/home/','{{site.baseurl}}/help/faqs/'],
+  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/user_guide/home/'],
   'SelectOption': {
     'Technical Issue': {
       'Label': '* Category',
@@ -1504,42 +1444,42 @@ var ticket_lookuptable = {
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
           'LinksTitle': ['Email Best Practices','Email Frequently Asked Questions'],
-          'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/','{{site.baseurl}}/user_guide/message_building_by_channel/email/faq/'],
+          'Links' : ['{{site.baseurl}}/user_guide/channels/email/best_practices/','{{site.baseurl}}/user_guide/channels/email/faq/'],
           'SelectOption': {
             'Setup (whitelabeled IPs, DNS records)' : {
               'ShowSubmit': true,
               'LinksTitle': ['Email Onboarding Resources','Setting Up IPs and Domains','IP warming'],
-              'Links' : ['{{site.baseurl}}/user_guide/onboarding_with_braze/email_setup','{{site.baseurl}}/user_guide/onboarding_with_braze/email_setup/setting_up_ips_and_domains/','{{site.baseurl}}/user_guide/onboarding_with_braze/email_setup#ip-warming']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/email/email_setup','{{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/','{{site.baseurl}}/user_guide/channels/email/email_setup#ip-warming']
             },
             'Reporting and Analytics' : {
               'ShowSubmit': true,
               'LinksTitle': ['Email Reporting and Analytics'],
-              'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting/']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/email/reporting_and_analytics/email_reporting/']
             },
             'Email Editors' : {
               'ShowSubmit': true,
               'LinksTitle': ['Email Drag-and Drop Editor', 'Email HTML Editor', 'Drag-And-Drop Editor Frequently Asked Questions'],
-              'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop','{{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor','{{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/faq/']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/email/drag_and_drop','{{site.baseurl}}/user_guide/channels/email/html_editor','{{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/']
             },
             'Deliverability' :{
               'ShowSubmit': true,
               'LinksTitle': ['Deliverability Pitfalls and Spam Traps','IP Warming','Braze Learning Course: Achieving High Email Deliverability'],
-               'Links' : ['{{site.baseurl}}/user_guide/onboarding_with_braze/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps','{{site.baseurl}}/user_guide/onboarding_with_braze/email_setup/ip_warming/#ip-warming','https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability']
+               'Links' : ['{{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps','{{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#ip-warming','https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability']
             },
             'User Subscriptions' :{
               'ShowSubmit': true,
               'LinksTitle': ['Managing User Subscriptions'],
-               'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/']
+               'Links' : ['{{site.baseurl}}/user_guide/channels/email/managing_user_subscriptions/']
             },
             'Email Templates' : {
               'ShowSubmit': true,
               'LinksTitle': ['Create an Email Template','Email Template Frequently Asked Questions'],
-              'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/email/templates/email_template#step-3-customize-your-template','{{site.baseurl}}/user_guide/message_building_by_channel/email/templates/faq/']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/email/templates/email_template#step-3-customize-your-template','{{site.baseurl}}/user_guide/channels/email/templates/faq/']
             },
             'Liquid' : {
               'ShowSubmit': true,
               'LinksTitle': ['Liquid Templating in Messages','Liquid Frequently Asked Questions','Braze Learning Course: Dynamic Personalization with Liquid'],
-              'Links' : ['{{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid#about-liquid','{{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/faq/','https://learning.braze.com/dynamic-personalization-with-liquid']
+              'Links' : ['{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid#about-liquid','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/','https://learning.braze.com/dynamic-personalization-with-liquid']
             }
           }
         },
@@ -1547,27 +1487,27 @@ var ticket_lookuptable = {
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
           'LinksTitle': ['SMS Best Practices','SMS Frequently Asked Questions', 'MMS Frequently Asked Questions', 'Braze Learning Course: SMS Fundamentals'],
-          'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/sms/best_practices','{{site.baseurl}}/user_guide/message_building_by_channel/sms/faqs/','{{site.baseurl}}/user_guide/message_building_by_channel/sms/mms/faqs/','https://learning.braze.com/sms-fundamentals'],
+          'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/best_practices','{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/','{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/mms/faqs/','https://learning.braze.com/sms-fundamentals'],
           'SelectOption': {
             'Setup' : {
               'ShowSubmit': true,
               'LinksTitle': ['SMS Onboarding Resources'],
-              'Links' : ['{{site.baseurl}}/user_guide/onboarding_with_braze/sms_setup']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup']
             },
             'Subscription Groups' : {
               'ShowSubmit': true,
               'LinksTitle': ['SMS Subscription Groups'],
-              'Links' : ['{{site.baseurl}}/user_guide/onboarding_with_braze/sms_setup/sms_subscription_groups/']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_subscription_groups/']
             },
             'Short and Long Codes' : {
               'ShowSubmit': true,
               'LinksTitle': ['Short and Long Codes'],
-              'Links' : ['{{site.baseurl}}/user_guide/onboarding_with_braze/sms_setup/short_and_long_codes/']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/short_and_long_codes/']
             },
             'User Retargeting' : {
               'ShowSubmit': true,
               'LinksTitle': ['SMS User Retargeting'],
-              'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/sms/campaign/retargeting/']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/campaign/retargeting/']
             }
           }
         },
@@ -1575,22 +1515,22 @@ var ticket_lookuptable = {
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
           'LinksTitle': ['WhatsApp Frequently Asked Questions'],
-          'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/faqs/'],
+          'Links' : ['{{site.baseurl}}/user_guide/channels/whatsapp/faqs/'],
           'SelectOption': {
             'Setup' : {
               'ShowSubmit': true,
               'LinksTitle': ['WhatsApp Setup Overview'],
-              'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/whatsapp/overview/']
             },
             'Subscription Groups' : {
               'ShowSubmit': true,
               'LinksTitle': ['WhatsApp User Subscription'],
-              'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/user_subscription/']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/whatsapp/user_subscription/']
             },
             'User Phone Numbers' : {
               'ShowSubmit': true,
               'LinksTitle': ['WhatsApp User Phone Numbers'],
-              'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/user_phone_numbers/']
+              'Links' : ['{{site.baseurl}}/user_guide/channels/whatsapp/user_phone_numbers/']
             }
           }
         },
@@ -1598,60 +1538,60 @@ var ticket_lookuptable = {
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
           'LinksTitle': ['Campaign Frequently Asked Questions','Canvas Frequently Asked Questions'],
-          'Links' : ['{{site.baseurl}}/user_guide/engagement_tools/campaigns/faq/','{{site.baseurl}}/user_guide/engagement_tools/canvas/faqs/'],
+          'Links' : ['{{site.baseurl}}/user_guide/messaging/campaigns/faq/','{{site.baseurl}}/user_guide/messaging/canvas/faqs/'],
           'SelectOption': {
             'Messaging Personalization' : {
               'ShowSubmit': true,
               'LinksTitle': ['Personalization and Dynamic Content','Personalization Using Liquid Tags','Liquid Use Case Library','Connected Content'],
-              'Links' : ['{{site.baseurl}}/user_guide/personalization_and_dynamic_content','{{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid','{{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/liquid_use_cases','{{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content']
+              'Links' : ['{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content']
             },
             'Targeting and Segmentation' : {
               'ShowSubmit': true,
               'LinksTitle': ['Segmentation','Segment Insights','Braze Learning Course: Segmentation',''],
-              'Links' : ['{{site.baseurl}}/user_guide/engagement_tools/segments','{{site.baseurl}}/user_guide/engagement_tools/segments/segment_insights/','https://learning.braze.com/segmentation-course']
+              'Links' : ['{{site.baseurl}}/user_guide/audience/segments','{{site.baseurl}}/user_guide/audience/segments/segment_insights/','https://learning.braze.com/segmentation-course']
             },
             'Message Composition by Channel' : {
               'LinksTitle': ['Available Channels','Know Before You Send: Channels'],
-              'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel','{{site.baseurl}}/help/help_articles/campaigns_and_canvas/know_before_send/'],
+              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/'],
               'Label': 'Channel *',
               'SelectDefault': 'Select channel...',
               'SelectOption' : {
                 'Email' : {
                   'ShowSubmit': true,
                   'LinksTitle': ['Create an Email Campaign with the Drag-And-Drop Editor','Create an Email Campaign with the HTML Editor'],
-                  'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/overview/','{{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/creating_an_email_campaign/']
+                  'Links' : ['{{site.baseurl}}/user_guide/channels/email/drag_and_drop/','{{site.baseurl}}/user_guide/channels/email/html_editor/']
                 },
                 'Push' : {
                   'ShowSubmit': true,
                   'LinksTitle': ['Create a Push Campaign','Braze Learning Course: Push'],
-                  'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#creating-a-push-message','https://learning.braze.com/messaging-channels-push']
+                  'Links' : ['{{site.baseurl}}/user_guide/channels/push/creating_a_push_message#creating-a-push-message','https://learning.braze.com/messaging-channels-push']
                 },
                 'In-App Messages' : {
                   'ShowSubmit': true,
                   'LinksTitle': ['In-App Message Drag-And-Drop Editor Campaign','In-App Message Traditional Editor Campaign','Braze Learning Course: In-App and In-Browser Messages'],
-                  'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/create/','{{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/create/','https://learning.braze.com/messaging-channels-in-app-in-browser']
+                  'Links' : ['{{site.baseurl}}/user_guide/channels/in-app_messages/drag_and_drop/create/','{{site.baseurl}}/user_guide/channels/in-app_messages/traditional/create/','https://learning.braze.com/messaging-channels-in-app-in-browser']
                 },
                 'Content Cards' : {
                   'ShowSubmit': true,
                   'LinksTitle': ['Create a Content Card Campaign','Braze Learning Course: Content Cards'],
-                  'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create/','https://learning.braze.com/messaging-channels-content-cards']
+                  'Links' : ['{{site.baseurl}}/user_guide/channels/content_cards/create/','https://learning.braze.com/messaging-channels-content-cards']
                 },
                 'Webhooks' : {
                   'ShowSubmit': true,
                   'LinksTitle': ['Create a Webhook Campaign'],
-                  'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/']
+                  'Links' : ['{{site.baseurl}}/user_guide/channels/webhooks/creating_a_webhook/']
                 },
                 'SMS and MMS' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create an SMS Campaign','Create an MMS Campaign'],
-                  'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/sms/campaign/create/','{{site.baseurl}}/user_guide/message_building_by_channel/sms/mms/create/']
+                  'LinksTitle': ['Create an SMS, MMS, or RCS Message'],
+                  'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/']
                 },
                 'WhatsApp' : {
                   'ShowSubmit': true,
                   'LinksTitle': ['Create a WhatsApp Campaign'],
-                  'Links' : ['{{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/']
+                  'Links' : ['{{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_campaign/create/']
                 }
-              }             
+              }
             }
           }
         },
@@ -1664,22 +1604,22 @@ var ticket_lookuptable = {
             'Password Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Locked Out of Account'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#password-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#password-error']
             },
             'Instance Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Instance Error'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#instance-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#instance-error']
             },
             'SAML and Single Sign On' : {
               'ShowSubmit': true,
               'LinksTitle': ['SAML and Single Sign On'],
-              'Links' : ['{{site.baseurl}}/user_guide/administrative/access_braze/single_sign_on']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/']
             },
             'Other' : {
               'ShowSubmit': true,
               'LinksTitle': ['Account Login Issues'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/']
             }
           }
         },
@@ -1731,17 +1671,17 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
-      'Links': ['{{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/engagement_tools/canvas/ideas_and_strategies','{{site.baseurl}}/help/accessibility/','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
+      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
           'LinksTitle': ['Campaign Ideas and Strategies', 'Canvas Ideas and Strategies','Braze Learning Course: Customer Engagement Tools and Use Cases'],
-          'Links':  ['{{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/engagement_tools/canvas/ideas_and_strategies','https://learning.braze.com/braze-customer-engagement-tools-use-cases']
+          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','https://learning.braze.com/braze-customer-engagement-tools-use-cases']
         },
         'Best Practices and Frequently Asked Questions' :{
           'ShowSubmit': true,
           'LinksTitle': ['Best Practices and Frequently Asked Questions'],
-          'Links':  ['{{site.baseurl}}/help/faqs']
+          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/best_practices/']
         },
         'Other' :{
           'ShowSubmit': true,
@@ -1765,7 +1705,7 @@ var ticket_lookuptable = {
         'Billing' : {
           'ShowSubmit': true,
           'LinksTitle': ['Billing'],
-          'Links': ['{{site.baseurl}}/user_guide/administrative/app_settings/subscription_and_usage/']
+          'Links': ['{{site.baseurl}}/user_guide/administer/global/billing/']
         },
         'Other' :{
           'ShowSubmit': true,
@@ -1849,7 +1789,7 @@ $( document ).ready(function() {
         }
       }
     }
-    return empty;    
+    return empty;
   }
   function showlinks(curquestion){
     if (curquestion) {
@@ -2026,7 +1966,7 @@ $( document ).ready(function() {
   function topic_change(e) {
     reset_page(1);
 
-    $('#subcategory_div').hide(); 
+    $('#subcategory_div').hide();
     var topic_selected = this.value;
     var category_options = ticket_options[topic_selected];
     if (topic_selected && 'SelectOption' in category_options ) {
@@ -2189,7 +2129,7 @@ $( document ).ready(function() {
     $('#ticket_mainform').hide();
 
     $('#ticket_thankyou').fadeIn("slow");
-    $('#ticket_thankyou_msg').html('<h3>Thanks for your submission!</h3>A member of our Support team will respond to your ticket soon.<br />If you did not get a confirmation email, check your browser\'s addon, content/privacy setting and email spam folder.<br />Otherwise, contact your success manager (or email us at <a href="mailto:support@braze.com">support@braze.com</a>) to make sure your ticket has been submitted.');
+    $('#ticket_thankyou_msg').html('<h3>送信ありがとうございます！</h3>サポートチームのメンバーがまもなくチケットに対応いたします。<br />確認メールが届かない場合は、ブラウザのアドオン、コンテンツ/プライバシー設定、メールの迷惑メールフォルダをご確認ください。<br />それでも届かない場合は、サクセスマネージャーにご連絡いただくか、<a href="mailto:support@braze.com">support@braze.com</a> までメールでお問い合わせいただき、チケットが送信されたことをご確認ください。');
     $("html, body").animate({ scrollTop: 0 }, "slow");
   });
   $('#ticket_issue').popover();
@@ -2207,122 +2147,6 @@ $( document ).ready(function() {
     }
     return str;
   }
-  const algoliaInsightsPluginSupport = createAlgoliaInsightsPlugin({
-    insightsClient,
-    onItemsChange({ insights, insightsEvents }) {
-      const events = insightsEvents.map((insightsEvent) => ({
-        ...insightsEvent,
-        eventName: 'Viewed from Support Search',
-      }));
-      insights.viewedObjectIDs(...events);
-    },
-    onSelect({ insights, insightsEvents }) {
-      const events = insightsEvents.map((insightsEvent) => ({
-        ...insightsEvent,
-        eventName: 'Clicked from Support Search',
-      }));
-      insights.clickedObjectIDsAfterSearch(...events);
-    },
-  });
-  autocomplete({
-    container: "#support-search-div",
-    panelContainer: "#support-search-panel",
-    debug: true,
-    placeholder: "Search",
-    plugins: [algoliaInsightsPluginSupport],
-    detachedMediaQuery: 'none',
-    onSubmit(e){
-      var query = e.state.query;
-      window.location = base_url + '/search/?query=' + encodeURIComponent(query);
-    },
-    getSources() {
-      return [{
-          sourceId: "querySuggestions",
-          getItemInputValue: ({ item }) => item.query,
-          getItems({ query }) {
-            return getAlgoliaResults({
-              searchClient,
-              queries: [
-                {
-                  indexName: "DocSearch",
-                  query,
-                  params: {
-                    hitsPerPage: 5,
-                    attributesToSnippet: ["description:12"],
-                    snippetEllipsisText: " ...",
-                    clickAnalytics: true,
-                  },
-                },
-              ],
-            });
-          },
-          getItemUrl({ item }) {
-           return base_url + item.url;
-         },
-         templates: {
-           noResults({createElement}) {
-             return createElement("div", {
-               dangerouslySetInnerHTML: {
-                 __html: '<div class="no_results">No results were found with your current search. Try to change the search query.</div>',
-                 },
-               })
-          },
-
-          item({ item, createElement }) {
-            var content = "";
-            var title = "";
-            var type = "";
-            var category = "";
-            var platform = "";
-            var subname = "";
-            var heading = "";
-
-            if ("nav_title" in item) {
-              title = item.nav_title.replaceUnder();
-            } else {
-              title = item.title.replaceUnder();
-            }
-            if ("type" in item) {
-              type = item.type.replaceUnder().upCaseWord();
-            }
-            if ("category" in item) {
-              category = item.category.replaceUnder();
-            }
-
-            if ("platform" in item) {
-              if (Array.isArray(item.platform)){
-                platform = item.platform.join(',').replace(/\%20/g, ' ').replace(/\_/g, ' ') + ' > ';
-              }
-              else {
-                platform = item.platform.replace(/\%20/g, ' ').replace(/\_/g, ' ') + ' > ';
-              }
-            }
-            if ("headings" in item) {
-              if (item["headings"]) {
-                heading = item["headings"][item["headings"].length - 1];
-              }
-            }
-
-            var url = item.url;
-            if (heading) {
-              url += "#" + string_to_slug(heading);
-            }
-            var resulttemplate = '<a href="' +
-                base_url + url + '"><div class="title"> * ' +
-                platform + title + ' <div class="category">' +
-                subname.replace(/\_/g, " ") +
-                "</div></div></a>";
-            return createElement("div", {
-              dangerouslySetInnerHTML: {
-                __html: resulttemplate,
-              },
-            });
-          },
-        },
-      }];
-    }
-  });
-
  if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ) {
    var ff_div = $('#firefox_warning').detach();
    ff_div.insertBefore($('#basic_page')).show();
@@ -2339,7 +2163,7 @@ const formContainer1 = document.querySelector(".form-container1");
 const langSelect = document.getElementById('lang_select');
 console.log("language ==>", langSelect);
 
-let selectedLanguage = 'en'; 
+let selectedLanguage = 'en';
 
 const languageMap = {
   'en': 'English',
@@ -2353,7 +2177,7 @@ const languageMap = {
 
 langSelect.addEventListener('change', (e) => {
   const langCode = e.target.value;
-  selectedLanguage = langCode; 
+  selectedLanguage = langCode;
   console.log('Language changed to:', langCode, '(', languageMap[langCode] || 'English', ')');
 
   if (window.currentSubject && window.currentSid) {
@@ -2362,7 +2186,7 @@ langSelect.addEventListener('change', (e) => {
 });
 
 async function getSearchResultByPost(subject, sid , language) {
-  const langCode = language || langSelect.value || 'en'; 
+  const langCode = language || langSelect.value || 'en';
   console.log('Resolved language code:', langCode);
     const payload = {
         langAttr: "en",
@@ -2376,7 +2200,7 @@ async function getSearchResultByPost(subject, sid , language) {
         aggregations: [
         {
           type: "language",
-          filter: [langCode] 
+          filter: [langCode]
         }
       ],
         clonedAggregations: [],
@@ -2436,7 +2260,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
     const subject = document.getElementById('subject').value.trim();
     const description = document.getElementById('description').value.trim();
     if (!subject || !description) {
-        alert('Please fill in all required fields');
+        alert('すべての必須項目を入力してください');
         return;
     }
 
@@ -2460,7 +2284,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                      "No summary available"
         };
     });
-    
+
     let gptAnalyticsSent = false;
     // --- Streaming / GPT Suggestions ---
     try {
@@ -2506,7 +2330,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
         });
 
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        
+
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
         let fullResponse = '';
@@ -2529,9 +2353,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
             try {
               const validJson = partialAccumulator + jsonString;
               const data = JSON.parse(validJson);
-              
 
-              partialAccumulator = ''; 
+
+              partialAccumulator = '';
 
               if (data.data?.choices?.[0]?.delta?.content) {
                 fullResponse += data.data.choices[0].delta.content;
@@ -2578,7 +2402,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
             event: "search",
             id: crypto.randomUUID(),
             searchString: subject,
-            result_count: 1,        
+            result_count: 1,
             page_no: 1,
             uid: "63590d8d-65fd-11f0-ada3-0242ac120007",
             filter: {},
@@ -2593,11 +2417,11 @@ document.getElementById('toStep2').addEventListener('click', async function () {
             "https://bz072508p.searchunify.com/analytics/suanlytics.png",
             new Blob([JSON.stringify(searchPayload)], { type: "application/json" })
           );
-      
+
         if (!gptAnalyticsSent && firstCitationBtn) {
             const citationUrl = firstCitationBtn.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
             const meta = articleMetaMap[citationUrl] || {};
-           
+
 
             const citationPayload = {
                 event: "conversion",
@@ -2629,13 +2453,13 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
             gptAnalyticsSent = true;
         }
-        
-        
+
+
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>お役に立てそうな記事をご紹介します:</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>提案が見つかりませんでした。</p>";
         }
 
         // --- Citation hover tooltip ---
@@ -2669,6 +2493,14 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
             button.addEventListener('click', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
+                const citation_text = this.textContent;
+                const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
+                const parsedCitationRank = Number(citation_num);
+                let citation_rank = 1;
+                if (Number.isInteger(parsedCitationRank) && parsedCitationRank >= 1) {
+                  citation_rank = parsedCitationRank;
+                }
+
                 citationClicked = true;
                 // Conversion analytics (once per citation)
                 if (!trackedCitations.has(url)) {
@@ -2684,7 +2516,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                         type: "doc",
                         relevance_score: "7.0017533",
                         searchString: subject,
-                        rank: 53510,
+                        rank: citation_rank,
                         analyticsId: window._gza_analytics_id || crypto.randomUUID(),
                         url: window.location.href,
                         referrer: document.referrer,
@@ -2738,11 +2570,11 @@ document.getElementById('toStep2').addEventListener('click', async function () {
         citationClicked = false;
         delete window._gza_analytics_id;
     });
-    
+
 // Optional: Add a back button to return to the 3-step form
 function addBackButton() {
     const backButton = document.createElement('button');
-    backButton.textContent = 'Back to Suggestions';
+    backButton.textContent = '推奨コンテンツに戻る';
     backButton.className = 'submit-btn';
     backButton.style.backgroundColor = 'grey';
     backButton.style.marginTop = '20px';
@@ -2750,7 +2582,7 @@ function addBackButton() {
         document.querySelector('.form-container1').style.display = 'none';
         document.querySelector('.form-container').style.display = 'block';
     };
-    
+
     // Add the back button to the support form
     const ticketMainForm = document.getElementById('ticket_mainform');
     if (ticketMainForm) {
@@ -2806,7 +2638,7 @@ function initCaseForm() {
     document.getElementById('toStep3').addEventListener('click', function () {
         document.querySelector(".form-container").classList.add("hidden");
         document.querySelector(".form-container1").style.display = "block";
-        steps[2].classList.add('active'); 
+        steps[2].classList.add('active');
         document.getElementById('ticket_subject').value = document.getElementById('subject').value;
         document.getElementById('ticket_issue').value = document.getElementById('description').value;
         step2.style.display = 'none';
@@ -2816,7 +2648,7 @@ function initCaseForm() {
 
         //  Submit Case Created Event
         document.getElementById('ticket_form').addEventListener('submit', function(e) {
-            e.preventDefault(); 
+            e.preventDefault();
 
             const subject = document.getElementById('ticket_subject').value;
             const caseId = "CASE-" + Date.now() + "-" + Math.floor(Math.random() * 1000);
@@ -2828,9 +2660,9 @@ function initCaseForm() {
             if (!sid) {
                 sid = createNewSid();
                 document.cookie = `_gz_sid=${sid}; path=/; SameSite=None; Secure`;
-                sendSearchEvent(subject, sid); 
+                sendSearchEvent(subject, sid);
             }
-            
+
            const firstCitationBtn1 = suggestionsBox.querySelector('.su_citation');
            const step1Subject = document.getElementById('subject')?.value?.trim() || "";
            const step3Subject = document.getElementById('ticket_subject')?.value?.trim() || "";
@@ -2852,7 +2684,7 @@ function initCaseForm() {
                     "subject": subject,
                     "uid": "63590d8d-65fd-11f0-ada3-0242ac120007",
                     "event": "caseCreated",
-                    "caseId": caseId,         
+                    "caseId": caseId,
                     "caseNumber": caseNumber,
                     "Issue_Severity__c": issueSeverity,
                     "isFreshSearch": !citationClicked,
@@ -2861,7 +2693,7 @@ function initCaseForm() {
                     "e": "caseCreated",
                     "t": "Contact Us | What can we help you with today? | Bluebeam Technical",
                     "r": 60691,
-                    "sid_session": sid, 
+                    "sid_session": sid,
                     "taid_device": taid || "",
                     "internal": ""
                 })

@@ -1,7 +1,7 @@
 ---
 nav_title: Sheetlabs
 article_title: Sheetlabs
-description: "This reference article outlines the partnership between Braze and Sheetlabs, a service that lets you personalize your marketing campaigns with data sourced from spreadsheets."
+description: "이 참조 문서에서는 스프레드시트에서 가져온 데이터로 마케팅 캠페인을 개인화할 수 있는 서비스인 Sheetlabs와 Braze 간의 파트너십에 대해 설명합니다."
 alias: /partners/sheetlabs/
 page_type: partner
 search_tag: Partner
@@ -9,52 +9,52 @@ search_tag: Partner
 
 # Sheetlabs
 
-> [Sheetlabs](https://sheetlabs.com/) is a platform that allows you to turn spreadsheets into powerful, well-documented APIs. You can import data from Google Sheets or Excel, turn it into an API, and then use that API in other applications, such as Braze.
-_This integration is maintained by Sheetlabs._
+> [Sheetlabs](https://sheetlabs.com/)는 스프레드시트를 강력하고 잘 문서화된 API로 변환할 수 있는 플랫폼입니다. Google Sheets 또는 Excel에서 데이터를 가져와 API로 변환한 다음, Braze와 같은 다른 애플리케이션에서 해당 API를 사용할 수 있습니다.
+_이 통합은 Sheetlabs에서 유지 관리합니다._
 
-## 통합 정보
+## 통합 정보 {#about-the-integration}
 
-시트랩스와 브라즈 통합을 통해 [연결된 콘텐츠를]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/about_connected_content/) 사용하여 브라즈 마케팅 캠페인에 시트랩스 API를 포함할 수 있습니다. This is commonly used to provide a bridge between a Google Spreadsheet (which is updated directly by the marketing team) and Braze templates. This allows you to achieve more with Braze templates, such as translations or larger sets of custom attributes.
+Sheetlabs와 Braze 통합을 통해 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 사용하여 Braze 마케팅 Campaign에 Sheetlabs API를 포함할 수 있습니다. 이 기능은 일반적으로 Google 스프레드시트(마케팅 팀이 직접 업데이트)와 Braze 템플릿 간의 브리지를 제공하는 데 사용됩니다. 이를 통해 번역이나 더 많은 커스텀 속성 세트 등 Braze 템플릿으로 더 많은 것을 달성할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Sheetlabs account | A [Sheetlabs account](https://sheetlabs.com/) is required to take advantage of this partnership. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Sheetlabs 계정 | 이 파트너십을 활용하려면 [Sheetlabs 계정](https://sheetlabs.com/)이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## Use cases
+## 활용 사례 {#use-cases}
 
-The Braze and Sheetlabs integration allows you to achieve the following use cases:
+Braze와 Sheetlabs 통합을 통해 다음과 같은 활용 사례를 달성할 수 있습니다.
 
-1. **Separating marketer access from Braze campaign access**: Some teams wish to avoid giving all staff access to configure Braze templates and content directly. Instead, they want staff to update marketing content in a spreadsheet. Sheetlabs provides the bridge between spreadsheets and Braze and can be updated in real-time.
-2. **Translations**: Braze templates do not natively support translations. If you wish to support multiple languages, you must create multiple templates. By using Sheetlabs in conjunction with Braze, you can have a single Braze template that is translated into multiple languages.
-3. **Extending custom attributes**: Braze provides a certain number of custom attributes that can be configured. By using Sheetlabs in conjunction with Braze, you can add additional custom attributes beyond this initial allotment.
+1. **마케터 접근 권한과 Braze Campaign 접근 권한 분리**: 일부 팀은 모든 직원에게 Braze 템플릿과 콘텐츠를 직접 구성할 수 있는 접근 권한을 부여하지 않기를 원합니다. 대신 직원이 스프레드시트에서 마케팅 콘텐츠를 업데이트하기를 원합니다. Sheetlabs는 스프레드시트와 Braze 간의 브리지를 제공하며 실시간으로 업데이트할 수 있습니다.
+2. **번역**: Braze 템플릿은 기본적으로 번역을 지원하지 않습니다. 여러 언어를 지원하려면 여러 템플릿을 만들어야 합니다. Sheetlabs를 Braze와 함께 사용하면 하나의 Braze 템플릿으로 여러 언어로 번역할 수 있습니다.
+3. **커스텀 속성 확장**: Braze는 구성할 수 있는 일정 수의 커스텀 속성을 제공합니다. Sheetlabs를 Braze와 함께 사용하면 이 초기 할당량을 초과하는 추가 커스텀 속성을 추가할 수 있습니다.
 
-Refer to [Sheetlabs](https://app.sheetlabs.com/docs/producers/braze/) for more information on these use cases.
+이러한 활용 사례에 대한 자세한 내용은 [Sheetlabs](https://app.sheetlabs.com/docs/producers/braze/)를 참조하세요.
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Import your spreadsheet into Sheetlabs
+### 1단계: Sheetlabs로 스프레드시트 가져오기 {#step-1-import-your-spreadsheet-into-sheetlabs}
 
-In Sheetlabs, upload an Excel spreadsheet, or link your Google account and import a Google Sheet. 
+Sheetlabs에서 Excel 스프레드시트를 업로드하거나 Google 계정을 연결하여 Google Sheet를 가져옵니다.
 
-- To import an Excel spreadsheet, click **Data Tables** in the menu bar, and then **Import from CSV/Excel**.
-- To import from Google Sheets, click **Data Tables** in the menu bar, and then **Import from Google**. You will then need to provide your Google login credentials and import the sheet.
+- Excel 스프레드시트를 가져오려면 메뉴 바에서 **Data Tables**를 클릭한 다음 **Import from CSV/Excel**을 클릭합니다.
+- Google Sheets에서 가져오려면 메뉴 바에서 **Data Tables**를 클릭한 다음 **Import from Google**을 클릭합니다. 그런 다음 Google 로그인 자격 증명을 제공하고 시트를 가져와야 합니다.
 
-You may also opt to keep your Google Sheet in sync, which means that Sheetlabs will automatically fetch the latest data from your Google Sheet when it changes.
+Google Sheet를 동기화 상태로 유지하도록 선택할 수도 있습니다. 이렇게 하면 Google Sheet가 변경될 때 Sheetlabs가 자동으로 최신 데이터를 가져옵니다.
 
-Make sure you include the Braze user ID in your spreadsheet or something else that you can use as a lookup later on.
+스프레드시트에 Braze 사용자 ID 또는 나중에 조회에 사용할 수 있는 다른 항목을 포함해야 합니다.
 
-### Step 2: Create an API in Sheetlabs
+### 2단계: Sheetlabs에서 API 생성 {#step-2-create-an-api-in-sheetlabs}
 
-Next, in Sheetlabs, go to **APIs > Create API**, and give your API a name. You will likely want to allow queries via a lookup field from your spreadsheet, such as the Braze user ID.
+다음으로 Sheetlabs에서 **APIs > Create API**로 이동하여 API에 이름을 지정합니다. Braze 사용자 ID와 같은 스프레드시트의 조회 필드를 통해 쿼리를 허용하는 것이 좋습니다.
 
-At this point, you should be able to access your API with a link like:<br> [`https://sheetlabs.com/ACME/email1_translations?country=en`](https://sheetlabs.com/ACME/email1_translations?country=en).
+이 시점에서 다음과 같은 링크로 API에 접근할 수 있어야 합니다.<br> [`https://sheetlabs.com/ACME/email1_translations?country=en`](https://sheetlabs.com/ACME/email1_translations?country=en).
 
-### Step 3: Use the API in Braze Connected Content
+### 3단계: Braze 연결된 콘텐츠에서 API 사용 {#step-3-use-the-api-in-braze-connected-content}
 
-Now that your API is accessible, you can use it in your Connected Content calls. Here is an example of what a translations template might look like:
+이제 API에 접근할 수 있으므로 연결된 콘텐츠 호출에서 사용할 수 있습니다. 다음은 번역 템플릿의 예시입니다.
 
 {% raw %}
 ```js
@@ -66,5 +66,5 @@ Now that your API is accessible, you can use it in your Connected Content calls.
 ```
 {% endraw %}
 {% alert tip %}
-For more examples and advice on integrating with Sheetlabs, refer to [Sheetlabs documentation](https://app.sheetlabs.com/docs/producers/braze/).
+Sheetlabs와의 통합에 대한 더 많은 예시와 조언은 [Sheetlabs 설명서](https://app.sheetlabs.com/docs/producers/braze/)를 참조하세요.
 {% endalert %}

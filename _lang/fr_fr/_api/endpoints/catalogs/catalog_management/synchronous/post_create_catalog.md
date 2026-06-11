@@ -1,16 +1,16 @@
 ---
-nav_title: "POST : Créer un catalogue"
-article_title: "POST : Créer un catalogue"
+nav_title: "POST : Créer un catalogue"
+article_title: "POST : Créer un catalogue"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Créer un catalogue."
+description: "Cet article présente en détail l'endpoint Braze Créer un catalogue."
 
 ---
 {% api %}
-# Créer un catalogue
+# Créer un catalogue {#create-catalog}
 {% apimethod post %}
 /catalogs
 {% endapimethod %}
@@ -19,31 +19,31 @@ description: "Cet article présente en détail l’endpoint Braze Créer un cata
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#af9f3e2d-b7e7-49e7-aa64-f4652892be6e {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `catalogs.create`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `catalogs.create`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `catalogs` | Requis | Tableau | Un tableau qui contient des objets Catalogue. Un seul objet Catalogue est autorisé pour cette requête. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalogs` | Requis | Tableau | Un tableau contenant des objets catalogue. Un seul objet catalogue est autorisé pour cette requête. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-### Paramètres de l’objet Catalogue
+### Paramètres de l'objet catalogue {#catalog-object-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `name` | Requis | Chaîne de caractères | Le nom du catalogue que vous voulez créer. |
-| `description` | Requis | Chaîne de caractères | La description du catalogue que vous voulez créer. |
-| `fields` | Requis | Tableau | Un tableau d’objets dans lequel l’objet contient les clés `name` et `type`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `name` | Requis | Chaîne de caractères | Le nom du catalogue que vous souhaitez créer. |
+| `description` | Requis | Chaîne de caractères | La description du catalogue que vous souhaitez créer. |
+| `fields` | Requis | Tableau | Un tableau d'objets dans lequel l'objet contient les clés `name` et `type`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Content-Type: application/json' \
@@ -80,6 +80,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -96,11 +100,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 }'
 ```
 
-## Réponse
+{% alert note %}
+Le type de données `geo` stocke une coordonnée géographique sous forme de tableau au format `[longitude, latitude]`. Par exemple, `[-73.988103, 40.779109]`.
+{% endalert %}
 
-Deux réponses de code de statut existent pour cet endpoint : `201` et `400`.
+## Réponse {#response}
 
-### Exemple de réponse réussie
+Deux codes de statut de réponse existent pour cet endpoint : `201` et `400`.
+
+### Exemple de réponse réussie {#example-success-response}
 
 Le code de statut `201` pourrait renvoyer le corps de réponse suivant.
 
@@ -136,6 +144,10 @@ Le code de statut `201` pourrait renvoyer le corps de réponse suivant.
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -156,9 +168,9 @@ Le code de statut `201` pourrait renvoyer le corps de réponse suivant.
 }
 ```
 
-### Exemple de réponse échouée
+### Exemple de réponse échouée {#example-error-response}
 
-Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la [résolution des problèmes](#troubleshooting) pour plus d’informations concernant les erreurs que vous pourriez rencontrer.
+Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la section [Résolution des problèmes](#troubleshooting) pour plus d'informations sur les erreurs que vous pourriez rencontrer.
 
 ```json
 {
@@ -178,25 +190,25 @@ Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consulte
 }
 ```
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
-Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes de résolution des problèmes associées.
+Le tableau suivant répertorie les erreurs possibles et les étapes de résolution associées.
 
 | Erreur | Résolution des problèmes |
 | --- | --- |
-| `catalog-array-invalid` | `catalogs` doit être un tableau d’objets. |
-| `catalog-name-already-exists` | Un catalogue avec ce nom existe déjà. |
-| `catalog-name-too-large`  | La limite de caractères d’un nom de catalogue est de 250. |
+| `catalog-array-invalid` | `catalogs` doit être un tableau d'objets. |
+| `catalog-name-already-exists` | Un catalogue portant ce nom existe déjà. |
+| `catalog-name-too-large` | La limite de caractères pour un nom de catalogue est de 250. |
 | `description-too-long` | La limite de caractères pour la description est de 250. |
 | `field-names-not-unique` | Le même nom de champ est référencé deux fois. |
-| `field-names-too-large` | La limite de caractères d’un nom de champ est de 250. |
-| `id-not-first-column` | Le champ `id` doit être le premier champ dans le tableau. Vérifiez que le type est une chaîne de caractères. |
-| `invalid-catalog-name` | Le nom de catalogue peut uniquement inclure des chiffres, des lettres, des traits d’union et des traits de soulignement. |
-| `invalid-field-names` | Les champs peuvent uniquement inclure des chiffres, des lettres, des traits d’union et des traits de soulignement. |
-| `invalid-field-types` | Assurez-vous que les types des champs sont valides. |
-| `invalid-fields` | `fields` n’est pas formaté correctement. |
-| `too-many-catalog-atoms` | Vous ne pouvez créer qu’un catalogue par requête. |
+| `field-names-too-large` | La limite de caractères pour un nom de champ est de 250. |
+| `id-not-first-column` | Le champ `id` doit être le premier champ du tableau. Vérifiez que le type est une chaîne de caractères. |
+| `invalid-catalog-name` | Le nom du catalogue ne peut contenir que des lettres, des chiffres, des traits d'union et des traits de soulignement. |
+| `invalid-field-names` | Les noms de champs ne peuvent contenir que des lettres, des chiffres, des traits d'union et des traits de soulignement. |
+| `invalid-field-types` | Assurez-vous que les types de champs sont valides. |
+| `invalid-fields` | `fields` n'est pas formaté correctement. |
+| `too-many-catalog-atoms` | Vous ne pouvez créer qu'un seul catalogue par requête. |
 | `too-many-fields` | Le nombre de champs est limité à 500. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

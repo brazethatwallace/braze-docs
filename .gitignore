@@ -8,6 +8,9 @@ _algolia_api_key
 .ruby-version
 jekyll-algolia-*
 **/.asset_pipeline
+.documentation_asset_pipeline/
+# Nested accidental clone of this repo (directory named braze-docs at repo root)
+/braze-docs/
 .jekyll-cache
 .vscode
 .jekyll-metadata
@@ -18,6 +21,8 @@ braze-docs.iml
 
 # Braze scripts
 scripts/temp
+__pycache__/
+*.py[cod]
 node_modules
 
 # Generated translation/audit artifacts
@@ -25,3 +30,7 @@ translation_results.json
 translation_pr_body.md
 qc_results.json
 glossary_audit_report.*
+
+# Lighthouse CI artifacts (generated locally and in CI, not committed)
+lhci-reports/
+lhci-urls.txt

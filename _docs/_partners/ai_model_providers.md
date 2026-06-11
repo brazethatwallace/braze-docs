@@ -14,7 +14,9 @@ valid_partner_list:
 - name: OpenAI
   url: /docs/partners/openai/
 - name: Google Gemini
-  url: /docs/partners/google_gemini/
+  url: /docs/partners/gemini/
 - name: Anthropic
   url: /docs/partners/anthropic/
+- name: Databricks Mosaic
+  url: /docs/partners/databricks_mosaic/
 ---

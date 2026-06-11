@@ -1,39 +1,41 @@
 ---
-nav_title: アンソロピック
-article_title: アンソロピック
-description: "この参考記事では、BrazeとAnthropicのパートナーシップについて概説しており、クロードモデルをBrazeに接続し、カスタムAIエージェントで使用することができる。"
+nav_title: Anthropic
+article_title: Anthropic
+description: "このリファレンス記事では、BrazeとAnthropicのパートナーシップについて説明しています。このパートナーシップにより、ClaudeモデルをBrazeに接続してカスタムAIエージェントで使用できます。"
 alias: /partners/anthropic/
 page_type: partner
 search_tag: Partner
 
 ---
 
-# アンソロピック
+# Anthropic
 
-> [Anthropicは](https://www.anthropic.com/)、AIの安全性と研究を行っている会社で、幅広い言語タスクに役立ち、正直で、安全な次世代AIアシスタント、Claudeを開発している。
+> [Anthropic](https://www.anthropic.com/)は、AIの安全性と研究に取り組む会社で、幅広い言語タスクに対して有用で、正直で、安全な次世代AIアシスタントであるClaudeを開発しています。
 
-_この統合はAnthropicによって維持されている。_
+{% multi_lang_include alerts/important_alerts.md alert='Braze Agents' %}
 
-## 統合について
+_この統合はAnthropicによって管理されています。_
 
-BrazeとAnthropicの統合により、Anthropic APIキーをBrazeに接続し、カスタムAIエージェントを構築する際にクロードモデルを使用することができる。この統合により、エージェントはパーソナライズされたコピーを生成し、リアルタイムで意思決定を行い、Anthropicのクロードモデルを使用してカタログフィールドを更新することができる。
+## 統合について {#about-the-integration}
 
-## 前提条件
+BrazeとAnthropicの統合により、Anthropic APIキーをBrazeに接続して、カスタムAIエージェントを構築する際にClaudeモデルを使用できます。この統合により、エージェントはパーソナライズ済みのコピーを生成したり、リアルタイムで意思決定を行ったり、AnthropicのClaudeモデルを使用してカタログフィールドを更新したりできます。
+
+## 前提条件 {#prerequisites}
 
 | 要件 | 説明 |
 |---|---|
-| APIキーを持つAnthropicアカウント | APIキーを持つAnthropicアカウント。ヘルプについては、管理者または[Anthropicサポートに](https://support.anthropic.com/)連絡すること。 |
-| Brazeインスタンス | Brazeインスタンスは、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)またはBrazeオンボーディングマネージャーから見つけることができる。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| APIキーを持つAnthropicアカウント | APIキーを持つAnthropicアカウントが必要です。ヘルプについては、管理者または[Anthropicサポート](https://support.anthropic.com/)にお問い合わせください。 |
+| Brazeインスタンス | Brazeインスタンスは、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)またはBrazeオンボーディングマネージャーから確認できます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 統合 {#integration}
 
-AnthropicのAPIキーをBrazeに接続する：
+Anthropic APIキーをBrazeに接続するには、以下の手順に従います。
 
-1. Brazeダッシュボードの**パートナー連携**>**テクノロジーパートナーから**Anthropicを探す。
-2. AnthropicのAPIキーを入力する。
-3. [**保存**] を選択します。
+1. Brazeダッシュボードで**パートナー連携** > **テクノロジーパートナー**に移動し、Anthropicを見つけます。
+2. AnthropicのAPIキーを入力します。
+3. **保存**を選択します。
 
-保存後、エージェントコンソールで[カスタムエージェントを作成する]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)際に、クロードモデルを選択することができる。
+保存後、エージェントコンソールで[カスタムエージェントを作成する]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)際にClaudeモデルを選択できます。
 
-統合に関する問題や質問があれば、[Anthropicサポートに](https://support.anthropic.com/)連絡すること。
+統合に関する問題や質問がある場合は、[Anthropicサポート](https://support.anthropic.com/)にお問い合わせください。

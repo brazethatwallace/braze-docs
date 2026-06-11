@@ -14,41 +14,39 @@ search_tag: Partner
 
 _Esta integración está mantenida por Stripo._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
 La integración de Braze y Stripo te permite exportar tus correos electrónicos personalizados de Stripo y cargarlos como plantillas dentro de Braze.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ------------| ----------- |
 | Cuenta Stripo | Se requiere una cuenta Stripo para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave Braze REST API con permisos **Templates** completos. <br><br> Puede crearse en el panel Braze desde **Configuración** > **Claves API**. |
-| Instancia de clúster | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) Braze se alinea con tu panel de Braze y tu punto final REST.  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Templates**. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Instancia de clúster | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) de Braze se alinea con tu panel de Braze y tu punto de conexión REST.  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
-### Paso 1: Crear correo electrónico Stripo
+### Paso 1: Crear correo electrónico Stripo {#step-1-create-stripo-email}
 
-Crea un correo electrónico Stripo en la plataforma Stripo y haz clic en **Exportar**. 
+Crea un correo electrónico Stripo en la plataforma Stripo y haz clic en **Export**.
 
-![Stripo Exportación]({% image_buster /assets/img_archive/stripo_export.png %})
+![Exportación de Stripo]({% image_buster /assets/img_archive/stripo_export.png %})
 
-### Paso 2: Exportar plantilla a Braze
+### Paso 2: Exportar plantilla a Braze {#step-2-export-template-to-braze}
 
-En el cuadro de diálogo que aparece, selecciona **Braze** como método de exportación 
+En el cuadro de diálogo que aparece, selecciona **Braze** como método de exportación.
 
 A continuación, introduce el **nombre de tu cuenta** (como el nombre del espacio de trabajo), la **clave de API** y tu **instancia de clúster**.
 
-![Formulario Stripo]({% image_buster /assets/img_archive/stripo_form.png %})
+![Formulario de Stripo]({% image_buster /assets/img_archive/stripo_form.png %})
 
 {% alert important %}
 Se trata de una configuración única, y cualquier exportación en el futuro utilizará automáticamente esta clave de API.
 {% endalert %}
 
-## Uso
+## Uso {#usage}
 
-Encuentra tu plantilla Stripo cargada en la sección **Plantillas** de tu cuenta Braze ** & Medios > Plantillas de correo electrónico**. Ya puede utilizar esta plantilla de correo electrónico para empezar a enviar mensajes atractivos a sus clientes.
-
-
+Encuentra tu plantilla Stripo cargada en la sección **Templates & Media > Email Templates** de tu cuenta de Braze. Ya puedes utilizar esta plantilla de correo electrónico para empezar a enviar mensajes atractivos a tus clientes.

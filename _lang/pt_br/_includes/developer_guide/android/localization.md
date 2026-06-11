@@ -1,12 +1,12 @@
-# Localização
+# Localização {#localization}
 
-> A localização é compatível com o SDK do Braze para Android. Além do inglês, a Braze oferece vários idiomas para as mensagens de nosso SDK integrado. Elas se referem às mensagens padrão exibidas nos aplicativos integrados ao Braze, como lugares no app quando há problemas de conectividade (por exemplo, "Não é possível estabelecer conexão de rede"). Por favor, tente novamente mais tarde.") 
+> A localização é compatível com o SDK da Braze para Android. Além do inglês, a Braze oferece suporte a vários idiomas para as mensagens integradas do SDK. Essas mensagens se referem aos textos padrão exibidos em apps integrados à Braze, como avisos de problemas de conectividade (por exemplo, "Não é possível estabelecer conexão de rede. Por favor, tente novamente mais tarde.").
 
-Se o idioma do telefone for definido como um dos idiomas suportados, qualquer string padrão do Braze disparada em um aplicativo integrado aparecerá automaticamente nesse idioma.
+Se o idioma do telefone estiver definido como um dos idiomas suportados, qualquer string padrão da Braze disparada em um app integrado aparecerá automaticamente nesse idioma.
 
 Se estiver procurando uma lista completa dos idiomas suportados que podem ser atribuídos aos seus usuários nos perfis deles, consulte nossa [lista de idiomas do usuário]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/).
 
-## Idiomas suportados
+## Idiomas suportados {#languages-supported}
 
 - Africâner
 - Aghem
@@ -76,7 +76,7 @@ Se estiver procurando uma lista completa dos idiomas suportados que podem ser at
 - Islandês
 - Igbo
 - Indonésio
-- Inuctitute
+- Inuktitut
 - Irlandês
 - Italiano
 - Japonês
@@ -136,7 +136,7 @@ Se estiver procurando uma lista completa dos idiomas suportados que podem ser at
 - Português
 - Punjabi
 - Quechua
-- Romance Raeto
+- Romance reto
 - Romeno
 - Rombo
 - Rundi
@@ -144,7 +144,7 @@ Se estiver procurando uma lista completa dos idiomas suportados que podem ser at
 - Rwa
 - Samburu
 - Sámi
-- Sango
+- Sangu
 - Sânscrito
 - Escocês
 - Sena
@@ -193,4 +193,3 @@ Se estiver procurando uma lista completa dos idiomas suportados que podem ser at
 - Zulu
 
 Para saber mais, consulte nosso artigo sobre [localização do Android](http://developer.android.com/guide/topics/resources/localization.html).
-

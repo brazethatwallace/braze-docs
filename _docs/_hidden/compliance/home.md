@@ -9,7 +9,7 @@ noindex: true
 
 # Compliance Documentation
 
-_Revision Date: 23 February, 2026_
+_Revision Date: 30 March, 2026_
 
 ## What is included in the Compliance Documentation?
 
@@ -20,7 +20,7 @@ The Compliance Documentation below sets forth specific terms applicable to your 
 
 ## Updates to the Compliance Documentation
 
-You can subscribe to receive updates to our documentation (including the Compliance Documentation) through [Braze’s GitHub repository](https://github.com/braze-inc/braze-docs).
+You can subscribe to receive updates to our documentation (including the Compliance Documentation) through [Braze’s GitHub repository](https://github.com/braze-inc/release-notes).
 
 ## Compliance Documentation for Specific Channels, Integrations, and Features
 
@@ -40,6 +40,7 @@ Without limiting any Customer obligations under the Agreement, and for the avoid
 6. [Audience Sync Compliance Documentation](#audience-sync-compliance-documentation)
 7. [Message Archiving and Field Level Encryption Compliance Documentation](#message-archiving-and-field-level-encryption-compliance-documentation)
 8. [Agent Console Compliance Documentation](#agent-console-compliance-documentation)
+9. [KakaoTalk Channel Compliance Documentation](#kakaotalk-channel-compliance-documentation)
 
 ## 1. Mobile Messages Channel {#mobile-messages-channel}
 
@@ -67,7 +68,7 @@ Notwithstanding the above, in the event that Customer sends Mobile Messages usin
 
 ### Webhook Use Exception Terms
 
-Applicable to Customers who have subscribed to Message Credits on or after December 9, 2024 (as per the Order Form Effective Date): the restrictions outlined in the Webhooks Channel Compliance Documentation do not apply to the use of webhooks for sending Mobile Messages through a Third Party Provider platform.
+Applicable to Customers who have subscribed to Action Credits on or after December 9, 2024 (as per the Order Form Effective Date): the restrictions outlined in the Webhooks Channel Compliance Documentation do not apply to the use of webhooks for sending Mobile Messages through a Third Party Provider platform.
 
 ### Bring Your Own (BYO) SMS Connector
 
@@ -117,7 +118,7 @@ The following additional terms apply in relation to Customer’s use of the LINE
 
 ### Pre-requisites
 
-To send Messages via the LINE Channel, customers must obtain a LINE Verified Official Account, which is approved and granted by LINE at its own discretion. Customers should ensure they obtain a Verified Official Account from LINE before purchasing Braze Message Credits for the use of the LINE Channel.
+To send Messages via the LINE Channel, customers must obtain a LINE Verified Official Account, which is approved and granted by LINE at its own discretion. Customers should ensure they obtain a Verified Official Account from LINE before purchasing Braze Action Credits for the use of the LINE Channel.
 
 ### Applicable Third-Party Provider Terms
 
@@ -155,6 +156,18 @@ Customer acknowledges that the use of Message Archiving and/or Field Level Encry
 
 Where Customer uses an integration with a large language model provided by Braze through the Braze Auto option in the Braze Services (“Braze-provided LLM”), the provider of such a Braze-provided LLM will be acting as a Braze Sub-processor, subject to the terms of the Data Processing Addendum (DPA) between Customer and Braze.
 
-If Customer chooses to bring their own API key to integrate with Braze AI functionality, the provider of Customer’s own LLM subscription will be considered a Third Party Provider, as defined in the contract between Customer and Braze.  
+If Customer chooses to bring their own API key to integrate with Braze AI functionality, the provider of Customer’s own LLM subscription will be considered a Third Party Provider, as defined in the contract between Customer and Braze.
+
+## 9. KakaoTalk Channel Compliance Documentation {#kakaotalk-channel-compliance-documentation}
+
+The following additional terms apply in relation to Customer’s use of the KakaoTalk Channel:
+
+### Pre-requisites
+
+To send Messages via the KakaoTalk Channel, customers must first obtain a KakaoTalk Account and contract for KakaoTalk services with the Third-Party Providers involved in the provision of the KakaoTalk functionality to Customer (‘KakaoTalk Third-Party Providers”). KakaoTalk Accounts are approved and granted by such KakaoTalk Third-Party Providers at their own discretion. 
+
+### Applicable Third-Party Provider Terms
+
+By using the KakaoTalk Channel, Customer agrees to comply with and be bound by any applicable KakaoTalk and KakaoTalk Third-Party Providers terms and policies (collectively, the “KakaoTalk Terms”) and be liable for its use of KakaoTalk services. For the sake of clarity, Customer is responsible for any fees or payments due to KakaoTalk and/or KakaoTalk Third-Party Providers for the use of such KakaoTalk Third-Party Provider services in connection with the KakaoTalk Channel. 
 
 {% multi_lang_include braze_legal/english_language_governance.md %}

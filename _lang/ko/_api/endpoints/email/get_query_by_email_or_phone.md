@@ -6,32 +6,32 @@ page_order: 2
 hidden: true
 layout: api_page
 page_type: reference
-description: "이 문서에서는 이메일 주소 또는 전화번호가 있는 목록 구독 상태의 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
+description: "이 문서에서는 이메일 주소 또는 전화번호로 구독 상태를 나열하는 Braze 엔드포인트에 대해 자세히 설명합니다."
 
 ---
 {% api %}
-# 이메일 주소 또는 전화번호로 구독 상태를 나열합니다.
+# 이메일 주소 또는 전화번호로 구독 상태 나열하기 {#list-subscription-state-with-an-email-address-or-phone-number}
 {% apimethod get %}
 /users/subscription
 {% endapimethod %}
 
 > 이 엔드포인트를 사용하여 이메일 주소 또는 전화번호를 기준으로 구독 상태 값을 반환합니다.
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --- | --- | --- | --- |
-| `email` | 예 | 문자열 | 사용자의 이메일 주소(최소 1개, 최대 50개의 주소를 포함해야 함). |
-| `phone` | 예 | 문자열 | 사용자의 전화번호(최소 1개에서 최대 50개의 전화번호를 포함해야 함). E.164 형식으로 제공하는 것이 좋습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email` | 예 | 문자열 | 사용자의 이메일 주소(최소 1개, 최대 50개의 주소를 포함해야 합니다). |
+| `phone` | 예 | 문자열 | 사용자의 전화번호(최소 1개, 최대 50개의 전화번호를 포함해야 합니다). E.164 형식으로 제공하는 것이 좋습니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 예시 요청
+## 예시 요청 {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/users/subscriptions?phone=+12123355555&email=example%40braze.com' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
 ```
 
-## 응답
+## 응답 {#response}
 
 항목은 내림차순으로 나열됩니다.
 

@@ -8,7 +8,7 @@ description: "이 랜딩 페이지에는 리타겟팅, 이메일 템플릿, 프�
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Message Orchestration"
+partner_top_header: "메시지 오케스트레이션"
 
 valid_partner_list:
 - name: Jacquard
@@ -23,6 +23,8 @@ valid_partner_list:
   url: /docs/partners/branch_for_deeplinking/
 - name: Kochava
   url: /docs/partners/kochava/
+- name: Linkrunner
+  url: /docs/partners/linkrunner/
 - name: Singular
   url: /docs/partners/singular/
 - name: Contentful
@@ -49,12 +51,20 @@ valid_partner_list:
   url: /docs/partners/remerge/
 - name: Alpaco
   url: /docs/partners/alpaco/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Blayer
   url: /docs/partners/blayer/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Dyspatch
   url: /docs/partners/dyspatch/
+- name: Denada
+  url: /docs/partners/denada/
 - name: Email Love
   url: /docs/partners/email_love/
+- name: EmailShepherd
+  url: /docs/partners/emailshepherd/
 - name: IAM Studio
   url: /docs/partners/iam_studio/
 - name: Knak
@@ -79,14 +89,14 @@ valid_partner_list:
   url: /docs/partners/message_orchestration/channel_extensions/surveys/iterate/
 - name: EduMe
   url: /docs/partners/message_orchestration/learning/edume/
-- name: 옵틸리즈
+- name: optilyz
   url: /docs/partners/message_orchestration/additional_channels/direct_mail/optilyz/
 - name: Digioh
   url: /docs/partners/message_orchestration/channel_extensions/surveys/digioh/
 - name: Punchh
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/punchh/
 - name: LINE
-  url: /docs/partners/message_orchestration/additional_channels/messaging/line/  
+  url: /docs/partners/message_orchestration/additional_channels/messaging/line/
 - name: Shopify
   url: /docs/partners/ecommerce/shopify
 - name: Yotpo
@@ -101,7 +111,7 @@ valid_partner_list:
   url: /docs/partners/message_orchestration/channel_extensions/surveys/survicate/
 - name: Quikly
   url: /docs/partners/message_orchestration/additional_channels/retargeting/quikly/
-- name: IAM Studio(NNT)
+- name: IAM Studio (NNT)
   url: /docs/partners/message_orchestration/channel_extensions/email_templates/iam_studio/
 - name: B.Layer
   url: /docs/partners/message_orchestration/channel_extensions/email_templates/blayer/
@@ -110,7 +120,7 @@ valid_partner_list:
 - name: Nift
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/nift/
 - name: Sendbird
-  url: /docs/partners/message_orchestration/additional_channels/messaging/sendbird/  
+  url: /docs/partners/message_orchestration/additional_channels/messaging/sendbird/
 - name: Regal
   url: /docs/partners/message_orchestration/additional_channels/messaging/regal/
 - name: Kognitiv
@@ -121,7 +131,7 @@ valid_partner_list:
   url: /docs/partners/message_orchestration/channel_extensions/surveys/typeform/
 - name: Friendbuy
   url: /docs/partners/message_orchestration/channel_extensions/loyalty/friendbuy/
-- name: 내 엽서
+- name: mypostcard
   url: /docs/partners/message_orchestration/additional_channels/direct_mail/mypostcard/
 - name: Dixa
   url: /docs/partners/message_orchestration/additional_channels/instant_chat/dixa/
@@ -129,6 +139,6 @@ valid_partner_list:
   url: /docs/partners/message_orchestration/channel_extensions/ecommerce/narvar/
 - name: Tapcart
   url: /docs/partners/message_orchestration/channel_extensions/ecommerce/tapcart/
-- name: 재스퍼
+- name: Jasper
   url: /docs/partners/jasper/
 ---

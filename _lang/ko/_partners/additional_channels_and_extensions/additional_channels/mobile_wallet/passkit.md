@@ -2,7 +2,7 @@
 nav_title: PassKit
 article_title: PassKit
 alias: /partners/passkit/
-description: "This reference article outlines the partnership between Braze and Passkit. This partnership enables you to extend your mobile reach by integrating Apple Wallet and Google Pay passes into your customer's experience."
+description: "이 참조 문서에서는 Braze와 PassKit 간의 파트너십에 대해 설명합니다. 이 파트너십을 통해 Apple Wallet 및 Google Pay 패스를 고객 경험에 통합하여 모바일 도달 범위를 확장할 수 있습니다."
 page_type: partner
 search_tag: Partner
 
@@ -10,69 +10,69 @@ search_tag: Partner
 
 # PassKit
 
-> PassKit enables you to extend your mobile reach by integrating Apple Wallet, and Google Pay passes into your customer's experience. Easily create, manage, distribute, and analyze the performance of digital coupons, loyalty cards, membership cards, tickets, and much more; without your customers needing another app.
+> PassKit을 사용하면 Apple Wallet 및 Google Pay 패스를 고객 경험에 통합하여 모바일 도달 범위를 확장할 수 있습니다. 디지털 쿠폰, 로열티 카드, 멤버십 카드, 티켓 등을 쉽게 생성, 관리, 배포하고 성과를 분석할 수 있으며, 고객이 별도의 앱을 설치할 필요가 없습니다.
 
-_This integration is maintained by Passkit._
+_이 통합은 Passkit에서 유지 관리합니다._
 
-## 통합 정보
+## 통합 정보 {#about-the-integration}
 
-The Braze and PassKit integration allows you to increase and measure the engagement of your online campaigns by instantly delivering custom Apple Wallet and Google Pay passes. You can then analyze usage and make real-time adjustments to increase in-store traffic by triggering location-based messages and personalized, dynamic updates to your customer's mobile wallet. 
+Braze와 PassKit 통합을 통해 커스텀 Apple Wallet 및 Google Pay 패스를 즉시 전달하여 온라인 캠페인의 참여를 높이고 측정할 수 있습니다. 그런 다음 사용량을 분석하고 위치 기반 메시지와 고객의 모바일 지갑에 대한 개인화된 동적 업데이트를 트리거하여 매장 내 트래픽을 늘리기 위한 실시간 조정을 수행할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| PassKit account | Passkit 계정과 Passkit 계정 매니저가 있어야 합니다. |
-| `userDefinedID` | Passkit과 Braze 간에 커스텀 이벤트 및 커스텀 속성을 사용자에게 적절하게 업데이트하려면 Braze 외부 ID를 `userDefinedID` 로 설정해야 합니다. 이 `userDefinedID` 는 Passkit 엔드포인트에 API 호출을 할 때 사용됩니다. |
-| Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint  | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| PassKit 계정 | PassKit 계정과 PassKit 계정 매니저가 있어야 합니다. |
+| `userDefinedID` | PassKit과 Braze 간에 커스텀 이벤트 및 커스텀 속성을 사용자에게 적절하게 업데이트하려면 Braze 외부 ID를 `userDefinedID`로 설정해야 합니다. 이 `userDefinedID`는 PassKit 엔드포인트에 API 호출을 할 때 사용됩니다. |
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#endpoints)에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-To further enrich your customers' mobile wallet experiences, from within your PassKit dashboard, you can opt to pass data into Braze through the Braze [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint). 
+고객의 모바일 지갑 경험을 더욱 풍부하게 하기 위해 PassKit 대시보드 내에서 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint)를 통해 Braze로 데이터를 전달하도록 선택할 수 있습니다.
 
-Examples of data to share from PassKit includes:
-- **Pass created**: when a customer clicks on a pass link and is first shown a pass.
-- **Pass installs**: when the customer adds and saves the pass to their wallet app.
-- **Pass updates**: when a pass is updated.
-- **Pass delete**: when a customer deletes the pass from their wallet app.
+PassKit에서 공유할 데이터의 예시는 다음과 같습니다:
+- **패스 생성**: 고객이 패스 링크를 클릭하고 처음으로 패스가 표시될 때.
+- **패스 설치**: 고객이 패스를 지갑 앱에 추가하고 저장할 때.
+- **패스 업데이트**: 패스가 업데이트될 때.
+- **패스 삭제**: 고객이 지갑 앱에서 패스를 삭제할 때.
 
-Once the data is passed into Braze, you can build audiences, personalize content via Liquid, and trigger campaigns or Canvases after these actions have been performed.
+데이터가 Braze로 전달되면 오디언스를 구축하고, Liquid를 통해 콘텐츠를 개인화하며, 이러한 동작이 수행된 후 Campaign 또는 Canvas를 트리거할 수 있습니다.
 
-## Connect Passkit to Braze
+## PassKit을 Braze에 연결 {#connect-passkit-to-braze}
 
-To pass data from PassKit, ensure that you have set your Braze external ID as PassKit's `externalId`.
+PassKit에서 데이터를 전달하려면 Braze 외부 ID를 PassKit의 `externalId`로 설정했는지 확인하세요.
 
-1. **설정** 내 PassKit 패스 프로젝트 또는 프로그램의 **통합**에서 **Braze** 탭 아래 **연결**을 클릭합니다.<br>![PassKit 플랫폼의 Braze 통합 타일입니다.]({% image_buster /assets/img/passkit/passkit5.png %}){: style="max-width:80%"}<br><br>
+1. **Settings** 내 PassKit 패스 프로젝트 또는 프로그램의 **Integrations**에서 **Braze** 탭 아래 **Connect**를 클릭합니다.<br>![PassKit 플랫폼의 Braze 통합 타일.]({% image_buster /assets/img/passkit/passkit5.png %}){: style="max-width:80%"}<br><br>
 2. Braze API 키와 엔드포인트 URL을 입력하고 커넥터의 이름을 제공합니다.<br><br>
-3. **통합 활성화** 및 Braze에서 메시지를 트리거하거나 개인화할 이벤트를 토글합니다.<br>![API 키, 엔드포인트 URL, 통합 이름, 활성화 설정, 멤버십 설정 및 패스 설정을 허용하도록 확장된 PassKit Braze 통합 타일.]({% image_buster /assets/img/passkit/passkit4.png %}){: style="max-width:70%"}
+3. **Enable Integration**을 토글하고 Braze에서 메시지를 트리거하거나 개인화할 이벤트를 선택합니다.<br>![API 키, 엔드포인트 URL, 통합 이름, 활성화 설정, 멤버십 설정 및 패스 설정을 허용하도록 확장된 PassKit Braze 통합 타일.]({% image_buster /assets/img/passkit/passkit4.png %}){: style="max-width:70%"}
 
-## SmartPass 링크를 사용하여 패스 생성
+## SmartPass 링크를 사용하여 패스 생성 {#create-pass-using-a-smartpass-link}
 
-Within Braze, you can set up a SmartPass link to generate a unique URL for your customers to install their pass on either Android or iOS. To do this, you must define an encrypted SmartPass data payload that can be called from a Braze Content Block. This [Content Block]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks) can then be reused for future passes and coupons. 통합 과정에서 다음이 사용됩니다:
+Braze 내에서 SmartPass 링크를 설정하여 고객이 Android 또는 iOS에 패스를 설치할 수 있는 고유 URL을 생성할 수 있습니다. 이를 위해 Braze 콘텐츠 블록에서 호출할 수 있는 암호화된 SmartPass 데이터 페이로드를 정의해야 합니다. 이 [콘텐츠 블록]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks)은 향후 패스 및 쿠폰에 재사용할 수 있습니다. 통합 과정에서 다음이 사용됩니다:
 
-- **PassKit URL**: Your PassKit URL is a unique URL for your PassKit program.<br>Each program has a unique URL, and you can find it under the **Distribution** tab of your PassKit program or project. (for example, https://pub1.pskt.io/c/ww0jir)<br><br>
-- **PassKit secret**: URL과 함께 이 프로그램을 위한 Passkit 키가 준비되어 있어야 합니다.<br>This can be found on the same page as your PassKit URL.<br><br>
-- **Program (or project) ID**: 스마트패스 URL을 생성하려면 Passkit 프로그램 ID가 필요합니다. <br>You can find it under the **Settings** tab of your project or program.
+- **PassKit URL**: PassKit URL은 PassKit 프로그램의 고유 URL입니다.<br>각 프로그램에는 고유 URL이 있으며, PassKit 프로그램 또는 프로젝트의 **Distribution** 탭에서 찾을 수 있습니다. (예: https://pub1.pskt.io/c/ww0jir)<br><br>
+- **PassKit 시크릿**: URL과 함께 이 프로그램을 위한 PassKit 키가 준비되어 있어야 합니다.<br>PassKit URL과 같은 페이지에서 찾을 수 있습니다.<br><br>
+- **프로그램(또는 프로젝트) ID**: SmartPass URL을 생성하려면 PassKit 프로그램 ID가 필요합니다. <br>프로젝트 또는 프로그램의 **Settings** 탭에서 찾을 수 있습니다.
 
-For more information on creating encrypted SmartPass links, check out this [PassKit article](https://help.passkit.com/en/articles/3742778-hashed-smartpass-links).
+암호화된 SmartPass 링크 생성에 대한 자세한 내용은 이 [PassKit 문서](https://help.passkit.com/en/articles/3742778-hashed-smartpass-links)를 참조하세요.
 
-### Step 1: Define your pass data payload {#passkit-integrations}
+### 1단계: 패스 데이터 페이로드 정의 {#passkit-integrations}
 
-First, you must define the coupon or member payload. 
+먼저 쿠폰 또는 멤버 페이로드를 정의해야 합니다.
 
-There are many different components you can include in your payload, but here as two important ones to note:
+페이로드에 포함할 수 있는 다양한 구성요소가 있지만, 여기서 주목해야 할 두 가지 중요한 항목이 있습니다:
 
-| Component | Required | Type | Description |
+| 구성요소 | 필수 | 유형 | 설명 |
 | --------- | -------- | ---- | ----------- |
-|`person.externalId` | Required | String | Set as the Braze external ID, this is crucial for the callbacks from PassKit back to Braze to work, allowing Braze users to have coupons for multiple offers in one campaign. Not enforced as unique. |
-| `members.member.externalId` | Optional | String | Set as the Braze external ID, you may use your external ID to update the membership pass. Setting this field enforces the user as unique within the membership program.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `person.externalId` | 필수 | 문자열 | Braze 외부 ID로 설정되며, PassKit에서 Braze로의 콜백이 작동하는 데 중요합니다. 이를 통해 회사 사용자가 하나의 Campaign에서 여러 오퍼에 대한 쿠폰을 가질 수 있습니다. 고유성이 강제되지 않습니다. |
+| `members.member.externalId` | 선택 사항 | 문자열 | Braze 외부 ID로 설정되며, 외부 ID를 사용하여 멤버십 패스를 업데이트할 수 있습니다. 이 필드를 설정하면 멤버십 프로그램 내에서 사용자가 고유하게 적용됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Step 1: Define your pass data payload #passkit-integrations" }
 
-For a full list of available fields, their types, and helpful descriptions, have a look at the [PassKit GitHub documentation](https://github.com/PassKit/smart-pass-link-from-csv-generator).
+사용 가능한 필드, 유형 및 유용한 설명의 전체 목록은 [PassKit GitHub 설명서](https://github.com/PassKit/smart-pass-link-from-csv-generator)를 참조하세요.
 
-#### Example payload
+#### 페이로드 예시 {#example-payload}
 {% raw %}
 ```liquid
 {
@@ -86,49 +86,49 @@ For a full list of available fields, their types, and helpful descriptions, have
 ```
 {% endraw %}
 
-### Step 2: Create and encode an undefined payload variable
+### 2단계: 정의되지 않은 페이로드 변수 생성 및 인코딩 {#step-2-create-and-encode-an-undefined-payload-variable}
 
-Create and name a new Content Block by navigating to **Templates** > **Content Blocks** within the Braze dashboard.
+Braze 대시보드에서 **콘텐츠** > **콘텐츠 블록**으로 이동하여 새 콘텐츠 블록을 생성하고 이름을 지정합니다.
 
-Select **Create Content Block** to get started.
+**콘텐츠 블록 생성**을 선택하여 시작합니다.
 
-Next, you must define your **Content Block Liquid Tag**. After saving this Content Block, this Liquid tag can be referenced when composing messages. In this example, we have assigned the Liquid tag as {% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %}. 
+다음으로 **콘텐츠 블록 Liquid 태그**를 정의해야 합니다. 이 콘텐츠 블록을 저장한 후 메시지를 작성할 때 이 Liquid 태그를 참조할 수 있습니다. 이 예시에서는 Liquid 태그를 {% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %}로 할당했습니다.
 
-이 콘텐츠 블록에서는 페이로드를 직접 포함하지 않고 {% raw %}`{{passData}}`{% endraw %} 변수에서 참조합니다. The first code snippet you must add to your Content Block captures a Base64 encoding of the {% raw %}`{{passData}}`{% endraw %} variable.
+이 콘텐츠 블록에서는 페이로드를 직접 포함하지 않고 {% raw %}`{{passData}}`{% endraw %} 변수에서 참조합니다. 콘텐츠 블록에 추가해야 하는 첫 번째 코드 스니펫은 {% raw %}`{{passData}}`{% endraw %} 변수의 Base64 인코딩을 캡처합니다.
 {% raw %}
 ```liquid
 {% capture base64JsonPayload %}{{passDatapassData|base64_encode}}{% endcapture %}
 ```
 {% endraw %}
 
-### Step 3: Create your encryption signature using a SHA1 HMAC hash
+### 3단계: SHA1 HMAC 해시를 사용하여 암호화 서명 생성 {#step-3-create-your-encryption-signature-using-a-sha1-hmac-hash}
 
-다음으로 프로젝트 URL과 페이로드의 [SHA1 HMAC](https://en.wikipedia.org/wiki/HMAC) 해시를 사용하여 암호화 서명을 생성합니다. 
+다음으로 프로젝트 URL과 페이로드의 [SHA1 HMAC](https://en.wikipedia.org/wiki/HMAC) 해시를 사용하여 암호화 서명을 생성합니다.
 
-The second code snippet you must add to your Content Block captures the URL to be used for hashing.
+콘텐츠 블록에 추가해야 하는 두 번째 코드 스니펫은 해싱에 사용할 URL을 캡처합니다.
 {% raw %}
 ```liquid
 {% capture url %}{{projectUrl}}?data={{base64JsonPayload}}{% endcapture %}
 ```
 {% endraw %}
 
-Next, you must generate a signature using this hash and your `Project Secret`. This can be done by including a third code snippet:
+다음으로 이 해시와 `Project Secret`을 사용하여 서명을 생성해야 합니다. 세 번째 코드 스니펫을 포함하여 이를 수행할 수 있습니다:
 {% raw %}
 ```liquid
 {% capture sig %}{{url | hmac_sha1: "Project_Secret"}}{% endcapture %}
 ```
 {% endraw %}
 
-Finally, append the signature to the full URL using the fifth code snippet:
+마지막으로 다섯 번째 코드 스니펫을 사용하여 전체 URL에 서명을 추가합니다:
 {% raw %}
 ```liquid
 {% capture longURL %}{{projectUrl}}?data={{base64JsonPayload}}&sig={{sig}}{% endcapture %}
 ```
 {% endraw %}
 
-### Step 4: Print your URL
+### 4단계: URL 출력 {#step-4-print-your-url}
 
-Lastly, make sure you call your final URL so that it prints your SmartPass URL within your message.
+마지막으로 최종 URL을 호출하여 메시지 내에 SmartPass URL이 출력되도록 합니다.
 {% raw %}
 ```liquid
 {{longURL}}
@@ -151,44 +151,44 @@ Lastly, make sure you call your final URL so that it prints your SmartPass URL w
 ```
 {% endraw %}
 
-In this example, UTM parameters have been added to track the source of these installs back to Braze and this campaign.
+이 예시에서는 이러한 설치의 소스를 Braze와 이 Campaign으로 추적하기 위해 UTM 매개변수가 추가되었습니다.
 
 {% alert tip %}
-Remember to save your Content Block before leaving the page.
+페이지를 떠나기 전에 콘텐츠 블록을 저장하세요.
 {% endalert %}
 
-### Step 5: Putting it all together
+### 5단계: 모두 합치기 {#step-5-putting-it-all-together}
 
-Once this Content Block has been made, it can be reused again in the future. 
+이 콘텐츠 블록이 만들어지면 향후에 다시 재사용할 수 있습니다.
 
-You may notice there are two variables left undefined in the example Content Block.<br> 
-{% raw %}`{{passData}}`{% endraw %} - Your JSON pass data payload defined in [step 1](#passkit-integrations) <br>
-{% raw %}`{{projectUrl}}`{% endraw %} - Your project or program's URL which you find on the distribution tab of your Passkit project.
+예시 콘텐츠 블록에 정의되지 않은 두 개의 변수가 남아 있는 것을 알 수 있습니다.<br>
+{% raw %}`{{passData}}`{% endraw %} - [1단계](#passkit-integrations)에서 정의한 JSON 패스 데이터 페이로드 <br>
+{% raw %}`{{projectUrl}}`{% endraw %} - PassKit 프로젝트의 배포 탭에서 찾을 수 있는 프로젝트 또는 프로그램의 URL.
 
-This decision is purposeful and supports the reusability of the Content Block. Because these variables are only referenced, not created within the Content Block, these variables can change without remaking the Content Block. 
+이 결정은 의도적이며 콘텐츠 블록의 재사용성을 지원합니다. 이러한 변수는 콘텐츠 블록 내에서 생성되는 것이 아니라 참조만 되기 때문에 콘텐츠 블록을 다시 만들지 않고도 변수를 변경할 수 있습니다.
 
-For example, maybe you want to change the introductory offer to include more initial points in your loyalty program, or perhaps you want to create a secondary member card or coupon. These scenarios would require different Passkit `projectURLs` or different pass payloads, which you would define per campaign in Braze.  
+예를 들어, 로열티 프로그램에 더 많은 초기 포인트를 포함하도록 소개 오퍼를 변경하거나 보조 멤버 카드 또는 쿠폰을 만들고 싶을 수 있습니다. 이러한 시나리오에서는 서로 다른 PassKit `projectURLs` 또는 서로 다른 패스 페이로드가 필요하며, Braze에서 Campaign별로 정의합니다.
 
-#### Composing the message body
+#### 메시지 본문 작성 {#composing-the-message-body}
 
-You'll want to capture both of these variables in your message body and then call your Content Block.
-Capture your minified JSON payload from [step 1](#passkit-integrations):
+메시지 본문에서 이 두 변수를 모두 캡처한 다음 콘텐츠 블록을 호출해야 합니다.
+[1단계](#passkit-integrations)에서 축소된 JSON 페이로드를 캡처합니다:
 
-**Assign the project URL**
+**프로젝트 URL 할당**
 {% raw %}
 ```liquid
 {% assign projectUrl = "https://pub1.pskt.io/c/ww0jir" %}
 ```
 {% endraw %}
 
-**Capture the JSON**
+**JSON 캡처**
 {% raw %}
 ```liquid
 {% capture passData %}{"members.member.externalId": "{{${user_id}}}","members.member.points": "100","members.tier.name": "current_customer","person.displayName": "{{${first_name}}} {{${last_name}}}","person.externalId": "{{${user_id}}}","universal.expiryDate": "{{ "now" | date: "%s" | plus: 31622400 | date: "%FT%TZ" }}"}{% endcapture %}
 ```
 {% endraw %}
 
-**Reference the Content Block you just made**
+**방금 만든 콘텐츠 블록 참조**
 {% raw %}
 ```liquid
 {{content_block.${passkit_SmartPass_url}}}
@@ -196,43 +196,43 @@ Capture your minified JSON payload from [step 1](#passkit-integrations):
 {% endraw %}
 
 메시지 본문은 다음과 같이 표시되어야 합니다:
-![캡처한 JSON 및 콘텐츠 블록 참조가 표시된 콘텐츠 블록 메시지 작성기의 이미지입니다.]({% image_buster /assets/img/passkit/passkit1.png %}){: style="max-width:70%"}
+![캡처한 JSON 및 콘텐츠 블록 참조가 표시된 콘텐츠 블록 메시지 작성기의 이미지.]({% image_buster /assets/img/passkit/passkit1.png %}){: style="max-width:70%"}
 
 샘플의 출력 URL은 다음과 같습니다:
-![무작위로 생성된 긴 문자 및 숫자 문자열이 포함된 출력 URL입니다.]({% image_buster /assets/img/passkit/passkit2.png %}){: style="max-width:70%"}
+![무작위로 생성된 긴 문자 및 숫자 문자열이 포함된 출력 URL.]({% image_buster /assets/img/passkit/passkit2.png %}){: style="max-width:70%"}
 
-출력 URL이 길어집니다. The reason for this is that it contains all the pass data and incorporates best-in-class security to ensure data integrity and no tempering via URL modification. If using SMS to distribute this URL, you may want to run it through a link shortening process such as [bit.ly](https://dev.bitly.com/v4/#operation/createFullBitlink). This can be done through a Connected Content call to a bit.ly endpoint.
+출력 URL이 길어집니다. 이는 모든 패스 데이터를 포함하고 URL 수정을 통한 데이터 무결성 및 변조 방지를 위해 최고 수준의 보안을 적용하기 때문입니다. SMS를 사용하여 이 URL을 배포하는 경우 [bit.ly](https://dev.bitly.com/v4/#operation/createFullBitlink)와 같은 링크 단축 프로세스를 통해 실행할 수 있습니다. 이는 bit.ly 엔드포인트에 대한 연결된 콘텐츠 호출을 통해 수행할 수 있습니다.
 
-## Update pass using the PassKit webhook
+## PassKit 웹훅을 사용하여 패스 업데이트 {#update-pass-using-the-passkit-webhook}
 
-Within Braze, you can set up a webhook campaign or a webhook within a Canvas to update an existing pass based on your user's behavior. Check out the following links for information on useful PassKit endpoints. 
-- [Member projects](https://docs.passkit.io/protocols/member/)
-- [Coupon projects](https://docs.passkit.io/protocols/coupon/)
-- [Flights projects](https://docs.passkit.io/protocols/boarding/)
+Braze 내에서 웹훅 Campaign 또는 Canvas 내 웹훅을 설정하여 사용자의 동작에 따라 기존 패스를 업데이트할 수 있습니다. 유용한 PassKit 엔드포인트에 대한 정보는 다음 링크를 확인하세요.
+- [멤버 프로젝트](https://docs.passkit.io/protocols/member/)
+- [쿠폰 프로젝트](https://docs.passkit.io/protocols/coupon/)
+- [항공편 프로젝트](https://docs.passkit.io/protocols/boarding/)
 
-### Payload parameters
+### 페이로드 매개변수 {#payload-parameters}
 
-Before you get started, here are the common JSON payload parameters that you can include within your create and update webhooks to PassKit.
+시작하기 전에 PassKit에 대한 생성 및 업데이트 웹훅에 포함할 수 있는 일반적인 JSON 페이로드 매개변수는 다음과 같습니다.
 
-| Data | Type | Description |
+| 데이터 | 유형 | 설명 |
 | ---- | ---- | ----------- |
-| `externalId` | String | Allows a unique Id to be added to the pass record to provide compatibility with an existing system using unique customer identifiers (for example, membership numbers). You can retrieve pass data by using this endpoint via `userDefinedId` and `campaignName` instead of pass ID. This value must be unique within a campaign, and after this value is set, it cannot be changed.<br><br>For the Braze integration, we would recommend using the Braze external ID: {% raw %}`{{${user_id}}}`{% endraw %} |
-| `campaignId` (coupon) <br><br> `programId` (membership) | String | The ID for the campaign or program template you created in PassKit. To find this, head to the **Settings** tab in your PassKit pass project. |
-| `expiryDate` | IO8601 datetime | The pass expiry date. After the expiry date, the pass is automatically voided (see `isVoided`). This value will override the template and campaign end date value. |
-| `status` | String | The current status of a coupon, such as `REDEEMED` or `UNREDEEMED`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `externalId` | 문자열 | 고유 고객 식별자(예: 멤버십 번호)를 사용하는 기존 시스템과의 호환성을 제공하기 위해 패스 레코드에 고유 ID를 추가할 수 있습니다. 패스 ID 대신 `userDefinedId` 및 `campaignName`을 통해 이 엔드포인트를 사용하여 패스 데이터를 검색할 수 있습니다. 이 값은 Campaign 내에서 고유해야 하며, 이 값이 설정된 후에는 변경할 수 없습니다.<br><br>Braze 통합의 경우 Braze 외부 ID를 사용하는 것을 권장합니다: {% raw %}`{{${user_id}}}`{% endraw %} |
+| `campaignId` (쿠폰) <br><br> `programId` (멤버십) | 문자열 | PassKit에서 생성한 Campaign 또는 프로그램 템플릿의 ID입니다. 이를 찾으려면 PassKit 패스 프로젝트의 **Settings** 탭으로 이동하세요. |
+| `expiryDate` | IO8601 datetime | 패스 만료 날짜입니다. 만료 날짜 이후 패스는 자동으로 무효화됩니다(`isVoided` 참조). 이 값은 템플릿 및 Campaign 종료 날짜 값을 재정의합니다. |
+| `status` | 문자열 | 쿠폰의 현재 상태(예: `REDEEMED` 또는 `UNREDEEMED`). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Payload parameters" }
 
-### Step 1: Create your Braze webhook template
+### 1단계: Braze 웹훅 템플릿 생성 {#step-1-create-your-braze-webhook-template}
 
-향후 캠페인이나 캔버스에서 사용할 Passkit 웹훅 템플릿을 만들려면 Braze 대시보드의 **템플릿 & 미디어** 섹션으로 이동하세요. If you would like to create a one-off PassKit webhook campaign or use an existing template, select **Webhook** in Braze when creating a new campaign.
+향후 Campaign이나 Canvas에서 사용할 PassKit 웹훅 템플릿을 만들려면 Braze 대시보드의 **템플릿 및 미디어** 섹션으로 이동하세요. 일회성 PassKit 웹훅 Campaign을 만들거나 기존 템플릿을 사용하려면 새 Campaign을 만들 때 Braze에서 **Webhook**을 선택하세요.
 
-Once you have selected the PassKit webhook template, you should see the following:
+PassKit 웹훅 템플릿을 선택하면 다음이 표시됩니다:
 - **Webhook URL**: `https://api-pub1.passkit.io/coupon/singleUse/coupon`
 - **Request Body**: Raw Text
 
-#### Request headers and method
+#### 요청 헤더 및 메서드 {#request-headers-and-method}
 
-PassKit requires an `HTTP Header` for authorization that includes your PassKit API key encoded in base 64. The following will already be included within the template as a key-value pair, but in the **Settings** tab, you must replace the `<PASSKIT_LONG_LIVED_TOKEN>` with your PassKit token. To retrieve your token, navigate to your PassKit project/program, navigate to **Settings > Integrations > Long Lived Token**.
+PassKit은 base 64로 인코딩된 PassKit API 키를 포함하는 승인용 `HTTP Header`가 필요합니다. 다음은 이미 템플릿 내에 키-값 페어로 포함되어 있지만, **Settings** 탭에서 `<PASSKIT_LONG_LIVED_TOKEN>`을 PassKit 토큰으로 교체해야 합니다. 토큰을 검색하려면 PassKit 프로젝트/프로그램으로 이동한 다음 **Settings > Integrations > Long Lived Token**으로 이동하세요.
 
 {% raw %}
 - **HTTP Method**: PUT
@@ -241,9 +241,9 @@ PassKit requires an `HTTP Header` for authorization that includes your PassKit A
   - **Content-Type**: application/json
 {% endraw %}
 
-#### Request body
+#### 요청 본문 {#request-body}
 
-To set up the webhook, fill out the new event details within the request body, including the payload parameters necessary for your use case:
+웹훅을 설정하려면 사용 사례에 필요한 페이로드 매개변수를 포함하여 요청 본문에 새 이벤트 세부 정보를 입력합니다:
 
 ```json
 {% raw %}{
@@ -253,31 +253,31 @@ To set up the webhook, fill out the new event details within the request body, i
 }{% endraw %}
 ```
 
-### Step 2: Preview your request
+### 2단계: 요청 미리보기 {#step-2-preview-your-request}
 
-Your raw text will automatically highlight if it is an applicable Braze tag. 
+원시 텍스트는 적용 가능한 Braze 태그인 경우 자동으로 강조 표시됩니다.
 
-Preview your request in the **Preview** panel or navigate to the **Test** tab, where you can select a random user, an existing user, or customize your own to test your webhook.
+**Preview** 패널에서 요청을 미리 보거나 **Test** 탭으로 이동하여 무작위 사용자, 기존 사용자를 선택하거나 직접 커스터마이즈하여 웹훅을 테스트할 수 있습니다.
 
 {% alert important %}
-Remember to save your template before leaving the page! <br>Updated webhook templates can be found in the **Saved Webhook Templates** list when creating a new [webhook campaign]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/).
+페이지를 떠나기 전에 템플릿을 저장하세요! <br>업데이트된 웹훅 템플릿은 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)을 만들 때 **저장된 웹훅 템플릿** 목록에서 찾을 수 있습니다.
 {% endalert %}
 
-## Retrieve pass details via Connected Content
+## 연결된 콘텐츠를 통해 패스 세부 정보 검색 {#retrieve-pass-details-via-connected-content}
 
-In addition to creating and updating passes, you can also retrieve your users' pass metadata via Braze [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/) to incorporate personalized pass details within your messaging campaigns.
+패스를 생성하고 업데이트하는 것 외에도 Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)를 통해 사용자의 패스 메타데이터를 검색하여 메시징 Campaign에 개인화된 패스 세부 정보를 포함할 수 있습니다.
 
-**PassKit Connected Content call**
+**PassKit 연결된 콘텐츠 호출**
 
 {% raw %}
 ```liquid
 {% connected_content  https://api-pub1.passkit.io/coupon/singleUse/coupon/externalId/{{${user_id}}} :headers {"Authorization": "Bearer <PASSKIT_LONG_LIVED_TOKEN>","Content-Type": "application/json"} :save passes %}
 
-{{passes.status}} 
+{{passes.status}}
 ```
 {% endraw %}
 
-**Liquid example responses**
+**Liquid 응답 예시**
 
 {% tabs local %}
 {% tab passes redemptionDetails %}
@@ -299,9 +299,7 @@ In addition to creating and updating passes, you can also retrieve your users' p
 {% endtab %}
 {% tab passes status %}
 ```
-UNREDEEMED 
+UNREDEEMED
 ```
 {% endtab %}
 {% endtabs %}
-
-

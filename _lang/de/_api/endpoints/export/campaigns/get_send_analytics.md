@@ -1,26 +1,28 @@
 ---
-nav_title: "GET: Exportieren Sie Analytics"
-article_title: "GET: Senden von Analytics exportieren"
+nav_title: "GET: Versand-Analytics exportieren"
+article_title: "GET: Versand-Analytics exportieren"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts Export sendet Analytics Braze."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Versand-Analytics exportieren“."
 
 ---
 {% api %}
-# Exportieren Sie Analytics
+# Versand-Analytics exportieren {#export-send-analytics}
 {% apimethod get %}
 /sends/data_series
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine tägliche Reihe verschiedener Statistiken für eine getrackte `send_id` für API Kampagnen abzurufen.
+> Verwenden Sie diesen Endpunkt, um eine tägliche Reihe verschiedener Statistiken für eine getrackte `send_id` für API-Kampagnen abzurufen.
 
-Braze speichert die gesendeten Analytics für 14 Tage nach dem Versand. Konversionen von Kampagnen werden der letzten `send_id` zugeschrieben, die ein bestimmter Nutzer:innen von der Kampagne erhalten hat.
+Braze speichert Versand-Analytics für 14 Tage nach dem Versand. Campaign-Conversions werden der letzten `send_id` zugeschrieben, die ein:e bestimmte:r Nutzer:in von der Campaign erhalten hat.
+
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Dieser Endpunkt ist nur für API-Kampagnen gedacht. Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `sends.data_series`.
 
@@ -28,17 +30,17 @@ Dieser Endpunkt ist nur für API-Kampagnen gedacht. Um diesen Endpunkt zu verwen
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- |------------ |
-| `campaign_id` | Erforderlich | String | Siehe [API-Bezeichner der Kampagne]({{site.baseurl}}/api/identifier_types/). |
-| `send_id` | Erforderlich | String | Siehe [API Bezeichner senden]({{site.baseurl}}/api/identifier_types/). |
-| `length` | Erforderlich | Integer | Maximale Anzahl der Tage vor `ending_at`, die in der zurückgegebenen Serie enthalten sein sollen. Muss zwischen 1 und 100 (einschließlich) liegen. |
-| `ending_at` | Optional | Datetime <br>[(ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) String) | Datum, an dem die Datenreihe enden soll. Standardmäßig wird die Zeit der Anfrage verwendet. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | Erforderlich | String | Siehe [Campaign-API-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `send_id` | Erforderlich | String | Siehe [Versand-API-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `length` | Erforderlich | Integer | Maximale Anzahl der Tage vor `ending_at`, die in der zurückgegebenen Reihe enthalten sein sollen. Muss zwischen 1 und 100 (einschließlich) liegen. |
+| `ending_at` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-String) | Datum, an dem die Datenreihe enden soll. Standardmäßig wird der Zeitpunkt der Anfrage verwendet. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 {% raw %}
 ```
@@ -47,7 +49,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 ```
 {% endraw %}
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {
@@ -97,7 +99,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 ```
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

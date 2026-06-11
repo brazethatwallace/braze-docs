@@ -1,0 +1,140 @@
+# Support analyzer Phase 2 — rule-driven doc proposals from Support Cases CSV.
+# Edit this file to add themes: match support text with regexes, then insert
+# anchored snippets into _docs. Each firing rule opens one draft PR per workflow
+# run (all edits in the rule share one PR). Branch names include the run date and
+# GitHub run id (support-analyzer/phase2-<rule_id>-YYYY-MM-DD-<run_id>) so a new
+# draft can open while an earlier one is still in review. If every target file
+# already on develop (fingerprint HTML comment, skip_if_contains, or skip_if_contains_in_files),
+# no PR opens. While an open draft exists for the same rule (branch support-analyzer/phase2-<rule_id>-*),
+# Phase 2 skips opening another. When merging Phase 2 PRs manually, keep
+# <!-- support-analyzer-phase2:... --> comments or add skip_if_contains so later runs do not duplicate.
+#
+# CI runs `support_analyzer_phase2.py --strict-anchors`: if a rule matches cases
+# but an anchor is missing (and the fingerprint is not already in the file), the
+# workflow fails so anchors can be fixed. Optional `pr.verification_note` adds a
+# short, path-free note to the draft PR body for reviewers.
+#
+# Optional `verification` (per rule): run `rg` under a path such as `platform/`
+# when that directory exists (for example a local sibling clone). CI does not
+# clone product repos; checks are skipped there unless you run Phase 2 in an
+# environment with a checkout. Set `required: true` only when that environment
+# is guaranteed. Patterns use ripgrep regex.
+#
+# CSV columns (Looker export): see .github/skills/support-analyzer/SKILL.md
+version: 1
+
+rules:
+  - id: data_series_currents
+    enabled: true
+    # skip_if_contains below detects the shared include merged in #13772; disable this rule if that include is canonical.
+    min_matching_cases: 3
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      # any_of: match when the case mentions API data_series OR dashboard/Currents reconciliation (broader than all_of).
+      match_mode: any_of
+      patterns:
+        - "(?i)(/campaigns/data_series|/canvas/data_series|/sends/data_series|data_series|data series)"
+        - "(?i)(currents|dashboard|engagement report|engagement analytics)"
+    pr:
+      title: "[SA] Clarify data_series vs dashboard/Currents (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Relates to REST data_series series vs dashboard/Currents aggregation differences.
+        Reviewers should confirm wording against Braze product source before merge.
+    verification:
+      required: false
+      checks:
+        - type: rg
+          root: platform
+          glob: "**/*.{scala,java,kt}"
+          pattern: "(?i)data_series|DataSeries"
+          min_hits: 1
+    edits:
+      - file: _docs/_api/endpoints/export/campaigns/get_campaign_analytics.md
+        fingerprint: support-analyzer-phase2:data_series_currents_campaign
+        skip_if_contains:
+          - "api/export_data_series_analytics_dashboard_note.md"
+        anchor_substring: Data returned includes how many messages were sent, opened, clicked, or converted by messaging channel.
+        insert: |+
+
+          <!-- support-analyzer-phase2:data_series_currents_campaign -->
+          {% alert note %}
+          Counts from this endpoint won't always match dashboard Engagement analytics or aggregates you build from [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) one-for-one. Dashboard metrics and API time series use different aggregation windows and definitions than raw Currents events. For common reconciliation notes, see [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq/).
+          {% endalert %}
+
+      - file: _docs/_api/endpoints/export/canvas/get_canvas_analytics.md
+        fingerprint: support-analyzer-phase2:data_series_currents_canvas
+        skip_if_contains:
+          - "api/export_data_series_analytics_dashboard_note.md"
+        anchor_substring: "> Use this endpoint to export time series data for a Canvas."
+        insert: |+
+
+          <!-- support-analyzer-phase2:data_series_currents_canvas -->
+          {% alert note %}
+          Counts from this endpoint won't always match dashboard Canvas analytics or aggregates you build from [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) one-for-one. Dashboard metrics and API time series use different aggregation windows and definitions than raw Currents events. For common reconciliation notes, see [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq/).
+          {% endalert %}
+
+      - file: _docs/_api/endpoints/export/campaigns/get_send_analytics.md
+        fingerprint: support-analyzer-phase2:data_series_currents_send
+        skip_if_contains:
+          - "api/export_data_series_analytics_dashboard_note.md"
+        anchor_substring: Braze stores send analytics for 14 days after the send.
+        insert: |+
+
+          <!-- support-analyzer-phase2:data_series_currents_send -->
+          {% alert note %}
+          Send-level `data_series` counts won't always match dashboard Engagement analytics or aggregates you build from [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) one-for-one. Dashboard metrics and API time series use different aggregation windows and definitions than raw Currents events. For common reconciliation notes, see [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq/).
+          {% endalert %}
+
+  # FAQ already covers triple-brace mistakes under "### Why is my API-triggered Liquid failing in Braze?"
+  # on develop. This rule adds the same guidance on API-trigger and personalization reference pages.
+  - id: liquid_api_trigger_extra_braces
+    enabled: true
+    min_matching_cases: 1
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        - "(?i)(api\\s*trigger|api_trigger_properties|trigger_properties)"
+        - "(?i)(\\{\\{\\{|triple\\s*brace|extra\\s*brace|curly\\s*brace|liquid)"
+    pr:
+      title: "[SA] Liquid — extra braces in API-triggered properties (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Relates to invalid `{{{...}}}` style personalization around API-triggered properties.
+        Reviewers should confirm against Braze Liquid handling before merge.
+    edits:
+      - file: _docs/_user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery.md
+        fingerprint: support-analyzer-phase2:liquid_api_trigger_extra_braces_delivery
+        skip_if_contains:
+          - "Use exactly two curly brackets per Liquid tag in `trigger_properties`"
+        anchor_substring: In addition to triggering the message, you can also include content with the API request to be templated into the message within the `trigger_properties` object.
+        insert: |+
+
+          <!-- support-analyzer-phase2:liquid_api_trigger_extra_braces_delivery -->
+          {% alert note %}
+          Use exactly two curly braces per Liquid tag in `trigger_properties` and message copy—for example `{{api_trigger_properties.${your_property}}}`—not three. An extra `{` or `}` is a common cause of API-triggered personalization failures. For more help, see [Liquid FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+          {% endalert %}
+
+      - file: _docs/_user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags.md
+        fingerprint: support-analyzer-phase2:liquid_api_trigger_extra_braces_tags
+        # FAQ already documents triple-brace mistakes; skip this edit unless tags page adds its own callout.
+        skip_if_contains_in_files:
+          - file: _docs/_user_guide/messaging/design_and_edit/personalize/liquid/faq.md
+            contains:
+              - "extra pair of curly braces is a common cause"
+        anchor_substring: "| <a href='/docs/api/objects_filters/trigger_properties_object/'>API Trigger Properties</a> |"
+        insert: |+
+
+          <!-- support-analyzer-phase2:liquid_api_trigger_extra_braces_tags -->
+          {% alert note %}
+          API trigger properties must use two curly braces per tag: `{{api_trigger_properties.${your_api_trigger_property}}}`. Triple braces (for example `{{{...}}}`) are not valid Braze personalization syntax. See [Why is my API-triggered Liquid failing in Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+          {% endalert %}

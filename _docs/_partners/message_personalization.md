@@ -33,6 +33,10 @@ valid_partner_list:
   url: /docs/partners/amplitude/
 - name: Certona
   url: /docs/partners/certona/
+- name: CataBoom
+  url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Future Anthem
   url: /docs/partners/future_anthem/
 - name: Judo
@@ -47,8 +51,6 @@ valid_partner_list:
   url: /docs/partners/seen/
 - name: Storyly
   url: /docs/partners/storyly/
-- name: Stylitics
-  url: /docs/partners/stylistics/
 - name: Worthy
   url: /docs/partners/worthy/
 - name: WSC Sports
@@ -71,12 +73,8 @@ valid_partner_list:
   url: /docs/partners/stylitics/
 - name: NiftyImages
   url: /docs/partners/niftyimages/
-- name: Future Anthem
-  url: /docs/partners/future_anthem
-- name: SEEN
-  url: /docs/partners/seen
-- name: Just Words
-  url: /docs/partners/just_words/
+- name: JustAI
+  url: /docs/partners/just_ai/
 - name: Transifex
   url: /docs/partners/transifex/
 - name: AccuWeather
@@ -99,4 +97,8 @@ valid_partner_list:
   url: /docs/partners/viralsweep/
 - name: Mention Me
   url: /docs/partners/mention_me/
+- name: Talkable
+  url: /docs/partners/talkable/
+- name: VideoSmart
+  url: /docs/partners/videosmart/
 ---

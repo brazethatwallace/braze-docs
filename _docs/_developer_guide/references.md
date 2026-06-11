@@ -10,6 +10,8 @@ toc_headers: h2
 
 > This is a list of reference documentation, GitHub repositories, and sample apps belonging to each Braze SDK. An SDK's reference documentation details its available classes, types, functions, and variables. While the GitHub repository provides insight into that SDK's function and attribute declarations, code changes, and versioning. Each repository also includes fully-buildable sample applications you can use to test Braze features or implement alongside your own applications.
 
+For mirrored repository README content in docs, see [Repository guides]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+
 ## List of resources
 
 {% alert note %}
@@ -21,13 +23,14 @@ Currently, some SDKs do not have dedicated reference documentation&#8212;but we'
 | Android SDK       | [Reference documentation](https://braze-inc.github.io/braze-android-sdk/kdoc/index.html)                                                                           | [GitHub repository](https://github.com/braze-inc/braze-android-sdk)      | [Sample app](https://github.com/braze-inc/braze-android-sdk/tree/master/samples)      |
 | Swift SDK         | [Reference documentation](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze)                                                                | [GitHub repository](https://github.com/braze-inc/braze-swift-sdk)            | [Sample app](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples)            |
 | Web SDK           | [Reference documentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)                                                               | [GitHub repository](https://github.com/braze-inc/braze-web-sdk)              | [Sample app](https://github.com/braze-inc/braze-web-sdk/tree/master/sample-builds)              |
+| Javascript SDK           | [Reference documentation](https://braze-inc.github.io/braze-javascript-sdk/)                                                               | [GitHub repository](https://github.com/braze-inc/braze-javascript-sdk/tree/main)              | N/A              |
 | Cordova SDK       | [Declaration File](https://github.com/braze-inc/braze-cordova-sdk/blob/master/www/BrazePlugin.js)                                      | [GitHub repository](https://github.com/braze-inc/braze-cordova-sdk)      | [Sample app](https://github.com/braze-inc/braze-cordova-sdk/tree/master/sample-project)      |
 | Flutter SDK       | [Reference documentation](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/)                                                   | [GitHub repository](https://github.com/braze-inc/braze-flutter-sdk)      | [Sample app](https://github.com/braze-inc/braze-flutter-sdk/tree/master/example)      |
 | React Native SDK  | [Declaration File](https://github.com/braze-inc/braze-react-native-sdk/blob/master/src/index.d.ts)                   | [GitHub repository](https://github.com/braze-inc/braze-react-native-sdk) | [Sample app](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
 | Roku SDK          | N/A                                                                                                                                                         | [GitHub repository](https://github.com/braze-inc/braze-roku-sdk)            | [Sample app](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv)            |
 | Unity SDK         | [Declaration file](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)     | [GitHub repository](https://github.com/braze-inc/braze-unity-sdk)          | [Sample app](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples)          |
 | .NET MAUI SDK (formerly Xamarin)      | N/A                                                                                                                                                         | [GitHub repository](https://github.com/braze-inc/braze-xamarin-sdk)      | [Sample app](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples)      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="List of resources" }
 
 ## Building a sample app
 

@@ -5,7 +5,7 @@ layout: dev_guide
 page_order: 1.3
 
 #Required
-description: "Esta es la descripción de la Búsqueda de Google. Los caracteres que pasan de 160 se truncan, sé breve."
+description: "Esta es la descripción de Google Search. Los caracteres que pasan de 160 se truncan, sé breve."
 page_type: landing
 tool:
   - Dashboard
@@ -33,12 +33,12 @@ channel:
   - Push
   - SMS
   - Webhooks
-  
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
-guide_top_header: "Página de inicio multisección con íconos FA"
-guide_top_text: "Las Páginas de Aterrizaje Multisección son estupendas para una sección grande con división entre las páginas de la sección, normalmente por temas. Esta plantilla en concreto utiliza el parámetro yaml de diseño 'dev_guide' ('layout: dev_guide'), que te impide añadir información adicional en la parte inferior de la página, pero te permite tener varias secciones de botones."
+guide_top_header: "Página de inicio multisección con iconos FA"
+guide_top_text: "Las páginas de inicio multisección son ideales para una sección grande con división entre las páginas de la sección, normalmente por tema. Esta plantilla en concreto utiliza el parámetro YAML de diseño 'dev_guide' ('layout: dev_guide'), que te impide añadir información adicional en la parte inferior de la página, pero te permite tener varias secciones de botones."
 
 guide_featured_title: "Sección 1"
 guide_featured_list:
@@ -52,7 +52,7 @@ guide_featured_list:
     link: /docs/home/templates/landing_multiple/
     image: /assets/img/braze_icons/layout-grid-02.svg
 
-guide_menu_title: "Section 2"
+guide_menu_title: "Sección 2"
 guide_menu_list:
   - name: Ejemplo 4
     link: /docs/home/templates/api_glossary/

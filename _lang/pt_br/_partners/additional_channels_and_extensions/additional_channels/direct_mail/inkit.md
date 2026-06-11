@@ -14,54 +14,54 @@ search_tag: Partner
 
 _Essa integração é mantida pela Inkit._
 
-## Sobre a integração
+## Sobre a integração {#about-the-integration}
 
-A integração entre o Braze e o Inkit permite gerar documentos e enviá-los por mala direta aos usuários do Braze com webhooks do Braze.
+A integração entre a Braze e a Inkit permite gerar documentos e enviá-los por mala direta aos usuários da Braze com webhooks da Braze.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-|Requisito| Descrição|
-| ---| ---|
-|Conta da Inkit | É necessário ter uma [conta Inkit](https://www.inkit.com/) para aproveitar essa parceria. |
-| Chave de API da Inkit<br><br>`<INKIT_API_TOKEN>` | Essa chave pode ser encontrada no [dashboard da Inkit](https://app.inkit.io/#/account/integrations), na guia **Desenvolvimento**, e ativará a conexão das contas Braze e Inkit.|
-| ID de modelo da Inkit<br><br>`<INKIT_TEMPLATE_ID>` | Depois de criar um modelo, você pode copiar o ID do modelo da guia **Modelos** para usá-lo em seu modelo no Braze.<br><br>Por exemplo, você pode criar um modelo chamado `invoice_template` no ambiente da Inkit com o ID de modelo `tmpl_3bDScFl9cwr3OAVR1RSdEC`.
-| Cabeçalho HTTP | O cabeçalho HTTP faz parte da solicitação da API que você envia da Braze para a Inkit. Nele, você incluirá sua chave de API da Inkit para autenticar e autorizar chamadas para a API da Inkit. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| Requisito | Descrição |
+| --- | --- |
+| Conta da Inkit | É necessário ter uma [conta Inkit](https://www.inkit.com/) para aproveitar essa parceria. |
+| Chave de API da Inkit<br><br>`<INKIT_API_TOKEN>` | Essa chave pode ser encontrada no [dashboard da Inkit](https://app.inkit.io/#/account/integrations), na guia **Development**, e permitirá a conexão das contas da Braze e da Inkit. |
+| ID de modelo da Inkit<br><br>`<INKIT_TEMPLATE_ID>` | Depois de criar um modelo, você pode copiar o ID do modelo na guia **Templates** para usá-lo em seu modelo na Braze.<br><br>Por exemplo, você pode criar um modelo chamado `invoice_template` no ambiente da Inkit com o ID de modelo: `tmpl_3bDScFl9cwr3OAVR1RSdEC`. |
+| Cabeçalho HTTP | O cabeçalho HTTP faz parte da solicitação de API que você envia da Braze para a Inkit. Nele, você incluirá sua chave de API da Inkit para autenticar e autorizar chamadas para a API da Inkit. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integração
+## Integração {#integration}
 
-### Etapa 1: crie um modelo da Inkit
+### Etapa 1: crie um modelo da Inkit {#step-1-create-an-inkit-template}
 
-Na plataforma da Inkit, crie um modelo para ser usado na sua campanha da Braze em HTML, Word, PowerPoint, Excel ou PDF. Consulte [a documentação do Inkit](https://docs.inkit.com/docs/create-a-template) para saber mais.
+Na plataforma da Inkit, crie um modelo para ser usado na sua Campaign da Braze em HTML, Word, PowerPoint, Excel ou PDF. Consulte a [documentação da Inkit](https://docs.inkit.com/docs/create-a-template) para saber mais.
 
-### Etapa 2: Crie seu modelo de webhook do Braze
+### Etapa 2: crie seu modelo de webhook da Braze {#step-2-create-your-braze-webhook-template}
 
-Para criar um modelo de webhook Inkit a ser usado em futuras campanhas ou Canvas, navegue até **Modelos** > **Modelos de webhook** na plataforma Braze. 
+Para criar um modelo de webhook da Inkit a ser usado em futuras Campaigns ou Canvas, acesse **Conteúdo** > **Webhook** na plataforma Braze. Em seguida, selecione **Create webhook template**.
 
-Se você quiser criar uma campanha única de webhook Inkit ou usar um modelo existente, selecione **Webhook** no Braze ao criar uma nova campanha.
+Se você quiser criar uma Campaign única de webhook da Inkit ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova Campaign.
 
-![Uma seleção de modelos de webhook predefinidos disponíveis na guia Webhook Templates da seção Templates & Media.]({% image_buster /assets/img/inkit-webhook-template.png %})
+![Uma seleção de modelos de webhook predefinidos disponíveis na guia Modelos de webhook da seção Modelos e mídia.]({% image_buster /assets/img/inkit-webhook-template.png %})
 
 Depois de selecionar o modelo de webhook da Inkit, você verá o seguinte:
-- **URL do webhook**: Em branco
-- **Corpo da solicitação**: Texto bruto
+- **Webhook URL**: em branco
+- **Request Body**: texto bruto
 
-No campo URL do webhook, [crie](https://docs.inkit.com/docs/set-up-a-webhook-to-an-event) e insira um URL do webhook Inkit.
+No campo Webhook URL, [crie](https://docs.inkit.com/docs/set-up-a-webhook-to-an-event) e insira uma URL de webhook da Inkit.
 
-![O código do corpo da solicitação e o URL do webhook são exibidos na guia de composição do criador de webhooks do Braze.]({% image_buster /assets/img/inkit-integration.png %})
+![Código do corpo da solicitação e URL do webhook exibidos na guia de composição do criador de webhooks da Braze.]({% image_buster /assets/img/inkit-integration.png %})
 
-#### Cabeçalhos de solicitação e método
+#### Cabeçalhos de solicitação e método {#request-headers-and-method}
 
-A Inkit requer um `HTTP Header` para autorização que inclua sua chave de API da Inkit codificada em base 64. O seguinte já estará incluído no modelo como um par de valores-chave, mas na guia **Settings (Configurações)**, você deve substituir o `<INKIT_API_TOKEN>` pela sua chave de API do Inkit.
+A Inkit requer um `HTTP Header` para autorização que inclua sua chave de API da Inkit codificada em base 64. O seguinte já estará incluído no modelo como um par chave-valor, mas na guia **Settings**, você deve substituir o `<INKIT_API_TOKEN>` pela sua chave de API da Inkit.
 
 {% raw %}
-- **Método HTTP**: POST
-- **Cabeçalho da solicitação**:
-  - **Autorização**: Básico `{{ '<INKIT_API_TOKEN>' | base64_encode }}`
+- **HTTP Method**: POST
+- **Request Header**:
+  - **Authorization**: Basic `{{ '<INKIT_API_TOKEN>' | base64_encode }}`
   - **Content-Type**: application/json
 {% endraw %}
 
-#### Corpo da solicitação
+#### Corpo da solicitação {#request-body}
 
 Certifique-se de que seu Liquid corresponda aos atributos personalizados adequados associados aos seguintes campos obrigatórios e opcionais. Você também pode adicionar campos de dados personalizados a qualquer solicitação.
 
@@ -84,14 +84,12 @@ Certifique-se de que seu Liquid corresponda aos atributos personalizados adequad
 }{% endraw %}
 ```
 
-### Etapa 3: veja uma prévia da sua solicitação
+### Etapa 3: pré-visualize sua solicitação {#step-3-preview-your-request}
 
-Seu texto bruto será automaticamente destacado se for uma tag Braze aplicável. As tags `street`, `unit`, `state` e `zip` devem ser configuradas como [atributos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attributes) para enviar esse Webhook.
+Seu texto bruto será automaticamente destacado se for uma tag Braze aplicável. Os campos `street`, `unit`, `state` e `zip` devem ser configurados como [atributos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attributes) para enviar esse webhook.
 
-Pré-visualize a solicitação no painel **Preview (Pré-visualização** ) ou navegue até a guia **Test (Teste** ), onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio usuário para testar o webhook.
+Pré-visualize a solicitação no painel **Preview** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio usuário para testar o webhook.
 
 {% alert important %}
-Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhook salvos** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/).
+Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}
-
-

@@ -1,6 +1,6 @@
 ---
 nav_title: Rastrear eventos personalizados
-article_title: Rastrear Eventos Personalizados para iOS
+article_title: Rastrear eventos personalizados para iOS
 platform: iOS
 page_order: 2
 description: "Este artigo de referência aborda como adicionar e rastrear eventos personalizados para seu aplicativo iOS."
@@ -10,13 +10,13 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Rastrear eventos personalizados para iOS
+# Rastrear eventos personalizados para iOS {#track-custom-events-for-ios}
 
-Você pode registrar eventos personalizados no Braze para saber mais sobre os padrões de uso do seu app e para segmentar seus usuários por suas ações no dashboard.
+Você pode registrar eventos personalizados na Braze para saber mais sobre os padrões de uso do seu app e segmentar seus usuários por suas ações no dashboard.
 
-Antes da implementação, certifique-se de revisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [melhores práticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), bem como nossas notas sobre [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/custom_data/event_naming_conventions/).
+Antes da implementação, não deixe de analisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [melhores práticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), bem como nossas notas sobre [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
 
-## Adição de um evento personalizado
+## Adição de um evento personalizado {#adding-a-custom-event}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -35,9 +35,9 @@ Appboy.sharedInstance()?.logCustomEvent("YOUR_EVENT_NAME")
 {% endtab %}
 {% endtabs %}
 
-### Adicionando propriedades
+### Adição de propriedades {#adding-properties}
 
-Você pode adicionar metadados sobre eventos personalizados passando um `NSDictionary` preenchido com `NSNumber`, `NSString` ou `NSDate` valores.
+Você pode adicionar metadados sobre eventos personalizados passando um `NSDictionary` preenchido com valores `NSNumber`, `NSString` ou `NSDate`.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -87,8 +87,7 @@ As seguintes chaves são reservadas e não podem ser usadas como propriedades de
 - `time`
 - `event_name`
 
-## Recursos adicionais
+## Recursos adicionais {#additional-resources}
 
-- Consulte a declaração do método no [arquivo](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h) `Appboy.h`. 
+- Consulte a declaração do método no [arquivo](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h) `Appboy.h`.
 - Consulte a documentação de [`logCustomEvent`](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ad80c39e8c96482a77562a5b1a1d387aa) para saber mais.
-

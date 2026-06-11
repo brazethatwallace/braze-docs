@@ -26,7 +26,7 @@ NFX.sharedInstance().ignoreURLs(["https://cdn.braze.com"])
 ```
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 [NFX.sharedInstance ignoreURLs:@[@"https://cdn.braze.com"]];
 ```
 {% endtab %}
@@ -36,12 +36,12 @@ NFX.sharedInstance().ignoreURLs(["https://cdn.braze.com"])
 
 {% tabs %}
 {% tab Swift %}
-```swift
+`````````swift
 NetGuard.blackListHosts.append(contentsOf: ["cdn.braze.com"])
 ```
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 NSMutableArray<NSString *> *blackListHosts = [NetGuard.blackListHosts mutableCopy];
 [blackListHosts addObject:@"cdn.braze.com"];
 NetGuard.blackListHosts = blackListHosts;
@@ -53,13 +53,13 @@ NetGuard.blackListHosts = blackListHosts;
 
 {% tabs %}
 {% tab Swift %}
-```swift
+`````````swift
 let brazeAssetsHostFilter = XNHostFilter(host: "https://cdn.braze.com")
 XNLogger.shared.addFilters([brazeAssetsHostFilter])
 ```
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"https://cdn.braze.com"];
 [XNLogger.shared addFilters:@[brazeAssetsHostFilter]];
 ```

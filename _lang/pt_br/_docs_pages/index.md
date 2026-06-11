@@ -7,9 +7,9 @@ hidden: true
 layout: doc_guide
 custom_collection: home
 nav_title: "Documentação"
-description: "Esta é a página principal do site de documentação da Braze. Aqui, você encontra links para o guia do usuário, guia do desenvolvedor, guia da API, documentação dos parceiros de tecnologia e artigos de ajuda. Há também links rápidos para materiais úteis e artigos populares."
+description: "Esta é a landing page do site de documentação da Braze. Aqui, você encontra links para o guia do usuário, guia do desenvolvedor, guia da API, documentação dos parceiros de tecnologia e artigos de ajuda. Há também links rápidos para materiais úteis e artigos populares."
 
-doc_top_header: "Braze Documentation"
+doc_top_header: "Documentação da Braze"
 doc_top_text: ""
 
 braze_learning: "Explicações de termos técnicos e conceitos em formato de vídeos, aulas e exercícios interativos."
@@ -18,7 +18,7 @@ doc_menu_list:
   - name: Guia do usuário
     bg_color: '#3accdd'
     image: /assets/img/braze_icons/users-01.svg
-    link: /docs/user_guide/introduction/
+    link: /docs/user_guide/home/
     description: "Saiba como usar a plataforma da Braze para oferecer experiências marcantes para seus clientes."
   - name: Guia do desenvolvedor
     bg_color: '#f7918e'
@@ -34,12 +34,12 @@ doc_menu_list:
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/code-browser.svg
     link: /docs/api/home/
-    description: "A Braze oferece uma API REST de alta performance para que você possa rastrear usuários, enviar mensagens, exportar dados e muito mais."
-  - name: Ajuda
+    description: "A Braze oferece uma REST API de alto desempenho para que você possa rastrear usuários, enviar mensagens, exportar dados e muito mais."
+  - name: Novidades
     bg_color: '#ff9349'
-    image: /assets/img/braze_icons/info-circle.svg
-    link: /docs/help/home
-    description: "Consulte artigos que ajudarão na solução de problemas e fique por dentro das práticas recomendadas para se comunicar com seus usuários."
+    image: /assets/img/braze_icons/annotation-dots.svg
+    link: /docs/releases/home/
+    description: "Confira resumos mensais sobre os principais lançamentos de produtos, melhorias contínuas, mudanças importantes no SDK e muito mais."
   - name: Documentação de compliance
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/certificate-01.svg
@@ -47,34 +47,28 @@ doc_menu_list:
     description: "A documentação de compliance descreve termos específicos aplicáveis ao produto ou serviço que você adquiriu."
 
 popular_topic_list:
-  - name: Dicionário da API da Braze
-    link: /docs/api/home/
+  - name: Monitoramento de localização
+    link: /docs/user_guide/audience/locations_and_geofences/location_tracking/
+  - name: "POST: Endpoint de rastreamento de usuários"
+    link: /docs/api/endpoints/user_data/post_user_track/
   - name: Visão geral da API
     link: /docs/api/basics/
-  - name: "POST: rastrear endpoint de usuários"
-    link: /docs/api/endpoints/user_data/post_user_track/
-  - name: Importação de usuários
-    link: /docs/user_guide/data_and_analytics/user_data_collection/user_import/
-  - name: Configuração do Web SDK
-    link: /docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/
-  - name: Eventos personalizados
-    link: /docs/user_guide/data_and_analytics/custom_data/custom_events/
-  - name: Atributos personalizados
-    link: /docs/user_guide/data_and_analytics/custom_data/custom_attributes/
-  - name: Braze Currents
-    link: /docs/user_guide/data_and_analytics/braze_currents
+  - name: Integrar o SDK da Braze
+    link: /docs/developer_guide/sdk_integration/?sdktab=web
+  - name: Objeto de atributos do usuário
+    link: /docs/api/objects_filters/user_attributes_object/
+  - name: Braze Agents
+    link: /docs/user_guide/brazeai/agents/
+  - name: Currents
+    link: /docs/user_guide/data/distribution/braze_currents/
+  - name: Ingestão de dados na nuvem
+    link: /docs/user_guide/data/unification/cloud_ingestion/
 
 helpful_resources_list:
-  - name: Declaração de Inovação
+  - name: Declaração de inovação
     link: /docs/innovation_statement/
-  - name: "Manuais de direitos, suporte e serviços de sucesso do cliente"
-    link: /docs/handbooks/
   - name: Retenção de dados
     link: /docs/api/data_retention/
   - name: Assistência técnica de proteção de dados
     link: /docs/dp-technical-assistance/
-  - name: Notas de versão
-    link: /docs/help/release_notes/
-  - name: Contribuição para a documentação da Braze
-    link: /docs/contributing/home/
 ---

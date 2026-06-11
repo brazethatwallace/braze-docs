@@ -34,6 +34,8 @@ After [setting up the Braze MCP server]{% if include.section == "user" %}({{site
 {% endtab %}
 {% endtabs %}
 
+For more information on the `list_functions` function, see [Available API functions]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#general-functions){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#general-functions){% endif %}.
+
 ### Get details about a Canvas ID
 
 {% tabs %}
@@ -46,6 +48,8 @@ After [setting up the Braze MCP server]{% if include.section == "user" %}({{site
 {% endtab %}
 {% endtabs %}
 
+For more information on the `get_canvas_details` function, see [Available API functions]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#canvases){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#canvases){% endif %}.
+
 ### Show me my recent Canvases
 
 {% tabs %}
@@ -57,5 +61,27 @@ After [setting up the Braze MCP server]{% if include.section == "user" %}({{site
 !['Show my recent canvases' being asked and answered in Cursor.]({% image_buster /assets/img/mcp_server/cursor/show_me_my_recent_canvases.png %})
 {% endtab %}
 {% endtabs %}
+
+For more information on the `get_canvas_list` function, see [Available API functions]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#canvases){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#canvases){% endif %}.
+
+### Create an email template
+
+{% tabs %}
+{% tab Cursor %}
+!['Create an email template' being asked and answered in Cursor.]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
+{% endtab %}
+{% endtabs %}
+
+For more information on the `create_email_template` function, see [Available API functions]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates){% endif %}.
+
+### Update a content block
+
+{% tabs %}
+{% tab Cursor %}
+!['Update a content block' being asked and answered in Cursor.]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
+{% endtab %}
+{% endtabs %}
+
+For more information on the `update_content_block` function, see [Available API functions]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#content-blocks){% endif %}.
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

@@ -36,6 +36,9 @@
 						text-decoration: none;
 						background-color: $white;
 					}
+					&:focus-visible {
+						@include focus-ring();
+					}
 				}
 			}
 
@@ -151,7 +154,7 @@
 
     ul.sdk-ab-nav,
 		ul.sdk-ab-sub_nav {
-      margin-bottom: 10px;
+      margin-bottom: 0;
       margin-left: 0 !important;
       padding-left: 0;
       list-style: none;
@@ -178,6 +181,9 @@
            text-decoration: none;
            background-color: $white;
          }
+         &:focus-visible {
+           @include focus-ring();
+         }
        }
       }
 
@@ -196,7 +202,7 @@
 
       > li {
         float: left;
-        margin-bottom: 10px;
+        margin-bottom: 4px;
         margin-right: 10px;
         > a {
           color: $black-shark;
@@ -247,12 +253,31 @@
 				}
 			}
 		}
-    .sdk-tab-content, .sdk-ab_sub_tab-content {
-      padding: 20px 20px 0 20px;
+    .sdk-tab-content,
+    .sdk-ab-sub_tab-content {
+      margin-top: 0;
+      padding: 0;
       p {
         padding: 0;
       }
+    }
 
+    // If the first element in the pane is a non-heading content block, clear its
+    // top margin. Leave h1–h6 alone so they keep the same margin-top as elsewhere
+    // in the article (for example h2’s 40px, matching space after a tip before
+    // the next h2).
+    .sdk-tab-content > .sdk-ab-tab-pane,
+    .sdk-ab-sub_tab-content > .sdk-ab-sub_tab-pane {
+      > p:first-child,
+      > div:first-child,
+      > ul:first-child,
+      > ol:first-child,
+      > table:first-child {
+        margin-top: 0 !important;
+      }
+    }
+
+    .sdk-tab-content {
       > .sdk-ab-tab-pane {
         display: none;
       }
@@ -261,12 +286,12 @@
       }
     }
 
-		.sdk-ab-sub_tab-content {
+    .sdk-ab-sub_tab-content {
       > .sdk-ab-sub_tab-pane {
         display: none;
       }
       > .sub_active {
-      	display: block;
+        display: block;
       }
     }
   }

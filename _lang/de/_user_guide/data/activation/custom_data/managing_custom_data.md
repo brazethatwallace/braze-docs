@@ -1,200 +1,90 @@
 ---
 nav_title: Angepasste Daten verwalten
-article_title: Benutzerdefinierte Daten verwalten
-page_order: 20
+article_title: Angepasste Daten verwalten
+page_order: 2
 page_type: reference
-description: "Dieser Artikel referenziert die Verwaltung angepasster Daten, wie z.B. die Vorbelegung von Kampagnen und Segmenten oder das Blockieren und Löschen von Daten."
+description: "Dieser Referenzartikel beschreibt, wie Sie angepasste Events und Attribute verwalten – Vorbelegen, Beschreibungen und Tags hinzufügen, Event-Eigenschaften verwalten, Datentypen erzwingen und Attribute als PII kennzeichnen."
 ---
 
-# Angepasste Daten verwalten
+# Angepasste Daten verwalten {#manage-custom-data}
 
-> Auf dieser Seite erfahren Sie, wie Sie angepasste Daten in Ihre Kampagnen und Segmente einfügen, nicht mehr benötigte Daten blockieren und angepasste Events und Attribute sowie Eigenschaften verwalten können.<br><br>Wie Sie angepasste Attribute verwalten können, erfahren Sie unter [Verwaltung angepasster Attribute]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#managing-custom-attributes).
+> Auf dieser Seite erfahren Sie, wie Sie angepasste Daten in Ihren Campaigns und Segments vorbelegen, angepasste Events und Attribute sowie deren Eigenschaften verwalten und Datentypen konfigurieren. Informationen zum Blockieren und Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-## Angepasste Daten vorausgefüllt
+Wie Sie angepasste Attribute im Einzelnen verwalten (einschließlich Beschreibungen hinzufügen, Tags hinzufügen und Attribute als PII kennzeichnen), erfahren Sie unter [Angepasste Attribute verwalten]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes).
 
-Es kann vorkommen, dass Sie Kampagnen und Segmente mit angepassten Daten einrichten möchten, bevor Ihr Entwickler:in diese angepassten Daten integriert hat. Braze ermöglicht es Ihnen, angepasste Events und Attribute auf dem Dashboard vorzubelegen, bevor diese Daten mit dem Tracking beginnen, so dass diese Events und Attribute zur Verwendung in Dropdowns und als Teil der Kampagnenerstellung verfügbar sind.
+## Angepasste Daten vorbelegen {#pre-populate-custom-data}
+
+Es kann vorkommen, dass Sie Campaigns und Segments mit angepassten Daten einrichten möchten, bevor Ihr Entwicklerteam diese angepassten Daten integriert hat. Braze ermöglicht es Ihnen, angepasste Events und Attribute im Dashboard vorzubelegen, bevor das Tracking dieser Daten beginnt, sodass diese Events und Attribute in Dropdowns und als Teil des Kampagnenerstellungsprozesses verfügbar sind.
 
 Um angepasste Events und Attribute vorzubelegen, gehen Sie wie folgt vor:
 
-1. Gehen Sie zu **Dateneinstellungen** > Angepasste Events oder Angepasste Attribute oder Produkte.
+1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events** oder **Angepasste Attribute** oder **Produkte**.
 
-![Navigieren Sie zu Angepasste Attribute oder Angepasste Events oder Produkte.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
+![Navigieren Sie zu „Angepasste Attribute“, „Angepasste Events“ oder „Produkte“.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
 
 {: start="2"}
-2\. Um ein angepasstes Attribut, Event oder Produkt hinzuzufügen, gehen Sie auf die entsprechende Seite und wählen Sie **Angepasste Attribute hinzufügen** oder **Angepasste Events hinzufügen** oder **Produkte hinzufügen**.<br><br>Für angepasste Attribute wählen Sie einen [Datentyp]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types) für dieses Attribut aus (z.B. boolesch oder String). Der Datentyp eines Attributs bestimmt die Filter für die Segmentierung, die für dieses Attribut verfügbar sind. <br><br>![Neues Attribut oder Ereignis hinzufügen]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
-3\. Wählen Sie **Speichern**.
+2. Um ein angepasstes Attribut, Event oder Produkt hinzuzufügen, gehen Sie auf die entsprechende Seite und wählen Sie **Angepasste Attribute hinzufügen** oder **Angepasste Events hinzufügen** oder **Produkte hinzufügen**.<br><br>Für angepasste Attribute wählen Sie einen [Datentyp]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) für dieses Attribut aus (z. B. Boolescher Wert oder String). Der Datentyp eines Attributs bestimmt die Segmentierungsfilter, die für dieses Attribut verfügbar sind. <br><br>![Neues Attribut oder Event hinzufügen]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
+3. Wählen Sie **Speichern**.
 
-### Benennung angepasster Events und angepasster Attribute
+### Benennung angepasster Events und angepasster Attribute {#naming-custom-events-and-custom-attributes}
 
-Bei angepassten Events und angepassten Attributen wird zwischen Groß- und Kleinschreibung unterschieden. Behalten Sie dies im Hinterkopf, wenn Ihr Entwickler:in-Team diese angepassten Events oder Attribute später integriert. Sie müssen die angepassten Events oder Attribute genau so benennen, wie Sie sie hier benannt haben, sonst generiert Braze ein anderes angepasstes Event oder Attribut.
+Bei angepassten Events und angepassten Attributen wird zwischen Groß- und Kleinschreibung unterschieden. Behalten Sie dies im Hinterkopf, wenn Ihr Entwicklerteam diese angepassten Events oder Attribute später integriert. Die angepassten Events oder Attribute müssen genau so benannt werden, wie Sie sie hier benannt haben, sonst generiert Braze ein anderes angepasstes Event oder Attribut.
 
-## Eigenschaften verwalten
+## Eigenschaften verwalten {#managing-properties}
 
-Nachdem Sie ein angepasstes Event oder Produkt erstellt haben, wählen Sie **Eigenschaften** für dieses Event oder Produkt **verwalten** aus, um neue Eigenschaften hinzuzufügen, vorhandene Eigenschaften zu blockieren und zu sehen, welche Kampagnen oder Canvase diese Eigenschaft in einem [triggernden Event]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/) verwenden.
+Nachdem Sie ein angepasstes Event oder Produkt erstellt haben, wählen Sie **Eigenschaften verwalten** für dieses Event oder Produkt aus, um neue Eigenschaften hinzuzufügen, vorhandene Eigenschaften zu blockieren und zu sehen, welche Campaigns oder Canvases diese Eigenschaft in einem [triggernden Event]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) verwenden.
 
 ![Angepasste Eigenschaften für ein angepasstes Event.]({% image_buster /assets/img_archive/manageproperties1.png %}){: style="max-width:80%"}
 
-Um diese hinzugefügten angepassten Attribute, Events, Produkte oder Event-Eigenschaften nachvollziehbar zu machen, müssen Sie Ihr Entwickler:in Team bitten, sie im SDK unter demselben Namen zu erstellen, unter dem Sie sie zuvor hinzugefügt haben. Oder Sie können die Braze [API]({{site.baseurl}}/api/basics/) verwenden, um Daten zu diesem Attribut zu importieren. Danach kann das angepasste Attribut, Event oder anderes auf Ihre Nutzer:innen angewendet werden.
+Um Event- oder Produkt-Eigenschaften zu blockieren, verwenden Sie das Aktionsmenü auf der Eigenschaftenseite. Informationen zum vollständigen Blockieren angepasster Attribute, Events oder Produkte finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-{% multi_lang_include alerts/note_alerts.md alert='Manage custom data storage' %}
+Um diese hinzugefügten angepassten Attribute, Events, Produkte oder Event-Eigenschaften nachverfolgbar zu machen, müssen Sie Ihr Entwicklerteam bitten, sie im SDK unter genau dem Namen zu erstellen, den Sie zuvor verwendet haben. Alternativ können Sie die Braze [API]({{site.baseurl}}/api/basics/) verwenden, um Daten zu diesem Attribut zu importieren. Danach ist das angepasste Attribut, Event oder andere Datenobjekt aktiv und wird auf Ihre Nutzer:innen angewendet.
 
-## Blocklisting angepasster Daten
+{% include alerts/note_alerts.md alert='Manage custom data storage' %}
 
-Gelegentlich können Sie benutzerdefinierte Attribute, angepasste Events oder Kauf-Events identifizieren, die entweder zu viele Datenpunkte protokollieren, für Ihre Marketingstrategie nicht mehr nützlich sind oder versehentlich aufgezeichnet wurden. 
+## Datentyperkennung über Umgebungen hinweg {#data-type-detection-across-environments}
 
-Um zu verhindern, dass diese Daten an Braze gesendet werden, können Sie ein angepasstes Datenobjekt auf eine Blockliste setzen, während Ihr Entwicklerteam daran arbeitet, es aus dem Backend Ihrer App oder Website zu entfernen. Die Blockliste verhindert, dass ein bestimmtes Objekt mit angepassten Daten von Braze aufgezeichnet wird, d.h. es wird bei der Suche nach einem bestimmten Nutzer:in nicht mehr angezeigt.
+Braze erkennt den Datentyp eines angepassten Attributs automatisch anhand des ersten empfangenen Werts. Wenn Ihre Entwicklungsumgebung zuerst einen numerischen Wert wie `100` sendet, wird das Attribut als Zahl gespeichert. Wenn der erste Wert aus Ihrer Produktionsumgebung als String eintrifft (z. B. `"100"` in Anführungszeichen), wird das Attribut als String gespeichert.
 
-Daten auf der Blockliste werden nicht vom SDK gesendet, und das Braze-Dashboard verarbeitet keine Daten auf der Blockliste aus anderen Quellen (z.B. der API). Durch die Sperrung werden jedoch keine Daten aus Nutzerprofilen entfernt oder die Anzahl der Datenpunkte, die für dieses angepasste Datenobjekt anfallen, rückwirkend verringert.
+Um dies zu vermeiden, stellen Sie sicher, dass Ihre Integration konsistente Datentypen über alle Umgebungen hinweg sendet. Wenn bereits der falsche Typ gesetzt ist, können Sie den korrekten Datentyp unter **Dateneinstellungen** > **Angepasste Attribute** über das [Datentyp-Dropdown](#forcing-data-type-comparisons) erzwingen.
 
-### Erforderliche Berechtigungen für Nutzer:innen
+## Datentypvergleiche erzwingen {#forcing-data-type-comparisons}
 
-Um benutzerdefinierte Daten auf die Sperrliste zu setzen, benötigen Sie die [Benutzerberechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) im folgenden Dropdown-Menü für Ihren Workspace.
+Braze erkennt automatisch die Datentypen für Attributdaten, die gesendet werden. Falls jedoch mehrere Datentypen auf ein einzelnes Attribut angewendet werden, können Sie den Datentyp eines beliebigen Attributs erzwingen, um Braze mitzuteilen, um welchen Typ es sich handelt. Wählen Sie dazu den gewünschten Typ aus dem Dropdown-Menü in der Spalte **Datentyp**.
 
-{% details User permissions for blocklisting custom data %}
-
-{% multi_lang_include deprecations/user_permissions.md %}
-
-- Kampagnen anzeigen
-- Kampagnen bearbeiten
-- Kampagnen archivieren
-- Canvase anzeigen
-- Canvase bearbeiten
-- Canvase archivieren
-- Frequency-Capping-Regeln anzeigen
-- Frequency-Capping-Regeln bearbeiten
-- Priorisierung von Nachrichten anzeigen
-- Priorisierung von Nachrichten bearbeiten
-- Content-Blöcke anzeigen
-- Feature-Flags anzeigen
-- Feature-Flags bearbeiten
-- Feature-Flags archivieren
-- Segmente anzeigen
-- Segmente bearbeiten
-- IAM-Templates anzeigen
-- IAM-Templates bearbeiten
-- IAM-Templates archivieren
-- E-Mail-Templates anzeigen
-- E-Mail-Templates bearbeiten
-- E-Mail Templates archivieren
-- Webhook-Templates anzeigen
-- Webhook-Templates bearbeiten
-- Webhook-Templates archivieren
-- Link-Templates anzeigen
-- Link-Templates bearbeiten
-- Mediathek Assets ansehen
-- Assets der Medienbibliothek bearbeiten
-- Assets der Medienbibliothek löschen
-- Standorte anzeigen
-- Standorte bearbeiten
-- Standorte archivieren
-- Aktionscodes anzeigen
-- Aktionscodes bearbeiten
-- Exportförderungsaktionscodes
-- Präferenzzentren anzeigen
-- Präferenzzentren bearbeiten
-- Berichte anzeigen
-- Berichte bearbeiten
-
-{% enddetails %}
-
-### Blocklisting angepasster Attribute, angepasster Events und Produkte
-
-{% alert important %}
-Wenn ein Ereignis oder Attribut auf der Blockliste steht, werden alle Segmente, Kampagnen oder Canvas, die dieses Ereignis oder Attribut verwenden, archiviert.
+{% alert note %}
+Ab dem 30. März 2026 setzt die automatische Erkennung einen Datentyp nur noch bei der erstmaligen Aufnahme. Um den Datentyp nach der erstmaligen Aufnahme zu ändern, aktualisieren Sie ihn manuell mit den folgenden Schritten.
 {% endalert %}
-
-Um das Tracking eines bestimmten angepassten Attributs, Ereignisses oder Produkts zu beenden, gehen Sie folgendermaßen vor:
-
-1. Suchen Sie danach auf den Seiten **Angepasste Attribute**, **Angepasste Events** oder **Produkte**.
-2. Wählen Sie das angepasste Attribut, das Event oder das Produkt aus. Für angepasste Attribute und Events können Sie jeweils bis zu 100 auswählen, um sie zu blockieren.
-3. Wählen Sie **Blockliste**.
-
-![Mehrere ausgewählte benutzerdefinierte Attribute, die auf der Seite „Benutzerdefinierte Attribute“ auf der Sperrliste stehen.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
-
-Sie können bis zu 300 angepasste Attribute und 300 angepasste Events in eine Blockliste aufnehmen. Um die Erfassung bestimmter Attribute von Geräten zu verhindern, lesen Sie unseren [SDK-Leitfaden]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection). 
-
-{% alert important %}
-Angepasste Attribute oder angepasste Events mit dem Status **"Entfernt"** werden auf die Blockliste angerechnet, bis sie gelöscht werden.
-{% endalert %}
-
-Wenn ein angepasstes Event oder Attribut auf der Blockliste steht, gilt Folgendes:
-
-- Es werden keine an Braze gesendeten Daten verarbeitet, und blockierte Ereignisse und Attribute zählen nicht mehr als Datenpunkte.
-- Vorhandene Daten sind nicht mehr verfügbar, wenn sie nicht reaktiviert werden.
-- Ereignisse und Attribute, die auf der Blockliste stehen, werden in Filtern und Diagrammen nicht angezeigt.
-- Referenzen auf blockierte Daten in Entwürfen von aktiven Canvase werden als ungültige Werte geladen, was zu Fehlern führen kann.
-- Alles, was das blockierte Ereignis oder Attribut verwendet, wird archiviert.
-
-Um dies zu erreichen, sendet Braze die Blocklisting-Informationen an jedes Gerät. Dies ist wichtig, wenn Sie eine große Anzahl von Ereignissen und Attributen (Hunderttausende oder Millionen) auf eine Blockliste setzen wollen, da dies eine datenintensive Operation wäre.
-
-### Überlegungen zur Blocklistung
-
-Das Blockieren einer großen Anzahl von Ereignissen und Attributen ist möglich, aber nicht ratsam. Das liegt daran, dass jedes Mal, wenn ein Ereignis ausgeführt oder ein Attribut (möglicherweise) an Braze gesendet wird, dieses Ereignis oder Attribut mit der gesamten Blockliste abgeglichen werden muss.
-
-Bis zu 300 Artikel werden an das SDK für die Blocklistung gesendet. Wenn Sie mehr als 300 Artikel auf der Blockliste haben, werden diese Daten vom SDK gesendet. Wenn Sie das Ereignis oder Attribut in Zukunft nicht mehr benötigen, sollten Sie es bei der nächsten Version aus dem Code Ihrer App entfernen. Es kann ein paar Minuten dauern, bis Änderungen an der Blockliste übertragen werden. Sie können jedes Blocklistenereignis oder Attribut jederzeit wieder aktivieren.
-
-## Anpassen von Daten löschen
-
-Wenn Sie zielgerichtete Kampagnen und Segmente erstellen, werden Sie vielleicht feststellen, dass Sie kein angepasstes Event oder angepasstes Attribut mehr benötigen. Wenn Sie z.B. ein bestimmtes angepasstes Attribut als Teil einer einmaligen Kampagne verwendet haben, können Sie diese Daten nach der [Blocklistung](#blocklisting-custom-attributes-custom-events-and-products) löschen und ihre Referenzen aus Ihrer App entfernen. Sie können beliebige Datentypen löschen (z.B. Strings, Zahlen und verschachtelte angepasste Attribute).
-
-{% alert important %}
-Sie müssen ein [Braze-Administrator]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) sein, um angepasste Daten zu löschen.
-{% endalert %}
-
-Um ein angepasstes Event oder ein angepasstes Attribut zu löschen, gehen Sie wie folgt vor:
-
-1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute** oder **Angepasste Events**, je nachdem, welche Art von Daten Sie löschen möchten.
-2. Gehen Sie zu den angepassten Daten und wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i> **Aktionen** > **Blockliste**.
-3. Nachdem Ihre angepassten Daten für 7 Tage auf der Sperrliste stehen, wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i> **Aktionen** > Löschen.
-
-### So funktioniert die Löschung
-
-Wenn Sie angepasste Daten löschen, geschieht Folgendes: 
-
-- **Für angepasste Attribute:** Entfernt dauerhaft die Attributdaten aus dem Profil jedes Nutzers:innen.
-- **Für angepasste Events:** Entfernt dauerhaft die Ereignis-Metadaten aus dem Profil jedes Nutzers:innen.
-
-Wenn ein Attribut oder ein Ereignis zum Löschen ausgewählt wird, ändert sich sein Status in **"Verworfen"**. Für die nächsten sieben Tage ist es möglich, das Attribut oder Ereignis wiederherzustellen. Wenn Sie sie nach sieben Tagen nicht wiederherstellen, werden die Daten endgültig gelöscht. Wenn Sie das Attribut oder das Ereignis wiederherstellen, wird es in den Zustand der Sperrliste zurückversetzt.
-
-Das Löschen verhindert nicht die weitere Aufzeichnung der angepassten Datenobjekte in Nutzerprofilen. Stellen Sie also sicher, dass die angepassten Daten nicht mehr aufgezeichnet werden, bevor Sie das Ereignis oder Attribut löschen.
-
-### Was Sie wissen sollten
-
-Wenn Sie angepasste Daten löschen, sollten Sie die folgenden Details beachten:
-
-* **Die Löschung ist dauerhaft**. Daten können nicht wiederhergestellt werden.
-* Die Daten werden von der Braze-Plattform und aus den Nutzer:innen-Profilen entfernt.
-* Sie können den Namen des angepassten Attributs oder den Namen des angepassten Events nach dem Löschen "wiederverwenden". Wenn Sie also feststellen, dass angepasste Daten nach dem Löschen in Braze "wieder auftauchen", kann dies durch eine Integration verursacht werden, die nicht gestoppt wurde und Daten mit demselben Namen für angepasste Daten sendet.
-* Möglicherweise müssen Sie einen Artikel erneut auf die Sperrliste setzen, wenn Ihre Löschung dazu führt, dass angepasste Daten wieder auftauchen. Der Status der Sperrliste bleibt nicht erhalten, da die angepassten Daten gelöscht werden.
-* Das Löschen angepasster Daten führt dazu, dass keine [Datenpunkte]({{site.baseurl}}/user_guide/data/data_points) protokolliert werden und auch keine neuen Datenpunkte zur Verwendung generiert werden.
-
-## Erzwingen von Datentypvergleichen
-
-Braze erkennt automatisch die Datentypen für Attribut-Daten, die an uns gesendet werden. Falls jedoch mehrere Datentypen auf ein einzelnes Attribut angewendet werden, können Sie den Datentyp eines beliebigen Attributs erzwingen, um uns mitzuteilen, um welchen Typ es sich handelt. Wählen Sie aus dem Dropdown-Menü in der Spalte **Datentyp**.
 
 {% alert note %}
 Das Erzwingen von Datentypen gilt nicht für Event-Eigenschaften oder Kauf-Details.
 {% endalert %}
 
-![Angepasste Attribute Datentyp Dropdown]({% image_buster /assets/img_archive/custom_events_view_data_type_dropdown.png %})
+![Dropdown für den Datentyp angepasster Attribute]({% image_buster /assets/img_archive/custom_events_view_data_type_dropdown.png %})
 
 {% alert warning %}
-Wenn Sie den Datentyp für ein Attribut erzwingen möchten, werden alle Daten, die nicht dem angegebenen Typ entsprechen, in diesen Typ gezwungen. Wenn eine solche Umwandlung nicht möglich ist (z.B. wenn ein String mit Buchstaben in eine Zahl umgewandelt wird), werden die Daten ignoriert. Alle Daten, die vor der Änderung des Typs aufgenommen wurden, werden weiterhin als der alte Typ gespeichert (und können daher möglicherweise nicht segmentiert werden), und in den Profilen der betroffenen Nutzer:innen wird neben dem Attribut eine Warnung angezeigt.
+Wenn Sie den Datentyp für ein Attribut erzwingen, werden alle eingehenden Daten, die nicht dem angegebenen Typ entsprechen, in diesen Typ umgewandelt. Wenn eine solche Umwandlung nicht möglich ist (z. B. ein String mit Buchstaben, der in eine Zahl umgewandelt werden soll), werden die Daten ignoriert. Alle Daten, die vor der Typänderung aufgenommen wurden, werden weiterhin als der alte Typ gespeichert (und können daher möglicherweise nicht segmentiert werden), und in den Profilen der betroffenen Nutzer:innen wird neben dem Attribut eine Warnung angezeigt.
 {% endalert %}
 
-### Zwang zum Datentyp
+### Vorhandene Daten nach einer Typänderung {#existing-data-after-a-type-change}
+
+Das Erzwingen einer Datentypänderung wirkt sich nur auf neue Daten aus, die in Braze eingehen. Alle Daten, die vor der Typänderung aufgenommen wurden, werden weiterhin als der alte Typ gespeichert und sind möglicherweise nicht mit den Filtern des neuen Typs segmentierbar. In den Profilen der betroffenen Nutzer:innen wird eine Warnung angezeigt. Wenn bei neuen eingehenden Daten ein Wert nicht dem erzwungenen Typ entspricht, kann Braze ihn in den erzwungenen Typ umwandeln (z. B. den String `"100"` in die Zahl `100`); Werte, die nicht umgewandelt werden können, werden ignoriert und aktualisieren das Attribut nicht.
+
+Wenn alle vorhandenen Nutzerdaten dem neuen Typ entsprechen sollen, müssen Sie die Attributwerte für diese Nutzer:innen erneut über das SDK, die API oder einen CSV-Import senden. Es gibt keine automatische Massenkonvertierung für vorhandene Daten.
+
+### Datentypumwandlung {#data-type-coercion}
 
 | Erzwungener Datentyp | Beschreibung |
 |------------------|-------------|
-| Boolesch | Die Eingaben von `1`, `true`, `t` (Groß- und Kleinschreibung wird nicht berücksichtigt) werden gespeichert als `true` |
-| Boolesch | Die Eingaben von `0`, `false`, `f` (Groß- und Kleinschreibung wird nicht berücksichtigt) werden gespeichert als `false` |
-| Zahl | Ganzzahlen oder Gleitkommazahlen (wie `1`, `1.5`) werden als Zahlen gespeichert. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Boolescher Wert | Eingaben von `1`, `true`, `t` (Groß-/Kleinschreibung wird nicht berücksichtigt) werden als `true` gespeichert |
+| Boolescher Wert | Eingaben von `0`, `false`, `f` (Groß-/Kleinschreibung wird nicht berücksichtigt) werden als `false` gespeichert |
+| Zahl | Ganzzahlen oder Gleitkommazahlen (wie `1`, `1.5`) werden als Zahlen gespeichert |
+| Zahl | Numerische Strings (wie `"100"` oder `"3.14"`) können in Zahlen umgewandelt werden, wenn das Attribut auf **Zahl** erzwungen wird |
+| String | Numerische Werte können in ihre String-Form umgewandelt werden, wenn das Attribut auf **String** erzwungen wird |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Datentypumwandlung" }
 
-Weitere Informationen zu den spezifischen Filteroptionen, die bei verschiedenen Datentypenvergleichen zur Verfügung stehen, finden Sie unter [Konfigurieren von Berichten]({{site.baseurl}}/user_guide/data_and_analytics/configuring_reporting/#configuring-reporting). Weitere Informationen zu den verschiedenen verfügbaren Datentypen finden Sie unter [Angepasste Attribut-Datentypen]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types).
+Weitere Informationen zu den spezifischen Filteroptionen, die bei verschiedenen Datentypvergleichen zur Verfügung stehen, finden Sie unter [Berichte konfigurieren]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). Weitere Informationen zu den verschiedenen verfügbaren Datentypen finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).
 
 {% alert note %}
-An Braze gesendete Daten sind unveränderlich und können nicht gelöscht oder verändert werden, nachdem wir sie erhalten haben. Sie können jedoch jeden der in den vorangegangenen Abschnitten aufgeführten Schritte verwenden, um zu kontrollieren, was Sie in Ihrem Dashboard tracken.
+An Braze gesendete Daten sind unveränderlich und können nicht gelöscht oder verändert werden, nachdem Braze sie erhalten hat. Sie können jedoch jeden der in den vorangegangenen Abschnitten aufgeführten Schritte verwenden, um zu kontrollieren, was Sie in Ihrem Dashboard tracken. Informationen zum Blockieren oder Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 {% endalert %}
-
-

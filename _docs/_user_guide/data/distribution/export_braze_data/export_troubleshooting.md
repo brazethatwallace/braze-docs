@@ -1,7 +1,7 @@
 ---
-nav_title: Export troubleshooting
+nav_title: Troubleshooting
 article_title: Export Troubleshooting
-page_order: 10
+page_order: 6
 page_type: reference
 description: "This reference article covers common troubleshooting scenarios for exports in both CSV and API workflows."
 ---
@@ -58,7 +58,9 @@ In cloud storage, CSV exports are bundled into a ZIP file. Inside the ZIP are mu
 - Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).  
 
 ## API exports  
-When you export data through the APIs with a storage partner connected, the export files are written to your bucket. No email is sent. The underlying objects live in your storage and follow your retention settings, even though the download URLs Braze returns may still be time-limited. Each ZIP file contains JSON objects, one per line. Large exports may be split into multiple ZIP files instead of a single ZIP, which generally makes this method more reliable for heavy exports.  
+When you export data through the APIs with a storage partner connected, the export files are written to your bucket. No email is sent. The underlying objects live in your storage and follow your retention settings, even though the download URLs Braze returns may still be time-limited.
+
+Files typically appear in your bucket as the export runs, so you don't need to wait for the entire job to finish before accessing partial results. Braze uploads each completed batch incrementally instead of holding everything until the end. Large exports are split into multiple compressed files (ZIP or GZIP), each containing JSON objects, one per line. This makes this method more reliable for heavy exports.
 
 ### Common errors
 
@@ -68,3 +70,42 @@ When you export data through the APIs with a storage partner connected, the expo
 
 {% endsdktab %}
 {% endsdktabs %}
+
+## Campaign and Canvas analytics
+
+### Number of users in CSV export doesn't match _Messages Sent_ or _Unique Recipients_
+
+A campaign's CSV export can show a different number of users than _Messages Sent_ and _Unique recipients_ for these reasons:
+
+#### Re-eligibility is turned on
+
+If users are (or were at one point) able to receive the campaign more than once, the campaign analytics numbers and the number of rows in the user data export don't line up. _Messages Sent_ counts every send, including when the same user is messaged more than once. The **CSV Export User Data** download lists unique users—one row per profile that received the campaign—not one row per send. For example, if _Messages Sent_ is 12 and the CSV has 10 rows, those 12 sends went to 10 distinct users (some users were sent the campaign more than once).
+
+#### Users were deleted or merged since the campaign or Canvas sent
+
+The CSV export gives a snapshot of existing users who received a given campaign or Canvas. Because users can be deleted or merged, the CSV export count can be lower than the unique recipient count. For example, if 1,000 users receive a campaign, the campaign shows 1,000 unique recipients, and the CSV export that same day also shows 1,000 users. If a month later 50 of those 1,000 users are deleted, the CSV export contains 950 users while the incremented unique recipient count is still 1,000.
+
+## Dashboard segment export emails
+
+### "Segment is too large" or export fails when my segment looks under 500,000 users
+
+Dashboard segment **size is an estimate**. CSV export uses that estimate to enforce the [500,000-user export limit]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details); the export pipeline may also evaluate size differently than the segment builder UI. If exports fail for a segment near that threshold, use [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) or split the audience into smaller segments, or use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) as described in [Exporting large segments]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-large-segments).
+
+### Why aren't I receiving segment export emails?
+
+First, check your spam folder for an email from `no-reply@alerts.braze.com`. If the email is there, add that address to your safe sender list so future export messages aren't filtered.
+
+If the email isn't in your spam folder, check whether someone else on your team can receive the export. If they can't, consider the size of your export. Delivery time varies with export size, but if the email hasn't arrived after an hour, contact [Support]({{site.baseurl}}/braze_support/).
+
+## Segment export API downloads
+
+### Can't download an exported segment ZIP file from a Braze URL
+
+If you get a `403 Forbidden` error when using the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), the file may not be ready yet. Large exports can take a while to process. Wait up to an hour before downloading again.
+
+If you use an automated script to retrieve the file, you may also receive a `403 Forbidden` error when you request the URL too soon. If you export segment data regularly, consider connecting your own S3 bucket integration and passing files into your own extract, transform, and load (ETL) pipeline.
+
+Exports take time to finish, so immediate access from a script often fails. You can:
+
+- Poll the download URL with exponential backoff, or
+- Use the [`callback_endpoint` parameter]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#request-parameters) and point it at a service that runs your script when the export is ready.

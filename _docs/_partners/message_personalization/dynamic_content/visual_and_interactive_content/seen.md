@@ -28,12 +28,12 @@ Seen supports automated, personalized video delivery across the customer lifecyc
 
 Before you begin, you need the following:
 
-| Prerequisite | Description |
+| Requirements | Description |
 |--------------|-------------|
 | Seen Platform access | You need a Seen Platform subscription or active Seen campaign. You need access to your Workspace settings to retrieve your Workspace ID and generate an API token. |
 | Braze Data Transformation Webhook URL | Braze Data Transformation reformats the incoming data from Seen so it can be accepted by Braze’s /users/track endpoint. |
 | Braze user data | Video personalization requires user-level data. Ensure the relevant attributes are available in Braze and that you pass **braze_id** as the unique identifier. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 
 
@@ -71,7 +71,7 @@ If you have multiple video campaigns with Seen, repeat the process to connect Br
 
 ### Step 1: Create a webhook campaign to send data to Seen
 
-Create a new [Webhook Campaign]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) in Braze.
+Create a new [Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/) in Braze.
 
 Configure the webhook as follows:
 
@@ -128,7 +128,7 @@ Because the response payload is configurable, ensure the following fields are re
 | `id` | Must match the `braze_id` sent from Braze |
 | `player_url` | Unique URL for the personalized video player |
 | `email_thumbnail_url` | URL of the generated video thumbnail |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook node response requirements" }
 
 If your use case requires additional attributes, include them in the response and map them in Braze.
 

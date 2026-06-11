@@ -1,63 +1,63 @@
 ---
-nav_title: "PUBLICAR: Crear selección de catálogo"
-article_title: "PUBLICAR: Crear selección de catálogo"
-search_tag: Punto de conexión
+nav_title: "POST: Crear selección de catálogo"
+article_title: "POST: Crear selección de catálogo"
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Crear selección del catálogo de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Crear selección de catálogo de Braze."
 
 ---
 {% api %}
-# Crear selección de catálogo
+# Crear selección de catálogo {#create-catalog-selection}
 {% apimethod post %}
 /catalogs/{catalog_name}/selections
 {% endapimethod %}
 
-> Utiliza este punto final para crear una selección en tu catálogo.
+> Utiliza este punto de conexión para crear una selección en tu catálogo.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.create_selection`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.create_selection`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog selections' %}
 
-## Parámetros de la ruta
+## Parámetros de ruta {#path-parameters}
 
-| Parámetro      | Obligatoria | Tipo de datos | Descripción          |
+| Parámetro      | Obligatorio | Tipo de datos | Descripción          |
 | -------------- | -------- | --------- | -------------------- |
-| `catalog_name` | Obligatoria | Cadena    | Nombre del catálogo. |
+| `catalog_name` | Obligatorio | Cadena    | Nombre del catálogo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Parámetros de la solicitud
+## Parámetros de solicitud {#request-parameters}
 
-| Parámetro   | Obligatoria | Tipo de datos | Descripción                                                                                                                                                        |
+| Parámetro   | Obligatorio | Tipo de datos | Descripción                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | Obligatoria | Objeto    | Un objeto que contiene criterios de selección. Consulta [el objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object/) para obtener un desglose completo del objeto y sus campos. |
+| `selection` | Obligatorio | Objeto    | Un objeto que contiene criterios de selección. Consulta [el objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object/) para obtener un desglose completo del objeto y sus campos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-### Parámetros del objeto de selección
+### Parámetros del objeto de selección {#selection-object-parameters}
 
-| Parámetro        | Obligatoria | Tipo de datos | Descripción                                                                                                                                                        |
+| Parámetro        | Obligatorio | Tipo de datos | Descripción                                                                                                                                                        |
 | ---------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `name`           | Obligatoria | Cadena    | El nombre de la selección del catálogo. |
-| `description`    | Opcional | Cadena    | Descripción de la selección del catálogo. |
-| `external_id`    | Obligatoria | Cadena    | Un identificador único para la selección. |
-| `source`         | Obligatoria | Cadena    | La fuente de los datos del catálogo. Para los catálogos de Shopify, utiliza `"Shopify"`. Para catálogos personalizados, utiliza `"custom"`. |
-| `filters`        | Opcional | Matriz    | Una matriz de objetos para filtrar los elementos del catálogo. Puedes especificar hasta cuatro filtros por solicitud. Si no se proporcionan filtros, se incluyen todos los artículos del catálogo. |
+| `name`           | Obligatorio | Cadena    | El nombre de la selección del catálogo. |
+| `description`    | Opcional | Cadena    | Una descripción de la selección del catálogo. |
+| `external_id`    | Obligatorio | Cadena    | Un identificador único para la selección. |
+| `source`         | Obligatorio | Cadena    | La fuente de los datos del catálogo. Para los catálogos de Shopify, utiliza `"Shopify"`. Para los catálogos personalizados, utiliza `"custom"`. |
+| `filters`        | Opcional | Matriz    | Una matriz de objetos de filtro para aplicar a los elementos del catálogo. Puedes especificar hasta cuatro filtros por solicitud. Si no se proporcionan filtros, se incluyen todos los elementos del catálogo. |
 | `results_limit`  | Opcional | Entero   | El número máximo de resultados que se devolverán. Debe ser un número entre 1 y 50. |
-| `sort_field`     | Opcional | Cadena    | El campo por el que ordenar los resultados. Esto debe combinarse con `sort_order`. Si no están `sort_order`presentes ni`sort_field`  ni , los resultados se aleatorizan. |
-| `sort_order`     | Opcional | Cadena    | El orden para clasificar los resultados. Los valores aceptados son`"asc"`  (ascendente) o`"desc"`  (descendente). Esto debe combinarse con `sort_field`. Si no están `sort_order`presentes ni`sort_field`  ni , los resultados se aleatorizan. |
+| `sort_field`     | Opcional | Cadena    | El campo por el que ordenar los resultados. Debe combinarse con `sort_order`. Si ni `sort_field` ni `sort_order` están presentes, los resultados se aleatorizan. |
+| `sort_order`     | Opcional | Cadena    | El orden para clasificar los resultados. Los valores aceptados son `"asc"` (ascendente) o `"desc"` (descendente). Debe combinarse con `sort_field`. Si ni `sort_field` ni `sort_order` están presentes, los resultados se aleatorizan. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-Los parámetros`sort_field`  `sort_order`y  deben utilizarse juntos. Si proporcionas uno sin el otro, u omites ambos parámetros, los resultados de la selección se devuelven en orden aleatorio.
+Los parámetros `sort_field` y `sort_order` deben utilizarse juntos. Si proporcionas uno sin el otro, u omites ambos parámetros, los resultados de la selección se devuelven en orden aleatorio.
 {% endalert %}
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restaurants/selections' \
@@ -88,7 +88,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 }'
 ```
 
-### Operadores de filtrado
+### Operadores de filtrado {#filter-operators}
 
 | Tipo de campo | Operadores admitidos                                     |
 | ---------- | ------------------------------------------------------- |
@@ -97,17 +97,22 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `boolean`  | `is`                                                    |
 | `time`     | `before`, `after`                                       |
 | `array`    | `includes value`, `does not include value`              |
+| `geo`      | `geo within`, `geo outside`                             |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
 La API admite un máximo de cuatro filtros por solicitud de selección. En el panel de Braze, puedes añadir hasta 10 filtros por selección. Los filtros se aplican en el orden en que aparecen en la matriz.
 {% endalert %}
 
-## Respuesta
+{% alert note %}
+Cuando aplicas un filtro `geo`, el sistema ordena automáticamente los resultados por distancia, con el elemento más cercano primero, independientemente de los parámetros `sort_field` y `sort_order`.
+{% endalert %}
 
-Existen tres respuestas de código de estado para este punto final: `202`, `400` y `404`.
+## Respuesta {#response}
 
-### Ejemplo de respuesta positiva
+Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+
+### Ejemplo de respuesta correcta {#example-success-response}
 
 El código de estado `202` podría devolver el siguiente cuerpo de respuesta.
 
@@ -117,9 +122,9 @@ El código de estado `202` podría devolver el siguiente cuerpo de respuesta.
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulte la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puede encontrar.
+El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulta la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedes encontrar.
 
 ```json
 {
@@ -139,13 +144,13 @@ El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Co
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
 
 | Error                                | Solución de problemas                                                                               |
 |--------------------------------------|-----------------------------------------------------------------------------------------------|
-| `catalog-not-found`                  | Compruebe que el nombre del catálogo es válido.                                                         |
+| `catalog-not-found`                  | Comprueba que el nombre del catálogo es válido.                                                         |
 | `company-size-limit-already-reached` | Se ha alcanzado el límite de tamaño de almacenamiento del catálogo.                                                    |
 | `selection-limit-reached`            | Se ha alcanzado el límite de selecciones del catálogo.                                                      |
 | `invalid-selection`                  | Comprueba que la selección es válida.                                                            |

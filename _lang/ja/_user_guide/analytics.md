@@ -1,27 +1,28 @@
 ---
 nav_title: 分析
 article_title: 分析
-page_order: 3
+page_order: 7.5
 layout: dev_guide
 
 guide_top_header: "分析"
-guide_top_text: "Braze には、キャンペーン パフォーマンスを測定するための幅広い測定基準が用意されています。また、必要な数値を確実に取得できるように、レポート機能と追跡機能も複数提供しています。<br><br>Braze データを活用し、<a href='/docs/user_guide/data_and_analytics/braze_currents/'>Currents</a> を使用して、他のクラス最高のレポート作成プラットフォームからのビジネスインテリジェンス (BI) および分析業務を補完します。Currents は、大量の詳細な顧客データを処理するためにチームで使用できるデータストリーミングエクスポートツールです。"
-description: "Braze では、キャンペーンの成功度の測定に使用できる幅広い指標を提供しています。また、必要な数値を確実に取得できるように、レポート機能と追跡機能も複数提供しています。" 
+guide_top_text: "Brazeは、キャンペーンのパフォーマンス測定、ユーザーエンゲージメントの追跡、データドリブン型の意思決定を支援する包括的な指標とレポートツールを提供しています。また、<a href='/docs/user_guide/data/distribution/braze_currents'>Currents</a>を使用して分析を補完することもできます。Currentsは、大量の詳細な顧客データをお使いのBIプラットフォームで活用するためのデータストリーミングエクスポートツールです。"
+description: "Brazeの分析を使用して、キャンペーンのパフォーマンス測定、ユーザーエンゲージメントの追跡、詳細なレポートやダッシュボードへのアクセスが可能です。"
 
-guide_featured_title: "トピック"
+guide_featured_title: "セクション記事"
 guide_featured_list:
-  - name: 追跡
-    link: /docs/user_guide/analytics/tracking/
-    image: /assets/img/braze_icons/line-chart-up-01.svg
-  - name: Analytics ダッシュボード
-    link: /docs/user_guide/analytics/dashboard/
+  - name: ダッシュボード
+    link: /docs/user_guide/analytics/dashboards
     image: /assets/img/braze_icons/trend-up-01.svg
   - name: レポート
-    link: /docs/user_guide/analytics/reporting/
+    link: /docs/user_guide/analytics/reports
     image: /assets/img/braze_icons/bar-chart-01.svg
-  - name: クエリビルダー
-    link: /docs/user_guide/analytics/query_builder/
-    image: /assets/img/braze_icons/code-02.svg
+  - name: トラッキング
+    link: /docs/user_guide/analytics/tracking
+    image: /assets/img/braze_icons/line-chart-up-01.svg
+  - name: 指標用語集
+    link: /docs/user_guide/analytics/metrics_glossary
+    image: /assets/img/braze_icons/book-closed.svg
 
 ---
-<br><br>
+
+パフォーマンスの概要を確認するには**ダッシュボード**を、キャンペーンやキャンバス全体のより詳細な分析には**レポート**を、Brazeがユーザーアクションをキャプチャする方法を設定するには**トラッキング**をご利用ください。特定の指標の意味がわからない場合は、**指標用語集**をご確認ください。

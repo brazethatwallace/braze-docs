@@ -2,7 +2,7 @@
 nav_title: Jampp
 article_title: Jampp
 alias: /partners/jampp/
-description: "このリファレンス記事では、Braze と Jampp のパートナーシップについて説明します。Jampp は、モバイルの顧客の獲得とリターゲティングに利用されるパフォーマンスマーケティングプラットフォームです。"
+description: "このリファレンス記事では、BrazeとJamppのパートナーシップについて説明します。Jamppは、モバイルの顧客の獲得とリターゲティングに利用されるパフォーマンスマーケティングプラットフォームです。"
 page_type: partner
 search_tag: Partner
 
@@ -10,43 +10,43 @@ search_tag: Partner
 
 # Jampp
 
-> [Jampp](https://www.jampp.com/) はモバイルの顧客の獲得とリターゲティングに利用されるパフォーマンスマーケティングプラットフォームです。Jampp は、行動データと予測技術やプログラム技術を組み合わせて、消費者に対して初めての購入やより頻繁な購入を促すパーソナルで関連性の高い広告を表示することで、広告主の収益を創出します。
+> [Jampp](https://www.jampp.com/)はモバイルの顧客の獲得とリターゲティングに利用されるパフォーマンスマーケティングプラットフォームです。Jamppは、行動データと予測技術やプログラム技術を組み合わせて、消費者に対して初めての購入やより頻繁な購入を促すパーソナルで関連性の高い広告を表示することで、広告主の収益を創出します。
 
-_この統合は Jampp によって管理されます。_
+_この統合はJamppによって管理されます。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Braze と Jampp の統合により、Braze ユーザーは Braze Webhook イベントを使用してイベントを Jampp に同期できます。その結果、お客様はモバイル広告エコシステム内で、より豊富なデータセットを各自のリターゲティングイニシアチブに追加できます。
+BrazeとJamppの統合により、会社ユーザーはBraze Webhookイベントを使用してイベントをJamppに同期できます。その結果、顧客はモバイル広告エコシステム内で、より豊富なデータセットを各自のリターゲティングイニシアチブに追加できます。
 
 広告で顧客をリターゲティングする状況の例を以下に示します。
 - 顧客のメールまたはプッシュサブスクリプションのステートが変化したとき。
-- 顧客とBraze メッセージング キャンペーンとの相互作用の仕方。
+- 顧客がBrazeメッセージングCampaignとどのようにインタラクションしたか。
 - 顧客が特定のジオフェンスをトリガーした場合。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-この統合はiOSとAndroidアプリをサポートしている。
+この統合はiOSとAndroidアプリをサポートしています。
 
 | 要件 | 説明 |
 |---|---|
-| Jampp アカウント | このパートナーシップを活用するには、[Jampp アカウント](https://www.jampp.com/)が必要です。 |
-| Android アプリ ID | Android用Brazeアプリケーション固有の識別子（「com.example 」など）。 |
-| iOSアプリID | iOS用のお客様固有のBrazeアプリケーション識別子（"012345678 "など）。 |
-| Braze SDKでIDFAコレクションを有効にする | IDFA 収集は Braze SDK 内ではオプションであり、デフォルトでは無効になっています。 | 
-| カスタム属性によるグーグル広告IDの収集 | Google 広告 ID の収集は顧客向けのオプションであり、[[カスタム属性]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types)]として収集できます。
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Jamppアカウント | このパートナーシップを活用するには、[Jamppアカウント](https://www.jampp.com/)が必要です。 |
+| AndroidアプリID | Android用のBrazeアプリケーション固有の識別子（「com.example」など）。 |
+| iOSアプリID | iOS用のBrazeアプリケーション固有の識別子（「012345678」など）。 |
+| Braze SDKでIDFA収集を有効にする | IDFA収集はBraze SDK内ではオプションであり、デフォルトでは無効になっています。 |
+| カスタム属性によるGoogle広告IDの収集 | Google広告IDの収集は顧客向けのオプションであり、[カスタム属性]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types)として収集できます。
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:Braze でのWebhook テンプレートの作成
+### ステップ 1: BrazeでWebhookテンプレートを作成する {#step-1-create-a-webhook-template-in-braze}
 
-将来のキャンペーンs またはキャンバスで使用するJampp Webhook テンプレートを作成するには、Braze プラットフォームで**テンプレートs**>**Webhook テンプレートs** に移動します。
+将来のCampaignsまたはCanvasesで使用するJampp Webhookテンプレートを作成するには、Brazeダッシュボードで**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
-一度だけJampp Webhook キャンペーンしたい場合や、既設のテンプレートを使用したい場合は、新規キャンペーン作成時にBrazeで**Webhook**を選択してください。
+一度だけのJampp Webhook Campaignを作成したい場合や、既存のテンプレートを使用したい場合は、新規Campaign作成時にBrazeで**Webhook**を選択してください。
 
-新しい Webhook テンプレートで、次のフィールドに入力します。
-- **リクエスト本文**:Raw Text
-- **Webhook URL**:
+新しいWebhookテンプレートで、次のフィールドに入力します。
+- **Request Body**：Raw Text
+- **Webhook URL**：
 {% raw %}
 ```liquid
 {% assign event_name = 'your_jampp_event_name' %}
@@ -63,37 +63,35 @@ http://tracking.jampp.com/event?kind={{event_name}}&rnd={{rnd}}&app={% if {{most
 ```
 {% endraw %}
 
-Webhook URL で次の操作を行う必要があります。
-- イベント名を設定します。この名前は Jampp ダッシュボードに表示されます。
-- Android と iOS のアプリの一意のアプリケーション識別子 (Android:「com.example」、iOS:「012345678」など) を渡します。
-- Google 広告 ID として追跡している適切なカスタム属性の [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#using-liquid) を挿入します。この例では、Google 広告 ID が `aaid` としてリストされていますが、これを開発者が設定したカスタム属性名に置き換える必要があります。
+Webhook URLで次の操作を行う必要があります。
+- イベント名を設定します。この名前はJamppダッシュボードに表示されます。
+- AndroidとiOSのアプリの一意のアプリケーション識別子（Android：「com.example」、iOS：「012345678」など）を渡します。
+- Google広告IDとしてトラッキングしている適切なカスタム属性の[Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#using-liquid)を挿入します。この例では、Google広告IDが `aaid` としてリストされていますが、これを開発者が設定したカスタム属性名に置き換える必要があります。
 
-![Braze Webhook ビルダーに表示されるWebhookのURL およびメッセージプレビュー。]({% image_buster /assets/img/jampp_webhook.png %})
+![Braze Webhookビルダーに表示されるWebhook URLとメッセージプレビュー。]({% image_buster /assets/img/jampp_webhook.png %})
 
 {% alert important %}
-BrazeはデバイスのIDFA/AAIDを自動的に収集しないので、これらの値を自分で保存する必要がある。このデータを収集するには、ユーザーの同意を必要とする場合があることに注意してください。
+BrazeはデバイスのIDFA/AAIDを自動的に収集しないため、これらの値を自分で保存する必要があります。このデータを収集するには、ユーザーの同意が必要になる場合があることに注意してください。
 {% endalert %}
 
-#### リクエストヘッダと方法
+#### リクエストヘッダーとメソッド {#request-headers-and-method}
 
-Jampp WebhookにはHTTP メソッドとリクエストヘッダーが必要です。
+Jampp WebhookにはHTTPメソッドとリクエストヘッダーが必要です。
 
-- **HTTPメソッド**：GET
-- **リクエストヘッダー**:
+- **HTTP Method**：GET
+- **Request Headers**：
   - **Content-Type**: application/json
 
-![リクエストヘッダ、HTTPメソッド、メッセージプレビューがBraze webhookビルダーに表示される。]({% image_buster /assets/img/jampp_method.png %})
+![Braze Webhookビルダーに表示されるリクエストヘッダー、HTTPメソッド、メッセージプレビュー。]({% image_buster /assets/img/jampp_method.png %})
 
-#### Request body
+#### リクエスト本文 {#request-body}
 
-このウェブフックのリクエスト・ボディを定義する必要はない。
+このWebhookのリクエスト本文を定義する必要はありません。
 
-### ステップ2:リクエストをプレビューする
+### ステップ 2: リクエストをプレビューする {#step-2-preview-your-request}
 
-メッセージをプレビューして、リクエストがさまざまなユーザーに対して正しくレンダリングされていることを確認する。AndroidとiOSの両方のユーザーに対して、プレビューとテストリクエストの送信を推奨する。リクエストが成功すれば、APIは`HTTP 204` で応答する。
+メッセージをプレビューして、リクエストがさまざまなユーザーに対して正しくレンダリングされていることを確認します。AndroidとiOSの両方のユーザーに対して、プレビューとテストリクエストの送信を推奨します。リクエストが成功すると、APIは `HTTP 204` で応答します。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないこと！<br>更新されたWebhookテンプレートは、新しい[Webhookキャンペーンを]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/)作成するときに、**保存されたWebhookテンプレート**リストで見つけることができる。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}
-
-

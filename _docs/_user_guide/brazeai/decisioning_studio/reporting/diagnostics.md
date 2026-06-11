@@ -36,7 +36,7 @@ Refer to the following table for more details about each metric in the inbound r
 | Max file size (MBs) | The size of the largest file received, in megabytes. |
 | Average file size (MBs) | The average size of all files received, in megabytes. |
 | File row count | The total number of rows contained in the delivered files. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Diagnostics report" }
 
 {% endtab %}
 {% endtabs %}

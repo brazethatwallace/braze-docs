@@ -56,7 +56,7 @@
   }
   h1 {
     color: $black-shark;
-    font-family: $braze-medium;
+    font-family: $braze-bold;
     margin-top: 10px;
   }
 
@@ -137,8 +137,11 @@
         background-color: transparent;
     }
 
-    .select:focus {
-        outline: 0
+    .select:focus:not(:focus-visible) {
+        outline: 0;
+    }
+    .select:focus-visible {
+        @include focus-ring();
     }
 
     .partner_filter_div {

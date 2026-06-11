@@ -5,35 +5,35 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Exportar ID de productos de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Exportar ID de productos de Braze."
 
 ---
 {% api %}
-# Exportar ID de productos
+# Exportar ID de productos {#export-product-ids}
 {% apimethod get %}
 /purchases/product_list
 {% endapimethod %}
 
-> Utiliza este punto final para devolver una lista paginada de ID de productos.
+> Usa este punto de conexión para devolver una lista paginada de ID de productos.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#dff4ed40-81f5-451d-9d44-accc0e932285{% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `purchases.product_list`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `purchases.product_list`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='purchases product list' %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `page` | Opcional | Cadena | La página de su lista de productos que desea ver. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `page` | Opcional | Cadena | La página de tu lista de productos que deseas ver. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 {% raw %}
 ```
@@ -41,7 +41,7 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
 ```
 {% endraw %}
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {
@@ -55,5 +55,5 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
 {% endapi %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}

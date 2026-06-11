@@ -14,7 +14,7 @@
   color: $black-shark;
   .title {
     color: $black-shark;
-    font-family: $braze-medium;
+    font-family: $braze-bold;
     font-size: 16px;
     margin-bottom: 0px;
     .glossary_share {
@@ -42,7 +42,7 @@
   }
   .tag {
     display: inline-block;
-    font-family: $braze-light-oblique;
+    font-family: $braze-regular-oblique;
     font-size: 14px;
   }
   .metric, .caclulation, .field, .subinfo {
@@ -88,6 +88,7 @@
       -moz-transition:  all ease $guide_transition_time;
       &:hover {
         background-color: $braze-link-color;
+        color: #fff;
       }
     }
   }
@@ -106,6 +107,14 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
     b {
       font-size: 30px;
       line-height: 1.4;
@@ -205,7 +214,7 @@
   }
   h1 {
     color: $black-shark;
-    font-family: $braze-medium;
+    font-family: $braze-bold;
     margin-top: 10px;
   }
   #breadcrumb {
@@ -299,8 +308,11 @@
         background-color: transparent;
     }
 
-    .select:focus {
-        outline: 0
+    .select:focus:not(:focus-visible) {
+        outline: 0;
+    }
+    .select:focus-visible {
+        @include focus-ring();
     }
 
     .glossary_filter_div {
@@ -361,7 +373,7 @@
       border-style: solid;
     }
     a {
-      font-family: $braze-medium;
+      font-family: $braze-bold;
       display: inline;
       color: $black-shark;
       font-weight: 700;
