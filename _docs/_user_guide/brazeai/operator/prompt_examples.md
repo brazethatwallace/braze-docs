@@ -193,7 +193,7 @@ How can we reduce Query Builder credit usage without losing reporting coverage? 
 Which saved queries haven't been run in 90 days—can you help me identify candidates to archive?
 ```
 
-## Agent Console knowledge sources
+## Agent Console
 
 ### Onboarding
 

@@ -39,7 +39,7 @@ hide_binary_feedback: false
     margin-bottom: 4px;
     margin-right: 10px;
     padding: 5px 15px;
-    border: 1px solid #def6f9;
+    border: 1px solid transparent;
     border-radius: 5px;
     font-size: 14px;
     line-height: 25px;
@@ -74,7 +74,6 @@ $(document).ready(function() {
   var allLi = document.createElement('li');
   allLi.setAttribute('role', 'tab');
   allLi.setAttribute('aria-selected', 'true');
-  allLi.setAttribute('aria-controls', 'operator-prompt-content');
   allLi.id = 'operator-tab-all';
   allLi.className = 'active';
   allLi.textContent = 'All';
@@ -172,14 +171,22 @@ $(document).ready(function() {
     var newUrl = window.location.pathname + (newSearch ? '?' + newSearch : '') + window.location.hash;
     history.replaceState({}, '', newUrl);
 
-    // Rebuild TOC so it reflects only the visible headings (matches setTabClass() pattern).
+    // Rebuild TOC with H3-only — H2 navigation is handled by the tab buttons.
     if (window.$ && $.fn.toc && $('#toc').length) {
-      $('#toc').toc({ headers: 'h2,h3', minimumHeaders: 2 });
+      $('#toc').toc({ headers: 'h3', minimumHeaders: 2 });
     }
   }
 
   // Activate from URL on load.
   activateTab(new URLSearchParams(window.location.search).get('tab') || '');
+
+  // Rebuild TOC after all $(document).ready handlers complete (including toc.js),
+  // so our h3-only setting wins over toc.js's default h2,h3 initialization.
+  setTimeout(function() {
+    if (window.$ && $.fn.toc && $('#toc').length) {
+      $('#toc').toc({ headers: 'h3', minimumHeaders: 2 });
+    }
+  }, 0);
 
   // Click handler. documents.js's delegated arrow-key handler (line 818) calls
   // .trigger('click') on [role="tab"] elements — this handler must be idempotent.
