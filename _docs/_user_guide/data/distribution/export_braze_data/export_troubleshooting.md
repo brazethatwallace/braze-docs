@@ -109,3 +109,13 @@ Exports take time to finish, so immediate access from a script often fails. You 
 
 - Poll the download URL with exponential backoff, or
 - Use the [`callback_endpoint` parameter]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#request-parameters) and point it at a service that runs your script when the export is ready.
+
+## Segment and user export API fields
+
+### Expected columns are missing from a segment export file
+
+Dashboard **CSV Export User Data** from a segment uses a fixed column set (see [Export segment data to CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#data-included-in-export)). It does not include a `fields_to_export` column or parameter.
+
+For API segment exports, you must pass `fields_to_export` in the request body. Some fields pull related data automatically—for example, requesting `canvases_received` also requires journey summary data on the user profile. See the [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) endpoint reference for valid field names and requirements.
+
+If columns are missing from an API export ZIP, confirm the `fields_to_export` array in your request includes every field you need and that your workspace uses the required export permissions.
