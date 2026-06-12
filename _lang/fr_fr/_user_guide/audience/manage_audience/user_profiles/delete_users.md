@@ -156,7 +156,7 @@ Si une fusion planifiée inclut des profils utilisateurs en attente de suppressi
 
 Les données envoyées depuis des systèmes externes ou des SDK sont toujours acceptées, mais les utilisateurs seront supprimés comme prévu, indépendamment de l'activité.
 
-### Les Canvas et les campagnes se déclenchent-ils pour les utilisateurs en attente de suppression ? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
+### Les Canvas et les Campaigns se déclenchent-ils pour les utilisateurs en attente de suppression ? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
 
 Oui. Cependant, vous pouvez ajouter un filtre d'inclusion de segment pour exclure tous les utilisateurs avec le [filtre de segment](#segment-filters) **Pending Deletion**.
 
