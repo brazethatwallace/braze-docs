@@ -43,7 +43,7 @@ tool:
 - CampaignsとCanvasesを手動で選択する
 - 特定のルールに基づいてCampaignsとCanvasesを自動的に選択する
 
-![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![エンゲージメントレポートのメッセージ選択画面]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### CampaignsまたはCanvasesを手動で選択する {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ tool:
 
 **統計を追加**ステップでは、選択したCampaignsまたはCanvasesの種類に応じた統計が表示されます。例えば、メールメッセージを選択した場合、関連するメール統計のみが表示されます。メールとプッシュの組み合わせを選択した場合、それら2つのチャネルの統計が表示されます。
 
-![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![エンゲージメントレポートの統計追加画面]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 エンゲージメントレポートはCampaignまたはCanvasごとにデータを集計しますが、ワークスペースレベルでは集計しません。すべてのアクティブなCampaignsおよびCanvasesにわたる合計送信数やインプレッション数（ワークスペース全体のチャネルごとの送信数やインプレッション数など）を監視するには、[レポートビルダー]({{site.baseurl}}/report_builder/)を使用してください。
 
@@ -100,7 +100,7 @@ tool:
 
 デフォルトでは、エンゲージメントレポートに表示されるデータは日次（1日単位）です。異なる間隔でデータを表示するには、レポートのデータを集計する明示的な日数または週数を選択します。日次指標の代わりに、週次、月次、四半期ごと、または同様の単位でエンゲージメントを表示できます。時間ベースの集計では不十分な場合は、CampaignまたはCanvasレベルでデータをエクスポートすることもできます。
 
-![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![エンゲージメントレポートのデータカバレッジ画面]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 ##### CampaignまたはCanvas全体でデータを表示する {#show-data-by-entire-campaign-or-canvas}
 
@@ -117,7 +117,7 @@ tool:
 - **すぐに送信:** レポートが起動された後、Brazeはこのレポートをすぐに送信します。
 - **指定した時間に送信:** このオプションでは、レポートを受け取る頻度を柔軟に選択できます。設定した日数、週数、または月数ごとにレポートを送信するよう選択できます。レポートの送信を停止する時期も定義できます。
 
-![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![エンゲージメントレポートのスケジュール設定画面]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### ステップ 5: 確認して起動する {#step-5-review-and-launch}
 
@@ -146,3 +146,10 @@ tool:
 #### HTMLアプリ内メッセージでのボタンクリックの重複 {#duplicate-button-clicks-in-html-in-app-messages}
 
 HTMLアプリ内メッセージを使用していて、エンゲージメントレポートで**本文クリック数**が高く見える場合、クリックログが2回発火している可能性があります。例えば、一般的な本文クリックに対して`brazeBridge.logClick()`を呼び出し、同じインタラクションで`brazeBridge.logClick('body click')`（または別のID）も呼び出している場合です。マークアップで`brazeBridge.logClick(`を検索し、コントロールごとに1つのパターンに統一してください。推奨される使用方法については、[ボタントラッキング]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements)を参照してください。
+
+#### メールで送信されたエンゲージメントレポートのリンク切れ {#broken-links-in-emailed-engagement-reports}
+
+スケジュールされたエンゲージメントレポートのメール内のリンクがメールクライアントで正しく開けない場合は、以下の手順をお試しください。
+
+1. レポートをGmailの受信トレイに転送し、Google Chromeでリンクを開きます。
+2. エンゲージメントレポートの設定で、**Report Schedule** が期待どおりに送信されるように設定されていることを確認します（例えば、遅延スケジュールではなく、レポート生成直後に送信されるようにする）。

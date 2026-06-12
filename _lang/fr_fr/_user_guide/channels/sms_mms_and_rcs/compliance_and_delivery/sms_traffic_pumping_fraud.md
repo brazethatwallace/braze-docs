@@ -1,7 +1,6 @@
 ---
 nav_title: Prévenir la fraude par gonflement de trafic SMS, MMS et RCS
 description: "Découvrez comment fonctionne la fraude par gonflement de trafic SMS, MMS et RCS, pourquoi Braze signale certaines destinations comme présentant un risque élevé de fraude, et comment réduire l'exposition grâce à l'autorisation géographique et à d'autres contrôles."
-alias: /sms_traffic_pumping_fraud/
 page_type: reference
 page_order: 5
 channel:

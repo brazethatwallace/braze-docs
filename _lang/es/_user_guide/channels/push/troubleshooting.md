@@ -40,7 +40,7 @@ Cualquiera de los dos puntos de conexión devolverá un objeto de token de push 
 
 Asegúrate de que perteneces al segmento al que te diriges (si se trata de una campaña en vivo y no de una prueba). En el **User Profile**, verás una lista de segmentos a los que pertenece actualmente el usuario. Recuerda que esta es una variable en constante cambio, ya que la segmentación se actualiza en tiempo real.
 
-![Lista de Segments]({% image_buster /assets/img_archive/trouble2.png %})
+![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
 También puedes confirmar que el usuario forma parte del segmento utilizando **User Lookup** al crear un segmento. **User Lookup** solo acepta `external_id` o `braze_id`, no direcciones de correo electrónico ni números de teléfono. Para buscar por correo electrónico, teléfono, token de push o alias de usuario, usa [**Buscar usuarios**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
@@ -52,7 +52,7 @@ Comprueba los límites de frecuencia globales. Es posible que no hayas recibido 
 
 Puedes hacerlo comprobando la [limitación de frecuencia global]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over) en el dashboard. Si la campaña está configurada para respetar las reglas de limitación de frecuencia, habrá un número de usuarios afectados por esta configuración.
 
-![Detalles de Campaign]({% image_buster /assets/img_archive/trouble3.png %})
+![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### Límites de velocidad {#rate-limits}
 
@@ -224,7 +224,7 @@ Tus permisos push se han restablecido. Abre una nueva pestaña en tu sitio y pru
 
 Si tienes una notificación de tu sitio visible en el cajón de notificaciones de Android:
 
-1. Desde la notificación push, toca <i class="fas fa-cog" title="Configuración"></i> y selecciona **Site settings**.
+1. Desde la notificación push, toca <i class="fas fa-cog" title="Configuración"></i> **Configuración** y selecciona **Site settings**.
 2. Desde **Site settings**, toca **Clear & Reset**.
 
 Si no tienes una notificación de tu sitio abierta:
@@ -244,7 +244,7 @@ Tus permisos push se han restablecido. Abre una nueva pestaña en tu sitio y pru
 ### Restablecer Firefox en escritorio {#reset-firefox-on-desktop}
 
 1. Junto a la URL de tu sitio, selecciona <i class="fa-solid fa-circle-info" alt="icono de información"></i> o <i class="fas fa-lock" alt="icono de candado"></i>.
-2. En **Permissions**, junto a **Receive Notifications**, selecciona <i class="fa-solid fa-circle-xmark" title="Borrar este permiso y preguntar de nuevo"></i> para borrar los permisos de notificación.
+2. En **Permissions**, junto a **Receive Notifications**, selecciona <i class="fa-solid fa-circle-xmark" title="Borrar este permiso y preguntar de nuevo"></i> **Borrar permiso** para borrar los permisos de notificación.
 3. En el mismo menú, selecciona **Clear Cookies and Site Data**.
 4. En el diálogo para confirmar tu elección, selecciona **OK**.
 

@@ -90,7 +90,7 @@ Vous disposez de 7 jours pour annuler les suppressions de segments en attente. P
 
 ![L'onglet « Delete Users » dans la section « Manage Audience » du tableau de bord de Braze.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-À côté d'une suppression de segment en attente, sélectionnez <i class="fa-solid fa-eye"></i> pour ouvrir les détails de l'enregistrement de suppression.
+À côté d'une suppression de segment en attente, sélectionnez <i class="fa-solid fa-eye"></i> **View details** pour ouvrir les détails de l'enregistrement de suppression.
 
 ![Une suppression de segment en attente dans l'onglet « Delete Users ».]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -134,7 +134,7 @@ Sur cette page, vous trouverez les informations générales suivantes pour toute
 | État | Indique si la demande de suppression est en attente, en cours ou terminée. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Manage Audience" }
 
-Pour plus de détails sur une demande spécifique, sélectionnez <i class="fa-solid fa-eye"></i> pour afficher les détails de l'enregistrement de suppression. Vous pouvez également [annuler les suppressions de segments en attente](#cancel) depuis cet écran.
+Pour plus de détails sur une demande spécifique, sélectionnez <i class="fa-solid fa-eye"></i> **View details** pour afficher les détails de l'enregistrement de suppression. Vous pouvez également [annuler les suppressions de segments en attente](#cancel) depuis cet écran.
 
 ![Une suppression de segment en attente dans l'onglet « Delete Users ».]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -164,7 +164,7 @@ Si une fusion planifiée inclut des profils utilisateurs en attente de suppressi
 
 Les données envoyées depuis des systèmes externes ou des SDK sont toujours acceptées, mais les utilisateurs seront supprimés comme prévu, indépendamment de l'activité.
 
-### Les Canvas et les campagnes se déclenchent-ils pour les utilisateurs en attente de suppression ? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
+### Les Canvas et les Campaigns se déclenchent-ils pour les utilisateurs en attente de suppression ? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
 
 Oui. Cependant, vous pouvez ajouter un filtre d'inclusion de segment pour exclure tous les utilisateurs avec le [filtre de segment](#segment-filters) **Pending Deletion**.
 

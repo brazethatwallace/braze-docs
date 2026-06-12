@@ -68,7 +68,7 @@ channel:
 전달 가능성 센터에 연결하기 전에 Google Postmaster Tools 계정을 설정해야 합니다. 업무용 또는 개인 Gmail 계정을 사용하여 Google Postmaster를 설정할 수 있습니다.
 
 1. [Google Postmaster Tools 대시보드](https://postmaster.google.com/managedomains?pli=1)로 이동합니다.
-2. 오른쪽 하단에서 <i class="fas fa-plus-circle"></i> 더하기 아이콘을 선택합니다.
+2. 오른쪽 하단에서 <i class="fas fa-plus-circle"></i> **도메인 추가**를 선택합니다.
 3. 이메일을 인증할 루트(상위) 도메인을 입력합니다. TXT 레코드가 Braze를 통해 사용하는 하위 도메인이 **아닌** 이 루트(상위) 도메인에 연결되어 있는지 확인하세요. 루트(상위) 도메인을 인증하면 나중에 추가 TXT 레코드를 생성하지 않고도 Postmaster Tools에 하위 도메인을 추가할 수 있습니다. 예를 들어, `braze.com`을 인증하면 나중에 Postmaster Tools에서 `demo.braze.com`을 별도의 하위 도메인으로 추가하여 하위 도메인 수준의 측정기준을 확인할 수 있습니다.
 4. Google에서 도메인의 DNS에 직접 추가할 수 있는 TXT 레코드를 생성합니다. 이는 일반적으로 DNS를 관리하는 담당자가 소유합니다. 특정 DNS를 업데이트하는 방법에 대한 정보와 안내는 [도메인 인증(호스트별 단계)](https://support.google.com/a/topic/1409901)을 참조하세요.
 5. **Next**를 선택합니다. <br>![이메일을 인증하기 위한 예시 도메인 "demo.braze.com".]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -116,7 +116,7 @@ IP 평판 등급을 이해하려면 다음 표를 참조하세요:
 | 중간/보통 | 긍정적인 참여를 생성하는 것으로 알려져 있지만 가끔 스팸 신고를 받습니다. 이 도메인에서 보낸 대부분의 이메일은 받은편지함으로 전달되지만, 스팸 신고가 증가하면 예외가 될 수 있습니다. |
 | 낮음 | 정기적으로 높은 스팸 신고율을 받는 것으로 알려져 있습니다. 이 발신자의 이메일은 스팸 폴더로 필터링될 가능성이 높습니다. |
 | 나쁨 | 높은 스팸 신고율을 받은 이력이 있습니다. 이 도메인의 이메일은 거의 항상 연결 시 거부되거나 스팸 폴더로 필터링됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="IP reputation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="IP 평판" }
 
 #### 도메인 평판 {#domain-reputation}
 
@@ -128,7 +128,7 @@ IP 평판 등급을 이해하려면 다음 표를 참조하세요:
 | 중간/보통 | 긍정적인 참여를 생성하는 것으로 알려져 있지만 가끔 소량의 스팸 신고를 받은 적이 있습니다. 이 도메인에서 보낸 대부분의 이메일은 받은편지함에 도달합니다(스팸 수준이 눈에 띄게 증가하는 경우 제외). |
 | 낮음 | 정기적으로 스팸 신고를 받는 것으로 알려져 있습니다. 이 발신자의 이메일은 스팸 폴더로 필터링될 가능성이 높습니다. |
 | 나쁨 | 높은 스팸 신고율을 받은 이력이 있습니다. 이 도메인의 이메일은 거의 항상 연결 시 거부되거나 스팸 폴더로 필터링됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Domain reputation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="도메인 평판" }
 
 #### 인증 {#authentication}
 
@@ -139,7 +139,7 @@ IP 평판 등급을 이해하려면 다음 표를 참조하세요:
 | SPF | SPF를 시도한 도메인의 모든 이메일 중 SPF를 통과한 이메일의 비율을 표시합니다. 스푸핑된 메일은 제외됩니다. |
 | DKIM | DKIM을 시도한 도메인의 모든 이메일 중 DKIM을 통과한 이메일의 비율을 표시합니다. |
 | DMARC | SPF 또는 DKIM을 통과한 도메인에서 수신된 모든 이메일 중 DMARC 정렬을 통과한 이메일의 비율을 표시합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Authentication" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="인증" }
 
 #### 암호화 {#encryption}
 
@@ -149,7 +149,7 @@ IP 평판 등급을 이해하려면 다음 표를 참조하세요:
 | ----- | ---------- |
 | TLS 인바운드 | 해당 도메인에서 수신된 모든 메일 중 TLS를 통과한 수신 메일(Gmail로)의 비율을 표시합니다. |
 | TLS 아웃바운드 | 해당 도메인으로 발송된 모든 메일 중 TLS를 통해 수락된 발신 메일(Gmail에서)의 비율을 표시합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Encryption" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="암호화" }
 
 전달 가능성을 개선하는 더 많은 아이디어는 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/#deliverability-pitfalls-and-spam-traps)을 참조하세요. 이메일 캠페인을 발송하기 전에 확인해야 할 사항은 [이메일 모범 사례]({{site.baseurl}}/user_guide/channels/email/best_practices/)를 참조하세요.
 
@@ -184,7 +184,7 @@ Microsoft가 주요 메일박스 제공업체인 경우 이 통합을 사용하�
 | 녹색 | 주어진 기간의 최대 10%까지 Microsoft의 스팸 필터에 의해 스팸으로 판정되었습니다. |
 | 노란색 | 주어진 기간의 10%에서 90% 사이에서 Microsoft의 스팸 필터에 의해 스팸으로 판정되었습니다. |
 | 빨간색 | 주어진 기간의 90% 이상에서 Microsoft의 스팸 필터에 의해 스팸으로 판정되었습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Filter results" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필터 결과" }
 
 #### 불만 비율 {#complaint-rate}
 
@@ -197,7 +197,7 @@ Microsoft가 주요 메일박스 제공업체인 경우 이 통합을 사용하�
 | 0.3% 미만 | 이상적인 불만 비율입니다. |
 | 0.3% 초과 | 가입 프로세스를 검토하고 탈퇴 링크가 작동하는지 확인하세요. 또한 메일이 오디언스에 맞게 더 잘 개인화될 수 있는지 고려하세요. |
 | 100% 초과 | SNDS는 불만이 신고된 날짜를 기준으로 불만을 표시하며, 불만 대상 메일이 전달된 날짜를 소급하여 표시하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Complaint rate" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="불만 비율" }
 
 #### 스팸 트랩 히트 {#spam-trap-hits}
 

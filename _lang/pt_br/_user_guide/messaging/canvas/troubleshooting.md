@@ -32,7 +32,7 @@ Se o evento personalizado aparecer, investigue mais fazendo o seguinte:
 
 - Verifique o download do perfil do usuário para confirmar que ele disparou o evento e quando isso aconteceu. Se o evento foi disparado, compare o timestamp de quando o evento foi disparado com o horário em que o Canvas entrou no ar. O evento pode ter sido disparado antes do Canvas entrar no ar.
 - Revise os changelogs do Canvas e de quaisquer Segments usados no direcionamento para determinar se o usuário estava no Segment quando o evento personalizado foi disparado. Se ele não estava no Segment, não teria recebido a etapa do Canvas.
-- Verifique se o usuário foi incluído em um grupo de controle por meio de segmentação e, consequentemente, impedido de receber a etapa do Canvas.
+- Verifique se o usuário foi atribuído ao grupo de controle do Canvas na entrada e, consequentemente, impedido de receber a etapa do Canvas.
 - Se houver uma postergação agendada, verifique se o evento personalizado do usuário foi disparado antes da postergação. Se o evento foi disparado antes da postergação, ele não teria recebido a etapa do Canvas.
 
 {% alert note %}
@@ -89,13 +89,11 @@ Para evitar isso, garanta que as atualizações de atributos personalizados ou e
 
 Ao criar seu Canvas, você pode ter esperado que seu público se dividisse igualmente entre o grupo de controle e o grupo de variante, como no seguinte [caso de uso](#use-case). Vamos discutir por que isso acontece e como corrigir!
 
-O grupo ao qual um usuário é atribuído depende das suas configurações. Pode ser o grupo de controle ou o grupo de variante. Um usuário entrará em um Canvas quando atender a todos os critérios definidos na [Etapa de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule). Ao configurar seu Canvas, você define qual porcentagem de usuários entrará em cada variante e no grupo de controle.
+A atribuição ao grupo de controle e à variante acontece na entrada do Canvas com base nas porcentagens que você definiu no construtor — não por meio de filtros de Segment. Um usuário entra em um Canvas quando atende a todos os critérios definidos na [Etapa de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule).
 
-Se seu grupo de controle for grande em comparação com seu grupo de variante (e essa não for sua intenção), recomendamos o seguinte:
-1. Defina o filtro do público de entrada como **is Foreground Push Enabled**.
-2. Defina o filtro do público de entrada para **Push Subscription Status**, **Email Subscription Status** ou ambos como **Opted In** ou **Subscribed**.
+Se os usuários entrarem na variante mas não receberem mensagens porque não são elegíveis para um canal, use as [Configurações de envio]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings) em cada etapa (por exemplo, **Configurações de inscrição** definidas apenas para usuários que optaram por receber) em vez de adicionar filtros de canal ao **Público-alvo**. Para Canvas multicanal, não limite o público de entrada a um único canal (como **Foreground Push Enabled**).
 
-Ao criar um Canvas com um grupo de controle, confirme que todos os usuários no público de entrada são capazes de receber mensagens dentro do Canvas (por exemplo, se o Canvas contém mensagens push e de e-mail).
+Usuários que não podem receber um canal específico ainda podem entrar em uma variante. Para limitar quem recebe cada tipo de mensagem, use as configurações de envio por etapa em vez de filtros de público de entrada.
 
 ### Caso de uso {#use-case}
 

@@ -236,12 +236,14 @@ Tenha em mente que o valor do hash muda regularmente. Se você estiver filtrando
 
 ## Solução de problemas {#troubleshooting}
 
-Use o [Webhook.site](https://webhook.site/) para solucionar problemas nas suas chamadas de Conteúdo conectado.
+Use o [Webhook.site](https://webhook.site/) para solucionar problemas nas suas chamadas de Conteúdo conectado e diagnosticar problemas com os cabeçalhos da solicitação, corpo da solicitação e outras informações que estão sendo enviadas na chamada.
 
 1. Substitua a URL na sua chamada de Conteúdo conectado pela URL única gerada no site.
 2. Pré-visualize e teste sua Campaign ou etapa do Canvas para ver as solicitações chegando a esse site.
 
-Usando essa ferramenta, você pode diagnosticar problemas com os cabeçalhos da solicitação, corpo da solicitação e outras informações que estão sendo enviadas na chamada.
+Você também pode verificar se a Liquid tag inclui os parâmetros que seu endpoint espera (por exemplo, `:method`, `:headers`, `:content_type`, `:body` e `:basic_auth` quando necessário). Se você depende da chave de código de status HTTP em um objeto JSON salvo, o endpoint deve retornar um objeto JSON e um status `2XX`.
+
+Para altas taxas de erro do seu host, consulte [Detecção de host com problemas]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) e [Volume de chamadas de Conteúdo conectado](#understanding-connected-content-call-volume).
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

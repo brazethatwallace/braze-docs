@@ -260,7 +260,7 @@ Varios factores pueden causar que el número de envíos sea menor que el tamaño
 - **Filtros de capacidad de entrega de correo electrónico:** Para campañas de correo electrónico, Braze excluye a los usuarios que han tenido rebotes duros, se han dado de baja de correos electrónicos, han sido marcados como correo no deseado, no tienen dirección de correo electrónico en su perfil o no están suscritos a un grupo de suscripción requerido. Estas verificaciones se ejecutan en el momento del envío, por lo que un usuario presente en tu segmento aún puede ser excluido del recuento real de envíos.
 - **Limitación de frecuencia global:** Los límites a nivel de espacio de trabajo pueden evitar que usuarios elegibles reciban otro mensaje en la misma ventana, lo que reduce los envíos realizados.
 - **Usuarios recién importados:** Los perfiles que acaban de volverse elegibles pueden no recibir hasta la siguiente evaluación o pasada de envío, por lo que los recuentos se actualizan en una ejecución posterior.
-- **Alcanzabilidad push:** Para campañas push, confirma que la audiencia tiene push habilitado para la aplicación correcta. Si no filtras por usuarios con push habilitado, la audiencia estimada puede incluir perfiles que no pueden recibir push. Verifica **Reachable Users** en el paso **Target Users** para una estimación operativa más cercana.
+- **Alcanzabilidad push:** Para campañas push, confirma que la audiencia tiene push habilitado para la aplicación correcta. Si no filtras por usuarios con push habilitado, la audiencia estimada puede incluir perfiles que no pueden recibir push. Verifica **Usuarios alcanzables** en el paso **Público objetivo** para una estimación operativa más cercana.
 - **Límite de velocidad:** Si se aplica un límite de velocidad, los mensajes se distribuyen a lo largo del tiempo y algunos envíos pueden diferirse o aún no reflejarse en el recuento.
 - **Ventanas de reelegibilidad:** Los usuarios que aún no son reelegibles no recibirán nuevamente durante el período de espera, por lo que los envíos quedan por debajo del tamaño estimado de la audiencia para ese período.
 - **Ventana de informes:** El rango de tiempo de los análisis puede no incluir todos los envíos.
@@ -271,3 +271,17 @@ Varios factores pueden causar que el número de envíos sea menor que el tamaño
 ### ¿Dónde están las preguntas frecuentes sobre la limitación de frecuencia global? {#where-are-frequently-asked-questions-about-global-frequency-capping}
 
 Para preguntas sobre días calendario, push silencioso, webhooks, comportamiento de Canvas y temas relacionados, consulta las [Preguntas frecuentes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) de [Límite de velocidad y limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
+### ¿Por qué los destinatarios únicos pueden superar los envíos en correo electrónico y SMS? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+Para correo electrónico y SMS, Braze incrementa **Destinatarios únicos** antes del intento de envío al ESP e incrementa **Envíos** después de una respuesta exitosa del ESP. Los errores permanentes (como direcciones de correo electrónico no válidas) o direcciones duplicadas hacen que los destinatarios únicos superen los envíos.
+
+### ¿Por qué **Último envío** no coincide con mi hora de envío programada? {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+Para una campaña con un único envío programado, **Último envío** coincide con la hora de lanzamiento. Para campañas recurrentes con **Send in local time zone** habilitado, **Último envío** puede aparecer antes de la hora programada porque los envíos a usuarios en zonas horarias más tempranas (por ejemplo, GMT frente a PST) se completan antes de la hora programada de tu espacio de trabajo.
+
+### ¿Por qué una campaña histórica detenida ya no muestra métricas en la página de **Analytics**? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+La pestaña **Analytics** muestra de forma predeterminada los últimos 90 días. Si la campaña se envió por última vez fuera de esa ventana, las métricas pueden aparecer como cero hasta que ajustes el rango de fechas en la página de **Analytics** para incluir el período en que la campaña se envió. Para más información, consulta [Análisis de campaña]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Restaurar datos de interacción** no restaura los análisis de campaña. Solo se aplica a los filtros de retargeting y al historial de interacciones del usuario. Para más información, consulta [Datos de interacción de mensajería]({{site.baseurl}}/messaging_interaction_data/).

@@ -78,12 +78,12 @@ description: "このリファレンス記事では、ダッシュボードでユ
 | エンゲージメントカテゴリ | 内容 |
 | --- | --- |
 | 連絡先設定 | メール、SMS、プッシュのサブスクリプションステータス、およびこれら3つのチャネルでこのユーザーが関連付けられている購読グループ。このセクションには、プッシュトークンの変更ログ情報も含まれます。サブスクリプションとオプトインの設定方法については、[メール]({{site.baseurl}}/user_guide/channels/email/subscriptions/)、[SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)、[プッシュ]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)を参照してください。 |
-| 受信したCampaign | **受信したCampaign**は、チャネル固有の送信および表示タイミングを反映します。ほとんどのチャネルでは、Brazeが配信プロバイダーにメッセージを渡した時点で送信が記録されます（メッセージが最終的に配信されなかった場合でも同様です）。**Content Cards**は異なります。Campaignがここに表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。チャネルごとの詳細については、[受信したCampaignにCampaignが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々Campaignの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>リストからCampaignを選択して表示します。 |
+| 受信したCampaign | **受信したCampaign**は、チャネル固有の送信および表示タイミングを反映します。ほとんどのチャネルでは、Brazeが配信プロバイダーにメッセージを渡した時点で送信が記録されます（メッセージが最終的に配信されなかった場合でも同様です）。**Content Cards**は異なります。Campaignがここに表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。チャネルごとの詳細については、[受信したCampaignにCampaignが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。<br><br>メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々Campaignの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>これらのリストは、リターゲティングと履歴に表示される内容を決定する際に、[メッセージングインタラクションデータ]({{site.baseurl}}/api/data_retention/messaging_interaction_data/)（有効期限ルールを含む）を使用します。<br><br>リストからCampaignを選択して表示します。 |
 | Segment | このユーザーが含まれているSegment。リストからSegmentを選択して表示します。 |
 | コミュニケーション統計 | このユーザーが各チャネルから最後にメッセージを受信した日時。 |
 | インストールアトリビューション | ユーザーがアプリをインストールした方法と時期に関する情報。詳しくは[ユーザーインストールの理解]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/)を参照してください。 |
 | その他 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)。 |
-| 受信したCanvasメッセージ | このユーザーが受信したCanvasメッセージとその受信日時。送信タイミングは**受信したCampaign**と同じチャネルルールに従います。[受信したCampaignにCampaignが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々Campaignの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>リストからメッセージを選択して表示します。 |
+| 受信したCanvasメッセージ | このユーザーが受信したCanvasメッセージとその受信日時。送信タイミングは**受信したCampaign**と同じチャネルルールに従います。[受信したCampaignにCampaignが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。<br><br>メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々Campaignの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>リストからメッセージを選択して表示します。 |
 | 予測 | このユーザーの[チャーン予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)および[イベント予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)スコア。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="エンゲージメントタブ" }
 
@@ -169,6 +169,7 @@ Content Cardsの送信は、カードが表示可能になった時点で記録�
 - **Campaign/Canvas**と**Message Sent**のデータが欠落しているイベントは、このメッセージが`campaign_id`と`message_variation_id`を指定していないAPI Campaign（APIトリガーCampaignではない）から送信されたことを示しています。これらのフィールドはオプションであり、リクエストボディから省略される場合があります。これらのフィールドが指定されている場合、その情報はメッセージ履歴ログに反映されます。
    - 特定のメッセージがメッセージ履歴に表示されないが、**Campaigns Received**ログに表示される場合、そのユーザーは現在のユーザーとして識別される前にCampaignを受信した可能性があります。既存のプロファイルが孤立した場合、**Campaigns Received**ログは転送されますが、メッセージ履歴は転送されません。
 - **Campaign/Canvas**のデータが欠落している場合、手動テストが送信された可能性があります。手動テストは**メッセージ履歴**タブに記録されますが、送信されたCampaignまたはCanvasは記録されません。
+- ユーザーがシードグループやその他の内部テストオーディエンスに含まれている場合、**メッセージ履歴**には本番送信と比較してCampaignやCanvasのメタデータが限定的に表示される場合があります。
 
 ## 関連記事 {#related-articles}
 

@@ -16,13 +16,13 @@ Um das Caching zu verhindern, können Sie `:no_cache` angeben, was zu erhöhtem 
 {% details Connected-Content-Rendering und Datenverarbeitung (erweitert) %}
 Dieser Abschnitt bietet einen detaillierteren End-to-End-Überblick darüber, wie Braze Liquid und Connected-Content rendert und wo Daten vorübergehend existieren können, bevor eine Nachricht gesendet wird. Dies kann bei Datenschutz- und Datenverarbeitungsprüfungen hilfreich sein.
 
-#### Was gespeichert wird und was nicht {#what-is-and-isnt-stored}
+## Was gespeichert wird und was nicht {#what-is-and-isnt-stored}
 
 - **Connected-Content-Antwortkörper:** Wird von Braze nicht dauerhaft gespeichert. Er kann vorübergehend im Arbeitsspeicher gehalten und, wenn Caching aktiviert ist, im Cache mit einer Time-to-Live (TTL) gespeichert werden.
 - **Connected-Content-Anfragemetadaten:** Anfragemetadaten wie die vollständig gerenderte URL, der HTTP-Statuscode und die Antwortdauer werden zur Fehlerbehebung und Überwachung protokolliert. Diese Protokolle werden bis zu 30 Tage aufbewahrt.
 - **Endgültig gerenderte Nachricht:** Existiert während des Renderings im Arbeitsspeicher. Diese kann je nach Ihrer Konfiguration und dem Kanal auch an anderer Stelle gespeichert werden (zum Beispiel Nachrichtenarchivierung oder Content Cards).
 
-#### Rendering-Ablauf (Überblick) {#rendering-flow-high-level}
+## Rendering-Ablauf (Überblick) {#rendering-flow-high-level}
 
 Der folgende Ablauf beschreibt, wie Braze Nachrichten für anbieterbasierte Kanäle wie E-Mail, SMS und Push rendert und sendet. SDK-basierte Kanäle wie Content Cards verwenden dasselbe zugrunde liegende Liquid- und Connected-Content-Rendering, unterscheiden sich jedoch darin, wann der Inhalt generiert und wie er zugestellt wird.
 
@@ -32,7 +32,7 @@ Der folgende Ablauf beschreibt, wie Braze Nachrichten für anbieterbasierte Kan�
 4. Die Antwort wird in das Liquid-Template eingespeist und die Nachricht wird vollständig gerendert.
 5. Bei anbieterbasierten Kanälen wird die gerenderte Nachricht an den Kanalanbieter und dann an die Nutzer:innen gesendet. Bei SDK-basierten Kanälen wie Content Cards wird der gerenderte Inhalt mit dem Braze SDK synchronisiert und kann bei der ersten Impression oder Anzeigezeit generiert werden, woraufhin er den Nutzer:innen angezeigt wird.
 
-#### Wo Connected-Content-Antworten vorübergehend existieren können {#where-connected-content-responses-can-live-temporarily}
+## Wo Connected-Content-Antworten vorübergehend existieren können {#where-connected-content-responses-can-live-temporarily}
 
 Braze verwendet einen mehrstufigen Cache für Connected-Content-Antworten mit TTLs zwischen fünf Minuten und vier Stunden, abhängig von Ihrer Verwendung von `:cache_max_age` und anderen Caching-Regeln:
 
@@ -42,11 +42,11 @@ Braze verwendet einen mehrstufigen Cache für Connected-Content-Antworten mit TT
 
 Diese Cache-Schichten sind flüchtig und können Daten früher als die konfigurierte TTL entfernen.
 
-#### Was sich ändert, wenn Sie `:no_cache` verwenden {#what-changes-when-you-use-no_cache}
+## Was sich ändert, wenn Sie `:no_cache` verwenden {#what-changes-when-you-use-no_cache}
 
 Für Endpunkte, die nicht innerhalb der Braze-Infrastruktur gehostet werden, verhindert die Verwendung von `:no_cache`, dass der Connected-Content-Antwortkörper in Memcached gespeichert wird. In diesen Fällen existiert die Antwort nur im Arbeitsspeicher des Worker-Prozesses für die Dauer des Rendering-Jobs (bis zu ~11 Minuten). Für Endpunkte, die zu Braze-internen Hosts aufgelöst werden, können Antworten weiterhin wie unter [Cache-Busting](#cache-busting) beschrieben zwischengespeichert werden.
 
-#### Wo die endgültig gerenderte Ausgabe existieren kann {#where-the-final-rendered-output-can-live}
+## Wo die endgültig gerenderte Ausgabe existieren kann {#where-the-final-rendered-output-can-live}
 
 - **Nachrichtenarchivierung:** Wenn die Nachrichtenarchivierung aktiviert ist, kann Braze die endgültig gerenderte Nachricht in Ihren konfigurierten Cloud-Speicher-Bucket schreiben. Wenn Ihre Connected-Content-Antwort in der gerenderten Nachricht enthalten ist, wird sie in der archivierten Kopie enthalten sein.
 - **Nutzergeräte:** Nach der Zustellung kann der vollständig gerenderte Nachrichteninhalt für eine unbestimmte Zeit auf Nutzergeräten verbleiben.
@@ -63,7 +63,7 @@ Die Cache-Dauer beträgt bis zu fünf Minuten (300 Sekunden). Sie können dies a
 ```
 {% endraw %}
 
-GET-Anfragen werden zwischengespeichert. Sie können dies konfigurieren, indem Sie den Parameter `:no_cache` zum Connected-Content-Aufruf hinzufügen.
+GET-Anfragen werden standardmäßig zwischengespeichert. Sie können das Caching deaktivieren, indem Sie den Parameter `:no_cache` zum Connected-Content-Aufruf hinzufügen.
 
 POST-Anfragen werden standardmäßig nicht zwischengespeichert, können aber durch Hinzufügen des Parameters `:cache_max_age` zum Connected-Content-Aufruf zwischengespeichert werden. Die minimale Cache-Zeit beträgt 5 Minuten und die maximale Cache-Zeit beträgt 4 Stunden.
 

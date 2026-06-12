@@ -56,7 +56,7 @@ channel:
 
 ### Flow 미리보기 {#preview-flow}
 
-Flow가 포함된 Canvas를 시작하기 전에 **Preview Flow**를 선택하여 Braze에서 직접 Flow를 미리보기하고 예상대로 작동하는지 확인할 수 있습니다. 미리보기에서 Flow와 상호작용하여 사용자가 Flow를 탐색하는 방식을 경험하고, 실시간으로 조정할 수도 있습니다. Flow에 여러 페이지가 포함된 경우 각 페이지와 상호작용할 수 있습니다.
+Flow가 포함된 Canvas를 시작하기 전에 **Flow 미리보기**를 선택하여 Braze에서 직접 Flow를 미리보기하고 예상대로 작동하는지 확인할 수 있습니다. 미리보기에서 Flow와 상호작용하여 사용자가 Flow를 탐색하는 방식을 경험하고, 실시간으로 조정할 수도 있습니다. Flow에 여러 페이지가 포함된 경우 각 페이지와 상호작용할 수 있습니다.
 
 ![사용자가 가입을 완료하기 위한 양식이 표시된 미리보기 창.]({% image_buster /assets/img/whatsapp/flows/flow_preview.png %}){: style="max-width:50%;"}
 
@@ -80,7 +80,7 @@ Braze 내에서 이전에 사용된 적 없는 Flow를 사용하는 경우, **�
 이를 해결하려면 다음을 수행합니다:
 
 1. WhatsApp 메시지 단계 설정을 완료합니다.
-2. **Save Flow responses as a custom attribute**가 체크되어 있는지 확인합니다.
+2. **Flow 응답을 커스텀 속성으로 저장**이 체크되어 있는지 확인합니다.
 
 ![Flow 응답을 커스텀 속성으로 저장하는 체크박스가 있는 Meta Flow 섹션.]({% image_buster /assets/img/whatsapp/flows/save_flow_responses_checkbox.png %}){: style="max-width:80%;"}
 
@@ -131,7 +131,7 @@ Flow가 완료되면 Braze는 Flow ID를 기반으로 이름이 지정된 Flow �
 - **기존 속성:** 특정 Flow에 대한 커스텀 속성이 이미 생성된 경우, Flow는 사용 가능한 속성 정보와 함께 로드됩니다. 이 경우 Braze가 이미 예상 응답 메시지를 인식하고 있으므로 스키마를 생성하기 위해 테스트 메시지를 보낼 필요가 없습니다.
 - **Flow 변경:** 스키마가 생성된 후 Flow를 변경하는 경우, Braze가 Flow 응답의 형태가 변경되었음을 이해하고 속성 구조를 적절히 조정할 수 있도록 추가 테스트 메시지를 보내야 합니다. 이 작업은 24시간에 한 번으로 제한됩니다.
 - **일관성:** 생성된 Flow 커스텀 속성은 일관적이며, 사용되는 Canvas에 관계없이 이 특정 Flow에 대해 동일한 속성이 됩니다.
-- **수동 옵션:** **Save Flow responses as a custom attribute** 체크박스를 반드시 선택할 필요는 없습니다. [Flow 응답의 특정 필드를 특정 커스텀 속성에 저장](#saving-specific-fields-from-flow-responses-to-a-specific-custom-attribute)하여 커스텀 속성을 수동으로 생성할 수 있으며, 이를 통해 사용자 단계의 중복을 방지할 수 있습니다.
+- **수동 옵션:** **Flow 응답을 커스텀 속성으로 저장** 체크박스를 반드시 선택할 필요는 없습니다. [Flow 응답의 특정 필드를 특정 커스텀 속성에 저장](#saving-specific-fields-from-flow-responses-to-a-specific-custom-attribute)하여 커스텀 속성을 수동으로 생성할 수 있으며, 이를 통해 사용자 단계의 중복을 방지할 수 있습니다.
 
 ## Flow 응답의 특정 필드를 특정 커스텀 속성에 저장하기 {#saving-specific-fields-from-flow-responses-to-a-specific-custom-attribute}
 
@@ -151,12 +151,12 @@ Flow가 완료되면 Braze는 Flow ID를 기반으로 이름이 지정된 Flow �
 사용자의 Flow 응답의 특정 부분을 저장하려면 [전체 Flow 응답 저장하기](#full-flow)의 모든 단계를 완료합니다. **Canvas 시작을 포함합니다.** 참조할 중첩 고객 속성을 생성하려면 Canvas를 시작해야 합니다. Canvas를 시작하고 Flow를 완료한 후 다음 단계를 수행합니다:
 
 1. UI 편집기를 사용하는 후속 사용자 업데이트 단계를 생성합니다.
-2. **Add Personalization**을 선택한 다음 **Nested Custom Attribute**와 Flow가 저장된 해당 최상위 속성을 선택합니다.
+2. **개인화 추가**를 선택한 다음 **중첩 고객 속성**과 Flow가 저장된 해당 최상위 속성을 선택합니다.
 
 ![중첩 고객 속성 개인화가 있는 사용자 업데이트 단계.]({% image_buster /assets/img/whatsapp/flows/nested_custom_attributes.png %})
 
 {: start="3" }
-3. 저장하려는 키 속성을 선택하고 Liquid를 **Key Value** 필드에 삽입합니다.
+3. 저장하려는 키 속성을 선택하고 Liquid를 **키 값** 필드에 삽입합니다.
 
 ![선택할 수 있는 속성이 있는 "flow_1" 창.]({% image_buster /assets/img/whatsapp/flows/attribute_key.png %})
 
@@ -175,7 +175,7 @@ UI 편집기에서 다음을 선택합니다:
 - **Action:** Update
 - **Key Value:** {% raw %} `{% assign parsed_json = {{whats_app.${inbound_flow_response}}} | json_parse %}{{ parsed_json.FIELDS_THAT_APPLY }}`{% endraw %}
 
-![커스텀 속성 `inbound_flow_response`로 WhatsApp 등록정보 개인화를 삽입하는 **Add Personalization** 구성요소가 있는 WhatsApp 메시지 작성기.]({% image_buster /assets/img/whatsapp/flows/parsed_json.png %})
+![커스텀 속성 `inbound_flow_response`로 WhatsApp 등록정보 개인화를 삽입하는 **개인화 추가** 구성요소가 있는 WhatsApp 메시지 작성기.]({% image_buster /assets/img/whatsapp/flows/parsed_json.png %})
 
 준비가 되면 테스트 메시지를 보내 Flow를 테스트합니다. 그런 다음 Canvas를 시작합니다!
 
@@ -190,9 +190,9 @@ UI 편집기에서 다음을 선택합니다:
 
 [지원되는 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)와 함께 Liquid를 통해 Flow 응답을 사용하려면 다음 단계를 완료합니다:
 
-1. WhatsApp 메시지를 작성할 때 더하기 아이콘을 선택하여 **Add Personalization** 창을 엽니다.
+1. WhatsApp 메시지를 작성할 때 <i class="fas fa-plus-circle" aria-label="개인화 추가"></i> **개인화 추가**를 선택하여 **개인화 추가** 창을 엽니다.
 2. 개인화 유형으로 **WhatsApp Properties**를 선택하고 커스텀 속성으로 **inbound_flow_response**를 선택합니다. 이를 사용하여 고객 프로필에 정보를 저장하거나, 메시지에 포함하거나, 웹훅과 같은 다른 서비스로 전달할 수 있습니다.
 
-![커스텀 속성 inbound_flow_response로 WhatsApp 등록정보 개인화를 삽입하는 **Add Personalization** 구성요소가 있는 WhatsApp 메시지 작성기.]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
+![커스텀 속성 inbound_flow_response로 WhatsApp 등록정보 개인화를 삽입하는 **개인화 추가** 구성요소가 있는 WhatsApp 메시지 작성기.]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
 
 질문이 있거나 추가 지원이 필요한 경우 [고객지원]({{site.baseurl}}/braze_support/)에 문의하세요.

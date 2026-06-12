@@ -124,7 +124,7 @@ Ensuite, prenez votre extrait de code Liquid généré et insérez-le dans votre
 
 ### Utilisation du rédacteur IA {#using-the-ai-copywriter}
 
-Lorsqu'un bloc de texte est sélectionné dans votre message in-app, cliquez sur <i class="fa-solid fa-wand-magic-sparkles" title="Rédacteur IA"></i> dans la barre d'outils du bloc pour lancer l'[assistant de rédaction alimenté par l'IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). L'assistant de rédaction IA transmet un bref nom ou une description de produit à l'outil de génération de texte GPT3 d'OpenAI pour générer un texte marketing semblable à celui d'un humain pour vos messages.
+Lorsqu'un bloc de texte est sélectionné dans votre message in-app, sélectionnez <i class="fa-solid fa-wand-magic-sparkles" title="Rédacteur IA"></i> **Rédacteur IA** dans la barre d'outils du bloc pour lancer l'[assistant de rédaction alimenté par l'IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). L'assistant de rédaction IA transmet un bref nom ou une description de produit à l'outil de génération de texte GPT3 d'OpenAI pour générer un texte marketing semblable à celui d'un humain pour vos messages.
 
 {% alert tip %}
 Vous pouvez gagner quelques clics en surlignant le texte à l'intérieur du bloc avant de cliquer sur l'icône. Le texte surligné sera ajouté à l'outil, et le texte sera généré immédiatement.
@@ -138,7 +138,7 @@ Les propriétés que vous avez modifiées par rapport à leur style par défaut 
 
 ![Point orange qui réinitialise la taille du texte à sa taille par défaut.]({% image_buster /assets/img_archive/dnd_iam_reset_styles.gif %}){: style="max-width:45%"}
 
-Vous pouvez également réinitialiser tous les styles d'un élément sélectionné en cliquant sur <i class="fas fa-paintbrush" title="Bouton copier ou coller les styles"></i> à côté du nom du panneau de propriétés et en sélectionnant **Reset to default styles**.
+Vous pouvez également réinitialiser tous les styles d'un élément sélectionné en cliquant sur <i class="fas fa-paintbrush" title="Copier ou coller les styles"></i> à côté du nom du panneau de propriétés et en sélectionnant **Reset to default styles**.
 
 ### Copier et coller des styles {#copying-and-pasting-styles}
 
@@ -146,9 +146,9 @@ Après avoir modifié le style d'un élément, vous pouvez copier et coller ces 
 
 ![Menu déroulant avec l'option de copier les styles.]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. Avec l'élément sélectionné, cliquez sur <i class="fas fa-paintbrush" title="Copier ou coller les styles"></i> à côté du nom du panneau de propriétés (par exemple, si vous avez un bouton sélectionné, à côté de « Button properties »).
+1. Avec l'élément sélectionné, cliquez sur <i class="fas fa-paintbrush" title="Copier ou coller les styles"></i> **Copy or paste styles** à côté du nom du panneau de propriétés (par exemple, si vous avez un bouton sélectionné, à côté de « Button properties »).
 2. Cliquez sur **Copy styles** et sélectionnez l'élément sur lequel vous souhaitez appliquer le style copié.
-3. Cliquez à nouveau sur <i class="fas fa-paintbrush" title="Copier ou coller les styles"></i> et choisissez **Paste styles**.
+3. Cliquez à nouveau sur <i class="fas fa-paintbrush" title="Copier ou coller les styles"></i> **Copy or paste styles** et choisissez **Paste styles**.
 
 #### Raccourcis clavier {#keyboard-shortcuts}
 

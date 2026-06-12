@@ -81,7 +81,7 @@ Bei Verwendung von Rate-Limiting mit einem A/B-Test wird das Rate-Limit nicht au
 
 Wenn Sie erwarten, dass große Campaigns einen Anstieg der Nutzeraktivität verursachen und Ihre Server überlasten, können Sie ein Rate-Limit pro Minute für den Nachrichtenversand festlegen, was bedeutet, dass Braze innerhalb einer Minute nicht mehr als Ihre Rate-Limit-Einstellung sendet.
 
-Beim Targeting von Nutzer:innen während der Campaign-Erstellung können Sie zu **Target Audiences** (für Campaigns) oder **Send Settings** (für Canvas) navigieren, um ein Rate-Limit auszuwählen (in verschiedenen Abstufungen von nur 10 bis zu 500.000 Nachrichten pro Minute).
+Beim Targeting von Nutzer:innen während der Campaign-Erstellung können Sie zu **Target Audiences** (für Campaigns) oder **Sendeeinstellungen** (für Canvas) navigieren, um ein Rate-Limit auszuwählen (in verschiedenen Abstufungen von nur 10 bis zu 500.000 Nachrichten pro Minute).
 
 Beachten Sie, dass Campaigns ohne Rate-Limit diese Zustellungslimits überschreiten können. Seien Sie sich jedoch bewusst, dass Nachrichten abgebrochen werden, wenn sie aufgrund eines niedrigen Rate-Limits 72 Stunden oder länger verzögert werden. Wenn das Rate-Limit zu niedrig ist, erhält die erstellende Person der Campaign Warnungen im Dashboard und per E-Mail.
 
@@ -311,7 +311,7 @@ Betrachten Sie die folgenden Campaigns und die Frequency-Capping-nach-Tag-Regel:
 |---|---|
 | Der Tag `promotional` wird von **Campaign A** entfernt, nachdem Ihre Nutzer:innen die Nachricht erhalten haben, aber bevor **Campaign B gesendet wurde.** | Ihre Nutzer:innen erhalten **Campaign B**. |
 | Der Tag `promotional` wird versehentlich von **Campaign A** entfernt, nachdem Ihre Nutzer:innen die Nachricht erhalten haben. <br> Der Tag wird am Dienstag wieder zu **Campaign A** hinzugefügt, bevor **Campaign B** gesendet wird. | Ihre Nutzer:innen erhalten **Campaign B** nicht. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfall" }
 
 #### Versand in großem Umfang {#sending-at-large-scales}
 
@@ -330,3 +330,35 @@ Sie könnten beispielsweise die folgende Regel einrichten:
 > Nicht mehr als drei E-Mail-Campaigns oder Canvas-Komponenten pro Woche von allen Campaigns und Canvas-Schritten.
 
 Diese Regel stellt sicher, dass keine Nutzer:innen mehr als 100 E-Mails pro Woche erhalten, da Nutzer:innen höchstens drei E-Mails pro Woche von Campaigns oder Canvas-Komponenten mit aktiviertem Frequency-Capping erhalten.
+
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Wenn ich eine Sendedrosselung in einem aktiven Canvas ändere, wirkt sich das auf Nutzer:innen aus, die sich bereits im Canvas befinden? {#if-i-change-a-send-throttle-on-an-active-canvas-does-it-affect-users-already-in-the-canvas}
+
+Ja. Wenn Sie ein Canvas-Rate-Limit erhöhen oder verringern, gilt das aktualisierte Limit für neue Nachrichten innerhalb von etwa 30 Sekunden nach der Änderung aufgrund von Caching.
+
+### Führt Frequency-Capping dazu, dass Nutzer:innen ein Canvas verlassen? {#does-frequency-capping-cause-users-to-exit-a-canvas}
+
+Nein. Wenn Nutzer:innen in einem Canvas aufgrund globaler Frequency-Capping-Einstellungen Frequency-gekappt werden, rücken sie sofort zum nächsten Canvas-Schritt vor. Die Nutzer:innen verlassen das Canvas **nicht** aufgrund des Frequency-Caps.
+
+### Wie kann ich Nutzer:innen identifizieren, die in einem Canvas Frequency-gekappt wurden? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
+
+Nutzer:innen, die Frequency-gekappt werden, erzeugen kein Sende-Ereignis für diesen Schritt. Um diese Nutzer:innen zu identifizieren, können Sie [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) verwenden, um Frequency-Capping-Ereignisse für Nachrichten zu verfolgen. Alternativ können Sie eine [Segmenterweiterung]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) erstellen, um Nutzer:innen zu analysieren, die das Canvas betreten haben, aber die erwartete Nachricht nicht erhalten haben.
+
+### Warum zeigt das Dashboard einen Rate-Limit-Fehler für meine Campaign an? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
+
+Dies bedeutet in der Regel, dass das [Zustellgeschwindigkeits-Rate-Limit](#delivery-speed-rate-limiting) der Campaign höher eingestellt ist, als Ihr Workspace, Anbieter oder Mailbox-Host verarbeiten kann, sodass sich Sendungen aufstauen und Braze eine Warnung anzeigt. Senken Sie das Zustellgeschwindigkeits-Rate-Limit der Campaign, damit der Durchsatz pro Minute innerhalb der Kapazität dieser Systeme bleibt. Sie können auch ein [Workspace-Messaging-Rate-Limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) festlegen, um eine Obergrenze über alle Campaigns hinweg durchzusetzen.
+
+**Limit the number of people who will receive this campaign** steuert, wie viele Nutzer:innen für eine Sendung berechtigt sind, nicht wie viele Nachrichten Braze pro Minute sendet. Nur ein Zustellgeschwindigkeits-Rate-Limit legt den Durchsatz pro Minute fest.
+
+### Was bedeutet „Gesendet“ für Frequency-Capping? {#what-does-sent-mean-for-frequency-capping}
+
+In Analytics und Frequency-Capping bezieht sich _Gesendet_ darauf, wann Braze die Nachricht versendet (die Sendung wird erfasst), nicht auf die garantierte endgültige Zustellung an das Gerät oder den Posteingang. Frequency-Capping und Sendezählungen verwenden diese erfassten Sende-Ereignisse, die von nachgelagerten „Zugestellt“-Metriken abweichen können.
+
+### Warum sehe ich E-Mail-Bounces oder Zurückstellungen? {#why-am-i-seeing-email-bounces-or-deferrals}
+
+E-Mail-Bounce- und Zurückstellungsnachrichten verwenden viele verschiedene Codes und anbieterspezifische Texte. Behandeln Sie einen bestimmten Code nicht als Zeichen eines Rate-Limiting-Problems, da die Ursache von Ihrem Sendekontext und dem Feedback des Mailbox-Anbieters abhängt.
+
+Wenn Nachrichten vorübergehend zurückgestellt werden, kann weniger Senden kurzfristig helfen. Verwenden Sie ein [Zustellgeschwindigkeits-Rate-Limit](#delivery-speed-rate-limiting), **Limit the number of people who will receive this campaign** oder beides.
+
+Für eine langfristige Lösung arbeiten Sie mit einem Zustellbarkeitsexperten zusammen, um Ihre Bounce- und Zurückstellungsdaten zu überprüfen.

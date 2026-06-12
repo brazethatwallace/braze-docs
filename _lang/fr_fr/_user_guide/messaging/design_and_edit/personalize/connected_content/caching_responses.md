@@ -16,13 +16,13 @@ Pour empêcher la mise en cache, vous pouvez spécifier `:no_cache`, ce qui peut
 {% details Rendu du Contenu connecté et traitement des données (avancé) %}
 Cette section fournit une vue plus détaillée, de bout en bout, de la façon dont Braze effectue le rendu Liquid et du Contenu connecté, et des endroits où les données peuvent exister temporairement avant l'envoi d'un message. Cela peut être utile pour les examens de confidentialité et de traitement des données.
 
-#### Ce qui est et n'est pas stocké {#what-is-and-isnt-stored}
+## Ce qui est et n'est pas stocké {#what-is-and-isnt-stored}
 
 - **Corps de réponse du Contenu connecté :** Non stocké de manière permanente par Braze. Il peut être conservé temporairement en mémoire et, lorsque la mise en cache est activée, stocké en cache avec une durée de vie (TTL).
 - **Métadonnées des requêtes du Contenu connecté :** Les métadonnées des requêtes, telles que l'URL entièrement rendue, le code de statut HTTP et la durée de la réponse, sont journalisées à des fins de résolution des problèmes et de surveillance. Ces journaux sont conservés pendant 30 jours maximum.
 - **Message final rendu :** Existe en mémoire pendant le rendu. Il peut également être stocké ailleurs selon votre configuration et votre canal (par exemple, l'Archivage des messages ou les Content Cards).
 
-#### Flux de rendu (vue d'ensemble) {#rendering-flow-high-level}
+## Flux de rendu (vue d'ensemble) {#rendering-flow-high-level}
 
 Le flux suivant décrit comment Braze effectue le rendu et envoie les messages pour les canaux basés sur un fournisseur, tels que l'e-mail, le SMS et les notifications push. Les canaux délivrés par le SDK, comme les Content Cards, utilisent le même rendu Liquid et Contenu connecté sous-jacent, mais diffèrent dans le moment où le contenu est généré et la façon dont il est délivré.
 
@@ -32,7 +32,7 @@ Le flux suivant décrit comment Braze effectue le rendu et envoie les messages p
 4. La réponse est injectée dans le modèle Liquid et le message est entièrement rendu.
 5. Pour les canaux basés sur un fournisseur, le message rendu est envoyé au fournisseur du canal, puis à l'utilisateur. Pour les canaux délivrés par le SDK, tels que les Content Cards, le contenu rendu est synchronisé avec le SDK Braze et peut être généré à la première impression ou au moment de l'affichage, moment auquel il est présenté à l'utilisateur.
 
-#### Où les réponses du Contenu connecté peuvent résider temporairement {#where-connected-content-responses-can-live-temporarily}
+## Où les réponses du Contenu connecté peuvent résider temporairement {#where-connected-content-responses-can-live-temporarily}
 
 Braze utilise un cache multi-niveaux pour les réponses du Contenu connecté avec des TTL compris entre cinq minutes et quatre heures, selon votre utilisation de `:cache_max_age` et d'autres règles de mise en cache :
 
@@ -42,11 +42,11 @@ Braze utilise un cache multi-niveaux pour les réponses du Contenu connecté ave
 
 Ces couches de cache sont volatiles et peuvent évincer les données avant le TTL configuré.
 
-#### Ce qui change lorsque vous utilisez `:no_cache` {#what-changes-when-you-use-no_cache}
+## Ce qui change lorsque vous utilisez `:no_cache` {#what-changes-when-you-use-no_cache}
 
 Pour les endpoints qui ne sont pas hébergés dans l'infrastructure Braze, l'utilisation de `:no_cache` empêche le corps de réponse du Contenu connecté d'être stocké dans Memcached. Dans ces cas, la réponse ne réside que dans la mémoire du processus de travail pendant la durée de la tâche de rendu (jusqu'à environ 11 minutes). Pour les endpoints qui résolvent vers des hôtes internes à Braze, les réponses peuvent toujours être mises en cache comme décrit dans [Invalidation du cache](#cache-busting).
 
-#### Où le résultat final rendu peut résider {#where-the-final-rendered-output-can-live}
+## Où le résultat final rendu peut résider {#where-the-final-rendered-output-can-live}
 
 - **Archivage des messages :** Si l'Archivage des messages est activé, Braze peut écrire le message final rendu dans votre compartiment de stockage cloud configuré. Si votre réponse du Contenu connecté est incluse dans le message rendu, elle sera incluse dans la copie archivée.
 - **Appareils des utilisateurs :** Après la délivrance, le contenu du message entièrement rendu peut persister sur les appareils des utilisateurs pendant une durée indéterminée.
@@ -63,9 +63,9 @@ La durée du cache est de cinq minutes maximum (300 secondes). Vous pouvez la mo
 ```
 {% endraw %}
 
-Les requêtes GET sont mises en cache. Vous pouvez configurer ce comportement en ajoutant le paramètre `:no_cache` à l'appel du Contenu connecté.
+Les requêtes GET sont mises en cache par défaut. Vous pouvez désactiver la mise en cache en ajoutant le paramètre `:no_cache` à l'appel du Contenu connecté.
 
-Les requêtes POST ne sont pas mises en cache par défaut, mais peuvent l'être en ajoutant le paramètre `:cache_max_age` à l'appel du Contenu connecté. La durée minimale du cache est de 5 minutes et la durée maximale est de 4 heures.
+Les requêtes POST ne sont pas mises en cache par défaut, mais vous pouvez activer la mise en cache en ajoutant le paramètre `:cache_max_age` à l'appel du Contenu connecté. La durée minimale du cache est de 5 minutes et la durée maximale est de 4 heures.
 
 {% alert note %}
 Les paramètres de cache ne sont pas garantis. La mise en cache peut réduire les appels vers vos endpoints, c'est pourquoi nous recommandons d'utiliser plusieurs appels par endpoint dans la durée du cache plutôt que de dépendre excessivement de la mise en cache.

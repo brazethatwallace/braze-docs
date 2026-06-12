@@ -11,9 +11,9 @@
 | 이름 | 권한 |
 |-----------|----------------|
 | 개발자 | "API 키 보기", "API 키 편집", "내부 그룹 보기", "내부 그룹 편집", "메시지 활동 로그 보기", "이벤트 사용자 로그 보기", "API 식별자 보기", "API 사용 대시보드 보기", "API 한도 보기", "API 사용 알림 보기", "API 사용 알림 편집", "SDK 디버거 보기", "SDK 디버거 편집". |
-| 마케터 | "Campaign 보기", "Campaign 편집", "Campaign 아카이브", "Canvas 보기", "Canvas 편집", "Canvas 아카이브", "최대 게재빈도 설정 규칙 보기", "최대 게재빈도 설정 규칙 편집", "메시지 우선순위 보기", "메시지 우선순위 편집", "Content Blocks 보기", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "글로벌 컨트롤 그룹 편집", "IAM 템플릿 보기", "IAM 템플릿 편집", "IAM 템플릿 아카이브", "이메일 템플릿 보기", "이메일 템플릿 편집", "이메일 템플릿 아카이브", "웹훅 템플릿 보기", "웹훅 템플릿 편집", "웹훅 템플릿 아카이브", "이메일 링크 템플릿 보기", "이메일 링크 템플릿 편집", "미디어 라이브러리 자산 보기", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집", "대시보드 보고서 편집", "배너 템플릿 보기", "현지화 설정 보기", "Operator 사용", "Decisioning Studio 에이전트 보기". |
+| 마케터 | "Campaigns 보기", "Campaigns 편집", "Campaigns 아카이브", "Canvases 보기", "Canvases 편집", "Canvases 아카이브", "최대 게재빈도 설정 규칙 보기", "최대 게재빈도 설정 규칙 편집", "메시지 우선순위 보기", "메시지 우선순위 편집", "Content Blocks 보기", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "글로벌 컨트롤 그룹 편집", "IAM 템플릿 보기", "IAM 템플릿 편집", "IAM 템플릿 아카이브", "이메일 템플릿 보기", "이메일 템플릿 편집", "이메일 템플릿 아카이브", "웹훅 템플릿 보기", "웹훅 템플릿 편집", "웹훅 템플릿 아카이브", "이메일 링크 템플릿 보기", "이메일 링크 템플릿 편집", "미디어 라이브러리 자산 보기", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집", "대시보드 보고서 편집", "배너 템플릿 보기", "현지화 설정 보기", "Operator 사용", "Decisioning Studio 에이전트 보기". |
 | 사용자 관리 | "대시보드 사용자 편집", "Teams 보기", "Teams 편집", "Teams 아카이브". |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a permission set" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="권한 세트 생성" }
 {% endtab %}
 {% endtabs %}
 
@@ -25,10 +25,10 @@
 {% tab 예시 역할 %}
 | 역할 이름    | 워크스페이스 | 권한
 ----------- | ----------- | ---------
-| 마케터 - 패션 브랜드 | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "Campaign 보기", "Campaign 편집", "Campaign 아카이브", "Canvas 보기", "Canvas 편집", "Canvas 아카이브", "Content Blocks 보기", "Content Blocks 편집", "Content Blocks 아카이브", "Content Blocks 실행", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집". |
-| 마케터 - 스킨케어 브랜드 | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"Campaign 보기", "Campaign 편집", "Campaign 아카이브", "Canvas 보기", "Canvas 편집", "Canvas 아카이브", "Content Blocks 보기", "Content Blocks 편집", "Content Blocks 아카이브", "Content Blocks 실행", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집".|
+| 마케터 - 패션 브랜드 | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "Campaigns 보기", "Campaigns 편집", "Campaigns 아카이브", "Canvases 보기", "Canvases 편집", "Canvases 아카이브", "Content Blocks 보기", "Content Blocks 편집", "Content Blocks 아카이브", "Content Blocks 실행", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집". |
+| 마케터 - 스킨케어 브랜드 | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"Campaigns 보기", "Campaigns 편집", "Campaigns 아카이브", "Canvases 보기", "Canvases 편집", "Canvases 아카이브", "Content Blocks 보기", "Content Blocks 편집", "Content Blocks 아카이브", "Content Blocks 실행", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집".|
 | 사용자 관리 - 모든 브랜드 | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "대시보드 사용자 편집", "Teams 보기", "Teams 편집", "Teams 아카이브"|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating a role" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="역할 생성" }
 {% endtab %}
 {% endtabs %}
 
@@ -51,7 +51,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 | 권한 | 제한된 사용자는 "대시보드 사용자 편집" 권한이 있는 경우 다른 제한된 사용자의 권한을 편집할 수 있습니다. 또한 새로운 제한된 사용자를 생성하고 권한 세트를 수정할 수 있습니다. 그러나 회사 관리자 계정을 생성하거나 관리할 수는 없습니다. |
 | 역할 제한 | 제한된 사용자가 "워크스페이스 관리자"를 제외한 모든 권한을 가지고 있더라도, 워크스페이스 관리자에게 일반적으로 부여되는 다른 모든 권한에는 여전히 접근할 수 있습니다. |
 | 권한 가시성 | 제한된 사용자가 하나의 워크스페이스(예: Dev)에 대해 "대시보드 사용자 편집" 권한을 가지고 있지만 다른 워크스페이스(예: Prod)에 대해서는 해당 권한이 없는 경우, 대시보드 사용자 세부 정보 페이지에서 Prod 워크스페이스 권한을 볼 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="제한된 사용자" }
 
 ### 제한된 사용자 비교 {#comparing-limited-users}
 
@@ -60,7 +60,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 | 워크스페이스 관리자 | 워크스페이스 관리자는 워크스페이스 관리에 특화된 권한을 가지고 있지만 회사 관리자와 동일한 권한은 없습니다. 제한된 사용자는 필요한 권한이 체크되어 있으면 워크스페이스 관리자와 유사한 권한을 상속받을 수 있습니다. |
 | 관리자(회사 관리자) | 회사 관리자는 대시보드 사용자를 삭제하는 기능을 포함하여 더 넓은 권한을 가지고 있습니다. 그러나 자신의 계정은 삭제할 수 없으며, 해당 작업을 위해 다른 회사 관리자에게 연락해야 합니다. |
 | 보기 전용 접근 | Campaigns 페이지와 같은 대시보드의 특정 부분에 접근하려면 사용자에게 보기 권한이 할당되어 있어야 합니다.
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparing limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="제한된 사용자 비교" }
 
 ### 제한된 접근 오류 {#limited-access-error}
 
@@ -106,7 +106,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 |----------|-----------|
 | 회사 설정 관리 | 사용자가 권한 설정 및 발송자 확인을 수정할 수 있도록 허용합니다. |
 | 워크스페이스 생성 및 삭제 | 사용자가 워크스페이스를 생성하고 삭제할 수 있도록 허용합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="회사" }
 
 {% endtab %}
 {% tab 워크스페이스 %}
@@ -153,22 +153,28 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 ![Braze의 "회사 사용자" 페이지에서 "Export Users" 옵션이 강조 표시되어 있습니다.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
+Braze 대시보드에서 모든 대시보드 사용자의 전체 권한 매트릭스를 일괄로 내보낼 수는 없습니다. **Export Users**가 제공하는 것보다 더 자세한 정보가 필요한 경우 다음 옵션을 고려하세요:
+
+- [자동 사용자 프로비저닝]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/)(SCIM)을 사용하여 대시보드 사용자 계정을 관리합니다. 예를 들어, [이메일로 대시보드 사용자를 조회]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user/)하거나 [사용자 계정 정보 보기]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information/)에 설명된 대로 리소스 ID로 사용자 세부 정보를 가져올 수 있습니다.
+- [Braze 고객지원에 문의]({{site.baseurl}}/braze_support/)합니다. 경우에 따라 고객지원에서 계정 목록을 제공할 수 있지만, 전체 권한 매트릭스는 제공하지 않습니다.
+- 회사의 [보안 이벤트 보고서]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report)를 필터링합니다. 이 보고서는 **계정 추가** 및 **권한 업데이트**와 같은 이벤트를 기록하므로 대시보드 외부에서 권한 변경 사항을 감사할 수 있습니다.
+
 ## 권한 목록 {#list-of-permissions}
 
 ### 메시징 {#messaging}
 
 | 제품 영역 | 권한 | 정의 |
 | --- | --- | --- |
-| Campaigns | Campaign 보기 | Campaign을 봅니다 |
-| Campaigns | Campaign 시작 | 기존 Campaign을 시작, 중지, 일시 중지 또는 재개합니다 |
-| Campaigns | Campaign 아카이브 | Campaign을 아카이브로 이동합니다 |
-| Campaigns | Campaign 편집 | Campaign을 생성하고 업데이트합니다 |
-| Campaigns | Campaign 승인 및 거부 | Campaign을 승인하거나 거부합니다. 이 권한이 적용되려면 [Campaign 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 합니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 계정 매니저에게 문의하세요. |
-| Canvas | Canvas 보기 | Canvases를 봅니다 |
-| Canvas | Canvas 아카이브 | Canvases를 아카이브로 이동합니다 |
-| Canvas | Canvas 편집 | Canvases를 생성하고 업데이트합니다 |
-| Canvas | Canvas 시작 | 기존 Canvases를 시작, 중지, 일시 중지 또는 재개합니다 |
-| Canvas | Canvas 승인 및 거부 | Canvases를 승인하거나 거부합니다. 이 권한이 적용되려면 [Canvas 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 합니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 계정 매니저에게 문의하세요. |
+| Campaigns | Campaigns 보기 | Campaigns를 봅니다 |
+| Campaigns | Campaigns 시작 | 기존 Campaigns를 시작, 중지, 일시 중지 또는 재개합니다 |
+| Campaigns | Campaigns 아카이브 | Campaigns를 아카이브로 이동합니다 |
+| Campaigns | Campaigns 편집 | Campaigns를 생성하고 업데이트합니다 |
+| Campaigns | Campaigns 승인 및 거부 | Campaigns를 승인하거나 거부합니다. 이 권한이 적용되려면 [Campaigns 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 합니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 계정 매니저에게 문의하세요. |
+| Canvas | Canvases 보기 | Canvases를 봅니다 |
+| Canvas | Canvases 아카이브 | Canvases를 아카이브로 이동합니다 |
+| Canvas | Canvases 편집 | Canvases를 생성하고 업데이트합니다 |
+| Canvas | Canvases 시작 | 기존 Canvases를 시작, 중지, 일시 중지 또는 재개합니다 |
+| Canvas | Canvases 승인 및 거부 | Canvases를 승인하거나 거부합니다. 이 권한이 적용되려면 [Canvases 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 합니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 계정 매니저에게 문의하세요. |
 | 기능 플래그 | 기능 플래그 보기 | 기능 플래그를 봅니다 |
 | 기능 플래그 | 기능 플래그 아카이브 | 기능 플래그를 아카이브로 이동합니다 |
 | 기능 플래그 | 기능 플래그 편집 | 기능 플래그를 생성하고 업데이트합니다 |
@@ -182,14 +188,14 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 메시지 우선순위 | 메시지 우선순위 보기 | 변경 없이 메시지 우선순위 설정을 봅니다 |
 | 메시지 우선순위 | 메시지 우선순위 편집 | 메시지 우선순위 설정을 생성하고 업데이트합니다 |
 | WhatsApp Flows | WhatsApp Flows 보기 | 모든 WhatsApp Flows를 봅니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messaging" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="메시징" }
 
 ### 오디언스 {#audience}
 
 | 제품 영역 | 권한 | 정의 |
 | --- | --- | --- |
 | 전역 제어 그룹 | 전역 제어 그룹 보기 | 전역 제어 그룹 설정 페이지를 봅니다 |
-| 전역 제어 그룹 | 전역 제어 그룹 편집 | 전역 제어 그룹에 대한 변경 사항을 생성하고 저장합니다. "전역 제어 그룹 편집" 권한이 있는 사용자는 "Campaign 편집" 및 "Canvas 편집" 권한도 부여받아야 합니다. "전역 제어 그룹 편집" 권한이 있는 사용자에게는 "전역 제어 그룹 보기" 권한도 자동으로 부여됩니다. |
+| 전역 제어 그룹 | 전역 제어 그룹 편집 | 전역 제어 그룹에 대한 변경 사항을 생성하고 저장합니다. "전역 제어 그룹 편집" 권한이 있는 사용자는 "Campaigns 편집" 및 "Canvases 편집" 권한도 부여받아야 합니다. "전역 제어 그룹 편집" 권한이 있는 사용자에게는 "전역 제어 그룹 보기" 권한도 자동으로 부여됩니다. |
 | 위치 | 위치 아카이브 | 위치를 아카이브로 이동합니다 |
 | 위치 | 위치 보기 | 위치를 봅니다 |
 | 위치 | 위치 편집 | 위치를 생성하고 편집합니다 |
@@ -204,7 +210,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 사용자 | 고객 프로필 보기(PII 수정됨) | PII 준수 방식으로 고객 프로필을 봅니다 |
 | 중복 사용자 | 중복 사용자 병합 | 중복 사용자를 하나의 사용자로 결합합니다. 병합 후 중복 항목이 제거됩니다 |
 | 사용자 | 사용자 삭제 | 대시보드에서 사용자를 개별 또는 일괄로 영구 삭제합니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="오디언스" }
 
 ### 템플릿 {#template}
 
@@ -237,7 +243,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | WhatsApp 메시지 템플릿 | WhatsApp 메시지 템플릿 보기 | 사용자가 [WhatsApp 메시지 템플릿]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message)을 볼 수 있도록 허용합니다 |
 | WhatsApp 메시지 템플릿 | WhatsApp 메시지 템플릿 편집 | 사용자가 템플릿 빌더에서 WhatsApp 메시지 템플릿을 생성할 수 있도록 허용합니다. 이 기능은 현재 얼리 액세스 중입니다. |
 | Meta의 WhatsApp 메시지 템플릿 | Meta의 WhatsApp 메시지 템플릿 보기 | 모든 WhatsApp 템플릿을 봅니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Template" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="템플릿" }
 
 ### 파트너 통합 {#partner-integrations}
 
@@ -246,7 +252,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | Currents 통합 | Currents 통합 보기 | Currents 통합을 봅니다 |
 | Currents 통합 | Currents 통합 편집 | Currents 통합을 생성, 업데이트 및 삭제합니다 |
 | 기술 파트너 | 기술 파트너 편집 | 기술 파트너를 생성하고 업데이트합니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Partner integrations" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="파트너 통합" }
 
 ### 데이터 설정 {#data-settings}
 
@@ -273,7 +279,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 제품 | 제품 차단 목록 | 대시보드에서 사용을 제한하는 차단 목록에 제품을 추가합니다 |
 | 제품 | 제품 편집 | 제품을 생성하고 업데이트합니다 |
 | 구매 등록정보 세분화 | 구매 등록정보 세분화 편집 | 구매 이벤트 등록정보에 대한 세분화를 활성화하거나 비활성화합니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data settings" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="데이터 설정" }
 
 ### 설정 {#settings}
 
@@ -314,7 +320,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | Teams | Teams 아카이브 | Teams를 아카이브로 이동합니다 |
 | Teams | Teams 편집 | Teams를 생성하고 업데이트합니다 |
 | WhatsApp 설정 | WhatsApp 설정 보기 | 모든 WhatsApp 채널 설정을 봅니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Settings" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="설정" }
 
 ### Decisioning Studio
 
@@ -356,4 +362,4 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 데이터 변환 | 데이터 변환 보기 | 데이터 변환을 봅니다 |
 | 사용자 삭제 기록 | 사용자 삭제 기록 보기 | 사용자 삭제 기록을 봅니다 |
 | 고객지원 티켓 | 고객지원 티켓 생성 | 고객지원 티켓을 생성하고 업데이트합니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Other" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="기타" }

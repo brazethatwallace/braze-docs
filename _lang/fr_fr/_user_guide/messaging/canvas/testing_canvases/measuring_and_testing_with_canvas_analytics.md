@@ -22,7 +22,11 @@ Le haut de la page **Canvas Details** contient les statistiques principales du C
 
 C'est l'endroit idéal pour obtenir un aperçu général et vérifier si votre Canvas atteint ses objectifs.
 
-![]({% image_buster /assets/img_archive/Journey_5.png %})
+### Utilisateurs pouvant être atteints et statistiques exactes {#reachable-users-and-exact-statistics}
+
+Lorsque l'option **[Calculer les statistiques exactes]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)** est en cours d'exécution pour les audiences liées à votre Canvas, Braze peut brièvement afficher une estimation arrondie dans la zone **Utilisateurs pouvant être atteints**. Le total exact remplace l'estimation une fois le calcul terminé. Sélectionnez **Show Additional Stats** pour obtenir une répartition complète par canal. Le générateur de Canvas documente le même flux sous **Target Population** ; consultez [Calcul de la population cible]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population).
+
+![La page Canvas Details affichant les statistiques principales, notamment les messages envoyés, le taux de conversion, le nombre total d'entrées, le chiffre d'affaires total, le nombre total de sorties et l'audience estimée, avec des filtres par canal et par statistiques.]({% image_buster /assets/img_archive/Journey_5.png %})
 
 ### Changes Since Last Viewed {#changes-since-last-viewed}
 
@@ -54,7 +58,7 @@ Dans l'onglet **Analyze Variants**, vous pouvez voir une répartition des perfor
 
 Vous pouvez rapidement identifier les variantes les plus efficaces et déterminer les bonnes cadences, contenus, déclencheurs, timings, et bien plus encore.
 
-![]({% image_buster /assets/img_archive/analyze_variants.png %})
+![La fenêtre modale Analyze Canvas avec l'onglet Analyze Variants sélectionné, affichant un tableau comparatif pour Path 1 et Path 2 avec les entrées, les envois, le chiffre d'affaires, les taux de conversion, le pourcentage de variation et les indicateurs de confiance.]({% image_buster /assets/img_archive/analyze_variants.png %})
 
 Les indicateurs de base incluent les éléments suivants :
 

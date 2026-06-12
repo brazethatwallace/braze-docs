@@ -36,11 +36,12 @@ As definições das colunas são as seguintes:
 ## Tabela de proporção de créditos para Message Credits - Lambda {#credit-ratio-table-for-message-credits-lambda}
 
 {% details Clique para expandir %}
-<table>
+<table class="credits-table" aria-label="Tabela de proporção de créditos para Message Credits - Lambda">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Canal</b></th>
         <th><b>Destino</b></th>
@@ -51,6 +52,8 @@ As definições das colunas são as seguintes:
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
+    </thead>
+    <tbody>
 <tr>
         <td>Console do agente</td>
         <td>BYO LLM API Key</td>
@@ -2041,6 +2044,7 @@ As definições das colunas são as seguintes:
         <td>United States - Rich Media</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -2048,6 +2052,7 @@ As definições das colunas são as seguintes:
 ------
 
 ## Detalhes do Console do agente {#agent-console-details}
+
 A Braze cobrará Message Credits pelas invocações do Console do agente enviadas pela plataforma Braze. Uma invocação é registrada quando um agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil invocações por cada período do seu prazo de inscrição.
 
 ## Detalhes do canal SMS/MMS {#smsmms-channel-details}
@@ -2090,33 +2095,33 @@ A Braze cobrará Message Credits por quaisquer mensagens LINE enviadas pela plat
 
 ## Detalhamento por região de cobrança {#billing-region-breakdown}
 
-#### América do Norte {#north-america}
+### América do Norte {#north-america}
 
 Estados Unidos, Canadá
 
-#### Restante da África {#rest-of-africa}
+### Restante da África {#rest-of-africa}
 
 Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia,
 Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
 
-#### Restante da Ásia-Pacífico {#rest-of-asia-pacific}
+### Restante da Ásia-Pacífico {#rest-of-asia-pacific}
 
 Afeganistão, Austrália, Bangladesh, Camboja, China, Hong Kong, Japão, Laos, Mongólia, Nepal, Nova Zelândia, Papua-Nova Guiné, Filipinas, Singapura, Sri Lanka, Taiwan, Tajiquistão, Tailândia,
 Turcomenistão, Uzbequistão, Vietnã
 
-#### Restante da Europa Central e Oriental {#rest-of-central-eastern-europe}
+### Restante da Europa Central e Oriental {#rest-of-central-eastern-europe}
 
 Albânia, Armênia, Azerbaijão, Belarus, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Hungria, Letônia, Lituânia, Macedônia, Moldávia, Polônia, Romênia, Sérvia, Eslováquia, Eslovênia, Ucrânia
 
-#### Restante da América Latina {#rest-of-latin-america}
+### Restante da América Latina {#rest-of-latin-america}
 
 Bolívia, Costa Rica, República Dominicana, Equador, El Salvador,
 Guatemala, Haiti, Honduras, Jamaica, Nicarágua, Panamá, Paraguai, Porto Rico, Uruguai, Venezuela
 
-#### Restante do Oriente Médio {#rest-of-middle-east}
+### Restante do Oriente Médio {#rest-of-middle-east}
 
 Bahrein, Iraque, Jordânia, Kuwait, Líbano, Omã, Catar, Iêmen
 
-#### Restante da Europa Ocidental {#rest-of-western-europe}
+### Restante da Europa Ocidental {#rest-of-western-europe}
 
 Áustria, Bélgica, Dinamarca, Finlândia, Irlanda, Noruega, Portugal, Suécia, Suíça

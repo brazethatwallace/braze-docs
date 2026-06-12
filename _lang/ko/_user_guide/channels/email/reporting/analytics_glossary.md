@@ -10,6 +10,8 @@ channel:
   - email
 ---
 
+> 이 용어집은 이메일 Campaign 및 Canvases의 **Analytics** 탭에 있는 측정기준을 정의합니다. Braze는 호스팅된 "브라우저에서 이 이메일 보기" 페이지를 제공하지 않습니다. 해결 방법은 [이메일에 "브라우저에서 이 이메일 보기" 링크를 추가할 수 있나요?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails)를 참조하세요. 여러 측정기준에 걸친 기타 문제 해결은 [이메일 FAQ]({{site.baseurl}}/user_guide/channels/email/faq/)를 참조하세요.
+
 <style>
   .calculation-line {
     color: #76848C;
@@ -247,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>(단일 발송 시도) 단위로 측정됩니다. 여기에는 Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 7일 후 동일한 사용자가 다시 클릭하면 새로운 고유 클릭으로 집계될 수 있습니다. *고유 클릭*을 포함한 대시보드 이메일 참여 측정기준은 Braze에서 계산되며 ESP 집계 보고서와 조정되지 않습니다. Currents에서 대시보드 수치와 일치시키려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>(단일 발송 시도) 단위로 측정됩니다. 여기에는 Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 추적되는 사용자 지정 구독취소 URL도 사용자가 링크를 선택하면 *고유 클릭*에 집계됩니다. 7일 후 동일한 사용자가 다시 클릭하면 새로운 고유 클릭으로 집계됩니다. *고유 클릭*을 포함한 대시보드 이메일 참여 측정기준은 Braze에서 계산되며 ESP 집계 보고서와 조정되지 않습니다. Currents에서 대시보드 수치와 일치시키려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -259,6 +261,24 @@ Count, Percentage
 </span>
 {:/}
 
+#### 이메일 히트맵에서 예상치 못한 링크 {#unexpected-links-on-the-email-heatmap}
+
+[이메일 히트맵]({{site.baseurl}}/user_guide/channels/email/reporting/)에 예상치 못한 링크가 표시되면, 메시지 HTML에서 추적 URL을 생성하는 [콘텐츠 블록]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) 또는 단어 사이의 간격을 확인하세요. 히트맵 보기에서 **Link Table by Total Clicks**를 사용하여 표시된 텍스트와 일치하지 않는 URL을 식별하세요.
+
+{% endapi %}
+
+{% api %}
+
+### 총 클릭 수 {#total-clicks}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+<i>총 클릭 수</i>는 사용자가 전달된 이메일의 링크를 클릭한 총 횟수이며, 동일한 사용자의 여러 번 클릭도 포함됩니다. 여기에는 Braze 탈퇴 링크 및 추적되는 사용자 지정 구독취소 URL 클릭도 포함됩니다.
+
+*총 클릭 수*가 *고유 클릭*보다 훨씬 높은 경우, 보안 도구 또는 사서함 공급자가 사용자가 메시지를 열지 않은 상태에서 링크를 스캔하고 있을 수 있습니다. 내부적으로 참여를 평가할 때는 *고유 클릭*을 비교하세요.
+
 {% endapi %}
 
 {% api %}
@@ -269,7 +289,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-*구독취소*는 Braze의 표준 구독취소 링크를 반영합니다. 사용자 지정 구독취소 페이지는 API를 사용하여 사용자를 업데이트하지 않는 한 이 측정기준에 반영되지 않습니다. **구독 그룹 시계열**은 여전히 API 기반 변경 사항을 반영합니다.
+_구독취소_는 Braze의 표준 구독취소 링크를 반영합니다. 사용자 지정 구독취소 페이지는 API를 사용하여 사용자를 업데이트하지 않는 한 이 측정기준에 반영되지 않습니다. **구독 그룹 시계열**은 여전히 API 기반 변경 사항을 반영합니다.
 
 {% multi_lang_include analytics/metrics.md metric='Unsubscribers or Unsub' %}
 
@@ -368,6 +388,18 @@ Count
 
 {% api %}
 
+### 추정 실제 열람 {#estimated-real-opens}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Estimated Real Opens' %} Braze는 새로운 열람 및 클릭 데이터가 도착하면 이 추정치를 재계산합니다. 이 값은 일반적으로 발송 후 며칠 내에 안정화되지만, 새로운 적격 이벤트가 발생하면 계속 업데이트됩니다.
+
+{% endapi %}
+
+{% api %}
+
 ### 클릭 대비 열람률 {#click-to-open-rate}
 
 {% apitags %}
@@ -378,17 +410,25 @@ Percentage
 
 <span class="calculation-line">계산: (고유 클릭) / (고유 열람) (이메일의 경우)</span>
 
+#### 메시지 열람 가능성 점수 (세분화) {#message-open-likelihood-scores-segmentation}
+
+[`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood) Segment 필터는 사용자가 이메일을 열 가능성을 0~100 척도로 점수화합니다. 해당 채널에 대한 충분한 발송 또는 열람 이력이 없는 사용자는 빈 값으로 표시됩니다. 이메일의 경우 머신 열람은 계산에서 제외되며, 해당 채널의 최근 메시지 이력을 사용합니다([개별 채널에 대한 메시지 열람 가능성 필터]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#individual-channels) 참조).
+
 {% endapi %}
 
 ## 이메일 보고 문제 해결 및 FAQ {#email-reporting-troubleshooting-and-faqs}
 
 ### 구독취소 링크와 고유 클릭 {#unsubscribe-links-and-unique-clicks}
 
-수신자가 구독취소 링크를 클릭하면, Braze는 해당 동작이 URL을 사용하기 때문에 클릭으로 집계합니다. 이는 Braze에서 제공하는 구독취소 링크와 메시지 본문의 사용자 지정 구독취소 링크 모두에 적용됩니다. 이러한 클릭은 다른 링크 클릭과 함께 *고유 클릭* 및 *총 클릭*에 기여합니다. 측정기준 정의는 위의 [고유 클릭](#unique-clicks) 및 [구독취소 수와 구독취소 링크 클릭 수가 다른 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)를 참조하세요.
+수신자가 구독취소 링크를 클릭하면, Braze는 해당 동작이 URL을 사용하기 때문에 클릭으로 집계합니다. 이는 Braze에서 제공하는 구독취소 링크와 메시지 본문의 사용자 지정 구독취소 링크 모두에 적용됩니다. 이러한 클릭은 다른 링크 클릭과 함께 *고유 클릭* 및 *총 클릭 수*에 기여합니다. 측정기준 정의는 위의 [고유 클릭](#unique-clicks) 및 [구독취소 수와 구독취소 링크 클릭 수가 다른 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)를 참조하세요.
 
 ### 브라우저에서 보기 {#view-in-browser}
 
 Braze에는 "브라우저에서 이 이메일 보기" 기능이 내장되어 있지 않습니다. 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅하고 이메일 편집기의 **Link** 도구를 사용하여 메시지에서 링크를 추가하세요. 자세한 내용은 [이메일에 "브라우저에서 이 이메일 보기" 링크를 추가할 수 있나요?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails)를 참조하세요.
+
+### 사용자 지정 구독취소 페이지 업데이트 {#custom-unsubscribe-page-updates}
+
+[사용자 지정 구독취소 페이지]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/)에 대한 변경 사항은 몇 분 이내에 반영됩니다. 실시간 발송은 변경 사항을 저장할 때 새로고침되는 짧은 수명의 페이지 캐시를 사용합니다.
 
 ### 용량 초과 및 사서함 가득 참 반송 {#over-quota-and-full-mailbox-bounces}
 

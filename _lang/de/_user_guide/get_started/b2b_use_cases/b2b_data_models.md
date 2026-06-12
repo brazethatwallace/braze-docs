@@ -16,7 +16,7 @@ Diese Empfehlungen können sich im Laufe der Zeit ändern, wenn Braze seine B2B-
 
 Bevor wir uns damit befassen, wie Sie Ihr B2B-Datenmodell einrichten können, sollten Sie einige Konzepte und Begriffe kennen.
 
-Es gibt vier primäre B2B-Objekte, die Sie für die Durchführung von B2B-Campaigns benötigen.
+Es gibt vier primäre B2B-Objekte, die Sie für die Durchführung von B2B-Kampagnen benötigen.
 
 | Objekt | Beschreibung |
 | --- | --- |
@@ -24,7 +24,7 @@ Es gibt vier primäre B2B-Objekte, die Sie für die Durchführung von B2B-Campai
 | Kontakte | In der Regel Personen, die qualifiziert und von einem Lead in einen Kontakt umgewandelt wurden, um eine Opportunity zu verfolgen. |
 | Opportunities | Ein Datensatz, der die Details eines potenziellen Verkaufs oder eines laufenden Geschäfts verfolgt.
 | Konten | Ein Datensatz über eine Organisation, die eine qualifizierte Interessent:in, eine bestehende Kund:in, ein Partner oder ein Wettbewerber mit einer Beziehung von ähnlicher Bedeutung ist. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Create a B2B data model" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ein B2B-Datenmodell erstellen" }
 
 In Braze werden diese vier Objekte kombiniert und auf zwei Objekte reduziert: Nutzerprofile und Geschäftsobjekte.
 
@@ -32,7 +32,7 @@ In Braze werden diese vier Objekte kombiniert und auf zwei Objekte reduziert: Nu
 | --- | --- | --- |
 | Nutzerprofile | Diese werden direkt den Leads und Kontakten in Ihrem Vertriebs-CRM-System zugeordnet. Da Leads von Braze erfasst werden, werden sie automatisch als Leads in Ihrem Vertriebs-CRM-System angelegt. Wenn sie in Kontakte umgewandelt werden, werden die Kontakt-IDs und -details zurück zu Braze synchronisiert. | Leads<br> Kontakte |
 | Geschäftsobjekte | Diese lassen sich auf alle Nicht-Nutzer-Objekte in Ihrem Vertriebs-CRM-System abbilden. Dazu gehören Ihre vertriebsspezifischen Objekte, wie z. B. Kontoobjekte und Opportunity-Objekte. | Konten<br> Opportunities |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ein B2B-Datenmodell erstellen" }
 
 ## 1. Schritt: Erstellen Sie Ihre Geschäftsobjekte in Braze {#step-1-create-your-business-objects-in-braze}
 
@@ -44,7 +44,7 @@ Es gibt zwei Methoden zur Erstellung und Verwaltung Ihrer Geschäftsobjekte in B
 | --- | --- |
 | [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/) | Dies sind unabhängige Datenobjekte (ergänzende Datenobjekte) zum primären Nutzerprofil in Braze. In einem B2B-Kontext würden Sie wahrscheinlich Kataloge für Ihre Konten und Opportunities haben. |
 | [Verbundene Quellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) | Diese ermöglichen es Braze, Ihr Data Warehouse direkt abzufragen. Wahrscheinlich synchronisieren Sie Ihre Lead-, Kontakt-, Opportunity- und Konto-Objekte bereits regelmäßig mit Ihrem Data Warehouse, sodass Sie die Braze-Segmentierung direkt auf dieses Warehouse verweisen und es in einer Zero-Copy-Umgebung aktivieren können. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your business objects in Braze" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="1. Schritt: Erstellen Sie Ihre Geschäftsobjekte in Braze" }
 
 {% tabs %}
 {% tab Catalogs %}
@@ -64,14 +64,17 @@ In den nachstehenden Tabellen finden Sie einige Beispiele für Felder, die Sie a
 
 In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jedes Feld übertragen, das in den Objekten Ihres CRM enthalten ist.
 
-<table aria-label="Übertragen Sie Ihre CRM-Felder" border="1">
-  <caption>Übertragen Sie Ihre CRM-Felder</caption>
+<table aria-label="CRM-Felder übertragen" border="1">
+  <caption>CRM-Felder übertragen</caption>
+  <thead>
   <tr>
     <th><b>Braze-Objekt</b></th>
     <th><b>Braze-Feld</b></th>
     <th><b>CRM-Objekt (Salesforce)</b></th>
     <th><b>CRM-Feld (Salesforce)</b></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="4">Katalog &gt; Kontokatalog</td>
     <td><code>id</code></td>
@@ -93,6 +96,7 @@ In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jed
     <td><code>account</code></td>
     <td><code>OTHER_FIELDS</code></td>
   </tr>
+  </tbody>
 </table>
 
 ##### Beispieltabelle der zugeordneten Kontofelder {#example-table-of-mapped-account-fields}
@@ -106,12 +110,15 @@ In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jed
 
 <table aria-label="Beispieltabelle der zugeordneten Kontofelder" border="1">
   <caption>Beispieltabelle der zugeordneten Kontofelder</caption>
+  <thead>
   <tr>
     <th><b>Braze-Objekt</b></th>
     <th><b>Braze-Feld</b></th>
     <th><b>CRM-Objekt (Salesforce)</b></th>
     <th><b>CRM-Feld (Salesforce)</b></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="4">Katalog &gt; Opportunity-Katalog</td>
     <td><code>id</code></td>
@@ -133,6 +140,7 @@ In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jed
     <td><code>OTHER_FIELDS</code></td>
   </tr>
   </tr>
+  </tbody>
 </table>
 
 ##### Beispieltabelle der zugeordneten Opportunity-Felder {#example-table-of-mapped-opportunity-fields}
@@ -169,7 +177,7 @@ Stellen Sie zunächst sicher, dass Braze und das CRM Ihrer Wahl über einen geme
 | `Aliases.salesforce_contact_id` | Kontakt | `id` | - Alias-Label: `salesforce_contact_id` <br>- Alias-Name: `contact_id` |
 | `AccountId` | Kontakt | `AccountId` |
 | `OpportunityId` (optional, skalar) <br>oder<br> `Opportunities` (optional, Array) | Opportunity | `id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze object: User" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze-Objekt: Nutzer:in" }
 
 {% alert note %}
 Wir empfehlen die Verwendung von [Aliasen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases) anstelle von `external_id`, um Salesforce-Lead- und Kontakt-Bezeichner auf Braze abzubilden. Dies reduziert die Anzahl der erforderlichen Suchvorgänge beim Identifizieren und Umsetzen Ihrer produktgesteuerten Wachstumsinitiativen.

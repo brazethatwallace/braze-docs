@@ -1,7 +1,6 @@
 ---
 nav_title: SMS、MMS、RCSトラフィックポンピング詐欺の防止
 description: "SMS、MMS、RCSトラフィックポンピング詐欺の仕組み、Brazeが特定の送信先を高詐欺リスクとしてマークする理由、および地理的許可リストやその他のコントロールを使用してリスクを軽減する方法について説明します。"
-alias: /sms_traffic_pumping_fraud/
 page_type: reference
 page_order: 5
 channel:

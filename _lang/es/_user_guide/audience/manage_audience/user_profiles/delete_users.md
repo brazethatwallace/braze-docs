@@ -23,7 +23,7 @@ Para eliminar usuarios, debes ser administrador o tener el permiso **Delete User
 |---------|-------------|
 | Delete Users | Eliminar usuarios de forma permanente de manera individual o masiva. |
 | View User Deletion Records | Ver los registros de eliminación de usuarios. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Acerca de la eliminación de usuarios {#about-user-deletion}
 
@@ -34,7 +34,7 @@ La eliminación de usuarios te permite gestionar tu base de datos eliminando per
 | Tamaño máximo | Puedes eliminar hasta 100 millones de perfiles de usuario al eliminar un segmento. |
 | Período de espera | Todas las eliminaciones de segmentos requieren un período de espera de 7 días más el tiempo necesario para procesar las eliminaciones. |
 | Límites de trabajos | Solo se puede eliminar un segmento a la vez, lo que incluye el período de espera de 7 días. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About user deletion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de la eliminación de usuarios" }
 
 ## Eliminar usuarios {#deleting-users}
 
@@ -90,7 +90,7 @@ Tienes 7 días para cancelar las eliminaciones de segmentos pendientes. Para can
 
 ![La pestaña "Delete Users" en la sección "Manage Audience" del panel de Braze.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-Junto a una eliminación de segmento pendiente, selecciona <i class="fa-solid fa-eye"></i> para abrir los detalles del registro de eliminación.
+Junto a una eliminación de segmento pendiente, selecciona <i class="fa-solid fa-eye"></i> **View details** para abrir los detalles del registro de eliminación.
 
 ![Una eliminación de segmento pendiente en la pestaña "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -132,9 +132,9 @@ En esta página, puedes encontrar la siguiente información general para todas l
 | Solicitante | El usuario que inició la solicitud de eliminación. |
 | Nombre del segmento | El nombre del segmento utilizado para seleccionar los usuarios pendientes de eliminación. |
 | Estado | Muestra si la solicitud de eliminación está pendiente, en curso o completada. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gestionar audiencia" }
 
-Para obtener más detalles sobre una solicitud específica, selecciona <i class="fa-solid fa-eye"></i> para mostrar los detalles del registro de eliminación. Aquí también puedes [cancelar eliminaciones de segmentos pendientes](#cancel).
+Para obtener más detalles sobre una solicitud específica, selecciona <i class="fa-solid fa-eye"></i> **View details** para mostrar los detalles del registro de eliminación. Aquí también puedes [cancelar eliminaciones de segmentos pendientes](#cancel).
 
 ![Una eliminación de segmento pendiente en la pestaña "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
