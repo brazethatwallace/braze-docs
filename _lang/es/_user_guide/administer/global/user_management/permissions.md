@@ -224,10 +224,11 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Datos de usuario | Import Users | Cargar usuarios al dashboard |
 | Datos de usuario | Edit User Data | Crear y actualizar datos de usuario |
 | Datos de usuario | Export User Data | Descargar usuarios del dashboard |
-| Registros de eliminación de usuarios | View User Merge Records | Ver una lista de registros de fusión de usuarios |
+| Usuarios duplicados | View User Merge Records | Ver una lista de registros de fusión de usuarios |
 | Usuarios | View User Profiles (PII Redacted) | Ver perfiles de usuario de manera compatible con PII |
 | Usuarios duplicados | Merge Duplicate Users | Combinar usuarios duplicados en uno solo. Los duplicados se eliminan después de la fusión |
-| Usuarios | Delete Users | Eliminar permanentemente usuarios del dashboard de forma individual o masiva |
+| Eliminar usuarios | View User Deletion Records | Ver una lista de registros de eliminación de usuarios |
+| Eliminar usuarios | Delete Users | Eliminar permanentemente usuarios del dashboard de forma individual o masiva |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permisos de audiencia" }
 
 ### Plantilla {#template}
@@ -379,6 +380,5 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Grupos de suscripción | Edit Subscriptions | Crear y actualizar grupos de suscripción |
 | Transformaciones | Edit Data Transformation | Crear y actualizar transformaciones de datos |
 | Transformaciones | View Data Transformation | Ver transformaciones de datos |
-| Registros de eliminación de usuarios | View User Deletion Records | Ver registros de eliminación de usuarios |
 | Tickets de soporte | Create Support Ticket | Crear y actualizar tickets de soporte |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Otros permisos" }

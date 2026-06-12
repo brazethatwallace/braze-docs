@@ -4,7 +4,7 @@
   - channel (obligatorio): "in_app_message" o "landing_page"
 {% endcomment %}
 
-{% multi_lang_include surveys/beta_alert.md %}
+{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Requisitos previos {#prerequisites}
 
@@ -23,7 +23,7 @@ Antes de crear un cuestionario, debes:
 
 ## Crear un cuestionario {#create-a-survey}
 
-Durante la beta, los cuestionarios se crean dentro de tu flujo de composición de mensajes existente.
+Durante el acceso anticipado, los cuestionarios se crean dentro de tu flujo de composición de mensajes existente.
 
 {% if include.channel == 'in_app_message' %}
 1. Crea un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) en una Campaign o Canvas.
@@ -88,7 +88,7 @@ Puedes configurar:
 - Altura del área de texto (filas)
 - Texto del marcador de posición
 
-Durante la beta, las respuestas de texto largo están disponibles en los informes y las exportaciones, pero no se pueden registrar como atributos personalizados del perfil de usuario.
+Durante el acceso anticipado, las respuestas de texto largo están disponibles en los informes y las exportaciones, pero no se pueden registrar como atributos personalizados del perfil de usuario.
 
 ![Configuración del bloque de captura de texto largo.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
 
@@ -96,7 +96,7 @@ Durante la beta, las respuestas de texto largo están disponibles en los informe
 
 Para cada bloque de formulario, introduce un **Identificador para informes** en el panel de configuración del lado derecho. Este identificador aparece en los informes de cuestionarios y en las exportaciones CSV.
 
-Durante la beta:
+Durante el acceso anticipado:
 
 - Puedes registrar la mayoría de las respuestas de cuestionarios como atributos personalizados del perfil de usuario.
 - Las respuestas de texto largo no se pueden registrar como atributos personalizados.
@@ -128,7 +128,7 @@ Los análisis de nivel superior incluyen:
 
 {% if include.channel == 'landing_page' %}
 {% alert note %}
-Los cuestionarios de páginas de inicio no rastrean las respuestas parcialmente completadas durante la beta.
+Los cuestionarios de páginas de inicio no rastrean las respuestas parcialmente completadas durante el acceso anticipado.
 {% endalert %}
 {% endif %}
 
@@ -151,7 +151,7 @@ Cada gráfico se actualiza en tiempo real a medida que llegan las respuestas. Pu
 
 ## Reorientar y desencadenar {#retarget-and-trigger}
 
-Durante la beta, puedes:
+Durante el acceso anticipado, puedes:
 
 - Segmentar usuarios por respuestas de cuestionarios que se registran como atributos de usuario.
 - Segmentar usuarios por estado de finalización del cuestionario.
@@ -184,7 +184,7 @@ Durante la beta, puedes:
 
 ### Limitaciones {#limitations}
 
-Durante la beta, tienes las siguientes restricciones:
+Durante el acceso anticipado, tienes las siguientes restricciones:
 
 - No puedes segmentar usuarios por respuestas de texto largo.
 - La activación por pregunta y respuesta que no dependa de atributos de usuario registrados no está disponible.

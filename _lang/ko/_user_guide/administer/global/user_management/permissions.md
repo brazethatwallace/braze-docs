@@ -224,10 +224,11 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 사용자 데이터 | Import Users | 대시보드에 사용자 업로드 |
 | 사용자 데이터 | Edit User Data | 사용자 데이터 생성 및 업데이트 |
 | 사용자 데이터 | Export User Data | 대시보드에서 사용자 다운로드 |
-| 사용자 삭제 기록 | View User Merge Records | 사용자 병합 기록 목록 보기 |
+| 중복 사용자 | View User Merge Records | 사용자 병합 기록 목록 보기 |
 | 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기 |
 | 중복 사용자 | Merge Duplicate Users | 중복 사용자를 하나의 사용자로 결합. 병합 후 중복 항목은 제거됩니다 |
-| 사용자 | Delete Users | 대시보드에서 사용자를 개별 또는 일괄로 영구 삭제 |
+| 사용자 삭제 | View User Deletion Records | 사용자 삭제 기록 목록 보기 |
+| 사용자 삭제 | Delete Users | 대시보드에서 사용자를 개별 또는 일괄로 영구 삭제 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="오디언스 권한" }
 
 ### 템플릿 {#template}
@@ -379,6 +380,5 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 구독 그룹 | Edit Subscriptions | 구독 그룹 생성 및 업데이트 |
 | 데이터 변환 | Edit Data Transformation | 데이터 변환 생성 및 업데이트 |
 | 데이터 변환 | View Data Transformation | 데이터 변환 보기 |
-| 사용자 삭제 기록 | View User Deletion Records | 사용자 삭제 기록 보기 |
 | 고객지원 티켓 | Create Support Ticket | 고객지원 티켓 생성 및 업데이트 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="기타 권한" }

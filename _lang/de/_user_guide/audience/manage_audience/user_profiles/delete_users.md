@@ -11,10 +11,6 @@ alias: /delete_users/
 
 > Erfahren Sie, wie Sie einzelne Nutzer:innen oder ein Segment von Nutzer:innen direkt über das Braze-Dashboard löschen können.
 
-{% alert important %}
-Das Löschen von Nutzer:innen befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie an der Teilnahme interessiert sind.
-{% endalert %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um Nutzer:innen zu löschen, müssen Sie Admin sein oder über die Berechtigung **Delete Users** verfügen. Um Löschprotokolle von Nutzer:innen einzusehen, müssen Sie Admin sein oder über die Berechtigung **View User Deletion Records** verfügen. Die folgenden Berechtigungen steuern das Löschen von Nutzer:innen und die Löschprotokolle:
@@ -31,7 +27,7 @@ Das Löschen von Nutzer:innen ermöglicht es Ihnen, Ihre Datenbank zu verwalten,
 
 | Aspekt | Details |
 |---------------|---------|
-| Maximale Größe | Sie können bis zu 100 Millionen Nutzerprofile löschen, wenn Sie ein Segment löschen. |
+| Maximale Größe | Sie können bis zu 10 Millionen Nutzerprofile löschen, wenn Sie ein Segment löschen. |
 | Wartezeit | Alle Segment-Löschungen erfordern eine 7-tägige Wartezeit plus die Zeit, die für die Verarbeitung der Löschungen benötigt wird. |
 | Auftragslimits | Es kann jeweils nur ein Segment gelöscht werden, einschließlich der 7-tägigen Wartezeit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Über das Löschen von Nutzer:innen" }
@@ -144,17 +140,13 @@ Sie können den Status früherer Löschungen auch überprüfen, indem Sie einen 
 
 ## Häufig gestellte Fragen {#faq}
 
-### Kann ich Segmente mit mehr als 100 Millionen Nutzer:innen löschen? {#can-i-delete-segments-with-more-than-100-million-users}
+### Kann ich Segmente mit mehr als 10 Millionen Nutzer:innen löschen? {#can-i-delete-segments-with-more-than-10-million-users}
 
-Nein. Sie können keine Segmente mit mehr als 100 Millionen Nutzer:innen löschen. Wenn Sie Hilfe beim Löschen eines Segments dieser Größe benötigen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Nein. Sie können keine Segmente mit mehr als 10 Millionen Nutzer:innen löschen. Wenn Sie Hilfe beim Löschen eines Segments dieser Größe benötigen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
-### Es sieht so aus, als könnte ich keine 100 Millionen Nutzer:innen löschen und bin auf 10 Millionen beschränkt. Ist das ein Fehler? {#it-looks-like-i-am-not-able-to-delete-100-million-users-and-am-limited-to-deleting-only-10-million-is-this-a-bug}
+### Ich kann nur bis zu 10 Millionen Nutzer:innen auf einmal löschen. Ist das ein Fehler? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
-Nein, das ist kein Fehler. Bestimmte Kund:innen sind während des Early-Access-Programms (EA) in der Anzahl der Nutzer:innen, die sie löschen können, eingeschränkt.
-
-Im Verlauf des EA-Programms ist vorgesehen, diese Kapazität zu erhöhen, bis alle Kund:innen bis zu 100 Millionen Nutzer:innen löschen können.
-
-Wenn Sie diese Kapazität erhöhen möchten, wenden Sie sich an Ihren Braze Account Manager. Anfragen werden nach Ermessen des Produktteams genehmigt.
+Nein, das ist kein Fehler. Die maximale Anzahl von Nutzerprofilen, die in einem einzelnen Segment-Löschlauf gelöscht werden können, beträgt 10 Millionen.
 
 ### Beeinflusst die automatische Zusammenführung von Nutzer:innen das Löschen von Nutzer:innen? {#does-automated-user-merging-affect-user-deletion}
 

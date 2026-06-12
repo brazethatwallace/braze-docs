@@ -4,7 +4,7 @@
   - channel (requis) : "in_app_message" ou "landing_page"
 {% endcomment %}
 
-{% multi_lang_include surveys/beta_alert.md %}
+{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Conditions préalables {#prerequisites}
 
@@ -23,17 +23,17 @@ Avant de créer une enquête, vous devez :
 
 ## Créer une enquête {#create-a-survey}
 
-Pendant la bêta, les enquêtes sont créées dans votre flux de composition de messages existant.
+Pendant l'accès anticipé, les enquêtes sont créées dans votre flux de composition de messages existant.
 
 {% if include.channel == 'in_app_message' %}
-1. Créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) dans une campagne ou un Canvas.
+1. Créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) dans une Campaign ou un Canvas.
 2. Sélectionnez **Survey** comme type de message.
 {% elsif include.channel == 'landing_page' %}
 1. Accédez à **Messaging** > **Landing Pages**.
 2. Créez une nouvelle page d'accueil.
 3. Sélectionnez **Survey** comme type de message.
 {% else %}
-1. Accédez à **Messaging** > **Landing Pages**, ou créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) dans une campagne ou un Canvas.
+1. Accédez à **Messaging** > **Landing Pages**, ou créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) dans une Campaign ou un Canvas.
 2. Créez un nouveau message.
 3. Sélectionnez **Survey** comme type de message.
 {% endif %}
@@ -88,7 +88,7 @@ Vous pouvez configurer :
 - La hauteur de la zone de texte (lignes)
 - Le texte de marque substitutive
 
-Pendant la bêta, les réponses en texte long sont disponibles dans les rapports et les exports, mais elles ne peuvent pas être enregistrées comme attributs personnalisés du profil utilisateur.
+Pendant l'accès anticipé, les réponses en texte long sont disponibles dans les rapports et les exports, mais elles ne peuvent pas être enregistrées comme attributs personnalisés du profil utilisateur.
 
 ![Paramètres du bloc de capture de texte long.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
 
@@ -96,7 +96,7 @@ Pendant la bêta, les réponses en texte long sont disponibles dans les rapports
 
 Pour chaque bloc de formulaire, saisissez un **identifiant pour le reporting** dans le panneau de paramètres à droite. Cet identifiant apparaît dans les rapports d'enquête et les exports CSV.
 
-Pendant la bêta :
+Pendant l'accès anticipé :
 
 - Vous pouvez enregistrer la plupart des réponses d'enquête comme attributs personnalisés du profil utilisateur.
 - Les réponses en texte long ne peuvent pas être enregistrées comme attributs personnalisés.
@@ -128,7 +128,7 @@ Les analyses de haut niveau incluent :
 
 {% if include.channel == 'landing_page' %}
 {% alert note %}
-Les enquêtes sur les pages d'accueil ne suivent pas les réponses partiellement complètes pendant la bêta.
+Les enquêtes sur les pages d'accueil ne suivent pas les réponses partiellement complètes pendant l'accès anticipé.
 {% endalert %}
 {% endif %}
 
@@ -151,7 +151,7 @@ Chaque graphique se met à jour en temps réel à mesure que les réponses arriv
 
 ## Recibler et déclencher {#retarget-and-trigger}
 
-Pendant la bêta, vous pouvez :
+Pendant l'accès anticipé, vous pouvez :
 
 - Segmenter les utilisateurs par réponses d'enquête enregistrées comme attributs utilisateur.
 - Segmenter les utilisateurs par statut de complétion de l'enquête.
@@ -160,7 +160,7 @@ Pendant la bêta, vous pouvez :
 
 ![Configuration du déclencheur et filtres de segmentation pour le suivi d'enquête.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Déclencher des campagnes et des Canvas lorsqu'un utilisateur complète une enquête dans une campagne de message in-app.
+- Déclencher des Campaigns et des Canvas lorsqu'un utilisateur complète une enquête dans une Campaign de message in-app.
 
 ![Configuration du déclencheur et filtre de segmentation pour le suivi d'enquête par message in-app.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
@@ -168,13 +168,13 @@ Pendant la bêta, vous pouvez :
 
 ![Configuration du déclencheur et filtre de segmentation pour le suivi d'enquête sur page d'accueil.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-- Déclencher des campagnes et des Canvas lorsqu'un utilisateur complète une enquête sur une page d'accueil.
+- Déclencher des Campaigns et des Canvas lorsqu'un utilisateur complète une enquête sur une page d'accueil.
 
 {% else %}
 
 ![Configuration du déclencheur et filtres de segmentation pour le suivi d'enquête.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Déclencher des campagnes et des Canvas lorsqu'un utilisateur complète une enquête sur une page d'accueil ou dans une campagne de message in-app.
+- Déclencher des Campaigns et des Canvas lorsqu'un utilisateur complète une enquête sur une page d'accueil ou dans une Campaign de message in-app.
 
 ![Configuration du déclencheur et filtre de segmentation pour le suivi d'enquête sur page d'accueil.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
@@ -184,7 +184,7 @@ Pendant la bêta, vous pouvez :
 
 ### Limitations
 
-Pendant la bêta, les restrictions suivantes s'appliquent :
+Pendant l'accès anticipé, les restrictions suivantes s'appliquent :
 
 - Vous ne pouvez pas segmenter les utilisateurs par réponses en texte long.
 - Le déclenchement par question-réponse qui ne repose pas sur des attributs utilisateur enregistrés n'est pas disponible.

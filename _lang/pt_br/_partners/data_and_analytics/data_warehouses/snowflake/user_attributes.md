@@ -59,7 +59,7 @@ Se você perceber incompatibilidades generalizadas, entre em contato com o seu g
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available views" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Visualizações disponíveis" }
 
 ## Instantâneos do perfil de usuário {#user-profile-snapshots}
 
@@ -101,7 +101,8 @@ O campo `TIME` representa o momento em segundos da atualização do perfil de us
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
+| `ARCHIVED` | BOOLEAN |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERDEFAULTATTRIBUTESVIEWSHARED" }
 
 
 ### Esquema de `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` {#user_custom_attributes_view_shared-schema}
@@ -111,12 +112,14 @@ O campo `TIME` representa o momento em segundos da atualização do perfil de us
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
+| `ARCHIVED` | BOOLEAN |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERCUSTOMATTRIBUTESVIEWSHARED" }
 
 ## Visualizações do perfil de usuário em tempo real {#real-time-user-profile-views}
 
@@ -148,6 +151,7 @@ O campo `TIME` representa o momento em segundos da atualização do perfil de us
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
 | `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
@@ -160,7 +164,7 @@ O campo `TIME` representa o momento em segundos da atualização do perfil de us
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
 | `TIMEZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
 
 ### Esquema de `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#user_latest_state_custom_attribute_view_shared-schema}
 
@@ -168,13 +172,15 @@ O campo `TIME` representa o momento em segundos da atualização do perfil de us
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED" }
 
 ## Registros históricos de alterações {#historical-change-logs}
 
@@ -217,7 +223,7 @@ O campo `TIME` representa o momento em segundos da atualização do perfil de us
 | `LANGUAGE` | VARCHAR |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERDEFAULTATTRIBUTESHISTORYVIEWSHARED" }
 
 ### Esquema de `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` {#user_custom_attributes_history_view_shared-schema}
 
@@ -226,14 +232,16 @@ O campo `TIME` representa o momento em segundos da atualização do perfil de us
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERCUSTOMATTRIBUTESHISTORYVIEWSHARED" }
 
 ## Melhores práticas {#best-practices}
 
@@ -244,7 +252,7 @@ O campo `TIME` representa o momento em segundos da atualização do perfil de us
 | **Consultas gerais** que não requerem atualizações recentes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | Execução rápida, com dados de até 12 horas.                          |
 | Consultas que exigem os **atributos de usuário mais recentes**       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Fornece atualizações quase em tempo real, mas pode ser mais lento para grandes conjuntos de dados. |
 | **Rastreamento histórico** de alterações de atributos           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | Armazena alterações de atributos com granularidade de 12 horas.                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Uso recomendado de consultas" }
 
 ### Considerações de desempenho {#performance-considerations}
 

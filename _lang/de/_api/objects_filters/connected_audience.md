@@ -242,4 +242,12 @@ Dieser Filter ermöglicht es Ihnen, basierend darauf zu segmentieren, wann die:d
 
 ### Hinweise {#considerations}
 
-Verbundene Zielgruppen können Nutzer:innen nicht nach Standardattributen, angepassten Events, Segmenten oder Nachrichten-Engagement-Events filtern. Um diese Filter zu verwenden, empfehlen wir, sie in ein Zielgruppen-Segment zu integrieren und dieses Segment dann im `segment_id`-Parameter für den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters) anzugeben. Bei der Verwendung anderer Endpunkte müssen Sie das Segment zunächst zur API-getriggerten Campaign oder zum Canvas im Braze-Dashboard hinzufügen.
+Verbundene Zielgruppen können Nutzer:innen nicht filtern nach:
+
+ - Standardattributen
+ - Angepassten Events
+ - Segmenten
+ - Nachrichten-Engagement-Ereignissen
+ - Verschachtelten angepassten Attributen
+
+Um diese Filter zu verwenden, empfehlen wir, sie in ein Zielgruppen-Segment zu integrieren und dieses Segment dann im `segment_id`-Parameter für den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters) anzugeben. Bei der Verwendung anderer Endpunkte müssen Sie das Segment zunächst zur API-getriggerten Campaign oder zum Canvas im Braze-Dashboard hinzufügen.
