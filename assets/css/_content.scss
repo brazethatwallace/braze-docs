@@ -1283,7 +1283,7 @@ svg[id^="mermaid"] {
 
 .copy-block {
   position: relative;
-  padding: 16px 52px 16px 16px;
+  padding: 16px 52px 10px 16px;
   margin-bottom: 12px;
   background-color: #f8f8fa;
   border: 1px solid $grey-ghost;
@@ -1292,6 +1292,7 @@ svg[id^="mermaid"] {
   .copy-block-text {
     margin-bottom: 0;
     font-family: monospace;
+    font-size: 0.875rem;
   }
 
   .copy-block-btn {
@@ -1302,6 +1303,7 @@ svg[id^="mermaid"] {
     right: 8px;
     background-color: transparent;
     border: none;
+    box-shadow: none;
     transition: opacity 0.3s ease-in-out;
   }
 
