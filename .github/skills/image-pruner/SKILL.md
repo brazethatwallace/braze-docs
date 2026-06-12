@@ -24,32 +24,36 @@ Remove image files under `assets/img/` that no documentation article, contributi
 
 ## Scheduled maintenance (CI)
 
-Skills do not run on a schedule. **Twice-yearly scans** are handled by GitHub Actions:
+Skills do not run on a schedule. **Twice-yearly maintenance** is handled by GitHub Actions:
 
 | Item | Detail |
 |------|--------|
 | Workflow | [`.github/workflows/image-pruner-maintenance.yml`](../../../.github/workflows/image-pruner-maintenance.yml) |
+| Batch script | [`scripts/image-pruner/run_maintenance_batch.py`](../../../scripts/image-pruner/run_maintenance_batch.py) |
 | Schedule | **June 1** and **December 1** at 10:00 America/New_York |
 | Branch | `develop` |
-| What CI does | Report-only scan; uploads CSV artifact; writes workflow summary |
-| What CI does **not** do | Delete files or open `[IP]` deletion PRs |
+| What CI does | Scan; delete up to **100** unreferenced files (secondary verify, open-PR exclusions); open a **draft** `[IP]` PR |
+| Human review | **Merge the draft PR** after reviewing the image deletions in the diff |
 
-When the unreferenced count is **at or above the alert threshold** (default **20**), CI opens a GitHub issue for docs triage. Below the threshold, the run succeeds silently (summary only).
+When the unreferenced count is **at or above the PR threshold** (default **20**), CI runs one delete batch and opens a draft PR. Below the threshold, the run uploads a CSV artifact and workflow summary only.
 
-**Maintenance phase** (after bulk cleanup): expect a small baseline—often fewer than 20 files. Known primary-scan false positives (for example `assets/img/Braze Komo Images v2/`) may remain; secondary verification keeps them on disk during manual deletes. Sustained counts above the threshold mean it is time to run batches again.
+CI skips opening a new batch when another open `[IP] Remove …` PR already exists (merge or close it first, then re-run).
+
+**Maintenance phase** (after bulk cleanup): expect a small baseline—often fewer than 20 files, so scheduled runs stay quiet. Known primary-scan false positives (for example `assets/img/Braze Komo Images v2/`) are skipped by secondary verification and never appear in the PR diff. If more than 100 files remain after a PR merges, re-run the workflow or use `@image-pruner` for the next batch.
 
 ### Manual runs
 
-- **GitHub Actions:** *Actions → Image pruner (maintenance) → Run workflow* (`workflow_dispatch`). Optional `alert_threshold` input overrides the default.
-- **Cursor / agents:** `@image-pruner` for ad-hoc scans and `[IP]` batch PRs any time.
+- **GitHub Actions:** *Actions → Image pruner (maintenance) → Run workflow* (`workflow_dispatch`). Optional `min_unreferenced_for_pr` input overrides the default threshold.
+- **Cursor / agents:** `@image-pruner` for ad-hoc scans and extra `[IP]` batch PRs any time.
 
 ### Division of labor
 
 | Trigger | Who acts |
 |---------|----------|
-| Scheduled scan (Jun/Dec) | CI scans and alerts if needed |
-| Issue opened by CI | Human or agent runs `@image-pruner`, reviews CSV, opens `[IP]` PRs |
-| Spike after a large IA move | Run `@image-pruner` manually; do not wait for the next scheduled scan |
+| Scheduled run (Jun/Dec) | CI opens a draft `[IP]` PR when count ≥ threshold |
+| Draft PR opened by CI | Docs team reviews diff and merges (or closes without merging) |
+| Spike after a large IA move | Run workflow manually or `@image-pruner`; do not wait for the next scheduled run |
+| More than 100 files remain | Merge current PR, then re-run workflow for the next batch |
 
 ---
 
@@ -284,5 +288,5 @@ Be skeptical when the CSV shows:
 ```
 
 ```
-@image-pruner The maintenance workflow opened an issue — review the CSV and open [IP] batch PRs.
+@image-pruner The maintenance workflow opened a draft PR — help review the deletion batch.
 ```

@@ -1,8 +1,8 @@
-# Image pruner (maintenance): twice-yearly scan on develop — report only, no deletes.
+# Image pruner (maintenance): twice-yearly scan on develop — opens a draft [IP] PR.
 #
-# Runs the unreferenced-image scanner and uploads a CSV artifact. If the count
-# exceeds the alert threshold, opens a GitHub issue for the docs team to run
-# @image-pruner and open [IP] batch PRs manually. CI never deletes images.
+# Scans for unreferenced images, deletes up to 100 candidates (secondary verify,
+# open-PR exclusions), and opens a draft pull request for docs team review.
+# Human review happens at merge time — do not auto-merge.
 #
 # Schedule: June 1 and December 1 at 10:00 America/New_York (IANA timezone).
 # See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
@@ -18,33 +18,38 @@ on:
       timezone: "America/New_York"
   workflow_dispatch:
     inputs:
-      alert_threshold:
-        description: "Open a GitHub issue when unreferenced count is at or above this number."
+      min_unreferenced_for_pr:
+        description: "Run delete batch and open a draft PR when scan count is at or above this number."
         required: false
         default: "20"
         type: string
 
 permissions:
-  contents: read
-  issues: write
+  contents: write
+  pull-requests: write
 
 env:
-  ALERT_THRESHOLD: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.alert_threshold != '' && github.event.inputs.alert_threshold || '20' }}
+  MIN_UNREFERENCED_FOR_PR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.min_unreferenced_for_pr != '' && github.event.inputs.min_unreferenced_for_pr || '20' }}
 
 jobs:
-  scan:
+  scan-and-pr:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v6
         with:
           ref: develop
           fetch-depth: 0
+          persist-credentials: true
 
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+
+      - name: Date stamp (Eastern)
+        id: stamp
+        run: echo "ymd=$(TZ=America/New_York date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
 
       - name: Run unreferenced image scan
         id: scan
@@ -78,70 +83,64 @@ jobs:
           path: ${{ runner.temp }}/unreferenced_images.csv
           if-no-files-found: error
 
-      - name: Date stamp (Eastern)
-        id: stamp
-        run: echo "ymd=$(TZ=America/New_York date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+      - name: Run maintenance delete batch
+        id: batch
+        if: ${{ fromJSON(steps.scan.outputs.count) >= fromJSON(env.MIN_UNREFERENCED_FOR_PR) }}
+        env:
+          UNREFERENCED_IMAGE_DELETE_FORCE: "1"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 scripts/image-pruner/run_maintenance_batch.py \
+            --limit 100 \
+            --skip-if-open-ip-pr \
+            --scan-date "${{ steps.stamp.outputs.ymd }}" \
+            --run-url "$RUN_URL" \
+            --github-output "$GITHUB_OUTPUT" \
+            --pr-body "${{ runner.temp }}/pr-body.md"
+
+      - name: Open draft pull request
+        id: maintenance_pr
+        if: ${{ steps.batch.outputs.deleted_count != '' && fromJSON(steps.batch.outputs.deleted_count) > 0 }}
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          branch: image-pruner/maintenance-${{ steps.stamp.outputs.ymd }}-${{ github.run_id }}
+          base: develop
+          title: ${{ steps.batch.outputs.pr_title }} (maintenance ${{ steps.stamp.outputs.ymd }})
+          body-path: ${{ runner.temp }}/pr-body.md
+          commit-message: "chore: remove unreferenced images (scheduled maintenance)"
+          delete-branch: true
+          add-paths: |
+            assets/img/
 
       - name: Write workflow summary
         run: |
           {
-            echo "## Image pruner maintenance scan"
+            echo "## Image pruner maintenance"
             echo ""
             echo "| Metric | Value |"
             echo "|--------|-------|"
             echo "| Date | ${{ steps.stamp.outputs.ymd }} |"
-            echo "| Unreferenced images | ${{ steps.scan.outputs.count }} |"
+            echo "| Unreferenced (scan) | ${{ steps.scan.outputs.count }} |"
             echo "| Approx. size | ${{ steps.scan.outputs.bytes_human }} |"
-            echo "| Alert threshold | ${ALERT_THRESHOLD} |"
+            echo "| PR threshold | ${MIN_UNREFERENCED_FOR_PR} |"
+            if [ -n "${{ steps.batch.outputs.deleted_count }}" ]; then
+              echo "| Deleted (this run) | ${{ steps.batch.outputs.deleted_count }} |"
+              echo "| Skipped (secondary verify) | ${{ steps.batch.outputs.skipped_count }} |"
+              echo "| Remaining (estimate) | ${{ steps.batch.outputs.remaining_count }} |"
+            fi
             echo ""
             echo "CSV attached as workflow artifact \`image-pruner-unreferenced-${{ github.run_id }}\`."
             echo ""
-            if [ "${{ steps.scan.outputs.count }}" -ge "${ALERT_THRESHOLD}" ]; then
-              echo "**Action:** A GitHub issue was opened for docs triage. Run \`@image-pruner\` to review the CSV and open \`[IP]\` batch PRs."
+            if [ "${{ steps.batch.outputs.skip_reason }}" = "open_ip_pr" ]; then
+              echo "**Status:** Skipped — an open \`[IP]\` deletion PR already exists. Merge or close it, then re-run."
+            elif [ -n "${{ steps.maintenance_pr.outputs.pull-request-url }}" ]; then
+              echo "**Action:** Draft PR opened for review: ${{ steps.maintenance_pr.outputs.pull-request-url }}"
+            elif [ "${{ steps.scan.outputs.count }}" -ge "${MIN_UNREFERENCED_FOR_PR}" ]; then
+              echo "**Status:** Threshold met but no files deleted (secondary verify skipped all candidates, or batch empty)."
             else
-              echo "**Status:** Within maintenance baseline. No issue opened."
+              echo "**Status:** Within maintenance baseline. No draft PR opened."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Open maintenance issue
-        if: ${{ fromJSON(steps.scan.outputs.count) >= fromJSON(env.ALERT_THRESHOLD) }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_BODY: ${{ runner.temp }}/issue-body.md
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          SCAN_DATE: ${{ steps.stamp.outputs.ymd }}
-          SCAN_COUNT: ${{ steps.scan.outputs.count }}
-          SCAN_BYTES: ${{ steps.scan.outputs.bytes_human }}
-          ARTIFACT_NAME: image-pruner-unreferenced-${{ github.run_id }}
-        run: |
-          title="[IP] Image prune maintenance — ${SCAN_COUNT} unreferenced images (${SCAN_DATE})"
-          {
-            echo "## Image Pruning (scheduled maintenance)"
-            echo ""
-            echo "This issue was **opened automatically** by the [Image pruner (maintenance)](${RUN_URL}) workflow."
-            echo ""
-            echo "| Metric | Value |"
-            echo "|--------|-------|"
-            echo "| Scan date | ${SCAN_DATE} |"
-            echo "| Unreferenced images | ${SCAN_COUNT} |"
-            echo "| Approx. size | ${SCAN_BYTES} |"
-            echo "| Alert threshold | ${ALERT_THRESHOLD} |"
-            echo ""
-            echo "### Next steps"
-            echo ""
-            echo "1. Download the CSV from the workflow run artifact \`${ARTIFACT_NAME}\`."
-            echo "2. Review candidates (see [high-risk patterns](.github/skills/image-pruner/SKILL.md#high-risk-path-patterns) in the image-pruner skill)."
-            echo "3. Run \`@image-pruner\` (or follow the skill manually) to open \`[IP]\` batch PRs — **up to 100 deletions per PR**, with secondary verification. CI does **not** delete images."
-            echo ""
-            echo "### Maintenance baseline"
-            echo ""
-            echo "After the initial bulk cleanup, a small remainder (for example Komo v2 assets with spaces in the path) may appear unreferenced in the primary scan but are kept by secondary verification. Treat **sustained counts above ${ALERT_THRESHOLD}** as signal to prune; re-tune the threshold in \`.github/workflows/image-pruner-maintenance.yml\` if needed."
-            echo ""
-            echo "### Scan commands"
-            echo ""
-            echo '```bash'
-            echo 'python3 scripts/image-pruner/find_unreferenced_images.py \'
-            echo '  --csv scripts/image-pruner/unreferenced_images.csv'
-            echo '```'
-          } > "$ISSUE_BODY"
-          gh issue create --title "$title" --body-file "$ISSUE_BODY"

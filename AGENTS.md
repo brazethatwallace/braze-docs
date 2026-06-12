@@ -33,7 +33,7 @@ Twice-weekly GitHub Actions exports Looker cases, publishes a digest, and may op
 
 ## Image pruner (CI)
 
-Twice-yearly GitHub Actions (June 1 and December 1) scans `develop` for unreferenced `assets/img/` files via [`.github/workflows/image-pruner-maintenance.yml`](.github/workflows/image-pruner-maintenance.yml). CI is **report-only**—it uploads a CSV artifact and opens a GitHub issue when the count reaches the alert threshold (default 20). Deletions and `[IP]` batch PRs use the **image-pruner** skill manually or via `@image-pruner`.
+Twice-yearly GitHub Actions (June 1 and December 1) scans `develop` for unreferenced `assets/img/` files via [`.github/workflows/image-pruner-maintenance.yml`](.github/workflows/image-pruner-maintenance.yml). When the count reaches the PR threshold (default 20), CI deletes up to 100 candidates (secondary verify, open-PR exclusions) and opens a **draft** `[IP]` pull request for docs review. Extra batches use the **image-pruner** skill or `@image-pruner`.
 
 ## Cursor rules (always on)
 
