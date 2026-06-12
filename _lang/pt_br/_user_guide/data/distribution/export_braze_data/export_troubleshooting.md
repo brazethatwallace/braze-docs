@@ -109,3 +109,13 @@ As exportações levam tempo para serem concluídas, então o acesso imediato a 
 
 - Consultar a URL de download com backoff exponencial, ou
 - Usar o [parâmetro `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters) e apontá-lo para um serviço que execute seu script quando a exportação estiver pronta.
+
+## Campos da API de exportação de segmentos e usuários {#segment-and-user-export-api-fields}
+
+### Colunas esperadas estão ausentes em um arquivo de exportação de segmento {#expected-columns-are-missing-from-a-segment-export-file}
+
+A opção **Exportar dados de usuários em CSV** do dashboard para um segmento usa um conjunto fixo de colunas (consulte [Exportar dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#data-included-in-export)). Ela não inclui uma coluna ou parâmetro `fields_to_export`.
+
+Para exportações de segmentos via API, você deve passar `fields_to_export` no corpo da solicitação. Alguns campos puxam dados relacionados automaticamente — por exemplo, solicitar `canvases_received` também requer dados de resumo de jornada no perfil do usuário. Consulte a referência do [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para nomes de campos válidos e requisitos.
+
+Se colunas estiverem ausentes em um ZIP de exportação via API, confirme que o array `fields_to_export` na sua solicitação inclui todos os campos necessários e que seu espaço de trabalho possui as permissões de exportação exigidas.

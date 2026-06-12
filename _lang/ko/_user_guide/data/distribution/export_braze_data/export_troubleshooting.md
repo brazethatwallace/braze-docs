@@ -60,7 +60,7 @@ CSV 내보내기 시, Braze에서 다운로드 링크를 이메일로 발송합�
 ## API 내보내기
 스토리지 파트너가 연결된 상태에서 API를 통해 데이터를 내보내면, 내보내기 파일은 버킷에 기록됩니다. 이메일은 발송되지 않습니다. 기본 오브젝트는 스토리지에 존재하며 보존 설정을 따르지만, Braze가 반환하는 다운로드 URL은 여전히 시간 제한이 있을 수 있습니다.
 
-파일은 일반적으로 내보내기가 실행되는 동안 버킷에 나타나므로, 부분 결과에 접근하기 위해 전체 작업이 완료될 때까지 기다릴 필요가 없습니다. Braze는 모든 데이터를 끝까지 보관하는 대신 완료된 배치를 점진적으로 업로드합니다. 대규모 내보내기는 여러 압축 파일(ZIP 또는 GZIP)로 분할되며, 각 파일에는 한 줄에 하나씩 JSON 오브젝트가 포함됩니다. 이 방식은 대용량 내보내기에 더 안정적입니다.
+파일은 일반적으로 내보내기가 실행되는 동안 버킷에 나타나므로, 부분 결과에 접근하기 위해 전체 작업이 완료될 때까지 기다릴 필요가 없습니다. Braze는 모든 데이터를 마지막까지 보관하는 대신 완료된 배치를 점진적으로 업로드합니다. 대용량 내보내기는 여러 압축 파일(ZIP 또는 GZIP)로 분할되며, 각 파일에는 한 줄에 하나씩 JSON 오브젝트가 포함되어 있습니다. 이 방법은 대용량 내보내기에 더 안정적입니다.
 
 ### 일반적인 오류
 
@@ -89,7 +89,7 @@ CSV 내보내기는 특정 Campaign 또는 Canvas를 수신한 기존 사용자�
 
 ### "Segment가 너무 큽니다" 또는 Segment가 500,000명 미만으로 보이는데 내보내기가 실패하는 경우 {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
 
-대시보드 Segment **크기는 추정치입니다**. CSV 내보내기는 해당 추정치를 사용하여 [500,000명 사용자 내보내기 제한]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details)을 적용하며, 내보내기 파이프라인은 Segment 빌더 UI와 다르게 크기를 평가할 수도 있습니다. 해당 임계값 근처의 Segment에서 내보내기가 실패하면, [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)를 사용하거나 오디언스를 더 작은 Segment로 분할하거나, [대규모 Segment 내보내기]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)에 설명된 대로 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하세요.
+대시보드 Segment **크기는 추정치입니다**. CSV 내보내기는 해당 추정치를 사용하여 [500,000명 사용자 내보내기 제한]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details)을 적용하며, 내보내기 파이프라인은 Segment 빌더 UI와 다르게 크기를 평가할 수도 있습니다. 해당 임계값 근처의 Segment에서 내보내기가 실패하면, [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)를 사용하거나 오디언스를 더 작은 Segments로 분할하거나, [대규모 Segments 내보내기]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)에 설명된 대로 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하세요.
 
 ### Segment 내보내기 이메일을 받지 못하는 이유 {#why-arent-i-receiving-segment-export-emails}
 
@@ -109,3 +109,13 @@ CSV 내보내기는 특정 Campaign 또는 Canvas를 수신한 기존 사용자�
 
 - 지수 백오프를 적용하여 다운로드 URL을 폴링하거나,
 - [`callback_endpoint` 파라미터]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters)를 사용하여 내보내기가 준비되었을 때 스크립트를 실행하는 서비스를 지정할 수 있습니다.
+
+## Segment 및 사용자 내보내기 API 필드 {#segment-and-user-export-api-fields}
+
+### Segment 내보내기 파일에서 예상 열이 누락된 경우 {#expected-columns-are-missing-from-a-segment-export-file}
+
+대시보드의 Segment에서 **CSV 내보내기 사용자 데이터**는 고정된 열 집합을 사용합니다([Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#data-included-in-export) 참조). 여기에는 `fields_to_export` 열이나 파라미터가 포함되지 않습니다.
+
+API Segment 내보내기의 경우, 요청 본문에 `fields_to_export`를 전달해야 합니다. 일부 필드는 관련 데이터를 자동으로 가져옵니다. 예를 들어, `canvases_received`를 요청하면 고객 프로필에 여정 요약 데이터도 필요합니다. 유효한 필드 이름과 요구 사항은 [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) 엔드포인트 참조를 확인하세요.
+
+API 내보내기 ZIP에서 열이 누락된 경우, 요청의 `fields_to_export` 배열에 필요한 모든 필드가 포함되어 있는지, 그리고 워크스페이스에서 필요한 내보내기 권한을 사용하고 있는지 확인하세요.

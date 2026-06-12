@@ -271,3 +271,17 @@ Plusieurs facteurs peuvent expliquer que le nombre d'envois soit inférieur à l
 ### Où trouver les questions fréquemment posées sur la limite de fréquence globale ? {#where-are-frequently-asked-questions-about-global-frequency-capping}
 
 Pour les questions sur les jours calendaires, les notifications push silencieuses, les webhooks, le comportement de Canvas et les sujets connexes, consultez les [questions fréquemment posées]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) pour [Limite de débit et limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
+### Pourquoi les destinataires uniques peuvent-ils dépasser les envois pour les e-mails et les SMS ? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+Pour les e-mails et les SMS, Braze incrémente les **destinataires uniques** avant la tentative d'envoi par le fournisseur de services de messagerie (ESP) et incrémente les **envois** après une réponse réussie de l'ESP. Les erreurs permanentes (comme les adresses e-mail invalides) ou les adresses en double font que les destinataires uniques dépassent les envois.
+
+### Pourquoi le **dernier envoi** ne correspond-il pas à l'heure d'envoi planifiée ? {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+Pour une campagne avec un seul envoi planifié, le **dernier envoi** correspond à l'heure de lancement. Pour les campagnes récurrentes avec l'option **Envoyer en fuseau horaire local** activée, le **dernier envoi** peut apparaître plus tôt que l'heure planifiée, car les envois aux utilisateurs dans des fuseaux horaires plus avancés (par exemple, GMT par rapport à PST) se terminent avant l'heure planifiée de votre espace de travail.
+
+### Pourquoi une campagne historique arrêtée n'affiche-t-elle plus d'indicateurs sur la page **Analytics** ? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+L'onglet **Analytics** affiche par défaut les 90 derniers jours. Si la campagne a été envoyée pour la dernière fois en dehors de cette fenêtre, les indicateurs peuvent apparaître à zéro jusqu'à ce que vous ajustiez la plage de dates sur la page **Analytics** pour inclure la période d'envoi de la campagne. Pour en savoir plus, consultez [Analyse de campagne]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Restaurer les données d'interaction** ne restaure pas les analyses de campagne. Cette fonctionnalité s'applique uniquement aux filtres de reciblage et à l'historique d'interaction des utilisateurs. Pour en savoir plus, consultez [Données d'interaction de messagerie]({{site.baseurl}}/messaging_interaction_data/).

@@ -19,7 +19,7 @@ O vídeo a seguir mostra como usar catálogos em uma mensagem.
 
 No criador de mensagens de sua escolha, selecione <i class="fas fa-plus-circle"></i> **Add Personalization** e selecione **Catalog Items** para o **Personalization type**. Em seguida, selecione o nome do seu catálogo. Usando nosso exemplo anterior, selecionaremos o catálogo "Games".
 
-![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
+![Modal Add Personalization com Catalog Items selecionado, catálogo Games escolhido e uma prévia do Liquid mostrando a tag catalog_items.]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
 Podemos ver imediatamente a prévia do Liquid a seguir:
 
@@ -64,7 +64,7 @@ Você não está limitado a um item em uma mensagem. Use o modal **Add Personali
 
 Veja este exemplo em que adicionamos o `id` de três jogos, Tales, Teslagrad e Acaratus, para **Catalog Items** e selecionamos `title` para **Information to Display**.
 
-![]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
+![Modal Add Personalization mostrando três IDs de itens do catálogo selecionados e título escolhido para Information to Display, com uma prévia do Liquid listando o título de cada item.]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
 
 Podemos personalizar ainda mais nossa mensagem adicionando algum texto ao redor do nosso Liquid:
 
@@ -118,6 +118,14 @@ Message if the venue name's size is 10 characters or fewer.
 {% endraw %}
 
 Neste exemplo, mensagens diferentes são exibidas dependendo de o campo `venue_name` ter mais ou menos de 10 caracteres. Se `venue_name` estiver em branco, a mensagem é abortada.
+
+Para verificar quantos itens uma seleção retorna, use o filtro `size` do Liquid no array `items` após a tag, e não em um campo individual:
+
+{% raw %}
+```liquid
+{% catalog_selection_items item-list selections %}{{ items | size }}
+```
+{% endraw %}
 
 {% alert tip %}
 Para evitar erros de sintaxe do Liquid, selecione o botão **+** de mais no criador de mensagens para inserir automaticamente as Liquid tags do catálogo.
@@ -204,7 +212,7 @@ Se um item de catálogo contiver campos de perfil de usuário (dentro de uma tag
 
 Por exemplo, se um catálogo chamado "Messages" tiver um item com este Liquid:
 
-![]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
+![Linha da tabela do catálogo com id greet_msg e coluna Welcome_Message contendo uma mensagem de boas-vindas à loja com uma variável Liquid de nome.]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
 
 Para renderizar o seguinte conteúdo Liquid:
 
@@ -230,6 +238,20 @@ Welcome to our store, Peter!
 {% alert note %}
 As Liquid tags do catálogo não podem ser usadas recursivamente dentro de catálogos.
 {% endalert %}
+
+## Solução de problemas de personalização de catálogo
+
+Se o Liquid do catálogo ou da seleção não for exibido como esperado em uma mensagem ou etapa do Canvas, verifique o seguinte:
+
+| Sintoma | O que verificar |
+| --- | --- |
+| A prévia mostra itens, mas os envios reais estão vazios | Confirme se os **IDs dos itens** do catálogo existem no momento do envio. Se o ID no seu Liquid não corresponder a uma linha, a Braze retorna um array de itens vazio — consulte [Usando Liquid](#using-liquid). Verifique se há erros de digitação e se as fontes de ID (como propriedades de eventos) estão presentes no gatilho ou no perfil do usuário. |
+| A prévia do criador funciona em uma Campaign, mas não no Canvas | Confirme se você está usando o contexto correto do Liquid — **propriedades de contexto do Canvas** versus **propriedades de eventos** — e se esses campos existem no gatilho. Consulte [Propriedades de contexto e de eventos]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/). |
+| Uma seleção não retorna itens | Revise os [filtros de seleção]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) e os limites; confirme se os dados do catálogo estão sincronizados e se os nomes das colunas correspondem aos seus filtros. |
+| `:rerender` ou entrega com template parece incorreto | Para Liquid aninhado dentro de campos de catálogo, você precisa de `:rerender` e da ordenação correta das variáveis — consulte [Usando templates em itens de catálogo com Liquid](#templating-catalog-items-including-liquid). Mensagens no app com template são resolvidas no momento do gatilho; consulte [O que são mensagens no app com template?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages). Alguns canais restringem tags de catálogo (por exemplo, certos usos de **:rerender** com Banners) — consulte [Todas as Liquid tags são compatíveis?]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported) no FAQ de Banners. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas de personalização de catálogo" }
+
+Para o comportamento geral do Liquid, consulte [Casos de uso do Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) e [Usando Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
 
 ## Estruturando os dados do seu catálogo
 

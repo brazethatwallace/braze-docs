@@ -271,3 +271,17 @@ Mehrere Faktoren können dazu führen, dass die Anzahl der Sendungen niedriger i
 ### Wo finde ich häufig gestellte Fragen zum globalen Frequency-Capping? {#where-are-frequently-asked-questions-about-global-frequency-capping}
 
 Für Fragen zu Kalendertagen, stillen Push-Benachrichtigungen, Webhooks, Canvas-Verhalten und verwandten Themen lesen Sie die [Häufig gestellten Fragen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) zu [Rate-Limiting und Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
+### Warum können eindeutige Empfänger:innen die Sendungen bei E-Mail und SMS übersteigen? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+Bei E-Mail und SMS erhöht Braze die Anzahl der **eindeutigen Empfänger:innen** vor dem ESP-Sendeversuch und die Anzahl der **Sendungen** erst nach einer erfolgreichen ESP-Antwort. Permanente Fehler (z. B. ungültige E-Mail-Adressen) oder doppelte Adressen führen dazu, dass die eindeutigen Empfänger:innen die Sendungen übersteigen.
+
+### Warum stimmt **Zuletzt gesendet** nicht mit meinem geplanten Sendezeitpunkt überein? {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+Bei einer Campaign mit einem einzelnen geplanten Versand entspricht **Zuletzt gesendet** dem Startzeitpunkt. Bei wiederkehrenden Campaigns mit aktivierter Option **In Ortszeit senden** kann **Zuletzt gesendet** früher als der geplante Zeitpunkt erscheinen, da Sendungen an Nutzer:innen in früheren Zeitzonen (z. B. GMT vs. PST) vor dem Zeitplan Ihres Workspace abgeschlossen werden.
+
+### Warum zeigt eine gestoppte historische Campaign keine Metriken mehr auf der **Analytics**-Seite an? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+Der Tab **Analytics** zeigt standardmäßig die letzten 90 Tage an. Wenn die Campaign zuletzt außerhalb dieses Zeitfensters gesendet wurde, können Metriken als null erscheinen, bis Sie den Datumsbereich auf der **Analytics**-Seite anpassen, um den Zeitraum einzuschließen, in dem die Campaign gesendet wurde. Weitere Informationen finden Sie unter [Campaign-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Interaktionsdaten wiederherstellen** stellt keine Campaign-Analytics wieder her. Dies gilt nur für Retargeting-Filter und den Verlauf der Nutzerinteraktionen. Weitere Informationen finden Sie unter [Messaging-Interaktionsdaten]({{site.baseurl}}/messaging_interaction_data/).

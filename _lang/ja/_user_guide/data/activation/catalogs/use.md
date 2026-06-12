@@ -17,9 +17,9 @@ description: "この参照記事では、Liquidを通してBrazeのCampaignで�
 
 ### ステップ 1:パーソナライゼーションタイプを追加する {#step-one-personalization}
 
-任意のメッセージ作成画面で、<i class="fas fa-plus-circle"></i>**Add Personalization**を選択し、**Personalization type**として**Catalog Items**を選択します。次に、カタログ名を選択します。先ほどの例を使って、「Games」カタログを選択します。
+任意のメッセージ作成画面で、<i class="fas fa-plus-circle"></i>**「Add Personalization」**を選択し、**Personalization type**として**「Catalog Items」**を選択します。次に、カタログ名を選択します。先ほどの例を使って、「Games」カタログを選択します。
 
-![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
+![「Add Personalization」モーダルで「Catalog Items」が選択され、Gamesカタログが選ばれ、catalog_itemsタグを含むLiquidプレビューが表示されている画面。]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
 以下のLiquidプレビューがすぐに表示されます。
 
@@ -64,7 +64,7 @@ Get {{ items[0].title }} for just {{ items[0].price }}!
 
 この例では、Tales、Teslagrad、Acaratusの3つのゲームの`id`を**Catalog Items**に追加し、**Information to Display**として`title`を選択します。
 
-![]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
+![「Add Personalization」モーダルで3つのカタログアイテムIDが選択され、「Information to Display」にtitleが選ばれ、各アイテムのタイトルを一覧表示するLiquidプレビューが表示されている画面。]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
 
 Liquidの周りにテキストを追加することで、メッセージをさらにパーソナライズできます。
 
@@ -119,6 +119,14 @@ Message if the venue name's size is 10 characters or fewer.
 
 この例では、`venue_name`フィールドの文字数が10文字より多いか少ないかによって、異なるメッセージが表示されます。`venue_name`が空白の場合、メッセージは中止されます。
 
+セレクションが返すアイテム数を出力するには、タグの後の`items`配列に対してLiquidの`size`フィルターを使用します（単一のフィールドではなく配列に対して使用してください）。
+
+{% raw %}
+```liquid
+{% catalog_selection_items item-list selections %}{{ items | size }}
+```
+{% endraw %}
+
 {% alert tip %}
 Liquidの構文エラーを避けるには、メッセージ作成画面の**+**プラスボタンを選択して、カタログのLiquidタグを自動的に挿入してください。
 {% endalert %}
@@ -137,11 +145,11 @@ Liquidの構文エラーを避けるには、メッセージ作成画面の**+**
 ```
 {% endraw %}
 
-![画像フィールドで使用されるカタログのLiquidタグを含むコンテンツカード作成画面。]({% image_buster /assets/img_archive/catalog_image_link1.png %})
+![画像フィールドでカタログのLiquidタグが使用されているコンテンツカード作成画面。]({% image_buster /assets/img_archive/catalog_image_link1.png %})
 
 Liquidがレンダリングされると、次のように表示されます。
 
-![カタログのLiquidタグをレンダリングしたコンテンツカードの例。]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
+![カタログのLiquidタグがレンダリングされたコンテンツカードの例。]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
 
 {% alert important %}
 メールなどの**HTML**チャネルでは、閉じタグ`{% raw %}{% catalog_items ... %}{% endraw %}`と画像URLを出力するLiquid（例: `{% raw %}{{ items[0].image_link }}{% endraw %}`）の間に余分なスペースや改行を入れないでください。テンプレート内の余分な空白により、レンダリングされたメッセージで画像URLが正しく解決されない場合があります。URL式はカタログタグのすぐ隣に配置してください。例: `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`
@@ -204,7 +212,7 @@ Liquidロジックを使用してカタログを手動で組み立てること�
 
 例えば、「Messages」という名前のカタログに、このLiquidを含むアイテムがあるとします。
 
-![]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
+![カタログテーブルの行。idがgreet_msg、Welcome_Message列にはLiquid変数を含む「Welcome to our store」のメッセージが表示されている。]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
 
 以下のLiquidコンテンツをレンダリングするには:
 
@@ -230,6 +238,20 @@ Welcome to our store, Peter!
 {% alert note %}
 カタログのLiquidタグは、カタログ内で再帰的に使用することはできません。
 {% endalert %}
+
+## カタログパーソナライゼーションのトラブルシューティング
+
+カタログまたはセレクションのLiquidがメッセージやCanvasステップで期待どおりに表示されない場合は、以下を確認してください。
+
+| 症状 | 確認事項 |
+| --- | --- |
+| プレビューではアイテムが表示されるが、ライブ送信では空になる | 送信時にカタログの**アイテムID**が存在することを確認してください。Liquid内のIDが行と一致しない場合、Brazeは空のitems配列を返します。[Liquidの使用](#using-liquid)を参照してください。タイプミスや、トリガーまたはユーザープロファイルに存在しないIDソース（イベントプロパティなど）がないか確認してください。 |
+| 作成画面のプレビューはCampaignでは動作するがCanvasでは動作しない | 正しいLiquidコンテキスト（**Canvasコンテキストプロパティ**と**イベントプロパティ**）を使用していること、およびそれらのフィールドがトリガーに存在することを確認してください。[コンテキストプロパティとイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)を参照してください。 |
+| セレクションがアイテムを返さない | [セレクションフィルター]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)と制限を確認してください。カタログデータが同期されていること、および列名がフィルターと一致していることを確認してください。 |
+| `:rerender`またはテンプレート化された配信が正しく表示されない | カタログフィールド内のネストされたLiquidには、`:rerender`と変数の正しい順序が必要です。[Liquidを含むカタログアイテムのテンプレート化](#templating-catalog-items-including-liquid)を参照してください。テンプレート化されたアプリ内メッセージはトリガー時に解決されます。[テンプレート化されたアプリ内メッセージとは？]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages)を参照してください。一部のチャネルではカタログタグが制限されています（例えば、バナーでの特定の**:rerender**の使用）。バナーFAQの[すべてのLiquidタグがサポートされていますか？]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カタログパーソナライゼーションのトラブルシューティング" }
+
+一般的なLiquidの動作については、[Liquidユースケース]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/)および[Liquidの使用]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/)を参照してください。
 
 ## カタログデータの構造化
 

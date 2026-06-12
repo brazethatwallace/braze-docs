@@ -60,7 +60,7 @@ Dans le stockage cloud, les exportations CSV sont regroupées dans un fichier ZI
 ## Exportations API
 Lorsque vous exportez des données via les API avec un partenaire de stockage connecté, les fichiers exportés sont enregistrés dans votre compartiment. Aucun e-mail n'est envoyé. Les objets sous-jacents résident dans votre espace de stockage et respectent vos paramètres de conservation, même si les URL de téléchargement fournies par Braze peuvent être limitées dans le temps.
 
-Les fichiers apparaissent généralement dans votre compartiment au fur et à mesure de l'exportation, vous n'avez donc pas besoin d'attendre la fin complète du traitement pour accéder aux résultats partiels. Braze charge chaque lot terminé de manière incrémentielle au lieu de tout conserver jusqu'à la fin. Les exportations volumineuses sont divisées en plusieurs fichiers compressés (ZIP ou GZIP), chacun contenant des objets JSON, un par ligne. Cela rend cette méthode plus fiable pour les exportations lourdes.
+Les fichiers apparaissent généralement dans votre compartiment au fur et à mesure de l'exportation, vous n'avez donc pas besoin d'attendre la fin de l'ensemble du traitement pour accéder aux résultats partiels. Braze charge chaque lot terminé de manière incrémentielle au lieu de tout conserver jusqu'à la fin. Les exportations volumineuses sont divisées en plusieurs fichiers compressés (ZIP ou GZIP), chacun contenant des objets JSON, un par ligne. Cela rend cette méthode plus fiable pour les exportations lourdes.
 
 ### Erreurs courantes
 
@@ -109,3 +109,13 @@ Les exportations prennent du temps, c'est pourquoi un accès immédiat depuis un
 
 - Interroger l'URL de téléchargement avec des délais exponentiels, ou
 - Utiliser le [paramètre `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters) et le diriger vers un service qui exécute votre script lorsque l'exportation est prête.
+
+## Champs des API d'exportation de segments et d'utilisateurs {#segment-and-user-export-api-fields}
+
+### Des colonnes attendues sont absentes d'un fichier d'exportation de segment {#expected-columns-are-missing-from-a-segment-export-file}
+
+L'option **Exporter les données utilisateur en CSV** du tableau de bord pour un segment utilise un ensemble de colonnes fixe (voir [Exporter les données de segment au format CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#data-included-in-export)). Elle n'inclut pas de colonne ni de paramètre `fields_to_export`.
+
+Pour les exportations de segments via l'API, vous devez transmettre `fields_to_export` dans le corps de la requête. Certains champs récupèrent automatiquement des données associées — par exemple, demander `canvases_received` nécessite également des données de résumé de parcours sur le profil utilisateur. Consultez la référence de l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) pour connaître les noms de champs valides et les prérequis.
+
+Si des colonnes sont absentes d'un fichier ZIP d'exportation API, vérifiez que le tableau `fields_to_export` de votre requête inclut bien chaque champ dont vous avez besoin et que votre espace de travail dispose des autorisations d'exportation requises.
