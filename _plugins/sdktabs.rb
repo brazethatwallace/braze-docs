@@ -6,13 +6,20 @@ module Tags
           super
           @tabclass = 'sdk-tab_toggle'
           @tabid = 'sdk-tab_' + (0...12).map { (97 + rand(26)).chr }.join
-          if tabonly.downcase.strip == 'local'
+          params = tabonly.downcase.strip.split(/\s+/)
+          if params.include?('local')
             @tabclass = 'sdk-tab_toggle_only'
           end
+          @all_mode = params.include?('all')
       end
       def render(context)
           tabs = super.scan(/data\-sdk\-tab=\"sdk\-(.*?)\"/)
           tabslist = '<ul role="tablist" class="sdk-ab-nav sdk-ab-nav-tabs ' + @tabclass + '_ul" id="' + @tabid + '_nav">' + "\n"
+
+          if @all_mode
+            tabslist += '    <li role="presentation" class="sdkrow sdktabs-all-tab active"><a role="tab" tabindex="0" aria-selected="true" class="sdktabs-all-btn">All</a></li>' + "\n"
+          end
+
           if tabs.length > 0
             tabs.each_with_index do |tab, ind|
               itemid = (0...12).map { (97 + rand(26)).chr }.join
@@ -20,19 +27,51 @@ module Tags
               tabslug = tab[0].gsub(/[^0-9a-z]/i, '')
               tabslug = Digest::MD5.hexdigest(tab[0]) if tabslug.empty?
 
-              tab_aria_selected = ind == 0 ? 'true' : 'false'
-              tab_tabindex      = ind == 0 ? '0'    : '-1'
+              tab_aria_selected = (@all_mode || ind > 0) ? 'false' : 'true'
+              tab_tabindex      = (@all_mode || ind > 0) ? '-1'    : '0'
 
               # scan returns array of results, only care about first match
               tabslist += '    <li role="presentation" id="sdkt_' + itemid + '" class="sdkrow ' + tabslug
-              if ind == 0
+              if ind == 0 && !@all_mode
                 tabslist += ' active'
               end
               tabslist += '"><a role="tab" tabindex="' + tab_tabindex + '" aria-selected="' + tab_aria_selected + '" class="' + @tabclass + '" data-sdk-tab-target="' + @tabid + '" data-sdk-tab="' + tabslug + '">' + tab[0] + '</a></li>' + "\n"
             end
           end
           tabslist += '</ul>'  + "\n"
-          tabslist + '<div id="' + @tabid + '" class="sdk-tab-content ' + @tabclass + '_div">' + "\n" + super + "\n</div>\n"
+
+          content_html = super
+          if @all_mode
+            content_html = content_html.gsub('class="sdk-ab-tab-pane ', 'class="sdk-ab-tab-pane active ')
+          end
+
+          result = tabslist + '<div id="' + @tabid + '" class="sdk-tab-content ' + @tabclass + '_div">' + "\n" + content_html + "\n</div>\n"
+
+          if @all_mode
+            result += <<~JS
+              <script>
+              (function() {
+                var nav = document.getElementById('#{@tabid}_nav');
+                var content = document.getElementById('#{@tabid}');
+                if (!nav || !content) return;
+                nav.querySelector('.sdktabs-all-btn').addEventListener('click', function(e) {
+                  e.preventDefault();
+                  content.querySelectorAll('.sdk-ab-tab-pane').forEach(function(p) { p.classList.add('active'); });
+                  nav.querySelectorAll('li').forEach(function(li) { li.classList.remove('active'); });
+                  nav.querySelector('.sdktabs-all-tab').classList.add('active');
+                  nav.querySelectorAll('[role="tab"]').forEach(function(a) {
+                    a.setAttribute('aria-selected', 'false');
+                    a.setAttribute('tabindex', '-1');
+                  });
+                  this.setAttribute('aria-selected', 'true');
+                  this.setAttribute('tabindex', '0');
+                });
+              })();
+              </script>
+            JS
+          end
+
+          result
       end
     end
 
