@@ -115,7 +115,7 @@ Your filter options are related to the format (data type) that you're passing to
 
 If your filter options have changed, this is an indication that your data is being passed to Braze in a different format (data type) than before. For detailed descriptions of different data types and their filtering options, refer to [custom attribute data types]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types).
 
-Keep in mind that changing the data type of a custom attribute in the dashboard will reject data that is sent to Braze in a different format. You can't change a custom attribute's data type while that attribute is referenced in active campaigns, Canvases, or segments — the dashboard displays an error and blocks the change.
+Keep in mind that changing the data type of a custom attribute in the dashboard will reject data that is sent to Braze in a different format. You can't change a custom attribute's data type while that attribute is referenced in active campaigns, Canvases, or segments; the dashboard displays an error and blocks the change.
 
 The **Values** tab on a custom attribute shows results from a sample of approximately 250,000 users. Don't use the **Values** tab to confirm whether a specific attribute value exists for troubleshooting. For more information, see [Values tab]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#values-tab).
 
@@ -135,7 +135,7 @@ If your campaign analytics count for *Message Sent* or *Unique Recipients* doesn
 
 2. **The campaign has re-eligibility set, so users can re-enter the campaign multiple times**<br><br>For example, let’s say an email campaign has re-eligibility set to zero minutes (users can re-enter the campaign as long as they meet the audience segment requirements), and the campaign has been running for over a month. The *Messages Sent* number in **Campaign Analytics** wouldn’t match the number in the segment because this field would include messages sent to duplicate users.<br><br>This is because Braze counts unique users as *Unique Daily Recipients*, or the number of users who received a particular message in a day. This means that re-eligible users are counted more than once as a unique recipient because the "unique” window only lasts a day. This can result in the number of *Unique Daily Recipients* being higher than the number of user profiles in the CSV export. The user profiles in the CSV file are truly unique.<br><br>
 
-3. **Users who share a channel identifier matched the filter**<br><br> The `Has received message from campaign X` filter (and other "received" filters) can match users who share a channel identifier — such as the same push token or email address — with another user profile that received, opened, or clicked the message.
+3. **Users who share a channel identifier matched the filter**<br><br> The `Has received message from campaign X` filter (and other "received" filters) can match users who share a channel identifier, such as the same push token or email address, with another user profile that received, opened, or clicked the message.
 
 ### User is assigned to two apps despite logging a session in only one app
 
