@@ -17,19 +17,10 @@ on:
     - cron: "0 10 1 12 *"
       timezone: "America/New_York"
   workflow_dispatch:
-    inputs:
-      min_unreferenced_for_pr:
-        description: "Run delete batch and open a draft PR when scan count is at or above this number."
-        required: false
-        default: "20"
-        type: string
 
 permissions:
   contents: write
   pull-requests: write
-
-env:
-  MIN_UNREFERENCED_FOR_PR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.min_unreferenced_for_pr != '' && github.event.inputs.min_unreferenced_for_pr || '20' }}
 
 jobs:
   scan-and-pr:
@@ -85,7 +76,6 @@ jobs:
 
       - name: Run maintenance delete batch
         id: batch
-        if: ${{ fromJSON(steps.scan.outputs.count) >= fromJSON(env.MIN_UNREFERENCED_FOR_PR) }}
         env:
           UNREFERENCED_IMAGE_DELETE_FORCE: "1"
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -125,7 +115,6 @@ jobs:
             echo "| Date | ${{ steps.stamp.outputs.ymd }} |"
             echo "| Unreferenced (scan) | ${{ steps.scan.outputs.count }} |"
             echo "| Approx. size | ${{ steps.scan.outputs.bytes_human }} |"
-            echo "| PR threshold | ${MIN_UNREFERENCED_FOR_PR} |"
             if [ -n "${{ steps.batch.outputs.deleted_count }}" ]; then
               echo "| Deleted (this run) | ${{ steps.batch.outputs.deleted_count }} |"
               echo "| Skipped (secondary verify) | ${{ steps.batch.outputs.skipped_count }} |"
@@ -138,9 +127,7 @@ jobs:
               echo "**Status:** Skipped — an open \`[IP]\` deletion PR already exists. Merge or close it, then re-run."
             elif [ -n "${{ steps.maintenance_pr.outputs.pull-request-url }}" ]; then
               echo "**Action:** Draft PR opened for review: ${{ steps.maintenance_pr.outputs.pull-request-url }}"
-            elif [ "${{ steps.scan.outputs.count }}" -ge "${MIN_UNREFERENCED_FOR_PR}" ]; then
-              echo "**Status:** Threshold met but no files deleted (secondary verify skipped all candidates, or batch empty)."
             else
-              echo "**Status:** Within maintenance baseline. No draft PR opened."
+              echo "**Status:** No draft PR opened (zero unreferenced images, secondary verify skipped all candidates, or nothing to delete)."
             fi
           } >> "$GITHUB_STEP_SUMMARY"

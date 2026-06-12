@@ -35,22 +35,22 @@ Skills do not run on a schedule. **Twice-yearly maintenance** is handled by GitH
 | What CI does | Scan; delete up to **100** unreferenced files (secondary verify, open-PR exclusions); open a **draft** `[IP]` PR |
 | Human review | **Merge the draft PR** after reviewing the image deletions in the diff |
 
-When the unreferenced count is **at or above the PR threshold** (default **20**), CI runs one delete batch and opens a draft PR. Below the threshold, the run uploads a CSV artifact and workflow summary only.
+Each run always executes a delete batch (up to 100 files). CI opens a **draft PR whenever at least one file is deleted**—there is no minimum count. If every candidate is skipped (secondary verify) or the scan finds zero unreferenced images, no PR is opened.
 
 CI skips opening a new batch when another open `[IP] Remove …` PR already exists (merge or close it first, then re-run).
 
-**Maintenance phase** (after bulk cleanup): expect a small baseline—often fewer than 20 files, so scheduled runs stay quiet. Known primary-scan false positives (for example `assets/img/Braze Komo Images v2/`) are skipped by secondary verification and never appear in the PR diff. If more than 100 files remain after a PR merges, re-run the workflow or use `@image-pruner` for the next batch.
+**Maintenance phase** (after bulk cleanup): expect few or no deletable files per run. Known primary-scan false positives (for example `assets/img/Braze Komo Images v2/`) are skipped by secondary verification and never appear in the PR diff. If more than 100 files remain after a PR merges, re-run the workflow or use `@image-pruner` for the next batch.
 
 ### Manual runs
 
-- **GitHub Actions:** *Actions → Image pruner (maintenance) → Run workflow* (`workflow_dispatch`). Optional `min_unreferenced_for_pr` input overrides the default threshold.
+- **GitHub Actions:** *Actions → Image pruner (maintenance) → Run workflow* (`workflow_dispatch`).
 - **Cursor / agents:** `@image-pruner` for ad-hoc scans and extra `[IP]` batch PRs any time.
 
 ### Division of labor
 
 | Trigger | Who acts |
 |---------|----------|
-| Scheduled run (Jun/Dec) | CI opens a draft `[IP]` PR when count ≥ threshold |
+| Scheduled run (Jun/Dec) | CI runs batch and opens a draft `[IP]` PR when deletions exist |
 | Draft PR opened by CI | Docs team reviews diff and merges (or closes without merging) |
 | Spike after a large IA move | Run workflow manually or `@image-pruner`; do not wait for the next scheduled run |
 | More than 100 files remain | Merge current PR, then re-run workflow for the next batch |
