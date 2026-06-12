@@ -69,6 +69,7 @@ Créditos de mensagem:
 Taxas unitárias de crédito: <input type="text" id="credit_rate" value="0" />
 <div id="message_error"></div><br /><br />
 <table aria-label="Créditos de mensagem - Calculadora">
+  <thead>
   <tr>
     <th>
       Canal
@@ -89,6 +90,8 @@ Taxas unitárias de crédito: <input type="text" id="credit_rate" value="0" />
       Taxas implícitas
     </th>
   </tr>
+  </thead>
+  <tbody>
   <tr><td>SMS - US / CA</td><td id="sms_-_us_ca_united_states_ratio"></td><td>Estados Unidos</td><td id="sms_-_us_ca_united_states_multiplier"></td><td id="sms_-_us_ca_united_states_credit"></td><td id="sms_-_us_ca_united_states_rates"></td></tr>
   <tr><td>SMS - US / CA</td><td id="sms_-_us_ca_united_states_toll_free_ratio"></td><td>Estados Unidos Toll Free</td><td id="sms_-_us_ca_united_states_toll_free_multiplier"></td><td id="sms_-_us_ca_united_states_toll_free_credit"></td><td id="sms_-_us_ca_united_states_toll_free_rates"></td></tr>
   <tr><td>SMS - US / CA</td><td id="sms_-_us_ca_canada_ratio"></td><td>Canadá</td><td id="sms_-_us_ca_canada_multiplier"></td><td id="sms_-_us_ca_canada_credit"></td><td id="sms_-_us_ca_canada_rates"></td></tr>
@@ -465,6 +468,7 @@ Taxas unitárias de crédito: <input type="text" id="credit_rate" value="0" />
   <tr><td>WhatsApp</td><td id="whatsapp_united_kingdom_marketing_ratio"></td><td>Reino Unido Marketing</td><td id="whatsapp_united_kingdom_marketing_multiplier"></td><td id="whatsapp_united_kingdom_marketing_credit"></td><td id="whatsapp_united_kingdom_marketing_rates"></td></tr>
   <tr><td>WhatsApp</td><td id="whatsapp_united_kingdom_service_ratio"></td><td>Reino Unido Atendimento</td><td id="whatsapp_united_kingdom_service_multiplier"></td><td id="whatsapp_united_kingdom_service_credit"></td><td id="whatsapp_united_kingdom_service_rates"></td></tr>
   <tr><td>WhatsApp</td><td id="whatsapp_united_kingdom_utility_ratio"></td><td>Reino Unido Utilidade</td><td id="whatsapp_united_kingdom_utility_multiplier"></td><td id="whatsapp_united_kingdom_utility_credit"></td><td id="whatsapp_united_kingdom_utility_rates"></td></tr>
+  </tbody>
   </table>
 </div>
 

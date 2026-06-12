@@ -286,7 +286,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 1. **データ設定** > **カスタム属性**に移動します。
 2. 階層化カスタム属性を検索します。
-3. 属性の**Attribute Name**列で、<i class="fas fa-plus"></i>を選択してスキーマを管理します。
+3. 属性の**Attribute Name**列で、<i class="fas fa-plus" aria-label="スキーマを管理"></i> **Manage schema**を選択してスキーマを管理します。
 4. モーダルが表示されます。**Regenerate Schema**を選択します。
 
 **Regenerate Schema**アクションは、会社のタイムゾーンで**1暦日に1回**に制限されています。スキーマジョブがすでに**進行中**の場合（ステータスが**Generating**の間はオプションが利用できません）、別の再生成を開始することはできません。スキーマの再生成では新しいオブジェクトのみが検出され、スキーマに現在存在するオブジェクトは削除されません。

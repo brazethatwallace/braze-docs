@@ -48,7 +48,7 @@ Consulta lo siguiente para conocer los límites de velocidad predeterminados de 
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) | 100 solicitudes por minuto. |
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 100 solicitudes por hora. |
 | [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 100 solicitudes por hora. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solicitudes con diferentes límites de velocidad" }
 
 ### Solicitudes con límites de velocidad compartidos {#requests-with-shared-rate-limits}
 
@@ -188,7 +188,7 @@ Cada solicitud de API enviada a Braze devuelve la siguiente información en los 
 | `X-RateLimit-Limit` | El número máximo de solicitudes que puedes hacer en un intervalo especificado (tu límite de velocidad). |
 | `X-RateLimit-Remaining` | El número de solicitudes que quedan en la ventana actual de límite de velocidad. |
 | `X-RateLimit-Reset` | La hora a la que se restablece la ventana de límite de velocidad actual en segundos de época UTC. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Monitoring your rate limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Control de los límites de velocidad" }
 
 Esta información se incluye intencionadamente en el encabezado de la respuesta a la solicitud de API en lugar de en el panel de Braze. Esto permite que tu sistema reaccione mejor en tiempo real mientras interactúas con nuestra API. Por ejemplo, si el valor de `X-RateLimit-Remaining` cae por debajo de un determinado umbral, puede que quieras ralentizar el envío para asegurarte de que se envían todos los correos electrónicos transaccionales. O, si llega a cero, es conveniente pausar todos los envíos hasta que transcurra el tiempo especificado en `X-RateLimit-Reset`.
 
@@ -211,6 +211,12 @@ Te recomendamos que dejes un retraso de 5 minutos entre llamadas consecutivas a 
 Comprender el retraso óptimo entre puntos finales es crucial a la hora de realizar llamadas consecutivas a la API de Braze. Los problemas surgen cuando los puntos finales dependen del procesamiento satisfactorio de otros puntos finales y, si se los llama demasiado pronto, podrían provocar errores. Por ejemplo, si estás asignando a los usuarios un alias a través de nuestro punto final `/user/alias/new`, y luego utilizas ese alias para enviar un evento personalizado a través de nuestro punto final `/users/track`, ¿cuánto tiempo debes esperar?
 
 En condiciones normales, el tiempo que tarda en producirse la consistencia eventual de nuestros datos es de 10 a 100 ms (1/10 de segundo). Sin embargo, puede haber casos en los que esa consistencia tarde más en producirse, por lo que te recomendamos que dejes pasar 5 minutos entre una llamada y otra para minimizar la probabilidad de error.
+
+## Límites de tamaño de la carga útil {#payload-size-limits}
+
+Las solicitudes a la API de Braze están sujetas a límites de tamaño de la carga útil, independientes de los límites de velocidad. La mayoría de los puntos finales aceptan cuerpos de solicitud de hasta 4&nbsp;MB. Cuando una solicitud supera el límite aplicable, Braze puede rechazarla con un HTTP `413 Request Entity Too Large` o un HTTP `400 Bad Request`, dependiendo del punto final.
+
+El punto final [`/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/) tiene un límite de carga útil de 2&nbsp;MB y devuelve HTTP `400` cuando el cuerpo de la solicitud supera ese límite. Para conocer los límites específicos de cada punto final y el manejo de errores, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/api/endpoints/user_data/).
 
 ### Restablecimiento del límite de velocidad {#rate-limit-reset}
 

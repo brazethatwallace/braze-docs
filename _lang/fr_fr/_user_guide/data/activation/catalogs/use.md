@@ -17,7 +17,7 @@ La vidéo suivante explique comment utiliser les catalogues dans un message.
 
 ### Étape 1 : Ajouter un type de personnalisation {#step-one-personalization}
 
-Dans l'éditeur de message de votre choix, sélectionnez l'icône <i class="fas fa-plus-circle"></i> « + » pour ouvrir la fenêtre modale **Add Personalization**, puis sélectionnez **Catalog Items** comme **Personalization type**. Sélectionnez ensuite le nom de votre catalogue. En reprenant l'exemple précédent, nous allons sélectionner le catalogue « Games ».
+Dans l'éditeur de message de votre choix, sélectionnez <i class="fas fa-plus-circle"></i> **Add Personalization** et sélectionnez **Catalog Items** comme **Personalization type**. Sélectionnez ensuite le nom de votre catalogue. En reprenant l'exemple précédent, nous allons sélectionner le catalogue « Games ».
 
 ![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 

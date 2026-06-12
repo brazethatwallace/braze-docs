@@ -2,12 +2,12 @@
 nav_title: Uso de catálogos
 article_title: Usar catálogos
 page_order: 1.5
-description: "En este artículo de referencia se explica cómo utilizar catálogos para hacer referencia a datos de no usuarios en tus Campaigns de Braze a través de Liquid."
+description: "En este artículo de referencia se explica cómo utilizar catálogos para hacer referencia a datos de no usuarios en tus campañas de Braze a través de Liquid."
 ---
 
 # Uso de catálogos {#using-catalogs}
 
-> Después de crear un catálogo, puedes hacer referencia a datos de no usuarios en tus Campaigns de Braze a través de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Puedes utilizar catálogos en todos tus canales de mensajería, incluso en cualquier parte del editor de arrastrar y soltar donde se admita Liquid.
+> Después de crear un catálogo, puedes hacer referencia a datos de no usuarios en tus campañas de Braze a través de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Puedes utilizar catálogos en todos tus canales de mensajería, incluso en cualquier parte del editor de arrastrar y soltar donde se admita Liquid.
 
 ## Utilización de catálogos en un mensaje {#using-catalogs-in-a-message}
 
@@ -17,7 +17,7 @@ El siguiente video muestra cómo utilizar catálogos en un mensaje.
 
 ### Paso 1: Añadir tipo de personalización {#step-one-personalization}
 
-En el creador de mensajes que elijas, selecciona el icono <i class="fas fa-plus-circle"></i> más para abrir el modal **Add Personalization** y selecciona **Catalog Items** como **Personalization type**. A continuación, selecciona el nombre de tu catálogo. Utilizando nuestro ejemplo anterior, seleccionaremos el catálogo "Games".
+En el creador de mensajes que elijas, selecciona <i class="fas fa-plus-circle"></i> **Add Personalization** y selecciona **Catalog Items** como **Personalization type**. A continuación, selecciona el nombre de tu catálogo. Utilizando nuestro ejemplo anterior, seleccionaremos el catálogo "Games".
 
 ![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 

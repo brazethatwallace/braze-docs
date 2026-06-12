@@ -58,7 +58,9 @@ No armazenamento em nuvem, as exportações CSV são agrupadas em um arquivo ZIP
 - Apóstrofos adicionados no início de certos campos (como `-`, `=`, `+` ou `@`) são esperados. Por exemplo, `-1943` se torna `'-1943` no CSV. A Braze faz isso para evitar que programas de planilhas interpretem os dados incorretamente. Isso não se aplica a exportações JSON, como as retornadas pelo [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
 
 ## Exportações de API
-Quando você exporta dados através das APIs com um parceiro de armazenamento conectado, os arquivos de exportação são gravados no seu bucket. Nenhum e-mail é enviado. Os objetos subjacentes ficam no seu armazenamento e seguem suas configurações de retenção, mesmo que as URLs de download retornadas pela Braze possam ainda ter limite de tempo. Cada arquivo ZIP contém objetos JSON, um por linha. Exportações grandes podem ser divididas em vários arquivos ZIP em vez de um único ZIP, o que geralmente torna esse método mais confiável para exportações pesadas.
+Quando você exporta dados através das APIs com um parceiro de armazenamento conectado, os arquivos de exportação são gravados no seu bucket. Nenhum e-mail é enviado. Os objetos subjacentes ficam no seu armazenamento e seguem suas configurações de retenção, mesmo que as URLs de download retornadas pela Braze possam ainda ter limite de tempo.
+
+Os arquivos geralmente aparecem no seu bucket conforme a exportação é executada, então você não precisa esperar o trabalho inteiro terminar para acessar resultados parciais. A Braze faz upload de cada lote concluído de forma incremental, em vez de reter tudo até o final. Exportações grandes são divididas em vários arquivos compactados (ZIP ou GZIP), cada um contendo objetos JSON, um por linha. Isso torna esse método mais confiável para exportações pesadas.
 
 ### Erros comuns
 

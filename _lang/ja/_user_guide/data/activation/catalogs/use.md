@@ -17,7 +17,7 @@ description: "この参照記事では、Liquidを通してBrazeのCampaignで�
 
 ### ステップ 1:パーソナライゼーションタイプを追加する {#step-one-personalization}
 
-任意のメッセージ作成画面で、<i class="fas fa-plus-circle"></i>プラスアイコンを選択して**「Add Personalization」**モーダルを開き、**Personalization type**として**「Catalog Items」**を選択します。次に、カタログ名を選択します。先ほどの例を使って、「Games」カタログを選択します。
+任意のメッセージ作成画面で、<i class="fas fa-plus-circle"></i>**Add Personalization**を選択し、**Personalization type**として**Catalog Items**を選択します。次に、カタログ名を選択します。先ほどの例を使って、「Games」カタログを選択します。
 
 ![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
@@ -60,7 +60,7 @@ Get {{ items[0].title }} for just {{ items[0].price }}!
 
 ### 複数のアイテム {#multiple-items}
 
-メッセージで使用できるアイテムは1つだけではありません。**「Add Personalization」**モーダルを使って、一度に最大3つのカタログアイテムを追加できます。さらに追加するには、作成画面で再度**「Add Personalization」**を選択し、追加のカタログアイテムや表示する情報を選びます。
+メッセージで使用できるアイテムは1つだけではありません。**Add Personalization**モーダルを使って、一度に最大3つのカタログアイテムを追加できます。さらに追加するには、作成画面で再度**Add Personalization**を選択し、追加のカタログアイテムや表示する情報を選びます。
 
 この例では、Tales、Teslagrad、Acaratusの3つのゲームの`id`を**Catalog Items**に追加し、**Information to Display**として`title`を選択します。
 
@@ -166,7 +166,7 @@ Liquidがレンダリングされると、次のように表示されます。
 カタログ内のJSONオブジェクトは、APIを介してのみ取り込まれます。CSVファイルを使用してJSONオブジェクトをアップロードすることはできません。
 {% endalert %}
 
-Liquidテンプレートを使用することで、ウィッシュリストのIDをダイナミックに取り出し、メッセージで使用できます。そのためには、カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables)、**「Add Personalization」**モーダルを使用して、配列から特定のアイテムを取り出します。カタログアイテムIDとして参照する変数は、`{{result}}`のように中かっこで囲む必要があります。
+Liquidテンプレートを使用することで、ウィッシュリストのIDをダイナミックに取り出し、メッセージで使用できます。そのためには、カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables)、**Add Personalization**モーダルを使用して、配列から特定のアイテムを取り出します。カタログアイテムIDとして参照する変数は、`{{result}}`のように中かっこで囲む必要があります。
 
 {% alert tip %}
 配列は`1`ではなく`0`から始まることを忘れないでください。

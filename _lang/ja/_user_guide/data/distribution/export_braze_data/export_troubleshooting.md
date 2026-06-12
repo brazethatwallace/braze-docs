@@ -58,7 +58,9 @@ CSVエクスポートでは、Brazeがダウンロードリンクをメールで
 - 特定のフィールド（`-`、`=`、`+`、`@`など）の先頭にアポストロフィが追加されるのは想定された動作です。たとえば、`-1943`はCSVでは`'-1943`になります。Brazeは、スプレッドシートプログラムがデータを誤って解釈するのを防ぐためにこの処理を行っています。これは、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)から返されるものなどのJSONエクスポートには適用されません。
 
 ## APIエクスポート
-ストレージパートナーが接続された状態でAPIを通じてデータをエクスポートすると、エクスポートファイルはバケットに書き込まれます。メールは送信されません。Brazeが返すダウンロードURLには引き続き時間制限がある場合がありますが、基盤となるオブジェクトはお客様のストレージに存在し、リテンション設定に従います。各ZIPファイルには、1行に1つのJSONオブジェクトが含まれています。大規模なエクスポートは、単一のZIPではなく複数のZIPファイルに分割される場合があり、これにより通常、大量のエクスポートに対してこの方法の信頼性が高くなります。
+ストレージパートナーが接続された状態でAPIを通じてデータをエクスポートすると、エクスポートファイルはバケットに書き込まれます。メールは送信されません。Brazeが返すダウンロードURLには引き続き時間制限がある場合がありますが、基盤となるオブジェクトはお客様のストレージに存在し、リテンション設定に従います。
+
+ファイルは通常、エクスポートの実行中にバケットに表示されるため、ジョブ全体の完了を待たずに部分的な結果にアクセスできます。Brazeは完了したバッチを最後にまとめて送信するのではなく、順次アップロードします。大規模なエクスポートは複数の圧縮ファイル（ZIPまたはGZIP）に分割され、それぞれに1行に1つのJSONオブジェクトが含まれています。これにより、大量のエクスポートに対してこの方法の信頼性が高くなります。
 
 ### 一般的なエラー
 
@@ -89,7 +91,7 @@ CSVエクスポートは、特定のCampaignまたはCanvasを受信した既存
 
 ダッシュボードのSegment**サイズは推定値です**。CSVエクスポートはその推定値を使用して[500,000ユーザーのエクスポート制限]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details)を適用します。エクスポートパイプラインは、SegmentビルダーのUIとは異なる方法でサイズを評価する場合もあります。そのしきい値付近のSegmentでエクスポートが失敗する場合は、[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)を使用するか、オーディエンスをより小さなSegmentsに分割するか、[大規模なSegmentsのエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)に記載されている[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用してください。
 
-### Segmentエクスポートメールが届かないのはなぜですか？ {#why-arent-i-receiving-segment-export-emails}
+### Segmentエクスポートメールが届かないのはなぜですか {#why-arent-i-receiving-segment-export-emails}
 
 まず、`no-reply@alerts.braze.com`からのメールがスパムフォルダーにないか確認してください。メールがスパムフォルダーにある場合は、今後のエクスポートメッセージがフィルタリングされないよう、そのアドレスを安全な送信者リストに追加してください。
 

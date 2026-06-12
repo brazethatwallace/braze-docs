@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: フィルターが使用される場所（Segments、Campaignsなど）でSegmentメンバーシップに基づいてフィルタリングし、1つのCampaign内で複数の異なるSegmentsをターゲットにできます。<br><br>このフィルターを既に使用しているSegmentsは、他のSegmentsにさらに含めたりネストしたりすることはできません。これは、Segment AがSegment Bを含み、Segment Bが再びSegment Aを含もうとするサイクルが発生する可能性があるためです。そのような場合、Segmentは自身を参照し続け、実際に誰がそのSegmentに属しているかを計算することが不可能になります。また、このようなSegmentsのネストは複雑さを増し、処理速度を低下させる可能性があります。代わりに、同じフィルターを使用して含めたいSegmentを再作成してください。
+    description: フィルターが使用される場所（Segments、Campaignsなど）でSegmentメンバーシップに基づいてフィルタリングし、1つのCampaign内で複数の異なるSegmentsをターゲットにできます。<br><br>特定の時点でのSegmentメンバーシップをキャプチャするには、CampaignまたはCanvasを送信する前に、ダッシュボードからSegmentのユーザーをエクスポートするか、[`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)エンドポイントを呼び出してください。詳細については、[SegmentデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)を参照してください。<br><br>このフィルターを既に使用しているSegmentsは、他のSegmentsにさらに含めたりネストしたりすることはできません。これは、Segment AがSegment Bを含み、Segment Bが再びSegment Aを含もうとするサイクルが発生する可能性があるためです。そのような場合、Segmentは自身を参照し続け、実際に誰がそのSegmentに属しているかを計算することが不可能になります。また、このようなSegmentsのネストは複雑さを増し、処理速度を低下させる可能性があります。代わりに、同じフィルターを使用して含めたいSegmentを再作成してください。
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -217,7 +217,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: メールアドレスがハードバウンスしたかどうか（メールアドレスが無効など）でユーザーをセグメント化します。
+    description: メールアドレスがハードバウンスしたかどうか（メールアドレスが無効など）でユーザーをセグメント化します。無効なメールを持つユーザーをエクスポートするには、[`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/)エンドポイントを呼び出すか、メールアドレスが空白でない、メールが利用不可、メールサブスクリプションステータスが配信停止でないなどのフィルターでSegmentを作成してください。
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -453,7 +453,7 @@ glossaries:
     tags:
       - App
   - name: Uninstalled
-    description: アプリをアンインストールし、再インストールしていないかどうかでユーザーをセグメント化します。
+    description: バックエンドで現在アンインストール済みとしてマークされているかどうかでユーザーをセグメント化します。アンインストール後にアプリを再インストールしたユーザーは含まれません。このフィルターは現在のアンインストール状態を反映しており、すべてのアンインストールイベントの履歴ログではありません。
     tags:
       - Uninstall
   - name: Device Carrier

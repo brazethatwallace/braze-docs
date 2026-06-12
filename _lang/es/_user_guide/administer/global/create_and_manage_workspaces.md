@@ -35,9 +35,9 @@ Antes de empezar, asegúrate de haber trabajado con tu equipo y tu administrador
 
 Puedes crear nuevos espacios de trabajo o cambiar entre espacios de trabajo existentes desde el menú desplegable de espacios de trabajo en el encabezado global.
 
-1. Selecciona el menú desplegable de espacios de trabajo y luego selecciona <i class="fa-solid fa-square-plus" style="color: #0b8294;"></i> **Create workspace**.
+1. Selecciona el menú desplegable de espacios de trabajo y luego selecciona <i class="fa-solid fa-square-plus" style="color: #0b8294;" aria-hidden="true"></i> **Crear espacio de trabajo**.
 
-![El menú desplegable de espacios de trabajo con el botón "Create workspace".]({% image_buster /assets/img/workspaces/workspace_create.png %}){: style="max-width:60%;"}
+![El menú desplegable de espacios de trabajo con el botón "Crear espacio de trabajo".]({% image_buster /assets/img/workspaces/workspace_create.png %}){: style="max-width:60%;"}
 
 {:start="2"}
 2. Dale un nombre a tu espacio de trabajo.
@@ -47,19 +47,19 @@ Puede que quieras adoptar una convención de nomenclatura para que otras persona
 {% endalert %}
 
 {:start="3"}
-3. Selecciona **Create**. Braze puede tardar unos segundos en crear tu espacio de trabajo.
+3. Selecciona **Crear**. Braze puede tardar unos segundos en crear tu espacio de trabajo.
 
-![Modal "Create Workspace" con el nombre "Upon Voyage US - Staging".]({% image_buster /assets/img/workspaces/workspace_name.png %}){: style="max-width:60%" }
+![Modal "Crear espacio de trabajo" con el nombre "Upon Voyage US - Staging".]({% image_buster /assets/img/workspaces/workspace_name.png %}){: style="max-width:60%" }
 
-Se te dirigirá a la página **App Settings** para comenzar a añadir tus instancias de la aplicación. Puedes acceder a esta página en cualquier momento desde **Settings** > **App Settings**.
+Se te dirigirá a la página **Configuración de la aplicación** para comenzar a añadir tus instancias de la aplicación. Puedes acceder a esta página en cualquier momento desde **Configuración** > **Configuración de la aplicación**.
 
-![Página "App Settings" para el espacio de trabajo Upon Voyage US - Staging con un botón para añadir una aplicación.]({% image_buster /assets/img/workspaces/workspace_empty_state.png %})
+![Página "Configuración de la aplicación" para el espacio de trabajo Upon Voyage US - Staging con un botón para añadir una aplicación.]({% image_buster /assets/img/workspaces/workspace_empty_state.png %})
 
 ### Paso 3: Añade tus instancias de la aplicación {#step-3-add-your-app-instances}
 
 Nos referimos a los diferentes sitios y aplicaciones que se recopilan dentro de un espacio de trabajo como "instancias de la aplicación".
 
-1. Desde la página **App Settings**, selecciona **+ Add app**.
+1. Desde la página **Configuración de la aplicación**, selecciona **+ Add app**.
 2. Dale un nombre a tu instancia de la aplicación y selecciona en qué plataforma o plataformas se encuentra esta instancia. Si seleccionas múltiples plataformas, Braze creará una instancia de la aplicación para cada plataforma.
 
 ![Modal "Add New App to Upon Voyage US - Staging" con opciones para seleccionar los detalles de la aplicación.]({% image_buster /assets/img/workspaces/workspace_add_app.png %}){: style="max-width:60%" }
@@ -79,11 +79,11 @@ Debes crear instancias de la aplicación separadas para cada versión de tu apli
 
 #### Versión del SDK en vivo {#live-sdk-version}
 
-La versión del SDK en vivo que se muestra en la página App Settings para una aplicación específica es la versión más alta de la aplicación con al menos el 5 % del total de tus sesiones diarias y que tiene al menos 500 sesiones en el último día.
+La versión del SDK en vivo que se muestra en la página Configuración de la aplicación para una aplicación específica es la versión más alta de la aplicación con al menos el 5 % del total de tus sesiones diarias y que tiene al menos 500 sesiones en el último día.
 
 Este campo aparece después de que hayas integrado el SDK de Braze con tu aplicación o sitio web. Si hay una versión más reciente del SDK de Braze disponible para tu plataforma, se indicará aquí con la etiqueta "Newer Version Available".
 
-![Sección "Live SDK Version" con un valor de campo de "5.4.0" y un icono que indica que hay una nueva versión disponible.]({% image_buster /assets/img/workspaces/app_live_sdk_version.png %})
+![Sección "Versión del SDK en vivo" con un valor de campo de "5.4.0" y un icono que indica que hay una nueva versión disponible.]({% image_buster /assets/img/workspaces/app_live_sdk_version.png %})
 
 ### Paso 4: Repite según sea necesario {#step-4-repeat-as-needed}
 
@@ -99,14 +99,14 @@ Repite los pasos 2 y 3 para configurar tantos espacios de trabajo como requiera 
 
 Puedes añadir espacios de trabajo favoritos para acceder aún más rápido a los espacios de trabajo que más utilizas.
 
-![Menú desplegable de espacios de trabajo con la pestaña "Favorite workspaces".]({% image_buster /assets/img/workspaces/workspace_favorites.png %}){: style="max-width:50%;"}
+![Menú desplegable de espacios de trabajo con la pestaña "Espacios favoritos".]({% image_buster /assets/img/workspaces/workspace_favorites.png %}){: style="max-width:50%;"}
 
 Para añadir espacios de trabajo favoritos:
 
-1. Selecciona el menú desplegable de tu perfil y luego selecciona **Manage your account**.
-2. En la sección **Account Profile**, localiza el campo **Favorite workspaces**.
+1. Selecciona el menú desplegable de tu perfil y luego selecciona **Gestiona tu cuenta**.
+2. En la sección **Perfil de cuenta**, localiza el campo **Espacios favoritos**.
 3. Selecciona tus espacios de trabajo de la lista.
-4. Selecciona **Save Changes**.
+4. Selecciona **Guardar cambios**.
 
 No hay límite en la cantidad de espacios de trabajo que puedes marcar como favoritos, pero te recomendamos mantener esta lista corta por comodidad.
 
@@ -114,9 +114,9 @@ No hay límite en la cantidad de espacios de trabajo que puedes marcar como favo
 
 Para renombrar tu espacio de trabajo:
 
-1. Ve a **Settings** > **App Settings**.
-2. Pasa el cursor sobre el nombre de tu espacio de trabajo y selecciona <i class="fa-solid fa-pencil" style="color: #0b8294;"></i>.
-3. Dale un nuevo nombre a tu espacio de trabajo y luego selecciona <i class="fa-solid fa-square-check" style="color: #0b8294;"></i> **Save**.
+1. Ve a **Configuración** > **Configuración de la aplicación**.
+2. Pasa el cursor sobre el nombre de tu espacio de trabajo y selecciona <i class="fa-solid fa-pencil" style="color: #0b8294;" aria-hidden="true"></i> **Editar**.
+3. Dale un nuevo nombre a tu espacio de trabajo y luego selecciona <i class="fa-solid fa-square-check" style="color: #0b8294;" aria-hidden="true"></i> **Guardar**.
 
 ![El icono de lápiz apareciendo junto al nombre del espacio de trabajo.]({% image_buster /assets/img/workspaces/workspace_rename.gif %}){: style="max-width:50%;"}
 
@@ -124,8 +124,8 @@ Para renombrar tu espacio de trabajo:
 
 Para eliminar tu espacio de trabajo o instancia de la aplicación:
 
-1. Ve a **Settings** > **App Settings**.
-2. Selecciona **Delete workspace** para eliminar el espacio de trabajo correspondiente, o selecciona el icono de papelera junto a la instancia de la aplicación correspondiente.
+1. Ve a **Configuración** > **Configuración de la aplicación**.
+2. Selecciona **Eliminar espacio de trabajo** para eliminar el espacio de trabajo correspondiente, o selecciona el icono de papelera junto a la instancia de la aplicación correspondiente.
 
 No puedes eliminar instancias de la aplicación o espacios de trabajo que se estén utilizando actualmente para segmentar usuarios o que tengan más de 1000 usuarios. Si intentas hacerlo, recibirás un mensaje de error. Para proceder y eliminarlos, [crea un caso de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support/) que incluya un enlace al dashboard y el nombre de la instancia de la aplicación o espacio de trabajo que se va a eliminar.
 
@@ -133,7 +133,7 @@ No puedes eliminar instancias de la aplicación o espacios de trabajo que se est
 ¡Ten cuidado al eliminar espacios de trabajo! Una vez que se elimina un espacio de trabajo, no se puede restaurar.
 {% endalert %}
 
-![La página App Settings con un botón para eliminar un espacio de trabajo y un icono de papelera para eliminar una aplicación.]({% image_buster /assets/img/workspaces/workspace_delete.png %})
+![La página Configuración de la aplicación con un botón para eliminar un espacio de trabajo y un icono de papelera para eliminar una aplicación.]({% image_buster /assets/img/workspaces/workspace_delete.png %})
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

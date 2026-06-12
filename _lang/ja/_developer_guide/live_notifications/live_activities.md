@@ -347,6 +347,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 {% sdk_min_versions swift:14.2.0 %}
 
+{% alert important %}
+以下のActivityKitストリームをAppleに直接サブスクライブしないでください。Brazeのサブスクリプションと競合し、ライブアクティビティが正しく機能しなくなります。
+
+1. [`pushTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtokenupdates-swift.property)
+2. [`activityStateUpdates`](https://developer.apple.com/documentation/activitykit/activity/activitystateupdates-swift.property)
+3. [`contentUpdates`](https://developer.apple.com/documentation/activitykit/activity/contentupdates-swift.property)
+4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
+5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
+
+代わりに、以下で説明するサブスクリプションを使用してください。
+{% endalert %}
+
 Braze SDKは、`braze.liveActivities`に2つのサブスクリプションメソッドを提供し、ライブアクティビティの完全なライフサイクルを監視できます。詳細なステップバイステップのウォークスルーについては、[ライブアクティビティチュートリアル](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities)を参照してください。
 
 - [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates): push-to-startトークン登録と実行中のアクティビティインスタンスの両方のライフサイクルイベントを配信します。
@@ -409,7 +421,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 | `.pushToStartTokenFlushed(activityType:)` | トークンがBrazeサーバーに送信されました。Brazeはこのタイプのpush-to-start通知を送信できます。 |
 | `.pushToStartOptedOut(activityType:)` | ユーザーが`optOutPushToStart(type:)`を通じてこのアクティビティタイプのpush-to-startをオプトアウトしました。 |
 | `.pushToStartOptOutFlushed(activityType:)` | オプトアウトがBrazeサーバーに送信されました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Type-scoped events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="タイプスコープのイベント" }
 
 #### インスタンススコープのイベント {#instance-scoped-events}
 
@@ -424,7 +436,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 | `.ended(activityId:activityType:)` | アクティビティが終了しました。 |
 | `.contentUpdated(activityId:activityType:)` | アクティビティのコンテンツ状態が更新されました（iOS 16.2以降）。カスタムロジックを使用して、`Activity.activities`からIDで`Activity<T>`を検索し、`activity.content.state`を通じて型付き状態にアクセスします。 |
 | `.pushTokenUpdated(activityId:activityType:)` | ActivityKitがアクティビティのプッシュトークンをローテーションしました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Instance-scoped events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="インスタンススコープのイベント" }
 
 ###### 例
 
@@ -478,7 +490,7 @@ func handleStateUpdate(_ event: Braze.LiveActivities.UpdateEvent) {
 | エラー | 発火タイミング |
 | ----- | ------------- |
 | `.pushToStartRegistrationFailed(activityType:isTransient:reason:)` | push-to-startトークンがBrazeサーバーに到達できませんでした。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Type-scoped errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="タイプスコープのエラー" }
 
 #### インスタンススコープのエラー {#instance-scoped-errors}
 
@@ -487,7 +499,7 @@ func handleStateUpdate(_ event: Braze.LiveActivities.UpdateEvent) {
 | `.registrationFailed(activityId:activityType:pushTokenTag:isTransient:reason:)` | アクティビティのプッシュトークンがBrazeへの登録に失敗しました。 |
 | `.activityNotFound(activityId:activityType:)` | `resumeActivities(ofType:)`が、もう実行されていないアクティビティの保存済みマッピングを検出しました。アプリが強制終了されている間にアクティビティが終了した可能性があります。 |
 | `.invalidPushTokenTag(activityId:activityType:tag:)` | `launchActivity(pushTokenTag:activity:)`が無効なタグで呼び出されました。タグは空でなく、256バイト未満である必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Instance-scoped errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="インスタンススコープのエラー" }
 
 ###### 例
 
@@ -614,7 +626,7 @@ func findActivityInstance<Attributes: ActivityAttributes>(
 
 #### React Nativeアプリはライブアクティビティをサポートしていますか？ {#do-react-native-apps-support-live-activities}
 
-はい、React Native SDK 3.0.0以降は、Braze Swift SDK経由でライブアクティビティをサポートしています。つまり、Braze Swift SDKの上に直接React Native iOSのコードを記述する必要があります。
+はい、React Native SDK 3.0.0以降は、Braze Swift SDKを介してライブアクティビティをサポートしています。つまり、Braze Swift SDKの上に直接React Native iOSのコードを記述する必要があります。
 
 Appleが提供するライブアクティビティ機能は、JavaScriptでは変換できない言語機能（Swift Concurrency、generics、SwiftUIなど）を使用しているため、ライブアクティビティ用のReact Native固有のJavaScriptコンビニエンスAPIは存在しません。
 

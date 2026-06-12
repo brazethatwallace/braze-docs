@@ -85,7 +85,7 @@ Workspaces haben unabhängige Zugriffs- und Berechtigungsdefinitionen. Mit [Bere
 
 #### Currents-Konnektoren {#currents-connectors}
 
-Das [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Tool ist ein Realtime-Daten-Stream Ihrer Engagement-Events und der robusteste und zugleich granularste Export der Braze-Plattform. Currents-Konnektoren sind in bestimmten Braze-Paketen enthalten, und möglicherweise haben Sie zunächst einen erhalten, der einen einzigen Workspace voraussetzt.
+Das [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Tool ist ein Realtime-Daten-Stream Ihrer Engagement-Ereignisse und der robusteste und zugleich granularste Export der Braze-Plattform. Currents-Konnektoren sind in bestimmten Braze-Paketen enthalten, und möglicherweise haben Sie zunächst einen erhalten, der einen einzigen Workspace voraussetzt.
 
 Wenn Sie sich entscheiden, ob Sie getrennte oder kombinierte Workspaces erstellen möchten, sollten Sie die Anzahl Ihrer Currents-Konnektoren berücksichtigen, da Currents-Konnektoren nicht über Workspaces hinweg gemeinsam genutzt werden.
 
@@ -155,6 +155,7 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
 
 <table aria-label="Überblick über die einzelnen Ansätze">
   <caption>Überblick über die einzelnen Ansätze</caption>
+    <thead>
     <tr>
         <th></th>
         <th colspan="2" scope="colgroup">Getrennte Workspaces</th>
@@ -167,6 +168,8 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
         <th scope="col">Vorteile</th>
         <th scope="col">Nachteile</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <th scope="row">Targeting</th>
         <td>Der sicherste Weg, um die Kommunikation zu trennen. Campaigns sind garantiert nur auf bestimmte Nutzerprofile ausgerichtet.</td>
@@ -216,6 +219,7 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
         <td>N/A</td>
         <td>Die globalen Statistiken werden für alle App-Instanzen im Workspace auf der Startseite zusammengefasst.</td>
     </tr>
+    </tbody>
 </table>
 
 ## Best Practices {#best-practices}

@@ -20,10 +20,13 @@ Der Drag-and-Drop-Editor verwendet [Inhalt](#content) und [Zeilen](#rows) als di
 
 <table aria-label="Über den Editor" style="width: 100%; table-layout: fixed;">
     <caption>Inhalt und Zeilen als Editor-Komponenten</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Inhalt</th>
         <th style="width: 50%;">Zeilen</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="Der Tab 'Zeilen' mit verschiedenen strukturellen Kombinationen für Ihr E-Mail-Layout." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ Der Drag-and-Drop-Editor verwendet [Inhalt](#content) und [Zeilen](#rows) als di
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="Der Tab 'Inhalt' mit grundlegenden Blöcken, Medien und erweiterten Optionen." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="Über den Editor" }
 

@@ -21,6 +21,10 @@ tool:
 
 CampaignやCanvasをアーカイブすると、メッセージは配信されなくなり、アプリ内メッセージも表示されなくなります。アーカイブ後も結果を確認することはできますが、CampaignやCanvasを編集することはできません。編集するには、まず[アーカイブを解除](#unarchiving-campaigns-and-canvases)する必要があります。
 
+{% alert note %}
+**アーカイブ**はCampaignやCanvasを削除するものではありません。Brazeは配信を停止し、日常のリストからメッセージを非表示にし、レポートやワークスペースの履歴のために保持します。
+{% endalert %}
+
 {% tabs local %}
 {% tab campaign %}
 Campaignをアーカイブするには:

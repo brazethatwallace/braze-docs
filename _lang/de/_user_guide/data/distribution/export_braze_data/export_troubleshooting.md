@@ -58,7 +58,9 @@ Im Cloud-Speicher werden CSV-Exporte in einer ZIP-Datei gebündelt. Die ZIP-Date
 - Apostrophe am Anfang bestimmter Felder (wie `-`, `=`, `+` oder `@`) sind erwartetes Verhalten. Beispielsweise wird `-1943` in der CSV-Datei zu `'-1943`. Braze tut dies, um zu verhindern, dass Tabellenkalkulationsprogramme die Daten falsch interpretieren. Dies gilt nicht für JSON-Exporte, wie sie etwa vom [Endpunkt `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) zurückgegeben werden.
 
 ## API-Exporte
-Wenn Sie Daten über die APIs mit einem verbundenen Speicherpartner exportieren, werden die Exportdateien in Ihren Bucket geschrieben. Es wird keine E-Mail versendet. Die zugrunde liegenden Objekte werden in Ihrem Speicher aufbewahrt und unterliegen Ihren Aufbewahrungseinstellungen, auch wenn die von Braze zurückgegebenen Download-URLs möglicherweise weiterhin zeitlich begrenzt sind. Jede ZIP-Datei enthält JSON-Objekte, eines pro Zeile. Umfangreiche Exporte können in mehrere ZIP-Dateien anstatt in eine einzige ZIP-Datei aufgeteilt werden, was diese Methode für umfangreiche Exporte im Allgemeinen zuverlässiger macht.
+Wenn Sie Daten über die APIs mit einem verbundenen Speicherpartner exportieren, werden die Exportdateien in Ihren Bucket geschrieben. Es wird keine E-Mail versendet. Die zugrunde liegenden Objekte werden in Ihrem Speicher aufbewahrt und unterliegen Ihren Aufbewahrungseinstellungen, auch wenn die von Braze zurückgegebenen Download-URLs möglicherweise weiterhin zeitlich begrenzt sind.
+
+Dateien erscheinen in der Regel bereits während des Exports in Ihrem Bucket, sodass Sie nicht warten müssen, bis der gesamte Vorgang abgeschlossen ist, bevor Sie auf Teilergebnisse zugreifen können. Braze lädt jeden abgeschlossenen Batch inkrementell hoch, anstatt alles bis zum Ende zurückzuhalten. Umfangreiche Exporte werden in mehrere komprimierte Dateien (ZIP oder GZIP) aufgeteilt, die jeweils JSON-Objekte enthalten – eines pro Zeile. Das macht diese Methode für umfangreiche Exporte zuverlässiger.
 
 ### Häufige Fehler
 

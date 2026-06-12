@@ -58,7 +58,9 @@ En el almacenamiento en la nube, las exportaciones CSV se agrupan en un archivo 
 - Los apóstrofos que se añaden al principio de ciertos campos (como `-`, `=`, `+` o `@`) son un comportamiento esperado. Por ejemplo, `-1943` se convierte en `'-1943` en el CSV. Braze hace esto para evitar que los programas de hojas de cálculo interpreten erróneamente los datos. Esto no se aplica a las exportaciones JSON, como las devueltas por el [punto de conexión `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
 
 ## Exportaciones API
-Cuando exportas datos a través de las API con un socio de almacenamiento conectado, los archivos exportados se escriben en tu contenedor. No se envía ningún correo electrónico. Los objetos subyacentes permanecen en tu almacenamiento y siguen tu configuración de retención, aunque las URL de descarga que devuelve Braze puedan seguir teniendo una duración limitada. Cada archivo ZIP contiene objetos JSON, uno por línea. Las exportaciones de gran tamaño pueden dividirse en varios archivos ZIP en lugar de un único ZIP, lo que generalmente hace que este método sea más fiable para exportaciones pesadas.
+Cuando exportas datos a través de las API con un socio de almacenamiento conectado, los archivos exportados se escriben en tu contenedor. No se envía ningún correo electrónico. Los objetos subyacentes permanecen en tu almacenamiento y siguen tu configuración de retención, aunque las URL de descarga que devuelve Braze puedan seguir teniendo una duración limitada.
+
+Los archivos suelen aparecer en tu contenedor a medida que se ejecuta la exportación, por lo que no necesitas esperar a que finalice todo el trabajo para acceder a resultados parciales. Braze carga cada lote completado de forma incremental en lugar de retener todo hasta el final. Las exportaciones grandes se dividen en varios archivos comprimidos (ZIP o GZIP), cada uno con objetos JSON, uno por línea. Esto hace que este método sea más fiable para exportaciones pesadas.
 
 ### Errores comunes
 
@@ -69,7 +71,7 @@ Cuando exportas datos a través de las API con un socio de almacenamiento conect
 {% endsdktab %}
 {% endsdktabs %}
 
-## Análisis de campañas y Canvas {#campaign-and-canvas-analytics}
+## Análisis de Campaign y Canvas {#campaign-and-canvas-analytics}
 
 ### El número de usuarios en la exportación CSV no coincide con _Messages Sent_ o _Unique Recipients_ {#number-of-users-in-csv-export-doesnt-match-_messages-sent_-or-_unique-recipients_}
 

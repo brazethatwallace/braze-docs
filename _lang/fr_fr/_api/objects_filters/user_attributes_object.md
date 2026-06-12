@@ -41,10 +41,10 @@ Utilisez les noms de champs de profil utilisateur Braze (énumérés ci-après o
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
-  // Removing from an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
+  // Removing from an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
@@ -52,11 +52,11 @@ Utilisez les noms de champs de profil utilisateur Braze (énumérés ci-après o
 - [Alias d'utilisateurs]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
 
 {% alert note %}
-Pour les requêtes REST API vers [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), utilisez les clés `add`, `remove` et `update` pour les opérations sur les tableaux. Les clés préfixées par `$` (telles que `$add`) sont destinées aux payloads des méthodes SDK.
+Pour les attributs personnalisés de type tableau standard, utilisez `add` et `remove` (sans `$`).
 
-Lorsqu'une requête REST API utilise `$add`, `$remove` ou `$update`, Braze peut renvoyer `success` sans appliquer la mise à jour du tableau.
+Pour les tableaux d'objets (attributs personnalisés imbriqués), utilisez `$add`, `$remove` et `$update` dans les payloads de requêtes `/users/track`. Ces opérateurs appliquent des modifications au niveau de l'objet en faisant correspondre les identifiants (`$identifier_key` et `$identifier_value`) et prennent en charge les mises à jour sur place avec `$new_object`.
 
-Pour plus de détails, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) et l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+Utilisez ce format lorsque vous devez ajouter, supprimer ou mettre à jour des objets au sein d'un tableau existant tout en préservant le reste de l'état du tableau. Pour des exemples de requêtes complets, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) et l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
 {% endalert %}
 
 Pour supprimer un attribut de profil, définissez-le sur `null`. Certains champs, tels que `external_id` et `user_alias`, ne peuvent pas être supprimés après avoir été ajoutés à un profil utilisateur.
@@ -111,7 +111,7 @@ Les types de données suivants peuvent être stockés en tant qu'attribut person
 | Type de données | Remarques |
 | --- | --- |
 | Tableaux | Les tableaux d'attributs personnalisés sont pris en charge. Lorsque vous ajoutez un élément, il est ajouté à la fin du tableau. Si l'élément existe déjà, il est déplacé de sa position actuelle vers la fin.<br><br>Seules les valeurs uniques sont enregistrées. Par exemple, l'importation de `['hotdog','hotdog','hotdog','pizza']` donne `['hotdog', 'pizza']`.<br><br>Vous pouvez définir un tableau directement (par exemple, `"my_array_custom_attribute":[ "Value1", "Value2" ]`), ajouter des éléments à un tableau existant avec `"my_array_custom_attribute" : { "add" : ["Value3"] }`, ou supprimer des valeurs avec `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`.<br><br>Le nombre maximum d'éléments par défaut est de 500 par tableau. Vous pouvez modifier le nombre maximum de tableaux dans le tableau de bord de Braze, sous **Paramètres des données** > **Attributs personnalisés**. Pour plus d'informations, consultez la section [Tableaux]({{site.baseurl}}/developer_guide/analytics/#arrays). |
-| Tableau d'objets | Utilisez un tableau d'objets pour définir une liste d'objets où chaque objet contient un ensemble d'attributs. Utilisez ce type pour stocker plusieurs ensembles de données associées à un utilisateur, telles que les séjours à l'hôtel, l'historique d'achats ou les préférences.<br><br>Par exemple, définissez un attribut personnalisé nommé `hotel_stays` sur un profil utilisateur sous forme de tableau où chaque objet représente un séjour distinct, avec des attributs tels que `hotel_name`, `check_in_date` et `nights_stayed`.<br><br>Les tableaux d'objets n'ont pas de limite quant au nombre d'éléments, mais ont une taille maximale de 100&nbsp;Ko. Si une mise à jour entraîne le dépassement de cette limite, Braze rejette la mise à jour et l'attribut reste inchangé.<br><br>Pour les requêtes REST API, ajoutez des éléments avec `add`, supprimez des éléments avec `remove` et mettez à jour des éléments avec `update`. Pour les méthodes SDK, utilisez `$add`, `$remove` et `$update` dans le payload transmis au SDK. Pour plus de détails, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) et l'[exemple de tableau d'objets](#array-of-objects-example). |
+| Tableau d'objets | Utilisez un tableau d'objets pour définir une liste d'objets où chaque objet contient un ensemble d'attributs. Utilisez ce type pour stocker plusieurs ensembles de données associées à un utilisateur, telles que les séjours à l'hôtel, l'historique d'achats ou les préférences.<br><br>Par exemple, définissez un attribut personnalisé nommé `hotel_stays` sur un profil utilisateur sous forme de tableau où chaque objet représente un séjour distinct, avec des attributs tels que `hotel_name`, `check_in_date` et `nights_stayed`.<br><br>Les tableaux d'objets n'ont pas de limite quant au nombre d'éléments, mais ont une taille maximale de 100&nbsp;Ko. Si une mise à jour entraîne le dépassement de cette limite, Braze rejette la mise à jour et l'attribut reste inchangé.<br><br>Pour les payloads `/users/track` et SDK, utilisez `$add`, `$remove` et `$update` pour les opérations sur les tableaux d'objets. Utilisez `add` et `remove` (sans `$`) pour les attributs personnalisés de type tableau standard contenant des valeurs scalaires. Pour plus de détails, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) et l'[exemple de tableau d'objets](#array-of-objects-example). |
 | Booléens | `true` ou `false` |
 | Dates | Doivent être enregistrées au format [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) ou dans l'un des formats suivants : <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Notez que le « T » est un indicateur de temps, et non une marque substitutive. Il ne doit pas être modifié ou supprimé. <br><br>Les attributs temporels sans fuseau horaire sont définis par défaut à minuit UTC (et sont formatés sur le tableau de bord comme l'équivalent de minuit UTC dans le fuseau horaire de l'entreprise). Pour spécifier un fuseau horaire, ajoutez un décalage UTC à l'horodatage (par exemple, `2024-11-10T18:00:00-05:00` pour EST). Si le décalage de fuseau horaire est manquant ou mal formaté, la valeur est définie par défaut sur UTC. <br><br>Les heures sont affichées sur le tableau de bord dans le fuseau horaire de votre entreprise. Par exemple, `2024-11-10T18:00:00-05:00` (18 h 00 EST) s'afficherait à l'heure équivalente dans le fuseau horaire configuré de votre entreprise. <br><br>Les événements dont l'horodatage est défini dans le futur sont automatiquement réglés sur l'heure actuelle. <br><br>Pour les attributs personnalisés standard, si l'année est inférieure à 0 ou supérieure à 3000, Braze enregistre la valeur sous forme de chaîne de caractères dans le profil utilisateur. |
 | Floats | Les attributs personnalisés de type float sont des nombres positifs ou négatifs avec une virgule. Par exemple, vous pouvez utiliser des floats pour stocker des soldes de comptes ou des évaluations de produits ou de services par les utilisateurs. |
@@ -135,7 +135,7 @@ Ce tableau d'objets vous permet de créer des segments en fonction de critères 
 ]}
 ```
 
-Pour des exemples d'API utilisant `add`, `remove` et `update`, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example). Pour des exemples SDK utilisant `$add`, `$remove` et `$update`, consultez l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+Pour des exemples de tableaux d'objets utilisant `$add`, `$remove` et `$update`, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) et l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
 
 #### Champs de profil utilisateur Braze {#braze-user-profile-fields}
 

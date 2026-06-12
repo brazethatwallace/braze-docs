@@ -36,16 +36,19 @@ hide_toc: true
 ## メッセージクレジット - Gammaのクレジット比率表 {#credit-ratio-table-for-message-credits-gamma}
 
 {% details クリックして展開 %}
-<table>
+<table class="credits-table" aria-label="メッセージクレジット - Gammaのクレジット比率表">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>チャネル</b></th>
         <th><b>送信先</b></th>
         <th class="credits-column"><b>1送信あたりのクレジット</b></th>
     </tr>
+    </thead>
+    <tbody>
 <tr>
         <td>エージェントコンソール</td>
         <td>Braze Auto</td>
@@ -2142,12 +2145,12 @@ hide_toc: true
         <td>0.08</td>
     </tr>
     <tr>
-        <td>BYO SMS コネクター</td>
+        <td>BYO SMSコネクター</td>
         <td>Infobip - 全リージョン</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>BYO SMS コネクター</td>
+        <td>BYO SMSコネクター</td>
         <td>Twilio - 全リージョン</td>
         <td>0.30</td>
     </tr>
@@ -2271,6 +2274,7 @@ hide_toc: true
         <td>米国 - Single - 非推奨</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -2320,30 +2324,30 @@ Brazeは、Brazeプラットフォームから送信されたすべてのLINEメ
 
 ## 課金リージョンの内訳 {#billing-region-breakdown}
 
-#### 北米 {#north-america}
+### 北米 {#north-america}
 
 米国、カナダ
 
-#### その他アフリカ {#rest-of-africa}
+### その他アフリカ {#rest-of-africa}
 
 アルジェリア、アンゴラ、ベナン、ボツワナ、ブルキナファソ、ブルンジ、カメルーン、チャド、コンゴ、エリトリア、エチオピア、ガボン、ガンビア、ガーナ、ギニアビサウ、コートジボワール、ケニア、レソト、リベリア、リビア、マダガスカル、マラウイ、マリ、モーリタニア、モロッコ、モザンビーク、ナミビア、ニジェール、ルワンダ、セネガル、シエラレオネ、ソマリア、南スーダン、スーダン、スワジランド、タンザニア、トーゴ、チュニジア、ウガンダ、ザンビア
 
-#### その他アジア太平洋 {#rest-of-asia-pacific}
+### その他アジア太平洋 {#rest-of-asia-pacific}
 
 アフガニスタン、オーストラリア、バングラデシュ、カンボジア、中国、香港、日本、ラオス、モンゴル、ネパール、ニュージーランド、パプアニューギニア、フィリピン、シンガポール、スリランカ、台湾、タジキスタン、タイ、トルクメニスタン、ウズベキスタン、ベトナム
 
-#### その他中東欧 {#rest-of-central-eastern-europe}
+### その他中東欧 {#rest-of-central-eastern-europe}
 
 アルバニア、アルメニア、アゼルバイジャン、ベラルーシ、ブルガリア、クロアチア、チェコ共和国、ジョージア、ギリシャ、ハンガリー、ラトビア、リトアニア、マケドニア、モルドバ、ポーランド、ルーマニア、セルビア、スロバキア、スロベニア、ウクライナ
 
-#### その他ラテンアメリカ {#rest-of-latin-america}
+### その他ラテンアメリカ {#rest-of-latin-america}
 
 ボリビア、コスタリカ、ドミニカ共和国、エクアドル、エルサルバドル、グアテマラ、ハイチ、ホンジュラス、ジャマイカ、ニカラグア、パナマ、パラグアイ、プエルトリコ、ウルグアイ、ベネズエラ
 
-#### その他中東 {#rest-of-middle-east}
+### その他中東 {#rest-of-middle-east}
 
 バーレーン、イラク、ヨルダン、クウェート、レバノン、オマーン、カタール、イエメン
 
-#### その他西欧 {#rest-of-western-europe}
+### その他西欧 {#rest-of-western-europe}
 
 オーストリア、ベルギー、デンマーク、フィンランド、アイルランド、ノルウェー、ポルトガル、スウェーデン、スイス

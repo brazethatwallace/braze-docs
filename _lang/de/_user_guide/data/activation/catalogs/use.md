@@ -17,7 +17,7 @@ Das folgende Video zeigt Ihnen, wie Sie Kataloge in einer Nachricht verwenden.
 
 ### 1. Schritt: Personalisierungsart hinzufügen {#step-one-personalization}
 
-Wählen Sie im Nachrichten-Editor Ihrer Wahl das <i class="fas fa-plus-circle"></i> Plus-Symbol, um das Modal **Add Personalization** zu öffnen, und wählen Sie **Catalog Items** als **Personalization type** aus. Wählen Sie anschließend den Namen Ihres Katalogs aus. In unserem vorherigen Beispiel wählen wir den Katalog „Games“.
+Wählen Sie im Nachrichten-Editor Ihrer Wahl das <i class="fas fa-plus-circle"></i> **Add Personalization** und wählen Sie **Catalog Items** als **Personalization type** aus. Wählen Sie anschließend den Namen Ihres Katalogs aus. In unserem vorherigen Beispiel wählen wir den Katalog „Games“.
 
 ![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 

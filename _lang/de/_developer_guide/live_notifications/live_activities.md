@@ -347,6 +347,18 @@ Ereignisse zu Live-Aktivitäten sind in Currents, Snowflake-Datenfreigabe und Ab
 
 {% sdk_min_versions swift:14.2.0 %}
 
+{% alert important %}
+Abonnieren Sie diese ActivityKit-Streams nicht direkt über Apple, da dies mit den Abos von Braze in Konflikt gerät und die korrekte Funktion von Live-Aktivitäten verhindert:
+
+1. [`pushTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtokenupdates-swift.property)
+2. [`activityStateUpdates`](https://developer.apple.com/documentation/activitykit/activity/activitystateupdates-swift.property)
+3. [`contentUpdates`](https://developer.apple.com/documentation/activitykit/activity/contentupdates-swift.property)
+4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
+5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
+
+Verwenden Sie stattdessen die unten genannten Abos.
+{% endalert %}
+
 Das Braze SDK bietet zwei Abo-Methoden auf `braze.liveActivities`, um den gesamten Lebenszyklus von Live-Aktivitäten zu beobachten. Eine vollständige Schritt-für-Schritt-Anleitung finden Sie im [Live Activities Tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
 
 - [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates): Liefert Lebenszyklus-Ereignisse sowohl für die Push-to-Start-Token-Registrierung als auch für laufende Aktivitätsinstanzen.

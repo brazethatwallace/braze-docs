@@ -79,7 +79,7 @@ Liquidを使用して中心点を動的に設定できます。例えば、各�
 
 セレクションを作成したら、Liquidでメッセージをパーソナライズし、そのカタログからフィルタリングされたアイテムを挿入します。メッセージ作成画面にあるパーソナライゼーションウィンドウから、BrazeにLiquidを生成させることができます。
 
-1. パーソナライゼーションをサポートするメッセージ作成画面で、<i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="パーソナライゼーションを追加"></i>を選択してパーソナライゼーションウィンドウを開きます。
+1. パーソナライゼーションをサポートするメッセージ作成画面で、<i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="パーソナライゼーションを追加"></i> **Add personalization**を選択してパーソナライゼーションウィンドウを開きます。
 2. **Personalization Type**で**Catalog Items**を選択します。
 3. カタログ名を選択します。
 4. **Item selection method**で**Use a selection**を選択します。

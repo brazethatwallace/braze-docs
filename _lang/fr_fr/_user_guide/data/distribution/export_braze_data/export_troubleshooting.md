@@ -58,7 +58,9 @@ Dans le stockage cloud, les exportations CSV sont regroupées dans un fichier ZI
 - Les apostrophes ajoutées au début de certains champs (tels que `-`, `=`, `+` ou `@`) sont un comportement attendu. Par exemple, `-1943` devient `'-1943` dans le fichier CSV. Braze procède ainsi afin d'éviter que les tableurs n'interprètent incorrectement les données. Cela ne s'applique pas aux exportations JSON, telles que celles renvoyées par l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
 
 ## Exportations API
-Lorsque vous exportez des données via les API avec un partenaire de stockage connecté, les fichiers exportés sont enregistrés dans votre compartiment. Aucun e-mail n'est envoyé. Les objets sous-jacents résident dans votre espace de stockage et respectent vos paramètres de conservation, même si les URL de téléchargement fournies par Braze peuvent être limitées dans le temps. Chaque fichier ZIP contient des objets JSON, un par ligne. Les exportations volumineuses peuvent être divisées en plusieurs fichiers ZIP au lieu d'un seul, ce qui rend généralement cette méthode plus fiable pour les exportations lourdes.
+Lorsque vous exportez des données via les API avec un partenaire de stockage connecté, les fichiers exportés sont enregistrés dans votre compartiment. Aucun e-mail n'est envoyé. Les objets sous-jacents résident dans votre espace de stockage et respectent vos paramètres de conservation, même si les URL de téléchargement fournies par Braze peuvent être limitées dans le temps.
+
+Les fichiers apparaissent généralement dans votre compartiment au fur et à mesure de l'exportation, vous n'avez donc pas besoin d'attendre la fin complète du traitement pour accéder aux résultats partiels. Braze charge chaque lot terminé de manière incrémentielle au lieu de tout conserver jusqu'à la fin. Les exportations volumineuses sont divisées en plusieurs fichiers compressés (ZIP ou GZIP), chacun contenant des objets JSON, un par ligne. Cela rend cette méthode plus fiable pour les exportations lourdes.
 
 ### Erreurs courantes
 

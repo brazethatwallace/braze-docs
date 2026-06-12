@@ -41,10 +41,10 @@ Brazeユーザープロファイルフィールド名（以下にリストされ
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
-  // Removing from an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
+  // Removing from an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
@@ -52,11 +52,11 @@ Brazeユーザープロファイルフィールド名（以下にリストされ
 - [ユーザーのエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
 
 {% alert note %}
-[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)へのREST APIリクエストでは、配列操作に`add`、`remove`、`update`キーを使用します。`$`プレフィックス付きのキー（`$add`など）はSDKメソッドのペイロード用です。
+通常の配列カスタム属性の場合は、`add`と`remove`（`$`なし）を使用します。
 
-REST APIリクエストで`$add`、`$remove`、`$update`を使用した場合、Brazeは配列の更新を適用せずに`success`を返すことがあります。
+オブジェクトの配列（階層化カスタム属性）の場合は、`/users/track`リクエストペイロードで`$add`、`$remove`、`$update`を使用します。これらのオペレーターは、識別子（`$identifier_key`と`$identifier_value`）のマッチングによりオブジェクトレベルの変更を適用し、`$new_object`によるインプレース更新をサポートします。
 
-詳細については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)および[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)を参照してください。
+既存の配列の残りの状態を保持しながら、配列内のオブジェクトを追加、削除、または更新する必要がある場合にこの形式を使用します。完全なリクエスト例については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)および[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)を参照してください。
 {% endalert %}
 
 プロファイル属性を削除するには、`null`に設定します。`external_id`や`user_alias`などの一部のフィールドは、ユーザープロファイルに追加された後に削除することはできません。
@@ -92,7 +92,7 @@ APIを使用してアップロードする必要がある場合は、識別さ�
 他のシステムからプッシュトークンをインポートする場合、`external_id`は常に利用できるわけではありません。Brazeへの移行中にこれらのユーザーとのコミュニケーションを維持するために、`push_token_import`を`true`として指定することで、`external_id`を提供せずに匿名ユーザーのレガシートークンをインポートできます。
 {% endalert %}
 
-`push_token_import`を`true`として指定する場合:
+`push_token_import`を`true`として指定する場合：
 
 * `external_id`と`braze_id`は指定**しない**でください
 * 属性オブジェクトにはプッシュトークンを**含める必要があります**
@@ -111,11 +111,11 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | データタイプ | メモ |
 | --- | --- |
 | 配列 | カスタム属性配列がサポートされています。要素を追加すると、配列の末尾に追加されます。要素がすでに存在する場合は、現在の位置から末尾に移動します。<br><br>一意の値のみが格納されます。たとえば、`['hotdog','hotdog','hotdog','pizza']`をインポートすると、`['hotdog', 'pizza']`になります。<br><br>配列を直接設定することも（`"my_array_custom_attribute":[ "Value1", "Value2" ]`など）、`"my_array_custom_attribute" : { "add" : ["Value3"] }`で既存の配列に追加することも、`"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`で値を削除することもできます。<br><br>配列内の要素のデフォルトおよび最大数は500です。最大数はBrazeダッシュボードの**データ設定** > **カスタム属性**で更新できます。詳細については、[配列]({{site.baseurl}}/developer_guide/analytics/#arrays)を参照してください。 |
-| オブジェクト配列 | オブジェクトの配列を使用して、各オブジェクトに一連の属性が含まれるオブジェクトのリストを定義します。このタイプを使用して、ホテル宿泊、購入履歴、好みなど、ユーザーの関連データセットを複数保存します。<br><br>たとえば、`hotel_stays`という名前のカスタム属性をユーザープロファイル上で配列として定義します。ここで、各オブジェクトは個別の宿泊を表し、`hotel_name`、`check_in_date`、`nights_stayed`などの属性を持ちます。<br><br>オブジェクトの配列にはアイテム数の制限はありませんが、最大サイズは100&nbsp;KBです。更新によって配列がこの制限を超える場合、Brazeは更新を破棄し、属性は変更されません。<br><br>REST APIリクエストでは、`add`でアイテムを追加し、`remove`でアイテムを削除し、`update`でアイテムを更新します。SDKメソッドでは、SDKに渡すペイロードで`$add`、`$remove`、`$update`を使用します。詳細については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)、[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)、および[オブジェクトの配列の例](#array-of-objects-example)を参照してください。 |
+| オブジェクト配列 | オブジェクトの配列を使用して、各オブジェクトに一連の属性が含まれるオブジェクトのリストを定義します。このタイプを使用して、ホテル宿泊、購入履歴、好みなど、ユーザーの関連データセットを複数保存します。<br><br>たとえば、`hotel_stays`という名前のカスタム属性をユーザープロファイル上で配列として定義します。ここで、各オブジェクトは個別の宿泊を表し、`hotel_name`、`check_in_date`、`nights_stayed`などの属性を持ちます。<br><br>オブジェクトの配列にはアイテム数の制限はありませんが、最大サイズは100&nbsp;KBです。更新によって配列がこの制限を超える場合、Brazeは更新を破棄し、属性は変更されません。<br><br>`/users/track`およびSDKペイロードの場合、オブジェクトの配列操作には`$add`、`$remove`、`$update`を使用します。スカラー値を含む通常の配列カスタム属性には`add`と`remove`（`$`なし）を使用します。詳細については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)、[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)、および[オブジェクトの配列の例](#array-of-objects-example)を参照してください。 |
 | ブール値 | `true`または`false` |
 | 日付 | [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式または次のいずれかの形式で保存する必要があります。<br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>「T」は時間指定子であり、プレースホルダーではないことに注意してください。変更または削除しないでください。<br><br>タイムゾーンのない時間属性は、デフォルトでUTCの深夜0時になります（また、ダッシュボードでは、会社のタイムゾーンのUTCの深夜0時に相当する形式で表示されます）。タイムゾーンを指定するには、タイムスタンプにUTCオフセットを追加します（例：ESTの場合は`2024-11-10T18:00:00-05:00`）。タイムゾーンオフセットが欠落しているか、フォーマットが正しくない場合、値はデフォルトでUTCになります。<br><br>時間はダッシュボードで会社のタイムゾーンで表示されます。たとえば、`2024-11-10T18:00:00-05:00`（EST午後6時）は、会社の設定されたタイムゾーンの対応する時間として表示されます。<br><br>将来のタイムスタンプを持つイベントは、デフォルトで現在時刻になります。<br><br>通常のカスタム属性の場合、年が0より小さいか3000より大きい場合、Brazeはユーザープロファイルに文字列として値を格納します。 |
 | フロート | floatカスタム属性は、小数点付きの正または負の数です。たとえば、浮動小数点を使用して、アカウントの残高や製品またはサービスのユーザー評価を保存できます。 |
-| 整数 | 「inc」フィールドと追加する量を持つオブジェクトを割り当てることで、整数カスタム属性をインクリメントできます。<br><br>例: `"my_custom_attribute_2" : {"inc" : int_value},`|
+| 整数 | 「inc」フィールドと追加する量を持つオブジェクトを割り当てることで、整数カスタム属性をインクリメントできます。<br><br>例：`"my_custom_attribute_2" : {"inc" : int_value},`|
 | 階層化カスタム属性 | 階層化カスタム属性は、属性のセットを別の属性のプロパティとして定義します。カスタム属性オブジェクトを定義するときに、そのオブジェクトに一連の属性を追加します。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)を参照してください。 |
 | 文字列 | 文字列カスタム属性は、テキストデータを格納するために使用される一連の文字です。たとえば、文字列を使用して、姓名、メールアドレス、好みを保存できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="カスタム属性のデータタイプ" }
@@ -135,7 +135,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 ]}
 ```
 
-`add`、`remove`、`update`を使用したAPIの例については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)を参照してください。`$add`、`$remove`、`$update`を使用したSDKの例については、[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)を参照してください。
+`$add`、`$remove`、`$update`を使用したオブジェクトの配列の例については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)および[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)を参照してください。
 
 #### Brazeユーザープロファイルフィールド {#braze-user-profile-fields}
 

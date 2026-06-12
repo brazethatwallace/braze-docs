@@ -36,16 +36,19 @@ Las definiciones de las columnas son las siguientes:
 ## Tabla de ratio de créditos para créditos de mensaje - Gamma {#credit-ratio-table-for-message-credits-gamma}
 
 {% details Haz clic para expandir %}
-<table>
+<table class="credits-table" aria-label="Tabla de ratio de créditos para créditos de mensaje - Gamma">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Canal</b></th>
         <th><b>Destino</b></th>
         <th class="credits-column"><b>Créditos por 1 envío</b></th>
     </tr>
+    </thead>
+    <tbody>
 <tr>
         <td>Consola de Agente</td>
         <td>Braze Auto</td>
@@ -2271,6 +2274,7 @@ Las definiciones de las columnas son las siguientes:
         <td>United States - Single - Deprecated</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -2278,6 +2282,7 @@ Las definiciones de las columnas son las siguientes:
 ------
 
 ## Detalles de la Consola de Agente {#agent-console-details}
+
 Braze cobrará créditos de mensaje por las invocaciones de la Consola de Agente enviadas desde la plataforma Braze. Se registra una invocación cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
 
 ## Detalles del canal SMS/MMS {#smsmms-channel-details}
@@ -2295,10 +2300,10 @@ Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y
 RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta interacción como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
 - La facturación de RCS se centra en dos tipos de mensajes diferentes (con distinciones para EE. UU.):
-    - **RCS básico:** Solo texto, hasta 160 caracteres
-    - **RCS único:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto de más de 160 caracteres
-    - **RCS enriquecido (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
-    - **RCS multimedia enriquecido (solo EE. UU.):** Cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un mensaje
+    - **RCS básico:** solo texto, hasta 160 caracteres
+    - **RCS único:** mensajes que contienen contenido enriquecido, o mensajes de solo texto de más de 160 caracteres
+    - **RCS enriquecido (solo EE. UU.):** solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
+    - **RCS multimedia enriquecido (solo EE. UU.):** cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un mensaje
 
 ## Detalles del canal WhatsApp {#whatsapp-channel-details}
 
@@ -2320,33 +2325,33 @@ Braze cobrará créditos de mensaje por cualquier mensaje de LINE enviado desde 
 
 ## Desglose por región de facturación {#billing-region-breakdown}
 
-#### Norteamérica {#north-america}
+### Norteamérica {#north-america}
 
 Estados Unidos, Canadá
 
-#### Resto de África {#rest-of-africa}
+### Resto de África {#rest-of-africa}
 
 Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia,
 Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
 
-#### Resto de Asia-Pacífico {#rest-of-asia-pacific}
+### Resto de Asia-Pacífico {#rest-of-asia-pacific}
 
 Afganistán, Australia, Bangladés, Camboya, China, Hong Kong, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Singapur, Sri Lanka, Taiwán, Tayikistán, Tailandia,
 Turkmenistán, Uzbekistán, Vietnam
 
-#### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
+### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
 
 Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Hungría, Letonia, Lituania, Macedonia, Moldavia, Polonia, Rumanía, Serbia, Eslovaquia, Eslovenia, Ucrania
 
-#### Resto de América Latina {#rest-of-latin-america}
+### Resto de América Latina {#rest-of-latin-america}
 
 Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador,
 Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-#### Resto de Oriente Medio {#rest-of-middle-east}
+### Resto de Oriente Medio {#rest-of-middle-east}
 
 Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Catar, Yemen
 
-#### Resto de Europa Occidental {#rest-of-western-europe}
+### Resto de Europa Occidental {#rest-of-western-europe}
 
 Austria, Bélgica, Dinamarca, Finlandia, Irlanda, Noruega, Portugal, Suecia, Suiza

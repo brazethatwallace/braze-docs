@@ -41,10 +41,10 @@ Verwenden Sie die Feldnamen des Braze-Nutzerprofils (wie nachfolgend aufgelistet
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
-  // Removing from an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
+  // Removing from an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
@@ -52,11 +52,11 @@ Verwenden Sie die Feldnamen des Braze-Nutzerprofils (wie nachfolgend aufgelistet
 - [Nutzer-Aliasse]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
 
 {% alert note %}
-Bei REST-API-Anfragen an [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) verwenden Sie die Schlüssel `add`, `remove` und `update` für Array-Operationen. Schlüssel mit dem Präfix `$` (wie `$add`) sind für SDK-Methoden-Payloads vorgesehen.
+Verwenden Sie für reguläre Array-Attribute die Schlüssel `add` und `remove` (ohne `$`).
 
-Wenn eine REST-API-Anfrage `$add`, `$remove` oder `$update` verwendet, kann Braze `success` zurückgeben, ohne das Array-Update tatsächlich anzuwenden.
+Für Objekt-Arrays (verschachtelte angepasste Attribute) verwenden Sie `$add`, `$remove` und `$update` in `/users/track`-Anfrage-Payloads. Diese Operatoren wenden Änderungen auf Objektebene an, indem sie Bezeichner (`$identifier_key` und `$identifier_value`) abgleichen, und unterstützen In-Place-Updates mit `$new_object`.
 
-Weitere Informationen finden Sie unter [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) und [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+Verwenden Sie dieses Format, wenn Sie Objekte innerhalb eines bestehenden Arrays anhängen, entfernen oder aktualisieren müssen, ohne den restlichen Array-Zustand zu verändern. Vollständige Anfragebeispiele finden Sie unter [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) und [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
 {% endalert %}
 
 Um ein Profilattribut zu entfernen, setzen Sie es auf `null`. Einige Felder, wie `external_id` und `user_alias`, können nicht mehr entfernt werden, nachdem sie einem Nutzerprofil hinzugefügt wurden.
@@ -110,8 +110,8 @@ Die folgenden Datentypen können als angepasstes Attribut gespeichert werden:
 
 | Datentyp | Anmerkungen |
 | --- | --- |
-| Arrays | Angepasste Attribut-Arrays werden unterstützt. Wenn Sie ein Element hinzufügen, wird es an das Ende des Arrays angehängt. Wenn das Element bereits vorhanden ist, wird es von seiner aktuellen Position an das Ende verschoben.<br><br>Es werden nur eindeutige Werte gespeichert. Beispielsweise führt der Import von `['hotdog','hotdog','hotdog','pizza']` zu `['hotdog', 'pizza']`.<br><br>Sie können ein Array direkt festlegen (zum Beispiel `"my_array_custom_attribute":[ "Value1", "Value2" ]`), einem bestehenden Array mit `"my_array_custom_attribute" : { "add" : ["Value3"] }` etwas hinzufügen oder Werte mit `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}` entfernen.<br><br>Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Arrays im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** aktualisieren. Weitere Informationen finden Sie unter [Arrays]({{site.baseurl}}/developer_guide/analytics/#arrays). |
-| Array von Objekten | Verwenden Sie ein Objekt-Array, um eine Liste von Objekten zu definieren, wobei jedes Objekt eine Reihe von Attributen enthält. Verwenden Sie diesen Typ, um mehrere Sätze verwandter Daten für eine Nutzer:in zu speichern, wie beispielsweise Hotelaufenthalte, Kaufhistorie oder Präferenzen.<br><br>Definieren Sie beispielsweise ein angepasstes Attribut mit dem Namen `hotel_stays` in einem Nutzerprofil als Array, wobei jedes Objekt einen separaten Aufenthalt darstellt, mit Attributen wie `hotel_name`, `check_in_date` und `nights_stayed`.<br><br>Objekt-Arrays haben keine Begrenzung der Elementanzahl, aber eine maximale Größe von 100&nbsp;KB. Wenn ein Update dazu führt, dass das Array dieses Limit überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert.<br><br>Für REST-API-Anfragen fügen Sie Elemente mit `add` hinzu, entfernen Sie Elemente mit `remove` und aktualisieren Sie Elemente mit `update`. Für SDK-Methoden verwenden Sie `$add`, `$remove` und `$update` im Payload, der an das SDK übergeben wird. Weitere Informationen finden Sie unter [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) und [Beispiel für ein Objekt-Array](#array-of-objects-example). |
+| Arrays | Angepasste Attribut-Arrays werden unterstützt. Wenn Sie ein Element hinzufügen, wird es an das Ende des Arrays angehängt. Wenn das Element bereits vorhanden ist, wird es von seiner aktuellen Position an das Ende verschoben.<br><br>Es werden nur eindeutige Werte gespeichert. Beispielsweise führt der Import von `['hotdog','hotdog','hotdog','pizza']` zu `['hotdog', 'pizza']`.<br><br>Sie können ein Array direkt festlegen (zum Beispiel `"my_array_custom_attribute":[ "Value1", "Value2" ]`), einem bestehenden Array mit `"my_array_custom_attribute" : { "add" : ["Value3"] }` etwas hinzufügen oder Werte mit `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}` entfernen.<br><br>Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Elementen im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** aktualisieren. Weitere Informationen finden Sie unter [Arrays]({{site.baseurl}}/developer_guide/analytics/#arrays). |
+| Objekt-Array | Verwenden Sie ein Objekt-Array, um eine Liste von Objekten zu definieren, wobei jedes Objekt eine Reihe von Attributen enthält. Verwenden Sie diesen Typ, um mehrere Sätze verwandter Daten für eine Nutzer:in zu speichern, wie beispielsweise Hotelaufenthalte, Kaufhistorie oder Präferenzen.<br><br>Definieren Sie beispielsweise ein angepasstes Attribut mit dem Namen `hotel_stays` in einem Nutzerprofil als Array, wobei jedes Objekt einen separaten Aufenthalt darstellt, mit Attributen wie `hotel_name`, `check_in_date` und `nights_stayed`.<br><br>Objekt-Arrays haben keine Begrenzung der Elementanzahl, aber eine maximale Größe von 100&nbsp;KB. Wenn ein Update dazu führt, dass das Array dieses Limit überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert.<br><br>Für `/users/track`- und SDK-Payloads verwenden Sie `$add`, `$remove` und `$update` für Objekt-Array-Operationen. Verwenden Sie `add` und `remove` (ohne `$`) für reguläre Array-Attribute, die skalare Werte enthalten. Weitere Informationen finden Sie unter [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) und [Beispiel für ein Objekt-Array](#array-of-objects-example). |
 | Boolesche Werte | `true` oder `false` |
 | Daten | Müssen im [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)-Format oder in einem der folgenden Formate gespeichert werden: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Beachten Sie, dass „T“ ein Zeitbezeichner und kein Platzhalter ist und nicht geändert oder entfernt werden sollte. <br><br>Zeitattribute ohne Zeitzone werden standardmäßig auf Mitternacht UTC gesetzt (und im Dashboard als Entsprechung von Mitternacht UTC in der Zeitzone des Unternehmens formatiert). Um eine Zeitzone anzugeben, fügen Sie dem Zeitstempel einen UTC-Offset hinzu (zum Beispiel `2024-11-10T18:00:00-05:00` für EST). Wenn der Zeitzonen-Offset fehlt oder falsch formatiert ist, wird der Wert standardmäßig auf UTC gesetzt. <br><br>Zeiten werden im Dashboard in der Zeitzone Ihres Unternehmens angezeigt. Beispielsweise würde `2024-11-10T18:00:00-05:00` (18:00 Uhr EST) als die entsprechende Zeit in der konfigurierten Zeitzone Ihres Unternehmens angezeigt. <br><br>Ereignisse mit Zeitstempeln in der Zukunft werden standardmäßig auf die aktuelle Zeit gesetzt. <br><br>Bei regulären angepassten Attributen speichert Braze den Wert als String im Nutzerprofil, wenn das Jahr kleiner als 0 oder größer als 3000 ist. |
 | Gleitkommazahlen | Gleitkommazahlen für angepasste Attribute sind positive oder negative Zahlen mit einem Dezimalpunkt. Sie können beispielsweise Gleitkommazahlen verwenden, um Kontostände oder Nutzer:innen-Bewertungen für Produkte oder Dienste zu speichern. |
@@ -126,7 +126,7 @@ Informationen dazu, wann ein angepasstes Event und wann ein angepasstes Attribut
 
 ##### Beispiel für ein Objekt-Array {#array-of-objects-example}
 
-Mit diesem Array von Objekten können Sie Segmente auf der Grundlage bestimmter Kriterien innerhalb der Aufenthalte erstellen und Ihre Nachrichten anhand der Daten der einzelnen Aufenthalte mit Liquid-Templates personalisieren.
+Mit diesem Objekt-Array können Sie Segmente auf der Grundlage bestimmter Kriterien innerhalb der Aufenthalte erstellen und Ihre Nachrichten anhand der Daten der einzelnen Aufenthalte mit Liquid-Templates personalisieren.
 
 ```json
 {"hotel_stays": [
@@ -135,7 +135,7 @@ Mit diesem Array von Objekten können Sie Segmente auf der Grundlage bestimmter 
 ]}
 ```
 
-Für API-Beispiele, die `add`, `remove` und `update` verwenden, siehe [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example). Für SDK-Beispiele, die `$add`, `$remove` und `$update` verwenden, siehe [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+Für Objekt-Array-Beispiele, die `$add`, `$remove` und `$update` verwenden, siehe [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) und [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
 
 #### Braze-Nutzerprofilfelder {#braze-user-profile-fields}
 
@@ -216,7 +216,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Migration von Push-Tokens {#migrating-push-tokens}
+## Migration von Push-Tokens {#migrate-push-tokens}
 
 Wenn Sie vor der Integration von Braze bereits Push-Benachrichtigungen versendet haben – entweder selbst oder über einen anderen Anbieter –, ermöglicht Ihnen die Push-Token-Migration, weiterhin Push-Benachrichtigungen an Ihre Nutzer:innen mit registrierten Push-Tokens zu senden.
 

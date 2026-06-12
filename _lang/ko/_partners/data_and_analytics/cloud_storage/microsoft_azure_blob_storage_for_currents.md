@@ -37,7 +37,7 @@ Microsoft Azure에서 사이드바의 **Storage Accounts**로 이동하고 **+ A
 
 이미 스토리지 계정이 있더라도 Braze 데이터 전용으로 새 계정을 생성하는 것을 권장합니다.
 
-![]({% image_buster /assets/img/azure-currents-step-1.png %})
+![기본 탭의 Microsoft Azure 스토리지 계정 생성 페이지에서 스토리지 계정 이름 필드가 강조 표시되어 있습니다.]({% image_buster /assets/img/azure-currents-step-1.png %})
 
 ### 2단계: 연결 문자열 가져오기 {#step-2-get-the-connection-string}
 
@@ -49,7 +49,7 @@ Microsoft는 하나의 키를 재생성하는 동안 다른 키를 사용하여 
 Braze는 이 메뉴의 키가 아닌 연결 문자열을 사용합니다.
 {% endalert %}
 
-![]({% image_buster /assets/img/azure-currents-step-2.png %})
+![Azure 스토리지 계정의 액세스 키 페이지에서 key1 아래의 연결 문자열 필드가 강조 표시되어 있습니다.]({% image_buster /assets/img/azure-currents-step-2.png %})
 
 ### 3단계: Blob 서비스 컨테이너 생성 {#step-3-create-a-blob-service-container}
 
@@ -57,7 +57,7 @@ Braze는 이 메뉴의 키가 아닌 연결 문자열을 사용합니다.
 
 Blob 서비스 컨테이너의 이름을 입력합니다. 다른 기본값 설정은 업데이트할 필요가 없습니다.
 
-![]({% image_buster /assets/img/azure-currents-step-3.png %})
+![Blob Service 아래 Azure 스토리지 계정의 Blobs 페이지에서 컨테이너 추가 옵션이 표시되어 있습니다.]({% image_buster /assets/img/azure-currents-step-3.png %})
 
 ### 4단계: Currents 설정 {#step-4-set-up-currents}
 
@@ -94,9 +94,7 @@ Braze에서 **파트너 통합** > **기술 파트너** > **Microsoft Azure**로
 - 모든 대시보드 보고서 및 CSV 보고서는 다운로드를 위해 사용자의 이메일로 전송되며(스토리지 권한 불필요) 데이터 스토리지에 백업됩니다.
 
 {% alert important %}
-**JSON 형식 요구 사항**: JSON 내보내기의 경우 Braze는 각 줄에 별도의 JSON 오브젝트가 포함되는 JSONL(줄 바꿈으로 구분된 JSON) 형식을 사용합니다. 이 형식은 단일 JSON 배열 또는 오브젝트인 표준 JSON과는 다릅니다. 내보낸 파일의 각 줄은 유효한 JSON 오브젝트이지만 파일 전체가 하나의 유효한 JSON 문서는 아닙니다. 이러한 파일을 처리할 때는 전체 파일을 하나의 JSON 문서로 구문 분석하지 말고 각 줄을 별도의 JSON 오브젝트로 개별적으로 구문 분석하세요.
-
-Currents 내보내기는 JSON이 아닌 Apache Avro 형식(`.avro` 파일)을 사용합니다. 이 JSON 형식 요구 사항은 JSON 형식을 사용하는 대시보드 데이터 내보내기 및 API 내보내기에 적용됩니다.
+**JSON 형식 요구 사항**: JSON 내보내기의 경우 Braze는 각 줄에 별도의 JSON 오브젝트가 포함되는 [JSONL](https://jsonlines.org/)(줄 바꿈으로 구분된 JSON) 형식을 사용합니다. 이 형식은 단일 JSON 배열 또는 오브젝트인 표준 JSON과는 다릅니다. 내보낸 파일의 각 줄은 유효한 JSON 오브젝트이지만 파일 전체가 하나의 유효한 JSON 문서는 아닙니다. 이러한 파일을 처리할 때는 전체 파일을 하나의 JSON 문서로 구문 분석하지 말고 각 줄을 별도의 JSON 오브젝트로 개별적으로 구문 분석하세요. <br><br> Currents 내보내기는 JSON이 아닌 [Apache Avro](https://avro.apache.org/) 형식(`.avro` 파일)을 사용합니다. 이 JSON 형식 요구 사항은 JSON 형식을 사용하는 대시보드 데이터 내보내기 및 API 내보내기에 적용됩니다.
 {% endalert %}
 
 ## FAQ

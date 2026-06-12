@@ -17,7 +17,7 @@ O vídeo a seguir mostra como usar catálogos em uma mensagem.
 
 ### Etapa 1: Adicionar tipo de personalização {#step-one-personalization}
 
-No criador de mensagens de sua escolha, selecione o ícone <i class="fas fa-plus-circle"></i> de mais para abrir o modal **Add Personalization** e selecione **Catalog Items** para o **Personalization type**. Em seguida, selecione o nome do seu catálogo. Usando nosso exemplo anterior, selecionaremos o catálogo "Games".
+No criador de mensagens de sua escolha, selecione <i class="fas fa-plus-circle"></i> **Add Personalization** e selecione **Catalog Items** para o **Personalization type**. Em seguida, selecione o nome do seu catálogo. Usando nosso exemplo anterior, selecionaremos o catálogo "Games".
 
 ![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
@@ -127,7 +127,7 @@ Para evitar erros de sintaxe do Liquid, selecione o botão **+** de mais no cria
 
 Você também pode fazer referência a imagens no catálogo para usar em seu envio de mensagens. Para fazer isso, use a tag `catalogs` e o objeto `item` no campo Liquid para imagens.
 
-Por exemplo, para adicionar o `image_link` do nosso catálogo de jogos à nossa mensagem promocional para Tales, selecione o `id` para o campo **Catalog Items** e `image_link` para o campo **Information to Display**. Isso adiciona as seguintes Liquid tags ao nosso campo de imagem:
+Por exemplo, para adicionar o `image_link` do nosso catálogo Games à nossa mensagem promocional para Tales, selecione o `id` para o campo **Catalog Items** e `image_link` para o campo **Information to Display**. Isso adiciona as seguintes Liquid tags ao nosso campo de imagem:
 
 {% raw %}
 ```liquid

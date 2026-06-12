@@ -40,7 +40,7 @@ Ces deux endpoints renvoient un objet de jeton de notification push qui inclut l
 
 Assurez-vous que vous faites partie du segment que vous ciblez (s'il s'agit d'une campagne en production et non d'un test). Dans le **User Profile**, vous verrez la liste des segments auxquels l'utilisateur appartient actuellement. N'oubliez pas qu'il s'agit d'une variable en constante évolution, car la segmentation est mise à jour en temps réel.
 
-![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
+![Liste des segments]({% image_buster /assets/img_archive/trouble2.png %})
 
 Vous pouvez également confirmer que l'utilisateur fait partie du segment en utilisant **User Lookup** lors de la création d'un segment. **User Lookup** n'accepte que les `external_id` ou `braze_id`, pas les adresses e-mail ni les numéros de téléphone. Pour effectuer une recherche par e-mail, téléphone, jeton de notification push ou alias d'utilisateur, utilisez [**Rechercher des utilisateurs**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
@@ -52,7 +52,7 @@ Vérifiez les limites de fréquence globales. Il est possible que vous n'ayez pa
 
 Vous pouvez vérifier cela en consultant la [limite de fréquence globale]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over) dans le tableau de bord. Si la campagne est configurée pour respecter les règles de limite de fréquence, un certain nombre d'utilisateurs seront impactés par ces paramètres.
 
-![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
+![Détails de la campagne]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### Limites de débit {#rate-limits}
 

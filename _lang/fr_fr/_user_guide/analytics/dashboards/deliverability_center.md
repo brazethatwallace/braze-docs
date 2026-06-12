@@ -68,7 +68,7 @@ Pour accéder au Centre de livrabilité, vous devez disposer des [autorisations 
 Avant de vous connecter au Centre de livrabilité, vous devez configurer un compte Google Postmaster Tools. Vous pouvez utiliser un compte Gmail professionnel ou personnel pour cette configuration.
 
 1. Accédez au [tableau de bord Google Postmaster Tools](https://postmaster.google.com/managedomains?pli=1).
-2. En bas à droite, sélectionnez l'icône <i class="fas fa-plus-circle"></i> plus.
+2. En bas à droite, sélectionnez <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Saisissez votre domaine racine (parent) pour authentifier votre e-mail. Assurez-vous que l'enregistrement TXT est lié à ce domaine racine (parent), et **non** au sous-domaine que vous utilisez via Braze. La vérification du domaine racine (parent) vous permet d'ajouter ultérieurement des sous-domaines dans Postmaster Tools sans créer d'enregistrements TXT supplémentaires. Par exemple, en vérifiant `braze.com`, vous pouvez ensuite ajouter `demo.braze.com` comme sous-domaine distinct dans Postmaster Tools pour consulter les indicateurs au niveau du sous-domaine.
 4. Google génère un enregistrement TXT qui peut être ajouté directement au DNS de votre domaine. Celui-ci est généralement géré par la personne responsable de votre DNS. Pour obtenir des informations et des instructions sur la mise à jour de votre DNS spécifique, consultez [Vérifier votre domaine (étapes spécifiques à l'hébergeur)](https://support.google.com/a/topic/1409901).
 5. Sélectionnez **Next**. <br>![Un exemple de domaine « demo.braze.com » pour authentifier un e-mail.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -116,7 +116,7 @@ Pour comprendre les évaluations de la réputation IP, consultez ce tableau :
 | Moyenne/Correcte | Connue pour générer un engagement positif, mais reçoit occasionnellement des plaintes pour spam. La plupart des e-mails provenant de ce domaine arrivent dans la boîte de réception, sauf lorsque les plaintes pour spam augmentent. |
 | Faible | Connue pour recevoir régulièrement un taux élevé de plaintes pour spam. Les e-mails de cet expéditeur sont susceptibles d'être filtrés vers le dossier spam. |
 | Mauvaise | Présente un historique de taux élevés de plaintes pour spam. Les e-mails provenant de ce domaine sont presque toujours rejetés à la connexion ou filtrés vers le dossier spam. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Réputation IP" }
 
 #### Réputation du domaine {#domain-reputation}
 
@@ -128,7 +128,7 @@ Utilisez le tableau suivant pour surveiller et comprendre les évaluations de la
 | Moyenne/Correcte | Connue pour générer un engagement positif, mais a occasionnellement reçu un faible volume de plaintes pour spam. La plupart des e-mails provenant de ce domaine arrivent dans la boîte de réception (sauf en cas d'augmentation notable du niveau de spam). |
 | Faible | Connue pour recevoir régulièrement des plaintes pour spam. Les e-mails de cet expéditeur sont susceptibles d'être filtrés vers le dossier spam. |
 | Mauvaise | Présente un historique de taux élevés de plaintes pour spam. Les e-mails provenant de ce domaine sont presque toujours rejetés à la connexion ou filtrés vers le dossier spam. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Réputation du domaine" }
 
 #### Authentification {#authentication}
 
@@ -139,7 +139,7 @@ Utilisez le tableau de bord d'authentification pour examiner le pourcentage d'e-
 | SPF | Affiche le pourcentage d'e-mails ayant passé la vérification SPF par rapport à l'ensemble des e-mails du domaine ayant tenté la vérification SPF. Cela exclut les e-mails usurpés. |
 | DKIM | Affiche le pourcentage d'e-mails ayant passé la vérification DKIM par rapport à l'ensemble des e-mails du domaine ayant tenté la vérification DKIM. |
 | DMARC | Affiche le pourcentage d'e-mails conformes à l'alignement DMARC par rapport à l'ensemble des e-mails reçus du domaine ayant passé la vérification SPF ou DKIM. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Authentification" }
 
 #### Chiffrement {#encryption}
 
@@ -149,7 +149,7 @@ Consultez ce tableau pour comprendre quel pourcentage de votre trafic entrant et
 | ----- | ---------- |
 | TLS entrant | Affiche le pourcentage de courrier entrant (vers Gmail) ayant passé la vérification TLS par rapport à l'ensemble du courrier reçu de ce domaine. |
 | TLS sortant | Affiche le pourcentage de courrier sortant (depuis Gmail) accepté via TLS par rapport à l'ensemble du courrier envoyé à ce domaine. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chiffrement" }
 
 Pour plus d'idées sur l'amélioration de la livrabilité, consultez [Pièges de livrabilité et pièges à spam]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/#deliverability-pitfalls-and-spam-traps). N'oubliez pas de consulter nos [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/) pour vérifier les points essentiels avant d'envoyer une campagne e-mail.
 
@@ -184,7 +184,7 @@ Consultez ce tableau pour comprendre les résultats de filtrage.
 | Vert | Considéré comme spam par le filtre anti-spam de Microsoft pour moins de 10 % de la période donnée. |
 | Jaune | Considéré comme spam par le filtre anti-spam de Microsoft pour 10 % à 90 % de la période donnée. |
 | Rouge | Considéré comme spam par le filtre anti-spam de Microsoft pour plus de 90 % de la période donnée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résultats de filtrage" }
 
 #### Taux de plaintes {#complaint-rate}
 
@@ -197,7 +197,7 @@ Pour calculer le taux de plaintes, divisez le nombre de plaintes par le nombre d
 | Inférieur à 0,3 % | Le taux de plaintes idéal. |
 | Supérieur à 0,3 % | Examinez votre processus d'inscription et assurez-vous que votre lien de désabonnement fonctionne. Demandez-vous également si le contenu pourrait être mieux personnalisé pour votre audience. |
 | Supérieur à 100 % | Notez que SNDS affiche les plaintes pour le jour où elles ont été signalées, et non rétroactivement pour le jour où l'e-mail ayant fait l'objet de la plainte a été distribué. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Taux de plaintes" }
 
 #### Occurrences de pièges à spam {#spam-trap-hits}
 

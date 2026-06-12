@@ -26,7 +26,7 @@ Vous pouvez également intégrer Slack pour recevoir des notifications. Pour con
 Le tableau suivant décrit les notifications disponibles et les canaux utilisés pour les transmettre.
 
 {% alert note %}
-Si vous supprimez la valeur par défaut **Destinataires** de **Tous les utilisateurs du tableau de bord** et souhaitez la rétablir, vous pouvez la saisir manuellement dans le champ déroulant.
+Selon le type de notification, **All Dashboard Users** et **All Admins** peuvent ne pas apparaître dans le menu déroulant des destinataires. Vous pouvez les saisir manuellement ; les valeurs des destinataires sont sensibles à la casse et doivent correspondre exactement. Pour les tableaux de bord localisés en dehors de l'anglais, utilisez l'étiquette de destinataire exacte que Braze affiche lorsque des suggestions sont disponibles pour cette notification, plutôt que de traduire l'expression vous-même.
 {% endalert %}
 
 | Notification | Description | Canaux de notification disponibles |

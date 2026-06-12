@@ -2,12 +2,12 @@
 nav_title: 카탈로그 사용
 article_title: 카탈로그 사용
 page_order: 1.5
-description: "이 참조 문서에서는 카탈로그를 사용하여 Liquid를 통해 Braze Campaigns에서 비사용자 데이터를 참조하는 방법을 설명합니다."
+description: "이 참조 문서에서는 카탈로그를 사용하여 Liquid를 통해 Braze Campaign에서 비사용자 데이터를 참조하는 방법을 설명합니다."
 ---
 
 # 카탈로그 사용 {#using-catalogs}
 
-> 카탈로그를 생성한 후, [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 통해 Braze Campaigns에서 비사용자 데이터를 참조할 수 있습니다. 드래그 앤 드롭 편집기에서 Liquid가 지원되는 곳이라면 어디서든 모든 메시징 채널에서 카탈로그를 사용할 수 있습니다.
+> 카탈로그를 생성한 후, [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 통해 Braze Campaign에서 비사용자 데이터를 참조할 수 있습니다. 드래그 앤 드롭 편집기에서 Liquid가 지원되는 곳이라면 어디서든 모든 메시징 채널에서 카탈로그를 사용할 수 있습니다.
 
 ## 메시지에서 카탈로그 사용 {#using-catalogs-in-a-message}
 
@@ -17,7 +17,7 @@ description: "이 참조 문서에서는 카탈로그를 사용하여 Liquid를 
 
 ### 1단계: 개인화 유형 추가 {#step-one-personalization}
 
-선택한 메시지 작성기에서 <i class="fas fa-plus-circle"></i> 더하기 아이콘을 선택하여 **Add Personalization** 모달을 열고 **Personalization type**으로 **Catalog Items**를 선택합니다. 그런 다음 카탈로그 이름을 선택합니다. 이전 예제를 사용하여 "Games" 카탈로그를 선택하겠습니다.
+선택한 메시지 작성기에서 <i class="fas fa-plus-circle"></i> **개인화 추가**를 선택하고 **개인화 유형**으로 **카탈로그 항목**을 선택합니다. 그런 다음 카탈로그 이름을 선택합니다. 이전 예제를 사용하여 "Games" 카탈로그를 선택하겠습니다.
 
 ![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
@@ -51,8 +51,8 @@ Get {{ items[0].title }} for just {{ items[0].price }}!
 
 대시보드에서 카탈로그를 내보내는 방법에는 두 가지가 있습니다:
 
-- **카탈로그** 섹션에서 카탈로그 행 위로 마우스를 가져갑니다. 그런 다음 **Export catalog** 버튼을 선택합니다.
-- 카탈로그를 선택합니다. 그런 다음 카탈로그의 **Preview** 탭에서 **Export catalog** 버튼을 선택합니다.
+- **카탈로그** 섹션에서 카탈로그 행 위로 마우스를 가져갑니다. 그런 다음 **카탈로그 내보내기** 버튼을 선택합니다.
+- 카탈로그를 선택합니다. 그런 다음 카탈로그의 **미리보기** 탭에서 **카탈로그 내보내기** 버튼을 선택합니다.
 
 내보내기를 시작하면 CSV 파일을 다운로드할 수 있는 이메일이 전송됩니다. 이 파일은 최대 4시간 이내에 다운로드할 수 있습니다.
 
@@ -60,9 +60,9 @@ Get {{ items[0].title }} for just {{ items[0].price }}!
 
 ### 다중 항목 {#multiple-items}
 
-메시지에 항목 하나로 제한되지 않습니다. **Add Personalization** 모달을 사용하여 한 번에 최대 세 개의 카탈로그 항목을 추가할 수 있습니다. 더 추가하려면 작성기에서 **Add Personalization**을 다시 선택하고 추가 카탈로그 항목 및 표시할 정보를 선택합니다.
+메시지에 항목 하나로 제한되지 않습니다. **개인화 추가** 모달을 사용하여 한 번에 최대 세 개의 카탈로그 항목을 추가할 수 있습니다. 더 추가하려면 작성기에서 **개인화 추가**를 다시 선택하고 추가 카탈로그 항목 및 표시할 정보를 선택합니다.
 
-이 예제에서는 **Catalog Items**에 세 가지 게임인 Tales, Teslagrad, Acaratus의 `id`를 추가하고 **Information to Display**에 `title`을 선택합니다.
+이 예제에서는 **카탈로그 항목**에 세 가지 게임인 Tales, Teslagrad, Acaratus의 `id`를 추가하고 **표시할 정보**에 `title`을 선택합니다.
 
 ![]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
 
@@ -127,7 +127,7 @@ Liquid 구문 오류를 방지하려면 메시지 작성기에서 **+** 더하�
 
 카탈로그에서 이미지를 참조하여 메시징에 사용할 수도 있습니다. 이렇게 하려면 이미지의 Liquid 필드에서 `catalogs` 태그와 `item` 오브젝트를 사용합니다.
 
-예를 들어, Games 카탈로그의 `image_link`를 Tales 프로모션 메시지에 추가하려면 **Catalog Items** 필드에 `id`를 선택하고 **Information to Display** 필드에 `image_link`를 선택합니다. 이렇게 하면 이미지 필드에 다음 Liquid 태그가 추가됩니다:
+예를 들어, Games 카탈로그의 `image_link`를 Tales 프로모션 메시지에 추가하려면 **카탈로그 항목** 필드에 `id`를 선택하고 **표시할 정보** 필드에 `image_link`를 선택합니다. 이렇게 하면 이미지 필드에 다음 Liquid 태그가 추가됩니다:
 
 {% raw %}
 ```liquid
@@ -166,7 +166,7 @@ Liquid가 렌더링되었을 때의 모습은 다음과 같습니다:
 카탈로그의 JSON 오브젝트는 API를 통해서만 수집됩니다. CSV 파일을 사용하여 JSON 오브젝트를 업로드할 수 없습니다.
 {% endalert %}
 
-Liquid 템플릿을 사용하면 위시리스트 ID를 동적으로 가져와서 메시지에서 사용할 수 있습니다. 이렇게 하려면 커스텀 속성에 [변수를 할당]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables)한 다음 **Add Personalization** 모달을 사용하여 배열에서 특정 항목을 가져옵니다. 카탈로그 항목 ID로 참조되는 변수는 올바르게 참조되려면 중괄호로 감싸야 합니다(예: `{{result}}`).
+Liquid 템플릿을 사용하면 위시리스트 ID를 동적으로 가져와서 메시지에서 사용할 수 있습니다. 이렇게 하려면 커스텀 속성에 [변수를 할당]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables)한 다음 **개인화 추가** 모달을 사용하여 배열에서 특정 항목을 가져옵니다. 카탈로그 항목 ID로 참조되는 변수는 올바르게 참조되려면 중괄호로 감싸야 합니다(예: `{{result}}`).
 
 {% alert tip %}
 배열은 `1`이 아닌 `0`에서 시작한다는 점을 기억하세요.
