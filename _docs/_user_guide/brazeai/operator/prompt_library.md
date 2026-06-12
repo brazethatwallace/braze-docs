@@ -113,7 +113,7 @@ description: "Browse example prompts for BrazeAI Operator, organized by the dash
 
 ### Campaign performance
 
-{% include copy_block.html content="How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 90 days (7-day window)?" %}
+{% include copy_block.html content="How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 30 days (7-day window)?" %}
 
 {% endsdktab %}
 {% sdktab Email Performance %}
