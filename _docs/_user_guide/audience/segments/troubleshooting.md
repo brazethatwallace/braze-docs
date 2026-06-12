@@ -16,14 +16,14 @@ description: "This reference article covers troubleshooting for segment errors, 
 
 | Symptom | Go to |
 |---------|-------|
-| Can't launch — audience too complex | [Target audience is too complex to launch](#target-audience-is-too-complex-to-launch) |
-| Filter won't save — too long | [Filter exceeds 10,000 bytes](#filter-exceeds-10000-bytes-or-is-too-long-to-save) |
-| Segment shows 0 users | [Segment shows zero users](#segment-shows-zero-users) |
-| User not in segment (but should be) | [Standard investigation path](#standard-investigation-path) |
-| Segment is much larger than expected | [Segment is much larger than expected](#segment-is-much-larger-than-expected) |
-| Segment count ≠ campaign analytics | [*Message Sent* or *Unique Recipients* mismatch](#message-sent-or-unique-recipients-in-campaign-analytics-doesnt-match-segment-count) |
+| Audience is too complex | [Target audience is too complex to launch](#target-audience-is-too-complex-to-launch) |
+| Filter won't save | [Filter exceeds 10,000 bytes](#filter-exceeds-10000-bytes-or-is-too-long-to-save) |
+| Segment has no users | [Segment shows zero users](#segment-shows-zero-users) |
+| User not in segment | [Standard investigation path](#standard-investigation-path) |
+| Segment is larger than expected | [Segment is much larger than expected](#segment-is-much-larger-than-expected) |
+| Segment count doesn't match campaign analytics | [*Message Sent* or *Unique Recipients* mismatch](#message-sent-or-unique-recipients-in-campaign-analytics-doesnt-match-segment-count) |
 | Filter options changed | [Filter options changed](#filter-options-changed) |
-| User on wrong app / **Apps Used** confusion | [Info displays for users of other apps](#info-displays-for-users-of-other-apps-when-i-filter-for-a-specific-app) |
+| User on wrong app | [Info displays for users of other apps](#info-displays-for-users-of-other-apps-when-i-filter-for-a-specific-app) |
 | Was a user in this segment at a past time? | [Retroactive segment membership](#retroactive-segment-membership) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Start here: Match your symptom" }
 
@@ -31,16 +31,16 @@ description: "This reference article covers troubleshooting for segment errors, 
 
 Use this workflow when a user should be in a segment but isn't, or when a segment count looks wrong.
 
-0. **Launch blocked?** If you see an audience complexity or 10,000-byte filter error on a campaign or Canvas, start with [Errors](#errors) (CSV workaround, filter simplification).
-1. **User Preview or user lookup** — Test a specific user against your segment filters. When a user doesn't match part or all of the criteria, the missing criteria is listed for troubleshooting. For steps, see [Testing segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments) in Create a segment.
-2. **Calculate Exact Statistics** — If the segment estimate shows 0 users or seems wrong, select **Calculate exact stats** in the **Reachable users** panel. Save your segment before calculating. If a calculation is already running, wait for it to finish — stale numbers may display until the new calculation completes. For details, see [Calculating exact statistics]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#calculating-exact-statistics).
-3. **Check filter values** — Look for typos, data type mismatches, stale Canvas step references, and [negative filter + OR logic](#segment-is-much-larger-than-expected).
-4. **Check complexity** — If launch is blocked, see [Target audience is too complex to launch](#target-audience-is-too-complex-to-launch).
-5. **Contact Support** — For further assistance with filter optimization, [contact Support]({{site.baseurl}}/braze_support/).
+1. **Launch blocked:** If you see an audience complexity or 10,000-byte filter error on a campaign or Canvas, start with [Errors](#errors) (CSV workaround, filter simplification).
+2. **User Preview or user lookup:** Test a specific user against your segment filters. When a user doesn't match part or all of the criteria, the missing criteria is listed for troubleshooting. For steps, see [Testing segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments) in Create a segment.
+3. **Calculate Exact Statistics:** If the segment estimate shows 0 users or seems wrong, select **Calculate exact stats** in the **Reachable users** panel. Save your segment before calculating. If a calculation is already running, wait for it to finish; stale numbers may display until the new calculation completes. For details, see [Calculating exact statistics]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#calculating-exact-statistics).
+4. **Check filter values:** Look for typos, data type mismatches, stale Canvas step references, and [negative filter + OR logic](#segment-is-much-larger-than-expected).
+5. **Check complexity:** If launch is blocked, see [Target audience is too complex to launch](#target-audience-is-too-complex-to-launch).
+6. **Contact Support:** For further assistance with filter optimization, [contact Support]({{site.baseurl}}/braze_support/).
 
 ## Segment shows zero users
 
-Segment size in the dashboard is often an **estimate** based on a sample of users. Very small segments may show an estimated range that includes 0, even when users match your filters.
+Segment size in the dashboard is often an estimate based on a sample of users. Very small segments may show an estimated range that includes 0, even when users match your filters.
 
 - Select **Calculate exact stats** in the **Reachable users** panel for an accurate count. Save the segment first. For more information, see [Considerations for estimate counts]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#considerations-for-estimate-counts).
 - If **User Preview** returns zero users for a small segment, that doesn't necessarily mean the segment is empty. Run **Calculate exact stats** to confirm. For more information, see [User preview]({{site.baseurl}}/user_guide/audience/segments/segment_data/#user-preview).
@@ -71,7 +71,7 @@ Your dashboard will display an error when a campaign, Canvas, or segment exceeds
 You can also [contact Support]({{site.baseurl}}/braze_support/) for further assistance with filter optimization.
 
 {% alert note %}
-We began limiting character counts in April 2025. Campaigns and Canvases that launched before April 2025 were exempt, which means they can continue exceeding the limit, whereas newly created campaigns and Canvases can't exceed the limit. If you edit or clone an exempt campaign or Canvas, you **will not** be able to launch it until the audience is updated to be below the limit.
+We began limiting character counts in April 2025. Campaigns and Canvases that launched before April 2025 were exempt, which means they can continue exceeding the limit, whereas newly created campaigns and Canvases can't exceed the limit. If you edit or clone an exempt campaign or Canvas, you cannot launch it until the audience is updated to be below the limit.
 {% endalert %}
 
 ### X active or stopped campaigns or Canvases exceed the audience complexity threshold
