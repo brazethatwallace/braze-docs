@@ -22,6 +22,37 @@ Remove image files under `assets/img/` that no documentation article, contributi
 
 ---
 
+## Scheduled maintenance (CI)
+
+Skills do not run on a schedule. **Twice-yearly scans** are handled by GitHub Actions:
+
+| Item | Detail |
+|------|--------|
+| Workflow | [`.github/workflows/image-pruner-maintenance.yml`](../../../.github/workflows/image-pruner-maintenance.yml) |
+| Schedule | **June 1** and **December 1** at 10:00 America/New_York |
+| Branch | `develop` |
+| What CI does | Report-only scan; uploads CSV artifact; writes workflow summary |
+| What CI does **not** do | Delete files or open `[IP]` deletion PRs |
+
+When the unreferenced count is **at or above the alert threshold** (default **20**), CI opens a GitHub issue for docs triage. Below the threshold, the run succeeds silently (summary only).
+
+**Maintenance phase** (after bulk cleanup): expect a small baseline—often fewer than 20 files. Known primary-scan false positives (for example `assets/img/Braze Komo Images v2/`) may remain; secondary verification keeps them on disk during manual deletes. Sustained counts above the threshold mean it is time to run batches again.
+
+### Manual runs
+
+- **GitHub Actions:** *Actions → Image pruner (maintenance) → Run workflow* (`workflow_dispatch`). Optional `alert_threshold` input overrides the default.
+- **Cursor / agents:** `@image-pruner` for ad-hoc scans and `[IP]` batch PRs any time.
+
+### Division of labor
+
+| Trigger | Who acts |
+|---------|----------|
+| Scheduled scan (Jun/Dec) | CI scans and alerts if needed |
+| Issue opened by CI | Human or agent runs `@image-pruner`, reviews CSV, opens `[IP]` PRs |
+| Spike after a large IA move | Run `@image-pruner` manually; do not wait for the next scheduled scan |
+
+---
+
 ## What counts as a reference
 
 The scanner walks article trees, contributing guides, and site chrome, extracting paths under `assets/img/`:
@@ -250,4 +281,8 @@ Be skeptical when the CSV shows:
 
 ```
 @image-pruner Delete unreferenced images after I approve the CSV.
+```
+
+```
+@image-pruner The maintenance workflow opened an issue — review the CSV and open [IP] batch PRs.
 ```
