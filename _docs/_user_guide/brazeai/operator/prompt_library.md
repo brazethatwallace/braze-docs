@@ -8,7 +8,7 @@ description: "Browse example prompts for BrazeAI Operator, organized by the dash
 
 # Prompt library for BrazeAI Operator
 
-> Browse a curated collection of example prompts organized by page, compiled by Braze experts. For best results, open Operator from the relevant page in Braze before using these prompts. For more information, see [Leverage page-aware context]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context).
+> Browse a curated collection of example Operator prompts, compiled by Braze experts. Select an option to view prompts related to that page. For more information, see [Leverage page-aware context]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context).
 
 
 {% sdktabs local %}
