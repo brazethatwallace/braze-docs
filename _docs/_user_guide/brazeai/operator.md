@@ -63,7 +63,7 @@ To set up brand guidelines, go to **Settings** > **Brand Guidelines**. For more,
 
 Operator automatically understands your location in Braze and tailors responses based on that context. For example, when you open Operator while building a Canvas, it can suggest relevant steps or provide guidance about Canvas features without you having to explain where you are in your workflow.
 
-This context-awareness means you can ask shorter, more natural questions like "How do I add a delay?" instead of "How do I add a delay step in a Canvas workflow?"
+This context-awareness means you can ask shorter, more natural questions like "How do I add a delay?" instead of "How do I add a delay step in a Canvas workflow?" For ready-to-use prompts organized by dashboard page, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/).
 
 ## Work with Operator responses
 
