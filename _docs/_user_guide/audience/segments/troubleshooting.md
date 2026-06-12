@@ -25,6 +25,7 @@ description: "This reference article covers troubleshooting for segment errors, 
 | Filter options changed | [Filter options changed](#filter-options-changed) |
 | User on wrong app / **Apps Used** confusion | [Info displays for users of other apps](#info-displays-for-users-of-other-apps-when-i-filter-for-a-specific-app) |
 | Was a user in this segment at a past time? | [Retroactive segment membership](#retroactive-segment-membership) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Start here: Match your symptom" }
 
 ## Standard investigation path
 
