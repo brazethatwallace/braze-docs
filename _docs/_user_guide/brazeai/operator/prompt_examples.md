@@ -8,7 +8,7 @@ description: "Browse example prompts for BrazeAI Operator, organized by the dash
 
 # Prompt library for BrazeAI Operator
 
-> Browse example prompts organized by the dashboard page you're viewing when you open Operator. Because Operator uses page-aware context, these prompts work best when you open Operator from the corresponding page in your dashboard.
+> Browse example prompts organized by the dashboard page you're viewing when you open Operator.
 
 {% alert tip %}
 For best results, open Operator from the relevant dashboard page before using these prompts. For more information, see [Leverage page-aware context]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context).
