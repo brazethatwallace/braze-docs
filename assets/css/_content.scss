@@ -1305,6 +1305,10 @@ svg[id^="mermaid"] {
     border: none;
     box-shadow: none;
     transition: opacity 0.3s ease-in-out;
+
+    img {
+      border: none;
+    }
   }
 
   &:hover .copy-block-btn {
