@@ -68,6 +68,10 @@ Obwohl der Drag-and-Drop-Editor Ihren Workflow mit diesen Blöcken vereinfacht, 
 
 **Zeilen** sind strukturelle Einheiten, die die horizontale Zusammensetzung eines Abschnitts der Nachricht mithilfe von Spalten definieren. Sie können entweder leere Zeilen oder [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) verwenden. Durch die Verwendung von mehr als einer Spalte können Sie verschiedene Inhaltselemente nebeneinander platzieren. So können Sie alle strukturellen Elemente, die Sie benötigen, zu Ihrer Nachricht hinzufügen – unabhängig davon, welches Template Sie zu Beginn ausgewählt haben.
 
+#### Bilder in Textblöcken verschachteln {#nesting-images-inside-text-blocks}
+
+Sie können im Drag-and-Drop-Editor kein Bild innerhalb eines Absatzes oder eines anderen Textblocks verschachteln. Um ein Bild neben oder innerhalb eines Textlayouts zu platzieren, verwenden Sie Spalten in einer **Zeile**: zum Beispiel eine mehrspaltige Zeile auf dem Desktop mit **Hide on mobile** für diese Zeile und eine separate, nur für Mobilgeräte bestimmte Zeile (mit **Hide on desktop** und **Do not stack on mobile** nach Bedarf), damit Bild und Text auf kleinen Bildschirmen sauber ausgerichtet sind.
+
 #### Cards-Stil {#cards-style}
 
 **Cards-Stil** ist eine Zeileneigenschaft, mit der Sie Abstände zwischen Spalten hinzufügen und deren Ecken abrunden können. Mit der Cards-Stil-Formatierung können Sie visuell ansprechendere Layouts erstellen, die Ihre wichtigsten Inhalte hervorheben – wie neue Produkt-Features, Testimonials, Sonderangebote, Neuigkeiten und mehr.
@@ -138,15 +142,7 @@ Sobald Sie das Design und den Aufbau Ihrer E-Mail-Nachricht abgeschlossen haben,
 
 Im rechten Panel wird eine Vorschau mit den von Ihnen hinzugefügten Sendeinformationen angezeigt. Diese Informationen können auch aktualisiert werden, indem Sie zu **Settings** > **Email Preferences** > **Sending Configuration** navigieren.
 
-#### E-Mail-Header personalisieren (erweitert) {#personalizing-your-email-header-advanced}
-
-Unter **Sending Settings** können Sie Personalisierung für E-Mail-Header und E-Mail-Extras hinzufügen, mit denen Sie zusätzliche Daten an andere E-Mail-Anbieter zurücksenden können. Die Personalisierung eines E-Mail-Headers, z. B. durch Einbeziehung des Namens der Empfänger:in, kann auch dazu beitragen, die Wahrscheinlichkeit zu erhöhen, dass Ihre E-Mail geöffnet wird.
-
-{% alert note %}
-Erweiterte Funktionen werden im Campaign- oder Canvas-Composer angezeigt. In den erweiterten Funktionen können Sie Ihre Inline-CSS-Einstellung ändern und Header- oder zusätzliche Schlüssel-Wert-Paare eingeben (falls konfiguriert).
-{% endalert %}
-
-#### E-Mail-Anhänge hinzufügen {#adding-email-attachments}
+#### E-Mail-Anhänge hinzufügen {#add-email-attachments}
 
 Unter **Sending Settings** > **Advanced** können Sie E-Mail-Anhänge mit den folgenden Methoden hinzufügen:
 
@@ -155,6 +151,14 @@ Unter **Sending Settings** > **Advanced** können Sie E-Mail-Anhänge mit den fo
 - **Von URL hinzufügen:** Geben Sie eine URL ein, die auf die Datei verweist, und geben Sie einen Anzeige-Dateinamen an. Da Braze beliebige URLs während der E-Mail-Erstellung nicht auf ihre Größe prüfen kann, wird die Dateigröße zum Sendezeitpunkt überprüft. Beachten Sie, dass Liquid in diesem Feld nicht unterstützt wird.
 
 Spezifische Best Practices finden Sie unter [E-Mail-Richtlinien]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/).
+
+#### E-Mail-Header personalisieren (erweitert) {#personalize-your-email-header-advanced}
+
+Unter **Sending Settings** können Sie Personalisierung für E-Mail-Header und E-Mail-Extras hinzufügen, mit denen Sie zusätzliche Daten an andere E-Mail-Anbieter zurücksenden können. Die Personalisierung eines E-Mail-Headers, z. B. durch Einbeziehung des Namens der Empfänger:in, kann auch dazu beitragen, die Wahrscheinlichkeit zu erhöhen, dass Ihre E-Mail geöffnet wird.
+
+{% alert note %}
+Erweiterte Funktionen werden im Campaign- oder Canvas-Composer angezeigt. In den erweiterten Funktionen können Sie Ihre Inline-CSS-Einstellung ändern und Header- oder zusätzliche Schlüssel-Wert-Paare eingeben (falls konfiguriert).
+{% endalert %}
 
 ### 4. Schritt: E-Mail testen {#step-4-test-your-email}
 
@@ -206,8 +210,8 @@ Die zugrunde liegende Engine, die HTML aus dem Drag-and-Drop-Editor erzeugt, wur
 Unser durchschnittlicher exportierter HTML-Daten-Footprint wurde reduziert, was zu schnellerem Laden und Rendering, weniger mobilem Clipping und geringerem Bandbreitenverbrauch führt.
 
 Das HTML-Rendering wurde durch die folgenden Updates verbessert, die die Anzahl der bedingten Kommentare und CSS-Media-Queries minimieren. Dadurch sind HTML-Dateien kleiner und effizienter codiert.
-- Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table aria-label="Use Inbox Vision">`-formatierten Codebasis
-  <caption>Use Inbox Vision</caption>
+- Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table aria-label="Inbox Vision verwenden">`-formatierten Codebasis
+  <caption>Inbox Vision verwenden</caption>
 - [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) wurden für Kompaktheit neu codiert
 - Der finale HTML-Code wird komprimiert, um Leerzeichen zwischen Tags zu entfernen
 - Transparente Trennlinien werden automatisch in Inhalts-Padding umgewandelt
@@ -317,7 +321,7 @@ Alles, was außerhalb von `<head>`-Tags hinzugefügt wird, wird nach dem `<body>
 | `meta` | Stellt Metadaten wie Seitenbeschreibung oder Schlüsselwörter bereit. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Bettet interne CSS-Stile ein. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Legt den Titel des Dokuments fest, der in Browser-Tabs angezeigt wird. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zulässige Tags und Attribute nach Tag" }
 
 | Tag | Attribut | Beschreibung | Beispiel |
 | --- | --- | --- | --- |
@@ -335,7 +339,7 @@ Alles, was außerhalb von `<head>`-Tags hinzugefügt wird, wird nach dem `<body>
 | `style` | `type` | MIME-Typ des Stilinhalts. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Gibt das Medium oder Gerät an, für das Stile gelten. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Keine Attribute | Das `title`-Tag akzeptiert keine Attribute. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Zulässige Tags und Attribute nach Tag" }
 
 {% alert note %}
 Link-Namen können bis zu 63 Bytes lang sein und werden automatisch abgeschnitten, wenn sie das Limit überschreiten.

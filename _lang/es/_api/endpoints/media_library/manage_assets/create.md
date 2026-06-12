@@ -27,7 +27,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Límite de velocidad {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='default' %}
+{% multi_lang_include rate_limits.md endpoint='media_library' %}
 
 ## Cuerpo de la solicitud {#request-body}
 
@@ -149,6 +149,7 @@ Esta tabla enumera los posibles errores de procesamiento.
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | El archivo supera el tamaño máximo permitido. Las imágenes tienen un límite de 5 MB. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | El espacio de trabajo ha alcanzado su número máximo de activos (200 de forma predeterminada para las empresas con versión de prueba gratuita, ilimitado en los demás casos). El objeto `meta` incluye el `limit` actual. |
 | `ASSET_UPLOAD_FAILED` | 400 | El activo no se pudo cargar debido a problemas de procesamiento. |
+| `INVALID_ASSET_URL` | 400 | El valor de `asset_url` no es un URI válido. El objeto `meta` incluye `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | El archivo ZIP está dañado o no se puede abrir. El objeto `meta` incluye el mensaje `original_error`. |
 | `ZIP_FILE_TOO_LARGE` | 400 | El tamaño total sin comprimir del archivo ZIP supera el límite de 5 MB. El objeto `meta` incluye el `zip_file_name` y el `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Una entrada de archivo dentro del ZIP no tiene nombre. Asegúrate de que el archivo ZIP no esté dañado y añade un nombre a cualquier entrada de archivo sin nombre. |

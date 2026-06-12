@@ -31,7 +31,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | ---------------- | -------- | --------- | ------------------------------ |
 | `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
 | `selection_name` | Obligatorio | Cadena | Nombre de la selección del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -85,6 +85,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | -------------------- | -------------------------------------------------------- |
 | `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
 | `invalid-selection` | Comprueba que el nombre de la selección es válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

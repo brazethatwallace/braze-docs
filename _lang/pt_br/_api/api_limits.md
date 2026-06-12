@@ -46,7 +46,9 @@ Consulte a seguir os limites de taxa padrão da API para diferentes tipos de sol
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | 50 solicitações por minuto. |
 | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | 20 solicitações por minuto. |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) | 100 solicitações por minuto. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Solicitações com diferentes limites de taxa" }
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 100 solicitações por hora. |
+| [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 100 solicitações por hora. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
 
 ### Solicitações com limites de taxa compartilhados {#requests-with-shared-rate-limits}
 
@@ -186,7 +188,7 @@ Toda solicitação de API enviada à Braze retorna as seguintes informações no
 | `X-RateLimit-Limit` | O número máximo de solicitações que você pode fazer em um intervalo especificado (seu limite de taxa). |
 | `X-RateLimit-Remaining` | O número de solicitações restantes na janela do limite de taxa atual. |
 | `X-RateLimit-Reset` | A hora em que a janela do limite de taxa atual é redefinida em segundos de epoch UTC. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Monitoramento dos seus limites de taxa" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Monitoring your rate limits" }
 
 Essas informações são incluídas intencionalmente no cabeçalho da resposta à solicitação da API, e não no dashboard da Braze. Isso permite que seu sistema reaja melhor em tempo real à medida que você interage com nossa API. Por exemplo, se o valor de `X-RateLimit-Remaining` cair abaixo de um determinado limite, talvez você queira diminuir a velocidade de envio para garantir que todos os e-mails de transação sejam enviados. Ou, se chegar a zero, talvez você queira pausar todos os envios até que passe o tempo especificado em `X-RateLimit-Reset`.
 

@@ -26,6 +26,10 @@ Pour accéder au profil d'un utilisateur, rendez-vous sur la page **Rechercher d
 
 Si une correspondance est trouvée, vous pouvez consulter les informations que vous avez enregistrées pour cet utilisateur avec le SDK Braze. Sinon, si votre recherche renvoie plusieurs profils utilisateur, vous pouvez fusionner chaque profil individuellement ou effectuer une fusion groupée d'utilisateurs. Pour un guide complet, consultez [Fusionner les utilisateurs en double]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
+{% alert note %}
+**Rechercher des utilisateurs** n'est pas la même chose que **Recherche d'utilisateur** dans le compositeur de segment ou de campagne. **Recherche d'utilisateur** teste si un utilisateur spécifique correspond à votre audience et n'accepte que `external_id` ou `braze_id`. **Rechercher des utilisateurs** sur cette page prend en charge l'e-mail, le téléphone, le jeton de notification push et l'alias d'utilisateur. Pour plus d'informations, consultez [Tester les segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments).
+{% endalert %}
+
 {% alert important %}
 Lorsqu'un numéro de téléphone est utilisé dans la recherche, il est converti au format [`E.164`](https://en.wikipedia.org/wiki/e.164). Les utilisateurs dont les numéros de téléphone ne peuvent pas être convertis au format `E.164` (par exemple, parce que le numéro de téléphone a un indicatif de pays ou de zone invalide) ne peuvent pas être recherchés par numéro de téléphone.
 {% endalert %}
@@ -61,7 +65,7 @@ L'onglet **Aperçu** contient les informations de base sur un utilisateur et ses
 | Appareils récents | Nombre d'appareils sur lesquels l'utilisateur s'est connecté, détails de chaque appareil et identifiants publicitaires associés (le cas échéant). |
 | Événements personnalisés | Quels événements personnalisés cet utilisateur a effectués, combien de fois, et quand il a effectué chaque événement pour la dernière fois. |
 | Achats | Chiffre d'affaires total attribué à cet utilisateur, son dernier achat, le nombre total d'achats et une liste de chaque achat. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab #overview-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Onglet Aperçu" }
 
 Pour plus d'informations sur ces données, consultez [Collecte de données du SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
@@ -81,7 +85,7 @@ L'onglet **Engagement** contient des informations sur les interactions d'un util
 | Divers | Le [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) de l'utilisateur. |
 | Messages Canvas reçus | Messages Canvas que cet utilisateur a reçus et quand. Le moment d'envoi suit les mêmes règles par canal que **Campaigns reçues** ; consultez [Quand les campagnes apparaissent dans Campaigns reçues](#when-campaigns-appear-in-campaigns-received). Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs partageant un identifiant avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.<br><br>Sélectionnez un message dans la liste pour le consulter. |
 | Prédictions | Scores de [prédiction d'attrition]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) et de [prédiction des événements]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) pour cet utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab #engagement-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Onglet Engagement" }
 
 ### Quand les campagnes apparaissent dans Campaigns reçues {#when-campaigns-appear-in-campaigns-received}
 
@@ -126,7 +130,7 @@ Les événements d'engagement liés aux messages suivants sont disponibles pour 
 | Content Cards | Clic<br>Rejet<br>Impression<br>Envoi |
 | Webhooks | Envoi |
 | WhatsApp | Abandon<br>Distribution<br>Échec<br>Limite de fréquence atteinte<br>Réception entrante<br>Lecture<br>Envoi |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements d'engagement liés aux messages" }
 
 ##### Événements d'abandon de message {#message-abort-events}
 

@@ -46,6 +46,8 @@ API 사용량 제한은 시스템의 적절한 사용에 따라 변경될 수 �
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | 분당 50건의 요청. |
 | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | 분당 20건의 요청. |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) | 분당 100건의 요청. |
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 시간당 100건의 요청. |
+| [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 시간당 100건의 요청. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
 
 ### 공유 사용량 제한이 있는 요청 {#requests-with-shared-rate-limits}

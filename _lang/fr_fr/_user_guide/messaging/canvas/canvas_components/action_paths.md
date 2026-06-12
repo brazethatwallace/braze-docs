@@ -83,6 +83,6 @@ Si des utilisateurs entrent dans un parcours d'action plusieurs fois et ont plus
 |---|--------------|
 | **Désactivé** | Un utilisateur peut entrer dans un parcours d'action plus d'une fois. Ces entrées sont retenues dans le parcours d'action jusqu'à ce qu'une action ou un événement déclencheur soit enregistré. Si l'événement déclencheur ne satisfait pas les filtres de propriétés d'une entrée (par exemple, une [variable de contexte]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) ne correspond pas aux filtres de propriétés du déclencheur), l'entrée reste dans le parcours d'action. <br><br>Si l'événement déclencheur satisfait plus d'une entrée, Braze déduplique uniquement ces entrées et fait immédiatement avancer l'entrée correspondante la plus ancienne dans le groupe d'actions approprié. |
 | **Activé** | Toutes les entrées avancent à la fin de la fenêtre d'évaluation correspondante. Aucune déduplication n'est effectuée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas avec rééligibilité" }
 
 Notez que les classements ne sont pas [modifiables après le lancement]({{site.baseurl}}/post-launch_edits/).

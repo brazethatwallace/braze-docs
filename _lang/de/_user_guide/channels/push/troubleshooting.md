@@ -28,7 +28,7 @@ Haben Sie Probleme mit der Zustellung von Push-Benachrichtigungen? Es gibt eine 
 
 Push-Benachrichtigungen können nur an abonnierte oder angemeldete Nutzer:innen gesendet werden. Überprüfen Sie Ihr Nutzerprofil im Tab [Engagement]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) im Abschnitt **Nutzerprofil**, um zu bestätigen, dass Sie aktiv für Push im Workspace registriert sind, den Sie testen. Wenn Sie für mehrere Apps registriert sind, finden Sie diese im Feld **Push Registered For**:
 
-![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
+![Für Push registriert]({% image_buster /assets/img_archive/trouble1.png %})
 
 Sie können die Nutzerprofile auch über die Braze-Export-Endpunkte exportieren:
 - [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)
@@ -42,7 +42,7 @@ Stellen Sie sicher, dass Sie in das Segment fallen, das Sie ansprechen (wenn es 
 
 ![Liste der Segmente]({% image_buster /assets/img_archive/trouble2.png %})
 
-Sie können auch bestätigen, dass die Nutzer:innen Teil des Segments sind, indem Sie beim Erstellen eines Segments die **Nutzersuche** verwenden.
+Sie können auch bestätigen, dass die Nutzer:innen Teil des Segments sind, indem Sie beim Erstellen eines Segments die **Nutzersuche** verwenden. Die **Nutzersuche** akzeptiert nur `external_id` oder `braze_id` – keine E-Mail-Adressen oder Telefonnummern. Um nach E-Mail, Telefon, Push-Token oder Nutzer-Alias zu suchen, verwenden Sie [**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
 ![Abschnitt „Nutzersuche“ mit einem Suchfeld.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -172,6 +172,20 @@ Wenn Deeplinks funktionieren, wenn die App nicht läuft oder wenn der Link direk
 Apple `.p8`-Authentifizierungsschlüssel sind der erforderliche Ansatz für APNs-Push in Braze. Im Gegensatz zu älteren Zertifikatsdateitypen laufen `.p8`-Schlüssel nicht ab und unterstützen alle Ihre Apps unter einem einzigen Schlüssel, wodurch jährliche Zertifikatserneuerungen entfallen und das Risiko von Push-Zustellungsfehlern reduziert wird.
 
 Wenn Sie derzeit ein `.p12`- oder `.pem`-Zertifikat verwenden, migrieren Sie so bald wie möglich zu einem `.p8`-Schlüssel. Anweisungen zum Erstellen und Hochladen eines `.p8`-Schlüssels finden Sie unter [APNs-Push-Zertifikat hochladen]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Apples Anleitung zum Generieren eines `.p8`-Schlüssels aus Ihrem Entwicklerkonto finden Sie unter [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+
+### .p8-Schlüssel im Vergleich zu .p12-Zertifikaten {#p8-keys-versus-p12-certificates}
+
+| Zugangsdaten | Ablauf | Dashboard-Statusanzeige |
+| --- | --- | --- |
+| `.p8`-Authentifizierungsschlüssel | Läuft nicht ab | Keine grüne Statusanzeige (dies ist erwartet) |
+| `.p12`-Push-Zertifikat | Läuft jährlich ab | Grüne Anzeige, wenn das Zertifikat gültig ist |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label=".p8-Schlüssel im Vergleich zu .p12-Zertifikaten" }
+
+Wenn Sie ein `.p12`-Zertifikat durch einen `.p8`-Schlüssel ersetzen (oder neue Zugangsdaten hochladen), kann die Push-Zustellung kurzzeitig pausieren, während Braze die Änderung verarbeitet. Planen Sie Updates nach Möglichkeit während eines Wartungsfensters.
+
+Bestätigen Sie unter **Settings** > **App Settings** > **Push Notification Settings**, dass **App Bundle ID**, **Team ID** und **Key ID** (für `.p8`-Schlüssel) mit den Werten in Ihrem Apple-Entwicklerkonto übereinstimmen. Mehrere Braze-Workspaces können dieselben Apple-Push-Zugangsdaten verwenden, wenn die iOS-App-**Bundle-ID** identisch ist; die Zugangsdaten-Umgebung (Entwicklung versus Produktion) muss mit der Art übereinstimmen, wie die App erstellt wurde.
+
+Apps mit [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) oder höher können [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management) verwenden, das Token automatisch an die richtige APNs-Umgebung weiterleitet.
 
 ## Web-Push-Benachrichtigungen verhalten sich nicht wie erwartet {#web-push-notifications-arent-behaving-as-expected}
 

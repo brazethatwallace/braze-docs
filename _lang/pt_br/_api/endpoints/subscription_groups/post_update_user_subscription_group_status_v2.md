@@ -37,7 +37,7 @@ Para ver exemplos ou testar este endpoint para **grupos de WhatsApp**:
 Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `subscription.status.set`.
 
 {% alert note %}
-Se você tiver interesse em usar este endpoint com [grupos de inscrições do LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), entre em contato com seu gerente de sucesso do cliente.
+Se você tiver interesse em usar este endpoint com [grupos de inscrições do LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), entre em contato com seu gerente de sucesso do cliente. <br><br>Para grupos de inscrições do LINE, recomendamos usar um atributo personalizado para rastrear o consentimento do site ou app separadamente e, em seguida, direcionar campanhas usando esse atributo personalizado em combinação com o estado de inscrição do LINE. Essa abordagem garante que o estado de inscrição reflita com precisão os usuários que realmente se inscreveram no app do LINE. Adicionar manualmente usuários a grupos de inscrições do LINE usando a API pode levar a estados dessincronizados e envios com falha, pois a Braze não pode reinscrever usuários no app do LINE nem enviar mensagens para usuários que bloquearam uma conta no LINE.
 {% endalert %}
 
 ## Diferenças em relação ao V1 {#differences-from-v1}
@@ -86,15 +86,15 @@ Ao criar novos usuários usando o [endpoint `/users/track`]({{site.baseurl}}/api
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Obrigatório | String | O `id` do seu grupo de inscrições. |
-| `subscription_state` | Obrigatório | String | Os valores disponíveis são `unsubscribed` (não está no grupo de inscrições) ou `subscribed` (está no grupo de inscrições). |
-| `external_ids` | Obrigatório* | Array de strings | O `external_id` do usuário ou usuários, pode incluir até 50 `id`s. |
-| `emails` | Obrigatório* | String ou array de strings | O endereço de e-mail do usuário, pode ser passado como um array de strings. Deve incluir pelo menos um endereço de e-mail (com um máximo de 50). <br><br>Se vários usuários (`external_id`) no mesmo espaço de trabalho compartilharem o mesmo endereço de e-mail, todos os usuários que compartilham o e-mail são atualizados com as mudanças do grupo de inscrições. |
-| `phones` | Obrigatório* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | Você pode passar os números de telefone dos usuários como um array de strings. Deve incluir pelo menos um número de telefone (até 50). Os números de telefone devem estar no formato E.164 (por exemplo, `+12223334444`). <br><br>Se vários usuários (`external_id`) no mesmo espaço de trabalho compartilharem o mesmo número de telefone, todos os usuários que compartilham o número de telefone são atualizados com as mesmas alterações do grupo de inscrições. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Obrigatória | String | O `id` do seu grupo de inscrições. |
+| `subscription_state` | Obrigatória | String | Os valores disponíveis são `unsubscribed` (não está no grupo de inscrições) ou `subscribed` (está no grupo de inscrições). |
+| `external_ids` | Obrigatória* | Array de strings | O `external_id` do usuário ou usuários, pode incluir até 50 `id`s. |
+| `emails` | Obrigatória* | String ou array de strings | O endereço de e-mail do usuário, pode ser passado como um array de strings. Deve incluir pelo menos um endereço de e-mail (com um máximo de 50). <br><br>Se vários usuários (`external_id`) no mesmo espaço de trabalho compartilharem o mesmo endereço de e-mail, todos os usuários que compartilham o e-mail são atualizados com as mudanças do grupo de inscrições. |
+| `phones` | Obrigatória* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | Você pode passar os números de telefone dos usuários como um array de strings. Deve incluir pelo menos um número de telefone (até 50). Os números de telefone devem estar no formato E.164 (por exemplo, `+12223334444`). <br><br>Se vários usuários (`external_id`) no mesmo espaço de trabalho compartilharem o mesmo número de telefone, todos os usuários que compartilham o número de telefone são atualizados com as mesmas alterações do grupo de inscrições. |
 | `use_double_opt_in_logic` | Opcional | booleano | O padrão é `false` se omitido. Para grupos de inscrições por SMS, defina como `true` para inserir o usuário no fluxo de trabalho de [aceitação dupla de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) quando o status de inscrição for definido como `subscribed`. Os usuários inseridos no fluxo de trabalho de aceitação dupla dessa forma recebem no máximo uma mensagem de resposta de pedido de aceitação por dia, independentemente do número de vezes que são inseridos no fluxo de trabalho. Se este parâmetro for omitido ou definido como `false`, os usuários são inscritos sem entrar no fluxo de trabalho de aceitação dupla. Este parâmetro não é aplicável a grupos de inscrições para e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 {% alert important %}
 **Seleção de identificador**:

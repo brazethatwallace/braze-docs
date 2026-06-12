@@ -26,7 +26,7 @@ Existem dois estados de inscrição para usuários de SMS e RCS: `subscribed` e 
 | --------- | ---------- |
 | Inscrito | O usuário está inscrito para receber SMS e RCS de um grupo de inscrições específico. Um usuário pode ser inscrito ao ter seu estado de inscrição atualizado pela API de inscrições da Braze ou ao enviar uma resposta com palavra-chave de opt-in. Um usuário deve estar inscrito em um grupo de inscrições de SMS ou RCS para receber SMS, RCS ou ambos. Quando o [double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) está ativado, os usuários devem confirmar sua intenção de opt-in antes que o status de inscrição seja atualizado para `Subscribed`. |
 | Cancelou inscrição | O usuário optou explicitamente por não receber mensagens do seu grupo de inscrições de SMS e RCS e dos números de telefone de envio dentro do grupo de inscrições. Eles podem cancelar a inscrição enviando uma resposta com palavra-chave de descadastramento, ou você pode cancelar a inscrição dos usuários pela [API de inscrições da Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Usuários que cancelaram a inscrição de um grupo de inscrições de SMS e RCS não receberão mais nenhum SMS ou RCS dos números de telefone de envio que pertencem ao grupo de inscrições.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados do grupo de inscrições" }
 
 ### Definir o estado de um usuário {#set-a-users-state}
 
@@ -66,6 +66,10 @@ Em conformidade com as [diretrizes e regulamentações internacionais de telecom
 {% endalert %}
 
 ![Criador de SMS com o menu suspenso do grupo de inscrições aberto e "Messaging Service A for SMS" destacado pelo usuário.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
+
+## Práticas recomendadas para grupos de inscrições de SMS {#sms-subscription-group-best-practices}
+
+Crie grupos de inscrições de SMS separados para cada finalidade de envio de mensagens (por exemplo, transacional versus marketing) e para cada espaço de trabalho. Quando você opera em vários países, considere grupos separados por região para atender às regras de conformidade locais — por exemplo, as restrições do Brasil sobre janelas de envio promocional.
 
 ## Ativar grupos de inscrições {#enable-subscription-groups}
 
@@ -127,14 +131,15 @@ A Braze recomenda que você teste o envio de RCS para volumes menores de usuári
 Crie um Canvas e dê a ele um nome facilmente identificável (como "Transferência de Usuários do Grupo de Inscrições SMS-RCS"). Em seguida, programe a campanha para quando for conveniente para você.
 
 ### Etapa 2: Definir seu público {#step-2-define-your-audience}
+{: #step-2-define-your-audience}
 
 Defina seu público usando um dos seguintes métodos. Em seguida, vá para a etapa **Configurações de envio** e selecione **Usuários que estão inscritos ou optaram por receber**.
 
 | Método | Descrição |
-|---|---|
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Criar um segmento** | Crie um segmento que inclua todos os usuários em um grupo de inscrições ou um subconjunto usando filtros de segmentação (como 5-10% aleatórios). Os segmentos são atualizados antes de cada envio para refletir sua base de usuários atual. |
 | **Aplicar filtros de Campaign ou Canvas** | Refine o público na etapa **Público-alvo** da sua Campaign ou Canvas. Ajuste as opções de direcionamento sem sair da página para maior flexibilidade. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Definir seu público" }
 
 ### Etapa 3: Configurar uma etapa de Atualização de usuário {#step-3-configure-a-user-update-step}
 
@@ -196,5 +201,7 @@ Escolha nomes de grupos de inscrições descritivos e claros para que o grupo co
 ### Separar grupos por país {#separate-groups-by-country}
 
 As regulamentações de SMS variam por país. Sugerimos separar os grupos de inscrições de SMS por país. Isso ajuda você a atender aos padrões de conformidade em todas as regiões onde envia mensagens.
+
+Para cada grupo de inscrições, você também pode configurar uma lista de permissões de países em **Permissões geográficas** para que SMS, MMS e RCS sejam enviados apenas para regiões aprovadas. Para saber mais, consulte [Permissões geográficas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/).
 
 Por exemplo, no Brasil, o envio de mensagens de marketing fora do horário das 9h às 21h no horário local é proibido, e o país abrange três fusos horários. Para cumprir essas regulamentações, você pode configurar grupos separados para enviar mensagens ao Brasil e aos Estados Unidos. Isso evita que usuários no Brasil recebam mensagens de marketing durante horários proibidos.

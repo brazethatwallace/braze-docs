@@ -68,6 +68,10 @@ Embora o editor de arrastar e soltar simplifique seu fluxo de trabalho com esses
 
 **Linhas** são unidades estruturais que definem a composição horizontal de uma seção da mensagem usando colunas. Você pode usar linhas vazias ou [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Usar mais de uma coluna permite colocar diferentes elementos de conteúdo lado a lado. Dessa forma, você pode adicionar todos os elementos estruturais necessários à sua mensagem, independentemente do modelo selecionado no início.
 
+#### Aninhar imagens dentro de blocos de texto {#nesting-images-inside-text-blocks}
+
+Não é possível aninhar uma imagem dentro de um parágrafo ou outro bloco de texto no editor de arrastar e soltar. Para posicionar uma imagem ao lado ou dentro de um layout de texto, use colunas em uma **Linha**: por exemplo, uma linha com várias colunas no desktop com **Hide on mobile** para essa linha, e uma linha separada apenas para celular (com **Hide on desktop** e **Do not stack on mobile** conforme necessário) para que a imagem e o texto fiquem alinhados corretamente em telas pequenas.
+
 #### Estilo de cartões {#cards-style}
 
 **Estilo de cartões** é uma propriedade de linha que permite adicionar espaçamento entre colunas e arredondar seus cantos. Com a formatação de estilo de cartão, você pode criar layouts visualmente mais atraentes para destacar seu conteúdo mais importante, como novos recursos de produto, depoimentos, ofertas especiais, atualizações de notícias e muito mais.
@@ -138,15 +142,7 @@ Depois de terminar de projetar e construir sua mensagem de e-mail, é hora de ad
 
 Uma pré-visualização no painel à direita será preenchida com as informações de envio que você adicionou. Essas informações também podem ser atualizadas acessando **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Personalizando o cabeçalho do e-mail (avançado) {#personalizing-your-email-header-advanced}
-
-Em **Sending Settings**, você pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail, o que permite enviar dados adicionais de volta para outros prestadores de serviço de e-mail. Personalizar um cabeçalho de e-mail, como incluir o nome do destinatário, também pode contribuir para a probabilidade de seu e-mail ser aberto.
-
-{% alert note %}
-A funcionalidade avançada aparecerá no criador de Campaign ou Canvas. Na funcionalidade avançada, você pode modificar sua configuração de CSS inline e inserir pares de chave-valor de cabeçalho ou extras (se configurados).
-{% endalert %}
-
-#### Adicionando anexos de e-mail {#adding-email-attachments}
+#### Adicionando anexos de e-mail {#add-email-attachments}
 
 Em **Sending Settings** > **Advanced**, você pode adicionar anexos de e-mail pelos seguintes métodos:
 
@@ -155,6 +151,14 @@ Em **Sending Settings** > **Advanced**, você pode adicionar anexos de e-mail pe
 - **Adicionar a partir de URL:** Insira uma URL apontando para o arquivo e forneça um nome de exibição para o arquivo. Como a Braze não pode verificar URLs arbitrárias quanto ao tamanho durante a composição do e-mail, o tamanho do arquivo é verificado no momento do envio. Observe que Liquid não é suportado neste campo.
 
 Consulte as [Diretrizes de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) para práticas recomendadas específicas a serem consideradas.
+
+#### Personalizando o cabeçalho do e-mail (avançado) {#personalize-your-email-header-advanced}
+
+Em **Sending Settings**, você pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail, o que permite enviar dados adicionais de volta para outros prestadores de serviço de e-mail. Personalizar um cabeçalho de e-mail, como incluir o nome do destinatário, também pode contribuir para a probabilidade de seu e-mail ser aberto.
+
+{% alert note %}
+A funcionalidade avançada aparecerá no criador de Campaign ou Canvas. Na funcionalidade avançada, você pode modificar sua configuração de CSS inline e inserir pares de chave-valor de cabeçalho ou extras (se configurados).
+{% endalert %}
 
 ### Etapa 4: Teste seu e-mail {#step-4-test-your-email}
 
@@ -206,8 +210,7 @@ O mecanismo subjacente que produz HTML a partir do editor de arrastar e soltar f
 O tamanho médio dos dados HTML exportados foi reduzido, levando a carregamento e renderização mais rápidos, redução de cortes em dispositivos móveis e menor consumo de largura de banda.
 
 A renderização HTML foi aprimorada com base nas seguintes atualizações que minimizam o número de comentários condicionais e consultas de mídia CSS. Como resultado, os arquivos HTML são menores e codificados de forma mais eficiente.
-- Migração de um design baseado em elementos `<div>` para uma base de código formatada em `<table aria-label="Use Inbox Vision">` padrão
-  <caption>Use Inbox Vision</caption>
+- Migração de um design baseado em elementos `<div>` para uma base de código formatada em `<table>` padrão
 - Os [blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) foram recodificados para maior concisão
 - O código HTML final é comprimido para remover espaços em branco entre tags
 - Divisores transparentes são automaticamente convertidos em preenchimento de conteúdo
@@ -317,7 +320,7 @@ Qualquer coisa adicionada fora das tags `<head>` será adicionada após a tag `<
 | `meta` | Fornece metadados como descrição da página ou palavras-chave. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Incorpora estilos CSS internos. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Define o título do documento exibido nas abas do navegador. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tags e atributos permitidos por tag" }
 
 | Tag | Atributo | Descrição | Exemplo |
 | --- | --- | --- | --- |
@@ -335,7 +338,7 @@ Qualquer coisa adicionada fora das tags `<head>` será adicionada após a tag `<
 | `style` | `type` | Tipo MIME do conteúdo de estilo. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Especifica a mídia ou dispositivo para o qual os estilos se aplicam. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Sem atributos | A tag `title` não aceita nenhum atributo. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tags e atributos permitidos por tag" }
 
 {% alert note %}
 Os nomes dos links podem ter até 63 bytes e são automaticamente truncados se excederem o limite.

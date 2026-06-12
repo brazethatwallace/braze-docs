@@ -18,10 +18,6 @@ There are a range of data protection laws that regulate what organizations can d
 
 These Data Protection Laws grant individuals ‘privacy rights’ over their personal data. Organizations are required to receive and respond to requests from individuals who exercise their privacy rights. The Braze Services can assist you in your compliance with these Data Protection Laws by providing features to facilitate certain actions required under such laws. This document provides technical instructions to use these features to manage privacy rights requests. It is up to you to determine which Data Protection Laws apply to your business, and to act in compliance with them.
 
-{% alert important %}
-The Braze recommendations on this page do not apply to BrazeAI Decisioning Studio™. To manage any privacy rights requests relating to personal data in BrazeAI Decisioning Studio™, contact your account manager.
-{% endalert %}
-
 ## Legal Disclaimer
 
 None of the following is intended to be, nor shall it be deemed to be, legal advice by Braze. You are advised to seek the advice of your own counsel with respect to your particular situation and how Data Protection Laws apply to you and your use of the Braze Services.
@@ -45,12 +41,11 @@ In relation to the Braze Services:
 - Braze is a data processor who processes Personal Data in the Braze Services on your behalf and in accordance with the instructions that we receive from you.
 
 The above are GDPR terms, but for example, comparable terms under the CCPA are:
-
 - “consumers” for data subjects.
 - “businesses” for data controllers.
 - “service providers” for data processors.
 
-You will find below relevant information on the most common privacy rights requests from data subjects, including how you can respond to them through the Braze Service's technical features.
+You will find below relevant information on the most common privacy rights requests from data subjects, including how you can respond to them through the Braze Service’s technical features.
 
 ## The Right to Be Informed
 
@@ -70,7 +65,11 @@ Under Data Protection Laws, data subjects may have the right to obtain:
 
 ### Braze Recommendation
 
-In order to provide Personal Data from Braze in a machine-readable format in response to a data subject’s access request, you may export their end user Profile by making an API call to Braze’s [REST APIs](https://www.braze.com/docs/api/endpoints/export/#user-export) with either their user identifier (defined by you as the `external_id` provided to Braze) and/or their device identifier.
+In order to provide Personal Data from Braze in a machine-readable format in response to a data subject’s access request, you may export their end user Profile by making an API call to Braze’s [REST APIs]({{site.baseurl}}/api/endpoints/export/#user-export) with either their user identifier (defined by you as the `external_id` provided to Braze) and/or their device identifier.
+
+#### BrazeAI Decisioning Studio™ 
+
+To fulfill a right of access request in relation to Personal Data in BrazeAI Decisioning Studio™, contact your account manager with the relevant customer_id(s) and/or email(s).
 
 ## The Right to Rectification
 
@@ -78,17 +77,17 @@ Individuals are entitled to have Personal Data corrected if it is inaccurate or 
 
 ### Braze Recommendation
 
-In the event that a Data Subject requests that you rectify inaccuracies within the Personal Data being processed by you or by Braze on your behalf, you can use the Braze SDKs or the Braze [REST APIs](https://www.braze.com/docs/api/endpoints/user_data/#user-track-endpoint) to correct such Personal Data.
+In the event that a Data Subject requests that you rectify inaccuracies within the Personal Data being processed by you or by Braze on your behalf, you can use the Braze SDKs or the Braze [REST APIs]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) to correct such Personal Data.
 
 ## The Right to Erasure
 
-The right to erasure is also known as 'the right to be forgotten' or 'right to be deleted.'
+The right to erasure is also known as ‘the right to be forgotten’ or ‘right to be deleted.’
 
 ### Braze Recommendation
 
 #### Standard Deletion 
 
-Once you have halted data collection, you can use [Braze’s User Deletion REST API endpoint](https://www.braze.com/docs/api/endpoints/user_data/post_user_delete/) to delete an end user, which will remove all records of such end user from the Braze Services:
+Once you have halted data collection, you can use [Braze’s User Deletion REST API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) to delete an end user, which will remove all records of such end user from the Braze Services:
 
 - For end users who have an external_id within the Braze Services, you can use that ID to delete that end user’s data.
 - For anonymous end users who do not have an external_id within the Braze Services, you can retrieve that end user’s device identifier using the Braze SDK and can use the device identifier to find the end user profile associated with that device. You can then use the User Deletion API to delete the profile associated with that end user.
@@ -96,6 +95,10 @@ Once you have halted data collection, you can use [Braze’s User Deletion REST 
 Deleting an end user from the Braze Services will permanently delete Braze’s centralized User Profile for that end user as defined by the `external_id` provided. This includes structured profile information that Braze collected by default or that you configured the Braze Services to collect, such as device information, country, language, and email address.
 
 Note that the email address or phone number associated with the end user’s profile could still be stored by Braze, as they could be associated with another end user’s profile. Email addresses and phone numbers are not unique in the Braze Services. This means your team could have configured Braze to store the same email address or phone number on multiple user profiles. If your team has configured Braze in this way, be aware that you may need to delete all user profiles which represent a given data subject in order to comply with a request for deletion from a data subject, and your team would need to make multiple API calls to delete all the User Profiles that refer to a particular data subject.
+
+#### BrazeAI Decisioning Studio™ 
+
+To fulfill a right to erasure request in relation to Personal Data in BrazeAI Decisioning Studio™, contact your account manager with the relevant customer_id(s) and/or email(s). Your account manager can arrange to have all associated personal data found in the data warehouse deleted.
 
 #### Additional Deletion Considerations
 
@@ -112,7 +115,7 @@ Note that the email address or phone number associated with the end user’s pro
 <tbody>
   <tr>
     <td>
-        <p>Customers can create custom fields for event properties and message extras. These fields are not intended for personal data, as a result these fields are not included in the default deletion process described above. If, however, you use Braze to enter or collect personal data through event properties and message extras, you can set up the deletion process triggered by the User Deletion REST API endpoint to also include these fields, so the data contained in these fields will be deleted too.</p>
+        <p>Customers can create custom fields for event properties and message extras. These fields are not intended for Personal Data, as a result these fields are not included in the default deletion process described above. If, however, you use Braze to enter or collect Personal Data through event properties and message extras, you can set up the deletion process triggered by the User Deletion REST API endpoint to also include these fields, so the data contained in these fields will be deleted too.</p>
         <p>Default settings are applied at the company level but you can elect to delete the following fields when the delete process runs, at the app group/workspace level:</p>
     <ul>
         <li>PROPERTIES for USERS_BEHAVIORS_CUSTOMEVENT</li>
@@ -152,7 +155,9 @@ Data subjects may have the right to ‘block’ or suppress the processing of th
 
 ### Braze Recommendation
 
-The Braze Services do not support the restriction of processing of individual categories of Personal Data. If you have been asked by a data subject to restrict processing of certain subsets of that data subject’s Personal Data, you should use the [Braze APIs](https://www.braze.com/docs/api/home/) to export that end user’s entire profile(s) and then [delete](https://www.braze.com/docs/api/endpoints/user_data/#user-delete-endpoint) it from Braze. Braze’s APIs can be used to re-import this data in the event that the end user subsequently allows you to process those particular subsets of its Personal Data. In addition, you should recommend that your end user uninstall or logout from any and all of your Applications that use the Braze SDK to stop collecting any additional data on the data subject.
+The Braze Services do not support the restriction of processing of individual categories of Personal Data. If you have been asked by a data subject to restrict processing of certain subsets of that data subject’s Personal Data, you should use the [Braze APIs]({{site.baseurl}}/api/home/) to export that end user’s entire profile(s) and then [delete]({{site.baseurl}}/api/endpoints/user_data/#user-delete-endpoint) it from Braze. Braze’s APIs can be used to re-import this data in the event that the end user subsequently allows you to process those particular subsets of its Personal Data. In addition, you should recommend that your end user uninstall or logout from any and all of your Applications that use the Braze SDK to stop collecting any additional data on the data subject.
+
+For Customers who only use BrazeAI Decisioning Studio™, you should no longer send data to Decisioning Studio. 
 
 ## The Right to Data Portability
 
@@ -160,7 +165,7 @@ The right to data portability allows data subjects to obtain and reuse their Per
 
 ### Braze Recommendation
 
-Similar to the Right of Access, you may use the Braze [REST API](https://www.braze.com/docs/api/endpoints/export/#user-export) to export an end user's Personal Data and furnish it to the Data Subject pursuant to their request.
+Similar to the Right of Access, you may use the Braze [REST API]({{site.baseurl}}/api/endpoints/export/#user-export) to export an end user’s Personal Data and furnish it to the Data Subject pursuant to their request. In addition, speak to your account manager with the relevant customer_id(s) and/or email(s) to request a copy of any Personal Data held in BrazeAI Decisioning Studio. 
 
 ## The Right to Object
 
@@ -172,9 +177,10 @@ Individuals may have the right to object to:
 
 ### Braze Recommendation
 
-Braze provides the ability to mark a User Profile as being unsubscribed from SMS, emails or push notifications via both our [REST APIs](https://www.braze.com/docs/api/home/) and via the [iOS](https://www.braze.com/docs/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/), [Android](https://www.braze.com/docs/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/), and [Web](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/) SDKs. If you receive objections from Data Subjects to receiving such messages, you can use Braze’s APIs to unsubscribe those end users.
+Braze provides the ability to mark a User Profile as being unsubscribed from SMS, emails or push notifications via both our [REST APIs]({{site.baseurl}}/api/home/) and via the [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/), and [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/) SDKs. If you receive objections from Data Subjects to receiving such messages, you can use Braze’s APIs to unsubscribe those end users.
 
 If that is not sufficient, to avoid processing of end user Personal Data by Braze, the end user profile should be deleted in the same manner as specified under the ‘Right to Erasure’.
+
 
 ## Rights Related to Automated Decision Making and Profiling
 
@@ -192,7 +198,7 @@ Under some US state privacy laws, data subjects may object to the use of their P
 
 When building audiences for the purposes of targeting ads to your data subjects, you should ensure that you have excluded any data subjects who have objected to targeted advertising, for instance, California consumers who have exercised their “Do Not Sell or Share” right under the CCPA.
 
-For more information on how to build audiences to sync with third-party platforms, refer to [Audience sync](https://www.braze.com/docs/partners/canvas_steps).
+For more information on how to build audiences to sync with third-party platforms, refer to [Audience sync]({{site.baseurl}}/partners/canvas_steps).
 
 ## The Right to Non-Discrimination 
 

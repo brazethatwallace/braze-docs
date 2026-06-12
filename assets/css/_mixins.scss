@@ -23,6 +23,16 @@
   font-weight: normal;
 }
 
+/// Standard accessible focus ring.
+/// $color  — outline color; defaults to site purple ($braze-purple)
+/// $offset — outline-offset; use 0 for overflow:hidden elements, negative for inset rings
+/// $radius — border-radius applied to the ring
+@mixin focus-ring($color: $braze-purple, $offset: 2px, $radius: 2px) {
+  outline: 2px solid $color;
+  outline-offset: $offset;
+  border-radius: $radius;
+}
+
 // Link mixin
 @mixin braze-link {
   font-family: $braze-bold;
@@ -40,8 +50,6 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $braze-purple;
-    outline-offset: 2px;
-    border-radius: 2px;
+    @include focus-ring();
   }
 }

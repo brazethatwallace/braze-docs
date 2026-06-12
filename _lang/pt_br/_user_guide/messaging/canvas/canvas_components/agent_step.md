@@ -51,9 +51,9 @@ O tipo de dado da variável de saída é definido no [Console do agente]({{site.
 | Número | Pontuação, limites, roteamento em [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) |
 | Booleano | Ramificação Sim/Não em [Divisões de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) |
 | Objeto | Aproveite um ou mais dos tipos de dados acima com uma única chamada de LLM em uma estrutura de dados previsível |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Definir a saída do agente" }
 
-Você pode usar uma variável de saída em todo o Canvas usando a mesma sintaxe de modelo que usaria com uma variável de contexto. Use o filtro de segmento **Context Variable** ou insira as respostas do agente diretamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
+Você pode usar uma variável de saída em todo o Canvas usando a mesma sintaxe de modelo que usaria com uma variável de contexto. Use o filtro de Segment **Context Variable** ou insira as respostas do agente diretamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
 
 Para usar uma propriedade específica de uma variável de saída do tipo objeto, use a notação de ponto para acessar essa propriedade usando Liquid: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
@@ -77,13 +77,14 @@ Após configurar sua etapa de agente, você pode testar e pré-visualizar a saí
 
 ## Tratamento de erros {#error-handling}
 
-- Se o modelo conectado retornar um erro de limite de taxa, a Braze faz até cinco novas tentativas com backoff exponencial.
-- Se o agente falhar por qualquer outro motivo (como erro de timeout ou chave de API inválida), a variável de saída é definida como `null`.
+Para saber como a Braze lida com falhas de agentes, erros de limite de taxa e controles de fluxo de invocação, consulte [Tratamento de erros]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) em Agentes da Braze.
+
+- Se o agente falhar por qualquer motivo (como erro de timeout ou chave de API inválida), a variável de saída é definida como `null`.
     - Se um agente atingir seu limite diário de invocações, a variável de saída é definida como `null`.
 - Use [valores padrão de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) para se proteger contra erros. Por exemplo, no modal **Add Personalization**, você pode inserir um valor padrão de Liquid como {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} ou {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - As respostas são armazenadas em cache para entradas idênticas e podem ser reutilizadas para invocações idênticas repetidas dentro de alguns minutos.
     - Respostas que usam valores em cache ainda contam para o total e as invocações diárias.
-- As etapas de agente podem levar tempo para processar um grande lote de usuários. Se você vir usuários que ainda estão pendentes nesta etapa, verifique seus registros para confirmar que as invocações estão acontecendo.
+- As etapas de agente podem levar tempo para processar um grande lote de usuários. A Braze enfileira as invocações de acordo com os [controles de fluxo de invocação]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls), então os usuários podem permanecer pendentes durante envios de alto volume. Verifique seus registros para confirmar que as invocações estão acontecendo.
 
 ## Analytics {#analytics}
 

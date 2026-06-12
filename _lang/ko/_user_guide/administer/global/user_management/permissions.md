@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## 권한 세트 생성 {#create-a-permission-set}
 
-권한 세트를 사용하여 특정 주제 영역이나 동작과 관련된 권한을 묶을 수 있습니다. 서로 다른 워크스페이스에서 동일한 접근 권한이 필요한 대시보드 사용자에게 권한 세트를 적용할 수 있습니다. 권한 세트를 생성하려면 **설정** > **권한 설정**으로 이동한 다음 **권한 세트 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions)을 참조하세요.
+권한 세트를 사용하여 특정 주제 영역이나 동작과 관련된 권한을 묶을 수 있습니다. 서로 다른 워크스페이스에서 동일한 접근 권한이 필요한 대시보드 사용자에게 권한 세트를 적용할 수 있습니다. 권한 세트를 생성하려면 **설정** > **권한 설정**으로 이동한 다음 **권한 세트 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
 
 {% tabs local %}
 {% tab 권한 세트 예시 %}
@@ -26,13 +26,13 @@ tool: Dashboard
 | Developers | "View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger". |
 | Marketers | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents". |
 | User Management | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams". |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example permission set" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="권한 세트 예시" }
 {% endtab %}
 {% endtabs %}
 
 ## 역할 생성 {#creating-a-role}
 
-역할은 개별 커스텀 권한과 워크스페이스 접근 제어를 묶어 더 체계적인 구조를 제공합니다. 이는 하나의 대시보드에 여러 브랜드나 지역별 워크스페이스가 있는 경우 특히 유용합니다. 역할을 사용하면 대시보드 사용자를 올바른 워크스페이스에 추가하고 관련 권한을 직접 부여할 수 있습니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions)을 참조하세요.
+역할은 개별 커스텀 권한과 워크스페이스 접근 제어를 묶어 더 체계적인 구조를 제공합니다. 이는 하나의 대시보드에 여러 브랜드나 지역별 워크스페이스가 있는 경우 특히 유용합니다. 역할을 사용하면 대시보드 사용자를 올바른 워크스페이스에 추가하고 관련 권한을 직접 부여할 수 있습니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
 
 {% tabs local %}
 {% tab 역할 예시 %}
@@ -41,7 +41,7 @@ tool: Dashboard
 | Marketer - Fashion Brands | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
 | Marketer - Skincare Brands | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
 | User Management - All Brands | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams" |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example roles" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="역할 예시" }
 {% endtab %}
 {% endtabs %}
 
@@ -64,7 +64,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 | 권한 | 제한된 사용자는 "Edit Dashboard Users" 권한이 있는 경우 다른 제한된 사용자의 권한을 편집할 수 있습니다. 또한 새로운 제한된 사용자를 생성하고 권한 세트를 수정할 수 있습니다. 그러나 회사 관리자 계정을 생성하거나 관리할 수는 없습니다. |
 | 역할 제한 | 제한된 사용자가 "Workspace Admin"을 제외한 모든 권한을 가지고 있더라도, 워크스페이스 관리자에게 일반적으로 부여되는 다른 모든 권한에는 접근할 수 있습니다. |
 | 권한 가시성 | 제한된 사용자가 하나의 워크스페이스(예: Dev)에 대해 "Edit Dashboard Users" 권한을 가지고 있지만 다른 워크스페이스(예: Prod)에 대해서는 가지고 있지 않은 경우, 대시보드 사용자 세부 정보 페이지에서 Prod 워크스페이스 권한을 볼 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Permissions for limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="제한된 사용자의 권한" }
 
 ### 제한된 사용자 비교 {#compare-limited-users}
 
@@ -73,7 +73,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 | 워크스페이스 관리자 | 워크스페이스 관리자는 워크스페이스 관리에 특화된 권한을 가지지만, 회사 관리자와 동일한 권한은 없습니다. 제한된 사용자는 필요한 권한이 체크되어 있으면 워크스페이스 관리자와 유사한 권한을 상속받을 수 있습니다. |
 | 관리자(회사 관리자) | 회사 관리자는 대시보드 사용자를 삭제하는 기능을 포함하여 더 넓은 권한을 가집니다. 그러나 자신의 계정은 삭제할 수 없으며, 해당 작업을 위해 다른 회사 관리자에게 연락해야 합니다. |
 | 보기 전용 접근 | Campaigns 페이지와 같은 대시보드의 일부에 접근하려면 사용자에게 보기 권한이 할당되어 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparison of limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="제한된 사용자 비교" }
 
 ### 제한된 접근 오류 {#limited-access-error}
 
@@ -83,11 +83,22 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 한 대시보드 사용자의 사용자 권한을 다른 사용자에게 병합하거나 가져오는 것은 불가능합니다.
 {% endalert %}
 
+## 사용자 권한의 세부 사항 {#nuances-of-user-permissions}
+
+대시보드 접근 권한을 할당할 때 다음 동작을 유의하세요:
+
+- **워크스페이스 관리자 vs 회사 관리자:** 워크스페이스 관리자는 할당된 워크스페이스 내에서 권한을 관리합니다. 회사 관리자는 다른 대시보드 사용자를 삭제하는 것을 포함하여 회사 전체에 대한 권한을 가집니다.
+- **제한된 사용자:** "Edit Dashboard Users" 권한이 있는 제한된 사용자는 다른 제한된 사용자를 관리할 수 있지만, 회사 관리자 계정을 생성하거나 관리할 수는 없습니다.
+- **대시보드 사용자 관리 범위:** 사용자 세부 정보 페이지에서는 편집자가 접근할 수 있는 워크스페이스의 권한만 표시됩니다. 하나의 워크스페이스에서 사용자를 편집할 수 있는 제한된 사용자는 다른 워크스페이스의 권한 체크박스를 볼 수 없을 수 있습니다.
+- **사용자 데이터 내보내기:** 사용자 데이터를 내보내려면 내보내기 권한 외에 워크스페이스 수준 접근 권한이 필요합니다.
+- **복합 권한:** 일부 영역에는 여러 권한이 필요합니다. 예를 들어, [기술 파트너]({{site.baseurl}}/partners/)를 구성하려면 일반적으로 파트너 접근 권한과 관련 워크스페이스 기능에 대한 기본 읽기 권한이 모두 필요합니다.
+- **사용자 데이터 가져오기 및 업데이트:** 이 권한에는 대시보드 사용자 레코드뿐만 아니라 가져오기 플로우를 통해 앱 사용자 프로필을 편집하는 기능도 포함됩니다.
+
 ## 사용자 권한 편집 {#edit-a-users-permissions}
 
 사용자의 현재 관리자, 회사 또는 워크스페이스 권한을 편집하려면 **설정** > **회사 사용자**로 이동한 다음 해당 사용자의 이름을 선택합니다.
 
-![대시보드 사용자 테이블이 표시된 Braze의 "회사 사용자" 페이지.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
+![대시보드 사용자 테이블이 표시된 Braze의 회사 사용자 페이지.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
 {% tabs local %}
 {% tab 관리자 %}
@@ -119,7 +130,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 |----------|-----------|
 | Manage company settings | 사용자가 권한 설정 및 발송자 확인을 수정할 수 있습니다. |
 | Create and delete workspaces | 사용자가 워크스페이스를 생성하고 삭제할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company-level permissions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="회사 수준 권한" }
 
 {% endtab %}
 {% tab 워크스페이스 %}
@@ -164,7 +175,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 사용자 및 권한 목록을 다운로드하려면 **설정** > **회사 사용자**로 이동한 다음 **Export Users**를 선택합니다. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
 
-!["Export Users" 옵션이 강조 표시된 Braze의 "회사 사용자" 페이지.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+![Export Users 옵션이 강조 표시된 Braze의 회사 사용자 페이지.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## 권한 목록 {#list-of-permissions}
 
@@ -172,11 +183,11 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 | 제품 영역 | 권한 | 정의 |
 | --- | --- | --- |
-| Campaigns | View Campaigns | Campaigns 보기 |
-| Campaigns | Launch Campaigns | 기존 Campaigns 시작, 중지, 일시 중지 또는 재개 |
-| Campaigns | Archive Campaigns | Campaigns를 아카이브로 이동 |
-| Campaigns | Edit Campaigns | Campaigns 생성 및 업데이트 |
-| Campaigns | Approve and Deny Campaigns | Campaigns 승인 또는 거부. [Campaigns 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 이 권한이 적용됩니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스 참여에 관심이 있으시면 계정 매니저에게 문의하세요. |
+| Campaigns | View Campaigns | Campaign 보기 |
+| Campaigns | Launch Campaigns | 기존 Campaign 시작, 중지, 일시 중지 또는 재개 |
+| Campaigns | Archive Campaigns | Campaign을 아카이브로 이동 |
+| Campaigns | Edit Campaigns | Campaign 생성 및 업데이트 |
+| Campaigns | Approve and Deny Campaigns | Campaign 승인 또는 거부. [Campaign 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 이 권한이 적용됩니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스 참여에 관심이 있으시면 계정 매니저에게 문의하세요. |
 | Canvas | View Canvases | Canvases 보기 |
 | Canvas | Archive Canvases | Canvases를 아카이브로 이동 |
 | Canvas | Edit Canvases | Canvases 생성 및 업데이트 |
@@ -195,7 +206,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 메시지 우선순위 | View Message Prioritization | 변경 없이 메시지 우선순위 설정 보기 |
 | 메시지 우선순위 | Edit Message Prioritization | 메시지 우선순위 설정 생성 및 업데이트 |
 | WhatsApp Flows | View WhatsApp Flows | 모든 WhatsApp Flows 보기 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messaging permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="메시징 권한" }
 
 ### 오디언스 {#audience}
 
@@ -217,7 +228,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기 |
 | 중복 사용자 | Merge Duplicate Users | 중복 사용자를 하나의 사용자로 결합. 병합 후 중복 항목은 제거됩니다 |
 | 사용자 | Delete Users | 대시보드에서 사용자를 개별 또는 일괄로 영구 삭제 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="오디언스 권한" }
 
 ### 템플릿 {#template}
 
@@ -250,7 +261,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | WhatsApp 메시지 템플릿 | View WhatsApp Message Templates | 사용자가 [WhatsApp 메시지 템플릿]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message)을 볼 수 있습니다 |
 | WhatsApp 메시지 템플릿 | Edit WhatsApp Message Templates | 사용자가 템플릿 빌더에서 WhatsApp 메시지 템플릿을 생성할 수 있습니다. 이 기능은 현재 얼리 액세스 중입니다. |
 | Meta의 WhatsApp 메시지 템플릿 | View WhatsApp Message Templates From Meta | 모든 WhatsApp 템플릿 보기 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Template permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="템플릿 권한" }
 
 ### 파트너 통합 {#partner-integrations}
 
@@ -259,7 +270,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | Currents 통합 | View Currents Integration | Currents 통합 보기 |
 | Currents 통합 | Edit Currents Integrations | Currents 통합 생성, 업데이트 및 삭제 |
 | 기술 파트너 | Edit Technology Partners | 기술 파트너 생성 및 업데이트 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Partner integrations permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="파트너 통합 권한" }
 
 ### 데이터 설정 {#data-settings}
 
@@ -286,7 +297,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 제품 | Blocklist Products | 대시보드에서 사용을 제한하는 차단 목록에 제품 추가 |
 | 제품 | Edit Products | 제품 생성 및 업데이트 |
 | 구매 속성정보 세분화 | Edit Purchase Property Segmentation | 구매 이벤트 속성정보에 대한 세분화 활성화 및 비활성화 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data settings permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="데이터 설정 권한" }
 
 ### 설정 {#settings}
 
@@ -327,7 +338,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | Teams | Archive Teams | Teams를 아카이브로 이동 |
 | Teams | Edit Teams | Teams 생성 및 업데이트 |
 | WhatsApp 설정 | View WhatsApp Settings | 모든 WhatsApp 채널 설정 보기 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Settings permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="설정 권한" }
 
 ### Decisioning Studio
 
@@ -335,7 +346,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | --- | --- | --- |
 | Decisioning Studio 에이전트 | View Decisioning Studio Agent | 변경 없이 Decisioning Studio 에이전트 구성 보기 |
 | Decisioning Studio 오디언스 | View Decisioning Studio Audience | Decisioning Studio 에이전트 구성 요약에서 오디언스 세부 정보 보기 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Decisioning Studio permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Decisioning Studio 권한" }
 
 ### 기타 {#other}
 
@@ -355,6 +366,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 미디어 라이브러리 자산 | View Media Library Assets | 미디어 라이브러리 자산 보기 |
 | 미디어 라이브러리 자산 | Delete Media Library Assets | 미디어 라이브러리 자산 영구 삭제 |
 | 미디어 라이브러리 자산 | Edit Media Library Assets | 미디어 라이브러리 자산 생성 및 업데이트 |
+| 미디어 라이브러리 자산 | Replace Media Library Assets | 기존 미디어 라이브러리 자산의 파일을 URL 및 자산 ID를 유지하면서 교체 |
 | 메시징 사용량 제한 | View Messaging Rate Limits | 워크스페이스 수준 메시징 사용량 제한 보기 |
 | 메시징 사용량 제한 | Edit Messaging Rate Limits | 워크스페이스 수준 메시징 사용량 제한 구성 및 편집 |
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Braze Operator에 접근하여 질문에 답하고, 설정을 안내하고, 문제를 해결하고, 아이디어를 브레인스토밍합니다 |
@@ -369,4 +381,4 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 데이터 변환 | View Data Transformation | 데이터 변환 보기 |
 | 사용자 삭제 기록 | View User Deletion Records | 사용자 삭제 기록 보기 |
 | 고객지원 티켓 | Create Support Ticket | 고객지원 티켓 생성 및 업데이트 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Other permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="기타 권한" }

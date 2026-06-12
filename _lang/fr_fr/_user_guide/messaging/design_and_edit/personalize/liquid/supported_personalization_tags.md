@@ -50,6 +50,17 @@ Le comportement des étiquettes suivantes diffère entre Canvas et les Campaigns
 - L'utilisation de l'étiquette `{{campaign.${name}}}` avec Canvas affiche le nom du composant Canvas. Lorsque vous utilisez cette étiquette avec des Campaigns, elle affiche le nom de la Campaign.
 {% endraw %}
 
+#### Noms de Campaign dans les URL {#campaign-names-in-urls}
+{: #campaign-names-in-urls}
+
+{% raw %}
+Les noms de Campaign et de variante de message peuvent contenir des caractères non compatibles avec les URL, tels que `%`, des espaces ou `&`. Lorsque vous insérez `{{campaign.${name}}}` ou `{{campaign.${message_name}}}` dans un lien ou une chaîne de requête, comme un paramètre `utm_campaign`, appliquez le filtre [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) pour que l'URL soit correctement analysée. Par exemple :
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
+{% endraw %}
+
 ## Informations sur l'appareil le plus récemment utilisé {#most-recently-used-device-information}
 
 Vous pouvez utiliser les attributs suivants comme modèles pour l'appareil le plus récent de l'utilisateur sur toutes les plateformes. Si un utilisateur n'a pas utilisé votre application (par exemple, si vous avez importé l'utilisateur via la REST API), toutes ces valeurs sont `null`.
@@ -58,8 +69,8 @@ Vous pouvez utiliser les attributs suivants comme modèles pour l'appareil le pl
 
 | Étiquette | Description |
 |---|---|
-|`{{most_recently_used_device.${browser}}}` | Le navigateur le plus récemment utilisé sur l'appareil de l'utilisateur. Exemples : « Chrome » et « Safari ». |
-|`{{most_recently_used_device.${id}}}` | L'identifiant d'appareil Braze. Sur iOS, il peut s'agir de l'Apple Identifier for Vendor (IDFV) ou d'un UUID. Pour Android et les autres plateformes, il s'agit d'un UUID généré aléatoirement. |
+| `{{most_recently_used_device.${browser}}}` | Le navigateur le plus récemment utilisé sur l'appareil de l'utilisateur. Exemples : « Chrome » et « Safari ». |
+| `{{most_recently_used_device.${id}}}` | L'identifiant d'appareil Braze. Sur iOS, il peut s'agir de l'Apple Identifier for Vendor (IDFV) ou d'un UUID. Pour Android et les autres plateformes, il s'agit d'un UUID généré aléatoirement. |
 | `{{most_recently_used_device.${carrier}}}` | L'opérateur téléphonique de l'appareil le plus récemment utilisé, si disponible. Exemples : « Verizon » et « Orange ». |
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | Indique si le suivi publicitaire est activé ou non sur l'appareil. Il s'agit d'une valeur booléenne (`true` ou `false`). |
 | `{{most_recently_used_device.${idfa}}}` | Pour les appareils iOS, cette valeur est l'Identifier for Advertising (IDFA) si votre application est configurée avec notre [collecte IDFA facultative]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). Pour les appareils non iOS, cette valeur est null. |

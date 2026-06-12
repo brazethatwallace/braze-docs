@@ -155,6 +155,13 @@ Para contenido conectado, si las solicitudes al host de destino son detenidas po
 
 Si crees que la detección de host no saludable puede estar causando problemas, ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact/).
 
+### El contenido conectado no devuelve cuerpo de respuesta {#connected-content-returns-no-response-body}
+
+Si una llamada de contenido conectado se renderiza en blanco en la vista previa o el envío de tu mensaje, comprueba lo siguiente:
+
+- **Espacios de no separación en la URL:** Braze elimina los espacios de no separación (`&nbsp;` o Unicode `U+00A0`) de las URL de contenido conectado antes de realizar la solicitud. Si tu URL fue copiada de un documento o campo del dashboard que insertó espacios de no separación entre caracteres, la solicitud puede fallar o no devolver un cuerpo utilizable. Vuelve a escribir la URL en texto plano o elimina los espacios ocultos, y luego previsualiza de nuevo.
+- **Errores HTTP y cuerpos vacíos:** Para códigos de estado superiores a 300 o hosts bloqueados, el contenido conectado puede renderizar una cadena vacía. Consulta [Realizar una llamada a la API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) y revisa los fallos en el **Registro de actividad de mensajes**.
+
 ## Correos electrónicos automatizados y entradas del registro de actividad de mensajes {#automated-emails-and-message-activity-log-entries}
 
 ### Configuración de correos electrónicos automatizados {#setting-up-automated-emails}
@@ -166,7 +173,7 @@ Si experimentas más de 100 000 errores de punto de conexión de webhook o conte
 - URL del punto de conexión
 - Código de error
 - Hora en que se observó el error por última vez
-- Enlaces al registro de actividad de mensajes y documentación relacionada
+- Enlaces al Registro de actividad de mensajes y documentación relacionada
 
 {% alert note %}
 Puedes configurar el umbral de errores por espacio de trabajo. Para ajustar este umbral, ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact/).
@@ -181,7 +188,7 @@ Estos correos electrónicos solo se envían una vez al día a nivel de espacio d
 
 Para suscribirte a recibir estos correos electrónicos, haz lo siguiente:
 
-1. Ve a **Settings** > **Admin Settings** > **Notification Preferences**.
+1. Ve a **Configuración** > **Configuración de administrador** > **Preferencias de notificación**.
 2. Selecciona **Connected Content Errors** y **Webhook Errors** en la sección **Canvas & Campaigns**.
 
 ### Entradas del registro de actividad de mensajes {#message-activity-log-entries}

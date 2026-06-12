@@ -131,7 +131,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `sms_no_sending_numbers` | No hay números de teléfono de envío disponibles para este grupo de suscripción. |
 | `sms_fatal_provider_error` | Ocurrió un error fatal con el proveedor de SMS, lo que impidió la entrega del mensaje. |
 | `sms_gateway_domain_not_allowed` | El dominio de la pasarela SMS no está en la lista de permitidos. |
-| `blocked_recipient_country` | El número de teléfono del destinatario está en un país bloqueado por tus [permisos geográficos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/). |
+| `blocked_recipient_country` | El número de teléfono del destinatario está en un país bloqueado por tus [permisos geográficos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/). |
 | `mms_not_supported` | MMS no es compatible para este destinatario o número de envío. |
 | `no_current_messaging_service` | No hay un servicio de mensajería activo configurado para este grupo de suscripción. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }

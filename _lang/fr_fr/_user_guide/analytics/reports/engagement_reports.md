@@ -77,7 +77,7 @@ Les rapports d'engagement agrègent les données par Campaign ou par Canvas, et 
 | Message in-app | Impressions, Clics, Clics sur le premier bouton, Clics sur le deuxième bouton |
 | Webhook  |  Envois, Erreurs |
 | SMS | Envois, Envois à l'opérateur, Réceptions confirmées, Échecs de réception, Rejets |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Ajouter des statistiques" }
 
 ### Étape 4 : Finaliser la configuration du rapport {#step-4-complete-report-setup}
 

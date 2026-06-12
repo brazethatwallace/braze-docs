@@ -77,7 +77,7 @@ Os relatórios de engajamento agregam dados por Campaign ou Canvas, não no nív
 | Mensagem no app | Impressões, Cliques, Cliques no primeiro botão, Cliques no segundo botão |
 | Webhook  |  Envios, Erros |
 | SMS | Envios, Envios para operadora, Entregas confirmadas, Falhas de entrega, Rejeições |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Adicionar estatísticas #add-statistics-to-your-reports" }
 
 ### Etapa 4: Concluir a configuração do relatório {#step-4-complete-report-setup}
 

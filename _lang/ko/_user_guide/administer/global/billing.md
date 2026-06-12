@@ -111,4 +111,4 @@ search_rank: 5
 ## 다음 단계 {#next-steps}
 
 - [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)에서 청구 관련 이벤트 및 사용량 임계값에 대한 알림을 구성할 수 있습니다.
-- [메시지 사용량 대시보드]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/)에서 SMS, WhatsApp 및 RCS 크레딧 소비를 모니터링할 수 있습니다.
+- [크레딧 사용량 대시보드]({{site.baseurl}}/credits_usage_dashboard/)에서 메시지 크레딧 소비를 모니터링할 수 있습니다.

@@ -48,9 +48,16 @@ Sélectionnez **Using Intelligent Timing** dans l'onglet **Delivery Settings**. 
 
 #### Validations de distribution {#delivery-validations}
 
-Les validations de distribution fournissent une vérification supplémentaire pour confirmer que votre audience remplit les critères de distribution au moment de l'envoi du message. Ce paramètre est recommandé si les heures calmes, le timing intelligent ou la limite de débit sont activés.
+Les validations de distribution fournissent une vérification supplémentaire au moment de l'envoi du message pour confirmer que votre audience remplit toujours vos critères. Nous recommandons de les utiliser lorsque les heures calmes, le timing intelligent ou la limite de débit sont activés. Sélectionnez **Validate audience at message send**, puis ajoutez un segment ou des filtres supplémentaires. Si un utilisateur ne remplit pas les validations, choisissez s'il quitte le Canvas ou passe à l'étape suivante.
 
-Sélectionnez **Validate audience at message send**, puis ajoutez un segment ou des filtres supplémentaires pour valider le moment où le message est envoyé. Si un utilisateur ne remplit pas les validations de distribution définies pour une étape Message, choisissez s'il quitte le Canvas ou passe à l'étape suivante.
+Les validations de distribution évaluent les critères du profil utilisateur au moment de l'envoi. Les filtres liés aux applications vérifient si un utilisateur a récemment utilisé ou a déjà utilisé une application spécifique, mais ils ne confirment pas quelle application l'utilisateur utilise dans sa session en cours.
+
+Si votre espace de travail comporte plusieurs applications et qu'une étape Message doit cibler une application spécifique, utilisez plutôt l'une des approches suivantes :
+
+- Lors de la composition du message, [spécifiez vos plateformes de distribution]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms), telles que **Mobile Apps** ou **Web Browsers**.
+- Utilisez Liquid pour vérifier l'appareil ou l'application ciblé(e) au moment de l'envoi :
+  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} évalue la plateforme de la session en cours de l'utilisateur. Pour en savoir plus, consultez [Informations sur l'appareil ciblé]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information).
+  - {% raw %}`{{app.${api_id}}}`{% endraw %} évalue quelle application demande le message. Combinez cette balise avec `abort_message()` pour empêcher les envois vers la mauvaise application. Pour en savoir plus, consultez [Informations sur l'application ciblée]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-app-information).
 
 ![Les validations de distribution sont activées pour valider l'audience à l'envoi du message. Le comportement d'avancement des validations de distribution est configuré pour faire passer l'utilisateur à l'étape suivante du Canvas si les validations de distribution ne sont pas remplies.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 

@@ -77,7 +77,7 @@ Engagement-Berichte aggregieren Daten pro Campaign oder Canvas, nicht auf Worksp
 | In-App-Nachricht | Impressionen, Klicks, Klicks auf ersten Button, Klicks auf zweiten Button |
 | Webhook  |  Sends, Fehler |
 | SMS | Sends, Sends an Carrier, bestätigte Zustellungen, Zustellungsfehler, Ablehnungen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Statistiken hinzufügen" }
 
 ### 4. Schritt: Berichtseinrichtung abschließen {#step-4-complete-report-setup}
 

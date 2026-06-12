@@ -57,6 +57,21 @@ If your campaign uses Intelligent Timing or local time zone delivery, edits to t
 
 When using a send rate limit, Braze "schedules" your messages in minute-granularity time slots, so if you want to change the message sending rate, adhere to the following process for making immediate changes.
 
+#### Pausing campaigns with delivery speed rate limiting
+
+When you pause a campaign that uses [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distributes sends across minute-based slots. **Resume** does not re-send messages from slots that were canceled while the campaign was paused.
+
+Rate-limited messages are canceled only if the campaign is still paused when their scheduled send time arrives. Whether a message sends after you resume depends on when you paused the campaign and how long it stayed paused.
+
+For example:
+
+1. You pause the campaign at 1 PM.
+2. A rate-limited message is scheduled to send at 1:05 PM.
+   - If you resume before 1:05 PM, the message sends.
+   - If you resume after 1:05 PM, the message is canceled during the pause and doesn't send.
+
+If some users didn't receive messages because the campaign was paused through their scheduled slot, duplicate the campaign and target only those users rather than relying on **Resume** to deliver the missed messages.
+
 ## Making immediate changes
 
 If you need changes to take effect immediately, do the following:

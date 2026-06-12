@@ -1,13 +1,13 @@
 ---
 nav_title: カタログの使用
-article_title: カタログを使う
+article_title: カタログの使用
 page_order: 1.5
-description: "この参照記事では、Liquidを通してBrazeのキャンペーンで非ユーザーデータを参照するためにカタログを使用する方法について説明します。"
+description: "この参照記事では、Liquidを通してBrazeのCampaignで非ユーザーデータを参照するためにカタログを使用する方法について説明します。"
 ---
 
 # カタログの使用 {#using-catalogs}
 
-> カタログを作成した後、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を使用して、Brazeのキャンペーンで非ユーザーデータを参照できます。Liquidがサポートされているドラッグ＆ドロップエディター内の任意の場所を含む、すべてのメッセージングチャネルでカタログを使用できます。
+> カタログを作成した後、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を使用して、BrazeのCampaignで非ユーザーデータを参照できます。Liquidがサポートされているドラッグ＆ドロップエディター内の任意の場所を含む、すべてのメッセージングチャネルでカタログを使用できます。
 
 ## メッセージでカタログを使う {#using-catalogs-in-a-message}
 
@@ -15,9 +15,9 @@ description: "この参照記事では、Liquidを通してBrazeのキャンペ�
 
 {% multi_lang_include video.html id="4yc2jkyn6w" source="wistia" %}
 
-### ステップ 1: パーソナライゼーションタイプを追加する {#step-one-personalization}
+### ステップ 1:パーソナライゼーションタイプを追加する {#step-one-personalization}
 
-任意のメッセージ作成画面で、プラスアイコン<i class="fas fa-plus-circle"></i>を選択して**「Add Personalization」**モーダルを開き、**Personalization type**として**「Catalog Items」**を選択します。次に、カタログ名を選択します。先ほどの例を使って、「Games」カタログを選択します。
+任意のメッセージ作成画面で、<i class="fas fa-plus-circle"></i>プラスアイコンを選択して**「Add Personalization」**モーダルを開き、**Personalization type**として**「Catalog Items」**を選択します。次に、カタログ名を選択します。先ほどの例を使って、「Games」カタログを選択します。
 
 ![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
@@ -29,14 +29,14 @@ description: "この参照記事では、Liquidを通してBrazeのキャンペ�
 ```
 {% endraw %}
 
-### ステップ 2: カタログアイテムを選択する {#step-2-select-catalog-items}
+### ステップ 2:カタログアイテムを選択する {#step-2-select-catalog-items}
 
 次に、カタログアイテムを追加します。ドロップダウンを使って、カタログアイテムと表示する情報を選択します。この情報は、カタログを生成するために使用された、アップロード済みのCSVファイルの列に対応しています。
 
 例えば、Talesゲームのタイトルと価格を参照するには、カタログアイテムとしてTalesの`id`（1234）を選択し、表示する情報として`title`と`price`をリクエストします。
 
 {% raw %}
-`````````liquid
+```liquid
 {% catalog_items Games 1234 %}
 
 Get {{ items[0].title }} for just {{ items[0].price }}!
@@ -51,8 +51,8 @@ Get {{ items[0].title }} for just {{ items[0].price }}!
 
 ダッシュボードからカタログをエクスポートするには、次の2つの方法があります。
 
-- **Catalogs**セクションのカタログ行にカーソルを合わせます。次に、**「Export catalog」**ボタンを選択します。
-- カタログを選択します。次に、カタログの**Preview**タブで**「Export catalog」**ボタンを選択します。
+- **Catalogs**セクションのカタログ行にカーソルを合わせます。次に、**Export catalog**ボタンを選択します。
+- カタログを選択します。次に、カタログの**Preview**タブで**Export catalog**ボタンを選択します。
 
 エクスポートを開始すると、CSVファイルをダウンロードするためのメールが届きます。このファイルの取得期限は最大4時間です。
 
@@ -69,7 +69,7 @@ Get {{ items[0].title }} for just {{ items[0].price }}!
 Liquidの周りにテキストを追加することで、メッセージをさらにパーソナライズできます。
 
 {% raw %}
-`````````liquid
+```liquid
 Get the ultimate trio {% catalog_items Games 1234 1235 1236 %}
 {{ items[0].title }}, {{ items[1].title }}, and {{ items[2].title }} today!
 ```
@@ -77,7 +77,7 @@ Get the ultimate trio {% catalog_items Games 1234 1235 1236 %}
 
 これは以下のように返されます。
 
-`````````Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
+```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
 {% alert tip %}
 Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to create groups of data for more personalized messaging!
@@ -90,7 +90,7 @@ You can use catalog items to create conditional statements. For example, you can
 #### With catalog items
 
 {% raw %}
-`````````liquid
+```liquid
 {% catalog_items Games 1234 %}
 {% if items[0].on_sale == true %}
   {{ items[0].title }} is on sale! Get it for {{ items[0].price }}.
@@ -105,7 +105,7 @@ You can use catalog items to create conditional statements. For example, you can
 #### カタログセレクションの場合
 
 {% raw %}
-`````````liquid
+```liquid
 {% catalog_selection_items item-list selections %}
 {% if items[0].venue_name.size > 10 %}
 Message if the venue name's size is more than 10 characters.
@@ -127,10 +127,10 @@ Liquidの構文エラーを避けるには、メッセージ作成画面の**+**
 
 カタログ内の画像を参照してメッセージングで使用することもできます。そのためには、画像のLiquidフィールドで`catalogs`タグと`item`オブジェクトを使用します。
 
-例えば、Gamesカタログの`image_link`を「Tales」のプロモーションメッセージに追加するには、**Catalog Items**フィールドで`id`を選択し、**Information to Display**フィールドで`image_link`を選択します。これにより、以下のLiquidタグが画像フィールドに追加されます。
+例えば、Gamesカタログの`image_link`をTalesのプロモーションメッセージに追加するには、**Catalog Items**フィールドで`id`を選択し、**Information to Display**フィールドで`image_link`を選択します。これにより、以下のLiquidタグが画像フィールドに追加されます。
 
 {% raw %}
-`````````liquid
+```liquid
 {% catalog_items Games 1234 %}
 
 {{ items[0].image_link }}
@@ -142,6 +142,10 @@ Liquidの構文エラーを避けるには、メッセージ作成画面の**+**
 Liquidがレンダリングされると、次のように表示されます。
 
 ![カタログのLiquidタグをレンダリングしたコンテンツカードの例。]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
+
+{% alert important %}
+メールなどの**HTML**チャネルでは、閉じタグ`{% raw %}{% catalog_items ... %}{% endraw %}`と画像URLを出力するLiquid（例: `{% raw %}{{ items[0].image_link }}{% endraw %}`）の間に余分なスペースや改行を入れないでください。テンプレート内の余分な空白により、レンダリングされたメッセージで画像URLが正しく解決されない場合があります。URL式はカタログタグのすぐ隣に配置してください。例: `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`
+{% endalert %}
 
 ### カタログアイテムのテンプレート化
 
@@ -168,10 +172,10 @@ Liquidテンプレートを使用することで、ウィッシュリストのID
 配列は`1`ではなく`0`から始まることを忘れないでください。
 {% endalert %}
 
-例えば、「Tales」（ウィッシュリストに含まれているカタログのアイテム）がセール中であることをユーザーに通知するために、メッセージ作成画面で以下を追加できます。
+例えば、Tales（ウィッシュリストに含まれているカタログのアイテム）がセール中であることをユーザーに通知するために、メッセージ作成画面で以下を追加できます。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign wishlist = {{custom_attribute.${wishlist}}}%}
 {% catalog_items Games {{ wishlist[0] }} %}
 
@@ -205,7 +209,7 @@ Liquidロジックを使用してカタログを手動で組み立てること�
 以下のLiquidコンテンツをレンダリングするには:
 
 {% raw %}
-`````````liquid
+```liquid
 Hi ${first_name},
 
 {% catalog_items Messages greet_msg :rerender %}

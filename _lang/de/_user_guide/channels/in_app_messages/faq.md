@@ -41,11 +41,11 @@ MESSAGE HERE
 
 ### Können Nutzer:innen eine In-App-Nachricht erneut erhalten, nachdem sie sie geschlossen haben? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
 Bei In-App-Nachricht-Campaigns können Sie Nutzer:innen erlauben, erneut für den Empfang der Campaign berechtigt zu werden, indem Sie die erneute Berechtigung in den **Zustellungs-Kontrollgruppen** aktivieren (**Nutzer:innen erlauben, erneut für den Empfang der Campaign berechtigt zu werden**). Wie schnell sie die Nachricht erneut erhalten können, hängt vom eingestellten Zeitfenster für die erneute Berechtigung ab und davon, wie Braze den vorherigen Versand erfasst hat. Weitere Informationen finden Sie unter [Erneute Berechtigung für Campaigns und Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) zum Campaign-Verhalten, einschließlich der Beziehung zwischen erneuter Berechtigung und Nachrichtenempfang.
 
-Wenn die erneute Berechtigung deaktiviert ist, erhalten Nutzer:innen dieselbe Campaign in der Regel nicht erneut, allein basierend auf den Qualifizierungskriterien, nachdem sie sie bereits erhalten haben.
+Wenn die erneute Berechtigung deaktiviert ist, erhalten Nutzer:innen dieselbe Campaign in der Regel nicht erneut allein basierend auf den Qualifizierungskriterien, nachdem sie sie bereits erhalten haben.
 
 #### Canvases {#canvases}
 
@@ -65,11 +65,11 @@ Um dies zu verhindern, wählen Sie während der Campaign-Einrichtung **Campaign-
 
 ### Können mehrere In-App-Nachrichten in derselben Sitzung angezeigt werden? {#can-multiple-in-app-messages-display-in-the-same-session}
 
-Ja, aber pro Auftreten eines [Trigger-Events]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger) kann nur eine In-App-Nachricht angezeigt werden. Wenn mehrere In-App-Nachricht-Campaigns denselben Trigger teilen (z. B. Sitzungsstart), wird jedes Mal, wenn dieser Trigger auftritt, nur die Nachricht mit der höchsten Priorität angezeigt. Bei Sitzungsstart-Triggern bedeutet dies, dass pro Sitzung nur eine Nachricht angezeigt werden kann, und die nächste Gelegenheit, eine weitere berechtigte Nachricht anzuzeigen, die nächste Sitzung ist.
+Ja, aber pro Auftreten eines [Trigger-Events]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger) kann nur eine In-App-Nachricht angezeigt werden. Wenn mehrere In-App-Nachricht-Campaigns denselben Trigger teilen (z. B. Sitzungsstart), wird jedes Mal, wenn dieser Trigger auftritt, nur die Nachricht mit der höchsten Priorität angezeigt. Bei Sitzungsstart-Triggern bedeutet dies, dass pro Sitzung nur eine Nachricht angezeigt werden kann und die nächste Gelegenheit, eine weitere berechtigte Nachricht anzuzeigen, die nächste Sitzung ist.
 
 Wenn mehrere Nachrichten dieselbe Prioritätsstufe teilen, wird die zuletzt erstellte Nachricht zuerst angezeigt. Bei Sitzungsstart-Triggern wird die nächstaktuellste Nachricht in einer nachfolgenden Sitzung angezeigt; bei anderen Trigger-Typen wird die nächstaktuellste Nachricht beim nächsten Auftreten dieses Trigger-Events angezeigt, was innerhalb derselben Sitzung oder in einer späteren Sitzung sein kann.
 
-Um die Anzeigereihenfolge innerhalb einer Prioritätsstufe zu steuern, gehen Sie zu den Zustellungseinstellungen einer der Campaigns und wählen Sie **Genaue Priorität festlegen**, dann ziehen Sie die Campaigns per Drag-and-Drop in die gewünschte Reihenfolge. Weitere Details finden Sie unter [Priorität wählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
+Um die Anzeigereihenfolge innerhalb einer Prioritätsstufe zu steuern, gehen Sie zu den Zustellungseinstellungen einer der Campaigns und wählen Sie **Genaue Priorität festlegen**. Ziehen Sie die Campaigns dann per Drag-and-Drop in die gewünschte Reihenfolge. Weitere Details finden Sie unter [Priorität wählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
 
 ### Wie berechnet Braze ein In-App-Nachricht-Ablaufdatum von „nach 1 Tag(en)“? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -137,4 +137,32 @@ Diese Tabelle vergleicht die In-App-Nachricht-Abläufe, die Sam erlebt hat:
 | --- | --- |
 | Standard | Ein Abbruch-Event wurde nicht protokolliert, da Sam keine Aktionen ausgeführt hat, die eine Nachricht triggern würden.<br><br>Standard-In-App-Nachrichten protokollieren keine Abbrüche, da die Definition eines Abbruchs lautet: „hat die Nachricht trotz Ausführung der Trigger-Aktion nicht gesehen.“ Da In-App-Nachrichten vor den Trigger-Aktionen an das Gerät zugestellt werden, ist es nicht sinnvoll, In-App-Nachrichten, die aufgrund von Liquid-Logik ausgelassen wurden, als Abbrüche zu betrachten. |
 | Vorlagenbasiert | Ein Abbruch-Event wurde protokolliert, da Sam die Trigger-Aktion ausgeführt hat, um die vorlagenbasierte In-App-Nachricht zu triggern, aber einen Abbruch im Liquid-Templating erhalten hat.<br><br>Vorlagenbasierte In-App-Nachrichten protokollieren Abbrüche, da die Liquid-Auswertung nach der Ausführung der Trigger-Aktion erfolgt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Vergleich des Abbruchverhaltens bei In-App-Nachrichten" }
+
+### Warum ist der Schließen-Button bei Vollbild-HTML-In-App-Nachrichten auf Android ausgeblendet? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
+
+Auf Geräten mit randlosen Displays (einschließlich Android 15+) können Vollbild-HTML-In-App-Nachrichten hinter der System-Statusleiste gezeichnet werden und ein Schließen-Steuerelement am oberen Rand des Layouts verdecken.
+
+Braze Android SDK Version 37.0.0 und höher wendet standardmäßig Fenster-Insets auf HTML-In-App-Nachrichten an, sodass Steuerelemente im sicheren Bereich bleiben. Wenn Nutzer:innen weiterhin Überlappungen sehen, aktualisieren Sie auf die neueste Version des Braze Android SDK.
+
+Bei älteren SDK-Versionen konnten Entwickler:innen `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` aktivieren, bevor dieses Verhalten zum Standard wurde.
+
+### Welche bekannten Einschränkungen hat der Drag-and-Drop-Editor für In-App-Nachrichten? {#what-are-known-limitations-of-the-drag-and-drop-in-app-message-editor}
+
+Der [Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) unterstützt nicht jede Anpassung, die bei [angepassten HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)-In-App-Nachrichten verfügbar ist. Beachten Sie Folgendes:
+
+- Ein Deeplink pro Nachricht (nicht verschiedene Links pro Gerätetyp)
+- Deckkraft gilt für den gesamten Nachrichtenhintergrund, nicht für einzelne Elemente
+- Die maximale Nachrichtenbreite kann nicht unter 325 px eingestellt werden
+- Hintergrundbilder und -farben gelten für die gesamte Nachricht, nicht pro Plattform
+- Stile auf Nachrichtenebene gelten für die gesamte Nachricht
+- Abstandsblöcke verwenden nur Pixelwerte
+- Nur modale und Vollbild-Nachrichtentypen
+- Hintergrundbilder werden gestreckt, um in das Modal zu passen
+- Hintergrundbilder und Klick-Aktionen bleiben über Seiten hinweg in mehrseitigen Nachrichten erhalten
+
+### Was bedeutet „Event was published, but no subscribers were found“ in den Android-SDK-Logs? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
+
+Diese Log-Zeile ist in der Regel kein Fehler. Sie erscheint häufig, wenn Braze ein internes Event (z. B. `NoMatchingTriggerEvent`) veröffentlicht und zu diesem Zeitpunkt kein In-App-Nachricht- oder Content-Card-Listener abonniert ist.
+
+Wenn Sie diesen Log sehen, obwohl Sie erwarten, dass ein angepasstes Event eine In-App-Nachricht triggert, überprüfen Sie, ob das Event protokolliert wird, ob sich der/die Nutzer:in in der Campaign- oder Canvas-Zielgruppe befindet und ob Content Cards synchronisiert sind, wenn die Nachricht davon abhängt.

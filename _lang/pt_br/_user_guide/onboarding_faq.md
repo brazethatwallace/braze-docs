@@ -84,7 +84,7 @@ Por padrão, para que seu usuário receba suas mensagens por push, o estado de i
 | Subscribed | Estado de inscrição push padrão quando um perfil de usuário é criado na Braze. |
 | Opted-In | Um usuário expressou explicitamente a preferência por receber notificações por push. A Braze moverá automaticamente o estado de aceitação do usuário para `Opted-In` se ele aceitar um prompt de push no nível do sistema operacional.<br><br>Isso não se aplica a usuários no Android 12 ou inferior. |
 | Unsubscribed | Um usuário cancelou explicitamente a inscrição de push pelo seu aplicativo ou outros métodos fornecidos pela sua marca. Por padrão, as Campaigns de push da Braze direcionam apenas os usuários que são `Subscribed` ou `Opted-in` para push. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What's the difference between the push subscription statuses?" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Qual é a diferença entre os status de inscrição push?" }
 
 {% endapi %}
 {% api %}

@@ -46,6 +46,8 @@ valid_partner_list:
   url: /docs/partners/dyspatch/
 - name: Denada
   url: /docs/partners/denada/
+- name: EmailShepherd
+  url: /docs/partners/emailshepherd/
 - name: Stensul
   url: /docs/partners/stensul/
 - name: Stripo
@@ -324,6 +326,8 @@ valid_partner_list:
   url: /docs/partners/justuno/
 - name: Constructor
   url: /docs/partners/constructor/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Email Love
   url: /docs/partners/email_love/
 - name: Adikteev
@@ -412,6 +416,8 @@ valid_partner_list:
   url: /docs/partners/gemini/
 - name: Anthropic
   url: /docs/partners/anthropic/
+- name: Databricks Mosaic
+  url: /docs/partners/databricks_mosaic/
 - name: Algolia
   url: /docs/partners/algolia/
 - name: Canva

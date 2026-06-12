@@ -90,6 +90,7 @@ The winning metric and the analytics shown in Experiment Paths can differ:
 - The conversion event you configure for **Winning Path** or **Personalized Paths** determines how Braze compares paths and selects a winner during the experiment window.
 - Experiment Path analytics still follows the same Canvas [conversion events]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/) framework as the rest of the Canvas, including your [primary conversion event]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/#primary-conversion-event). As a result, the metrics emphasized in the dashboard might not match the winning metric.
 - For push, *Direct Opens* and *Total Opens* differ. For more information, see [Influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/).
+
 ### Additional settings
 
 Experiment Paths record users who enter each step and convert while in the assigned path. This tracks all conversion events specified in the Canvas setup. On the **Additional Settings** tab, enter how many days (between 1 and 30) you want this experiment to track conversions. The time window you specify here determines how long conversion events (chosen in the Canvas setup) are tracked for the experiment. The per-event conversion windows specified in the Canvas setup don't apply to this step's tracking and are replaced by this conversion window.
@@ -99,3 +100,13 @@ The conversion window starts when the user enters the Experiment Path step, not 
 {% alert important %}
 If you're using Intelligent Timing on a Message step within an experiment path, the time between experiment entry and the actual message send reduces the effective conversion window for that path. For example, if your experiment has a 5-day conversion window and Intelligent Timing delays the message by 2 days, users on that path only have 3 days after receiving the message to convert within the experiment window—even though the Message step's own analytics track conversions from the time of message send.<br><br>For cleaner experiment analytics, place any delays (such as Delay steps) **before** the Experiment Path step rather than within an experiment path. This way, all paths start from the same point and delays don't consume any of the conversion window.
 {% endalert %}
+
+## Frequently asked questions
+
+### Why do sends differ across paths when the experiment split looks even?
+
+Downstream _Sends_ depend on each path’s steps, delays, channel eligibility, and content, not only the percentage split at the Experiment Path. For example, different delays, intelligent send times, or subscription status can change how many users receive a message even when the path assignment was balanced. To compare path outcomes, use [Experiment Path analytics](#tracking-performance), which measures conversions from a common entry point.
+
+### How long does the experiment conversion window last?
+
+The **Additional Settings** conversion window (1–30 days) starts when the user enters the Experiment Path step. Time spent in downstream Delay steps or waiting for Intelligent Timing counts against that window. See [Tracking performance](#tracking-performance) for more details.

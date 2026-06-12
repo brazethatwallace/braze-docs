@@ -32,6 +32,10 @@ The [Snowflake quickstart guide](https://quickstarts.snowflake.com/guide/braze_c
 2. In your Redshift instance, set up the tables or views you want to sync to Braze.
 3. Create a new source and sync in the Braze dashboard.
 4. Test the integration and start the sync.
+
+{% alert note %}
+Rows processed per sync depend on your warehouse performance, network latency, and how much new data matches the sync query. Use the integration **Sync history** in the dashboard to see duration and row counts for recent runs.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Create a service account and allow access to the BigQuery project(s) and dataset(s) that contain the data you want to sync.  

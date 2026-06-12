@@ -41,7 +41,7 @@ MESSAGE HERE
 
 ### 사용자가 인앱 메시지를 닫은 후 다시 수신할 수 있나요? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
 인앱 메시지 Campaign의 경우, **전달 제어**에서 재적격성을 활성화하여(**사용자가 Campaign을 다시 수신할 수 있도록 허용**) 사용자가 Campaign을 다시 수신할 자격을 얻도록 할 수 있습니다. 다시 수신할 수 있는 시기는 설정한 재적격성 기간과 Braze가 이전 발송을 기록한 방식에 따라 달라집니다. Campaign 동작 및 재적격성과 메시지 수신의 관계에 대한 자세한 내용은 [Campaign 및 Canvas 재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)을 참조하세요.
 
@@ -69,7 +69,7 @@ Canvas에서 전송된 인앱 메시지의 경우, 사용자가 메시지를 다
 
 여러 메시지가 동일한 우선순위 수준을 공유하는 경우, 가장 최근에 생성된 메시지가 먼저 표시됩니다. 세션 시작 트리거의 경우, 다음으로 최근에 생성된 메시지가 후속 세션에서 표시됩니다. 다른 트리거 유형의 경우, 다음으로 최근에 생성된 메시지가 해당 트리거 이벤트가 다음에 발생할 때 표시되며, 이는 동일한 세션 내이거나 이후 세션일 수 있습니다.
 
-우선순위 버킷 내에서 표시 순서를 제어하려면 Campaign의 전달 설정으로 이동하여 **Set Exact Priority**를 선택한 다음, Campaign을 원하는 순서로 드래그 앤 드롭하세요. 자세한 내용은 [우선순위 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority)을 참조하세요.
+우선순위 버킷 내에서 표시 순서를 제어하려면 Campaign의 전달 설정으로 이동하여 **상세 우선순위 지정**을 선택한 다음, Campaign을 원하는 순서로 드래그 앤 드롭하세요. 자세한 내용은 [우선순위 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority)을 참조하세요.
 
 ### Braze는 "1일 후" 만료로 설정된 인앱 메시지 만료를 어떻게 계산하나요? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -137,4 +137,32 @@ Braze는 Sam의 경우 중단 이벤트를 기록하지 않습니다. 이는 중
 | --- | --- |
 | 표준 | Sam이 메시지를 트리거할 동작을 수행하지 않았기 때문에 중단 이벤트가 기록되지 않았습니다.<br><br>표준 인앱 메시지는 중단을 기록하지 않습니다. 중단의 정의가 "트리거 동작을 수행했음에도 메시지를 보지 못한 것"이기 때문입니다. 인앱 메시지는 트리거 동작이 발생하기 전에 기기로 전달되므로, Liquid 로직으로 인해 생략된 인앱 메시지를 중단으로 간주하는 것은 적절하지 않습니다. |
 | 템플릿 | Sam이 템플릿 인앱 메시지를 트리거하기 위해 트리거 동작을 수행했지만 Liquid 템플릿에서 중단을 수신했기 때문에 중단 이벤트가 기록되었습니다.<br><br>템플릿 인앱 메시지는 Liquid 평가가 트리거 동작이 수행된 후에 발생하기 때문에 중단을 기록합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="인앱 메시지 중단 동작 비교" }
+
+### Android에서 전체화면 HTML 인앱 메시지의 닫기 버튼이 숨겨지는 이유는 무엇인가요? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
+
+엣지 투 엣지 디스플레이가 있는 기기(Android 15 이상 포함)에서는 전체화면 HTML 인앱 메시지가 시스템 상태 표시줄 뒤에 그려져 레이아웃 상단의 닫기 컨트롤이 숨겨질 수 있습니다.
+
+Braze Android SDK 버전 37.0.0 이상에서는 기본적으로 HTML 인앱 메시지에 윈도우 인셋을 적용하여 컨트롤이 안전 영역 내에 유지됩니다. 사용자에게 여전히 겹침이 보이는 경우 최신 Braze Android SDK로 업그레이드하세요.
+
+이전 SDK 버전에서는 이 동작이 기본값이 되기 전에 개발자가 `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)`를 활성화할 수 있었습니다.
+
+### 드래그 앤 드롭 인앱 메시지 에디터의 알려진 제한 사항은 무엇인가요? {#what-are-known-limitations-of-the-drag-and-drop-in-app-message-editor}
+
+[드래그 앤 드롭 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)는 [커스텀 HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) 인앱 메시지에서 사용할 수 있는 모든 커스터마이징을 지원하지는 않습니다. 다음 사항을 참고하세요:
+
+- 메시지당 하나의 딥링크만 가능합니다(기기 유형별로 다른 링크 불가)
+- 불투명도는 개별 요소가 아닌 전체 메시지 배경에 적용됩니다
+- 메시지 최대 너비는 325px 미만으로 설정할 수 없습니다
+- 배경 이미지와 색상은 플랫폼별이 아닌 전체 메시지에 적용됩니다
+- 메시지 수준 스타일은 전체 메시지에 적용됩니다
+- 스페이서 블록은 픽셀 값만 사용합니다
+- 모달 및 전체화면 메시지 유형만 지원됩니다
+- 배경 이미지는 모달에 맞게 늘어납니다
+- 배경 이미지와 클릭 시 동작은 다중 페이지 메시지에서 페이지 간에 유지됩니다
+
+### Android SDK 로그에서 "Event was published, but no subscribers were found"는 무엇을 의미하나요? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
+
+이 로그 라인은 일반적으로 오류가 아닙니다. Braze가 내부 이벤트(예: `NoMatchingTriggerEvent`)를 게시하고 해당 시점에 인앱 메시지 또는 Content Cards 리스너가 구독되어 있지 않을 때 자주 나타납니다.
+
+커스텀 이벤트가 인앱 메시지를 트리거할 것으로 예상할 때 이 로그가 표시되면, 이벤트가 기록되었는지, 사용자가 Campaign 또는 Canvas 오디언스에 포함되어 있는지, 그리고 메시지가 Content Cards에 의존하는 경우 Content Cards가 동기화되었는지 확인하세요.

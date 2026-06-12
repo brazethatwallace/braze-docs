@@ -26,15 +26,15 @@ Mit der Integration von Braze und Anthropic können Sie Ihren Anthropic-API-Schl
 |---|---|
 | Anthropic-Konto mit API-Schlüssel | Ein Anthropic-Konto mit einem API-Schlüssel. Wenn Sie Hilfe benötigen, wenden Sie sich an Ihren Administrator oder den [Anthropic-Support](https://support.anthropic.com/). |
 | Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 So verbinden Sie Ihren Anthropic-API-Schlüssel mit Braze:
 
-1. Gehen Sie im Braze-Dashboard zu **Partner Integrations** > **Technology Partners** und suchen Sie Anthropic.
+1. Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und suchen Sie Anthropic.
 2. Geben Sie Ihren API-Schlüssel von Anthropic ein.
-3. Wählen Sie **Save**.
+3. Wählen Sie **Speichern**.
 
 Nach dem Speichern können Sie Claude-Modelle auswählen, wenn Sie [einen angepassten Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) – direkt in der Agentenkonsole.
 

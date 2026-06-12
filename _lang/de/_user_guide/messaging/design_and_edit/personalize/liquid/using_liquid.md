@@ -208,12 +208,16 @@ Wenn Sie Liquid in Ihren E-Mail-Nachrichten verwenden, achten Sie darauf:
 
 {% endalert %}
 
+### Zwischen HTML- und klassischem Editor wechseln {#switching-between-html-and-classic-editors}
+
+Wenn Sie zwischen dem HTML- und dem klassischen Editor wechseln, können Liquid-Snippets und Content Blocks ihre Position in Ihrer Nachricht verschieben. Überprüfen Sie Ihr Template nach dem Wechsel des Editors. Wenn Sie eine besser vorhersagbare Layout-Kontrolle benötigen, verwenden Sie den Drag-and-Drop-Editor.
+
 ### Vorformatierte Variablen einfügen {#inserting-pre-formatted-variables}
 
-Sie können vorformatierte Variablen mit Standardwerten über das Modal **Add Personalization** einfügen, das sich neben jedem Template-Textfeld befindet.
+Sie können vorformatierte Variablen mit Standardwerten über das Modal **Personalisierung hinzufügen** einfügen, das sich neben jedem Template-Textfeld befindet.
 
-![Das Modal „Add Personalization“, das nach dem Klick auf „Insert Personalization“ erscheint. Das Modal enthält Felder für den Personalisierungstyp, das Attribut, einen optionalen Standardwert und zeigt eine Vorschau der Liquid-Syntax an.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
+![Das Modal „Personalisierung hinzufügen“, das nach dem Klick auf „Personalisierung einfügen“ erscheint. Das Modal enthält Felder für den Personalisierungstyp, das Attribut, einen optionalen Standardwert und zeigt eine Vorschau der Liquid-Syntax an.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
 
 Das Modal fügt Liquid mit Ihrem angegebenen Standardwert an der Stelle ein, an der sich Ihr Cursor befand. Die Einfügestelle wird auch durch das Vorschaufeld angezeigt, das den Text davor und danach enthält. Wenn ein Textblock markiert ist, wird der markierte Text ersetzt.
 
-![Ein GIF des Modals „Add Personalization“, das zeigt, wie die Nutzerin oder der Nutzer „fellow traveler“ als Standardwert eingibt und das Modal den markierten Text „name“ im Composer durch das Liquid-Snippet ersetzt.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
+![Ein GIF des Modals „Personalisierung hinzufügen“, das zeigt, wie die Nutzerin oder der Nutzer „fellow traveler“ als Standardwert eingibt und das Modal den markierten Text „name“ im Composer durch das Liquid-Snippet ersetzt.]({% image_buster /assets/img_archive/insert_var_shot.gif %})

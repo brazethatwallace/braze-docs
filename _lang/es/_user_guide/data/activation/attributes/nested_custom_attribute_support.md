@@ -24,6 +24,7 @@ description: "Este artículo de referencia cubre el uso de atributos personaliza
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
 - No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home/) para confirmar si determinadas integraciones de socios admiten esta característica.
 - Los atributos personalizados anidados no se pueden utilizar como filtro al realizar una llamada a la API de Connected Audience.
+- De forma predeterminada, el filtro de segmento **Nested Custom Attributes** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/).
 
 ## Ejemplo de API {#api-example}
 
@@ -279,7 +280,7 @@ Verifica que se haya generado un esquema si no ves la opción de insertar atribu
 
 ## Regenerar esquemas {#regenerate-schema}
 
-Después de que se haya generado un esquema, se puede regenerar una vez cada 24 horas. Esta sección describe cómo regenerar tu esquema. Para información más detallada sobre esquemas, consulta [Generar un esquema usando el explorador de objetos anidados]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Después de que se haya generado un esquema, puedes regenerarlo **una vez por día calendario** (según la zona horaria de tu empresa). Esta sección describe cómo regenerar tu esquema. Para información más detallada sobre esquemas, consulta [Generar un esquema usando el explorador de objetos anidados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
 
 Para regenerar el esquema de tu atributo personalizado anidado:
 
@@ -288,7 +289,7 @@ Para regenerar el esquema de tu atributo personalizado anidado:
 3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-plus" aria-label="Administrar esquema"></i> para administrar el esquema.
 4. Aparecerá un modal. Selecciona **Regenerate Schema**.
 
-La opción de regenerar esquema estará deshabilitada si han pasado menos de 24 horas desde la última regeneración del esquema. Regenerar el esquema solo detectará nuevos objetos y no eliminará objetos que actualmente existen en el esquema.
+La acción **Regenerate Schema** está limitada a **una vez por día calendario** en la zona horaria de tu empresa. No puedes iniciar otra regeneración mientras un trabajo de esquema ya está **en progreso** (la opción no está disponible mientras el estado es **Generating**). Regenerar el esquema solo detecta nuevos objetos y no elimina objetos que actualmente existen en el esquema.
 
 {% alert important %}
 Para restablecer el esquema de una matriz de objetos con un objeto existente, necesitas crear un nuevo atributo personalizado. La regeneración del esquema no elimina objetos existentes.

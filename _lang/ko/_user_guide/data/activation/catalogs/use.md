@@ -143,6 +143,10 @@ Liquid가 렌더링되었을 때의 모습은 다음과 같습니다:
 
 ![카탈로그 Liquid 태그가 렌더링된 콘텐츠 카드 예시.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
 
+{% alert important %}
+이메일과 같은 **HTML** 채널에서는 닫는 `{% raw %}{% catalog_items ... %}{% endraw %}` 태그와 이미지 URL을 출력하는 Liquid(예: `{% raw %}{{ items[0].image_link }}{% endraw %}`) 사이에 불필요한 공백이나 줄바꿈을 넣지 마세요. 템플릿의 불필요한 공백은 렌더링된 메시지에서 이미지 URL이 올바르게 확인되지 않을 수 있습니다. 다음과 같이 URL 표현식을 카탈로그 태그에 바로 인접하게 유지하세요: `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`.
+{% endalert %}
+
 ### 카탈로그 항목 템플릿 지정
 
 템플릿을 사용하여 커스텀 속성을 기반으로 카탈로그 항목을 동적으로 가져올 수도 있습니다. 예를 들어 사용자가 카탈로그의 게임 ID 배열을 포함하는 커스텀 속성 `wishlist`를 가지고 있다고 가정해 보겠습니다.

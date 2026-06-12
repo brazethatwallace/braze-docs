@@ -45,7 +45,7 @@ Por ejemplo, si estableces tu rango de fechas en **Últimos 7 días** y tus *Usu
 
 ### Mostrar desglose {#show-breakdown}
 
-Selecciona **Show Breakdown** para cada fila de las estadísticas del resumen de rendimiento para ver el valor de cada estadística por día dentro del rango de fechas especificado.
+Selecciona **Mostrar desglose** para cada fila de las estadísticas del resumen de rendimiento para ver el valor de cada estadística por día dentro del rango de fechas especificado.
 
 ![Expandir]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
@@ -63,7 +63,7 @@ Puedes graficar estadísticas para:
 - Correo electrónico
 - Mensajes dentro de la aplicación
 - Fórmulas de KPI
-  - Selecciona **Manage KPI Formulas** para crear una fórmula o editar una fórmula existente.
+  - Selecciona **Administrar fórmulas de KPI** para crear una fórmula o editar una fórmula existente.
 - LINE
 - Usuarios activos al mes (MAU)
 - Nuevos usuarios
@@ -143,6 +143,8 @@ Las instantáneas de MAU se calculan una vez al día y nunca cambian retroactiva
 
 {% alert note %}
 Cuando integras Braze inicialmente, todos los usuarios aparecerán como nuevos usuarios porque Braze nunca había registrado una sesión para ellos antes.
+
+A diferencia de MAU, el recuento de *Nuevos usuarios* puede disminuir retroactivamente cuando Braze fusiona un perfil anónimo con un perfil identificado y convierte en huérfano el perfil anónimo. Braze elimina el perfil huérfano de los totales de uso de la aplicación, lo que puede reducir *Nuevos usuarios* para fechas que ya habías consultado. Para conocer el comportamiento de vinculación de perfiles, consulta [Ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
 {% endalert %}
 
 {% alert important %}

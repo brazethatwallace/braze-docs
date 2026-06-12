@@ -69,7 +69,7 @@ Esta función está disponible cuando la autenticación de dos factores está ac
 
 Cuando seleccionas **Remember this account for 30 days**, se almacena una cookie en tu dispositivo, lo que solo requiere que inicies sesión con autenticación de dos factores una vez en el transcurso de 30 días.
 
-![Casilla de verificación Remember this account for 30 days]({% image_buster /assets/img/remember_me.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
+![Casilla de verificación Recordar esta cuenta durante 30 días]({% image_buster /assets/img/remember_me.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
 Los clientes con múltiples cuentas bajo una empresa del dashboard pueden experimentar problemas al usar esta función debido a que la cookie está vinculada a un dispositivo específico. Si los usuarios usan el mismo dispositivo para iniciar sesión en múltiples cuentas, la cookie se reemplazará para las cuentas previamente autorizadas en ese dispositivo. Braze espera que solo un dispositivo esté asociado con una cuenta, no un dispositivo para múltiples cuentas.
 
@@ -99,35 +99,19 @@ Si 2FA se aplica a nivel de empresa, los usuarios que no la configuren en sus pr
 2FA es obligatoria para todos los usuarios de la empresa solo si el inicio de sesión único (SSO) no está habilitado. Si SSO está en uso, 2FA no necesita aplicarse a nivel de empresa.
 {% endalert %}
 
-## Configurar la autenticación de dos factores (2FA) {#setting-up-two-factor-authentication-2fa}
+## Configurar 2FA manualmente {#manually-set-up-2fa}
 
-### Configurar 2FA con Authy {#setting-up-2fa-with-authy}
+Para activar manualmente la autenticación de dos factores (2FA) en tu cuenta Braze, sigue estos pasos:
 
-1. Descarga la aplicación Authy desde la tienda de aplicaciones de tu dispositivo.
-2. En Braze, introduce tu número de teléfono.
-3. Toca la notificación enviada a tu dispositivo que te solicita abrir la aplicación Authy.
-4. Abre la aplicación Authy en tu dispositivo para obtener el código.
-5. En Braze, introduce el código de verificación que recibiste de Authy.
-
-Si encuentras problemas durante el proceso de configuración y eres redirigido a la página de inicio o de inicio de sesión de Braze, intenta lo siguiente:
-
-- Usa el modo incógnito o de navegación privada: intenta la configuración de nuevo con una ventana de navegación incógnita o privada. Esto puede evitar problemas causados por extensiones o complementos del navegador.
-- Prueba con un perfil de navegador diferente: si el problema persiste, considera usar un perfil de navegador diferente para eliminar conflictos con complementos instalados.
-
-### Configurar 2FA cuando no es obligatoria {#setting-up-2fa-when-it-isnt-enforced}
-
-Para activar manualmente la autenticación de dos factores (2FA) en tu cuenta Braze cuando no es obligatoria, sigue estos pasos:
-
-1. Descarga una aplicación de 2FA como Authy, Google Authenticator, Okta Verify o similar desde la App Store (iOS), Google Play Store (Android) o la web. O, si prefieres configurar 2FA con correo electrónico o SMS, ve directamente al paso 2.
-2. En Braze, ve a Manage Account, desplázate hasta la sección **Two-Factor Authentication** y selecciona **Start Setup**.
-3. Introduce tu contraseña en el modal de inicio de sesión y selecciona **Check Password**.
-4. En el modal **Two-Factor Authentication Setup**, introduce tu número de teléfono y selecciona **Enable**.
-5. Copia el código de siete dígitos generado desde tu aplicación de 2FA, correo electrónico o mensaje SMS, luego regresa a Braze y pégalo en el modal **Two-Factor Authentication Setup**. Selecciona **Verify**.
-6. (Opcional) Para evitar introducir 2FA durante los próximos 30 días, habilita la opción **Remember this account for 30 days**.
+1. En Braze, selecciona tu icono de perfil en el encabezado global y luego selecciona **Gestiona tu cuenta**. Desplázate hasta la sección **Two-Factor Authentication** y selecciona **Start Setup**.
+2. Introduce tu contraseña en el modal de inicio de sesión y selecciona **Check Password**.
+3. En el modal **Two-Factor Authentication Setup**, introduce tu número de teléfono y selecciona **Enable**.
+4. Copia el código de siete dígitos generado desde tu correo electrónico o mensaje SMS, luego regresa a Braze y pégalo en el modal **Two-Factor Authentication Setup**. Selecciona **Verify**.
+5. (Opcional) Para evitar introducir 2FA durante los próximos 30 días, habilita la opción **Remember this account for 30 days**.
 
 ## Acceso elevado {#elevated-access}
 
-El acceso elevado añade una capa adicional de seguridad para acciones sensibles en tu dashboard de Braze. Cuando está activo, los usuarios necesitan volver a verificar su cuenta antes de exportar un Segment o ver una clave de API. Para usar el acceso elevado, ve a **Settings** > **Admin Settings** > **Security Settings** y actívalo.
+El acceso elevado añade una capa adicional de seguridad para acciones sensibles en tu dashboard de Braze. Cuando está activo, los usuarios necesitan volver a verificar su cuenta antes de exportar un segmento o ver una clave de API. Para usar el acceso elevado, ve a **Settings** > **Admin Settings** > **Security Settings** y actívalo.
 
 Si un usuario no puede volver a verificarse, será redirigido a donde estaba y no podrá continuar con la acción sensible. Después de verificarse correctamente, no necesitará hacerlo de nuevo durante la siguiente hora, a menos que cierre sesión primero.
 

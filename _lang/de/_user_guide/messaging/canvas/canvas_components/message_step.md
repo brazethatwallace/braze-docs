@@ -48,9 +48,16 @@ Wählen Sie **Using Intelligent Timing** im Tab **Delivery Settings**. Hier kön
 
 #### Zustellungsvalidierungen {#delivery-validations}
 
-Zustellungsvalidierungen bieten eine zusätzliche Prüfung, um zu bestätigen, dass Ihre Zielgruppe die Zustellungskriterien zum Zeitpunkt des Nachrichtenversands erfüllt. Diese Einstellung wird empfohlen, wenn Ruhezeiten, intelligentes Timing oder Rate-Limiting aktiviert sind.
+Zustellungsvalidierungen bieten eine zusätzliche Prüfung beim Nachrichtenversand, um zu bestätigen, dass Ihre Zielgruppe Ihre Kriterien noch erfüllt. Wir empfehlen die Verwendung, wenn Ruhezeiten, intelligentes Timing oder Rate-Limiting aktiviert sind. Wählen Sie **Validate audience at message send** und fügen Sie dann ein Segment oder zusätzliche Filter hinzu. Wenn Nutzer:innen die Validierungen nicht erfüllen, wählen Sie, ob sie den Canvas verlassen oder zum nächsten Schritt weitergeleitet werden.
 
-Wählen Sie **Validate audience at message send** und fügen Sie dann ein Segment oder zusätzliche Filter hinzu, um den Versandzeitpunkt der Nachricht zu validieren. Wenn Nutzer:innen die festgelegten Zustellungsvalidierungen für einen Nachrichten-Schritt nicht erfüllen, wählen Sie, ob sie den Canvas verlassen oder zum nächsten Schritt weitergeleitet werden.
+Zustellungsvalidierungen bewerten die Nutzerprofil-Kriterien zum Zeitpunkt des Versands. App-bezogene Filter prüfen, ob Nutzer:innen eine bestimmte App kürzlich oder jemals verwendet haben, bestätigen aber nicht, welche App Nutzer:innen in ihrer aktuellen Sitzung verwenden.
+
+Wenn Ihr Workspace mehrere Apps enthält und ein Nachrichten-Schritt auf eine bestimmte App abzielen soll, verwenden Sie stattdessen einen der folgenden Ansätze:
+
+- Beim Erstellen der Nachricht [geben Sie Ihre Zustellungsplattformen an]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms), wie z. B. **Mobile Apps** oder **Web Browsers**.
+- Verwenden Sie Liquid, um das Zielgerät oder die App zum Zeitpunkt des Versands zu prüfen:
+  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} wertet die Plattform für die aktuelle Sitzung der Nutzer:innen aus. Weitere Informationen finden Sie unter [Informationen zum Zielgerät]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information).
+  - {% raw %}`{{app.${api_id}}}`{% endraw %} wertet aus, welche App die Nachricht anfordert. Kombinieren Sie diesen Tag mit `abort_message()`, um Sendungen an die falsche App zu verhindern. Weitere Informationen finden Sie unter [Informationen zur Ziel-App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-app-information).
 
 ![Zustellungsvalidierungen sind aktiviert, um die Zielgruppe beim Nachrichtenversand zu validieren. Das Fortschrittsverhalten der Zustellungsvalidierungen ist so eingestellt, dass Nutzer:innen zum nächsten Schritt im Canvas weitergeleitet werden, wenn die Zustellungsvalidierungen nicht erfüllt sind.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 
@@ -120,10 +127,10 @@ In der folgenden Tabelle finden Sie Definitionen der Metriken der Nachrichten-Ko
 
 | Metrik | Beschreibung |
 | --- | --- |
-| _Eintritte_ | Die Anzahl der Male, die der Schritt betreten wurde. Wenn Ihr Canvas eine erneute Berechtigung hat und Nutzer:innen einen Nachrichten-Schritt zweimal betreten, werden zwei Eintritte erfasst. |
-| _Zum nächsten Schritt weitergeleitet_ | Die Anzahl der Eintritte, die zum nächsten Schritt im Canvas weitergeleitet wurden. |
-| _Sendungen_ | Die Gesamtzahl der Nachrichten, die der Schritt gesendet hat. Wenn Ihr Canvas eine erneute Berechtigung hat und Nutzer:innen einen Nachrichten-Schritt zweimal betreten, werden zwei Eintritte erfasst. |
-| _Eindeutige Empfänger:innen_ | Die Anzahl der Nutzer:innen, die Nachrichten von diesem Schritt erhalten haben. |
-| _Primäres Konversions-Event_ | Die Anzahl der Male, die ein definiertes Event nach der Interaktion mit oder dem Anzeigen einer empfangenen Nachricht aus einer Braze-Campaign aufgetreten ist. Sie definieren dieses Event beim Erstellen der Campaign. |
-| _Umsatz_ | Der Gesamtumsatz in Dollar von Campaign-Empfänger:innen innerhalb des festgelegten primären Conversion-Fensters. |
+| *Eintritte* | Die Anzahl der Male, die der Schritt betreten wurde. Wenn Ihr Canvas eine erneute Berechtigung hat und Nutzer:innen einen Nachrichten-Schritt zweimal betreten, werden zwei Eintritte erfasst. |
+| *Zum nächsten Schritt weitergeleitet* | Die Anzahl der Eintritte, die zum nächsten Schritt im Canvas weitergeleitet wurden. |
+| *Sendungen* | Die Gesamtzahl der Nachrichten, die der Schritt gesendet hat. Wenn Ihr Canvas eine erneute Berechtigung hat und Nutzer:innen einen Nachrichten-Schritt zweimal betreten, werden zwei Eintritte erfasst. |
+| *Eindeutige Empfänger:innen* | Die Anzahl der Nutzer:innen, die Nachrichten von diesem Schritt erhalten haben. |
+| *Primäres Konversions-Event* | Die Anzahl der Male, die ein definiertes Event nach der Interaktion mit oder dem Anzeigen einer empfangenen Nachricht aus einer Braze-Campaign aufgetreten ist. Sie definieren dieses Event beim Erstellen der Campaign. |
+| *Umsatz* | Der Gesamtumsatz in Dollar von Campaign-Empfänger:innen innerhalb des festgelegten primären Conversion-Fensters. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

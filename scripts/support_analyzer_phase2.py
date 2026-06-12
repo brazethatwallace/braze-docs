@@ -269,7 +269,12 @@ def _insert_point_before_line(content: str, anchor: str) -> int | None:
     return idx
 
 
-def _edit_already_applied(content: str, edit: dict[str, Any]) -> bool:
+def _edit_already_applied(
+    content: str,
+    edit: dict[str, Any],
+    *,
+    root: Path | None = None,
+) -> bool:
     """True when this edit is already on develop (fingerprint or equivalent prose)."""
     fp = (edit.get("fingerprint") or "").strip()
     if fp and (fp in content or f"<!-- {fp} -->" in content):
@@ -278,14 +283,73 @@ def _edit_already_applied(content: str, edit: dict[str, Any]) -> bool:
         text = (phrase or "").strip()
         if text and text in content:
             return True
+    for entry in edit.get("skip_if_contains_in_files") or []:
+        if not isinstance(entry, dict):
+            continue
+        rel = (entry.get("file") or "").strip()
+        phrases = entry.get("contains") or entry.get("phrases") or []
+        if not rel or not root:
+            continue
+        other_path = root / rel
+        if not other_path.is_file():
+            continue
+        other_content = other_path.read_text(encoding="utf-8")
+        for phrase in phrases:
+            text = (phrase or "").strip()
+            if text and text in other_content:
+                return True
     return False
 
 
-def _apply_edit(content: str, edit: dict[str, Any]) -> tuple[str, bool]:
+def _open_phase2_pr_for_rule(rule_id: str, *, cwd: Path) -> str | None:
+    """Return an open Phase 2 PR URL for this rule, if one exists."""
+    prefix = f"support-analyzer/phase2-{rule_id}-"
+    try:
+        raw = _run_capture(
+            [
+                "gh",
+                "pr",
+                "list",
+                "--state",
+                "open",
+                "--label",
+                "support analyzer",
+                "--json",
+                "headRefName,url",
+                "--limit",
+                "100",
+            ],
+            cwd=cwd,
+        )
+    except subprocess.CalledProcessError:
+        print(
+            f"rule {rule_id}: could not list open PRs; continuing without open-PR dedup",
+            file=sys.stderr,
+        )
+        return None
+    if not raw:
+        return None
+    try:
+        prs = json.loads(raw)
+    except json.JSONDecodeError:
+        return None
+    for pr in prs:
+        head = (pr.get("headRefName") or "").strip()
+        if head.startswith(prefix):
+            return (pr.get("url") or "").strip() or None
+    return None
+
+
+def _apply_edit(
+    content: str,
+    edit: dict[str, Any],
+    *,
+    root: Path | None = None,
+) -> tuple[str, bool]:
     """
     Return (new_content, changed). Skip if fingerprint or skip_if_contains matches.
     """
-    if _edit_already_applied(content, edit):
+    if _edit_already_applied(content, edit, root=root):
         return content, False
 
     anchor = edit.get("anchor_substring") or ""
@@ -341,7 +405,7 @@ def _validate_edits_anchors(
                 problems.append(f"{rel}: target file missing")
             continue
         content = path.read_text(encoding="utf-8")
-        if _edit_already_applied(content, edit):
+        if _edit_already_applied(content, edit, root=root):
             continue
         anchor = (edit.get("anchor_substring") or "").strip()
         if anchor and anchor not in content:
@@ -675,10 +739,10 @@ def _phase2_process_rules(
                 skip_rule = True
                 break
             original = path.read_text(encoding="utf-8")
-            updated, changed = _apply_edit(original, edit)
+            updated, changed = _apply_edit(original, edit, root=root)
             if not changed:
                 print(
-                    f"rule {rid}: no change for {rel} (anchor, fingerprint, or skip_if_contains)",
+                    f"rule {rid}: no change for {rel} (anchor, fingerprint, skip_if_contains, or skip_if_contains_in_files)",
                     file=sys.stderr,
                 )
                 continue
@@ -746,6 +810,14 @@ Automated **Phase 2** doc proposal from `support_analyzer_phase2_rules.yml` (rul
 
         if args.dry_run:
             print(f"[dry-run] would create branch {branch} with {len(pending_files)} file(s)", file=sys.stderr)
+            continue
+
+        existing_pr = _open_phase2_pr_for_rule(rid, cwd=root)
+        if existing_pr:
+            print(
+                f"rule {rid}: skip PR — open Phase 2 draft already exists: {existing_pr}",
+                file=sys.stderr,
+            )
             continue
 
         _run(["git", "fetch", "origin", "develop"], cwd=root)

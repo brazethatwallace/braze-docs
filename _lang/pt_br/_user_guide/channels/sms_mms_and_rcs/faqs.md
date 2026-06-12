@@ -195,3 +195,9 @@ A Braze envia a carga útil de RCS que você compõe, enquanto o cliente de mens
 ### Posso enviar mensagens de voz pré-gravadas com RCS? {#can-i-send-pre-recorded-voicemails-with-rcs}
 
 Sim, você pode usar mensagens de mídia para enviar arquivos de áudio.
+
+### Por que os opt-ins de SMS via REST API não correspondem ao **Total de opt-ins** no desempenho de SMS/MMS/RCS? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
+
+**Total de opt-ins** e **Total de descadastramentos** no dashboard de [desempenho de SMS/MMS/RCS]({{site.baseurl}}/user_guide/analytics/dashboards/) contam alterações de inscrição geradas pelo processamento de palavras-chave de SMS recebidos (por exemplo, um usuário enviando uma palavra-chave de opt-in para o seu short code). Eles não incluem todas as atualizações de inscrição feitas pela REST API, pelo dashboard ou por outras fontes.
+
+Para analisar opt-ins e descadastramentos por origem, use o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) em `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` e filtre por `STATE_CHANGE_SOURCE` (por exemplo, **Rest API** versus **Inbound Message**).

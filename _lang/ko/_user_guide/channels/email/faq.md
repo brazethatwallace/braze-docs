@@ -25,6 +25,7 @@ channel: email
 
 다음 시나리오에서는 사용자가 이메일을 두 번 받은 것처럼 보일 수 있습니다:
 
+- **시드 목록 또는 테스트 수신자:** 시드 주소와 내부 테스트 수신자는 주요 오디언스 외에 추가로 발송을 수신할 수 있으며, 받은편지함이 프로필과 시드 항목 모두에 일치하는 경우 중복처럼 보일 수 있습니다.
 - **Campaign 또는 Canvas 생성 중 오류가 발생한 경우:** 사용자가 문자 그대로 동일한 발송을 두 번 받지는 않을 수 있지만, 동일한 제목란을 가진 두 개의 별도 이메일을 받을 수 있습니다. Campaign이나 Canvas가 복제된 경우, 이미지나 제목란과 같은 이메일 구성 세부 정보를 확인하세요. 또한 체인지로그를 참조하여 Campaign이나 Canvas가 시작 후 수정되었는지 확인할 수 있습니다—복제본은 사용자가 수신했을 때 원본과 동일한 제목란을 공유할 수 있습니다.
 - **여러 고객 프로필에 이메일 전달이 설정된 경우:** 사용자가 특정 앱에서 여러 계정을 가지고 있지만 하나의 계정이 메일을 전달하는 경우, 사용자는 받은편지함당 한 번 Campaign을 수신합니다. 메시지가 전달되는 받은편지함에서는 메일이 두 번 나타날 수 있습니다. 일부 공급자만 이메일이 다른 계정에서 전달되었음을 표시합니다.
 - **수신자의 이메일 구성:** 일부 클라이언트는 받은편지함을 병합합니다("통합 받은편지함"). 동일한 Campaign이 하나의 받은편지함을 공유하는 여러 계정을 타겟팅하는 경우, 실제로는 두 개의 별개 프로필에 메시지가 전송되었지만 한 사람이 Campaign을 두 번 받은 것처럼 보일 수 있습니다. 수신자는 여러 계정이 하나의 받은편지함에 결합되어 있는지 확인할 수 있습니다.
@@ -46,6 +47,14 @@ API 트리거 Campaign은 오디언스가 정의된 위치에 따라 중복을 �
 {% alert important %}
 API 호출을 통해 API Campaign을 발송하는 경우(API 트리거 Campaign 제외), Segment 오디언스에 동일한 이메일 주소를 가진 여러 사용자가 지정되어 있으면 호출에 나열된 횟수만큼 해당 주소로 발송됩니다. 이는 API 호출이 의도적으로 구성된 것으로 간주되기 때문입니다.
 {% endalert %}
+
+#### 중복 이메일 주소를 사용한 A/B 테스트 {#ab-testing-with-duplicate-email-addresses}
+
+여러 프로필이 동일한 이메일 주소를 공유할 수 있는 경우 이메일에서 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/)를 사용하지 마세요. 배리언트는 프로필 단위로 할당되므로 동일한 받은편지함에 두 개 이상의 메시지가 전달될 수 있습니다. 해당 상황에서 테스트해야 하는 경우, **우승 배리언트** 단계를 [현지 시간대 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#local-time-zone-campaigns)과 결합하여 우승자 선택을 지연시키는 방식으로 사용하지 마세요—이러한 옵션을 함께 사용하면 중복 발송 가능성이 높아질 수 있습니다.
+
+#### Canvas와 중복 이메일 주소 {#canvas-and-duplicate-email-addresses}
+
+Canvas 여정의 경우, 중복 이메일 주소가 한 번 발송을 수신하는지 또는 두 번 이상 수신하는지는 진입 배치, 단계 타이밍 및 기타 요인에 따라 달라질 수 있습니다. 여정에 대해 검증할 때까지 동작을 정의되지 않은 것으로 간주하세요. 가능하면 중복 프로필을 병합하거나 통합하세요. 제품 변경이 필요한 경우 Braze 팀을 통해 피드백을 제출하세요.
 
 ### 사용자의 이메일 주소가 다른 사용자가 공유하는 주소로 변경되면 구독 상태는 어떻게 되나요? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -182,14 +191,54 @@ Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니�
 - HTML 이메일의 경우, **Plaintext** 탭으로 이동한 다음 **Regenerate from HTML**을 선택하세요.
 - 복제 후, 배리언트를 복제한 다음 원본 배리언트를 제거하세요. 원본 배리언트를 **선택하지 마세요**. 그렇지 않으면 경고가 이어질 수 있습니다.
 
-### 사용자가 이메일 Campaign을 받지 못한 이유는 무엇인가요? {#what-are-reasons-why-my-user-hasnt-received-an-email-campaign}
+### 사용자가 받지 말아야 할 이메일을 받은 이유는 무엇인가요? {#why-did-a-user-receive-an-email-they-shouldnt-have}
 
-사용자가 이메일 Campaign을 받지 못한 이유는 다음과 같습니다:
+Braze가 구성된 대로 동작했더라도 전달이 잘못된 것처럼 보일 수 있습니다. 다음 사항을 확인하세요:
+
+- 하나의 받은편지함을 공유하는 **중복 프로필**([이메일이 발송될 때 여러 프로필이 동일한 이메일 주소를 가지고 있으면 어떻게 되나요?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address) 참조).
+- 오디언스에 포함되었거나 CC/BCC로 발송에 포함된 **시드 목록, 테스트 수신자 또는 내부 주소**.
+- **Segment 또는 Canvas 타이밍:** Braze가 적격성을 평가할 때 사용자가 오디언스 또는 캔버스 단계에 일치했지만, 메시지를 읽기 전에 속성이나 구독 상태가 변경된 경우.
+- **구독 그룹:** 글로벌 구독 상태가 달리 시사하더라도 메시지가 타겟팅한 그룹에 사용자가 옵트인 상태를 유지한 경우.
+- **API 또는 파일 가져오기**로 세분화 이후 변경 사항이 적용될 것으로 예상하기 전에 사용자가 업데이트된 경우.
+
+[메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), Campaign 또는 Canvas 체인지로그, Segment 정의를 검토하세요. 발송을 여전히 확인할 수 없는 경우, 사용자 식별자, `dispatch_id`(가능한 경우) 및 타임스탬프와 함께 Braze 고객지원에 문의하세요.
+
+### 사용자가 이메일 메시지를 받지 못한 이유는 무엇인가요? {#why-hasnt-a-user-received-my-email-message}
+
+사용자가 수신할 것으로 예상한 이메일을 받지 못하는 데에는 다음과 같은 여러 이유가 있습니다:
 
 - 이메일을 수신할 자격이 없었습니다.
 - 이메일 주소가 유효하지 않거나 존재하지 않습니다.
 - 메시지를 놓쳤거나 삭제했을 수 있습니다.
 - 메시지가 스팸 폴더에 있을 수 있습니다.
+
+{% alert tip %}
+Braze의 전달 이벤트는 이메일이 사서함 공급자의 서버에 의해 수락되었음을 의미합니다. 그러나 이것이 메시지가 사용자의 받은편지함에 나타나는 것을 보장하지는 않습니다. 사서함 공급자가 메시지를 스팸으로 라우팅하거나, 드문 경우 메시지 표시를 조용히 차단할 수 있습니다.
+{% endalert %}
+
+다음 표를 사용하여 원인을 좁혀보세요.
+
+#### 이메일이 발송되지 않은 경우 {#the-email-wasnt-sent}
+
+| 가능한 원인 | 확인 사항 |
+|---|---|
+| 사용자가 Campaign 또는 Canvas에 적격하지 않았습니다 | **Target Audiences**(Campaign의 경우) 또는 **Target Audience**(Canvas의 경우) [설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)을 확인하여 발송 시점에 사용자가 모든 오디언스 필터, Segment 기준 및 전달 규칙을 충족했는지 확인하세요. |
+| 메시지가 중단되었습니다 | [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 Liquid 오류나 필수 필드 누락과 같은 중단 사유를 확인하세요. |
+| 사용자의 이메일 주소가 유효하지 않거나 누락되었습니다 | **사용자 검색**에서 사용자의 프로필을 확인하여 발송 시점에 유효한 이메일 주소가 등록되어 있었는지 확인하세요. |
+| 사용자의 이메일 주소가 이전에 하드바운스되었습니다 | 하드바운스는 이메일 주소를 유효하지 않은 것으로 표시하고 해당 주소로의 향후 발송을 차단합니다. 마찬가지로, 수신자가 이메일을 스팸으로 표시하면 Braze는 해당 사용자에게 표준 Campaign이 아닌 트랜잭션 이메일만 발송합니다. 사용자 프로필의 **참여** 탭을 확인하세요. 자세한 내용은 [탈퇴된 이메일 주소]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) 및 [반송 및 유효하지 않은 이메일]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails)을 참조하세요. |
+| 사용자가 이메일을 탈퇴했습니다 | **참여** 탭의 **연락처 설정**에서 사용자의 구독 상태를 확인하세요. Braze는 탈퇴한 사용자에게 이메일을 발송하지 않습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="이메일이 발송되지 않은 원인" }
+
+#### 이메일이 발송되었지만 받은편지함에 도착하지 않은 경우 {#the-email-was-sent-but-didnt-arrive-in-their-inbox}
+
+| 가능한 원인 | 확인 사항 |
+|---|---|
+| 사서함 공급자(MBP)에 접근할 수 없었습니다 | 일시적인 문제로 이메일이 수신자의 MBP에 도달하지 못했습니다. 이는 일반적으로 재시도를 통해 자체적으로 해결됩니다. 이메일 서비스 공급자는 최대 72시간 동안 소프트바운스를 재시도합니다. |
+| MBP가 이메일을 반송했습니다 | 수신자의 메일 서버가 이메일을 거부했습니다. [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 반송 세부 정보를 확인하세요. |
+| MBP가 이메일을 조용히 삭제했습니다 | MBP가 이메일을 수락했지만 사용자에게 표시하지 않았고 반송도 반환하지 않았습니다. 이는 Braze의 제어 범위 밖이며 Braze 로그에서 감지할 수 없습니다. |
+| 이메일이 스팸 폴더로 이동했습니다 | MBP가 메시지를 스팸으로 식별하여 사용자의 스팸 또는 정크 폴더로 라우팅했습니다. 사용자에게 스팸 폴더를 확인하도록 요청하세요. |
+| 수신자에게 커스텀 메일 필터링이 있습니다 | 사용자 또는 IT 관리자가 수신 메시지를 필터링, 리디렉트 또는 삭제하는 사서함 규칙을 구성했을 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="이메일이 받은편지함에 도착하지 않은 원인" }
 
 ### Outlook에서 이미지를 최적화하려면 어떻게 해야 하나요? {#how-can-i-optimize-images-in-outlook}
 
@@ -216,3 +265,21 @@ SVG 이미지는 Gmail 웹 또는 Gmail iOS에서 렌더링되지 않습니다. 
 ### 릴레이 또는 마스킹된 이메일에 대해 도메인을 등록해야 하나요? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 [Apple의 Private Email Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/)는 반송을 방지하기 위해 Apple Developer Portal에 발송 도메인을 등록해야 합니다. Google Shielded Email은 수동 도메인 등록이나 허용 목록 프로세스가 필요하지 않습니다.
+
+### 반송 사유 `unable to get mx info` 또는 `failed to get IPs from PTR record`는 무엇을 의미하나요? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+[메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 다음과 유사한 반송 사유는 Braze 메시지 구성이 아닌 수신 도메인의 메일 설정(주소에서 `@` 뒤의 도메인)을 확인하는 데 문제가 있음을 나타냅니다:
+
+일반적인 원인은 다음과 같습니다:
+
+- 해당 도메인에 대한 **MX 레코드**가 누락되었거나, 잘못되었거나, 접근할 수 없는 경우
+- 수신 인프라에서 기대하는 **PTR(역방향 DNS)** 검사에 실패하거나 확인할 수 없는 인바운드 메일 호스트 이름
+- 이메일 주소의 유효하지 않거나 잘못 입력된 도메인
+
+**다음 단계:**
+
+- 주소와 도메인 철자를 확인하세요.
+- 주소가 올바른 경우, 해당 도메인의 사서함 소유자 또는 IT 팀에 문의하세요.
+- DNS 공급자를 통해 메일 서버의 PTR 레코드를 포함한 MX 및 관련 DNS 레코드를 점검하도록 요청하세요.
+
+다른 수신자는 보통 영향을 받지 않습니다. 소프트바운스가 보고에 표시되는 방식에 대해서는 [소프트바운스]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce)를 참조하세요.

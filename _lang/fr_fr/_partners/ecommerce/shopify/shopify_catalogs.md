@@ -93,6 +93,8 @@ Braze prend en charge les objets de métachamps suivants ainsi que certains de l
 | `number_integer` | Entier |
 | `single_line_text_field`, `list.single_line_text_field` | Chaîne de caractères, Tableau de chaînes de caractères |
 | `url`, `list.url` | Chaîne de caractères (URL), Tableau de chaînes de caractères (URL) |
+| `metaobject_reference`, `list.metaobject_reference` | Chaîne de caractères, Tableau de chaînes de caractères |
+| `mixed_reference`, `list.mixed_reference` | Chaîne de caractères, Tableau de chaînes de caractères |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Configurer des données produit supplémentaires (facultatif) #step-3" }
 
 {% endsubtab %}

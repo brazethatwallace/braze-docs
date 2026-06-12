@@ -28,7 +28,7 @@ BrazeとLinkrunnerの統合により、アトリビューションデータを�
 | iOSまたはAndroidアプリ | この統合はiOSおよびAndroidアプリをサポートしています。プラットフォームによっては、アプリケーションにコードスニペットが必要になる場合があります。 |
 | Linkrunner SDK | [Linkrunner SDK](https://docs.linkrunner.io/introduction)をインストールする必要があります。 |
 | Braze SDK | [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/)を統合する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -52,7 +52,7 @@ LinkRunner.getInstance().signup(userData = userData)
 {% endtab %}
 
 {% tab iOS (Swift) %}
-`````````swift
+```swift
 let userData = UserData(
     id: "123", // Your user ID
     // ...other user fields

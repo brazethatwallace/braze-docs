@@ -154,8 +154,8 @@ Después de hacer cambios en el estilo de un elemento, puedes copiar y pegar eso
 
 También puedes usar atajos de teclado para copiar y pegar estilos:
 
-| Acción       | Mac                                            | Windows                                           |
+| Acción | Mac | Windows |
 | ------------ | ---------------------------------------------- | ------------------------------------------------- |
-| Copiar estilos  | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
+| Copiar estilos | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
 | Pegar estilos | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Atajos de teclado" }

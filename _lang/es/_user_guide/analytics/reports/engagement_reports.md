@@ -17,7 +17,7 @@ tool:
 > Los informes de interacción te permiten obtener estadísticas de interacción de mensajes específicos de campañas y Canvas para recibirlas por correo electrónico en el horario que prefieras.
 
 {% alert note %}
-Necesitas permisos de "Export User Data" para ejecutar informes de interacción.
+Necesitas permisos de "Exportar datos de usuario" para ejecutar informes de interacción.
 {% endalert %}
 
 Con los informes de interacción, puedes seleccionar manualmente las campañas y Canvas que deseas incluir en tu informe por correo electrónico, o especificar reglas para seleccionar automáticamente las campañas y Canvas relevantes.
@@ -77,7 +77,7 @@ Los informes de interacción agregan datos por campaña o Canvas, no a nivel de 
 | Mensaje dentro de la aplicación | Impresiones, Clics, Clics en el primer botón, Clics en el segundo botón |
 | Webhook  |  Envíos, Errores |
 | SMS | Envíos, Envíos al operador, Entregas confirmadas, Fallos de entrega, Rechazos |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Añadir estadísticas #add-statistics-to-your-reports" }
 
 ### Paso 4: Completar la configuración del informe {#step-4-complete-report-setup}
 
@@ -131,13 +131,13 @@ El informe contiene todas las estadísticas seleccionadas en la sección [Añadi
 
 ## Solución de problemas {#troubleshooting}
 
-### El informe de interacción no coincide con las métricas de Canvas o la campaña {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
+### El informe de interacción no coincide con las métricas del Canvas o la campaña {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
 
 #### Rango de tiempo no coincidente {#mismatched-time-range}
 
-Asegúrate de que las fechas en el informe de interacción coincidan con las fechas en los análisis de Canvas o la campaña (por ejemplo, que ambos cubran del 1 al 15 de diciembre), incluso si el Canvas solo envió una vez. En la configuración del informe de interacción, revisa **Data Display** para confirmar que estás viendo el Canvas o la campaña correctos. Si **Data Display** está configurado para mostrar datos cada *X* días, obtendrás una fila por fecha cuando se registraron métricas para cada paso.
+Asegúrate de que las fechas en el informe de interacción coincidan con las fechas en los análisis del Canvas o la campaña (por ejemplo, que ambos cubran del 1 al 15 de diciembre), incluso si el Canvas solo envió una vez. En la configuración del informe de interacción, revisa **Data Display** para confirmar que estás viendo el Canvas o la campaña correctos. Si **Data Display** está configurado para mostrar datos cada *X* días, obtendrás una fila por fecha cuando se registraron métricas para cada paso.
 
-Si los totales parecen incorrectos en una hoja de cálculo, limpia los filtros adicionales en la exportación. Puedes sumar las filas diarias para conciliarlas con los totales de Canvas o campaña para el mismo rango de tiempo.
+Si los totales parecen incorrectos en una hoja de cálculo, limpia los filtros adicionales en la exportación. Puedes sumar las filas diarias para conciliarlas con los totales del Canvas o la campaña para el mismo rango de tiempo.
 
 {% alert note %}
 Si deseas filas agregadas por campaña o Canvas completo en lugar de contenedores diarios, semanales u otros recurrentes, configura **Data Display** en **Show Data by Entire Campaign or Canvas**. Si los recuentos de filas o las fechas parecen incorrectos en el CSV, consulta [Mostrar datos por campaña o Canvas completo](#show-data-by-entire-campaign-or-canvas).

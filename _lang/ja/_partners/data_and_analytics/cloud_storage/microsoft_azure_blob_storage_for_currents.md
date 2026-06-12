@@ -25,7 +25,7 @@ BrazeとMicrosoft Azure Blob Storageの統合により、データをAzureにエ
 | ----------- | ----------- |
 | Microsoft AzureとAzureストレージアカウント | このパートナーシップを利用するには、Microsoft AzureとAzureストレージアカウントが必要です。 |
 | Currents | Currentsにデータをエクスポートするには、アカウントに対して[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定しておく必要があります。メッセージのアーカイブの設定のみの場合、Currentsは必要ありません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -72,8 +72,8 @@ Brazeで**Currents** > **+ Create Current** > **Azure Blob Data Export**に移�
 ### ステップ5:Azureデータエクスポートを設定する {#step-5-set-up-azure-data-export}
 
 次の目的で使用する認証情報を設定する手順を以下で説明します。
-1. APIを通じたセグメントのエクスポート
-2. CSVエクスポート（キャンペーン、セグメント、キャンバスのユーザーデータをダッシュボード経由でエクスポート）
+1. APIを通じたSegmentのエクスポート
+2. CSVエクスポート（Campaign、Segment、Canvasのユーザーデータをダッシュボード経由でエクスポート）
 3. エンゲージメントレポート
 
 Brazeで**パートナー連携** > **テクノロジーパートナー** > **Microsoft Azure**に移動し、接続文字列、Azureストレージコンテナー名、Azureストレージ接頭辞を入力します。
@@ -96,5 +96,13 @@ Brazeで**パートナー連携** > **テクノロジーパートナー** > **Mi
 {% alert important %}
 **JSONフォーマットの要件**：JSONエクスポートでは、BrazeはJSONL（改行区切りのJSON）フォーマットを使用し、各行に個別のJSONオブジェクトが含まれます。このフォーマットは、単一のJSON配列またはオブジェクトである標準的なJSONとは異なります。エクスポートされたファイルの各行は有効なJSONオブジェクトですが、ファイル全体としては1つの有効なJSONドキュメントではありません。これらのファイルを処理するときは、ファイル全体を1つのJSONドキュメントとしてパースするのではなく、各行を個別のJSONオブジェクトとしてパースしてください。
 
-Currentsのエクスポートは、JSONではなく、Apache Avroフォーマット（`.avro`ファイル）を使用します。このJSONフォーマットの要件は、JSONフォーマットを使用するダッシュボードデータエクスポートおよびAPIエクスポートに適用されます。
+Currentsのエクスポートは、JSONではなくApache Avroフォーマット（`.avro`ファイル）を使用します。このJSONフォーマットの要件は、JSONフォーマットを使用するダッシュボードデータエクスポートおよびAPIエクスポートに適用されます。
 {% endalert %}
+
+## FAQ
+
+### BrazeはAzure Blob Storageの許可リストに追加するIPアドレスを提供できますか？ {#can-braze-provide-ip-addresses-to-allowlist-for-azure-blob-storage}
+
+Brazeは、Azure Blob StorageへのCurrentsまたはダッシュボードエクスポート用の固定IP許可リストを公開していません。Brazeは、お客様が提供する接続文字列とコンテナー名を使用してコンテナーに書き込みを行い、Azureはストレージアカウントの設定（ストレージアカウントのファイアウォールルールやプライベートエンドポイントなど）を通じてネットワークアクセスを制御します。
+
+セキュリティチームがIPベースの制限を必要とする場合は、Brazeからのリストではなく、ストレージアカウントのAzureネットワーキング機能を使用してください。設定手順については、[Azure Storageのセキュリティに関するMicrosoftのドキュメント](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security)を参照してください。

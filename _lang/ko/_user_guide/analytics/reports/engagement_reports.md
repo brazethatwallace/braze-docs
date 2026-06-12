@@ -77,7 +77,7 @@ tool:
 | 인앱 메시지 | 노출 횟수, 클릭 수, 첫 번째 버튼 클릭 수, 두 번째 버튼 클릭 수 |
 | 웹훅  |  발송 수, 오류 수 |
 | SMS | 발송 수, 통신사 전송 수, 전달 확인 수, 전달 실패 수, 거부 수 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 통계 추가 #add-statistics-to-your-reports" }
 
 ### 4단계: 보고서 설정 완료 {#step-4-complete-report-setup}
 
@@ -104,7 +104,7 @@ tool:
 
 ##### 전체 Campaign 또는 Canvas별 데이터 표시 {#show-data-by-entire-campaign-or-canvas}
 
-**Show Data by Entire Campaign or Canvas**를 선택하면 Braze가 보고서의 기간 범위에 걸쳐 1,825일(5년) 단위로 측정기준을 집계합니다.
+**전체 Campaign 또는 Canvas별 데이터 표시**를 선택하면 Braze가 보고서의 기간 범위에 걸쳐 1,825일(5년) 단위로 측정기준을 집계합니다.
 
 기간 범위가 하나 이상의 단위를 포함하는 경우, 동일한 캠페인 또는 Canvas에 대해 날짜 열에 서로 다른 날짜가 있는 여러 행이 표시될 수 있습니다. 일부 행에는 범위 후반에 기록된 측정기준만 포함될 수 있습니다(예: 탈퇴). 또한 워크스페이스에서 발송을 시작하기 수년 전의 날짜가 표시될 수 있는데, 이는 첫 번째 발송 시점만이 아니라 내보내기의 단위 경계를 반영하기 때문입니다.
 

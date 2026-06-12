@@ -50,6 +50,17 @@ Campaign、カード、Canvasの属性は、対応するメッセージングテ
 - Canvasで `{{campaign.${name}}}` タグを使用すると、Canvasコンポーネント名が表示されます。Campaignでこのタグを使用すると、Campaign名が表示されます。
 {% endraw %}
 
+#### URL 内のCampaign名 {#campaign-names-in-urls}
+{: #campaign-names-in-urls}
+
+{% raw %}
+Campaignおよびメッセージバリアント名には、`%`、スペース、`&` など、URLセーフでない文字が含まれる場合があります。`{{campaign.${name}}}` または `{{campaign.${message_name}}}` をリンクやクエリ文字列（`utm_campaign` パラメーターなど）に挿入する場合は、URLが正しく解析されるように [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) フィルターを適用してください。例えば：
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
+{% endraw %}
+
 ## 最近使用したデバイスの情報 {#most-recently-used-device-information}
 
 すべてのプラットフォームにわたって、ユーザーの最新デバイスの以下の属性をテンプレート化できます。ユーザーがアプリケーションを使用したことがない場合（例えば、REST API経由でユーザーをインポートした場合）、これらの値はすべて `null` になります。

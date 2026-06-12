@@ -71,7 +71,7 @@ Quando você exporta dados através das APIs com um parceiro de armazenamento co
 
 ## Análise de dados de Campaign e Canvas {#campaign-and-canvas-analytics}
 
-### O número de usuários na exportação CSV não corresponde a _Messages Sent_ ou _Unique Recipients_ {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
+### O número de usuários na exportação CSV não corresponde a _Messages Sent_ ou _Unique Recipients_ {#number-of-users-in-csv-export-doesnt-match-_messages-sent_-or-_unique-recipients_}
 
 A exportação CSV de uma Campaign pode mostrar um número diferente de usuários em relação a _Messages Sent_ e _Unique Recipients_ pelos seguintes motivos:
 
@@ -83,21 +83,25 @@ Se os usuários podem (ou puderam em algum momento) receber a Campaign mais de u
 
 A exportação CSV fornece um snapshot dos usuários existentes que receberam uma determinada Campaign ou Canvas. Como os usuários podem ser excluídos ou mesclados, a contagem da exportação CSV pode ser menor do que a contagem de destinatários únicos. Por exemplo, se 1.000 usuários recebem uma Campaign, a Campaign mostra 1.000 destinatários únicos, e a exportação CSV no mesmo dia também mostra 1.000 usuários. Se um mês depois 50 desses 1.000 usuários forem excluídos, a exportação CSV conterá 950 usuários, enquanto a contagem incrementada de destinatários únicos ainda será 1.000.
 
-## E-mails de exportação de Segment do dashboard {#dashboard-segment-export-emails}
+## E-mails de exportação de segmentos do dashboard {#dashboard-segment-export-emails}
 
-### Por que não estou recebendo e-mails de exportação de Segment? {#why-arent-i-receiving-segment-export-emails}
+### "Segment é muito grande" ou a exportação falha quando meu segmento parece ter menos de 500.000 usuários {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
+
+O **tamanho do segmento no dashboard é uma estimativa**. A exportação CSV usa essa estimativa para aplicar o [limite de exportação de 500.000 usuários]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details); o pipeline de exportação também pode avaliar o tamanho de forma diferente da interface do criador de segmentos. Se as exportações falharem para um segmento próximo desse limite, use [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) ou divida o público em segmentos menores, ou use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) conforme descrito em [Exportando segmentos grandes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-large-segments).
+
+### Por que não estou recebendo e-mails de exportação de segmentos? {#why-arent-i-receiving-segment-export-emails}
 
 Primeiro, verifique sua pasta de spam em busca de um e-mail de `no-reply@alerts.braze.com`. Se o e-mail estiver lá, adicione esse endereço à sua lista de remetentes confiáveis para que futuras mensagens de exportação não sejam filtradas.
 
 Se o e-mail não estiver na sua pasta de spam, verifique se outra pessoa da sua equipe consegue receber a exportação. Se ninguém conseguir, considere o tamanho da sua exportação. O tempo de entrega varia conforme o tamanho da exportação, mas se o e-mail não chegar após uma hora, entre em contato com o [Suporte]({{site.baseurl}}/braze_support/).
 
-## Downloads da API de exportação de Segment {#segment-export-api-downloads}
+## Downloads da API de exportação de segmentos {#segment-export-api-downloads}
 
-### Não consigo baixar um arquivo ZIP de Segment exportado a partir de uma URL da Braze {#cant-download-an-exported-segment-zip-file-from-a-braze-url}
+### Não consigo baixar um arquivo ZIP de segmento exportado a partir de uma URL da Braze {#cant-download-an-exported-segment-zip-file-from-a-braze-url}
 
 Se você receber um erro `403 Forbidden` ao usar o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), o arquivo pode ainda não estar pronto. Exportações grandes podem demorar para serem processadas. Aguarde até uma hora antes de tentar baixar novamente.
 
-Se você usa um script automatizado para recuperar o arquivo, também pode receber um erro `403 Forbidden` ao solicitar a URL cedo demais. Se você exporta dados de Segment regularmente, considere conectar sua própria integração de bucket S3 e encaminhar os arquivos para seu próprio pipeline de extração, transformação e carregamento (ETL).
+Se você usa um script automatizado para recuperar o arquivo, também pode receber um erro `403 Forbidden` ao solicitar a URL cedo demais. Se você exporta dados de segmentos regularmente, considere conectar sua própria integração de bucket S3 e encaminhar os arquivos para seu próprio pipeline de extração, transformação e carregamento (ETL).
 
 As exportações levam tempo para serem concluídas, então o acesso imediato a partir de um script frequentemente falha. Você pode:
 

@@ -29,7 +29,7 @@ Não tem certeza se sua mensagem no app deve ser enviada usando uma campanha ou 
 | Versão mínima do SDK                                                          | Versão recomendada do SDK                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos do SDK" }
 
 {% details Mais informações sobre SDKs mínimos %}
 
@@ -45,7 +45,7 @@ A seguir estão os requisitos mínimos individuais do SDK para esses recursos:
 | Links de texto*                                                         | Solicitar push primer                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos do SDK" }
 
 *Se você incluir um link na sua mensagem no app que redireciona para uma URL e o usuário final não estiver nas versões mínimas do SDK especificadas, selecionar o link fechará a mensagem e o usuário não poderá retornar à mensagem para enviar o formulário.
 

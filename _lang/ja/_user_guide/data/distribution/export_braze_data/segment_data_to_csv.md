@@ -17,14 +17,14 @@ CSV エクスポートオプションは、そのワークスペースに対す�
 
 セグメントデータを CSV にエクスポートするには、セグメントの編集中に**User Data**ドロップダウンを選択し、そのセグメントのユーザーデータまたはメールアドレスのいずれかをエクスポートするように選択します。
 
-![「User Data」ドロップダウンにエクスポートオプションが表示されている「セグメント Details」セクション。]({% image_buster /assets/img_archive/csvexport.png %})
+![「User Data」ドロップダウンにエクスポートオプションが表示されている「Segment Details」セクション。]({% image_buster /assets/img_archive/csvexport.png %})
 
-メインの**セグメント**ページから、セグメントの<i class="fas fa-gear" aria-label="設定メニューを開く"></i>**Settings**ドロップダウンを選択して、CSV エクスポートをリクエストすることもできます。
+メインの**Segments**ページから、セグメントの<i class="fas fa-gear" aria-label="設定メニューを開く"></i> **Settings**ドロップダウンを選択して、CSV エクスポートをリクエストすることもできます。
 
-![メインのセグメントページの「Settings」ドロップダウン。]({% image_buster /assets/img_archive/csvexport2.png %})
+![メインのSegmentsページの「Settings」ドロップダウン。]({% image_buster /assets/img_archive/csvexport2.png %})
 
 {% alert tip %}
-すべてのユーザープロファイルからデータをエクスポートするには、フィルターなしでセグメントを作成し、CSV エクスポートをリクエストしてください。
+すべてのユーザープロファイルからデータをエクスポートするには、フィルターなしでSegmentを作成し、CSV エクスポートをリクエストしてください。
 {% endalert %}
 
 CSV 出力には、エクスポート時にセグメントに含まれる各ユーザープロファイルのデータが含まれます。歯車アイコンを選択して CSV エクスポートを選択することで、任意のセグメントをエクスポートできます。Brazeはバックグラウンドでレポートを生成し、現在ログインしているユーザーにメールで送信します。
@@ -94,7 +94,7 @@ CSV 出力には、エクスポート時にセグメントに含まれる各ユ�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CSV export user data" }
 
 {% alert note %}
-キャンバスステップからユーザーデータをエクスポートすると、CSV にはそのキャンバスステップの全期間にわたってそのステップに含まれたすべてのユーザーが含まれます。エクスポートを日付範囲やその他の時間枠に制限することはできません。これらのエクスポートの実行方法については、[キャンバスデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)を参照してください。
+キャンバスステップからユーザーデータをエクスポートすると、CSV にはそのキャンバスステップの全期間にわたってそのステップに含まれたすべてのユーザーが含まれます。エクスポートを日付範囲やその他の時間枠に制限することはできません。これらのエクスポートの実行方法については、[Canvasデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)を参照してください。
 {% endalert %}
 
 ### メールアドレスを CSV 形式でエクスポート {#csv-export-email-addresses}
@@ -112,6 +112,10 @@ CSV 出力には、エクスポート時にセグメントに含まれる各ユ�
 
 {% alert tip %}
 CSV と API のエクスポートについては、[トラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)の記事を参照してください。
+{% endalert %}
+
+{% alert note %}
+サブスクリプショングループのデータは、セグメントエクスポートでは利用できません。サブスクリプションステータスでユーザーを特定するには、サブスクリプショングループのメンバーシップに基づいて別のセグメントを作成し、そのセグメントをエクスポートしてください。
 {% endalert %}
 
 ## 大きなセグメントのエクスポート {#exporting-large-segments}
@@ -133,9 +137,11 @@ CSV と API のエクスポートについては、[トラブルシューティ�
 {% endtab %}
 {% tab エンドポイント %}
 
-また、次のエンドポイントを利用して、特定のセグメントのユーザーデータをエクスポートすることもできます。これらのエンドポイントはデータ制限の対象となりますのでご注意ください。
+また、次のエンドポイントを利用して、特定のセグメントのユーザーデータをエクスポートすることもできます。これらのエンドポイントはデータ制限および[レート制限]({{site.baseurl}}/api/basics/)の対象となりますのでご注意ください。
 - [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
 - [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)
+
+[Amazon S3 の認証情報]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3/#amazon-s3-integration)を接続している場合、[セグメント CSV エクスポートの詳細](#segment-csv-export-details)で説明されているように、メールで届くダウンロードリンクに加えて、大規模なエクスポートをバケットに配信できます。
 
 {% endtab %}
 {% endtabs %}

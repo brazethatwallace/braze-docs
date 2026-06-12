@@ -321,6 +321,10 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
             <td class="no-split"><i>Total Clicks</i>는 동일한 사용자가 여러 번 클릭했는지 여부와 관계없이 전달된 메시지 내에서 클릭한 사용자의 총 수(및 백분율)입니다.</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i>는 사용자가 배너를 닫은 총 횟수입니다. 닫기 동작이 활성화된 배너에서만 사용할 수 있습니다.</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} 각 사용자는 한 번만 카운트됩니다.</td>
         </tr>
