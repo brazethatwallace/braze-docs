@@ -224,10 +224,11 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | User Data | Import Users | Upload users to the dashboard |
 | User Data | Edit User Data | Create and update user data |
 | User Data | Export User Data | Download users from the dashboard |
-| User Deletion Records | View User Merge Records | View a list of user merge records |
+| Duplicate Users | View User Merge Records | View a list of user merge records |
 | Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner |
 | Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
-| Users | Delete Users | Permanently delete users from the dashboard individually or in bulk |
+| Delete Users | View User Deletion Records | View a list of user deletion records |
+| Delete Users | Delete Users | Permanently delete users from the dashboard individually or in bulk |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience permissions" }
 
 ### Template
@@ -379,6 +380,5 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Subscription Groups | Edit Subscriptions | Create and update subscription groups |
 | Transformations | Edit Data Transformation | Create and update data transformations |
 | Transformations | View Data Transformation | View data transformations |
-| User Deletion Records | View User Deletion Records | View user deletion records |
 | Support Tickets | Create Support Ticket | Create and update Support tickets |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Other permissions" }
