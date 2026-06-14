@@ -290,7 +290,7 @@ No. [Orphaned users]({{site.baseurl}}/user_guide/data/unification/user_data/user
 
 For more information about merges and orphaned profiles, see [Merge duplicate users]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
-### If I stop an active Canvas or campaign, will messages already sent to the ESP still deliver?
+### If I stop an active Canvas or campaign, do messages already sent to the ESP still deliver?
 
 Yes. After Braze sends a request to your email service provider (ESP), Braze cannot recall that send. Stopping a Canvas or campaign prevents new send requests, but messages already handed off to the ESP can still be delivered and can still increment send counts as the ESP processes them.
 
