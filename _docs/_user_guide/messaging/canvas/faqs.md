@@ -306,7 +306,7 @@ Braze does not include a built-in invisible tracking pixel for webhook steps. Re
 
 For action-based and API-triggered Canvases, Braze deduplicates trigger events so a user can enter at most about **once per second** for the same Canvas. If a user performs the same trigger multiple times within one second, only one entry is processed.
 
-To allow multiple entries in the same second, space trigger events by at least **1.1 seconds** (for example, when you control event timing from your server). For campaign-style behavior that allows multiple same-second triggers, compare your use case to [campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/) with appropriate scheduling and re-eligibility settings.
+To allow multiple entries in the same second, space trigger events by at least 1.1 seconds (for example, when you control event timing from your server). For campaign-style behavior that allows multiple same-second triggers, compare your use case to [campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/) with appropriate scheduling and re-eligibility settings.
 
 ### Why does a test push go to the wrong app, but live sends look correct?
 
