@@ -1,120 +1,99 @@
 ---
 nav_title: Exporter
-article_title: Endpoints d’exportation
+article_title: Endpoints d'exportation
 search_tag: Endpoint
 page_order: 2
-
-layout: dev_guide
-
-#Required
-description: "Cette page d’accueil explique et répertorie les endpoints Braze d’exportation."
-page_type: landing
-
-guide_top_header: "Endpoints d’exportation"
-guide_top_text: "Avec cette collection d'endpoints, vous pouvez accéder et exporter différents niveaux de détails sur vos KPI, sessions d'app, utilisateurs, segments, campagnes et Canvases. <br> <br> Assurez-vous de connaître votre <a href='/docs/user_guide/administrative/access_braze/braze_instances/' target='_blank'>instance Braze</a>, <a href='/docs/api/api_key/' target='_blank'>clé API</a> et <a href='/docs/api/identifier_types/' target='_blank'>identifiant d’API</a> lors de l’élaboration de vos paramètres et corps de requête."
-
-guide_featured_title: "Exporter les points de terminaison de la campagne"
-guide_featured_list:
-  - name: "GET : Analyse de campagne"
-    link: /docs/api/endpoints/export/campaigns/get_campaign_analytics/
-    image: /assets/img/braze_icons/bar-chart-01.svg
-  - name: "GET : Détails de la campagne"
-    link: /docs/api/endpoints/export/campaigns/get_campaign_details/
-    image: /assets/img/braze_icons/bar-chart-01.svg
-  - name: "GET : Liste des campagnes"
-    link: /docs/api/endpoints/export/campaigns/get_campaigns/
-    image: /assets/img/braze_icons/bar-chart-01.svg
-  - name: "GET : Envoyer des analyses"
-    link: /docs/api/endpoints/export/campaigns/get_send_analytics/
-    image: /assets/img/braze_icons/bar-chart-01.svg
-
-guide_menu_title: "Export Canvas endpoints"
-guide_menu_list:
-  - name: "GET : Analyse des séries de données de Canvas"
-    link: /docs/api/endpoints/export/canvas/get_canvas_analytics/
-    image: /assets/img/braze_icons/dataflow-03.svg
-  - name: "GET : Résumé de l’analyse des Canvas"
-    link: /docs/api/endpoints/export/canvas/get_canvas_analytics_summary/
-    image: /assets/img/braze_icons/dataflow-03.svg
-  - name: "GET : Informations relatives au canvas"
-    link: /docs/api/endpoints/export/canvas/get_canvas_details/
-    image: /assets/img/braze_icons/dataflow-03.svg
-  - name: "GET : Liste des Canvas"
-    link: /docs/api/endpoints/export/canvas/get_canvases/
-    image: /assets/img/braze_icons/dataflow-03.svg
-
-guide_menu_title2: "Export custom events endpoints"
-guide_menu_list2:
-  - name: "GET : Événements personnalisés"
-    link: /docs/api/endpoints/export/custom_events/get_custom_events_data/
-    image: /assets/img/braze_icons/line-chart-up-01.svg
-  - name: "GET : Liste des événements personnalisés"
-    link: /docs/api/endpoints/export/custom_events/get_custom_events/
-    image: /assets/img/braze_icons/line-chart-up-01.svg
-  - name: "GET : Analyse d’événements personnalisés"
-    link: /docs/api/endpoints/export/custom_events/get_custom_events_analytics/
-    image: /assets/img/braze_icons/line-chart-up-01.svg
-
-guide_menu_title3: "Export KPI endpoints"
-guide_menu_list3:
-  - name: "GET : Indicateurs clé de performance pour les nouveaux utilisateurs quotidiens par date"
-    link: /docs/api/endpoints/export/kpi/get_kpi_daily_new_users_date/
-    image: /assets/img/braze_icons/target-04.svg
-  - name: "GET : Indicateurs clé de performance pour les utilisateurs actifs quotidiens par date"
-    link: /docs/api/endpoints/export/kpi/get_kpi_dau_date/
-    image: /assets/img/braze_icons/target-04.svg
-  - name: "GET : Indicateurs clé de performance pour les utilisateurs actifs mensuels au cours des 30 derniers jours"
-    link: /docs/api/endpoints/export/kpi/get_kpi_mau_30_days/
-    image: /assets/img/braze_icons/target-04.svg
-  - name: "GET : Indicateurs clé de performance pour les désinstallations par date"
-    link: /docs/api/endpoints/export/kpi/get_kpi_uninstalls_date/
-    image: /assets/img/braze_icons/target-04.svg
-
-guide_menu_title5: "Export purchase endpoints"
-guide_menu_list5:
-  - name: "GET : Liste des identifiants de produit"
-    link: /docs/api/endpoints/export/purchases/get_list_product_id/
-    image: /assets/img/braze_icons/list.svg
-  - name: "GET : Nombre d'achats"
-    link: /docs/api/endpoints/export/purchases/get_number_of_purchases/
-    image: /assets/img/braze_icons/list.svg
-  - name: "GET : Données de revenus par temps"
-    link: /docs/api/endpoints/export/purchases/get_revenue_series/
-    image: /assets/img/braze_icons/list.svg
-
-guide_menu_title6: "Export segment endpoints"
-guide_menu_list6:
-  - name: "GET : Liste des segments"
-    link: /docs/api/endpoints/export/segments/get_segment/
-    image: /assets/img/braze_icons/users-01.svg
-  - name: "GET : Analyses des segments"
-    link: /docs/api/endpoints/export/segments/get_segment_analytics/
-    image: /assets/img/braze_icons/users-01.svg
-  - name: "GET : Informations relatives au segment"
-    link: /docs/api/endpoints/export/segments/get_segment_details/
-    image: /assets/img/braze_icons/users-01.svg
-
-guide_menu_title7: "Export sessions endpoint"
-guide_menu_list7:
-  - name: "GET : Données de la série temporelle des sessions App"
-    link: /docs/api/endpoints/export/sessions/get_sessions_analytics/
-    image: /assets/img/braze_icons/tablet-01.svg
-
-guide_menu_title8: "Export user data endpoints"
-guide_menu_list8:
-  - name: "POST : Données utilisateur par identifiant"
-    link: /docs/api/endpoints/export/user_data/post_users_identifier/
-    image: /assets/img/braze_icons/users-01.svg
-  - name: "POST : Données utilisateur par segment"
-    link: /docs/api/endpoints/export/user_data/post_users_segment/
-    image: /assets/img/braze_icons/users-01.svg
-  - name: "POST : Données utilisateur par groupe de contrôle global"
-    link: /docs/api/endpoints/export/user_data/post_users_global_control_group/
-    image: /assets/img/braze_icons/users-01.svg
-
-guide_menu_title9: "Export custom attributes endpoints"
-guide_menu_list9:
-  - name: "GET : Attributs personnalisés"
-    link: /docs/api/endpoints/export/custom_attributes/get_custom_attributes/
-    image: /assets/img/braze_icons/line-chart-up-01.svg
+description: "Cet article de référence présente les endpoints d'exportation de Braze, y compris les conditions préalables, ce que vous pouvez exporter, la manière dont les données sont livrées et une liste complète des endpoints."
+page_type: reference
 ---
+
+# Endpoints d'exportation {#export-endpoints}
+
+Avec cette collection d'endpoints, vous pouvez accéder à et exporter différents niveaux de détails sur vos indicateurs clés de performance, sessions d'application, utilisateurs, Segments, Campaigns et Canvas. Assurez-vous de connaître votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), votre [clé API]({{site.baseurl}}/api/api_key/) et votre [identifiant API]({{site.baseurl}}/api/identifier_types/) lors de l'élaboration de vos paramètres et corps de requête.
+
+## Conditions préalables {#prerequisites}
+
+Avant de commencer, assurez-vous de disposer des éléments suivants :
+
+| Exigence | Description |
+| --- | --- |
+| Clé REST API de Braze | Une clé REST API avec les autorisations d'exportation appropriées pour les endpoints que vous prévoyez d'appeler. Les clés API sont limitées à des endpoints spécifiques, et les autorisations ne peuvent pas être modifiées après la création. Pour plus de détails, consultez [Clé REST API]({{site.baseurl}}/api/basics/#about-rest-api-keys). |
+| Identifiants pertinents | Les identifiants des données que vous souhaitez exporter, tels qu'un ID de Campaign, un ID de Segment ou un ID de Canvas. Vous pouvez les trouver sur le tableau de bord de Braze. Pour une liste complète, consultez [Types d'identifiants API]({{site.baseurl}}/api/identifier_types/). |
+| Identifiants de stockage cloud (facultatif) | Si vous exportez de grands ensembles de données, connectez un compartiment [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/), [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) ou [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/) pour que les fichiers d'exportation soient écrits directement dans votre stockage. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+
+{% alert note %}
+Si vous êtes un marketeur ou un membre d'équipe sans accès à l'API, coordonnez-vous avec un développeur ou un administrateur de votre organisation pour configurer les clés API et les intégrations.
+{% endalert %}
+
+## Ce que vous pouvez exporter {#what-you-can-export}
+
+Le tableau suivant résume les catégories de données disponibles via les API d'exportation.
+
+| Catégorie | Ce qu'elle inclut | Référence API |
+| --- | --- | --- |
+| Campaigns | Analyses de performance, détails des Campaigns, listes de Campaigns et analyses d'envoi | [Endpoints Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) |
+| Canvas | Analyses de séries de données, résumés d'analyses, détails de Canvas et listes de Canvas | [Endpoints Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) |
+| Segments | Listes de Segments, analyses de Segments et détails de Segments | [Endpoints Segment]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) |
+| Données utilisateur | Profils utilisateur complets par identifiant ou par Segment, et utilisateurs par groupe de contrôle global | [Endpoints de données utilisateur]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
+| Indicateurs clés de performance | Utilisateurs actifs quotidiens, utilisateurs actifs mensuels, nouveaux utilisateurs quotidiens et désinstallations par date | [Endpoints KPI]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) |
+| Sessions | Données de séries temporelles des sessions d'application | [Endpoint Sessions]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) |
+| Événements personnalisés | Noms d'événements, listes d'événements et analyses d'événements dans le temps | [Endpoints d'événements personnalisés]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) |
+| Attributs personnalisés | Noms d'attributs | [Endpoint d'attributs personnalisés]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) |
+| Achats | Données de chiffre d'affaires par période, listes d'identifiants de produit et nombre d'achats | [Endpoints d'achats]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What you can export" }
+
+## Comment les données d'exportation sont livrées {#how-export-data-is-delivered}
+
+Les exportations API renvoient les données au format JSON, contrairement aux fichiers CSV que vous téléchargez depuis le tableau de bord. La méthode de livraison dépend de la connexion ou non d'un stockage cloud :
+
+- **Sans stockage cloud :** Braze écrit les fichiers d'exportation dans son propre compartiment S3 et inclut une URL de téléchargement temporaire dans la réponse de l'API. Cette URL expire après quatre heures, et l'exportation est empaquetée sous forme d'archive compressée (ZIP ou GZIP, selon le paramètre `output_format`) contenant des fichiers JSON. Chaque ligne des fichiers JSON représente un objet de données.
+- **Avec un stockage cloud connecté :** Braze écrit les fichiers d'exportation directement dans votre compartiment configuré. La réponse de l'API n'inclut pas d'URL de téléchargement. Les fichiers suivent vos propres politiques de rétention et sont généralement plus fiables pour les exportations volumineuses.
+
+{% alert tip %}
+« Stockage cloud » désigne votre propre compartiment de stockage (par exemple, Amazon S3, Microsoft Azure Blob Storage ou Google Cloud Storage). Vous pouvez connecter votre compartiment dans **Intégrations partenaires** > **Partenaires technologiques** afin que Braze puisse écrire les fichiers d'exportation directement dedans.
+{% endalert %}
+
+Pour plus de détails sur la livraison des exportations et la résolution des problèmes, consultez [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+
+## Endpoints d'exportation
+
+Le tableau suivant répertorie toutes les API d'exportation disponibles.
+
+| Catégorie | Méthode | Endpoint |
+| --- | --- | --- |
+| Campaigns | GET | [Campaign Analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) |
+| Campaigns | GET | [Campaign Details]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) |
+| Campaigns | GET | [Campaigns List]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) |
+| Campaigns | GET | [Send Analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) |
+| Canvas | GET | [Canvas Data Series Analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) |
+| Canvas | GET | [Canvas Analytics Summary]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) |
+| Canvas | GET | [Canvas Details]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) |
+| Canvas | GET | [Canvas List]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) |
+| Événements personnalisés | GET | [Custom Events]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) |
+| Événements personnalisés | GET | [Custom Events List]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) |
+| Événements personnalisés | GET | [Custom Event Analytics]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) |
+| Attributs personnalisés | GET | [Custom Attributes]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) |
+| Indicateurs clés de performance | GET | [KPIs for Daily New Users by Date]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) |
+| Indicateurs clés de performance | GET | [KPIs for Daily Active Users by Date]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) |
+| Indicateurs clés de performance | GET | [KPIs for Monthly Active Users Over Last 30 Days]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) |
+| Indicateurs clés de performance | GET | [KPIs for Uninstalls by Date]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) |
+| Achats | GET | [Product IDs List]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) |
+| Achats | GET | [Number of Purchases]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) |
+| Achats | GET | [Revenue Data by Time]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) |
+| Segments | GET | [Segment List]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) |
+| Segments | GET | [Segment Analytics]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) |
+| Segments | GET | [Segment Details]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) |
+| Sessions | GET | [App Sessions Time-Series Data]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) |
+| Données utilisateur | POST | [User Data by Identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
+| Données utilisateur | POST | [User Data by Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) |
+| Données utilisateur | POST | [User Data by Global Control Group]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Export endpoints" }
+
+## Articles connexes {#related-articles}
+
+Pour des exportations ponctuelles depuis le tableau de bord, consultez ces articles :
+
+- [Exporter les données de Campaign]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/)
+- [Exporter les données de Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)
+- [Exporter les données de Segment au format CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)

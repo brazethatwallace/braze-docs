@@ -1,44 +1,46 @@
 ---
-nav_title: "GET: 보내기 분석 내보내기"
-article_title: "GET: 애널리틱스 내보내기"
+nav_title: "GET: 발송 분석 내보내기"
+article_title: "GET: 발송 분석 내보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "이 문서에서는 보내기 애널리틱스 내보내기 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
+description: "이 문서에서는 발송 분석 내보내기 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
 
 ---
 {% api %}
-# 보내기 분석 내보내기
+# 발송 분석 내보내기 {#export-send-analytics}
 {% apimethod get %}
 /sends/data_series
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 추적된 `send_id` API 캠페인에 대한 다양한 통계를 매일 검색할 수 있습니다.
+> 이 엔드포인트를 사용하여 API 캠페인의 추적된 `send_id`에 대한 다양한 통계의 일별 시리즈를 조회할 수 있습니다.
 
-Braze 스토어는 전송 후 14일 동안 분석을 전송합니다. 캠페인 전환은 특정 사용자가 캠페인에서 가장 최근에 수신한 `send_id`로 어트리뷰션됩니다.
+Braze는 발송 후 14일 동안 발송 분석을 저장합니다. Campaign 전환은 해당 사용자가 Campaign에서 가장 최근에 수신한 `send_id`에 기여 분석됩니다.
+
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
-## 필수 구성 요소
+## 필수 조건 {#prerequisites}
 
 이 엔드포인트는 API 캠페인 전용입니다. 이 엔드포인트를 사용하려면 `sends.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- |------------ |
-| `campaign_id` | Required | 문자열 | [캠페인 API 식별자]({{site.baseurl}}/api/identifier_types/)을 참조하십시오. |
-| `send_id` | Required | 문자열 | [API 식별자 보내기를]({{site.baseurl}}/api/identifier_types/) 참조하세요. |
-| `length` | 필수 | 정수 | 반환된 시리즈에 포함할 `ending_at` 전 최대 일수. 1에서 100 사이여야 합니다(포함). |
-| `ending_at` | 선택 사항 | 날짜 시간 <br>[(ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열[)](https://en.wikipedia.org/wiki/ISO_8601)  | 데이터 시리즈가 종료되어야 하는 날짜. 요청 시점으로 기본 설정됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | 필수 | 문자열 | [Campaign API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
+| `send_id` | 필수 | 문자열 | [발송 API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
+| `length` | 필수 | 정수 | 반환되는 시리즈에 포함할 `ending_at` 이전 최대 일수입니다. 1에서 100 사이(포함)여야 합니다. |
+| `ending_at` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 시리즈가 종료되어야 하는 날짜입니다. 기본값은 요청 시점입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 요청 예시
+## 요청 예시 {#example-request}
 
 {% raw %}
 ```
@@ -47,7 +49,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 ```
 {% endraw %}
 
-## 응답
+## 응답 {#response}
 
 ```json
 {
@@ -97,7 +99,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 ```
 
 {% alert tip %}
-CSV 및 API 내보내기 문제 해결에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)를 방문하세요.
+CSV 및 API 내보내기에 대한 도움말은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

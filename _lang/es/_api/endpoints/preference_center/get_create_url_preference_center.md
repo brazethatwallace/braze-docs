@@ -1,6 +1,6 @@
 ---
 nav_title: "GET: Generar URL del centro de preferencias"
-article_title: "GET: Generar URL del Centro de preferencias"
+article_title: "GET: Generar URL del centro de preferencias"
 search_tag: Endpoint
 page_order: 1
 layout: api_page
@@ -9,7 +9,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ---
 {% api %}
-# Generar URL del centro de preferencias
+# Generar URL del centro de preferencias {#generate-preference-center-url}
 {% apimethod get %}
 /preference_center/v1/{preferenceCenterExternalID}/url/{userID}
 {% endapimethod %}
@@ -20,38 +20,38 @@ La URL de cada centro de preferencias es única para cada usuario.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0bc750ff-068e-4391-897e-6eddca2561cd {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `preference_center.user.get`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='get preference center' %} Este límite de velocidad es fijo y no es configurable.
 
-## Parámetros de ruta
+## Parámetros de ruta {#path-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| Obligatoria | Cadena | El ID de tu centro de preferencias. |
-|`userID`| Obligatoria | Cadena | El ID de usuario. |
-{:  role="presentation" }
+|`preferenceCenterExternalID`| Obligatorio | Cadena | El ID de tu centro de preferencias. |
+|`userID`| Obligatorio | Cadena | El ID de usuario. |
+{: aria-label="Path parameters" }
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`preference_center_api_id`| Obligatoria | Cadena | El ID de tu centro de preferencias. |
-|`external_id`| Obligatoria | Cadena | El ID externo de un usuario. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `preference_center_api_id`| Obligatorio | Cadena | El ID de tu centro de preferencias. |
+| `external_id`| Obligatorio | Cadena | El ID externo de un usuario. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/preference_center/v1/$preference_center_external_id/url/$user_external_id' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {

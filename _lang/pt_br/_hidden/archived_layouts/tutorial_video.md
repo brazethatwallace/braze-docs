@@ -6,7 +6,7 @@ video_source: youtube
 page_order: 6
 
 #Required
-description: "Esta é a descrição da Pesquisa Google. Caracteres com mais de 160 caracteres são truncados, portanto, seja breve."
+description: "Esta é a descrição da Pesquisa Google. Caracteres acima de 160 são truncados, seja breve."
 page_type: tutorial
 tool:
   - Dashboard
@@ -34,31 +34,31 @@ channel:
   - Push
   - SMS
   - Webhooks
-  
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
 ---
 {% comment %}
 Sobre este layout:
-Esse layout é para guias de início rápido, orientações sobre produtos e orientações sobre solução de problemas com um vídeo. O vídeo ficará no lado direito e permanecerá no lugar. Note que o TOC mostrará apenas cabeçalhos H2, portanto, as únicas etapas que devem ser H2 devem ser escritas como tal:
+Esse layout é para guias de início rápido, orientações sobre produtos e orientações sobre solução de problemas com um vídeo. O vídeo ficará no lado direito e permanecerá no lugar. Note que o sumário mostrará apenas cabeçalhos H2, portanto, as únicas etapas que devem ser H2 devem ser escritas assim:
 "Etapa 1: Qualquer que seja a etapa".
 Tutoriais:
-Um passo a passo geral de um conceito de instrução. Deve conter CONHECIMENTO PRÁTICO. Concentra-se em um único tópico (por exemplo, como criar uma campanha, como criar um Canva, etc.) Artigo orientado por metas ou tarefas que orienta PASSO A PASSO a solução de um problema ESPECÍFICO (como direcionar usuários específicos, como segmentar com base no local, etc.).
+Um passo a passo geral de um conceito instrucional. Deve conter CONHECIMENTO PRÁTICO. Concentra-se em um único tópico (por exemplo, como criar uma Campaign, como criar um Canvas, etc.) Artigo orientado por metas ou tarefas que orienta PASSO A PASSO a solução de um problema ESPECÍFICO (como direcionar usuários específicos, como segmentar com base no local, etc.).
 {% endcomment %}
-# Como dar um título a este tutorial em vídeo
+# Como dar um título a este tutorial em vídeo {#how-to-title-this-video-tutorial}
 
-> Este artigo o orientará sobre como fazer XYZ. Ao final deste tutorial, você deverá ser capaz de fazer A, B e C!
+> Este artigo vai orientar você sobre como fazer XYZ. Ao final deste tutorial, você deverá ser capaz de fazer A, B e C!
 
-## Etapa 1: Faça a primeira coisa
+## Etapa 1: Faça a primeira coisa {#step-1-do-the-first-thing}
 
-É isso que você fará nesta etapa. Veja como você pode reproduzi-lo.
+É isso que você vai realizar nesta etapa. Veja como reproduzir.
 
-Não se esqueça de [criar um link para outras referências quando precisar delas]({{site.baseurl}}/home/templates/reference_video/).
+Não se esqueça de [criar links para outras referências quando precisar delas]({{site.baseurl}}/contributing/content_types/#references).
 
-### Exemplo de código
+### Exemplo de código {#code-sample}
 
-Se estiver explicando um conceito técnico, note isso aqui e mostre um exemplo de código.
+Se estiver explicando um conceito técnico, registre isso aqui e mostre um exemplo de código.
 
 ```html
 <!DOCTYPE html>
@@ -75,50 +75,49 @@ Se estiver explicando um conceito técnico, note isso aqui e mostre um exemplo d
 </html>
 ```
 
-Certifique-se de definir parâmetros ou elementos que os usuários possam ter de ajustar a partir da amostra de código. Muitos usuários simplesmente copiam e colam.
+Certifique-se de definir parâmetros ou elementos que os usuários possam precisar ajustar a partir do exemplo de código. Muitos usuários simplesmente copiam e colam.
 
 | Variável | Descrição |
 | -------- | ----------- |
-| Título da página | Você pode dar qualquer título à sua página. Você precisa ter isto. |
-| Meu primeiro cabeçalho | Recomendamos colocar isso em letras maiúsculas. Isso também é opcional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Page Title | Você pode dar qualquer título à sua página. Isso é obrigatório. |
+| My First Heading | Recomendamos colocar isso em letras maiúsculas. Isso também é opcional. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo de código" }
 
 
-## Etapa 2: Execute a próxima ação
+## Etapa 2: Faça a próxima coisa {#step-2-do-the-next-thing}
 
-É isso que você fará nesta etapa. Veja como você pode reproduzi-lo.
+É isso que você vai realizar nesta etapa. Veja como reproduzir.
 
 Se essa etapa precisar ser dividida em etapas adicionais, você pode:
-1. Use números ou marcadores, ou
-2. Use um cabeçalho H3.
+1. Usar números ou marcadores, ou
+2. Usar um cabeçalho H3.
 
-### Isso também faz parte da etapa 2
+### Isso também faz parte da etapa 2 {#this-is-also-part-of-step-two}
 
-Note que essa subetapa NÃO aparecerá no TOC sob o vídeo à direita.
+Note que essa subetapa NÃO aparecerá no sumário abaixo do vídeo à direita.
 
 {% alert important %}
-Certifique-se de dizer aos usuários coisas importantes quando elas surgirem. Não espere até o final! Seus usuários acompanharão o processo - as pessoas não leem as instruções _antes de_ iniciar o tutorial.
+Certifique-se de informar os usuários sobre coisas importantes conforme elas surgirem. Não espere até o final! Seus usuários estarão acompanhando — as pessoas não leem as instruções _antes de_ iniciar o tutorial.
 {% endalert %}
 
-## Etapa 3: Faça a última coisa
+## Etapa 3: Faça a última coisa {#step-3-do-the-last-thing}
 
 A última etapa de um tutorial deve dar ao leitor alguma expectativa quanto ao resultado. Sinta-se à vontade para mostrar uma imagem do resultado final.
 
-## Próximos passos
+## Próximos passos {#next-steps}
 
 Parabéns! Você concluiu este tutorial, artigo de solução de problemas ou solução! Isso significa que você deve ter:
-1. Coisa que você deveria ter aprendido,
-2. Tarefa que você deveria ter concluído, e
-3. Atividades que você deve estar pronto para fazer agora ou no futuro.
+1. Algo que você aprendeu,
+2. Uma tarefa que você concluiu, e
+3. Algo que você está pronto para fazer agora ou em seguida.
 
-### Artigos relacionados
+### Artigos relacionados {#related-articles}
 
-Se você quiser saber mais sobre os assuntos discutidos no artigo, dê uma olhada:
+Se você quiser saber mais sobre os assuntos discutidos no artigo, confira:
 - [Artigo relacionado 1](#solution-1): Descrição do motivo pelo qual é útil.
 - [Artigo relacionado 2](#solution-2): Descrição do motivo pelo qual é útil.
 - [Artigo relacionado 3](#solution-3): Descrição do motivo pelo qual é útil.
 
-### Ainda está perdido?
+### Ainda está perdido? {#still-lost}
 
-Se este artigo não ajudou, deixe seus comentários ou abra um [ticket de suporte]({{site.baseurl}}/braze_support/)!
-
+Se este artigo não ajudou, deixe seu feedback ou abra um [ticket de suporte]({{site.baseurl}}/braze_support/)!

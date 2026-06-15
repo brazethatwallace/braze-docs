@@ -26,7 +26,7 @@ The Braze and Google Gemini integration lets you connect your Google Gemini API 
 |---|---|
 | Google Cloud account with Gemini API key or Vertex AI key | A Google Cloud account with a Gemini API key or Vertex AI key. For help, contact your admin or [Google Cloud support](https://cloud.google.com/support). |
 | Braze instance | You can find your Braze instance on the [API overview page]({{site.baseurl}}/api/basics/#endpoints) or from your Braze onboarding manager. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

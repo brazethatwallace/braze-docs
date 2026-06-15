@@ -1,0 +1,55 @@
+// Font weight mixins — font-weight must match the value declared in the @font-face for each face in main.scss.
+// If you add a new font file, update both the @font-face block and the corresponding mixin together.
+@mixin font-light {
+  font-family: $braze-light;
+  font-weight: lighter; // matches @font-face "Aribau Grotesk Light"
+}
+
+@mixin font-regular {
+  font-family: $braze-regular;
+  font-weight: normal; // matches @font-face "Aribau Grotesk Regular"
+}
+
+@mixin font-bold {
+  font-family: $braze-bold;
+  font-weight: bold; // matches @font-face "Aribau Grotesk Bold"
+}
+
+@mixin font-black {
+  font-family: $braze-black;
+  // The @font-face for "Aribau Grotesk Black" is registered with font-weight: normal,
+  // so this must also be normal or the browser won't select the Black face.
+  // If you change this value, update the @font-face descriptor in main.scss to match.
+  font-weight: normal;
+}
+
+/// Standard accessible focus ring.
+/// $color  — outline color; defaults to site purple ($braze-purple)
+/// $offset — outline-offset; use 0 for overflow:hidden elements, negative for inset rings
+/// $radius — border-radius applied to the ring
+@mixin focus-ring($color: $braze-purple, $offset: 2px, $radius: 2px) {
+  outline: 2px solid $color;
+  outline-offset: $offset;
+  border-radius: $radius;
+}
+
+// Link mixin
+@mixin braze-link {
+  font-family: $braze-bold;
+  display: inline;
+  color: $black-shark;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid $braze-link-color;
+  transition: border-color ease 0.2s, background-color ease 0.2s;
+
+  &:hover {
+    border-color: $black;
+    // Suppress the default link hover background set in _content.scss and site-wide link rules.
+    background-color: transparent !important;
+  }
+
+  &:focus-visible {
+    @include focus-ring();
+  }
+}

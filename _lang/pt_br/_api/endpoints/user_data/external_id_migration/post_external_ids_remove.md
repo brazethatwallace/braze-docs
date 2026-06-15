@@ -1,6 +1,6 @@
 ---
 nav_title: "POST: Remover ID externo"
-article_title: "POST: Remover ID Externo"
+article_title: "POST: Remover ID externo"
 search_tag: Endpoint
 page_order: 2
 layout: api_page
@@ -9,7 +9,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Remover IDs externo
 
 ---
 {% api %}
-# Remover ID externo
+# Remover ID externo {#remove-external-id}
 {% apimethod post %}
 /users/external_ids/remove
 {% endapimethod %}
@@ -24,15 +24,15 @@ Este endpoint remove completamente o ID obsoleto e não pode ser desfeito. Usar 
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e16b5340-5f44-42b6-9033-2398faf8908e {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.external_ids.remove`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='external id migration' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -45,14 +45,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-### Parâmetros de solicitação
+### Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `external_ids` | Obrigatória | Array de strings | Identificadores externos para os usuários removerem. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `external_ids` | Obrigatória | Array de strings | Identificadores externos dos usuários a serem removidos. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#request-example}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids/remove' \
@@ -70,9 +70,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
 Somente IDs obsoletos podem ser removidos; tentar remover um ID externo primário resultará em um erro.
 {% endalert %}
 
-## Resposta
+## Resposta {#response}
 
-A resposta confirmará todas as remoções bem-sucedidas, bem como as remoções malsucedidas com os erros associados. Mensagens de erro no campo `removal_errors` farão referência ao índice no vetor da solicitação original.
+A resposta confirmará todas as remoções bem-sucedidas, bem como as remoções malsucedidas com os erros associados. Mensagens de erro no campo `removal_errors` farão referência ao índice no array da solicitação original.
 
 ```
 {
@@ -85,7 +85,7 @@ A resposta confirmará todas as remoções bem-sucedidas, bem como as remoções
 O campo `message` retornará `success` para qualquer solicitação válida. Erros mais específicos são capturados no array `removal_errors`. O campo `message` retorna um erro no caso de:
 - Chave de API inválida
 - Array `external_ids` vazio
-- `external_ids` array com mais de 50 itens
-- Limite de frequência atingido (mais de 1.000 solicitações/minuto)
+- Array `external_ids` com mais de 50 itens
+- Limite de taxa atingido (mais de 1.000 solicitações/minuto)
 
 {% endapi %}

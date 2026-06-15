@@ -7,63 +7,63 @@ page_type: partner
 search_tag: Partner
 
 ---
-# トレジャーデータのコホートインポート
+# トレジャーデータのコホートインポート {#treasure-data-cohort-import}
 
-> この記事では、トレジャーデータからBrazeにユーザーコホートをインポートする方法について説明します。これにより、倉庫にしか存在しないデータに基づいてターゲットキャンペーンを送信できるようになります。
+> この記事では、トレジャーデータからBrazeにユーザーコホートをインポートする方法について説明します。これにより、ウェアハウスにしか存在しないデータに基づいてターゲットキャンペーンを送信できるようになります。
 
 {% alert important %}
-この機能は現在ベータ版です。詳細については、トレジャーデータおよび Braze の担当者にお問い合わせください。
+この機能は現在ベータ版です。詳細については、トレジャーデータおよびBrazeの担当者にお問い合わせください。
 {% endalert %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | トレジャーデータのアカウント | このパートナーシップを利用するには、[トレジャーデータ](https://www.treasuredata.com/)のアカウントが必要です。 |
-| Braze データインポートキー | これは、Braze ダッシュボードの [**パートナー連携**] > [**テクノロジーパートナー**] からキャプチャされます。その後 [**トレジャーデータ**] を選択します。 |
-| Braze RESTエンドポイント | [あなたのRESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。お客様のエンドポイントは、お客様のインスタンスのBraze URLに依存します。 |
-| トレジャーデータの静的IPアドレス | トレジャーデータの静的 IP アドレスは、この統合のリンクのアクセスポイントおよびソースです。静的 IP アドレスを確認するには、トレジャーデータのカスタマーサクセス担当者またはトレジャーデータの技術サポートにご連絡ください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Brazeデータインポートキー | これは、Brazeダッシュボードの**パートナー連携** > **テクノロジーパートナー**から**トレジャーデータ**を選択して取得できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
+| トレジャーデータの静的IPアドレス | トレジャーデータの静的IPアドレスは、この統合のリンクのアクセスポイントおよびソースです。静的IPアドレスを確認するには、トレジャーデータのカスタマーサクセス担当者またはトレジャーデータの技術サポートにご連絡ください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## データインポート統合
+## データインポート統合 {#data-import-integration}
 
-### ステップ1:Brazeデータインポートキーを取得する
+### ステップ1:Brazeデータインポートキーを取得する {#step-1-get-your-braze-data-import-key}
 
-Brazeで、**Partner Integrations** > **Technology Partners** に移動し、**トレジャーデータ** を選択します。ここで、RESTエンドポイントを見つけて、Brazeデータインポートキーを生成します。キーが生成されたら、新しいキーを作成するか、既存のキーを無効にできます。
+Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、**トレジャーデータ**を選択します。ここで、RESTエンドポイントを確認し、Brazeデータインポートキーを生成できます。キーが生成されたら、新しいキーを作成するか、既存のキーを無効にできます。
 
-### ステップ2:データ接続を作成する
+### ステップ2:データ接続を作成する {#step-2-create-a-data-connection}
 
-トレジャーデータ内でデータ接続を作成する前に、認証が必要になります。まず、**インテグレーションハブ**を選択し、次に**カタログ**を選択します。
+トレジャーデータ内でデータ接続を作成する前に、認証が必要になります。まず、**Integrations Hub**を選択し、次に**Catalog**を選択します。
 
-![Treasure Data Integrations Hub カタログ]({% image_buster /assets/img/treasure_data/cohort/cohort1.png %}) 
+![Treasure Data Integrations Hubのカタログ]({% image_buster /assets/img/treasure_data/cohort/cohort1.png %})
 
-**カタログ**でBraze統合を検索し、アイコンにカーソルを合わせて**認証の作成**を選択します。資格情報を入力し、認証に名前を付けて、**完了**を選択します。
+**Catalog**でBraze統合を検索し、アイコンにカーソルを合わせて**Create Authentication**を選択します。認証情報を入力し、認証に名前を付けて、**Done**を選択します。
 
-![Treasure Data Integrations Hub カタログ]({% image_buster /assets/img/treasure_data/cohort/cohort2.png %}) 
+![Treasure Data Integrations Hubのカタログ]({% image_buster /assets/img/treasure_data/cohort/cohort2.png %})
 
-### ステップ 3:コホートオーディエンスを定義する
+### ステップ3:コホートオーディエンスを定義する {#step-3-define-your-cohort-audience}
 
-**Audience Studio** でのアクティベーション、または **Data Workbench** でクエリを実行して、コホートを Braze に同期します。
+**Audience Studio**でのアクティベーション、または**Data Workbench**でのクエリ実行を通じて、コホートをBrazeに同期します。
 
 {% alert important %}
-Braze内にすでに存在するユーザーのみが、コホートに追加または削除されます。コホートインポートはBrazeに新しいユーザーを作成しません。
+Braze内にすでに存在するユーザーのみが、コホートに追加または削除されます。コホートインポートではBrazeに新しいユーザーは作成されません。
 {% endalert %}
 
 {% tabs local %}
 {% tab Data Workbench %}
-#### ステップ 3.1:クエリを定義する
+#### ステップ3.1:クエリを定義する {#step-31-define-your-query}
 
 {% alert note %}
-クエリ列は正確な列名とデータ型で指定する必要があります。クエリの列には、`user_ids`、`device_ids`、または UI の設定と一致する Braze エイリアス列のうち、1つ以上の列が含まれている必要があります。Braze内に存在するユーザーのプロファイルのみがコホートに追加されます。コホートインポートでは、新しいユーザープロファイルは作成されません。
+クエリ列は正確な列名とデータ型で指定する必要があります。クエリの列には、`user_ids`、`device_ids`、またはUIの設定と一致するBrazeエイリアス列のうち、少なくとも1つが含まれている必要があります。Braze内に存在するユーザープロファイルのみがコホートに追加されます。コホートインポートでは、新しいユーザープロファイルは作成されません。
 {% endalert %}
 
-1. **データワークベンチ** > **クエリ** に移動します。
-2. **新しいクエリ**を選択します。
+1. **Data Workbench** > **Queries**に移動します。
+2. **New Query**を選択します。
 3. クエリを実行して結果セットを検証します。
 
-![Treasure Data Integrations Hub カタログ]({% image_buster /assets/img/treasure_data/cohort/cohort3.png %})
+![Treasure Data Integrations Hubのカタログ]({% image_buster /assets/img/treasure_data/cohort/cohort3.png %})
 
-##### ユースケース:識別子によるコホートの同期
+##### ユースケース:識別子によるコホートの同期 {#use-case-syncing-cohorts-by-identifier}
 
 {% subtabs local %}
 {% subtab Syncing External IDs %}
@@ -75,12 +75,13 @@ Braze内にすでに存在するユーザーのみが、コホートに追加ま
 | `TDCohort2`	| `TDCohort2@gmail.com`	| `4d5f6g` |
 | `TDCohort3`	| `TDCohort3@gmail.com`	| `7h8j9k` |
 | `TDCohort4`	| `TDCohort4@gmail.com`	| `1ab2cd` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Use case: Syncing cohorts by identifier" }
 
 {% alert warning %}
 列名は`user_ids`である必要があります。そうでないと同期が失敗します。
 {% endalert %}
 
-external ID を使用してコホートを同期するには、次のクエリを実行します。
+external IDを使用してコホートを同期するには、次のクエリを実行します:
 
 ```sql
 SELECT
@@ -106,10 +107,11 @@ FROM
 | `TDCohort2`	| `TDCohort2@gmail.com`	| `4d5f6g` |
 | `TDCohort3`	| `TDCohort3@gmail.com`	| `7h8j9k` |
 | `TDCohort4`	| `TDCohort4@gmail.com`	| `1ab2cd` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Use case: Syncing cohorts by identifier" }
 
 ユーザーエイリアスを使用してコホートを同期するには、次のクエリを実行します:
 
-```sql
+`````````sql
 SELECT
   email
 FROM
@@ -133,6 +135,7 @@ FROM
 | `TDCohort2`	| `TDCohort2@gmail.com`	| `4d5f6g` |
 | `TDCohort3`	| `TDCohort3@gmail.com`	| `7h8j9k` |
 | `TDCohort4`	| `TDCohort4@gmail.com`	| `1ab2cd` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Use case: Syncing cohorts by identifier" }
 
 {% alert warning %}
 列名は`device_ids`である必要があります。そうでないと同期が失敗します。
@@ -140,7 +143,7 @@ FROM
 
 デバイスIDを使用してコホートを同期するには、次のクエリを実行します:
 
-```sql
+`````````sql
 SELECT
   device_ids
 FROM
@@ -156,79 +159,82 @@ FROM
 {% endsubtab %}
 {% endsubtabs %}
 
-#### ステップ 3.2:結果のエクスポートターゲットを指定します
+#### ステップ3.2:結果のエクスポートターゲットを指定する {#step-32-specify-the-result-export-target}
 
-クエリが構築されたら、**結果をエクスポート**を選択します。既存の認証 (前回の手順で作成した認証など) を選択するか、または出力に使用する新しい認証を作成できます。 
+クエリが構築されたら、**Export Results**を選択します。既存の認証（前のステップで作成した認証など）を選択するか、出力に使用する新しい認証を作成できます。
 
-![Treasure Data Integrations Hub カタログ]({% image_buster /assets/img/treasure_data/cohort/cohort5.png %}) 
+![Treasure Data Integrations Hubのカタログ]({% image_buster /assets/img/treasure_data/cohort/cohort5.png %})
 
 
-| エクスポート結果マッピング |	説明	| 
+| エクスポート結果マッピング |	説明	|
 | ----------- | ----------- |
-| コホートID	| これは、Brazeに送信されるバックエンドのコホート識別子です。 	|
-| コホート名（任意）	| これは、Brazeのセグメンテーションツール内のコホートフィルターに表示される名前です。これが設定されていない場合、`Cohort ID`は`Cohort Name`として使用されます。	|
-| Operation	| クエリがBrazeのコホートからプロファイルを追加または削除するかどうかを判断するために使用されます。	| 
-| 別名（オプション） | 定義されている場合、クエリ内の対応する列の名前は`alias_label`として送信され、列内の各行の値は`alias_name`として送信されます。	| 
-| スレッド数 | 同時API呼び出しの数。 |
+| コホートID	| Brazeに送信されるバックエンドのコホート識別子です。	|
+| コホート名（任意）	| Brazeのセグメンテーションツール内のコホートフィルターに表示される名前です。設定されていない場合、`Cohort ID`が`Cohort Name`として使用されます。	|
+| Operation	| クエリがBrazeのコホートからプロファイルを追加するか削除するかを判断するために使用されます。	|
+| 別名（オプション） | 定義されている場合、クエリ内の対応する列の名前が`alias_label`として送信され、列内の各行の値が`alias_name`として送信されます。	|
+| スレッド数 | 同時API呼び出しの数です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.2: Specify the result export target" }
 
-[トレジャーデータ](https://docs.treasuredata.com/articles/#!int/braze-cohort-export-integration/a/ExportIntegrationTemplate-SpecifytheResultExportTarget)の手順に従ってエクスポートを設定し、ユースケースに対応させます。
+[トレジャーデータの手順](https://docs.treasuredata.com/articles/#!int/braze-cohort-export-integration/a/ExportIntegrationTemplate-SpecifytheResultExportTarget)に従ってエクスポートを設定し、ユースケースに対応させます。
 
-#### ステップ 3.3:クエリを実行する
+#### ステップ3.3:クエリを実行する {#step-33-execute-the-query}
 
-クエリに名前を付けて保存して実行するか、またはクエリを実行します。クエリが正常に完了すると、クエリ結果は自動的にBrazeにエクスポートされます。
+クエリに名前を付けて保存して実行するか、そのままクエリを実行します。クエリが正常に完了すると、クエリ結果は自動的にBrazeにエクスポートされます。
 
 {% endtab %}
 {% tab Audience Studio %}
-#### ステップ 3.1:アクティベーションを作成する
+#### ステップ3.1:アクティベーションを作成する {#step-31-create-an-activation}
 
-新しいSegmentを作成するか、既存のSegmentを選択して、コホートとしてBrazeに同期します。セグメント内で、**アクティベーションを作成**を選択します。
+新しいセグメントを作成するか、既存のセグメントを選択して、コホートとしてBrazeに同期します。セグメント内で、**Create Activation**を選択します。
 
-#### ステップ 3.2:アクティベーションの詳細を入力する
+#### ステップ3.2:アクティベーションの詳細を入力する {#step-32-fill-out-your-activation-details}
 
-![トレジャーデータ統合のアクティベーションの詳細]({% image_buster /assets/img/treasure_data/cohort/cohort7.png %}) 
+![トレジャーデータ統合のアクティベーションの詳細]({% image_buster /assets/img/treasure_data/cohort/cohort7.png %})
 
-| アクティベーション詳細設定 |	説明	| 
+| アクティベーション詳細設定 |	説明	|
 | ----------- | ----------- |
-| アクティベーション名	| アクティベーションの名前。	|
-| アクティベーションの説明| アクティベーションの簡単な説明。	|
-| 認証	| ステップ2で作成されたBrazeコホート認証を選択します。	| 
-| コホートID	| これは、Brazeに送信されるバックエンドのコホート識別子です。 	|
-| コホート名（任意）	| これは、Brazeのセグメンテーションツール内のコホートフィルターに表示される名前です。これが設定されていない場合、`Cohort ID`は`Cohort Name`として使用されます。	|
-| Operation	| クエリがBrazeのコホートからプロファイルを追加または削除するかどうかを判断するために使用されます。	| 
-| 別名（オプション） | 定義されている場合、クエリ内の対応する列の名前は`alias_label`として送信され、列内の各行の値は`alias_name`として送信されます。	| 
-| スレッド数 | 同時API呼び出しの数。 |
+| アクティベーション名	| アクティベーションの名前です。	|
+| アクティベーションの説明| アクティベーションの簡単な説明です。	|
+| 認証	| ステップ2で作成したBrazeコホート認証を選択します。	|
+| コホートID	| Brazeに送信されるバックエンドのコホート識別子です。	|
+| コホート名（任意）	| Brazeのセグメンテーションツール内のコホートフィルターに表示される名前です。設定されていない場合、`Cohort ID`が`Cohort Name`として使用されます。	|
+| Operation	| クエリがBrazeのコホートからプロファイルを追加するか削除するかを判断するために使用されます。	|
+| 別名（オプション） | 定義されている場合、クエリ内の対応する列の名前が`alias_label`として送信され、列内の各行の値が`alias_name`として送信されます。	|
+| スレッド数 | 同時API呼び出しの数です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.2: Fill out your activation details" }
 
-#### ステップ 3.3:出力マッピングを設定する
+#### ステップ3.3:出力マッピングを設定する {#step-33-set-up-output-mapping}
 
-![Treasure Data Integrations 有効化出力Mアプリing]({% image_buster /assets/img/treasure_data/cohort/cohort6.png %}) 
+![トレジャーデータ統合のアクティベーション出力マッピング]({% image_buster /assets/img/treasure_data/cohort/cohort6.png %})
 
-| アクティベーション出力マッピング |	説明	| 
+| アクティベーション出力マッピング |	説明	|
 | ----------- | ----------- |
-| 属性カラム	| セグメントデータベースから列を特定し、プロファイルをBrazeコホートに同期する際に識別子としてマッピングされるようにします。	|
+| 属性カラム	| セグメントデータベースの列を指定し、プロファイルをBrazeコホートに同期する際の識別子としてマッピングします。	|
 | String Builder| Braze統合には文字列ビルダーは必要ありません。	|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.3: Set up output mapping" }
 
 {% alert important %}
- - `device_id`を識別子として使用する場合、**出力列名**は`device_ids`と名付ける必要があります。
- - エイリアスを識別子として使用する場合、**出力列名**はクエリ内の対応する列の名前でなければならず、`alias_label`として送信され、列内の各行の値は`alias_name`として送信されます。
- - `external_id`を識別子として使用する場合、**出力列名**は`user_ids`と名付ける必要があります。
+ - `device_id`を識別子として使用する場合、**出力列名**は`device_ids`にする必要があります。
+ - エイリアスを識別子として使用する場合、**出力列名**はクエリ内の対応する列の名前にする必要があり、`alias_label`として送信されます。列内の各行の値は`alias_name`として送信されます。
+ - `external_id`を識別子として使用する場合、**出力列名**は`user_ids`にする必要があります。
 {% endalert %}
 
-すべての無関係または誤った名前の列名は無視されます。同期で複数の識別子を使用することができます。
+無関係または誤った名前の列名はすべて無視されます。同期で複数の識別子を使用することもできます。
 
-#### ステップ 3.4:アクティベーションスケジュールを定義する
+#### ステップ3.4:アクティベーションスケジュールを定義する {#step-34-define-your-activation-schedule}
 
 希望する同期スケジュールを定義し、アクティベーションを保存します。
 
-![Treasure Data Integrations の有効化スケジュール]({% image_buster /assets/img/treasure_data/cohort/cohort8.png %})
+![トレジャーデータ統合のアクティベーションスケジュール]({% image_buster /assets/img/treasure_data/cohort/cohort8.png %})
 {% endtab %}
 {% endtabs %}
 
-### ステップ4:Treasure Data Export から Braze セグメントを作成する
+### ステップ4:トレジャーデータのエクスポートからBraze セグメントを作成する {#step-4-create-a-braze-segment-from-the-treasure-data-export}
 
-Brazeで、**Segment**に移動し、新しいセグメントを作成して、フィルターとして**トレジャーデータコホート**を選択します。ここから、どのトレジャーデータコホートを含めるかを選択できます。トレジャーデータのコホートセグメントを作成したら、キャンペーンまたはキャンバスを作成するときにこのセグメントをオーディエンスフィルターとして選択できます。
+Brazeで、**セグメント**に移動し、新しいセグメントを作成して、フィルターとして**Treasure Data Cohorts**を選択します。ここから、含めるトレジャーデータコホートを選択できます。トレジャーデータのコホートセグメントを作成したら、キャンペーンまたはキャンバスを作成する際にオーディエンスフィルターとして選択できます。
 
-![Treasure Data Integrations Hub カタログ]({% image_buster /assets/img/treasure_data/cohort/cohort4.png %}) 
+![Treasure Data Integrations Hubのカタログ]({% image_buster /assets/img/treasure_data/cohort/cohort4.png %})
 
-## ユーザーマッチング
+## ユーザーマッチング {#user-matching}
 
-識別されたユーザーは、`external_id` または`alias` のどちらかによって照合できます。匿名ユーザーは、`device_id` によって照合できます。元々匿名ユーザーとして作成された識別されたユーザーは、`device_id` では識別できず、`external_id` または`alias` で識別しなければなりません。
+識別されたユーザーは、`external_id`または`alias`のどちらかで照合できます。匿名ユーザーは、`device_id`で照合できます。元々匿名ユーザーとして作成された識別済みユーザーは、`device_id`では識別できず、`external_id`または`alias`で識別する必要があります。

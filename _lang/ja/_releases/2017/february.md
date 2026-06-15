@@ -3,25 +3,23 @@ nav_title: 2月
 page_order: 11
 noindex: true
 page_type: update
-description: "この記事には2017年2月のリリースノートが含まれている。"
+description: "この記事には2017年2月のリリースノートが含まれています。"
 ---
 
-# 2017年2月
+# 2017年2月 {#february-2017}
 
-## 起動後にキャンバスステップを追加する
+## 起動後にキャンバスステップを追加する {#add-canvas-steps-after-launch}
 
-これで、[キャンバスステップs]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/#creating-a-canvas)を、キャンバスの起動後でも既存のステップs に追加できます。
+キャンバスの起動後でも、既存のステップに[キャンバスステップを追加]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#creating-a-canvas)できるようになりました。
 
-## エンゲージメント・レポートの一括CSV
+## エンゲージメントレポートの一括CSV {#bulk-csv-for-engagement-reports}
 
-[エンゲージメントレポート]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports/#engagement-reports) を使用して、キャンペーンデータCSV を一括してエクスポートできるようになりました。キャンバスデータは、エンゲージメントレポートからもエクスポートできます。
+[エンゲージメントレポート]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports/#engagement-reports)を使用して、キャンペーンデータのCSVを一括でエクスポートできるようになりました。キャンバスデータもエンゲージメントレポートからエクスポートできます。
 
-## 最後に受信したアプリ内メッセージでフィルタリングする
+## 最後に受信したアプリ内メッセージでフィルタリングする {#filter-by-last-received-in-app-message}
 
-よりパーソナライズされたユーザーのターゲット設定のために、「最後に受信したアプリ内メッセージ」を時間ベースのフィルターとして使用できるようになりました。Brazeのユーザー・ターゲティングの詳細については、[セグメンテーションを]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)参照。
+よりパーソナライズされたユーザーターゲティングのために、「最後に受信したアプリ内メッセージ」を時間ベースのフィルターとして使用できるようになりました。Brazeでのユーザーターゲティングの詳細については、[セグメンテーション]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)をご覧ください。
 
-## イベントユーザーログのアップグレード
+## イベントユーザーログのアップグレード {#event-user-log-upgrade}
 
-アップグレードされた[イベント・ユーザー・ログにより]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)、SDKインテグレーションで何が起こっているかを簡単に確認できるようになった。
-
-
+アップグレードされた[イベントユーザーログ]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)により、SDK連携で何が起こっているかをより簡単に確認できるようになりました。

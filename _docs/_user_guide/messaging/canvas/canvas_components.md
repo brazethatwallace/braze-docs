@@ -46,6 +46,9 @@ guide_featured_list:
   - name: Message step
     link: /docs/user_guide/messaging/canvas/canvas_components/message_step
     image: /assets/img/braze_icons/message-square-02.svg
+  - name: Send to Destination step
+    link: /docs/user_guide/messaging/canvas/canvas_components/send_to_destination
+    image: /assets/img/braze_icons/dataflow-02.svg
   - name: User Update step
     link: /docs/user_guide/messaging/canvas/canvas_components/user_update
     image: /assets/img/braze_icons/user-check-01.svg

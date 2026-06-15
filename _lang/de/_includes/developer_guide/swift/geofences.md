@@ -1,41 +1,41 @@
 {% alert important %}
-Ab iOS 14 funktionieren Geoofences nicht mehr zuverlässig für Nutzer:innen, die nur ihren ungefähren Standort angeben möchten.
+Ab iOS 14 funktionieren Geofences nicht mehr zuverlässig für Nutzer:innen, die nur ihre ungefähre Standortberechtigung erteilen.
 {% endalert %}
 
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
 ## Einrichten von Geofences {#setting-up-geofences}
 
-### Schritt 1: Enablement in Braze
+### 1. Schritt: Enablement in Braze {#step-1-enable-in-braze}
 
 {% multi_lang_include developer_guide/_shared/enable_geofences_in_braze.md %}
 
-### Schritt 2: Aktivieren Sie die Standortdienste Ihrer App
+### 2. Schritt: Aktivieren Sie die Standortdienste Ihrer App {#step-2-enable-your-apps-location-services}
 
 Standardmäßig sind die Standortdienste von Braze nicht aktiviert. Um sie in Ihrer App zu aktivieren, führen Sie die folgenden Schritte aus. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Tutorial: Braze Standorte und Geofences](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/).
 
-#### Schritt 2.1: Fügen Sie das Modul `BrazeLocation` hinzu.
+#### Schritt 2.1: Fügen Sie das Modul `BrazeLocation` hinzu {#step-21-add-the-brazelocation-module}
 
-Öffnen Sie in Xcode den Tab **Allgemein**. Fügen Sie unter **Frameworks, Bibliotheken und eingebettete Inhalte** das Modul `BrazeLocation` hinzu.
+Öffnen Sie in Xcode den Tab **General**. Fügen Sie unter **Frameworks, Libraries, and Embedded Content** das Modul `BrazeLocation` hinzu.
 
-![Fügen Sie das BrazeLocation-Modul in Ihr Xcode-Projekt ein.]({% image_buster /assets/img/sdk_geofences/add-brazeLocation-module-xcode.png %})
+![Das BrazeLocation-Modul in Ihrem Xcode-Projekt hinzufügen]({% image_buster /assets/img/sdk_geofences/add-brazeLocation-module-xcode.png %})
 
-#### Schritt 2.2: Aktualisieren Sie Ihr `Info.plist`
+#### Schritt 2.2: Aktualisieren Sie Ihre `Info.plist` {#step-22-update-your-infoplist}
 
-Weisen Sie in Ihrem `info.plist` einem der folgenden Schlüssel den Wert `String` zu, der beschreibt, warum Ihre Anwendung den Standort verfolgen muss. Dieser String wird angezeigt, wenn Ihre Nutzer:innen zur Eingabe von Standortleistungen; Diensten aufgefordert werden. Erklären Sie daher deutlich, welchen Wert die Aktivierung dieses Features für Ihre App hat.
+Weisen Sie in Ihrer `info.plist` einem der folgenden Schlüssel einen `String`-Wert zu, der beschreibt, warum Ihre Anwendung den Standort verfolgen muss. Dieser String wird angezeigt, wenn Ihre Nutzer:innen zur Eingabe von Standortdiensten aufgefordert werden. Erklären Sie daher deutlich, welchen Wert die Aktivierung dieses Features für Ihre App hat.
 
-- `NSLocationAlwaysAndWhenInUseUsageDescription` 
+- `NSLocationAlwaysAndWhenInUseUsageDescription`
 - `NSLocationWhenInUseUsageDescription`
 
-![Info.plist Standort-Strings in Xcode]({% image_buster /assets/img/sdk_geofences/info-plist-location-strings.png %})
+![Info.plist-Standort-Strings in Xcode]({% image_buster /assets/img/sdk_geofences/info-plist-location-strings.png %})
 
 {% alert important %}
-Apple hat `NSLocationAlwaysUsageDescription` veraltet. Weitere Informationen finden Sie in der [Dokumentation von Apple für Entwickler:in.](https://developer.apple.com/documentation/bundleresources/information-property-list/nslocationalwaysusagedescription)
+Apple hat `NSLocationAlwaysUsageDescription` als veraltet markiert. Weitere Informationen finden Sie in der [Entwickler:innen-Dokumentation von Apple](https://developer.apple.com/documentation/bundleresources/information-property-list/nslocationalwaysusagedescription).
 {% endalert %}
 
-### Schritt 3: Enablement von Geoofences in Ihrem Code
+### 3. Schritt: Geofences in Ihrem Code aktivieren {#step-3-enable-geofences-in-your-code}
 
-Im Code Ihrer App aktivieren Sie GeoFozences, indem Sie `location.geofencesEnabled` auf `true` im `configuration` Objekt setzen, das die [`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/) Instanz initialisiert. Für weitere `location` Konfigurationsoptionen siehe [Braze Swift SDK referenzieren](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class).
+Aktivieren Sie im Code Ihrer App Geofences, indem Sie `location.geofencesEnabled` auf `true` im `configuration`-Objekt setzen, das die [`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/)-Instanz initialisiert. Für weitere `location`-Konfigurationsoptionen siehe [Braze Swift SDK-Referenz](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class).
 
 {% tabs %}
 {% tab swift %}
@@ -78,17 +78,17 @@ AppDelegate.braze = braze;
 {% endtab %}
 {% endtabs %}
 
-#### Schritt 3.1: Enablement von Hintergrundberichten (optional)
+#### Schritt 3.1: Hintergrundberichte aktivieren (optional) {#step-31-enable-background-reporting-optional}
 
-Standardmäßig werden Geofence-Ereignisse nur überwacht, wenn sich Ihre App im Vordergrund befindet oder über eine `Always` Autorisierung verfügt, die alle Anwendungszustände überwacht.
+Standardmäßig werden Geofence-Ereignisse nur überwacht, wenn sich Ihre App im Vordergrund befindet oder über eine `Always`-Autorisierung verfügt, die alle Anwendungszustände überwacht.
 
-Sie können jedoch auch Geofence-Ereignisse überwachen, wenn Ihre App im Hintergrund läuft oder über eine [`When In Use` Autorisierung](#swift_request-authorization) verfügt. 
+Sie können jedoch auch Geofence-Ereignisse überwachen, wenn Ihre App im Hintergrund läuft oder über eine [`When In Use`-Autorisierung](#swift_request-authorization) verfügt.
 
-Um diese zusätzlichen Geofence-Ereignisse zu überwachen, öffnen Sie bitte Ihr Xcode-Projekt und gehen Sie zu **„Signing&Capabilities**“. Aktivieren Sie unter **Hintergrundmodi** die Option **Standort-Updates**.
+Um diese zusätzlichen Geofence-Ereignisse zu überwachen, öffnen Sie Ihr Xcode-Projekt und gehen Sie zu **Signing & Capabilities**. Aktivieren Sie unter **Background Modes** die Option **Location updates**.
 
-![In Xcode, Hintergrundmodus > Standort-Updates]({% image_buster /assets/img/sdk_geofences/xcode-background-modes-location-updates.png %})
+![In Xcode, Background Modes > Location Updates]({% image_buster /assets/img/sdk_geofences/xcode-background-modes-location-updates.png %})
 
-Als nächstes aktivieren Sie `allowBackgroundGeofenceUpdates` im Code Ihrer App. So kann Braze den Status "In Betrieb" Ihrer App verlängern, indem es kontinuierlich Updates des Standorts überwacht. Diese Einstellung funktioniert nur, wenn sich Ihre App im Hintergrund befindet. Wenn die App wieder geöffnet wird, werden alle bestehenden Hintergrundprozesse angehalten und stattdessen Vordergrundprozesse priorisiert.
+Aktivieren Sie als Nächstes `allowBackgroundGeofenceUpdates` im Code Ihrer App. So kann Braze den „When In Use“-Status Ihrer App verlängern, indem es kontinuierlich Standort-Updates überwacht. Diese Einstellung funktioniert nur, wenn sich Ihre App im Hintergrund befindet. Wenn die App wieder geöffnet wird, werden alle bestehenden Hintergrundprozesse angehalten und stattdessen Vordergrundprozesse priorisiert.
 
 {% tabs %}
 {% tab swift %}
@@ -135,16 +135,16 @@ AppDelegate.braze = braze;
 {% endtabs %}
 
 {% alert important %}
-Um Batterieverbrauch und Rate-Limiting zu vermeiden, konfigurieren Sie `distanceFilter` auf einen Wert, der den spezifischen Anforderungen Ihrer App entspricht. Wenn Sie `distanceFilter` auf einen höheren Wert einstellen, wird verhindert, dass Ihre App den Nutzerstandort zu häufig anfragt.
+Um Batterieverbrauch und Rate-Limiting zu vermeiden, konfigurieren Sie `distanceFilter` auf einen Wert, der den spezifischen Anforderungen Ihrer App entspricht. Wenn Sie `distanceFilter` auf einen höheren Wert einstellen, wird verhindert, dass Ihre App den Standort der Nutzer:innen zu häufig anfragt.
 {% endalert %}
 
-### Schritt 4: Autorisierung anfragen {#request-authorization}
+### 4. Schritt: Autorisierung anfragen {#request-authorization}
 
-Wenn Sie eine Autorisierung von einem Nutzer:innen anfordern, fragen Sie entweder `When In Use` oder `Always` an.
+Wenn Sie eine Autorisierung von Nutzer:innen anfordern, fragen Sie entweder die `When In Use`- oder die `Always`-Autorisierung an.
 
 {% tabs local %}
 {% tab When In Use %}
-Um eine `When In Use`-Anfrage zu stellen, verwenden Sie die Methode `requestWhenInUseAuthorization()`:
+Um eine `When In Use`-Autorisierung anzufragen, verwenden Sie die Methode `requestWhenInUseAuthorization()`:
 
 {% subtabs %}
 {% subtab swift %}
@@ -164,12 +164,12 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 {% endtab %}
 
 {% tab Always %}
-Standardmäßig gewährt `requestAlwaysAuthorization()` Ihrer App nur die `When In Use`-Autorisierung und fordert die Nutzer nach einiger Zeit erneut zur `Always`-Autorisierung auf.
+Standardmäßig gewährt `requestAlwaysAuthorization()` Ihrer App nur die `When In Use`-Autorisierung und fordert Ihre Nutzer:innen nach einiger Zeit erneut zur `Always`-Autorisierung auf.
 
-Sie können Ihre Nutzer:innen jedoch auch sofort auffordern, zuerst `requestWhenInUseAuthorization()` und dann `requestAlwaysAuthorization()` aufzurufen, nachdem Sie die erste Autorisierung von `When In Use` erhalten haben.
+Sie können Ihre Nutzer:innen jedoch auch sofort auffordern, indem Sie zuerst `requestWhenInUseAuthorization()` und dann `requestAlwaysAuthorization()` aufrufen, nachdem Sie die erste `When In Use`-Autorisierung erhalten haben.
 
 {% alert important %}
-Sie können nur ein einziges Mal sofort eine `Always` Autorisierung anfordern.
+Sie können nur ein einziges Mal sofort eine `Always`-Autorisierung anfordern.
 {% endalert %}
 
 {% subtabs %}
@@ -190,23 +190,15 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 {% endtab %}
 {% endtabs %}
 
-### Schritt 5: Überprüfen Sie den Push im Hintergrund
-
-Braze synchronisiert Geofences mit Geräten über Push-Benachrichtigungen im Hintergrund. Befolgen Sie diese Anweisungen, um [stille Push-Benachrichtigungen einzurichten]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift), damit Geofence-Updates vom Server richtig verarbeitet werden.
-
-{% alert note %}
-Um sicherzustellen, dass Ihre Anwendung beim Empfang von Geofence-Synchronisierungsbenachrichtigungen von Braze keine unerwünschten Aktionen ausführt, folgen Sie dem Artikel [Ignorieren von Silent Push]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications).
-{% endalert %}
-
 ## Manuelle Anfrage für Geofences {#manually-request-geofences}
 
-Wenn das Braze SDK Geofences aus dem Backend anfragt, meldet es den aktuellen Standort des Nutzers und erhält Geofences, die auf der Grundlage des gemeldeten Standorts als optimal relevant eingestuft werden.
+Wenn das Braze SDK Geofences vom Backend anfragt, meldet es den aktuellen Standort der Nutzer:innen und erhält Geofences, die auf der Grundlage des gemeldeten Standorts als optimal relevant eingestuft werden.
 
-Um den Standort zu kontrollieren, den das SDK meldet, um die relevantesten Geoofences zu erhalten, können Sie Geoofences manuell anfragen, indem Sie die gewünschten Koordinaten angeben.
+Um den Standort zu kontrollieren, den das SDK meldet, um die relevantesten Geofences zu erhalten, können Sie Geofences manuell anfragen, indem Sie die gewünschten Koordinaten angeben.
 
-### Schritt 1: Setzen Sie `automaticGeofenceRequests` auf `false`
+### 1. Schritt: Setzen Sie `automaticGeofenceRequests` auf `false` {#step-1-set-automaticgeofencerequests-to-false}
 
-Sie können automatische Geofencing-Anfragen in Ihrem `configuration`-Objekt deaktivieren, das an [`init(configuration)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/init(configuration:)) weitergegeben wurde. Stellen Sie `automaticGeofenceRequests` auf `false` ein.
+Sie können automatische Geofence-Anfragen in Ihrem `configuration`-Objekt deaktivieren, das an [`init(configuration)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/init(configuration:)) übergeben wird. Setzen Sie `automaticGeofenceRequests` auf `false`.
 
 {% tabs %}
 {% tab swift %}
@@ -236,7 +228,7 @@ AppDelegate.braze = braze;
 {% endtab %}
 {% endtabs %}
 
-### Schritt 2: Rufen Sie `requestGeofences` manuell auf.
+### 2. Schritt: Rufen Sie `requestGeofences` manuell auf {#step-2-call-requestgeofences-manually}
 
 Fragen Sie in Ihrem Code Geofences mit dem entsprechenden Breiten- und Längengrad an.
 
@@ -260,34 +252,34 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ## Häufig gestellte Fragen (FAQ) {#faq}
 
-#### Warum erhalte ich keine GeoFences auf meinem Gerät?
+#### Warum erhalte ich keine Geofences auf meinem Gerät? {#why-am-i-not-receiving-geofences-on-my-device}
 
-Um zu überprüfen, ob GeoFencing auf Ihrem Gerät empfangen wird, verwenden Sie zunächst das [Tool SDK Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk), um die Protokolle des SDK zu prüfen. Sie können dann sehen, ob Geofences erfolgreich vom Server empfangen werden und ob es irgendwelche bemerkenswerten Fehler gibt.
+Um zu überprüfen, ob Geofences auf Ihrem Gerät empfangen werden, verwenden Sie zunächst den [SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#debugging-the-braze-sdk), um die Protokolle des SDK zu prüfen. Sie können dann sehen, ob Geofences erfolgreich vom Server empfangen werden und ob es bemerkenswerte Fehler gibt.
 
-Nachstehend finden Sie weitere mögliche Gründe, warum Geofences auf Ihrem Gerät nicht empfangen werden können:
+Nachstehend finden Sie weitere mögliche Gründe, warum Geofences auf Ihrem Gerät nicht empfangen werden:
 
-##### Einschränkungen des iOS Betriebssystems
+##### Einschränkungen des iOS-Betriebssystems {#ios-operating-system-limitations}
 
-Das Betriebssystem iOS erlaubt es nur, bis zu 20 Geofences für eine bestimmte App zu speichern. Wenn Geofences aktiviert sind, wird Braze einige dieser 20 verfügbaren Slots verwenden.
+Das iOS-Betriebssystem erlaubt es nur, bis zu 20 Geofences für eine bestimmte App zu speichern. Wenn Geofences aktiviert sind, wird Braze einige dieser 20 verfügbaren Slots verwenden.
 
-Um versehentliche oder unerwünschte Störungen anderer Geofence-Funktionen in Ihrer App zu vermeiden, müssen Sie Standort-Geofences für einzelne Apps im Dashboard aktivieren. Damit unsere Serviceleistungen; Dienste korrekt funktionieren, überprüfen Sie, ob Ihre App nicht alle verfügbaren Geofence-Spots nutzt.
+Um versehentliche oder unerwünschte Störungen anderer Geofence-Funktionen in Ihrer App zu vermeiden, müssen Sie Standort-Geofences für einzelne Apps im Dashboard aktivieren. Damit unsere Standortdienste korrekt funktionieren, überprüfen Sie, ob Ihre App nicht alle verfügbaren Geofence-Slots nutzt.
 
 ##### Rate-Limiting
 
 Braze hat ein Limit von 1 Geofence-Aktualisierung pro Sitzung, um unnötige Anfragen zu vermeiden.
 
-#### Wie funktioniert es, wenn ich sowohl Braze- als auch Nicht-Braze-Features für Geofence verwende?
+#### Wie funktioniert es, wenn ich sowohl Braze- als auch Nicht-Braze-Geofence-Features verwende? {#how-does-it-work-if-i-am-using-both-braze-and-non-braze-geofence-features}
 
-Wie bereits erwähnt, ist es unter iOS zulässig, dass eine einzelne App maximal 20 Geofences einspeichert. Dieser Speicher wird sowohl von Braze- als auch von Nicht-Braze-Geofences gemeinsam genutzt und wird von [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager) verwaltet.
+Wie bereits erwähnt, erlaubt iOS einer einzelnen App, maximal 20 Geofences zu speichern. Dieser Speicher wird sowohl von Braze- als auch von Nicht-Braze-Geofences gemeinsam genutzt und wird von [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager) verwaltet.
 
-Wenn Ihre App beispielsweise 20 Nicht-Braze-Geofences enthält, wäre kein Speicherplatz verfügbar, um Braze-Geofences zu verfolgen (oder umgekehrt). Um neue Geoofences zu erhalten, müssen Sie [die Standort-APIs von Apple](https://developer.apple.com/documentation/corelocation) verwenden, um die Überwachung einiger der bestehenden Geoofences auf dem Gerät zu beenden.
+Wenn Ihre App beispielsweise 20 Nicht-Braze-Geofences enthält, wäre kein Speicherplatz verfügbar, um Braze-Geofences zu verfolgen (oder umgekehrt). Um neue Geofences zu erhalten, müssen Sie [die Standort-APIs von Apple](https://developer.apple.com/documentation/corelocation) verwenden, um die Überwachung einiger der bestehenden Geofences auf dem Gerät zu beenden.
 
-#### Kann das Feature Geofences verwendet werden, wenn ein Gerät offline ist?
+#### Kann das Geofences-Feature verwendet werden, wenn ein Gerät offline ist? {#can-the-geofences-feature-be-used-while-a-device-is-offline}
 
 Ein Gerät muss nur dann mit dem Internet verbunden sein, wenn eine Aktualisierung erfolgt. Sobald es erfolgreich Geofences vom Server empfangen hat, ist es möglich, einen Geofence-Eingang oder -Ausgang zu protokollieren, selbst wenn das Gerät offline ist. Das liegt daran, dass der Standort eines Geräts getrennt von seiner Internetverbindung funktioniert.
 
-Nehmen wir an, ein Gerät hat zu Beginn der Sitzung erfolgreich GeoFences empfangen und registriert und geht dann offline. Wenn er dann in einen dieser registrierten Geoofences eintritt, kann er eine Braze Kampagne triggern.
+Nehmen wir an, ein Gerät hat zu Beginn der Sitzung erfolgreich Geofences empfangen und registriert und geht dann offline. Wenn es dann in einen dieser registrierten Geofences eintritt, kann es eine Braze-Campaign triggern.
 
-#### Warum werden GeoFences nicht überwacht, wenn meine App im Hintergrund läuft/beendet wird?
+#### Warum werden Geofences nicht überwacht, wenn meine App im Hintergrund läuft oder beendet wird? {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 
-Ohne `Always` Autorisierung schränkt Apple die Ausführung von Standort Services ein, wenn eine App nicht benutzt wird. Dies wird durch das Betriebssystem erzwungen und liegt außerhalb der Kontrolle des Braze SDK. Braze bietet zwar separate Konfigurationen für die Ausführung von Diensten, während sich die App im Hintergrund befindet, aber es gibt keine Möglichkeit, diese Einschränkungen für Apps zu umgehen, die ohne ausdrückliche Genehmigung des Nutzers:innen beendet werden.
+Ohne `Always`-Autorisierung schränkt Apple die Ausführung von Standortdiensten ein, wenn eine App nicht benutzt wird. Dies wird durch das Betriebssystem erzwungen und liegt außerhalb der Kontrolle des Braze SDK. Braze bietet zwar separate Konfigurationen für die Ausführung von Diensten, während sich die App im Hintergrund befindet, aber es gibt keine Möglichkeit, diese Einschränkungen für Apps zu umgehen, die ohne ausdrückliche Genehmigung der Nutzer:innen beendet werden.

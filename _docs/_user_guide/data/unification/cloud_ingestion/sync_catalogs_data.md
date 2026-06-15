@@ -116,6 +116,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | JSON | REQUIRED |
 | ID | STRING | REQUIRED |
 | DELETED | BOOLEAN | OPTIONAL |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
@@ -154,6 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | STRING, STRUCT, or MAP | REQUIRED |
 | ID | STRING | REQUIRED |
 | DELETED | BOOLEAN | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
@@ -202,7 +204,7 @@ Create source files in S3 using JSON or CSV format. Each file must include the f
 | `PAYLOAD` | Yes | A JSON string of the fields to sync to the catalog item in Braze. |
 | `DELETED` | Optional | When set to `true`, the corresponding catalog item is removed from the catalog. |
 | `UPDATED_AT` | *Unsupported* | File storage doesn't support `UPDATED_AT` columns. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {% alert note %}
 Filenames must follow AWS rules and be unique. Append timestamps to help ensure uniqueness.

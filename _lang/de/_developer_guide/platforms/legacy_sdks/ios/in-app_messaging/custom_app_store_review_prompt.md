@@ -3,7 +3,7 @@ nav_title: Angepasste App Store-Bewertungsaufforderung
 article_title: Angepasste App Store-Bewertungsaufforderung
 platform: iOS
 page_order: 4
-description: "Dieser Referenzartikel zeigt, wie Sie eine angepasste Bewertungsaufforderung für den App Store einrichten."
+description: "Dieser Referenzartikel zeigt, wie Sie eine angepasste iOS App Store-Bewertungsaufforderung einrichten."
 channel:
   - in-app messages
 
@@ -12,15 +12,15 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Angepasste App Store-Bewertungsaufforderung
+# Angepasste App Store-Bewertungsaufforderung {#custom-app-store-review-prompt}
 
 {% alert note %}
 Sobald Sie diese Aufforderung implementieren, hört Braze auf, Impressionen automatisch zu tracken, und Sie müssen Ihre eigenen [Analytics]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display/#logging-impressions-and-clicks) protokollieren.
 {% endalert %}
 
-Eine Kampagne zu erstellen, um Nutzer:innen um eine Bewertung im App Store zu bitten, ist eine beliebte Verwendung von In-App-Nachrichten.
+Eine Campaign zu erstellen, um Nutzer:innen um eine Bewertung im App Store zu bitten, ist eine beliebte Verwendung von In-App-Nachrichten.
 
-Beginnen Sie damit, den [Delegat für In-App-Nachrichten](#in-app-message-controller-delegate) in Ihrer App festzulegen. Als Nächstes implementieren Sie die folgende Delegatmethode, um die Standardnachricht des App Store zu deaktivieren:
+Beginnen Sie damit, den [Delegat für In-App-Nachrichten](#in-app-message-controller-delegate) in Ihrer App festzulegen. Als Nächstes implementieren Sie die folgende Delegatmethode, um die standardmäßige App Store-Bewertungsnachricht zu deaktivieren:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -88,14 +88,13 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 {% raw %}
 
-Als Nächstes erstellen Sie eine In-App-Nachricht-Kampagne mit den folgenden Elementen:
+Als Nächstes erstellen Sie eine In-App-Nachricht-Campaign mit den folgenden Elementen:
 
 - Das Schlüssel-Wert-Paar `"Appstore Review" : "true"`
-- Das Klickverhalten ist auf "Deep Link Into App" gesetzt, unter Verwendung des Deeplinks `{YOUR-APP-SCHEME}:appstore-review`.
+- Das Klickverhalten ist auf „Deeplink in die App“ gesetzt, unter Verwendung des Deeplinks `{YOUR-APP-SCHEME}:appstore-review`.
 
 {% endraw %}
 
 {% alert tip %}
-Apple begrenzt die Anzahl der App Store-Bewertungsaufforderungen auf maximal drei (3) Mal pro Jahr und Nutzer:innen. Ihre Kampagne sollte also auf drei Mal pro Jahr und Nutzer:innen [begrenzt]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) sein.<br><br>Nutzer:innen können die Aufforderungen zur Überprüfung im App Store deaktivieren. Daher sollte Ihre angepasste Bewertungsaufforderung nicht versprechen, dass eine native App Store-Bewertungsaufforderung erscheint oder direkt um eine Bewertung bitten.
+Apple begrenzt die Anzahl der App Store-Bewertungsaufforderungen auf maximal drei (3) Mal pro Jahr und Nutzer:in. Ihre Campaign sollte daher auf drei Mal pro Jahr und Nutzer:in [begrenzt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) werden.<br><br>Nutzer:innen können die Aufforderungen zur Bewertung im App Store deaktivieren. Daher sollte Ihre angepasste Bewertungsaufforderung nicht versprechen, dass eine native App Store-Bewertungsaufforderung erscheint, oder direkt um eine Bewertung bitten.
 {% endalert %}
-

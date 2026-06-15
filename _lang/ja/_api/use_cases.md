@@ -104,7 +104,7 @@ Siege Valley Healthが、Brazeのダッシュボードでフィルタリング�
         "flu_shots", "patienthealth", "reminder", "2020"
       }
   	},
-    ... (more Canvases)
+    ... (more キャンバス)
   ],
   "message": 'success'
 }
@@ -182,7 +182,7 @@ CashBlastr の主な目標は、迅速な送金と受取りの方法を簡素化
 
 [`/sms/invalid_phone_numbers/remove` エンドポイント]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/)でリクエストを送信するには、電話番号は [e.164 形式](https://en.wikipedia.org/wiki/E.164)の文字列の配列にする必要があり、リクエストごとに最大50個の電話番号を指定できます。リストは50電話番号を超えないので、ここにCashBlastrの開発チームが送るリクエストボディの例を示します：
 
-```http
+`````````http
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 {

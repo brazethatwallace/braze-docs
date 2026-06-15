@@ -70,7 +70,7 @@ extension AppDelegate {
 {% endtab %}
 
 {% tab Android %}
-```kotlin
+`````````kotlin
 class MainActivity : FlutterActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,7 +98,7 @@ class MainActivity : FlutterActivity() {
 
 次に、コールバック関数がDartレイヤーで使用され、以前に送信されたURL文字列データを使用してアラートダイアログを表示します。
 
-```dart
+`````````dart
 MethodChannel('deepLinkChannel').setMethodCallHandler((call) async {
   deepLinkAlert(call.arguments, context);
 });

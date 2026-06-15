@@ -1,39 +1,39 @@
 ---
-nav_title: "GET : Veuillez consulter les informations relatives aux blocs de contenu."
-article_title: "GET : Voir les informations sur les blocs de contenu"
+nav_title: "GET : Voir les informations sur les Content Blocks"
+article_title: "GET : Voir les informations sur les Content Blocks"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Afficher les informations sur les blocs de contenu."
+description: "Cet article présente en détail l'endpoint Braze Voir les informations sur les Content Blocks."
 ---
 
 {% api %}
-# Voir les informations sur les blocs de contenu
+# Voir les informations sur les Content Blocks {#see-content-block-information}
 {% apimethod get %}
 /content_blocks/info
 {% endapimethod %}
 
-> Utilisez cet endpoint pour appeler les informations relatives à vos [blocs de contenu]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/) existants.
+> Utilisez cet endpoint pour appeler les informations relatives à vos [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) existants.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#589adda3-0def-4369-9ddc-eae71923c0ee {% endapiref %}
 
-## Conditions préalables
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l’autorisation `content_blocks.info`.
+## Conditions préalables {#prerequisites}
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `content_blocks.info`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `content_block_id`  | Requis | Chaîne de caractères | L'identifiant du bloc de contenu. <br><br>Vous pouvez le trouver soit en listant les informations du bloc de contenu par le biais d'un appel API, soit en vous rendant sur la page des [clés API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/), puis en défilant vers le bas et en recherchant votre identifiant API du bloc de contenu.|
-| `include_inclusion_data`  | Facultatif | Valeur booléenne | Lorsqu'elle est définie sur `true`, l'API renvoie l'identifiant API de la variation de message des campagnes et des canevas dans lesquels ce bloc de contenu est inclus, afin qu'il soit utilisé dans les appels ultérieurs.  Les résultats excluent les campagnes ou Canvas archivé(e)s ou supprimé(e)s. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `content_block_id`  | Requis | Chaîne de caractères | L'identifiant du Content Block. <br><br>Vous pouvez le trouver soit en listant les informations du Content Block par le biais d'un appel API, soit en vous rendant sur la page des [clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/), puis en défilant vers le bas et en recherchant l'identifiant API de votre Content Block.|
+| `include_inclusion_data`  | Facultatif | Valeur booléenne | Lorsque ce paramètre est défini sur `true`, l'API renvoie l'identifiant API de la variation de message des Campaigns et des Canvas dans lesquels ce Content Block est inclus, afin qu'il puisse être utilisé dans les appels ultérieurs.  Les résultats excluent les Campaigns ou les Canvas archivés ou supprimés. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/content_blocks/info?content_block_id={{content_block_id}}&include_inclusion_data=false' \
@@ -41,7 +41,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/content_blocks/i
 ```
 {% endraw %}
 
-## Réponse
+## Réponse {#response}
 
 ```json
 {
@@ -59,17 +59,17 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/content_blocks/i
 }
 ```
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
-Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes de résolution des problèmes associées.
+Le tableau suivant répertorie les erreurs possibles et les étapes de résolution associées.
 
 | Erreur | Résolution des problèmes |
 | --- | --- |
-| `Content Block ID cannot be blank` | Assurez-vous qu’un bloc de contenu est répertorié dans votre demande et compris entre des guillemets (`""`). |
-| `Content Block ID is invalid for this workspace` | Ce bloc de contenu n'existe pas ou se trouve dans un compte d'entreprise ou un espace de travail différent. |
-| `Content Block has been deleted—content not available` | Ce bloc de contenu, bien qu’il ait pu exister, a été supprimé. |
-| `Include Inclusion Data—error` | Ce paramètre accepte uniquement les valeurs booléennes (vrai ou faux). Assurez-vous que la valeur de `include_inclusion_data` n’est pas comprise entre des guillemets (`""`), sinon la valeur est envoyée comme chaîne de caractères. Voir les [paramètres de la demande](#request-parameters) pour plus de détails. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Content Block ID cannot be blank` | Assurez-vous qu'un Content Block est répertorié dans votre requête et compris entre des guillemets (`""`). |
+| `Content Block ID is invalid for this workspace` | Ce Content Block n'existe pas ou se trouve dans un compte de société ou un espace de travail différent. |
+| `Content Block has been deleted—content not available` | Ce Content Block, bien qu'il ait pu exister auparavant, a été supprimé. |
+| `Include Inclusion Data—error` | Ce paramètre accepte uniquement les valeurs booléennes (true ou false). Assurez-vous que la valeur de `include_inclusion_data` n'est pas comprise entre des guillemets (`""`), sinon la valeur est envoyée comme chaîne de caractères. Consultez les [paramètres de requête](#request-parameters) pour plus de détails. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 
 {% endapi %}

@@ -30,7 +30,7 @@ By harnessing the joint capabilities of Braze and Sendbird Notifications, busine
 | Sendbird UIKit | You must have the Sendbird UIKit installed in your [iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit) or [Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit) app. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 

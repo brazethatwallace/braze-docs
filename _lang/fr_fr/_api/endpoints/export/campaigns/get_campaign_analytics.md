@@ -1,43 +1,45 @@
 ---
-nav_title: "GET : Exporter les analyses de campagne"
-article_title: "GET : Exporter l'analyse/analytique de la campagne (si utilisée comme adjectif)"
+nav_title: "GET : Exporter les analyses de campagne"
+article_title: "GET : Exporter les analyses de campagne"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Exporter les analyses de campagne."
+description: "Cet article présente en détail l'endpoint Braze Exporter les analyses de campagne."
 
 ---
 {% api %}
-# Exporter les analyses de campagne
+# Exporter les analyses de campagne {#export-campaign-analytics}
 {% apimethod get %}
 /campaigns/data_series
 {% endapimethod %}
 
-> Utilisez cet endpoint pour récupérer quotidiennement une série de diverses statistiques pour une campagne sur la durée.
+> Utilisez cet endpoint pour récupérer une série quotidienne de diverses statistiques pour une campagne sur la durée.
 
 Les données renvoyées comprennent le nombre de messages envoyés, ouverts, cliqués ou convertis par canal de communication.
 
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='campaign' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1 {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `campaigns.data_series`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `campaigns.data_series`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='export campaign analytics' %}
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Requis | Chaîne de caractères | Voir l'[identifiant API de la campagne.]({{site.baseurl}}/api/identifier_types/)<br><br> Vous trouverez l'adresse `campaign_id` pour les campagnes API sur la page [Clés API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) et la page **Détails de la campagne** dans votre tableau de bord, ou vous pouvez utiliser l'[endpoint Liste des campagnes.]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) |
+| `campaign_id` | Requis | Chaîne de caractères | Voir l'[identifiant API de la campagne]({{site.baseurl}}/api/identifier_types/).<br><br> Le `campaign_id` pour les campagnes API se trouve sur la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) et sur la page **Campaign Details** dans votre tableau de bord, ou vous pouvez utiliser l'[endpoint Lister les campagnes]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/). |
 | `length` | Requis | Entier | Nombre maximum de jours avant `ending_at` à inclure dans la série renvoyée. Doit être compris entre 1 et 100 (inclus). |
-| `ending_at` | Facultatif | DateTime <br>chaîne ([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date à laquelle la série de données doit se terminer. Par défaut, l’heure de la demande. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `ending_at` | Facultatif | DateTime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date à laquelle la série de données doit se terminer. Par défaut, correspond à l'heure de la requête. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 {% raw %}
 ```
@@ -46,9 +48,9 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 ```
 {% endraw %}
 
-## Réponses
+## Réponses {#responses}
 
-### Réponse multicanaux
+### Réponse multicanal {#multichannel-response}
 
 ```json
 {
@@ -149,7 +151,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 }
 ```
 
-### Réponse multivariées
+### Réponse multivariée {#multivariate-response}
 
 ```json
 {
@@ -222,10 +224,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 }
 ```
 
-Les types de messages possibles sont `email`, `trigger_in_app_message`, `webhook`, `android_push`, `ios_push`, `kindle_push` et `web_push`. Tous les types de messages des notifications push auront les mêmes statistiques que celles d’`android_push`.
+Les types de messages possibles sont `email`, `trigger_in_app_message`, `webhook`, `android_push`, `ios_push`, `kindle_push` et `web_push`. Tous les types de notifications push présentent les mêmes statistiques que celles affichées pour `android_push`.
 
 {% alert tip %}
-Pour obtenir de l’aide sur les exportations CSV et de l’API, consultez la section [Résolution des problèmes d’exportation]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

@@ -1,29 +1,29 @@
 ---
-nav_title: Daten Vereinheitlichung
-article_title: Daten Vereinheitlichung
+nav_title: Datenvereinheitlichung
+article_title: Datenvereinheitlichung
 page_order: 1
 layout: dev_guide
-guide_top_header: "Daten Vereinheitlichung"
-guide_top_text: "> Bringen Sie Ihre Nutzerdaten in Braze an einem Ort zusammen. Unabhängig von der Quelle Ihrer Daten können Sie alle Daten vereinheitlichen, um ein vollständiges Bild der Nutzer:innen zu erhalten, einschließlich ihres Verhaltens, ihrer Vorlieben und ihrer Aktionen."
+guide_top_header: "Datenvereinheitlichung"
+guide_top_text: "Bringen Sie Ihre Nutzerdaten in Braze an einem Ort zusammen. Unabhängig von der Quelle Ihrer Daten können Sie alle Daten vereinheitlichen, um ein vollständiges Bild Ihrer Nutzer:innen zu erhalten – einschließlich ihres Verhaltens, ihrer Vorlieben und ihrer Aktionen."
 page_type: landing
-description: "Dieser Abschnitt enthält Artikel zur Vereinheitlichung von Daten in der Braze Data Platform."
+description: "Dieser Abschnitt enthält Artikel zur Datenvereinheitlichung in der Braze Data Platform."
 
 guide_featured_title: "Abschnittsartikel"
 guide_featured_list:
-  - name: Ingestion von Cloud-Daten
-    link: /docs/user_guide/data/unification/cloud_ingestion/
+  - name: Cloud-Datenaufnahme
+    link: /docs/user_guide/data/unification/cloud_ingestion
     image: /assets/img/braze_icons/upload-cloud-01.svg
   - name: Datentransformation
-    link: /docs/user_guide/data/unification/data_transformation/
+    link: /docs/user_guide/data/unification/data_transformation
     image: /assets/img/braze_icons/database-01.svg
-  - name: "Nutzer:innen-Datenerfassung"
-    link: /docs/user_guide/data/unification/user_data_collection/
-    image: /assets/img/braze_icons/users-01.svg
   - name: Eine Formel erstellen
-    link: /docs/user_guide/data/unification/creating_a_formula/
+    link: /docs/user_guide/data/unification/creating_a_formula
     image: /assets/img/braze_icons/beaker-02.svg
+  - name: Nutzerdaten
+    link: /docs/user_guide/data/unification/user_data
+    image: /assets/img/braze_icons/users-01.svg
 
-guide_menu_title2: "Related articles"
+guide_menu_title2: "Verwandte Artikel"
 guide_menu_list2:
   - name: Braze REST API
     link: /docs/api/home/
@@ -31,7 +31,7 @@ guide_menu_list2:
   - name: Shopify
     link: /docs/partners/ecommerce/shopify/
     image: /assets/img/braze_icons/shopify.svg
-  - name: Einbinden des SDK
+  - name: SDK einbinden
     link: /docs/developer_guide/sdk_integration/
     image: /assets/img/braze_icons/code-square-01.svg
 ---

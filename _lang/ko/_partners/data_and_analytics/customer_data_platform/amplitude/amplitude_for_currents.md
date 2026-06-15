@@ -1,143 +1,81 @@
 ---
-nav_title: Amplitude for Currents
-article_title: Amplitude for Currents
+nav_title: Currents용 Amplitude
+article_title: Currents용 Amplitude
 page_order: 0
-description: "This reference article outlines the partnership between Braze Currents and Amplitude, a product analytics and business intelligence platform."
+description: "이 참조 문서에서는 제품 분석 및 비즈니스 인텔리전스 플랫폼인 Amplitude와 Braze 커런츠 간의 파트너십에 대해 설명합니다."
 page_type: partner
 tool: Currents
 search_tag: Partner
 
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Amplitude for Currents
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Currents용 Amplitude {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
 
-> [Amplitude](https://amplitude.com/) is a product analytics and business intelligence platform.
+> [Amplitude](https://amplitude.com/)는 제품 분석 및 비즈니스 인텔리전스 플랫폼입니다.
 
-The Braze and Amplitude bi-directional integration allows you to [sync your Amplitude Cohorts]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/), user traits, and events into Braze as well as leverage Braze Currents to [export your Braze events to Amplitude](#data-export-integration) to perform deeper analytics of your product and marketing data.
+Braze와 Amplitude의 양방향 통합을 통해 [Amplitude 코호트를 동기화]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/)하고, 사용자 특성 및 이벤트를 Braze로 가져올 수 있으며, Braze 커런츠를 활용하여 [Braze 이벤트를 Amplitude로 내보내](#data-export-integration) 제품 및 마케팅 데이터에 대한 심층 분석을 수행할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 |---|---|
-| Amplitude account | An [Amplitude account](https://amplitude.com/) is required to take advantage of this partnership. |
-| Currents | In order to export data back into Amplitude, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+| Amplitude 계정 | 이 파트너십을 활용하려면 [Amplitude 계정](https://amplitude.com/)이 필요합니다. |
+| Currents | 데이터를 Amplitude로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Data export integration
+## 데이터 내보내기 통합 {#data-export-integration}
 
-A full list of the events and event properties that can be exported from Braze to Amplitude can be found in the following sections. All events sent to Amplitude will include the user's `external_user_id` as the Amplitude user ID. Braze-specific event properties will be sent under the `event_properties` key in the data sent to Amplitude.
+Braze에서 Amplitude로 내보낼 수 있는 이벤트 및 이벤트 속성정보의 전체 목록은 다음 섹션에서 확인할 수 있습니다. Amplitude로 전송되는 모든 이벤트에는 사용자의 `external_user_id`가 Amplitude 사용자 ID로 포함됩니다. Braze 전용 이벤트 속성정보는 Amplitude로 전송되는 데이터의 `event_properties` 키 아래에 전송됩니다.
 
 {% alert important %}
-To use this feature, your Amplitude user ID must match the Braze external ID.
+이 기능을 사용하려면 Amplitude 사용자 ID가 Braze 외부 ID와 일치해야 합니다.
 {% endalert %}
 
-Braze will only send event data for users who have their `external_user_id` set or anonymous users who have their `device_id` set. For the anonymous users, you will need to sync your Amplitude device ID with the Braze device ID in the SDK. For example:
+Braze는 `external_user_id`가 설정된 사용자 또는 `device_id`가 설정된 익명 사용자에 대해서만 이벤트 데이터를 전송합니다. 익명 사용자의 경우 SDK에서 Amplitude 기기 ID를 Braze 기기 ID와 동기화해야 합니다. 예를 들어:
 
 ```java
 amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
 ```
 
-You can export two types of events to Amplitude: [Message Engagement Events](#supported-currents-events) consisting of the Braze Events directly related to message sending, and [Customer Behavior Events](#supported-currents-events), including other app or website activity such as sessions, custom events, and purchases tracked through the platform. All regular events are prefixed with `[Appboy]`, and all custom events are prefixed with `[Appboy] [Custom Event]`. Custom event and purchase event properties are prefixed with `[Custom event property]` and `[Purchase property]`, respectively.
+Amplitude로 두 가지 유형의 이벤트를 내보낼 수 있습니다: 메시지 전송과 직접 관련된 Braze 이벤트로 구성된 [메시지 참여 이벤트](#supported-currents-events)와 세션, 커스텀 이벤트, 플랫폼을 통해 추적된 구매 등 기타 앱 또는 웹사이트 활동을 포함하는 [고객 행동 이벤트](#supported-currents-events)입니다. 모든 일반 이벤트에는 `[Appboy]` 접두사가 붙고, 모든 커스텀 이벤트에는 `[Appboy] [Custom Event]` 접두사가 붙습니다. 커스텀 이벤트 및 구매 이벤트 속성정보에는 각각 `[Custom event property]` 및 `[Purchase property]` 접두사가 붙습니다.
 
-All cohorts named and imported into Braze will be prefixed with `[Amplitude]` and suffixed with their `cohort_id`. 즉, `cohort_id` "abcd1234"가 포함된 "TEST_COHORT" 라는 이름의 코호트는 Braze 필터에서 `[Amplitude] TEST_COHORT: abcd1234` 라는 제목이 붙게 됩니다.
+Braze로 이름이 지정되고 가져온 모든 코호트에는 `[Amplitude]` 접두사와 `cohort_id` 접미사가 붙습니다. 즉, `cohort_id` "abcd1234"가 포함된 "TEST_COHORT"라는 이름의 코호트는 Braze 필터에서 `[Amplitude] TEST_COHORT: abcd1234`라는 제목이 붙게 됩니다.
 
-Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_support/) if you need access to additional event entitlements.
+추가 이벤트 권한에 대한 액세스가 필요한 경우 계정 매니저에게 문의하거나 [고객지원 티켓]({{site.baseurl}}/braze_support/)을 열어주세요.
 
-### Step 1: Configure Amplitude Integration in Braze 
+### 1단계: Braze에서 Amplitude 통합 구성 {#step-1-configure-amplitude-integration-in-braze}
 
-In Amplitude, locate your Amplitude export API key.
+Amplitude에서 Amplitude 내보내기 API 키를 찾습니다.
 
 {% alert warning %}
-Keep your Amplitude API Key up to date. If your connector's credentials expire, the connector will stop sending events. If this persists for more than **48 hours**, the connector's events will be dropped, and data will be permanently lost.
+Amplitude API 키를 최신 상태로 유지하세요. 커넥터의 자격 증명이 만료되면 커넥터가 이벤트 전송을 중단합니다. 이 상태가 **48시간** 이상 지속되면 커넥터의 이벤트가 삭제되고 데이터가 영구적으로 손실됩니다.
 {% endalert %}
 
-### Step 2: Create Braze Current
+### 2단계: Braze 커런트 생성 {#step-2-create-braze-current}
 
-In Braze, navigate to **Currents > + Create Current > Create Amplitude Export**. Provide an integration name, contact email, Amplitude export API key, and Amplitude region in the listed fields. Next, select the events you want to track; a list of available events is provided. Lastly, click **Launch Current**
+Braze에서 **Currents > + Create Current > Create Amplitude Export**로 이동합니다. 나열된 필드에 통합 이름, 연락처 이메일, Amplitude 내보내기 API 키 및 Amplitude 리전을 입력합니다. 그런 다음 추적하려는 이벤트를 선택합니다. 사용 가능한 이벤트 목록이 제공됩니다. 마지막으로 **Launch Current**을 클릭합니다.
 
 {% alert note %}
-Events sent from Braze Currents to Amplitude will count toward your Amplitude event volume quota.
+Braze 커런츠에서 Amplitude로 전송된 이벤트는 Amplitude 이벤트 볼륨 할당량에 포함됩니다.
 {% endalert %}
 
-![The Braze Amplitude Currents page. This page includes fields for integration name, contact email, API key, and US region. 커런츠 페이지 하단에는 보낼 수 있는 커런츠 이벤트가 나열되어 있습니다.]({% image_buster /assets/img/amplitude4.png %})
+![Braze Amplitude 커런츠 페이지. 이 페이지에는 통합 이름, 연락처 이메일, API 키 및 US 리전 필드가 포함되어 있습니다. 커런츠 페이지 하단에는 보낼 수 있는 커런츠 이벤트가 나열되어 있습니다.]({% image_buster /assets/img/amplitude4.png %})
 
 {% tab note %}
-Check out Amplitude's [integration docs](https://amplitude.zendesk.com/hc/en-us/articles/115000217351-Appboy-Amplitude-Integration#how-to-set-up-and-use-the-integration) to learn more.
+자세한 내용은 Amplitude의 [통합 문서](https://amplitude.zendesk.com/hc/en-us/articles/115000217351-Appboy-Amplitude-Integration#how-to-set-up-and-use-the-integration)를 확인하세요.
 {% endtab %}
 
-## Rate limits
+## 사용량 제한 {#rate-limits}
 
-Currents connect to Amplitude's HTTP API, which has a [rate limit](https://developers.amplitude.com/docs/http-api-v2#upload-limit) of 30 events/second per device and an undocumented limit of 500K events/day per device. If these thresholds are exceeded, Amplitude will throttle events logged through Currents. If a device in your integration exceeds this rate limit, you may experience a delay in when events from all devices will appear in Amplitude.
+Currents는 Amplitude의 HTTP API에 연결되며, 이 API에는 기기당 30 이벤트/초의 [사용량 제한](https://developers.amplitude.com/docs/http-api-v2#upload-limit)과 기기당 500K 이벤트/일의 문서화되지 않은 제한이 있습니다. 이러한 임계값을 초과하면 Amplitude는 Currents를 통해 기록된 이벤트를 스로틀링합니다. 통합의 기기가 이 사용량 제한을 초과하면 모든 기기의 이벤트가 Amplitude에 표시되는 시점이 지연될 수 있습니다.
 
-Devices should not report more than 30 events/second or 500K events/day under normal circumstances, and this event pattern should only occur due to a misconfigured integration. To avoid this type of delay, ensure that your SDK integration reports events at a normal rate as specified in our SDK integration instructions and refrain from running automated tests that generate many events for a single device.
+정상적인 상황에서 기기는 30 이벤트/초 또는 500K 이벤트/일을 초과하여 보고해서는 안 되며, 이 이벤트 패턴은 잘못 구성된 통합으로 인해서만 발생해야 합니다. 이러한 유형의 지연을 방지하려면 SDK 통합이 SDK 통합 지침에 명시된 대로 정상적인 속도로 이벤트를 보고하도록 하고, 단일 기기에 대해 많은 이벤트를 생성하는 자동화된 테스트를 실행하지 마세요.
 
-## Supported Currents events
+## 지원되는 Currents 이벤트 {#supported-currents-events}
 
-Braze supports exporting the following data listed in the Currents [user behavior]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/) and [message engagement]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/) event glossaries to Amplitude:
+Braze는 다음 이벤트를 Amplitude로 내보내는 것을 지원합니다:
 
-### Behaviors
-- Custom event: `users.behaviors.CustomEvent`
-- Install Attribution: `users.behaviors.InstallAttribution`
-- Location: `users.behaviors.Location`
-- Purchase: `users.behaviors.Purchase`
-- Uninstall: `users.behaviors.Uninstall`
-- App (first session, session end, session start)
-  - `users.behaviors.app.FirstSession`
-  - `users.behaviors.app.SessionEnd`
-  - `users.behaviors.app.SessionStart`
-- Subscription (global state change): `users.behaviors.subscription.GlobalStateChange`
-- Subscription Group (state change): `users.behaviors.subscriptiongroup.StateChange`
-  
-### Campaigns
-- Abort: `users_campaigns_abort`
-- Conversion: `users.campaigns.Conversion`
-- EnrollinControl: `users.campaigns.EnrollInControl`
-  
-### Canvas
-- Abort: `users_canvas_abort`
-- Conversion: `users.canvas.Conversion`
-- Entry: `users.canvas.Entry`
-- Exit (matched audience, performed event)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- Experiment Step (conversion, split entry)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
+- [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
+- [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
 
-### Messages
-- Content Card (abort, click, dismiss, impression, send)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- Email (abort, bounce, click, delivery, markasspam, open, send, softbounce, unsubscribe)
-- In-app message (abort, click, impression)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- Push notification (abort, bounce, iOSforeground, open, send)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.IosForeground`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS (abort, carrier send, delivery, delivery failure, inbound receive, rejection, send, short link click)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- Webhook (abort, send)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp (abort, delivery, failure, inbound receive, read, send)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
-  
+각 이벤트의 페이로드 구조에 대해서는 [메시지 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 및 [고객 행동 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)에서 **Amplitude** 탭을 선택하세요.

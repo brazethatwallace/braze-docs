@@ -29,3 +29,7 @@ end
 gem "csv", "~> 3.3"
 
 gem "mutex_m", "~> 0.2.0"
+
+group :test do
+  gem "rspec", "~> 3.13"
+end

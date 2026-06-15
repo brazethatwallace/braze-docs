@@ -190,14 +190,6 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 {% endtab %}
 {% endtabs %}
 
-### Step 5: Verify background push
-
-Braze syncs geofences to devices using background push notifications. Follow these instructions to [set up silent push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift) so that geofence updates from the server are properly handled.
-
-{% alert note %}
-To ensure that your application does not take any unwanted actions upon receiving Braze geofence sync notifications, follow the [ignoring silent push]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications) article.
-{% endalert %}
-
 ## Manually request geofences {#manually-request-geofences}
 
 When the Braze SDK requests geofences from the backend, it reports the user's current location and receives geofences that are determined to be optimally relevant based on the location reported.

@@ -14,7 +14,7 @@ $broken_transition_time : 0.25s;
 
   h1 {
     color: $black-shark;
-    font-family: $braze-medium;
+    font-family: $braze-bold;
   }
   .broken_menu_title {
     margin-top: 40px;
@@ -46,7 +46,7 @@ $broken_transition_time : 0.25s;
       margin-top: auto;
       margin-bottom: auto;
       color: $black-shark;
-      font-family: $braze-medium;
+      font-family: $braze-bold;
       font-size: 15px;
       @media (min-width: $window-medium-px) {
         font-size: 17px;
@@ -72,7 +72,7 @@ $broken_transition_time : 0.25s;
     padding: 17px 25px 30px 25px;
     margin: auto 0;
     .broken_name {
-      font-family: $braze-medium;
+      font-family: $braze-bold;
       color: $black-shark;
       font-size: 20px;
       line-height: 1.8;

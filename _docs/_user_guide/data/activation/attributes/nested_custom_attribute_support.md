@@ -24,6 +24,7 @@ description: "This reference article covers using nested custom attributes as a 
 - Periods (`.`) and dollar signs (`$`) aren't supported characters in an API payload if you're attempting to send a nested custom attribute to a user profile.
 - Not all Braze Partners support nested custom attributes. Refer to the [Partner documentation]({{site.baseurl}}/partners/home) to confirm if specific partner integrations support this feature.
 - Nested custom attributes cannot be used as a filter when making a Connected Audience API call.
+- By default, the **Nested Custom Attributes** segment filter includes object-type custom attributes, array-of-object attributes, and array-type custom attributes. When you select an attribute, the property schema selector includes array paths (using `[]` notation) for nested array fields. To hide top-level array custom attributes from that filter, contact [Braze Support]({{site.baseurl}}/braze_support).
 
 ## API example
 
@@ -279,16 +280,16 @@ Check that a schema has been generated if you don't see the option to insert nes
 
 ## Regenerate schemas {#regenerate-schema}
 
-After a schema has been generated, it can be regenerated once every 24 hours. This section describes how to regenerate your schema. For more detailed information on schemas, see [Generate a schema using the nested object explorer]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+After a schema has been generated, you can regenerate it **once per calendar day** (based on your company's time zone). This section describes how to regenerate your schema. For more detailed information on schemas, see [Generate a schema using the nested object explorer]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
 
 To regenerate the schema for your nested custom attribute:
 
 1. Go to **Data Settings** > **Custom Attributes**.
 2. Search for your nested custom attribute.
-3. In the **Attribute Name** column for your attribute, select <i class="fas fa-plus"></i> to manage the schema.
+3. In the **Attribute Name** column for your attribute, select <i class="fas fa-plus"></i> **Manage schema** to manage the schema.
 4. A modal will appear. Select **Regenerate Schema**.
 
-The option to regenerate schema will be disabled if it has been less than 24 hours since the schema was last regenerated. Regenerating the schema will only detect new objects and will not delete objects that currently exist in the schema.
+The **Regenerate Schema** action is limited to **once per calendar day** in your company's time zone. You can't start another regeneration while a schema job is already **in progress** (the option is unavailable while status is **Generating**). Regenerating the schema only detects new objects and does not delete objects that currently exist in the schema.
 
 {% alert important %}
 To reset the schema for an object array with an existing object, you need to create a new custom attribute. Schema regeneration doesn't delete existing objects.
@@ -326,7 +327,7 @@ A segment with the following AND filters:
 
 This user would qualify because the first filter matches the "Shoes" item (80 > 50) and the second filter matches the "Hat" item (25 < 30). Even though no single item satisfies both conditions, the user still enters the segment.
 
-If you need all conditions to match the same item within an array, use [multi-criteria segmentation](#multi-criteria-segmentation) on the same path, or restructure your data to avoid cross-item matching.
+If you need all conditions to match the same item within an array, use [multi-criteria segmentation]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) on the same path, or restructure your data to avoid cross-item matching.
 
 ## Data points
 

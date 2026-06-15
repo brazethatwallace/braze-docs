@@ -94,6 +94,16 @@ In the **Preview** tab of your composer, the view of your message might not be i
 - Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values) if the Liquid returns no information?
 - Is your copy clear, concise, and correct?
 - Do your links direct the user to where they should go?
+- Is your test user opted into push with a valid push token?
+
+### Troubleshooting broken images
+
+If a Content Card image is not rendering or appears broken:
+
+- **Verify the URL is correct and URL-encoded:** Special characters in the URL (such as spaces or query parameters) must be properly encoded. Otherwise, the image request fails.
+- **Check content security policies:** If your organization has a content security policy (CSP) or internal IT security rules, the policy may block the image domain. Confirm that the image URL's domain is allowed by your CSP.
+- **Use HTTPS:** Image URLs should use `https://` rather than `http://` to avoid mixed-content blocking in browsers and apps.
+- **Open the URL directly in a browser:** If the image doesn't load in a browser, the issue is with the image URL or hosting—not with Braze.
 
 ### Debug
 
@@ -232,6 +242,8 @@ The scanner runs automatically on custom HTML messages and evaluates your entire
 3. Select **Send Test** to send your drafted message to your device.
 
 ![Test push]({% image_buster /assets/img_archive/testpush.png %})
+
+If you see an error that none of the selected users have matching push tokens, the test user does not have a valid push token for the selected platform. The user must have started a session in the app and enabled push for that device. For more information, see [Push enablement and push subscription]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 #### Web push
 

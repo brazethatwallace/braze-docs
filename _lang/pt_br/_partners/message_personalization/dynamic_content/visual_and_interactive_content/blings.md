@@ -1,7 +1,7 @@
 ---
 nav_title: Blings
 article_title: Blings
-description: "Este artigo de referência descreve a integração entre Braze e Blings."
+description: "Este artigo de referência descreve a integração entre a Braze e a Blings."
 alias: /partners/blings/
 page_type: partner
 search_tag: Partner
@@ -9,54 +9,55 @@ search_tag: Partner
 
 # Blings
 
-> [A Blings](https://www.blings.io/) é uma plataforma de vídeo personalizado de última geração que o capacita a oferecer experiências de vídeo em tempo real, interativas e orientadas por dados em todos os canais e em escala.  
+> A [Blings](https://www.blings.io/) é uma plataforma de vídeo personalizado de última geração que permite oferecer experiências de vídeo em tempo real, interativas e orientadas por dados em todos os canais e em escala.
 
 _Essa integração é mantida pela Blings._
 
-## Pré-requisitos  
+## Pré-requisitos {#prerequisites}
 
-| Requisito     | Descrição                                                                 |
+| Requisito       | Descrição                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
-| Conta Blings  | É necessário ter uma conta Blings para aproveitar essa parceria.         |  
+| Conta Blings    | É necessário ter uma conta Blings para aproveitar essa parceria.         |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integração  
+## Integração {#integration}
 
-### Etapa 1: Obtenha seu snippet HTML do Blings
+### Etapa 1: Obtenha seu snippet HTML da Blings {#step-1-obtain-your-blings-html-snippet}
 
 {% tabs %}
 {% tab Blings business and free plans %}
 
-#### Negócios de blings e planos gratuitos
+#### Planos business e free da Blings {#blings-business-and-free-plans}
 
-Localize e copie seu snippet HTML diretamente no app Blings.
+Localize e copie seu snippet HTML diretamente no app da Blings.
 
-1. Acesse a guia **Connect (Conectar** ) do projeto MP5 selecionado.
-2. Adicione as tags Liquid do Braze às variáveis correspondentes na página Blings **Connect**. As tags preencherão dinamicamente os valores no snippet HTML. 
+1. Acesse a guia **Connect** do projeto MP5 selecionado.
+2. Adicione as Liquid tags da Braze às variáveis correspondentes na página **Connect** da Blings. As tags preencherão dinamicamente os valores no snippet HTML.
 
-![Trecho de HTML do Blings.]({% image_buster /assets/img/blings/blings_connect_audience.png %}){: style="max-width:70%;"}  
+![Snippet HTML da Blings.]({% image_buster /assets/img/blings/blings_connect_audience.png %}){: style="max-width:70%;"}
 
 {% endtab %}
 {% tab Blings Enterprise plan %}
 
-#### Plano da Blings Enterprise
+#### Plano Enterprise da Blings {#blings-enterprise-plan}
 
-Solicite o snippet de HTML ao seu representante da Blings. 
+Solicite o snippet HTML ao seu representante da Blings.
 
 {% endtab %}
 {% endtabs %}
 
-### Etapa 2: Criar uma campanha no Braze  
+### Etapa 2: Criar uma Campaign na Braze {#step-2-create-a-braze-campaign}
 
-No Braze, crie uma nova campanha de e-mail ou mensagem no app e insira o snippet HTML do Blings.
+Na Braze, crie uma nova Campaign de e-mail ou mensagem no app e insira o snippet HTML da Blings.
 
-![Campanha Blings Braze.]({% image_buster /assets/img/blings/blings_braze_campaign.png %})  
+![Campaign Blings na Braze.]({% image_buster /assets/img/blings/blings_braze_campaign.png %})
 
-### Etapa 3: Teste e lançamento  
+### Etapa 3: Teste e lançamento {#step-3-test-and-launch}
 
-Pré-visualize a campanha no Braze para confirmar que os campos personalizados estão sendo preenchidos corretamente. Em seguida, implemente sua campanha MP5 em escala.
+Pré-visualize a Campaign na Braze para confirmar que os campos personalizados estão sendo preenchidos corretamente. Em seguida, implemente sua Campaign MP5 em escala.
 
-![Prévia do Blings Braze.]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}  
+![Pré-visualização da Blings na Braze.]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}
 
-## Obtendo suporte  
+## Obtendo suporte {#getting-support}
 
-Em caso de dúvidas ou para solicitar seu snippet, entre em contato com a Blings em [support@blings.io](mailto:support@blings.io) ou consulte a [central de ajuda da Blings](https://blings.gitbook.io/blings-knowledge-base/documentation).  
+Em caso de dúvidas ou para solicitar seu snippet, entre em contato com a Blings em [support@blings.io](mailto:support@blings.io) ou consulte a [central de ajuda da Blings](https://blings.gitbook.io/blings-knowledge-base/documentation).

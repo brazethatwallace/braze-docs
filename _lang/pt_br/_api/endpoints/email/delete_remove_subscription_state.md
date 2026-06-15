@@ -11,22 +11,22 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze \"Exclu
 ---
 
 {% api %}
-# Excluir o estado da inscrição por endereço de e-mail ou número de telefone
+# Excluir o estado da inscrição por endereço de e-mail ou número de telefone {#delete-subscription-state-by-email-address-or-phone-number}
 {% apimethod delete %}
 /users/subscription
 {% endapimethod %}
 
-> Use esse ponto de extremidade para excluir o valor do estado da inscrição com base em um endereço de e-mail ou número de telefone.
+> Use esse endpoint para excluir o valor do estado da inscrição com base em um endereço de e-mail ou número de telefone.
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --- | --- | --- | --- |
 | `email` | Sim | String | O endereço de e-mail do usuário (deve incluir pelo menos um endereço e no máximo 50 endereços). |
-| `phone` | Sim | String | O número de telefone do usuário (deve incluir pelo menos um número de telefone e no máximo 50 números de telefone). Recomendamos fornecer isso no formato E.164. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `phone` | Sim | String | O número de telefone do usuário (deve incluir pelo menos um número de telefone e no máximo 50 números de telefone). Recomendamos fornecer no formato E.164. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```http
 Content-Type: application/json
@@ -38,7 +38,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## Resposta
+## Resposta {#response}
 
 ```json
 {

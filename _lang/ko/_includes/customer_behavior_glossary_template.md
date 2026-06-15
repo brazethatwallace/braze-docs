@@ -1,32 +1,45 @@
 ---
 nav_title: 고객 행동 및 사용자 이벤트
+article_title: 고객 행동 및 사용자 이벤트
 layout: customer_behavior_events_glossary
 page_order: 4
 excerpt_separator: ""
 page_type: glossary
-description: "이 용어집에는 Braze가 커런트를 사용하여 추적하고 선택한 데이터 웨어하우스로 전송할 수 있는 다양한 고객 행동 및 사용자 이벤트가 나열되어 있습니다."
+description: "이 용어집에는 Braze가 Currents를 사용하여 추적하고 선택한 데이터 웨어하우스로 전송할 수 있는 다양한 고객 행동 및 사용자 이벤트가 나열되어 있습니다."
 tool: Currents
 search_rank: 7
 ---
 
-추가 이벤트 자격에 대한 액세스가 필요한 경우 Braze 담당자에게 문의하거나 [지원 티켓을]({{site.baseurl}}/braze_support/) 개설하세요. 이 페이지에서 필요한 정보를 찾을 수 없다면 [메시지 참여 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/) 또는 [커런츠 샘플 데이터 예시를](https://github.com/Appboy/currents-examples/tree/master/sample-data) 확인하세요.
+<div class="api-glossary-preamble" markdown="1">
 
-{% details Explanation of customer behavior and user event structure and platform values %}
+{% details 스키마 범위 및 관련 리소스 %}
 
-### 이벤트 구조
+저장 스키마는 데이터 웨어하우스 저장 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 여기에 나열된 일부 이벤트와 대상 조합은 아직 일반 공개되지 않았습니다. 다양한 파트너가 지원하는 이벤트에 대한 자세한 내용은 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) 목록을 참조하고 각 파트너 페이지를 확인하세요.
 
-이 고객 행동 및 사용자 이벤트 분석은 일반적으로 고객 행동 또는 사용자 이벤트에 어떤 유형의 정보가 포함되는지 보여줍니다. 구성 요소에 대한 확실한 이해를 바탕으로 개발자와 비즈니스 인텔리전스 전략 팀은 수신되는 Currents 이벤트 데이터를 사용하여 데이터 기반 보고서와 차트를 만들고 다른 유용한 데이터 메트릭을 활용할 수 있습니다.
+{% alert tip %}
+이러한 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부 정보는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)를 확인하세요.
+{% endalert %}
 
-![구매 이벤트를 보여주는 사용자 이벤트의 분석으로, 사용자 특정 속성, 행동 특정 속성 및 기기 특정 속성으로 그룹화된 나열된 속성]({% image_buster /assets/img/customer_engagement_event.png %})
+추가 이벤트 자격에 대한 액세스가 필요한 경우 Braze 담당자에게 문의하거나 [고객지원 티켓]({{site.baseurl}}/braze_support/)을 개설하세요. 이 페이지에서 필요한 정보를 찾을 수 없다면 [메시지 참여 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 또는 [Currents 샘플 데이터 예시](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인하세요.
 
-고객 행동 및 사용자 이벤트는 **사용자별** 속성, **행동별** 속성, **기기별** 속성으로 구성됩니다.
+{% enddetails %}
 
-### 플랫폼 가치
+{% details 고객 행동 및 사용자 이벤트 구조와 플랫폼 값 설명 %}
+
+### 이벤트 구조 {#event-structure}
+
+이 고객 행동 및 사용자 이벤트 분석은 일반적으로 고객 행동 또는 사용자 이벤트에 어떤 유형의 정보가 포함되는지 보여줍니다. 구성요소를 확실히 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 활용하여 데이터 중심 보고서와 차트를 만들고, 다른 유용한 데이터 측정기준도 활용할 수 있습니다.
+
+![사용자별 등록정보, 동작별 등록정보, 기기별 등록정보로 그룹화된 구매 이벤트를 보여주는 사용자 이벤트 분석]({% image_buster /assets/img/customer_engagement_event.png %})
+
+고객 행동 및 사용자 이벤트는 **사용자별** 등록정보, **동작별** 등록정보, **기기별** 등록정보로 구성됩니다.
+
+### 플랫폼 값 {#platform-values}
 
 특정 이벤트는 사용자 기기의 플랫폼을 지정하는 `platform` 값을 반환합니다.
 <br>다음 표에서는 반환 가능한 값을 자세히 설명합니다:
 
-| 사용자 디바이스 | 플랫폼 가치 |
+| 사용자 기기 | 플랫폼 값 |
 | --- | --- |
 | iOS | `ios` |
 | Android | `android` |
@@ -35,10 +48,17 @@ search_rank: 7
 | 웹 | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 
-{% alert important %}
-저장 스키마는 우리가 데이터 웨어하우스 저장 파트너(예: Google Cloud Storage, Amazon S3 및 Microsoft Azure Blob Storage)로 보내는 평면 파일 이벤트 데이터에 적용됩니다. 여기에 나열된 일부 이벤트와 목적지 조합은 아직 일반적으로 사용할 수 없습니다. 다양한 파트너가 지원하는 이벤트에 대한 자세한 내용은 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/) 목록을 참조하여 각 페이지를 확인하세요.<br><br>또한, 커런츠는 페이로드가 900KB를 초과하는 지나치게 큰 이벤트는 삭제한다는 점에 유의하세요.
-{% endalert %}
+{% details 고객 행동 및 사용자 이벤트에 대한 고려 사항 %}
+
+- Currents는 페이로드가 900&nbsp;KB를 초과하는 지나치게 큰 이벤트는 삭제합니다.
+- 이 용어집에 있는 많은 이벤트는 SDK에서 시작됩니다. `token_state_change`와 같은 일부 이벤트는 SDK 또는 백엔드에서 시작될 수 있습니다(예: 푸시 반송에 대한 응답으로). `sdk_version`, `gender`, `language`, `country` 필드는 SDK에서 시작된 이벤트에서만 설정됩니다. 백엔드에서 시작된 이벤트이거나 해당 정보를 사용할 수 없거나 사용자에 대해 설정되지 않은 경우 이러한 필드는 `null`일 수 있습니다.
+
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->

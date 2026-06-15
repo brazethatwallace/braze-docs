@@ -1,16 +1,16 @@
 ---
-nav_title: "GET : Intégrations de listes"
-article_title: "GET : Intégrations de listes"
+nav_title: "GET : Lister les intégrations"
+article_title: "GET : Lister les intégrations"
 search_tag: Endpoint
 page_order: 1
 alias: /api/cdi/get_integration_list/
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Lister des intégrations."
+description: "Cet article présente en détail l'endpoint Braze Lister les intégrations."
 
 ---
 {% api %}
-# Intégrations de listes
+# Lister les intégrations {#list-integrations}
 {% apimethod get %}
 /cdi/integrations
 {% endapimethod %}
@@ -19,25 +19,25 @@ description: "Cet article présente en détail l’endpoint Braze Lister des int
 
 
 {% alert note %}
-Pour utiliser cet endpoint, vous devrez générer une clé API avec l’autorisation `cdi.integration_list`.
+Pour utiliser cet endpoint, vous devrez générer une clé API avec l'autorisation `cdi.integration_list`.
 {% endalert %}
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='cdi list integrations' %}
 
-## Paramètres de recherche
+## Paramètres de requête {#query-parameters}
 
-Chaque appel à cet endpoint renverra 10 éléments. Pour une liste comportant plus de 10 intégrations, utilisez l'en-tête `Link` pour récupérer les données à la page suivante, comme le montre l'exemple de réponse.
+Chaque appel à cet endpoint renverra 10 éléments. Pour une liste comportant plus de 10 intégrations, utilisez l'en-tête `Link` pour récupérer les données de la page suivante, comme le montre l'exemple de réponse.
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `cursor` | Facultatif | Chaîne de caractères | Détermine la pagination de la liste d'intégration. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `cursor` | Facultatif | Chaîne de caractères | Détermine la pagination de la liste d'intégrations. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
-### Sans curseur
+### Sans curseur {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations' \
@@ -45,7 +45,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### Avec curseur
+### Avec curseur {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cursor=c2tpcDow' \
@@ -53,14 +53,14 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cu
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Réponse
+## Réponse {#response}
 
-### Exemple de réponse réussie
+### Exemple de réponse réussie {#example-success-response}
 
 Le code de statut `200` pourrait renvoyer le corps de réponse suivant.
 
 {% alert note %}
-L’en-tête `Link` n’existera pas s’il y a, au total, 10 intégrations ou moins. Pour les appels sans curseur, `prev` ne s’affichera pas. Lors de la consultation de la dernière page de produits, `next` ne s’affichera pas.
+L'en-tête `Link` n'existera pas s'il y a, au total, 10 intégrations ou moins. Pour les appels sans curseur, `prev` ne s'affichera pas. Lors de la consultation de la dernière page d'éléments, `next` ne s'affichera pas.
 {% endalert %}
 
 ```
@@ -88,15 +88,15 @@ Link: </cdi/integrations?cursor=c2tpcDow>; rel="prev",</cdi/integrations?cursor=
 }
 ```
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
-Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes de résolution des problèmes associées.
+Le tableau suivant répertorie les erreurs possibles et les étapes de résolution associées.
 
 | Erreur | Résolution des problèmes |
 | --- | --- |
 | `400 Invalid cursor` | Vérifiez que votre `cursor` est valide. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
-Pour obtenir des codes d'état supplémentaires et les messages d'erreur associés, veuillez vous référer aux [&réponses aux erreurs fatales]({{site.baseurl}}/api/errors/#fatal-errors).
+Pour obtenir des codes de statut supplémentaires et les messages d'erreur associés, consultez la section [Erreurs fatales et réponses]({{site.baseurl}}/api/errors/#fatal-errors).
 
 {% endapi %}

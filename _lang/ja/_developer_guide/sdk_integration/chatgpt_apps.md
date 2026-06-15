@@ -2,30 +2,30 @@
 page_order: 2.1
 nav_title: ChatGPTアプリ
 article_title: BrazeをChatGPTアプリと統合する
-description: "BrazeをChatGPTアプリと統合する方法を学習し、AI搭載アプリケーション内で分析とイベント記録をイネーブルメントせよ。"
+description: "BrazeをChatGPTアプリと統合し、AI搭載アプリケーション内で分析とイベントロギングを有効にする方法を説明します。"
 platform:
   - ChatGPT Apps
 ---
 
-# BrazeをChatGPTアプリと連携させる
+# BrazeをChatGPTアプリと統合する {#integrate-braze-with-chatgpt-apps}
 
-> このガイドでは、BrazeをChatGPTアプリと統合し、AI搭載アプリケーション内で分析とイベント記録をイネーブルメントする方法を説明する。
+> このガイドでは、BrazeをChatGPTアプリと統合し、AI搭載アプリケーション内で分析とイベントロギングを有効にする方法を説明します。
 
 ![ChatGPTアプリに統合されたコンテンツカード。]({% image_buster /assets/img/chatgpt_app_integration.png %}){: style="float:right;max-width:30%;border:none;" }
 
-## 概要
+## 概要 {#overview}
 
-ChatGPTアプリは、AI対話型アプリケーションを構築するための強力なプラットフォームを提供する。BrazeをChatGPTアプリと統合することで、AI時代においてもファーストパーティデータのコントロール権限を維持し続けられる。具体的には以下の方法がある：
+ChatGPTアプリは、AI対話型アプリケーションを構築するための強力なプラットフォームを提供します。BrazeをChatGPTアプリと統合することで、AI時代においてもファーストパーティデータのコントロールを維持し続けることができます。具体的には以下のことが可能です：
 
-- ChatGPTアプリ内でのユーザーのエンゲージメントと行動をトラッキングする（例えば、顧客がどの質問やチャット機能を利用しているかを識別する）
-- AIのインタラクションパターンに基づいてBrazeキャンペーンをセグメント化し、リターゲティングする（例：週に3回以上チャットを利用したユーザーにメールを送る）
+- ChatGPTアプリ内でのユーザーエンゲージメントと動作をトラッキングする（例：顧客がどの質問やチャット機能を利用しているかを特定する）
+- AIインタラクションパターンに基づいてBraze キャンペーンをセグメント化し、リターゲティングする（例：週に3回以上チャットを利用したユーザーにメールを送信する）
 
-### 主な利点
+### 主な利点 {#key-benefits}
 
-- **カスタマージャーニーを掌握せよ：**ユーザーがChatGPTを通じてあなたのブランドとやり取りする間、あなたは彼らの行動、好み、エンゲージメントパターンを把握し続ける。このデータはAIプラットフォームの分析機能だけでなく、Brazeのユーザープロファイルに直接流れ込む。
-- **クロスプラットフォーム・リターゲティング：**ChatGPTアプリでのユーザーの操作をトラッキングし、そのAI利用パターンに基づいたパーソナライズされたキャンペーンで、自社所有チャネル（メール、SMS、プッシュ通知、アプリ内メッセージ）全体でリターゲティングする。
-- **ChatGPTの会話に1:1のプロモーションコンテンツを返す：**チームがアプリ用に構築したカスタム対話型UIコンポーネントを使って、ChatGPT体験内で直接、Brazeの[アプリ内メッセージ]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages)や[コンテンツカード]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards)などを配信する。
-- **収益アトリビューション：**ChatGPTアプリのやり取りから発生した購入とコンバージョンをトラッキングする。
+- **カスタマージャーニーを自分のものに：** ユーザーがChatGPTを通じてブランドとやり取りする間も、その動作、好み、エンゲージメントパターンを把握し続けることができます。このデータはAIプラットフォームの分析だけでなく、Brazeユーザープロファイルに直接流れ込みます。
+- **クロスプラットフォームリターゲティング：** ChatGPTアプリでのユーザーインタラクションをトラッキングし、AI利用パターンに基づいたパーソナライズ済みキャンペーンで、自社チャネル（メール、SMS、プッシュ通知、アプリ内メッセージ）全体でリターゲティングできます。
+- **ChatGPTの会話に1:1のプロモーションコンテンツを返す：** チームがアプリ用に構築したカスタム対話型UIコンポーネントを使って、ChatGPT体験内で直接Brazeの[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/)、[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)などを配信できます。
+- **収益アトリビューション：** ChatGPTアプリのインタラクションから発生した購入とコンバージョンをトラッキングできます。
 
 <!-- ### Practical Use Cases
 
@@ -37,12 +37,11 @@ ChatGPTアプリは、AI対話型アプリケーションを構築するため�
 
 By integrating Braze with your ChatGPT App, you ensure that every AI interaction becomes a data point in your customer engagement strategy, not just a black box interaction on someone else's platform. -->
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-BrazeをChatGPTアプリと統合する前に、以下の準備が必要だ：
+BrazeをChatGPTアプリと統合する前に、以下が必要です：
 
-- Brazeワークスペースに新しいWebアプリとAPI キーが追加された
+- BrazeワークスペースにWebアプリとAPIキーが新規作成されていること
 - OpenAIプラットフォームで作成された[ChatGPTアプリ](https://openai.com/index/introducing-apps-in-chatgpt/)（[OpenAIサンプルアプリ](https://github.com/openai/openai-apps-sdk-examples)）
 
 {% multi_lang_include developer_guide/chatgpt_apps/sdk_integration.md %}
-

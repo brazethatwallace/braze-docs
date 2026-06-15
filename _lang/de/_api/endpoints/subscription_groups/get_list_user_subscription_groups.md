@@ -1,26 +1,26 @@
 ---
-nav_title: "GET: Nutzer:innen Abo-Gruppen auflisten"
-article_title: "GET: Nutzer:innen Abo-Gruppen auflisten"
+nav_title: "GET: Abo-Gruppen von Nutzer:innen auflisten"
+article_title: "GET: Abo-Gruppen von Nutzer:innen auflisten"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts Nutzer:innen Abo-Gruppen auflisten."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Abo-Gruppen von Nutzer:innen auflisten“."
 
 ---
 {% api %}
-# Abo-Gruppen des Nutzers:innen auflisten
+# Abo-Gruppen von Nutzer:innen auflisten {#list-users-subscription-groups}
 {% apimethod get %}
-/abonnement/benutzer/status
+/subscription/user/status
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um die Abo-Gruppen mit dem Verlauf eines bestimmten Nutzers aufzulisten und abzurufen.
+> Verwenden Sie diesen Endpunkt, um die Abo-Gruppen mit dem Verlauf bestimmter Nutzer:innen aufzulisten und abzurufen.
 
-Wenn Sie Beispiele sehen oder diesen Endpunkt für **E-Mail Abo-Gruppen** testen möchten:
+Wenn Sie Beispiele sehen oder diesen Endpunkt für **E-Mail-Abo-Gruppen** testen möchten:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d1c3b617-22f1-47bf-9ee8-499526824470 {% endapiref %}
 
-Wenn Sie Beispiele sehen oder diesen Endpunkt für **SMS Abo-Gruppen** testen möchten:
+Wenn Sie Beispiele sehen oder diesen Endpunkt für **SMS-Abo-Gruppen** testen möchten:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#54bd7ca8-60d9-4654-aff5-406479f3c666 {% endapiref %}
 
@@ -28,7 +28,7 @@ Wenn Sie Beispiele sehen oder diesen Endpunkt für **WhatsApp-Gruppen** testen m
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#54bd7ca8-60d9-4654-aff5-406479f3c666 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `subscription.groups.get`.
 
@@ -36,22 +36,22 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `external_id`  | Erforderlich | String | Die `external_id` des Nutzers:in (muss mindestens eine und darf höchstens 50 `external_ids` enthalten). |
-| `email`  |  Erforderlich* | String | Die E-Mail Adresse des Nutzers:innen, kann als String-Array übergeben werden. Sie müssen mindestens eine E-Mail Adresse angeben (maximal 50). |
-| `phone` | Erforderlich* | String in [E.164](https://en.wikipedia.org/wiki/E.164) Format | Die Telefonnummer der Nutzer:in. Muss mindestens eine Telefonnummer enthalten (maximal 50). |
-| `limit` | Optional | Integer | Das Limit für die maximale Anzahl der zurückgegebenen Ergebnisse. Standard (und maximal) `limit` ist 100. |
-| `offset`  |  Optional | Integer | Anzahl der Templates, die übersprungen werden sollen, bevor der Rest der Templates, die den Suchkriterien entsprechen, zurückgegeben wird. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `external_id` | Erforderlich | String | Die `external_id` der Nutzer:in (muss mindestens eine und darf höchstens 50 `external_ids` enthalten). |
+| `email` | Erforderlich* | String | Die E-Mail-Adresse der Nutzer:in. Kann als String-Array übergeben werden. Es muss mindestens eine E-Mail-Adresse angegeben werden (maximal 50). |
+| `phone` | Erforderlich* | String im [E.164](https://en.wikipedia.org/wiki/E.164)-Format | Die Telefonnummer der Nutzer:in. Es muss mindestens eine Telefonnummer angegeben werden (maximal 50). |
+| `limit` | Optional | Integer | Das Limit für die maximale Anzahl der zurückgegebenen Ergebnisse. Standard (und Maximum) für `limit` ist 100. |
+| `offset` | Optional | Integer | Anzahl der Templates, die übersprungen werden sollen, bevor die restlichen Templates zurückgegeben werden, die den Suchkriterien entsprechen. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert tip %}
-Wenn es mehrere Nutzer:innen (mehrere `external_ids`) gibt, die dieselbe E-Mail Adresse haben, werden alle Nutzer:innen als separate Nutzer:innen angezeigt (auch wenn sie dieselbe E-Mail Adresse oder Abo-Gruppe haben).
+Wenn mehrere Nutzer:innen (mehrere `external_ids`) dieselbe E-Mail-Adresse haben, werden alle Nutzer:innen als separate Nutzer:innen zurückgegeben (auch wenn sie dieselbe E-Mail-Adresse oder Abo-Gruppe haben).
 {% endalert %}
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 {% tabs %}
 {% tab Multiple Users %}
@@ -77,9 +77,9 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/use
 {% endtab %}
 {% endtabs %}
 
-## Beispielhafte Antwort
+## Beispielantwort {#example-response}
 
-Nur Abo-Gruppen, für die im Verlauf eines Nutzers:in ein Update des Abo-Status erfolgt ist, werden in einer erfolgreichen Antwort berücksichtigt. Das bedeutet, dass neu erstellte Abo-Gruppen nicht aufgelistet werden.
+Nur Abo-Gruppen, für die im Verlauf einer Nutzer:in ein Update des Abo-Status erfolgt ist, werden in einer erfolgreichen Antwort berücksichtigt. Das bedeutet, dass neu erstellte Abo-Gruppen nicht aufgelistet werden.
 
 ```json
 {

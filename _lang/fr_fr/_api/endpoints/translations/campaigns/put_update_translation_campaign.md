@@ -1,53 +1,51 @@
 ---
-nav_title: "PUT : Mise à jour de la traduction dans une campagne"
-article_title: "PUT : Mettre à jour la traduction dans une campagne"
+nav_title: "PUT : Mise à jour de la traduction dans une campagne"
+article_title: "PUT : Mise à jour de la traduction dans une campagne"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Mettre à jour la traduction dans une campagne."
+description: "Cet article présente en détail l'endpoint Braze Mettre à jour la traduction dans une campagne."
 ---
 
 {% api %}
-# Mise à jour de la traduction dans une campagne
+# Mettre à jour la traduction dans une campagne {#update-translation-in-a-campaign}
 {% apimethod put %}
-/campagnes/traductions
+/campaigns/translations
 {% endapimethod %}
 
-> Utilisez cet endpoint pour mettre à jour plusieurs traductions pour une campagne. Veuillez consulter [la section Locales dans les messages]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) pour plus d'informations sur les fonctionnalités de traduction.
+> Utilisez cet endpoint pour mettre à jour plusieurs traductions pour une campagne. Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
 
-Si vous souhaitez mettre à jour les traductions après le lancement d'une campagne, vous devrez d'abord [enregistrer votre message en tant que brouillon]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/).
+Si vous souhaitez mettre à jour les traductions après le lancement d'une campagne, vous devrez d'abord [enregistrer votre message en tant que brouillon]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+## Conditions préalables {#prerequisites}
 
-## Conditions préalables
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `campaigns.translations.update`.
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `campaigns.translations.update`.
-
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Paramètres de chemin
+## Paramètres de chemin {#path-parameters}
 
-Cet endpoint n’a pas de chemin de paramètres.
+Cet endpoint n'a pas de paramètres de chemin.
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `campaign_id` | Requis | Chaîne de caractères | L'ID de votre campagne. |
 | `message_variation_id` | Requis | Chaîne de caractères | L'ID de la variation de votre message. |
-| `locale_id`| Requis | Chaîne de caractères | L'ID (UUID) de la locale. |
+| `locale_id` | Requis | Chaîne de caractères | L'ID (UUID) de la locale. |
 | `translation_map` | Requis | Objet | Objet contenant les nouvelles traductions. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
-Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), qui peuvent être trouvés dans la réponse de l'endpoint GET.
+Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), disponibles dans la réponse de l'endpoint GET.
 {% endalert %}
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 ```json
 {
@@ -60,11 +58,11 @@ Tous les ID de traduction sont considérés comme des identifiants uniques unive
 }
 ```
 
-## Réponse
+## Réponse {#response}
 
-Quatre réponses de code de statut existent pour cet endpoint : `200`, `400`, `404` et `429`.
+Il existe quatre codes de statut de réponse pour cet endpoint : `200`, `400`, `404` et `429`.
 
-### Exemple de réponse réussie
+### Exemple de réponse réussie {#example-success-response}
 
 ```json
 {
@@ -72,9 +70,9 @@ Quatre réponses de code de statut existent pour cet endpoint : `200`, `400`, `
 }
 ```
 
-### Exemple de réponse échouée
+### Exemple de réponse échouée {#example-error-response}
 
-Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la résolution des problèmes[](#troubleshooting) pour plus d’informations concernant les erreurs que vous pourriez rencontrer.
+Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la section [Résolution des problèmes](#troubleshooting) pour plus d'informations sur les erreurs que vous pourriez rencontrer.
 
 ```json
 {

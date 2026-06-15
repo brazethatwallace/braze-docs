@@ -1,7 +1,7 @@
 ---
 nav_title: Jebbit
 article_title: Jebbit
-description: "Este artigo de referência descreve a parceria entre o Braze e o Jebbit, uma PaaS que permite passar e-mails e atribuições de usuários de suas campanhas do Jebbit como dados de usuários para o Braze em tempo real."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Jebbit, uma PaaS que permite passar e-mails e atributos de usuários das suas campanhas da Jebbit como dados de usuários para a Braze em tempo real."
 alias: /partners/jebbit/
 page_type: partner
 search_tag: Partner
@@ -12,43 +12,42 @@ search_tag: Partner
 
 > A [Jebbit](https://www.jebbit.com/) é uma PaaS que permite criar experiências de engajamento para que os usuários capturem dados primários.
 
-_Esta integração é mantida pelo Jebbit._
+_Esta integração é mantida pela Jebbit._
 
-## Sobre a integração
+## Sobre a integração {#about-the-integration}
 
-A integração entre a Braze e a Jebbit permite passar e-mails e atribuições de usuários das suas campanhas da Jebbit como dados de usuários para a Braze em tempo real. Esses dados podem então ser usados para impulsionar iniciativas de marketing, como campanhas de e-mail personalizadas e disparos. 
+A integração entre a Braze e a Jebbit permite passar e-mails e atributos de usuários das suas campanhas da Jebbit como dados de usuários para a Braze em tempo real. Esses dados podem então ser usados para impulsionar iniciativas de marketing, como campanhas de e-mail personalizadas e gatilhos.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 |---|---|
-|Conta da Jebbit | É necessário ter uma conta da Jebbit para usar a parceria. |
-| Chave da API REST do Braze | Uma chave da API REST da Braze com todas as permissões de dados de usuários. <br><br> Isso pode ser criado no dashboard do Braze em **Configurações** > **Chaves de API**. |
-|Ponto de extremidade REST do Braze | Sua URL de endpoint REST. Seu endpoint dependerá do [URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Conta da Jebbit | É necessário ter uma conta da Jebbit para usar essa parceria. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões de dados de usuários. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Integração
+## Integração {#integration}
 
-Ao solicitar a integração com a Jebbit, avise-nos caso seja necessário cumprir algum prazo rígido. Além disso, confirme se você tem os atributos mapeados nas experiências da Jebbit que gostaria de passar para a Braze.
+Ao solicitar a integração com a Jebbit, avise caso seja necessário cumprir algum prazo rígido. Além disso, confirme se você tem os atributos mapeados nas experiências da Jebbit que gostaria de passar para a Braze.
 
-### Etapa 1: Fornecer credenciais da API
+### Etapa 1: Fornecer credenciais da API {#step-1-provide-api-credentials}
 
-Forneça suas credenciais de API ao Jebbit em um arquivo de texto por meio de uma solicitação de arquivo do Dropbox.
-Envie seu arquivo usando o seguinte [URL do Dropbox](https://www.dropbox.com/request/RqKQHkJHXw1cFBKbXpZx).
+Forneça suas credenciais de API para a Jebbit em um arquivo de texto por meio de uma solicitação de arquivo do Dropbox.
+Envie seu arquivo usando a seguinte [URL do Dropbox](https://www.dropbox.com/request/RqKQHkJHXw1cFBKbXpZx).
 
-### Etapa 2: confirme o envio do teste
+### Etapa 2: Confirmar o envio de teste {#step-2-confirm-test-submission}
 
-Um engenheiro da Jebbit atribuído à sua integração fará o push de um envio de teste da Jebbit para a Braze, dando a você a oportunidade de ver como os dados ficarão no ambiente da Braze. Essa é a etapa final da ativação da integração. Agora que seus dados da Jebbit estão configurados, use-os para conduzir suas iniciativas de marketing.
+Um engenheiro da Jebbit atribuído à sua integração fará o push de um envio de teste da Jebbit para a Braze, para que você possa ver como os dados ficarão no seu ambiente da Braze. Essa é a etapa final da ativação da integração. Agora que seus dados da Jebbit estão configurados, use-os para impulsionar suas iniciativas de marketing.
 
 {% alert note %}
-A ID de atribuição que você definiu no Jebbit é como o nome do campo de atribuição será mostrado no Braze.
+O ID de atributo que você definiu na Jebbit é como o nome do campo de atributo será exibido na Braze.
 {% endalert %}
 
-## Personalização
+## Personalização {#customization}
 
-Atualmente, damos suporte especificamente aos pontos de extremidade [de dados de usuários]({{site.baseurl}}/api/endpoints/user_data/), mas é possível dar suporte a solicitações de diferentes pontos de extremidade.
+Atualmente, oferecemos suporte especificamente aos endpoints de [dados de usuários]({{site.baseurl}}/api/endpoints/user_data/), mas solicitações para diferentes endpoints também podem ser atendidas.
 
 Os nomes dos campos de atributos também podem ser personalizados de acordo com sua preferência.
 
-Se quiser adicionar outros atributos da Jebbit à Braze, mapeie o novo atributo na sua conta da Jebbit. A atribuição será exibida automaticamente no Braze à medida que você coletar dados para esse atributo.
-
+Se quiser adicionar outros atributos da Jebbit à Braze, mapeie o novo atributo na sua conta da Jebbit. O atributo será exibido automaticamente na Braze à medida que você coletar dados para ele.

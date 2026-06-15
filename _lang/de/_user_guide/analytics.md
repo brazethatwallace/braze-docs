@@ -1,27 +1,28 @@
 ---
 nav_title: Analytics
 article_title: Analytics
-page_order: 3
+page_order: 7.5
 layout: dev_guide
 
 guide_top_header: "Analytics"
-guide_top_text: "Braze bietet eine Vielzahl von Metriken zur Messung Ihrer Kampagnen-Performance. Außerdem bieten wir Ihnen zahlreiche Berichterstellungs- und Tracking-Funktionen, damit Sie die Zahlen erhalten, die Sie benötigen.<br><br>Nutzen Sie die Daten von Braze zur Ergänzung Ihrer Business-Intelligence- (BI) und Analytics-Bemühungen in anderen erstklassigen Berichtsplattformen mit <a href='/docs/user_guide/data_and_analytics/braze_currents/'>Currents</a>, einem Daten-Stream-Export-Tool, mit dem Ihr Team auf große Mengen granularer Kundendaten reagieren kann."
-description: "Braze bietet eine Vielzahl von Metriken, die Sie zur Messung des Erfolgs Ihrer Kampagnen verwenden können. Außerdem bieten wir mehrere Berichterstellungs- und Tracking-Funktionen, um sicherzustellen, dass Sie die Zahlen erhalten, die Sie benötigen." 
+guide_top_text: "Braze bietet umfassende Metriken und Berichtstools, um die Kampagnen-Performance zu messen, das Nutzer:innen-Engagement zu verfolgen und datengestützte Entscheidungen zu treffen. Ergänzen Sie Ihre Analytics außerdem mit <a href='/docs/user_guide/data/distribution/braze_currents'>Currents</a>, einem Daten-Streaming-Export-Tool, mit dem Sie große Mengen granularer Kundendaten in Ihren eigenen BI-Plattformen nutzen können."
+description: "Nutzen Sie Braze Analytics, um die Kampagnen-Performance zu messen, das Nutzer:innen-Engagement zu verfolgen und auf detaillierte Berichte und Dashboards zuzugreifen."
 
-guide_featured_title: "Themen"
+guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
-  - name: Tracking
-    link: /docs/user_guide/analytics/tracking/
-    image: /assets/img/braze_icons/line-chart-up-01.svg
-  - name: Ihr Analytics Dashboard
-    link: /docs/user_guide/analytics/dashboard/
+  - name: Dashboards
+    link: /docs/user_guide/analytics/dashboards
     image: /assets/img/braze_icons/trend-up-01.svg
-  - name: Ihre Berichte
-    link: /docs/user_guide/analytics/reporting/
+  - name: Berichte
+    link: /docs/user_guide/analytics/reports
     image: /assets/img/braze_icons/bar-chart-01.svg
-  - name: Abfrage-Builder
-    link: /docs/user_guide/analytics/query_builder/
-    image: /assets/img/braze_icons/code-02.svg
+  - name: Tracking
+    link: /docs/user_guide/analytics/tracking
+    image: /assets/img/braze_icons/line-chart-up-01.svg
+  - name: Metriken-Glossar
+    link: /docs/user_guide/analytics/metrics_glossary
+    image: /assets/img/braze_icons/book-closed.svg
 
 ---
-<br><br>
+
+Verwenden Sie **Dashboards** für einen schnellen Performance-Überblick, **Berichte** für tiefergehende Analysen über Campaigns und Canvases hinweg und **Tracking**, um zu konfigurieren, wie Braze Nutzer:innen-Aktionen erfasst. Wenn Sie sich nicht sicher sind, was eine bestimmte Metrik bedeutet, schauen Sie im **Metriken-Glossar** nach.

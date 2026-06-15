@@ -2,7 +2,7 @@
 nav_title: Splio
 article_title: Splio
 alias: /partners/splio/
-description: "Cet article de référence présente le partenariat entre Braze et Splio, qui vous permet d'envoyer des campagnes plus ciblées, de trouver de nouvelles opportunités de produits et d'augmenter vos chiffres d'affaires."
+description: "Cet article de référence présente le partenariat entre Braze et Splio, qui vous permet d'envoyer des campagnes plus ciblées, de trouver de nouvelles opportunités de produits et d'augmenter votre chiffre d'affaires."
 page_type: partner
 search_tag: Partner
 
@@ -14,60 +14,60 @@ search_tag: Partner
 
 L'intégration de Braze et Splio vous permet de planifier et d'exécuter de meilleures stratégies CRM, d'envoyer des campagnes plus ciblées, de trouver de nouvelles opportunités de produits et d'augmenter votre chiffre d'affaires.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 |---|---|
 | Compte Splio | Vous avez besoin d'un compte Splio pour ce partenariat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Intégration de l'importation de données
+## Intégration de l'importation de données {#data-import-integration}
 
 Pour intégrer Braze et Splio, vous devez configurer la plateforme Splio, exporter une campagne Splio existante et créer un segment de cohorte dans Braze pour cibler les utilisateurs dans les futures campagnes.
 
-### Étape 1 : Obtenez la clé d'importation des données Braze
+### Étape 1 : Obtenir la clé d'importation des données Braze {#step-1-get-the-braze-data-import-key}
 
-Dans Braze, allez dans **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Splio**.
+Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Splio**.
 
-Trouvez votre endpoint REST et générez votre clé d'importation des données Braze. Après avoir généré la clé, vous pouvez créer une nouvelle clé ou invalider une clé existante.<br><br>![La page partenaire technologique de Splio avec l'endpoint REST et la clé d'importation des données.]({% image_buster /assets/img/tinyclues/tinyclues_6.png %}){: style="max-width:90%;"}
+Trouvez votre endpoint REST et générez votre clé d'importation des données Braze. Après avoir généré la clé, vous pouvez en créer une nouvelle ou invalider une clé existante.<br><br>![La page partenaire technologique de Splio avec l'endpoint REST et la clé d'importation des données.]({% image_buster /assets/img/tinyclues/tinyclues_6.png %}){: style="max-width:90%;"}
 
 Pour terminer l'intégration, fournissez la clé d'importation des données et l'endpoint REST à votre équipe d'exploitation des données Splio. Splio établit la connexion et vous contacte une fois la configuration terminée.
 
-### Étape 2 : Exporter une campagne depuis la plateforme Splio
+### Étape 2 : Exporter une campagne depuis la plateforme Splio {#step-2-export-a-campaign-from-the-splio-platform}
 
 Chaque fois que vous souhaitez créer une cohorte d'utilisateurs Splio dans Braze, vous devez d'abord l'exporter depuis la plateforme Splio.
 
-Dans Splio, sélectionnez les campagnes que vous souhaitez exporter et cliquez sur **Exporter les campagnes.** Après l'exportation, l'audience est automatiquement téléchargée sur votre compte Braze.
+Dans Splio, sélectionnez les campagnes que vous souhaitez exporter et cliquez sur **Export Campaigns**. Après l'exportation, l'audience est automatiquement téléchargée sur votre compte Braze.
 
-![Exporter des campagnes depuis la plateforme Splio.]({% image_buster /assets/img/tinyclues/tinyclues_1.png %})
+![Exportation de campagnes depuis la plateforme Splio.]({% image_buster /assets/img/tinyclues/tinyclues_1.png %})
 
-### Étape 3 : Créez un segment à partir de l'audience personnalisée de Splio.
+### Étape 3 : Créer un segment à partir de l'audience personnalisée de Splio {#step-3-create-a-segment-from-the-splio-custom-audience}
 
-Dans Braze, naviguez vers **Segments**, nommez votre segment de cohorte Splio et sélectionnez **Cohortes Splio** comme filtre. À partir de là, choisissez la cohorte Splio à inclure. Après avoir créé votre segment de cohorte Splio, vous pouvez le sélectionner comme filtre d'audience lors de la création d'une campagne ou d'un Canvas.
+Dans Braze, accédez à **Segments**, nommez votre segment de cohorte Splio et sélectionnez **Splio Cohorts** comme filtre. À partir de là, choisissez la cohorte Splio à inclure. Après avoir créé votre segment de cohorte Splio, vous pouvez le sélectionner comme filtre d'audience lors de la création d'une campagne ou d'un Canvas.
 
 ![Création d'un segment de cohorte Splio dans Braze.]({% image_buster /assets/img/tinyclues/tinyclues_3.png %}){: style="max-width:90%;"}<br><br>
-![Dans le générateur de segments de Braze, le filtre d'attributs utilisateur "Splio cohorte" est défini sur "inclut" et "Cohorte primaire".]({% image_buster /assets/img/tinyclues/tinyclues_4.png %}){: style="max-width:90%;"}
+![Dans le générateur de segments de Braze, le filtre d'attributs utilisateur « Splio cohort » est défini sur « includes » et « Primary cohort ».]({% image_buster /assets/img/tinyclues/tinyclues_4.png %}){: style="max-width:90%;"}
 
-Vous avez des difficultés à localiser votre cohorte ? Consultez la section [résolution des problèmes](#troubleshooting) pour obtenir des conseils.
+Vous avez des difficultés à localiser votre cohorte ? Consultez la section [résolution des problèmes](#troubleshooting) pour obtenir des conseils.
 
 {% alert important %}
 Seuls les utilisateurs qui existent déjà dans Braze sont ajoutés ou supprimés d'une cohorte. L'importation d'une cohorte ne crée pas de nouveaux utilisateurs dans Braze.
 {% endalert %}
 
-## Utilisation de cette intégration
+## Utilisation de cette intégration {#using-this-integration}
 
-Pour utiliser votre segment Splio, créez une campagne ou un Canvas Braze et sélectionnez le segment comme votre audience cible.
+Pour utiliser votre segment Splio, créez une campagne ou un Canvas Braze et sélectionnez le segment comme audience cible.
 
-![Dans le générateur de campagne Braze, à l'étape du ciblage, le filtre "Cibler les utilisateurs par segment" est défini sur "Cohorte Splio".]({% image_buster /assets/img/tinyclues/tinyclues_5.png %}){: style="max-width:90%;"}
+![Dans le générateur de campagne Braze, à l'étape du ciblage, le filtre « Target users by segment » est défini sur « Splio cohort ».]({% image_buster /assets/img/tinyclues/tinyclues_5.png %}){: style="max-width:90%;"}
 
-## Correspondance des utilisateurs
+## Correspondance des utilisateurs {#user-matching}
 
-Braze fait correspondre les utilisateurs identifiés par leur `external_id` ou `alias`. Les utilisateurs anonymes sont mis en relation avec leur `device_id`. Les utilisateurs identifiés qui ont été créés à l'origine en tant qu'utilisateurs anonymes ne peuvent pas être associés à leur `device_id`, et doivent être associés à leur `external_id` ou `alias`.
+Braze fait correspondre les utilisateurs identifiés par leur `external_id` ou `alias`. Les utilisateurs anonymes sont mis en correspondance par leur `device_id`. Les utilisateurs identifiés qui ont été créés à l'origine en tant qu'utilisateurs anonymes ne peuvent pas être associés par leur `device_id` et doivent être associés par leur `external_id` ou `alias`.
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
-Si vous ne trouvez pas la bonne cohorte dans la liste, consultez les détails de votre campagne dans Splio et vérifiez le nom en contrôlant le **Nom du fichier d'exportation.**
+Si vous ne trouvez pas la bonne cohorte dans la liste, consultez les détails de votre campagne dans Splio et vérifiez le nom en contrôlant le champ **Export File Name**.
 
 ![Le nom de votre cohorte apparaît au bas de la page des détails de la campagne.]({% image_buster /assets/img/tinyclues/tinyclues_2.png %}){: style="max-width:30%;"}
 
-Si vous rencontrez des difficultés pour récupérer votre audience, contactez l' [équipe de Splio](mailto:support-team@splio.com) pour obtenir de l'aide.
+Si vous rencontrez des difficultés pour récupérer votre audience, contactez l'[équipe de Splio](mailto:support-team@splio.com) pour obtenir de l'aide.

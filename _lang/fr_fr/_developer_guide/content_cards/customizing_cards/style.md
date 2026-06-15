@@ -1,8 +1,8 @@
 ---
 nav_title: Style
-article_title: Personnaliser le style des cartes de contenu
+article_title: Personnaliser le style des Content Cards
 page_order: 1
-description: "Cet article traite des options de style pour vos cartes de contenu."
+description: "Cet article présente les options de style disponibles pour vos Content Cards."
 channel:
   - content cards
 platform:
@@ -12,25 +12,25 @@ platform:
   - Web
 ---
 
-# Personnaliser le style des cartes de contenu
+# Personnaliser le style des Content Cards {#customize-the-style-of-content-cards}
 
-> Les cartes de contenu de Braze sont livrées avec une apparence par défaut. Cet article présente les options de style disponibles pour vos cartes de contenu, afin de les adapter à l'identité de votre marque. Pour consulter la liste complète des types de cartes de contenu, voir [À propos des cartes de contenu]({{site.baseurl}}/developer_guide/content_cards/).
+> Les Content Cards de Braze sont livrées avec une apparence par défaut. Cet article présente les options de style disponibles pour vos Content Cards, afin de les adapter à l'identité de votre marque. Pour consulter la liste complète des types de cartes de contenu, voir [À propos des Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
 
-## Créer un style personnalisé
+## Créer un style personnalisé {#creating-a-custom-style}
 
-L'interface utilisateur par défaut des cartes de contenu est importée depuis la couche UI du SDK Braze. Vous pouvez ensuite ajuster certains aspects du style des cartes, l'ordre d'affichage et la manière dont le flux est présenté à vos utilisateurs.
+L'interface utilisateur par défaut des Content Cards est importée depuis la couche UI du SDK Braze. Vous pouvez ensuite ajuster certains aspects du style des cartes, l'ordre d'affichage et la manière dont le flux est présenté à vos utilisateurs.
 
 ![Deux cartes de contenu, l'une avec la police par défaut et des coins carrés, l'autre avec des coins arrondis et une police bouclée]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-Les propriétés des cartes de contenu telles que `title`, `cardDescription`, `imageUrl`, etc., sont directement modifiables depuis le [tableau de bord]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details). C'est la méthode recommandée pour modifier ces informations.
+Les propriétés des Content Cards telles que `title`, `cardDescription`, `imageUrl`, etc., sont directement modifiables depuis le [tableau de bord]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/). C'est la méthode recommandée pour modifier ces informations.
 {% endalert %}
 
 
 {% tabs %}
 {% tab web %}
 
-Les styles par défaut de Braze sont définis en CSS au sein du SDK Braze. En surchargeant certains styles dans votre application, vous pouvez personnaliser le flux standard avec vos propres images d'arrière-plan, familles de polices, styles, tailles, animations, etc. Par exemple, voici une surcharge qui affiche les cartes de contenu avec une largeur de 800 px :
+Les styles par défaut de Braze sont définis en CSS au sein du SDK Braze. En surchargeant certains styles dans votre application, vous pouvez personnaliser le flux standard avec vos propres images d'arrière-plan, familles de polices, styles, tailles, animations, etc. Par exemple, voici une surcharge qui affiche les Content Cards avec une largeur de 800 px :
 
 ``` css
 body .ab-feed {
@@ -43,7 +43,7 @@ Pour consulter la liste complète des propriétés modifiables, voir [les option
 {% endtab %}
 {% tab android %}
 
-Par défaut, les cartes de contenu du SDK Android et FireOS respectent les directives d'interface utilisateur standard d'Android pour offrir une expérience fluide. Vous pouvez consulter ces styles par défaut dans le fichier [`res/values/styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) de la distribution du SDK Braze :
+Par défaut, les Content Cards du SDK Android et FireOS respectent les directives d'interface utilisateur standard d'Android pour offrir une expérience fluide. Vous pouvez consulter ces styles par défaut dans le fichier [`res/values/styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) de la distribution du SDK Braze :
 
 ```xml
   <style name="Braze.ContentCards.CaptionedImage.Description">
@@ -59,7 +59,7 @@ Par défaut, les cartes de contenu du SDK Android et FireOS respectent les direc
   </style>
 ```
 
-Pour personnaliser le style des cartes de contenu, surchargez ce style par défaut. Pour ce faire, copiez-le intégralement dans le fichier `styles.xml` de votre projet, puis apportez vos modifications. Le style doit être copié en entier dans votre fichier local `styles.xml` pour que tous les attributs soient correctement définis.
+Pour personnaliser le style des Content Cards, surchargez ce style par défaut. Pour ce faire, copiez-le intégralement dans le fichier `styles.xml` de votre projet, puis apportez vos modifications. Le style doit être copié en entier dans votre fichier local `styles.xml` pour que tous les attributs soient correctement définis.
 
 {% subtabs local %}
 {% subtab Correct style override %}
@@ -91,7 +91,7 @@ Pour personnaliser le style des cartes de contenu, surchargez ce style par défa
 {% endtab %}
 {% tab Jetpack Compose %}
 
-Par défaut, les cartes de contenu du SDK Android et FireOS respectent les directives d'interface utilisateur standard d'Android pour offrir une expérience fluide.
+Par défaut, les Content Cards du SDK Android et FireOS respectent les directives d'interface utilisateur standard d'Android pour offrir une expérience fluide.
 
 Vous pouvez appliquer un style de deux manières. La première consiste à passer un [`ContentCardListStyling`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html) et un [`ContentCardStyling`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html) à [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html), comme dans l'exemple suivant :
 
@@ -133,7 +133,7 @@ BrazeStyle(
 {% endtab %}
 {% tab swift %}
 
-Le contrôleur de vue des cartes de contenu vous permet de personnaliser l'apparence et le comportement de toutes les cellules via la structure [`BrazeContentCardUI.ViewController.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct). Configurer les cartes de contenu à l'aide des `Attributes` est une option simple qui vous permet de lancer l'interface des cartes de contenu avec une configuration minimale. 
+Le contrôleur de vue des Content Cards vous permet de personnaliser l'apparence et le comportement de toutes les cellules via la structure [`BrazeContentCardUI.ViewController.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct). Configurer les Content Cards à l'aide des `Attributes` est une option simple qui vous permet de lancer l'interface des Content Cards avec une configuration minimale.
 
 {% alert important %}
 La personnalisation via `Attributes` n'est disponible qu'en Swift.
@@ -144,7 +144,7 @@ La personnalisation via `Attributes` n'est disponible qu'en Swift.
 
 **Modifier `Attributes.default`**
 
-Personnalisez l'apparence de toutes les instances du contrôleur de vue des cartes de contenu Braze en modifiant directement la variable statique [`Attributes.defaults`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/defaults).
+Personnalisez l'apparence de toutes les instances du contrôleur de vue des Content Cards Braze en modifiant directement la variable statique [`Attributes.defaults`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/defaults).
 
 Par exemple, pour modifier la taille d'image et le rayon des coins par défaut pour toutes les cellules :
 
@@ -155,7 +155,7 @@ BrazeContentCardUI.ViewController.Attributes.defaults.cellAttributes.classicImag
 
 **Initialiser le contrôleur de vue avec des attributs**
 
-Si vous souhaitez modifier uniquement une instance spécifique du contrôleur de vue des cartes de contenu Braze, utilisez l'initialisateur [`init(braze:attributes:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/init(braze:attributes:)/) pour transmettre une structure `Attributes` personnalisée au contrôleur de vue.
+Si vous souhaitez modifier uniquement une instance spécifique du contrôleur de vue des Content Cards Braze, utilisez l'initialisateur [`init(braze:attributes:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/init(braze:attributes:)/) pour transmettre une structure `Attributes` personnalisée au contrôleur de vue.
 
 Par exemple, vous pouvez modifier la taille d'image et le rayon des coins pour une instance spécifique du contrôleur de vue :
 
@@ -179,9 +179,9 @@ attributes.cells[BrazeContentCardUI.ClassicImageCell.identifier] = CustomClassic
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
 ```
 
-**Modifier les cartes de contenu par programmation**
+**Modifier les Content Cards par programmation**
 
-Vous pouvez modifier les cartes de contenu par programmation en assignant la closure [`transform`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/transform) à votre structure `Attributes`. L'exemple ci-dessous modifie les champs `title` et `description` des cartes compatibles :
+Vous pouvez modifier les Content Cards par programmation en assignant la closure [`transform`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/transform) à votre structure `Attributes`. L'exemple ci-dessous modifie les champs `title` et `description` des cartes compatibles :
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
@@ -206,23 +206,23 @@ Consultez l'[application d'exemple Examples](https://github.com/braze-inc/braze-
 {% endsubtab %}
 {% subtab Objective-C %}
 
-La personnalisation des cartes de contenu via `Attributes` n'est pas prise en charge avec Objective-C.
+La personnalisation des Content Cards via `Attributes` n'est pas prise en charge avec Objective-C.
 
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 {% endtabs %}
 
-## Exemples de personnalisation
+## Exemples de personnalisation {#customization-examples}
 
-### Police personnalisée
+### Police personnalisée {#custom-font}
 
-Personnaliser la police de vos cartes de contenu vous permet de préserver l'identité de votre marque et de créer une expérience visuellement attrayante pour vos utilisateurs. Utilisez ces recettes pour définir la police de toutes les cartes de contenu par programmation. 
+Personnaliser la police de vos Content Cards vous permet de préserver l'identité de votre marque et de créer une expérience visuellement attrayante pour vos utilisateurs. Utilisez ces recettes pour définir la police de toutes les Content Cards par programmation.
 
 {% tabs %}
 {% tab web %}
 
-Comme tout autre élément web, vous pouvez facilement personnaliser l'apparence des cartes de contenu via CSS. Dans votre fichier CSS ou vos styles en ligne, utilisez la propriété `font-family` et spécifiez le nom de la police ou la pile de polices souhaitée.
+Comme tout autre élément web, vous pouvez facilement personnaliser l'apparence des Content Cards via CSS. Dans votre fichier CSS ou vos styles en ligne, utilisez la propriété `font-family` et spécifiez le nom de la police ou la pile de polices souhaitée.
 
 ```css
 /* CSS selector targeting the Content Card element */
@@ -286,7 +286,7 @@ let viewController = BrazeContentCardUI.ViewController.init(braze: braze, attrib
 {% endsubtab %}
 {% subtab Objective-C %}
 
-La personnalisation des polices via `Attributes` n'est pas prise en charge en Objective-C. 
+La personnalisation des polices via `Attributes` n'est pas prise en charge en Objective-C.
 
 Consultez l'[application d'exemple Examples](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples/ObjC/Sources/ContentCards-Custom-UI/CardsInfoViewController.m#L97) pour savoir comment créer votre propre interface utilisateur avec des polices personnalisées.
 
@@ -295,16 +295,16 @@ Consultez l'[application d'exemple Examples](https://github.com/braze-inc/braze-
 {% endtab %}
 {% endtabs %}
 
-### Icônes d'épingle personnalisées
+### Icônes d'épingle personnalisées {#custom-pinned-icons}
 
-Lors de la création d'une carte de contenu, les marketeurs ont la possibilité de l'épingler. Une carte épinglée s'affiche en haut du flux de l'utilisateur et ne peut pas être masquée. Lorsque vous personnalisez le style de vos cartes, vous pouvez modifier l'apparence de l'icône d'épingle.
+Lors de la création d'une Content Card, les marketeurs ont la possibilité de l'épingler. Une carte épinglée s'affiche en haut du flux de l'utilisateur et ne peut pas être masquée. Lorsque vous personnalisez le style de vos cartes, vous pouvez modifier l'apparence de l'icône d'épingle.
 
-![Aperçu côte à côte de la carte de contenu dans Braze pour mobile et web avec l'option « Épingler cette carte en haut du fil » sélectionnée.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
+![Aperçu côte à côte de la Content Card dans Braze pour mobile et web avec l'option « Épingler cette carte en haut du fil » sélectionnée.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 {% tabs %}
 {% tab web %}
 
-La structure de l'icône d'épingle de la carte de contenu est la suivante :
+La structure de l'icône d'épingle de la Content Card est la suivante :
 
 ```css
 <div class="ab-pinned-indicator">
@@ -312,7 +312,7 @@ La structure de l'icône d'épingle de la carte de contenu est la suivante :
 </div>
 ```
 
-Si vous souhaitez utiliser une autre icône FontAwesome, remplacez le nom de classe de l'élément `i` par celui de l'icône souhaitée. 
+Si vous souhaitez utiliser une autre icône FontAwesome, remplacez le nom de classe de l'élément `i` par celui de l'icône souhaitée.
 
 Si vous souhaitez changer complètement l'icône, supprimez l'élément `i` et ajoutez l'icône personnalisée en tant qu'enfant de `ab-pinned-indicator`. Il existe plusieurs méthodes pour modifier l'icône, mais une approche simple consiste à utiliser `replaceChildren()` sur l'élément `ab-pinned-indicator`.
 
@@ -391,7 +391,7 @@ attributes.cellAttributes.pinIndicatorImage = UIImage(named: "my-image")
 let viewController = BrazeContentCardUI.ViewController.init(braze: braze, attributes: attributes)
 ```
 
-Vous pouvez également utiliser le sous-classement pour créer votre propre version personnalisée de `BrazeContentCardUI.Cell`, qui inclut l'indicateur d'épingle. Par exemple : 
+Vous pouvez également utiliser le sous-classement pour créer votre propre version personnalisée de `BrazeContentCardUI.Cell`, qui inclut l'indicateur d'épingle. Par exemple :
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
@@ -410,11 +410,11 @@ La personnalisation de l'indicateur d'épingle via `Attributes` n'est pas prise 
 {% endtab %}
 {% endtabs %}
 
-### Modifier la couleur de l'indicateur de non-lecture
+### Modifier la couleur de l'indicateur de non-lecture {#changing-the-unread-indicator-color}
 
-Les cartes de contenu comportent une ligne bleue en bas de la carte qui indique si celle-ci a été consultée ou non. 
+Les Content Cards comportent une ligne bleue en bas de la carte qui indique si celle-ci a été consultée ou non.
 
-![Deux cartes de contenu affichées côte à côte. La première carte a une ligne bleue en bas, indiquant qu'elle n'a pas été vue. La deuxième carte n'a pas de ligne bleue, indiquant qu'elle a déjà été vue.]({% image_buster /assets/img/braze-content-cards-seen-unseen-behavior.png %})
+![Deux Content Cards affichées côte à côte. La première carte a une ligne bleue en bas, indiquant qu'elle n'a pas été vue. La deuxième carte n'a pas de ligne bleue, indiquant qu'elle a déjà été vue.]({% image_buster /assets/img/braze-content-cards-seen-unseen-behavior.png %})
 
 {% tabs %}
 {% tab web %}
@@ -492,9 +492,9 @@ La personnalisation de l'indicateur de non-consultation uniquement via `Attribut
 {% endtab %}
 {% endtabs %}
 
-### Mode sombre
+### Mode sombre {#dark-mode}
 
-Pour afficher différentes images ou styles selon le mode sombre ou clair de l'appareil, utilisez des [paires clé-valeur]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details#key-value-pairs) dans votre message de carte de contenu. Par exemple, ajoutez une paire clé-valeur comme `dark_mode_image` avec l'URL de votre ressource d'image en mode sombre. Ensuite, dans votre application, ajoutez une logique personnalisée pour vérifier le mode d'apparence actuel de l'appareil et afficher l'image appropriée.
+Pour afficher différentes images ou styles selon le mode sombre ou clair de l'appareil, utilisez des [paires clé-valeur]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/#key-value-pairs) dans votre message Content Card. Par exemple, ajoutez une paire clé-valeur comme `dark_mode_image` avec l'URL de votre ressource d'image en mode sombre. Ensuite, dans votre application, ajoutez une logique personnalisée pour vérifier le mode d'apparence actuel de l'appareil et afficher l'image appropriée.
 
 {% tabs %}
 {% tab swift %}
@@ -531,9 +531,9 @@ if (isDarkMode && darkModeImage) {
 {% endtab %}
 {% endtabs %}
 
-Ce modèle fonctionne pour tout contenu dépendant de l'apparence, y compris le texte, les couleurs ou les dispositions. Téléchargez vos ressources d'image en mode sombre dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library), puis référencez-les dans une paire clé-valeur.
+Ce modèle fonctionne pour tout contenu dépendant de l'apparence, y compris le texte, les couleurs ou les dispositions. Téléchargez vos ressources d'image en mode sombre dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/), puis référencez-les dans une paire clé-valeur.
 
-### Désactiver l'indicateur de non-lecture
+### Désactiver l'indicateur de non-lecture {#disabling-unread-indicator}
 
 {% tabs %}
 {% tab web %}
@@ -548,7 +548,7 @@ Masquez la barre d'indicateur de non-lecture en ajoutant le style suivant à vot
 
 {% tab android %}
 
-Masquez la barre d'indicateur de non-lecture en définissant [`setUnreadBarVisible`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.view/-content-card-view-holder/set-unread-bar-visible.html?query=fun%20setUnreadBarVisible(isVisible:%20Boolean)) sur `ContentCardViewHolder` à `false`. 
+Masquez la barre d'indicateur de non-lecture en définissant [`setUnreadBarVisible`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.view/-content-card-view-holder/set-unread-bar-visible.html?query=fun%20setUnreadBarVisible(isVisible:%20Boolean)) sur `ContentCardViewHolder` à `false`.
 
 {% endtab %}
 
@@ -559,7 +559,7 @@ La désactivation de l'indicateur de non-lecture n'est pas prise en charge dans 
 {% subtabs %}
 {% subtab Swift %}
 
-Masquez la barre d'indicateur de non-lecture en définissant la propriété `attributes.cellAttributes.unviewedIndicatorColor` de votre structure `Attributes` sur `.clear`. 
+Masquez la barre d'indicateur de non-lecture en définissant la propriété `attributes.cellAttributes.unviewedIndicatorColor` de votre structure `Attributes` sur `.clear`.
 
 {% endsubtab %}
 {% subtab Objective-C %}

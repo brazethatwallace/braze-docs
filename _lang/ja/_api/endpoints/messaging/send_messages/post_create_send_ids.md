@@ -5,30 +5,30 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Create send IDs Brazeエンドポイントの詳細について概説する。"
+description: "この記事では、送信 ID を作成する Braze エンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# 送信 ID を作成
+# 送信 ID を作成 {#create-send-ids}
 {% apimethod post %}
 /sends/id/create
 {% endapimethod %}
 
-> このエンドポイントを使用して、送信ごとにキャンペーンを作成することなく、プログラムでメッセージを送信し、メッセージのパフォーマンスを追跡するために使用できる送信IDを作成する。
+> このエンドポイントを使用して、送信ごとにキャンペーンを作成することなく、プログラムでメッセージを送信し、メッセージのパフォーマンスを追跡するために使用できる送信 ID を作成します。
 
-送信識別子を使用してメッセージを追跡・送信することは、プログラムでコンテンツを生成・送信する場合に便利である。
+送信識別子を使用してメッセージを追跡・送信することは、プログラムでコンテンツを生成・送信する場合に便利です。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#74a04e53-659f-4473-abc5-0f6f735550ff {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`sends.id.create` 権限を持つ API キーを生成する必要があります。
+このエンドポイントを使用するには、`sends.id.create` 権限を持つ APIキーを生成する必要があります。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='sends id create' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -42,15 +42,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | [キャンペーン識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
-|`send_id`| オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | 必須 | 文字列 | [Campaign識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/sends/id/create' \
 --header 'Content-Type: application/json' \
@@ -61,9 +61,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/sends/id/create' \
 }'
 ```
 
-## 応答
+## 応答 {#response}
 
-### 成功応答の例
+### 成功応答の例 {#example-success-response}
 
 ```json
 {

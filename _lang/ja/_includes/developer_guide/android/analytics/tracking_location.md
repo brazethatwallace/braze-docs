@@ -1,6 +1,6 @@
-## 現在地を記録する
+## 現在地を記録する {#logging-the-current-location}
 
-継続的なトラッキングが無効になっている場合でも、ユーザーの現在位置を [`setLastKnownLocation()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-last-known-location.html)メソッドを使う。
+継続的な追跡が無効になっている場合でも、[`setLastKnownLocation()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-last-known-location.html) メソッドを使用して、ユーザーの現在地を手動で記録できます。
 
 {% tabs %}
 {% tab JAVA %}
@@ -17,7 +17,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setLastKnownLocation(LATITUDE_DOUBLE_VALUE, LONGITUDE_DOUBLE_VALUE, ALTITUDE_DOUBLE_VALUE, ACCURACY_DOUBLE_VALUE)
 }
@@ -26,23 +26,23 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-## 位置情報の追跡を続ける
+## 位置情報の継続的な追跡 {#continuously-tracking-the-location}
 
 {% alert important %}
-[Android Marshmallowからは](https://developer.android.com/training/permissions/index.html)、位置情報の追跡を明示的にオプトインするようユーザーに促す必要がある。そうすれば、Brazeは次のセッションの最初に彼らの位置情報の追跡を開始することができる。これは、`AndroidManifest.xml` で位置情報の権限のみを宣言する必要があった以前のバージョンのAndroidとは異なる。
+[Android Marshmallow以降](https://developer.android.com/training/permissions/index.html)では、位置情報の追跡を明示的にオプトインするようユーザーに促す必要があります。ユーザーがオプトインすると、Brazeは次のセッションの開始時に位置情報の追跡を開始できます。これは、`AndroidManifest.xml` で位置情報の権限を宣言するだけで済んだ以前のバージョンのAndroidとは異なります。
 {% endalert %}
 
-ユーザーの位置情報を継続的に追跡するには、`AndroidManifest.xml` ファイルに以下の権限の少なくとも1つを追加して、アプリが位置情報データを収集する意図を宣言する必要がある。
+ユーザーの位置情報を継続的に追跡するには、`AndroidManifest.xml` ファイルに以下の権限の少なくとも1つを追加して、アプリが位置情報データを収集する意図を宣言する必要があります。
 
-|権限|説明|
+| 権限 | 説明 |
 |---|---|
-| `ACCESS_COARSE_LOCATION` | 最もバッテリー効率の良い、非GPSプロバイダー（ホームネットワークなど）を使用する。通常、ほとんどの位置情報のニーズにはこれで十分である。実行時権限モデルの下では、位置情報の権限を与えることは、暗黙のうちに、細かい 位置情報のデータ収集を許可することになる。 |
-| `ACCESS_FINE_LOCATION`   | より正確な位置情報のためのGPSデータを含む。実行時権限モデルの下では、ロケーション権限の付与は、細かいロケーショ ンアクセスもカバーする。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `ACCESS_COARSE_LOCATION` | 最もバッテリー効率の良い非GPSプロバイダー（ホームネットワークなど）を使用します。通常、ほとんどの位置情報のニーズにはこれで十分です。ランタイム権限モデルでは、位置情報の権限を付与すると、暗黙的に詳細な位置情報データの収集も許可されます。 |
+| `ACCESS_FINE_LOCATION`   | より正確な位置情報のためのGPSデータを含みます。ランタイム権限モデルでは、位置情報の権限を付与すると、詳細な位置情報へのアクセスもカバーされます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Continuously tracking the location" }
 
 `AndroidManifest.xml` は次のようになります。
 
-```xml
+`````````xml
 <manifest ... >
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -53,40 +53,40 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 </manifest>
 ```
 
-## 連続トラッキングを無効にする
+## 継続的な追跡を無効にする {#disabling-continuous-tracking}
 
-連続トラッキングは、コンパイル時または実行時に無効にすることができる。
+継続的な追跡は、コンパイル時または実行時に無効にできます。
 
 {% tabs local %}
 {% tab compile time %}
 
-コンパイル時に位置情報の連続追跡を無効にするには、`braze.xml` で`com_braze_enable_location_collection` を`false` に設定する：
+コンパイル時に位置情報の継続的な追跡を無効にするには、`braze.xml` で `com_braze_enable_location_collection` を `false` に設定します。
 
-```xml
+`````````xml
 <bool name="com_braze_enable_location_collection">false</bool>
 ```
 
 {% endtab %}
 {% tab runtime %}
 
-実行時に位置情報の連続追跡を選択的に無効にするには、次のようにする。 [`BrazeConfig`]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/runtime_configuration/#runtime-configuration):
+実行時に位置情報の継続的な追跡を選択的に無効にするには、[`BrazeConfig`]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/runtime_configuration/#runtime-configuration)を使用します。
 
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
-  .setIsLocationCollectionEnabled(false)
+  .setIsAutomaticLocationCollectionEnabled(false)
   .build();
 Braze.configure(this, brazeConfig);
 ```
- 
+
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val brazeConfig = BrazeConfig.Builder()
-    .setIsLocationCollectionEnabled(false)
+    .setIsAutomaticLocationCollectionEnabled(false)
     .build()
 Braze.configure(this, brazeConfig)
 ```

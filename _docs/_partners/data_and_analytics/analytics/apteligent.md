@@ -23,7 +23,7 @@ The Braze and Apteligent integration provides detailed iOS crash reporting, allo
 | Requirement | Description |
 |---|---|
 | TestDrive account | A TestDrive account is required to take advantage of this partnership. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert warning %}
 This integration is currently only supported on iOS.

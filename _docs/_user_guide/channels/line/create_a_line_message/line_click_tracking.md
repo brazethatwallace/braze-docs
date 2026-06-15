@@ -98,7 +98,7 @@ https://example.com/{{url_var}}
 
 ## Shorten URLs rendered by Liquid variables
 
-Braze shortens URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, we will shorten and track that URL before sending the LINE message.
+Braze shortens URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, we shorten and track that URL before sending the LINE message.
 
 ## Testing
 

@@ -9,30 +9,34 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Nutze
 toc_headers: h2
 ---
 {% api %}
-# Nutzer:innen erstellen und aktualisieren
+# Nutzer:innen erstellen und aktualisieren {#create-and-update-users}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um angepasste Events und Käufe aufzuzeichnen und die Attribute des Nutzerprofils zu aktualisieren.
 
-{% alert note %}
-Braze verarbeitet die über die API übergebenen Daten zum Nennwert. Kund:innen sollten nur Deltas (sich ändernde Daten) übergeben, um die unnötige Protokollierung von Datenpunkten zu minimieren. Weitere Informationen finden Sie unter [Datenpunkte]({{site.baseurl}}/user_guide/data/data_points/).
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+Braze verarbeitet die über die API übergebenen Daten zum Nennwert. Sie sollten nur Deltas (sich ändernde Daten) übergeben, um die unnötige Protokollierung von Datenpunkten zu minimieren.
+
+## Müssen Sie Nutzer:innen in großen Mengen aktualisieren? {#need-to-update-users-in-bulk}
+
+Verwenden Sie den [`/users/track/bulk`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/), um größere Batches zu senden und das Anfragevolumen zu reduzieren.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4cf57ea9-9b37-4e99-a02e-4373c9a4ee59 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `users.track`.
 
 Kund:innen, die die API für Server-zu-Server-Aufrufe verwenden, müssen möglicherweise `rest.iad-01.braze.com` auf die Zulassungsliste setzen, wenn sie sich hinter einer Firewall befinden.
 
-## Rate-Limit
+## Rate-Limit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users track' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -47,7 +51,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-### Anfrageparameter
+### Anfrageparameter {#request-parameters}
 
 {% alert important %}
 Für jede in der folgenden Tabelle aufgeführte Anfragekomponente müssen Sie eines der folgenden Felder angeben: `external_id`, `user_alias`, `braze_id`, `email` oder `phone`.
@@ -55,12 +59,12 @@ Für jede in der folgenden Tabelle aufgeführte Anfragekomponente müssen Sie ei
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Optional | Array von Attribut-Objekten | Siehe [Nutzer:innen-Attribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
+| `attributes` | Optional | Array von Attribut-Objekten | Siehe [Nutzer:innen-Attribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Optional | Array von Event-Objekten | Siehe [Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Optional | Array von Kauf-Objekten | Siehe [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-### Bezeichner-Auflösung
+### Bezeichner-Auflösung {#identifier-resolution}
 
 Jedes Anfrageobjekt muss mindestens einen Bezeichner enthalten. Die folgende Tabelle beschreibt, wie Braze bestimmt, welcher Bezeichner für die Suche nach dem Nutzerprofil verwendet wird.
 
@@ -68,7 +72,7 @@ Jedes Anfrageobjekt muss mindestens einen Bezeichner enthalten. Die folgende Tab
 | --------------- | ----------- | -------- |
 | Primär | `external_id`, `user_alias`, `braze_id` | Wird für die Suche nach dem Nutzerprofil verwendet. Pro Anfrageobjekt ist nur ein primärer Bezeichner zulässig – die Angabe von mehr als einem führt dazu, dass das Objekt abgelehnt wird. |
 | Sekundär | `email`, `phone` | Wird für die Suche nach dem Nutzerprofil **nur** verwendet, wenn kein primärer Bezeichner vorhanden ist. Wenn sowohl `email` als auch `phone` ohne primären Bezeichner angegeben werden, hat `email` Vorrang. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Bezeichner-Auflösung" }
 
 Wenn ein primärer Bezeichner vorhanden ist, werden alle `email`- oder `phone`-Werte im selben Anfrageobjekt als Profilattribute behandelt – nicht als Bezeichner für die Nutzersuche. Wenn eine Anfrage beispielsweise sowohl eine `external_id` als auch eine `email` enthält:
 
@@ -79,9 +83,9 @@ Wenn ein primärer Bezeichner vorhanden ist, werden alle `email`- oder `phone`-W
 Die Angabe eines primären Bezeichners, der keinem bestehenden Profil entspricht, kann ein doppeltes Profil erzeugen – selbst wenn `email` oder `phone` in derselben Anfrage mit einem bestehenden Profil übereinstimmen. Weitere Informationen finden Sie unter [Wie vermeide ich die Erstellung doppelter Nutzerprofile?](#how-do-i-avoid-creating-duplicate-user-profiles).
 {% endalert %}
 
-## Beispiel-Anfragen
+## Beispiel-Anfragen {#example-requests}
 
-### Ein Nutzerprofil über die E-Mail-Adresse aktualisieren
+### Ein Nutzerprofil über die E-Mail-Adresse aktualisieren {#update-a-user-profile-by-email-address}
 
 Über den Endpunkt `/users/track` können Sie ein Nutzerprofil per E-Mail-Adresse aktualisieren.
 
@@ -154,7 +158,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 }'
 ```
 
-### Ein Nutzerprofil nach Telefonnummer aktualisieren
+### Ein Nutzerprofil nach Telefonnummer aktualisieren {#update-a-user-profile-by-phone-number}
 
 Über den Endpunkt `/users/track` können Sie ein Nutzerprofil nach Telefonnummer aktualisieren. Dieser Endpunkt funktioniert nur, wenn Sie eine gültige Telefonnummer angeben.
 
@@ -181,7 +185,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
 }'
 ```
-### Abo-Gruppen festlegen
+### Abo-Gruppen festlegen {#set-subscription-groups}
 
 Dieses Beispiel zeigt, wie Sie eine:n Nutzer:in anlegen und die Abo-Gruppe im Nutzer:innen-Attribut-Objekt festlegen.
 
@@ -217,10 +221,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 {% alert note %}
-Wenn Sie bei SMS-Abo-Gruppen den `subscription_state` einer Gruppe auf `subscribed` setzen, können Sie den optionalen Parameter `use_double_opt_in_logic` innerhalb dieses Abo-Gruppen-Objekts auf `true` setzen, um die Person in den [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/keywords/double_opt_in/)-Workflow aufzunehmen. Wenn dieser Parameter weggelassen oder auf `false` gesetzt wird, während `subscription_state` den Wert `subscribed` hat, wird die Person ohne den Double-Opt-in-Workflow abonniert. Dieser Parameter wird nicht angewendet, wenn `subscription_state` auf andere Werte wie `unsubscribed` gesetzt ist.
+Wenn Sie bei SMS-Abo-Gruppen den `subscription_state` einer Gruppe auf `subscribed` setzen, können Sie den optionalen Parameter `use_double_opt_in_logic` innerhalb dieses Abo-Gruppen-Objekts auf `true` setzen, um die Person in den [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)-Workflow aufzunehmen. Wenn dieser Parameter weggelassen oder auf `false` gesetzt wird, während `subscription_state` den Wert `subscribed` hat, wird die Person ohne den Double-Opt-in-Workflow abonniert. Dieser Parameter wird nicht angewendet, wenn `subscription_state` auf andere Werte wie `unsubscribed` gesetzt ist.
 {% endalert %}
 
-### Beispiel-Anfrage zur Erstellung einer/eines Nur-Alias-Nutzer:in
+### Beispiel-Anfrage zur Erstellung einer/eines Nur-Alias-Nutzer:in {#example-request-to-create-an-alias-only-user}
 
 Sie können den Endpunkt `/users/track` verwenden, um eine:n Nur-Alias-Nutzer:in zu erstellen, indem Sie den Schlüssel `_update_existing_only` mit dem Wert `false` im Anfragetext angeben. Wenn Sie diesen Wert weglassen, erstellt Braze kein Nur-Alias-Nutzerprofil. Die Verwendung einer/eines Nur-Alias-Nutzer:in stellt sicher, dass genau ein Profil mit diesem Alias existiert. Dies ist besonders hilfreich beim Aufbau einer Integration, da Braze so keine doppelten Nutzerprofile erstellt.
 
@@ -229,7 +233,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
     "attributes": [
         {
             "_update_existing_only": false,
@@ -244,11 +247,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 
-## Antworten
+## Antworten {#responses}
 
 Bei Verwendung einer der oben genannten API-Anfragen sollten Sie eine der folgenden drei allgemeinen Antworten erhalten: eine [erfolgreiche Nachricht](#successful-message), eine [erfolgreiche Nachricht mit nicht schwerwiegenden Fehlern](#successful-message-with-non-fatal-errors) oder eine [Nachricht mit schwerwiegenden Fehlern](#message-with-fatal-errors).
 
-### Erfolgreiche Nachricht
+### Erfolgreiche Nachricht {#successful-message}
 
 Erfolgreiche Nachrichten werden mit der folgenden Antwort zurückgegeben:
 
@@ -261,7 +264,7 @@ Erfolgreiche Nachrichten werden mit der folgenden Antwort zurückgegeben:
 }
 ```
 
-### Erfolgreiche Nachricht mit nicht schwerwiegenden Fehlern
+### Erfolgreiche Nachricht mit nicht schwerwiegenden Fehlern {#successful-message-with-non-fatal-errors}
 
 Wenn Ihre Nachricht erfolgreich ist, aber nicht schwerwiegende Fehler aufweist – z. B. ein ungültiges Event-Objekt in einer langen Liste von Events –, erhalten Sie die folgende Antwort:
 
@@ -278,7 +281,7 @@ Wenn Ihre Nachricht erfolgreich ist, aber nicht schwerwiegende Fehler aufweist �
 
 Bei Erfolgsmeldungen verarbeitet Braze weiterhin alle Daten, die nicht von einem Fehler im Array `errors` betroffen sind.
 
-### Nachricht mit schwerwiegenden Fehlern
+### Nachricht mit schwerwiegenden Fehlern {#message-with-fatal-errors}
 
 Wenn Ihre Nachricht einen schwerwiegenden Fehler aufweist, erhalten Sie die folgende Antwort:
 
@@ -293,13 +296,13 @@ Wenn Ihre Nachricht einen schwerwiegenden Fehler aufweist, erhalten Sie die folg
 }
 ```
 
-### Antwortcodes für schwerwiegende Fehler
+### Antwortcodes für schwerwiegende Fehler {#fatal-error-response-codes}
 
 Informationen zu Statuscodes und zugehörigen Fehlermeldungen, die Braze zurückgibt, wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, finden Sie unter [Schwerwiegende Fehler und Antworten]({{site.baseurl}}/api/errors/#fatal-errors).
 
-Wenn Sie die Fehlermeldung „provided external_id is blacklisted and disallowed" erhalten, hat Ihre Anfrage möglicherweise einen „Dummy-Nutzer" enthalten. Weitere Informationen finden Sie unter [Spam-Blockierung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+Wenn Sie die Fehlermeldung „provided external_id is blacklisted and disallowed“ erhalten, hat Ihre Anfrage möglicherweise einen „Dummy-Nutzer“ enthalten. Weitere Informationen finden Sie unter [Spam-Blockierung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
 
-### Endpunktspezifische Fehler
+### Endpunktspezifische Fehler {#endpoint-specific-errors}
 
 Die folgenden Fehler sind spezifisch für den Endpunkt `/users/track` und werden im Array `errors` der Antwort zurückgegeben. Verwenden Sie diese zur Fehlerbehebung bei einzelnen Objekten in einer Anfrage.
 
@@ -321,24 +324,24 @@ Die folgenden Fehler sind spezifisch für den Endpunkt `/users/track` und werden
 | `EMAIL_BAD_FORMAT` | Der für `email` angegebene Wert ist keine gültige E-Mail-Adresse. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | Die `external_id` überschreitet die maximal zulässige Länge von 987 Bytes. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info` ist kein gültiges Attribut. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpunktspezifische Fehler" }
 
-## Häufig gestellte Fragen
+## Häufig gestellte Fragen {#frequently-asked-questions}
 
 {% multi_lang_include alerts/important_alerts.md alert='Email via SMS' %}
 
-### Was passiert, wenn mehrere Profile mit derselben E-Mail-Adresse gefunden werden?
+### Was passiert, wenn mehrere Profile mit derselben E-Mail-Adresse gefunden werden? {#what-happens-when-multiple-profiles-with-the-same-email-address-are-found}
 Wenn die `external_id` existiert, priorisiert Braze das zuletzt aktualisierte Profil mit einer externen ID für Updates. Wenn die `external_id` nicht existiert, priorisiert Braze das zuletzt aktualisierte Profil für Updates.
 
-### Was passiert, wenn kein Profil mit der E-Mail-Adresse existiert?
+### Was passiert, wenn kein Profil mit der E-Mail-Adresse existiert? {#what-happens-if-no-profile-with-the-email-address-exists}
 Braze erstellt ein Profil und eine:n Nur-E-Mail-Nutzer:in und setzt das E-Mail-Feld auf test@braze.com, wie in der Beispiel-Anfrage für das Update eines Nutzerprofils über eine E-Mail-Adresse angegeben. Braze erstellt keinen Alias.
 
-### Wie verwenden Sie `/users/track`, um alte Nutzerdaten zu importieren?
+### Wie verwenden Sie `/users/track`, um alte Nutzerdaten zu importieren? {#how-do-you-use-userstrack-to-import-legacy-user-data}
 Sie können über die Braze API Daten für eine:n Nutzer:in übermitteln, die/der Ihre mobile App noch nicht verwendet hat, um ein Nutzerprofil zu erstellen. Wenn die/der Nutzer:in die Anwendung anschließend nutzt, werden alle Informationen nach der Identifizierung über das SDK mit dem bestehenden Nutzerprofil zusammengeführt, das Sie über den API-Aufruf erstellt haben. Jegliches Nutzerverhalten, das vom SDK vor der Identifizierung anonym aufgezeichnet wurde, geht beim Zusammenführen mit dem bestehenden, über die API generierten Nutzerprofil verloren.
 
 Das Segmentierungs-Tool berücksichtigt diese Nutzer:innen unabhängig davon, ob sie mit der App interagiert haben. Wenn Sie Nutzer:innen ausschließen möchten, die über die User API hochgeladen wurden und noch nicht mit der App interagiert haben, fügen Sie den Filter `Session Count > 0` hinzu.
 
-### Wie vermeide ich die Erstellung doppelter Nutzerprofile?
+### Wie vermeide ich die Erstellung doppelter Nutzerprofile? {#how-do-i-avoid-creating-duplicate-user-profiles}
 
 Doppelte Profile können entstehen, wenn eine Anfrage einen primären Bezeichner (wie `external_id`) enthält, der keinem bestehenden Profil entspricht, zusammen mit einem `email`- oder `phone`-Wert, der mit einem bestehenden Profil übereinstimmt. Da primäre Bezeichner für die Nutzersuche verwendet werden, erstellt Braze ein neues Profil für die unbekannte `external_id`, anstatt das bestehende Nur-E-Mail- oder Nur-Telefon-Profil zu aktualisieren.
 
@@ -347,15 +350,27 @@ So vermeiden Sie Duplikate:
 - Wenn Sie Nutzer:innen von Nur-E-Mail- oder Nur-Telefon-Profilen zu identifizierten Profilen überführen, verwenden Sie den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/), um dem bestehenden Profil eine `external_id` zuzuweisen, anstatt beides an `/users/track` zu senden.
 - Wenn bereits Duplikate vorhanden sind, führen Sie diese mit dem [`/users/merge`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) zusammen.
 
-### Wie behandelt `/users/track` doppelte Events?
+### Wie behandelt `/users/track` doppelte Events? {#how-does-userstrack-handle-duplicate-events}
 
-Jedes Event-Objekt im Events-Array repräsentiert ein einzelnes Vorkommen eines angepassten Events durch eine:n Nutzer:in zu einem bestimmten Zeitpunkt. Das bedeutet, dass jedes in Braze aufgenommene Event seine eigene Event-ID hat, sodass „doppelte" Events als separate, eindeutige Events behandelt werden.
+Jedes Event-Objekt im Events-Array repräsentiert ein einzelnes Vorkommen eines angepassten Events durch eine:n Nutzer:in zu einem bestimmten Zeitpunkt. Das bedeutet, dass jedes in Braze aufgenommene Event seine eigene Event-ID hat, sodass „doppelte“ Events als separate, eindeutige Events behandelt werden.
 
-### Wie geht `/users/track` mit ungültigen verschachtelten angepassten Attributen um?
+### Wie geht `/users/track` mit ungültigen verschachtelten angepassten Attributen um? {#how-does-userstrack-handle-invalid-nested-custom-attributes}
 
 Wenn ein verschachteltes angepasstes Attribut ungültige Werte enthält (z. B. ungültige Zeitformate oder Null-Werte), verwirft Braze alle Updates verschachtelter angepasster Attribute in der Anfrage. Dies gilt für alle verschachtelten Strukturen innerhalb dieses spezifischen Attributs. Um eine erfolgreiche Verarbeitung sicherzustellen, überprüfen Sie vor dem Senden, ob alle Werte innerhalb der verschachtelten angepassten Attribute gültig sind.
 
-## Monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU
+### Warum ist die Antwort von `/users/track` langsamer als erwartet? {#why-is-my-userstrack-response-slower-than-i-expect}
+
+Erfolgreiche `/users/track`-Aufrufe werden in der Regel schnell akzeptiert, aber Braze verarbeitet Attribut-, Event- und Kauf-Updates weiterhin asynchron. Die wahrgenommene Latenz kann steigen, wenn Payloads groß sind oder wenn das Netzwerk-Routing zu Ihrem [REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) langsam ist. Wenn Sie eine synchrone Bestätigung pro Nutzer:in oder eine strengere Reihenfolge zwischen Aufrufen benötigen, lesen Sie [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**eingeschränkte Beta**).
+
+### Wie wirken sich Rate-Limits auf `/users/track` aus? {#how-do-rate-limits-affect-userstrack}
+
+Wenn Sie sich Ihrem [Rate-Limit](#rate-limit) nähern, erhalten Sie `429`-Antworten. Bei Nicht-`429`-Antworten auf unterstützten Verträgen können Sie die `X-RateLimit-*`-Antwort-Header verwenden, die unter [Rate-Limit-Header für monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau) beschrieben sind, um zu sehen, wie viel von Ihrem aktuellen Fenster noch übrig ist.
+
+### Warum erhalte ich `400 Bad Request` mit einem Syntax- oder Parse-Fehler? {#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error}
+
+Ein HTTP-`400`-Fehler mit einem Syntax- oder Parse-Fehler bedeutet in der Regel, dass der Anfragetext kein gültiges JSON ist. Häufige Ursachen sind nachgestellte Kommas, Kommentare innerhalb von JSON, Strings in einfachen Anführungszeichen, eine zusätzliche öffnende `{` vor dem Payload oder das Senden eines Nicht-JSON-Bodys, während der `Content-Type`-Header `application/json` ist. Validieren Sie Payloads vor dem Senden mit einem JSON-Linter, stellen Sie sicher, dass Ihr HTTP-Client Objekte als JSON kodiert (anstatt Roh-Strings zu verketten), und bestätigen Sie, dass der Body UTF-8-kodiert ist. Für andere `400`-Antworten (z. B. Payload-Größe und Objektlimits pro Anfrage) lesen Sie [Schwerwiegende Fehler und Antworten]({{site.baseurl}}/api/errors/#fatal-errors) und die Tabelle [Endpunktspezifische Fehler](#endpoint-specific-errors) auf dieser Seite.
+
+## Monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
 Für Kund:innen mit neuen Preismodellen werden Rate-Limits auf Unternehmensebene durchgesetzt. Kund:innen können Workspace-Rate-Limits für stündliche Limits festlegen, aber Burst-Limits werden weiterhin von allen Workspaces gemeinsam genutzt.
 
@@ -366,16 +381,16 @@ Für Kund:innen, die monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web 
 
 Aktuelle Limits basierend auf der erwarteten Datenaufnahme finden Sie im Dashboard unter **Einstellungen** > **APIs und Bezeichner** > **API-Nutzungs-Dashboard**. Wir können Rate-Limits ändern, um die Systemstabilität zu schützen oder einen höheren Datendurchsatz auf Ihrem Konto zu ermöglichen. Bitte wenden Sie sich an den Braze Support oder Ihren Customer-Success-Manager, wenn Sie Fragen oder Bedenken bezüglich des stündlichen oder sekündlichen Anfragelimits und der Anforderungen Ihres Unternehmens haben.
 
-### Rate-Limit-Header für monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU
+### Rate-Limit-Header für monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
 Alle Antworten ohne Rate-Limit (z. B. nicht `429`) enthalten die folgenden HTTP-Antwort-Header, die dem Client den Status des stündlichen Rate-Limit-Fensters anzeigen. Verwenden Sie diese Header, um Ihre Anfragerate zu verwalten:
 
-| Header-Name             | Beschreibung                                                                                 |
+| Header-Name | Beschreibung |
 | ----------------------- | ------------------------------------------------------------------------------------------- |
-| `X-RateLimit-Limit`     | Die Anzahl der zulässigen Anfragen pro Zeitraum                                              |
-| `X-RateLimit-Remaining` | Die ungefähre Anzahl der verbleibenden Anfragen innerhalb eines Fensters                                |
-| `X-RateLimit-Reset`     | Die Anzahl der verbleibenden Sekunden, bevor das aktuelle Fenster zurückgesetzt wird                                    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `X-RateLimit-Limit` | Die Anzahl der zulässigen Anfragen pro Zeitraum |
+| `X-RateLimit-Remaining` | Die ungefähre Anzahl der verbleibenden Anfragen innerhalb eines Fensters |
+| `X-RateLimit-Reset` | Die Anzahl der verbleibenden Sekunden, bevor das aktuelle Fenster zurückgesetzt wird |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate-Limit-Header für monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU" }
 
 Beachten Sie, dass die Header `RateLimit-Limit`, `RateLimit-Remaining` und `RateLimit-Reset` nicht zurückgegeben werden, wenn ein HTTP-`429`-Fehler auftritt. In diesem Fall werden diese Header durch einen `X-Ratelimit-Retry-After`-Header ersetzt, der eine Ganzzahl zurückgibt, die die Anzahl der Sekunden angibt, bevor Sie wieder Anfragen stellen können.
 

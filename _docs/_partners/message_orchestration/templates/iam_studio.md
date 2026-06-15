@@ -23,7 +23,7 @@ With the Braze and IAM Studio integration, you can easily insert customizable in
 | Requirement | Description |
 | ----------- | ----------- |
 | IAM Studio account | A [IAM Studio account](https://www.inappmessage.com/register) is required to take advantage of this partnership. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Use cases
 

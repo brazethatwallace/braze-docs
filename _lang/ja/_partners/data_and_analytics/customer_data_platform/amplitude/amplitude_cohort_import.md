@@ -1,60 +1,59 @@
 ---
 nav_title: Amplitude
 article_title: Amplitude コホートインポート
-description: "このリファレンス記事では、Amplitude のコホートインポート機能について説明します。Amplitude は、プロダクト分析およびビジネスインテリジェンスのプラットフォームです。"
+description: "このリファレンス記事では、プロダクト分析およびビジネスインテリジェンスプラットフォームである Amplitude のコホートインポート機能について説明します。"
 page_type: partner
 search_tag: Partner
 ---
 
-# Amplitude コホートインポート
+# Amplitude コホートインポート {#amplitude-cohort-import}
 
-> ここでは、[Amplitude](https://amplitude.com/)からBrazeへのユーザー コホートの読み込み方法について説明します。Amplitudeと他の機能の統合の詳細については、主な[Amplitudeの記事]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/)を参照してください。
+> この記事では、[Amplitude](https://amplitude.com/) から Braze にユーザーコホートをインポートする方法について説明します。Amplitudeの統合やその他の機能の詳細については、[Amplitudeのメイン記事]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/)を参照してください。
 
-## データインポート統合
+## データインポート統合 {#data-import-integration}
 
-設定するすべての統合は、アカウントのデータポイントボリュームの対象となります。
+設定するすべての統合は、アカウントのデータポイントボリュームにカウントされます。
 
-### ステップ1:Brazeデータインポートキーを取得する
+### ステップ 1:Braze データインポートキーを取得する {#step-1-get-the-braze-data-import-key}
 
-Brazeで、**Partner Integrations** > **Technology Partners** に移動し、**Amplitude** を選択します。ここでは、REST エンドポイントが見つかり、Brazeデータインポートキーが生成されます。 
+Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、**Amplitude** を選択します。ここでRESTエンドポイントを確認し、Brazeデータインポートキーを生成できます。
 
-生成されたら、新しいキーを作成するか、既存のキーを無効にできます。データインポートキーとREST エンドポイントは、Amplitude のダッシュボードでポストバックアップを設定するときに次回のステップで使用されます。<br><br>![]({% image_buster /assets/img/amplitude3.png %})
+生成後、新しいキーを作成するか、既存のキーを無効にできます。データインポートキーとRESTエンドポイントは、次のステップでAmplitudeのダッシュボードにポストバックを設定する際に使用します。<br><br>![]({% image_buster /assets/img/amplitude3.png %})
 
-### ステップ 2:Amplitude でのBrazeインテグレーションの設定
+### ステップ 2:Amplitude で Braze 統合を設定する {#step-2-set-up-the-braze-integration-in-amplitude}
 
-Amplitudeで、**Sources & Destinations**> **[プロジェクト名]**> **Destinations**> **Braze** に移動します。表示されるプロンプトで Braze データインポートキーと REST エンドポイントを指定し、[**Save**] をクリックします。
+Amplitudeで、**Sources & Destinations** > **[プロジェクト名]** > **Destinations** > **Braze** に移動します。表示されるプロンプトでBrazeデータインポートキーとRESTエンドポイントを入力し、**Save** をクリックします。
 
 ![]({% image_buster /assets/img/amplitude.png %})
 
-### ステップ 3:Amplitude コホートをBrazeにエクスポートする
+### ステップ 3:Amplitude コホートを Braze にエクスポートする {#step-3-export-an-amplitude-cohort-to-braze}
 
-まず、Amplitude から Braze にユーザーをエクスポートするため、エクスポートするユーザーの[コホート](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts)を作成します。Amplitude は、以下の識別子を使用してコホートを Braze に同期できます。
-- ユーザー別名
+まず、AmplitudeからBrazeにユーザーをエクスポートするために、エクスポートしたいユーザーの[コホート](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts)を作成します。次に、識別済みユーザーと匿名ユーザーの両方を取得するために、以下の識別子マッピングプロパティを使用して、そのコホートに対して2つの同期を設定します。
+- ユーザー ID（External ID）
 - デバイス ID
-- ユーザーID(外部ID)
 
-Amplitude は、多数の識別子 m アプリ ing プロパティーを優先順位でサポートします。プライマリ、セカンダリ、およびターシャリ識別子m アプリ ing を設定できます。同期中に、ユーザーにプライマリがない場合、Amplitude は次に使用可能なものを使用します。これにより、同期c 超過料金が向上し、ドロップされたユーザーが削減され、同期に匿名および部分的に識別されたユーザーが追加されます。 
+Amplitudeアカウントで複数のBraze接続を設定できます。これにより、既知のユーザーにはユーザーIDを同期する接続を、匿名ユーザーにはデバイスIDを同期する接続を、それぞれ構成できます。
 
-コホートを作成したら、**Sync to...**を押して、これらのユーザーをBrazeにエクスポートします。
+コホートを作成したら、**Sync to...** をクリックして、これらのユーザーをBrazeにエクスポートします。
 
 {% alert important %}
-Braze内に既に存在するユーザーのみがコホートに追加または削除されます。コホートインポートはBrazeに新しいユーザーを作成しません。
+Braze内に既に存在するユーザーのみがコホートに追加または削除されます。コホートインポートではBrazeに新しいユーザーは作成されません。
 {% endalert %}
 
-#### 同期ケイデンスの定義
+#### 同期頻度の定義 {#defining-sync-cadence}
 
-コホート同期は、1回限りの同期、毎日または毎時間のスケジュールされた同期、1分ごとに更新されるリアルタイム同期として設定できます。 
+コホート同期は、1回限りの同期、毎日または毎時間のスケジュール同期、あるいは1分ごとに更新されるリアルタイム同期として設定できます。
 
-設定したインテグレーションは、データポイントs を記録します。Braze データポイントsのニュアンスについて疑問があれば、Braze アカウントマネージャーが答えることができます。
+設定したすべての統合はデータポイントを記録します。Brazeデータポイントの詳細について質問がある場合は、Brazeアカウントマネージャーにお問い合わせください。
 
-### ステップ 4: Braze でユーザーをセグメント化する
+### ステップ 4:Braze でユーザーをセグメント化する {#step-4-segment-users-in-braze}
 
-Braze でこれらのユーザーのセグメントを作成するには、[**エンゲージメント**] の下の [**セグメント**] に移動し、セグメントに名前を付け、フィルターとして [**Amplitude コホート**] を選択します。次に、"includes"オプションを使用し、Amplitude で作成したコホートを選択します。 
+Brazeでこれらのユーザーのセグメントを作成するには、**エンゲージメント**の下の**セグメント**に移動し、セグメントに名前を付け、フィルターとして**Amplitude Cohorts**を選択します。次に、「次を含む」オプションを使用し、Amplitudeで作成したコホートを選択します。
 
-![Braze Segment ビルダでは、フィルター"amplitude_cohorts" は"includes_value" および" Amplitude コホート test" に設定されます。]({% image_buster /assets/img/amplitude2.png %})
+![Brazeセグメントビルダーで、フィルター「amplitude_cohorts」が「includes_value」および「Amplitude cohort test」に設定されています。]({% image_buster /assets/img/amplitude2.png %})
 
-保存後、キャンバスまたはキャンペーン作成時に、ユーザーをターゲティングするステップでこのセグメントを参照できる。
+保存後、キャンバスやキャンペーン作成時のユーザーターゲティングステップでこのセグメントを参照できます。
 
-## ユーザーマッチング
+## ユーザーマッチング {#user-matching}
 
-識別されたユーザーは、`external_id` または`alias` のどちらかによって照合できます。匿名ユーザーは、`device_id` によって照合できます。元々匿名ユーザーとして作成された識別されたユーザーは、`device_id` では識別できず、`external_id` または`alias` で識別しなければなりません。
+識別済みユーザーは、`external_id` または `alias` のいずれかで照合できます。匿名ユーザーは `device_id` で照合できます。元々匿名ユーザーとして作成された識別済みユーザーは `device_id` では識別できず、`external_id` または `alias` で識別する必要があります。

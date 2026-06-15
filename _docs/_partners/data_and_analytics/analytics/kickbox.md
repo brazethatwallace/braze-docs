@@ -22,7 +22,7 @@ The Canvas or campaign will send a webhook to Kickbox, sharing the user's email 
 | Kickbox account                       | An active Kickbox account is required to use this integration.                |
 | Braze REST API Key   | A Braze REST API key with `users.track` permissions. <br><br>This can be created in the Braze dashboard by going to **Settings** > **APIs and Identifiers** > **API Keys**|
 | Request access to the integration.     | Ask the Kickbox support team to grant you access to the Braze integration.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Prerequisites" }
 
 ## Integration
 

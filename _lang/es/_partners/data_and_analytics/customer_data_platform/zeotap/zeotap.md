@@ -8,33 +8,33 @@ page_order: 1
 
 # Zeotap
 
-> [Zeotap](https://zeotap.com/) es una plataforma de datos de clientes de nueva generación que le ayuda a descubrir y comprender a su audiencia móvil proporcionando resolución de identidades, perspectivas y enriquecimiento de datos.
+> [Zeotap](https://zeotap.com/) es una plataforma de datos de los clientes de nueva generación que te ayuda a descubrir y comprender a tu audiencia móvil proporcionando resolución de identidades, información y enriquecimiento de datos.
 
-Con la integración de Zeotap y Braze, puede ampliar la escala y el alcance de sus campañas sincronizando los segmentos de clientes de Zeotap para asignar los datos de usuario a las cuentas de usuario de Braze. A continuación, puede actuar en función de estos datos y ofrecer experiencias personalizadas a sus usuarios.
+Con la integración de Zeotap y Braze, puedes ampliar la escala y el alcance de tus campañas sincronizando los segmentos de clientes de Zeotap para asignar los datos de usuario a las cuentas de usuario de Braze. Después, puedes actuar en función de estos datos y ofrecer experiencias personalizadas a tus usuarios.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | --- | --- |
-|Cuenta Zeotap | Se necesita una [cuenta Zeotap](https://zeotap.com/) para beneficiarse de esta asociación. |
-| Clave REST API de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel Braze desde **Configuración** > **Claves API**. |
-| Punto final REST Braze  | La URL de su punto final REST. Tu punto final dependerá de la [URL de Braze para tu instancia]({% image_buster /assets/img/zeotap/zeotap1.png %}). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| Cuenta Zeotap | Se necesita una [cuenta Zeotap](https://zeotap.com/) para beneficiarse de esta asociación. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze para tu instancia]({% image_buster /assets/img/zeotap/zeotap1.png %}). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
-### Paso 1: Crear un destino Zeotap
+### Paso 1: Crear un destino Zeotap {#step-1-create-a-zeotap-destination}
 
 1. Desde la plataforma Zeotap Unity, navega hasta la aplicación **DESTINATIONS**.
-2. En **Todos los canales**, seleccione **Braze**.
-3. En el mensaje que aparece, nombra tu destino e indica tu nombre de cliente y la clave de API REST Braze asociada a tu cuenta Braze.
-4. Por último, seleccione su instancia de punto final Braze REST en el menú desplegable y guarde el destino. <br><br>![]({% image_buster /assets/img/zeotap/zeotap1.png %})
+2. En **All Channels**, selecciona **Braze**.
+3. En el mensaje que aparece, asigna un nombre a tu destino e indica tu nombre de cliente y la clave de API REST de Braze asociada a tu cuenta de Braze.
+4. Por último, selecciona tu instancia de punto de conexión REST de Braze en el menú desplegable y guarda el destino. <br><br>![]({% image_buster /assets/img/zeotap/zeotap1.png %})
 
-### Paso 2: Cree y vincule un segmento Zeotap a su destino 
- 
+### Paso 2: Crea y vincula un segmento Zeotap a tu destino {#step-2-create-and-link-a-zeotap-segment-to-your-destination}
+
 1. Desde la plataforma Zeotap Unity, navega hasta la aplicación **CONNECT**.
-2. Cree un segmento y seleccione el destino Braze creado en el paso 1.
-3. Seleccione un identificador de salida compatible: MAID, dirección de correo electrónico con hash SHA256 o cualquier identificador de cliente 1P reconocido por Braze (si desea utilizar un identificador personalizado para su cuenta Braze, póngase en contacto con Zeotap para que se habilite para su cuenta). Sólo se puede utilizar un identificador de salida para la integración Braze. Estos identificadores deben ser los mismos que el ID externo establecido al recopilar los datos de Braze SDK.
+2. Crea un segmento y selecciona el destino Braze creado en el paso 1.
+3. Selecciona un identificador de salida compatible: MAID, dirección de correo electrónico con hash SHA256 o cualquier identificador de cliente 1P reconocido por Braze (si deseas utilizar un identificador personalizado para tu cuenta de Braze, ponte en contacto con Zeotap para que se habilite en tu cuenta). Solo se puede utilizar un identificador de salida para la integración con Braze. Estos identificadores deben ser los mismos que el ID externo establecido al recopilar los datos del SDK de Braze.
 4. Guarda el segmento.
 
 ![]({% image_buster /assets/img/zeotap/zeotap2.png %})
@@ -43,20 +43,19 @@ Con la integración de Zeotap y Braze, puede ampliar la escala y el alcance de s
 Los identificadores que aparecen están disponibles en el segmento y son compatibles con Braze.
 {% endalert %}
 
-### Paso 3: Crear segmento Braze
+### Paso 3: Crear un segmento en Braze {#step-3-create-braze-segment}
 
-Tras crear, enviar y procesar correctamente un segmento en Zeotap, los usuarios de Zeotap aparecerán en el panel de control de Braze. Puede buscar usuarios por ID de usuario en el panel de control de Braze. 
+Tras crear, enviar y procesar correctamente un segmento en Zeotap, los usuarios de Zeotap aparecerán en el panel de Braze. Puedes buscar usuarios por ID de usuario en el panel de Braze.
 
-![Un perfil de usuario Braze que muestra los segmentos uno a cuatro como "verdadero" en "Atributos personalizados".]({% image_buster /assets/img/zeotap/zeotap4.png %})
+![Un perfil de usuario de Braze que muestra los segmentos del uno al cuatro como "true" en "Custom attributes".]({% image_buster /assets/img/zeotap/zeotap4.png %})
 
-Si un usuario forma parte del segmento Zeotap, el nombre del segmento aparece como atributo personalizado en su perfil de usuario con el valor booleano `true`. Anote el nombre del atributo personalizado, ya que lo necesitará al crear un segmento Braze. 
+Si un usuario forma parte del segmento de Zeotap, el nombre del segmento aparece como atributo personalizado en su perfil de usuario con el valor booleano `true`. Toma nota del nombre del atributo personalizado, ya que lo necesitarás al crear un segmento en Braze.
 
-A continuación, debe crear y definir este segmento en Braze:
-1. En el panel de control de Braze, seleccione **Segmentos** y, a continuación, **Crear segmento**.
-2. A continuación, asigne un nombre a su segmento y seleccione el segmento de atributos personalizados creado en Zeotap.
-3. Guarda los cambios. 
+A continuación, debes crear y definir este segmento en Braze:
+1. En el panel de Braze, selecciona **Segments** y luego **Create Segment**.
+2. A continuación, asigna un nombre a tu segmento y selecciona el segmento de atributos personalizados creado en Zeotap.
+3. Guarda los cambios.
 
-![En el constructor de segmentos Braze, puede encontrar los segmentos importados establecidos como atributos personalizados.]({% image_buster /assets/img/zeotap/zeotap3.png %})
+![En el constructor de segmentos de Braze, puedes encontrar los segmentos importados establecidos como atributos personalizados.]({% image_buster /assets/img/zeotap/zeotap3.png %})
 
-Ahora puede añadir este segmento recién creado a futuras campañas y lienzos Braze para dirigirse a estos usuarios finales. 
-
+Ahora puedes añadir este segmento recién creado a futuras Campaigns y Canvas de Braze para dirigirte a estos usuarios finales.

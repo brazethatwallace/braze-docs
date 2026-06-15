@@ -388,7 +388,7 @@ function onCardClick(card) {
 |---|---|
 | `url` | A valid URL, or a valid Braze action URL with the scheme `brazeActions://`. |
 | `openLinkInNewTab` | (Optional) Whether the URL should open in a new tab. Defaults to `false`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Handling on-click behavior" }
 
 {% alert important %}
 If you don't call `handleBrazeAction()`, on-click behaviors configured in the Braze dashboard (such as "Log Custom Event" or "Navigate to URL") won't execute for cards displayed in a custom feed.

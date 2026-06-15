@@ -26,7 +26,7 @@ The Wunderkind Signals integration allows high-intent behavioral signals—such 
 | Braze account | A Braze account with Canvas access is required. The Wunderkind team must be granted a seat in your account. For full details, see [Grant Wunderkind access to your Braze account](https://support.wunderkind.co/hc/en-us/articles/47921719757339-Grant-Wunderkind-Access-to-Your-Braze-Account). |
 | Braze REST API key | You create a dedicated API key with specific permissions during setup (see [Step 1](#step-1-create-a-braze-api-key-for-wunderkind)). |
 | User identification | Wunderkind typically resolves a consumer to Braze using `user_alias` with `alias_label: "wknd_email_id"` (often with the email as `alias_name`). Each [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) recipient must include exactly one of `external_user_id`, `user_alias`, `braze_id`, or `email` ([recipients object]({{site.baseurl}}/api/objects_filters/recipient_object/)); if you use `email`, include [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email). When you use `user_alias`, the profile must already exist in Braze before the trigger. Create or update users and aliases first with [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) or [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/). For more information, see [Limitations](#limitations). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## How it works
 
@@ -65,7 +65,7 @@ Upon activation, Wunderkind provisions new implementation assets in your Braze w
 | Content Blocks | Automatic |
 | API-triggered Canvases | Managed Service |
 | Tags, custom attributes, link templates | Managed Service |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Review new Braze assets" }
 
 ### Step 4: Complete Canvas setup
 
@@ -110,7 +110,7 @@ Wunderkind supports six signal types. Each delivers a distinct set of keys and v
 | `WKCouponPurpose` | String | Description of coupon offer (empty string if not used) |
 | `Items` | Array | Array of product objects (see product fields below) |
 | `WkOpen` | String | Tracking pixel available for reporting purposes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Common fields (all Canvas types) #canvas-types-table" }
 
 ### Product item fields
 
@@ -123,7 +123,7 @@ Wunderkind supports six signal types. Each delivers a distinct set of keys and v
 | `WkPrice` | String | Original price (price drop Canvas only) |
 | `WKSalePrice` | String | Sale price (price drop Canvas only) |
 | `WkQuantity` | String | Units remaining (low stock Canvas only) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Product item fields" }
 
 ### Canvas-specific fields and `WkPurpose` values
 
@@ -135,7 +135,7 @@ Wunderkind supports six signal types. Each delivers a distinct set of keys and v
 | Back in stock | `"back in stock"` | — |
 | Price drop | `"price drop"` | `WkPrice`, `WKSalePrice` on each item |
 | Low stock | `"low stock"` | `WkQuantity` on each item |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Canvas-specific fields and WkPurpose values" }
 
 ### Example payloads
 
@@ -420,7 +420,7 @@ The following metrics will be available soon in the Wunderkind reporting dashboa
 | Clicks | Braze Currents |
 | Conversions | Braze Currents (event defined at setup) |
 | Unsubscribes | Braze Currents |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reporting" }
 
 ## Limitations
 

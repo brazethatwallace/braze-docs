@@ -1,6 +1,6 @@
 ---
-nav_title: "Data Sharing"
-article_title: Snowflake Data Sharing
+nav_title: "Datenfreigabe"
+article_title: Snowflake Datenfreigabe
 page_order: 0
 description: "Dieser Referenzartikel behandelt die Snowflake Secure Data Sharing-Integration, mit der Sie direkt in Ihrer Snowflake-Instanz auf Braze-Engagement- und Kampagnendaten zugreifen können."
 page_type: partner
@@ -8,15 +8,17 @@ search_tag: Partner
 
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake Data Sharing
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake Datenfreigabe {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
 
 > Snowflake [Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html) ermöglicht es Braze, Ihnen sicheren Zugriff auf Daten in unserem Snowflake-Portal zu gewähren – ohne Reibungsverluste oder Verzögerungen im Workflow, Fehlerquellen und unnötige Kosten, die bei typischen Datenanbieter-Beziehungen entstehen. Data Sharing kann über die folgende Integration oder über [Snowflake Reader Accounts]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts) eingerichtet werden.
+
+Snowflake Data Sharing ist Teil der Braze-Datenverteilung. Einen vollständigen Überblick über die Optionen der Datenverteilung finden Sie unter [Datenverteilung]({{site.baseurl}}/user_guide/data/distribution/).
 
 {% alert tip %}
 **Sie möchten auf Snowflake-Daten zugreifen, ohne ein Snowflake-Konto zu benötigen?**<br>Informieren Sie sich über [Snowflake Reader Accounts]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts). Mit Reader Accounts erstellt Braze ein Konto, teilt Ihre Daten darin und stellt Ihnen Zugangsdaten zur Verfügung, mit denen Sie sich anmelden und auf Ihre Daten zugreifen können. Dabei werden sämtliche Kosten für Data Sharing und Nutzung vollständig von Braze übernommen.
 {% endalert %}
 
-## Über Secure Data Sharing
+## Über Secure Data Sharing {#about-secure-data-sharing}
 
 Beim Data Sharing werden keine tatsächlichen Daten zwischen Konten kopiert oder übertragen. Das gesamte Sharing erfolgt über Snowflakes einzigartige Service-Schicht und den Metadaten-Store. Dies ist ein wichtiges Konzept, da geteilte Daten keinen Speicherplatz in Ihrem Konto belegen und somit nicht zu Ihren monatlichen Datenspeicherkosten beitragen. Die **einzigen** Kosten entstehen durch die Rechenressourcen (z. B. virtuelle Warehouses), die zum Abfragen der geteilten Daten verwendet werden.
 
@@ -28,26 +30,26 @@ Darüber hinaus kann der Zugriff auf von Braze geteilte Daten mithilfe der integ
 
 Weitere Informationen zum Data Sharing von Snowflake finden Sie unter [Introduction to Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work).
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Braze-Zugang | Kontaktieren Sie Ihren Braze-Konto- oder Customer-Success-Manager, um Data Sharing einzurichten. |
 | Snowflake-Konto | Ein Snowflake-Konto mit `admin`-Berechtigungen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## Secure Data Sharing einrichten
+## Secure Data Sharing einrichten {#setting-up-secure-data-sharing}
 
 Bei Snowflake erfolgt Data Sharing zwischen einem [Datenanbieter](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers) und einem [Datenkonsumenten](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers). In diesem Kontext ist Ihr Braze-Konto der Datenanbieter, da es den Datashare erstellt und sendet – während Ihr Snowflake-Konto der Datenkonsument ist, da es den Datashare nutzt, um eine Datenbank zu erstellen. Weitere Details finden Sie unter [Snowflake: Consuming Shared Data](https://docs.snowflake.com/en/user-guide/data-share-consumers).
 
-### 1. Schritt: Datashare von Braze senden
+### 1. Schritt: Datashare von Braze senden {#step-1-send-the-datashare-from-braze}
 
-1. Gehen Sie in Braze zu **Partnerintegrationen** > **Data Sharing**.
+1. Gehen Sie in Braze zu **Partner Integrations** > **Data Sharing**.
 2. Geben Sie Ihre Snowflake-Kontodetails und den Locator ein. Um Ihren Account-Locator zu erhalten, führen Sie `SELECT CURRENT_ACCOUNT()` im Zielkonto aus.
 3. Wenn Sie einen CRR-Share verwenden, geben Sie den Cloud-Anbieter und die Region an.
 4. Wenn Sie fertig sind, wählen Sie **Create Datashare**. Dadurch wird der Datashare an Ihr Snowflake-Konto gesendet.
 
-### 2. Schritt: Datenbank in Snowflake erstellen
+### 2. Schritt: Datenbank in Snowflake erstellen {#step-2-create-the-database-in-snowflake}
 
 1. Nach einigen Minuten sollten Sie den eingehenden Datashare in Ihrem Snowflake-Konto erhalten.
 2. Erstellen Sie mithilfe des eingehenden Datashares eine Datenbank, um die Tabellen anzuzeigen und abzufragen. Zum Beispiel:
@@ -63,7 +65,7 @@ Wenn Sie einen Share im Braze-Dashboard löschen und neu erstellen, müssen Sie 
 Wenn Sie mehrere Workspaces haben, die Daten an dasselbe Snowflake-Konto teilen, lesen Sie die [Snowflake Data Sharing FAQs]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs/) für Hinweise zur Verwaltung von Multi-Workspace-Konfigurationen.
 {% endalert %}
 
-## Nutzung und Visualisierung
+## Nutzung und Visualisierung {#usage-and-visualization}
 
 Nachdem der Data Share bereitgestellt wurde, erstellen Sie eine Datenbank aus dem eingehenden Data Share. Dadurch erscheinen alle geteilten Tabellen in Ihrer Snowflake-Instanz und können wie alle anderen in Ihrer Instanz gespeicherten Daten abgefragt werden. Beachten Sie jedoch, dass die geteilten Daten schreibgeschützt sind und nur abgefragt, aber in keiner Weise geändert oder gelöscht werden können.
 
@@ -72,12 +74,12 @@ Nachdem der Data Share bereitgestellt wurde, erstellen Sie eine Datenbank aus de
 - Komplexe Berichte zu erstellen
 - Attribution-Modellierung durchzuführen
 - Sicheres Sharing innerhalb Ihres eigenen Unternehmens zu ermöglichen
-- Rohe Event- oder Nutzerdaten einem CRM (wie Salesforce) zuzuordnen
+- Rohe Ereignis- oder Nutzerdaten einem CRM (wie Salesforce) zuzuordnen
 - Und vieles mehr
 
 [Laden Sie hier die Rohtabellen-Schemas herunter.]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
 
-### Nutzer-ID-Schema
+### Nutzer-ID-Schema {#user-id-schema}
 
 Beachten Sie die folgenden Unterschiede zwischen den Namenskonventionen von Braze und Snowflake für Nutzer-IDs.
 
@@ -85,13 +87,13 @@ Beachten Sie die folgenden Unterschiede zwischen den Namenskonventionen von Braz
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Der eindeutige Bezeichner, der automatisch von Braze zugewiesen wird. |
 | `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzerprofils, der von den Kund:innen festgelegt wird. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-ID-Schema" }
 
-## Wichtige Informationen und Einschränkungen
+## Wichtige Informationen und Einschränkungen {#important-information-and-limitations}
 
-### Abwärtskompatible versus nicht abwärtskompatible Änderungen
+### Abwärtskompatible versus nicht abwärtskompatible Änderungen {#breaking-versus-non-breaking-changes}
 
-#### Abwärtskompatible Änderungen (Non-breaking)
+#### Abwärtskompatible Änderungen {#non-breaking-changes}
 
 Abwärtskompatible Änderungen können jederzeit auftreten und bieten in der Regel zusätzliche Funktionalität. Beispiele für abwärtskompatible Änderungen:
 - Hinzufügen einer neuen Tabelle oder View
@@ -101,14 +103,14 @@ Abwärtskompatible Änderungen können jederzeit auftreten und bieten in der Reg
 Da neue Spalten als abwärtskompatible Änderungen gelten, empfiehlt Braze dringend, in jeder Abfrage die gewünschten Spalten explizit aufzulisten, anstatt `SELECT *`-Abfragen zu verwenden. Alternativ können Sie Views erstellen, die Spalten explizit benennen, und dann diese Views anstelle der Tabellen direkt abfragen.
 {% endalert %}
 
-#### Nicht abwärtskompatible Änderungen (Breaking)
+#### Nicht abwärtskompatible Änderungen {#breaking-changes}
 
 Wenn möglich, werden nicht abwärtskompatible Änderungen durch eine Ankündigung und eine Migrationsphase eingeleitet. Beispiele für nicht abwärtskompatible Änderungen:
 - Entfernen einer Tabelle oder View
 - Entfernen einer Spalte aus einer bestehenden Tabelle oder View
 - Ändern des Typs oder der Nullbarkeit einer bestehenden Spalte
 
-### Snowflake-Regionen
+### Snowflake-Regionen {#snowflake-regions}
 
 Braze hostet derzeit alle Daten auf Nutzerebene in diesen Snowflake-AWS-Regionen:
 
@@ -117,29 +119,29 @@ Braze hostet derzeit alle Daten auf Nutzerebene in diesen Snowflake-AWS-Regionen
  - AP-Northeast-1 (Tokyo)
  - AP-Southeast-2 (Sydney)
  - AP-Southeast-3 (Jakarta)
- 
+
 Für Nutzer:innen außerhalb dieser Regionen kann Braze Data Sharing für gemeinsame Kund:innen bereitstellen, die ihre Snowflake-Infrastruktur in einer beliebigen AWS-, Azure- oder GCP-Region betreiben.
 
-### Datenaufbewahrung
+### Datenaufbewahrung {#data-retention}
 
-#### Aufbewahrungsrichtlinie
+#### Aufbewahrungsrichtlinie {#retention-policy}
 
-Alle Daten, die älter als zwei Jahre sind, werden archiviert und in den Langzeitspeicher verschoben. Im Rahmen des Archivierungsprozesses werden alle Events anonymisiert und alle personenbezogenen (PII) sensiblen Felder entfernt (dies umfasst auch optional PII-Felder wie `properties`). Archivierte Daten enthalten weiterhin das Feld `user_id`, das nutzerbasierte Analytics über alle Event-Daten hinweg ermöglicht.
+Alle Daten, die älter als zwei Jahre sind, werden archiviert und in den Langzeitspeicher verschoben. Im Rahmen des Archivierungsprozesses werden alle Ereignisse anonymisiert und alle personenbezogenen (PII) sensiblen Felder entfernt (dies umfasst auch optional PII-Felder wie `properties`). Archivierte Daten enthalten weiterhin das Feld `user_id`, das nutzerbasierte Analytics über alle Ereignisdaten hinweg ermöglicht.
 
-Sie können die aktuellsten zwei Jahre an Daten für jedes Event in der entsprechenden `USERS_*_SHARED`-View abfragen. Zusätzlich verfügt jedes Event über eine `USERS_*_SHARED_ALL`-View, die sowohl anonymisierte als auch nicht anonymisierte Daten zurückgibt.
+Sie können die aktuellsten zwei Jahre an Daten für jedes Ereignis in der entsprechenden `USERS_*_SHARED`-View abfragen. Zusätzlich verfügt jedes Ereignis über eine `USERS_*_SHARED_ALL`-View, die sowohl anonymisierte als auch nicht anonymisierte Daten zurückgibt.
 
-#### Historische Daten
+#### Historische Daten {#historical-data}
 
-Das Archiv historischer Event-Daten in Snowflake reicht bis April 2019 zurück. In den ersten Monaten, in denen Braze Daten in Snowflake gespeichert hat, wurden Produktänderungen vorgenommen, die dazu geführt haben können, dass einige dieser Daten leicht anders aussehen oder Nullwerte aufweisen (da zu diesem Zeitpunkt nicht alle verfügbaren Felder befüllt wurden). Es ist davon auszugehen, dass Ergebnisse, die Daten vor August 2019 enthalten, leicht von den Erwartungen abweichen können.
+Das Archiv historischer Ereignisdaten in Snowflake reicht bis April 2019 zurück. In den ersten Monaten, in denen Braze Daten in Snowflake gespeichert hat, wurden Produktänderungen vorgenommen, die dazu geführt haben können, dass einige dieser Daten leicht anders aussehen oder Nullwerte aufweisen (da zu diesem Zeitpunkt nicht alle verfügbaren Felder befüllt wurden). Es ist davon auszugehen, dass Ergebnisse, die Daten vor August 2019 enthalten, leicht von den Erwartungen abweichen können.
 
-### Konformität mit der Datenschutz-Grundverordnung (DSGVO)
+### Konformität mit der Datenschutz-Grundverordnung (DSGVO) {#general-data-protection-regulation-gdpr-compliance}
 
 {% include partners/snowflake_pii_gdpr.md %}
 
-### Geschwindigkeit, Performance und Kosten von Abfragen
+### Geschwindigkeit, Performance und Kosten von Abfragen {#speed-performance-cost-of-queries}
 
 Geschwindigkeit, Performance und Kosten jeder Abfrage, die auf den Daten ausgeführt wird, werden durch die Warehouse-Größe bestimmt, die Sie zum Abfragen der Daten verwenden. In einigen Fällen kann es je nach Datenmenge, auf die Sie für Analytics zugreifen, erforderlich sein, eine größere Warehouse-Größe zu verwenden, damit die Abfrage erfolgreich ist. Snowflake bietet hervorragende Ressourcen zur Bestimmung der optimalen Größe, darunter [Overview of warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) und [Warehouse considerations](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
 
 {% alert tip %}
-Für eine Sammlung von Beispielabfragen, die Sie beim Einrichten von Snowflake als Referenz nutzen können, sehen Sie sich unsere [Beispielabfragen]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/) und [ETL-Event-Pipeline-Einrichtung]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/) an.
+Für eine Sammlung von Beispielabfragen, die Sie beim Einrichten von Snowflake als Referenz nutzen können, sehen Sie sich unsere [Beispielabfragen]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/) und [ETL-Ereignis-Pipeline-Einrichtung]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/) an.
 {% endalert %}

@@ -4,7 +4,7 @@ article_title: Standort & Geofences für iOS
 platform: iOS
 page_order: 6
 description: "Dieser Referenzartikel beschreibt, wie Sie Standorte und Geofences in Ihrer iOS-Anwendung implementieren."
-Tool:
+tool:
   - Location
 
 noindex: true

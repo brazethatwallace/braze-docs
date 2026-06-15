@@ -1,53 +1,66 @@
 ---
 nav_title: Mixpanel
-article_title: Mixpanel Kohorten-Import
-description: "Dieser Artikel referenziert die Kohortenimport-Funktionalität von Mixpanel, einer Business Analytics-Plattform, die es Ihnen erlaubt, Mixpanel Kohorten in Braze zu importieren, um Braze Segmente zu erstellen, die für das Targeting von Nutzern:innen in zukünftigen Kampagnen oder Canvase verwendet werden können."
+article_title: Mixpanel-Kohortenimport
+description: "Dieser Referenzartikel beschreibt die Kohortenimport-Funktionalität von Mixpanel, einer Business-Analytics-Plattform, mit der Sie Mixpanel-Kohorten in Braze importieren können, um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvases verwendet werden können."
 page_type: partner
 search_tag: Partner
 ---
 
-# Mixpanel Kohortenimport
+# Mixpanel-Kohortenimport {#mixpanel-cohort-import}
 
 > Dieser Artikel beschreibt, wie Sie Nutzer:innen-Kohorten von [Mixpanel](https://mixpanel.com/) nach Braze importieren. Weitere Informationen zur Integration von Mixpanel und seinen anderen Funktionen finden Sie im [Hauptartikel über Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/).
 
-## Integration von Datenimporten
+## Integration von Datenimporten {#data-import-integration}
 
-Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Wenn Sie Fragen zu den Datenpunkten von Braze haben, kann Ihr Braze-Konto Manager:in diese Fragen beantworten.
+Wenn Sie eine Kohorte von Mixpanel mit Braze synchronisieren, empfängt Braze Aktualisierungen der Kohortenmitgliedschaft für Nutzer:innen, die Mixpanel bestehenden Braze-Profilen zuordnen kann. Nach einer Synchronisierung können Sie diese Nutzer:innen mit dem Segment-Filter **Mixpanel cohorts** ansprechen.
+
+Die Kohortensynchronisierung importiert keine Mixpanel-Ereignisse, Mixpanel-Nutzer:inneneigenschaften oder angepasste Attribute in Braze. Das Konnektor-Verhalten, einschließlich der Synchronisierungsfrequenz, wird in Mixpanel gesteuert. Einzelheiten zur Einrichtung finden Sie in der [Mixpanel-Dokumentation zur Braze-Kohortensynchronisierung](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze). Informationen zu den Anforderungen für den Nutzer:innen-Abgleich finden Sie unter [Nutzer:innen-Abgleich](#user-matching).
+
+Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
 
 {% alert important %}
-In Übereinstimmung mit den Richtlinien von Mixpanel zur Bindung von Daten werden Ereignisse, die vor dem 1\. Januar 2010 gesendet wurden, beim Import entfernt.
+In Übereinstimmung mit den Richtlinien von Mixpanel zur Datenaufbewahrung werden Ereignisse, die vor dem 1. Januar 2010 gesendet wurden, beim Import entfernt.
 {% endalert %}
 
-### Schritt 1: Holen Sie sich den Datenimport-Schlüssel für Braze
+### 1. Schritt: Braze-Datenimport-Schlüssel abrufen {#step-1-get-the-braze-data-import-key}
 
-Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologiepartner** und wählen Sie **Mixpanel** aus. Hier finden Sie den REST-Endpunkt und generieren Ihren Datenimport-Schlüssel für Braze. 
+Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Mixpanel** aus. Hier finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren.
 
-Nach der Generierung können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen. Der Datenimport-Schlüssel und der REST-Endpunkt werden im nächsten Schritt verwendet, wenn Sie ein Postback im Dashboard von Mixpanel einrichten.<br><br>![]({% image_buster /assets/img_archive/currents-mixpanel-edit.png %})
+Nach der Generierung können Sie einen neuen Schlüssel erstellen oder einen bestehenden ungültig machen. Der Datenimport-Schlüssel und der REST-Endpunkt werden im nächsten Schritt verwendet, wenn Sie ein Postback im Dashboard von Mixpanel einrichten.<br><br>![]({% image_buster /assets/img_archive/currents-mixpanel-edit.png %})
 
-### Schritt 2: Einrichten der Integration von Braze in Mixpanel
+### 2. Schritt: Braze-Integration in Mixpanel einrichten {#step-2-set-up-the-braze-integration-in-mixpanel}
 
-Navigieren Sie in Mixpanel zu **Datenverwaltung > Integrationen.** Wählen Sie dann den Tab Integration von Braze aus und klicken Sie auf **Verbinden**. Geben Sie in der daraufhin angezeigten Aufforderung den Datenimport-Schlüssel und den REST-Endpunkt von Braze an und klicken Sie auf **Weiter**.
+1. Navigieren Sie in Mixpanel zu **Data Management > Integrations.**
+2. Wählen Sie den Tab für die Braze-Integration aus und klicken Sie auf **Connect**.
+3. Geben Sie in der daraufhin angezeigten Aufforderung den Braze-Datenimport-Schlüssel und den REST-Endpunkt an.
+4. Klicken Sie auf **Continue**.
 
 ![]({% image_buster /assets/img_archive/mixpanel2.png %}){: style="max-width:50%;"}
 
-### Schritt 3: Exportieren Sie eine Mixpanel-Kohorte nach Braze
+### 3. Schritt: Mixpanel-Kohorte nach Braze exportieren {#step-3-export-a-mixpanel-cohort-to-braze}
 
-Navigieren Sie in Mixpanel zu **Datenverwaltung > Kohorten.** Wählen Sie die Kohorte aus, die Sie an Braze senden möchten, und wählen Sie dann **Nach Braze exportieren**. Wählen Sie schließlich eine einmalige oder dynamische Synchronisierung aus. Wenn Sie die dynamische Synchronisierung auswählen, wird Ihre Braze Kohorte alle 15 Minuten mit den Nutzer:innen in Mixpanel synchronisiert. 
+Navigieren Sie in Mixpanel zu **Data Management > Cohorts**. Wählen Sie die Kohorte aus, die Sie an Braze senden möchten, und klicken Sie dann auf **Export to Braze**. Wählen Sie abschließend eine einmalige oder dynamische Synchronisierung aus. Bei der dynamischen Synchronisierung wird die Kohorte nach einem wiederkehrenden Zeitplan aktualisiert, der von Mixpanel gesteuert wird. Die aktuelle Synchronisierungsfrequenz finden Sie in der [Mixpanel-Dokumentation zur Braze-Kohortensynchronisierung](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze).
 
 ![]({% image_buster /assets/img_archive/mixpanel3.png %}){: style="max-width:50%;"}
 
 {% alert important %}
-Nur Nutzer:innen, die bereits in Braze existieren, werden einer Kohorte hinzugefügt oder aus ihr entfernt. Kohortenimport wird keine neuen Nutzer:innen in Braze erstellen.
+Nur Nutzer:innen, die bereits in Braze existieren, werden einer Kohorte hinzugefügt oder aus ihr entfernt. Der Kohortenimport erstellt keine neuen Nutzer:innen in Braze.
 {% endalert %}
 
-### Schritt 4: Segmentierung der Nutzer:innen in Braze
+### 4. Schritt: Nutzer:innen in Braze segmentieren {#step-4-segment-users-in-braze}
 
-Um in Braze ein Segment für diese Nutzer:innen zu erstellen, gehen Sie zu **Zielgruppe** > **Segmente**, benennen Sie Ihr Segment und wählen Sie **Mixpanel_Cohorts** als Filter. Als nächstes verwenden Sie die Option "enthält" und wählen die Kohorte, die Sie in Mixpanel erstellt haben. 
+Um in Braze ein Segment für diese Nutzer:innen zu erstellen, gehen Sie zu **Zielgruppe** > **Segmente**, benennen Sie Ihr Segment und wählen Sie **Mixpanel_Cohorts** als Filter. Verwenden Sie anschließend die Option „enthält“ und wählen Sie die Kohorte, die Sie in Mixpanel erstellt haben.
 
-![In der Segmentierung von Braze ist der Filter für die Nutzer:innen-Attribute "Mixpanel Kohorten" auf "umfasst" und "Braze Kohorte" eingestellt.]({% image_buster /assets/img_archive/mixpanel1.png %})
+![Im Braze-Segment-Builder ist der Nutzer:innen-Attribut-Filter „Mixpanel cohorts“ auf „enthält“ und „Braze cohort“ eingestellt.]({% image_buster /assets/img_archive/mixpanel1.png %})
 
-Nach dem Speichern können Sie dieses Segment bei der Erstellung von Canvas oder Kampagnen im Schritt Targeting Nutzer:innen referenzieren.
+Nach dem Speichern können Sie dieses Segment bei der Erstellung von Canvases oder Campaigns im Schritt „Zielgruppe zusammenstellen“ referenzieren.
 
-## Nutzer:innen-Abgleich
+## Nutzer:innen-Abgleich {#user-matching}
 
-Identifizierte Nutzer:innen können entweder über ihre `external_id` oder `alias` abgeglichen werden. Anonyme Nutzer:innen können über ihre `device_id` gefunden werden. Identifizierte Nutzer:innen, die ursprünglich als anonyme Nutzer:innen angelegt wurden, können nicht über ihre `device_id` identifiziert werden, sondern müssen über ihre `external_id` oder `alias` identifiziert werden.
+Identifizierte Nutzer:innen können entweder über ihre `external_id` oder ihren `alias` abgeglichen werden. Anonyme Nutzer:innen können über ihre `device_id` abgeglichen werden. Identifizierte Nutzer:innen, die ursprünglich als anonyme Nutzer:innen angelegt wurden, können nicht über ihre `device_id` identifiziert werden, sondern müssen über ihre `external_id` oder ihren `alias` identifiziert werden.
+
+## Fehlerbehebung {#troubleshooting}
+
+Wenn eine Mixpanel-Kohortensynchronisierung unvollständig erscheint oder für bestimmte Nutzer:innen nicht aktualisiert wird, lesen Sie den Abschnitt [Fehlerbehebung]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/#troubleshooting) im Hauptartikel über Mixpanel.
+
+Konnektor-spezifische Schritte und Synchronisierungsfrequenzen finden Sie in der [Mixpanel-Dokumentation zur Braze-Kohortensynchronisierung](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze).

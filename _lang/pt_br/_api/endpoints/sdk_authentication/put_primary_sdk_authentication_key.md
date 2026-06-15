@@ -1,30 +1,30 @@
 ---
-nav_title: "PUT: Defina a chave de autenticação do SDK primário"
-article_title: "PUT: Defina a Chave de Autenticação do SDK Primário"
+nav_title: "PUT: Definir a chave primária de autenticação do SDK"
+article_title: "PUT: Definir a chave primária de autenticação do SDK"
 search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint Braze para definir a chave de autenticação do SDK primário."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para definir a chave primária de autenticação do SDK."
 ---
 
 {% api %}
-# Defina a chave de autenticação do SDK
+# Definir a chave primária de autenticação do SDK {#set-primary-sdk-authentication-key}
 {% apimethod put %}
 /app_group/sdk_authentication/primary
 {% endapimethod %}
 
 > Use este endpoint para definir uma chave de autenticação do SDK como a chave primária para seu app.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `sdk_authentication.primary`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -36,15 +36,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Obrigatória | String | O identificador da API do app. |
+| `app_id` | Obrigatória | String | O identificador de API do app. |
 | `key_id` | Obrigatória | String | O ID da chave de autenticação do SDK a ser marcada como primária. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```bash
 curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authentication/primary' \
 --header 'Content-Type: application/json' \
@@ -55,7 +55,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }'
 ```
 
-## Resposta
+## Resposta {#response}
 ```json
 {
   "keys": [
@@ -75,18 +75,18 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }
 ```
 
-## Parâmetros de resposta
+## Parâmetros de resposta {#response-parameters}
 
 | Parâmetro | Tipo de dados | Descrição |
 | --------- | --------- | ----------- |
-| `keys` | Vetor | Array de todos os objetos de chave de autenticação do SDK. |
+| `keys` | Array | Array de todos os objetos de chave de autenticação do SDK. |
 | `keys[].id` | String | O ID da chave de autenticação do SDK. |
 | `keys[].rsa_public_key` | String | A string da chave pública RSA. |
 | `keys[].description` | String | Descrição da chave de autenticação do SDK. |
-| `keys[].is_primary` | Booleano | Se esta chave é a chave de autenticação do SDK primária. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `keys[].is_primary` | booleano | Se esta chave é a chave primária de autenticação do SDK. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros de resposta" }
 
-### Regras de validação
+### Regras de validação {#validation-rules}
 
 Este endpoint possui as seguintes regras de validação:
 

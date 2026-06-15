@@ -24,7 +24,7 @@ You can use agents as steps in a journey to personalize messages or guide decisi
 | Intelligent routing | Use agent outputs (boolean or numeric) to split users into different Canvas paths. For example, classify users as “at risk” or “healthy” and adjust messaging cadence accordingly. |
 | Survey or response interpretation | Let an agent parse open-ended survey responses or free-text fields, returning structured values (for example, categorizing intent or need) that drive downstream paths. |
 | Multi-step reasoning | Configure an agent to combine context fields and make complex decisions, such as recommending the next-best action (email, SMS, or human outreach) based on multiple user attributes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## Agents in catalogs  
 
@@ -40,7 +40,7 @@ You can apply an agent to catalog fields so it automatically generates or calcul
 | Categorize or tag items | Assign tags for recommendation logic so personalization models can segment products more effectively. For example, tag products as "outdoor," "festival-ready," or "premium." |
 | Localize content | Translate catalog text into another language for global campaigns, or adjust tone and length for region-specific channels. For example, translate “Classic Clubmaster Sunglasses” into Spanish as “Gafas de sol Classic Clubmaster,” or shorten descriptions for SMS campaigns. |
 | Summarize reviews or feedback | Summarize sentiment or feedback into a new field, such as assigning sentiment scores like Positive, Neutral, or Negative, or creating a short text summary like “Most customers mention great fit, but note slow shipping.” |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ### Steps
 
@@ -82,7 +82,7 @@ Let's say you have an agent that adds product descriptions to a catalog with the
 | --- | --- |
 | **description** | Text |
 | **confidence_score_out_of_ten** | Number |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Define response fields" }
 
 You can add a field named **product_description** to a catalog and select **description** as the **Response Field** to populate the column with the agent's descriptions.
 
@@ -92,8 +92,8 @@ You can also manually override the agent-generated cell by selecting **Edit Item
 
 ### Error handling in catalogs  
 
-- Failed catalog invocations do not retry.
-- If the API call to the foundational model provider returns any error, such as an invalid API key error or a rate limit error, the field value does not update.
+- Failed catalog invocations do not retry, including on [rate limit errors]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider.
+- If the API call to the foundational model provider returns any other error, such as an invalid API key error, the field value does not update.
 - You can review the agent's logs for details on failed runs.
 
 ## Monitor your agent

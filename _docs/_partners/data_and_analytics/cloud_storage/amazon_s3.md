@@ -312,7 +312,7 @@ You can also add the following customization based on your needs:
 Select **Launch Current** to continue. A notification indicates if your credentials have been successfully validated. AWS S3 is now set up for Braze Currents.
 
 {% alert important %}
-If you receive an "S3 credentials are invalid" error, this may be due to integrating too quickly after creating a role in AWS. Wait and try again. 
+If you receive an "S3 credentials are invalid" error, this may be due to integrating too quickly after creating a role in AWS. Wait and try again. If the message mentions `PutObject` access or server-side encryption on dashboard data exports, see [Troubleshooting S3 credential errors](#troubleshooting).
 {% endalert %}
 
 {% endtab %}
@@ -333,12 +333,26 @@ A notification informs you whether your credentials have been successfully valid
 {% endtab %}
 {% endtabs %}
 
+## Updating Amazon S3 credentials for Currents {#updating-currents-credentials}
+
+You can update the Amazon S3 credentials on an existing Braze Currents connector without stopping the integration or losing data already exported to your bucket.
+
+To refresh credentials—or to switch between **AWS Secret Access Key** and **AWS Role ARN**—finish the IAM and AWS-side steps for your chosen method earlier in this article (policies, user or role, and identifiers as needed).
+
+When you've finished preparing credentials in AWS, go to **Partner Integrations** > **Currents** in Braze, locate your Amazon S3 connector in the list, select **Edit**, update **Credentials**, and select **Update Current**. Braze validates the credentials you enter; your connector keeps running and data already in your bucket remains available. For more information, see [Updating Currents in Set up Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents).
+
 ## Export behavior
 
 Users who have integrated a cloud data storage solution and export APIs, dashboard reports, or CSV reports experience the following:
 
 - All API exports do not return a download URL in the response body and must be retrieved through data storage.
 - All dashboard reports and CSV reports are sent to the user's email for download (no storage permissions required) and backed up on Data Storage.
+
+### `Unable to connect to S3, please validate that your credentials are correct` error
+
+If you see this error when downloading a CSV export, open the [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) integration on the **Technology Partners** page and select **Test Credentials**. The result explains what failed validation—for example, the key might be missing `GetObject` permission, which prevents Braze from generating download links.
+
+Update your IAM policy so the integration user or role can call `s3:GetObject` on the S3 bucket and object path configured in your Braze integration. For more export issues, see [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 
 {% alert important %}
 **JSON format requirement:** For JSON exports, Braze uses JSONL (newline-delimited JSON) format, where each line contains a separate JSON object. This format differs from standard JSON, which is a single JSON array or object. Each line in the exported file is a valid JSON object, but the file as a whole is not a single valid JSON document. When processing these files, parse each line individually as a separate JSON object rather than attempting to parse the entire file as a single JSON document.
@@ -352,4 +366,35 @@ If you intend to create more than one Currents connector to send to your S3 buck
 
 If you plan on using the same S3 bucket for both Currents and data exports, you need to create two separate policies as each integration requires different permissions.
 
+## Troubleshooting
+
+### Error: Account does not have `PutObject` access
+
+If you see the following error when saving Amazon S3 credentials for dashboard data exports, it may be due to incorrect permissions or server-side encryption settings.
+
+```
+S3 Credentials are invalid because this account does not have 'PutObject access'. Please check the permissions and ensure that this key has access to 'PutObject' in the 'CUSTOMER-BUCKET-HERE' bucket.
+```
+
+To resolve this issue, check the following areas.
+
+#### Incorrect bucket policy
+
+Confirm that you created a policy with the correct permissions as outlined in [Amazon S3 integration](#integration) (use the **Dashboard Data Export** policy for your authentication method).
+
+#### Server-side encryption
+
+```
+User: arn:aws:sts::XXX:assumed-role/braze-iam-role/braze is not authorized to perform: kms:GenerateDataKey on resource: arn:aws:XXX because no identity-based policy allows the kms:GenerateDataKey action
+```
+
+If you receive this error message from [Braze Support]({{site.baseurl}}/braze_support/) or in your AWS logs, your S3 bucket is configured with AWS Key Management Service (SSE-KMS) encryption. Braze does not support SSE-KMS for Currents or dashboard data exports. To resolve this, disable SSE-KMS in your S3 bucket.
+
+{% alert note %}
+Braze supports server-side encryption using S3 managed keys (SSE-S3), which is compatible with both Currents and dashboard data exports.
+{% endalert %}
+
+#### Check additional permissions
+
+Make sure you have the necessary permissions, including `s3:GetBucketLocation` and `s3:PutObject`.
 

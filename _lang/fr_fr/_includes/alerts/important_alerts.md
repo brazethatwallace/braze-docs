@@ -17,7 +17,7 @@ Les fenêtres de navigation privée ne prennent pas en charge les notifications 
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-L'ajout d'une adresse CCI à votre campagne ou canvas entraîne le doublement de vos e-mails facturables pour la campagne ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
+L'ajout d'une adresse CCI à votre Campaign ou Canvas entraîne le doublement de vos e-mails facturables pour la Campaign ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Certains navigateurs, comme les applications Naver Android et iOS, ne prennent p
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-Les plans visant à supprimer progressivement l'événement d'achat seront annoncés en 2026. L'événement d'achat sera à terme remplacé par de nouveaux [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), qui offriront des fonctionnalités améliorées en matière de segmentation, de reporting, d'analytique, et plus encore. Cependant, les nouveaux événements eCommerce ne prendront pas en charge les fonctionnalités existantes liées à l'événement d'achat, telles que la valeur vie client (LTV) ou les rapports sur le chiffre d'affaires dans les Canvas ou les campagnes. Pour obtenir la liste complète des fonctionnalités liées aux événements d'achat, consultez la section [Enregistrement des événements d'achat]({{site.baseurl}}/user_guide/data/activation/custom_data/purchase_events/#logging-purchase-events).
+L'ancien événement d'achat passe en mode maintenance. Les clients Braze existants peuvent continuer à utiliser les anciens événements d'achat. Ils continueront de fonctionner normalement, mais les nouvelles fonctionnalités seront désormais développées sur la base des événements recommandés pour le commerce électronique. Braze vous informera bien à l'avance avant qu'une date de fin de vie ne soit fixée. Les nouveaux clients Braze doivent utiliser les [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), car les anciens événements d'achat ne seront pas disponibles.
 {% endalert %}
 
 {% endif %}
@@ -69,7 +69,7 @@ Les plans visant à supprimer progressivement l'événement d'achat seront annon
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-Les plans visant à supprimer progressivement l'événement d'achat seront annoncés en 2026. L'événement d'achat sera à terme remplacé par de nouveaux [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), qui offriront des fonctionnalités améliorées en matière de segmentation, de reporting, d'analytique, et plus encore. Lorsque ce sera le cas, les filtres de segment ne s'afficheront plus sous le comportement d'achat. Pour obtenir une liste complète des événements d'achat, reportez-vous à la section [Enregistrement des événements d'achat]({{site.baseurl}}/user_guide/data/custom_data/purchase_events/#logging-purchase-events).
+L'ancien événement d'achat passera en état obsolète (mode maintenance). Les événements d'achat continueront de fonctionner normalement, mais aucune nouvelle fonctionnalité ne sera développée sur cette base, au profit des [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Lorsque ce sera le cas, les filtres de segment ne s'afficheront plus sous le comportement d'achat.<br><br> Si vous utilisez actuellement les événements d'achat, vous recevrez un préavis concernant les plans de suppression progressive. Pour l'instant, vous pouvez continuer à utiliser les événements d'achat jusqu'à la date officielle de dépréciation. Pour en savoir plus, consultez l'[aperçu des événements recommandés]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
 {% endalert %}
 
 {% endif %}
@@ -78,14 +78,14 @@ Les plans visant à supprimer progressivement l'événement d'achat seront annon
 
 {% alert important %}
 Les fichiers exportés stockés dans les compartiments S3 sont automatiquement supprimés après l'expiration du lien de téléchargement (quatre heures après l'envoi de l'e-mail d'exportation, sauf indication contraire).
-{% endalert %} 
+{% endalert %}
 
 {% endif %}
 
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-L'intégration Shopify prend en charge les webhooks de création et de mise à jour des clients Shopify, qui se trouvent dans vos paramètres de configuration des données. Lorsqu'un profil utilisateur est créé ou mis à jour dans Shopify, un profil utilisateur correspondant est créé ou mis à jour dans Braze. <br><br>Ces actions ne déclenchent pas d'événements personnalisés dans Braze et servent uniquement à [synchroniser les données utilisateur Shopify avec Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Les données synchronisées comprennent les [attributs personnalisés]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), les [attributs standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) et, si cette option est activée dans votre configuration, les [états des groupes d'abonnement]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
+L'intégration Shopify prend en charge les webhooks de création et de mise à jour des clients Shopify, qui se trouvent dans vos paramètres de configuration des données. Lorsqu'un profil utilisateur est créé ou mis à jour dans Shopify, un profil utilisateur correspondant est créé ou mis à jour dans Braze. <br><br>Ces actions ne déclenchent pas d'événements personnalisés dans Braze et servent uniquement à [synchroniser les données utilisateur Shopify avec Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Les données synchronisées comprennent les [attributs personnalisés]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), les [attributs standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) et, si cette option est activée dans votre configuration, les [états des groupes d'abonnement]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ L'intégration Shopify prend en charge les webhooks de création et de mise à j
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-Les propriétés d'entrée Canvas font partie des variables de contexte Canvas. Cela signifie que `canvas_entry_properties` est référencé en tant que `context`. Chaque variable `context` comprend un nom, un type de données et une valeur pouvant inclure du Liquid. Actuellement, `canvas_entry_properties` reste rétrocompatible. Pour plus de détails, consultez les sections [Contexte]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) et [Objet de contexte Canvas]({{site.baseurl}}/api/objects_filters/context_object).
+Les propriétés d'entrée Canvas font partie des variables de contexte Canvas. Cela signifie que `canvas_entry_properties` est référencé en tant que `context`. Chaque variable `context` comprend un nom, un type de données et une valeur pouvant inclure du Liquid. Actuellement, `canvas_entry_properties` reste rétrocompatible. Pour plus de détails, consultez les sections [Contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) et [Objet de contexte Canvas]({{site.baseurl}}/api/objects_filters/context_object/).
 {% endalert %}
 
 {% endif %}
@@ -101,7 +101,7 @@ Les propriétés d'entrée Canvas font partie des variables de contexte Canvas. 
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Ce partenaire n'apparaît sur votre page **Partenaires technologiques** que si vous avez activé [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/). Pour obtenir de l'aide pour démarrer, contactez votre Customer Success Manager.
+Ce partenaire n'apparaît sur votre page **Partenaires technologiques** que si vous avez activé [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/). Pour obtenir de l'aide pour démarrer, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
 {% endif %}
@@ -124,7 +124,23 @@ L'utilisation de « Jour de l'année » pour des dates absolues peut produire de
 {% if include.alert == 'granular permissions ea' %}
 
 {% alert important %}
-Les autorisations granulaires sont actuellement en accès anticipé. Lorsque la migration sera planifiée pour votre société, vos administrateurs Braze recevront des e-mails et des bannières dans le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration/).
+Les autorisations granulaires sont en accès anticipé. Lorsque la migration sera planifiée pour votre société, vos administrateurs Braze recevront des e-mails et des bannières dans le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration/).
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'WhatsApp audio and documents' %}
+
+{% alert note %}
+La [bibliothèque multimédia de Braze]({{site.baseurl}}/media_library/) ne prend en charge que les images et les vidéos. Les fichiers audio et les documents doivent être référencés via une URL hébergée.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'Meta MP4 video issue' %}
+
+{% alert important %}
+Meta présente un problème connu qui peut empêcher la lecture de certaines vidéos MP4 sur les appareils Android en raison de paramètres d'encodage ou de conteneur spécifiques. En attendant un correctif permanent, le reformatage du fichier MP4 résout le problème pour la plupart des expéditeurs. Testez toutes les vidéos sur des appareils Android pour vérifier la bonne livrabilité. <br><br>Vous pouvez reformater le fichier MP4 à l'aide d'un outil en ligne, tel que [CloudConvert](https://cloudconvert.com/mp4-converter). Importez votre fichier MP4 dans l'outil, convertissez-le à nouveau en MP4, puis téléchargez le fichier converti.
 {% endalert %}
 
 {% endif %}
@@ -135,6 +151,22 @@ Les autorisations granulaires sont actuellement en accès anticipé. Lorsque la 
 Pour cette intégration, l'alias d'utilisateur doit respecter le format suivant afin que Braze puisse associer les webhooks au profil utilisateur correspondant :<br><br>
 - `alias_label` : `shopify_cart_${cartToken}`
 - `alias_name` : `shopify_cart_token`
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'network dependency' %}
+
+{% alert important %}
+Les Content Cards, les messages in-app, les bannières et les indicateurs de fonctionnalité dépendent de la connectivité de l'appareil pour se synchroniser avec les serveurs Braze. Les conditions réseau pouvant varier, il est possible que le contenu ou les mises à jour ne soient pas synchronisés, affichés ou supprimés immédiatement (par exemple, si un utilisateur est hors ligne). Nous vous recommandons d'éviter ces canaux pour les mises à jour critiques et urgentes.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'dynamic image URL' %}
+
+{% alert important %}
+Si vous intégrez des images via le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), assurez-vous que l'URL de votre image commence par `https://`. L'utilisation de `http://` provoquera le plantage de votre application.
 {% endalert %}
 
 {% endif %}

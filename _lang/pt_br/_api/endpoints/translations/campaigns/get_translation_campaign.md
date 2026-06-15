@@ -1,6 +1,6 @@
 ---
-nav_title: "OBTER: Ver todas as traduções de uma campanha"
-article_title: "OBTER: Ver todas as traduções de uma campanha"
+nav_title: "GET: Ver todas as traduções de uma campanha"
+article_title: "GET: Ver todas as traduções de uma campanha"
 search_tag: Endpoint
 page_order: 1
 
@@ -10,38 +10,36 @@ description: "Este artigo descreve detalhes sobre o endpoint Ver todas as tradu�
 ---
 
 {% api %}
-# Ver todas as traduções de uma campanha
+# Ver todas as traduções de uma campanha {#view-all-translations-for-a-campaign}
 {% apimethod get %}
 /campaigns/translations
 {% endapimethod %}
 
-> Use esse ponto de extremidade para visualizar todas as traduções de cada variante de mensagens em uma campanha. Veja [Locales in messages]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) para saber mais sobre os recursos de tradução.
+> Use esse endpoint para visualizar todas as traduções de cada variante de mensagem em uma campanha. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `campaigns.translations.get`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parâmetros de consulta
+## Parâmetros de consulta {#query-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`| Obrigatória | String | O ID de sua campanha. |
-|`message_variation_id`| Obrigatória | String | O ID da sua variação de mensagem. |
-|`locale_id`| Opcional | String | Um UUID de localidade para filtrar as respostas. |
-| `post_launch_draft_version`| Opcional | Booleano | Quando `true` retorna a versão mais recente do rascunho em vez da versão publicada mais recente. Padrão para `false` retornando a versão publicada mais recente.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | Obrigatória | String | O ID da sua campanha. |
+| `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
+| `locale_id` | Opcional | String | Um UUID de localidade para filtrar as respostas. |
+| `post_launch_draft_version` | Opcional | booleano | Quando `true`, retorna a versão de rascunho mais recente em vez da versão publicada mais recente. O padrão é `false`, retornando a versão publicada mais recente. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.
 {% endalert %}
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translations?campaign_id={campaign_id}&message_variation_id={message_variation_id}&locale_id={locale_uuid}&post_launch_draft_version=true' \
@@ -49,13 +47,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translati
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Resposta
+## Resposta {#response}
 
-Há quatro respostas de código de status para esse endpoint: `200`, `400`, `404`, e `429`.
+Há quatro respostas de código de status para esse endpoint: `200`, `400`, `404` e `429`.
 
-### Exemplo de resposta bem-sucedida
+### Exemplo de resposta bem-sucedida {#example-success-response}
 
-O código de status `200` poderia retornar o seguinte cabeçalho e corpo de resposta.
+O código de status `200` pode retornar o seguinte cabeçalho e corpo de resposta.
 
 ```json
 {
@@ -92,7 +90,7 @@ O código de status `200` poderia retornar o seguinte cabeçalho e corpo de resp
 }
 ```
 
-### Exemplo de resposta de erro
+### Exemplo de resposta de erro {#example-error-response}
 
 O código de status `400` pode retornar o seguinte corpo de resposta.
 

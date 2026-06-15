@@ -1,34 +1,34 @@
 ---
-nav_title: "PUBLICAR: Exportar perfil de usuario por identificador"
-article_title: "PUBLICAR: Exportar perfil de usuario por identificador"
+nav_title: "POST: Exportar perfil de usuario por identificador"
+article_title: "POST: Exportar perfil de usuario por identificador"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Exportar usuarios por identificador de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Exportar usuarios por identificador de Braze."
 
 ---
 {% api %}
-# Exportar perfil de usuario por identificador
+# Exportar perfil de usuario por identificador {#export-user-profile-by-identifier}
 {% apimethod post %}
 /users/export/ids
 {% endapimethod %}
 
-> Utiliza este punto final para exportar datos de cualquier perfil de usuario especificando un identificador de usuario.
+> Utiliza este punto de conexión para exportar datos de cualquier perfil de usuario especificando un identificador de usuario.
 
-Se pueden incluir hasta 50 `external_ids` o `user_aliases` en una sola solicitud. Si quieres especificar `device_id`, `email_address`, o `phone`, sólo se puede incluir uno de estos identificadores por solicitud.
+Se pueden incluir hasta 50 `external_ids` o `user_aliases` en una sola solicitud. Si quieres especificar `device_id`, `email_address` o `phone`, solo se puede incluir uno de estos identificadores por solicitud.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b9750447-9d94-4263-967f-f816f0c76577 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `users.export.ids`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `users.export.ids`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users export ids' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -51,22 +51,22 @@ Authorization: Bearer YOUR-REST-API-KEY
 Para los clientes que se hayan incorporado a Braze a partir del 22 de agosto de 2024, se requiere el parámetro de solicitud `fields_to_export`.
 {% endalert %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro          | Obligatoria | Tipo de datos                                                     | Descripción                                                                                  |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ------------------ | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `external_ids`     | Opcional | Matriz de cadenas                                              | Identificadores externos de los usuarios que deseas exportar.                                              |
-| `user_aliases`     | Opcional | Matriz de objeto alias de usuario                                    | [Alias]({{site.baseurl}}/api/objects_filters/user_alias_object/) de usuario para exportar usuarios. |
-| `device_id`        | Opcional | Cadena                                                        | Identificador del dispositivo, devuelto por varios métodos del SDK como `getDeviceId`.                 |
-| `braze_id`         | Opcional | Cadena                                                        | Identificador Braze de un usuario concreto.                                                      |
-| `email_address`    | Opcional | Cadena                                                        | Dirección de correo electrónico del usuario.                                                                       |
-| `phone`            | Opcional | Cadena en [E.164](https://en.wikipedia.org/wiki/E.164) formato | Número de teléfono del usuario.                                                                        |
-| `fields_to_export` | Opcional\*. | Matriz de cadenas                                              | Nombre de los campos de datos de usuario a exportar.<br><br>\*Este campo es necesario para utilizar el límite de velocidad de 40 peticiones por segundo. Si se omite, se utilizará en su lugar el límite de velocidad predeterminado de 250 peticiones por minuto. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `external_ids` | Opcional | Matriz de cadenas | Identificadores externos de los usuarios que deseas exportar. |
+| `user_aliases` | Opcional | Matriz de objetos de alias de usuario | [Alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/) para exportar usuarios. |
+| `device_id` | Opcional | Cadena | Identificador del dispositivo, devuelto por varios métodos del SDK como `getDeviceId`. |
+| `braze_id` | Opcional | Cadena | Identificador Braze de un usuario concreto. |
+| `email_address` | Opcional | Cadena | Dirección de correo electrónico del usuario. |
+| `phone` | Opcional | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | Número de teléfono del usuario. |
+| `fields_to_export` | Opcional* | Matriz de cadenas | Nombre de los campos de datos de usuario a exportar.<br><br>*Este campo es necesario para utilizar el límite de velocidad más rápido de 40 solicitudes por segundo. Si se omite, se utilizará en su lugar el límite de velocidad predeterminado de 250 solicitudes por minuto. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-\*Requerido para clientes que se hayan incorporado a Braze a partir del 22 de agosto de 2024.
+*Obligatorio para clientes que se hayan incorporado a Braze a partir del 22 de agosto de 2024.
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' \
 --header 'Content-Type: application/json' \
@@ -87,49 +87,49 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 }'
 ```
 
-## Campos a exportar
+## Campos a exportar {#fields-to-export}
 
-La siguiente es una lista de elementos `fields_to_export` válidos. El uso de `fields_to_export` para minimizar los datos devueltos puede mejorar el tiempo de respuesta de este punto final de la API:
+La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fields_to_export` para minimizar los datos devueltos puede mejorar el tiempo de respuesta de este punto de conexión de la API:
 
-| Campo a exportar       | Tipo de datos       | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Campo a exportar | Tipo de datos | Descripción |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apps`                | Matriz           | Aplicaciones para las que este usuario ha iniciado sesión, que incluye los campos:<br><br>- `name`: nombre de la aplicación<br>- `platform`: plataforma de la aplicación, como iOS, Android o Web<br>- `version`: número o nombre de la versión de la aplicación <br>- `sessions`: número total de sesiones de esta aplicación<br>- `first_used`: fecha de la primera sesión<br>- `last_used`: fecha de la última sesión<br><br>Todos los campos son cadenas.                                                                                                                                                                                                                                                                                       |
-| `attributed_campaign` | Cadena          | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de una campaña publicitaria concreta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `attributed_source`   | Cadena          | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de la plataforma en la que estaba el anuncio.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `attributed_adgroup`  | Cadena          | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de una subagrupación opcional debajo de campaña.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `attributed_ad`       | Cadena          | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de un subgrupo opcional por debajo de la campaña y del grupo de anuncios.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `push_subscribe`      | Cadena          | Estado de la suscripción push del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `email_subscribe`     | Cadena          | Estado de la suscripción por correo electrónico del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `braze_id`            | Cadena          | Identificador único de usuario específico del dispositivo establecido por Braze para este usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `country`             | Cadena          | País del usuario utilizando la norma [ISO 3166-1 alfa-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `created_at`          | Cadena          | Fecha y hora de creación del perfil de usuario, en formato ISO 8601.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `custom_attributes`   | Objeto          | Pares clave-valor de atributos personalizados para este usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `custom_events`       | Matriz           | Eventos personalizados atribuidos a este usuario en los últimos 90 días.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `devices`             | Matriz           | Información sobre el dispositivo del usuario, que podría incluir lo siguiente dependiendo de la plataforma:<br><br>- `model`: Nombre del modelo del dispositivo<br>- `os`: Sistema operativo del dispositivo<br>- `carrier`: Operador de servicio del dispositivo, si está disponible<br>- `idfv`: identificador del dispositivo Braze (iOS), el identificador de Apple para el proveedor, si existe<br>- `idfa`: (iOS) Identificador de Publicidad, si existe<br>- `device_id`: (Android) Identificador de dispositivo Braze<br>- `google_ad_id`: (Android) Identificador de publicidad de Google Play, si existe<br>- `roku_ad_id`: (Roku) Identificador de publicidad de Roku<br>- `ad_tracking_enabled`: Si el seguimiento de anuncios está habilitado en el dispositivo, puede ser verdadero o falso |
-| `dob`                 | Cadena          | Fecha de nacimiento del usuario en el formato `YYYY-MM-DD`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `email`               | Cadena          | Dirección de correo electrónico del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `external_id`         | Cadena          | Identificador único de usuario para usuarios identificados.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `first_name`          | Cadena          | Nombre del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `gender`              | Cadena          | Sexo del usuario. Los valores posibles son:<br><br>- `M`: masculino<br>- `F`: mujer<br>- `O`: otros<br>- `N`: no aplicable<br>- `P`: prefiero no decirlo<br>- `nil`: desconocido                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `home_city`           | Cadena          | Ciudad de residencia del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `language`            | Cadena          | Idioma del usuario en la norma ISO-639-1.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `last_coordinates`    | Matriz de flotantes | Ubicación más reciente del dispositivo del usuario, formateada como `[longitude, latitude]`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `last_name`           | Cadena          | Apellido del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `phone`               | Cadena          | Número de teléfono del usuario en formato E.164.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `purchases`           | Matriz           | Compras que este usuario ha realizado en los últimos 90 días.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `push_tokens`         | Matriz           | Identificador anónimo único que especifica dónde enviar las notificaciones de una aplicación.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `random_bucket`       | Entero         | [Número de contenedor aleatorio]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) del usuario, utilizado para crear segmentos uniformemente distribuidos de usuarios aleatorios.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `time_zone`           | Cadena          | Zona horaria del usuario en el mismo formato que la base de datos de zonas horarias de IANA.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `total_revenue`       | Flotante           | Total de ingresos atribuidos a este usuario. Los ingresos totales se calculan en función de las compras que el usuario realizó durante las ventanas de conversión de las campañas y Lienzos que recibió.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `uninstalled_at`      | Marca de tiempo       | Fecha y hora en que el usuario desinstala la aplicación. Se omite si no se ha desinstalado la aplicación.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `user_aliases`        | Objeto          | [Objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) que contiene `alias_name` y `alias_label`, si existe.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `apps` | Matriz | Aplicaciones para las que este usuario ha registrado sesiones, que incluyen los campos:<br><br>- `name`: nombre de la aplicación<br>- `platform`: plataforma de la aplicación, como iOS, Android o Web<br>- `version`: número o nombre de la versión de la aplicación <br>- `sessions`: número total de sesiones de esta aplicación<br>- `first_used`: fecha de la primera sesión<br>- `last_used`: fecha de la última sesión<br><br>Todos los campos son cadenas. |
+| `attributed_campaign` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de una campaña publicitaria concreta. |
+| `attributed_source` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de la plataforma en la que estaba el anuncio. |
+| `attributed_adgroup` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de una subagrupación opcional debajo de la campaña. |
+| `attributed_ad` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de una subagrupación opcional debajo de la campaña y del grupo de anuncios. |
+| `push_subscribe` | Cadena | Estado de la suscripción push del usuario. |
+| `email_subscribe` | Cadena | Estado de la suscripción por correo electrónico del usuario. |
+| `braze_id` | Cadena | Identificador único de usuario específico del dispositivo establecido por Braze para este usuario. |
+| `country` | Cadena | País del usuario utilizando el estándar [ISO 3166-1 alfa-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
+| `created_at` | Cadena | Fecha y hora de creación del perfil de usuario, en formato ISO 8601. |
+| `custom_attributes` | Objeto | Pares clave-valor de atributos personalizados para este usuario. |
+| `custom_events` | Matriz | Eventos personalizados atribuidos a este usuario en los últimos 90 días. |
+| `devices` | Matriz | Información sobre el dispositivo del usuario, que podría incluir lo siguiente dependiendo de la plataforma:<br><br>- `model`: nombre del modelo del dispositivo<br>- `os`: sistema operativo del dispositivo<br>- `carrier`: operador de servicio del dispositivo, si está disponible<br>- `idfv`: (iOS) identificador del dispositivo Braze, el identificador de Apple para el proveedor, si existe<br>- `idfa`: (iOS) identificador de publicidad, si existe<br>- `device_id`: (Android) identificador de dispositivo Braze<br>- `google_ad_id`: (Android) identificador de publicidad de Google Play, si existe<br>- `roku_ad_id`: (Roku) identificador de publicidad de Roku<br>- `ad_tracking_enabled`: si el seguimiento de anuncios está habilitado en el dispositivo, puede ser verdadero o falso |
+| `dob` | Cadena | Fecha de nacimiento del usuario en el formato `YYYY-MM-DD`. |
+| `email` | Cadena | Dirección de correo electrónico del usuario. |
+| `external_id` | Cadena | Identificador único de usuario para usuarios identificados. |
+| `first_name` | Cadena | Nombre del usuario. |
+| `gender` | Cadena | Sexo del usuario. Los valores posibles son:<br><br>- `M`: masculino<br>- `F`: femenino<br>- `O`: otro<br>- `N`: no aplicable<br>- `P`: prefiero no decirlo<br>- `nil`: desconocido |
+| `home_city` | Cadena | Ciudad de residencia del usuario. |
+| `language` | Cadena | Idioma del usuario en el estándar ISO-639-1. |
+| `last_coordinates` | Matriz de flotantes | Ubicación más reciente del dispositivo del usuario, formateada como `[longitude, latitude]`. |
+| `last_name` | Cadena | Apellido del usuario. |
+| `phone` | Cadena | Número de teléfono del usuario en formato E.164. |
+| `purchases` | Matriz | Compras que este usuario ha realizado en los últimos 90 días. |
+| `push_tokens` | Matriz | Identificador anónimo único que especifica dónde enviar las notificaciones de una aplicación. |
+| `random_bucket` | Entero | [Número de contenedor aleatorio]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event) del usuario, utilizado para crear segmentos uniformemente distribuidos de usuarios aleatorios. |
+| `time_zone` | Cadena | Zona horaria del usuario en el mismo formato que la base de datos de zonas horarias de IANA. |
+| `total_revenue` | Flotante | Total de ingresos atribuidos a este usuario. Los ingresos totales se calculan en función de las compras que el usuario realizó durante las ventanas de conversión de las Campaigns y Canvas que recibió. |
+| `uninstalled_at` | Marca de tiempo | Fecha y hora en que el usuario desinstala la aplicación. Se omite si no se ha desinstalado la aplicación. |
+| `user_aliases` | Objeto | [Objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification) que contiene `alias_name` y `alias_label`, si existe. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
 
-Tenga en cuenta que el punto final `/users/export/ids` reunirá todo el perfil de usuario de este usuario, incluyendo datos como todas las campañas y Canvases recibidos, todos los eventos personalizados realizados, todas las compras realizadas y todos los atributos personalizados. Como resultado, este punto final es más lento que otros puntos finales de la API REST.
+Ten en cuenta que el punto de conexión `/users/export/ids` reunirá todo el perfil de usuario de este usuario, incluyendo datos como todas las Campaigns y Canvas recibidos, todos los eventos personalizados realizados, todas las compras realizadas y todos los atributos personalizados. Como resultado, este punto de conexión es más lento que otros puntos de conexión de la REST API.
 
-Dependiendo de los datos solicitados, este punto final de la API puede no ser suficiente para satisfacer tus necesidades debido al límite de velocidad de 250 solicitudes por minuto. Si prevés utilizar este punto final regularmente para exportar usuarios, considera en su lugar la exportación de usuarios por segmento, que es asíncrona y está más optimizada para grandes extracciones de datos.
+Dependiendo de los datos solicitados, este punto de conexión de la API puede no ser suficiente para satisfacer tus necesidades debido al límite de velocidad de 250 solicitudes por minuto. Si prevés utilizar este punto de conexión regularmente para exportar usuarios, considera en su lugar la exportación de usuarios por segmento, que es asíncrona y está más optimizada para grandes extracciones de datos.
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {
@@ -139,11 +139,11 @@ Dependiendo de los datos solicitados, este punto final de la API puede no ser su
 }
 ```
 
-Para ver un ejemplo de los datos accesibles a través de este punto final, consulta el siguiente ejemplo.
+Para ver un ejemplo de los datos accesibles a través de este punto de conexión, consulta el siguiente ejemplo.
 
-### Ejemplo de archivo de exportación de usuario
+### Ejemplo de archivo de exportación de usuario {#example-user-export-file-output}
 
-Objeto de exportación del usuario (incluiremos los menos datos posibles; si falta un campo en el objeto, debe considerarse nulo o vacío):
+Objeto de exportación del usuario (incluiremos la menor cantidad de datos posible; si falta un campo en el objeto, debe considerarse nulo o vacío):
 
 {% tabs %}
 {% tab All fields %}
@@ -215,7 +215,7 @@ Objeto de exportación del usuario (incluiremos los menos datos posibles; si fal
         "platform" : (string),
         "token" : (string),
         "device_id": (string),
-        "notifications_enabled": (boolean) whether the user's push notifications are turned on or turned off
+        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status
       },
       ...
     ],
@@ -430,7 +430,7 @@ Objeto de exportación del usuario (incluiremos los menos datos posibles; si fal
 {% endtabs %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

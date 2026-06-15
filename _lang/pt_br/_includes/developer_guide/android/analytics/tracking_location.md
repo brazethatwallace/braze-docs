@@ -1,6 +1,6 @@
-## Registro do local atual
+## Registro do local atual {#logging-the-current-location}
 
-Mesmo que o monitoramento contínuo esteja desativado, é possível registrar manualmente o local atual do usuário usando o método [`setLastKnownLocation()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-last-known-location.html) método.
+Mesmo que o rastreamento contínuo esteja desativado, você pode registrar manualmente o local atual do usuário usando o método [`setLastKnownLocation()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-last-known-location.html).
 
 {% tabs %}
 {% tab JAVA %}
@@ -26,19 +26,19 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-## Monitoramento contínuo da localização
+## Monitoramento contínuo da localização {#continuously-tracking-the-location}
 
 {% alert important %}
-[A partir do Android Marshmallow](https://developer.android.com/training/permissions/index.html), é necessário pedir aos usuários que aceitem explicitamente o monitoramento de localização. Assim que o fizerem, o Braze poderá iniciar o monitoramento de sua localização no início da próxima sessão. Isso é diferente das versões anteriores do Android, em que era necessário apenas declarar as permissões de local em seu site `AndroidManifest.xml`.
+[A partir do Android Marshmallow](https://developer.android.com/training/permissions/index.html), você precisa solicitar que os usuários façam opt-in explícito no monitoramento de localização. Assim que aceitarem, a Braze poderá começar a rastrear a localização deles no início da próxima sessão. Isso é diferente das versões anteriores do Android, em que bastava declarar as permissões de local no `AndroidManifest.xml`.
 {% endalert %}
 
-Para rastrear continuamente a localização de um usuário, será necessário declarar a intenção do app de coletar dados de localização adicionando pelo menos uma das seguintes permissões ao arquivo `AndroidManifest.xml`.
+Para rastrear continuamente a localização de um usuário, você precisa declarar a intenção do app de coletar dados de localização adicionando pelo menos uma das seguintes permissões ao arquivo `AndroidManifest.xml`.
 
-|Permissão|Descrição|
+| Permissão | Descrição |
 |---|---|
-| `ACCESS_COARSE_LOCATION` | Usa o provedor não-GPS mais eficiente em termos de bateria (como uma rede doméstica). Normalmente, isso é suficiente para a maioria das necessidades de dados locais. No modelo de permissões de tempo de execução, a concessão de permissão de local autoriza implicitamente a coleta de dados de localização fina. |
-| `ACCESS_FINE_LOCATION`   | Inclui dados de GPS para um local mais preciso. No modelo de permissões de tempo de execução, a concessão de permissão de local também abrange o acesso fino ao local. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `ACCESS_COARSE_LOCATION` | Usa o provedor não GPS mais eficiente em termos de bateria (como uma rede doméstica). Normalmente, isso é suficiente para a maioria das necessidades de dados de localização. No modelo de permissões em tempo de execução, conceder a permissão de local autoriza implicitamente a coleta de dados de localização precisa. |
+| `ACCESS_FINE_LOCATION`   | Inclui dados de GPS para uma localização mais precisa. No modelo de permissões em tempo de execução, conceder a permissão de local também abrange o acesso à localização precisa. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Continuously tracking the location" }
 
 Seu `AndroidManifest.xml` deve ser semelhante ao seguinte:
 
@@ -53,9 +53,9 @@ Seu `AndroidManifest.xml` deve ser semelhante ao seguinte:
 </manifest>
 ```
 
-## Desativar o rastreamento contínuo
+## Desativar o rastreamento contínuo {#disabling-continuous-tracking}
 
-É possível desativar o rastreamento contínuo em tempo de compilação ou em tempo de execução.
+Você pode desativar o rastreamento contínuo em tempo de compilação ou em tempo de execução.
 
 {% tabs local %}
 {% tab compile time %}
@@ -76,17 +76,17 @@ Para desativar seletivamente o monitoramento contínuo de localização em tempo
 
 ```java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
-  .setIsLocationCollectionEnabled(false)
+  .setIsAutomaticLocationCollectionEnabled(false)
   .build();
 Braze.configure(this, brazeConfig);
 ```
- 
+
 {% endsubtab %}
 {% subtab KOTLIN %}
 
 ```kotlin
 val brazeConfig = BrazeConfig.Builder()
-    .setIsLocationCollectionEnabled(false)
+    .setIsAutomaticLocationCollectionEnabled(false)
     .build()
 Braze.configure(this, brazeConfig)
 ```

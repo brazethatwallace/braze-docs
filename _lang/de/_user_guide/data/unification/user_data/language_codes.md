@@ -1,13 +1,14 @@
 ---
-nav_title: Sprache Codes
+nav_title: Sprachcodes
 article_title: Unterstützte Sprachcodes
+page_order: 7
 page_type: reference
-description: "Dies sind die Codes der Nutzer:innen, die derzeit von Braze unterstützt werden." 
+description: "Dies sind die Sprachcodes, die derzeit von Braze unterstützt werden."
 
 ---
 
-# Sprache Codes
+# Sprachcodes {#language-codes}
 
-> Dies sind die derzeit von Braze unterstützten Sprachcodes.
+> Dies sind die Sprachcodes, die derzeit von Braze unterstützt werden.
 
 {% multi_lang_include supported_language_codes.md %}

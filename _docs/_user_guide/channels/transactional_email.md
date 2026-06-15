@@ -32,7 +32,7 @@ Transactional email is designed for sending non-promotional, service-triggered m
 | Password resets | Deliver secure, time-sensitive links for customers to reset their account credentials. |
 | Shipping notifications | Notify customers when their order has shipped, including tracking information and estimated delivery dates. |
 | Account alerts | Send critical account-related notifications, such as payment failures, subscription changes, or security alerts. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## How transactional email differs from marketing email
 

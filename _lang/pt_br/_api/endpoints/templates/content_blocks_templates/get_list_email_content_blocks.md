@@ -1,47 +1,49 @@
 ---
-nav_title: "OBTER: Listar blocos de conteúdo disponíveis"
-article_title: "OBTER: Listar blocos de conteúdo disponíveis"
+nav_title: "GET: Listar Content Blocks disponíveis"
+article_title: "GET: Listar Content Blocks disponíveis"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o endpoint da Braze \"Listar blocos de conteúdo disponíveis\""
+description: "Este artigo traz informações sobre o endpoint da Braze \"Listar Content Blocks disponíveis\"."
 
 ---
 {% api %}
-# Lista de blocos de conteúdo disponíveis
+# Listar Content Blocks disponíveis {#list-available-content-blocks}
+
 {% apimethod get %}
 /content_blocks/list
 {% endapimethod %}
 
-> Use esse ponto de extremidade para listar suas informações de [blocos de conteúdo]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/) existentes.
+> Use esse endpoint para listar as informações dos seus [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) existentes.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
+
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `content_blocks.list`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| `modified_after`  | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)  | Recupera apenas blocos de conteúdo atualizados no momento ou após o momento determinado. |
-| `modified_before`  |  Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)  | Recupera apenas blocos de conteúdo atualizados antes ou no momento determinado. |
-| `limit` | Opcional | Número positivo | Número máximo de blocos de conteúdo a serem recuperados. O padrão é 100 se não for fornecido, com um valor máximo aceitável de 1000. |
-| `offset`  |  Opcional | Número positivo | Número de blocos de conteúdo a serem ignorados antes de retornar o restante dos modelos que atendem aos critérios de pesquisa. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `modified_after` | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas Content Blocks atualizados no momento ou após o momento especificado. |
+| `modified_before` | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas Content Blocks atualizados antes ou no momento especificado. |
+| `limit` | Opcional | Número positivo | Número máximo de Content Blocks a serem recuperados. O padrão é 100 se não for fornecido, com um valor máximo aceitável de 1000. |
+| `offset` | Opcional | Número positivo | Número de Content Blocks a serem ignorados antes de retornar o restante dos modelos que atendem aos critérios de pesquisa. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/content_blocks/list?modified_after=2020-01-01T01:01:01.000000&modified_before=2020-02-01T01:01:01.000000&limit=100&offset=1' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 
-## Resposta
+## Resposta {#response}
 
 ```json
 {
@@ -61,20 +63,20 @@ curl --location --request GET 'https://rest.iad-01.braze.com/content_blocks/list
 }
 ```
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
 A tabela a seguir lista os possíveis erros retornados e as etapas de solução de problemas associadas.
 
 | Erro | Solução de problemas |
 | --- | --- |
-| `Modified after time is invalid` | A data fornecida não é uma data válida ou analisável. Reformate esse valor da string no formato ISO 8601 (`yyyy-mm-ddThh:mm:ss.ffffff`). |
-| `Modified before time is invalid` | A data fornecida não é uma data válida ou analisável. Reformate esse valor da string no formato ISO 8601 (`yyyy-mm-ddThh:mm:ss.ffffff`). |
-| `Modified after time must be earlier than or the same as modified before time.` | Altere o valor de `modified_after` para uma hora anterior à hora de `modified_before`. |
+| `Modified after time is invalid` | A data fornecida não é uma data válida ou analisável. Reformate esse valor como uma string no formato ISO 8601 (`yyyy-mm-ddThh:mm:ss.ffffff`). |
+| `Modified before time is invalid` | A data fornecida não é uma data válida ou analisável. Reformate esse valor como uma string no formato ISO 8601 (`yyyy-mm-ddThh:mm:ss.ffffff`). |
+| `Modified after time must be earlier than or the same as modified before time.` | Altere o valor de `modified_after` para um horário anterior ao horário de `modified_before`. |
 | `Content Block number limit is invalid` | O parâmetro `limit` precisa ser um número inteiro (número positivo) maior que 0. |
 | `Content Block number limit must be greater than 0` | Altere o parâmetro `limit` para um número inteiro maior que 0. |
 | `Content Block number limit exceeds maximum of 1000` | Altere o parâmetro `limit` para um número inteiro menor que 1000. |
 | `Offset is invalid` | O parâmetro `offset` deve ser um número inteiro maior que 0. |
-| O deslocamento precisa ser maior que 0 | Altere o parâmetro `offset` para um número inteiro maior que 0. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Offset must be greater than 0` | Altere o parâmetro `offset` para um número inteiro maior que 0. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

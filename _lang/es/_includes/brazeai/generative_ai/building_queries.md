@@ -1,24 +1,24 @@
 > Aprende a utilizar el Generador de consultas, para que puedas generar informes utilizando datos de Braze en Snowflake. El Generador de consultas incluye [plantillas de consultas]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/) SQL predefinidas para empezar, o puedes escribir tus propias consultas SQL personalizadas para obtener aún más información.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Necesitarás [permisos de "Ver PII"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) para utilizar el Generador de consultas, ya que permite acceder directamente a algunos datos de clientes.
+Necesitarás [permisos de "Ver PII"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para utilizar el Generador de consultas, ya que permite acceder directamente a algunos datos de clientes.
 
-## Utilizar el Generador de consultas
+## Utilizar el Generador de consultas {#using-the-query-builder}
 
-### Paso 1: Crear una consulta SQL
+### Paso 1: Crear una consulta SQL {#step-1-create-an-sql-query}
 
-Para crear una nueva consulta, ve a **Análisis** > **Generador de consultas** y, a continuación, selecciona **Crear consulta SQL**.
+Para crear una nueva consulta, ve a **Analytics** > **Query Builder** y, a continuación, selecciona **Create SQL Query**.
 
-![Las opciones "Plantilla de consulta" y "Editor SQL" que se encuentran dentro del desplegable "Crear consulta SQL".]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
+![Las opciones "Query Template" y "SQL Editor" que se encuentran dentro del desplegable "Create SQL Query".]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
-Si necesitas inspiración o ayuda para elaborar tu consulta, elige **Plantilla de consulta** y selecciona una [plantilla prefabricada]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/). Para empezar con una consulta en blanco, selecciona **Editor SQL**.
+Si necesitas inspiración o ayuda para elaborar tu consulta, elige **Query Template** y selecciona una [plantilla prefabricada]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/). Para empezar con una consulta en blanco, selecciona **SQL Editor**.
 
-Tu informe recibe automáticamente un nombre con la fecha y hora actuales. Pasa el ratón por encima del nombre y selecciona <i class="fas fa-pencil" alt="Edit"></i> para dar un nombre significativo a tu consulta SQL.
+Tu informe recibe automáticamente un nombre con la fecha y hora actuales. Pasa el ratón por encima del nombre y selecciona <i class="fas fa-pencil" alt="Editar"></i> para dar un nombre significativo a tu consulta SQL.
 
-![Un ejemplo de informe con el nombre "Interacción del canal para mayo de 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
+![Un ejemplo de nombre de informe "Interacción del canal para mayo de 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
 
-### Paso 2: Construye tu consulta
+### Paso 2: Construye tu consulta {#step-2-build-your-query}
 
 Cuando construyas tu consulta, puedes optar por obtener ayuda de la IA o construirla por tu cuenta.
 
@@ -26,13 +26,13 @@ Cuando construyas tu consulta, puedes optar por obtener ayuda de la IA o constru
 {% tab Using BrazeAI %}
 El Generador de consultas con IA aprovecha [GPT](https://openai.com/gpt-4), impulsado por OpenAI, para recomendar SQL para tu consulta. Para generar SQL con el Generador de consultas con IA:
 
-1. Tras crear un informe en el Generador de consultas, selecciona la pestaña **Generador de consultas con IA**.
-2. Escribe tu prompt o selecciona un prompt de ejemplo y selecciona **Generar** para traducir tu prompt a SQL.
-3. Revisa el SQL generado para asegurarte de que parece correcto y, a continuación, selecciona **Insertar en el editor**.
+1. Tras crear un informe en el Generador de consultas, selecciona la pestaña **AI Query Builder**.
+2. Escribe tu prompt o selecciona un prompt de ejemplo y selecciona **Generate** para traducir tu prompt a SQL.
+3. Revisa el SQL generado para asegurarte de que parece correcto y, a continuación, selecciona **Insert into Editor**.
 
 ![El generador de consultas SQL con IA.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
-#### Consejos
+#### Consejos {#tips}
 
 - Familiarízate con las [tablas de datos de Snowflake]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) disponibles. Pedir datos que no existen en estas tablas puede hacer que ChatGPT invente una tabla falsa.
 - Familiarízate con las [reglas de escritura SQL]({{site.baseurl}}/user_guide/data_and_analytics/query_builder/#custom-sql) para esta característica. El incumplimiento de estas reglas provocará un error.
@@ -46,9 +46,9 @@ Escribe tu consulta SQL utilizando [la sintaxis de Snowflake](https://docs.snowf
 
 Para ver los detalles de la tabla en el Generador de consultas:
 
-1. Desde la página **Generador de consultas**, abre el panel **Referencia** y selecciona **Tablas de datos disponibles** para ver las tablas de datos disponibles y sus nombres.
-3. Selecciona <i class="fas fa-chevron-down" alt=""></i> **Ver detalles** para ver la descripción de la tabla e información sobre las columnas de la tabla, como los tipos de datos.
-4. Para insertar el nombre de la tabla en tu SQL, selecciona <i class="fas fa-copy" title="Copy table name to SQL editor"></i>.
+1. Desde la página **Query Builder**, abre el panel **Reference** y selecciona **Available Data Tables** para ver las tablas de datos disponibles y sus nombres.
+3. Selecciona <i class="fas fa-chevron-down" alt=""></i> **See Details** para ver la descripción de la tabla e información sobre las columnas de la tabla, como los tipos de datos.
+4. Para insertar el nombre de la tabla en tu SQL, selecciona <i class="fas fa-copy" title="Copiar nombre de tabla al editor SQL"></i>.
 
 Restringir tu consulta a un periodo de tiempo específico te ayudará a generar resultados más rápidamente. A continuación se muestra un ejemplo de consulta que obtiene el número de compras y los ingresos generados durante la última hora.
 
@@ -68,22 +68,22 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 
 Si consultas por `CANVAS_ID`, `CANVAS_VARIATION_API_ID` o `CAMPAIGN_ID`, sus columnas de nombre asociadas se incluirán automáticamente en la tabla de resultados. No es necesario que las incluyas en la propia consulta `SELECT`.
 
-| Nombre del ID | Columna de nombre asociado |
+| Nombre del ID | Columna de nombre asociada |
 | --- | --- |
-| `CANVAS_ID` | Nombre del Canvas |
-| `CANVAS_VARIATION_API_ID` | Nombre de la variante en Canvas |
-| `CAMPAIGN_ID` | Nombre de la campaña |
-{: .reset-td-br-1 .reset-td-br-2 }
+| `CANVAS_ID` | Canvas Name |
+| `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
+| `CAMPAIGN_ID` | Campaign Name |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Consejos" }
 
 Esta consulta recupera los tres ID y sus columnas de nombre asociadas con un máximo de 100 filas:
 
 ```sql
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID
-FROM USERS_MESSAGES_EMAIL_SEND_SHARED 
+FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
 ```
 
-#### Solución de problemas
+#### Solución de problemas {#troubleshooting}
 
 Tu consulta puede fallar por cualquiera de las siguientes razones:
 
@@ -94,11 +94,11 @@ Tu consulta puede fallar por cualquiera de las siguientes razones:
 {% endtab %}
 {% endtabs %}
 
-### Paso 3: Genera tu informe
+### Paso 3: Genera tu informe {#step-3-generate-your-report}
 
-Cuando hayas terminado de crear la consulta, selecciona **Ejecutar consulta**. Si no hay errores ni [tiempos de espera del informe](#report-timeouts), se generará un archivo CSV a partir de la consulta.
+Cuando hayas terminado de crear la consulta, selecciona **Run Query**. Si no hay errores ni [tiempos de espera del informe](#report-timeouts), se generará un archivo CSV a partir de la consulta.
 
-Para descargar el informe CSV, selecciona **Exportar**.
+Para descargar el informe CSV, selecciona **Export**.
 
 ![Generador de consultas que muestra los resultados de la consulta con plantilla "Interacción e ingresos del canal en los últimos 30 días".]({% image_buster /assets/img_archive/query_builder.png %})
 
@@ -106,15 +106,15 @@ Para descargar el informe CSV, selecciona **Exportar**.
 Cada informe solo puede generar resultados una vez al día. Si ejecutas el mismo informe varias veces en un mismo día del calendario, verás los mismos resultados en cada informe.
 {% endalert %}
 
-## Tiempos de espera del informe
+## Tiempos de espera del informe {#report-timeouts}
 
 Los informes que tarden más de seis minutos en ejecutarse agotarán el tiempo de espera. Si se trata de la primera consulta que ejecutas desde hace tiempo, puede tardar más en procesarse y, por tanto, es más probable que se agote el tiempo de espera. Si esto ocurre, intenta ejecutar el informe de nuevo.
 
-Si tu informe sigue agotando el tiempo de espera tras varios intentos, [ponte en contacto con Soporte]({{site.baseurl}}/help/support#braze-support).
+Si tu informe sigue agotando el tiempo de espera tras varios intentos, [ponte en contacto con Soporte]({{site.baseurl}}/help/support/#braze-support).
 
-## Consultar motivos de cancelación
+## Consultar motivos de cancelación {#querying-abort-reasons}
 
-Puedes consultar la columna `ABORT_TYPE` en cualquier tabla `USERS_MESSAGES_*_ABORT_SHARED` para analizar por qué no se enviaron los mensajes. El campo `ABORT_TYPE` contiene un valor de cadena que describe el motivo específico de la cancelación, y el campo complementario `ABORT_LOG` contiene detalles adicionales (como la regla de limitación de frecuencia que se desencadenó).
+Puedes consultar la columna `ABORT_TYPE` en cualquier tabla `USERS_MESSAGES_*_ABORT_SHARED` para analizar por qué no se enviaron los mensajes. El campo `ABORT_TYPE` contiene un valor de cadena que describe el motivo específico de la cancelación, y el campo complementario `ABORT_LOG` contiene detalles adicionales (como la regla de limitación de frecuencia que se activó).
 
 Por ejemplo, para contar las cancelaciones de correo electrónico por tipo en los últimos 30 días:
 
@@ -128,11 +128,11 @@ ORDER BY abort_count DESC
 
 Para ver la lista completa de valores de `ABORT_TYPE` y sus descripciones, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/#abort-types).
 
-## Datos y resultados
+## Datos y resultados {#data-and-results}
 
-Todas las consultas muestran datos de los últimos 60 días. Cuando exportes tus resultados, solo contendrán hasta 1000 filas. Para los informes que requieren mayores cantidades de datos, puedes utilizar herramientas como [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) o el [punto de conexión de la API de exportación]({{site.baseurl}}/api/endpoints/export).
+Todas las consultas muestran datos de los últimos 60 días. Cuando exportes tus resultados, solo contendrán hasta 1000 filas. Para los informes que requieren mayores cantidades de datos, puedes utilizar herramientas como [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) o el [punto de conexión de la API de exportación]({{site.baseurl}}/api/endpoints/export/).
 
-## Créditos de Snowflake
+## Créditos de Snowflake {#snowflake-credits}
 
 Cada empresa dispone de 5 créditos de Snowflake al mes, compartidos en todos los espacios de trabajo. Cada vez que ejecutas una consulta o previsualizas una tabla, se utiliza una pequeña parte de un crédito de Snowflake.
 

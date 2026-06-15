@@ -8,16 +8,16 @@ hide_toc: true
 <legend style="font-size: 2.5rem;color: #212123;font-weight:bold;">Feedback sobre a documentação</legend>
 <div id="feedback">
     <div id="feedback_section">
-    Tem ideias para melhorar nossos documentos ou notou algo errado? Adoraríamos ouvir de você! Nossa equipe revisa cada envio para continuar melhorando as coisas.<br /><br />
+    Tem ideias para melhorar nossos documentos ou notou algo errado? Adoraríamos ouvir você! Nossa equipe revisa cada envio para continuar melhorando.<br /><br />
 
-    <b>How useful do you find Braze docs, on average?</b><br />
+    <b>Em média, quão úteis você considera os documentos da Braze?</b><br />
 
     <div id="feedback_answer_star">
       <div class="rating-list">
         <div class="feedback-star">
           <input type="radio" id="rating_1" name="feedback_rating" value="Very Unhelpful" tabindex="-1">
           <label for="rating_1" class="star-label" tabindex="0" aria-label="Very Unhelpful">
-            <i class="fas fa-star" data-value="Very Unhelpful" title="Very Unhelpful"></i><br />1<br />Not Useful</label>
+            <i class="fas fa-star" data-value="Very Unhelpful" title="Very Unhelpful"></i><br />1<br />Nada útil</label>
         </div>
         <div class="feedback-star">
           <input type="radio" id="rating_2" name="feedback_rating" value="Unhelpful" tabindex="-1">
@@ -28,7 +28,7 @@ hide_toc: true
         <div class="feedback-star">
           <input type="radio" id="rating_3" name="feedback_rating" value="Somewhat Helpful" tabindex="-1">
           <label for="rating_3" class="star-label" tabindex="0" aria-label="Somewhat helpful">
-            <i class="fas fa-star" data-value="Somewhat Helpful" title="Somewhat Helpful"></i><br />3<br />Somewhat Useful</label>
+            <i class="fas fa-star" data-value="Somewhat Helpful" title="Somewhat Helpful"></i><br />3<br />Razoavelmente útil</label>
         </div>
 
         <div class="feedback-star">
@@ -41,29 +41,21 @@ hide_toc: true
         <div class="feedback-star">
           <input type="radio" id="rating_5" name="feedback_rating" value="Very Helpful" tabindex="-1">
           <label for="rating_5" class="star-label" tabindex="0" aria-label="Very Helpful">
-            <i class="fas fa-star" data-value="Very Helpful" title="Very Helpful"></i><br />5<br />Very Useful
+            <i class="fas fa-star" data-value="Very Helpful" title="Very Helpful"></i><br />5<br />Muito útil
           </label>
         </div>
 
       </div>
     </div>
     <div style="margin-top: 15px;">
-      <b>Share your feedback</b> <br />
-      <textarea id="feedback_comment" placeholder="&quot;I couldn’t find any information about this error message&quot;"></textarea><br />
-        Have questions? Contact our support team for assistance.
+      <b>Compartilhe seu feedback</b> <br />
+      <textarea id="feedback_comment" placeholder="&quot;Não encontrei nenhuma informação sobre esta mensagem de erro&quot;"></textarea><br />
+        Tem dúvidas? Fale com nossa equipe de suporte para obter ajuda.
     </div>
-    <button type="submit" name="submit_feedback" value="Submit feedback" class="btn btn-black" id="feedback_submit" role="button" style="margin-top:15px;"> Submit feedback </button>
+    <button type="submit" name="submit_feedback" value="Submit feedback" class="btn btn-black" id="feedback_submit" role="button" style="margin-top:15px;"> Enviar feedback </button>
   </div>
   <div id="feedback_msg">
   </div>
-
-  <hr style="border: 1px solid #CDCDCF;margin-top:48px;"/>
-
-  <h3> Ajude-nos a tornar estes documentos ótimos</h3>
-
-  Os Documentos Braze são um projeto de código aberto ao qual todos são bem-vindos para contribuir. Junte-se a 288+ colaboradores e envie sua primeira solicitação de pull hoje. <br /><br />
-
-  <button type="submit" onclick="location.href='{{site.baseurl}}/contributing/home'" value="Contribuindo" class="btn btn-white">Comece a contribuir</button>
 
 </div>
 </fieldset>

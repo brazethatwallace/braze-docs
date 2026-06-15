@@ -34,7 +34,7 @@ In this approach, localization is applied to a single template in Braze using [L
 | --- | --- |
 | - Centralized approach<br>- Reduced email build time, no need to build out an email multiple times | - Manual report building<br>- Campaign report shows aggregated metrics rather than metrics per country<br>- Need to thoroughly test Liquid to ensure it populates as expected<br>- Depending on how you pull in the country value or how many counties you have set up, it could be tricky to test each country<br>- Harder to schedule sends for specific times across time zones<br>- Harder to use if you want to send separate content per country. |
 | --- | --- | --- |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One template for all" }
 
 ### One template per country 
 
@@ -47,7 +47,7 @@ This approach separates templating into different sending locales. After sending
 | Advantages | Considerations |
 | --- | --- |
 | - Scalable to multiple locations<br>- Reporting on revenue per country within Braze (such as per campaign)<br>- Flexibility if there is drastically different content per country | - Requires strategic structuring<br>- More build effort required (such as separate campaigns for each country) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One template per country" }
 {% endtab %}
 
 {% tab canvas %}
@@ -60,7 +60,7 @@ After a Canvas is sent, the dashboard provides aggregated [Canvas Analytics]({{s
 | Advantages | Considerations |
 | --- | --- |
 | - Centralized approach<br>- Reduced email build time - no need to build out an email multiple times. | - Manual report building<br>- Canvas report shows aggregated metrics rather than metrics per country<br>- Need to thoroughly test Liquid to ensure it populates as expected<br>- Depending on how you pull in the country value or how many counties you have set up, it could be tricky to test each country<br>- Harder to schedule sends for specific times across time zones<br>- Harder to use if you want to send separate content per country. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One journey for all" }
 
 ### One journey per country
 
@@ -76,7 +76,7 @@ Once sent, the dashboard provides dynamic analytics per country and within user-
 | Advantages | Considerations |
 | --- | --- |
 | - Reporting on revenue per country within Braze (such as per Canvas, variant, or step)<br>- Flexibility if there is drastically different content per country<br>- Can add other channels as part of the journey in the future | - Requires strategic structuring<br>- More build effort required (such as separate message steps for each country)<br>- Canvas can become large and difficult to read if you have custom, complex journeys for each country in a single Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One journey per country" }
 {% endtab %}
 {% endtabs %}
 
@@ -226,7 +226,7 @@ Create a CSV in the following format:
 | 10 | 3 | es | Hola |
 | 11 | 3 | pt | Oi |
 | 12 | 3 | de | Hallo |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Alternative approaches" }
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -294,7 +294,7 @@ First, build out the Google sheet so that the languages are different objects:
 | es | Hola | 2 | Hola2 | 6 |
 | pt | Oi | 3 | Oi2 | 7 |
 | de | Hallo | 4 | Hallo2 | 8 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 1: Format the Google sheet" }
 
 #### Step 2: Use the language Liquid tag in a Connected Content call
 

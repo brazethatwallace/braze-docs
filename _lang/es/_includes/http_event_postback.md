@@ -1,23 +1,23 @@
-Todos los correos electrónicos transaccionales se complementan con devoluciones del estado del evento enviadas como una petición HTTP de vuelta a tu URL especificada. Eso te permitirá evaluar el estado del mensaje en tiempo real y tomar medidas para llegar al usuario en otro canal si el mensaje no se acaba entregando, o usar un sistema interno alternativo en caso de que Braze esté experimentando latencia.
+Todos los correos electrónicos transaccionales se complementan con postbacks de estado de eventos enviados como una solicitud HTTP de vuelta a tu URL especificada. Esto te permitirá evaluar el estado del mensaje en tiempo real y tomar medidas para contactar al usuario a través de otro canal si el mensaje no se entrega, o recurrir a un sistema interno alternativo en caso de que Braze esté experimentando latencia.
 
-Puedes asociar estas actualizaciones a mensajes individuales utilizando identificadores únicos:
+Puedes asociar estas actualizaciones con mensajes individuales utilizando identificadores únicos:
 
-- `dispatch_id`: Braze genera automáticamente un ID único para cada mensaje.
-- `external_send_id`: Un identificador personalizado que proporciones, como un número de pedido, para cotejar las actualizaciones con tus sistemas internos.
+- `dispatch_id`: un ID único que Braze genera automáticamente para cada mensaje.
+- `external_send_id`: un identificador personalizado que proporcionas, como un número de pedido, para cotejar las actualizaciones con tus sistemas internos.
 
-Por ejemplo, si incluyes `external_send_id: 1234` en la solicitud al enviar un correo electrónico de confirmación de pedido, todos los eventos posteriores de ese correo electrónico -como `Sent` o `Delivered`- incluirán `external_send_id: 1234`. Esto te permite confirmar si el cliente del pedido nº 1234 recibió su correo electrónico de confirmación del pedido.
+Por ejemplo, si incluyes `external_send_id: 1234` en la solicitud al enviar un correo electrónico de confirmación de pedido, todos los postbacks de eventos posteriores de ese correo electrónico —como `Sent` o `Delivered`— incluirán `external_send_id: 1234`. Esto te permite confirmar si el cliente del pedido n.º 1234 recibió su correo electrónico de confirmación del pedido.
 
-### Configuración de los postbacks
+### Configuración de los postbacks {#setting-up-postbacks}
 
 En tu panel de Braze:
 
-1. Vaya a **Configuración** > **Preferencias de correo electrónico**.
-2. En **Postback de estado de evento transaccional**, introduce la URL a la que Braze debe enviar las actualizaciones de estado de tus correos electrónicos transaccionales.
+1. Ve a **Settings** > **Email Preferences**.
+2. En **Transactional Event Status Postback**, introduce la URL a la que Braze debe enviar las actualizaciones de estado de tus correos electrónicos transaccionales.
 3. Prueba el postback.
 
 ![]({% image_buster /assets/img/transactional_webhook_url.png %})
 
-### Cuerpo de la devolución
+### Cuerpo del postback {#postback-body}
 
 ```json
 {
@@ -40,18 +40,18 @@ En tu panel de Braze:
 }
 ```
 
-#### Estado del mensaje
+#### Estado del mensaje {#message-status}
 
-|  Estado | Descripción |
+| Estado | Descripción |
 | ------------ | ----------- |
-| `sent` | Mensaje enviado correctamente a un socio de envío de correo electrónico Braze |
+| `sent` | Mensaje enviado correctamente a un socio de envío de correo electrónico de Braze |
 | `processed` | El socio de envío de correo electrónico ha recibido y preparado correctamente el mensaje para enviarlo al proveedor de buzón de entrada del usuario |
-| `aborted` | Braze no pudo enviar correctamente el mensaje debido a que el usuario no tenía una dirección de correo electrónico, o se llamó a la lógica de cancelación de Liquid en el cuerpo del mensaje. Todos los eventos abortados incluyen un campo `reason` dentro del objeto de metadatos que indica por qué se ha abortado el mensaje |
-|`delivered`| El mensaje fue aceptado por el proveedor de buzón de entrada de correo electrónico del usuario |
-|`bounced`| El mensaje fue rechazado por el proveedor de buzón de entrada de correo electrónico del usuario. Todos los eventos rebotados incluyen un campo `reason` dentro del objeto de metadatos que refleja el código de error de rebote proporcionado por el proveedor del buzón de entrada |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `aborted` | Braze no pudo enviar correctamente el mensaje porque el usuario no tenía una dirección de correo electrónico válida, o se invocó la lógica de cancelación de Liquid en el cuerpo del mensaje. Todos los eventos cancelados incluyen un campo `reason` dentro del objeto de metadatos que indica por qué se canceló el mensaje |
+| `delivered` | El mensaje fue aceptado por el proveedor de buzón de entrada de correo electrónico del usuario |
+| `bounced` | El mensaje fue rechazado por el proveedor de buzón de entrada de correo electrónico del usuario. Todos los eventos rebotados incluyen un campo `reason` dentro del objeto de metadatos que refleja el código de error de rebote proporcionado por el proveedor del buzón de entrada |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message status" }
 
-### Ejemplo de devolución
+### Ejemplo de postback {#example-postback}
 ```json
 
 // Sent Event

@@ -4,7 +4,7 @@ alias: /api_partner_integration/
 hidden: true
 ---
 
-# Integração com parceiros da API
+# Integração com parceiros da API {#api-partner-integration}
 
 > Saiba mais sobre os requisitos para integrações com parceiros de API, como a sintaxe dos cabeçalhos `User-Agent`.
 
@@ -12,13 +12,13 @@ hidden: true
 Anteriormente, os parceiros eram obrigados a adicionar seu nome ao campo de parceiro em suas solicitações de API. Essa formatação não é mais suportada, e agora é necessário um cabeçalho `User-Agent`.
 {% endalert %}
 
-## Agentes do usuário
+## Agentes de usuário {#user-agents}
 
-Você deve incluir um cabeçalho `User-Agent` que identifique claramente a origem do tráfego. Isso permite que nossos clientes compartilhados vejam o tráfego de parceiros nos relatórios de uso da API do Braze e ativa os engenheiros do Braze para identificar as integrações que não estão seguindo as práticas recomendadas. Em geral, você deve usar apenas um único agente de usuário para todo o seu tráfego.
+Você deve incluir um cabeçalho `User-Agent` que identifique claramente a origem do tráfego. Isso permite que nossos clientes compartilhados vejam o tráfego de parceiros nos relatórios de uso da API da Braze, e permite que os engenheiros da Braze identifiquem integrações que não estão seguindo as práticas recomendadas. Em geral, você deve usar apenas um único agente de usuário para todo o seu tráfego.
 
-### Sintaxe
+### Sintaxe {#syntax}
 
-Seu cabeçalho `User-Agent` deve obedecer ao seguinte formato (que é semelhante ao padrão [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#page-46) ):
+Seu cabeçalho `User-Agent` deve obedecer ao seguinte formato (que é semelhante ao padrão [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#page-46)):
 
 ```bash
 User-Agent: partner-OrganizationName
@@ -28,19 +28,19 @@ Substitua o seguinte:
 
 | Espaço reservado | Descrição |
 |-------------|-------------|
-| `OrganizationName` | O nome de sua organização formatado em letras maiúsculas e minúsculas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `OrganizationName` | O nome da sua organização formatado em Pascal case. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Syntax" }
 
-### Exemplos
+### Exemplos {#examples}
 
-Por exemplo, o seguinte seria um agente de usuário correto para o Cloud Data Ingestion da Snowflake:
+Por exemplo, o seguinte seria um agente de usuário correto para a Ingestão de dados na nuvem do Snowflake:
 
 ```bash
 User-Agent: partner-Snowflake
 ```
 
-No entanto, isso seria incorreto porque não identifica claramente a origem do tráfego:
+Já o exemplo abaixo seria incorreto porque não identifica claramente a origem do tráfego:
 
 ```bash
 User-Agent: axios/1.4.0
-``` 
+```

@@ -1,6 +1,6 @@
 ---
-nav_title: "POST: Track users (bulk)"
-article_title: "POST: Track users (bulk)"
+nav_title: "POST: Create and update users (bulk)"
+article_title: "POST: Create and update users (bulk)"
 search_tag: Endpoint
 page_order: 4.25
 layout: api_page
@@ -11,7 +11,7 @@ alias:
 description: "This article outlines details about the bulk Track users endpoint."
 ---
 {% api %}
-# Track users (bulk)
+# Create and update users (bulk)
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
@@ -19,7 +19,7 @@ description: "This article outlines details about the bulk Track users endpoint.
 Use this endpoint to record custom events and purchases and update user profile attributes in bulk.
 
 {% alert important %}
-This endpoint is currently in early access. Contact your Braze customer success manager if you are interested in participating in the early access.
+This endpoint is currently in **limited beta**. Although we're not adding new customers to the beta right now, let your Braze account manager know if you think this feature could be useful for your Braze integration.
 {% endalert %}
 
 ## When to use this endpoint
@@ -42,6 +42,8 @@ To use this endpoint, you must have an [API key]({{site.baseurl}}/api/api_key/) 
 If you're making server-to-server calls behind a firewall, you may need to allowlist your Braze REST endpoint (for example, `rest.iad-01.braze.com`). For more information, see [API endpoints]({{site.baseurl}}/api/basics/#api-definitions).
 
 ## Rate limit
+
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
 
 For most customers, this endpoint has a base speed limit of 50 requests per second.
 
@@ -77,7 +79,7 @@ For each request object, you must include one of `external_id`, `user_alias`, `b
 | `attributes` | Optional | Array of attributes objects | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
 | `events` | Optional | Array of event objects | See [events object]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Optional | Array of purchase objects | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example requests
 

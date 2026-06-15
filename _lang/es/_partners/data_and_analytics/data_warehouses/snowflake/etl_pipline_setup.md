@@ -1,22 +1,22 @@
 ---
 nav_title: "Configuración del canal de eventos ETL"
-article_title: Configuración de la canalización de eventos ETL Snowflake
+article_title: Configuración de la canalización de eventos ETL de Snowflake
 page_order: 2
-description: "Esta página de socio ofrece un ejemplo de configuración de una consulta de clics de correo electrónico como referencia para configurar sus propias consultas."
+description: "Esta página del socio ofrece un ejemplo de configuración de una consulta de clics de correo electrónico como referencia para configurar tus propias consultas."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Configuración del canal de eventos ETL
+# Configuración del canal de eventos ETL {#etl-event-pipeline-setup}
 
-> Esta página asociada ofrece un ejemplo de configuración de una consulta de clics de correo electrónico que puede utilizar como referencia para configurar sus propias consultas.
+> Esta página del socio ofrece un ejemplo de configuración de una consulta de clics de correo electrónico que puedes usar como referencia para configurar tus propias consultas.
 
-Puede utilizar esta consulta de clics de correo electrónico para analizar las interacciones con correos electrónicos específicos en sus campañas Braze y Canvases.
+Puedes usar esta consulta de clics de correo electrónico para analizar las interacciones con correos electrónicos específicos en tus Campaigns y Canvas de Braze.
 
-## Configure esta consulta
+## Configura esta consulta {#set-up-this-query}
 
-Cree una base de datos para `BRAZE`, luego cree una base de datos si no existe ninguna para `BRAZE_CURRENTS;`:
+Crea una base de datos para `BRAZE` y luego crea una base de datos si no existe ninguna para `BRAZE_CURRENTS;`:
 
 ```sql
 use schema BRAZE_CURRENTS.public;
@@ -32,7 +32,7 @@ alter stage braze_currents.public.braze_data set file_format = braze_currents.pu
 show stages;
 ```
 
-Utilice el siguiente comando para crear su tabla:
+Usa el siguiente comando para crear tu tabla:
 
 ```sql
 CREATE TABLE
@@ -58,7 +58,7 @@ CREATE TABLE
   );
 ```
 
-Utiliza el siguiente comando para crear o sustituir tu canalización:
+Usa el siguiente comando para crear o reemplazar tu canalización:
 
 ```sql
 CREATE OR REPLACE PIPE
@@ -94,11 +94,11 @@ COPY INTO
 show pipes;
 ```
 
-## Haz más con este ejemplo de consulta
+## Haz más con este ejemplo de consulta {#do-more-with-this-query-example}
 
-Copie la dirección `notification_channel` de la salida del comando anterior y utilícela para configurar las notificaciones de los buckets de S3.
+Copia el `notification_channel` de la salida del comando anterior y úsalo para configurar las notificaciones del contenedor de S3.
 
-Sincroniza manualmente desde S3 a Snowflake para el siguiente nombre de canalización dado:
+Sincroniza manualmente desde S3 a Snowflake para el siguiente nombre de canalización:
 ```sql
 ALTER PIPE
   pipe_users_messages_email_click

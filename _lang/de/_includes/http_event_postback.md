@@ -1,23 +1,23 @@
-Alle Transaktions-E-Mails werden durch Ereignisstatus-Postbacks ergänzt, die als HTTP-Anfrage an die von Ihnen angegebene URL zurückgeschickt werden. So können Sie den Status der Nachricht in Realtime auswerten und Maßnahmen ergreifen, um den Nutzer:innen auf einem anderen Kanal zu erreichen, wenn die Nachricht nicht zugestellt wurde, oder auf ein internes System zurückgreifen, wenn Braze eine Latenzzeit hat.
+Alle Transaktions-E-Mails werden durch Ereignisstatus-Postbacks ergänzt, die als HTTP-Anfrage an die von Ihnen angegebene URL zurückgesendet werden. So können Sie den Status der Nachricht in Realtime auswerten und Maßnahmen ergreifen, um Nutzer:innen auf einem anderen Kanal zu erreichen, wenn die Nachricht nicht zugestellt wurde, oder auf ein internes System als Fallback zurückgreifen, wenn Braze eine Latenz aufweist.
 
 Sie können diese Updates über eindeutige Bezeichner mit einzelnen Nachrichten verknüpfen:
 
 - `dispatch_id`: Eine eindeutige ID, die Braze automatisch für jede Nachricht generiert.
-- `external_send_id`: Ein angepasster Bezeichner, den Sie angeben, z.B. eine Bestellnummer, um Updates mit Ihren internen Systemen abzugleichen.
+- `external_send_id`: Ein angepasster Bezeichner, den Sie angeben, z. B. eine Bestellnummer, um Updates mit Ihren internen Systemen abzugleichen.
 
-Wenn Sie beispielsweise `external_send_id: 1234` in die Anfrage beim Versenden einer E-Mail zur Auftragsbestätigung aufnehmen, werden alle nachfolgenden Ereignis-Postbacks für diese E-Mail - wie `Sent` oder `Delivered`- `external_send_id: 1234` enthalten. Damit können Sie bestätigen, ob der Kund:in für die Bestellung #1234 seine E-Mail zur Bestellbestätigung erhalten hat.
+Wenn Sie beispielsweise `external_send_id: 1234` in die Anfrage beim Versenden einer Bestellbestätigungs-E-Mail aufnehmen, enthalten alle nachfolgenden Ereignis-Postbacks für diese E-Mail – wie `Sent` oder `Delivered` – den Wert `external_send_id: 1234`. Damit können Sie bestätigen, ob die Kund:in für Bestellung #1234 die Bestellbestätigungs-E-Mail erhalten hat.
 
-### Einrichten von Postbacks
+### Einrichten von Postbacks {#setting-up-postbacks}
 
 In Ihrem Braze-Dashboard:
 
-1. Gehen Sie zu **Einstellungen** > **E-Mail-Voreinstellungen**.
-2. Geben Sie unter **Transaktionsereignis-Status-Postback** die URL ein, an die Braze Status-Updates für Ihre Transaktions-E-Mails senden soll.
+1. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen**.
+2. Geben Sie unter **Transactional Event Status Postback** die URL ein, an die Braze Status-Updates für Ihre Transaktions-E-Mails senden soll.
 3. Testen Sie das Postback.
 
 ![]({% image_buster /assets/img/transactional_webhook_url.png %})
 
-### Körper der Rückmeldung
+### Postback-Body
 
 ```json
 {
@@ -40,18 +40,18 @@ In Ihrem Braze-Dashboard:
 }
 ```
 
-#### Status der Nachrichten
+#### Nachrichtenstatus {#message-status}
 
-|  Status | Beschreibung |
+| Status | Beschreibung |
 | ------------ | ----------- |
-| `sent` | Nachricht erfolgreich an einen Braze E-Mail sendenden Partner versendet |
-| `processed` | Der Partner für das Versenden von E-Mails hat die Nachricht erfolgreich empfangen und für den Versand an den Posteingang des Nutzers:innen vorbereitet. |
-| `aborted` | Braze konnte die Nachricht nicht erfolgreich versenden, da der Nutzer:innen keine E-Mail Adresse hat oder die Liquid Abbruchlogik im Nachrichtentext aufgerufen wurde. Alle abgebrochenen Ereignisse enthalten ein `reason` Feld innerhalb des Metadatenobjekts, das angibt, warum die Nachricht abgebrochen wurde. |
-|`delivered`| Nachricht wurde vom Anbieter des Posteingangs des Nutzers akzeptiert |
-|`bounced`| Nachricht wurde vom Anbieter des Posteingangs des Nutzers abgelehnt. Alle Bounce-Ereignisse enthalten ein Feld `reason` im Metadaten-Objekt, das den vom Posteingang-Anbieter bereitgestellten Fehlercode wiedergibt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `sent` | Nachricht wurde erfolgreich an einen E-Mail-Versandpartner von Braze übergeben |
+| `processed` | Der E-Mail-Versandpartner hat die Nachricht erfolgreich empfangen und für den Versand an den Posteingang-Anbieter der Nutzer:innen vorbereitet |
+| `aborted` | Braze konnte die Nachricht nicht erfolgreich versenden, da die Nutzer:innen keine gültige E-Mail-Adresse haben oder die Liquid-Abbruchlogik im Nachrichtentext aufgerufen wurde. Alle abgebrochenen Ereignisse enthalten ein Feld `reason` im Metadaten-Objekt, das angibt, warum die Nachricht abgebrochen wurde |
+| `delivered` | Nachricht wurde vom Posteingang-Anbieter der Nutzer:innen akzeptiert |
+| `bounced` | Nachricht wurde vom Posteingang-Anbieter der Nutzer:innen abgelehnt. Alle Bounce-Ereignisse enthalten ein Feld `reason` im Metadaten-Objekt, das den vom Posteingang-Anbieter bereitgestellten Bounce-Fehlercode wiedergibt |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nachrichtenstatus" }
 
-### Beispiel Postback
+### Beispiel-Postback {#example-postback}
 ```json
 
 // Sent Event

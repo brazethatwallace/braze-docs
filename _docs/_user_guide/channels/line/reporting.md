@@ -54,7 +54,7 @@ Here are some key LINE metrics you may see in your analytics. To see the definit
 | Total Opens | The total number of times that the LINE messages sent were opened by users after a minimum threshold of 20 messages per day has been reached. |
 | Unique Clicks | The total number of LINE messages sent that were clicked by users, after a minimum threshold of 20 messages per day has been reached. |
 | Total Clicks | The total number of times that the LINE messages sent were clicked by users after a minimum threshold of 20 messages per day has been reached. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE metrics" }
 
 ### Historical performance
 

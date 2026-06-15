@@ -14,22 +14,22 @@ search_tag: Partner
 
 _Esta integración está mantenida por Singular._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
 La integración de Braze y Singular te permite importar datos de atribución de instalación de pago para segmentar de forma inteligente dentro de tus campañas según el ciclo de vida.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 |---|---|
 | Cuenta Singular | Es necesario tener una cuenta Singular para beneficiarse de esta asociación. |
-| Aplicación para iOS o Android | Esta integración es compatible con aplicaciones iOS y Android. Dependiendo de su plataforma, es posible que se requieran fragmentos de código en su aplicación. Encontrarás más detalles sobre estos requisitos en el paso 1 del proceso de integración. |
+| Aplicación para iOS o Android | Esta integración es compatible con aplicaciones iOS y Android. Dependiendo de tu plataforma, es posible que se requieran fragmentos de código en tu aplicación. Encontrarás más detalles sobre estos requisitos en el paso 1 del proceso de integración. |
 | SDK de Singular | Además del SDK de Braze necesario, debes instalar el [SDK de Singular](https://support.singular.net/hc/en-us/articles/360037640172-Getting-Started-with-the-Singular-SDK-S2S). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
-### Paso 1: Asignar ID de usuario
+### Paso 1: Asignar ID de usuario {#step-1-map-user-ids}
 
 #### Android
 
@@ -43,10 +43,10 @@ SingularConfig config = new SingularConfig("SDK KEY", "SDK SECRET")
 #### iOS
 
 {% alert important %}
-Antes de febrero de 2023, nuestra integración de atribución Singular utilizaba el Identificador de Vendedor (IDFV) como identificador principal para cotejar los datos de atribución de iOS. No es necesario que los clientes de Braze que utilicen Objective-C obtengan la dirección Braze `device_id` y la envíen a Singular al instalarla, porque no se interrumpe el servicio.
+Antes de febrero de 2023, nuestra integración de atribución Singular utilizaba el Identificador de Vendedor (IDFV) como identificador principal para cotejar los datos de atribución de iOS. No es necesario que los clientes de Braze que utilicen Objective-C obtengan el `device_id` de Braze y lo envíen a Singular durante la instalación, porque no se interrumpe el servicio.
 {% endalert%}
 
-Para los que utilicen Swift SDK v5.7.0+, si deseas seguir utilizando IDFV como identificador mutuo, debes asegurarte de que el campo `useUUIDAsDeviceId` está configurado en `false` para que no haya interrupciones en la integración. 
+Para los que utilicen Swift SDK v5.7.0+, si deseas seguir utilizando IDFV como identificador mutuo, debes asegurarte de que el campo `useUUIDAsDeviceId` está configurado en `false` para que no haya interrupciones en la integración.
 
 Si se establece en `true`, debes implementar el mapeado de ID de dispositivo iOS para Swift con el fin de pasar el `device_id` de Braze a Singular al instalar la aplicación para que Braze coincida adecuadamente con las atribuciones de iOS.
 
@@ -72,33 +72,33 @@ config.setGlobalProperty("brazeDeviceId", withValue: brazeDeviceId, overrideExis
 {% endtab %}
 {% endtabs %}
 
-### Paso 2: Obtener la clave de importación de datos Braze
+### Paso 2: Obtener la clave de importación de datos de Braze {#step-2-get-the-braze-data-import-key}
 
-En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Singular**. 
+En Braze, ve a **Partner Integrations** > **Technology Partners** y selecciona **Singular**.
 
-Aquí encontrarás el punto final REST y generarás tu clave de importación de datos Braze. Una vez generada la clave, puedes crear una nueva o invalidar una existente. 
+Aquí encontrarás el punto de conexión REST y generarás tu clave de importación de datos de Braze. Una vez generada la clave, puedes crear una nueva o invalidar una existente.
 
-Tendrás que proporcionar la clave de importación de datos y el punto final REST a tu administrador de cuentas de Singular para completar la integración.<br><br>![Esta imagen muestra la casilla "Importación de datos para la atribución de instalación" que se encuentra en la página de tecnología Singular. En este cuadro, se te muestra la clave de importación de datos y el punto final REST.]({% image_buster /assets/img/attribution/singular.png %}){: style="max-width:90%;"}
+Tendrás que proporcionar la clave de importación de datos y el punto de conexión REST a tu director de cuentas de Singular para completar la integración.<br><br>![Esta imagen muestra la casilla "Data Import for Install Attribution" que se encuentra en la página de tecnología Singular. En este cuadro, se te muestra la clave de importación de datos y el punto de conexión REST.]({% image_buster /assets/img/attribution/singular.png %}){: style="max-width:90%;"}
 
-### Paso 3: Confirmar la integración
+### Paso 3: Confirmar la integración {#step-3-confirm-the-integration}
 
-Después de que Braze reciba los datos de atribución de Singular, el indicador de estado de la conexión en la página de socios tecnológicos de Singular en Braze cambia de "No conectado" a "Conectado" e incluye una marca de tiempo de la última solicitud realizada con éxito.
+Después de que Braze reciba los datos de atribución de Singular, el indicador de estado de la conexión en la página de socios tecnológicos de Singular en Braze cambia de "Not Connected" a "Connected" e incluye una marca de tiempo de la última solicitud realizada con éxito.
 
-Este estado sólo cambia cuando Braze recibe datos sobre una instalación atribuida. Braze ignora las instalaciones orgánicas (las excluye del postback de Singular) y no las cuenta a la hora de determinar si la conexión se ha realizado correctamente.
+Este estado solo cambia cuando Braze recibe datos sobre una instalación atribuida. Braze ignora las instalaciones orgánicas (las excluye del postback de Singular) y no las cuenta a la hora de determinar si la conexión se ha realizado correctamente.
 
-## Datos de atribución de Facebook y X (antes Twitter)
+## Datos de atribución de Facebook y X (antes Twitter) {#facebook-and-x-formerly-twitter-attribution-data}
 
 Los datos de atribución de las campañas de Facebook y X (antes Twitter) no están disponibles a través de nuestros socios. Estas fuentes de medios no permiten a sus socios compartir datos de atribución con terceros y, por lo tanto, nuestros socios no pueden enviar esos datos a Braze.
 
-## URL de seguimiento de clics singulares en Braze (opcional)
+## URL de seguimiento de clics de Singular en Braze (opcional) {#singular-click-tracking-urls-in-braze-optional}
 
-El uso de enlaces de seguimiento de clics en tus campañas Braze te permitirá ver fácilmente qué campañas están impulsando la instalación de aplicaciones y la reactivación de la interacción. Como resultado, podrás medir tus esfuerzos de marketing con mayor eficacia y tomar decisiones basadas en datos sobre dónde invertir más recursos para obtener el máximo ROI.
+El uso de enlaces de seguimiento de clics en tus campañas de Braze te permitirá ver fácilmente qué campañas están impulsando la instalación de aplicaciones y la reactivación de la interacción. Como resultado, podrás medir tus esfuerzos de marketing con mayor eficacia y tomar decisiones basadas en datos sobre dónde invertir más recursos para obtener el máximo ROI.
 
-Para empezar a utilizar los enlaces de seguimiento de clics de Singular, visita su [documentación](https://support.singular.net/hc/en-us/articles/360030934212-Singular-Links-FAQ?navigation_side_bar=true). Puedes insertar directamente los enlaces de seguimiento de clics de Singular en tus campañas Braze. Singular utilizará entonces sus [metodologías de atribución probabilística](https://support.singular.net/hc/en-us/articles/115000526963-Understanding-Singular-Mobile-App-Attribution?navigation_side_bar=true) para atribuir al usuario que ha hecho clic en el enlace. Te recomendamos que añadas a tus enlaces de seguimiento de Singular un identificador de dispositivo para mejorar la precisión de las atribuciones de tus campañas Braze. Esto atribuirá de forma determinista al usuario que ha hecho clic en el enlace.
+Para empezar a utilizar los enlaces de seguimiento de clics de Singular, visita su [documentación](https://support.singular.net/hc/en-us/articles/360030934212-Singular-Links-FAQ?navigation_side_bar=true). Puedes insertar directamente los enlaces de seguimiento de clics de Singular en tus campañas de Braze. Singular utilizará entonces sus [metodologías de atribución probabilística](https://support.singular.net/hc/en-us/articles/115000526963-Understanding-Singular-Mobile-App-Attribution?navigation_side_bar=true) para atribuir al usuario que ha hecho clic en el enlace. Te recomendamos que añadas a tus enlaces de seguimiento de Singular un identificador de dispositivo para mejorar la precisión de las atribuciones de tus campañas de Braze. Esto atribuirá de forma determinista al usuario que ha hecho clic en el enlace.
 
 {% tabs local %}
 {% tab Android %}
-Para Android, Braze permite a los clientes la adhesión voluntaria a la [recopilación de ID de publicidad de Google (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id). El GAID también se recoge de forma nativa a través de la integración de SDK de Singular. Puedes incluir el GAID en tus enlaces de seguimiento de clics de Branch utilizando la siguiente lógica de Liquid:
+Para Android, Braze permite a los clientes la adhesión voluntaria a la [recopilación de ID de publicidad de Google (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id). El GAID también se recoge de forma nativa a través de la integración de SDK de Singular. Puedes incluir el GAID en tus enlaces de seguimiento de clics de Singular utilizando la siguiente lógica de Liquid:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}
@@ -109,7 +109,7 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-Para iOS, tanto Braze como Singular recopilan automáticamente el IDFV de forma nativa a través de nuestras integraciones SDK. Puede utilizarse como identificador del dispositivo. Puedes incluir el IDFV en tus enlaces de seguimiento de clics de Singular utilizando la siguiente lógica Liquid:
+Para iOS, tanto Braze como Singular recopilan automáticamente el IDFV de forma nativa a través de nuestras integraciones de SDK. Puede utilizarse como identificador del dispositivo. Puedes incluir el IDFV en tus enlaces de seguimiento de clics de Singular utilizando la siguiente lógica de Liquid:
 
 {% raw %}
 ```
@@ -123,7 +123,5 @@ idfv={{most_recently_used_device.${id}}}
 
 {% alert note %}
 **Esta recomendación es puramente opcional**<br>
-Si actualmente no utilizas ningún identificador de dispositivo -como el IDFV o el GAID- en tus enlaces de seguimiento de clics, o no piensas hacerlo en el futuro, Singular podrá seguir atribuyendo estos clics mediante su modelado probabilístico.
+Si actualmente no utilizas ningún identificador de dispositivo —como el IDFV o el GAID— en tus enlaces de seguimiento de clics, o no piensas hacerlo en el futuro, Singular podrá seguir atribuyendo estos clics mediante su modelado probabilístico.
 {% endalert %}
-
-

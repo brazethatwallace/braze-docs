@@ -27,7 +27,7 @@ noindex: true
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.requestContentCardsRefresh()
 ```
 

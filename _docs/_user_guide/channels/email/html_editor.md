@@ -51,6 +51,10 @@ If all of the messages in your campaign are going to be similar or have the same
 {% endtab %}
 {% endtabs %}
 
+{% alert tip %}
+If you plan to build custom HTML and need backgrounds to stay consistent in the Gmail mobile app with device dark mode on, see [Gmail mobile app and Dark Mode background colors](#gmail-dark-mode).
+{% endalert %}
+
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='email html editor' %}
 
 ## Step 2: Select your editing experience {#step-2-choose-your-template-and-compose-your-email}
@@ -59,7 +63,9 @@ Braze offers two editing experiences when creating an email campaign: our [drag-
 
 ![Choosing between the drag-and-drop editor, HTML editor, or templates for your email editing experience.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-Then, you can either select an existing [email template]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template), [upload a template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) from a file (HTML editor only), or use a blank template. 
+Then, you can either select an existing [email template]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template), [upload a template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) from a file (HTML editor only), or use a blank template.
+
+If you use the HTML editor and need background colors to stay consistent in the Gmail mobile app when the device is in dark mode, see [Gmail mobile app and Dark Mode background colors](#gmail-dark-mode).
 
 {% alert tip %}
 We recommend selecting one editing experience per email campaign. For example, choose either the **HTML Classic** or **Block editor** in a single email campaign rather than switching between editors.
@@ -91,6 +97,27 @@ Need help creating awesome copy? Try using the [AI copywriting assistant]({{site
 
 Need help crafting right-to-left messages for languages like Arabic and Hebrew? Refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/) for best practices.
 
+### Gmail mobile app and dark mode {#gmail-dark-mode}
+
+The Gmail mobile app (Android and iOS) can invert background colors when the device is in dark mode. That can break layouts where the email background should match an image edge or a specific brand color.
+
+To avoid this, in the table cell that needs a stable background, use a single-color CSS `linear-gradient` instead of `background-color`. Gmail is less likely to invert that treatment than a flat background color.
+
+For example, to keep a white background on a cell, use this:
+
+```html
+<td style="background-image: linear-gradient(#ffffff, #ffffff);">
+```
+
+Replace `#ffffff` with your intended color.
+
+{% alert note %}
+This approach does not apply reliably to `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` elements alone, so set the gradient on the cell instead of only on the table.
+  <caption>Gmail mobile app and dark mode</caption>
+{% endalert %}
+
+For more information about gradient syntax, see [CSS gradients on W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
+
 ### Step 3.1: Add your sending information
 
 After you finish designing and building your email message, add your sending information in **Sending Settings**.
@@ -110,6 +137,16 @@ Under **Sending Settings** > **Advanced**, turn on **inline CSS** for the widest
 
 You can also add personalization for email headers and email extras to send additional data back to other email service providers.
 
+##### Email attachments
+
+You can also add email attachments by the following methods:
+
+- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
+- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word documents, Excel files, and PowerPoint presentations are all supported.
+- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+
+Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
+
 ##### Email headers
 
 To add email headers, select **Add New Header**. Email headers contain information about the email being sent. These [key-value pairs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) typically include sender, recipient, authentication protocol, and routing information. Braze automatically adds the RFC-required header information for emails to reach inbox providers.
@@ -125,7 +162,8 @@ Avoid using the following keys:
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
+  <caption>Email headers</caption>
 <thead>
   <tr>
     <th>Reserved Fields</th>
@@ -185,7 +223,7 @@ Then, you can **Copy preview link** to generate and copy a shareable preview lin
 You can also switch between desktop, mobile, and plaintext views to get a sense of how your message will appear in different contexts.
 
 {% alert tip %}
-Curious about what your email looks like for dark mode users? Select the **Dark Mode Preview** toggle located in the **Preview and Test** section (drag-and-drop editor only).
+Curious about what your email looks like for dark mode users? Select the **Dark Mode Preview** toggle located in the **Preview and Test** section (drag-and-drop editor only). If you use the HTML editor, you can still address Gmail mobile dark mode rendering with [Gmail mobile app and Dark Mode](#gmail-dark-mode).
 {% endalert %}
 
 When you're ready for a final check, select **Test Send** and send a test message to yourself or a tester group to confirm the email displays properly across devices and clients.
@@ -203,6 +241,10 @@ Email clients that support preview text always pull in enough characters to fill
 ```
 
 For the drag-and-drop editor, add only the zero-width non-joiners (‌`&zwnj;`) without the `<div>` formatting directly in the preheader in the **Sending Settings** section.
+{% endalert %}
+
+{% alert note %}
+In the Apple Mail app, image links in HTML email must use `https://` URLs to be clickable. Use secure links for any image wrapped in an anchor tag when you expect clicks from Apple Mail recipients.
 {% endalert %}
 
 ### Step 3.3: Check for email errors
@@ -234,7 +276,7 @@ Deliver emails based on a scheduled time, an action, or an API trigger. For more
 For API-triggered campaigns, when the trigger action is set to **Interact With Campaign**, selecting a **Receive** option as the interaction will cause your new campaign to trigger as soon as Braze marks the selected campaign as sent, even if that message bounces or fails to be delivered.
 {% endalert %}
 
-You can also set the campaign's duration, specify [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
+You can also set the campaign's duration, specify [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 
 #### Choose users to target
 

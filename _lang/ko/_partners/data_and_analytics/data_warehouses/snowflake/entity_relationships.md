@@ -1,13 +1,17 @@
 ---
-nav_title: "Entity Relationships"
-article_title: Entity Relationships for Snowflake and Braze
+nav_title: "엔티티 관계"
+article_title: Snowflake와 Braze의 엔티티 관계
 page_order: 10
 search_tag: Partner
 ---
 
-# Entity relationships for Snowflake and Braze
+# Snowflake와 Braze의 엔티티 관계 {#entity-relationships-for-snowflake-and-braze}
 
-> These are the list of entity relationships between Snowflake and Braze for each messaging channel.
+> 각 메시징 채널에 대한 Snowflake와 Braze 간의 엔티티 관계 목록입니다.
+
+{% alert important %}
+엔티티 관계 다이어그램은 테이블 간의 공유 필드와 관계를 강조하며, 전체 테이블 스키마가 아닙니다. 전체 필드 목록은 [개별 테이블 스키마]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt)를 참조하세요.
+{% endalert %}
 
 {% sdktabs %}
 {% sdktab Content Cards %}

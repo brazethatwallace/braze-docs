@@ -1,32 +1,36 @@
 ---
-nav_title: "POST:Eメールテンプレートを作成する"
-article_title: "POST:メールテンプレートを作成する"
-search_tag: エンドポイント
+nav_title: "POST: メールテンプレートを作成する"
+article_title: "POST: メールテンプレートを作成する"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、BrazeのEメールテンプレート作成エンドポイントの詳細について概説する。"
+description: "この記事では、Brazeのメールテンプレート作成エンドポイントの詳細について説明します。"
 ---
 {% api %}
-# Eメールテンプレートを作成する
+# メールテンプレートを作成する {#create-email-template}
 {% apimethod post %}
 /templates/email/create
 {% endapimethod %}
 
-> BrazeダッシュボードでEメールテンプレートを作成するには、このエンドポイントを使用する。
+> このエンドポイントを使用して、Brazeダッシュボードでメールテンプレートを作成します。
 
-これらのテンプレートは**テンプレート&・メディア**ページで利用可能だ。このエンドポイントからの応答には`email_template_id`のフィールドが含まれており、後続のAPI呼び出しでテンプレートを更新するために使用できます。
+これらのテンプレートは**テンプレートとメディア**ページで利用できます。このエンドポイントからの応答には`email_template_id`フィールドが含まれており、後続のAPI呼び出しでテンプレートを更新するために使用できます。
+
+{% alert tip %}
+このエンドポイントは、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server/)を通じて[`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates)関数を使用して呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメールテンプレートを作成できます。
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}
 
-## 前提条件
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/api_key/)と`templates.email.create`の権限が必要です。
+## 前提条件 {#prerequisites}
+このエンドポイントを使用するには、`templates.email.create`権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -45,20 +49,20 @@ Authorization: Bearer YOUR_REST_API_KEY
  }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-|`template_name`|必須かどうか|文字列|メールテンプレートの名前|
-|`subject`|必須かどうか|文字列|メールテンプレートの件名|
-|`body`|必須かどうか|文字列|HTMLを含む可能性のあるメールテンプレート本文。最大400キロバイト。|
-|`plaintext_body`|オプション|文字列|メールテンプレート本文のプレーンテキストバージョン。|
-|`preheader`|オプション|文字列|一部のクライアントでプレビューを生成するために使用されるメールプレヘッダー。|
-|`tags`|オプション|文字列|[タグ]({{site.baseurl}}/user_guide/administrative/app_settings/tags/)はすでに存している必要があります。|
-|`should_inline_css`|オプション|ブール値|テンプレートごとに`inline_css` 機能を有効または無効にする。提供されない場合、Brazeはアプリグループのデフォルト設定を使用する。`true` か`false` のどちらかが予想される。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `template_name` | 必須 | 文字列 | メールテンプレートの名前。 |
+| `subject` | 必須 | 文字列 | メールテンプレートの件名。 |
+| `body` | 必須 | 文字列 | HTMLを含むことができるメールテンプレート本文。最大400&nbsp;KB。 |
+| `plaintext_body` | オプション | 文字列 | メールテンプレート本文のプレーンテキストバージョン。 |
+| `preheader` | オプション | 文字列 | 一部のクライアントでプレビューを生成するために使用されるメールプリヘッダー。 |
+| `tags` | オプション | 文字列 | [タグ]({{site.baseurl}}/user_guide/messaging/governance/tags/)はすでに存在している必要があります。 |
+| `should_inline_css` | オプション | ブール値 | テンプレートごとに`inline_css`機能を有効または無効にします。指定されない場合、Brazeはアプリグループのデフォルト設定を使用します。`true`または`false`のいずれかが期待されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## リクエスト例
+## リクエスト例 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/create' \
 --header 'Content-Type: application/json' \
@@ -73,7 +77,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/cr
 }'
 ```
 
-## 回答例
+## 応答例 {#example-response}
 
 ```json
 {
@@ -82,18 +86,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/cr
 }
 ```
 
-## トラブルシューティング
+## トラブルシューティング {#troubleshooting}
 
-以下の表は、返される可能性のあるエラーと、該当する場合、それに関連するトラブルシューティングの手順を示している。
+以下の表は、返される可能性のあるエラーと、該当する場合の関連するトラブルシューティング手順を示しています。
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| テンプレート名は必須 | テンプレート名を入力する。 |
-| タグは配列でなければならない | タグは文字列の配列としてフォーマットされなければならない。例えば、`["marketing", "promotional", "transactional"]` 。 |
-| タグはすべて文字列でなければならない | タグが引用符 (`""`) で囲まれていることを確認すること。 |
-| いくつかのタグが見つからない | Eメールテンプレート作成時にタグを追加するには、そのタグがすでにBrazeに存在している必要がある。 |
-| Eメールには有効なコンテンツ・ブロック名が必要である | メールには、この環境には存在しないコンテンツ・ブロックが含まれている可能性がある。 |
-| `should_inline_css` の値が無効である。`true` または`false` のどちらかが予想された | このパラメータはブーリアン値（trueまたはfalse）のみを受け付ける。`should_inline_css` の値が引用符（`""` ）で囲まれていないことを確認すること。この場合、値は文字列として送信される。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| テンプレート名は必須です | テンプレート名を入力してください。 |
+| タグは配列でなければなりません | タグは文字列の配列としてフォーマットする必要があります。例: `["marketing", "promotional", "transactional"]`。 |
+| すべてのタグは文字列でなければなりません | タグが引用符（`""`）で囲まれていることを確認してください。 |
+| 一部のタグが見つかりませんでした | メールテンプレート作成時にタグを追加するには、そのタグがすでにBrazeに存在している必要があります。 |
+| メールには有効なContent Blocks名が必要です | メールにこの環境に存在しないContent Blocksが含まれている可能性があります。 |
+| `should_inline_css`の値が無効です。`true`または`false`のいずれかが期待されます | このパラメーターはブール値（trueまたはfalse）のみを受け付けます。`should_inline_css`の値が引用符（`""`）で囲まれていないことを確認してください。囲まれている場合、値は文字列として送信されます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

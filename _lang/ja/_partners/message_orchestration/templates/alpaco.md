@@ -2,73 +2,73 @@
 nav_title: Alpaco
 article_title: Alpaco
 alias: /partners/Alpaco
-description: "Braze とAlpaco の統合により、ブランド上のLiquid 互換メールテンプレートとコンテンツブロックをBraze にエクスポートし、メールやアプリ内メッセージで使用できるようになります。"
+description: "BrazeとAlpacoの統合により、ブランドに準拠したLiquid互換のメールテンプレートとコンテンツブロックをBrazeにエクスポートし、メールやアプリ内メッセージで使用できるようになります。"
 page_type: partner
 search_tag: Partner
 ---
 
 # Alpaco
 
-> [Alpaco](https://alpaco.email/) は、Braze 用の再利用可能でブランドセーフなコンテンツを構築するためのドラッグアンドドロップエディタを提供するオンラインクリエイティブ管理ツールです。AlpacoとBrazeの統合により、コンテンツブロック、メールテンプレート、およびアプリ内メッセージテンプレートをエクスポートできます。
+> [Alpaco](https://alpaco.email/)は、Braze用の再利用可能でブランドセーフなコンテンツを構築するためのドラッグアンドドロップエディターを提供するオンラインクリエイティブ管理ツールです。AlpacoとBrazeの統合により、Content Blocks、メールテンプレート、およびアプリ内メッセージテンプレートをエクスポートできます。
 
-_この統合は Alpaco によって管理されます。_
+_この統合はAlpacoによって管理されています。_
 
 {% alert note %}
-Alpaco は[完全な Liquid](https://shopify.github.io/liquid/) 変数をサポートしています。このため、Braze 設定で使用されるすべての Liquid 変数を完全にサポートしています。
+Alpacoは[完全なLiquid](https://shopify.github.io/liquid/)変数をサポートしており、Brazeの設定で使用されるすべてのLiquid変数も完全にサポートしています。
 {% endalert %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ------------| ----------- |
-| Alpaco アカウント | このパートナーシップを活用するには、Alpaco アカウントが必要です。 |
-| Braze REST API キー | 完全な**テンプレート**権限を持つBraze REST API キー。<br><br> これは、Brazeダッシュボードの**「設定」**>「**APIキー**」から作成できる。 |
-| クラスタインスタンス | Braze [クラスターインスタンス]({{site.baseurl}}/api/basics/#endpoints)は、Braze ダッシュボードと REST エンドポイントに対応しています。<br><br> 例えば、ダッシュボードのURLが`https://dashboard-03.braze.com` の場合、エンドポイントは`dashboard-03` となる。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Alpacoアカウント | このパートナーシップを活用するには、Alpacoアカウントが必要です。 |
+| Braze REST APIキー | 完全な**テンプレート**権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| クラスターインスタンス | Brazeの[クラスターインスタンス]({{site.baseurl}}/api/basics/#endpoints)は、BrazeダッシュボードとRESTエンドポイントに対応しています。<br><br> たとえば、ダッシュボードのURLが`https://dashboard-03.braze.com`の場合、エンドポイントは`dashboard-03`になります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## ユースケース
+## ユースケース {#use-cases}
 
-- 完全に設計された**メールテンプレート** をエクスポートして、Braze キャンペーンおよびトランザクションメッセージングで使用します。
-- 複数のチャネルで再利用可能な**モジュラコンテンツブロック**(e.g.ヘッダ、フッタ、プロモーション)を作成し、管理します。
-- **アプリ内メッセージ**を、メールと同じクリエイティブな柔軟性を持ってデザインし、チャネル間で一貫性のあるオンブランド体験を容易に配信できるようにします。
-- **パーソナライゼーション**を有効にするには、`{{first_name}}` または`{{custom_attribute}}` などの Braze 対応の Liquid タグを含めます。
-- Alpacoでクリエイティブデザインを一元化し、アップデートを1回のエクスポートでBrazeにプッシュすることで、**ブランドの一貫性**を維持します。
+- 完全にデザインされた**メールテンプレート**をエクスポートして、Brazeのキャンペーンやトランザクションメッセージングで使用します。
+- 複数のチャネルで再利用可能な**モジュラーコンテンツブロック**（ヘッダー、フッター、プロモーションなど）を作成・管理します。
+- メールと同じクリエイティブな柔軟性で魅力的な**アプリ内メッセージ**をデザインし、チャネル間で一貫性のあるオンブランド体験を簡単に提供できるようにします。
+- `{{first_name}}`や`{{custom_attribute}}`などのBraze対応Liquidタグを含めることで、**パーソナライゼーション**を実現します。
+- Alpacoでクリエイティブデザインを一元管理し、1回のエクスポートでBrazeに更新をプッシュすることで、**ブランドの一貫性**を維持します。
 
-## 統合
+## 統合 {#integration}
 
-Braze REST API キーとクラスターインスタンスを Alpaco カスタマーサクセスチームに提供します。その後、このチームが初期統合を設定できます。
+Braze REST APIキーとクラスターインスタンスをAlpacoカスタマーサクセスチームに提供してください。チームが初期統合のセットアップを行います。
 
 {% alert note %}
-これは1回限りのセットアップであり、今後のエクスポートは自動的にこのAPIキーを使用する。
+これは1回限りのセットアップであり、今後のエクスポートではこのAPIキーが自動的に使用されます。
 {% endalert %}
 
-## Alpaco メッセージの Braze へのエクスポート
+## AlpacoメッセージをBrazeにエクスポートする {#exporting-alpaco-messages-to-braze}
 
-### ステップ 1: Alpaco でのテンプレートの作成
+### ステップ 1:Alpacoでテンプレートを作成する {#step-1-create-a-template-in-alpaco}
 
-Alpacoで、ブランドアイデンティティを表すテンプレートを作成します。準備ができたら、[**保存**] を選択します。
+Alpacoで、ブランドアイデンティティを表現するテンプレートを作成します。準備ができたら、**Save**を選択します。
 
-![アルパコ テンプレート作成]({% image_buster /assets/img/alpaco/alpaco_1.png %})
+![Alpacoのテンプレート作成画面]({% image_buster /assets/img/alpaco/alpaco_1.png %})
 
-### ステップ 2:テンプレートを使用してメッセージを作成する
+### ステップ 2:テンプレートを使用してメッセージを作成する {#step-2-draft-a-message-using-the-template}
 
-次に、Alpaco ロビーに移動し、テンプレートを使用してメール、アプリ内メッセージ、またはコンテンツブロックを作成します。エクスポート前にメッセージを再確認するには、[**確認**] を選択します。
+次に、Alpacoロビーに移動し、テンプレートを使用してメール、アプリ内メッセージ、またはコンテンツブロックを作成します。エクスポート前にメッセージを確認するには、**Review**を選択します。
 
-![アルパコクリエイトメール]({% image_buster /assets/img/alpaco/alpaco_2.png %})
+![Alpacoのメール作成画面]({% image_buster /assets/img/alpaco/alpaco_2.png %})
 
-### ステップ 3:メッセージを Braze にエクスポートする
+### ステップ 3:メッセージをBrazeにエクスポートする {#step-3-export-your-message-to-braze}
 
-[**エクスポート**] を選択し、Braze 統合を選択し、メールテンプレートまたはコンテンツブロックのどちらをエクスポートするかを指定します。
+**Export**を選択し、Braze統合を選択して、メールテンプレートまたはコンテンツブロックのどちらをエクスポートするかを指定します。
 
-エクスポート後に変更を加えた場合は、Alpaco からコンテンツを再エクスポートしてBraze で更新することができます。
+エクスポート後に変更を加えた場合は、Alpacoからコンテンツを再エクスポートしてBrazeで更新できます。
 
-![アルパコ・エクスポートEメール]({% image_buster /assets/img/alpaco/alpaco_3.png %})
+![Alpacoのメールエクスポート画面]({% image_buster /assets/img/alpaco/alpaco_3.png %})
 
-## Braze で Alpaco テンプレートとブロックを使う
+## BrazeでAlpacoテンプレートとブロックを使用する {#using-alpaco-templates-and-blocks-in-braze}
 
 エクスポートするコンテンツのタイプに応じて、テンプレートは次のいずれかのセクションに表示されます。
 
-- **テンプレート& メディア > メールテンプレート**
-- **テンプレート& メディア > コンテンツブロック**
+- **テンプレートとメディア > メールテンプレート**
+- **テンプレートとメディア > Content Blocks**
 
-アルパコのテンプレートは、ブランドの一貫性を一元的に管理しようとする組織にとって理想的です。また、簡単な分類とコンテンツ管理のために、Braze の組み込みタグもサポートしています。
+Alpacoテンプレートは、ブランドの一貫性を一元的に管理したい組織に最適です。また、簡単な分類とコンテンツ管理のために、Brazeの組み込みタグもサポートしています。

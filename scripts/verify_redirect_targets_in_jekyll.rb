@@ -10,59 +10,26 @@
 #
 # Optional: audit legacy validurls rows whose RHS is not a published Jekyll URL:
 #   bundle exec ruby scripts/verify_redirect_targets_in_jekyll.rb --audit-stale /tmp/jekyll-url-map-head.json
+#
+# Full categorized CSV audit (known suggestions vs unsure):
+#   bundle exec ruby scripts/audit_validurls_targets_vs_jekyll.rb /tmp/jekyll-url-map-head.json
 
 require "json"
-require "set"
-
-def normalize_url_for_compare(url)
-  u = url.to_s.strip.gsub(%r{(?<!:)//+}, "/")
-  parts = u.split("#", 2)
-  path = parts[0] || ""
-  frag = parts[1] ? "##{parts[1]}" : nil
-  q = nil
-  if path.include?("?")
-    pq = path.split("?", 2)
-    path = pq[0] || ""
-    q = pq[1] ? "?#{pq[1]}" : nil
-  end
-  path = path.chomp("/")
-  file_segment = File.basename(path)
-  has_extension = !file_segment.empty? && file_segment.match?(/\.[A-Za-z0-9]{2,}$/)
-  path += "/" unless path.empty? || has_extension
-  "#{path}#{q}#{frag}"
-end
-
-RX = /validurls\['([^']+)'\]\s*=\s*'([^']*)'/
-
-def load_published_urls(map_path)
-  JSON.parse(File.read(map_path)).values.map { |u| normalize_url_for_compare(u) }.to_set
-end
-
-def published_include?(published, raw_target)
-  n = normalize_url_for_compare(raw_target)
-  base = n.split("#", 2).first
-  return true if published.include?(n)
-  return true if published.include?(base)
-
-  # Path only: Jekyll map has no ?tab= / ?sdktab= (client-side on the same doc URL)
-  path_only = base.split("?", 2).first
-  path_norm = normalize_url_for_compare(path_only)
-  published.include?(path_norm)
-end
+require_relative "redirect_target_verify_helpers"
 
 def audit_stale_redirect_targets(map_path)
-  published = load_published_urls(map_path)
+  published = RedirectTargetVerify.load_published_urls(map_path)
   redirect_file = File.join(__dir__, "..", "assets", "js", "broken_redirect_list.js")
   stale = []
   File.foreach(redirect_file, chomp: true) do |line|
     next if line.strip.start_with?("//")
-    m = RX.match(line)
-    next unless m
+    p = RedirectTargetVerify.parse_validurls_line(line)
+    next unless p
 
-    _from, to = m[1], m[2]
+    _from, to = p[:lhs], p[:rhs]
     next if to.strip.empty?
 
-    stale << to unless published_include?(published, to)
+    stale << to unless RedirectTargetVerify.published_include?(published, to)
   end
   puts "Stale redirect target audit (RHS not matching any Jekyll doc URL on HEAD)"
   puts "  Jekyll map: #{map_path}"
@@ -102,13 +69,13 @@ if pairs.empty?
   exit 2
 end
 
-published = load_published_urls(map_path)
+published = RedirectTargetVerify.load_published_urls(map_path)
 missing = []
 pairs.each do |row|
   to = row["to"]
   next if to.nil? || to.to_s.strip.empty?
 
-  missing << row unless published_include?(published, to)
+  missing << row unless RedirectTargetVerify.published_include?(published, to)
 end
 
 puts "Required redirect target check (#{pairs.size} mappings from #{report_path})"

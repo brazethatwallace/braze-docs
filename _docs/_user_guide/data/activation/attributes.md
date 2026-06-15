@@ -10,6 +10,9 @@ description: "Attributes store information about your users. Learn about standar
 
 guide_featured_title: "Section articles"
 guide_featured_list:
+  - name: Standard attributes
+    link: /docs/user_guide/data/activation/attributes/standard_attributes
+    image: /assets/img/braze_icons/list.svg
   - name: Custom attributes
     link: /docs/user_guide/data/activation/attributes/custom_attributes
     image: /assets/img/braze_icons/table.svg

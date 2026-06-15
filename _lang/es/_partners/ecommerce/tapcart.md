@@ -9,29 +9,29 @@ search_tag: Partner
 
 # Tapcart
 
-> [Tapcart](https://www.tapcart.com/) es una plataforma líder de comercio móvil para marcas impulsadas por Shopify, que habilita a los comerciantes a crear aplicaciones móviles personalizadas que entregan experiencias de compra personalizadas y atractivas que sus clientes adoran.
+> [Tapcart](https://www.tapcart.com/) es una plataforma líder de comercio móvil para marcas impulsadas por Shopify, que permite a los comerciantes crear aplicaciones móviles personalizadas que ofrecen experiencias de compra personalizadas y atractivas que sus clientes adoran.
 
 _Esta integración está mantenida por Tapcart._
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito              | Descripción                                                                                                                                         |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cuenta Tapcart Enterprise | La integración sólo está disponible para **clientes de Tapcart Enterprise**.                                                                              |
-| Clave de API de la aplicación Braze         | Se requiere la [clave de API del identificador de la aplicación Braze](https://www.braze.com/docs/api/identifier_types). Cada plataforma (como iOS o Android) tiene su propio identificador de aplicación. En el panel de Braze, ve a **Configuración** > **API e identificadores** > Identificadores de aplicaciones. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Cuenta Tapcart Enterprise | La integración solo está disponible para **clientes de Tapcart Enterprise**.                                                                              |
+| Clave de API de la aplicación Braze         | Se requiere la [clave de API del identificador de la aplicación Braze](https://www.braze.com/docs/api/identifier_types). Cada plataforma (como iOS o Android) tiene su propio identificador de aplicación. En el panel de Braze, ve a **Settings** > **APIs and Identifiers** > **App Identifiers**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
 Para saber cómo integrar Tapcart con Braze, consulta [la guía de integración de Tapcart](https://help.tapcart.com/hc/en-us/articles/36413383526675-Braze-Integration) directamente en su sitio web. Tras la integración, podrás aprovechar las siguientes características de Tapcart en Braze:
 
-- Base Integración de SDK
+- Integración base del SDK
 - Notificaciones push de iOS y Android
-- Mensajes push enriquecidos
+- Notificaciones push enriquecidas
 - Seguimiento y segmentación del recorrido del usuario
 
-Actualmente no se admiten las siguientes características: Historias push, push web, personalización de mensajes dentro de la aplicación.
+Las siguientes características no son compatibles actualmente: Push Stories, notificación push web, personalización de mensajes dentro de la aplicación.
 
 {% alert note %}
-Si tienes más preguntas, ponte en contacto con tu Especialista en Implementación de Tapcart o envía un correo electrónico a [help@tapcart.co](mailto:help@tapcart.co).
+Si tienes más preguntas, ponte en contacto con tu especialista en implementación de Tapcart o envía un correo electrónico a [help@tapcart.co](mailto:help@tapcart.co).
 {% endalert %}

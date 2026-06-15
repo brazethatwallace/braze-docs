@@ -2,7 +2,7 @@
 nav_title: Taxi for Email
 article_title: Taxi for Email
 alias: /partners/taxi_for_email
-description: "このリファレンス記事では、Braze と Taxi for Email のパートナーシップについて説明します。Taxi for Email は、Braze のお客様がドラッグアンドドロップインターフェイスとシンプルで強力な構文を使用してインテリジェントなメールテンプレートを作成できるオンラインメールマーケティングツールです。"
+description: "このリファレンス記事では、BrazeとTaxi for Emailのパートナーシップについて説明します。Taxi for Emailは、Brazeのお客様がドラッグアンドドロップインターフェイスとシンプルで強力な構文を使用してインテリジェントなメールテンプレートを作成できるオンラインメールマーケティングツールです。"
 page_type: partner
 search_tag: Partner
 
@@ -10,39 +10,37 @@ search_tag: Partner
 
 # Taxi for Email
 
-> [メール用タクシー](http://taxiforemail.com/)は、直感的なドラッグアンドドロップビジュアルメールエディタを提供するオンラインメール マーケティングツールです。Taxi は、チームがメールキャンペーンで容易にコラボレーションできるようにし、コピーライターや編集者が、メールを作成するために必要なリソースとアクセスを、すべてコードなしで利用できるようにします。
+> [Taxi for Email](http://taxiforemail.com/)は、直感的なドラッグアンドドロップのビジュアルメールエディターを提供するオンラインメールマーケティングツールです。Taxiを使用すると、チームがメールキャンペーンで簡単にコラボレーションでき、コピーライターや編集者がコードなしでメールを作成するために必要なアクセスとリソースを利用できます。
 
-_この統合は、Taxi for Email によって管理されます。_
+_この統合は、Taxi for Emailによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Brazeとタクシーの統合では、タクシーのシンプルでパワフルなシンタックスを使用して、Brazeにインテリジェントなメール テンプレートを作成およびエクスポートします。 
+BrazeとTaxiの統合では、Taxiのシンプルで強力な構文を使用して、インテリジェントなメールテンプレートを作成しBrazeにエクスポートします。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ------------| ----------- |
-| Taxi for Email アカウント | このパートナーシップを活用するには、Taxi for Email アカウントが必要です。 |
-| Braze REST API キー | 完全な**テンプレート**権限を持つBraze REST API キー。<br><br> これは、Brazeダッシュボードの**「設定」**>「**APIキー**」から作成できる。 |
-| Braze エンドポイント | [あなたのBraze エンドポイント]({{site.baseurl}}/api/basics/#endpoints)はあなたのBraze ダッシュボード URLに合わせます。<br><br> たとえば、ダッシュボード URL が`https://dashboard-03.braze.com` の場合、エンドポイントは`dashboard-03` になります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Taxi for Emailアカウント | このパートナーシップを活用するには、Taxi for Emailアカウントが必要です。 |
+| Braze REST APIキー | 完全な**テンプレート**権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Brazeエンドポイント | [Brazeエンドポイント]({{site.baseurl}}/api/basics/#endpoints)は、BrazeダッシュボードのURLに対応しています。<br><br> たとえば、ダッシュボードURLが`https://dashboard-03.braze.com`の場合、エンドポイントは`dashboard-03`になります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:タクシーメール テンプレートの作成
+### ステップ 1: Taxiメールテンプレートを作成する {#step-1-create-a-taxi-email-template}
 
-Taxi プラットフォームで Taxi テンプレートを作成します。テンプレートが作成されたら、[**Organization Settings**] に移動して [**ESP Connectors**] タブを選択します。
+Taxiプラットフォームでテンプレートを作成します。テンプレートが作成されたら、**Organization Settings**に移動して**ESP Connectors**タブを選択します。
 
-### ステップ2:Brazeコネクターの作成
+### ステップ 2: Brazeコネクターを作成する {#step-2-create-braze-connector}
 
-1. 表示されるダイアログで、**新規**ボタンを選択し、ドロップダウンから**Braze**を選択します。 
-2. [**Braze**] を選択して、Braze コネクターの設定を編集します。
-3. Braze エンドポイントとBraze API キーを入力します。
+1. 表示されるダイアログで、**Add New**ボタンを選択し、ドロップダウンから**Braze**を選択します。
+2. **Braze**を選択して、Brazeコネクターの設定を編集します。
+3. BrazeエンドポイントとBraze APIキーを入力します。
 
-正しい権限を含む詳細が指定された後に、コネクターフィールドの色が変わります。このフィールドが変わらない場合は、フィールドがリストされている条件に合っていることを確認します。
+正しい権限を含む詳細が入力されると、コネクターフィールドの色が変わります。このフィールドの色が変わらない場合は、入力内容がリストされている要件に合っていることを確認してください。
 
-## 使用
+## 使用方法 {#usage}
 
-アップロード Taxi テンプレートをBraze アカウントの** テンプレート s & Media > E メールテンプレートs** セクションで見つけます。これで、このメールテンプレートを使用して、顧客に魅力的なメールメッセージを送信できます。
-
-
+アップロードされたTaxiテンプレートは、Brazeアカウントの**テンプレートとメディア > メールテンプレート**セクションで確認できます。このメールテンプレートを使用して、顧客に魅力的なメールメッセージを送信しましょう！

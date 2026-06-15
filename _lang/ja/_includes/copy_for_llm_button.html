@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!copyBtn) return;
   
   // Move the button to appear after the first h1 heading
-  const firstH1 = document.querySelector('#article-main h1');
+  const firstH1 = document.querySelector('#article-main h1, #api-main h1');
   if (firstH1) {
     const buttonContainer = copyBtn.closest('.copy-for-llm-page-header');
     if (buttonContainer) {

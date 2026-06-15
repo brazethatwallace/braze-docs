@@ -9,7 +9,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter les dé
 
 ---
 {% api %}
-# Exporter les détails du Canvas
+# Exporter les détails du Canvas {#export-canvas-details}
 {% apimethod get %}
 /canvas/details
 {% endapimethod %}
@@ -18,24 +18,24 @@ description: "Cet article présente en détail l'endpoint Braze Exporter les dé
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5188873c-13a3-4aaf-a54b-9fa1daeac5f8 {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `canvas.details`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Paramètres de requête
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
 | `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant API Canvas]({{site.baseurl}}/api/identifier_types/) |
 | `post_launch_draft_version` | Facultatif | Valeur booléenne | Pour les Canvas qui disposent d'un brouillon post-lancement, définir ce paramètre sur `true` affiche les modifications de brouillon disponibles. La valeur par défaut est `false`. |
 | `include_has_translatable_content` | Facultatif | Valeur booléenne | Lorsque ce paramètre est défini sur `true`, la réponse de l'API inclut un champ `has_translatable_content` pour chaque message. La valeur par défaut est `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemple de requête
+## Exemple de requête {#example-request}
 
 {% raw %}
 ```
@@ -44,7 +44,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 {% endraw %}
 
-## Réponses
+## Réponses {#responses}
 
 {% alert note %}
 Toutes les étapes du Canvas possèdent un champ `next_paths`, qui est un tableau de données `{name, next_step_id}`. Pour les étapes Message, le champ `next_step_ids` sera présent, mais ne contiendra pas de données pour les autres étapes du Canvas.
@@ -104,7 +104,7 @@ Toutes les étapes du Canvas possèdent un champ `next_paths`, qui est un tablea
 }
 ```
 
-### Messages par canal
+### Messages par canal {#messages-by-channel}
 
 Voici un exemple de réponse qui inclut des messages Canvas envoyés par différents canaux (e-mail, push, SMS et messages in-app) :
 
@@ -220,7 +220,7 @@ Voici un exemple de réponse qui inclut des messages Canvas envoyés par différ
 ```
 
 {% alert tip %}
-Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

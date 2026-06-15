@@ -1,8 +1,8 @@
-## Types de données prises en charge
+## Types de données pris en charge {#supported-data-types}
 
 Les types de données suivants sont pris en charge :
 
-<table>
+<table aria-label="Types de données pris en charge">
   <thead>
     <tr>
       <th>Type de données</th>
@@ -20,34 +20,34 @@ Les types de données suivants sont pris en charge :
     </tr>
     <tr>
       <td>Valeur booléenne</td>
-      <td>Une valeur qui évalue soit <code>true</code> ou <code>false</code>.</td>
+      <td>Une valeur qui s'évalue à <code>true</code> ou <code>false</code>.</td>
     </tr>
     <tr>
       <td>Tableau</td>
-      <td>Une liste de valeurs, telles que <code>["red", "blue", "green"]</code>.</td>
+      <td>Une liste de valeurs, telle que <code>["red", "blue", "green"]</code>.</td>
     </tr>
     <tr>
-      <td>Date</td>
+      <td>Horodatage</td>
       <td>
-        Une valeur d'horodatage utilisée pour les comparaisons de date et d'heure. Lors du filtrage d'un attribut personnalisé de temps imbriqué, vous pouvez choisir :<br><br>
+        Une valeur d'horodatage utilisée pour les comparaisons de date et d'heure. Lors du filtrage d'un attribut personnalisé de type temps imbriqué, vous pouvez choisir :<br><br>
         <ul>
-          <li><strong>Jour de l'année</strong>: Ne vérifie que le mois et le jour à des fins de comparaison, par exemple <code>03-15</code>.</li>
-          <li><strong>Temps</strong>: Compare l'horodatage complet, y compris l'année, par exemple <code>2023-03-15T12:00:00Z</code>.</li>
+          <li><strong>Day of Year</strong> : ne vérifie que le mois et le jour à des fins de comparaison, par exemple <code>03-15</code>.</li>
+          <li><strong>Time</strong> : compare l'horodatage complet, y compris l'année, par exemple <code>2023-03-15T12:00:00Z</code>.</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td>Objet</td>
-      <td>Une valeur structurée avec des paires clé-valeur, telle que <code>{"author": "Tolkien"}</code>.</td>
+      <td>Une valeur structurée avec des paires clé–valeur, telle que <code>{"author": "Tolkien"}</code>.</td>
     </tr>
     <tr>
-      <td>Tableau d’objets</td>
+      <td>Tableau d'objets</td>
       <td>
-        Une liste d'objets, tels que <code>[{"title": "The Hobbit"}, {"title": "Dune"}]</code>. 
-        Pour plus d'informations, reportez-vous à 
+        Une liste d'objets, telle que <code>[{"title": "The Hobbit"}, {"title": "Dune"}]</code>.
+        Pour plus d'informations, consultez la section
         <a href="{{site.baseurl}}/array_of_objects/">Tableaux d'objets</a>.
       </td>
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types de données pris en charge" }

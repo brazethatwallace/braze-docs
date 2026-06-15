@@ -26,7 +26,7 @@ The following workflows each have different reporting surfaces.
 | --- | --- | --- |
 | Native push analytics | Push metrics such as opens and influenced opens, tied to Braze push campaigns | Push campaign analytics, Currents message engagement events, Report Builder |
 | Custom events and attributes | Analytics you define and log through SDK methods or the `/users/track` endpoint | User profiles, segmentation, action-based campaigns and Canvases, custom event analytics |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Native push analytics vs. custom event logging" }
 
 {% alert important %}
 Logging a custom event (such as `push_notification_opened`) is not the same as native Braze push open tracking. Custom events don't populate native push campaign open metrics or push attribution.
@@ -803,7 +803,7 @@ Use the reporting surface that matches the analytics category:
 | --- | --- |
 | Native push analytics | To view campaign-level push open metrics, navigate to your push campaign's **Campaign Analytics** page. For metric definitions, see [Influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/). To build custom analytics views, navigate to **Analytics** > **Report Builder (New)**. For navigation steps, see [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). For warehouse-level event schemas, see [Message engagement events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). |
 | Custom events and attributes | To view custom event trends, navigate to **Analytics** > **Custom Events Report**. For details, see [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/). To inspect user-level values, navigate to the **Search Users** page and open a profile. For steps, see [User profiles]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). To filter audiences by these values, navigate to **Audience** > **Segments**. For navigation steps, see [Create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) and filter options in [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analyzing results" }
 
 For custom report creation, see [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
 

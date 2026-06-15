@@ -1,6 +1,6 @@
 ---
-nav_title: "OBTER: Dados de receita de exportação"
-article_title: "OBTER: Dados de receita de exportação"
+nav_title: "GET: Exportar dados de receita"
+article_title: "GET: Exportar dados de receita"
 search_tag: Endpoint
 page_order: 2
 layout: api_page
@@ -9,7 +9,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 
 ---
 {% api %}
-# Exportar dados de receita por tempo
+# Exportar dados de receita por tempo {#export-revenue-data-by-time}
 {% apimethod get %}
 /purchases/revenue_series
 {% endapimethod %}
@@ -18,33 +18,33 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f6e05f9a-13c0-4d66-8caa-4a376d25749f{% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `purchases.revenue_series`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='purchases product list' %}
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| `ending_at` | Opcional | Datetime ([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a exportação de dados deve terminar. Padrões para o momento da solicitação. |
+| `ending_at` | Opcional | Datetime (string [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Data em que a exportação de dados deve terminar. O padrão é o momento da solicitação. |
 | `length` | Obrigatória | Inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `unit` | Opcional | String | Unidade de tempo entre os pontos de dados. Pode ser dia ou hora; o padrão é dia. |
-| `app_id` | Opcional | String | Identificador da API do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/). Se excluído, serão retornados os resultados de todos os apps em um espaço de trabalho. |
-| `product` | Opcional | String | Nome do produto para filtrar a resposta por. Se excluído, os resultados de todos os apps serão retornados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | Opcional | String | Identificador de API do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Se excluído, serão retornados os resultados de todos os apps em um espaço de trabalho. |
+| `product` | Opcional | String | Nome do produto para filtrar a resposta. Se excluído, os resultados de todos os apps serão retornados. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_series?length=100' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Resposta
+## Resposta {#response}
 
 ```json
 {
@@ -62,5 +62,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_s
 {% endapi %}
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}

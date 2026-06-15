@@ -14,7 +14,7 @@ channel: email
 
 ## Address styling
 
-The **Subject Line** is one of the first things that recipients will see upon receiving your message. Keeping it to 6 to 10 words will yield the highest open rates. 
+The subject line is one of the first things that recipients see upon receiving your message. Keeping it to 6 to 10 words yields the highest open rates. 
 
 There are also different approaches to creating a good subject line, ranging from asking a question to pique the reader's interest or being more direct, to personalizing it as to engage your clientele. Don't just stick with one subject line, leverage [A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) to try new ones out and gauge their effectiveness. Subject lines should be no more than 35 characters to display appropriately on mobile.
 
@@ -56,65 +56,90 @@ Here are some best practices to keep in mind when writing your preheaders:
 
 ### Preheader character limits
 
-  |   Mobile Email Client  |  Limit  |
+  |   Mobile email client  |  Limit  |
   |:----------------------:|:-------:|
   | iOS Outlook            | 74      |
   | Android Native         | 43      |
   | Android Gmail          | 24      |
   | iOS Native             | 82      |
   | iOS Gmail              | 30      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
 
-  |  Desktop Email Client  |  Limit  |
+  |  Desktop email client  |  Limit  |
   |:----------------------:|:-------:|
   | Apple Mail             | 33      |
   | Outlook '13            | 38      |
   | Outlook for Mac '15   | 53      |
   | Outlook '16            | 50      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
 
 
-  |  Webmail Email Client  |  Limit  |
+  |  Webmail email client  |  Limit  |
   |:----------------------:|:-------:|
   | AOL Mail               | 81      |
   | Gmail                  | 119     |
   | Outlook.com            | 49      |
   | Office 365             | 40      |
   | Mail.ru                | 64      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
 
 ## Email size
 
-Make sure to limit your email size. Email bodies larger than 102&nbsp;KB are not only extremely taxing on Braze servers, but they're also clipped by Gmail and other email clients. Try to keep the size of your email under 25&nbsp;KB for just text or 60&nbsp;KB with images. We highly encourage you to use our image uploader to host images and to reference these images by the `href`.
+Email size refers to the size of your message HTML in Braze (the body you build and what Braze adds when the message is sent). 
 
-|   Text Only   | Text With Images |     Email Width    |
+- Make sure to limit your email size. Email bodies larger than 102&nbsp;KB are not only extremely taxing on Braze servers, but they're also clipped by Gmail and other email clients. 
+- Hosted images that you reference by URL are not embedded in the HTML the same way as pasting huge inline assets. We recommend using the [Media Library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) and linking by `href` helps keep the message smaller.
+
+|   Text Only   | Text with images |     Email width    |
 |:-------------:|:----------------:|:------------------:|
 | 25&nbsp;KB maximum |   60&nbsp;KB maximum   | 600 pixels maximum |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email size" }
+
+To reduce clipping risk:
+
+- Shorten copy and links.
+- Inline critical CSS where needed. Remove extra whitespace in HTML.
+- Compress images and HTML assets.
 
 {% alert note %}
 To save your email campaign or template, make sure your email body does not exceed 400&nbsp;KB.
 {% endalert %}
 
+### What can add to the final email size?
+
+These features increase the rendered message size by small amounts:
+
+- Open tracking pixel: Adds a 1 x 1&nbsp;px image tag to the message body
+- Preheader: Adds a hidden `<div>` at the top of the body
+- Link aliasing: Appends a 16-character query parameter (`lid=`) to each tracked URL
+- Link templates: Appends any query parameters configured in the dashboard to matching URLs 
+- CSS inlining (optional): Applies embedded stylesheet rules inline to HTML elements, which may add redundant CSS depending on stylesheet complexity
+
+The preheader and tracking pixel add roughly 600 characters (less than 1&nbsp;KB). Braze typically adds between 0&nbsp;KB and 5&nbsp;KB depending on the number of links, link template complexity, and whether CSS inlining is enabled. If your email size is near the limit, we recommend testing emails before sending since the final rendered size depends on these inputs.
+
 ## Text length
 
 Refer to the following table for recommended text lengths.
 
-| Text Specifications | Recommended Properties |
+| Text specifications | Recommended properties |
 | --- | --- |
 | Subject Line Length | 35 characters maximum (for optimal mobile display) (6 to 10 words) |
 | Sender Name Length | 25 characters maximum (for optimal mobile display) |
 | Preheader Length | 85 characters maximum |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Text length" }
 
 ## Image size
 
-Refer to the following table for recommended image sizes. Smaller, high-quality images will load faster, so use the smallest asset possible to achieve your desired output.
+Refer to the following table for recommended image sizes. Smaller, high-quality images load faster, so use the smallest asset possible to achieve your desired output.
 
-|     Size    | Header Image Width |  Body Image Width  |   File Types  |
+|     Size    | Header image width |  Body image width  |   File types  |
 |:-----------:|:------------------:|:------------------:|:-------------:|
 | 5&nbsp;MB maximum | 600 pixels maximum | 480 pixels maximum | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Image size" }
+
+{% alert note %}
+Gmail web and Gmail mobile apps often do not render SVG (and WEBP support is inconsistent). Use PNG or JPEG for images that must display reliably in Gmail.
+{% endalert %}
 
 ## Deep linking
 
@@ -124,7 +149,7 @@ Instead, use [universal links and App Links]({{site.baseurl}}/user_guide/channel
 
 ## Content Blocks with transparent images
 
-When a Content Block contains an image with a transparent background (for example, a logo) and is inserted by a Liquid tag, you may see a background color appear behind the image. This color comes from the drag-and-drop editor's [email global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)—specifically the **Email Background Color**. If your global style settings use a color other than white, that color will appear instead.
+When a Content Block contains an image with a transparent background (for example, a logo) and is inserted by a Liquid tag, you may see a background color appear behind the image. This color comes from the drag-and-drop editor's [email global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)—specifically the **Email Background Color**. If your global style settings use a color other than white, that color appears instead.
 
 To display the Content Block as intended:
 
@@ -136,5 +161,5 @@ If you need to use the same Content Block in areas with different backgrounds (f
 If you prefer to drag the Content Block into the email as a row, you can set the row column background to transparent to override the global background.
 
 {% alert note %}
-Dragging a Content Block in as a row inserts a pre-rendered snapshot, which will not automatically update if the source Content Block changes.
+Dragging a Content Block in as a row inserts a pre-rendered snapshot, which does not automatically update if the source Content Block changes.
 {% endalert %}

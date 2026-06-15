@@ -1,5 +1,5 @@
 ---
-nav_title: Recherche de Documentation
+nav_title: Recherche de documentation
 hidden: true
 hide_nav: true
 permalink: /search/

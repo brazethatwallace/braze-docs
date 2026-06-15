@@ -2,7 +2,7 @@
 nav_title: LiftIgniter
 article_title: LiftIgniter
 alias: /partners/liftigniter/
-description: "Este artigo de referência descreve a parceria entre a Braze e a Liftigniter, uma plataforma de personalização líder que ajuda as empresas a transformar suas experiências de cliente."
+description: "Este artigo de referência descreve a parceria entre a Braze e a LiftIgniter, uma plataforma de personalização líder que ajuda as empresas a transformar suas experiências de cliente."
 page_type: partner
 search_tag: Partner
 
@@ -10,25 +10,25 @@ search_tag: Partner
 
 # Liftigniter
 
-> [A LiftIgniter](https://www.liftigniter.com/) é uma plataforma de personalização líder que ajuda as empresas a transformar as experiências dos clientes por meio da personalização em tempo real em todos os pontos de contato.
+> A [LiftIgniter](https://www.liftigniter.com/) é uma plataforma de personalização líder que ajuda as empresas a transformar as experiências dos clientes por meio da personalização em tempo real em todos os pontos de contato.
 
-_Essa integração é mantida pelo Liftigniter._
+_Essa integração é mantida pela Liftigniter._
 
-## Sobre a integração
+## Sobre a integração {#about-the-integration}
 
-A integração do Liftigniter e do Braze usa o Connected Content para permitir que você recomende tópicos interessantes, como artigos de notícias, roupas e outros itens de varejo e vídeos.
+A integração da LiftIgniter com a Braze usa Conteúdo conectado para permitir que você recomende tópicos interessantes, como artigos de notícias, roupas e outros itens de varejo e vídeos.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-| Requisito| Descrição|
-| ---| ---|
+| Requisito | Descrição |
+| --- | --- |
 | Conta LiftIgniter | É necessário ter uma [conta da LiftIgniter](https://console.liftigniter.com/login) para usar essa parceria. |
-| Integração da API do LiftIgniter | Você deve [integrar](https://support.liftigniter.com/support/solutions/articles/30000024667-api-integration-overview) a Liftigniter ao seu site ou app para extrair recomendações. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| Integração da API da LiftIgniter | Você deve [integrar](https://support.liftigniter.com/support/solutions/articles/30000024667-api-integration-overview) a LiftIgniter ao seu site ou app para extrair recomendações. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Integração
+## Integração {#integration}
 
-Use [a API REST da LiftIgniter](https://documenter.getpostman.com/view/2166502/liftigniter/7TFGvSV#9bdf75da-edd6-45ec-9c28-a0edefad1389) para inserir conteúdo personalizado nas suas mensagens. Depois de ter sua conta da LiftIgniter e de integrar a LiftIgniter ao seu app, adicione o seguinte modelo ao seu criador de mensagens para chamar o conteúdo das mensagens, substituindo as informações conforme necessário (`x-api-key`, `theapikey`, etc.).
+Use a [REST API da LiftIgniter](https://documenter.getpostman.com/view/2166502/liftigniter/7TFGvSV#9bdf75da-edd6-45ec-9c28-a0edefad1389) para inserir conteúdo personalizado nas suas mensagens. Depois de ter sua conta da LiftIgniter e de integrar a LiftIgniter ao seu app, adicione o seguinte modelo ao seu criador de mensagens para chamar o conteúdo das mensagens, substituindo as informações conforme necessário (`x-api-key`, `theapikey`, etc.).
 
 {% raw %}
 ```
@@ -39,10 +39,8 @@ Em seguida, escreva sua mensagem, definindo o conteúdo que gostaria de chamar c
 
 {% endraw %}
 
-![Uma imagem mostrando uma campanha push que inclui chamadas de conteúdo conectado específicas da Liftigniter. Há também a lógica de conteúdo conectado adicionada ao campo de imagem.]({% image_buster /assets/img/liftigniter.png %})
+![Uma imagem mostrando uma campanha push que inclui chamadas de Conteúdo conectado específicas da LiftIgniter. Há também a lógica de Conteúdo conectado adicionada ao campo de imagem.]({% image_buster /assets/img/liftigniter.png %})
 
-Depois de colocar essa mensagem no corpo do criador, você poderá fazer uma prévia da mensagem. Você pode até mesmo extrair imagens, conforme mostrado no exemplo a seguir:
+Depois de colocar essa mensagem no corpo do criador, você poderá pré-visualizar a mensagem. Você pode até mesmo extrair imagens, conforme mostrado no exemplo a seguir:
 
-![Uma imagem prévia de como a mensagem ficará depois de ser enviada.]({% image_buster /assets/img/liftigniter2.png %})
-
-
+![Uma pré-visualização de como a mensagem ficará depois de ser enviada.]({% image_buster /assets/img/liftigniter2.png %})

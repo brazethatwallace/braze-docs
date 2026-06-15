@@ -5,7 +5,7 @@ page_order: 3
 description: "BrazeAI Decisioning Studioで送信データと受信データの健全性を監視するための診断レポートの使用方法について説明します。"
 ---
 
-# 診断レポート
+# 診断レポート {#diagnostics-report}
 
 > 診断レポートには、**送信**と**受信**の2種類のレポートタイプがあります。
 
@@ -36,7 +36,7 @@ description: "BrazeAI Decisioning Studioで送信データと受信データの�
 | 最大ファイルサイズ（MB） | 受信された最大ファイルのサイズ（メガバイト単位）。 |
 | 平均ファイルサイズ（MB） | 受信されたすべてのファイルの平均サイズ（メガバイト単位）。 |
 | ファイル行数 | 配信されたファイルに収められている行の合計数。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Diagnostics report" }
 
 {% endtab %}
 {% endtabs %}

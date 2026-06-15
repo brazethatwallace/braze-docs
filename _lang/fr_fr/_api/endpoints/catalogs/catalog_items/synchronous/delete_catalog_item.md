@@ -1,16 +1,16 @@
 ---
-nav_title: "DELETE : Supprimer un produit du catalogue"
-article_title: "DELETE : Supprimer un produit du catalogue"
+nav_title: "DELETE : Supprimer un produit du catalogue"
+article_title: "DELETE : Supprimer un produit du catalogue"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Supprimer un produit du catalogue."
+description: "Cet article présente en détail l'endpoint Braze Supprimer un produit du catalogue."
 
 ---
 {% api %}
-# Supprimer un produit du catalogue
+# Supprimer un produit du catalogue {#delete-a-catalog-item}
 {% apimethod delete %}
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
@@ -19,27 +19,27 @@ description: "Cet article présente en détail l’endpoint Braze Supprimer un p
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0dcce797-1346-472f-9384-082f14541689 {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `catalogs.delete_item`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `catalogs.delete_item`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog item' %}
 
-## Paramètres de chemin
+## Paramètres de chemin {#path-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `catalog_name` | Requis | Chaîne de caractères | Nom du catalogue. |
-| `item_id` | Requis | Chaîne de caractères | L’ID du produit du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `item_id` | Requis | Chaîne de caractères | L'ID du produit du catalogue. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
-Cet endpoint n’a pas de corps de demande.
+Cet endpoint n'a pas de corps de requête.
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 ```
 curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaurants/items/restaurant1' \
@@ -47,11 +47,11 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Réponse
+## Réponse {#response}
 
-Trois réponses de code de statut existent pour cet endpoint : `202`, `400` et `404`.
+Trois codes de statut peuvent être renvoyés pour cet endpoint : `202`, `400` et `404`.
 
-### Exemple de réponse réussie
+### Exemple de réponse réussie {#example-success-response}
 
 Le code de statut `202` pourrait renvoyer le corps de réponse suivant.
 
@@ -61,9 +61,9 @@ Le code de statut `202` pourrait renvoyer le corps de réponse suivant.
 }
 ```
 
-### Exemple de réponse échouée
+### Exemple de réponse en erreur {#example-error-response}
 
-Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la [résolution des problèmes](#troubleshooting) pour plus d’informations concernant les erreurs que vous pourriez rencontrer.
+Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la section [Résolution des problèmes](#troubleshooting) pour plus d'informations concernant les erreurs que vous pourriez rencontrer.
 
 ```json
 {
@@ -83,15 +83,15 @@ Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consulte
 }
 ```
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
 Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes de résolution des problèmes associées.
 
 | Erreur | Résolution des problèmes |
 | --- | --- |
-| `arbitrary-error` | Une erreur arbitraire est survenue. Veuillez réessayer ou contacter l'[assistance.]({{site.baseurl}}/support_contact/) |
+| `arbitrary-error` | Une erreur arbitraire est survenue. Veuillez réessayer ou contacter l'[assistance]({{site.baseurl}}/support_contact/). |
 | `catalog-not-found` | Vérifiez que le nom du catalogue est valide. |
 | `item-not-found` | Vérifiez que le produit à supprimer existe dans votre catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

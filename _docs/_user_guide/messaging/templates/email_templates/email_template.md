@@ -17,7 +17,7 @@ search_rank: 1
 
 ## Step 1: Navigate to the email template editor
 
-In the Braze dashboard, go to **Templates** > **Email Templates**.
+In the Braze dashboard, go to **Content** > **Email**.
 
 ## Step 2: Select your editing experience 
 
@@ -83,7 +83,7 @@ If you make any edits to an existing template, those changes will not be reflect
 
 ### Manage your templates
 
-You can view email templates at **Templates** > **Email Templates**, filtering by status, type, or tags, or searching by name. You need the **Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers** permission (or the equivalent granular permission, such as **View Email Templates**) to view these templates. For more details, see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+You can view email templates at **Templates** > **Email Templates**, filtering by status, type, tags, the user who created it, or searching by template name. You need the relevant user permissions, such as **View Email Templates**, to view these templates. For more details, see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
 
 As you create more email templates, you can [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) and [archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates) email templates. Learn more about creating and managing your library of templates and creative content in [Templates and Media]({{site.baseurl}}/user_guide/messaging/templates/).
 

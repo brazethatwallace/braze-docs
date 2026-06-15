@@ -45,7 +45,7 @@ Each drag-and-drop Content Block is limited to one row. However, you can use dra
 | Content Size | Maximum of 50 KB. |
 | Placement | Content Blocks cannot be used within an email footer, but you can [create a Content Block that includes a footer](#email-footers) for use in your emails. |
 | Creation | HTML editor or drag-and-drop editor. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block specifications" }
 
 {% alert tip %}
 When creating Content Blocks, it can be beneficial to visualize HTML and Liquid by adding line breaks. If these line breaks are left in during sending, you risk having extraneous spaces that can affect how the block will render. To avoid this, use the **Capture** tag on your block along with the **&#124; strip** filter. 
@@ -98,6 +98,7 @@ Content Blocks inserted via Liquid **are linked** to the original Content Block 
 ### Things to know
 
 - Using HTML Content Blocks in drag-and-drop emails **or** drag-and-drop Content Blocks in HTML emails may result in unexpected rendering issues. This is because the drag-and-drop editor generates HTML and CSS that dynamically renders the content, whereas the HTML editor is more static.
+- If you insert a drag-and-drop Content Block using Liquid, Braze doesn't include styles from the block's HTML `<head>`. Responsive styles, such as mobile-specific CSS, may not render as expected. If the block relies on responsive CSS, add that CSS to the message or template that includes the Content Block.
 - Canvas event properties are only supported in a Canvas. If you reference a Content Block with Canvas entry properties in a campaign, it won't populate.
 
 ## Preview Content Blocks

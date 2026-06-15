@@ -1,107 +1,108 @@
 ---
-nav_title: カメレオン
-article_title: カメレオン
-description: "カメレオオンとBrazeを統合する方法を学ぶ"
+nav_title: Kameleoon
+article_title: Kameleoon
+description: "KameleoonとBrazeを統合する方法について説明します"
 alias: /partners/kameleoon/
 page_type: partner
 search_tag: Partner
 ---
 
-# カメレオン
+# Kameleoon
 
->[Kameleoon](https://www.kameleoon.com)は、1つの統一プラットフォームにおいて、実験、AIパワードパーソナライゼーション、および機能マネジメント機能を備えた最適化ソリューションです。
+>[Kameleoon](https://www.kameleoon.com)は、実験、AI搭載のパーソナライゼーション、フィーチャーフラグ管理機能を1つの統一プラットフォームに備えた最適化ソリューションです。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-開始する前に、次のものが必要になります。
+開始する前に、以下が必要です。
 
-| 要件 | 説明 |  
-| --- | --- |  
-| カメレオン勘定 | この提携の前進タグeをとるにはカメレオンの勘定が必要である。|  
-| Braze アカウント| Web ページに [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) が統合されたアクティブな Braze アカウント。また、行動プロパティ セグメンテーションを有効にする必要があります。要求するには、[考慮事項](#considerations)を参照してください。|  
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| 要件 | 説明 |
+| --- | --- |
+| Kameleoonアカウント | このパートナーシップを利用するには、Kameleoonアカウントが必要です。|
+| Brazeアカウント | Webページに[Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)が統合されたアクティブなBrazeアカウント。また、イベントプロパティセグメンテーションを有効にする必要があります。リクエストするには、[考慮事項](#considerations)を参照してください。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## ユースケース
+## ユースケース {#use-cases}
 
-カメレオンはカスタムイベントをBrazeに送り、実験やパーソナライゼーション キャンペーンに参加しているユーザーを特定し、より正確なターゲティングとパーソナライズされた メッセージングを可能にします。
+KameleoonはカスタムイベントをBrazeに送信し、実験やパーソナライゼーションキャンペーンに参加しているユーザーを特定することで、より正確なターゲティングとパーソナライズされたメッセージングを可能にします。
 
-## カメレオオンの統合
+## Kameleoonの統合 {#integrating-kameleoon}
 
-この統合は、Kameleoon のengine.js を介してJavaScript トラッカーとして実行されます。カメレオンのプラットフォームからすぐに有効にすることができます。
+この統合は、Kameleoonのengine.jsを介してJavaScriptトラッカーとして実行されます。Kameleoonのプラットフォーム内からすぐに有効にできます。
 
-### ステップ 1: Kameleoon Integrations ページに移動します
+### ステップ 1: Kameleoon統合ページに移動する {#step-1-go-to-the-kameleoon-integrations-page}
 
-カメレオンアプリで、サイドバーの**Admin**を選択し、次に**Integrations**を選択します。
+Kameleoonアプリで、サイドバーの**Admin**を選択し、次に**Integrations**を選択します。
 
-![カメレオオンプラットフォームの管理パネル。]({% image_buster /assets/img/kameleoon/img_1.png %}){: style="max-width:70%;"}
+![Kameleoonプラットフォームの管理パネル。]({% image_buster /assets/img/kameleoon/img_1.png %}){: style="max-width:70%;"}
 
-### ステップ 2:Braze工具の取り付け
+### ステップ 2: Brazeツールをインストールする {#step-2-install-the-braze-tool}
 
-デフォルトでは、Brazeツールはインストールされていません。Brazeのアイコンを探し、**ツールをインストールします**を選択します。![下向き矢印の付いた灰色の正方形。]({% image_buster /assets/img/kameleoon/img_2.png %})
+デフォルトでは、Brazeツールはインストールされていません。Brazeのアイコンを探し、**Install the tool**を選択します。![下向き矢印の付いた灰色の正方形。]({% image_buster /assets/img/kameleoon/img_2.png %})
 
-Brazeツールを有効にするプロジェクトを選択します。これにより、カメレオオンデータがBrazeに正しくレポートされます。
+Brazeツールを有効にするプロジェクトを選択し、KameleoonデータがBrazeに正しくレポートされるようにします。
 
-![カメルーンのBrazeツールアイコン。]({% image_buster /assets/img/kameleoon/img_3.png %})
+![KameleoonのBrazeツールアイコン。]({% image_buster /assets/img/kameleoon/img_3.png %})
 
-ツールを設定したら、**Validate**を選択し、設定パネルを閉じます。次に、Brazeツールのアイコンの横に**ON**トグルが表示されます。これには、ツールが設定されているプロジェクトの数も含まれます。
+ツールを設定したら、**Validate**を選択すると、設定パネルが閉じます。Brazeツールのアイコンの横に**ON**トグルが表示され、ツールが設定されているプロジェクトの数も表示されます。
 
-![Brazeツールは、"On"をカメレオオンで切り替えました。]({% image_buster /assets/img/kameleoon/img_4.png %})
+![Kameleoonで「On」に切り替えられたBrazeツール。]({% image_buster /assets/img/kameleoon/img_4.png %})
 
-{% alert important %}  
-この機能はベータ版です。[Kameleoon ベータプログラム](https://help.kameleoon.com/account-and-team-management/join-beta-program/)に参加して、この統合の使用を開始します。  
-{% endalert %}  
-    
-### ステップ 3:Brazeとカメレオン・キャンペーンの提携
-
-#### グラフィック/コードエディタで
-
-実験を終了するには、**Integrations**ステップを選択してBrazeを"トラッキングツールとして設定し、**Braze**を選択します。
-
-![カメレオンの統合ダッシュボードには、有効な統合Brazeを含む、利用可能なすべての統合が表示されます。]({% image_buster /assets/img/kameleoon/img_5.png %})
-
-Brazeは、本番に入る前にサマリーに記載されます。カメレオンは自動的にデータをBrazeに送信し、Brazeでの解析やセグメンテーションに使用できるようになります。
-
-##### カスタマイズの作成
-
-**Personalization Creation** ページでは、レポートツールの中からBrazeを選択して、レポートをカスタマイズできます。
-
-![「ヒープ」、「ミックスパネル」、「透明度」などの統合を表示し、Brazeを選択した状態の「レポートツール」セクション。]({% image_buster /assets/img/kameleoon/img_6.png %})
-
-##### 機能フラグ作成
-
-**Integrations**で、フィーチャーフラグ環境でのインテグレーションを設定します。アクティブにする環境で有効にします。
-
-![Kameleoon のFeature Flag(機能フラグ)ページで、利用可能な統合があります。パートナーごとに、"Delivery rules"および"Feature experiments"の2つの切り替えるがあります。]({% image_buster /assets/img/kameleoon/img_7.png %})
-
-##### 結果ページ
-
-Brazeを実験のレポートツールとして設定した後、**Experiment configuration**メニューのKameleoon resultsページで選択(または選択解除)できます。
-
-{% alert note %}  
-この統合には[ハイブリッド実装](https://developers.braze-presentation.preview.kameleoon.net/core-concepts/hybrid-experimentation?language=en#sending-exposure-events-to-third-party-analytics) が必要で、ウェブSDKs とのみ互換性があります。
+{% alert important %}
+この機能はベータ版です。[Kameleoonベータプログラム](https://help.kameleoon.com/account-and-team-management/join-beta-program/)に参加して、この統合の使用を開始してください。
 {% endalert %}
 
-![結果ページのサイドパネルはKameleoon にあります。]({% image_buster /assets/img/kameleoon/img_8.png %}){: style="max-width:50%;" }
+### ステップ 3: BrazeをKameleoon キャンペーンに関連付ける {#step-3-associate-braze-with-kameleoon-campaigns}
 
-試験に関連付けられたレポートツールが表示されます。この選択を編集するには、**編集**を選択します。
+#### グラフィック/コードエディターで {#in-the-graphiccode-editor}
 
-### ステップ 4: Braze でのカメレオオンデータの分析と活用
+実験を完了するには、**Integrations**ステップを選択してBrazeをトラッキングツールとして設定し、**Braze**を選択します。
 
-統合が設定されると、Kameleoon は`kameleoon_exposure` というカスタムイベントを**Experiment name**、**Experiment ID**、**Variation name**、**Variation ID** などのプロパティーとともにBraze に送信します。
+![Kameleoonの統合ダッシュボード。アクティブな統合であるBrazeを含む、利用可能なすべての統合が表示されています。]({% image_buster /assets/img/kameleoon/img_5.png %})
 
-![カスタムイベント ユーザーはBrazeにログインし、カメレオオンからBrazeが受け取ったイベントの報酬読み込むの例を示します。]({% image_buster /assets/img/kameleoon/img_9.png %})
+公開前のサマリーにBrazeが記載されます。Kameleoonは自動的にデータをBrazeに送信し、Braze内で直接分析やセグメンテーションに使用できるようになります。
 
-次に、このデータをカスタムイベントs で表示し、カスタムイベント レポートs を作成してカメレオオンのキャンペーン露出を識別し、イベントプロパティーに基づいてセグメンテーションを有効にします。カスタムイベント s は、[ アクション Paths]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/action_paths/#action-groups)、[ アクション ベースのトリガー]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery) または[ Segments]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/) を使用して、後続またはリンクされたキャンペーンs およびキャンバスを作成するときに使用できます。
+##### パーソナライゼーションの作成 {#personalization-creation}
 
-さらに、これらの事象は、[Currents カスタムイベントオブジェクト]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)を介してアクセス可能であり、包括的なレポートおよび解析を可能にする。
+**Personalization Creation**ページでは、レポートツールの中からBrazeを選択して、レポートをパーソナライズできます。
 
-## 考慮事項
+![Heap、Mixpanel、Clarityなどの統合を表示し、Brazeが選択された状態のレポートツールセクション。]({% image_buster /assets/img/kameleoon/img_6.png %})
 
-### リクエストイベントプロパティのセグメンテーション
+##### フィーチャーフラグの作成 {#feature-flag-creation}
 
-イベントプロパティセグメンテーションを使用するには、事前に Braze で有効にしておく必要があります。次のテンプレートを使用して、Braze CSM またはサポートチームに問い合わせてください。
+**Integrations**セクションで、フィーチャーフラグ環境での統合を設定します。アクティブにしたい環境で有効にします。
 
-   <table>
+![Kameleoonのフィーチャーフラグページ。利用可能な統合が表示されています。各パートナーに「Delivery rules」と「Feature experiments」の2つのスイッチがあります。]({% image_buster /assets/img/kameleoon/img_7.png %})
+
+##### 結果ページ {#results-page}
+
+Brazeを実験のレポートツールとして設定した後、**Experiment configuration**メニューのKameleoon結果ページで選択（または選択解除）できます。
+
+{% alert note %}
+この統合には[ハイブリッド実装](https://developers.braze-presentation.preview.kameleoon.net/core-concepts/hybrid-experimentation?language=en#sending-exposure-events-to-third-party-analytics)が必要で、Web SDKとのみ互換性があります。
+{% endalert %}
+
+![Kameleoonの結果ページのサイドパネル。]({% image_buster /assets/img/kameleoon/img_8.png %}){: style="max-width:50%;" }
+
+実験に関連付けられたレポートツールが表示されます。この選択を編集するには、**Edit**を選択します。
+
+### ステップ 4: BrazeでKameleoonデータを分析・活用する {#step-4-analyze-and-leverage-your-kameleoon-data-in-braze}
+
+統合が設定されると、Kameleoonは`kameleoon_exposure`というカスタムイベントを、**Experiment name**、**Experiment ID**、**Variation name**、**Variation ID**などのプロパティとともにBrazeに送信します。
+
+![Brazeのカスタムイベントユーザーログ。KameleoonからBrazeが受信したイベントのペイロード例が表示されています。]({% image_buster /assets/img/kameleoon/img_9.png %})
+
+このデータをカスタムイベントで表示し、カスタムイベントレポートを作成してKameleoon キャンペーンへの露出を特定し、イベントプロパティに基づくセグメンテーションを有効にできます。カスタムイベントは、[アクションパス]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/action_paths/#action-groups)、[アクションベースのトリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)、または[セグメントの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)を通じて、後続またはリンクされたキャンペーンやキャンバスを作成する際に使用できます。
+
+さらに、これらのイベントは[Currentsカスタムイベントオブジェクト]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)を介してアクセスでき、包括的なレポートと分析が可能になります。
+
+## 考慮事項 {#considerations}
+
+### イベントプロパティセグメンテーションのリクエスト {#request-event-property-segmentation}
+
+イベントプロパティセグメンテーションを使用するには、事前にBrazeで有効にしておく必要があります。以下のテンプレートを使用して、Brazeカスタマーサクセスマネージャーまたはサポートチームにアクセスをリクエストしてください。
+
+   <table aria-label="Request event property segmentation">
+     <caption>イベントプロパティセグメンテーションのリクエスト</caption>
    <thead>
       <tr>
          <th>フィールド</th>
@@ -111,23 +112,23 @@ Brazeを実験のレポートツールとして設定した後、**Experiment co
    <tbody>
       <tr>
          <td><strong>件名</strong></td>
-         <td>Kameleoon 統合のイベントプロパティセグメンテーションを有効にするリクエスト</td>
+         <td>Request to Enable Event Property セグメントation for Kameleoon Integration</td>
       </tr>
       <tr>
          <td><strong>本文</strong></td>
          <td>
-         Braze チームのみなさん、こんにちは。<br><br>
-         Kameleoon&lt;> Braze インテグレーションから送られてきたイベントのイベントプロパティ セグメンテーションを可能にしたいと考えています。詳細は次のとおりです。<br><br>
-         - <strong>イベント名:</strong>カメレオン<br>
-         - <strong>イベントプロパティ:</strong> <code>kameleoon_campaign_name</code>,<code>kameleoon_variation_name</code><br><br>
-         アカウントでプロパティが有効になったらご確認ください。<br><br>
-         ありがとうございます。
+         Hello Braze Team,<br><br>
+         We would like to enable event property segmentation for events sent from our Kameleoon&lt;&gt;Braze integration. Here are the details:<br><br>
+         - <strong>Event Name:</strong> Kameleoon<br>
+         - <strong>Event Properties:</strong> <code>kameleoon_campaign_name</code>, <code>kameleoon_variation_name</code><br><br>
+         Please confirm once the properties have been enabled in our account.<br><br>
+         Thank you.
          </td>
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Request event property segmentation" }
 
-### Braze データポイント
+### Brazeデータポイント {#braze-data-points}
 
-カメレオオンからBrazeに送信されるカスタムイベント(セグメンテーションで有効になっているすべてのイベントプロパティーを含む) は、Brazeインスタンス内のデータポイントs を記録します。
+KameleoonからBrazeに送信されるカスタムイベント（セグメンテーション用に有効化されたイベントプロパティを含む）は、Brazeインスタンスのデータポイントとして記録されます。

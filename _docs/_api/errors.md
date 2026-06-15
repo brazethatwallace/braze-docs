@@ -96,4 +96,4 @@ All of the following error codes indicate that no messages are sent.
 | `404 Not Found` | Invalid URL. |
 | `415 Unsupported Media Type` | The `Content-Type` request header is missing or incorrect. In the **Settings** page, add `Content-Type` with a value of `application/json`. |
 | `429 Rate Limited` | Over rate limit. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fatal errors" }

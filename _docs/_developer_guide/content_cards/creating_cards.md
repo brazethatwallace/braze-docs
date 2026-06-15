@@ -12,7 +12,7 @@ platform:
   - Web
 ---
 
-# Create content cards
+# Create Content Cards
 
 > This article discusses the basic approach you'll use when implementing custom Content Cards, as well as three common use cases. It assumes you've already read the other articles in the Content Card customization guide to understand what can be done by default and what requires custom code. It's especially helpful to understand how to [log analytics]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) for your custom Content Cards. 
 
@@ -255,7 +255,7 @@ Key-value pairs for the reading recommendation card:
 | `style`      | info                                                                 |
 | `class_type` | notification_center                                                 |
 | `card_priority` | 1                                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 {% endtab %}
 
 {% tab New subscriber coupon %}
@@ -270,7 +270,7 @@ Key-value pairs for a new subscriber coupon:
 | `class_type` | notification_center                                              |
 | `card_priority` | 2                                                              |
 | `terms`      | new_subscribers_only                                             |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 {% endtab %}
 {% endtabs %}
 

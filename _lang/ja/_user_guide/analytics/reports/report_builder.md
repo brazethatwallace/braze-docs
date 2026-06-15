@@ -1,0 +1,154 @@
+---
+nav_title: レポートビルダー
+article_title: レポートビルダー
+alias: /report_builder/
+page_type: reference
+description: "このリファレンス記事では、レポートビルダー機能について説明します。"
+tool:
+    - Reports
+page_order: 3
+---
+
+# レポートビルダー {#report-builder}
+
+> このページでは、レポートビルダーを使用してBrazeデータに基づく詳細なレポートを作成・表示する方法と、レポートをダッシュボードに追加する方法について説明します。
+
+以下の動画では、レポートビルダーでレポートを作成しカスタマイズする方法の概要を紹介しています。
+
+{% multi_lang_include video.html id="oi66kwwldv" source="wistia" %}
+
+## レポートテンプレートの使用 {#using-a-report-template}
+
+1. **Analytics** > **レポートビルダー（新）**に移動します。
+2. **新しいレポートを作成**ボタンの横にある**その他のオプション**の矢印を選択し、**レポートテンプレートを使用**を選択します。<br><br>![「新しいレポートを作成」ボタンのドロップダウン。カスタムレポートの作成またはテンプレートの使用オプションが表示されています。]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
+3. Brazeテンプレートライブラリからレポートテンプレートを1つ選択します。
+    - **行項目**と**タグ**のドロップダウンを使用して、ユースケースに関連するレポートを見つけます。<br><br>![「Brazeレポートテンプレート」ウィンドウ。選択可能なBrazeテンプレートの一覧が表示されています。]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
+4. [レポートの作成](#creating-a-report)のステップ3以降に従って、ユースケースに合わせてレポートをさらにカスタマイズします。
+
+## レポートの作成 {#creating-a-report}
+
+1. **Analytics** > **レポートビルダー（新）**に移動します。
+2. **新しいレポートを作成**を選択します。
+3. **行**ドロップダウンで、レポートの対象を選択します：
+    - Campaigns
+    - Canvases
+    - CampaignとCanvases
+    - チャネル
+    - タグ
+
+    **行**の選択は、[表示できる指標](#metrics-availability)に影響します。たとえば、多変量指標を表示できるのは、**Canvases**、または**バリアント**ドリルダウン付きの**Campaigns**でレポートする場合のみです。**CampaignとCanvases**でレポートする場合、それらのCampaignやCanvasesに多変量テストがあっても、これらの指標は表示できません。
+
+![「行と列」セクション。レポートの行とグループを選択するフィールドが表示されています。]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
+
+{: start="4"}
+4. （オプション）**ドリルダウンを追加**を選択して、データをより詳細なビューに分割します：
+    - チャネル
+    - 日付
+        - データをより小さな時間範囲に分割する場合に使用します。たとえば、Campaignの日別パフォーマンスに関心がある場合は、以下の設定を選択します：
+            - **行：** Campaigns
+            - **グループ：** 日付
+            - **間隔：** 日
+    - バリアント
+    - CampaignとCanvases
+
+{% alert tip %}
+さまざまなドリルダウンオプションの組み合わせを試して、[データを分割する多くの方法](#metrics-availability)を探索してみてください。
+{% endalert %}
+
+{: start="5"}
+5. **列**セクションで、**指標をカスタマイズ**を選択します。
+
+![「指標をカスタマイズ」セクション。複数の指標を選択するオプションが表示されています。]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
+
+{: start="6"}
+6. カテゴリ別に指標を参照し、対応するチェックボックスを選択してレポートに指標を追加します。
+    - ドットアイコンを上下にドラッグして、指標と列の順序を変更できます。
+7. **レポートコンテンツ**で、レポートにデータを含める日付範囲を設定します。
+8. 次に、ステップ3での選択に応じて、Campaign、Canvases、またはその両方を手動または自動でレポートに追加します。
+    - **手動で追加：** **最終送信日**の日付やタグ、チャネルのフィルターを使用するか、CampaignまたはCanvasの名前を検索して、レポートに含める各CampaignまたはCanvasを選択します。<br><br>![「CampaignとCanvasを手動で追加」セクション。選択可能なCampaignの一覧が表示されています。]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
+    - **自動で追加：** レポートに含めるCampaignまたはCanvasesのルールを設定します。このページでは1つのフィールドのみ選択が必要です。
+        - この画面で設定した条件を満たす追加のCampaignまたはCanvasesは、今後のレポート実行時に自動的に追加されます。<br><br>![「CampaignとCanvasを自動で追加」セクション。レポートに追加するCampaignとCanvasesのルールを設定するフィールドが表示されています。]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+9. **保存して実行**を選択してレポートを実行します。
+
+{% alert note %}
+レポートの実行には、設定段階で選択した日付範囲やCampaignまたはCanvasesの数に応じて、数分かかる場合があります。
+{% endalert %}
+
+## 指標の利用可能性 {#metrics-availability}
+
+**行**の選択は、選択できる指標に影響します。
+
+{% alert tip %}
+Canvasのバリアントやステップについてレポートする場合は、行に**Canvases**を選択し、ドリルダウンのフィールドを空のままにするか**日付**を選択します。これにより、**Canvas表示**ドロップダウンが作成され、Canvasのみの指標を表示したり、バリアント、ステップ、またはメッセージ別に指標をグループ化したりできます。
+
+![開いた「Canvas表示」ドロップダウン。]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
+{% endalert %}
+
+| 指標 | 説明 |
+| --- | --- |
+| コンバージョン指標 | Campaigns、Canvases、CampaignとCanvasesで利用可能です。 |
+| エントリー | Campaigns、Canvases、CampaignとCanvases、タグで利用可能です。 |
+| 最終送信日 | Campaigns、Canvases、CampaignとCanvasesで利用可能です。スケジュールされたCampaignのみ表示されます。アクションベースまたはAPIトリガーのCampaignでは表示されません。 |
+| 送信数 | 各関連チャネルで利用可能です。 |
+| 送信済みメッセージ | Campaigns、Canvases、CampaignとCanvases、タグで利用可能です。 |
+| 件名 | **バリアント**ドリルダウン付きのメールCampaign、Canvases、および**バリアント**ドリルダウン付きのCanvasesで利用可能です。 |
+| 合計収益 | Campaigns、Canvases、CampaignとCanvases、タグで利用可能です。**チャネル**ドリルダウンでは利用できません。 |
+| ユニークインプレッション | Campaigns、Canvases、CampaignとCanvases、タグで利用可能です。 |
+| ユニーク受信者 | Campaigns、Canvases、CampaignとCanvases、タグで利用可能です。**チャネル**ドリルダウンでは利用できません。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="指標の利用可能性" }
+
+### 削除されたメッセージバリアント {#deleted-message-variants}
+
+削除されたメッセージバリアントの統計は、レポートをCampaignまたはCanvases別に分割した場合には表示されません。ただし、チャネルレベルの合計には、バリアントが削除されたかどうかに関係なく、すべての統計が含まれます。たとえば、メールの*送信数*にはすべてのメール送信が含まれますが、それらの統計をCampaign別に分割すると、削除されたメッセージバリアントの送信がフィルタリングされるため、数値が低くなる場合があります。
+
+同じレポートで、メッセージバリアントが送信後に削除された場合、*ユニーク受信者*が*ユニークインプレッション*よりも高くなることがあります。Campaignレベルの*ユニーク受信者*には削除されたバリアントを受信したユーザーが含まれる一方、*ユニークインプレッション*はメッセージレベルの集計で削除されたバリアントの統計を除外します。
+
+## レポートの表示 {#viewing-a-report}
+
+レポートを実行した後、レポートページのテーブル形式で結果を表示できます。
+
+![各Campaignの指標のレポートデータテーブル。]({% image_buster /assets/img/report_builder_2/report_table.png %}){: style="width:90%;"}
+
+### レポートチャートの作成 {#creating-a-report-chart}
+
+ページの下部で、**チャートタイプ**を選択しチャート指標を設定することで、データのチャートを作成できます。デフォルトでは、最初の指標が表示されます。
+
+![レポートデータのチャート。X軸、Y軸、チャートタイプなどを設定するオプションが表示されています。]({% image_buster /assets/img/report_builder_2/visualize_table.png %}){: style="max-width:90%;"}
+
+{% alert note %}
+折れ線グラフを作成するには、レポートの設定時にドリルダウンオプションとして**日付**を選択します。これにより、時間の経過に伴うトレンドが表示されます。
+{% endalert %}
+
+#### レポートチャートのダウンロード {#downloading-a-report-chart}
+
+レポートチャートの画像をダウンロードするには、ドットアイコンを選択してからダウンロードオプションを選択します。
+
+![さまざまなファイル形式のダウンロードオプションが表示されたメニュー。]({% image_buster /assets/img/report_builder_2/download_options.png %}){: style="max-width:70%;"}
+
+## レポートの共有 {#sharing-a-report}
+
+**共有**を選択し、以下のオプションのいずれかを選択して、レポートへのダッシュボードリンクを共有できます：
+- **リンクを共有：** リンクをコピーして共有します。
+
+![レポートへのリンクが表示された「リンクを共有」ドロップダウン。]({% image_buster /assets/img/report_builder_2/share_this_report.png %}){: style="max-width:70%;"}
+
+- **メールを送信またはスケジュール：** 1時間で期限切れになるダウンロードリンクを含むメールを、即時または指定した時間に送信します。**メール受信者**ドロップダウンに表示される会社ユーザーから受信者を選択するか、他のメールアドレスを入力できます。
+
+![「メールをスケジュール」ウィンドウ。レポートの形式、受信者、送信タイミングを選択するフィールドが表示されています。]({% image_buster /assets/img/report_builder_2/schedule_an_email.png %}){: style="max-width:70%;"}
+
+- **CSVをダウンロード：** レポートのCSVをダウンロードします。
+
+## レポートをダッシュボードに追加 {#adding-a-report-to-a-dashboard}
+
+1. レポートテーブルの上部にあるドットアイコンを選択します。
+2. **ダッシュボードに追加**を選択します。
+3. 新しいダッシュボードを作成するか、既存のダッシュボードに追加するかを選択します。<br><br>![レポートを新しいダッシュボードに追加するか既存のダッシュボードに追加するかを選択するオプションが表示されたウィンドウ。]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
+4. ダッシュボードの構築について詳しくは、[ダッシュボードビルダー]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/)の手順に従ってください。
+
+## トラブルシューティング {#troubleshooting}
+
+### レポートにCampaignまたはCanvasの送信数が表示されない {#report-shows-no-sends-for-a-campaign-or-canvas}
+
+CampaignまたはCanvasは、その**最終送信日**が設定した**最終送信日**の期間内に該当する場合にレポートに表示されます。**送信数**やその他の指標は、**データ表示期間**の日付範囲内のアクティビティに対してのみ値が入ります。**データ表示期間**中にメッセージが送信されなかった場合でも、その行にはCampaignまたはCanvasが送信数ゼロで表示されることがあります。
+
+たとえば、**最終送信日**が2025年1月1日〜2025年4月14日に設定されているためCampaignが含まれていますが、**データ表示期間**が2024年12月1日〜2025年1月14日の場合を考えます。そのCampaignが12月または1月に送信がなかった場合でも、送信指標なしでテーブルに表示されます。

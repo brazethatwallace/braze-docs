@@ -32,7 +32,7 @@ With the rich level of content offered by in-app messages, you can leverage this
 | Sales and promotions | Use modal in-app messages to greet customers with visually appealing media containing static promotion codes or offers. Incentivize them to make purchases or conversions when they otherwise wouldn't have. |
 | Encouraging feature adoption | Encourage customers to use other parts of your app or take advantage of a service. |
 | Highly personalized campaigns | Place in-app messages as the first thing your customers see when they enter your app or site. Add in some Braze personalization features, such as [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), to compel users to take action and therefore make your outreach more effective.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 Other use cases to consider include the following:
 

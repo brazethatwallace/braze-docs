@@ -49,7 +49,7 @@ Braze will automatically generate a Liquid tag using your [landing page URL](#pa
 
 |**Personalization type**| Choose **Landing Page**.|
 |**Landing page**|Choose the landing page [you previously created](#prerequisites).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Generate the Liquid tag" }
 
 To add the Liquid tag to your message, you can either select **Insert**, or copy the snippet to your clipboard and add it manually.
 

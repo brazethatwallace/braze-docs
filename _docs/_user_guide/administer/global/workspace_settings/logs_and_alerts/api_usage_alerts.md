@@ -17,7 +17,7 @@ You can use API usage alerts to monitor request volumes for the following catego
 |--------------|---------|
 | REST API Endpoints | Tracks usage of all REST API calls made to Braze’s backend, such as sending messages, creating campaigns, or exporting users. |
 | SDK API Requests | Tracks API requests made from Braze SDKs in client apps, such as triggering in-app messages or syncing user data.<br><br>_*Only available to customers who have purchased Monthly Active Users – CY 24-25._ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About API usage alerts" }
 
 ## Creating an API usage alert
 
@@ -33,7 +33,8 @@ To create an API usage alert:
 
 When you define your alert criteria you can adjust the following thresholds:
 
-<table>
+<table aria-label="Alert thresholds #api-usage-alert-thresholds">
+  <caption>Alert thresholds</caption>
   <thead>
     <tr>
       <th>Field</th>
@@ -62,7 +63,7 @@ When you define your alert criteria you can adjust the following thresholds:
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Alert thresholds #api-usage-alert-thresholds" }
 
 ## Setting up alert notifications
 
@@ -107,7 +108,7 @@ You can set up alerts to monitor the general health of your API. For example, yo
 | Endpoint | API key | Response code | Threshold condition | Threshold volume | Within |
 | --- | --- | --- | --- | --- | --- |
 | All endpoints | All API keys | `4XX` and `5XX` | Increased by 10% | 10 | 1 hour |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab endpoint rate limit %}
@@ -116,7 +117,7 @@ Be alerted when your workspace reaches its rate limit for `/users/track` endpoin
 | Endpoint | API key | Response code | Threshold condition | Threshold volume | Within |
 | --- | --- | --- | --- | --- | --- |
 | `/users/track` | All API keys | `429` | Greater than or equal to | 100 | 1 hour |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab API-triggered campaigns %}
@@ -125,7 +126,7 @@ This alert configuration notifies you when errors occur for API triggered campai
 | Endpoint | API key | Response code | Threshold condition | Threshold volume | Within |
 | --- | --- | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | All API keys | `4XX` and `5XX` | Greater than or equal to | 1 | 1 hour |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab partner integrations %}
@@ -134,7 +135,7 @@ Use the following alert configuration to be alerted when a partner integration s
 | Endpoint | API key | Response code | Threshold condition | Threshold volume | Within |
 | --- | --- | --- | --- | --- | --- |
 | All endpoints | The API key used for your partner integration | All response codes | Less than or equal to | 0 | 1 day |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 {% endtabs %}
 

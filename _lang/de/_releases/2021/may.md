@@ -6,31 +6,31 @@ page_type: update
 description: "Dieser Artikel enthält Versionshinweise für Mai 2021."
 ---
 
-# Mai 2021
+# Mai 2021 {#may-2021}
 
-## Konversionskorrelation
+## Conversion-Korrelation {#conversion-correlation}
 
-Dieser Leitfaden behandelt die [Konversions-Korrelationsanalyse]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/) auf der Seite **Campaign Analytics**, die Ihnen Insights darüber gibt, welche Nutzer:innen-Attribute und Verhaltensweisen die von Ihnen für Kampagnen festgelegten Ergebnisse fördern oder beeinträchtigen. Hier finden Sie eine Übersicht über die Analyse, was geprüft wird, wann sie verfügbar ist und wie Braze auf Signifikanz prüft.
+Dieser Leitfaden behandelt die [Conversion-Korrelationsanalyse]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/) auf der Seite **Campaign Analytics**, die Ihnen Insights darüber gibt, welche Nutzer:innen-Attribute und Verhaltensweisen die von Ihnen für Campaigns festgelegten Ergebnisse fördern oder beeinträchtigen. Hier finden Sie eine Übersicht über die Analyse, was geprüft wird, wann sie verfügbar ist und wie Braze auf Signifikanz prüft.
 
-## Bericht der globalen Kontrollgruppe
+## Bericht zur globalen Kontrollgruppe {#global-control-group-report}
 
-Wir haben die Metriken des Berichts über [die globalen Kontrollgruppen]({{site.baseurl}}/user_guide/engagement_tools/testing/global_control_group/) aktualisiert, damit Sie die Gesamtwirkung Ihrer Messaging-Bemühungen im Laufe der Zeit besser analysieren können. Zu den wichtigsten Änderungen gehören das Hinzufügen von **Ereignissen pro Nutzer:innen** und der **geschätzten Gruppengröße** sowie das Anpassen der Berechnung für den **inkrementellen Uplift**, um den Unterschied in der Gesamtzahl der Ereignisse zwischen Ihrer Behandlungs- und Kontrollgruppe zu berücksichtigen.
+Wir haben die Metriken des Berichts über [die globalen Kontrollgruppen]({{site.baseurl}}/user_guide/audience/global_control_group/) aktualisiert, damit Sie die Gesamtwirkung Ihrer Messaging-Maßnahmen im Laufe der Zeit besser analysieren können. Zu den wichtigsten Änderungen gehören das Hinzufügen von **Ereignissen pro Nutzer:in** und der **geschätzten Gruppengröße** sowie das Anpassen der Berechnung für den **inkrementellen Uplift**, um den Unterschied in der Gesamtzahl der Ereignisse zwischen Ihrer Behandlungs- und Kontrollgruppe zu berücksichtigen.
 
-## Übersicht der Berichte
+## Übersicht der Berichte {#reports-overview}
 
-Sie wissen nicht, wo Sie mit der Analyse Ihrer Kampagnen oder Canvase beginnen sollen? Die [Übersicht Berichte]({{site.baseurl}}/user_guide/analytics/reporting/reports_overview/) gibt Ihnen Hinweise darauf, welche Berichte und Analytics Sie verwenden können, um allgemeine Fragen zur Marketing Strategie zu beantworten.
+Sie wissen nicht, wo Sie mit der Analyse Ihrer Campaigns oder Canvases beginnen sollen? Die [Übersicht der Berichte]({{site.baseurl}}/user_guide/analytics/reports/) gibt Ihnen Hinweise darauf, welche Berichte und Analytics Sie verwenden können, um allgemeine Fragen zur Marketing-Strategie zu beantworten.
 
-## Neue US-05 Cluster
+## Neuer US-05-Cluster {#new-us-05-cluster}
 
-Braze unterstützt einen neuen US-Cluster, US-05. In unserer Liste der Dashboard- und [REST-Endpunkte]({{site.baseurl}}/api/basics/#endpoints) finden Sie weitere Informationen.
+Braze unterstützt einen neuen US-Cluster, US-05. In unserer Liste der Dashboard- und REST-[Endpunkte]({{site.baseurl}}/api/basics/#endpoints) finden Sie weitere Informationen.
 
-## Braze UI Updates
+## Braze-UI-Updates
 
-Im Mai 2021 hat Braze die folgenden Bezeichnungen und Begriffe auf dem Braze-Dashboard aktualisiert:
+Im Mai 2021 hat Braze die folgenden Bezeichnungen und Begriffe im Braze-Dashboard aktualisiert:
 
-- App-Nutzung --> Übersicht
-- App-Einstellungen --> Einstellungen
-- App-Gruppe verwalten --> Einstellungen verwalten
-- In-App ausgegebenes Geld --> Ausgegebenes Geld
-- App-Nutzung (Nutzerprofil) --> Übersicht über die Sitzungen
-- Importieren Sie eine CSV-Datei mit Benutzerinformationen, um Nutzer:innen in dieser App-Gruppe hinzuzufügen und/oder zu aktualisieren. --> Importieren Sie eine CSV-Datei mit Benutzerinformationen, um Nutzer:innen hinzuzufügen oder zu aktualisieren.
+- App Usage --> Overview
+- App Settings --> Settings
+- Manage App Group --> Manage Settings
+- Money Spent In-App --> Money Spent
+- App Usage (User Profile) --> Sessions Overview
+- Import a CSV of user information to add and/or update users in this App Group --> Import a CSV of user information to add or update users

@@ -18,7 +18,7 @@ description: "This article outlines details about the Send campaigns using API-t
 
 API-triggered delivery allows you to house message content inside of the Braze dashboard while dictating when a message is sent, and to whom using your API.
 
-If you're targeting a segment, a record of your request is stored in the [Developer Console](https://dashboard.braze.com/app_settings/developer_console/activitylog/). To send messages with this endpoint, you must have a [campaign ID](https://www.braze.com/docs/api/identifier_types/) created when you build an [API-triggered campaign]({{site.baseurl}}/api/api_campaigns/).
+If you're targeting a segment, a record of your request is stored in the [Developer Console](https://dashboard.braze.com/app_settings/developer_console/activitylog/). To send messages with this endpoint, you must have a [campaign ID]({{site.baseurl}}/api/identifier_types/) created when you build an [API-triggered campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 |`audience`| Optional | Connected audience object| See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience/). When you include `audience`, the message is sent only to users who match the defined filters, such as custom attributes and subscription statuses. |
 |`recipients`| Optional | Array | See [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>If `send_to_existing_only` is `false`, an `attributes` object must be included.<br><br>You can update a user's subscription group status by including `subscription_groups` in the nested `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>If `recipients` is not provided and `broadcast` is set to true, the message is sent to the entire segment configured as the campaign's target audience in the Braze dashboard.<br><br>If `email` is the identifier, you must include [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) in the recipients object. |
 |`attachments`| Optional | Array | If `broadcast` is set to true, then the `attachments` list cannot be included. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Recipient resolution behavior
 
@@ -94,6 +94,9 @@ Learn more about how recipient limits and profile creation work for this endpoin
 - The `recipients` array may contain up to 50 objects, with each object containing a single `external_user_id` string and a `trigger_properties` object.
 - When `send_to_existing_only` is `true` (the default), Braze sends the message only to existing users.
 - When `send_to_existing_only` is `false` and an `attributes` object is provided, Braze creates a new user if one doesn't exist.
+- **Net-new profiles need `attributes` with `send_to_existing_only: false`.** Braze runs the pre-send create or update from the `attributes` object in the same recipient. If you set `send_to_existing_only` to `false` but omit `attributes` (or send an empty object), Braze does not hydrate profile data the same way, so you do not get the combined "create or update user, then send" behavior this pattern is meant for.
+- **Email and SMS addressing.** For most Email or SMS API-triggered sends to someone who is not already in Braze, include the delivery fields you need inside `attributes` (for example `email`, or the phone attributes your workspace uses for SMS). You can also set subscription group membership or subscription status there when opt-in state must change in the same call.
+- **Campaign eligibility.** After the profile exists or updates, that user must still match the campaign's dashboard target audience and channel send rules (for example opted in for email) or Braze does not send the message.
 - Setting `send_to_existing_only` to `false` is not supported for user aliases. New alias-only users can't be created through this endpoint. To send to an alias-only user, that user must already exist in Braze.
 
 #### Email identifier and prioritization ties
@@ -198,7 +201,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## Response details
 
-Message-sending endpoint responses include the message's `dispatch_id` for reference back to the dispatch of the message. The `dispatch_id` is the ID of the message dispatch, a unique ID for each transmission sent from Braze. When using this endpoint, you receive a single `dispatch_id` for an entire batched set of users. For more information on `dispatch_id` check out our documentation on [Dispatch ID behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Message-sending endpoint responses include the message's `dispatch_id` for reference back to the dispatch of the message. The `dispatch_id` is the ID of the message dispatch, a unique ID for each transmission sent from Braze. When using this endpoint, you receive a single `dispatch_id` for an entire batched set of users. For more information on `dispatch_id` check out our documentation on [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 If your request encounters a fatal error, refer to [Errors and responses]({{site.baseurl}}/api/errors/#fatal-errors) for the error code and description.
 

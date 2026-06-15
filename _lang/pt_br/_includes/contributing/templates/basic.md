@@ -1,6 +1,6 @@
-Esse modelo pode ser usado para criar qualquer página ou seção para os documentos do Braze. Para obter um exemplo, consulte [Geração de uma prévia]({{site.baseurl}}/contributing/generating_a_preview/). Para obter diretrizes sobre os tipos de documentação usados no artigo, consulte [Tipos de página]({{site.baseurl}}/contributing/page_types/).
+Você pode usar esse modelo para criar qualquer página ou seção para a documentação da Braze. Para configuração de ambiente, pré-visualizações e tipos de conteúdo, colaboradores com acesso ao repositório devem seguir o handbook em `docs/contributing/` (por exemplo, `generating_a_preview.md` e `content_types.md`). O restante do público pode usar [Feedback da documentação]({{site.baseurl}}/feedback/) para entrar em contato com a equipe de documentação.
 
-{% details Show template %}
+{% details Mostrar modelo %}
 {% raw %}
 `````markdown
 ---
@@ -12,66 +12,66 @@ page_type: reference
 layout: OPTIONAL_LAYOUT_FILE
 ---
 
-<!-- The title of your page, used to render the in-page title. -->
+<!-- O título da sua página, usado para renderizar o título exibido na página. -->
 # ARTICLE_TITLE
 
-<!-- The overview starts with a '>' character and discusses what will be covered. In an optional following paragraph, contextualize the topic at a high-level in an introduction. -->
+<!-- A visão geral começa com o caractere '>' e descreve o que será abordado. Em um parágrafo opcional seguinte, contextualize o tópico em alto nível em uma introdução. -->
 > DESCRIPTION.
 
 INTRODUCTION.
 
-<!-- The prerequisites for this task. If no prerequisites are required, you can remove this section. -->
-## Prerequisites
+<!-- Os pré-requisitos para essa tarefa. Se nenhum pré-requisito for necessário, você pode remover esta seção. -->
+## Pré-requisitos
 
-Before you start, you'll need to complete the following:
+Antes de começar, você precisará concluir o seguinte:
 
 - ACTION_TO_COMPLETE
 - ACTION_TO_COMPLETE
 - ACTION_TO_COMPLETE
 
-<!-- An optional, brief explanation of how the feature workflow looks. -->
-## How it works
+<!-- Uma explicação opcional e breve de como funciona o fluxo de trabalho do recurso. -->
+## Como funciona
 
 CONTENT.
 
-<!-- Walk a user through integrating and turning on the feature. -->
- ## Integration
+<!-- Guie o usuário pela integração e ativação do recurso. -->
+ ## Integração
 CONTENT.
 
-<!-- A how-to guide with nested steps. -->
+<!-- Um guia prático com etapas aninhadas. -->
 ## TASK_TO_COMPLETE
 
-<!-- Optional overview of the task. -->
+<!-- Visão geral opcional da tarefa. -->
 CONTENT.
 
-<!-- Action-oriented header that describes the step’s goal. -->
-### Step 1: ACTION_TO_COMPLETE
+<!-- Cabeçalho orientado a ações que descreve o objetivo da etapa. -->
+### Etapa 1: ACTION_TO_COMPLETE
 
-<!-- Use number bullets or paragraphs to describe how to complete this action -->
+<!-- Use marcadores numerados ou parágrafos para descrever como concluir esta ação -->
 CONTENT.
 
-### Step 2: ACTION_TO_COMPLETE
+### Etapa 2: ACTION_TO_COMPLETE
 
 CONTENT.
-<!-- Optional references, such as supported data types, fields, definitions, and similar. -->
+<!-- Referências opcionais, como tipos de dados compatíveis, campos, definições e similares. -->
 ### REFERENCE_TO_ASSIST_WITH_ACTION
 
 CONTENT.
 
-<!-- For optional steps, add “(optional)” to the end of the header. -->
-### Step 3: OPTIONAL_ACTION_TO_COMPLETE (optional)
+<!-- Para etapas opcionais, adicione "(opcional)" ao final do cabeçalho. -->
+### Etapa 3: OPTIONAL_ACTION_TO_COMPLETE (opcional)
 
 CONTENT.
-<!-- An optional section for what is supported. Add nested headers to be more specific. -->
-## Supported data types / Supported attributes / Supported events / Supported ETC.
+<!-- Uma seção opcional para o que é compatível. Adicione cabeçalhos aninhados para ser mais específico. -->
+## Tipos de dados compatíveis / Atributos compatíveis / Eventos compatíveis / ETC. compatíveis
 CONTENT.
-<!-- An optional section with important considerations for users to review before using the feature. -->
-## Considerations
+<!-- Uma seção opcional com considerações importantes para os usuários revisarem antes de usar o recurso. -->
+## Considerações
 
 CONTENT.
 
-<!-- An optional section guiding users through troubleshooting common issues. -->
-## Troubleshooting
+<!-- Uma seção opcional que orienta os usuários na solução de problemas comuns. -->
+## Solução de problemas
 
 ### ISSUE_TO_TROUBLESHOOT
 CONTENT.

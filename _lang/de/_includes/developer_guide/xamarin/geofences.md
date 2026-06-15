@@ -1,6 +1,6 @@
-{% multi_lang_include developer_guide/prerequisites/xamarin.md %} Darüber hinaus müssen Sie [stille Push-Benachrichtigungen einrichten]({{site.baseurl}}/developer_guide/push_notifications/silent).
+{% multi_lang_include developer_guide/prerequisites/xamarin.md %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Dies sind die Mindestversionen des SDK, die erforderlich sind, um Geofences zu verwenden:
 
@@ -8,7 +8,7 @@ Dies sind die Mindestversionen des SDK, die erforderlich sind, um Geofences zu v
 
 ## Einrichten von Geofences {#setting-up-geofences}
 
-### Schritt 1: Enablement in Braze
+### 1. Schritt: Enablement in Braze {#step-1-enable-in-braze}
 
 {% multi_lang_include developer_guide/_shared/enable_geofences_in_braze.md %}
 
@@ -19,15 +19,15 @@ Befolgen Sie anschließend die unten aufgeführten plattformspezifischen Anweisu
 {% tabs %}
 {% tab Android %}
 
-### Schritt 2: Abhängigkeiten hinzufügen
+### 2. Schritt: Abhängigkeiten hinzufügen {#step-2-add-dependencies}
 
 Fügen Sie die folgende NuGet-Paket-Referenz zu Ihrem Projekt hinzu:
 
 - `BrazePlatform.BrazeAndroidLocationBinding`
 
-### Schritt 3: Aktualisieren Sie Ihr AndroidManifest.xml
+### 3. Schritt: AndroidManifest.xml aktualisieren {#step-3-update-your-androidmanifestxml}
 
-Fügen Sie die folgenden Berechtigungen zu Ihrer Datei `AndroidManifest.xml`hinzu:
+Fügen Sie die folgenden Berechtigungen zu Ihrer `AndroidManifest.xml` hinzu:
 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -39,18 +39,18 @@ Fügen Sie die folgenden Berechtigungen zu Ihrer Datei `AndroidManifest.xml`hinz
 Die Berechtigung für den Zugriff auf den Standort im Hintergrund ist erforderlich, damit Geofences funktionieren, während sich die App auf Android 10+-Geräten im Hintergrund befindet.
 {% endalert %}
 
-### Schritt 4: Konfigurieren Sie die Erfassung der Standorte von Braze.
+### 4. Schritt: Braze-Standorterfassung konfigurieren {#step-4-configure-braze-location-collection}
 
-Bitte stellen Sie sicher, dass die Erfassung der Standorte in Ihrer Braze-Konfiguration aktiviert ist. Wenn Sie Geofences ohne automatische Standortbestimmung aktivieren möchten, nehmen Sie bitte folgende Einstellungen in Ihrer Konfiguration`Braze.xml` vor:
+Stellen Sie sicher, dass die Standorterfassung in Ihrer Braze-Konfiguration aktiviert ist. Wenn Sie Geofences ohne automatische Standorterfassung aktivieren möchten, nehmen Sie die folgenden Einstellungen in Ihrer `Braze.xml` vor:
 
 ```xml
 <bool name="com_braze_enable_location_collection">true</bool>
 <bool name="com_braze_geofences_enabled">true</bool>
 ```
 
-### Schritt 5: Anfrage für Standortberechtigungen zur Laufzeit stellen
+### 5. Schritt: Standortberechtigungen zur Laufzeit anfordern {#step-5-request-location-permissions-at-runtime}
 
-Bitte stellen Sie bei der Registrierung von Geofences eine Anfrage an die Nutzer:innen um die Erlaubnis zur Standortbestimmung. Verwenden Sie in Ihrem C#-Code das folgende Muster:
+Sie müssen Standortberechtigungen von den Nutzer:innen anfordern, bevor Sie Geofences registrieren. Verwenden Sie in Ihrem C#-Code das folgende Muster:
 
 ```csharp
 using AndroidX.Core.App;
@@ -67,13 +67,13 @@ public override void OnRequestPermissionsResult(int requestCode, string[] permis
 }
 ```
 
-Nachdem die Berechtigungen erteilt wurden, initialisieren Sie die Erfassung der Standorte von Braze:
+Nachdem die Berechtigungen erteilt wurden, initialisieren Sie die Braze-Standorterfassung:
 
 ```csharp
 Braze.GetInstance(this).RequestLocationInitialization();
 ```
 
-### Schritt 6: Manuelles Anfordern von Geofence-Updates (optional)
+### 6. Schritt: Geofence-Updates manuell anfordern (optional) {#step-6-manually-request-geofence-updates-optional}
 
 Um Geofences für einen bestimmten Standort manuell anzufordern:
 
@@ -82,20 +82,20 @@ Braze.GetInstance(this).RequestGeofences(latitude, longitude);
 ```
 
 {% alert important %}
-Geofences können nur einmal pro Sitzung angefordert werden. Dies kann entweder automatisch durch das SDK oder manuell mit dieser Methode geschehen.
+Geofences können nur einmal pro Sitzung angefordert werden – entweder automatisch durch das SDK oder manuell mit dieser Methode.
 {% endalert %}
 {% endtab %}
 {% tab iOS %}
 
-### Schritt 2: Abhängigkeiten hinzufügen
+### 2. Schritt: Abhängigkeiten hinzufügen
 
 Fügen Sie die folgende NuGet-Paket-Referenz zu Ihrem Projekt hinzu:
 
 - `Braze.iOS.BrazeLocation`
 
-### Schritt 3: Konfigurieren Sie die Nutzung der Standorte Info.plist
+### 3. Schritt: Standortnutzung in der Info.plist konfigurieren {#step-3-configure-location-usage-in-infoplist}
 
-Fügen Sie einen String mit der Beschreibung der Verwendung von Standortdiensten in Ihrer Datei `Info.plist`hinzu:
+Fügen Sie einen Beschreibungstext für die Nutzung von Standortdiensten in Ihrer `Info.plist` hinzu:
 
 ```xml
 <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -105,12 +105,12 @@ Fügen Sie einen String mit der Beschreibung der Verwendung von Standortdiensten
 ```
 
 {% alert important %}
-Apple hat `NSLocationAlwaysUsageDescription` veraltet. Bitte verwenden Sie die oben genannten Tasten für iOS 14+.
+Apple hat `NSLocationAlwaysUsageDescription` als veraltet markiert. Verwenden Sie die oben genannten Schlüssel für iOS 14+.
 {% endalert %}
 
-### Schritt 4: Bitte aktivieren Sie Geofences in Ihrer Braze-Konfiguration.
+### 4. Schritt: Geofences in Ihrer Braze-Konfiguration aktivieren {#step-4-enable-geofences-in-your-braze-configuration}
 
-Bitte konfigurieren Sie Braze in Ihrem App-Startcode (e.g., `App.xaml.cs`) mit aktivierten Geofences:
+Konfigurieren Sie Braze in Ihrem App-Startcode (z. B. `App.xaml.cs`) mit aktivierten Geofences:
 
 ```csharp
 using BrazeKit;
@@ -125,9 +125,9 @@ configuration.Location.AutomaticGeofenceRequests = true;
 var braze = new Braze(configuration);
 ```
 
-### Schritt 5: Aktivieren Sie Hintergrund-Updates für Standorte (optional)
+### 5. Schritt: Standort-Updates im Hintergrund aktivieren (optional) {#step-5-enable-background-location-updates-optional}
 
-Um Geofences im Hintergrund zu überwachen, aktivieren Sie bitte den Hintergrundmodus für **Standort-Updates**, indem Sie die `Info.plist`folgende Konfiguration zu Ihrer hinzufügen:
+Um Geofences im Hintergrund zu überwachen, aktivieren Sie den Hintergrundmodus **Location updates**, indem Sie die folgende Konfiguration zu Ihrer `Info.plist` hinzufügen:
 
 ```xml
 <key>UIBackgroundModes</key>
@@ -144,12 +144,12 @@ configuration.Location.DistanceFilter = 8000; // meters
 ```
 
 {% alert important %}
-Bitte stellen`DistanceFilter`Sie einen Wert ein, der den Anforderungen Ihrer App entspricht, um einen übermäßigen Batterieverbrauch zu vermeiden.
+Setzen Sie `DistanceFilter` auf einen Wert, der den Anforderungen Ihrer App entspricht, um einen übermäßigen Batterieverbrauch zu vermeiden.
 {% endalert %}
 
-### Schritt 6: Anfrage für die Standortberechtigung stellen
+### 6. Schritt: Standortautorisierung anfordern {#step-6-request-location-authorization}
 
-Bitte stellen Sie bei den Nutzern:innen entweder `When In Use`die  oder`Always`die  Autorisierung an:
+Fordern Sie entweder die `When In Use`- oder die `Always`-Autorisierung von den Nutzer:innen an:
 
 ```csharp
 using CoreLocation;
@@ -161,7 +161,7 @@ locationManager.RequestAlwaysAuthorization();
 ```
 
 {% alert important %}
-Ohne`Always`Genehmigung schränkt iOS die Ausführung von Ortungsdiensten ein, wenn die App nicht verwendet wird. Dies wird vom Betriebssystem erzwungen und kann vom Braze SDK nicht umgangen werden.
+Ohne die `Always`-Autorisierung schränkt iOS die Ausführung von Standortdiensten ein, wenn die App nicht verwendet wird. Dies wird vom Betriebssystem erzwungen und kann vom Braze SDK nicht umgangen werden.
 {% endalert %}
 {% endtab %}
 {% endtabs %}

@@ -21,6 +21,8 @@ The integration example below is taken from the [Glide integration sample app](h
 
 ```java
 import com.braze.support.BrazeLogger;
+import com.bumptech.glide.load.resource.gif.GifDrawable;
+import android.graphics.drawable.Drawable;
 
 public class GlideBrazeImageLoader implements IBrazeImageLoader {
   private static final String TAG = GlideBrazeImageLoader.class.getName();
@@ -48,16 +50,22 @@ public class GlideBrazeImageLoader implements IBrazeImageLoader {
   }
 
   private void renderUrlIntoView(Context context, String imageUrl, ImageView imageView) {
-    imageView.post(() -> {
-      try {
-        Glide.with(context)
-            .load(imageUrl)
-            .apply(mRequestOptions)
-            .into(imageView);
-      } catch (Exception e) {
-        BrazeLogger.e(TAG, "Failed to render URL into view: " + imageUrl, e);
-      }
-    });
+    try {
+      final Drawable drawable = Glide.with(context)
+          .load(imageUrl)
+          .apply(mRequestOptions)
+          .submit()
+          .get();
+
+      imageView.post(() -> {
+        imageView.setImageDrawable(drawable);
+        if (drawable instanceof GifDrawable) {
+          ((GifDrawable) drawable).start();
+        }
+      });
+    } catch (Exception e) {
+      BrazeLogger.e(TAG, "Failed to render URL into view: " + imageUrl, e);
+    }
   }
 
   private Bitmap getBitmapFromUrl(Context context, String imageUrl, BrazeViewBounds viewBounds) {
@@ -85,6 +93,7 @@ public class GlideBrazeImageLoader implements IBrazeImageLoader {
 
 ```kotlin
 import com.braze.support.BrazeLogger
+import com.bumptech.glide.load.resource.gif.GifDrawable
 
 class GlideBrazeImageLoader : IBrazeImageLoader {
   companion object {
@@ -110,15 +119,21 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
   }
 
   private fun renderUrlIntoView(context: Context, imageUrl: String, imageView: ImageView) {
-    imageView.post {
-      try {
-        Glide.with(context)
-            .load(imageUrl)
-            .apply(mRequestOptions)
-            .into(imageView)
-      } catch (e: Exception) {
-        BrazeLogger.e(TAG, "Failed to render URL into view: $imageUrl", e)
+    try {
+      val drawable = Glide.with(context)
+          .load(imageUrl)
+          .apply(mRequestOptions)
+          .submit()
+          .get()
+
+      imageView.post {
+        imageView.setImageDrawable(drawable)
+        if (drawable is GifDrawable) {
+          drawable.start()
+        }
       }
+    } catch (e: Exception) {
+      BrazeLogger.e(TAG, "Failed to render URL into view: $imageUrl", e)
     }
   }
 
@@ -144,6 +159,52 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
 
 {% endtab %}
 {% endtabs %}
+
+### Fixing image loading for Android SDK 36.0.0 and later
+
+In Android SDK 36.0.0 and later, `displayInAppMessage()` is a `suspend` function. This means `renderUrlIntoInAppMessageView()` runs on a background thread instead of the main thread.
+
+If your custom image loader calls `Glide.into(imageView)` in `renderUrlIntoInAppMessageView()`, your app can fail with "You must call this method on the main thread."
+
+To avoid this:
+
+1. Load the image on the background thread with `submit().get()`.
+2. Post the UI update to the main thread with `imageView.post { ... }`.
+3. If the loaded result is a GIF drawable, start the animation after setting it on the view.
+
+This separates image loading from UI rendering, and keeps your custom image loader compatible with Android SDK 36.0.0 and later.
+
+This guidance applies to Android custom image loaders. Web in-app messages support GIFs out of the box.
+
+The following Kotlin sample uses placeholder values to show this pattern:
+
+```kotlin
+private const val TAG = "SampleGlideLoader"
+private const val glideBrazeImageLoaderTag = "sample-loader"
+
+private fun renderUrlIntoView(
+    context: Context,
+    imageUrl: String,
+    imageView: ImageView
+) {
+    try {
+        val drawable: Drawable = Glide.with(context)
+            .load(imageUrl)
+            .apply(mRequestOptions)
+            .submit()
+            .get()
+
+        imageView.post {
+            imageView.setImageDrawable(drawable)
+            if (drawable is GifDrawable) {
+                drawable.start()
+            }
+        }
+    } catch (e: Exception) {
+        Log.e(TAG, "$glideBrazeImageLoaderTag renderUrlIntoView failed: url=$imageUrl", e)
+    }
+}
+```
 
 ### Step 2: Setting the image loader delegate
 

@@ -1,19 +1,19 @@
 ---
-nav_title: "Apple 개체"
-article_title: Apple 메시징 개체
+nav_title: "Apple 오브젝트"
+article_title: Apple 메시징 오브젝트
 page_order: 1
 page_type: reference
 channel: push
 platform: iOS
-description: "이 참조 문서에서는 Braze에서 사용되는 다양한 Apple 객체를 나열하고 설명합니다."
+description: "이 참조 문서에서는 Braze에서 사용되는 다양한 Apple 오브젝트를 나열하고 설명합니다."
 
 ---
 
-# Apple 푸시 개체
+# Apple 푸시 오브젝트 {#apple-push-object}
 
-> `apple_push` 개체를 사용하면 [메시징 엔드포인트를]({{site.baseurl}}/api/endpoints/messaging) 통해 Apple 푸시 및 Apple 푸시 알림 콘텐츠와 관련된 정보를 정의하거나 요청할 수 있습니다.
+> `apple_push` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 통해 Apple 푸시 및 Apple 푸시 알림 콘텐츠와 관련된 정보를 정의하거나 요청할 수 있습니다.
 
-## Apple 푸시 개체
+## Apple 푸시 오브젝트
 
 ```json
 {
@@ -41,15 +41,15 @@ description: "이 참조 문서에서는 Braze에서 사용되는 다양한 Appl
 }
 ```
 
-타겟팅한 사용자가 iOS 기기에서 푸시를 수신하도록 하려면 `messages`에 Apple 푸시 개체를 포함해야 합니다. `alert` 문자열, `extra` 객체 및 기타 선택적 매개변수의 총 바이트 수는 1912를 초과하지 않아야 합니다. 메시징 API는 Apple에서 허용하는 메시지 크기를 초과하면 오류를 반환합니다. `extra` 객체에 `ab` 또는 `aps` 키가 포함된 메시지는 거부됩니다.
+타겟팅한 사용자가 iOS 기기에서 푸시를 수신하도록 하려면 `messages`에 Apple 푸시 오브젝트를 포함해야 합니다. `alert` 문자열, `extra` 오브젝트 및 기타 선택적 매개변수의 총 바이트 수는 1912를 초과하지 않아야 합니다. 메시징 API는 Apple에서 허용하는 메시지 크기를 초과하면 오류를 반환합니다. `extra` 오브젝트에 `ab` 또는 `aps` 키가 포함된 메시지는 거부됩니다.
 
 {% alert note %}
 Apple 푸시 오브젝트를 라이브 활동 페이로드의 일부로 전송하는 경우 `alert` 오브젝트에 `sound` 문자열을 포함해야 합니다.
 {% endalert %}
 
-### Apple 푸시 알림 개체
+### Apple 푸시 알림 오브젝트 {#apple-push-alert-object}
 
-대부분의 경우 `apple_push` 객체에서 `alert`를 문자열로 지정할 수 있습니다.
+대부분의 경우 `apple_push` 오브젝트에서 `alert`를 문자열로 지정할 수 있습니다.
 
 ```json
 {
@@ -64,7 +64,7 @@ Apple 푸시 오브젝트를 라이브 활동 페이로드의 일부로 전송�
 }
 ```
 
-#### 예시
+#### 예시 {#example}
 
 ```json
 {
@@ -85,22 +85,22 @@ Apple 푸시 오브젝트를 라이브 활동 페이로드의 일부로 전송�
 }
 ```
 
-## Apple 푸시 액션 버튼 개체
+## Apple 푸시 실행 버튼 오브젝트 {#apple-push-action-button-object}
 
-iOS 푸시 액션 버튼을 사용하려면 Apple 푸시 개체에 `category` 필드를 포함해야 합니다. `category` 필드를 포함하면 관련된 모든 푸시 실행 버튼이 표시되며, 버튼의 개별 클릭 동작을 추가로 정의하려는 경우에만 `buttons` 필드를 포함하세요. Braze SDK는 다음 표와 같이 사용할 수 있는 기본 푸시 액션 버튼 세트를 제공합니다. 앱에 등록되어 있는 경우 직접 만든 버튼을 사용할 수도 있습니다.
+iOS 푸시 실행 버튼을 사용하려면 Apple 푸시 오브젝트에 `category` 필드를 포함해야 합니다. `category` 필드를 포함하면 관련된 모든 푸시 실행 버튼이 표시되며, 버튼의 개별 클릭 동작을 추가로 정의하려는 경우에만 `buttons` 필드를 포함하세요. Braze SDK는 다음 표와 같이 사용할 수 있는 기본 푸시 실행 버튼 세트를 제공합니다. 앱에 등록되어 있는 경우 직접 만든 버튼을 사용할 수도 있습니다.
 
-### Braze 기본 버튼용 Apple 푸시 액션 버튼 개체
+### Braze 기본 버튼용 Apple 푸시 실행 버튼 오브젝트 {#apple-push-action-button-object-for-braze-default-buttons}
 
-| 카테고리 식별자   | 버튼 텍스트 | 버튼 동작 식별자 | 허용된 작업         |
+| 카테고리 식별자 | 버튼 텍스트 | 버튼 동작 식별자 | 허용된 동작 |
 |-----------------------|-------------|--------------------------|-------------------------|
-| `ab_cat_accept_decline` | 수락      | `ab_pb_accept`             | OPEN_APP, URI, 또는 DEEP_LINK |
-| `ab_cat_accept_decline` | 거부     | `ab_pb_decline`            | 닫기                   |
-| `ab_cat_yes_no`         | 예         | `ab_pb_yes`                | OPEN_APP, URI, 또는 DEEP_LINK |
-| `ab_cat_yes_no`         | 아니요          | `ab_pb_no`                 | 닫기                   |
-| `ab_cat_confirm_cancel` | 확인     | `ab_pb_confirm`            | OPEN_APP, URI, 또는 DEEP_LINK |
-| `ab_cat_confirm_cancel` | 취소      | `ab_pb_cancel`             | 닫기                   |
-| `ab_cat_more`           | 더 보기        | `ab_pb_more`               | OPEN_APP, URI, 또는 DEEP_LINK |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `ab_cat_accept_decline` | 수락 | `ab_pb_accept` | OPEN_APP, URI, 또는 DEEP_LINK |
+| `ab_cat_accept_decline` | 거부 | `ab_pb_decline` | CLOSE |
+| `ab_cat_yes_no` | 예 | `ab_pb_yes` | OPEN_APP, URI, 또는 DEEP_LINK |
+| `ab_cat_yes_no` | 아니요 | `ab_pb_no` | CLOSE |
+| `ab_cat_confirm_cancel` | 확인 | `ab_pb_confirm` | OPEN_APP, URI, 또는 DEEP_LINK |
+| `ab_cat_confirm_cancel` | 취소 | `ab_pb_cancel` | CLOSE |
+| `ab_cat_more` | 더 보기 | `ab_pb_more` | OPEN_APP, URI, 또는 DEEP_LINK |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Braze 기본 버튼용 Apple 푸시 실행 버튼 오브젝트" }
 
 ```json
 {
@@ -111,7 +111,7 @@ iOS 푸시 액션 버튼을 사용하려면 Apple 푸시 개체에 `category` �
 }
 ```
 
-### 앱에서 정의한 카테고리에 대한 Apple 푸시 액션 버튼 개체
+### 앱에서 정의한 카테고리에 대한 Apple 푸시 실행 버튼 오브젝트 {#apple-push-action-button-object-for-categories-defined-by-your-app}
 
 ```json
 {

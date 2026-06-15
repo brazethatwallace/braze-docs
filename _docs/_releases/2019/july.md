@@ -75,7 +75,7 @@ Look at [multiple campaigns at one time to compare their relative performance]({
 ## Template dispatch ID into messages with Liquid
 
 {% alert note %}
-Behavior for `dispatch_id` differs between Canvas and campaigns because Braze treats Canvas steps (except for entry steps, which can be scheduled) as triggered events, even when they are "scheduled". Learn more about [`dispatch_id` behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/) in Canvases and campaigns.
+Behavior for `dispatch_id` differs between Canvas and campaigns because Braze treats Canvas steps (except for entry steps, which can be scheduled) as triggered events, even when they are "scheduled". Learn more about [`dispatch_id` behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) in Canvases and campaigns.
 {% endalert %}
 
 If you want to track the dispatch of a message from within the message (in a URL, for example), you can template in the `dispatch_id`. You can find the formatting for this in our list of supported personalization tags, under [Canvas Attributes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).

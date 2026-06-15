@@ -31,7 +31,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
 |`preferenceCenterExternalID`| Required | String | The ID for your preference center. |
-{: role="presentation" }
+{: aria-label="Path parameters" }
 
 ## Request parameters
 

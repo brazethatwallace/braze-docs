@@ -1,7 +1,7 @@
 ---
 nav_title: Typeform
 article_title: Typeform
-description: "This article outlines the partnership between Braze and Typeform, an easy-to-use tool for collecting data, feedback, and more."
+description: "이 문서에서는 데이터, 피드백 등을 쉽게 수집할 수 있는 도구인 Braze와 Typeform 간의 파트너십에 대해 설명합니다."
 alias: /partners/typeform/
 page_type: partner
 search_tag: Partner
@@ -9,64 +9,64 @@ search_tag: Partner
 
 # Typeform
 
-> [Typeform](https://www.typeform.com/) is an easy-to-use tool for collecting data, feedback, and more.
+> [Typeform](https://www.typeform.com/)은 데이터, 피드백 등을 쉽게 수집할 수 있는 도구입니다.
 
-By integrating Braze and Typeform, you can:
+Braze와 Typeform을 통합하면 다음을 수행할 수 있습니다.
 
-- Update user profiles in Braze with data collected from their Typeform response
-- Trigger messaging in Braze based on a user’s engagement with a typeform
-- Personalize Braze messaging based on a user’s Typeform responses
+- Typeform 응답에서 수집한 데이터로 Braze의 고객 프로필을 업데이트합니다
+- 사용자의 Typeform 참여를 기반으로 Braze에서 메시징을 트리거합니다
+- 사용자의 Typeform 응답을 기반으로 Braze 메시징을 개인화합니다
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | 설명 |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Typeform account | 이 파트너십을 이용하려면 웹훅에 액세스할 수 있는 Typeform 계정이 필요합니다. |
-| Braze Data Transformation | A [Data Transformation URL]({{site.baseurl}}/data_transformation/) is necessary to receive data from Typeform. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Typeform 계정 | 이 파트너십을 이용하려면 웹훅에 액세스할 수 있는 Typeform 계정이 필요합니다. |
+| Braze 데이터 변환 | Typeform에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation/)이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-### 1단계: Set up the Braze Data Transformation to accept Typeform's webhooks {#step-1}
+### 1단계: Typeform 웹훅을 수신하도록 Braze 데이터 변환 설정하기 {#step-1}
 
 {% multi_lang_include create_transformation.md location="typeform" %}
 
-### 2단계: Set up Typeform webhooks
+### 2단계: Typeform 웹훅 설정하기 {#step-2-set-up-typeform-webhooks}
 
-Follow the steps in [Typeform's webhooks documentation](https://www.typeform.com/help/a/webhooks-360029573471/) to set up a webhook.
+[Typeform 웹훅 설명서](https://www.typeform.com/help/a/webhooks-360029573471/)의 단계를 따라 웹훅을 설정합니다.
 
-For step 4, add your Data Transformation webhook URL as the **Destination URL**
+4단계에서 데이터 변환 웹훅 URL을 **Destination URL**로 추가합니다.
 
 ![]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
 
-Send a test event to your Data Transformation by clicking **View deliveries** and then **Send test request**.
+**View deliveries**를 클릭한 다음 **Send test request**를 클릭하여 데이터 변환에 테스트 이벤트를 전송합니다.
 
 ![]({% image_buster /assets/img/typeform/typeform_test_request.png %})
 
-### 3단계: Write transformation code to accept your chosen Typeform events
+### 3단계: 선택한 Typeform 이벤트를 수신하는 변환 코드 작성하기 {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
 
-이 단계에서는 Typeform에서 전송된 웹훅 페이로드를 JavaScript 객체 반환 값으로 변환합니다.
+이 단계에서는 Typeform에서 전송된 웹훅 페이로드를 JavaScript 오브젝트 반환 값으로 변환합니다.
 
-1. Refresh your Data Transformation and make sure you can see the Typeform test payload in the **Webhook Details**.
-2. Update your Data Transformation code to support your chosen Typeform events.
-3. Click **Validate** to return a preview of your code’s output and to check if it’s an acceptable `/users/track` request.
-4. Save and activate your Data Transformation.
+1. 데이터 변환을 새로고침하고 **Webhook Details**에서 Typeform 테스트 페이로드를 확인할 수 있는지 확인합니다.
+2. 선택한 Typeform 이벤트를 지원하도록 데이터 변환 코드를 업데이트합니다.
+3. **Validate**를 클릭하여 코드 출력의 미리보기를 반환하고 유효한 `/users/track` 요청인지 확인합니다.
+4. 데이터 변환을 저장하고 활성화합니다.
 
 ![]({% image_buster /assets/img/typeform/typeform_test_result.png %})
 
-#### Request body format
+#### 요청 본문 형식 {#request-body-format}
 
-This return value must adhere to Braze’s `/users/track` request body format:
+이 반환 값은 Braze의 `/users/track` 요청 본문 형식을 준수해야 합니다.
 
-- Transformation code is accepted in the JavaScript programming language. Any standard JavaScript control flow, such as if/else logic, is supported.
-- Transformation code accesses the webhook request body via the payload variable. This variable is an object populated by parsing the request body JSON.
-- Any feature supported in our `/users/track` endpoint is supported, including:
-    - User attributes objects, event objects, and purchase objects
-    - Nested attributes and nested custom event properties
-    - Subscription group updates
-    - Email address as an identifier
+- 변환 코드는 JavaScript 프로그래밍 언어로 작성됩니다. if/else 로직과 같은 모든 표준 JavaScript 제어 흐름이 지원됩니다.
+- 변환 코드는 payload 변수를 통해 웹훅 요청 본문에 액세스합니다. 이 변수는 요청 본문 JSON을 파싱하여 채워진 오브젝트입니다.
+- `/users/track` 엔드포인트에서 지원하는 모든 기능이 지원되며, 여기에는 다음이 포함됩니다.
+    - 사용자 속성 오브젝트, 이벤트 오브젝트 및 구매 오브젝트
+    - 중첩 속성 및 중첩 커스텀 이벤트 등록정보
+    - 구독 그룹 업데이트
+    - 식별자로서의 이메일 주소
 
-## Example Typeform webhook payload
+## Typeform 웹훅 페이로드 예시 {#example-typeform-webhook-payload}
 
 ```http
 Content-Type: application/json
@@ -79,8 +79,8 @@ Content-Type: application/json
     "token": "7pctqdoqxg41to97pctqdibhqn6hqvto",
     "landed_at": "2023-10-06T23:57:52Z",
     "submitted_at": "2023-10-06T23:58:18Z",
-    "hidden": { 
-		"user_id": "hidden_value" 
+    "hidden": {
+		"user_id": "hidden_value"
     },
     "definition": {
       "id": "uaIA4a7Y",
@@ -322,22 +322,22 @@ Content-Type: application/json
 }
 ```
 
-## Data Transformation use cases
+## 데이터 변환 활용 사례 {#data-transformation-use-cases}
 
-The following are example templates built using our [example Typeform webhook payload](#example-typeform-webhook-payload). These templates can be used as a starting point. You can start from scratch or delete specific components as you see fit.
+다음은 [Typeform 웹훅 페이로드 예시](#example-typeform-webhook-payload)를 사용하여 구축한 예시 템플릿입니다. 이 템플릿은 시작점으로 사용할 수 있습니다. 처음부터 시작하거나 필요에 따라 특정 구성요소를 삭제할 수 있습니다.
 
-In these example templates, we are logging a custom event to the Braze profile. 유형 양식의 제목은 커스텀 이벤트 이름으로 전달되고 유형 양식 결과는 이벤트 속성정보로 전달됩니다. These example templates do not account for the Calendly, File Upload, or Payment question types in Typeform.
+이 예시 템플릿에서는 Braze 프로필에 커스텀 이벤트를 기록합니다. Typeform의 제목이 커스텀 이벤트 이름으로 전달되고, Typeform 결과가 이벤트 등록정보로 전달됩니다. 이 예시 템플릿은 Typeform의 Calendly, 파일 업로드 또는 결제 질문 유형을 지원하지 않습니다.
 
-### Use case: Email as identifier
+### 활용 사례: 이메일을 식별자로 사용 {#use-case-email-as-identifier}
 
-In this example template, we are using an email address (captured from an email address question within the typeform) as the identifier.
+이 예시 템플릿에서는 Typeform 내 이메일 주소 질문에서 캡처한 이메일 주소를 식별자로 사용합니다.
 
 {% alert note %}
-If you intend to use an email address as an identifier, review our [frequently asked questions]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) for the `/users/track` endpoint for more information on expected behavior.
+이메일 주소를 식별자로 사용하려는 경우, 예상 동작에 대한 자세한 내용은 `/users/track` 엔드포인트의 [자주 묻는 질문]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#frequently-asked-questions)을 참조하세요.
 {% endalert %}
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 
 ```javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
@@ -409,7 +409,7 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 
 ```json
 {
@@ -470,14 +470,14 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### Use case: Using identifier passed in Hidden Fields
+### 활용 사례: 숨겨진 필드에 전달된 식별자 사용 {#use-case-using-identifier-passed-in-hidden-fields}
 
-You can use Typeform Hidden Fields to pass data in the Typeform webhook payload, such as a user's ID, without having to pass this information in the Typeform response.
+Typeform 숨겨진 필드를 사용하면 사용자의 ID와 같은 데이터를 Typeform 응답에 포함하지 않고도 Typeform 웹훅 페이로드에 전달할 수 있습니다.
 
-이 예제 템플릿에서는 "user_id" 숨겨진 필드를 사용하고 이를 `/users/track` 요청 페이로드에 `external_id` 로 전달하고 있습니다. "user_id", 을 사용하고 있지만 필요에 따라 필드를 수정할 수 있습니다.
+이 예시 템플릿에서는 "user_id" 숨겨진 필드를 사용하고 이를 `/users/track` 요청 페이로드에 `external_id`로 전달합니다. "user_id"를 사용하고 있지만 필요에 따라 필드를 수정할 수 있습니다.
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 
 ```javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
@@ -549,7 +549,7 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 
 ```json
 {
@@ -610,14 +610,14 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### 4단계: Publish your Typeform webhook
+### 4단계: Typeform 웹훅 게시하기 {#step-4-publish-your-typeform-webhook}
 
-After you have written your data transformation, click **Validate** to make your Data Transformation code is formatted correctly and will work as expected. Then, save and activate your Data Transformation.
+데이터 변환 작성을 완료한 후 **Validate**를 클릭하여 데이터 변환 코드가 올바르게 포맷되었는지, 예상대로 작동하는지 확인합니다. 그런 다음 데이터 변환을 저장하고 활성화합니다.
 
 활성화하면 사용자가 양식을 작성할 때 커스텀 이벤트 데이터가 사용자 프로필에 기록됩니다.
 
 ![]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
-## Monitoring and troubleshooting
+## 모니터링 및 문제 해결 {#monitoring-and-troubleshooting}
 
-See the section [Monitoring your transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation) for more information on monitoring and troubleshooting your transformation.
+변환 모니터링 및 문제 해결에 대한 자세한 내용은 [변환 모니터링]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation) 섹션을 참조하세요.

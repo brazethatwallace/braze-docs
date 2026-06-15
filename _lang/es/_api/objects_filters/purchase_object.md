@@ -7,17 +7,17 @@ description: "Este artículo de referencia explica los distintos componentes de 
 
 ---
 
-# Objeto de compra
+# Objeto de compra {#purchase-object}
 
 > Este artículo explica los distintos componentes de un objeto de compra, cómo utilizarlo correctamente, las mejores prácticas y ejemplos en los que inspirarse.
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-## ¿Qué es un objeto de compra?
+## ¿Qué es un objeto de compra? {#what-is-a-purchase-object}
 
-Un objeto de compra es un objeto que se pasa a través de la API cuando se ha realizado una compra. Cada objeto de compra está ubicado dentro de una matriz de objetos de compra, siendo cada objeto una única compra realizada por un usuario concreto en un momento determinado. El objeto de compra tiene muchos campos diferentes que permiten al backend de Braze almacenar y utilizar esta información para la personalización, la recopilación de datos y la personalización.
+Un objeto de compra es un objeto que se pasa a través de la API cuando se ha realizado una compra. Cada objeto de compra está ubicado dentro de una matriz de compras, siendo cada objeto una única compra realizada por un usuario concreto en un momento determinado. El objeto de compra tiene muchos campos diferentes que permiten al backend de Braze almacenar y utilizar esta información para la personalización, la recopilación de datos y la personalización.
 
-### Cuerpo del objeto
+### Cuerpo del objeto {#object-body}
 
 ```json
 {
@@ -43,29 +43,29 @@ Un objeto de compra es un objeto que se pasa a través de la API cuando se ha re
 }
 ```
 
-- [ID usuario externo]({{site.baseurl}}/api/basics/#user-ids)
+- [ID de usuario externo]({{site.baseurl}}/api/basics/#user-ids)
 - [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types/)
 - [Wiki de código de divisa ISO 4217](http://en.wikipedia.org/wiki/ISO_4217)
 - [Wiki de código de hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Algunos pares de identificadores no se pueden utilizar juntos, y`email`  tiene prioridad sobre`phone`  cuando se proporcionan ambos. Para obtener más información, consulta [Resolución]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution) de [identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Algunos pares de identificadores no se pueden utilizar juntos, y `email` tiene prioridad sobre `phone` cuando se proporcionan ambos. Para obtener más información, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
 {% endalert %}
 
-## Comprar ID del producto
+## ID del producto de compra {#purchase-product-id}
 
 Dentro del objeto de compra, el `product_id` es un identificador de la compra (como `Product Name` o `Product Category`):
 
-- Braze te permite almacenar hasta 5000 `product_id` en el panel.
-- La dirección `product_id` puede tener hasta 255 caracteres.
+- Braze te permite almacenar hasta 5000 `product_id` en el dashboard.
+- El `product_id` puede tener hasta 255 caracteres.
 
-### Convenciones de denominación
+### Convenciones de denominación {#naming-conventions}
 
-En Braze, ofrecemos algunas convenciones generales de nomenclatura para el objeto de compra `product_id`. Al elegir `product_id`, Braze sugiere utilizar nombres simplistas como el nombre del producto o la categoría del producto (en lugar de SKU) con la intención de agrupar todos los artículos registrados por este `product_id`.
+En Braze, ofrecemos algunas convenciones generales de nomenclatura para el `product_id` del objeto de compra. Al elegir `product_id`, Braze sugiere utilizar nombres simplistas como el nombre del producto o la categoría del producto (en lugar de SKU) con la intención de agrupar todos los artículos registrados por este `product_id`.
 
 Esto ayuda a que los productos sean más fáciles de identificar para la segmentación y la activación.
 
-### Registrar las compras a nivel de pedido
+### Registrar las compras a nivel de pedido {#log-purchases-at-the-order-level}
 
 Si quieres registrar las compras a nivel de pedido en lugar de a nivel de producto, puedes utilizar el nombre del pedido o la categoría del pedido como `product_id` (como `Online Order` o `Completed Order`).
 
@@ -94,39 +94,27 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Objeto propiedades de compra
+## Objeto de propiedades de compra {#purchase-properties-object}
 
-Los eventos personalizados y las compras pueden tener propiedades del evento. Los valores de las "propiedades" deben ser un objeto en el que las claves son los nombres de las propiedades y los valores son los valores de las propiedades. Los nombres de propiedad deben ser cadenas no vacías de menos o igual a 255 caracteres, sin signos de dólar al principio.
+{% include data_activation/purchase_event_property_data_types.md %}
 
-Los valores de propiedad pueden ser cualquiera de los siguientes tipos de datos:
+Para una referencia consolidada de los tipos de datos en atributos personalizados, propiedades del evento y catálogos, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#purchase-event-property-data-types).
 
-| Tipo de datos | Descripción |
-| --- | --- |
-| Números | Como [números enteros](https://en.wikipedia.org/wiki/Integer) o [flotantes](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
-| Booleanos |  |
-| Fechas y horas | Formateados como cadenas en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) o `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. No se admite dentro de matrices. |
-| Cadenas | 255 caracteres o menos. |
-| Matrices | Las matrices no pueden incluir fechas. |
-| Objetos | Los objetos se ingieren como cadenas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-Los objetos de propiedades del evento que contienen valores de matrices u objetos pueden tener una carga útil de propiedades del evento de hasta 50 KB.
-
-### Propiedades de la compra
+### Propiedades de la compra {#purchase-properties}
 
 [Las propiedades de la compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) pueden utilizarse para desencadenar mensajes y para la personalización mediante Liquid, permitiéndote también segmentar en función de estas propiedades.
 
-#### Convenciones de denominación
+#### Convenciones de denominación {#naming-conventions}
 
-Es importante tener en cuenta que esta característica se activa **por producto**, no por compra. Por ejemplo, si tienes un gran volumen de productos distintos, pero todos tienen las mismas propiedades, la segmentación puede ser innecesaria.
+Es importante tener en cuenta que esta característica se activa **por producto**, no por compra. Por ejemplo, si tienes un gran volumen de productos distintos, pero todos tienen las mismas propiedades, la segmentación puede resultar innecesaria.
 
-En esta instancia, recomendamos utilizar nombres de productos a «nivel de grupo» en lugar de identificadores a nivel de transacción al configurar las estructuras de datos. Por ejemplo, una empresa de billetes de tren debería tener productos para "viaje de ida", "viaje de vuelta", "multiciudad", y no transacciones específicas como "transacción 123" o "transacción 046". Como otro ejemplo, con el evento de compra «comida», lo mejor sería establecer las propiedades como «pastel» y «sándwich».
+En este caso, recomendamos utilizar nombres de productos a «nivel de grupo» en lugar de identificadores a nivel de transacción al configurar las estructuras de datos. Por ejemplo, una empresa de billetes de tren debería tener productos para "viaje de ida", "viaje de vuelta", "multiciudad", y no transacciones específicas como "transacción 123" o "transacción 046". Como otro ejemplo, con el evento de compra «comida», lo mejor sería establecer las propiedades como «pastel» y «sándwich».
 
 {% alert important %}
-Ten en cuenta que los productos se pueden añadir a través de la API REST de Braze. Por ejemplo, si envías una llamada al`/users/track`  punto final e incluyes un nuevo ID de compra, Braze crea automáticamente un producto en la sección **Configuración de datos** > **Productos** del panel de Braze.
+Ten en cuenta que los productos se pueden añadir a través de la REST API de Braze. Por ejemplo, si envías una llamada al punto de conexión `/users/track` e incluyes un nuevo ID de compra, Braze crea automáticamente un producto en la sección **Configuración de datos** > **Productos** del dashboard.
 {% endalert %}
 
-### Ejemplo de objeto de compra
+### Ejemplo de objeto de compra {#example-purchase-object}
 
 ```html
 POST https://YOUR_REST_API_URL/users/track
@@ -176,10 +164,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-### Objetos de compra, objetos de evento y webhooks
+### Objetos de compra, objetos de evento y webhooks {#purchase-objects-event-objects-and-webhooks}
 
-Utilizando el ejemplo proporcionado, podemos ver que alguien compró una mochila con las propiedades: color, monograma, duración de la compra, tamaño y marca. A continuación, podemos crear segmentos con estas propiedades utilizando [las propiedades del evento de compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) o enviar mensajes personalizados a través de un canal utilizando Liquid. Por ejemplo: "Hola, **Ann F.**, gracias por comprar esa **mochila roja mediana** por ** 40,00 dólares**. Gracias por comprar en **Backpack Locker**".
+Utilizando el ejemplo proporcionado, podemos ver que alguien compró una mochila con las propiedades: color, monograma, duración de la compra, tamaño y marca. A continuación, podemos crear segmentos con estas propiedades utilizando [las propiedades del evento de compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) o enviar mensajes personalizados a través de un canal utilizando Liquid. Por ejemplo: "Hola, **Ann F.**, gracias por comprar esa **mochila roja mediana** por **40,00 $**. ¡Gracias por comprar en **Backpack Locker**!"
 
-Si quieres guardar, almacenar y hacer un seguimiento de las propiedades para segmentar, tienes que configurarlas como atributos personalizados. Esto puede hacerse utilizando [las extensiones de segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/), que te permiten dirigirte a los usuarios basándote en un evento personalizado o en el comportamiento de compra almacenado durante toda la vida de ese perfil de usuario.
-
-
+Si quieres guardar, almacenar y hacer un seguimiento de las propiedades para segmentar, tienes que configurarlas como atributos personalizados. Esto puede hacerse utilizando [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), que te permiten dirigirte a los usuarios basándote en un evento personalizado o en el comportamiento de compra almacenado durante toda la vida de ese perfil de usuario.

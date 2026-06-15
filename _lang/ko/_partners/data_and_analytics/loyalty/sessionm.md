@@ -1,61 +1,57 @@
---- 
+---
 nav_title: SessionM
 article_title: SessionM
-description: "This reference article outlines the partnership between Braze and SessionM, a customer engagement and loyalty platform."
+description: "이 참조 문서에서는 고객 참여 및 로열티 플랫폼인 Braze와 SessionM 간의 파트너십에 대해 설명합니다."
 alias: /partners/sessionm/
 page_type: partner
 search_tag: Partner
---- 
+---
 
-# SessionM Loyalty Platform
+# SessionM 로열티 플랫폼 {#sessionm-loyalty-platform}
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) is a customer engagement and loyalty platform that provides campaign management features and loyalty management solutions to help marketers drive targeted outreach to increase engagement and profitability.
+> [SessionM](https://sessionm.com/)은 Capillary Technologies의 일부로, 마케터가 타겟팅된 아웃리치를 통해 참여와 수익성을 높일 수 있도록 캠페인 관리 기능과 로열티 관리 솔루션을 제공하는 고객 참여 및 로열티 플랫폼입니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Source | Requirement | Description |
+| 소스 | 요구 사항 | 설명 |
 | --- | --- | --- |
-| Braze | A Braze REST API key | A Braze REST API key with `trigger_send` permissions. This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze | A Braze REST endpoint | Your REST endpoint URL. Your endpoint will depend on the Braze URL for [your instance]({{site.baseurl}}/api/basics/#endpoints). |
-| Braze and SessionM | Matching identifier | To use the integration, ensure that both SessionM and Braze have a record of the identifiers used by each platform. References to `user_id` correspond to SessionM's user identifier generated at the time of profile creation in SessionM. |
-| SessionM | A SessionM account | A SessionM account is required to take advantage of this partnership. |
-| SessionM | A SessionM Core REST endpoint | Your endpoint will depend on the SessionM URL of your instance. This can be created in the SessionM dashboard from **Digital Properties**. |
-| SessionM | A SessionM Core REST API key | The SessionM API key associated with your instance and the Braze integration. This key can be used for all core based calls including tags. This can be created in the SessionM dashboard from **Digital Properties**. |
-| SessionM | A SessionM Core REST API secret | The SessionM API secret associated with your instance and the Braze integration. This key can be used for all core based calls including tags. This can be created in the SessionM dashboard from **Digital Properties**. |
-| SessionM | A SessionM Connect REST endpoint | Your endpoint will depend on the SessionM URL of your instance. 세션엠 기술 계정 매니저 또는 전달 팀에 문의하세요. |
-| SessionM | A SessionM Connect REST Authorization string | The SessionM Connect Basic Authorization string associated with your instance. 이 인증 문자열은 다음을 포함한 모든 연결 기반 호출에 사용할 수 있습니다 get_user_offers. 세션엠 기술 계정 매니저 또는 전달 팀에 문의하여 제공하세요. |
-| SessionM | A SessionM Connect REST Retailer ID | A unique guid identification to the specific customer associated with your instance. 세션엠 기술 계정 매니저 또는 전달 팀에 문의하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Braze | Braze REST API 키 | `trigger_send` 권한이 있는 Braze REST API 키입니다. Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze | Braze REST 엔드포인트 | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)의 Braze URL에 따라 달라집니다. |
+| Braze 및 SessionM | 일치하는 식별자 | 통합을 사용하려면 SessionM과 Braze 모두 각 플랫폼에서 사용하는 식별자의 기록을 보유하고 있어야 합니다. `user_id`에 대한 참조는 SessionM에서 프로필 생성 시 생성된 SessionM의 사용자 식별자에 해당합니다. |
+| SessionM | SessionM 계정 | 이 파트너십을 활용하려면 SessionM 계정이 필요합니다. |
+| SessionM | SessionM Core REST 엔드포인트 | 엔드포인트는 인스턴스의 SessionM URL에 따라 달라집니다. SessionM 대시보드의 **Digital Properties**에서 생성할 수 있습니다. |
+| SessionM | SessionM Core REST API 키 | 인스턴스 및 Braze 통합과 연결된 SessionM API 키입니다. 이 키는 태그를 포함한 모든 코어 기반 호출에 사용할 수 있습니다. SessionM 대시보드의 **Digital Properties**에서 생성할 수 있습니다. |
+| SessionM | SessionM Core REST API 시크릿 | 인스턴스 및 Braze 통합과 연결된 SessionM API 시크릿입니다. 이 키는 태그를 포함한 모든 코어 기반 호출에 사용할 수 있습니다. SessionM 대시보드의 **Digital Properties**에서 생성할 수 있습니다. |
+| SessionM | SessionM Connect REST 엔드포인트 | 엔드포인트는 인스턴스의 SessionM URL에 따라 달라집니다. SessionM 기술 계정 매니저 또는 전달 팀에 문의하여 제공받으세요. |
+| SessionM | SessionM Connect REST 승인 문자열 | 인스턴스와 연결된 SessionM Connect 기본 승인 문자열입니다. 이 인증 문자열은 get_user_offers를 포함한 모든 연결 기반 호출에 사용할 수 있습니다. SessionM 기술 계정 매니저 또는 전달 팀에 문의하여 제공받으세요. |
+| SessionM | SessionM Connect REST 리테일러 ID | 인스턴스와 연결된 특정 고객에 대한 고유 GUID 식별자입니다. SessionM 기술 계정 매니저 또는 전달 팀에 문의하여 제공받으세요. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
-{% alert note %}
-If you are using the [older navigation]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/), you can create an API key at **Developer Console** > **API Settings**.
-{% endalert %} 
+## 활용 사례 {#use-cases}
 
-## Use cases
+다음 활용 사례는 SessionM과 Braze 통합을 활용하는 몇 가지 방법을 보여줍니다.
 
-The following use cases showcase a few ways to leverage the SessionM and Braze integration.
+- 모든 로열티, 고객 관리 및 메시징 플랫폼의 데이터를 통합하는 세분화를 생성합니다.
+- 강력한 세분화를 사용하여 특정 사용자 집합을 오퍼 및 프로모션으로 타겟팅합니다.
+- 메시지 발송 시 최신 사용자, 오퍼 및 로열티 정보를 활용합니다.
+- 프로모션 및 로열티 활동의 진행 상황과 완료에 대한 상세한 알림을 고객에게 제공합니다.
+- 새로운 오퍼가 부여되면 고객에게 알리고 오퍼 세부 정보를 제공합니다.
 
-- Create segmentation that incorporates data across all loyalty, customer management, and messaging platforms.
-- Use robust segmentation to target specific user sets with offers and promotions.
-- Take advantage of the most up-to-date user, offer, and loyalty information when sending messages.
-- Provide detailed notifications to customers on the progress and completion of promotional and loyalty activities.
-- Notify customers when a new offer is awarded and provide the offer details.
+## SessionM과 Braze 통합 {#integrating-sessionm-with-braze}
 
-## Integrating SessionM with Braze
+### 1단계: Braze에서 세그먼트 생성 {#step-1-create-a-segment-in-braze}
 
-### Step 1: Create a segment in Braze
-
-In Braze, create a segment of users to target with SessionM promotions and offers. 
+Braze에서 SessionM 프로모션 및 오퍼로 타겟팅할 사용자 세그먼트를 생성합니다.
 
 !["커스텀 속성" 필터가 선택된 세그먼트 빌더.]({% image_buster /assets/img/sessionm/CreateSegment.png %})
 
-### 2단계: Import Braze segments into SessionM
+### 2단계: Braze 세그먼트를 SessionM으로 가져오기 {#step-2-import-braze-segments-into-sessionm}
 
-#### Option 1: Export to the SessionM Tag endpoint (recommended)
+#### 옵션 1: SessionM 태그 엔드포인트로 내보내기(권장) {#option-1-export-to-the-sessionm-tag-endpoint-recommended}
 
-First, create a webhook campaign in Braze and set the webhook URL to {% raw %}`{{endpoint_core}}/priv/v1/apps/{{appkey_core}}/users/{{${user_id}}}/tags`{% endraw %}. Use Liquid to define the `user_id` within the URL. 
+먼저 Braze에서 웹훅 캠페인을 생성하고 웹훅 URL을 {% raw %}`{{endpoint_core}}/priv/v1/apps/{{appkey_core}}/users/{{${user_id}}}/tags`{% endraw %}로 설정합니다. Liquid를 사용하여 URL 내에서 `user_id`를 정의합니다.
 
-Using a raw text **Request Body**, compose the webhook body to include the desired tags to be added to the user profile in SessionM and the desired time to live. 예를 들면 다음과 같습니다:
+원시 텍스트 **Request Body**를 사용하여 SessionM의 고객 프로필에 추가할 원하는 태그와 원하는 유지 시간을 포함하도록 웹훅 본문을 작성합니다. 예를 들면 다음과 같습니다:
 
  ```
  {
@@ -68,18 +64,18 @@ Using a raw text **Request Body**, compose the webhook body to include the desir
 
 ![]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
 
-In the **Settings** tab, add the key-value pairs for each request header field:
-    \- Create a key `Content-Type` with a corresponding value `application/json`
-    \- Create a key `Authorization` with a corresponding value `Basic YOUR-ENCODED-STRING-KEY`. Contact your SessionM team for the encoded string key for your endpoint. 
+**Settings** 탭에서 각 요청 헤더 필드에 대한 키-값 페어를 추가합니다:
+    - 키 `Content-Type`을 생성하고 해당 값을 `application/json`으로 설정합니다.
+    - 키 `Authorization`을 생성하고 해당 값을 `Basic YOUR-ENCODED-STRING-KEY`로 설정합니다. 엔드포인트의 인코딩된 문자열 키는 SessionM 팀에 문의하세요.
 
 ![웹훅 설정.]({% image_buster /assets/img/sessionm/SessionMWebhookSettings.png %}){: style="max-width:85%;"}
 
-Schedule your delivery, set your **Target Audiences** to target the segment [you created previously](#step-1-create-a-segment-in-braze), then launch your campaign.
+전달을 스케줄하고, **Target Audiences**를 [이전에 생성한](#step-1-create-a-segment-in-braze) 세그먼트로 타겟팅하도록 설정한 다음 캠페인을 시작합니다.
 
 {% alert important %}
-This process can also be done through an API client, such as Postman, by making a request directly to the [SessionM Tag endpoint](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) specifying the customer, the tag name, and a time to live for each user in the call (single user per call).
+이 프로세스는 Postman과 같은 API 클라이언트를 통해 [SessionM 태그 엔드포인트](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag)에 직접 요청하여 고객, 태그 이름 및 호출 내 각 사용자의 유지 시간을 지정하는 방식으로도 수행할 수 있습니다(호출당 단일 사용자).
 <br><br>
-The following example request uses cURL. 
+다음 예시 요청은 cURL을 사용합니다.
 
 {% raw %}
 ```bash
@@ -97,31 +93,31 @@ curl --location -g --request POST '{{endpoint_core}}/priv/v1/apps/{{apikey_core}
 {% endraw %}
 {% endalert %}
 
-#### Option 2: CSV import
+#### 옵션 2: CSV 가져오기 {#option-2-csv-import}
 
-Export your Braze segment using the Braze segmenter and provide a CSV file to SessionM that contains the customers to tag, the tag name, and a time to live for each user in the file.
+Braze 세그먼터를 사용하여 Braze 세그먼트를 내보내고, 태그할 고객, 태그 이름 및 파일 내 각 사용자의 유지 시간이 포함된 CSV 파일을 SessionM에 제공합니다.
 
-## Retrieving real-time offer wallet with Braze
+## Braze를 통한 실시간 오퍼 월렛 조회 {#retrieving-real-time-offer-wallet-with-braze}
 
-Integrating SessionM with Braze allows for the real-time pulling of SessionM user data at time of message send, using Connected Content, to eliminate the risk of communicating outdated, expired or already redeemed loyalty offers to customers. 
+SessionM과 Braze를 통합하면 연결된 콘텐츠를 사용하여 메시지 발송 시점에 SessionM 사용자 데이터를 실시간으로 가져올 수 있으므로, 만료되었거나 이미 사용된 로열티 오퍼를 고객에게 전달하는 위험을 제거할 수 있습니다.
 
-The following example shows Connected Content being used to template offer wallet data into a message. However, Connected Content can be used with any of SessionM's Connect endpoints. 
+다음 예시는 연결된 콘텐츠를 사용하여 오퍼 월렛 데이터를 메시지에 템플릿화하는 방법을 보여줍니다. 그러나 연결된 콘텐츠는 SessionM의 모든 Connect 엔드포인트에서 사용할 수 있습니다.
 
-### Step 1: Issue offer in SessionM
+### 1단계: SessionM에서 오퍼 발행 {#step-1-issue-offer-in-sessionm}
 
-SessionM issues offers to customers from several different internal levers that can be configured. After being issued, the offers are moved to a state which SessionM calls the “offer wallet”.
+SessionM은 구성 가능한 여러 내부 레버를 통해 고객에게 오퍼를 발행합니다. 발행된 후 오퍼는 SessionM에서 "오퍼 월렛"이라고 부르는 상태로 이동합니다.
 
-A customer must complete the required action or meet the targeting and is issued the offer within SessionM.
+고객은 필요한 동작을 완료하거나 타겟팅 조건을 충족해야 하며, 그러면 SessionM 내에서 오퍼가 발행됩니다.
 
-SessionM then adds the offer to the customer's wallet in the issued state.
+그런 다음 SessionM은 발행된 상태로 고객의 월렛에 오퍼를 추가합니다.
 
-### Step 2: Call SessionM Offer Wallet API
+### 2단계: SessionM 오퍼 월렛 API 호출 {#step-2-call-sessionm-offer-wallet-api}
 
-In campaign or Canvas step with the SessionM offers, use [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/) to make an API call to the [SessionM `get_user_offers` endpoint](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/).
+SessionM 오퍼가 포함된 Campaign 또는 캔버스 단계에서 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)를 사용하여 [SessionM `get_user_offers` 엔드포인트](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/)에 API 호출을 수행합니다.
 
-In the Connected Content request, specify the user's SessionM `user_id` and your `retailer_id` to retrieve the full list of active offers the customer has in their wallet. Each request to this endpoint can include a single user. Contact the SessionM team for the encoded string key for the basic authorization header in your Connected Content call.
+연결된 콘텐츠 요청에서 사용자의 SessionM `user_id`와 `retailer_id`를 지정하여 고객이 월렛에 보유한 활성 오퍼의 전체 목록을 조회합니다. 이 엔드포인트에 대한 각 요청에는 단일 사용자만 포함할 수 있습니다. 연결된 콘텐츠 호출의 기본 승인 헤더에 사용할 인코딩된 문자열 키는 SessionM 팀에 문의하세요.
 
-In the request body, `culture` defaults to `en-US`, but you can use Liquid to template a user's language for multi-lingual SessionM offers (for example, by using {% raw %}`"culture":"{{${language}}}"`{% endraw %}).
+요청 본문에서 `culture`의 기본값은 `en-US`이지만, 다국어 SessionM 오퍼를 위해 Liquid를 사용하여 사용자의 언어를 템플릿화할 수 있습니다(예: {% raw %}`"culture":"{{${language}}}"`{% endraw %} 사용).
 
 {% raw %}
 ```
@@ -131,7 +127,7 @@ In the request body, `culture` defaults to `en-US`, but you can use Liquid to te
 
 {% connected_content
      {{endpoint_connect}}/offers/api/2.0/offers/get_user_offers
-:method post     
+:method post
 :headers {
        "Content-Type": "application/json",
        "Authorization": "Basic YOUR-BASE64-ENCODED-KEY"
@@ -142,9 +138,9 @@ In the request body, `culture` defaults to `en-US`, but you can use Liquid to te
 ```
 {% endraw %}
 
-### Step 3: Populate offer wallet to Braze messaging
+### 3단계: Braze 메시징에 오퍼 월렛 채우기 {#step-3-populate-offer-wallet-to-braze-messaging}
 
-After a request is made to the endpoint, SessionM returns the complete list of offers in the issued state, along with the full details for each offer. This is an example returned response:
+엔드포인트에 요청이 이루어지면 SessionM은 발행된 상태의 전체 오퍼 목록과 각 오퍼의 전체 세부 정보를 반환합니다. 다음은 반환된 응답의 예시입니다:
 
 {% raw %}
 ```
@@ -187,21 +183,21 @@ After a request is made to the endpoint, SessionM returns the complete list of o
 ```
 {% endraw %}
 
-Using Liquid dot notation, this can be populated into the message. For example, to personalize the message with the resulting `offer_id`, you could leverage the return payload by using {% raw %}`{{wallet.payload.available_points}}`{% endraw %}, which returns `100`.
+Liquid 점 표기법을 사용하여 메시지에 채울 수 있습니다. 예를 들어, 결과 `offer_id`로 메시지를 개인화하려면 {% raw %}`{{wallet.payload.available_points}}`{% endraw %}를 사용하여 반환 페이로드를 활용할 수 있으며, 이는 `100`을 반환합니다.
 
 {% alert note %}
-This is an individual API. 500명 이상의 사용자를 일괄 전송하려는 경우 SessionM 계정 팀에 문의하여 통합에 일괄 데이터를 통합하는 방법에 대해 문의하세요.
+이것은 개별 API입니다. 500명 이상의 사용자를 일괄 발송하려는 경우 SessionM 계정 팀에 문의하여 통합에 대량 데이터를 포함하는 방법을 확인하세요.
 {% endalert %}
 
-## Setting up triggered messaging
+## 트리거 메시징 설정 {#setting-up-triggered-messaging}
 
-The integration between SessionM and Braze allows user profile data, offer details, and point balances to be dynamically populated into messaging and sent in real-time to the customer at the point of action.
+SessionM과 Braze 간의 통합을 통해 고객 프로필 데이터, 오퍼 세부 정보 및 포인트 잔액을 메시징에 동적으로 채우고 동작 시점에 실시간으로 고객에게 발송할 수 있습니다.
 
-### Step 1: SessionM Delivery team configures templates
+### 1단계: SessionM 전달 팀이 템플릿 구성 {#step-1-sessionm-delivery-team-configures-templates}
 
-Collaborate with your SessionM Delivery team to develop templates for use in your triggered messaging. SessionM will insert user profile data, offer details, and point balances into the messaging and trigger them in Braze for real-time customer messaging.
+SessionM 전달 팀과 협력하여 트리거 메시징에 사용할 템플릿을 개발합니다. SessionM은 고객 프로필 데이터, 오퍼 세부 정보 및 포인트 잔액을 메시징에 삽입하고 Braze에서 실시간 고객 메시징을 위해 트리거합니다.
 
-Standard fields present in all templates from SessionM include:
+SessionM의 모든 템플릿에 포함된 표준 필드는 다음과 같습니다:
 - `canvas_id`
 - `campaign_id`
 - `broadcast flag`
@@ -209,37 +205,37 @@ Standard fields present in all templates from SessionM include:
 - `email address`
 
 {% alert note %}
-When setting the `broadcast flag` to `true`, the message will be sent to the entire segment that the campaign or Canvas targets in Braze.
+`broadcast flag`를 `true`로 설정하면 Braze에서 Campaign 또는 Canvas가 타겟팅하는 전체 세그먼트에 메시지가 발송됩니다.
 {% endalert %}
 
-Additional fields can be configured based on specific needs:
+특정 요구 사항에 따라 추가 필드를 구성할 수 있습니다:
 
-- **Offer data:** `offer_id`, `offer title`, `user offer id`, `description`, `terms and conditions`, `logo`, `pos discount id`, `expiration date`
-- **Point award data:** `point award amount`, `point account name`
-- **Event trigger data:** Any data in the trigger event that utilizes the trigger/send webhook outcome
-- **Campaign-specific data:** `campaign runtime`, `campaign_id`, `campaign name`, `campaign custom data`
+- **오퍼 데이터:** `offer_id`, `offer title`, `user offer id`, `description`, `terms and conditions`, `logo`, `pos discount id`, `expiration date`
+- **포인트 보상 데이터:** `point award amount`, `point account name`
+- **이벤트 트리거 데이터:** 트리거/발송 웹훅 결과를 활용하는 트리거 이벤트의 모든 데이터
+- **캠페인별 데이터:** `campaign runtime`, `campaign_id`, `campaign name`, `campaign custom data`
 
-Additional fields are sent to Braze as `trigger_properties` for personalizing the message. 
+추가 필드는 메시지를 개인화하기 위해 `trigger_properties`로 Braze에 전송됩니다.
 
-### Step 2: Create a Braze campaign or Canvas
+### 2단계: Braze Campaign 또는 Canvas 생성 {#step-2-create-a-braze-campaign-or-canvas}
 
-Create an API-triggered campaign or Canvas in Braze to be triggered by SessionM. If additional fields have been configured, such as `offer_id` or `offer title`, use Liquid (such as {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %}) to add the personalized fields into your messaging.
+SessionM에 의해 트리거될 API 트리거 Campaign 또는 Canvas를 Braze에서 생성합니다. `offer_id` 또는 `offer title`과 같은 추가 필드가 구성된 경우, Liquid(예: {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %})를 사용하여 메시징에 개인화된 필드를 추가합니다.
 
-![API 트리거 속성.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
+![API 트리거 등록정보.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
-In the **Schedule Delivery** tab, note down the campaign or Canvas ID as this will be added to SessionM campaign **Advanced Settings**.
+**Schedule Delivery** 탭에서 Campaign 또는 Canvas ID를 기록해 두세요. 이 ID는 SessionM 캠페인 **Advanced Settings**에 추가됩니다.
 
 ![API 트리거 캠페인.]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
 
-Finalize your campaign or Canvas details, and select **Launch**. 
+Campaign 또는 Canvas 세부 정보를 완료하고 **Launch**를 선택합니다.
 
-### Step 3: Create a SessionM promotional or messaging campaign
+### 3단계: SessionM 프로모션 또는 메시징 캠페인 생성 {#step-3-create-a-sessionm-promotional-or-messaging-campaign}
 
-Next, create your campaign in SessionM.
+다음으로 SessionM에서 캠페인을 생성합니다.
 
-![세션엠 캠페인 생성.]({% image_buster /assets/img/sessionm/SessionMCampaignCreation.png %})
+![SessionM 캠페인 생성.]({% image_buster /assets/img/sessionm/SessionMCampaignCreation.png %})
 
-Update the advanced settings in the SessionM campaign to include the following JSON payload containing the `braze_campaign_id` or `braze_canvas_id`.
+SessionM 캠페인의 고급 설정을 업데이트하여 `braze_campaign_id` 또는 `braze_canvas_id`가 포함된 다음 JSON 페이로드를 포함합니다.
 
 {% raw %}
 ```
@@ -252,10 +248,10 @@ Update the advanced settings in the SessionM campaign to include the following J
 
 ![SessionM 고급 설정.]({% image_buster /assets/img/sessionm/SessionMAdvancedSettings.png %}){: style="max-width:85%;"}
 
-Create a message trigger on the desired schedule or behavior. Then, select **Braze Messaging Variant** as the **Messaging Variant** in the **External Message** menu to use the template.
+원하는 스케줄 또는 동작에 대한 메시지 트리거를 생성합니다. 그런 다음 **External Message** 메뉴에서 **Braze Messaging Variant**를 **Messaging Variant**로 선택하여 템플릿을 사용합니다.
 
-![세션M 외부 메시지.]({% image_buster /assets/img/sessionm/SessionMExternalMessage.png %})
+![SessionM 외부 메시지.]({% image_buster /assets/img/sessionm/SessionMExternalMessage.png %})
 
-This template pulls the relevant static and dynamic attributes and call out to the Braze endpoint.
+이 템플릿은 관련 정적 및 동적 속성을 가져오고 Braze 엔드포인트를 호출합니다.
 
 ![SessionM Braze 템플릿.]({% image_buster /assets/img/sessionm/SessionMBrazeTemplate.png %}){: style="max-width:85%;"}

@@ -1,49 +1,49 @@
 ---
-nav_title: "取得:ジョブ同期ステータスのリスト"
-article_title: "取得:ジョブ同期ステータスを表示する"
-search_tag: エンドポイント
+nav_title: "GET: ジョブ同期ステータスの一覧"
+article_title: "GET: ジョブ同期ステータスの一覧"
+search_tag: Endpoint
 page_order: 1
 alias: /api/cdi/get_job_sync/
 layout: api_page
 page_type: reference
-description: "この記事では、リストジョブ同期ステータスBrazeエンドポイントの詳細について説明します。"
+description: "この記事では、ジョブ同期ステータスの一覧を取得するBrazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# ジョブ同期ステータスのリスト
+# ジョブ同期ステータスの一覧 {#list-job-sync-status}
 {% apimethod get %}
 /cdi/integrations/{integration_id}/job_sync_status
 {% endapimethod %}
 
-> このエンドポイントを使用して、指定された統合の過去の同期ステータスのリストを返します。
+> このエンドポイントを使用して、指定された統合の過去の同期ステータスの一覧を返します。
 
 {% alert note %}
-このエンドポイントを使用するには、`cdi.integration_job_status` 権限を持つ API キーを生成する必要があります。
+このエンドポイントを使用するには、`cdi.integration_job_status` 権限を持つAPIキーを生成する必要があります。
 {% endalert %}
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='cdi job sync status' %}
 
-## パスパラメーター
+## パスパラメーター {#path-parameters}
 
-| パラメータ | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `integration_id` | 必須かどうか | 文字列 | 統合 ID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `integration_id` | 必須 | 文字列 | 統合 ID。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
-## クエリーパラメーター
+## クエリパラメーター {#query-parameters}
 
-このエンドポイントを呼び出すと、10個のアイテムが返される。10を超える同期のある統合については、次の応答の例に示すように、`Link` ヘッダーを使用して次のページのデータを取得します。
+このエンドポイントへの各呼び出しでは、10件のアイテムが返されます。10件を超える同期がある統合については、以下の応答例に示すように、`Link` ヘッダーを使用して次のページのデータを取得してください。
 
-| パラメータ | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `cursor` | オプション | 文字列 | 同期ステータスのページネーションを決定します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
-### カーソルなし
+### カーソルなし {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status' \
@@ -51,7 +51,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### カーソル付き
+### カーソル付き {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cursor=c2tpcDow' \
@@ -59,14 +59,14 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答
+## 応答 {#response}
 
-### 成功応答の例
+### 成功応答の例 {#example-success-response}
 
-ステータスコード `200` は、次の応答本文を返す可能性があります。
+ステータスコード `200` は、以下の応答本文を返す可能性があります。
 
 {% alert note %}
-`Link` ヘッダーは、合計10回以下の同期がある場合には存在しません。カーソルのない呼び出しでは、`prev` は表示されません。項目の最後のページを見ると、`next` は表示されません。
+`Link` ヘッダーは、同期の合計が10件以下の場合には存在しません。カーソルなしの呼び出しでは、`prev` は表示されません。アイテムの最後のページを表示している場合、`next` は表示されません。
 {% endalert %}
 
 ```
@@ -93,21 +93,21 @@ Link: </cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cu
 | --- | --- |
 | `running` | ジョブは現在実行中です。 |
 | `success` | すべての行が正常に同期されました。 |
-| `partial` | いくつかの行はエラーのため同期に失敗しました。 |
+| `partial` | 一部の行はエラーのため同期に失敗しました。 |
 | `error` | 行は同期されませんでした。 |
-| `config_error` | 統合構成にエラーがありました。統合セットアップを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `config_error` | 統合設定にエラーがありました。統合のセットアップを確認してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example success response" }
 
-## トラブルシューティング
+## トラブルシューティング {#troubleshooting}
 
-次のテーブルに、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
+以下のテーブルに、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `400 Invalid cursor` | `cursor` が有効であることを確認します。 |
-| `400 Invalid integration ID` | `integration_id` が有効であることを確認します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `400 Invalid cursor` | `cursor` が有効であることを確認してください。 |
+| `400 Invalid integration ID` | `integration_id` が有効であることを確認してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
-その他のステータスコードと関連するエラーメッセージについては、[致命的なエラー&応答]({{site.baseurl}}/api/errors/#fatal-errors)を参照のこと。
+その他のステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
 
 {% endapi %}

@@ -7,8 +7,9 @@ layout: api_page
 page_type: reference
 description: "이 문서에서는 사용자의 구독 그룹 상태 업데이트 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
 ---
+
 {% api %}
-# 사용자의 구독 그룹 상태 업데이트
+# 사용자의 구독 그룹 상태 업데이트 {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /subscription/status/set
 {% endapimethod %}
@@ -25,19 +26,21 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 업데이트
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#72558b32-7dbe-4cba-bd22-a7ce513076dd {% endapiref %}
 
-## 필수 조건
+## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `subscription.status.set` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
 
 {% alert note %}
-이 엔드포인트를 [LINE 구독 그룹]({{site.baseurl}}/user_guide/message_building_by_channel/line/line_users/subscription_groups/)에 사용하려면 고객 성공 매니저에게 문의하세요.
+이 엔드포인트를 [LINE 구독 그룹]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/)에 사용하려면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
-## 사용량 제한
+{% multi_lang_include api/orphaned_subscription_states.md %}
+
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='subscription status set' %}
 
-## 요청 본문
+## 요청 본문 {#request-body}
 
 {% tabs %}
 {% tab SMS and RCS %}
@@ -79,29 +82,29 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% endtab %}
 {% endtabs %}
 
-이 등록정보는 사용자의 프로필 정보를 업데이트하는 데 사용해서는 안 됩니다. 대신 [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 등록정보를 사용하세요.
+이 속성은 사용자의 프로필 정보를 업데이트하는 데 사용해서는 안 됩니다. 대신 [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 속성을 사용하세요.
 
 {% alert tip %}
-**기존 사용자를 구독 그룹에 추가하기:** 이 엔드포인트는 기존 사용자의 구독 그룹 멤버십을 백필하거나 일괄 업데이트하는 데 권장되는 방법입니다. 요청당 최대 50개의 `external_id`, 이메일 주소 또는 전화번호를 전달할 수 있습니다. 사용자는 [이메일 환경설정 센터]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/) 링크를 통해 직접 구독 상태를 업데이트할 수도 있습니다.
+**기존 사용자를 구독 그룹에 추가하기:** 이 엔드포인트는 기존 사용자의 구독 그룹 멤버십을 백필하거나 일괄 업데이트하는 데 권장되는 방법입니다. 요청당 최대 50개의 `external_id`, 이메일 주소 또는 전화번호를 전달할 수 있습니다. 사용자는 [이메일 환경설정 센터]({{site.baseurl}}/user_guide/channels/email/subscriptions/) 링크를 통해 직접 구독 상태를 업데이트할 수도 있습니다.
 
 **구독 그룹과 함께 새 사용자 생성하기:** [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트를 사용하여 새 사용자를 생성할 때 사용자 속성 오브젝트 내에서 구독 그룹을 설정할 수 있으므로, 한 번의 API 호출로 사용자를 생성하고 구독 그룹 상태를 설정할 수 있습니다.
 {% endalert %}
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | 필수 | 문자열 | 구독 그룹의 `id`. |
 | `subscription_state` | 필수 | 문자열 | 사용 가능한 값은 `unsubscribed`(구독 그룹에 속하지 않음) 또는 `subscribed`(구독 그룹에 속함)입니다. |
-| `external_id` | 필수* | 문자열 배열 | 사용자(또는 사용자들)의 `external_id`에는 최대 50개의 `id`를 포함할 수 있습니다. |
-| `email` | 필수* | 문자열 또는 문자열 배열 | 사용자의 이메일 주소는 문자열 배열로 전달할 수 있습니다. 이메일 주소를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 이메일 주소를 공유하는 경우, Braze는 해당 이메일 주소를 공유하는 모든 사용자의 구독 그룹 변경 사항을 업데이트합니다. |
-| `phone` | 필수* | [E.164](https://en.wikipedia.org/wiki/E.164) 형식의 문자열 | 사용자의 전화번호는 문자열 배열로 전달할 수 있습니다. 전화번호를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 전화번호를 공유하는 경우, Braze는 해당 전화번호를 공유하는 모든 사용자에게 동일한 구독 그룹 변경 사항을 업데이트합니다. |
-| `use_double_opt_in_logic` | 선택 사항 | 부울 | SMS 구독 그룹에만 적용되며, 이메일 및 기타 구독 그룹 유형에서는 무시됩니다. 생략 시 기본값은 `false`입니다. SMS 구독 그룹의 경우, 구독 상태가 `subscribed`로 설정될 때 사용자를 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/keywords/double_opt_in/) 워크플로에 진입시키려면 `true`로 설정하세요. 이 매개변수가 생략되거나 `false`로 설정되면 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `external_id` | 필수* | 문자열 배열 | 사용자(또는 사용자들)의 `external_id`이며, 최대 50개의 `id`를 포함할 수 있습니다. |
+| `email` | 필수* | 문자열 또는 문자열 배열 | 사용자의 이메일 주소이며, 문자열 배열로 전달할 수 있습니다. 이메일 주소를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 이메일 주소를 공유하는 경우, Braze는 해당 이메일 주소를 공유하는 모든 사용자의 구독 그룹 변경 사항을 업데이트합니다. |
+| `phone` | 필수* | [E.164](https://en.wikipedia.org/wiki/E.164) 형식의 문자열 | 사용자의 전화번호이며, 문자열 배열로 전달할 수 있습니다. 전화번호를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 전화번호를 공유하는 경우, Braze는 해당 전화번호를 공유하는 모든 사용자에게 동일한 구독 그룹 변경 사항을 업데이트합니다. |
+| `use_double_opt_in_logic` | 선택 사항 | 부울 | SMS 구독 그룹에만 적용되며, 이메일 및 기타 구독 그룹 유형에서는 무시됩니다. 생략 시 기본값은 `false`입니다. SMS 구독 그룹의 경우, 구독 상태가 `subscribed`로 설정될 때 사용자를 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) 워크플로에 진입시키려면 `true`로 설정하세요. 이 방식으로 이중 옵트인 워크플로에 진입한 사용자는 워크플로에 진입한 횟수와 관계없이 하루에 최대 한 번의 옵트인 안내 응답 메시지를 받습니다. 이 매개변수가 생략되거나 `false`로 설정되면 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 요청 예시
+## 요청 예시 {#example-requests}
 
-### 이메일
+### 이메일 {#email}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/subscription/status/set' \
@@ -116,7 +119,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
 '
 ```
 
-### SMS 및 RCS
+### SMS 및 RCS {#sms-and-rcs}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/subscription/status/set' \
@@ -131,7 +134,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
 '
 ```
 
-## 성공 응답 예시
+## 성공 응답 예시 {#example-success-response}
 
 `201` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다.
 
@@ -141,8 +144,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
 }
 ```
 
+## 간헐적 업데이트 실패 문제 해결 {#troubleshooting-intermittent-update-failures}
+
+구독 그룹 업데이트가 간헐적으로 실패하거나 동기화되지 않는 것처럼 보이는 경우, 업데이트 요청 사이에 몇 분 정도 기다리거나 [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)를 호출하여 다른 업데이트를 보내기 전에 사용자의 상태를 확인하세요.
+
 {% alert important %}
 엔드포인트는 `email` 또는 `phone` 값만 허용하며 둘 다 허용하지 않습니다. 두 가지를 모두 제공하면 다음과 같은 응답을 받게 됩니다: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
+
+구독 업데이트가 전화번호에 적용되도록 하려면 E.164 형식의 전화번호(예: `+15555550123`)를 전송했는지, 올바른 `subscription_group_id`를 사용했는지, 동일한 요청 본문에서 `phone`만(`phone`과 `email` 둘 다가 아닌) 전달했는지 확인하세요. 여러 번호를 업데이트하려면 [SMS 및 RCS](#sms-and-rcs)에 표시된 `phone` 배열 형식을 사용하세요.
 
 {% endapi %}

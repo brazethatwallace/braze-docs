@@ -16,6 +16,12 @@ To use the custom Shopify integration, refer to [Shopify custom integration setu
 
 {% endif %}
 
+{% if include.section == 'Custom external ID historical backfill' %}
+
+If you plan to integrate with a custom external ID (for either the [standard integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4) or the [custom integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6)), you will be required to add your custom external ID as a Shopify customer metafield to all existing Shopify customer profiles and then perform the historical backfill.
+
+{% endif %}
+
 {% if include.section == "Liquid promotion codes with Currents" %}
 
 You can combine [`message_extras`]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/advanced_filters/message_extras/) with [promotion codes]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/promotion_codes/) to send promotion code information to Currents. Use the `capture` tag to store the promotion code in a variable, then reference that variable in `message_extras`:

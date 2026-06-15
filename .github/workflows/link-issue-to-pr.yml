@@ -3,12 +3,14 @@ name: Sync BD Numbers and Link Issues
 
 on:
   pull_request:
-    types: [opened, edited, synchronize]
+    types: [opened, edited, synchronize, closed]
 
 jobs:
   sync-and-link:
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       issues: write
       pull-requests: write
 
@@ -22,17 +24,9 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const pr = context.payload.pull_request;
+            core.info(`Checking BD title sync for PR #${pr.number} (${pr.user.login})`);
             
-            // Step 1: Check if PR author is Copilot
-            const isCopilot = pr.user.login === 'Copilot';
-            
-            if (!isCopilot) {
-              core.info(`PR author is ${pr.user.login}, not Copilot - skipping BD sync`);
-              return;
-            }
-            core.info("PR author is Copilot");
-            
-            // Step 2: Check if PR is linked to an issue
+            // Step 1: Check if PR is linked to an issue
             const bodyText = pr.body || "";
             const issueRefs = bodyText.match(/(closes|fixes|resolves)\s+#(\d+)/gi);
             
@@ -46,7 +40,7 @@ jobs:
             const issueNumber = parseInt(issueMatch[1]);
             core.info(`PR is linked to issue #${issueNumber}`);
             
-            // Step 3: Get the linked issue and check for BD number
+            // Step 2: Get the linked issue and check for BD number
             const { data: issue } = await github.rest.issues.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -62,7 +56,7 @@ jobs:
             const bdTag = issueBdMatch[0]; // e.g., "[BD-1234]"
             core.info(`Found BD tag in issue: ${bdTag}`);
             
-            // Step 4: Check if PR title already has BD number
+            // Step 3: Check if PR title already has BD number
             const prBdMatch = pr.title.match(/\[BD-\d+\]/);
             if (prBdMatch) {
               core.info(`PR title already has BD tag: ${prBdMatch[0]}, no update needed`);
@@ -137,3 +131,60 @@ jobs:
               labels: ["fixes an issue"]
             });
             core.info("Tag added? yes");
+
+  close-linked-issues-on-merge:
+    if: github.event.action == 'closed' && github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - name: Close issues referenced by closing keywords in PR body
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            const body = pr.body || "";
+            const re = /(?:closes|fixes|resolves)\s+#(\d+)/gi;
+            const issueNumbers = new Set();
+            let m;
+            while ((m = re.exec(body)) !== null) {
+              issueNumbers.add(parseInt(m[1], 10));
+            }
+
+            if (issueNumbers.size === 0) {
+              core.info("No closes/fixes/resolves #refs in PR body; nothing to close");
+              return;
+            }
+
+            for (const issueNumber of issueNumbers) {
+              try {
+                const { data: issue } = await github.rest.issues.get({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber
+                });
+
+                if (issue.pull_request) {
+                  core.info(`#${issueNumber} is a pull request, skipping`);
+                  continue;
+                }
+                if (issue.state === "closed") {
+                  core.info(`Issue #${issueNumber} already closed`);
+                  continue;
+                }
+
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  state: "closed",
+                  state_reason: "completed"
+                });
+                core.info(`Closed issue #${issueNumber}`);
+              } catch (e) {
+                core.warning(`Could not close #${issueNumber}: ${e.message}`);
+              }
+            }

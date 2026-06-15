@@ -2,7 +2,7 @@
 nav_title: Transifex
 article_title: Transifex
 alias: /partners/transifex/
-description: "Cet article de référence présente le partenariat entre Braze et Transifex, une plateforme de localisation qui vous permet d'automatiser la traduction en libérant vos équipes pour qu'elles se concentrent sur la fourniture d'expériences client brillantes."
+description: "Cet article de référence présente le partenariat entre Braze et Transifex, une plateforme de localisation qui vous permet d'automatiser la traduction et de libérer vos équipes pour qu'elles se concentrent sur la création d'expériences client exceptionnelles."
 page_type: partner
 search_tag: Partner
 
@@ -10,30 +10,30 @@ search_tag: Partner
 
 # Transifex
 
-> [Transifex](https://www.transifex.com/) permet une localisation robuste à travers votre base d'utilisateurs, quelle que soit la langue.
+> [Transifex](https://www.transifex.com/) permet une localisation robuste auprès de l'ensemble de votre base d'utilisateurs, quelle que soit la langue.
 
 _Cette intégration est maintenue par Transifex._
 
-## À propos de l'intégration
+## À propos de l'intégration {#about-the-integration}
 
-L'intégration de Braze et Transifex utilise le contenu connecté pour vous permettre d'extraire une collection de chaînes de caractères de ressources et d'inclure les traductions pertinentes dans vos messages au lieu de lignes de formatage conditionnel basées sur la langue. Cette intégration automatise la traduction et libère vos équipes pour qu'elles se concentrent sur la fourniture d'expériences client brillantes.
+L'intégration de Braze et Transifex utilise le Contenu connecté pour vous permettre d'extraire une collection de chaînes de caractères de ressources et d'inclure les traductions pertinentes dans vos messages, en remplacement de lignes de formatage conditionnel basées sur la langue. Cette intégration automatise la traduction et libère vos équipes pour qu'elles se concentrent sur la création d'expériences client exceptionnelles.
 
 {% alert important %}
-Depuis le 7 avril 2022, Transifex a supprimé les versions 2 et 2.5 de son API pour faire place à la version 3\. Les versions 2 et 2.5 ne sont plus prises en charge et les requêtes correspondantes échoueront. <br><br>Les instructions d'intégration suivantes tiennent compte de la mise à jour de la version 3. Mettez à jour vos appels au contenu connecté en conséquence.
+Depuis le 7 avril 2022, Transifex a rendu obsolètes les versions 2 et 2.5 de son API pour faire place à la version 3. Les versions 2 et 2.5 ne sont plus opérationnelles et les requêtes correspondantes échoueront. <br><br>Les instructions d'intégration suivantes tiennent compte de la mise à jour vers la version 3. Mettez à jour vos appels au Contenu connecté en conséquence.
 {% endalert %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-| Condition| Description|
-| ---| ---|
-|Compte Transifex | Un [compte Transifex](https://www.transifex.com/signin/) est nécessaire pour bénéficier de ce partenariat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Condition | Description |
+| --- | --- |
+| Compte Transifex | Un [compte Transifex](https://www.transifex.com/signin/) est nécessaire pour bénéficier de ce partenariat. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Intégration
+## Intégration {#integration}
 
-L'intégration de Transifex utilise l’[API de traduction des ressources](https://developers.transifex.com/reference/get_resource-translations) de Transifex. L’outil cURL suivant vous permettra de voir si votre compte a des valeurs de contenu associées à des traductions. 
+L'intégration de Transifex utilise l'[API de traduction des ressources](https://developers.transifex.com/reference/get_resource-translations) de Transifex. La commande cURL suivante vous permettra de vérifier si votre compte possède des valeurs de contenu associées à des traductions.
 
-Tout d'abord, saisissez les adresses `<ORGANIZATION_NAME>`, `<PROJECT_NAME>` et `<RESOURCE_NAME>` qui se trouvent dans votre compte Transifex. Ensuite, remplacez `<LANGUAGE>` par le code de la langue par laquelle vous souhaitez filtrer les traductions, et `<TRANSIFEX_BEARER_TOKEN>` par votre [jeton de porteur](https://developers.transifex.com/reference/api-authentication)Transifex.
+Tout d'abord, saisissez les valeurs `<ORGANIZATION_NAME>`, `<PROJECT_NAME>` et `<RESOURCE_NAME>` qui se trouvent dans votre compte Transifex. Ensuite, remplacez `<LANGUAGE>` par le code de la langue par laquelle vous souhaitez filtrer les traductions, et `<TRANSIFEX_BEARER_TOKEN>` par votre [jeton porteur](https://developers.transifex.com/reference/api-authentication) Transifex.
 
 ```
 curl --request GET \
@@ -42,11 +42,11 @@ curl --request GET \
      --header 'Authorization: Bearer 1/<TRANSIFEX_BEARER_TOKEN>'
 ```
 
-Par exemple, si votre projet Transifex est situé à l'emplacement/localisation `https://www.transifex.com/appboy-3/french2/french_translationspo/`, l'adresse `project_name` sera "french2" et l'adresse `resource_name` sera "french_translationspo".
+Par exemple, si votre projet Transifex se trouve à l'adresse `https://www.transifex.com/appboy-3/french2/french_translationspo/`, le `project_name` sera « french2 » et le `resource_name` sera « french_translationspo ».
 
-## Exemple de message sur le contenu connecté
+## Exemple de message avec Contenu connecté {#connected-content-message-example}
 
-Cet extrait de code utilise l'API de traduction des ressources Transifex et l'attribut `language` de l'utilisateur. En fonction de vos besoins, vous pouvez ensuite parcourir les objets de la chaîne de caractères et en extraire le contenu pertinent à l'aide du Liquid suivant : `{{strings.data[X].attributes.strings.other}}`.
+Cet extrait de code utilise l'API de traduction des ressources Transifex et l'attribut `language` de l'utilisateur. En fonction de vos besoins, vous pouvez ensuite parcourir les objets de chaînes de caractères et en extraire le contenu pertinent à l'aide du Liquid suivant : `{{strings.data[X].attributes.strings.other}}`.
 
 {% raw %}
 ```

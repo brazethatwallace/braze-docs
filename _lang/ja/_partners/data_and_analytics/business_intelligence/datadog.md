@@ -1,7 +1,7 @@
 ---
 nav_title: Datadog
-article_title: "Datadog"
-description: "この参考記事では、BrazeとDatadogとの提携について概説している。Datadogは、クラウドスケールのアプリケーション向けの観測可能なサービスで、SaaSベースのデータ分析プラットフォームを通じて、サーバー、データベース、ツール、サービスの監視を提供する。"
+article_title: Datadog
+description: "この参考記事では、BrazeとDatadogのパートナーシップについて説明します。Datadogはクラウドスケールのアプリケーション向けオブザーバビリティサービスであり、SaaSベースのデータ分析プラットフォームを通じてサーバー、データベース、ツール、サービスの監視を提供します。"
 alias: /partners/datadog/
 page_type: partner
 search_tag: Partner
@@ -11,41 +11,40 @@ search_tag: Partner
 
 # Datadog
 
-> [Datadog](https://www.datadoghq.com/) は、クラウド規模のアプリケーション向けオブザーバビリティサービスであり、SaaS ベースのデータ分析プラットフォームでサーバー、データベース、ツール、およびサービスを監視する機能を提供します。
+> [Datadog](https://www.datadoghq.com/) は、クラウドスケールのアプリケーション向けオブザーバビリティサービスであり、SaaSベースのデータ分析プラットフォームを通じてサーバー、データベース、ツール、サービスの監視を提供します。
 
-Braze と Datadog の統合により、お客様は Datadog で Braze データを収集し、送信するデータに関するアラートを作成できます。例えば、毎週のニュースレター・キャンペーンで送信されるメッセージの量が異常に少なかったり、通常は1日に数通しか送信しないキャンバス・ステップが数千通を送信し始めたりした場合に、モニターを設定してアラートを出す。 
+BrazeとDatadogの統合により、顧客はDatadogでBrazeデータを収集し、送信するデータに関するアラートを作成できます。たとえば、毎週のニュースレターキャンペーンで送信されるメッセージの量が異常に少ない場合や、通常は1日に数通しか送信しないキャンバスステップが数千通を送信し始めた場合に、モニターとアラートを設定できます。
 
-## 前提条件 
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-| Datadogアカウント | このパートナーシップを活用するには、Datadog アカウントが必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Datadogアカウント | このパートナーシップを利用するには、Datadogアカウントが必要です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:Datadogのキーを生成する
+### ステップ 1: Datadogキーを生成する {#step-1-generate-datadog-key}
 
-Datadog で [API キー](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys)を作成する必要があります。APIキーを追加するには、「**Organization Settings（組織設定）」>「** **API Keys（APIキー）」>「** **New Key（新規キー）**」の順に移動する。
+Datadogで[APIキー](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys)を作成する必要があります。APIキーを追加するには、**Organization Settings** > **API Keys** > **New Key** に移動します。
 
-### ステップ2:Braze にキーを追加する
+### ステップ 2: Brazeにキーを追加する {#step-2-add-key-to-braze}
 
-Braze ダッシュボードで [**パートナー連携**] > [**テクノロジーパートナー**] に移動し、[**Datadog**] を探します。Datadog パートナーページで Datadog API キーを指定します。これで、Braze がDatadog にデータを送信するための接続が作成されます。
+Brazeダッシュボードで**パートナー連携** > **テクノロジーパートナー**に移動し、**Datadog**を検索します。Datadogパートナーページで Datadog APIキーを入力します。これにより、BrazeがDatadogにデータを送信するための接続が作成されます。
 
-## Braze のイベント
+## Brazeイベント {#braze-events}
 
-接続が統合されると、Brazeは以下のイベントをDatadogに送信する：
+接続が統合されると、Brazeは以下のイベントをDatadogに送信します。
 
-- `braze.messaging.sent` - 送信回数
+- `braze.messaging.sent` — 送信数
 
-これらの各イベントには、Datadogタグの形でメタデータが付与され、以下のような情報が得られる：
+これらの各イベントにはDatadogタグの形式でメタデータが付与され、以下のような情報を確認できます。
 
 - `app_group_id`
 - `app_group_name`
-- `campaign_id` /`campaign_name` (利用可能な場合)
-- `canvas_id` /`canvas_name` /`canvas_step_id` /`canvas_step_name` (利用可能な場合)
+- `campaign_id` / `campaign_name`（利用可能な場合）
+- `canvas_id` / `canvas_name` / `canvas_step_id` / `canvas_step_name`（利用可能な場合）
 
-これらのイベントとタグは、Datadog**Metrics Explorer**ページで監視できる。これらのメトリクスは、DataDogに[ディストリビューションとして](https://docs.datadoghq.com/metrics/distributions/)記録される。指標の性質と、DataDog の集約とロールアップの不正確さを考慮して、Braze では、送信中に発生する可能性のある断続的なネットワークエラーやその他の DataDog API エラーの場合は再試行されません。つまり、これら指標の数値が、Braze ダッシュボードや Currents で表示される数値とは若干異なる可能性があります。
+これらのイベントとタグは、Datadogの**Metrics Explorer**ページで監視できます。これらの指標はDataDogに[ディストリビューション](https://docs.datadoghq.com/metrics/distributions/)として記録されます。指標の性質とDataDogの集約およびロールアップの不正確さを考慮し、Brazeでは送信中に発生する可能性のある断続的なネットワークエラーやその他のDataDog APIエラーに対して再試行を行いません。そのため、これらの指標の数値は、BrazeダッシュボードやCurrentsで表示される数値と若干異なる場合があります。
 
 ![]({% image_buster /assets/img/datadog.png %})
-

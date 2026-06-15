@@ -1,55 +1,55 @@
 ---
 nav_title: "GET: Enumerar múltiples detalles de elementos del catálogo"
-article_title: "GET: Listar varios detalles de elementos del catálogo"
+article_title: "GET: Enumerar múltiples detalles de elementos del catálogo"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Enumerar múltiples detalles de elementos del catálogo de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Enumerar múltiples detalles de elementos del catálogo de Braze."
 
 ---
 {% api %}
-# Enumerar múltiples detalles de elementos del catálogo
+# Enumerar múltiples detalles de elementos del catálogo {#list-multiple-catalog-item-details}
 {% apimethod get %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
-> Utilice este punto final para devolver varios elementos del catálogo y su contenido.
+> Usa este punto de conexión para devolver varios elementos del catálogo y su contenido.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#63a19dd5-10e0-4649-bdf0-097216748bbb {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.get_items`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.get_items`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog item' %}
 
-## Parámetros de la ruta
+## Parámetros de ruta {#path-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `catalog_name` | Obligatoria | Cadena | Nombre del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
-## Parámetros de consulta
+## Parámetros de consulta {#query-parameters}
 
-Ten en cuenta que cada llamada a este punto final devolverá 50 elementos. Para un catálogo con más de 50 artículos, utilice la cabecera `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
+Ten en cuenta que cada llamada a este punto de conexión devolverá 50 elementos. Para un catálogo con más de 50 elementos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `cursor` | Opcional | Cadena | Determina la paginación de los elementos del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-No hay cuerpo de petición para este punto final.
+No hay cuerpo de solicitud para este punto de conexión.
 
-## Ejemplos de solicitudes
+## Ejemplos de solicitudes {#example-requests}
 
-### Sin cursor
+### Sin cursor {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -57,7 +57,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### Con cursor
+### Con cursor {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurants/items?cursor=c2tpcDow' \
@@ -65,16 +65,16 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto final: `200`, `400` y `404`.
+Existen tres respuestas de código de estado para este punto de conexión: `200`, `400` y `404`.
 
-### Ejemplo de respuesta positiva
+### Ejemplo de respuesta correcta {#example-success-response}
 
-El código de estado `200` podría devolver la siguiente cabecera y cuerpo de respuesta.
+El código de estado `200` podría devolver el siguiente encabezado y cuerpo de respuesta.
 
 {% alert note %}
-La cabecera `Link` no existirá si el catálogo tiene menos o igual a 50 artículos. Para las llamadas sin cursor, `prev` no se mostrará. Al consultar la última página de elementos, `next` no se mostrará.
+El encabezado `Link` no existirá si el catálogo tiene 50 elementos o menos. En las llamadas sin cursor, `prev` no se mostrará. Al consultar la última página de elementos, `next` no se mostrará.
 {% endalert %}
 
 ```
@@ -116,9 +116,9 @@ Link: </catalogs/all_restaurants/items?cursor=c2tpcDow>; rel="prev",</catalogs/a
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulte la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puede encontrar.
+El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulta la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedes encontrar.
 
 ```json
 {
@@ -138,14 +138,14 @@ El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Co
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
 
 | Error | Solución de problemas |
 | --- | --- |
-| `catalog-not-found` | Compruebe que el nombre del catálogo es válido. |
-| `invalid-cursor` | Compruebe que su `cursor` es válido. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
+| `invalid-cursor` | Comprueba que tu `cursor` es válido. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

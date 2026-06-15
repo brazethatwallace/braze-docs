@@ -40,7 +40,8 @@ collections:
     default_nav_url: home/
     page_order: 6
   help:
-    title: Hilfe
+    output: true
+    default_nav_url: home/
   hidden: # Hidden pages not directly linked via navigation
     title: Braze
   docs_pages: # Site specific pages. ie main redirects and search

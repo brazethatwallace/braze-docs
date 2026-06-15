@@ -1,24 +1,24 @@
 ---
-nav_title: "GET: Exportieren Sie angepasste Events Analytics"
-article_title: "GET: Exportieren Sie angepasste Event Analytics"
+nav_title: "GET: Analytics angepasster Events exportieren"
+article_title: "GET: Analytics angepasster Events exportieren"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Endpunkt Export angepasster Events Analytics Braze."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Analytics angepasster Events exportieren“."
 
 ---
 {% api %}
-# Exportieren Sie angepasste Events Analytics
+# Analytics angepasster Events exportieren {#export-custom-events-analytics}
 {% apimethod get %}
 /events/data_series
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine Reihe von Vorkommen eines angepassten Events in Ihrer App über einen bestimmten Zeitraum abzurufen.
+> Verwenden Sie diesen Endpunkt, um eine Reihe der Anzahl von Vorkommen eines angepassten Events in Ihrer App über einen bestimmten Zeitraum abzurufen.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0bd1ab63-d1a5-4301-8d17-246cf24a178c {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `events.data_series`.
 
@@ -26,20 +26,20 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
-| Parameter| Erforderlich | Datentyp | Beschreibung |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 | -------- | -------- | --------- | ----------- |
-| `event` | Erforderlich | String | Der Name des angepassten Events, für das Analytics zurückgegeben werden soll. |
-| `length` | Erforderlich | Integer | Maximale Anzahl der Einheiten (Tage oder Stunden) vor `ending_at`, die in die zurückgegebene Serie aufgenommen werden sollen. Muss zwischen 1 und 100 (einschließlich) liegen. |
-| `unit` | Optional | String | Zeiteinheit zwischen Datenpunkten. Kann `day` oder `hour` sein, der Standard ist `day`.  |
-| `ending_at` | Optional | Datetime <br>[(ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) String) | Datum, an dem die Datenreihe enden soll. Standardmäßig wird die Zeit der Anfrage verwendet. |
-| `app_id` | Optional | String | Bezeichner der App-API, der von der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) abgerufen wird, um Analytics auf eine bestimmte App zu beschränken. |
-| `segment_id` | Optional | String | Siehe [Segment API Bezeichner]({{site.baseurl}}/api/identifier_types/). Segment ID, die das analytics-aktivierte Segment angibt, für das Event Analytics zurückgegeben werden soll. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `event` | Erforderlich | String | Der Name des angepassten Events, für das Analytics zurückgegeben werden sollen. |
+| `length` | Erforderlich | Integer | Maximale Anzahl der Einheiten (Tage oder Stunden) vor `ending_at`, die in die zurückgegebene Reihe aufgenommen werden sollen. Muss zwischen 1 und 100 (einschließlich) liegen. |
+| `unit` | Optional | String | Zeiteinheit zwischen Datenpunkten. Kann `day` oder `hour` sein, Standard ist `day`. |
+| `ending_at` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-String) | Datum, an dem die Datenreihe enden soll. Standardmäßig wird der Zeitpunkt der Anfrage verwendet. |
+| `app_id` | Optional | String | App-API-Bezeichner, der von der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) abgerufen wird, um Analytics auf eine bestimmte App zu beschränken. |
+| `segment_id` | Optional | String | Siehe [Segment-API-Bezeichner]({{site.baseurl}}/api/identifier_types/). Segment-ID, die das Analytics-aktivierte Segment angibt, für das Event-Analytics zurückgegeben werden sollen. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/events/data_series?event=event_name&length=24&unit=hour&ending_at=2014-12-10T23:59:59-05:00&app_id={{app_identifier}}&segment_id={{segment_identifier}}' \
@@ -47,7 +47,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/events/data_seri
 ```
 {% endraw %}
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {
@@ -62,12 +62,12 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/events/data_seri
 }
 ```
 
-### Schwerwiegende Fehler Antwortcodes {#fatal-export}
+### Antwortcodes bei schwerwiegenden Fehlern {#fatal-export}
 
-Für Statuscodes und zugehörige Nachrichten, die zurückgegeben werden, wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, referenzieren Sie [Schwerwiegende Fehler & responses]({{site.baseurl}}/api/errors/#fatal-errors).
+Statuscodes und zugehörige Fehlermeldungen, die zurückgegeben werden, wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, finden Sie unter [Schwerwiegende Fehler und Antworten]({{site.baseurl}}/api/errors/#fatal-errors).
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

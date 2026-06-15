@@ -35,7 +35,7 @@ For a full walkthrough, refer to [LINE setup]({{site.baseurl}}/user_guide/channe
 | Customer support | Enable two-way conversations to handle inquiries, provide product information, and resolve issues. |
 | Order notifications | Keep customers informed with order confirmations, shipping updates, and delivery notifications. |
 | Event engagement | Drive attendance and engagement for events with invitations, reminders, and follow-up messages. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 

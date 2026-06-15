@@ -3,66 +3,64 @@ nav_title: 8月
 page_order: 5
 noindex: true
 page_type: update
-description: "この記事には2017年8月のリリースノートが含まれている。"
+description: "この記事には2017年8月のリリースノートが含まれています。"
 ---
 
-# 2017年8月
+# 2017年8月 {#august-2017}
 
-## プッシュアクションボタンsへのアップデート
+## プッシュアクションボタンの更新 {#update-to-push-action-buttons}
 
-REST API メッセージングエンドポイントに[プッシュアクションボタン]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_action_buttons/#how-to-use-action-buttons)のサポートを追加しました。
+REST APIメッセージングエンドポイントに[プッシュアクションボタン]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_action_buttons/#how-to-use-action-buttons)のサポートを追加しました。
 
-## リキッドテンプレーティングへのアップデート
+## Liquidテンプレートの更新 {#update-to-liquid-templating}
 
-[メッセージのパーソナライズが]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/supported_personalization_tags/)可能になった：
+以下の情報に基づいて[メッセージをパーソナライズ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)できるようになりました：
 - 送信先のデバイス、
-- デバイス ID、
+- デバイスID、
 - 通信事業者、
 - IDFA、
 - モデル、
 - OS、
 - プラットフォーム
 
-## API トリガーキャンバス
+## APIトリガーキャンバス {#api-triggered-canvas}
 
-キャンペーン用の既存のエンドポイントと一致するAPIエンドポイント（送信、スケジュール、更新、削除）を介して[キャンバスを]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)トリガーできるようになったので、マーケティングの自動化と最適化をさらに進めることができる。
+キャンペーン用の既存のエンドポイントと一致するAPIエンドポイント（送信、スケジュール、更新、削除）を介して[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)をトリガーできるようになり、マーケティングの自動化と最適化をさらに進めることができます。
 
-## Web プッシュアクションボタンs
+## Webプッシュアクションボタン {#web-push-action-buttons}
 
-Chrome用のウェブSDKにプッシュアクションボタンのサポートが追加され、ユーザーの多忙な生活を簡素化するコンテキストに応じた選択肢を与えることで、エンゲージメントを高めることができる。[プッシュ通知のベストプラクティス]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/)を確認してください。
+Chrome用のWeb SDKにプッシュアクションボタンのサポートを追加しました。ユーザーの多忙な生活を簡素化する状況に即した選択肢を提供することで、エンゲージメントを高めることができます。[プッシュ通知のベストプラクティス]({{site.baseurl}}/user_guide/channels/push/best_practices/)をご確認ください。
 
-## 新しいAPIエンドポイント
+## 新しいAPIエンドポイント {#new-api-endpoints}
 
-私たちは新しいAPIエンドポイントを公開した。/email/hard_bounces, 、メールアドレスまたは指定された日付範囲のハードバウンスを引き出すことができ、/messages/scheduled_broadcasts, 、スケジュールされたキャンペーンとスケジュールされたエントリのキャンバスが開始される次の時間を引き出すことができる。これらの新しいエンドポイントは、キャンペーンのさらなるカスタマイズと最適化を可能にする。詳細については、[API エンドポイントs]({{site.baseurl}}/developer_guide/rest_api/basics/#what-is-a-rest-api) を参照してください。
+新しいAPIエンドポイントを公開しました。/email/hard_bouncesでは、メールアドレスまたは指定された日付範囲でハードバウンスを取得でき、/messages/scheduled_broadcastsでは、スケジュールされたキャンペーンおよびスケジュールされたエントリのキャンバスが次に開始される時刻を取得できます。これらの新しいエンドポイントにより、キャンペーンのさらなるカスタマイズと最適化が可能になります。[APIエンドポイント]({{site.baseurl}}/developer_guide/rest_api/basics/#what-is-a-rest-api)について詳しくはこちらをご覧ください。
 
-## ジオフェンス
+## ジオフェンス {#geofences}
 
-ジオフェンスという新しい機能を追加しました。これにより、顧客が定義済みの地理的エリアに出入りするときにリアルタイムでメッセージをトリガーし、顧客とのパーソナライズされた関連性の高いコミュニケーションが可能になります。[ロケーション・マーケティングについて]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/locations_and_geofences/)もっと知る。
+ジオフェンスという新機能を追加しました。顧客が定義済みの地理的エリアに出入りする際にリアルタイムでメッセージをトリガーでき、顧客とのパーソナライズされた関連性の高いコミュニケーションが可能になります。[ロケーションマーケティング]({{site.baseurl}}/developer_guide/geofences/?sdktab=android)について詳しくはこちらをご覧ください。
 
-## Eメールエディターの更新
+## メールエディターの更新 {#update-to-email-editor}
 
-新しいメールエディタにダイナミックオートコンプリート機能を追加しました。これにより、Liquid を使用する際に顧客の実際のカスタム属性とイベントをオートコンプリートできるようになり、作業が楽になります。[メールのベストプラクティス]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices)について詳しく説明します。
+新しいメールエディターにダイナミックなオートコンプリート機能を追加しました。Liquidを使用する際に顧客の実際のカスタム属性やイベントでオートコンプリートできるようになり、作業がより簡単になります。[メールのベストプラクティス]({{site.baseurl}}/user_guide/channels/email/best_practices/)について詳しくはこちらをご覧ください。
 
-## 日付フィルターの更新
+## 日付フィルターの更新 {#update-to-date-filters}
 
-「まったく該当しない」日付フィルターを追加しました。これにより、メッセージを一度も受信または操作したことのない顧客をターゲットにでき、クリーンな顧客リストを保持して、メールの配信到達性を確保できます。フィルターについて[詳しく知る]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#segmentation-filters)。
+「該当なし」の日付フィルターを追加しました。これにより、メッセージを一度も受信または操作したことのない顧客をターゲットにでき、クリーンな顧客リストを維持してメールの配信到達性を確保できます。[フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#segmentation-filters)について詳しくはこちらをご覧ください。
 
-## キャンバスへの更新
+## キャンバスの更新 {#update-to-canvas}
 
-各キャンバスのバリアントの上部にパーセンテージが追加され、どのバリアントがより良いパフォーマンスをしているかが一目でわかるようになった。キャンバスについて詳しくは、[こちら]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)をご覧ください。
+各キャンバスバリアントの上部にパーセンテージが追加され、どのバリアントがより良いパフォーマンスを発揮しているかが一目でわかるようになりました。[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)について詳しくはこちらをご覧ください。
 
-## インテリジェントセレクションを使用したキャンバス
+## インテリジェントセレクションを使用したキャンバス {#canvas-with-intelligent-selection}
 
-キャンバスにインテリジェントセレクションが追加され、キャンバスをより効率的にテストできるようになりました。詳細については、[Intelligence Suite]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) を参照してください。
+キャンバスにインテリジェントセレクションが追加され、キャンバスをより効率的にテストできるようになりました。[Intelligence Suite]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)について詳しくはこちらをご覧ください。
 
-## メールディスプレイの名前へのアップデート
+## メール表示名の更新 {#update-to-email-display-names}
 
-電子メールの表示名に特殊なUTF-8文字をサポートするようになったので、顧客によりパーソナライズされた電子メールを作成できるようになった。[メールのベストプラクティス]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices)について詳しく説明します。
+メールの表示名に特殊なUTF-8文字のサポートを追加しました。これにより、顧客向けにさらにパーソナライズされたメールを作成できます。[メールのベストプラクティス]({{site.baseurl}}/user_guide/channels/email/best_practices/)について詳しくはこちらをご覧ください。
 
-## エンゲージメント・レポートCSV集計
+## エンゲージメントレポートCSV集計 {#engagement-reports-csv-aggregation}
 
-選択されているキャンペーンやキャンバスの数に関係なく、すべてのキャンペーンとすべてのキャンバスの統合データを2つの別々のファイルで受け取ることができるため、必要なときに必要なすべてのデータを入手できるようになりました。[エンゲージメント・レポートの]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports/)詳細はこちら。
+選択されているキャンペーンやキャンバスの数に関係なく、すべてのキャンペーンとすべてのキャンバスの統合データを2つの別々のファイルで受け取ることができるようになりました。必要なときに必要なすべてのデータを入手できます。[エンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/)について詳しくはこちらをご覧ください。
 
-> [2017年9月のリリースノート]({{site.baseurl}}/help/release_notes/2017/september/)に記載されているように、特定の期間のデータを集計したり、定期的なエクスポートの実行をスケジュールしたりできるようになりました。
-
-
+> [2017年9月のリリースノート]({{site.baseurl}}/releases/2017/september/)に記載されているように、特定の期間のデータを集計したり、定期的にエクスポートを実行するスケジュールを設定したりできるようになりました。

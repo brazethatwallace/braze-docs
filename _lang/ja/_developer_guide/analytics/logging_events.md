@@ -6,7 +6,7 @@ description: "Braze SDKを通じてカスタムイベントを記録する方法
 
 ---
 
-# カスタムイベントをログに記録する
+# カスタムイベントをログに記録する {#log-custom-events}
 
 > Braze SDKを通じてカスタムイベントを記録する方法を説明します。
 
@@ -14,7 +14,9 @@ description: "Braze SDKを通じてカスタムイベントを記録する方法
 リストされていないラッパーSDKの場合は、代わりに関連するネイティブAndroidまたはSwiftメソッドを使用してください。
 {% endalert %}
 
-## カスタムイベントをログに記録する
+eコマースの推奨イベントについては、[eコマースイベントを記録する]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+
+## カスタムイベントをログに記録する {#logging-a-custom-event}
 
 カスタムイベントを記録するには、以下のイベントロギングメソッドを使用します。
 
@@ -87,7 +89,7 @@ BrazePlugin.logCustomEvent("YOUR_EVENT_NAME");
 プロパティ値には、`string`（最大255文字）、`numeric`、`boolean`、配列、またはネストされたJSONオブジェクトを使用します。
 
 実装の詳細については、Braze Cordova SDKのソースを参照してください：
-- [`www/BrazePlugin.js` `logCustomEvent`メソッド（138行目から140行目）](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L138-L140)
+- [`www/BrazePlugin.js`の`logCustomEvent`メソッド（138行目から140行目）](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L138-L140)
 - [`www/BrazePlugin.js` JSDoc（128行目から140行目）](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L128-L140)
 - [Androidハンドラー`src/android/BrazePlugin.kt`（108行目から115行目）](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/android/BrazePlugin.kt#L108-L115)
 - [iOSハンドラー`src/ios/BrazePlugin.m`（308行目から313行目）](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/ios/BrazePlugin.m#L308-L313)
@@ -133,7 +135,7 @@ AppboyBinding.LogCustomEvent("YOUR_EVENT_NAME");
 {% endtab %}
 {% endtabs %}
 
-## メタデータプロパティを追加する
+## メタデータプロパティを追加する {#adding-metadata-properties}
 
 カスタムイベントを記録する際、そのイベントにプロパティオブジェクトを渡すことで、カスタムイベントに関するメタデータを追加できます。プロパティはキーと値のペアとして定義されます。キーは文字列であり、値は`string`、`numeric`、`boolean`、[`Date`](http://www.w3schools.com/jsref/jsref_obj_date.asp)オブジェクト、配列、またはネストされたJSONオブジェクトです。
 
@@ -143,8 +145,8 @@ AppboyBinding.LogCustomEvent("YOUR_EVENT_NAME");
 {% tab web %}
 ```javascript
 braze.logCustomEvent("YOUR-EVENT-NAME", {
-  you: "can", 
-  pass: false, 
+  you: "can",
+  pass: false,
   orNumbers: 42,
   orDates: new Date(),
   or: ["any", "array", "here"],
@@ -329,7 +331,7 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 `time`および`event_name`キーは予約されているため、カスタムイベントプロパティとして使用できません。
 {% endalert %}
 
-## ベストプラクティス
+## ベストプラクティス {#best-practices}
 
 カスタムイベントのプロパティが期待通りに記録されるようにするには、次の3つの重要な確認事項を実施してください：
 
@@ -339,7 +341,7 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 カスタムイベントがログに記録されるたびに、複数のプロパティを記録できます。
 
-### イベントを確認する
+### イベントを確認する {#verify-events}
 
 どのイベントプロパティがトラッキングされているかを開発者に確認してください。すべてのイベントプロパティは大文字と小文字を区別することに留意してください。カスタムイベントのトラッキングに関する追加情報については、プラットフォーム別に以下の記事を参照してください：
 
@@ -347,45 +349,45 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 * [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
 * [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
 
-### ログを確認する
+### ログを確認する {#verify-log}
 
 イベントプロパティが正常にトラッキングされていることを確認するには、**カスタムイベント**ページからすべてのイベントプロパティを表示できます。
 
-1. [**データ設定**] > [**カスタムイベント**] に移動します。
+1. **データ設定** > **カスタムイベント**に移動します。
 2. リストからカスタムイベントを探します。
-3. イベントの [**プロパティの管理**] を選択すると、そのイベントに関連付けられたプロパティの名前が表示されます。
+3. イベントの**Manage Properties**を選択すると、そのイベントに関連付けられたプロパティの名前が表示されます。
 
-### 値を確認する
+### 値を確認する {#verify-values}
 
 [テストユーザーとしてユーザーを追加]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users)した後、以下のステップで値を確認します：
 
 1. アプリ内でカスタムイベントを実行します。
 2. データがフラッシュされるまで約10秒待ちます。
-3. [イベントユーザーログ]({{site.baseurl}}/user_guide/administrative/app_settings/event_user_log_tab/)を更新して、カスタムイベントと渡されたイベントプロパティの値を確認します。
+3. [イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)を更新して、カスタムイベントと渡されたイベントプロパティの値を確認します。
 
-## カスタムイベントのトラブルシューティング
+## カスタムイベントのトラブルシューティング {#troubleshooting-custom-events}
 
 以下のシナリオを使用して、SDK全体でのカスタムイベントロギングのトラブルシューティングを行います。
 
-### カスタムイベントトリガーの検証
+### カスタムイベントトリガーの検証 {#verifying-the-custom-event-trigger}
 
 カスタムイベントが表示されない場合、アプリでトラッキングされているアクションがテストしているアクションと一致していない可能性があります。
 
 - 開発者チームに、どのアプリアクションがカスタムイベントをトリガーするかを確認してください。
 - SDKアップグレード後に非推奨のコードパスがないか確認してください。例えば、`braze`ではなく`appboy`への参照がないか確認します。
 
-### カスタムイベントが匿名プロファイルに記録される
+### カスタムイベントが匿名プロファイルに記録される {#custom-events-are-logged-to-an-anonymous-profile}
 
 カスタムイベントを記録する前にユーザーを識別しない場合、Brazeはそのイベントを匿名プロファイルに関連付ける可能性があります。
 
 - カスタムイベントを実行する前に`changeUser()`を呼び出して、Brazeが識別済みのユーザープロファイルにイベントを記録するようにしてください。
-- 識別済みのテストユーザーでテストし、[イベントユーザーログ]({{site.baseurl}}/user_guide/administrative/app_settings/event_user_log_tab/)を確認してください。
+- 識別済みのテストユーザーでテストし、[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)を確認してください。
 
-### カスタムイベントロギングの設定を検証する
+### カスタムイベントロギングの設定を検証する {#verifying-custom-event-logging-setup}
 
 カスタムイベントが期待通りに表示されない場合、開発者チームが正しいアプリアクションに対してカスタムイベントロギングを実装しているか確認してください。
 
 - 開発者チームに、イベントが正しくログに記録され、期待されるユーザーアクションからトリガーされていることを確認するよう依頼してください。
 - チームがBrazeサポートにチケットを開く際は、[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)と関連するコードスニペットを含めてください。
 - アプリがSwiftまたはAndroidを使用している場合、開発者チームは[SDKデバッガーの前提条件](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites)を使用して詳細ログの生成を支援できます。
-- 開発者チームが問題を特定できない場合は、[Brazeサポートチケット]({{site.baseurl}}/user_guide/administrative/access_braze/support/)を開いてください。
+- 開発者チームが問題を特定できない場合は、[Brazeサポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support/)を開いてください。

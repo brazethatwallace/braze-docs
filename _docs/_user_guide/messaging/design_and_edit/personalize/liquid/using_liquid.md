@@ -68,7 +68,8 @@ Liquid follows a specific structure, or syntax, that you'll need to keep in mind
 1. **Use straight quotes in Braze:** There is a difference between curly quotes (**' '**) and straight quotes (**&#39; &#39;**). Use straight quotes (**&#39; &#39;**) in your Liquid in Braze. You may see curly quotes when copying and pasting from certain text editors, which can cause issues in your Liquid. If you're inputting quotes directly into the Braze dashboard, you'll be fine!
 2. **Brackets come in pairs:** Every bracket must both open and close **{ }**. Make sure to use curly brackets!
 3. **If statements come in pairs:** For every `if`, you need an `endif` to indicate the `if` statement has ended.
-4. **Variable names must use ASCII characters:** Liquid variable names (created with `assign` or `capture`) support only ASCII letters, digits, and underscores. Braze personalization attribute names (inside `custom_attribute.${...}` or `event_properties.${...}`) can include non-ASCII characters.
+4. **Case statements come in pairs:** For every `case`, you need an `endcase` to close the block.
+5. **Variable names must use ASCII characters:** Liquid variable names (created with `assign` or `capture`) support only ASCII letters, digits, and underscores. Braze personalization attribute names (inside `custom_attribute.${...}` or `event_properties.${...}`) can include non-ASCII characters.
 
 #### Where to use operators and filters
 
@@ -78,10 +79,12 @@ Operators (such as `==`, `!=`, `>`, `and`, `or`) and filters (such as `| size`, 
 |-----------|-----------|---------|
 | `assign` | Not supported | Supported |
 | `if`, `elsif`, `unless` | Supported | Not supported |
-| `case`, `when` | Not supported | Not supported |
+| `case`, `when` | Equality matching only[^case_when_ops] | Not supported |
 | `for` | Not supported | Not supported |
 | Array access (`[ ]`) | Not supported | Not supported |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Where to use operators and filters" }
+
+[^case_when_ops]: In `case` and `when` tags, Liquid compares the `case` expression to each `when` value using equality (similar to chaining `if` and `elsif` with `==`). You can't use arbitrary comparison or logical operators inside a `when` clause the way you do with `if` and `elsif`. For examples, see [Conditional messaging logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
 
 When you need a filtered value in a context that doesn't support filters, assign the result to a variable first.
 
@@ -204,6 +207,10 @@ If you use Liquid in your email messages, be sure to:
 2. Place Liquid code within the `<body>` tag only. Placing it outside this tag may cause inconsistent rendering upon delivery.
 
 {% endalert %}
+
+### Switching between HTML and Classic editors
+
+When you switch between the HTML and Classic editors, Liquid snippets and Content Blocks can shift position in your message. Review your template after you switch editors. If you need more predictable layout control, use the Drag-and-Drop Editor.
 
 ### Inserting pre-formatted variables
 

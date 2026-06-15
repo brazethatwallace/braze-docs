@@ -7,27 +7,27 @@ description: "Dieser Artikel erklärt das verbundene Zielgruppen-Objekt, einschl
 
 ---
 
-# Verbundenes Zielgruppen-Objekt
+# Verbundenes Zielgruppen-Objekt {#connected-audience-object}
 
 > Ein verbundener Zielgruppen-Filter ist ein dynamischer Zielgruppen-Filter, den Sie direkt in Ihrer API-Anfrage definieren. So können Sie zum Sendezeitpunkt die richtigen Nutzer:innen ansprechen, ohne Segmente im Braze-Dashboard erstellen oder verwalten zu müssen.
 
-Anstatt für jede mögliche Zielgruppenkombination vorab ein Segment zu erstellen, übergeben Sie die Filterkriterien direkt im `audience`-Parameter Ihres API-Aufrufs. Braze wertet jede:n Nutzer:in in Realtime anhand dieser Kriterien aus und stellt die Nachricht nur an Nutzer:innen zu, die den Kriterien entsprechen. Das bedeutet, dass eine einzelne Kampagne, ein Canvas oder eine reine API-Nachrichtendefinition eine unbegrenzte Anzahl von Zielgruppenvarianten bedienen kann – vollständig gesteuert durch Ihre Geschäftslogik.
+Anstatt für jede mögliche Zielgruppenkombination vorab ein Segment zu erstellen, übergeben Sie die Filterkriterien direkt in Ihrem API-Aufruf. Je nach Endpunkt wird dieses Objekt als `audience` oder `custom_audience` übergeben. Braze wertet jede:n Nutzer:in in Realtime anhand dieser Kriterien aus und stellt die Nachricht nur an Nutzer:innen zu, die den Kriterien entsprechen. Das bedeutet, dass eine einzelne Campaign, ein Canvas oder eine reine API-Nachrichtendefinition eine unbegrenzte Anzahl von Zielgruppenvarianten bedienen kann – vollständig gesteuert durch Ihre Geschäftslogik.
 
-## So funktioniert es
+## So funktioniert es {#how-it-works}
 
-1. Definieren Sie Ihre Nachricht, indem Sie entweder eine API-getriggerte Kampagne oder ein Canvas im Braze-Dashboard erstellen, oder definieren Sie den Nachrichteninhalt vollständig inline mithilfe der [Messaging-Objekte]({{site.baseurl}}/api/objects_filters/#messaging-objects) in Ihrer API-Anfrage. Verwenden Sie [Trigger-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) oder [Canvas-Kontext]({{site.baseurl}}/api/objects_filters/context_object/) für dynamische Personalisierung.
-2. Rufen Sie einen unterstützten Endpunkt auf und fügen Sie den `audience`-Parameter mit Ihren Filterkriterien hinzu. Sie können nach angepassten Attributen, Push-Abo-Status, E-Mail-Abo-Status und dem Zeitpunkt der letzten App-Nutzung filtern.
+1. Definieren Sie Ihre Nachricht, indem Sie entweder eine API-getriggerte Campaign oder ein Canvas im Braze-Dashboard erstellen, oder definieren Sie den Nachrichteninhalt vollständig inline mithilfe der [Messaging-Objekte]({{site.baseurl}}/api/objects_filters/#messaging-objects) in Ihrer API-Anfrage. Verwenden Sie [Trigger-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) oder [Canvas-Kontext]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) für dynamische Personalisierung.
+2. Rufen Sie einen unterstützten Endpunkt auf und fügen Sie Ihre verbundenen Zielgruppen-Filter im `audience`-Parameter hinzu, oder in `custom_audience` für `/messages/live_activity/start`. Sie können nach angepassten Attributen, Push-Abo-Status, E-Mail-Abo-Status und dem Zeitpunkt der letzten App-Nutzung filtern.
 3. Braze wertet die Filter zum Sendezeitpunkt aus und stellt die Nachricht nur an Nutzer:innen zu, die Ihren Kriterien entsprechen.
 
 {% alert tip %}
-Eine `campaign_id` ist bei Verwendung des `audience`-Parameters nicht erforderlich. Die Endpunkte [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) und [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/) ermöglichen es Ihnen, Nachrichteninhalte inline zu definieren, ohne eine vorab erstellte Kampagne. Wenn Sie jedoch Metriken auf Kampagnenebene (wie Sends, Klicks oder Absprünge) im Dashboard verfolgen möchten, fügen Sie eine `campaign_id` hinzu.
+Eine `campaign_id` ist bei Verwendung des `audience`-Parameters nicht erforderlich. Die Endpunkte [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) und [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/) ermöglichen es Ihnen, Nachrichteninhalte inline zu definieren, ohne eine vorab erstellte Campaign. Wenn Sie jedoch Metriken auf Campaign-Ebene (wie Sends, Klicks oder Bounces) im Dashboard verfolgen möchten, fügen Sie eine `campaign_id` hinzu.
 {% endalert %}
 
 Da die Zielgruppe pro Anfrage definiert wird, können Ihre Backend-Systeme kontextuell relevante Nachrichten als Reaktion auf jedes Geschäftsereignis (eine Preisänderung, eine Wetterwarnung, ein Live-Spielstand-Update) triggern – ohne Eingriff im Dashboard.
 
-### Kompatible Endpunkte
+### Kompatible Endpunkte {#compatible-endpoints}
 
-Sie können das verbundene Zielgruppen-Objekt mit dem `audience`-Parameter an diesen Endpunkten verwenden:
+Sie können das verbundene Zielgruppen-Objekt an diesen Endpunkten verwenden:
 
 - [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)
@@ -35,8 +35,9 @@ Sie können das verbundene Zielgruppen-Objekt mit dem `audience`-Parameter an di
 - [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 - [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/)
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) (verwendet `custom_audience`)
 
-## Anwendungsfälle
+## Anwendungsfälle {#use-cases}
 
 Verwenden Sie verbundene Zielgruppen für Szenarien, in denen Ihre Backend-Systeme ein Ereignis erkennen und eine dynamisch bestimmte Gruppe von Nutzer:innen benachrichtigen müssen:
 
@@ -48,11 +49,11 @@ Verwenden Sie verbundene Zielgruppen für Szenarien, in denen Ihre Backend-Syste
 | E-Commerce | Ein Online-Händler sendet Preissenkungen- oder Wieder-verfügbar-Benachrichtigungen an Nutzer:innen, deren Array `wishlisted_products` die entsprechende Produkt-ID enthält. |
 | Reisen | Eine Reise-App sendet Flugverspätungs-Benachrichtigungen an Nutzer:innen, deren Attribut `booked_flight` mit der betroffenen Flugnummer übereinstimmt. |
 | Finanzdienstleistungen | Eine Handelsplattform benachrichtigt Nutzer:innen, deren Array `watchlist` ein Aktiensymbol enthält, das eine Preisschwelle überschritten hat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
-In jedem Fall verarbeitet eine einzelne Kampagne oder reine API-Nachrichtendefinition alle Varianten. Ihr Backend bestimmt die Filterwerte und übergibt sie in der API-Anfrage, sodass Sie kein separates Segment oder keine separate Kampagne für jedes Produkt, jede Sendung, jedes Team oder jeden Standort erstellen müssen.
+In jedem Fall verarbeitet eine einzelne Campaign oder reine API-Nachrichtendefinition alle Varianten. Ihr Backend bestimmt die Filterwerte und übergibt sie in der API-Anfrage, sodass Sie kein separates Segment oder keine separate Campaign für jedes Produkt, jede Sendung, jedes Team oder jeden Standort erstellen müssen.
 
-## Beispielanfrage
+## Beispielanfrage {#example-request}
 
 Das folgende Beispiel verwendet den Endpunkt [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/), um Nutzer:innen anzusprechen, die eine bestimmte Sendung als Favorit gespeichert haben und für Push-Benachrichtigungen angemeldet sind:
 
@@ -85,7 +86,7 @@ Das folgende Beispiel verwendet den Endpunkt [`/campaigns/trigger/send`]({{site.
 }
 ```
 
-## Objektstruktur
+## Objektstruktur {#object-body}
 
 Das verbundene Zielgruppen-Objekt besteht entweder aus einem einzelnen verbundenen Zielgruppen-Filter oder aus mehreren verbundenen Zielgruppen-Filtern, die mit den Operatoren `AND` und `OR` kombiniert werden.
 
@@ -108,11 +109,11 @@ Das verbundene Zielgruppen-Objekt besteht entweder aus einem einzelnen verbunden
 }
 ```
 
-## Verbundene Zielgruppen-Filter
+## Verbundene Zielgruppen-Filter {#connected-audience-filters}
 
 Kombinieren Sie mehrere Filter mit den Operatoren `AND` und `OR`, um einen verbundenen Zielgruppen-Filter zu erstellen.
 
-### Filter für angepasste Attribute
+### Filter für angepasste Attribute {#custom-attribute-filter}
 
 Mit diesem Filter können Sie auf der Grundlage eines angepassten Attributs einer:eines Nutzer:in segmentieren. Diese Filter enthalten bis zu drei Felder:
 
@@ -127,7 +128,7 @@ Mit diesem Filter können Sie auf der Grundlage eines angepassten Attributs eine
 }
 ```
 
-#### Zulässige Vergleiche nach Datentyp
+#### Zulässige Vergleiche nach Datentyp {#allowed-comparisons-by-data-type}
 
 Der Datentyp des angepassten Attributs bestimmt die Vergleiche, die für einen bestimmten Filter gültig sind.
 
@@ -138,17 +139,17 @@ Der Datentyp des angepassten Attributs bestimmt die Vergleiche, die für einen b
 | Numerisch | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
 | Boolescher Wert | `equals`, `not_equal`, `exists`, `does_not_exist` |
 | Zeit | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zulässige Vergleiche nach Datentyp" }
 
-#### Hinweise zum Attributvergleich
+#### Hinweise zum Attributvergleich {#attribute-comparison-caveats}
 
 | Vergleich | Zusätzliche Hinweise |
 | --- | --- |
 | `value` | Die Angabe `value` ist nicht erforderlich, wenn Sie die Vergleiche `exists` oder `does_not_exist` verwenden. `value` muss ein ISO 8601 Datetime-String sein, wenn Sie die Vergleiche `before` und `after` verwenden. |
-|`matches_regex` | Wenn Sie den Vergleich `matches_regex` verwenden, muss der übergebene Wert ein String sein. Weitere Informationen über die Verwendung regulärer Ausdrücke mit Braze finden Sie unter [Reguläre Ausdrücke]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze) und [Angepasste Attribut-Datentypen]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `matches_regex` | Wenn Sie den Vergleich `matches_regex` verwenden, muss der übergebene Wert ein String sein. Weitere Informationen über die Verwendung regulärer Ausdrücke mit Braze finden Sie unter [Reguläre Ausdrücke]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze) und [Angepasste Attribut-Datentypen]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Hinweise zum Attributvergleich" }
 
-#### Beispiel für ein angepasstes Attribut
+#### Beispiel für ein angepasstes Attribut {#custom-attribute-example}
 
 ```json
 {
@@ -182,11 +183,11 @@ Der Datentyp des angepassten Attributs bestimmt die Vergleiche, die für einen b
   }
 }
 ```
-### Push-Abo-Filter
+### Push-Abo-Filter {#push-subscription-filter}
 
 Dieser Filter ermöglicht es Ihnen, auf der Grundlage des Push-Abo-Status einer:eines Nutzer:in zu segmentieren.
 
-#### Filterstruktur
+#### Filterstruktur {#filter-body}
 
 ```json
 {
@@ -201,7 +202,7 @@ Dieser Filter ermöglicht es Ihnen, auf der Grundlage des Push-Abo-Status einer:
 - **Zulässige Vergleiche:** `is`, `is_not`
 - **Zulässige Werte:** `opted_in`, `subscribed`, `unsubscribed`
 
-### E-Mail-Abo-Filter
+### E-Mail-Abo-Filter {#email-subscription-filter}
 
 Dieser Filter ermöglicht es Ihnen, auf der Grundlage des E-Mail-Abo-Status einer:eines Nutzer:in zu segmentieren.
 
@@ -220,11 +221,12 @@ Dieser Filter ermöglicht es Ihnen, auf der Grundlage des E-Mail-Abo-Status eine
 - **Zulässige Vergleiche:** `is`, `is_not`
 - **Zulässige Werte:** `opted_in`, `subscribed`, `unsubscribed`
 
-### Filter für zuletzt verwendete App
+### Filter für zuletzt verwendete App {#last-used-app-filter}
 
 Dieser Filter ermöglicht es Ihnen, basierend darauf zu segmentieren, wann die:der Nutzer:in die App zuletzt verwendet hat. Diese Filter enthalten zwei Felder:
 
 #### Filterstruktur
+
 ```json
 {
   "last_used_app":
@@ -238,6 +240,14 @@ Dieser Filter ermöglicht es Ihnen, basierend darauf zu segmentieren, wann die:d
 - **Zulässige Vergleiche:** `after`, `before`
 - **Zulässige Werte:** Datetime (ISO 8601 String)
 
-### Hinweise
+### Hinweise {#considerations}
 
-Verbundene Zielgruppen können Nutzer:innen nicht nach Standardattributen, angepassten Events, Segmenten oder Nachrichten-Engagement-Events filtern. Um diese Filter zu verwenden, empfehlen wir, sie in ein Zielgruppen-Segment zu integrieren und dieses Segment dann im `segment_id`-Parameter für den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters) anzugeben. Bei der Verwendung anderer Endpunkte müssen Sie das Segment zunächst zur API-getriggerten Kampagne oder zum Canvas im Braze-Dashboard hinzufügen.
+Verbundene Zielgruppen können Nutzer:innen nicht filtern nach:
+
+ - Standardattributen
+ - Angepassten Events
+ - Segmenten
+ - Nachrichten-Engagement-Ereignissen
+ - Verschachtelten angepassten Attributen
+
+Um diese Filter zu verwenden, empfehlen wir, sie in ein Zielgruppen-Segment zu integrieren und dieses Segment dann im `segment_id`-Parameter für den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters) anzugeben. Bei der Verwendung anderer Endpunkte müssen Sie das Segment zunächst zur API-getriggerten Campaign oder zum Canvas im Braze-Dashboard hinzufügen.

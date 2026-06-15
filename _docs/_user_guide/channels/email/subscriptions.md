@@ -23,7 +23,7 @@ Braze has three global subscription states for email users. These states gate yo
 | Opted-in | A user has explicitly confirmed they want to receive email. We recommend an explicit opt-in process to get consent from users to send emails. |
 | Subscribed | A user has neither unsubscribed nor explicitly opted-in to receive emails. This is the default subscription state when a user profile is created. |
 | Unsubscribed | A user has explicitly unsubscribed from your emails. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
 
 {% alert note %}
 Braze does not count subscription state changes against your data points, globally, and around subscription groups.
@@ -72,12 +72,16 @@ Include [Preference center](#email-preference-center) Liquid at the bottom of yo
 
 ![User profile for John Doe with their email subscription state set to Subscribed.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-You can check a user's email subscription state in the following ways:
+Use any of the following methods to check a user's email subscription state:
 
 1. **REST API export:** Use the [Export users by segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) or [Export users by identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) endpoints to export individual user profiles in JSON format.
 2. **User profile:** Find the user's profile on the [Search Users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) page, then select the **Engagement** tab to view and manually update a user's subscription state.
 
-When a user updates their email address, their subscription state will be set to subscribed, unless the updated email address already exists elsewhere in a Braze workspace.
+When a user updates their email address, their subscription state is set to subscribed. If the updated email address already exists elsewhere in a Braze workspace, the user inherits the subscription state from that existing user unless **Resubscribe users when they update their email setting** is turned on in **Sending Configuration**.
+
+To troubleshoot subscription state changes, review **Email Subscription-State Changes** in the user profile logs for the history and source (API or SDK).
+
+When a user's global email subscription state changes, Braze propagates that state to other profiles that share the same email address, up to 100 profiles per change. Braze does not guarantee propagation when more than 100 profiles share the same email address. If users who share an email show different subscription states, contact Braze Support.
 
 ## Subscription groups
 
@@ -123,6 +127,8 @@ You can reference the **Subscription Group Timeseries** graph in the **Subscript
 
 ![An example "Subscription Group Timeseries" graph dated from December 2nd through 11th. The graph shows a ~10 million increase in the number of users from the 6th to the 7th.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
+If the timeseries count diverges sharply from a segment using **Email Subscription Status is Unsubscribed**, remember the graph counts membership in that **subscription group**, while that filter reflects **global** email subscription state—for example, users can be globally subscribed but unsubscribed from a specific group.
+
 #### Viewing subscription groups in campaign analytics
 
 You can see counts of users who changed their subscription state (subscribed or unsubscribed) from a specific email campaign on that campaign's analytics page.
@@ -161,14 +167,20 @@ If you anticipate Chinese IP addresses, don't rely solely on an unsubscribe link
 
 ### Creating a custom unsubscribe page
 
-When users select an unsubscribe URL, Braze shows a default landing page confirming the change.
+When users select an unsubscribe URL in an email, they open a default landing page that confirms the subscription change.
 
-To create a custom landing page (instead of the default) shown after subscribing:
+To use a custom landing page instead:
 
 1. Go to **Email Preferences** > **Subscription Pages and Footers**.
-2. Provide the HTML for your custom landing page. 
+2. Add the HTML for your custom page.
 
-Include a resubscribe link (such as {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) so users can resubscribe if they unsubscribed by accident.
+Include a resubscribe link (for example {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) so users can undo an accidental unsubscribe.
+
+You can also send users to your site and update status with the Braze REST API (for example link with {% raw %}`?user_id={{${user_id}}}`{% endraw %} and then call [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/).
+
+{% alert note %}
+If you use the dashboard footer instead of only an HTML content block, the template must still contain {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} to save. To use a different unsubscribe URL temporarily, you can comment out the default tag. An example is: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
+{% endalert %}
 
 ![Custom unsubscribe page with a preview "Sorry to see you go!".]({% image_buster /assets/img/custom_unsubscribe.png %})
 

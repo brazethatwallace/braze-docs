@@ -1,25 +1,32 @@
 ---
 nav_title: API de exportación
 article_title: API de exportación
-page_order: 8
+page_order: 5
 page_type: reference
-description: "Este artículo de referencia describe por qué puede exportar mediante programación un archivo JSON de datos del cuadro de mandos, en lugar de exportar un CSV directamente desde el cuadro de mandos."
+description: "Este artículo de referencia te ayuda a decidir cuándo usar las API de exportación en lugar de descargas CSV desde el dashboard."
 platform: API
 
 ---
 
-# API de exportación
+# API de exportación {#export-apis}
 
-> Esta página cubre las API de exportación de Braze, que te permiten exportar mediante programación un archivo JSON de datos del panel. Consulta [Puntos finales de exportación]({{site.baseurl}}/api/endpoints/export/) para ver una lista de los datos a los que puedes acceder, incluidas las instrucciones y el código de muestra para la exportación.
+> Esta página te ayuda a decidir cuándo usar las API de exportación en lugar de descargas CSV desde el dashboard.
 
-## Cuándo utilizar API de exportación en lugar de descargas CSV
+Las API de exportación de Braze te permiten exportar datos de Braze de forma programática como JSON. Para obtener detalles sobre lo que puedes exportar, los requisitos previos y cómo funciona la entrega, consulta [Puntos finales de exportación]({{site.baseurl}}/api/endpoints/export/).
 
-Hay algunas razones por las que preferirías este método a exportar un CSV directamente desde el cuadro de mandos:
+## Cuándo usar las API de exportación en lugar de descargas CSV {#when-to-use-export-apis-instead-of-csv-downloads}
 
- - Tu archivo es muy grande. Desde nuestro panel de control, puede exportar un CSV con un máximo de 500.000 filas. Si vas a exportar datos de un segmento con más de 500.000 usuarios, tendrás que utilizar nuestra API de exportación, que no tiene límite en cuanto a la cantidad que puedes exportar.
- -  Quieres interactuar con los datos mediante programación.
+La siguiente tabla describe escenarios comunes en los que usar la API de exportación es una mejor opción que una descarga CSV desde el dashboard.
+
+| Escenario | Detalles |
+| --- | --- |
+| Tu exportación es demasiado grande para el dashboard | Las exportaciones CSV del dashboard están limitadas a 500 000 filas. Si estás exportando datos de un segmento con más de 500 000 usuarios, usa la API de exportación, que no tiene límite en la cantidad que puedes exportar. |
+| Quieres automatizar informes recurrentes | Programa exportaciones de API a través de una integración para obtener datos de forma periódica sin interacción manual con el dashboard. |
+| Necesitas alimentar herramientas externas con datos | Envía los datos de exportación directamente a herramientas de BI, almacenes de datos u otras plataformas de análisis. |
+| Necesitas datos que no están disponibles como exportación CSV del dashboard | Algunas categorías de datos, incluidos KPI, series de ingresos, análisis de eventos personalizados y datos de sesión, solo están disponibles a través de la API. |
+| Quieres interactuar con los datos de forma programática | Usa la salida JSON para procesamiento personalizado, transformaciones o integraciones. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="When to use export APIs instead of CSV downloads" }
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, consulta [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y de API, consulta [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
-

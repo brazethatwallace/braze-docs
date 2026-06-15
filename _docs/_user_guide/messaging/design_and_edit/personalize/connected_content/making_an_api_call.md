@@ -76,7 +76,7 @@ You can allowlist specific URLs to be used for Connected Content. To access this
 {% endalert %}
 
 {% alert tip %}
-Visit [Troubleshooting webhook and Connected Content requests]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) to learn more about how to troubleshoot common error codes.
+For more information about common error codes, see [Troubleshoot webhook and Connected Content requests]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection).
 {% endalert %}
 
 ### Rate limits (429) versus unhealthy host detection
@@ -84,7 +84,7 @@ Visit [Troubleshooting webhook and Connected Content requests]({{site.baseurl}}/
 The following are different mechanisms:
 
 - **429 Too Many Requests:** Your endpoint (or an upstream service) is returning this response. It means your server or middleware is refusing traffic, often because it has its own rate limit. Braze does not apply a separate rate limit to Connected Content; Connected Content request volume scales directly with your [message delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting). Because messages can be rendered multiple times per recipient (for example, for email HTML, plain text, and AMP), the number of Connected Content requests can exceed that rate limit—do not assume it will be less than or equal to the messages per minute you set. If you see 429s, scale your endpoint or middleware to handle the expected request volume, or lower the campaign or Canvas step rate limit so that fewer messages (and thus fewer Connected Content calls) are sent per minute.
-- **Unhealthy host detection:** A Braze-side safeguard that triggers after a high rate and volume of *failures* in a one-minute window. The failure count includes `408`, `429`, `502`, `503`, `504`, and `529` status codes. When triggered, Braze temporarily halts requests to that host and simulates a failure response. This is independent of your own rate limiting. For detection thresholds and more detail, see [Troubleshooting webhook and Connected Content requests]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection). To avoid hitting unhealthy host detection, ensure your endpoint can handle the call volume described in [Understanding Connected Content call volume](#understanding-connected-content-call-volume) and [Best practices for high-volume endpoints](#best-practices-for-high-volume-endpoints).
+- **Unhealthy host detection:** A Braze-side safeguard that triggers after a high rate and volume of *failures* in a one-minute window. The failure count includes `408`, `429`, `502`, `503`, `504`, and `529` status codes. When triggered, Braze temporarily halts requests to that host and simulates a failure response. This is independent of your own rate limiting. For detection thresholds and more detail, see [Troubleshoot webhook and Connected Content requests]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/#unhealthy-host-detection). To avoid hitting unhealthy host detection, ensure your endpoint can handle the call volume described in [Understanding Connected Content call volume](#understanding-connected-content-call-volume) and [Best practices for high-volume endpoints](#best-practices-for-high-volume-endpoints).
 
 ## Allowing for efficient performance
 
@@ -135,6 +135,8 @@ Hi there, here is some fun trivia for you!: {% connected_content https://yourweb
 {% alert note %}
 If you delete a credential, keep in mind that any Connected Content calls trying to use it will be aborted.
 {% endalert %}
+
+Stored credentials apply to {% raw %}`{% connected_content %}`{% endraw %} requests while Braze renders a message. They are not applied to the primary HTTP request configured in a [webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#authentication-and-connected-content-credentials) step. Use Request headers or a {% raw %}`{% connected_content %}`{% endraw %} tag inside a webhook header or body field when you need to retrieve secrets for that call.
 
 ### Using token authentication
 
@@ -234,18 +236,24 @@ Keep in mind that the hash value changes regularly. If you're filtering traffic 
 
 ## Troubleshooting
 
-Use [Webhook.site](https://webhook.site/) to troubleshoot your Connected Content calls. 
+Use [Webhook.site](https://webhook.site/) to troubleshoot your Connected Content calls and to diagnose issues with the request headers, request body, and other information that is being sent in the call.
 
 1. Switch the URL in your Connected Content call with the unique URL generated on the site.
 2. Preview and test your campaign or Canvas step to see the requests come through to this website.
 
-Using this tool, you can diagnose issues with the request headers, request body, and other information that is being sent in the call.
+You can also verify the Liquid tag includes the parameters your endpoint expects (for example, `:method`, `:headers`, `:content_type`, `:body`, and `:basic_auth` when required). If you rely on the HTTP status code key in a saved JSON object, the endpoint must return a JSON object and a `2XX` status. 
+
+For high error rates from your host, review [Unhealthy host detection]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) and [Connected Content call volume](#understanding-connected-content-call-volume).
 
 ## Frequently asked questions
 
-### Why are there more Connected Content calls than users or sends? 
+### Why are there more Connected Content calls than users or sends?
 
-This is expected behavior. Braze may make the same Connected Content API call more than once per recipient because message payloads can be rendered multiple times (for example, for email HTML, plain text, and AMP; for validation or retry logic; or other internal purposes). There is no guaranteed 1:1 ratio between sends and Connected Content calls. See [Understanding Connected Content call volume](#understanding-connected-content-call-volume) and [Best practices for high-volume endpoints](#best-practices-for-high-volume-endpoints) for details and mitigation.
+Braze may make the same Connected Content API call more than once per recipient to render a message payload. Message payloads can be rendered multiple times per recipient for validation, retry logic, or other internal purposes. However, note that only one of the Connected Content calls populates a message. 
+
+It’s expected that a Connected Content API call can be made more than once per recipient, even if the retry logic is not used in the call. We recommend setting the rate limit of any messages that contain Connected Content or configuring your servers to be better able to handle the expected volume that accounts for multiple Connected Content calls being made per message send.  
+
+See [Understanding Connected Content call volume](#understanding-connected-content-call-volume) and [Best practices for high-volume endpoints](#best-practices-for-high-volume-endpoints) for details and mitigation.
 
 ### How does rate limiting work with Connected Content?
 

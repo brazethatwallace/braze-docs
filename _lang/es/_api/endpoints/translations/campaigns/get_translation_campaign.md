@@ -1,47 +1,45 @@
 ---
 nav_title: "GET: Ver todas las traducciones de una campaña"
 article_title: "GET: Ver todas las traducciones de una campaña"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto final Ver todas las traducciones de una campaña."
+description: "Este artículo describe los detalles sobre el punto de conexión Ver todas las traducciones de una campaña."
 ---
 
 {% api %}
-# Ver todas las traducciones de una campaña
+# Ver todas las traducciones de una campaña {#view-all-translations-for-a-campaign}
 {% apimethod get %}
 /campaigns/translations
 {% endapimethod %}
 
-> Utiliza este punto final para ver todas las traducciones de cada variante de mensaje de una campaña. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) para obtener más información sobre las características de la localización.
+> Usa este punto de conexión para ver todas las traducciones de cada variante de mensaje en una campaña. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+## Requisitos previos {#prerequisites}
 
-## Requisitos previos
+Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.translations.get`.
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.translations.get`.
-
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parámetros de consulta
+## Parámetros de consulta {#query-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`| Obligatoria | Cadena | El ID de su campaña. |
-|`message_variation_id`| Obligatoria | Cadena | El ID de tu variación de mensaje. |
-|`locale_id`| Opcional | Cadena | Un UUID local para filtrar las respuestas. |
-| `post_launch_draft_version`| Opcional | Booleano | Cuando`true`  devuelve la última versión preliminar en lugar de la última versión publicada en vivo. Predeterminado,`false`devuelve la última versión en vivo.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | Obligatorio | Cadena | El ID de tu campaña. |
+| `message_variation_id` | Obligatorio | Cadena | El ID de tu variante de mensaje. |
+| `locale_id` | Opcional | Cadena | Un UUID de locale para filtrar las respuestas. |
+| `post_launch_draft_version` | Opcional | Booleano | Cuando es `true`, devuelve la última versión de borrador en lugar de la última versión publicada en vivo. El valor predeterminado es `false`, que devuelve la última versión en vivo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
-Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto final GET.
+Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.
 {% endalert %}
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translations?campaign_id={campaign_id}&message_variation_id={message_variation_id}&locale_id={locale_uuid}&post_launch_draft_version=true' \
@@ -49,13 +47,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translati
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-Hay cuatro respuestas de código de estado para este punto final: `200`, `400`, `404` y `429`.
+Hay cuatro respuestas de código de estado para este punto de conexión: `200`, `400`, `404` y `429`.
 
-### Ejemplo de respuesta positiva
+### Ejemplo de respuesta correcta {#example-success-response}
 
-El código de estado `200` podría devolver la siguiente cabecera y cuerpo de respuesta.
+El código de estado `200` podría devolver el siguiente encabezado y cuerpo de respuesta.
 
 ```json
 {
@@ -92,7 +90,7 @@ El código de estado `200` podría devolver la siguiente cabecera y cuerpo de re
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
 El código de estado `400` podría devolver el siguiente cuerpo de respuesta.
 

@@ -1,34 +1,34 @@
 ---
-nav_title: "PUBLICAR: Crear una nueva cuenta de usuario en el panel"
-article_title: "PUBLICAR: Crear una nueva cuenta de usuario en el panel"
+nav_title: "POST: Crear una nueva cuenta de usuario en el dashboard"
+article_title: "POST: Crear una nueva cuenta de usuario en el dashboard"
 alias: /post_create_user_account/
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles sobre el punto final Crear nueva cuenta de usuario del panel de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Crear nueva cuenta de usuario en el dashboard de Braze."
 
 ---
 
 {% api %}
-# Crear una nueva cuenta de usuario en el panel
+# Crear una nueva cuenta de usuario en el dashboard {#create-new-dashboard-user-account}
 {% apimethod post %}
 /scim/v2/Users
 {% endapimethod %}
 
-> Utiliza este punto final para crear una nueva cuenta de usuario del panel especificando correo electrónico, nombres y apellidos, permisos (para establecer permisos a nivel de empresa, espacio de trabajo y equipo).
+> Utiliza este punto de conexión para crear una nueva cuenta de usuario en el dashboard especificando correo electrónico, nombre y apellidos, y permisos (para establecer permisos a nivel de empresa, espacio de trabajo y equipo).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#768a3c9d-ce1d-44fc-a0e4-d556b09f7aa3 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás un token SCIM. Utilizarás el origen de tu servicio como cabecera de `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning/).
+Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning/).
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='create dashboard user' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 ```
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
@@ -77,18 +77,18 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `schemas` | Obligatoria | Matriz de cadenas | Nombre del esquema SCIM 2.0 esperado para el objeto usuario. |
-| `userName` | Obligatoria | Cadena | La dirección de correo electrónico del usuario. |
-| `name` | Obligatoria | Objeto JSON | Este objeto contiene el nombre y los apellidos del usuario. |
-| `department` | Obligatoria | Cadena | Cadena [de]({{site.baseurl}}/scim_api_appendix/#department-strings) departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | Opcional | Objeto JSON | Objeto [de permisos]({{site.baseurl}}/scim_api_appendix/#permissions-object) tal y como se describe en [la documentación del objeto de permisos]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `schemas` | Obligatorio | Matriz de cadenas | Nombre del esquema SCIM 2.0 esperado para el objeto de usuario. |
+| `userName` | Obligatorio | Cadena | La dirección de correo electrónico del usuario. |
+| `name` | Obligatorio | Objeto JSON | Este objeto contiene el nombre y los apellidos del usuario. |
+| `department` | Obligatorio | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/scim_api_appendix/#department-strings). |
+| `permissions` | Opcional | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 --header 'Content-Type: application/json' \
@@ -128,7 +128,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
@@ -205,22 +205,22 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 }
 ```
 
-## Parámetros de respuesta
+## Parámetros de respuesta {#response-parameters}
 
 | Parámetro | Tipo de datos | Descripción |
 | --------- | --------- | ----------- |
-| `schemas` | Matriz de cadenas | Nombre del esquema SCIM 2.0 esperado para el objeto usuario. |
+| `schemas` | Matriz de cadenas | Nombre del esquema SCIM 2.0 esperado para el objeto de usuario. |
 | `userName` | Cadena | La dirección de correo electrónico del usuario. |
-| `name` | Objeto JSON | Este objeto contiene el nombre y apellidos del usuario. |
-| `department` | Cadena | Cadena [de]({{site.baseurl}}/scim_api_appendix/#department-strings) departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | Objeto JSON | Objeto [de permisos]({{site.baseurl}}/scim_api_appendix/#permissions-object) tal y como se describe en [la documentación del objeto de permisos]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
+| `name` | Objeto JSON | Este objeto contiene el nombre y los apellidos del usuario. |
+| `department` | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/scim_api_appendix/#department-strings). |
+| `permissions` | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
 | `id` | Cadena | ID generado por Braze que se utiliza para buscar y administrar cuentas de usuario. |
-| `lastSignInAt` | Cadena | Fecha del último inicio de sesión con éxito en hora UTC. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `lastSignInAt` | Cadena | Fecha del último inicio de sesión correcto en hora UTC. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
-### Estados de error
+### Estados de error {#error-states}
 
-Si ya existe en Braze un usuario con este `userName` o dirección de correo electrónico, el punto final responderá con:
+Si ya existe en Braze un usuario con este `userName` o dirección de correo electrónico, el punto de conexión responderá con:
 
 ```http
 HTTP/1.1 409 Conflict

@@ -1,27 +1,27 @@
-# Anwendungsfälle: Buchungserinnerung per E-Mail
+# Anwendungsfall: Buchungserinnerungs-E-Mail-System {#use-case-booking-reminder-email-system}
 
-> Braze ist eine umfassende Customer-Engagement-Plattform, die so konzipiert ist, dass sie in hohem Maße programmgesteuert werden kann. In diesem Anwendungsfall zeigen wir Ihnen einige Möglichkeiten, wie Sie die Funktionen von Braze in Anwendungsfälle integrieren können, die an der Schnittstelle zwischen Produkt und Marketing liegen, wie z.B. Buchungssysteme.
+> Braze ist eine umfassende Customer-Engagement-Plattform, die so konzipiert ist, dass sie in hohem Maße programmgesteuert werden kann. In diesem Anwendungsfall zeigen wir Ihnen einige Möglichkeiten, wie Sie die Funktionen von Braze in Anwendungsfälle integrieren können, die an der Schnittstelle zwischen Produkt und Marketing liegen – wie z. B. Buchungssysteme.
 
-Dieser Anwendungsfall zeigt, wie Sie die Features von Braze nutzen können, um einen E-Mail Messaging-Dienst für Buchungserinnerungen aufzubauen. Der Dienst erlaubt es Nutzern:innen, Termine zu buchen, und sendet ihnen Nachrichten, um sie an ihre Termine zu erinnern. Obwohl in diesem Anwendungsfall E-Mail-Nachrichten verwendet werden, können Sie Nachrichten in einem beliebigen oder mehreren Kanälen auf der Grundlage eines einzigen Updates eines Nutzerprofils versenden.
+Dieser Anwendungsfall zeigt, wie Sie die Features von Braze nutzen können, um einen E-Mail-Messaging-Dienst für Buchungserinnerungen aufzubauen. Der Dienst ermöglicht es Nutzer:innen, Termine zu buchen, und sendet ihnen Erinnerungen an bevorstehende Termine. Obwohl in diesem Anwendungsfall E-Mail-Nachrichten verwendet werden, können Sie Nachrichten in einem beliebigen oder mehreren Kanälen auf der Grundlage eines einzigen Updates eines Nutzerprofils versenden.
 
 Weitere Vorteile der Erstellung dieses Dienstes sind:
-- Gesendete Nachrichten werden vollständig getrackt und gemeldet.
-- Nicht-technische Nutzer:innen des Unternehmens können den Inhalt von Nachrichten aktualisieren.
-- Nachrichten befolgen den Opt-in und Opt-out Status von Nutzerprofilen per Kampagnen-Konfiguration.
+- Gesendete Nachrichten werden vollständig getrackt und in Berichten erfasst.
+- Nicht-technische Unternehmensnutzer:innen können den Inhalt von Nachrichten aktualisieren.
+- Nachrichten berücksichtigen den Opt-in- und Opt-out-Status von Nutzerprofilen gemäß der Campaign-Konfiguration.
 - Sie können sowohl Buchungsdaten als auch Daten zur Nachrichteninteraktion verwenden, um Nutzer:innen zu segmentieren und für zusätzliche Nachrichten anzusprechen. Beispielsweise können Sie diejenigen, die die erste Erinnerungsnachricht nicht öffnen, mit einer zusätzlichen Erinnerung vor ihrem Termin erneut ansprechen.
 
-Folgen Sie diesen Schritten, um diesen Anwendungsfall zu erreichen:
-1. [Schreiben Sie anstehende Buchungsdaten in ein Nutzerprofil von Braze](#step-1)
-2. [Einrichten und Starten einer Nachricht zur Buchungserinnerung](#step-2)
-3. [Bearbeiten Sie aktualisierte Buchungen und Stornierungen](#step-3)
+Folgen Sie diesen Schritten, um diesen Anwendungsfall umzusetzen:
+1. [Anstehende Buchungsdaten in ein Braze-Nutzerprofil schreiben](#step-1)
+2. [Buchungserinnerung einrichten und starten](#step-2)
+3. [Aktualisierte Buchungen und Stornierungen verarbeiten](#step-3)
 
-## Schritt 1: Schreiben Sie anstehende Buchungsdaten in ein Nutzerprofil von Braze {#step-1}
+## 1. Schritt: Anstehende Buchungsdaten in ein Braze-Nutzerprofil schreiben {#step-1}
 
-Verwenden Sie den Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) Endpunkt, um bei jeder Buchung ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/) in ein Nutzerprofil zu schreiben. Bitte stellen Sie sicher, dass das verschachtelte angepasste Attribut alle erforderlichen Informationen enthält, um die Erinnerungsnachricht zu versenden und zu personalisieren. In diesem Anwendungsfall nennen wir das angepasste Attribut "Reisen".
+Verwenden Sie den Braze-Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), um bei jeder Buchung ein [verschachteltes angepasstes Attribut]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/) in ein Nutzerprofil zu schreiben. Stellen Sie sicher, dass das verschachtelte angepasste Attribut alle Informationen enthält, die Sie zum Versenden und Personalisieren der Erinnerungsnachricht benötigen. In diesem Anwendungsfall nennen wir das verschachtelte angepasste Attribut „trips“.
 
-### Buchung hinzufügen
+### Buchung hinzufügen {#add-booking}
 
-Wenn ein Nutzer:innen eine Buchung erstellt, verwenden Sie die folgende Struktur für das Array von Objekten, um die Daten über den Endpunkt `/users/track` an Braze zu senden.
+Wenn ein:e Nutzer:in eine Buchung erstellt, verwenden Sie die folgende Struktur für das Array von Objekten, um die Daten über den Endpunkt `/users/track` an Braze zu senden.
 
 {% raw %}
 ```json
@@ -40,12 +40,12 @@ Wenn ein Nutzer:innen eine Buchung erstellt, verwenden Sie die folgende Struktur
 ```
 {% endraw %}
 
-Das verschachtelte angepasste Attribut "Reisen" wird im Nutzerprofil wie folgt angezeigt.
+Das verschachtelte angepasste Attribut „trips“ wird im Nutzerprofil wie folgt angezeigt.
 
 ![Zwei verschachtelte angepasste Attribute für eine Reise nach London und eine Reise nach Sydney.]({% image_buster /assets/img/use_cases/2_nested_attributes.png %}){: style="max-width:70%;"}
 
-### Update der Buchung
-Wenn ein Nutzer:innen eine Buchung aktualisiert, verwenden Sie die folgende Struktur für das Array von Objekten, um die Daten über den Endpunkt `/users/track` an Braze zu senden.
+### Buchung aktualisieren {#update-booking}
+Wenn ein:e Nutzer:in eine Buchung aktualisiert, verwenden Sie die folgende Struktur für das Array von Objekten, um die Daten über den Endpunkt `/users/track` an Braze zu senden.
 
 {% raw %}
 ```json
@@ -69,12 +69,12 @@ Wenn ein Nutzer:innen eine Buchung aktualisiert, verwenden Sie die folgende Stru
 ```
 {% endraw %}
 
-### Buchung entfernen
+### Buchung entfernen {#remove-booking}
 
 {% tabs %}
 {% tab /users/track endpoint %}
-#### Senden Sie Daten über den Endpunkt `/users/track` 
-Wenn ein Nutzer:innen eine Buchung löscht, verwenden Sie die folgende Struktur für das Array von Objekten, um die Daten über den Endpunkt `/users/track` an Braze zu senden.
+#### Daten über den Endpunkt `/users/track` senden {#send-data-through-the-userstrack-endpoint}
+Wenn ein:e Nutzer:in eine Buchung löscht, verwenden Sie die folgende Struktur für das Array von Objekten, um die Daten über den Endpunkt `/users/track` an Braze zu senden.
 
 {% raw %}
 ```json
@@ -99,9 +99,9 @@ Wenn ein Nutzer:innen eine Buchung löscht, verwenden Sie die folgende Struktur 
 {% endraw %}
 {% endtab %}
 {% tab SDK %}
-#### Schreiben von verschachtelten Attributen zu Nutzerprofilen über das SDK
+#### Verschachtelte Attribute über das SDK in Nutzerprofile schreiben {#write-nested-attributes-to-user-profiles-through-the-sdk}
 
-Wenn Sie mit Ihrer App, Website oder beidem Terminbuchungen erfassen und diese Daten direkt in ein Nutzerprofil schreiben möchten, können Sie das Braze SDK verwenden, um diese Daten zu übertragen. Hier ist ein Beispiel für die Verwendung des Internet SDK:
+Wenn Sie Terminbuchungen über Ihre App, Website oder beides erfassen und diese Daten direkt in ein Nutzerprofil schreiben möchten, können Sie das Braze SDK verwenden, um diese Daten zu übertragen. Hier ist ein Beispiel mit dem Web SDK:
 
 {% raw %}
 ```json
@@ -124,19 +124,19 @@ Braze entfernt die angegebene Buchung aus dem verschachtelten angepassten Attrib
 
 ![Ein verschachteltes angepasstes Attribut für eine Reise nach London.]({% image_buster /assets/img/use_cases/1_nested_attribute.png %}){: style="max-width:70%;"}
 
-## Schritt 2: Einrichten und Starten einer Nachricht zur Buchungserinnerung {#step-2}
+## 2. Schritt: Buchungserinnerung einrichten und starten {#step-2}
 
-### Schritt 2a: Erstellen Sie eine Zielgruppe
-Erstellen Sie eine Zielgruppe, die Erinnerungen erhalten soll, indem Sie eine Segmentierung nach mehreren Kriterien vornehmen. Wenn Sie zum Beispiel zwei Tage vor dem Buchungsdatum eine Erinnerung senden möchten, wählen Sie Folgendes aus:
+### Schritt 2a: Zielgruppe erstellen {#step-2a-create-a-target-audience}
+Erstellen Sie eine Zielgruppe für den Empfang von Erinnerungen mithilfe einer Segmentierung nach mehreren Kriterien. Wenn Sie beispielsweise zwei Tage vor dem Buchungsdatum eine Erinnerung senden möchten, wählen Sie Folgendes aus:
 
 - Ein Startdatum **in mehr als 1 Tag** und
-- Ein Starttermin **in weniger als 2 Tagen** 
+- Ein Startdatum **in weniger als 2 Tagen**
 
-![Ein verschachteltes angepasstes Attribut "Reisen" mit Kriterien für ein Startdatum, das mehr als einen Tag und weniger als zwei Tage beträgt.]({% image_buster /assets/img/use_cases/custom_nested_attribute.png %})
+![Ein verschachteltes angepasstes Attribut „trips“ mit Kriterien für ein Startdatum, das mehr als einen Tag und weniger als zwei Tage entfernt ist.]({% image_buster /assets/img/use_cases/custom_nested_attribute.png %})
 
-### Schritt 2b: Erstellen Sie Ihre Nachricht
+### Schritt 2b: Nachricht erstellen {#step-2b-create-your-message}
 
-Erstellen Sie die Nachricht für die Erinnerungsmail, indem Sie die Schritte unter [Erstellen einer E-Mail mit angepasstem HTML-Code]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/creating_an_email_campaign/) befolgen. Verwenden Sie Liquid, um die Nachricht mit Daten aus dem angepassten Attribut des Kunden ("Reisen") anzupassen, wie in diesem Beispiel.
+Erstellen Sie die Erinnerungs-E-Mail, indem Sie die Schritte unter [E-Mail mit angepasstem HTML erstellen]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/) befolgen. Verwenden Sie Liquid, um die Nachricht mit Daten aus dem von Ihnen erstellten angepassten Attribut („trips“) zu personalisieren, wie in diesem Beispiel.
 
 {% raw %}
 ```liquid
@@ -146,30 +146,30 @@ Erstellen Sie die Nachricht für die Erinnerungsmail, indem Sie die Schritte unt
 You have the following booked in 2 days! Check the information below:
 {% for date in dates %}
 {% if date.start_date == two_days %}
-{{date.trip_id}} 
+{{date.trip_id}}
 {{date.name}}
 {% endif %}
 {% endfor %}
 ```
 {% endraw %}
 
-### Schritt 2c: Starten Sie Ihre Kampagne
+### Schritt 2c: Campaign starten {#step-2c-launch-your-campaign}
 
-Starten Sie die Kampagne für die Nachricht zur Erinnerung per E-Mail. Jedes Mal, wenn Braze das benutzerdefinierte Attribut „trips“ erhält, plant Braze eine Nachricht entsprechend den Daten, die im jeweiligen Buchungsobjekt enthalten sind.
+Starten Sie die Campaign für die Erinnerungs-E-Mail. Jedes Mal, wenn Braze das angepasste Attribut „trips“ erhält, plant Braze eine Nachricht entsprechend den Daten, die im jeweiligen Buchungsobjekt enthalten sind.
 
-## Schritt 3: Bearbeiten Sie aktualisierte Updates und Stornierungen von Buchungen {#step-3}
+## 3. Schritt: Aktualisierte Buchungen und Stornierungen verarbeiten {#step-3}
 
-Jetzt, wo Sie Erinnerungsnachrichten versenden, können Sie auch Nachrichten zur Bestätigung einrichten, die gesendet werden, wenn Buchungen aktualisiert oder storniert werden.
+Da Sie nun Erinnerungsnachrichten versenden, können Sie auch Bestätigungsnachrichten einrichten, die gesendet werden, wenn Buchungen aktualisiert oder storniert werden.
 
-### Schritt 3a: Senden Sie aktualisierte Daten
+### Schritt 3a: Aktualisierte Daten senden {#step-3a-send-updated-data}
 
 {% tabs %}
 {% tab /users/track %}
 
-#### Senden Sie Daten über den Endpunkt `/users/track` 
-Verwenden Sie den Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) Endpunkt, um ein angepasstes Event zu senden, wenn ein Nutzer:innen eine Buchung aktualisiert oder storniert. In diesem Fall geben Sie die erforderlichen Daten in Event-Eigenschaften ein, die die Änderung bestätigen. 
+#### Daten über den Endpunkt `/users/track` senden {#send-data-through-the-userstrack-endpoint}
+Verwenden Sie den Braze-Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), um ein angepasstes Event zu senden, wenn ein:e Nutzer:in eine Buchung aktualisiert oder storniert. Geben Sie in diesem Event die erforderlichen Daten als Event-Eigenschaften an, die die Änderung bestätigen.
 
-Nehmen wir an, dass in diesem Anwendungsfall ein Nutzer:innen das Datum seiner Reise nach Sydney aktualisiert hat. Das Ereignis würde wie folgt aussehen:
+Nehmen wir an, dass in diesem Anwendungsfall ein:e Nutzer:in das Datum der Reise nach Sydney aktualisiert hat. Das Event würde wie folgt aussehen:
 
 {% raw %}
 ```json
@@ -193,13 +193,13 @@ Nehmen wir an, dass in diesem Anwendungsfall ein Nutzer:innen das Datum seiner R
 {% endtab %}
 {% tab SDK %}
 
-#### Schreiben von verschachtelten Attributen zu Nutzerprofilen über das SDK
+#### Angepasste Events über das SDK senden {#write-nested-attributes-to-user-profiles-through-the-sdk}
 
-Senden Sie angepasste Events über das SDK an das Nutzerprofil. Wenn Sie zum Beispiel das Web SDK verwenden, könnten Sie senden:
+Senden Sie angepasste Events über das SDK an das Nutzerprofil. Wenn Sie beispielsweise das Web SDK verwenden, könnten Sie Folgendes senden:
 
 {% raw %}
 ```json
-braze.logCustomEvent("trip_updated", { 
+braze.logCustomEvent("trip_updated", {
   id: 2,
   name: "Sydney Trip",
   old_time: "2025-11-12",
@@ -210,11 +210,11 @@ braze.logCustomEvent("trip_updated", {
 {% endtab %}
 {% endtabs %}
 
-### Schritt 3b: Erstellen Sie eine Nachricht zur Bestätigung des Updates
+### Schritt 3b: Bestätigungsnachricht für das Update erstellen {#step-3b-create-a-message-to-confirm-the-update}
 
-Erstellen Sie eine [aktionsbasierte Kampagne]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/), um dem Nutzer:innen eine Bestätigung für seine aktualisierte Buchung zu schicken. [Mit Liquid können Sie ein Template für Event-Eigenschaften erstellen]({{site.baseurl}}/user_guide/data/custom_data/custom_events/), das den Namen, die alte Zeit und die neue Zeit der Buchung (oder nur den Namen, wenn es sich um eine Stornierung handelt) in der Nachricht selbst wiedergibt.
+Erstellen Sie eine [aktionsbasierte Campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/), um der bzw. dem Nutzer:in eine Bestätigung der aktualisierten Buchung zu senden. Sie können [Liquid verwenden, um Event-Eigenschaften als Template einzusetzen]({{site.baseurl}}/user_guide/data/custom_data/custom_events/), die den Namen, die alte Zeit und die neue Zeit der Buchung (oder nur den Namen bei einer Stornierung) in der Nachricht selbst wiedergeben.
 
-Sie könnten zum Beispiel die folgende Nachricht verfassen:
+Sie könnten beispielsweise die folgende Nachricht verfassen:
 
 {% raw %}
 ```liquid
@@ -222,13 +222,13 @@ Hi {{${first_name}}}, you have successfully updated the date of your trip, {{eve
 ```
 {% endraw %}
 
-### Schritt 3c: Ändern Sie das Nutzerprofil entsprechend dem Update
+### Schritt 3c: Nutzerprofil entsprechend dem Update anpassen {#step-3c-modify-the-user-profile-to-reflect-the-update}
 
-Um schließlich die Buchungserinnerungen aus Schritt 1 und 2 auf der Grundlage der neuesten Daten zu versenden, aktualisieren Sie die verschachtelten angepassten Attribute, um die Änderung oder Stornierung der Buchung zu berücksichtigen.
+Um die Buchungserinnerungen aus [Schritt 1](#step-1) und [Schritt 2](#step-2) auf Basis der aktuellsten Daten zu versenden, aktualisieren Sie abschließend die verschachtelten angepassten Attribute, um die Änderung oder Stornierung der Buchung widerzuspiegeln.
 
-#### Update der Buchung
+#### Aktualisierte Buchung {#updated-booking}
 
-Wenn der Nutzer:innen in diesem Anwendungsfall seine Reise nach Sydney aktualisiert, würden Sie den Endpunkt `/users/track` verwenden, um das Datum mit einem Aufruf wie diesem zu ändern:
+Wenn die bzw. der Nutzer:in in diesem Anwendungsfall die Reise nach Sydney aktualisiert hat, verwenden Sie den Endpunkt `/users/track`, um das Datum mit einem Aufruf wie diesem zu ändern:
 
 {% raw %}
 ```json
@@ -254,9 +254,9 @@ Wenn der Nutzer:innen in diesem Anwendungsfall seine Reise nach Sydney aktualisi
 ```
 {% endraw %}
 
-#### Stornierte Buchung
+#### Stornierte Buchung {#cancelled-booking}
 
-Wenn die Nutzer:in in diesem Anwendungsfall ihre Reise nach Sydney storniert, senden Sie den folgenden Aufruf an den`/users/track`Endpunkt:
+Wenn die bzw. der Nutzer:in in diesem Anwendungsfall die Reise nach Sydney storniert hat, senden Sie den folgenden Aufruf an den Endpunkt `/users/track`:
 
 {% raw %}
 ```json
@@ -278,5 +278,4 @@ Wenn die Nutzer:in in diesem Anwendungsfall ihre Reise nach Sydney storniert, se
 ```
 {% endraw %}
 
-Nach dem Versenden dieser Anrufe und dem Update des Nutzerprofils werden die Nachrichten zur Buchungserinnerung die neuesten Daten über die Buchungsdaten des Nutzers:innen wiedergeben.
-
+Nach dem Versenden dieser Aufrufe und dem Update des Nutzerprofils spiegeln die Buchungserinnerungen die aktuellsten Daten zu den Buchungsterminen der bzw. des Nutzer:in wider.

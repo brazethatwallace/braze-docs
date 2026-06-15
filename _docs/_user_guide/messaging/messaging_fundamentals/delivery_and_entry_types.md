@@ -20,7 +20,7 @@ For campaigns, the delivery type determines when your users will enter your camp
 | **Scheduled**       | This type of schedule is designed for one-off messages that you wish to send immediately, such as campaigns about a current event. <br><br>When sending test messages aimed at just yourself or your team, this option allows you to deliver them immediately.                                                                                   |
 | **Action-Based**    | Action-based delivery messages, or event-triggered campaigns and Canvases, are very effective for transactional or achievement-based messages. You can trigger them to send after a user completes a certain event instead of sending your message on certain days.                                                                                           |
 | **API-Triggered**   | API-triggered messages allow you to manage message copy, multivariate testing, and re-eligibility rules in the Braze dashboard while triggering the delivery of that content from your own servers and systems. <br><br>The API request to trigger the message can also include additional data to be templated into the message in real-time. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Delivery and entry types" }
 
 ## Time-based options
 

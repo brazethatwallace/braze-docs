@@ -2,18 +2,15 @@
 nav_title: Selections
 article_title: Selections
 page_order: 5
+alias: /catalog_selections/
 description: "This reference article covers how to create and use selections with your catalogs to reference data in your Braze campaigns."
 ---
 
 # Selections
 
-> This page covers how to create and use selections with your [catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/).
+> Selections are groups of data that you can use to personalize a message for each user in your campaign. When you use a selection, you’re essentially setting up custom filters based on specific columns in your catalog. This could include filters for brand, size, location, date added, and more. It gives you control over what you’re showing to users by allowing you to define criteria that items must meet first.<br><br>This page covers how to create and use selections with your catalogs.
 
-## How it works
-
-Selections are groups of data that can be used to personalize a message for each user in your campaign. When you use a selection, you’re essentially setting up custom filters based on specific columns in your catalog. This could include filters for brand, size, location, date added, and more. It gives you control over what you’re showing to users by allowing you to define criteria that items must meet first.
-
-After creating a catalog, you can further reference your catalog data by incorporating selections in your Braze campaigns or recommendations.
+After creating a [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/), you can further reference your catalog data by incorporating selections in your Braze campaigns or recommendations.
 
 ![The Selections section in an example catalog.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -21,7 +18,35 @@ After creating a catalog, you can further reference your catalog data by incorpo
 
 - You can create up to 30 selections per catalog.
 - You can add up to 10 filters per selection.
-- Selections are great for refining recommendations from Braze catalog data. If you're looking for inspiration, check out [About item recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) for example use cases.
+- Selections are great for refining recommendations from Braze catalog data. If you're looking for inspiration, check out [About item recommendations]({{site.baseurl}}/user_guide/brazeai/recommendations/) for example use cases.
+
+## Geolocation filters
+
+If your catalog includes a [Geolocation field type]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#supported-data-types), you can use geolocation-based filters in your selections to surface catalog items based on their proximity to a geographic point.
+
+Two geolocation operators are available:
+
+| Operator | Description |
+| -------- | ----------- |
+| `geo within` | Returns items whose geolocation field falls within a specified radius of a center point. |
+| `geo outside` | Returns items whose geolocation field falls outside a specified radius of a center point. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+When a geolocation filter is applied, results are sorted by distance with the nearest item first.
+
+### Setting the center point with Liquid
+
+You can set the center point dynamically using Liquid. For example, to filter items relative to each user's most recent location, use the {% raw %}`{{${most_recent_location}}}`{% endraw %} attribute as the filter value:
+
+{% raw %}
+```
+{{${most_recent_location}}}
+```
+{% endraw %}
+
+### Use case: show the nearest store locations
+
+Say your catalog contains a `store_location` field of type Geolocation. You can create a selection that uses the `geo within` operator to return store locations within a set radius of each user's most recent location. Set the filter value to {% raw %}`{{${most_recent_location}}}`{% endraw %} so the center point updates per user. Because results are sorted by distance, the first item returned is always the nearest store.
 
 ## Creating a selection
 
@@ -54,7 +79,7 @@ Connected Content Liquid isn't supported in these filter settings.
 
 After creating your selection, personalize your messages with Liquid to insert the filtered items from that catalog. You can have Braze generate the Liquid for you from the personalization window found in message composers:
 
-1. In any message composers that support personalization, select <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> to open the personalization window.
+1. In any message composers that support personalization, select <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> **Add personalization** to open the personalization window.
 2. For **Personalization Type**, select **Catalog Items**.
 3. Select your catalog name.
 4. For **Item selection method**, select **Use a selection**.

@@ -2,7 +2,7 @@
 nav_title: Transifex
 article_title: Transifex
 alias: /partners/transifex/
-description: "この参考記事では、BrazeとTransifexのパートナーシップについて概説している。Transifexは、ローカリゼーション・プラットフォームであり、翻訳を自動化することで、チームを優れた顧客体験の提供に集中させることを可能にする。"
+description: "この参考記事では、BrazeとTransifexのパートナーシップについて説明します。Transifexはローカライゼーションプラットフォームであり、翻訳を自動化することで、チームが優れたカスタマーエクスペリエンスの提供に集中できるようにします。"
 page_type: partner
 search_tag: Partner
 
@@ -10,30 +10,30 @@ search_tag: Partner
 
 # Transifex
 
-> [Transifex](https://www.transifex.com/) は、言語に関係なく、ユーザー群全体で堅牢なローカライゼーションを可能にします。
+> [Transifex](https://www.transifex.com/)は、言語に関係なく、ユーザー群全体で堅牢なローカライゼーションを可能にします。
 
-_この統合は Transifex によって管理されます。_
+_この統合はTransifexによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-BrazeとTransifexインテグレーションでは、Connected Contentを使用して、リソース文字列コレクションをプルし、言語ベースの条件付き書式の行ではなく、関連する翻訳をメッセージに含めることができます。これにより、翻訳が自動化され、チームは優れたカスタマー・エクスペリエンスの提供に集中することができる。
+BrazeとTransifexの統合では、コネクテッドコンテンツを使用してリソース文字列コレクションを取得し、言語ベースの条件付き書式の行ではなく、関連する翻訳をメッセージに含めることができます。これにより翻訳が自動化され、チームは優れたカスタマーエクスペリエンスの提供に集中できます。
 
 {% alert important %}
-2022年4月7日をもって、Transifex は API バージョン2と2.5を廃止し、バージョン3に移行しました。バージョン2と2.5は動作せず、関連するリクエストは失敗します。<br><br>以下の統合手順は、バージョン3のアップデートを反映したものである。コネクテッドコンテンツ呼び出しを適宜更新します。
+2022年4月7日をもって、TransifexはAPIバージョン2および2.5を廃止し、バージョン3に移行しました。v2およびv2.5は動作しなくなり、関連するリクエストは失敗します。<br><br>以下の統合手順はバージョン3のアップデートを反映しています。コネクテッドコンテンツの呼び出しを適宜更新してください。
 {% endalert %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-| 必要条件| 説明|
-| ---| ---|
-|トランシフェックス アカウント | このパートナーシップを活用するには、[Transifexアカウント](https://www.transifex.com/signin/)が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 必要条件 | 説明 |
+| --- | --- |
+| Transifexアカウント | このパートナーシップを利用するには、[Transifexアカウント](https://www.transifex.com/signin/)が必要です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 統合 {#integration}
 
-Transifex 統合では、Transifex の[リソース翻訳 API](https://developers.transifex.com/reference/get_resource-translations) を使用します。次の cURL を使用すると、翻訳に関連付けられたコンテンツ値がアカウントにあるかどうかを確認できます。 
+Transifex統合では、Transifexの[リソース翻訳API](https://developers.transifex.com/reference/get_resource-translations)を使用します。次のcURLを使用すると、アカウントに翻訳に関連付けられたコンテンツ値があるかどうかを確認できます。
 
-まず、Transifexアカウントにある `<ORGANIZATION_NAME>`、`<PROJECT_NAME>`、`<RESOURCE_NAME>` を入力します。次に、`<LANGUAGE>` を翻訳をフィルタリングしたい言語コードに、`<TRANSIFEX_BEARER_TOKEN>` をTransifexの[ベアラートークンに](https://developers.transifex.com/reference/api-authentication)置き換える。
+まず、Transifexアカウントにある`<ORGANIZATION_NAME>`、`<PROJECT_NAME>`、`<RESOURCE_NAME>`を入力します。次に、`<LANGUAGE>`を翻訳をフィルタリングしたい言語コードに、`<TRANSIFEX_BEARER_TOKEN>`をTransifexの[ベアラートークン](https://developers.transifex.com/reference/api-authentication)に置き換えます。
 
 ```
 curl --request GET \
@@ -42,11 +42,11 @@ curl --request GET \
      --header 'Authorization: Bearer 1/<TRANSIFEX_BEARER_TOKEN>'
 ```
 
-たとえば、Transifex プロジェクトが`https://www.transifex.com/appboy-3/french2/french_translationspo/` にある場合、`project_name` は"french2&quot になり、`resource_name` は次のようになります "french_translationspo".
+たとえば、Transifexプロジェクトが`https://www.transifex.com/appboy-3/french2/french_translationspo/`にある場合、`project_name`は「french2」になり、`resource_name`は「french_translationspo」になります。
 
-## コネクテッドコンテンツメッセージの例
+## コネクテッドコンテンツメッセージの例 {#connected-content-message-example}
 
-このコード例は、Transifexリソース翻訳APIとユーザーの`language` 属性を利用している。必要に応じて文字列オブジェクトをループし、Liquid `{{strings.data[X].attributes.strings.other}}` を使用して関連するコンテンツを取得できます。
+このコード例は、Transifexリソース翻訳APIとユーザーの`language`属性を利用しています。必要に応じて文字列オブジェクトをループし、次のLiquidを使用して関連するコンテンツを取得できます: `{{strings.data[X].attributes.strings.other}}`。
 
 {% raw %}
 ```

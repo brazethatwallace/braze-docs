@@ -8,17 +8,17 @@ description: "Este artigo aborda os cabeçalhos de política de segurança de co
 
 ---
 
-# Cabeçalhos de política de segurança de conteúdo
+# Cabeçalhos de política de segurança de conteúdo {#content-security-policy-headers}
 
 > A Content-Security-Policy oferece segurança adicional ao restringir como e onde o conteúdo pode ser carregado em seu site. Este artigo de referência aborda quais cabeçalhos de política de segurança de conteúdo são necessários com o Web SDK.
 
 {% alert important %}
-Este artigo é destinado a desenvolvedores que trabalham em sites que aplicam regras de CSP e se integram ao Braze. Não se trata de um conselho sobre como você deve abordar a segurança.
+Este artigo é destinado a desenvolvedores que trabalham em sites que aplicam regras de CSP e se integram à Braze. Não se trata de um conselho sobre como você deve abordar a segurança.
 {% endalert %}
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
-## Atribuições de nonce {#nonce}
+## Atributos de nonce {#nonce}
 
 Se você usar um valor `nonce` nas diretivas `script-src` ou `style-src`, passe esse valor para a opção de inicialização `contentSecurityNonce` para propagá-lo para scripts e estilos recém-criados gerados pelo SDK:
 
@@ -31,38 +31,38 @@ braze.initialize(apiKey, {
 });
 ```
 
-## Diretrizes {#directives}
+## Diretivas {#directives}
 
 ### `connect-src` {#connect-src}
 
 {% alert warning %}
-Sua URL deve corresponder ao [endpoint de SDK API]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/) da sua opção de inicialização escolhida `baseUrl`.
+Sua URL deve corresponder ao [endpoint de SDK da API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) da sua opção de inicialização `baseUrl` escolhida.
 {% endalert %}
 
-|URL|Informações|
+| URL | Informações |
 |---|-----------|
-|`connect-src https://sdk.iad-01.braze.com`|Permite que o SDK se comunique com as APIs do Braze. Altere esse URL para corresponder ao [endpoint de SDK da API]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/) para a opção de inicialização escolhida em `baseUrl`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `connect-src https://sdk.iad-01.braze.com` | Permite que o SDK se comunique com as APIs da Braze. Altere essa URL para corresponder ao [endpoint de SDK da API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) da sua opção de inicialização `baseUrl` escolhida. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src #connect-src" }
 
 ### `script-src` {#script-src}
 
-|URL|Informações|
+| URL | Informações |
 |---|-----------|
-|`script-src https://js.appboycdn.com`|Necessário ao usar a integração hospedada por CDN.|
-|`script-src 'unsafe-eval'`|Necessário ao usar o snippet de integração que contém referência a `appboyQueue`. Para evitar o uso dessa diretriz, [integre o SDK usando o NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager).|
-|`script-src 'nonce-...'`<br>ou<br>`script-src 'unsafe-inline'`|Necessário para determinadas mensagens no app, como HTML personalizado.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `script-src https://js.appboycdn.com` | Obrigatória ao usar a integração hospedada por CDN. |
+| `script-src 'unsafe-eval'` | Obrigatória ao usar o snippet de integração que contém referência a `appboyQueue`. Para evitar o uso dessa diretiva, [integre o SDK usando o NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager). |
+| `script-src 'nonce-...'`<br>ou<br>`script-src 'unsafe-inline'` | Obrigatória para determinadas mensagens no app, como HTML personalizado. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 
 ### `img-src` {#img-src}
 
-|URL|Informações|
+| URL | Informações |
 |---|-----------|
-|`img-src: appboy-images.com braze-images.com cdn.braze.eu`|Necessário ao usar imagens hospedadas pelo Braze CDN. Os nomes de host podem variar de acordo com o cluster dashboard.<br><br>**Importante:** Se estiver usando fontes personalizadas, também será necessário incluir `font-src`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `img-src: appboy-images.com braze-images.com cdn.braze.eu` | Obrigatória ao usar imagens hospedadas pelo CDN da Braze. Os nomes de host podem variar de acordo com o cluster do dashboard.<br><br>**Importante:** Se você estiver usando fontes personalizadas, também será necessário incluir `font-src`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="img-src #img-src" }
 
 ## Font Awesome {#font-awesome}
 
-Para desativar a inclusão automática da Font Awesome, use a opção de inicialização `doNotLoadFontAwesome`:
+Para desativar a inclusão automática do Font Awesome, use a opção de inicialização `doNotLoadFontAwesome`:
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -73,7 +73,7 @@ braze.initialize(apiKey, {
 });
 ```
 
-Se você optar por usar a Font Awesome, as seguintes diretivas do CSP serão necessárias:
+Se você optar por usar o Font Awesome, as seguintes diretivas de CSP serão obrigatórias:
 
 - `font-src https://use.fontawesome.com`
 - `style-src https://use.fontawesome.com`

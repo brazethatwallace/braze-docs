@@ -1,38 +1,38 @@
 ---
-nav_title: "PUBLICAR: Programar lienzos activados por la API"
-article_title: "PUBLICAR: Programar lienzos activados por la API"
-search_tag: Punto de conexión
+nav_title: "POST: Programar Canvas desencadenados por la API"
+article_title: "POST: Programar Canvas desencadenados por la API"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Programar Canvas desencadenados por API de Braze."
+description: "En este artículo se describen los detalles del punto de conexión de Braze Programar Canvas desencadenados por la API."
 
 ---
 {% api %}
-# Programar lienzos activados por la API
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints  %}
+# Programar Canvas desencadenados por la API {#schedule-api-triggered-canvases}
+{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 
-> Utilice este punto final para programar mensajes Canvas a través de la entrega activada por API, lo que le permite decidir qué acción debe activar el envío del mensaje.
+> Utiliza este punto de conexión para programar mensajes de Canvas a través de la entrega desencadenada por la API, lo que te permite decidir qué acción debe desencadenar el envío del mensaje.
 
-Puedes pasar `context` que será templado en los mensajes enviados por los primeros pasos del Canvas.
+Puedes pasar `context` que se aplicará como plantilla en los mensajes enviados por los primeros pasos del Canvas.
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Tenga en cuenta que para enviar mensajes con este punto final, debe tener un [ID de lienzo]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier), creado cuando construye un lienzo.
+Ten en cuenta que para enviar mensajes con este punto de conexión, debes tener un [ID de Canvas]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier), creado cuando construyes un Canvas.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.trigger.schedule.create`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.trigger.schedule.create`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='default' category='send messages endpoints' %}
+{% multi_lang_include rate_limits.md endpoint='send endpoints' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -60,19 +60,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`|Obligatoria|Cadena| Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types/). |
 | `recipients` | Opcional | Matriz de objetos destinatarios | Ver [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object/). |
-| `audience` | Opcional | Objeto de audiencia conectado | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-|`broadcast`| Opcional | Booleano | Debes establecer `broadcast` en verdadero cuando envíes un mensaje a un segmento completo al que se dirige una campaña o Canvas. Este parámetro está predeterminado como falso (a 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
-| `context` | Opcional | Objeto | Pares clave-valor de personalización para todos los usuarios de este envío. Véase [el objeto de contexto Canvas]({{site.baseurl}}/api/objects_filters/context_object). |
-| `schedule` | Obligatoria | Objeto de programación | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+| `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en true cuando envíes un mensaje a un segmento completo al que se dirige una campaña o Canvas. Este parámetro está predeterminado como false (a partir del 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
+| `context` | Opcional | Objeto | Pares clave-valor de personalización para todos los usuarios de este envío. Ver [objeto de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). |
+| `schedule` | Obligatorio | Objeto de planificación | Ver [objeto de planificación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/create' \
 --header 'Content-Type: application/json' \
@@ -143,9 +143,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sch
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-### Ejemplo de respuesta satisfactoria
+### Ejemplo de respuesta correcta {#example-success-response}
 
 ```
 Content-Type: application/json

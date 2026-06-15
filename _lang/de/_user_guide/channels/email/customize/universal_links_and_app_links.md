@@ -1,0 +1,451 @@
+---
+nav_title: "Universal Links und App Links"
+article_title: "Universal Links und App Links"
+page_order: 6.4
+page_type: reference
+description: "Dieser Artikel beschreibt, wie Sie Apple Universal Links und Android App Links einrichten."
+channel: email
+---
+
+# Universal Links und App Links {#universal-links-and-app-links}
+
+> Dieser Artikel beschreibt, wie Sie Apple Universal Links und Android App Links einrichten.
+
+{% alert tip %}
+Einen Vergleich der Link-Typen über alle Messaging-Kanäle hinweg und eine Anleitung, wann Sie eine AASA-Datei benötigen, finden Sie im [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
+{% endalert %}
+
+Apple Universal Links und Android App Links sind Mechanismen, die einen nahtlosen Übergang zwischen Web-Inhalten und mobilen Apps ermöglichen. Während Universal Links spezifisch für iOS sind, erfüllen Android App Links denselben Zweck für Android-Anwendungen.
+
+## Wie Universal Links und App Links funktionieren {#how-universal-links-and-app-links-work}
+
+Universal Links (iOS) und App Links (Android) sind Standard-Weblinks (`http://mydomain.com`), die sowohl auf eine Webseite als auch auf einen Inhalt innerhalb einer App verweisen.
+
+Wenn ein Universal Link oder App Link geöffnet wird, prüft das Betriebssystem, ob eine installierte App für diese Domain registriert ist. Wenn eine App gefunden wird, wird sie sofort gestartet, ohne die Webseite zu laden. Wenn keine App gefunden wird, wird die Web-URL im Standard-Webbrowser der Nutzer:innen geladen, der auch so konfiguriert sein kann, dass er zum App Store bzw. Google Play Store weiterleitet.
+
+Einfach ausgedrückt ermöglichen Universal Links einer Website, ihre Webseiten mit bestimmten App-Bildschirmen zu verknüpfen. Wenn also jemand auf einen Link zu einer Webseite klickt, die einem App-Bildschirm entspricht, kann die App direkt geöffnet werden (sofern die App aktuell installiert ist).
+
+Diese Tabelle zeigt die wichtigsten Unterschiede zwischen Universal Links und herkömmlichen Deeplinks:
+
+|                        | Universal Links und App Links                                  | Deeplinks                   |
+| ---------------------- | -------------------------------------------------------------- | ---------------------------- |
+| Plattformkompatibilität | iOS (Version 9 und höher) und Android (Version 6.0 und höher)  | Wird in verschiedenen mobilen Betriebssystemen verwendet    |
+| Zweck                | Nahtlose Verknüpfung von Web- und App-Inhalten auf iOS- und Android-Geräten | Verlinkt auf bestimmte App-Inhalte |
+| Funktion               | Leitet je nach Kontext zu Webseiten oder App-Inhalten weiter           | Öffnet bestimmte App-Bildschirme   |
+| App-Installation       | Öffnet die App, wenn sie installiert ist, andernfalls werden Web-Inhalte geöffnet | Erfordert eine installierte App |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wie Universal Links und App Links funktionieren" }
+
+## Anwendungsfälle {#use-cases}
+
+Universal Links und App Links werden am häufigsten für E-Mail-Campaigns verwendet, da E-Mails sowohl auf Desktop- als auch auf Mobilgeräten geöffnet und angeklickt werden können.
+
+Einige Kanäle funktionieren mit diesen Links nicht gut. Zum Beispiel sollten Push-Benachrichtigungen, In-App-Nachrichten und Content Cards schemabasierte Deeplinks (`mydomain://`) verwenden.
+
+{% alert note %}
+Android App Links erfordern einen angepassten `IBrazeDeeplinkHandler` mit Logik, um Links von ihren Domains getrennt von anderen Web-URLs zu verarbeiten. Es kann einfacher sein, stattdessen Deeplinks zu verwenden und die Verlinkungspraktiken für andere Kanäle als E-Mail einheitlich zu halten.
+{% endalert %}
+
+## Voraussetzungen {#prerequisites}
+
+Um Universal Links und App Links zu verwenden:
+
+- Ihre Website muss über HTTPS erreichbar sein
+- Ihre App muss im App Store (iOS) oder Google Play Store (Android) verfügbar sein
+
+## Universal Links und App Links einrichten {#setting-up-universal-links-and-app-links}
+
+Damit Apps Universal Links oder App Links unterstützen, erfordern sowohl iOS als auch Android eine spezielle Berechtigungsdatei, die auf der Link-Domain gehostet wird. Diese Datei enthält Definitionen, welche Apps Links von dieser Domain öffnen dürfen und – bei iOS – welche Pfade diese Apps öffnen dürfen:
+
+- **iOS:** Apple App Site Association (AASA)-Datei
+- **Android:** Digital Asset Links-Datei
+
+Zusätzlich zu dieser Berechtigungsdatei gibt es fest codierte Definitionen, welche Link-Domains die App öffnen darf, die innerhalb der App eingerichtet werden:
+
+- **iOS:** Als „Associated Domains“ in Xcode festgelegt
+- **Android:** In der `AndroidManifest.xml`-Datei der App definiert
+
+Diese zweiteilige Domain-App-Zuordnung ist erforderlich, damit ein Universal Link oder App Link funktioniert, und verhindert, dass eine beliebige App Links von einer bestimmten Domain übernimmt oder eine beliebige Domain eine bestimmte App öffnet.
+
+{% tabs %}
+<!--iOS instructions-->
+{% tab iOS %}
+
+Diese Schritte sind aus der Apple-Entwicklerdokumentation übernommen. Weitere Informationen finden Sie unter [Allowing apps and websites to link to your content](https://developer.apple.com/documentation/xcode/allowing-apps-and-websites-to-link-to-your-content?language=objc).
+
+### 1. Schritt: App-Berechtigungen konfigurieren {#step-1-configure-your-app-entitlements}
+
+{% alert note %}
+[In Xcode 13 und höher](https://developer.apple.com/help/account/reference/provisioning-with-managed-capabilities/) kann Xcode die Berechtigungsbereitstellung automatisch für Sie übernehmen. Sie können wahrscheinlich direkt zu [Schritt 1c](#step-1c) springen und bei Problemen auf diese Anleitung zurückgreifen.
+{% endalert %}
+
+#### Schritt 1a: App registrieren {#step-1a}
+
+1. Gehen Sie zu developer.apple.com und melden Sie sich an.
+2. Klicken Sie auf **Certificates, Identifiers & Profiles**.
+3. Klicken Sie auf **Identifiers**.
+4. Wenn Sie noch keinen registrierten App Identifier haben, klicken Sie auf +, um einen zu erstellen.
+   a. Geben Sie einen **Name** ein. Dieser kann beliebig gewählt werden.
+   b. Geben Sie die **Bundle ID** ein. Sie finden Ihre Bundle ID im Tab **General** Ihres Xcode-Projekts für das entsprechende Build-Target.
+
+#### Schritt 1b: Associated Domains in Ihrem App Identifier aktivieren {#step-1b-turn-on-associated-domains-in-your-app-identifier}
+
+1. Suchen Sie in Ihrem bestehenden oder neu erstellten App Identifier den Abschnitt **App Services**.
+2. Wählen Sie **Associated Domains** aus.
+3. Klicken Sie auf **Save**.
+
+![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+
+#### Schritt 1c: Associated Domains in Ihrem Xcode-Projekt aktivieren {#step-1c}
+
+Bevor Sie fortfahren, stellen Sie sicher, dass in Ihrem Xcode-Projekt dasselbe Team ausgewählt ist wie dort, wo Sie gerade Ihren App Identifier registriert haben.
+
+1. Gehen Sie in Xcode zum Tab **Capabilities** Ihrer Projektdatei.
+2. Aktivieren Sie **Associated Domains**.
+
+##### Tipp zur Fehlerbehebung {#troubleshooting-tip}
+
+Wenn Sie den Fehler „An App ID with Identifier 'your-app-id' is not available. Please enter a different string“ sehen, gehen Sie wie folgt vor:
+
+1. Überprüfen Sie, ob das richtige Team ausgewählt ist.
+2. Überprüfen Sie, ob die Bundle ID ([Schritt 1a](#step-1a)) Ihres Xcode-Projekts mit der bei der Registrierung des App Identifiers verwendeten übereinstimmt.
+
+#### Schritt 1d: Domain-Berechtigung hinzufügen {#step-1d-add-the-domain-entitlement}
+
+Fügen Sie im Abschnitt „Domains“ den entsprechenden Domain-Tag hinzu. Sie müssen ihm `applinks:` voranstellen. In diesem Fall sehen Sie, dass wir `applinks:yourdomain.com` hinzugefügt haben.
+
+![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+
+#### Schritt 1e: Bestätigen, dass die Berechtigungsdatei im Build enthalten ist {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
+
+Stellen Sie im Projektbrowser sicher, dass Ihre neue Berechtigungsdatei unter **Target Membership** ausgewählt ist.
+
+Xcode sollte dies automatisch übernehmen.
+
+### 2. Schritt: Website für das Hosting der AASA-Datei konfigurieren {#step-2-configure-your-website-to-host-the-aasa-file}
+
+Um Ihre Website-Domain mit Ihrer nativen App unter iOS zu verknüpfen, müssen Sie die Apple App Site Association (AASA)-Datei auf Ihrer Website hosten. Diese Datei dient als sichere Methode zur Überprüfung des Domain-Eigentums gegenüber iOS. Vor iOS 9 konnten Entwickler:innen jedes URI-Schema registrieren, um ihre Apps zu öffnen, ohne jegliche Überprüfung. Mit AASA ist dieser Prozess jedoch wesentlich sicherer und zuverlässiger geworden.
+
+Die AASA-Datei enthält ein JSON-Objekt mit einer Liste von Apps und den URL-Pfaden auf der Domain, die als Universal Links eingeschlossen oder ausgeschlossen werden sollen. Hier ist eine Beispiel-AASA-Datei:
+
+```json
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "JHGFJHHYX.com.facebook.ios",
+        "paths": [
+          "*"
+        ]
+      }
+    ]
+  }
+}
+```
+
+- `appID`: Wird durch die Kombination der **Team ID** Ihrer App (gehen Sie zu `https://developer.apple.com/account/#/membership/`, um die Team ID zu erhalten) und des **Bundle Identifier** erstellt. Im obigen Beispiel ist „JHGFJHHYX“ die Team ID und „com.facebook.ios“ die Bundle ID.
+- `paths`: String-Array, das angibt, welche Pfade in die Zuordnung eingeschlossen oder davon ausgeschlossen werden. Sie können `NOT` vor dem Pfad verwenden, um Pfade zu deaktivieren. In diesem Beispiel werden alle Links auf diesem Pfad im Web geöffnet, anstatt die App zu öffnen. Sie können `*` als Platzhalter verwenden, um alle Pfade in einem Verzeichnis zu aktivieren, und `?`, um ein einzelnes Zeichen abzugleichen (z. B. /archives/201?/, um alle Zahlen von 2010–2019 abzugleichen).
+
+{% alert note %}
+Diese Strings unterscheiden zwischen Groß- und Kleinschreibung, und Query-Strings sowie Fragment-Bezeichner werden ignoriert.
+{% endalert %}
+
+### 3. Schritt: AASA-Datei auf Ihrer Domain hosten {#step-3-host-the-aasa-file-on-your-domain}
+
+Wenn Ihre AASA-Datei fertig ist, können Sie sie auf Ihrer Domain hosten, entweder unter `https://<<yourdomain>>/apple-app-site-association` oder unter `https://<<yourdomain>>/.well-known/apple-app-site-association`.
+
+Laden Sie die `apple-app-site-association`-Datei auf Ihren HTTPS-Webserver hoch. Sie können die Datei im Stammverzeichnis Ihres Servers oder im Unterverzeichnis `.well-known` platzieren. Hängen Sie `.json` nicht an den Dateinamen an.
+
+{% alert important %}
+iOS versucht nur, die AASA-Datei über eine sichere Verbindung (HTTPS) abzurufen.
+{% endalert %}
+
+Stellen Sie beim Hosting der AASA-Datei sicher, dass die Datei folgende Richtlinien erfüllt:
+
+- Wird über HTTPS bereitgestellt.
+- Verwendet den MIME-Typ `application/json`.
+- Überschreitet nicht 128 KB (Anforderung ab iOS 9.3.1)
+
+### 4. Schritt: App für die Verarbeitung von Universal Links vorbereiten {#step-4-prepare-your-app-to-handle-universal-links}
+
+Wenn jemand auf einem iOS-Gerät auf einen Universal Link tippt, startet das Gerät die App und sendet ihr ein [NSUserActivity](https://developer.apple.com/documentation/foundation/nsuseractivity)-Objekt. Die App kann dann das NSUserActivity-Objekt abfragen, um festzustellen, wie sie gestartet wurde.
+
+Um Universal Links in Ihrer App zu unterstützen, führen Sie die folgenden Schritte aus:
+
+1. Fügen Sie eine Berechtigung hinzu, die die von Ihrer App unterstützten Domains angibt.
+2. Aktualisieren Sie Ihren App-Delegate, damit er angemessen reagiert, wenn er das NSUserActivity-Objekt empfängt.
+
+Öffnen Sie in Xcode den Abschnitt **Associated Domains** im Tab **Capabilities** und fügen Sie einen Eintrag für jede Domain hinzu, die Ihre App unterstützt, mit dem Präfix `applinks:`. Zum Beispiel `applinks:www.mywebsite.com`.
+
+{% alert note %}
+Apple empfiehlt, diese Liste auf nicht mehr als 20 bis 30 Domains zu beschränken.
+{% endalert %}
+
+### 5. Schritt: Universal Link testen {#step-5-test-your-universal-link}
+
+Fügen Sie den Universal Link in eine E-Mail ein und senden Sie sie an ein Testgerät. Das direkte Einfügen eines Universal Links in das Safari-URL-Feld führt nicht dazu, dass die App automatisch geöffnet wird. Wenn Sie dies tun, müssen Sie die Website manuell nach unten ziehen, damit oben eine Aufforderung erscheint, die entsprechende App zu öffnen.
+
+{% endtab %}
+
+<!--Android instructions-->
+{% tab Android %}
+
+Diese Schritte sind aus der Android-Entwicklerdokumentation übernommen. Weitere Informationen finden Sie unter [Add Android App Links](https://developer.android.com/training/app-links#add-app-links) und [Create Deep Links to App Content](https://developer.android.com/training/app-links/deep-linking).
+
+{% alert note %}
+Android App Links erfordern einen angepassten `IBrazeDeeplinkHandler` mit Logik, um Links von ihren Domains getrennt von anderen Web-URLs zu verarbeiten. Es kann einfacher sein, stattdessen Deeplinks zu verwenden und die Verlinkungspraktiken für andere Kanäle als E-Mail einheitlich zu halten.
+{% endalert %}
+
+### 1. Schritt: Deeplinks erstellen {#step-1-create-deep-links}
+
+Zunächst müssen Sie Deeplinks für Ihre Android-App erstellen. Dies kann durch das Hinzufügen von [Intent-Filtern](https://developer.android.com/guide/components/intents-filters) in Ihrer `AndroidManifest.xml`-Datei erfolgen. Der Intent-Filter sollte die `VIEW`-Aktion und die `BROWSABLE`-Kategorie enthalten, zusammen mit der URL Ihrer Website im Datenelement.
+
+### 2. Schritt: App mit Ihrer Website verknüpfen {#step-2-associate-your-app-with-your-website}
+
+Sie müssen Ihre App mit Ihrer Website verknüpfen. Dies kann durch das Erstellen einer Digital Asset Links-Datei erfolgen. Diese Datei sollte im JSON-Format vorliegen und Details zu den Android-Apps enthalten, die Links zu Ihrer Website öffnen können. Sie sollte im Verzeichnis `.well-known` Ihrer Website platziert werden.
+
+### 3. Schritt: App-Manifest-Datei aktualisieren {#step-3-update-your-app-manifest-file}
+
+Fügen Sie in Ihrer `AndroidManifest.xml`-Datei ein Meta-Data-Element innerhalb des Application-Elements hinzu. Das Meta-Data-Element sollte ein `android:name`-Attribut mit dem Wert „asset_statements“ und ein `android:resource`-Attribut haben, das auf eine Ressourcendatei mit einem String-Array verweist, das die URL Ihrer Website enthält.
+
+### 4. Schritt: App für die Verarbeitung von Deeplinks vorbereiten {#step-4-prepare-your-app-to-handle-deep-links}
+
+In Ihrer Android-App müssen Sie die eingehenden Deeplinks verarbeiten. Dies können Sie tun, indem Sie den Intent abrufen, der Ihre Activity gestartet hat, und die Daten daraus extrahieren.
+
+### 5. Schritt: Deeplinks testen {#step-5-testing-your-deep-links}
+
+Abschließend können Sie Ihre Deeplinks testen. Senden Sie sich selbst einen Link über eine Messaging-App oder E-Mail und klicken Sie darauf. Wenn alles korrekt eingerichtet ist, sollte Ihre App geöffnet werden.
+
+{% endtab %}
+{% endtabs %}
+
+## Universal Links, App Links und Klick-Tracking {#universal-links-app-links-and-click-tracking}
+
+{% alert note %}
+Klick-Tracking-Links werden in der Regel im Rahmen Ihres Onboardings für E-Mail eingerichtet. Wenn dies während des Kund:innen-Onboardings nicht abgeschlossen wurde, wenden Sie sich an Ihren Account Manager.
+{% endalert %}
+
+Unsere E-Mail-Versandpartner verwenden Klick-Tracking-Domains, um alle Links zu umschließen und URL-Parameter für das Klick-Tracking in Braze-E-Mails einzufügen.
+
+Zum Beispiel wird ein Link wie `https://www.example.com` zu etwas wie `https://links.email.example.com/uni/wf/click?upn=abcdef123456…`.
+
+Damit E-Mail-Links mit Klick-Tracking als Universal Links oder App Links funktionieren, müssen Sie einige zusätzliche Einrichtungsschritte durchführen. Stellen Sie sicher, dass Sie die Klick-Tracking-Domain (`links.email.example.com`) als Domain hinzufügen, die die App öffnen darf. Darüber hinaus sollte die Klick-Tracking-Domain die AASA- (iOS) oder Digital Asset Links- (Android) Dateien bereitstellen. Dies hilft sicherzustellen, dass E-Mail-Links mit Klick-Tracking nahtlos funktionieren.
+
+Wenn Sie nicht möchten, dass jeder Klick-Tracking-Link ein Universal Link oder App Link ist, können Sie basierend auf dem E-Mail-Versandpartner festlegen, welche Links Universal Links sein sollen. Weitere Details finden Sie in den folgenden Tabs.
+
+{% tabs %}
+{% tab SendGrid %}
+
+Um einen SendGrid-Klick-Tracking-Link als Universal Link zu behandeln:
+
+1. Richten Sie Ihre AASA- oder AndroidManifest-pathPrefix-Werte so ein, dass nur Links mit `/uni/` im URL-Pfad als Universal Links behandelt werden.
+2. Fügen Sie das Attribut `universal="true"` zum Anchor-Tag (`<a>`) Ihres Links hinzu. Dadurch wird der URL-Pfad des umschlossenen Links so geändert, dass er `/uni/` enthält.
+
+{% alert note %}
+Für AMP-E-Mails sollte dieses Attribut data-universal="true" lauten.
+{% endalert %}
+
+Zum Beispiel:
+
+```html
+<a href=”https://www.example.com” universal="true">
+```
+
+{:start="3"}
+3. Stellen Sie sicher, dass Ihre App so eingerichtet ist, dass sie die umschlossenen Links korrekt verarbeitet. Lesen Sie den SendGrid-Artikel [Resolving SendGrid Click Tracking Links](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-sendgrid-click-tracking-links) und folgen Sie den Schritten für Ihr Betriebssystem. Dieser Artikel enthält Beispielcode für [iOS](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-ios) und [Android](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-android).
+
+Mit dieser Konfiguration funktionieren Links mit `/uni/` im URL-Pfad als Universal Links, während alle anderen Links als Web-Links funktionieren.
+
+{% endtab %}
+{% tab SparkPost %}
+
+Um einen SparkPost-Klick-Tracking-Link als Universal Link zu behandeln, fügen Sie das folgende Attribut im Abschnitt „Attribute“ des Drag-and-Drop-Editors für E-Mail hinzu, oder bearbeiten Sie den Link-HTML manuell, um das folgende Attribut in das Anchor-Tag Ihres Links einzufügen: `data-msys-sublink="custom_path"`.
+
+Dieser angepasste Pfad ermöglicht es Ihnen, URLs mit diesem Wert selektiv als Universal Link zu behandeln.
+
+Zum Beispiel:
+
+```html
+<a href=”https://www.example.com” data-msys-sublink="open-in-app">
+```
+
+Stellen Sie dann sicher, dass Ihre App so eingerichtet ist, dass sie den angepassten Pfad korrekt verarbeitet. Lesen Sie den SparkPost-Artikel [Using SparkPost click tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links). Dieser Artikel enthält Beispielcode für [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) und [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost).
+
+{% endtab %}
+{% tab Amazon SES %}
+
+Verwenden Sie angepasste Pfade, um Pfadsegmente zu E-Mail-Klick-Tracking-URLs hinzuzufügen. Dadurch entstehen vorhersagbare URL-Muster, die mobile Betriebssysteme für Universal Links und App Links erkennen können.
+
+Wenn Nutzer:innen auf Mobilgeräten auf E-Mail-Links tippen, helfen angepasste Pfade Ihnen zu steuern, ob Links in Ihrer Haupt-App, einer spezialisierten App oder dem mobilen Browser geöffnet werden (zum Beispiel Produktseiten, Kundenbindungs-Programme, Abmeldelinks oder rechtliche Seiten).
+
+Um einen Amazon SES-Klick-Tracking-Link als Universal Link oder App Link zu behandeln:
+
+1. Fügen Sie `ses:custom-path`-Attribute zu Ihren Anchor-Tags im E-Mail-HTML hinzu, oder fügen Sie das Attribut im Abschnitt **Attribute** des Drag-and-Drop-Editors für E-Mail hinzu. Der angepasste Pfad wird in die umschlossene Klick-Tracking-URL eingefügt.
+
+Zum Beispiel:
+
+```html
+<!-- Opens main shopping app -->
+<a href="https://yourstore.com/product" ses:custom-path="shop">Shop Now</a>
+<!-- Opens loyalty app -->
+<a href="https://yourstore.com/rewards" ses:custom-path="rewards">My Rewards</a>
+<!-- Opens specialized app -->
+<a href="https://yourstore.com/limited" ses:custom-path="limited">Limited Edition</a>
+<!-- Stays in browser -->
+<a href="https://yourstore.com/unsubscribe" ses:no-track>Unsubscribe</a>
+```
+
+Stellen Sie sicher, dass Ihre angepassten Pfade diese Anforderungen erfüllen:
+
+- **Format:** Nur alphanumerische Zeichen, Punkte, Unterstriche und Bindestriche
+- **Länge:** 1–32 Zeichen
+- **Groß-/Kleinschreibung:** Pfade unterscheiden zwischen Groß- und Kleinschreibung, um den Anforderungen mobiler Betriebssysteme zu entsprechen
+
+{:start="2"}
+2. Bestätigen Sie, dass Ihre umschlossenen Tracking-URLs das angepasste Pfadsegment enthalten. Links folgen diesem Format: `track.yourstore.com/L1/{customPath}/...`
+
+Zum Beispiel:
+
+- `track.yourstore.com/L1/shop/...`
+- `track.yourstore.com/L1/rewards/...`
+
+{:start="3"}
+3. Konfigurieren Sie Ihre Site-Association-Dateien auf Ihrer Klick-Tracking-Domain so, dass Pfade mit `/L1/{customPath}/` übereinstimmen.
+
+**iOS (Apple App Site Association):**
+
+```json
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "TEAMID.com.yourcompany.mainapp",
+      "paths": ["/L1/shop/*", "/L1/rewards/*"]
+    }, {
+      "appID": "TEAMID.com.yourcompany.limitedapp",
+      "paths": ["/L1/limited/*"]
+    }]
+  }
+}
+```
+
+**Android (Digital Asset Links):**
+
+```json
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.yourcompany.mainapp",
+    "sha256_cert_fingerprints": ["..."]
+  },
+  "include": ["/L1/shop/*", "/L1/rewards/*"]
+}]
+```
+
+Stellen Sie sicher, dass Ihre App so eingerichtet ist, dass sie diese umschlossenen Links verarbeitet. Fügen Sie Ihre Klick-Tracking-Domain zu den Associated Domains Ihrer App (iOS) oder den Intent-Filtern (Android) hinzu und hosten Sie die AASA- oder Digital Asset Links-Datei auf dieser Domain, wie weiter oben in diesem Artikel beschrieben.
+
+{% endtab %}
+{% endtabs %}
+
+### Klick-Tracking auf Link-Ebene deaktivieren {#turning-off-click-tracking-on-a-link-to-link-basis}
+
+Sie können das Klick-Tracking für bestimmte Links deaktivieren, indem Sie HTML-Code zu Ihrer E-Mail-Nachricht für den HTML-Editor oder zu einem HTML-Block für den Drag-and-Drop-Editor hinzufügen.
+
+#### SendGrid
+
+Wenn Ihr E-Mail-Anbieter SendGrid ist, verwenden Sie den HTML-Code `clicktracking=off` wie folgt:
+
+```HTML
+<a clicktracking=off href="[INSERT https LINK HERE]">click here</a>
+```
+
+#### SparkPost
+
+Wenn Ihr E-Mail-Anbieter SparkPost ist, verwenden Sie den HTML-Code `data-msys-clicktrack="0"` wie folgt:
+
+```HTML
+<a data-msys-clicktrack="0" href="[INSERT https LINK HERE]">click here</a>
+```
+
+#### Amazon SES
+
+Wenn Ihr E-Mail-Anbieter Amazon SES ist, verwenden Sie den HTML-Code `ses:no-track` wie folgt:
+
+```HTML
+<a ses:no-track href="[INSERT https LINK HERE]">click here</a>
+```
+
+#### Drag-and-Drop-Editor {#drag-and-drop-editor}
+
+Wenn Sie den Drag-and-Drop-E-Mail-Editor verwenden, geben Sie Ihren HTML-Code als angepasstes Attribut ein, wenn Ihr Link an Text, einen Button oder ein Bild angehängt ist.
+
+##### Angepasstes Attribut für einen Textlink {#custom-attribute-for-a-text-link}
+
+#### SendGrid
+
+Wählen Sie Folgendes für das angepasste Attribut:
+
+- **Name:** `clicktracking`
+- **Value:** `off`
+
+#### SparkPost
+
+Wählen Sie Folgendes für das angepasste Attribut:
+
+- **Name:** `data-msys-clicktrack`
+- **Value:** `0`
+
+![Ein angepasstes Attribut für einen Textlink.]({% image_buster /assets/img/text_click_tracking_off.png %}){: style="max-width:60%;"}
+
+##### Angepasstes Attribut für einen Button oder ein Bild {#custom-attribute-for-a-button-or-image}
+
+#### SendGrid
+
+Wählen Sie Folgendes für das angepasste Attribut:
+
+- **Name:** `clicktracking`
+- **Value:** `off`
+- **Type:** Link
+
+#### SparkPost
+
+Wählen Sie Folgendes für das angepasste Attribut:
+
+- **Name:** `data-msys-clicktrack`
+- **Value:** `0`
+- **Type:** Link
+
+![Ein angepasstes Attribut für einen Button.]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
+
+### Fehlerbehebung bei Universal Links mit Klick-Tracking {#troubleshooting-universal-links-with-click-tracking}
+
+Wenn Ihre Universal Links in Ihren E-Mails nicht wie erwartet funktionieren – zum Beispiel wenn Empfänger:innen von ihrer E-Mail-App zum Webbrowser navigiert werden, bevor sie schließlich zur App weitergeleitet werden – lesen Sie diese Tipps zur Fehlerbehebung Ihrer Universal-Link-Einrichtung.
+
+#### Outlook zeigt `[?it=` oder rohen URL-Text anstelle eines Buttons an {#outlook-shows-it-or-raw-url-text-instead-of-a-button}
+
+Outlook zeigt möglicherweise Call-to-Action-Text wie `[?it=` an oder gibt einen Teil des `href` aus, wenn ein Link kein gültiges **`http://`- oder `https://`**-URL-Schema verwendet. Angepasste Schemata, fehlende Schemata oder fehlerhafte URLs werden nicht als Hyperlinks behandelt, sodass der Client stattdessen den Attributtext anzeigt. Stellen Sie sicher, dass jeder Button, Bildlink und jede getrackte URL ein vollständiges `https://`- (oder `http://`-) Ziel verwendet. Dies gilt sowohl für Universal Links als auch für Standard-Weblinks.
+
+#### Speicherort der Link-Datei überprüfen {#verify-link-file-location}
+
+Stellen Sie sicher, dass sich die AASA-Datei (iOS) oder die Digital Asset Links-Datei (Android) am richtigen Ort befindet:
+
+- **iOS:** `https://click.tracking.domain/.well-known/apple-app-site-association`
+- **Android:** `https://click.tracking.domain/.well-known/assetlinks.json`
+
+Es ist wichtig sicherzustellen, dass diese Dateien immer öffentlich zugänglich sind. Wenn Sie nicht darauf zugreifen können, haben Sie möglicherweise einen Schritt bei der Einrichtung von Universal Links für E-Mail übersprungen.
+
+#### Domain-Definitionen überprüfen {#verify-domain-definitions}
+
+Stellen Sie sicher, dass Sie die korrekten Definitionen für Domains haben, die Ihre App öffnen darf.
+
+- **iOS:** Überprüfen Sie die in Xcode für Ihre App eingerichteten Associated Domains ([Schritt 1c: Associated Domains in Ihrem Xcode-Projekt aktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
+- **Android:** Öffnen Sie die App-Infoseite (langes Drücken auf das App-Symbol und Klick auf ⓘ). Suchen Sie im App-Info-Menü nach **Standardmäßig öffnen** und tippen Sie darauf. Es sollte ein Bildschirm mit allen verifizierten Links angezeigt werden, die die App öffnen darf. Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
+
+#### Tracking-Domain kann keine .well-known-Dateien bereitstellen {#tracking-domain-cant-serve-well-known-files}
+
+In einigen Fällen kann Ihre Klick-Tracking-Domain die erforderlichen `.well-known`-Dateien aufgrund von ESP-Einschränkungen oder Infrastrukturbeschränkungen möglicherweise nicht hosten. Wenn Sie die AASA- oder Digital Asset Links-Datei nicht auf Ihrer Tracking-Domain hosten können, ziehen Sie die folgenden Optionen in Betracht:
+
+- **Kontaktieren Sie Ihren ESP, um die Dateien auf seiner Tracking-Domain zu hosten:** Ihre Klick-Tracking-Subdomain ist in der Regel ein CNAME, der auf Ihren ESP (SendGrid, SparkPost oder Amazon SES) verweist. Da der ESP den Datenverkehr für diese Domain terminiert, kann er die `.well-known`-Dateien für Sie hosten. Sowohl SendGrid als auch SparkPost unterstützen dies. Wenden Sie sich direkt an Ihren ESP, um dies anzufordern.
+- **Klick-Tracking für Deeplink-URLs selektiv deaktivieren:** Wenn Ihr ESP die Dateien nicht hosten kann, können Sie das Klick-Tracking für bestimmte Universal Links deaktivieren, sodass diese direkt auf Ihre Hauptdomain verweisen (auf der Sie die AASA- oder Digital Asset Links-Datei hosten können). Beachten Sie, dass diese Methode zum Verlust von Klick-Analytics für diese bestimmten Links führen kann. Anweisungen finden Sie unter [Klick-Tracking auf Link-Ebene deaktivieren](#turning-off-click-tracking-on-a-link-to-link-basis).
+- **CDN vor die Tracking-Subdomain schalten:** Wenn Sie vollständige Klick-Tracking-Abdeckung und Deeplinking benötigen, können Sie ein CDN (wie Cloudflare oder CloudFront) vor Ihre Tracking-Subdomain schalten. Konfigurieren Sie das CDN so, dass es die `.well-known`-Dateien lokal bereitstellt und den gesamten übrigen Datenverkehr an Ihren ESP weiterleitet. Dieser Ansatz ist aufwendiger, gibt Ihnen aber die volle Kontrolle über Klick-Tracking und Universal Links.

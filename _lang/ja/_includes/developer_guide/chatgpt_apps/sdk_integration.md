@@ -16,9 +16,9 @@ npm install @braze/web-sdk
 ```
 
 <!-- **For server-side integration:**
-```bash
+`````````bash
 npm install @braze/javascript-sdk
-``` -->
+````````` -->
 
 <!-- The Braze JavaScript SDK is primarily designed for headless (server-side) environments and is currently in [beta](https://www.braze.com/company/legal/beta-terms). -->
 
@@ -38,7 +38,7 @@ BrazeをChatGPTアプリに統合する方法は、ユースケースに応じ�
 
 MCPサーバーファイルに以下のメタデータを追加し、Brazeドメインを許可する。CDNドメインは[地域](https://www.braze.com/docs/developer_guide/platforms/web/content_security_policy)に応じて更新すること：
 
-```javascript
+`````````javascript
 "openai/widgetCSP": {
   connect_domains: ["https://YOUR-SDK-ENDPOINT"],
   resource_domains: [
@@ -54,7 +54,7 @@ MCPサーバーファイルに以下のメタデータを追加し、Brazeドメ
 
 #### useBrazeフックを設定する
 
-```javascript
+`````````javascript
 import { useBraze } from "./utils/braze";
 
 function YourWidget() {
@@ -83,7 +83,7 @@ function YourWidget() {
 
 #### Brazeコンテンツカードを表示する
 
-```javascript
+`````````javascript
 const [cards, setCards] = useState([]);
 
 useEffect(() => {
@@ -106,7 +106,7 @@ useEffect(() => {
 
 #### ウィジェットのイベントのトラッキング
 
-```javascript
+`````````javascript
 // Track user interactions within your widget
 const handleButtonClick = () => {
   braze.logCustomEvent("widget_button_clicked", {
@@ -130,14 +130,14 @@ MCPサーバー上でメッセージング機能のサーバーサイド統合�
 
 <!-- #### Import the Braze functions
 
-```javascript
+`````````javascript
 // Import the desired methods from wherever you saved the file
 import { BrazeSessionInfo, logCustomEvent, logPurchase } from "./braze/braze.js";
 ```
 
 #### Set up session information
 
-```javascript
+`````````javascript
 // Create session info for Braze
 const brazeSessionInfo: BrazeSessionInfo = {
   userId: userId,
@@ -147,7 +147,7 @@ const brazeSessionInfo: BrazeSessionInfo = {
 
 #### Track user interactions
 
-```javascript
+`````````javascript
 // Log custom events for user interactions
 await logCustomEvent(brazeSessionInfo, "chatgpt_app_interaction", {
   app_id: "your_chatgpt_app_id",
@@ -159,7 +159,7 @@ await logCustomEvent(brazeSessionInfo, "chatgpt_app_interaction", {
 
 #### Track purchases and transactions
 
-```javascript
+`````````javascript
 // Calculate order details for purchases
 const totalPrice = examplePriceMethod(args.size, args.quantity);
 const orderId = `ORDER-${Date.now()}`;

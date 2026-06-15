@@ -6,9 +6,12 @@
 # the full list of options, append '--help' to the script.
 #
 # Usage:  ./scripts/clean_orphaned_translations.py [LANGUAGE]
+#
+# Safety: if more than ORPHAN_CLEANUP_MAX_DELETES (default 500) files would be
+# removed, the script exits without deleting unless ORPHAN_CLEANUP_FORCE=1.
+# Large counts usually mean an IA move vs stale locale trees — see PR #13327.
 
 import os
-import shutil
 import sys
 from pathlib import Path
 
@@ -46,7 +49,11 @@ USAGE:
 OPTIONS:
   [LANGUAGE]         Process the given language. If none, process all. Available languages:
                        {', '.join(lang_dirs.keys())}
-  -h, --help         Show this help message"""
+  -h, --help         Show this help message
+
+ENVIRONMENT:
+  ORPHAN_CLEANUP_MAX_DELETES   Max deletions allowed in one run (default: 500).
+  ORPHAN_CLEANUP_FORCE         Set to 1/true to delete even when above the max."""
 
 def main():
     # Get all files from all source directories (_docs and _includes).
@@ -84,51 +91,67 @@ def main():
     # Filter language directories if target_language is specified
     languages_to_process = {target_language: lang_dirs[target_language]} if target_language else lang_dirs
 
+    # Phase 1 — collect orphans (do not delete yet) so we can enforce limits.
+    pending = []  # (lang, lang_file, file_path, lang_dir_str)
+    for lang, lang_dir in languages_to_process.items():
+        if not os.path.exists(lang_dir):
+            print(f"Language directory {lang_dir} does not exist. Skipping.")
+            continue
+        lang_dir_str = str(lang_dir)
+        for lang_file in get_all_files(lang_dir):
+            if lang_file not in docs_files:
+                pending.append(
+                    (lang, lang_file, os.path.join(lang_dir_str, lang_file), lang_dir_str)
+                )
+
+    max_deletes = int(os.environ.get("ORPHAN_CLEANUP_MAX_DELETES", "500"))
+    force = os.environ.get("ORPHAN_CLEANUP_FORCE", "").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+    )
+    if len(pending) > max_deletes and not force:
+        print(
+            f"ERROR: {len(pending)} orphaned translation files exceed "
+            f"ORPHAN_CLEANUP_MAX_DELETES={max_deletes}. Refusing to delete.\n"
+            "This usually means English IA moved but locales still mirror old "
+            "paths — finish catch-up translations first, or set "
+            "ORPHAN_CLEANUP_FORCE=1 if you intentionally want a mass cleanup.\n"
+            "See PR #13327.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
     # Set up log file
     LOG_PATH = Path("scripts/temp/cleaned_lang_files.log")
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
 
-    # Process languages and write per-file logs
+    # Phase 2 — delete and log
     with LOG_PATH.open("w", encoding="utf-8") as log:
         for lang, lang_dir in languages_to_process.items():
-            if not os.path.exists(lang_dir):
-                print(f"Language directory {lang_dir} does not exist. Skipping.")
-                continue
+            language_summaries[lang] = {"total": 0, "sections": {}}
 
-            lang_files = get_all_files(lang_dir)
-            orphaned_files = []
-            section_counts = {}
+        for lang, lang_file, file_path, lang_dir_str in pending:
+            log.write(f"Orphaned file found: {file_path}\n")
+            os.remove(file_path)
+            log.write(f"Deleted: {file_path}\n")
 
-            for lang_file in lang_files:
-                # Check if the file exists in any source directory
-                if lang_file not in docs_files:
-                    orphaned_files.append(lang_file)
-                    file_path = os.path.join(lang_dir, lang_file)
-                    log.write(f"Orphaned file found: {file_path}\n")
-                    os.remove(file_path)
-                    log.write(f"Deleted: {file_path}\n")
+            summary = language_summaries[lang]
+            summary["total"] += 1
+            section = lang_file.split("/")[0] if "/" in lang_file else "root"
+            summary["sections"][section] = summary["sections"].get(section, 0) + 1
 
-                    # Track the section of the file
-                    section = lang_file.split("/")[0] if "/" in lang_file else "root"
-                    section_counts[section] = section_counts.get(section, 0) + 1
-
-                    # Remove empty directories
-                    dir_path = os.path.dirname(file_path)
-                    while dir_path != lang_dir:
-                        try:
-                            if len(os.listdir(dir_path)) == 0:
-                                os.rmdir(dir_path)
-                                log.write(f"Removed empty directory: {dir_path}\n")
-                            else:
-                                break
-                        except:
-                            break
-                        dir_path = os.path.dirname(dir_path)
-
-            language_summaries[lang] = {
-                "total": len(orphaned_files),
-                "sections": section_counts
-            }
+            dir_path = os.path.dirname(file_path)
+            while dir_path != lang_dir_str:
+                try:
+                    if len(os.listdir(dir_path)) == 0:
+                        os.rmdir(dir_path)
+                        log.write(f"Removed empty directory: {dir_path}\n")
+                    else:
+                        break
+                except OSError:
+                    break
+                dir_path = os.path.dirname(dir_path)
 
     # Print summary by language
     print("\n===== SUMMARY OF CLEANED FILES =====")

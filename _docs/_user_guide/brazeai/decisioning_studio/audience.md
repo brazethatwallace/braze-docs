@@ -18,7 +18,7 @@ description: "Learn how to define and configure the audience for your BrazeAI De
 | **Random Control** | Customers who receive randomly selected options (baseline comparison) |
 | **Business-as-Usual (optional)** | Customers who receive the current marketing journey (for comparing against existing performance) |
 | **Holdout (optional)** | Customers who receive no communications (to measure overall campaign impact) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Treatment groups" }
 
 ## Configure your audience
 
@@ -46,7 +46,7 @@ Provide the extension ID and API key to our AI Decisioning Services team, who wi
 
 ### Google Cloud Storage
 
-If the audience is not currently stored in Braze or Salesforce Marketing Cloud, then the next best step is to configure an automated export directly to a Braze-controlled Google Cloud Services bucket.
+If the audience is not currently stored in Braze or Salesforce Marketing Cloud, then the next best step is to configure an automated export directly to a Braze-controlled Google Cloud Storage (GCS) bucket.
 
 To determine whether this is feasible, refer to the documentation for your platform. For example, mParticle offers a [native integration with Google Cloud Storage](https://www.mparticle.com/integration/google-cloud-storage/). If this is the case, we can provide a GCS bucket to export audience data to.
 

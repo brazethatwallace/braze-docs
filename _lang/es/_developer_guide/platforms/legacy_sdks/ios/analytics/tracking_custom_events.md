@@ -10,13 +10,13 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Realiza el seguimiento de eventos personalizados para iOS
+# Seguimiento de eventos personalizados para iOS {#track-custom-events-for-ios}
 
-Puedes grabar eventos personalizados en Braze para conocer mejor los patrones de uso de tu aplicación y segmentar a tus usuarios según sus acciones en el panel.
+Puedes grabar eventos personalizados en Braze para conocer mejor los patrones de uso de tu aplicación y segmentar a tus usuarios por sus acciones en el dashboard.
 
-Antes de la implementación, asegúrate de revisar los ejemplos de las opciones de segmentación que ofrecen los eventos personalizados, los atributos personalizados y los eventos de compra en nuestras [mejores prácticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), así como nuestras notas sobre [las convenciones de denominación de eventos]({{site.baseurl}}/user_guide/data/custom_data/event_naming_conventions/).
+Antes de la implementación, asegúrate de revisar ejemplos de las opciones de segmentación que ofrecen los eventos personalizados, los atributos personalizados y los eventos de compra en nuestras [mejores prácticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), así como nuestras notas sobre [las convenciones de denominación de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
 
-## Añadir un evento personalizado
+## Añadir un evento personalizado {#adding-a-custom-event}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -35,9 +35,9 @@ Appboy.sharedInstance()?.logCustomEvent("YOUR_EVENT_NAME")
 {% endtab %}
 {% endtabs %}
 
-### Añadir propiedades
+### Añadir propiedades {#adding-properties}
 
-Puedes añadir metadatos sobre eventos personalizados pasando un `NSDictionary` rellenado con los valores `NSNumber`, `NSString` o `NSDate`.
+Puedes añadir metadatos sobre eventos personalizados pasando un `NSDictionary` rellenado con valores `NSNumber`, `NSString` o `NSDate`.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -78,7 +78,7 @@ Appboy.sharedInstance()?.logCustomEvent(
 {% endtab %}
 {% endtabs %}
 
-Consulta [la documentación de](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#a4f0051d73d85cb37f63c232248124c79) nuestras clases para obtener más información.
+Consulta la [documentación de nuestra clase](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#a4f0051d73d85cb37f63c232248124c79) para más información.
 
 ### Claves reservadas {#event-reserved-keys}
 
@@ -87,8 +87,7 @@ Las siguientes claves están reservadas y no pueden utilizarse como propiedades 
 - `time`
 - `event_name`
 
-## Recursos adicionales
+## Recursos adicionales {#additional-resources}
 
-- Consulta la declaración del método en el [archivo](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h) `Appboy.h`. 
-- Consulta la documentación [`logCustomEvent`](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ad80c39e8c96482a77562a5b1a1d387aa) para más información.
-
+- Consulta la declaración del método en el [archivo](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h) `Appboy.h`.
+- Consulta la documentación de [`logCustomEvent`](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ad80c39e8c96482a77562a5b1a1d387aa) para más información.

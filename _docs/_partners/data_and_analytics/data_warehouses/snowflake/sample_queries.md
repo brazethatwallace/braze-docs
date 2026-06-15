@@ -197,4 +197,81 @@ FROM unique_events
 GROUP BY email_address;
 ```
 {% endtab %}
+{% tab Unique Email Opens %}
+
+Use this query to approximate **Unique Opens** from Snowflake email open events—for example, to reconcile with the **Unique Opens** column in the dashboard.
+
+This example returns three counts:
+
+- **Unique Opens (over 7 days):** Unique opens over a rolling seven-day period.
+- **Unique Opens (during date window):** Unique opens within the given time period. This is regardless of any opens that occurred prior to the time period.
+- **Unique Opens (for emails delivered within same timeframe):** Unique opens where the paired delivery event also occurred inside the same window (useful when you only want opens tied to messages delivered in that period).
+
+{% raw %}
+```sql
+/* 
+    Set or comment out variables if not required. These are set per session.
+    You can obtain the from and to dates from the Campaign/Canvas/Canvas step URL. These are the startDate and endDate parameters.
+    
+    For example, endDate=1656799199&startDate=1656194400
+    
+    To run, select all of this code block (CMD + A) and run to first set the necessary variables and run the SELECT statements below.
+*/
+
+SET fromDateTime = '1656194400';
+SET toDateTime = '1656799199';
+-- SET campaignID = '';
+-- SET canvasID = '';
+SET canvasStepID = '61b0a249745a0c5ac67a11d3';
+
+SELECT
+    'Unique Opens (over 7 days)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
+FROM
+    users_messages_email_open_shared
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime AND
+    not exists (select 
+                umeo.user_id 
+            from 
+                users_messages_email_open_shared umeo
+            where 
+                umeo.user_id = users_messages_email_open_shared.user_id and
+                umeo.canvas_step_id = users_messages_email_open_shared.canvas_step_id and
+                to_timestamp(umeo.time) between dateadd(day, -7, to_timestamp(users_messages_email_open_shared.time)) and dateadd(second, -1, to_timestamp(users_messages_email_open_shared.time)))
+UNION
+SELECT
+    'Unique Opens (during date window)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
+FROM
+    users_messages_email_open_shared
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime
+UNION
+SELECT
+    'Unique Opens (for emails delivered within same timeframe)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
+FROM
+    users_messages_email_open_shared
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime AND
+    EXISTS (select user_id
+            from users_messages_email_delivery_shared umed
+            where
+                umed.user_id = users_messages_email_open_shared.user_id and
+                umed.dispatch_id = users_messages_email_open_shared.dispatch_id and
+                umed.time between $fromDateTime and $toDateTime);
+```
+{% endraw %}
+
+{% endtab %}
 {% endtabs %}

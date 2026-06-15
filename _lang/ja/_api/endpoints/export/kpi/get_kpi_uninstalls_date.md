@@ -1,15 +1,15 @@
 ---
-nav_title: "取得:毎日のアプリのアンインストールのKPIを日付別にエクスポートする"
-article_title: "取得:日ごとのアプリのアンインストールのKPIをエクスポートする"
-search_tag: エンドポイント
+nav_title: "GET:日次アプリアンインストールKPIを日付別にエクスポート"
+article_title: "GET:日次アプリアンインストールKPIを日付別にエクスポート"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「日付別にアプリの日次アンインストール数をエクスポート」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「日付別にアプリの日次アンインストール数をエクスポート」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# 毎日のアプリのアンインストールのKPIを日付別にエクスポートする
+# 日次アプリアンインストールKPIを日付別にエクスポート {#export-kpis-for-daily-app-uninstalls-by-date}
 {% apimethod get %}
 /kpi/uninstalls/data_series
 {% endapimethod %}
@@ -18,24 +18,24 @@ description: "この記事では、「日付別にアプリの日次アンイン
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#59c4d592-3e77-42f8-8ff1-d5d250acbeae {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`kpi.uninstalls.data_series`の権限が必要です。
+このエンドポイントを使用するには、`kpi.uninstalls.data_series` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター| 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | -------- | -------- | --------- | ----------- |
-| `length` | 必須かどうか | 整数 | 返されるシリーズに `ending_at` が含まれるまでの最大日数。1以上100以下でなければなりません。 |
-| `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データシリーズが終了する日付。リクエストの時刻にデフォルト設定されます。 |
-| `app_id` | オプション | 文字列 | [API Keys]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/)ページから取得したアプリAPI識別子。除外した場合、ワークスペース内のすべてのアプリの結果が返される。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `length` | 必須 | 整数 | 返されるシリーズに含める `ending_at` までの最大日数。1以上100以下でなければなりません。 |
+| `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データシリーズが終了する日付。デフォルトはリクエストの時刻です。 |
+| `app_id` | オプション | 文字列 | [APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページから取得したアプリAPI識別子。除外した場合、ワークスペース内のすべてのアプリの結果が返されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/uninstalls/data_series?length=14&ending_at=2018-06-28T23:59:59-5:00&app_id={{app_identifier}}' \
@@ -43,7 +43,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/uninstalls/d
 ```
 {% endraw %}
 
-## 応答
+## 応答 {#response}
 
 ```json
 {

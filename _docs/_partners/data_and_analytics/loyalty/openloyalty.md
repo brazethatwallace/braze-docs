@@ -40,7 +40,7 @@ Before you start, you need the following:
 | Braze Data Transformation | You need access to the "Data Settings" tab in Braze to configure webhook listeners. |
 | Matching IDs | The user's `external_id` in Braze must match their `loyaltyCardNumber` (or another default identifier) in Open Loyalty. |
 | Tenant ID | Your Open Loyalty Tenant ID (required for Outbound updates). |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

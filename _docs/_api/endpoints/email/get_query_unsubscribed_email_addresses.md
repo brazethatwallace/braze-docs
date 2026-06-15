@@ -38,7 +38,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | `offset` | Optional | Integer | Optional beginning point in the list to retrieve from. |
 | `sort_direction` | Optional | String | Pass in the value `asc` to sort unsubscribes from oldest to newest. Pass in `desc` to sort from newest to oldest. If `sort_direction` is not included, the default order is newest to oldest. |
 | `email` | Optional <br>(see note) | String | If provided, we will return whether or not the user has unsubscribed. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 You must provide an `end_date`, as well as either an `email` or a `start_date`.

@@ -1,7 +1,7 @@
 ---
 nav_title: Zendesk
 article_title: Zendesk Chat
-description: "Learn how to integrate Zendesk Chat with Braze and set up a two-way SMS conversation."
+description: "Zendesk Chat을 Braze와 통합하고 양방향 SMS 대화를 설정하는 방법을 알아보세요."
 alias: /partners/zendesk_chat/
 page_type: partner
 search_tag: Partner
@@ -10,89 +10,90 @@ search_tag: Partner
 
 # Zendesk Chat
 
-> [Zendesk Chat](https://www.zendesk.com/service/messaging/) uses webhooks from each platform to set up a two-way SMS conversation. When a user requests support, a ticket is created in Zendesk. Agent responses are forwarded to Braze through an API-triggered SMS campaign, and user replies are sent back to Zendesk.
+> [Zendesk Chat](https://www.zendesk.com/service/messaging/)은 각 플랫폼의 웹훅을 사용하여 양방향 SMS 대화를 설정합니다. 사용자가 고객지원을 요청하면 Zendesk에 티켓이 생성됩니다. 상담원 응답은 API 트리거 SMS Campaign을 통해 Braze로 전달되고, 사용자 답장은 다시 Zendesk로 전송됩니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
 
-| Prerequisite | Description |
+| 요구 사항 | 설명 |
 |---|---|
-| A Zendesk account | A Zendesk account is required to take advantage of this partnership.|
-| A Zendesk Basic Authorization Token | Zendesk 기본 인증 토큰은 Braze에서 Zendesk로 아웃바운드 웹훅 요청을 만드는 데 사용됩니다.|
-| A Braze REST API Key  | A Braze REST API key with `campaigns.trigger.send` permissions. This can be created in the Braze dashboard from **Settings** > **API Keys**.|
+| Zendesk 계정 | 이 파트너십을 활용하려면 Zendesk 계정이 필요합니다.|
+| Zendesk 기본 승인 토큰 | Zendesk 기본 승인 토큰은 Braze에서 Zendesk로 아웃바운드 웹훅 요청을 보내는 데 사용됩니다.|
+| Braze REST API 키 | `campaigns.trigger.send` 권한이 있는 Braze REST API 키. Braze 대시보드에서 **설정** > **API 키**로 이동하여 생성할 수 있습니다.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Use cases
+## 활용 사례 {#use-cases}
 
-Enhance customer support efficiency by combining Braze SMS capabilities with Zendesk live agent responses to address user inquiries with human support promptly.
+Braze SMS 기능과 Zendesk 실시간 상담원 응답을 결합하여 사용자 문의에 대해 사람이 직접 신속하게 지원함으로써 고객지원 효율성을 높이세요.
 
-## Integrating Zendesk Chat
+## Zendesk Chat 통합하기 {#integrating-zendesk-chat}
 
-### Step 1: Create a webhook in Zendesk
+### 1단계: Zendesk에서 웹훅 생성하기 {#step-1-create-a-webhook-in-zendesk}
 
-1. In the Zendesk developer console, go to webhooks: {% raw %}`https://{{url}}.zendesk.com/admin/apps-integrations/webhooks/webhooks`{% endraw %}
-2. Under **Create Webhook**, select **Trigger or automation**.
-3. **엔드포인트 URL**에 **/캠페인/트리거/전송** 엔드포인트를 추가합니다.
-4. Under **Authentication**, select **Bearer token** and add the Braze REST API key with `campaigns.trigger.send` permissions.
+1. Zendesk 개발자 콘솔에서 웹훅으로 이동합니다: {% raw %}`https://{{url}}.zendesk.com/admin/apps-integrations/webhooks/webhooks`{% endraw %}
+2. **Create Webhook** 아래에서 **Trigger or automation**을 선택합니다.
+3. **Endpoint URL**에 **/campaign/trigger/send** 엔드포인트를 추가합니다.
+4. **Authentication** 아래에서 **Bearer token**을 선택하고 `campaigns.trigger.send` 권한이 있는 Braze REST API 키를 추가합니다.
 
-![Zendesk 웹훅 예제입니다.]({% image_buster /assets/img/zendesk/instant_chat/chat1.png %}){: style="max-width:70%;"}
+![Zendesk 웹훅 예시.]({% image_buster /assets/img/zendesk/instant_chat/chat1.png %}){: style="max-width:70%;"}
 
-### 2단계: Create an outbound SMS campaign
+### 2단계: 아웃바운드 SMS Campaign 생성하기 {#step-2-create-an-outbound-sms-campaign}
 
-Next, you’ll create an SMS campaign that will listen for webhooks from Zendesk and send a custom SMS response to your customers.
+다음으로, Zendesk의 웹훅을 수신하고 고객에게 커스텀 SMS 응답을 보내는 SMS Campaign을 생성합니다.
 
-#### 2.1 단계: Compose your message
+#### 2.1단계: 메시지 작성하기 {#step-21-compose-your-message}
 
-When Zendesk sends the content of a message through the API, it comes in the following format:
+Zendesk가 API를 통해 메시지 콘텐츠를 전송하면 다음 형식으로 전달됩니다:
 
 ```
 **----------------------------------------------\n\n{Replier Name}, {Replier Date}\n\n{Message}**
 ```
 
-따라서 이 문자열에서 원하는 세부 정보를 추출하여 메시지에 표시해야 하며, 그렇지 않으면 사용자에게 모든 세부 정보가 표시됩니다.
+따라서 이 문자열에서 메시지에 표시할 세부 정보를 추출해야 합니다. 그렇지 않으면 사용자에게 모든 세부 정보가 표시됩니다.
 
-![서식을 지정하지 않은 SMS 예시입니다.]({% image_buster /assets/img/zendesk/instant_chat/chat2.png %}){: style="max-width:40%;"}
+![서식이 없는 SMS 예시.]({% image_buster /assets/img/zendesk/instant_chat/chat2.png %}){: style="max-width:40%;"}
 
-**메시지** 텍스트 상자에 다음 Liquid 코드와 옵트아웃 언어 또는 기타 정적 콘텐츠를 추가합니다:
+**Message** 텍스트 상자에 다음 Liquid 코드와 옵트아웃 문구 또는 기타 정적 콘텐츠를 추가합니다:
 
 {% raw %}
 ```liquid
 {% assign body = {{api_trigger_properties.${msg_body}}} %}
 {% assign msg = body | split: "
 " %}
-New message from Zendesk: 
+New message from Zendesk:
 {{msg[2]}}
- 
+
 Feel free to respond directly to this number!
 ```
 {% endraw %}
 
-![서식이 포함된 SMS 예시입니다.]({% image_buster /assets/img/zendesk/instant_chat/chat3.png %}){: style="max-width:70%;"}
+![서식이 포함된 SMS 예시.]({% image_buster /assets/img/zendesk/instant_chat/chat3.png %}){: style="max-width:70%;"}
 
-#### 2.2 단계: Schedule the delivery
+#### 2.2단계: 전달 스케줄 설정하기 {#step-22-schedule-the-delivery}
 
-전달 유형으로 **API-트리거된 전달**을 선택한 다음, 다음 단계에서 사용되는 캠페인 ID를 복사합니다.
+전달 유형으로 **API-Triggered delivery**를 선택한 다음, 다음 단계에서 사용할 Campaign ID를 복사합니다.
 
-![API 트리거 배달]({% image_buster /assets/img/zendesk/instant_chat/chat4.png %}){: style="max-width:70%;"}
+![API 트리거 전달]({% image_buster /assets/img/zendesk/instant_chat/chat4.png %}){: style="max-width:70%;"}
 
-마지막으로 **배달 관리에서** 다시 자격을 설정합니다.
+마지막으로 **Delivery Controls** 아래에서 재자격을 활성화합니다.
 
-!["배송 관리"에서 재자격이 활성화됩니다.]({% image_buster /assets/img/zendesk/instant_chat/chat5.png %})
+!["Delivery Controls"에서 재자격이 활성화된 모습.]({% image_buster /assets/img/zendesk/instant_chat/chat5.png %})
 
-### 3단계: Create a trigger in Zendesk to forward agent replies to Braze
+### 3단계: Zendesk에서 상담원 답변을 Braze로 전달하는 트리거 생성하기 {#step-3-create-a-trigger-in-zendesk-to-forward-agent-replies-to-braze}
 
-Go to **Objects and rules** > **Business rules** > **Triggers**.
+**Objects and rules** > **Business rules** > **Triggers**로 이동합니다.
 
-1. Create a new **category** (for example, **Trigger a message**).
-2. Create a new **trigger** (for example, **Respond via SMS Braze**).
-3. Under **Conditions**, select:
-- **Ticket>Comment** is **Present and requester can see comment** so that the message is triggered whenever a new public comment is included in a ticket update
-- **Ticket>Update** *is not* **Web service (API)** so that when a user sends a message from Braze, it isn't forwarded back to their cell phone. Zendesk에서 오는 메시지만 전달됩니다.
+1. 새 **카테고리**를 생성합니다(예: **Trigger a message**).
+2. 새 **트리거**를 생성합니다(예: **Respond via SMS Braze**).
+3. **Conditions** 아래에서 다음을 선택합니다:
+- **Ticket>Comment**이 **Present and requester can see comment**인 경우 — 티켓 업데이트에 새 공개 댓글이 포함될 때마다 메시지가 트리거됩니다.
+- **Ticket>Update**가 **Web service (API)**가 *다음이 아님* — 사용자가 Braze에서 메시지를 보낼 때 해당 메시지가 다시 사용자의 휴대폰으로 전달되지 않도록 합니다. Zendesk에서 오는 메시지만 전달됩니다.
 
-![SMS Braze를 통해 응답하세요.]({% image_buster /assets/img/zendesk/instant_chat/chat6.png %}){: style="max-width:70%;"}
+![SMS Braze를 통해 응답.]({% image_buster /assets/img/zendesk/instant_chat/chat6.png %}){: style="max-width:70%;"}
 
-**작업에서** **웹훅으로 알림을** 선택하고 1단계에서 만든 엔드포인트를 선택합니다. Next, specify the body of the API call. [2.2단계의](#step-22-schedule-the-delivery) `campaign_id` 을 요청 본문에 입력합니다.
+**Actions** 아래에서 **Notify by Webhook**을 선택하고 1단계에서 생성한 엔드포인트를 선택합니다. 다음으로 API 호출의 본문을 지정합니다. [2.2단계](#step-22-schedule-the-delivery)의 `campaign_id`를 요청 본문에 입력합니다.
 
-![SMS Braze JSON 본문을 통해 응답합니다.]({% image_buster /assets/img/zendesk/instant_chat/chat7.png %}){: style="max-width:70%;"}
+![SMS Braze JSON 본문을 통해 응답.]({% image_buster /assets/img/zendesk/instant_chat/chat7.png %}){: style="max-width:70%;"}
 
 {% raw %}
 ```liquid
@@ -115,21 +116,21 @@ Go to **Objects and rules** > **Business rules** > **Triggers**.
 {% endraw %}
 
 
-### Step 4: Create a trigger in Zendesk to update a user when a ticket is closed
+### 4단계: Zendesk에서 티켓 종료 시 사용자를 업데이트하는 트리거 생성하기 {#step-4-create-a-trigger-in-zendesk-to-update-a-user-when-a-ticket-is-closed}
 
-사용자에게 티켓이 종료되었음을 알리려면 Braze에서 템플릿 응답 본문으로 새 캠페인을 만드세요.
+사용자에게 티켓이 종료되었음을 알리려면 Braze에서 템플릿 응답 본문으로 새 Campaign을 생성합니다.
 
 ![티켓이 종료되면 사용자를 업데이트합니다.]({% image_buster /assets/img/zendesk/instant_chat/chat8.png %}){: style="max-width:70%;"}
 
-**API 트리거 전송을** 선택하고 캠페인 ID를 복사합니다.
+**API Triggered delivery**를 선택하고 Campaign ID를 복사합니다.
 
-Next, set up a trigger to notify Braze when the ticket is closed:
-- Category: **Trigger a message**
-- 조건에서 **티켓>티켓 상태를** 선택하고 **해결됨으로** 변경합니다.
+다음으로, 티켓이 종료될 때 Braze에 알리는 트리거를 설정합니다:
+- 카테고리: **Trigger a message**
+- 조건에서 **Ticket>Ticket Status**를 선택하고 **Solved**로 변경합니다.
 
-![Zendesk에서 해결된 티켓을 설정합니다.]({% image_buster /assets/img/zendesk/instant_chat/chat9.png %}){: style="max-width:70%;"}
+![Zendesk에서 해결된 티켓 설정.]({% image_buster /assets/img/zendesk/instant_chat/chat9.png %}){: style="max-width:70%;"}
 
-**작업에서** **웹훅으로 알림을** 선택하고 방금 만든 두 번째 엔드포인트를 선택합니다. 거기에서 API 호출의 본문을 지정해야 합니다:
+**Actions** 아래에서 **Notify by Webhook**을 선택하고 방금 생성한 두 번째 엔드포인트를 선택합니다. 거기에서 API 호출의 본문을 지정해야 합니다:
 
 ![해결된 티켓 JSON 본문.]({% image_buster /assets/img/zendesk/instant_chat/chat10.png %}){: style="max-width:70%;"}
 
@@ -153,44 +154,44 @@ Next, set up a trigger to notify Braze when the ticket is closed:
 ```
 {% endraw %}
 
-### 5단계: Add a custom user field in Zendesk
+### 5단계: Zendesk에서 커스텀 사용자 필드 추가하기 {#step-5-add-a-custom-user-field-in-zendesk}
 
-In the Admin Center, select **People** in the sidebar, then select **Configuration** > **User fields**. Add the custom user field `braze_external_id`.
+관리 센터에서 사이드바의 **People**을 선택한 다음 **Configuration** > **User fields**를 선택합니다. 커스텀 사용자 필드 `braze_external_id`를 추가합니다.
 
-### Step 6: Set up inbound-SMS forwarding
+### 6단계: 인바운드 SMS 전달 설정하기 {#step-6-set-up-inbound-sms-forwarding}
 
-Next, you’ll create two new webhook campaigns in Braze so you can forward inbound SMS from customers to the Zendesk inbox.
+다음으로, Braze에서 두 개의 새 웹훅 Campaign을 생성하여 고객의 인바운드 SMS를 Zendesk 받은편지함으로 전달할 수 있도록 합니다.
 
-| Campaign           | Purpose                                                                              |
+| Campaign | 목적 |
 |--------------------|--------------------------------------------------------------------------------------|
-| Webhook campaign 1 | Creates a new ticket in Zendesk.                                                     |
-| Webhook campaign 2 | Forwards all conversational SMS responses sent inbound from the customer to Zendesk. |
-{: .reset-td-br-1 .reset-td-br-2 }
+| 웹훅 Campaign 1 | Zendesk에 새 티켓을 생성합니다. |
+| 웹훅 Campaign 2 | 고객이 인바운드로 보낸 모든 대화형 SMS 응답을 Zendesk로 전달합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6: Set up inbound-SMS forwarding" }
 
-#### Step 6.1: Create an SMS keyword category
+#### 6.1단계: SMS 키워드 카테고리 생성하기 {#step-61-create-an-sms-keyword-category}
 
-In the Braze dashboard, go to **Audience**, choose your **SMS subscription group**, then select **Add Custom Keyword**. Fill out the following fields to create an exclusive SMS keyword category for Zendesk.
+Braze 대시보드에서 **Audience**로 이동하여 **SMS 구독 그룹**을 선택한 다음 **Add Custom Keyword**를 선택합니다. 다음 필드를 작성하여 Zendesk 전용 SMS 키워드 카테고리를 생성합니다.
 
-| Field            | Description                                                                                                               |
+| 필드 | 설명 |
 |------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Keyword Category | The name of your keyword category, such as `ZendeskSMS1`.                                                                 |
-| Keywords         | Your custom keywords, such as `SUPPORT`.                                                                                  |
-| Reply Message    | 키워드가 감지될 때 전송되는 메시지, 예를 들어 "고객 서비스 담당자가 곧 연락드릴 것입니다." |
-{: .reset-td-br-1 .reset-td-br-2 }
+| 키워드 카테고리 | 키워드 카테고리의 이름입니다(예: `ZendeskSMS1`). |
+| 키워드 | 커스텀 키워드입니다(예: `SUPPORT`). |
+| 답장 메시지 | 키워드가 감지될 때 전송되는 메시지입니다(예: "고객 서비스 담당자가 곧 연락드리겠습니다."). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6.1: Create an SMS keyword category" }
 
 ![Braze의 SMS 키워드 카테고리 예시.]({% image_buster /assets/img/zendesk/instant_chat/chat11.png %}){: style="max-width:70%;"}
 
-#### 6.2단계: Create your first webhook campaign
+#### 6.2단계: 첫 번째 웹훅 Campaign 생성하기 {#step-62-create-your-first-webhook-campaign}
 
-In the Braze dashboard, create your first webhook campaign. This message will signal to Zendesk that support is being requested.
+Braze 대시보드에서 첫 번째 웹훅 Campaign을 생성합니다. 이 메시지는 Zendesk에 고객지원이 요청되었음을 알립니다.
 
-In the webhook composer, fill out the following fields:
+웹훅 작성기에서 다음 필드를 작성합니다:
 - 웹훅 URL: {% raw %}https://{{url}}.zendesk.com/api/v2/tickets{% endraw %}
-- HTTP Method: POST
-- Request Headers:
+- HTTP 메서드: POST
+- 요청 헤더:
 - Content-Type: application/json
-- Authorization:  Basic {{Token}}
-- Request body: 
+- Authorization: Basic {{Token}}
+- 요청 본문:
 
 {% raw %}
 ```liquid
@@ -213,24 +214,24 @@ In the webhook composer, fill out the following fields:
 ```
 {% endraw %}
 
-![두 개의 필수 헤더가 포함된 요청 예시입니다.]({% image_buster /assets/img/zendesk/instant_chat/chat12.png %}){: style="max-width:70%;"}
+![두 개의 필수 헤더가 포함된 요청 예시.]({% image_buster /assets/img/zendesk/instant_chat/chat12.png %}){: style="max-width:70%;"}
 
 
-#### 6.3단계: Schedule the first delivery
+#### 6.3단계: 첫 번째 전달 스케줄 설정하기 {#step-63-schedule-the-first-delivery}
 
-For **Schedule Delivery**, select **Action-Based Delivery**, then choose **Send an SMS Inbound Message** for your trigger type. 또한 이전에 설정한 SMS 수신 그룹 및 키워드 카테고리를 추가합니다.
+**Schedule Delivery**에서 **Action-Based Delivery**를 선택한 다음 트리거 유형으로 **Send an SMS Inbound Message**를 선택합니다. 또한 이전에 설정한 SMS 구독 그룹과 키워드 카테고리를 추가합니다.
 
-![첫 번째 웹훅 캠페인의 '전송 예약' 페이지입니다.]({% image_buster /assets/img/zendesk/instant_chat/chat13.png %})
+![첫 번째 웹훅 Campaign의 "Schedule Delivery" 페이지.]({% image_buster /assets/img/zendesk/instant_chat/chat13.png %})
 
-**배달 관리에서** 다시 자격을 설정합니다.
+**Delivery Controls** 아래에서 재자격을 활성화합니다.
 
-![첫 번째 웹훅 캠페인의 '전달 제어'에서 재자격이 선택되었습니다.]({% image_buster /assets/img/zendesk/instant_chat/chat14.png %})
+![첫 번째 웹훅 Campaign의 "Delivery Controls"에서 재자격이 선택된 모습.]({% image_buster /assets/img/zendesk/instant_chat/chat14.png %})
 
-#### 6.4단계: Create your second webhook campaign
+#### 6.4단계: 두 번째 웹훅 Campaign 생성하기 {#step-64-create-your-second-webhook-campaign}
 
-Set up a webhook campaign to forward remaining SMS messages from the user to Zendesk:
+사용자의 나머지 SMS 메시지를 Zendesk로 전달하는 웹훅 Campaign을 설정합니다:
 
-Because Zendesk sends the ticket ID as a string, create a Content Block to convert the string to an integer so you can use it in Zendesk’s webhook.
+Zendesk는 티켓 ID를 문자열로 전송하므로, 문자열을 정수로 변환하는 콘텐츠 블록을 생성하여 Zendesk의 웹훅에서 사용할 수 있도록 합니다.
 
 {% raw %}
 ```liquid
@@ -238,14 +239,14 @@ Because Zendesk sends the ticket ID as a string, create a Content Block to conve
 ```
 {% endraw %}
 
-In the webhook composer:
+웹훅 작성기에서:
 - 웹훅 URL: {% raw %}https://{{url}}.zendesk.com/api/v2/tickets/{{content_blocks.${to_int}}}.json{% endraw %}
-- Request: PUT
-- KVPs:
+- 요청: PUT
+- KVP:
     - Content-Type:application/JSON
     - Authorization: Basic {{Token}}
 
-Sample Body: 
+샘플 본문:
 
 {% raw %}
 ```liquid
@@ -259,9 +260,9 @@ Sample Body:
 ```
 {% endraw %}
 
-#### Step 6.5: Complete second webhook campaign setup
-- Set up an action-based trigger for users who send an inbound message in the category "Other".
-- Set up re-eligibility criteria.
-- 적용 가능한 청중을 추가합니다(이 경우, 사용자 정의 속성 **zendesk_ticket_open**은 **true**입니다).
+#### 6.5단계: 두 번째 웹훅 Campaign 설정 완료하기 {#step-65-complete-second-webhook-campaign-setup}
+- "Other" 카테고리에서 인바운드 메시지를 보내는 사용자에 대한 실행 기반 트리거를 설정합니다.
+- 재자격 기준을 설정합니다.
+- 적용 가능한 오디언스를 추가합니다(이 경우, 커스텀 속성 **zendesk_ticket_open**이 **true**인 경우).
 
 [2]: {% image_buster /assets/img/zendesk/instant_chat/chat2.png %}

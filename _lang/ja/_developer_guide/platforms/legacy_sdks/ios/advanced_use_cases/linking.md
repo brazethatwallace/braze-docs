@@ -10,11 +10,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# iOS のディープリンク
+# iOS のディープリンク {#deep-linking-for-ios}
 
-ディープリンクの基本情報については、[ユーザーガイドの記事]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking)を参照してください。Braze アプリにディープリンクを初めて実装する場合は、以下の手順で開始できます。
+ディープリンクの基本情報については、[ユーザーガイドの記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。Braze アプリにディープリンクを初めて実装する場合は、以下の手順で開始できます。
 
-## ステップ 1:スキームを登録する
+## ステップ 1:スキームを登録する {#step-1-register-a-scheme}
 
 `Info.plist` ファイルでカスタムスキームを記述する必要があります。ナビゲーション構造はディクショナリの配列によって定義されます。これらの各ディクショナリには、文字列の配列が含まれています。
 
@@ -41,7 +41,7 @@ Xcode を使用して `Info.plist` ファイルを編集します。
 </array>
 ```
 
-## ステップ 2:カスタムスキームを許可リストに登録する (iOS 9 以降)
+## ステップ 2:カスタムスキームを許可リストに登録する (iOS 9 以降) {#step-2-allowlist-the-custom-scheme-ios-9}
 
 iOS 9 以降では、アプリが開くことを許可されているカスタムスキームの許可リストが必要です。このリストに含まれないスキームを呼び出そうとすると、デバイスのログにエラーが記録され、ディープリンクは開かれません。以下はこのエラーの例です。
 
@@ -53,7 +53,7 @@ iOS 9 以降では、アプリが開くことを許可されているカスタ�
 
 アプリがディープリンクする必要があるすべてのスキームを、キー `LSApplicationQueriesSchemes` を使用してアプリの `Info.plist` の許可リストに追加する必要があります。以下に例を示します。
 
-```html
+`````````html
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>myapp</string>
@@ -64,14 +64,14 @@ iOS 9 以降では、アプリが開くことを許可されているカスタ�
 
 詳細については、`LSApplicationQueriesSchemes` キーに関する [Apple のドキュメント](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW14)を参照してください。
 
-## ステップ 3:ハンドラを実装する
+## ステップ 3:ハンドラを実装する {#step-3-implement-a-handler}
 
 アプリをアクティブにすると、iOS でメソッド [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc) が呼び出されます。重要な引数は [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL) オブジェクトです。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
   NSString *path  = [url path];
   NSString *query = [url query];
@@ -83,7 +83,7 @@ iOS 9 以降では、アプリが開くことを許可されているカスタ�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   let query = url.query
@@ -97,14 +97,14 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 ![]({% image_buster /assets/img_archive/deep_link.png %})
 
-# ユニバーサルリンク
+# ユニバーサルリンク {#universal-links}
 
 ユニバーサルリンクを使用するには、登録済みのドメインがアプリの機能に追加され、`apple-app-site-association` ファイルがアップロードされていることを確認してください。その後で、メソッド `application:continueUserActivity:restorationHandler:` を `AppDelegate` に実装します。以下に例を示します。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application
 continueUserActivity:(NSUserActivity *)userActivity
   restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler {
@@ -119,7 +119,7 @@ continueUserActivity:(NSUserActivity *)userActivity
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
   if (userActivity.activityType == NSUserActivityTypeBrowsingWeb) {
     let url = userActivity.webpageURL
@@ -138,13 +138,13 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
 デフォルトのユニバーサルリンク統合は、Braze プッシュ通知やアプリ内メッセージとは互換性がありません。アプリケーション内のユニバーサルリンクを処理するには、[リンクのカスタマイズ](#linking-handling-customization)を参照してください。または、プッシュ通知やアプリ内メッセージでは[スキームベースのディープリンク](#step-1-registering-a-scheme)を使用することをお勧めします。
 {% endalert%}
 
-## アプリトランスポートセキュリティ (ATS)
+## アプリトランスポートセキュリティ (ATS) {#app-transport-security-ats}
 iOS 9 では、アプリ内メッセージやプッシュ通知に埋め込まれた Web URL に影響を与える破壊的変更が導入されました。
 
-### ATS の要件
+### ATS の要件 {#ats-requirements}
 [Apple のドキュメント](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14)から:「アプリトランスポートセキュリティは、アプリと Web サービス間の接続のセキュリティを向上させる機能です。この機能は、安全な接続のベストプラクティスに準拠したデフォルトの接続要件で構成されています。アプリでこのデフォルトの動作をオーバーライドして、トランスポートセキュリティを無効にできます。」
 
-ATS は iOS 9 以降にデフォルトで適用されます。すべての接続が HTTPS を使用し、前方秘匿性を備えた TLS 1.2 で暗号化される必要があります。詳細については、[ATS を使用して接続するための要件](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)を参照してください。Braze によりエンドデバイスに提供されるすべての画像は、TLS 1.2 をサポートし、ATS と互換性のあるコンテンツ配信ネットワーク (「CDN」) によって処理されます。
+ATS は iOS 9 以降にデフォルトで適用されます。すべての接続が HTTPS を使用し、前方秘匿性を備えた TLS 1.2 で暗号化される必要があります。詳細については、[ATS を使用して接続するための要件](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)を参照してください。Brazeによりエンドデバイスに提供されるすべての画像は、TLS 1.2 をサポートし、ATS と互換性のあるコンテンツ配信ネットワーク (「CDN」) によって処理されます。
 
 アプリケーションの `Info.plist` で例外として指定されていない限り、これらの要件に従わない接続は次のようなエラーにより失敗します。
 
@@ -159,21 +159,21 @@ NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 
 ATS コンプライアンスは、モバイルアプリ内で開かれたリンク (クリックされたリンクのデフォルト処理) に適用され、Web ブラウザーから外部で開かれたサイトには適用されません。
 
-### ATS 要件の処理
+### ATS 要件の処理 {#handling-ats-requirements}
 
 ATS は、次の 3 つの方法のいずれかで処理できます。
 
-#### すべてのリンクが ATS に準拠していることを確認する (推奨)
+#### すべてのリンクが ATS に準拠していることを確認する (推奨) {#confirm-all-links-are-ats-compliant-recommended}
 (アプリ内メッセージやプッシュキャンペーンから) ユーザーを誘導する既存のリンクが ATS の要件を満たすようにすることで、Braze 統合が ATS 要件を満たすことができます。ATS の制限を回避する方法はありますが、リンクされたすべての URL が ATS に準拠するようにすることをお勧めします。Apple がアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATS の例外を許可する以下のアプローチが Apple によってサポートされる保証はありません。
 
 SSL ツールにより、Web サーバーのセキュリティの問題を正確に特定できます。この Qualys, Inc. の [SSL サーバーテスト](https://www.ssllabs.com/ssltest/index.html)は、Apple ATS 9 および iOS 9 への準拠に特化した項目を提供します。
 
-#### ATS を一部無効にする
+#### ATS を一部無効にする {#partially-disable-ats}
 特定のドメインやスキームのリンクのサブセットを ATS ルールの例外として処理することを許可できます。Braze メッセージングチャネルで使用するすべてのリンクが ATS に準拠しているか、例外として処理されている場合、Braze 統合は ATS 要件を満たします。
 
 ATS の例外としてドメインを追加するには、アプリの `Info.plist` ファイルに以下を追加します。
 
-```html
+`````````html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -193,11 +193,11 @@ ATS の例外としてドメインを追加するには、アプリの `Info.pli
 
 詳細については、[アプリトランスポートセキュリティのキー](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33)に関する Apple の記事を参照してください。
 
-#### ATS を完全に無効にする
+#### ATS を完全に無効にする {#disable-ats-entirely}
 
 ATS を完全に無効にできます。ただし、セキュリティ保護が失われることと、将来の iOS との互換性の両方を考慮して、この方法は推奨されないことに注意してください。ATS を無効にするには、アプリの `Info.plist` ファイルに以下を挿入します。
 
-```html
+`````````html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -207,16 +207,16 @@ ATS を完全に無効にできます。ただし、セキュリティ保護が�
 
 ATS エラーをデバッグする方法の詳細については、[Shipping an App With App Transport Security](http://timekl.com/blog/2015/08/21/shipping-an-app-with-app-transport-security/?utm_campaign=iOS+Dev+Weekly&utm_medium=email&utm_source=iOS_Dev_Weekly_Issue_213) を参照してください。
 
-## URL エンコーディング
+## URL エンコーディング {#url-encoding}
 
-Braze iOS SDK v2.21.0 以降、SDK はリンクをパーセントエンコードして有効な `NSURL` を作成します。適切な形式の URL で使用できないリンク文字 (Unicode 文字など) は、すべてパーセントエスケープされます。
+Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコードして有効な `NSURL` を作成します。適切な形式の URL で使用できないリンク文字 (Unicode 文字など) は、すべてパーセントエスケープされます。
 
 エンコードされたリンクをデコードするには、`NSString` メソッド [`stringByRemovingPercentEncoding`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/index.html#//apple_ref/occ/instm/NSString/stringByRemovingPercentEncoding) を使用します。また、`ABKURLDelegate` で `YES` を返す必要があり、アプリによる URL の処理をトリガーするには、CTA が必要です。以下に例を示します。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   // Handle urlString
@@ -227,7 +227,7 @@ Braze iOS SDK v2.21.0 以降、SDK はリンクをパーセントエンコード
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
   func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
@@ -240,22 +240,22 @@ Braze iOS SDK v2.21.0 以降、SDK はリンクをパーセントエンコード
 
 ## カスタマイズ {#linking-customization}
 
-### デフォルト WebView のカスタマイズ
+### デフォルト WebView のカスタマイズ {#default-webview-customization}
 
-カスタマイズ可能な `ABKModalWebViewController` クラスは、通常 Web ディープリンクに対して「アプリ内で Web URL を開く」が選択されている場合に、SDK によって開かれる Web URL を表示します。
+カスタマイズ可能な `ABKModalWebViewController` クラスは、通常 Web ディープリンクに対して「アプリ内で Web URL を開く」が選択されている場合に、SDKによって開かれる Web URL を表示します。
 
 `ABKModalWebViewController` クラスのカテゴリを宣言するか、直接変更して、Web ビューにカスタマイズを適用できます。詳細については、このクラスの [.h ファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKModalWebViewController.h)と [.m ファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/ABKModalWebViewController.m)をご確認ください。
 
-### リンク処理のカスタマイズ
+### リンク処理のカスタマイズ {#linking-handling-customization}
 
-`ABKURLDelegate` プロトコルを使用して、ディープリンク、Web URL、ユニバーサルリンクなどの URL の処理をカスタマイズできます。Braze の初期化中にデリゲートを設定するには、[`startWithApiKey:inApplication:withAppboyOptions:`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24) の `appboyOptions` の `ABKURLDelegateKey` にデリゲートオブジェクトを渡します。その後、URI を処理する前に Braze がデリゲートの `handleAppboyURL:fromChannel:withExtras:` 実装を呼び出します。
+`ABKURLDelegate` プロトコルを使用して、ディープリンク、Web URL、ユニバーサルリンクなどの URL の処理をカスタマイズできます。Brazeの初期化中にデリゲートを設定するには、[`startWithApiKey:inApplication:withAppboyOptions:`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24) の `appboyOptions` の `ABKURLDelegateKey` にデリゲートオブジェクトを渡します。その後、Brazeは URI を処理する前にデリゲートの `handleAppboyURL:fromChannel:withExtras:` 実装を呼び出します。
 
-#### 統合の例:ABKURLDelegate
+#### 統合の例:ABKURLDelegate {#integration-example-abkurldelegate}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)handleAppboyURL:(NSURL *)url fromChannel:(ABKChannel)channel withExtras:(NSDictionary *)extras {
   if ([[url.host lowercaseString] isEqualToString:@"MY-DOMAIN.com"]) {
     // Custom handle link here
@@ -269,7 +269,7 @@ Braze iOS SDK v2.21.0 以降、SDK はリンクをパーセントエンコード
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func handleAppboyURL(_ url: URL?, from channel: ABKChannel, withExtras extras: [AnyHashable : Any]?) -> Bool {
   if (url.host == "MY-DOMAIN.com") {
     // Custom handle link here
@@ -284,16 +284,16 @@ func handleAppboyURL(_ url: URL?, from channel: ABKChannel, withExtras extras: [
 {% endtabs %}
 
 {% alert important %}
-`handleAppboyURL:fromChannel:withExtras:` が `YES` を返すと、Braze はアプリが URL を処理していると見なし、URL を開きません。ユニバーサルリンクを処理している場合は、`application:continueUserActivity:restorationHandler:` を自分で呼び出すなどして、URL をアプリのユニバーサルリンクハンドラに明示的にルーティングする必要があります。URL を処理せずに `YES` を返すと、アプリ内メッセージまたはコンテンツカードが目に見えるアクションなしに閉じられます。
+`handleAppboyURL:fromChannel:withExtras:` が `YES` を返すと、Brazeはアプリが URL を処理していると見なし、URL を開きません。ユニバーサルリンクを処理している場合は、`application:continueUserActivity:restorationHandler:` を自分で呼び出すなどして、URL をアプリのユニバーサルリンクハンドラに明示的にルーティングする必要があります。URL を処理せずに `YES` を返すと、アプリ内メッセージまたはコンテンツカードが目に見えるアクションなしに閉じられます。
 
-Braze にデフォルトの動作で URL を処理させたい場合は、`NO` を返してください。
+Brazeにデフォルトの動作で URL を処理させたい場合は、`NO` を返してください。
 {% endalert %}
 
 詳細については、[`ABKURLDelegate.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKURLDelegate.h) を参照してください。
 
-## よくあるユースケース
+## よくあるユースケース {#frequent-use-cases}
 
-### アプリ設定へのディープリンク
+### アプリ設定へのディープリンク {#deep-linking-to-app-settings}
 
 iOS は、アプリから iOS 設定アプリケーションのページにユーザーを誘導できます。`UIApplicationOpenSettingsURLString` を利用して、プッシュ通知やアプリ内メッセージから設定にユーザーをディープリンクできます。
 
@@ -304,7 +304,7 @@ iOS は、アプリから iOS 設定アプリケーションのページにユ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
@@ -320,7 +320,7 @@ iOS は、アプリから iOS 設定アプリケーションのページにユ�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   if (path == "settings") {

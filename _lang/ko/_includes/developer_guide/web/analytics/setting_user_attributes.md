@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/web.md %}
 
-## 기본 사용자 속성
+## 기본 사용자 속성 {#default-user-attributes}
 
-### 미리 정의된 메서드
+### 미리 정의된 메서드 {#predefined-methods}
 
 Braze는 [`User` 클래스](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) 내에서 다음 사용자 속성을 설정하기 위해 미리 정의된 메서드를 제공합니다:
 
@@ -16,7 +16,7 @@ Braze는 [`User` 클래스](https://js.appboycdn.com/web-sdk/latest/doc/classes/
 - 거주 도시
 - 전화번호
 
-### 기본 속성 설정
+### 기본 속성 설정 {#setting-default-attributes}
 
 {% tabs %}
 {% tab using methods %}
@@ -54,9 +54,11 @@ window.braze.getUser().setGender("f")
 {% endtab %}
 {% endtabs %}
 
-### 기본 속성 해제
+### 기본 속성 해제 {#unsetting-default-attributes}
 
-기본 사용자 속성을 해제하려면 관련 메서드에 `null`을 전달합니다. 예를 들어:
+앱 코드, REST API 요청 또는 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 캔버스 단계를 통해 사용자 속성을 제거하거나 해제할 수 있습니다. 배열 및 부울 속성의 경우 `null`을 사용합니다. 다른 데이터 유형의 경우 빈 문자열(`""`)을 사용합니다.
+
+Web SDK로 기본 사용자 속성을 해제하려면 관련 메서드에 `null`을 전달합니다. 예를 들어:
 
 {% tabs local %}
 {% tab First name %}
@@ -76,9 +78,9 @@ braze.getUser().setDateOfBirth(null, null, null);
 {% endtab %}
 {% endtabs %}
 
-## 커스텀 사용자 속성
+## 커스텀 사용자 속성 {#custom-user-attributes}
 
-### 커스텀 속성 설정
+### 커스텀 속성 설정 {#setting-custom-attributes}
 
 {% tabs %}
 {% tab using methods %}
@@ -181,7 +183,7 @@ GTM 템플릿은 이벤트 또는 구매에 중첩된 등록정보를 지원하�
 {% endtab %}
 {% endtabs %}
 
-### 커스텀 속성 해제
+### 커스텀 속성 해제 {#unsetting-custom-attributes}
 
 커스텀 속성을 해제하려면 관련 메서드에 `null`을 전달합니다.
 
@@ -189,9 +191,9 @@ GTM 템플릿은 이벤트 또는 구매에 중첩된 등록정보를 지원하�
 braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, null);
 ```
 
-### 커스텀 속성 중첩
+### 커스텀 속성 중첩 {#nesting-custom-attributes}
 
-커스텀 속성 내에서 등록정보를 중첩할 수도 있습니다. 다음 예제에서는 중첩된 등록정보를 가진 `favorite_book` 오브젝트가 고객 프로필에 커스텀 속성으로 설정됩니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)을 참조하세요.
+커스텀 속성 내에서 등록정보를 중첩할 수도 있습니다. 다음 예제에서는 중첩된 등록정보를 가진 `favorite_book` 오브젝트가 고객 프로필에 커스텀 속성으로 설정됩니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)을 참조하세요.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -205,11 +207,11 @@ const favoriteBook = {
 braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 ```
 
-### REST API 사용
+### REST API 사용 {#using-the-rest-api}
 
 REST API를 사용하여 사용자 속성을 설정하거나 해제할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)를 참조하세요.
 
-## 사용자 구독 설정
+## 사용자 구독 설정 {#setting-user-subscriptions}
 
 사용자의 구독(이메일 또는 푸시)을 설정하려면 각각 `setEmailNotificationSubscriptionType()` 또는 `setPushNotificationSubscriptionType()` 함수를 호출합니다. 두 함수 모두 열거형 타입 `braze.User.NotificationSubscriptionTypes`를 인수로 사용합니다. 이 타입에는 세 가지 상태가 있습니다:
 
@@ -218,19 +220,19 @@ REST API를 사용하여 사용자 속성을 설정하거나 해제할 수도 �
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | 구독하고 명시적으로 옵트인한 경우 |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | 구독 중이지만 명시적으로 옵트인하지 않은 경우 |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | 구독 취소 및/또는 명시적으로 수신 거부한 경우 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 구독 설정" }
 
 사용자가 푸시에 등록되면 브라우저에서 알림 허용 또는 차단을 선택하도록 요청하며, 푸시 허용을 선택한 경우 기본적으로 `OPTED_IN`으로 설정됩니다.
 
 구독 및 명시적 옵트인 구현에 대한 자세한 내용은 [사용자 구독 관리]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)를 참조하세요.
 
-### 이메일에서 사용자 구독 해지
+### 이메일에서 사용자 구독 해지 {#unsubscribing-a-user-from-email}
 
 ```javascript
 braze.getUser().setEmailNotificationSubscriptionType(braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED);
 ```
 
-### 푸시에서 사용자 구독 해지
+### 푸시에서 사용자 구독 해지 {#unsubscribing-a-user-from-push}
 
 ```java
 braze.getUser().setPushNotificationSubscriptionType(braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED);

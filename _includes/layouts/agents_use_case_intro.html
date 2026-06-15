@@ -1,0 +1,5 @@
+{%- assign loc = site.data.i18n[site.language] -%}
+{%- assign i18n_en = site.data.i18n.en -%}
+{%- assign glossary_page_title = glossary_page_title | default: page.article_title | default: page.nav_title -%}
+<h1>{{ glossary_page_title }}</h1>
+<p class="api_text">{{ loc.agents_use_case_glossary_intro | default: i18n_en.agents_use_case_glossary_intro }}</p>

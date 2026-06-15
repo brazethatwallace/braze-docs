@@ -1,22 +1,22 @@
 ---
-nav_title: "POST : Planifier des Canvas déclenchés par API"
-article_title: "POST : Planification des toiles déclenchées par l'API"
+nav_title: "POST : Planifier des Canvas déclenchés par API"
+article_title: "POST : Planifier des Canvas déclenchés par API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Planifier des Canvas déclenchés par API."
+description: "Cet article présente en détail l'endpoint Braze Planifier des Canvas déclenchés par API."
 
 ---
 {% api %}
-# Planifier des Canvas déclenchés par API
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints  %}
+# Planifier des Canvas déclenchés par API {#schedule-api-triggered-canvases}
+{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 
-> Utilisez cet endpoint pour planifier des messages Canvas via une réception/distribution déclenchée par l'API, ce qui vous permet de décider quelle action doit déclencher l'envoi du message.
+> Utilisez cet endpoint pour planifier des messages Canvas via une distribution déclenchée par l'API, ce qui vous permet de décider quelle action doit déclencher l'envoi du message.
 
-Vous pouvez indiquer les `context` qui seront modélisées dans les messages envoyés dès les premières étapes du Canvas.
+Vous pouvez transmettre un `context` qui sera intégré dans les messages envoyés par les premières étapes du Canvas.
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
@@ -24,15 +24,15 @@ Notez que pour envoyer des messages avec cet endpoint, vous devez disposer d'un 
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `canvas.trigger.schedule.create`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `canvas.trigger.schedule.create`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='default' category='send messages endpoints' %}
+{% multi_lang_include rate_limits.md endpoint='send endpoints' %}
 
-## Corps de la demande
+## Corps de la requête {#request-body}
 
 ```
 Content-Type: application/json
@@ -60,19 +60,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`|Requis|Chaîne de caractères| Voir [Identifiant Canvas]({{site.baseurl}}/api/identifier_types/). |
-| `recipients` | Facultatif | Tableau des objets Destinataires | Voir [objet destinataire]({{site.baseurl}}/api/objects_filters/recipient_object/). |
-| `audience` | Facultatif | Objet Audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-|`broadcast`| Facultatif | Valeur booléenne | Vous devez définir `broadcast` sur « true » lorsque vous envoyez un message à un segment entier qui est ciblé par une campagne ou un Canvas. Ce paramètre est défini sur Faux par défaut (au 31 août 2017). <br><br> Si `broadcast` est défini sur « true », une liste `recipients` ne peut pas être incluse. Cependant, faites attention lors de la configuration de `broadcast: true` car en configurant involontairement cet indicateur, vous pourriez envoyer votre message à une audience plus importante que prévue. |
-| `context` | Facultatif | Objet | Personnalisation des paires clé-valeur pour tous les utilisateurs de cet envoi. Veuillez vous référer à [l'objet contextuel canvas]({{site.baseurl}}/api/objects_filters/context_object). |
-| `schedule` | Requis | Objet Planification | Voir [objet de planification]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | Requis | Chaîne de caractères | Voir [identifiant Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `recipients` | Facultatif | Tableau d'objets destinataires | Voir [objet destinataire]({{site.baseurl}}/api/objects_filters/recipient_object/). |
+| `audience` | Facultatif | Objet audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+| `broadcast` | Facultatif | Valeur booléenne | Vous devez définir `broadcast` sur « true » lorsque vous envoyez un message à un segment entier ciblé par une campagne ou un Canvas. Ce paramètre est défini sur false par défaut (depuis le 31 août 2017). <br><br> Si `broadcast` est défini sur « true », une liste `recipients` ne peut pas être incluse. Cependant, faites attention lors de la configuration de `broadcast: true`, car en configurant involontairement cet indicateur, vous pourriez envoyer votre message à une audience plus importante que prévue. |
+| `context` | Facultatif | Objet | Paires clé-valeur de personnalisation pour tous les utilisateurs de cet envoi. Voir [objet de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). |
+| `schedule` | Requis | Objet planification | Voir [objet de planification]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/create' \
 --header 'Content-Type: application/json' \
@@ -143,9 +143,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sch
 }'
 ```
 
-## Réponse
+## Réponse {#response}
 
-### Exemple de réponse réussie
+### Exemple de réponse réussie {#example-success-response}
 
 ```
 Content-Type: application/json

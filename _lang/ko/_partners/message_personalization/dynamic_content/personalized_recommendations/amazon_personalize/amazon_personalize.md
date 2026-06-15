@@ -2,7 +2,7 @@
 nav_title: Amazon Personalize
 article_title: Amazon Personalize
 alias: "/partners/amazon_personalize_overview/"
-description: "This reference article outlines a reference architecture for and integration between Braze and Amazon Personalize. This reference article will help you understand the use cases Amazon Personalize offers, the data it works with, how to configure the service, and how to integrate this with Braze."
+description: "이 참조 문서에서는 Braze와 Amazon Personalize 간의 참조 아키텍처 및 통합에 대해 설명합니다. 이 참조 문서를 통해 Amazon Personalize가 제공하는 사용 사례, 작동하는 데이터, 서비스 구성 방법, 그리고 Braze와의 통합 방법을 이해할 수 있습니다."
 page_type: partner
 search_tag: Partner
 ---
@@ -11,104 +11,104 @@ search_tag: Partner
 <!--
 {% multi_lang_include video.html id="xFZ3HMleYYE" align="right" %}
 -->
-> [Amazon Personalize는](https://aws.amazon.com/personalize/) 하루 종일 작동하는 나만의 Amazon 머신 러닝 추천 시스템과 같습니다. Based on over 20 years of recommendation experience, Amazon Personalize enables you to improve customer engagement by powering real-time personalized product and content recommendations and targeted marketing promotions.
+> [Amazon Personalize](https://aws.amazon.com/personalize/)는 하루 종일 작동하는 나만의 Amazon 머신 러닝 추천 시스템과 같습니다. 20년 이상의 추천 경험을 바탕으로, Amazon Personalize는 실시간 개인화된 제품 및 콘텐츠 추천과 타겟 마케팅 프로모션을 통해 고객 참여를 향상시킬 수 있도록 지원합니다.
 
-_This integration is maintained by Amazon Personalize._
+_이 통합은 Amazon Personalize에서 유지 관리합니다._
 
-## 통합 정보
+## 통합 정보 {#about-the-integration}
 
-Using machine learning and an algorithm you help define, Amazon Personalize can help you train a model that outputs high-quality recommendations for your websites and applications. These models will allow you to create lists of recommendations based on users' past behaviors, sort items by relevancy, and recommend other items based on similarity. Lists obtained from the Amazon Personalize API can then be used in Braze Connected Content to run personalized Braze recommendation campaigns. By integrating with Amazon Personalize, customers are given the freedom to control the parameters used to train the models and define optional business objectives that optimize the algorithm's output. 
+머신 러닝과 사용자가 정의하는 알고리즘을 활용하여, Amazon Personalize는 웹사이트와 애플리케이션에 고품질 추천을 출력하는 모델을 학습시키는 데 도움을 줄 수 있습니다. 이러한 모델을 통해 사용자의 과거 행동을 기반으로 추천 목록을 생성하고, 관련성에 따라 항목을 정렬하며, 유사성을 기반으로 다른 항목을 추천할 수 있습니다. Amazon Personalize API에서 가져온 목록은 Braze 연결된 콘텐츠에서 사용하여 개인화된 Braze 추천 캠페인을 실행할 수 있습니다. Amazon Personalize와 통합하면 고객은 모델 학습에 사용되는 매개변수를 제어하고 알고리즘 출력을 최적화하는 선택적 비즈니스 목표를 정의할 수 있는 자유를 얻게 됩니다.
 
-This reference article will help you understand the use cases Amazon Personalize offers, the data it works with, how to configure the service, and how to integrate this with Braze.
+이 참조 문서를 통해 Amazon Personalize가 제공하는 사용 사례, 작동하는 데이터, 서비스 구성 방법, 그리고 Braze와의 통합 방법을 이해할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement| Description|
-| ---| ---| 
-| Amazon Web Service account | An AWS account is required to take advantage of this partnership. After you have an AWS account, you can access Amazon Personalize through the Amazon Personalize console, the AWS Command Line Interface (AWS CLI), or the AWS SDKs. |
-| Defined use cases | Before creating a model, you must determine your use case for this integration. Reference the following list for common use cases. |
-| Datasets | Amazon Personalize recommendation models require three different types of datasets, interactions, users, and items. Reference the following details to see the requirements for each dataset. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| 요구 사항 | 설명 |
+| --- | --- |
+| Amazon Web Service 계정 | 이 파트너십을 활용하려면 AWS 계정이 필요합니다. AWS 계정이 있으면 Amazon Personalize 콘솔, AWS 명령줄 인터페이스(AWS CLI) 또는 AWS SDK를 통해 Amazon Personalize에 액세스할 수 있습니다. |
+| 정의된 사용 사례 | 모델을 생성하기 전에 이 통합의 사용 사례를 결정해야 합니다. 일반적인 사용 사례는 다음 목록을 참조하세요. |
+| 데이터셋 | Amazon Personalize 추천 모델에는 상호작용, 사용자, 항목의 세 가지 유형의 데이터셋이 필요합니다. 각 데이터셋의 요구 사항은 다음 세부 정보를 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% tabs %}
-{% tab Use Cases %}
+{% tab 사용 사례 %}
 
-**Use Cases**
+**사용 사례**
 
-Before creating a model, you must determine your use case for this integration. Some common use cases include:
-- Recommend items for users based on their previous interactions, creating a truly personalized experience for your users.
-- Provide a list of items or search results tailored to each user, increasing engagement by showing items by relevancy to the user.
-- Find recommendations for similar items, helping users discover new things.
+모델을 생성하기 전에 이 통합의 사용 사례를 결정해야 합니다. 일반적인 사용 사례는 다음과 같습니다:
+- 사용자의 이전 상호작용을 기반으로 항목을 추천하여 진정한 개인화된 경험을 제공합니다.
+- 각 사용자에게 맞춤화된 항목 목록 또는 검색 결과를 제공하여 사용자와의 관련성에 따라 항목을 표시함으로써 참여를 높입니다.
+- 유사한 항목에 대한 추천을 찾아 사용자가 새로운 것을 발견할 수 있도록 돕습니다.
 
-In the following guide, we will focus on the user personalized recommendations recipe.
+다음 가이드에서는 사용자 개인화 추천 레시피에 초점을 맞추겠습니다.
 
 {% endtab %}
-{% tab Datasets %}
+{% tab 데이터셋 %}
 
-**Datasets**
+**데이터셋**
 
-To get started with Amazon Personalize recommendation models, you need three types of datasets:
+Amazon Personalize 추천 모델을 시작하려면 세 가지 유형의 데이터셋이 필요합니다:
 
-- Interactions
-  - Stores historical interactions between users and items
-  - Requires `USER_ID`, `ITEM_ID`, `EVENT_TYPE` and `TIMESTAMP` values and optionally accepts metadata about the event
-- Users
-  - Stores metadata about the users
-  - Requires a `USER_ID` value and at least one metadata field (string or numerical) such as gender, age, loyalty membership
-- Items
-  - Stores metadata about items
-  - Requires an `ITEM_ID` and at least one metadata field (textural, categorical, or numerical) which describes the item
+- 상호작용
+  - 사용자와 항목 간의 과거 상호작용을 저장합니다
+  - `USER_ID`, `ITEM_ID`, `EVENT_TYPE` 및 `TIMESTAMP` 값이 필요하며, 선택적으로 이벤트에 대한 메타데이터를 허용합니다
+- 사용자
+  - 사용자에 대한 메타데이터를 저장합니다
+  - `USER_ID` 값과 성별, 나이, 로열티 멤버십 등 최소 하나의 메타데이터 필드(문자열 또는 숫자)가 필요합니다
+- 항목
+  - 항목에 대한 메타데이터를 저장합니다
+  - `ITEM_ID`와 항목을 설명하는 최소 하나의 메타데이터 필드(텍스트, 범주형 또는 숫자)가 필요합니다
 
-For a user recommendations recipe, you must provide an interactions dataset containing at least 1000 points of interaction data from at least 25 unique users with at least two interactions each. These datasets can be uploaded in bulk using CSV files stored in S3 or incrementally through the API.
+사용자 추천 레시피의 경우, 최소 25명의 고유 사용자로부터 각각 최소 2회 이상의 상호작용이 포함된 최소 1000개의 상호작용 데이터 포인트가 있는 상호작용 데이터셋을 제공해야 합니다. 이러한 데이터셋은 S3에 저장된 CSV 파일을 사용하여 대량으로 업로드하거나 API를 통해 점진적으로 업로드할 수 있습니다.
 
 {% endtab %}
 {% endtabs %}
 
-## Creating Models
+## 모델 생성 {#creating-models}
 
-### Step 1: Training
+### 1단계: 학습 {#step-1-training}
 
-Once datasets are imported, you can create a solution. A solution uses one of Amazon Personalize [recipes](https://docs.aws.amazon.com/personalize/latest/dg/working-with-predefined-recipes.html) (algorithms) to train a model. In our case, we will use the `USER_PERSONALIZATION` recipe. Training the solution creates a solution version (trained model) which you can evaluate based on the performance metrics of the model.
+데이터셋을 가져온 후 솔루션을 생성할 수 있습니다. 솔루션은 Amazon Personalize [레시피](https://docs.aws.amazon.com/personalize/latest/dg/working-with-predefined-recipes.html)(알고리즘) 중 하나를 사용하여 모델을 학습시킵니다. 이 경우 `USER_PERSONALIZATION` 레시피를 사용합니다. 솔루션을 학습시키면 모델의 성능 측정기준을 기반으로 평가할 수 있는 솔루션 버전(학습된 모델)이 생성됩니다.
 
-Amazon Personalize lets you adjust hyperparameters that the model uses for training. For example:
-- Amazon 개인화 콘솔에 있는 '사용자 기록 길이 백분위수' 매개 변수를 사용하면 교육에 포함할 사용자 기록의 백분위수를 조정할 수 있습니다:<br><br>![최소 최대 사용자 프로필 설정]({% image_buster /assets/img/amazon_personalize/min_and_max_user_percentile.png %})
+Amazon Personalize에서는 모델이 학습에 사용하는 하이퍼파라미터를 조정할 수 있습니다. 예를 들어:
+- Amazon Personalize 콘솔에 있는 "사용자 기록 길이 백분위수" 매개변수를 사용하면 학습에 포함할 사용자 기록의 백분위수를 조정할 수 있습니다:<br><br>![최소 최대 사용자 프로필 설정]({% image_buster /assets/img/amazon_personalize/min_and_max_user_percentile.png %})
   - `min_user_history_length_percentile`: 기록 길이가 매우 짧은 사용자 비율을 제외하므로 인기 항목을 제거하고 보다 심층적인 기본 패턴을 기반으로 추천을 구축하는 데 도움이 될 수 있습니다.
-  - `max_user_history_length_percentile`: adjust the percentage of users to take into account when training with very long history lengths.
+  - `max_user_history_length_percentile`: 기록 길이가 매우 긴 사용자를 학습에 포함할 비율을 조정합니다.
 
-The number of hidden dimensions helps detect more complicated patterns for complex datasets, while the back-propagation through time technique (BPTT) adjusts rewards for an early event after a chain of events took place that resulted in a high-value action.
+숨겨진 차원의 수는 복잡한 데이터셋에서 더 복잡한 패턴을 감지하는 데 도움이 되며, 시간 역전파 기법(BPTT)은 높은 가치의 행동으로 이어진 일련의 이벤트 이후 초기 이벤트에 대한 보상을 조정합니다.
 
-Additionally, Amazon Personalize offers automatic hyperparameter tuning by running multiple versions of the solution with different values simultaneously. To use the tuning, turn on **Perform HPO** when creating a solution.
+또한 Amazon Personalize는 서로 다른 값으로 여러 버전의 솔루션을 동시에 실행하여 자동 하이퍼파라미터 튜닝을 제공합니다. 튜닝을 사용하려면 솔루션을 생성할 때 **Perform HPO**를 켜세요.
 
-### Step 2: Evaluate and Compare
+### 2단계: 평가 및 비교 {#step-2-evaluate-and-compare}
 
-Once a solution finishes training, you are ready to evaluate it and compare different versions. Each solution version displays computed metrics. Some of the available metrics include:
+솔루션 학습이 완료되면 이를 평가하고 다른 버전과 비교할 준비가 됩니다. 각 솔루션 버전은 계산된 측정기준을 표시합니다. 사용 가능한 측정기준에는 다음이 포함됩니다:
 
-- **Normalize discounted cumulative gain:** compares the recommended order of items to the actual list of items and gives each item a weight corresponding to its position in the list
-- **Precision @k:** the amount of properly recommended items divided by the amount of all recommended items, where `k` is the number of items
-- **Mean reciprocal rank:** focuses on the first, highest ranked recommendation and calculates how many recommended items are seen before the first matched recommendation appears
-- **Coverage:** the proportion of unique recommended items to the total number of unique items in the dataset
+- **정규화 할인 누적 이득:** 추천된 항목 순서를 실제 항목 목록과 비교하고 목록에서의 위치에 해당하는 가중치를 각 항목에 부여합니다
+- **정밀도 @k:** 올바르게 추천된 항목 수를 전체 추천 항목 수로 나눈 값으로, `k`는 항목 수입니다
+- **평균 역순위:** 첫 번째, 가장 높은 순위의 추천에 초점을 맞추고 첫 번째 일치하는 추천이 나타나기 전에 몇 개의 추천 항목이 표시되는지 계산합니다
+- **커버리지:** 고유 추천 항목의 비율을 데이터셋의 전체 고유 항목 수에 대한 비율로 나타냅니다
 
-## Getting Recommendations
+## 추천 가져오기 {#getting-recommendations}
 
-Once you have created a solution version that you're happy with, it is time to put the recommendations to use. There are two ways to access the recommendations:
+만족스러운 솔루션 버전을 생성했다면 이제 추천을 활용할 차례입니다. 추천에 액세스하는 방법은 두 가지가 있습니다:
 
-1. Real-time campaign<br>A campaign is a deployed solution version with a defined minimum transaction throughput. A transaction is a single API call to get recommendation output, and it is defined as TPS, or transactions per second, with a minimum value of one. The campaign will scale resources in case of an increased load, but it will not drop below your minimum value. You can query the recommendations in the console, AWS CLI, or through AWS SDKs in your code.<br><br>
-2. Batch job<br>A batch job exports the recommendations to an S3 bucket. The job takes an input of a JSON file with a list of user IDs for which you want to export the recommendations. Then, after specifying the correct permissions and the output destination, you're ready to run the job. The runtime depends on the size of your datasets and the recommendations list length.
+1. 실시간 캠페인<br>캠페인은 정의된 최소 트랜잭션 처리량을 가진 배포된 솔루션 버전입니다. 트랜잭션은 추천 출력을 가져오기 위한 단일 API 호출이며, 최소값이 1인 TPS(초당 트랜잭션)로 정의됩니다. 캠페인은 부하가 증가하면 리소스를 확장하지만 최소값 아래로 떨어지지는 않습니다. 콘솔, AWS CLI 또는 코드에서 AWS SDK를 통해 추천을 쿼리할 수 있습니다.<br><br>
+2. 배치 작업<br>배치 작업은 추천을 S3 버킷으로 내보냅니다. 작업은 추천을 내보내려는 사용자 ID 목록이 포함된 JSON 파일을 입력으로 받습니다. 그런 다음 올바른 권한과 출력 대상을 지정하면 작업을 실행할 준비가 됩니다. 런타임은 데이터셋의 크기와 추천 목록 길이에 따라 달라집니다.
 
-### Filters
+### 필터 {#filters}
 
-Filters let you adjust the recommendation output by excluding items based on the item's ID, event type, or metadata. You can also filter users based on their metadata, such as age or loyalty membership status. Filters can come in handy to prevent recommending items that the user has already interacted with.
+필터를 사용하면 항목의 ID, 이벤트 유형 또는 메타데이터를 기반으로 항목을 제외하여 추천 출력을 조정할 수 있습니다. 나이나 로열티 멤버십 상태와 같은 메타데이터를 기반으로 사용자를 필터링할 수도 있습니다. 필터는 사용자가 이미 상호작용한 항목을 추천하지 않도록 방지하는 데 유용할 수 있습니다.
 
-## Integrating results with Braze
+## Braze와 결과 통합 {#integrating-results-with-braze}
 
-With the created model and recommendations campaign, you are ready to run a Braze campaign for your users using Content Cards and Connected Content.
-Before running a Braze campaign, you must create a service that can serve these recommendations through an API. You can follow [step 3 in the workshop article]({{site.baseurl}}/partners/amazon_personalize_workshop/#step-3-send-personalized-emails-from-braze) to deploy the service using AWS services. You can also deploy your own independent backend service that provides the recommendations.
+생성된 모델과 추천 캠페인을 통해 Content Cards와 연결된 콘텐츠를 사용하여 사용자를 위한 Braze 캠페인을 실행할 준비가 되었습니다.
+Braze 캠페인을 실행하기 전에 API를 통해 이러한 추천을 제공할 수 있는 서비스를 생성해야 합니다. [워크숍 문서의 3단계]({{site.baseurl}}/partners/amazon_personalize_workshop/#step-3-send-personalized-emails-from-braze)를 따라 AWS 서비스를 사용하여 서비스를 배포할 수 있습니다. 추천을 제공하는 자체 독립 백엔드 서비스를 배포할 수도 있습니다.
 
-### Content Card campaign use case
+### Content Cards 캠페인 사용 사례 {#content-card-campaign-use-case}
 
-Let's run a Content Card campaign with the first recommended item from the list.<br><br>
-In the following examples, we are going to query
-`GET http://<service-endpoint.com>/recommendations?user_id=user123` endpoint with a `user_id` parameter which will return a list of recommended items:
+목록에서 첫 번째 추천 항목으로 Content Cards 캠페인을 실행해 보겠습니다.<br><br>
+다음 예제에서는 `user_id` 매개변수를 사용하여
+`GET http://<service-endpoint.com>/recommendations?user_id=user123` 엔드포인트를 쿼리하며, 이는 추천 항목 목록을 반환합니다:
 
 ```json
 [
@@ -130,7 +130,7 @@ In the following examples, we are going to query
 ]
 ```
 
-In the Braze dashboard, create a new [Content Card campaign]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create/). In the message text field, create a Connected Content Liquid block to query the API and save the response in the `recommendations` variable:
+Braze 대시보드에서 새 [Content Cards 캠페인]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)을 생성합니다. 메시지 텍스트 필드에서 연결된 콘텐츠 Liquid 블록을 생성하여 API를 쿼리하고 응답을 `recommendations` 변수에 저장합니다:
 
 {% raw %}
 
@@ -138,7 +138,7 @@ In the Braze dashboard, create a new [Content Card campaign]({{site.baseurl}}/us
 {% connected_content https:/<service-endpoint.com>/recommendations?user_id={{${user_id}}} :save recommendations %}
 ```
 
-You can then reference the first item in the resulting array and display the content to the user:
+그런 다음 결과 배열의 첫 번째 항목을 참조하여 사용자에게 콘텐츠를 표시할 수 있습니다:
 
 ```liquid
 This seems like a great fit for you:
@@ -148,8 +148,6 @@ This seems like a great fit for you:
 
 {% endraw %}
 
-Including the title, the image, and linking the URL, this is what the complete Content Card would look like:
+제목, 이미지를 포함하고 URL을 연결하면 완성된 Content Cards는 다음과 같습니다:
 
-![메시지 본문과 '이미지 추가' 필드에 연결된 콘텐츠가 추가된 캠페인의 이미지입니다. 이 이미지는 사용자를 추천 URL로 연결하는 '웹 URL로 리디렉션' 필드에 추가된 콘텐츠 로직을 보여줍니다.]({% image_buster /assets/img/amazon_personalize/content-card-campaign.png %})
-
-
+![메시지 본문과 '이미지 추가' 필드에 연결된 콘텐츠가 추가된 캠페인의 이미지입니다. 이 이미지는 사용자를 추천 URL로 연결하는 '웹 URL로 리디렉션' 필드에 추가된 연결된 콘텐츠 로직도 보여줍니다.]({% image_buster /assets/img/amazon_personalize/content-card-campaign.png %})

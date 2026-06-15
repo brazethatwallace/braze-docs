@@ -14,85 +14,87 @@ search_tag: Partner
 
 Die Integration von Braze und Dixa bietet einen besseren Überblick über alle Ihre Nutzer:innen, indem sie den Kundenservice-Agenten Braze-Daten in Realtime zur Verfügung stellt.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Bevor Sie beginnen, benötigen Sie Folgendes:
 
-| Voraussetzung          | Beschreibung                                                                                                                                                       |
+| Voraussetzung | Beschreibung |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ein Dixa-Konto        | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Dixa-Administratorkonto.                                                                                           |
-| Ein Braze REST-API-Schlüssel  | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.export.ids` und `email.status`.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Ein Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.              |
+| Ein Dixa-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Dixa-Administratorkonto. |
+| Ein Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.export.ids` und `email.status`.<br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Ein Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Anwendungsfälle
+## Anwendungsfälle {#use-cases}
 
-Zeigen Sie Braze-Daten in der Ansicht des Kundenservice-Agenten an, während Sie mit Ihren Nutzer:innen über verschiedene Kommunikationskanäle wie E-Mail, Messenger oder Chat kommunizieren. Nutzen Sie außerdem die Braze Datentransformation, um Daten von Dixa an Braze zu senden und Marketing-Aktivitäten zu pausieren, während das Problem einer Nutzerin oder eines Nutzers gelöst wird.
+Zeigen Sie Braze-Daten in der Ansicht des Kundenservice-Agenten an, während Sie mit Ihren Nutzer:innen über verschiedene Kommunikationskanäle wie E-Mail, Messenger oder Chat kommunizieren. Nutzen Sie außerdem die Braze-Datentransformation, um Daten von Dixa an Braze zu senden und Marketing-Aktivitäten zu pausieren, während das Problem einer Nutzerin oder eines Nutzers gelöst wird, oder verwenden Sie die Zufriedenheitsumfragen von Dixa für die Segmentierung.
 
 ## Integration
 
-Sie müssen Dixa-Administrator:in sein, um Integrationen innerhalb von Dixa zu konfigurieren. Für die Braze-Integration gehen Sie in Dixa zu **Einstellungen** > **Integrationen** > **Braze**.
+Sie müssen Dixa-Administrator:in sein, um Integrationen innerhalb von Dixa zu konfigurieren. Für die Braze-Integration gehen Sie in Dixa zu **Settings** > **Integrations** > **Braze**.
 
-![Die Seite „Braze-Widget erstellen" in Dixa, auf der Sie den Widget-Namen, die API-URL und den API-Schlüssel eingeben.]({% image_buster /assets/img/dixa/dixa-create-integration.png %}){: style="width:450px;"}
+![Die Seite „Braze-Widget erstellen“ in Dixa, auf der Sie den Widget-Namen, die API-URL und den API-Schlüssel eingeben.]({% image_buster /assets/img/dixa/dixa-create-integration.png %}){: style="width:450px;"}
 
-### 1. Schritt: Erstellen Sie die Integration in Dixa
+### 1. Schritt: Erstellen Sie die Integration in Dixa {#step-1-create-the-integration-in-dixa}
 
-Auf der Seite **Braze-Widget erstellen** füllen Sie die folgenden erforderlichen Felder aus, um die Integration zu erstellen:
+Auf der Seite **Create Braze widget** füllen Sie die folgenden erforderlichen Felder aus, um die Integration zu erstellen:
 
-- **Name des Widgets:** Dies ist der Name der Integration, der später in der Konversations-Seitenleiste als Titel verwendet wird.
+- **Widget name:** Dies ist der Name der Integration, der später in der Konversations-Seitenleiste als Titel verwendet wird.
 - **API URL:** Dies ist die URL des REST-API-Endpunkts von Braze für Ihre Instanz.
-- **API-Schlüssel:** Dies ist der Braze-API-Schlüssel, den Sie unter den Voraussetzungen erstellt haben.
+- **API Key:** Dies ist der Braze-API-Schlüssel, den Sie unter den Voraussetzungen erstellt haben.
 
-### 2. Schritt: Konfigurieren Sie die Integration
+### 2. Schritt: Konfigurieren Sie die Integration {#step-2-configure-the-integration}
 
 Als Nächstes konfigurieren Sie die Integration von Braze und Dixa. Wählen Sie eine der folgenden Optionen, um die Ansicht des Braze-Widgets in der Konversations-Seitenleiste anzupassen.
 
-#### Widget in der Konversations-Seitenleiste anzeigen
+#### Widget in der Konversations-Seitenleiste anzeigen {#show-the-widget-in-the-conversation-sidebar}
 
-Diese Einstellung blendet die gesamte Integration in der Konversations-Seitenleiste in Dixa ein oder aus. 
+Diese Einstellung blendet die gesamte Integration in der Konversations-Seitenleiste in Dixa ein oder aus.
 
 Wenn Sie die Integration gerade konfigurieren, empfehlen wir Ihnen, diese Option zu deaktivieren, während Sie die erforderlichen Felder ausfüllen. Wenn Sie mit der Konfiguration fertig sind, können Sie sie wieder einschalten und die Dixa-Agenten können die Integration nutzen.
 
-#### Details zu Kund:innen anzeigen
+#### Details zu Kund:innen anzeigen {#display-customer-details}
 
-Wählen Sie, ob Sie die Details der Nutzer:innen anzeigen oder ausblenden möchten. Die Details enthalten Daten über Standort, E-Mail, Telefonnummer, Status des E-Mail-Abos, Status des Push-Benachrichtigungs-Abos und die Dauer der Mitgliedschaft in Braze. 
+Wählen Sie, ob Sie die Details der Nutzer:innen anzeigen oder ausblenden möchten. Die Details enthalten Daten über Standort, E-Mail, Telefonnummer, Status des E-Mail-Abos, Status des Push-Benachrichtigungs-Abos und die Dauer der Mitgliedschaft in Braze.
 
-#### Button zum Ändern des E-Mail-Abo-Status anzeigen
+#### Button zum Ändern des E-Mail-Abo-Status anzeigen {#display-the-button-to-change-the-email-subscription-state}
 
 Die Buttons basieren auf einem der drei Abo-Status von Braze: `subscribed`, `opted-in` und `unsubscribed`. Wenn ein:e Nutzer:in `subscribed` ist, kann der Agent zwischen `opt-in` und `unsubscribe` wählen. Wenn ein:e Nutzer:in `opted-in` oder `unsubscribed` ist, kann der Agent nur zwischen diesen beiden wechseln.
 
-#### Liste der angepassten Attribute anzeigen
+#### Liste der angepassten Attribute anzeigen {#display-a-list-of-custom-attributes}
 
 Wählen Sie, ob Sie die angepassten Braze-Attribute der Nutzer:innen anzeigen oder ausblenden möchten.
 
-#### Liste angepasster Events anzeigen
+#### Liste angepasster Events anzeigen {#display-a-list-of-custom-events}
 
 Wählen Sie, ob Sie die angepassten Braze-Events der Nutzer:innen anzeigen oder ausblenden möchten.
 
-#### Liste der Käufe anzeigen
+#### Liste der Käufe anzeigen {#display-a-list-of-purchases}
 
-Wählen Sie, ob Sie eine Liste der Produkte, die die Nutzer:innen gekauft haben, anzeigen oder ausblenden möchten. Hier können Sie sehen, wie oft die Nutzer:innen das Produkt gekauft haben. Um das Datum des ersten und letzten Kaufs anzuzeigen, bewegen Sie den Mauszeiger über den Artikel. 
+Wählen Sie, ob Sie eine Liste der Produkte, die die Nutzer:innen gekauft haben, anzeigen oder ausblenden möchten. Hier können Sie sehen, wie oft die Nutzer:innen das Produkt gekauft haben. Um das Datum des ersten und letzten Kaufs anzuzeigen, bewegen Sie den Mauszeiger über den Artikel.
 
-### Beispiel-Integration
+### Beispiel-Integration {#example-integration}
 
 Im Folgenden sehen Sie ein Beispiel für die Integration:
 
 ![Die Integration von Braze und Dixa in Dixa, die den Status des E-Mail-Abos, angepasste Attribute, angepasste Events und Käufe einer Nutzerin oder eines Nutzers anzeigt.]({% image_buster /assets/img/dixa/dixa-braze-integration.png %}){: style="width:350px;"}
 
-## Datentransformations-Tool
+## Datentransformations-Tool {#data-transformation-tool}
 
 Dixa verwendet Webhooks, um Daten an Braze zu senden. Sie müssen Dixa-Administrator:in sein, um Webhooks zu konfigurieren.
 
-Der erste Schritt besteht darin, eine Datentransformation in Braze zu erstellen. 
+### Konversationen in Dixa tracken {#track-conversations-in-dixa}
 
-1. Gehen Sie zu **Dateneinstellungen** > **Datentransformationen** > **Transformation erstellen**.
-2. Wählen Sie **Von Grund auf neu starten**, wählen Sie als Ziel **POST: Track Users** und wählen Sie **Transformation erstellen**.
-3. Kopieren Sie im Transformations-Editor den Beispielcode aus dem Abschnitt **Beispiel für das Transformations-Tool** weiter unten und fügen Sie ihn in das Feld **Transformationscode** ein. Wählen Sie **Speichern**, kopieren Sie die **Webhook-URL** und öffnen Sie Dixa.
-4. Gehen Sie in Dixa zu **Einstellungen** > **Integrationen** > **Webhooks** > **+ Ausgehender Webhook**.
-5. Fügen Sie auf der Seite mit den Webhook-Einstellungen die URL von Braze ein und aktivieren Sie die Events, die Sie tracken möchten. **Konversation erstellt** ist ein guter Ausgangspunkt, um die Konversationen Ihrer Kund:innen zu verfolgen. 
-6. Wählen Sie **Speichern**, um die Dixa-Einrichtung abzuschließen.
+Der erste Schritt besteht darin, eine Datentransformation in Braze zu erstellen.
 
-### Beispiel für das Transformations-Tool
+1. Gehen Sie zu **Data Settings** > **Data Transformations** > **Create transformation**.
+2. Wählen Sie **Start from scratch**, wählen Sie als Ziel **POST: Track Users** und wählen Sie **Create transformation**.
+3. Kopieren Sie im Transformations-Editor den Beispielcode aus dem Abschnitt **Beispiel für das Transformations-Tool** weiter unten und fügen Sie ihn in das Feld **Transformation code** ein. Wählen Sie **Save**, kopieren Sie die **Webhook URL** und öffnen Sie Dixa.
+4. Gehen Sie in Dixa zu **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
+5. Fügen Sie auf der Seite mit den Webhook-Einstellungen die URL von Braze ein und aktivieren Sie die Events, die Sie tracken möchten. **Conversation created** ist ein guter Ausgangspunkt, um die Konversationen Ihrer Kund:innen zu verfolgen.
+6. Wählen Sie **Save**, um die Dixa-Einrichtung abzuschließen.
+
+### Beispiel für das Transformations-Tool {#example-transformation-tool}
 
 ```js
 // Transforming the provided payload to match Braze /users/track endpoint specifications.
@@ -128,5 +130,56 @@ const brazecall = {
 };
 
 // Returning the transformed data
+return brazecall;
+```
+
+### CSAT-Score in Braze verwenden {#use-csat-score-in-braze}
+
+1. Gehen Sie zu **Data Settings** > **Data Transformations** > **Create transformation**.
+2. Wählen Sie **Start from scratch**, wählen Sie als Ziel **POST: Track Users** und wählen Sie **Create transformation**.
+3. Kopieren Sie im Transformations-Editor den Beispielcode aus dem Abschnitt **CSAT-Score tracken** weiter unten und fügen Sie ihn in das Feld **Transformation code** ein. Wählen Sie **Save**, kopieren Sie die **Webhook URL** und öffnen Sie Dixa.
+4. Gehen Sie in Dixa zu **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
+5. Fügen Sie auf der Seite mit den Webhook-Einstellungen die URL von Braze ein und aktivieren Sie die Events, die Sie tracken möchten. **Conversation created** ist ein guter Ausgangspunkt, um die Konversationen Ihrer Kund:innen zu verfolgen.
+6. Wählen Sie **Save**, um die Dixa-Einrichtung abzuschließen.
+
+#### CSAT-Score tracken {#track-csat-score}
+
+```js
+const body = payload?.data;
+
+// values from your webhook
+const score = body.score;         // number
+const comment = body.comment;     // string
+const type = body.type;           // string
+const ratedAt = body.event_timestamp;   // ISO 8601 string
+const contactemail = body.conversation.requester.email;
+
+// ALWAYS identify by email
+const email = contactemail;
+
+if (!email) {
+  // Can't identify a user without email
+  return { attributes: [] };
+}
+
+
+let brazecall = {
+  "attributes": [
+    {
+      // Using the Dixa user email as the external_id to identify the user in Braze
+      "email": contactemail,
+      "_update_existing_only": true,
+
+      // Your new custom object attribute
+      "last_csat": {
+        "score": score,
+        "comment": comment,
+        "type": type,
+        "rated_at": ratedAt
+      }
+    }
+  ]
+};
+
 return brazecall;
 ```

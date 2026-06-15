@@ -2,7 +2,7 @@
 nav_title: Inbox Monster
 article_title: Inbox Monster
 alias: /partners/inbox_monster/
-description: "This reference article outlines the partnership between Braze and Inbox Monster, an online email marketing tool that allows Braze customers to unlock powerful deliverability insights and creative analysis to supercharge inbox performance."
+description: "이 참조 문서에서는 Braze와 Inbox Monster 간의 파트너십을 설명합니다. Inbox Monster는 Braze 고객이 강력한 전달 가능성 인사이트와 크리에이티브 분석을 활용하여 받은편지함 성과를 극대화할 수 있도록 지원하는 온라인 이메일 마케팅 도구입니다."
 page_type: partner
 search_tag: Partner
 
@@ -10,24 +10,24 @@ search_tag: Partner
 
 # Inbox Monster
 
-> [Inbox Monster](https://inboxmonster.com/) is an inbox signals platform that helps enterprise brands land every send. It's an integrated suite of solutions for deliverability, creative rendering, and SMS monitoring, that empowers modern customer relationship management (CRM) teams and ends the sending scaries.
+> [Inbox Monster](https://inboxmonster.com/)는 엔터프라이즈 브랜드가 모든 발송을 성공적으로 전달할 수 있도록 돕는 받은편지함 신호 플랫폼입니다. 전달 가능성, 크리에이티브 렌더링, SMS 모니터링을 위한 통합 솔루션 제품군으로, 현대적인 고객 관계 관리(CRM) 팀의 역량을 강화하고 발송에 대한 불안을 해소합니다.
 
-The Braze and Inbox Monster integration allows you to eliminate manual seedlist testing, automate the creation of powerful and actionable inbox placement signals, simplify the process of reviewing and approving email creative assets, and obtain valuable deliverability insights. You can also seamlessly import email templates for creative diagnostics and device previews.
+Braze와 Inbox Monster 통합을 통해 수동 시드 리스트 테스트를 제거하고, 강력하고 실행 가능한 받은편지함 배치 신호 생성을 자동화하며, 이메일 크리에이티브 자산의 검토 및 승인 프로세스를 간소화하고, 가치 있는 전달 가능성 인사이트를 얻을 수 있습니다. 또한 크리에이티브 진단 및 기기 미리보기를 위해 이메일 템플릿을 원활하게 가져올 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 요구 사항                    | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Inbox Monster platform account | An Inbox Monster platform account is required to take advantage of this partnership.                                                                                                                                                                                                                                                                                                                                                                 |
-| Braze REST API key             | A Braze REST API key with the following permissions:  <br> - `messages.send` <br>  - `templates.email.create`<br> - `templates.email.update` <br> - `templates.email.info`<br> - `templates.email.list` <br><br> And with the following whitelisted ips: <br> - `3.136.16.19` <br>  - `3.140.233.31`<br> - `18.220.127.138` <br><br> This can be created in the Braze dashboard from **Settings** > **APIs and Identifiers** in the **API Keys** tab |
-| Braze app identifier           | A Braze app identifier. <br><br>This can be found in the Braze dashboard from **Settings** > **APIs and Identifiers** in the **App Identifiers** tab.                                                                                                                                                                                                                                                                                                |
-| Braze endpoint                 | [Your Braze endpoint]({{site.baseurl}}/api/basics/#endpoints) aligns with your Braze dashboard URL.<br><br> For example, if your dashboard URL is `https://dashboard-03.braze.com`, your endpoint will be `dashboard-03`.                                                                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| Inbox Monster 플랫폼 계정 | 이 파트너십을 활용하려면 Inbox Monster 플랫폼 계정이 필요합니다.                                                                                                                                                                                                                                                                                                                                                                                 |
+| Braze REST API 키             | 다음 권한이 있는 Braze REST API 키:  <br> - `messages.send` <br>  - `templates.email.create`<br> - `templates.email.update` <br> - `templates.email.info`<br> - `templates.email.list` <br><br> 그리고 다음 IP가 허용 목록에 추가되어야 합니다: <br> - `3.136.16.19` <br>  - `3.140.233.31`<br> - `18.220.127.138` <br><br> Braze 대시보드의 **설정** > **API 키**에서 **API 키** 탭을 통해 생성할 수 있습니다. |
+| Braze 앱 식별자           | Braze 앱 식별자. <br><br>Braze 대시보드의 **설정** > **API 키**에서 **앱 식별자** 탭을 통해 확인할 수 있습니다.                                                                                                                                                                                                                                                                                                |
+| Braze 엔드포인트                 | [Braze 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)는 Braze 대시보드 URL에 맞춰 설정됩니다.<br><br> 예를 들어, 대시보드 URL이 `https://dashboard-03.braze.com`이면 엔드포인트는 `dashboard-03`입니다.                                                                                                                                                                                                                            |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-To integrate Inbox Monster, follow the steps in [Integrating with Inbox Monster](https://intercom.help/inbox-monster/en/articles/9518204-scheduled-placement-tests-with-braze#h_80147afaf3).
+Inbox Monster를 통합하려면 [Inbox Monster와 통합하기](https://intercom.help/inbox-monster/en/articles/9518204-scheduled-placement-tests-with-braze#h_80147afaf3)의 단계를 따르세요.
 
-## Usage
+## 사용법 {#usage}
 
-To learn how to send schedule inbox placement tests through Inbox Monster, refer to [Scheduled Inbox Placement Tests](https://intercom.help/inbox-monster/en/articles/9518204-scheduled-placement-tests-with-braze#h_7e74bc474e).
+Inbox Monster를 통해 스케줄된 받은편지함 배치 테스트를 발송하는 방법을 알아보려면 [스케줄된 받은편지함 배치 테스트](https://intercom.help/inbox-monster/en/articles/9518204-scheduled-placement-tests-with-braze#h_7e74bc474e)를 참조하세요.

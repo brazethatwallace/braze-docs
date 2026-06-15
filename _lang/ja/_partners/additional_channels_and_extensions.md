@@ -1,14 +1,14 @@
 ---
-nav_title: "追加チャネルとエクステンション"
-article_title: 追加チャネルとエクステンション
+nav_title: "追加チャンネルとエクステンション"
+article_title: "追加チャンネルとエクステンション"
 page_order: 11
 
 page_type: landing
-description: "このページには、チャネルおよびエクステンションに関するサービスを提供する Braze パートナー (Alloys) がリストされています。"
+description: "このページには、チャンネルおよびエクステンションに関するサービスを提供するBrazeパートナー（Alloys）がリストされています。"
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "追加チャネルとエクステンション"
+partner_top_header: "追加チャンネルとエクステンション"
 
 valid_partner_list:
 - name: LiveRamp
@@ -43,6 +43,10 @@ valid_partner_list:
   url: /docs/partners/komo/
 - name: Odicci
   url: /docs/partners/odicci/
+- name: CataBoom
+  url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Digioh
   url: /docs/partners/digioh/
 - name: Knak

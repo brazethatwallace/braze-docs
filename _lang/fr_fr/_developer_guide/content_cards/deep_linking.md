@@ -1,8 +1,8 @@
 ---
 nav_title: Création de liens profonds
-article_title: Création de liens profonds dans les cartes de contenu
+article_title: Création de liens profonds dans les Content Cards
 page_order: 4
-description: "Apprenez à créer des liens profonds dans une carte de contenu à l'aide du SDK de Braze."
+description: "Découvrez comment créer des liens profonds dans une carte de contenu à l'aide du SDK de Braze."
 channel:
   - content cards
 platform:
@@ -12,13 +12,13 @@ platform:
   - FireOS
 ---
 
-# Création de liens profonds dans les cartes de contenu
+# Création de liens profonds dans les Content Cards {#deep-linking-in-content-cards}
 
-> Apprenez à créer des liens profonds dans une carte de contenu à l'aide du SDK de Braze. Pour en savoir plus sur les liens profonds, consultez la rubrique [Qu'est-ce que la création de liens profonds ?]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking)
+> Découvrez comment créer des liens profonds dans une carte de contenu à l'aide du SDK de Braze. Pour en savoir plus sur les liens profonds, consultez la rubrique [Qu'est-ce que la création de liens profonds ?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
 {% sdktabs %}
 {% sdktab web %}
-Pour l'instant, les liens profonds de la carte de contenu ne sont pas pris en charge par le SDK Web Braze.
+Pour l'instant, les liens profonds des Content Cards ne sont pas pris en charge par le SDK Web de Braze.
 {% endsdktab %}
 
 {% sdktab android %}

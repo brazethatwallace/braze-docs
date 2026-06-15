@@ -1,7 +1,7 @@
 ---
 nav_title: WSC Sports
 article_title: WSC Sports
-description: "Dieser Artikel referenziert die Partnerschaft zwischen Braze und WSC Sports, einer Plattform für Sportvideos, die es Ihnen erlaubt, Rich-Push-Benachrichtigungen in Ihre Braze Push-Benachrichtigungen einzubinden."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und WSC Sports, einer Plattform für Sportvideos, die es Ihnen ermöglicht, reichhaltige und robuste Sportmedien in Ihre Braze-Push-Benachrichtigungen einzubinden."
 alias: /partners/wsc_sports/
 page_type: partner
 search_tag: Partner
@@ -10,39 +10,39 @@ search_tag: Partner
 
 # WSC Sports
 
-> Die [WSC Sports-Plattform](https://wsc-sports.com/) generiert personalisierte Sportvideos für jede digitale Plattform und jeden Sportfan - automatisch und in Realtime. 
+> Die [WSC Sports-Plattform](https://wsc-sports.com/) generiert personalisierte Sportvideos für jede digitale Plattform und jeden Sportfan – automatisch und in Realtime.
 
 _Diese Integration wird von WSC Sports gepflegt._
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und WSC Sports erlaubt es Ihnen, Rich-Push-Benachrichtigungen mit robusten Sportmedien zu versehen. 
+Die Integration von Braze und WSC Sports ermöglicht es Ihnen, reichhaltige und robuste Sportmedien in Ihre Braze-Push-Benachrichtigungen einzubinden.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| WSC-Konto | Um diese Partnerschaft zu nutzen, benötigen Sie ein WSC-Konto. |
-| Braze REST API-Schlüssel | Ein Braze REST API-Schlüssel mit **Nachrichten**, **Segmenten**, **Kampagnen** und **Canvas-Berechtigungen**. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| WSC-Konto | Um diese Partnerschaft zu nutzen, ist ein WSC-Konto erforderlich. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigungen für **Messages**, **Segments**, **Campaigns** und **Canvas**. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+{: .reset-td-br_1 .reset-td-br_2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-Die WSC Sports-Anwendung übernimmt den End-to-End-Prozess, vom Auswählen des Videos bis zum Eintreffen der Push-Benachrichtigung auf dem Gerät des Endnutzers:innen. 
+Die WSC Sports-Anwendung übernimmt den End-to-End-Prozess, von der Auswahl des Videos bis zum Eintreffen der Push-Benachrichtigung auf dem Gerät der Endnutzer:innen.
 
-### Schritt 1: Sendeeinstellungen auswählen
+### 1. Schritt: Sendeeinstellungen auswählen {#step-1-select-send-settings}
 
 ![]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
 
-Bevor Sie mit der Integration beginnen, vergewissern Sie sich, dass Sie die gewünschten Kampagnen und Nutzer:innen-Segmente in Braze erstellt haben. Wenn Sie fertig sind, wählen Sie in der WSC Sports-Plattform das gewünschte Video aus und wählen Sie in den Sendeeinstellungen das Segment der Nutzer:innen von Braze und die ID der Kampagne, die Sie verwenden möchten. Wählen Sie schließlich den Zeitpunkt, zu dem Sie Ihre Push Nachricht versenden möchten. 
+Bevor Sie mit der Integration beginnen, stellen Sie sicher, dass Sie die gewünschten Campaigns und Nutzersegmente in Braze erstellt haben. Wählen Sie anschließend in der WSC Sports-Plattform das gewünschte Video aus und wählen Sie in den Sendeeinstellungen das Braze-Nutzersegment und die Campaign-ID, die Sie verwenden möchten. Wählen Sie abschließend den Zeitpunkt, zu dem Ihre Push-Nachricht versendet werden soll.
 
-#### API-Aufruf
+#### API-Aufruf {#api-call}
 
-Sobald die Push-Benachrichtigung versendet wurde, stellt WSC Sports sie den ausgewählten Segmenten der Nutzer:innen über die folgenden Endpunkte von Braze zu, basierend auf den ausgewählten Optionen:
-- [/nachrichten/zeitplan/erstellen]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
-- [/nachrichten/senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#sending-messages-immediately-via-api-only)
+Nach dem Versand stellt WSC Sports die Push-Benachrichtigung an die ausgewählten Nutzersegmente über die folgenden Braze-Endpunkte zu, basierend auf den ausgewählten Optionen:
+- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/#create-scheduled-messages)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#sending-messages-immediately-via-api-only)
 
-Der Text der Nachricht sieht wie folgt aus: 
+Der resultierende Nachrichtentext sieht wie folgt aus:
 ```
 {
   "apple_push": {
@@ -55,8 +55,6 @@ Der Text der Nachricht sieht wie folgt aus:
 }
 ```
 
-### Schritt 2: Test senden
+### 2. Schritt: Testversand {#step-2-test-send}
 
-An diesem Punkt sollte Ihre Kampagne bereit sein, um getestet und versendet zu werden. Prüfen Sie die Protokolle der Braze Fehlermeldungen, wenn Sie auf Fehler stoßen. 
-
-
+Zu diesem Zeitpunkt sollte Ihre Campaign bereit zum Testen und Versenden sein. Prüfen Sie die Braze-Fehlermeldungsprotokolle, falls Fehler auftreten.

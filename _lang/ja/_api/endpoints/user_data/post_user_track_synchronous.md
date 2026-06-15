@@ -5,42 +5,44 @@ alias: /post_user_track_synchronous/
 layout: api_page
 page_order: 4.5
 page_type: reference
-description: "この記事では、「ユーザー同期追跡」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、同期処理のユーザー追跡 Braze エンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# ユーザーを作成および更新する（同期処理）
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints  %}
+# ユーザーを作成および更新する（同期処理） {#create-and-update-users-synchronous}
+{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 
-> このエンドポイントを使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を同期的に更新します。このエンドポイントは、ユーザープロファイルを非同期に更新する [`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)と同様に機能します。
+> このエンドポイントを使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を同期的に更新します。このエンドポイントは、ユーザープロファイルを非同期に更新する[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)と同様に機能します。
 
 {% alert important %}
-このエンドポイントは現在、**限定**ベータ版である。現在ベータ版への新規顧客追加は行っていないが、この機能がBrazeとの連携に有用だと考える場合は、担当のアカウントマネージャーに知らせてほしい。
+このエンドポイントは現在、**限定ベータ版**です。現在ベータ版への新規顧客の追加は行っていませんが、この機能がBrazeとの連携に有用だと思われる場合は、担当のBrazeアカウントマネージャーにお知らせください。
 {% endalert %}
 
-## 同期APIコールと非同期APIコール
+## 同期APIコールと非同期APIコール {#synchronous-and-asynchronous-api-calls}
 
-非同期呼び出しにおいて、APIはステータスコードを返す。これはリクエストが正常に受信され`201`、理解され、受理されたことを示す。ただし、これは、リクエストが完全に完了したわけではありません。
+非同期呼び出しでは、APIはステータスコード`201`を返します。これはリクエストが正常に受信され、理解され、受理されたことを示します。ただし、これはリクエストが完全に完了したことを意味するわけではありません。
 
-同期呼び出しでは、APIはステータスコードを返す。これはリクエストが正常に受信され、理解`201`され、受け入れられ、完了したことを示す。呼び出し応答は、操作の結果として選択したユーザープロファイルフィールドを表示する。
+同期呼び出しでは、APIはステータスコード`201`を返します。これはリクエストが正常に受信され、理解され、受け入れられ、完了したことを示します。呼び出し応答には、操作の結果として選択されたユーザープロファイルフィールドが表示されます。
 
-このエンドポイントは、`/users/track` エンドポイントよりも低いレート制限を持っている（下記の[レート制限を](#rate-limit)参照）。各 `/users/track/sync` リクエストには、1つのイベントオブジェクト、1つの属性オブジェクト、**また**は1つの購入オブジェクトのみを含めることができます。このエンドポイントは、同期呼び出しが必要なユーザープロファイルの更新用に予約する必要があります。健全な実装のためには、`/users/track/sync` と`/users/track` を併用することをお勧めします。
+このエンドポイントは、`/users/track`エンドポイントよりも低いレート制限を持っています（下記の[レート制限](#rate-limit)を参照）。各`/users/track/sync`リクエストには、1つのイベントオブジェクト、1つの属性オブジェクト、**または**1つの購入オブジェクトのみを含めることができます。このエンドポイントは、同期呼び出しが必要なユーザープロファイルの更新用に予約してください。健全な実装のためには、`/users/track/sync`と`/users/track`を併用することをお勧めします。
 
-例えば、同じユーザーに対して短時間に連続してリクエストを送信する場合、非同期の `/users/track` エンドポイントでは競合が発生する可能性がありますが、`/users/track/sync` エンドポイントでは、`2XX` レスポンスを受信した後に、それらのリクエストをそれぞれ順番に送信することができます。
+例えば、同じユーザーに対して短時間に連続してリクエストを送信する場合、非同期の`/users/track`エンドポイントでは競合が発生する可能性がありますが、`/users/track/sync`エンドポイントでは、`2XX`レスポンスを受信した後にそれらのリクエストを順番に送信できます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.track.sync` 権限を持つ [API キー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.track.sync`権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
 
-サーバー間の呼び出しに API を使用する顧客がファイアウォールの内側にいる場合には、`rest.iad-01.braze.com` を許可リストに登録する必要が生じることがあります。
+サーバー間の呼び出しにAPIを使用する顧客がファイアウォールの内側にいる場合には、`rest.iad-01.braze.com`を許可リストに登録する必要が生じることがあります。
 
-## レート制限
+## レート制限 {#rate-limit}
 
-すべての顧客に対して、このエンドポイントに対して1分あたり500リクエストの基本スピード制限を適用します。各 `/users/track/sync` リクエストには、最大1つのイベントオブジェクト、1つの属性オブジェクト、または1つの購入オブジェクトを含めることができます。それぞれのオブジェクト (イベント、属性、および購入配列) は、それぞれ1つのユーザーを更新できます。
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
 
-## 要求本文:
+すべての顧客に対して、このエンドポイントには1分あたり500リクエストの基本スピード制限を適用します。各`/users/track/sync`リクエストには、最大1つのイベントオブジェクト、1つの属性オブジェクト、または1つの購入オブジェクトを含めることができます。それぞれのオブジェクト（イベント、属性、および購入配列）は、それぞれ1人のユーザーを更新できます。
+
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -55,26 +57,26 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-### リクエストパラメーター
+### リクエストパラメーター {#request-parameters}
 
 {% alert important %}
-以下の表に記載されている各リクエストコンポーネントに対して、必ず`braze_id``user_alias`、`email``external_id`またはのいずれかを含める`phone`必要がある。
+以下の表に記載されている各リクエストコンポーネントに対して、`external_id`、`user_alias`、`braze_id`、`email`、または`phone`のいずれかを含める必要があります。
 {% endalert %}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | オプション | つの属性オブジェクト | 「[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/)」を参照 |
-| `events` | オプション | イベントオブジェクト | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照してください |
+| `attributes` | オプション | 1つの属性オブジェクト | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください |
+| `events` | オプション | 1つのイベントオブジェクト | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照してください |
 | `purchases` | オプション | 1つの購入オブジェクト | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照してください |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 応答
+## 応答 {#responses}
 
-このエンドポイントの[リクエスト・パラメーターを](#request-parameters)使用すると、次のいずれかのレスポンスを受け取るはずである：成功したメッセージ、または致命的なエラーを含むメッセージ。
+このエンドポイントの[リクエストパラメーター](#request-parameters)を使用すると、成功メッセージ、または致命的なエラーを含むメッセージのいずれかの応答を受け取ります。
 
-### 成功のメッセージ
+### 成功メッセージ {#successful-message}
 
-成功したメッセージは、以下の応答を返す。これには、Brazeが更新したユーザープロファイルデータに関する情報が含まれる。
+成功メッセージは以下の応答を返します。これには、Brazeが更新したユーザープロファイルデータに関する情報が含まれます。
 
 ```json
 {
@@ -86,9 +88,9 @@ Authorization: Bearer YOUR_REST_API_KEY
     "message": "success"
 ```
 
-### 致命的なエラーを含むメッセージ
+### 致命的なエラーを含むメッセージ {#message-with-fatal-errors}
 
-メッセージに致命的なエラーがあった場合、次のような応答が返ってくる：
+メッセージに致命的なエラーがある場合、以下の応答が返されます。
 
 ```json
 {
@@ -101,11 +103,11 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## リクエストとレスポンスの例
+## リクエストとレスポンスの例 {#example-requests-and-responses}
 
-### 外部IDでカスタム属性を更新する
+### external IDでカスタム属性を更新する {#update-a-custom-attribute-by-external-id}
 
-#### リクエスト
+#### リクエスト {#request}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -127,7 +129,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### 応答
+#### 応答 {#response}
 
 ```
 {
@@ -149,7 +151,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }
 ```
 
-### Eメールでカスタムイベントを更新する
+### メールでカスタムイベントを更新する {#update-a-custom-event-by-email}
 
 #### リクエスト
 
@@ -204,7 +206,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }
 ```
 
-### ユーザーエイリアスで購入イベントを更新する
+### ユーザーエイリアスで購入イベントを更新する {#update-a-purchase-event-by-user-alias}
 
 #### リクエスト
 
@@ -267,26 +269,26 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }
 ```
 
-## よくある質問
+## よくある質問 {#frequently-asked-questions}
 
-### 非同期エンドポイントと同期エンドポイントのどちらを使うべきか？
+### 非同期エンドポイントと同期エンドポイントのどちらを使うべきですか？ {#should-i-use-the-asynchronous-or-synchronous-endpoint}
 
-ほとんどのプロファイル更新では、エンド`/users/track`ポイントが最適だ。レート制限が高く、リクエストをバッチ処理できる柔軟性があるからだ。ただし、`/users/track/sync` エンドポイントは、同じユーザーに対する短時間の連続するリクエストによって競合が発生している場合に便利です。
+ほとんどのプロファイル更新では、`/users/track`エンドポイントが最適です。レート制限が高く、リクエストをバッチ処理できる柔軟性があるためです。ただし、`/users/track/sync`エンドポイントは、同じユーザーに対する短時間の連続リクエストによって競合が発生している場合に便利です。
 
-### レスポンスタイムは`/users/track` エンドポイントと異なるか？
+### レスポンスタイムは`/users/track`エンドポイントと異なりますか？ {#does-the-response-time-differ-from-the-userstrack-endpoint}
 
-同期呼び出しでは、APIはBrazeがリクエストを完了して応答を返すまで待機する。その結果、同期リクエストは非同期リクエストよりも平均的に時間がかかる。`/users/track`大半のリクエストでは、数秒以内にレスポンスが返ってきます。
+同期呼び出しでは、APIはBrazeがリクエストを完了するまで待機してから応答を返します。その結果、同期リクエストは`/users/track`への非同期リクエストよりも平均的に時間がかかります。大半のリクエストでは、数秒以内にレスポンスが返ってきます。
 
-### 複数のリクエストを同時に送信できますか？
+### 複数のリクエストを同時に送信できますか？ {#can-i-send-multiple-requests-at-the-same-time}
 
-リクエストが異なるユーザーに対するものであるか、各リクエストが1人のユーザーに対して異なるアトリビュート、イベント、購入を更新する限りは、そうだ。
+はい、リクエストが異なるユーザーに対するものであるか、各リクエストが1人のユーザーに対して異なる属性、イベント、購入を更新する場合は可能です。
 
-ユーザーに対して、同じ属性、イベント、または購入のために複数のリクエストを送信する場合、Brazeは、レースコンディションの発生を防ぐために、各リクエストの間に成功した応答を待つことを推奨する。
+同じユーザーに対して、同じ属性、イベント、または購入のために複数のリクエストを送信する場合、Brazeは競合の発生を防ぐために、各リクエストの間に成功した応答を待つことを推奨します。
 
-### なぜレスポンスの値が元のリクエストの値と一致しないのか？
+### なぜレスポンスの値が元のリクエストの値と一致しないのですか？ {#why-doesnt-the-response-value-match-the-one-in-my-original-request}
 
-リクエストは完了したが、カスタム属性の値が更新されなかった可能性がある。これは、カスタム属性の更新が最大文字数を超えている場合、配列の制限を超えている場合、またはユーザーが Braze に存在せず `_update_existing_only = true` がある場合に発生する可能性があります。
+リクエストは完了しましたが、カスタム属性の値が更新されなかった可能性があります。これは、カスタム属性の更新が最大文字数を超えている場合、配列の制限を超えている場合、またはユーザーがBrazeに存在せず`_update_existing_only = true`が設定されている場合に発生する可能性があります。
 
-このような場合、リクエストは完了したものの、希望する更新が行われなかったことを示しているものとして応答を処理します。このような現象が起こる理由を、上記から考えてトラブルシューティングを行う。
+このような場合、リクエストは完了したものの、希望する更新が行われなかったことを示すものとして応答を処理してください。上記の理由を参考にトラブルシューティングを行ってください。
 
 {% endapi %}

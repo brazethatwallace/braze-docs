@@ -1,46 +1,48 @@
 ---
 nav_title: "POST: Criar e atualizar usuários (síncrono)"
-article_title: "POST: Criar e atualizar usuários (Síncrono)"
+article_title: "POST: Criar e atualizar usuários (síncrono)"
 alias: /post_user_track_synchronous/
 layout: api_page
 page_order: 4.5
 page_type: reference
-description: "Este artigo detalha o endpoint da Braze de rastreamento de usuários síncronos."
+description: "Este artigo detalha o endpoint síncrono de rastreamento de usuários da Braze."
 
 ---
 {% api %}
-# Criar e atualizar usuários (síncrono)
+# Criar e atualizar usuários (síncrono) {#create-and-update-users-synchronous}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 
-> Use esse endpoint para registrar eventos e compras personalizados e atualizar os atributos do perfil do usuário de forma síncrona. Esse endpoint funciona de forma semelhante ao [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), que atualiza perfis de usuário de forma assíncrona.
+> Use esse endpoint para registrar eventos personalizados e compras e atualizar atributos do perfil de usuário de forma síncrona. Esse endpoint funciona de forma semelhante ao [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), que atualiza perfis de usuário de forma assíncrona.
 
 {% alert important %}
-Este endpoint está atualmente em **beta limitada**. Embora não estejamos adicionando novos clientes ao beta neste momento, informe ao seu gerente de conta da Braze se você acha que esse recurso pode ser útil para a sua integração com a Braze.
+Este endpoint está atualmente em **beta limitado**. Embora não estejamos adicionando novos clientes ao beta neste momento, informe ao seu gerente de conta da Braze se você acha que esse recurso pode ser útil para a sua integração com a Braze.
 {% endalert %}
 
-## Chamadas síncronas e assíncronas à API
+## Chamadas síncronas e assíncronas à API {#synchronous-and-asynchronous-api-calls}
 
 Em uma chamada assíncrona, a API retorna o código de status `201`, indicando que sua solicitação foi recebida, compreendida e aceita com sucesso. No entanto, isso não significa que sua solicitação tenha sido totalmente concluída.
 
-Em uma chamada síncrona, a API retorna um código de status `201`, indicando que sua solicitação foi recebida, compreendida, aceita e concluída com sucesso. A resposta da chamada mostra campos selecionados do perfil do usuário como resultado da operação.
+Em uma chamada síncrona, a API retorna o código de status `201`, indicando que sua solicitação foi recebida, compreendida, aceita e concluída com sucesso. A resposta da chamada mostra campos selecionados do perfil do usuário como resultado da operação.
 
-Esse endpoint tem um limite de frequência menor do que o endpoint `/users/track` (consulte o [limite de frequência](#rate-limit) abaixo). Cada solicitação `/users/track/sync` pode incluir apenas um objeto de evento, um objeto de atributo **ou** um objeto de compra. Esse endpoint deve ser reservado para atualizações de perfil de usuário em que é necessária uma chamada síncrona. Para uma implementação adequada, recomendamos usar `/users/track/sync` e `/users/track` juntos.
+Esse endpoint tem um limite de taxa menor do que o endpoint `/users/track` (consulte o [limite de taxa](#rate-limit) abaixo). Cada solicitação `/users/track/sync` pode conter apenas um objeto de evento, um objeto de atributo **ou** um objeto de compra. Esse endpoint deve ser reservado para atualizações de perfil de usuário em que uma chamada síncrona é necessária. Para uma implementação saudável, recomendamos usar `/users/track/sync` e `/users/track` juntos.
 
-Por exemplo, se estiver enviando solicitações consecutivas para o mesmo usuário em um curto período de tempo, as condições de corrida são possíveis com o endpoint assíncrono `/users/track`, mas com o endpoint `/users/track/sync` é possível enviar essas solicitações em sequência, cada uma após receber uma resposta `2XX`.
+Por exemplo, se você estiver enviando solicitações consecutivas para o mesmo usuário em um curto período de tempo, condições de corrida são possíveis com o endpoint assíncrono `/users/track`, mas com o endpoint `/users/track/sync` você pode enviar essas solicitações em sequência, cada uma após receber uma resposta `2XX`.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.track.sync`.
 
-Os clientes que usam a API para chamadas de servidor para servidor podem precisar permitir a lista `rest.iad-01.braze.com` se estiverem protegidos por um firewall.
+Os clientes que usam a API para chamadas de servidor para servidor podem precisar adicionar `rest.iad-01.braze.com` à lista de permissões se estiverem protegidos por um firewall.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
-Aplicamos um limite de velocidade básico de 500 solicitações por minuto para esse endpoint para todos os clientes. Cada solicitação `/users/track/sync` pode incluir até um objeto de evento, um objeto de atributo ou um objeto de compra. Cada objeto (evento, atributo e vetores de compra) pode atualizar um usuário cada.
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
 
-## Corpo da solicitação
+Aplicamos um limite de velocidade base de 500 solicitações por minuto para esse endpoint para todos os clientes. Cada solicitação `/users/track/sync` pode conter até um objeto de evento, um objeto de atributo ou um objeto de compra. Cada objeto (evento, atributo e arrays de compra) pode atualizar um usuário cada.
+
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -55,26 +57,26 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-### Parâmetros de solicitação
+### Parâmetros de solicitação {#request-parameters}
 
 {% alert important %}
-Para cada componente de solicitação listado na tabela a seguir, você deve incluir um dos `external_id`, `user_alias`, `braze_id`, `email` ou `phone`.
+Para cada componente de solicitação listado na tabela a seguir, você deve incluir um dos seguintes: `external_id`, `user_alias`, `braze_id`, `email` ou `phone`.
 {% endalert %}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Opcional | Um objeto de atribuição | Consulte o [objeto de atribuições do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
-| `events` | Opcional | Um objeto de evento | Ver [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Opcional | Um objeto de compra | Ver [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `attributes` | Opcional | Um objeto de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
+| `events` | Opcional | Um objeto de evento | Consulte o [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
+| `purchases` | Opcional | Um objeto de compra | Consulte o [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-## Respostas
+## Respostas {#responses}
 
 Ao usar os [parâmetros de solicitação](#request-parameters) desse endpoint, você deve receber uma das seguintes respostas: uma mensagem de sucesso ou uma mensagem com erros fatais.
 
-### Envio de mensagens bem-sucedido
+### Mensagem de sucesso {#successful-message}
 
-Mensagens bem-sucedidas retornam a seguinte resposta, que inclui informações sobre os dados do perfil do usuário que a Braze atualizou.
+Mensagens de sucesso retornam a seguinte resposta, que inclui informações sobre os dados do perfil de usuário que a Braze atualizou.
 
 ```json
 {
@@ -86,7 +88,7 @@ Mensagens bem-sucedidas retornam a seguinte resposta, que inclui informações s
     "message": "success"
 ```
 
-### Envio de mensagens com erros fatais
+### Mensagem com erros fatais {#message-with-fatal-errors}
 
 Se sua mensagem tiver um erro fatal, você receberá a seguinte resposta:
 
@@ -101,11 +103,11 @@ Se sua mensagem tiver um erro fatal, você receberá a seguinte resposta:
 }
 ```
 
-## Exemplos de solicitações e respostas
+## Exemplos de solicitações e respostas {#example-requests-and-responses}
 
-### Atualizar um atributo personalizado por ID externo
+### Atualizar um atributo personalizado por ID externo {#update-a-custom-attribute-by-external-id}
 
-#### Solicitação
+#### Solicitação {#request}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -127,7 +129,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Resposta
+#### Resposta {#response}
 
 ```
 {
@@ -149,7 +151,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }
 ```
 
-### Atualizar um evento personalizado por e-mail
+### Atualizar um evento personalizado por e-mail {#update-a-custom-event-by-email}
 
 #### Solicitação
 
@@ -204,7 +206,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }
 ```
 
-### Atualizar um evento de compra por alias de usuário
+### Atualizar um evento de compra por alias de usuário {#update-a-purchase-event-by-user-alias}
 
 #### Solicitação
 
@@ -267,26 +269,26 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }
 ```
 
-## Perguntas frequentes
+## Perguntas frequentes {#frequently-asked-questions}
 
-### Devo usar o ponto de extremidade assíncrono ou síncrono?
+### Devo usar o endpoint assíncrono ou síncrono? {#should-i-use-the-asynchronous-or-synchronous-endpoint}
 
-Para a maioria das atualizações de perfil, o endpoint `/users/track` funciona melhor devido ao seu limite de frequência mais alto e flexibilidade para permitir que você agrupe solicitações. No entanto, o endpoint `/users/track/sync` é útil se você estiver enfrentando condições de corrida devido a solicitações rápidas e consecutivas para o mesmo usuário.
+Para a maioria das atualizações de perfil, o endpoint `/users/track` funciona melhor devido ao seu limite de taxa mais alto e à flexibilidade para agrupar solicitações em lote. No entanto, o endpoint `/users/track/sync` é útil se você estiver enfrentando condições de corrida devido a solicitações rápidas e consecutivas para o mesmo usuário.
 
-### O tempo de resposta é diferente do ponto de extremidade `/users/track`?
+### O tempo de resposta é diferente do endpoint `/users/track`? {#does-the-response-time-differ-from-the-userstrack-endpoint}
 
-Com uma chamada síncrona, a API espera até que a Braze conclua a solicitação para retornar uma resposta. Como resultado, solicitações síncronas levam mais tempo em média do que solicitações assíncronas para `/users/track`. Para a maioria das solicitações, você pode contar com uma resposta em segundos.
+Com uma chamada síncrona, a API espera até que a Braze conclua a solicitação para retornar uma resposta. Como resultado, solicitações síncronas levam mais tempo em média do que solicitações assíncronas para `/users/track`. Para a maioria das solicitações, você pode esperar uma resposta em segundos.
 
-### Posso enviar várias solicitações ao mesmo tempo?
+### Posso enviar várias solicitações ao mesmo tempo? {#can-i-send-multiple-requests-at-the-same-time}
 
-Sim, desde que as solicitações sejam para usuários diferentes, ou que cada solicitação atualize atribuições, eventos e compras diferentes para um usuário.
+Sim, desde que as solicitações sejam para usuários diferentes ou que cada solicitação atualize atributos, eventos ou compras diferentes para um mesmo usuário.
 
-Se estiver enviando várias solicitações para um usuário, para o mesmo atributo, evento ou compra, o Braze recomenda aguardar uma resposta bem-sucedida entre cada solicitação para evitar a ocorrência de condições de corrida.
+Se você estiver enviando várias solicitações para um mesmo usuário, para o mesmo atributo, evento ou compra, a Braze recomenda aguardar uma resposta bem-sucedida entre cada solicitação para evitar a ocorrência de condições de corrida.
 
-### Por que o valor da resposta não corresponde ao da minha solicitação original?
+### Por que o valor da resposta não corresponde ao da minha solicitação original? {#why-doesnt-the-response-value-match-the-one-in-my-original-request}
 
-Embora sua solicitação tenha sido concluída, é possível que o valor do atributo personalizado não tenha sido atualizado. Isso pode acontecer quando a atualização do atributo personalizado exceder o número máximo de caracteres, exceder os limites da matriz ou se o usuário não existir no Braze e você tiver `_update_existing_only = true`.
+Embora sua solicitação tenha sido concluída, é possível que o valor do atributo personalizado não tenha sido atualizado. Isso pode acontecer quando a atualização do atributo personalizado excede o número máximo de caracteres, excede os limites do array ou se o usuário não existe na Braze e você definiu `_update_existing_only = true`.
 
-Nessas situações, considere a resposta como um sinal de que sua requisição foi finalizada, mas a atualização que você desejava não foi efetuada. Solucione os problemas com os motivos pelos quais isso pode acontecer, conforme descrito acima.
+Nessas situações, considere a resposta como um sinal de que sua solicitação foi concluída, mas a atualização desejada não foi efetuada. Investigue os possíveis motivos descritos acima para solucionar o problema.
 
 {% endapi %}

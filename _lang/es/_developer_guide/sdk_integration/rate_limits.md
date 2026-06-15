@@ -5,15 +5,15 @@ article_title: Límites de velocidad del SDK de Braze
 description: "Descubre el límite de velocidad inteligente del SDK de Braze en el lado del cliente, que optimiza la duración de la batería, reduce el uso de ancho de banda y garantiza una entrega de datos fiable."
 ---
 
-# Límites de velocidad del SDK de Braze
+# Límites de velocidad del SDK de Braze {#braze-sdk-rate-limits}
 
 > Descubre el límite de velocidad inteligente del SDK de Braze en el lado del cliente, que optimiza la duración de la batería, reduce el uso de ancho de banda y garantiza una entrega de datos fiable.
 
-## Comprender los límites de velocidad del SDK
+## Comprender los límites de velocidad del SDK {#understanding-sdk-rate-limits}
 
 El límite de velocidad del SDK de Braze utiliza las siguientes características para optimizar el rendimiento, minimizar el consumo de batería, reducir el uso de datos y garantizar una entrega de datos fiable:
 
-### Procesamiento asíncrono
+### Procesamiento asíncrono {#asynchronous-processing}
 
 El SDK de Braze utiliza un algoritmo de contenedor de tokens para establecer el límite de velocidad. Este enfoque permite ráfagas de actividad mientras se mantiene el control de la tasa a largo plazo. En lugar de procesar las solicitudes en una cola estricta, el contenedor de tokens funciona de forma asíncrona:
 
@@ -25,7 +25,7 @@ El SDK de Braze utiliza un algoritmo de contenedor de tokens para establecer el 
 
 Este flujo asíncrono ayuda al SDK a responder rápidamente a la capacidad de red disponible, al tiempo que mantiene unos niveles de tráfico generales predecibles.
 
-### Limitación de velocidad adaptativa
+### Limitación de velocidad adaptativa {#adaptive-rate-limiting}
 
 El SDK de Braze puede ajustar los límites de velocidad en tiempo real para proteger la infraestructura de red y mantener un rendimiento óptimo. Este enfoque:
 
@@ -37,7 +37,7 @@ El SDK de Braze puede ajustar los límites de velocidad en tiempo real para prot
 Dado que los límites se adaptan en tiempo real, no se proporcionan los tamaños exactos de los contenedores ni los valores estáticos. Pueden variar en función de las condiciones de la red y del uso.
 {% endalert %}
 
-### Optimizaciones de red
+### Optimizaciones de red {#networking-optimizations}
 
 El SDK de Braze incluye varios comportamientos integrados para mejorar la eficiencia, reducir el consumo de batería y gestionar las diferentes condiciones de la red:
 
@@ -47,7 +47,7 @@ El SDK de Braze incluye varios comportamientos integrados para mejorar la eficie
 - **Degradación gradual**: Mantiene la funcionalidad en condiciones de red deficientes.
 - **Conciencia de segundo plano/primer plano**: Optimiza el comportamiento a medida que cambia el ciclo de vida de la aplicación.
 
-## Buenas prácticas
+## Buenas prácticas {#best-practices}
 
 Sigue estas prácticas recomendadas para evitar problemas relacionados con los límites de velocidad:
 
@@ -56,10 +56,10 @@ Sigue estas prácticas recomendadas para evitar problemas relacionados con los l
 | Realiza un seguimiento de las acciones y los hitos significativos de los usuarios | Realizar un seguimiento de cada interacción menor o evento de la interfaz de usuario |
 | Actualiza el contenido solo cuando sea necesario | Actualizar el contenido con cada acción del usuario (como los eventos de desplazamiento) |
 | Deja que el SDK se encargue automáticamente del procesamiento por lotes | Forzar la transmisión inmediata de datos (a menos que sea absolutamente necesario) |
-| Céntrate en los eventos que aportan valor al análisis | Llamar a los métodos del SDK en rápida sucesión sin tener en cuenta la frecuencia |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Céntrate en los eventos que aportan valor a los análisis | Llamar a los métodos del SDK en rápida sucesión sin tener en cuenta la frecuencia |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Buenas prácticas" }
 
-## Obtener ayuda
+## Obtener ayuda {#getting-help}
 
 Si tienes problemas con el límite de velocidad del SDK, revisa los siguientes métodos de red:
 
@@ -69,7 +69,7 @@ Si tienes problemas con el límite de velocidad del SDK, revisa los siguientes m
 - `logCustomEvent()`
 - `logPurchase()`
 
-Cuando te pongas en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administrative/access_braze/support), incluye los siguientes detalles para cada uno de los métodos de red del SDK que utilices:
+Cuando te pongas en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/), incluye los siguientes detalles para cada uno de los métodos de red del SDK que utilices:
 
 ```plaintext
 Method name:
@@ -80,7 +80,7 @@ Frequency:
 Trigger/context:
 [Describe what causes it to be called, e.g., button click, scroll event]
 
-Code snippet:  
+Code snippet:
 [Paste the exact code where this method is called, one snippet for each time it is called]
 
 Patterns in user flow that may cause bursts or excessive calls:

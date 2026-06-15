@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Alle Übersetzungen für einen Content-Block anzeigen"
 article_title: "GET: Alle Übersetzungen für einen Content-Block anzeigen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -10,16 +10,14 @@ description: "Dieser Artikel enthält detaillierte Informationen zum Endpunkt �
 ---
 
 {% api %}
-# Alle Übersetzungen für einen Content-Block anzeigen
+# Alle Übersetzungen für einen Content-Block anzeigen {#view-all-translations-for-a-content-block}
 {% apimethod get %}
 /content_blocks/translations
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um alle Übersetzungen für einen [Content-Block]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/) anzuzeigen. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [„Locales in Nachrichten]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/)“.
+> Verwenden Sie diesen Endpunkt, um alle Übersetzungen für einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) anzuzeigen. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `content_blocks.translations.get`.
 
@@ -27,19 +25,19 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Abfrageparameter
+## Abfrageparameter {#query-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-|`content_block_id`| Erforderlich | String | Die ID Ihres Content-Blocks. |
-|`locale_id`| Optional | String | Eine lokale UUID als Filter für die Antworten. |
+| `content_block_id` | Erforderlich | String | Die ID Ihres Content-Blocks. |
+| `locale_id` | Optional | String | Eine Locale-UUID zum Filtern der Antworten. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.
 {% endalert %}
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/content_blocks/translations?content_block_id={content_block_id}&locale_id={locale_uuid}' \
@@ -47,13 +45,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/content_blocks/tran
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Antwort
+## Antwort {#response}
 
-Es gibt vier Status Code Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
+Es gibt vier Statuscode-Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `200` könnte den folgenden Response Header und Body zurückgeben.
+Der Statuscode `200` könnte den folgenden Antwort-Header und -Body zurückgeben.
 
 ```json
 {
@@ -90,9 +88,9 @@ Der Status Code `200` könnte den folgenden Response Header und Body zurückgebe
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben.
+Der Statuscode `400` könnte den folgenden Antworttext zurückgeben.
 
 ```json
 {

@@ -13,7 +13,7 @@ Before you start, you'll need the following:
 | Braze API Key | A Braze API key with the required permissions. You'll create a new key when you [set up your Braze MCP server](#create-api-key). |
 | MCP client | [Claude](https://claude.ai/), [Cursor](https://cursor.com/), and [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) are officially supported. You must have an account for one of these clients to use the Braze MCP server. |
 | Terminal | A terminal app so you can run commands and install tooling. Use your preferred terminal app or the one that's pre-installed on your computer. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Setting up the Braze MCP server
 
@@ -67,9 +67,19 @@ everything's installed!
 
 ### Step 2: Create an API key {#create-api-key}
 
-Braze MCP server supports 38 read-only endpoints that do not return data from Braze user profiles. Go to **Settings** > **APIs and Identifiers** > **API Keys** and create a new key with some or all the following permissions.
+The Braze MCP server includes both read-only and write endpoints. They don't return data from Braze user profiles. Write endpoints let agents create or update content in your workspace.
 
-{% details List of read-only, non-PII permissions %}
+To create your API key:
+
+1. Go to **Settings** > **APIs and Identifiers** > **API Keys**.
+2. Create a new key.
+3. Assign some or all of the following permissions to your key.
+
+{% alert important %}
+Only assign the permissions you want your agent to use. To prevent your agent from making changes in Braze, leave any write permissions off when you create your API key.
+{% endalert %}
+
+{% details List of supported permissions %}
 #### Campaigns
 
 | Endpoint | Required permission |
@@ -78,7 +88,7 @@ Braze MCP server supports 38 read-only endpoints that do not return data from Br
 | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | `campaigns.details` |
 | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | `campaigns.list` |
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
 
 #### Canvas
 
@@ -88,7 +98,7 @@ Braze MCP server supports 38 read-only endpoints that do not return data from Br
 | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) | `canvas.data_summary` |
 | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) | `canvas.details` |
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) | `canvas.list` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
 
 #### Catalogs
 
@@ -97,7 +107,7 @@ Braze MCP server supports 38 read-only endpoints that do not return data from Br
 | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) | `catalogs.get` |
 | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk) | `catalogs.get_items` |
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details) | `catalogs.get_item` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
 
 #### Cloud Data Ingestion
 
@@ -105,22 +115,26 @@ Braze MCP server supports 38 read-only endpoints that do not return data from Br
 |----------|---------------------|
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list) | `cdi.integration_list` |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status) | `cdi.integration_job_status` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cloud Data Ingestion" }
 
 #### Content Blocks
+
+The `content_blocks.create` and `content_blocks.update` permissions are write permissions. Add them only if you want your agent to create or update content blocks in your workspace.
 
 | Endpoint | Required permission |
 |----------|---------------------|
 | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | `content_blocks.list` |
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | `content_blocks.info` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) | `content_blocks.create` |
+| [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) | `content_blocks.update` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 #### Custom Attributes
 
 | Endpoint | Required permission |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes) | `custom_attributes.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
 
 #### Events
 
@@ -129,7 +143,7 @@ Braze MCP server supports 38 read-only endpoints that do not return data from Br
 | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) | `events.list` |
 | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics) | `events.data_series` |
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data) | `events.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
 
 #### KPIs
 
@@ -139,14 +153,23 @@ Braze MCP server supports 38 read-only endpoints that do not return data from Br
 | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) | `kpi.dau.data_series` |
 | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) | `kpi.mau.data_series` |
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) | `kpi.uninstalls.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
+
+#### Media Library
+
+The `media_library.create` permission is a write permission. Add it only if you want your agent to upload assets to your media library.
+
+| Endpoint | Required permission |
+|----------|---------------------|
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) | `media_library.create` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Media Library" }
 
 #### Messages
 
 | Endpoint | Required permission |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled) | `messages.schedule_broadcasts` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
 
 #### Preference Center
 
@@ -154,7 +177,7 @@ Braze MCP server supports 38 read-only endpoints that do not return data from Br
 |----------|---------------------|
 | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center) | `preference_center.list` |
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) | `preference_center.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
 
 #### Purchases
 
@@ -163,7 +186,7 @@ Braze MCP server supports 38 read-only endpoints that do not return data from Br
 | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id) | `purchases.product_list` |
 | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series) | `purchases.revenue_series` |
 | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) | `purchases.quantity_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Purchases" }
 
 #### Segments
 
@@ -172,28 +195,28 @@ Braze MCP server supports 38 read-only endpoints that do not return data from Br
 | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment) | `segments.list` |
 | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics) | `segments.data_series` |
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details) | `segments.details` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
 
 #### Sends
 
 | Endpoint | Required permission |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sends" }
 
 #### Sessions
 
 | Endpoint | Required permission |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | `sessions.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
 
 #### SDK Authentication Keys
 
 | Endpoint | Required permission |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys) | `sdk_authentication.keys` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
 
 #### Subscription
 
@@ -201,19 +224,23 @@ Braze MCP server supports 38 read-only endpoints that do not return data from Br
 |----------|---------------------|
 | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) | `subscription.status.get` |
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) | `subscription.groups.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
 
 #### Templates
+
+The `templates.email.create` and `templates.email.update` permissions are write permissions. Add them only if you want your agent to create or update email templates in your workspace.
 
 | Endpoint | Required permission |
 |----------|---------------------|
 | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates) | `templates.email.list` |
 | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information) | `templates.email.info` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) | `templates.email.create` |
+| [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template) | `templates.email.update` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
 {% enddetails %}
 
 {% alert warning %}
-Do not reuse an existing API key&#8212;create one specifically for your MCP client. Additionally, only assign read-only, non-PII permissions, as agents may try to write or delete data in Braze.
+Don't reuse an existing API key. Create one specifically for your MCP client. Assign only the permissions your agent needs. Agents may try to use any permission you grant, so leave any write permissions off if you don't want your agent to make changes in Braze.
 {% endalert %}
 
 ### Step 3: Get your identifier and endpoint

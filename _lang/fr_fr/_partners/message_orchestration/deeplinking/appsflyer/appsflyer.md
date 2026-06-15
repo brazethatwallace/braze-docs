@@ -2,7 +2,7 @@
 nav_title: AppsFlyer
 article_title: AppsFlyer
 alias: /partners/appsflyer/
-description: "Cet article de référence décrit le partenariat entre Braze et AppsFlyer, une plateforme d'analyse et d'attribution de marketing mobile qui vous aide à analyser et optimiser vos applications."
+description: "Cet article de référence décrit le partenariat entre Braze et AppsFlyer, une plateforme d'analyse et d'attribution de marketing mobile qui vous aide à analyser et à optimiser vos applications."
 page_type: partner
 search_tag: Partner
 
@@ -12,32 +12,32 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="gQ9y2DA2LuQ" align="right" %}
 
-> [AppsFlyer](https://www.appsflyer.com/) est une plateforme d'analyse/analytique mobile qui vous aide à analyser et à optimiser vos applications grâce à l'analyse marketing, l'attribution mobile et les liens profonds.
+> [AppsFlyer](https://www.appsflyer.com/) est une plateforme d'analyse et d'attribution de marketing mobile qui vous aide à analyser et à optimiser vos applications grâce à l'analyse marketing, l'attribution mobile et les liens profonds.
 
-L'intégration de Braze et Appsflyer vous permet de mieux comprendre comment optimiser et créer des campagnes plus holistiques en tirant parti des données d'attribution d'installation mobile d'Appsflyer. 
+L'intégration de Braze et AppsFlyer vous permet de mieux comprendre comment optimiser et créer des campagnes plus complètes en tirant parti des données d'attribution d'installation mobile d'AppsFlyer.
 
-Vous pouvez également transmettre vos audiences AppsFlyer (cohortes) directement à Braze avec l'intégration [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences/), vous permettant de créer des campagnes d'engagement client puissantes ciblant les bons utilisateurs au bon moment. 
+Vous pouvez également transmettre vos audiences AppsFlyer (cohortes) directement à Braze avec l'intégration [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences/), ce qui vous permet de créer des campagnes d'engagement client puissantes ciblant les bons utilisateurs au bon moment.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 |---|---|
 | Compte AppsFlyer | Un compte AppsFlyer est nécessaire pour bénéficier de ce partenariat. |
 | Application iOS ou Android | Cette intégration prend en charge les applications iOS et Android. En fonction de votre plateforme, des extraits de code peuvent être requis dans votre application. Vous trouverez des informations détaillées sur ces exigences à l'étape 1 du processus d'intégration. |
-| SDK AppsFlyer | Outre le SDK Braze requis, vous devez installer le [SDK Appsflyer](https://dev.appsflyer.com/hc/docs/getting-started).
-| Configuration du domaine de l'e-mail terminée | Vous devez avoir terminé l'étape de [configuration IP et domaine]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/setting_up_ips_and_domains/) de la configuration de votre e-mail lors de l'onboarding de Braze. |
-| certificat SSL | Votre [certificat SSL]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl#acquiring-an-ssl-certificate) doit être configuré. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| SDK AppsFlyer | Outre le SDK Braze requis, vous devez installer le [SDK AppsFlyer](https://dev.appsflyer.com/hc/docs/getting-started).
+| Configuration du domaine e-mail terminée | Vous devez avoir terminé l'étape de [configuration IP et domaine]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) de la configuration de votre e-mail lors de l'onboarding de Braze. |
+| Certificat SSL | Votre [certificat SSL]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) doit être configuré. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Intégration
+## Intégration {#integration}
 
-### Étape 1 : Mapper l’ID de l'appareil
+### Étape 1 : Mapper l'ID de l'appareil {#step-1-map-device-id}
 
 {% tabs local %}
 {% tab Android %}
-Si vous avez une application Android, vous devez transmettre un ID d'appareil Braze unique à AppsFlyer. 
+Si vous avez une application Android, vous devez transmettre un ID d'appareil Braze unique à AppsFlyer.
 
-Assurez-vous que les lignes de code suivantes sont insérées au bon endroit - après le lancement du SDK Braze et avant le code d'initialisation du SDK AppsFlyer. Consultez le guide d'intégration SDK Android [Appsflyer](https://dev.appsflyer.com/hc/docs/integrate-android-sdk#initializing-the-android-sdk) pour plus d'informations.
+Assurez-vous que les lignes de code suivantes sont insérées au bon endroit — après le lancement du SDK Braze et avant le code d'initialisation du SDK AppsFlyer. Consultez le [guide d'intégration du SDK Android](https://dev.appsflyer.com/hc/docs/integrate-android-sdk#initializing-the-android-sdk) d'AppsFlyer pour plus d'informations.
 
 ```kotlin
 val customData = HashMap<String, Any>()
@@ -50,12 +50,12 @@ Braze.getInstance(context).getDeviceIdAsync { deviceId ->
 
 {% tab ios %}
 {% alert important %}
-Avant février 2023, notre intégration d'attribution AppsFlyer utilisait l'identifiant du fournisseur (IDFV) comme identifiant principal pour faire correspondre les données d'attribution iOS. Il n'est pas nécessaire pour les clients de Braze utilisant Objective-C de récupérer le site `device_id` de Braze et de l'envoyer à AppsFlyer lors de l'installation, car il n'y a pas d'interruption de service.
+Avant février 2023, notre intégration d'attribution AppsFlyer utilisait l'identifiant du fournisseur (IDFV) comme identifiant principal pour faire correspondre les données d'attribution iOS. Il n'est pas nécessaire pour les clients de Braze utilisant Objective-C de récupérer le `device_id` de Braze et de l'envoyer à AppsFlyer lors de l'installation, car il n'y a pas d'interruption de service.
 {% endalert%}
 
-Pour ceux qui utilisent le SDK Swift v5.7.0+, si vous souhaitez continuer à utiliser l'IDFV comme identifiant mutuel, vous devez confirmer que le champ `useUUIDAsDeviceId` est défini sur `false` afin d'éviter une interruption de l'intégration. 
+Pour ceux qui utilisent le SDK Swift v5.7.0+, si vous souhaitez continuer à utiliser l'IDFV comme identifiant mutuel, vous devez confirmer que le champ `useUUIDAsDeviceId` est défini sur `false` afin d'éviter une interruption de l'intégration.
 
-Si ce champ est défini sur `true`, vous devez mettre en œuvre le mappage de l'ID de l'appareil iOS pour Swift afin de transmettre le  champ `device_id` à Appsflyer lors de l'installation de l'application afin que Braze puisse correspondre correctement aux attributions iOS.
+Si ce champ est défini sur `true`, vous devez mettre en œuvre le mappage de l'ID de l'appareil iOS pour Swift afin de transmettre le `device_id` de Braze à AppsFlyer lors de l'installation de l'application, pour que Braze puisse correctement faire correspondre les attributions iOS.
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -95,44 +95,48 @@ AppsFlyer.setAdditionalData(customData);
 {% endtab %}
 {% endtabs %}
 
-### Étape 2 : Obtenez la clé d'importation des données Braze
+### Étape 2 : Obtenir la clé d'importation des données Braze {#step-2-get-the-braze-data-import-key}
 
-Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **AppsFlyer**. 
+Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **AppsFlyer**.
 
-Ici, vous trouvez le endpoint REST et vous générez votre clé d'importation des données Braze. Une fois la clé générée, vous pouvez créer une nouvelle clé ou invalider une clé existante. La clé d'importation des données et l'endpoint REST sont utilisés dans l'étape suivante lors de la configuration d'un postback dans le tableau de bord d'Appsflyer.<br><br>![La boîte de dialogue "Importation de données pour l'attribution d'installation" disponible sur la page Technologie d'Appsflyer. Cette boîte contient la clé d'importation des données et l'endpoint REST.]({% image_buster /assets/img/attribution/appsflyer.png %}){: style="max-width:70%;"}
+Vous y trouverez l'endpoint REST et pourrez générer votre clé d'importation des données Braze. Une fois la clé générée, vous pouvez en créer une nouvelle ou invalider une clé existante. La clé d'importation des données et l'endpoint REST sont utilisés dans l'étape suivante lors de la configuration d'un postback dans le tableau de bord d'AppsFlyer.<br><br>![La boîte de dialogue « Importation de données pour l'attribution d'installation » disponible sur la page Technologie d'AppsFlyer. Cette boîte contient la clé d'importation des données et l'endpoint REST.]({% image_buster /assets/img/attribution/appsflyer.png %}){: style="max-width:70%;"}
 
-### Étape 3 : Configurez Braze dans le tableau de bord d'Appsflyer
+### Étape 3 : Configurer Braze dans le tableau de bord d'AppsFlyer {#step-3-configure-braze-in-appsflyers-dashboard}
 
-1. Dans Appsflyer, accédez à la page **Partenaires Intégrés** dans la barre de gauche. Ensuite, recherchez **Braze** et sélectionnez le logo Braze pour ouvrir une fenêtre de configuration.
-2. Dans l'onglet **intégration**, activez **Activer le partenaire**.
-3. Indiquez la clé d'importation des données et le point de terminaison REST que vous avez trouvés dans le tableau de bord de Braze. 
-4. Basculer **Advanced Privacy** off et enregistrer votre configuration.
+1. Dans AppsFlyer, accédez à la page **Integrated Partners** dans la barre de gauche. Ensuite, recherchez **Braze** et sélectionnez le logo Braze pour ouvrir une fenêtre de configuration.
+2. Dans l'onglet **Integration**, activez **Activate Partner**.
+3. Indiquez la clé d'importation des données et l'endpoint REST que vous avez trouvés dans le tableau de bord de Braze.
+4. Désactivez **Advanced Privacy** et enregistrez votre configuration.
+
+{% alert important %}
+Lorsque vous saisissez l'endpoint REST de Braze dans l'onglet Integration d'AppsFlyer, entrez uniquement le domaine (par exemple, `rest.fra-02.braze.eu`) sans le protocole `https://` et sans le chemin `/attribution/appsflyer`. AppsFlyer ajoute automatiquement le protocole et le chemin. Inclure l'un ou l'autre dans votre saisie provoque des échecs de postback.
+{% endalert %}
 
 Des informations supplémentaires sur ces instructions sont disponibles dans la [documentation d'AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration).
 
-### Étape 4 : Confirmez l'intégration
+### Étape 4 : Confirmer l'intégration {#step-4-confirm-the-integration}
 
-Après que Braze a reçu des données d'attribution d'AppsFlyer, l'indicateur de connexion d'état sur la page des partenaires technologiques d'AppsFlyer dans Braze passe de " Non connecté " à " Connecté " et inclut un horodatage de la dernière demande réussie.
+Sur la page des partenaires technologiques d'AppsFlyer dans Braze, l'indicateur de connexion affiche **Not Connected** jusqu'à ce que vous génériez une clé API d'importation des données à l'étape 2. Après avoir généré la clé, l'indicateur passe à **Connected** et affiche un horodatage. Cet horodatage indique la date à laquelle l'intégration a été initialement configurée dans Braze (lorsque la clé d'importation des données a été créée), et non la dernière fois qu'AppsFlyer a envoyé un postback.
 
-Ce statut ne change que lorsque Braze reçoit des données sur une attribution d'installation. Braze ignore les installations organiques (il les exclut du postback d'AppsFlyer) et ne les comptabilise pas lorsqu'il détermine si la connexion est réussie.
+Pour confirmer que les données d'attribution d'installation circulent depuis AppsFlyer, utilisez l'étape 5 pour vérifier que les données d'installation non organique apparaissent dans les filtres de Segment de Braze. Braze ignore les installations organiques provenant des postbacks d'AppsFlyer et ne les stocke pas en tant que données d'installation attribuées.
 
-### Étape 5 : Affichage des données d'attribution des utilisateurs
+### Étape 5 : Afficher les données d'attribution des utilisateurs {#step-5-viewing-user-attribution-data}
 
-#### Champs de données disponibles
+#### Champs de données disponibles {#available-data-fields}
 
 Si votre intégration a réussi, Braze mappe toutes les données d'installation non organique aux filtres de segmentation.
 
-| Champ de données Appsflyer | Filtre de segments Braze |
+| Champ de données AppsFlyer | Filtre de Segment Braze |
 | -------------------- | --------------------- |
 | `media_source` | Source attribuée |
-| `campaign` | Campagne attribuée |
+| `campaign` | Campaign attribuée |
 | `af_adset` | Groupe d'annonces attribué |
 | `af_ad` | Annonce attribuée |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Champs de données disponibles" }
 
-Vous pouvez segmenter votre base d'utilisateurs en fonction des données d'attribution dans le tableau de bord de Braze à l'aide des filtres d'attribution installation.
+Vous pouvez segmenter votre base d'utilisateurs en fonction des données d'attribution dans le tableau de bord de Braze à l'aide des filtres d'attribution d'installation.
 
-![Quatre filtres disponibles. La première est "Install Attribution Source is network_val_0". " La deuxième est "Install Attribution Source is campaign_val_0". " La troisième est "Install Attribution Source is adgroup_val_0". " La quatrième est "Install Attribution Source is creative_val_0". " À côté des filtres listés, vous pouvez voir comment ces sources d'attribution seront ajoutées au profil utilisateur. Dans la case "Attribution de l'installation" de la page d'information d'un utilisateur, la source d'installation est répertoriée comme network_val_0, la campagne est répertoriée comme campaign_val_0, etc.]({% image_buster /assets/img/braze_attribution.png %})
+![Quatre filtres disponibles. Le premier est « Install Attribution Source is network_val_0 ». Le deuxième est « Install Attribution Source is campaign_val_0 ». Le troisième est « Install Attribution Source is adgroup_val_0 ». Le quatrième est « Install Attribution Source is creative_val_0 ». À côté des filtres listés, vous pouvez voir comment ces sources d'attribution seront ajoutées au profil utilisateur. Dans la case « Install Attribution » de la page d'information d'un utilisateur, la source d'installation est répertoriée comme network_val_0, la campagne est répertoriée comme campaign_val_0, etc.]({% image_buster /assets/img/braze_attribution.png %})
 
 De plus, les données d'attribution pour un utilisateur particulier sont disponibles sur le profil de chaque utilisateur dans le tableau de bord de Braze.
 
@@ -140,98 +144,98 @@ De plus, les données d'attribution pour un utilisateur particulier sont disponi
 Les données d'attribution pour les campagnes Facebook et X (anciennement Twitter) ne sont pas disponibles via nos partenaires. Ces sources médiatiques n'autorisent pas leurs partenaires à partager les données d'attribution avec des tiers et, par conséquent, nos partenaires ne peuvent pas envoyer ces données à Braze.
 {% endalert %}
 
-## Intégration d'AppsFlyer avec Braze pour la création de liens profonds
+## Intégrer AppsFlyer avec Braze pour les liens profonds {#integrate-appsflyer-with-braze-for-deep-linking}
 
-Les liens profonds—liens qui dirigent les utilisateurs vers une page ou un endroit spécifique au sein d'une application ou d'un site web—sont utilisés pour créer une expérience utilisateur sur mesure. 
+Les liens profonds — liens qui dirigent les utilisateurs vers une page ou un endroit spécifique au sein d'une application ou d'un site web — sont utilisés pour créer une expérience utilisateur sur mesure.
 
-Bien qu'ils soient largement utilisés, des problèmes peuvent survenir lors de l'utilisation de liens profonds envoyés par e-mail avec le suivi des clics#8212une autre fonctionnalité importante utilisée pour la collecte de données sur les utilisateurs. Ces problèmes sont dus au fait que les fournisseurs de services d'e-mailing (ESP) enveloppent les liens profonds dans un domaine d'enregistrement de clics, ce qui rompt le lien original. À ce titre, la prise en charge des liens profonds nécessite une configuration supplémentaire.
+Bien qu'ils soient largement utilisés, des problèmes peuvent survenir lors de l'utilisation de liens profonds envoyés par e-mail avec le suivi des clics — une autre fonctionnalité importante utilisée pour la collecte de données sur les utilisateurs. Ces problèmes sont dus au fait que les fournisseurs de services d'e-mailing (ESP) enveloppent les liens profonds dans un domaine d'enregistrement de clics, ce qui rompt le lien original. À ce titre, la prise en charge des liens profonds nécessite une configuration supplémentaire.
 
-AppsFlyer propose un [service](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer) qui évite ces problèmes, en permettant à AppsFlyer de servir d'intermédiaire entre le serveur ESP et votre nom de domaine.  Son rôle de proxy permet de fournir des fichiers d'association (liens AASA/asset), ce qui facilite la création de liens profonds. 
+AppsFlyer propose un [service](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer) qui évite ces problèmes, en permettant à AppsFlyer de servir d'intermédiaire entre le serveur ESP et votre nom de domaine. Son rôle de proxy permet de fournir des fichiers d'association (AASA/liens d'assets), ce qui facilite la création de liens profonds.
 
-## Étape 1 - Créer un domaine de suivi des clics 
+## Étape 1 - Créer un domaine de suivi des clics {#step-1-create-a-click-tracking-domain}
 
-En suivant les premiers éléments du [guide de configuration des e-mails de Braze]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate), créez un domaine d'envoi d'e-mails et un domaine de suivi des clics. Pour obtenir de l'aide, vous pouvez créer un ticket via le tableau de bord de Braze pour initier la configuration du nouveau CTD avec l'équipe Braze Email.
+En suivant les premiers éléments du [guide de configuration des e-mails de Braze]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate), créez un domaine d'envoi d'e-mails et un domaine de suivi des clics. Pour obtenir de l'aide, vous pouvez créer un ticket via le tableau de bord de Braze pour initier la configuration du nouveau CTD avec l'équipe e-mail de Braze.
 
-![L'interface utilisateur de Braze montre le bouton "Obtenir de l'aide", qui se trouve sous le bouton "Support" dans le coin supérieur droit.]({% image_buster /assets/img/attribution/appsflyer/1.png %})
+![L'interface utilisateur de Braze montre le bouton « Get Help », qui se trouve sous le bouton « Support » dans le coin supérieur droit.]({% image_buster /assets/img/attribution/appsflyer/1.png %})
 
-La création d'un nouveau CTD est obligatoire, même si vous utilisez déjà un CTD existant. Cela permet de s'assurer qu'il n'y a pas d'impact sur le trafic des campagnes d'e-mail en ligne/instantanées en cours. 
+La création d'un nouveau CTD est obligatoire, même si vous utilisez déjà un CTD existant. Cela permet de s'assurer qu'il n'y a pas d'impact sur le trafic des campagnes d'e-mail en cours.
 
 {% alert important%}
-AppsFlyers crée le certificat SSL. À ce stade, les liens des e-mails ne sont probablement pas sécurisés, ce qui signifie que le préfixe de l'URL est HTTP au lieu de HTTPS. Ce problème est résolu dans les étapes suivantes.	
+AppsFlyer crée le certificat SSL. À ce stade, les liens des e-mails ne sont probablement pas sécurisés, ce qui signifie que le préfixe de l'URL est HTTP au lieu de HTTPS. Ce problème est résolu dans les étapes suivantes.
 {%endalert%}
 
-## Étape 2 - Créer un modèle OneLink dans AppsFlyer
-Créez un [modèle OneLink](https://support.appsflyer.com/hc/en-us/articles/207032246-Create-a-OneLink-template#procedures) et configurez Universal Links/App Links sous "When app is installed". Ce modèle est utilisé ultérieurement pour créer des liens OneLink pour vos campagnes d'e-mail.
+## Étape 2 - Créer un modèle OneLink dans AppsFlyer {#step-2-create-a-onelink-template-in-appsflyer}
+Créez un [modèle OneLink](https://support.appsflyer.com/hc/en-us/articles/207032246-Create-a-OneLink-template#procedures) et configurez Universal Links/App Links sous « When app is installed ». Ce modèle est utilisé ultérieurement pour créer des liens OneLink pour vos campagnes d'e-mail.
 
-{% alert note%} Si vous disposez déjà d'un modèle OneLink configuré qui active les liens universels/liens d'application, vous pouvez l'utiliser.
+{% alert note%} Si vous disposez déjà d'un modèle OneLink configuré qui active les Universal Links/App Links, vous pouvez l'utiliser.
 {%endalert%}
 
-## Étape 3 - Mettre en place votre intégration Braze dans Appsflyer
-Il est maintenant temps de paramétrer votre intégration Braze dans AppsFlyer. Cette étape et la suivante ("Configurer votre application") peuvent être mises en place en même temps.
+## Étape 3 - Mettre en place votre intégration Braze dans AppsFlyer {#step-3-set-up-your-braze-integration-in-appsflyer}
+Il est maintenant temps de paramétrer votre intégration Braze dans AppsFlyer. Cette étape et la suivante (« Configurer votre application ») peuvent être mises en place en même temps.
 Pour paramétrer l'intégration de Braze dans AppsFlyer :
 
-### 1\. Dans AppsFlyer, dans le menu latéral, sélectionnez Engage > ESP integration.
-![L'interface utilisateur d'Appsflyer montre le bouton "Intégration ESP", qui se trouve dans le menu de gauche.]({% image_buster /assets/img/attribution/appsflyer/2.png %})
+### 1. Dans AppsFlyer, dans le menu latéral, sélectionnez Engage > ESP integration. {#1-in-appsflyer-from-the-side-menu-select-engage-esp-integration}
+![L'interface utilisateur d'AppsFlyer montre le bouton « ESP Integration », qui se trouve dans le menu de gauche.]({% image_buster /assets/img/attribution/appsflyer/2.png %})
 
- 
-### 2\. Sélectionnez Braze.
-![L'interface utilisateur d'Appsflyer montre la liste des intégrations ESP, y compris Braze.]({% image_buster /assets/img/attribution/appsflyer/3.png %})
 
- 
-### 3\. Sélectionnez le modèle OneLink que vous souhaitez utiliser pour les campagnes d'e-mail, puis cliquez sur Suivant.
-![L'interface utilisateur d'Appsflyer montre le menu déroulant permettant aux utilisateurs de sélectionner leur modèle.]({% image_buster /assets/img/attribution/appsflyer/4.png %})
+### 2. Sélectionnez Braze. {#2-select-braze}
+![L'interface utilisateur d'AppsFlyer montre la liste des intégrations ESP, y compris Braze.]({% image_buster /assets/img/attribution/appsflyer/3.png %})
 
- 
-### 4\. Saisissez votre domaine de suivi des clics et la valeur "endpoint Braze", qui a été fournie avec le nouveau CTD créé à l'étape 1, puis cliquez sur Valider la connexion.
+
+### 3. Sélectionnez le modèle OneLink que vous souhaitez utiliser pour les campagnes d'e-mail, puis cliquez sur Next. {#3-select-the-onelink-template-you-want-to-use-for-email-campaigns-then-click-next}
+![L'interface utilisateur d'AppsFlyer montre le menu déroulant permettant aux utilisateurs de sélectionner leur modèle.]({% image_buster /assets/img/attribution/appsflyer/4.png %})
+
+
+### 4. Saisissez votre domaine de suivi des clics et la valeur « Braze endpoint », qui a été fournie avec le nouveau CTD créé à l'étape 1, puis cliquez sur Validate connection. {#4-enter-your-click-tracking-domain-and-braze-endpoint-value-which-was-provided-with-the-new-ctd-created-in-step-1-then-click-validate-connection}
 
 Cela permet de valider que le domaine de suivi des clics pointe vers l'endpoint que vous avez saisi.
 
-![L'interface utilisateur d'Appsflyer met en évidence l'endroit où les clients doivent ajouter leur domaine de suivi des clics et les détails associés.]({% image_buster /assets/img/attribution/appsflyer/5.png %})
+![L'interface utilisateur d'AppsFlyer met en évidence l'endroit où les clients doivent ajouter leur domaine de suivi des clics et les détails associés.]({% image_buster /assets/img/attribution/appsflyer/5.png %})
 
-Par "Braze Endpoint", AppsFlyer demande les détails fournis par Braze à l'étape 1 de ce guide, en particulier le nouveau CTD. 
+Par « Braze Endpoint », AppsFlyer demande les détails fournis par Braze à l'étape 1 de ce guide, en particulier le nouveau CTD.
 
-Cliquez ensuite sur **Valider la connexion**, ce qui permet de valider que le domaine de suivi des clics pointe vers l'endpoint que vous avez saisi.
-Lorsque vous avez terminé, cliquez sur **Suivant.**
+Cliquez ensuite sur **Validate connection**, ce qui permet de valider que le domaine de suivi des clics pointe vers l'endpoint que vous avez saisi.
+Lorsque vous avez terminé, cliquez sur **Next**.
 
-### 5\. Acheminez le trafic des liens vers AppsFlyer :
+### 5. Acheminer le trafic des liens vers AppsFlyer : {#5-route-link-traffic-to-appsflyer}
 
-#### a. Copiez et envoyez les instructions personnalisées préfabriquées dans AppsFlyer à votre administrateur informatique ou de domaine. 
+#### a. Copiez et envoyez les instructions personnalisées préfabriquées dans AppsFlyer à votre administrateur informatique ou de domaine. {#a-copy-and-send-the-customized-pre-fabricated-instructions-in-appsflyer-to-your-it-or-domain-administrator}
 
-Votre administrateur doit réacheminer le trafic de votre campagne e-mail des serveurs ESP vers les serveurs AppsFlyer en mettant à jour vos enregistrements DNS CNAME avec le nouveau domaine fourni par AppsFlyer.
+Votre administrateur doit réacheminer le trafic de votre campagne d'e-mail des serveurs ESP vers les serveurs AppsFlyer en mettant à jour vos enregistrements DNS CNAME avec le nouveau domaine fourni par AppsFlyer.
 
 Par conséquent, à chaque fois qu'un lien est cliqué, le clic est redirigé vers AppsFlyer, qui le redirige à son tour vers l'endpoint ESP.
 
-![Diagramme illustrant comment les données de clics sont passées de votre domaine à AppsFlyer, puis à votre endpoint esp.]({% image_buster /assets/img/attribution/appsflyer/6.png %})
+![Diagramme illustrant comment les données de clics sont transmises de votre domaine à AppsFlyer, puis à votre endpoint ESP.]({% image_buster /assets/img/attribution/appsflyer/6.png %})
 
-#### b. Après avoir copié et envoyé les instructions, cliquez sur Terminé.
-Votre intégration à Braze a été créée.
+#### b. Après avoir copié et envoyé les instructions, cliquez sur Done. {#b-after-copying-and-sending-the-instructions-click-done}
+Votre intégration Braze a été créée.
 
 {%alert important%}
-L'état de votre intégration à Braze est en attente et ne commence à fonctionner qu'une fois l'enregistrement CNAME mappé. Il peut s'écouler jusqu'à 24 heures après le mappage pour qu'une nouvelle intégration commence à fonctionner et devienne active.
+L'état de votre intégration Braze est en attente et ne commence à fonctionner qu'une fois l'enregistrement CNAME mappé. Il peut s'écouler jusqu'à 24 heures après le mappage pour qu'une nouvelle intégration commence à fonctionner et devienne active.
 {%endalert%}
 
-## Étape 4 : Configurer votre application (tâche du développeur)
-Appsflyer [propose des conseils](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer#step-2-configure-your-app-developer-task) sur la configuration correcte des apps, qui doivent être suivis par vos équipes web ou apps afin de prendre en charge le lien universel. 
+## Étape 4 : Configurer votre application (tâche du développeur) {#step-4-configure-your-app-developer-task}
+AppsFlyer [propose des conseils](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer#step-2-configure-your-app-developer-task) sur la configuration correcte des applications, qui doivent être suivis par vos équipes web ou applicatives afin de prendre en charge les liens universels.
 
-## Étape 5 : Confirmez que le suivi des clics par SSL est activé avec Braze
+## Étape 5 : Confirmer que le suivi des clics SSL est activé avec Braze {#step-5-confirm-ssl-click-tracking-is-enabled-with-braze}
 
-A ce stade, après avoir partagé et validé les détails du CTD dans Appsflyer, nous vous recommandons d'effectuer un envoi test pour confirmer que votre domaine d'envoi Onelink dispose d'un certificat SSL. Ceci est conforme à notre guide de [configuration de l'e-mail.](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) 
+À ce stade, après avoir partagé et validé les détails du CTD dans AppsFlyer, nous vous recommandons d'effectuer un envoi test pour confirmer que votre domaine d'envoi OneLink dispose d'un certificat SSL. Ceci est conforme à notre guide de [configuration de l'e-mail](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
 
-Vous pouvez procéder à l'assurance qualité et à la résolution des problèmes en envoyant un lien profond à l'aide de OneLink. Consultez la [documentation d'Appsflyer](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) pour plus de détails sur l'utilisation de OneLink.
+Vous pouvez procéder à l'assurance qualité et à la résolution des problèmes en envoyant un lien profond à l'aide de OneLink. Consultez la [documentation d'AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) pour plus de détails sur l'utilisation de OneLink.
 
 Si les liens CTD sont identifiés comme HTTP, contactez l'équipe Email Ops de Braze pour activer le suivi des clics SSL. Cela garantit que tous les liens HTTP sont automatiquement convertis en HTTPS.
-Vous pouvez utiliser l'exemple de texte de message suivant lorsque vous contactez votre gestionnaire de la satisfaction client, ou en soulevant à nouveau un ticket dans le tableau de bord de Braze, comme à l'étape 1 : 
+Vous pouvez utiliser l'exemple de texte de message suivant lorsque vous contactez votre gestionnaire de la satisfaction client, ou en créant à nouveau un ticket dans le tableau de bord de Braze, comme à l'étape 1 :
 
 ```
 Hi Team,
-Could you please enable SSL click tracking for CTD XXX? It is currently set to HTTP instead of HTTPS. 
+Could you please enable SSL click tracking for CTD XXX? It is currently set to HTTP instead of HTTPS.
 ```
 
-### URLs de suivi de clics Appsflyer dans Braze (facultatif)
+### URL de suivi de clics AppsFlyer dans Braze (facultatif) {#appsflyer-click-tracking-urls-in-braze-optional}
 
-Vous pouvez utiliser les [liens d'attribution OneLink](https://support.AppsFlyer.com/hc/en-us/articles/360001294118) d'Appsflyer dans les campagnes Braze sur les notifications push, les e-mails, et plus encore. Cela vous permet de renvoyer les données d'attribution d'installation ou de réengagement de vos campagnes Braze dans AppsFlyer. Vous pouvez ainsi mesurer plus efficacement vos efforts de marketing et prendre des décisions fondées sur des données.
+Vous pouvez utiliser les [liens d'attribution OneLink](https://support.AppsFlyer.com/hc/en-us/articles/360001294118) d'AppsFlyer dans les Campaigns Braze sur les notifications push, les e-mails, et plus encore. Cela vous permet de renvoyer les données d'attribution d'installation ou de réengagement de vos Campaigns Braze dans AppsFlyer. Vous pouvez ainsi mesurer plus efficacement vos efforts marketing et prendre des décisions fondées sur les données.
 
-Vous pouvez simplement créer votre URL de suivi OneLink dans Appsflyer et l'insérer directement dans vos campagnes Braze. AppsFlyer utilise ensuite ses [méthodologies d'attribution probabiliste](https://support.AppsFlyer.com/hc/en-us/articles/207447053-Attribution-model-explained#probabilistic-modeling) pour attribuer l'utilisateur qui a cliqué sur le lien. Nous recommandons d'ajouter vos liens de suivi AppsFlyer avec un identifiant d'appareil pour améliorer la précision des attributions de vos campagnes Braze. Cela permet d'attribuer de manière déterministe l'utilisateur qui a cliqué sur le lien.
+Il vous suffit de créer votre URL de suivi OneLink dans AppsFlyer et de l'insérer directement dans vos Campaigns Braze. AppsFlyer utilise ensuite ses [méthodologies d'attribution probabiliste](https://support.AppsFlyer.com/hc/en-us/articles/207447053-Attribution-model-explained#probabilistic-modeling) pour attribuer l'utilisateur qui a cliqué sur le lien. Nous recommandons d'ajouter un identifiant d'appareil à vos liens de suivi AppsFlyer pour améliorer la précision des attributions de vos Campaigns Braze. Cela permet d'attribuer de manière déterministe l'utilisateur qui a cliqué sur le lien.
 
 {% tabs local %}
 {% tab Android %}
@@ -246,7 +250,7 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-Pour iOS, Braze et Appsflyer collectent automatiquement l'IDFV nativement via nos intégrations SDK. Vous pouvez utiliser l'IDFC comme identifiant de l'appareil. Vous pouvez inclure l'IDFV dans vos liens de suivi de clics AppsFlyer en utilisant la logique Liquid suivante :
+Pour iOS, Braze et AppsFlyer collectent automatiquement l'IDFV nativement via nos intégrations SDK. Vous pouvez utiliser l'IDFV comme identifiant de l'appareil. Vous pouvez inclure l'IDFV dans vos liens de suivi de clics AppsFlyer en utilisant la logique Liquid suivante :
 
 {% raw %}
 ```

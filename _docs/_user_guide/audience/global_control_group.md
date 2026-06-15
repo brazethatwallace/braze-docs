@@ -143,7 +143,7 @@ Each workspace has a maximum of one Global Control Group and one treatment sampl
 | Estimated Group Size | The estimated number of users in your control and treatment groups during selected time period. | The maximum membership size your control and treatment groups reached during the time period you chose for the report. |
 | Total Number of Events | The total number of times the selected event occurred during the chosen time period. This is not unique (for example, if a user performs an event twice during the time period, the event gets incremented twice). | Sum of the number of times an event occurred each day during the chosen time period. |
 | Events Per User | The estimated average number of times users in each group completed your conversion events during the selected time period. | Total events ÷ estimated group size. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Report metrics" }
 
 ## Troubleshooting
 
@@ -156,7 +156,7 @@ As you set up your global control groups and view reporting, here are the errors
 | Global Control Group report does not have any data. | If you access the Global Control Group Report without having saved a Global Control Group, you do not see any data in the report. Create and save a Global Control Group and try again. |
 | My conversion rate is 0% or I'm not seeing the graph display, even though there are more than zero events occurring. | If the number of conversions is very small and your control or treatment groups are very large, then the conversion rate may round to 0%, and thus not show up in the graph. You can verify this by checking the Total Number of Events metric. You could compare the effectiveness of your two groups using the incremental uplift percent metric.  |
 | My conversion rate (or other metrics) are changing drastically depending on the time period I'm viewing data for. | If you're viewing data over short time periods, it's possible for your metrics to fluctuate day to day or week to week. View metrics over the course of at least one month. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 ### Things to watch out for {#things-to-watch-for}
 
@@ -174,7 +174,9 @@ It's possible to have both a Global Control Group and also use a campaign-specif
 
 Users in your Global Control Group are withheld from receiving any messages other than those with tag exceptions, and if you add a control to a campaign or Canvas, Braze withholds a portion of your global treatment group from receiving that particular campaign or Canvas. That means if a member of the Global Control Group is not eligible to receive a particular campaign or Canvas, they are not present in the control group for that particular campaign or Canvas.
 
-> In short, users in the Global Control Group are filtered out of the campaign or Canvas audience prior to entry. Of the users who enter the campaign or Canvas, a percentage of those are then assigned to the control variant.
+{% alert note %}
+In short, users in the Global Control Group are filtered out of the campaign or Canvas audience prior to entry. Of the users who enter the campaign or Canvas, a percentage of those are then assigned to the control variant.
+{% endalert %}
 
 #### Global Control Group segments on the Developer Console
 
