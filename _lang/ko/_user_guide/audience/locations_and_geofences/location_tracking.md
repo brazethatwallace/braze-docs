@@ -38,7 +38,7 @@ Braze는 첫 번째 SDK 세션 시작 시 IP 주소에서 지리적으로 위치
 
 ## 위치 타겟팅 {#location-targeting}
 
-위치 추적 데이터와 세그먼트를 사용하여 위치 기반 캠페인과 전략을 설정할 수 있습니다. 예를 들어, 특정 지역에 거주하는 사용자를 대상으로 프로모션 캠페인을 실행하거나 더 엄격한 규정이 있는 지역의 사용자를 제외할 수 있습니다.
+위치 추적 데이터와 세그먼트를 사용하여 위치 기반 Campaign과 전략을 설정할 수 있습니다. 예를 들어, 특정 지역에 거주하는 사용자를 대상으로 프로모션 Campaign을 실행하거나 더 엄격한 규정이 있는 지역의 사용자를 제외할 수 있습니다.
 
 위치 세그먼트 생성에 대한 자세한 내용은 [위치 타겟팅]({{site.baseurl}}/user_guide/audience/segments/location_targeting/)을 참조하세요.
 
@@ -67,6 +67,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 - [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
 - [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
 - [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+
+## 지오펜스와 위치 추적의 차이점 {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

@@ -1,7 +1,7 @@
 ---
 nav_title: Mixpanel
 article_title: Mixpanel コホートインポート
-description: "このリファレンス記事では、ビジネス分析プラットフォームであるMixpanelのコホートインポート機能について説明します。MixpanelコホートをBrazeにインポートしてBraze Segmentを作成し、今後のBraze CampaignやCanvasesでユーザーをターゲットにすることができます。"
+description: "このリファレンス記事では、ビジネス分析プラットフォームであるMixpanelのコホートインポート機能について説明します。MixpanelコホートをBrazeにインポートしてBraze セグメントを作成し、今後のBraze キャンペーンやキャンバスでユーザーをターゲットにすることができます。"
 page_type: partner
 search_tag: Partner
 ---
@@ -12,7 +12,7 @@ search_tag: Partner
 
 ## データインポート統合 {#data-import-integration}
 
-MixpanelからBrazeにコホートを同期すると、Brazeは既存のBrazeプロファイルにMixpanelがマッチできるユーザーのコホートメンバーシップ更新を受信します。同期後、**Mixpanel cohorts** Segmentフィルターを使用してそれらのユーザーをターゲットにできます。
+MixpanelからBrazeにコホートを同期すると、Brazeは既存のBrazeプロファイルにMixpanelがマッチできるユーザーのコホートメンバーシップ更新を受信します。同期後、**Mixpanel cohorts** セグメントフィルターを使用してそれらのユーザーをターゲットにできます。
 
 コホート同期では、Mixpanelイベント、Mixpanelユーザープロパティ、またはカスタム属性はBrazeにインポートされません。同期頻度を含むコネクターの動作はMixpanelで制御されます。セットアップの詳細については、[MixpanelのBrazeコホート同期ドキュメント](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze)を参照してください。ユーザーマッチングの要件については、[ユーザーマッチング](#user-matching)を参照してください。
 
@@ -49,11 +49,11 @@ Braze内に既に存在するユーザーのみがコホートに追加または
 
 ### ステップ 4: Brazeでユーザーをセグメントする {#step-4-segment-users-in-braze}
 
-Brazeでこれらのユーザーのセグメントを作成するには、**Audience** > **Segments**に移動し、セグメントに名前を付け、フィルターとして**Mixpanel_Cohorts**を選択します。次に「includes」オプションを使用し、Mixpanelで作成したコホートを選択します。
+Brazeでこれらのユーザーのセグメントを作成するには、**Audience** > **セグメント**に移動し、セグメントに名前を付け、フィルターとして**Mixpanel_Cohorts**を選択します。次に「includes」オプションを使用し、Mixpanelで作成したコホートを選択します。
 
-![BrazeのSegmentビルダーで、ユーザー属性フィルター「Mixpanel cohorts」が「includes」と「Braze cohort」に設定されています。]({% image_buster /assets/img_archive/mixpanel1.png %})
+![Brazeのセグメントビルダーで、ユーザー属性フィルター「Mixpanel cohorts」が「includes」と「Braze cohort」に設定されています。]({% image_buster /assets/img_archive/mixpanel1.png %})
 
-保存後、CanvasやCampaign作成時のユーザーターゲティングステップでこのSegmentを参照できます。
+保存後、キャンバスやキャンペーン作成時のユーザーターゲティングステップでこのセグメントを参照できます。
 
 ## ユーザーマッチング {#user-matching}
 

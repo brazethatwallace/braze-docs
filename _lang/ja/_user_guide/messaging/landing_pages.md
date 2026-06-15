@@ -11,7 +11,7 @@ alias: /landing_pages/
 
 > Brazeランディングページは、ユーザー獲得とエンゲージメント戦略を推進できるスタンドアロンのWebページです。
 
-ランディングページを使用して、オーディエンスの拡大、ユーザーデータの取得、特別オファーの宣伝、マルチチャネルCampaignsのサポートを行いましょう。ランディングページのドラッグ＆ドロップブロックのリファレンスについては、[エディターブロック（ランディングページ）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)を参照してください。
+ランディングページを使用して、オーディエンスの拡大、ユーザーデータの取得、特別オファーの宣伝、マルチチャネルキャンペーンのサポートを行いましょう。ランディングページのドラッグ＆ドロップブロックのリファレンスについては、[エディターブロック（ランディングページ）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)を参照してください。
 
 {% alert note %}
 ランディングページとカスタムドメインの利用可否は、Brazeパッケージによって異なります。開始するには、アカウントマネージャーまたはカスタマーサクセスマネージャーにお問い合わせください。
@@ -31,13 +31,15 @@ alias: /landing_pages/
 
 ## プランティア {#plan-tiers}
 
-公開できるランディングページとカスタムドメインの数は、プランタイプ（無料または有料（増分））によって異なります。
+公開できるランディングページ数、カスタムドメイン数、および使用できる機能は、プランタイプ（無料またはPro（増分））によって異なります。
 
-| 機能 | 無料ティア | 有料ティア（増分） |
+| 機能 | 無料ティア | Proティア（増分） |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | 公開ランディングページ | 会社あたり5件 | 追加20件 |
 | カスタムドメイン | 会社あたり1件 | 追加5件 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| [Liquidパーソナライゼーション]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | 利用不可 | 利用可能 |
+| 事前入力フォームフィールド | 利用不可 | 利用可能 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan tiers" }
 
 ## ランディングページへのGoogle Tag Managerの追加 {#adding-google-tag-manager-to-a-landing-page}
 
@@ -80,7 +82,7 @@ Google Tag Managerの実装の詳細については、[Googleのドキュメン�
 
 ### ランディングページ内にWebhookを作成できますか？ {#can-i-create-a-webhook-inside-a-landing-page}
 
-いいえ。ただし、**Submitted a Landing Page form**イベントをCanvasesやWebhook Campaignsのトリガーとして使用できます。
+いいえ。ただし、**Submitted a Landing Page form**イベントをCanvasesやWebhookキャンペーンのトリガーとして使用できます。
 
 - **Canvas：** **Submitted a Landing Page form**イベントをCanvasのエントリトリガーとして使用し、Webhookステップを追加します。
 - **Campaign：** **Submitted a Landing Page form**イベントを使用して、フォーム送信に基づいてトリガーします。

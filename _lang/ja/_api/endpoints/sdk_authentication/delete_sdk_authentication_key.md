@@ -50,7 +50,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## リクエスト例 {#example-request}
 
-```bash
+`````````bash
 curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_authentication/delete' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \

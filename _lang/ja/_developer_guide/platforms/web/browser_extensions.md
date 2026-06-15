@@ -98,7 +98,7 @@ SDKが組み込まれると、通常どおりにライブラリーを初期化�
 
 Cookieはブラウザ拡張機能ではサポートされていないため、`noCookies: true`で初期化することでCookieを無効にできます。
 
-```javascript
+`````````javascript
 braze.initialize("YOUR-API-KEY-HERE", {
     baseUrl: "YOUR-API-ENDPOINT",
     enableLogging: true,

@@ -81,11 +81,11 @@ Appboy.sharedInstance()?.logPurchase("product_name", inCurrency: "USD", atPrice:
 
 以下は、Swiftを使用してiOSアプリでカスタムイベントをログに記録する例です。
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.logCustomEvent("completed_level")
 ```
 
-この例では、「completed_level」は、ユーザーがゲームでレベルをクリアしたときにログに記録されるカスタムイベントの名前です。このカスタムイベントはBrazeのユーザープロファイルに記録され、Campaignのトリガーやメッセージングのパーソナライズに使用できます。
+この例では、「completed_level」は、ユーザーがゲームでレベルをクリアしたときにログに記録されるカスタムイベントの名前です。このカスタムイベントはBrazeのユーザープロファイルに記録され、キャンペーンのトリガーやメッセージングのパーソナライズに使用できます。
 
 詳細については、専用の[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)の記事をご覧ください。
 
@@ -99,7 +99,7 @@ Appboy.sharedInstance()?.logCustomEvent("completed_level")
 
 以下は、Swiftを使用してiOSアプリでカスタムイベントをログに記録する例です。
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.logCustomEvent("updated_profile")
 ```
 
@@ -110,7 +110,7 @@ Appboy.sharedInstance()?.logCustomEvent("updated_profile")
 
 以下は、Swiftを使用してiOSアプリでプロパティ付きのカスタムイベントをログに記録する例です。
 
-```swift
+`````````swift
 let properties: [AnyHashable: Any] = ["Property Name": "Property Value"]
 Appboy.sharedInstance()?.logCustomEvent("updated_profile", withProperties: properties)
 ```
@@ -138,7 +138,7 @@ Let's say you have an eCommerce app, and you want to track the purchase itself a
 
 Here's an example of how you might do this in an iOS app using Swift:
 
-```swift
+`````````swift
 let properties: [AnyHashable: Any] = ["Product Category": "Electronics"]
 Appboy.sharedInstance()?.logCustomEvent("Purchase", withProperties: properties)
 ```
@@ -151,7 +151,7 @@ Consider a fitness app where users can purchase personal training sessions or pr
 
 Here's an example of how you might do this in an iOS app using Swift:
 
-```swift
+`````````swift
 let properties: [AnyHashable: Any] = ["Workout Plan": "10 Sessions Personal Training"]
 Appboy.sharedInstance()?.logCustomEvent("Purchase", withProperties: properties)
 ```

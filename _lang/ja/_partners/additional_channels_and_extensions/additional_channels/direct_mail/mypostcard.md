@@ -36,13 +36,9 @@ MyPostcardとBrazeの統合を使用すると、印刷物の郵送を簡単に�
 
 MyPostcardと統合するには、[ログインまたはサインアップ](https://www.mypostcard.com/b2b/admin/)して、[Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/)を使って最初のキャンペーンを作成します。
 
-### ステップ1: Braze Webhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
+### ステップ 1:Braze Webhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 
-Brazeプラットフォームで**テンプレート** > **Webhookテンプレート**に移動し、今後のCampaignsやCanvasesで使用するMyPostcard Webhookテンプレートを作成します。
-
-{% alert note %}
-[古いナビゲーション]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/)を使用している場合は、**エンゲージメント** > **テンプレートとメディア** > **Webhookテンプレート**に移動してください。
-{% endalert %}
+今後のCampaignsやCanvasesで使用するMyPostcard Webhookテンプレートを作成するには、Brazeプラットフォームで**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
 単発のMyPostcard Webhookキャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新規キャンペーン作成時にBrazeで**Webhook**を選択します。以下のフィールドに入力してください。
 
@@ -93,12 +89,12 @@ B2B管理ツールに表示されているリクエスト本文をコピーし�
 
 ![JSON本文とWebhook情報を示す「作成」タブ。]({% image_buster /assets/img/mypostcard/mypostcard_compose.jpg %})
 
-### ステップ2: リクエストをプレビューする {#step-2-preview-your-request}
+### ステップ 2:リクエストをプレビューする {#step-2-preview-your-request}
 
-次に、**プレビュー**パネルでリクエストをプレビューするか、**テスト**タブに移動して、ランダムユーザー、既存ユーザーを選択するか、カスタムユーザーを作成してwebhookをテストします。ページを離れる前にテンプレートを保存することを忘れないでください。
+次に、**プレビュー**パネルでリクエストをプレビューするか、**テスト**タブに移動して、ランダムユーザー、既存ユーザーを選択するか、カスタムユーザーを作成してWebhookをテストします。ページを離れる前にテンプレートを保存することを忘れないでください。
 
 ![実装を検証するためのさまざまなフィールドを持つWebhookテストタブ。]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済みWebhookテンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}

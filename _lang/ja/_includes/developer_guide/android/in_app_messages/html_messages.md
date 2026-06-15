@@ -25,7 +25,7 @@ myWebView.addJavascriptInterface(javascriptInterface, "brazeInternalBridge");
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val javascriptString = context.assets.getAssetFileStringContents("braze-html-bridge.js")
 myWebView.loadUrl("javascript:" + javascriptString!!)
 
@@ -42,7 +42,7 @@ YouTubeやその他のHTML5コンテンツは、HTMLアプリ内メッセージ�
 
 以下は、HTMLスニペットにYouTube動画を埋め込んだ例です。
 
-```html
+`````````html
 <body>
     <div class="box">
         <div class="relativeTopRight">
@@ -61,7 +61,7 @@ AndroidのHTMLアプリ内メッセージでディープリンクや外部リン
 以下は、コードスニペットにおけるディープリンクの例です。
 
 {% raw %}
-```javascript
+`````````javascript
 <script>
 document.querySelectorAll('[data-button-id]').forEach(function (node)
 Unknown macro: { node.addEventListener('click', function () { brazeBridge.logClick(node.dataset.buttonId); brazeBridge.closeMessage(); }); }

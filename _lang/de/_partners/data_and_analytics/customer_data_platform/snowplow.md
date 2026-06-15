@@ -34,7 +34,7 @@ Nutzen Sie die umfangreichen Verhaltensdaten von Snowplow, um leistungsstarke ku
 | Zugang zur Snowplow-Konsole | Sie müssen Zugriff auf die Snowplow-Konsole haben, um Event-Forwarder zu konfigurieren.                                                                                                                                                                                                                                |
 | Braze REST-API-Schlüssel      | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` und `users.alias.update`. <br><br> Sie können diesen im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellen. |
 | Braze REST-Endpunkt     | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                                                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 

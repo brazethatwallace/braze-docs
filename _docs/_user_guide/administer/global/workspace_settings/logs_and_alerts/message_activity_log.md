@@ -24,7 +24,7 @@ In addition to this article, we also recommend checking out our [Quality Assuran
 You can filter by the following content logged in the **Message Activity Log**:
 
 - Push notification errors
-- Aborted message errors
+- Aborted templated in-app message errors
 - Webhook errors
 - Mail errors
 - API message records

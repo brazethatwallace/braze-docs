@@ -12,7 +12,7 @@ search_tag: Partner
 
 > このパートナーページでは、独自のクエリを設定する際に参照できるメールクリッククエリの設定例を紹介します。
 
-このメールクリッククエリを使用して、Braze CampaignsおよびCanvasesの特定のメールに対するインタラクションを分析できます。
+このメールクリッククエリを使用して、Braze キャンペーンおよびキャンバスの特定のメールに対するインタラクションを分析できます。
 
 ## このクエリを設定する {#set-up-this-query}
 
@@ -34,7 +34,7 @@ show stages;
 
 テーブルを作成するには、次のコマンドを使用します。
 
-```sql
+`````````sql
 CREATE TABLE
   braze_currents.public.users_messages_email_click (
     id STRING,
@@ -60,7 +60,7 @@ CREATE TABLE
 
 パイプを作成または置換するには、次のコマンドを使用します。
 
-```sql
+`````````sql
 CREATE OR REPLACE PIPE
   pipe_users_messages_email_click
     auto_ingest=true AS
@@ -99,14 +99,14 @@ show pipes;
 前述のコマンドの出力から `notification_channel` をコピーし、S3バケット通知を設定する際に使用します。
 
 指定された以下のパイプ名について、S3からSnowflakeに手動で同期します。
-```sql
+`````````sql
 ALTER PIPE
   pipe_users_messages_email_click
   refresh ;
 ```
 
 パイプのステータスを確認します。これにより、S3からSnowflakeにメッセージが転送されたタイミングが表示されます。
-```sql
+`````````sql
 SELECT
   SYSTEM$PIPE_STATUS(
     'pipe_users_messages_email_click'
@@ -114,6 +114,6 @@ SELECT
 ```
 
 最後に、以下から `*` を選択して、テーブルのコピー履歴を表示します。
-```sql
+`````````sql
 table(braze_currents.information_schema.copy_history(table_name=>'users_messages_email_click', start_time=> dateadd(hours, -1, current_timestamp())));
 ```

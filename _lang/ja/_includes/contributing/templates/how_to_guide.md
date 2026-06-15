@@ -58,6 +58,6 @@ CONTENT.
 <!-- An optional section for what is supported. Add nested headers to be more specific. -->
 ## Supported data types / Supported attributes / Supported events / Supported ETC.
 CONTENT.
-``````
+```
 {% endraw %}
 {% enddetails %}

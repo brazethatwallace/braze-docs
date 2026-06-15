@@ -26,15 +26,15 @@ Mit der Integration von Braze und OpenAI können Sie Ihren OpenAI-API-Schlüssel
 |---|---|
 | OpenAI-Konto mit API-Schlüssel | Ein OpenAI-Konto mit einem API-Schlüssel. Wenden Sie sich bei Problemen oder Fragen an Ihre:n Administrator:in oder den [OpenAI-Support](https://help.openai.com/). |
 | Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 So verbinden Sie Ihren OpenAI-API-Schlüssel mit Braze:
 
-1. Gehen Sie im Braze-Dashboard zu **Partner Integrations** > **Technology Partners** und suchen Sie OpenAI.
+1. Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und suchen Sie OpenAI.
 2. Geben Sie Ihren API-Schlüssel von OpenAI ein.
-3. Wählen Sie **Save**.
+3. Wählen Sie **Speichern**.
 
 Nach dem Speichern können Sie OpenAI-Modelle auswählen, wenn Sie [einen angepassten Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) – direkt in der Agentenkonsole.
 

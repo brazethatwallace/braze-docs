@@ -34,7 +34,7 @@ Antes de começar, você precisará do seguinte:
 ### Etapa 2: Configure o Conteúdo conectado da Braze {#step-2-configure-braze-connected-content}
 
 1. [Faça login na Braze](https://dashboard.braze.com/sign_in) com suas credenciais.
-2. No dashboard da Braze, acesse **Templates** > **Content Blocks** > **Create Content Block** > **HTML code editor**.
+2. No dashboard da Braze, acesse **Content** > **Content Block** > **Create Content Block** > **HTML code editor**.
 3. Crie uma solicitação de Conteúdo conectado para a [URL da API de Entrega de Conteúdo do Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links). Um exemplo de URL da API de Entrega de Conteúdo do Contentful é `https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries`.<br><br> A recuperação de diferentes ativos requer a inclusão de variáveis específicas. A solicitação de URL de Conteúdo conectado do exemplo tem como alvo o endpoint [Entry](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console) do Contentful. Esse endpoint precisa de variáveis como `{space_id}` e `{environment_id}`, ou `{entry_id}` e `{access_token}`. Esses valores podem ser obtidos da sua instância do Contentful. Neste exemplo de bloco de conteúdo, as variáveis devem ser substituídas pelo seu Space ID e Environment ID do Contentful.<br><br>A URL de exemplo da API de Entrega de Conteúdo usa apenas um dos endpoints disponíveis do Contentful. Diferentes casos de uso podem ser alcançados aproveitando diferentes URLs. Por exemplo, a [Image API](https://www.contentful.com/developers/docs/references/images-api/) pode ser usada para capturar imagens armazenadas no Contentful. Para saber mais, consulte a [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/).
 
 {% alert note %}
@@ -62,7 +62,7 @@ Diferentes endpoints podem exigir novas variáveis; por exemplo, a Images API re
 5. Selecione **Done** para salvar seu bloco de conteúdo.
 6. Dê ao seu bloco de conteúdo um nome descritivo, como "API Contentful", e então selecione **Launch Content Block**.
 
-### Etapa 3: Use o Conteúdo conectado em Campaigns e Canvases {#step-3-use-connected-content-in-campaigns-and-canvasses}
+### Etapa 3: Use o Conteúdo conectado em Campaigns e Canvas {#step-3-use-connected-content-in-campaigns-and-canvasses}
 
 1. Na Braze, crie uma nova Campaign ou edite uma existente.
 2. Use o bloco de Conteúdo conectado para inserir dados buscados do Contentful. Use os caminhos de dados que você definiu durante a configuração para preencher dinamicamente o conteúdo da Campaign.<br><br>

@@ -113,7 +113,7 @@ Les utilisateurs sélectionnent plusieurs options ; les valeurs définissent ou 
 
 ### Texte long {#long-text}
 
-Champ de texte multiligne pour les flux de type enquête. Si vous ne voyez pas ce bloc, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) ou votre gestionnaire de la satisfaction client Braze.
+Champ de texte multiligne pour les flux de type enquête. Si vous ne voyez pas ce bloc, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) ou votre gestionnaire de la satisfaction client Braze. Ce bloc n'est pas disponible pour les pages d'accueil standard.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 

@@ -25,7 +25,7 @@ Braze と Lexer の統合により、この2つのプラットフォーム間で
 | Braze REST APIキー | すべての `user` 権限（`user.delete` を除く）と `segment.list` 権限を持つ Braze REST APIキー。Lexer でサポートされる Braze オブジェクトの増加に伴い、権限セットが変わる可能性があります。このため、この時点でより多くの権限を付与するか、これらの権限を今後更新する計画を立てることをお勧めします。<br><br> これは、Braze ダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze REST エンドポイント | [REST エンドポイントのURL]({{site.baseurl}}/api/basics/#endpoints)。エンドポイントは、インスタンスの Braze URL に依存します。 |
 | Amazon AWS S3 バケットと認証情報 | 統合を開始する前に、Lexer ハブに接続されている AWS S3 バケット（お客様が作成したバケットまたは Lexer がお客様のために作成して管理しているバケット）のアクセス認証情報が必要です。この要件に関するガイダンスについては、[Lexer](https://learn.lexer.io/docs/amazon-s3) を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 

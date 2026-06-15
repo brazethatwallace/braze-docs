@@ -104,7 +104,7 @@ To create an audience in mParticle:
 
 | Field Name               | Description                                                                                                                                                                   |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API key                  | Found in the Braze dashboard at **Settings** > **API Keys**.<br><br>If you are using the older navigation, you can find API keys at **Developer Console** > **API Settings**. |
+| API key                  | In the Braze dashboard, go to **Settings** > **API Keys**. |
 | API key operating system | Select which operating system your Braze API key corresponds to. This selection will limit the types of push tokens forwarded on an audience update.                          |
 | Send segments as         | The method of sending audiences to Braze. See the section [Forwarding audiences](#forwarding-audiences) for details.                                                          |
 | Workspace REST API key   | Braze REST API key with full permissions. This can be created in the Braze dashboard from **Settings** > **API Keys**.                                                        |
@@ -276,6 +276,7 @@ If push notifications are not working when using the Braze event kit (embedded k
 3. **Method swizzling:** The mParticle Apple kit uses method swizzling to automatically forward push tokens and handle push notification events. If you have disabled swizzling or another SDK is interfering, push tokens may not reach Braze. Verify that swizzling is enabled in your mParticle configuration.
 4. **Manual token handling:** If you manage push tokens manually (for example, by implementing `application:didRegisterForRemoteNotificationsWithDeviceToken:`), make sure you are passing the token to mParticle by assigning it to the push notification token property, for example: `MParticle.sharedInstance().pushNotificationToken = deviceToken`. The kit will then forward it to Braze.
 5. **Environment mismatch:** Confirm the APNs credential environment (development vs. production) matches your app's build. For details, refer to [iOS push troubleshooting]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift).
+6. **Kit initialization timing:** If you access the Braze instance from `didFinishLaunchingWithOptions`, the mParticle kit may not be ready when a push arrives. Initialize push handling in [`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) (or the equivalent notification response delegate) so the Braze kit is active when the user opens a notification.
 
 ### Sending unnecessary or duplicate data to Braze
 Braze counts a data point each time an attribute is passed to Braze, even if the value is unchanged. For this reason, Braze recommends only forwarding data needed to action on within Braze and ensuring that only deltas of attributes are being passed.

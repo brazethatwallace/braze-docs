@@ -1,15 +1,15 @@
 ---
 nav_title: LinkedIn
-article_title: Canvas オーディエンスの LinkedIn への同期
+article_title: CanvasオーディエンスのLinkedInへの同期
 alias: /linkedin_audience_sync/
-description: "このリファレンス記事では、Braze Audience Sync to LinkedIn を使用して、行動トリガーやセグメンテーションなどに基づいて広告を配信する方法について説明します。"
+description: "このリファレンス記事では、Braze Audience Sync to LinkedInを使用して、行動トリガーやセグメンテーションなどに基づいて広告を配信する方法について説明します。"
 tool:
   - Canvas
 page_order: 4
 
 ---
 
-# LinkedIn へのオーディエンス同期 {#audience-sync-to-linkedin}
+# LinkedInへのオーディエンス同期 {#audience-sync-to-linkedin}
 
 Braze Audience Sync to LinkedInを使用すると、ブランドはBraze統合のユーザーデータをLinkedIn顧客リストに追加して、行動トリガー、セグメンテーションなどに基づいて広告を配信できます。ユーザーデータに基づいてBraze Canvasでメッセージをトリガーするために通常使用する基準（プッシュ、メール、SMS、Webhookなど）を使用して、LinkedIn顧客リスト内の該当ユーザーに対して広告をトリガーできるようになりました。
 
@@ -25,17 +25,17 @@ Braze Audience Sync to LinkedInを使用すると、ブランドはBraze統合�
 
 ## 前提条件 {#prerequisites}
 
-Canvasで LinkedIn へのオーディエンス同期ステップを設定する前に、以下の項目が作成、完了、または承認されていることを確認する必要があります。
+CanvasでLinkedInへのオーディエンス同期ステップを設定する前に、以下の項目が作成、完了、または承認されていることを確認する必要があります。
 
 | 必要条件 | 提供元 | 説明 |
 | --- | --- | --- |
-| LinkedIn 広告アカウント | [LinkedIn](https://www.linkedin.com/campaignmanager) | ブランドに関連付けられたアクティブなLinkedIn広告アカウント。<br><br>そのアカウントにアクセスして使用するための関連するLinkedInの利用規約に同意していること、およびLinkedIn管理者によってオーディエンスを管理するための適切な権限が付与されていることを確認してください。 |
-| LinkedIn の利用規約とポリシー | LinkedIn | LinkedIn Audience Syncの使用に関連するLinkedInの必須規約、ポリシー、ガイドライン、およびドキュメント（参照によって組み込まれるものを含む）を遵守することに同意するものとします。これには、LinkedInのサービス規約、広告契約、データ処理契約、プロフェッショナルコミュニティガイドラインが含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| LinkedIn広告アカウント | [LinkedIn](https://www.linkedin.com/campaignmanager) | ブランドに関連付けられたアクティブなLinkedIn広告アカウント。<br><br>そのアカウントにアクセスして使用するための関連するLinkedInの利用規約に同意していること、およびLinkedIn管理者によってオーディエンスを管理するための適切な権限が付与されていることを確認してください。 |
+| LinkedInの利用規約とポリシー | LinkedIn | LinkedIn Audience Syncの使用に関連するLinkedInの必須規約、ポリシー、ガイドライン、およびドキュメント（参照によって組み込まれるものを含む）を遵守することに同意するものとします。これには、LinkedInのサービス規約、広告契約、データ処理契約、プロフェッショナルコミュニティガイドラインが含まれます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
-### ステップ 1: LinkedIn への接続 {#step-1-connect-to-linkedin}
+### ステップ1: LinkedInへの接続 {#step-1-connect-to-linkedin}
 
 {% alert important %}
 LinkedInをBrazeアカウントに接続するには、[「Admin」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)が必要です。
@@ -55,7 +55,7 @@ Brazeダッシュボードで、**テクノロジーパートナー**に移動�
 
 LinkedIn接続はBrazeワークスペースレベルで適用されます。LinkedIn管理者がLinkedIn広告アカウントからユーザーを削除した場合、Brazeは無効なトークンを検出します。その結果、LinkedInを使用しているアクティブなCanvasesにはエラーが表示され、Brazeはユーザーを同期できなくなります。
 
-### ステップ 2: Canvasのエントリ条件を設定する {#step-2-configure-your-canvas-entry-criteria}
+### ステップ2: Canvasのエントリ条件を設定する {#step-2-configure-your-canvas-entry-criteria}
 
 広告トラッキング用のオーディエンスを構築する際、ユーザーの設定に基づいて特定のユーザーを含めたり除外したり、[CCPA](https://oag.ca.gov/privacy/ccpa)の「販売・共有の拒否」権利などのプライバシー法に準拠したりすることが必要になる場合があります。マーケターは、Canvasのエントリ条件内でユーザーの適格性に関する適切なフィルターを実装する必要があります。以下にいくつかのオプションを示します。
 
@@ -69,13 +69,13 @@ LinkedIn接続はBrazeワークスペースレベルで適用されます。Link
 
 Brazeプラットフォーム内でこれらのデータ保護法に準拠する方法の詳細については、[データ保護テクニカルアシスタンス]({{site.baseurl}}/dp-technical-assistance/)を参照してください。
 
-### ステップ 3: LinkedInを使用したオーディエンス同期ステップの追加 {#step-3-add-an-audience-sync-step-with-linkedin}
+### ステップ3: LinkedInを使用したオーディエンス同期ステップの追加 {#step-3-add-an-audience-sync-step-with-linkedin}
 
 Canvasにコンポーネントを追加し、「Audience Sync」を選択します。**Custom Audience**ボタンをクリックしてコンポーネントエディターを開きます。
 
 ![利用可能なコンポーネントのリストが表示されたCanvasエディター。]({% image_buster /assets/img/linkedin/linkedin2.png %}){: style="max-width:35%;"} ![選択されたオーディエンス同期コンポーネント。]({% image_buster /assets/img/linkedin/linkedin1.png %}){: style="max-width:29%;"}
 
-### ステップ 4: 同期設定 {#step-4-sync-setup}
+### ステップ4: 同期設定 {#step-4-sync-setup}
 
 **LinkedIn**を目的のオーディエンス同期パートナーとして選択します。
 
@@ -115,7 +115,7 @@ Brazeは、既存のLinkedInオーディエンスにユーザーを追加して�
 {% endtab %}
 {% endtabs %}
 
-### ステップ 5: Canvasの起動 {#step-5-launch-canvas}
+### ステップ5: Canvasの起動 {#step-5-launch-canvas}
 
 LinkedInへのオーディエンス同期を設定したら、Canvasを起動するだけです！新しいオーディエンスが作成され、オーディエンス同期ステップを通過するユーザーはLinkedInのこのオーディエンスに送られます。Canvasに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
@@ -142,7 +142,7 @@ LinkedInのAPIレート制限では、1秒あたり最大10クエリ、1リク�
 | 保留中のユーザー | BrazeがLinkedInに同期するために現在処理中のユーザーの数。 |
 | エラーが発生したユーザー | 約13時間の再試行後にAPIエラーのためLinkedInに同期されなかったユーザーの数。エラーの原因としては、LinkedInトークンが無効である場合や、LinkedInでオーディエンスが削除された場合などが考えられます。 |
 | Canvasの終了 | Canvasを終了したユーザーの数。これは、Canvasの最後のステップがオーディエンス同期コンポーネントである場合に発生します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="分析の理解" }
 
 {% alert important %}
 一括フラッシャーと13時間の再試行により、同期されたユーザーとエラーが発生したユーザーの指標のレポートに遅延が発生することに注意してください。
@@ -182,6 +182,6 @@ LinkedInは、ダッシュボードでマッチ率に関する情報を提供し
 
 現在、LinkedIn広告アカウントのオーディエンス数に制限はありません。
 
-### SegmentがBUILDINGステータスに留まり、更新されないのはなぜですか？ {#why-is-a-segment-stuck-in-building-status-and-not-updated}
+### Segmentが「BUILDING」ステータスに留まり、更新されないのはなぜですか？ {#why-is-a-segment-stuck-in-building-status-and-not-updated}
 
 Segmentは、下書きまたはアクティブなCampaignで30日間継続的に使用されない場合、未使用と見なされARCHIVEDに設定されます。このため、更新がARCHIVEDのSegmentにストリーミングされると、SegmentがBUILDING状態に「スタック」したように見えることがあります。BUILDING状態に移行し、再度アーカイブされる直前に、新しい更新が未使用のSegmentにストリーミングされます。

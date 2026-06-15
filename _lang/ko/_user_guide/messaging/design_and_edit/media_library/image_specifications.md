@@ -2,7 +2,6 @@
 nav_title: 이미지 사양
 article_title: 이미지 사양
 page_order: 1
-
 page_type: reference
 description: "이 참조 문서에서는 각 채널 유형에 대한 권장 이미지 크기 및 사양을 설명합니다."
 tool:
@@ -28,6 +27,8 @@ tool:
 ## GIF {#gifs}
 
 GIF는 iOS 푸시, 인앱 메시지, 이메일, Content Cards, MMS 또는 RCS 메시지에서 지원됩니다. 매우 길쭉한 형태(예: 3000 x 2 픽셀)이거나 300프레임 이상인 GIF는 전체 파일 크기가 작더라도 업로드에 실패할 수 있습니다.
+
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 ## 채널 가이드 {#channel-guidance}
 

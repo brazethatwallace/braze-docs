@@ -10,7 +10,7 @@ channel:
 
 # Bring Your Own WhatsAppコネクター {#bring-your-own-whatsapp-connector}
 
-> Bring Your Own（BYO）WhatsAppコネクターは、BrazeとInfobipのパートナーシップを提供するもので、BrazeにInfobip WhatsApp Business Manager（WABA）へのアクセスを許可します。これにより、Brazeでセグメンテーション、パーソナライゼーション、Campaignオーケストレーションを活用しながら、メッセージングコストをInfobipと直接管理・支払いできます。Brazeは、送信メッセージ、受信メッセージ処理、WhatsAppフロー、分析など、WhatsAppチャネルが提供する既存の機能をすべて維持します。
+> Bring Your Own（BYO）WhatsAppコネクターは、BrazeとInfobipのパートナーシップを提供するもので、BrazeにInfobip WhatsApp Business Manager（WABA）へのアクセスを許可します。これにより、Brazeでセグメンテーション、パーソナライゼーション、キャンペーンオーケストレーションを活用しながら、メッセージングコストをInfobipと直接管理・支払いできます。Brazeは、送信メッセージ、受信メッセージ処理、WhatsAppフロー、分析など、WhatsAppチャネルが提供する既存の機能をすべて維持します。
 
 ## 要件 {#requirements}
 

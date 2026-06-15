@@ -14,6 +14,32 @@ channel:
 
 {% multi_lang_include push/subscription_states.md %}
 
+## Onde o registro e o status de push aparecem {#where-push-registration-and-status-appear}
+
+Você pode verificar o estado de inscrição de push, o registro e a ativação em três locais principais na Braze:
+
+1. **[Perfis de usuário](#user-profiles-and-push-changelog)** na guia **Engagement**
+2. **[Segmentação](#segmentation-and-push-filters)** no criador de segmentos
+3. **[Analytics de Campaign e Canvas](#campaign-and-canvas-analytics)** na página de análise de dados de cada mensagem
+
+### Perfis de usuário e changelog de push {#user-profiles-and-push-changelog}
+
+No perfil de um usuário ([**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) > selecione o usuário > guia **Engagement**), **Contact Settings** lista o estado de inscrição de push, **Push Registered For** (quais apps e plataformas a Braze pode usar para enviar push em primeiro plano para aquele perfil) e o **Push Changelog** para movimentações de token, erros e atualizações de registro. Para saber como interpretar **Push Registered For** e a autorização de primeiro plano versus segundo plano, consulte [Verificando o status de registro de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status).
+
+No iOS e Android, quando um dispositivo passa de autorização de push em primeiro plano para apenas segundo plano (por exemplo, depois que o usuário desativa notificações nas configurações do sistema e o SDK reporta a mudança), o changelog de push pode incluir uma entrada como "Push token was updated from foreground push enabled to foreground push disabled".
+
+Depois de esperar novos dados do SDK (por exemplo, logo após uma sessão de teste), selecione **Refresh** no perfil do usuário se os valores parecerem desatualizados. Pode haver um pequeno atraso entre o envio dos dados pelo SDK e a atualização do perfil com o registro de push mais recente.
+
+Para usuários que você adiciona a um [grupo interno]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/), selecione **Record User Events for group members** nas **Internal Group Settings** daquele grupo para que as solicitações do SDK apareçam no registro. Em seguida, abra o [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) em **Settings** > **Event User Log**, encontre as solicitações do SDK do usuário e expanda a carga útil bruta. Você pode inspecionar campos como `remote_notification_enabled` ao validar se o dispositivo reporta notificações remotas como ativadas ou desativadas.
+
+### Segmentação e filtros de push {#segmentation-and-push-filters}
+
+No criador de segmentos, use filtros como **`Foreground Push Enabled`**, **`Foreground Push Enabled for App`**, **`Background or Foreground Push Enabled`** e filtros de inscrição de push para segmentar ou auditar usuários por preferência e autorização no nível do dispositivo. No iOS, como esses filtros são interpretados para um determinado usuário depende de ele ter concluído o prompt do SO, alterado configurações ou usar [autorização provisória](#provisional-push); consulte [Ações do usuário no iOS e status de push](#ios-user-actions-push-status) e [Outros cenários específicos de plataforma](#foreground-push-enabled).
+
+### Analytics de Campaign e Canvas {#campaign-and-canvas-analytics}
+
+Na página de análise de dados de uma **Campaign** ou **Canvas** de push, métricas como *Enviadas*, *Bounces* e *Aberturas* refletem a entrega e o engajamento daquele envio. Para cruzar esses números com perfis individuais, exporte os destinatários em **Campaign Details** ou **Canvas Details** usando **User Data** (CSV). Para etapas e permissões, consulte [Exportar dados de Campaign]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/) e [Exportar dados de Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/). Se as contagens entre a análise de dados e uma exportação não coincidirem, consulte [Analytics de Campaign e Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/#campaign-and-canvas-analytics) na solução de problemas de exportação.
+
 ## Ações do usuário no iOS e status de push {#ios-user-actions-push-status}
 
 A tabela a seguir mostra como diferentes ações do usuário afetam a ativação de push no iOS, o registro de push em primeiro ou segundo plano e o status de inscrição de push na Braze. Quando um usuário instala seu app e inicia a primeira sessão, o estado geralmente é o mostrado na primeira linha. Cada ação subsequente pode atualizar alguns desses valores, mas não outros.
@@ -96,9 +122,9 @@ Os tokens de push são específicos tanto para o dispositivo quanto para o app, 
 
 Por exemplo, digamos que você tem dois usuários: Charlie e Kim. Se Charlie ativou notificações por push para seu app no telefone dele e Kim usa o telefone de Charlie para sair do perfil de Charlie e entrar no dela, o token de push será reatribuído ao perfil de Kim. O token de push permanecerá atribuído ao perfil de Kim naquele dispositivo até que ela saia e Charlie faça login novamente.
 
-Um app ou site pode ter apenas uma inscrição de push por dispositivo. Então, quando um usuário sai de um dispositivo ou site e um novo usuário faz login, o token de push é reatribuído ao novo usuário. Isso é refletido no perfil do usuário, na seção **Configurações de contato** da guia **Engajamento**:
+Um app ou site pode ter apenas uma inscrição de push por dispositivo. Então, quando um usuário sai de um dispositivo ou site e um novo usuário faz login, o token de push é reatribuído ao novo usuário. Isso é refletido no perfil do usuário, na seção **Contact Settings** da guia **Engagement**:
 
-![Changelog do token de push na guia Engajamento do perfil de um usuário, que lista quando o token de push foi movido para outro usuário e qual era o token.]({% image_buster /assets/img/push_token_changelog.png %})
+![Changelog do token de push na guia Engagement do perfil de um usuário, que lista quando o token de push foi movido para outro usuário e qual era o token.]({% image_buster /assets/img/push_token_changelog.png %})
 
 Como não há uma forma de os provedores de push (APNs/FCM) distinguirem entre múltiplos usuários em um dispositivo, passamos o token de push para o último usuário que fez login para determinar qual usuário direcionar no dispositivo para push.
 
@@ -128,11 +154,11 @@ No dashboard, você pode encontrar informações sobre registro de push e change
 
 - **Segmentação** – Filtre por estados de inscrição dos usuários, estado de ativação e estado de ativação em primeiro e segundo plano.
 - **Analytics de Campaign** – Visualize estatísticas de push e feedback para uma única Campaign ou Canvas.
-- **Perfil do usuário (guia Engajamento)** – Visualize **Configurações de contato** e o changelog de push para um usuário específico.
+- **Perfil do usuário (guia Engagement)** – Visualize **Contact Settings** e o changelog de push para um usuário específico.
 
 Ao revisar o estado de push ativado, **Push Registered for** indica para quais plataformas a Braze pode enviar push em primeiro plano para aquele usuário. No iOS e Android, se um usuário passou de push de primeiro plano ativado para push de segundo plano ativado (`remote_notification_enabled`), isso será documentado no changelog de push como "Push token was updated from foreground push enabled to foreground push disabled."
 
-Se o usuário for adicionado como usuário teste, em **Console de desenvolvedor** > **User Event Log**, o perfil do usuário mostrará uma solicitação do SDK com `remote_notification_enabled` como `true` ou `false`. Pode ser necessário atualizar o perfil do usuário para visualizar as atualizações, pois há um pequeno atraso para que as atualizações do SDK cheguem ao perfil do usuário.
+Se o usuário for adicionado como usuário teste, em **Console de desenvolvedor** > **Event User Log**, o perfil do usuário mostrará uma solicitação do SDK com `remote_notification_enabled` como `true` ou `false`. Pode ser necessário atualizar o perfil do usuário para visualizar as atualizações, pois há um pequeno atraso para que as atualizações do SDK cheguem ao perfil do usuário.
 
 **Filtros de segmentação para estado de push no iOS:**
 
@@ -153,7 +179,7 @@ Para gerenciar inscrições, você pode usar o método de usuário [`setPushNoti
 
 Se um usuário desativar notificações no navegador, a próxima notificação por push enviada a esse usuário sofrerá bounce, e a Braze atualizará o token de push do usuário de acordo. Isso é usado para gerenciar a elegibilidade para os filtros de push ativado (`Background or Foreground Push Enabled`, `Foreground Push Enabled` e `Foreground Push Enabled for App`). O status de inscrição definido no perfil do usuário é uma configuração no nível do usuário e não muda quando um push sofre bounce.
 
-### Erros 410 de token de push para Web {#410-web-push-token-errors}
+### Erros 410 de token de push para Web {#410-web-push-token-errors} {#410-web-push-token-errors}
 
 Se você receber um erro `410: Gone`, isso pode ocorrer quando um usuário desativa notificações por push para a web nas configurações do SO do navegador, ou se está fazendo login como um usuário diferente no mesmo dispositivo, ou se o usuário não visitou o site há algum tempo.
 

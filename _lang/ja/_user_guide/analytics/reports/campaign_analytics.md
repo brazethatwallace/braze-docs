@@ -4,10 +4,10 @@ article_title: キャンペーン分析
 page_order: 1
 layout: dev_guide
 guide_top_header: "キャンペーン分析"
-guide_top_text: "キャンペーン分析では、各Campaignおよびそのバリアントの概要結果をリアルタイムで更新し、メッセージレベルの詳細も確認できます。以下のメッセージングチャネルから選択して、そのチャネルに固有のキャンペーン分析について詳しく学びましょう。また、これらの分析の概要については、<a href='https://learning.braze.com/campaign-setup-delivery-targeting-conversions'>Campaignセットアップ</a> Brazeラーニングコースもご覧ください。"
+guide_top_text: "キャンペーン分析では、各キャンペーンおよびそのバリアントの概要結果をリアルタイムで更新し、メッセージレベルの詳細も確認できます。以下のメッセージングチャネルから選択して、そのチャネルに固有のキャンペーン分析について詳しく学びましょう。また、これらの分析の概要については、<a href='https://learning.braze.com/campaign-setup-delivery-targeting-conversions'>キャンペーンセットアップ</a> Brazeラーニングコースもご覧ください。"
 
 page_type: landing
-description: "このランディングページでは、各メッセージングチャネルのCampaignレポート、リテンションレポート、およびファネルレポートについて説明しています。"
+description: "このランディングページでは、各メッセージングチャネルのキャンペーンレポート、リテンションレポート、およびファネルレポートについて説明しています。"
 tool: Reports
 
 guide_featured_title: "メッセージングチャネル"

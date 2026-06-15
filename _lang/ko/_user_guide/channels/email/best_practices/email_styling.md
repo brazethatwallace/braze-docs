@@ -137,6 +137,10 @@ channel: email
 | 최대 5&nbsp;MB | 최대 600픽셀 | 최대 480픽셀 | PNG, JPEG, GIF |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Image size" }
 
+{% alert note %}
+Gmail 웹 및 Gmail 모바일 앱은 SVG를 렌더링하지 못하는 경우가 많습니다(WEBP 지원도 일관적이지 않습니다). Gmail에서 안정적으로 표시되어야 하는 이미지에는 PNG 또는 JPEG를 사용하세요.
+{% endalert %}
+
 ## 딥링킹 {#deep-linking}
 
 푸시 알림과 인앱 메시지에서 [딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)는 사용자를 앱 내 지정된 대상으로 직접 이동시킵니다. 그러나 딥링크는 앱이 설치되어 있어야 하며, 이메일은 수신자가 앱을 설치했는지 확인할 방법을 제공하지 않습니다. 따라서 이메일의 딥링크는 앱이 설치되지 않은 수신자에게 오류를 발생시킬 수 있습니다.

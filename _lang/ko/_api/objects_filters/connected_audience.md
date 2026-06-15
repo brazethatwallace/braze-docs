@@ -11,12 +11,12 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 
 > 연결된 오디언스는 API 요청 내에서 인라인으로 정의하는 동적 오디언스 필터로, Braze 대시보드에서 Segments를 생성하거나 관리하지 않고도 발송 시점에 적합한 사용자를 타겟팅할 수 있습니다.
 
-가능한 모든 오디언스 조합에 대해 Segment를 미리 만드는 대신, API 호출의 `audience` 파라미터에 필터 기준을 직접 전달합니다. Braze는 각 사용자를 해당 기준에 따라 실시간으로 평가하고, 조건에 일치하는 사용자에게만 메시지를 전달합니다. 즉, 단일 Campaign, Canvas 또는 API 전용 메시지 정의로 비즈니스 로직에 따라 무제한의 오디언스 변형을 처리할 수 있습니다.
+가능한 모든 오디언스 조합에 대해 Segment를 미리 만드는 대신, API 호출에 필터 기준을 직접 전달합니다. 엔드포인트에 따라 이 오브젝트는 `audience` 또는 `custom_audience`로 전달됩니다. Braze는 각 사용자를 해당 기준에 따라 실시간으로 평가하고, 조건에 일치하는 사용자에게만 메시지를 전달합니다. 즉, 단일 Campaign, Canvas 또는 API 전용 메시지 정의로 비즈니스 로직에 따라 무제한의 오디언스 변형을 처리할 수 있습니다.
 
 ## 작동 방식 {#how-it-works}
 
 1. Braze 대시보드에서 API 트리거 Campaign 또는 Canvas를 생성하여 메시지를 정의하거나, API 요청의 [메시징 오브젝트]({{site.baseurl}}/api/objects_filters/#messaging-objects)를 사용하여 메시지 콘텐츠를 완전히 인라인으로 정의합니다. 동적 개인화를 위해 [트리거 등록정보]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) 또는 [Canvas 컨텍스트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)를 사용합니다.
-2. 지원되는 엔드포인트를 호출하고 필터 기준과 함께 `audience` 파라미터를 포함합니다. 커스텀 속성, 푸시 구독 상태, 이메일 구독 상태, 마지막 앱 사용 시간을 기준으로 필터링할 수 있습니다.
+2. 지원되는 엔드포인트를 호출하고 연결된 오디언스 필터를 `audience` 파라미터에 포함합니다. `/messages/live_activity/start`의 경우 `custom_audience`에 포함합니다. 커스텀 속성, 푸시 구독 상태, 이메일 구독 상태, 마지막 앱 사용 시간을 기준으로 필터링할 수 있습니다.
 3. Braze가 발송 시점에 필터를 평가하여 기준에 일치하는 사용자에게만 메시지를 전달합니다.
 
 {% alert tip %}
@@ -27,7 +27,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 
 ### 호환 엔드포인트 {#compatible-endpoints}
 
-다음 엔드포인트에서 `audience` 파라미터와 함께 연결된 오디언스 오브젝트를 사용할 수 있습니다:
+다음 엔드포인트에서 연결된 오디언스 오브젝트를 사용할 수 있습니다:
 
 - [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)
@@ -35,6 +35,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 - [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 - [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/)
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) (`custom_audience` 사용)
 
 ## 활용 사례 {#use-cases}
 

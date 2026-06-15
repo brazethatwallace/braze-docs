@@ -17,8 +17,6 @@ description: "Este artigo descreve detalhes sobre o endpoint Atualizar traduçã
 
 > Use este endpoint para atualizar várias traduções para um [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `content_blocks.translations.update`.
@@ -27,9 +25,9 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parâmetros de jornada {#path-parameters}
+## Parâmetros de caminho {#path-parameters}
 
-Não há parâmetros de jornada para este endpoint.
+Não há parâmetros de caminho para este endpoint.
 
 ## Parâmetros de solicitação {#request-parameters}
 

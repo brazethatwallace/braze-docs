@@ -167,6 +167,12 @@ THIS_IS_A_MOCKED_CERTIFICATE_4ysJLTzETANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNy
 
 `ERROR_CODE_SSO_INVALID_RELAY_STATE` エラーが表示される場合、RelayStateが正しく設定されていないか、存在しない可能性があります。まだ設定していない場合は、IdP管理システムでRelayStateを設定する必要があります。手順については、[RelayStateのセットアップ](#setting-up-your-relaystate)を参照してください。
 
+### SSOサインインに成功してもBrazeのログインページに戻されますか？ {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+
+これはRelayStateが正しく設定されていない場合に発生することがあります。APIキー（**設定** > **APIキー**）をIdPサインイン用に作成し、そのAPIキーをIdPの `RelayState` パラメーターとして設定したことを確認してください。RelayStateは、サインインする会社アカウントを識別します。手順については、[RelayStateのセットアップ](#setting-up-your-relaystate)を参照してください。
+
+それでもサインインできない場合は、可能であればSAMLトレースを添えて[Brazeサポートに連絡]({{site.baseurl}}/braze_support/)してください。トレースのキャプチャ方法については、[SAMLトレースの取得](#obtaining-a-saml-trace)を参照してください。
+
 ### ユーザーがOktaとBrazeの間でサインインループに陥っていませんか？ {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
 Okta SSOとBrazeダッシュボードの間を循環してサインインできないユーザーがいる場合、Oktaに移動してSSO URLの送信先を[Brazeインスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)（例: `https://dashboard-07.braze.com`）に設定する必要があります。
@@ -176,6 +182,20 @@ Okta SSOとBrazeダッシュボードの間を循環してサインインでき�
 ### 手動統合を使用していますか？ {#are-you-using-a-manual-integration}
 
 会社がIdPのアプリストアからBrazeアプリをダウンロードしていない場合は、事前構築済みの統合をダウンロードする必要があります。例えば、IdPがOktaの場合は、[統合ページ](https://www.okta.com/integrations/braze/)からBrazeアプリをダウンロードします。
+
+## Google SSO
+
+会社がカスタムSAMLの代わりにGoogle SSOを使用している場合は、BrazeアカウントマネージャーにワークスペースのGoogle SSOの有効化を依頼してください。有効化された後、**セキュリティ設定**に移動し、**Enforce Google SSO only login**を選択して、すべての会社ユーザーにGoogle認証を要求します。
+
+Google SSOの強制が有効になると、ユーザーはGoogle認証でサインインする必要があり、Brazeパスワードは使用できなくなります。各ユーザーは、Brazeダッシュボードのメールアドレスと一致するGoogleアカウントでサインインする必要があります。サインイン時に別のGoogleアカウントを選択した場合、Brazeは認証の試行を拒否します。
+
+### Google SSOサインインのトラブルシューティング {#troubleshooting-google-sso-sign-in}
+
+一部のユーザーがGoogle SSOでサインインできない場合は、以下を確認してください:
+
+- ユーザーのGoogleアカウントのメールアドレスがBrazeダッシュボードのメールアドレスと完全に一致していること。
+- ユーザーが会社のメールアドレスに対応するGoogleアカウントにアクセスできること。
+- ユーザーがBrazeで停止されていないこと（**設定** > **会社ユーザー**）。
 
 ## 次のステップ {#next-steps}
 

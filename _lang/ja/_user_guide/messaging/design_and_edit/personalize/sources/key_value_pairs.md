@@ -125,9 +125,9 @@ Appleは、カスタムペイロードデータとして顧客情報や機密デ
 HTTP/2プロバイダーAPIを使用している場合、APNsに送信する個々のペイロードのサイズは4096バイトを超えることはできません。まもなく廃止予定のレガシーバイナリインターフェイスは、2048バイトのペイロードサイズのみをサポートしています。
 {% endalert %}
 
-###### APIトリガーCampaigns {#api-triggered-campaigns}
+###### APIトリガーキャンペーン {#api-triggered-campaigns}
 
-Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーCampaignsでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
+Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーキャンペーンでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
 
 ### Android
 
@@ -143,9 +143,9 @@ iOSプッシュと同様に、カスタムキーと値のペアをユーザー�
 データペイロードが正しく機能するためには、アプリのバックエンドがカスタムキーと値のペアを処理できる必要があります。
 {% endalert %}
 
-###### APIトリガーCampaigns
+###### APIトリガーキャンペーン
 
-Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーCampaignsでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
+Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーキャンペーンでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
 
 ##### FCMメッセージングオプション {#fcm-messaging-options}
 
@@ -159,7 +159,7 @@ Androidプッシュ通知は、FCMメッセージオプションでさらにカ�
 
 マーケターは、アプリのユーザーに送信する前に、サイレントプッシュ通知が期待どおりの動作をトリガーすることをテストする必要があります。[iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)または[Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)のサイレントプッシュ通知を作成した後、[外部ユーザーID]({{site.baseurl}}/developer_guide/rest_api/messaging/#external-user-id)または[メールアドレス]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)でフィルタリングして、テストユーザーのみをターゲットにしてください。
 
-Campaignの起動時に、テストデバイスで目に見えるプッシュ通知を受信していないことを確認してください。
+キャンペーンの起動時に、テストデバイスで目に見えるプッシュ通知を受信していないことを確認してください。
 
 {% alert note %}
 iOSのサイレント通知ゲートにより、以下の症状が発生する場合があります:
@@ -181,9 +181,9 @@ iOSのサイレント通知ゲートにより、以下の症状が発生する�
 {% endalert %}
 ![]({% image_buster /assets/img_archive/keyvalue_iam.png %})
 
-#### APIトリガーCampaigns
+#### APIトリガーキャンペーン
 
-Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーCampaignsでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
+Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーキャンペーンでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
 
 ## メール {#emails}
 

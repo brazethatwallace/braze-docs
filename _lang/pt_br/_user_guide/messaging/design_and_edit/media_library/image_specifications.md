@@ -2,7 +2,6 @@
 nav_title: Especificações de imagem
 article_title: Especificações de imagem
 page_order: 1
-
 page_type: reference
 description: "Este artigo de referência descreve os tamanhos e especificações de imagem recomendados para cada tipo de canal."
 tool:
@@ -28,6 +27,8 @@ Vídeos enviados para a Biblioteca de mídia só podem ser usados em mensagens d
 ## GIFs {#gifs}
 
 GIFs são compatíveis com push para iOS, mensagens no app, e-mail, Content Cards e mensagens MMS ou RCS. GIFs com formatos muito alongados (por exemplo, 3000 x 2 pixels) ou com 300 ou mais quadros podem falhar no upload, mesmo que o tamanho total do arquivo seja pequeno.
+
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 ## Orientações por canal {#channel-guidance}
 

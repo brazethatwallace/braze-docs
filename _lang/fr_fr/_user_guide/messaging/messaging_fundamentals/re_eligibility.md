@@ -32,7 +32,7 @@ La « réception » inclut l'attribution via des identifiants de canal partagés
 
 De plus, si vous essayez d'envoyer un message immédiatement avec une rééligibilité de zéro minute, nous tenterons toujours de le planifier immédiatement, quel que soit le nombre de versions précédentes de la Campaign ou du Canvas que l'utilisateur a reçues.
 
-#### Rééligibilité avec les Campaigns déclenchées par API {#re-eligibility-with-api-triggered-campaigns}
+### Rééligibilité avec les Campaigns déclenchées par API {#re-eligibility-with-api-triggered-campaigns}
 
 Le nombre de fois qu'un utilisateur reçoit une Campaign déclenchée par API peut être limité à l'aide des paramètres de rééligibilité. Cela signifie que l'utilisateur ne recevra la Campaign qu'une seule fois ou une fois dans une fenêtre donnée, quel que soit le nombre de fois où le déclencheur API est activé.
 
@@ -73,6 +73,10 @@ Considérez le scénario suivant :
 * Il y a moins de 30 jours entre le 15 février et le 15 mars.
 
 Cela signifie que les utilisateurs ayant reçu la Campaign le 15 février ne sont pas éligibles pour la Campaign envoyée le 15 mars. (Un utilisateur peut être marqué comme ayant « reçu » la Campaign en raison d'identifiants de canal partagés — par exemple, s'il partage une adresse e-mail ou un numéro de téléphone avec quelqu'un qui a reçu, ouvert ou cliqué le message.) Si la Campaign est configurée pour être envoyée quotidiennement à 8 h avec une rééligibilité d'un jour, et qu'il y a une latence dans l'envoi du message, les utilisateurs ayant reçu la Campaign à 8 h 30 ne sont pas encore rééligibles le lendemain à 8 h.
+
+## Rééligibilité pour les Content Cards {#re-eligibility-for-content-cards}
+
+Lorsque la rééligibilité est activée pour des Campaigns ou des étapes de Canvas de Content Cards, un utilisateur peut recevoir une autre carte alors qu'une carte précédente de la même Campaign est encore présente dans son flux, ce qui peut ressembler à des cartes en double. Pour réduire les doublons, désactivez la rééligibilité ou allongez la fenêtre de rééligibilité afin que la première carte [expire du flux]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) avant que l'utilisateur ne se qualifie pour un nouvel envoi.
 
 ## Test multivarié {#multivariate-testing}
 

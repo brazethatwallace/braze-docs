@@ -68,7 +68,7 @@ class BrazeManager: NSObject {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 @implementation BrazeManager
  
 // 1
@@ -115,14 +115,14 @@ class BrazeManager: NSObject {
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
   Appboy.start(withApiKey: apikey, in: application, withLaunchOptions: launchOptions, withAppboyOptions: appboyOptions)
 }
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [Appboy startWithApiKey:[self apiKey] inApplication:application withLaunchOptions:launchOptions withAppboyOptions:[self appboyOptions]];
 }
@@ -139,7 +139,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 {% subtabs global %}
 {% subtab Swift %}
 
-```swift
+`````````swift
 func application(
   _ application: UIApplication, 
   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -153,7 +153,7 @@ func application(
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch
  
@@ -202,7 +202,7 @@ Braze ダッシュボードで既存のワークスペースに移動します�
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey:Any]?) {
   Appboy.start(withAPIKey: apikey, in: application, withLaunchOptions: launchOptions, withAppboyOptions: appboyOptions)
   // 1 
@@ -219,7 +219,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [Appboy startWithApiKey:[self apiKey] inApplication:application withLaunchOptions:launchOptions withAppboyOptions:[self appboyOptions]];
    
@@ -264,7 +264,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 {% subtabs global %}
 {% subtab Swift %}
 
-```swift
+`````````swift
 // MARK - Push Notifications
 extension BrazeManager {
   // 1 
@@ -279,7 +279,7 @@ extension BrazeManager {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 // MARK - Push Notifications
 // 1
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -298,7 +298,7 @@ Braze SDK は、Braze から発信されるリモートプッシュ通知を処�
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 func application(
   _ application: UIApplication, 
   didReceiveRemoteNotification userInfo: [AnyHashable : Any], 
@@ -313,7 +313,7 @@ func application(
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
   [[Appboy sharedInstance] registerApplication:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
 }
@@ -328,7 +328,7 @@ Braze SDK は、Braze から発信されるプッシュ通知の応答を処理�
 {% subtabs global %}
 {% subtab Swift %}
 
-```swift
+`````````swift
 func userNotificationCenter(
   _ center: UNUserNotificationCenter, 
   didReceive response: UNNotificationResponse, 
@@ -343,7 +343,7 @@ func userNotificationCenter(
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response 
          withCompletionHandler:(void (^)(void))completionHandler {
@@ -377,7 +377,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 {% subtabs global %}
 {% subtab Swift %}
 
-```swift
+`````````swift
 // MARK: - User
 extension BrazeManager {
   // 1
@@ -398,7 +398,7 @@ extension BrazeManager {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 // MARK: - User
   // 1
 - (ABKUser *)user {
@@ -445,14 +445,14 @@ open func logCustomEvent(_ eventName: String, withProperties properties: [AnyHas
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 func logCustomEvent(_ eventName: String, withProperties properties: [AnyHashable: Any]? = nil) {
   Appboy.sharedInstance()?.logCustomEvent(eventName, withProperties: properties)
 }
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logCustomEvent:(NSString *)eventName withProperties:(nullable NSDictionary *)properties {
   [[Appboy sharedInstance] logCustomEvent:eventName withProperties:properties];
 }
@@ -484,7 +484,7 @@ SDK は、カスタム属性として多数のタイプをログに記録でき�
 {% subtabs global %}
 {% subtab Swift %}
 
-```swift
+`````````swift
 func setCustomAttributeWithKey<T: Equatable>(_ key: String?, andValue value: T?) {
   guard let key = key, let value = value else { return }
   switch value.self {
@@ -505,7 +505,7 @@ func setCustomAttributeWithKey<T: Equatable>(_ key: String?, andValue value: T?)
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)setCustomAttributeWith:(NSString *)key andValue:(id)value {
   if ([value isKindOfClass:[NSDate class]]) {
     [[self user] setCustomAttributeWithKey:key andDateValue:value];
@@ -543,7 +543,7 @@ open func logPurchase(_ productIdentifier: String, inCurrency currency: String, 
 {% subtabs global %}
 {% subtab Swift %}
 
-```swift
+`````````swift
 func logPurchase(_ productIdentifier: String, inCurrency currency: String, atPrice price:
 String, withQuantity quantity: Int) {
 
@@ -553,7 +553,7 @@ String, withQuantity quantity: Int) {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logPurchase:(NSString *)productIdentifier inCurrency:(nonnull NSString *)currencyCode atPrice:(nonnull NSDecimalNumber *)price withQuantity:(NSUInteger)quantity {
   [[Appboy sharedInstance] logPurchase:productIdentifier inCurrency:currencyCode atPrice:price withQuantity:quantity];
 }
@@ -584,7 +584,7 @@ String, withQuantity quantity: Int) {
 
 {% subtabs global %}
 {% subtab swift %}
-```swift
+`````````swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
   Appboy.start(withApiKey: apiKey, in: application, withLaunchOptions: launchOptions, withAppboyOptions: appboyOptions)
 
@@ -599,7 +599,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [Appboy startWithApiKey:[self apiKey] inApplication:application withLaunchOptions:launchOptions withAppboyOptions:[self appboyOptions]];
    
@@ -628,7 +628,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 // MARK: - ABKInAppMessage UI Delegate
 extension AppboyManager: ABKInAppMessageUIDelegate{
   func inAppMessageViewControllerWith(_ inAppMessage: ABKInAppMessage) -> ABKInAppMessageViewController {
@@ -647,7 +647,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate{
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 // MARK: - ABKInAppMessage UI Delegate
 - (ABKInAppMessageViewController *)inAppMessageViewControllerWithInAppMessage:(ABKInAppMessage *)inAppMessage {
   if ([inAppMessage isKindOfClass:[ABKInAppMessageSlideup class]]) {
@@ -691,7 +691,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate{
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 // MARK: - Content Cards
 extension BrazeManager {
 
@@ -707,7 +707,7 @@ extension BrazeManager {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 // MARK: - Content Cards
   // 1
 - (void)displayContentCards:(UINavigationController *)navigationController {

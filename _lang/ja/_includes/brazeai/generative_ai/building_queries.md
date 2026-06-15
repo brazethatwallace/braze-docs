@@ -60,7 +60,7 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('hour', -1, date_trunc('day',CU
 
 次のクエリは、先月のメール送信数を取得します。
 
-```sql
+`````````sql
 SELECT COUNT(*) as Sends
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',CURRENT_DATE()));
@@ -70,14 +70,14 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 
 | ID名 | 関連する名前列 |
 | --- | --- |
-| `CANVAS_ID` | Canvas名 |
-| `CANVAS_VARIATION_API_ID` | Canvasバリアント名 |
-| `CAMPAIGN_ID` | Campaign名 |
+| `CANVAS_ID` | キャンバス名 |
+| `CANVAS_VARIATION_API_ID` | キャンバスバリアント名 |
+| `CAMPAIGN_ID` | キャンペーン名 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tips" }
 
 このクエリは、3つのすべてのIDと、それらに関連付けられている名前の列を取得します。行数の上限は100行です。
 
-```sql
+`````````sql
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
@@ -118,7 +118,7 @@ CSVレポートをダウンロードするには、**Export** を選択します
 
 たとえば、過去30日間のメール中止をタイプ別にカウントするには、次のようにします。
 
-```sql
+`````````sql
 SELECT ABORT_TYPE, COUNT(*) as abort_count
 FROM USERS_MESSAGES_EMAIL_ABORT_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('day', -30, CURRENT_DATE())

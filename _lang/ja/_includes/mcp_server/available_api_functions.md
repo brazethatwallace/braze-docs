@@ -23,24 +23,24 @@ MCPクライアントは、Braze MCPサーバーとやり取りするために�
 | `call_write_function` | 指定されたパラメーターで特定の書き込み可能なBraze API関数を呼び出します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="General functions" }
 
-### Campaigns
+### キャンペーン
 
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
-| `get_campaign_list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | メタデータ付きのCampaignリストをエクスポートします。 |
-| `get_campaign_details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | 特定のCampaignに関する詳細情報を取得します。 |
-| `get_campaign_dataseries` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) | Campaignの時系列分析データを取得します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campaigns" }
+| `get_campaign_list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | メタデータ付きのキャンペーンリストをエクスポートします。 |
+| `get_campaign_details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | 特定のキャンペーンに関する詳細情報を取得します。 |
+| `get_campaign_dataseries` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) | キャンペーンの時系列分析データを取得します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="キャンペーン" }
 
-### Canvases
+### キャンバス
 
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
-| `get_canvas_list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | メタデータ付きのCanvasリストをエクスポートします。 |
-| `get_canvas_details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | 特定のCanvasに関する詳細情報を取得します。 |
-| `get_canvas_data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | Canvasパフォーマンスのサマリー分析を取得します。 |
-| `get_canvas_data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | Canvasの時系列分析データを取得します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Canvases" }
+| `get_canvas_list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | メタデータ付きのキャンバスリストをエクスポートします。 |
+| `get_canvas_details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | 特定のキャンバスに関する詳細情報を取得します。 |
+| `get_canvas_data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | キャンバスパフォーマンスのサマリー分析を取得します。 |
+| `get_canvas_data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | キャンバスの時系列分析データを取得します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="キャンバス" }
 
 ### カタログ {#catalogs}
 
@@ -110,7 +110,7 @@ MCPクライアントは、Braze MCPサーバーとやり取りするために�
 
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
-| `get_scheduled_broadcasts` | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | 今後のスケジュール済みCampaignsとCanvasesを一覧表示します。 |
+| `get_scheduled_broadcasts` | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | 今後のスケジュール済みキャンペーンとキャンバスを一覧表示します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messages" }
 
 ### ユーザー設定センター {#preference-centers}
@@ -130,20 +130,20 @@ MCPクライアントは、Braze MCPサーバーとやり取りするために�
 | `get_quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | 購入数量の時系列データです。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Purchases" }
 
-### Segments
+### セグメント
 
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
-| `get_segment_list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | 分析トラッキングステータス付きのSegmentリストをエクスポートします。 |
-| `get_segment_data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | Segmentの時系列分析データです。 |
-| `get_segment_details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | 特定のSegmentに関する詳細情報です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segments" }
+| `get_segment_list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | 分析トラッキングステータス付きのセグメントリストをエクスポートします。 |
+| `get_segment_data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | セグメントの時系列分析データです。 |
+| `get_segment_details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | 特定のセグメントに関する詳細情報です。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="セグメント" }
 
 ### 送信 {#sends}
 
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
-| `get_send_data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | トラッキング対象のCampaign送信に関する日次分析です。 |
+| `get_send_data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | トラッキング対象のキャンペーン送信に関する日次分析です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sends" }
 
 ### セッション {#sessions}

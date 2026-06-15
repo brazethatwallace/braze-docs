@@ -1,7 +1,7 @@
 ---
 nav_title: Shopgate
 article_title: Shopgate
-description: "このリファレンス記事では、BrazeとShopgateのパートナーシップについて説明します。Shopgateはモバイルコマースおよびオムニチャネルプロバイダーであり、複数のチャネルを通じてアプリCampaignsを作成できます。"
+description: "このリファレンス記事では、BrazeとShopgateのパートナーシップについて説明します。Shopgateはモバイルコマースおよびオムニチャネルプロバイダーであり、複数のチャネルを通じてアプリCampaignを作成できます。"
 alias: /partners/shopgate/
 page_type: partner
 search_tag: Partner
@@ -12,16 +12,16 @@ search_tag: Partner
 
 > [Shopgate](https://www.shopgate.com/)は、モバイルコマースおよびオムニチャネルプラットフォームであり、ショッピングアプリの作成や、フルフィルメントツールとクライアンテリング（顧客データに基づくパーソナライズされた店舗内カスタマーサポート）を通じた実店舗の効率向上を支援します。
 
-*この連携はShopgateによって管理されています。*
+_この連携はShopgateによって管理されています。_
 
 ## 連携について {#about-the-integration}
 
-BrazeとShopgateの連携により、プッシュ通知、アプリ内コンテンツ、ロケーションベースのマーケティングなど、複数のチャネルを通じて強力かつ高度にカスタマイズされたアプリCampaignsを作成できます。
+BrazeとShopgateの連携により、プッシュ通知、アプリ内コンテンツ、ロケーションベースのマーケティングなど、複数のチャネルを通じて強力かつ高度にカスタマイズされたアプリCampaignを作成できます。
 
 ## ユースケース {#use-cases}
 
 - 権限管理を含むカスタムアプリオンボーディング
-- プッシュCampaigns
+- プッシュCampaign
 - アプリ内メッセージ
 - BrazeバナーおよびContent Cardsを使用したダイナミックなコンテンツ
 - アプリ受信トレイ
@@ -34,7 +34,7 @@ BrazeとShopgateの連携により、プッシュ通知、アプリ内コンテ�
 | ----------- | ----------- |
 | Shopgate Enterpriseアカウント | このパートナーシップを利用するには、[Shopgate](https://www.shopgate.com/) Enterpriseアカウントが必要です。 |
 | Shopgateの招待 | アプリをセットアップするために、BrazeアカウントにShopgateを招待する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 連携 {#integration}
 

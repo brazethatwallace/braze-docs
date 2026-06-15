@@ -9,7 +9,7 @@ local_redirect:
   automated-ip-warming: '/docs/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming'
 ---
 
-# IP-Warming
+# IP-Warming {#ip-warming}
 
 > IP-Warming bedeutet, dass die Anbieter von E-Mail-Postfächern daran gewöhnt werden, Nachrichten von Ihren dedizierten IP-Adressen zu empfangen. Es ist ein äußerst wichtiger Bestandteil des E-Mail-Versands bei jedem E-Mail-Anbieter (ESP) und bei Braze Standardpraxis, um sicherzustellen, dass Ihre Nachrichten den Posteingang mit einer gleichbleibend hohen Rate erreichen.
 
@@ -25,9 +25,9 @@ Eine gesunde Zustellrate liegt oft bei etwa 99 % zugestellt mit einer Bounce-Rat
 
 Bevor Sie mit dem IP-Warming beginnen:
 
-1. Legen Sie unter **Einstellungen** > **E-Mail-Präferenzen** Ihre Standard-Versanddomain fest, fügen Sie einen gültigen Abmeldelink in Ihrer [angepassten Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/) hinzu, aktivieren Sie den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) und erwägen Sie bei Bedarf angepasste Abmelde-/Opt-in-Seiten.
+1. Legen Sie unter **Settings** > **Email Preferences** Ihre Standard-Versanddomain fest, fügen Sie einen gültigen Abmeldelink in Ihrer [angepassten Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/) hinzu, aktivieren Sie den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) und erwägen Sie bei Bedarf angepasste Abmelde-/Opt-in-Seiten.
 2. Konfigurieren Sie [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) für E-Mail.
-3. Laden Sie erforderliche Templates unter **Templates** > **E-Mail-Templates** hoch.
+3. Erstellen Sie Ihre erforderlichen Templates unter **Content** > **Email**.
 
 ## Was passiert, wenn ich keine Zeit habe, IPs aufzuwärmen? {#what-if-i-dont-have-time-to-warm-ips}
 
@@ -155,7 +155,7 @@ Nach drei Monaten ohne Nutzung kann Braze IP-Adressen recyceln und neu zuweisen.
 
 ## So begrenzen Sie Sendungen während des Warmings {#how-to-limit-sends-during-warming}
 
-Das integrierte Feature zur Nutzerbegrenzung dient als nützliches Werkzeug, um Sie beim Aufwärmen Ihrer IP-Adresse zu unterstützen. Nachdem Sie Ihre gewünschten Messaging-Segments während der Campaign-Erstellung ausgewählt haben, wählen Sie im Schritt [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) das Dropdown **Erweiterte Optionen**, um Ihre Nutzer:innen zu begrenzen. Während Ihr Warming-Zeitplan fortschreitet, können Sie dieses Limit schrittweise erhöhen, um das Volumen der gesendeten E-Mails zu steigern.
+Das integrierte Feature zur Nutzerbegrenzung dient als nützliches Werkzeug, um Sie beim Aufwärmen Ihrer IP-Adresse zu unterstützen. Nachdem Sie Ihre gewünschten Messaging-Segmente während der Campaign-Erstellung ausgewählt haben, wählen Sie im Schritt [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) das Dropdown **Erweiterte Optionen**, um Ihre Nutzer:innen zu begrenzen. Während Ihr Warming-Zeitplan fortschreitet, können Sie dieses Limit schrittweise erhöhen, um das Volumen der gesendeten E-Mails zu steigern.
 
 ![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 

@@ -37,6 +37,10 @@
 
 이 패널에서 수신자에게 전송된 메시지 수, 주요 전환율, 이 메시지로 발생한 총 매출 등 전반적인 측정기준을 확인할 수 있습니다. 이 페이지에서 전달, 오디언스 및 전환 설정도 검토할 수 있습니다.
 
+{% alert note %}
+대시보드와 Snowflake의 분석 수치는 약간 다를 수 있습니다. Braze는 대시보드의 수치를 측정하고 Snowflake에 행을 별도로 기록합니다. Snowflake가 더 정확한 데이터 소스이므로, 이 두 소스 간에 차이가 있는 경우 Snowflake 데이터를 참조하는 것이 좋습니다.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 WhatsApp 채널에는 읽기 비율이 포함됩니다. 이 측정기준은 읽음 확인을 켜놓은 사용자에게만 제공되며, 사용자마다 다를 수 있습니다.
@@ -317,6 +321,10 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
             <td class="no-split"><i>Total Clicks</i>는 동일한 사용자가 여러 번 클릭했는지 여부와 관계없이 전달된 메시지 내에서 클릭한 사용자의 총 수(및 백분율)입니다.</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i>는 사용자가 배너를 닫은 총 횟수입니다. 닫기 동작이 활성화된 배너에서만 사용할 수 있습니다.</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} 각 사용자는 한 번만 카운트됩니다.</td>
         </tr>
@@ -377,7 +385,7 @@ _Unique Recipients_는 실제로 본 배너를 의미합니다.
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> 로 측정됩니다. Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 이 수치는 5~10% 사이가 일반적이며, 10%를 초과하면 매우 우수한 수준입니다!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 로 측정됩니다. Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 이 수치는 5~10% 사이가 일반적이며, 10%를 초과하면 매우 우수한 수준입니다!
             </td>
         </tr>
         <tr>
@@ -445,19 +453,27 @@ _발송 − (전달 + 하드바운스) ≈ 소프트바운스_
 
 클릭과 열람이 서로 다른 날에 발생할 수도 있습니다. 사용자가 5월 16일에 이미지가 꺼진 상태에서 클릭하고(열람 없음), 5월 17일에 웹메일에서 열람할 수 있습니다(그때 열람이 기록됨).
 
-##### _Unique Clicks_가 _Unique Opens_보다 높은 경우 {#higher-_unique-clicks_-than-_unique-opens_}
+##### _Unique Clicks_가 _Unique Opens_보다 높은 경우 {#higher-unique-clicks-than-unique-opens}
 
-_Unique Clicks_는 열람이 과소 카운트되거나 클릭이 부풀려질 때 _Unique Opens_보다 높을 수 있습니다:
+오디언스에서 예상하는 것보다 낮은 비율임에도 _Unique Clicks_가 _Unique Opens_를 크게 앞지르는 경우(예: 각 고유 열람당 여러 건의 고유 클릭)가 있을 수 있습니다. 이 패턴은 보통 열람이 과소 카운트되거나, 클릭이 부풀려지거나, 또는 둘 다인 경우를 의미합니다. 하지만 이것이 Braze가 클릭을 잘못 카운트하고 있다는 의미는 아닙니다.
+
+Braze는 열람 추적 픽셀이 로드될 때 이메일 열람을 기록합니다. 이 픽셀은 Braze가 메시지 HTML에 추가하는 작은 투명 이미지(보통 1 x 1&nbsp;px로 설명됨)입니다. 픽셀이 로드되지 않으면 해당 조회에 대해 열람이 기록되지 않지만, 링크 클릭은 여전히 등록될 수 있으므로 클릭 대비 열람율과 이 두 측정기준 간의 균형이 왜곡되어 보일 수 있습니다.
 
 **메일함에서 열람 추적 픽셀을 로드하지 않은 경우**
 
-다음과 같은 경우에 발생할 수 있습니다:
+다음과 같은 경우 픽셀이 로드되지 않을 수 있습니다:
 
-- 메시지가 길어서 열람 추적 픽셀이 끝부분에 위치하는 경우. 클라이언트가 메시지를 잘라내면 픽셀이 잘립니다.
-- 메시지가 스팸함에 도착한 경우. 스팸함에서는 원격 이미지(열람 추적 픽셀 포함)가 로드되지 않는 경우가 많습니다.
-- 메일함이 더 엄격한 보안을 사용하는 경우(기업 계정에서 흔함). 사용자가 아직 이미지 로드를 선택하지 않은 경우입니다.
+- **메시지가 잘린 경우.** 긴 HTML은 콘텐츠(하단의 픽셀 포함)를 "전체 메시지 보기" 스타일의 잘림 뒤로 밀어냅니다. Gmail에서는 약 [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size)보다 큰 메시지가 잘리는 경우가 많아, 전체 메시지를 열 때까지(그리고 클라이언트에 따라 그때도) 픽셀이 로드되지 않을 수 있습니다.
+- **이미지가 차단되거나 제한된 경우.** 더 엄격한 받은편지함 보안(기업 계정에서 흔함)은 수신자가 이미지 로드를 선택할 때까지 원격 이미지를 차단할 수 있으므로, 추적된 링크를 클릭하더라도 열람 픽셀이 실행되지 않습니다.
+- **메시지가 스팸 또는 대량 메일 폴더에 있는 경우.** 많은 제공업체는 해당 폴더에서 기본적으로 원격 이미지(열람 픽셀 포함)를 로드하지 않습니다.
 
-**보안 또는 봇 활동이 링크에 영향을 미치는 경우**
+**대응 방법**
+
+- **잘림:** HTML을 줄이고 간소화하며, 사용하지 않는 스타일이나 자산을 제거하고, 전체 메시지 크기를 클라이언트 제한 내로 유지하세요. Gmail의 경우 [이메일 크기]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size)에 설명된 대로 약 102&nbsp;KB 미만을 목표로 하세요.
+- **받은편지함 보안 및 이미지 로딩:** 수신자(또는 IT 정책)만이 이미지가 기본적으로 로드되는지 여부를 변경할 수 있습니다.
+- **스팸 배치:** [이메일 전달 가능성 개선]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) 및 목록 위생에 집중하세요. 메일이 지속적으로 스팸에 도착하고 측정기준이 이상하게 보이면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의하세요.
+
+**링크에 대한 보안 또는 봇 활동**
 
 일부 이메일 보안 제품은 위협을 스캔하기 위해 링크를 따라갑니다. 이러한 요청은 이미지를 로드하지 않고 클릭을 기록할 수 있으므로, 일치하는 열람 없이 클릭 활동이 나타날 수 있습니다.
 
@@ -473,7 +489,7 @@ _연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQ
 
 이 통계는 Braze가 개발한 독점 분석 모델을 사용하여 기계 열람이 존재하지 않는 것처럼 캠페인의 고유 열람율 추정치를 재구성합니다. 이메일 발신자로부터 일부 열람 이벤트에 대한 *Machine Opens* 레이블을 받지만(위 참조), 이러한 레이블은 실제 열람을 기계 열람으로 잘못 분류하는 경우가 많습니다. 즉, *Other Opens*는 실제 사용자에 의한 열람 수를 과소 추정할 가능성이 높습니다. 대신 Braze는 각 캠페인의 클릭 데이터를 사용하여 실제 사용자가 메시지를 열어본 비율을 추론합니다. 이를 통해 Apple의 MPP를 비롯한 다양한 기계 열람 메커니즘을 보완합니다.
 
-_Estimated Real Open Rate_는 이메일 발송이 시작된 후 36시간이 지나면 계산되며, 이후 매 24시간마다 재계산됩니다. 캠페인이 반복되면 다른 발송이 발생한 후 36시간 후에 추정치가 재계산됩니다.
+_Estimated Real Open Rate_는 이메일 발송이 시작된 후 24시간이 지나면 계산되며, 이후 매 72시간마다 재계산됩니다.
 
 이 측정기준은 지속적으로 재계산되므로, _Estimated Real Open Rate_ 값은 새로운 참여 신호(예: 열람 및 클릭)가 수신되어 모델에 반영됨에 따라 시간이 지나면서 변경될 수 있습니다. 실제로 _Estimated Real Open Rate_는 캠페인이 활성 상태인 동안 매일 업데이트될 수 있습니다.
 

@@ -31,7 +31,7 @@ Avant de commencer, vous devez disposer des éléments suivants :
 | Un jeton d'autorisation de contenu connecté Braze activé | Voir la note ci-dessous sur l'accès anticipé. |
 | Une étape de contexte Canvas Braze | Voir la note ci-dessous sur l'accès anticipé. |
 | Étape Agent IA Braze activée | Voir la note ci-dessous sur l'accès anticipé. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% alert important %}
 Les agents Braze, le contexte Canvas et les jetons d'autorisation de contenu connecté sont tous en accès anticipé. Si vous souhaitez tirer parti de cette solution, contactez votre CSM Braze pour activer ces outils.
@@ -87,7 +87,7 @@ Avec le jeton d'autorisation créé précédemment, utilisez la structure de req
 La réponse est enregistrée sous la forme de l'étiquette Liquid {% raw %}`{{context.${summary_result}.response}}`{% endraw %}. Utilisez cette étiquette de contexte dans les étapes Canvas suivantes.
 {% endalert %}
 
-À ce stade, le Canvas peut accéder à la réponse de l'appel de contenu connecté, qui contient l'intégralité du payload de message pour la session d'un utilisateur.
+À ce stade, le Canvas peut accéder à la réponse de l'appel de contenu connecté, qui contient l'intégralité du payload du message pour la session d'un utilisateur.
 
 {% details Exemple de payload de l'API de résumé de session %}
 

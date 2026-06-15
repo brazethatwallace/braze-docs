@@ -46,7 +46,7 @@ CensusプラットフォームでCensusを統合するには、**Connections** �
 6. 最後に、Censusデータフィールドを対応するBrazeフィールドにマッピングします。<br>![Censusでのマッピング]({% image_buster /assets/img/census/census_3.png %}){: style="max-width:80%;"}<br><br>
 7. 詳細を確認し、同期を作成します。
 
-同期が実行されると、Brazeにユーザーデータが表示されます。今後のBraze CampaignsやCanvasesにBraze Segmentを作成・追加して、これらのユーザーをターゲットにできるようになります。
+同期が実行されると、Brazeにユーザーデータが表示されます。今後のBraze キャンペーンやキャンバスにBraze セグメントを作成・追加して、これらのユーザーをターゲットにできるようになります。
 
 {% alert note %}
 CensusとBrazeの統合を使用する場合、Censusは同期のたびにBrazeへ差分（変更データ）のみを送信します。

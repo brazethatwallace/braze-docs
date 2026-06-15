@@ -56,9 +56,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 5,
       "Loyalty_Program": true,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -70,9 +71,13 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 }'
 ```
 
+{% alert note %}
+Le champ `Location` utilise le type de données `geo`, qui attend un tableau au format `[longitude, latitude]`.
+{% endalert %}
+
 ## Réponse {#response}
 
-Trois codes de statut de réponse existent pour cet endpoint : `201`, `400` et `404`.
+Trois codes de statut existent pour cet endpoint : `201`, `400` et `404`.
 
 ### Exemple de réponse réussie {#example-success-response}
 
@@ -108,7 +113,7 @@ Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consulte
 
 ## Résolution des problèmes {#troubleshooting}
 
-Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes de résolution des problèmes associées.
+Le tableau suivant répertorie les erreurs possibles et les étapes de résolution associées.
 
 | Erreur | Résolution des problèmes |
 | --- | --- |

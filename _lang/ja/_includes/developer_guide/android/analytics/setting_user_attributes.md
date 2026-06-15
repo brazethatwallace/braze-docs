@@ -39,7 +39,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setFirstName("first_name")
 }
@@ -55,7 +55,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -67,7 +67,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setFirstName(null)
 }
@@ -89,7 +89,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% subtabs global %}
 {% subtab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -101,7 +101,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", "your_attribute_value")
 }
@@ -116,7 +116,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% subtabs global %}
 {% subtab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -131,7 +131,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_INT_VALUE)
 
@@ -148,7 +148,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% subtabs global %}
 {% subtab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -160,7 +160,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_LONG_VALUE)
 }
@@ -175,7 +175,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% subtabs global %}
 {% subtab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -187,7 +187,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_FLOAT_VALUE)
 }
@@ -201,7 +201,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% subtabs global %}
 {% subtab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -213,7 +213,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_DOUBLE_VALUE)
 }
@@ -229,7 +229,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% subtabs global %}
 {% subtab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -241,7 +241,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_BOOLEAN_VALUE)
 }
@@ -255,7 +255,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% subtabs global %}
 {% subtab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -271,7 +271,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_DATE_VALUE)
   // This method will assign the current time to a custom attribute at the time the method is called:
@@ -296,7 +296,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% subtabs global %}
 {% subtab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -312,7 +312,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   // Setting a custom attribute with an array value
   brazeUser.setCustomAttributeArray("your_attribute_key", testSetArray)
@@ -335,7 +335,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -347,7 +347,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.unsetCustomUserAttribute("your_attribute_key")
 }
@@ -362,7 +362,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 {% tabs %}
 {% tab JAVA %}
-```java
+`````````java
 JSONObject favoriteBook = new JSONObject();
 try {
   favoriteBook.put("title", "The Hobbit");
@@ -380,7 +380,7 @@ braze.getCurrentUser(user -> {
 {% endtab %}
 
 {% tab KOTLIN %}
-```kotlin
+`````````kotlin
 val favoriteBook = JSONObject()
   .put("title", "The Hobbit")
   .put("author", "J.R.R. Tolkien")
@@ -417,7 +417,7 @@ Androidでは、ユーザーにプッシュ通知を送信する際に明示的�
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -429,7 +429,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setEmailNotificationSubscriptionType(emailNotificationSubscriptionType)
 }
@@ -443,7 +443,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -455,7 +455,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setPushNotificationSubscriptionType(pushNotificationSubscriptionType)
 }

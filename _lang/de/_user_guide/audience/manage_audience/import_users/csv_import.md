@@ -148,6 +148,10 @@ Arrays, Push-Token und angepasste Event-Datentypen werden beim Nutzerimport nich
 Beim Import von Standardattributen müssen die verwendeten Spaltenüberschriften exakt der Schreibweise und Groß-/Kleinschreibung der Standard-Nutzerattribute entsprechen. Andernfalls erkennt Braze diese als [angepasste Attribute](#custom-attributes).
 {% endalert %}
 
+{% alert tip %}
+Die vollständige Liste der von Braze erkannten Standardattribute (über SDK, API, CSV und Cloud-Datenaufnahme) finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). Die folgende Tabelle enthält nur die Teilmenge, die über den CSV-Import festgelegt werden kann.
+{% endalert %}
+
 Die folgenden Standardattribute stehen für den Nutzerimport zur Verfügung.
 
 | Nutzerprofilfeld | Datentyp | Beschreibung | Erforderlich? |
@@ -419,9 +423,17 @@ Das Setzen von `language` oder `country` für eine:n Nutzer:in über CSV-Import 
 
 ## Fehlerbehebung {#troubleshooting}
 
-Wenn Sie die [Dateivalidierung](#file-validation) verwendet haben, beginnen Sie mit dem Fehlerbericht, da dieser das spezifische Problem für jede markierte Zeile und eine Beschreibung zur Behebung enthält. Für Zeilen, die während des Imports und nicht während der Validierung fehlgeschlagen sind, laden Sie den Fehlerbericht herunter, indem Sie auf der Seite **Import Users** mit der Maus über die Zeile fahren und den <i class="fas fa-download" title="Herunterladen"></i>-Button auswählen.
+Wenn Sie die [Dateivalidierung](#file-validation) verwendet haben, beginnen Sie mit dem Fehlerbericht, da dieser das spezifische Problem für jede markierte Zeile und eine Beschreibung zur Behebung enthält. Für Zeilen, die während des Imports und nicht während der Validierung fehlgeschlagen sind, laden Sie den Fehlerbericht herunter, indem Sie auf der Seite **Import Users** mit der Maus über die Zeile fahren und den <i class="fas fa-download" aria-label="Herunterladen"></i>-Button auswählen.
 
 Zur Fehlerbehebung beim CSV-Import lesen Sie die folgenden häufigen Probleme.
+
+### E-Mail als `external_id` verwenden {#use-email-as-external_id}
+
+Braze empfiehlt nicht, eine E-Mail-Adresse als `external_id` zu verwenden. Wenn Sie E-Mail als `external_id` verwenden, fügen Sie sowohl die Spalte `external_id` als auch die Spalte `email` in Ihre CSV-Datei ein, damit Nutzer:innen weiterhin über den E-Mail-Kanal ansprechbar bleiben. Verwenden Sie ein Komma (`,`) als Spaltentrennzeichen – keinen Doppelpunkt (`:`).
+
+### Anführungszeichen in `external_id`-Werten {#quote-characters-in-external_id-values}
+
+Wenn eine `external_id`-Zelle ein doppeltes Anführungszeichen enthält, escapen Sie es durch Verdopplung des Zeichens (`""`), wie unter [Nicht-escapte oder unausgeglichene doppelte Anführungszeichen](#missing-row) beschrieben. Der CSV-Import verwendet kein Backslash-Escaping.
 
 ### CSV-Import ist nicht als Segment-Filter verfügbar {#csv-import-isnt-available-as-a-segment-filter}
 
@@ -444,7 +456,9 @@ Wenn Ihr Ziel darin besteht, ein Segment zu erstellen, ohne Profildaten zu aktua
 
 Wenn Ihr Upload mit Fehlern abgeschlossen wurde, kann es eine fehlerhafte Zeile in Ihrer CSV-Datei geben.
 
-Für einen korrekten Datenimport muss eine Kopfzeile vorhanden sein. Jede Zeile muss die gleiche Anzahl an Zellen wie die Kopfzeile haben. Zeilen mit mehr oder weniger Werten als die Kopfzeile werden vom Import ausgeschlossen. Kommas in einem Wert werden als Trennzeichen interpretiert und können zu diesem Fehler führen. Außerdem müssen alle Daten UTF-8-kodiert sein.
+Für einen korrekten Datenimport muss eine Kopfzeile vorhanden sein. Jede Zeile muss die gleiche Anzahl an Zellen wie die Kopfzeile haben. Zeilen mit mehr oder weniger Werten als die Kopfzeile werden vom Import ausgeschlossen. Kommas in einem Wert werden als Trennzeichen interpretiert und können zu diesem Fehler führen.
+
+Außerdem müssen alle Daten UTF-8-kodiert sein. Wenn die Datei mit einer veralteten Kodierung gespeichert wurde (z. B. einige Excel-Standardeinstellungen), können Sonderzeichen und URLs in Zellen beschädigt werden und als Fragezeichen (`?`) in Braze oder in gesendeten Nachrichten erscheinen.
 
 Wenn Ihre CSV-Datei leere Zeilen enthält und weniger Zeilen importiert als die Gesamtzahl der Zeilen in der CSV-Datei, muss dies nicht unbedingt auf ein Problem mit dem Import hinweisen, da die leeren Zeilen nicht importiert werden müssen. Überprüfen Sie die Anzahl der korrekt importierten Zeilen und stellen Sie sicher, dass sie mit der Anzahl der Nutzer:innen übereinstimmt, die Sie importieren möchten.
 

@@ -37,6 +37,20 @@ validurls['/docs/user_guide/old_section/old_page'] = '/docs/user_guide/new_secti
 - Collapse redirect chains (old to new directly, not old to intermediate to new).
 - Other mechanisms: `layout: redirect` in frontmatter, `local_redirect` for heading-level redirects.
 
+## Links in YAML frontmatter values
+
+Some pages use YAML fields like `guide_top_text` that contain inline links. These fields are rendered by layouts using `| markdownify` but **not** `| liquify`, so Liquid tags like `{{site.baseurl}}` are not evaluated. Standard Markdown links `[text]({{site.baseurl}}/path/)` will render the Liquid tag literally and break the href.
+
+**Use a plain HTML anchor instead:**
+
+```yaml
+guide_top_text: "See our article for <a href='/docs/user_guide/path/to/page/'>page title</a>."
+```
+
+- Use an absolute `/docs/`-prefixed path (not `{{site.baseurl}}`).
+- The link checker (`scripts/find_broken_links.ts`) scans for Markdown-style links only, so HTML anchors are not checked — verify the target path exists manually.
+- Reference example: `_docs/_api/endpoints/catalogs.md`.
+
 ## Liquid syntax
 
 ### Alerts

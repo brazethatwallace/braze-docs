@@ -46,8 +46,43 @@ The drag-and-drop editor currently supports two layers. You can set a row backgr
 
 ### Can I save my drag-and-drop email as a template after I build it within my campaign or Canvas?
 
-No, you must recreate the email in **Email Templates** to save it.
+No. You can't save a drag-and-drop email from a campaign or Canvas as a drag-and-drop **Email Template** in **Templates** > **Email Templates**. Recreate the layout under **Templates** > **Email Templates**, or start from a saved template next time. For instructions, see [Create an email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+
+If you need a reusable HTML template instead, select **Download file** while editing the drag-and-drop body, open the HTML from the ZIP, and paste the markup into an [HTML email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) using the HTML code editor. Recheck Liquid, links, and hosted assets afterward.
+
+For more information about where templates live, see [Templates and Media]({{site.baseurl}}/user_guide/messaging/templates/).
+
+### Why can't I change a button's fill color in the drag-and-drop editor?
+
+Page-level styles can override message-level styles. If updating **Fill** on a button or block does nothing, try the following:
+1. Open [email global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) and select **Reset to default** on the conflicting page style so the message-level color can apply.
+2. Set the color again on the block.
 
 ### Can I add email attachments to the drag-and-drop editor?
 
 Yes. You can add attachments to your email message by going to **Sending Settings** > **Advanced**.
+
+### How do I download the raw HTML for a drag-and-drop email?
+
+1. Open your campaign or Canvas and edit the email message.
+2. Select **Edit email body** to open the drag-and-drop editor.
+3. Select **Download file** (bottom of the editor). Extract the archive to access the generated HTML.
+
+You can paste that HTML into an [HTML block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) or the HTML editor when you need low-level edits—for example, to [turn off click tracking for specific links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+
+### Why is my drag-and-drop layout breaking?
+
+Layout issues are often caused by **custom HTML or CSS** that conflicts with the markup the editor generates. Try these steps:
+
+1. Remove or isolate custom HTML blocks to see if the problem disappears.
+2. Check **Drag-and-Drop Email Editor** settings for custom fonts that may not load in all clients.
+3. In **Row Properties**, review column padding and widths.
+4. When you add custom HTML, prefer table-based layouts, fluid images, and total table widths that fit your email width—fixed pixel images or non-table structures often break in Outlook and other clients.
+
+### Why doesn't my Content Block render in email preview?
+
+If a Content Block doesn't render in email preview, check for unclosed anchor tags. For Connected Content URLs, use the `replace` filter to convert double-encoded ampersands (`&amp;amp;`) to a single encoded ampersand (`&amp;`). Limit Content Block nesting to two levels.
+
+### Why is the drag-and-drop editor ignoring alignment settings?
+
+If the drag-and-drop editor ignores alignment settings, remove custom CSS or HTML blocks, remove custom fonts, check for CSS conflicts, and avoid duplicating row blocks. Contact Braze Support if the issue persists.

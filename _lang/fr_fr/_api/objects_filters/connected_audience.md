@@ -11,12 +11,12 @@ description: "Cet article explique l'objet Audience connectée, son fonctionneme
 
 > Une audience connectée est un filtre d'audience dynamique que vous définissez directement dans votre requête API, ce qui vous permet de cibler les bons utilisateurs au moment de l'envoi sans avoir à créer ou gérer des segments dans le tableau de bord de Braze.
 
-Au lieu de créer à l'avance un segment pour chaque combinaison d'audience possible, vous transmettez les critères de filtrage directement dans le paramètre `audience` de votre appel API. Braze évalue chaque utilisateur par rapport à ces critères en temps réel et délivre le message uniquement aux utilisateurs correspondants. Ainsi, une seule campagne, un seul Canvas ou une seule définition de message API peut servir un nombre illimité de variations d'audience, entièrement piloté par votre logique métier.
+Au lieu de créer à l'avance un segment pour chaque combinaison d'audience possible, vous transmettez les critères de filtrage directement dans votre appel API. Selon l'endpoint, cet objet est transmis en tant que `audience` ou `custom_audience`. Braze évalue chaque utilisateur par rapport à ces critères en temps réel et délivre le message uniquement aux utilisateurs correspondants. Ainsi, une seule campagne, un seul Canvas ou une seule définition de message API peut servir un nombre illimité de variations d'audience, entièrement piloté par votre logique métier.
 
 ## Fonctionnement {#how-it-works}
 
 1. Définissez votre message en créant une campagne ou un Canvas déclenché(e) par API dans le tableau de bord de Braze, ou définissez le contenu du message entièrement en ligne à l'aide des [objets de messagerie]({{site.baseurl}}/api/objects_filters/#messaging-objects) dans votre requête API. Utilisez les [propriétés de déclenchement]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) ou le [contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) pour la personnalisation dynamique.
-2. Appelez un endpoint compatible et incluez le paramètre `audience` avec vos critères de filtrage. Vous pouvez filtrer sur les attributs personnalisés, le statut d'abonnement aux notifications push, le statut d'abonnement aux e-mails et la date de dernière utilisation de l'application.
+2. Appelez un endpoint compatible et incluez vos filtres d'audience connectée dans le paramètre `audience`, ou dans `custom_audience` pour `/messages/live_activity/start`. Vous pouvez filtrer sur les attributs personnalisés, le statut d'abonnement aux notifications push, le statut d'abonnement aux e-mails et la date de dernière utilisation de l'application.
 3. Braze évalue les filtres au moment de l'envoi et délivre le message uniquement aux utilisateurs correspondant à vos critères.
 
 {% alert tip %}
@@ -27,7 +27,7 @@ Comme l'audience est définie par requête, vos systèmes back-end peuvent décl
 
 ### Endpoints compatibles {#compatible-endpoints}
 
-Vous pouvez utiliser l'objet Audience connectée avec le paramètre `audience` sur les endpoints suivants :
+Vous pouvez utiliser l'objet Audience connectée sur les endpoints suivants :
 
 - [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)
@@ -35,6 +35,7 @@ Vous pouvez utiliser l'objet Audience connectée avec le paramètre `audience` s
 - [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 - [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/)
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) (utilise `custom_audience`)
 
 ## Cas d'utilisation {#use-cases}
 

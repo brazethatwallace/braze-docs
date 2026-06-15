@@ -44,7 +44,7 @@ BrazeアクションのURIスキームは `brazeActions://v1/{base64encodedJsonS
 
 次のJavaScriptは、JSON文字列のエンコードとデコードの方法を示しています。
 
-```javascript
+`````````javascript
 function decode(encoded) {
     const binary = window.atob(encoded.replace(/-/g, '+').replace(/_/g, '/'));
     let bits8 = new Uint8Array(binary.length);

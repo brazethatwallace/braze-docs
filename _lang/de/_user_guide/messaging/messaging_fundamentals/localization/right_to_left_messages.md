@@ -43,6 +43,10 @@ Die Kopieren-und-Einfügen-Methode für Push-Nachrichten kann bei längeren Push
 
 Die Vorschau- und Testfunktionen sind für Links-nach-rechts-Nachrichten konzipiert, sodass Rechts-nach-links-Nachrichten im Abschnitt **Preview & Test** nicht korrekt dargestellt werden, aber auf den Geräten der Nutzer:innen korrekt dargestellt werden, wenn deren Einstellungen entsprechend konfiguriert sind. Wir empfehlen, Nachrichten in einer Live-Umgebung an sich selbst zu senden, um zu bestätigen, dass sie basierend auf den Geräteeinstellungen korrekt dargestellt werden.
 
+### Ausrichtung von Titel und Text {#title-and-body-alignment}
+
+Bei Push-Benachrichtigungen folgt die Titelausrichtung in der Regel den Spracheinstellungen des Geräts, während die Textausrichtung dem ersten starken Richtungszeichen in jeder Zeile folgen kann (behandeln Sie jede Zeile nach einem Zeilenumbruch separat). Das bedeutet, dass eine einzelne Push-Benachrichtigung die Ausrichtung zeilenübergreifend mischen kann – zum Beispiel eine Rechts-nach-links-Textzeile gefolgt von einer Links-nach-rechts-Zeile. Wenn Sie ein vorhersehbares Layout benötigen, achten Sie auf eine einheitliche Schreibrichtung und verwenden Sie Zeilenumbrüche zwischen gemischtsprachigen Abschnitten.
+
 ### Bidirektionaler Text {#bi-directional-text}
 
 Viele Nutzer:innen, die in Rechts-nach-links-Sprachen schreiben, verwenden tatsächlich bidirektionalen Text: eine Kombination aus Links-nach-rechts- und Rechts-nach-links-Sprachen. Beispielsweise kann ein Marketer eine Nachricht auf Hebräisch mit einem englischen Unternehmensnamen senden. Braze kann die Formatierung von bidirektionalem Text nicht verarbeiten. Zwei Möglichkeiten, Formatierungsprobleme zu vermeiden, sind entweder bidirektionalen Text vollständig zu vermeiden oder Links-nach-rechts-Text von Rechts-nach-links-Text durch Zeilenumbrüche zu trennen.

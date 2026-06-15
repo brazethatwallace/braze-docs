@@ -67,10 +67,11 @@ Bedingte Logik beginnt mit dem `if`-Tag, der die erste zu prüfende Bedingung fe
 
 Sie haben die Möglichkeit, eine `{% else %}`-Anweisung in Ihre bedingte Logik einzufügen. Wenn keine der von Ihnen festgelegten Bedingungen erfüllt ist, gibt die `{% else %}`-Anweisung die Nachricht an, die gesendet werden soll. In diesem Beispiel verwenden wir standardmäßig Englisch, wenn die Sprache einer Nutzerin oder eines Nutzers nicht Englisch, Spanisch oder Chinesisch ist.
 
-#### Case- und When-Tags {#case-and-when-tags}
-{: #case-and-when-tags}
+#### `case` und `when` {#case-and-when}
 
 `{% case %}`, `{% when %}` und `{% endcase %}` funktionieren wie eine Switch-Anweisung: Sie setzen einen Ausdruck nach `case`, und jeder `when`-Zweig wird ausgeführt, wenn dieser Ausdruck dem aufgelisteten Wert entspricht (Liquid verwendet im Hintergrund Gleichheit, ähnlich wie die Verkettung von `if` und `elsif` mit `==`). Sie können mehrere Werte in einem `when`-Tag auflisten, indem Sie sie mit einem Komma oder `or` trennen. Verwenden Sie `{% else %}` als Fallback, wenn nichts übereinstimmt, und schließen Sie dann mit `{% endcase %}`.
+
+Stellen Sie sicher, dass das Format Ihrer `when`-Werte zum Datentyp passt. Für Text (z. B. einen Sprachcode) verwenden Sie Anführungszeichen: `{% when 'es' %}`. Für Zahlen lassen Sie die Anführungszeichen weg: `{% when 2 %}`.
 
 ```liquid
 {% assign handle = 'cake' %}

@@ -8,7 +8,12 @@ page_type: glossary
 description: "Ce glossaire répertorie les différents événements d'engagement lié aux messages que Braze peut suivre et envoyer vers les entrepôts de données de votre choix à l'aide de Currents."
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
+
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Portée du schéma et ressources associées %}
 
 Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons aux partenaires de stockage d'entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Pour les schémas qui s'appliquent aux autres partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et reportez-vous à leurs pages respectives.
 
@@ -17,6 +22,8 @@ Ces événements sont également disponibles sous forme de tables SQL dans le [G
 {% endalert %}
 
 Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce dont vous avez besoin dans cet article, consultez notre [bibliothèque d'événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) ou nos [exemples de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+
+{% enddetails %}
 
 {% details Explication de la structure des événements d'engagement lié aux messages et des valeurs de plateforme %}
 
@@ -56,24 +63,22 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 {% enddetails %}
 
-{% alert important %}
-Currents abandonnera les événements dont le payload est excessivement volumineux (supérieur à 900&nbsp;Ko).
-{% endalert %}
+{% details Considérations relatives aux événements d'engagement lié aux messages %}
 
-{% alert note %}
-Les objets liés à Canvas Flow possèdent des ID qui peuvent être utilisés pour le regroupement et convertis en noms lisibles via l'[endpoint Exporter les détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
-{% endalert %}
+- Currents abandonne les événements dont le payload est supérieur à 900&nbsp;Ko.
+- Les objets liés à Canvas Flow possèdent des ID qui peuvent être utilisés pour le regroupement et convertis en noms lisibles via l'[endpoint Exporter les détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+- Certains champs peuvent ne pas afficher leur état le plus récent immédiatement après la mise à jour d'une campagne ou d'un Canvas :
+  - `campaign_name`
+  - `canvas_name`
+  - `canvas_step_name`
+  - `conversion_behavior`
+  - `canvas_variation_name`
+  - `experiment_split_name`
+  - `message_variation_name`
+- Si une cohérence totale est requise pour ces champs, attendez une heure après la dernière mise à jour avant d'envoyer vos messages à vos utilisateurs.
 
-{% alert note %}
-Certains champs peuvent mettre plus de temps à afficher leur état le plus récent après la mise à jour d'une campagne ou d'un Canvas. Ces champs sont les suivants :
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
-Si une cohérence totale est requise, nous vous recommandons d'attendre une heure après la dernière mise à jour de ces champs avant d'envoyer vos messages à vos utilisateurs.
-{% endalert %}
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->

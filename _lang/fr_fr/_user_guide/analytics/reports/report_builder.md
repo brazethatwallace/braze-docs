@@ -95,11 +95,13 @@ Si vous souhaitez créer un rapport sur les variantes ou les étapes de Canvas, 
 | Chiffre d'affaires total | Disponible pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. Non disponible avec le détail par **Channels**. |
 | Impressions uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
 | Destinataires uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. Non disponible avec le détail par **Channels**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Disponibilité des indicateurs" }
 
 ### Variantes de message supprimées {#deleted-message-variants}
 
 Les statistiques des variantes de message supprimées ne s'affichent pas lorsque vous décomposez votre rapport par Campaigns ou Canvas. Cependant, les totaux au niveau du canal incluent toutes les statistiques, que la variante ait été supprimée ou non. Par exemple, les *envois* pour l'e-mail incluent tous les envois d'e-mails, mais si vous décomposez ces statistiques par Campaign, les chiffres peuvent être inférieurs car les envois des variantes de message supprimées sont filtrés.
+
+Dans le même rapport, les *destinataires uniques* peuvent être supérieurs aux *impressions uniques* lorsqu'une variante de message a été supprimée après l'envoi. Les *destinataires uniques* au niveau de la Campaign peuvent toujours inclure les utilisateurs qui ont reçu la variante supprimée, tandis que les *impressions uniques* omettent les statistiques des variantes supprimées dans les agrégations au niveau du message.
 
 ## Consulter un rapport {#viewing-a-report}
 

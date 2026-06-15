@@ -7,7 +7,7 @@
 ```xml
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 ```
-```xml
+`````````xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
@@ -23,7 +23,7 @@ Android M のリリースにより、Android はインストール時権限モ�
 
 コンパイル時に自動位置情報の追跡を無効にするには、`braze.xml`で`com_braze_enable_location_collection`を`false`に設定します。
 
-```xml
+`````````xml
 <bool name="com_braze_enable_location_collection">false</bool>
 ```
 
@@ -34,7 +34,7 @@ Android M のリリースにより、Android はインストール時権限モ�
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .setIsLocationCollectionEnabled(false)
   .build();
@@ -44,7 +44,7 @@ Braze.configure(this, brazeConfig);
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val brazeConfig = BrazeConfig.Builder()
     .setIsLocationCollectionEnabled(false)
     .build()
@@ -61,7 +61,7 @@ Braze.configure(this, brazeConfig)
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -73,7 +73,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setLastKnownLocation(LATITUDE_DOUBLE_VALUE, LONGITUDE_DOUBLE_VALUE, ALTITUDE_DOUBLE_VALUE, ACCURACY_DOUBLE_VALUE)
 }

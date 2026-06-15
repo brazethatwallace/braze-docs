@@ -55,7 +55,7 @@ Braze は、リッチコンテンツの設定、ダウンロード、および�
 
 関連するペイロード値は次のとおりです。
 
-```objc
+`````````objc
 // The Braze dictionary key
 static NSString *const AppboyAPNSDictionaryKey = @"ab";
 

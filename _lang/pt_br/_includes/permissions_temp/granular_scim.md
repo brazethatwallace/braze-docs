@@ -1,9 +1,5 @@
 ## Migração de permissões granulares {#granular-permissions-migration}
 
-{% alert important %}
-As permissões granulares estão em acesso antecipado. Quando a migração estiver planejada para sua empresa, seus administradores da Braze receberão e-mails e banners no dashboard notificando-os sobre a [migração de permissões granulares]({{site.baseurl}}/granular_permissions_migration/).
-{% endalert %}
-
 Integrações SCIM existentes e [objetos da API SCIM legada]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) continuarão a funcionar após a migração de permissões granulares no final de abril.
 
 Você não precisa tomar nenhuma ação imediata. No entanto, recomendamos que você revise suas integrações para quaisquer permissões que serão granularizadas. Por exemplo, se você estiver enviando `basic_access` na API, sugerimos que atualize sua integração após a granularização para incluir as permissões específicas (por exemplo, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). A Braze continuará a aceitar strings legadas, como `basic_access`, após a migração de permissões granulares para que as integrações existentes não quebrem.
@@ -86,7 +82,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave/
 | --- | --- |
 | Administrator | `admin` |
 | Manage Company Settings | `manage_company_settings` |
-| Create and delete workspaces | `add_remove_app_groups` |
+| Create and delete workspaces| `add_remove_app_groups` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
 
 ### Strings de permissão do espaço de trabalho {#workspace-strings}

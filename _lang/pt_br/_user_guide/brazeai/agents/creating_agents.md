@@ -23,7 +23,7 @@ Antes de começar, você precisará do seguinte:
 
 ## Como funciona {#how-it-works}
 
-Quando você cria um agente, define seu propósito e estabelece diretrizes sobre como ele deve se comportar. Depois que estiver ativo, o agente pode ser implantado na Braze para gerar textos personalizados, tomar decisões em tempo real ou atualizar campos de catálogo. Você pode pausar ou atualizar um agente a qualquer momento pelo dashboard.
+Quando você cria um agente, define seu propósito e estabelece diretrizes sobre como ele deve se comportar. Depois que estiver ativo, o agente pode ser implantado na Braze para gerar textos personalizados, tomar decisões em tempo real ou atualizar campos de catálogo. Enquanto constrói seu agente, você pode salvá-lo como rascunho, e pode pausar ou atualizar um agente a qualquer momento pelo dashboard.
 
 Os seguintes casos de uso mostram algumas maneiras de aproveitar agentes personalizados.
 
@@ -88,7 +88,7 @@ Quando você usar um [esquema de saída avançado]({{site.baseurl}}/user_guide/b
 
 ### Etapa 5: Teste e crie o agente {#step-5-test-and-create-the-agent}
 
-O painel de **Pré-visualização** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usá-lo para testar o agente enquanto está criando ou fazendo atualizações, vivenciando-o de maneira semelhante aos usuários finais. Essa etapa ajuda você a confirmar que ele está se comportando da maneira esperada e dá a chance de fazer ajustes antes de colocá-lo no ar.
+O painel de **Pré-visualização** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usar essa seção para testar o agente enquanto está criando ou fazendo atualizações, vivenciando-o de maneira semelhante aos usuários finais. Essa etapa ajuda você a confirmar que ele está se comportando da maneira esperada e dá a chance de fazer ajustes antes de colocá-lo no ar.
 
 1. No campo **Teste seu agente**, insira dados de cliente de exemplo ou respostas de clientes — qualquer coisa que reflita cenários reais que seu agente vai lidar.
 2. Visualize a resposta do agente para um usuário aleatório, usuário existente ou usuário personalizado.
@@ -116,7 +116,8 @@ Evite dizer ao agente exatamente o que você não quer que ele faça. Os LLMs ai
 
 Seu agente está pronto para uso! Para mais detalhes, consulte [Implantar agentes]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
 
-## Artigos relacionados {#related-articles}
+## Recursos relacionados {#related-resources}
 
 - [Referência para agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [Webinar da Braze sobre IA em ação: 3 novos casos de uso para personalização 1:1](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

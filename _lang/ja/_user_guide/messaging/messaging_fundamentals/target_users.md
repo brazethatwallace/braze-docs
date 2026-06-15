@@ -25,7 +25,7 @@ tool:
 {% endtab %}
 
 {% tab 複数セグメント %}
-以前に作成した複数のSegmentに該当するユーザーをターゲットにするには、**セグメントを基準にユーザーをターゲットに設定**のドロップダウンから複数のSegmentを追加します。結果として得られるターゲットオーディエンスは、最初のSegmentと2番目のSegmentと3番目のSegmentなど、すべてに含まれるユーザーになります。
+以前に作成した複数のSegmentsに該当するユーザーをターゲットにするには、**セグメントを基準にユーザーをターゲットに設定**のドロップダウンから複数のSegmentsを追加します。結果として得られるターゲットオーディエンスは、最初のSegmentと2番目のSegmentと3番目のSegmentなど、すべてに含まれるユーザーになります。
 {% endtab %}
 
 {% tab 複数フィルター %}
@@ -35,9 +35,9 @@ Segmentを追加せずにユーザーをターゲットにするには、一連�
 {% endtab %}
 
 {% tab セグメントとフィルター %}
-以前に作成した1つ以上のSegmentに含まれ、さらに追加フィルターにも該当するユーザーをターゲットにすることもできます。まずSegmentを選択した後、**追加のフィルター**セクションでオーディエンスをさらに絞り込むことができます。以下のスクリーンショットは、「Daily Active Users」Segment、「Never opened email」Segmentに含まれ、30日以上前に購入を行ったユーザーをターゲットにする例を示しています。
+以前に作成した1つ以上のSegmentsに含まれ、さらに追加フィルターにも該当するユーザーをターゲットにすることもできます。まずSegmentsを選択した後、**追加のフィルター**セクションでオーディエンスをさらに絞り込むことができます。以下のスクリーンショットは、「Daily Active Users」Segment、「Never opened email」Segmentに含まれ、30日以上前に購入を行ったユーザーをターゲットにする例を示しています。
 
-![2つのSegmentを含み、最後の購入が30日以内であるという追加フィルターを持つメッセージのターゲティングオプション。]({% image_buster /assets/img_archive/target_segmenter.png %}){: style="max-width:90%;"}
+![2つのSegmentsを含み、最後の購入が30日以内であるという追加フィルターを持つメッセージのターゲティングオプション。]({% image_buster /assets/img_archive/target_segmenter.png %}){: style="max-width:90%;"}
 {% endtab %}
 
 {% tab 特定のアプリ %}
@@ -55,7 +55,7 @@ Androidアプリのみにアプリ内メッセージを送信したい場合を�
 ![特定のアプリ「Test_Android」のユーザーをターゲットにするSegment。]({% image_buster /assets/img_archive/app_test_android.png %}){: style="max-width:60%;"}
 
 {: start="2"}
-2. CampaignまたはCanvasで、**ターゲットオーディエンス**ステップに移動し、**セグメントを基準にユーザーをターゲットに設定**セクションにSegmentが追加されていることを確認します。
+2. **ターゲットオーディエンス**ステップで、**セグメントを基準にユーザーをターゲットに設定**セクションにSegmentが追加されていることを確認します。
 
 ![サンプルSegmentが選択された「ターゲットオーディエンス」ステップ。]({% image_buster /assets/img_archive/target_users_by_segment_example.png %})
 
@@ -72,7 +72,7 @@ Androidアプリのみにアプリ内メッセージを送信したい場合を�
 
 ### ステップ 2: オーディエンスのテスト {#step-2-test-your-audience}
 
-オーディエンスにSegmentとフィルターを追加した後、[ユーザーを検索]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)してオーディエンス条件に一致するかどうかを確認することで、オーディエンスが期待どおりに設定されているかテストできます。
+オーディエンスにSegmentsとフィルターを追加した後、[ユーザーを検索]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)してオーディエンス条件に一致するかどうかを確認することで、オーディエンスが期待どおりに設定されているかテストできます。
 
 ![「Lookup User」ボタンがある「User Lookup」セクション。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
 
@@ -103,7 +103,7 @@ Brazeは、フッターにターゲットチャネルの詳細なオーディエ
 
 {% alert note %}
 正確な統計の計算には数分かかる場合があります。この機能はSegmentレベルでのみ正確な統計を計算し、フィルターやフィルターグループレベルでは計算しません。<br><br>
-大規模なSegmentの場合、正確な統計を計算しても若干の変動が見られることは正常です。この機能の精度は99.999%以上と想定されています。
+大規模なSegmentsの場合、正確な統計を計算しても若干の変動が見られることは正常です。この機能の精度は99.999%以上と想定されています。
 {% endalert %}
 
 ## ターゲットオーディエンスとエントリ条件の連携 {#how-target-audience-and-entry-criteria-work-together}

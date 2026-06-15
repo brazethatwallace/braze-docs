@@ -22,7 +22,7 @@ Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING);
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING)
 ```
 
@@ -33,7 +33,7 @@ Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING)
 **ユーザーがログアウトするときに `changeUser()` を呼び出さないでください。`changeUser()` は、ユーザーがアプリケーションにログインするときにのみ呼び出す必要があります。**`changeUser()` を静的なデフォルト値に設定すると、ユーザーが再度ログインするまで、すべてのユーザーアクティビティがそのデフォルトの「ユーザー」に関連付けられます。
 {% endalert %}
 
-また、ユーザーがログアウトするときにユーザー IDを変更**しない**ことをお勧めします。変更すると、以前にログインしたユーザーを再エンゲージメントCampaignでターゲットにできなくなるためです。同じデバイスに複数のユーザーが存在することが予想されるものの、アプリがログアウト状態の間にそのうちの1ユーザーのみをターゲットにしたい場合は、ログアウト中にターゲットにするユーザー IDを個別に追跡し、アプリのログアウトプロセスの中でそのユーザー IDに切り替えることをお勧めします。
+また、ユーザーがログアウトするときにユーザー IDを変更**しない**ことをお勧めします。変更すると、以前にログインしたユーザーを再エンゲージメントキャンペーンでターゲットにできなくなるためです。同じデバイスに複数のユーザーが存在することが予想されるものの、アプリがログアウト状態の間にそのうちの1ユーザーのみをターゲットにしたい場合は、ログアウト中にターゲットにするユーザー IDを個別に追跡し、アプリのログアウトプロセスの中でそのユーザー IDに切り替えることをお勧めします。
 
 詳細については、[`changeUser`のドキュメント](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)を参照してください。
 
@@ -46,7 +46,7 @@ Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING)
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).subscribeToChangeUserEvents(new IEventSubscriber<BrazeUserChangeEvent>() {
   @Override
   public void trigger(BrazeUserChangeEvent event) {
@@ -58,7 +58,7 @@ Braze.getInstance(context).subscribeToChangeUserEvents(new IEventSubscriber<Braz
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).subscribeToChangeUserEvents { event ->
   // Add your app logic for user changes, such as refreshing user-scoped state.
 }

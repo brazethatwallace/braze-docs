@@ -25,15 +25,15 @@ description: "この参考記事では、複数のShopifyストアを1つのワ�
 ## 追加のストアを接続する {#connecting-an-additional-store}
 Shopifyストアに Brazeアプリをインストールし、最初のストアをインストールしたら、**+ Connect New Store**を選択します。
 
-![Shopify統合ページの「+ Connect New Store」ボタン。]({% image_buster /assets/img/Shopify/begin_setup_button.png %}){: style="max-width:80%;"}
+![Shopify統合ページの「+ Connect New Store」ボタン。]({% image_buster /assets/img/shopify/begin_setup_button.png %}){: style="max-width:80%;"}
 
 追加のShopify地域ストアについて、**Begin setup**を選択します。
 
-![「Begin setup」ボタンがある「Integration settings」セクション。]({% image_buster /assets/img/Shopify/multiple_stores.png %}){: style="max-width:80%;"}
+![「Begin setup」ボタンがある「Integration settings」セクション。]({% image_buster /assets/img/shopify/multiple_stores.png %}){: style="max-width:80%;"}
 
 最初のShopifyストア統合と同様に、標準またはカスタム設定のいずれかを選択できます。
 
-![標準またはカスタム設定でBraze Web SDKを実装するオプションがある「Enable the Braze SDKs」セクション。]({% image_buster /assets/img/Shopify/standard_or_custom.png %}){: style="max-width:80%;"}
+![標準またはカスタム設定でBraze Web SDKを実装するオプションがある「Enable the Braze SDKs」セクション。]({% image_buster /assets/img/shopify/standard_or_custom.png %}){: style="max-width:80%;"}
 
 ニーズに最も適したオプションを選択します。
 
@@ -41,7 +41,7 @@ Shopifyストアに Brazeアプリをインストールし、最初のストア�
 
 各ストアの統合を表示し、詳細設定を行うには、ドロップダウンメニューからストアを選択します。
 
-![Shopifyストアを選択するドロップダウンメニューがある「Integration settings」。]({% image_buster /assets/img/Shopify/store_dropdown_menu.png %})
+![Shopifyストアを選択するドロップダウンメニューがある「Integration settings」。]({% image_buster /assets/img/shopify/store_dropdown_menu.png %})
 
 ## ストア間でユーザーを同期する {#syncing-users-across-stores}
 
@@ -55,8 +55,8 @@ Braze external IDは以下のオプションから選択できます。
 
 | オプション | 説明 |
 |------|-----------|
-| Shopify顧客ID | Shopifyの顧客IDをBraze external IDとして使用する場合、各ストアはユーザーごとに固有の顧客IDを生成します。つまり、ユーザーが複数のストアとやり取りする場合、Brazeでは別々のプロファイルを持つことになります。 |
-| メール、ハッシュ化メール、またはカスタムexternal ID | メール、ハッシュ化されたメール、またはカスタムexternal IDタイプを使用する場合、複数のストアとエンゲージメントを持つユーザーは、ログインまたは注文時にプロファイルが1つの統合プロファイルにマージされます。 |
+| Shopify顧客ID | Shopifyの顧客IDをBraze external IDとして使用する場合、各ストアはユーザーごとに固有の顧客IDを生成します。つまり、ユーザーが複数のストアとやり取りする場合、Brazeでは別々のプロファイルを持つことになります。|
+| メール、ハッシュ化メール、またはカスタムexternal ID | メール、ハッシュ化されたメール、またはカスタムexternal IDタイプを使用する場合、複数のストアとエンゲージメントを持つユーザーは、ログインまたは注文時にプロファイルが1つの統合プロファイルにマージされます。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Braze external ID" }
 
 ### マージされるフィールド {#merged-fields}
@@ -122,7 +122,7 @@ Shopifyコネクター設定の**ユーザーを管理**ステップで、Braze�
 
 複数のストアを接続すると、受信するeコマース推奨イベントにはソースイベントプロパティが含まれます。このプロパティは、イベントがどのストアフロントURLから発生したかを識別し、この情報をセグメンテーションや特定のユースケースのトリガーに使用できるようにします。
 
-![`ecommerce.order_placed`カスタムイベントを実行したユーザーをエントリさせるトリガーを持つアクションベースのCanvas。]({% image_buster /assets/img/Shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
+![`ecommerce.order_placed`カスタムイベントを実行したユーザーをエントリさせるトリガーを持つアクションベースのCanvas。]({% image_buster /assets/img/shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
 
 Shopify統合内でサポートされているeコマース推奨イベントは次のとおりです。
 
@@ -137,7 +137,7 @@ Shopify統合内でサポートされているeコマース推奨イベントは
 
 受信するShopifyカスタムイベントには、`shopify_storefront`というイベントプロパティが含まれます。このプロパティは、イベントがどのストアフロントURLから来たかを示し、セグメンテーションやユースケースのトリガーに活用できます。
 
-![`shopify_paid_order`カスタムイベントを実行したユーザーをエントリさせるトリガーを持つアクションベースのCanvas。]({% image_buster /assets/img/Shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
+![`shopify_paid_order`カスタムイベントを実行したユーザーをエントリさせるトリガーを持つアクションベースのCanvas。]({% image_buster /assets/img/shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
 
 サポートされているShopifyカスタムイベントは以下のとおりです。
 
@@ -154,4 +154,4 @@ Brazeで各Shopifyストアを接続および設定する際、必要に応じ�
 
 ストアごとに製品の同期を有効にすると、BrazeはShopifyストアの名前をカタログ名に含めます。これにより、異なるストアの商品を区別できます。
 
-![Shopifyストア名が含まれたShopifyカタログ。]({% image_buster /assets/img/Shopify/catalog_store_name.png %})
+![Shopifyストア名が含まれたShopifyカタログ。]({% image_buster /assets/img/shopify/catalog_store_name.png %})

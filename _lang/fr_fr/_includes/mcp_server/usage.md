@@ -67,10 +67,6 @@ Pour en savoir plus sur la fonction `get_canvas_list`, consultez [Fonctions API 
 ### Créer un modèle d'e-mail {#create-an-email-template}
 
 {% tabs %}
-{% tab Claude %}
-![« Créer un modèle d'e-mail » : question posée et réponse fournie dans Claude.]({% image_buster /assets/img/mcp_server/claude/create_an_email_template.png %}){: style="max-width:85%;"}
-{% endtab %}
-
 {% tab Cursor %}
 ![« Créer un modèle d'e-mail » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
 {% endtab %}
@@ -81,10 +77,6 @@ Pour en savoir plus sur la fonction `create_email_template`, consultez [Fonction
 ### Mettre à jour un bloc de contenu {#update-a-content-block}
 
 {% tabs %}
-{% tab Claude %}
-![« Mettre à jour un bloc de contenu » : question posée et réponse fournie dans Claude.]({% image_buster /assets/img/mcp_server/claude/update_a_content_block.png %}){: style="max-width:85%;"}
-{% endtab %}
-
 {% tab Cursor %}
 ![« Mettre à jour un bloc de contenu » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
 {% endtab %}

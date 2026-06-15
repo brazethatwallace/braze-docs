@@ -16,7 +16,7 @@ _この統合はSingularによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとSingularの統合により、有料インストールのアトリビューションデータをインポートして、ライフサイクルCampaigns内でインテリジェントにセグメントすることができます。
+BrazeとSingularの統合により、有料インストールのアトリビューションデータをインポートして、ライフサイクルキャンペーン内でインテリジェントにセグメントすることができます。
 
 ## 前提条件 {#prerequisites}
 
@@ -53,7 +53,7 @@ Swift SDK v5.7.0+を使用しているお客様は、相互識別子としてIDF
 {% tabs local %}
 {% tab Objective-C %}
 
-```objc
+`````````objc
 SingularConfig* config = [[SingularConfig
   alloc] initWithApiKey:SDKKEY andSecret:SDKSECRET];
 
@@ -65,7 +65,7 @@ SingularConfig* config = [[SingularConfig
 {% endtab %}
 {% tab Swift%}
 
-```swift
+`````````swift
 config.setGlobalProperty("brazeDeviceId", withValue: brazeDeviceId, overrideExisting: true)
 ```
 
@@ -88,13 +88,13 @@ BrazeがSingularからアトリビューションデータを受信すると、B
 
 ## FacebookとX（旧Twitter）のアトリビューションデータ {#facebook-and-x-formerly-twitter-attribution-data}
 
-FacebookおよびX（旧Twitter）Campaignsのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
+FacebookおよびX（旧Twitter）キャンペーンのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
 
 ## BrazeでのSingularクリックトラッキングURL（オプション） {#singular-click-tracking-urls-in-braze-optional}
 
-BrazeのCampaignsでクリックトラッキングリンクを使用すると、どのCampaignsがアプリのインストールやリエンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
+Brazeのキャンペーンでクリックトラッキングリンクを使用すると、どのキャンペーンがアプリのインストールやリエンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
 
-Singularクリックトラッキングリンクを使い始めるには、[ドキュメント](https://support.singular.net/hc/en-us/articles/360030934212-Singular-Links-FAQ?navigation_side_bar=true)を参照してください。SingularのクリックトラッキングリンクをBrazeのCampaignsに直接挿入することができます。その後、Singularは[確率的アトリビューション手法](https://support.singular.net/hc/en-us/articles/115000526963-Understanding-Singular-Mobile-App-Attribution?navigation_side_bar=true)を用いて、リンクをクリックしたユーザーをアトリビュートします。BrazeのCampaignsからのアトリビューションの精度を高めるために、Singularトラッキングリンクにデバイス識別子を付加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビュートできます。
+Singularクリックトラッキングリンクを使い始めるには、[ドキュメント](https://support.singular.net/hc/en-us/articles/360030934212-Singular-Links-FAQ?navigation_side_bar=true)を参照してください。SingularのクリックトラッキングリンクをBrazeのキャンペーンに直接挿入することができます。その後、Singularは[確率的アトリビューション手法](https://support.singular.net/hc/en-us/articles/115000526963-Understanding-Singular-Mobile-App-Attribution?navigation_side_bar=true)を用いて、リンクをクリックしたユーザーをアトリビュートします。Brazeのキャンペーンからのアトリビューションの精度を高めるために、Singularトラッキングリンクにデバイス識別子を付加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビュートできます。
 
 {% tabs local %}
 {% tab Android %}

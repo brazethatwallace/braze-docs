@@ -13,11 +13,11 @@ Liquidを使用して、アップロードした[プロモーションコード]
 
 ## バリアントリテンションレポート {#variant-retention-report}
 
-[Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/test_campaigns/retention_reports/)または[Canvas]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)のリテンションレポートを確認する際に、バリアント別に結果を表示できるようになりました。
+[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/test_campaigns/retention_reports/)または[キャンバス]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)のリテンションレポートを確認する際に、バリアント別に結果を表示できるようになりました。
 
-## CampaignsおよびCanvasesの「フィルター」オプション {#filter-option-for-campaigns-and-canvases}
+## キャンペーンおよびキャンバスの「フィルター」オプション {#filter-option-for-campaigns-and-canvases}
 
-CanvasおよびCampaignのGETリストエンドポイントのフィルターオプションを使用すると、CampaignまたはCanvasメッセージが最後に更新された日時を確認できます。
+キャンバスおよびキャンペーンのGETリストエンドポイントのフィルターオプションを使用すると、キャンペーンまたはキャンバスメッセージが最後に更新された日時を確認できます。
 
 ## Currentsの`ad-id` {#currents-ad-id}
 

@@ -17,7 +17,7 @@ search_rank: 1
 
 ## Etapa 1: Acesse o editor de modelos de e-mail {#step-1-navigate-to-the-email-template-editor}
 
-No dashboard da Braze, acesse **Templates** > **Email Templates**.
+No dashboard da Braze, acesse **Content** > **Email**.
 
 ## Etapa 2: Selecione sua experiência de edição {#step-2-select-your-editing-experience}
 
@@ -83,7 +83,7 @@ Se você fizer edições em um modelo existente, essas alterações não serão 
 
 ### Gerencie seus modelos {#manage-your-templates}
 
-Você pode visualizar modelos de e-mail em **Templates** > **Email Templates**, filtrando por status, tipo, tags, o usuário que o criou, ou pesquisando pelo nome do modelo. Você precisa da permissão **Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers** (ou a permissão granular equivalente, como **View Email Templates**) para visualizar esses modelos. Para mais detalhes, consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Você pode visualizar modelos de e-mail em **Templates** > **Email Templates**, filtrando por status, tipo, tags, o usuário que o criou, ou pesquisando pelo nome do modelo. Você precisa das permissões de usuário relevantes, como **View Email Templates**, para visualizar esses modelos. Para mais detalhes, consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
 
 À medida que você cria mais modelos de e-mail, pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates) modelos de e-mail. Saiba mais sobre como criar e gerenciar sua biblioteca de modelos e conteúdo criativo em [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates/).
 
@@ -98,7 +98,7 @@ Para usar seu e-mail em uma Campaign da API, você precisa de um `email_template
 Você pode colaborar e comentar em modelos de e-mail no editor de arrastar e soltar.
 
 1. Selecione o bloco de conteúdo ou a linha no corpo do e-mail que você deseja comentar.
-2. Selecione o ícone de comentário <i class="fas fa-comment" aria-label="Comentar"></i>.
+2. Selecione o ícone de comentário <i class="fas fa-comment"></i>.
 3. Insira seu comentário na barra lateral e selecione **Submit**.
 4. Após inserir seus comentários, selecione **Done**.
 5. Selecione **Save Template** para salvar seus comentários.

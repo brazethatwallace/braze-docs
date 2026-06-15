@@ -90,7 +90,7 @@ tool: Reports
 
 ## 매출 데이터 내보내기 {#exporting-revenue-data}
 
-매출 데이터를 내보내려면 **Performance Over Time** 그래프에서 <i class="fas fa-bars" title="Chart context menu"></i>를 선택한 다음 내보내기 옵션을 선택합니다.
+매출 데이터를 내보내려면 **Performance Over Time** 그래프에서 <i class="fas fa-bars" title="차트 컨텍스트 메뉴"></i> **차트 컨텍스트 메뉴**를 선택한 다음 내보내기 옵션을 선택합니다.
 
 {% alert tip %}
 매출 데이터를 얻는 더 많은 방법을 찾고 계신가요? Campaigns 또는 Canvases에 구매 행동(및 제품 구매)을 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)로 추가해 보세요.

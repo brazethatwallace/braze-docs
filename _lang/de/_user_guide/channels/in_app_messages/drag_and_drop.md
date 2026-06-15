@@ -20,7 +20,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 Wenn Sie Ihre vorhandenen benutzerdefinierten HTML-Templates oder von Drittanbietern erstellte Templates verwenden möchten, müssen diese im Drag-and-Drop-Editor neu erstellt werden.
 
-Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder einen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind. Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, lassen Sie uns die Schritte zum Erstellen einer Drag-and-Drop-In-App-Nachricht durchgehen.
+Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder einen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind. Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-In-App-Nachricht durch.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -95,7 +95,7 @@ Sie können bis zu 10 Seiten pro In-App-Nachricht hinzufügen.
 
 So duplizieren Sie eine vorhandene Seite:
 
-1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i>, um weitere Optionen zu öffnen.
+1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Wählen Sie **Duplicate**.
 3. Geben Sie der Seite einen aussagekräftigen Namen. Dies hilft Ihnen beim Verbinden der Seiten.
 
@@ -104,7 +104,7 @@ So duplizieren Sie eine vorhandene Seite:
 
 So löschen oder benennen Sie eine Seite um:
 
-1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i>, um weitere Optionen zu öffnen.
+1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Wählen Sie **Rename** oder **Delete**.
 
 {% endtab %}
@@ -140,7 +140,7 @@ Hier kann Ihre Nachricht im Stil Ihrer Marke glänzen. Mit einer Kombination aus
 
 ## 5. Schritt: Ihre In-App-Nachricht testen {#step-5-test-your-in-app-message}
 
-Im Abschnitt **Vorschau und Test** können Sie Ihre In-App-Nachrichten auf verschiedenen Geräten in der Vorschau anzeigen und eine Testnachricht an Ihr Gerät senden. Hier können Sie sicherstellen, dass die Details auf allen Ihren Plattformen für Ihre Drag-and-Drop-In-App-Nachrichten-Campaign übereinstimmen.
+Im Abschnitt **Preview & Test** können Sie Ihre In-App-Nachrichten auf verschiedenen Geräten in der Vorschau anzeigen und eine Testnachricht an Ihr Gerät senden. Hier können Sie sicherstellen, dass die Details auf allen Ihren Plattformen für Ihre Drag-and-Drop-In-App-Nachrichten-Campaign übereinstimmen.
 
 Es ist wichtig, Ihre In-App-Nachrichten immer zu testen, bevor Sie Ihre Campaigns senden, damit Sie sich ein Bild davon machen können, wie Ihre endgültige Nachricht aus der Perspektive Ihrer Nutzer:innen aussehen wird.
 
@@ -150,7 +150,7 @@ Es ist wichtig, Ihre In-App-Nachrichten immer zu testen, bevor Sie Ihre Campaign
 Um einen Test an Content-Testgruppen oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten vor dem Senden aktiviert sein.
 {% endalert %}
 
-Sie können Nachrichten im Tab **Vorschau und Test** in der Vorschau anzeigen, als wären Sie eine Nutzer:in. Sie können bestimmte Nutzer:innen, zufällige Nutzer:innen auswählen oder benutzerdefinierte Nutzer:innen erstellen:
+Sie können Nachrichten im Tab **Preview & Test** in der Vorschau anzeigen, als wären Sie eine Nutzer:in. Sie können bestimmte Nutzer:innen, zufällige Nutzer:innen auswählen oder benutzerdefinierte Nutzer:innen erstellen:
 
 - **Zufällige Nutzer:in:** Braze wählt zufällig Nutzer:innen aus der Datenbank aus und zeigt die In-App-Nachricht basierend auf deren Attributen oder Ereignisinformationen in der Vorschau an.
 - **Nutzer:in auswählen:** Sie können bestimmte Nutzer:innen anhand ihrer E-Mail-Adresse oder `external_id` auswählen. Die In-App-Nachricht wird basierend auf den Attributen und Ereignisinformationen dieser Nutzer:innen in der Vorschau angezeigt.
@@ -192,4 +192,4 @@ Ja. Für jede In-App-Nachricht, die Sie in einer zukünftigen Campaign oder eine
 
 ![Eine Vorschau einer In-App-Nachricht für eine Produkttour.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-Sie können auch In-App-Nachrichten-Templates erstellen und speichern, indem Sie zu **Templates** > **In-App Message Templates** navigieren.
+Sie können auch In-App-Nachrichten-Templates erstellen und speichern, indem Sie zu **Content** > **In-App Message** navigieren.

@@ -15,7 +15,7 @@ Como o Criador de consultas permite acesso direto a alguns dados de cliente, voc
 
 ## Tabelas de dados disponíveis {#available-data-tables}
 
-O Criador de consultas usa as mesmas tabelas SQL do Snowflake que as [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) e o [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Para uma lista completa das tabelas disponíveis e suas colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+O Criador de consultas usa as mesmas tabelas SQL do Snowflake que as [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) e o [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Para uma lista completa das tabelas disponíveis e suas colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
 
 ## Executando relatórios no Criador de consultas {#running-reports-in-the-query-builder}
 
@@ -104,7 +104,7 @@ Para visualizar detalhes das tabelas dentro do Criador de consultas:
 
 1. Na página do **Query Builder**, abra o painel **Reference** e selecione **Available Data Tables** para visualizar as tabelas de dados disponíveis e seus nomes.
 3. Selecione <i class="fas fa-chevron-down" alt=""></i> **See Details** para visualizar a descrição da tabela e informações sobre as colunas, como tipos de dados.
-4. Para inserir o nome da tabela no seu SQL, selecione <i class="fas fa-copy" title="Copiar nome da tabela para o editor SQL"></i>.
+4. Para inserir o nome da tabela no seu SQL, selecione <i class="fas fa-copy" title="Copiar nome da tabela para o editor SQL"></i> **Copy table name to SQL editor**.
 
 Para usar consultas pré-escritas fornecidas pela Braze, selecione **Query Template** ao criar um relatório pela primeira vez no Criador de consultas.
 
@@ -131,7 +131,7 @@ Se você consultar `CANVAS_ID`, `CANVAS_VARIATION_API_ID` ou `CAMPAIGN_ID`, as c
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Writing custom SQL queries" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Escrevendo consultas SQL personalizadas" }
 
 Esta consulta recupera todos os três IDs e suas colunas de nome associadas com um máximo de 100 linhas:
 
@@ -215,7 +215,7 @@ Todos os quatro tipos são exibidos se tanto `start_date` quanto `end_date` fore
 | Data de início | Especifica uma data de início | Requer `start_date` |
 | Data de término | Especifica uma data de término | Requer `end_date` |
 | Intervalo de datas | Especifica tanto uma data de início quanto de término | Requer tanto `start_date` quanto `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example values" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Valores de exemplo" }
 
 - **Valor de substituição:** Substitui `start_date` e `end_date` por um timestamp Unix em segundos para uma data especificada em UTC, como `1696517353`.
 - **Exemplo de uso:** Para todas as variáveis de relativo, data de início, data de término e intervalo de datas:

@@ -15,4 +15,4 @@ description: "この記事には2018年6月のリリースノートが含まれ�
 
 キャンバスステップごとのアンインストールが追跡され、統計として表示できるようになりました。
 
-![Canvasのアンインストール追跡]({% image_buster /assets/img/uninstall_tracking_canvas_step.png %})
+![キャンバスのアンインストール追跡]({% image_buster /assets/img/uninstall_tracking_canvas_step.png %})

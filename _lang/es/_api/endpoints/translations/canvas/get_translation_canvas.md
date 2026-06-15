@@ -15,9 +15,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /canvas/translations
 {% endapimethod %}
 
-> Utiliza este punto de conexión para obtener una vista previa de un mensaje traducido para un Canvas. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de localización.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> Utiliza este punto de conexión para obtener una vista previa de un mensaje traducido para un Canvas. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
@@ -29,13 +27,13 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de consulta {#query-parameters}
 
-| Parámetro              | Obligatorio | Tipo de datos | Descripción                        |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id`          | Obligatorio | Cadena    | El ID del Canvas.              |
-| `step_id`              | Obligatorio | Cadena    | El ID de tu paso en Canvas.        |
+| `workflow_id` | Obligatorio | Cadena | El ID del Canvas. |
+| `step_id` | Obligatorio | Cadena | El ID de tu paso en Canvas. |
 | `message_variation_id` | Obligatorio | Cadena | El ID de tu variación de mensaje. |
-| `locale_id`            | Opcional | Cadena    | El ID (UUID) de la configuración regional.       |
-| `post_launch_draft_version` | Opcional | Booleano | Cuando es `true`, devuelve la última versión de borrador en lugar de la última versión publicada en vivo. El valor predeterminado es `false`, que devuelve la última versión en vivo.
+| `locale_id` | Opcional | Cadena | El ID (UUID) de la configuración regional. |
+| `post_launch_draft_version` | Opcional | Booleano | Cuando es `true`, devuelve la última versión de borrador en lugar de la última versión publicada en vivo. El valor predeterminado es `false`, que devuelve la última versión en vivo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}

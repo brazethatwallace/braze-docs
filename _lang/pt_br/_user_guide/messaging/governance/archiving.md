@@ -11,11 +11,19 @@ tool:
 
 # Arquivar Campaigns e Canvas {#archive-campaigns-and-canvases}
 
-> Arquivar suas Campaigns e Canvas pode ser uma forma simples e eficaz de organizar seu espaço de trabalho. À medida que você continua criando mais mensagens, o arquivamento pode ajudar a manter o foco nos esforços de envio de mensagens ativos e relevantes.
+> Arquivar suas Campaigns e Canvas é uma forma eficaz de organizar seu espaço de trabalho. À medida que você continua criando mais mensagens, o arquivamento pode ajudar a manter o foco nos esforços de envio de mensagens ativos e relevantes.
+
+{% alert important %}
+Não é possível excluir Campaigns e Canvas do dashboard, mas você pode arquivá-los.
+{% endalert %}
 
 ## Arquivamento {#archiving}
 
 Quando você arquiva uma Campaign ou um Canvas, nenhuma mensagem adicional será enviada e suas mensagens no app não serão exibidas. Você ainda pode visualizar os resultados após o arquivamento, mas não poderá editar a Campaign ou o Canvas. Para isso, será necessário [desarquivar](#unarchiving-campaigns-and-canvases) primeiro.
+
+{% alert note %}
+**Arquivar** não exclui sua Campaign ou Canvas. A Braze interrompe a entrega, oculta a mensagem das listas do dia a dia e a mantém para relatórios e histórico do espaço de trabalho.
+{% endalert %}
 
 {% tabs local %}
 {% tab campaign %}

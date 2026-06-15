@@ -15,6 +15,32 @@ channel:
 
 {% multi_lang_include push/subscription_states.md %}
 
+## Où apparaissent l'enregistrement et le statut push {#where-push-registration-and-status-appear}
+
+Vous pouvez consulter l'état d'abonnement push, l'enregistrement et l'activation à trois endroits principaux dans Braze :
+
+1. **[Profils utilisateurs](#user-profiles-and-push-changelog)** dans l'onglet **Engagement**
+2. **[Segmentation](#segmentation-and-push-filters)** dans le générateur de segments
+3. **[Analyse de Campaign et Canvas](#campaign-and-canvas-analytics)** sur la page d'analyse de chaque message
+
+### Profils utilisateurs et journal des modifications push {#user-profiles-and-push-changelog}
+
+Sur le profil d'un utilisateur ([**Rechercher des utilisateurs**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) > sélectionnez l'utilisateur > onglet **Engagement**), **Contact Settings** liste l'état d'abonnement push, **Push Registered For** (les applications et plateformes que Braze peut utiliser pour envoyer des notifications push au premier plan à ce profil), et le **Push Changelog** pour les transferts de jetons, les erreurs et les mises à jour d'enregistrement. Pour savoir comment lire **Push Registered For** et l'autorisation au premier plan par rapport à l'arrière-plan, consultez [Vérifier le statut d'enregistrement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status).
+
+Sur iOS et Android, lorsqu'un appareil passe de l'autorisation push au premier plan à l'arrière-plan uniquement (par exemple, après que l'utilisateur a désactivé les notifications dans les paramètres système et que le SDK signale le changement), le journal des modifications push peut inclure une entrée telle que « Push token was updated from foreground push enabled to foreground push disabled ».
+
+Après avoir attendu de nouvelles données SDK (par exemple, juste après une session de test), sélectionnez **Refresh** sur le profil utilisateur si les valeurs semblent obsolètes. Il peut y avoir un court délai entre le moment où le SDK envoie les données et celui où le profil reflète le dernier enregistrement push.
+
+Pour les utilisateurs que vous ajoutez à un [groupe interne]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/), sélectionnez **Record User Events for group members** dans les **Internal Group Settings** de ce groupe afin que les requêtes SDK apparaissent dans le journal. Ouvrez ensuite le [Journal des événements utilisateur]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) dans **Paramètres** > **Event User Log**, trouvez les requêtes SDK de l'utilisateur et développez le payload brut. Vous pouvez inspecter des champs tels que `remote_notification_enabled` pour vérifier si l'appareil signale les notifications distantes comme activées ou désactivées.
+
+### Segmentation et filtres push {#segmentation-and-push-filters}
+
+Dans le générateur de segments, utilisez des filtres tels que **`Foreground Push Enabled`**, **`Foreground Push Enabled for App`**, **`Background or Foreground Push Enabled`**, et les filtres d'abonnement push pour cibler ou auditer les utilisateurs par préférence et autorisation au niveau de l'appareil. Sur iOS, la façon dont ces filtres s'appliquent à un utilisateur donné dépend du fait qu'il ait complété l'invite de l'OS, modifié ses paramètres, ou qu'il utilise l'[autorisation provisoire](#provisional-push) ; consultez [Actions utilisateur iOS et statut push](#ios-user-actions-push-status) et [Autres scénarios spécifiques aux plateformes](#foreground-push-enabled).
+
+### Analyse de Campaign et Canvas {#campaign-and-canvas-analytics}
+
+Sur la page d'analyse d'une **Campaign** ou d'un **Canvas** push, des indicateurs tels que *Envoyés*, *Rebonds* et *Ouvertures* reflètent la distribution et l'engagement pour cet envoi. Pour rapprocher ces chiffres des profils individuels, exportez les destinataires depuis **Campaign Details** ou **Canvas Details** en utilisant **User Data** (CSV). Pour les étapes et les autorisations, consultez [Exporter les données de Campaign]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/) et [Exporter les données Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/). Si les chiffres entre l'analyse et un export ne correspondent pas, consultez [Analyse de Campaign et Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/#campaign-and-canvas-analytics) dans la résolution des problèmes d'export.
+
 ## Actions utilisateur iOS et statut push {#ios-user-actions-push-status}
 
 Le tableau suivant montre comment différentes actions utilisateur affectent l'activation push iOS, l'enregistrement push au premier plan ou en arrière-plan, et le statut d'abonnement push dans Braze. Lorsqu'un utilisateur installe votre application et démarre sa première session, son état est généralement celui indiqué dans la première ligne. Chaque action ultérieure peut mettre à jour certaines de ces valeurs mais pas d'autres.
@@ -68,7 +94,7 @@ Avant iOS 12 (sorti en 2018), tous les utilisateurs devaient explicitement s'abo
 
 Avec iOS 12, Apple a introduit l'[autorisation provisoire](https://www.braze.com/resources/articles/mastering-provisional-push), permettant aux marques d'envoyer des notifications push silencieuses dans le centre de notifications de leurs utilisateurs avant qu'ils ne s'abonnent explicitement, vous donnant ainsi la possibilité de démontrer la valeur de vos messages en amont. Consultez [autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications) pour en savoir plus.
 
-### Navigateur web {#web}
+### Web {#web}
 
 Pour le Web, vous devez demander l'abonnement explicite de l'utilisateur via la boîte de dialogue d'autorisation native du navigateur.
 
@@ -105,7 +131,7 @@ Comme il n'existe aucun moyen pour les fournisseurs push (APNs/FCM) de distingue
 
 ### Plusieurs appareils et un seul utilisateur {#multiple-devices-and-one-user}
 
-L'état d'abonnement push est basé sur l'utilisateur et n'est pas spécifique à une application individuelle. L'état de l'abonnement push est la dernière valeur définie. Ainsi, si un utilisateur a accepté les notifications push, son état d'abonnement push est `Opted-In` sur tous les appareils éligibles. Si un utilisateur se désabonne ultérieurement explicitement des notifications push via votre application ou d'autres méthodes fournies par votre marque, son état d'abonnement push est mis à jour en `Unsubscribed` et aucun appareil enregistré pour le push ne peut recevoir de notifications push.
+L'état d'abonnement push est basé sur l'utilisateur et n'est pas spécifique à une application individuelle. L'état de l'abonnement push correspond à la dernière valeur définie. Ainsi, si un utilisateur a accepté les notifications push, son état d'abonnement push est `Opted-In` sur tous les appareils éligibles. Si un utilisateur se désabonne ultérieurement explicitement des notifications push via votre application ou d'autres méthodes fournies par votre marque, son état d'abonnement push est mis à jour en `Unsubscribed` et aucun appareil enregistré pour le push ne peut recevoir de notifications push.
 
 ## Filtre Foreground Push Enabled {#foreground-push-enabled}
 
@@ -120,7 +146,7 @@ Le filtre `Foreground Push Enabled` prend en compte les éléments suivants :
 Un utilisateur est considéré comme « activé pour le push » ou « enregistré pour le push » s'il possède un jeton push de premier plan actif pour une application dans votre espace de travail, ce qui signifie que le statut d'activation push est spécifique à l'application.
 
 {% alert note %}
-Pour savoir comment vérifier l'état d'enregistrement push, consultez [statut d'enregistrement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status).
+Pour savoir comment vérifier l'état d'enregistrement push, consultez [Statut d'enregistrement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status).
 {% endalert %}
 
 ## Trouver les informations d'enregistrement push et le journal des modifications {#finding-push-registration-and-changelog-information}
@@ -175,7 +201,7 @@ Dans ce scénario, puisqu'un jeton push en arrière-plan existera toujours, vous
 Pour Android, Braze considérera un utilisateur comme désactivé pour le push si :
 
 - Un utilisateur désinstalle l'application de son appareil.
-- Un message push échoue à la livraison en raison d'un rebond. Cela est souvent causé par une désinstallation, mais peut également être dû à des mises à jour de l'application, une nouvelle version du jeton push ou un changement de format.
+- Un message push échoue à la distribution en raison d'un rebond. Cela est souvent causé par une désinstallation, mais peut également être dû à des mises à jour de l'application, une nouvelle version du jeton push ou un changement de format.
 - L'enregistrement push échoue auprès de Firebase Cloud Messaging (parfois causé par une mauvaise connexion réseau ou un échec de connexion à FCM ou de la part de FCM pour retourner un jeton valide).
 - L'utilisateur bloque les notifications push pour l'application dans les paramètres de son appareil et enregistre ensuite une session.
 

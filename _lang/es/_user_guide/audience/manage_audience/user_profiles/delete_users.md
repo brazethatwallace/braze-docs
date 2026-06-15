@@ -90,7 +90,7 @@ Tienes 7 días para cancelar las eliminaciones de segmentos pendientes. Para can
 
 ![La pestaña "Delete Users" en la sección "Manage Audience" del panel de Braze.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-Junto a una eliminación de segmento pendiente, selecciona <i class="fa-solid fa-eye"></i> para abrir los detalles del registro de eliminación.
+Junto a una eliminación de segmento pendiente, selecciona <i class="fa-solid fa-eye"></i> **View details** para abrir los detalles del registro de eliminación.
 
 ![Una eliminación de segmento pendiente en la pestaña "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -134,7 +134,7 @@ En esta página, puedes encontrar la siguiente información general para todas l
 | Estado | Muestra si la solicitud de eliminación está pendiente, en curso o completada. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gestionar audiencia" }
 
-Para obtener más detalles sobre una solicitud específica, selecciona <i class="fa-solid fa-eye"></i> para mostrar los detalles del registro de eliminación. Aquí también puedes [cancelar eliminaciones de segmentos pendientes](#cancel).
+Para obtener más detalles sobre una solicitud específica, selecciona <i class="fa-solid fa-eye"></i> **View details** para mostrar los detalles del registro de eliminación. Aquí también puedes [cancelar eliminaciones de segmentos pendientes](#cancel).
 
 ![Una eliminación de segmento pendiente en la pestaña "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -173,3 +173,7 @@ Sí. Sin embargo, puedes añadir un filtro de inclusión de segmento para exclui
 Las eliminaciones de usuarios individuales son permanentes.
 
 Puedes [cancelar eliminaciones de segmentos](#cancel) dentro de los primeros 7 días. Sin embargo, los usuarios que ya se hayan eliminado antes de la cancelación no se pueden restaurar.
+
+### ¿Puedo eliminar usuarios con la API en lugar del dashboard? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+Sí. Para lotes más pequeños, puedes usar el [punto de conexión `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), que acepta hasta 50 identificadores por solicitud y está sujeto al [límite de velocidad]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit) de ese punto de conexión. La eliminación basada en segmentos desde el dashboard es más adecuada para audiencias muy grandes, pero incluye el [período de espera de 7 días](#about-user-deletion).

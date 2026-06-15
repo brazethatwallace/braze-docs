@@ -7,11 +7,15 @@ description: "Cette page décrit les attributs personnalisés et explique les di
 search_rank: 1
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Attributs personnalisés {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-attributes}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Attributs personnalisés {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-attributes}
 
 > Cette page traite des attributs personnalisés, qui regroupent les caractéristiques uniques de vos utilisateurs. Les attributs personnalisés sont particulièrement adaptés pour stocker des informations sur vos utilisateurs ou sur les actions à faible valeur au sein de votre application.
 
 Lorsqu'ils sont stockés dans Braze, les attributs personnalisés peuvent servir à créer des segments d'audience et à personnaliser l'envoi de messages à l'aide de Liquid. Gardez à l'esprit que Braze ne stocke pas d'informations de séries temporelles pour les attributs personnalisés. Vous ne pourrez donc pas obtenir de graphiques basés sur ces attributs, contrairement aux événements personnalisés.
+
+{% alert important %}
+**Les noms doivent correspondre exactement.** Les clés d'attributs personnalisés sont **sensibles à la casse** — par exemple, `Home_City` et `home_city` sont deux attributs différents. Lorsque vous envoyez des données via la [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) ou un SDK, Braze **supprime les espaces en début et en fin** des noms d'attributs, de sorte que `greeting` et ` greeting ` correspondent à la même clé. Utilisez la même orthographe et la même casse partout où vous référencez un attribut — dans **Paramètres des données** > **Attributs personnalisés**, les payloads API et SDK, et les imports CSV. Pour savoir comment Braze convertit les valeurs entrantes lorsque vous [forcez un type de données]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#data-type-coercion), consultez [Gérer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+{% endalert %}
 
 ## Cas d'utilisation {#use-cases}
 
@@ -56,11 +60,11 @@ Pour plus de détails sur le blocage et la suppression de données personnalisé
 
 ### Marquer comme information personnelle identifiable (PII) {#mark-as-personally-identifiable-information-pii}
 
-Les administrateurs peuvent également créer des attributs personnalisés et les marquer comme PII depuis cette page. Ces attributs ne sont visibles que par les administrateurs et les utilisateurs du tableau de bord disposant de l'autorisation « Afficher les attributs personnalisés marqués comme PII ».
+Les administrateurs peuvent également créer des attributs personnalisés et les marquer comme PII depuis cette page. Ces attributs ne sont visibles que par les administrateurs et les utilisateurs du tableau de bord disposant de l'autorisation « View Custom Attributes Marked as PII ».
 
 ### Ajouter des descriptions {#add-descriptions}
 
-Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Sélectionnez **Modifier la description** pour l'attribut personnalisé et saisissez ce que vous souhaitez, par exemple une note pour votre équipe.
+Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Sélectionnez **Edit description** pour l'attribut personnalisé et saisissez ce que vous souhaitez, par exemple une note pour votre équipe.
 
 ### Ajouter des étiquettes {#add-tags}
 
@@ -75,39 +79,39 @@ Il existe deux façons de supprimer des attributs personnalisés des profils uti
 
 ### Exporter les données {#export-data}
 
-Pour exporter la liste des attributs personnalisés sous forme de fichier CSV, sélectionnez **Tout exporter** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
+Pour exporter la liste des attributs personnalisés sous forme de fichier CSV, sélectionnez **Export all** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
 
 ## Modifier le type d'un attribut personnalisé {#change-custom-attribute-type}
 
 ### Conditions préalables {#prerequisites}
 
-L'attribut personnalisé ne doit pas être actuellement utilisé dans des campaigns, Canvas ou segments actifs. Si vous tentez de modifier le type de données alors que l'attribut est encore référencé, le tableau de bord affiche une erreur et bloque la modification.
+L'attribut personnalisé ne doit pas être actuellement utilisé dans des Campaigns, Canvas ou Segments actifs. Si vous tentez de modifier le type de données alors que l'attribut est encore référencé, le tableau de bord affiche une erreur et bloque la modification.
 
 ### Modifier le type de données {#changing-the-data-type}
 
-1. Arrêtez toutes les campaigns ou Canvas actifs qui utilisent l'attribut dans des segments ou des filtres.
-2. Supprimez l'attribut de tous les filtres de segments, campaigns et Canvas.
+1. Arrêtez toutes les Campaigns ou tous les Canvas actifs qui utilisent l'attribut dans des segments ou des filtres.
+2. Supprimez l'attribut de tous les filtres de segments, Campaigns et Canvas.
 3. Accédez à **Paramètres des données** > **Attributs personnalisés** (ou **Événements personnalisés**), trouvez l'attribut et mettez-le à jour avec le type de données souhaité.
 4. Mettez à jour les valeurs de l'attribut sur les profils utilisateur existants pour qu'elles correspondent au nouveau type de données (par exemple, en utilisant l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)).
-5. Réappliquez l'attribut aux segments, campaigns et Canvas concernés, puis réactivez les campaigns ou Canvas arrêtés.
+5. Réappliquez l'attribut aux segments, Campaigns et Canvas concernés, puis réactivez les Campaigns ou Canvas arrêtés.
 
 ### Points importants {#things-to-know}
 
 - **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur contenait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des segments correspondants tant que leur profil n'est pas mis à jour.
 - **Les nouvelles données doivent correspondre au nouveau type de données.** Après la modification, les appels API ou événements SDK qui envoient l'ancien type de données pour cet attribut ne seront pas acceptés. Seules les valeurs correspondant au nouveau type de données sont ingérées.
-- **Les filtres ne sont pas mis à jour automatiquement.** Les segments et filtres de campaigns référençant l'attribut modifié ne sont pas mis à jour rétroactivement. Vous devez les supprimer et les recréer après la modification.
+- **Les filtres ne sont pas mis à jour automatiquement.** Les segments et filtres de Campaigns référençant l'attribut modifié ne sont pas mis à jour rétroactivement. Vous devez les supprimer et les recréer après la modification.
 
 ## Consulter les rapports d'utilisation {#view-usage-reports}
 
-Le rapport d'utilisation répertorie tous les Canvas, campaigns et segments qui utilisent un attribut personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
+Le rapport d'utilisation répertorie tous les Canvas, Campaigns et Segments qui utilisent un attribut personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
 
-Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des attributs personnalisés, puis en sélectionnant **Afficher le rapport d'utilisation**.
+Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des attributs personnalisés, puis en sélectionnant **View usage report**.
 
 ### Onglet Valeurs {#values-tab}
 
-Lors de la consultation d'un rapport d'utilisation, sélectionnez l'onglet **Valeurs** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Notez que les résultats étant issus d'un sous-ensemble d'utilisateurs, l'échantillon ne comprend pas toutes les valeurs existantes. L'onglet **Valeurs** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'utilisation nécessitant l'intégration des données de tous les utilisateurs.
+Lors de la consultation d'un rapport d'utilisation, sélectionnez l'onglet **Values** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Notez que les résultats étant issus d'un sous-ensemble d'utilisateurs, l'échantillon ne comprend pas toutes les valeurs existantes. L'onglet **Values** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'utilisation nécessitant l'intégration des données de tous les utilisateurs.
 
-![Rapport d'utilisation pour les attributs personnalisés sélectionnés avec un onglet « Valeurs » ouvert montrant un graphique circulaire des valeurs de l'attribut pays, telles que « US » et « PR ».]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
+![Rapport d'utilisation pour les attributs personnalisés sélectionnés avec un onglet « Values » ouvert montrant un graphique circulaire des valeurs de l'attribut pays, telles que « US » et « PR ».]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
 ## Définir des attributs personnalisés {#set-custom-attributes}
 

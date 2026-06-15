@@ -32,16 +32,16 @@ SDKのセッション開始セマンティクスについて詳しくは、[セ�
 
 ## キーと値のペア {#key-value-pairs}
 
-BrazeでCampaignを作成する際、キーと値のペアを `extras` として設定できます。これは、アプリ内メッセージングオブジェクトがアプリにデータを送信する際に使用できます。以下に例を示します。
+Brazeでキャンペーンを作成する際、キーと値のペアを `extras` として設定できます。これは、アプリ内メッセージングオブジェクトがアプリにデータを送信する際に使用できます。以下に例を示します。
 
 {% tabs %}
 {% tab JAVA %}
-```java
+`````````java
 Map<String, String> getExtras()
 ```
 {% endtab %}
 {% tab KOTLIN %}
-```kotlin
+`````````kotlin
 extras: Map<String, String>
 ```
 {% endtab %}
@@ -58,7 +58,7 @@ extras: Map<String, String>
 1. 自動統合初期化機能を使用していることを確認してください。この機能は、バージョン `2.2.0` 以降でデフォルトで有効になっています。
 2. 次の行を `braze.xml` ファイルに追加することで、アプリ内メッセージ操作のデフォルトを `DISCARD` に設定します。
 
-```xml
+`````````xml
 <string name="com_braze_flutter_automatic_integration_iam_operation">DISCARD</string>
 ```
 
@@ -79,7 +79,7 @@ extras: Map<String, String>
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
   final Bundle kvps = event.getNotificationPayload().getBrazeExtras();
   if (kvps.containsKey("IS_SERVER_EVENT")) {
@@ -96,7 +96,7 @@ Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event ->
     val kvps = event.notificationPayload.brazeExtras
     if (kvps.containsKey("IS_SERVER_EVENT")) {
@@ -113,13 +113,13 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endtab %}
 {% endtabs %}
 
-#### ステップ 2: プッシュCampaignを作成する {#step-2-create-a-push-campaign}
+#### ステップ 2: プッシュキャンペーンを作成する {#step-2-create-a-push-campaign}
 
-サーバー送信イベントを介してトリガーされる[サイレントプッシュCampaign]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)を作成します。
+サーバー送信イベントを介してトリガーされる[サイレントプッシュキャンペーン]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)を作成します。
 
 ![]({% image_buster /assets/img_archive/serverSentPush.png %})
 
-プッシュCampaignには、このプッシュCampaignがSDKカスタムイベントを記録するために送信されることを示すキーと値のペアのエクストラを含める必要があります。このイベントはアプリ内メッセージをトリガーするために使用されます。
+プッシュキャンペーンには、このプッシュキャンペーンがSDKカスタムイベントを記録するために送信されることを示すキーと値のペアのエクストラを含める必要があります。このイベントはアプリ内メッセージをトリガーするために使用されます。
 
 ![2組のキーと値のペア：IS_SERVER_EVENTが「true」に設定され、CAMPAIGN_NAMEが「example campaign name」に設定されている。]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
@@ -127,13 +127,13 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 
 「アプリ内メッセージトリガー」イベントに添付するイベントプロパティを含めたい場合は、プッシュペイロードのキーと値のペアでプロパティを渡すことで実現できます。この例では、後続のアプリ内メッセージのキャンペーン名が含められています。カスタムプッシュコールバックは、カスタムイベントを記録する際に、イベントプロパティのパラメーターとして値を渡すことができます。
 
-#### ステップ 3: アプリ内メッセージCampaignを作成する {#step-3-create-an-in-app-message-campaign}
+#### ステップ 3: アプリ内メッセージキャンペーンを作成する {#step-3-create-an-in-app-message-campaign}
 
-Brazeダッシュボードで、ユーザーに表示されるアプリ内メッセージCampaignを作成します。このCampaignにはアクションベースの配信を設定し、カスタムプッシュコールバック内から記録されたカスタムイベントからトリガーされるようにする必要があります。
+Brazeダッシュボードで、ユーザーに表示されるアプリ内メッセージキャンペーンを作成します。このキャンペーンにはアクションベースの配信を設定し、カスタムプッシュコールバック内から記録されたカスタムイベントからトリガーされるようにする必要があります。
 
 以下の例では、イベントプロパティを最初のサイレントプッシュの一部として送信することで、トリガーされる特定のアプリ内メッセージが設定されています。
 
-![アクションベースの配信Campaignで、「campaign_name」が「IAM campaign name example」と等しい場合にアプリ内メッセージがトリガーされる。]({% image_buster /assets/img_archive/iam_event_trigger.png %})
+![アクションベースの配信キャンペーンで、「campaign_name」が「IAM campaign name example」と等しい場合にアプリ内メッセージがトリガーされる。]({% image_buster /assets/img_archive/iam_event_trigger.png %})
 
 アプリがフォアグラウンドにないときにサーバー送信イベントが記録されると、イベントは記録されますが、アプリ内メッセージは表示されません。アプリケーションがフォアグラウンドになるまでイベントを遅延させたい場合は、カスタムプッシュレシーバーにチェックを含めて、アプリがフォアグラウンドに入るまでイベントを無視または遅延させる必要があります。
 
@@ -144,14 +144,14 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage);
 ```
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 ```
 
@@ -165,7 +165,7 @@ BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 // Initializes a new slideup type in-app message and specifies its message.
 InAppMessageSlideup inAppMessage = new InAppMessageSlideup();
 inAppMessage.setMessage("Welcome to Braze! This is a slideup in-app message.");
@@ -174,7 +174,7 @@ inAppMessage.setMessage("Welcome to Braze! This is a slideup in-app message.");
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 // Initializes a new slideup type in-app message and specifies its message.
 val inAppMessage = InAppMessageSlideup()
 inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."

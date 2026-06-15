@@ -47,26 +47,26 @@ This method returns the total number of currently active Content Cards. Cards ar
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 (void)applicationDidEnterBackground:(UIApplication *)application
 ```
 
 このメソッド内で、次のコードを実装します。これにより、ユーザーが特定のセッション中にカードを閲覧している間にバッジカウントがアクティブに更新されます。
 
-```objc
+`````````objc
 [UIApplication sharedApplication].applicationIconBadgeNumber = [[Appboy sharedInstance].contentCardsController unviewedContentCardCount];
 ```
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func applicationDidEnterBackground(_ application: UIApplication)
 ```
 
 このメソッド内で、次のコードを実装します。これにより、ユーザーが特定のセッション中にカードを閲覧している間にバッジカウントがアクティブに更新されます。
 
-```swift
+`````````swift
 UIApplication.shared.applicationIconBadgeNumber =
   Appboy.sharedInstance()?.contentCardsController.unviewedContentCardCount() ?? 0
 ```

@@ -8,25 +8,28 @@ page_type: reference
 search_rank: 7
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Assistance Braze 
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Assistance Braze {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomthe-braze-support-portal-stylefloatrightwidth120pxborder0-classnoimgborderbraze-support}
+
 > Découvrez comment accéder au portail d'assistance Braze, soumettre et suivre des demandes d'assistance, et fournir les informations nécessaires à une résolution des problèmes efficace.
 
 ## Accéder au portail d'assistance {#access-the-support-portal}
 
-Pour contacter l'équipe d'assistance Braze, accédez au tableau de bord de Braze. Dans le tableau de bord, sélectionnez **Assistance** > **Obtenir de l'aide**.
+Pour contacter l'équipe d'assistance Braze, accédez au tableau de bord de Braze et sélectionnez **Support**. Le menu propose deux options :
 
-![Le menu déroulant « Assistance » avec l'option pour obtenir de l'aide.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:60%;"}
+- **Get help with Operator** ouvre BrazeAI Operator<sup>TM</sup>, qui peut résoudre votre problème sur-le-champ en utilisant le contexte de votre conversation et de l'écran actuel. Si Operator ne parvient pas à résoudre votre problème, vous pouvez lui demander de rédiger un ticket d'assistance basé sur votre conversation. Pour en savoir plus, consultez [soumettre des tickets d'assistance avec BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/).
+- **Get help** vous dirige directement vers le portail d'assistance Braze (si vous êtes un contact d'assistance désigné) ou vers notre formulaire d'assistance standard, où vous pouvez soumettre et suivre des demandes. Si vous ne savez pas si vous êtes un contact d'assistance Braze, contactez l'administrateur Braze de votre entreprise, votre gestionnaire de réussite Braze ou le propriétaire du compte.
 
-En fonction de vos autorisations Braze et selon que vous êtes un contact d'assistance désigné ou non, vous serez dirigé vers le portail d'assistance Braze, où vous pouvez soumettre et suivre des demandes, ou vers notre formulaire d'assistance standard. Si vous ne savez pas si vous êtes un contact d'assistance Braze, contactez l'administrateur Braze de votre entreprise, votre gestionnaire de réussite Braze ou le propriétaire du compte.
+![Le menu déroulant « Support » affichant les options « Get help with Operator » et « Get help ».]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
+
 
 ## Ajouter des contacts d'assistance désignés {#adding-designated-support-contacts}
 
-Les contacts d'assistance désignés peuvent accéder à toutes les demandes d'assistance de votre entreprise, quel que soit l'auteur de la soumission. Vous pouvez définir des utilisateurs comme contacts d'assistance désignés directement depuis la page **Modifier l'utilisateur**.
+Les contacts d'assistance désignés peuvent accéder à toutes les demandes d'assistance de votre entreprise, quel que soit l'auteur de la soumission. Vous pouvez définir des utilisateurs comme contacts d'assistance désignés directement depuis la page **Edit user**.
 
 1. Accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis recherchez l'utilisateur par son nom ou son adresse e-mail.
 2. Sélectionnez le nom de l'utilisateur ou survolez la ligne du nom de l'utilisateur pour afficher un menu.
-3. Dans le menu, sélectionnez **Modifier** pour être redirigé vers la page **Modifier l'utilisateur**.
-4. Cochez la case **Définir cet utilisateur comme contact d'assistance désigné pour le portail d'assistance Braze**.
+3. Dans le menu, sélectionnez **Edit** pour être redirigé vers la page **Edit user**.
+4. Cochez la case **Set this user as a Designated Support Contact for Braze Support Portal**.
 
 ![La case à cocher pour définir un utilisateur comme contact d'assistance désigné.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
 
@@ -36,23 +39,23 @@ Lorsqu'un utilisateur est désigné comme contact d'assistance, le portail d'ass
 
 ## Consulter les demandes de votre entreprise {#view-cases-from-your-company}
 
-Si vous êtes un contact d'assistance désigné, utilisez les vues de filtre **Mon organisation** dans le portail d'assistance pour consulter toutes les demandes soumises par les utilisateurs de votre entreprise. Les demandes provenant de tous les canaux de soumission (BrazeAI Operator<sup>TM</sup>, formulaire web, e-mail ou portail) sont incluses dans ces vues.
+Si vous êtes un contact d'assistance désigné, utilisez les vues de filtre **My Org's** dans le portail d'assistance pour consulter toutes les demandes soumises par les utilisateurs de votre entreprise. Les demandes provenant de tous les canaux de soumission (BrazeAI Operator<sup>TM</sup>, formulaire web, e-mail ou portail) sont incluses dans ces vues.
 
 ## Fournir des captures d'écran de la console de développement {#provide-developer-console-screenshots}
 
 Lorsque vous communiquez avec l'assistance, vous pourriez avoir besoin d'accéder à votre console de développement pour fournir des informations supplémentaires :
 - Chrome
-  1. Faites un clic droit sur la page web et sélectionnez **Inspecter**.
+  1. Faites un clic droit sur la page web et sélectionnez **Inspect**.
   2. Sélectionnez l'onglet **Console** dans la fenêtre qui s'ouvre.
   3. Prenez une capture d'écran de l'onglet Console.<br><br>
 - Firefox
-  1. Faites un clic droit sur la page web et sélectionnez **Inspecter l'élément**.
+  1. Faites un clic droit sur la page web et sélectionnez **Inspect Element**.
   2. Sélectionnez l'onglet **Console** dans la fenêtre qui s'ouvre.
   3. Prenez une capture d'écran de l'onglet Console.<br><br>
 - Safari
-  1. Accédez à Safari dans la barre de menus en haut de votre écran, puis sélectionnez **Préférences**.
-  2. Sélectionnez **Avancé**, puis cochez la case à côté de **Afficher le menu Développement dans la barre des menus**. Vous pouvez ensuite fermer la fenêtre.
-  3. Faites un clic droit sur la page web et sélectionnez **Inspecter l'élément**.
+  1. Accédez à Safari dans la barre de menus en haut de votre écran, puis sélectionnez **Preferences**.
+  2. Sélectionnez **Advanced**, puis cochez la case à côté de **Show Develop menu in menu bar**. Vous pouvez ensuite fermer la fenêtre.
+  3. Faites un clic droit sur la page web et sélectionnez **Inspect Element**.
   4. Sélectionnez l'onglet **Console** dans la fenêtre qui s'ouvre.
   5. Prenez une capture d'écran de l'onglet Console.
 
@@ -60,7 +63,7 @@ Lorsque vous communiquez avec l'assistance, vous pourriez avoir besoin d'accéde
 
 ### Fournir autant d'informations que possible {#provide-as-much-information-as-possible}
 
-Plus vous pouvez fournir d'informations, mieux c'est. Incluez des détails tels que l'espace de travail, l'URL de la Campaign ou du Segment, ainsi que tout ID externe pertinent. Cela peut nous aider à résoudre votre problème plus efficacement.
+Plus vous pouvez fournir d'informations, mieux c'est. Incluez des détails tels que l'espace de travail, l'URL de la campagne ou du segment, ainsi que tout ID externe pertinent. Cela peut nous aider à résoudre votre problème plus efficacement.
 
 ### Fournir un échantillon d'utilisateurs {#provide-a-sample-of-users}
 
@@ -93,6 +96,17 @@ Sélectionnez le niveau de gravité approprié pour nous aider à affecter les b
 {% alert important %}
 Marquer un problème comme « Critique » signifie que votre instance de production est hors service et que tout travail dans Braze est arrêté.
 {% endalert %}
+
+## Résolution des problèmes de chargement du tableau de bord {#troubleshooting-dashboard-load-issues}
+
+Si le tableau de bord de Braze ne se charge pas correctement, essayez les étapes suivantes avant de contacter l'assistance :
+
+1. Ouvrez le tableau de bord dans un autre navigateur ou dans une fenêtre de navigation privée.
+2. [Videz le cache et les cookies de votre navigateur]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+3. Désactivez les bloqueurs de publicités et les extensions de navigateur, puis rechargez le tableau de bord.
+4. Si vous utilisez un VPN, déconnectez-vous et réessayez.
+
+Si la console de développement de votre navigateur affiche `ERR_BLOCKED_BY_CLIENT`, une extension ou un bloqueur de publicités bloque les ressources du tableau de bord. Désactivez le bloqueur pour l'URL de votre tableau de bord de Braze et rechargez la page.
 
 ## Résolution des problèmes d'accès {#troubleshooting-access}
 

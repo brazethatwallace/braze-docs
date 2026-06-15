@@ -10,7 +10,7 @@ description: "Cet article de référence explique comment créer, gérer et util
 
 > Adaptez le style de vos textes générés par l'intelligence artificielle à la voix, au ton et à la personnalité de votre marque grâce à des directives de marque personnalisées.
 
-Vous pouvez créer et gérer vos directives de marque en allant dans **Paramètres** > **Directives de marque**. Vous pouvez également les créer dans l'[assistant de rédaction de l'intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/).
+Vous pouvez créer et gérer vos directives de marque en allant dans **Contenu** > **Directives de marque**. Vous pouvez également les créer dans l'[assistant de rédaction de l'intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/).
 
 ## Créer des directives de marque {#creating-brand-guidelines}
 
@@ -58,7 +58,7 @@ Vous pouvez modifier les directives de marque en les sélectionnant sur la page 
 
 ## Utiliser les directives de marque {#using-brand-guidelines}
 
-Lors de la rédaction d'un message, ouvrez l'[assistant de rédaction de l'intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) et sélectionnez votre directive de marque dans le menu déroulant **Appliquer la directive de marque**. Si vous désignez une directive de marque spécifique comme valeur par défaut, elle sera automatiquement sélectionnée dans le menu déroulant, mais vous pouvez choisir une autre directive.
+Lors de la rédaction d'un message, ouvrez l'[assistant de rédaction de l'intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) et sélectionnez votre directive de marque dans le menu déroulant **Apply brand guideline**. Si vous désignez une directive de marque spécifique comme valeur par défaut, elle sera automatiquement sélectionnée dans le menu déroulant, mais vous pouvez choisir une autre directive.
 
 ![L'assistant de rédaction de l'intelligence artificielle avec « Important Alerts!! » sélectionné comme directive de marque.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
 

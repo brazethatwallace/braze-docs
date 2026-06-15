@@ -21,7 +21,7 @@ Bei der Einrichtung werden Sie aufgefordert, eine Anmelde-URL und eine Assertion
 | Assertion Consumer Service (ACS)-URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> Für Domains in der Europäischen Union lautet die ACS-URL `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> Bei einigen IdPs kann dies auch als Reply-URL, Anmelde-URL, Audience-URL oder Audience-URI bezeichnet werden. |
 | Entity ID | `braze_dashboard` |
 | RelayState-API-Schlüssel | Gehen Sie zu **Einstellungen** > **API-Schlüssel** und erstellen Sie einen API-Schlüssel mit `sso.saml.login`-Berechtigungen. Geben Sie dann den generierten API-Schlüssel als `RelayState`-Parameter in Ihrem IdP ein. Detaillierte Schritte finden Sie unter [Ihren RelayState einrichten](#setting-up-your-relaystate). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anforderungen" }
 
 ## SAML SSO einrichten {#setting-up-saml-sso}
 
@@ -38,7 +38,7 @@ Wenn Sie Okta als Identity Provider verwenden möchten, stellen Sie sicher, dass
 |`email` | Erforderlich | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | Optional | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | Optional | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1: Configure your identity provider" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1: Ihren Identity Provider konfigurieren" }
 
 {% alert note %}
 Braze benötigt in der SAML-Assertion nur `email`.
@@ -57,7 +57,7 @@ Geben Sie auf derselben Seite Folgendes ein:
 | SAML-Name | Dieser wird als Button-Text auf dem Anmeldebildschirm angezeigt.<br>Dies ist in der Regel der Name Ihres Identity Providers, z. B. „Okta“. |
 | Ziel-URL | Diese wird nach der Einrichtung von Braze in Ihrem IdP bereitgestellt.<br> Einige IdPs bezeichnen dies als SSO-URL oder SAML 2.0-Endpunkt. |
 | Zertifikat | Das `x.509`-Zertifikat, das von Ihrem Identity Provider bereitgestellt wird.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure Braze" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Braze konfigurieren" }
 
 Stellen Sie sicher, dass Ihr `x.509`-Zertifikat beim Hinzufügen zum Dashboard folgendes Format hat:
 
@@ -167,6 +167,12 @@ Lassen Sie die betroffene Nutzerin oder den betroffenen Nutzer [den Cache und di
 
 Wenn Sie den Fehler `ERROR_CODE_SSO_INVALID_RELAY_STATE` erhalten, könnte Ihr RelayState falsch konfiguriert oder nicht vorhanden sein. Falls noch nicht geschehen, müssen Sie Ihren RelayState in Ihrem IdP-Verwaltungssystem einrichten. Die Schritte finden Sie unter [Ihren RelayState einrichten](#setting-up-your-relaystate).
 
+### Führt eine erfolgreiche SSO-Anmeldung zurück zur Braze-Anmeldeseite? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+
+Dies kann auftreten, wenn der RelayState nicht korrekt konfiguriert ist. Bestätigen Sie, dass Sie einen API-Schlüssel (unter **Einstellungen** > **API-Schlüssel**) für die IdP-Anmeldung erstellt und diesen API-Schlüssel als `RelayState`-Parameter in Ihrem IdP festgelegt haben. Der RelayState identifiziert, bei welchem Unternehmenskonto Sie sich anmelden. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Ihren RelayState einrichten](#setting-up-your-relaystate).
+
+Wenn Sie sich immer noch nicht anmelden können, [kontaktieren Sie den Braze-Support]({{site.baseurl}}/braze_support/) und fügen Sie nach Möglichkeit einen SAML-Trace bei. Hilfe beim Erfassen eines Trace finden Sie unter [Einen SAML-Trace erhalten](#obtaining-a-saml-trace).
+
 ### Steckt die Nutzerin oder der Nutzer in einer Anmeldeschleife zwischen Okta und Braze fest? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
 Wenn sich eine Nutzerin oder ein Nutzer nicht anmelden kann, weil sie oder er in einer Schleife zwischen Okta SSO und dem Braze-Dashboard feststeckt, müssen Sie in Okta die SSO-URL-Zieladresse auf Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) setzen (z. B. `https://dashboard-07.braze.com`).
@@ -176,6 +182,20 @@ Wenn Sie einen anderen IdP verwenden, überprüfen Sie, ob Ihr Unternehmen das k
 ### Verwenden Sie eine manuelle Integration? {#are-you-using-a-manual-integration}
 
 Wenn Ihr Unternehmen die Braze-App nicht aus dem App Store Ihres IdP heruntergeladen hat, müssen Sie die vorgefertigte Integration herunterladen. Wenn beispielsweise Okta Ihr IdP ist, laden Sie die Braze-App von deren [Integrationsseite](https://www.okta.com/integrations/braze/) herunter.
+
+## Google SSO
+
+Wenn Ihr Unternehmen Google SSO anstelle von benutzerdefiniertem SAML verwendet, kontaktieren Sie Ihren Braze Account Manager, um Google SSO für Ihren Workspace zu aktivieren. Nach der Aktivierung gehen Sie zu **Sicherheitseinstellungen** und wählen Sie **Nur Google SSO-Anmeldung erzwingen**, um die Google-Authentifizierung für alle Unternehmensnutzer:innen verpflichtend zu machen.
+
+Wenn die Google SSO-Erzwingung aktiviert ist, müssen sich Nutzer:innen mit der Google-Authentifizierung anmelden und können kein Braze-Passwort mehr verwenden. Jede Nutzerin und jeder Nutzer muss sich mit dem Google-Konto anmelden, das mit der E-Mail-Adresse ihres bzw. seines Braze-Dashboards übereinstimmt. Wenn eine Nutzerin oder ein Nutzer bei der Anmeldung ein anderes Google-Konto auswählt, lehnt Braze den Authentifizierungsversuch ab.
+
+### Fehlerbehebung bei der Google SSO-Anmeldung {#troubleshooting-google-sso-sign-in}
+
+Wenn sich einige Nutzer:innen nicht mit Google SSO anmelden können, überprüfen Sie Folgendes:
+
+- Die E-Mail-Adresse des Google-Kontos der Nutzerin oder des Nutzers stimmt exakt mit der E-Mail-Adresse im Braze-Dashboard überein.
+- Die Nutzerin oder der Nutzer hat Zugriff auf ein Google-Konto für die E-Mail-Adresse des Unternehmens.
+- Die Nutzerin oder der Nutzer ist in Braze nicht gesperrt (**Einstellungen** > **Unternehmensnutzer:innen**).
 
 ## Nächste Schritte {#next-steps}
 

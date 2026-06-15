@@ -53,7 +53,7 @@ Nuestra solución de notificación push automática aprovecha la característica
 
 {% tabs %}
 {% tab Android %}
-#### Paso 2.1: Configurar los ajustes push {#step-21-configure-push-settings}
+#### Paso 2.1: Configurar los ajustes push {#unity_step-21-configure-push-settings}
 
 El SDK de Braze puede gestionar automáticamente el registro push con los servidores de Firebase Cloud Messaging para que los dispositivos reciban notificaciones push. En Unity, habilita **Automate Unity Android Integration** y, a continuación, configura los siguientes ajustes de **Push Notification**.
 
@@ -62,8 +62,13 @@ El SDK de Braze puede gestionar automáticamente el registro push con los servid
 | Automatic Firebase Cloud Messaging Registration Enabled | Ordena al SDK de Braze que recupere y envíe automáticamente un token de notificaciones push de FCM para un dispositivo. |
 | Firebase Cloud Messaging Sender ID | El ID de remitente de tu consola Firebase. |
 | Handle Push Deeplinks Automatically | Si el SDK debe gestionar la apertura de vínculos profundos o la apertura de la aplicación cuando se hace clic en las notificaciones push. |
-| Small Notification Icon Drawable | El drawable que debe mostrarse como icono pequeño siempre que se reciba una notificación push. La notificación utilizará el icono de la aplicación como icono pequeño si no se proporciona ningún icono. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2.1: Configurar los ajustes push" }
+| Small Notification Icon Drawable | Referencia de recurso drawable de Android para el icono pequeño que se muestra cuando llega una notificación push. Introduce la referencia completa incluyendo el prefijo `@drawable/` (por ejemplo, `@drawable/hourglass_icon`). La integración automatizada escribe este valor en `braze.xml` tal como se introduce. Si lo dejas vacío, la notificación utiliza el icono de la aplicación como icono pequeño. |
+| Large Notification Icon Drawable | Icono grande opcional para las notificaciones. Utiliza el mismo formato `@drawable/` que el icono pequeño (por ejemplo, `@drawable/my_large_icon`). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+
+{% alert note %}
+**Small Notification Icon Drawable** y **Large Notification Icon Drawable** aparecen en **Push Configuration** dentro de **Braze > Braze Configuration**. Ambos valores se escriben en `braze.xml` tal como los introduces. Incluye tú mismo el prefijo `@drawable/`: la integración de Braze Unity no lo añade por ti (por ejemplo, `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`).
+{% endalert %}
 {% endtab %}
 
 {% tab Swift %}
@@ -94,7 +99,7 @@ Los usuarios que aún no hayan optado por la adhesión voluntaria a las notifica
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-#### Paso 2.1: Actualiza `AndroidManifest.xml` {#step-21-update-androidmanifestxml}
+#### Paso 2.1: Actualiza `AndroidManifest.xml` {#unity_step-21-update-androidmanifestxml}
 
 Si tu aplicación no tiene un `AndroidManifest.xml`, puedes utilizar la siguiente plantilla. De lo contrario, si ya tienes un `AndroidManifest.xml`, asegúrate de que cualquiera de las siguientes secciones que falten se añadan a tu `AndroidManifest.xml` existente.
 
@@ -301,7 +306,13 @@ Para obtener información sobre la configuración, visita [Vinculación en profu
 
 #### Añadir iconos de notificación push de Braze {#adding-braze-push-notification-icons}
 
-Para añadir iconos push a tu proyecto, crea un plug-in Android Archive (AAR) o una biblioteca Android que contenga los archivos de imagen de los iconos. Para conocer los pasos y la información, consulta la documentación de Unity: [Proyectos de bibliotecas Android y plug-ins de archivos Android](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+{% alert important %}
+No añadas imágenes de iconos de notificación en `Assets/Plugins/Android/res`. Unity [dejó de admitir la provisión de recursos Android en esa ruta](https://support.unity.com/hc/en-us/articles/115005875443-Providing-Android-resources-in-Assets-Plugins-Android-res-is-deprecated), lo que puede generar advertencias de compilación o errores de validación. Empaqueta tus drawables de iconos en un [plug-in Android Archive (AAR)](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) o en un proyecto de biblioteca Android para que se fusionen con los recursos de la aplicación compilada como cualquier otro drawable.
+{% endalert %}
+
+Para añadir iconos push a tu proyecto, crea un plug-in AAR o una biblioteca Android que contenga los archivos de imagen de los iconos en `res/drawable*` (o carpetas específicas por densidad), y luego haz referencia a cada icono en **Braze > Braze Configuration** utilizando el nombre completo del recurso `@drawable/` (consulta el [paso 2.1: Configurar los ajustes push](#unity_step-21-configure-push-settings)). Para conocer los pasos de empaquetado e importación de Unity, consulta [Proyectos de bibliotecas Android y plug-ins de archivos Android](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+
+Para las reglas de diseño de iconos pequeños (solo alfa, sin color), consulta [Notificaciones push de Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android), paso 2: Ajustar los iconos pequeños a las directrices de diseño.
 {% endtab %}
 
 {% tab Swift %}

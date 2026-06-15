@@ -339,7 +339,7 @@ Content-Type: application/json
 {% tabs local %}
 {% tab Input %}
 
-```javascript
+`````````javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
 const titles = payload.form_response.definition.fields.map(field => field.title);
 
@@ -479,7 +479,7 @@ Typeformの隠しフィールドを使用して、Typeformの回答でこの情�
 {% tabs local %}
 {% tab Input %}
 
-```javascript
+`````````javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
 const titles = payload.form_response.definition.fields.map(field => field.title);
 

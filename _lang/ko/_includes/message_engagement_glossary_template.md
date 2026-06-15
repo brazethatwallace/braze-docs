@@ -8,7 +8,12 @@ page_type: glossary
 description: "이 용어집에는 Braze가 Currents를 사용하여 추적하고 선택한 데이터 웨어하우스로 전송할 수 있는 다양한 메시지 참여 이벤트가 나열되어 있습니다."
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
+
+<div class="api-glossary-preamble" markdown="1">
+
+{% details 스키마 범위 및 관련 리소스 %}
 
 스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) 목록을 참조하여 해당 페이지를 확인하세요.
 
@@ -17,6 +22,8 @@ search_rank: 6
 {% endalert %}
 
 추가 이벤트 권한에 대한 액세스가 필요한 경우 계정 매니저에게 문의하거나 [고객지원 티켓]({{site.baseurl}}/braze_support/)을 개설해 주세요. 이 문서에서 필요한 내용을 찾을 수 없는 경우 [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) 또는 [Currents 샘플 데이터 예시](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인하세요.
+
+{% enddetails %}
 
 {% details 메시지 참여 이벤트 구조 및 플랫폼 값 설명 %}
 
@@ -56,24 +63,22 @@ search_rank: 6
 
 {% enddetails %}
 
-{% alert important %}
-Currents는 900&nbsp;KB를 초과하는 지나치게 큰 페이로드를 가진 이벤트를 삭제합니다.
-{% endalert %}
+{% details 메시지 참여 이벤트에 대한 고려 사항 %}
 
-{% alert note %}
-Canvas Flow과 관련된 오브젝트에는 그룹화에 사용할 수 있는 ID가 있으며, [Canvas 세부 정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있습니다.
-{% endalert %}
+- Currents는 900&nbsp;KB를 초과하는 페이로드를 가진 이벤트를 삭제합니다.
+- Canvas Flow과 관련된 오브젝트에는 그룹화에 사용할 수 있는 ID가 있으며, [Canvas 세부 정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있습니다.
+- 특정 필드는 Campaign이나 Canvas를 업데이트한 직후에 최신 상태를 즉시 표시하지 않을 수 있습니다:
+  - `campaign_name`
+  - `canvas_name`
+  - `canvas_step_name`
+  - `conversion_behavior`
+  - `canvas_variation_name`
+  - `experiment_split_name`
+  - `message_variation_name`
+- 이러한 필드에 대해 완전한 일관성이 필요한 경우, 마지막 업데이트 후 한 시간 정도 기다렸다가 사용자에게 메시지를 보내세요.
 
-{% alert note %}
-특정 필드는 Campaign이나 Canvas가 업데이트된 후 최신 상태를 표시하는 데 시간이 더 걸릴 수 있습니다. 해당 필드는 다음과 같습니다.
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
-완전한 일관성이 필요한 경우 이러한 필드에 대한 마지막 업데이트 후 한 시간 정도 기다렸다가 사용자에게 메시지를 보내는 것을 권장합니다.
-{% endalert %}
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->

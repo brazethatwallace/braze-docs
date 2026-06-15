@@ -17,7 +17,7 @@ description: "Cet article présente les détails de l'endpoint Démarrer une act
 
 > Utilisez cet endpoint pour démarrer à distance les [activités en direct]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) affichées dans votre application iOS. Cet endpoint nécessite une configuration supplémentaire.
 
-Après avoir créé une activité en direct, vous pouvez effectuer une requête POST pour démarrer à distance votre activité pour n'importe quel segment donné. Pour en savoir plus sur les activités en direct d'Apple, consultez [Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
+Après avoir créé une activité en direct, vous pouvez effectuer une requête POST pour démarrer à distance votre activité pour un segment, une audience connectée ou des ID utilisateur externes spécifiques. Pour en savoir plus sur les activités en direct d'Apple, consultez [Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
 Si `content-available` n'est pas défini, la priorité par défaut du service Apple Push Notification (APNs) est 10. Si `content-available` est défini, cette priorité est de 5. Consultez l'[objet push Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) pour plus de détails.
 
@@ -79,10 +79,12 @@ Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
 | `content_state` | Requis | Objet | Vous définissez les paramètres `ContentState` lorsque vous créez votre activité en direct. Transmettez les valeurs mises à jour pour votre `ContentState` à l'aide de cet objet.<br><br>Le format de cette requête doit correspondre à la structure que vous avez initialement définie. |
 | `stale_date` | Facultatif | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Ce paramètre indique au système quand le contenu de l'activité en direct est marqué comme obsolète dans l'interface utilisateur. |
 | `notification` | Requis | Objet | Incluez un objet [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) pour définir une notification push. Le comportement de cette notification push dépend de l'activité de l'utilisateur ou de l'utilisation éventuelle d'un appareil proxy. {::nomarkdown}<ul><li>Si une <code>notification</code> est incluse et que l'utilisateur est actif sur son iPhone lorsque la mise à jour est livrée, l'interface de l'activité en direct mise à jour glissera vers le bas et s'affichera comme une notification push.</li><li>Si une <code>notification</code> est incluse et que l'utilisateur n'est pas actif sur son iPhone, son écran s'allumera pour afficher l'interface de l'activité en direct mise à jour sur l'écran de verrouillage.</li><li>L'alerte <code>notification alert</code> ne s'affichera pas comme une notification push standard. De plus, si l'utilisateur dispose d'un appareil proxy, comme une Apple Watch, l'<code>alert</code> y sera affichée.</li></ul>{:/} |
-| `external_user_ids` | Facultatif si `segment_id` ou `audience` est fourni | Tableau de chaînes de caractères | Voir [ID utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Maximum de 50 ID utilisateur externes. |
-| `segment_id ` | Facultatif si `external_user_ids` ou `audience` est fourni | Chaîne de caractères | Voir [identifiant de segment]({{site.baseurl}}/api/identifier_types/). |
+| `external_user_ids` | Facultatif si `segment_id` ou `custom_audience` est fourni | Tableau de chaînes de caractères | Voir [ID utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Maximum de 50 ID utilisateur externes. |
+| `segment_id` | Facultatif si `external_user_ids` ou `custom_audience` est fourni | Chaîne de caractères | Voir [identifiant de segment]({{site.baseurl}}/api/identifier_types/). |
 | `custom_audience` | Facultatif si `external_user_ids` ou `segment_id` est fourni | Objet audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+
+Sur cet endpoint, transmettez les filtres d'audience connectée dans `custom_audience`.
 
 ## Exemple de requête {#example-request}
 

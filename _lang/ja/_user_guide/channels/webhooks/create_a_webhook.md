@@ -4,13 +4,13 @@ article_title: Webhookを作成する
 page_order: 1
 channel:
   - webhooks
-description: "このリファレンス記事では、Webhook Campaignの作成と設定方法について説明します。"
+description: "このリファレンス記事では、Webhookキャンペーンの作成と設定方法について説明します。"
 search_rank: 2
 ---
 
-# Webhook Campaignを作成する {#create-a-webhook-campaign}
+# Webhookキャンペーンを作成する {#create-a-webhook-campaign}
 
-> Webhook Campaignを作成するか、マルチチャネルCampaignにWebhookを含めることで、他のシステムやアプリケーションにリアルタイム情報を提供し、アプリ外のアクションをトリガーできます。
+> Webhookキャンペーンを作成するか、マルチチャネルキャンペーンにWebhookを含めることで、他のシステムやアプリケーションにリアルタイム情報を提供し、アプリ外のアクションをトリガーできます。
 
 Webhookを使用して、SalesforceやMarketoなどのシステムやバックエンドシステムに情報を送信できます。たとえば、顧客がカスタムイベントを一定回数実行した後に、プロモーションで顧客のアカウントにクレジットを付与したい場合があります。
 
@@ -18,7 +18,7 @@ Webhookを使用して、SalesforceやMarketoなどのシステムやバック�
 Webhookとは何か、またBrazeでどのように使用できるかについて詳しくは、先に進む前に[Webhook]({{site.baseurl}}/user_guide/channels/webhooks/)をご確認ください。
 {% endalert %}
 
-## ステップ 1: メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
+## ステップ1: メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
 メッセージをCampaignとCanvasのどちらで送信すべきかわからない場合、Campaignは単一のターゲットメッセージングに適しており、Canvasは複数ステップのユーザージャーニーに適しています。
 
@@ -47,14 +47,14 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
 2. Canvasを設定したら、Canvasビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
 3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#schedule-your-canvas-step)を選択し、必要に応じて遅延を指定します。
-4. 必要に応じて、このステップのオーディエンスをフィルタリングします。Segmentsを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
+4. 必要に応じて、このステップのオーディエンスをフィルタリングします。Segmentを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
 5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#advancement-behavior)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 
 {% endtab %}
 {% endtabs %}
 
-## ステップ 2: Webhookを構築する {#step-2-build-your-webhook}
+## ステップ2: Webhookを構築する {#step-2-build-your-webhook}
 
 Webhookをゼロから作成するか、既存のテンプレートを使用するか、既存のテンプレートの1つを使用するかを選択できます。次に、エディターの **Compose** タブでWebhookを構築します。
 
@@ -129,7 +129,7 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ![URLエンコードされた文字列のリクエストボディ。]({% image_buster /assets/img_archive/webhook_rawtext_URL-encoded.png %})
 
-## ステップ 3: 追加設定を構成する {#step-3-configure-additional-settings}
+## ステップ3: 追加設定を構成する {#step-3-configure-additional-settings}
 
 #### リクエストヘッダー（オプション） {#request-headers-optional}
 
@@ -143,7 +143,7 @@ Content-Type仕様にはキー`Content-Type`を使用する必要があります
 
 認証ヘッダーにはキー`Authorization`を使用する必要があります。一般的な値は{% raw %}`Bearer {{YOUR_TOKEN}}`または`Basic {{YOUR_TOKEN}}`{% endraw %}で、`YOUR_TOKEN`はベンダーやシステムから提供された認証情報です。
 
-## ステップ 4: テスト送信する {#step-4-test-send-your-message}
+## ステップ4: テスト送信する {#step-4-test-send-your-message}
 
 Campaignを公開する前に、Brazeではリクエストが適切にフォーマットされていることを確認するためにWebhookをテストすることをお勧めします。
 
@@ -165,7 +165,7 @@ Campaignを公開する前に、Brazeではリクエストが適切にフォー�
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=webhook)を参照してください。
 
-## ステップ 5: CampaignまたはCanvasの残りを構築する {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## ステップ5: CampaignまたはCanvasの残りを構築する {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -176,13 +176,13 @@ Campaignを公開する前に、Brazeではリクエストが適切にフォー�
 
 Webhookは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
-アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)を設定することもできます。
+アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)を設定することもできます。
 
 このステップでは、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にするなどの配信コントロールを指定することもできます。
 
 #### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。このステップでは、Segmentsからより大きなオーディエンスを選択し、必要に応じてフィルターを使用してそのSegmentをさらに絞り込みます。おおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
+次に、Segmentまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。このステップでは、Segmentからより大きなオーディエンスを選択し、必要に応じてフィルターを使用してそのSegmentをさらに絞り込みます。おおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
 {% multi_lang_include target_audiences.md %}
 
@@ -194,12 +194,12 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 {% tab Canvas %}
 
-まだ完了していない場合は、Canvasステップの残りのセクションを完了してください。Canvasの残りの構築方法、多変量テストとインテリジェントセレクションの実装方法などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、キャンバスステップの残りのセクションを完了してください。Canvasの残りの構築方法、多変量テストとインテリジェントセレクションの実装方法などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
 
 {% endtab %}
 {% endtabs %}
 
-## ステップ 6: 確認してデプロイする {#step-6-review-and-deploy}
+## ステップ6: 確認してデプロイする {#step-6-review-and-deploy}
 
 CampaignまたはCanvasの最後の構築が完了したら、詳細を確認し、テストしてから送信してください。
 
@@ -207,7 +207,7 @@ CampaignまたはCanvasの最後の構築が完了したら、詳細を確認し
 
 ### エラー、リトライロジック、タイムアウト {#errors-retry-logic-and-timeouts}
 
-Webhookは、Brazeサーバーが外部エンドポイントにリクエストを行うことに依存しており、エラーが発生する場合があります。最も一般的なエラーには、構文エラー、期限切れのAPIキー、レート制限、予期しないサーバー側の問題があります。Webhook Campaignを送信する前に:
+Webhookは、Brazeサーバーが外部エンドポイントにリクエストを行うことに依存しており、エラーが発生する場合があります。最も一般的なエラーには、構文エラー、期限切れのAPIキー、レート制限、予期しないサーバー側の問題があります。Webhookキャンペーンを送信する前に:
 
 - Webhookの構文エラーをテストする
 - パーソナライズされた変数にデフォルト値があることを確認する
@@ -244,11 +244,11 @@ Brazeは、上記のステータスコードに対して、エクスポネンシ
 
 #### 保存済みWebhookテンプレートとCampaignの使用状況 {#saved-webhook-templates-and-campaign-usage}
 
-Brazeは、特定の**保存済みWebhookテンプレート**を参照するすべてのCampaignまたはCanvasステップをリストする組み込みレポートを提供していません。使用状況を監査するには、同じURLとHTTPメソッドを使用するWebhookステップを確認するか、[Brazeサポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+Brazeは、特定の**保存済みWebhookテンプレート**を参照するすべてのCampaignまたはキャンバスステップをリストする組み込みレポートを提供していません。使用状況を監査するには、同じURLとHTTPメソッドを使用するWebhookステップを確認するか、[Brazeサポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
 
 #### トラブルシューティングと追加のエラー詳細 {#troubleshooting-and-additional-error-details}
 
-特定のWebhookエラーの詳細な説明、トラブルシューティング手順、および解決ガイダンスについては、[Webhookとコネクテッドコンテンツリクエストのトラブルシューティング]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/)を参照してください。また、異常ホスト検出システムの仕組みや、Brazeが自動メールおよびBraze Currentsの追加ログを通じてエラー通知を提供する方法についても説明しています。
+特定のWebhookエラーの詳細な説明、トラブルシューティング手順、および解決ガイダンスについては、[Webhookとコネクテッドコンテンツリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/)を参照してください。また、異常ホスト検出システムの仕組みや、Brazeが自動メールおよびBraze Currentsの追加ログを通じてエラー通知を提供する方法についても説明しています。
 
 ### IP許可リスト {#ip-allowlisting}
 

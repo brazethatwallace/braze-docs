@@ -12,6 +12,7 @@ Braze Roku SDKは、以下のレジストリセクションにデータを永続
 | `braze.section.user_id` | 設定されている場合の外部ユーザーID。 |
 | `braze.section.session` | アクティブなセッションUUID、開始時刻、終了時刻。 |
 | `braze.section.config` | キャッシュされたSDK設定とフィーチャーフラグデータ。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wiping previously-stored data" }
 
 ### ステップ 1: レジストリセクションをクリアする {#step-1-clear-the-registry-sections}
 

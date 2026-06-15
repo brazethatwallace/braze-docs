@@ -53,6 +53,8 @@ en:
   glossary_currents_events_search_hint: Results update automatically as you type.
   glossary_currents_events_no_results: No events matching these filters
   glossary_currents_events_showing: Showing __COUNT__ of __TOTAL__ events
+  glossary_currents_events_loading: Loading schema…
+  glossary_currents_events_load_error: Unable to load this schema. Refresh the page and try again.
   glossary_sql_use_cases_search_placeholder: Search
   glossary_sql_use_cases_search_aria: Search use cases
   glossary_sql_use_cases_search_hint: Results update automatically as you type.
@@ -62,6 +64,19 @@ en:
   glossary_liquid_use_cases_search_hint: Results update automatically as you type.
   glossary_liquid_use_cases_no_results: No use cases matching these filters
   glossary_liquid_use_cases_showing: Showing __COUNT__ of __TOTAL__ use cases
+  sql_segment_extensions_glossary_intro: "Use the search bar or the checkboxes below to browse sample SQL Segment Extension queries."
+  liquid_use_case_glossary_intro: "Looking for inspiration to craft the perfect personalization using Liquid? Take a look through our collection of Liquid use cases, outlined by category below.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
+  glossary_agents_use_cases_search_placeholder: Search
+  glossary_agents_use_cases_search_aria: Search use cases
+  glossary_agents_use_cases_search_hint: Results update automatically as you type.
+  glossary_agents_use_cases_no_results: No use cases matching these filters
+  agents_use_case_glossary_intro: "Take a look through our collection of agent instructions and use cases.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
+  agents_use_case_tag_labels:
+    "canvas agent": Canvas agent
+    "catalog agent": Catalog agent
+  message_engagement_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas consist of the Braze Events that are directly related to message sending."
+  customer_behavior_events_glossary_title: Customer behavior and user events
+  customer_behavior_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas include other app or website activity such as sessions, custom events, and purchases tracked through the platform."
   currents_customer_behavior_tag_labels:
     attribution: Attribution
     "custom events": Custom Events
@@ -74,6 +89,20 @@ en:
     sessions: Sessions
     "token state change": Token State Change
     "update token": Update Token
+  currents_customer_behavior_tag_groups:
+    attribution: category
+    "custom events": category
+    "live activity": category
+    locations: category
+    purchases: category
+    push: category
+    "push to start token": category
+    "random bucket number": category
+    sessions: category
+    "token state change": category
+    "update token": category
+  currents_customer_behavior_tag_group_labels:
+    category: Event type
   currents_message_engagement_tag_labels:
     abort: Abort
     agent: Agent
@@ -114,6 +143,50 @@ en:
     uninstall: Uninstall
     webhooks: Webhooks
     whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    profile: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    subscription: action
+    uninstall: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    progression: journey
+    ios: channel
+  currents_message_engagement_tag_group_labels:
+    channel: Channels and platforms
+    action: Message actions
+    journey: User journey
   sql_segment_use_cases_tag_labels:
     carrier: Carrier
     delivery: Delivery
@@ -202,6 +275,14 @@ fr:
   glossary_liquid_use_cases_search_hint: Les résultats se mettent à jour automatiquement lorsque vous saisissez du texte.
   glossary_liquid_use_cases_no_results: Aucun cas d'utilisation ne correspond à ces filtres
   glossary_liquid_use_cases_showing: Affichage de __COUNT__ cas d'utilisation sur __TOTAL__
+  glossary_agents_use_cases_search_placeholder: Rechercher
+  glossary_agents_use_cases_search_aria: Rechercher des cas d'usage
+  glossary_agents_use_cases_search_hint: Les résultats se mettent à jour automatiquement lorsque vous saisissez du texte.
+  glossary_agents_use_cases_no_results: Aucun cas d'usage ne correspond à ces filtres
+  agents_use_case_glossary_intro: "Parcourez notre collection d'instructions d'agents et de cas d'utilisation.<br><br>Utilisez la barre de recherche ou les cases à cocher ci-dessous pour trouver les cas d'usage qui correspondent à vos besoins."
+  agents_use_case_tag_labels:
+    "canvas agent": Agent Canvas
+    "catalog agent": Agent de catalogue
 ja:
   next: 次へ
   previous: 前へ
@@ -258,6 +339,8 @@ ja:
   glossary_currents_events_search_hint: 入力に応じて結果が自動的に更新されます。
   glossary_currents_events_no_results: この条件に一致するイベントはありません
   glossary_currents_events_showing: イベント __TOTAL__ 件中 __COUNT__ 件を表示
+  glossary_currents_events_loading: スキーマを読み込んでいます…
+  glossary_currents_events_load_error: このスキーマを読み込めませんでした。ページを更新してもう一度お試しください。
   glossary_sql_use_cases_search_placeholder: 検索
   glossary_sql_use_cases_search_aria: ユースケースを検索
   glossary_sql_use_cases_search_hint: 入力に応じて結果が自動的に更新されます。
@@ -267,6 +350,19 @@ ja:
   glossary_liquid_use_cases_search_hint: 入力に応じて結果が自動的に更新されます。
   glossary_liquid_use_cases_no_results: この条件に一致するユースケースはありません
   glossary_liquid_use_cases_showing: ユースケース __TOTAL__ 件中 __COUNT__ 件を表示
+  sql_segment_extensions_glossary_intro: "検索バーまたは下のチェックボックスから、SQLセグメントエクステンションのサンプルクエリを参照してください。"
+  liquid_use_case_glossary_intro: "Liquidを使った理想的なパーソナライゼーションのヒントをお探しですか？カテゴリ別に整理したLiquidユースケース集をご覧ください。<br><br>検索バーまたは下のチェックボックスから、ニーズに合ったユースケースを探してください。"
+  glossary_agents_use_cases_search_placeholder: 検索
+  glossary_agents_use_cases_search_aria: ユースケースを検索
+  glossary_agents_use_cases_search_hint: 入力に応じて結果が自動的に更新されます。
+  glossary_agents_use_cases_no_results: この条件に一致するユースケースはありません
+  agents_use_case_glossary_intro: "エージェントのインストラクションとユースケース集をご覧ください。<br><br>検索バーまたは下のチェックボックスから、ニーズに合ったユースケースを探してください。"
+  agents_use_case_tag_labels:
+    "canvas agent": キャンバスエージェント
+    "catalog agent": カタログエージェント
+  message_engagement_events_glossary_intro: "検索バーまたは下のチェックボックスから、Currentsを効果的に使うために必要なイベントを探してください。<br><br>これらのスキーマは、メッセージ送信に直接関連するBrazeイベントで構成されています。"
+  customer_behavior_events_glossary_title: 顧客行動とユーザーイベント
+  customer_behavior_events_glossary_intro: "検索バーまたは下のチェックボックスから、Currentsを効果的に使うために必要なイベントを探してください。<br><br>これらのスキーマには、セッション、カスタムイベント、購入など、プラットフォームを通じて追跡されるアプリまたはWebサイトのその他のアクティビティが含まれます。"
   currents_customer_behavior_tag_labels:
     attribution: アトリビューション
     "custom events": カスタムイベント
@@ -319,6 +415,50 @@ ja:
     uninstall: アンインストール
     webhooks: Webhook
     whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    profile: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    subscription: action
+    uninstall: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    progression: journey
+    ios: channel
+  currents_message_engagement_tag_group_labels:
+    channel: チャネルとプラットフォーム
+    action: メッセージアクション
+    journey: ユーザージャーニー
   sql_segment_use_cases_tag_labels:
     carrier: キャリア
     delivery: 配信
@@ -398,6 +538,8 @@ ko:
   glossary_currents_events_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
   glossary_currents_events_no_results: 이 필터와 일치하는 이벤트가 없습니다
   glossary_currents_events_showing: 이벤트 __TOTAL__개 중 __COUNT__개 표시
+  glossary_currents_events_loading: 스키마 로드 중…
+  glossary_currents_events_load_error: 이 스키마를 로드할 수 없습니다. 페이지를 새로 고침하여 다시 시도하십시오.
   glossary_sql_use_cases_search_placeholder: 검색
   glossary_sql_use_cases_search_aria: 사용 사례 검색
   glossary_sql_use_cases_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
@@ -407,6 +549,14 @@ ko:
   glossary_liquid_use_cases_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
   glossary_liquid_use_cases_no_results: 이 필터와 일치하는 사용 사례가 없습니다
   glossary_liquid_use_cases_showing: 사용 사례 __TOTAL__개 중 __COUNT__개 표시
+  glossary_agents_use_cases_search_placeholder: 검색
+  glossary_agents_use_cases_search_aria: 사용 사례 검색
+  glossary_agents_use_cases_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
+  glossary_agents_use_cases_no_results: 이 필터와 일치하는 사용 사례가 없습니다
+  agents_use_case_glossary_intro: "에이전트 지침 및 사용 사례 모음을 살펴보세요.<br><br>검색창 또는 아래 확인란을 사용하여 필요에 맞는 사용 사례를 찾으세요."
+  agents_use_case_tag_labels:
+    "canvas agent": Canvas 에이전트
+    "catalog agent": 카탈로그 에이전트
   currents_customer_behavior_tag_labels:
     attribution: 어트리뷰션
     "custom events": 커스텀 이벤트
@@ -459,6 +609,50 @@ ko:
     uninstall: 제거
     webhooks: Webhook
     whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    profile: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    subscription: action
+    uninstall: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    progression: journey
+    ios: channel
+  currents_message_engagement_tag_group_labels:
+    channel: 채널 및 플랫폼
+    action: 메시지 작업
+    journey: 사용자 여정
   sql_segment_use_cases_tag_labels:
     carrier: 통신사
     delivery: 전달
@@ -547,6 +741,14 @@ pt-br:
   glossary_liquid_use_cases_search_hint: Os resultados são atualizados automaticamente conforme você digita.
   glossary_liquid_use_cases_no_results: Nenhum caso de uso corresponde a esses filtros
   glossary_liquid_use_cases_showing: Mostrando __COUNT__ de __TOTAL__ casos de uso
+  glossary_agents_use_cases_search_placeholder: Pesquisar
+  glossary_agents_use_cases_search_aria: Pesquisar casos de uso
+  glossary_agents_use_cases_search_hint: Os resultados são atualizados automaticamente conforme você digita.
+  glossary_agents_use_cases_no_results: Nenhum caso de uso corresponde a esses filtros
+  agents_use_case_glossary_intro: "Confira nossa coleção de instruções e casos de uso para agentes.<br><br>Use a barra de pesquisa ou as caixas de seleção abaixo para encontrar os casos de uso que atendem às suas necessidades."
+  agents_use_case_tag_labels:
+    "canvas agent": Agente de Canvas
+    "catalog agent": Agente de catálogo
 es:
   next: SIGUIENTE
   previous: ANTERIOR
@@ -612,6 +814,14 @@ es:
   glossary_liquid_use_cases_search_hint: Los resultados se actualizan automáticamente mientras escribes.
   glossary_liquid_use_cases_no_results: Ningún caso de uso coincide con estos filtros
   glossary_liquid_use_cases_showing: Mostrando __COUNT__ de __TOTAL__ casos de uso
+  glossary_agents_use_cases_search_placeholder: Buscar
+  glossary_agents_use_cases_search_aria: Buscar casos de uso
+  glossary_agents_use_cases_search_hint: Los resultados se actualizan automáticamente mientras escribes.
+  glossary_agents_use_cases_no_results: Ningún caso de uso coincide con estos filtros
+  agents_use_case_glossary_intro: "Consulta nuestra colección de instrucciones y casos de uso para agentes.<br><br>Usa la barra de búsqueda o las casillas de abajo para encontrar los casos de uso que necesitas."
+  agents_use_case_tag_labels:
+    "canvas agent": Agente de Canvas
+    "catalog agent": Agente de catálogo
 de:
   next: NÄCHSTES
   previous: VORHERIGES
@@ -677,3 +887,11 @@ de:
   glossary_liquid_use_cases_search_hint: Die Ergebnisse werden automatisch aktualisiert, während du tippst.
   glossary_liquid_use_cases_no_results: Keine Anwendungsfälle entsprechen diesen Filtern
   glossary_liquid_use_cases_showing: __COUNT__ von __TOTAL__ Anwendungsfällen werden angezeigt
+  glossary_agents_use_cases_search_placeholder: Suchen
+  glossary_agents_use_cases_search_aria: Anwendungsfälle durchsuchen
+  glossary_agents_use_cases_search_hint: Die Ergebnisse werden automatisch aktualisiert, während du tippst.
+  glossary_agents_use_cases_no_results: Keine Anwendungsfälle entsprechen diesen Filtern
+  agents_use_case_glossary_intro: "Durchsuchen Sie unsere Sammlung von Agentenanweisungen und Anwendungsfällen.<br><br>Verwenden Sie die Suchleiste oder die Kontrollkästchen unten, um die passenden Anwendungsfälle zu finden."
+  agents_use_case_tag_labels:
+    "canvas agent": Canvas-Agent
+    "catalog agent": Katalog-Agent

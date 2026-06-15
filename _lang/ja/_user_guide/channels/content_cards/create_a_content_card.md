@@ -2,7 +2,7 @@
 nav_title: コンテンツカードの作成
 article_title: コンテンツカードの作成
 page_order: 1
-description: "このリファレンス記事では、BrazeのCampaignsとCanvasesを使用してコンテンツカードを作成、構成、設定、送信する方法について説明します。"
+description: "このリファレンス記事では、BrazeのCampaignsとCanvasesを使用してContent Cardsを作成、構成、設定、送信する方法について説明します。"
 tool:
   - Canvas
   - Campaigns
@@ -14,7 +14,7 @@ search_rank: 3.9
 
 # コンテンツカードの作成 {#create-a-content-card}
 
-> この記事では、CampaignsやCanvasesを構築する際にBrazeでコンテンツカードを作成する方法について説明します。ここでは、メッセージタイプの選択、カードの作成、メッセージ配信のスケジュール設定について順を追って説明します。
+> この記事では、CampaignsやCanvasesを構築する際にBrazeでContent Cardsを作成する方法について説明します。ここでは、メッセージタイプの選択、カードの作成、メッセージ配信のスケジュール設定について順を追って説明します。
 
 ## ステップ 1: メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
@@ -23,15 +23,15 @@ Campaignsは、シンプルな単一メッセージング（1つのメッセー�
 {% tabs %}
 {% tab Campaign %}
 
-1. **メッセージング** > **Campaigns** に移動し、**キャンペーンを作成**を選択します。
-2. **Content Cards** を選択するか、複数のチャネルをターゲットとするCampaignsの場合は**マルチチャネル**を選択します。
+1. **Messaging** > **Campaigns**に移動し、**Create Campaign**を選択します。
+2. **Content Cards**を選択するか、複数のチャネルをターゲットとするCampaignsの場合は**Multichannel**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
    * タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する場合、関連するタグでフィルタリングできます。
 5. Campaignに必要な数のバリアントを追加して名前を付けます。追加したバリアントごとに、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。バリアントの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 
 {% alert tip %}
-Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
+Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**Add Variant**ドロップダウンから**Copy from Variant**を選択できます。
 {% endalert %}
 
 {% endtab %}
@@ -43,7 +43,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 4. BrazeがContent Cardsのオーディエンス適格性とパーソナライゼーションを計算するタイミングを選択します。これは、ステップエントリ時またはファーストインプレッション時（推奨）に設定できます。Content Cardsを含むステップは、スケジュール配信またはアクションベースで設定できます。
 5. ユーザーが購入を完了した場合やカスタムイベントを実行した場合にContent Cardsを削除するかどうかを選択します。
 6. Content Cardsの有効期限（フィード内の表示期間）を設定します。一定期間後または特定の時刻に設定できます。
-7. **配信設定**で、必要に応じてこのステップのオーディエンス（受信者）をフィルタリングします。Segmentsを指定し、追加のフィルターを追加することで、オーディエンスをさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
+7. **Delivery Settings**で、必要に応じてこのステップのオーディエンス（受信者）をフィルタリングします。Segmentsを指定し、追加のフィルターを追加することで、オーディエンスをさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
 8. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 
 {% endtab %}
@@ -60,19 +60,19 @@ Campaign内のすべてのメッセージが類似している、または同じ
 |[クラシック]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic)| ![ワークアウトクラスの予約を促す小さなアイコンとテキストを含むクラシックContent Card。]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |クラシックカードは、太字のタイトル、メッセージテキスト、およびタイトルとテキストの左側に配置されるオプションの画像を含むシンプルなレイアウトです。クラシックカードには正方形の画像またはアイコンを使用するのが最適です。|
 |[キャプション付き画像]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image)| ![ウェイトリフターの画像とワークアウトクラスの予約を促すテキストを含むキャプション付きContent Card。]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | キャプション付き画像カードは、コピーと目を引く画像でコンテンツを紹介します。|
 |[画像のみ]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner)| ![テキストのみの画像のみContent Card。]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 画像のみカードは、画像、GIF、その他のクリエイティブなテキスト以外のコンテンツ用のスペースで注目を集めます。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 2: メッセージタイプを指定する" }
 
 ## ステップ 3: コンテンツカードを作成する {#step-3-compose-a-content-card}
 
-メッセージエディターの**作成**タブで、メッセージのコンテンツと動作のすべての側面を編集できます。
+メッセージエディターの**Compose**タブで、メッセージのコンテンツと動作のすべての側面を編集できます。
 
-![メッセージエディターの作成タブにあるサンプルContent Cardsの詳細。]({% image_buster /assets/img/content_card_compose.png %})
+![メッセージエディターのComposeタブにあるサンプルContent Cardsの詳細。]({% image_buster /assets/img/content_card_compose.png %})
 
 ここに表示されるコンテンツは、前のステップで選択した**カードタイプ**によって異なりますが、以下のオプションのいずれかが含まれる場合があります。
 
 #### 言語 {#language}
 
-**言語を追加**を選択して、提供されたリストから希望の言語を追加します。これにより、メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic)が挿入されます。コンテンツを作成する前に言語を選択して、Liquid内の適切な場所にテキストを入力できるようにすることをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
+**Add Languages**を選択して、提供されたリストから希望の言語を追加します。これにより、メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic)が挿入されます。コンテンツを作成する前に言語を選択して、Liquid内の適切な場所にテキストを入力できるようにすることをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
 
 ![言語として英語、スペイン語、フランス語が選択され、国際化するフィールドとしてタイトル、説明、リンクテキストが選択されたウィンドウ。]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
@@ -86,7 +86,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### 画像 {#image}
 
-Content Cardsに画像を追加するには、**画像を追加**を選択するか、画像URLを入力します。**画像を追加**を選択すると**メディアライブラリ**が開き、以前にアップロードした画像を選択するか、新しい画像を追加できます。
+Content Cardsに画像を追加するには、**Add Image**を選択するか、画像URLを入力します。**Add Image**を選択すると**メディアライブラリ**が開き、以前にアップロードした画像を選択するか、新しい画像を追加できます。
 
 メッセージタイプとプラットフォームごとに推奨される比率と要件が異なる場合があるため、画像を発注または作成する前に必ず確認してください。Content Cardsのメッセージフィールドは合計サイズが2&nbsp;KBに制限されていることに注意してください。
 
@@ -94,9 +94,9 @@ Content Cardsに画像を追加するには、**画像を追加**を選択する
 
 #### トップに固定 {#pin-to-top}
 
-Brazeは固定されたカードをユーザーのフィードの上部に表示し、ユーザーはそれを閉じることができません。ユーザーのフィードに複数の固定カードがある場合、Brazeは時系列順に並べます。カードを送信した後、固定オプションを遡って更新することはできません。Campaign送信後にこのオプションを変更しても、将来の送信にのみ影響します。
+Brazeは固定されたカードをユーザーのフィードの上部に表示し、ユーザーはそれを閉じることができません。ユーザーのフィードに複数の固定カードがある場合、Brazeは時系列順に並べます。BrazeがContent Cardsを配信する際、カードは固定または非固定のいずれかであり、そのステータスはカードの有効期間中変更されません。Campaignの固定設定を変更した場合、更新は将来送信されるカードにのみ適用されます。すでにユーザーのフィードにあるカードの固定ステータスは変更されません。
 
-![モバイルとWebのBraze Content Cardsプレビューの並列表示。「このカードをフィードのトップに固定する」オプションが選択されています。]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
+![モバイルとWebのBraze Content Cardsプレビューの並列表示。「Pin this card to the top of the feed」オプションが選択されています。]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 #### クリック時の動作 {#on-click-behavior}
 
@@ -110,7 +110,7 @@ Content Cardsのリンクで使用できるアクションは以下のとおり�
 | [アプリへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | アプリ内の既存の画面にディープリンクします。|
 | カスタムイベントをログに記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を選択します。別のContent Cardsの表示や追加のメッセージングのトリガーに使用できます。|
 | カスタム属性をログに記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を選択します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="クリック時の動作" }
 
 **カスタムイベントをログに記録**と**カスタム属性をログに記録**オプションには、以下のSDKバージョンの互換性が必要です。
 
@@ -120,7 +120,7 @@ Content Cardsのリンクで使用できるアクションは以下のとおり�
 
 [キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)を使用して、カードのカテゴリを作成したり、[複数のContent Cardsフィード]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds)を作成したり、カードのソート方法をカスタマイズしたりできます。
 
-メッセージにキーと値のペアを追加するには、**設定**タブに移動して**新しいペアを追加**を選択します。
+メッセージにキーと値のペアを追加するには、**Settings**タブに移動して**Add New Pair**を選択します。
 
 ## ステップ 5: CampaignまたはCanvasの残りの部分を構築する {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -133,7 +133,7 @@ Campaignの残りの部分を構築します。Content Cardsを構築するた�
 
 Content Cardsは、スケジュールされた時刻、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
-Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)を設定し、Content Cardsの有効期限を決定することもできます。特定の有効期限日またはカードの有効期限が切れるまでの日数（最大30日）を設定します。すべてのバリアントの有効期限は同一です。
+Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)を設定し、Content Cardsの有効期限を決定することもできます。特定の有効期限日またはカードの有効期限が切れるまでの日数（最大30日）を設定します。すべてのバリアントの有効期限は同一です。
 
 設定された期間後にカードの有効期限が切れるように選択した場合（たとえば2週間後）、有効期限はカードの送信時刻から計算されます。スケジュールされたCampaignsの場合、これはスケジュールされた起動時刻です。アクションベースのCampaignsの場合、これはユーザーがトリガーアクションを実行した時刻です。たとえば、アクションベースのカードが本日午後2時に送信され、有効期限が1日の場合、翌日の午後2時に有効期限が切れます。
 
@@ -228,8 +228,8 @@ Content Cardsのペイロードサイズを管理するためのベストプラ�
 
 再適格性を有効にすると、ユーザーがCampaignに「再エントリ」できるまでのカウントダウンは、メッセージが送信された後に開始されます。このカウントダウンが開始される具体的なタイミングは、カード作成の設定によって異なります。
 
-* [ファーストインプレッション時]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)を使用するContent Cardsは、インプレッション時刻を使用して再適格性を計算します。
-* Campaign起動時またはキャンバスステップエントリ時に作成されたContent Cardsは、送信時刻またはインプレッション時刻のいずれか遅い方を使用します。
+- [ファーストインプレッション時]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)を使用するContent Cardsは、インプレッション時刻を使用して再適格性を計算します。
+- Campaign起動時、マルチチャネルCampaigns、またはキャンバスステップエントリ時に作成されたContent Cardsは、送信時刻またはインプレッション時刻のいずれか遅い方を使用します。
 
 #### 30日間の有効期限と再適格性 {#the-30-day-expiration-and-re-eligibility}
 
@@ -277,7 +277,7 @@ Campaignを複製する場合、新しいバージョンのオーディエンス
 
 このアプローチでは、すべての分析が単一のCampaignに統一されます。新たに適格になったユーザーは新しいカードを受信しますが、既存の受信者への更新は再適格になるまで遅延します。
 
-1. Campaignを停止し、プロンプトが表示されたら**次の同期後にカードを削除**を選択します。
+1. Campaignを停止し、プロンプトが表示されたら**Remove card after the next sync**を選択します。
 2. 必要に応じてCampaignを編集します。
 3. Campaignを再開します。
 
@@ -294,8 +294,8 @@ Campaignを複製する場合、新しいバージョンのオーディエンス
 
 Campaignを停止することで、いつでもすべてのユーザーのフィードからカードを手動で削除できます。
 
-1. Content Cards Campaignを開き、**キャンペーンを停止**を選択します。
-2. プロンプトが表示されたら、**次の同期後にカードを削除**を選択します。カードは次のフィード更新時に削除されます。
+1. Content Cards Campaignを開き、**Stop Campaign**を選択します。
+2. プロンプトが表示されたら、**Remove card after the next sync**を選択します。カードは次のフィード更新時に削除されます。
 
 ##### 自動カード削除 {#action-based-card-removal}
 
@@ -328,3 +328,11 @@ Content Cardsは、送信されてから最大30日間利用可能です。30日
 1. Content Cardsの期間を30日に設定します。
 2. Campaignの再適格性を30日に設定します。
 3. Campaignを「セッション開始」時にトリガーするように設定します。
+
+### Content Cardsの同期と更新 {#content-card-sync-and-refresh}
+
+Content Cardsはスケジュールに基づいて同期され、アプリがフィードを更新するときにも同期されます。同期の動作はフル同期と部分同期で異なり、SDKの統合はセッション開始時にカードが更新されるタイミングに影響します。実装の詳細については、[Content Cardsフィードのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/)と[Content Cardsの作成]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)を参照してください。
+
+### Content Cards Campaignsの停止による影響 {#impact-of-stopping-content-cards-campaigns}
+
+Campaignを停止して**Remove card after the next sync**を選択すると、Brazeは次のフィード更新時にユーザーのフィードからカードを削除します。ユーザーが閲覧する前に削除されたカードにはインプレッションが記録されないため、インプレッション数が送信数よりも少なくなる場合があります。

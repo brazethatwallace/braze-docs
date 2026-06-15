@@ -167,6 +167,12 @@ Pide al usuario afectado que [borre la caché y las cookies de su navegador](htt
 
 Si recibes el error `ERROR_CODE_SSO_INVALID_RELAY_STATE`, tu RelayState podría estar mal configurado o no existir. Si aún no lo has hecho, necesitas configurar tu RelayState en tu sistema de administración de IdP. Para conocer los pasos, consulta [Configurar tu RelayState](#setting-up-your-relaystate).
 
+### ¿El inicio de sesión SSO exitoso te devuelve a la página de inicio de sesión de Braze? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+
+Esto puede ocurrir cuando RelayState no está configurado correctamente. Confirma que creaste una clave de API (en **Configuración** > **Claves de API**) para el inicio de sesión del IdP y que configuraste esa clave de API como el parámetro `RelayState` en tu IdP. RelayState identifica en qué cuenta de empresa estás iniciando sesión. Para instrucciones paso a paso, consulta [Configurar tu RelayState](#setting-up-your-relaystate).
+
+Si aún no puedes iniciar sesión, [ponte en contacto con soporte de Braze]({{site.baseurl}}/braze_support/) con un rastreo SAML si es posible. Para obtener ayuda capturando un rastreo, consulta [Obtener un rastreo SAML](#obtaining-a-saml-trace).
+
 ### ¿El usuario está atrapado en un bucle de inicio de sesión entre Okta y Braze? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
 Si un usuario no puede iniciar sesión porque está atrapado en un ciclo entre el SSO de Okta y el dashboard de Braze, necesitas ir a Okta y configurar la URL de destino de SSO a tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) (por ejemplo, `https://dashboard-07.braze.com`).
@@ -176,6 +182,20 @@ Si usas otro IdP, verifica si tu empresa cargó el certificado SAML o x.509 corr
 ### ¿Estás usando una integración manual? {#are-you-using-a-manual-integration}
 
 Si tu empresa no descargó la aplicación de Braze desde la tienda de aplicaciones de tu IdP, necesitas descargar la integración prediseñada. Por ejemplo, si Okta es tu IdP, descargarías la aplicación de Braze desde su [página de integración](https://www.okta.com/integrations/braze/).
+
+## Google SSO
+
+Si tu empresa usa Google SSO en lugar de SAML SSO personalizado, ponte en contacto con tu director de cuentas de Braze para habilitar Google SSO en tu espacio de trabajo. Una vez habilitado, ve a **Configuración de seguridad** y selecciona **Enforce Google SSO only login** para requerir la autenticación de Google para todos los usuarios de la empresa.
+
+Cuando se activa la aplicación de Google SSO, los usuarios deben iniciar sesión con la autenticación de Google y ya no podrán usar una contraseña de Braze. Cada usuario debe iniciar sesión con la cuenta de Google que coincida con su dirección de correo electrónico del dashboard de Braze. Si un usuario selecciona una cuenta de Google diferente durante el inicio de sesión, Braze rechaza el intento de autenticación.
+
+### Solución de problemas del inicio de sesión con Google SSO {#troubleshooting-google-sso-sign-in}
+
+Si algunos usuarios no pueden iniciar sesión con Google SSO, verifica lo siguiente:
+
+- La dirección de correo electrónico de la cuenta de Google del usuario coincide exactamente con su dirección de correo electrónico del dashboard de Braze.
+- El usuario tiene acceso a una cuenta de Google para su dirección de correo electrónico de la empresa.
+- El usuario no está suspendido en Braze (**Configuración** > **Usuarios de la empresa**).
 
 ## Próximos pasos {#next-steps}
 

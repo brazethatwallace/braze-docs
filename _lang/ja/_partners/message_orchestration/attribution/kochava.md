@@ -16,7 +16,7 @@ _この統合はKochavaによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとKochavaの統合により、アトリビューションデータをBrazeに送信することで、どのCampaignsがインストールやアプリ内アクティビティなどを促進しているかをより深く理解し、キャンペーン全体の把握を強化できます。
+BrazeとKochavaの統合により、アトリビューションデータをBrazeに送信することで、どのキャンペーンがインストールやアプリ内アクティビティなどを促進しているかをより深く理解し、キャンペーン全体の把握を強化できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -82,9 +82,9 @@ FacebookおよびX（旧Twitter）キャンペーンのアトリビューショ�
 
 ## BrazeでのKochavaクリックトラッキングURL（オプション） {#kochava-click-tracking-urls-in-braze-optional}
 
-BrazeのCampaignsでクリックトラッキングリンクを使用すると、どのCampaignsがアプリのインストールと再エンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
+Brazeのキャンペーンでクリックトラッキングリンクを使用すると、どのキャンペーンがアプリのインストールと再エンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
 
-Kochavaのクリックトラッキングリンクを使い始めるには、[ドキュメント](https://support.kochava.com/reference-information/attribution-overview/)をご覧ください。BrazeのCampaignsにKochavaクリックトラッキングリンクを直接挿入できます。Kochavaはその後、[確率的アトリビューション方法論](https://www.kochava.com/getting-prepared-for-ios-14/)を使用して、リンクをクリックしたユーザーをアトリビューションします。BrazeのCampaignsからのアトリビューションの精度を向上させるために、Kochavaトラッキングリンクにデバイス識別子を追加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビューションできます。
+Kochavaのクリックトラッキングリンクを使い始めるには、[ドキュメント](https://support.kochava.com/reference-information/attribution-overview/)をご覧ください。BrazeのキャンペーンにKochavaクリックトラッキングリンクを直接挿入できます。Kochavaはその後、[確率的アトリビューション方法論](https://www.kochava.com/getting-prepared-for-ios-14/)を使用して、リンクをクリックしたユーザーをアトリビューションします。Brazeのキャンペーンからのアトリビューションの精度を向上させるために、Kochavaトラッキングリンクにデバイス識別子を追加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビューションできます。
 
 {% tabs local %}
 {% tab Android %}

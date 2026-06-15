@@ -21,13 +21,13 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ein Dixa-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Dixa-Administratorkonto. |
-| Ein Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.export.ids` und `email.status`.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Ein Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.export.ids` und `email.status`.<br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | Ein Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Anwendungsfälle {#use-cases}
 
-Zeigen Sie Braze-Daten in der Ansicht des Kundenservice-Agenten an, während Sie mit Ihren Nutzer:innen über verschiedene Kommunikationskanäle wie E-Mail, Messenger oder Chat kommunizieren. Nutzen Sie außerdem die Braze-Datentransformation, um Daten von Dixa an Braze zu senden und Marketing-Aktivitäten zu pausieren, während das Problem einer Nutzerin oder eines Nutzers gelöst wird.
+Zeigen Sie Braze-Daten in der Ansicht des Kundenservice-Agenten an, während Sie mit Ihren Nutzer:innen über verschiedene Kommunikationskanäle wie E-Mail, Messenger oder Chat kommunizieren. Nutzen Sie außerdem die Braze-Datentransformation, um Daten von Dixa an Braze zu senden und Marketing-Aktivitäten zu pausieren, während das Problem einer Nutzerin oder eines Nutzers gelöst wird, oder verwenden Sie die Zufriedenheitsumfragen von Dixa für die Segmentierung.
 
 ## Integration
 
@@ -83,9 +83,11 @@ Im Folgenden sehen Sie ein Beispiel für die Integration:
 
 Dixa verwendet Webhooks, um Daten an Braze zu senden. Sie müssen Dixa-Administrator:in sein, um Webhooks zu konfigurieren.
 
+### Konversationen in Dixa tracken {#track-conversations-in-dixa}
+
 Der erste Schritt besteht darin, eine Datentransformation in Braze zu erstellen.
 
-1. Gehen Sie zu **Dateneinstellungen** > **Datentransformationen** > **Transformation erstellen**.
+1. Gehen Sie zu **Data Settings** > **Data Transformations** > **Create transformation**.
 2. Wählen Sie **Start from scratch**, wählen Sie als Ziel **POST: Track Users** und wählen Sie **Create transformation**.
 3. Kopieren Sie im Transformations-Editor den Beispielcode aus dem Abschnitt **Beispiel für das Transformations-Tool** weiter unten und fügen Sie ihn in das Feld **Transformation code** ein. Wählen Sie **Save**, kopieren Sie die **Webhook URL** und öffnen Sie Dixa.
 4. Gehen Sie in Dixa zu **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
@@ -128,5 +130,56 @@ const brazecall = {
 };
 
 // Returning the transformed data
+return brazecall;
+```
+
+### CSAT-Score in Braze verwenden {#use-csat-score-in-braze}
+
+1. Gehen Sie zu **Data Settings** > **Data Transformations** > **Create transformation**.
+2. Wählen Sie **Start from scratch**, wählen Sie als Ziel **POST: Track Users** und wählen Sie **Create transformation**.
+3. Kopieren Sie im Transformations-Editor den Beispielcode aus dem Abschnitt **CSAT-Score tracken** weiter unten und fügen Sie ihn in das Feld **Transformation code** ein. Wählen Sie **Save**, kopieren Sie die **Webhook URL** und öffnen Sie Dixa.
+4. Gehen Sie in Dixa zu **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
+5. Fügen Sie auf der Seite mit den Webhook-Einstellungen die URL von Braze ein und aktivieren Sie die Events, die Sie tracken möchten. **Conversation created** ist ein guter Ausgangspunkt, um die Konversationen Ihrer Kund:innen zu verfolgen.
+6. Wählen Sie **Save**, um die Dixa-Einrichtung abzuschließen.
+
+#### CSAT-Score tracken {#track-csat-score}
+
+```js
+const body = payload?.data;
+
+// values from your webhook
+const score = body.score;         // number
+const comment = body.comment;     // string
+const type = body.type;           // string
+const ratedAt = body.event_timestamp;   // ISO 8601 string
+const contactemail = body.conversation.requester.email;
+
+// ALWAYS identify by email
+const email = contactemail;
+
+if (!email) {
+  // Can't identify a user without email
+  return { attributes: [] };
+}
+
+
+let brazecall = {
+  "attributes": [
+    {
+      // Using the Dixa user email as the external_id to identify the user in Braze
+      "email": contactemail,
+      "_update_existing_only": true,
+
+      // Your new custom object attribute
+      "last_csat": {
+        "score": score,
+        "comment": comment,
+        "type": type,
+        "rated_at": ratedAt
+      }
+    }
+  ]
+};
+
 return brazecall;
 ```

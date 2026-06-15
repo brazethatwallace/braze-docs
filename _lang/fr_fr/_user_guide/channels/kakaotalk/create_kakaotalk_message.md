@@ -204,7 +204,7 @@ Consultez les sections suivantes pour savoir comment utiliser au mieux nos outil
 
 Les messages KakaoTalk peuvent être envoyés selon une planification horaire, une action ou un déclencheur API. Pour en savoir plus sur les options de planification et de déclenchement, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) ou [Types de planification d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) (pour votre Canvas).
 
-Vous pouvez spécifier des contrôles d'envoi, comme permettre aux utilisateurs de redevenir éligibles pour recevoir la campagne, ou activer des règles de limite de fréquence. Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les heures calmes.
+Vous pouvez spécifier des contrôles d'envoi, comme permettre aux utilisateurs de redevenir éligibles pour recevoir la campagne, ou activer des règles de limite de fréquence. Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 

@@ -33,7 +33,7 @@
 
 例えば、次のスタイルのオーバーライドでは、すべての Braze アプリ内メッセージに`bungee`フォントファミリが使用されます。
 
-```html
+`````````html
 <style name="Braze.InAppMessage">
   <item name="android:fontFamily">@font/bungee_font_family</item>
   <item name="fontFamily">@font/bungee_font_family</item>

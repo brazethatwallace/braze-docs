@@ -1,23 +1,23 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
 {% alert tip %}
-Para ajuda na escolha entre links profundos de esquema personalizado, links universais e "Abrir URL da Web Dentro do App", veja [guia de links profundos para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Para solução de problemas, veja [solução de problemas de links profundos]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
+Para ajuda na escolha entre deep links de esquema personalizado, links universais e "Abrir URL da Web Dentro do App", veja [Guia de deep linking para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/). Para solução de problemas, veja [Solução de problemas de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
 {% endalert %}
 
-## Tratamento de links profundos
+## Tratamento de deep links {#handling-deep-links}
 
 ### Etapa 1: Registrar um esquema {#register-a-scheme}
 
-Para lidar com o deep linking, um esquema personalizado deve ser declarado em seu arquivo `Info.plist`. A estrutura de navegação é definida por uma matriz de dicionários. Cada um desses dicionários contém um vetor de strings.
+Para lidar com deep linking, um esquema personalizado deve ser declarado no seu arquivo `Info.plist`. A estrutura de navegação é definida por um array de dicionários. Cada um desses dicionários contém um array de strings.
 
-Use o Xcode para editar seu `Info.plist` arquivo:
+Use o Xcode para editar seu arquivo `Info.plist`:
 
-1. Adicione uma nova chave, `URL types`. O Xcode fará automaticamente disso um vetor contendo um dicionário chamado `Item 0`.
+1. Adicione uma nova chave, `URL types`. O Xcode fará automaticamente disso um array contendo um dicionário chamado `Item 0`.
 2. Dentro de `Item 0`, adicione uma chave `URL identifier`. Defina o valor para seu esquema personalizado.
-3. Dentro de `Item 0`, adicione uma chave `URL Schemes`. Isso será automaticamente um vetor contendo uma `Item 0` string.
+3. Dentro de `Item 0`, adicione uma chave `URL Schemes`. Isso será automaticamente um array contendo uma string `Item 0`.
 4. Defina `URL Schemes` >> `Item 0` para seu esquema personalizado.
 
-Alternativamente, se você deseja editar seu arquivo`Info.plist` diretamente, siga esta especificação:
+Alternativamente, se você deseja editar seu arquivo `Info.plist` diretamente, siga esta especificação:
 
 ```html
 <key>CFBundleURLTypes</key>
@@ -33,7 +33,7 @@ Alternativamente, se você deseja editar seu arquivo`Info.plist` diretamente, si
 </array>
 ```
 
-### Etapa 2: Adicionar uma lista de permissão de esquema
+### Etapa 2: Adicionar uma lista de permissão de esquema {#step-2-add-a-scheme-allowlist}
 
 Você deve declarar os esquemas de URL que deseja passar para `canOpenURL(_:)` adicionando a chave `LSApplicationQueriesSchemes` ao arquivo Info.plist do seu app. Tentar chamar esquemas fora desta lista de permissão fará com que o sistema registre um erro nos logs do dispositivo, e o deep link não abrirá. Um exemplo desse erro é o seguinte:
 
@@ -41,7 +41,7 @@ Você deve declarar os esquemas de URL que deseja passar para `canOpenURL(_:)` a
 <Warning>: -canOpenURL: failed for URL: "yourapp://deeplink" – error: "This app is not allowed to query for scheme yourapp"
 ```
 
-Por exemplo, se uma mensagem no app deve abrir o aplicativo do Facebook ao ser tocada, o app deve ter o esquema personalizado do Facebook (`fb`) em sua lista de permissões. Caso contrário, o sistema rejeitará o deep link. Os deep linkings que direcionam para uma página ou exibição dentro do seu próprio aplicativo ainda exigem que o esquema personalizado do seu aplicativo seja listado no site `Info.plist`.
+Por exemplo, se uma mensagem no app deve abrir o aplicativo do Facebook ao ser tocada, o app deve ter o esquema personalizado do Facebook (`fb`) na sua lista de permissões. Caso contrário, o sistema rejeitará o deep link. Deep links que direcionam para uma página ou visualização dentro do seu próprio app ainda exigem que o esquema personalizado do seu app esteja listado no `Info.plist`.
 
 Seu exemplo de lista de permissões pode ser algo como:
 
@@ -54,9 +54,9 @@ Seu exemplo de lista de permissões pode ser algo como:
 </array>
 ```
 
-Para saber mais, consulte [a documentação da Apple](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW14) sobre a tecla `LSApplicationQueriesSchemes`.
+Para saber mais, consulte a [documentação da Apple](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW14) sobre a chave `LSApplicationQueriesSchemes`.
 
-### Etapa 3: Implementar um manipulador
+### Etapa 3: Implementar um handler {#step-3-implement-a-handler}
 
 Depois de ativar seu app, o iOS chamará o método [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc). O argumento importante é o objeto [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL).
 
@@ -87,40 +87,40 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-## Segurança de Transporte de Aplicativos (ATS)
+## App Transport Security (ATS)
 
-Conforme definido por [Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14), "A Segurança de Transporte de Aplicativos é um recurso que melhora a segurança das conexões entre um app e serviços web." O recurso consiste em requisitos de conexão padrão que estão em conformidade com as melhores práticas para conexões seguras. Os apps podem substituir esse comportamento padrão e desativar a segurança de transporte."
+Conforme definido pela [Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14), "App Transport Security é um recurso que melhora a segurança das conexões entre um app e serviços web. O recurso consiste em requisitos de conexão padrão que estão em conformidade com as melhores práticas para conexões seguras. Os apps podem substituir esse comportamento padrão e desativar a segurança de transporte."
 
-O ATS é aplicado por padrão. Requer que todas as conexões usem HTTPS e sejam criptografadas usando TLS 1.2 com sigilo direto. Consulte [Requisitos para Conexão Usando ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para saber mais. Todas as imagens servidas pela Braze para dispositivos finais são gerenciadas por uma rede de entrega de conteúdo ("CDN") que suporta TLS 1.2 e é compatível com ATS.
+O ATS é aplicado por padrão. Requer que todas as conexões usem HTTPS e sejam criptografadas usando TLS 1.2 com sigilo direto. Consulte [Requirements for Connecting Using ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para saber mais. Todas as imagens servidas pela Braze para dispositivos finais são gerenciadas por uma rede de entrega de conteúdo ("CDN") que suporta TLS 1.2 e é compatível com ATS.
 
-A menos que sejam especificados como exceções na `Info.plist` do seu aplicativo, conexões que não seguem esses requisitos falharão com erros semelhantes aos seguintes.
+A menos que sejam especificadas como exceções no `Info.plist` do seu aplicativo, conexões que não seguem esses requisitos falharão com erros semelhantes aos seguintes.
 
-**Exemplo de Erro 1:**
+**Exemplo de erro 1:**
 
 ```bash
 CFNetwork SSLHandshake failed (-9801)
 Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secure connection to the server cannot be made."
 ```
 
-**Exemplo de Erro 2:**
+**Exemplo de erro 2:**
 
 ```bash
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 ```
 
-A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador da web.
+A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador web.
 
-### Trabalhando com ATS
+### Trabalhando com ATS {#working-with-ats}
 
 Você pode lidar com ATS de uma das seguintes maneiras, mas recomendamos **cumprir os requisitos do ATS**.
 
 {% tabs local %}
-{% tab Comply %}
-Sua integração com a Braze pode atender aos requisitos do ATS, garantindo que todos os links existentes para os quais você direciona os usuários (por exemplo, por meio de mensagens no app e campanhas de mensagens) atendam aos requisitos do ATS. Embora existam maneiras de contornar as restrições do ATS, nossa recomendação é garantir que todos os URLs vinculados estejam em conformidade com o ATS. Dada a ênfase crescente da Apple à segurança de aplicativos, as seguintes abordagens para permitir exceções ATS podem não ser compatíveis.
+{% tab Cumprir %}
+Sua integração com a Braze pode atender aos requisitos do ATS, garantindo que todos os links existentes para os quais você direciona os usuários (por exemplo, por meio de mensagens no app e Campaigns de push) atendam aos requisitos do ATS. Embora existam maneiras de contornar as restrições do ATS, nossa recomendação é garantir que todos os URLs vinculados estejam em conformidade com o ATS. Dada a ênfase crescente da Apple na segurança de aplicativos, as seguintes abordagens para permitir exceções do ATS não são garantidas como suportadas pela Apple.
 {% endtab %}
 
-{% tab Partially disable %}
-Você pode permitir que um subconjunto de links com determinados domínios ou esquemas sejam tratados como exceções às regras do ATS. Sua integração com o Braze atenderá aos requisitos do ATS se todos os links usados em um canal de envio de mensagens do Braze estiverem em conformidade com o ATS ou forem tratados por uma exceção.
+{% tab Desativar parcialmente %}
+Você pode permitir que um subconjunto de links com determinados domínios ou esquemas sejam tratados como exceções às regras do ATS. Sua integração com a Braze atenderá aos requisitos do ATS se todos os links usados em um canal de envio de mensagens da Braze estiverem em conformidade com o ATS ou forem tratados por uma exceção.
 
 Para adicionar um domínio como exceção do ATS, adicione o seguinte ao arquivo `Info.plist` do seu app:
 
@@ -142,11 +142,11 @@ Para adicionar um domínio como exceção do ATS, adicione o seguinte ao arquivo
 </dict>
 ```
 
-Consulte o artigo da Apple sobre [[chaves de segurança de transporte de app](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) para saber mais.
+Consulte o artigo da Apple sobre [chaves de app transport security](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) para saber mais.
 {% endtab %}
 
-{% tab Fully disable %}
-Você pode desativar o ATS completamente. Nota que isso não é uma prática recomendada, devido tanto à perda de proteções de segurança quanto à compatibilidade futura com o iOS. Para desativar o ATS, insira o seguinte no arquivo `Info.plist` do seu app:
+{% tab Desativar completamente %}
+Você pode desativar o ATS completamente. Note que isso não é uma prática recomendada, devido tanto à perda de proteções de segurança quanto à compatibilidade futura com o iOS. Para desativar o ATS, insira o seguinte no arquivo `Info.plist` do seu app:
 
 ```html
 <key>NSAppTransportSecurity</key>
@@ -158,11 +158,11 @@ Você pode desativar o ATS completamente. Nota que isso não é uma prática rec
 {% endtab %}
 {% endtabs %}
 
-## Decodificando URLs
+## Decodificando URLs {#decoding-urls}
 
 O SDK codifica os links em porcentagem para criar `URL`s válidos. Todos os caracteres de link que não são permitidos em um URL devidamente formado, como caracteres Unicode, serão escapados por porcentagem.
 
-Para decodificar um link codificado, use a propriedade `String` [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). Você também deve retornar `true` em `BrazeDelegate.braze(_:shouldOpenURL:)`. Uma chamada para ação é necessária para disparar o tratamento da URL pelo seu aplicativo. Por exemplo:
+Para decodificar um link codificado, use a propriedade `String` [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). Você também deve retornar `true` em `BrazeDelegate.braze(_:shouldOpenURL:)`. Uma chamada para ação é necessária para disparar o tratamento da URL pelo seu app. Por exemplo:
 
 {% tabs %}
 {% tab swift %}
@@ -189,14 +189,14 @@ Para decodificar um link codificado, use a propriedade `String` [`removingPercen
 {% endtab %}
 {% endtabs %}
 
-## Deep linking para as configurações do app
+## Deep linking para as configurações do app {#deep-linking-to-app-settings}
 
-Você pode aproveitar `UIApplicationOpenSettingsURLString` para direcionar usuários para as configurações do seu app a partir de notificações push do Braze e mensagens dentro do app.
+Você pode aproveitar `UIApplicationOpenSettingsURLString` para direcionar usuários para as configurações do seu app a partir de notificações por push da Braze e mensagens no app.
 
 Para levar os usuários do seu app para as configurações do iOS:
-1. Primeiro, confira se o seu aplicativo está configurado para [[links profundos baseados em esquema](#swift_register-a-scheme) ou [[links universais](#swift_universal-links).
-2. Decida sobre um URI para deep linking para a página de **Configurações** (por exemplo, `myapp://settings` ou `https://www.braze.com/settings`).
-3. Se você estiver usando links profundos baseados em esquemas personalizados, adicione o seguinte código ao seu método `application:openURL:options:`:
+1. Primeiro, confira se o seu aplicativo está configurado para [deep links baseados em esquema](#swift_register-a-scheme) ou [links universais](#swift_universal-links).
+2. Decida um URI para deep linking para a página de **Configurações** (por exemplo, `myapp://settings` ou `https://www.braze.com/settings`).
+3. Se você estiver usando deep links baseados em esquema personalizado, adicione o seguinte código ao seu método `application:openURL:options:`:
 
 {% tabs %}
 {% tab swift %}
@@ -232,38 +232,40 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 ## Opções de personalização {#customization-options}
 
-### Personalização padrão do WebView
+### Personalização padrão do WebView {#default-webview-customization}
 
 A classe `Braze.WebViewController` exibe URLs da web abertas pelo SDK, normalmente quando "Abrir URL da Web Dentro do App" é selecionado para um deep link da web.
 
-Você pode personalizar `Braze.WebViewController` por meio do método delegado [`BrazeDelegate.braze(_:willPresentModalWithContext:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:willpresentmodalwithcontext:)-12sqy/).
+Você pode personalizar o `Braze.WebViewController` por meio do método delegado [`BrazeDelegate.braze(_:willPresentModalWithContext:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:willpresentmodalwithcontext:)-12sqy/).
 
-### Personalização do manuseio de links
+### Personalização do tratamento de links {#linking-handling-customization}
 
-O protocolo `BrazeDelegate` pode ser usado para personalizar o tratamento de URLs, como deep links, URLs da web e links universais. Para definir o delegado durante a inicialização da Braze, defina um objeto delegado na instância `Braze`. Braze chamará a implementação do seu delegado de `shouldOpenURL` antes de lidar com qualquer URI.
+O protocolo `BrazeDelegate` pode ser usado para personalizar o tratamento de URLs, como deep links, URLs da web e links universais. Para definir o delegado durante a inicialização da Braze, defina um objeto delegado na instância `Braze`. A Braze chamará a implementação do seu delegado de `shouldOpenURL` antes de lidar com qualquer URI.
+
+Quando uma notificação por push ou mensagem no app usa **Abrir URL da web dentro do app móvel**, a Braze passa `context.useWebView == true` em [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext). Quando a mensagem abre a URL no navegador do sistema, `useWebView` é `false`. Inspecione `context.useWebView` em `braze(_:shouldOpenURL:)` para ramificar seu tratamento personalizado — por exemplo, para abrir um `WebViewController` no app somente quando a Campaign solicitou exibição no app.
 
 #### Links universais {#universal-links}
 
-O Braze oferece suporte a links universais em notificações por push, mensagens no app e cartões de conteúdo. Para ativar o suporte a links universais, [`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) deve ser definido como `true`.
+A Braze oferece suporte a links universais em notificações por push, In-App Messages e Content Cards. Para ativar o suporte a links universais, [`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) deve ser definido como `true`.
 
-Quando ativada, a Braze encaminhará links universais para o `AppDelegate` do seu app por meio do método [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application). 
+Quando ativado, a Braze encaminhará links universais para o `AppDelegate` do seu app por meio do método [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application).
 
 Seu aplicativo também precisa ser configurado para lidar com links universais. Consulte a [documentação da Apple](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app) para garantir que seu aplicativo esteja configurado corretamente para links universais.
 
 {% alert warning %}
-O encaminhamento de links universais requer acesso aos direitos do aplicativo. Ao executar o aplicativo em um simulador, esses direitos não estão diretamente disponíveis e os links universais não são encaminhados para os manipuladores do sistema.
-Para adicionar suporte às compilações do simulador, você pode adicionar o arquivo `.entitlements` do aplicativo à fase de compilação _Copy Bundle Resources_. Para saber mais, consulte a documentação [`forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks).
+O encaminhamento de links universais requer acesso aos direitos do aplicativo. Ao executar o aplicativo em um simulador, esses direitos não estão diretamente disponíveis e os links universais não são encaminhados para os handlers do sistema.
+Para adicionar suporte às compilações do simulador, você pode adicionar o arquivo `.entitlements` do aplicativo à fase de compilação _Copy Bundle Resources_. Para saber mais, consulte a documentação de [`forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks).
 {% endalert %}
 
 {% alert note %}
-O SDK não consulta o arquivo `apple-app-site-association` de seus domínios. Ele realiza a diferenciação entre links universais e URLs regulares observando apenas o nome do domínio. Como resultado, o SDK não respeita nenhuma regra de exclusão definida em `apple-app-site-association` conforme [Suporte a domínios associados](https://developer.apple.com/documentation/xcode/supporting-associated-domains).
+O SDK não consulta o arquivo `apple-app-site-association` dos seus domínios. Ele realiza a diferenciação entre links universais e URLs regulares observando apenas o nome do domínio. Como resultado, o SDK não respeita nenhuma regra de exclusão definida no `apple-app-site-association` conforme [Supporting associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains).
 {% endalert %}
 
-## Exemplos
+## Exemplos {#examples}
 
 ### BrazeDelegate
 
-Aqui está um exemplo usando `BrazeDelegate`. Para mais informações, veja [referência do SDK Braze Swift](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate).
+Aqui está um exemplo usando `BrazeDelegate`. Para saber mais, veja a [referência do SDK Braze Swift](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate).
 
 {% tabs %}
 {% tab swift %}

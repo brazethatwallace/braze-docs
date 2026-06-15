@@ -17,8 +17,6 @@ description: "This article outlines details about the campaign translation sourc
 
 > Use this endpoint to view all the default translation sources for a campaign's translation tags. These are the values within the {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Prerequisites
 
 To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `campaigns.translations.get` permission.

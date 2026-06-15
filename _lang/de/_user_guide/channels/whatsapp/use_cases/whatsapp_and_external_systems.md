@@ -20,7 +20,7 @@ channel:
 | Externes System | Ein KI- oder Kommunikationssystem eines Drittanbieters, das in der Lage ist, Chatbots und automatisierte Kundenservice-Systeme über APIs zu erstellen und zu verwalten, oder beides. |
 | Braze- und WhatsApp-Integration | Eine von Braze verwaltete WhatsApp-Nummer |
 | Braze-REST-API-Schlüssel | Ein REST-API-Schlüssel mit `campaigns.trigger.send`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## So funktioniert es {#how-it-works}
 

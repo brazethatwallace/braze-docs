@@ -153,7 +153,7 @@ Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitte
 
 WhatsApp-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Für die aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) festlegen.
+Für die aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) festlegen.
 
 In diesem Schritt können Sie auch Zustellungs-Kontrollgruppen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) werden können, die Campaign zu erhalten, oder ob [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln aktiviert werden sollen.
 
@@ -173,7 +173,7 @@ Sie können auch benutzerdefinierte Konversions-Events basierend auf Ihrem spezi
 
 {% tab Canvas %}
 
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/) unserer Canvas-Dokumentation.
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und Intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/) unserer Canvas-Dokumentation.
 
 Da Konversationsfenster pro eingehender Nachricht nur 24 Stunden dauern können, prüft Braze, ob zwischen einer eingehenden Nachricht und einer Antwortnachricht keine Verzögerungen von mehr als 24 Stunden bestehen.
 
@@ -202,7 +202,7 @@ Die folgenden Features werden für ausgehende WhatsApp-Nachrichten unterstützt,
 | Dokumente | Dokumente können in den Body-Text eingebettet werden. Dateien müssen über eine URL gehostet werden. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
 | Videos | Videos können in den Body-Text eingebettet werden. Dateien müssen über eine URL oder in der [Braze-Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) gehostet werden. | < 16 MB | `.3gp`, `.mp4` |
 | Audio | Audio wird nur über Antwortnachrichten unterstützt. Dateien müssen über eine URL gehostet werden. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Outbound messages" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
@@ -218,7 +218,7 @@ Die folgenden Features werden für eingehende WhatsApp-Nachrichten unterstützt,
 | Dokumente | Dokumente werden über Nachrichtenanhänge unterstützt. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
 | Video | Nur der H.264-Video-Codec und der AAC-Audio-Codec werden unterstützt. Videos müssen entweder einen einzelnen Audiostream oder keinen Audiostream haben. | `.mp4`, `.3gp` |
 | CTA-Links | Verschiedene Call-to-Action (CTA)-Typen werden unterstützt. Weitere Details finden Sie unter [Call-to-Action-Typen](#ctas). | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Inbound messages" }
 
 ### Call-to-Action-Typen {#ctas}
 
@@ -233,4 +233,4 @@ Die folgenden Call-to-Action-Typen werden für WhatsApp-Nachrichten unterstützt
 | Aktionscode-Nachrichten-Templates | Nur für Nachrichten-Templates verfügbar. <br>Diese können wie andere Nachrichten-Templates geöffnet und bearbeitet werden und sind mit Liquid und Braze-Aktionscodes kompatibel. |
 | CTA-Antwortnachrichten | Erstellen Sie eine Antwortnachricht, die einen Call-to-Action-Button enthält. |
 | [Listen-Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | Erstellen Sie eine Antwortnachricht, die eine Liste mit bis zu 10 Optionen enthält, aus denen Nutzer:innen wählen können. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types" }

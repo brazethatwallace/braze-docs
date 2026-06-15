@@ -20,7 +20,7 @@ import SDWebImage
 
 次に、サンプルSDOAImage [`GIFViewProvider`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/gifviewprovider/) を追加します。ファイルは次のようになります。
 
-```swift
+`````````swift
 import UIKit
 import BrazeUI
 import SDWebImage
@@ -52,7 +52,7 @@ extension GIFViewProvider {
 
 プロジェクトの`AppDelegate.swift` で、`BrazeUI` コンポーネントに`GIFViewProvider` を使用してGIF サポートを追加します。ファイルは次のようになります。
 
-```swift
+`````````swift
 import UIKit
 import BrazeKit
 import BrazeUI

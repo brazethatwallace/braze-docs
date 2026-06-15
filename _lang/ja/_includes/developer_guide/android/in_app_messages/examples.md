@@ -28,7 +28,7 @@ class BrazeDemoApplication : Application(){
 {% tab Java %}
 **アプリ内メッセージの種類**<br> 
 
-```java
+`````````java
 public class BrazeDemoApplication extends Application {
   @Override
   public void onCreate{
@@ -66,7 +66,7 @@ public class BrazeDemoApplication extends Application {
 **カスタムレイアウトパラメーターをオーバーライドして返す**<br>
 `getLayoutParams` メソッド内では、スーパークラスメソッドを使用して、アプリ内メッセージの元の `LayoutParameters` にアクセスできます。次に、必要に応じて加算または減算して位置を調整できます。
 
-```kotlin
+`````````kotlin
 class CustomSlideUpInAppMessageViewWrapper(inAppMessageView: View?,
                                            inAppMessage: IInAppMessage?,
                                            inAppMessageViewLifecycleListener: IInAppMessageViewLifecycleListener?,
@@ -93,7 +93,7 @@ class CustomSlideUpInAppMessageViewWrapper(inAppMessageView: View?,
 **カスタムレイアウトパラメーターをオーバーライドして返す**<br>
 `getLayoutParams` メソッド内では、スーパークラスメソッドを使用して、アプリ内メッセージの元の `LayoutParameters` にアクセスできます。次に、必要に応じて加算または減算して位置を調整できます。
 
-```java
+`````````java
 class CustomSlideUpInAppMessageViewWrapper extends DefaultInAppMessageViewWrapper {
 
     public CustomInAppMessageViewWrapper(View inAppMessageView,
@@ -129,7 +129,7 @@ class CustomSlideUpInAppMessageViewWrapper extends DefaultInAppMessageViewWrappe
 **カスタムラッパーを返すためのカスタムファクトリーを指定する**<br>
 Braze SDK でカスタムラッパーを使用するには、カスタムラッパーを返すカスタム `IInAppMessageViewWrapperFactory` 実装も指定する必要があります。`IInAppMessageViewWrapperFactory` を直接実装することも、`BrazeInAppMessageViewWrapperFactory` をサブクラス化して `createInAppMessageViewWrapper` メソッドのみをオーバーライドすることもできます。
 
-```kotlin
+`````````kotlin
 class CustomInAppMessageViewWrapperFactory : BrazeInAppMessageViewWrapperFactory() {
 
     override fun createInAppMessageViewWrapper(
@@ -170,7 +170,7 @@ class CustomInAppMessageViewWrapperFactory : BrazeInAppMessageViewWrapperFactory
 **カスタムラッパーを返すためのカスタムファクトリーを指定する**<br>
 Braze SDK でカスタムラッパーを使用するには、カスタムラッパーを返すカスタム `IInAppMessageViewWrapperFactory` 実装を指定する必要があります。`IInAppMessageViewWrapperFactory` を直接実装することも、`BrazeInAppMessageViewWrapperFactory` をサブクラス化して `createInAppMessageViewWrapper` メソッドのみをオーバーライドすることもできます。
 
-```java
+`````````java
 class CustomInAppMessageViewWrapperFactory extends BrazeInAppMessageViewWrapperFactory {
     @Override
     public IInAppMessageViewWrapper createInAppMessageViewWrapper(View inAppMessageView, 
@@ -210,7 +210,7 @@ class CustomInAppMessageViewWrapperFactory extends BrazeInAppMessageViewWrapperF
 **ファクトリーを Braze に登録する**<br>
 カスタムラッパーファクトリーを作成したら、`BrazeInAppMessageManager` を使用して Braze SDK に登録します。
 
-```kotlin
+`````````kotlin
 BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(CustomInAppMessageViewWrapperFactory())
 ```
 {% endtab %}
@@ -218,7 +218,7 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(C
 **ファクトリーを Braze に登録する**<br>
 カスタムラッパーファクトリーを作成したら、`BrazeInAppMessageManager` を使用して Braze SDK に登録します。
 
-```java
+`````````java
 BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(new CustomInAppMessageViewWrapperFactory());
 ```
 {% endtab %}
@@ -233,7 +233,7 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(n
 **UI 表示動作に `view_type` を使用**<br>
 `IInAppMessage` オブジェクトの `extras` ディクショナリをクエリすると、`view_type` キー (ある場合) を検索して正しいタイプのビューを表示できます。アプリ内メッセージはメッセージごとに設定されるため、カスタムとデフォルトのモーダルビューが調和して機能することに注意してください。
 
-```kotlin
+`````````kotlin
 override fun createInAppMessageView(activity: Activity, inAppMessage: IInAppMessage): View {
   return when {
       inAppMessage.extras?.get("view_type") == "picker" -> {
@@ -254,7 +254,7 @@ override fun createInAppMessageView(activity: Activity, inAppMessage: IInAppMess
 **UI 表示動作に `view_type` を使用**<br>
 `IInAppMessage` オブジェクトの `extras` ディクショナリをクエリすると、`view_type` キー (ある場合) を検索して正しいタイプのビューを表示できます。アプリ内メッセージはメッセージごとに設定されるため、カスタムとデフォルトのモーダルビューが調和して機能することに注意してください。
 
-```java
+`````````java
 @Override
 public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage) {
     if("picker".equals(inAppMessage.getExtras().get("view_type"))){
@@ -273,7 +273,7 @@ public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage
 
 **オーバーライドしてカスタムビューを提供する**<br>
 標準のモーダルアプリ内メッセージを模倣したレイアウトを提供しますが、ビューをルート要素として指定し、そのレイアウトをインフレートします 
-```xml
+`````````xml
 <com.braze.advancedsamples.inapp.modal.TeamPickerView xmlns:android="http://schemas.android.com/apk/res/android"
                                                       xmlns:tools="http://schemas.android.com/tools"
                                                       android:layout_width="match_parent"
@@ -292,7 +292,7 @@ public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage
 **ビューをインフレートしてカスタマイズする**<br>
 `Spinner` コンポーネントをリロードする前に、`inAppMessage` メッセージ変数は文字列として出力されます。正しく表示するには、このメッセージを項目の配列としてフォーマットする必要があります。例として、これは `String.split(",")` を使用して実現できます。
 
-```kotlin
+`````````kotlin
 private fun getCustomView(activity: Activity, inAppMessage: IInAppMessage): TeamPickerView {
         val view = activity.layoutInflater.inflate(R.layout.team_picker_dialog, null) as TeamPickerView
         val teams = inAppMessage.message.split(",")
@@ -305,7 +305,7 @@ private fun getCustomView(activity: Activity, inAppMessage: IInAppMessage): Team
 **ビューをインフレートしてカスタマイズする**<br>
 `Spinner` コンポーネントをリロードする前に、`inAppMessage` メッセージ変数は_文字列_として出力されます。正しく表示するには、このメッセージを項目の配列としてフォーマットする必要があります。例として、これは `String.split(",")` を使用して実現できます。
 
-```java
+`````````java
 private TeamPickerView getCustomView(Activity activity, IInAppMessage inAppMessage) {
         TeamPickerView view = (TeamPickerView) activity.getLayoutInflater().inflate(R.layout.team_picker_dialog, null);
         String[] teams = inAppMessage.getMessage().split(",");
@@ -321,7 +321,7 @@ private TeamPickerView getCustomView(Activity activity, IInAppMessage inAppMessa
 **カスタム属性を割り当てる**<br>
 ユーザーが [送信] を押した後、ビューサブクラスを使用して、属性とそれに対応する選択済みの値を Braze に渡し、`messageClickableView.performClick()` を呼び出してアプリ内メッセージを閉じます。
 
-```kotlin
+`````````kotlin
     override fun onClick(v: View?) {
         val selectedTeam = spinner.selectedItem as String
         messageClickableView.performClick()
@@ -335,7 +335,7 @@ private TeamPickerView getCustomView(Activity activity, IInAppMessage inAppMessa
 **カスタム属性を割り当てる**<br>
 ユーザーが [送信] を押した後、ビューサブクラスを使用して、属性とそれに対応する選択済みの値を Braze に渡し、`messageClickableView.performClick()` を呼び出してアプリ内メッセージを閉じます。
 
-```java
+`````````java
     @Override
     public void onClick(View v) {
         String selectedTeam = (String) spinner.getSelectedItem();
@@ -356,7 +356,7 @@ private TeamPickerView getCustomView(Activity activity, IInAppMessage inAppMessa
 **UI 表示動作に `view_type` を使用**<br>
 新しい没入型カスタマイズのために、`view_type` エクストラをもう 1 つ追加します。`createInAppMessageView` メソッドをもう一度見直して、「スイッチ」UI のオプションを追加します。
 
-```kotlin
+`````````kotlin
 override fun createInAppMessageView(activity: Activity, inAppMessage: IInAppMessage): View {
     return when {
         inAppMessage.extras?.get("view_type") == "picker" -> {
@@ -379,7 +379,7 @@ override fun createInAppMessageView(activity: Activity, inAppMessage: IInAppMess
 **UI 表示動作に `view_type` を使用**<br>
 新しい没入型カスタマイズのために、`view_type` エクストラをもう 1 つ追加します。`createInAppMessageView` メソッドをもう一度見直して、「スイッチ」UI のオプションを追加します。
 
-```java
+`````````java
 @Override
 public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage) {
     if("picker".equals(inAppMessage.getExtras().get("view_type"))){
@@ -400,7 +400,7 @@ public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage
 
 **オーバーライドしてカスタムビューを提供する**<br>
 標準のモーダルアプリ内メッセージを模倣したレイアウトを提供しますが、ビューをルート要素として指定し、そのレイアウトをインフレートします 
-```xml
+`````````xml
 <?xml version="1.0" encoding="utf-8"?>
 <com.braze.advancedsamples.immersive.CustomImmersiveInAppMessage
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -423,7 +423,7 @@ public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage
 **ビューをインフレートしてカスタマイズする**<br>
 `RecyclerView` コンポーネントのオプションを設定する前に、`inAppMessage` メッセージ変数が_文字列_として出力されます。正しく表示するには、このメッセージを項目の配列としてフォーマットする必要があります。例として、これは `String.split(",")` を使用して実現できます。`title`と`subtitle`も`extras`バンドルから抽出されます。
 
-```kotlin
+`````````kotlin
 private fun getCustomImmersiveView(activity: Activity, inAppMessage: IInAppMessage): CustomImmersiveInAppMessage{
     val view = activity.layoutInflater.inflate(R.layout.full_screen_iam, null) as CustomImmersiveInAppMessage
     val options = inAppMessage.message.split(",")
@@ -438,7 +438,7 @@ private fun getCustomImmersiveView(activity: Activity, inAppMessage: IInAppMessa
 **ビューをインフレートしてカスタマイズする**<br>
 `RecyclerView` コンポーネントのオプションを設定する前に、`inAppMessage` メッセージ変数が_文字列_として出力されます。正しく表示するには、このメッセージを項目の配列としてフォーマットする必要があります。例として、これは `String.split(",")` を使用して実現できます。`title`と`subtitle`も`extras`バンドルから抽出されます。
 
-```java
+`````````java
 private CustomImmersiveInAppMessage getCustomImmersiveView(Activity activity, IInAppMessage inAppMessage) {
     CustomImmersiveInAppMessage view = (CustomImmersiveInAppMessage) activity.layoutInflater.inflate(R.layout.full_screen_iam, null);
     String[] options = inAppMessage.message.split(",");
@@ -458,7 +458,7 @@ private CustomImmersiveInAppMessage getCustomImmersiveView(Activity activity, II
 **カスタム属性を割り当てる**<br>
 ユーザーがいずれかのスイッチを切り替えた後、ビューサブクラスを使用して、関連する属性とトグルステータスを Braze に渡します。
 
-```kotlin
+`````````kotlin
 fun logClick(value:String, checked:Boolean){
     Braze.getInstance(ctx).logCustomEvent("SwitchChanged", BrazeProperties())
 }
@@ -489,7 +489,7 @@ override fun onBindViewHolder(holder: OptionViewHolder, position: Int) {
 **カスタム属性を割り当てる**<br>
 ユーザーがいずれかのスイッチを切り替えた後、ビューサブクラスを使用して、関連する属性とトグルステータスを Braze に渡します。
 
-```java
+`````````java
 private void logClick(String value, boolean checked){
     Braze.getInstance(ctx).logCustomEvent("SwitchChanged", new BrazeProperties());
 }

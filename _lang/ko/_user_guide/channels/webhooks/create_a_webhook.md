@@ -20,7 +20,7 @@ search_rank: 2
 
 ## 1단계: 메시지 작성 위치 선택 {#step-1-choose-where-to-build-your-message}
 
-메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign은 단일 타겟 메시징에 적합하고, Canvas는 다단계 사용자 여정에 적합합니다.
+메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign은 단일 타겟 메시징 캠페인에 적합하고, Canvas는 다단계 사용자 여정에 적합합니다.
 
 {% tabs %}
 {% tab Campaign %}
@@ -97,7 +97,7 @@ Braze는 표준 포트 `80`(HTTP) 및 `443`(HTTPS)을 통해 통신하는 URL만
 | GET | 새 정보를 기록하는 것이 아니라 기존 정보를 검색합니다. 정의상 GET 요청은 요청 본문을 지원하지 않습니다. |
 | PUT | 엔드포인트의 정보를 업데이트하여 기존 정보를 요청 본문의 내용으로 대체합니다. |
 | DELETE | HTTP URL의 리소스를 삭제합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
 
 #### 요청 본문 {#request-body}
 
@@ -176,7 +176,7 @@ Content-Type 사양은 `Content-Type` 키를 사용해야 합니다. 일반적�
 
 웹훅은 예약된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [캠페인 예약]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
-실행 기반 전달의 경우 캠페인 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)을 설정할 수도 있습니다.
+실행 기반 전달의 경우 캠페인 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 설정할 수도 있습니다.
 
 이 단계에서는 사용자가 캠페인을 [재수신]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)할 수 있도록 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
@@ -230,7 +230,7 @@ Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 동작인 [
 | `429` (사용량 제한)  | 아니요 | 예 |
 | `기타 4XX` (클라이언트 오류)  | 아니요 | 아니요 |
 | `5XX` (서버 오류)   | 아니요 | 예 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
 Braze는 위의 상태 코드에 대해 지수 백오프를 사용하여 30분 이내에 최대 5회까지 재시도합니다. 엔드포인트에 도달할 수 없는 경우 재시도가 24시간에 걸쳐 분산될 수 있습니다.<br><br>각 웹훅은 타임아웃되기 전까지 90초가 허용됩니다.
@@ -248,7 +248,7 @@ Braze는 특정 **저장된 웹훅 템플릿**을 참조하는 모든 캠페인 
 
 #### 문제 해결 및 추가 오류 세부 정보 {#troubleshooting-and-additional-error-details}
 
-특정 웹훅 오류를 해결하기 위한 자세한 설명, 문제 해결 단계 및 지침은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/)을 참조하세요. 비정상 호스트 감지 시스템의 작동 방식과 Braze가 자동 이메일 및 Braze 커런츠의 추가 로깅을 통해 오류 알림을 제공하는 방법에 대한 자세한 설명도 확인할 수 있습니다.
+특정 웹훅 오류를 해결하기 위한 자세한 설명, 문제 해결 단계 및 지침은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/)을 참조하세요. 비정상 호스트 감지 시스템의 작동 방식과 Braze가 자동 이메일 및 Braze 커런츠의 추가 로깅을 통해 오류 알림을 제공하는 방법에 대한 자세한 설명도 확인할 수 있습니다.
 
 ### IP 허용 목록 {#ip-allowlisting}
 

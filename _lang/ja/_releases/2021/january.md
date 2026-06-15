@@ -7,13 +7,13 @@ description: "この記事には、2021年1月のリリースノートが含ま�
 ---
 # 2021年1月 {#january-2021}
 
-## Canvasレポートビルダー {#canvas-report-builder}
+## キャンバスレポートビルダー {#canvas-report-builder}
 
-レポートビルダーを使用すると、複数のCampaignsまたはCanvasesの結果を1つのビューで比較できるため、主要な指標に最も影響を与えたエンゲージメント戦略を簡単に判断できます。[Canvasレポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)について詳しくお読みください。
+レポートビルダーを使用すると、複数のキャンペーンまたはキャンバスの結果を1つのビューで比較できるため、主要な指標に最も影響を与えたエンゲージメント戦略を簡単に判断できます。[キャンバスレポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)について詳しくお読みください。
 
 ## アプリ内メッセージiOS実装ガイド {#in-app-message-ios-implementation-guide}
 
-この詳細なガイドでは、サブクラス化を活用して、BrazeのCampaignsやCanvasesに追加するカスタムスライドアップアプリ内メッセージ、カスタムモーダルアプリ内メッセージ、カスタムフルアプリ内メッセージを作成する方法を説明しています。必要なコードの考慮事項、チームが構築した詳細なユースケース、付随するコードスニペットが含まれています。詳しくは[こちら]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/)のドキュメントをご覧ください。
+この詳細なガイドでは、サブクラス化を活用して、Brazeのキャンペーンやキャンバスに追加するカスタムスライドアップアプリ内メッセージ、カスタムモーダルアプリ内メッセージ、カスタムフルアプリ内メッセージを作成する方法を説明しています。必要なコードの考慮事項、チームが構築した詳細なユースケース、付随するコードスニペットが含まれています。詳しくは[こちら]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/)のドキュメントをご覧ください。
 
 ## SMSカスタムキーワードカテゴリとリターゲティングオプション {#sms-custom-keyword-categories-and-retargeting-options}
 

@@ -50,12 +50,29 @@ Liquid kann das Landing-Page-Erlebnis sowohl für identifizierte als auch für a
 - **Identifizierte Nutzer:innen:** Verlinken Sie die Landing-Page aus einer Braze-Nachricht und fügen Sie den [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags) hinzu. Dadurch wird die Person mit ihrem Braze-Profil verknüpft und das Seitenerlebnis personalisiert.
 - **Anonyme Besucher:innen:** Verwenden Sie Liquid für kontextuelle, nicht profilbasierte Inhalte, wie z. B. eine Zufallszahl oder eine tageszeitabhängige Begrüßung.
 
+### Formularfelder vorausfüllen {#pre-fill-form-fields}
+
+Wenn ein Landing-Page-Formularfeld einem Nutzerprofilattribut zugeordnet ist, können Sie dieses Feld für wiederkehrende Nutzer:innen vorausfüllen. Dies reduziert die Hürden beim Ausfüllen von Formularen und verbessert die Abschlussraten für bekannte Besucher:innen.
+
+So verwenden Sie vorausgefüllte Formularfelder:
+
+1. Wählen Sie Ihr Formularfeld im Drag-and-Drop-Editor aus.
+2. Ordnen Sie im rechten Einstellungs-Panel das Feld dem entsprechenden Profilattribut zu.
+3. Wählen Sie **Pre-fill from user profile** aus.
+
+![Einstellungen für Landing-Page-Formularfelder mit der Option zum Vorausfüllen aus Nutzerprofildaten.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
+
+Das Vorausfüllen funktioniert nur für [identifizierte Nutzer:innen](#use-liquid-for-identified-and-anonymous-users). Für anonyme Besucher:innen behalten Formularfelder ihren Standardzustand bei:
+
+- **Eingabefelder:** Zeigen ihren Platzhaltertext an.
+- **Kontrollkästchen, Optionsfelder und ähnliche Steuerelemente:** Bleiben nicht ausgewählt, bis Nutzer:innen mit ihnen interagieren.
+
 ## Externe Daten mit benutzerdefiniertem Code abrufen {#fetching-external-data-with-custom-code}
 
 Sie können einen **Custom-Code**-Block verwenden, um Daten von externen Endpunkten abzurufen und auf Ihrer Landing-Page anzuzeigen. Dieser Ansatz führt die Anfrage clientseitig (im Browser der Nutzer:innen) aus, sodass die Seite schnell geladen wird, ohne serverseitige Rendering-Verzögerungen.
 
 {% alert warning %}
-Beim Abrufen externer Daten sind Sie für die Sicherheit Ihrer Implementierung verantwortlich. Externe Bezeichner, die in API-Aufrufen verwendet werden, sollten UUIDs sein oder ein gleichwertig sicheres Benennungsschema verwenden, siehe [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+Beim Abrufen externer Daten sind Sie für die Sicherheit Ihrer Implementierung verantwortlich. Externe Bezeichner, die in API-Aufrufen verwendet werden, sollten UUIDs sein oder ein gleichwertig sicheres Benennungsschema verwenden – siehe [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
 {% endalert %}
 
 ### Anwendungsfall {#use-case}

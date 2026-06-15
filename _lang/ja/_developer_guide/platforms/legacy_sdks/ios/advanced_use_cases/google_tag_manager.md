@@ -71,7 +71,7 @@ NSDictionary *parameters = @{@"genre" : @"pop",
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```obj-c
+`````````obj-c
 NSDictionary *parameters = @{@"customAttributeKey" : @"favorite song",
                              @"customAttributeValue" : @"Private Eyes"};
 [FIRAnalytics logEventWithName:@"customAttribute" parameters:parameters];
@@ -87,7 +87,7 @@ NSDictionary *parameters = @{@"customAttributeKey" : @"favorite song",
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```obj-c
+`````````obj-c
 NSDictionary *parameters = @{@"externalUserId" : userId};
 [FIRAnalytics logEventWithName:@"changeUser" parameters:parameters];
 ```
@@ -112,7 +112,7 @@ Google Tag Manager がアプリにインストールされたら、カスタム�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```obj-c
+`````````obj-c
 @import Firebase;
 @import GoogleTagManager;
 
@@ -129,7 +129,7 @@ Google Tag Manager がアプリにインストールされたら、カスタム�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```obj-c
+`````````obj-c
 #import <Foundation/Foundation.h>
 #import "BrazeGTMTagManager.h"
 #import "Appboy-iOS-SDK/AppboyKit.h"

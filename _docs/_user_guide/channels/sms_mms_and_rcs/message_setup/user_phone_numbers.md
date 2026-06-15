@@ -33,7 +33,7 @@ Here's a few examples showing the differences between local and `E.164` formatti
 | Brazil | `1155256325` | 55 | `+551155256325` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Recommended format" }
 
-## Importing phone numbers
+## Import phone numbers
 
 When importing phone numbers, it's important that you follow the [recommended format](#recommended-format). To import phone numbers, use one of the following methods:
 
@@ -44,7 +44,11 @@ When importing phone numbers, it's important that you follow the [recommended fo
 User phone numbers appear in Braze as a string of digits. If you import a number that contains non-digits (such as `,`, `-`, or `(`) other than the leading {% raw %}`+`{% endraw %}, the non-digits are removed when rendered in Braze. For example, importing `+1 (724) 123-4567` appears as `+17241234567`.
 {% endalert %}
 
-## Handling invalid phone numbers
+## Phone number validation
+
+Braze uses Google's [libphonenumber](https://github.com/google/libphonenumber) library to validate phone numbers. When new mobile number prefixes are introduced, support is added as the upstream library is updated. Braze does not maintain a separate list of valid prefixes.
+
+### Handling invalid phone numbers
 
 When a phone number is deemed invalid, Braze will mark the user's phone number as invalid and will not attempt to send further communications to that phone number. An invalid phone number is marked in the **Engagement Tab** of a user profile.
 
@@ -63,7 +67,21 @@ If multiple user profiles have the same phone number and that phone number is ma
 
 You can also include or exclude any users with invalid phone numbers when [creating a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment).
 
-## Adding users to SMS and RCS subscription groups
+## Exclude rejected SMS sends from segmentation
+
+{% alert important %}
+SMS rejections are charged toward your SMS allotment.
+{% endalert %}
+
+To exclude users with rejected SMS sends from your segments, use [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/), do the following:
+
+1. Go to **Audience** > **Segment Extensions**.
+2. Select **Create New Extension** > **Full refresh** or **Incremental refresh**.
+3. Write a SQL query that identifies users with SMS rejections. For example, you can query the `USERS_MESSAGES_SMS_REJECTION_SHARED` event to find users who have received SMS rejections.
+4. Save your Segment Extension.
+5. When creating your SMS segment, add a filter to exclude users in this Segment Extension.
+
+## Add users to SMS and RCS subscription groups
 
 For a user to receive an SMS or RCS message, they must have a valid phone number and be opted-in to a subscription group. Subscription groups are tied to the SMS or RCS program you are running (make sure you follow the [legal requirements for SMS, MMS, and RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/) and have recorded consent for each customer). For more information, refer to [SMS and RCS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups/).
 

@@ -67,9 +67,11 @@ This is a message from Braze! This is going to go to anyone who did not match th
 
 条件ロジックに `{% else %}` 文を含めることもできます。設定した条件のいずれも満たされない場合、`{% else %}` 文は送信すべきメッセージを指定します。この例では、ユーザーの言語が英語、スペイン語、中国語のいずれでもない場合、デフォルトで英語になります。
 
-#### case タグと when タグ {#case-and-when-tags}
+#### `case` と `when` {#case-and-when}
 
 `{% case %}`、`{% when %}`、`{% endcase %}` は switch 文のように機能します。`case` の後に1つの式を設定し、各 `when` ブランチはその式がリストされた値と等しい場合に実行されます（Liquidは内部的に等価比較を使用しており、`if` と `elsif` を `==` で連鎖させるのと同様です）。1つの `when` タグにカンマまたは `or` で区切って複数の値をリストできます。何も一致しない場合のフォールバックには `{% else %}` を使用し、`{% endcase %}` で閉じます。
+
+`when` の値のフォーマットをデータタイプに合わせてください。テキスト（言語コードなど）の場合は引用符を使用します: `{% when 'es' %}`。数値の場合は引用符を省略します: `{% when 2 %}`。
 
 ```liquid
 {% assign handle = 'cake' %}
@@ -87,7 +89,7 @@ This is not a cake nor a cookie
 
 #### `endif`
 
-`{% endif %}` タグは `if` ブロックが終了したことを示します。`if`、`elsif`、`unless`、または `else` を使用するすべてのメッセージに `{% endif %}` タグを含める必要があります。`{% endif %}` タグを含めないと、Brazeがメッセージを解析できないためエラーが発生します。`{% case %}` を使用する場合は、`{% endif %}` ではなく `{% endcase %}` でブロックを閉じてください。
+`{% endif %}` タグは `if` ブロックが終了したことを示します。そのチェーン内で `if`、`elsif`、`unless`、または `else` を使用するすべてのメッセージに `{% endif %}` タグを含める必要があります。`{% endif %}` タグを含めないと、Brazeがメッセージを解析できないためエラーが発生します。`{% case %}` を使用する場合は、`{% endif %}` ではなく `{% endcase %}` でブロックを閉じてください。
 
 {% alert note %}
 `if`、`elsif`、`unless` タグでは演算子を使用できますが、フィルターは使用できません。`case` と `when` タグでは、`case` 式が `when` の値と等しい場合に各ブランチが一致します。これらの式でもフィルターはサポートされていません。フィルター処理された値を評価するには、まずフィルター結果を変数に割り当ててから、その変数を `case` または `when` 句で参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)を参照してください。

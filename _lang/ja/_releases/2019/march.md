@@ -33,7 +33,7 @@ Brazeは、最新のUXおよびUIのベストプラクティスに準拠する�
 
 ## パートナーとしてのInkitの追加 {#inkit-partner-addition}
 
-[Inkit]({{site.baseurl}}/partners/inkit/)を事前に設計されたWebhookテンプレートとして使用するか、新しいWebhook Campaignを作成できるようになりました。
+[Inkit]({{site.baseurl}}/partners/inkit/)を事前に設計されたWebhookテンプレートとして使用するか、新しいWebhook キャンペーンを作成できるようになりました。
 
 ## Google Cloud Storage
 

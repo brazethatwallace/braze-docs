@@ -68,6 +68,10 @@ Combining existing beacon or geofence support with our targeting and messaging f
 - [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
 - [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
 
+## Differences between geofences and location tracking
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Frequently asked questions
 
 ### When does Braze collect location data?

@@ -201,7 +201,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## 응답 세부 정보 {#response-details}
 
-메시지 전송 엔드포인트 응답에는 메시지 발송을 참조할 수 있도록 메시지의 `dispatch_id`가 포함됩니다. `dispatch_id`는 메시지 발송의 ID로, Braze에서 전송하는 각 전송에 대한 고유 ID입니다. 이 엔드포인트를 사용하면 전체 배치 사용자 집합에 대해 단일 `dispatch_id`를 받게 됩니다. `dispatch_id`에 대한 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/) 설명서를 참조하세요.
+메시지 전송 엔드포인트 응답에는 메시지 발송을 참조할 수 있도록 메시지의 `dispatch_id`가 포함됩니다. `dispatch_id`는 메시지 발송의 ID로, Braze에서 전송하는 각 전송에 대한 고유 ID입니다. 이 엔드포인트를 사용하면 전체 배치 사용자 집합에 대해 단일 `dispatch_id`를 받게 됩니다. `dispatch_id`에 대한 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) 설명서를 참조하세요.
 
 요청에 심각한 오류가 발생하면 오류 코드와 설명은 [오류 및 응답]({{site.baseurl}}/api/errors/#fatal-errors)을 참조하세요.
 
