@@ -7,7 +7,7 @@ page_order: 3
 
 # エージェントのリファレンス
 
-> カスタムエージェントを作成する際、インストラクションや出力スキーマなどの主要な設定の詳細については、この記事を参照してください。概要については、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents/)および[よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq/)を参照してください。
+> カスタムエージェントを作成する際、インストラクションや出力スキーマなどの主要な設定の詳細については、この記事を参照してください。ステップバイステップのセットアップについては、[カスタムエージェントの作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)を参照してください。概要については、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents/)および[よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq/)を参照してください。
 
 ## モデル
 
@@ -82,15 +82,17 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 
 ### レート制限エラー
 
-LLMプロバイダーがレート制限エラーを返した場合、Brazeはエクスポネンシャルバックオフを使用して最大5回までリクエストを再試行します。この再試行動作はCanvasエージェントステップに適用されます。カタログエージェントは、LLMプロバイダーからのレート制限エラーを含め、失敗した呼び出しを再試行しません。
+LLMプロバイダーがレート制限エラーを返した場合、Brazeはエクスポネンシャルバックオフを使用してリクエストを再試行します。この再試行動作はCanvasエージェントステップに適用されます。カタログエージェントは、LLMプロバイダーからのレート制限エラーを含め、失敗した呼び出しを再試行しません。
 
-すべての再試行が失敗した場合、**Logs**の詳細パネルに**Error**が表示され、**Output**にプロバイダーメッセージ（`Rate limit exceeded`など）が表示されます。最初の呼び出しを含め、すべての再試行がログに表示されます。特定のユーザーについて、成功するまでに4回の再試行が必要だった場合、ユーザーIDで検索すると**Logs**に5件すべて（オリジナルと4回の再試行）が表示され、オリジナルと最初の3回の再試行には`Rate limit exceeded`の**Error**が表示されます。
+すべての再試行が失敗した場合、**Logs**の詳細パネルに**Error**が表示され、**Output**にプロバイダーメッセージ（`Rate limit exceeded`など）が表示されます。最初の呼び出しの成功・失敗にかかわらず、すべての再試行がログに表示されます。特定のユーザーについて、成功するまでに4回の再試行が必要だった場合、ユーザーIDで検索すると**Logs**に5件すべて（オリジナルと4回の再試行）が表示され、オリジナルと最初の3回の再試行には`Rate limit exceeded`の**Error**が表示されます。
 
 ![Outputフィールドにレート制限超過エラーが表示されているエージェントコンソールのログ詳細。]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
 ## インストラクションの記述 {#writing-instructions}
 
 インストラクションは、エージェントに与えるルールまたはガイドライン（システムプロンプト）です。エージェントが実行されるたびにどのように動作するかを定義します。システムインストラクションは最大25 KBです。
+
+[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して[開始テンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator)でエージェントを構築した場合は、事前入力されたインストラクションを確認し、必要に応じて編集してください。
 
 プロンプト作成を始めるための一般的なベストプラクティスを以下に示します。
 
@@ -105,7 +107,9 @@ LLMプロバイダーがレート制限エラーを返した場合、Brazeはエ
 9. エッジケースを処理し、ガードレールを追加し、拒否のインストラクションを追加します。
 10. 再利用とスケーリングのために、うまくいったことを測定し文書化します。
 
-エージェントのインストラクションの書き方のヒントについては、専用の[Brazeエージェントのユースケースライブラリ]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/)を参照してください。
+### 例 {#examples}
+
+エージェントコンソールの開始設定については、[Operatorで構築されたエージェントテンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator)を参照してください。コピーまたはアレンジできる完全なインストラクション例については、[Brazeエージェントのユースケースライブラリ]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/)を参照してください。
 
 ### Liquidの使用
 
@@ -131,11 +135,13 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 ## 出力
 
+[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して[開始テンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator)でエージェントを構築した場合は、事前入力された出力スキーマを確認し、必要に応じて編集してください。
+
 ### 基本スキーマ
 
 基本スキーマは、エージェントが返すシンプルな出力です。文字列、数値、ブール値、文字列の配列、または数値の配列を指定できます。
 
-たとえば、製品を受け取った後の顧客満足度を判定するために、シンプルなフィードバックアンケートからユーザーのセンチメントスコアを収集したい場合、出力フォーマットを構造化するために基本スキーマとして**Number**を選択できます。
+たとえば、製品を受け取った後の顧客満足度を判定するために、シンプルなフィードバック調査からユーザーのセンチメントスコアを収集したい場合、出力フォーマットを構造化するために基本スキーマとして**Number**を選択できます。
 
 {% alert important %}
 配列はCanvasエージェントでのみ使用可能で、カタログエージェントでは使用できません。
@@ -157,7 +163,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 {% tabs %}
 {% tab Fields %}
 
-レストランの最新アイスクリームフレーバーを推薦する可能性を判定するために、シンプルなフィードバックアンケートへのレスポンスをフォーマットしたい場合、出力フォーマットを構造化するために以下のフィールドを設定できます。
+レストランの最新アイスクリームフレーバーを推薦する可能性を判定するために、シンプルなフィードバック調査へのレスポンスをフォーマットしたい場合、出力フォーマットを構造化するために以下のフィールドを設定できます。
 
 | フィールド名 | 値 |
 | --- | --- |

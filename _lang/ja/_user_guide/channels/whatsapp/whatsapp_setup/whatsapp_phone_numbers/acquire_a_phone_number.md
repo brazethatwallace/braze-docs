@@ -38,20 +38,15 @@ Brazeが電話番号をプロビジョニングすることはないため、ご
 
 ### ステップ 2:電話番号を設定する {#step-2-configure-your-phone-number}
 
-Twilioの手順に従い、[Twilio Voice](https://www.twilio.com/docs/whatsapp/self-sign-up#add-your-whatsapp-phone-number)を**のみ**使用してメール経由で認証コードを受信できるようにTwilio電話番号を設定します。**他のステップの手順には従わないでください。**
+メール経由で認証コードを受信できるようにTwilio電話番号を設定します。**Twilioコンソールで電話番号をWhatsAppにリンクしないでください。**
 
 {% alert warning %}
-認証コードを受信するためのTwilioの手順のみに従ってください。
-次のステップに進むと、電話番号がTwilioに接続されるため、移行を行うか別の番号を購入しない限り、その番号をBrazeに接続できなくなります。
+Twilioコンソールで電話番号をWhatsAppにリンクしないでください。リンクすると、その番号がTwilioのWhatsApp Business Accountに登録されるため、埋め込みサインアップワークフローを通じてBrazeに接続できなくなります。
 {% endalert %}
 
 1. Twilioコンソールで、[Active Numbersページ](https://www.twilio.com/console/phone-numbers/incoming)に移動し、購入した電話番号を選択します。
 2. **Voice Configuration** セクションに移動し、**Configure with** ドロップダウンで **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service** を選択します。
 3. **A call comes in** の行で、**Webhook** を選択し、URLを `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS` に設定します。`YOUR_EMAIL_ADDRESS` はご自身のメールアドレスに置き換えてください。
-4. Twilioコンソールで、**2. Link WhatsApp Business Account with your number** > **2. Copy the phone number you register** に移動し、電話番号の横にある **Copy** を選択します。
-5. **Self Sign-up** ウィンドウの **Add your WhatsApp phone number** ページで、**Add a new phone number** を選択し、電話番号を貼り付けます。
-6. 認証方法として **Phone call** を選択し、**Next** を選択します。
-7. 10分以内にメールで認証コードが届きます。
 
 ### ステップ 3:埋め込みサインアップワークフローを完了する {#step-3-complete-the-embedded-sign-up-workflow}
 

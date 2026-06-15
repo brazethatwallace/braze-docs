@@ -224,10 +224,11 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Dados de usuários | Import Users | Fazer upload de usuários para o dashboard |
 | Dados de usuários | Edit User Data | Criar e atualizar dados de usuários |
 | Dados de usuários | Export User Data | Baixar usuários do dashboard |
-| Registros de exclusão de usuários | View User Merge Records | Visualizar uma lista de registros de mesclagem de usuários |
+| Usuários duplicados | View User Merge Records | Visualizar uma lista de registros de mesclagem de usuários |
 | Usuários | View User Profiles (PII Redacted) | Visualizar perfis de usuário de maneira compatível com IPI |
 | Usuários duplicados | Merge Duplicate Users | Combinar usuários duplicados em um único usuário. Os duplicados são removidos após a mesclagem |
-| Usuários | Delete Users | Excluir permanentemente usuários do dashboard individualmente ou em massa |
+| Exclusão de usuários | View User Deletion Records | Visualizar uma lista de registros de exclusão de usuários |
+| Exclusão de usuários | Delete Users | Excluir permanentemente usuários do dashboard individualmente ou em massa |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de público" }
 
 ### Modelo {#template}
@@ -379,6 +380,5 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Grupos de inscrições | Edit Subscriptions | Criar e atualizar grupos de inscrições |
 | Transformações | Edit Data Transformation | Criar e atualizar transformações de dados |
 | Transformações | View Data Transformation | Visualizar transformações de dados |
-| Registros de exclusão de usuários | View User Deletion Records | Visualizar registros de exclusão de usuários |
 | Tíquetes de suporte | Create Support Ticket | Criar e atualizar tíquetes de suporte |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Outras permissões" }
