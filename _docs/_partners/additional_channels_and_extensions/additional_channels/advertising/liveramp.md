@@ -26,10 +26,10 @@ Snowflake's [Secure Data Shares](https://docs.snowflake.com/en/user-guide/data-s
 
 This integration supports the following use cases across all data warehouse environments:
 
-- **Data Minimization:** LiveRamp's solutions use secure data sharing features or cloud-native identity resolution to read tables directly from your data warehouse. No data is moved until the point of delivery to the downstream partner.
-- **Secure 1st Party Activation:** By using LiveRamp's identity resolution, LiveRamp's activation application only utilizes the RampID-based tables in your data warehouse, so PII never has to leave your environment.
-- **Expedite Time to Live:** By resolving data to RampID directly in your environment, delivery to an end destination can occur within a matter of hours, as compared to several days when using LiveRamp's more traditional file-based approach. This greatly increases the ability to optimize campaign performance in a timely manner.
-- **Operational Savings:** Through secure data sharing or cloud-native identity resolution, you save time and money when compared to coordinating egress of files to LiveRamp or directly to any end destination.
+- **Data minimization:** LiveRamp's solutions use secure data sharing features or cloud-native identity resolution to read tables directly from your data warehouse. No data is moved until the point of delivery to the downstream partner.
+- **Secure 1st party activation:** By using LiveRamp's identity resolution, LiveRamp's activation application only uses the RampID-based tables in your data warehouse, so PII never has to leave your environment.
+- **Expedite time to live:** By resolving data to RampID directly in your environment, delivery to an end destination can occur within a matter of hours, compared to several days when using LiveRamp's more traditional file-based approach. This greatly increases the ability to optimize campaign performance in a timely manner.
+- **Operational savings:** Through secure data sharing or cloud-native identity resolution, you save time and money when compared to coordinating egress of files to LiveRamp or directly to any end destination.
 
 ## Integration with Snowflake Data Sharing
 
@@ -93,7 +93,7 @@ Next, set your variables for the job in the Execution Steps worksheet provided i
 
 ### Step 5: Create the metadata table for PII resolution
 
-Now that your variables are set, create the metadata table for PII resolution. This will give details on the specific job type to be executed based on the category of identifiers involved. For a full walkthrough, see [LiveRamp: Create the Metadata Table](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html#create-the-metadata-table-43).
+Now that your variables are set, create the metadata table for PII resolution. This gives details on the specific job type to be executed based on the category of identifiers involved. For a full walkthrough, see [LiveRamp: Create the Metadata Table](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html#create-the-metadata-table-43).
 
 ### Step 6: Perform the identity resolution operation
 
