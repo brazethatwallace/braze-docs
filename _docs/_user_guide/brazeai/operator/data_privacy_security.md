@@ -12,7 +12,7 @@ description: "This reference article covers how BrazeAI Operator handles data, i
 
 ## How Operator accesses data
 
-Operator's access to customer data is strictly event-driven and invocation-scoped — not persistent. Each user message or navigation event while Operator is open triggers a discrete HTTP request to OpenAI. There is no standing connection or persistent data feed.
+Operator's access to customer data is strictly event-driven and invocation-scoped, not persistent. Each user message or navigation event while Operator is open triggers a discrete HTTP request to OpenAI. There is no standing connection or persistent data feed.
 
 OpenAI does not have direct access to Braze data stores or the full User Table. The LLM only receives the specific payload associated with the active request.
 
@@ -52,7 +52,7 @@ How long OpenAI retains data sent through Operator depends on your cluster:
 
 | Cluster | Retention |
 | --- | --- |
-| US-02 (HIPAA customers) | Zero Data Retention (ZDR) — data is not stored by OpenAI after processing. |
+| US-02 (HIPAA customers) | Zero Data Retention (ZDR). Data is not stored by OpenAI after processing. |
 | All other clusters | 30 days for abuse monitoring. This is an industry-standard retention period imposed by OpenAI. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="OpenAI data retention by cluster" }
 
@@ -85,11 +85,11 @@ Access to Operator is managed at the workspace level through [Granular User Perm
 
 By default, Operator requires explicit approval before committing any change. Proposed modifications are presented as [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) for review. If a user rejects a proposal, no changes occur. If a user accepts a proposal, the dashboard updates, but the changes remain pending and must be manually saved or launched to become persistent.
 
-Users can enable **Auto-approve actions** in the Operator chat panel, which causes suggested actions to execute immediately without manual review. Even with auto-approve enabled, some actions always require explicit approval for safety — including generating images and modifying workspace-level settings.
+Users can enable **Auto-approve actions** in the Operator chat panel, which causes suggested actions to execute immediately without manual review. Even with auto-approve enabled, some actions always require explicit approval for safety, including generating images and modifying workspace-level settings.
 
 ### User permission inheritance
 
-Operator fully inherits the permission profile of the logged-in user. It is restricted from viewing data or executing actions — such as campaign modifications — that the user is not already authorized to perform independently.
+Operator fully inherits the permission profile of the logged-in user. It is restricted from viewing data or executing actions, such as campaign modifications, that the user is not already authorized to perform independently.
 
 ### Audit team usage
 
