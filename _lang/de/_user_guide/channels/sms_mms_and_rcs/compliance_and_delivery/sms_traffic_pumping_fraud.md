@@ -1,7 +1,6 @@
 ---
 nav_title: Verhinderung von SMS-, MMS- und RCS-Traffic-Pumping-Betrug
-description: "Erfahren Sie, wie SMS-, MMS- und RCS-Traffic-Pumping-Betrug funktioniert, warum Braze bestimmte Ziele als hohes Betrugsrisiko einstuft und wie Sie die Gefährdung durch geografisches Allowlisting und andere Maßnahmen reduzieren können."
-alias: /sms_traffic_pumping_fraud/
+description: "Erfahren Sie, wie SMS-, MMS- und RCS-Traffic-Pumping-Betrug funktioniert, warum Braze bestimmte Ziele als „High Fraud Risk“ kennzeichnet und wie Sie die Gefährdung durch geografisches Allowlisting und andere Maßnahmen reduzieren können."
 page_type: reference
 page_order: 5
 channel:

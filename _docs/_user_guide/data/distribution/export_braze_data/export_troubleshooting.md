@@ -58,7 +58,9 @@ In cloud storage, CSV exports are bundled into a ZIP file. Inside the ZIP are mu
 - Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).  
 
 ## API exports  
-When you export data through the APIs with a storage partner connected, the export files are written to your bucket. No email is sent. The underlying objects live in your storage and follow your retention settings, even though the download URLs Braze returns may still be time-limited. Each ZIP file contains JSON objects, one per line. Large exports may be split into multiple ZIP files instead of a single ZIP, which generally makes this method more reliable for heavy exports.  
+When you export data through the APIs with a storage partner connected, the export files are written to your bucket. No email is sent. The underlying objects live in your storage and follow your retention settings, even though the download URLs Braze returns may still be time-limited.
+
+Files typically appear in your bucket as the export runs, so you don't need to wait for the entire job to finish before accessing partial results. Braze uploads each completed batch incrementally instead of holding everything until the end. Large exports are split into multiple compressed files (ZIP or GZIP), each containing JSON objects, one per line. This makes this method more reliable for heavy exports.
 
 ### Common errors
 
@@ -107,3 +109,13 @@ Exports take time to finish, so immediate access from a script often fails. You 
 
 - Poll the download URL with exponential backoff, or
 - Use the [`callback_endpoint` parameter]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#request-parameters) and point it at a service that runs your script when the export is ready.
+
+## Segment and user export API fields
+
+### Expected columns are missing from a segment export file
+
+Dashboard **CSV Export User Data** from a segment uses a fixed column set (see [Export segment data to CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#data-included-in-export)). It does not include a `fields_to_export` column or parameter.
+
+For API segment exports, you must pass `fields_to_export` in the request body. Some fields pull related data automatically—for example, requesting `canvases_received` also requires journey summary data on the user profile. See the [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) endpoint reference for valid field names and requirements.
+
+If columns are missing from an API export ZIP, confirm the `fields_to_export` array in your request includes every field you need and that your workspace uses the required export permissions.

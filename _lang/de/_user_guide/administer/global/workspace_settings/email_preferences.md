@@ -121,7 +121,7 @@ Braze unterstützt derzeit das Überschreiben der Standard-Open-Tracking-Pixel-P
 
 So ändern Sie die Position:
 
-1. Gehen Sie in Braze zu **Settings** > **Email Preferences**.
+1. Gehen Sie in Braze zu **Einstellungen** > **E-Mail-Präferenzen**.
 2. Wählen Sie eine der folgenden Optionen: **Move for SendGrid**, **Move for SparkPost** oder **Move for Amazon SES**
 3. Wählen Sie **Save**.
 
@@ -153,6 +153,10 @@ Die Aktivierung von List-Unsubscribe ist eine Best Practice für die Zustellbark
 
 Beim [Verwalten Ihrer Abos in Gmail](https://support.google.com/mail/answer/15621070?sjid=2292320204527911296-NC) kann Gmail auch den Abmeldelink aus dem Nachrichtentext übernehmen, priorisiert jedoch den List-Unsubscribe, wenn er im Header vorhanden ist.
 
+### Entfernt das Deaktivieren des List-Unsubscribe-Headers den Gmail-Abmelde-Button? {#does-turning-off-the-list-unsubscribe-header-remove-the-gmail-unsubscribe-button}
+
+Nein. Das Deaktivieren der Braze-List-Unsubscribe-Header-Einstellung entfernt den `List-Unsubscribe`-Header aus den von Braze gesendeten Nachrichten, steuert jedoch nicht, ob Gmail eine **Unsubscribe**-Option in der Postfach-Oberfläche anzeigt. Wie oben erwähnt, kann Gmail weiterhin eine Abmeldeoption aus Links im Nachrichtentext anzeigen oder andere Anbieterlogik verwenden. Ob der Header in der Rohnachricht erscheint, ist unabhängig davon, ob Gmail den Empfänger:innen eine Abmeldeoption anzeigt. Weitere Informationen finden Sie in den [FAQ zu Gmails E-Mail-Absenderrichtlinien](https://support.google.com/a/answer/14229414).
+
 ### Unterstützung durch Postfach-Anbieter {#mailbox-provider-support}
 
 Die folgende Tabelle fasst die Unterstützung der Postfach-Anbieter für den „mailto:“-Header, die List-Unsubscribe-URL und die One-Click-Abmeldung ([RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058)) zusammen.
@@ -179,7 +183,7 @@ Wenn der Header in der Rohversion der E-Mail vorhanden ist, aber nicht angezeigt
 
 ![Auswahl von „Nutzer:innen, die abonniert oder angemeldet sind“ für den Versand.]({% image_buster /assets/img/email_settings/email_unsub_header_workspaces.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Wenn das Feature für den E-Mail-Abmelde-Header aktiviert ist, gilt diese Einstellung für den gesamten Workspace, nicht auf Unternehmensebene. Sie wird zu Campaigns und Canvases hinzugefügt, die so konfiguriert sind, dass sie an Nutzer:innen gesendet werden, die abonniert oder angemeldet sind, oder an angemeldete Nutzer:innen im Schritt **Target Audience** der Campaign- und Canvas-Builder.
+Wenn das Feature für den E-Mail-Abmelde-Header aktiviert ist, gilt diese Einstellung für den gesamten Workspace, nicht auf Unternehmensebene. Sie wird zu Campaigns und Canvases hinzugefügt, die so konfiguriert sind, dass sie an Nutzer:innen gesendet werden, die abonniert oder angemeldet sind, oder an angemeldete Nutzer:innen im Schritt **Zielgruppe** der Campaign- und Canvas-Builder.
 
 Bei Verwendung des „Workspace-Standards“ fügt Braze den One-Click-Abmelde-Header nicht für Campaigns hinzu, die als transaktional gelten und so konfiguriert sind, dass sie „an alle Nutzer:innen, einschließlich abgemeldeter Nutzer:innen“ gesendet werden. Um dies zu überschreiben und den One-Click-Abmelde-Header beim Senden an abgemeldete Nutzer:innen hinzuzufügen, können Sie **Unsubscribe globally from all emails** in den One-Click-List-Unsubscribe-Einstellungen auf Nachrichtenebene auswählen.
 

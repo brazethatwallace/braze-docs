@@ -4,9 +4,10 @@
 # run (all edits in the rule share one PR). Branch names include the run date and
 # GitHub run id (support-analyzer/phase2-<rule_id>-YYYY-MM-DD-<run_id>) so a new
 # draft can open while an earlier one is still in review. If every target file
-# already on develop (fingerprint HTML comment, or skip_if_contains phrases), no PR opens.
-# When merging Phase 2 PRs manually, keep <!-- support-analyzer-phase2:... --> comments
-# or add skip_if_contains so later runs do not duplicate the same guidance.
+# already on develop (fingerprint HTML comment, skip_if_contains, or skip_if_contains_in_files),
+# no PR opens. While an open draft exists for the same rule (branch support-analyzer/phase2-<rule_id>-*),
+# Phase 2 skips opening another. When merging Phase 2 PRs manually, keep
+# <!-- support-analyzer-phase2:... --> comments or add skip_if_contains so later runs do not duplicate.
 #
 # CI runs `support_analyzer_phase2.py --strict-anchors`: if a rule matches cases
 # but an anchor is missing (and the fingerprint is not already in the file), the
@@ -125,6 +126,11 @@ rules:
 
       - file: _docs/_user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags.md
         fingerprint: support-analyzer-phase2:liquid_api_trigger_extra_braces_tags
+        # FAQ already documents triple-brace mistakes; skip this edit unless tags page adds its own callout.
+        skip_if_contains_in_files:
+          - file: _docs/_user_guide/messaging/design_and_edit/personalize/liquid/faq.md
+            contains:
+              - "extra pair of curly braces is a common cause"
         anchor_substring: "| <a href='/docs/api/objects_filters/trigger_properties_object/'>API Trigger Properties</a> |"
         insert: |+
 

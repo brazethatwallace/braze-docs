@@ -68,3 +68,14 @@ Por exemplo, se você usa o Gmail, siga estas etapas:
 3. Verifique se você tem o status "PASS" para **DMARC**.
 
 ![Um e-mail que tem "PASS" como valor de DMARC.]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+#### Solucionar falhas de DMARC {#troubleshoot-dmarc-failures}
+
+Se o DMARC mostrar **FAIL** para mensagens enviadas pela Braze:
+
+1. Abra os cabeçalhos brutos ou os resultados de autenticação de uma mensagem recente e verifique se **SPF** e **DKIM** passaram ou falharam individualmente.
+2. **Alinhamento:** O DMARC é aprovado quando *o SPF* *ou* o DKIM está alinhado com o domínio **From**. Alinhamento significa que o domínio **From** corresponde ao domínio que passou no SPF (geralmente o domínio **Return-Path** / envelope) *ou* ao domínio na assinatura **d=** do DKIM.
+3. Se o SPF passar, mas o DMARC falhar, o domínio Return-Path pode não estar alinhado com o seu domínio **From** — confirme se seus [domínios de envio e rastreamento com marca branca]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) correspondem aos domínios para os quais você publica SPF e DKIM.
+4. Se o DKIM falhar, verifique se os registros DNS de DKIM fornecidos pela Braze estão presentes e inalterados.
+
+Verificadores de terceiros (por exemplo, [MXToolbox](https://mxtoolbox.com/dmarc.aspx)) ajudam a confirmar os registros publicados; sempre valide também com uma mensagem real enviada pela Braze.

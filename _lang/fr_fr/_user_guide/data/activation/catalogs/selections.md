@@ -3,12 +3,12 @@ nav_title: Sélections
 article_title: Sélections
 page_order: 5
 alias: /catalog_selections/
-description: "Cet article de référence explique comment créer et utiliser des sélections avec vos catalogues pour référencer des données dans vos campagnes Braze."
+description: "Cet article de référence explique comment créer et utiliser des sélections avec vos catalogues pour référencer des données dans vos Campaigns Braze."
 ---
 
 # Sélections {#selections}
 
-> Les sélections sont des groupes de données que vous pouvez utiliser pour personnaliser un message pour chaque utilisateur de votre campagne. Lorsque vous utilisez une sélection, vous configurez essentiellement des filtres personnalisés basés sur des colonnes spécifiques de votre catalogue. Il peut s'agir de filtres pour la marque, la taille, l'emplacement, la date d'ajout, etc. Cela vous donne le contrôle sur ce que vous montrez aux utilisateurs en vous permettant de définir des critères auxquels les éléments doivent répondre au préalable.<br><br>Cette page explique comment créer et utiliser des sélections avec vos catalogues.
+> Les sélections sont des groupes de données que vous pouvez utiliser pour personnaliser un message pour chaque utilisateur de votre Campaign. Lorsque vous utilisez une sélection, vous configurez essentiellement des filtres personnalisés basés sur des colonnes spécifiques de votre catalogue. Il peut s'agir de filtres pour la marque, la taille, l'emplacement, la date d'ajout, etc. Cela vous donne le contrôle sur ce que vous montrez aux utilisateurs en vous permettant de définir des critères auxquels les éléments doivent répondre au préalable.<br><br>Cette page explique comment créer et utiliser des sélections avec vos catalogues.
 
 Après avoir créé un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/), vous pouvez référencer davantage les données de votre catalogue en incorporant des sélections dans vos Campaigns ou recommandations Braze.
 
@@ -52,14 +52,14 @@ Imaginons que votre catalogue contienne un champ `store_location` de type Géolo
 
 Pour créer une sélection, procédez comme suit.
 
-1. Allez dans **Catalogs** et sélectionnez votre catalogue dans la liste.
-2. Sélectionnez l'onglet **Selection** et cliquez sur **Create Selection**.
+1. Allez dans **Catalogues** et sélectionnez votre catalogue dans la liste.
+2. Sélectionnez l'onglet **Sélection** et cliquez sur **Créer une sélection**.
 3. Donnez un nom à votre sélection et, éventuellement, une description.
 4. Dans le champ **Filter Field**, sélectionnez la colonne du catalogue sur laquelle vous souhaitez filtrer. Les champs de type chaîne de caractères de plus de 1 000 caractères ne peuvent pas être sélectionnés pour les filtres.
 5. Terminez la définition de vos critères de filtrage en sélectionnant l'opérateur approprié (par exemple, « equals » ou « does not equal ») et l'attribut.
 6. Dans la section **Sort type**, déterminez comment les résultats sont triés. Par défaut, les résultats sont renvoyés sans ordre particulier. Pour spécifier un tri sur un champ spécifique, désactivez l'option **Randomize Sort Order** et précisez le **Sort Field** et l'ordre de tri (**Sort Order** : croissant ou décroissant).
 7. Dans la section **Results limit**, saisissez le nombre de résultats (jusqu'à 50).
-8. Sélectionnez **Create Selection**.
+8. Sélectionnez **Créer une sélection**.
 
 ### Test et prévisualisation {#test-and-preview}
 
@@ -79,7 +79,7 @@ Le Liquid de Contenu connecté n'est pas pris en charge dans ces paramètres de 
 
 Après avoir créé votre sélection, personnalisez vos messages avec Liquid pour insérer les éléments filtrés de ce catalogue. Vous pouvez demander à Braze de générer le Liquid pour vous à partir de la fenêtre de personnalisation disponible dans les éditeurs de messages :
 
-1. Dans tout éditeur de messages prenant en charge la personnalisation, sélectionnez <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Ajouter une personnalisation"></i> pour ouvrir la fenêtre de personnalisation.
+1. Dans tout éditeur de messages prenant en charge la personnalisation, sélectionnez <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Ajouter une personnalisation"></i> **Ajouter une personnalisation** pour ouvrir la fenêtre de personnalisation.
 2. Pour **Personalization Type**, sélectionnez **Catalog Items**.
 3. Sélectionnez le nom de votre catalogue.
 4. Pour **Item selection method**, sélectionnez **Use a selection**.
@@ -87,7 +87,7 @@ Après avoir créé votre sélection, personnalisez vos messages avec Liquid pou
 5. Pour **Information to Display**, sélectionnez les champs du catalogue à inclure pour chaque élément.
 6. Sélectionnez l'icône **Copy** et collez le Liquid à l'endroit voulu dans votre message.
 
-![La fenêtre modale Add Personalization avec les sélections suivantes : « Catalog Items » pour « Personalization Type », « Games » pour « Catalog Name », « Selections » pour « Selection Type », « game_selection » pour « Selection », et « title » et « description_en » pour « Information to Display ».]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
+![La fenêtre modale Ajouter une personnalisation avec les sélections suivantes : « Catalog Items » pour « Personalization Type », « Games » pour « Catalog Name », « Selections » pour « Selection Type », « game_selection » pour « Selection », et « title » et « description_en » pour « Information to Display ».]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
 
 ## Cas d'utilisation {#use-case}
 
@@ -97,7 +97,7 @@ En utilisant un catalogue contenant les informations de votre service de livrais
 
 ![Un exemple de sélection pour un service de livraison de repas avec deux filtres : un qui identifie un type de produit comme étant un repas, et un autre qui identifie la catégorie la plus récemment consultée. La sélection est configurée pour rendre aléatoire l'ordre dans lequel les trois résultats sont renvoyés.]({% image_buster /assets/img_archive/catalog_selections2.png %}){: style="max-width:90%;"}
 
-Pour utiliser ce catalogue et cette sélection dans une campagne, utilisez la fenêtre modale **Add Personalization** dans la section de composition des messages lors de la création d'une campagne. Dans cet exemple, nous avons sélectionné le catalogue contenant les informations de votre service de livraison de repas, ainsi que la sélection pour les recommandations de repas basées sur la catégorie consultée le plus récemment. Cela nous permet d'afficher le nom du repas et son prix. Pour enrichir davantage votre message, vous pouvez utiliser la sélection pour ajouter également une image du premier repas recommandé.
+Pour utiliser ce catalogue et cette sélection dans une Campaign, utilisez la fenêtre modale **Ajouter une personnalisation** dans la section de composition des messages lors de la création d'une Campaign. Dans cet exemple, nous avons sélectionné le catalogue contenant les informations de votre service de livraison de repas, ainsi que la sélection pour les recommandations de repas basées sur la catégorie consultée le plus récemment. Cela nous permet d'afficher le nom du repas et son prix. Pour enrichir davantage votre message, vous pouvez utiliser la sélection pour ajouter également une image du premier repas recommandé.
 
 ![Une carte de contenu avec l'en-tête « You will LOVE these highly rated meals! » avec la sélection « recommendations_be_recent_category » dans la section de composition du message.]({% image_buster /assets/img_archive/catalog_selections3.png %}){: style="max-width:90%;"}
 

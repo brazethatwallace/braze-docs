@@ -20,10 +20,13 @@ El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como 
 
 <table aria-label="Acerca del editor" style="width: 100%; table-layout: fixed;">
     <caption>Componentes del editor: contenido y filas</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Contenido</th>
         <th style="width: 50%;">Filas</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="La pestaña «Filas» que incluye diferentes combinaciones estructurales para el diseño de tu correo electrónico." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como 
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="La pestaña «Contenido» que incluye bloques básicos, multimedia y avanzados." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="Acerca del editor" }
 
@@ -67,6 +71,10 @@ Aunque el editor de arrastrar y soltar simplifica tu flujo de trabajo con estos 
 ### Filas {#rows}
 
 Las **filas** son unidades estructurales que definen la composición horizontal de una sección del mensaje mediante columnas. Puedes usar filas vacías o [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Usar más de una columna te permite colocar diferentes elementos de contenido uno al lado del otro. De esta manera, puedes añadir todos los elementos estructurales que necesites a tu mensaje, independientemente de la plantilla que hayas seleccionado al comenzar.
+
+#### Anidar imágenes dentro de bloques de texto {#nesting-images-inside-text-blocks}
+
+No puedes anidar una imagen dentro de un párrafo u otro bloque de texto en el editor de arrastrar y soltar. Para colocar una imagen al lado o dentro de un diseño de texto, usa columnas en una **fila**: por ejemplo, una fila de varias columnas en escritorio con **Hide on mobile** para esa fila, y una fila separada solo para móvil (con **Hide on desktop** y **Do not stack on mobile** según sea necesario) para que la imagen y el texto se alineen correctamente en pantallas pequeñas.
 
 #### Estilo de tarjetas {#cards-style}
 
@@ -206,8 +214,8 @@ El motor subyacente que produce HTML a partir del editor de arrastrar y soltar h
 El tamaño promedio de los datos HTML exportados se ha reducido, lo que lleva a una carga y renderizado más rápidos, menor recorte en dispositivos móviles y menor consumo de ancho de banda.
 
 El renderizado HTML ha mejorado gracias a las siguientes actualizaciones que minimizan el número de comentarios condicionales y consultas de medios CSS. Como resultado, los archivos HTML son más pequeños y están codificados de manera más eficiente.
-- Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table aria-label="Use Inbox Vision">`
-  <caption>Use Inbox Vision</caption>
+- Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table aria-label="Usar Inbox Vision">`
+  <caption>Usar Inbox Vision</caption>
 - Los [bloques de editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) han sido recodificados para mayor concisión
 - El código HTML final se comprime para eliminar espacios en blanco entre etiquetas
 - Los divisores transparentes se convierten automáticamente en relleno de contenido

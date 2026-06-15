@@ -286,10 +286,10 @@ Pour régénérer le schéma de votre attribut personnalisé imbriqué :
 
 1. Accédez à **Paramètres des données** > **Attributs personnalisés**.
 2. Recherchez votre attribut personnalisé imbriqué.
-3. Dans la colonne **Attribute Name** correspondant à votre attribut, sélectionnez <i class="fas fa-plus"></i> pour gérer le schéma.
-4. Une fenêtre modale apparaîtra. Sélectionnez **Regenerate Schema**.
+3. Dans la colonne **Attribute Name** correspondant à votre attribut, sélectionnez <i class="fas fa-plus" aria-label="Gérer le schéma"></i> **Gérer le schéma** pour gérer le schéma.
+4. Une fenêtre modale apparaîtra. Sélectionnez **Régénérer le schéma**.
 
-L'action **Regenerate Schema** est limitée à **une fois par jour calendaire** dans le fuseau horaire de votre entreprise. Vous ne pouvez pas lancer une autre régénération tant qu'une tâche de schéma est déjà **en cours** (l'option est indisponible tant que l'état est **Generating**). La régénération du schéma ne détecte que les nouveaux objets et ne supprime pas les objets qui existent déjà dans le schéma.
+L'action **Régénérer le schéma** est limitée à **une fois par jour calendaire** dans le fuseau horaire de votre entreprise. Vous ne pouvez pas lancer une autre régénération tant qu'une tâche de schéma est déjà **en cours** (l'option est indisponible tant que l'état est **En cours de génération**). La régénération du schéma ne détecte que les nouveaux objets et ne supprime pas les objets qui existent déjà dans le schéma.
 
 {% alert important %}
 Pour réinitialiser le schéma d'un tableau d'objets avec un objet existant, vous devez créer un nouvel attribut personnalisé. La régénération du schéma ne supprime pas les objets existants.
@@ -301,9 +301,9 @@ Si les données n'apparaissent pas comme prévu après la régénération du sch
 
 Vous pouvez déclencher une action lorsqu'un objet d'attribut personnalisé imbriqué change. Cette option n'est pas disponible pour les modifications de tableaux d'objets. Si vous ne voyez pas l'option d'affichage de l'explorateur de chemins, vérifiez que vous avez généré un schéma.
 
-Par exemple, dans une Campaign basée sur une action, vous pouvez ajouter une nouvelle action de déclenchement pour **Change Custom Attribute Value** afin de cibler les utilisateurs qui ont modifié leurs préférences de bureau de quartier.
+Par exemple, dans une campagne basée sur une action, vous pouvez ajouter une nouvelle action de déclenchement pour **Change Custom Attribute Value** afin de cibler les utilisateurs qui ont modifié leurs préférences de bureau de quartier.
 
-![Paramètres de réception d'une Campaign basée sur une action avec un déclencheur de modification de la valeur d'un attribut personnalisé pour les préférences imbriquées.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![Paramètres de réception d'une campagne basée sur une action avec un déclencheur de modification de la valeur d'un attribut personnalisé pour les préférences imbriquées.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
 ## Comportement de segmentation avec les tableaux d'objets {#segmentation-behavior-with-arrays-of-objects}
 

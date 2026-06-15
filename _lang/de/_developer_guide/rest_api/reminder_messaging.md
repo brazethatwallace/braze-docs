@@ -26,7 +26,7 @@ Um diese Anleitung abzuschließen, benötigen Sie:
 | Zugang zu Landing-Pages | Zugang und Berechtigungen zum Erstellen von [Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) in Braze. |
 | HTML- und JavaScript-Kenntnisse | Grundlegende Vertrautheit mit HTML und JavaScript zur Anpassung Ihrer Landing-Page. Nur für [Option B](#option-b-personal-dates-custom-code-block) erforderlich. |
 | Liquid-Kenntnisse | Grundlegende Vertrautheit mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) für die Erstellung personalisierter Variablen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## 1. Schritt: Landing-Page erstellen und aus einer Nachricht verlinken {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 

@@ -195,3 +195,9 @@ Braze envoie le payload RCS que vous composez, tandis que le client de messageri
 ### Puis-je envoyer des messages vocaux préenregistrés avec RCS ? {#can-i-send-pre-recorded-voicemails-with-rcs}
 
 Oui, vous pouvez utiliser les messages multimédias pour prendre en charge les fichiers audio.
+
+### Pourquoi les abonnements SMS via la REST API ne correspondent-ils pas au **Total des abonnements** sur la page SMS/MMS/RCS Performance ? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
+
+Le **Total des abonnements** et le **Total des désabonnements** sur le tableau de bord [SMS/MMS/RCS Performance]({{site.baseurl}}/user_guide/analytics/dashboards/) comptabilisent les changements d'abonnement déclenchés par le traitement des mots-clés SMS entrants (par exemple, un utilisateur envoyant un mot-clé d'abonnement à votre code court). Ils n'incluent pas toutes les mises à jour d'abonnement effectuées via la REST API, le tableau de bord ou d'autres sources.
+
+Pour analyser les abonnements et les désabonnements par source, utilisez le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) sur `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` et filtrez sur `STATE_CHANGE_SOURCE` (par exemple, **Rest API** versus **Inbound Message**).

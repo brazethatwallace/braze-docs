@@ -25,6 +25,7 @@ Wenn mehrere Profile eine E-Mail-Adresse teilen und ein Profil sich abmeldet, ak
 
 Die folgenden Szenarien können den Eindruck erwecken, dass ein:e Nutzer:in eine E-Mail zweimal erhalten hat:
 
+- **Seed-Listen oder Testempfänger:innen:** Seed-Adressen und interne Testempfänger:innen können einen Versand zusätzlich zu Ihrer Hauptzielgruppe erhalten, was wie ein Duplikat aussehen kann, wenn ein Posteingang sowohl einem Profil als auch einem Seed-Eintrag entspricht.
 - **Bei der Erstellung der Campaign oder des Canvas ist ein Fehler aufgetreten:** Die/der Nutzer:in erhält möglicherweise nicht denselben Versand zweimal, kann aber zwei separate E-Mails mit derselben Betreffzeile erhalten. Wenn eine Campaign oder ein Canvas dupliziert wird, überprüfen Sie die E-Mail-Konfigurationsdetails wie Bilder oder Betreffzeilen. Sie können auch die Changelogs einsehen, um festzustellen, ob die Campaign oder das Canvas nach dem Start geändert wurde – ein Duplikat kann dieselbe Betreffzeile wie das Original haben, als die/der Nutzer:in es erhalten hat.
 - **Mehrere Nutzerprofile haben E-Mail-Weiterleitung:** Wenn ein:e Nutzer:in mehrere Konten in einer bestimmten App hat, aber ein Konto E-Mails weiterleitet, erhält die/der Nutzer:in die Campaign einmal pro Posteingang; E-Mails können im Posteingang, an den Nachrichten weitergeleitet werden, doppelt erscheinen. Nur einige Anbieter zeigen an, wenn eine E-Mail von einem anderen Konto weitergeleitet wurde.
 - **E-Mail-Konfiguration bei der/dem Empfänger:in:** Einige Clients führen Posteingänge zusammen („universeller Posteingang“). Wenn dieselbe Campaign mehrere Konten anspricht, die einen Posteingang teilen, kann es so aussehen, als hätte eine Person die Campaign zweimal erhalten, obwohl tatsächlich zwei verschiedene Profile angeschrieben wurden. Die/der Empfänger:in kann bestätigen, ob mehrere Konten in einem Posteingang zusammengeführt sind.
@@ -46,6 +47,14 @@ API-getriggerte Campaigns deduplizieren oder senden Duplikate, je nachdem, wo di
 {% alert important %}
 Wenn Sie eine API-Campaign über einen API-Aufruf senden (mit Ausnahme von API-getriggerten Campaigns) und mehrere Nutzer:innen in der Segment-Zielgruppe mit derselben E-Mail-Adresse angegeben sind, wird an diese Adresse so oft gesendet, wie sie im Aufruf aufgeführt ist. Dies liegt daran, dass API-Aufrufe als absichtlich konstruiert angenommen werden.
 {% endalert %}
+
+#### A/B-Tests mit doppelten E-Mail-Adressen {#ab-testing-with-duplicate-email-addresses}
+
+Vermeiden Sie [multivariate und A/B-Tests]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) bei E-Mails, wenn mehrere Profile dieselbe E-Mail-Adresse teilen können. Varianten werden pro Profil zugewiesen, was dazu führen kann, dass mehr als eine Nachricht an denselben Posteingang gesendet wird. Wenn Sie in dieser Situation testen müssen, kombinieren Sie keinen **Gewinnervariante**-Schritt mit [Ortszeit-Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#local-time-zone-campaigns) auf eine Weise, die die Auswahl der Gewinnervariante verzögert – diese Optionen zusammen können die Wahrscheinlichkeit doppelter Sendungen erhöhen.
+
+#### Canvas und doppelte E-Mail-Adressen {#canvas-and-duplicate-email-addresses}
+
+Bei Canvas-Journeys kann es von der Eintritts-Batchverarbeitung, dem Schritt-Timing und anderen Faktoren abhängen, ob doppelte E-Mail-Adressen einen oder mehrere Versände erhalten. Betrachten Sie das Verhalten als undefiniert, bis Sie es für Ihre Journey validiert haben. Führen Sie nach Möglichkeit doppelte Profile zusammen oder konsolidieren Sie sie. Wenn Sie eine Produktänderung benötigen, reichen Sie Feedback über Ihr Braze-Team ein.
 
 ### Was passiert mit dem Abo-Status, wenn die E-Mail-Adresse einer/eines Nutzers:in auf eine geändert wird, die von einer/einem anderen Nutzer:in geteilt wird? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -182,14 +191,54 @@ Diese Warnung kann bei Campaigns bestehen bleiben, die von einer Campaign dupliz
 - Gehen Sie bei HTML-E-Mails zum Tab **Plaintext** und wählen Sie dann **Regenerate from HTML**.
 - Duplizieren Sie nach dem Duplizieren die Variante und entfernen Sie dann die ursprüngliche Variante. Wählen Sie **nicht** die ursprüngliche Variante aus, da die Warnung sonst übernommen werden kann.
 
-### Was sind Gründe, warum mein:e Nutzer:in keine E-Mail-Campaign erhalten hat? {#what-are-reasons-why-my-user-hasnt-received-an-email-campaign}
+### Warum hat ein:e Nutzer:in eine E-Mail erhalten, die sie/er nicht hätte erhalten sollen? {#why-did-a-user-receive-an-email-they-shouldnt-have}
 
-Gründe, warum ein:e Nutzer:in keine E-Mail-Campaign erhalten hat, sind unter anderem:
+Die Zustellung kann falsch aussehen, selbst wenn Braze wie konfiguriert funktioniert hat. Gehen Sie Folgendes durch:
+
+- **Doppelte Profile**, die einen Posteingang teilen (siehe [Was passiert, wenn eine E-Mail versendet wird und mehrere Profile dieselbe E-Mail-Adresse haben?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
+- **Seed-Listen, Testempfänger:innen oder interne Adressen**, die in der Zielgruppe enthalten sind oder als CC/BCC bei einem Versand hinzugefügt wurden.
+- **Segment- oder Canvas-Timing:** Die/der Nutzer:in entsprach der Zielgruppe oder dem Canvas-Schritt, als Braze die Berechtigung ausgewertet hat, und dann änderten sich Attribute oder der Abo-Status, bevor sie/er die Nachricht gelesen hat.
+- **Abo-Gruppen:** Die/der Nutzer:in war weiterhin in einer Gruppe angemeldet, die Ihre Nachricht angesprochen hat, auch wenn ihr/sein globaler Abo-Status etwas anderes vermuten ließ.
+- **API- oder Dateiimporte**, die die/den Nutzer:in nach der Segmentierung, aber bevor Sie die Änderung erwartet haben, aktualisiert haben.
+
+Überprüfen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), die Campaign- oder Canvas-Changelogs und die Segment-Definition. Wenn Sie den Versand immer noch nicht nachvollziehen können, kontaktieren Sie den Braze-Support mit Nutzer-Bezeichnern, `dispatch_id` (falls verfügbar) und Zeitstempeln.
+
+### Warum hat ein:e Nutzer:in meine E-Mail-Nachricht nicht erhalten? {#why-hasnt-a-user-received-my-email-message}
+
+Es gibt mehrere Gründe, warum ein:e Nutzer:in eine E-Mail, die Sie erwartet haben, nicht erhalten hat, darunter:
 
 - Sie/er war nicht berechtigt, die E-Mail zu erhalten.
 - Die E-Mail-Adresse ist ungültig oder existiert nicht.
 - Die Nachricht wurde möglicherweise verpasst oder gelöscht.
 - Die Nachricht befindet sich möglicherweise im Spam-Ordner.
+
+{% alert tip %}
+Ein Zustellereignis in Braze bedeutet, dass die E-Mail vom Server des Postfachanbieters akzeptiert wurde. Dies garantiert jedoch nicht, dass die Nachricht im Posteingang der/des Nutzers:in erscheint. Der Postfachanbieter kann die Nachricht in den Spam-Ordner leiten oder in seltenen Fällen die Anzeige der Nachricht stillschweigend verhindern.
+{% endalert %}
+
+Verwenden Sie die folgenden Tabellen, um die Ursache einzugrenzen.
+
+#### Die E-Mail wurde nicht gesendet {#the-email-wasnt-sent}
+
+| Mögliche Ursache | Was zu prüfen ist |
+|---|---|
+| Die/der Nutzer:in war nicht für die Campaign oder das Canvas berechtigt | Überprüfen Sie die **Target Audiences** (für Campaigns) oder **Target Audience** (für Canvas) [Einstellungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), um zu bestätigen, dass die/der Nutzer:in zum Sendezeitpunkt alle Zielgruppen-Filter, Segment-Kriterien und Zustellregeln erfüllt hat. |
+| Die Nachricht wurde abgebrochen | Überprüfen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) auf Abbruchgründe, wie Liquid-Fehler oder fehlende Pflichtfelder. |
+| Die E-Mail-Adresse der/des Nutzers:in war ungültig oder fehlte | Überprüfen Sie in der **Nutzersuche** das Profil der/des Nutzers:in, um sicherzustellen, dass zum Sendezeitpunkt eine gültige E-Mail-Adresse hinterlegt war. |
+| Die E-Mail-Adresse der/des Nutzers:in hatte zuvor einen Hard Bounce | Ein Hard Bounce markiert die E-Mail-Adresse als ungültig und verhindert zukünftige Sendungen an diese Adresse. Ebenso sendet Braze, wenn ein:e Empfänger:in Ihre E-Mail als Spam markiert, nur Transaktions-E-Mails an diese:n Nutzer:in, keine Standard-Campaigns. Überprüfen Sie den Tab **Engagement** im Profil der/des Nutzers:in. Weitere Informationen finden Sie unter [Abgemeldete E-Mail-Adressen]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) und [Bounces und ungültige E-Mails]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails). |
+| Die/der Nutzer:in hat E-Mails abgemeldet | Überprüfen Sie den Abo-Status der/des Nutzers:in unter **Kontakteinstellungen** im Tab **Engagement**. Braze sendet keine E-Mails an Nutzer:innen, die abgemeldet sind. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ursache für nicht gesendete E-Mail" }
+
+#### Die E-Mail wurde gesendet, ist aber nicht im Posteingang angekommen {#the-email-was-sent-but-didnt-arrive-in-their-inbox}
+
+| Mögliche Ursache | Was zu prüfen ist |
+|---|---|
+| Der Postfachanbieter (MBP) war nicht erreichbar | Ein vorübergehendes Problem verhinderte, dass die E-Mail den MBP der/des Empfängers:in erreichte. Dies löst sich in der Regel durch Wiederholungsversuche von selbst. E-Mail-Anbieter wiederholen Soft Bounces bis zu 72 Stunden lang. |
+| Der MBP hat die E-Mail zurückgewiesen | Der Mailserver der/des Empfängers:in hat die E-Mail abgelehnt. Überprüfen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) auf Bounce-Details. |
+| Der MBP hat die E-Mail stillschweigend verworfen | Der MBP hat die E-Mail akzeptiert, sie aber der/dem Nutzer:in nicht angezeigt und keinen Bounce zurückgegeben. Dies liegt außerhalb der Kontrolle von Braze und kann in den Braze-Protokollen nicht erkannt werden. |
+| Die E-Mail ist im Spam-Ordner gelandet | Der MBP hat die Nachricht als Spam identifiziert und in den Spam- oder Junk-Ordner der/des Nutzers:in geleitet. Bitten Sie die/den Nutzer:in, den Spam-Ordner zu überprüfen. |
+| Die/der Empfänger:in hat benutzerdefinierte E-Mail-Filterung | Die/der Nutzer:in oder ihr/sein IT-Administrator hat möglicherweise Postfachregeln konfiguriert, die eingehende Nachrichten filtern, umleiten oder löschen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ursache für E-Mail nicht im Posteingang" }
 
 ### Wie kann ich Bilder in Outlook optimieren? {#how-can-i-optimize-images-in-outlook}
 
@@ -216,3 +265,21 @@ Bestätigen Sie zunächst, dass Sie die [Nutzerberechtigungen]({{site.baseurl}}/
 ### Muss ich Domains für Relay- oder maskierte E-Mails registrieren? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 [Apples Private E-Mail-Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) erfordert, dass Sie Ihre Absenderdomains im Apple Developer Portal registrieren, um Bounces zu vermeiden. Google Shielded Email erfordert keinen manuellen Domain-Registrierungs- oder Allowlisting-Prozess.
+
+### Was bedeutet der Bounce-Grund `unable to get mx info` oder `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
+
+Im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) weist ein Bounce-Grund ähnlich dem folgenden auf ein Problem bei der Auflösung der E-Mail-Konfiguration der empfangenden Domain hin (die Domain nach dem `@` in der Adresse), nicht auf die Braze-Nachrichtenerstellung:
+
+Typische Ursachen sind:
+
+- Fehlende, falsche oder nicht erreichbare **MX-Einträge** für diese Domain
+- Hostnamen für eingehende E-Mails, die nicht aufgelöst werden oder die von der empfangenden Infrastruktur erwarteten **PTR-Prüfungen (Reverse DNS)** nicht bestehen
+- Ungültige oder falsch geschriebene Domains in der E-Mail-Adresse
+
+**Nächste Schritte:**
+
+- Überprüfen Sie die Adresse und die Domain-Schreibweise.
+- Wenn die Adresse korrekt ist, kontaktieren Sie die/den Postfachinhaber:in oder das IT-Team für diese Domain.
+- Bitten Sie sie, die MX- und zugehörigen DNS-Einträge, einschließlich der PTR-Einträge für ihre Mailserver, bei ihrem DNS-Anbieter zu überprüfen.
+
+Andere Empfänger:innen sind in der Regel nicht betroffen. Informationen dazu, wie Soft Bounces im Reporting erscheinen, finden Sie unter [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).

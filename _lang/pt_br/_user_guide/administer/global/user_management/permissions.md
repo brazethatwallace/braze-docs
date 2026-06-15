@@ -83,6 +83,17 @@ Os usuários podem encontrar mensagens como "Você precisa da permissão 'View L
 Não é possível mesclar ou importar permissões de usuário de um usuário do dashboard para outro.
 {% endalert %}
 
+## Nuances das permissões de usuário {#nuances-of-user-permissions}
+
+Tenha em mente os seguintes comportamentos ao atribuir acesso ao dashboard:
+
+- **Administrador do espaço de trabalho versus administrador da empresa:** Administradores do espaço de trabalho gerenciam permissões dentro dos espaços de trabalho atribuídos. Administradores da empresa têm autoridade em toda a empresa, incluindo a exclusão de outros usuários do dashboard.
+- **Usuários limitados:** Usuários limitados com a permissão "Edit Dashboard Users" podem gerenciar outros usuários limitados, mas não podem criar ou gerenciar contas de administrador da empresa.
+- **Escopo de gerenciamento de usuários do dashboard:** Na página de detalhes do usuário, as permissões aparecem apenas para os espaços de trabalho que o editor pode acessar. Um usuário limitado que pode editar usuários em um espaço de trabalho pode não ver as caixas de seleção de permissões de outro espaço de trabalho.
+- **Exportar dados de usuários:** A exportação de dados de usuários requer acesso no nível do espaço de trabalho, além da permissão de exportação.
+- **Permissões compostas:** Algumas áreas exigem múltiplas permissões. Por exemplo, configurar [Parceiros de tecnologia]({{site.baseurl}}/partners/) normalmente requer tanto o acesso ao parceiro quanto uma permissão básica de leitura para os recursos relacionados do espaço de trabalho.
+- **Importar e atualizar dados de usuários:** Essa permissão inclui a capacidade de editar perfis de usuários do app por meio de fluxos de importação, não apenas registros de usuários do dashboard.
+
 ## Editar as permissões de um usuário {#edit-a-users-permissions}
 
 Para editar as permissões atuais de administrador, empresa ou espaço de trabalho de um usuário, acesse **Configurações** > **Usuários da empresa** e selecione o nome dele.
@@ -355,6 +366,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Ativos da biblioteca de mídia | View Media Library Assets | Visualizar ativos da biblioteca de mídia |
 | Ativos da biblioteca de mídia | Delete Media Library Assets | Excluir permanentemente ativos da biblioteca de mídia |
 | Ativos da biblioteca de mídia | Edit Media Library Assets | Criar e atualizar ativos da biblioteca de mídia |
+| Ativos da biblioteca de mídia | Replace Media Library Assets | Substituir o arquivo de um ativo existente da biblioteca de mídia mantendo a URL e o ID do ativo estáveis |
 | Limites de taxa de envio de mensagens | View Messaging Rate Limits | Visualizar limites de taxa de envio de mensagens no nível do espaço de trabalho |
 | Limites de taxa de envio de mensagens | Edit Messaging Rate Limits | Configurar e editar limites de taxa de envio de mensagens no nível do espaço de trabalho |
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Acessar e usar o BrazeAI Operator para responder perguntas, navegar pela configuração, solucionar problemas e gerar ideias |

@@ -61,3 +61,28 @@ Page-level styles can override message-level styles. If updating **Fill** on a b
 ### Can I add email attachments to the drag-and-drop editor?
 
 Yes. You can add attachments to your email message by going to **Sending Settings** > **Advanced**.
+
+### How do I download the raw HTML for a drag-and-drop email?
+
+1. Open your campaign or Canvas and edit the email message.
+2. Select **Edit email body** to open the drag-and-drop editor.
+3. Select **Download file** (bottom of the editor). Extract the archive to access the generated HTML.
+
+You can paste that HTML into an [HTML block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) or the HTML editor when you need low-level edits—for example, to [turn off click tracking for specific links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+
+### Why is my drag-and-drop layout breaking?
+
+Layout issues are often caused by **custom HTML or CSS** that conflicts with the markup the editor generates. Try these steps:
+
+1. Remove or isolate custom HTML blocks to see if the problem disappears.
+2. Check **Drag-and-Drop Email Editor** settings for custom fonts that may not load in all clients.
+3. In **Row Properties**, review column padding and widths.
+4. When you add custom HTML, prefer table-based layouts, fluid images, and total table widths that fit your email width—fixed pixel images or non-table structures often break in Outlook and other clients.
+
+### Why doesn't my Content Block render in email preview?
+
+If a Content Block doesn't render in email preview, check for unclosed anchor tags. For Connected Content URLs, use the `replace` filter to convert double-encoded ampersands (`&amp;amp;`) to a single encoded ampersand (`&amp;`). Limit Content Block nesting to two levels.
+
+### Why is the drag-and-drop editor ignoring alignment settings?
+
+If the drag-and-drop editor ignores alignment settings, remove custom CSS or HTML blocks, remove custom fonts, check for CSS conflicts, and avoid duplicating row blocks. Contact Braze Support if the issue persists.

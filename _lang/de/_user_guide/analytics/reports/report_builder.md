@@ -101,6 +101,8 @@ Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie *
 
 Statistiken für gelöschte Nachrichtenvarianten werden nicht angezeigt, wenn Sie Ihren Bericht nach Campaigns oder Canvases aufschlüsseln. Die Gesamtwerte auf Kanalebene enthalten jedoch alle Statistiken, unabhängig davon, ob die Variante gelöscht wurde. Beispielsweise umfassen die *Versendungen* für E-Mail alle E-Mail-Versendungen, aber wenn Sie diese Statistiken nach Campaign aufschlüsseln, können die Zahlen niedriger sein, da Versendungen für gelöschte Nachrichtenvarianten herausgefiltert werden.
 
+Im selben Bericht können die *eindeutigen Empfänger:innen* höher sein als die *eindeutigen Impressionen*, wenn eine Nachrichtenvariante nach dem Versand gelöscht wurde. Die *eindeutigen Empfänger:innen* auf Campaign-Ebene können weiterhin Nutzer:innen enthalten, die die gelöschte Variante erhalten haben, während die *eindeutigen Impressionen* Statistiken gelöschter Varianten in Aggregationen auf Nachrichtenebene auslassen.
+
 ## Einen Bericht anzeigen {#viewing-a-report}
 
 Nachdem Sie Ihren Bericht ausgeführt haben, können Sie Ihre Ergebnisse in Tabellenform auf der Berichtsseite anzeigen.
@@ -141,7 +143,7 @@ Sie können einen Dashboard-Link zum Bericht teilen, indem Sie **Teilen** und ei
 1. Wählen Sie das gepunktete Symbol oben in der Berichtstabelle.
 2. Wählen Sie **Zum Dashboard hinzufügen**.
 3. Wählen Sie, ob Sie ein neues Dashboard erstellen oder zu einem bestehenden Dashboard hinzufügen möchten.<br><br>![Fenster mit Optionen zur Auswahl, ob Sie den Bericht zu einem neuen oder bestehenden Dashboard hinzufügen möchten.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Folgen Sie den Schritten im [Dashboard-Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/), um mehr über das Erstellen eines Dashboards zu erfahren.
+4. Folgen Sie den Schritten im [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/), um mehr über das Erstellen eines Dashboards zu erfahren.
 
 ## Fehlerbehebung {#troubleshooting}
 

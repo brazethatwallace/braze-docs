@@ -330,3 +330,35 @@ Por ejemplo, podrías configurar la siguiente regla:
 > No más de tres campañas o componentes de Canvas de correo electrónico por semana de todas las campañas y pasos de Canvas.
 
 Esta regla determina que ningún usuario reciba más de 100 correos electrónicos por semana porque, como máximo, los usuarios reciben tres correos electrónicos por semana de campañas o componentes de Canvas con la limitación de frecuencia activada.
+
+## Preguntas frecuentes {#frequently-asked-questions}
+
+### Si cambio la limitación de envío en un Canvas activo, ¿afecta a los usuarios que ya están en el Canvas? {#if-i-change-a-send-throttle-on-an-active-canvas-does-it-affect-users-already-in-the-canvas}
+
+Sí, cuando aumentas o reduces un límite de velocidad de Canvas, el límite actualizado se aplica a los nuevos mensajes en aproximadamente 30 segundos desde el cambio debido al almacenamiento en caché.
+
+### ¿La limitación de frecuencia hace que los usuarios salgan de un Canvas? {#does-frequency-capping-cause-users-to-exit-a-canvas}
+
+No. Si un usuario de Canvas tiene limitación de frecuencia debido a la configuración de limitación de frecuencia global, el usuario avanza inmediatamente al siguiente paso de Canvas. El usuario **no** sale del Canvas debido al límite de frecuencia.
+
+### ¿Cómo puedo identificar a los usuarios que fueron limitados por frecuencia en un Canvas? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
+
+Los usuarios con limitación de frecuencia no generan un evento de envío para ese paso. Para identificar a estos usuarios, puedes usar [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para rastrear eventos de limitación de frecuencia de mensajes. Alternativamente, puedes crear una [extensión de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para analizar a los usuarios que entraron en el Canvas pero no recibieron el mensaje esperado.
+
+### ¿Por qué el dashboard muestra un error de límite de velocidad para mi campaña? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
+
+Esto generalmente significa que el [límite de velocidad de entrega](#delivery-speed-rate-limiting) de la campaña está configurado más alto de lo que tu espacio de trabajo, proveedor o host de buzón puede absorber, por lo que los envíos se acumulan y Braze muestra una advertencia. Reduce el límite de velocidad de entrega de la campaña para que el rendimiento por minuto se mantenga dentro de lo que esos sistemas pueden manejar. También puedes establecer un [límite de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) para aplicar un límite en todas las campañas.
+
+**Limit the number of people who will receive this campaign** controla cuántos usuarios son elegibles para un envío, no cuántos mensajes envía Braze por minuto. Solo un límite de velocidad de entrega establece el rendimiento por minuto.
+
+### ¿Qué significa "Enviado" para la limitación de frecuencia? {#what-does-sent-mean-for-frequency-capping}
+
+En análisis y limitación de frecuencia, _Enviado_ se refiere a cuando Braze despacha el mensaje (el envío se registra), no a la entrega final garantizada al dispositivo o buzón de entrada. La limitación de frecuencia y los recuentos de envío usan estos eventos de envío registrados, que pueden diferir de las métricas de "entregado" posteriores.
+
+### ¿Por qué veo rebotes o aplazamientos de correo electrónico? {#why-am-i-seeing-email-bounces-or-deferrals}
+
+Los mensajes de rebote y aplazamiento de correo electrónico usan muchos códigos diferentes y texto específico del proveedor. No trates un código en particular como señal de un problema de límite de velocidad, ya que la causa depende de tu contexto de envío y la retroalimentación del proveedor de buzón.
+
+Si los mensajes se aplazan temporalmente, enviar menos puede ayudar a corto plazo. Usa un [límite de velocidad de entrega](#delivery-speed-rate-limiting), **Limit the number of people who will receive this campaign**, o ambos.
+
+Para una solución a largo plazo, trabaja con un experto en capacidad de entrega para revisar tus datos de rebotes y aplazamientos.

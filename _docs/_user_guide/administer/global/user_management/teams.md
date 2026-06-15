@@ -34,6 +34,14 @@ If a Team is defined by a custom attribute, language, or country, you can then u
 
 Braze administrators and limited users with the company-level permission "Can Manage Company Settings" can assign Team-level permissions to a company user with limited access. When assigned to a Team, company users are limited to only read or write data available to their particular Teams, such as user language, location, or custom attribute, as defined when the Team was created.
 
+### Limit company user permissions without deleting a user
+
+To stop a company user from signing in while preserving their account, [suspend the user]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users) instead. Suspending puts the account in an inactive state where the user can't log in.
+
+If the user should remain able to sign in with limited capabilities, go to **Settings** > **Company Users**, select the user, and edit their permissions. Remove workspace-level permissions for campaigns, Canvases, segments, and user data, and leave only minimal access—for example, "View Media Library Assets". For more information, see [Edit a user's permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+
+Team permissions work on top of workspace permissions. If you assign the user to a Team, grant only the minimum team-level permissions they need, and don't grant permissions for campaigns, Canvases, segments, or user profiles. They remain in the workspace and can sign in, but they can't perform most messaging or audience actions.
+
 To assign a user to a Team, navigate to **Settings** > **Company Users** and select a user you'd like to add to your Team.
 
 Then perform the following steps:

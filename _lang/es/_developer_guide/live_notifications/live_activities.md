@@ -347,6 +347,18 @@ Los eventos de actividad en vivo están disponibles en Currents, Snowflake Data 
 
 {% sdk_min_versions swift:14.2.0 %}
 
+{% alert important %}
+No te suscribas directamente a estos flujos de ActivityKit con Apple, ya que entrará en conflicto con las suscripciones de Braze e impedirá que las actividades en vivo funcionen correctamente:
+
+1. [`pushTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtokenupdates-swift.property)
+2. [`activityStateUpdates`](https://developer.apple.com/documentation/activitykit/activity/activitystateupdates-swift.property)
+3. [`contentUpdates`](https://developer.apple.com/documentation/activitykit/activity/contentupdates-swift.property)
+4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
+5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
+
+En su lugar, utiliza las suscripciones que se mencionan a continuación.
+{% endalert %}
+
 El SDK de Braze proporciona dos métodos de suscripción en `braze.liveActivities` para observar el ciclo de vida completo de las actividades en vivo. Para un tutorial paso a paso completo, consulta el [tutorial de actividades en vivo](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
 
 - [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates): Entrega eventos del ciclo de vida tanto para el registro de tokens push-to-start como para las instancias de actividad en ejecución.
@@ -409,7 +421,7 @@ Se admiten múltiples suscriptores: cada suscripción activa recibe cada emisió
 | `.pushToStartTokenFlushed(activityType:)` | El token se envió al servidor de Braze. Braze puede enviar notificaciones push-to-start para este tipo. |
 | `.pushToStartOptedOut(activityType:)` | El usuario fue excluido de push-to-start para este tipo de actividad a través de `optOutPushToStart(type:)`. |
 | `.pushToStartOptOutFlushed(activityType:)` | La exclusión se envió al servidor de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Type-scoped events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos a nivel de tipo" }
 
 #### Eventos a nivel de instancia {#instance-scoped-events}
 
@@ -424,7 +436,7 @@ Se admiten múltiples suscriptores: cada suscripción activa recibe cada emisió
 | `.ended(activityId:activityType:)` | La actividad ha finalizado. |
 | `.contentUpdated(activityId:activityType:)` | El estado del contenido de la actividad se actualizó (iOS 16.2+). Utiliza lógica personalizada para buscar la `Activity<T>` por ID desde `Activity.activities` y acceder al estado tipado a través de `activity.content.state`. |
 | `.pushTokenUpdated(activityId:activityType:)` | ActivityKit rotó el token push de la actividad. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Instance-scoped events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos a nivel de instancia" }
 
 ###### Ejemplo
 
@@ -478,7 +490,7 @@ Utiliza la bandera `isTransient` para determinar si es apropiado reintentar. El 
 | Error | Cuándo se activa |
 | ----- | ------------- |
 | `.pushToStartRegistrationFailed(activityType:isTransient:reason:)` | El token push-to-start no pudo llegar al servidor de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Type-scoped errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Errores a nivel de tipo" }
 
 #### Errores a nivel de instancia {#instance-scoped-errors}
 
@@ -487,7 +499,7 @@ Utiliza la bandera `isTransient` para determinar si es apropiado reintentar. El 
 | `.registrationFailed(activityId:activityType:pushTokenTag:isTransient:reason:)` | El token push de la actividad no se pudo registrar en Braze. |
 | `.activityNotFound(activityId:activityType:)` | `resumeActivities(ofType:)` encontró un mapeado almacenado para una actividad que ya no está en ejecución; probablemente finalizó mientras la aplicación estaba cerrada. |
 | `.invalidPushTokenTag(activityId:activityType:tag:)` | `launchActivity(pushTokenTag:activity:)` fue llamado con una etiqueta no válida. Las etiquetas deben ser no vacías y de menos de 256 bytes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Instance-scoped errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Errores a nivel de instancia" }
 
 ###### Ejemplo
 

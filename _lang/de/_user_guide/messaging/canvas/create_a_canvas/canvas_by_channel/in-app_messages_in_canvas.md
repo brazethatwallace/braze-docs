@@ -20,6 +20,8 @@ Bevor Sie In-App-Nachrichten in Ihrem Canvas verwenden können, stellen Sie sich
 
 Fügen Sie im Canvas-Builder einen [Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)-Schritt hinzu und wählen Sie **In-App Message** als Ihren **Messaging Channel**. Sie können anpassen, [wann Ihre Nachricht abläuft](#in-app-message-expiration) und welches [Fortschrittsverhalten](#advancement-behavior) sie haben soll.
 
+Wenn Ihr Workspace mehrere Apps hat, sprechen Sie die richtige App über **Zustellungsplattformen**, {% raw %}`{{targeted_device.${platform}}}`{% endraw %} oder {% raw %}`{{app.${api_id}}}`{% endraw %} Liquid-Tags an – nicht über Zustellungsvalidierungen. In-App-Nachrichten werden nur angezeigt, wenn Nutzer:innen die Ziel-App öffnen und die Trigger-Kriterien des Schritts erfüllen. Weitere Informationen finden Sie unter [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations).
+
 ## Eine In-App-Nachricht zu Ihrer User-Journey hinzufügen {#adding-an-in-app-message-to-your-user-journey}
 
 Um eine In-App-Nachricht zu Ihrem Canvas hinzuzufügen, gehen Sie wie folgt vor:
@@ -47,6 +49,12 @@ Sie können festlegen, wann die In-App-Nachricht abläuft. Während dieser Zeit 
 | **Eine Dauer nach Verfügbarkeit des Schritts** | Legt fest, dass die In-App-Nachricht relativ zum Zeitpunkt abläuft, an dem der Schritt für die Nutzer:innen verfügbar wird. | Eine In-App-Nachricht mit einem Ablauf von zwei Tagen wird verfügbar, wenn Nutzer:innen den Nachrichten-Schritt betreten und die Zielgruppenoptionen geprüft werden. Eventuelle Verzögerungen vor Erreichen dieses Schritts stammen aus vorhergehenden Verzögerungsschritten in Ihrem Canvas. Die In-App-Nachricht wäre dann 2 Tage (48 Stunden) ab dem Zeitpunkt verfügbar, an dem die Nutzer:innen den Schritt betreten, und während dieser zwei Tage können Nutzer:innen die In-App-Nachricht sehen, wenn sie die App öffnen. |
 | **Zu einem bestimmten Datum und Uhrzeit** | Wählen Sie ein bestimmtes Datum und eine Uhrzeit, ab der die In-App-Nachricht nicht mehr verfügbar ist. | Wenn Sie einen Sale haben, der am 30. November 2024 endet, wählen Sie diese Option, damit Nutzer:innen die zugehörige In-App-Nachricht nicht mehr sehen, wenn der Sale endet. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+Wenn Nutzer:innen eine Sitzung starten, prüft Braze, ob sich ihre Berechtigung oder der Ablauf für In-App-Nachrichten geändert hat, und sendet aktualisierte Ablaufinformationen an ihr Gerät.
+
+Wenn eine In-App-Nachricht so eingestellt ist, dass sie zu einem bestimmten Datum und einer bestimmten Uhrzeit abläuft, die bereits vergangen ist, wenn Nutzer:innen den Nachrichten-Schritt erreichen, erhalten diese Nutzer:innen die In-App-Nachricht nicht. Sie durchlaufen den Canvas weiterhin gemäß Ihrem [Fortschrittsverhalten](#advancement-behavior) für diesen Schritt.
+
+Dies passiert häufig, wenn ein vorhergehender Schritt, wie z. B. ein [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/), Nutzer:innen auf einem längeren Pfad hält. Wenn Sie beispielsweise am 22. Mai einen Canvas mit einer 72-stündigen Verzögerung starten, gefolgt von einer In-App-Nachricht, die am 23. Mai um Mitternacht abläuft, erreichen Nutzer:innen den Nachrichten-Schritt nach der Ablaufzeit und sehen die In-App-Nachricht nicht.
 
 ## Anwendungsfälle {#use-cases}
 

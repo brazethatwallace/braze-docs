@@ -29,13 +29,13 @@ Sollten Sie beim Erstellen eines Agenten die Option **Braze Auto** nicht in der 
 
 Mit dieser Option können Sie Ihr Braze-Konto mit Anbietern wie OpenAI, Anthropic oder Google Gemini verbinden. Wenn Sie Ihren eigenen API-Schlüssel von einem LLM-Anbieter verwenden, werden die Token-Kosten direkt über Ihren Anbieter und nicht über Braze abgerechnet.
 
-Wir empfehlen, regelmäßig die neuesten Modelle zu testen, da ältere Modelle nach einigen Monaten möglicherweise eingestellt oder als veraltet markiert werden. Sie können sich auch für Benachrichtigungen der Agentenkonsole unter [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) anmelden, um benachrichtigt zu werden, wenn Braze erkennt, dass ein Modell nicht mehr verfügbar ist.
+Wir empfehlen, regelmäßig die neuesten Modelle zu testen, da ältere Modelle nach einigen Monaten möglicherweise eingestellt oder als veraltet markiert werden. Sie können sich auch für Benachrichtigungen der Agentenkonsole unter [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) anmelden, um benachrichtigt zu werden, wenn Braze erkennt, dass ein Modell nicht mehr verfügbar ist oder Abrechnungsprobleme mit Ihrem LLM-Anbieter auftreten.
 
 So richten Sie dies ein:
 
-1. Gehen Sie zu **Partner Integrations** > **Technology Partners** und suchen Sie Ihren Anbieter.
+1. Gehen Sie zu **Partnerintegrationen** > **Technologie-Partner** und suchen Sie Ihren Anbieter.
 2. Geben Sie Ihren API-Schlüssel vom Anbieter ein.
-3. Wählen Sie **Save**.
+3. Wählen Sie **Speichern**.
 
 Anschließend können Sie zu Ihrem Agenten zurückkehren und Ihr Modell auswählen.
 
@@ -71,12 +71,22 @@ Jeder LLM-Anbieter bietet eine leicht unterschiedliche Mischung aus Modellfähig
 - Achten Sie beim Testen darauf, Zuverlässigkeit und Genauigkeit mit Token-Verbrauch und Aufrufdauer in Einklang zu bringen.
 - Jeder Anwendungsfall kann ein anderes optimales Modell und eine andere optimale Denkstufe haben. Wir empfehlen gründliches Testen, um konsistente Qualität ohne Timeouts sicherzustellen.
 
-### Rate-Limits
+### Aufruf-Rate-Limits {#invocation-flow-controls}
 
-Die folgenden Rate-Limits gelten pro Workspace:
+Die folgenden Aufruf-Rate-Limits gelten pro Workspace:
 
 - **Von Braze bereitgestelltes Modell:** 1.000 Aufrufe pro Minute
 - **Eigener API-Schlüssel:** 2.500 Aufrufe pro Minute
+
+Wenn viele Nutzer:innen gleichzeitig einen Agenten-Schritt aufrufen, reiht Braze die Aufrufe gemäß diesen Limits in eine Warteschlange ein, sodass die Verarbeitung bei Sendungen mit hohem Volumen länger dauern kann.
+
+### Rate-Limit-Fehler {#rate-limit-errors}
+
+Wenn der LLM-Anbieter einen Rate-Limit-Fehler zurückgibt, wiederholt Braze die Anfrage bis zu fünfmal mit exponentiellem Backoff. Dieses Wiederholungsverhalten gilt für Canvas-Agenten-Schritte. Katalog-Agenten wiederholen fehlgeschlagene Aufrufe nicht, einschließlich Rate-Limit-Fehlern des LLM-Anbieters.
+
+Wenn alle Wiederholungsversuche fehlschlagen, zeigt das Detailpanel **Logs** den Status **Error** und die Anbieternachricht (z. B. `Rate limit exceeded`) unter **Ausgabe** an. Jeder Wiederholungsversuch ist in den Logs sichtbar, einschließlich des allerersten Aufrufs unabhängig von seinem endgültigen Erfolg oder Misserfolg. Wenn es bei einer bestimmten Nutzerin bzw. einem bestimmten Nutzer vier Wiederholungsversuche braucht, um schließlich einen Erfolg zu erzielen, können Sie die Nutzer-ID suchen und alle fünf Einträge (Original plus vier Wiederholungen) in den **Logs** sehen. Das Original und die ersten drei Wiederholungen zeigen dabei **Error** mit `Rate limit exceeded` an.
+
+![Agentenkonsole-Logdetails mit einem „Rate limit exceeded“-Fehler im Ausgabefeld.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
 ## Anweisungen verfassen {#writing-instructions}
 
@@ -111,7 +121,7 @@ Im Abschnitt **Logs** der **Agentenkonsole** können Sie die Details zu den Ein-
 
 ![Die Details für einen Agenten, der Liquid in seinen Anweisungen verwendet.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
-Für Katalog-Agenten verwenden Sie **Fields** im Abschnitt **Output** anstelle von JSON Schema. Sie können dennoch Anweisungen verfassen, die das Modell auffordern, eine Schlüssel-Wert-Ausgabe zu liefern, die diesen Feldnamen entspricht.
+Für Katalog-Agenten verwenden Sie **Felder** im Abschnitt **Ausgabe** anstelle von JSON Schema. Sie können dennoch Anweisungen verfassen, die das Modell auffordern, eine Schlüssel-Wert-Ausgabe zu liefern, die diesen Feldnamen entspricht.
 
 Weitere Informationen zu Best Practices für Prompting finden Sie in den Leitfäden der folgenden Modellanbieter:
 
@@ -137,7 +147,7 @@ Arrays sind nur für Canvas-Agenten verfügbar, nicht für Katalog-Agenten.
 
 Erweiterte Schema-Optionen umfassen die manuelle Strukturierung von Feldern oder die Verwendung von JSON.
 
-- **Fields:** Eine No-Code-Methode, um eine konsistente Agentenausgabe zu erzwingen.
+- **Felder:** Eine No-Code-Methode, um eine konsistente Agentenausgabe zu erzwingen.
 - **JSON:** Ein Code-Ansatz zur Erstellung eines präzisen Ausgabeformats, bei dem Sie Variablen und Objekte innerhalb des JSON-Schemas verschachteln können. Nur für Canvas-Agenten verfügbar, nicht für Katalog-Agenten.
 
 Wir empfehlen die Verwendung erweiterter Schemata, wenn der Agent eine Datenstruktur mit mehreren strukturiert definierten Werten zurückgeben soll, anstatt einer einzelnen Ausgabe. Dadurch kann die Ausgabe besser als konsistente Kontextvariable formatiert werden.
@@ -145,7 +155,7 @@ Wir empfehlen die Verwendung erweiterter Schemata, wenn der Agent eine Datenstru
 Beispielsweise können Sie ein Ausgabeformat innerhalb eines Agenten verwenden, der eine Beispiel-Reiseroute für Nutzer:innen basierend auf einem eingereichten Formular erstellen soll. Das Ausgabeformat ermöglicht es Ihnen festzulegen, dass jede Agentenantwort Werte für `tripStartDate`, `tripEndDate` und `destination` enthalten soll. Jeder dieser Werte kann aus Kontextvariablen extrahiert und in einem Nachrichtenschritt zur Personalisierung mit Liquid eingefügt werden.
 
 {% tabs %}
-{% tab Fields %}
+{% tab Felder %}
 
 Wenn Sie Antworten auf eine einfache Feedback-Umfrage formatieren möchten, um zu ermitteln, wie wahrscheinlich es ist, dass Befragte die neueste Eissorte Ihres Restaurants weiterempfehlen, können Sie die folgenden Felder einrichten, um das Ausgabeformat zu strukturieren:
 
@@ -209,13 +219,13 @@ Die Interaktionsdaten von Nutzer:innen umfassen ihre letzten Campaign- und Canva
 Um Verbesserungen oder Iterationen eines Agenten zu testen, können Sie einen Agenten duplizieren und anschließend Änderungen vornehmen, um diese mit dem Original zu vergleichen. Sie können das Duplizieren von Agenten auch als Versionskontrolle nutzen, um Änderungen in den Agentendetails und etwaige Auswirkungen auf Ihr Messaging zu verfolgen. So duplizieren Sie einen Agenten:
 
 1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical"></i>-Menü aus.
-2. Wählen Sie **Duplicate**.
+2. Wählen Sie **Duplizieren**.
 
 ## Agenten archivieren {#archive-agents}
 
 Wenn Sie weitere angepasste Agenten erstellen, können Sie die Seite **Agentenmanagement** organisieren, indem Sie Agenten archivieren, die nicht aktiv verwendet werden. So archivieren Sie einen Agenten:
 
 1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical"></i>-Menü aus.
-2. Wählen Sie **Archive**.
+2. Wählen Sie **Archivieren**.
 
 ![Seite „Agentenmanagement“ mit archivierten Agenten.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

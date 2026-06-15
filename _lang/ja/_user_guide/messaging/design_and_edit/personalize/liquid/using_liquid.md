@@ -94,7 +94,7 @@ Liquidには、ダイナミックなパーソナライゼーションを作成�
 
 条件文でフィルターを直接使用することはできません。以下は正しくありません：
 
-`````````liquid
+```liquid
 {% if my_array | size > 3 %}
 You have more than 3 items!
 {% endif %}
@@ -102,7 +102,7 @@ You have more than 3 items!
 
 代わりに、フィルター結果を変数に割り当ててください：
 
-`````````liquid
+```liquid
 {% assign array_size = my_array | size %}
 {% if array_size > 3 %}
 You have more than 3 items!
@@ -113,7 +113,7 @@ You have more than 3 items!
 
 `for`ループのイテラブルにフィルターを適用することはできません。以下は正しくありません：
 
-`````````liquid
+```liquid
 {% for item in my_array | reverse %}
 {{ item }}
 {% endfor %}
@@ -121,7 +121,7 @@ You have more than 3 items!
 
 代わりに、フィルター処理された値を変数に割り当ててください：
 
-`````````liquid
+```liquid
 {% assign reversed = my_array | reverse %}
 {% for item in reversed %}
 {{ item }}
@@ -132,13 +132,13 @@ You have more than 3 items!
 
 角括弧内でフィルターを使用することはできません。以下は正しくありません：
 
-`````````liquid
+```liquid
 {{ my_array[my_var | minus: 1] }}
 ```
 
 代わりに、まずフィルター処理された値を割り当ててください：
 
-`````````liquid
+```liquid
 {% assign adjusted_index = my_var | minus: 1 %}
 {{ my_array[adjusted_index] }}
 ```
@@ -147,7 +147,7 @@ You have more than 3 items!
 
 `assign`文で演算子を使用することはできません。以下は正しくありません：
 
-`````````liquid
+```liquid
 {% assign is_vip = total_spend > 100 %}
 {% if is_vip %}
 Welcome to the VIP lounge!
@@ -156,7 +156,7 @@ Welcome to the VIP lounge!
 
 代わりに、条件文を使用して変数を設定してください：
 
-`````````liquid
+```liquid
 {% assign is_vip = false %}
 {% if total_spend > 100 %}
 {% assign is_vip = true %}
@@ -189,7 +189,7 @@ Welcome to the VIP lounge!
 
 以下のタグはすべて正しいです：
 
-`````````liquid
+```liquid
 {% if custom_attribute.${Number_Game_Attended} == 1 %}
 {% if {{custom_attribute.${Number_Game_Attended}}} == 1 %}
 
@@ -207,6 +207,10 @@ Welcome to the VIP lounge!
 2. Liquidコードは`<body>`タグ内にのみ配置してください。このタグの外側に配置すると、配信時にレンダリングが不整合になる可能性があります。
 
 {% endalert %}
+
+### HTMLエディターとクラシックエディターの切り替え {#switching-between-html-and-classic-editors}
+
+HTMLエディターとクラシックエディターを切り替えると、LiquidスニペットやContent Blocksの位置がメッセージ内で移動する場合があります。エディターを切り替えた後にテンプレートを確認してください。より予測可能なレイアウト制御が必要な場合は、ドラッグ＆ドロップエディターを使用してください。
 
 ### 事前フォーマット済み変数の挿入 {#inserting-pre-formatted-variables}
 

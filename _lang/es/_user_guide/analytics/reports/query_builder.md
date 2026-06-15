@@ -104,7 +104,7 @@ Para ver los detalles de las tablas dentro del Generador de consultas:
 
 1. Desde la página del **Query Builder**, abre el panel **Reference** y selecciona **Available Data Tables** para ver las tablas de datos disponibles y sus nombres.
 3. Selecciona <i class="fas fa-chevron-down" alt=""></i> **See Details** para ver la descripción de la tabla e información sobre las columnas de la tabla, como los tipos de datos.
-4. Para insertar el nombre de la tabla en tu SQL, selecciona <i class="fas fa-copy" title="Copiar nombre de tabla al editor SQL"></i>.
+4. Para insertar el nombre de la tabla en tu SQL, selecciona <i class="fas fa-copy" title="Copiar nombre de tabla al editor SQL"></i> **Copy table name to SQL editor**.
 
 Para utilizar consultas preescritas proporcionadas por Braze, selecciona **Query Template** al crear un informe por primera vez en el Generador de consultas.
 

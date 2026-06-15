@@ -75,7 +75,7 @@ Para personalizar as propriedades de fundo, configurações de borda e mais da s
 
 #### Etapa 3.2: Definir o comportamento ao clicar (opcional) {#step-32-define-on-click-behavior-optional}
 
-Quando um usuário clica em um link no Banner, você pode optar por direcioná-lo para uma área mais profunda do seu app ou redirecioná-lo para outra página da web. Além disso, você pode escolher [registrar um atributo personalizado ou evento]({{site.baseurl}}/developer_guide/analytics/), que atualiza o perfil do usuário com dados personalizados quando ele clica no Banner.
+Quando um usuário clica em um link no Banner, você pode optar por direcioná-lo para uma área mais profunda do seu app ou redirecioná-lo para outra página da web. Além disso, você pode escolher [registrar um atributo personalizado ou evento]({{site.baseurl}}/developer_guide/analytics/), que atualiza o perfil do usuário com dados personalizados quando ele clica no Banner. Para um rastreamento de cliques mais granular, atribua um identificador personalizado a cada elemento interativo usando o campo **Identifier for Reporting** no painel de propriedades.
 
 {% alert important %}
 {::nomarkdown}
@@ -94,7 +94,7 @@ Quando a dispensa está ativada, você pode personalizar o botão de dispensa na
 | **Button size** | O tamanho do botão de dispensa exibido no Banner. |
 | **Button color** | A cor do botão de dispensa. |
 | **ARIA label** | O rótulo acessível para o botão de dispensa, usado por leitores de tela. O padrão é "Close" se deixado em branco. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurações do botão de dispensa" }
 
 Quando um usuário dispensa um Banner, ele não aparece novamente para esse usuário, mesmo que ele ainda atenda aos critérios de direcionamento da campanha.
 
@@ -113,11 +113,11 @@ Para adicionar uma propriedade personalizada, selecione **Settings** > **Propert
 Para cada propriedade que deseja adicionar, preencha o seguinte:
 
 | Campo | Descrição | Exemplo |
-|-------|-----------|---------|
+|-------|-------------|---------|
 | Tipo de propriedade | O tipo de dado da propriedade. Os tipos suportados incluem string, booleano, número, timestamp, URL de imagem e objeto JSON. | String |
 | Chave da propriedade | O identificador único da propriedade. Essa chave é usada no SDK para acessar a propriedade. | `color` |
 | Valor | O valor atribuído à propriedade. Deve corresponder ao tipo de propriedade selecionado. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Adicionar propriedades personalizadas" }
 
 Quando terminar, selecione **Done**.
 

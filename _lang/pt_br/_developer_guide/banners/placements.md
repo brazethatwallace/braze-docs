@@ -31,7 +31,7 @@ Estas são as versões mínimas do SDK necessárias para criar posicionamentos d
 
 ### Etapa 2: Atualize os posicionamentos no seu app {#requestBannersRefresh}
 
-Os posicionamentos podem ser atualizados chamando os métodos de atualização descritos abaixo. Esses posicionamentos serão armazenados em cache automaticamente quando a sessão de um usuário expirar ou quando você mudar usuários identificados usando o método `changeUser`.
+Os posicionamentos podem ser atualizados chamando os métodos de atualização descritos abaixo. Se `subscribeToBannersUpdates` estiver ativo, o SDK republica automaticamente os IDs de posicionamento em cache no início de cada nova sessão e quando você chama `changeUser`. Essa atualização automática não consome um token de limite de taxa.
 
 {% alert tip %}
 Atualize os posicionamentos o mais rápido possível para evitar atrasos no download ou na exibição dos Banners.
@@ -571,7 +571,7 @@ O método usado para registrar cliques em Banners depende de como seu Banner é 
 
 ### Conteúdo padrão do Banner (automático) {#standard-banner-content-automatic}
 
-Se você estiver usando métodos padrão do SDK, prontos para uso, para inserir Banners, e seu Banner usar componentes de editor padrão (imagens, botões, texto), os cliques são rastreados automaticamente. O SDK anexa ouvintes de cliques a esses elementos, e nenhum código adicional é necessário.
+Se você estiver usando métodos padrão do SDK, prontos para uso, para inserir Banners, e seu Banner usar componentes padrão do editor (imagens, botões, texto), os cliques são rastreados automaticamente. O SDK anexa ouvintes de cliques a esses elementos, e nenhum código adicional é necessário.
 
 ### Blocos de código personalizado {#custom-code-blocks}
 
@@ -709,10 +709,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 ## Registrar dispensas {#log-dismissals}
 
 As dispensas de Banner removem programaticamente um Banner de um posicionamento quando um usuário o dispensa ativamente. Uma vez dispensado, o Banner é suprimido para aquele usuário. Na próxima vez que a lista de posicionamentos for atualizada, um novo banner será retornado se o usuário for elegível para um.
-
-{% alert important %}
-As dispensas de Banner estão atualmente em acesso antecipado. Se você tiver interesse em participar do acesso antecipado, fale com o seu gerente de sucesso do cliente.
-{% endalert %}
 
 ### Pré-requisitos
 

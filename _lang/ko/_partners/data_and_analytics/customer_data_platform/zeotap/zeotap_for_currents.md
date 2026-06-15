@@ -13,10 +13,6 @@ search_tag: Partner
 
 Braze와 Zeotap 통합을 사용하면 Zeotap 고객 세그먼트를 Braze 고객 프로필에 동기화하여 Campaign의 규모와 도달 범위를 확장할 수 있습니다. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)를 사용하면 데이터를 Zeotap에 연결하여 전체 성장 스택에서 활용할 수도 있습니다.
 
-{% alert important %}
-커스텀 HTTP 커넥터는 현재 베타 버전입니다. 이 통합을 설정하는 데 관심이 있으시면 고객 성공 매니저에게 문의하세요.
-{% endalert %}
-
 ## 필수 조건 {#prerequisites}
 
 | 요구 사항 | 설명 |
@@ -40,7 +36,7 @@ Braze와 Zeotap 통합을 사용하면 Zeotap 고객 세그먼트를 Braze 고�
 
 ### 2단계: Currents에서 데이터 스트리밍 구성 {#step-2-configure-data-streaming-in-currents}
 
-1. Braze에서 **Partner Integrations** > **Data Export**로 이동합니다.
+1. Braze에서 **파트너 통합** > **데이터 내보내기**로 이동합니다.
 2. **Create New Current**을 선택한 다음 **Custom Currents Export**를 선택합니다.<br><br>!["Custom Currents Export"가 포함된 드롭다운이 있는 "Create New Current" 버튼]({% image_buster /assets/img/zeotap/custom_currents_export.png %}){: style="max-width:60%;"}<br><br>
 3. 통합 이름과 통합에서 오류가 발생할 경우 연락받을 이메일을 입력합니다.
 4. **Credentials** 아래에 [1단계](#step-1-create-a-currents-source)에서 메모한 다음 정보를 입력합니다:

@@ -15,7 +15,7 @@ AI 카피라이팅 도우미에서 브랜드 가이드라인을 만들려면 다
 
 ### 1단계: 브랜드 가이드라인 작성 {#step-1-create-a-brand-guideline}
 
-1. 메시지 작성기에서 <i class="fa-solid fa-wand-magic-sparkles" title="AI 카피라이터"></i>를 찾아 선택하여 [AI 카피라이팅 도우미를 엽니다]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/#access).
+1. 메시지 작성기에서 <i class="fa-solid fa-wand-magic-sparkles" title="AI 카피라이터"></i> **AI 카피라이터**를 찾아 선택하여 [AI 카피라이팅 도우미를 엽니다]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/#access).
 2. **브랜드 가이드라인 적용**을 선택한 다음 **브랜드 가이드라인 생성**을 선택하세요.
 
 !["브랜드 가이드라인 적용" 드롭다운이 확장되어 "브랜드 가이드라인 생성" 버튼에 포커스된 모습.]({% image_buster /assets/img/ai_copywriter/create_brand_guideline_button.png %}){:style="max-width:75%"}

@@ -77,7 +77,7 @@ Les rapports d'engagement agrègent les données par Campaign ou par Canvas, et 
 | Message in-app | Impressions, Clics, Clics sur le premier bouton, Clics sur le deuxième bouton |
 | Webhook  |  Envois, Erreurs |
 | SMS | Envois, Envois à l'opérateur, Réceptions confirmées, Échecs de réception, Rejets |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Ajouter des statistiques" }
 
 ### Étape 4 : Finaliser la configuration du rapport {#step-4-complete-report-setup}
 
@@ -146,3 +146,10 @@ Si vous souhaitez une seule ligne agrégée pour la plage complète au lieu de c
 #### Clics de bouton en double dans les messages in-app HTML {#duplicate-button-clicks-in-html-in-app-messages}
 
 Si vous utilisez des messages in-app HTML et que les **Clics sur le corps** semblent élevés dans le rapport d'engagement, il est possible que vous déclenchiez la journalisation des clics deux fois — par exemple en appelant `brazeBridge.logClick()` pour un clic générique sur le corps et également `brazeBridge.logClick('body click')` (ou un autre ID) sur la même interaction. Recherchez `brazeBridge.logClick(` dans votre code et alignez-vous sur un seul modèle par contrôle. Pour l'utilisation recommandée, consultez [Suivi des boutons]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+
+#### Liens cassés dans les rapports d'engagement envoyés par e-mail {#broken-links-in-emailed-engagement-reports}
+
+Si les liens d'un e-mail de rapport d'engagement planifié ne s'ouvrent pas correctement dans votre client de messagerie, essayez les étapes suivantes :
+
+1. Transférez le rapport vers une boîte de réception Gmail et ouvrez les liens dans Google Chrome.
+2. Dans les paramètres du rapport d'engagement, confirmez que **Report Schedule** est configuré pour envoyer le rapport au moment prévu (par exemple, immédiatement après la génération du rapport plutôt que selon un calendrier différé).

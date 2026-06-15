@@ -26,7 +26,7 @@ L'intégration Braze et OpenAI vous permet de connecter votre clé API OpenAI à
 |---|---|
 | Compte OpenAI avec clé API | Un compte OpenAI avec une clé API. Contactez votre administrateur ou l'[assistance OpenAI](https://help.openai.com/) pour tout problème ou question. |
 | Instance Braze | Vous pouvez trouver votre instance Braze sur la [page d'aperçu de l'API]({{site.baseurl}}/api/basics/#endpoints) ou auprès de votre gestionnaire d'onboarding Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -34,7 +34,7 @@ Pour connecter votre clé API OpenAI à Braze :
 
 1. Accédez à **Intégrations partenaires** > **Partenaires technologiques** dans le tableau de bord de Braze et recherchez OpenAI.
 2. Saisissez votre clé API OpenAI.
-3. Sélectionnez **Save**.
+3. Sélectionnez **Enregistrer**.
 
 Après l'enregistrement, vous pouvez sélectionner des modèles OpenAI lors de la [création d'un agent personnalisé]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) dans la Console des agents.
 

@@ -71,7 +71,17 @@ In addition, Braze also provides a push changelog on the user profile under the 
 
 #### Device token not for topic
 
-This error indicates that your app's push certificate and bundle ID are mismatched. Check that the push certificate you uploaded to Braze matches the provisioning profile used to build the app from which the push token was sent.
+APNs returns `DeviceTokenNotForTopic` (HTTP status 400) when the push token doesn't match the topic (bundle ID) configured for your credentials. Braze may surface this in **Message Activity Log** or push delivery logs as `DeviceTokenNotForTopic`.
+
+To resolve the mismatch:
+
+1. Confirm the app's **bundle ID** matches the **App Bundle ID** in Braze (**Settings** > **App Settings** > **Push Notification Settings**).
+2. Verify the provisioning profile used to build the app includes push capability for that bundle ID.
+3. Confirm the push credential uploaded to Braze matches the app's environment (development versus production).
+4. For `.p8` keys, verify **Team ID** and **Key ID** in Braze match your Apple Developer account.
+5. Re-upload a valid `.p8` key or `.p12` certificate if credentials were rotated or revoked.
+
+Prefer `.p8` authentication keys when possible. For credential types and dashboard status indicators, see [Migrate to a .p8 authentication key]({{site.baseurl}}/user_guide/channels/push/troubleshooting/#migrate-to-a-p8-authentication-key).
 
 #### BadDeviceToken sending to push token
 

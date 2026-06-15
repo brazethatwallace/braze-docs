@@ -19,7 +19,7 @@ page_order: 3
 
 ## 보고서 템플릿 사용하기 {#using-a-report-template}
 
-1. **분석** > **보고서 빌더(신규)**로 이동합니다.
+1. **Analytics** > **보고서 빌더(신규)**로 이동합니다.
 2. **새 보고서 생성** 버튼 옆의 **추가 옵션** 화살표를 선택한 다음 **보고서 템플릿 사용**을 선택합니다.<br><br>!["새 보고서 생성" 버튼 드롭다운에 커스텀 보고서 생성 또는 템플릿 사용 옵션이 표시됩니다.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Braze 템플릿 라이브러리에서 보고서 템플릿 중 하나를 선택합니다.
     - **행 항목** 및 **태그** 드롭다운을 사용하여 사용 사례에 맞는 관련 보고서를 찾습니다.<br><br>!["Braze 보고서 템플릿" 창에 선택할 수 있는 Braze 템플릿 목록이 표시됩니다.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
@@ -27,7 +27,7 @@ page_order: 3
 
 ## 보고서 생성하기 {#creating-a-report}
 
-1. **분석** > **보고서 빌더(신규)**로 이동합니다.
+1. **Analytics** > **보고서 빌더(신규)**로 이동합니다.
 2. **새 보고서 생성**을 선택합니다.
 3. **행** 드롭다운에서 보고할 항목을 선택합니다:
     - Campaigns
@@ -95,11 +95,13 @@ page_order: 3
 | 총 매출 | Campaigns, Canvases, Campaigns 및 Canvases, 태그에서 사용할 수 있습니다. **채널** 드릴다운에서는 사용할 수 없습니다. |
 | 고유 노출 횟수 | Campaigns, Canvases, Campaigns 및 Canvases, 태그에서 사용할 수 있습니다. |
 | 고유 수신자 | Campaigns, Canvases, Campaigns 및 Canvases, 태그에서 사용할 수 있습니다. **채널** 드릴다운에서는 사용할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Metrics availability" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="측정기준 가용성" }
 
 ### 삭제된 메시지 배리언트 {#deleted-message-variants}
 
 삭제된 메시지 배리언트의 통계는 Campaign 또는 Canvases별로 보고서를 분류할 때 표시되지 않습니다. 그러나 채널 수준 합계에는 배리언트 삭제 여부와 관계없이 모든 통계가 포함됩니다. 예를 들어, 이메일의 *발송*에는 모든 이메일 발송이 포함되지만, Campaign별로 통계를 분류하면 삭제된 메시지 배리언트의 발송이 필터링되므로 숫자가 더 낮을 수 있습니다.
+
+같은 보고서에서 메시지 배리언트가 발송 후 삭제된 경우 *고유 수신자*가 *고유 노출 횟수*보다 높을 수 있습니다. Campaign 수준의 *고유 수신자*에는 삭제된 배리언트를 수신한 사용자가 여전히 포함될 수 있지만, *고유 노출 횟수*는 메시지 수준 집계에서 삭제된 배리언트의 통계를 제외합니다.
 
 ## 보고서 조회하기 {#viewing-a-report}
 

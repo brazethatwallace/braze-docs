@@ -330,3 +330,35 @@ Por exemplo, você pode configurar a seguinte regra:
 > No máximo três Campaigns ou componentes do Canvas de e-mail por semana de todas as Campaigns e etapas do Canvas.
 
 Essa regra determina que nenhum usuário receba mais de 100 e-mails por semana porque, no máximo, os usuários recebem três e-mails por semana de Campaigns ou componentes do Canvas com limite de frequência ativado.
+
+## Perguntas frequentes {#frequently-asked-questions}
+
+### Se eu alterar a limitação de envio em um Canvas ativo, isso afeta os usuários que já estão no Canvas? {#if-i-change-a-send-throttle-on-an-active-canvas-does-it-affect-users-already-in-the-canvas}
+
+Sim. Quando você aumenta ou diminui o limite de taxa de um Canvas, o limite atualizado entra em vigor para novas mensagens em aproximadamente 30 segundos após a alteração, devido ao cache.
+
+### O limite de frequência faz com que os usuários saiam de um Canvas? {#does-frequency-capping-cause-users-to-exit-a-canvas}
+
+Não. Se um usuário do Canvas é limitado por frequência devido às configurações de limite de frequência global, o usuário avança imediatamente para a próxima etapa do Canvas. O usuário **não** sai do Canvas por causa do limite de frequência.
+
+### Como posso identificar usuários que foram limitados por frequência em um Canvas? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
+
+Usuários que são limitados por frequência não geram um evento de envio para aquela etapa. Para identificar esses usuários, você pode usar o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para rastrear eventos de mensagens limitadas por frequência. Como alternativa, você pode criar uma [extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para analisar usuários que entraram no Canvas, mas não receberam a mensagem esperada.
+
+### Por que o dashboard mostra um erro de limite de taxa para minha Campaign? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
+
+Isso geralmente significa que o [limite de taxa de velocidade de entrega](#delivery-speed-rate-limiting) da Campaign está definido acima do que seu espaço de trabalho, provedor ou host de caixa de entrada pode absorver, então os envios se acumulam e a Braze exibe um aviso. Reduza o limite de taxa de velocidade de entrega da Campaign para que o desempenho por minuto fique dentro do que esses sistemas podem suportar. Você também pode definir um [limite de taxa de envio de mensagens do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) para aplicar um limite em todas as Campaigns.
+
+**Limitar o número de pessoas que receberão esta Campaign** controla quantos usuários são elegíveis para um envio, não quantas mensagens a Braze envia por minuto. Apenas um limite de taxa de velocidade de entrega define o desempenho por minuto.
+
+### O que significa "Enviado" para o limite de frequência? {#what-does-sent-mean-for-frequency-capping}
+
+Em análise de dados e limite de frequência, _Enviado_ refere-se ao momento em que a Braze despacha a mensagem (o envio é registrado), não à entrega final garantida ao dispositivo ou caixa de entrada. O limite de frequência e as contagens de envio usam esses eventos de envio registrados, que podem diferir das métricas de "entregue" downstream.
+
+### Por que estou vendo bounces ou adiamentos de e-mail? {#why-am-i-seeing-email-bounces-or-deferrals}
+
+Mensagens de bounce e adiamento de e-mail usam muitos códigos diferentes e textos específicos de provedores. Não trate um código específico como sinal de um problema de limite de taxa, pois a causa depende do seu contexto de envio e do feedback do provedor de caixa de entrada.
+
+Se as mensagens estão sendo temporariamente adiadas, enviar menos pode ajudar a curto prazo. Use um [limite de taxa de velocidade de entrega](#delivery-speed-rate-limiting), **Limitar o número de pessoas que receberão esta Campaign**, ou ambos.
+
+Para uma solução de longo prazo, trabalhe com um especialista em entregabilidade para revisar seus dados de bounce e adiamento.

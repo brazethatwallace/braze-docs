@@ -7,15 +7,15 @@ description: "このリファレンス記事では、AIコピーライティン�
 
 # BrazeAIでブランド・ガイドラインを生成する {#generate-brand-guidelines-with-brazeai}
 
-> ブランドガイドラインをカスタマイズして、AIで生成されるコピーのスタイルをブランドのボイスやパーソナリティに合わせましょう。
+> カスタマイズされたブランドガイドラインで、AIが生成するコピーのスタイルをブランドのボイスやパーソナリティに合わせて調整できます。
 
 ## ブランドガイドラインの生成 {#steps}
 
-AIコピーライティングアシスタントでブランドガイドラインを作成するには、次のステップに従います。[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)の設定ページでブランドガイドラインを作成することもできます。
+AIコピーライティングアシスタントでブランドガイドラインを作成するには、次のステップに従います。[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)の設定ページでブランドガイドラインを作成することもできます。
 
 ### ステップ1:ブランドガイドラインの作成 {#step-1-create-a-brand-guideline}
 
-1. メッセージ作成画面で <i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i> を選択して、[AIコピーライティングアシスタントを開きます]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/#access)。
+1. メッセージ作成画面で <i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i> **AIコピーライター**を見つけて選択し、[AIコピーライティングアシスタントを開きます]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/#access)。
 2. **Apply brand guideline**を選択し、次に**Create a brand guideline**を選択します。
 
 ![「Apply brand guidelines」のドロップダウンが展開され、「Create a brand guideline」ボタンがフォーカスされている状態。]({% image_buster /assets/img/ai_copywriter/create_brand_guideline_button.png %}){:style="max-width:75%"}
@@ -38,8 +38,8 @@ AIコピーライティングアシスタントでブランドガイドライン
 | パーソナリティの特徴 | 自社ブランドの特徴を表す、人間に例えた特徴。 | 自社ブランドはフレンドリーで親しみやすく、常に明るいです。 |
 | 価値観 | 自社ブランドのアクションや意思決定の指針となるコアバリュー。 | 自社は、持続可能性、透明性、そしてコミュニティを大切にしています。 |
 | 差別化 | 自社ブランドを競合他社から際立たせる独自の資質。 | 自社は、極上のパーソナライズされた顧客サービスを提供することで、傑出した存在になっています。 |
-| ブランドボイス | 自社ブランドで使用しているコミュニケーションのトーンとスタイル。 | 自社のボイスはカジュアルでありながら役立つ情報を提供し、明瞭さを保ちつつも堅苦しくなりすぎないようにしています。 |
-| ブランドの原型 | 自社ブランドのペルソナ（ヒーロー、創造者など）を表す原型。 | 自社は「探検家」の原型を体現し、常に新しい挑戦と冒険を求めています。 |
+| ブランドボイス | 自社ブランドが使用するコミュニケーションのトーンとスタイル。 | 自社のボイスはカジュアルでありながら情報量が豊富で、堅苦しくならずに明確さを確保しています。 |
+| ブランドアーキタイプ | 自社ブランドのペルソナを表すアーキタイプ（ヒーロー、クリエイターなど）。 | 自社は「探検家」のアーキタイプを体現し、常に新しい挑戦と冒険を求めています。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2:ブランドのパーソナリティの説明" }
 
 ### ステップ3:避けるべき言葉の定義（オプション） {#step-3-define-language-that-should-be-avoided-optional}
@@ -50,7 +50,7 @@ AIコピーライティングアシスタントでブランドガイドライン
 
 ガイドラインをテストして、そのパフォーマンスを確認します。**Test your guidelines**を展開し、コピー例を生成して、必要に応じて調整します。
 
-![メール件名用の春のセールプロモーションで、ブランドガイドラインをテストしている様子。]({% image_buster /assets/img/ai_copywriter/test_brand_guidelines.png %})
+![メール件名用の春のセールプロモーションでブランドガイドラインをテストしている様子。]({% image_buster /assets/img/ai_copywriter/test_brand_guidelines.png %})
 
 ### ステップ5:ガイドラインの保存 {#step-5-save-your-guidelines}
 

@@ -20,7 +20,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 Wenn Sie Ihre vorhandenen benutzerdefinierten HTML-Templates oder von Drittanbietern erstellte Templates verwenden möchten, müssen diese im Drag-and-Drop-Editor neu erstellt werden.
 
-Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder einen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind. Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, lassen Sie uns die Schritte zum Erstellen einer Drag-and-Drop-In-App-Nachricht durchgehen.
+Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder einen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind. Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-In-App-Nachricht durch.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -95,7 +95,7 @@ Sie können bis zu 10 Seiten pro In-App-Nachricht hinzufügen.
 
 So duplizieren Sie eine vorhandene Seite:
 
-1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i>, um weitere Optionen zu öffnen.
+1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Wählen Sie **Duplicate**.
 3. Geben Sie der Seite einen aussagekräftigen Namen. Dies hilft Ihnen beim Verbinden der Seiten.
 
@@ -104,7 +104,7 @@ So duplizieren Sie eine vorhandene Seite:
 
 So löschen oder benennen Sie eine Seite um:
 
-1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i>, um weitere Optionen zu öffnen.
+1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Wählen Sie **Rename** oder **Delete**.
 
 {% endtab %}

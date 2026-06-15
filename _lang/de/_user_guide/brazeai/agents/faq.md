@@ -13,7 +13,7 @@ page_order: 10
 
 ### Was ist der Unterschied zwischen Canvas-Agents und Katalog-Agents? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
 
-Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas- oder Katalog-Agent erstellen möchten. Dies bestimmt, welche Arten von Anweisungen und Optionen der Agent unterstützen kann. Canvas-Agents verarbeiten Nutzer:innen in Realtime innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder aktualisieren.
+Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas-Agent oder einen Katalog-Agent erstellen möchten. Dies bestimmt, welche Arten von Anweisungen und Optionen der Agent unterstützen kann. Canvas-Agents verarbeiten Nutzer:innen in Realtime innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder aktualisieren.
 
 ### Welche Vorteile bietet das Auto-Modell im Vergleich zum Bring-your-own-Modell (BYO)? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -24,7 +24,7 @@ Vorteile des Braze Auto-Modells:
 
 ### Wo kann ich meine aktuelle Agent-Nutzung einsehen? {#where-can-i-find-my-current-agent-usage}
 
-Gehen Sie zu **Settings** > **Billing** > **Credits Usage**, um Details zu Ihrer Agent-Nutzung und den Credit-Kosten einzusehen.
+Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credit-Nutzung**, um Details zu Ihrer Agent-Nutzung und den Credit-Kosten einzusehen.
 
 ### Kann ich bedingte Liquid-Anweisungen in Agent-Anweisungen verwenden? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 
@@ -54,7 +54,7 @@ Ein angepasster Agent kann ein Timeout haben, wenn:
 
 - Die Agent-Anweisungen unvollständig oder widersprüchlich sind
 - Die Agent-Anweisungen nicht alle Szenarien abdecken oder keine Fallback-Bedingung enthalten (z. B. „Wenn alle Eingaben leer sind, gib ‚Konnte nicht personalisieren' aus“)
-- Die Agent-Anweisungen ein anderes Ausgabeformat verlangen als das im Tab **Output** festgelegte (z. B. wenn die Agent-Anweisungen einen String verlangen, aber im Tab **Output** die Ausgabe als Zahl definiert ist)
+- Die Agent-Anweisungen ein anderes Ausgabeformat verlangen als das im Tab **Ausgabe** festgelegte (z. B. wenn die Agent-Anweisungen einen String verlangen, aber im Tab **Ausgabe** die Ausgabe als Zahl definiert ist)
 - Die Aufgabe des Agents zu komplex ist und von einem [Sub-Agent-Ansatz](#subagent-approach) profitieren würde
 
 ## Compliance {#compliance}

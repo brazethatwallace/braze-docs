@@ -101,7 +101,7 @@ As tabelas a seguir fornecem exemplos de links no corpo de um e-mail, resultados
 | Link no corpo do e-mail | Link com alias |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with more query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link com mais parâmetros de consulta" }
 
 ### Link HTML {#html-link}
 
@@ -110,7 +110,7 @@ As tabelas a seguir fornecem exemplos de links no corpo de um e-mail, resultados
 | Link no corpo do e-mail | Link com alias |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML link" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link HTML" }
 
 ### Link com âncora {#link-with-anchor}
 
@@ -119,7 +119,7 @@ As tabelas a seguir fornecem exemplos de links no corpo de um e-mail, resultados
 | Link no corpo do e-mail | Link com alias |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link com âncora" }
 
 ### Link com âncora e tag de captura {#link-with-anchor-and-capture-tag}
 
@@ -127,8 +127,8 @@ As tabelas a seguir fornecem exemplos de links no corpo de um e-mail, resultados
 
 | Link no corpo do e-mail | Link com alias |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor and capture tag" }
+| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%} | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link com âncora e tag de captura" }
 
 ## Rastreando aliases de link {#tracking-link-aliases}
 
@@ -252,6 +252,8 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 
 No exemplo acima, o `?` antes do `#` fornece à Braze um segmento de consulta para adicionar o `lid`. Sem ele, o link pode não aparecer em **Link Management**.
 
+Sem identificar onde adicionar parâmetros de consulta, o alias de link não reconhece essas URLs e os modelos de link não são aplicados. Se você encontrar erros como **Failed to be assigned an LID** para uma URL dinâmica, confirme que o `href` usa o padrão `?` ou `&` mostrado nos exemplos desta seção.
+
 ### Considerações do editor de arrastar e soltar {#drag-and-drop-editor-considerations}
 
 No editor de arrastar e soltar, os campos que contêm um link (como a **URL** de um botão) validam o `href` subjacente antes da execução do Liquid. Espaços, quebras de linha e outros caracteres que não são seguros para URL podem causar comportamento inesperado quando a Braze adiciona modelos de link ou parâmetros de alias de link. Quando você precisa de Liquid condicional para o destino, defina a URL em um bloco HTML (consulte a seção a seguir) e referencie uma única variável no campo de **URL** do arrastar e soltar, em vez de colocar Liquid complexo diretamente nesse campo.
@@ -335,3 +337,21 @@ Alternativamente, você pode capturar a URL em uma variável:
 <a href="{{ url }}?">Go to account</a>
 ```
 {% endraw %}
+
+## Solução de problemas {#troubleshooting}
+
+### Destinos que não aceitam o parâmetro `lid` {#destinations-that-dont-accept-the-lid-parameter}
+
+Quando você envia uma mensagem de teste pelo editor de e-mail, a Braze adiciona {% raw %}`lid={{placeholder}}`{% endraw %} aos seus links (o placeholder se torna um valor único no momento do envio). Se o site ou API de destino não tolerar parâmetros de consulta extras, o link pode funcionar no editor, mas falhar quando aberto a partir do e-mail.
+
+Sem o valor `lid`, a Braze não trata a URL como alias de link para rastreamento e segmentação. Recomendamos atualizar seu backend ou site para que ele ignore o parâmetro de consulta `lid` quando presente. Isso preserva o alias de link, os relatórios e os casos de uso de segmentação descritos neste artigo.
+
+Alternativamente, você pode desativar o alias de link no dashboard enquanto planeja uma mudança no backend. Acesse **Settings** > **Email Preferences** > **Link Aliasing Settings**.
+
+Se você não puder alterar seus sistemas de destino, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/) para desativar o alias de link no seu espaço de trabalho. Observe as seguintes considerações se o alias de link for desativado no seu espaço de trabalho:
+
+- Novas mensagens de e-mail e Content Blocks normalmente não receberão nova marcação de alias de link (como o parâmetro de consulta `lid`).
+- Mensagens existentes que foram criadas enquanto o alias de link estava ativado ainda podem conter marcação de alias de link no HTML. Pode ser necessário remover manualmente os parâmetros `lid` restantes onde você não os deseja mais.
+- Se você editar uma Campaign existente, uma etapa de e-mail do Canvas ou um Content Block, pode ser necessário adicionar modelos de link novamente para que os links com modelo sejam exibidos corretamente.
+- Os relatórios de cliques para envios realizados enquanto o alias de link estava ativado podem não se alinhar perfeitamente com os relatórios após a desativação do recurso.
+- Segments que usam filtros baseados em alias de link (por exemplo, filtros **Clicked Alias**) podem parar de retornar os públicos esperados.

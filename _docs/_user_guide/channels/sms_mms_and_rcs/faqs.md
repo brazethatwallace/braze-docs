@@ -195,3 +195,9 @@ Braze sends the RCS payload you compose, while the messaging client controls how
 ### Can I send pre-recorded voicemails with RCS?
 
 Yes, you can use media messages to support audio files.
+
+### Why do REST API SMS opt-ins not match **Total Opt-Ins** on SMS/MMS/RCS Performance?
+
+**Total Opt-Ins** and **Total Opt-Outs** on the [SMS/MMS/RCS Performance]({{site.baseurl}}/user_guide/analytics/dashboards/) dashboard count subscription changes driven by inbound SMS keyword handling (for example, a user texting an opt-in keyword to your short code). They do not include every subscription update made through the REST API, the dashboard, or other sources.
+
+To analyze opt-ins and opt-outs by source, use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) on `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` and filter on `STATE_CHANGE_SOURCE` (for example, **Rest API** versus **Inbound Message**).

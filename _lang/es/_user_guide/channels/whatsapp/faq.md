@@ -199,3 +199,7 @@ WhatsApp es un canal enfocado en la mensajería bidireccional y, por lo tanto, s
 Los factores que afectan la calificación de calidad del número de teléfono incluyen que un usuario final bloquee una empresa (y las razones que proporciona al bloquearla) y que un usuario final reporte una empresa.
 
 Cuando una calificación de calidad es baja, el estado del número de teléfono cambia de **Connected** a **Flagged**. Si la calidad no mejora en siete días, el estado vuelve a **Connected**. Sin embargo, el límite de mensajería disminuirá al siguiente nivel. Por ejemplo, un número de teléfono que solía tener un límite de mensajería de 100 000 ahora tiene un límite de mensajería de 10 000.
+
+#### ¿Qué pasa si mi plantilla fue marcada erróneamente por violar la política de comercio de WhatsApp? {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
+
+Si crees que Meta marcó tu plantilla erróneamente, usa el enlace de revisión en el correo electrónico de WhatsApp para solicitar una nueva revisión. El equipo de WhatsApp Business revisa la decisión y la revierte si corresponde.

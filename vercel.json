@@ -1,5 +1,17 @@
 {
 	"trailingSlash": false,
+	"redirects": [
+		{
+			"source": "/unlisted_docs/assets/:path*",
+			"destination": "/docs/assets/unlisted_docs/:path*",
+			"permanent": true
+		},
+		{
+			"source": "/unlisted_docs/:path*",
+			"destination": "/docs/:path*",
+			"permanent": true
+		}
+	],
 	"rewrites": [
 		{
 			"source": "/docs/en/:path*",

@@ -657,8 +657,17 @@ a:hover {
         .form-group textarea:focus,
         .form-group select:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible,
+        .form-group select:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible),
+        .form-group select:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -822,8 +831,15 @@ a:hover {
         .form-group input[type="text"]:focus,
         .form-group textarea:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {

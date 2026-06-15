@@ -23,7 +23,7 @@ Para excluir usuários, você precisa ser administrador ou ter a permissão **De
 |------------|-------------|
 | Delete Users | Exclui permanentemente usuários de forma individual ou em massa. |
 | View User Deletion Records | Visualiza registros de exclusão de usuários. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Sobre a exclusão de usuários {#about-user-deletion}
 
@@ -34,7 +34,7 @@ A exclusão de usuários permite gerenciar seu banco de dados removendo perfis q
 | Tamanho máximo | Você pode excluir até 100 milhões de perfis de usuários ao excluir um segmento. |
 | Período de espera | Todas as exclusões de segmentos exigem um período de espera de 7 dias, mais o tempo necessário para processar as exclusões. |
 | Limite de tarefas | Apenas um segmento pode ser excluído por vez, o que inclui o período de espera de 7 dias. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About user deletion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sobre a exclusão de usuários" }
 
 ## Excluindo usuários {#deleting-users}
 
@@ -90,7 +90,7 @@ Você tem 7 dias para cancelar exclusões de segmentos pendentes. Para cancelar,
 
 ![A guia "Delete Users" na seção "Manage Audience" do dashboard da Braze.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-Ao lado de uma exclusão de segmento pendente, selecione <i class="fa-solid fa-eye"></i> para abrir os detalhes do registro de exclusão.
+Ao lado de uma exclusão de segmento pendente, selecione <i class="fa-solid fa-eye"></i> **Ver informações** para abrir os detalhes do registro de exclusão.
 
 ![Uma exclusão de segmento pendente na guia "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -132,9 +132,9 @@ Nesta página, você encontra as seguintes informações gerais para todas as ex
 | Solicitante | O usuário que iniciou a solicitação de exclusão. |
 | Nome do segmento | O nome do segmento usado para selecionar os usuários pendentes de exclusão. |
 | Status | Indica se a solicitação de exclusão está pendente, em andamento ou concluída. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gerenciar público" }
 
-Para mais detalhes sobre uma solicitação específica, selecione <i class="fa-solid fa-eye"></i> para exibir os detalhes do registro de exclusão. Aqui você também pode [cancelar exclusões de segmentos pendentes](#cancel).
+Para mais detalhes sobre uma solicitação específica, selecione <i class="fa-solid fa-eye"></i> **Ver informações** para exibir os detalhes do registro de exclusão. Aqui você também pode [cancelar exclusões de segmentos pendentes](#cancel).
 
 ![Uma exclusão de segmento pendente na guia "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 

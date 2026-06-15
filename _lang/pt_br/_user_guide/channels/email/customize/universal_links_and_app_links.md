@@ -33,7 +33,7 @@ Esta tabela descreve as principais diferenças entre links universais e deep lin
 | Finalidade                | Conectar conteúdo web e de app de forma fluida em dispositivos iOS e Android | Vincular a conteúdo específico do app |
 | Função               | Direciona para páginas web ou conteúdo do app com base no contexto           | Abre telas específicas do app   |
 | Instalação do app       | Abre o app se estiver instalado, caso contrário abre o conteúdo web | Requer que o app esteja instalado |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How universal links and App Links work" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Como os links universais e App Links funcionam" }
 
 ## Casos de uso {#use-cases}
 
@@ -225,15 +225,16 @@ Por fim, você pode testar seus deep links. Envie um link para si mesmo por meio
 Os links de rastreamento de cliques geralmente são configurados como parte da sua integração de e-mail. Se isso não foi concluído durante a integração do cliente, entre em contato com o seu gerente de conta para obter ajuda.
 {% endalert %}
 
-Nossos parceiros de envio de e-mail, SendGrid e SparkPost, usam domínios de rastreamento de cliques para encapsular todos os links e incluir parâmetros de URL para rastreamento de cliques nos e-mails da Braze.
+Nossos parceiros de envio de e-mail usam domínios de rastreamento de cliques para encapsular todos os links e incluir parâmetros de URL para rastreamento de cliques nos e-mails da Braze.
 
 Por exemplo, um link como `https://www.example.com` se torna algo como `https://links.email.example.com/uni/wf/click?upn=abcdef123456…`.
 
 Para permitir que links de e-mail com rastreamento de cliques funcionem como links universais ou App Links, você precisará realizar algumas configurações adicionais. Certifique-se de adicionar o domínio de rastreamento de cliques (`links.email.example.com`) como um domínio que o app pode abrir. Além disso, o domínio de rastreamento de cliques deve servir os arquivos AASA (iOS) ou Digital Asset Links (Android). Isso ajudará a garantir que os links de e-mail com rastreamento de cliques funcionem perfeitamente.
 
-Se você não quiser que todos os links de rastreamento de cliques sejam links universais ou App Links, pode especificar quais links devem ser links universais com base no parceiro de envio de e-mail. Consulte as seções a seguir para mais detalhes.
+Se você não quiser que todos os links de rastreamento de cliques sejam links universais ou App Links, pode especificar quais links devem ser links universais com base no parceiro de envio de e-mail. Consulte as guias a seguir para mais detalhes.
 
-### SendGrid
+{% tabs %}
+{% tab SendGrid %}
 
 Para tratar um link de rastreamento de cliques do SendGrid como um link universal:
 
@@ -255,7 +256,8 @@ Por exemplo:
 
 Com essa configuração, links com `/uni/` no caminho da URL funcionarão como links universais, enquanto todos os outros links funcionarão como links web.
 
-### SparkPost
+{% endtab %}
+{% tab SparkPost %}
 
 Para tratar um link de rastreamento de cliques do SparkPost como um link universal, adicione o seguinte atributo à seção de atributos do editor de arrastar e soltar para e-mail, ou edite manualmente o HTML do link para incluir o seguinte atributo na tag âncora do seu link: `data-msys-sublink="custom_path"`.
 
@@ -268,6 +270,83 @@ Por exemplo:
 ```
 
 Em seguida, certifique-se de que seu app está configurado para tratar o caminho personalizado corretamente. Consulte o artigo do SparkPost sobre [Using SparkPost click tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links). Este artigo contém código de exemplo para [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) e [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost).
+
+{% endtab %}
+{% tab Amazon SES %}
+
+Use caminhos personalizados para adicionar segmentos de caminho às URLs de rastreamento de cliques de e-mail. Isso cria padrões de URL previsíveis que os sistemas operacionais móveis podem reconhecer para links universais e App Links.
+
+Quando os usuários tocam em links de e-mail em dispositivos móveis, os caminhos personalizados ajudam a controlar se os links abrem no app móvel principal, em um app especializado ou no navegador móvel (por exemplo, páginas de produtos, programas de fidelidade, links de cancelamento de inscrição ou páginas legais).
+
+Para tratar um link de rastreamento de cliques do Amazon SES como um link universal ou App Link:
+
+1. Adicione atributos `ses:custom-path` às suas tags âncora no HTML do e-mail, ou adicione o atributo na seção **Atributos** do editor de arrastar e soltar para e-mail. O caminho personalizado é inserido na URL de rastreamento de cliques encapsulada.
+
+Por exemplo:
+
+```html
+<!-- Opens main shopping app -->
+<a href="https://yourstore.com/product" ses:custom-path="shop">Shop Now</a>
+<!-- Opens loyalty app -->
+<a href="https://yourstore.com/rewards" ses:custom-path="rewards">My Rewards</a>
+<!-- Opens specialized app -->
+<a href="https://yourstore.com/limited" ses:custom-path="limited">Limited Edition</a>
+<!-- Stays in browser -->
+<a href="https://yourstore.com/unsubscribe" ses:no-track>Unsubscribe</a>
+```
+
+Certifique-se de que seus caminhos personalizados seguem estes requisitos:
+
+- **Formato:** Apenas caracteres alfanuméricos, pontos, underscores e hifens
+- **Comprimento:** 1 a 32 caracteres
+- **Diferenciação de maiúsculas e minúsculas:** Os caminhos diferenciam maiúsculas de minúsculas para atender aos requisitos do sistema operacional móvel
+
+{:start="2"}
+2. Confirme que suas URLs de rastreamento encapsuladas incluem o segmento de caminho personalizado. Os links seguem este formato: `track.yourstore.com/L1/{customPath}/...`
+
+Por exemplo:
+
+- `track.yourstore.com/L1/shop/...`
+- `track.yourstore.com/L1/rewards/...`
+
+{:start="3"}
+3. Configure seus arquivos de associação de site no domínio de rastreamento de cliques para que os caminhos correspondam a `/L1/{customPath}/`.
+
+**iOS (Apple App Site Association):**
+
+```json
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "TEAMID.com.yourcompany.mainapp",
+      "paths": ["/L1/shop/*", "/L1/rewards/*"]
+    }, {
+      "appID": "TEAMID.com.yourcompany.limitedapp",
+      "paths": ["/L1/limited/*"]
+    }]
+  }
+}
+```
+
+**Android (Digital Asset Links):**
+
+```json
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.yourcompany.mainapp",
+    "sha256_cert_fingerprints": ["..."]
+  },
+  "include": ["/L1/shop/*", "/L1/rewards/*"]
+}]
+```
+
+Certifique-se de que seu app está configurado para tratar esses links encapsulados. Adicione o domínio de rastreamento de cliques aos domínios associados do seu app (iOS) ou intent filters (Android), e hospede o arquivo AASA ou Digital Asset Links nesse domínio conforme descrito anteriormente neste artigo.
+
+{% endtab %}
+{% endtabs %}
 
 ### Desativando o rastreamento de cliques link a link {#turning-off-click-tracking-on-a-link-to-link-basis}
 
@@ -343,6 +422,10 @@ Selecione o seguinte para o atributo personalizado:
 
 Se seus links universais não estiverem funcionando como esperado nos seus e-mails, como navegar o destinatário do app de e-mail para o navegador web antes de finalmente redirecionar para o app, consulte estas dicas para solucionar problemas na configuração do seu link universal.
 
+#### O Outlook mostra `[?it=` ou texto de URL bruto em vez de um botão {#outlook-shows-it-or-raw-url-text-instead-of-a-button}
+
+O Outlook pode exibir texto de call-to-action como `[?it=` ou imprimir parte do `href` quando um link não usa um esquema de URL **`http://` ou `https://`** válido. Esquemas personalizados, esquemas ausentes ou URLs malformadas não são tratados como hiperlinks, então o cliente exibe o texto do atributo. Confirme que cada botão, link de imagem e URL rastreada usa um destino completo `https://` (ou `http://`). Isso se aplica tanto a links universais quanto a links web padrão.
+
 #### Verifique a localização do arquivo de link {#verify-link-file-location}
 
 Certifique-se de que o arquivo AASA (iOS) ou Digital Asset Links (Android) está localizado no lugar correto:
@@ -356,7 +439,7 @@ Certifique-se de que o arquivo AASA (iOS) ou Digital Asset Links (Android) está
 
 Certifique-se de que você tem as definições corretas para os domínios que seu app pode abrir.
 
-- **iOS:** Revise os Associated Domains configurados no Xcode para o seu app ([etapa 1c]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
+- **iOS:** Revise os Associated Domains configurados no Xcode para o seu app ([Etapa 1c: Ative Associated Domains no seu projeto Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
 - **Android:** Abra a página de informações do app (pressione e segure o ícone do app e clique em ⓘ). No menu de informações do app, localize **Abrir por padrão** e toque nessa opção. Isso deve mostrar uma tela com todos os links verificados que o app pode abrir. Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
 
 #### O domínio de rastreamento não consegue servir arquivos .well-known {#tracking-domain-cant-serve-well-known-files}

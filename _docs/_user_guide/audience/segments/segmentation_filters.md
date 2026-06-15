@@ -39,7 +39,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: Allows you to filter based on segment membership anywhere that filters are used (such as segments, campaigns, and others) and target multiple different segments within one campaign. <br><br>Note that segments already using this filter cannot be further included or nested into other segments because this may create a cycle where Segment A includes Segment B, which then tries to include Segment A again. If that happened, the segment would keep referencing itself, making it impossible to calculate who actually belongs in it. Also, nesting segments like this adds complexity and can slow things down. Instead, recreate the segment you're trying to include using the same filters.
+    description: Allows you to filter based on segment membership anywhere that filters are used (such as segments, campaigns, and others) and target multiple different segments within one campaign. <br><br>To capture segment membership at a specific point in time, export users from the segment in the dashboard or call the [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) endpoint before you send a campaign or Canvas. For more information, see [Export segment data to CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/).<br><br>Note that segments already using this filter cannot be further included or nested into other segments because this may create a cycle where Segment A includes Segment B, which then tries to include Segment A again. If that happened, the segment would keep referencing itself, making it impossible to calculate who actually belongs in it. Also, nesting segments like this adds complexity and can slow things down. Instead, recreate the segment you're trying to include using the same filters.
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -139,7 +139,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Received Campaign Variant
-    description: Segments your users by which variant of a multivariate campaign they have received.<br><br>For Content Cards, Banners, and in-app messages, this is when a user logs an impression, not when the card or in-app message is sent.<br><br> For push and webhooks, this is when the message is sent to the user.<br><br> For WhatsApp, this is when the last message API request is sent to WhatsApp, not when the message is delivered to the user's device.<br><br> For emails, the targeted user profile matches this filter when an email request is sent to the email service provider (regardless if it actually gets delivered).<br><br> For SMS and RCS, this is when the last message was delivered to the SMS or RCS provider. This doesn't guarantee that the message was delivered to the user's device.<br><br> When a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same channel identifier (for example, email or phone number), so users who share an identifier with someone who received the message can match this filter even if their profile was not directly sent the campaign.
+    description: Segments your users by which variant of a multivariate campaign they have received.<br><br>This filter applies to multivariate and multivariate quick push campaigns. API campaigns, standard multichannel campaigns, and feature flag experiment campaigns do not appear in the campaign selector. Webhook-only campaigns do not appear in the campaign selector.<br><br>For Content Cards, Banners, and in-app messages, this is when a user logs an impression, not when the card or in-app message is sent.<br><br> For push and webhooks, this is when the message is sent to the user.<br><br> For WhatsApp, this is when the last message API request is sent to WhatsApp, not when the message is delivered to the user's device.<br><br> For emails, the targeted user profile matches this filter when an email request is sent to the email service provider (regardless if it actually gets delivered).<br><br> For SMS and RCS, this is when the last message was delivered to the SMS or RCS provider. This doesn't guarantee that the message was delivered to the user's device.<br><br> When a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same channel identifier (for example, email or phone number), so users who share an identifier with someone who received the message can match this filter even if their profile was not directly sent the campaign.
     tags:
       - Retargeting
   - name: Received Message from Canvas Step
@@ -219,7 +219,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: Segment your users by whether their email address has hard bounced (such as the email address is invalid).
+    description: Segment your users by whether their email address has hard bounced (such as the email address is invalid). To export users with invalid emails, call the [`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/) endpoint or build a segment with filters such as email address is not blank, email is not available, and email subscription status is not unsubscribed.
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -455,7 +455,7 @@ glossaries:
     tags:
       - App
   - name: Uninstalled
-    description: Segments your users by whether they have uninstalled your app and have not reinstalled it.
+    description: Segments your users by whether they are currently marked as uninstalled on the backend. Users who uninstalled and later reinstalled the app are not included. This filter reflects the current uninstall state, not a historical log of every uninstall event.
     tags:
       - Uninstall
   - name: Device Carrier

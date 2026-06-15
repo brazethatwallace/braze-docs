@@ -58,7 +58,9 @@ No armazenamento em nuvem, as exportações CSV são agrupadas em um arquivo ZIP
 - Apóstrofos adicionados no início de certos campos (como `-`, `=`, `+` ou `@`) são esperados. Por exemplo, `-1943` se torna `'-1943` no CSV. A Braze faz isso para evitar que programas de planilhas interpretem os dados incorretamente. Isso não se aplica a exportações JSON, como as retornadas pelo [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
 
 ## Exportações de API
-Quando você exporta dados através das APIs com um parceiro de armazenamento conectado, os arquivos de exportação são gravados no seu bucket. Nenhum e-mail é enviado. Os objetos subjacentes ficam no seu armazenamento e seguem suas configurações de retenção, mesmo que as URLs de download retornadas pela Braze possam ainda ter limite de tempo. Cada arquivo ZIP contém objetos JSON, um por linha. Exportações grandes podem ser divididas em vários arquivos ZIP em vez de um único ZIP, o que geralmente torna esse método mais confiável para exportações pesadas.
+Quando você exporta dados através das APIs com um parceiro de armazenamento conectado, os arquivos de exportação são gravados no seu bucket. Nenhum e-mail é enviado. Os objetos subjacentes ficam no seu armazenamento e seguem suas configurações de retenção, mesmo que as URLs de download retornadas pela Braze possam ainda ter limite de tempo.
+
+Os arquivos geralmente aparecem no seu bucket conforme a exportação é executada, então você não precisa esperar o trabalho inteiro terminar para acessar resultados parciais. A Braze faz upload de cada lote concluído de forma incremental, em vez de reter tudo até o final. Exportações grandes são divididas em vários arquivos compactados (ZIP ou GZIP), cada um contendo objetos JSON, um por linha. Isso torna esse método mais confiável para exportações pesadas.
 
 ### Erros comuns
 
@@ -107,3 +109,13 @@ As exportações levam tempo para serem concluídas, então o acesso imediato a 
 
 - Consultar a URL de download com backoff exponencial, ou
 - Usar o [parâmetro `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters) e apontá-lo para um serviço que execute seu script quando a exportação estiver pronta.
+
+## Campos da API de exportação de segmentos e usuários {#segment-and-user-export-api-fields}
+
+### Colunas esperadas estão ausentes em um arquivo de exportação de segmento {#expected-columns-are-missing-from-a-segment-export-file}
+
+A opção **Exportar dados de usuários em CSV** do dashboard para um segmento usa um conjunto fixo de colunas (consulte [Exportar dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#data-included-in-export)). Ela não inclui uma coluna ou parâmetro `fields_to_export`.
+
+Para exportações de segmentos via API, você deve passar `fields_to_export` no corpo da solicitação. Alguns campos puxam dados relacionados automaticamente — por exemplo, solicitar `canvases_received` também requer dados de resumo de jornada no perfil do usuário. Consulte a referência do [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para nomes de campos válidos e requisitos.
+
+Se colunas estiverem ausentes em um ZIP de exportação via API, confirme que o array `fields_to_export` na sua solicitação inclui todos os campos necessários e que seu espaço de trabalho possui as permissões de exportação exigidas.

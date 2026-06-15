@@ -41,7 +41,7 @@ Wenn Sie die erforderlichen OAuth-Einstellungen für die verbundene App konfigur
 
 Als Customer-Engagement-Plattform kann Braze neue Leads auf Basis von Nutzer:innen-Flows generieren, z. B. beim Ausfüllen eines Formulars auf einer Landing-Page. In diesem Fall können Sie einen Braze Salesforce Sales Cloud Webhook verwenden, um einen entsprechenden Lead in Salesforce zu erstellen.
 
-### 1. Schritt: `client_id` und `client_secret` erfassen {#step-1-collect-your-clientid-and-clientsecret}
+### 1. Schritt: `client_id` und `client_secret` erfassen {#step-1-collect-your-client_id-and-client_secret}
 
 1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager**.
 2. Suchen Sie Ihre neu erstellte Braze-App und wählen Sie **View**.
@@ -63,7 +63,7 @@ Verwenden Sie Templates, um diesen Webhook schnell auf der gesamten Braze-Plattf
 | Webhook-URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | HTTP-Methode | `POST` |
 | Anfragetext | JSON-Schlüssel/Wert-Paare |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook verfassen" }
 
 #### Schlüssel/Wert-Paare für Body-Eigenschaften {#body-property-key-values}
 
@@ -75,7 +75,7 @@ Wählen Sie **+ Add New Body Property** für jedes Schlüssel/Wert-Paar, das Sie
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schlüssel/Wert-Paare für Body-Eigenschaften" }
 
 #### Anfrage-Header {#request-headers}
 
@@ -85,7 +85,7 @@ Wählen Sie **+ Add New Header** für jeden der folgenden Anfrage-Header.
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anfrage-Header" }
 
 {: start="4" }
 4. Wählen Sie **Save Template**.
@@ -119,7 +119,7 @@ Dieses Beispiel zeigt konkret, wie Sie die Lead-Stufe eines Leads auf „MQL“ 
 | Webhook-URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | HTTP-Methode | `PATCH` |
 | Anfragetext | JSON-Schlüssel/Wert-Paare |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook verfassen" }
 
 #### Schlüssel/Wert-Paare für Body-Eigenschaften
 
@@ -128,7 +128,7 @@ Wählen Sie **+ Add New Body Property** für das folgende Schlüssel/Wert-Paar. 
 | Schlüssel | Wert |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schlüssel/Wert-Paare für Body-Eigenschaften" }
 
 #### Anfrage-Header
 
@@ -138,7 +138,7 @@ Wählen Sie **+ Add New Header** für jeden der folgenden Anfrage-Header.
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anfrage-Header" }
 
 {: start="4"}
 4. Wählen Sie **Save Template**.

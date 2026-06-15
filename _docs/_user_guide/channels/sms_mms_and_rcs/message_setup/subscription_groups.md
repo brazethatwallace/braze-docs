@@ -67,6 +67,10 @@ In adherence with international [telecommunication compliance and guidelines]({{
 
 ![SMS composer with the subscription group dropdown open and "Messaging Service A for SMS" highlighted by the user.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
 
+## SMS subscription group best practices
+
+Design separate SMS subscription groups for each messaging purpose (for example, transactional versus marketing) and for each workspace. When you operate in multiple countries, consider separate groups by region to support local compliance rules—for example, Brazil's restrictions on promotional send windows.
+
 ## Enable subscription groups
 
 To enable subscription groups for SMS, MMS, or RCS, refer to the following:

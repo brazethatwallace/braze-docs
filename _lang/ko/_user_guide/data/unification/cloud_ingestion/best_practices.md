@@ -313,8 +313,8 @@ CDI는 마지막으로 동기화된 `UPDATED_AT` 타임스탬프의 행 수를 �
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table aria-label="Example: Managing subsequent updates">
-  <caption>Example: Managing subsequent updates</caption>
+<table aria-label="예시: 후속 업데이트 관리">
+  <caption>예시: 후속 업데이트 관리</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -419,10 +419,10 @@ FROM EXAMPLE_DATA;
   </tbody>
 </table>
 
-동기화가 실행되고 Braze는 사용 가능한 모든 데이터를 "2023-03-16 15:00:00"까지 동기화했다고 기록합니다. 그런 다음, 2일째 아침에 ETL이 실행되고 사용자 테이블의 일부 필드가 업데이트됩니다(강조 표시됨):
+동기화가 실행되고 Braze는 사용 가능한 모든 데이터를 "2023-03-16 15:00:00"까지 동기화했다고 기록합니다. 그런 다음, 2일째 아침에 ETL이 실행되고 사용자 테이블의 일부 필드가 업데이트됩니다(*로 표시):
 
-<table aria-label="Example: Managing subsequent updates">
-  <caption>Example: Managing subsequent updates</caption>
+<table aria-label="예시: 후속 업데이트 관리">
+  <caption>예시: 후속 업데이트 관리. *는 마지막 동기화 이후 업데이트된 필드를 나타냅니다.</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -435,14 +435,14 @@ FROM EXAMPLE_DATA;
     <tbody>
         <tr>
             <td>12345</td>
-            <td style="background-color: #FFFF00;">145</td>
-            <td style="background-color: #FFFF00;">red</td>
+            <td style="background-color: #FFFF00;">145*</td>
+            <td style="background-color: #FFFF00;">red*</td>
             <td>380</td>
-            <td style="background-color: #FFFF00;">TRUE</td>
+            <td style="background-color: #FFFF00;">TRUE*</td>
         </tr>
         <tr>
             <td>23456</td>
-            <td style="background-color: #FFFF00;">15</td>
+            <td style="background-color: #FFFF00;">15*</td>
             <td>blue</td>
             <td>823</td>
             <td>TRUE</td>
@@ -451,13 +451,13 @@ FROM EXAMPLE_DATA;
             <td>34567</td>
             <td>234</td>
             <td>blue</td>
-            <td style="background-color: #FFFF00;">495</td>
-            <td style="background-color: #FFFF00;">FALSE</td>
+            <td style="background-color: #FFFF00;">495*</td>
+            <td style="background-color: #FFFF00;">FALSE*</td>
         </tr>
         <tr>
             <td>45678</td>
             <td>245</td>
-            <td style="background-color: #FFFF00;">green</td>
+            <td style="background-color: #FFFF00;">green*</td>
             <td>349</td>
             <td>TRUE</td>
         </tr>
@@ -465,7 +465,7 @@ FROM EXAMPLE_DATA;
             <td>56789</td>
             <td>1938</td>
             <td>red</td>
-            <td style="background-color: #FFFF00;">693</td>
+            <td style="background-color: #FFFF00;">693*</td>
             <td>FALSE</td>
         </tr>
     </tbody>
@@ -717,6 +717,6 @@ Braze는 `UPDATED_AT` 타임스탬프를 사용하여 어떤 데이터가 성공
 | 데이터 유형 | 클라우드 데이터 수집을 통해 사용자 속성, 이벤트 및 구매를 동기화할 수 있습니다. |
 | Braze 지역 | 이 제품은 모든 Braze 지역에서 사용할 수 있습니다. 어떤 Braze 지역이든 어떤 소스 데이터 지역에든 연결할 수 있습니다. |
 | 소스 지역 | Braze는 모든 지역 또는 클라우드 제공업체의 데이터 웨어하우스 또는 클라우드 환경에 연결됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="제품 제한 사항" }
 
 <br><br>

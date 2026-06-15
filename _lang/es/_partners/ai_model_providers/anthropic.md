@@ -26,7 +26,7 @@ La integración de Braze y Anthropic te permite conectar tu clave de API de Anth
 |---|---|
 | Cuenta de Anthropic con clave de API | Una cuenta de Anthropic con una clave de API. Para obtener ayuda, ponte en contacto con tu administrador o con [el servicio de asistencia de Anthropic](https://support.anthropic.com/). |
 | Instancia de Braze | Puedes encontrar tu instancia de Braze en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints) o a través de tu administrador de incorporación de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
