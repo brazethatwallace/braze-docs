@@ -358,6 +358,20 @@ Each event object in the events array represents a single occurrence of a custom
 
 When a nested custom attribute contains any invalid values (such as invalid time formats or null values), Braze drops all nested custom attribute updates in the request from processing. This applies to all nested structures within that specific attribute. To help ensure successful processing, verify that all values within nested custom attributes are valid before sending.
 
+### Are requests to `/users/track` guaranteed to be processed in order?
+
+When you make multiple separate API calls to `/users/track` in rapid succession, Braze cannot guarantee that requests are processed in the exact order they are sent or received. This is because Braze uses asynchronous processing to maximize speed and flexibility.
+
+For example, if you send multiple update requests for the same user within seconds of each other—some with null attribute values and others with valid values—the requests containing null values may be processed after requests with valid values, even if sent earlier. This can result in attribute values appearing to revert or not reflect the most recently sent update.
+
+To avoid race conditions when updating user data:
+
+- **Batch updates in a single request:** Include all attribute updates for a user in one API call rather than making separate consecutive calls.
+- **Add delays between requests:** If you must make separate calls for the same user, add a delay (a few seconds) between requests to allow the first request to complete processing before the next one is sent.
+- **Avoid overlapping updates for the same field:** If two requests update the same attribute with different values, send those updates in one request or separate them with a delay to reduce the chance of out-of-order results.
+
+For more information about race conditions and best practices, see [Race conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
+
 ### Why is my `/users/track` response slower than I expect?
 
 Successful `/users/track` calls are usually accepted quickly, but Braze still processes attribute, event, and purchase updates asynchronously. Perceived latency can increase when payloads are large or when network routing to your [REST endpoint]({{site.baseurl}}/api/basics/#endpoints) is slow. If you need a synchronous acknowledgment per user or stricter ordering between calls, see [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**limited beta**).
