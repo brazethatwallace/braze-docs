@@ -19,7 +19,7 @@ from pathlib import Path
 
 REPO = os.environ.get("GITHUB_REPOSITORY", "braze-inc/braze-docs")
 PR_NUMBER = os.environ.get("PR_NUMBER", "")
-REVIEW_MODEL = os.environ.get("REVIEW_MODEL", "claude-sonnet-4-20250514")
+REVIEW_MODEL = os.environ.get("REVIEW_MODEL", "claude-sonnet-4-6")
 REPO_ROOT = Path(os.environ.get("GITHUB_WORKSPACE", Path.cwd()))
 GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
 SCRIPTS_DIR = REPO_ROOT / "scripts"
