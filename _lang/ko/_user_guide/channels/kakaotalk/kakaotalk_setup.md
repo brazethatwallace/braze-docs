@@ -20,7 +20,18 @@ channel:
 | KakaoTalk 비즈니스 채널 | Braze를 통해 KakaoTalk 메시지를 발송하려면 KakaoTalk 계정이 KakaoTalk 비즈니스 채널이어야 합니다. 계정을 생성하면 기본 상태는 일반입니다. 비즈니스 채널로 전환하려면 사업자 인증을 완료하고 관련 서류를 제출해야 합니다. |
 | KakaoTalk 발신프로필 키 | 유효한 KakaoTalk 발신프로필 키가 필요합니다. |
 | 연락처 전화번호 | KakaoTalk 채널 관리자의 연락처 전화번호가 필요합니다. |
+| Braze 클러스터 IP 허용 목록 등록 | 모든 고객에게 IP 허용 목록 등록이 필요합니다. Braze에서 KakaoTalk을 통합하기 전에 클러스터에 해당하는 Braze IP 주소를 등록하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+
+### Braze IP 주소 등록 {#register-braze-ip-addresses}
+
+Comm.One 대시보드에서 클러스터에 해당하는 Braze IP 주소를 등록합니다.
+
+1. Comm.One 대시보드에서 **Account Management (계정 관리)**로 이동하여 메뉴 아이콘을 선택한 후 **View Details (자세히보기)**를 선택합니다.
+2. **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**를 선택합니다.
+3. Braze 클러스터에 해당하는 IP 주소를 추가합니다. 클러스터별 전체 IP 목록은 [IP 허용 목록]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting)을 참조하세요.
+
+![IP 주소를 추가할 수 있는 위치를 보여주는 Comm.One 대시보드.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
 ### KakaoTalk 계정 유형 {#types-of-kakaotalk-accounts}
 
@@ -122,10 +133,10 @@ Infobip 대시보드로 이동하여 다음 정보를 수집합니다.
 
 ## 고객 프로필 설정 {#set-user-profiles}
 
-KakaoTalk을 통해 메시지를 보내려면 고객 프로필에 전화번호가 있어야 합니다. 전화번호는 고객 프로필에 제공된 형식 그대로 표시됩니다. 현재 SMS나 WhatsApp과 달리 KakaoTalk은 표준 전화번호 필드를 사용합니다(E.164 형식으로 변환된 번호가 아님).
+KakaoTalk을 통해 메시지를 보내려면 고객 프로필에 E.164 형식의 전화번호가 있어야 합니다. 전화번호는 고객 프로필에 표시됩니다. KakaoTalk은 전화번호가 E.164 형식이어야 합니다(예: `+821025749774`). 이는 여러 형식의 전화번호를 허용하는 다른 메시징 채널과 다릅니다.
 
-![편집되지 않은 형식의 전화번호가 있는 테스트 사용자의 고객 프로필.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
+![E.164 형식의 전화번호가 있는 테스트 사용자의 고객 프로필.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
 
 ### 전화번호 가져오기 {#import-phone-numbers}
 
-[CSV 업로드 또는 API를 사용]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/)하여 전화번호를 가져오고 사용자를 생성합니다.
+[CSV 업로드 또는 API를 사용]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/)하여 전화번호를 가져오고 사용자를 생성합니다. 가져오기 전에 전화번호가 E.164 형식인지 확인하세요.

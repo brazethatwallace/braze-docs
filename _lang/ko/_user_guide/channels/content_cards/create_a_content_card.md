@@ -60,7 +60,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 | [클래식]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![운동 수업 예약을 권장하는 작은 아이콘과 텍스트가 있는 클래식 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | 클래식 카드는 굵은 제목, 메시지 텍스트, 그리고 제목과 텍스트 왼쪽에 위치하는 선택적 이미지로 구성된 간단한 레이아웃입니다. 클래식 카드에는 정사각형 이미지나 아이콘을 사용하는 것이 좋습니다. |
 | [자막 이미지]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![역도 선수 이미지와 운동 수업 예약을 권장하는 텍스트가 있는 자막 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | 자막 이미지 카드는 문구와 시선을 끄는 이미지로 콘텐츠를 보여줍니다. |
 | [이미지 전용]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![텍스트만 있는 이미지 전용 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 이미지 전용 카드는 이미지, GIF 및 기타 텍스트가 아닌 크리에이티브 콘텐츠를 위한 공간으로 주목을 끕니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2단계: 메시지 유형 지정" }
 
 ## 3단계: 콘텐츠 카드 작성 {#step-3-compose-a-content-card}
 
@@ -94,7 +94,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 #### 상단에 고정 {#pin-to-top}
 
-Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자는 이를 닫을 수 없습니다. 사용자의 피드에 여러 개의 고정 카드가 있는 경우, Braze는 시간순으로 정렬합니다. 카드를 전송한 후에는 고정 옵션을 소급하여 업데이트할 수 없습니다. Campaign을 전송한 후 이 옵션을 변경하면 향후 전송에만 영향을 미칩니다.
+Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자는 이를 닫을 수 없습니다. 사용자의 피드에 여러 개의 고정 카드가 있는 경우, Braze는 시간순으로 정렬합니다. Braze가 콘텐츠 카드를 전달할 때 카드는 고정 또는 고정 해제 상태이며, 해당 상태는 카드의 수명 동안 변경되지 않습니다. Campaign에서 고정 설정을 변경하면 향후 전송되는 카드에만 업데이트가 적용됩니다. 이미 사용자의 피드에 있는 카드의 고정 상태는 변경되지 않습니다.
 
 !["이 카드를 피드 상단에 고정" 옵션이 선택된 모바일 및 웹용 Braze 콘텐츠 카드 미리보기 나란히 비교.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -110,7 +110,7 @@ Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자�
 | [앱으로 딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | 앱의 기존 화면으로 딥링크합니다. |
 | 커스텀 이벤트 기록 | 트리거할 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 선택합니다. 다른 콘텐츠 카드를 표시하거나 추가 메시징을 트리거하는 데 사용할 수 있습니다. |
 | 커스텀 속성 기록 | 현재 사용자에 대해 설정할 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 선택합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="클릭 시 동작" }
 
 **커스텀 이벤트 기록** 및 **커스텀 속성 기록** 옵션에는 다음 SDK 버전 호환성이 필요합니다:
 
@@ -328,3 +328,11 @@ Content Cards는 전송된 후 최대 30일 동안 사용할 수 있으며, 30�
 1. Content Cards의 기간을 30일로 설정합니다.
 2. Campaign 재자격을 30일로 설정합니다.
 3. Campaign을 "세션 시작" 시 트리거되도록 설정합니다.
+
+### Content Cards 동기화 및 새로고침 {#content-card-sync-and-refresh}
+
+Content Cards는 스케줄에 따라 그리고 앱이 피드를 새로고침할 때 동기화됩니다. 동기화 동작은 전체 동기화와 부분 동기화에 따라 다르며, SDK 통합에 따라 세션 시작 시 카드가 새로고침되는 시점이 달라집니다. 구현 세부 정보는 [Content Cards 피드 커스터마이즈]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) 및 [Content Cards 생성]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)을 참조하세요.
+
+### Content Cards Campaign 중지의 영향 {#impact-of-stopping-content-cards-campaigns}
+
+Campaign을 중지하고 **다음 동기화 후 카드 제거**를 선택하면, Braze는 다음 새로고침 시 사용자 피드에서 카드를 제거합니다. 사용자가 카드를 보기 전에 제거될 수 있으므로 노출 수가 전송 수보다 낮을 수 있습니다.

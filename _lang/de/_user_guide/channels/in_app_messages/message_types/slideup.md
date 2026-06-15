@@ -31,9 +31,15 @@ Slideup-Nachrichten können bis zu drei Textzeilen enthalten, bevor sie mit Ausl
 | Layout | Asset-Größe | Hinweise |
 |--- | --- | --- |
 | Bild + Text | Seitenverhältnis 1:1<br>Hochauflösend 150 x 150&nbsp;px<br> Minimum 50 x 50&nbsp;px | Bilder mit verschiedenen Seitenverhältnissen passen ohne Beschnitt in einen quadratischen Bildcontainer. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Image and copy behavior" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Bild- und Textverhalten" }
 
 Sie sollten Ihre Nachrichten immer auf verschiedenen Geräten [in der Vorschau anzeigen und testen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message), um sicherzustellen, dass die wichtigsten Bereiche Ihres Bildes und Ihrer Nachricht wie erwartet erscheinen. Beachten Sie, dass die tatsächliche Darstellung auf Geräten von der Vorschau Ihrer Nachricht im Composer abweichen kann.
+
+## Hyperlinks und Ankertext {#hyperlinks-and-anchor-text}
+
+Um einen Link in einem Slideup hinzuzufügen, geben Sie den Nachrichtentext im Feld **Body** ein und legen Sie das Ziel unter **On-click behavior** fest (zum Beispiel **Redirect to URL**). Wenn **On-click behavior** konfiguriert ist, löst ein Tippen auf eine beliebige Stelle der Nachricht – außer auf das Schließen-Steuerelement – diese Aktion aus.
+
+Für angepasste HTML-In-App-Nachrichten können Sie HTML-Links direkt verwenden. Siehe [Angepasste HTML-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/).
 
 ## Mobilgeräte {#mobile-devices}
 

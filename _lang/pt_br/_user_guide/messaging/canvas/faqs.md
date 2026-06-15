@@ -95,6 +95,10 @@ Para escalonar envios ou usar horários diferentes por jornada, tente os seguint
 
 Para conceitos de testes multivariantes e testes A/B em Campaigns, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
+### O que acontece se um usuário atingir o limite de frequência global em uma etapa de Mensagem do Canvas? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+Ele não recebe o envio para o canal limitado, mas as etapas de Mensagem ainda avançam os usuários quando uma mensagem não é enviada por causa do limite de frequência global. Para os casos de avanço passo a passo, consulte [Como os usuários avançam]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance). O limite de frequência global por si só não remove os usuários de um Canvas; esse comportamento é separado das **Validações de entrega** em uma etapa de Mensagem. Para mais detalhes, consulte [Limite de taxa e limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
 ### Por que os envios são menores que o tamanho estimado do público? {#why-are-sends-lower-than-the-estimated-audience-size}
 
 Os envios podem ser menores que o **Público estimado** por muitas das mesmas razões que em [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), incluindo limites de frequência, filtros rigorosos de dispositivo ou navegador, janelas de reelegibilidade, limite de taxa e exclusões no nível do canal (por exemplo, alcançabilidade de push ou verificações de inscrição e entregabilidade de e-mail).
@@ -192,6 +196,12 @@ Embora usuários anônimos possam entrar e sair de Canvas, suas ações não sã
 Para assistência adicional com solução de problemas do Canvas, entre em contato com o suporte da Braze dentro de 30 dias da ocorrência do problema, pois temos apenas os últimos 30 dias de registros de diagnóstico.
 {% endalert %}
 
+### Posso excluir usuários que estão atualmente em uma jornada do Canvas de uma Campaign ou Segment? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+
+Use [filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) como `Entered Canvas Variation`, `In Canvas Control Group` ou `Received Message from Canvas Step` para segmentar usuários com base na entrada no Canvas, atribuição de variante ou engajamento com etapas. Esses filtros avaliam o histórico de entrada e interações — eles não indicam se um usuário ainda está progredindo em uma jornada ativa.
+
+Para incluir ou excluir usuários com base na participação ativa no Canvas, adicione etapas de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) na entrada e saída do Canvas para definir e limpar atributos personalizados, e depois filtre por esses atributos em Campaigns ou Segments.
+
 ## Segmentação {#segmentation}
 
 ### Qual é a diferença entre "Não entrou na variação do Canvas" e "Não está no grupo de controle do Canvas"? {#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group}
@@ -271,3 +281,47 @@ Se você encontrar um erro "Request Timed Out" ao editar um Canvas e precisar en
 - **Navegador e versão:** O navegador que você está usando (por exemplo, Chrome 120, Safari 17) e se você tentou reproduzir o erro em um navegador diferente.
 - **Etapas para reproduzir:** Uma descrição clara das ações que disparam o erro, incluindo quaisquer etapas ou configurações específicas do Canvas envolvidas.
 - **Registros de rede (opcional):** Abra as ferramentas de desenvolvedor do seu navegador (guia **Network**), reproduza o erro e exporte o registro de rede como um arquivo de registro HTTP Archive (HAR). Isso ajuda a equipe de suporte a identificar qual chamada de API está expirando.
+
+## Entrega e solução de problemas do Canvas {#canvas-delivery-and-troubleshooting}
+
+### Usuários órfãos são elegíveis para receber mensagens do Canvas? {#are-orphaned-users-eligible-to-receive-canvas-messages}
+
+Não. [Usuários órfãos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users) não são elegíveis para receber mensagens. Se um perfil se tornar órfão enquanto um usuário está em uma jornada do Canvas, ele sairá silenciosamente do fluxo. A análise de dados pode nem sempre mostrar um evento **Saiu** para essa saída, e o resumo do fluxo de trabalho pode incluir um `partial_update_token` sem `exited_date` ou `exit_reason`.
+
+Para saber mais sobre mesclagens e perfis órfãos, consulte [Mesclar usuários duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
+
+### Se eu parar um Canvas ou Campaign ativo, as mensagens já enviadas ao ESP ainda serão entregues? {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
+
+Sim. Depois que a Braze envia uma solicitação ao seu provedor de serviço de e-mail (ESP), a Braze não pode cancelar esse envio. Parar um Canvas ou Campaign impede novas solicitações de envio, mas as mensagens já entregues ao ESP ainda podem ser enviadas e podem incrementar as contagens de envio conforme o ESP as processa.
+
+Esse é o mesmo comportamento descrito para [parar um Canvas](#what-happens-when-you-stop-a-canvas): envios de e-mail em andamento não são interrompidos imediatamente.
+
+### Como posso confirmar que uma etapa de webhook do Canvas foi executada sem conteúdo visível ao usuário? {#how-can-i-confirm-a-canvas-webhook-step-fired-without-user-visible-content}
+
+A Braze rastreia **Envios** de webhook e resultados de entrega relacionados para etapas de [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/) em Campaigns e Canvas. Use a análise de dados da etapa, [relatórios de Webhook]({{site.baseurl}}/user_guide/channels/webhooks/reporting/) ou eventos de webhook do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para confirmar que a etapa foi executada. Os registros de solicitação do seu endpoint fornecem confirmação adicional quando você precisa de prova de recebimento no lado do servidor.
+
+A Braze não inclui um pixel de rastreamento invisível integrado para etapas de webhook. Confie nas métricas de webhook da Braze e nos registros do seu endpoint em vez de solicitações personalizadas de imagem de um pixel.
+
+### Por que um usuário entrou em um Canvas menos vezes do que realizou o evento de gatilho? {#why-did-a-user-enter-a-canvas-fewer-times-than-they-performed-the-trigger-event}
+
+Para Canvas baseados em ação e disparados por API, a Braze faz a deduplicação de eventos de gatilho para que um usuário possa entrar no máximo **uma vez por segundo** para o mesmo Canvas. Se um usuário realizar o mesmo gatilho várias vezes dentro de um segundo, apenas uma entrada será processada.
+
+Para permitir múltiplas entradas no mesmo segundo, espaçe os eventos de gatilho em pelo menos 1,1 segundo (por exemplo, quando você controla o timing dos eventos a partir do seu servidor). Para um comportamento semelhante ao de Campaigns que permite múltiplos gatilhos no mesmo segundo, compare seu caso de uso com [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/) com configurações apropriadas de programação e reelegibilidade.
+
+### Por que um push de teste vai para o app errado, mas os envios reais parecem corretos? {#why-does-a-test-push-go-to-the-wrong-app-but-live-sends-look-correct}
+
+O **push de teste** em um perfil de usuário é entregue a todos os dispositivos com push ativado para aquele perfil. Quando vários apps estão instalados em um dispositivo, o sistema operacional normalmente entrega a notificação de teste ao primeiro app disponível, que pode não ser o app que você deseja validar.
+
+Para confirmar o direcionamento específico do app, envie uma mensagem real ou de teste por meio de uma Campaign ou Canvas com um público restrito (por exemplo, filtre por `external_id`) em vez de depender apenas do **push de teste** do perfil.
+
+Para etapas de Mensagem do **Canvas** com múltiplos apps, ative **Validar público no envio da mensagem** na etapa de Mensagem para que as verificações de segmento e filtro sejam executadas no momento do envio. Para saber mais, consulte [Etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
+
+Para o comportamento geral de push de teste, consulte [Envio de mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) e [FAQ de push]({{site.baseurl}}/user_guide/channels/push/faqs/).
+
+### Como faço para depurar Push Stories no iOS e Android? {#how-do-i-debug-push-stories-on-ios-and-android}
+
+Comece com [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/) para requisitos de configuração e criação. Para implementação e tratamento de notificações Rich, consulte [Notificações Rich]({{site.baseurl}}/developer_guide/push_notifications/rich/) e [Push Stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories/) no Guia do Desenvolvedor.
+
+### Quem recebe o e-mail "Canvas Messages Delayed 24+ Hours"? {#who-receives-the-canvas-messages-delayed-24-hours-email}
+
+A Braze envia essa notificação quando mensagens do Canvas são atrasadas por limite de taxa por 24 horas ou mais. O e-mail é enviado para os usuários do dashboard que fizeram alterações anteriormente no Canvas afetado (com base nos registros de alterações do Canvas). Se a Braze não conseguir determinar esses destinatários, o e-mail será enviado para os **administradores da empresa** do espaço de trabalho.

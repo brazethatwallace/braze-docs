@@ -79,7 +79,7 @@ Cet aperçu se met à jour avec la personnalisation pertinente et l'URL raccourc
 
 Assurez-vous d'enregistrer la campagne ou le Canvas avant d'envoyer un message test afin d'obtenir une représentation de l'URL raccourcie telle qu'elle sera envoyée dans votre message. Si la campagne ou le Canvas n'est pas enregistré avant l'envoi test, celui-ci contiendra une URL de marque substitutive.
 
-Pour que les Canvas apparaissent dans le filtre « A cliqué sur un lien SMS raccourci », l'étape du Canvas contenant le lien court doit également être activée avec le suivi avancé, qui permet le suivi des clics au niveau de l'utilisateur. Si le lien court est configuré avec le suivi basique, l'option de filtrage des événements de clic sur les liens courts SMS n'est pas disponible.
+Pour que les Canvas apparaissent dans le filtre « A cliqué sur un lien SMS raccourci », l'étape du Canvas contenant le lien court doit également être activée avec le suivi avancé, qui permet le suivi des clics au niveau de l'utilisateur. Si le lien court est configuré avec le suivi basique, l'option de filtrage des événements de clic sur les liens courts SMS n'est pas disponible. La même exigence de suivi avancé s'applique lorsque vous configurez des entrées Canvas ou des parcours d'actions qui dépendent de liens SMS raccourcis cliqués.
 
 {% alert important %}
 Si un brouillon est créé au sein d'un Canvas actif, aucune URL raccourcie ne sera générée. L'URL raccourcie réelle est générée lorsque le brouillon du Canvas est activé.

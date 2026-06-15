@@ -178,6 +178,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/send' \
 
 ## Antwortdetails {#response-details}
 
-Die Antworten des Endpunkts zum Nachrichtenversand enthalten die `dispatch_id` als Referenz auf den Versand der Nachricht. Die `dispatch_id` ist die ID des Nachrichtenversands, also die eindeutige ID für jede von Braze gesendete „Übertragung“. Weitere Informationen finden Sie unter [Verhalten der Dispatch-ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Die Antworten des Endpunkts zum Nachrichtenversand enthalten die `dispatch_id` als Referenz auf den Versand der Nachricht. Die `dispatch_id` ist die ID des Nachrichtenversands, also die eindeutige ID für jede von Braze gesendete „Übertragung“. Weitere Informationen finden Sie unter [Verhalten der Dispatch-ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}

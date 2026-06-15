@@ -140,10 +140,10 @@ Cela peut se produire lorsqu'une campagne est planifiée pour se lancer exacteme
 
 Nous recommandons d'apporter des modifications aux messages dans les délais suivants :
 
-- **Campagnes planifiées ponctuelles :** Modifiez jusqu'à l'heure d'envoi planifiée.
-- **Campagnes planifiées récurrentes :** Modifiez jusqu'à l'heure d'envoi planifiée.
-- **Campagnes en heure locale :** Modifiez jusqu'à 24 heures avant l'heure d'envoi planifiée.
-- **Campagnes à heure d'envoi optimale :** Modifiez jusqu'à 24 heures avant le jour où la campagne est planifiée pour être envoyée.
+- **Campagnes planifiées ponctuelles :** modifiez jusqu'à l'heure d'envoi planifiée.
+- **Campagnes planifiées récurrentes :** modifiez jusqu'à l'heure d'envoi planifiée.
+- **Campagnes en heure locale :** modifiez jusqu'à 24 heures avant l'heure d'envoi planifiée.
+- **Campagnes à heure d'envoi optimale :** modifiez jusqu'à 24 heures avant le jour où la campagne est planifiée pour être envoyée.
 
 Si vous apportez des modifications en dehors de ces recommandations, les mises à jour pourraient ne pas être reflétées dans le message envoyé. Par exemple, si vous modifiez l'heure d'envoi trois heures avant qu'une campagne ne soit planifiée pour être envoyée à 12 h en heure locale, les situations suivantes peuvent se produire :
 
@@ -231,19 +231,19 @@ Les campagnes déclenchées par API et par serveur sont idéales pour gérer des
 
 Si vous rencontrez une erreur « Request Timed Out » lors de la création ou de la modification d'une campagne ou d'un Canvas et que vous devez contacter l'[assistance Braze]({{site.baseurl}}/braze_support/), incluez les informations suivantes pour accélérer la résolution :
 
-- **Enregistrement d'écran :** Un enregistrement des étapes que vous avez suivies avant de voir l'erreur, y compris les transitions de page.
-- **Horodatage et fuseau horaire :** L'heure exacte à laquelle l'erreur s'est produite et votre fuseau horaire.
-- **Navigateur et version :** Le navigateur que vous utilisez (par exemple, Chrome 120, Safari 17) et si vous avez essayé de reproduire l'erreur dans un autre navigateur.
-- **Étapes pour reproduire :** Une description claire des actions qui déclenchent l'erreur, y compris les paramètres spécifiques de la campagne ou du Canvas concernés.
-- **Journaux réseau (facultatif) :** Ouvrez les outils de développement de votre navigateur (onglet **Network**), reproduisez l'erreur et exportez le journal réseau sous forme de fichier HAR (HTTP Archive). Cela aide l'équipe d'assistance à identifier quel appel API expire.
+- **Enregistrement d'écran :** un enregistrement des étapes que vous avez suivies avant de voir l'erreur, y compris les transitions de page.
+- **Horodatage et fuseau horaire :** l'heure exacte à laquelle l'erreur s'est produite et votre fuseau horaire.
+- **Navigateur et version :** le navigateur que vous utilisez (par exemple, Chrome 120, Safari 17) et si vous avez essayé de reproduire l'erreur dans un autre navigateur.
+- **Étapes pour reproduire :** une description claire des actions qui déclenchent l'erreur, y compris les paramètres spécifiques de la campagne ou du Canvas concernés.
+- **Journaux réseau (facultatif) :** ouvrez les outils de développement de votre navigateur (onglet **Network**), reproduisez l'erreur et exportez le journal réseau sous forme de fichier HAR (HTTP Archive). Cela aide l'équipe d'assistance à identifier quel appel API expire.
 
 ### Pourquoi mes analyses d'envoi ne correspondent-elles pas à la limite maximale de destinataires que j'ai définie ? {#why-dont-my-send-analytics-match-the-maximum-recipient-limit-i-set}
 
 Si vous ajoutez ou modifiez une limite maximale de destinataires sur une campagne active, la limite peut ne pas être reflétée dans vos analyses d'envoi pour les raisons suivantes :
 
-- **Limite ajoutée après le lancement :** Si la limite maximale de destinataires n'est pas définie au lancement de la campagne, les messages déjà mis en file d'attente avant l'application de la limite sont tout de même envoyés. La limite ne prend effet que pour les envois mis en file d'attente après l'enregistrement de la modification.
-- **Interaction avec la limite de débit :** Si une campagne est également soumise à une limite de débit, les messages peuvent être distribués sur une fenêtre de temps plus longue. La limite maximale de destinataires est évaluée lorsque les messages sont mis en file d'attente, pas lorsqu'ils sont livrés. Si la limite est modifiée alors que des messages sont déjà dans la file d'attente, la limite originale s'applique à ces messages.
-- **Campagnes récurrentes :** Pour les campagnes récurrentes, chaque envoi planifié évalue la limite maximale de destinataires de manière indépendante. Modifier la limite entre les envois ne réajuste pas rétroactivement les comptages d'envois précédents.
+- **Limite ajoutée après le lancement :** si la limite maximale de destinataires n'est pas définie au lancement de la campagne, les messages déjà mis en file d'attente avant l'application de la limite sont tout de même envoyés. La limite ne prend effet que pour les envois mis en file d'attente après l'enregistrement de la modification.
+- **Interaction avec la limite de débit :** si une campagne est également soumise à une limite de débit, les messages peuvent être distribués sur une fenêtre de temps plus longue. La limite maximale de destinataires est évaluée lorsque les messages sont mis en file d'attente, pas lorsqu'ils sont livrés. Si la limite est modifiée alors que des messages sont déjà dans la file d'attente, la limite originale s'applique à ces messages.
+- **Campagnes récurrentes :** pour les campagnes récurrentes, chaque envoi planifié évalue la limite maximale de destinataires de manière indépendante. Modifier la limite entre les envois ne réajuste pas rétroactivement les comptages d'envois précédents.
 
 Pour éviter les décalages, définissez la limite maximale de destinataires avant de lancer la campagne et évitez de la modifier pendant que des envois sont en cours.
 
@@ -251,19 +251,37 @@ Pour éviter les décalages, définissez la limite maximale de destinataires ava
 
 Plusieurs facteurs peuvent expliquer que le nombre d'envois soit inférieur à la taille estimée de l'audience :
 
-- **Livraison par événement :** Les utilisateurs ne génèrent des envois qu'après avoir effectué le déclencheur, de sorte que les envois s'accumulent au fil du temps et peuvent être en retard par rapport à l'estimation initiale affichée lors de la création de la campagne.
-- **Modifications de l'audience après le lancement :** Modifier les filtres d'entrée ou de ciblage après le lancement peut désynchroniser l'**audience estimée** par rapport aux utilisateurs qui sont encore éligibles lors des envois ultérieurs (par exemple, lorsque les utilisateurs ne sont pas éligibles pour réentrer).
-- **Étape Parcours d'audience :** Pour Canvas, une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) n'envoie de messages qu'aux utilisateurs correspondant à la branche de priorité la plus élevée pour laquelle ils sont éligibles, ce qui peut réduire les envois par rapport à un comptage de segment simple.
-- **Groupes de contrôle :** Si un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group/) ou un groupe de contrôle au niveau de la campagne est utilisé, une partie de l'audience est exclue de la livraison.
-- **Délais et fenêtres de livraison :** Pour les campagnes en fuseau horaire local ou planifiées, les utilisateurs doivent être éligibles à la fois à l'entrée et au moment de l'envoi ; les utilisateurs dans certains fuseaux horaires peuvent se trouver en dehors de la fenêtre de livraison.
-- **Déduplication des e-mails :** Votre campagne ou Canvas cible plusieurs utilisateurs avec des adresses e-mail identiques, de sorte qu'un utilisateur aléatoire avec cette adresse e-mail est choisi au moment de l'envoi. Le message n'est envoyé qu'une seule fois et est dédupliqué afin de ne pas être envoyé plusieurs fois à la même adresse e-mail, mais votre taille d'audience estimée inclut tous les utilisateurs.
-- **Filtres de livrabilité des e-mails :** Pour les campagnes e-mail, Braze exclut les utilisateurs qui ont subi un hard bounce, se sont désabonnés des e-mails, ont été signalés comme spam, n'ont pas d'adresse e-mail dans leur profil ou ne sont pas abonnés à un groupe d'abonnement requis. Ces vérifications sont effectuées au moment de l'envoi, de sorte qu'un utilisateur présent dans votre segment peut tout de même être exclu du comptage réel des envois.
-- **Limite de fréquence globale :** Les plafonds au niveau de l'espace de travail peuvent empêcher des utilisateurs éligibles de recevoir un autre message dans la même fenêtre, ce qui réduit les envois réalisés.
-- **Utilisateurs nouvellement importés :** Les profils qui viennent de devenir éligibles peuvent ne pas recevoir le message avant la prochaine évaluation ou le prochain cycle d'envoi, de sorte que les comptages se rattrapent lors d'un cycle ultérieur.
-- **Accessibilité push :** Pour les campagnes push, confirmez que l'audience est activée pour le push pour l'application correcte. Si vous ne filtrez pas les utilisateurs activés pour le push, l'audience estimée peut inclure des profils qui ne peuvent pas recevoir de push. Vérifiez les **utilisateurs atteignables** dans l'étape **Audience cible** pour une estimation opérationnelle plus précise.
-- **Limite de débit :** Si une limite de débit est appliquée, les messages sont distribués dans le temps et certains envois peuvent être différés ou ne pas encore être reflétés dans le comptage.
-- **Fenêtres de rééligibilité :** Les utilisateurs qui ne sont pas encore rééligibles ne recevront pas le message pendant la période de refroidissement, de sorte que les envois sont inférieurs à la taille estimée de l'audience pour cette période.
-- **Fenêtre de reporting :** La plage temporelle des analyses peut ne pas inclure tous les envois.
-- **Réévaluation du segment :** Pour les campagnes à livraison par événement ou planifiées qui réévaluent au moment de l'envoi, les utilisateurs qui étaient dans le segment lorsque la campagne a été mise en file d'attente peuvent ne plus être éligibles lorsque le message est effectivement envoyé.
-- **Plafonds d'envoi :** Un nombre maximum d'utilisateurs (ou un plafond similaire) dans **Audience cible** arrête la livraison lorsque le plafond est atteint.
-- **Filtres stricts d'appareil ou de navigateur :** Les filtres qui ne correspondent qu'aux versions les plus récentes d'applications ou de navigateurs réduisent l'ensemble atteignable au moment de l'envoi par rapport à un aperçu de segment large.
+- **Livraison par événement :** les utilisateurs ne génèrent des envois qu'après avoir effectué le déclencheur, de sorte que les envois s'accumulent au fil du temps et peuvent être en retard par rapport à l'estimation initiale affichée lors de la création de la campagne.
+- **Modifications de l'audience après le lancement :** modifier les filtres d'entrée ou de ciblage après le lancement peut désynchroniser l'**audience estimée** par rapport aux utilisateurs qui sont encore éligibles lors des envois ultérieurs (par exemple, lorsque les utilisateurs ne sont pas éligibles pour réentrer).
+- **Étape Parcours d'audience :** pour Canvas, une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) n'envoie de messages qu'aux utilisateurs correspondant à la branche de priorité la plus élevée pour laquelle ils sont éligibles, ce qui peut réduire les envois par rapport à un comptage de segment simple.
+- **Groupes de contrôle :** si un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group/) ou un groupe de contrôle au niveau de la campagne est utilisé, une partie de l'audience est exclue de la livraison.
+- **Délais et fenêtres de livraison :** pour les campagnes en fuseau horaire local ou planifiées, les utilisateurs doivent être éligibles à la fois à l'entrée et au moment de l'envoi ; les utilisateurs dans certains fuseaux horaires peuvent se trouver en dehors de la fenêtre de livraison.
+- **Déduplication des e-mails :** votre campagne ou Canvas cible plusieurs utilisateurs avec des adresses e-mail identiques, de sorte qu'un utilisateur aléatoire avec cette adresse e-mail est choisi au moment de l'envoi. Le message n'est envoyé qu'une seule fois et est dédupliqué afin de ne pas être envoyé plusieurs fois à la même adresse e-mail, mais votre taille d'audience estimée inclut tous les utilisateurs.
+- **Filtres de livrabilité des e-mails :** pour les campagnes e-mail, Braze exclut les utilisateurs qui ont subi un hard bounce, se sont désabonnés des e-mails, ont été signalés comme spam, n'ont pas d'adresse e-mail dans leur profil ou ne sont pas abonnés à un groupe d'abonnement requis. Ces vérifications sont effectuées au moment de l'envoi, de sorte qu'un utilisateur présent dans votre segment peut tout de même être exclu du comptage réel des envois.
+- **Limite de fréquence globale :** les plafonds au niveau de l'espace de travail peuvent empêcher des utilisateurs éligibles de recevoir un autre message dans la même fenêtre, ce qui réduit les envois réalisés.
+- **Utilisateurs nouvellement importés :** les profils qui viennent de devenir éligibles peuvent ne pas recevoir le message avant la prochaine évaluation ou le prochain cycle d'envoi, de sorte que les comptages se rattrapent lors d'un cycle ultérieur.
+- **Accessibilité push :** pour les campagnes push, confirmez que l'audience est activée pour le push pour l'application correcte. Si vous ne filtrez pas les utilisateurs activés pour le push, l'audience estimée peut inclure des profils qui ne peuvent pas recevoir de push. Vérifiez les **utilisateurs atteignables** dans l'étape **Audience cible** pour une estimation opérationnelle plus précise.
+- **Limite de débit :** si une limite de débit est appliquée, les messages sont distribués dans le temps et certains envois peuvent être différés ou ne pas encore être reflétés dans le comptage.
+- **Fenêtres de rééligibilité :** les utilisateurs qui ne sont pas encore rééligibles ne recevront pas le message pendant la période de refroidissement, de sorte que les envois sont inférieurs à la taille estimée de l'audience pour cette période.
+- **Fenêtre de reporting :** la plage temporelle des analyses peut ne pas inclure tous les envois.
+- **Réévaluation du segment :** pour les campagnes à livraison par événement ou planifiées qui réévaluent au moment de l'envoi, les utilisateurs qui étaient dans le segment lorsque la campagne a été mise en file d'attente peuvent ne plus être éligibles lorsque le message est effectivement envoyé.
+- **Plafonds d'envoi :** un nombre maximum d'utilisateurs (ou un plafond similaire) dans **Audience cible** arrête la livraison lorsque le plafond est atteint.
+- **Filtres stricts d'appareil ou de navigateur :** les filtres qui ne correspondent qu'aux versions les plus récentes d'applications ou de navigateurs réduisent l'ensemble atteignable au moment de l'envoi par rapport à un aperçu de segment large.
+
+### Où trouver les questions fréquemment posées sur la limite de fréquence globale ? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+Pour les questions sur les jours calendaires, les notifications push silencieuses, les webhooks, le comportement de Canvas et les sujets connexes, consultez les [questions fréquemment posées]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) pour [Limite de débit et limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
+### Pourquoi les destinataires uniques peuvent-ils dépasser les envois pour les e-mails et les SMS ? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+Pour les e-mails et les SMS, Braze incrémente les **destinataires uniques** avant la tentative d'envoi par le fournisseur de services de messagerie (ESP) et incrémente les **envois** après une réponse réussie de l'ESP. Les erreurs permanentes (comme les adresses e-mail invalides) ou les adresses en double font que les destinataires uniques dépassent les envois.
+
+### Pourquoi le **dernier envoi** ne correspond-il pas à l'heure d'envoi planifiée ? {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+Pour une campagne avec un seul envoi planifié, le **dernier envoi** correspond à l'heure de lancement. Pour les campagnes récurrentes avec l'option **Envoyer en fuseau horaire local** activée, le **dernier envoi** peut apparaître plus tôt que l'heure planifiée, car les envois aux utilisateurs dans des fuseaux horaires plus avancés (par exemple, GMT par rapport à PST) se terminent avant l'heure planifiée de votre espace de travail.
+
+### Pourquoi une campagne historique arrêtée n'affiche-t-elle plus d'indicateurs sur la page **Analytics** ? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+L'onglet **Analytics** affiche par défaut les 90 derniers jours. Si la campagne a été envoyée pour la dernière fois en dehors de cette fenêtre, les indicateurs peuvent apparaître à zéro jusqu'à ce que vous ajustiez la plage de dates sur la page **Analytics** pour inclure la période d'envoi de la campagne. Pour en savoir plus, consultez [Analyse de campagne]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Restaurer les données d'interaction** ne restaure pas les analyses de campagne. Cette fonctionnalité s'applique uniquement aux filtres de reciblage et à l'historique d'interaction des utilisateurs. Pour en savoir plus, consultez [Données d'interaction de messagerie]({{site.baseurl}}/messaging_interaction_data/).

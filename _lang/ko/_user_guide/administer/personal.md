@@ -26,6 +26,9 @@ guide_featured_list:
 - name: Braze 고객지원
   link: /docs/user_guide/administer/personal/braze_support
   image: /assets/img/braze_icons/mail-01.svg
+- name: Braze 인증
+  link: /docs/user_guide/administer/personal/braze_certification
+  image: /assets/img/braze_icons/award-02.svg
 - name: API 및 SDK 엔드포인트
   link: /docs/user_guide/administer/personal/sdk_endpoints
   image: /assets/img/braze_icons/navigation-pointer-01.svg

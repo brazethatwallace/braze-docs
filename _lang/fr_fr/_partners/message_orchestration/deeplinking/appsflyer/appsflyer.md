@@ -2,7 +2,7 @@
 nav_title: AppsFlyer
 article_title: AppsFlyer
 alias: /partners/appsflyer/
-description: "Cet article de référence décrit le partenariat entre Braze et AppsFlyer, une plateforme d'analyse et d'attribution de marketing mobile qui vous aide à analyser et optimiser vos applications."
+description: "Cet article de référence décrit le partenariat entre Braze et AppsFlyer, une plateforme d'analyse et d'attribution de marketing mobile qui vous aide à analyser et à optimiser vos applications."
 page_type: partner
 search_tag: Partner
 
@@ -108,13 +108,17 @@ Vous y trouverez l'endpoint REST et pourrez générer votre clé d'importation d
 3. Indiquez la clé d'importation des données et l'endpoint REST que vous avez trouvés dans le tableau de bord de Braze.
 4. Désactivez **Advanced Privacy** et enregistrez votre configuration.
 
+{% alert important %}
+Lorsque vous saisissez l'endpoint REST de Braze dans l'onglet Integration d'AppsFlyer, entrez uniquement le domaine (par exemple, `rest.fra-02.braze.eu`) sans le protocole `https://` et sans le chemin `/attribution/appsflyer`. AppsFlyer ajoute automatiquement le protocole et le chemin. Inclure l'un ou l'autre dans votre saisie provoque des échecs de postback.
+{% endalert %}
+
 Des informations supplémentaires sur ces instructions sont disponibles dans la [documentation d'AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration).
 
 ### Étape 4 : Confirmer l'intégration {#step-4-confirm-the-integration}
 
-Après que Braze a reçu des données d'attribution d'AppsFlyer, l'indicateur de connexion sur la page des partenaires technologiques d'AppsFlyer dans Braze passe de « Not Connected » à « Connected » et inclut un horodatage de la dernière requête réussie.
+Sur la page des partenaires technologiques d'AppsFlyer dans Braze, l'indicateur de connexion affiche **Not Connected** jusqu'à ce que vous génériez une clé API d'importation des données à l'étape 2. Après avoir généré la clé, l'indicateur passe à **Connected** et affiche un horodatage. Cet horodatage indique la date à laquelle l'intégration a été initialement configurée dans Braze (lorsque la clé d'importation des données a été créée), et non la dernière fois qu'AppsFlyer a envoyé un postback.
 
-Ce statut ne change que lorsque Braze reçoit des données sur une attribution d'installation. Braze ignore les installations organiques (il les exclut du postback d'AppsFlyer) et ne les comptabilise pas pour déterminer si la connexion est réussie.
+Pour confirmer que les données d'attribution d'installation circulent depuis AppsFlyer, utilisez l'étape 5 pour vérifier que les données d'installation non organique apparaissent dans les filtres de Segment de Braze. Braze ignore les installations organiques provenant des postbacks d'AppsFlyer et ne les stocke pas en tant que données d'installation attribuées.
 
 ### Étape 5 : Afficher les données d'attribution des utilisateurs {#step-5-viewing-user-attribution-data}
 
@@ -204,10 +208,10 @@ Par conséquent, à chaque fois qu'un lien est cliqué, le clic est redirigé ve
 ![Diagramme illustrant comment les données de clics sont transmises de votre domaine à AppsFlyer, puis à votre endpoint ESP.]({% image_buster /assets/img/attribution/appsflyer/6.png %})
 
 #### b. Après avoir copié et envoyé les instructions, cliquez sur Done. {#b-after-copying-and-sending-the-instructions-click-done}
-Votre intégration à Braze a été créée.
+Votre intégration Braze a été créée.
 
 {%alert important%}
-L'état de votre intégration à Braze est en attente et ne commence à fonctionner qu'une fois l'enregistrement CNAME mappé. Il peut s'écouler jusqu'à 24 heures après le mappage pour qu'une nouvelle intégration commence à fonctionner et devienne active.
+L'état de votre intégration Braze est en attente et ne commence à fonctionner qu'une fois l'enregistrement CNAME mappé. Il peut s'écouler jusqu'à 24 heures après le mappage pour qu'une nouvelle intégration commence à fonctionner et devienne active.
 {%endalert%}
 
 ## Étape 4 : Configurer votre application (tâche du développeur) {#step-4-configure-your-app-developer-task}

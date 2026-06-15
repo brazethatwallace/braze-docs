@@ -13,7 +13,7 @@ channel: email
 
 ### What happens when an email is sent out, and multiple profiles have the same email address?
 
-If multiple users with matching email addresses are in a segment to receive a campaign, a random user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
+If multiple users with matching email addresses are in a segment to receive a campaign, a single user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
 
 **Unique email addresses:** Braze doesn't enforce unique email addresses across profiles. If you rely on a one-to-one relationship between an email address and a profile, monitor for duplicates internally when creating users.
 
@@ -25,6 +25,7 @@ If multiple profiles share an email address and one profile unsubscribes, Braze 
 
 The following scenarios can make it seem like a user received an email twice:
 
+- **Seed lists or test recipients:** Seed addresses and internal test recipients can receive a send in addition to your main audience, which can look like a duplicate when an inbox matches both a profile and a seed entry.
 - **An error occurred during campaign or Canvas creation:** The user may not receive the same send twice, but may receive two separate emails with the same subject line. When a campaign or Canvas is duplicated, check email configuration details such as images or subject lines. You can also refer to changelogs to see if the campaign or Canvas was modified after launch—a duplicate may share the same subject line as the original when the user received it.
 - **Multiple user profiles have email forwarding:** If a user has multiple accounts in a given app but one account forwards mail, the user receives the campaign once per inbox; mail can appear twice in the inbox where messages are forwarded. Only some providers indicate when an email was forwarded from another account.
 - **Email configuration at the recipient:** Some clients merge inboxes ("universal inbox"). If the same campaign targets multiple accounts that share one inbox, it can look like one person got the campaign twice when two distinct profiles were actually messaged. The recipient can confirm whether multiple accounts are combined in one inbox.
@@ -46,6 +47,14 @@ API-triggered campaigns will deduplicate or send deduplicates depending on where
 {% alert important %}
 If you send an API campaign through an API call (excluding API-triggered campaigns), and multiple users are specified in the segment audience with the same email address, it sends to that address as many times as listed in the call. This is because API calls are assumed to be purposefully constructed.
 {% endalert %}
+
+#### A/B testing with duplicate email addresses
+
+Avoid [multivariate and A/B tests]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) on email when multiple profiles can share the same email address. Variants are assigned per profile, which can produce more than one message to the same inbox. If you must test in that situation, do not combine a **winning variant** step with [local time zone delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#local-time-zone-campaigns) in a way that delays selecting the winner—those options together can increase the chance of duplicate sends.
+
+#### Canvas and duplicate email addresses
+
+For Canvas journeys, whether duplicate email addresses receive one send or more than one can depend on entry batching, step timing, and other factors. Treat behavior as undefined until you validate it for your journey. Where possible, merge or consolidate duplicate profiles. If you need a product change, submit feedback through your Braze team.
 
 ### What happens to the subscription state when a user's email address changes to one shared by another user?
 
@@ -182,14 +191,54 @@ This warning can persist for campaigns duplicated from a campaign that did not h
 - For HTML emails, go to the **Plaintext** tab, then select **Regenerate from HTML**.
 - After duplicating, duplicate the variant, then remove the original variant. **Do not** select the original variant, or the warning can carry over.
 
-### What are reasons why my user hasn't received an email campaign?
+### Why did a user receive an email they shouldn't have?
 
-Reasons why a user hasn't received an email campaign include:
+Delivery can look wrong even when Braze behaved as configured. Work through the following:
+
+- **Duplicate profiles** that share one inbox (see [What happens when an email is sent out, and multiple profiles have the same email address?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
+- **Seed lists, test recipients, or internal addresses** included in the audience or on a send as CC/BCC.
+- **Segment or Canvas timing:** the user matched the audience or Canvas step when Braze evaluated eligibility, then attributes or subscription state changed before they read the message.
+- **Subscription groups:** the user remained opted in to a group your message targeted even if their global subscription state suggested otherwise.
+- **API or file imports** that updated the user after segmentation but before you expected the change to apply.
+
+Review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), campaign or Canvas changelogs, and segment definition. If you still cannot reconcile the send, contact Braze Support with user identifiers, `dispatch_id` (if available), and timestamps.
+
+### Why hasn't a user received my email message?
+
+There are several reasons why a user does not receive an email that you expected them to get, including:
 
 - They weren't eligible to receive the email.
 - Their email address is invalid or doesn't exist.
 - They may have missed or deleted the message.
 - The message may be in their spam folder.
+
+{% alert tip %}
+A delivery event in Braze means the email was accepted by the mailbox provider's server. However, this does not guarantee that the message appears in the user's inbox. The mailbox provider may route the message to spam or, in rare cases, silently prevent display of the message.
+{% endalert %}
+
+Use the following tables to narrow down the cause.
+
+#### The email wasn't sent
+
+| Possible cause | What to check |
+|---|---|
+| The user wasn't eligible for the campaign or Canvas | Check the **Target Audiences** (for campaigns) or **Target Audience** (for Canvas) [settings]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) to confirm the user met all audience filters, segment criteria, and delivery rules at the time of send. |
+| The message was aborted | Check the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) for abort reasons, such as Liquid errors or missing required fields. |
+| The user's email address was invalid or missing | In **User Search**, check the user's profile to verify that a valid email address was on file at the time of send. |
+| The user's email address previously hard bounced | A hard bounce marks the email address as invalid and prevents future sends to that address. Similarly, if a recipient marks your email as spam, Braze sends only transactional emails to that user, not standard campaigns. Check the user's **Engagement** tab in their profile. For more information, see [Unsubscribed email addresses]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) and [Bounces and invalid emails]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails). |
+| The user is unsubscribed from email | Check the user's subscription status under **Contact Settings** on the **Engagement** tab. Braze does not send emails to users who are unsubscribed. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cause for email not sent" }
+
+#### The email was sent, but didn't arrive in their inbox
+
+| Possible cause | What to check |
+|---|---|
+| The mailbox provider (MBP) was unreachable | A temporary issue prevented the email from reaching the recipient's MBP. This typically resolves itself with retries. Email service providers retry soft bounces for up to 72 hours. |
+| The MBP bounced the email | The recipient's mail server rejected the email. Review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) for bounce details. |
+| The MBP silently dropped the email | The MBP accepted the email but didn't display it to the user and didn't return a bounce. This is outside of Braze's control and cannot be detected in Braze logs. |
+| The email went to the spam folder | The MBP identified the message as spam and routed it to the user's spam or junk folder. Ask the user to check their spam folder. |
+| The recipient has custom mail filtering | The user or their IT administrator may have configured mailbox rules that filter, redirect, or delete incoming messages. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cause for email not in inbox" }
 
 ### How can I optimize images in Outlook?
 
@@ -216,3 +265,21 @@ First, confirm you have the [user permissions]({{site.baseurl}}/user_guide/admin
 ### Do I need to register domains for relay or masked emails?
 
 [Apple’s Private Email Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) requires you to register your sending domains in the Apple Developer Portal to prevent bounces. Google Shielded Email does not require a manual domain registration or allowlisting process.
+
+### What does the bounce reason `unable to get mx info` or `failed to get IPs from PTR record` mean?
+
+In the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), a bounce reason similar to the following indicates a problem resolving the receiving domain's mail setup (the domain after the `@` in the address), not to Braze message composition:
+
+Typical causes include:
+
+- Missing, incorrect, or unreachable **MX records** for that domain
+- Inbound mail hostnames that don't resolve or that fail **PTR (reverse DNS)** checks expected by receiving infrastructure
+- Invalid or mistyped domains in the email address
+
+**Next steps:**
+
+- Confirm the address and domain spelling.
+- If the address is correct, contact the mailbox owner or IT team for that domain.
+- Ask them to audit MX and related DNS records, including PTR records for their mail servers, with their DNS provider.
+
+Other recipients are usually unaffected. For how soft bounces appear in reporting, see [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).

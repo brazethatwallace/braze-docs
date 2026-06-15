@@ -89,7 +89,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 以下の例のように、カスタム定義のLiquid変数を短縮することもできます。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign url_var = {{event_properties.${url_slug}}} %}
 https://example.com/{{url_var}}
 ```
@@ -101,12 +101,12 @@ Brazeは、APIトリガープロパティに含まれるURLも含め、Liquidで
 
 ## テスト {#testing}
 
-キャンペーンまたはキャンバスを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**Test**タブに移動して、コンテンツテストグループまたは個々のユーザーにLINEメッセージをプレビューして送信します。
+CampaignまたはCanvasを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**Test**タブに移動して、コンテンツテストグループまたは個々のユーザーにLINEメッセージをプレビューして送信します。
 
 このプレビューは、関連するパーソナライゼーションと短縮URLで更新されます。
 
 {% alert important %}
-アクティブなキャンバス内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、キャンバスの下書きがアクティブになったときに生成されます。
+アクティブなCanvas内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、Canvasの下書きがアクティブになったときに生成されます。
 {% endalert %}
 
 ## レポート {#reporting}
@@ -124,23 +124,23 @@ LINEパフォーマンステーブルには、バリアントごとのクリッ�
 LINEメッセージ内のURLをクリックしたユーザーを、以下のセグメンテーションフィルターとトリガーを使用してリターゲティングできます。
 
 - アクションベースのトリガー
-    - キャンペーンとのインタラクション
+    - Campaignとのインタラクション
     - ステップとのインタラクション
 
 ![LINEアクションベースの配信トリガー]({% image_buster /assets/img/line/line_action_based.png %})
 
 - セグメンテーションフィルター
-    - キャンペーンのクリック/開封
-    - タグ付きキャンペーンまたはキャンバスのクリック/開封
+    - Campaignのクリック/開封
+    - タグ付きCampaignまたはCanvasのクリック/開封
     - ステップのクリック/開封
 
-![「キャンペーンのクリック/開封」、「タグ付きキャンペーンまたはキャンバスのクリック/開封」、「ステップのクリック/開封」の3つのセグメンテーションフィルターを表示するフィルターグループ]({% image_buster /assets/img/line/line_segmentation_filters.png %})
+![「Campaignのクリック/開封」、「タグ付きCampaignまたはCanvasのクリック/開封」、「ステップのクリック/開封」の3つのセグメンテーションフィルターを表示するフィルターグループ]({% image_buster /assets/img/line/line_segmentation_filters.png %})
 
 ## よくある質問 {#frequently-asked-questions}
 
 ### テスト送信で受け取るリンクは実際のURLですか？ {#are-the-links-i-receive-when-test-sending-real-urls}
 
-はい、テスト送信時に実際のURLが生成されます。ただし、起動されたキャンペーンで送信される正確なURLは、テスト送信で送信されたものとは異なる場合があります。
+はい、テスト送信時に実際のURLが生成されます。ただし、起動されたCampaignで送信される正確なURLは、テスト送信で送信されたものとは異なる場合があります。
 
 ### URLが短縮される前にUTMパラメーターを追加できますか？ {#can-i-add-utm-parameters-to-a-url-before-it-is-shortened}
 

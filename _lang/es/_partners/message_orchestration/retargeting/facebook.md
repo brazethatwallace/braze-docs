@@ -34,7 +34,7 @@ Si estás participando en las pruebas de las cuentas de Meta Work en versión be
 | [Facebook Business Manager](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Una herramienta centralizada para gestionar los activos de Facebook de tu marca (por ejemplo, cuentas de anuncios, páginas, aplicaciones). |
 | [Cuenta publicitaria de Facebook](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Una cuenta de anuncios de Facebook activa vinculada al administrador de empresas de tu marca que quieras utilizar con los públicos personalizados de Braze.<br><br>Asegúrate de que el administrador de tu empresa en Facebook te ha concedido permisos de administrador para las cuentas de anuncios de Facebook que piensas utilizar con Braze, y de que has aceptado los términos y condiciones de tu cuenta de anuncios. De lo contrario, no podrás acceder a ninguna cuenta de anuncios de Facebook dentro de Braze. |
 | [Términos de los públicos personalizados de Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php)| Debes aceptar los términos de públicos personalizados de Facebook para las cuentas de anuncios de Facebook que pienses utilizar con Braze.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -46,7 +46,7 @@ Si estás participando en las pruebas de las cuentas de Meta Work en versión be
 2. En el módulo de exportación de audiencia de Facebook, selecciona **Connect Facebook**. <br><br>![Página de socios tecnológicos de Facebook en la plataforma Braze.]({% image_buster /assets/img/fb/afb_1.png %}){: style="max-width:70%;"}
 
 {: start="3"}
-3. En la ventana de diálogo oAuth de Facebook, autoriza a Braze a crear públicos personalizados en tus cuentas de anuncios de Facebook. <br><br>![El primer cuadro de diálogo de Facebook te pide "Conectarte como X", donde X es tu nombre de usuario de Facebook.]({% image_buster /assets/img/fb/afb_3.png %}){: style="max-width:30%;"}  ![El segundo cuadro de diálogo de Facebook que solicita permiso para gestionar los anuncios de tus cuentas publicitarias.]({% image_buster /assets/img/fb/afb_2.png %}){: style="max-width:40%;"}
+3. En la ventana de diálogo oAuth de Facebook, autoriza a Braze a crear públicos personalizados en tus cuentas de anuncios de Facebook. <br><br>![El primer cuadro de diálogo de Facebook te pide conectarte como X, donde X es tu nombre de usuario de Facebook.]({% image_buster /assets/img/fb/afb_3.png %}){: style="max-width:30%;"}  ![El segundo cuadro de diálogo de Facebook que solicita permiso para gestionar los anuncios de tus cuentas publicitarias.]({% image_buster /assets/img/fb/afb_2.png %}){: style="max-width:40%;"}
 
 {: start="4"}
 4. Una vez que Braze esté vinculado a tu cuenta de Facebook, selecciona las cuentas de anuncios que deseas sincronizar en tu espacio de trabajo de Braze. <br><br>![Una lista de las cuentas de anuncios disponibles que puedes conectar a Facebook.]({% image_buster /assets/img/fb/afb_4.png %}){: style="max-width:70%;"}<br><br> Después de conectarte, volverás a la página de socios, donde podrás ver qué cuentas están conectadas y desconectar las existentes. <br><br> ![Una versión actualizada de la página de socios tecnológicos de Facebook que muestra las cuentas de anuncios conectadas correctamente.]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:70%;"}<br>
@@ -66,7 +66,7 @@ En Braze, se puede acceder a la exportación de audiencia de Facebook a través 
 2. Selecciona **User Data** y, a continuación, **Export as Facebook Audience**. <br><br>![La sección "Detalles del segmento" de un segmento con "User Data" seleccionado para mostrar un desplegable de opciones que incluye "Export as Facebook Audience".]({% image_buster /assets/img/fb/afb_6.png %})
 
 {: start="3"}
-3. Si aún no has activado Facebook en Braze, se te pedirá que vayas a la página de socios tecnológicos de Facebook en el dashboard. Si ya has activado Facebook a través de **Technology Partners** > **Facebook**, podrás seleccionar tu cuenta de anuncios de Facebook y los campos de usuario para exportar. <br><br> Puedes exportar los siguientes campos:
+3. Si aún no has activado Facebook en Braze, se te pedirá que vayas a la página de socios tecnológicos de Facebook en el dashboard. Si ya has activado Facebook a través de **Socios tecnológicos** > **Facebook**, podrás seleccionar tu cuenta de anuncios de Facebook y los campos de usuario para exportar. <br><br> Puedes exportar los siguientes campos:
 - IDFA del dispositivo
 - Número de teléfono
 - Correo electrónico
@@ -120,7 +120,7 @@ Para resolver este error, sigue estos pasos:
 Si la exportación no funciona, haz lo siguiente:
 1. Vuelve a eliminar tus credenciales y guarda.
 2. Vuelve a añadir tus credenciales y guarda.
-3. Desconecta y vuelve a conectar la integración de Facebook en la página de **Technology Partners**.
+3. Desconecta y vuelve a conectar la integración de Facebook en la página de **Socios tecnológicos**.
 
 ### Error al exportar una audiencia de Facebook {#error-when-exporting-a-facebook-audience}
 

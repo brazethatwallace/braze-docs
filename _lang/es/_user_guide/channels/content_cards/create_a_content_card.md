@@ -43,7 +43,7 @@ Si todos los mensajes de tu Campaign van a ser similares o tener el mismo conten
 4. Elige cuándo Braze calcula la elegibilidad de la audiencia y la personalización para la Content Card. Esto puede ser al entrar en el paso o en la primera impresión (recomendado). Los pasos que contienen Content Cards pueden ser planificados o basados en acciones.
 5. Elige si deseas eliminar las Content Cards cuando los usuarios completen una compra o realicen un evento personalizado.
 6. Establece una expiración para la Content Card (tiempo en el feed). Puede ser después de un período de tiempo o en un momento específico.
-7. Filtra tu audiencia, o los destinatarios, para este paso según sea necesario en la **Configuración de entrega**. Puedes refinar aún más tu audiencia especificando Segments y añadiendo filtros adicionales. Las opciones de audiencia se verifican después del retraso, en el momento en que se envían los mensajes.
+7. Filtra tu audiencia, o los destinatarios, para este paso según sea necesario en la **Configuración de entrega**. Puedes refinar aún más tu audiencia especificando segmentos y añadiendo filtros adicionales. Las opciones de audiencia se verifican después del retraso, en el momento en que se envían los mensajes.
 8. Elige cualquier otro canal de mensajería que quieras combinar con tu mensaje.
 
 {% endtab %}
@@ -94,7 +94,7 @@ Cada tipo de mensaje y plataforma puede tener sus propias proporciones y requisi
 
 #### Anclar en la parte superior {#pin-to-top}
 
-Braze muestra una tarjeta anclada en la parte superior del feed del usuario y el usuario no puede descartarla. Si el feed de un usuario tiene múltiples tarjetas ancladas, Braze las ordena cronológicamente. Después de enviar una tarjeta, no puedes actualizar retroactivamente su opción de anclaje. Cambiar esta opción después de enviar una Campaign solo afecta a los envíos futuros.
+Braze muestra una tarjeta anclada en la parte superior del feed del usuario y el usuario no puede descartarla. Si el feed de un usuario tiene múltiples tarjetas ancladas, Braze las ordena cronológicamente. Cuando Braze entrega una Content Card, está anclada o no anclada, y ese estado no cambia durante la vida útil de la tarjeta. Si cambias la configuración de anclaje en una Campaign, la actualización se aplica a las tarjetas enviadas en el futuro solamente. No cambia el estado de anclaje de las tarjetas que ya están en el feed de un usuario.
 
 ![Vista lado a lado de la vista previa de la Content Card en Braze para móvil y web con la opción «Anclar esta tarjeta en la parte superior del feed» seleccionada.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -147,7 +147,7 @@ Para Campaigns de Content Cards con entrega planificada, puedes elegir cuándo B
 
 #### Elige los usuarios objetivo {#choose-users-to-target}
 
-A continuación, [segmenta a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo Segments o filtros para delimitar tu audiencia. Recibirás automáticamente una vista previa de cómo se ve aproximadamente la población de ese Segment. Ten en cuenta que la pertenencia exacta al Segment siempre se calcula antes de enviar el mensaje.
+A continuación, [segmenta a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo segmentos o filtros para delimitar tu audiencia. Recibirás automáticamente una vista previa de cómo se ve aproximadamente la población de ese segmento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula antes de enviar el mensaje.
 
 {% multi_lang_include target_audiences.md %}
 
@@ -328,3 +328,11 @@ Si quieres que una tarjeta parezca estar siempre disponible, puedes crear una Ca
 1. Establece la duración de la Content Card en 30 días.
 2. Establece la reelegibilidad de la Campaign en 30 días.
 3. Configura la Campaign para que se desencadene al «Inicio de sesión».
+
+### Sincronización y actualización de Content Cards {#content-card-sync-and-refresh}
+
+Las Content Cards se sincronizan según una planificación y cuando tu aplicación actualiza el feed. El comportamiento de sincronización difiere entre sincronizaciones completas y parciales, y tu integración del SDK afecta cuándo se actualizan las tarjetas al inicio de sesión. Para detalles de implementación, consulta [Personalizar el feed de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) y [Crear Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+
+### Impacto de detener Campaigns de Content Cards {#impact-of-stopping-content-cards-campaigns}
+
+Cuando detienes una Campaign y seleccionas **Remove card after the next sync**, Braze elimina la tarjeta de los feeds de los usuarios en la próxima actualización. Los conteos de impresiones pueden ser menores que los conteos de envío porque los usuarios no pueden registrar impresiones de tarjetas que se eliminan antes de que las vean.

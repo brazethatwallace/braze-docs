@@ -137,8 +137,11 @@
         background-color: transparent;
     }
 
-    .select:focus {
-        outline: 0
+    .select:focus:not(:focus-visible) {
+        outline: 0;
+    }
+    .select:focus-visible {
+        @include focus-ring();
     }
 
     .partner_filter_div {

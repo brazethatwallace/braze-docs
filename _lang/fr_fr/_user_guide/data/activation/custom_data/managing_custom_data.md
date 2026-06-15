@@ -32,7 +32,7 @@ Les événements personnalisés et les attributs personnalisés sont sensibles �
 
 ## Gestion des propriétés {#managing-properties}
 
-Après avoir créé un événement personnalisé ou un produit, sélectionnez **Manage Properties** de cet événement ou de ce produit pour ajouter de nouvelles propriétés, bloquer des propriétés existantes et afficher les campagnes ou les Canvas qui utilisent cette propriété dans un [événement déclencheur]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
+Après avoir créé un événement personnalisé ou un produit, sélectionnez **Manage Properties** pour cet événement ou ce produit afin d'ajouter de nouvelles propriétés, bloquer des propriétés existantes et afficher les Campaigns ou les Canvas qui utilisent cette propriété dans un [événement déclencheur]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
 
 ![Propriétés personnalisées d'un événement personnalisé.]({% image_buster /assets/img_archive/manageproperties1.png %}){: style="max-width:80%"}
 
@@ -79,6 +79,8 @@ Si vous avez besoin que toutes les données utilisateur existantes correspondent
 | Valeur booléenne | Les entrées `1`, `true`, `t` (non sensibles à la casse) sont stockées comme `true` |
 | Valeur booléenne | Les entrées `0`, `false`, `f` (non sensibles à la casse) sont stockées comme `false` |
 | Nombre | Les nombres entiers ou flottants (tels que `1`, `1.5`) sont stockés en tant que nombres |
+| Nombre | Les chaînes de caractères numériques (telles que `"100"` ou `"3.14"`) peuvent être contraintes en nombres lorsque l'attribut est forcé au type **Nombre** |
+| Chaîne de caractères | Les valeurs numériques peuvent être contraintes sous forme de chaîne de caractères lorsque l'attribut est forcé au type **Chaîne de caractères** |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Coercition de type de données" }
 
 Pour plus d'informations sur les options de filtrage spécifiques exposées par les différentes comparaisons de types de données, consultez la section [Configuration des rapports]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). Pour plus d'informations sur les différents types de données disponibles, reportez-vous à la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).

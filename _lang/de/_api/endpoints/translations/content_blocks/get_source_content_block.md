@@ -17,8 +17,6 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt für Übersetzungsq
 
 > Verwenden Sie diesen Endpunkt, um alle Standard-Übersetzungsquellen für die Übersetzungs-Tags eines Content-Blocks anzuzeigen. Dies sind die Werte innerhalb von {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Weitere Informationen zu Übersetzungsfunktionen finden Sie unter [Lokalisierungen in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `content_blocks.translations.get`.

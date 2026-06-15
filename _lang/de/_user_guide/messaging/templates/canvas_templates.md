@@ -34,11 +34,7 @@ Geben Sie Ihrem Template als Nächstes einen Namen und fügen Sie relevante Tags
 
 ### 1. Schritt: Gehen Sie zum Canvas-Template-Editor {#step-1-go-to-the-canvas-template-editor}
 
-Gehen Sie im Braze-Dashboard zu **Templates** > **Canvas Templates**.
-
-{% alert note %}
-Wenn Sie die ältere Navigation verwenden, finden Sie diese Seite unter **Engagement** > **Templates & Media** > **Canvas Templates**.
-{% endalert %}
+Gehen Sie im Braze-Dashboard zu **Content** > **Canvas**.
 
 ### 2. Schritt: Erstellen Sie ein neues Template {#step-2-create-a-new-template}
 
@@ -59,11 +55,11 @@ Nachdem Sie Ihr Template fertig angepasst haben, wählen Sie den Button **Save t
 Es gibt zwei Möglichkeiten, Ihr Template beim Erstellen eines Canvas zu verwenden:
 
 - **Über Messaging**: Gehen Sie zu **Messaging** > **Canvas**. Wählen Sie den Button **Create Canvas** und dann **Use a Canvas Template**.
-- **Über Templates**: Gehen Sie zu **Templates** > **Canvas Templates** und suchen Sie Ihr gewünschtes Template. Wählen Sie dann das Menü <i class="fas fa-ellipsis-vertical"></i> und anschließend **Apply template**. Dadurch gelangen Sie zu einem neuen Canvas, bei dem das Template im Canvas-Composer angewendet wurde.
+- **Über Content**: Gehen Sie zu **Content** > **Canvas** und suchen Sie Ihr gewünschtes Template unter **Canvas templates**. Wählen Sie dann das Menü <i class="fas fa-ellipsis-vertical"></i> und anschließend **Apply template**. Dadurch gelangen Sie zu einem neuen Canvas, bei dem das Template im Canvas-Composer angewendet wurde.
 
 ### Verfügbare Braze-Templates {#available-braze-templates}
 
-Eine Liste der verfügbaren Canvas-Templates finden Sie unter [Braze-Canvas-Templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Details zur Verwendung von E-Commerce-Canvas-Templates finden Sie unter [So verwenden Sie empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_use_cases/).
+Eine Liste der verfügbaren Canvas-Templates finden Sie unter [Braze-Canvas-Templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Details zur Verwendung von E-Commerce-Canvas-Templates finden Sie unter [So verwenden Sie empfohlene E-Commerce-Events]({{site.baseurl}}/ecommerce_use_cases/).
 
 ## Canvas-Templates verwalten {#managing-canvas-templates}
 

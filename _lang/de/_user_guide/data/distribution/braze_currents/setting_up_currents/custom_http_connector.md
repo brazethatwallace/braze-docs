@@ -12,8 +12,6 @@ description: "Dieser Referenzartikel beschreibt, wie Sie einen benutzerdefiniert
 
 > Erfahren Sie, wie Sie einen benutzerdefinierten Currents-Konnektor integrieren, um Event-Daten von Braze in Echtzeit zu erhalten und so individuellere Analytics, Berichte und Automatisierung zu ermöglichen.
 
-{% multi_lang_include early_access_beta_alert.md feature='The Custom HTTP Connector' type='beta' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um einen benutzerdefinierten Currents-Konnektor in Braze zu integrieren, müssen Sie eine Endpunkt-URL und ein [optionales Authentifizierungs-Token](#authentication) bereitstellen.

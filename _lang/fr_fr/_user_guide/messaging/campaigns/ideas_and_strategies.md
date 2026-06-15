@@ -13,9 +13,9 @@ description: "Cette page regroupe les idées et stratégies de campagne. Vous y 
 guide_featured_title: "Articles de la section"
 guide_featured_list:
   - name: Bonnes pratiques
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
-  - name: Campagnes d'utilisateurs actifs
+  - name: Campagnes pour utilisateurs actifs
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns
     image: /assets/img/braze_icons/users-01.svg
   - name: Liens d'ajout au calendrier
@@ -45,7 +45,7 @@ guide_menu_list:
   - name: Créer des messages de droite à gauche
     link: /docs/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages
     image: /assets/img/braze_icons/globe-02.svg
-  - name: Système d'e-mail de rappel de réservation
+  - name: E-mail de rappel de réservation
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/booking_use_case
     image: /assets/img/braze_icons/channel-email.svg
 ---

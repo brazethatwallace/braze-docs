@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: Te permite filtrar en función de la pertenencia a un segmento en cualquier lugar donde se utilicen filtros (como segmentos, Campaigns y otros) y dirigirte a múltiples segmentos diferentes dentro de una sola campaña. <br><br>Ten en cuenta que los segmentos que ya utilizan este filtro no pueden incluirse ni anidarse dentro de otros segmentos, ya que esto podría crear un ciclo en el que el segmento A incluye al segmento B, que a su vez intenta incluir al segmento A de nuevo. Si eso ocurriera, el segmento seguiría referenciándose a sí mismo, haciendo imposible calcular quién pertenece realmente a él. Además, anidar segmentos de esta forma añade complejidad y puede ralentizar las cosas. En su lugar, recrea el segmento que intentas incluir utilizando los mismos filtros.
+    description: Te permite filtrar en función de la pertenencia a un segmento en cualquier lugar donde se utilicen filtros (como segmentos, campañas y otros) y dirigirte a múltiples segmentos diferentes dentro de una sola campaña. <br><br>Para capturar la pertenencia a un segmento en un momento específico, exporta los usuarios del segmento en el dashboard o llama al punto de conexión [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) antes de enviar una campaña o Canvas. Para más información, consulta <a href="{{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/">Exportar datos de segmento a CSV</a>.<br><br>Ten en cuenta que los segmentos que ya utilizan este filtro no pueden incluirse ni anidarse dentro de otros segmentos, ya que esto podría crear un ciclo en el que el segmento A incluye al segmento B, que a su vez intenta incluir al segmento A de nuevo. Si eso ocurriera, el segmento seguiría referenciándose a sí mismo, haciendo imposible calcular quién pertenece realmente a él. Además, anidar segmentos de esta forma añade complejidad y puede ralentizar las cosas. En su lugar, recrea el segmento que intentas incluir utilizando los mismos filtros.
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -137,7 +137,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Received Campaign Variant
-    description: Segmenta a tus usuarios por la variante de una campaña multivariante que han recibido.<br><br>Para Content Cards, banners y mensajes dentro de la aplicación, esto es cuando un usuario registra una impresión, no cuando se envía la tarjeta o el mensaje dentro de la aplicación.<br><br> Para push y webhooks, esto es cuando el mensaje se envía al usuario.<br><br> Para WhatsApp, esto es cuando se envía la última solicitud de API de mensaje a WhatsApp, no cuando el mensaje se entrega en el dispositivo del usuario.<br><br> Para correos electrónicos, el perfil de usuario objetivo coincide con este filtro cuando se envía una solicitud de correo electrónico al proveedor de servicios de correo electrónico (independientemente de si realmente se entrega).<br><br> Para SMS y RCS, esto es cuando el último mensaje fue entregado al proveedor de SMS o RCS. Esto no garantiza que el mensaje haya sido entregado en el dispositivo del usuario.<br><br> Cuando un mensaje se entrega, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o número de teléfono), por lo que los usuarios que comparten un identificador con alguien que recibió el mensaje pueden coincidir con este filtro aunque su perfil no haya recibido directamente la campaña.
+    description: Segmenta a tus usuarios por la variante de una campaña multivariante que han recibido.<br><br>Este filtro se aplica a campañas multivariantes y campañas de push rápido multivariantes. Las campañas de API, las campañas multicanal estándar y las campañas de experimento con conmutadores de características no aparecen en el selector de campañas. Las campañas solo de webhook no aparecen en el selector de campañas.<br><br>Para Content Cards, banners y mensajes dentro de la aplicación, esto es cuando un usuario registra una impresión, no cuando se envía la tarjeta o el mensaje dentro de la aplicación.<br><br> Para push y webhooks, esto es cuando el mensaje se envía al usuario.<br><br> Para WhatsApp, esto es cuando se envía la última solicitud de API de mensaje a WhatsApp, no cuando el mensaje se entrega en el dispositivo del usuario.<br><br> Para correos electrónicos, el perfil de usuario objetivo coincide con este filtro cuando se envía una solicitud de correo electrónico al proveedor de servicios de correo electrónico (independientemente de si realmente se entrega).<br><br> Para SMS y RCS, esto es cuando el último mensaje fue entregado al proveedor de SMS o RCS. Esto no garantiza que el mensaje haya sido entregado en el dispositivo del usuario.<br><br> Cuando un mensaje se entrega, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o número de teléfono), por lo que los usuarios que comparten un identificador con alguien que recibió el mensaje pueden coincidir con este filtro aunque su perfil no haya recibido directamente la campaña.
     tags:
       - Retargeting
   - name: Received Message from Canvas Step
@@ -217,7 +217,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: Segmenta a tus usuarios en función de si su dirección de correo electrónico ha tenido un rebote duro (por ejemplo, la dirección de correo electrónico no es válida).
+    description: Segmenta a tus usuarios en función de si su dirección de correo electrónico ha tenido un rebote duro (por ejemplo, la dirección de correo electrónico no es válida). Para exportar usuarios con correos electrónicos no válidos, llama al punto de conexión [`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/) o crea un segmento con filtros como la dirección de correo electrónico no está en blanco, el correo electrónico no está disponible y el estado de suscripción de correo electrónico no es cancelado.
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -453,7 +453,7 @@ glossaries:
     tags:
       - App
   - name: Uninstalled
-    description: Segmenta a tus usuarios en función de si han desinstalado tu aplicación y no la han reinstalado.
+    description: Segmenta a tus usuarios en función de si actualmente están marcados como desinstalados en el backend. Los usuarios que desinstalaron y luego reinstalaron la aplicación no se incluyen. Este filtro refleja el estado actual de desinstalación, no un registro histórico de cada evento de desinstalación.
     tags:
       - Uninstall
   - name: Device Carrier

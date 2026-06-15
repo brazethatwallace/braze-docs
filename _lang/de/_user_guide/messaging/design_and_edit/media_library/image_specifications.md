@@ -2,7 +2,6 @@
 nav_title: Bildspezifikationen
 article_title: Bildspezifikationen
 page_order: 1
-
 page_type: reference
 description: "Dieser Referenzartikel beschreibt die empfohlenen Bildgrößen und Spezifikationen für jeden Kanaltyp."
 tool:
@@ -28,6 +27,8 @@ Videos, die in die Medienbibliothek hochgeladen werden, können nur in WhatsApp-
 ## GIFs {#gifs}
 
 GIFs werden in iOS-Push-Benachrichtigungen, In-App-Nachrichten, E-Mails, Content Cards sowie MMS- oder RCS-Nachrichten unterstützt. GIFs mit sehr langgestreckten Formen (z. B. 3000 x 2 Pixel) oder 300 oder mehr Frames können beim Hochladen fehlschlagen, selbst wenn die Gesamtdateigröße klein ist.
+
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 ## Kanalrichtlinien {#channel-guidance}
 

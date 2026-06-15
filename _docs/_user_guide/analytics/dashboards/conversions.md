@@ -87,7 +87,7 @@ The following table describes possible metrics.
 | Conversion Rate (Attribution method) | Defined by the [attribution method](#attribution-methods) you selected when you set up the report. If multiple channels are selected, this defaults to last-touch attribution. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion details" }
 
-If you selected breakdown-level details for campaigns or Canvases when [setting up your report](#setting-up-your-report) (step 5), you can click <i class="fas fa-angle-down"></i> to expand the table.
+If you selected breakdown-level details for campaigns or Canvases when [setting up your report](#setting-up-your-report) (step 5), you can select <i class="fas fa-angle-down"></i> **Expand** to expand the table.
 
 ### Conversion funnel
 
@@ -107,7 +107,7 @@ This graph only shows data for a single channel at a time. Use the **Channel** d
 
 This time series graph includes a representation of the conversions per campaign or Canvas over time. By default, all selected campaigns and Canvases are shown. To deselect a campaign or Canvas, click on the name of the campaign or Canvas that you'd like to exclude.
 
-To download the time series data, select <i class="fas fa-bars"></i> and then select your download option. Available options are PNG, JPEG, PDF, SVG, or CSV.
+To download the time series data, select <i class="fas fa-bars" title="Chart context menu"></i> **Chart context menu** and then select your download option. Available options are PNG, JPEG, PDF, SVG, or CSV.
 
 ![Conversions over time time series graph for two email campaigns, showing conversions by day.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 

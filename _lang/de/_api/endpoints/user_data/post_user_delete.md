@@ -21,7 +21,7 @@ Bis zu 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` oder `p
 Wenn Sie einen Anwendungsfall haben, der nicht mit der Massenlöschung von Nutzer:innen über die API gelöst werden kann, kontaktieren Sie das [Braze Support-Team]({{site.baseurl}}/user_guide/administer/personal/braze_support/) für Unterstützung.
 
 {% alert warning %}
-Das Löschen von Nutzerprofilen kann nicht rückgängig gemacht werden. Es entfernt Nutzer:innen dauerhaft, was zu Unstimmigkeiten in Ihren Daten führen kann. Mehr erfahren Sie darüber, was passiert, wenn Sie [ein Nutzerprofil über die API löschen]({{site.baseurl}}/help/help_articles/api/delete_user/), in unserer Hilfe-Dokumentation.
+Das Löschen von Nutzerprofilen kann nicht rückgängig gemacht werden. Es entfernt Nutzer:innen dauerhaft, was zu Unstimmigkeiten in Ihren Daten führen kann. Weitere Informationen finden Sie unter [Auswirkungen des Löschens von Nutzerprofilen](#effects-of-deleting-user-profiles).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids` | Optional | String-Array | Zu löschende Braze-Nutzerbezeichner. |
 | `email_addresses` | Optional | String-Array | Zu löschende E-Mail-Adressen von Nutzer:innen. Weitere Informationen finden Sie unter [Löschen von Nutzer:innen per E-Mail](#deleting-users-by-email). |
 | `phone_numbers` | Optional | String-Array | Zu löschende Telefonnummern von Nutzer:innen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Löschen von Nutzer:innen nach E-Mail-Adressen und Telefonnummern {#deleting-users-by-email-addresses-and-phone-numbers}
 
@@ -109,6 +109,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   "deleted" : (required, integer) number of user IDs queued for deletion
 }
 ```
+
+## Auswirkungen des Löschens von Nutzerprofilen {#effects-of-deleting-user-profiles}
+
+Wenn Sie Nutzer:innen mit diesem Endpunkt entfernen, geschieht Folgendes:
+
+- Das Nutzerprofil wird gelöscht (auf null gesetzt).
+- Die Nutzeranzahl im Workspace (z. B. die Gesamtanzahl der Nutzer:innen auf der [Analytics-Startseite]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) wird aktualisiert, um die entfernten Nutzer:innen zu berücksichtigen.
+- Die entfernten Nutzer:innen werden weiterhin in den aggregierten Conversion-Prozentsatz einbezogen. Angepasste Event-Zähler und Kaufzähler werden für entfernte Nutzer:innen nicht aktualisiert.
+
+### Mehrere Profile mit derselben E-Mail-Adresse {#multiple-profiles-with-a-shared-email-address}
+
+Um Nutzerprofile zusammenzuführen, die dieselbe E-Mail-Adresse verwenden, rufen Sie den [`/users/merge`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) auf.
 
 ## Fehlerbehebung {#troubleshooting}
 

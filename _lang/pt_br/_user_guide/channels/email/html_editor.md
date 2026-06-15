@@ -113,7 +113,6 @@ Substitua `#ffffff` pela cor desejada.
 
 {% alert note %}
 Essa abordagem não se aplica de forma confiável apenas a elementos `<table>`, então defina o gradiente na célula em vez de apenas na tabela.
-  <caption>App móvel do Gmail e modo escuro</caption>
 {% endalert %}
 
 Para mais informações sobre a sintaxe de gradientes, consulte [Gradientes CSS no W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -136,6 +135,16 @@ Uma pré-visualização no painel à direita será preenchida com as informaçõ
 Em **Sending Settings** > **Advanced**, ative **inline CSS** para o suporte mais amplo de clientes. Se as mensagens forem cortadas ou as imagens se esticarem até a altura da linha, tente desativar o inline CSS **temporariamente**. Alguns modelos funcionam melhor sem inlining.
 
 Você também pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail para enviar dados adicionais de volta para outros prestadores de serviço de e-mail.
+
+##### Anexos de e-mail {#email-attachments}
+
+Você também pode adicionar anexos de e-mail pelos seguintes métodos:
+
+- **Fazer upload de um arquivo:** Arraste e solte ou navegue para fazer upload de um arquivo diretamente do seu computador para o e-mail. A Braze valida o tipo e o tamanho do arquivo (até 2&nbsp;MB por padrão) antes do upload, e então esses arquivos são enviados para a biblioteca de mídia. Arquivos maiores que o limite de 2&nbsp;MB não podem ser enviados.
+- **Usar a biblioteca de mídia:** Navegue e selecione entre os ativos já armazenados na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). PDFs, documentos Word, arquivos Excel e apresentações PowerPoint são todos suportados.
+- **Adicionar a partir de URL:** Insira uma URL apontando para o arquivo e forneça um nome de exibição para o arquivo. Como a Braze não pode verificar URLs arbitrárias quanto ao tamanho durante a composição do e-mail, o tamanho do arquivo é aplicado no momento do envio. Observe que Liquid não é suportado neste campo.
+
+Consulte as [Diretrizes de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) para práticas recomendadas específicas a considerar.
 
 ##### Cabeçalhos de e-mail {#email-headers}
 
@@ -231,6 +240,10 @@ Clientes de e-mail que suportam texto de pré-visualização sempre puxam caract
 ```
 
 Para o editor de arrastar e soltar, adicione apenas os zero-width non-joiners (‌`&zwnj;`) sem a formatação `<div>` diretamente no pré-cabeçalho na seção **Sending Settings**.
+{% endalert %}
+
+{% alert note %}
+No app Apple Mail, links de imagem em e-mails HTML devem usar URLs `https://` para serem clicáveis. Use links seguros para qualquer imagem envolvida em uma tag de âncora quando você esperar cliques de destinatários do Apple Mail.
 {% endalert %}
 
 ### Etapa 3.3: Verifique erros de e-mail {#step-33-check-for-email-errors}

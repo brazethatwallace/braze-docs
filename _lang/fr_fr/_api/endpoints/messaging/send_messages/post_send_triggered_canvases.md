@@ -144,7 +144,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sen
 
 ## Détails de la réponse {#response-details}
 
-Les réponses des endpoints d'envoi de messages incluent le `dispatch_id` du message, qui sert de référence pour la distribution du message. Le `dispatch_id` est l'ID de distribution du message (ID unique pour chaque « transmission » envoyée depuis la plateforme Braze). Consultez [Comportement du Dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/) pour plus d'informations.
+Les réponses des endpoints d'envoi de messages incluent le `dispatch_id` du message, qui sert de référence pour la distribution du message. Le `dispatch_id` est l'ID de distribution du message (ID unique pour chaque « transmission » envoyée depuis la plateforme Braze). Consultez [Comportement du Dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) pour plus d'informations.
 
 ### Exemple de réponse réussie {#example-success-response}
 

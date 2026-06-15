@@ -16,6 +16,15 @@ description: "이 참조 문서에서는 Braze에서 커스텀 이벤트와 속�
 
 이 데이터가 Braze로 전송되는 것을 중지하려면, 엔지니어링 팀이 앱이나 웹사이트의 백엔드에서 해당 데이터를 제거하는 작업을 진행하는 동안 커스텀 데이터 오브젝트를 차단 목록에 추가할 수 있습니다. 차단 목록에 추가하면 특정 커스텀 데이터 오브젝트가 Braze에 더 이상 기록되지 않으므로, 특정 사용자를 검색할 때 표시되지 않습니다.
 
+### 차단 목록 추가와 삭제 중 선택하기 {#choosing-blocklisting-or-deletion}
+
+- **차단 목록 추가**는 고객 프로필에 기존 커스텀 속성, 이벤트 또는 구매를 유지하지만, Braze는 해당 오브젝트에 대한 새 데이터를 더 이상 처리하지 않습니다.
+- **삭제**는 고객 프로필에서 해당 데이터를 제거합니다. 삭제된 커스텀 속성과 이벤트는 7일 동안 **Trashed** 상태로 이동하며, 이 기간 동안 복원할 수 있습니다. 7일이 지나면 Braze가 영구적으로 삭제합니다. 삭제해도 새 데이터가 도착하는 것을 막지 않으므로, 삭제하기 전에 SDK, API 또는 CSV 가져오기에서 해당 데이터를 더 이상 전송하지 않는지 확인하세요.
+
+차단 목록 추가는 각 사용자의 기기에 차단 목록 정보를 전송하며, 이는 데이터 집약적일 수 있습니다. 매우 많은 수의 속성, 이벤트 또는 구매(예: 100개 이상)를 차단 목록에 추가하면 앱 성능에 영향을 줄 수 있습니다. 해당 데이터를 더 이상 Braze로 전송할 계획이 없다면, 통합에서 전송을 중지한 후 삭제하는 것이 더 나은 접근 방식인 경우가 많습니다.
+
+차단 목록에 추가하든 삭제하든, 해당 커스텀 속성, 이벤트 및 구매는 더 이상 **워크스페이스 관리** 페이지에 표시되지 않으며 세그먼트 필터에서도 제거됩니다. 커스텀 데이터를 삭제하면 Braze는 [삭제 작동 방식](#how-deletion-works)에 따라 프로필에서 해당 사용자 수준 데이터를 제거합니다.
+
 커스텀 데이터를 차단 목록에 추가하려면 워크스페이스에 대해 다음 드롭다운에 나열된 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다.
 
 {% details 커스텀 데이터 차단 목록에 필요한 사용자 권한 %}
@@ -102,7 +111,7 @@ description: "이 참조 문서에서는 Braze에서 커스텀 이벤트와 속�
 
 ## 커스텀 데이터 삭제 {#deleting-custom-data}
 
-타겟 Campaign과 Segment를 구축하면서 더 이상 커스텀 이벤트나 커스텀 속성이 필요하지 않다는 것을 알게 될 수 있습니다. 예를 들어, 일회성 Campaign의 일부로 특정 커스텀 속성을 사용한 경우, [차단 목록에 추가](#blocklisting-custom-attributes-custom-events-and-products)한 후 이 데이터를 삭제하고 앱에서 해당 참조를 제거할 수 있습니다. 문자열, 숫자, 중첩 고객 속성 등 모든 데이터 유형을 삭제할 수 있습니다.
+타겟 Campaign과 Segment를 구축하면서 더 이상 커스텀 이벤트나 커스텀 속성이 필요하지 않다는 것을 알게 될 수 있습니다. 예를 들어, 일회성 캠페인의 일부로 특정 커스텀 속성을 사용한 경우, [차단 목록에 추가](#blocklisting-custom-attributes-custom-events-and-products)한 후 이 데이터를 삭제하고 앱에서 해당 참조를 제거할 수 있습니다. 문자열, 숫자, 중첩 고객 속성 등 모든 데이터 유형을 삭제할 수 있습니다.
 
 {% alert important %}
 커스텀 데이터를 삭제하려면 [Braze 관리자]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin)여야 합니다.
@@ -110,9 +119,9 @@ description: "이 참조 문서에서는 Braze에서 커스텀 이벤트와 속�
 
 커스텀 이벤트 또는 커스텀 속성을 삭제하려면 다음을 수행하세요:
 
-1. 삭제하려는 데이터 유형에 따라 **Data Settings** > **Custom Attributes** 또는 **Custom Events**로 이동합니다.
-2. 커스텀 데이터로 이동하여 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Blocklist**를 선택합니다.
-3. 커스텀 데이터가 7일 동안 차단 목록에 추가된 후 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Delete**를 선택합니다.
+1. 삭제하려는 데이터 유형에 따라 **데이터 설정** > **커스텀 속성** 또는 **커스텀 이벤트**로 이동합니다.
+2. 커스텀 데이터로 이동하여 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**동작** > **Blocklist**를 선택합니다.
+3. 커스텀 데이터가 7일 동안 차단 목록에 추가된 후 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**동작** > **삭제**를 선택합니다.
 
 ### 삭제 작동 방식 {#how-deletion-works}
 

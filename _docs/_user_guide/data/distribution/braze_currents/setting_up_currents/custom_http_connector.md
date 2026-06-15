@@ -12,8 +12,6 @@ description: "This reference article outlines how to set up a Custom HTTP Connec
 
 > Learn how to integrate a custom Currents connector, so you can get event data from Braze in real time, enabling more customized analytics, reporting, and automation.
 
-{% multi_lang_include early_access_beta_alert.md feature='The Custom HTTP Connector' type='beta' %}
-
 ## Prerequisites
 
 To integrate a custom Currents connector in Braze, you'll need to provide an endpoint URL and an [optional authentication token](#authentication).

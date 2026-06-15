@@ -52,6 +52,37 @@ Si necesitas una plantilla HTML reutilizable, selecciona **Download file** mient
 
 Para más información sobre dónde se encuentran las plantillas, consulta [Plantillas y medios]({{site.baseurl}}/user_guide/messaging/templates/).
 
+### ¿Por qué no puedo cambiar el color de relleno de un botón en el editor de arrastrar y soltar? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+
+Los estilos a nivel de página pueden anular los estilos a nivel de mensaje. Si actualizar **Fill** en un botón o bloque no tiene efecto, intenta lo siguiente:
+1. Abre la [configuración global de estilos de correo electrónico]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) y selecciona **Reset to default** en el estilo de página en conflicto para que el color a nivel de mensaje pueda aplicarse.
+2. Establece el color de nuevo en el bloque.
+
 ### ¿Puedo agregar archivos adjuntos de correo electrónico en el editor de arrastrar y soltar? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
 Sí. Puedes agregar archivos adjuntos a tu mensaje de correo electrónico yendo a **Sending Settings** > **Advanced**.
+
+### ¿Cómo descargo el HTML sin procesar de un correo electrónico de arrastrar y soltar? {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
+
+1. Abre tu campaña o Canvas y edita el mensaje de correo electrónico.
+2. Selecciona **Edit email body** para abrir el editor de arrastrar y soltar.
+3. Selecciona **Download file** (en la parte inferior del editor). Extrae el archivo para acceder al HTML generado.
+
+Puedes pegar ese HTML en un [bloque HTML]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) o en el editor HTML cuando necesites ediciones de bajo nivel, por ejemplo, para [desactivar el seguimiento de clics en enlaces específicos]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+
+### ¿Por qué se rompe mi diseño de arrastrar y soltar? {#why-is-my-drag-and-drop-layout-breaking}
+
+Los problemas de diseño suelen deberse a **HTML o CSS personalizado** que entra en conflicto con el código que genera el editor. Prueba estos pasos:
+
+1. Elimina o aísla los bloques HTML personalizados para ver si el problema desaparece.
+2. Revisa la configuración del **editor de correo electrónico de arrastrar y soltar** en busca de fuentes personalizadas que puedan no cargarse en todos los clientes.
+3. En **Row Properties**, revisa el relleno y los anchos de las columnas.
+4. Cuando agregues HTML personalizado, usa diseños basados en tablas, imágenes fluidas y anchos de tabla totales que se ajusten al ancho de tu correo electrónico; las imágenes con píxeles fijos o las estructuras que no son de tabla suelen romperse en Outlook y otros clientes.
+
+### ¿Por qué mi bloque de contenido no se renderiza en la vista previa del correo electrónico? {#why-doesnt-my-content-block-render-in-email-preview}
+
+Si un bloque de contenido no se renderiza en la vista previa del correo electrónico, verifica que no haya etiquetas de anclaje sin cerrar. Para las URL de contenido conectado, usa el filtro `replace` para convertir los ampersands doblemente codificados (`&amp;amp;`) en un solo ampersand codificado (`&amp;`). Limita el anidamiento de bloques de contenido a dos niveles.
+
+### ¿Por qué el editor de arrastrar y soltar ignora la configuración de alineación? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
+
+Si el editor de arrastrar y soltar ignora la configuración de alineación, elimina los bloques de CSS o HTML personalizados, elimina las fuentes personalizadas, verifica si hay conflictos de CSS y evita duplicar bloques de fila. Ponte en contacto con soporte de Braze si el problema persiste.

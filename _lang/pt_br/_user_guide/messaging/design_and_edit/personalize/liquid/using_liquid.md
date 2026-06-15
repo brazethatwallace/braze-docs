@@ -208,6 +208,10 @@ Se você usar Liquid nas suas mensagens de e-mail, certifique-se de:
 
 {% endalert %}
 
+### Alternando entre os editores HTML e clássico {#switching-between-html-and-classic-editors}
+
+Quando você alterna entre os editores HTML e clássico, snippets Liquid e Content Blocks podem mudar de posição na sua mensagem. Revise seu modelo após alternar entre editores. Se você precisar de um controle de layout mais previsível, use o editor de arrastar e soltar.
+
 ### Inserindo variáveis pré-formatadas {#inserting-pre-formatted-variables}
 
 Você pode inserir variáveis pré-formatadas com valores padrão por meio do modal **Add Personalization**, localizado próximo a qualquer campo de texto com modelo.

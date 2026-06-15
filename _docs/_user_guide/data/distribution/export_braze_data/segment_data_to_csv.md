@@ -112,7 +112,11 @@ When you export user data from a Canvas step, the CSV includes all users who hav
 
 {% alert tip %}
 For help with CSV and API exports, visit our [troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) article.
-{% endalert %} 
+{% endalert %}
+
+{% alert note %}
+Subscription group data is not available through segment exports. To identify users by subscription status, create a separate segment based on subscription group membership and export that segment.
+{% endalert %}
 
 ## Exporting large segments
 
@@ -133,9 +137,11 @@ You can also use [random bucket numbers]({{site.baseurl}}/user_guide/messaging/a
 {% endtab %}
 {% tab Endpoints %}
 
-You can also leverage the following endpoints to export user data for a specific segment. Note that these endpoints are subject to data limits.
+You can also leverage the following endpoints to export user data for a specific segment. Note that these endpoints are subject to data limits and [rate limits]({{site.baseurl}}/api/basics/).
 - [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
 - [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)
+
+If you've connected [Amazon S3 credentials]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3/#amazon-s3-integration), large exports can be delivered to your bucket in addition to the emailed download link, as described in [Segment CSV export details](#segment-csv-export-details).
 
 {% endtab %}
 {% endtabs %}

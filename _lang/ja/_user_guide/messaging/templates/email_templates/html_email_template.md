@@ -12,7 +12,7 @@ channel:
 
 # HTMLメールテンプレートのアップロード {#upload-an-html-email-template}
 
-> Brazeダッシュボードでは、独自のHTMLメールテンプレートをアップロードして保存し、後からキャンペーンで使用できます。また、エディターを使用して[メールテンプレートを作成]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)することもできます。
+> Brazeダッシュボードでは、独自のHTMLメールテンプレートをアップロードして保存し、後からCampaignsで使用できます。また、エディターを使用して[メールテンプレートを作成]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)することもできます。
 
 ## 要件 {#upload-requirements}
 
@@ -27,22 +27,22 @@ channel:
 
 ### ステップ 1: メールテンプレートエディターに移動する {#step-1-go-to-the-email-template-editor}
 
-**Templates** > **Email Templates**に移動します。
+**Content** > **Email**に移動します。**Create email template**を選択します。
 
-### ステップ 2: アップローダーを開く {#step-2-open-the-uploader}
+### ステップ 2: テンプレートの詳細を追加する {#step-2-add-template-details}
 
-**Template Type**セクションで**HTML Editor**を選択し、**Start from a Basic HTML Template**セクションまでスクロールします。**From File**を選択します。
+テンプレート名を入力します。必要に応じて、説明、チーム、タグを追加します。
 
 ### ステップ 3: テンプレートをアップロードする {#step-3-upload-your-template}
 
-**Upload From File**を選択し、コンピューターからテンプレートを選択します。テンプレートがアップロード要件を満たしていることを確認するには、[要件](#upload-requirements)セクションを参照してください。
+**Template content**セクションで、**HTML code editor**タイルの下にある**Upload file**を選択します。コンピューターからテンプレートを選択します。テンプレートがアップロード要件を満たしていることを確認するには、[要件](#upload-requirements)セクションを参照してください。
 
 ### ステップ 4: テンプレートを完成させて保存する {#step-4-finish-and-save-your-template}
 
-**Save Template**を選択してテンプレートを保存してください。これで、任意のキャンペーンまたはキャンバスでこのテンプレートを使用する準備が整いました。
+**Save template**を選択してテンプレートを保存してください。これで、任意のCampaignまたはCanvasでこのテンプレートを使用する準備が整いました。
 
 {% alert note %}
-既存のテンプレートに編集を加えた場合、その変更は以前のバージョンのテンプレートを使用して作成されたキャンペーンには反映されません。
+既存のテンプレートに編集を加えた場合、その変更は以前のバージョンのテンプレートを使用して作成されたCampaignsには反映されません。
 {% endalert %}
 
 ## APIキャンペーンでテンプレートを使用する {#api_for_upload_email_templates}
@@ -68,7 +68,7 @@ HTMLテンプレートファイルをアップロードする際に、いくつ�
 | `Images over 5&nbsp;MB` | 画像の数を減らして、再度アップロードしてください。|
 | `Extra Images` | HTMLファイルで参照されていない追加の画像がファイルに含まれている可能性があります。これはエラーの原因にはなりませんが、余分な画像は破棄されます。それらの画像がHTMLファイルで参照されるべきものであった場合は、コンテンツを確認し、エラーを修正して、再度アップロードしてください。|
 | `Missing Images` | HTMLファイルで参照されている画像がZIPファイルの画像フォルダーに含まれていない場合、ファイルエラーが発生します。ファイルを確認してエラー（スペルミスなど）を修正するか、不足している画像をZIPファイルに追加して、再度アップロードしてください。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 Windowsマシンでメールメッセージを含むHTMLキャンペーン、キャンバスステップ、またはテンプレートのファイルをダウンロードする場合、`|`（パイプ文字）はサポートされていないため、ZIPファイルからダウンロード内容を抽出するには別のアプリケーションを使用する必要がある場合があります。
 

@@ -12,11 +12,11 @@ description: "Brazeプラットフォーム内で後から使用するためのW
 
 # Webhook テンプレートを作成する {#create-a-webhook-template}
 
-> webhookを構築してカスタマイズする際に、Brazeプラットフォーム内で後から使用するためのWebhookテンプレートを作成して活用できます。これにより、さまざまなキャンペーンにわたって一貫したwebhookを構築できます。
+> webhookを構築してカスタマイズする際に、Brazeプラットフォーム内で後から使用するためのWebhookテンプレートを作成して活用できます。これにより、さまざまなCampaignsにわたって一貫したwebhookを構築できます。
 
 ## ステップ 1:Webhook テンプレートエディターに移動する {#step-1-go-to-the-webhook-template-editor}
 
-Brazeダッシュボードで、**テンプレート** > **Webhook テンプレート**に移動します。
+Brazeダッシュボードで、**コンテンツ** > **Webhook**に移動します。
 
 ![事前にデザインされたWebhookテンプレートと保存済みWebhookテンプレートが表示された「Webhook テンプレート」ページ。]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 
@@ -47,10 +47,10 @@ Brazeダッシュボードで、**テンプレート** > **Webhook テンプレ�
 
 ## ステップ 6:テンプレートを保存する {#step-6-save-your-template}
 
-**Save Template**を選択してテンプレートを保存してください。これで、任意のキャンペーンでこのテンプレートを使用する準備が整いました。
+**Save Template**を選択してテンプレートを保存してください。これで、任意のCampaignでこのテンプレートを使用する準備が整いました。
 
 {% alert note %}
-既存のテンプレートに加えた編集は、そのテンプレートの以前のバージョンを使用して作成されたキャンペーンには反映されません。
+既存のテンプレートに加えた編集は、そのテンプレートの以前のバージョンを使用して作成されたCampaignsには反映されません。
 {% endalert %}
 
 ## テンプレートを管理する {#managing-your-templates}

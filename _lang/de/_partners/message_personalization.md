@@ -4,7 +4,7 @@ article_title: Partner für die Personalisierung von Nachrichten
 page_order: 1
 
 page_type: landing
-description: "Diese Landing-Page listet Braze-Technologie-Partner auf, die es Ihnen ermöglichen, Ihren Braze Campaigns und Canvases zusätzliche Personalisierung hinzuzufügen."
+description: "Diese Landing-Page listet Braze-Partner (Technologie-Partner) auf, die es Ihnen ermöglichen, Ihren Braze Campaigns und Canvases zusätzliche Personalisierung hinzuzufügen."
 layout: partner_page
 search_tag: Partner
 
@@ -35,6 +35,8 @@ valid_partner_list:
   url: /docs/partners/certona/
 - name: CataBoom
   url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Future Anthem
   url: /docs/partners/future_anthem/
 - name: Judo
@@ -95,6 +97,8 @@ valid_partner_list:
   url: /docs/partners/viralsweep/
 - name: Mention Me
   url: /docs/partners/mention_me/
+- name: Talkable
+  url: /docs/partners/talkable/
 - name: VideoSmart
   url: /docs/partners/videosmart/
 ---

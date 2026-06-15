@@ -24,7 +24,7 @@ Braze와 Judo 통합은 Campaign 및 Canvases에서 맞춤형 경험을 제공�
 |---|---|
 | Judo 계정 | 이 파트너십을 활용하려면 [Judo](https://www.judo.app/) 계정이 필요합니다. |
 | Judo SDK | Judo SDK를 [iOS](https://github.com/judoapp/judo-ios/) 및/또는 [Android](https://github.com/judoapp/judo-android) 앱에 통합해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 

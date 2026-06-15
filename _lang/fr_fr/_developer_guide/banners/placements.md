@@ -31,7 +31,7 @@ Voici les versions minimales du SDK requises pour créer des emplacements de ban
 
 ### Étape 2 : Actualiser les placements dans votre application {#requestBannersRefresh}
 
-Les placements peuvent être actualisés en appelant les méthodes d'actualisation décrites ci-dessous. Ces placements seront automatiquement mis en cache lorsque la session d'un utilisateur expirera ou lorsque vous changerez d'utilisateur identifié à l'aide de la méthode `changeUser`.
+Les placements peuvent être actualisés en appelant les méthodes d'actualisation décrites ci-dessous. Si `subscribeToBannersUpdates` est actif, le SDK republie automatiquement vos ID de placement mis en cache au début de chaque nouvelle session et lorsque vous appelez `changeUser`. Cette actualisation automatique ne consomme pas de jeton de limite de débit.
 
 {% alert tip %}
 Actualisez les placements dès que possible afin d'éviter tout retard dans le téléchargement ou l'affichage des bannières.
@@ -563,7 +563,7 @@ Les bannières de test fonctionnent comme toutes les autres bannières, sauf qu'
 
 ## Enregistrer les impressions {#log-impressions}
 
-Braze enregistre automatiquement les impressions pour les bannières visibles lorsque vous utilisez les méthodes SDK pour insérer une bannière — il n'est donc pas nécessaire de suivre les impressions manuellement.
+Braze enregistre automatiquement les impressions pour les bannières visibles lorsque vous utilisez les méthodes SDK pour insérer une bannière&#8212;il n'est donc pas nécessaire de suivre les impressions manuellement.
 
 ## Enregistrer les clics {#logging-clicks}
 
@@ -709,10 +709,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 ## Enregistrer les fermetures {#log-dismissals}
 
 Les fermetures de bannières suppriment programmatiquement une bannière d'un placement lorsqu'un utilisateur la ferme activement. Une fois fermée, la bannière est masquée pour cet utilisateur. La prochaine fois que la liste des placements est actualisée, une nouvelle bannière est renvoyée si l'utilisateur est éligible.
-
-{% alert important %}
-Les fermetures de bannières sont actuellement en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
-{% endalert %}
 
 ### Conditions préalables
 

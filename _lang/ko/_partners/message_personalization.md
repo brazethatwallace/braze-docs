@@ -35,6 +35,8 @@ valid_partner_list:
   url: /docs/partners/certona/
 - name: CataBoom
   url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Future Anthem
   url: /docs/partners/future_anthem/
 - name: Judo
@@ -95,6 +97,8 @@ valid_partner_list:
   url: /docs/partners/viralsweep/
 - name: Mention Me
   url: /docs/partners/mention_me/
+- name: Talkable
+  url: /docs/partners/talkable/
 - name: VideoSmart
   url: /docs/partners/videosmart/
 ---

@@ -91,7 +91,6 @@
   "app group": "App-Gruppe",
   "App groups": "App-Gruppen",
   "app instance": "App-Instanz",
-  "App Settings": "App-Einstellungen",
   "Appboy": "Appboy",
   "Apple Wallet": "Apple Wallet",
   "Application Programming Interface (API)": "Application Programming Interface, API",
@@ -193,7 +192,6 @@
   "CACI": "CACI",
   "calendar": "Kalender",
   "callback": "Callback",
-  "campaign": "Kampagne",
   "Campaign": "Campaign",
   "Campaign or Canvas": "Kampagne oder Canvas",
   "campaign variant": "Kampagnenvariante",
@@ -425,7 +423,6 @@
   "daily report": "Tagesbericht",
   "dark mode": "Dark Mode",
   "dashboard": "Dashboard",
-  "Dashboard Builder": "Dashboard-Builder",
   "data": "Daten",
   "DATA & ANALYTICS": "DATEN UND ANALYSEN",
   "data & infrastructure agility": "Daten- und Infrastruktur-Agilität",
@@ -1507,5 +1504,8 @@
   "Zapier": "Zapier",
   "Zendesk": "Zendesk",
   "zeotap": "Zeotap",
-  "zero-party data": "Zero-Party-Daten"
+  "zero-party data": "Zero-Party-Daten",
+  "App Settings": "App Settings",
+  "Dashboard Builder": "Dashboard Builder",
+  "campaign": "Campaign"
 }

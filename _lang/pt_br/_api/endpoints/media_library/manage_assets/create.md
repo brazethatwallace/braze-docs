@@ -27,7 +27,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Limite de taxa {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='default' %}
+{% multi_lang_include rate_limits.md endpoint='media_library' %}
 
 ## Corpo da solicitação {#request-body}
 
@@ -149,6 +149,7 @@ Esta tabela lista possíveis erros de processamento.
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | O arquivo excede o tamanho máximo permitido. Imagens têm um limite de 5 MB. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | O espaço de trabalho atingiu o número máximo de ativos (200 por padrão para empresas em teste gratuito, ilimitado caso contrário). O objeto `meta` inclui o `limit` atual. |
 | `ASSET_UPLOAD_FAILED` | 400 | O upload do ativo falhou devido a problemas de processamento. |
+| `INVALID_ASSET_URL` | 400 | O valor de `asset_url` não é um URI válido. O objeto `meta` inclui `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | O arquivo ZIP está corrompido ou não pôde ser aberto. O objeto `meta` inclui a mensagem `original_error`. |
 | `ZIP_FILE_TOO_LARGE` | 400 | O tamanho total descompactado do arquivo ZIP excede o limite de 5 MB. O objeto `meta` inclui o `zip_file_name` e `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Uma entrada de arquivo dentro do ZIP não tem nome. Certifique-se de que o arquivo ZIP não está corrompido e adicione um nome para quaisquer entradas de arquivo sem nome. |

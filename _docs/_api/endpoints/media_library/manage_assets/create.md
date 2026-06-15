@@ -27,7 +27,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 
 ## Rate limit
 
-{% multi_lang_include rate_limits.md endpoint='default' %}
+{% multi_lang_include rate_limits.md endpoint='media_library' %}
 
 ## Request body
 
@@ -149,6 +149,7 @@ This table lists possible processing errors.
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | The file exceeds the maximum allowed size. Images have a 5 MB limit. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | The workspace has reached its maximum number of assets (200 by default for free trial companies, unlimited otherwise). The `meta` object includes the current `limit`. |
 | `ASSET_UPLOAD_FAILED` | 400 | The asset failed to upload due to processing issues. |
+| `INVALID_ASSET_URL` | 400 | The `asset_url` value is not a valid URI. The `meta` object includes `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | The ZIP file is corrupted or could not be opened. The `meta` object includes the `original_error` message. |
 | `ZIP_FILE_TOO_LARGE` | 400 | The total uncompressed size of the ZIP file exceeds the 5 MB limit. The `meta` object includes the `zip_file_name` and `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | A file entry inside the ZIP has no name. Ensure the ZIP file is not corrupted and add a name for any unnamed file entries. |

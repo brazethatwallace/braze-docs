@@ -16,7 +16,7 @@ description: "Braze 플랫폼에서 나중에 사용할 웹훅 템플릿을 생�
 
 ## 1단계: 웹훅 템플릿 편집기로 이동 {#step-1-go-to-the-webhook-template-editor}
 
-Braze 대시보드에서 **템플릿** > **웹훅 템플릿**으로 이동합니다.
+Braze 대시보드에서 **콘텐츠** > **웹훅**으로 이동합니다.
 
 ![미리 디자인된 웹훅 템플릿과 저장된 웹훅 템플릿이 있는 '웹훅 템플릿' 페이지.]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 

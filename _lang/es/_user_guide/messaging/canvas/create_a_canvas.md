@@ -195,7 +195,7 @@ Para Canvas dirigidos a canales de correo electrónico y push, es posible que qu
 - **Usuario B** ha optado por recibir correo electrónico pero no tiene push habilitado. Este usuario recibirá el correo electrónico pero no recibe el push.
 - **Usuario C** ha optado por recibir correo electrónico y tiene push habilitado. Este usuario recibirá tanto el correo electrónico como el push.
 
-Para hacerlo, configura los **Subscription Settings** para enviar este Canvas a "solo usuarios con adhesión voluntaria". Esta opción asegurará que solo los usuarios con adhesión voluntaria reciban tu correo electrónico, y Braze solo enviará tu push a los usuarios que tengan push habilitado de forma predeterminada.
+Para hacerlo, configura los **Ajustes de suscripción** para enviar este Canvas a "solo usuarios con adhesión voluntaria". Esta opción asegurará que solo los usuarios con adhesión voluntaria reciban tu correo electrónico, y Braze solo enviará tu push a los usuarios que tengan push habilitado de forma predeterminada.
 
 Estos ajustes de suscripción se aplican por paso, lo que significa que no tienen efecto en la audiencia de entrada. Por lo tanto, esta configuración se usa para evaluar la elegibilidad de un usuario para recibir cada paso en Canvas.
 
@@ -224,7 +224,7 @@ Puedes añadir variantes adicionales seleccionando el botón <i class="fas fa-pl
 ![Dos variantes de ejemplo en un Braze Canvas.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-De forma predeterminada, la asignación de variante en Canvas se bloquea cuando los usuarios entran en el Canvas, lo que significa que si un usuario entra primero en una variante, esa será su variante cada vez que vuelva a entrar en el Canvas. Sin embargo, hay formas de evitar este comportamiento. <br><br>Para hacerlo, puedes crear un generador de números aleatorios usando Liquid, ejecutarlo al inicio de cada entrada del usuario al Canvas, almacenar el valor como un atributo personalizado y luego usar ese atributo para dividir aleatoriamente a los usuarios.
+De forma predeterminada, la asignación de variante en Canvas se determina mediante una función del ID de usuario y el ID de Canvas, lo que significa que un usuario dado se asigna de manera consistente a la misma variante al volver a entrar, siempre que los porcentajes de distribución de variantes permanezcan sin cambios. Si ajustas la distribución de variantes después del lanzamiento, los usuarios pueden ser asignados a variantes diferentes cuando vuelvan a entrar en el Canvas. <br><br>Si necesitas control total sobre la asignación de variantes que persista incluso cuando la distribución cambie, puedes crear un generador de números aleatorios usando Liquid, ejecutarlo al inicio de cada entrada del usuario al Canvas, almacenar el valor como un atributo personalizado y luego usar ese atributo para dividir a los usuarios en ramas.
 
 {% details Expande para ver los pasos %}
 
@@ -263,9 +263,9 @@ Puedes editar cualquier paso en tu flujo de trabajo del Canvas seleccionando cua
 
 ![Un ejemplo de paso "Retraso" con el retraso configurado como "Hasta un día específico".]({% image_buster /assets/img_archive/edit_delay_flow.png %})
 
-O puedes editar y ajustar rápidamente la **Action Settings** de tu paso de [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) para mantener a los usuarios durante una ventana de tiempo. Esto prioriza su siguiente ruta basándose en las acciones durante este período de evaluación.
+O puedes editar y ajustar rápidamente la **Configuración de acciones** de tu paso de [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) para mantener a los usuarios durante una ventana de tiempo. Esto prioriza su siguiente ruta basándose en las acciones durante este período de evaluación.
 
-![El segundo paso en el Canvas, "Action Settings", con una ventana de evaluación configurada a 1 día.]({% image_buster /assets/img_archive/action_paths_flow.png %})
+![El segundo paso en el Canvas, "Configuración de acciones", con una ventana de evaluación configurada a 1 día.]({% image_buster /assets/img_archive/action_paths_flow.png %})
 
 Los componentes ligeros en Canvas permiten una experiencia de edición simple, por lo que ajustar los detalles más finos de tu Canvas es más fácil.
 
@@ -278,7 +278,7 @@ Edita los mensajes en un componente de Canvas para controlar los mensajes que un
 Usa la etiqueta de Liquid `campaign.${name}` en Canvas para mostrar el nombre del componente actual del Canvas.
 {% endalert %}
 
-El componente de mensaje gestiona los mensajes enviados a los usuarios. Puedes seleccionar tus **Messaging Channels** y ajustar los **Delivery Settings** para optimizar la mensajería de tu Canvas. Para más detalles sobre este componente, consulta [Mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
+El componente de mensaje gestiona los mensajes enviados a los usuarios. Puedes seleccionar tus **Canales de mensajería** y ajustar los **Ajustes de entrega** para optimizar la mensajería de tu Canvas. Para más detalles sobre este componente, consulta [Mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
 
 ![El paso "Configurar mensajes", con "Canales de mensajería" seleccionado que muestra la lista de canales de mensajería disponibles, como push de Android, Content Cards, correo electrónico y más.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
@@ -311,13 +311,15 @@ En el primer paso de mensaje que sigue a una Ruta de acción, puedes usar `event
 
 Para mover una conexión entre pasos, selecciona la flecha que conecta los dos componentes y selecciona un componente diferente. Para eliminar la conexión, selecciona la flecha seguida de **Cancel Connection** en el pie de página del compositor de Canvas.
 
+Si una sola variante tiene múltiples ramas con la misma audiencia y hora de envío, Braze no garantiza una división equitativa entre esas ramas. La distribución puede favorecer la rama que se creó primero. Para una división equitativa, usa filtros de [número de contenedor aleatorio]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) en cada rama. Para más información, consulta [¿Qué sucede si la audiencia y la hora de envío son idénticas para un Canvas que tiene una variante, pero múltiples ramas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
+
 ## Paso 3: Añade un grupo de control {#step-3-add-a-control-group}
 
 Puedes añadir un grupo de control a tu Canvas seleccionando el botón <i class="fas fa-plus-circle"></i> de suma para añadir una nueva variante.
 
 Braze rastreará las conversiones de los usuarios que se coloquen en el grupo de control, aunque no recibirán ningún mensaje. Para preservar una prueba precisa, rastrearemos el número de conversiones para tus variantes y el grupo de control durante exactamente la misma cantidad de tiempo, como se muestra en la pantalla de selección de eventos de conversión.
 
-Puedes ajustar la distribución entre tus mensajes haciendo doble clic en los encabezados de **Variant Name**.
+Puedes ajustar la distribución entre tus mensajes haciendo doble clic en los encabezados de **Nombre de variante**.
 
 En este ejemplo, tenemos nuestro Canvas dividido en dos variantes. La variante 1 tiene el 70 % de los usuarios. La segunda variante es un grupo de control con el 30 % restante de los usuarios.
 

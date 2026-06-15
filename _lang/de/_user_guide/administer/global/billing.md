@@ -111,4 +111,4 @@ Dieses Diagramm gibt Ihnen die Möglichkeit, Ihre gesamte Datenpunkt-Nutzung sch
 ## Nächste Schritte {#next-steps}
 
 - [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/), um Benachrichtigungen für abrechnungsbezogene Ereignisse und Nutzungsschwellenwerte zu konfigurieren.
-- [Dashboard zur Nachrichtennutzung]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/), um den Verbrauch von SMS-, WhatsApp- und RCS-Credits zu überwachen.
+- [Dashboard zur Nachrichtennutzung]({{site.baseurl}}/credits_usage_dashboard/), um den Verbrauch von Nachrichten-Credits zu überwachen.

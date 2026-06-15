@@ -50,6 +50,23 @@ Liquid peut personnaliser l'expérience de la page d'accueil pour les visiteurs 
 - **Utilisateurs identifiés :** créez un lien vers la page d'accueil depuis un message Braze et incluez l'[étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). Cela associe l'utilisateur à son profil Braze et personnalise l'expérience de la page.
 - **Visiteurs anonymes :** utilisez Liquid pour du contenu contextuel non basé sur le profil, comme un nombre aléatoire ou un message d'accueil selon l'heure de la journée.
 
+### Préremplir les champs de formulaire {#pre-fill-form-fields}
+
+Si un champ de formulaire de page d'accueil correspond à un attribut du profil utilisateur, vous pouvez préremplir ce champ pour les utilisateurs qui reviennent. Cela permet de réduire les frictions liées au formulaire et d'améliorer les taux de complétion pour les visiteurs connus.
+
+Pour préremplir les champs de formulaire :
+
+1. Sélectionnez votre champ de formulaire dans l'éditeur par glisser-déposer.
+2. Dans le panneau de paramètres de droite, associez le champ à l'attribut de profil approprié.
+3. Sélectionnez **Pre-fill from user profile**.
+
+![Paramètres du champ de formulaire de la page d'accueil montrant l'option de préremplissage à partir des données du profil utilisateur.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
+
+Le préremplissage ne fonctionne que pour les [utilisateurs identifiés](#use-liquid-for-identified-and-anonymous-users). Pour les visiteurs anonymes, les champs de formulaire conservent leur état par défaut :
+
+- **Champs de saisie :** affichent leur texte de marque substitutive.
+- **Cases à cocher, boutons radio et contrôles similaires :** restent non sélectionnés jusqu'à ce que l'utilisateur interagisse avec eux.
+
 ## Récupérer des données externes avec du code personnalisé {#fetching-external-data-with-custom-code}
 
 Vous pouvez utiliser un bloc **Custom Code** pour récupérer des données depuis des endpoints externes et les afficher dans votre page d'accueil. Cette approche effectue la requête côté client (dans le navigateur de l'utilisateur), de sorte que la page se charge rapidement sans délais de rendu côté serveur.

@@ -3,17 +3,17 @@ nav_title: Ideen und Strategien
 article_title: Ideen und Strategien
 layout: dev_guide
 guide_top_header: "Ideen und Strategien"
-guide_top_text: "Erfahren Sie mehr darüber, wie Sie mit diesen Anwendungsfällen und weiteren Ideen Ihre ideale Kampagne aufbauen können."
+guide_top_text: "Erfahren Sie mehr darüber, wie Sie mit diesen Anwendungsfällen und weiteren Ideen Ihre ideale Campaign aufbauen können."
 page_order: 5
 
 tool: Campaigns
 page_type: landing
-description: "Diese Landing-Page enthält Ideen und Strategien für Kampagnen. Hier finden Sie Artikel zu Themen wie Lokalisierung, Retargeting, Best Practices und mehr."
+description: "Diese Landing-Page enthält Ideen und Strategien für Campaigns. Hier finden Sie Artikel zu Themen wie Lokalisierung, Retargeting, Best Practices und mehr."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
   - name: Best Practices
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
   - name: Kampagnen für aktive Nutzer:innen
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns
@@ -45,7 +45,7 @@ guide_menu_list:
   - name: Nachrichten mit Rechts-nach-links-Schrift erstellen
     link: /docs/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages
     image: /assets/img/braze_icons/globe-02.svg
-  - name: E-Mail-System für Buchungserinnerungen
+  - name: Buchungserinnerungs-E-Mail
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/booking_use_case
     image: /assets/img/braze_icons/channel-email.svg
 ---

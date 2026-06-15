@@ -4,9 +4,10 @@
 # run (all edits in the rule share one PR). Branch names include the run date and
 # GitHub run id (support-analyzer/phase2-<rule_id>-YYYY-MM-DD-<run_id>) so a new
 # draft can open while an earlier one is still in review. If every target file
-# already on develop (fingerprint HTML comment, or skip_if_contains phrases), no PR opens.
-# When merging Phase 2 PRs manually, keep <!-- support-analyzer-phase2:... --> comments
-# or add skip_if_contains so later runs do not duplicate the same guidance.
+# already on develop (fingerprint HTML comment, skip_if_contains, or skip_if_contains_in_files),
+# no PR opens. While an open draft exists for the same rule (branch support-analyzer/phase2-<rule_id>-*),
+# Phase 2 skips opening another. When merging Phase 2 PRs manually, keep
+# <!-- support-analyzer-phase2:... --> comments or add skip_if_contains so later runs do not duplicate.
 #
 # CI runs `support_analyzer_phase2.py --strict-anchors`: if a rule matches cases
 # but an anchor is missing (and the fingerprint is not already in the file), the
@@ -19,12 +20,13 @@
 # environment with a checkout. Set `required: true` only when that environment
 # is guaranteed. Patterns use ripgrep regex.
 #
-# CSV columns (Looker export): see .cursor/rules/support-analyzer.mdc
+# CSV columns (Looker export): see .github/skills/support-analyzer/SKILL.md
 version: 1
 
 rules:
   - id: data_series_currents
     enabled: true
+    # skip_if_contains below detects the shared include merged in #13772; disable this rule if that include is canonical.
     min_matching_cases: 3
     case_text:
       fields:
@@ -54,6 +56,8 @@ rules:
     edits:
       - file: _docs/_api/endpoints/export/campaigns/get_campaign_analytics.md
         fingerprint: support-analyzer-phase2:data_series_currents_campaign
+        skip_if_contains:
+          - "api/export_data_series_analytics_dashboard_note.md"
         anchor_substring: Data returned includes how many messages were sent, opened, clicked, or converted by messaging channel.
         insert: |+
 
@@ -64,6 +68,8 @@ rules:
 
       - file: _docs/_api/endpoints/export/canvas/get_canvas_analytics.md
         fingerprint: support-analyzer-phase2:data_series_currents_canvas
+        skip_if_contains:
+          - "api/export_data_series_analytics_dashboard_note.md"
         anchor_substring: "> Use this endpoint to export time series data for a Canvas."
         insert: |+
 
@@ -74,6 +80,8 @@ rules:
 
       - file: _docs/_api/endpoints/export/campaigns/get_send_analytics.md
         fingerprint: support-analyzer-phase2:data_series_currents_send
+        skip_if_contains:
+          - "api/export_data_series_analytics_dashboard_note.md"
         anchor_substring: Braze stores send analytics for 14 days after the send.
         insert: |+
 
@@ -118,6 +126,11 @@ rules:
 
       - file: _docs/_user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags.md
         fingerprint: support-analyzer-phase2:liquid_api_trigger_extra_braces_tags
+        # FAQ already documents triple-brace mistakes; skip this edit unless tags page adds its own callout.
+        skip_if_contains_in_files:
+          - file: _docs/_user_guide/messaging/design_and_edit/personalize/liquid/faq.md
+            contains:
+              - "extra pair of curly braces is a common cause"
         anchor_substring: "| <a href='/docs/api/objects_filters/trigger_properties_object/'>API Trigger Properties</a> |"
         insert: |+
 

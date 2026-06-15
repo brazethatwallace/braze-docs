@@ -167,7 +167,7 @@ As <i>aberturas</i> são instâncias que incluem <i>aberturas diretas</i> e <i>a
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>Descadastramento</i> é quando um usuário respondeu à sua mensagem com uma <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave de descadastramento</a> e foi cancelado do seu programa de SMS ou RCS.
+<i>Descadastramento</i> é quando um usuário respondeu à sua mensagem com uma <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave de descadastramento</a> e teve a inscrição cancelada do seu programa de SMS ou RCS.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
@@ -251,7 +251,7 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>Cliques únicos</i> é o número distinto de destinatários que clicaram em um link dentro de uma mensagem pelo menos uma vez e é medido por <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>.
+<i>Cliques únicos</i> é o número distinto de destinatários que clicaram em um link dentro de uma mensagem pelo menos uma vez e é medido por <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}

@@ -20,10 +20,13 @@ The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two k
 
 <table aria-label="About the editor" style="width: 100%; table-layout: fixed;">
     <caption>Content and Rows editor components</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Content</th>
         <th style="width: 50%;">Rows</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="The 'Rows' tab that includes different structural combinations for your email layout." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two k
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="The 'Content' tab that includes basic blocks, media, and advanced" style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="About the editor" }
 
@@ -67,6 +71,10 @@ Although the drag-and-drop editor simplifies your workflow with these blocks, yo
 ### Rows
 
 **Rows** are structural units that define the horizontal composition of a section of the message by using columns. You can either empty rows or [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Using more than one column allows you to put different content elements side by side. This way, you can add all the structural elements you need to your message, regardless of the template you selected when you started.
+
+#### Nesting images inside text blocks
+
+You cannot nest an image inside a paragraph or other text block in the drag-and-drop editor. To place an image beside or within a text layout, use columns in a **Row**: for example, a multi-column row on desktop with **Hide on mobile** for that row, and a separate mobile-only row (with **Hide on desktop** and **Do not stack on mobile** as needed) so the image and text align cleanly on small screens.
 
 #### Cards Style
 
@@ -138,23 +146,23 @@ Once you've finished designing and building your email message, it's time to add
 
 A preview in the right-hand panel will populate with the sending information you've added. This information can also be updated by navigating to **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Personalizing your email header (advanced)
+#### Add email attachments
+
+In **Sending Settings** > **Advanced**, you can add email attachments by the following methods:
+
+- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
+- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word documents, Excel files, and PowerPoint presentations are all supported. 
+- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+
+Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
+
+#### Personalize your email header (advanced)
 
 Under **Sending Settings**, you can add personalization for email headers and email extras, which allows you to send additional data back to other email service providers. Personalizing an email header, such as including a recipient's name, can also contribute to the likelihood of your email being opened.
 
 {% alert note %}
 Advanced functionality will appear in the campaign or Canvas composer. In advanced functionality, you can modify your inline CSS setting and enter a header or extra key-value pairs (if configured).
 {% endalert %}
-
-#### Adding email attachments
-
-In **Sending Settings** > **Advanced**, you can add email attachments by the following methods:
-
-- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
-- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word docs, Excel files, and PowerPoint presentations are all supported. 
-- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
-
-Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
 
 ### Step 4: Test your email
 

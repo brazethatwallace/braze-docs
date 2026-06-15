@@ -57,6 +57,21 @@ Si votre campagne utilise le timing intelligent ou la distribution selon le fuse
 
 Lorsque vous utilisez une limite de débit, Braze « planifie » vos messages par tranches d'une minute. Si vous souhaitez modifier le débit d'envoi des messages, suivez le processus ci-dessous pour effectuer des changements immédiats.
 
+#### Mettre en pause des campagnes avec limitation du débit de distribution {#pausing-campaigns-with-delivery-speed-rate-limiting}
+
+Lorsque vous mettez en pause une campagne qui utilise la [limitation du débit de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze répartit les envois sur des créneaux d'une minute. **Reprendre** ne renvoie pas les messages des créneaux qui ont été annulés pendant la pause de la campagne.
+
+Les messages soumis à une limite de débit ne sont annulés que si la campagne est toujours en pause au moment de leur envoi planifié. Qu'un message soit envoyé ou non après la reprise dépend du moment où vous avez mis la campagne en pause et de la durée de cette pause.
+
+Par exemple :
+
+1. Vous mettez la campagne en pause à 13 h.
+2. Un message soumis à une limite de débit est planifié pour être envoyé à 13 h 05.
+   - Si vous reprenez avant 13 h 05, le message est envoyé.
+   - Si vous reprenez après 13 h 05, le message est annulé pendant la pause et n'est pas envoyé.
+
+Si certains utilisateurs n'ont pas reçu de messages parce que la campagne était en pause pendant leur créneau d'envoi planifié, dupliquez la campagne et ciblez uniquement ces utilisateurs plutôt que de compter sur **Reprendre** pour distribuer les messages manqués.
+
 ## Effectuer des changements immédiats {#making-immediate-changes}
 
 Si vous avez besoin que les changements prennent effet immédiatement, procédez comme suit :

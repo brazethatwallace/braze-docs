@@ -31,7 +31,7 @@ Antes de empezar, necesitas lo siguiente:
 | Un token de autorización de contenido conectado de Braze habilitado | Consulta la nota siguiente sobre acceso anticipado. |
 | Un paso de contexto de Canvas en Braze | Consulta la nota siguiente sobre acceso anticipado. |
 | Paso de agente de BrazeAI habilitado | Consulta la nota siguiente sobre acceso anticipado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% alert important %}
 Los agentes de Braze, el contexto de Canvas y los tokens de autorización de contenido conectado están en acceso anticipado. Si te interesa aprovechar esta solución, habla con tu CSM de Braze para habilitar estas herramientas.
@@ -57,7 +57,7 @@ En la respuesta a esta solicitud, Fullstory proporciona un ID de perfil de sesi�
 
 ### Paso 2: Crear la autenticación del token de contenido conectado {#step-2-create-the-connected-content-token-authentication}
 
-1. En Braze, ve a **Settings** > **Workspace Settings** > **Connected Content** > **Add Credential** > **Token Authentication**.
+1. En Braze, ve a **Configuración** > **Configuración del espacio de trabajo** > **Connected Content** > **Add Credential** > **Token Authentication**.
 2. Nombra la autenticación `fullstory`.
 3. Añade la clave de encabezado "Authorization". Proporciona el valor de encabezado que Fullstory facilitó en el paso anterior.
 4. En **Allowed Domain**, introduce **api.fullstory.com**.

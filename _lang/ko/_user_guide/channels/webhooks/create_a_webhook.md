@@ -97,7 +97,7 @@ Braze는 표준 포트 `80`(HTTP) 및 `443`(HTTPS)을 통해 통신하는 URL만
 | GET | 새 정보를 기록하는 것이 아니라 기존 정보를 검색합니다. 정의상 GET 요청은 요청 본문을 지원하지 않습니다. |
 | PUT | 엔드포인트의 정보를 업데이트하여 기존 정보를 요청 본문의 내용으로 대체합니다. |
 | DELETE | HTTP URL의 리소스를 삭제합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
 
 #### 요청 본문 {#request-body}
 
@@ -230,7 +230,7 @@ Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 동작인 [
 | `429` (사용량 제한)  | 아니요 | 예 |
 | `기타 4XX` (클라이언트 오류)  | 아니요 | 아니요 |
 | `5XX` (서버 오류)   | 아니요 | 예 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
 Braze는 위의 상태 코드에 대해 지수 백오프를 사용하여 30분 이내에 최대 5회까지 재시도합니다. 엔드포인트에 도달할 수 없는 경우 재시도가 24시간에 걸쳐 분산될 수 있습니다.<br><br>각 웹훅은 타임아웃되기 전까지 90초가 허용됩니다.
@@ -248,7 +248,7 @@ Braze는 특정 **저장된 웹훅 템플릿**을 참조하는 모든 캠페인 
 
 #### 문제 해결 및 추가 오류 세부 정보 {#troubleshooting-and-additional-error-details}
 
-특정 웹훅 오류를 해결하기 위한 자세한 설명, 문제 해결 단계 및 지침은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/)을 참조하세요. 비정상 호스트 감지 시스템의 작동 방식과 Braze가 자동 이메일 및 Braze 커런츠의 추가 로깅을 통해 오류 알림을 제공하는 방법에 대한 자세한 설명도 확인할 수 있습니다.
+특정 웹훅 오류를 해결하기 위한 자세한 설명, 문제 해결 단계 및 지침은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/)을 참조하세요. 비정상 호스트 감지 시스템의 작동 방식과 Braze가 자동 이메일 및 Braze 커런츠의 추가 로깅을 통해 오류 알림을 제공하는 방법에 대한 자세한 설명도 확인할 수 있습니다.
 
 ### IP 허용 목록 {#ip-allowlisting}
 

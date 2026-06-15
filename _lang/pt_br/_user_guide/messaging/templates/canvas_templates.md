@@ -34,11 +34,7 @@ Em seguida, dê um nome ao seu modelo e adicione as tags relevantes. Depois, sel
 
 ### Etapa 1: Acesse o editor de modelos de Canvas {#step-1-go-to-the-canvas-template-editor}
 
-No dashboard da Braze, acesse **Templates** > **Canvas Templates**.
-
-{% alert note %}
-Se você estiver usando a navegação antiga, pode encontrar essa página em **Engagement** > **Templates & Media** > **Canvas Templates**.
-{% endalert %}
+No dashboard da Braze, acesse **Content** > **Canvas**.
 
 ### Etapa 2: Crie um novo modelo {#step-2-create-a-new-template}
 
@@ -59,7 +55,7 @@ Depois de terminar de personalizar seu modelo, selecione o botão **Save templat
 Existem duas maneiras de usar seu modelo ao criar um Canvas:
 
 - **A partir de Messaging**: Acesse **Messaging** > **Canvas**. Selecione o botão **Create Canvas** e depois **Use a Canvas Template**.
-- **A partir de Templates**: Acesse **Templates** > **Canvas Templates** e encontre o modelo desejado. Em seguida, selecione o menu <i class="fas fa-ellipsis-vertical"></i> seguido de **Apply template**. Isso levará você a um novo Canvas com o modelo aplicado no criador de Canvas.
+- **A partir de Content**: Acesse **Content** > **Canvas** e encontre o modelo desejado em **Canvas templates**. Em seguida, selecione o menu <i class="fas fa-ellipsis-vertical"></i> seguido de **Apply template**. Isso levará você a um novo Canvas com o modelo aplicado no criador de Canvas.
 
 ### Modelos da Braze disponíveis {#available-braze-templates}
 

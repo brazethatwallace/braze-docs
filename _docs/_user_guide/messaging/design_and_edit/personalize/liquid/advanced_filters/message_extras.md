@@ -74,7 +74,7 @@ Any other input that doesn't match the tag standard discussed above may fail to 
 
 #### How can I associate the message_extras field in the send events to my engagement events like opens and clicks? 
 
-A `dispatch_id` is generated and provided in your send events, which can be used as a unique identifier to tie to specific click, open or delivered events. You'll be able to use and query this field in Currents or Snowflake. Learn more about [`dispatch_id` behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+A `dispatch_id` is generated and provided in your send events, which you can use as a unique identifier to tie to specific click, open, or delivered events. Query this field in Currents or Snowflake. For more information, see [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 #### Can I use message_extras with in-app messages? {#iam-sdk}
 

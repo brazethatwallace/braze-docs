@@ -24,7 +24,7 @@ Hay cuatro objetos B2B principales que necesitas para ejecutar campañas B2B.
 | Contactos | Normalmente, personas que han sido cualificadas y convertidas de cliente potencial a contacto para buscar una oportunidad de venta. |
 | Oportunidades | Un registro que hace seguimiento de los detalles de una venta potencial o un acuerdo en curso. |
 | Cuentas | Un registro de una organización que es un cliente potencial cualificado, un cliente existente, un socio o un competidor que mantiene una relación de importancia similar. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Create a B2B data model" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Crear un modelo de datos B2B" }
 
 En Braze, estos cuatro objetos se combinan y reducen a dos objetos: perfiles de usuario y objetos empresariales.
 
@@ -32,7 +32,7 @@ En Braze, estos cuatro objetos se combinan y reducen a dos objetos: perfiles de 
 | --- | --- | --- |
 | Perfiles de usuario | Se mapean directamente con clientes potenciales y contactos en tu sistema CRM de ventas. Como Braze capta los clientes potenciales, se crean automáticamente como clientes potenciales en tu sistema CRM de ventas. A medida que se convierten en contactos, los ID y detalles de los contactos se sincronizan de nuevo con Braze. | Clientes potenciales<br> Contactos |
 | Objetos empresariales | Se mapean con cualquier objeto que no sea de usuario en tu sistema CRM de ventas. Esto incluye tus objetos específicos de ventas, como objetos de cuenta y objetos de oportunidad. | Cuentas<br> Oportunidades |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Crear un modelo de datos B2B" }
 
 ## Paso 1: Crea tus objetos empresariales en Braze {#step-1-create-your-business-objects-in-braze}
 
@@ -44,7 +44,7 @@ Existen dos métodos para crear y gestionar tus objetos empresariales en Braze: 
 | --- | --- |
 | [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) | Son objetos de datos independientes (objetos de datos complementarios) del perfil de usuario principal en Braze. En un contexto B2B, probablemente tendrías catálogos para tus cuentas y oportunidades. |
 | [Fuentes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) | Permiten a Braze consultar directamente tu almacén de datos. Es probable que ya estés sincronizando regularmente tus objetos de clientes potenciales, contactos, oportunidades y cuentas con tu almacén de datos, así que puedes dirigir la segmentación de Braze directamente a ese almacén y activarla en un entorno de copia cero. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your business objects in Braze" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Crea tus objetos empresariales en Braze" }
 
 {% tabs %}
 {% tab Catálogos %}
@@ -64,14 +64,17 @@ Las tablas siguientes incluyen algunos ejemplos de campos que puedes mapear desd
 
 En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cualquier campo incluido en los objetos de tu CRM.
 
-<table aria-label="Map over your CRM fields" border="1">
+<table aria-label="Mapea los campos de tu CRM" border="1">
   <caption>Mapea los campos de tu CRM</caption>
+  <thead>
   <tr>
     <th><b>Objeto Braze</b></th>
     <th><b>Campo de Braze</b></th>
     <th><b>Objeto CRM (Salesforce)</b></th>
     <th><b>Campo CRM (Salesforce)</b></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="4">Catálogo &gt; Catálogo de cuentas</td>
     <td><code>id</code></td>
@@ -93,6 +96,7 @@ En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cual
     <td><code>account</code></td>
     <td><code>OTHER_FIELDS</code></td>
   </tr>
+  </tbody>
 </table>
 
 ##### Ejemplo de tabla de campos de cuenta mapeados {#example-table-of-mapped-account-fields}
@@ -104,14 +108,17 @@ En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cual
 
 En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cualquier campo incluido en los objetos de tu CRM.
 
-<table aria-label="Example table of mapped account fields" border="1">
+<table aria-label="Ejemplo de tabla de campos de cuenta mapeados" border="1">
   <caption>Ejemplo de tabla de campos de cuenta mapeados</caption>
+  <thead>
   <tr>
     <th><b>Objeto Braze</b></th>
     <th><b>Campo de Braze</b></th>
     <th><b>Objeto CRM (Salesforce)</b></th>
     <th><b>Campo CRM (Salesforce)</b></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="4">Catálogo &gt; Catálogo de oportunidades</td>
     <td><code>id</code></td>
@@ -133,6 +140,7 @@ En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cual
     <td><code>OTHER_FIELDS</code></td>
   </tr>
   </tr>
+  </tbody>
 </table>
 
 ##### Ejemplo de tabla de campos de oportunidad mapeados {#example-table-of-mapped-opportunity-fields}
@@ -169,7 +177,7 @@ En primer lugar, asegúrate de que Braze y el CRM que elijas tengan un identific
 | `Aliases.salesforce_contact_id` | Contact | `id` | - Etiqueta de alias de usuario: `salesforce_contact_id` <br>- Nombre del alias de usuario: `contact_id` |
 | `AccountId` | Contact | `AccountId` |
 | `OpportunityId` (opcional, escalar) <br>o<br> `Opportunities` (opcional, matriz) | Opportunity | `id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze object: User" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Objeto Braze: usuario" }
 
 {% alert note %}
 Recomendamos usar [alias]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases) en lugar de `external_id` para mapear los identificadores de leads y contactos de Salesforce a Braze. Esto se debe a que reduce la cantidad de búsquedas necesarias a la hora de identificar y ejecutar tus iniciativas de crecimiento basadas en producto.
