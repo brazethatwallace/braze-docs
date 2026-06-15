@@ -156,9 +156,9 @@ You can create action-based messages targeting any link (tracked or not tracked)
 
 ![Action-Based Options to target users who have clicked an alias in a Canvas component or interacted with a campaign.]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
 
-- If a campaign is archived, link tracking will be turned off and that link alias can't be used in a different filter.
+- If a campaign is archived, link tracking is turned off and that link alias can't be used in a different filter.
 - If a link has tracking turned on and was clicked in a campaign, you can find the campaign as an available option in the segment filter, even if link tracking has since been turned off.
-- You can only track links as a filter if they're in an active Canvas by selecting the link in the **Clicked Alias in Canvas Step** filter dropdown. If the link is being tracked in a Canvas draft, you won't be able to select the tracked link as a filter.
+- You can only track links as a filter if they're in an active Canvas by selecting the link in the **Clicked Alias in Canvas Step** filter dropdown. If the link is being tracked in a Canvas draft, you can't select the tracked link as a filter.
 
 To set links as untracked, go to **Settings** > **Email Preferences** > **Link Aliasing Settings**.
 
