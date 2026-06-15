@@ -3,21 +3,21 @@ nav_title: "Kauf-Objekt"
 article_title: API Kauf-Objekt
 page_order: 8
 page_type: reference
-description: "In diesem referenzierten Artikel werden die verschiedenen Komponenten eines Kauf-Objekts erläutert, wie Sie es richtig verwenden und welche Beispiele Sie verwenden können."
+description: "In diesem Referenzartikel werden die verschiedenen Komponenten eines Kauf-Objekts erläutert, wie Sie es richtig verwenden und welche Beispiele Sie heranziehen können."
 
 ---
 
-# Kauf-Objekt
+# Kauf-Objekt {#purchase-object}
 
 > In diesem Artikel werden die verschiedenen Komponenten eines Kauf-Objekts, die richtige Verwendung, bewährte Verfahren und Beispiele erläutert.
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-## Was ist ein Kauf-Objekt?
+## Was ist ein Kauf-Objekt? {#what-is-a-purchase-object}
 
-Ein Kauf-Objekt ist ein Objekt, das über die API übergeben wird, wenn ein Kauf getätigt wurde. Jedes Kauf-Objekt befindet sich in einem Kauf-Array, wobei jedes Objekt einen einzelnen Kauf durch einen bestimmten Nutzer:in zu einem bestimmten Zeitpunkt darstellt. Das Kauf-Objekt hat viele verschiedene Felder, die es dem Backend von Braze erlauben, diese Informationen zu speichern und für die Anpassung, Datenerfassung und Personalisierung zu verwenden.
+Ein Kauf-Objekt ist ein Objekt, das über die API übergeben wird, wenn ein Kauf getätigt wurde. Jedes Kauf-Objekt befindet sich in einem Kauf-Array, wobei jedes Objekt einen einzelnen Kauf einer bestimmten Nutzer:in zu einem bestimmten Zeitpunkt darstellt. Das Kauf-Objekt hat viele verschiedene Felder, die es dem Backend von Braze erlauben, diese Informationen zu speichern und für die Anpassung, Datenerfassung und Personalisierung zu verwenden.
 
-### Objektkörper
+### Objektkörper {#object-body}
 
 ```json
 {
@@ -43,33 +43,33 @@ Ein Kauf-Objekt ist ein Objekt, das über die API übergeben wird, wenn ein Kauf
 }
 ```
 
-- [Externe Benutzer-ID]({{site.baseurl}}/api/basics/#user-ids)
-- [Bezeichner der App]({{site.baseurl}}/api/identifier_types/)
+- [Externe Nutzer-ID]({{site.baseurl}}/api/basics/#user-ids)
+- [App-Bezeichner]({{site.baseurl}}/api/identifier_types/)
 - [ISO 4217 Währungscode Wiki](http://en.wikipedia.org/wiki/ISO_4217)
 - [ISO 8601 Zeitcode Wiki](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Einige Bezeichnerpaare können nicht zusammen verwendet werden, und`email`hat Vorrang vor ,`phone` wenn beide angegeben sind. Ausführliche Informationen werden in der Referenz zu [Identifikatorauflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution) angegeben.
+Einige Bezeichnerpaare können nicht zusammen verwendet werden, und `email` hat Vorrang vor `phone`, wenn beide angegeben sind. Ausführliche Informationen finden Sie unter [Bezeichnerauflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
 {% endalert %}
 
-## ID des Produkts kaufen
+## Kauf-Produkt-ID {#purchase-product-id}
 
-Innerhalb des Kauf-Objekts ist `product_id` ein Bezeichner für den Kauf (z.B. `Product Name` oder `Product Category`):
+Innerhalb des Kauf-Objekts ist `product_id` ein Bezeichner für den Kauf (z. B. `Product Name` oder `Product Category`):
 
 - Braze erlaubt es Ihnen, bis zu 5.000 `product_id`s im Dashboard zu speichern.
 - Die `product_id` kann bis zu 255 Zeichen lang sein.
 
-### Konventionen zur Namensgebung
+### Namenskonventionen {#naming-conventions}
 
 Bei Braze bieten wir einige allgemeine Namenskonventionen für das Kauf-Objekt `product_id` an. Bei der Auswahl von `product_id` schlägt Braze vor, einfache Namen wie den Produktnamen oder die Produktkategorie (anstelle von SKUs) zu verwenden, mit der Absicht, alle protokollierten Artikel nach diesem `product_id` zu gruppieren.
 
 Dies erleichtert die Identifizierung von Produkten für die Segmentierung und das Triggern.
 
-### Käufe auf der Ebene der Bestellung protokollieren
+### Käufe auf Bestellebene protokollieren {#log-purchases-at-the-order-level}
 
-Wenn Sie Einkäufe auf Auftragsebene statt auf Produktebene protokollieren möchten, können Sie den Auftragsnamen oder die Auftragskategorie als `product_id` verwenden (z. B. `Online Order` oder `Completed Order`).
+Wenn Sie Käufe auf Bestellebene statt auf Produktebene protokollieren möchten, können Sie den Bestellnamen oder die Bestellkategorie als `product_id` verwenden (z. B. `Online Order` oder `Completed Order`).
 
-Zum Beispiel, um Einkäufe auf der Ebene der Bestellung im Internet SDK zu protokollieren:
+Zum Beispiel, um Käufe auf Bestellebene im Web SDK zu protokollieren:
 
 ```html
 POST https://YOUR_REST_API_URL/users/track
@@ -94,39 +94,27 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Kauf-Details-Objekt
+## Kauf-Eigenschaften-Objekt {#purchase-properties-object}
 
-Angepasste Events und Käufe können Event-Eigenschaften haben. Die "Eigenschaften"-Werte sollten ein Objekt sein, bei dem die Schlüssel die Eigenschaftsnamen und die Werte die Eigenschaftswerte sind. Eigenschaftsnamen müssen nicht-leere Strings mit maximal 255 Zeichen sein, ohne führende Dollarzeichen.
+{% include data_activation/purchase_event_property_data_types.md %}
 
-Bei den Eigenschaften kann es sich um jeden der folgenden Datentypen handeln:
+Eine konsolidierte Referenz der Datentypen für angepasste Attribute, Event-Eigenschaften und Kataloge finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#purchase-event-property-data-types).
 
-| Datentyp | Beschreibung |
-| --- | --- |
-| Zahlen | Entweder als [Ganzzahlen](https://en.wikipedia.org/wiki/Integer) oder [Gleitkommazahlen](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
-| Boolesche Werte |  |
-| Datumsangaben | Formatiert als Strings im [ISO-8601-](https://en.wikipedia.org/wiki/ISO_8601) oder `yyyy-MM-dd'T'HH:mm:ss:SSSZ` -Format. Innerhalb von Arrays nicht unterstützt. |
-| Strings | 255 Zeichen oder weniger. |
-| Arrays | Arrays können keine Datumsangaben enthalten. |
-| Objekte | Objekte werden als Strings eingelesen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+### Kauf-Eigenschaften {#purchase-properties}
 
-Objekte mit Event-Eigenschaften, die Array- oder Objektwerte enthalten, können eine Nutzlast für Event-Eigenschaften von bis zu 50 KB haben.
+[Kauf-Eigenschaften]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) können zum Triggern von Nachrichten und zur Personalisierung mit Liquid verwendet werden. Außerdem ist eine Segmentierung auf der Grundlage dieser Eigenschaften möglich.
 
-### Eigenschaften des Kaufs
+#### Namenskonventionen {#naming-conventions}
 
-[Kauf-Details]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) können zum Triggern von Nachrichten und zur Personalisierung mit Liquid verwendet werden. Außerdem ist eine Segmentierung auf der Grundlage dieser Eigenschaften zulässig.
+Bitte beachten Sie, dass dieses Feature **pro Produkt** und nicht pro Kauf aktiviert wird. Wenn Sie z. B. ein großes Volumen an unterschiedlichen Produkten haben, die aber alle die gleichen Eigenschaften haben, ist eine Segmentierung möglicherweise eher unnötig.
 
-#### Konventionen zur Namensgebung
-
-Bitte beachten Sie, dass dieses Feature **pro Produkt** und nicht pro Kauf aktiviert wird. Wenn Sie z.B. ein großes Volumen an unterschiedlichen Produkten haben, die aber alle die gleichen Eigenschaften haben, ist eine Segmentierung vielleicht eher unnötig.
-
-In diesem Fall empfehlen wir, bei der Festlegung der Datenstrukturen Produktnamen auf „Gruppenebene“ anstelle von Bezeichnern auf Transaktionsebene zu verwenden. Zum Beispiel sollte ein Unternehmen, das Fahrkarten für Züge anbietet, Produkte für "Einzelfahrt", "Hin- und Rückfahrt", "Multi-City" und nicht für bestimmte Transaktionen wie "Transaktion 123" oder "Transaktion 046" haben. Ein weiteres Beispiel: Für das Kauf-Event "Essen" sollten Sie die Eigenschaften "Kuchen" und "Sandwich" festlegen.
+In diesem Fall empfehlen wir, bei der Festlegung der Datenstrukturen Produktnamen auf „Gruppenebene“ anstelle von Bezeichnern auf Transaktionsebene zu verwenden. Zum Beispiel sollte ein Unternehmen, das Fahrkarten für Züge anbietet, Produkte für „Einzelfahrt“, „Hin- und Rückfahrt“, „Multi-City“ und nicht für bestimmte Transaktionen wie „Transaktion 123“ oder „Transaktion 046“ haben. Ein weiteres Beispiel: Für das Kauf-Event „Essen“ sollten Sie die Eigenschaften „Kuchen“ und „Sandwich“ festlegen.
 
 {% alert important %}
-Beachten Sie, dass Produkte über die Braze REST API hinzugefügt werden können. Wenn Sie beispielsweise einen Aufruf an den`/users/track`Endpunkt senden und eine neue Kauf-ID hinzufügen, erstellt Braze automatisch ein Produkt im Bereich **„Dateneinstellungen** > **Produkte“** des Dashboard-Bereichs.
+Beachten Sie, dass Produkte über die Braze REST API hinzugefügt werden können. Wenn Sie beispielsweise einen Aufruf an den `/users/track`-Endpunkt senden und eine neue Kauf-ID hinzufügen, erstellt Braze automatisch ein Produkt im Bereich **Dateneinstellungen** > **Produkte** des Dashboards.
 {% endalert %}
 
-### Beispiel Kauf-Objekt
+### Beispiel Kauf-Objekt {#example-purchase-object}
 
 ```html
 POST https://YOUR_REST_API_URL/users/track
@@ -176,10 +164,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-### Kauf-Objekte, Event-Objekte und Webhooks
+### Kauf-Objekte, Event-Objekte und Webhooks {#purchase-objects-event-objects-and-webhooks}
 
-Anhand des angegebenen Beispiels können wir sehen, dass jemand einen Rucksack mit den Eigenschaften Farbe, Monogramm, Kassendauer, Größe und Marke gekauft hat. Wir können dann Segmente mit diesen Eigenschaften erstellen, indem wir [Kauf-Event-Eigenschaften]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) verwenden oder angepasste Nachrichten über einen Kanal mit Liquid senden. Zum Beispiel: "Hallo **Ann F.**, vielen Dank für den Kauf dieses **roten, mittelgroßen Rucksacks** für ** 40,00 $**! Danke für Ihren Einkauf bei **Backpack Locker**!"
+Anhand des angegebenen Beispiels können wir sehen, dass jemand einen Rucksack mit den Eigenschaften Farbe, Monogramm, Kassendauer, Größe und Marke gekauft hat. Wir können dann Segmente mit diesen Eigenschaften erstellen, indem wir [Kauf-Event-Eigenschaften]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) verwenden oder angepasste Nachrichten über einen Kanal mit Liquid senden. Zum Beispiel: „Hallo **Ann F.**, vielen Dank für den Kauf dieses **roten, mittelgroßen Rucksacks** für **40,00 $**! Danke für Ihren Einkauf bei **Backpack Locker**!“
 
-Wenn Sie Eigenschaften zur Segmentierung speichern, speichern und tracken möchten, müssen Sie diese als angepasste Attribute einrichten. Dies kann mit Hilfe von [Segment-Erweiterungen]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/) geschehen, die es Ihnen ermöglichen, Targeting auf der Grundlage von angepassten Events oder Kauf-Events durchzuführen, die für die Lifetime des jeweiligen Benutzerprofils gespeichert wurden.
-
-
+Wenn Sie Eigenschaften zur Segmentierung speichern und tracken möchten, müssen Sie diese als angepasste Attribute einrichten. Dies kann mit Hilfe von [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) geschehen, die es Ihnen ermöglichen, Nutzer:innen auf der Grundlage von angepassten Events oder Kaufverhalten anzusprechen, die für die Lifetime des jeweiligen Nutzerprofils gespeichert wurden.

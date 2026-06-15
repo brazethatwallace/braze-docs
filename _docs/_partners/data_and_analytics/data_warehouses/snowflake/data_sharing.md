@@ -36,7 +36,7 @@ To learn more about Snowflake's data sharing, see [Introduction to Secure Data S
 | ----------- | ----------- |
 | Braze access | Contact your Braze account or customer success manager to set up Data Sharing. |
 | Snowflake account | A Snowflake account with `admin` permissions. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Setting up Secure Data Sharing
 
@@ -87,7 +87,7 @@ Note the following differences between Braze and Snowflake naming conventions fo
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | The unique identifier that is automatically assigned by Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | The unique identifier of a user's profile that is set by the customer. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ## Important information and limitations
 

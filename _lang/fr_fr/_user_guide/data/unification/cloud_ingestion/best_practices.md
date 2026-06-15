@@ -2,17 +2,17 @@
 nav_title: Bonnes pratiques
 article_title: Bonnes pratiques pour l'ingestion de données cloud
 toc_headers: h2
-page_order: 0
+page_order: 1
 page_type: reference
 description: "Cette page fournit un aperçu de l'ingestion de données cloud, des bonnes pratiques et des limites du produit."
 
 ---
 
-# Bonnes pratiques
+# Bonnes pratiques {#best-practices}
 
-> L'ingestion de données cloud de Braze vous permet d'établir une connexion directe entre votre entrepôt de données ou votre système de stockage de fichiers et Braze, afin de synchroniser les données pertinentes relatives aux utilisateurs ou aux catalogues. Lorsque vous synchronisez ces données avec Braze, vous pouvez les exploiter pour des cas d'utilisation tels que la personnalisation, le déclenchement ou la segmentation. 
+> L'ingestion de données cloud de Braze vous permet d'établir une connexion directe entre votre entrepôt de données ou votre système de stockage de fichiers et Braze, afin de synchroniser les données pertinentes relatives aux utilisateurs ou aux catalogues. Lorsque vous synchronisez ces données avec Braze, vous pouvez les exploiter pour des cas d'utilisation tels que la personnalisation, le déclenchement ou la segmentation.
 
-## Comprendre la colonne `UPDATED_AT`
+## Comprendre la colonne `UPDATED_AT` {#understanding-the-updated_at-column}
 
 {% alert note %}
 `UPDATED_AT` est pertinent uniquement pour les intégrations d'entrepôts de données, et non pour les synchronisations S3.
@@ -24,16 +24,16 @@ Lorsqu'une synchronisation s'exécute, Braze se connecte directement à votre in
 Braze CDI synchronise les lignes strictement en fonction de la valeur `UPDATED_AT`, que le contenu de la ligne soit identique ou non à celui actuellement présent dans Braze. Compte tenu de cela, nous recommandons d'utiliser `UPDATED_AT` correctement afin de ne synchroniser que les données nouvelles ou mises à jour, et ainsi éviter toute consommation inutile de points de donnée.
 {% endalert %}
 
-### Exemple : synchronisation récurrente
+### Exemple : synchronisation récurrente {#example-recurring-sync}
 
 Pour illustrer l'utilisation de `UPDATED_AT` dans une synchronisation CDI, considérez cet exemple de synchronisation récurrente pour la mise à jour des attributs utilisateur :
 
-- Sources de stockage de fichiers 
+- Sources de stockage de fichiers
    - Amazon S3
 
-## Types de données pris en charge 
+## Types de données pris en charge {#supported-data-types}
 
-L'ingestion de données cloud prend en charge les types de données suivants : 
+L'ingestion de données cloud prend en charge les types de données suivants :
 - Attributs utilisateur, notamment :
    - Attributs personnalisés imbriqués
    - Tableaux d'objets
@@ -43,9 +43,19 @@ L'ingestion de données cloud prend en charge les types de données suivants :
 - Éléments de catalogue
 - Demandes de suppression d'utilisateur
 
-Vous pouvez mettre à jour les données utilisateur à l'aide de l'ID externe, de l'alias d'utilisateur, de l'identifiant Braze, de l'e-mail ou du numéro de téléphone. Vous pouvez supprimer des utilisateurs par ID externe, alias d'utilisateur ou identifiant Braze. 
+### Éviter les problèmes de types de données {#avoiding-data-type-issues}
 
-## Ce qui est synchronisé
+Lorsque vous utilisez CDI pour synchroniser des données provenant de sources externes (telles que Databricks ou Snowflake), assurez-vous que vos colonnes sources utilisent les types de données corrects avant la synchronisation. Les problèmes courants incluent :
+
+- **Horodatages stockés sous forme de chaînes de caractères :** Assurez-vous que vos colonnes de dates utilisent un type timestamp ou datetime dans votre base de données source, et non un type varchar ou string.
+- **Nombres stockés sous forme de chaînes de caractères :** Convertissez les colonnes numériques en types integer ou float dans votre requête source avant la synchronisation.
+- **Types incohérents entre les synchronisations :** Si le type d'une colonne change entre deux synchronisations, Braze peut rejeter les nouvelles données. Vérifiez que le schéma de votre source reste cohérent.
+
+Pour forcer ou modifier les types de données des attributs personnalisés dans le tableau de bord de Braze, consultez [Gérer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+
+Vous pouvez mettre à jour les données utilisateur à l'aide de l'ID externe, de l'alias d'utilisateur, de l'identifiant Braze, de l'e-mail ou du numéro de téléphone. Vous pouvez supprimer des utilisateurs par ID externe, alias d'utilisateur ou identifiant Braze.
+
+## Ce qui est synchronisé {#what-gets-synced}
 
 À chaque exécution d'une synchronisation, Braze recherche les lignes qui n'ont pas encore été synchronisées. Cette vérification s'appuie sur la colonne `UPDATED_AT` de votre table ou vue. Braze sélectionne et importe toutes les lignes dont la valeur `UPDATED_AT` est postérieure à la dernière valeur `UPDATED_AT` synchronisée. Les lignes situées exactement à l'horodatage limite peuvent également être re-synchronisées si de nouvelles lignes sont ajoutées avec ce même horodatage entre deux exécutions.
 
@@ -60,7 +70,7 @@ Dans votre entrepôt de données, ajoutez les utilisateurs et attributs suivants
     <tr>
       <th>UPDATED_AT</th>
       <th>EXTERNAL_ID</th>
-      <th>PAYLOAD</th>
+      <th>payload</th>
     </tr>
   </thead>
   <tbody>
@@ -119,7 +129,7 @@ Lors de la prochaine synchronisation planifiée, Braze synchronise toutes les li
     <tr>
       <th>UPDATED_AT</th>
       <th>EXTERNAL_ID</th>
-      <th>PAYLOAD</th>
+      <th>payload</th>
     </tr>
   </thead>
   <tbody>
@@ -191,7 +201,7 @@ Une nouvelle ligne a été ajoutée pour `customer_9012`, mais sa valeur `UPDATE
     <tr>
       <th>UPDATED_AT</th>
       <th>EXTERNAL_ID</th>
-      <th>PAYLOAD</th>
+      <th>payload</th>
     </tr>
   </thead>
   <tbody>
@@ -276,7 +286,7 @@ Lors de cette troisième exécution, une nouvelle ligne a été ajoutée pour `c
 Les valeurs `UPDATED_AT` peuvent être postérieures à l'heure de début d'exécution d'une synchronisation donnée. Cependant, cette pratique n'est pas recommandée car elle repousse le dernier horodatage `UPDATED_AT` « dans le futur » et les synchronisations suivantes ne synchroniseront pas les valeurs antérieures.
 {% endalert %}
 
-## Utilisez un horodatage UTC pour la colonne `UPDATED_AT`
+## Utiliser un horodatage UTC pour la colonne `UPDATED_AT` {#use-a-utc-timestamp-for-the-updated_at-column}
 
 La colonne `UPDATED_AT` doit être en UTC pour éviter les problèmes liés aux changements d'heure. Utilisez de préférence des fonctions UTC uniquement, telles que `SYSDATE()` plutôt que `CURRENT_DATE()`, dès que possible.
 
@@ -293,7 +303,7 @@ Pour éviter cela :
 - Utilisez une transaction pour écrire toutes les lignes qui partagent le même horodatage.
 - Utilisez des valeurs `UPDATED_AT` uniques et croissantes de manière monotone pour éviter que des lignes ne soient re-sélectionnées après avoir été traitées.
 
-### Exemple : gestion des mises à jour ultérieures
+### Exemple : gestion des mises à jour ultérieures {#example-managing-subsequent-updates}
 
 Cet exemple illustre le processus général de synchronisation des données pour la première fois, puis de mise à jour des seules données modifiées (deltas) lors des mises à jour suivantes. Supposons que nous ayons une table `EXAMPLE_DATA` contenant des données utilisateur. Le jour 1, elle contient les valeurs suivantes :
 
@@ -303,7 +313,8 @@ Cet exemple illustre le processus général de synchronisation des données pour
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
+<table aria-label="Exemple : gestion des mises à jour ultérieures">
+  <caption>Exemple : gestion des mises à jour ultérieures</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -376,7 +387,7 @@ Rien de tout cela n'ayant été synchronisé avec Braze auparavant, ajoutez l'en
     <tr>
       <th>UPDATED_AT</th>
       <th>EXTERNAL_ID</th>
-      <th>PAYLOAD</th>
+      <th>payload</th>
     </tr>
   </thead>
   <tbody>
@@ -408,9 +419,10 @@ Rien de tout cela n'ayant été synchronisé avec Braze auparavant, ajoutez l'en
   </tbody>
 </table>
 
-Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé toutes les données disponibles jusqu'à « 2023-03-16 15:00:00 ». Ensuite, le matin du jour 2, un processus ETL s'exécute et certains champs de votre table d'utilisateurs sont mis à jour (en surbrillance) :
+Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé toutes les données disponibles jusqu'à « 2023-03-16 15:00:00 ». Ensuite, le matin du jour 2, un processus ETL s'exécute et certains champs de votre table d'utilisateurs sont mis à jour (indiqués par *) :
 
-<table>
+<table aria-label="Exemple : gestion des mises à jour ultérieures">
+  <caption>Exemple : gestion des mises à jour ultérieures. * indique un champ mis à jour depuis la dernière synchronisation.</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -423,14 +435,14 @@ Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé to
     <tbody>
         <tr>
             <td>12345</td>
-            <td style="background-color: #FFFF00;">145</td>
-            <td style="background-color: #FFFF00;">red</td>
+            <td style="background-color: #FFFF00;">145*</td>
+            <td style="background-color: #FFFF00;">red*</td>
             <td>380</td>
-            <td style="background-color: #FFFF00;">TRUE</td>
+            <td style="background-color: #FFFF00;">TRUE*</td>
         </tr>
         <tr>
             <td>23456</td>
-            <td style="background-color: #FFFF00;">15</td>
+            <td style="background-color: #FFFF00;">15*</td>
             <td>blue</td>
             <td>823</td>
             <td>TRUE</td>
@@ -439,13 +451,13 @@ Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé to
             <td>34567</td>
             <td>234</td>
             <td>blue</td>
-            <td style="background-color: #FFFF00;">495</td>
-            <td style="background-color: #FFFF00;">FALSE</td>
+            <td style="background-color: #FFFF00;">495*</td>
+            <td style="background-color: #FFFF00;">FALSE*</td>
         </tr>
         <tr>
             <td>45678</td>
             <td>245</td>
-            <td style="background-color: #FFFF00;">green</td>
+            <td style="background-color: #FFFF00;">green*</td>
             <td>349</td>
             <td>TRUE</td>
         </tr>
@@ -453,7 +465,7 @@ Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé to
             <td>56789</td>
             <td>1938</td>
             <td>red</td>
-            <td style="background-color: #FFFF00;">693</td>
+            <td style="background-color: #FFFF00;">693*</td>
             <td>FALSE</td>
         </tr>
     </tbody>
@@ -466,7 +478,7 @@ Vous devez maintenant ajouter uniquement les valeurs modifiées dans la table so
     <tr>
       <th>UPDATED_AT</th>
       <th>EXTERNAL_ID</th>
-      <th>PAYLOAD</th>
+      <th>payload</th>
     </tr>
   </thead>
   <tbody>
@@ -525,23 +537,23 @@ Vous devez maintenant ajouter uniquement les valeurs modifiées dans la table so
 
 CDI ne synchronisera que les nouvelles lignes, de sorte que la prochaine synchronisation ne portera que sur les cinq dernières lignes.
 
-## Conseils supplémentaires
+## Conseils supplémentaires {#additional-tips}
 
-### N'écrivez que les attributs nouveaux ou mis à jour pour limiter la consommation
+### N'écrivez que les attributs nouveaux ou mis à jour pour limiter la consommation {#only-write-new-or-updated-attributes-to-minimize-consumption}
 
 À chaque exécution d'une synchronisation, Braze recherche les lignes qui n'ont pas encore été synchronisées. Cette vérification s'appuie sur la colonne `UPDATED_AT` de votre table ou vue. Braze sélectionne et importe toutes les lignes dont la valeur `UPDATED_AT` est postérieure à la dernière valeur `UPDATED_AT` synchronisée, qu'elles soient identiques ou non à celles actuellement présentes dans le profil utilisateur. Les lignes situées à l'horodatage limite peuvent également être re-synchronisées si de nouvelles lignes partagent cet horodatage. C'est pourquoi nous recommandons de ne synchroniser que les attributs que vous souhaitez ajouter ou mettre à jour.
 
-La consommation de points de donnée est identique avec CDI et avec d'autres méthodes d'ingestion telles que les API REST ou les SDK. Il est donc de votre responsabilité de vous assurer que vous n'ajoutez que des attributs nouveaux ou mis à jour dans vos tables sources.
+La consommation de points de donnée est identique avec CDI et avec d'autres méthodes d'ingestion telles que les REST API ou les SDK. Il est donc de votre responsabilité de vous assurer que vous n'ajoutez que des attributs nouveaux ou mis à jour dans vos tables sources.
 
-### Séparer la colonne `EXTERNAL_ID` de la colonne `PAYLOAD`
+### Séparer la colonne `EXTERNAL_ID` de la colonne `payload` {#separate-external_id-from-payload-column}
 
-L'objet `PAYLOAD` ne doit pas contenir d'ID externe ni d'autre type d'identifiant. 
+L'objet `payload` ne doit pas contenir d'ID externe ni d'autre type d'identifiant.
 
-### Supprimer un attribut
+### Supprimer un attribut {#remove-an-attribute}
 
 Vous pouvez lui attribuer la valeur `null` si vous souhaitez omettre un attribut du profil d'un utilisateur. Si vous souhaitez qu'un attribut reste inchangé, ne l'envoyez pas à Braze tant qu'il n'a pas été mis à jour. Pour supprimer complètement un attribut, utilisez `TO_JSON(OBJECT_CONSTRUCT_KEEP_NULL(...))`.
 
-### Effectuer des mises à jour incrémentielles
+### Effectuer des mises à jour incrémentielles {#make-incremental-updates}
 
 Effectuez des mises à jour incrémentielles de vos données afin d'éviter les écrasements involontaires lors de mises à jour simultanées.
 
@@ -554,12 +566,13 @@ Effectuez des mises à jour incrémentielles de vos données afin d'éviter les 
 
 La meilleure façon d'éviter ce comportement est de vous assurer que les données source de votre synchronisation CDI reflètent uniquement l'état le plus récent de chaque utilisateur, ou que toutes les mises à jour pour un utilisateur donné ou une paire utilisateur+attribut sont contenues dans une seule ligne.
 
-### Créer une chaîne de caractères JSON à partir d'une autre table
+### Créer une chaîne de caractères JSON à partir d'une autre table {#create-a-json-string-from-another-table}
 
 Si vous préférez stocker chaque attribut dans sa propre colonne en interne, vous devez convertir ces colonnes en chaîne de caractères JSON pour alimenter la synchronisation avec Braze. Pour ce faire, vous pouvez utiliser une requête du type :
 
 {% tabs local %}
 {% tab Snowflake %}
+Utilisez cette requête dans Snowflake pour formater les colonnes sources en champs CDI.
 ```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
@@ -582,6 +595,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Redshift %}
+Utilisez cette requête dans Redshift pour formater les colonnes sources en champs CDI.
 ```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
@@ -604,6 +618,7 @@ SELECT
 ```
 {% endtab %}
 {% tab BigQuery %}
+Utilisez cette requête dans BigQuery pour formater les colonnes sources en champs CDI.
 ```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (attribute_1 string,
      attribute_2 STRING,
@@ -619,11 +634,12 @@ SELECT
         'attribute_2'AS attribute_2,
         'yet_another_attribute'AS attribute_3
       )
-    ) as PAYLOAD 
+    ) as PAYLOAD
   FROM BRAZE.EXAMPLE_USER_DATA;
 ```
 {% endtab %}
 {% tab Databricks %}
+Utilisez cette requête dans Databricks pour formater les colonnes sources en champs CDI.
 ```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (
     attribute_1 string,
@@ -641,11 +657,12 @@ SELECT
         attribute_2,
         attribute_3
       )
-    ) as PAYLOAD 
+    ) as PAYLOAD
   FROM BRAZE.EXAMPLE_USER_DATA;
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
+Utilisez cette requête dans Microsoft Fabric pour formater les colonnes sources en champs CDI.
 ```sql
 CREATE TABLE [braze].[users] (
     attribute_1 VARCHAR,
@@ -657,7 +674,7 @@ CREATE TABLE [braze].[users] (
 GO
 
 CREATE VIEW [braze].[user_update_example]
-AS SELECT 
+AS SELECT
     user_id as EXTERNAL_ID,
     CURRENT_TIMESTAMP as UPDATED_AT,
     JSON_OBJECT('attribute_1':attribute_1, 'attribute_2':attribute_2, 'attribute_3':attribute_3, 'attribute_4':attribute_4) as PAYLOAD
@@ -668,125 +685,38 @@ FROM [braze].[users] ;
 
 {% endtabs %}
 
-### Utilisez l'horodatage `UPDATED_AT`
+### Utiliser l'horodatage `UPDATED_AT` {#use-the-updated_at-timestamp}
 
 Braze utilise l'horodatage `UPDATED_AT` pour suivre les données qui ont été synchronisées avec succès. CDI suit également le nombre de lignes au dernier horodatage synchronisé. Si de nouvelles lignes sont ajoutées avec ce même horodatage entre deux exécutions, CDI re-synchronise toutes les lignes à cet horodatage, ce qui peut entraîner des données en double. Pour plus de détails et de conseils, consultez [Éviter la re-synchronisation de lignes avec des horodatages en double](#avoid-resyncing-rows-with-duplicate-timestamps).
 
-### Configuration de la table
+### Configuration de la table {#table-configuration}
 
 Nous disposons d'un [dépôt GitHub](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion) public permettant aux clients de partager des bonnes pratiques ou des extraits de code. Pour contribuer avec vos propres extraits de code, créez une pull request !
 
-### Formatage des données
+### Formatage des données {#data-formatting}
 
-Toutes les opérations possibles via l'endpoint `/users/track` de Braze sont prises en charge par l'ingestion de données cloud, notamment la mise à jour des attributs personnalisés imbriqués, l'ajout d'un statut d'abonnement et la synchronisation d'événements personnalisés ou d'achats. 
+Les exigences de configuration des tables d'ingestion de données cloud et les exigences de formatage des payloads sont documentées dans [Configuration des tables pour l'ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
 
-Les champs de la charge utile doivent respecter le même format que l'endpoint `/users/track` correspondant. Pour plus d'informations sur les exigences de formatage, consultez les ressources suivantes :
+Utilisez cette page pour distinguer :
 
-| Type de données | Spécifications de formatage |
-| --------- | ---------| --------- | ----------- |
-| `attributes` | Voir [objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
-| `events` | Voir [objet événements]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Voir [objet achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+- Les exigences relatives aux tables sources (colonnes requises, colonnes d'identifiants et comportement de `UPDATED_AT`)
+- Les exigences relatives aux payloads (quels champs doivent correspondre au format d'objet `/users/track` pour chaque type de données)
 
-Notez l'exigence particulière pour la [capture des dates]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties) dans les attributs imbriqués. 
-
-{% tabs local %}
-{% tab Nested Custom Attributes %}
-Vous pouvez inclure des attributs personnalisés imbriqués dans la colonne payload pour une synchronisation d'attributs personnalisés. 
-
-```json
-{
-      "most_played_song": {
-        "song_name": "Solea",
-        "artist_name": "Miles Davis",
-        "album_name": "Sketches of Spain",
-        "genre": "Jazz",
-        "play_analytics": {
-            "count": 1000,
-            "top_10_listeners": true
-        }
-      }
-}
-```
-
-{% endtab %}
-{% tab Event %}
-Pour synchroniser des événements, un nom d'événement est requis. Formatez le champ `time` sous forme de chaîne de caractères ISO 8601 ou au format `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. Si le champ `time` n'est pas présent, Braze utilise la valeur de la colonne `UPDATED_AT` comme heure de l'événement. Les autres champs, y compris `app_id` et `properties`, sont facultatifs. 
-
-Notez que vous ne pouvez synchroniser qu'un seul événement par ligne.
-
-```json
-{
-    "app_id" : "your-app-id",
-    "name" : "rented_movie",
-    "time" : "2013-07-16T19:20:45+01:00",
-    "properties": {
-        "movie": "The Sad Egg",
-        "director": "Dan Alexander"
-    }
-} 
-```
-
-{% endtab %}
-{% tab Purchase %}
-Pour synchroniser les événements d'achat, `product_id`, `currency` et `price` sont requis. Formatez le champ `time`, qui est facultatif, sous forme de chaîne de caractères ISO 8601 ou au format `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. Si le champ `time` n'est pas présent, Braze utilise la valeur de la colonne `UPDATED_AT` comme heure de l'événement. Les autres champs, y compris `app_id`, `quantity` et `properties`, sont facultatifs.
-
-Notez que vous ne pouvez synchroniser qu'un seul événement d'achat par ligne.
-
-```json
-{
-    "app_id" : "11ae5b4b-2445-4440-a04f-bf537764c9ad",
-    "product_id" : "Completed Order",
-    "currency" : "USD",
-    "price" : 219.98,
-    "time" : "2013-07-16T19:20:30+01:00",
-    "properties" : {
-        "products" : [ { "name": "Monitor", "category": "Gaming", "product_amount": 19.99 },
-        { "name": "Gaming Keyboard", "category": "Gaming ", "product_amount": 199.99 }
-        ]
-    }
-}
-```
-
-{% endtab %}
-{% tab Subscription Groups %}
-```json
-{
-    "subscription_groups" : [
-        {
-            "subscription_group_id": "subscription_group_identifier_1",
-            "subscription_state": "unsubscribed"
-        },
-        {
-            "subscription_group_id": "subscription_group_identifier_2",
-            "subscription_state": "subscribed"
-        },
-        {
-            "subscription_group_id": "subscription_group_identifier_3",
-            "subscription_state": "subscribed"
-        }
-      ]
-}
-```
-{% endtab %}
-{% endtabs %}
-
-### Éviter les délais d'expiration pour les requêtes d'entrepôt de données
+### Éviter les délais d'expiration pour les requêtes d'entrepôt de données {#avoid-timeouts-for-data-warehouse-queries}
 
 Nous recommandons que les requêtes soient exécutées en moins d'une heure pour des performances optimales et pour éviter les erreurs potentielles. Si les requêtes dépassent ce délai, envisagez de revoir la configuration de votre entrepôt de données. L'optimisation des ressources allouées à votre entrepôt peut contribuer à améliorer la vitesse d'exécution des requêtes.
 
-## Limites du produit
+## Limites du produit {#product-limitations}
 
-| Limitation            | Description                                                                                                                                                                        |
+| Limitation | Description |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nombre d'intégrations | Le nombre d'intégrations que vous pouvez configurer n'est pas limité. Cependant, vous ne pourrez configurer qu'une seule intégration par table ou vue.                                             |
-| Nombre de lignes         | Par défaut, chaque exécution peut synchroniser jusqu'à 500 millions de lignes. Braze interrompt toute synchronisation comportant plus de 500 millions de nouvelles lignes. Si vous avez besoin d'une limite plus élevée, contactez votre Customer Success Manager Braze ou l'assistance Braze. |
-| Attributs par ligne     | Chaque ligne doit contenir un seul ID utilisateur et un objet JSON comportant jusqu'à 250 attributs. Chaque clé de l'objet JSON compte pour un attribut (c'est-à-dire qu'un tableau compte pour un attribut). |
-| Taille de la charge utile           | Chaque ligne peut contenir une charge utile allant jusqu'à 1 Mo. Braze rejette les charges utiles supérieures à 1&nbsp;Mo et consigne l'erreur « La charge utile était supérieure à 1 Mo » dans le journal de synchronisation, avec l'ID externe associé et la charge utile tronquée. |
-| Type de données              | Vous pouvez synchroniser les attributs utilisateur, les événements et les achats via l'ingestion de données cloud.                                                                                                  |
-| Région Braze           | Ce produit est disponible dans toutes les régions Braze. Toute région Braze peut se connecter à n'importe quelle région de données source.                                                                              |
-| Région source       | Braze se connectera à votre entrepôt de données ou à votre environnement cloud dans n'importe quelle région ou chez n'importe quel fournisseur cloud.                                                                                        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Nombre d'intégrations | Le nombre d'intégrations que vous pouvez configurer n'est pas limité. Cependant, vous ne pourrez configurer qu'une seule intégration par table ou vue. |
+| Nombre de lignes | Par défaut, chaque exécution peut synchroniser jusqu'à 500 millions de lignes. Braze interrompt toute synchronisation comportant plus de 500 millions de nouvelles lignes. Si vous avez besoin d'une limite plus élevée, contactez votre gestionnaire de la satisfaction client Braze ou l'assistance Braze. |
+| Attributs par ligne | Chaque ligne doit contenir un seul ID utilisateur et un objet JSON comportant jusqu'à 250 attributs. Chaque clé de l'objet JSON compte pour un attribut (c'est-à-dire qu'un tableau compte pour un attribut). |
+| Taille du payload | Chaque ligne peut contenir un payload allant jusqu'à 1 Mo. Braze rejette les payloads supérieurs à 1&nbsp;Mo et consigne l'erreur « Le payload était supérieur à 1 Mo » dans le journal de synchronisation, avec l'ID externe associé et le payload tronqué. |
+| Type de données | Vous pouvez synchroniser les attributs utilisateur, les événements et les achats via l'ingestion de données cloud. |
+| Région Braze | Ce produit est disponible dans toutes les régions Braze. Toute région Braze peut se connecter à n'importe quelle région de données source. |
+| Région source | Braze se connectera à votre entrepôt de données ou à votre environnement cloud dans n'importe quelle région ou chez n'importe quel fournisseur cloud. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limites du produit" }
 
 <br><br>

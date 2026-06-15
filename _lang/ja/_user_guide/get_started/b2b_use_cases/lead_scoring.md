@@ -3,167 +3,167 @@ nav_title: リードスコアリング
 article_title: リードスコアリングワークフローの作成
 page_order: 1
 page_type: reference
-description: "Braze を使用してシンプルなリードスコアリング、外部リードスコアリング、リードの引き継ぎを実行する方法について説明します。"
+description: "Brazeを使用してシンプルなリードスコアリング、外部リードスコアリング、リードの引き継ぎを実行する方法について説明します。"
 ---
 
-# リードスコアリングワークフローの作成
+# リードスコアリングワークフローの作成 {#create-a-lead-scoring-workflow}
 
-> このユースケースでは、Braze を使用してユーザーのリードスコアをリアルタイムで更新し、自動的にリードを営業チームに引き継ぐ方法を示します。
+> このユースケースでは、Brazeを使用してユーザーのリードスコアをリアルタイムで更新し、自動的にリードを営業チームに引き継ぐ方法を示します。
 
-Braze でのリードスコアリングワークフローの作成には、次の 2 つの重要なステップがあります。
+Brazeでリードスコアリングワークフローを作成するには、次の2つの重要なステップがあります。
 
-1. Braze でリードスコアリングキャンバスを作成するか、外部リードスコアリングツールと連携します。
+1. Brazeでリードスコアリング Canvasを作成するか、外部リードスコアリングツールと連携します。
 - [シンプルなリードスコアリング](#simple-lead-scoring)
 - [外部リードスコアリング](#external-lead-scoring)
 
-2. 適格なリードを営業チームに送信する Webhook キャンペーンを作成します。
+2. 適格なリードを営業チームに送信するWebhook Campaignを作成します。
 - [リードの引き継ぎ: マーケティング適格リード (MQL) を営業へ](#lead-handoff)
 
-## 単純なリードスコアリング
+## シンプルなリードスコアリング {#simple-lead-scoring}
 
-### ステップ 1:キャンバスを作成する
+### ステップ 1: Canvasを作成する {#step-1-create-a-canvas}
 
-1. [**メッセージング**] > [**キャンバス**] に移動し、[**キャンバスを作成**] を選択してから、キャンバスの基本事項を入力します。
+1. **Messaging** > **Canvas**に移動し、**Create Canvas**を選択してから、Canvasの基本情報を入力します。
 
-2. キャンバスに「リードスコアリングキャンバス」などの関連する名前を付け、探しやすくするために、「リードの管理」などのタグを付けます。<br><br>![ステップ 1 の「リードスコアリングキャンバス」という名前のキャンバスの作成と、「リードマネジメント」のタグ付け。]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
+2. Canvasに「Lead Scoring Canvas」などの関連する名前を付け、探しやすくするために「Lead Management」などのタグを付けます。<br><br>![「Lead Scoring Canvas」という名前と「Lead Management」というタグでCanvasを作成するステップ1。]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
-### ステップ2:エントリ基準の設定
+### ステップ 2: エントリ基準を設定する {#step-2-set-up-your-entry-criteria}
 
-1. **エントリ スケジュール**ステップに進み、**Action-Based**エントリ スケジュールを選択します。これにより、ユーザーが特定のアクションを実行すると、キャンバスにユーザーが入ります。
+1. **エントリスケジュール**ステップに進み、**アクションベース**のエントリスケジュールを選択します。これにより、ユーザーが特定のアクションを実行したときにCanvasに入ります。
 
-2. **アクション ベースのオプション** で、次の2 つのアクションs を追加します。
-    - [**カスタム属性値を変更**] でリードスコアリング属性の名前 (`lead score`など) を使用して、カスタム属性値を変更します。リードスコアリング属性をまだ作成していない場合は、[カスタム属性s]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/)のステップに従います。これにより、ユーザーのリードスコアが変化するたびに、キャンバスにユーザーが入ります。
+2. **アクションベースのオプション**で、次の2つのアクションを追加します。
+    - **カスタム属性値の変更**: リードスコアリング属性の名前（`lead score` など）を指定します。リードスコアリング属性をまだ作成していない場合は、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)のステップに従ってください。これにより、ユーザーのリードスコアが変化するたびにCanvasに入ります。
     - **メールアドレスの追加**
 
-![カスタム属性の「リードスコア」を変更し、メールの住所を追加する「アクションベース」およびアクションベースの選択肢をエントリ スケジュールとしたキャンバスの作成手順2。]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
+![「アクションベース」のエントリスケジュールで、カスタム属性「lead score」の変更とメールアドレスの追加をアクションベースのオプションとしてCanvasを作成するステップ2。]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
 
-### ステップ 3:ターゲットオーディエンスの特定
+### ステップ 3: ターゲットオーディエンスを特定する {#step-3-identify-your-target-audience}
 
-#### ステップ 3a: セグメントの選択
+#### ステップ 3a: Segmentを選択する {#step-3a-select-segments}
 
-すべてのユーザーがリードスコアリングの対象であるため、どのユーザー[セグメント]({{site.baseurl}}/user_guide/engagement_tools/segments/)をターゲットに選択し、追加の[フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/)を適用することで、スコアの記録対象のユーザーに関する会社固有のルールを追加できます。たとえば、従業員、すでに顧客であるユーザー、および類似のユーザーを除外できます。 
+すべてのユーザーがリードスコアリングの対象であるため、どのユーザー[Segment]({{site.baseurl}}/user_guide/audience/segments/)をターゲットにするかを選択し、追加の[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を適用することで、スコアリング対象に関する会社固有のルールを追加できます。たとえば、従業員、すでに顧客であるユーザーなどを除外できます。
 
-![キャンバスを作成するステップ 3。セグメントとフィルターを選択して、エントリオーディエンスを絞り込むオプションがあります。]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![Segmentとフィルターを選択してエントリオーディエンスを絞り込むオプションがあるCanvasの作成ステップ3。]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
-#### ステップ 3b： キャンバスの再適格性の設定
+#### ステップ 3b: Canvasの再適格性を設定する {#step-3b-set-canvas-re-eligibility}
 
-ユーザーは、このキャンバスをライフサイクル全体で何度も通過するため、必ずユーザーが前回終了した後ただちに再び入れるようにしてください。これは、再適格性の設定によって実現できます。 
+ユーザーはライフサイクル全体を通じてこのCanvasを何度も通過するため、前回終了した後すぐに再エントリできるようにしてください。これは再適格性の設定で実現できます。
 
-[**エントリコントロール**] で、以下を実行します。
-- [**ユーザーがこのキャンバスに再エントリできるようにする**] を選択します。
-- **指定ウィンドウ**を選択します。
+**エントリコントロール**で、以下を実行します。
+- **ユーザーがこのCanvasに再エントリできるようにする**を選択します。
+- **指定時間枠**を選択します。
 - 再適格性を「0」**秒**に設定します。
 
-![[ユーザーがこのキャンバスに再エントリできるようにする] が選択され、[指定された期間] が 0 秒の [エントリコントロール] セクション。]({% image_buster /assets/img/b2b/entry_controls_simple.png %}){: style="max-width:80%;"}
+![「ユーザーがこのCanvasに再エントリできるようにする」が選択され、「指定時間枠」が0秒に設定された「エントリコントロール」セクション。]({% image_buster /assets/img/b2b/entry_controls_simple.png %}){: style="max-width:80%;"}
 
-#### ステップ 3c: 送信設定のアップデート
+#### ステップ 3c: 送信設定を更新する {#step-3c-update-send-settings}
 
-このキャンバスの運用上の性質と、これらのユーザーにメッセージが送信されないことを考慮すると、購読ステータスに従う必要はありません。
+このCanvasは運用目的であり、ユーザーにメッセージが送信されないため、サブスクリプションステータスに従う必要はありません。
 
-[**購読設定**] の [**次のユーザーに送信**] で、[**購読解除ユーザーを含むすべてのユーザー**] を選択します。 
+**サブスクリプション設定**の**次のユーザーに送信:**で、**配信停止ユーザーを含むすべてのユーザー**を選択します。
 
-![設定メール送信オプション用のキャンバスを作成する手順4。]({% image_buster /assets/img/b2b/step_4_simple.png %}){: style="max-width:80%;"}
+![メッセージ送信オプションを設定するCanvasの作成ステップ4。]({% image_buster /assets/img/b2b/step_4_simple.png %}){: style="max-width:80%;"}
 
-### ステップ 4:キャンバスを作成する
+### ステップ 4: Canvasを構築する {#step-4-build-your-canvas}
 
-#### ステップ 4a: アクションパスの追加
+#### ステップ 4a: アクションパスを追加する {#step-4a-add-an-action-path}
 
-バリアントのプラスアイコンを選択し、[**アクションパス**] を選択します。
+バリアントの下で<i class="fas fa-plus"></i> **追加**を選択し、**アクションパス**を選択します。
 
-![プラスアイコンで開いたメニューに [アクションパス] が表示されているキャンバス。]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
+![プラスアイコンで開いたメニューに「アクションパス」が表示されているCanvas。]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
-#### ステップ 4b: アクショングループの作成
+#### ステップ 4b: アクショングループを作成する {#step-4b-create-action-groups}
 
-それぞれのアクション群は、同じ点の増減につながるすべてのアクションs を表します。最大8 つのアクショングループを設定できます。この例では、4つのグループを設定します。
+各アクショングループは、同じポイントの増減につながるすべてのアクションを表します。最大8つのアクショングループを設定できます。このシナリオでは、4つのグループを設定します。
 
 アクションパスに次のグループを追加します。
 
-- **グループ 1:**1 ポイントの増分でカウントするすべてのイベント。
-- **グループ2:**5 ポイントの増分でカウントするすべてのイベント。
-- **グループ 3:**1 ポイントの減分としてカウントされるすべてのイベント。
-- **その他のユーザー:**アクションパスを使用すると、待機ウィンドウを定義し、ユーザーがアクションを受け取るかどうかを確認してから、それらを「他のすべてのユーザー」グループにドロップできます。リードスコアリングの場合、これは「非アクティブ」のスコアを減分する機会です。
+- **グループ 1:** 1ポイント増加としてカウントされるすべてのイベント。
+- **グループ 2:** 5ポイント増加としてカウントされるすべてのイベント。
+- **グループ 3:** 1ポイント減少としてカウントされるすべてのイベント。
+- **その他のユーザー:** アクションパスでは、ユーザーがアクションを実行するかどうかを確認するための待機時間枠を定義してから、「その他のユーザー」グループに振り分けることができます。リードスコアリングの場合、これは「非アクティブ」に対してスコアを減少させる機会です。
 
-![1 ポイント、5 ポイント、および10 ポイントを追加するアクショングループ、1 ポイントと10 ポイントを減算するアクショングループ、および「Everyone Else」を含むアクションパス。]({% image_buster /assets/img/b2b/action_paths_selected_simple.png %}){: style="max-width:20%;"}
+![1ポイント、5ポイント、10ポイントの加算、1ポイントと10ポイントの減算、および「その他のユーザー」を含むアクショングループのアクションパス。]({% image_buster /assets/img/b2b/action_paths_selected_simple.png %}){: style="max-width:20%;"}
 
-#### ステップ 4c: 関連するイベントを含めるように各グループを設定する
+#### ステップ 4c: 各グループに関連するイベントを含めるように設定する {#step-4c-configure-each-group-to-include-the-relevant-events}
 
-それぞれのアクショングループで、**トリガー**を選択し、特定のアクショングループのポイント数を追加するイベントを選択します。さらにトリガーを追加して、リードスコアを 1 つ増やすすべてのイベントを含めます。たとえば、ユーザーは、任意のアプリでセッションを起動したり、カスタムイベント(ウェビナーの登録や参加など)を実行したりすると、得点を1つ増やすことができます。 
+各アクショングループで、**トリガーを選択**を選択し、そのアクショングループのポイント数を加算するイベントを選択します。さらにトリガーを追加して、リードスコアを1つ増加させるすべてのイベントを含めます。たとえば、ユーザーが任意のアプリでセッションを開始したり、カスタムイベント（ウェビナーの登録や参加など）を実行したりすると、スコアが1つ増加します。
 
-![「任意のアプリでセッションを開始する」と「カスタムイベントを実行する」のトリガーで 1 ポイント加算するアクショングループ。]({% image_buster /assets/img/b2b/action_groups_simple.png %}){: style="max-width:80%;"}
+![「任意のアプリでセッションを開始」と「カスタムイベントを実行」のトリガーで1ポイント加算するアクショングループ。]({% image_buster /assets/img/b2b/action_groups_simple.png %}){: style="max-width:80%;"}
 
-#### ステップ 4d: ユーザアップデートステップの追加
+#### ステップ 4d: ユーザーの更新ステップを追加する {#step-4d-add-user-update-steps}
 
-アクションパスの下に作成した各キャンバスパスに、ユーザー更新ステップを追加します。 
+アクションパスの下に作成された各Canvasパスに、ユーザーの更新ステップを追加します。
 
-![アクションパスと、アクショングループごとに分岐したユーザー更新パスが表示されたキャンバス。]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
+![アクションパスと、各アクショングループに分岐したユーザーの更新パスが表示されたCanvas。]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
-{: start=”2”}
-各ユーザー更新ステップの [**作成**] タブの対応するフィールドで、次の操作を行います。
+{: start="2"}
+各ユーザーの更新ステップの**作成**タブで、対応するフィールドに対して次の操作を行います。
 
-| フィールド | アクション (Action) |
+| フィールド | アクション |
 | --- | --- |
-| **属性名** | ステップ 2 で選択したリードスコア属性を選択します (`lead score`)。|
-| **アクション (Action)** | パスが得点を上げる場合は**増分**に、パスが得点を下げる場合は**減分**にアクションを変更します |
-| **増分**または**減分** | リードスコアから増減するポイント数を入力します。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **属性名** | ステップ2で選択したリードスコア属性（`lead score`）を選択します。|
+| **アクション** | パスがスコアを上げる場合は**Increment By**に、パスがスコアを下げる場合は**Decrement By**にアクションを変更します。|
+| **Increment By**または**Decrement By** | リードスコアから増減するポイント数を入力します。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4d: Add User Update steps" }
 
-### ステップ 5: キャンバスを起動する
+### ステップ 5: Canvasを起動する {#step-5-launch-your-canvas}
 
-完成しました。リードスコアリングキャンバスを起動する準備ができました。
+以上です！リードスコアリングCanvasを起動する準備ができました。
 
-## 外部リードスコアリング
+## 外部リードスコアリング {#external-lead-scoring}
 
-当社の[テクノロジーパートナー]({{site.baseurl}}/partners/home/)の 1 社を使用するか、独自の内部リードスコアリングモデル、機械学習、または別のリードスコアリングツールを使用するかどうかに関わらず、複数の選択肢を用意しています。
+当社の[テクノロジーパートナー]({{site.baseurl}}/partners/home/)の1社を使用する場合でも、独自の内部リードスコアリングモデル、機械学習、または別のリードスコアリングツールを使用する場合でも、複数の選択肢を用意しています。
 
-### 外部パートナー
+### 外部パートナー {#external-partners}
 
-リードスコアリング機能を提供するB2Bパートナーについては、[Technology partners]({{site.baseurl}}/partners/home)を参照してください。ツールが用意されています。[`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) API エンドポイントを呼び出すことで統合できます。 
+リードスコアリング機能を提供するB2Bパートナーについては、[テクノロジーパートナー]({{site.baseurl}}/partners/home/)をご覧ください。お使いのツールが見つからない場合は、[`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users) APIエンドポイントを呼び出すことで連携できます。
 
-### 内部リードスコアリングデータモデル
+### 内部リードスコアリングデータモデル {#internal-lead-scoring-data-models}
 
-Brazeは、リードスコアリングモデルを含む内部データモデルとさまざまな方法で統合できます。当社のお客様が Braze 連携している一般的な例については、以下を参照してください。
+Brazeは、リードスコアリングモデルを含む内部データモデルとさまざまな方法で連携できます。お客様がBrazeと連携している一般的な例については、以下をご覧ください。
 
-#### 統合クラウドデータウェアハウス
+#### 統合クラウドデータウェアハウス {#integrated-cloud-data-warehouse}
 
 {% tabs %}
-{% tab Braze as a data source %}
+{% tab Brazeをデータソースとして使用 %}
 
-マーケティングツールとして、Braze には、チームの内部リードスコアモデルを補完できる、非常に関連性の高いデータが含まれています。 
+マーケティングツールとして、Brazeにはチームの内部リードスコアモデルを補完できる非常に関連性の高いデータが含まれています。
 
-例えば、メッセージングエンゲージメントデータ (メールの開封やクリック、ランディングページのエンゲージメントなど) でリードのエンゲージメントレベルを判定できます。このデータをクラウドデータウェアハウスに渡し、Brazeストリーミングエクスポートデータソリューションs を使用してリードスコアリングモデルの入力として使用できるようにすることができます。
+たとえば、メッセージングエンゲージメントデータ（メールの開封やクリック、ランディングページのエンゲージメントなど）でリードのエンゲージメントレベルを判定できます。このデータをクラウドデータウェアハウスに渡し、Brazeのストリーミングエクスポートデータソリューションを使用してリードスコアリングモデルの入力として利用できるようにすることができます。
 
-- [Braze Currents]({{site.baseurl}}/user_guide/data/braze_currents/)
-- [Snowflake セキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)
+- [Snowflakeセキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
 
 {% endtab %}
-{% tab Braze as a destination %}
+{% tab Brazeを送信先として使用 %}
 
-内部チームがリードスコアリングモデルを作成して実行したら、そのデータをBraze にプルバックして、関連するメッセージングのリードをより適切にSegmentし、対象にすることができます。これは、[ Braze クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/cloud_ingestion/overview/)で実行できます。 
+内部チームがリードスコアリングモデルを作成して実行したら、そのデータをBrazeに取り込み、関連するメッセージングのためにリードをより適切にセグメントしてターゲティングできます。これは[Brazeクラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)で実行できます。
 
-クラウドデータ取り込みの場合、社内チームがユーザー識別子、最新のリードスコア、およびスコアが更新されたときのタイムスタンプを含む新しいテーブルまたはビューを作成します。Braze はテーブルまたはビューを選択し、リードスコアをユーザープロファイルs に追加します。
+クラウドデータ取り込みでは、内部チームがユーザー識別子、最新のリードスコア、およびスコアが更新されたタイムスタンプを含む新しいテーブルまたはビューを作成します。Brazeがそのテーブルまたはビューを取得し、リードスコアをユーザープロファイルに追加します。
 
 {% endtab %}
 {% endtabs %}
 
-## リードの引き継ぎ: マーケティング適格リード (MQL) を営業へ{#lead-handoff}
+## リードの引き継ぎ: マーケティング適格リード (MQL) を営業へ {#lead-handoff}
 
-リードの引き継ぎの推奨アプローチは、対応するリードや連絡先に Braze の各ユーザーを結び付けることです。これらのリードは、リードステータスが MQL ステージに変更されたときに営業チームのキューに入ります。このステージで、営業チームはリードの巡回または割り当てのワークフローを開始します。 
+リードの引き継ぎの推奨アプローチは、Brazeの各ユーザーに対応するリードまたは連絡先を紐付けることです。これらのリードは、リードステータスがMQLステージに変更されたときに営業チームのキューに入り、その時点でSalesforceがリードのルーティングまたは割り当てワークフローを開始します。
 
-Braze のリードステータスを使用して営業チームのリードレコードを更新するには、Webhook のトリガーテンプレートを使用することをお勧めします。
+BrazeのリードステータスでSalesforceのリードレコードを更新するには、トリガー型のWebhookテンプレートを使用することをお勧めします。
 
-### ステップ 1:Webhook キャンペーンの作成
+### ステップ 1: Webhook Campaignを作成する {#step-1-create-a-webhook-campaign}
 
-### ステップ2:Webhookの設定
+### ステップ 2: Webhookを設定する {#step-2-configure-your-webhook}
 
-#### ステップ 2a: Webhook作成
+#### ステップ 2a: Webhookを作成する {#step-2a-compose-webhook}
 
-1. Webhook キャンペーンに「Salesforce > MQL へのリードの更新」などの名前を付けます。
+1. Webhook Campaignに「Salesforce > Update lead to MQL」などの名前を付けます。
 
-2. Webhook URL を{% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} の形式で入力します。{% raw %}`{{${user_id}}}`{% endraw %} の Braze ユーザー ID は、営業チームの連絡先 ID に一致する必要があります。そうでない場合は、{% raw %}`{{${user_id}}}`{% endraw %} の代わりにエイリアスを使用します。
+2. Webhook URLを{% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %}の形式で入力します。{% raw %}`{{${user_id}}}`{% endraw %}のBrazeユーザーIDは、Salesforceの連絡先IDと一致する必要があります。一致しない場合は、{% raw %}`{{${user_id}}}`{% endraw %}の代わりにエイリアスを使用してください。
 
-3. **HTTP Method** を**PATCH** に更新します。
+3. **HTTP Method**を**PATCH**に更新します。
 
-4. リードのリードスコアが、事前定義されたしきい値を超えた場合にのみ、営業チームのリードレコードを更新するようにペイロードを設定します。リードスコアが100 を超える場合は、以下のリクエストボディの例を参照してください。
+4. リードのリードスコアが事前定義されたしきい値を超えた場合にのみSalesforceのリードレコードを更新するようにペイロードを設定します。リードスコアが100を超える場合のリクエストボディの例を以下に示します。
 
 {% raw %}
 ```liquid
@@ -182,27 +182,26 @@ Braze のリードステータスを使用して営業チームのリードレ�
 
 | ヘッダー | コンテンツ |
 | --- | --- |
-| 許可 | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>トークンを取得するには、OAuth 2.0 クライアント認証情報フローの[接続アプリ](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)を設定してから、コネクテッドコンテンツを使用して営業チームからベアラーを取得します。<br><br>{% raw %}<code>{% connected_content <mem_dddd4f19-139d-4f9c-9cdc-eef2da713880/>[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]_mem_amp_client_secret=[client_secret]_mem_amp_grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
-| Content_Type | application/json |
-{: .reset-td-br-1 reset-td-br-2}
+| Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>トークンを取得するには、OAuth 2.0クライアント認証情報フローの[接続アプリを設定](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)してから、コネクテッドコンテンツを使用してSalesforceからベアラートークンを取得します。<br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
+| Content-Type | application/json |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2a: Compose webhook" }
 
-![営業チームの Webhook URL、PATCH HTTP メソッド、生のテキストのリクエスト本文、およびリクエストヘッダーを含む、作成中の Webhook。]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
+![SalesforceのWebhook URL、PATCH HTTPメソッド、生テキストのリクエストボディ、およびリクエストヘッダーを含む作成中のWebhook。]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 
-#### ステップ 2b: Webhook送信を予約する
+#### ステップ 2b: Webhookの送信をスケジュールする {#step-2b-schedule-webhook-sends}
 
-キャンペーンは、ユーザーのリードスコアが変更されるたびにトリガーする必要があります。このキャンペーンは、スコアが変化したすべてのユーザーをトリガーしますが、現在 MQL ではなく、前のステップで設定したしきい値を超えたユーザーにのみ影響します。
+このCampaignは、ユーザーのリードスコアが変更されるたびにトリガーされる必要があります。このCampaignはスコアが変化したすべてのユーザーに対してトリガーされますが、現在MQLではなく、前のステップで設定したしきい値を超えたユーザーにのみ影響します。
 
-**Schedule Delivery**ステップで、以下を選択します。
+**配信スケジュール**ステップで、以下を選択します。
 - **アクションベース**の配信タイプ
-- **Change Custom 属性 Value**のトリガー アクションで、リードスコアリング属性の名前と**新しい値**のアクションを指定します。
+- **カスタム属性値の変更**のトリガーアクション: リードスコアリング属性の名前を指定し、アクションは**任意の新しい値**を選択します。
 
-#### ステップ 2c: ターゲットオーディエンスの特定
+#### ステップ 2c: ターゲットオーディエンスを特定する {#step-2c-identify-target-audience}
 
-**Target Audiences**ステップには、"`lead_status``is none of``MQL`"のように、リードステータスがすでにMQL以上にあるユーザーsを除外するフィルターを含めます。
+**ターゲットオーディエンス**ステップで、リードステータスがすでにMQL以上のユーザーを除外するフィルターを含めます（例: 「`lead_status` `is none of` `MQL`」）。
 
-![“lead_status”のフィルターを持つWebフックターゲティングオプションは、"MQL"のいずれでもありません。]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
+![「lead_status」が「MQL」のいずれでもないフィルターを持つWebhookターゲティングオプション。]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
 
-### ステップ 3:キャンペーンの開始
+### ステップ 3: Campaignを起動する {#step-3-launch-campaign}
 
-[**開始**] を選択し、営業チームでリードステータスの変化 (顧客が MQL リードスコアのしきい値を超える) を監視します。
-
+**Launch**を選択し、顧客がMQLリードスコアのしきい値を超えたときにSalesforceでリードステータスが変化するのを確認しましょう。

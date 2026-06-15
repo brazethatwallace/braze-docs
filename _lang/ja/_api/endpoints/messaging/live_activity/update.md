@@ -1,42 +1,42 @@
 ---
-nav_title: "POST:ライブ活動を更新する"
-article_title: "POST:ライブアクティビティを更新"
-search_tag: エンドポイント
+nav_title: "POST: ライブアクティビティを更新"
+article_title: "POST: ライブアクティビティを更新"
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "この記事では、ライブ・アクティビティを更新するエンドポイントについての詳細を概説する。"
+description: "この記事では、ライブアクティビティを更新するエンドポイントについて詳しく説明します。"
 
 ---
 {% api %}
-# ライブアクティビティを更新
+# ライブアクティビティを更新 {#update-live-activity}
 {% apimethod post %}
 /messages/live_activity/update
 {% endapimethod %}
 
-> このエンドポイントを使用して、iOSアプリが表示する[ライブ・アクティビティを]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)更新・終了する。このエンドポイントは追加のセットアップが必要です。
+> このエンドポイントを使用して、iOSアプリが表示する[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)を更新および終了します。このエンドポイントには追加のセットアップが必要です。
 
-ライブ・アクティビティを登録した後、アップル・プッシュ・ノーティフィケーション・サービス（APN）をアップデートするためにJSONペイロードを渡すことができる。詳しくは、[プッシュ通知ペイロードを使ったライブアクティビティの更新](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications)に関する Apple のドキュメントを参照してください。
+ライブアクティビティを登録した後、Apple Push Notification service（APNs）を更新するためにJSONペイロードを渡すことができます。詳しくは、[プッシュ通知ペイロードを使ったライブアクティビティの更新](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications)に関するAppleのドキュメントを参照してください。
 
-が`content-available`設定されていない場合、Appleプッシュ通知サービス（APN）の優先度はデフォルトで10である。が`content-available`設定されている場合、この優先度は5である。[詳細はAppleのプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object)を参照せよ。
+`content-available`が設定されていない場合、Apple Push Notification service（APNs）のデフォルトの優先度は10です。`content-available`が設定されている場合、この優先度は5になります。詳細は[Appleプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object/)を参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、次の手順を完了する必要があります:
+このエンドポイントを使用するには、以下を完了する必要があります。
 
-- `messages.live_activity.update` の権限を持つ API キーを生成します。
-- Braze Swift SDK を使用して、[リモート]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=remote&sdktab=swift)または[ローカル]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=local&sdktab=swift)でライブアクティビティを登録する。
+- `messages.live_activity.update`権限を持つAPIキーを生成します。
+- Braze Swift SDKを使用して、[リモート]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=remote&sdktab=swift)または[ローカル]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=local&sdktab=swift)でライブアクティビティを登録します。
 
 {% multi_lang_include api/payload_size_alert.md %}
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 
 ```json
 {
@@ -50,22 +50,22 @@ description: "この記事では、ライブ・アクティビティを更新す
  }
  ```
 
-## リクエストパラメーター
+## Request parameters
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `app_id` | 必須かどうか | 文字列 | アプリ[API 識別子]({{site.baseurl}}/api/identifier_types/#the-app-identifier)は[API キー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/)ページから取得されました。  |
-| `activity_id` | 必須かどうか | 文字列 | [`launchActivity`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class) を使用してライブアクティビティを登録する場合は、`pushTokenTag` パラメーターを使用して、アクティビティのプッシュトークンにカスタム文字列を名前として付けます。<br><br>`activity_id` をこのカスタム文字列に設定して、更新するライブアクティビティを定義します。 |
-| `content_state` | 必須 | オブジェクト | ライブアクティビティを作成する際に`ContentState`パラメータを定義します。このオブジェクトを使用して、`ContentState`の更新された値を渡します。<br><br>このリクエストの形式は、最初に定義した形状に一致している必要があります。 |
-| `end_activity` | オプション | ブール値 | `true` の場合、このリクエストはライブアクティビティを終了します。 |
-| `dismissal_date` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | このパラメーターは、ユーザーのUIからライブアクティビティを削除する時間を定義します。この時間が過去のもので、`end_activity` が `true` の場合、ライブアクティビティは直ちに削除されます。<br><br> `end_activity` が`false` であるか、省略された場合、このパラメーターはライブアクティビティのみを更新します。|
-| `stale_date` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | このパラメーターは、ライブアクティビティのコンテンツがユーザーの UI で古いものとしてマークされたときに、システムに通知します。 |
-| `notification` | オプション | オブジェクト | プッシュ通知を定義する[`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/)オブジェクトを含めます。このプッシュ通知の動作は、ユーザーがアクティブかどうか、あるいはユーザーがプロキシデバイスを使用しているかどうかに依存する。 {::nomarkdown}<ul><li>もし  <code>notification</code> 含まれており、更新が配信されたときにユーザーがiPhoneでアクティブである場合、更新されたライブアクティビティUIがスライドダウンしてプッシュ通知のように表示されます。</li><li>もし  <code>notification</code> が含まれており、ユーザーがiPhoneでアクティブでない場合、ロック画面に更新されたライブアクティビティUIを表示するために画面が点灯します。</li><li>この  <code>notification alert</code> は、標準のプッシュ通知として表示されません。さらに、ユーザーがApple Watchのようなプロキシデバイスを持っている場合、 <code>alert</code> そこに表示されます。</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types/#the-app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) page.  |
+| `activity_id` | Required | String | When you register your Live Activity using [`launchActivity`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class), you use the `pushTokenTag` parameter to name the Activity's push token to a custom string.<br><br>Set `activity_id` to this custom string to define which Live Activity you want to update. |
+| `content_state` | Required | Object | You define the `ContentState` parameters when you create your Live Activity. Pass the updated values for your `ContentState` using this object.<br><br>The format of this request must match the shape you initially defined. |
+| `end_activity` | Optional | Boolean | If `true`, this request ends the Live Activity. |
+| `dismissal_date` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | This parameter defines the time to remove the Live Activity from the user's UI. If this time is in the past and `end_activity` is `true`, the Live Activity will be removed immediately.<br><br> If `end_activity` is `false` or omitted, this parameter only updates the Live Activity.|
+| `stale_date` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | This parameter tells the system when the Live Activity content is marked as outdated in the user's UI. |
+| `notification` | Optional | Object | Include an [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) object to define a push notification. The behavior of this push notification depends on if the user is active or if the user is using a proxy device. {::nomarkdown}<ul><li>If a <code>notification</code> is included and the user is active on their iPhone when the update is delivered, the updated Live Activity UI will slide down and display like a push notification.</li><li>If a <code>notification</code> is included and the user is not active on their iPhone, their screen will light up to display the updated Live Activity UI on their lock screen.</li><li>The <code>notification alert</code> will not display as a standard push notification. Additionally, if a user has a proxy device, like an Apple Watch, the <code>alert</code> will be displayed there.</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-## 例のリクエスト
+## Example request
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/update' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer {YOUR-REST-API-KEY}' \
@@ -88,13 +88,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }'
 ```
 
-## 応答
+## 応答 {#response}
 
-このエンドポイントには2つのステータスコード応答があります: `201` と `4XX`。
+このエンドポイントには`201`と`4XX`の2つのステータスコード応答があります。
 
-### 成功応答の例
+### 成功応答の例 {#example-success-response}
 
-リクエストが正しくフォーマットされ、当社がそのリクエストを受け取った場合、`201` ステータスコードが返されます。ステータスコード `201` は、次の応答本文を返す可能性があります。
+リクエストが正しくフォーマットされ、受信された場合、`201`ステータスコードが返されます。ステータスコード`201`は、次の応答本文を返す可能性があります。
 
 ```json
 {
@@ -102,11 +102,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }
 ```
 
-### エラー応答例
+### エラー応答の例 {#example-error-response}
 
-ステータスコードの`4XX`クラスはクライアントエラーを示します。エラーに関する詳細は、[APIエラーと応答の記事]({{site.baseurl}}/api/errors/)を参照してください。
+`4XX`クラスのステータスコードはクライアントエラーを示します。発生する可能性のあるエラーの詳細については、[APIエラーと応答の記事]({{site.baseurl}}/api/errors/)を参照してください。
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。
+ステータスコード`400`は、次の応答本文を返す可能性があります。
 
 ```json
 {

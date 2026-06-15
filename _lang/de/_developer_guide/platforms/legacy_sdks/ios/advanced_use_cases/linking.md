@@ -10,11 +10,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Deeplinking für iOS
+# Deeplinking für iOS {#deep-linking-for-ios}
 
-Einführende Informationen zu Deeplinks finden Sie in unserem [Artikel im Benutzerhandbuch]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking). Wenn Sie zum ersten Mal Deeplinks in Ihrer Braze-App implementieren möchten, helfen Ihnen die folgenden Schritte beim Einstieg.
+Einführende Informationen zu Deeplinks finden Sie in unserem [Artikel im Benutzerhandbuch]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking). Wenn Sie zum ersten Mal Deeplinks in Ihrer Braze-App implementieren möchten, helfen Ihnen die folgenden Schritte beim Einstieg.
 
-## 1. Schritt: Ein Schema registrieren
+## 1. Schritt: Ein Schema registrieren {#step-1-register-a-scheme}
 
 Sie müssen ein angepasstes Schema in der Datei `Info.plist` angeben. Die Navigationsstruktur wird durch ein Array von Wörterbüchern definiert. Jedes dieser Wörterbücher enthält ein String-Array.
 
@@ -41,7 +41,7 @@ Wenn Sie Ihre `Info.plist`-Datei direkt bearbeiten möchten, können Sie auch di
 </array>
 ```
 
-## 2. Schritt: Angepasstes Schema in die Allowlist eintragen (iOS 9+)
+## 2. Schritt: Angepasstes Schema in die Allowlist eintragen (iOS 9+) {#step-2-allowlist-the-custom-scheme-ios-9}
 
 Ab iOS 9 müssen Apps eine Allowlist mit angepassten Schemata haben, die die App öffnen darf. Der Versuch, Schemata außerhalb dieser Liste aufzurufen, führt dazu, dass das System einen Fehler in den Protokollen des Geräts aufzeichnet und der Deeplink nicht geöffnet wird. Ein Beispiel für diesen Fehler sieht so aus:
 
@@ -64,7 +64,7 @@ Sie sollten alle Schemata, zu denen die App Deeplinks setzen muss, in einer Allo
 
 Weitere Informationen finden Sie in der [Dokumentation von Apple](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW14) zum Schlüssel `LSApplicationQueriesSchemes`.
 
-## 3. Schritt: Handler implementieren
+## 3. Schritt: Handler implementieren {#step-3-implement-a-handler}
 
 Nachdem Ihre App aktiviert wurde, ruft iOS die Methode [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc) auf. Das wichtige Argument ist das [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL)-Objekt.
 
@@ -97,7 +97,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 ![]({% image_buster /assets/img_archive/deep_link.png %})
 
-# Universelle Links
+# Universelle Links {#universal-links}
 
 Um universelle Links zu verwenden, stellen Sie sicher, dass Sie eine registrierte Domain zu den Fähigkeiten Ihrer App hinzugefügt und eine `apple-app-site-association`-Datei hochgeladen haben. Implementieren Sie dann die Methode `application:continueUserActivity:restorationHandler:` in Ihrer `AppDelegate`. Zum Beispiel:
 
@@ -141,10 +141,10 @@ Die Standard-Integration für universelle Links ist nicht mit Push-Benachrichtig
 ## App Transport Security (ATS)
 Mit iOS 9 wurde eine grundlegende Änderung eingeführt, die in In-App-Nachrichten und Push-Benachrichtigungen eingebettete Internet-URLs betrifft.
 
-### ATS-Anforderungen
-Aus der [Dokumentation von Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14): „App Transport Security ist ein Feature, das die Sicherheit der Verbindungen zwischen einer App und Internetdiensten verbessert. Das Feature besteht aus Standard-Verbindungsanforderungen, die den Best Practices für sichere Verbindungen entsprechen. Apps können dieses Standardverhalten außer Kraft setzen und die Transportsicherheit deaktivieren."
+### ATS-Anforderungen {#ats-requirements}
+Aus der [Dokumentation von Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14): „App Transport Security ist ein Feature, das die Sicherheit der Verbindungen zwischen einer App und Internetdiensten verbessert. Das Feature besteht aus Standard-Verbindungsanforderungen, die den Best Practices für sichere Verbindungen entsprechen. Apps können dieses Standardverhalten außer Kraft setzen und die Transportsicherheit deaktivieren.“
 
-ATS wird standardmäßig ab iOS 9 angewendet. Es erfordert, dass alle Verbindungen HTTPS verwenden und mit TLS 1.2 mit Forward Secrecy verschlüsselt werden. Weitere Informationen finden Sie unter [Voraussetzungen für die Verbindung mit ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35). Alle Bilder, die von Braze an Endgeräte geliefert werden, werden über ein Content Delivery Network („CDN") bereitgestellt, das TLS 1.2 unterstützt und mit ATS kompatibel ist.
+ATS wird standardmäßig ab iOS 9 angewendet. Es erfordert, dass alle Verbindungen HTTPS verwenden und mit TLS 1.2 mit Forward Secrecy verschlüsselt werden. Weitere Informationen finden Sie unter [Voraussetzungen für die Verbindung mit ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35). Alle Bilder, die von Braze an Endgeräte geliefert werden, werden über ein Content Delivery Network („CDN“) bereitgestellt, das TLS 1.2 unterstützt und mit ATS kompatibel ist.
 
 Sofern sie nicht als Ausnahmen in der `Info.plist` Ihrer Anwendung angegeben sind, schlagen Verbindungen, die diese Anforderungen nicht erfüllen, mit Fehlern fehl, die in etwa so aussehen:
 
@@ -159,16 +159,16 @@ NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 
 Die ATS-Konformität wird für Links durchgesetzt, die innerhalb der mobilen App geöffnet werden (unsere Standardbehandlung angeklickter Links), und gilt nicht für Websites, die extern über einen Webbrowser geöffnet werden.
 
-### Umgang mit ATS-Anforderungen
+### Umgang mit ATS-Anforderungen {#handling-ats-requirements}
 
 Sie können ATS auf eine der folgenden drei Arten handhaben:
 
-#### Bestätigen, dass alle Links ATS-konform sind (empfohlen)
+#### Bestätigen, dass alle Links ATS-konform sind (empfohlen) {#confirm-all-links-are-ats-compliant-recommended}
 Ihre Braze-Integration kann die ATS-Anforderungen erfüllen, indem Sie sicherstellen, dass alle bestehenden Links, zu denen Sie Nutzer:innen führen (über In-App-Nachrichten und Push-Kampagnen), die ATS-Anforderungen erfüllen. Es gibt zwar Möglichkeiten, die ATS-Beschränkungen zu umgehen, aber wir empfehlen, zu überprüfen, ob alle verlinkten URLs ATS-konform sind. Da Apple immer mehr Wert auf die Sicherheit von Anwendungen legt, werden die folgenden Ansätze zur Zulassung von ATS-Ausnahmen von Apple nicht garantiert unterstützt.
 
 Ein SSL-Tool kann Ihnen dabei helfen, Sicherheitsprobleme des Webservers zu erkennen. Dieser [SSL-Server-Test](https://www.ssllabs.com/ssltest/index.html) von Qualys, Inc. bietet einen Punkt speziell für die Einhaltung von Apple ATS 9 und iOS 9.
 
-#### ATS teilweise deaktivieren
+#### ATS teilweise deaktivieren {#partially-disable-ats}
 Sie können zulassen, dass eine Teilmenge von Links mit bestimmten Domains oder Schemata als Ausnahmen von den ATS-Regeln behandelt wird. Ihre Braze-Integration erfüllt die ATS-Anforderungen, wenn jeder Link, den Sie in einem Braze-Messaging-Kanal verwenden, entweder ATS-konform ist oder durch eine Ausnahme abgedeckt wird.
 
 Um eine Domain als Ausnahme von ATS hinzuzufügen, fügen Sie Folgendes in die Datei `Info.plist` Ihrer App ein:
@@ -193,7 +193,7 @@ Um eine Domain als Ausnahme von ATS hinzuzufügen, fügen Sie Folgendes in die D
 
 Weitere Informationen finden Sie in Apples Artikel über [App-Transport-Security-Schlüssel](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33).
 
-#### ATS vollständig deaktivieren
+#### ATS vollständig deaktivieren {#disable-ats-entirely}
 
 Sie können ATS vollständig deaktivieren. Beachten Sie, dass dies aufgrund des verlorenen Sicherheitsschutzes und der zukünftigen iOS-Kompatibilität nicht empfohlen wird. Um ATS zu deaktivieren, fügen Sie Folgendes in die Datei `Info.plist` Ihrer App ein:
 
@@ -207,7 +207,7 @@ Sie können ATS vollständig deaktivieren. Beachten Sie, dass dies aufgrund des 
 
 Weitere Informationen zum Debuggen von ATS-Fehlern finden Sie unter [Versand einer App mit App Transport Security](http://timekl.com/blog/2015/08/21/shipping-an-app-with-app-transport-security/?utm_campaign=iOS+Dev+Weekly&utm_medium=email&utm_source=iOS_Dev_Weekly_Issue_213).
 
-## URL-Kodierung
+## URL-Kodierung {#url-encoding}
 
 Ab Braze iOS SDK v2.21.0 kodiert das SDK Links prozentual, um gültige `NSURL`s zu erstellen. Alle Link-Zeichen, die in einer korrekt geformten URL nicht zulässig sind, wie z. B. Unicode-Zeichen, werden prozentual escaped.
 
@@ -240,9 +240,9 @@ Um einen kodierten Link zu dekodieren, verwenden Sie die `NSString`-Methode [`st
 
 ## Anpassung {#linking-customization}
 
-### Standard-WebView-Anpassung
+### Standard-WebView-Anpassung {#default-webview-customization}
 
-Die anpassbare Klasse `ABKModalWebViewController` zeigt Internet-URLs an, die vom SDK geöffnet werden – typischerweise wenn „Web-URL in App öffnen" für einen Web-Deeplink ausgewählt wurde.
+Die anpassbare Klasse `ABKModalWebViewController` zeigt Internet-URLs an, die vom SDK geöffnet werden – typischerweise wenn „Web-URL in App öffnen“ für einen Web-Deeplink ausgewählt wurde.
 
 Sie können eine Kategorie für die Klasse `ABKModalWebViewController` deklarieren oder sie direkt ändern, um die Webansicht anzupassen. Weitere Details finden Sie in der [.h-Datei](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKModalWebViewController.h) und der [.m-Datei](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/ABKModalWebViewController.m) der Klasse.
 
@@ -250,7 +250,7 @@ Sie können eine Kategorie für die Klasse `ABKModalWebViewController` deklarier
 
 Mit dem Protokoll `ABKURLDelegate` können Sie die Handhabung von URLs wie Deeplinks, Web-URLs und universellen Links anpassen. Um den Delegaten während der Initialisierung von Braze zu setzen, übergeben Sie ein Delegaten-Objekt an den `ABKURLDelegateKey` in `appboyOptions` von [`startWithApiKey:inApplication:withAppboyOptions:`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). Braze ruft dann die Implementierung von `handleAppboyURL:fromChannel:withExtras:` in Ihrem Delegaten auf, bevor URIs verarbeitet werden.
 
-#### Integrationsbeispiel: ABKURLDelegate
+#### Integrationsbeispiel: ABKURLDelegate {#integration-example-abkurldelegate}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -291,9 +291,9 @@ Geben Sie `NO` zurück, wenn Sie möchten, dass Braze die URL mit seinem Standar
 
 Weitere Informationen finden Sie unter [`ABKURLDelegate.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKURLDelegate.h).
 
-## Häufige Anwendungsfälle
+## Häufige Anwendungsfälle {#frequent-use-cases}
 
-### Deeplinks zu den App-Einstellungen
+### Deeplinks zu den App-Einstellungen {#deep-linking-to-app-settings}
 
 iOS kann Nutzer:innen von Ihrer App auf deren Seite in der iOS-Einstellungs-App weiterleiten. Sie können `UIApplicationOpenSettingsURLString` nutzen, um Nutzer:innen über Push-Benachrichtigungen und In-App-Nachrichten per Deeplink zu den Einstellungen zu führen.
 

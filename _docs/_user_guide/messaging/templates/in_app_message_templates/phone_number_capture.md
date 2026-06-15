@@ -2,7 +2,7 @@
 nav_title: SMS, RCS, and WhatsApp sign-up form
 article_title: SMS, RCS, and WhatsApp Sign-up Form
 alias: "/phone_number_capture/"
-page_order: 1
+page_order: 2
 description: "This page covers how to create an SMS, RCS, and WhatsApp sign-up form with the in-app message drag-and-drop editor."
 ---
 

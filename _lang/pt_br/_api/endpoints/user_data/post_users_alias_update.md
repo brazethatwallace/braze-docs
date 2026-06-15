@@ -1,14 +1,14 @@
 ---
-nav_title: "POST: Atualizar o alias do usuário"
+nav_title: "POST: Atualizar alias de usuário"
 article_title: "POST: Atualizar alias de usuário"
 search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o endpoint \" Atualizar alias de usuário\"."
+description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar aliases de usuário\"."
 ---
 {% api %}
-# Atualizar o alias do usuário
+# Atualizar alias de usuário {#update-user-alias}
 {% apimethod post %}
 /users/alias/update
 {% endapimethod %}
@@ -25,15 +25,15 @@ Esse endpoint não garante a sequência de objetos `alias_updates` que estão se
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#a084b843-b3cd-43f0-bfb1-ef7bada839c5 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.alias.update`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users alias update' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -46,14 +46,14 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-### Parâmetros de solicitação
+### Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | --------- | --------- | ----------- |
 | `alias_updates` | Obrigatória | Vetor de objetos de alias de usuário de atualização | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/).<br><br> Para saber mais sobre `old_alias_name`, `new_alias_name` e `alias_label`, consulte [Aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-### Corpo da solicitação de endpoint com especificação de objeto de alias de usuário atualizado
+### Corpo da solicitação do endpoint com especificação do objeto de atualização de alias de usuário {#endpoint-request-body-with-update-user-alias-object-specification}
 
 ```json
 {
@@ -63,7 +63,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/update' \
 --header 'Content-Type: application/json' \
@@ -80,4 +80,3 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/update
 ```
 
 {% endapi %}
-

@@ -4,7 +4,7 @@ article_title: iOS の位置情報とジオフェンス
 platform: iOS
 page_order: 6
 description: "このリファレンス記事では、iOS アプリケーションに位置情報とジオフェンスを実装する方法について説明します。"
-Tool:
+tool:
   - Location
 
 noindex: true
@@ -46,7 +46,7 @@ iOS 14 の時点では、おおよその位置情報の提供許可を選択し�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,
@@ -74,7 +74,7 @@ Braze では、バックグラウンドプッシュ通知を使用してジオ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 [locationManager requestAlwaysAuthorization];
 ```
@@ -82,7 +82,7 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 var locationManager = CLLocationManager()
 locationManager.requestAlwaysAuthorization()
 ```
@@ -113,7 +113,7 @@ iOS SDK バージョン 3.21.3 以降では、ジオフェンスが自動的に�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API_KEY"
           inApplication:application
       withLaunchOptions:options
@@ -123,7 +123,7 @@ iOS SDK バージョン 3.21.3 以降では、ジオフェンスが自動的に�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,
@@ -144,7 +144,7 @@ SDK でレポートされる位置情報をコントロールして、最も関�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance] requestGeofencesWithLongitude:longitude
                                               latitude:latitude];
 ```
@@ -152,7 +152,7 @@ SDK でレポートされる位置情報をコントロールして、最も関�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.requestGeofences(withLongitude: longitude, latitude: latitude)
 ```
 

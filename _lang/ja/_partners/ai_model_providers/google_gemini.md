@@ -10,25 +10,25 @@ search_tag: Partner
 
 # Google Gemini
 
-> [Google Gemini](https://deepmind.google/technologies/gemini/)は、GoogleのAIモデルファミリーで、テキスト、コード、画像にわたる高度な推論を組み合わせ、ブランドがよりスマートでパーソナライズ済みの体験を提供できるよう支援します。
+> [Google Gemini](https://deepmind.google/technologies/gemini/)は、GoogleのAIモデルファミリーで、テキスト、コード、画像にわたる高度な推論を組み合わせ、ブランドがよりスマートでパーソナライズされた体験を提供できるよう支援します。
 
 {% multi_lang_include alerts/important_alerts.md alert='Braze Agents' %}
 
 _この統合はGoogleによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-BrazeとGoogle Geminiの統合により、Google Gemini APIキーまたはVertex AIキーをBrazeに接続し、カスタムAIエージェントを構築する際にGeminiモデルを使用できます。この統合により、エージェントはパーソナライズ済みのコピーを生成し、リアルタイムで意思決定を行い、GoogleのGeminiモデルを使用してカタログフィールドを更新できます。
+BrazeとGoogle Geminiの統合により、Google Gemini APIキーまたはVertex AIキーをBrazeに接続し、カスタムAIエージェントを構築する際にGeminiモデルを使用できます。この統合により、エージェントはパーソナライズされたコピーを生成し、リアルタイムで意思決定を行い、GoogleのGeminiモデルを使用してカタログフィールドを更新できます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 要件 | 説明 |
 |---|---|
 | Gemini APIキーまたはVertex AIキーを持つGoogle Cloudアカウント | Gemini APIキーまたはVertex AIキーを持つGoogle Cloudアカウントが必要です。ヘルプについては、管理者または[Google Cloudサポート](https://cloud.google.com/support)にお問い合わせください。 |
 | Brazeインスタンス | Brazeインスタンスは、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)またはBrazeオンボーディングマネージャーから確認できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## 統合
+## 統合 {#integration}
 
 Google Gemini APIキーをBrazeに接続するには、以下の手順に従います。
 

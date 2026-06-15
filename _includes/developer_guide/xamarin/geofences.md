@@ -1,4 +1,4 @@
-{% multi_lang_include developer_guide/prerequisites/xamarin.md %} Additionally, you'll need to [set up silent push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent).
+{% multi_lang_include developer_guide/prerequisites/xamarin.md %}
 
 ## Prerequisites
 

@@ -1,9 +1,9 @@
 ---
 nav_title: Armazenamento
-article_title: Armazenamento para iOS
+article_title: Armazenamento
 page_order: 3.60
 page_type: reference
-description: "Saiba mais sobre as diferentes propriedades de nível de dispositivo que são armazenadas pelo SDK da Braze."
+description: "Saiba mais sobre as diferentes propriedades no nível de dispositivo armazenadas pelo SDK da Braze."
 platform:
   - Android
   - FireOS
@@ -11,13 +11,13 @@ platform:
   - Web
 ---
 
-# Armazenamento
+# Armazenamento {#storage}
 
-> Saiba mais sobre as diferentes propriedades de nível de dispositivo que são armazenadas pelo SDK da Braze.
+> Saiba mais sobre as diferentes propriedades no nível de dispositivo armazenadas pelo SDK da Braze.
 
-## Propriedades do dispositivo
+## Propriedades do dispositivo {#device-properties}
 
-Por padrão, a Braze coletará as seguintes propriedades de nível de dispositivo para permitir a personalização de mensagens com base no dispositivo, idioma e fuso horário:
+Por padrão, a Braze coletará as seguintes propriedades no nível de dispositivo para permitir a personalização de mensagens com base no dispositivo, no idioma e no fuso horário:
 
 {% tabs %}
 {% tab web %}
@@ -82,7 +82,7 @@ braze.initialize("API-KEY", {
 {% endtab %}
 
 {% tab android %}
-Por exemplo, você pode especificar a versão do Android OS e a localidade do dispositivo para serem incluídos na lista permitida. Para saber mais, consulte os métodos [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) e [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html). 
+Por exemplo, você pode especificar a versão do Android OS e a localidade do dispositivo para serem incluídos na lista permitida. Para saber mais, consulte os métodos [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) e [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html).
 
 ```java
 new BrazeConfig.Builder()
@@ -117,23 +117,23 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-Para saber mais sobre as propriedades de dispositivo coletadas automaticamente, consulte [SDK Data Collection]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/).
+Para saber mais sobre as propriedades de dispositivo coletadas automaticamente, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 {% endalert %}
 
-## Armazenando cookies (apenas web) {#cookies}
+## Armazenamento de cookies (apenas web) {#cookies}
 
-Após [inicializar o SDK Web da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), ele criará e armazenará cookies com um vencimento de 400 dias que se renova automaticamente em novas sessões.
+Após [inicializar o SDK Web da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), o SDK criará e armazenará cookies com um vencimento de 400 dias que se renova automaticamente em novas sessões.
 
 Os seguintes cookies são armazenados:
 
-|Cookie|Descrição|Tamanho|
-|---|----|---|---|
-|`ab.storage.userId.[your-api-key]`|Usado para determinar se o usuário atualmente conectado foi alterado e para associar eventos ao usuário atual.|Com base no tamanho do valor passado para `changeUser`|
-|`ab.storage.sessionId.[your-api-key]`|String gerada aleatoriamente usada para determinar se o usuário está iniciando uma sessão nova ou existente para sincronizar mensagens e calcular a análise de dados da sessão.|~200 bytes|
-|`ab.storage.deviceId.[your-api-key]`|String gerada aleatoriamente usada para identificar usuários anônimos e para diferenciar os dispositivos dos usuários, além de ativar o envio de mensagens com base no dispositivo.|~200 bytes|
-|`ab.optOut`|Usado para armazenar a preferência de opt-out do usuário quando `disableSDK` é chamado|~40 bytes|
-|`ab._gd`|Criado temporariamente (e depois excluído) para determinar o domínio do cookie de nível raiz, o que permite que o SDK funcione corretamente em subdomínios.|n/a|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Cookie | Descrição | Tamanho |
+| --- | ---- | --- |
+| `ab.storage.userId.[your-api-key]` | Usado para determinar se o usuário atualmente conectado foi alterado e para associar eventos ao usuário atual. | Com base no tamanho do valor passado para `changeUser` |
+| `ab.storage.sessionId.[your-api-key]` | String gerada aleatoriamente usada para determinar se o usuário está iniciando uma sessão nova ou existente para sincronizar mensagens e calcular a análise de dados da sessão. | ~200 bytes |
+| `ab.storage.deviceId.[your-api-key]` | String gerada aleatoriamente usada para identificar usuários anônimos e para diferenciar os dispositivos dos usuários, além de ativar o envio de mensagens com base no dispositivo. | ~200 bytes |
+| `ab.optOut` | Usado para armazenar a preferência de descadastramento do usuário quando `disableSDK` é chamado | ~40 bytes |
+| `ab._gd` | Criado temporariamente (e depois excluído) para determinar o domínio do cookie de nível raiz, o que permite que o SDK funcione corretamente em subdomínios. | n/a |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
 
 ### Alterando o vencimento do cookie {#cookie-expiry}
 

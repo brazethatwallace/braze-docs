@@ -1,9 +1,9 @@
 ---
-nav_title: "Invitation à évaluer l'application personnalisée sur l'App Store"
-article_title: Invite de vérification personnalisée d’App Store
+nav_title: "Invite d'évaluation personnalisée sur l'App Store"
+article_title: Invite d'évaluation personnalisée sur l'App Store
 platform: iOS
 page_order: 4
-description: "Cet article de référence montre comment configurer une invite de vérification personnalisée d’App Store iOS."
+description: "Cet article de référence montre comment configurer une invite d'évaluation personnalisée sur l'App Store iOS."
 channel:
   - in-app messages
 
@@ -12,15 +12,15 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Invite de vérification personnalisée d’App Store
+# Invite d'évaluation personnalisée sur l'App Store {#custom-app-store-review-prompt}
 
 {% alert note %}
-Une fois que vous avez mis en œuvre cette invite, Braze cesse de suivre automatiquement les impressions, et vous devez enregistrer vos propres [analyses/analytiques]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display/#logging-impressions-and-clicks).
+Une fois que vous avez mis en œuvre cette invite, Braze cesse de suivre automatiquement les impressions, et vous devez enregistrer vos propres [analyses]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display/#logging-impressions-and-clicks).
 {% endalert %}
 
-Créer une campagne pour demander aux utilisateurs un avis sur l’App Store est une utilisation courante des messages in-app.
+Créer une campagne pour demander aux utilisateurs un avis sur l'App Store est une utilisation courante des messages in-app.
 
-Commencez par définir le [délégué aux messages in-app](#in-app-message-controller-delegate) dans votre application. Ensuite, implémentez la méthode de délégation suivante pour désactiver le message de vérification par défaut de l’App Store :
+Commencez par définir le [délégué de message in-app](#in-app-message-controller-delegate) dans votre application. Ensuite, implémentez la méthode de délégation suivante pour désactiver le message d'évaluation par défaut de l'App Store :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -53,7 +53,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage) -> ABKInAppMess
 {% endtab %}
 {% endtabs %}
 
-Dans votre code de traitement de liaison profonde, ajoutez le code suivant pour traiter le lien profond `{YOUR-APP-SCHEME}:appstore-review`. Notez que vous devrez importer `StoreKit` pour utiliser `SKStoreReviewController` :
+Dans votre code de traitement des liens profonds, ajoutez le code suivant pour traiter le lien profond `{YOUR-APP-SCHEME}:appstore-review`. Notez que vous devrez importer `StoreKit` pour utiliser `SKStoreReviewController` :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -88,14 +88,13 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 {% raw %}
 
-Créez ensuite une campagne de communication in-app avec les éléments suivants :
+Créez ensuite une campagne de messages in-app avec les éléments suivants :
 
 - La paire clé-valeur `"Appstore Review" : "true"`
-- Le comportement en cours défini sur « Deep Link Into App », en utilisant le lien profond `{YOUR-APP-SCHEME}:appstore-review`.
+- Le comportement au clic défini sur « Deep Link Into App », en utilisant le lien profond `{YOUR-APP-SCHEME}:appstore-review`.
 
 {% endraw %}
 
 {% alert tip %}
-Apple limite les invites d’évaluation de l’App Store à un maximum de trois (3) fois par an pour chaque utilisateur. Votre campagne doit donc être [limitée]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) à trois fois par an et par utilisateur.<br><br>Les utilisateurs peuvent désactiver les invites de commentaires de l’App Store. Par conséquent, votre invite de révision personnalisée ne doit pas promettre qu’une invite de commentaire native de l’App Store s’affichera ou demander directement un commentaire.
+Apple limite les invites d'évaluation de l'App Store à un maximum de trois (3) fois par an pour chaque utilisateur. Votre campagne doit donc être [limitée en fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) à trois fois par an et par utilisateur.<br><br>Les utilisateurs peuvent désactiver les invites d'évaluation de l'App Store. Par conséquent, votre invite d'évaluation personnalisée ne doit pas promettre qu'une invite d'évaluation native de l'App Store s'affichera, ni demander directement un avis.
 {% endalert %}
-

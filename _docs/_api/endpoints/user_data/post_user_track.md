@@ -16,9 +16,9 @@ toc_headers: h2
 
 > Use this endpoint to record custom events and purchases and update user profile attributes.
 
-{% alert note %}
-Braze processes the data passed through the API at face value, and customers should only pass deltas (changing data) to minimize unnecessary data point logging. To read more, refer to [Data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+Braze processes the data passed through the API at face value, and you should only pass deltas (changing data) to minimize unnecessary data point logging.
 
 ## Need to update users in bulk?
 
@@ -62,7 +62,7 @@ For each request component listed in the following table, you must include one o
 | `attributes` | Optional | Array of attributes objects | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Optional | Array of event objects | See [events object]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Optional | Array of purchase objects | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Identifier resolution
 
@@ -72,7 +72,7 @@ Each request object must include at least one identifier. The following table de
 | --------------- | ----------- | -------- |
 | Primary | `external_id`, `user_alias`, `braze_id` | Used for user profile lookup. Only one primary identifier is allowed per request object—including more than one causes that object to be rejected. |
 | Secondary | `email`, `phone` | Used for user profile lookup **only** when no primary identifier is present. If both `email` and `phone` are included without a primary identifier, `email` takes precedence. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
 
 When a primary identifier is present, any `email` or `phone` values in the same request object are treated as profile attributes—not as identifiers for user lookup. For example, if a request includes both an `external_id` and an `email`:
 
@@ -233,7 +233,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
     "attributes": [
         {
             "_update_existing_only": false,
@@ -325,7 +324,7 @@ The following errors are specific to the `/users/track` endpoint and are returne
 | `EMAIL_BAD_FORMAT` | The value provided for `email` is not a valid email address. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | The `external_id` exceeds the maximum allowed length of 987 bytes. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info` is not a valid attribute. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
 
 ## Frequently asked questions
 
@@ -359,6 +358,18 @@ Each event object in the events array represents a single occurrence of a custom
 
 When a nested custom attribute contains any invalid values (such as invalid time formats or null values), Braze drops all nested custom attribute updates in the request from processing. This applies to all nested structures within that specific attribute. To help ensure successful processing, verify that all values within nested custom attributes are valid before sending.
 
+### Why is my `/users/track` response slower than I expect?
+
+Successful `/users/track` calls are usually accepted quickly, but Braze still processes attribute, event, and purchase updates asynchronously. Perceived latency can increase when payloads are large or when network routing to your [REST endpoint]({{site.baseurl}}/api/basics/#endpoints) is slow. If you need a synchronous acknowledgment per user or stricter ordering between calls, see [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**limited beta**).
+
+### How do rate limits affect `/users/track`?
+
+When you approach your [rate limit](#rate-limit), you receive `429` responses. For non-`429` responses on supported contracts, you can use the `X-RateLimit-*` response headers described in [Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau) to see how much of your current window remains.
+
+### Why do I get `400 Bad Request` with a bad syntax or parse error?
+
+An HTTP `400` with a syntax or parse error typically means the request body is not valid JSON. Common causes include trailing commas, comments inside JSON, single-quoted strings, an extra opening `{` before the payload, or sending a non-JSON body while the `Content-Type` header is `application/json`. Validate payloads with a JSON linter before sending, confirm your HTTP client JSON-encodes objects (rather than concatenating raw strings), and confirm the body is UTF-8 encoded. For other `400` responses (for example, payload size and per-request object limits), refer to [Fatal errors & responses]({{site.baseurl}}/api/errors/#fatal-errors) and the [Endpoint-specific errors](#endpoint-specific-errors) table on this page.
+
 ## Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU
 
 For customers on new pricing, rate limits are enforced at the company level. Customers can set workspace rate limits for hourly limits, but burst limits are still shared between all workspaces.
@@ -379,7 +390,7 @@ All non-rate-limited (such as non-`429`) responses contain the following HTTP re
 | `X-RateLimit-Limit`     | The number of requests allowed per time period                                              |
 | `X-RateLimit-Remaining` | The approximate number of requests remaining within a window                                |
 | `X-RateLimit-Reset`     | The number of seconds remaining before the current window resets                                    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
 
 Note that the `RateLimit-Limit`, `RateLimit-Remaining`, and `RateLimit-Reset` headers are not returned when you hit an HTTP `429` error. When the error occurs, those headers are replaced with an `X-Ratelimit-Retry-After` header that returns an integer indicating the number of seconds before you can start making requests.
 

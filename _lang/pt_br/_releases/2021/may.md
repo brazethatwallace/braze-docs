@@ -6,31 +6,31 @@ page_type: update
 description: "Este artigo contém notas de versão de maio de 2021."
 ---
 
-# Maio de 2021
+# Maio de 2021 {#may-2021}
 
-## Correlação de conversão
+## Correlação de conversão {#conversion-correlation}
 
-Este guia aborda a análise [de correlação de conversão]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/) na página **Análise de dados da campanha**, que fornece insight sobre quais atribuições e comportamentos do usuário ajudam ou prejudicam os resultados definidos para as campanhas. É abordada uma visão geral da análise, o que é verificado, quando está disponível e como o Braze verifica a significância.
+Este guia aborda a análise de [correlação de conversão]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/) na página **Análise de dados da campanha**, que fornece insight sobre quais atributos e comportamentos do usuário ajudam ou prejudicam os resultados definidos para as campanhas. É abordada uma visão geral da análise, o que é verificado, quando está disponível e como a Braze verifica a significância.
 
-## Relatório do Grupo de Controle Global
+## Relatório do grupo de controle global {#global-control-group-report}
 
-Atualizamos as métricas do relatório [Global Control Groups]({{site.baseurl}}/user_guide/engagement_tools/testing/global_control_group/) para ajudá-lo a analisar melhor o impacto geral dos seus esforços de envio de mensagens ao longo do tempo. As principais alterações incluem a adição de **Eventos por Usuário** e **Tamanho Estimado do Grupo**, e o ajuste do cálculo do **Incremental Uplift** para refletir a diferença no total de eventos entre os grupos de tratamento e de controle.
+Atualizamos as métricas do relatório [Grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group/) para ajudá-lo a analisar melhor o impacto geral dos seus esforços de envio de mensagens ao longo do tempo. As principais alterações incluem a adição de **Eventos por usuário** e **Tamanho estimado do grupo**, e o ajuste do cálculo do **Incremental Uplift** para refletir a diferença no total de eventos entre os grupos de tratamento e de controle.
 
-## Visão geral dos relatórios
+## Visão geral dos relatórios {#reports-overview}
 
-Não sabe por onde começar a analisar suas campanhas ou Canvas? A [visão geral dos Relatórios]({{site.baseurl}}/user_guide/analytics/reporting/reports_overview/) fornece orientação sobre quais relatórios e análises de dados você pode usar para responder a perguntas comuns de estratégia de marketing.
+Não sabe por onde começar a analisar suas Campaigns ou Canvas? A [Visão geral dos relatórios]({{site.baseurl}}/user_guide/analytics/reports/) fornece orientação sobre quais relatórios e análises de dados você pode usar para responder a perguntas comuns de estratégia de marketing.
 
-## Novo cluster US-05
+## Novo cluster US-05 {#new-us-05-cluster}
 
 A Braze oferece suporte a um novo cluster dos EUA, o US-05. Consulte nossa lista de [endpoints]({{site.baseurl}}/api/basics/#endpoints) do dashboard e REST para saber mais.
 
-## Atualizações da interface do usuário do Braze
+## Atualizações da interface do usuário da Braze {#braze-ui-updates}
 
 Em maio de 2021, a Braze atualizou os seguintes rótulos e termos no dashboard da Braze:
 
-- Uso do app --> Visão geral
-- Configurações do app --> Configurações
-- Gerenciar grupo de aplicativos --> Gerenciar configurações
-- Dinheiro gasto no app --> Dinheiro gasto
-- App Usage (User Profile) --> Sessions Overview (Visão geral das sessões)
+- App Usage --> Visão geral
+- App Settings --> Configurações
+- Manage App Group --> Gerenciar configurações
+- Money Spent In-App --> Dinheiro gasto
+- App Usage (User Profile) --> Visão geral das sessões
 - Importar um CSV de informações do usuário para adicionar e/ou atualizar usuários nesse grupo de app --> Importar um CSV de informações do usuário para adicionar ou atualizar usuários

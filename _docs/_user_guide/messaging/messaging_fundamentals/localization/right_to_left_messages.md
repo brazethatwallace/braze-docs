@@ -24,7 +24,7 @@ Additionally, check punctuation and emojis to determine if your message is rende
 |------------------|------------------------|
 | Displays the exclamation point and emoji at the **end** of the sentences. | Displays the exclamation point and emoji at the **beginning** of the sentence. |
 | ![An example of a standard right-to-left messages.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![An example of a left-to-right messages.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Message appearance" }
 
 ## Creating a right-to-left message
 
@@ -42,6 +42,10 @@ To create your right-to-left message in Braze:
 The copy-and-paste method for push messages can be challenging to use with longer push notifications because longer content may render into multiple lines on a mobile device. If you copy your message text from outside of Braze (such as a Word document) and directly paste it into Braze, the sentence alignment and word placement may change. To avoid this scenario, copy and paste in installments and add a line break. For example, copy and paste the first five words, add a line break, copy the next five words, add a line break, and so on.
 
 The preview and test functions are built for left-to-right messages, so right-to-left messages won’t render properly in the **Preview & Test** section but will render properly on user devices if their settings are configured for it. We suggest sending messages to yourself in a live environment to confirm that they render properly based on device settings.
+
+### Title and body alignment
+
+For push notifications, title alignment generally follows the device language settings, while body alignment can follow the first strong directional character on each line (treat each line after a newline separately). That means a single push can mix alignment across lines—for example, a right-to-left body line followed by a left-to-right line. When you need a predictable layout, maintain directional consistency and use line breaks between mixed-language segments.
 
 ### Bi-directional text
 

@@ -45,10 +45,10 @@ Here's an example of a simple definition based on lapsing sessions in the last 7
 For this case, we select `do not` and `start a session`. You can combine other filters with `AND` and `OR` as you see fit to create the definition you need. Interested in some potential churn definitions to consider? You can find some inspiration in the following section on [Sample churn definitions](#sample-definitions).
 
 {% alert note %}
-For `do`, we assume that active users did not take the action you specify for this row before becoming churned. Doing the action causes them to become churned. <br><br>For `do not`, we consider active users to be those who performed that action in the days prior, and then stopped. <br><br>**Example:** If churn is defined as "has not purchased in the past 60 days", we consider active users those who did purchase in the past 60 days. As a result, anybody who didn't make a purchase in the last 60 days is not considered an active user. This means a churn audience created from this churn definition would only include users who have purchased in the past 60 days. This may make the resulting predictive churn audience look significantly smaller than the original population—most users in a workspace might already meet the definition of churned and therefore not be active in the churn prediction.
+For `do`, we assume that active users did not take the action you specify for this row before becoming churned. Doing the action causes them to become churned. <br><br>For `do not`, we consider active users to be those who performed that action in the days prior, and then stopped. <br><br>**Example:** If churn is defined as "has not started a session in the past 60 days", we consider active users those who did start a session in the past 60 days. As a result, anybody who didn't start a session in the last 60 days is not considered an active user. This means a churn audience created from this churn definition would only include users who have started a session in the past 60 days. This may make the resulting predictive churn audience look significantly smaller than the original population—most users in a workspace might already meet the definition of churned and therefore not be active in the churn prediction.
 {% endalert %}
 
-Underneath the definition, you will see estimates of how many users (in the past who churned and who didn't churn according to your definition) are available. You will also see the minimum values required. Braze must have this minimum count of users available in historical data so that the prediction has enough data to learn from.
+Underneath the definition, you can see estimates of how many users (in the past who churned and who didn't churn according to your definition) are available. You can also see the minimum values required. Braze must have this minimum count of users available in historical data so that the prediction has enough data to learn from.
 
 ## Step 3: Filter your prediction audience
 
@@ -56,13 +56,13 @@ Your prediction audience is the group of users for which you want to predict chu
 
 Depending on your use case, you may want to use filters to specify the users you want to assess for the model. To do so, select **Define my own prediction audience** and choose your audience filters. For example, if you're a ride-sharing app with drivers and riders in your user base, and you're building a churn model for riders, you'll want to filter your prediction audience to just riders. Keep in mind that many use cases don't require you to select a specific prediction audience. For example, if your use case is to target users in the EU region that are most likely to churn, you can run your model on all users and then simply include a filter for the EU region in the campaign’s segment.
 
-Braze will show you the estimated size of your prediction audience. If you specify your desired audience and don't meet the minimum required to run the model, try specifying a broader filter or use the **All Users** option. Note that the size of your "all users" group isn't static and varies from model to model, as it takes into account your churn definition. For example, say churn definition is **not** making a purchase in 30 days; in this case, Braze runs the model on users who **have** purchased in the last 30 days (and predicts the likelihood that they will **not** purchase in the next 30 days), so those are the users reflected in the "all users" metric.
+Braze will show you the estimated size of your prediction audience. If you specify your desired audience and don't meet the minimum required to run the model, try specifying a broader filter or use the **All Users** option. Note that the size of your "all users" group isn't static and varies from model to model, as it takes into account your churn definition. For example, say churn definition is **not** starting a session in 30 days; in this case, Braze runs the model on users who **have** started a session in the last 30 days (and predicts the likelihood that they will **not** start a session in the next 30 days), so those are the users reflected in the "all users" metric.
 
 {% alert note %}
 The prediction audience cannot exceed 100 million users.
 {% endalert %}
 
-When the prediction window is 14 days or less, the time window for filters that begin with "Last...", like "Last Used App" and "Last Made Purchase" **cannot exceed the Churn Window specified** in the churn definition. For example, if your churn definition has a window of 14 days, the time window for the "Last..." filters cannot exceed 14 days. 
+When the prediction window is 14 days or less, the time window for filters that begin with "Last...", like "Last Used App" and "Last placed an order" **cannot exceed the Churn Window specified** in the churn definition. For example, if your churn definition has a window of 14 days, the time window for the "Last..." filters cannot exceed 14 days. 
 
 The churn window is evaluated by looking back at the number of days from the day the model last ran, so if the churn window is 15 days and the model last ran on December 1, the model analyzes November 16 to November 30 to understand user activity for audience eligibility and training.
 
@@ -90,7 +90,7 @@ Preview and demo prediction will never update users' risk of churn. Additionally
 
 ## Step 5: Build prediction
 
-Verify that the details you've provided are correct, and choose **Build Prediction**. You can also save your changes in draft form by selecting **Save As Draft** to return to this page and build the model later. After you select **Build Prediction**, the process that generates the model will begin. This could take between 30 minutes to a few hours, depending on data volumes. For this prediction, you will see a page explaining that training is in progress for the duration of the model-building process. The Braze model takes into account custom events, purchase events, campaign interaction events, and session data.
+Verify that the details you've provided are correct, and choose **Build Prediction**. You can also save your changes in draft form by selecting **Save As Draft** to return to this page and build the model later. After you select **Build Prediction**, the process that generates the model will begin. This could take between 30 minutes to a few hours, depending on data volumes. For this prediction, you will see a page explaining that training is in progress for the duration of the model-building process. The Braze model takes into account custom events, purchase events, eCommerce events, campaign interaction events, and session data.
 
 After it's done, the page will switch to the analytics view automatically, and you will also get an email informing you that the prediction and results are ready. In the event of an error, the page will return to the Editing mode with an explanation of what went wrong.
 
@@ -102,12 +102,12 @@ The prediction will be rebuilt ("retrained") again every **two weeks automatical
 - "Within 7 days, do custom event 'Subscription Cancellation'"<br>
 - "Within 30 days, do custom event 'Trial Expired'"<br>
 - "Within 1 day do uninstall." <br>
-- "Within 14 days do not Make a Purchase." <br>
+- "Within 14 days do not Place an Order." <br>
 
 For the churn definitions we outlined, there might be some corresponding prediction audience definitions:<br>
-- **Started subscription more than 2 weeks ago OR Started subscription less than two weeks ago**<br>You might want to create 2 predictions in this case and then message new subscribers differently than longer-term subscribers. You could also define this as "First Made Purchase more than 30 days ago."<br>
-- **Uninstallers**<br>You might focus on customers who have purchased something in the recent past or used the app very recently.<br>
-- **Those at risk of not purchasing as a definition of churn**<br>You may want to focus on customers who have been browsing or searching, or engaging with your app more recently. Perhaps the right discount intervention will prevent this more engaged group from churning.
+- **Started subscription more than 2 weeks ago OR Started subscription less than two weeks ago**<br>You might want to create 2 predictions in this case and then message new subscribers differently than longer-term subscribers. You could also define this as "First Placed an Order more than 30 days ago."<br>
+- **Uninstallers**<br>You might focus on customers who have placed an order in the recent past or used the app very recently.<br>
+- **Those at risk of not placing an order as a definition of churn**<br>You may want to focus on customers who have been browsing or searching, or engaging with your app more recently. Perhaps the right discount intervention will prevent this more engaged group from churning.
 
 ## Archived predictions
 

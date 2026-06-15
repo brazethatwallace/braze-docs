@@ -153,6 +153,10 @@ Enabling list-unsubscribe is a deliverability best practice and a requirement at
 
 When [managing your subscriptions in Gmail](https://support.google.com/mail/answer/15621070?sjid=2292320204527911296-NC), Gmail can also pull in the unsubscribe link from the body of the message, but prioritizes the list-unsubscribe if it's present in the header.
 
+### Does turning off the list-unsubscribe header remove the Gmail Unsubscribe button?
+
+No. Turning off the Braze list-unsubscribe header setting removes the `List-Unsubscribe` header from messages Braze sends, but it doesn't control whether Gmail shows an **Unsubscribe** option in the mailbox UI. As noted above, Gmail may still surface an unsubscribe option from links in the message body or use other provider logic. Whether the header appears in the raw message is separate from whether Gmail displays an unsubscribe option to recipients. For more information, see [Gmail's Email Sender Guidelines FAQ](https://support.google.com/a/answer/14229414).
+
 ### Mailbox provider support
 
 The following table summarizes mailbox provider support for “mailto:” header, list-unsubscribe URL, and one-click unsubscribe ([RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058)).
@@ -164,14 +168,14 @@ The following table summarizes mailbox provider support for “mailto:” header
 | Apple Mail | Supported | Not supported | Not supported |
 | Outlook.com | Supported | Not supported | Not supported |
 | Yahoo! Mail | Supported* | Not supported | Supported |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mailbox provider support" }
 
 _*Yahoo and Gmail are eventually deprecating the "mailto:" header and will support only one-click._
 
 Displaying the header is ultimately determined by the mailbox provider. To check if the list-unsubscribe header is included in the raw (text) email for the recipient in Gmail, do the following:
 
 1. Select **Show Original** in the email. This opens a new tab with the raw version of the email and its headers.
-2. Search for "List-Unsubscribe".
+2. Search for "List-Unsubscribe". For one-click unsubscribe, many providers also include a "List-Unsubscribe-Post" header. Confirm that both appear in the raw message when you expect one-click to be available.
 
 If the header is in the raw version of the email but is not displayed, the mailbox provider has determined not to show the unsubscribe option, meaning we don't have further insight as to why the mailbox provider isn't displaying the header. Seeing the list-unsubscribe header is ultimately reputation-based. In most cases, the better your sender reputation with the mailbox provider, the more likely the list-unsubscribe header will appear.
 
@@ -200,7 +204,7 @@ Braze supports the following versions of the list-unsubscribe header:
 | One-click (RFC 8058) | Offers a straightforward way for recipients to opt out from emails with a single click. This is a requirement from Yahoo and Gmail for bulk senders. |
 | List-unsubscribe URL or HTTPS | Provides recipients with a link that directs the recipient to a web page where they can unsubscribe. |
 | Mailto | Specifies an email address as the destination for the unsubscribe request message to be sent from the recipient to the brand. <br><br> _To process mailto list-unsubscribe requests, such unsubscribe requests need to include the email address as stored in Braze for the End User who is unsubscribing. This may be provided by the "from-address" of the email from where the End User is unsubscribing, the encoded subject, or the encoded body from the email received by the End User that they are unsubscribing from. In very limited cases, some inbox providers don't adhere to the [RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368) protocol, resulting in the email address not being properly passed. This can lead to an unsubscribe request not being able to be processed in Braze._ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Default list-unsubscribe header" }
 
 When Braze receives a list-unsubscribe request from a user via any of the above methods, this user’s global email subscription state is set to unsubscribed. If there isn’t a match, Braze does not process this request.
 

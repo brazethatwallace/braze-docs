@@ -4,7 +4,7 @@ article_title: データと分析パートナー
 page_order: 5
 
 page_type: landing
-description: "このページには、さまざまなツールやプロバイダー間でデータを送信、保存、調整できるようにする Braze パートナー (Alloys) が一覧表示されています。"
+description: "このページには、さまざまなツールやプロバイダー間でデータの送信、保存、調整を可能にするBrazeパートナー（Alloys）が一覧表示されています。"
 layout: partner_page
 search_tag: Partner
 
@@ -38,7 +38,7 @@ valid_partner_list:
 - name: Clarisights
   url: /docs/partners/clarisights/
 - name: Heap
-  url: /docs/partners/heap/ 
+  url: /docs/partners/heap/
 - name: Datadog
   url: /docs/partners/datadog/
 - name: ThoughtSpot
@@ -77,6 +77,8 @@ valid_partner_list:
   url: /docs/partners/blueconic/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Dynamics 365 Customer Insights
   url: /docs/partners/dynamics_365_customer_insights
 - name: GrowthLoop
@@ -143,6 +145,8 @@ valid_partner_list:
   url: /docs/partners/talonone/
 - name: FriendBuy
   url: /docs/partners/friendbuy/
+- name: GRAVTY®
+  url: /docs/partners/lji/
 - name: Kognitiv Inspire
   url: /docs/partners/kognitiv/
 - name: Punchh
@@ -153,6 +157,8 @@ valid_partner_list:
   url: /docs/partners/voucherify/
 - name: Census
   url: /docs/partners/census/
+- name: DinMo
+  url: /docs/partners/dinmo/
 - name: Airbyte
   url: /docs/partners/airbyte/
 - name: Fivetran

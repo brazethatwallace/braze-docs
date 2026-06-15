@@ -8,52 +8,52 @@ channel:
   - email
 ---
 
-# Envoyer des e-mails via l'API REST
+# Envoyer des e-mails via l'API REST {#sending-email-messages-using-the-rest-api}
 
-> Utilisez l'API REST de Braze pour envoyer des e-mails transactionnels depuis votre backend en temps réel. Cette approche vous permet de créer un service qui envoie des e-mails de manière programmatique tout en suivant les analyses de distribution aux côtés de vos autres campagnes et Canvas dans le tableau de bord de Braze.
+> Utilisez l'API REST de Braze pour envoyer des e-mails transactionnels depuis votre backend en temps réel. Cette approche vous permet de créer un service qui envoie des e-mails de manière programmatique tout en suivant les analyses de distribution aux côtés de vos autres Campaigns et Canvas dans le tableau de bord de Braze.
 
 Cette méthode est particulièrement utile pour les messages transactionnels dont le contenu est défini dans vos systèmes backend. Par exemple, vous pouvez notifier vos utilisateurs lorsqu'ils reçoivent un message d'un autre utilisateur, en les invitant à visiter votre site web et à consulter leur boîte de réception.
 
 Avec cette approche, vous pouvez :
 
 - Déclencher des e-mails depuis votre backend en temps réel.
-- Suivre les analyses aux côtés de toutes vos campagnes et Canvas marketing, y compris les ouvertures, les clics et les rebonds.
+- Suivre les analyses aux côtés de toutes vos Campaigns et Canvas marketing, y compris les ouvertures, les clics et les rebonds.
 - Utiliser les données d'interaction avec les messages pour déclencher des messages ultérieurs, comme un reciblage de suivi.
 - Étendre le cas d'usage avec des fonctionnalités supplémentaires de Braze, telles que les délais de message et les tests A/B.
-- Optionnellement, passer à la [distribution déclenchée par API]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/api_triggered_delivery/) pour définir vos modèles d'e-mail dans le tableau de bord de Braze tout en continuant à déclencher les envois depuis votre backend.
+- Optionnellement, passer à la [distribution déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) pour définir vos modèles d'e-mail dans le tableau de bord de Braze tout en continuant à déclencher les envois depuis votre backend.
 
 Pour envoyer un e-mail via l'API REST, vous devez configurer une campagne API dans le tableau de bord de Braze, puis utiliser l'endpoint [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) pour envoyer le message.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 Pour suivre ce guide, vous avez besoin des éléments suivants :
 
 | Élément requis | Description |
 | --- | --- |
 | Clé API REST de Braze | Une clé disposant de la permission `messages.send`. Pour en créer une, accédez à **Paramètres** > **API et identifiants** > **Clés API**. |
-| ID d'application Braze | L'identifiant de votre application au sein de votre espace de travail. Pour le trouver, accédez à **Paramètres** > **API et identifiants** et consultez la section **Identifiants d'application**. Cette valeur est requise dans le champ `app_id` de l'objet e-mail. Pour plus d'informations, consultez [Identifiant d'application]({{site.baseurl}}/api/identifier_types/). |
+| ID d'application Braze | L'identifiant de votre application au sein de votre espace de travail. Pour le trouver, accédez à **Paramètres** > **Clés API** et consultez la section **Identifiants d'application**. Cette valeur est requise dans le champ `app_id` de l'objet e-mail. Pour plus d'informations, consultez [Identifiant d'application]({{site.baseurl}}/api/identifier_types/). |
 | Contenu HTML de l'e-mail | Le corps HTML de votre e-mail, préparé à l'avance. |
 | Service backend | Un service backend ou un environnement de script capable d'effectuer des requêtes HTTP POST vers l'API REST de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Étape 1 : Créer une campagne API
+## Étape 1 : Créer une campagne API {#step-1-create-an-api-campaign}
 
-1. Dans le tableau de bord de Braze, accédez à **Envoi de messages** > **Campagnes**.
-2. Sélectionnez **Créer une campagne**, puis sélectionnez **Campagne API**.
-3. Saisissez un nom et une description pour votre campagne, par exemple « Notification par e-mail ».
+1. Dans le tableau de bord de Braze, accédez à **Messaging** > **Campaigns**.
+2. Sélectionnez **Create Campaign**, puis sélectionnez **API Campaign**.
+3. Saisissez un nom et une description pour votre Campaign, par exemple « Notification par e-mail ».
 4. Ajoutez des étiquettes pertinentes pour l'identification et le suivi.
-5. Sélectionnez **Ajouter un canal de communication**, puis sélectionnez **E-mail**.
-6. Notez l'**ID de campagne** affiché sur la page de la campagne. Vous aurez besoin de cette valeur pour construire votre requête API. Vous pouvez également noter l'**ID de variation de message** — incluez-le dans votre requête si vous souhaitez attribuer les statistiques d'envoi à une variation de message spécifique.
+5. Sélectionnez **Add Messaging Channel**, puis sélectionnez **Email**.
+6. Notez le **Campaign ID** affiché sur la page de la Campaign. Vous aurez besoin de cette valeur pour construire votre requête API. Vous pouvez également noter le **Message Variation ID** — incluez-le dans votre requête si vous souhaitez attribuer les statistiques d'envoi à une variation de message spécifique.
 
-## Étape 2 : Envoyer un e-mail via l'API
+## Étape 2 : Envoyer un e-mail via l'API {#step-2-send-an-email-using-the-api}
 
-Construisez une requête POST vers l'endpoint [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Incluez l'ID de campagne, l'ID utilisateur externe du destinataire et le contenu de l'e-mail dans le PAYLOAD de la requête.
+Construisez une requête POST vers l'endpoint [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Incluez l'ID de Campaign, l'ID utilisateur externe du destinataire et le contenu de l'e-mail dans le payload de la requête.
 
 {% alert important %}
-Chaque destinataire référencé dans `external_user_ids` doit déjà exister dans Braze. Les envois via API uniquement ne créent pas de nouveaux profils utilisateur. Si vous devez créer des utilisateurs dans le cadre d'un envoi, utilisez d'abord [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), ou utilisez plutôt une [campagne déclenchée par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+Chaque destinataire référencé dans `external_user_ids` doit déjà exister dans Braze. Les envois via API uniquement ne créent pas de nouveaux profils utilisateur. Si vous devez créer des utilisateurs dans le cadre d'un envoi, utilisez d'abord [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), ou utilisez plutôt une [Campaign déclenchée par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
 {% endalert %}
 
-### Exemple de requête
+### Exemple de requête {#example-request}
 
 ```
 POST https://YOUR_REST_ENDPOINT/messages/send
@@ -81,21 +81,21 @@ Remplacez `YOUR_REST_ENDPOINT` par l'[URL de l'endpoint REST]({{site.baseurl}}/a
 ```
 {% endraw %}
 
-Remplacez les valeurs de substitution par vos identifiants réels. Le champ `from` doit respecter le format `"Nom d'affichage <email@adresse.com>"`. Le champ `body` accepte du HTML valide et prend en charge la [personnalisation Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/), ce qui vous permet d'adapter le contenu de l'e-mail à chaque destinataire. Pour la liste complète des paramètres pris en charge par l'objet e-mail, consultez [Objet e-mail]({{site.baseurl}}/api/objects_filters/messaging/email_object/).
+Remplacez les valeurs de substitution par vos identifiants réels. Le champ `from` doit respecter le format `"Nom d'affichage <email@adresse.com>"`. Le champ `body` accepte du HTML valide et prend en charge la [personnalisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), ce qui vous permet d'adapter le contenu de l'e-mail à chaque destinataire. Pour la liste complète des paramètres pris en charge par l'objet e-mail, consultez [Objet e-mail]({{site.baseurl}}/api/objects_filters/messaging/email_object/).
 
 Une fois la requête construite, envoyez-la en POST depuis votre service backend vers l'API REST de Braze.
 
-## Étape 3 : Vérifier votre intégration
+## Étape 3 : Vérifier votre intégration {#step-3-verify-your-integration}
 
 Une fois la configuration terminée, vérifiez votre intégration :
 
 1. Envoyez une requête API comme décrit à l'[étape 2](#step-2-send-an-email-using-the-api), en utilisant votre propre ID utilisateur comme destinataire.
 2. Confirmez que l'e-mail est bien distribué dans votre boîte de réception.
-3. Dans le tableau de bord de Braze, accédez à la page de résultats de la campagne et confirmez que l'envoi est enregistré.
+3. Dans le tableau de bord de Braze, accédez à la page de résultats de la Campaign et confirmez que l'envoi est enregistré.
 4. Surveillez attentivement les résultats à mesure que vous montez en charge.
 
-## Points à prendre en compte
+## Points à prendre en compte {#considerations}
 
-- Assurez-vous que vos campagnes d'e-mail sont conformes aux réglementations en vigueur, telles que le RGPD et CAN-SPAM, en incluant les options de désinscription et les mentions de confidentialité nécessaires. Pour plus d'informations, consultez [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) et [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/).
-- Utilisez les [fonctionnalités de personnalisation]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/) de Braze pour adapter le contenu des e-mails à chaque utilisateur, y compris le contenu dynamique et les données spécifiques à l'utilisateur.
-- L'API REST de Braze propose des [endpoints de messagerie]({{site.baseurl}}/api/endpoints/messaging/) supplémentaires pour planifier des messages, déclencher des campagnes, et bien plus encore.
+- Assurez-vous que vos campagnes d'e-mail sont conformes aux réglementations en vigueur, telles que le RGPD et CAN-SPAM, en incluant les options de désinscription et les mentions de confidentialité nécessaires. Pour plus d'informations, consultez [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/email/subscriptions/) et [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/).
+- Utilisez les [fonctionnalités de personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) de Braze pour adapter le contenu des e-mails à chaque utilisateur, y compris le contenu dynamique et les données spécifiques à l'utilisateur.
+- L'API REST de Braze propose des [endpoints de messagerie]({{site.baseurl}}/api/endpoints/messaging/) supplémentaires pour planifier des messages, déclencher des Campaigns, et bien plus encore.

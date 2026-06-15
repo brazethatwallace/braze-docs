@@ -12,7 +12,7 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Manejo personalizado de la visualización de mensajes dentro de la aplicación
+# Manejo personalizado de la visualización de mensajes dentro de la aplicación {#custom-handling-in-app-message-display}
 
 Cuando está configurado [`ABKInAppMessageControllerDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessageControllerDelegate.h), se llama al siguiente método delegado antes de que se muestren los mensajes dentro de la aplicación:
 
@@ -33,7 +33,7 @@ func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!) -> ABKInAppMess
 {% endtab %}
 {% endtabs %}
 
-Si sólo has implementado [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h)se llamará al siguiente método delegado de interfaz de usuario:
+Si solo has implementado [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h), se llamará al siguiente método delegado de interfaz de usuario:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -58,20 +58,20 @@ Puedes personalizar la gestión de mensajes dentro de la aplicación implementan
 | -------------------------- | -------- |
 | Objective-C: `ABKDisplayInAppMessageNow`<br>Swift: `displayInAppMessageNow` | El mensaje se mostrará inmediatamente. |
 | Objective-C: `ABKDisplayInAppMessageLater`<br>Swift: `displayInAppMessageLater` | El mensaje no se mostrará y volverá a colocarse en la parte superior de la pila. |
-| Objective-C: `ABKDiscardInAppMessage`<br>Swift: `discardInAppMessage`| El mensaje se descartará y no se mostrará. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Objective-C: `ABKDiscardInAppMessage`<br>Swift: `discardInAppMessage` | El mensaje se descartará y no se mostrará. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom handling in-app message display" }
 
-Puedes utilizar el método`beforeInAppMessageDisplayed:` delegate para añadir lógica de visualización de mensajes dentro de la aplicación, personalizar los mensajes dentro de la aplicación antes de que Braze los muestre u optar por no utilizar la lógica de visualización de mensajes dentro de la aplicación y la interfaz de usuario de Braze por completo.
+Puedes utilizar el método delegado `beforeInAppMessageDisplayed:` para añadir lógica de visualización de mensajes dentro de la aplicación, personalizar los mensajes dentro de la aplicación antes de que Braze los muestre u optar por no utilizar la lógica de visualización de mensajes dentro de la aplicación y la interfaz de usuario de Braze por completo.
 
 Consulta nuestra [aplicación de muestra](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/AppDelegate.m) para ver un ejemplo de implementación.
 
-## Anulación de mensajes dentro de la aplicación antes de la visualización
+## Anulación de mensajes dentro de la aplicación antes de la visualización {#overriding-in-app-messages-before-display}
 
 Si quieres modificar el comportamiento de visualización de los mensajes dentro de la aplicación, debes añadir la lógica de visualización necesaria a tu método delegado `beforeInAppMessageDisplayed:`. Por ejemplo, puede que quieras mostrar el mensaje dentro de la aplicación desde la parte superior de la pantalla si se está mostrando el teclado, o tomar el modelo de datos del mensaje dentro de la aplicación y mostrar tú mismo el mensaje dentro de la aplicación.
 
 Si la campaña de mensajería dentro de la aplicación no se muestra cuando se ha iniciado la sesión, asegúrate de que has añadido la lógica de visualización necesaria a tu método delegado `beforeInAppMessageDisplayed:`. Esto permite que la campaña de mensajería dentro de la aplicación se muestre desde la parte superior de la pantalla aunque se esté mostrando el teclado.
 
-## Desactivar el modo oscuro
+## Desactivar el modo oscuro {#disabling-dark-mode}
 
 Para evitar que los mensajes dentro de la aplicación adopten el estilo de modo oscuro cuando el dispositivo del usuario tiene habilitado el modo oscuro, utiliza la propiedad [`ABKInAppMessage.enableDarkTheme`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message.html#ae89df6090bed623099ab0ecc0a74ad5d). Desde el método `ABKInAppMessageControllerDelegate.beforeInAppMessageDisplayed:` o `ABKInAppMessageUIDelegate.beforeInAppMessageDisplayed:`, establece la propiedad `enableDarkTheme` del parámetro `inAppMessage` del método en `NO`.
 
@@ -121,11 +121,11 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage, withKeyboardIsU
 {% endtab %}
 {% endtabs %}
 
-## Ocultar la barra de estado durante la visualización
+## Ocultar la barra de estado durante la visualización {#hiding-the-status-bar-during-display}
 
 Para los mensajes dentro de la aplicación `Full` y `HTML`, el SDK intentará colocar el mensaje sobre la barra de estado de forma predeterminada. Sin embargo, en algunos casos, la barra de estado puede seguir apareciendo encima del mensaje dentro de la aplicación. A partir de la versión [3.21.1](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#3211) del SDK de iOS, puedes forzar que la barra de estado se oculte al mostrar los mensajes dentro de la aplicación `Full` y `HTML` configurando `ABKInAppMessageHideStatusBarKey` a `YES` dentro del `appboyOptions` pasado a `startWithApiKey:`.
 
-## Registro de impresiones y clics
+## Registro de impresiones y clics {#logging-impressions-and-clicks}
 
 El registro de impresiones y clics de mensajes dentro de la aplicación no es automático cuando implementas un manejo completamente personalizado (por ejemplo, eludes la visualización de mensajes dentro de la aplicación de Braze devolviendo `ABKDiscardInAppMessage` en tu `beforeInAppMessageDisplayed:`). Si decides implementar tu propia interfaz de usuario utilizando nuestros modelos de mensajes dentro de la aplicación, debes registrar los análisis con los siguientes métodos en la clase `ABKInAppMessage`:
 
@@ -152,7 +152,7 @@ func logInAppMessageClicked()
 {% endtab %}
 {% endtabs %}
 
-Además, deberías registrar los clics en los botones de las subclases de `ABKInAppMessageImmersive` (*i.e*., `Modal` y `Full` mensajes dentro de la aplicación):
+Además, deberías registrar los clics en los botones de las subclases de `ABKInAppMessageImmersive` (*es decir*, mensajes dentro de la aplicación `Modal` y `Full`):
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -173,16 +173,13 @@ func logInAppMessageClickedWithButtonID(buttonId: NSInteger)
 {% endtab %}
 {% endtabs %}
 
-## Declaraciones de métodos
+## Declaraciones de métodos {#method-declarations}
 
 Para más información, consulta los siguientes archivos de encabezado:
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
 - [`ABKInAppMessageControllerDelegate.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessageControllerDelegate.h)
 
-## Muestras de aplicación
+## Muestras de implementación {#implementation-samples}
 
-Consulta [`AppDelegate.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/AppDelegate.m) ejemplo de aplicación de mensajes dentro de la aplicación.
-
-
-
+Consulta la aplicación de muestra de mensajes dentro de la aplicación [`AppDelegate.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/AppDelegate.m).

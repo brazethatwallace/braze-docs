@@ -86,7 +86,7 @@ We recommend uploading your product images to the media library, then copying an
 | Currency | (optional) The currency of the price. |
 | Price | The price of the promotion. |
 | Discount Value | The amount discounted from the original price. | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize your Gmail Promotion card" }
 
 ![An example of a product carousel from a company named Motto with the email heading "Our best-selling socks are on sale", with three images of socks and their discounted prices.]({% image_buster /assets/img_archive/product_carousel.png %}){: style="max-width:40%;"}
 

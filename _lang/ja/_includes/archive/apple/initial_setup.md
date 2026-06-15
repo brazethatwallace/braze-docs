@@ -52,13 +52,13 @@ pod install
 
 次のコード行を `AppDelegate.m` ファイルに追加します。
 
-```objc
+`````````objc
 {% if include.platform == 'iOS' %}#import "Appboy-iOS-SDK/AppboyKit.h"{% else %}#import <AppboyTVOSKit/AppboyKit.h>{% endif %}
 ```
 
 `AppDelegate.m` ファイル内で、`application:didFinishLaunchingWithOptions` メソッド内に次のスニペットを追加します。
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
          inApplication:application
      withLaunchOptions:launchOptions];
@@ -69,7 +69,7 @@ pod install
 
 Braze SDK を CocoaPods または Carthage と統合する場合は、次のコード行を `AppDelegate.swift` ファイルに追加します。
 
-```swift
+`````````swift
 {% if include.platform == 'iOS' %}import Appboy_iOS_SDK{% else %}import AppboyTVOSKit{% endif %}
 ```
 
@@ -77,7 +77,7 @@ Swift プロジェクトでの Objective-C コードの使用方法について�
 
 `AppDelegate.swift` で、次のスニペットを `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` に追加します。
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 
@@ -140,7 +140,7 @@ pod update
 
 `AppDelegate.m` ファイルの `application:didFinishLaunchingWithOptions` メソッド内に、次の Braze メソッドを追加します。
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
           inApplication:application
       withLaunchOptions:launchOptions
@@ -152,7 +152,7 @@ pod update
 
 `AppDelegate.swift` の `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` メソッド内に、次の Braze メソッドを追加します。
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,

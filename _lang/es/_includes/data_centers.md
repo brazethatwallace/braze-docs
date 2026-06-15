@@ -1,34 +1,41 @@
 {% if include.datacenters == "AU" %}
-| URL del panel de control | Punto final REST | Punto final SDK |
+| URL del dashboard | Punto de conexión REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard.au-01.braze.com` | `https://rest.au-01.braze.com` | `sdk.au-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 {% endif %}
 
 {% if include.datacenters == "EU" %}
-| URL del panel de control | Punto final REST | Punto final SDK |
+| URL del dashboard | Punto de conexión REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard-01.braze.eu` | `https://rest.fra-01.braze.eu` | `sdk.fra-01.braze.eu` |
 | `https://dashboard-02.braze.eu` | `https://rest.fra-02.braze.eu` | `sdk.fra-02.braze.eu` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 {% endif %}
 
 {% if include.datacenters == "ID" %}
-| URL del panel de control | Punto final REST | Punto final SDK |
+| URL del dashboard | Punto de conexión REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard.id-01.braze.com` | `https://rest.id-01.braze.com` | `sdk.id-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 {% endif %}
 
 {% if include.datacenters == "JP" %}
-| URL del panel de control | Punto final REST | Punto final SDK |
+| URL del dashboard | Punto de conexión REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard.jp-01.braze.com` | `https://rest.jp-01.braze.com` | `sdk.jp-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+{% endif %}
+
+{% if include.datacenters == "KR" %}
+| URL del dashboard | Punto de conexión REST | Punto final de SDK |
+| --- | --- | --- |
+| `https://dashboard.kr-01.braze.com` | `https://rest.kr-01.braze.com` | `sdk.kr-01.braze.com` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 {% endif %}
 
 {% if include.datacenters == "US" %}
-| URL del panel de control | Punto final REST | Punto final SDK |
+| URL del dashboard | Punto de conexión REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard-01.braze.com` | `https://rest.iad-01.braze.com` | `sdk.iad-01.braze.com` |
 | `https://dashboard-02.braze.com` | `https://rest.iad-02.braze.com` | `sdk.iad-02.braze.com` |
@@ -39,27 +46,28 @@
 | `https://dashboard-07.braze.com` | `https://rest.iad-07.braze.com` | `sdk.iad-07.braze.com` |
 | `https://dashboard-08.braze.com` | `https://rest.iad-08.braze.com` | `sdk.iad-08.braze.com` |
 | `https://dashboard.us-10.braze.com` | `https://rest.us-10.braze.com` | `sdk.us-10.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 {% endif %}
 
 {% if include.datacenters == "instances" %}
-|Instancia|URL|Punto final REST|Punto final SDK|
-\|---|---|---|
-|US-01|`https://dashboard-01.braze.com`  |`https://rest.iad-01.braze.com`  |`sdk.iad-01.braze.com`  |
-|US-02|`https://dashboard-02.braze.com`  |`https://rest.iad-02.braze.com`  |`sdk.iad-02.braze.com`  |
-|US-03|`https://dashboard-03.braze.com`  |`https://rest.iad-03.braze.com`  |`sdk.iad-03.braze.com`  |
-|US-04|`https://dashboard-04.braze.com`  |`https://rest.iad-04.braze.com`  |`sdk.iad-04.braze.com`  |
-|US-05|`https://dashboard-05.braze.com`  |`https://rest.iad-05.braze.com`  |`sdk.iad-05.braze.com`  |
-|US-06|`https://dashboard-06.braze.com`  |`https://rest.iad-06.braze.com`  |`sdk.iad-06.braze.com`  |
-|US-07|`https://dashboard-07.braze.com`  |`https://rest.iad-07.braze.com`  |`sdk.iad-07.braze.com`  |
-|US-08|`https://dashboard-08.braze.com`  |`https://rest.iad-08.braze.com`  |`sdk.iad-08.braze.com`  |
-|US-10|`https://dashboard.us-10.braze.com`  |`https://rest.us-10.braze.com`  |`sdk.us-10.braze.com`  |
-|EU-01|`https://dashboard-01.braze.eu`  |`https://rest.fra-01.braze.eu`  |`sdk.fra-01.braze.eu`  |
-|EU-02|`https://dashboard-02.braze.eu`  |`https://rest.fra-02.braze.eu`  |`sdk.fra-02.braze.eu`  |
-|AU-01| `https://dashboard.au-01.braze.com`|`https://rest.au-01.braze.com`  |`sdk.au-01.braze.com`  |
-|ID-01| `https://dashboard.id-01.braze.com`|`https://rest.id-01.braze.com`  |`sdk.id-01.braze.com`  |
-|JP-01|`https://dashboard.jp-01.braze.com`  |`https://rest.jp-01.braze.com`  |`sdk.jp-01.braze.com`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| Instancia | URL | Punto de conexión REST | Punto final de SDK |
+| --- | --- | --- | --- |
+| US-01 | `https://dashboard-01.braze.com` | `https://rest.iad-01.braze.com` | `sdk.iad-01.braze.com` |
+| US-02 | `https://dashboard-02.braze.com` | `https://rest.iad-02.braze.com` | `sdk.iad-02.braze.com` |
+| US-03 | `https://dashboard-03.braze.com` | `https://rest.iad-03.braze.com` | `sdk.iad-03.braze.com` |
+| US-04 | `https://dashboard-04.braze.com` | `https://rest.iad-04.braze.com` | `sdk.iad-04.braze.com` |
+| US-05 | `https://dashboard-05.braze.com` | `https://rest.iad-05.braze.com` | `sdk.iad-05.braze.com` |
+| US-06 | `https://dashboard-06.braze.com` | `https://rest.iad-06.braze.com` | `sdk.iad-06.braze.com` |
+| US-07 | `https://dashboard-07.braze.com` | `https://rest.iad-07.braze.com` | `sdk.iad-07.braze.com` |
+| US-08 | `https://dashboard-08.braze.com` | `https://rest.iad-08.braze.com` | `sdk.iad-08.braze.com` |
+| US-10 | `https://dashboard.us-10.braze.com` | `https://rest.us-10.braze.com` | `sdk.us-10.braze.com` |
+| EU-01 | `https://dashboard-01.braze.eu` | `https://rest.fra-01.braze.eu` | `sdk.fra-01.braze.eu` |
+| EU-02 | `https://dashboard-02.braze.eu` | `https://rest.fra-02.braze.eu` | `sdk.fra-02.braze.eu` |
+| AU-01 | `https://dashboard.au-01.braze.com` | `https://rest.au-01.braze.com` | `sdk.au-01.braze.com` |
+| ID-01 | `https://dashboard.id-01.braze.com` | `https://rest.id-01.braze.com` | `sdk.id-01.braze.com` |
+| JP-01 | `https://dashboard.jp-01.braze.com` | `https://rest.jp-01.braze.com` | `sdk.jp-01.braze.com` |
+| KR-01 | `https://dashboard.kr-01.braze.com` | `https://rest.kr-01.braze.com` | `sdk.kr-01.braze.com` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Table" }
 {% endif %}
 
 <!--The following section is the list of IPs for IP allowlisting-->
@@ -67,7 +75,7 @@
 {% if include.datacenters == "ips" %}
 {% subtabs %}
 {% subtab United States (US) %}
-Para las instancias `US-01`, `US-02`, `US-03`, `US-04`, `US-05`, `US-06`, `US-07`, éstas son las direcciones IP correspondientes:
+Para las instancias `US-01`, `US-02`, `US-03`, `US-04`, `US-05`, `US-06`, `US-07`, estas son las direcciones IP correspondientes:
 - `23.21.118.191`
 - `34.206.23.173`
 - `50.16.249.9`
@@ -77,7 +85,7 @@ Para las instancias `US-01`, `US-02`, `US-03`, `US-04`, `US-05`, `US-06`, `US-07
 - `52.54.89.238`
 - `18.205.178.15`
 
-Por ejemplo `US-08`, éstas son las direcciones IP correspondientes:
+Para la instancia `US-08`, estas son las direcciones IP correspondientes:
 - `52.151.246.51`
 - `52.170.163.182`
 - `40.76.166.157`
@@ -97,7 +105,7 @@ Por ejemplo `US-08`, éstas son las direcciones IP correspondientes:
 - `40.76.166.144`
 - `40.76.166.145`
 
-Por ejemplo `US-10`, éstas son las direcciones IP correspondientes:
+Para la instancia `US-10`, estas son las direcciones IP correspondientes:
 - `100.25.232.164`
 - `35.168.86.179`
 - `52.7.44.117`
@@ -118,7 +126,7 @@ Para las instancias `EU-01` y `EU-02`, estas son las direcciones IP correspondie
 - `3.70.107.88`
 {% endsubtab %}
 {% subtab Australia (AU) %}
-Por ejemplo `AU-01`, éstas son las direcciones IP correspondientes:
+Para la instancia `AU-01`, estas son las direcciones IP correspondientes:
 - `13.210.1.145`
 - `13.211.70.159`
 - `13.238.45.54`
@@ -127,7 +135,7 @@ Por ejemplo `AU-01`, éstas son las direcciones IP correspondientes:
 - `54.206.45.213`
 {% endsubtab %}
 {% subtab Indonesia (ID) %}
-Por ejemplo `ID-01`, éstas son las direcciones IP correspondientes:
+Para la instancia `ID-01`, estas son las direcciones IP correspondientes:
 - `108.136.157.246`
 - `108.137.30.207`
 - `16.78.128.71`
@@ -136,14 +144,19 @@ Por ejemplo `ID-01`, éstas son las direcciones IP correspondientes:
 - `43.218.73.35`
 {% endsubtab %}
 {% subtab Japan (JP) %}
-Por ejemplo `JP-01`, éstas son las direcciones IP correspondientes:
+Para la instancia `JP-01`, estas son las direcciones IP correspondientes:
 - `13.159.155.212`
 - `54.199.221.241`
 - `13.192.23.16`
 - `54.250.120.139`
 - `18.181.114.232`
 - `3.114.38.100`
-
+{% endsubtab %}
+{% subtab South Korea (KR) %}
+Para la instancia `KR-01`, estas son las direcciones IP correspondientes:
+- `43.200.215.4`
+- `52.79.67.175`
+- `52.79.113.60`
 
 {% endsubtab %}
 {% endsubtabs %}

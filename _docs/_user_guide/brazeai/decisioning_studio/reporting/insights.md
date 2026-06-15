@@ -27,7 +27,7 @@ Refer to the following table for more details about this report:
 | Description        | A short explanation of what the option represents.            |
 | # of times chosen  | The total count of how often the option was selected.         |
 | % of time chosen   | The percentage of total selections where this option was chosen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Insights report" }
 {% endtab %}
 
 {% tab SHAPs %}

@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/web.md %}
 
-## Attributs par défaut de l'utilisateur
+## Attributs par défaut de l'utilisateur {#default-user-attributes}
 
-### Méthodes prédéfinies
+### Méthodes prédéfinies {#predefined-methods}
 
 Braze fournit des méthodes prédéfinies pour définir les attributs utilisateur suivants dans la [classe `User`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) :
 
@@ -16,7 +16,7 @@ Braze fournit des méthodes prédéfinies pour définir les attributs utilisateu
 - Ville d'origine
 - Numéro de téléphone
 
-### Définition des attributs par défaut
+### Définition des attributs par défaut {#setting-default-attributes}
 
 {% tabs %}
 {% tab using methods %}
@@ -54,9 +54,11 @@ window.braze.getUser().setGender("f")
 {% endtab %}
 {% endtabs %}
 
-### Suppression des attributs par défaut
+### Suppression des attributs par défaut {#unsetting-default-attributes}
 
-Pour supprimer un attribut utilisateur par défaut, transmettez `null` à la méthode correspondante. Par exemple :
+Vous pouvez supprimer ou réinitialiser un attribut utilisateur via le code de votre application, une requête REST API ou une étape [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) dans un Canvas. Pour les attributs de type tableau et booléen, utilisez `null`. Pour les autres types de données, utilisez une chaîne de caractères vide (`""`).
+
+Pour supprimer un attribut utilisateur par défaut avec le SDK Web, transmettez `null` à la méthode correspondante. Par exemple :
 
 {% tabs local %}
 {% tab First name %}
@@ -76,9 +78,9 @@ braze.getUser().setDateOfBirth(null, null, null);
 {% endtab %}
 {% endtabs %}
 
-## Attributs utilisateur personnalisés
+## Attributs utilisateur personnalisés {#custom-user-attributes}
 
-### Définition des attributs personnalisés
+### Définition des attributs personnalisés {#setting-custom-attributes}
 
 {% tabs %}
 {% tab using methods %}
@@ -138,7 +140,7 @@ braze.getUser().setCustomUserAttribute(
 {% endsubtab %}
 {% subtab Array %}
 
-Le nombre maximum d'éléments par défaut dans un tableau est de 500. Vous pouvez modifier ce nombre maximum dans le tableau de bord de Braze, sous **Paramètres de données** > **Attributs personnalisés**. Les tableaux dépassant le nombre maximum d'éléments sont tronqués pour ne conserver que le nombre maximum d'éléments.
+Le nombre par défaut et le nombre maximum d'éléments dans un tableau est de 500. Vous pouvez modifier ce nombre maximum dans le tableau de bord de Braze, sous **Paramètres des données** > **Attributs personnalisés**. Les tableaux dépassant le nombre maximum d'éléments sont tronqués pour ne conserver que le nombre maximum d'éléments.
 
 
 Pour définir un attribut personnalisé avec une valeur de type `array` :
@@ -181,7 +183,7 @@ Le modèle GTM ne prend pas en charge les propriétés imbriquées pour les év�
 {% endtab %}
 {% endtabs %}
 
-### Suppression des attributs personnalisés
+### Suppression des attributs personnalisés {#unsetting-custom-attributes}
 
 Pour supprimer un attribut personnalisé, transmettez `null` à la méthode correspondante.
 
@@ -189,9 +191,9 @@ Pour supprimer un attribut personnalisé, transmettez `null` à la méthode corr
 braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, null);
 ```
 
-### Imbrication d'attributs personnalisés
+### Imbrication d'attributs personnalisés {#nesting-custom-attributes}
 
-Vous pouvez également imbriquer des propriétés dans des attributs personnalisés. Dans l'exemple suivant, un objet `favorite_book` avec des propriétés imbriquées est défini comme attribut personnalisé sur le profil utilisateur. Pour plus de détails, consultez la section [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support).
+Vous pouvez également imbriquer des propriétés dans des attributs personnalisés. Dans l'exemple suivant, un objet `favorite_book` avec des propriétés imbriquées est défini comme attribut personnalisé sur le profil utilisateur. Pour plus de détails, consultez la section [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -205,11 +207,11 @@ const favoriteBook = {
 braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 ```
 
-### Utiliser l'API REST
+### Utilisation de la REST API {#using-the-rest-api}
 
-Vous pouvez également utiliser notre API REST pour définir ou supprimer des attributs utilisateur. Pour plus d'informations, consultez les [endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+Vous pouvez également utiliser notre REST API pour définir ou supprimer des attributs utilisateur. Pour plus d'informations, consultez les [endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
-## Configuration des abonnements des utilisateurs
+## Configuration des abonnements des utilisateurs {#setting-user-subscriptions}
 
 Pour configurer un abonnement pour vos utilisateurs (par e-mail ou notification push), appelez respectivement les fonctions `setEmailNotificationSubscriptionType()` ou `setPushNotificationSubscriptionType()`. Ces deux fonctions prennent le type `enum` `braze.User.NotificationSubscriptionTypes` comme argument. Ce type possède trois états différents :
 
@@ -218,19 +220,19 @@ Pour configurer un abonnement pour vos utilisateurs (par e-mail ou notification 
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | Abonné et explicitement inscrit |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | Abonné, mais pas explicitement inscrit |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Désabonné et/ou explicitement désinscrit |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuration des abonnements des utilisateurs" }
 
 Lorsqu'un utilisateur est enregistré pour les notifications push, le navigateur l'oblige à choisir d'autoriser ou de bloquer les notifications. S'il choisit de les autoriser, son statut est défini sur `OPTED_IN` par défaut.
 
 Consultez la page [Gestion des abonnements des utilisateurs]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions) pour plus d'informations sur la mise en œuvre des abonnements et des inscriptions explicites.
 
-### Désabonnement d'un utilisateur des e-mails
+### Désabonnement d'un utilisateur des e-mails {#unsubscribing-a-user-from-email}
 
 ```javascript
 braze.getUser().setEmailNotificationSubscriptionType(braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED);
 ```
 
-### Désabonnement d'un utilisateur des notifications push
+### Désabonnement d'un utilisateur des notifications push {#unsubscribing-a-user-from-push}
 
 ```java
 braze.getUser().setPushNotificationSubscriptionType(braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED);

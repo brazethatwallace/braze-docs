@@ -7,6 +7,8 @@ description: "Learn how to set up and integrate BrazeAI Decisioning Studio<sup>T
 
 # BrazeAI Decisioning Studio™ Go
 
+> Learn how to set up and integrate BrazeAI Decisioning Studio™ Go into Braze.
+
 {% alert important %}
 In mid-2026, a new version of Decisioning Studio™ Go will launch self-serve from the Braze dashboard. The following article applies to the legacy version, which will eventually be deprecated.
 {% endalert %}

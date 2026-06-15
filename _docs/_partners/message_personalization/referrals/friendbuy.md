@@ -23,7 +23,7 @@ Before you start, you'll need the following:
 | A Friendbuy account   | A [Friendbuy account](https://retailer.friendbuy.io/) is required to take advantage of this partnership.                                                              |
 | A Braze REST API key  | A Braze REST API key with `users.track` permissions. This can be created in the Braze dashboard from **Settings** > **API Keys**.        |
 | A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), which depends on the URL for your Braze instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integrating Friendbuy
 
@@ -54,7 +54,7 @@ Go to back to your [Friendbuy account](https://retailer.friendbuy.io/) and refre
 | **Friendbuy Coupon Status**      | The status of the most recent coupon code distributed to the customer. Note: status will be 'distributed' or 'redeemed'                            | String    |
 | **Friendbuy Coupon Currency**    | Currency code (USD, CAD, etc.) or percent (%) associated with the most recent coupon code distributed to the customer.                             | String    |
 | **Friendbuy Coupon Campaign ID** | The Campaign ID associated with the coupon code generated for a customer.                                                                          | String    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom attributes" }
 
 ## Default behavior
 
@@ -74,5 +74,6 @@ Friendbuy uses the international standard (E.164) to verify real phone numbers. 
 | Phone only        | Only the customer's phone number is sent to Braze.              |
 | Neither           | No customer data is sent to Braze.                              |
 | Both              | The customer's email address and phone number is sent to Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Checkbox behavior" }
 
 

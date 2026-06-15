@@ -63,7 +63,7 @@ Here are some best practices to keep in mind when writing your preheaders:
   | Android Gmail          | 24      |
   | iOS Native             | 82      |
   | iOS Gmail              | 30      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
 
   |  Desktop email client  |  Limit  |
   |:----------------------:|:-------:|
@@ -71,7 +71,7 @@ Here are some best practices to keep in mind when writing your preheaders:
   | Outlook '13            | 38      |
   | Outlook for Mac '15   | 53      |
   | Outlook '16            | 50      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
 
 
   |  Webmail email client  |  Limit  |
@@ -81,7 +81,7 @@ Here are some best practices to keep in mind when writing your preheaders:
   | Outlook.com            | 49      |
   | Office 365             | 40      |
   | Mail.ru                | 64      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
 
 ## Email size
 
@@ -93,7 +93,7 @@ Email size refers to the size of your message HTML in Braze (the body you build 
 |   Text Only   | Text with images |     Email width    |
 |:-------------:|:----------------:|:------------------:|
 | 25&nbsp;KB maximum |   60&nbsp;KB maximum   | 600 pixels maximum |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email size" }
 
 To reduce clipping risk:
 
@@ -126,7 +126,7 @@ Refer to the following table for recommended text lengths.
 | Subject Line Length | 35 characters maximum (for optimal mobile display) (6 to 10 words) |
 | Sender Name Length | 25 characters maximum (for optimal mobile display) |
 | Preheader Length | 85 characters maximum |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Text length" }
 
 ## Image size
 
@@ -135,7 +135,11 @@ Refer to the following table for recommended image sizes. Smaller, high-quality 
 |     Size    | Header image width |  Body image width  |   File types  |
 |:-----------:|:------------------:|:------------------:|:-------------:|
 | 5&nbsp;MB maximum | 600 pixels maximum | 480 pixels maximum | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Image size" }
+
+{% alert note %}
+Gmail web and Gmail mobile apps often do not render SVG (and WEBP support is inconsistent). Use PNG or JPEG for images that must display reliably in Gmail.
+{% endalert %}
 
 ## Deep linking
 

@@ -31,9 +31,15 @@ Slideup messages can contain up to three lines of copy before truncation with el
 | Layout | Asset Size | Notes |
 |--- | --- | --- |
 | Image + Text | 1:1 aspect ratio<br>High-res 150 x 150&nbsp;px<br> Minimum 50 x 50&nbsp;px | Images of various aspect ratios will fit into a square image container, without cropping. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Image and copy behavior" }
 
 You should always [preview and test your messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) on a variety of devices to ensure that the most important areas of your image and message appear as expected. Note that when previewing your message on the composer, the actual rendering on devices may differ.
+
+## Hyperlinks and anchor text
+
+To add a link in a slideup, enter the message copy in the **Body** field and set the destination in **On-click behavior** (for example, **Redirect to URL**). When **On-click behavior** is configured, taps anywhere on the message except the close control trigger that action.
+
+For custom HTML in-app messages, you can use HTML links directly. See [Custom HTML in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/).
 
 ## Mobile devices
 

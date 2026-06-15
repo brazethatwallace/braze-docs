@@ -23,7 +23,7 @@ Braze is not responsible for users registering with Google or meeting the necess
 | Gmail account enablement | See [Enabling Gmail account](#enabling-gmail-account). |
 | Google sender authentication | Gmail [authenticates the sender](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) of AMP emails with DKIM, SPF, and DMARC. These must be set up for your account. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
 | AMP email elements | A compelling AMP email includes the strategic use of various components. Refer to the Essentials tab in the [Components](#components) section below. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ### Supported email clients
 
@@ -35,12 +35,13 @@ Before you can send AMP emails to users, you must register with our email client
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 For a full list of supported email clients, refer to [AMP documentation](https://amp.dev/support/faq/email-support).
 
-### Enabling Gmail account
+### Enable Gmail account {#enabling-gmail-account}
 
-Go to your Gmail settings, and select **Enable Dynamic Email** under **General**.
+Go to your Gmail settings, and select **Enable dynamic email** in the **General** tab.
 
 ![An example of Gmail settings with the "Enable dynamic email" checkbox selected.]({% image_buster /assets/img/dynamic-content.png %})
 
@@ -69,7 +70,7 @@ You can also use AMP for email with our API. If you use any of the Braze [Messag
 }
 ```
 
-## Creating your AMP email
+## Create your AMP email
 
 First, build your AMP email using [components](#components). Next, use the [Braze API](#api-usage) to send your message, making sure to include `amp_body` for your AMP HTML.
 
@@ -99,7 +100,7 @@ Each of these elements is required in the body of your AMP email.
 | Identification <br><br> `⚡4email` or `amp4email`| Identifies your email as an AMP HTML email. | `<!doctype html>` <br> `<html ⚡4email>` <br> `<head>` |
 | Load AMP runtime <br><br> `<script>` | Allows AMP to run in your email using JavaScript. | `<script async src="https://cdn.ampproject.org/v0.js"></script>`|
 | CSS Boilerplate | Hides content until AMP is loaded. <br> Email providers who support AMP emails enforce security checks that only allow vetted AMP scripts to run in their clients. | `<style amp4email-boilerplate>body{visibility:hidden}</style>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
   {% endtab %}
   {% tab Dynamic %}
@@ -110,7 +111,7 @@ Use these components to create dynamic layouts and behaviors in your emails.
 |---------|--------------|---------|
 | [Accordion](https://amp.dev/documentation/components/amp-accordion?format=email) <br><br> `amp-accordion`| Allows users to view the content outline and jump to any section. | `<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>` |
 | [Forms](https://amp.dev/documentation/components/amp-form?format=email) <br><br> `amp-form`| Create forms to submit input fields in an AMP document. | `<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
 {% alert note %}
 Any component that requires authenticating the user must use [Google access tokens](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) or [proxy assertion tokens](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -125,7 +126,7 @@ Any component that requires authenticating the user must use [Google access toke
 | [Animated Image](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-anim`| Displays an animated image (usually a GIF) managed via runtime. | `<script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>` |
 | [Carousel](https://amp.dev/documentation/components/amp-carousel?format=email) <br><br> `amp-carousel`| Displays multiple similar pieces of content along a horizontal axis. | `<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>` |
 | [Image](https://amp.dev/documentation/components/amp-img?format=email) | A runtime-managed replacement for the HTML `img` tag. <br>  You can also create a [lightbox for your image](https://amp.dev/documentation/components/amp-image-lightbox?format=email). | `<amp-img alt="A view of the sea"` <br> `src="images/sea.jpg"` <br> `width="900"` <br>  `height="675"` <br>  `layout="responsive">`  <br> `</amp-img>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
 {% alert note %}
 Any component that requires authenticating the user must use [Google access tokens](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) or [proxy assertion tokens](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -137,7 +138,7 @@ Any component that requires authenticating the user must use [Google access toke
 | Component | Description |
 |---------|--------------|
 | [Data Binding & Expressions](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| Adds custom stateful interactivity to your AMP pages via data binding and JavaScript-like expressions. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Components" }
 
 {% alert note %}
 Any component that requires authenticating the user must use [Google access tokens](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) or [proxy assertion tokens](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -189,7 +190,7 @@ Examples include:
 {% endtab %}
 {% endtabs %}
 
-### Using amp-mustache
+### Use amp-mustache
 
 Similar to Liquid, AMP supports a scripting language for more advanced use cases. This component is called [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email). When including any Mustache markup language, you'll need to wrap it around the [`raw`](https://shopify.github.io/liquid/tags/raw/) tag from Liquid. Note that Liquid and Mustache share syntax styling. 
 
@@ -203,7 +204,8 @@ By wrapping your content around the `raw` tag, the Braze processing engine will 
     }
 </style>
 
-<table>
+<table aria-label="Metrics and analytics">
+  <caption>Metrics and analytics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -230,11 +232,14 @@ By wrapping your content around the `raw` tag, the Braze processing engine will 
     </tbody>
 </table>
 
-## Testing and troubleshooting
+## Test and troubleshoot
 
-Note that total clicks and unique clicks don't account for any clicks that occur from an AMP message (HTML and plaintext only). AMP-specific clicks are attributed to the *amp_click* metric.
 
-Before you send your AMP email, we recommend that you test according to these [Gmail guidelines](https://developers.google.com/gmail/ampemail/testing-dynamic-email).
+Before you send your AMP email, we recommend:
+
+- Testing according to these [Gmail guidelines](https://developers.google.com/gmail/ampemail/testing-dynamic-email).
+- Using the [Gmail AMP for Email Playground](https://amp.gmail.dev/playground/) to validate AMP markup.
+  - If your AMP email uses Liquid tags, replace them with static placeholder values before pasting into the Gmail AMP for Email Playground. Unrendered Liquid tags causes validation errors.
 
 For your AMP email to be delivered to any Gmail account, the email must meet the following conditions:
 
@@ -243,12 +248,25 @@ For your AMP email to be delivered to any Gmail account, the email must meet the
 - The email should include the AMP MIME part before the HTML MIME part.
 - The AMP MIME part must be smaller than 100&nbsp;KB.
 
+Note that total clicks and unique clicks don't account for any clicks that occur from an AMP message (HTML and plaintext only). AMP-specific clicks are attributed to the *amp_click* metric.
+
 If none of these conditions are causing the error, contact [Support]({{site.baseurl}}/support_contact/).
+
+### Configure Gmail inbox to render AMP emails
+
+You can configure your Gmail inbox to render AMP emails for testing purposes by doing the following:
+
+1. In Gmail, select **Settings** in the top right corner of your inbox.
+2. Select **See all settings**.
+3. In the **General** tab, go to the **Dynamic email** section and confirm the **Enable dynamic email** checkbox is selected.
+4. Next, select **Developer Settings**, and select the **Always allow dynamic emails from this sender:** checkbox.
+5. Enter the same domain as on your test message’s From address.
+6. Save your changes.
+
+Now you can send the test email to your Gmail account, and AMP emails should render in Gmail.
 
 ### Frequently asked questions
 
 #### Should I segment with AMP emails?
 
 We advocate not segmenting to send to all different types of users. This is because we send AMP messages in multipart, having different versions included in the original email. If a user can't see the AMP version, it will default back to HTML.
-
-

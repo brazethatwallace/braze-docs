@@ -11,8 +11,8 @@ toc_headers: h2
 
 > This page covers how and where you can use eCommerce recommended events across the platform, including how to use Braze eCommerce Canvas templates.
 
-{% alert important %}
-[eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) are currently in early access. Contact your Braze customer success manager if you’re interested in participating in this early access. <br><br>If you’re using the new Shopify connector, eCommerce recommended events will automatically be available through the integration.
+{% alert note %}
+If you're using the new Shopify connector, eCommerce recommended events are automatically available through the integration.
 {% endalert %}
 
 ## Using a Canvas template

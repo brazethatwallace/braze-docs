@@ -3,23 +3,23 @@ nav_title: Diccionario de datos
 article_title: Diccionario de datos para Braze Pilot
 page_order: 3
 page_type: reference
-description: "Este artículo de referencia cubre brevemente los pasos de integración que deben seguir sus ingenieros o desarrolladores."
+description: "Este artículo de referencia cubre brevemente los pasos de integración que deben seguir tus ingenieros o desarrolladores."
 ---
 
-# Diccionario de datos
+# Diccionario de datos {#data-dictionary}
 
-> Cada simulación de aplicación en Braze Pilot está instrumentada para recopilar una variedad de eventos y atributos basados en la actividad de los usuarios en la aplicación. 
+> Cada simulación de aplicación en Braze Pilot está instrumentada para recopilar una variedad de eventos y atributos basados en la actividad de los usuarios en la aplicación.
 
-## El enfoque de los datos
+## El enfoque de los datos {#the-approach-to-data}
 
-La aplicación registra atributos personalizados y eventos típicos del sector representado por la marca ficticia. Puedes utilizar estos atributos para potenciar demostraciones para una variedad de casos de uso comunes.
+La aplicación registra atributos personalizados y eventos típicos del sector representado por la marca ficticia. Puedes utilizar estos atributos para potenciar demostraciones de una variedad de casos de uso comunes.
 Por lo general, todos los eventos y atributos llevan un prefijo con un código abreviado que corresponde a la simulación de la aplicación responsable de los datos. Por ejemplo:
 
 - Todos los datos registrados por la simulación de la aplicación Steppington llevan el prefijo `st_`
 - Todos los datos registrados por la simulación de la aplicación PantsLabyrinth llevan el prefijo `pl_`
 - Todos los datos registrados por la simulación de la aplicación MovieCanon llevan el prefijo `mc_`
 
-## Lista de eventos y atributos registrados
+## Lista de eventos y atributos registrados {#list-of-logged-events-and-attributes}
 
 La siguiente tabla enumera los eventos y atributos registrados por Braze Pilot.
 
@@ -44,14 +44,15 @@ th:nth-child(5), td:nth-child(5) {
 }
 </style>
 
-<table>
+<table aria-label="Lista de eventos y atributos registrados">
+  <caption>Lista de eventos y atributos registrados</caption>
     <thead>
         <tr>
-            <th>Apellidos</th>
+            <th>Nombre</th>
             <th>Aplicación</th>
             <th>Tipo</th>
             <th>Propiedades</th>
-            <th>Cuando se registra</th>
+            <th>Cuándo se registra</th>
         </tr>
     </thead>
     <tbody>
@@ -67,14 +68,14 @@ th:nth-child(5), td:nth-child(5) {
             <td>MovieCanon</td>
             <td>Evento</td>
             <td><code>title: string</code></td>
-            <td>Cuando terminas de ver un video</td>
+            <td>Cuando el usuario termina de ver un video</td>
         </tr>
         <tr>
             <td><code>mc_viewed_movie_page</code></td>
             <td>MovieCanon</td>
             <td>Evento</td>
             <td><code>title: string</code></td>
-            <td>Cuando el usuario ve una página de películas</td>
+            <td>Cuando el usuario ve la página de una película</td>
         </tr>
         <tr>
             <td><code>pl_viewed_item</code></td>
@@ -95,14 +96,14 @@ th:nth-child(5), td:nth-child(5) {
             <td>PantsLabyrinth</td>
             <td>Evento</td>
             <td><code>item_name: string</code></td>
-            <td>Cuando el usuario añade un artículo a tu lista de deseos</td>
+            <td>Cuando el usuario añade un artículo a su lista de deseos</td>
         </tr>
         <tr>
             <td><code>pl_added_item_to_cart</code></td>
             <td>PantsLabyrinth</td>
             <td>Evento</td>
             <td><code>item_name: string</code></td>
-            <td>Cuando el usuario añade un artículo a tu carrito</td>
+            <td>Cuando el usuario añade un artículo a su carrito</td>
         </tr>
         <tr>
             <td><code>&lt;purchase_event&gt;</code></td>
@@ -130,7 +131,7 @@ th:nth-child(5), td:nth-child(5) {
             <td>Steppington</td>
             <td>Evento</td>
             <td><code>benefit_type: string</code></td>
-            <td>Cuando el usuario visita la pestaña Steppington+ (si está habilitada con la bandera de característica)</td>
+            <td>Cuando el usuario visita la pestaña Steppington+ (si está habilitada con el conmutador de características)</td>
         </tr>
         <tr>
             <td><code>st_viewed_class</code></td>
@@ -172,14 +173,14 @@ th:nth-child(5), td:nth-child(5) {
             <td>Steppington</td>
             <td>Evento</td>
             <td></td>
-            <td>Cuando el usuario selecciona el botón <strong>«Iniciar prueba gratuita»</strong></td>
+            <td>Cuando el usuario selecciona el botón <strong>Start Free Trial</strong></td>
         </tr>
         <tr>
             <td><code>st_set_goal</code></td>
             <td>Steppington</td>
             <td>Evento</td>
             <td><code>goal_name: string</code><br><code>goal: number</code><br><code>units: string</code></td>
-            <td>Cuando el usuario selecciona el botón <strong>«Iniciar prueba gratuita</strong>».</td>
+            <td>Cuando el usuario selecciona el botón <strong>Start Free Trial</strong>.</td>
         </tr>
     </tbody>
 </table>

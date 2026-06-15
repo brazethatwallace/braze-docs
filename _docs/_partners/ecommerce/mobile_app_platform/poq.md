@@ -28,7 +28,7 @@ The following channels and features are supported.
 | Analytics and event tracking | Poq sends a comprehensive set of app events to Braze, covering the full customer journey. This data powers segmentation, campaign triggers, and personalization in Braze. |
 | Content Cards and message inbox | Deliver persistent Braze Content Cards within the app, either in a dedicated message inbox screen, or on pages built with Poq's Dynamic Content page builder or within pre-defined slots throughout the app. Content Cards are filtered using key-value pairs configured in Braze. |
 | Banners | Display Braze Banners within the app, either on pages built with Poq's Dynamic Content page builder or within pre-defined slots throughout the app. Banner content is fetched using a placement ID. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What's supported" }
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ You need the following to use this integration.
 | :---- | :---- |
 | Poq app | A Poq app is required to take advantage of this integration. |
 | Braze App API keys | A Braze App API key is required for each platform (iOS and Android). Obtain these from **Settings** > **APIs and Identifiers** > **App Identifiers** in the Braze dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

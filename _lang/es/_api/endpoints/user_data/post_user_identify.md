@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Identificar usuarios"
 article_title: "POST: Identificar usuarios"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ---
 {% api %}
-# Identificar usuarios
+# Identificar usuarios {#identify-users}
 {% apimethod post %}
 /users/identify
 {% endapimethod %}
@@ -19,7 +19,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f74e0f7-0620-4c7b-b0a2-f5f38fdbff58 {% endapiref %}
 
-## Cómo funciona
+## Cómo funciona {#how-it-works}
 
 La llamada `/users/identify` combina un perfil de usuario identificado por un alias (perfil solo con alias), una dirección de correo electrónico (perfil solo con correo electrónico) o un número de teléfono (perfil solo con número de teléfono) con un perfil de usuario que tiene un `external_id` (perfil identificado) y, a continuación, elimina el perfil solo con alias.
 
@@ -35,7 +35,7 @@ Si no hay ningún usuario con ese `external_id`, el `external_id` se añade al r
 Para evitar la pérdida inesperada de datos al identificar a los usuarios, te recomendamos encarecidamente que primero consultes las [mejores prácticas de recopilación de datos]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices/#capturing-user-data-when-alias-only-user-info-is-already-present) para saber cómo capturar datos de usuario cuando ya existe información de usuario solo con alias.
 {% endalert %}
 
-### Comportamiento de fusión
+### Comportamiento de fusión {#merging-behavior}
 
 De forma predeterminada, este punto de conexión fusiona la siguiente lista de campos que se encuentran **exclusivamente** en el usuario anónimo con el usuario identificado.
 
@@ -66,7 +66,7 @@ De forma predeterminada, este punto de conexión fusiona la siguiente lista de c
 - Fecha de la última compra (Braze elige la fecha más reciente de las dos)
 - Resúmenes de la aplicación
 - Campos Last_X_at (Braze actualiza los campos si los campos del perfil huérfano son más recientes)
-- Resúmenes de campañas (Braze selecciona los campos de fecha más recientes)
+- Resúmenes de Campaign (Braze selecciona los campos de fecha más recientes)
 - Resúmenes del flujo de trabajo (Braze selecciona los campos de fecha más recientes)
 - Historial de mensajes e interacción con mensajes
 - Recuento de eventos personalizados y eventos de compra, y marcas de tiempo de primera y última fecha
@@ -75,15 +75,15 @@ De forma predeterminada, este punto de conexión fusiona la siguiente lista de c
   - Por ejemplo, si nuestro usuario objetivo no tiene un resumen de la aplicación «ABCApp», pero nuestro usuario original sí, el usuario objetivo tendrá el resumen de la aplicación «ABCApp» en su perfil después de la fusión.
 {% enddetails %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `users.identify`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users identify' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -98,7 +98,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 },
 ```
 
-### Parámetros de la solicitud
+### Parámetros de la solicitud {#request-parameters}
 
 Puedes añadir hasta 50 alias de usuario por solicitud. Puedes asociar varios alias de usuario adicionales a un único `external_id`.
 
@@ -106,14 +106,14 @@ Puedes añadir hasta 50 alias de usuario por solicitud. Puedes asociar varios al
 Se requiere uno de los siguientes por solicitud: `aliases_to_identify`, `emails_to_identify` o `phone_numbers_to_identify`. Por ejemplo, puedes utilizar este punto de conexión para identificar a los usuarios por correo electrónico utilizando `emails_to_identify` en tu solicitud.
 {% endalert %}
 
-| Parámetro                   | Obligatoria | Tipo de datos                           | Descripción                                                                                                                                                                 |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `aliases_to_identify`       | Obligatoria | Conjunto de alias para identificar objetos | Ver [alias para identificar objeto]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) y [objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
-| `emails_to_identify`        | Obligatoria | Conjunto de alias para identificar objetos | Obligatorio si se especifica `email` como identificador. Direcciones de correo electrónico para identificar usuarios. Ver [Identificación de usuarios por correo electrónico](#identifying-users-by-email).                                                                                                              |
-| `phone_numbers_to_identify` | Obligatoria | Conjunto de alias para identificar objetos | Números de teléfono para identificar usuarios.                                                                                                                                            |
+| `aliases_to_identify` | Obligatorio | Conjunto de objetos de alias para identificar | Ver [objeto de alias para identificar]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) y [objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
+| `emails_to_identify` | Obligatorio | Conjunto de objetos de alias para identificar | Obligatorio si se especifica `email` como identificador. Direcciones de correo electrónico para identificar usuarios. Ver [Identificación de usuarios por correo electrónico](#identifying-users-by-email). |
+| `phone_numbers_to_identify` | Obligatorio | Conjunto de objetos de alias para identificar | Números de teléfono para identificar usuarios. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-### Identificación de usuarios mediante direcciones de correo electrónico y números de teléfono
+### Identificación de usuarios mediante direcciones de correo electrónico y números de teléfono {#identifying-users-by-email-addresses-and-phone-numbers}
 
 Si se especifica una dirección de correo electrónico o un número de teléfono como identificador, también debes incluir `prioritization` en el identificador.
 
@@ -135,7 +135,7 @@ En la matriz de priorización solo puede existir una de las siguientes opciones 
 No se produce una fusión si la dirección de correo electrónico o el número de teléfono coincide con varios usuarios. Esto incluye los casos en los que uno de esos usuarios tiene el mismo `external_id` que el especificado en la solicitud. En estos casos, el punto de conexión devuelve `"message": "success"`, pero los perfiles de usuario no se combinan. Para evitar esto, verifica que la dirección de correo electrónico o el número de teléfono esté asociado únicamente a usuarios no identificados antes de llamar a este punto de conexión.
 {% endalert %}
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#request-example}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
@@ -161,7 +161,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 }'
 ```
 
-### Distinción entre mayúsculas y minúsculas
+### Distinción entre mayúsculas y minúsculas {#case-sensitivity}
 
 El campo `alias_name` distingue entre mayúsculas y minúsculas. Una solicitud que devuelve un código de estado `201` solo confirma que la sintaxis de la solicitud era válida; no confirma que el alias haya coincidido. Si las mayúsculas y minúsculas de `alias_name` en tu solicitud no coinciden exactamente con el alias almacenado en el perfil de usuario, la operación fallará silenciosamente y el `external_id` no se asignará. Por ejemplo, si el alias almacenado es `JimJones@example.com`, una solicitud con `jimjones@example.com` devolverá éxito pero no producirá ningún resultado.
 
@@ -169,7 +169,7 @@ El campo `alias_name` distingue entre mayúsculas y minúsculas. Una solicitud q
 Para más información sobre `alias_name` y `alias_label`, consulta nuestra documentación sobre [alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).
 {% endalert %}
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {

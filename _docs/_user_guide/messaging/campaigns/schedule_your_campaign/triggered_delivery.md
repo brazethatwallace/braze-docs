@@ -17,7 +17,7 @@ tool: Campaigns
 ### Step 1: Select a trigger event
 
 Select a trigger event. This can include any of the following:
-- Making a purchase
+- Placing an order
 - Starting a session
 - Performing a custom event
 - Performing the campaign's primary conversion event

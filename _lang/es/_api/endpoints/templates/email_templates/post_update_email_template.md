@@ -1,35 +1,40 @@
 ---
-nav_title: "PUBLICAR: Actualizar plantilla de correo electrónico"
-article_title: "PUBLICAR: Actualizar plantillas de correo electrónico"
+nav_title: "POST: Actualizar plantilla de correo electrónico"
+article_title: "POST: Actualizar plantillas de correo electrónico"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Actualizar plantilla de correo electrónico de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Actualizar plantilla de correo electrónico de Braze."
 
 ---
 {% api %}
-# Actualizar las plantillas de correo electrónico existentes
+# Actualizar las plantillas de correo electrónico existentes {#update-existing-email-templates}
 {% apimethod post %}
 /templates/email/update
 {% endapimethod %}
 
-> Utiliza este punto final para actualizar plantillas de correo electrónico en el panel Braze.
+> Utiliza este punto de conexión para actualizar plantillas de correo electrónico en el dashboard de Braze.
 
-Puedes acceder a la página `email_template_id` de una plantilla de correo electrónico navegando hasta ella en la página **Plantillas & Medios**. El [punto final Crear plantilla de correo electrónico]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) también devolverá una referencia `email_template_id`.
+Puedes acceder al `email_template_id` de una plantilla de correo electrónico navegando hasta ella en la página **Plantillas y medios**. El [punto de conexión Crear plantilla de correo electrónico]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) también devolverá una referencia `email_template_id`.
 
 Todos los campos que no sean `email_template_id` son opcionales, pero debes especificar al menos un campo para actualizarlo.
 
+{% alert tip %}
+También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) utilizando la función [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates). Esto permite que herramientas de IA como Claude y Cursor actualicen plantillas de correo electrónico mediante indicaciones en lenguaje natural.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
-## Requisitos previos
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `templates.email.update`.
+## Requisitos previos {#prerequisites}
 
-## Límite de velocidad
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `templates.email.update`.
+
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -49,21 +54,21 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`email_template_id`| Obligatoria |Cadena|[El identificador API de]({{site.baseurl}}/api/identifier_types/) tu [plantilla de correo electrónico.]({{site.baseurl}}/api/identifier_types/)|
-|`template_name`|Opcional|Cadena|Nombre de tu plantilla de correo electrónico.|
-|`subject`|Opcional|Cadena|Línea del asunto de la plantilla de correo electrónico.|
-|`body`|Opcional|Cadena|Cuerpo de la plantilla de correo electrónico que puede incluir HTML.|
-|`plaintext_body`|Opcional|Cadena|Una versión en texto plano del cuerpo de la plantilla de correo electrónico.|
-|`preheader`|Opcional|Cadena|Preencabezado de correo electrónico utilizado para generar vistas previas en algunos clientes.|
-|`tags`|Opcional|Cadena|[Las etiquetas]({{site.baseurl}}/user_guide/administrative/app_settings/tags/) ya deben existir.|
-|`should_inline_css`|Opcional|Booleano|Habilita o deshabilita la característica `inline_css` por plantilla. Si no se proporciona, Braze utilizará la configuración predeterminada para el AppGroup. Se espera una de `true` o `false`.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id` | Obligatorio | Cadena | El [identificador de API de tu plantilla de correo electrónico]({{site.baseurl}}/api/identifier_types/). |
+| `template_name` | Opcional | Cadena | Nombre de tu plantilla de correo electrónico. |
+| `subject` | Opcional | Cadena | Línea del asunto de la plantilla de correo electrónico. |
+| `body` | Opcional | Cadena | Cuerpo de la plantilla de correo electrónico que puede incluir HTML. |
+| `plaintext_body` | Opcional | Cadena | Una versión en texto plano del cuerpo de la plantilla de correo electrónico. |
+| `preheader` | Opcional | Cadena | Preencabezado de correo electrónico utilizado para generar vistas previas en algunos clientes. |
+| `tags` | Opcional | Cadena | Las [etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags/) ya deben existir. |
+| `should_inline_css` | Opcional | Booleano | Habilita o deshabilita la característica `inline_css` por plantilla. Si no se proporciona, Braze utilizará la configuración predeterminada para el AppGroup. Se espera uno de `true` o `false`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/update' \
 --header 'Content-Type: application/json' \
@@ -79,17 +84,17 @@ curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/up
 }'
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas, si procede.
 
 | Error | Solución de problemas |
 | --- | --- |
 | El nombre de la plantilla es obligatorio. | Introduce un nombre para la plantilla. |
-| Las etiquetas deben ser una matriz | Las etiquetas deben formatearse como una matriz de cadenas, por ejemplo `["marketing", "promotional", "transactional"]`. |
-| Todas las etiquetas deben ser cadenas | Asegúrate de que tus etiquetas estén entre comillas (`""`). |
-| No se han encontrado algunas etiquetas | Para añadir una etiqueta al crear una plantilla de correo electrónico, la etiqueta debe existir ya en Braze. |
-| Valor no válido para `should_inline_css`. Se esperaba una de `true` o `false` | Este parámetro solo acepta valores booleanos (verdadero o falso). Asegúrate de que el valor de `should_inline_css` no está encapsulado entre comillas (`""`), lo que hace que el valor se envíe como una cadena. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Las etiquetas deben ser una matriz. | Las etiquetas deben formatearse como una matriz de cadenas, por ejemplo `["marketing", "promotional", "transactional"]`. |
+| Todas las etiquetas deben ser cadenas. | Asegúrate de que tus etiquetas estén entre comillas (`""`). |
+| No se han encontrado algunas etiquetas. | Para añadir una etiqueta al crear una plantilla de correo electrónico, la etiqueta debe existir ya en Braze. |
+| Valor no válido para `should_inline_css`. Se esperaba uno de `true` o `false`. | Este parámetro solo acepta valores booleanos (true o false). Asegúrate de que el valor de `should_inline_css` no esté entre comillas (`""`), ya que eso hace que el valor se envíe como una cadena en lugar de un booleano. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

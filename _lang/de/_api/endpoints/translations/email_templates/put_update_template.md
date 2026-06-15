@@ -1,25 +1,23 @@
 ---
-nav_title: "PUT: Update der Übersetzungen für ein E-Mail Template"
-article_title: "PUT: Übersetzungen für ein E-Mail Template aktualisieren"
-search_tag: Endpunkt
+nav_title: "PUT: Update der Übersetzungen für ein E-Mail-Template"
+article_title: "PUT: Übersetzungen für ein E-Mail-Template aktualisieren"
+search_tag: Endpoint
 page_order: 4
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Updates von Übersetzungen für einen E-Mail Template Endpunkt."
+description: "Dieser Artikel beschreibt die Details des Endpunkts „Übersetzungen für ein E-Mail-Template aktualisieren“."
 ---
 
 {% api %}
-# Update der Übersetzungen für ein E-Mail Template
+# Übersetzungen für ein E-Mail-Template aktualisieren {#update-translations-for-an-email-template}
 {% apimethod put %}
-/Templates/E-Mail/Übersetzungen/
+/templates/email/translations/
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Übersetzungen für ein [E-Mail Template]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates) zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [„Locales in Nachrichten]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/)“.
+> Verwenden Sie diesen Endpunkt, um Übersetzungen für ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/) zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `templates.translations.update`.
 
@@ -27,24 +25,24 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Pfad-Parameter
+## Pfadparameter {#path-parameters}
 
 Für diesen Endpunkt gibt es keine Pfadparameter.
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `template_id` | Erforderlich | String | Die ID Ihrer E-Mail-Vorlage. |
+| `template_id` | Erforderlich | String | Die ID Ihres E-Mail-Templates. |
 | `locale_id` | Erforderlich | String | Die ID des Gebietsschemas. |
-| `translations_map` | Erforderlich | String | Die Abbildung der Übersetzungen für Ihr E-Mail Template. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `translations_map` | Erforderlich | String | Die Zuordnung der Übersetzungen für Ihr E-Mail-Template. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.
 {% endalert %}
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```json
 {
@@ -58,11 +56,11 @@ Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die
 }
 ```
 
-## Antwort
+## Antwort {#response}
 
-Es gibt vier Status Code Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
+Es gibt vier Statuscode-Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
 ```json
 {
@@ -70,9 +68,9 @@ Es gibt vier Status Code Antworten für diesen Endpunkt: `200`, `400`, `404` und
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
 
 ```json
 {

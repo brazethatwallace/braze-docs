@@ -1,7 +1,7 @@
 ---
 nav_title: SalesWings
 article_title: SalesWings
-description: "この参考記事では、BrazeとSalesWingsのパートナーシップについて概説している。SalesWingsは、Brazeのセールス＆マーケティング・オペレーション・ソリューションで、リードやアカウントのクオリフィケーションを支援し、SalesforceなどのCRM内でセールスインサイトやアラート、B2Bアトリビューションレポートを提供する。Brazeの興味やエンゲージメントを活用して、キャンバスでのパーソナライゼーションやセグメンテーションを行うことができる。セールスウィングスもまた、Digiohと同様にWebサイトからリードを生成する方法を提供している。"
+description: "このリファレンス記事では、BrazeとSalesWingsのパートナーシップについて説明します。SalesWingsは、Braze向けのセールス＆マーケティングオペレーションソリューションで、リードやアカウントの適格性評価を支援し、SalesforceなどのCRM内でセールスインサイトやアラート、B2Bアトリビューションレポートを提供します。Braze内の興味やエンゲージメントを活用して、キャンバスでのパーソナライゼーションやセグメンテーションを行うことができます。SalesWingsは、Digiohと同様にWebサイトからリードを生成する方法も提供しています。"
 alias: /partners/saleswings/
 page_type: partner
 search_tag: Partner
@@ -10,196 +10,195 @@ search_tag: Partner
 
 # SalesWings
 
-> [SalesWingsは](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)、B2B SaaSのセールスおよびマーケティングオペレーションソリューションであり、総合的なリードスコアリングとグレーディングを通じてリードとアカウントの適格性を管理し、セールスインサイトとアラート、B2Bアトリビューションレポートを提供するとともに、Salesforce CRMとの緊密な統合を支援する。 Digiohと同様のWebサイト・エンゲージメント・アドオンを使えば、Webサイト上でリードを生み出すことができる。Braze内部の興味やエンゲージメントを活用して、キャンバスでのパーソナライゼーションやセグメンテーションを行うことができる。
+> [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)は、B2B SaaSのセールスおよびマーケティングオペレーションソリューションです。総合的なリードスコアリングとグレーディングを通じてリードとアカウントの適格性管理を支援し、セールスインサイトとアラート、B2Bアトリビューションレポートを提供するとともに、Salesforce CRMとの緊密な統合を実現します。Digiohと同様のWebサイトエンゲージメントアドオンを使えば、Webサイト上でリードを生成できます。Braze内の興味やエンゲージメントを活用して、キャンバスでのパーソナライゼーションやセグメンテーションを行うことができます。
 
-_この統合は SalesWings によって管理されます。_
+_この統合はSalesWingsによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-SalesWings では、マーケティングチームとマーケティングオペレーションマネージャーが、営業チームのためにリードとアカウントの適格性を評価します。これは、営業とマーケティングの連携とオペレーションの効率化に不可欠です。さらに、SalesWingsはBrazeとともに、リードとアカウントの完全なカスタマージャーニーとBrazeマーケティングキャンペーンのエンゲージメントデータを営業担当者に表示することができ、より精度の高い会話によってリードの認定率を向上させることができる。SalesWingsは、他のシグナルとともにニーズと関心を識別し、CRM内の営業チームに適格なバイヤーをオートメーションで引き渡すことを可能にする。特定されたニーズ、興味、販売準備状況を、パーソナライゼーションやセグメンテーションのためのBrazeユーザー属性として使用することができる。
+SalesWingsでは、マーケティングチームとマーケティングオペレーションマネージャーが、営業チームのためにリードとアカウントの適格性を評価できます。これは、営業とマーケティングの連携とオペレーションの効率化に不可欠です。さらに、SalesWingsはBrazeとともに、リードとアカウントの完全なカスタマージャーニーとBrazeマーケティングキャンペーンのエンゲージメントデータを営業担当者に表示できるため、より精度の高い会話によってリードの認定率を向上させることができます。SalesWingsは、他のシグナルとともにニーズと関心を識別し、CRM内の営業チームに適格なバイヤーを自動的に引き渡すことを可能にします。特定されたニーズ、興味、販売準備状況を、パーソナライゼーションやセグメンテーションのためのBrazeユーザー属性として使用できます。
 
-## 前提条件
- 
+## 前提条件 {#prerequisites}
+
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| SalesWings アカウント | このパートナーシップを活用するには、[SalesWings アカウント](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)が必要です。 |
-| Braze REST API キー | `users.export.ids` の権限を持つREST APIキー（SalesWingsのインサイトプッシュ機能を使用する場合は、`users.track` ）。<br><br> これは、Braze ダッシュボードの [**設定**] > [**API キー**] で作成できます。 |
-| Braze REST エンドポイント | [あなたのRESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、インスタンスのBraze URLに依存する。 |
-| Segment.com アカウント (オプション) | Segment.com をご利用の場合は、リードプロファイリングのために、すべてのリードエンゲージメントおよびプロファイルデータを送信し、Segment.com でイベントを特定することができます。 |
+| SalesWingsアカウント | このパートナーシップを活用するには、[SalesWingsアカウント](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)が必要です。 |
+| Braze REST APIキー | `users.export.ids`の権限を持つBraze REST APIキー（SalesWingsのインサイトプッシュ機能を使用する場合は`users.track`も必要）。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**で作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、インスタンスのBraze URLに依存します。 |
+| セグメント.comアカウント（オプション） | セグメント.comをご利用の場合は、リードプロファイリングのために、すべてのリードエンゲージメントおよびプロファイルデータの送信とイベントの識別をセグメント.com経由で行うことができます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## ユースケース
+## ユースケース {#use-cases}
 
 {% tabs %}
-{% tab Lead and Account Scoring %}
+{% tab リードとアカウントのスコアリング %}
 
-SalesWings は、最先端のリードグレーディング機能と[リードスコアリング機能により、リード、取引先責任者、アカウントを選別する柔軟な方法](https://www.saleswingsapp.com/braze-lead-scoring-and-sales-insights?utm_source=braze&utm_campaign=technicaldocs)を Braze のお客様に提供します。すべてのリードクオリフィケーションデータは、Salesforce CRM や、リード、取引先責任者、アカウント、商談を管理および報告するその他のシステムにネイティブにプッシュされます。
+SalesWingsは、最先端のリードグレーディング機能と[リードスコアリング機能により、リード、取引先責任者、アカウントを選別する柔軟な方法](https://www.saleswingsapp.com/braze-lead-scoring-and-sales-insights?utm_source=braze&utm_campaign=technicaldocs)をBrazeのお客様に提供します。すべてのリードクオリフィケーションデータは、Salesforce CRMや、リード、取引先責任者、アカウント、商談を管理およびレポートするその他のシステムにネイティブにプッシュされます。
 
-![セールスウィングスにおけるシンプルなクリック・ノットコード・リードスコアリングモデルの例]({% image_buster /assets/img/saleswings/example_lead_scoring_builder_braze_lead_scoring.png %})
+![SalesWingsにおけるシンプルなclick-not-codeリードスコアリングモデルの例]({% image_buster /assets/img/saleswings/example_lead_scoring_builder_braze_lead_scoring.png %})
 
-_SalesWings のシンプルな click-not-code リードスコアリングモデルの例_
+_SalesWingsのシンプルなclick-not-codeリードスコアリングモデルの例_
 {% endtab %}
-{% tab Sales and Marketing Alignment %}
-SalesWings では、マーケティングチームがマーケティング対象として適格なリードを追跡、選別し、営業チームに受け渡すことができます。SalesWingsのデータはすべてSalesforceにネイティブにプッシュされ、既存のプロセスを微調整したり、リスト、レポート、フローなどを使って新しいプロセスを作成したりするのに活用できる。
+{% tab セールスとマーケティングの連携 %}
+SalesWingsでは、マーケティングチームがマーケティング対象として適格なリードを追跡、選別し、営業チームに受け渡すことができます。SalesWingsのデータはすべてSalesforceにネイティブにプッシュされ、既存のプロセスを微調整したり、リスト、レポート、フローなどを使って新しいプロセスを作成したりするのに活用できます。
 
-![SalesWingsのリードスコアリングが、Salesforce内でリードやコンタクトのリストに優先順位をつける例]({% image_buster /assets/img/saleswings/prioritized_lead_or_contact_list_braze_lead_scoring.png %})
+![SalesWingsのリードスコアリングがSalesforce内でリードやコンタクトのリストに優先順位をつける例]({% image_buster /assets/img/saleswings/prioritized_lead_or_contact_list_braze_lead_scoring.png %})
 
-_SalesWings リードスコアリングにより、Salesforce 内部でネイティブに一連のリードまたは取引先担当者を優先順位付けする方法の例_
+_SalesWingsリードスコアリングにより、Salesforce内部でネイティブにリードまたは取引先担当者のリストを優先順位付けする方法の例_
 
 ![SalesWingsのリードスコアリングがSalesforceのアカウントリストに優先順位をつける例]({% image_buster /assets/img/saleswings/prioritized_account_list_braze_lead_scoring.png %})
 
-_SalesWings リードスコアリングにより、Salesforce 内部でネイティブに一連のアカウントを優先順位付けする方法の例_
+_SalesWingsリードスコアリングにより、Salesforce内部でネイティブにアカウントのリストを優先順位付けする方法の例_
 {% endtab %}
-{% tab Lead and Account Grading %}
-SalesWings では、Braze のお客様がプロファイルデータ (通常は CRM データ) に基づいてリードとアカウントを選別できます。これは「リードグレーディング」、「フィットスコアリング」、「ファームグラフィックスコアリング」とも呼ばれる。Braze のお客様は、属性データを直接 SalesWings に送信できます。SalesWings は、全体的なプロファイルスコアリングのために Salesforce CRM の標準オブジェクトまたはカスタムオブジェクトのデータとレコードを読み取ることができます。
+{% tab リードとアカウントのグレーディング %}
+SalesWingsでは、Brazeのお客様がプロファイルデータ（通常はCRMデータ）に基づいてリードとアカウントを選別できます。これは「リードグレーディング」、「フィットスコアリング」、「ファームグラフィックスコアリング」とも呼ばれます。Brazeのお客様は、属性データを直接SalesWingsに送信できます。SalesWingsは、総合的なプロファイルスコアリングのためにSalesforce CRMの標準オブジェクトまたはカスタムオブジェクトのデータとレコードを読み取ることができます。
 {% endtab %}
-{% tab Sales Insights for Sales Reps %}
-SalesWings では、リード、取引先担当者、アカウントに関するセールスインサイトを営業担当者に対して表示できます (Marketo Sales Insights の代替)。基本的には、Braze および Web エンゲージメントデータを営業チームに対して表示できます。インサイトは Salesforce CRM にネイティブに組み込まれ、他の CRM やシステムにプッシュするか、Braze のメールで「セールスアラート」として送信することができます。
+{% tab 営業担当者向けセールスインサイト %}
+SalesWingsでは、リード、取引先担当者、アカウントに関するセールスインサイトを営業担当者に対して表示できます（Marketo Sales Insightsの代替）。基本的には、BrazeおよびWebエンゲージメントデータを営業チームに対して表示できます。インサイトはSalesforce CRMにネイティブに組み込まれ、他のCRMやシステムにプッシュするか、Brazeのメールで「セールスアラート」として送信することができます。
 
 ![Salesforce内の営業担当者向けセールスインサイトビューの例（他のCRMシステムでも利用可能）]({% image_buster /assets/img/saleswings/marketo_sales_insights_alternative_for_braze.png %})
 
 _Salesforce内の営業担当者向けセールスインサイトビューの例（他のCRMシステムでも利用可能）_
 {% endtab %}
-{% tab Sales Alerts %}
-SalesWings は、ネイティブメールと Slack アラートを提供します。Salesforce でレポートサブスクリプションを設定することで、営業チームがこのサブスクリプションを使用して日次、週次、月次のメールレポートを取得できます。さらに Zapier との統合により、SalesWings のリードクオリフィケーションデータに基づいた追加ワークフローを作成できます。
+{% tab セールスアラート %}
+SalesWingsは、ネイティブメールとSlackアラートを提供します。Salesforceでレポートサブスクリプションを設定することで、営業チームが日次、週次、月次のメールレポートを取得できます。さらにZapierとの統合により、SalesWingsのリードクオリフィケーションデータに基づいた追加ワークフローを作成できます。
 
-![Slackチャネルを通じたセールスアラートの例]({% image_buster /assets/img/saleswings/smart_watch_alerts.png %})
+![Slackチャンネルを通じたセールスアラートの例]({% image_buster /assets/img/saleswings/smart_watch_alerts.png %})
 
 _Slackチャンネルを使ったセールスアラートの例_
 {% endtab %}
-{% tab Reporting in Salesforce CRM %}
-SalesWings と Salesforce のネイティブ統合により、Web エンゲージメントデータと Braze Currents のネイティブ統合によるあらゆる Braze キャンペーンエンゲージメントに基づいて、リード、取引先責任者、取引先、および商談に関する自動レポートを構築できます。例えば、特定のEメールキャンペーンをクリックした人、アプリやウェブサイトで特定のアクションを行った人など、ホットリードのリストを営業チームに見せることができる。
+{% tab Salesforce CRMでのレポート %}
+SalesWingsとSalesforceのネイティブ統合により、WebエンゲージメントデータとBraze Currentsのネイティブ統合によるあらゆるBraze キャンペーンエンゲージメントに基づいて、リード、取引先責任者、取引先、および商談に関する自動レポートを構築できます。例えば、特定のメールキャンペーンをクリックした人、アプリやWebサイトで特定のアクションを行った人など、ホットリードのリストを営業チームに表示することができます。
 
-![Brazeのメールにリンクしたダッシュボードの例& Salesforce内のマーケティングエンゲージメントは、Brazeのキャンペーンが営業結果や成果に与える影響を見ている。]({% image_buster /assets/img/saleswings/saleswings_email_campaign_attribution_dashboard.png %})
+![BrazeのメールおよびマーケティングエンゲージメントにリンクしたSalesforce内のダッシュボード例。Braze キャンペーンがセールスの結果や成果に与える影響を確認できます]({% image_buster /assets/img/saleswings/saleswings_email_campaign_attribution_dashboard.png %})
 
-_Brazeのメールにリンクしたダッシュボードの例& Salesforce内のマーケティングエンゲージメントは、Brazeのキャンペーンがセールスの結果や成果に与える影響を見ている。_
+_BrazeのメールおよびマーケティングエンゲージメントにリンクしたSalesforce内のダッシュボード例。Braze キャンペーンがセールスの結果や成果に与える影響を確認できます_
 {% endtab %}
 {% endtabs %}
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:SalesWings アカウントと設定
+### ステップ1: SalesWingsアカウントと設定 {#step-1-saleswings-account-and-configuration}
 
-SalesWings について詳しく知るために、フレンドリーな SalesWings チームとの[デモをスケジュール](https://www.saleswingsapp.com/schedule-a-demo?utm_source=braze&utm_campaign=technicaldocs)します。
+SalesWingsについて詳しく知るために、フレンドリーなSalesWingsチームとの[デモをスケジュール](https://www.saleswingsapp.com/schedule-a-demo?utm_source=braze&utm_campaign=technicaldocs)してください。
 
-### ステップ2:ウェブサイトやアプリに行動トラッキングを設置する
+### ステップ2: Webサイトやアプリに行動トラッキングを設置する {#step-2-installing-behavioral-tracking-on-your-website-or-app}
 
-SalesWings でリードスコアリングとセールスインサイトのために行動データを収集し買い手の意図、セールスのインサイトを特定する方法はいくつかあります。
-* リードを追跡して特定したい Web サイトやアプリに、[SalesWings トラッキング JavaScriptを導入する](https://support.saleswingsapp.com/en/collections/3285135-1-implementing-saleswings-tracking-script)
-* イベントプロパティと共に Braze イベントを Braze Currents 経由で SalesWings に取り込む
-* [SalesWings と Segment](https://support.saleswingsapp.com/en/articles/9258905-segment-com-integration) の統合を介して行動リードアクティビティデータ (およびリードプロファイルデータ) を送信する
-* サードパーティのソリューションから SalesWings [API](https://support.saleswingsapp.com/en/articles/6930889-using-saleswings-open-api-to-send-events-to-saleswings) に直接データを送信
+SalesWingsでリードおよびアカウントスコアリング、バイヤーインテントの特定、セールスインサイトのために行動データを収集する方法はいくつかあります。
+* リードを追跡して特定したいWebサイトやアプリに、[SalesWingsトラッキングJavaScriptを導入する](https://support.saleswingsapp.com/en/collections/3285135-1-implementing-saleswings-tracking-script)
+* イベントプロパティとともにBrazeイベントをBraze Currents経由でSalesWingsに取り込む
+* [SalesWingsとセグメントの統合](https://support.saleswingsapp.com/en/articles/9258905-segment-com-integration)を介して行動リードアクティビティデータ（およびリードプロファイルデータ）を送信する
+* サードパーティのソリューションからSalesWings [API](https://support.saleswingsapp.com/en/articles/6930889-using-saleswings-open-api-to-send-events-to-saleswings)に直接データを送信する
 
-### ステップ 3: SalesWingsとBrazeを接続する
+### ステップ3: SalesWingsとBrazeを接続する {#step-3-connecting-saleswings-to-braze}
 
-[[**SalesWings Integrations**] ページ](https://helium.saleswings.pro/integrations)に移動し、[**Braze Integration**] セクションを展開します。
+[**SalesWings Integrations**ページ](https://helium.saleswings.pro/integrations)に移動し、**Braze Integration**セクションを展開します。
 
-![[SalesWings Settings] ページの [Braze Integration] セクション。]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_integration_settings.png %})
+![SalesWings設定ページのBraze Integrationセクション]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_integration_settings.png %})
 
-新しく作成したキーの**Identifier**列の値をコピーし、SalesWings**Braze Integration**セクションの**Braze APIキー**フィールドにペーストする。
+新しく作成したキーの**Identifier**列の値をコピーし、SalesWingsの**Braze Integration**セクションにある**Braze API key**フィールドにペーストします。
 
-[API と SDK のエンドポイントの記事]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints)での説明に従って Braze API エンドポイントを追加し、[**Braze API endpoint**] フィールドにこのエンドポイントを入力します。**REST Endpoint**列の値をコピーし、SalesWings**Braze Integration**セクションの**Braze API endpoint**フィールドに入力する。
+[APIとSDKのエンドポイントの記事]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)の説明に従ってBraze APIエンドポイントを追加し、**Braze API endpoint**フィールドに入力します。**REST Endpoint**列の値をコピーし、SalesWingsの**Braze Integration**セクションにある**Braze API endpoint**フィールドに入力します。
 
 次に、**Save**を選択します。
 
-### ステップ 4: セールスウィングスのインサイトをBrazeにプッシュできるようにする（オプション）
+### ステップ4: SalesWingsのインサイトをBrazeにプッシュできるようにする（オプション） {#step-4-enable-saleswings-insights-push-to-braze-optional}
 
-セグメンテーション、パーソナライゼーション、またはキャンバスジャーニーのオーケストレーションのために、BrazeユーザープロファイルでSalesWingsインサイトを利用できるようにしたい場合は、[**SalesWings Integrations**](https://helium.saleswings.pro/integrations)ページにアクセスし、**Braze Integration**セクションを展開してください。
+セグメンテーション、パーソナライゼーション、またはキャンバスジャーニーのオーケストレーションのために、BrazeユーザープロファイルでSalesWingsインサイトを利用できるようにしたい場合は、[**SalesWings Integrations**ページ](https://helium.saleswings.pro/integrations)にアクセスし、**Braze Integration**セクションを展開してください。
 
-**SalesWings-to-Braze insightsデータプッシュの**下にある**Start data pushを**クリックする。
+**SalesWings-to-Braze insights data push**の下にある**Start data push**をクリックします。
 
-### ステップ 5: SalesWings への Currents カスタムエクスポートの設定 (オプション)
+### ステップ5: SalesWingsへのCurrentsカスタムエクスポートの設定（オプション） {#step-5-set-up-a-custom-currents-export-to-saleswings-optional}
 
-[ユーザー行動や]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events) [メッセージエンゲージメントの]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events)イベントを、行動インテリジェンス、リードやアカウントのスコアリング、セールスインサイトの作成、CRMでのレポート作成に使用したい場合は、[**SalesWings Integrations**ページに](https://helium.saleswings.pro/integrations)行き、**Braze Integration**セクションを展開する。
+[ユーザー行動]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)や[メッセージエンゲージメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)のイベントを、行動インテリジェンス、リードやアカウントのスコアリング、セールスインサイトの作成、CRMでのレポート作成に使用したい場合は、[**SalesWings Integrations**ページ](https://helium.saleswings.pro/integrations)に移動し、**Braze Integration**セクションを展開します。
 
-[**API トークンの生成**] で [**生成**] を選択して、カスタム Currents エクスポートを設定します。
+**Generate an API token to setup a Custom Currents Export**の下にある**Generate**を選択します。
 
-次に、[Current を新規作成し]({{site.baseurl}}/user_guide/data/braze_currents/setting_up_currents)、Current タイプとして**カスタム Currents エクスポート**を選択します。
+次に、[Currentを新規作成し]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)、Currentタイプとして**Custom Currents Export**を選択します。
 
-Currents 作成フォームの**認証情報**セクションで、[**SalesWings の「統合」**ページ](https://helium.saleswings.pro/integrations)で生成した API トークンを「**ベアラートークン**」に `https://helium.saleswings.pro/api/braze/currents/events` を「**エンドポイント**」に入力します。
+Current作成フォームの**Credentials**セクションで、[**SalesWings Integrations**ページ](https://helium.saleswings.pro/integrations)で生成したAPIトークンを**Bearer Token**に、`https://helium.saleswings.pro/api/braze/currents/events`を**Endpoint**に入力します。
 
-### ステップ 6: Braze用のSalesWingsリードとアカウントスコアリング、CRM統合などを設定する
+### ステップ6: Braze用のSalesWingsリードおよびアカウントスコアリング、CRM統合などを設定する {#step-6-configuring-saleswings-lead-and-account-scoring-for-braze-crm-integration-and-more}
 
-[Web サイト](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)での完全なオンボーディングサポートについては、SalesWings のサービスチームにお問い合わせください。
+完全なオンボーディングサポートについては、[Webサイト](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)からSalesWingsのサービスチームにお問い合わせください。
 
-## この統合を使う 
+## この統合を使う {#using-this-integration}
 
-行動データやその他のデータをリードや取引先にトリガーするためには、SalesWings は、Webサイトやアプリで、またはサードパーティの統合を通じて、ユーザーを識別する必要があります。これは次の方法で行われます。
+行動データやその他のデータをリードやアカウントに紐付けるためには、SalesWingsがWebサイトやアプリで、またはサードパーティの統合を通じて、ユーザーを識別する必要があります。これは次の方法で行われます。
 
-- **フォームの送信:**ユーザーが Web フォームを送信すると、SalesWings はすべての Webフォームタイプ (ログイン、ダウンロード、お問い合わせなど) を自動的に識別し、フォームの送信時にユーザーの身元を特定します。 
-- **Braze IDまたは外部IDを持つURLクリック：**ユーザーがBrazeのマーケティングアクション（通常、Eメールクリック、バナークリックなど）をクリックし、SalesWingsでトラッキングしているページに誘導する。
-- **Braze Currents イベント (オプション):**カスタム Currents の SalesWings へのエクスポートが設定されている場合、SalesWings は、Current に送信されるイベントを含むメールを使用して、すべての Braze ユーザーに対して識別されたプロファイルを作成します。
-- **GmailとOutlookのプラグイン（オプション）による販売メールのトラッキング：**営業担当者にEメール追跡プラグインを導入すれば、追跡可能なリンクを送信することで、ユーザーの完全なウェブサイト追跡が可能になる。
-- **Segment.com 識別イベント (オプション)**Segment.com ユーザーの場合は、Segment.com 統合でユーザーの身元を特定することもできます。
+- **フォームの送信:** ユーザーがWebフォームを送信すると、SalesWingsはすべてのWebフォームタイプ（ログイン、ダウンロード、お問い合わせなど）を自動的に識別し、フォームの送信時にユーザーの身元を特定します。
+- **Braze IDまたはexternal IDを持つURLクリック:** ユーザーがBrazeのマーケティングアクション（通常、メールクリック、バナークリックなど）をクリックし、SalesWingsでトラッキングしているページに誘導されます。
+- **Braze Currentsイベント（オプション）:** カスタムCurrentsのSalesWingsへのエクスポートが設定されている場合、SalesWingsは、Currentに送信されるイベントを持つメールアドレス付きのすべてのBrazeユーザーに対して識別済みプロファイルを作成します。
+- **GmailとOutlookのプラグインによるセールスメールのトラッキング（オプション）:** 営業担当者にメール追跡プラグインを導入すれば、追跡可能なリンクを送信することで、ユーザーの完全なWebサイトトラッキングが可能になります。
+- **セグメント.com識別イベント（オプション）:** セグメント.comユーザーの場合は、セグメント.comの統合でユーザーの身元を特定することもできます。
 
-### URLクリックからユーザーを特定する
+### URLクリックからユーザーを特定する {#identifying-users-from-url-clicks}
 
-追跡可能なURL（例えば、EメールブラストやURL付きバナー）をクリックしたユーザーを自動的に特定することができる。URLを追跡可能にするには、リンクの末尾にパラメータとIDを追加して、Eメール、バナー、SMSでウェブサイトのURLを修正する2つの方法がある。
+追跡可能なURL（例えば、メール一斉送信やURL付きバナー）をクリックしたユーザーを自動的に特定できます。URLを追跡可能にするには、メール、バナー、SMSでWebサイトのURLを修正する2つの方法があり、リンクの末尾にパラメータとIDを追加します。
 
-1. `?braze_id=` と {% raw %}`{{${braze_id}}}`{% endraw %} をこの順序で付加する 
-  - **リンクの例** {% raw %}`https://www.your-website.com?braze_id={{${braze_id}}}`{% endraw %}<br><br>
+1. `?braze_id=`の後に{% raw %}`{{${braze_id}}}`{% endraw %}を付加する
+  - **リンクの例:** {% raw %}`https://www.your-website.com?braze_id={{${braze_id}}}`{% endraw %}<br><br>
 
-2. `?br_user_id=` と {% raw %}`{{${user_id}}}`{% endraw %} をこの順序で付加する
-  - **リンクの例** {% raw %}`https://www.client-website.com?br_user_id={{${user_id}}}`{% endraw %}
+2. `?br_user_id=`の後に{% raw %}`{{${user_id}}}`{% endraw %}を付加する
+  - **リンクの例:** {% raw %}`https://www.client-website.com?br_user_id={{${user_id}}}`{% endraw %}
 
-`braze_id` 変数には、Braze により生成されたユーザーの識別子が設定されます。この変数はいつでも使用できます。`br_user_id` 変数には、システム内のユーザーの識別子が設定されます。この変数は、特定の状況 (Braze SDK により作成された匿名ユーザーなど) では使用されない可能性があります。リンクに`braze_id` と`br_user_id` の両方が使用されている場合、セールスウィングスは`braze_id` パラメータのみを考慮する。
+`braze_id`変数には、Brazeにより生成されたユーザーの識別子が設定されます。この変数はいつでも使用できます。`br_user_id`変数には、システム内のユーザーの識別子が設定されます。この変数は、特定の状況（Braze SDKにより作成された匿名ユーザーなど）では使用されない可能性があります。リンクに`braze_id`と`br_user_id`の両方が使用されている場合、SalesWingsは`braze_id`パラメータのみを考慮します。
 
-### SalesWingsのインサイトをBrazeにプッシュする
+### SalesWingsのインサイトをBrazeにプッシュする {#pushing-saleswings-insights-to-braze}
 
-BrazeへのSalesWingsインサイトプッシュを有効にすると、SalesWingsは以下の[カスタム属性で]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes)Brazeユーザープロファイルを更新する：
+BrazeへのSalesWingsインサイトプッシュを有効にすると、SalesWingsは以下の[カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)でBrazeユーザープロファイルを更新します。
 
 | カスタム属性 | タイプ | 説明 |
 | ----------- | ----------- | ----------- |
-| `sw_favorite` | ブーリアン | リードがセールスウィングスまたはセールスフォースCRMでお気に入りとしてマークされているかどうか |
-| `sw_last_active_at` | date | リードがWebサイトで最後に活動した瞬間 |
-| `sw_lead_link_open` | ストリング | セールスウィングスのリードプロファイルにアクセスするためのリンク（セールスウィングスのダッシュボードアカウントがない場合） |
-| `sw_lead_link_protected` | ストリング | セールスウィングスのリードプロファイルにアクセスするためのリンク（セールスウィングスのダッシュボードアカウントが必要） |
-| `sw_lead_owner` | ストリング | セールスウィングスまたはセールスフォースCRMでリードに設定された所有者 |
-| `sw_lead_score` | フロート | [セールスウィングスルールエンジンで](https://helium.saleswings.pro/falcon)設定されたセールスウィングスリードスコアの主な値 |
-| `sw_predictive_score` | ストリング | セールスウィングスの[予測スコアの](https://support.saleswingsapp.com/en/articles/581795-the-predictive-lead-score)値で、トラッキングされたアクティビティの回数と反復性に基づいてリードのエンゲージメントを評価する。設定可能な値は、`HOT` 、`WARM` 、`NORMAL` 、`COLD` または `FROZEN` |
-| `sw_salesforce_record_id` | ストリング | Salesforce CRM のリードまたはコンタクトレコードの ID |
-| `sw_salesforce_record_url` | ストリング | Salesforce CRM のリードレコードまたはコンタクトレコードの URL |
-| `sw_session_count` | 整数 | このリードのWebサイトでのトラッキング, 追跡セッション数 |
-| `sw_tags` | 文字列の配列 | セールスウィングスが識別したニーズと興味は、「タグ」として表される。このリードに適用される、[セールスウィングスルールエンジンで](https://helium.saleswings.pro/falcon)設定されたセールスウィングスタグの名前 |
-| その他のリードスコア属性 | フロート | [セールスウィングスルールエンジンで](https://helium.saleswings.pro/falcon)設定されたリードスコアにカスタム属性を1つ追加する。例えば、`Likeliness to meet` というスコアは、カスタム属性`sw_likeliness_to_meet` として送信される。スコアが作成された後に名前を変更した場合、セールスウィングスは最初のカスタム属性名で同期を継続する。 |
+| `sw_favorite` | ブール値 | リードがSalesWingsまたはSalesforce CRMでお気に入りとしてマークされているかどうか |
+| `sw_last_active_at` | date | リードがWebサイトで最後に活動した時点 |
+| `sw_lead_link_open` | 文字列 | SalesWingsのリードプロファイルにアクセスするためのリンク（SalesWingsのダッシュボードアカウントなし） |
+| `sw_lead_link_protected` | 文字列 | SalesWingsのリードプロファイルにアクセスするためのリンク（SalesWingsのダッシュボードアカウントが必要） |
+| `sw_lead_owner` | 文字列 | SalesWingsまたはSalesforce CRMでリードに設定された所有者 |
+| `sw_lead_score` | float | SalesWings[ルールエンジン](https://helium.saleswings.pro/falcon)で設定されたメインのSalesWingsリードスコアの値 |
+| `sw_predictive_score` | 文字列 | SalesWingsの[予測スコア](https://support.saleswingsapp.com/en/articles/581795-the-predictive-lead-score)の値で、トラッキングされたアクティビティの回数と新しさに基づいてリードのエンゲージメントを評価します。設定可能な値は`HOT`、`WARM`、`NORMAL`、`COLD`または`FROZEN`です |
+| `sw_salesforce_record_id` | 文字列 | Salesforce CRMのリードまたはコンタクトレコードのID |
+| `sw_salesforce_record_url` | 文字列 | Salesforce CRMのリードまたはコンタクトレコードのURL |
+| `sw_session_count` | 整数 | このリードのWebサイトでのトラッキングセッション数 |
+| `sw_tags` | 文字列の配列 | SalesWingsが識別したニーズと興味で、「タグ」として表されます。このリードに適用される、SalesWings[ルールエンジン](https://helium.saleswings.pro/falcon)で設定されたSalesWingsタグの名前です |
+| その他のリードスコア属性 | float | SalesWings[ルールエンジン](https://helium.saleswings.pro/falcon)で設定された追加のリードスコアごとに1つのカスタム属性。属性名はSalesWingsのスコア名から派生します。例えば、`Likeliness to meet`というスコアはカスタム属性`sw_likeliness_to_meet`として送信されます。スコアの作成後に名前を変更した場合、SalesWingsは最初のカスタム属性名で同期を継続します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-プッシュを有効にすると、セールスウィングスのリードプロファイルで基礎となるデータポイントが変更されると、セールスウィングスは即座にアトリビューションへのカスタム属性の送信を開始し、新しい更新がなくても、すべての既存のリードを徐々に同期する。
+プッシュを有効にすると、SalesWingsのリードプロファイルで基礎となるデータポイントが変更されると、SalesWingsは即座にBrazeへのカスタム属性の送信を開始し、新しい更新がなくても、すべての既存リードを徐々に同期します。
 
-セールスウィングスは、セールスウィングスのリードプロファイルのメールアドレスと一致するメールをすべてのBrazeユーザーに更新する。Brazeに一致するユーザーがいない場合、セールスウィングスは新しいユーザーを作成しない。 
+SalesWingsは、SalesWingsのリードプロファイルのメールアドレスと一致するメールを持つすべてのBrazeユーザーを更新します。Brazeに一致するユーザーがいない場合、SalesWingsは新しいユーザーを作成しません。
 
-### CRM で Braze Currents イベントを使用する
+### CRMでBraze Currentsイベントを使用する {#using-braze-currents-events-in-your-crm}
 
-Braze Current と SalesWings を接続する場合、SalesWings は、メールを持つすべての Braze ユーザーの特定されたリードプロファイルを作成し、サポートされている Braze イベントをリードアクティビティとして記録します。CRM では、すべてのデータをリードのアカウントレベルで自動的に集計できます。記録されたアクティビティやデータは、SalesWings のトラッキングスクリプトや Segment.com で収集された行動データ、または他のデータを SalesWings API に送信することで、さらに組み合わせることができます。また、見込み顧客のニーズや購入意欲を特定し、リードおよびアカウント管理プロセスに活用できます。
+Braze CurrentをSalesWingsに接続すると、SalesWingsは、メールアドレスを持つすべてのBrazeユーザーの識別済みリードプロファイルを作成し、サポートされているBrazeイベントをリードアクティビティとして記録します。CRMでは、すべてのデータをリードのアカウントレベルで自動的に集計できます。記録されたアクティビティやデータは、SalesWingsのトラッキングスクリプトやセグメント.comで収集された行動データ、または他のデータをSalesWings APIに送信することで、さらに組み合わせることができます。また、見込み顧客のニーズや購入意欲を特定し、リードおよびアカウント管理プロセスに活用できます。
 
-次の表は、SalesWings がサポートする Braze イベントタイプと、SalesWings のリードアクティビティ履歴およびルールエンジンにおけるそれらの表現を示します。
+次の表は、SalesWingsがサポートするBrazeイベントタイプと、SalesWingsのリードアクティビティ履歴およびルールエンジンにおけるそれらの表現を示します。
 
-| イベントカテゴリー | イベントタイプ | SalesWings のイベント名 |
+| イベントカテゴリー | イベントタイプ | SalesWingsのイベント名 |
 | ----------- | ----------- | ----------- |
 | キャンバスイベント | エントリー | `[Nurturing] Added by marketing team onto the journey $canvas_name` |
 | 顧客行動イベント | カスタムイベント | `[Custom Event tracked] $name` |
 | 顧客行動イベント | 初回セッション | `[User Action] Today marks the user's first session` |
-| 顧客行動イベント | 帰属をインストールする | `[User Action] User installed app from $source` |
+| 顧客行動イベント | インストールアトリビューション | `[User Action] User installed app from $source` |
 | 顧客行動イベント | 購入イベント | `[Purchase] Customer purchased $product_id for $price $currency` |
 | メッセージイベント | コンテンツカードのクリック | `[Content Card engagement] Clicked on $campaign_name content card` |
 | メッセージイベント | メールバウンス | `[Alerting or negative] Email hard-bounced. This person's email appears to be no longer valid` |
 | メッセージイベント | メールのクリック | `[Email campaign engagement] Clicked in email $campaign_name on $url` |
 | メッセージイベント | メール配信 | `[Nurturing] Received email $campaign_name` |
 | メッセージイベント | メール開封 | `[Email campaign engagement] Opened email $campaign_name` |
-| メッセージイベント | メールの購読解除 | `[Subscription status change] Unsubscribed from $campaign_name` |
+| メッセージイベント | メールの配信停止 | `[Subscription status change] Unsubscribed from $campaign_name` |
 | メッセージイベント | アプリ内メッセージのクリック | `[In-app campaign engagement] Clicked on message $campaign_name` |
 | メッセージイベント | プッシュオープン | `[Push notification engagement] Clicked on notification $campaign_name` |
-| メッセージイベント | SMS/MMS インバウンド受信 | `[SMS/mobile campaign engagement] We received a message from this person to our internal number $inbound_phone_number: $message_body` |
-| メッセージイベント | SMS/MMS 短縮リンクのクリック | `[SMS/mobile campaign engagement] Clicked on $short_url` |
-| メッセージイベント | WhatsApp インバウンド受信 | `[WhatsApp engagement] We received a message from this person to our WhatsApp number $inbound_phone_number: $message_body` |
-| メッセージイベント | WhatsApp 読み取り | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
-| 購読 | グローバル購読のステータスの変更 | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
-| 購読 | 購読グループのステータスの変更 | `[Subscription status change] $subscription_status to/from $campaign_name` |
+| メッセージイベント | SMS/MMSインバウンド受信 | `[SMS/mobile campaign engagement] We received a message from this person to our internal number $inbound_phone_number: $message_body` |
+| メッセージイベント | SMS/MMS短縮リンクのクリック | `[SMS/mobile campaign engagement] Clicked on $short_url` |
+| メッセージイベント | WhatsAppインバウンド受信 | `[WhatsApp engagement] We received a message from this person to our WhatsApp number $inbound_phone_number: $message_body` |
+| メッセージイベント | WhatsApp既読 | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
+| サブスクリプション | グローバルサブスクリプションステータスの変更 | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
+| サブスクリプション | サブスクリプショングループステータスの変更 | `[Subscription status change] $subscription_status to/from $campaign_name` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-次に、上の表の SalesWings イベント名に対して、SalesWings タグおよびスコアの [**カスタムイベント**] > [**イベント名**] および [**カスタムイベント**] > [**イベントプロパティ**] 条件を設定できます。条件に対して使用可能なイベントプロパティのリストは、よく使用されるエントリがあらかじめ入力されており、[[ルールエンジン設定ページ](https://helium.saleswings.pro/falcon)] の [**イベントプロパティ**] セクションでいつでも新しいものを追加できます。
+次に、上の表のSalesWingsイベント名に対して、SalesWingsタグおよびスコアの**カスタムイベント** > **イベント名**および**カスタムイベント** > **イベントプロパティ**条件を設定できます。条件に対して使用可能なイベントプロパティのリストは、よく使用されるエントリがあらかじめ入力されており、[ルールエンジン設定ページ](https://helium.saleswings.pro/falcon)の**イベントプロパティ**セクションでいつでも新しいものを追加できます。
 
-![イベント名の条件例。]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_custom_event_condition.png %})
+![イベント名の条件例]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_custom_event_condition.png %})
 
-設定とトラブルシューティングの詳細については、[SalesWings サービスチーム](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)に連絡して、オンボーディングサポートを受けてください。
-
+設定とトラブルシューティングの詳細については、[SalesWingsサービスチーム](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)に連絡して、オンボーディングサポートを受けてください。

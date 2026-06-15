@@ -8,7 +8,7 @@ channel:
 
 ---
 
-# 문제 해결
+# 문제 해결 {#troubleshooting}
 
 > Braze SDK의 인앱 메시지 문제 해결에 도움이 필요하신가요? 여기서 시작하세요!
 

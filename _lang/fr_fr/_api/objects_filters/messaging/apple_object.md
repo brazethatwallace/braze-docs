@@ -9,11 +9,11 @@ description: "Cet article de référence répertorie et explique les différents
 
 ---
 
-# Objet Notification push Apple
+# Objet notification push Apple {#apple-push-object}
 
-> L'objet `apple_push` vous permet de définir ou de demander des informations relatives au contenu Apple Push et Apple Push Alert par l'intermédiaire de nos [points d'envoi de messages.]({{site.baseurl}}/api/endpoints/messaging)
+> L'objet `apple_push` vous permet de définir ou de demander des informations relatives au contenu Apple Push et Apple Push Alert par l'intermédiaire de nos [endpoints d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/).
 
-## Objet Notification push Apple
+## Objet notification push Apple
 
 ```json
 {
@@ -41,15 +41,15 @@ description: "Cet article de référence répertorie et explique les différents
 }
 ```
 
-Vous devez inclure un objet Notification push Apple dans `messages` si vous souhaitez que les utilisateurs ciblés reçoivent une notification push sur leurs appareils iOS. Le nombre total d’octets dans votre chaîne de caractères `alert`, objet `extra` et vos autres paramètres facultatifs ne doit pas dépasser 1912. L'API d'envoi de messages renvoie une erreur si vous dépassez la taille de message autorisée par Apple. Les messages qui incluent les clés `ab` ou `aps` dans l'objet `extra` sont rejetés.
+Vous devez inclure un objet notification push Apple dans `messages` si vous souhaitez que les utilisateurs ciblés reçoivent une notification push sur leurs appareils iOS. Le nombre total d'octets dans votre chaîne de caractères `alert`, votre objet `extra` et vos autres paramètres facultatifs ne doit pas dépasser 1912. L'API d'envoi de messages renvoie une erreur si vous dépassez la taille de message autorisée par Apple. Les messages qui incluent les clés `ab` ou `aps` dans l'objet `extra` sont rejetés.
 
 {% alert note %}
-Si vous envoyez l'objet Apple Push dans le cadre d'une ligne/en production/instantanée, veillez à inclure votre chaîne de caractères `sound` dans l'objet `alert`.
+Si vous envoyez l'objet Apple Push dans le cadre d'un payload Live Activities, veillez à inclure votre chaîne de caractères `sound` dans l'objet `alert`.
 {% endalert %}
 
-### Objet Notification push Apple pour les alertes
+### Objet alerte notification push Apple {#apple-push-alert-object}
 
-Dans la plupart des cas, l’`alert` peut être spécifiée comme une chaîne de caractères dans un objet `apple_push`.
+Dans la plupart des cas, l'`alert` peut être spécifiée comme une chaîne de caractères dans un objet `apple_push`.
 
 ```json
 {
@@ -64,7 +64,7 @@ Dans la plupart des cas, l’`alert` peut être spécifiée comme une chaîne de
 }
 ```
 
-#### Exemple
+#### Exemple {#example}
 
 ```json
 {
@@ -85,22 +85,22 @@ Dans la plupart des cas, l’`alert` peut être spécifiée comme une chaîne de
 }
 ```
 
-## Objet Boutons d’action de notification push Apple
+## Objet boutons d'action notification push Apple {#apple-push-action-button-object}
 
-Vous devez inclure le champ `category` dans l’objet Notification push Apple pour utiliser les boutons d’action push iOS. La saisie du champ `category` permet d'afficher tous les boutons d'action push associés ; ne saisissez le champ `buttons` que si vous souhaitez définir en plus les actions de clic individuelles des boutons. Le SDK Braze fournit un ensemble de boutons d’action push par défaut que vous pouvez utiliser et qui sont présentés dans le tableau suivant. Vous pouvez également utiliser vos propres boutons s’ils ont été enregistrés dans votre application.
+Vous devez inclure le champ `category` dans l'objet notification push Apple pour utiliser les boutons d'action push iOS. La saisie du champ `category` permet d'afficher tous les boutons d'action push associés ; ne saisissez le champ `buttons` que si vous souhaitez définir en plus les actions de clic individuelles des boutons. Le SDK Braze fournit un ensemble de boutons d'action push par défaut que vous pouvez utiliser et qui sont présentés dans le tableau suivant. Vous pouvez également utiliser vos propres boutons s'ils ont été enregistrés dans votre application.
 
-### Objet Boutons d’action de notification push Apple pour les boutons par défaut de Braze
+### Objet boutons d'action notification push Apple pour les boutons par défaut de Braze {#apple-push-action-button-object-for-braze-default-buttons}
 
-| Identifiant de catégorie   | Texte du bouton | Identifiant d’action du bouton | Actions autorisées         |
+| Identifiant de catégorie | Texte du bouton | Identifiant d'action du bouton | Actions autorisées |
 |-----------------------|-------------|--------------------------|-------------------------|
-| `ab_cat_accept_decline` | Accepter      | `ab_pb_accept`             | OPEN_APP, URI, ou DEEP_LINK |
-| `ab_cat_accept_decline` | Refuser     | `ab_pb_decline`            | FERMER                   |
-| `ab_cat_yes_no`         | Oui         | `ab_pb_yes`                | OPEN_APP, URI, ou DEEP_LINK |
-| `ab_cat_yes_no`         | Non          | `ab_pb_no`                 | FERMER                   |
-| `ab_cat_confirm_cancel` | Confirmer     | `ab_pb_confirm`            | OPEN_APP, URI, ou DEEP_LINK |
-| `ab_cat_confirm_cancel` | Annuler      | `ab_pb_cancel`             | FERMER                   |
-| `ab_cat_more`           | Plus        | `ab_pb_more`               | OPEN_APP, URI, ou DEEP_LINK |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `ab_cat_accept_decline` | Accepter | `ab_pb_accept` | OPEN_APP, URI, ou DEEP_LINK |
+| `ab_cat_accept_decline` | Refuser | `ab_pb_decline` | CLOSE |
+| `ab_cat_yes_no` | Oui | `ab_pb_yes` | OPEN_APP, URI, ou DEEP_LINK |
+| `ab_cat_yes_no` | Non | `ab_pb_no` | CLOSE |
+| `ab_cat_confirm_cancel` | Confirmer | `ab_pb_confirm` | OPEN_APP, URI, ou DEEP_LINK |
+| `ab_cat_confirm_cancel` | Annuler | `ab_pb_cancel` | CLOSE |
+| `ab_cat_more` | Plus | `ab_pb_more` | OPEN_APP, URI, ou DEEP_LINK |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Apple push action button object for Braze default buttons" }
 
 ```json
 {
@@ -111,7 +111,7 @@ Vous devez inclure le champ `category` dans l’objet Notification push Apple po
 }
 ```
 
-### Objet Boutons d’action de notification push Apple pour les catégories définies par votre application
+### Objet boutons d'action notification push Apple pour les catégories définies par votre application {#apple-push-action-button-object-for-categories-defined-by-your-app}
 
 ```json
 {

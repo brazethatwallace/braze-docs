@@ -1,7 +1,7 @@
 ---
 nav_title: Lexer
 article_title: Lexer
-description: "Este artículo de referencia describe la asociación entre Braze y Lexer, una plataforma de datos de clientes que pone los datos de los clientes en manos de los profesionales del marketing para inspirar experiencias que impulsen las ventas."
+description: "Este artículo de referencia describe la asociación entre Braze y Lexer, una plataforma de datos de los clientes que pone los datos de los clientes en manos de los especialistas en marketing para inspirar experiencias que impulsen las ventas."
 alias: /partners/lexer/
 page_type: partner
 search_tag: Partner
@@ -9,71 +9,69 @@ search_tag: Partner
 
 # Lexer
 
-> [Lexer](https://lexer.io/), una plataforma de datos de los clientes creada para el comercio minorista, ayuda a las marcas a aumentar sus ventas mediante la mejora de la experiencia del cliente, combinando un sólido enriquecimiento de los datos con las herramientas más intuitivas y el asesoramiento de expertos.
+> [Lexer](https://lexer.io/), una plataforma de datos de los clientes creada para el comercio minorista, ayuda a las marcas a impulsar ventas incrementales mediante la mejora de la experiencia del cliente, combinando un sólido enriquecimiento de datos con las herramientas más intuitivas y el asesoramiento de expertos.
 
 _Esta integración está mantenida por Lexer._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Lexer permite sincronizar datos entre las dos plataformas. Utilice sus datos de Lexer para crear valiosos segmentos Braze o importe los existentes a Lexer para desbloquear información. 
+La integración de Braze y Lexer te permite sincronizar datos entre las dos plataformas. Usa tus datos de Lexer para crear segmentos valiosos en Braze o importa los existentes a Lexer para obtener información.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Cuenta de socio | Se necesita una cuenta Lexer para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de `user` (excepto `user.delete`) y `segment.list`. El conjunto de permisos puede cambiar a medida que Lexer añada compatibilidad con más objetos Braze, por lo que es posible que desee conceder más permisos ahora o planificar la actualización de estos permisos en el futuro.<br><br> Puede crearse en el panel Braze desde **Configuración** > **Claves API**. |
-| Punto final REST Braze | La [URL de tu punto final REST]({{site.baseurl}}/api/basics/#endpoints). Tu punto final dependerá de la URL Braze de tu instancia. |
-| Contenedor y credenciales de Amazon AWS S3 | Antes de comenzar la integración, debes tener credenciales de acceso para un contenedor de AWS S3 conectado a tu centro Lexer (puede ser un contenedor creado por ti o uno que Lexer cree y gestione por ti). Visite [Lexer](https://learn.lexer.io/docs/amazon-s3) para obtener orientación sobre este requisito. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Cuenta de socio | Se necesita una cuenta de Lexer para aprovechar esta asociación. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de `user` (excepto `user.delete`) y permisos de `segment.list`. El conjunto de permisos puede cambiar a medida que Lexer añada compatibilidad con más objetos de Braze, por lo que es posible que quieras conceder más permisos ahora o planificar la actualización de estos permisos en el futuro.<br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Punto de conexión REST de Braze | La [URL de tu punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Contenedor y credenciales de Amazon AWS S3 | Antes de comenzar la integración, debes tener credenciales de acceso para un contenedor de AWS S3 conectado a tu hub de Lexer (puede ser un contenedor creado por ti o uno que Lexer cree y gestione por ti). Visita [Lexer](https://learn.lexer.io/docs/amazon-s3) para obtener orientación sobre este requisito. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
-En Lexer, vaya a **Gestionar > Integración**, seleccione el mosaico **Braze** y haga clic en **Integrar Braze**. Facilite la siguiente información:
-- **Punto final REST Braze**
-- **Clave REST API de Braze**
-- **Credenciales de AWS**
-  - **Nombre de contenedor de AWS S3**
-  - **[Región del contenedor de](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html) AWS S3**
-  - **Ruta del contenedor de AWS S3**: Esta ruta debe coincidir con la que especificaste al [conectar tu contenedor de S3 a Braze]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/). Debe estar en blanco si no ha especificado nada a Braze.
-  - **Clave secreta de acceso a AWS S3**: Visita Amazon para obtener información sobre cómo [crear una clave de acceso](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/).
-- **ID de segmento de exportación de Braze**: El ID del segmento que ha creado en Braze que contiene todos los usuarios que desea exportar a Lexer. Si hay usuarios que no desea exportar a Lexer, puede excluirlos del segmento que creó en Braze. Para encontrar su identificador de segmento, haga clic en el segmento deseado en Braze y localice el **Identificador API de segmento**.
+En Lexer, ve a **Manage > Integration**, selecciona el mosaico **Braze** y haz clic en **Integrate Braze**. Proporciona la siguiente información:
+- **Braze REST endpoint**
+- **Braze REST API key**
+- **AWS Credentials**
+  - **AWS S3 bucket name**
+  - **AWS S3 [bucket region](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html)**
+  - **AWS S3 bucket path**: Esta ruta debe coincidir con la que especificaste al [conectar tu contenedor de S3 a Braze]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/). Debe estar en blanco si no especificaste nada a Braze.
+  - **AWS S3 secret access key**: Visita Amazon para obtener información sobre cómo [crear una clave de acceso](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/).
+- **Braze export segment ID**: El ID del segmento que creaste en Braze que contiene todos los usuarios que deseas exportar a Lexer. Si hay usuarios que no deseas exportar a Lexer, puedes excluirlos del segmento que creaste en Braze. Para encontrar tu identificador de segmento, haz clic en el segmento deseado en Braze y localiza el **Identificador de API del segmento**.
 
 ![]({% image_buster /assets/img/lexer/braze_integrate_screen.png %})
 
-### Elección de una opción de AWS S3 (gestionada por Lexer o autogestionada)
-Utilizar un contenedor administrado por Lexer es la forma preferida de conectar Braze a tu concentrador Lexer y reducirá la cantidad de configuraciones necesarias. Lexer le proporcionará los detalles puntuales que necesitará para configurar Braze.
+### Elección de una opción de AWS S3 (gestionada por Lexer o autogestionada) {#choosing-an-aws-s3-option-lexer-managed-or-self-managed}
+Usar un contenedor gestionado por Lexer es la forma preferida de conectar Braze a tu hub de Lexer y reducirá la cantidad de configuración necesaria. Lexer te proporcionará los detalles puntuales que necesitarás para configurar Braze.
 
-Si ya has conectado un contenedor de S3 a Braze y lo estás utilizando para otros fines, tendrás que proporcionar a Lexer acceso a este contenedor autogestionado siguiendo los pasos anteriores.
+Si ya conectaste un contenedor de S3 a Braze y lo estás utilizando para otros fines, tendrás que proporcionar a Lexer acceso a este contenedor autogestionado siguiendo los pasos anteriores.
 
-Esta integración funciona proporcionando a Lexer su token y secretos de API existentes, lo que permite a Lexer realizar estas exportaciones en su nombre. También importa tus datos de Braze a Lexer utilizando estas credenciales y tu configuración de S3 para sincronizar tus datos en ambas plataformas automáticamente.
+Esta integración funciona proporcionando a Lexer tu token de API y secretos existentes, lo que permite a Lexer realizar estas exportaciones en tu nombre. También importa tus datos de Braze a Lexer utilizando estas credenciales y tu configuración de S3 para sincronizar tus datos en ambas plataformas automáticamente.
 
-## Envío de segmentos a Braze
+## Envío de segmentos a Braze {#sending-segments-to-braze}
 
-### Paso 1: Crear activación
+### Paso 1: Crear activación {#step-1-create-activation}
 
-Lexer Activate actualizará automáticamente sus perfiles Braze, añadiendo o eliminando atributos a medida que los clientes entren y salgan de su segmento.
+Lexer Activate actualizará automáticamente tus perfiles de Braze, añadiendo o eliminando atributos a medida que los clientes entren y salgan de tu segmento.
 
-1. En Lexer, en **Activaciones Lexer**, haga clic en **ACTIVAR NUEVA AUDIENCIA**.
-2. Seleccione la activación Braze adecuada para esta campaña.
+1. En Lexer, en **Lexer Activations**, haz clic en **ACTIVATE NEW AUDIENCE**.
+2. Selecciona la activación de Braze adecuada para esta campaña.
 3. Añade tu segmento.
-4. Actualice el nombre de su audiencia; éste se convertirá en el valor de su atributo en Braze.
-5. Este es el atributo personalizado que actualizaremos en Braze. Póngase en contacto con [el servicio de asistencia de Lexer](support@lexer.io) para actualizarlo.
-6. Marque la acción apropiada de la lista-en la mayoría de los casos, querrá mantener su lista.
-7. Revise los términos y condiciones, y haga clic en **ENVIAR AUDIENCIA**.
+4. Actualiza el nombre de tu audiencia; este se convertirá en el valor de tu atributo en Braze.
+5. Este es el atributo personalizado que se actualizará en Braze. Ponte en contacto con [el soporte de Lexer](support@lexer.io) para actualizarlo.
+6. Marca la acción apropiada de la lista; en la mayoría de los casos, querrás mantener tu lista.
+7. Revisa los términos y condiciones, y haz clic en **SEND AUDIENCE**.
 
 ![]({% image_buster /assets/img/lexer/lexer.png %})
 
-### Paso 2: Verificar la activación
+### Paso 2: Verificar la activación {#step-2-verify-activation}
 
-Una vez que se haya confirmado el envío de su activación en Activar, verá que los registros comienzan a actualizarse en Braze. Sus perfiles no se actualizarán completamente en Braze hasta después de recibir un correo electrónico de confirmación de Lexer.
+Una vez que se haya confirmado el envío de tu activación en Activate, verás que los registros comienzan a actualizarse en Braze. Tus perfiles no se actualizarán completamente en Braze hasta después de recibir un correo electrónico de confirmación de Lexer.
 
-### Paso 3: Cree su segmento Braze
+### Paso 3: Crea tu segmento en Braze {#step-3-create-your-braze-segment}
 
-En Braze, verá que el nombre de su audiencia en Lexer es ahora un valor en su atributo personalizado `lexer_audience`. Braze tiene un límite de 100 valores por atributo.
+En Braze, verás que el nombre de tu audiencia en Lexer es ahora un valor en tu atributo personalizado `lexer_audience`. Braze tiene un límite de 100 valores por atributo.
 
-Para crear su segmento, vaya a **Segmento > + Crear segmento** y seleccione **Atributo personalizado** como filtro. A continuación, selecciona `lexer_audience` como atributo y el nombre de la audiencia Lexer que desees. Cuando hayas terminado, **guarda** tu audiencia.
+Para crear tu segmento, ve a **Segment > + Create Segment** y selecciona **Custom Attribute** como filtro. A continuación, selecciona `lexer_audience` como tu atributo y el nombre de la audiencia de Lexer que desees. Cuando hayas terminado, **guarda** tu audiencia.
 
-Ahora puede añadir este segmento recién creado a futuras campañas y lienzos Braze para dirigirse a estos usuarios finales.
-
-
+Ahora puedes añadir este segmento recién creado a futuras Campaigns y Canvas de Braze para dirigirte a estos usuarios finales.

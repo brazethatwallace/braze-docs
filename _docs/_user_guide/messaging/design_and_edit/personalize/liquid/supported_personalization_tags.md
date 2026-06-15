@@ -22,7 +22,7 @@ As a convenience, a summary of supported personalization tags are provided. For 
 | Device Attributes | `{{most_recently_used_device.${carrier}}}` <br> `{{most_recently_used_device.${id}}}` <br> `{{most_recently_used_device.${idfa}}}` <br> `{{most_recently_used_device.${model}}}` <br> `{{most_recently_used_device.${os}}}` <br> `{{most_recently_used_device.${platform}}}` <br> `{{most_recently_used_device.${google_ad_id}}}` <br> `{{most_recently_used_device.${roku_ad_id}}}` <br> `{{most_recently_used_device.${foreground_push_enabled}}}`|
 | <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>Email List Attributes</a> | `{{${set_user_to_unsubscribed_url}}}` <br>This tag replaces the previous `{{${unsubscribe_url}}}` tag. While the older tag still works in previously created emails, we recommend that you use the newer tag instead. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
 | <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>SMS Attributes</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
-| <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>WhatsApp Attributes</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` |
+| <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>WhatsApp Attributes</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
 | Campaign Attributes and Canvas Step Attributes | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
 | Canvas Attributes | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
 | Card Attributes | `{{card.${api_id}}}` <br> `{{card.${name}}}` |
@@ -32,7 +32,7 @@ As a convenience, a summary of supported personalization tags are provided. For 
 | Custom Attributes <br> (These are custom to your workspace.) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object/'>API Trigger Properties</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Canvas Entry Properties | `{{context.${property_name}}}` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
 
 {% endraw %}
 
@@ -40,14 +40,25 @@ As a convenience, a summary of supported personalization tags are provided. For 
 
 Campaign, Card, and Canvas attributes are only supported in their corresponding messaging templates (for example, `dispatch_id` isn't available in in-app message campaigns).
 
-Refer to this help article to learn more about [how some of these attributes differ across sources in Braze]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/).
+For more detail, see [Campaign and Canvas attributes across sources]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 
 ### Canvas and campaign tag differences 
 
 The behavior for the following tags differs between Canvas and campaigns:
 {% raw %}
-- `dispatch_id` behavior differs because Braze treats Canvas steps as triggered events, even when they are "scheduled" (except for entry steps, which can be scheduled). To learn more, refer to [Dispatch ID behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+- `dispatch_id` behavior differs because Braze treats Canvas steps as triggered events, even when they are "scheduled" (except for entry steps, which can be scheduled). For more information, see [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 - Using the `{{campaign.${name}}}` tag with Canvas displays the Canvas component name. When using this tag with campaigns, it displays the campaign name.
+{% endraw %}
+
+#### Campaign names in URLs
+{: #campaign-names-in-urls}
+
+{% raw %}
+Campaign and message variant names can include characters that are not URL-safe, such as `%`, spaces, or `&`. When you insert `{{campaign.${name}}}` or `{{campaign.${message_name}}}` in a link or query string, such as a `utm_campaign` parameter, apply the [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) filter so the URL parses correctly. For example:
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
 {% endraw %}
 
 ## Most recently used device information
@@ -68,7 +79,7 @@ You can template the following attributes for the user's most recent device acro
 | `{{most_recently_used_device.${model}}}` | The device's model name, if available. Examples include "iPhone 6S" and "Nexus 6P" and "Firefox". |
 | `{{most_recently_used_device.${os}}}` | The device's operating system, if available. Examples include "iOS 9.2.1" and "Android (Lollipop)" and "Windows". |
 | `{{most_recently_used_device.${platform}}}` | The device's platform, if available. If set, the value is one of `ios`, `android`, `kindle`, `android_china`, `web`, or `tvos`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Most recently used device information" }
 
 Because there is such a wide range of device carriers, model names, and operating systems, we advise that you thoroughly test any Liquid that conditionally depends on any of those values. These values are `null` if they are not available on a particular device.
 
@@ -80,7 +91,7 @@ For in-app messages, you can use the following app attributes within Liquid. The
 |------------------|---|
 | `{{app.${api_id}}}` | The API key of the app requesting the message. For example, you use this key in conjunction with `abort_message()` Liquid to avoid sending in-app messages to certain apps, such as TV platforms or development builds that use a separate SDK API key.|
 | `{{app.${name}}}` | The name of the app (as defined in the Braze dashboard) requesting the message. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted app information" }
 
 For example, this Liquid code aborts a message if the requesting apps are not one of the two API keys in the list:
 
@@ -108,7 +119,7 @@ For push notifications, in-app messages, and Banners, you can template in the fo
 | `{{targeted_device.${os}}}` | The device's operating system, if available. Examples include "iOS 9.2.1" and "Android (Lollipop)" and "Windows". |
 | `{{targeted_device.${platform}}}` | The device's platform, if available. If set, the value is one of `ios`, `android`, `kindle`, `android_china`, `web`, or `tvos`. You can also use the `most_recently_used_device` personalization tag. |
 | `{{targeted_device.${foreground_push_enabled}}}` | This value is `true` when the targeted device is enabled for foreground push, `false` otherwise. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted device information" }
 
 {% endraw %}
 
@@ -302,7 +313,7 @@ The `{% random %}` tag returns a random number. You can use it for A/B-style log
 |-------|--------------|
 | `{% random %}` | A float between 0 and 1 (inclusive of 0, exclusive of 1). |
 | `{% random 10 %}` (integer argument) | An integer ranging from 0 up to, but not including, the specified integer. For example, `{% random 10 %}` returns an integer from 0 to 9. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Send messages with a random number" }
 
 {% endraw %}
 

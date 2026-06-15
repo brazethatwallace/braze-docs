@@ -26,7 +26,7 @@ By default, Braze sets the Push TTL to the maximum for each push messaging servi
 | Firebase Cloud Messaging (FCM) | 28 days |
 | Kindle (ADM) | 31 days |
 | Huawei (HMS) | 15 days |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting default Push TTL values" }
 
 These settings apply globally to all push campaigns unless a different TTL is set for a specific message. To adjust a message's TTL, see [Advanced campaign settings]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings#ttl).
 
@@ -48,7 +48,7 @@ FCM priority options include:
 | --- | --- | --- |
 | Normal | Standard delivery priority that optimizes for battery usage | Content that doesn't require immediate attention |
 | High | Messages are sent immediately | Time-sensitive notifications that require prompt delivery |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default FCM Priority for Android Campaigns" }
 
 To set the default FCM priority:
 

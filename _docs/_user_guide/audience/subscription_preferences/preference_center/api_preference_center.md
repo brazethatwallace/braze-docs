@@ -33,7 +33,7 @@ Using Liquid enables you to retrieve the names of your subscription groups, and 
 | Valid workspace with an email, SMS, or WhatsApp subscription group | A working workspace with valid users and an email, SMS, or WhatsApp subscription group. |
 | Valid user | A user with an email address and an external ID. |
 | Generated API key with preference center permissions | In the Braze dashboard, go to **Settings** > **API Keys** to confirm that you have access to an API key with preference center permissions. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Step 1: Use the Create preference center endpoint
 
@@ -94,7 +94,7 @@ For this option, each email category requires its own specific unsubscribe link:
 It is also possible to hash the user's external ID at the point of send using a Liquid filter. This will convert the `user_id` to an MD5 hash value, for example:
 {% raw %}
 ```liquid
-{% assign my_string = {{${user_id}}} | md5 %}
+{% assign my_string = ${user_id} | md5 %}
 My encoded string is: {{my_string}}
 ```
 {% endraw %}
@@ -128,7 +128,7 @@ No. However, you can leverage Liquid when writing the HTML for custom opt-in and
 
 For example, if you're tracking the unsubscribe rate for Spanish-speaking users, you would need to either use separate campaigns or leverage analytics around Currents (such as looking at when a user unsubscribes and checking the preferred language of that user).
 
-As another example, for tracking unsubscribe rates for Spanish-speaking users, you could add a query parameter string like `?Spanish=true` to the unsubscribe URL if the users' language is German and use a regular unsubscribe link if they aren't:
+As another example, for tracking unsubscribe rates for Spanish-speaking users, you could add a query parameter string like `?Spanish=true` to the unsubscribe URL if the user's language is Spanish and use a regular unsubscribe link otherwise:
 
 {% raw %}
 ```liquid

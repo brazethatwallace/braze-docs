@@ -3,7 +3,7 @@ nav_title: Juni
 page_order: 7
 noindex: true
 page_type: update
-description: "Dieser Artikel enthält Versionshinweise für den 2019. Juni 2025."
+description: "Dieser Artikel enthält Versionshinweise für Juni 2019."
 ---
 
 # Juni 2019

@@ -2,15 +2,15 @@
 nav_title: Résolution des problèmes
 article_title: Résolution des problèmes des messages in-app pour le SDK Braze
 page_order: 50
-description: "Vous avez besoin d'aide pour résoudre les problèmes liés aux messages in-app pour le SDK de Braze ? Commencez ici !"
+description: "Vous avez besoin d'aide pour résoudre les problèmes liés aux messages in-app pour le SDK Braze ? Commencez ici !"
 channel:
   - in-app messages
 
 ---
 
-# Résolution des problèmes
+# Résolution des problèmes {#troubleshooting}
 
-> Vous avez besoin d'aide pour résoudre les problèmes liés aux messages in-app pour le SDK de Braze ? Commencez ici !
+> Vous avez besoin d'aide pour résoudre les problèmes liés aux messages in-app pour le SDK Braze ? Commencez ici !
 
 {% sdktabs %}
 {% sdktab web %}

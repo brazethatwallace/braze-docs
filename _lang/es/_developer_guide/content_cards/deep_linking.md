@@ -1,8 +1,8 @@
 ---
 nav_title: Vínculos profundos
-article_title: Vinculación en profundidad en tarjetas de contenido
+article_title: Vinculación en profundidad en Content Cards
 page_order: 4
-description: "Aprende a crear vínculos profundos dentro de una tarjeta de contenido utilizando el SDK de Braze."
+description: "Aprende a crear vínculos profundos dentro de una Content Card utilizando el SDK de Braze."
 channel:
   - content cards
 platform:
@@ -12,13 +12,13 @@ platform:
   - FireOS
 ---
 
-# Vinculación en profundidad en tarjetas de contenido
+# Vinculación en profundidad en Content Cards {#deep-linking-in-content-cards}
 
-> Aprende a crear vínculos profundos dentro de una tarjeta de contenido utilizando el SDK de Braze. Para obtener más información sobre la vinculación en profundidad, consulta [¿Qué es la vinculación en profundidad?]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking)
+> Aprende a crear vínculos profundos dentro de una Content Card utilizando el SDK de Braze. Para obtener más información sobre los vínculos profundos, consulta [¿Qué es la vinculación en profundidad?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
 {% sdktabs %}
 {% sdktab web %}
-En este momento, los vínculos profundos de las tarjetas de contenido no son compatibles con el SDK de Web Braze.
+En este momento, los vínculos profundos de Content Cards no son compatibles con el SDK Web de Braze.
 {% endsdktab %}
 
 {% sdktab android %}

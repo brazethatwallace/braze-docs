@@ -11,12 +11,12 @@ description: "This article explains the connected audience object, including how
 
 > A connected audience is a dynamic audience filter you define inline within your API request, so you can target the right users at send time without creating or managing segments in the Braze dashboard.
 
-Instead of pre-building a segment for every possible audience combination, you pass filter criteria directly in the `audience` parameter of your API call. Braze evaluates each user against those criteria in real time and delivers the message only to users who match. This means a single campaign, Canvas, or API-only message definition can serve an unlimited number of audience variations, driven entirely by your business logic.
+Instead of pre-building a segment for every possible audience combination, you pass filter criteria directly in your API call. Depending on the endpoint, this object is passed as `audience` or `custom_audience`. Braze evaluates each user against those criteria in real time and delivers the message only to users who match. This means a single campaign, Canvas, or API-only message definition can serve an unlimited number of audience variations, driven entirely by your business logic.
 
 ## How it works
 
 1. Define your message by either creating an API-triggered campaign or Canvas in the Braze dashboard, or define message content entirely inline using the [messaging objects]({{site.baseurl}}/api/objects_filters/#messaging-objects) in your API request. Use [trigger properties]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) or [Canvas context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) for dynamic personalization.
-2. Call a supported endpoint and include the `audience` parameter with your filter criteria. You can filter on custom attributes, push subscription status, email subscription status, and last-used-app time.
+2. Call a supported endpoint and include your connected audience filters in the `audience` parameter, or in `custom_audience` for `/messages/live_activity/start`. You can filter on custom attributes, push subscription status, email subscription status, and last-used-app time.
 3. Braze evaluates the filters at send time, delivering the message only to users who match your criteria.
 
 {% alert tip %}
@@ -27,7 +27,7 @@ Because the audience is defined per request, your backend systems can trigger co
 
 ### Compatible endpoints
 
-You can use the connected audience object with the `audience` parameter on these endpoints:
+You can use the connected audience object on these endpoints:
 
 - [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)
@@ -35,6 +35,7 @@ You can use the connected audience object with the `audience` parameter on these
 - [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 - [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/)
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) (uses `custom_audience`)
 
 ## Use cases
 
@@ -48,7 +49,7 @@ Use connected audiences for scenarios where your back-end systems detect an even
 | E-commerce | An online retailer sends price-drop or back-in-stock alerts to users whose `wishlisted_products` array includes the relevant product ID. |
 | Travel | A travel app sends flight-delay notifications to users whose `booked_flight` attribute matches the affected flight number. |
 | Financial services | A trading platform alerts users whose `watchlist` array includes a stock ticker that has crossed a price threshold. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 In each case, a single campaign or API-only message definition handles all variations. Your backend determines the filter values and passes them in the API request, so you don't need to create a separate segment or campaign for each product, show, team, or location.
 
@@ -138,7 +139,7 @@ The custom attribute's data type determines the comparisons that are valid for a
 | Numeric | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
 | Boolean | `equals`, `not_equal`, `exists`, `does_not_exist` |
 | Time | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Allowed comparisons by data type" }
 
 #### Attribute comparison caveats
 
@@ -146,7 +147,7 @@ The custom attribute's data type determines the comparisons that are valid for a
 | --- | --- |
 | `value` | The `value` is not required when using the `exists` or `does_not_exist` comparisons. `value` must be an ISO 8601 datetime string when using the `before` and `after` comparisons. |
 |`matches_regex` | When using the `matches_regex` comparison, the value passed must be a string. To read more about using regular expressions with Braze, refer to [Regular expressions]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze) and [Custom attribute data types]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attribute comparison caveats" }
 
 #### Custom attribute example
 
@@ -240,4 +241,12 @@ This filter allows you to segment based on when the user last used the app. Thes
 
 ### Considerations
 
-Connected audiences cannot filter users by default attributes, custom events, segments, or message engagement events. To use these filters, we recommend incorporating them into an audience segment and then specifying that segment in the `segment_id` parameter for the [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters). When using other endpoints, you'll need to add the segment to the API-triggered campaign or Canvas in the Braze dashboard first.
+Connected audiences cannot filter users by:
+
+ - Default attributes
+ - Custom events
+ - Segments
+ - Message engagement events
+ - Nested custom attributes
+ 
+To use these filters, we recommend incorporating them into an audience segment and then specifying that segment in the `segment_id` parameter for the [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters). When using other endpoints, you'll need to add the segment to the API-triggered campaign or Canvas in the Braze dashboard first.

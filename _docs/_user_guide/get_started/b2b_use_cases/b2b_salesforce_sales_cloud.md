@@ -11,7 +11,7 @@ description: "Learn how to use Braze webhooks to create and update leads in Sale
 > [Salesforce](https://www.salesforce.com/) is one of the world’s leading cloud-based Customer Relationship Management (CRM) platforms designed to help businesses manage their entire sales process, including lead generation, opportunity tracking, and account management.<br><br>This page demonstrates how to use Braze webhooks to create and update leads in Salesforce Sales Cloud through a community-submitted integration.
 
 {% alert important %}
-This is a community-submitted integration and isn’t directly supported by Braze. Only official Braze-provided webhook templates are supported by Braze. 
+This is a community-submitted integration and isn’t directly supported by Braze. Only official Braze-provided webhook templates are supported by Braze.
 {% endalert %}
 
 ## How it works
@@ -28,7 +28,9 @@ This integration is purely to update Salesforce from Braze as part of your lead 
 
 ## Prerequisites
 
-This integration requires you to create a connected app in Salesforce Sales Cloud by following the steps in the Salesforce documentation: [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
+Before you can proceed with this integration, Salesforce Support must give you the ability to create connected apps. You can request this by submitting a [Salesforce Support request](https://help.salesforce.com/s/articleView?id=005167035&type=1).
+
+After Salesforce Support grants you the ability to create a connected app in Salesforce Sales Cloud, follow the steps in the Salesforce documentation: [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
 
 When you configure the necessary OAuth settings for the connected app, keep all oAuth settings with their default values and selections except for the following:
 1. Select **Enable for device** flow. You can leave **Callback URL** blank, as it will default to a placeholder.
@@ -61,7 +63,7 @@ Use templates to quickly reuse this webhook across the Braze platform.
 | Webhook URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | HTTP method | `POST` |
 | Request Body | JSON Key/Value Pairs |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compose webhook" }
 
 #### Body property key values
 
@@ -73,7 +75,7 @@ Select **+ Add New Body Property** for each of the key/value pairs you want to m
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Body property key values" }
 
 #### Request headers
 
@@ -83,7 +85,7 @@ Select **+ Add New Header** for each of the following request headers.
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
 
 {: start="4" }
 4. Select **Save Template**.
@@ -117,7 +119,7 @@ This example specifically demonstrates how to update a lead’s lead stage to �
 |Webhook URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | HTTP method | `PATCH` |
 | Request Body | JSON Key/Value Pairs |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compose webhook" }
 
 #### Body property key values
 
@@ -126,7 +128,7 @@ Select **+ Add New Body Property** for the following key/value pair. Note that `
 | Key | Value |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Body property key values" }
 
 #### Request headers
 
@@ -136,7 +138,7 @@ Select **+ Add New Header** for each of the following request headers.
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
 
 {: start="4"}
 4. Select **Save Template**.

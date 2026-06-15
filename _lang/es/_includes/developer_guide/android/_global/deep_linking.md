@@ -1,12 +1,12 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Creación de un delegado universal
+## Creación de un delegado universal {#creating-a-universal-delegate}
 
-El SDK de Android ofrece la posibilidad de establecer un único objeto delegado para gestionar de forma personalizada todos los vínculos profundos abiertos por Braze a través de tarjetas de contenido, mensajes dentro de la aplicación y notificaciones push.
+El SDK de Android ofrece la posibilidad de establecer un único objeto delegado para gestionar de forma personalizada todos los vínculos profundos abiertos por Braze a través de Content Cards, mensajes dentro de la aplicación y notificaciones push.
 
-Tu objeto delegado debe implementar la interfaz [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html) y configurarse mediante la función [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html). En la mayoría de los casos, el delegado debe establecerse en la página `Application.onCreate()` de tu aplicación.
+Tu objeto delegado debe implementar la interfaz [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html) y configurarse mediante [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html). En la mayoría de los casos, el delegado debe establecerse en el `Application.onCreate()` de tu aplicación.
 
-A continuación se muestra un ejemplo de anulación del comportamiento predeterminado [`UriAction`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.actions/-uri-action/index.html) con indicadores de intención personalizados y un comportamiento personalizado para las URL de YouTube:
+A continuación se muestra un ejemplo de cómo anular el comportamiento predeterminado de [`UriAction`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.actions/-uri-action/index.html) con indicadores de intención personalizados y un comportamiento personalizado para las URL de YouTube:
 
 {% tabs %}
 {% tab JAVA %}
@@ -86,9 +86,9 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 {% endtab %}
 {% endtabs %}
 
-## Vínculo profundo con la configuración de la aplicación
+## Vinculación en profundidad a la configuración de la aplicación {#deep-linking-to-app-settings}
 
-Para permitir que los vínculos profundos abran directamente la configuración de tu aplicación, necesitarás una página personalizada `BrazeDeeplinkHandler`. En el siguiente ejemplo, la presencia de un par clave-valor personalizado llamado `open_notification_page` hará que el vínculo profundo abra la página de configuración de la aplicación:
+Para permitir que los vínculos profundos abran directamente la configuración de tu aplicación, necesitarás un `BrazeDeeplinkHandler` personalizado. En el siguiente ejemplo, la presencia de un par clave-valor personalizado llamado `open_notification_page` hará que el vínculo profundo abra la página de configuración de la aplicación:
 
 {% tabs %}
 {% tab JAVA %}
@@ -144,22 +144,22 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
 
 ## Personalización de la actividad WebView {#Custom_Webview_Activity}
 
-Cuando Braze abre enlaces profundos de sitios web dentro de la aplicación, los enlaces profundos son gestionados por [`BrazeWebViewActivity`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-web-view-activity/index.html).
+Cuando Braze abre vínculos profundos de sitios web dentro de la aplicación, estos son gestionados por [`BrazeWebViewActivity`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-web-view-activity/index.html).
 
 {% alert note %}
-En el caso de los mensajes HTML personalizados dentro de la aplicación, los enlaces configurados con`target="_blank"`  se abren en el navegador web predeterminado del dispositivo y no son gestionados por `BrazeWebViewActivity`.
+En el caso de los mensajes HTML personalizados dentro de la aplicación, los enlaces configurados con `target="_blank"` se abren en el navegador web predeterminado del dispositivo y no son gestionados por `BrazeWebViewActivity`.
 {% endalert %}
 
 Para cambiar esto:
 
-1. Crea una nueva Actividad que maneje la URL de destino de `Intent.getExtras()` con la clave `com.braze.Constants.BRAZE_WEBVIEW_URL_EXTRA`. Por ejemplo, véase [`BrazeWebViewActivity.kt`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/BrazeWebViewActivity.kt).
+1. Crea una nueva Activity que gestione la URL de destino de `Intent.getExtras()` con la clave `com.braze.Constants.BRAZE_WEBVIEW_URL_EXTRA`. Para ver un ejemplo, consulta [`BrazeWebViewActivity.kt`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/BrazeWebViewActivity.kt).
 2. Añade esa actividad a `AndroidManifest.xml` y establece `exported` en `false`.
     ```xml
     <activity
         android:name=".MyCustomWebViewActivity"
         android:exported="false" />
     ```
-3. Configura tu Actividad personalizada en un [objeto constructor de](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-custom-web-view-activity-class.html) `BrazeConfig`. Crea el constructor y pásalo a[`Braze.configure()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html)  en tu [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()).
+3. Configura tu Activity personalizada en un [objeto constructor](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-custom-web-view-activity-class.html) de `BrazeConfig`. Construye el builder y pásalo a [`Braze.configure()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html) en tu [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()).
 {% tabs %}
 {% tab JAVA %}
 
@@ -185,11 +185,20 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-## Uso de Jetpack Compose
+## Solución de problemas {#troubleshooting}
 
-Para gestionar enlaces profundos cuando usas Jetpack Compose con NavHost:
+Si los vínculos profundos de las notificaciones push no funcionan en Android, prueba los siguientes pasos:
 
-1. Asegúrate de que la actividad que gestiona tu enlace profundo esté registrada en el registro del manifiesto de Android.
+1. **Prueba el vínculo profundo fuera de Braze.** Abre la URL del vínculo profundo desde otra aplicación, como el correo electrónico o un navegador. Si no abre tu aplicación, es posible que el vínculo profundo no esté configurado correctamente en tu `AndroidManifest.xml`. Para más información, consulta la documentación de Android sobre [Crear vínculos profundos](https://developer.android.com/training/app-links/deep-linking).
+2. **Comprueba que la gestión automática de vínculos profundos esté habilitada.** Verifica que `com_braze_handle_push_deep_links_automatically` esté establecido en `true` en `braze.xml`, o configura esta opción mediante la [configuración en tiempo de ejecución]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android). Sin esta configuración, Braze no abre automáticamente tu aplicación ni el destino del vínculo profundo cuando alguien toca una notificación push.
+3. **Verifica tu delegado de gestión de vínculos profundos.** Si configuraste un `IBrazeDeeplinkHandler` personalizado, confirma que tu implementación de `gotoUri` gestiona la URI y no la descarta.
+4. **Prueba en distintos canales.** Si el mismo vínculo profundo funciona en un mensaje dentro de la aplicación pero no desde push, es probable que el problema esté en la gestión de vínculos profundos de push, no en el vínculo profundo en sí.
+
+## Uso de Jetpack Compose {#using-jetpack-compose}
+
+Para gestionar vínculos profundos cuando usas Jetpack Compose con NavHost:
+
+1. Asegúrate de que la actividad que gestiona tu vínculo profundo esté registrada en el manifiesto de Android.
     ```xml
     <activity
       ...
@@ -203,7 +212,7 @@ Para gestionar enlaces profundos cuando usas Jetpack Compose con NavHost:
       </intent-filter>
     </activity>
     ```
-2. En NavHost, especifica qué enlaces profundos quieres que gestione.
+2. En NavHost, especifica qué vínculos profundos quieres que gestione.
     ```kotlin
     composableWithCompositionLocal(
         route = "YOUR_ROUTE_HERE",
@@ -223,7 +232,7 @@ Para gestionar enlaces profundos cuando usas Jetpack Compose con NavHost:
         )
     }
     ```
-3. Dependiendo de la arquitectura de tu aplicación, es posible que también tengas que gestionar la nueva intención que se envía a tu actividad actual.
+3. Dependiendo de la arquitectura de tu aplicación, es posible que también necesites gestionar la nueva intención que se envía a tu actividad actual.
     ```kotlin
     DisposableEffect(Unit) {
         val listener = Consumer<Intent> {

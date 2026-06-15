@@ -1,192 +1,191 @@
 ---
 nav_title: Event Forwarding Extension
 article_title: Adobe
-description: "This reference article covers the Braze event forward extension that allows you to leverage data captured in the Adobe Experience Platform Edge Network and send it to Braze in the form of server-side events."
+description: "이 참조 문서에서는 Adobe Experience Platform Edge Network에서 캡처한 데이터를 활용하여 서버 측 이벤트 형태로 Braze에 전송할 수 있는 Braze 이벤트 전달 확장 기능을 다룹니다."
 page_type: partner
 page_order: 2
 search_tag: Partner
 
 ---
 
-# Track Events API event forwarding extension
+# Track Events API 이벤트 전달 확장 기능 {#track-events-api-event-forwarding-extension}
 
-> The Braze Track Events API [event forwarding](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en) extension allows you to leverage data captured in the Adobe Experience Platform Edge Network and send it to Braze in the form of server-side events using the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) API.
+> Braze Track Events API [이벤트 전달](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en) 확장 기능을 사용하면 Adobe Experience Platform Edge Network에서 캡처한 데이터를 활용하여 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) API를 통해 서버 측 이벤트 형태로 Braze에 전송할 수 있습니다.
 
-This document covers the use cases of the extension, how to install it in your event-forwarding libraries, and how to employ its capabilities in an event-forwarding [rule](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en).
+이 문서에서는 확장 기능의 사용 사례, 이벤트 전달 라이브러리에 설치하는 방법, 이벤트 전달 [규칙](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en)에서 기능을 활용하는 방법을 다룹니다.
 
 {% alert note %}
-Adobe 이벤트 전달 사용은 Braze 데이터 포인트 사용량을 증가시킬 수 있습니다. 자세한 내용은 [데이터 포인트]({{site.baseurl}}/user_guide/onboarding_with_braze/data_points/#billable-data-points)에 대한 Braze 설명서를 참조하십시오.
+Adobe 이벤트 전달을 사용하면 Braze 데이터 포인트 사용량이 증가할 수 있습니다. 자세한 내용은 [데이터 포인트]({{site.baseurl}}/user_guide/onboarding_with_braze/data_points/#billable-data-points)에 대한 Braze 설명서를 참조하세요.
 {% endalert %}
 
-## Use cases
+## 사용 사례 {#use-cases}
 
-This extension should use data from the Edge Network in Braze to take advantage of its customer analytics and targeting capabilities.
+이 확장 기능은 Edge Network의 데이터를 Braze에서 활용하여 고객 분석 및 타겟팅 기능을 사용할 수 있도록 합니다.
 
-For example, consider a retail organization with a multichannel presence (website and mobile) and capturing transactional or conversational input as event data from their website and mobile platforms. 
+예를 들어, 멀티채널(웹사이트 및 모바일)을 운영하는 소매 조직이 웹사이트와 모바일 플랫폼에서 트랜잭션 또는 대화형 입력을 이벤트 데이터로 캡처하는 경우를 생각해 보세요.
 
-Using various [tag](https://experienceleague.adobe.com/docs/experience-platform/tags/home.html?lang=en) rules, this data is sent to the Edge Network in real-time. From here, the Braze event forwarding extension automatically sends relevant events to Braze from the server side.
+다양한 [태그](https://experienceleague.adobe.com/docs/experience-platform/tags/home.html?lang=en) 규칙을 사용하여 이 데이터는 실시간으로 Edge Network에 전송됩니다. 여기서 Braze 이벤트 전달 확장 기능이 서버 측에서 관련 이벤트를 자동으로 Braze에 전송합니다.
 
-## Rate limits
+## 사용량 제한 {#rate-limits}
 
-| API | Rate Limits |
+| API | 사용량 제한 |
 | --- | --- |
-| User Track | 50,000 requests per minute.<br><br>Refer to the [User Track API documentation]({{site.baseurl}}/api/endpoints/user_data/post_user_track#rate-limit) for details.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| User Track | 분당 50,000건의 요청.<br><br>자세한 내용은 [User Track API 설명서]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#rate-limit)를 참조하세요.
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limits" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Gather required configuration details
+### 1단계: 필수 구성 세부 정보 수집 {#step-1-gather-required-configuration-details}
 
-To connect the Edge Network to Braze, the following are required:
+Edge Network를 Braze에 연결하려면 다음이 필요합니다:
 
-| Key type | Description |
+| 키 유형 | 설명 |
 | --- | --- |
-| Braze instance | Your Braze instance can be obtained from your Braze onboarding manager or can be found on the [API overview page]({{site.baseurl}}/api/basics/#endpoints). |
-| Braze REST API key | A Braze REST API key with all permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Braze 인스턴스 | Braze 인스턴스는 Braze 온보딩 매니저에게 문의하거나 [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints)에서 확인할 수 있습니다. |
+| Braze REST API 키 | 모든 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Gather required configuration details" }
 
-### Step 2: Create a secret
+### 2단계: 시크릿 생성 {#step-2-create-a-secret}
 
-Create a new [event forwarding secret](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/secrets.html?lang=en) and set the value to your [Braze API key](https://experienceleague.adobe.com/docs/experience-platform/tags/extensions/server/braze/overview.html?lang=en#configuration-details). This will be used to authenticate the connection to your account while keeping the value secure.
+새 [이벤트 전달 시크릿](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/secrets.html?lang=en)을 생성하고 값을 [Braze API 키](https://experienceleague.adobe.com/docs/experience-platform/tags/extensions/server/braze/overview.html?lang=en#configuration-details)로 설정합니다. 이 시크릿은 값을 안전하게 유지하면서 계정에 대한 연결을 인증하는 데 사용됩니다.
 
-### Step 3: Install and configure the Braze extension
+### 3단계: Braze 확장 기능 설치 및 구성 {#step-3-install-and-configure-the-braze-extension}
 
-1. To install the extension, [create an event forwarding property](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en#properties) or choose an existing property to edit instead.
-2. Next, select **Extensions** in the left navigation. In the **Catalog** tab, select **Install** on the card for the Braze extension.
-3. On the next screen, input your REST instance and API key and select **Save** when finished.
+1. 확장 기능을 설치하려면 [이벤트 전달 속성을 생성](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en#properties)하거나 기존 속성을 선택하여 편집합니다.
+2. 다음으로, 왼쪽 탐색에서 **Extensions**를 선택합니다. **Catalog** 탭에서 Braze 확장 기능 카드의 **Install**을 선택합니다.
+3. 다음 화면에서 REST 인스턴스와 API 키를 입력하고 완료되면 **Save**를 선택합니다.
 
-### Step 4: Create a send event rule
+### 4단계: 이벤트 전송 규칙 생성 {#step-4-create-a-send-event-rule}
 
-After installing the extension, create a new event forwarding [rule](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en) and configure its conditions as desired. When configuring the actions for the rule, select the **Braze** extension, then select **Send Event** for the action type.
+확장 기능을 설치한 후, 새 이벤트 전달 [규칙](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en)을 생성하고 원하는 대로 조건을 구성합니다. 규칙의 동작을 구성할 때 **Braze** 확장 기능을 선택한 다음 동작 유형으로 **Send Event**를 선택합니다.
 
 ![]({% image_buster /assets/img/efe.png %})
 
 {% tabs local %}
-{% tab User Identification %}
+{% tab 사용자 식별 %}
 
-| Input | Description |
+| 입력 | 설명 |
 | --- | --- |
-| External user ID | A long, random, and well-distributed UUID or GUID. If you choose a different method to name your user IDs, they must also be long, random, and well-distributed. Learn more about [suggested user ID naming convention]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids#suggested-user-id-naming-convention). |
-| Braze user ID | Braze user identifier. |
-| User alias | An alias serves as an alternative unique user identifier. Use aliases to identify users along different dimensions than your core user ID.<br><br>The user alias object consists of two parts: an `alias_name` for the identifier itself and an `alias_label` indicating the type of alias. Users can have multiple aliases with different labels but only one `alias_name` per `alias_label`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 외부 사용자 ID | 길고 무작위적이며 잘 분산된 UUID 또는 GUID. 사용자 ID 이름을 지정하는 다른 방법을 선택하는 경우에도 길고 무작위적이며 잘 분산되어야 합니다. [권장 사용자 ID 명명 규칙]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#suggested-user-id-naming-convention)에 대해 자세히 알아보세요. |
+| Braze 사용자 ID | Braze 사용자 식별자. |
+| 사용자 별칭 | 별칭은 대체 고유 사용자 식별자 역할을 합니다. 별칭을 사용하여 핵심 사용자 ID와 다른 차원에서 사용자를 식별할 수 있습니다.<br><br>사용자 별칭 오브젝트는 식별자 자체인 `alias_name`과 별칭 유형을 나타내는 `alias_label` 두 부분으로 구성됩니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만 `alias_label`당 하나의 `alias_name`만 가질 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Create a send event rule" }
 
 {% alert note %}
-To tie the event to a user, you must fill in either the `External User ID` field, the `Braze User Identifier` field, or the `User Alias` section.
+이벤트를 사용자에게 연결하려면 `External User ID` 필드, `Braze User Identifier` 필드 또는 `User Alias` 섹션 중 하나를 입력해야 합니다.
 {% endalert %}
 
 {% endtab %}
-{% tab Event Data %}
+{% tab 이벤트 데이터 %}
 
-| Input | Description | Required |
+| 입력 | 설명 | 필수 |
 | --- | --- | --- |
-| Event name | Name of the event. | Yes |
-| Event time | Date-time as string in ISO 8601 or in `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. | Yes |
-| App identifier | The app identifier or `app_id` is a parameter associating activity with a specific app in your workspace. It designates which app within the workspace you are interacting with. | No |
-| Event Properties | A JSON object containing custom properties of the event. | No |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 이벤트 이름 | 이벤트의 이름. | 예 |
+| 이벤트 시간 | ISO 8601 또는 `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 형식의 문자열로 된 날짜-시간. | 예 |
+| 앱 식별자 | 앱 식별자 또는 `app_id`는 워크스페이스 내 특정 앱과 활동을 연결하는 매개변수입니다. 워크스페이스 내에서 상호작용하는 앱을 지정합니다. | 아니요 |
+| 이벤트 등록정보 | 이벤트의 커스텀 등록정보를 포함하는 JSON 오브젝트. | 아니요 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Create a send event rule" }
 
 {% alert note %}
-The **Braze Send Event** action requires only an **Event Name** and **Event Time** to be specified, but you should include as much information as possible in the custom properties field. Refer to [event object]({{site.baseurl}}/api/objects_filters/event_object/) for more details.
+**Braze Send Event** 동작에는 **Event Name**과 **Event Time**만 지정하면 되지만, 커스텀 등록정보 필드에 가능한 한 많은 정보를 포함하는 것이 좋습니다. 자세한 내용은 [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/)를 참조하세요.
 {% endalert %}
 
 {% endtab %}
-{% tab User Attribute %}
+{% tab 사용자 속성 %}
 
-User attributes can be a JSON object containing fields that will create or update an attribute with the supplied name and value on the specified user profile. The following properties are supported:
+사용자 속성은 지정된 고객 프로필에서 제공된 이름과 값으로 속성을 생성하거나 업데이트하는 필드를 포함하는 JSON 오브젝트일 수 있습니다. 다음 등록정보가 지원됩니다:
 
-| User Attribute | Description |
+| 사용자 속성 | 설명 |
 | --- | --- |
-| First Name | First name of user. |
-| Last Name | Last name of user. |
-| Phone | Phone number of user. |
-| Email | Email address of user. |
-| Gender | One of the following strings: “M”, “F”, “O” (other), “N” (not applicable), “P” (prefer not to say). |
-| City | The city of the user. |
-| Country | The users country as a string in [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. |
-| Language | The users language as a string in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format. |
-| Date of Birth | The users data of birth in string in format “YYYY-MM-DD” (for example, 1980-12-21). |
-| Time Zone | [IANA 시간대](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 데이터베이스의 시간대 이름(예: ’America/New_York’ 또는 '동부 표준시 (미국 & 캐나다)'). |
-| Facebook | A hash containing any of `id` (string), `likes` (array of strings), `num_friends` (integer). |
-| Twitter | Hash containing any of id (integer), `screen_name` (string, X (formerly Twitter) handle), `followers_count` (integer), `friends_count` (integer), `statuses_count`(integer). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 이름 | 사용자의 이름. |
+| 성 | 사용자의 성. |
+| 전화번호 | 사용자의 전화번호. |
+| 이메일 | 사용자의 이메일 주소. |
+| 성별 | 다음 문자열 중 하나: "M", "F", "O"(기타), "N"(해당 없음), "P"(밝히고 싶지 않음). |
+| 도시 | 사용자의 도시. |
+| 국가 | [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) 형식의 문자열로 된 사용자의 국가. |
+| 언어 | [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 형식의 문자열로 된 사용자의 언어. |
+| 생년월일 | "YYYY-MM-DD" 형식의 문자열로 된 사용자의 생년월일(예: 1980-12-21). |
+| 시간대 | [IANA 시간대](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 데이터베이스의 시간대 이름(예: 'America/New_York' 또는 'Eastern Time (US & Canada)'). |
+| Facebook | `id`(문자열), `likes`(문자열 배열), `num_friends`(정수) 중 하나를 포함하는 해시. |
+| Twitter | id(정수), `screen_name`(문자열, X(구 Twitter) 핸들), `followers_count`(정수), `friends_count`(정수), `statuses_count`(정수) 중 하나를 포함하는 해시. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Create a send event rule" }
 
 {% alert note %}
-All attributes added within the configuration will be sent each time the event is sent to Braze, regardless of whether the attribute's value has changed. 사용자 속성을 구성할 때, 이것이 데이터 포인트 사용량에 미치는 영향을 알고 있는지 확인하십시오.
+구성 내에서 추가된 모든 속성은 속성 값의 변경 여부와 관계없이 이벤트가 Braze에 전송될 때마다 전송됩니다. 사용자 속성을 구성할 때 이것이 데이터 포인트 사용량에 미치는 영향을 반드시 확인하세요.
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-### Step 5: Create a send purchase event rule
+### 5단계: 구매 이벤트 전송 규칙 생성 {#step-5-create-a-send-purchase-event-rule}
 
-After installing the extension, create a new event forwarding [rule](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en) and configure its conditions as desired. When configuring the actions for the rule, select the **Braze** extension, then select **Send Purchase Event** for the action type.
+확장 기능을 설치한 후, 새 이벤트 전달 [규칙](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en)을 생성하고 원하는 대로 조건을 구성합니다. 규칙의 동작을 구성할 때 **Braze** 확장 기능을 선택한 다음 동작 유형으로 **Send Purchase Event**를 선택합니다.
 
 ![]({% image_buster /assets/img/efe2.png %})
 
 {% tabs local %}
-{% tab User Identification %}
+{% tab 사용자 식별 %}
 
-| Input | Description |
+| 입력 | 설명 |
 | --- | --- |
-| External user ID | A long, random, and well-distributed UUID or GUID. If you choose a different method to name your user IDs, they must also be long, random, and well-distributed. Learn more about [suggested user ID naming convention]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids#suggested-user-id-naming-convention). |
-| Braze user ID | Braze user identifier. |
-| User alias | An alias serves as an alternative unique user identifier. Use aliases to identify users along different dimensions than your core user ID.<br><br>The user alias object consists of two parts: an `alias_name` for the identifier itself and an `alias_label` indicating the type of alias. Users can have multiple aliases with different labels but only one `alias_name` per `alias_label`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 외부 사용자 ID | 길고 무작위적이며 잘 분산된 UUID 또는 GUID. 사용자 ID 이름을 지정하는 다른 방법을 선택하는 경우에도 길고 무작위적이며 잘 분산되어야 합니다. [권장 사용자 ID 명명 규칙]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#suggested-user-id-naming-convention)에 대해 자세히 알아보세요. |
+| Braze 사용자 ID | Braze 사용자 식별자. |
+| 사용자 별칭 | 별칭은 대체 고유 사용자 식별자 역할을 합니다. 별칭을 사용하여 핵심 사용자 ID와 다른 차원에서 사용자를 식별할 수 있습니다.<br><br>사용자 별칭 오브젝트는 식별자 자체인 `alias_name`과 별칭 유형을 나타내는 `alias_label` 두 부분으로 구성됩니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만 `alias_label`당 하나의 `alias_name`만 가질 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Create a send purchase event rule" }
 
 {% alert note %}
-To link the event to a user, you must complete either the `External User ID` field, the `Braze User Identifier` field, or the `User Alias` section.
+이벤트를 사용자에게 연결하려면 `External User ID` 필드, `Braze User Identifier` 필드 또는 `User Alias` 섹션 중 하나를 완료해야 합니다.
 {% endalert %}
 
 {% endtab %}
-{% tab Purchase Data %}
+{% tab 구매 데이터 %}
 
-| Input | Description | Required |
+| 입력 | 설명 | 필수 |
 | --- | --- | --- |
-| Product ID | Identifier for the purchase. (for example, product name or product category) | Yes |
-| Purchase time | Date-time as a string in ISO 8601 or in `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. | Yes |
-| Currency | Currency as a string in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) alphabetic currency code format. | Yes |
-| Price | The price of the object. | Yes |
-| Quantity | The quantity purchased. If not provided, the default value will be 1. The maximum value must be lower than 100. | No |
-| App identifier | The app identifier or `app_id` is a parameter associating activity with a specific app in your workspace. It designates which app within the workspace you are interacting with. | No |
-| Purchase properties | A JSON object containing custom properties of the purchase. | No |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 제품 ID | 구매 식별자. (예: 제품 이름 또는 제품 카테고리) | 예 |
+| 구매 시간 | ISO 8601 또는 `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 형식의 문자열로 된 날짜-시간. | 예 |
+| 통화 | [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) 알파벳 통화 코드 형식의 문자열로 된 통화. | 예 |
+| 가격 | 오브젝트의 가격. | 예 |
+| 수량 | 구매 수량. 제공되지 않으면 기본값은 1입니다. 최대값은 100 미만이어야 합니다. | 아니요 |
+| 앱 식별자 | 앱 식별자 또는 `app_id`는 워크스페이스 내 특정 앱과 활동을 연결하는 매개변수입니다. 워크스페이스 내에서 상호작용하는 앱을 지정합니다. | 아니요 |
+| 구매 등록정보 | 구매의 커스텀 등록정보를 포함하는 JSON 오브젝트. | 아니요 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Create a send purchase event rule" }
 
 {% alert note %}
-The **Send Purchase Event** action requires only a `Product ID`, `Purchase Time`, `Currency`, and `Price` to be specified, but you should include as much information as possible in the purchase properties field. Refer to [purchase object]({{site.baseurl}}/api/objects_filters/purchase_object/) for more details.
+**Send Purchase Event** 동작에는 `Product ID`, `Purchase Time`, `Currency`, `Price`만 지정하면 되지만, 구매 등록정보 필드에 가능한 한 많은 정보를 포함하는 것이 좋습니다. 자세한 내용은 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/)를 참조하세요.
 {% endalert %}
 
 {% endtab %}
-{% tab User Attributes %}
+{% tab 사용자 속성 %}
 
-You can choose whether to send attributes with each event within the configuration view.
+구성 보기에서 각 이벤트와 함께 속성을 전송할지 여부를 선택할 수 있습니다.
 
-User attributes can be a JSON object containing fields that will create or update an attribute with the supplied name and value on the specified user profile. The following properties are supported:
+사용자 속성은 지정된 고객 프로필에서 제공된 이름과 값으로 속성을 생성하거나 업데이트하는 필드를 포함하는 JSON 오브젝트일 수 있습니다. 다음 등록정보가 지원됩니다:
 
-| User Attribute | Description |
+| 사용자 속성 | 설명 |
 | --- | --- |
-| First name | First name of user. |
-| Last name | Last name of user. |
-| Phone | Phone number of user. |
-| Email | Email address of user. |
-| Gender | One of the following strings: “M”, “F”, “O” (other), “N” (not applicable), “P” (prefer not to say). |
-| City | The city of the user. |
-| Country | The users country as a string in [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. |
-| Language | The users language as a string in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format. |
-| Date of birth | The users data of birth in string in format “YYYY-MM-DD” (for example, 1980-12-21). |
-| Time zone | [IANA 시간대](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 데이터베이스의 시간대 이름(예: ’America/New_York’ 또는 '동부 표준시 (미국 & 캐나다)'). |
-| Facebook | A hash containing any of `id` (string), `likes` (array of strings), `num_friends` (integer). |
-| Twitter | Hash containing any of id (integer), `screen_name` (string, X (formerly Twitter) handle), `followers_count` (integer), `friends_count` (integer), `statuses_count`(integer). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 이름 | 사용자의 이름. |
+| 성 | 사용자의 성. |
+| 전화번호 | 사용자의 전화번호. |
+| 이메일 | 사용자의 이메일 주소. |
+| 성별 | 다음 문자열 중 하나: "M", "F", "O"(기타), "N"(해당 없음), "P"(밝히고 싶지 않음). |
+| 도시 | 사용자의 도시. |
+| 국가 | [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) 형식의 문자열로 된 사용자의 국가. |
+| 언어 | [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 형식의 문자열로 된 사용자의 언어. |
+| 생년월일 | "YYYY-MM-DD" 형식의 문자열로 된 사용자의 생년월일(예: 1980-12-21). |
+| 시간대 | [IANA 시간대](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 데이터베이스의 시간대 이름(예: 'America/New_York' 또는 'Eastern Time (US & Canada)'). |
+| Facebook | `id`(문자열), `likes`(문자열 배열), `num_friends`(정수) 중 하나를 포함하는 해시. |
+| Twitter | id(정수), `screen_name`(문자열, X(구 Twitter) 핸들), `followers_count`(정수), `friends_count`(정수), `statuses_count`(정수) 중 하나를 포함하는 해시. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Create a send purchase event rule" }
 
 {% alert note %}
-All attributes added within the configuration will be sent each time the event is sent to Braze, regardless of whether the attribute's value has changed. 사용자 속성을 구성할 때, 이것이 데이터 포인트 사용량에 미치는 영향을 알고 있는지 확인하십시오.
+구성 내에서 추가된 모든 속성은 속성 값의 변경 여부와 관계없이 이벤트가 Braze에 전송될 때마다 전송됩니다. 사용자 속성을 구성할 때 이것이 데이터 포인트 사용량에 미치는 영향을 반드시 확인하세요.
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-### Step 6: Validate data within Braze
+### 6단계: Braze에서 데이터 검증 {#step-6-validate-data-within-braze}
 
-If the event collection and Adobe Experience Platform integration were successful, you will see events within the Braze console when [viewing user profiles]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/). Specifically, the new event data sent to Braze is reflected in the **Purchases** or **Custom Events** section of a particular user’s [overview tab]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#overview-tab).
-
+이벤트 수집과 Adobe Experience Platform 통합이 성공적으로 완료되면 [사용자 프로필 보기]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) 시 Braze 콘솔에서 이벤트를 확인할 수 있습니다. 구체적으로, Braze에 전송된 새 이벤트 데이터는 특정 사용자의 [개요 탭]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#overview-tab)에 있는 **Purchases** 또는 **Custom Events** 섹션에 반영됩니다.

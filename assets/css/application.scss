@@ -2,6 +2,7 @@
     @return unquote("\"") + unquote(str-insert($character,"\\", 1)) + unquote("\"");
 }
 
+@import 'mixins';
 @import 'main';
 @import 'header';
 @import 'navigation_menu';
@@ -23,3 +24,4 @@
 @import 'api';
 @import 'sdk_min_versions';
 @import 'details';
+@import 'support_contact';

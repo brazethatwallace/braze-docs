@@ -3,38 +3,39 @@ nav_title: Nachrichten senden
 article_title: Versenden von Nachrichten über die REST API
 page_order: 1
 page_type: reference
-description: "Dieser Referenzartikel behandelt die beiden Möglichkeiten, Nachrichten mithilfe der Braze-REST-API programmgesteuert zu versenden."
+description: "Dieser Referenzartikel behandelt die beiden Möglichkeiten, Nachrichten mithilfe der Braze REST API programmgesteuert zu versenden."
 ---
 
-# Versenden von Nachrichten über die REST API
+# Versenden von Nachrichten über die REST API {#sending-messages-using-the-rest-api}
 
-> Sie können Nachrichten in Realtime über zwei verschiedene Braze-Endpunkte von Ihrem Backend aus versenden. Jede hat eine unterschiedliche Anforderungsform: Eine erfordert den vollständigen Inhalt der Nachricht in der Anfrage, die andere erfordert eine Kampagnen-ID und sendet den im Dashboard definierten Inhalt.
+> Sie können Nachrichten in Echtzeit über zwei verschiedene Braze-Endpunkte von Ihrem Backend aus versenden. Jeder hat eine andere Anfragestruktur: Einer erfordert den vollständigen Nachrichteninhalt in der Anfrage, der andere erfordert eine Campaign-ID und sendet den im Dashboard definierten Inhalt.
 
-Dieser Ansatz ist mit jedem von der API unterstützten Messaging-Kanal kompatibel (WhatsApp, E-Mail, SMS, Push-Benachrichtigungen, Content-Cards, Webhooks und mehr).
+Dieser Ansatz funktioniert mit jedem von der API unterstützten Messaging-Kanal (WhatsApp, E-Mail, SMS, Push, Content Cards, Webhooks und mehr).
 
-## Zwei Möglichkeiten zum Versenden
+## Zwei Möglichkeiten zum Versenden {#two-ways-to-send}
 
 | | [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) | [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) |
 | --- | --- | --- |
-| **Kampagnen-ID** | Optional. Bitte lassen Sie dieses Feld leer, um ohne Tracking im Dashboard zu senden, oder geben Sie in jeder Nachricht `message_variation_id`eine API-Kampagnen-ID an, um das Tracking im Dashboard zu ermöglichen. | Erforderlich. |
-| **Nachrichteninhalt** | Bitte fügen Sie ein`messages`Objekt in die Anfrage ein (zum Beispiel,`messages.whats_app` `messages.email`). | Nicht akzeptiert. Der Inhalt der Nachricht wird in der Kampagne im Braze-Dashboard definiert. |
-| **Anwendungsfall** | Bitte senden Sie eine Nachricht, deren Inhalt vollständig in der API-Anfrage angegeben ist. | Triggern Sie eine vorgefertigte Kampagne (Inhalt im Dashboard) an bestimmte Empfänger:innen über die API. |
+| **Campaign-ID** | Optional. Lassen Sie sie weg, um ohne Dashboard-Campaign-Tracking zu senden, oder geben Sie eine API-Campaign-ID plus `message_variation_id` in jeder Nachricht an, um im Dashboard zu tracken. | Erforderlich. |
+| **Nachrichteninhalt** | Sie müssen ein `messages`-Objekt in die Anfrage einfügen (zum Beispiel `messages.whats_app`, `messages.email`). | Nicht akzeptiert. Der Nachrichteninhalt wird in der Campaign im Braze-Dashboard definiert. |
+| **Anwendungsfall** | Senden Sie eine Nachricht, deren Inhalt vollständig in der API-Anfrage angegeben ist. | Triggern Sie eine vorgefertigte Campaign (Inhalt im Dashboard) an bestimmte Empfänger:innen über die API. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Two ways to send" }
 
-Ausführliche Informationen zu Anfragen und Antworten finden Sie in den Referenzen [„Nachrichten sofort senden (nur API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)“ und [„Kampagnen über API-gesteuerte ]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)Zustellungsendpunkte [senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)“.
+Ausführliche Informationen zu Anfragen und Antworten finden Sie in den Endpunkt-Referenzen [Nachrichten sofort senden (nur API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) und [Campaigns über API-gesteuerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
 
 ---
 
-## Option 1: Bitte senden Sie mit dem Inhalt der Nachricht in der Anfrage.`/messages/send`
+## Option 1: Senden mit Nachrichteninhalt in der Anfrage (`/messages/send`) {#option-1-send-with-message-content-in-the-request-messagessend}
 
-Verwenden Sie diesen Endpunkt, wenn Sie den vollständigen Inhalt der Nachricht in der API-Anfrage angeben möchten. **Bitte** fügen Sie ein`messages`Objekt ein (zum Beispiel ,`messages.whats_app` `messages.email`, oder `messages.sms`). Sie können das Senden ohne `campaign_id`Kampagnen-Tracking auslassen oder eine API-Kampagnen-ID und`message_variation_id`in jede Nachricht einfügen, um die Sendungen im Dashboard zu verfolgen (weitere Informationen finden Sie in der [Endpunkt-Referenz]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)).
+Verwenden Sie diesen Endpunkt, wenn Sie den vollständigen Nachrichteninhalt in der API-Anfrage angeben möchten. Sie **müssen** ein `messages`-Objekt einfügen (zum Beispiel `messages.whats_app`, `messages.email` oder `messages.sms`). Sie können `campaign_id` weglassen, um ohne Campaign-Tracking zu senden, oder eine API-Campaign-ID und `message_variation_id` in jede Nachricht einfügen, um Sendungen im Dashboard zu verfolgen (weitere Informationen finden Sie in der [Endpunkt-Referenz]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)).
 
-**Erforderlich:** API-Schlüssel mit der entsprechenden`messages.send` Berechtigung.
+**Erforderlich:** API-Schlüssel mit der Berechtigung `messages.send`.
 
 {% alert important %}
-Jeder Empfänger:in in `external_user_ids`Braze muss bereits vorhanden sein. Um Nutzer:innen im Rahmen eines Versands zu erstellen, verwenden Sie bitte zunächst[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) [Option 1](#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend) oder alternativ [Option 2](#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend) (API-gesteuerte Kampagne).
+Alle Empfänger:innen in `external_user_ids` müssen bereits in Braze vorhanden sein. Um Nutzer:innen im Rahmen eines Versands zu erstellen, verwenden Sie zunächst [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) oder nutzen Sie [Option 2](#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend) (API-gesteuerte Campaign).
 {% endalert %}
 
-### Beispiel: WhatsApp-Template-Nachricht
+### Beispiel: WhatsApp-Template-Nachricht {#example-whatsapp-template-message}
 
 ```
 POST YOUR_REST_ENDPOINT/messages/send
@@ -62,10 +63,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 Die vollständige Spezifikation des WhatsApp-Objekts finden Sie unter [WhatsApp-Objekt]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object/).
 
 {% alert note %}
-Der`/messages/send`Endpunkt unterstützt ausschließlich WhatsApp-Templates mit TEXT- oder IMAGE-Headern. Für die Header-Typen DOCUMENT, Video oder andere Medien verwenden Sie bitte den [API-gesteuerten Kampagnen-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) oder das Braze-Dashboard.
+Der Endpunkt `/messages/send` unterstützt ausschließlich WhatsApp-Templates mit TEXT- oder IMAGE-Headern. Für die Header-Typen DOCUMENT, VIDEO oder andere Medien verwenden Sie den [API-gesteuerten Campaign-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) oder das Braze-Dashboard.
 {% endalert %}
 
-### Beispiel: E-Mail
+### Beispiel: E-Mail {#example-email}
 
 ```json
 {
@@ -81,28 +82,28 @@ Der`/messages/send`Endpunkt unterstützt ausschließlich WhatsApp-Templates mit 
 }
 ```
 
-Für andere Kanäle, siehe [Messaging-Objekte]({{site.baseurl}}/api/objects_filters/#messaging-objects).
+Für andere Kanäle siehe [Messaging-Objekte]({{site.baseurl}}/api/objects_filters/#messaging-objects).
 
 ---
 
-## Option 2: Triggern Sie eine Kampagne mit Inhalten im Dashboard.`/campaigns/trigger/send`
+## Option 2: Eine Campaign mit Inhalten im Dashboard triggern (`/campaigns/trigger/send`) {#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend}
 
-Bitte verwenden Sie diesen Endpunkt, wenn der Nachrichteninhalt im Braze-Dashboard erstellt wird (API-ausgelöste Kampagne). Sie senden ein **erforderliches**`campaign_id`  und Empfänger:innen; Sie senden **kein**  Objekt`messages`.
+Verwenden Sie diesen Endpunkt, wenn der Nachrichteninhalt im Braze-Dashboard erstellt wird (API-gesteuerte Campaign). Sie senden eine **erforderliche** `campaign_id` und Empfänger:innen; Sie senden **kein** `messages`-Objekt.
 
-**Erforderlich:** API-Schlüssel mit der entsprechenden`campaigns.trigger.send` Berechtigung.
+**Erforderlich:** API-Schlüssel mit der Berechtigung `campaigns.trigger.send`.
 
-### Schritt 1: Erstellen Sie eine API-gesteuerte Kampagne
+### 1. Schritt: Eine API-gesteuerte Campaign erstellen {#step-1-create-an-api-triggered-campaign}
 
-1. Bitte gehen Sie im Braze-Dashboard zu **„Messaging“** > **„Kampagnen**“.
-2. Bitte wählen Sie **„Kampagne erstellen**“ und anschließend **„API-gesteuerte Kampagne“** (nicht „API-Kampagne“).
-3. Fügen Sie Ihren Messaging-Kanal hinzu (WhatsApp, E-Mail, SMS usw.) und erstellen Sie den Inhalt der Nachrichten im Dashboard.
-4. Bitte notieren Sie sich die **Kampagnen-ID** (und **die Sende-ID,** falls Sie mehrere Nachrichtenvarianten verwenden). Sie werden diese in der API-Anfrage verwenden.
+1. Gehen Sie im Braze-Dashboard zu **Messaging** > **Campaigns**.
+2. Wählen Sie **Kampagne erstellen** und dann **API-gesteuerte Kampagne** (nicht „API-Kampagne“).
+3. Fügen Sie Ihren Messaging-Kanal hinzu (WhatsApp, E-Mail, SMS usw.) und erstellen Sie den Nachrichteninhalt im Dashboard.
+4. Notieren Sie sich die **Campaign-ID** (und die **Sende-ID**, falls Sie mehrere Nachrichtenvarianten verwenden). Sie werden diese in der API-Anfrage verwenden.
 
-Weitere Informationen zum Erstellen von API-gesteuerten Kampagnen finden Sie unter [API-gesteuerte Zustellung]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/api_triggered_delivery/).
+Weitere Informationen zum Erstellen von API-gesteuerten Campaigns finden Sie unter [API-gesteuerte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
 
-### Schritt 2: Die Kampagne über die API triggern
+### 2. Schritt: Die Campaign über die API triggern {#step-2-trigger-the-campaign-via-the-api}
 
-Senden Sie eine POST-Anfrage an`/campaigns/trigger/send`mit`campaign_id`und`recipients`(oder `broadcast`/`audience`). Bitte fügen Sie kein Objekt`messages` ein – der Inhalt stammt aus der Kampagne.
+Senden Sie eine POST-Anfrage an `/campaigns/trigger/send` mit `campaign_id` und `recipients` (oder `broadcast`/`audience`). Fügen Sie kein `messages`-Objekt ein – der Inhalt stammt aus der Campaign.
 
 ```
 POST YOUR_REST_ENDPOINT/campaigns/trigger/send
@@ -121,18 +122,18 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-Den vollständigen Anfragetext (einschließlich `trigger_properties`, `send_to_existing_only`, `attributes`, usw.) finden Sie in der Referenz zum Endpunkt [„Kampagnen über API-gesteuerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body)“.
+Den vollständigen Anfragetext (einschließlich `trigger_properties`, `send_to_existing_only`, `attributes` usw.) finden Sie in der Endpunkt-Referenz [Campaigns über API-gesteuerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body).
 
 ---
 
-## Bitte überprüfen Sie Ihre Integration.
+## Integration überprüfen {#verify-your-integration}
 
-1. Bitte senden Sie eine Anfrage über eine der oben genannten Optionen und geben Sie Ihre eigene ID als Empfänger:in an.
-2. Bitte bestätigen Sie, dass die Nachricht zugestellt wurde.
-3. Bei Verwendung von Option 2 überprüfen Sie bitte die Kampagne im Braze-Dashboard, um sicherzustellen, dass der Versand aufgezeichnet wurde.
+1. Senden Sie eine Anfrage über eine der oben genannten Optionen und geben Sie Ihre eigene Nutzer-ID als Empfänger:in an.
+2. Bestätigen Sie, dass die Nachricht zugestellt wurde.
+3. Bei Verwendung von Option 2 überprüfen Sie die Campaign im Braze-Dashboard, um sicherzustellen, dass der Versand aufgezeichnet wurde.
 
-## Überlegungen
+## Hinweise {#considerations}
 
-- Nutzen Sie [die Features der Personalisierung]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/) von Braze, um Inhalte anzupassen, sofern dies unterstützt wird.
-- Bitte stellen Sie sicher, dass Ihr Messaging den geltenden Vorschriften entspricht und die erforderlichen Abmeldeoptionen sowie Datenschutzhinweise enthält.
+- Nutzen Sie die [Personalisierungs-Features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) von Braze, um Inhalte anzupassen, sofern dies unterstützt wird.
+- Stellen Sie sicher, dass Ihr Messaging den geltenden Vorschriften entspricht und die erforderlichen Abmeldeoptionen sowie Datenschutzhinweise enthält.
 - Weitere Endpunkte (Zeitplan, Canvas-Trigger usw.) finden Sie unter [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging/).

@@ -1,6 +1,6 @@
 이 템플릿을 사용하여 기술 파트너 문서를 만들 수 있습니다. 예시는 [Scuba Analytics]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/scuba/)를 참조하세요.
 
-{% details Show template %}
+{% details 템플릿 보기 %}
 {% raw %}
 `````markdown
 ---
@@ -39,12 +39,12 @@ CONTENT.
 
 Before you start, you need the following:
 
-| Prerequisite       | Description |                        
+| Prerequisite       | Description |
 |-----------------------|-----------------|
 | A PARTNER_NAME account   | A PARTNER_NAME account is required to take advantage of this partnership.  |
 | A Braze REST API key  | A Braze REST API key with `users.track` permissions. <br><br> Create this key in the Braze dashboard from **Settings** > **API Keys**. |
 | A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance.  |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+{: .reset-td-br-1 .reset-td-br-2 aria-label=”Prerequisites” }
 
 ## Integrating TOOL_NAME
 <!-- Create step-by-step instructions for integrating your tool with Braze. It's important to be concise and outline the minimum necessary steps. -->
@@ -71,53 +71,54 @@ curl -X POST "PARTNER_POST_URL" \
 "PARTNER_token":"PARTNER_NAME_API_TOKEN"}'
 ```
 
-Replace the following:
+다음을 교체하세요:
 
-| Placeholder     | Description      |
+| 플레이스홀더 | 설명 |
 |---------------------|---------------------|
-| `BRAZE_API_ENDPOINT`    | The Braze REST endpoint URL of your current Braze instance. For more information, see [Rest API keys]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys). |
-| `BRAZE_API_KEY`         | Your Braze REST API key with the `users.track` permission. |                                                                                                                                    | `HOSTNAME`                  | The hostname of your current PARTNER_NAME instance.  |                                                                                                                         
-| `PARTNER_NAME_API_TOKEN`       | Your PARTNER_NAME API token.  |                                                                                                                                        {: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+| `BRAZE_API_ENDPOINT` | 현재 Braze 인스턴스의 Braze REST 엔드포인트 URL입니다. 자세한 내용은 [REST API 키]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)를 참조하세요. |
+| `BRAZE_API_KEY` | `users.track` 권한이 있는 Braze REST API 키입니다. |                                                                                                                                    | `HOSTNAME` | 현재 PARTNER_NAME 인스턴스의 호스트 이름입니다. |
+| `PARTNER_NAME_API_TOKEN` | PARTNER_NAME API 토큰입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Make a POST request" }
 
-#### Default behavior
-
-CONTENT.
-
-#### Rate limit
+#### 기본 동작
 
 CONTENT.
 
-## Customizing TOOL_NAME
-<!-- An optional section you can use to outline additional customization steps. It's important to be concise and outline the minimum necessary steps. -->
-
-### Step 1: ACTION_TO_COMPLETE
+#### 사용량 제한
 
 CONTENT.
 
-### Step 2: ACTION_TO_COMPLETE
+## TOOL_NAME 커스터마이징
+<!-- 추가 커스터마이징 단계를 설명하는 데 사용할 수 있는 선택 섹션입니다. 간결하게 작성하고 최소한의 필요한 단계만 설명하는 것이 중요합니다. -->
+
+### 1단계: ACTION_TO_COMPLETE
 
 CONTENT.
 
-## Using TOOL_NAME with Braze / USE_CASE
-<!-- A section outlining how to use your integration with Braze. For example, how to access the data sent to Braze, how to leverage your integration with Braze messaging, or how to complete a certain use case from the “Use cases” section. -->
-
-### Step 1: ACTION_TO_COMPLETE
+### 2단계: ACTION_TO_COMPLETE
 
 CONTENT.
 
-### Step 2: ACTION_TO_COMPLETE
+## Braze에서 TOOL_NAME 사용하기 / USE_CASE
+<!-- Braze와 통합을 사용하는 방법을 설명하는 섹션입니다. 예를 들어, Braze로 전송된 데이터에 접근하는 방법, Braze 메시징과 통합을 활용하는 방법, 또는 "활용 사례" 섹션의 특정 사용 사례를 완료하는 방법 등을 설명합니다. -->
+
+### 1단계: ACTION_TO_COMPLETE
 
 CONTENT.
 
-## Considerations
-<!-- An optional section listing additional information that may impact how users interact with your integration. -->
+### 2단계: ACTION_TO_COMPLETE
+
+CONTENT.
+
+## 고려 사항
+<!-- 사용자가 통합과 상호작용하는 방식에 영향을 줄 수 있는 추가 정보를 나열하는 선택 섹션입니다. -->
 
 ### CONSIDERATION_ITEM
 
 CONTENT.
 
-## Troubleshooting
-<!-- An optional section guiding users through issues they may encounter while setting up your integration. You can also direct users to your documentation site with hyperlinks. -->
+## 문제 해결
+<!-- 통합을 설정하는 동안 발생할 수 있는 문제를 안내하는 선택 섹션입니다. 하이퍼링크를 사용하여 사용자를 문서 사이트로 안내할 수도 있습니다. -->
 
 ### TROUBLESHOOTING_ITEM
 

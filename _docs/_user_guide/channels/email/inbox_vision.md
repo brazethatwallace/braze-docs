@@ -111,7 +111,7 @@ Inbox Vision categorizes issues under the four foundational [POUR principles](ht
 | Operable | User interface components and navigation must be operable.<br><br>Users must be able to operate the interface (the interface cannot require interaction that a user cannot perform). |
 | Understandable | Information and the operation of the user interface must be understandable.<br><br>Users must be able to understand the information as well as the operation of the user interface (the content or operation cannot be beyond their understanding). |
 | Robust | Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies.<br><br>Users must be able to access the content as technologies advance (as technologies and user agents evolve, the content should remain accessible). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="POUR categories" }
 
 #### Severity levels
 
@@ -125,7 +125,7 @@ Inbox Vision classifies accessibility issues by severity to help you prioritize 
 | Minor | Issues that have a relatively low impact on accessibility and may cause only minor inconvenience. |
 | Needs review | Unable to detect if there might be an issue or not. This can occur when we are unable to determine the contrast ratio as the text is placed on a background image. You must manually review because it cannot be automatically determined. |
 | Passed | Passed WCAG A, AA, or accessibility best practice. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Severity levels" }
 
 {% alert important %}
 The drag-and-drop editor does not support setting a document `<title>` element, so the accessibility scanner always fails this check.<br><br>This limitation is tracked for future improvements. If this affects your workflows or your users, [share your feedback]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback) so we can prioritize impactful fixes.

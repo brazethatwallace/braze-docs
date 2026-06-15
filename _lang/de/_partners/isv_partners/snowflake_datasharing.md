@@ -1,82 +1,82 @@
 ---
-nav_title: Snowflake Data Sharing
+nav_title: Snowflake Datenfreigabe
 hidden: true
 ---
 
-# Snowflake Integration zur gemeinsamen Nutzung von Daten
+# Snowflake-Integration zur Datenfreigabe {#snowflake-data-sharing-integration}
 
-> Wenn Snowflake Data Share als Integrationsmethode verwendet wird, stellt Braze im Namen des Kunden eine Freigabe für Ihre Snowflake-Instanz bereit. Diese Freigabe umfasst automatisch alle Ereignisse zum Engagement in Nachrichten und zum Verhalten der Nutzer:innen.
+> Wenn Snowflake Data Share als Integrationsmethode verwendet wird, stellt Braze im Namen der Kund:innen eine Freigabe für Ihre Snowflake-Instanz bereit. Diese Freigabe umfasst automatisch alle Ereignisse zum Nachrichten-Engagement und zum Verhalten der Nutzer:innen.
 
-Anteile werden pro Kund:in bereitgestellt, nachdem der Kunde eine Berechtigung für Snowflake Data Share erworben hat. Wenn ein Kunde eine Datenfreigabe anfragt, fügt Braze dem Workspace des Kunden eine Freigabe hinzu, und der Kunde kann die Selbstbedienungs-UI verwenden, um die entsprechenden Daten des Partner-Snowflake-Kontos hinzuzufügen.
+Freigaben werden pro Kund:in bereitgestellt, nachdem die Kund:innen eine Berechtigung für Snowflake Data Share erworben haben. Wenn Kund:innen eine Datenfreigabe anfordern, fügt Braze dem Workspace der Kund:innen eine Freigabe hinzu, und die Kund:innen können die Self-Service-UI verwenden, um die entsprechenden Daten des Partner-Snowflake-Kontos hinzuzufügen.
 
 ![]({% image_buster /assets/img/snowflake.png %})
 
-Sobald die Freigabe bereitgestellt ist, sind alle Daten sofort von der Snowflake Instanz aus als eingehende Datenfreigabe zugänglich.
+Sobald die Freigabe bereitgestellt ist, sind alle Daten sofort innerhalb der Snowflake-Instanz als eingehende Datenfreigabe zugänglich.
 
 ![]({% image_buster /assets/img/snowflake2.png %})
 
-Innerhalb Ihrer Snowflake Instanz sehen Sie eine Aktie pro Region. Jede Tabelle hat eine Spalte, `app_group_id`, die quasi ein Mieterschlüssel für Braze ist. Wenn neue Kund:innen innerhalb derselben Region zu einer Aktie hinzugefügt werden, erscheinen sie als unterschiedliche `app_group_ids` in den bestehenden Tabellen.
+Innerhalb Ihrer Snowflake-Instanz sehen Sie eine Freigabe pro Region. Jede Tabelle hat eine Spalte, `app_group_id`, die im Grunde ein Mandantenschlüssel für Braze ist. Wenn neue Kund:innen innerhalb derselben Region zu einer Freigabe hinzugefügt werden, erscheinen sie als unterschiedliche `app_group_ids` in den bestehenden Tabellen.
 
 {% alert important %}
-Braze hostet derzeit alle Nutzer:innen-Daten in den Snowflake AWS Regionen US East-1 und EU-Central (Frankfurt). Obwohl Braze sich überregional austauschen kann, ist es für die Kund:innen am kostengünstigsten, wenn wir uns mit `US-EAST-1` und/oder `EU-CENTRAL-1` austauschen.
+Braze hostet derzeit alle Nutzer:innen-Daten in den Snowflake-AWS-Regionen US East-1 und EU-Central (Frankfurt). Obwohl Braze regionsübergreifend teilen kann, ist es für die Kund:innen am kostengünstigsten, wenn die Freigabe mit `US-EAST-1` und/oder `EU-CENTRAL-1` erfolgt.
 {% endalert %}
 
 {% alert tip %}
-Laden Sie die [Rohtabellenschemata]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) hier herunter oder verwenden Sie diesen Satz von [Beispiel-Ereignisdaten](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset), der auf dem Snowflake-Marktplatz verfügbar ist, um sich mit den gemeinsamen Ereignissen vertraut zu machen.
+Laden Sie die [Rohtabellenschemata]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) hier herunter oder verwenden Sie diesen Satz von [Beispiel-Ereignisdaten](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset), der auf dem Snowflake-Marktplatz verfügbar ist, um sich mit den freigegebenen Ereignissen vertraut zu machen.
 {% endalert %}
 
-## Umgang mit doppelten Ereignissen
+## Umgang mit doppelten Ereignissen {#handling-duplicate-events}
 
-Duplikate sind zu erwarten, aber alle Ereignisse haben einen eindeutigen Bezeichner, die Spalte ID. Duplikate können mit `select distinct(id)` entfernt werden.
+Duplikate sind zu erwarten, aber alle Ereignisse haben einen eindeutigen Bezeichner, die ID-Spalte. Duplikate können mit `select distinct(id)` entfernt werden.
 
-## Durchbrechende versus nicht-durchbrechende Änderungen
+## Nicht abwärtskompatible versus abwärtskompatible Änderungen {#breaking-versus-non-breaking-changes}
 
-### Unwesentliche Änderungen
+### Abwärtskompatible Änderungen {#non-breaking-changes}
 
-Nicht-unterbrechende Änderungen können jederzeit vorgenommen werden und bieten im Allgemeinen zusätzliche Funktionen. Beispiele für nicht-brechende Änderungen:
+Abwärtskompatible Änderungen können jederzeit vorgenommen werden und bieten im Allgemeinen zusätzliche Funktionen. Beispiele für abwärtskompatible Änderungen:
 - Hinzufügen einer neuen Tabelle oder Ansicht
 - Hinzufügen einer Spalte zu einer bestehenden Tabelle oder Ansicht
 
 {% alert important %}
-Da neue Spalten als nicht umbrechend gelten, empfiehlt Braze dringend, die gewünschten Spalten in jeder Abfrage explizit aufzuführen, anstatt `SELECT *` Abfragen zu verwenden. Alternativ können Sie auch Ansichten erstellen, die Spalten explizit benennen, und diese Ansichten dann anstelle der Tabellen direkt abfragen.
+Da neue Spalten als abwärtskompatibel gelten, empfiehlt Braze dringend, die gewünschten Spalten in jeder Abfrage explizit aufzuführen, anstatt `SELECT *`-Abfragen zu verwenden. Alternativ können Sie auch Ansichten erstellen, die Spalten explizit benennen, und diese Ansichten dann anstelle der Tabellen direkt abfragen.
 {% endalert %}
 
-### Wesentliche Änderungen
+### Nicht abwärtskompatible Änderungen {#breaking-changes}
 
-Wenn es möglich ist, werden Änderungen mit einer Ankündigung und einem Zeitraum für die Migration eingeleitet. Beispiele für bahnbrechende Änderungen sind:
+Wenn möglich, werden nicht abwärtskompatible Änderungen durch eine Ankündigung und einen Migrationszeitraum eingeleitet. Beispiele für nicht abwärtskompatible Änderungen:
 - Entfernen einer Tabelle oder Ansicht
 - Entfernen einer Spalte aus einer bestehenden Tabelle oder Ansicht
-- Ändern des Typs oder der Nullbarkeit einer vorhandenen Spalte
+- Ändern des Typs oder der Nullfähigkeit einer vorhandenen Spalte
 
-## Wenn die Tabellen SNAPSHOTS und CHANGELOGS aktualisiert werden
+## Wann die Tabellen SNAPSHOTS und CHANGELOGS aktualisiert werden {#when-snapshots-and-changelogs-tables-are-updated}
 
-Die Tabellen SNAPSHOTS und CHANGELOGS verfolgen Änderungen an Kampagnen und Canvase. Zu wissen, wann diese Tabellen aktualisiert werden, ist wichtig für die Abfrage der neuesten Nachrichtenvariationen und Canvas-Konfigurationen.
+Die Tabellen SNAPSHOTS und CHANGELOGS verfolgen Änderungen an Campaigns und Canvases. Zu wissen, wann diese Tabellen aktualisiert werden, ist wichtig für die Abfrage der neuesten Nachrichtenvarianten und Canvas-Konfigurationen.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 
 Eine Zeile wird zu `CHANGELOGS_CAMPAIGN_SHARED` hinzugefügt, wenn:
-- Die Kampagne wird gestartet, ODER
-- Eines der folgenden snapshottable Felder wird geändert:
+- Die Campaign gestartet wird, ODER
+- Eines der folgenden Snapshot-fähigen Felder geändert wird:
   - Name
-  - Aktionen (einschließlich Änderungen des Inhalts von Nachrichten)
-  - Verhalten bei Konversion
+  - Aktionen (einschließlich Änderungen des Nachrichteninhalts)
+  - Conversion-Verhalten
 
 {% alert important %}
-Das Speichern oder Aktualisieren des Entwurfs nach dem Start löst nicht automatisch ein Update aus. Das Update wird nur dann getriggert, wenn Sie die Kampagne starten oder die Änderungen des Entwurfs nach dem Start auf die aktive Kampagne anwenden.
+Das Speichern oder Aktualisieren des Entwurfs nach dem Start löst nicht automatisch ein Update aus. Das Update wird nur dann getriggert, wenn Sie die Campaign starten oder die Änderungen des Entwurfs nach dem Start auf die aktive Campaign anwenden.
 {% endalert %}
 
 ### SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED
 
-`SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED` wird von `CHANGELOGS_CAMPAIGN_SHARED` abgeleitet. Diese Tabelle extrahiert die Spalte "Aktionen" aus `CHANGELOGS_CAMPAIGN_SHARED` und fasst sie zu einzelnen Datensätzen für Nachrichtenvariationen zusammen. Sie wird entsprechend aktualisiert, wenn `CHANGELOGS_CAMPAIGN_SHARED` aktualisiert wird.
+`SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED` wird von `CHANGELOGS_CAMPAIGN_SHARED` abgeleitet. Diese Tabelle extrahiert und vereinzelt die Aktionsspalte aus `CHANGELOGS_CAMPAIGN_SHARED` in einzelne Datensätze für Nachrichtenvarianten. Sie wird entsprechend aktualisiert, wenn `CHANGELOGS_CAMPAIGN_SHARED` aktualisiert wird.
 
 ### CHANGELOGS_CANVAS_SHARED
 
 Eine Zeile wird zu `CHANGELOGS_CANVAS_SHARED` hinzugefügt, wenn:
-- Der Canvas wird gestartet, ODER
-- Eines der folgenden snapshottable Felder wird geändert:
+- Das Canvas gestartet wird, ODER
+- Eines der folgenden Snapshot-fähigen Felder geändert wird:
   - Name
-  - Verhalten bei Konversion
-  - Variationen (Prozentsatz, Zuordnungen der ersten Stufe, Variationsnamen)
+  - Conversion-Verhalten
+  - Varianten (Prozentsatz, Zuordnungen des ersten Schritts, Variantennamen)
 
 {% alert important %}
 Das Speichern oder Aktualisieren des Entwurfs nach dem Start löst nicht automatisch ein Update aus. Das Update wird nur dann getriggert, wenn Sie das Canvas starten oder die nach dem Start vorgenommenen Änderungen am Entwurf auf das aktive Canvas anwenden.
@@ -89,11 +89,11 @@ Das Speichern oder Aktualisieren des Entwurfs nach dem Start löst nicht automat
 ### SNAPSHOTS_CANVAS_STEP_SHARED
 
 Eine Zeile wird zu `SNAPSHOTS_CANVAS_STEP_SHARED` hinzugefügt, wenn:
-- Der Canvas wird gestartet, ODER
-- Der aktive Canvas wird aktualisiert (Entwurf nach dem Start angewendet) ODER
-- Eines der folgenden snapshottable Felder wird geändert:
+- Das Canvas gestartet wird, ODER
+- Das aktive Canvas aktualisiert wird (Entwurf nach dem Start angewendet), ODER
+- Eines der folgenden Snapshot-fähigen Felder geändert wird:
   - Name
-  - Aktionen (einschließlich Änderungen des Inhalts von Nachrichten innerhalb von Nachrichtenvariationen)
+  - Aktionen (einschließlich Änderungen des Nachrichteninhalts innerhalb von Nachrichtenvarianten)
 
 {% alert important %}
 Das Speichern des Entwurfs nach dem Start löst nicht automatisch ein Update aus. Das Update wird nur dann getriggert, wenn Sie das Canvas starten oder die nach dem Start vorgenommenen Änderungen am Entwurf auf das aktive Canvas anwenden.
@@ -102,15 +102,15 @@ Das Speichern des Entwurfs nach dem Start löst nicht automatisch ein Update aus
 ### SNAPSHOTS_CANVAS_FLOW_STEP_SHARED
 
 Eine Zeile wird zu `SNAPSHOTS_CANVAS_FLOW_STEP_SHARED` hinzugefügt, wenn:
-- Der Canvas wird gestartet, ODER
-- Der aktive Canvas wird aktualisiert (Entwurf nach dem Start angewendet) ODER
-- Eines der folgenden snapshottable Felder wird geändert:
+- Das Canvas gestartet wird, ODER
+- Das aktive Canvas aktualisiert wird (Entwurf nach dem Start angewendet), ODER
+- Eines der folgenden Snapshot-fähigen Felder geändert wird:
   - Name
 
 {% alert important %}
 Das Speichern des Entwurfs nach dem Start löst nicht automatisch ein Update aus. Das Update wird nur dann getriggert, wenn Sie das Canvas starten oder die nach dem Start vorgenommenen Änderungen am Entwurf auf das aktive Canvas anwenden.
 {% endalert %}
 
-## Einhaltung der allgemeinen Datenschutzverordnung (DSGVO)
+## Einhaltung der Datenschutz-Grundverordnung (DSGVO) {#general-data-protection-regulation-gdpr-compliance}
 
-{% include partners/snowflake_pii_gdpr.md %}
+{% multi_lang_include partners/snowflake_pii_gdpr.md %}

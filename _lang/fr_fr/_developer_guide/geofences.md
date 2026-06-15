@@ -1,6 +1,6 @@
 ---
 nav_title: Géorepérages
-article_title: Géorepérages pour le SDK Swift de Braze
+article_title: Géorepérages
 page_order: 3.51
 description: "Découvrez comment configurer des géorepérages pour le SDK de Braze."
 platform:
@@ -9,13 +9,13 @@ platform:
   - Swift
   - Xamarin
   - React Native
-Tool:
+tool:
   - Location
 ---
 
-# Géorepérages
+# Géorepérages {#geofences}
 
-> Découvrez comment configurer des géorepérages pour le SDK de Braze. Un [géorepérage]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences) est une zone géographique virtuelle qui forme un cercle autour d'une position globale spécifique et qui est conseillée en combinant la latitude, la longitude et un rayon.
+> Découvrez comment configurer des géorepérages pour le SDK de Braze. Un [géorepérage]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences/#about-locations-and-geofences) est une zone géographique virtuelle qui forme un cercle autour d'une position globale spécifique et qui est représentée en combinant la latitude, la longitude et un rayon.
 
 {% sdktabs %}
 {% sdktab android %}

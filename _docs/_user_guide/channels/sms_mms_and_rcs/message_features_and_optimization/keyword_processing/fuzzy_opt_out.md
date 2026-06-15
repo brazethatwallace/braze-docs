@@ -15,13 +15,17 @@ page_order: 4
 
 ![iOS message chat that shows outbound opt-out messages in response to the inbound fuzzy opt-out "Please stopppp".]({% image_buster /assets/img/sms/fuzzy1.jpg %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-> Users that send SMS, MMS, and RCS with Braze must adhere to the applicable laws, regulations, and industry standards that are defined. For opt-out, the laws dictate that when a user texts "STOP" that all subsequent messaging related to that messaging program will be stopped. Braze automatically processes these messages and unsubscribes the user.<br><br>Fuzzy opt-out attempts to recognize when an inbound message does not match an [opt-out keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/), but indicates opt-out intent. If fuzzy opt-out is enabled and an inbound keyword response is deemed "fuzzy," you can configure Braze to either automatically unsubscribe the user or respond with a message that instructs them how to opt out manually.
+> Users that send SMS, MMS, and RCS with Braze must adhere to the applicable laws, regulations, and industry standards that are defined. For opt-out, laws such as the TCPA dictate that when a user sends any message that constitutes a reasonable revocation of consent (including recognized opt-out keywords such as "STOP", "STOPALL", "UNSUBSCRIBE", "CANCEL", "END", or "QUIT"), all subsequent messaging related to that messaging program must be stopped. Braze automatically processes recognized opt-out keywords and unsubscribes the user.<br><br> Fuzzy opt-out extends this capability by attempting to recognize inbound messages that don't match any configured **opt-out keyword** for the subscription group's **Opt-out** category (that is, any [default opt-out keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) or [custom opt-out keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)) but still indicate opt-out intent—for example, a message like "goodbye" or "leave me alone".
 
-Currently, only opt-out keywords created using English as the [local language]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/#multi-language-support) are supported.
+Fuzzy opt-out is disabled by default. If fuzzy opt-out is enabled and an inbound message is deemed "fuzzy," you can configure Braze to either automatically unsubscribe the user or send a message instructing them how to opt out manually. For US brands, automatically unsubscribing the user is strongly recommended to comply with TCPA requirements.
+
+{% alert note %}
+Currently, only opt-out keywords (default and custom) created using English as the [local language]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/#multi-language-support) are supported.
+{% endalert %}
 
 ## What is deemed as fuzzy?
 
-The criteria for an inbound response to be deemed as "fuzzy" are as follows:
+The criteria for an inbound response to be deemed as "fuzzy" are as follows (comparisons use every keyword in the **Opt-out** category, including defaults and custom keywords):
 - If switching a letter with the letter one to the left or right of it on a QWERTY keyword yields a matching opt-out keyword.
 - A substring of the message matches an opt-out keyword.
 

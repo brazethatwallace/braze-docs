@@ -1,87 +1,86 @@
 ---
-nav_title: Kampagnen und Canvase
-article_title: "Erste Schritte: Kampagnen und Canvase"
+nav_title: Campaigns und Canvases
+article_title: "Erste Schritte: Campaigns und Canvases"
 page_order: 3
 page_type: reference
 description: "Dieser Artikel bietet einen Überblick über die verschiedenen Möglichkeiten, wie Sie mit Braze Nachrichten versenden können."
 
 ---
 
-# Beginnen Sie: Kampagnen und Canvase
+# Erste Schritte: Campaigns und Canvases {#get-started-campaigns-and-canvases}
 
-In Braze können Sie Nachrichten entweder über eine [Kampagne](#campaigns) oder ein [Canvas](#canvas) versenden.
+> Dieser Artikel bietet einen Überblick über die verschiedenen Möglichkeiten, wie Sie mit Braze Nachrichten versenden können. In Braze können Sie Nachrichten entweder über eine [Campaign](#campaigns) oder ein [Canvas](#canvas) versenden.
 
-- Wählen Sie eine Kampagne aus, um eine bestimmte Nachricht an eine Nutzergruppe zu senden. Eine Kampagne ist ein einzelner Schritt, um mit Ihren Nutzern über verschiedene Nachrichtenkanäle in Kontakt zu treten.
-- Für das Versenden einer Reihe von fortlaufenden Nachrichten im Rahmen einer übergreifenden Customer Journey empfehlen wir Canvas, unser Tool für die Journey-Orchestrierung. Während Kampagnen gut geeignet sind, um einfache, zielgerichtete Nachrichten zu versenden, können Sie mit Canvases Ihre Beziehungen zu Kunden auf die nächste Stufe heben.
+- Wählen Sie eine Campaign, um eine einzelne, gezielte Nachricht an eine Gruppe von Nutzer:innen zu senden. Eine Campaign ist ein einzelner Nachrichtenschritt, um mit Ihren Nutzer:innen über verschiedene Messaging-Kanäle in Kontakt zu treten.
+- Für das Versenden einer Reihe von fortlaufenden Nachrichten im Rahmen einer übergreifenden Customer Journey empfehlen wir Canvas, unser Tool für die Journey-Orchestrierung. Während Campaigns gut geeignet sind, um einfache, zielgerichtete Nachrichten zu versenden, können Sie mit Canvases Ihre Beziehungen zu Kund:innen auf die nächste Stufe heben.
 
-## Kampagnen
+## Campaigns {#campaigns}
 
-Obwohl Kampagnen je nach Kanal unterschiedlich gestaltet werden können, gibt es in Braze vier Haupttypen von Kampagnen, die Sie kennen sollten:
+Obwohl Campaigns je nach Kanal unterschiedlich gestaltet werden können, gibt es in Braze vier Haupttypen von Campaigns, die Sie kennen sollten:
 
-| Art der Kampagne        | Beschreibung                                                                                                                                                                                                                                                                                              |
+| Campaign-Typ | Beschreibung |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Regulär              | Dies ist die häufigste Art von Kampagnen. Sie können je nach Kommunikationszielen einen oder mehrere Kanäle ansprechen und Ihre Inhalte mit visuellen Editoren direkt in Braze gestalten, anpassen und testen. Erfahren Sie, wie Sie [eine Kampagne erstellen]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/creating_campaign) können. |
-| A/B-Tests          | Bei Kampagnen, die auf einen einzigen Kanal abzielen, können Sie mehr als eine Version derselben Kampagne versenden und sehen, welche davon am besten abschneidet. Mit [multivariaten Kampagnen]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) können Sie Texte, Personalisierungen usw. in bis zu acht verschiedenen Varianten testen. |
-| API                  | Mit [API-Kampagnen]({{site.baseurl}}/api/api_campaigns/) können Sie im Handumdrehen termingerechte Nachrichten versenden. Im Gegensatz zu anderen Kampagnentypen legen Sie im Braze-Dashboard weder die Nachricht noch die Empfänger oder den Zeitplan fest. Stattdessen übergeben Sie diese Bezeichner in Ihren API-Aufrufen. Diese werden in der Regel für Echtzeit-Transaktionsnachrichten oder aktuelle Nachrichten verwendet.  |
-| Transaktions-E-Mails | Braze [Transaktions-E-Mails]({{site.baseurl}}/user_guide/message_building_by_channel/email/transactional_message_api_campaign/) sind speziell für den Versand automatisierter, nicht werblicher E-Mail-Nachrichten konzipiert, um eine vereinbarte Transaktion zwischen Ihnen und Ihren Kunden zu erleichtern. Sie senden geschäftskritische Benachrichtigungen an einen einzelnen Benutzer, bei denen Geschwindigkeit von größter Bedeutung ist. *Verfügbar für ausgewählte Pakete.* |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Regulär | Dies ist der häufigste Campaign-Typ. Sie können je nach Kommunikationszielen einen oder mehrere Kanäle ansprechen und Ihre Inhalte mit unseren visuellen Editoren direkt in Braze gestalten, anpassen und testen. Erfahren Sie, wie Sie [eine Campaign erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/). |
+| A/B-Tests | Bei Campaigns, die auf einen einzelnen Kanal abzielen, können Sie mehr als eine Version derselben Campaign versenden und sehen, welche am besten abschneidet. Mit einer [multivariaten Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing/) können Sie Texte, Personalisierung und mehr in bis zu acht verschiedenen Varianten testen. |
+| API | Mit [API-Campaigns]({{site.baseurl}}/api/api_campaigns/) können Sie zeitkritische Nachrichten so schnell wie möglich versenden. Im Gegensatz zu anderen Campaign-Typen legen Sie im Braze-Dashboard weder die Nachricht noch die Empfänger:innen oder den Zeitplan fest. Stattdessen übergeben Sie diese Bezeichner in Ihren API-Aufrufen. Diese werden in der Regel für Realtime-Transaktionsnachrichten oder aktuelle Meldungen verwendet. |
+| Transaktions-E-Mails | [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/email/) von Braze sind speziell für den Versand automatisierter, nicht werblicher E-Mail-Nachrichten konzipiert, um eine vereinbarte Transaktion zwischen Ihnen und Ihren Kund:innen zu ermöglichen. Sie senden geschäftskritische Benachrichtigungen an einzelne Nutzer:innen, bei denen Geschwindigkeit von größter Bedeutung ist. *Verfügbar für ausgewählte Pakete.* |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
 
 {% alert note %}
-Regelmäßige Kampagnen und A/B-Testkampagnen können geplant werden (z. B. um eine Liste von Nutzern über eine bevorstehende Veranstaltung zu informieren) oder automatisch als Reaktion auf eine Nutzeraktion versendet werden (z. B. um eine E-Mail zu senden, wenn jemand Ihren Newsletter abonniert hat). Erfahren Sie mehr über die [Planung von Kampagnen]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types).
+Reguläre Campaigns und A/B-Test-Campaigns können geplant werden (z. B. um eine Liste von Nutzer:innen über ein bevorstehendes Ereignis zu informieren) oder automatisch als Reaktion auf eine Nutzeraktion versendet werden (z. B. um eine E-Mail zu senden, wenn jemand Ihren Newsletter abonniert). Erfahren Sie mehr über die [Planung von Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 {% endalert %}
 
-Unabhängig von der Art der Kampagne, die Sie erstellen, können Ihre Kampagnen auf die Bedürfnisse Ihrer Nutzer eingehen und eine durchdachte, personalisierte Antwort liefern. Nachdem Sie Ihre Kampagne verschickt haben, können Sie mit unseren [integrierten Analysetools]({{site.baseurl}}/user_guide/analytics/reporting/) sehen, wie sie abgeschnitten hat und wie viele Nutzer auf der Grundlage Ihrer [Conversion Events]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/) konvertiert haben.
+Unabhängig vom Campaign-Typ können Ihre Campaigns auf die Bedürfnisse Ihrer Nutzer:innen eingehen und eine durchdachte, personalisierte Antwort liefern. Nachdem Sie Ihre Campaign versendet haben, können Sie mit unseren [integrierten Analytics-Tools]({{site.baseurl}}/user_guide/analytics/reports/) sehen, wie sie abgeschnitten hat und wie viele Nutzer:innen basierend auf Ihren [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) konvertiert haben.
 
-Hier erfahren Sie mehr über Braze-Kampagnen:
+Hier finden Sie weitere Ressourcen, um mehr über Campaigns in Braze zu erfahren:
 
-- Braze Learning: [Kampagnen einrichten](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)
-- [Kampagnen erstellen]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/creating_campaign)
-- [Ideen und Strategien]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies)
+- Braze Learning: [Campaign einrichten](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)
+- [Eine Campaign erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
+- [Ideen und Strategien]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)
 
-## Canvas
+## Canvas {#canvas}
 
-Anstatt sporadische Nachrichten über mehrere Kampagnen hinweg zu versenden, schaffen Canvases eine kontinuierliche, fließende Konversation mit den Nutzern. Das liegt daran, dass sich die Reise eines Nutzers durch ein Canvas in verschiedene Pfade aufteilen kann, je nachdem, was er mit Ihrer Marke macht (oder nicht macht). So können Sie die Nutzer automatisch und in Echtzeit durch einen bestimmten Fluss führen.
+Anstatt sporadische Nachrichten über mehrere Campaigns hinweg zu versenden, schaffen Canvases eine kontinuierliche, fließende Konversation mit Nutzer:innen. Das liegt daran, dass sich die Journey einer Nutzerin oder eines Nutzers durch ein Canvas in verschiedene Pfade aufteilen kann – je nachdem, wie sie oder er mit Ihrer Marke interagiert (oder nicht). So können Sie Nutzer:innen automatisch und in Echtzeit durch einen bestimmten Flow voranbringen.
 
 ![]({% image_buster /assets/img/getting_started/canvas_flow.png %})
 
-So können Sie mit Canvasen Nutzer:innen erfassen, die den Konversionspfad verlassen haben, und sie in die am besten geeignete Outreach-Initiative einbinden.
+Auf diese Weise eignen sich Canvases hervorragend, um Nutzer:innen aufzufangen, die den Conversion-Pfad verlassen haben, und sie in die wirksamsten Outreach-Initiativen einzubinden.
 
-Wenn Sie ein Canvas erstellen, folgen Sie vielen der gleichen Schritte wie bei der Einrichtung einer Kampagne: Sie legen eine allgemeine Zielgruppe, Teilnahmebedingungen und Sendeeinstellungen fest. Ihr Canvas startet, wenn jemand Ihre Auslösebedingung erfüllt. Dann wird ein Pfad im Canvas durchlaufen, bis Ihre Exit-Bedingungen erfüllt sind.
+Wenn Sie ein Canvas erstellen, folgen Sie vielen der gleichen Schritte wie bei der Einrichtung einer Campaign: Sie legen eine allgemeine Zielgruppe, Einstiegsbedingungen und Sendeeinstellungen fest. Ihr Canvas startet, wenn jemand Ihre Trigger-Bedingung erfüllt. Dann durchläuft die Person einen Pfad im Canvas, bis Ihre Exit-Bedingungen erfüllt sind.
 
-Ihr Canvas kann eine beliebige Kombination von [Nachrichten]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step/), [Verzögerungen]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/delay_step/), [Experimenten]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/experiment_step/) und mehr enthalten. Sie können Nachrichten auf allen unterstützten Kommunikationskanälen versenden und sie sogar [in soziale Netzwerke und Werbeplattformen wie Facebook, Google oder TikTok einbinden]({{site.baseurl}}/partners/canvas_audience_sync/overview/).
+Ihr Canvas kann eine beliebige Kombination aus [Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), [Verzögerungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/), [Experimenten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) und mehr enthalten. Sie können auf allen unterstützten Messaging-Kanälen senden und sogar [soziale Netzwerke und Werbeplattformen integrieren]({{site.baseurl}}/partners/canvas_audience_sync/overview/) – wie Facebook, Google oder TikTok.
 
-Bitte beachten Sie die folgenden zusätzlichen Ressourcen, um mehr über Canvas zu erfahren:
+Hier finden Sie weitere Ressourcen, um mehr über Canvas zu erfahren:
 
-- Braze Learning: [User Journeys mit Canvas Flow](https://learning.braze.com/path/journey-orchestration-with-canvas-flow)
-- [Canvase erstellen]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)
-- [Canvas-Rahmen]({{site.baseurl}}/user_guide/engagement_tools/canvas/get_started/canvas_outlines/)
+- Braze Learning: [Journey-Orchestrierung mit Canvas Flow](https://learning.braze.com/path/journey-orchestration-with-canvas-flow)
+- [Ein Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)
+- [Canvas-Entwürfe]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/canvas_outlines/)
 
-## Messaging-Kanäle
+## Messaging-Kanäle {#messaging-channels}
 
-Messaging-Kanäle sind die verschiedenen Kommunikationskanäle, über die Sie mit Ihren Kunden in Kontakt treten und gezielte Nachrichten übermitteln können. 
+Messaging-Kanäle sind die verschiedenen Kommunikationskanäle, über die Sie mit Ihren Kund:innen in Kontakt treten und gezielte Nachrichten übermitteln können.
 
 ![]({% image_buster /assets/img/getting_started/channels.png %})
 
-Die folgende Tabelle gibt einen Überblick über die von uns unterstützten Kanäle.
+Die folgende Tabelle gibt einen Überblick über die unterstützten Kanäle.
 
-| Kanal                                                                                              | Beschreibung                                                                                                                                            |
+| Kanal | Beschreibung |
 | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [E-Mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/about/)                        | Senden Sie personalisierte E-Mails an die Posteingänge Ihrer Benutzer.                                                                                                       |
-| [Mobile Push-Benachrichtigung]({{site.baseurl}}/user_guide/message_building_by_channel/push/about/)                   | Liefern Sie Nachrichten als Benachrichtigungen direkt an die mobilen Geräte der Benutzer.                                                                                   |
-| [Web-Push]({{site.baseurl}}/user_guide/message_building_by_channel/push/web)                         | Schicken Sie Benachrichtigungen an Webbrowser, auch wenn Ihre Website dort gar nicht geöffnet ist.                                                         |
-| [In-App-Nachrichten]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/about/)    | Zeigen Sie Nachrichten in Ihrer mobilen App an, wenn diese aktiv genutzt wird.                                                                             |
-| [SMS, MMS und RCS*]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/)                   | Senden Sie Textnachrichten an die Mobiltelefone der Benutzer.                                                                                                            |
-| [WhatsApp*]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/)              | Senden Sie Nachrichten über die beliebte Messaging-Plattform WhatsApp, um Ihre Nutzer zu erreichen und mit ihnen in Kontakt zu treten.                                                   |
-| [Banner*]({{site.baseurl}}/user_guide/message_building_by_channel/banners/)       | Betten Sie Nachrichten direkt in Ihre App oder Website ein. |
-| [Content-Cards*]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/about/)       | Bieten Sie einen Posteingang in Ihrer App oder Website an, in dem Benutzer Nachrichten empfangen und mit ihnen interagieren können, oder zeigen Sie Nachrichten in einem Karussell, als Banner und mehr an. |
-| [TV]({{site.baseurl}}/developer_guide/platforms/tv_and_ott/)                           | Interagieren Sie mit Nutzern auf vernetzten Fernsehplattformen.                                                                                                   |
-| [Webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/understanding_webhooks/) | Ermöglichen Sie Echtzeitkommunikation und Integration mit externen Systemen durch benutzerdefinierte HTTP-Callbacks.                                                    |
-| [LINE]({{site.baseurl}}/user_guide/message_building_by_channel/line/) | Engagieren Sie sich mit Nutzer:innen von LINE, der beliebtesten Messaging App in Japan.                                                    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [E-Mail]({{site.baseurl}}/user_guide/channels/email/) | Senden Sie personalisierte E-Mails an die Posteingänge Ihrer Nutzer:innen. |
+| [Mobile Push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/) | Liefern Sie Nachrichten als Benachrichtigungen direkt auf die Mobilgeräte Ihrer Nutzer:innen. |
+| [Web-Push]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/) | Senden Sie Benachrichtigungen an die Webbrowser Ihrer Nutzer:innen – auch wenn diese Ihre Website gerade nicht aktiv besuchen. |
+| [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/) | Zeigen Sie Nachrichten innerhalb Ihrer mobilen App an, während Nutzer:innen sie aktiv verwenden. |
+| [SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)* | Senden Sie Textnachrichten an die Mobiltelefone Ihrer Nutzer:innen. |
+| [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)* | Senden Sie Nachrichten über die beliebte Messaging-Plattform WhatsApp, um Ihre Nutzer:innen zu erreichen und mit ihnen in Kontakt zu treten. |
+| [Banner]({{site.baseurl}}/user_guide/channels/banners/)* | Betten Sie Nachrichten direkt in Ihre App oder Website ein. |
+| [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)* | Bieten Sie einen Posteingang in Ihrer App oder Website an, in dem Nutzer:innen Nachrichten empfangen und mit ihnen interagieren können, oder zeigen Sie Nachrichten in einem Karussell, als Banner und mehr an. |
+| [Connected TV]({{site.baseurl}}/developer_guide/platforms/tv_and_ott/) | Interagieren Sie mit Nutzer:innen auf vernetzten Fernsehplattformen. |
+| [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/) | Ermöglichen Sie Realtime-Kommunikation und Integration mit externen Systemen durch benutzerdefinierte HTTP-Callbacks. |
+| [LINE]({{site.baseurl}}/user_guide/channels/line/) | Treten Sie mit Nutzer:innen auf LINE in Kontakt, der beliebtesten Messaging-App in Japan. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging channels" }
 
-<sup>\*\*Als Add-on-Feature erhältlich\*\*.</sup>
+<sup>*Als Add-on-Feature verfügbar.</sup>
 
 {% alert tip %}
-Für kurze und dringende Nachrichten, die über die meisten Kanäle (E-Mail, SMS, Push) übermittelt werden können, nutzen Sie den [intelligenten Kanalfilter]({{site.baseurl}}/user_guide/brazeai/intelligence/intelligent_channel/), um die Nachricht automatisch über den besten Kanal für jeden Benutzer zu senden.
+Für kurze und dringende Nachrichten, die über die meisten Kanäle (E-Mail, SMS, Push) übermittelt werden können, nutzen Sie den Filter [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/), um die Nachricht automatisch über den besten Kanal für jede Nutzerin und jeden Nutzer zu senden.
 {% endalert %}
-

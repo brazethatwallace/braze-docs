@@ -153,7 +153,7 @@ Next, build the remainder of your campaign. See the following sections for furth
 
 WhatsApp messages can be delivered based on a scheduled time, an action, or based on an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-For action-based delivery, you can also set the campaign's duration and [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+For action-based delivery, you can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 
@@ -202,7 +202,7 @@ The following features are supported for outbound WhatsApp messages you send thr
 | Documents | Documents can embedded within body text. Files must be hosted through URL. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
 | Videos | Videos can be embedded within body text. Files must be hosted through URL or in the [Braze media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). | < 16 MB | `.3gp`, `.mp4` |
 | Audio | Audio is only supported through response messaging. Files must be hosted through URL. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Outbound messages" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
@@ -218,7 +218,7 @@ The following features are supported for inbound WhatsApp messages you receive t
 | Documents | Documents are supported through message attachment. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
 | Video | Only H.264 video codec and AAC audio codec are supported. Videos must either have a single audio stream or no audio stream. | `.mp4`, `.3gp` |
 | CTA links | Various call-to-action (CTA) types are supported. For more details, see [Call-to-action types](#ctas). | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Inbound messages" }
 
 ### Call-to-action types {#ctas}
 
@@ -233,5 +233,5 @@ The following call-to-action types are supported for WhatsApp messages you send 
 | Coupon code message templates | Available for message templates only. <br>These can be opened and edited like other message templates, and are compatible with Liquid and Braze promotion codes. |
 | CTA response messages  | Create a response message that includes a call to action button. |
 | [List response messages]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | Create a response message that includes a list of up to 10 options for users to pick from. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types #ctas" }
 

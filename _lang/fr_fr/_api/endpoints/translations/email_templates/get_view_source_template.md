@@ -1,40 +1,38 @@
 ---
-nav_title: "GET : Consulter les traductions sources pour le modèle d'e-mail"
-article_title: "GET : Voir les traductions de Source pour Email Template"
+nav_title: "GET : Consulter les traductions sources pour un modèle d'e-mail"
+article_title: "GET : Consulter les traductions sources pour un modèle d'e-mail"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Cet article présente les détails de l'affichage des traductions de la source pour un endpoint de modèle d'e-mail."
+description: "Cet article présente les détails de l'endpoint permettant de consulter les traductions sources d'un modèle d'e-mail."
 ---
 
 {% api %}
-# Afficher les traductions sources d'un modèle d'e-mail
+# Consulter les traductions sources d'un modèle d'e-mail {#view-the-source-translations-for-an-email-template}
 {% apimethod get %}
-/templates/e-mail/traductions/source
+/templates/email/translations/source
 {% endapimethod %}
 
-> Utilisez cet endpoint pour afficher les traductions sources d'un [modèle d'e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates). Veuillez consulter [la section Locales dans les messages]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) pour plus d'informations sur les fonctionnalités de traduction.
+> Utilisez cet endpoint pour consulter les traductions sources d'un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consultez [Paramètres régionaux dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+## Conditions préalables {#prerequisites}
 
-## Conditions préalables
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `templates.email.info`.
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `templates.email.info`.
-
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Paramètres de recherche
+## Paramètres de requête {#query-parameters}
 
-| Paramètre     | Requis | Type de données | Description                     |
+| Paramètre | Requis | Type de données | Description |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | Requis | Chaîne de caractères    | L'ID de votre modèle d'e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `template_id` | Requis | Chaîne de caractères | L'ID de votre modèle d'e-mail. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/translations/source?template_id={template_id}'
@@ -44,13 +42,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
 ---template_id: "6ad1507f-ca10-44c4-95bf-aj39fm10fm1ps"
 ```
 
-## Réponse
+## Réponse {#response}
 
-Quatre réponses de code de statut existent pour cet endpoint : `200`, `400`, `404` et `429`.
+Quatre codes de statut sont possibles pour cet endpoint : `200`, `400`, `404` et `429`.
 
-### Exemple de réponse réussie
+### Exemple de réponse réussie {#example-success-response}
 
-Le code de statut `200` pourrait retourner l’en-tête et le corps de réponse suivant.
+Le code de statut `200` pourrait renvoyer l'en-tête et le corps de réponse suivants.
 
 ```json
 {
@@ -64,9 +62,9 @@ Le code de statut `200` pourrait retourner l’en-tête et le corps de réponse 
 }
 ```
 
-### Exemple de réponse échouée
+### Exemple de réponse en erreur {#example-error-response}
 
-Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la résolution des problèmes[](#troubleshooting) pour plus d’informations concernant les erreurs que vous pourriez rencontrer.
+Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la section [Résolution des problèmes](#troubleshooting) pour plus d'informations sur les erreurs que vous pourriez rencontrer.
 
 ```json
 {

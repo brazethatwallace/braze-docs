@@ -26,7 +26,7 @@ Before you start, you need the following:
 | Catapult account | A Catapult account is required to use this integration. |
 | Braze REST API key (optional) | If you use Catapult webhooks, you need a Braze REST API key with the user data permissions your use case requires. Create the key in Braze under **Settings** > **APIs and Identifiers** > **API Keys**. |
 | Braze REST endpoint (optional) | If you use Catapult webhooks, use the REST endpoint URL that matches the Braze URL for [your Braze instance]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Step 1: Create your game experience
 

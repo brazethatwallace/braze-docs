@@ -4,15 +4,15 @@ article_title: Set Up IPs & Domains
 page_order: 0
 page_type: tutorial
 channel: email
-description: "This how-to article will walk you through how to set up your IPs and Domains for sending emails through Braze."
+description: "This how-to article guides you through how to set up your IPs and Domains for sending emails through Braze."
 
 ---
 
 # Set up IPs and domains
 
-{% multi_lang_include video.html id="iTm3yQkJ0UU" align="right"  %}
+> This article guides you through the requirements and steps needed to set up your IP addresses and pools, as well as domains and subdomains needed before you can begin sending emails with Braze.
 
-> This article walks you through the requirements and steps needed to set up your IP addresses and pools, as well as domains and subdomains needed before you can begin sending emails with Braze. <br><br>Though most of the setup process is done by Braze, we have outlined the requirements and materials for this setup.
+{% multi_lang_include video.html id="iTm3yQkJ0UU" align="right"  %}
 
 <br>
 
@@ -94,6 +94,10 @@ Braze generates an A record to associate your IP address with your sending subdo
 
 Note that additional domains that have been added do not appear in the **Sender Verification** section. To add more domains, contact the Braze Support team.
 
+### IP pools with more than one dedicated IP
+
+When an IP pool contains multiple dedicated IP addresses, Braze and your email service provider spread large sends across those IPs for capacity and deliverability. Distribution is approximate—not every message in a campaign uses every IP, and smaller sends may look uneven across addresses. SendGrid often processes mail in chunks (on the order of roughly 1,500 messages per chunk), so volume does not always split in a strict one-to-one ratio across IPs. If you routinely send very high daily volume, discuss pool sizing with your Braze onboarding or customer success contact.
+
 ### Next steps
 
-After your sender verification is complete, we recommend IP warming so that your messages reach their destination inboxes at a consistently high rate. After completing this setup, be sure to also consult with the Braze Onboarding team to confirm if your domains and [IP address]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ip_warming/) are working.
+After your sender verification is complete, we recommend IP warming so that your messages reach their destination inboxes at a consistently high rate. After completing this setup, be sure to also consult with the Braze Onboarding team to confirm if your domains and [IP address]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) are working.

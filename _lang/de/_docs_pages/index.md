@@ -9,7 +9,7 @@ custom_collection: home
 nav_title: "Dokumentation"
 description: "Dies ist die Startseite der Braze-Dokumentation. Hier finden Sie Links zum Nutzerhandbuch, zum Entwicklerhandbuch, zum API-Handbuch, zur Dokumentation für Technologie-Partner und zu Hilfeartikeln. Außerdem finden Sie hier Direktlinks und beliebte Artikel."
 
-doc_top_header: "Braze Documentation"
+doc_top_header: "Braze-Dokumentation"
 doc_top_text: ""
 
 braze_learning: "Fachbegriffe und Konzepte werden durch eine Mischung aus Videos, Lektionen und interaktiven Übungen erklärt."
@@ -18,7 +18,7 @@ doc_menu_list:
   - name: Nutzerhandbuch
     bg_color: '#3accdd'
     image: /assets/img/braze_icons/users-01.svg
-    link: /docs/user_guide/introduction/
+    link: /docs/user_guide/home/
     description: "Erfahren Sie, wie Sie die Braze-Plattform nutzen können, um ein wirkungsvolleres Kundenerlebnis zu schaffen."
   - name: Entwicklerhandbuch
     bg_color: '#f7918e'
@@ -47,22 +47,22 @@ doc_menu_list:
     description: "Die Compliance-Dokumentation beschreibt die spezifischen Bedingungen, die für Ihr erworbenes Produkt oder Ihren erworbenen Dienst gelten."
 
 popular_topic_list:
-  - name: Braze-API-Wörterbuch
-    link: /docs/api/home/
+  - name: Standort-Tracking
+    link: /docs/user_guide/audience/locations_and_geofences/location_tracking/
+  - name: "POST: Endpunkt „Nutzer:innen tracken“"
+    link: /docs/api/endpoints/user_data/post_user_track/
   - name: API-Übersicht
     link: /docs/api/basics/
-  - name: "POST&#58; Endpunkt Nutzer:innen tracken"
-    link: /docs/api/endpoints/user_data/post_user_track/
-  - name: Nutzerimport
-    link: /docs/user_guide/data/user_data_collection/user_import/
-  - name: Web-SDK-Setup
+  - name: Braze SDK integrieren
     link: /docs/developer_guide/sdk_integration/?sdktab=web
-  - name: Angepasste Events
-    link: /docs/user_guide/data/custom_data/custom_events/
-  - name: Angepasste Attribute
-    link: /docs/user_guide/data/custom_data/custom_attributes/
-  - name: Braze-Currents
-    link: /docs/user_guide/data/braze_currents/
+  - name: Nutzerattribut-Objekt
+    link: /docs/api/objects_filters/user_attributes_object/
+  - name: Braze Agents
+    link: /docs/user_guide/brazeai/agents/
+  - name: Currents
+    link: /docs/user_guide/data/distribution/braze_currents/
+  - name: Cloud-Datenaufnahme
+    link: /docs/user_guide/data/unification/cloud_ingestion/
 
 helpful_resources_list:
   - name: Innovationserklärung

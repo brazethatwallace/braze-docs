@@ -1,54 +1,56 @@
-# Bannières
+# Bannières {#banners}
 
-> Avec Banners, vous pouvez créer des messages personnalisés pour vos utilisateurs, tout en élargissant la portée de vos autres canaux, tels que les e-mails ou les notifications push. Vous pouvez intégrer des bannières directement dans votre application ou votre site web, ce qui vous permet d'engager le dialogue avec les utilisateurs à travers une expérience qui semble naturelle.
+> Avec les bannières, vous pouvez créer des messages personnalisés pour vos utilisateurs, tout en élargissant la portée de vos autres canaux, tels que les e-mails ou les notifications push. Vous pouvez intégrer des bannières directement dans votre application ou votre site web, ce qui vous permet d'interagir avec les utilisateurs à travers une expérience naturelle.
+
+## Conditions préalables {#prerequisites}
+
+La disponibilité des bannières dépend de votre forfait Braze. Contactez votre gestionnaire de compte ou votre gestionnaire de la satisfaction client pour commencer.
+
+Avant de démarrer, assurez-vous d'avoir [créé des emplacements de bannières]({{site.baseurl}}/developer_guide/banners/placements/) dans votre application ou votre site web.
 
 ![Exemple de bannière affichée sur un appareil.]({% image_buster /assets/img/banners/sample_banner.png %})
 
-## Conditions préalables
+## Pourquoi utiliser des bannières ? {#why-use-banners}
 
-La disponibilité des bannières dépend de votre forfait Braze. Veuillez contacter votre gestionnaire de compte ou votre gestionnaire de la satisfaction client pour commencer.
+Les bannières permettent aux équipes marketing et produit de personnaliser dynamiquement le contenu des applications ou des sites web, en tenant compte en temps réel de l'éligibilité et du comportement des utilisateurs. Elles affichent de manière persistante des messages en ligne, offrant des expériences non intrusives et contextuellement pertinentes qui peuvent être actualisées au début d'une session ou en cours de session lorsque votre application ou votre site web en fait explicitement la demande.
 
-## Pourquoi utiliser des bannières ?
+Une fois les bannières intégrées à une application ou à un site web, les marketeurs peuvent concevoir et lancer des bannières à l'aide d'un éditeur simple par glisser-déposer, ce qui élimine le besoin d'une assistance continue de la part des développeurs, réduit la complexité et améliore l'efficacité.
 
-Les bannières permettent aux équipes marketing et produit de réaliser la personnalisation du contenu des applications ou des sites Web de manière dynamique, en tenant compte en temps réel de l'éligibilité et du comportement des utilisateurs. Ils affichent de manière persistante des messages en ligne, offrant des expériences non intrusives et pertinentes dans leur contexte, qui se mettent à jour automatiquement au début de chaque session utilisateur.
-
-Une fois les bannières intégrées à une application ou à un site Web, les marketeurs peuvent concevoir et lancer des bannières à l'aide d'un éditeur par glisser-déposer, ce qui élimine le besoin d'une assistance continue de la part des développeurs, réduit la complexité et améliore l'efficacité.
-
-| Cas d’utilisation | Explication |
+| Cas d'utilisation | Explication |
 | --- | --- |
-| Annonces | Veuillez mettre en avant les annonces telles que les événements à venir ou les changements de politique dans votre expérience sur l'application. |
+| Annonces | Mettez en avant les annonces telles que les événements à venir ou les changements de politique dans votre expérience sur l'application. |
 | Personnalisation des offres | Présentez des promotions et des incitations personnalisées en fonction de l'historique de navigation, du contenu du panier, du niveau d'abonnement et du statut de fidélité de chaque utilisateur. |
 | Ciblage de l'engagement des nouveaux utilisateurs | Accompagnez les nouveaux utilisateurs tout au long du processus d'onboarding et de la configuration de leur compte. |
-| Soldes et promotions | Mettez en avant le contenu phare, les produits tendance et les campagnes de marque en cours de manière persistante et directe sur votre page d'accueil sans perturber l'expérience utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Soldes et promotions | Mettez en avant le contenu phare, les produits tendance et les campagnes de marque en cours de manière persistante et directement sur votre page d'accueil, sans perturber l'expérience utilisateur. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pourquoi utiliser des bannières ?" }
 
-## Fonctionnalités
+## Fonctionnalités {#features}
 
-Les fonctionnalités pour les bannières comprennent :
+Les fonctionnalités des bannières comprennent :
 
-- **Création de contenu simplifiée :** Créez et prévisualisez votre bannière à l'aide d'un éditeur visuel par glisser-déposer prenant en charge les images, le texte, les boutons, les formulaires de saisie d'adresse e-mail, le code personnalisé, etc.
-- **Placements flexibles :** Définissez plusieurs localisations au sein de votre application ou site web où les bannières peuvent apparaître, ce qui permet un ciblage précis en fonction de contextes ou d'expériences utilisateur spécifiques.
-- **Personnalisation dynamique :** Les bannières sont actualisées de manière dynamique à chaque nouvelle session utilisateur, garantissant ainsi que le contenu reste à jour et personnalisé grâce aux outils de personnalisation intégrés de Braze et à la logique Liquid.
-- **Priorisation native :** Définissez la priorité d'affichage lorsque plusieurs bannières effectuent le ciblage du même emplacement, afin de garantir que le message approprié parvienne aux utilisateurs au moment opportun.
-- **Bloc éditeur de code personnalisé :** Veuillez utiliser le bloc Éditeur de code personnalisé pour ajouter du code HTML personnalisé afin de bénéficier d'une personnalisation avancée ou d'une intégration fluide avec vos styles Web existants.
+- **Création de contenu simplifiée :** Créez et prévisualisez votre bannière à l'aide d'un éditeur visuel par glisser-déposer prenant en charge les images, le texte, les boutons, les formulaires de saisie d'adresse e-mail, le code personnalisé, et plus encore.
+- **Emplacements flexibles :** Définissez plusieurs emplacements au sein de votre application ou site web où les bannières peuvent apparaître, ce qui permet un ciblage précis en fonction de contextes ou d'expériences utilisateur spécifiques.
+- **Personnalisation dynamique :** Les bannières ne peuvent être actualisées qu'au début d'une nouvelle session ou en cours de session si vous demandez explicitement l'actualisation. Les bannières ne se mettent pas à jour automatiquement lors d'une nouvelle session. Si vous ne demandez pas l'actualisation, la bannière ne sera pas mise à jour.
+- **Priorisation native :** Définissez la priorité d'affichage lorsque plusieurs bannières ciblent le même emplacement, afin de garantir que le bon message parvienne aux utilisateurs au bon moment.
+- **Bloc éditeur de code personnalisé :** Utilisez le bloc éditeur de code personnalisé pour ajouter du HTML personnalisé afin de bénéficier d'une personnalisation avancée ou d'une intégration fluide avec vos styles web existants.
 
 ## À propos des bannières {#about-banners}
 
 ### ID de placement {#placement-id}
 
-Les emplacements de bannières sont des emplacements spécifiques dans votre application ou votre site Web que [vous créez à l'aide du SDK Braze]({{site.baseurl}}/developer_guide/banners/placements/) et qui désignent les endroits où les bannières peuvent apparaître.
+Les emplacements de bannières sont des localisations spécifiques dans votre application ou votre site web [que vous créez à l'aide du SDK Braze]({{site.baseurl}}/developer_guide/banners/placements/) et qui désignent les endroits où les bannières peuvent apparaître.
 
-Les localisations courantes incluent le haut de votre page d'accueil, les pages détaillées des produits et les processus de paiement. Une fois les emplacements créés, les bannières peuvent être [attribuées dans votre campagne publicitaire]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create/).
+Les localisations courantes incluent le haut de votre page d'accueil, les pages détaillées des produits et les processus de paiement. Une fois les emplacements créés, les bannières peuvent être [affectées dans votre campagne de bannières]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/).
 
-Il n'y a pas de limite fixe au nombre de placements que vous pouvez créer par espace de travail, et vous pouvez créer autant d'ID de placement que votre expérience l'exige. Chaque emplacement doit être unique au sein d'un espace de travail. Un seul ID de placement peut être référencé par jusqu'à 25 messages actifs simultanément.
+Il n'y a pas de limite fixe au nombre d'emplacements que vous pouvez créer par espace de travail, et vous pouvez créer autant d'ID de placement que votre expérience l'exige. Chaque emplacement doit être unique au sein d'un espace de travail. Un seul ID de placement peut être référencé par jusqu'à 25 messages actifs simultanément.
 
 {% alert important %}
-Veuillez éviter de modifier les ID de placement après le lancement d'une campagne publicitaire.
+Évitez de modifier les ID de placement après le lancement d'une campagne de bannières.
 {% endalert %}
 
 ### Priorité des bannières {#priority}
 
-Lorsque plusieurs messages de bannière font référence au même ID de placement, les bannières sont affichées par ordre de priorité : élevée, moyenne ou faible. Par défaut, les bannières sont définies sur moyen, mais vous pouvez [définir manuellement la priorité]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create/#set-priority) lorsque vous créez ou modifiez votre campagne de bannières. 
+Lorsque plusieurs messages de bannière font référence au même ID de placement, les bannières sont affichées par ordre de priorité : élevée, moyenne ou faible. Par défaut, les bannières sont définies sur moyenne, mais vous pouvez [définir manuellement la priorité]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#set-banner-priority-optional) lorsque vous créez ou modifiez votre campagne de bannières.
 
 Si plusieurs bannières sont définies avec la même priorité, la bannière la plus récente à laquelle l'utilisateur est éligible s'affiche en premier.
 
@@ -56,42 +58,44 @@ Si plusieurs bannières sont définies avec la même priorité, la bannière la 
 
 {% multi_lang_include banners/placement_requests.md %}
 
-### Réception/distribution des messages
+### Distribution des messages {#message-delivery}
 
-Les messages publicitaires sont diffusés sur votre application ou votre site web sous forme de contenu HTML, généralement affiché dans un cadre iframe. Cela garantit que vos bannières s'affichent de manière cohérente sur tous les appareils et vous aide à séparer leurs styles et leurs scripts du reste de votre code.
+Les messages de bannière sont diffusés sur votre application ou votre site web sous forme de contenu HTML, généralement affiché dans un iframe. Cela garantit un rendu cohérent de vos bannières sur tous les appareils et vous aide à séparer leurs styles et leurs scripts du reste de votre code.
 
-Les iframes permettent des mises à jour dynamiques et personnalisées du contenu sans nécessiter de modifications de votre base de code. Chaque iframe récupère et affiche le code HTML pour chaque session utilisateur à l'aide d'une logique de ciblage et de personnalisation de campagne.
+Les iframes permettent des mises à jour dynamiques et personnalisées du contenu sans nécessiter de modifications de votre base de code. Chaque iframe récupère et affiche le HTML pour chaque session utilisateur à l'aide de la logique de ciblage et de personnalisation de la campagne.
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
-### Dimensions et taille
+### Dimensions et taille {#dimensions-and-sizing}
 
-Voici ce que vous devez savoir sur les dimensions des bannières :
+Voici ce que vous devez savoir sur les dimensions et la taille des bannières :
 
-- Bien que le compositeur vous permette de prévisualiser les bannières dans différentes dimensions, cette information n'est pas enregistrée ou envoyée au SDK.
-- Le code HTML occupe toute la largeur du conteneur dans lequel il est affiché.
-- Nous vous recommandons de créer un élément de dimension fixe et de tester ces dimensions dans composer.
+- Bien que le compositeur vous permette de prévisualiser les bannières dans différentes dimensions, cette information n'est pas enregistrée ni envoyée au SDK.
+- Le HTML occupe toute la largeur du conteneur dans lequel il est affiché.
+- Nous vous recommandons de créer un élément de dimension fixe et de tester ces dimensions dans le compositeur.
 
-## Restrictions
+## Limitations
 
-Chaque espace de travail peut prendre en charge jusqu'à 200 campagnes publicitaires actives. Si cette limite est atteinte, il sera nécessaire d'[archiver ou]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/about_statuses/#changing-the-status) de [désactiver]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/about_statuses/#changing-the-status) une campagne existante avant d'en créer une nouvelle.
+Chaque espace de travail peut prendre en charge jusqu'à 200 campagnes de bannières actives. Si cette limite est atteinte, vous devrez [archiver ou désactiver]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) une campagne existante avant d'en créer une nouvelle.
 
-De plus, les messages bannières ne prennent pas en charge les fonctionnalités suivantes :
+De plus, les messages de bannière ne prennent pas en charge les fonctionnalités suivantes :
 
-- Campagnes déclenchées par API et par événement
+- Campaigns déclenchées par API et par événement
 - Contenu connecté
-- Codes de promotion
-- Licenciements à la demande de l'utilisateur
-- `catalog_items` en utilisant [`:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)l'[étiquette]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
+- Codes promotionnels
+- `catalog_items` utilisant [l'étiquette `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
+- Fermeture par l'utilisateur (accès anticipé uniquement)
 
-{% alert tip %}
-Souhaitez-vous contribuer à définir les priorités pour la suite ? Veuillez contacter [banners-feedback@braze.com](mailto:banners-feedback@braze.com).
+{% alert important %}
+La possibilité pour les utilisateurs de fermer manuellement une bannière est en accès anticipé. Consultez [Configurer le comportement de fermeture]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) pour plus de détails. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
-## Étapes suivantes
+## Étapes suivantes {#next-steps}
 
-Maintenant que vous connaissez les bannières, vous êtes prêt pour les étapes suivantes :
+- [Créer des emplacements de bannières dans votre application ou votre site web]({{site.baseurl}}/developer_guide/banners/placements/)
+- [Créer une campagne de bannières dans Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
+- [Tutoriel : Afficher une bannière par ID de placement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
 
-1. [Création d'emplacements de bannières dans votre application ou votre site Web]({{site.baseurl}}/developer_guide/banners/placements/)
-2. [Créer des campagnes de bannières dans Braze]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create/)
-3. [Tutoriel : Affichage d'une bannière par ID de placement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+{% alert tip %}
+Vous souhaitez contribuer à définir les priorités pour la suite ? Contactez [banners-feedback@braze.com](mailto:banners-feedback@braze.com).
+{% endalert %}

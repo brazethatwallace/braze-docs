@@ -19,6 +19,7 @@ This approach works with any messaging channel supported by the API (WhatsApp, e
 | **Campaign ID** | Optional. Omit it to send without dashboard campaign tracking, or provide an API campaign ID plus `message_variation_id` in each message to track in the dashboard. | Required. |
 | **Message content** | You must include a `messages` object in the request (for example, `messages.whats_app`, `messages.email`). | Not accepted. Message content is defined in the campaign in the Braze dashboard. |
 | **Use case** | Send a message with content fully specified in the API request. | Trigger a pre-built campaign (content in the dashboard) to specific recipients via the API. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Two ways to send" }
 
 For full request and response details, see the [Send messages immediately (API only)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) and [Send campaigns using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) endpoint references.
 

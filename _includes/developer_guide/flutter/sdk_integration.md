@@ -13,7 +13,7 @@ Before you integrate the Braze Flutter SDK, you'll need to complete the followin
 | Braze API app identifier | To locate your app's identifier, go to **Settings** > **APIs and Identifiers** > **App Identifiers**. For more information see, [API Identifier Types]({{site.baseurl}}/api/identifier_types/#app-identifier).|
 | Braze SDK endpoint | Your SDK endpoint URL (for example, `sdk.<cluster>.braze.com`). Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
 | Flutter SDK | Install the official [Flutter SDK](https://docs.flutter.dev/get-started/install) and ensure it meets the Braze Flutter SDK's [minimum supported version](https://github.com/braze-inc/braze-flutter-sdk#requirements). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Step 1: Integrate the Braze library
 

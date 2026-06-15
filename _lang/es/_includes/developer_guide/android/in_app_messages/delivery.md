@@ -1,24 +1,28 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Desencadenantes de mensajes
+## Desencadenantes de mensajes {#message-triggers}
 
-### Tipos de desencadenantes
+### Tipos de desencadenantes {#trigger-types}
 
-Los mensajes dentro de la aplicación se desencadenan automáticamente cuando el SDK registra uno de los siguientes tipos de eventos personalizados: `Any Purchase`,`Specific Purchase` `Session Start`, `Custom Event`, y `Push Click`. Ten en cuenta que los `Specific Purchase`desencadenantes`Custom Event`  y  también contienen filtros de propiedades robustos.
+Los mensajes dentro de la aplicación se desencadenan automáticamente cuando el SDK registra uno de los siguientes tipos de eventos personalizados: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` y `Push Click`. Ten en cuenta que los desencadenantes `Specific Purchase` y `Custom Event` también contienen filtros de propiedades robustos.
 
 {% alert note %}
-Los mensajes dentro de la aplicación no se pueden desencadenar a través de la API ni mediante eventos de la API, solo mediante eventos personalizados registrados por el SDK. Para obtener más información sobre el registro, consulta [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
+Los mensajes dentro de la aplicación no se pueden desencadenar a través de la API ni mediante eventos de la API&#8212;solo mediante eventos personalizados registrados por el SDK. Para obtener más información sobre el registro, consulta [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
 {% endalert %}
 
-### Semántica de la entrega
+### Semántica de la entrega {#delivery-semantics}
 
-Todos los mensajes elegibles dentro de la aplicación se entregan al dispositivo del usuario al inicio de la sesión. Cuando se entregue, el SDK precargará los activos para que estén disponibles en el momento del desencadenamiento, minimizando así la latencia de visualización. Si el evento desencadenante tiene más de un mensaje dentro de la aplicación elegible, solo se entregará el mensaje con la prioridad más alta.
+Todos los mensajes elegibles dentro de la aplicación se entregan al dispositivo del usuario al inicio de su sesión. Cuando se entregan, el SDK precargará los activos para que estén disponibles en el momento del desencadenamiento, minimizando así la latencia de visualización. Si el evento desencadenante tiene más de un mensaje dentro de la aplicación elegible, solo se entregará el mensaje con la prioridad más alta.
 
-Para obtener más información sobre la semántica de inicio de sesión del SDK, consulta[ Ciclo de vida de la sesión]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android).
+Para obtener más información sobre la semántica de inicio de sesión del SDK, consulta [Ciclo de vida de la sesión]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android).
 
-### Límite de velocidad
+### Límite de velocidad {#rate-limit}
 
-De forma predeterminada, limitamos la tasa de los mensajes dentro de la aplicación a una vez cada 30 segundos para garantizar una experiencia de usuario de calidad.
+De forma predeterminada, el SDK limita la tasa de los mensajes dentro de la aplicación desencadenados a una vez cada 30 segundos para garantizar una experiencia de usuario de calidad.
+
+Para aplicaciones en producción, no establezcas este valor por debajo de 10 segundos, para que los usuarios no se vean abrumados con mensajes dentro de la aplicación consecutivos. Para pruebas y flujos de aplicaciones de ejemplo, 5 segundos es una configuración habitual.
+
+Puedes establecer este intervalo en `0` para pruebas. Sin embargo, un intervalo de `0` segundos no fuerza a que aparezcan múltiples mensajes dentro de la aplicación al mismo tiempo. Si un mensaje aún está visible, el siguiente mensaje no se mostrará hasta que el mensaje actual sea descartado.
 
 Para anular este valor, configura `com_braze_trigger_action_minimum_time_interval_seconds` en tu `braze.xml` a través de:
 
@@ -26,7 +30,7 @@ Para anular este valor, configura `com_braze_trigger_action_minimum_time_interva
   <integer name="com_braze_trigger_action_minimum_time_interval_seconds">5</integer>
 ```
 
-## Pares clave-valor
+## Pares clave-valor {#key-value-pairs}
 
 Cuando creas una campaña en Braze, puedes establecer pares clave-valor como `extras`, que el objeto de mensajería dentro de la aplicación puede utilizar para enviar datos a tu aplicación. Por ejemplo:
 
@@ -47,30 +51,30 @@ extras: Map<String, String>
 Para obtener más información, consulta el [KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message/index.html#1498425856%2FProperties%2F-1725759721).
 {% endalert %}
 
-## Desactivación de los activadores automáticos
+## Desactivación de los desencadenantes automáticos {#disabling-automatic-triggers}
 
 Para evitar que los mensajes dentro de la aplicación se desencadenen automáticamente:
 
-1. Asegúrate de que utilizas el inicializador automático de integración, que está habilitado por defecto a partir de la versión `2.2.0`.
-2. Define la operación de mensajes dentro de la aplicación predeterminada en `DISCARD` añadiendo la siguiente línea a tu archivo `braze.xml`.
+1. Asegúrate de que utilizas el inicializador automático de integración, que está habilitado de forma predeterminada a partir de la versión `2.2.0`.
+2. Define la operación predeterminada de mensajes dentro de la aplicación en `DISCARD` añadiendo la siguiente línea a tu archivo `braze.xml`.
 
 ```xml
 <string name="com_braze_flutter_automatic_integration_iam_operation">DISCARD</string>
 ```
 
-## Activación manual de mensajes desencadenados
+## Desencadenamiento manual de mensajes {#manually-triggering-messages}
 
-De forma predeterminada, los mensajes dentro de la aplicación se desencadenan automáticamente cuando el SDK registra un evento personalizado. Sin embargo, puedes desencadear manualmente un mensaje utilizando los siguientes métodos.
+De forma predeterminada, los mensajes dentro de la aplicación se desencadenan automáticamente cuando el SDK registra un evento personalizado. Sin embargo, puedes desencadenar manualmente un mensaje utilizando los siguientes métodos.
 
-### Uso de un evento del lado del servidor del servidor
+### Uso de un evento del lado del servidor {#using-a-server-side-event}
 
-Para desencadenar un mensaje dentro de la aplicación mediante un evento enviado por el servidor, envía una notificación push silenciosa al dispositivo, lo que permite que una devolución de llamada push personalizada registre un evento basado en SDK. Este evento desencadenará el mensaje dentro de la aplicación dirigido al usuario.
+Para desencadenar un mensaje dentro de la aplicación mediante un evento enviado por el servidor, envía una notificación push silenciosa al dispositivo, lo que permite que una devolución de llamada push personalizada registre un evento basado en el SDK. Este evento desencadenará entonces el mensaje dentro de la aplicación dirigido al usuario.
 
-#### Paso 1: Crea una devolución de llamada push para recibir el push silencioso
+#### Paso 1: Crea una devolución de llamada push para recibir el push silencioso {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
-Registra [tu callback push personalizado]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#push-callback) para escuchar una notificación push silenciosa específica.
+Registra [tu devolución de llamada push personalizada]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#push-callback) para escuchar una notificación push silenciosa específica.
 
-En el siguiente ejemplo, se registrarán dos eventos para el mensaje dentro de la aplicación que se va a entregar, uno por parte del servidor y otro desde tu devolución de llamada push personalizada. Para asegurarte de que no se duplica el mismo evento, el evento registrado desde dentro de tu devolución de llamada push debe seguir una convención de nomenclatura genérica, por ejemplo, "evento de desencadenamiento de mensaje dentro de la aplicación", y no el mismo nombre que el evento enviado por el servidor. Si no se hace así, la segmentación y los datos de usuario pueden verse afectados por el registro de sucesos duplicados para una única acción de usuario.
+En el siguiente ejemplo, se registrarán dos eventos para que el mensaje dentro de la aplicación se entregue, uno por parte del servidor y otro desde tu devolución de llamada push personalizada. Para asegurarte de que no se duplica el mismo evento, el evento registrado desde dentro de tu devolución de llamada push debe seguir una convención de nomenclatura genérica, por ejemplo, "evento desencadenante de mensaje dentro de la aplicación", y no el mismo nombre que el evento enviado por el servidor. Si no se hace así, la segmentación y los datos de usuario pueden verse afectados por el registro de eventos duplicados para una única acción de usuario.
 
 {% tabs %}
 {% tab JAVA %}
@@ -109,31 +113,31 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endtab %}
 {% endtabs %}
 
-#### Paso 2: Crear una campaña push
+#### Paso 2: Crea una campaña push {#step-2-create-a-push-campaign}
 
 Crea una [campaña push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) desencadenada a través del evento enviado por el servidor.
 
 ![]({% image_buster /assets/img_archive/serverSentPush.png %})
 
-La campaña push debe incluir extras de par clave-valor que indiquen que esta campaña push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
+La campaña push debe incluir extras de pares clave-valor que indiquen que esta campaña push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
 
-![Dos conjuntos de pares clave-valor:IS_SERVER_EVENT  establecido en «true» yCAMPAIGN_NAME  establecido en «nombre de campaña de ejemplo».]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
+![Dos conjuntos de pares clave-valor: IS_SERVER_EVENT establecido en "true" y CAMPAIGN_NAME establecido en "nombre de campaña de ejemplo".]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
-El código de ejemplo de devolución de llamada push anterior reconoce los pares clave-valor y registra el evento personalizado SDK apropiado.
+El código de ejemplo de devolución de llamada push anterior reconoce los pares clave-valor y registra el evento personalizado del SDK apropiado.
 
-Si quieres incluir propiedades del evento para adjuntarlas a tu evento "desencadenador de mensajes dentro de la aplicación", puedes hacerlo pasándolas a los pares clave-valor de la carga útil push. En este ejemplo, se ha incluido el nombre de la campaña del mensaje dentro de la aplicación posterior. Tu devolución de llamada push personalizada puede entonces pasar el valor como parámetro de la propiedad del evento al registrar el evento personalizado.
+Si quieres incluir propiedades del evento para adjuntarlas a tu evento "desencadenante de mensaje dentro de la aplicación", puedes hacerlo pasándolas en los pares clave-valor de la carga útil push. En este ejemplo, se ha incluido el nombre de la campaña del mensaje dentro de la aplicación posterior. Tu devolución de llamada push personalizada puede entonces pasar el valor como parámetro de la propiedad del evento al registrar el evento personalizado.
 
-#### Paso 3: Crea una campaña de mensajes dentro de la aplicación
+#### Paso 3: Crea una campaña de mensajes dentro de la aplicación {#step-3-create-an-in-app-message-campaign}
 
-Crea tu campaña de mensajes dentro de la aplicación visible para el usuario en el panel de Braze. Esta campaña debe tener una entrega basada en acciones y desencadenarse desde el evento personalizado registrado desde dentro de tu devolución de llamada push personalizada.
+Crea tu campaña de mensajes dentro de la aplicación visible para el usuario en el dashboard de Braze. Esta campaña debe tener una entrega basada en acciones y desencadenarse desde el evento personalizado registrado desde dentro de tu devolución de llamada push personalizada.
 
 En el siguiente ejemplo, el mensaje específico dentro de la aplicación que se va a desencadenar se ha configurado enviando la propiedad del evento como parte del push silencioso inicial.
 
-![Una campaña de entrega basada en acciones en la que se desencadenará un mensaje dentro de la aplicación cuando"campaign_name"  sea igual a «ejemplo de nombre de campaña IAM».]({% image_buster /assets/img_archive/iam_event_trigger.png %})
+![Una campaña de entrega basada en acciones en la que se desencadenará un mensaje dentro de la aplicación cuando "campaign_name" sea igual a "ejemplo de nombre de campaña IAM".]({% image_buster /assets/img_archive/iam_event_trigger.png %})
 
 Si se registra un evento enviado por el servidor mientras la aplicación no está en primer plano, el evento se registrará, pero no se mostrará el mensaje dentro de la aplicación. Si quieres que el evento se retrase hasta que la aplicación esté en primer plano, debes incluir una comprobación en tu receptor push personalizado para descartar o retrasar el evento hasta que la aplicación haya entrado en primer plano.
 
-### Mostrar un mensaje predefinido
+### Mostrar un mensaje predefinido {#displaying-a-pre-defined-message}
 
 Para mostrar manualmente un mensaje dentro de la aplicación predefinido, utiliza el siguiente método:
 
@@ -154,9 +158,9 @@ BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 {% endtab %}
 {% endtabs %}
 
-### Mostrar un mensaje en tiempo real 
+### Mostrar un mensaje en tiempo real {#displaying-a-message-in-real-time}
 
-También puedes crear y mostrar mensajes dentro de la aplicación en tiempo real, utilizando las mismas opciones de personalización disponibles en el panel. Para hacerlo:
+También puedes crear y mostrar mensajes locales dentro de la aplicación en tiempo real, utilizando las mismas opciones de personalización disponibles en el dashboard. Para hacerlo:
 
 {% tabs %}
 {% tab JAVA %}
@@ -180,5 +184,5 @@ inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."
 {% endtabs %}
 
 {% alert important %}
-No muestres mensajes dentro de la aplicación cuando el teclado de software se muestra en la pantalla, ya que la representación no está definida en esta circunstancia.
+No muestres mensajes dentro de la aplicación cuando el teclado en pantalla esté visible, ya que el renderizado no está definido en esta circunstancia.
 {% endalert %}

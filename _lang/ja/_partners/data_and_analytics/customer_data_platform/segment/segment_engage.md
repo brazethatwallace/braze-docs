@@ -1,115 +1,117 @@
 ---
-nav_title: Segment Engage
-article_title: Segment Engage
+nav_title: セグメント Engage
+article_title: セグメント Engage
 page_order: 3
 alias: /partners/segment_personas/
 alias: /partners/segment_engage/
 alias: /partners/data_and_infrastructure_agility/customer_data_platform/segment/segment_personas/
 
-description: "この参考記事では、BrazeとSegmentのパートナーシップについて概説している。Segmentは、マーケティング・スタックのソース間で情報を収集し、ルーティングする顧客データ・プラットフォームである。"
+description: "この参考記事では、Brazeとセグメントのパートナーシップについて概説しています。セグメントは、マーケティングスタックのソース間で情報を収集し、ルーティングする顧客データプラットフォームです。"
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Segment Engage
+# セグメント Engage
 
-> [Segment](https://segment.com) は、顧客データの収集、クリーンアップ、およびアクティブ化を支援する顧客データプラットフォームです。このリファレンス記事では、[Braze と Segment Engage](https://segment.com/docs/destinations/braze/#Engage) の接続について概説し、適切な実装と利用のための要件とプロセスを説明します。
+> [セグメント](https://segment.com) は、顧客データの収集、クリーンアップ、およびアクティブ化を支援する顧客データプラットフォームです。この参考記事では、[Brazeとセグメント Engage](https://segment.com/docs/destinations/braze/#Engage) の接続について概説し、適切な実装と利用のための要件とプロセスを説明します。
 
-BrazeとSegmentの統合により、Segmentに組み込まれたオーディエンス・ビルダーである[Engageを使って](https://segment.com/docs/engage/)、様々なソースから収集したデータを基にユーザーのセグメントを作成することができる。これらのオーディエンスは、コホートとしてBrazeに同期されるか、[カスタム属性や]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) [カスタムイベントを通じて]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events)ユーザープロファイルに示され、キャンペーンやキャンバスリターゲティングで使用するBrazeセグメントを作成するために使用できる。
+Brazeとセグメントの統合により、セグメントに組み込まれたオーディエンスビルダーである[Engage](https://segment.com/docs/engage/)を使って、さまざまなソースから収集したデータに基づいてユーザーのセグメントを作成できます。これらのオーディエンスは、コホートとしてBrazeに同期されるか、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)や[カスタムイベント]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events)を通じてユーザープロファイルに示され、キャンペーンやキャンバスのリターゲティングで使用するBraze セグメントを作成するために利用できます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Segment アカウント | このパートナーシップを活用するには、[Segment アカウント](https://app.segment.com/login)が必要です。 |
-| Braze Cloud の宛先 | Segment 統合で [Braze を宛先として設定]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/)している必要があります。<br><br>これには、[接続]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings)設定で正しいBrazeデータセンターとREST APIキーを提供することが含まれる。 |
-| Brazeデータインポートキー | Engage オーディエンスをコホートとして Braze に同期するには、データインポートキーを生成する必要があります。<br><br>コホートのインポート機能は早期アクセスの段階であるため、この機能を利用するには Braze のカスタマーサクセスマネージャーにお問い合わせください。 |
+| セグメントアカウント | このパートナーシップを活用するには、[セグメントアカウント](https://app.segment.com/login)が必要です。 |
+| Braze Cloudの送信先 | セグメント統合で[Brazeを送信先として設定]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/)している必要があります。<br><br>これには、[接続設定]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings)で正しいBrazeデータセンターとREST APIキーを提供することが含まれます。 |
+| Brazeデータインポートキー | EngageオーディエンスをコホートとしてBrazeに同期するには、データインポートキーを生成する必要があります。<br><br>コホートのインポート機能は早期アクセスの段階であるため、この機能を利用するにはBrazeのカスタマーサクセスマネージャーにお問い合わせください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## コホート宛先の統合
+## コホート送信先の統合 {#cohorts-destination-integration}
 
-### ステップ1:Engage オーディエンスを作成する
-1. Segment で、Engage の [**Audiences**] タブに移動し、[**New**] をクリックします。
-2. オーディエンスを作成します。ページ上部の稲妻は、オーディエンスがリアルタイムで更新されているかどうかを示します。
-3. 次に、宛先として Braze を選択します。
-4. **Review& Createを**クリックして、オーディエンスをプレビューする。デフォルトでは、Segment は計算済み特性とオーディエンスの現在の値を設定するため、すべての履歴データをクエリします。このデータを省略するには、[**Historical Backfill**] をオフにします。
+### ステップ 1: Engageオーディエンスを作成する {#step-1-create-an-engage-audience}
+1. セグメントで、Engageの**Audiences**タブに移動し、**New**をクリックします。
+2. オーディエンスを作成します。ページ上部の稲妻アイコンは、オーディエンスがリアルタイムで更新されるかどうかを示します。
+3. 次に、送信先としてBrazeを選択します。
+4. **Review & Create**をクリックしてオーディエンスをプレビューします。デフォルトでは、セグメントは計算済み特性とオーディエンスの現在の値を設定するため、すべての履歴データをクエリします。このデータを省略するには、**Historical Backfill**をオフにします。
 
-### ステップ2:コホートデータインポートキーをキャプチャする
+### ステップ 2: コホートデータインポートキーを取得する {#step-2-capture-your-cohort-data-import-key}
 
-Brazeで、[**パートナー連携**] > [**テクノロジーパートナー**] に移動し、[**Segment**] を選択します。
+Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、**セグメント**を選択します。
 
-ここで、RESTエンドポイントを見つけて、Brazeデータインポートキーを生成します。キーが生成されたら、新しいキーを作成するか、既存のキーを無効にできます。
+ここで、RESTエンドポイントを確認し、Brazeデータインポートキーを生成します。キーが生成されたら、新しいキーを作成するか、既存のキーを無効にできます。
 
-### ステップ3:Braze コホートの宛先を接続する
-Cohorts Destination の設定に関する[Segment の手順](https://segment.com/docs/connections/destinations/catalog/actions-braze-cohorts/#getting-started)に従って、Engage オーディエンスをコホートとして Braze に同期します。
+### ステップ 3: Brazeコホートの送信先を接続する {#step-3-connect-the-braze-cohorts-destination}
+Cohorts Destinationの設定に関する[セグメントの手順](https://segment.com/docs/connections/destinations/catalog/actions-braze-cohorts/#getting-started)に従って、EngageオーディエンスをコホートとしてBrazeに同期します。
 
-### ステップ4:EngageのオーディエンスからBrazeセグメントを作成する。
-Braze で [**セグメント**] に移動し、新しいセグメントを作成し、フィルターとして [**セグメントコホート**] を選択します。ここから、どの Segment コホートを含めるかを選択できます。セグメントコホートセグメントを作成した後、キャンペーンまたはキャンバスを作成する際に、オーディエンスフィルターとして選択することができる。
+### ステップ 4: EngageオーディエンスからBraze セグメントを作成する {#step-4-create-a-braze-segment-from-the-engage-audience}
+Brazeで**セグメント**に移動し、新しいセグメントを作成し、フィルターとして**セグメント Cohorts**を選択します。ここから、含めるセグメントコホートを選択できます。セグメントコホートセグメントを作成した後、キャンペーンやキャンバスを作成する際にオーディエンスフィルターとして選択できます。
 
 ![]({% image_buster /assets/img/segment/segment3.png %})
 
-## クラウドモードの統合
+## クラウドモードの統合 {#cloud-mode-integration}
 
-### ステップ1:Segment の計算済み特性またはオーディエンスを作成する
+### ステップ 1: セグメントの計算済み特性またはオーディエンスを作成する {#step-1-create-a-segment-computed-trait-or-audience}
 
-1. Segmentで、[**Engage**] の [**Computed Traits**] タブまたは [**Audiences**] タブに移動し、[**New**] をクリックします。
-2. 計算済み特性またはオーディエンスを作成します。ページの上隅にある稲妻は、計算がリアルタイムで更新されているかどうかを示す。
-3. 次に、宛先として **Braze** を選択します。 
-4. **Review& Createを**クリックして、オーディエンスをプレビューする。デフォルトでは、Segment は計算済み特性とオーディエンスの現在の値を設定するため、すべての履歴データをクエリします。このデータを省略するには、[**Historical Backfill**] をオフにします。
-5. 計算された特性または視聴者設定で、Brazeへのデータ送信方法に基づいて接続設定を調整する。
+1. セグメントで、**Engage**の**Computed Traits**タブまたは**Audiences**タブに移動し、**New**をクリックします。
+2. 計算済み特性またはオーディエンスを作成します。ページ上部の稲妻アイコンは、計算がリアルタイムで更新されるかどうかを示します。
+3. 次に、送信先として**Braze**を選択します。
+4. **Review & Create**をクリックしてオーディエンスをプレビューします。デフォルトでは、セグメントは計算済み特性とオーディエンスの現在の値を設定するため、すべての履歴データをクエリします。このデータを省略するには、**Historical Backfill**をオフにします。
+5. 計算済み特性またはオーディエンスの設定で、Brazeへのデータ送信方法に基づいて接続設定を調整します。
 
-#### 計算された特徴とオーディエンス
+#### 計算済み特性とオーディエンス {#computed-traits-and-audiences}
 
-[計算された特性や](https://segment.com/docs/engage/audiences/computed-traits/) [オーディエンスは](https://segment.com/docs/Engage/audiences/)、カスタム属性やカスタムイベントとしてBrazeに送ることができる。
-- `identify` 呼び出しを使用して送信された特性とオーディエンスは、Braze ではカスタム属性として表示されます。
-- `track` 呼び出しを使用して送信された特性とオーディエンスは、Braze ではカスタムイベントとして表示されます。
+[計算済み特性](https://segment.com/docs/engage/audiences/computed-traits/)と[オーディエンス](https://segment.com/docs/Engage/audiences/)は、カスタム属性やカスタムイベントとしてBrazeに送信できます。
+- `identify` 呼び出しを使用して送信された特性とオーディエンスは、Brazeではカスタム属性として表示されます。
+- `track` 呼び出しを使用して送信された特性とオーディエンスは、Brazeではカスタムイベントとして表示されます。
 
-計算された形質をBrazeのデスティネーションに接続する際に、どちらの方法を使うか（あるいは両方を使うか）を選択できる。
+計算済み特性をBrazeの送信先に接続する際に、どちらの方法を使うか（あるいは両方を使うか）を選択できます。
 
 {% tabs %}
 {% tab Identify %}
 
-Braze でカスタム属性を作成するために、計算済み特性とオーディエンスを `identify` 呼び出しとして Braze に送信できます。 
+Brazeでカスタム属性を作成するために、計算済み特性とオーディエンスを `identify` 呼び出しとしてBrazeに送信できます。
 
-例えば、"Last Product Viewed Item"（最後に見た商品）に対してEngageが計算した特質がある場合、ユーザーのBrazeプロフィールの**Custom Attributes（カスタム属性**）に`last_product_viewed_item` 。これが Engage のオーディエンスであった場合、[**カスタム属性**] の下に `true` として設定されたオーディエンスが表示されます。
+例えば、「Last Product Viewed Item」に対するEngageの計算済み特性がある場合、ユーザーのBrazeプロファイルの**Custom Attributes**に `last_product_viewed_item` が表示されます。これがEngageのオーディエンスであった場合、**Custom Attributes**の下に `true` として設定されたオーディエンスが表示されます。
 
 | 計算済み特性 | オーディエンス |
 | -------------- | --------- |
-| ![ユーザープロファイル内のカスタム属性セクションには、"last_product_viewed_item" 「Sweater」と記載されている。]({% image_buster /assets/img/segment/last_viewed-id-braze.png %}) | ![ユーザープロファイル内のカスタム属性セクションには、"dormant_shopper" "true "と記載されている。]({% image_buster /assets/img/segment/dormant-identify-braze.png %}) |
+| ![ユーザープロファイル内のカスタム属性セクションに「last_product_viewed_item」が「Sweater」と表示されている。]({% image_buster /assets/img/segment/last_viewed-id-braze.png %}) | ![ユーザープロファイル内のカスタム属性セクションに「dormant_shopper」が「true」と表示されている。]({% image_buster /assets/img/segment/dormant-identify-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Computed traits and audiences" }
 
 {% endtab %}
 {% tab Track %}
 
-Braze でカスタムイベントを作成するために、計算済み特性とオーディエンスを `track` 呼び出しとして Braze に送信できます。 
+Brazeでカスタムイベントを作成するために、計算済み特性とオーディエンスを `track` 呼び出しとしてBrazeに送信できます。
 
-前の例の続きで、もしユーザーが "Last Product Viewed Item "の計算された特徴を持っている場合、それはユーザーのBrazeプロフィールに`Trait Computed` 、対応するカウントと最新のタイムスタンプと共に**Custom Eventsの**下に表示される。これがEngageオーディエンスであった場合、オーディエンス、カウント、および最新のタイムスタンプは、`true` として設定された**カスタム属性の**下に表示される。
+前の例の続きで、ユーザーが「Last Product Viewed Item」の計算済み特性を持っている場合、ユーザーのBrazeプロファイルに `Trait Computed` として、対応するカウントと最新のタイムスタンプとともに**Custom Events**の下に表示されます。これがEngageオーディエンスであった場合、オーディエンス、カウント、および最新のタイムスタンプが `true` として設定された**Custom Attributes**の下に表示されます。
 
 | 計算済み特性 | オーディエンス |
 | -------------- | --------- |
-| ![ユーザープロファイルのカスタムイベントセクションには、"Trait Computed "が "1 "回表示され、最終時刻は "20時間前 "となっている。]({% image_buster /assets/img/segment/last_viewed-track-braze.png %}) | ![ユーザープロファイル内のカスタム属性セクションには、「オーディエンスが入力した」「1」の時間が表示され、最後の時間は「3月9日午前1時45分」となっている。]({% image_buster /assets/img/segment/dormant-track-braze.png %}) |
+| ![ユーザープロファイルのカスタムイベントセクションに「Trait Computed」が「1」回と表示され、最終時刻は「20時間前」となっている。]({% image_buster /assets/img/segment/last_viewed-track-braze.png %}) | ![ユーザープロファイル内のカスタム属性セクションに「Audience Entered」が「1」回と表示され、最終時刻は「3月9日午前1時45分」となっている。]({% image_buster /assets/img/segment/dormant-track-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Computed traits and audiences" }
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ2:Brazeのセグメントユーザー
+### ステップ 2: Brazeでユーザーをセグメント化する {#step-2-segment-users-in-braze}
 
-Braze でこれらのユーザーのセグメントを作成するには、[**エンゲージメント**] の下の [**セグメント**] に移動し、新しいセグメントを作成し、セグメントに名前を付けます。次に、使用した呼び出しに基づいて作業を行います。
-- **Identify**:フィルターとして**カスタム属性を**選択し、カスタム属性を探す。次に、"matches regex "オプション（特徴）または "equals "オプション（観客）を使い、適切な変数を入力する。
-- **Track**:フィルターとして**カスタムイベントを**選択し、カスタムイベントを探す。次に、[より大きい]、[より小さい]、[完全一致] オプションのいずれかを使用して必要な値を挿入します。これは、セグメントをどのように定義したいかによる。
+Brazeでこれらのユーザーのセグメントを作成するには、**エンゲージメント**の下の**セグメント**に移動し、新しいセグメントを作成してセグメントに名前を付けます。次に、使用した呼び出しに基づいて以下の操作を行います。
+- **Identify**: フィルターとして**カスタム属性**を選択し、カスタム属性を探します。次に、「matches regex」オプション（特性）または「equals」オプション（オーディエンス）を使用して、適切な変数を入力します。
+- **Track**: フィルターとして**カスタムイベント**を選択し、カスタムイベントを探します。次に、「more than」、「less than」、または「exactly」オプションを使用して必要な値を挿入します。これは、セグメントをどのように定義するかによって異なります。
 
-一度保存すれば、キャンバスやキャンペーン作成時に、ユーザーをターゲティングするステップでこのセグメントを参照することができる。
+保存すると、キャンペーンやキャンバスの作成時に、ユーザーのターゲティングステップでこのセグメントを参照できます。
 
-## 同期時間
+## 同期時間 {#sync-time}
 
-Braze から Segment Engage への接続のデフォルト設定は `Realtime` ですが、ペルソナがリアルタイム同期を実行できないようにするいくつかのフィルターがあります。これには、メッセージ送信時のオーディエンスのサイズを制限する時間ベースのフィルターが含まれます。
+Brazeからセグメント Engageへの接続のデフォルト設定は `Realtime` ですが、ペルソナがリアルタイム同期の対象外となるフィルターがいくつかあります。これには、メッセージ送信時のオーディエンスのサイズを制限する時間ベースのフィルターが含まれます。
 
-## Segment デバッガーのテスト
+## セグメントデバッガーのテスト {#segment-debugger-testing}
 
-Segment のダッシュボードにある「Debugger」機能により、顧客は「ソース」からのデータが予期されているとおりに「宛先」に転送されているかどうかをテストできます。
+セグメントのダッシュボードにある「Debugger」機能により、「ソース」からのデータが期待どおりに「送信先」に転送されているかどうかをテストできます。
 
-この機能は Braze [`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)に接続します。つまり、この機能は識別されたユーザー (Braze ユーザープロファイルのユーザー ID がすでに設定されているユーザー) のみに使用できます。
+この機能はBrazeの[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)に接続するため、識別済みのユーザー（BrazeユーザープロファイルのユーザーIDがすでに設定されているユーザー）のみに使用できます。
 
-これはサイドバイサイドの Braze 統合では機能しません。正しい Braze REST API 情報が入力されていない場合、サーバーデータは転送されません。
-
+これはサイドバイサイドのBraze統合では機能しません。正しいBraze REST API情報が入力されていない場合、サーバーデータは転送されません。

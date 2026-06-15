@@ -2,7 +2,7 @@
 nav_title: Microsoft Azure Blob Storage
 article_title: Microsoft Azure Blob Storage
 alias: /partners/microsoft_azure_blob_storage_for_currents/
-description: "このリファレンス記事では、Braze Currents と Microsoft Azure Blog Storage のパートナーシップについて説明します。Microsoft Azure Blog Storage は、非構造化データのための大規模拡張可能オブジェクトストレージです。"
+description: "このリファレンス記事では、Braze CurrentsとMicrosoft Azure Blob Storageのパートナーシップについて説明します。Microsoft Azure Blob Storageは、非構造化データのための大規模拡張可能オブジェクトストレージです。"
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -11,90 +11,96 @@ search_tag: Partner
 
 # Microsoft Azure Blob Storage
 
-> [Microsoft Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) は、Microsoft が Azure 製品群の一部として提供する、非構造化データのための大規模拡張可能オブジェクトストレージです。
+> [Microsoft Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) は、MicrosoftがAzure製品群の一部として提供する、非構造化データのための大規模拡張可能オブジェクトストレージです。
 
 {% alert important %}
-クラウドストレージプロバイダーを切り替える場合は、Brazeカスタマーサクセスマネージャーに連絡し、新しい統合の設定と検証についてさらにサポートを受けてください。
+クラウドストレージプロバイダーを切り替える場合は、Brazeカスタマーサクセスマネージャーに連絡し、新しい統合の設定と検証についてサポートを受けてください。
 {% endalert %}
 
-Braze と Microsoft Azure Blob Storage の統合により、データを Azure にエクスポートし、Currents データをストリーミングすることができます。その後、ETL プロセス (抽出、変換、読み込み) を使用してデータを他の場所に転送できます。
+BrazeとMicrosoft Azure Blob Storageの統合により、データをAzureにエクスポートし、Currentsデータをストリーミングできます。その後、ETLプロセス（抽出、変換、読み込み）を使用してデータを他の場所に転送できます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Microsoft AzureとAzureストレージアカウント | このパートナーシップを利用するには、Microsoft Azure と Azure ストレージアカウントが必要です。 |
-| Currents | Currents にデータをエクスポートするには、アカウントに対して [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) を設定しておく必要があります。メッセージアーカイブの設定だけなら、Currentsは必要ない。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Microsoft AzureとAzureストレージアカウント | このパートナーシップを利用するには、Microsoft AzureとAzureストレージアカウントが必要です。 |
+| Currents | Currentsにデータをエクスポートするには、アカウントに対して[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定しておく必要があります。メッセージのアーカイブの設定のみの場合、Currentsは必要ありません。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 統合 {#integration}
 
-Microsoft Azure Blob Storage と統合するには、Braze がデータを Azure にエクスポートするか、Currents データをストリーミングするためのストレージアカウントと接続文字列を用意しておく必要があります。
+Microsoft Azure Blob Storageと統合するには、BrazeがデータをAzureにエクスポートするか、Currentsデータをストリーミングするためのストレージアカウントと接続文字列を用意しておく必要があります。
 
-### ステップ1:ストレージアカウントを作成する
+### ステップ1:ストレージアカウントを作成する {#step-1-create-a-storage-account}
 
-Microsoft Azure で、サイドバーの [**Storage Accounts**] に移動し、[**\+ Add**] をクリックして新しいストレージアカウントを作成します。次に、ストレージアカウント名を指定する。その他のデフォルト設定は更新する必要はない。最後に [**Review + create**] を選択します。 
+Microsoft Azureで、サイドバーの**Storage Accounts**に移動し、**+ Add**をクリックして新しいストレージアカウントを作成します。次に、ストレージアカウント名を指定します。その他のデフォルト設定は更新する必要はありません。最後に**Review + create**を選択します。
 
-すでにストレージアカウントをお持ちの場合でも、Braze データ専用にストレージアカウントを新規作成することをお勧めします。
+すでにストレージアカウントをお持ちの場合でも、Brazeデータ専用に新しいストレージアカウントを作成することをお勧めします。
 
-![]({% image_buster /assets/img/azure-currents-step-1.png %})
+![Microsoft Azureのストレージアカウント作成ページの「基本」タブ。ストレージアカウント名フィールドがハイライトされています。]({% image_buster /assets/img/azure-currents-step-1.png %})
 
-### ステップ 2:接続文字列を取得する
+### ステップ2:接続文字列を取得する {#step-2-get-the-connection-string}
 
-ストレージアカウントが準備できたら、ストレージアカウントから [**Access Keys**] メニューに移動し、接続文字列を書きとめておきます。
+ストレージアカウントがデプロイされたら、ストレージアカウントから**Access Keys**メニューに移動し、接続文字列を書きとめておきます。
 
-Microsoft は2つのアクセスキーを提供しています。1つのキーを再生成する際に、もう1つのキーを使用して接続を維持します。必要なのはどちらか一方の接続文字列だけだ。
+Microsoftは2つのアクセスキーを提供しています。1つのキーを再生成する際に、もう1つのキーを使用して接続を維持します。必要なのはどちらか一方の接続文字列だけです。
 
 {% alert note %}
-Brazeはキーではなく、このメニューの接続文字列を使用する。
+Brazeはキーではなく、このメニューの接続文字列を使用します。
 {% endalert %}
 
-![]({% image_buster /assets/img/azure-currents-step-2.png %})
+![Azureストレージアカウントのアクセスキーページ。key1の下にある接続文字列フィールドがハイライトされています。]({% image_buster /assets/img/azure-currents-step-2.png %})
 
-### ステップ 3:Blob サービスコンテナーを作成する
+### ステップ3:Blobサービスコンテナーを作成する {#step-3-create-a-blob-service-container}
 
-ストレージアカウントの**Blob Service**セクションにある**Blobs**メニューに移動する。先ほど作成したストレージアカウント内にBlobサービスコンテナを作成する。 
+ストレージアカウントの**Blob Service**セクションにある**Blobs**メニューに移動します。先ほど作成したストレージアカウント内にBlobサービスコンテナーを作成します。
 
-Blobサービスコンテナの名前を指定する。その他のデフォルト設定は更新する必要はない。
+Blobサービスコンテナーの名前を指定します。その他のデフォルト設定は更新する必要はありません。
 
-![]({% image_buster /assets/img/azure-currents-step-3.png %})
+![AzureストレージアカウントのBlob Serviceの下にあるBlobsページ。コンテナーを追加するオプションが表示されています。]({% image_buster /assets/img/azure-currents-step-3.png %})
 
-### ステップ 4: Currents を設定する
+### ステップ4:Currentsを設定する {#step-4-set-up-currents}
 
-Brazeで **[Currents] > [+ Current を作成] > [Azure Blob データエクスポート]** に移動し、統合名と連絡先のメールを入力します。
+Brazeで**Currents** > **+ Create Current** > **Azure Blob Data Export**に移動し、統合名と連絡先のメールアドレスを入力します。
 
-次に、接続文字列、コンテナー名、BlobStorage 接頭辞 (オプション) を指定します。
+次に、接続文字列、コンテナー名、BlobStorage接頭辞（オプション）を指定します。
 
-![Braze の Microsoft Azure Blob ストレージ Currents のページ。このページには、インテグレーション名、コンタクトメール、接続文字列、コンテナ名、接頭辞のフィールドがある。]({% image_buster /assets/img/maz.png %})
+![BrazeのMicrosoft Azure Blob Storage Currentsページ。このページには、統合名、連絡先メール、接続文字列、コンテナー名、接頭辞のフィールドがあります。]({% image_buster /assets/img/maz.png %})
 
-最後に、ページの一番下までスクロールし、エクスポートしたいメッセージ・エンゲージメント・イベントまたは顧客行動イベントを選択する。完了したら、Current を起動します。
+最後に、ページの一番下までスクロールし、エクスポートしたいメッセージエンゲージメントイベントまたは顧客行動イベントを選択します。完了したら、Currentを起動します。
 
-### ステップ 5: Azureデータエクスポートを設定する
+### ステップ5:Azureデータエクスポートを設定する {#step-5-set-up-azure-data-export}
 
 次の目的で使用する認証情報を設定する手順を以下で説明します。
-1. APIを通じてセグメントをエクスポートする
-2. CSVエクスポート（キャンペーン、セグメント、キャンバスのユーザーデータをダッシュボード経由でエクスポートする）
+1. APIを通じたSegmentのエクスポート
+2. CSVエクスポート（Campaign、Segment、Canvasのユーザーデータをダッシュボード経由でエクスポート）
 3. エンゲージメントレポート
 
-Braze で [**パートナー連携**] >[**テクノロジーパートナー**] > [**Microsoft Azure**] に移動し、接続文字列、Azure ストレージコンテナー名、Azure ストレージ接頭辞を入力します。
+Brazeで**パートナー連携** > **テクノロジーパートナー** > **Microsoft Azure**に移動し、接続文字列、Azureストレージコンテナー名、Azureストレージ接頭辞を入力します。
 
-次に、[**これをデフォルトのデータエクスポート先にする**] ボックスがオンになっていることを確認します。これにより、エクスポートしたデータが確実に Azure に送信されます。完了したら、統合を保存する。
+次に、**Make this the default data export destination**ボックスがオンになっていることを確認します。これにより、エクスポートしたデータが確実にAzureに送信されます。完了したら、統合を保存します。
 
-![BrazeのMicrosoft Azureデータエクスポートページ。このページには、接続文字列、コンテナ名、接頭辞のフィールドがある。]({% image_buster /assets/img/azure_data_export.png %})
-
-{% alert important %}
-接続文字列を最新の状態に維持することが重要です。コネクターの認証情報の有効期限が切れると、コネクターはイベントの送信を停止します。この状態が**48時間**以上続くと、コネクタのイベントは削除され、データは永久に失われる。
-{% endalert %}
-
-## エクスポートの動作
-
-クラウドデータストレージソリューションを統合しており、API、ダッシュボードレポート、または CSV レポートをエクスポートする場合、次のような状況が発生します。
-
-- すべての API エクスポートでは、応答本文でダウンロード URL が返されないため、データストレージから取得する必要があります。
-- すべてのダッシュボード・レポートとCSVレポートは、ダウンロード用にユーザーのEメールに送信され（ストレージのパーミッションは不要）、データストレージにバックアップされる。
+![BrazeのMicrosoft Azureデータエクスポートページ。このページには、接続文字列、コンテナー名、接頭辞のフィールドがあります。]({% image_buster /assets/img/azure_data_export.png %})
 
 {% alert important %}
-**JSONフォーマットの要件**：JSONエクスポートでは、BrazeはJSONL（改行区切りのJSON）フォーマットを使用し、各行に個別のJSONオブジェクトが含まれる。このフォーマットは、単一のJSON配列またはオブジェクトである標準的なJSONとは異なる。エクスポートされたファイルの各行は有効なJSONオブジェクトだが、ファイル全体としては1つの有効なJSONドキュメントではない。これらのファイルを処理するときは、ファイル全体を1つのJSONドキュメントとしてパースするのではなく、各行を個別のJSONオブジェクトとしてパースする。
-
-カレントのエクスポートは、JSONではなく、Apache Avroフォーマット（`.avro` ファイル）を使用する。このJSONフォーマットの要件は、JSONフォーマットを使用するダッシュボード・データ・エクスポートおよびAPIエクスポートに適用される。
+接続文字列を最新の状態に維持することが重要です。コネクターの認証情報の有効期限が切れると、コネクターはイベントの送信を停止します。この状態が**48時間**以上続くと、コネクターのイベントは削除され、データは永久に失われます。
 {% endalert %}
+
+## エクスポートの動作 {#export-behavior}
+
+クラウドデータストレージソリューションを統合しており、API、ダッシュボードレポート、またはCSVレポートをエクスポートする場合、次のような状況が発生します。
+
+- すべてのAPIエクスポートでは、応答本文でダウンロードURLが返されないため、データストレージから取得する必要があります。
+- すべてのダッシュボードレポートとCSVレポートは、ダウンロード用にユーザーのメールに送信され（ストレージの権限は不要）、データストレージにバックアップされます。
+
+{% alert important %}
+**JSONフォーマットの要件**：JSONエクスポートでは、Brazeは[JSONL](https://jsonlines.org/)（改行区切りのJSON）フォーマットを使用し、各行に個別のJSONオブジェクトが含まれます。このフォーマットは、単一のJSON配列またはオブジェクトである標準的なJSONとは異なります。エクスポートされたファイルの各行は有効なJSONオブジェクトですが、ファイル全体としては1つの有効なJSONドキュメントではありません。これらのファイルを処理するときは、ファイル全体を1つのJSONドキュメントとしてパースするのではなく、各行を個別のJSONオブジェクトとしてパースしてください。<br><br>Currentsのエクスポートは、JSONではなく[Apache Avro](https://avro.apache.org/)フォーマット（`.avro`ファイル）を使用します。このJSONフォーマットの要件は、JSONフォーマットを使用するダッシュボードデータエクスポートおよびAPIエクスポートに適用されます。
+{% endalert %}
+
+## FAQ
+
+### BrazeはAzure Blob Storageの許可リストに追加するIPアドレスを提供できますか？ {#can-braze-provide-ip-addresses-to-allowlist-for-azure-blob-storage}
+
+Brazeは、Azure Blob StorageへのCurrentsまたはダッシュボードエクスポート用の固定IP許可リストを公開していません。Brazeは、お客様が提供する接続文字列とコンテナー名を使用してコンテナーに書き込みを行い、Azureはストレージアカウントの設定（ストレージアカウントのファイアウォールルールやプライベートエンドポイントなど）を通じてネットワークアクセスを制御します。
+
+セキュリティチームがIPベースの制限を必要とする場合は、Brazeからのリストではなく、ストレージアカウントのAzureネットワーキング機能を使用してください。設定手順については、[Azure Storageのセキュリティに関するMicrosoftのドキュメント](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security)を参照してください。

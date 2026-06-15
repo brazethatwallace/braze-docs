@@ -1,74 +1,74 @@
 ---
-nav_title: "POST: 글로벌 컨트롤 그룹에 의해 사용자 프로필 내보내기"
-article_title: "POST: 글로벌 제어 그룹별 사용자 프로필 내보내기"
+nav_title: "POST: 글로벌 컨트롤 그룹별 사용자 프로필 내보내기"
+article_title: "POST: 글로벌 컨트롤 그룹별 사용자 프로필 내보내기"
 search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
-description: "이 문서에서는 글로벌 제어 그룹 Braze 엔드포인트의 사용자 내보내기에 대한 자세한 내용을 설명합니다."
+description: "이 문서에서는 글로벌 컨트롤 그룹의 사용자 내보내기 Braze 엔드포인트에 대해 자세히 설명합니다."
 
 ---
 {% api %}
-# 글로벌 제어 그룹별로 사용자 프로필 내보내기
+# 글로벌 컨트롤 그룹별로 사용자 프로필 내보내기 {#export-user-profile-by-global-control-group}
 {% apimethod post %}
 /users/export/global_control_group
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 글로벌 제어 그룹 내의 모든 사용자를 내보낼 수 있습니다.
+> 이 엔드포인트를 사용하여 글로벌 컨트롤 그룹 내의 모든 사용자를 내보낼 수 있습니다.
 
-사용자 데이터는 줄 바꿈으로 구분된 열러 사용자 JSON 객체 파일로 내보내집니다(예: 한 줄에 하나의 JSON 객체). 파일이 생성될 때마다 글로벌 제어 그룹의 모든 사용자가 포함됩니다. Braze는 사용자가 글로벌 컨트롤 그룹에서 추가 및 제거된 시점에 대한 기록을 저장하지 않습니다.
+사용자 데이터는 줄 바꿈으로 구분된 여러 사용자 JSON 오브젝트 파일로 내보내집니다(예: 한 줄에 하나의 JSON 오브젝트). 파일이 생성될 때마다 글로벌 컨트롤 그룹의 모든 사용자가 포함됩니다. Braze는 사용자가 글로벌 컨트롤 그룹에 추가되거나 제거된 시점에 대한 기록을 저장하지 않습니다.
 
-귀하의 글로벌 컨트롤 그룹의 세그먼트 식별자를 찾으려면 [API 식별자 유형]({{site.baseurl}}/api/identifier_types/?tab=segments#segment-identifier)을 참조하십시오.
+글로벌 컨트롤 그룹의 세그먼트 식별자를 찾으려면 [API 식별자 유형]({{site.baseurl}}/api/identifier_types/?tab=segments#segment-identifier)을 참조하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aa3d8b90-d984-48f0-9287-57aa30469de2 {% endapiref %}
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `users.export.global_control_group` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 자격 증명 기반 응답 세부 정보
+## 자격 증명 기반 응답 세부 정보 {#credentials-based-response-details}
 
-해당 **기술 파트너** 페이지를 통해 [S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) 또는 [Azure]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/microsoft_azure_blob_storage_for_currents/) 자격 증명을 Braze에 추가한 경우, 각 파일은 `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`와 같은 키 형식으로 ZIP 파일로 버킷에 업로드됩니다. Azure를 사용하는 경우, Braze의 Azure 파트너 개요 페이지에서 **이것을 기본 데이터 내보내기 대상으로 설정** 확인란이 선택되어 있는지 확인하세요.
+해당 **기술 파트너** 페이지를 통해 [S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) 또는 [Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) 자격 증명을 Braze에 추가한 경우, 각 파일은 `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`과 같은 키 형식의 ZIP 파일로 버킷에 업로드됩니다. Azure를 사용하는 경우, Braze의 Azure 파트너 개요 페이지에서 **이것을 기본 데이터 내보내기 대상으로 설정** 확인란이 선택되어 있는지 확인하세요.
 
-일반적으로, 우리는 처리 최적화를 위해 5,000명당 하나의 파일을 생성합니다. 큰 작업 공간 내에서 작은 세그먼트를 내보내면 여러 개의 파일이 생성될 수 있습니다. 그런 다음 파일을 추출하고 필요한 경우 모든 `json` 파일을 하나의 파일로 연결할 수 있습니다. `output_format`를 `gzip`으로 지정하면 파일 확장자는 `.gz`가 아닌 `.zip`가 됩니다.
+일반적으로 처리 최적화를 위해 사용자 5,000명당 하나의 파일을 생성합니다. 대규모 워크스페이스 내에서 작은 세그먼트를 내보내면 여러 개의 파일이 생성될 수 있습니다. 그런 다음 파일을 추출하고 필요한 경우 모든 `json` 파일을 하나의 파일로 연결할 수 있습니다. `output_format`을 `gzip`으로 지정하면 파일 확장자는 `.zip` 대신 `.gz`가 됩니다.
 
-{% details Export pathing breakdown for ZIP %}
+{% details ZIP 내보내기 경로 분석 %}
 **ZIP 형식:**
 `bucket-name/segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`
 
 **ZIP 예시:**
 `braze.docs.bucket/segment-export/abc56c0c-rd4a-pb0a-870pdf4db07q/2019-04-25/d9696570-dfb7-45ae-baa2-25e302r2da27-1556044807/114f0226319130e1a4770f2602b5639a.zip`
 
-| 등록정보                        | 세부 정보                                                                              | 예제에서는 다음과 같이 표시됩니다.                    |
-| ------------------------------- | ------------------------------------------------------------------------------------ |
-| `bucket-name`                   | 버킷 이름에 따라 수정되었습니다.                                                     | `braze.docs.bucket`                    |
-| `segment-export`                | 수정되었습니다.                                                                               | `segment-export`                       |
+| 등록정보                        | 세부 정보                                                                              | 예시에서 표시되는 형태                    |
+| ------------------------------- | ------------------------------------------------------------------------------------ | --- |
+| `bucket-name`                   | 버킷 이름에 따라 고정됩니다.                                                     | `braze.docs.bucket`                    |
+| `segment-export`                | 고정값입니다.                                                                               | `segment-export`                       |
 | `SEGMENT_ID`                    | 내보내기 요청에 포함됩니다.                                                      | `abc56c0c-rd4a-pb0a-870pdf4db07q`      |
 | `YYYY-MM-dd`                    | 성공적인 콜백이 수신된 날짜입니다.                                        | `2019-04-25`                           |
 | `RANDOM_UUID`                   | 요청 시점에 Braze에서 생성한 임의의 UUID입니다.                         | `d9696570-dfb7-45ae-baa2-25e302r2da27` |
-| `TIMESTAMP_WHEN_EXPORT_STARTED` | 내보내기가 요청된 유닉스 시간(UTC 기준 2017-01-01:00:00:00Z 이후 초)입니다. | `1556044807`                           |
+| `TIMESTAMP_WHEN_EXPORT_STARTED` | 내보내기가 요청된 Unix 시간(UTC 기준 2017-01-01:00:00:00Z 이후 초)입니다. | `1556044807`                           |
 | `filename`                      | 파일당 무작위입니다.                                                                     | `114f0226319130e1a4770f2602b5639a`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="자격 증명 기반 응답 세부 정보" }
 
 {% enddetails %}
 
-이 엔드포인트를 사용할 때 자신의 버킷 정책을 적용하기 위해 S3 또는 Azure 자격 증명을 설정하는 것을 강력히 권장합니다( **파트너 통합** > **기술 파트너** > 파트너 페이지로 이동).
+이 엔드포인트를 사용할 때 자체 버킷 정책을 적용하기 위해 S3 또는 Azure 자격 증명을 설정하는 것을 강력히 권장합니다(**파트너 통합** > **기술 파트너** > 파트너 페이지로 이동).
 
-Azure의 기술 파트너 페이지, Amazon S3 탭이 있습니다.
+![Amazon S3 탭이 있는 Azure의 기술 파트너 페이지]({% image_buster /assets/img/technology_partners_page.png %})
 
-클라우드 스토리지 자격 증명을 제공하지 않은 경우 요청에 대한 응답으로 모든 사용자 파일이 포함된 ZIP 파일을 다운로드할 수 있는 URL이 제공됩니다. URL은 내보내기가 준비된 후에만 유효한 위치가 됩니다.
+클라우드 스토리지 자격 증명을 제공하지 않은 경우, 요청에 대한 응답으로 모든 사용자 파일이 포함된 ZIP 파일을 다운로드할 수 있는 URL이 제공됩니다. URL은 내보내기가 준비된 후에만 유효한 위치가 됩니다.
 
-클라우드 스토리지 자격 증명을 제공하지 않으면 이 엔드포인트에서 내보낼 수 있는 데이터의 양에 제한이 있다는 점에 유의하세요. 내보내는 필드와 사용자 수에 따라 파일 크기가 너무 크면 파일 전송이 실패할 수 있습니다. 가장 좋은 방법은 `fields_to_export` 을 사용하여 내보낼 필드를 지정하고 전송 크기를 낮추기 위해 필요한 필드만 지정하는 것입니다. 파일 생성 시 오류가 발생하면 무작위 버킷 번호를 기준으로 사용자 기반을 더 많은 세그먼트로 나누는 것을 고려해 보세요(예: 무작위 버킷 번호가 1,000 미만 또는 1,000~2,000 사이인 세그먼트 생성).
+클라우드 스토리지 자격 증명을 제공하지 않으면 이 엔드포인트에서 내보낼 수 있는 데이터의 양에 제한이 있다는 점에 유의하세요. 내보내는 필드와 사용자 수에 따라 파일 크기가 너무 크면 파일 전송이 실패할 수 있습니다. 가장 좋은 방법은 `fields_to_export`를 사용하여 내보낼 필드를 지정하고 전송 크기를 줄이기 위해 필요한 필드만 지정하는 것입니다. 파일 생성 시 오류가 발생하면 무작위 버킷 번호를 기준으로 사용자 기반을 더 많은 세그먼트로 나누는 것을 고려해 보세요(예: 무작위 버킷 번호가 1,000 미만이거나 1,000~2,000 사이인 세그먼트 생성).
 
-두 시나리오 모두 선택적으로 내보내기가 준비되면 알림을 받으려면 `callback_endpoint` 을 입력할 수 있습니다. `callback_endpoint`가 제공되면 다운로드가 준비되었을 때 제공된 주소로 POST 요청을 보냅니다. POST의 본문은 `"success":true`입니다. 클라우드 스토리지 자격 증명을 Braze에 추가하지 않은 경우, POST의 본문에는 다운로드 URL을 값으로 하는 속성 `url`가 추가로 포함됩니다.
+두 시나리오 모두에서 선택적으로 `callback_endpoint`를 제공하여 내보내기가 준비되면 알림을 받을 수 있습니다. `callback_endpoint`가 제공되면 다운로드가 준비되었을 때 제공된 주소로 POST 요청을 보냅니다. POST의 본문은 `"success":true`입니다. 클라우드 스토리지 자격 증명을 Braze에 추가하지 않은 경우, POST의 본문에는 다운로드 URL을 값으로 하는 속성 `url`이 추가로 포함됩니다.
 
 사용자 기반이 클수록 내보내기 시간이 길어집니다. 예를 들어 사용자가 2천만 명인 앱의 경우 1시간 이상 걸릴 수 있습니다.
 
-## 요청 본문
+## 요청 본문 {#request-body}
 
 ```
 Content-Type: application/json
@@ -84,19 +84,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 
 {% alert warning %}
-개별 사용자 지정 속성은 내보낼 수 없습니다. 그러나 모든 커스텀 속성은 custom_attributes를 fields_to_export 배열에 포함시켜 내보낼 수 있습니다(예: `['first_name', 'email', 'custom_attributes']`).
+개별 커스텀 속성은 내보낼 수 없습니다. 그러나 모든 커스텀 속성은 custom_attributes를 fields_to_export 배열에 포함시켜 내보낼 수 있습니다(예: `['first_name', 'email', 'custom_attributes']`).
 {% endalert %}
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
-| 매개변수           | 필수  | 데이터 유형        | 설명                                                                                                                                                    |
+| 매개변수 | 필수 | 데이터 유형 | 설명 |
 | ------------------- | --------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `callback_endpoint` | Optional  | 문자열           | 내보내기를 사용할 수 있을 때 다운로드 URL을 게시할 엔드포인트를 설정합니다.                                                                                               |
-| `fields_to_export`  | 필수* | 문자열 배열 | 내보낼 사용자 데이터 필드의 이름, 사용자 지정 속성을 내보낼 수도 있습니다. <br><br>\*2021년 4월부터 신규 계정은 내보낼 특정 필드를 지정해야 합니다. |
-| `output_format`     | Optional  | 문자열           | 자체 S3 버킷을 사용하는 경우 파일 형식을 `zip` 또는 `gzip` 으로 지정할 수 있습니다. 기본값은 ZIP 파일 형식입니다.                                                  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `callback_endpoint` | 선택 사항 | 문자열 | 내보내기를 사용할 수 있을 때 다운로드 URL을 게시할 엔드포인트입니다. |
+| `fields_to_export` | 필수* | 문자열 배열 | 내보낼 사용자 데이터 필드의 이름이며, 커스텀 속성도 내보낼 수 있습니다. <br><br>*2021년 4월부터 신규 계정은 내보낼 특정 필드를 지정해야 합니다. |
+| `output_format` | 선택 사항 | 문자열 | 자체 S3 버킷을 사용하는 경우 파일 형식을 `zip` 또는 `gzip`으로 지정할 수 있습니다. 기본값은 ZIP 파일 형식입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 요청 예시
+## 요청 예시 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/global_control_group' \
 --header 'Content-Type: application/json' \
@@ -108,42 +108,42 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 }'
 ```
 
-## 내보낼 필드
+## 내보낼 필드 {#fields-to-export}
 
 다음은 유효한 `fields_to_export` 목록입니다. `fields_to_export`를 사용하여 반환되는 데이터를 최소화하면 이 API 엔드포인트의 응답 시간을 개선할 수 있습니다.
 
-| 내보낼 필드       | 데이터 유형       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 내보낼 필드 | 데이터 유형 | 설명 |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apps`                | 배열           | 이 사용자가 세션에 로그인한 앱(필드 포함)입니다:<br><br>- `name`: 앱 이름<br>- `platform`: iOS, Android 또는 웹과 같은 앱 플랫폼<br>- `version`: 앱 버전 번호 또는 이름 <br>- `sessions`: 이 앱의 총 세션 수<br>- `first_used`: 첫 세션 날짜<br>- `last_used`: 마지막 세션 날짜<br><br>모든 필드는 문자열입니다.                                                                                                                                                                                                                                                                                       |
-| `attributed_campaign` | 문자열          | [어트리뷰션 통합의]({{site.baseurl}}/partners/message_orchestration/) 데이터(설정된 경우). 특정 광고 캠페인의 식별자입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `attributed_source`   | 문자열          | [어트리뷰션 통합의]({{site.baseurl}}/partners/message_orchestration/) 데이터(설정된 경우). 광고가 게재된 플랫폼의 식별자입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `attributed_adgroup`  | 문자열          | [어트리뷰션 통합의]({{site.baseurl}}/partners/message_orchestration/) 데이터(설정된 경우). 캠페인 아래의 선택적 하위 그룹을 위한 식별자입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `attributed_ad`       | 문자열          | [어트리뷰션 통합의]({{site.baseurl}}/partners/message_orchestration/) 데이터(설정된 경우). 캠페인 및 광고 그룹 아래의 선택적 하위 그룹에 대한 식별자입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `braze_id`            | 문자열          | 이 사용자에 대해 Braze가 설정한 기기별 고유 사용자 식별자입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `country`             | 문자열          | [ISO 3166-1 알파-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) 표준을 사용하는 사용자의 국가.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `created_at`          | 문자열          | 사용자 프로필이 생성된 날짜와 시간(ISO 8601 형식)입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `custom_attributes`   | 객체          | 이 사용자에 대한 사용자 지정 속성 키-값 쌍입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `custom_events`       | 배열           | 지난 90일 동안 이 사용자에 의해 발생한 사용자 지정 이벤트입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `devices`             | 배열           | 플랫폼에 따라 다음을 포함할 수 있는 사용자 디바이스에 대한 정보입니다:<br><br>- `model`: 디바이스 모델명<br>- `os`: 디바이스의 운영 체제<br>- `carrier`: 디바이스의 서비스 통신사(가능한 경우)<br>- `idfv`: (iOS) Braze 장치 식별자, 공급업체용 Apple 식별자(있는 경우)<br>- `idfa`: (iOS) 광고용 식별자(있는 경우)<br>- `device_id`: (Android) Braze 디바이스 식별자<br>- `google_ad_id`: (Android) Google Play 광고 식별자(있는 경우)<br>- `roku_ad_id`: (로쿠) 로쿠 광고 식별자<br>- `ad_tracking_enabled`: 기기에서 광고 추적이 활성화된 경우 참 또는 거짓일 수 있습니다. |
-| `dob`                 | 문자열          | 사용자의 생년월일 형식 `YYYY-MM-DD`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `email`               | 문자열          | 사용자의 이메일 주소.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `external_id`         | 문자열          | 식별된 사용자를 위한 고유 사용자 식별자입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `first_name`          | 문자열          | 사용자의 이름입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `gender`              | 문자열          | 사용자의 성별. 가능한 값은 다음과 같습니다:<br><br>- `M`: 남성<br>- `F`: 여성<br>- `O`: 기타<br>- `N`: 해당 없음<br>- `P`: 말하지 않는 것을 선호합니다.<br>- `nil`: 알 수 없음                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `home_city`           | 문자열          | 사용자의 거주 도시.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `language`            | 문자열          | ISO-639-1 표준의 사용자 언어.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `last_coordinates`    | 플로트 배열 | 사용자의 가장 최근 디바이스 위치, 형식은 `[longitude, latitude]` 입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `last_name`           | 문자열          | 사용자의 성입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `phone`               | 문자열          | E.164 형식의 사용자 전화번호.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `purchase`s           | 배열           | 이 사용자가 지난 90일 동안 구매한 구매 건수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `random_bucket`       | 정수         | 무작위 사용자 세그먼트를 균일하게 분산시키는 데 사용되는 사용자의 [무작위 버킷 번호입니다]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event).                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `time_zone`           | 문자열          | 사용자의 표준 시간대를 IANA 표준 시간대 데이터베이스와 동일한 형식으로 입력합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `total_revenue`       | Float           | 이 사용자에게 귀속된 총 수익입니다. 총 수익은 사용자가 받은 캠페인 및 캔버스에 대한 전환 기간 동안 구매한 금액을 기준으로 계산됩니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `uninstalled_at`      | 타임스탬프       | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 제거되지 않은 경우 생략됩니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `user_aliases`        | 객체          | `alias_name` 및 `alias_label` 을 포함하는 [사용자 별칭 개체가]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) 있는 경우.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `apps` | 배열 | 이 사용자가 세션을 기록한 앱이며, 다음 필드를 포함합니다:<br><br>- `name`: 앱 이름<br>- `platform`: iOS, Android 또는 웹과 같은 앱 플랫폼<br>- `version`: 앱 버전 번호 또는 이름 <br>- `sessions`: 이 앱의 총 세션 수<br>- `first_used`: 첫 세션 날짜<br>- `last_used`: 마지막 세션 날짜<br><br>모든 필드는 문자열입니다. |
+| `attributed_campaign` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). 특정 광고 캠페인의 식별자입니다. |
+| `attributed_source` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). 광고가 게재된 플랫폼의 식별자입니다. |
+| `attributed_adgroup` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). 캠페인 아래의 선택적 하위 그룹에 대한 식별자입니다. |
+| `attributed_ad` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). 캠페인 및 광고 그룹 아래의 선택적 하위 그룹에 대한 식별자입니다. |
+| `braze_id` | 문자열 | 이 사용자에 대해 Braze가 설정한 기기별 고유 사용자 식별자입니다. |
+| `country` | 문자열 | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) 표준을 사용하는 사용자의 국가입니다. |
+| `created_at` | 문자열 | 사용자 프로필이 생성된 날짜와 시간(ISO 8601 형식)입니다. |
+| `custom_attributes` | 오브젝트 | 이 사용자에 대한 커스텀 속성 키-값 페어입니다. |
+| `custom_events` | 배열 | 지난 90일 동안 이 사용자에게 귀속된 커스텀 이벤트입니다. |
+| `devices` | 배열 | 사용자 기기에 대한 정보이며, 플랫폼에 따라 다음을 포함할 수 있습니다:<br><br>- `model`: 기기 모델명<br>- `os`: 기기의 운영체제<br>- `carrier`: 기기의 서비스 통신사(가능한 경우)<br>- `idfv`: (iOS) Braze 기기 식별자, Apple Identifier for Vendor(있는 경우)<br>- `idfa`: (iOS) 광고용 식별자(있는 경우)<br>- `device_id`: (Android) Braze 기기 식별자<br>- `google_ad_id`: (Android) Google Play 광고 식별자(있는 경우)<br>- `roku_ad_id`: (Roku) Roku 광고 식별자<br>- `ad_tracking_enabled`: 기기에서 광고 추적이 활성화된 경우 true 또는 false일 수 있습니다. |
+| `dob` | 문자열 | `YYYY-MM-DD` 형식의 사용자 생년월일입니다. |
+| `email` | 문자열 | 사용자의 이메일 주소입니다. |
+| `external_id` | 문자열 | 식별된 사용자를 위한 고유 사용자 식별자입니다. |
+| `first_name` | 문자열 | 사용자의 이름입니다. |
+| `gender` | 문자열 | 사용자의 성별입니다. 가능한 값은 다음과 같습니다:<br><br>- `M`: 남성<br>- `F`: 여성<br>- `O`: 기타<br>- `N`: 해당 없음<br>- `P`: 밝히지 않음<br>- `nil`: 알 수 없음 |
+| `home_city` | 문자열 | 사용자의 거주 도시입니다. |
+| `language` | 문자열 | ISO-639-1 표준의 사용자 언어입니다. |
+| `last_coordinates` | 플로트 배열 | `[longitude, latitude]` 형식의 사용자의 가장 최근 기기 위치입니다. |
+| `last_name` | 문자열 | 사용자의 성입니다. |
+| `phone` | 문자열 | E.164 형식의 사용자 전화번호입니다. |
+| `purchase`s | 배열 | 이 사용자가 지난 90일 동안 한 구매입니다. |
+| `random_bucket` | 정수 | 무작위 사용자 세그먼트를 균일하게 분산시키는 데 사용되는 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)입니다. |
+| `time_zone` | 문자열 | IANA 시간대 데이터베이스와 동일한 형식의 사용자 시간대입니다. |
+| `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 수신한 Campaigns 및 Canvases의 전환 기간 동안 구매한 금액을 기준으로 계산됩니다. |
+| `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
+| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)(있는 경우)입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="내보낼 필드" }
 
-## Response
+## 응답 {#response}
 
 ```json
 {
@@ -153,11 +153,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 }
 ```
 
-URL이 사용 가능해지면 몇 시간 동안만 유효합니다. 따라서 Braze에 자신의 S3 자격 증명을 추가하는 것을 적극 권장합니다.
+URL이 사용 가능해지면 몇 시간 동안만 유효합니다. 따라서 Braze에 자체 S3 자격 증명을 추가하는 것을 강력히 권장합니다.
 
-### 사용자 내보내기 파일 출력 예시
+### 사용자 내보내기 파일 출력 예시 {#example-user-export-file-output}
 
-사용자 내보내기 객체(최소한의 데이터만 포함—객체에서 필드가 누락된 경우 null 또는 비어 있는 것으로 간주해야 함):
+사용자 내보내기 오브젝트(최소한의 데이터만 포함하며, 오브젝트에서 필드가 누락된 경우 null 또는 비어 있는 것으로 간주해야 합니다):
 
 {% tabs %}
 {% tab All fields %}

@@ -1,10 +1,10 @@
-## Acerca del SDK de Flutter Braze
+## Acerca del SDK de Flutter Braze {#about-the-flutter-braze-sdk}
 
-Después de integrar el SDK de Braze Flutter en Android e iOS, podrás utilizar la API de Braze en tus [aplicaciones Flutter](https://flutter.dev/) escritas en Dart. Este complemento proporciona una funcionalidad básica de análisis y te permite integrar mensajes dentro de la aplicación y Tarjetas de contenido tanto para iOS como para Android con una única base de código.
+Después de integrar el SDK de Braze Flutter en Android e iOS, podrás utilizar la API de Braze en tus [aplicaciones Flutter](https://flutter.dev/) escritas en Dart. Este complemento proporciona una funcionalidad básica de análisis y te permite integrar mensajes dentro de la aplicación y Content Cards tanto para iOS como para Android con una única base de código.
 
-## Integración del SDK de Flutter
+## Integración del SDK de Flutter {#integrating-the-flutter-sdk}
 
-### Requisitos previos
+### Requisitos previos {#prerequisites}
 
 Antes de integrar el SDK de Braze Flutter, deberás completar lo siguiente:
 
@@ -13,9 +13,9 @@ Antes de integrar el SDK de Braze Flutter, deberás completar lo siguiente:
 | Identificador de aplicación de la API de Braze | Para localizar el identificador de tu aplicación, ve a **Configuración** > **API e identificadores** > **Identificadores de aplicaciones**. Para más información, consulta [Tipos de identificadores de API]({{site.baseurl}}/api/identifier_types/#app-identifier).|
 | Punto final de SDK de Braze | La URL de tu punto final de SDK (por ejemplo, `sdk.<cluster>.braze.com`). Tu punto final dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
 | SDK de Flutter | Instala el [SDK de Flutter](https://docs.flutter.dev/get-started/install) oficial y asegúrate de que cumple con la [versión mínima compatible](https://github.com/braze-inc/braze-flutter-sdk#requirements) del SDK de Braze Flutter. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-### Paso 1: Integrar la biblioteca de Braze
+### Paso 1: Integrar la biblioteca de Braze {#step-1-integrate-the-braze-library}
 
 Añade el paquete del SDK de Braze Flutter desde la línea de comandos. Esto añadirá la línea correspondiente a tu `pubspec.yaml`.
 
@@ -23,14 +23,14 @@ Añade el paquete del SDK de Braze Flutter desde la línea de comandos. Esto añ
 flutter pub add braze_plugin
 ```
 
-### Paso 2: Completar la configuración del SDK nativo
+### Paso 2: Completar la configuración del SDK nativo {#step-2-complete-native-sdk-setup}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
 
-#### 2.1 Configurar Android
+#### 2.1 Configurar Android {#21-set-up-android}
 
-##### Proporcionar credenciales en tiempo de compilación
+##### Proporcionar credenciales en tiempo de compilación {#provide-credentials-at-compile-time}
 
 Crea un archivo `braze.xml` en la carpeta `android/res/values` de tu proyecto. La clave de API y el punto final se proporcionan en tiempo de ejecución desde Dart, por lo que no son necesarios en este archivo. Para habilitar la inicialización diferida, añade `com_braze_enable_delayed_initialization` al archivo:
 
@@ -42,7 +42,7 @@ Crea un archivo `braze.xml` en la carpeta `android/res/values` de tu proyecto. L
 </resources>
 ```
 
-##### Proporcionar credenciales en tiempo de ejecución
+##### Proporcionar credenciales en tiempo de ejecución {#provide-credentials-at-runtime}
 
 Alternativamente, puedes habilitar la inicialización diferida de forma programática en tu `MainActivity.kt`:
 
@@ -64,7 +64,7 @@ Añade los permisos necesarios a tu archivo `AndroidManifest.xml`:
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#### 2.2 Configurar iOS
+#### 2.2 Configurar iOS {#22-set-up-ios}
 
 Dentro de tu método `application(_:didFinishLaunchingWithOptions:)` existente, añade una llamada a `BrazePlugin.configure(_:postInitialization:)` para almacenar tu configuración. La instancia de Braze se crea más tarde cuando se llama a `initialize()` desde Dart. La clave de API y el punto final no se configuran aquí.
 
@@ -235,7 +235,7 @@ static Braze *_braze = nil;
 {% endtab %}
 {% endtabs %}
 
-### Paso 3: Configurar el complemento
+### Paso 3: Configurar el complemento {#step-3-set-up-the-plugin}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -250,7 +250,7 @@ final BrazePlugin braze = BrazePlugin();
 
 Luego llama a `initialize()` con tu clave de API del identificador de aplicación y el punto final de SDK para crear la instancia de Braze. Consulta las opciones a continuación para saber dónde llamar a este método en tu aplicación.
 
-#### Inicialización estándar
+#### Inicialización estándar {#standard-initialization}
 
 Para inicializar el SDK cuando tu aplicación se inicia, llama a `initialize()` en `initState()`:
 
@@ -262,7 +262,7 @@ void initState() {
 }
 ```
 
-#### Inicialización diferida
+#### Inicialización diferida {#delayed-initialization}
 
 Para aplazar la inicialización del SDK hasta un momento posterior en la sesión —por ejemplo, después de que el usuario otorgue su consentimiento o complete el inicio de sesión— llama a `initialize()` cuando estés listo:
 
@@ -277,7 +277,7 @@ void onUserConsent() {
 Las notificaciones push y los vínculos profundos recibidos antes de llamar a `initialize()` no se procesan en iOS. En Android, los vínculos profundos de las notificaciones push no se resuelven mientras el SDK está esperando ser inicializado. Si tu aplicación depende de notificaciones push o vínculos profundos al inicio, utiliza la [inicialización estándar](#standard-initialization) en su lugar.
 {% endalert %}
 
-#### Claves de API específicas por plataforma
+#### Claves de API específicas por plataforma {#platform-specific-api-keys}
 
 Dado que tus aplicaciones de Android e iOS utilizan claves de API diferentes, usa la detección de plataforma:
 
@@ -291,7 +291,7 @@ if (Platform.isAndroid) {
 }
 ```
 
-#### Reinicialización
+#### Reinicialización {#re-initialization}
 
 Puedes llamar a `initialize()` varias veces para reinicializar el SDK con una clave de API y un punto final diferentes durante la sesión. Cada llamada destruye la instancia de Braze anterior y crea una nueva.
 
@@ -317,8 +317,8 @@ Para evitar comportamientos indefinidos, asigna y utiliza una única instancia d
 {% endtab %}
 {% endtabs %}
 
-## Probar la integración
-Puedes verificar que el SDK está integrado comprobando las estadísticas de sesión en el dashboard. Si ejecutas tu aplicación en cualquiera de las dos plataformas, deberías ver una nueva sesión en el dashboard (en la sección **Resumen**).
+## Probar la integración {#testing-the-integration}
+Puedes verificar que el SDK está integrado comprobando las estadísticas de sesión en el dashboard. Si ejecutas tu aplicación en cualquiera de las dos plataformas, deberías ver una nueva sesión en el dashboard (en la sección **Overview**).
 
 Abre una sesión para un usuario concreto llamando al siguiente código en tu aplicación.
 
@@ -342,4 +342,4 @@ braze.changeUser("{some-user-id}");
 {% endtab %}
 {% endtabs %}
 
-Busca al usuario con `{some-user-id}` en el dashboard, en **Audiencia** > **Buscar usuarios**. Allí podrás comprobar que se han registrado los datos de sesión y de dispositivo.
+Busca al usuario con `{some-user-id}` en el dashboard, en **Audience** > **Search Users**. Allí podrás comprobar que se han registrado los datos de sesión y de dispositivo.

@@ -31,7 +31,7 @@ Connected Content supports GET and POST requests. Braze requires the server to r
 | Weather-based content | Pull local weather data to tailor messaging |
 | Loyalty point balances | Show up-to-date rewards or account balances |
 | Content feeds | Insert the latest blog posts, articles, or news items |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Common use cases" }
 
 ## Authentication
 

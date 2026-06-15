@@ -19,7 +19,7 @@ guide_featured_list:
   - name: Resumen de la integración
     link: /docs/developer_guide/getting_started/integration_overview/
     image: /assets/img/braze_icons/chevron-up-double.svg
-  - name: Resumen de la arquitectura
+  - name: Resumen arquitectónico
     link: /docs/developer_guide/getting_started/architecture_overview/
     image: /assets/img/braze_icons/columns-01.svg
 
@@ -28,7 +28,7 @@ search_rank: 4
 
 <br>
 
-Puedes seguir esta guía o consultar [Braze Learning](https://learning.braze.com) para obtener cursos guiados, como nuestros itinerarios de aprendizaje [para especialistas en marketing](https://learning.braze.com/path/marketer) y [desarrolladores](https://learning.braze.com/path/developer).
+Puedes seguir esta guía o consultar [Braze Learning](https://learning.braze.com) para obtener cursos guiados, como nuestros itinerarios de aprendizaje [para especialistas en marketing](https://learning.braze.com/path/marketer) y [para desarrolladores](https://learning.braze.com/path/developer).
 
 
 <br><br>

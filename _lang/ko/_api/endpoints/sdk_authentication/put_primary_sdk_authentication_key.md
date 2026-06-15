@@ -9,22 +9,22 @@ description: "이 문서에서는 기본 SDK 인증 키 설정 Braze 엔드포�
 ---
 
 {% api %}
-# 기본 SDK 인증 키 설정
+# 기본 SDK 인증 키 설정 {#set-primary-sdk-authentication-key}
 {% apimethod put %}
 /app_group/sdk_authentication/primary
 {% endapimethod %}
 
 > 이 엔드포인트를 사용하여 SDK 인증 키를 앱의 기본 키로 설정하세요.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `sdk_authentication.primary` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 요청 본문
+## 요청 본문 {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -36,15 +36,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
-| 매개변수 | 필수 | 데이터 유형 | Description |
+| 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Required | 문자열 | 앱 API 식별자입니다. |
-| `key_id` | Required | 문자열 | 기본으로 표시할 SDK 인증 키의 ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | 필수 | 문자열 | 앱 API 식별자입니다. |
+| `key_id` | 필수 | 문자열 | 기본으로 표시할 SDK 인증 키의 ID입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 예시 요청
+## 예시 요청 {#example-request}
 ```bash
 curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authentication/primary' \
 --header 'Content-Type: application/json' \
@@ -55,7 +55,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }'
 ```
 
-## 응답
+## 응답 {#response}
 ```json
 {
   "keys": [
@@ -75,23 +75,23 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }
 ```
 
-## 응답 매개변수
+## 응답 매개변수 {#response-parameters}
 
-| 매개변수 | 데이터 유형 | Description |
+| 매개변수 | 데이터 유형 | 설명 |
 | --------- | --------- | ----------- |
-| `keys` | 배열 | 모든 SDK 인증 키 개체의 배열입니다. |
+| `keys` | 배열 | 모든 SDK 인증 키 오브젝트의 배열입니다. |
 | `keys[].id` | 문자열 | SDK 인증 키의 ID입니다. |
 | `keys[].rsa_public_key` | 문자열 | RSA 공개 키 문자열입니다. |
 | `keys[].description` | 문자열 | SDK 인증 키에 대한 설명입니다. |
 | `keys[].is_primary` | 부울 | 이 키가 기본 SDK 인증 키인지 여부입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
-### 유효성 검사 규칙
+### 유효성 검사 규칙 {#validation-rules}
 
 이 엔드포인트에는 다음과 같은 유효성 검사 규칙이 있습니다:
 
-- `key_id` 은 유효한 SDK 인증 키 ID여야 합니다.
-- `app_id` 은 유효한 앱 API 식별자이어야 합니다.
-- 지정된 앱에 대한 SDK 인증 키가 있어야 합니다.
+- `key_id`는 유효한 SDK 인증 키 ID여야 합니다.
+- `app_id`는 유효한 앱 API 식별자여야 합니다.
+- 지정된 앱에 대한 SDK 인증 키가 존재해야 합니다.
 
 {% endapi %}

@@ -50,6 +50,85 @@ Liquid can customize the landing page experience for both identified and anonymo
 - **Identified users:** Link to the landing page from a Braze message and include the [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). This associates the user with their Braze profile and personalizes the page experience.
 - **Anonymous visitors:** Use Liquid for contextual, non-profile-based content, such as a random number or a time-of-day greeting.
 
+### Pre-fill form fields
+
+If a landing page form field maps to a user profile attribute, you can pre-fill that field for returning users. This helps reduce form friction and improves completion rates for known visitors.
+
+Use pre-fill form fields:
+
+1. Select your form field in the drag-and-drop editor.
+2. In the right-hand settings panel, map the field to the appropriate profile attribute.
+3. Select **Pre-fill from user profile**.
+
+![Landing page form field settings showing the option to pre-fill from user profile data.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
+
+Pre-filling only works for [identified users](#use-liquid-for-identified-and-anonymous-users). For anonymous visitors, form fields keep their default state:
+
+- **Input fields:** Display their placeholder text.
+- **Checkboxes, radio buttons, and similar controls:** Remain unselected until the user interacts with them.
+
+## Fetching external data with custom code
+
+You can use a **Custom Code** block to fetch data from external endpoints and display it in your landing page. This approach makes the request on the client side (in the user's browser), so the page loads quickly without server-side rendering delays.
+
+{% alert warning %}
+When fetching external data, you are responsible for the security of your implementation. External identifiers used in API calls should be UUIDs or use an equivalently secure naming scheme, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+{% endalert %}
+
+### Use case
+
+This pattern is useful when you need to display user-specific data that isn't stored in Braze. Examples include real-time inventory, personalized recommendations, or other data your organization manages in separate systems.
+
+### Example implementation
+
+This example shows how to fetch user data from an external API. Replace the API endpoint with your own secure endpoint and use a secure identifier.
+
+{% raw %}
+```html
+<script>
+window.onload = () => {
+  // Use Liquid to template the user's external ID
+  const userId = "{{${user_id}}}";
+
+  const loadUserData = async () => {
+    try {
+      // Replace with your own secure API endpoint
+      const response = await fetch(`https://your-api.example.com/user/${userId}`);
+      
+      if (!response.ok) {
+        throw new Error('Failed to load data');
+      }
+      
+      const data = await response.json();
+      
+      // Update the page with the fetched data
+      document.querySelector("#user-data").textContent = JSON.stringify(data, null, 2);
+      document.querySelector("#user-name").textContent = data.name || "User";
+    } catch (error) {
+      // Handle errors gracefully
+      document.querySelector("#user-data").textContent = "Unable to load data at this time.";
+    }
+  };
+
+  loadUserData();
+};
+</script>
+
+<!-- Display area for fetched data -->
+<p>Welcome, <span id="user-name">Loading...</span></p>
+<pre id="user-data">Loading your information...</pre>
+```
+{% endraw %}
+
+### Considerations
+
+When fetching external data in landing pages:
+
+- **Loading states:** Users will see placeholder text until the endpoint responds. Consider adding a loading indicator or skeleton screen.
+- **Error handling:** If the endpoint fails or is slow to respond, the page may appear broken. Implement appropriate error messages and fallbacks.
+- **Performance:** The page loads immediately, but data appears after the external request completes. Keep your API responses fast for the best user experience.
+- **Security:** Ensure your API endpoint validates the identifier and only returns data the user is authorized to see. Implement rate limiting to prevent abuse. For guidance on choosing secure identifiers, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+
 ## Fallback pages
 
 If your users attempt to access a page that has been unpublished, they'll see a message indicating that the page cannot currently be loaded. Reasons that a page has been unpublished include:

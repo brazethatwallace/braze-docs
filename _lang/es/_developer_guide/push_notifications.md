@@ -5,9 +5,13 @@ page_order: 2.3
 description: "Esta página de destino es el hogar de todo lo relacionado con las notificaciones push."
 ---
 
-# Notificaciones push
+# Notificaciones push {#push-notifications}
 
-> [Las notificaciones push]({{site.baseurl}}/user_guide/message_building_by_channel/push/about/) te permiten enviar notificaciones desde tu aplicación cuando se producen eventos importantes. Puedes enviar una notificación push cuando tengas nuevos mensajes instantáneos que entregar, alertas de noticias de última hora que enviar o el último episodio del programa de TV favorito de tu usuario listo para que lo descargue para verlo sin conexión. También son más eficientes que la obtención en segundo plano, ya que la aplicación solo se inicia cuando es necesario.
+> Las [notificaciones push]({{site.baseurl}}/user_guide/channels/push/) te permiten enviar notificaciones desde tu aplicación cuando se producen eventos importantes. Puedes enviar una notificación push cuando tengas nuevos mensajes instantáneos que entregar, alertas de noticias de última hora que enviar o el último episodio del programa de TV favorito de tu usuario listo para que lo descargue para verlo sin conexión. También son más eficientes que la obtención en segundo plano, ya que la aplicación solo se inicia cuando es necesario.
+
+{% alert note %}
+Si **Redirect to web URL** con **Open web URL inside app** no está seleccionado, pero el enlace aún se abre dentro de la aplicación, es posible que la aplicación esté gestionando la URL (por ejemplo, con enlaces universales en iOS o App Links en Android). Para abrir el enlace en el navegador, confirma que tu aplicación delega la URL al navegador del sistema cuando el usuario toca la notificación, o ajusta la gestión de URL de tu aplicación para que la acción de clic coincida con la configuración del dashboard de Braze. Consulta la documentación push de tu plataforma para saber cómo se configuran las acciones de clic y la gestión de URL.
+{% endalert %}
 
 {% sdktabs %}
 {% sdktab web %}

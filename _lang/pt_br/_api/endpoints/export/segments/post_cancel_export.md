@@ -5,26 +5,26 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o ponto de extremidade Braze para cancelar exportações por segmento."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para cancelar exportações por segmento."
 
 ---
 {% api %}
-# Cancelar exportações por segmento
+# Cancelar exportações por segmento {#cancel-exports-by-segment}
 {% apimethod post %}
-/exportar/segmento/cancelar
+/export/segment/cancel
 {% endapimethod %}
 
-> Use este ponto de extremidade para cancelar todas as exportações em andamento com um ID de segmento especificado.
+> Use este endpoint para cancelar todas as exportações em andamento com um ID de segmento especificado.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `segments.list`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -37,14 +37,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 | `segment_id` | Obrigatória | String | O `segment_id` para cancelar suas exportações em andamento. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/export/segment/cancel' \
 --header 'Content-Type: application/json' \
@@ -55,4 +55,3 @@ curl --location --request POST 'https://rest.iad-01.braze.com/export/segment/can
 ```
 
 {% endapi %}
-

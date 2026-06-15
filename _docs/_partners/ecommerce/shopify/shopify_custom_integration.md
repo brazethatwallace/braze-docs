@@ -577,7 +577,7 @@ function CartLineUpdateButton({children, lines}) {
 
 Go to the Shopify partner page to start your setup. First, select **Begin Setup** to install the Braze application from the Shopify App Store. Follow the guided steps to complete the installation process.
 
-![Shopify integration setup page on the Braze dashboard.]({% image_buster /assets/img/Shopify/braze_shopify_integration_page.png %})
+![Shopify integration setup page on the Braze dashboard.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
 ### Step 2: Enable Braze SDKs 
 
@@ -585,28 +585,23 @@ For Shopify Hydrogen or headless stores, select the **Custom setup** option.
 
 Before continuing with the onboarding process, confirm that you've enabled the Braze SDK on your Shopify website.
 
-![Setup step to enable Braze SDKs.]({% image_buster /assets/img/Shopify/enable_braze_sdks_setup.png %})
+![Setup step to enable Braze SDKs.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
 ### Step 3: Track Shopify data 
 
 Enhance your integration by adding more Shopify events and attributes, which will be powered by Shopify webhooks. For detailed information on the data tracked through this integration, refer to [Shopify Data Features]({{site.baseurl}}/shopify_data_features/). 
 
-![Setup step to track Shopify data.]({% image_buster /assets/img/Shopify/track_shopify_data_setup.png %})
+![Setup step to track Shopify data.]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
 ### Step 4: Historical backfill (optional)
 
-Through the custom setup, you have the option to load your Shopify customers and orders from the past 90 days before connecting your Shopify integration. To include this initial data load, check the box for the initial data load option.
+Through the custom setup, you can optionally include the same historical Shopify data load as the [standard integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup): order events from the past 90 days and user profiles from the past year, each counted back from the date you complete your integration. To include this initial data load, select the checkbox for the initial data load option.
 
 If you prefer to perform the backfill later, you can complete the initial setup now and return to this step at a later time.
 
-![Section to set up historical data backfill.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
+![Section to set up historical data backfill.]({% image_buster /assets/img/shopify/historical_backfill_setup.png %})
 
-This table contains the data that will be initially loaded through the backfill.
-
-| Braze recommended events | Shopify custom events | Braze standard attributes | Braze subscription statuses |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>Email marketing subscriptions associated with this Shopify store</li><li>SMS marketing subscriptions associated with this Shopify store</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+For the full list of data in the initial load, revenue reporting behavior, and monitoring the sync, see [Historical backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### Step 5: Custom data tracking setup (advanced) 
 
@@ -619,7 +614,8 @@ With the Braze SDKs, you can track custom events or custom attributes that go be
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Step 5: Custom data tracking setup (advanced)" style="width: 100%;">
+  <caption>Step 5: Custom data tracking setup (advanced)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Custom events</th>
@@ -651,7 +647,7 @@ The SDK must be initialized (listening for activity) on a user’s device to log
 
 Select your `external_id` type from the dropdown.
 
-![“Collect subscribers” section.]({% image_buster /assets/img/Shopify/external_id_standard.png %})
+![“Collect subscribers” section.]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 Using an email address or a hashed email address as your Braze external ID can help simplify identity management across your data sources. However, it's important to consider the potential risks to user privacy and data security.<br><br>
@@ -695,7 +691,7 @@ Braze sends the following parameters to your endpoint:
 | shopify_customer_id  | Yes      | String    | The Shopify customer ID.                                         |
 | shopify_storefront   | Yes      | String    | The storefront name for the request. Ex: `<storefront_name>.myshopify.com` |
 | email_address        | No       | String    | The email address of the logged-in user. <br><br>This field may be missing in certain webhook scenarios. Your endpoint logic should account for null values here (for example, fetch the email using the shopify_customer_id if your internal logic requires it). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpoint specifications" }
 
 ##### Example endpoint
 
@@ -739,7 +735,7 @@ You have the option to collect your email or SMS marketing opt-ins from Shopify.
 
 If you use the email or SMS channels, you can sync your email and SMS marketing opt-in states into Braze. If you sync email marketing opt-ins from Shopify, Braze will automatically create an email subscription group for all users associated with that specific store. You need to create a unique name for this subscription group.
 
-![“Collect subscribers” section with option to collect email or SMS marketing opt-ins.]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
+![“Collect subscribers” section with option to collect email or SMS marketing opt-ins.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 As mentioned in [Shopify overview]({{site.baseurl}}/shopify_overview/), if you want to use a third-party capture form, your developers need to integrate Braze SDK code. This will let you capture the email address and global email subscription status from form submissions. Specifically, you need to implement and test these methods to your `theme.liquid` file:<br><br>
@@ -751,7 +747,7 @@ As mentioned in [Shopify overview]({{site.baseurl}}/shopify_overview/), if you w
 
 You can sync all products from your Shopify store to a Braze catalog for deeper messaging personalization. Automatic updates occur in near real-time so your catalog always reflects the latest product details. To learn more, check out [Shopify product sync]({{site.baseurl}}/shopify_catalogs/).
 
-![Setup step to sync product data to Braze.]({% image_buster /assets/img/Shopify/sync_product_data.png %})
+![Setup step to sync product data to Braze.]({% image_buster /assets/img/shopify/sync_product_data.png %})
 
 ### Step 8: Activate channels
 
@@ -765,7 +761,7 @@ To activate in-app messages, Content Cards, and Feature Flags using the Shopify 
 
 After you've gone through all the steps, select **Finish Setup** to return to the partner page. Then, enable the Braze app embed in your Shopify admin page as indicated by the banner that displays.
 
-![Banner that says to activate the Braze app embed in Shopify so that you can finish setting up your integration.]({% image_buster /assets/img/Shopify/shopify_app_embed_banner.png %})
+![Banner that says to activate the Braze app embed in Shopify so that you can finish setting up your integration.]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 
 #### Example code
 

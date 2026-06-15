@@ -31,7 +31,7 @@ The first step is to choose which CEP to use with Decisioning Studio. Your choic
 | **Braze** | Native API integration (recommended) | Low |
 | **Salesforce Marketing Cloud** | API events + Journey Builder | Medium |
 | **Other CEPs** | Custom (recommendation file) | High |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported CEPs" }
 
 {% alert tip %}
 If you're already using Braze as your CEP, we recommend using the native Braze integration for the smoothest setup experience.
@@ -52,7 +52,7 @@ Before setting up orchestration, gather the following items based on your chosen
 | **Email display name and address** | The sender information to use for your campaigns (found in **Settings** > **Email Preferences**). |
 | **Base templates** | The message templates your agent will use for orchestration. You'll create API-triggered campaigns for each template. |
 | **Test user ID** | A user ID for testing the integration before launch. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
@@ -64,7 +64,7 @@ Before setting up orchestration, gather the following items based on your chosen
 | **Data extensions** | You'll need data extensions for subscriber data, engagement data, and recommendations. |
 | **Email templates** | The templates you want Decisioning Studio to use, with template IDs for each. |
 | **Journey Builder access** | Access to create and activate multi-step journeys with API event entry sources. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% tab Other CEPs %}
@@ -76,7 +76,7 @@ If you're using a CEP other than Braze or Salesforce Marketing Cloud, Decisionin
 | **Data ingestion capability** | Your CEP must be able to ingest recommendation files (typically CSV or JSON) containing personalized decisions for each customer. |
 | **Dynamic content support** | Your campaigns must support populating fields dynamically based on recommendation data. |
 | **Custom engineering resources** | Your team will need to build the integration to read recommendation files and trigger communications. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% endtabs %}
@@ -114,7 +114,7 @@ For Braze integrations, plan which dimensions your agent will optimize. These be
 | Call to action | {% raw %}`{{api_trigger_properties.${cta_message}}}`{% endraw %} |
 | Offer | {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %} |
 | Discount amount | {% raw %}`{{api_trigger_properties.${discount}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API trigger properties" }
 
 ## Integration setup
 

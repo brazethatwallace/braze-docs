@@ -1,6 +1,6 @@
 ---
 nav_title: Almacenamiento
-article_title: Almacenamiento para iOS
+article_title: Almacenamiento
 page_order: 3.60
 page_type: reference
 description: "Obtén información sobre las diferentes propiedades a nivel de dispositivo que almacena el SDK de Braze."
@@ -11,11 +11,11 @@ platform:
   - Web
 ---
 
-# Almacenamiento
+# Almacenamiento {#storage}
 
 > Obtén información sobre las diferentes propiedades a nivel de dispositivo que almacena el SDK de Braze.
 
-## Propiedades del dispositivo
+## Propiedades del dispositivo {#device-properties}
 
 De forma predeterminada, Braze recopilará las siguientes propiedades a nivel de dispositivo para permitir la personalización de mensajes basada en el dispositivo, el idioma y la zona horaria:
 
@@ -58,7 +58,7 @@ De forma predeterminada, Braze recopilará las siguientes propiedades a nivel de
 - Zona horaria del dispositivo
 
 {% alert note %}
-El SDK de Braze no recopila IDFA automáticamente. Las aplicaciones pueden pasar opcionalmente IDFA a Braze implementando los métodos que se indican directamente a continuación. Las aplicaciones deben obtener la adhesión voluntaria explícita al seguimiento por parte del usuario final a través del marco de Transparencia del Seguimiento de Aplicaciones antes de pasar IDFA a Braze.
+El SDK de Braze no recopila IDFA automáticamente. Las aplicaciones pueden pasar opcionalmente IDFA a Braze implementando los métodos que se indican directamente a continuación. Las aplicaciones deben obtener la adhesión voluntaria explícita al seguimiento por parte del usuario final a través del marco de transparencia de seguimiento de aplicaciones antes de pasar IDFA a Braze.
 
 1. Para establecer el estado de seguimiento de la publicidad, utiliza [`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/).
 2. Para configurar el identificador del anunciante (IDFA), utiliza [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/).
@@ -82,7 +82,7 @@ braze.initialize("API-KEY", {
 {% endtab %}
 
 {% tab android %}
-Por ejemplo, puedes especificar la versión del sistema operativo Android y la configuración regional del dispositivo para incluirlos en la lista de permitidos. Para obtener más información, consulta los métodos [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) y [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html). 
+Por ejemplo, puedes especificar la versión del sistema operativo Android y la configuración regional del dispositivo para incluirlos en la lista de permitidos. Para obtener más información, consulta los métodos [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) y [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html).
 
 ```java
 new BrazeConfig.Builder()
@@ -117,7 +117,7 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-Para obtener más información sobre las propiedades de los dispositivos recopiladas automáticamente, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/).
+Para obtener más información sobre las propiedades de los dispositivos recopiladas automáticamente, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 {% endalert %}
 
 ## Almacenamiento de cookies (solo Web) {#cookies}
@@ -126,14 +126,14 @@ Después de [inicializar el SDK Web de Braze](https://js.appboycdn.com/web-sdk/l
 
 Se almacenan las siguientes cookies:
 
-|Cookie|Descripción|Tamaño|
-|---|----|---|---|
-|`ab.storage.userId.[your-api-key]`|Se utiliza para determinar si el usuario conectado actualmente ha cambiado y para asociar eventos con el usuario actual.|En función del tamaño del valor pasado a `changeUser`|
-|`ab.storage.sessionId.[your-api-key]`|Cadena generada aleatoriamente que se utiliza para determinar si el usuario está iniciando una sesión nueva o existente, para sincronizar mensajes y calcular los análisis de la sesión.|~200 bytes|
-|`ab.storage.deviceId.[your-api-key]`|Cadena generada aleatoriamente que se utiliza para identificar a los usuarios anónimos, diferenciar los dispositivos de los usuarios y habilitar la mensajería basada en dispositivos.|~200 bytes|
-|`ab.optOut`|Se utiliza para almacenar la preferencia de exclusión de un usuario cuando se llama a `disableSDK`.|~40 bytes|
-|`ab._gd`|Se crea temporalmente (y luego se elimina) para determinar el dominio de cookie de nivel raíz, lo que permite que el SDK funcione correctamente en subdominios.|n/a|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Cookie | Descripción | Tamaño |
+| --- | ---- | --- |
+| `ab.storage.userId.[your-api-key]` | Se utiliza para determinar si el usuario conectado actualmente ha cambiado y para asociar eventos con el usuario actual. | En función del tamaño del valor pasado a `changeUser` |
+| `ab.storage.sessionId.[your-api-key]` | Cadena generada aleatoriamente que se utiliza para determinar si el usuario está iniciando una sesión nueva o existente, para sincronizar mensajes y calcular los análisis de la sesión. | ~200 bytes |
+| `ab.storage.deviceId.[your-api-key]` | Cadena generada aleatoriamente que se utiliza para identificar a los usuarios anónimos, diferenciar los dispositivos de los usuarios y habilitar la mensajería basada en dispositivos. | ~200 bytes |
+| `ab.optOut` | Se utiliza para almacenar la preferencia de exclusión de un usuario cuando se llama a `disableSDK`. | ~40 bytes |
+| `ab._gd` | Se crea temporalmente (y luego se elimina) para determinar el dominio de cookie de nivel raíz, lo que permite que el SDK funcione correctamente en subdominios. | n/a |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
 
 ### Cambiar la caducidad de las cookies {#cookie-expiry}
 

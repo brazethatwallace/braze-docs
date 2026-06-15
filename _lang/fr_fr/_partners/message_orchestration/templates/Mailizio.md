@@ -14,53 +14,53 @@ search_tag: Partner
 
 _Cette intégration est maintenue par Mailizio._
 
-## À propos de l'intégration
+## À propos de l'intégration {#about-the-integration}
 
-L'intégration de Mailizio et Braze vous permet de concevoir des modèles d'e-mails dynamiques à l'aide de l'éditeur de Mailizio, d'exploiter les variables Liquid telles qu'elles sont utilisées dans vos configurations Braze, et de les envoyer à Braze pour une exécution rationalisée de la campagne.
+L'intégration de Mailizio et Braze vous permet de concevoir des modèles d'e-mails dynamiques à l'aide de l'éditeur de Mailizio, d'exploiter les variables Liquid telles qu'elles sont utilisées dans vos configurations Braze, et de les envoyer à Braze pour une exécution rationalisée des campagnes.
 
-## Cas d’utilisation
+## Cas d'utilisation {#use-cases}
 
-- Transférez des modèles d'e-mails prêts à l'emploi directement dans Braze pour les campagnes et les messages transactionnels.
+- Transférez des modèles d'e-mails prêts à l'envoi directement dans Braze pour les Campaigns et les messages transactionnels.
 - Créez des modules de contenu réutilisables (en-têtes, pieds de page, promotions et autres) pour rationaliser la production sur plusieurs campagnes et canaux.
 - Générez des messages in-app à partir d'e-mails : Mailizio identifie les sections pertinentes de votre e-mail et vous permet d'exporter le HTML pour l'utiliser dans vos campagnes in-app.
-- Personnalisez à l'échelle avec des variables Liquid compatibles avec Braze dans les e-mails et les messages in-app.
+- Personnalisez à grande échelle avec des variables Liquid compatibles avec Braze dans les e-mails et les messages in-app.
 - Veillez à la cohérence de votre image de marque en gérant les ressources créatives dans Mailizio et en les mettant à jour dans Braze à l'aide d'une seule exportation.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-| Condition | Description |                          
-| ----------- | ----------- |  
-| Compte Mailizio | Un compte Mailizio est nécessaire pour bénéficier de ce partenariat. |  
-| Clé d'API REST Braze | Une clé API Braze REST avec des autorisations complètes sur les **modèles**.<br><br>Vous pouvez créer une clé API REST de Braze dans le tableau de bord de Braze à partir de **Paramètres** > **Clés API.** |  
-| Endpoint REST Braze | [L'URL de votre endpoint REST.]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) Votre endpoint dépend de l'URL Braze de votre instance. |  
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Condition | Description |
+| ----------- | ----------- |
+| Compte Mailizio | Un compte Mailizio est nécessaire pour bénéficier de ce partenariat. |
+| Clé API REST Braze | Une clé API REST Braze avec des autorisations complètes sur les **modèles**.<br><br>Vous pouvez créer une clé API REST Braze dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Intégration
+## Intégration {#integration}
 
-Fournissez votre clé API REST Braze et votre instance de cluster à votre gestionnaire de satisfaction client Mailizio. L'équipe Mailizio met ensuite en place l'intégration initiale pour vous.
+Fournissez votre clé API REST Braze et votre instance de cluster à votre gestionnaire de la satisfaction client Mailizio. L'équipe Mailizio met ensuite en place l'intégration initiale pour vous.
 
 {% alert important %}
 Il s'agit d'une configuration unique, et toutes les exportations futures utiliseront automatiquement cette clé API.
 {% endalert %}
 
-### Étape 1 : Créer un e-mail dans Mailizio
+### Étape 1 : Créer un e-mail dans Mailizio {#step-1-create-an-email-in-mailizio}
 
-Dans Mailizio, utilisez l'éditeur par glisser-déposer pour créer un e-mail qui reflète l'identité de votre marque, puis cliquez sur **Enregistrer** pour conserver votre travail.
+Dans Mailizio, utilisez l'éditeur par glisser-déposer pour créer un e-mail qui reflète l'identité de votre marque, puis cliquez sur **Save** pour conserver votre travail.
 
-![éditeur par glisser-déposer screenshot]({% image_buster /assets/img/mailizio/screenshot_1.png %})
+![Capture d'écran de l'éditeur par glisser-déposer]({% image_buster /assets/img/mailizio/screenshot_1.png %})
 
-### Étape 2 : Exporter votre modèle d'e-mail vers Braze
+### Étape 2 : Exporter votre modèle d'e-mail vers Braze {#step-2-export-your-email-template-to-braze}
 
-Lorsque vous êtes prêt, cliquez sur **Exporter la lettre d'information**. Dans la fenêtre contextuelle, sélectionnez **Braze-email** et confirmez l'exportation.
+Lorsque vous êtes prêt, cliquez sur **Export Newsletter**. Dans la fenêtre contextuelle, sélectionnez **Braze-email** et confirmez l'exportation.
 
-Si vous mettez à jour votre contenu ultérieurement, réexportez à partir de Mailizio pour l'actualiser dans Braze.
+Si vous mettez à jour votre contenu ultérieurement, réexportez depuis Mailizio pour l'actualiser dans Braze.
 
-![capture d'écran de la fenêtre modale/boîte de dialogue, etc.]({% image_buster /assets/img/mailizio/screenshot_2.png %})
+![Capture d'écran de la fenêtre modale d'exportation]({% image_buster /assets/img/mailizio/screenshot_2.png %})
 
-{% alert important %}  
-Vous pouvez créer et exporter des blocs de contenu de la même manière en utilisant l'éditeur de **modules** de Mailizio.  
+{% alert important %}
+Vous pouvez créer et exporter des blocs de contenu de la même manière en utilisant l'éditeur de **modules** de Mailizio.
 {% endalert %}
 
-## Utilisation
+## Utilisation {#usage}
 
-Retrouvez le modèle Mailizio que vous avez téléchargé dans la section **Modèles & Media > Modèles d'e-mail de** votre compte Braze. Vous pouvez désormais utiliser ce modèle d'e-mail pour commencer à envoyer des e-mails attrayants à vos clients !
+Retrouvez le modèle Mailizio que vous avez téléchargé dans la section **Modèles et médias > Modèles d'e-mail** de votre compte Braze. Vous pouvez désormais utiliser ce modèle d'e-mail pour commencer à envoyer des e-mails attrayants à vos clients !

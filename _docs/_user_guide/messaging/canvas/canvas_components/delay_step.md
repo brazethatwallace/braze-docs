@@ -139,7 +139,7 @@ Delay components have the following metrics available in the analytics view of a
 | _Proceeded to Next Step_ | Reflects the number of entries that proceeded to the next step in the Canvas. |
 | _Exited Canvas_ | Reflects the number of entries that exited the Canvas and did not proceed to the next step. |
 | _Personalization Failed_ | Reflects the number of times a personalized message or content intended for a user couldn't be delivered due to the following:<br> {::nomarkdown}<ul><li>Delay value is in the past</li><li>Delay value is over 2 years into the future</li><li><b>After a duration</b> value isn't a number</li><li><b>Until a specific day</b> value isn't a date or date-formatted string</li></ul>{:/} <br>See [Personalization failed errors](#personaliztion-failed-errors) for more details. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Delay analytics" }
 
 Time series for these analytics are available in the expanded component view.
 
@@ -149,3 +149,10 @@ Time series for these analytics are available in the expanded component view.
 
 If users aren't triggering a personalized delay, it could be because the Context step you set to qualify them for the Delay step is not working as you expected. When a [context variable is invalid]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), a user will continue through your Canvas without having their context set by the Context step. This can cause them to not qualify for steps later in your Canvas, such as personalized delays.
 
+## Troubleshooting
+
+### Users in a Delay step when a Canvas is stopped
+
+When you [stop a Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases), users who are already waiting in a Delay step are not exited immediately. Braze still schedules delay completion, but **no further messages are sent** while the Canvas is stopped.
+
+If you re-enable the Canvas before a user's delay elapses, they can advance to the next step as scheduled. If the delay window has already passed while the Canvas was stopped, those users exit the Canvas instead of receiving the next step. For examples, see [What happens when you stop a Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-when-you-stop-a-canvas) and [Stopping Canvases]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases).

@@ -37,7 +37,7 @@ Replace the following:
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `variable_type`   | The predefined variable type you'd like to use, such as `campaign` or `catalog_fields`. For the full list, see [Supported variable types](#variable-types). |
 | `custom_label` | The label used to identify the variable in the **Variables** tab of your Query Builder. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add a variable" }
 
 In the following example, the total number of users between the first and last day of a month is queried for a campaign. Each variable will be assigned a value in the next step.
 
@@ -183,7 +183,7 @@ You can set the date range to any of the following options. If both `start_date`
 | Start date | Specifies a start date | Requires `start_date` |
 | End date | Specifies an end date | Requires `end_date` |
 | Date range | Specifies both a start and end date | Requires both `start_date` and `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Date range" }
 
 Your Liquid will be used to display a calendar within the given date range:
 

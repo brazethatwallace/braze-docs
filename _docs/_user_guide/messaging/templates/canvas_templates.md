@@ -34,11 +34,7 @@ Next, give your template a name and add any relevant tags. Then, select **Save**
 
 ### Step 1: Go to the Canvas template editor
 
-In the Braze dashboard, go to **Templates** > **Canvas Templates**.
-
-{% alert note %}
-If you are using the older navigation, you can find this page under **Engagement** > **Templates & Media** > **Canvas Templates**.
-{% endalert %}
+In the Braze dashboard, go to **Content** > **Canvas**.
 
 ### Step 2: Create a new template
 
@@ -59,7 +55,7 @@ After you've finished customizing your template, select the **Save template** bu
 There are two ways to use your template when composing a Canvas:
 
 - **From Messaging**: Go to **Messaging** > **Canvas**. Select the **Create Canvas** button and **Use a Canvas Template**.
-- **From Templates**: Go to **Templates** > **Canvas Templates** and find your desired template. Then, select the <i class="fas fa-ellipsis-vertical"></i> menu followed by **Apply template**. This will bring you to a new Canvas with the template applied in the Canvas composer.
+- **From Content**: Go to **Content** > **Canvas** and find your desired template in **Canvas templates**. Then, select the <i class="fas fa-ellipsis-vertical"></i> menu followed by **Apply template**. This brings you to a new Canvas with the template applied in the Canvas composer.
 
 ### Available Braze templates
 

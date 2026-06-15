@@ -1,7 +1,7 @@
 ---
 nav_title: Contentful
 article_title: Contentful
-description: "이 참조 문서에서는 Braze와 Contentful 간의 파트너십에 대해 설명합니다. Contentful은 콘텐츠 관리 시스템으로, 연결된 콘텐츠를 사용하여 Contentful에서 Braze 캠페인으로 콘텐츠를 동적으로 가져올 수 있습니다."
+description: "이 참조 문서에서는 Braze와 Contentful 간의 파트너십에 대해 설명합니다. Contentful은 콘텐츠 관리 시스템으로, 연결된 콘텐츠를 사용하여 Contentful에서 Braze Campaign으로 콘텐츠를 동적으로 가져올 수 있습니다."
 alias: /partners/contentful/
 page_type: partner
 search_tag: Partner
@@ -11,31 +11,31 @@ search_tag: Partner
 
 >[Contentful](https://www.contentful.com/)은 모든 플랫폼에 콘텐츠를 생성, 관리 및 배포할 수 있는 헤드리스 콘텐츠 관리 시스템입니다. 기존 콘텐츠 관리 시스템(CMS)과 달리 Contentful에서는 콘텐츠 모델을 직접 만들어 관리할 콘텐츠를 결정할 수 있습니다.<br><br>이 페이지에서는 Contentful의 Content Delivery API에서 데이터를 가져오도록 Braze 연결된 콘텐츠를 구성하는 단계별 가이드를 제공합니다.
 
-통합이 완료되면 Contentful의 RESTful API를 사용하여 웹사이트, 모바일 앱(iOS, Android, Windows) 또는 기타 다양한 플랫폼 등 여러 채널에 콘텐츠를 전달할 수 있습니다. 또한 Contentful에서 콘텐츠를 동적으로 가져와 Braze 캠페인에 활용할 수도 있습니다.
+통합이 완료되면 Contentful의 RESTful API를 사용하여 웹사이트, 모바일 앱(iOS, Android, Windows) 또는 기타 다양한 플랫폼 등 여러 채널에 콘텐츠를 전달할 수 있습니다. 또한 Contentful에서 콘텐츠를 동적으로 가져와 Braze Campaign에 활용할 수도 있습니다.
 
-## 필수 조건
+## 필수 조건 {#prerequisites}
 
 시작하기 전에 다음이 필요합니다:
 
-| 필수 조건          | 설명                        |
+| 필수 조건 | 설명 |
 |-----------------------|------------------------------------|
 | Contentful 계정 | Content Delivery API에 접근할 수 있는 Contentful 계정이 필요합니다. |
 | Braze 계정 | 연결된 콘텐츠 기능에 접근할 수 있는 Braze 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## 통합
+## 통합 {#integration}
 
-### 1단계: Contentful API 자격 증명 가져오기
+### 1단계: Contentful API 자격 증명 가져오기 {#step-1-get-your-contentful-api-credentials}
 
 1. 자격 증명을 사용하여 [Contentful에 로그인](https://app.contentful.com/login)합니다.
-2. Contentful 대시보드에서 **설정** > **API 키**로 이동하여 API 액세스 토큰을 생성하거나 가져옵니다. API 키가 아직 없는 경우 새로 생성합니다:<br>2.1 **Add API key**를 선택합니다.<br>2.2 필수 세부 정보를 입력하고 적절한 환경을 선택합니다.<br>2.3 **Save**를 선택하고 **Space ID**와 **Content Delivery API - access token**을 기록합니다.
+2. Contentful 대시보드에서 **Settings** > **API keys**로 이동하여 API 액세스 토큰을 생성하거나 가져옵니다. API 키가 아직 없는 경우 새로 생성합니다:<br>2.1 **Add API key**를 선택합니다.<br>2.2 필수 세부 정보를 입력하고 적절한 환경을 선택합니다.<br>2.3 **Save**를 선택하고 **Space ID**와 **Content Delivery API - access token**을 기록합니다.
 3. Contentful API를 통해 접근하려는 콘텐츠 모델을 확인합니다.
 
-### 2단계: Braze 연결된 콘텐츠 구성
+### 2단계: Braze 연결된 콘텐츠 구성 {#step-2-configure-braze-connected-content}
 
 1. 자격 증명을 사용하여 [Braze에 로그인](https://dashboard.braze.com/sign_in)합니다.
-2. Braze 대시보드에서 **템플릿** > **콘텐츠 블록** > **콘텐츠 블록 생성** > **HTML 코드 편집기**로 이동합니다.
-3. Contentful의 [Contentful Content Delivery API URL](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links)에 대한 연결된 콘텐츠 요청을 생성합니다. Contentful Content Delivery API URL의 예시는 ```https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries```입니다.<br><br> 다양한 자산을 가져오려면 특정 변수를 포함해야 합니다. 예시 연결된 콘텐츠 URL 요청은 Contentful의 [Entry](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console) 엔드포인트를 대상으로 합니다. 이 엔드포인트에는 `{space_id}` 및 `{environment_id}`, 또는 `{entry_id}` 및 `{access_token}`과 같은 변수가 필요합니다. 이러한 변수는 Contentful 인스턴스에서 가져올 수 있습니다. 이 예시 콘텐츠 블록에서 변수는 Contentful Space ID와 Environment ID로 교체해야 합니다.<br><br>예시 Content Delivery API URL은 Contentful에서 사용 가능한 엔드포인트 중 하나만 사용합니다. 다양한 URL을 활용하여 다양한 사용 사례를 구현할 수 있습니다. 예를 들어, [Image API](https://www.contentful.com/developers/docs/references/images-api/)를 사용하여 Contentful에 저장된 이미지를 캡처할 수 있습니다. 자세한 내용은 [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/)를 참조하세요.
+2. Braze 대시보드에서 **Content** > **Content Block** > **Create Content Block** > **HTML code editor**로 이동합니다.
+3. Contentful의 [Contentful Content Delivery API URL](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links)에 대한 연결된 콘텐츠 요청을 생성합니다. Contentful Content Delivery API URL의 예시는 `https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries`입니다.<br><br> 다양한 자산을 가져오려면 특정 변수를 포함해야 합니다. 예시 연결된 콘텐츠 URL 요청은 Contentful의 [Entry](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console) 엔드포인트를 대상으로 합니다. 이 엔드포인트에는 `{space_id}` 및 `{environment_id}`, 또는 `{entry_id}` 및 `{access_token}`과 같은 변수가 필요합니다. 이러한 변수는 Contentful 인스턴스에서 가져올 수 있습니다. 이 예시 콘텐츠 블록에서 변수는 Contentful Space ID와 Environment ID로 교체해야 합니다.<br><br>예시 Content Delivery API URL은 Contentful에서 사용 가능한 엔드포인트 중 하나만 사용합니다. 다양한 URL을 활용하여 다양한 사용 사례를 구현할 수 있습니다. 예를 들어, [Image API](https://www.contentful.com/developers/docs/references/images-api/)를 사용하여 Contentful에 저장된 이미지를 캡처할 수 있습니다. 자세한 내용은 [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/)를 참조하세요.
 
 {% alert note %}
 엔드포인트에 따라 새로운 변수가 필요할 수 있습니다. 예를 들어 Images API에는 `{asset_id}`, `{unique_id},` 및 `{name}`이 필요합니다. 추가 안내가 필요하면 Contentful에 문의하세요.
@@ -62,11 +62,11 @@ search_tag: Partner
 5. **Done**을 선택하여 콘텐츠 블록을 저장합니다.
 6. 콘텐츠 블록에 "Contentful API"와 같은 설명적인 이름을 지정한 다음 **Launch Content Block**을 선택합니다.
 
-### 3단계: 캠페인 및 캔버스에서 연결된 콘텐츠 사용
+### 3단계: Campaign 및 Canvas에서 연결된 콘텐츠 사용 {#step-3-use-connected-content-in-campaigns-and-canvasses}
 
-1. Braze에서 새 캠페인을 생성하거나 기존 캠페인을 편집합니다.
-2. 연결된 콘텐츠 블록을 사용하여 Contentful에서 가져온 데이터를 삽입합니다. 구성 중에 정의한 데이터 경로를 사용하여 캠페인 콘텐츠를 동적으로 채웁니다.<br><br>
-- **응답 경로:** Braze 캠페인 또는 Canvas에 콘텐츠 블록을 포함한 후, 메시지에 `{response}` 변수를 삽입하면 응답을 사용할 수 있습니다.<br><br>JSON 점 표기법을 사용하면 Contentful의 응답 본문에서 메시지에 포함할 부분을 지정할 수 있습니다. 이는 사용 사례에 따라 달라집니다. 예를 들어, Contentful의 Entry 엔드포인트에서 title 값({% raw %}```liquid{{response.items[0].fields.title}}```{% endraw %})을 사용하면 다음과 같은 응답을 받을 수 있습니다:
+1. Braze에서 새 Campaign을 생성하거나 기존 Campaign을 편집합니다.
+2. 연결된 콘텐츠 블록을 사용하여 Contentful에서 가져온 데이터를 삽입합니다. 구성 중에 정의한 데이터 경로를 사용하여 Campaign 콘텐츠를 동적으로 채웁니다.<br><br>
+- **응답 경로:** Braze Campaign 또는 Canvas에 콘텐츠 블록을 포함한 후, 메시지에 `{response}` 변수를 삽입하면 응답을 사용할 수 있습니다.<br><br>JSON 점 표기법을 사용하면 Contentful의 응답 본문에서 메시지에 포함할 부분을 지정할 수 있습니다. 이는 사용 사례에 따라 달라집니다. 예를 들어, Contentful의 Entry 엔드포인트에서 title 값({% raw %}`liquid{{response.items[0].fields.title}}`{% endraw %})을 사용하면 다음과 같은 응답을 받을 수 있습니다:
 
 {% raw %}
 ```json
@@ -117,21 +117,21 @@ search_tag: Partner
 {% endraw %}
 
 {: start="3" }
-3. 캠페인을 미리보기하고 테스트하여 연결된 콘텐츠 데이터가 올바르게 표시되는지 확인합니다.
-4. 설정에 만족하면 캠페인을 시작합니다.
+3. Campaign을 미리보기하고 테스트하여 연결된 콘텐츠 데이터가 올바르게 표시되는지 확인합니다.
+4. 설정에 만족하면 Campaign을 시작합니다.
 
-## 문제 해결
+## 문제 해결 {#troubleshooting}
 
-### API 응답
+### API 응답 {#api-response}
 
 Contentful API 자격 증명과 엔드포인트 URL이 올바른지 확인하세요. Braze에서 API 호출 관련 문제를 나타낼 수 있는 오류 메시지가 있는지 확인하세요.
 
-### 데이터 매핑
+### 데이터 매핑 {#data-mapping}
 
 응답 경로 매핑이 올바르게 구성되어 있는지, API 응답 구조가 예상과 일치하는지 확인하세요.
 
-## 추가 리소스
+## 추가 리소스 {#additional-resources}
 
 - [Contentful Content Delivery API 설명서](https://www.contentful.com/developers/docs/references/content-delivery-api/)
-- [Braze 연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)
-- [Braze 콘텐츠 블록]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/)
+- [Braze 연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)
+- [Braze Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)

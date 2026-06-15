@@ -2,10 +2,20 @@
 nav_title: Create and manage workspaces
 article_title: Create and Manage Workspaces
 page_order: 0
+layout: dev_guide
+guide_top_header: "Create and manage workspaces"
+guide_top_text: "This article covers how to create, set up, and manage your workspaces."
 page_type: reference
 description: "This article covers how to create, set up, and manage your workspaces."
 
+guide_featured_title: "Section articles"
+guide_featured_list:
+- name: Migrate data between workspaces
+  link: /docs/user_guide/administer/global/create_and_manage_workspaces/migrate_workspace_data
+  image: /assets/img/braze_icons/switch-horizontal-01.svg
 ---
+
+<br>
 
 # Create and manage workspaces
 
@@ -25,7 +35,7 @@ Before you begin, make sure you've worked with your team and your Braze onboardi
 
 You can create new workspaces or switch between existing workspaces from the workspace dropdown in the global header.
 
-1. Select the workspace dropdown, then select <i class="fa-solid fa-square-plus" style="color: #0b8294;"></i> **Create workspace**.
+1. Select the workspace dropdown, then select <i class="fa-solid fa-square-plus" style="color: #0b8294;" aria-hidden="true"></i> **Create workspace**.
 
 ![The workspace dropdown with the "Create workspace" button.]({% image_buster /assets/img/workspaces/workspace_create.png %}){: style="max-width:60%;"}
 
@@ -105,8 +115,8 @@ There's no limit to the number of workspaces you can favorite, but we recommend 
 To rename your workspace:
 
 1. Go to **Settings** > **App Settings**.
-2. Hover over your workspace’s name and select <i class="image: /assets/img/braze_icons/pencil-01.svg" style="color: #0b8294;"></i>.
-3. Give your workspace a new name, then select <i class="fa-solid fa-square-check" style="color: #0b8294;"></i> **Save**.
+2. Hover over your workspace’s name and select <i class="fa-solid fa-pencil" style="color: #0b8294;" aria-hidden="true"></i> **Edit**.
+3. Give your workspace a new name, then select <i class="fa-solid fa-square-check" style="color: #0b8294;" aria-hidden="true"></i> **Save**.
 
 ![The pencil icon appearing next to the workspace name.]({% image_buster /assets/img/workspaces/workspace_rename.gif %}){: style="max-width:50%;"}
 

@@ -1,12 +1,18 @@
 ---
-nav_title: Currents changelog
-article_title: Currents changelog
-page_order: 3
+nav_title: Currents Event Changelogs
+page_order: 6
 description: "This page includes the event changes for each Currents release."
 tool: Currents
 ---
 
 # Currents changelog
+
+## Changes in Version 9 (release date 2026-06-03)
+
+### Changes for Storage:
+
+* Field changes to event type `users.messages.email.Send`:
+    * Added new `string` field `from_domain`: Sending domain for the email
 
 ## Changes in Version 8 (release date 2026-05-06)
 
@@ -39,6 +45,8 @@ tool: Currents
 ## Changes in Version 7 (release date 2026-04-01)
 
 ### Changes for Storage:
+
+* Added new event type `users.profile.Update`.
 
 * Field changes to event type `users.messages.banner.Abort`:
     * Added new `string` field `canvas_name`: Name of the Canvas

@@ -1,34 +1,34 @@
 ---
-nav_title: "DELETE:SDK認証キーを削除する"
-article_title: "DELETE:SDK 認証キーを削除"
-search_tag: エンドポイント
+nav_title: "DELETE: SDK認証キーを削除する"
+article_title: "DELETE: SDK認証キーを削除"
+search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "この記事では、「SDK 認証キーを削除」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「SDK認証キーを削除」Brazeエンドポイントの詳細について説明します。"
 ---
 
 {% api %}
-# SDK 認証キーを削除
+# SDK認証キーを削除 {#delete-sdk-authentication-key}
 {% apimethod delete %}
 /app_group/sdk_authentication/delete
 {% endapimethod %}
 
-> このエンドポイントを使用して、アプリの SDK 認証キーを削除します。
+> このエンドポイントを使用して、アプリのSDK認証キーを削除します。
 
 {% alert important %}
 プライマリキーは削除できません。プライマリキーを削除しようとすると、このエンドポイントはエラーを返します。
 {% endalert %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`sdk_authentication.delete`の権限が必要です。
+このエンドポイントを使用するには、`sdk_authentication.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -40,17 +40,17 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | 必須かどうか | string | アプリの API 識別子。 |
-| `key_id` | 必須かどうか | string | 削除する SDK 認証キーの ID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | 必須 | 文字列 | アプリのAPI識別子。 |
+| `key_id` | 必須 | 文字列 | 削除するSDK認証キーのID。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
-```bash
+`````````bash
 curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_authentication/delete' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -60,7 +60,7 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 }'
 ```
 
-## 応答
+## 応答 {#response}
 
 ```json
 {
@@ -75,24 +75,24 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 }
 ```
 
-## 応答パラメーター
+## 応答パラメーター {#response-parameters}
 
-| パラメータ | データタイプ | 説明 |
+| パラメーター | データタイプ | 説明 |
 | --------- | --------- | ----------- |
-| `keys` | 配列 | 残りの SDK 認証キーオブジェクトの配列。 |
-| `keys[].id` | string | SDK 認証キーの ID。 |
-| `keys[].rsa_public_key` | string | RSA 公開キーの文字列。 |
-| `keys[].description` | string | SDK 認証キーの説明。 |
-| `keys[].is_primary` | ブール値 | このキーがプライマリ SDK 認証キーであるかどうか。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `keys` | 配列 | 残りのSDK認証キーオブジェクトの配列。 |
+| `keys[].id` | 文字列 | SDK認証キーのID。 |
+| `keys[].rsa_public_key` | 文字列 | RSA公開キーの文字列。 |
+| `keys[].description` | 文字列 | SDK認証キーの説明。 |
+| `keys[].is_primary` | ブール値 | このキーがプライマリSDK認証キーであるかどうか。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
-### 検証ルール
+### バリデーションルール {#validation-rules}
 
-このエンドポイントには以下の検証ルールがあります。
+このエンドポイントには以下のバリデーションルールがあります。
 
-- `key_id` は有効な SDK 認証キー ID でなければならない。
-- `app_id` は有効なアプリ API 識別子でなければならない。
-- SDK 認証キーは、指定されたアプリに存在しなければならない。
-- プライマリ SDK 認証キーは削除できない。
+- `key_id` は有効なSDK認証キーIDである必要があります。
+- `app_id` は有効なアプリAPI識別子である必要があります。
+- SDK認証キーは、指定されたアプリに存在する必要があります。
+- プライマリSDK認証キーは削除できません。
 
 {% endapi %}

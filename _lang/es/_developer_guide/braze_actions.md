@@ -1,24 +1,24 @@
 ---
-nav_title: Acciones de Braze enlaces profundos
-article_title: Vínculos profundos con Acciones Braze
+nav_title: Enlaces profundos de acciones de Braze
+article_title: Enlaces profundos de acciones de Braze
 page_order: 100
-description: "Este artículo de referencia explica cómo utilizar los enlaces profundos de acción Braze para realizar acciones del SDK dentro de los botones del canal de mensajería."
+description: "Este artículo de referencia explica cómo utilizar los enlaces profundos de acciones de Braze para realizar acciones del SDK dentro de los botones del canal de mensajería."
 hidden: true
 ---
 
-# Vínculos profundos con Acciones Braze
+# Enlaces profundos de acciones de Braze {#braze-actions-deeplinks}
 
-> Las Acciones Braze te permiten utilizar "vínculos profundos" para realizar funciones nativas del SDK.<br><br>El panel de Braze incluye varias acciones estándar al hacer clic (Solicitar permiso push, Registrar evento personalizado y Registrar atributo personalizado) que pueden utilizarse en mensajes dentro de la aplicación y en tarjetas de contenido.<br><br>Para todas las demás acciones, o para combinar varias acciones, utiliza esta guía para construir tu propio enlace profundo de Acción Braze.
+> Las acciones de Braze te permiten utilizar "enlaces profundos" para realizar funciones nativas del SDK.<br><br>El panel de Braze incluye varias acciones estándar al hacer clic (Solicitar permiso push, Registrar evento personalizado y Registrar atributo personalizado) que pueden utilizarse en mensajes dentro de la aplicación y en Content Cards.<br><br>Para todas las demás acciones, o para combinar varias acciones, utiliza esta guía para construir tu propio enlace profundo de acción de Braze.
 
-## Soporte SDK
+## Compatibilidad del SDK {#sdk-support}
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-El esquema de enlace profundo `brazeActions://` puede utilizarse siempre que exista una opción de enlace profundo o de redireccionamiento dentro de los mensajes dentro de la aplicación y de las tarjetas de contenido.
+El esquema de enlace profundo `brazeActions://` puede utilizarse siempre que exista una opción de enlace profundo o de redireccionamiento dentro de los mensajes dentro de la aplicación y de Content Cards.
 
-Para los mensajes HTML dentro de la aplicación, utiliza el botón [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#javascript-bridge) ya que los enlaces profundos no son compatibles con los tipos de mensajes HTML.
+Para los mensajes HTML dentro de la aplicación, utiliza [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#javascript-bridge) en su lugar, ya que los enlaces profundos no son compatibles con los tipos de mensajes HTML.
 
-## Esquema
+## Esquema {#schema}
 
 Puedes incluir varias acciones `steps` dentro de un tipo de acción `container`. También es válido un solo paso sin `container`.
 
@@ -38,11 +38,11 @@ Un `step` individual contiene un `type` de acción y una matriz opcional `args`:
 }
 ```
 
-## URI 
+## URI
 
-El esquema URI de las acciones Braze es `brazeActions://v1/{base64encodedJsonString}`.
+El esquema URI de las acciones de Braze es `brazeActions://v1/{base64encodedJsonString}`.
 
-El siguiente JavaScript muestra cómo codificar y descodificar la cadena JSON:
+El siguiente JavaScript muestra cómo codificar y decodificar la cadena JSON:
 
 ```javascript
 function decode(encoded) {
@@ -61,7 +61,7 @@ function decode(encoded) {
  * Converts a UTF-16 string to UTF-8 to comply with base64 encoding limitations.
  */
 function encode(input) {
-    // Split the original 16-bit char code into two 8-bit char codes then 
+    // Split the original 16-bit char code into two 8-bit char codes then
     // reconstitute a new string (of double length) using those 8-bit codes
     // into a UTF-8 string.
     const codeUnits = new Uint16Array(input.length);
@@ -77,30 +77,31 @@ function encode(input) {
 }
 ```
 
-## Acciones apoyadas
+## Acciones compatibles {#supported-actions}
 
-|Tipo|Args|
+| Tipo | Args |
 |--|--|
-|`container`|Una serie de otras acciones a realizar|
-|`logCustomEvent`|1. `event name`<br>2. `event properties JSON object` (opcional)|
-|`setEmailNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
-|`setPushNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
-|`setCustomUserAttribute`|1. `attribute_name`<br>2. `attribute_value`|
-|`requestPushPermission`| N/A |
-|`openLink`|1. `url`<br>2. `openInNewTab` (booleano)|
-|`openLinkInWebview`| `url`|
-|`addToSubscriptionGroup`| `subscriptionGroupId`|
-|`removeFromSubscriptionGroup`| `subscriptionGroupId`|
-|`addToCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
-|`removeFromCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
+| `container` | Una matriz de otras acciones a realizar |
+| `logCustomEvent` | 1. `event name`<br>2. `event properties JSON object` (opcional) |
+| `setEmailNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
+| `setPushNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
+| `setCustomUserAttribute` | 1. `attribute_name`<br>2. `attribute_value` |
+| `requestPushPermission` | N/A |
+| `openLink` | 1. `url`<br>2. `openInNewTab` (booleano) |
+| `openLinkInWebview` | `url` |
+| `addToSubscriptionGroup` | `subscriptionGroupId` |
+| `removeFromSubscriptionGroup` | `subscriptionGroupId` |
+| `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
+| `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Actions" }
 
-## Codificador JSON
+## Codificador JSON {#json-encoder}
 
-Introduce una cadena JSON para ver la URI resultante `brazeActions://`. O introduce una URI de `brazeActions://` para descodificar su JSON.
+Introduce una cadena JSON para ver la URI resultante `brazeActions://`. O introduce una URI `brazeActions://` para decodificar su JSON.
 
 <div><h4>Entrada JSON</h4></div>
 <textarea id="braze-actions-input" rows="12"></textarea>
-<div><h4>Respuesta de vínculos profundos</h4></div>
+<div><h4>Salida de enlace profundo</h4></div>
 <textarea id="braze-actions-output" rows="6"></textarea>
 <style>
     #braze-actions-input, #braze-actions-output {

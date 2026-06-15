@@ -6,30 +6,28 @@ page_type: update
 description: "この記事には2017年6月のリリースノートが含まれています。"
 ---
 
-# 2017年6月
+# 2017年6月 {#june-2017}
 
-## 外部API への更新
+## 外部APIの更新 {#update-to-external-api}
 
-外部APIを更新し、アップル・プッシュのcollapse_id フィールドをサポートすることで、顧客に正確にメッセージを送ることができるようになった。[BrazeメッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)について詳しく学びましょう。
+外部APIを更新し、Appleプッシュの collapse_id フィールドをサポートするようになりました。これにより、顧客に正確なメッセージを送信できるようになります。[BrazeメッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)について詳しくはこちらをご覧ください。
 
-## ウェブプッシュ通知にアップデート
+## Webプッシュ通知の更新 {#update-to-web-push-notifications}
 
-ドロップダウンや正しい画像高さのレンダリングなど、Web プッシュ通知のプレビューに対する更新が追加され、Web プッシュ通知のテストと送信が容易になりました。[Web プッシュ]({{site.baseurl}}/user_guide/message_building_by_channel/push/web) について詳しく学びましょう。
+ドロップダウンや正しい画像高さのレンダリングなど、Webプッシュ通知のプレビューに対する更新を追加しました。これにより、Webプッシュ通知のテストと送信がより簡単になります。[Webプッシュ]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/)について詳しくはこちらをご覧ください。
 
-## セキュリティ設定の改善
+## セキュリティ設定の改善 {#improved-security-settings}
 
-お客様がパスワードの複雑性ルール、ダッシュボードのIPホワイトリスト、および二要素認証を設定できる機能を追加し、より多くのコントロールを提供します。詳細については、[セキュリティ設定]({{site.baseurl}}/user_guide/onboarding/platform_administrative_features/#security-settings)をご覧ください。
+パスワードの複雑性ルール、ダッシュボードのIPホワイトリスト、および二要素認証を設定する機能を追加しました。これにより、より多くのコントロールが可能になります。[セキュリティ設定]({{site.baseurl}}/user_guide/onboarding/platform_administrative_features/#security-settings)について詳しくはこちらをご覧ください。
 
-## 同時CSVインポート
+## 同時CSVインポート {#concurrent-csv-imports}
 
-複数のCSVを同時にアップロードして処理できるようになり、より迅速に作業を進めることができます。[ユーザーインポート]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/)について詳しく学びましょう。
+複数のCSVを同時にアップロードして処理できるようになり、より迅速に作業を進めることができます。[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/)について詳しくはこちらをご覧ください。
 
-## キャンバステンプレート属性
+## キャンバステンプレート属性 {#canvas-template-attributes}
 
-キャンバスのステップから送信されるメッセージに[テンプレート属性]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)を含める機能を追加し、より効率的に作業できるようにしました。
+キャンバスのステップから送信されるメッセージに[テンプレート属性]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)を含める機能を追加しました。これにより、より効率的に作業できるようになります。
 
-## ターゲット設定の更新
+## ターゲット設定の更新 {#updates-to-targeting}
 
-日付と時刻をフィルタリングする際に、時間単位として時間を選択できるようになり、メッセージをより正確にターゲットすることができます。フィルターについて[詳しく知る]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#step-4-add-filters-to-your-segment)。
-
-
+日付と時刻でフィルタリングする際に、時間単位として「時間」を選択できるようになりました。これにより、メッセージをより正確にターゲットすることができます。[フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#step-4-add-filters-to-your-segment)について詳しくはこちらをご覧ください。

@@ -1,72 +1,72 @@
 ---
-nav_title: Erstellen Sie eine Transformation
-article_title: Erstellen Sie eine Transformation
+nav_title: Transformation erstellen
+article_title: Transformation erstellen
 page_order: 1
 page_type: reference
-description: "Dieser referenzierte Artikel beschreibt die Schritte zur Erstellung einer Transformation mit Braze Data Transformation."
+description: "Dieser Referenzartikel beschreibt die Schritte zur Erstellung einer Transformation mit Braze Datentransformation."
 ---
 
-# Erstellen Sie eine Transformation
+# Transformation erstellen {#create-a-transformation}
 
-> Mit Braze Data Transformation können Sie Webhook-Integrationen erstellen und verwalten, um den Datenfluss von externen Plattformen in Braze zu automatisieren. Diese Webhook-Integrationen können dann noch leistungsfähigere Anwendungsfälle im Marketing unterstützen. Sie können Ihre Datentransformation aus dem Standard Code erstellen oder unsere spezielle Bibliothek mit Templates verwenden, um Ihnen den Einstieg in bestimmte externe Plattformen zu erleichtern.
+> Mit Braze Datentransformation können Sie Webhook-Integrationen erstellen und verwalten, um den Datenfluss von externen Plattformen in Braze zu automatisieren. Diese Webhook-Integrationen können dann noch leistungsfähigere Anwendungsfälle im Marketing unterstützen. Sie können Ihre Datentransformation aus dem Standardcode erstellen oder unsere spezielle Bibliothek mit Templates verwenden, um Ihnen den Einstieg in bestimmte externe Plattformen zu erleichtern.
 
-## Voraussetzungen 
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | --- | --- |
-| Zwei-Faktor-Authentifizierung oder SSO | Sie müssen die [Zwei-Faktor-Authentifizierung]({{site.baseurl}}/user_guide/administrative/app_settings/company_settings/security_settings/#two-factor-authentication) (2FA) oder [Single Sign-on]({{site.baseurl}}/user_guide/administrative/app_settings/company_settings/security_settings/#single-sign-on-sso-authentication) (SSO) für Ihr Konto aktivieren. |
-| Berechtigungen korrigieren | Sie müssen entweder Account Manager oder Workspace Administrator sein oder über die Nutzer:innen-Berechtigung "Transformationen verwalten" verfügen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Zwei-Faktor-Authentifizierung oder SSO | Sie müssen die [Zwei-Faktor-Authentifizierung]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication) (2FA) oder [Single Sign-on]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication) (SSO) für Ihr Konto aktiviert haben. |
+| Korrekte Berechtigungen | Sie müssen entweder Konto-Admin oder Workspace-Admin sein oder über die Nutzer:innen-Berechtigung „Transformationen verwalten“ verfügen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Schritt 1: Bezeichner für eine Quellplattform
+## 1. Schritt: Quellplattform identifizieren {#step-1-identify-a-source-platform}
 
-Identifizieren Sie eine externe Plattform, die Sie mit Braze verbinden möchten, und überprüfen Sie, ob die Plattform Webhooks unterstützt. Diese Einstellungen werden manchmal auch als "API-Benachrichtigungen" oder "Anfragen für Webdienste" bezeichnet.
+Identifizieren Sie eine externe Plattform, die Sie mit Braze verbinden möchten, und überprüfen Sie, ob die Plattform Webhooks unterstützt. Diese Einstellungen werden manchmal auch als „API-Benachrichtigungen“ oder „Anfragen für Webdienste“ bezeichnet.
 
-Im Folgenden finden Sie ein Beispiel für einen [Typeform Webhook](https://www.typeform.com/help/a/webhooks-360029573471/), der durch Anmeldung bei der Plattform konfiguriert werden kann:
+Im Folgenden finden Sie ein Beispiel für einen [Typeform-Webhook](https://www.typeform.com/help/a/webhooks-360029573471/), der durch Anmeldung bei der Plattform konfiguriert werden kann:
 
 ![]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
 
-## Schritt 2: Erstellen Sie eine Transformation
+## 2. Schritt: Transformation erstellen {#step-2-create-a-transformation}
 
 {% multi_lang_include create_transformation.md location="default" %}
 
-## Schritt 3: Senden Sie einen Test-Webhook (empfohlen)
+## 3. Schritt: Test-Webhook senden (empfohlen) {#step-3-send-a-test-webhook-recommended}
 
-Dieser Schritt ist optional, aber wir empfehlen, einen Test-Webhook von Ihrer Ausgangsplattform an Ihre neu erstellte Transformation zu senden.
+Dieser Schritt ist optional, aber wir empfehlen, einen Test-Webhook von Ihrer Quellplattform an Ihre neu erstellte Transformation zu senden.
 
 1. Kopieren Sie die URL aus Ihrer Transformation.
-2. Suchen Sie in Ihrer Quellplattform nach einer "Test senden"-Funktion, um einen Webhook zu generieren, der an diese URL gesendet wird. 
-- Wenn Ihre Quellplattform nach einem Typ für die Anfrage fragt, wählen Sie **POST**.
-- Wenn Ihre Quellplattform Authentifizierungsoptionen bietet, wählen Sie **Keine Authentifizierung**.
-- Wenn Ihre Quellplattform nach Geheimnissen fragt, wählen Sie **Keine Geheimnisse**.
-3. Aktualisieren Sie Ihre Seite im Braze-Dashboard, um zu sehen, ob der Webhook empfangen wurde. Wenn er empfangen wurde, sollten Sie unter **Neuester Webhook** eine Webhook-Nutzlast sehen.
+2. Suchen Sie in Ihrer Quellplattform nach einer „Test senden“-Funktion, um einen Beispiel-Webhook zu generieren, der an diese URL gesendet wird.
+   - Wenn Ihre Quellplattform nach einem Anfragetyp fragt, wählen Sie **POST**.
+   - Wenn Ihre Quellplattform Authentifizierungsoptionen bietet, wählen Sie **No authentication**.
+   - Wenn Ihre Quellplattform nach Geheimnissen fragt, wählen Sie **No secrets**.
+3. Aktualisieren Sie Ihre Seite im Braze-Dashboard, um zu sehen, ob der Webhook empfangen wurde. Wenn er empfangen wurde, sollten Sie unter **Most recent webhook** eine Webhook-Nutzlast sehen.
 
 So sieht es bei Typeform aus:
 
-![Beispiel für einen Code zur Datentransformation, der den Webhook auf Braze Nutzerprofile abbildet.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
+![Beispiel für Datentransformationscode, der den Webhook auf Braze-Nutzerprofile abbildet.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
-Braze Data Transformation unterstützt möglicherweise noch keine externen Plattformen, die eine spezielle Überprüfung oder Authentifizierung für Webhooks erfordern. Wenn Sie sich für diese Art von Plattform mit Braze Data Transformation interessieren, sollten Sie ein [Feedback zu Ihrem Produkt]({{site.baseurl}}/user_guide/administrative/access_braze/portal/) abgeben.
+Braze Datentransformation unterstützt möglicherweise noch keine externen Plattformen, die eine spezielle Überprüfung oder Authentifizierung für Webhooks erfordern. Wenn Sie diese Art von Plattform mit Braze Datentransformation nutzen möchten, sollten Sie ein [Produktfeedback]({{site.baseurl}}/user_guide/administer/personal/product_portal/) hinterlassen.
 {% endalert %}
 
-## Schritt 4: Schreiben Sie Code für die Transformation
+## 4. Schritt: Transformationscode schreiben {#step-4-write-transformation-code}
 
-Wenn Sie wenig bis gar keine Erfahrung mit JavaScript Code haben oder detailliertere Anweisungen bevorzugen, folgen Sie dem **Beginner - POST: Nutzer:innen tracken** oder **Anfänger - PUT: Mehrere Artikel aktualisieren** Tab zum Schreiben Ihres Codes für die Transformation.
+Wenn Sie wenig bis gar keine Erfahrung mit JavaScript-Code haben oder detailliertere Anweisungen bevorzugen, folgen Sie dem Tab **Anfänger – POST: Nutzer:innen tracken** oder **Anfänger – PUT: Mehrere Katalogartikel aktualisieren** zum Schreiben Ihres Transformationscodes.
 
-Wenn Sie Entwickler:in sind oder über umfangreiche Erfahrung mit JavaScript Code verfügen, folgen Sie dem **Advanced - POST: Tracking von Nutzer:innen** Tab für ausführliche Anweisungen zum Schreiben Ihres Transformation Codes.
+Wenn Sie Entwickler:in sind oder über umfangreiche Erfahrung mit JavaScript-Code verfügen, folgen Sie dem Tab **Fortgeschritten – POST: Nutzer:innen tracken** für übergeordnete Anweisungen zum Schreiben Ihres Transformationscodes.
 
 {% alert tip %}
-Braze Data Transformation verfügt über einen KI-Copiloten, der ChatGPT um Hilfe beim Schreiben Ihres Codes bittet. Um auf den KI-Kopiloten zuzugreifen, wählen Sie <i class="fa-solid fa-wand-magic-sparkles"></i> **Code für die Transformation erzeugen**. Um dies zu nutzen, muss ein Webhook an Ihre Transformation gesendet werden. Sie können auch auf die Bibliothek der Templates zugreifen, indem Sie **Code einfügen** > **Template einfügen** auswählen.
+Braze Datentransformation verfügt über einen KI-Copiloten, der ChatGPT um Hilfe beim Schreiben Ihres Codes bittet. Um auf den KI-Copiloten zuzugreifen, wählen Sie <i class="fa-solid fa-wand-magic-sparkles"></i> **Generate transformation code**. Um dies zu nutzen, muss ein Webhook an Ihre Transformation gesendet werden. Sie können auch auf die Template-Bibliothek zugreifen, indem Sie **Insert code** > **Insert template** auswählen.
 
 ![]({% image_buster /assets/img/data_transformation/data_transformation3.png %})
 {% endalert %}
 
 {% tabs %}
-{% tab Beginner - Track users %}
+{% tab Anfänger – Nutzer:innen tracken %}
 
-Schreiben Sie hier den Code für die Transformation, um zu definieren, wie verschiedene Webhook-Werte auf Braze-Nutzerprofile abgebildet werden.
+Schreiben Sie hier den Transformationscode, um zu definieren, wie verschiedene Webhook-Werte auf Braze-Nutzerprofile abgebildet werden.
 
-1. Neue Transformationen haben dieses Standard Template im Abschnitt **Transformation Code**:
+1. Neue Transformationen haben dieses Standard-Template im Abschnitt **Transformation Code**:
 
 ```java
 // Here, we will define a variable, "brazecall", to build up a `/users/track` request
@@ -113,22 +113,22 @@ return brazecall;
 ```
 
 {:start="2"}
-2\. Um angepasste Attribute, angepasste Events und Käufe in Ihre Transformationsaufrufe einzubeziehen, fahren Sie mit Schritt 3 fort. Andernfalls löschen Sie die Abschnitte, die Sie nicht benötigen.<br><br>
-3\. Für jedes Attribut, jedes Kauf-Event und jedes Kauf-Objekt ist ein Nutzer:in erforderlich, entweder ein `external_id`, `user_alias`, `braze_id`, `email` oder `phone`. Suchen Sie den Bezeichner des Nutzers:in der Nutzlast des eingehenden Webhooks und fügen Sie diesen Wert als Template in Ihren Transformation Code über eine Nutzlastzeile ein. Verwenden Sie die Punktnotation, um auf die Eigenschaften von Nutzlastobjekten zuzugreifen. <br><br>
-4\. Finden Sie die Webhook-Werte, die Sie als Attribute, Ereignisse oder Käufe darstellen möchten, und erstellen Sie ein Template für diese Werte in Ihrem Transformation Code über eine Payload-Zeile. Verwenden Sie die Punktnotation, um auf die Eigenschaften von Nutzlastobjekten zuzugreifen.<br><br>
-5\. Prüfen Sie für jedes Attribut, Ereignis und Kauf-Objekt den Wert `_update_existing_only`. Setzen Sie dies auf `false`, wenn Sie möchten, dass die Transformation einen neuen Nutzer:innen erstellt, der möglicherweise noch nicht existiert. Belassen Sie dies auf `true`, um nur bestehende Profile zu aktualisieren.<br><br>
-6\. Klicken Sie auf **Validieren**, um eine Vorschau auf die Ausgabe Ihres Codes zu erhalten und um zu prüfen, ob es sich um eine akzeptable Anfrage handelt `/users/track`.<br><br>
-7\. Aktivieren Sie Ihre Transformation. Wenn Sie weitere Hilfe zu Ihrem Code benötigen, bevor Sie ihn aktivieren, wenden Sie sich an Ihren Braze-Konto Manager:in.<br><br>
-7\. Lassen Sie Ihre Quellplattform mit dem Senden von Webhooks beginnen. Ihr Code für die Transformation wird für jeden eingehenden Webhook ausgeführt, und die Nutzerprofile werden aktualisiert. 
+2. Um angepasste Attribute, angepasste Events und Käufe in Ihre Transformationsaufrufe einzubeziehen, fahren Sie mit Schritt 3 fort. Andernfalls löschen Sie die Abschnitte, die Sie nicht benötigen.<br><br>
+3. Für jedes Attribut-, Event- und Kauf-Objekt ist ein Nutzer:innen-Bezeichner erforderlich, entweder ein `external_id`, `user_alias`, `braze_id`, `email` oder `phone`. Suchen Sie den Nutzer:innen-Bezeichner in der Nutzlast des eingehenden Webhooks und fügen Sie diesen Wert über eine Nutzlastzeile als Template in Ihren Transformationscode ein. Verwenden Sie die Punktnotation, um auf die Eigenschaften von Nutzlastobjekten zuzugreifen.<br><br>
+4. Finden Sie die Webhook-Werte, die Sie als Attribute, Events oder Käufe darstellen möchten, und erstellen Sie ein Template für diese Werte in Ihrem Transformationscode über eine Nutzlastzeile. Verwenden Sie die Punktnotation, um auf die Eigenschaften von Nutzlastobjekten zuzugreifen.<br><br>
+5. Prüfen Sie für jedes Attribut-, Event- und Kauf-Objekt den Wert `_update_existing_only`. Setzen Sie diesen auf `false`, wenn Sie möchten, dass die Transformation neue Nutzer:innen erstellt, die möglicherweise noch nicht existieren. Belassen Sie den Wert auf `true`, um nur bestehende Profile zu aktualisieren.<br><br>
+6. Klicken Sie auf **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.<br><br>
+7. Aktivieren Sie Ihre Transformation. Wenn Sie weitere Hilfe zu Ihrem Code benötigen, bevor Sie ihn aktivieren, wenden Sie sich an Ihren Braze Account Manager.<br><br>
+7. Lassen Sie Ihre Quellplattform mit dem Senden von Webhooks beginnen. Ihr Transformationscode wird für jeden eingehenden Webhook ausgeführt, und die Nutzerprofile werden aktualisiert.
 
-Ihre Webhook-Integration ist nun vollständig!
+Ihre Webhook-Integration ist nun abgeschlossen!
 
 {% endtab %}
-{% tab Beginner - Update catalog items %}
+{% tab Anfänger – Katalogartikel aktualisieren %}
 
-Hier können Sie Transformations-Code schreiben, um zu definieren, wie Sie verschiedene Webhook-Werte auf Updates von Braze-Katalogartikeln abbilden möchten.
+Hier können Sie Transformationscode schreiben, um zu definieren, wie Sie verschiedene Webhook-Werte auf Updates von Braze-Katalogartikeln abbilden möchten.
 
-1. Neue Transformationen enthalten dieses Standard Template im Abschnitt **Transformations Code**:
+1. Neue Transformationen enthalten dieses Standard-Template im Abschnitt **Transformation Code**:
 
 ```java
 // This is a default template that you can use as a starting point
@@ -142,7 +142,7 @@ let brazecall = {
   // For Braze Data Transformation to update Catalog items, the special variable "catalog_name" is required
   // This variable is used to specify the catalog name which would otherwise go in the request URL
   "catalog_name": "catalog_name",
-  
+
   // After defining "catalog name", construct the Update Multiple Catalog Items request as usual below
   // Documentation for the destination endpoint: https://www.braze.com/docs/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
   "items": [
@@ -187,51 +187,49 @@ return brazecall;
 ```
 
 {:start="2"}
-2\. Transformationen für `/catalogs` Ziele erfordern eine `catalog_name`, um den spezifischen Katalog zu definieren, der aktualisiert werden soll. Sie können dieses Feld fest codieren oder das Feld über eine Payload-Zeile mit einem Webhook-Feld templateen. Verwenden Sie die Punktnotation, um auf die Eigenschaften von Nutzlastobjekten zuzugreifen.<br><br>
-3\. Definieren Sie die Artikel, die Sie im Katalog aktualisieren möchten, mit den Feldern `id` im Array Artikel. Sie können diese Felder fest codieren oder ein Template in ein Webhook-Feld über eine Nutzdatenzeile einfügen. <br><br> Denken Sie daran, dass `catalog_column` ein Platzhalterwert ist. Achten Sie darauf, dass Artikelobjekte nur Felder enthalten, die im Katalog vorhanden sind.<br><br>
-4\. Wählen Sie **Validieren**, um eine Vorschau auf die Ausgabe Ihres Codes zu erhalten und um zu prüfen, ob es sich um eine akzeptable Anfrage für den [Endpunkt Mehrere Artikel aktualisieren]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items) handelt.<br><br>
-5\. Aktivieren Sie Ihre Transformation. Wenn Sie weitere Hilfe zu Ihrem Code benötigen, bevor Sie ihn aktivieren, wenden Sie sich an Ihren Braze-Konto Manager:in.<br><br>
-6\. Vergewissern Sie sich, ob Ihre Quellplattform über eine Einstellung zum Senden von Webhooks verfügt. Ihr Code für die Transformation wird für jeden eingehenden Webhook ausgeführt und die Artikel im Katalog werden aktualisiert.
+2. Transformationen für `/catalogs`-Ziele erfordern einen `catalog_name`, um den spezifischen Katalog zu definieren, der aktualisiert werden soll. Sie können dieses Feld fest codieren oder das Feld über eine Nutzlastzeile mit einem Webhook-Feld als Template einfügen. Verwenden Sie die Punktnotation, um auf die Eigenschaften von Nutzlastobjekten zuzugreifen.<br><br>
+3. Definieren Sie die Artikel, die Sie im Katalog aktualisieren möchten, mit den `id`-Feldern im Artikel-Array. Sie können diese Felder fest codieren oder ein Webhook-Feld über eine Nutzlastzeile als Template einfügen.<br><br> Beachten Sie, dass `catalog_column` ein Platzhalterwert ist. Stellen Sie sicher, dass Artikelobjekte nur Felder enthalten, die im Katalog vorhanden sind.<br><br>
+4. Wählen Sie **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable Anfrage für den [Endpunkt „Mehrere Katalogartikel aktualisieren“]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/) handelt.<br><br>
+5. Aktivieren Sie Ihre Transformation. Wenn Sie weitere Hilfe zu Ihrem Code benötigen, bevor Sie ihn aktivieren, wenden Sie sich an Ihren Braze Account Manager.<br><br>
+6. Vergewissern Sie sich, ob Ihre Quellplattform über eine Einstellung zum Senden von Webhooks verfügt. Ihr Transformationscode wird für jeden eingehenden Webhook ausgeführt, und die Katalogartikel werden aktualisiert.
 
-Ihre Webhook-Integration ist nun vollständig!
+Ihre Webhook-Integration ist nun abgeschlossen!
 
 {% endtab %}
-{% tab Advanced - Track users %}
+{% tab Fortgeschritten – Nutzer:innen tracken %}
 
-In diesem Schritt transformieren Sie die Webhook-Nutzdaten von der Quellplattform in einen Rückgabewert für ein JavaScript-Objekt. Dieser Rückgabewert muss dem Format des Körpers der Anfrage für den Endpunkt `/users/track` entsprechen:
+In diesem Schritt transformieren Sie die Webhook-Nutzlast von der Quellplattform in einen Rückgabewert für ein JavaScript-Objekt. Dieser Rückgabewert muss dem Format des Anfragekörpers für den `/users/track`-Endpunkt entsprechen:
 
-- Der Code für die Transformation wird in der Programmiersprache JavaScript akzeptiert. Jeder Standard-JavaScript-Kontrollfluss, wie z.B. die if/else-Logik, wird unterstützt.
-- Der Code der Transformation greift über die Variable `payload` auf den Körper der Webhook-Anfrage zu. Diese Variable ist ein Objekt, das durch das Parsen des JSON-Körpers der Anfrage erstellt wird.
-- Alle Features, die in unserem `/users/track` Endpunkt unterstützt werden, werden unterstützt, einschließlich:
-  - Nutzer:in-Objekte, Ereignis-Objekte und Kauf-Objekte mit Attributen
+- Der Transformationscode wird in der Programmiersprache JavaScript akzeptiert. Jeder Standard-JavaScript-Kontrollfluss, wie z. B. die if/else-Logik, wird unterstützt.
+- Der Transformationscode greift über die Variable `payload` auf den Anfragekörper des Webhooks zu. Diese Variable ist ein Objekt, das durch das Parsen des JSON-Anfragekörpers erstellt wird.
+- Alle Features, die in unserem `/users/track`-Endpunkt unterstützt werden, werden unterstützt, einschließlich:
+  - Nutzer:innen-Attribut-Objekte, Event-Objekte und Kauf-Objekte
   - Verschachtelte Attribute und verschachtelte Eigenschaften von angepassten Events
   - Updates für Abo-Gruppen
-  - E-Mail Adresse als Bezeichner
+  - E-Mail-Adresse als Bezeichner
 
-Wählen Sie **Validieren** aus, um eine Vorschau auf die Ausgabe Ihres Codes zu erhalten und um zu prüfen, ob es sich um eine akzeptable `/users/track` Anfrage handelt.
+Wählen Sie **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.
 
 {% alert note %}
-Externe Netzwerkanfragen, Bibliotheken von Drittanbietern und Webhooks, die nicht JSON sind, werden derzeit nicht unterstützt.
+Externe Netzwerkanfragen, Bibliotheken von Drittanbietern und Webhooks, die nicht im JSON-Format vorliegen, werden derzeit nicht unterstützt.
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-## Schritt 5: Überwachen Sie Ihre Transformation
+## 5. Schritt: Transformation überwachen {#step-5-monitor-your-transformation}
 
-Nachdem Sie Ihre Transformation aktiviert haben, finden Sie in den Analytics auf der Hauptseite **Transformationen** eine Zusammenfassung der Performance.
+Nachdem Sie Ihre Transformation aktiviert haben, finden Sie in den Analytics auf der Hauptseite **Transformations** eine Zusammenfassung der Performance.
 
-* **Eingehende Anfragen:** Dies ist die Anzahl der Webhooks, die unter der URL dieser Transformation empfangen wurden. Wenn die eingehenden Anfragen 0 sind, hat Ihre Quellplattform keine Webhooks übermittelt, oder die Verbindung kann nicht hergestellt werden.
-* **Zustellungen:** Nach dem Empfang eingehender Anfragen wendet die Datentransformation Ihren Code zur Transformation an, um ihn an das ausgewählte Ziel in Braze zu senden.
+* **Incoming Requests:** Dies ist die Anzahl der Webhooks, die unter der URL dieser Transformation empfangen wurden. Wenn die eingehenden Anfragen 0 sind, hat Ihre Quellplattform keine Webhooks übermittelt, oder die Verbindung kann nicht hergestellt werden.
+* **Deliveries:** Nach dem Empfang eingehender Anfragen wendet die Datentransformation Ihren Transformationscode an, um die Daten an das ausgewählte Braze-Ziel zu senden.
 
-Es ist ein gutes Ziel, dass 100% der eingehenden Anfragen zu Zustellungen führen. Die Anzahl der Zustellungen wird niemals die Anzahl der eingehenden Anfragen übersteigen.
+Es ist ein gutes Ziel, dass 100 % der eingehenden Anfragen zu Zustellungen führen. Die Anzahl der Zustellungen wird niemals die Anzahl der eingehenden Anfragen übersteigen.
 
-### Fehlersuche
+### Fehlerbehebung {#troubleshooting}
 
-Für eine detailliertere Überwachung und Fehlerbehebung finden Sie auf der Seite **Protokolle** spezifische Protokolle, in denen die letzten 1.000 eingehenden Anfragen an alle Transformationen in Ihren Workspaces protokolliert werden. Sie können jedes Protokoll auswählen, um den Body der eingehenden Anfrage, den Output der Transformation und den Response Body des Ziels der Transformation anzuzeigen.
+Für eine detailliertere Überwachung und Fehlerbehebung finden Sie auf der Seite **Logs** spezifische Protokolle, in denen die letzten 1.000 eingehenden Anfragen an alle Transformationen in Ihren Workspaces protokolliert werden. Sie können jedes Protokoll auswählen, um den eingehenden Anfragekörper, die Transformationsausgabe und den Antwortkörper des Transformationsziels anzuzeigen.
 
-Wenn es keine Zustellungen gibt, überprüfen Sie Ihren Code für die Transformation auf Syntaxfehler und stellen Sie sicher, dass der Code kompiliert werden kann. Prüfen Sie dann, ob die Ausgabe eine gültige Anfrage für ein Ziel ist.
+Wenn es keine Zustellungen gibt, überprüfen Sie Ihren Transformationscode auf Syntaxfehler und stellen Sie sicher, dass der Code kompiliert werden kann. Prüfen Sie dann, ob die Ausgabe eine gültige Zielanfrage ist.
 
-Zustellungen, die geringer sind als die Anzahl der eingehenden Anfragen, zeigen an, dass zumindest einige Webhooks erfolgreich zugestellt wurden. Schauen Sie in den Transformationsprotokollen nach, ob die Ausgabe der Transformation den Erwartungen entspricht. Es ist möglich, dass Ihr Code für die Transformation nicht alle Varianten der empfangenen Webhooks berücksichtigt.
-
-
+Zustellungen, die geringer sind als die Anzahl der eingehenden Anfragen, zeigen an, dass zumindest einige Webhooks erfolgreich zugestellt wurden. Schauen Sie in den Transformationsprotokollen nach Beispielfehlern und prüfen Sie, ob die Transformationsausgabe den Erwartungen entspricht. Es ist möglich, dass Ihr Transformationscode nicht alle Varianten der empfangenen Webhooks berücksichtigt.

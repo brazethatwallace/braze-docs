@@ -1,14 +1,14 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
-## UIデリゲートの設定（必須）
+## UIデリゲートの設定（必須） {#setting-up-the-ui-delegate-required}
 
-アプリ内メッセージの表示をカスタマイズし、様々なライフサイクルイベントに対応するには、設定を行う必要がある[`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate)。これは、アプリ内でトリガーされたアプリ内メッセージのペイロードを受信・処理し、表示ライフサイクルイベントを受信し、表示タイミングをコントロールするために使用されるデリゲートプロトコルである。を使用するには`BrazeInAppMessageUIDelegate`、次のことを行わなければならない：
-- デフォルト[`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui)の実装をそのまま使え`inAppMessagePresenter`。 
-- ライブラリー`BrazeUI`をプロジェクトに含めろ。
+アプリ内メッセージの表示をカスタマイズし、さまざまなライフサイクルイベントに対応するには、[`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate)を設定する必要があります。これは、トリガーされたアプリ内メッセージのペイロードを受信・処理し、表示ライフサイクルイベントを受信し、表示タイミングをコントロールするために使用されるデリゲートプロトコルです。`BrazeInAppMessageUIDelegate`を使用するには、以下を行う必要があります。
+- デフォルトの[`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui)実装を`inAppMessagePresenter`として使用します。
+- `BrazeUI`ライブラリーをプロジェクトに含めます。
 
-### ステップ 1: プロトコル`BrazeInAppMessageUIDelegate`を実装する 
+### ステップ 1:`BrazeInAppMessageUIDelegate`プロトコルを実装する {#step-1-implement-the-brazeinappmessageuidelegate-protocol}
 
-まず、`BrazeInAppMessageUIDelegate` プロトコルと、対応する必要なメソッドを実装します。以下の例では、このプロトコルをアプリケーションの `AppDelegate` クラスに実装しています。
+まず、`BrazeInAppMessageUIDelegate`プロトコルと、対応する必要なメソッドを実装します。以下の例では、このプロトコルをアプリケーションの`AppDelegate`クラスに実装しています。
 
 {% tabs %}
 {% tab swift %}
@@ -19,7 +19,7 @@ extension AppDelegate: BrazeInAppMessageUIDelegate {
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 @interface AppDelegate () <BrazeInAppMessageUIDelegate>
 
 @end
@@ -31,63 +31,63 @@ extension AppDelegate: BrazeInAppMessageUIDelegate {
 {% endtab %}
 {% endtabs %}
 
-### ステップ 2:オブジェクト`delegate`を割り当てる 
+### ステップ 2:`delegate`オブジェクトを割り当てる {#step-2-assign-the-delegate-object}
 
-このアプリ内メッセージUIを割り当てる前に、インスタンス`BrazeInAppMessageUI`上の`inAppMessagePresenter`オブジェクト`delegate`を割り当てよ。
+このアプリ内メッセージUIを`inAppMessagePresenter`として割り当てる前に、`BrazeInAppMessageUI`インスタンスの`delegate`オブジェクトを割り当てます。
 
 {% tabs %}
 {% tab swift %}
-```swift
+`````````swift
 let inAppMessageUI = BrazeInAppMessageUI()
 inAppMessageUI.delegate = self
 AppDelegate.braze?.inAppMessagePresenter = inAppMessageUI
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 BrazeInAppMessageUI *inAppMessageUI = [[BrazeInAppMessageUI alloc] init];
 inAppMessageUI.delegate = self;
 AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
 ```
 
 {% alert important %}
-パラメータが言語ランタイムと互換性がないため、すべてのデリゲートメソッドを Objective-C で使用できるわけではありません。
+パラメーターが言語ランタイムと互換性がないため、すべてのデリゲートメソッドをObjective-Cで使用できるわけではありません。
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %}
-アプリ内メッセージ UI デリゲートの段階的な実装については、この[チュートリアル](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui)を参照してください。
+アプリ内メッセージUIデリゲートの段階的な実装については、この[チュートリアル](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui)を参照してください。
 {% endalert %}
 
-## オン・クリック動作
+## クリック時の動作 {#on-click-behavior}
 
-各`Braze.InAppMessage` オブジェクトには対応する [`ClickAction`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/clickaction) が含まれ、これによってクリック時の動作が定義されます。 
+各`Braze.InAppMessage`オブジェクトには対応する[`ClickAction`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/clickaction)が含まれ、クリック時の動作が定義されます。
 
-### クリックアクションのタイプ
+### クリックアクションのタイプ {#click-action-types}
 
-`Braze.InAppMessage` の`clickAction` プロパティは `.none` にデフォルト設定されていますが、次のうちいずれかの値に設定できます。
+`Braze.InAppMessage`の`clickAction`プロパティはデフォルトで`.none`に設定されていますが、次のいずれかの値に設定できます。
 
-| `ClickAction` | クリック時動作 |
+| `ClickAction` | クリック時の動作 |
 | -------------------------- | -------- |
-| `.url(URL, useWebView: Bool)` | 指定されたURLを外部ブラウザで開く。`useWebView` が`true` に設定されていれば、ウェブビューで開く。 |
-| `.none` | クリックするとメッセージが却下されます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `.url(URL, useWebView: Bool)` | 指定されたURLを外部ブラウザで開きます。`useWebView`が`true`に設定されている場合、Webビューで開きます。 |
+| `.none` | クリックするとメッセージが閉じられます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Click action types" }
 
 {% alert important %}
-ボタンを含むアプリ内メッセージの場合、ボタンテキストを追加する前にクリックアクションが追加されると、メッセージ `clickAction` も最終ペイロードに含まれます。
+ボタンを含むアプリ内メッセージの場合、ボタンテキストを追加する前にクリックアクションが追加されると、メッセージの`clickAction`も最終ペイロードに含まれます。
 {% endalert %}
 
-### クリック時の動作をカスタマイズする
+### クリック時の動作をカスタマイズする {#customizing-on-click-behavior}
 
-この動作をカスタマイズするために、以下のサンプルを参照して `clickAction` プロパティを変更できます。
+この動作をカスタマイズするには、以下のサンプルを参照して`clickAction`プロパティを変更できます。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(
-  _ ui: BrazeInAppMessageUI, 
+  _ ui: BrazeInAppMessageUI,
   prepareWith context: inout BrazeInAppMessageUI.PresentationContext
 ) {
   if let newUrl = URL(string: "{your-url}") {
@@ -99,19 +99,19 @@ func inAppMessage(
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-`inAppMessage(_:prepareWith:)` メソッドは、Objective-C では利用できません。
+`inAppMessage(_:prepareWith:)`メソッドはObjective-Cでは利用できません。
 
 {% endtab %}
 {% endtabs %}
 
-### カスタム動作の処理
+### カスタム動作の処理 {#handling-the-custom-behavior}
 
-ユーザーがアプリ内メッセージをクリックした際に、以下の[`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate)デリゲートメソッドが呼び出される。このコールバックは、アプリ内メッセージボタンやHTMLアプリ内メッセージボタン（リンク）に対するユーザーによるクリックで発動する。これらの操作に対しては、オプションのパラメータとしてボタンIDが提供される。このコールバックは、プログラムによるクリック操作によってトリガーされた場合には呼び出されない`brazeBridge.logClick()`。
+ユーザーがアプリ内メッセージをクリックした際に、以下の[`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate)デリゲートメソッドが呼び出されます。このコールバックは、アプリ内メッセージボタンやHTMLアプリ内メッセージボタン（リンク）に対するユーザーによるクリックでトリガーされ、これらの操作に対してはオプションのパラメーターとしてボタンIDが提供されます。このコールバックは、`brazeBridge.logClick()`によってトリガーされたプログラムによるクリックでは呼び出されません。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   shouldProcess clickAction: Braze.InAppMessage.ClickAction,
@@ -124,7 +124,7 @@ func inAppMessage(
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)inAppMessage:(BrazeInAppMessageUI *)ui
        shouldProcess:(enum BRZInAppMessageRawClickAction)clickAction
                  url:(NSURL *)uri
@@ -136,12 +136,12 @@ func inAppMessage(
 {% endtab %}
 {% endtabs %}
 
-このメソッドは、Braze がクリックアクションを実行し続けるかどうかを示すブール値を返します。
+このメソッドは、Brazeがクリックアクションの実行を続行するかどうかを示すブール値を返します。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI, shouldProcess clickAction: Braze.InAppMessage.ClickAction,
   buttonId: String?, message: Braze.InAppMessage, view: InAppMessageView
@@ -167,7 +167,7 @@ func inAppMessage(
     default:
       break
     }
-    
+
     print(button?.id)
     print(button?.text)
     print(button?.clickAction)
@@ -178,7 +178,7 @@ func inAppMessage(
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 - (BOOL)inAppMessage:(BrazeInAppMessageUI *)ui
        shouldProcess:(enum BRZInAppMessageRawClickAction)clickAction
                  url:(NSURL *)uri
@@ -200,64 +200,64 @@ func inAppMessage(
 {% endtab %}
 {% endtabs %}
 
-## スワイプしてスライドアップメッセージを消す
+## スワイプでスライドアップメッセージを閉じる {#swiping-to-dismiss-slideup-messages}
 
-デフォルトでは、スライドアップするアプリ内メッセージはスワイプ操作で閉じることができる。スワイプの方向はスライドアップ位置によって決まる：
+デフォルトでは、スライドアップのアプリ内メッセージはスワイプ操作で閉じることができます。スワイプの方向はスライドアップの位置によって決まります。
 
-- **左か右にスワイプする：**スライドアップを、その位置に関係なく無視する。
-- **下からスライドアップする：**上から下にスワイプすると、メッセージを消す。下から上にスワイプしても消えない。
-- **上からスライドアップする：**下から上にスワイプすると、メッセージを消す。上から下にスワイプしても消えない。
+- **左または右にスワイプ：** 位置に関係なくスライドアップを閉じます。
+- **下からのスライドアップ：** 上から下にスワイプするとメッセージが閉じられます。下から上にスワイプしても閉じられません。
+- **上からのスライドアップ：** 下から上にスワイプするとメッセージが閉じられます。上から下にスワイプしても閉じられません。
 
-このスワイプ動作はデフォルトで`BrazeInAppMessageUI`[`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview)組み込まれており、アプリ内メッセージのスライドアップ操作にのみ適用される。モーダルおよびフル画面のアプリ内メッセージは、スワイプによる閉じ操作をサポートしていない。スライドアップビューをさらにカスタマイズするには、スワイプ動作を含め、\`View\`を[`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct)修正するか、サブクラス化によってカスタムビューを提供できる。
+このスワイプ動作はデフォルトの`BrazeInAppMessageUI` [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview)に組み込まれており、スライドアップのアプリ内メッセージにのみ適用されます。モーダルおよびフルのアプリ内メッセージはスワイプによる閉じ操作をサポートしていません。スワイプ動作を含むスライドアップビューをさらにカスタマイズするには、[`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct)を変更するか、サブクラス化によってカスタムビューを提供できます。
 
 {% alert note %}
-スライドアップメッセージの外側をタップしても、メッセージは消えない。モーダルまたはフル画面のアプリ内メッセージについては、以下で説明する\`outsideTap\``dismissOnBackgroundTap`属性を使用して、画面外タップによる閉じ操作をイネーブルメントできる。
+スライドアップメッセージの外側をタップしても、メッセージは閉じられません。モーダルまたはフルのアプリ内メッセージについては、以下で説明する`dismissOnBackgroundTap`属性を使用して、外側タップによる閉じ操作を有効にできます。
 {% endalert %}
 
-## モーダルウィンドウの閉じ方をカスタマイズする
+## モーダルの閉じ方をカスタマイズする {#customizing-modal-dismissals}
 
-外側のタップで閉じる操作を有効にするため、カスタマイズするアプリ内メッセージの種類の `Attributes` 構造体で `dismissOnBackgroundTap` プロパティを変更できます。 
+外側タップによる閉じ操作を有効にするには、カスタマイズするアプリ内メッセージタイプの`Attributes`構造体で`dismissOnBackgroundTap`プロパティを変更できます。
 
 たとえば、モーダル画像のアプリ内メッセージに対してこの機能を有効にする場合は、以下を設定します。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = true
 ```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-`Attributes` によるカスタマイズは Objective-C では使用できません。
+`Attributes`によるカスタマイズはObjective-Cでは使用できません。
 
 {% endtab %}
 {% endtabs %}
 
-デフォルト値は `false` です。これにより、ユーザーがアプリ内メッセージの外側をタップしたときにモーダルアプリ内メッセージが閉じられるかどうかが決まります。
+デフォルト値は`false`です。これにより、ユーザーがアプリ内メッセージの外側をタップしたときにモーダルアプリ内メッセージが閉じられるかどうかが決まります。
 
 | `DismissModalOnOutsideTap` | 説明 |
 |----------|-------------|
-| `true`         | モーダルアプリ内メッセージは、外部タップで閉じられます。     |
-| `false`        | デフォルトでは、モーダルアプリ内メッセージは外部タップをしても閉じられません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `true`         | モーダルアプリ内メッセージは外側タップで閉じられます。     |
+| `false`        | デフォルト。モーダルアプリ内メッセージは外側タップでは閉じられません。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing modal dismissals" }
 
 アプリ内メッセージのカスタマイズの詳細については、こちらの[記事](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization)を参照してください。
 
-## メッセージングの向きをカスタマイズする
+## メッセージの向きをカスタマイズする {#customizing-message-orientation}
 
-アプリ内メッセージの向きは自由に設定できる。すべてのメッセージに対して新しいデフォルトの向きを設定することも、単一のメッセージに対してカスタムの向きを設定することもできる。
+アプリ内メッセージの向きをカスタマイズできます。すべてのメッセージに対して新しいデフォルトの向きを設定することも、単一のメッセージに対してカスタムの向きを設定することもできます。
 
 {% tabs local %}
-{% tab all messages %}
-アプリ内の全アプリ内メッセージのデフォルト向きを選択するには、\`setOrientation\`[`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog)メソッドを使用して`Activity`の``PresentationContext`orientation\``preferredOrientation`プロパティを設定する。 
+{% tab すべてのメッセージ %}
+すべてのアプリ内メッセージのデフォルトの向きを選択するには、[`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog)メソッドを使用して`PresentationContext`の`preferredOrientation`プロパティを設定します。
 
-例えば、縦向きをデフォルトの向きに設定するには：
+たとえば、縦向きをデフォルトの向きに設定するには：
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   prepareWith context: inout BrazeInAppMessageUI.PresentationContext
@@ -269,7 +269,7 @@ func inAppMessage(
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (void)inAppMessage:(BrazeInAppMessageUI *)ui
          prepareWith:(BrazeInAppMessageUIPresentationContextRaw *)context {
   context.preferredOrientation = BRZInAppMessageRawOrientationPortrait;
@@ -280,13 +280,13 @@ func inAppMessage(
 {% endsubtabs %}
 {% endtab %}
 
-{% tab single message %}
-単一のメッセージの向きを設定するには、の`orientation`プロパティを変更`Braze.InAppMessage`する：
+{% tab 単一のメッセージ %}
+単一のメッセージの向きを設定するには、`Braze.InAppMessage`の`orientation`プロパティを変更します。
 
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 // Set inAppMessage orientation to support any configuration
 inAppMessage.orientation = .any
 
@@ -300,7 +300,7 @@ inAppMessage.orientation = .landscape
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-```objc
+`````````objc
 // Set inAppMessage orientation to support any configuration
 inAppMessage.orientation = BRZInAppMessageRawOrientationAny;
 
@@ -316,24 +316,24 @@ inAppMessage.orientation = BRZInAppMessageRawOrientationLandscape;
 {% endtab %}
 {% endtabs %}
 
-アプリ内メッセージが表示された後、メッセージが表示されている間に端末の向きが変わると、メッセージは端末の向きに合わせて回転する（メッセージ`orientation`の設定でそれがサポートされている場合に限る）。
+アプリ内メッセージが表示された後、メッセージが表示されている間にデバイスの向きが変わると、メッセージはデバイスの向きに合わせて回転します（メッセージの`orientation`設定でサポートされている場合に限ります）。
 
-アプリ内メッセージが表示されるためには、デバイスの向きがメッセージ`orientation`のプロパティによってサポートされている必要がある。また、`preferredOrientation` 設定が適用されるのは、Xcodeのターゲットの設定の [**導入情報**] セクションで、アプリケーションでサポートされているインターフェイスの向きにその向きが含まれている場合に限られます。
+アプリ内メッセージが表示されるためには、デバイスの向きがメッセージの`orientation`プロパティによってサポートされている必要があります。また、`preferredOrientation`設定が適用されるのは、Xcodeのターゲット設定の**Deployment Info**セクションで、アプリケーションでサポートされているインターフェイスの向きにその向きが含まれている場合に限られます。
 
-![Xcodeでサポートされている方向性。]({% image_buster /assets/img/supported_interface_orientations_xcode.png %})
+![Xcodeでサポートされている向き。]({% image_buster /assets/img/supported_interface_orientations_xcode.png %})
 
 {% alert note %}
-向きはメッセージの表示にのみ適用されます。デバイスの向きが変わると、メッセージビューでサポートされている向きのいずれかが採用されます。小型のデバイス (iPhone、iPod Touch) では、モーダルアプリ内メッセージやフルアプリ内メッセージを横向きに設定すると、コンテンツが切り捨てられることがあります。
+向きはメッセージの表示にのみ適用されます。デバイスの向きが変わると、メッセージビューはサポートされている向きのいずれかを採用します。小型のデバイス（iPhone、iPod Touch）では、モーダルまたはフルのアプリ内メッセージを横向きに設定すると、コンテンツが切り捨てられることがあります。
 {% endalert %}
 
-## 表示タイミングのカスタマイズ 
+## 表示タイミングのカスタマイズ {#customizing-display-timing}
 
-利用可能なアプリ内メッセージをユーザーエクスペリエンスの特定のポイントで表示するかどうかをコントロールできます。全画面でのゲーム中や読み込み画面など、アプリ内メッセージを表示させたくない状況がある場合は、保留中のアプリ内メッセージを遅延させるか、破棄することができます。アプリ内メッセージのタイミングをコントロールするには、`inAppMessage(_:displayChoiceForMessage:)` [デリゲートメソッド](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb)を使用して `BrazeInAppMessageUI.DisplayChoice` プロパティを設定します。 
+利用可能なアプリ内メッセージをユーザーエクスペリエンスの特定のポイントで表示するかどうかをコントロールできます。フルスクリーンゲーム中や読み込み画面など、アプリ内メッセージを表示させたくない状況がある場合は、保留中のアプリ内メッセージを遅延させるか破棄できます。アプリ内メッセージのタイミングをコントロールするには、`inAppMessage(_:displayChoiceForMessage:)` [デリゲートメソッド](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb)を使用して`BrazeInAppMessageUI.DisplayChoice`プロパティを設定します。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   displayChoiceForMessage message: Braze.InAppMessage
@@ -343,48 +343,48 @@ func inAppMessage(
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (enum BRZInAppMessageUIDisplayChoice)inAppMessage:(BrazeInAppMessageUI *)ui displayChoiceForMessage:(BRZInAppMessageRaw *)message
 ```
 
 {% endtab %}
 {% endtabs %}
 
-次のうちいずれかの値を返すよう `BrazeInAppMessageUI.DisplayChoice` を設定します。
+次のいずれかの値を返すよう`BrazeInAppMessageUI.DisplayChoice`を設定します。
 
-| ディスプレイの選択                      | 動作                                                                                                                    |
+| 表示の選択                      | 動作                                                                                                                    |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `.now`                              | メッセージはすぐに表示される。これはデフォルト値です。                                                       |
-| `.reenqueue`                        | メッセージは表示されず、スタックの一番上に戻される。                                       |
-| `.later`                            | メッセージは表示されず、スタックの一番上に戻される。(非推奨、`.reenqueue` を使用してください) |
-| `.discard`                          | メッセージは破棄され、表示されない。                                                                    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `.now`                              | メッセージはすぐに表示されます。これはデフォルト値です。                                                       |
+| `.reenqueue`                        | メッセージは表示されず、スタックの一番上に戻されます。                                       |
+| `.later`                            | メッセージは表示されず、スタックの一番上に戻されます。（非推奨。`.reenqueue`を使用してください） |
+| `.discard`                          | メッセージは破棄され、表示されません。                                                                    |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing display timing" }
 
 {% alert tip %}
-サンプルについては`InAppMessageUI`、[Swift Braze SDKリポジトリ](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI)と[OBJECTIVE-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI)を確認してほしい。
+`InAppMessageUI`のサンプルについては、[Swift Braze SDKリポジトリ](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI)と[Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI)を確認してください。
 {% endalert %}
 
-## ステータスバーを非表示にする
+## ステータスバーを非表示にする {#hiding-the-status-bar}
 
-`Full`、`FullImage`、および `HTML` アプリ内メッセージについて、SDK ではステータスバーがデフォルトで非表示になります。他の種類のアプリ内メッセージでは、ステータスバーは変更されません。この動作を設定するには、`inAppMessage(_:prepareWith:)` [デリゲートメソッド](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog)を使用して `PresentationContext` で `statusBarHideBehavior` プロパティを設定します。このフィールドの値は次のうちいずれかになります。
+`Full`、`FullImage`、および`HTML`アプリ内メッセージについて、SDKではステータスバーがデフォルトで非表示になります。他の種類のアプリ内メッセージでは、ステータスバーは変更されません。この動作を設定するには、`inAppMessage(_:prepareWith:)` [デリゲートメソッド](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog)を使用して`PresentationContext`の`statusBarHideBehavior`プロパティを設定します。このフィールドの値は次のいずれかになります。
 
 | ステータスバー非表示の動作            | 説明                                                                           |
 | ----------------------------------- | ------------------------------------------------------------------------------------- |
-| `.auto`                             | メッセージ・ビューはステータス・バーの非表示状態を決定する。                                 |
-| `.hidden`                           | ステータスバーは常に隠す。                                                           |
-| `.visible`                          | 常にステータスバーを表示する。                                                        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `.auto`                             | メッセージビューがステータスバーの非表示状態を決定します。                                 |
+| `.hidden`                           | ステータスバーを常に非表示にします。                                                           |
+| `.visible`                          | ステータスバーを常に表示します。                                                        |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Hiding the status bar" }
 
-## ダークモードを無効にする
+## ダークモードを無効にする {#disabling-dark-mode}
 
-ユーザーデバイスでダークモードが有効になっているときにアプリ内メッセージでダークモードスタイルが採用されないようにするには、`inAppMessage(_:prepareWith:)` [デリゲートメソッド](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog)を実装します。メソッドに渡される `PresentationContext` には、表示される `InAppMessage` オブジェクトの参照が含まれます。各 `InAppMessage` に、`dark` と `light` のモードテーマを含む `themes` プロパティがあります。`themes.dark` プロパティを `nil` に設定すると、Braze では自動的にライトテーマを使用してアプリ内メッセージが表示されます。
+ユーザーデバイスでダークモードが有効になっているときにアプリ内メッセージでダークモードスタイルが採用されないようにするには、`inAppMessage(_:prepareWith:)` [デリゲートメソッド](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog)を実装します。メソッドに渡される`PresentationContext`には、表示される`InAppMessage`オブジェクトへの参照が含まれます。各`InAppMessage`には、`dark`と`light`のモードテーマを含む`themes`プロパティがあります。`themes.dark`プロパティを`nil`に設定すると、Brazeでは自動的にライトテーマを使用してアプリ内メッセージが表示されます。
 
-ボタンがあるアプリ内メッセージの種類では、`buttons` プロパティに追加の `themes` オブジェクトがあります。ボタンでダークモードのスタイルが採用されないようにするには、[`map(_:)`](https://developer.apple.com/documentation/swift/array/map(_:)-87c4d) を使用して `dark` テーマがない `light` テーマのボタンの新しい配列を作成できます。
+ボタンがあるアプリ内メッセージタイプでは、`buttons`プロパティに追加の`themes`オブジェクトがあります。ボタンでダークモードスタイルが採用されないようにするには、[`map(_:)`](https://developer.apple.com/documentation/swift/array/map(_:)-87c4d)を使用して`dark`テーマがない`light`テーマのボタンの新しい配列を作成できます。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   prepareWith context: inout BrazeInAppMessageUI.PresentationContext
@@ -394,7 +394,7 @@ func inAppMessage(
       guard var slideup = context.message.slideup else { return }
       slideup.themes.dark = nil
       context.message.slideup = slideup
-    
+
     case .modal:
       guard var modal = context.message.modal else { return }
       modal.themes.dark = nil
@@ -404,7 +404,7 @@ func inAppMessage(
         return newButton
       }
       context.message.modal = modal
-    
+
     case .modalImage:
       guard var modalImage = context.message.modalImage else { return }
       modalImage.themes.dark = nil
@@ -414,7 +414,7 @@ func inAppMessage(
         return newButton
       }
       context.message.modalImage = modalImage
-    
+
     case .full:
       guard var full = context.message.full else { return }
       full.themes.dark = nil
@@ -424,7 +424,7 @@ func inAppMessage(
         return newButton
       }
       context.message.full = full
-    
+
     case .fullImage:
       guard var fullImage = context.message.fullImage else { return }
       fullImage.themes.dark = nil
@@ -434,7 +434,7 @@ func inAppMessage(
         return newButton
       }
       context.message.fullImage = fullImage
-    
+
     default:
       break
   }
@@ -444,7 +444,7 @@ func inAppMessage(
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (void)inAppMessage:(BrazeInAppMessageUI *)ui
          prepareWith:(BrazeInAppMessageUIPresentationContextRaw *)context {
   switch (context.message.type) {
@@ -482,26 +482,26 @@ func inAppMessage(
 {% endtab %}
 {% endtabs %}
 
-## アプリストアのレビュー依頼メッセージをカスタマイズする
+## App Storeレビュープロンプトをカスタマイズする {#customizing-the-app-store-review-prompt}
 
-キャンペーン内でアプリ内メッセージを使って、ユーザーにApp Storeのレビューを依頼できる。
+キャンペーンでアプリ内メッセージを使用して、ユーザーにApp Storeのレビューを依頼できます。
 
 {% alert note %}
-このプロンプトの例は Braze のデフォルト動作をオーバーライドするため、これが実装されるとインプレッションを自動的に追跡できません。お前[自身が分析データを記録]({{site.baseurl}}/developer_guide/analytics/)しなければならない。
+このプロンプトの例はBrazeのデフォルト動作をオーバーライドするため、実装するとインプレッションを自動的に追跡できません。[自身で分析データを記録する]({{site.baseurl}}/developer_guide/analytics/)必要があります。
 {% endalert %}
 
-### ステップ 1: アプリ内メッセージデリゲートの設定
+### ステップ 1:アプリ内メッセージデリゲートを設定する {#step-1-set-the-in-app-message-delegate}
 
-まず、アプリで [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization/#swift_setting-up-the-ui-delegate-required) を設定します。 
+まず、アプリで[`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization/#swift_setting-up-the-ui-delegate-required)を設定します。
 
-### ステップ 2:デフォルトの App Store レビューメッセージを無効にする
+### ステップ 2:デフォルトのApp Storeレビューメッセージを無効にする {#step-2-disable-the-default-app-store-review-message}
 
-次に、`inAppMessage(_:displayChoiceForMessage:)` [デリゲートメソッド](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb)を実装して、デフォルトの App Store レビューメッセージを無効にします。
+次に、`inAppMessage(_:displayChoiceForMessage:)` [デリゲートメソッド](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb)を実装して、デフォルトのApp Storeレビューメッセージを無効にします。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Braze.InAppMessage) -> BrazeInAppMessageUI.DisplayChoice {
   if message.extras["AppStore Review"] != nil,
     let messageUrl = message.clickAction.url {
@@ -516,7 +516,7 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (enum BRZInAppMessageUIDisplayChoice)inAppMessage:(BrazeInAppMessageUI *)ui
                             displayChoiceForMessage:(BRZInAppMessageRaw *)message {
   if (message.extras != nil && message.extras[@"AppStore Review"] != nil) {
@@ -531,14 +531,14 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3: ディープリンクの作成
+### ステップ 3:ディープリンクを作成する {#step-3-create-a-deep-link}
 
-ディープリンク処理コードで、次のコードを追加して `{YOUR-APP-SCHEME}:app-store-review` ディープリンクを処理します。`SKStoreReviewController` を使用するには `StoreKit` をインポートする必要があることに注意してください。
+ディープリンク処理コードで、次のコードを追加して`{YOUR-APP-SCHEME}:app-store-review`ディープリンクを処理します。`SKStoreReviewController`を使用するには`StoreKit`をインポートする必要があることに注意してください。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
   let urlString = url.absoluteString.removingPercentEncoding
   if (urlString == "{YOUR-APP-SCHEME}:app-store-review") {
@@ -552,7 +552,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   if ([urlString isEqualToString:@"{YOUR-APP-SCHEME}:app-store-review"]) {
@@ -568,15 +568,15 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 {% raw %}
 
-### ステップ4: クリック時のカスタム動作の設定
+### ステップ 4:クリック時のカスタム動作を設定する {#step-4-set-custom-on-click-behavior}
 
-次に、以下を使用してアプリ内メッセージングキャンペーンを作成します。
+次に、以下の内容でアプリ内メッセージングキャンペーンを作成します。
 
 - キーと値のペア `"AppStore Review" : "true"`
-- ディープリンク `{YOUR-APP-SCHEME}:app-store-review` を使用して、クリック時動作を [アプリにディープリンクする] に設定します。
+- ディープリンク`{YOUR-APP-SCHEME}:app-store-review`を使用して、クリック時の動作を「アプリにディープリンクする」に設定します。
 
 {% endraw %}
 
 {% alert tip %}
-Appleは、App Store のレビュープロンプトをユーザーごとに年間最大3回に制限しているため、キャンペーンの[レート]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/)はユーザーごとに年間3回に制限する必要があります。<br><br>ユーザーは、App Store のレビュープロンプトをオフにできます。そのため、カスタムレビュープロンプトでは、App Store のネイティブレビュープロンプトが表示されることを約束したり、直接のレビューを求めたりしないでください。
+AppleはApp Storeのレビュープロンプトをユーザーごとに年間最大3回に制限しているため、キャンペーンの[レート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/)はユーザーごとに年間3回に設定する必要があります。<br><br>ユーザーはApp Storeのレビュープロンプトをオフにできます。そのため、カスタムレビュープロンプトでは、App Storeのネイティブレビュープロンプトが表示されることを約束したり、直接レビューを求めたりしないでください。
 {% endalert %}

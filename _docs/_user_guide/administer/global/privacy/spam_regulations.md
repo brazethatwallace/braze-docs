@@ -62,7 +62,9 @@ The following types of messages are exempt from the requirements of CASL:
 - Messages providing notification of factual information about subscription, membership or account
 - Messages delivering a product or service, including product updates or upgrades
 
->  This is not the complete list of exemptions. View the [full text of the law](http://laws-lois.justice.gc.ca/eng/annualstatutes/2010_23/FullText.html) for more details.
+{% alert note %}
+This is not the complete list of exemptions. View the [full text of the law](http://laws-lois.justice.gc.ca/eng/annualstatutes/2010_23/FullText.html) for more details.
+{% endalert %}
 
 ### Message consent
 

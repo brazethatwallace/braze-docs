@@ -2,7 +2,7 @@
 nav_title: Email sign-up with confirmation
 article_title: Email Sign-up with Confirmation Page
 alias: "/email_confirmation_page/"
-page_order: 6
+page_order: 7
 description: "This page covers how to use the in-app message drag-and-drop editor to create an email sign-up form that has a confirmation page."
 ---
 

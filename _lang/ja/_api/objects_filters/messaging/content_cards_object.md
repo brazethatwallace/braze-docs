@@ -1,22 +1,22 @@
 ---
-nav_title: "コンテンツ・カード・オブジェクト"
-article_title: コンテンツ・カード メッセージング・オブジェクト
+nav_title: "コンテンツカードオブジェクト"
+article_title: コンテンツカードメッセージングオブジェクト
 page_order: 4
 page_type: reference
 channel: content cards
-description: "この参考記事では、Braze コンテンツカードオブジェクトのさまざまなコンポーネントについて説明します。"
+description: "このリファレンス記事では、Brazeのコンテンツカードオブジェクトのさまざまなコンポーネントについて説明します。"
 
 ---
 
-# コンテンツ・カード・オブジェクト
+# コンテンツカードオブジェクト {#content-card-object}
 
-> `content_card` オブジェクトを使用して、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を通じてコンテンツカードを作成することができます。
+> `content_card`オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を通じてContent Cardsを作成できます。
 
 ```json
 {
   "type": (required, string) one of "CLASSIC", "CAPTIONED_IMAGE", or "BANNER",
-  "title": (required, string) the card's title,
-  "description": (required, string) the card's description,
+  "title": (required, string) the card's title. Not applicable for "BANNER". Accepts an empty string,
+  "description": (required, string) the card's description. Not applicable for "BANNER",
   "message_variation_id": (optional, string) used when providing a campaign_id to specify which message variation this message should be tracked under (must be a Content Card Message),
   "pinned": (optional, boolean) whether the card is pinned. Defaults to false,
   "image_url": (optional, string) the card's image URL. Required for "CAPTIONED_IMAGE" and "BANNER",
@@ -34,5 +34,5 @@ description: "この参考記事では、Braze コンテンツカードオブジ
 ```
 
 {% alert important %}
-現在、Brazeは最大30日間の有効期限をサポートしている。
+現在、Brazeがサポートする有効期限は最大30日間です。
 {% endalert %}

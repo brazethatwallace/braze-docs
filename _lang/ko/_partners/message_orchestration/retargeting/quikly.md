@@ -1,7 +1,7 @@
 ---
 nav_title: Quikly
 article_title: Quikly
-description: "This reference article outlines the partnership between Braze and Quickly, a urgency marketing platform, that allows you to accelerate conversions on events within a Braze customer journey."
+description: "이 참조 문서에서는 긴급성 마케팅 플랫폼인 Quikly와 Braze 간의 파트너십을 설명합니다. 이 파트너십을 통해 Braze 고객 여정 내 이벤트에 대한 전환을 가속화할 수 있습니다."
 alias: /partners/quikly/
 page_type: partner
 search_tag: Partner
@@ -10,64 +10,64 @@ search_tag: Partner
 
 # Quikly
 
-> 긴급성 마케팅 플랫폼인 [퀵리는](https://www.quikly.com) 심리학을 활용해 소비자의 동기를 부여하므로 브랜드는 주요 마케팅 이니셔티브에 대한 반응을 즉각적으로 높일 수 있습니다.
+> 긴급성 마케팅 플랫폼인 [Quikly](https://www.quikly.com)는 심리학을 활용하여 소비자의 동기를 부여하므로, 브랜드는 주요 마케팅 이니셔티브에 대한 반응을 즉각적으로 높일 수 있습니다.
 
-_This integration is maintained by Quikly._
+_이 통합은 Quikly에서 유지 관리합니다._
 
-## 통합 정보
+## 통합 정보 {#about-the-integration}
 
-The Braze and Quikly partnership allows you to accelerate conversions on events within a Braze customer journey. Quikly does this by using urgency psychology to motivate consumers in fun — and instant — ways. For example, brands can use Quikly to immediately acquire new email and SMS subscribers directly into Braze or to motivate other key marketing objectives like downloading your mobile app.
+Braze와 Quikly 파트너십을 통해 Braze 고객 여정 내 이벤트에 대한 전환을 가속화할 수 있습니다. Quikly는 긴급성 심리학을 활용하여 소비자에게 재미있고 즉각적인 방식으로 동기를 부여합니다. 예를 들어, 브랜드는 Quikly를 사용하여 새로운 이메일 및 SMS 가입자를 Braze에 직접 확보하거나, 모바일 앱 다운로드와 같은 기타 주요 마케팅 목표를 달성하도록 동기를 부여할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Quikly account | A [Quikly](https://www.quikly.com) brand partner account is required to take advantage of this partnership. |
-| Braze REST API key | A Braze REST API key with `users.track`, `subscription.status.set`, `users.export.ids`, and `subscription.status.get` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
-| Quikly API key (optional) | A Quikly API key provided by your client success manager (webhook only). |
+| Quikly 계정 | 이 파트너십을 활용하려면 [Quikly](https://www.quikly.com) 브랜드 파트너 계정이 필요합니다. |
+| Braze REST API 키 | `users.track`, `subscription.status.set`, `users.export.ids`, `subscription.status.get` 권한이 있는 Braze REST API 키가 필요합니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+| Quikly API 키(선택 사항) | 클라이언트 성공 매니저가 제공하는 Quikly API 키입니다(웹훅 전용). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Use cases
+## 활용 사례 {#use-cases}
 
-Quikly allows brands to accelerate email or SMS acquisition and motivates subscribers to provide first-party data directly within Braze. You can also use Braze to target lapsed customers with a Quikly activation that will reactivate and retain that audience. Additionally, marketers can use this integration to incentivize specific customer journey events with unique reward structures. 
+Quikly를 사용하면 브랜드가 이메일 또는 SMS 확보를 가속화하고, 가입자가 Braze 내에서 직접 퍼스트파티 데이터를 제공하도록 동기를 부여할 수 있습니다. 또한 Braze를 사용하여 이탈한 고객을 Quikly 활성화로 타겟팅하여 해당 오디언스를 재활성화하고 유지할 수 있습니다. 마케터는 이 통합을 사용하여 고유한 보상 구조로 특정 고객 여정 이벤트에 인센티브를 제공할 수도 있습니다.
 
-For example:
- - Build anticipation and engagement over days as consumers opt-in for a chance to claim exciting rewards with [Quikly Hype](https://www.quikly.com/urgency-marketing/platform/product-overview/hype). First-party data is automatically pushed to Braze.
- - Accelerate acquisition of new email and SMS subscribers using unique, real-time offers based on a consumer's speed of response, rank against others, randomly, or before time or quantities run out with [Quikly Swap](https://www.quikly.com/urgency-marketing/platform/product-overview/swap).
- - Motivate specific steps in the customer journey with unique reward structures using webhooks.
- - Apply custom attributes or events to the user's profile upon participating in a Quikly activation.
+예를 들어:
+ - [Quikly Hype](https://www.quikly.com/urgency-marketing/platform/product-overview/hype)를 통해 소비자가 흥미로운 보상을 받을 기회에 옵트인하면서 며칠에 걸쳐 기대감과 참여를 구축합니다. 퍼스트파티 데이터는 자동으로 Braze에 푸시됩니다.
+ - [Quikly Swap](https://www.quikly.com/urgency-marketing/platform/product-overview/swap)을 사용하여 소비자의 응답 속도, 다른 사람과의 순위, 무작위, 또는 시간이나 수량이 소진되기 전에 기반한 고유한 실시간 오퍼로 새로운 이메일 및 SMS 가입자 확보를 가속화합니다.
+ - 웹훅을 사용하여 고유한 보상 구조로 고객 여정의 특정 단계에 동기를 부여합니다.
+ - Quikly 활성화에 참여할 때 사용자 프로필에 커스텀 속성 또는 이벤트를 적용합니다.
 
-## Integration
+## 통합 {#integration}
 
-Outlined below are four different integrations: email acquisition, SMS acquisition, custom attributes, and webhooks. The integration you choose will depend on your Quikly activation and use case.
+아래에는 이메일 확보, SMS 확보, 커스텀 속성, 웹훅의 네 가지 통합이 설명되어 있습니다. 선택하는 통합은 Quikly 활성화 및 사용 사례에 따라 달라집니다.
 
 {% tabs %}
-{% tab Email Acquisition %}
+{% tab 이메일 확보 %}
 
-### Email Acquisition
+### 이메일 확보 {#email-acquisition}
 
-If your Quikly activations collect customer email addresses or profile data, the only required step is to provide Quikly with your REST API key and endpoint. Quikly will configure your brand account to pass this data to Braze. If there are additional user attributes you'd like included, mention this when you provide the API credentials to Quikly.
+Quikly 활성화에서 고객 이메일 주소 또는 프로필 데이터를 수집하는 경우, 유일한 필수 단계는 Quikly에 REST API 키와 엔드포인트를 제공하는 것입니다. Quikly가 이 데이터를 Braze에 전달하도록 브랜드 계정을 구성합니다. 포함하고 싶은 추가 사용자 속성이 있는 경우, Quikly에 API 자격 증명을 제공할 때 이를 언급하세요.
 
-Here is an outline of how Quikly executes this workflow.
-1. Upon participating in a Quikly activation, Quikly schedules a user lookup using the [export API]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) to see if a user exists with a given `email_address`.
-2. Log or update the user.
-  - If the user exists:
-    - Do not create a new profile.
-    - If desired, Quikly can log a custom attribute on the user's profile to indicate that the user participated in the activation.
-  - If the user does not exist:
-    - Quikly creates an alias-only profile via the Braze [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), setting the user's email as the user alias to reference that user in the future (as the user won't have an external ID).
-    - If desired, Quikly can log custom events to indicate this profile participated in Quikly activation.
+다음은 Quikly가 이 워크플로를 실행하는 방법에 대한 개요입니다.
+1. Quikly 활성화에 참여하면, Quikly는 [내보내기 API]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)를 사용하여 사용자 조회를 예약하고 지정된 `email_address`를 가진 사용자가 존재하는지 확인합니다.
+2. 사용자를 기록하거나 업데이트합니다.
+  - 사용자가 존재하는 경우:
+    - 새 프로필을 생성하지 않습니다.
+    - 필요한 경우, Quikly는 사용자가 활성화에 참여했음을 나타내기 위해 사용자 프로필에 커스텀 속성을 기록할 수 있습니다.
+  - 사용자가 존재하지 않는 경우:
+    - Quikly는 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 통해 별칭 전용 프로필을 생성하고, 향후 해당 사용자를 참조할 수 있도록 사용자의 이메일을 사용자 별칭으로 설정합니다(사용자에게 외부 ID가 없으므로).
+    - 필요한 경우, Quikly는 이 프로필이 Quikly 활성화에 참여했음을 나타내기 위해 커스텀 이벤트를 기록할 수 있습니다.
 
-{% details /users/track request %}
+{% details /users/track 요청 %}
 
-#### Request headers
+#### 요청 헤더 {#request-headers}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-#### Request body
+#### 요청 본문 {#request-body}
 ```
 {
   "attributes": [{
@@ -84,33 +84,33 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% enddetails %}
 
 {% endtab %}
-{% tab SMS Acquisition %}
+{% tab SMS 확보 %}
 
-### SMS subscriptions
+### SMS 구독 {#sms-subscriptions}
 
-Quikly activations can collect mobile phone numbers directly from customers and initiate a new SMS subscription. To enable this integration, provide your Quikly client success manager with the `subscription_group_id`. You can access a subscription group's `subscription_group_id` by navigating to the **Subscription Group** page.
+Quikly 활성화는 고객으로부터 직접 휴대폰 번호를 수집하고 새로운 SMS 구독을 시작할 수 있습니다. 이 통합을 활성화하려면 Quikly 클라이언트 성공 매니저에게 `subscription_group_id`를 제공하세요. **구독 그룹** 페이지로 이동하여 구독 그룹의 `subscription_group_id`에 접근할 수 있습니다.
 
-Quikly will perform a subscription lookup using the customer's phone number and automatically credit them in the activation if an SMS subscription already exists. Otherwise, a new subscription will be initiated, and after the subscription status is verified, the customer will be credited.
+Quikly는 고객의 전화번호를 사용하여 구독 조회를 수행하고, SMS 구독이 이미 존재하는 경우 활성화에서 자동으로 크레딧을 부여합니다. 그렇지 않으면 새 구독이 시작되고, 구독 상태가 확인된 후 고객에게 크레딧이 부여됩니다.
 
-Here is the complete workflow when a customer provides their mobile number and consent via Quikly:
-1. Quikly performs a subscription lookup using the [subscription group status]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) to see if a given `phone` is subscribed to a `subscription_group_id`. If a subscription exists, credit the user in the Quikly activation. No further action is necessary.
-2. Quikly performs a user lookup using the [Export user profile by identifier endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) to see if a user profile exists with a given `email_address`. If no user exists, create an alias-only profile via the Braze [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), setting the user's email as the user alias to reference that user in the future (as the user won't have an external ID).
-3. Update the subscription status using the [Update user's subscription group status endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+다음은 고객이 Quikly를 통해 휴대폰 번호와 동의를 제공할 때의 전체 워크플로입니다:
+1. Quikly는 [구독 그룹 상태]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)를 사용하여 구독 조회를 수행하고, 지정된 `phone`이 `subscription_group_id`에 가입되어 있는지 확인합니다. 구독이 존재하면 Quikly 활성화에서 사용자에게 크레딧을 부여합니다. 추가 조치는 필요하지 않습니다.
+2. Quikly는 [식별자별 사용자 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)를 사용하여 사용자 조회를 수행하고, 지정된 `email_address`를 가진 사용자 프로필이 존재하는지 확인합니다. 사용자가 존재하지 않으면 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 통해 별칭 전용 프로필을 생성하고, 향후 해당 사용자를 참조할 수 있도록 사용자의 이메일을 사용자 별칭으로 설정합니다(사용자에게 외부 ID가 없으므로).
+3. [사용자의 구독 그룹 상태 업데이트 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)를 사용하여 구독 상태를 업데이트합니다.
 
-To support existing double opt-in SMS subscription workflows, Quikly can send a custom event to Braze rather than the workflow above. In that case, rather than updating the subscription status directly, the [custom event triggers the double opt-in process]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/keywords/double_opt_in/) and the subscription status is periodically monitored to verify the user has fully opted-in before crediting them in the Quikly activation.
+기존 이중 옵트인 SMS 구독 워크플로를 지원하기 위해, Quikly는 위의 워크플로 대신 Braze에 커스텀 이벤트를 전송할 수 있습니다. 이 경우 구독 상태를 직접 업데이트하는 대신, [커스텀 이벤트가 이중 옵트인 프로세스를 트리거]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)하고, 사용자가 완전히 옵트인했는지 확인하기 위해 구독 상태를 주기적으로 모니터링한 후 Quikly 활성화에서 크레딧을 부여합니다.
 
 {% alert important %}
-Braze advises that when creating new users via the `/users/track` endpoint, there should be a delay of about 2 minutes before adding users to the relevant subscription group to allow Braze time to fully create the user profile.
+Braze는 `/users/track` 엔드포인트를 통해 새 사용자를 생성할 때, Braze가 사용자 프로필을 완전히 생성할 시간을 확보할 수 있도록 관련 구독 그룹에 사용자를 추가하기 전에 약 2분의 지연을 두는 것을 권장합니다.
 {% endalert %}
 
-{% details Detailed /subscription/status/set request %}
-#### Request headers
+{% details 상세 /subscription/status/set 요청 %}
+#### 요청 헤더
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-#### Request body
+#### 요청 본문
 ```
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
@@ -123,38 +123,38 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% enddetails %}
 
 {% endtab %}
-{% tab Custom Attributes %}
-### Custom attributes
+{% tab 커스텀 속성 %}
+### 커스텀 속성 {#custom-attributes}
 
-Depending on your Braze implementation, you may want events within Quikly activation to cascade through Braze for further processing. For example, you may wish to apply a custom user attribute based on what level or incentive was achieved in Quikly activation, allowing you to display the relevant Content Card when they open your app or log in to your website. Quikly will work with you directly to implement these integrations.
+Braze 구현에 따라 Quikly 활성화 내 이벤트가 추가 처리를 위해 Braze를 통해 전파되기를 원할 수 있습니다. 예를 들어, Quikly 활성화에서 달성한 레벨이나 인센티브에 따라 커스텀 사용자 속성을 적용하여, 사용자가 앱을 열거나 웹사이트에 로그인할 때 관련 콘텐츠 카드를 표시할 수 있습니다. Quikly가 직접 협력하여 이러한 통합을 구현합니다.
 
 {% endtab %}
-{% tab Webhooks %}
-### Webhooks
-Use webhooks to trigger incentives for specific events in the customer journey. For example, if you have a Braze event for when a user logs into your app, turns on push notifications, or uses your store locator, you can use a webhook to trigger a custom offer to that user based on the configuration of a specific Quikly activation. Example tactics include rewarding the first X number of users who perform an action (such as logging into your app) with a custom offer or providing an offer that decreases in value as more time elapses to motivate an immediate response.
+{% tab 웹훅 %}
+### 웹훅 {#webhooks}
+웹훅을 사용하여 고객 여정의 특정 이벤트에 대한 인센티브를 트리거합니다. 예를 들어, 사용자가 앱에 로그인하거나, 푸시 알림을 켜거나, 매장 찾기를 사용할 때의 Braze 이벤트가 있는 경우, 웹훅을 사용하여 특정 Quikly 활성화의 구성에 따라 해당 사용자에게 맞춤 오퍼를 트리거할 수 있습니다. 예시 전략으로는 특정 동작(예: 앱에 로그인)을 수행한 처음 X명의 사용자에게 맞춤 오퍼를 보상하거나, 시간이 경과할수록 가치가 감소하는 오퍼를 제공하여 즉각적인 반응을 유도하는 것이 있습니다.
 
-### Create a Quikly webhook in Braze
+### Braze에서 Quikly 웹훅 생성 {#create-a-quikly-webhook-in-braze}
 
-To create a Quikly webhook template for future campaigns or Canvases, navigate to **Templates** > **Webhook Templates** in the Braze platform. 
+향후 Campaigns 또는 Canvases를 위한 Quikly 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **콘텐츠** > **웹훅**으로 이동한 다음 **웹훅 템플릿 생성**을 선택합니다.
 
-If you would like to create a one-off Quikly webhook campaign or use an existing template, select **Webhook** in Braze when creating a new campaign.
+일회성 Quikly 웹훅 Campaign을 생성하거나 기존 템플릿을 사용하려면, 새 Campaign을 생성할 때 Braze에서 **웹훅**을 선택합니다.
 
-Select **Blank Template**, and enter the following for the webhook URL and request body:
-- **Webhook URL**: https://api.quikly.com/webhook/braze
-- **Request body**: JSON key/value pairs
+**빈 템플릿**을 선택하고 웹훅 URL과 요청 본문에 다음을 입력합니다:
+- **웹훅 URL**: https://api.quikly.com/webhook/braze
+- **요청 본문**: JSON 키/값 쌍
 
-#### Request headers and method
+#### 요청 헤더 및 메서드 {#request-headers-and-method}
 
-Quikly requires an `HTTP Header` for authorization.
+Quikly는 승인을 위해 `HTTP Header`가 필요합니다.
 
 - **HTTP Method**: POST
-- **Request Header**:
+- **요청 헤더**:
   - **Authorization**: Bearer [PARTNER_AUTHORIZATION_HEADER]
   - **Content-Type**: application/json
 
-#### Request body
+#### 요청 본문
 
-Select ***JSON key/value pairs*** and add the following pairs:
+***JSON key/value pairs***를 선택하고 다음 쌍을 추가합니다:
 {% raw %}
 ```
 "q_scope": "your-activations-scope-id"
@@ -163,18 +163,16 @@ Select ***JSON key/value pairs*** and add the following pairs:
 ```
 {% endraw %}
 
-### Preview your request
+### 요청 미리보기 {#preview-your-request}
 
-Preview your request in the **Preview** panel or navigate to the `Test` tab, where you can select a random user, an existing user, or customize your own to test your webhook.
+**미리보기** 패널에서 요청을 미리 보거나 `Test` 탭으로 이동하여 무작위 사용자, 기존 사용자를 선택하거나 직접 커스터마이즈하여 웹훅을 테스트할 수 있습니다.
 
 {% alert important %}
-Remember to save your template before leaving the page! <br>Updated webhook templates can be found in the **Saved Webhook Templates** list when creating a new [webhook campaign]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/).
+페이지를 떠나기 전에 템플릿을 저장하세요! <br>업데이트된 웹훅 템플릿은 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)을 생성할 때 **저장된 웹훅 템플릿** 목록에서 찾을 수 있습니다.
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-## Support
-궁금한 점이 있으면 퀵리의 클라이언트 성공 매니저에게 문의하세요.
-
-
+## 고객지원 {#support}
+궁금한 점이 있으면 Quikly의 클라이언트 성공 매니저에게 문의하세요.

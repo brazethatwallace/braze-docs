@@ -23,7 +23,7 @@ If they're in a Delay step, they remain in that step until the delay period ends
 
 For example, if a user is in a Delay step for 30 days and they perform the exit event on the first day of the Delay step, they're marked to exit right away, but they don't fully leave the Canvas until the Delay step ends (29 days later).
 
-Let's consider another example when using time-based exit criteria. A user enters a Delay step set to 24 hours on July 1 at 12 am. In this delay period, they perform the exit event "Last made purchase less than 1 hour ago" at 3 am. This user will be evaluated for the exit criteria on July 2 at 12 am, which is the conclusion of the Delay step's duration. Because 21 hours have passed since their purchase on July 1 at 3 am, they won't exit the Canvas because they didn't make a purchase within the one hour of exiting the Delay step on July 2. This impacts the "Total Exits by Exit Criteria" in your Canvas analytics, which are only updated after a user has fully exited the Canvas.
+Let's consider another example when using time-based exit criteria. A user enters a Delay step set to 24 hours on July 1 at 12 am. In this delay period, they perform the exit event "Last placed an order less than 1 hour ago" at 3 am. This user will be evaluated for the exit criteria on July 2 at 12 am, which is the conclusion of the Delay step's duration. Because 21 hours have passed since their order placement on July 1 at 3 am, they won't exit the Canvas because they didn't place an order within the one hour of exiting the Delay step on July 2. This impacts the "Total Exits by Exit Criteria" in your Canvas analytics, which are only updated after a user has fully exited the Canvas.
 
 ## Setting up exit criteria
 
@@ -37,11 +37,11 @@ The exit criteria includes an exception event, which is the specific action that
 
 When a user performs the exception event, Braze marks them to exit according to [How users exit](#how-users-exit). Exception events apply while a user is in the Canvas, including when they're waiting in a step such as a Delay step.
 
-Let's say you have a Canvas set up to promote a new product. In this case, the purchase of the product would be the exception event. This way, after a user makes the purchase, they won't receive more messages about a product they already purchased. Exception events keep your messaging relevant and personalized.
+Let's say you have a Canvas set up to promote a new product. In this case, the order of the product would be the exception event. This way, after a user places the order, they won't receive more messages about a product they already purchased. Exception events keep your messaging relevant and personalized.
 
 Additional exception events include:
 
-- Making a purchase
+- Placing an order
 - Starting a session
 - Performing a custom event
 - Performing a conversion event
@@ -94,9 +94,9 @@ Consider the following example on how analytics are calculated:
 
 ## Example
 
-Let's say we want to target users who haven't made any purchases at our backpack supply company yet. To set up the exit criteria, we would:
+Let's say we want to target users who haven't placed an order at our backpack supply company yet. To set up the exit criteria, we would:
 
-1. Select **Make Purchase** as the exception event.
+1. Select **Place an Order** as the exception event.
 2. Select **Add Trigger**. 
 3. For **Segments**, select **Used in last day** so that when our Canvas launches, the audience will exclude users who have made any purchases.
 4. For **Filters**, select **Purchase behavior** > **Number of purchases** > **Purchased product**.

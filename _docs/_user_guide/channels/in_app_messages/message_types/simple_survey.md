@@ -145,7 +145,7 @@ To set this up, use a single-choice selection survey with five options ranging f
 | 🙂 Neither Satisfied nor Dissatisfied | `customer_satisfaction` | 3     |
 | 😊 Satisfied                          | `customer_satisfaction` | 4     |
 | 😍 Very Satisfied                     | `customer_satisfaction` | 5     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User satisfaction" }
 
 When a user submits the survey, their selected value is logged as a custom attribute. You can then build follow-up campaigns using audience filters. For example, target win-back messages to users whose `customer_satisfaction` attribute is "1" or "2".
 
@@ -165,7 +165,7 @@ To set this up, use a multiple-choice selection survey where each choice represe
 | Event Invites      | `wants_event_invites`  | `true` |
 | Surveys & Feedback | `wants_surveys`        | `true` |
 | Tips & Tutorials   | `wants_tips`           | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification preferences" }
 
 {% endtab %}
 {% tab Identify customer goals %}
@@ -183,7 +183,7 @@ To set this up, use a single-choice selection survey with each option representi
 | Scheduling an appointment  | `product_goal`   | `schedule`|
 | Customer support           | `product_goal`   | `support` |
 | Just Browsing              | `product_goal`   | `browse`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identify customer goals" }
 
 When a user submits the survey, the selected value is logged as a custom attribute on their profile. You can then use this data to personalize future experiences or segment users based on their primary goal.
 
@@ -203,7 +203,7 @@ To set this up, use a single-choice selection survey with each option representi
 | Difficult To Use    | `upgrade_reason` | `difficult` |
 | Using a Competitor  | `upgrade_reason` | `competitor`|
 | Other Reason        | `upgrade_reason` | `other`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Improve conversion rates" }
 
 When a user submits the survey, the selected value is saved to their profile. You can then target these users with campaigns tailored to their specific objection, like discount offers or usability improvements.
 
@@ -225,7 +225,7 @@ To set this up, use a multiple-choice selection survey where each option represe
 | Customization     | `favorite_features`| `custom`     |
 | Price / Value     | `favorite_features`| `value`      |
 | Community         | `favorite_features`| `community`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Favorite features" }
 
 Because this survey uses multiple-choice selection, the user's profile will be updated with a list of all selected feature values.
 

@@ -1,16 +1,16 @@
 ---
-nav_title: "LÖSCHEN: Mehrere Artikel im Katalog löschen"
-article_title: "LÖSCHEN: Mehrere Katalogartikel löschen"
-search_tag: Endpunkt
+nav_title: "DELETE: Mehrere Katalogartikel löschen"
+article_title: "DELETE: Mehrere Katalogartikel löschen"
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Endpunkt Mehrere Katalogartikel löschen in Braze."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Mehrere Katalogartikel löschen“."
 
 ---
 {% api %}
-# Mehrere Artikel im Katalog löschen
+# Mehrere Katalogartikel löschen {#delete-multiple-catalog-items}
 {% apimethod delete %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
@@ -21,29 +21,29 @@ Jede Anfrage kann bis zu 50 Artikel enthalten. Dieser Endpunkt ist asynchron.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#647c82e8-8b38-4df2-bde2-b1d8e19fd332 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.delete_items`.
 
-## Rate-Limit
+## Rate-Limits {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog item' %}
 
-## Pfad-Parameter
+## Pfad-Parameter {#path-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
-## Parameter der Anfrage
+## Anfrage-Parameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `items` | Erforderlich | Array | Ein Array, das Artikel-Objekte enthält. Die Artikelobjekte sollten eine `id` enthalten, die auf die Artikel verweist, die Braze löschen soll. Es sind bis zu 50 Artikel pro Anfrage zulässig. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `items` | Erforderlich | Array | Ein Array, das Artikel-Objekte enthält. Die Artikel-Objekte sollten eine `id` enthalten, die auf die Artikel verweist, die Braze löschen soll. Es sind bis zu 50 Artikel-Objekte pro Anfrage zulässig. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrage-Parameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -58,13 +58,13 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 
-Es gibt drei Status Code Antworten für diesen Endpunkt: `202`, `400`, und `404`.
+Es gibt drei Statuscode-Antworten für diesen Endpunkt: `202`, `400` und `404`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `202` könnte den folgenden Antwortkörper zurückgeben.
+Der Statuscode `202` könnte den folgenden Antwortkörper zurückgeben.
 
 ```json
 {
@@ -72,9 +72,9 @@ Der Status Code `202` könnte den folgenden Antwortkörper zurückgeben.
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
 
 ```json
 {
@@ -90,19 +90,19 @@ Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [
 }
 ```
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
 In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehler und die entsprechenden Schritte zur Fehlerbehebung.
 
-| Fehler | Fehlersuche |
+| Fehler | Fehlerbehebung |
 | --- | --- |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
-| `ids-too-large` | Artikel IDs dürfen nicht mehr als 250 Zeichen lang sein. |
-| `ids-not-unique` | Prüfen Sie, ob die IDs der Artikel in der Anfrage eindeutig sind. |
-| `ids-not-strings` | Artikel IDs müssen vom Typ String sein. |
-| `items-missing-ids` | Einige Artikel haben keine IDs. Prüfen Sie, ob jeder Artikel eine ID hat. |
-| `invalid-ids` | Artikel IDs dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten. |
+| `ids-too-large` | Artikel-IDs dürfen nicht mehr als 250 Zeichen lang sein. |
+| `ids-not-unique` | Prüfen Sie, ob die Artikel-IDs in der Anfrage eindeutig sind. |
+| `ids-not-strings` | Artikel-IDs müssen vom Typ String sein. |
+| `items-missing-ids` | Einige Artikel haben keine Artikel-IDs. Prüfen Sie, ob jeder Artikel eine ID hat. |
+| `invalid-ids` | Artikel-IDs dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten. |
 | `request-includes-too-many-items` | Ihre Anfrage enthält zu viele Artikel. Die Anzahl der Artikel pro Anfrage ist auf 50 begrenzt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

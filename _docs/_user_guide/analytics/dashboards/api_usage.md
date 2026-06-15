@@ -27,7 +27,7 @@ The API usage dashboard includes the following statistics:
 | Total requests | The total number of requests sent to Braze for your current workspace, given the filters and controls applied to the dashboard. |
 | Success rate   | The percentage of total requests where Braze issued a `2XX` success response. |
 | Error rate     | The percentage of total requests where Braze issued a `4XX` or `5XX` error response. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
 
 ## Using the dashboard
 

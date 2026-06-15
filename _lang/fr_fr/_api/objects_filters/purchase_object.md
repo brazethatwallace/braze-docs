@@ -1,23 +1,23 @@
 ---
 nav_title: "Objet Achat"
-article_title: Objet Achat de l’API
+article_title: Objet Achat de l'API
 page_order: 8
 page_type: reference
-description: "Cet article de référence explique les différents composants d’un objet Achat, comment l’utiliser correctement et des exemples dont vous pouvez vous inspirer."
+description: "Cet article de référence explique les différents composants d'un objet Achat, comment l'utiliser correctement et des exemples dont vous pouvez vous inspirer."
 
 ---
 
-# Objet Achat
+# Objet Achat {#purchase-object}
 
-> Cet article explique les différents composants d’un objet Achat, comment l’utiliser correctement, les bonnes pratiques et des exemples dont vous pouvez vous inspirer.
+> Cet article explique les différents composants d'un objet Achat, comment l'utiliser correctement, les bonnes pratiques et des exemples dont vous pouvez vous inspirer.
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-## Qu’est-ce qu’un objet Achat ?
+## Qu'est-ce qu'un objet Achat ? {#what-is-a-purchase-object}
 
-Un objet Achat est un objet qui passe par l’API lorsqu’un achat a été effectué. Chaque objet Achat est situé dans un tableau d’achat, chaque objet représentant un seul achat par un utilisateur particulier à un moment donné. L'objet personnalisé comporte de nombreux champs différents qui permettent au backend de Braze de stocker et d'utiliser ces informations à des fins de personnalisation, de collecte de données et de personnalisation.
+Un objet Achat est un objet transmis via l'API lorsqu'un achat a été effectué. Chaque objet Achat se trouve dans un tableau d'achats, et chaque objet représente un achat unique réalisé par un utilisateur donné à un moment donné. L'objet Achat comporte de nombreux champs qui permettent au backend de Braze de stocker et d'exploiter ces informations à des fins de personnalisation et de collecte de données.
 
-### Corps de l’objet
+### Corps de l'objet {#object-body}
 
 ```json
 {
@@ -44,32 +44,32 @@ Un objet Achat est un objet qui passe par l’API lorsqu’un achat a été effe
 ```
 
 - [ID utilisateur externe]({{site.baseurl}}/api/basics/#user-ids)
-- [Identifiant d’application]({{site.baseurl}}/api/identifier_types/)
-- [ISO 4217 Code des devises Wiki](http://en.wikipedia.org/wiki/ISO_4217)
-- [ISO 8601 Time Code Wiki](https://en.wikipedia.org/wiki/ISO_8601)
+- [Identifiant d'application]({{site.baseurl}}/api/identifier_types/)
+- [Code des devises ISO 4217 Wiki](http://en.wikipedia.org/wiki/ISO_4217)
+- [Code temporel ISO 8601 Wiki](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Certaines paires d'identificateurs ne peuvent pas être utilisées conjointement, et`email`  a priorité sur`phone`  lorsque les deux sont fournis. Pour plus de détails, veuillez vous référer à [la section Résolution des identifiants]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Certaines paires d'identifiants ne peuvent pas être utilisées conjointement, et `email` a priorité sur `phone` lorsque les deux sont fournis. Pour plus de détails, consultez la section [Résolution des identifiants]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
 {% endalert %}
 
-## ID du produit d'achat
+## ID du produit d'achat {#purchase-product-id}
 
 Dans l'objet Achat, le `product_id` est un identifiant pour l'achat (tel que `Product Name` ou `Product Category`) :
 
-- Braze vous permet de stocker jusqu'à 5 000 `product_id` dans le tableau de bord.
-- Le site `product_id` peut contenir jusqu'à 255 caractères.
+- Braze vous permet de stocker jusqu'à 5 000 `product_id` dans le tableau de bord.
+- Le `product_id` peut contenir jusqu'à 255 caractères.
 
-### Conventions de nommage
+### Conventions de nommage {#naming-conventions}
 
-Chez Braze, nous proposons des conventions générales de nommage pour l’objet Achat `product_id`. Lorsque vous choisissez `product_id`, Braze suggère d’utiliser des noms simples tels que le nom du produit ou la catégorie de produit (au lieu des unités de gestion des stocks) dans l’intention de regrouper tous les éléments enregistrés par ce `product_id`.
+Chez Braze, nous proposons des conventions générales de nommage pour le `product_id` de l'objet Achat. Lorsque vous choisissez un `product_id`, Braze suggère d'utiliser des noms simples tels que le nom du produit ou la catégorie de produit (au lieu des unités de gestion des stocks) dans l'intention de regrouper tous les éléments enregistrés par ce `product_id`.
 
 Cela facilite l'identification des produits à des fins de segmentation et de déclenchement.
 
-### Journaliser les achats au niveau de la commande
+### Journaliser les achats au niveau de la commande {#log-purchases-at-the-order-level}
 
 Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de commande comme `product_id` (par exemple `Online Order` ou `Completed Order`).
 
-Par exemple, pour enregistrer des achats au niveau de la commande dans le SDK Web :
+Par exemple, pour enregistrer des achats au niveau de la commande dans le SDK Web :
 
 ```html
 POST https://YOUR_REST_API_URL/users/track
@@ -94,39 +94,27 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Objet Propriétés d’achat
+## Objet propriétés d'achat {#purchase-properties-object}
 
-Les événements et achats personnalisés peuvent avoir des propriétés d’événement. Les valeurs des « Properties (Propriétés) » doivent être un objet dont les clés sont les noms de propriétés et les valeurs sont les valeurs de propriété. Les noms de propriété doivent être des chaînes de caractères non vides de moins de 255 caractères, qui ne commencent pas par un symbole de dollar.
+{% include data_activation/purchase_event_property_data_types.md %}
 
-Les valeurs de propriété peuvent être l’un des types de données suivants :
+Pour une référence consolidée des types de données à travers les attributs personnalisés, les propriétés d'événement et les catalogues, consultez [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#purchase-event-property-data-types).
 
-| Type de données | Description |
-| --- | --- |
-| Chiffres | Peuvent être des [nombres entiers](https://en.wikipedia.org/wiki/Integer) ou des [floats](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
-| Booléens |  |
-| Datetimes | Formatés sous forme de chaînes de caractères au format [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) ou `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. Non pris en charge dans les tableaux. |
-| Chaînes de caractères | 255 caractères ou moins. |
-| Tableaux | Les tableaux ne peuvent pas inclure des dates/horodatages. |
-| Objets | Les objets sont traités sous forme de chaînes de caractères. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-Les objets de propriété d'événement qui contiennent des valeurs de tableau ou d'objet peuvent avoir une charge utile de propriété d'événement allant jusqu'à 50 Ko.
-
-### Propriétés d’achat
+### Propriétés d'achat {#purchase-properties}
 
 Les [propriétés d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) peuvent être utilisées pour déclencher des messages et pour la personnalisation à l'aide de Liquid, ce qui vous permet également de segmenter en fonction de ces propriétés.
 
-#### Conventions de nommage
+#### Conventions de nommage {#naming-conventions}
 
-Il est important de noter que cette fonctionnalité est activée **par produit**, et non par achat. Par exemple, si vous avez un volume élevé de produits distincts, mais que chacun d'entre eux possède les mêmes propriétés, la segmentation peut s'avérer plus inutile.
+Il est important de noter que cette fonctionnalité est activée **par produit**, et non par achat. Par exemple, si vous avez un volume élevé de produits distincts, mais que chacun d'entre eux possède les mêmes propriétés, la segmentation peut s'avérer superflue.
 
-Dans cette instance, nous recommandons d'utiliser les noms de produits au niveau du groupe plutôt que les identifiants au niveau des transactions lors de la configuration des structures de données. Par exemple, une société de vente de billets de train devrait avoir des produits pour "voyage simple", "voyage aller-retour", "multi-villes", et non des transactions spécifiques telles que la "transaction 123" ou la "transaction 046". Autre exemple, pour l'événement d'achat "nourriture", il serait préférable que les propriétés soient "gâteau" et "sandwich".
+Dans ce cas, nous recommandons d'utiliser les noms de produits au niveau du groupe plutôt que les identifiants au niveau des transactions lors de la configuration des structures de données. Par exemple, une société de vente de billets de train devrait avoir des produits pour « voyage simple », « voyage aller-retour », « multi-villes », et non des transactions spécifiques telles que « transaction 123 » ou « transaction 046 ». Autre exemple, pour l'événement d'achat « nourriture », il serait préférable que les propriétés soient « gâteau » et « sandwich ».
 
 {% alert important %}
-Notez que les produits peuvent être ajoutés via l'API REST de Braze. Par exemple, si vous envoyez un appel à `/users/track`l'endpoint et incluez un nouvel ID d'achat, Braze crée automatiquement un produit dans la section **Paramètres de données** > **Produits** du tableau de bord de Braze.
+Notez que les produits peuvent être ajoutés via la REST API de Braze. Par exemple, si vous envoyez un appel à l'endpoint `/users/track` et incluez un nouvel ID d'achat, Braze crée automatiquement un produit dans la section **Paramètres des données** > **Produits** du tableau de bord.
 {% endalert %}
 
-### Exemple d’objet Achat
+### Exemple d'objet Achat {#example-purchase-object}
 
 ```html
 POST https://YOUR_REST_API_URL/users/track
@@ -176,10 +164,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-### Objets Achat, objets d’événement et webhooks
+### Objets Achat, objets d'événement et webhooks {#purchase-objects-event-objects-and-webhooks}
 
-À l’aide de l’exemple fourni, nous pouvons voir que quelqu’un a acheté un sac à dos avec les propriétés : couleur, monogramme, durée d’achat, taille et marque. Nous pouvons ensuite créer des segments avec ces propriétés en utilisant les [propriétés d'event d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) ou envoyer des messages personnalisés par le biais d'un canal à l'aide de Liquid. Par exemple, « Bonjour **Ann F.**, merci d'avoir acheté ce **sac à dos rouge de taille moyenne** pour **40 euros** ! Merci d'avoir acheté chez **Backpack Locker**!"
+À l'aide de l'exemple fourni, nous pouvons voir que quelqu'un a acheté un sac à dos avec les propriétés suivantes : couleur, monogramme, durée de paiement, taille et marque. Nous pouvons ensuite créer des segments avec ces propriétés en utilisant les [propriétés d'événement d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) ou envoyer des messages personnalisés par le biais d'un canal à l'aide de Liquid. Par exemple : « Bonjour **Ann F.**, merci d'avoir acheté ce **sac à dos rouge de taille moyenne** pour **40,00 $** ! Merci d'avoir fait vos achats chez **Backpack Locker** ! »
 
-Si vous souhaitez enregistrer, stocker et suivre les propriétés avec lesquelles segmenter, vous devez les configurer comme attributs personnalisés. Pour ce faire, vous pouvez utiliser les [extensions de segments]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/), qui vous permettent de cibler les utilisateurs en fonction d'un événement personnalisé ou d'un comportement d'achat stocké pendant toute la durée de vie de ce profil utilisateur.
-
-
+Si vous souhaitez enregistrer, stocker et suivre les propriétés pour segmenter, vous devez les configurer comme attributs personnalisés. Pour ce faire, vous pouvez utiliser les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), qui vous permettent de cibler les utilisateurs en fonction d'un événement personnalisé ou d'un comportement d'achat stocké pendant toute la durée de vie de ce profil utilisateur.

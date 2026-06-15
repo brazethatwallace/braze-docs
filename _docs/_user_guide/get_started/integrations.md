@@ -49,7 +49,7 @@ Be sure to tell your developers which channels you want to use to ensure that im
 | Content Cards | To get started with [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/), contact your Braze customer success manager. |
 | SMS & MMS | Check out the [SMS Setup]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending/) section for more details on integration. |
 | Webhooks | Requires SDK implementation as well as channel-specific steps. | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: They implement your desired messaging channels" }
 
 {% alert tip %}
 You can use Braze to create accessible messaging campaigns across each channel. Work with your developers to ensure that you meet accessibility standards in your implementation.

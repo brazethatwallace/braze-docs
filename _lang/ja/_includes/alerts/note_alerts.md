@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-フリークエンシーキャップは、コンテンツカードには適用されません。
+フリークエンシーキャップはContent Cardsには適用されません。
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@
 {% if include.alert == 'Manage custom data storage' %}
 
 {% alert note %}
-ユーザープロファイルのすべてのデータ (カスタムイベント、カスタム属性、カスタムデータ) は、それらのプロファイルがアクティブである限り保存されます。
+ユーザープロファイルのすべてのデータ（カスタムイベント、カスタム属性、カスタムデータ）は、それらのプロファイルがアクティブである限り保存されます。
 {% endalert %}
 
 {% endif %}
@@ -25,7 +25,7 @@
 {% if include.alert == 'Segment profiles first app use' %}
 
 {% alert note %}
-Braze は、ユーザーが初めてアプリを使用するまでプロファイルを生成しないため、アプリをまだ開封していないユーザーをターゲットにすることはできません。
+Brazeは、ユーザーが初めてアプリを使用するまでプロファイルを生成しないため、まだアプリを開いていないユーザーをターゲットにすることはできません。
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,27 @@ Braze は、ユーザーが初めてアプリを使用するまでプロファ�
 {% if include.alert == 'Shopify attributes REST API' %}
 
 {% alert note %}
-すべての属性のソースは Braze REST API です。
+すべての属性のソースはBraze REST APIです。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+1つのワークスペースにつき、最大350のサブスクリプショングループを追加できます。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'GIF platform support' %}
+
+{% alert note %}
+GIFはAndroidプッシュ通知ではサポートされていません。これはAndroidプラットフォームの制限であり、Brazeの制限ではありません。
+<br><br>
+- Androidのアプリ内メッセージおよびContent Cardsでは、[Glide](https://bumptech.github.io/glide/)や[Fresco](https://frescolib.org/)などのサードパーティ画像ライブラリーを統合することでGIFをサポートできます。
+<br>
+- iOSでは、プッシュ通知がGIFをサポートしています。アプリ内メッセージおよびContent Cardsにはカスタムの GIF 画像プロバイダーが必要です。
 {% endalert %}
 
 {% endif %}

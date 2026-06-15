@@ -1,10 +1,10 @@
 ---
-nav_title: Archivo de mensajes
+nav_title: Archivado de mensajes
 article_title: Archivado de mensajes
 alias: "/message_archiving/"
-page_order: 0
+page_order: 1
 page_type: reference
-description: "Este artículo de referencia trata sobre el archivado de mensajes, una función que permite guardar una copia de los mensajes enviados a los usuarios."
+description: "Este artículo de referencia trata sobre el archivado de mensajes, una característica que permite guardar una copia de los mensajes enviados a los usuarios."
 
 ---
 
@@ -14,11 +14,11 @@ description: "Este artículo de referencia trata sobre el archivado de mensajes,
 
 El archivado de mensajes está disponible como característica adicional. Para empezar a archivar mensajes, ponte en contacto con tu administrador del éxito del cliente de Braze.
 
-## Cómo funciona
+## Cómo funciona {#how-it-works}
 
-Cuando esta característica está activada, Braze escribe un archivo JSON comprimido con gzip por cada mensaje enviado a un usuario a través de los canales seleccionados (correo electrónico, SMS/MMS o push). Braze escribe estos archivos en tu destino predeterminado de exportación de datos. Esto incluye todos los tipos de campaña para cada canal, como las campañas de correo electrónico transaccional enviadas a través de la [API de correo electrónico transaccional]({{site.baseurl}}/user_guide/message_building_by_channel/email/transactional_message_api_campaign).
+Cuando esta característica está activada, Braze escribe un archivo JSON comprimido con gzip por cada mensaje enviado a un usuario a través de los canales seleccionados (correo electrónico, SMS/MMS o push). Braze escribe estos archivos en tu destino predeterminado de exportación de datos. Esto incluye todos los tipos de Campaign para cada canal, como las Campaigns de correo electrónico transaccional enviadas a través de la [API de correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
 
-Este archivo contendrá los campos definidos en [Referencias de archivos](#file-references) y reflejará los mensajes finales con plantilla enviados al usuario. Cualquier valor de plantilla definido en tu campaña (por ejemplo, {% raw %}`{{${first_name}}}`{% endraw %}) mostrará el valor final que el usuario recibió basándose en la información de su perfil. Esto te permite conservar una copia del mensaje enviado para satisfacer requisitos de cumplimiento, auditoría o atención al cliente.
+Este archivo contendrá los campos definidos en [Referencias de archivos](#file-references) y reflejará los mensajes finales con plantilla enviados al usuario. Cualquier valor de plantilla definido en tu Campaign (por ejemplo, {% raw %}`{{${first_name}}}`{% endraw %}) mostrará el valor final que el usuario recibió basándose en la información de su perfil. Esto te permite conservar una copia del mensaje enviado para satisfacer requisitos de cumplimiento, auditoría o atención al cliente.
 
 Si configuras credenciales para varios proveedores de almacenamiento en la nube, el archivado de mensajes solo se exportará al marcado como destino predeterminado de exportación de datos. Si no estableces un valor predeterminado explícito y hay un contenedor de AWS S3 conectado, el archivado de mensajes se cargará en ese contenedor.
 
@@ -65,13 +65,13 @@ Para seleccionar canales:
 2. Selecciona tus canales.
 3. Selecciona **Guardar cambios**.
 
-![La página Archivado de mensajes tiene tres canales para seleccionar: Correo electrónico, Push y SMS.]({% image_buster /assets/img/message_archiving_settings.png %})
+![La página Archivado de mensajes tiene tres canales para seleccionar: correo electrónico, push y SMS.]({% image_buster /assets/img/message_archiving_settings.png %})
 
 {% alert note %}
 Si no ves **Archivado de mensajes** en **Configuración**, confirma que tu empresa ha adquirido y activado el archivado de mensajes.
 {% endalert %}
 
-## Referencias de archivos
+## Referencias de archivos {#file-references}
 
 A continuación se incluyen referencias a la carga útil JSON entregada a tu contenedor de almacenamiento en la nube cada vez que se envía un mensaje. Consulta nuestro repositorio de ejemplos de código para ver [archivos de ejemplo de archivado de mensajes](https://github.com/braze-inc/braze-examples/tree/main/message-archiving).
 
@@ -106,7 +106,7 @@ A continuación se incluyen referencias a la carga útil JSON entregada a tu con
 }
 ```
 
-El campo `extras` contiene los pares clave-valor configurados en el campo **Extras de correo electrónico** al redactar un correo electrónico en el editor HTML. Los extras de correo electrónico funcionan con todos los proveedores de servicios de correo electrónico (incluidos SendGrid y Sparkpost) y se incluyen en los mensajes archivados independientemente del proveedor que se utilice. Para obtener más información sobre cómo configurar los extras de correo electrónico, consulta [Crear una campaña de correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/creating_an_email_campaign/#adding-email-extras). Para enviar datos de vuelta a Currents, consulta [Extras de mensajes]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/advanced_filters/message_extras/).
+El campo `extras` contiene los pares clave-valor configurados en el campo **Extras de correo electrónico** al redactar un correo electrónico en el editor HTML. Los extras de correo electrónico funcionan con todos los proveedores de servicios de correo electrónico (incluidos SendGrid y SparkPost) y se incluyen en los mensajes archivados independientemente del proveedor que se utilice. Para obtener más información sobre cómo configurar los extras de correo electrónico, consulta [Crear una campaña de correo electrónico]({{site.baseurl}}/user_guide/channels/email/html_editor/#adding-email-extras). Para enviar datos de vuelta a Currents, consulta [Extras de mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/).
 
 ![]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
@@ -197,9 +197,9 @@ El formato de la carga útil JSON puede variar entre mensajes y cambiar con el t
 
 Las modificaciones realizadas después de que el mensaje salga de Braze no se reflejarán en el archivo guardado en tu contenedor de almacenamiento en la nube. Esto incluye las modificaciones que hacen nuestros socios de entrega de correo, como envolver los enlaces para el seguimiento de clics e insertar píxeles de seguimiento.
 
-### ¿Qué mensajes aparecen bajo el valor "no asociado" en la ruta de la campaña?
+### ¿Qué mensajes aparecen bajo el valor "no asociado" en la ruta de la Campaign?
 
-Cuando un mensaje se envía fuera de una campaña o Canvas, el ID de la campaña en el nombre del archivo será "no asociado". Esto ocurrirá cuando envíes mensajes de prueba desde el dashboard, cuando Braze envíe respuestas automáticas por SMS/MMS o cuando los mensajes enviados a través de la API no especifiquen un ID de campaña.
+Cuando un mensaje se envía fuera de una Campaign o Canvas, el ID de la Campaign en el nombre del archivo será "no asociado". Esto ocurrirá cuando envíes mensajes de prueba desde el dashboard, cuando Braze envíe respuestas automáticas por SMS/MMS o cuando los mensajes enviados a través de la API no especifiquen un ID de Campaign.
 
 ### ¿Cómo puedo encontrar más información sobre este envío?
 
@@ -211,7 +211,7 @@ Si no se puede acceder a tu contenedor de almacenamiento en la nube, Braze lo re
 
 ### ¿Qué ocurre si mis credenciales no son válidas?
 
-Si tus credenciales de almacenamiento en la nube dejan de ser válidas en algún momento, Braze no podrá guardar ningún mensaje en tu contenedor de almacenamiento en la nube, y esos mensajes se perderán. Te recomendamos que configures tus [preferencias de notificación]({{site.baseurl}}/user_guide/administrative/app_settings/company_settings/notification_preferences/) para Amazon Web Services, Google Cloud Services o Azure (Microsoft Cloud Services) para que recibas alertas sobre cualquier problema relacionado con las credenciales.
+Si tus credenciales de almacenamiento en la nube dejan de ser válidas en algún momento, Braze no podrá guardar ningún mensaje en tu contenedor de almacenamiento en la nube, y esos mensajes se perderán. Te recomendamos que configures tus [preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para Amazon Web Services, Google Cloud Services o Azure (Microsoft Cloud Services) para que recibas alertas sobre cualquier problema relacionado con las credenciales.
 
 ### ¿Por qué la marca de tiempo `sent_at` de mi archivo difiere ligeramente de la marca de tiempo de envío en Currents?
 
@@ -219,7 +219,7 @@ La copia renderizada se carga inmediatamente antes de enviar el mensaje al usuar
 
 ### ¿Puedo crear un nuevo contenedor específico para el archivado de mensajes y mantener el contenedor actual para los datos de Currents?
 
-No. Si estás interesado en crear estos contenedores específicos, envía [tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administrative/access_braze/portal/).
+No. Si estás interesado en crear estos contenedores específicos, envía [tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
 
 ### ¿Los datos archivados se escriben en una carpeta dedicada en un contenedor existente, de forma similar a cómo se estructuran las exportaciones de datos de Currents?
 
@@ -227,4 +227,4 @@ Los datos se escriben en una sección `sent_messages` del contenedor. Consulta [
 
 ### ¿Puedo utilizar el archivado de mensajes para agrupar archivos en diferentes espacios de trabajo?
 
-No. El archivado de mensajes no admite la agrupación de archivos por espacios de trabajo. En su lugar, puedes determinar a qué espacio de trabajo pertenece el ID de API de la campaña o del paso en Canvas y, a continuación, agruparlos en función de esa información.
+No. El archivado de mensajes no admite la agrupación de archivos por espacios de trabajo. En su lugar, puedes determinar a qué espacio de trabajo pertenece el ID de API de la Campaign o del paso en Canvas y, a continuación, agruparlos en función de esa información.

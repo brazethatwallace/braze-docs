@@ -1,12 +1,13 @@
 ---
-hidden: true
-article_title: "Cloud Data Ingestion: SQL Editor (beta)"
+nav_title: SQL editor
+article_title: "Cloud Data Ingestion: SQL editor"
 description: "Learn how to create and validate Cloud Data Ingestion syncs with SQL queries."
+page_order: 11
 page_type: reference
 toc_headers: h2
 ---
 
-# Cloud Data Ingestion: SQL Editor (beta)
+# Cloud Data Ingestion: SQL Editor
 
 > This page covers how to use Braze Cloud Data Ingestion (CDI) SQL Editor to create and validate syncs with SQL queries.
 
@@ -165,6 +166,10 @@ After validation:
 
 When validation succeeds, continue to **Next: Notifications** and create your sync.
 
+{% alert important %}
+Inaccurate SQL configuration can lead to unintended results, including the overconsumption of data points and broader operational risks. You are responsible for ensuring your query logic is correct and should carefully preview all results before activating a sync.
+{% endalert %}
+
 ## SQL constraints {#sql-constraints}
 
 Your query must meet the following requirements.
@@ -316,6 +321,7 @@ When you see "No preview available", one of the following underlying error types
 | "Unable to connect to the source" | Check the configured username, account locator, and RSA key-pair authentication setup.<br>Verify the warehouse is running.<br>Confirm network access. |
 | "SQL syntax error" | Check your SQL syntax. |
 | "Object does not exist or not authorized" | Make sure the role has `SELECT` access to the table.<br>Confirm database and schema permissions.<br>Check table name typos. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="&quot;No preview available&quot;" }
 
 ### "Identity column required"
 

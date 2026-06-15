@@ -32,7 +32,7 @@ When users add items to their cart through catalog messages, Braze receives webh
 | WhatsApp Business Account | To use WhatsApp product messages, you must have a WhatsApp Business Account connected with Braze. |
 | Meta catalog | You need to set up a Meta catalog in your Commerce Manager. |
 | Term compliance | Comply with the [Meta Commerce Terms and Policies](https://www.facebook.com/policies_center/commerce). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Product message types
 

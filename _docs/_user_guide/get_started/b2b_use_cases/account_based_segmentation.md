@@ -43,7 +43,7 @@ Select the following variables for a B2B account-based segmentation use case:
 | Custom event property | account_id |
 | (Under Filter SQL Results) Catalog Field | Classification |
 | (Under Filter SQL Results) Value | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variables guidelines for B2B use cases" }
 
 #### Sophisticated SQL segmentation
 

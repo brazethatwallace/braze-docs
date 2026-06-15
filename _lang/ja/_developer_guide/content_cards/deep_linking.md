@@ -1,8 +1,8 @@
 ---
 nav_title: ディープリンク
-article_title: コンテンツカードのディープリンク
+article_title: Content Cardsのディープリンク
 page_order: 4
-description: "Braze SDK を使用して、コンテンツカード内のリンクの深さを確認します。"
+description: "Braze SDKを使用して、Content Cards内でディープリンクを行う方法について説明します。"
 channel:
   - content cards
 platform:
@@ -12,13 +12,13 @@ platform:
   - FireOS
 ---
 
-# コンテンツカードのディープリンク
+# Content Cardsのディープリンク {#deep-linking-in-content-cards}
 
-> Braze SDK を使用して、コンテンツカード内のリンクの深さを確認します。ディープリンクの詳細については、[What is deep linking?]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking)を参照してください。
+> Braze SDKを使用して、Content Cards内でディープリンクを行う方法について説明します。ディープリンクの詳細については、[ディープリンクとは]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。
 
 {% sdktabs %}
 {% sdktab web %}
-現時点では、Web Braze SDK ではコンテンツカードのディープリンクはサポートされていません。
+現時点では、Web Braze SDKではContent Cardsのディープリンクはサポートされていません。
 {% endsdktab %}
 
 {% sdktab android %}

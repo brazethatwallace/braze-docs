@@ -88,7 +88,7 @@ Blocks represent different types of content you can use in your message. Drag on
 
 ![Option to select blocks, including title, paragraph, button, image, and spacer.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-Every block has its own settings, such as granular control on padding. The right-side panel automatically switches to a styling panel for the selected content element. For more information, see [Editor block properties]({{site.baseurl}}/dnd/editor_blocks/).
+Every block has its own settings, such as granular control on padding. The right-side panel automatically switches to a styling panel for the selected content element. For more information, see [Editor blocks (preference center)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=preference%20center).
 
 If you're using the Custom Code block in your preference center, inline frames may not generate in the custom code when delivered to your users.
 

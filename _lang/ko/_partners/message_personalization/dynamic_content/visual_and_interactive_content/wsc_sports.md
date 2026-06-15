@@ -1,7 +1,7 @@
 ---
 nav_title: WSC Sports
 article_title: WSC Sports
-description: "This reference article outlines the partnership between Braze and WSC Sports, a sports video platform that allows you to include rich and robust sports media in your Braze push notifications."
+description: "이 참조 문서에서는 Braze와 WSC Sports 간의 파트너십에 대해 설명합니다. WSC Sports는 Braze 푸시 알림에 풍부하고 강력한 스포츠 미디어를 포함할 수 있게 해주는 스포츠 비디오 플랫폼입니다."
 alias: /partners/wsc_sports/
 page_type: partner
 search_tag: Partner
@@ -10,39 +10,39 @@ search_tag: Partner
 
 # WSC Sports
 
-> The [WSC Sports](https://wsc-sports.com/) platform generates personalized sports videos for every digital platform and every sports fan - automatically and in real-time. 
+> [WSC Sports](https://wsc-sports.com/) 플랫폼은 모든 디지털 플랫폼과 모든 스포츠 팬을 위해 개인화된 스포츠 비디오를 자동으로 실시간 생성합니다.
 
-_This integration is maintained by WSC Sports._
+_이 통합은 WSC Sports에서 유지 관리합니다._
 
-## About the integration
+## 통합 소개 {#about-the-integration}
 
-The Braze and WSC Sports integration allows you to include rich and robust sports media in your Braze push notifications. 
+Braze와 WSC Sports 통합을 통해 Braze 푸시 알림에 풍부하고 강력한 스포츠 미디어를 포함할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| WSC account | A WSC account is required to take advantage of this partnership. |
-| Braze REST API key | A Braze REST API key with **Messages**, **Segments**, **Campaigns** and **Canvas** permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| WSC 계정 | 이 파트너십을 활용하려면 WSC 계정이 필요합니다. |
+| Braze REST API 키 | **Messages**, **Segments**, **Campaigns** 및 **Canvas** 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **Settings** > **API Keys**에서 생성할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-The WSC Sports application handles the end-to-end process, from selecting the video to the arrival of the push notification on the end user's device. 
+WSC Sports 애플리케이션은 비디오 선택부터 최종 사용자의 기기에 푸시 알림이 도착하기까지의 전체 프로세스를 처리합니다.
 
-### Step 1: Select send settings
+### 1단계: 발송 설정 선택 {#step-1-select-send-settings}
 
 ![]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
 
-Before starting the integration, make sure you have your desired campaign and user segments built in Braze. When completed, in the WSC Sports platform, select your desired video, and in the send settings, select Braze user segment and campaign ID you would like to use. Lastly, choose the time you would like your push message sent out. 
+통합을 시작하기 전에 Braze에서 원하는 Campaign과 사용자 Segments가 구축되어 있는지 확인하세요. 완료되면 WSC Sports 플랫폼에서 원하는 비디오를 선택하고, 발송 설정에서 사용할 Braze 사용자 Segment 및 Campaign ID를 선택합니다. 마지막으로 푸시 메시지를 발송할 시간을 선택합니다.
 
-#### API call
+#### API 호출 {#api-call}
 
-Once sent, WSC Sports will deliver the push notification to the chosen user segments, using the following Braze endpoints, based on the options selected:
-- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
-- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#sending-messages-immediately-via-api-only)
+발송되면 WSC Sports는 선택한 옵션에 따라 다음 Braze 엔드포인트를 사용하여 선택한 사용자 Segments에 푸시 알림을 전달합니다:
+- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/#create-scheduled-messages)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#sending-messages-immediately-via-api-only)
 
-The resulting body of the message is as follows: 
+결과 메시지 본문은 다음과 같습니다:
 ```
 {
   "apple_push": {
@@ -55,8 +55,6 @@ The resulting body of the message is as follows:
 }
 ```
 
-### Step 2: Test send
+### 2단계: 테스트 발송 {#step-2-test-send}
 
-At this point, your campaign should be ready to test and send. Check the Braze error message logs if you run into errors. 
-
-
+이 시점에서 Campaign을 테스트하고 발송할 준비가 되어 있어야 합니다. 오류가 발생하면 Braze 오류 메시지 로그를 확인하세요.

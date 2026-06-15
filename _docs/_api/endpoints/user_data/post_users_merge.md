@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `merge_updates` | Required | Array | An object array. Each object should contain an `identifier_to_merge` object and an `identifier_to_keep` object, which should each reference a user either by `external_id`,  `user_alias`, `phone`, or `email`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Merge behavior
 
@@ -94,6 +94,8 @@ This endpoint merges the following fields if they're not found on the target use
 When merging users, using the `/users/merge` endpoint works the same way as using the [`changeUser()` method](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
+Braze handles three user types differently when merging: users marked for deletion, test users, and Global Control Group users. For details, see [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+
 #### Custom event date and purchase event date behavior
 
 These merged fields update "for X events in Y days" filters. For purchase events, these filters include "number of purchases in Y days" and "money spent in last Y days".
@@ -114,6 +116,10 @@ Only one of the following options may exist in the prioritization array at a tim
 - `identified` refers to prioritizing a user with an `external_id`
 - `unidentified` refers to prioritizing a user without an `external_id`
 
+{% alert important %}
+If both profiles have invalid phone numbers, Braze does not merge them. Invalid numbers are not stored in E.164 format, and the merge job does not combine those profiles. The endpoint still returns `202 Accepted` with a success message, so the HTTP response does not indicate that the merge was skipped. Correct the phone numbers on one or both profiles before merging.
+{% endalert %}
+
 ## Example requests
 
 ### Basic request
@@ -125,7 +131,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -172,7 +177,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -198,7 +202,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -223,7 +226,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -272,6 +274,6 @@ The following table lists possible error messages that may occur.
 | `a single request may not contain more than 50 merge updates` | You can only specify up to 50 merge updates in a single request. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Check the identifiers in your request. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Check that `merge_updates` only contains the two objects `identifier_to_merge` and `identifier_to_keep`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

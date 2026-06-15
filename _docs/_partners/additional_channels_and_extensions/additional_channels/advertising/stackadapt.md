@@ -29,7 +29,7 @@ The Braze and StackAdapt integration allows you to sync user profile data from B
 | **StackAdapt Account**  | You need an active StackAdapt account with permissions to manage Data Hub integrations. |
 | **Braze REST API key**  | A Braze REST API key with the following permissions: <br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>This can be created in the Braze dashboard from **Settings** > **API Keys.** |
 | **Braze REST endpoint** | [Your REST endpoint URL](https://www.braze.com/docs/api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## How it works
 

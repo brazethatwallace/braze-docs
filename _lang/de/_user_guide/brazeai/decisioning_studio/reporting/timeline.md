@@ -5,7 +5,7 @@ page_order: 4
 description: "Erfahren Sie, wie Sie den Timeline-Bericht verwenden, um wichtige Ereignisse zusammen mit Performance-Metriken in BrazeAI Decisioning Studio anzuzeigen."
 ---
 
-# Timeline-Bericht
+# Timeline-Bericht {#timeline-report}
 
 > Der Timeline-Bericht bietet eine visuelle Aufzeichnung wichtiger Ereignisse zusammen mit Ihren Performance-Metriken. Zu diesen Ereignissen gehören Agenten-Durchläufe, Konfigurationsänderungen, Guardrail-Updates und mehr.
 
@@ -22,4 +22,4 @@ Um die Performance zwischen zwei Gruppen zu vergleichen, verwenden Sie die Dropd
 | Label | Der Name oder Bezeichner des Ereignisses. |
 | Details | Zusätzliche Informationen, die das Ereignis beschreiben. |
 | Sichtbar in Charts | Gibt an, ob das Ereignis in zugehörigen Charts angezeigt wird. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Timeline-Bericht" }

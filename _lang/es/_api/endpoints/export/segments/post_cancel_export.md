@@ -1,30 +1,30 @@
 ---
-nav_title: "PUBLICAR: Cancela las exportaciones por segmento"
-article_title: "PUBLICAR: Cancela las exportaciones por segmento"
+nav_title: "POST: Cancelar exportaciones por segmento"
+article_title: "POST: Cancelar exportaciones por segmento"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles de Cancelar exportaciones por segmento en el punto final Braze."
+description: "En este artículo se describen los detalles del punto de conexión de Braze Cancelar exportaciones por segmento."
 
 ---
 {% api %}
-# Cancela las exportaciones por segmento
+# Cancelar exportaciones por segmento {#cancel-exports-by-segment}
 {% apimethod post %}
-/exportar/segmento/cancelar
+/export/segment/cancel
 {% endapimethod %}
 
-> Utiliza este punto final para cancelar todas las exportaciones en curso con un ID de segmento especificado.
+> Utiliza este punto de conexión para cancelar todas las exportaciones en curso con un ID de segmento especificado.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `segments.list`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `segments.list`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -37,14 +37,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `segment_id` | Obligatoria | Cadena | La `segment_id` para cancelar sus exportaciones en curso. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `segment_id` | Obligatorio | Cadena | El `segment_id` para cancelar sus exportaciones en curso. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/export/segment/cancel' \
 --header 'Content-Type: application/json' \
@@ -55,4 +55,3 @@ curl --location --request POST 'https://rest.iad-01.braze.com/export/segment/can
 ```
 
 {% endapi %}
-

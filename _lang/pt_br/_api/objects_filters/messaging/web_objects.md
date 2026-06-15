@@ -8,11 +8,11 @@ platform: Web
 description: "Este artigo de referência lista e explica os diferentes objetos da Web usados na Braze."
 
 ---
-# Objeto web push
+# Objeto de push para a web {#web-push-object}
 
-> O objeto `web_push` permite que você defina ou solicite informações relacionadas ao conteúdo de alertas web push e web push por meio de nossos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
+> O objeto `web_push` permite que você defina ou solicite informações relacionadas ao conteúdo de push para a web e alertas de push para a web por meio de nossos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/).
 
-## Objeto web push
+## Objeto de push para a web
 
 ```json
 {
@@ -30,9 +30,9 @@ description: "Este artigo de referência lista e explica os diferentes objetos d
 }
 ```
 
-O valor para `image_url` deve ser um URL com link para o local onde sua imagem está hospedada. As imagens precisam ser cortadas em uma proporção de 1:1.
+O valor de `image_url` deve ser um URL que aponte para o local onde sua imagem está hospedada. As imagens precisam ser cortadas em uma proporção de 1:1.
 
-## Objeto de botão de ação por push da Web
+## Objeto de botão de ação por push da Web {#web-push-action-button-object}
 
 ```json
 {

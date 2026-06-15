@@ -1,21 +1,21 @@
-## Flutter Braze SDK 정보
+## Flutter Braze SDK 정보 {#about-the-flutter-braze-sdk}
 
-Android 및 iOS에서 Braze Flutter SDK를 통합한 후에는 Dart로 작성된 [Flutter 앱](https://flutter.dev/) 내에서 Braze API를 사용할 수 있습니다. 이 플러그인은 기본적인 분석 기능을 제공하며, 이를 통해 단일 코드베이스에서 iOS 및 Android용 인앱 메시지와 콘텐츠 카드를 통합할 수 있습니다.
+Android 및 iOS에서 Braze Flutter SDK를 통합한 후에는 Dart로 작성된 [Flutter 앱](https://flutter.dev/) 내에서 Braze API를 사용할 수 있습니다. 이 플러그인은 기본적인 분석 기능을 제공하며, 이를 통해 단일 코드베이스에서 iOS 및 Android용 인앱 메시지와 Content Cards를 통합할 수 있습니다.
 
-## Flutter SDK 통합
+## Flutter SDK 통합 {#integrating-the-flutter-sdk}
 
-### 필수 조건
+### 필수 조건 {#prerequisites}
 
 Braze Flutter SDK를 통합하기 전에 다음을 완료해야 합니다:
 
 | 필수 조건 | 설명 |
 | --- | --- |
-| Braze API 앱 식별자 | 앱 식별자를 찾으려면 **설정** > **API 및 식별자** > **앱 식별자**로 이동하세요. 자세한 내용은 [API 식별자 유형]({{site.baseurl}}/api/identifier_types/#app-identifier)을 참조하세요.|
+| Braze API 앱 식별자 | 앱 식별자를 찾으려면 **설정** > **API 키** > **앱 식별자**로 이동하세요. 자세한 내용은 [API 식별자 유형]({{site.baseurl}}/api/identifier_types/#app-identifier)을 참조하세요.|
 | Braze SDK 엔드포인트 | SDK 엔드포인트 URL(예: `sdk.<cluster>.braze.com`). 엔드포인트는 [인스턴스에 대한 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)에 따라 달라집니다.|
 | Flutter SDK | 공식 [Flutter SDK](https://docs.flutter.dev/get-started/install)를 설치하고 Braze Flutter SDK의 [최소 지원 버전](https://github.com/braze-inc/braze-flutter-sdk#requirements)을 충족하는지 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-### 1단계: Braze 라이브러리 통합
+### 1단계: Braze 라이브러리 통합 {#step-1-integrate-the-braze-library}
 
 명령줄에서 Braze Flutter SDK 패키지를 추가합니다. 그러면 `pubspec.yaml`에 적절한 줄이 추가됩니다.
 
@@ -23,14 +23,14 @@ Braze Flutter SDK를 통합하기 전에 다음을 완료해야 합니다:
 flutter pub add braze_plugin
 ```
 
-### 2단계: 네이티브 SDK 설정 완료
+### 2단계: 네이티브 SDK 설정 완료 {#step-2-complete-native-sdk-setup}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
 
-#### 2.1 Android 설정
+#### 2.1 Android 설정 {#21-set-up-android}
 
-##### 컴파일 시 자격 증명 제공
+##### 컴파일 시 자격 증명 제공 {#provide-credentials-at-compile-time}
 
 프로젝트의 `android/res/values` 폴더에 `braze.xml` 파일을 생성합니다. API 키와 엔드포인트는 Dart에서 런타임에 제공되므로 이 파일에는 필요하지 않습니다. 지연 초기화를 활성화하려면 파일에 `com_braze_enable_delayed_initialization`을 추가하세요:
 
@@ -42,7 +42,7 @@ flutter pub add braze_plugin
 </resources>
 ```
 
-##### 런타임에 자격 증명 제공
+##### 런타임에 자격 증명 제공 {#provide-credentials-at-runtime}
 
 또는 `MainActivity.kt`에서 프로그래밍 방식으로 지연 초기화를 활성화할 수 있습니다:
 
@@ -64,7 +64,7 @@ class MainActivity : FlutterActivity() {
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#### 2.2 iOS 설정
+#### 2.2 iOS 설정 {#22-set-up-ios}
 
 기존 `application(_:didFinishLaunchingWithOptions:)` 메서드 내에서 `BrazePlugin.configure(_:postInitialization:)` 호출을 추가하여 구성을 저장합니다. Braze 인스턴스는 나중에 Dart에서 `initialize()`가 호출될 때 생성됩니다. API 키와 엔드포인트는 여기에서 설정하지 않습니다.
 
@@ -235,7 +235,7 @@ static Braze *_braze = nil;
 {% endtab %}
 {% endtabs %}
 
-### 3단계: 플러그인 설정
+### 3단계: 플러그인 설정 {#step-3-set-up-the-plugin}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -250,7 +250,7 @@ final BrazePlugin braze = BrazePlugin();
 
 그런 다음 앱 식별자 API 키와 SDK 엔드포인트를 사용하여 `initialize()`를 호출하여 Braze 인스턴스를 생성합니다. 앱에서 이 메서드를 호출할 위치에 대해서는 아래 옵션을 참조하세요.
 
-#### 표준 초기화
+#### 표준 초기화 {#standard-initialization}
 
 앱이 시작될 때 SDK를 초기화하려면 `initState()`에서 `initialize()`를 호출합니다:
 
@@ -262,7 +262,7 @@ void initState() {
 }
 ```
 
-#### 지연 초기화
+#### 지연 초기화 {#delayed-initialization}
 
 세션의 나중 시점까지 SDK 초기화를 지연하려면(예: 사용자가 동의하거나 로그인을 완료한 후) 준비가 되었을 때 `initialize()`를 호출합니다:
 
@@ -277,7 +277,7 @@ void onUserConsent() {
 `initialize()`가 호출되기 전에 수신된 푸시 알림과 딥링크는 iOS에서 처리되지 않습니다. Android에서는 SDK가 초기화를 기다리는 동안 푸시 알림의 딥링크가 해석되지 않습니다. 앱이 시작 시 푸시 또는 딥링크에 의존하는 경우 [표준 초기화](#standard-initialization)를 대신 사용하세요.
 {% endalert %}
 
-#### 플랫폼별 API 키
+#### 플랫폼별 API 키 {#platform-specific-api-keys}
 
 Android와 iOS 앱은 서로 다른 API 키를 사용하므로 플랫폼 감지를 사용합니다:
 
@@ -291,7 +291,7 @@ if (Platform.isAndroid) {
 }
 ```
 
-#### 재초기화
+#### 재초기화 {#re-initialization}
 
 세션 중에 다른 API 키와 엔드포인트로 SDK를 재초기화하려면 `initialize()`를 여러 번 호출할 수 있습니다. 각 호출은 이전 Braze 인스턴스를 해제하고 새 인스턴스를 생성합니다.
 
@@ -317,7 +317,7 @@ import 'package:braze_plugin/braze_plugin.dart';
 {% endtab %}
 {% endtabs %}
 
-## 통합 테스트
+## 통합 테스트 {#testing-the-integration}
 대시보드에서 세션 통계를 확인하여 SDK가 통합되었는지 확인할 수 있습니다. 어느 플랫폼에서든 애플리케이션을 실행하면 대시보드(**개요** 섹션)에 새 세션이 표시됩니다.
 
 앱에서 다음 코드를 호출하여 특정 사용자에 대한 세션을 시작합니다.

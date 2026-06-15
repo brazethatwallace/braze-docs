@@ -1,50 +1,50 @@
 ---
-nav_title: "取得:利用可能なEメールテンプレートの一覧"
-article_title: "取得:利用可能なメールテンプレートの一覧表示"
+nav_title: "GET: 利用可能なメールテンプレートの一覧"
+article_title: "GET: 利用可能なメールテンプレートの一覧"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「メールテンプレートで使用可能なリスト」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、利用可能なメールテンプレートの一覧を取得する Braze エンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# 利用可能なEメールテンプレートの一覧
+# 利用可能なメールテンプレートの一覧 {#list-available-email-templates}
 {% apimethod get %}
 /templates/email/list
 {% endapimethod %}
 
-> このエンドポイントを使用して、Brazeアカウントで利用可能なEメールテンプレートのリストを取得する。
+> このエンドポイントを使用して、Brazeアカウントで利用可能なメールテンプレートのリストを取得します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
-## 前提条件
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/api_key/)と`templates.email.list`の権限が必要です。
+## 前提条件 {#prerequisites}
+このエンドポイントを使用するには、`templates.email.list` 権限を持つ [API キー]({{site.baseurl}}/api/api_key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `modified_after`  | オプション | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)形式の文字列 | 指定された時刻以降に更新されたテンプレートだけを取得する。 |
-| `modified_before`  |  オプション | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)形式の文字列 | 指定された時刻以前に更新されたテンプレートのみを取得します。 |
-| `limit` | オプション | 正の数 | 取得するテンプレートの最大数。指定されない場合、デフォルトの100に設定されます。最大許容値は1000です。 |
-| `offset`  |  オプション | 正の数 | 検索条件に合う残りのテンプレートを返す前にスキップするテンプレートの数。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `modified_after` | オプション | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の文字列 | 指定された時刻以降に更新されたテンプレートのみを取得します。 |
+| `modified_before` | オプション | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の文字列 | 指定された時刻以前に更新されたテンプレートのみを取得します。 |
+| `limit` | オプション | 正の数値 | 取得するテンプレートの最大数。指定されない場合、デフォルトは 100 です。最大許容値は 1000 です。 |
+| `offset` | オプション | 正の数値 | 検索条件に合う残りのテンプレートを返す前にスキップするテンプレートの数。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/templates/email/list?modified_after=2020-01-01T01:01:01.000000&modified_before=2020-02-01T01:01:01.000000&limit=1&offset=0' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
 ```
 
-## 応答
+## 応答 {#response}
 
 {% alert important %}
-電子メール用のドラッグアンドドロップエディタを使用して作成されたテンプレートは、この回答では提供されない。
+メール用のドラッグ＆ドロップエディターを使用して作成されたテンプレートは、この応答には含まれません。
 {% endalert %}
 
 ```json
@@ -59,6 +59,3 @@ curl --location --request GET 'https://rest.iad-01.braze.com/templates/email/lis
 }
 ```
 {% endapi %}
-
-
-

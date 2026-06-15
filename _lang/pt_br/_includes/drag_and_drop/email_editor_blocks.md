@@ -1,230 +1,238 @@
-## Usando blocos de editor de e-mail
+## Blocos do editor de e-mail {#email-editor-blocks}
 
-Os blocos de editor estão localizados na seção **Conteúdo** para mensagens de e-mail. Para usar um bloco de editor, arraste um bloco de editor para dentro de uma coluna no editor de arrastar e soltar. Ele se ajustará automaticamente à largura da coluna. Cada bloco do editor tem suas próprias configurações, como o controle granular do preenchimento.
+Os blocos do editor estão na seção **Conteúdo** para mensagens de e-mail. Arraste um bloco para dentro de uma coluna no **editor de arrastar e soltar**; ele se ajusta automaticamente à largura da coluna.
 
-Para saber mais sobre como usar e personalizar esses blocos de editor em seu e-mail, confira [Outras personalizações]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/overview/#other-customizations).
+Para saber mais sobre como criar e-mails no **editor de arrastar e soltar**, consulte [Criar um e-mail com arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) e <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Outras personalizações</a> nesse artigo.
 
 {% alert tip %}
 Você também pode adicionar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) a qualquer URL dentro dos blocos de editor `Image`, `Button` ou `Text`.
 {% endalert %}
 
-## Tipos
+### Título {#title}
 
-A tabela a seguir descreve como os usuários podem usar cada tipo de bloco de editor.
+Adiciona texto para cabeçalhos dentro do e-mail.
 
-| Nome | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|Título| Adiciona texto para Cabeçalhos dentro do e-mail. | 
-|Parágrafo| Insere texto em sua mensagem. Uma barra de ferramentas ajuda na funcionalidade de edição de texto e fontes. | 
-|Lista| Adiciona uma lista com marcadores. |
-|Botão| Adiciona um botão padrão. As propriedades desse bloco permitem editar e definir links facilmente. | 
-|Divisor| Insere uma linha sólida, pontilhada ou tracejada para ajudar no espaçamento.|
-|Espaçador| Adiciona espaço, ou "padding", entre outros blocos. |
-|Imagem| Insere uma imagem da [biblioteca de mídia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). | 
-|Vídeo| Cria um link para o conteúdo do vídeo. |
-|Mídia social| Insira o ícone da plataforma de redes sociais. Você pode fazer upload de imagens personalizadas para ícones específicos da marca. |
-|Ícones| Insere um ícone. Você pode fazer upload de imagens personalizadas. Braze usa um ícone de espaço reservado grande até que você faça upload de uma imagem. |
-|HTML| Insere HTML bruto. Recomendado para [Liquid]({{site.baseurl}}/liquid/), como Conteúdo Conectado ou declarações condicionais. | 
-|Menu| Cria um menu flexível para a mensagem que você está projetando. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+| Título | Seleciona o estilo do cabeçalho. |
+| Família da fonte | O estilo da fonte do seu título. |
+| Peso da fonte | O grau geral de negrito da fonte. |
+| Tamanho da fonte | Determina o tamanho do seu texto. |
+| Cor do texto | Modifica a cor do título. |
+| Cor do link | Modifica a cor do link. |
+| Alinhar | Move o título para a esquerda, centro ou direita. |
+| Altura da linha | Modifica a distância entre as linhas de texto. |
+| Espaçamento entre letras | Modifica a distância entre cada caractere. |
+| Direção do texto | Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
-## Propriedades
+### Parágrafo {#paragraph}
 
-Os detalhes das propriedades de cada bloco de editor são fornecidos nas tabelas a seguir.
+Insere texto na mensagem. Uma barra de ferramentas ajuda na funcionalidade de edição de texto e fontes.
 
-### Título
-Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do editor `Title`.
-
-| Propriedades | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|Título| Seleciona o estilo do cabeçalho. | 
-|Família da fonte| Esse é o estilo da fonte de seu título. |
-|Peso da fonte| Esse é o grau de negrito da fonte. |
-|Tamanho da fonte| Determina o tamanho de seu texto. |
-|Cor do texto| Modifica a cor do título. |
-|Cor do link| Modifica a cor do link. |
-|Alinhar| Move o título para a esquerda, centro ou direita. |
-|Altura da linha| Modifica a distância entre as linhas de texto. |
-|Espaçamento de linha| Modifica a distância entre cada caractere. |
-|Direção do texto| Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Família da fonte | O estilo da fonte do texto do parágrafo. |
+| Peso da fonte | O grau geral de negrito da fonte. |
+| Tamanho da fonte | Determina o tamanho do seu texto. |
+| Cor do texto | Modifica a cor do texto. |
+| Cor do link | Modifica a cor do link. |
+| Alinhar | Move o texto para a esquerda, centro ou direita. |
+| Espaçamento de parágrafo | Modifica o espaço entre os parágrafos. |
+| Altura da linha | Modifica a distância entre as linhas de texto. |
+| Espaçamento entre letras | Modifica a distância entre cada caractere. |
+| Direção do texto | Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
-### Parágrafo
+### Lista {#list}
 
-Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do editor `Paragraph`.
+Adiciona uma lista com marcadores.
 
-| Propriedades | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|Família da fonte| Esse é o estilo da fonte do texto do parágrafo. |
-|Peso da fonte| Esse é o grau de negrito da fonte. |
-|Tamanho da fonte| Determina o tamanho de seu texto. |
-|Cor do texto| Modifica a cor do título. |
-|Cor do link| Modifica a cor do link. |
-|Alinhar| Move o título para a esquerda, centro ou direita. |
-|Espaçamento de parágrafo| Modifica o espaço entre os parágrafos. |
-|Altura da linha| Modifica a distância entre as linhas de texto. |
-|Espaçamento entre as letras| Modifica a distância entre cada caractere. |
-|Direção do texto| Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Tipo de lista | O tipo de lista. Pode ser com marcadores ou numerada. |
+| Tipo de estilo de lista | Determina o estilo da sua lista. |
+| Iniciar lista a partir de | Determina o número inicial da sua lista. |
+| Família da fonte | O estilo da fonte do texto do parágrafo. |
+| Peso da fonte | O grau geral de negrito da fonte. |
+| Tamanho da fonte | Determina o tamanho do seu texto. |
+| Cor do texto | Modifica a cor do texto. |
+| Cor do link | Modifica a cor do link. |
+| Alinhar | Move o texto para a esquerda, centro ou direita. |
+| Espaçamento dos itens da lista | Modifica o espaço entre os itens da lista. |
+| Recuo dos itens da lista | Modifica o recuo dos itens da lista. |
+| Altura da linha | Modifica a distância entre as linhas de texto. |
+| Espaçamento entre letras | Modifica a distância entre cada caractere. |
+| Direção do texto | Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
-### Lista
+### Botão {#button}
 
-Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do editor `List`.
+Adiciona um botão padrão. As propriedades permitem editar o estilo e definir o comportamento do link.
 
-| Propriedades | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|Tipo de lista| Esse é o tipo de lista. Pode ser com marcadores ou numerado. |
-|Tipo de estilo de lista| Determina o estilo de sua lista. |
-|Iniciar lista a partir de| Determina o número inicial de sua lista. |
-|Família da fonte| Esse é o estilo da fonte do texto do parágrafo. |
-|Peso da fonte| Esse é o grau de negrito da fonte. |
-|Tamanho da fonte| Determina o tamanho de seu texto. |
-|Cor do texto| Modifica a cor do título. |
-|Cor do link| Modifica a cor do link. |
-|Alinhar| Move o título para a esquerda, centro ou direita. |
-|Espaçamento dos itens da lista| Modifica o espaço entre os itens da lista. |
-|Recuo de itens da lista| Modifica o recuo dos itens da lista. |
-|Altura da linha| Modifica a distância entre as linhas de texto. |
-|Espaçamento entre as letras| Modifica a distância entre cada caractere. |
-|Direção do texto| Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Opções do botão | Define várias opções do botão, como fonte, tamanho, largura, cor e preenchimento. |
+| Passar o mouse sobre o botão | O estilo do botão quando um usuário passa o mouse sobre ele usando um mouse ou trackpad. Inclui a cor de fundo do botão, a cor da fonte e os estilos de borda. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
 
-### Divisor
+#### Comportamento ao clicar {#on-click-behavior}
 
-Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Divider`.
-
-| Propriedades | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|Transparente| Se ativada, as opções "line" e "width" serão removidas. |
-|Line| Os diferentes formatos de linha, seja pontilhada, manchada ou sólida. Além disso, você pode modificar a espessura e a cor da linha divisória. |
-|Largura | Ajusta a dispersão do divisor em incrementos de 5.  |
-|Alinhar| Move a linha para a esquerda, para o centro ou para a direita. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Tipo de link | Determina a ação ao clicar no botão e define o protocolo apropriado. |
+| URL | Dinâmico com base no tipo de link **Open web page**. |
+| Para, Assunto e Corpo | Para o tipo de link **Send email**, define o endereço de e-mail do destinatário, o assunto e o conteúdo que serão preenchidos em um rascunho de e-mail quando o usuário selecionar o botão. |
+| Tel | Para os tipos de link **Make call** e **Send SMS**, define o número de telefone para o qual o usuário ligará ou enviará mensagem ao selecionar o botão. |
+| Mensagem | Para o tipo de link **Send SMS**, define o conteúdo que será preenchido em um rascunho de mensagem SMS quando o usuário selecionar o botão. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
-### Espaçador
+### Divisor {#divider}
 
-Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Spacer`.
+Insere uma linha sólida, pontilhada ou tracejada para ajudar no espaçamento.
 
-| Propriedades | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|Altura| Ajusta a altura do bloco espaçador. O padrão é 60px.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Transparente | Se ativada, as opções de linha e largura são removidas. |
+| Linha | Os diferentes formatos de linha, seja pontilhada, tracejada ou sólida. Você também pode modificar a espessura e a cor da linha divisória. |
+| Largura | Ajusta a extensão do divisor em incrementos de 5. |
+| Alinhar | Move a linha para a esquerda, centro ou direita. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
-### Imagem
+### Espaçador {#spacer}
 
-Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Image`. Para imagens dinâmicas (imagens com Liquid ou Conteúdo Conectado), você deve definir uma imagem de fallback para usar as configurações de largura automática. Para especificações de imagem, consulte nossas [especificações de imagem de e-mail]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
+Adiciona espaço ou preenchimento entre outros blocos.
+
+| Propriedade | Descrição |
+|---|---|
+| Altura | Ajusta a altura do bloco espaçador. O padrão é 60px. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
+
+### Imagem {#image}
+
+Insere uma imagem da [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Para imagens dinâmicas (imagens com Liquid ou Conteúdo conectado), você deve definir uma imagem de fallback para usar as configurações de largura automática. Para especificações de imagem, consulte [especificações de imagem de e-mail]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#email).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-| Propriedades | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|Largura Automática| Modifica a largura da imagem em pixels. |
-|Alinhar| Orienta a imagem para a esquerda, centro ou direita do bloco. |
-|Imagem com Liquid| Use a lógica [Liquid]({{site.baseurl}}/liquid/) para definir dinamicamente diferentes imagens dentro do mesmo bloco de conteúdo. |
-|URL| Defina uma imagem usando o endereço onde está hospedada. |
-|Texto alternativo| Uma breve descrição da imagem que fornece aos usuários as mesmas informações que estão mostradas na imagem. Isso é essencial para a acessibilidade de leitores de tela ou quando a imagem não carrega. |
-|Imagem com Cantos Arredondados| Renderiza a imagem com cantos arredondados. Por padrão, as imagens são renderizadas com cantos quadrados. |
-|Ação| Aciona uma ação quando o usuário clica na imagem.|
-|Opções do Bloco| Define o preenchimento ao redor do bloco da imagem. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Largura automática | Modifica a largura da imagem em pixels. |
+| Alinhar | Orienta a imagem para a esquerda, centro ou direita do bloco. |
+| Imagem com Liquid | Use a lógica [Liquid]({{site.baseurl}}/liquid/) para definir dinamicamente diferentes imagens dentro do mesmo bloco de conteúdo. |
+| URL | Defina uma imagem usando o endereço onde está hospedada. |
+| Texto alternativo | Uma breve descrição da imagem que fornece aos usuários as mesmas informações mostradas na imagem. Essencial para a acessibilidade de leitores de tela ou quando a imagem não carrega. |
+| Imagem com cantos arredondados | Renderiza a imagem com cantos arredondados. Por padrão, as imagens são renderizadas com cantos quadrados. |
+| Ação | Aciona uma ação quando o usuário clica na imagem. |
+| Opções do bloco | Define o preenchimento ao redor do bloco da imagem. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 {% alert tip %}
-Para `Auto Width`, o redimensionamento automático da imagem escolhe o melhor tamanho para a imagem com base em uma combinação da largura da imagem e do espaço disponível no layout:
-- As imagens mais largas do que o espaço disponível serão definidas com 100% de largura e manterão essa proporção no celular, usando toda a largura da tela do dispositivo.
-- Imagens menores do que o espaço disponível usarão o tamanho natural da imagem para evitar efeitos de distorção ou imagens borradas.
+Para **Largura automática**, o redimensionamento automático da imagem escolhe o melhor tamanho para a imagem com base em uma combinação da largura da imagem e do espaço disponível no layout:
+- As imagens mais largas do que o espaço disponível são definidas com 100% de largura e mantêm essa proporção no celular, usando toda a largura da tela do dispositivo.
+- Imagens menores do que o espaço disponível usam o tamanho natural da imagem para evitar efeitos de distorção ou imagens borradas.
 {% endalert %}
 
-### Vídeo
+### Vídeo {#video}
 
-Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Video`.
+Cria um link para conteúdo de vídeo. Apenas YouTube e Vimeo são compatíveis.
 
-| Propriedades | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|URL| O URL do vídeo. Note que apenas o YouTube e o Vimeo são compatíveis com o recurso. |
-|Título| Gerado automaticamente a partir dos metadados do vídeo ou pode ser personalizado. |
-|Estilo do Ícone de Reproduzir| Inclui diferentes opções para o botão de reprodução localizado na parte superior de uma imagem de vídeo. |
-|Cor do Ícone de Reproduzir| Opção para selecionar **Claro** ou **Escuro** para o botão de reprodução. |
-|Tamanho do Ícone de Reproduzir| Escolha o tamanho do pixel para o botão de reprodução. Intervalo pré-fixado de 50 px a 80 px (incrementado em 5 px). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| URL | A URL do vídeo. |
+| Título | Gerado automaticamente a partir dos metadados do vídeo ou pode ser personalizado. |
+| Estilo do ícone de reprodução | Inclui diferentes opções para o botão de reprodução localizado na parte superior de uma imagem de vídeo. |
+| Cor do ícone de reprodução | Opção para selecionar **Light** ou **Dark** para o botão de reprodução. |
+| Tamanho do ícone de reprodução | Escolha o tamanho em pixels para o botão de reprodução. Intervalo predefinido de 50&nbsp;px a 80&nbsp;px (incrementado em 5&nbsp;px). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
 
 {% alert tip %}
-Os vídeos hospedados pelo Vimeo só funcionarão se estiverem definidos como públicos. Todas as outras configurações de segurança disponíveis no Vimeo (por exemplo, "Hide from Vimeo.com") gerarão um formato de link diferente que não é suportado por este Bloco de Conteúdo. Esses tipos de links são alterados pelo construtor, o que impede a Braze de gerar uma miniatura.
+Os vídeos hospedados pelo Vimeo só funcionam se estiverem definidos como públicos. Todas as outras configurações de segurança disponíveis no Vimeo (por exemplo, "Hide from Vimeo.com") geram um formato de link diferente que não é compatível com este bloco de conteúdo. Esses tipos de links são alterados pelo construtor, o que impede a Braze de gerar uma miniatura.
 {% endalert %}
 
-### Mídia social
+### Redes sociais {#social}
 
-Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Social`.
+Insere ícones de plataformas de redes sociais. Você pode fazer upload de imagens personalizadas para ícones específicos da marca.
 
-| Propriedades | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|Selecione a coleção de ícones| Define o estilo de sua coleção de ícones. |
-|Configure a coleção de ícones| Define o URL de cada ícone social. Inclui o botão de alternância **Mais opções** para editar o título e o texto alternativo. |
-|Alinhar| Move o ícone social para a esquerda, centro ou direita. |
-|Espaçamento do ícone| Determina o espaçamento entre cada ícone social. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Selecione a coleção de ícones | Define o estilo da sua coleção de ícones. |
+| Configure a coleção de ícones | Define a URL de cada ícone social. Inclui o botão de alternância **Mais opções** para editar o título e o texto alternativo. |
+| Alinhar | Move o ícone social para a esquerda, centro ou direita. |
+| Espaçamento do ícone | Determina o espaçamento entre cada ícone social. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
-### Ícones
+### Ícones {#icons}
 
-Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Icons`.
+Insere um ícone. Você pode fazer upload de imagens personalizadas. A Braze usa um ícone de espaço reservado grande até que você faça upload de uma imagem.
 
-| Propriedades | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|Família da fonte| Esse é o estilo da fonte do texto do parágrafo. |
-|Peso da fonte| Esse é o grau de negrito da fonte. |
-|Tamanho da fonte| Determina o tamanho de seu texto. |
-|Cor do texto| Modifica a cor do título. |
-|Cor do link| Modifica a cor do link. |
-|Alinhar| Move o ícone para a esquerda, centro ou direita. |
-|Espaçamento entre as letras| Modifica a distância entre cada caractere. |
-|Tamanho do ícone| Determina o tamanho de seu ícone. |
-|Espaçamento do ícone| Modifica o espaço do ícone. |
-|Espaçamento do ícone| Modifica o preenchimento do ícone. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Família da fonte | O estilo da fonte do texto do parágrafo. |
+| Peso da fonte | O grau geral de negrito da fonte. |
+| Tamanho da fonte | Determina o tamanho do seu texto. |
+| Cor do texto | Modifica a cor do título. |
+| Cor do link | Modifica a cor do link. |
+| Alinhar | Move o ícone para a esquerda, centro ou direita. |
+| Espaçamento entre letras | Modifica a distância entre cada caractere. |
+| Tamanho do ícone | Determina o tamanho do seu ícone. |
+| Espaçamento do ícone | Modifica o espaço do ícone. |
+| Preenchimento do ícone | Modifica o preenchimento do ícone. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
 
 ### HTML
 
-Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `HTML`.
+Insere HTML bruto. Recomendado para [Liquid]({{site.baseurl}}/liquid/), como Conteúdo conectado ou declarações condicionais.
 
-| propriedades | descrição |
+| Propriedade | Descrição |
 |---|---|
-|editor de HTML| Digite o HTML bruto. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| HTML | Adicione ou edite HTML bruto, incluindo [Liquid]({{site.baseurl}}/liquid/) para personalização ou lógica condicional. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### Menu
 
-Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Menu`.
+Cria um menu flexível para a mensagem que você está projetando.
 
-| Propriedades | Descrição |
+| Propriedade | Descrição |
 |---|---|
-|Configurar itens do menu| Adicionar um item de menu. |
-|Família de fontes| O estilo a ser usado em seu menu. |
-|Tamanho da fonte| O tamanho de seu menu. |
-|Cor do texto| Modifica a cor do menu. |
-|Cor do link| Modifica a cor do texto do menu. |
-|Alinhar| Move o menu para ser alinhado à esquerda, ao centro ou à direita. |
-|Espaçamento entre as letras| Modifica a distância entre cada caractere. |
-|Layout| Determina que o layout seja horizontal ou vertical. |
-|Separador| Adicionar caractere(s) entre as opções de menu. |
-|Menu móvel| Inclui opções para modificar o tamanho, a cor e o tipo do ícone quando exibido em um dispositivo móvel. |
-|Espaçamento do item| Modifica o preenchimento usando o botão **+** ou **-** ou inserindo um número específico. |
-|Todos os lados| Define um número de espaçamento consistente se o espaçamento do item estiver desativado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Configurar itens do menu | Adiciona um item de menu. |
+| Família da fonte | O estilo da fonte do menu. |
+| Tamanho da fonte | O tamanho do seu menu. |
+| Cor do texto | Modifica a cor do menu. |
+| Cor do link | Modifica a cor do texto do menu. |
+| Alinhar | Move o menu para a esquerda, centro ou direita. |
+| Espaçamento entre letras | Modifica a distância entre cada caractere. |
+| Disposição | Determina que a disposição seja horizontal ou vertical. |
+| Separador | Adiciona caractere(s) entre as opções de menu. |
+| Menu móvel | Inclui opções para modificar o tamanho, a cor e o tipo do ícone quando exibido em um dispositivo móvel. |
+| Preenchimento do item | Modifica o preenchimento usando o botão **+** ou **-** ou inserindo um número específico. |
+| Todos os lados | Define um número de preenchimento consistente se o preenchimento do item estiver desativado. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
-## Ações
+### Produto {#product}
 
-Você pode atribuir uma ação que ocorre quando um usuário toca em um botão, link ou imagem na mensagem. Você também pode usar [Liquid]({{site.baseurl}}/liquid/) para personalizar as ações. Detalhes para as ações de cada bloco de editor são fornecidos nas tabelas a seguir.
+Renderiza linhas de produtos de um [Catálogo de Produtos]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/), seja como itens estáticos de uma seleção de catálogo (até 12) ou como produtos dinâmicos acionados por um [gatilho de eCommerce do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/) (até 24).
 
-### Botão
+| Propriedade | Descrição |
+| --- | --- |
+| Tipo de conteúdo | Define se os produtos vêm de uma **Seleção** fixa do catálogo (**Estático**, até 12 produtos) ou de um gatilho de recomendação de eCommerce do Canvas (**Dinâmico**, até 24 produtos). **Dinâmico** está disponível apenas em etapas de mensagem do Canvas. |
+| Catálogo | Seleciona qual Catálogo de Produtos fornece os dados e mapeamentos de campos dos produtos. |
+| Seleção | *(Somente estático)* Seleciona qual conjunto filtrado do catálogo define quais produtos aparecem. |
+| Mostrar detalhes da origem | Alterna o texto de ajuda que mostra o catálogo ou campo de evento subjacente mapeado para cada campo do produto. |
+| Imagem da variante | Mostra ou oculta a imagem da variante para cada bloco de produto. |
+| Título do produto | Mostra ou oculta o título do produto para cada bloco. |
+| Preço | Mostra ou oculta o preço do produto. |
+| Botão para URL do produto | Mostra ou oculta um botão de chamada para ação com link para a URL do produto. |
+| Quantidade | *(Dinâmico, somente Canvas, quando o gatilho de entrada não é um evento de visualização de produto)* Mostra ou oculta a quantidade do produto a partir do evento de gatilho. |
+| Orientação do produto | Define a posição da imagem dentro de cada bloco: **Imagem à esquerda**, **Imagem centralizada** ou **Imagem à direita**. |
+| Alinhamento | Define o alinhamento horizontal do conteúdo dentro de cada bloco. |
+| Máximo de produtos por linha | Define quantos produtos aparecem por linha: **1**, **2** ou **3** (**3** está disponível apenas quando a orientação é **Imagem centralizada**). |
+| Espaçamento entre produtos | Define o espaçamento entre os produtos: **Automático** ou **Personalizado**. |
+| Espaçamento personalizado | *(Quando **Personalizado** é selecionado)* Define o espaço em pixels entre os produtos. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
 
-Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Button`.
+## Personalização {#personalization}
 
-| Propriedades | Descrição |
-|---|---|
-|Tipo de link| Determina a ação ao clicar no botão e define o protocolo apropriado. |
-|URL| Dinâmico com base no tipo de link **Abrir página da web**.|
-|Para, Assunto e Corpo| Para o tipo de link **Enviar e-mail**, isso define o endereço de e-mail do destinatário, assunto e conteúdo que serão preenchidos em um e-mail rascunho quando o usuário selecionar o botão.|
-|Tel| Para o tipo de link **Fazer chamada** e **Enviar SMS**, isso define o número de telefone que o usuário irá ligar ou enviar mensagem ao selecionar o botão.|
-|Mensagem| Para o tipo de link **Enviar SMS**, isso define o conteúdo que será preenchido em uma mensagem SMS de rascunho quando o usuário selecionar o botão.|
-|Opções de botão| Define várias opções de botão, como fonte, largura, cor e outras.|
-|Passar o mouse sobre o botão| O estilo do botão quando um usuário passa o mouse sobre ele usando um mouse ou touchpad. Isso inclui a cor de fundo do botão, a cor da fonte e os estilos de borda.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Você pode adicionar personalização ao seu e-mail usando Liquid ou Conteúdo conectado.
+
+- **Liquid:** Em **Conteúdo** > **Personalização**, selecione um atributo, copie o snippet e cole-o em um bloco de Título, Parágrafo ou Lista (Liquid básico) ou em um bloco HTML (Liquid avançado). Em geral, embora você possa usar Liquid básico em blocos de Título, Parágrafo e Lista, recomendamos usar blocos HTML para lógicas mais complexas, a fim de evitar problemas de layout. Note que o Liquid não é compatível com blocos de imagem ou campos de URL de botão.
+- **[Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/):** Adicione um bloco **HTML** e insira sua chamada {% raw %}`{% connected_content %}`{% endraw %} nele.

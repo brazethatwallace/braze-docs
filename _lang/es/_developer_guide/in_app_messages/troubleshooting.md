@@ -8,7 +8,7 @@ channel:
 
 ---
 
-# Solución de problemas
+# Solución de problemas {#troubleshooting}
 
 > ¿Necesitas ayuda para la solución de problemas con los mensajes dentro de la aplicación para el SDK de Braze? ¡Empieza aquí!
 

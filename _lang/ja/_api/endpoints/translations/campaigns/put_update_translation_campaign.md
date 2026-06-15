@@ -1,53 +1,51 @@
 ---
-nav_title: "PUT:キャンペーン内の翻訳を更新"
-article_title: "PUT:キャンペーン内の翻訳を更新"
-search_tag: エンドポイント
+nav_title: "PUT: キャンペーンの翻訳を更新"
+article_title: "PUT: キャンペーンの翻訳を更新"
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "この記事では、「キャンペーン内の翻訳を更新」エンドポイントの詳細について説明します。"
+description: "この記事では、「キャンペーンの翻訳を更新」エンドポイントの詳細について説明します。"
 ---
 
 {% api %}
-# キャンペーン内の翻訳を更新
+# キャンペーンの翻訳を更新 {#update-translation-in-a-campaign}
 {% apimethod put %}
 /campaigns/translations
 {% endapimethod %}
 
-> キャンペーンの複数の翻訳を更新するには、このエンドポイントを使用する。ローカライゼーション機能の詳細については、[メッセージ内のロケールを]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/)参照せよ。
+> このエンドポイントを使用して、Campaignの複数の翻訳を更新できます。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
-キャンペーンを開始した後に翻訳を更新したい場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/)する必要があります。
+Campaignを起動した後に翻訳を更新したい場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/)する必要があります。
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+## 前提条件 {#prerequisites}
 
-## 前提条件
+このエンドポイントを使用するには、`campaigns.translations.update` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`campaigns.translations.update`の権限が必要です。
-
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## パスパラメーター
+## パスパラメーター {#path-parameters}
 
-このエンドポイントにはパスパラメータがありません。
+このエンドポイントにはパスパラメーターはありません。
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 必須かどうか | 文字列 | キャンペーンのID。 |
-| `message_variation_id` | 必須かどうか | string | メッセージバリエーションの ID。 |
-| `locale_id`| 必須かどうか | string | ロケールの識別子（UUID）。 |
+| `campaign_id` | 必須 | 文字列 | CampaignのID。 |
+| `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
+| `locale_id` | 必須 | 文字列 | ロケールのID（UUID）。 |
 | `translation_map` | 必須 | オブジェクト | 新しい翻訳を含むオブジェクト。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
-すべての翻訳識別子はユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントの応答で確認できる。
+すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントの応答で確認できます。
 {% endalert %}
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 ```json
 {
@@ -60,11 +58,11 @@ description: "この記事では、「キャンペーン内の翻訳を更新」
 }
 ```
 
-## 応答
+## 応答 {#response}
 
-このエンドポイントには、`200`、`400`、`404`、`429` という 4 つのステータスコードの応答があります。
+このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコード応答があります。
 
-### 成功応答の例
+### 成功応答の例 {#example-success-response}
 
 ```json
 {
@@ -72,9 +70,9 @@ description: "この記事では、「キャンペーン内の翻訳を更新」
 }
 ```
 
-### エラー応答例
+### エラー応答の例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。遭遇する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照のこと。
+ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {

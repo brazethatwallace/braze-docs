@@ -1,8 +1,8 @@
-## Códigos de idiomas suportados
+## Códigos de idiomas suportados {#supported-language-codes}
 
-O Braze suporta a maioria dos códigos de idiomas do padrão [ISO-639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), com algumas exceções. Consulte a tabela a seguir para obter a lista completa.
+A Braze suporta a maioria dos códigos de idiomas do padrão [ISO-639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), com algumas exceções. Consulte a tabela a seguir para obter a lista completa.
 
-| Idioma | Código | 
+| Idioma | Código |
 | -------- | ---- |
 | INGLÊS | `en` |
 | AFRICÂNER | `af` |
@@ -12,9 +12,9 @@ O Braze suporta a maioria dos códigos de idiomas do padrão [ISO-639-1](http://
 | AMÁRICO | `am` |
 | ÁRABE | `ar` |
 | ARMÊNIO | `hy` |
-| ASSAMESE | `as` |
-| AYMARA | `ay` |
-| AZERBAIJANI | `az` |
+| ASSAMÊS | `as` |
+| AIMARÁ | `ay` |
+| AZERBAIJANO | `az` |
 | BAFIA | `ksf` |
 | BASA | `bas` |
 | BASCO | `eu` |
@@ -23,20 +23,20 @@ O Braze suporta a maioria dos códigos de idiomas do padrão [ISO-639-1](http://
 | BENGALI | `bn` |
 | BENA | `bez` |
 | BÓSNIO | `bs` |
-| BRETON | `br` |
+| BRETÃO | `br` |
 | BÚLGARO | `bg` |
-| BURMESE | `my` |
+| BIRMANÊS | `my` |
 | QUEMER | `km` |
 | CATALÃO | `ca` |
-| TAMAZIGHT DOS ATLAS CENTRAIS | `tzm` |
+| TAMAZIGHT DO ATLAS CENTRAL | `tzm` |
 | CHEROKEE | `chr` |
 | CHIGA | `cgg` |
 | CHINÊS | `zh` |
-| CONGO SWAHILI | `swc` |
+| SUAÍLI DO CONGO | `swc` |
 | CÓRNICO | `kw` |
 | CROATA | `hr` |
 | TCHECO | `cs` |
-| DANISH | `da` |
+| DINAMARQUÊS | `da` |
 | DAWIDA | `dav` |
 | DOUALA | `dua` |
 | HOLANDÊS | `nl` |
@@ -48,21 +48,21 @@ O Braze suporta a maioria dos códigos de idiomas do padrão [ISO-639-1](http://
 | EWE | `ee` |
 | FEROÊS | `fo` |
 | FARSI | `fa` |
-| FILIPINAS | `fil` |
+| FILIPINO | `fil` |
 | FINLANDÊS | `fi` |
 | FRANCÊS | `fr` |
 | GALEGO | `gl` |
 | GANDA | `lg` |
 | GEORGIANO | `ka` |
 | ALEMÃO | `de` |
-| SUÍÇA ALEMÃ | `gsw` |
+| ALEMÃO SUÍÇO | `gsw` |
 | GREGO | `el` |
 | GROENLANDÊS | `kl` |
 | GUARANI | `gn` |
 | GUJARATI | `gu` |
-| HAUSA | `ha` |
+| HAUÇÁ | `ha` |
 | HAVAIANO | `haw` |
-| HEBREU | `he` |
+| HEBRAICO | `he` |
 | HINDI | `hi` |
 | HÚNGARO | `hu` |
 | ISLANDÊS | `is` |
@@ -78,31 +78,31 @@ O Braze suporta a maioria dos códigos de idiomas do padrão [ISO-639-1](http://
 | KALENJIN | `kln` |
 | KAMBA | `kam` |
 | KANNADA | `kn` |
-| KASHMIRI | `ks` |
+| CAXEMIRA | `ks` |
 | CAZAQUE | `kk` |
 | KIEMBU | `ebu` |
 | KIKUYU | `ki` |
 | KINYARWANDA | `rw` |
-| KIRGHIZ | `ky` |
-| COREANA | `ko` |
+| QUIRGUIZ | `ky` |
+| COREANO | `ko` |
 | CURDO | `ku` |
 | LAO | `lo` |
 | LATIM | `la` |
-| LETONIANO | `lv` |
+| LETÃO | `lv` |
 | LINGALA | `ln` |
-| LITUANIANO | `lt` |
-| LUBA KATANGA | `lu` |
+| LITUANO | `lt` |
+| LUBA-KATANGA | `lu` |
 | LUXEMBURGUÊS | `lb` |
 | LUO | `luo` |
 | LUYIA | `luy` |
 | MACHAME | `jmc` |
-| MACEDÔNIA | `mk` |
-| MALAGASIA | `mg` |
+| MACEDÔNIO | `mk` |
+| MALGAXE | `mg` |
 | MALAIO | `ms` |
 | MALAIALA | `ml` |
-| MALTESE | `mt` |
+| MALTÊS | `mt` |
 | MANX | `gv` |
-| MARATHI | `mr` |
+| MARATA | `mr` |
 | MASAI | `mas` |
 | MERU | `mer` |
 | MOLDÁVIO | `mo` |
@@ -110,19 +110,19 @@ O Braze suporta a maioria dos códigos de idiomas do padrão [ISO-639-1](http://
 | MORISYEN | `mfe` |
 | MUNDANG | `mua` |
 | NAM | `naq` |
-| NEPALI | `ne` |
-| NORTE NDEBELE | `nd` |
-| NORUEGA | `nb` |
+| NEPALÊS | `ne` |
+| NDEBELE DO NORTE | `nd` |
+| NORUEGUÊS | `nb` |
 | NUER | `nus` |
 | NYANKOLE | `nyn` |
 | NYNORSK | `nn` |
 | OROMO | `om` |
 | PASHTO | `ps` |
-| FULANI | `ff` |
+| FULA | `ff` |
 | POLONÊS | `pl` |
 | PORTUGUÊS | `pt` |
 | PUNJABI | `pa` |
-| QUECHUA | `qu` |
+| QUÉCHUA | `qu` |
 | RETO-ROMANCHE | `rm` |
 | ROMENO | `ro` |
 | ROMBO | `rof` |
@@ -131,47 +131,47 @@ O Braze suporta a maioria dos códigos de idiomas do padrão [ISO-639-1](http://
 | SAMBURU | `saq` |
 | SAMI | `se` |
 | SANGU | `sbp` |
-| SANSKRIT | `sa` |
+| SÂNSCRITO | `sa` |
 | ESCOCÊS | `gd` |
 | SÉRVIO | `sr` |
 | SENA | `seh` |
 | SHAMBALA | `ksb` |
 | SHONA | `sn` |
-| SICHUAN YI | `ii` |
-| SINDHI | `sd` |
+| YI DE SICHUAN | `ii` |
+| SINDI | `sd` |
 | CINGALÊS | `si` |
-| ESLOVÁQUIA | `sk` |
+| ESLOVACO | `sk` |
 | ESLOVENO | `sl` |
 | SOMALI | `so` |
 | ESPANHOL | `es` |
-| SWAHILI | `sw` |
-| SUÉCIA | `sv` |
+| SUAÍLI | `sw` |
+| SUECO | `sv` |
 | TACHELHIT | `shi` |
-| TAGALOG | `tl` |
-| TAJIKI | `tg` |
-| TAMIL | `ta` |
+| TAGALO | `tl` |
+| TAJIQUE | `tg` |
+| TÂMIL | `ta` |
 | TASAWAQ | `twq` |
 | TÁRTARO | `tt` |
-| TELUGU | `te` |
+| TÉLUGO | `te` |
 | TESO | `teo` |
-| TAI | `th` |
+| TAILANDÊS | `th` |
 | TIBETANO | `bo` |
-| TIGRINYA | `ti` |
-| TONGAN | `to` |
+| TIGRÍNIA | `ti` |
+| TONGANÊS | `to` |
 | TURCO | `tr` |
 | TURCOMENO | `tk` |
-| UIGHUR | `ug` |
+| UIGUR | `ug` |
 | UCRANIANO | `uk` |
 | URDU | `ur` |
-| UZBEK | `uz` |
+| UZBEQUE | `uz` |
 | VAI | `vai` |
 | VIETNAMITA | `vi` |
 | VUNJO | `vun` |
-| WELSH | `cy` |
+| GALÊS | `cy` |
 | XHOSA | `xh` |
 | YANGBEN | `yav` |
-| YIDDISH | `yi` |
-| YORUBA | `yo` |
+| IÍDICHE | `yi` |
+| IORUBÁ | `yo` |
 | ZARMA | `dje` |
 | ZULU | `zu` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de idiomas suportados" }

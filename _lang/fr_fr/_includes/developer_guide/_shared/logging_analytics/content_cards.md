@@ -1,13 +1,13 @@
-> Lors de la création d'une interface utilisateur personnalisée pour les Content Cards, vous devez enregistrer manuellement les données analytiques telles que les impressions, les clics et les rejets, car cela n'est géré automatiquement que pour les modèles de cartes par défaut. L'enregistrement de ces événements fait partie intégrante de l'intégration des Content Cards et est essentiel pour garantir l'exactitude des rapports et de la facturation des campagnes. Pour ce faire, alimentez votre interface utilisateur personnalisée avec les données provenant des modèles de données Braze, puis enregistrez manuellement les événements. Une fois que vous avez compris comment enregistrer les analyses, vous pouvez découvrir les façons courantes dont les clients de Braze [créent des Content Cards personnalisées]({{site.baseurl}}/developer_guide/content_cards/creating_cards/). 
+> Lors de la création d'une interface utilisateur personnalisée pour les Content Cards, vous devez enregistrer manuellement les données analytiques telles que les impressions, les clics et les rejets, car cela n'est géré automatiquement que pour les modèles de cartes par défaut. L'enregistrement de ces événements fait partie intégrante de l'intégration des Content Cards et est essentiel pour garantir l'exactitude des rapports et de la facturation des Campaigns. Pour ce faire, alimentez votre interface utilisateur personnalisée avec les données provenant des modèles de données Braze, puis enregistrez manuellement les événements. Une fois que vous avez compris comment enregistrer les analyses, vous pouvez découvrir les façons courantes dont les clients de Braze [créent des Content Cards personnalisées]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
 
-## Enregistrer les analyses
+## Enregistrer les analyses {#logging-analytics}
 
-Lorsque vous implémentez vos Content Cards personnalisées, vous pouvez analyser les objets des cartes de contenu et extraire leurs données utiles, telles que `title`, `cardDescription` et `imageUrl`. Vous pouvez ensuite utiliser les données du modèle résultant pour alimenter votre interface utilisateur personnalisée. 
+Lorsque vous implémentez vos Content Cards personnalisées, vous pouvez analyser les objets des cartes de contenu et extraire leurs données utiles, telles que `title`, `cardDescription` et `imageUrl`. Vous pouvez ensuite utiliser les données du modèle résultant pour alimenter votre interface utilisateur personnalisée.
 
 Pour obtenir les modèles de données des cartes de contenu, abonnez-vous aux mises à jour des cartes de contenu. Deux propriétés méritent une attention particulière :
 
 * **`id`** : Représente la chaîne de caractères de l'ID de la carte de contenu. Il s'agit de l'identifiant unique utilisé pour enregistrer les analyses des Content Cards personnalisées.
-* **`extras`** : Englobe toutes les paires clé-valeur du tableau de bord de Braze. 
+* **`extras`** : Englobe toutes les paires clé-valeur du tableau de bord de Braze.
 
 Toutes les propriétés autres que `id` et `extras` sont facultatives pour l'analyse des Content Cards personnalisées. Pour plus d'informations sur le modèle de données, consultez l'article sur l'intégration de chaque plateforme : [Android]({{site.baseurl}}/developer_guide/content_cards/?sdktab=android), [iOS]({{site.baseurl}}/developer_guide/content_cards/?sdktab=swift), [Web]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web).
 
@@ -48,7 +48,7 @@ Les Content Cards ne seront actualisées au démarrage de la session que si une 
 {% subtabs local %}
 {% subtab Java %}
 
-### Étape 1 : Créer une variable privée pour l'utilisateur abonné
+### Étape 1 : Créer une variable privée pour l'abonné {#step-1-create-a-private-subscriber-variable}
 
 Pour vous abonner aux mises à jour des cartes, commencez par déclarer une variable privée dans votre classe personnalisée, qui contiendra votre abonné :
 
@@ -57,7 +57,7 @@ Pour vous abonner aux mises à jour des cartes, commencez par déclarer une vari
 private IEventSubscriber<ContentCardsUpdatedEvent> mContentCardsUpdatedSubscriber;
 ```
 
-### Étape 2 : S'abonner aux mises à jour
+### Étape 2 : S'abonner aux mises à jour {#step-2-subscribe-to-updates}
 
 Ensuite, ajoutez le code suivant pour vous abonner aux mises à jour des Content Cards de Braze, généralement à l'intérieur de la méthode `Activity.onCreate()` de votre activité personnalisée de Content Cards :
 
@@ -77,7 +77,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh();
 ```
 
-### Étape 3 : Se désabonner
+### Étape 3 : Se désabonner {#step-3-unsubscribe}
 
 Nous vous recommandons également de vous désabonner lorsque votre activité personnalisée n'est plus visible. Ajoutez le code suivant à la méthode de cycle de vie `onDestroy()` de votre activité :
 
@@ -88,7 +88,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 {% endsubtab %}
 {% subtab Kotlin %}
 
-### Étape 1 : Créer une variable privée pour l'utilisateur abonné
+### Étape 1 : Créer une variable privée pour l'abonné
 
 Pour vous abonner aux mises à jour des cartes, commencez par déclarer une variable privée dans votre classe personnalisée, qui contiendra votre abonné :
 
@@ -135,11 +135,11 @@ Pour accéder au modèle de données des Content Cards, appelez [`contentCards.c
 let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 ```
 
-Vous pouvez également gérer un abonnement pour observer les changements dans vos Content Cards. Deux approches sont possibles : 
-1. Gérer un objet annulable ; ou 
+Vous pouvez également gérer un abonnement pour observer les changements dans vos Content Cards. Deux approches sont possibles :
+1. Gérer un objet annulable ; ou
 2. Gérer un `AsyncStream`.
 
-### Annulable 
+### Annulable {#cancellable}
 
 ```swift
 // This subscription is maintained through a Braze cancellable, which will observe for changes until the subscription is cancelled.
@@ -216,7 +216,7 @@ const cachedCards = await Braze.getCachedContentCards();
 {% endtab %}
 {% endtabs %}
 
-## Enregistrer les événements
+## Enregistrer les événements {#logging-events}
 
 L'enregistrement d'indicateurs utiles, tels que les impressions, les clics et les rejets, est simple et rapide. Définissez un écouteur de clic personnalisé pour traiter manuellement ces analyses.
 
@@ -242,13 +242,13 @@ braze.logContentCardClick(card);
 {% endtab %}
 {% tab android %}
 
-Le [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt) peut faire référence aux dépendances du SDK Braze, telles que la liste d'objets Content Cards, afin d'obtenir l'objet [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) permettant d'appeler les méthodes de journalisation Braze. Utilisez la classe de base `ContentCardable` pour référencer et fournir facilement des données au `BrazeManager`. 
+Le [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt) peut faire référence aux dépendances du SDK Braze, telles que la liste d'objets Content Cards, afin d'obtenir l'objet [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) permettant d'appeler les méthodes de journalisation Braze. Utilisez la classe de base `ContentCardable` pour référencer et fournir facilement des données au `BrazeManager`.
 
-Pour enregistrer une impression ou un clic sur une carte, appelez respectivement [`Card.logClick()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html) ou [`Card.logImpression()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html). 
+Pour enregistrer une impression ou un clic sur une carte, appelez respectivement [`Card.logClick()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html) ou [`Card.logImpression()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html).
 
 Vous pouvez enregistrer manuellement une carte de contenu ou la définir comme « rejetée » dans Braze pour une carte particulière avec [`isDismissed`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/is-dismissed.html). Si une carte est déjà marquée comme rejetée, elle ne peut pas être marquée comme rejetée à nouveau.
 
-Pour créer un écouteur de clic personnalisé, créez une classe qui implémente [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) et enregistrez-la avec [`BrazeContentCardsManager`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.managers/-braze-content-cards-manager/index.html). Implémentez la méthode [`onContentCardClicked()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/on-content-card-clicked.html), qui sera appelée lorsque l'utilisateur cliquera sur une Content Card. Ensuite, indiquez à Braze d'utiliser votre écouteur de clic pour les Content Cards. 
+Pour créer un écouteur de clic personnalisé, créez une classe qui implémente [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) et enregistrez-la avec [`BrazeContentCardsManager`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.managers/-braze-content-cards-manager/index.html). Implémentez la méthode [`onContentCardClicked()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/on-content-card-clicked.html), qui sera appelée lorsque l'utilisateur cliquera sur une Content Card. Ensuite, indiquez à Braze d'utiliser votre écouteur de clic pour les Content Cards.
 
 {% subtabs local %}
 {% subtab Java %}
@@ -362,7 +362,7 @@ Braze.logContentCardDismissed(card.id);
 {% endtab %}
 {% endtabs %}
 
-## Gérer le comportement au clic
+## Gérer le comportement au clic {#handling-on-click-behavior}
 
 {% tabs %}
 {% tab web %}

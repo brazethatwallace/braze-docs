@@ -14,21 +14,21 @@ Un ejemplo es `https://www.example.com?utm_source=newsletter&utm_medium=sms`.
 
 {% if include.section == "Frequently Asked Questions" %}
 
-## Preguntas más frecuentes
+## Preguntas más frecuentes {#frequently-asked-questions}
 
-### ¿Los enlaces que recibo al realizar el envío de prueba son URL reales?
+### ¿Los enlaces que recibo al realizar el envío de prueba son URL reales? {#are-the-links-i-receive-when-test-sending-real-urls}
 
 Si la campaña se ha guardado como borrador antes del envío de prueba, sí. De lo contrario, se trata de un enlace de marcador de posición. Ten en cuenta que la URL exacta enviada en una campaña lanzada puede diferir de la enviada en un envío de prueba.
 
-### ¿Puedo añadir parámetros UTM a una URL antes de acortarla?
+### ¿Puedo añadir parámetros UTM a una URL antes de acortarla? {#can-i-add-utm-parameters-to-a-url-before-it-is-shortened}
 
-Sí. Se pueden añadir tanto parámetros estáticos como dinámicos. 
+Sí. Se pueden añadir tanto parámetros estáticos como dinámicos.
 
-### ¿Durante cuánto tiempo son válidas las URL acortadas?
+### ¿Durante cuánto tiempo son válidas las URL acortadas? {#how-long-do-shortened-urls-remain-valid}
 
-Las URL personalizadas son válidas durante dos meses desde el momento del registro de la URL. Para el [acortamiento de enlaces unificado]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/?sdktab=unified), que no tiene distinción entre estático y personalizado, todos los enlaces son válidos durante nueve semanas.
+Las URL personalizadas son válidas durante dos meses desde el momento del registro de la URL. Para el [acortamiento de enlaces unificado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/?sdktab=unified), que no tiene distinción entre estático y personalizado, todos los enlaces son válidos durante nueve semanas.
 
-### ¿Es necesario instalar el SDK de Braze para acortar enlaces?
+### ¿Es necesario instalar el SDK de Braze para acortar enlaces? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-links}
 
 No. El acortamiento de enlaces funciona sin ninguna integración de SDK.
 
@@ -36,8 +36,8 @@ No. El acortamiento de enlaces funciona sin ninguna integración de SDK.
 
 {% if include.section == "Custom Domains" %}
 
-## Dominios personalizados
+## Dominios personalizados {#custom-domains}
 
-El acortamiento de enlaces también te permite utilizar tu propio dominio para personalizar el aspecto de tus URL acortadas, lo que contribuye a mostrar una imagen de marca coherente. Para más información, consulta [Dominios personalizados]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/custom_domains/).
+El acortamiento de enlaces también te permite utilizar tu propio dominio para personalizar el aspecto de tus URL acortadas, lo que contribuye a mostrar una imagen de marca coherente. Para más información, consulta [Dominios personalizados de autoservicio]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/).
 
 {% endif %}

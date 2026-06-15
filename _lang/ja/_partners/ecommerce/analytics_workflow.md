@@ -1,4 +1,4 @@
 ---
-nav_title: e コマース分析およびワークフロー
+nav_title: eコマース分析およびワークフロー
 config_only: true
 ---

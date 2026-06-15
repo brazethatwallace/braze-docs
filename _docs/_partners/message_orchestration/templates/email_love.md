@@ -18,7 +18,7 @@ search_tag: Partner
 |------------------------|------------------------------------------------------------------|
 | **Email Love account** | An Email Love account is required to take advantage of this partnership. |
 | **Braze REST API key** | A Braze REST API key with full `Templates` permission enabled. This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Using Email Love with Braze
 

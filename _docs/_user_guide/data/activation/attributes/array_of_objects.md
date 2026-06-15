@@ -31,10 +31,14 @@ For more information on using arrays of objects for user attributes objects, ref
 
 ## API example
 
+Use these examples when you send `/users/track` requests that create or update nested custom attributes stored as arrays of objects. The payload uses `$add`, `$remove`, and `$update` operators so you can change specific objects without rebuilding the full array on every request.
+
 {% tabs local %}
 {% tab Create %}
 
 The following is a `/users/track` example with a `pets` array. To capture the properties of the pets, send an API request that lists `pets` as an array of objects. Note that each object has been assigned a unique `id` that can be referenced later when making updates.
+
+Use this format when you want to create the attribute for the first time or replace the entire array with a new baseline set of objects.
 
 ```json
 {
@@ -63,6 +67,8 @@ The following is a `/users/track` example with a `pets` array. To capture the pr
 {% tab Add %}
 
 Add another item to the array using the `$add` operator. The following example shows adding three more pet objects to the user's `pets` array.
+
+Use `$add` when you need to append one or more new objects and keep existing objects unchanged.
 
 ```json
 {
@@ -98,9 +104,11 @@ Add another item to the array using the `$add` operator. The following example s
 {% endtab %}
 {% tab Update %}
 
-Update values for specific objects within an array using the `_merge_objects` parameter and the `$update` operator. Similar to updates to simple [nested custom attribute]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body) objects, this performs a deep merge.
+Update values for specific objects within an array using the `_merge_objects` parameter and the `$update` operator. Similar to updates to other [nested custom attribute]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body) objects, this performs a deep merge.
 
 Note that `$update` can't be used to remove a nested property from an object inside an array. To do this, you'll need to remove the entire item from the array and then add the object without that specific key (using a combination of `$remove` and `$add`).
+
+Use `$update` when the object already exists and you want to change one or more fields by matching on `$identifier_key` and `$identifier_value`.
 
 The following example shows updating the `breed` property to `goldfish` for the object with an `id` of `4`. This request example also updates the object with `id` equals `5` with a new `name` of `Annette`. Since the `_merge_objects` parameter is set to `true`, all other fields for these two objects remain the same.
 
@@ -142,6 +150,8 @@ You must set `_merge_objects` to true, or your objects will be overwritten. `_me
 
 Remove objects from an array using the `$remove` operator in combination with a matching key (`$identifier_key`) and value (`$identifier_value`).
 
+Use `$remove` when you want to delete all matching objects for a known identifier pair, such as `id = 2` or `type = dog`.
+
 The following example shows removing any object in the `pets` array that has an `id` with a value of `1`, an `id` with a value of `2`, and a `type` with a value of `dog`. If there are multiple objects with the `type` value of `dog`, all matching objects will be removed.
 
 ```json
@@ -181,6 +191,8 @@ When a single `/users/track` request includes `$add`, `$remove`, and `$update` o
 1. `$add`
 2. `$remove`
 3. `$update`
+
+This order applies within a single attribute update object in one request and determines the final state of the array after all operations are evaluated.
 
 Because `$add` runs before `$remove`, you can't use a `$remove` followed by `$add` as an upsert mechanism within a single request. The `$add` is processed first, then the `$remove` deletes the item. To upsert, send the `$remove` in a separate request before the `$add`.
 

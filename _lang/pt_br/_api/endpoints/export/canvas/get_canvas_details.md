@@ -5,37 +5,37 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Exportar detalhes do canva\"."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Exportar detalhes do Canvas\"."
 
 ---
 {% api %}
-# Exportar detalhes do canva
+# Exportar detalhes do Canvas {#export-canvas-details}
 {% apimethod get %}
 /canvas/details
 {% endapimethod %}
 
-> Use esse endpoint para exportar metadados sobre um canva, como o nome, a hora de criação, o status atual e muito mais.
+> Use esse endpoint para exportar metadados sobre um Canvas, como o nome, a hora de criação, o status atual e muito mais.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5188873c-13a3-4aaf-a54b-9fa1daeac5f8 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `canvas.details`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obrigatória | String | Consulte [Identificador da API do canva]({{site.baseurl}}/api/identifier_types/) |
-| `post_launch_draft_version` | Opcional | Booleano | Para canvas que têm um rascunho pós-lançamento, definir isso como `true` mostrará quaisquer alterações de rascunho disponíveis. O padrão é `false`. |
+| `canvas_id` | Obrigatória | String | Consulte [Identificador de API do Canvas]({{site.baseurl}}/api/identifier_types/) |
+| `post_launch_draft_version` | Opcional | Booleano | Para Canvas que têm um rascunho pós-lançamento, definir isso como `true` mostrará quaisquer alterações de rascunho disponíveis. O padrão é `false`. |
 | `include_has_translatable_content` | Opcional | Booleano | Quando definido como `true`, a resposta da API inclui um campo `has_translatable_content` para cada mensagem. O padrão é `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 {% raw %}
 ```
@@ -44,10 +44,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 {% endraw %}
 
-## Respostas
+## Respostas {#responses}
 
 {% alert note %}
-Todas as etapas do canva têm um campo `next_paths`, que é uma matriz de dados `{name, next_step_id}`. Para etapas de mensagem, o campo `next_step_ids` estará presente, mas não conterá dados para outras etapas do canva.
+Todas as etapas do Canvas têm um campo `next_paths`, que é uma matriz de dados `{name, next_step_id}`. Para etapas de mensagem, o campo `next_step_ids` estará presente, mas não conterá dados para outras etapas do Canvas.
 {% endalert %}
 
 ```json
@@ -104,9 +104,9 @@ Todas as etapas do canva têm um campo `next_paths`, que é uma matriz de dados 
 }
 ```
 
-### Mensagens por canal
+### Mensagens por canal {#messages-by-channel}
 
-A seguir, um exemplo de resposta que inclui mensagens do canva enviadas por diferentes canais (e-mail, push, SMS e mensagens no app):
+A seguir, um exemplo de resposta que inclui mensagens do Canvas enviadas por diferentes canais (e-mail, push, SMS e mensagens no app):
 
 ```json
 {
@@ -220,7 +220,7 @@ A seguir, um exemplo de resposta que inclui mensagens do canva enviadas por dife
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

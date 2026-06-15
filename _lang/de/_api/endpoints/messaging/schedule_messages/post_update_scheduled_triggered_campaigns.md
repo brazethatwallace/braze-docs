@@ -1,31 +1,31 @@
 ---
-nav_title: "POST: Aktualisieren Sie geplante, durch APIs getriggerte Kampagnen"
-article_title: "POST: Geplante API-getriggerte Kampagnen aktualisieren"
+nav_title: "POST: Geplante API-getriggerte Campaigns aktualisieren"
+article_title: "POST: Geplante API-getriggerte Campaigns aktualisieren"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
-description: "Dieser Artikel beschreibt die Details des Endpunkts Update geplanter Kampagnen, die durch APIs getriggert werden, von Braze."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Aktualisieren geplanter API-getriggerter Campaigns."
 
 ---
 {% api %}
-# Aktualisieren Sie geplante, durch APIs getriggerte Kampagnen
+# Geplante API-getriggerte Campaigns aktualisieren {#update-scheduled-api-triggered-campaigns}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
-/kampagnen/ausloesen/zeitplan/update
+/campaigns/trigger/schedule/update
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um geplante Kampagnen mit API-Auslösung zu aktualisieren, die im Dashboard erstellt wurden. So können Sie entscheiden, welche Aktion den Versand der Nachricht triggern soll.
+> Verwenden Sie diesen Endpunkt, um geplante API-getriggerte Campaigns zu aktualisieren, die im Dashboard erstellt wurden. So können Sie entscheiden, welche Aktion den Versand der Nachricht triggern soll.
 
-Sie können `trigger_properties`, die Braze Templates in die Nachricht selbst einfügen.
+Sie können `trigger_properties` übergeben, die Braze als Templates in die Nachricht selbst einfügt.
 
-Beachten Sie, dass Sie zum Versenden von Nachrichten mit diesem Endpunkt eine ID für die Kampagne benötigen, die Sie beim Erstellen einer [API-getriggerten Kampagne]({{site.baseurl}}/api/api_campaigns/) erstellt haben.
+Beachten Sie, dass Sie zum Versenden von Nachrichten mit diesem Endpunkt eine Campaign-ID benötigen, die beim Erstellen einer [API-getriggerten Campaign]({{site.baseurl}}/api/api_campaigns/) erzeugt wurde.
 
-Jeder Zeitplan überschreibt vollständig den Zeitplan, den Sie in der Anfrage zum Erstellen des Zeitplans oder in früheren Anfragen zum Update des Zeitplans angegeben haben. Wenn Sie den Zeitplan beispielsweise ursprünglich auf `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` eingestellt haben und ihn später auf `"schedule" : {"time" : "2015-02-20T14:14:47"}` aktualisieren, sendet Braze die Nachricht zur angegebenen Zeit in UTC, nicht in der Ortszeit des Nutzers:in.
+Jeder Zeitplan überschreibt vollständig den Zeitplan, den Sie in der Anfrage zum Erstellen des Zeitplans oder in früheren Anfragen zum Aktualisieren des Zeitplans angegeben haben. Wenn Sie den Zeitplan beispielsweise ursprünglich auf `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` eingestellt haben und ihn später auf `"schedule" : {"time" : "2015-02-20T14:14:47"}` aktualisieren, sendet Braze die Nachricht zur angegebenen Zeit in UTC, nicht in der Ortszeit der Nutzer:innen.
 
-Geplante Trigger, die kurz vor oder während der Zeit, zu der sie gesendet werden sollten, aktualisiert werden, werden nach bestem Wissen und Gewissen aktualisiert, so dass Braze Änderungen in letzter Sekunde auf alle, einige oder keinen Ihrer Targeting Nutzer:innen anwenden kann. Updates werden nicht übernommen, wenn der ursprüngliche Zeitplan die Ortszeit verwendete und die ursprüngliche Zeit in einer beliebigen Zeitzone bereits vergangen ist.
+Geplante Trigger, die kurz vor oder während der geplanten Sendezeit aktualisiert werden, werden nach bestem Bemühen aktualisiert, sodass Braze Änderungen in letzter Sekunde auf alle, einige oder keine Ihrer Zielgruppen-Nutzer:innen anwenden kann. Updates werden nicht übernommen, wenn der ursprüngliche Zeitplan die Ortszeit verwendete und die ursprüngliche Zeit in einer beliebigen Zeitzone bereits vergangen ist.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d2a6e66-9d6f-4ae1-965a-79fa52b86b1d {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.trigger.schedule.update`.
 
@@ -33,7 +33,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -50,16 +50,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`|Erforderlich|String| Siehe [Bezeichner der Kampagne]({{site.baseurl}}/api/identifier_types/)|
+| `campaign_id` | Erforderlich | String | Siehe [Campaign-Bezeichner]({{site.baseurl}}/api/identifier_types/) |
 | `schedule_id` | Erforderlich | String | Die zu aktualisierende `schedule_id` (erhalten aus der Antwort zum Erstellen eines Zeitplans). |
-|`schedule` | Erforderlich | Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+| `schedule` | Erforderlich | Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/schedule/update' \
 --header 'Content-Type: application/json' \

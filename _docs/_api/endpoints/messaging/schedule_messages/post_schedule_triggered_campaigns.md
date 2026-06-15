@@ -28,7 +28,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 
 ## Rate limit
 
-{% multi_lang_include rate_limits.md endpoint='default' category='send messages endpoints' %}
+{% multi_lang_include rate_limits.md endpoint='send endpoints' %}
 
 ## Request body
 
@@ -68,7 +68,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 |`broadcast`| Optional | Boolean | You must set `broadcast` to true when sending a message to an entire segment that a campaign or Canvas targets. This parameter defaults to false (as of August 31, 2017). <br><br> If `broadcast` is set to true, a `recipients` list cannot be included. However, use caution when setting `broadcast: true`, as unintentionally setting this flag may cause you to send your message to a larger than expected audience. |
 | `trigger_properties` | Optional | Object | Personalization key-value pairs for all users in this send. See [trigger properties]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). |
 | `schedule` | Required | Schedule object | See [schedule object]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```

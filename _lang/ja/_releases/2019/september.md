@@ -3,29 +3,29 @@ nav_title: 9月
 page_order: 4
 noindex: true
 page_type: update
-description: "この記事には2019年9月のリリースノートが含まれている。"
+description: "この記事には2019年9月のリリースノートが含まれています。"
 ---
 
-# 2019年9月
+# 2019年9月 {#september-2019}
 
-## OneLogin内のBrazeアプリ
+## OneLogin内のBrazeアプリ {#braze-app-within-onelogin}
 
-[OneLogin]({{site.baseurl}}/user_guide/administrative/access_braze/single_sign_on/onelogin/) 内で Braze を検索し、サービスプロバイダーまたは IdP 開始ログイン用に選択できるようになります。これは、顧客がOneLogin内にカスタムアプリケーションを追加する必要がないことを意味する。その結果、SAML SSO の起動後に表示された属性などの特定の設定が事前入力されます。
+[OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin/)内でBrazeを検索し、サービスプロバイダーまたはIdP開始ログイン用に選択できるようになりました。これにより、OneLogin内にカスタムアプリケーションを追加する必要がなくなります。その結果、SAML SSOの導入以降に確認されていた属性などの特定の設定が事前入力されます。
 
-## ロクト・カレンダー・パートナーシップ
+## Rokt Calendarパートナーシップ {#rokt-calendar-partnership}
 
-[Rokt Calendarは]({{site.baseurl}}/partners/home/)、Brazeの顧客に、パーソナライズされたマーケティングイニシアティブを調整し、パーソナライズされたコンテンツをエンドユーザーのカレンダーに拡張する機能を提供する。これにより、エンドユーザーのエクスペリエンスがよりシームレスになり、お客様のサービスのスティッキネスがさらに向上します。以下を実行できるようになります。
+[Rokt Calendar]({{site.baseurl}}/partners/home/)は、Brazeのお客様にパーソナライズされたマーケティングイニシアティブを調整し、パーソナライズされたコンテンツをエンドユーザーのカレンダーに拡張する機能を提供します。これにより、エンドユーザーのエクスペリエンスがよりシームレスになり、お客様のサービスのスティッキネスがさらに向上します。以下を実行できるようになります。
 
-- Brazeプラットフォーム経由でカレンダーに招待状を送り、「日付を保存」してコミュニケーションを広げる。
-- イベントの内容が変更された場合、既存の招待を更新する。
+- Brazeプラットフォーム経由でカレンダーの招待状を送信し、「日付を保存」してコミュニケーションを拡張する
+- イベントの内容が変更された場合、既存の招待を更新する
 
-## Passkit パートナーシップ
+## Passkitパートナーシップ {#passkit-partnership}
 
-[Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit/) により、Braze のお客様はカスタマーエンゲージメントをモバイルウォレットに拡張できます。Braze の強力なセグメンテーションを利用しながらウォレットキャンペーンをパーソナライズし、プッシュやアプリ内メッセージなどのチャネルとのオーケストレーションを実現できます。
+[Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit/)により、Brazeのお客様はカスタマーエンゲージメントをモバイルウォレットに拡張できます。Brazeの強力なセグメンテーションを利用しながらウォレットキャンペーンをパーソナライズし、プッシュやアプリ内メッセージなどのチャネルとのオーケストレーションを実現できます。
 
-## メッセージングエンドポイント経由でのディスパッチ ID 値の返却
+## メッセージングエンドポイント経由でのディスパッチID値の返却 {#dispatch-id-value-return-via-messaging-endpoints}
 
-メッセージの`dispatch_id` は、以下のメッセージング・エンドポイントのレスポンスに含まれる：
+メッセージの`dispatch_id`は、以下のメッセージングエンドポイントのレスポンスに含まれます。
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/#sending-messages-via-API-triggered-delivery)
 - [`/campaigns/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging/#create-schedule-endpoint)
 - [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/#sending-messages-immediately-via-api-only)
@@ -33,11 +33,11 @@ description: "この記事には2019年9月のリリースノートが含まれ�
 - [`/canvases/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/#canvas)
 - [`/canvases/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging/#api-triggered-canvases)
 
-これにより、トランザクションメッセージングを使用するお客様は、Currents を介してコールバックをトレースできます。
+これにより、トランザクションメッセージングを使用するお客様は、Currentsを介してコールバックをトレースできます。
 
-## キャンバスの変更履歴
+## キャンバスの変更ログ {#canvas-changelogs}
 
-自分のアカウントで誰がキャンバスに取り組んでいるのか、もっと詳しく知りたいと思ったことはないだろうか？もうその必要はありません。キャンバス変更ログにアクセスできるようになりました。
+自分のアカウントでキャンバスに取り組んでいるのが誰なのか、もっと詳しく知りたいと思ったことはありませんか？もうその必要はありません。キャンバスの変更ログにアクセスできるようになりました。
 
-![キャンバス変更ログ]({% image_buster /assets/img/canvas-changelog1.png %})()
-キャンバス変更ログ(![)
+![キャンバスの変更ログ]({% image_buster /assets/img/canvas-changelog1.png %})
+![キャンバスの変更ログ]({% image_buster /assets/img/canvas-changelog2.png %})

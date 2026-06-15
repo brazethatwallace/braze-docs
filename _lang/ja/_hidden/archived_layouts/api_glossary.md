@@ -5,16 +5,16 @@ layout: api_page
 page_order: 2
 
 #Required
-description: "これはGoogle検索の説明です。160文字を超えると切り捨てられる。"
+description: "これはGoogle検索の説明です。160文字を超えると切り捨てられるため、簡潔にしてください。"
 page_type: glossary
 #Use if applicable
 
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location
@@ -42,7 +42,7 @@ noindex: true
 excerpt_separator: ""
 ---
 {% api %}
-## 1 メールテンプレートを作成する
+## 1 メールテンプレートを作成する {#1-create-email-template}
 {% apimethod post %}
 /templates/email/create
 {% endapimethod %}
@@ -50,13 +50,13 @@ excerpt_separator: ""
 Post,Email,Create,Template,REST,API
 {% endapitags %}
 
-メールテンプレートREST APIを使用して、Brazeダッシュボードに保存したメールテンプレートをTemplates& Mediaページでプログラム的に管理する。Brazeは、メールテンプレートを作成および更新するための2つのエンドポイントを提供します。
+メールテンプレートREST APIを使用して、Brazeダッシュボードのテンプレートとメディアページに保存したメールテンプレートをプログラムで管理できます。Brazeは、メールテンプレートを作成および更新するための2つのエンドポイントを提供しています。
 
-このエンドポイントからの応答には`email_template_id`のフィールドが含まれており、後続のAPI呼び出しでテンプレートを更新するために使用できます。
+このエンドポイントからの応答には`email_template_id`フィールドが含まれており、後続のAPI呼び出しでテンプレートを更新するために使用できます。
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
-#### リクエスト本文
+#### リクエスト本文 {#request-body}
 ```
 {
   "template_name": "email_template_name",
@@ -68,7 +68,7 @@ Post,Email,Create,Template,REST,API
 
 ```
 
-#### 応答の例
+#### 応答の例 {#example-response}
 ```
 {
   "template_name": "email_template_name",
@@ -80,28 +80,28 @@ Post,Email,Create,Template,REST,API
 ```
 
 
-#### パラメータの詳細
+#### パラメーターの詳細 {#parameter-details}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `modified_after`  | いいえ | ISO 8601の文字列 | 指定された時刻以降に更新されたテンプレートのみを取得します。 |
-| `modified_before`  |  いいえ | ISO 8601の文字列 | 指定された時刻以前に更新されたテンプレートのみを取得します。 |
-| `limit` | いいえ | 正の数 | 取得するテンプレートの最大数、指定がない場合はデフォルトで100、許容される最大値は1000です。 |
-| `offset`  |  いいえ | 正の数 | 検索条件に一致するテンプレートの残りを返す前にスキップするテンプレートの数。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `modified_after`  | いいえ | ISO 8601形式の文字列 | 指定された時刻以降に更新されたテンプレートのみを取得します。 |
+| `modified_before`  |  いいえ | ISO 8601形式の文字列 | 指定された時刻以前に更新されたテンプレートのみを取得します。 |
+| `limit` | いいえ | 正の数値 | 取得するテンプレートの最大数。指定がない場合はデフォルトで100、許容される最大値は1000です。 |
+| `offset`  |  いいえ | 正の数値 | 検索条件に一致する残りのテンプレートを返す前にスキップするテンプレートの数。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 
 {% endapi %}
 {% api %}
-## 2 利用可能なメールテンプレートのリスト
+## 2 利用可能なメールテンプレートの一覧 {#2-list-available-email-template}
 {% apimethod get %}
 /templates/email/list
 {% endapimethod %}
 {% apitags %}
-取得,メール,テンプレート,リスト,REST
+Get,Email,Template,List,REST
 {% endapitags %}
 
-次のエンドポイントを使用して、利用可能なテンプレートのリストを取得します。
+以下のエンドポイントを使用して、利用可能なテンプレートの一覧を取得します。
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
@@ -135,22 +135,22 @@ GET https://YOUR_REST_API_URL/templates/email/list
 ```
 
 
-#### パラメータの詳細
+#### パラメーターの詳細
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `email_template_id`  | はい | string | あなたのメールテンプレートのAPI識別子。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id`  | はい | 文字列 | メールテンプレートのAPI識別子。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 
 
 {% api %}
-## 3 キャンペーン トリガー 送信
-{% apimethod post %}キャンペーン/トリガー/送信{% endapimethod %}
+## 3 キャンペーントリガー送信 {#3-campaigns-trigger-send}
+{% apimethod post %}campaigns/trigger/send{% endapimethod %}
 {% apitags %}Post, Campaigns, Trigger,Send{% endapitags %}
 
-API トリガー配信を使用すると、メッセージの内容を Braze ダッシュボード内に保存し、メッセージが送信されるタイミングと送信先を API 経由で指定できます。 
+APIトリガー配信を使用すると、メッセージのコンテンツをBrazeダッシュボード内に保存しながら、メッセージの送信タイミングと送信先をAPI経由で指定できます。
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
@@ -186,7 +186,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 {
   "canvas_id": (required, string) see Canvas Identifier,
-  "canvas_entry_properties": (optional, object) personalization key-value pairs that will apply to all users in this request,
+  "context": (optional, object) personalization key-value pairs that will apply to all users in this request,
   "broadcast": (optional, boolean) see Broadcast -- defaults to false on 8/31/17, must be set to true if "recipients" is omitted,
   "audience": (optional, Connected Audience Object) see Connected Audience,
   // Including 'audience' will only send to users in the audience
@@ -195,7 +195,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       // Either "external_user_id" or "user_alias" is required. Requests must specify only one.
       "user_alias": (optional, User Alias Object) User Alias of user to receive message,
       "external_user_id": (optional, string) External ID of user to receive message,
-      "canvas_entry_properties": (optional, object) personalization key-value pairs that will apply to this user (these key-value pairs will override any keys that conflict with the parent canvas_entry_properties)
+      "context": (optional, object) personalization key-value pairs that will apply to this user (these key-value pairs will override any keys that conflict with the parent context)
     },
     ...
   ]
@@ -203,22 +203,22 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 
 
-#### パラメータの詳細
+#### パラメーターの詳細
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `email_template_id`  | はい | string | あなたのメールテンプレートのAPI識別子。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id`  | はい | 文字列 | メールテンプレートのAPI識別子。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 
 
 {% api %}
-## 4 キャンペーン トリガー 送信
+## 4 キャンペーントリガー送信 {#4-campaigns-trigger-send}
 {% apimethod put %}users/track{% endapimethod %}
-{% apitags %}PUT, キャンペーン, トリガー, 送信{% endapitags %}
+{% apitags %}PUT, Campaigns, Trigger, Send{% endapitags %}
 
-このエンドポイントは、カスタムイベント、ユーザー属性、およびユーザーの購入を記録するために使用できます。リクエストごとに最大75の属性、イベント、購入オブジェクトを含めることができます。つまり、一度に最大75人のユーザーの属性しか投稿できませんが、同じ API 呼び出しで最大75件のイベントと最大75件の購入も提供できます。
+このエンドポイントは、カスタムイベント、ユーザー属性、およびユーザーの購入を記録するために使用できます。リクエストごとに最大75の属性、イベント、購入オブジェクトを含めることができます。つまり、一度に最大75人のユーザーの属性を投稿できますが、同じAPI呼び出しで最大75件のイベントと最大75件の購入も提供できます。
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
@@ -261,32 +261,32 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-#### パラメータの詳細
+#### パラメーターの詳細
 
-| ユーザープロファイル フィールド | データ型仕様 |
+| ユーザープロファイルフィールド | データタイプの仕様 |
 | ---| --- |
-| country | (文字列) 国コードを[ISO-3166-1 alpha-2規格][17]でBrazeに渡すことを要求する。 |
-| current_location | (オブジェクト) {"longitude": -73.991443, "latitude"：40.753824} |
-| date_of_first_session | （ユーザーが初めてアプリを使用した日付）ISO 8601形式または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式の文字列。 |
-| date_of_last_session | （ユーザーが最後にアプリを使用した日付）ISO 8601形式または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式の文字列。 |
-| dob | （生年月日）「YYYY-MM-DD」の形式の文字列。例えば、1980-12-21。 |
-| email | (string) |
-| email_subscribe | (文字列) 利用可能な値は、"opted_in" (明示的にメールメッセージの受信を登録)、"配信停止"(明示的にメールメッセージの受信を拒否)、"購読"(受信も拒否もしていない)。  |
+| country | (文字列) 国コードは[ISO-3166-1 alpha-2規格][17]でBrazeに渡す必要があります。 |
+| current_location | (オブジェクト) {"longitude": -73.991443, "latitude": 40.753824} の形式です。 |
+| date_of_first_session | (ユーザーが初めてアプリを使用した日付) ISO 8601形式または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式の文字列。 |
+| date_of_last_session | (ユーザーが最後にアプリを使用した日付) ISO 8601形式または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式の文字列。 |
+| dob | (生年月日)「YYYY-MM-DD」形式の文字列。例: 1980-12-21。 |
+| email | (文字列) |
+| email_subscribe | (文字列) 利用可能な値は、"opted_in"(メールメッセージの受信を明示的に登録)、"unsubscribed"(メールメッセージの受信を明示的に拒否)、"subscribed"(受信登録も拒否もしていない)です。 |
 | external_id | (文字列) 一意のユーザー識別子。 |
-| Facebook | `id`（文字列）、`likes`（文字列の配列）、`num_friends`（整数）のいずれかを含むハッシュ。 |
-| first_name | (string) |
-| gender | (文字列) 「M」、「F」、「O」 (その他)、「N」 (該当なし)、「P」 (言いたくない) または「nil」 (不明)。 |
-| home_city | (string) |
-| image_url | （文字列）ユーザープロファイルに関連付ける画像のURL。 |
-| language | (文字列)は、[ISO-639-1規格][24]でBrazeに渡される言語を要求している。<br>[受け入れ可能な言語のリスト](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/)|
-| last_name | (string) |
-|marked_email_as_spam_at| （文字列）ユーザーのメールがスパムとしてマークされた日付。ISO 8601形式またはyyyy-MM-dd'T'HH:mm:ss:SSSZ形式で表示されます。|
-| phone | (string) |
-| push_subscribe | (文字列) 利用可能な値は、"opted_in" (プッシュメッセージの受信を明示的に登録)、"配信停止"(プッシュメッセージの受信を明示的に拒否)、"購読"(受信も拒否もしていない)。  |
-| push_tokens | オブジェクトの配列は`app_id`と`token`の文字列です。このトークンが関連付けられているデバイスに`device_id`を任意で提供することができます。例えば、`[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`。提供されない場合は、`device_id`がランダムに生成されます。 |
-| time_zone | (文字列) [IANAタイムゾーンデータベース][26]のタイムゾーン名(例えば、"America/New_York" または "Eastern Time (US& Canada)")。有効なタイムゾーン値のみが設定されます。 |
-| ツイッター | `id` (整数)、`screen_name` (文字列、X (旧Twitter) ハンドル)、`followers_count` (整数)、`friends_count` (整数)、`statuses_count` (整数) のいずれかを含むハッシュ。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| facebook | `id`(文字列)、`likes`(文字列の配列)、`num_friends`(整数)のいずれかを含むハッシュ。 |
+| first_name | (文字列) |
+| gender | (文字列)「M」、「F」、「O」(その他)、「N」(該当なし)、「P」(回答しない)、またはnil(不明)。 |
+| home_city | (文字列) |
+| image_url | (文字列) ユーザープロファイルに関連付ける画像のURL。 |
+| language | (文字列) 言語は[ISO-639-1規格][24]でBrazeに渡す必要があります。<br>[受け入れ可能な言語のリスト](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/) |
+| last_name | (文字列) |
+| marked_email_as_spam_at | (文字列) ユーザーのメールがスパムとしてマークされた日付。ISO 8601形式またはyyyy-MM-dd'T'HH:mm:ss:SSSZ形式で表示されます。 |
+| phone | (文字列) |
+| push_subscribe | (文字列) 利用可能な値は、"opted_in"(プッシュメッセージの受信を明示的に登録)、"unsubscribed"(プッシュメッセージの受信を明示的に拒否)、"subscribed"(受信登録も拒否もしていない)です。 |
+| push_tokens | `app_id`と`token`文字列を持つオブジェクトの配列です。このトークンが関連付けられているデバイスの`device_id`をオプションで提供できます。例: `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`。`device_id`が提供されない場合、ランダムに生成されます。 |
+| time_zone | (文字列) [IANAタイムゾーンデータベース][26]のタイムゾーン名(例: "America/New_York" または "Eastern Time (US & Canada)")。有効なタイムゾーン値のみが設定されます。 |
+| twitter | `id`(整数)、`screen_name`(文字列、X(旧Twitter)ハンドル)、`followers_count`(整数)、`friends_count`(整数)、`statuses_count`(整数)のいずれかを含むハッシュ。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 

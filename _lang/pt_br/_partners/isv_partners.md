@@ -9,14 +9,14 @@ guide_top_text: "Os artigos a seguir foram criados para os nossos parceiros ISV 
 
 guide_featured_title: "Documentação do parceiro"
 guide_featured_list:
-- name: Integração da API
+- name: Integração com parceiros da API
   link: /docs/partners/isv_partners/api_partner
   image: /assets/img/braze_icons/user-circle.svg
-- name: Integração da importação de coortes
+- name: Integração de importação de coorte
   link: /docs/partners/isv_partners/cohort_import
   image: /assets/img/braze_icons/users-01.svg
-- name: Integração de Currents
-  link: /docs/partners/isv_partners/currents_integration
+- name: Conector HTTP personalizado
+  link: /docs/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/
   image: /assets/img/braze_icons/waves.svg
 - name: Compartilhamento de dados do Snowflake
   link: /docs/partners/isv_partners/snowflake_datasharing
@@ -24,7 +24,7 @@ guide_featured_list:
 - name: Transformação de dados
   link: /docs/partners/isv_partners/data_transformation
   image: /assets/img/braze_icons/database-01.svg
-- name: Práticas recomendadas
+- name: Melhores práticas
   link: /docs/partners/isv_partners/best_practices
   image: /assets/img/braze_icons/thumbs-up.svg
 

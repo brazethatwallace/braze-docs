@@ -14,11 +14,11 @@ search_tag: Partner
 
 *Cette intégration est maintenue par Wunderkind. Pour obtenir de l'assistance, rendez-vous sur [support.wunderkind.co](https://support.wunderkind.co).*
 
-## À propos de l'intégration
+## À propos de l'intégration {#about-the-integration}
 
 L'intégration Wunderkind Signals permet à des signaux comportementaux à forte intention — tels que l'abandon de panier, l'abandon de produit et les baisses de prix — de déclencher des parcours Canvas en temps réel dans Braze. Wunderkind identifie les utilisateurs anonymes sur votre site web, résout leur identité vers une adresse e-mail exploitable, et transmet un payload de signal structuré à Braze via l'API Canvas Entry, initiant automatiquement vos flux d'e-mails préconfigurés.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
@@ -26,37 +26,37 @@ L'intégration Wunderkind Signals permet à des signaux comportementaux à forte
 | Compte Braze | Un compte Braze avec accès à Canvas est requis. L'équipe Wunderkind doit disposer d'un accès à votre compte. Pour tous les détails, consultez [Accorder à Wunderkind l'accès à votre compte Braze](https://support.wunderkind.co/hc/en-us/articles/47921719757339-Grant-Wunderkind-Access-to-Your-Braze-Account). |
 | Clé API REST Braze | Vous créez une clé API dédiée avec des autorisations spécifiques lors de la configuration (voir [Étape 1](#step-1-create-a-braze-api-key-for-wunderkind)). |
 | Identification des utilisateurs | Wunderkind résout généralement un consommateur dans Braze en utilisant `user_alias` avec `alias_label: "wknd_email_id"` (souvent avec l'e-mail comme `alias_name`). Chaque destinataire de [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) doit inclure exactement l'un des éléments suivants : `external_user_id`, `user_alias`, `braze_id` ou `email` ([objet recipients]({{site.baseurl}}/api/objects_filters/recipient_object/)) ; si vous utilisez `email`, incluez [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email). Lorsque vous utilisez `user_alias`, le profil doit déjà exister dans Braze avant le déclencheur. Créez ou mettez à jour les utilisateurs et les alias au préalable avec [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) ou [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/). Pour en savoir plus, consultez [Limitations](#limitations). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Fonctionnement
+## Fonctionnement {#how-it-works}
 
 Lorsque Wunderkind identifie un utilisateur anonyme à forte intention et résout son identité, il envoie un payload de signal à Braze via l'endpoint `/canvas/trigger/send`, déclenchant le parcours Canvas correspondant pour cet utilisateur en temps réel.
 
 Pour un aperçu technique complet, consultez le [Portail développeur Wunderkind](https://developer.wunderkind.co/docs/integration-overview).
 
-## Intégration
+## Intégration {#integration}
 
-### Étape 1 : Créer une clé API Braze pour Wunderkind
+### Étape 1 : Créer une clé API Braze pour Wunderkind {#step-1-create-a-braze-api-key-for-wunderkind}
 
 Dans votre tableau de bord de Braze :
 
 1. Accédez à **Paramètres** > **Clés API** et cliquez sur **Créer une nouvelle clé API**.
 2. Donnez à la clé un nom descriptif (par exemple, `Wunderkind Signals`).
 3. Accordez les autorisations listées dans [Accorder à Wunderkind l'accès à votre compte Braze](https://support.wunderkind.co/hc/en-us/articles/47921719757339-Grant-Wunderkind-Access-to-Your-Braze-Account).
-4. Copiez la clé API pour la saisir dans la plateforme Wunderkind à l'étape suivante.
+4. Copiez la clé API pour la saisir dans la plateforme Wunderkind à la section suivante.
 
 {% alert note %}
 Pour Wunderkind Signals, les requêtes de l'[API REST]({{site.baseurl}}/api/basics/) Braze sont authentifiées avec une clé API REST, et non avec des jetons OAuth. Créez une clé API dédiée dans le tableau de bord et fournissez cette clé à Wunderkind.
 {% endalert %}
 
-### Étape 2 : Connecter Braze à la plateforme Wunderkind
+### Étape 2 : Connecter Braze à la plateforme Wunderkind {#step-2-connect-braze-to-the-wunderkind-platform}
 
 1. Connectez-vous à la plateforme Wunderkind et accédez au **Hub d'intégrations**.
 2. Sélectionnez la tuile **Braze**, puis sélectionnez **Connect**.
 3. Saisissez votre clé API REST Braze et sélectionnez votre cluster.
-4. Sélectionnez **Enregistrer**.
+4. Sélectionnez **Save**.
 
-### Étape 3 : Vérifier les nouvelles ressources Braze
+### Étape 3 : Vérifier les nouvelles ressources Braze {#step-3-review-new-braze-assets}
 
 Lors de l'activation, Wunderkind provisionne de nouvelles ressources d'implémentation dans votre espace de travail Braze en fonction de la stratégie définie avec votre conseiller Wunderkind :
 
@@ -65,25 +65,25 @@ Lors de l'activation, Wunderkind provisionne de nouvelles ressources d'implémen
 | Content Blocks | Automatique |
 | Canvas déclenchés par API | Service géré |
 | Étiquettes, attributs personnalisés, modèles de liens | Service géré |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Vérifier les nouvelles ressources Braze" }
 
-### Étape 4 : Finaliser la configuration du Canvas
+### Étape 4 : Finaliser la configuration du Canvas {#step-4-complete-canvas-setup}
 
 Pour chaque Canvas Signals, créez vos modèles d'e-mails à l'aide de l'éditeur par glisser-déposer de Braze ou en HTML.
 
 - Wunderkind renseigne les données produit et de session dans l'objet `context` de chaque destinataire sur `/canvas/trigger/send` au moment de l'envoi.
 - Pour des instructions détaillées sur l'utilisation de Liquid avec ce payload dans vos modèles, consultez [Finaliser la configuration du Canvas](https://support.wunderkind.co/hc/en-us/articles/47155403143963-Complete-Canvas-Setup) dans le Centre d'aide Wunderkind.
 
-### Étape 5 : Vérifier l'éligibilité du Canvas
+### Étape 5 : Vérifier l'éligibilité du Canvas {#step-5-review-canvas-eligibility}
 
 Pour chaque Canvas Signals, accédez aux paramètres **Audience cible** pour vérifier l'audience d'entrée par défaut et les critères de sortie définis par Wunderkind.
 
 - Pour vous assurer de ne pas envoyer trop de messages à vos utilisateurs, consultez [Limitation du débit centrée sur l'utilisateur]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/).
-- Ajustez les paramètres pour empêcher les utilisateurs de continuer à recevoir des messages Canvas après un achat. Par exemple, ajoutez l'exception **Effectuer un achat**.
+- Ajustez les paramètres pour empêcher les utilisateurs de continuer à recevoir des messages Canvas après un achat. Par exemple, ajoutez l'exception **Make Purchase**.
 - Certains Canvas Signals sont préconfigurés avec des filtres d'attributs personnalisés pour que les utilisateurs reçoivent le message à la plus forte intention possible.
 - Consultez [Vérifier l'éligibilité du Canvas](https://support.wunderkind.co/hc/en-us/articles/47156586245787-Review-Canvas-Eligibility) dans le Centre d'aide Wunderkind pour plus de détails sur l'éligibilité et la priorité des Canvas.
 
-### Étape 6 : Tester et lancer
+### Étape 6 : Tester et lancer {#step-6-test-and-launch}
 
 Wunderkind effectue une assurance qualité de bout en bout avant la mise en production :
 
@@ -93,7 +93,7 @@ Wunderkind effectue une assurance qualité de bout en bout avant la mise en prod
 
 Une fois l'assurance qualité validée, votre responsable d'implémentation Wunderkind coordonne le lancement en production avec votre équipe.
 
-## Payload de contexte Canvas
+## Payload de contexte Canvas {#canvas-context-payload}
 
 Wunderkind prend en charge six types de signaux. Chacun transmet un ensemble distinct de clés et de valeurs dans l'objet [`context`]({{site.baseurl}}/api/objects_filters/context_object/) pour ce destinataire sur `/canvas/trigger/send` (voir [Envoyer des messages Canvas via une distribution déclenchée par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)). Le champ `WkPurpose` identifie le type de signal dans ce payload.
 
@@ -110,9 +110,9 @@ Wunderkind prend en charge six types de signaux. Chacun transmet un ensemble dis
 | `WKCouponPurpose` | String | Description de l'offre de coupon (chaîne vide si non utilisée) |
 | `Items` | Array | Tableau d'objets produit (voir les champs produit ci-dessous) |
 | `WkOpen` | String | Pixel de suivi disponible à des fins de reporting |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs communs (tous les types de Canvas)" }
 
-### Champs des articles produit
+### Champs des articles produit {#product-item-fields}
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
@@ -123,9 +123,9 @@ Wunderkind prend en charge six types de signaux. Chacun transmet un ensemble dis
 | `WkPrice` | String | Prix d'origine (Canvas baisse de prix uniquement) |
 | `WKSalePrice` | String | Prix promotionnel (Canvas baisse de prix uniquement) |
 | `WkQuantity` | String | Unités restantes (Canvas stock faible uniquement) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs des articles produit" }
 
-### Champs spécifiques au Canvas et valeurs de `WkPurpose`
+### Champs spécifiques au Canvas et valeurs de `WkPurpose` {#canvas-specific-fields-and-wkpurpose-values}
 
 | Type de Canvas | Valeur de `WkPurpose` | Champs supplémentaires |
 | ----------- | ----------------- | ------------------- |
@@ -135,9 +135,9 @@ Wunderkind prend en charge six types de signaux. Chacun transmet un ensemble dis
 | De retour en stock | `"back in stock"` | — |
 | Baisse de prix | `"price drop"` | `WkPrice`, `WKSalePrice` sur chaque article |
 | Stock faible | `"low stock"` | `WkQuantity` sur chaque article |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs spécifiques au Canvas et valeurs de WkPurpose" }
 
-### Exemples de payloads
+### Exemples de payloads {#example-payloads}
 
 Chaque objet dans `recipients` doit inclure exactement l'un des éléments suivants : `external_user_id`, `user_alias`, `braze_id` ou `email`. Pour en savoir plus, consultez l'[objet Recipients]({{site.baseurl}}/api/objects_filters/recipient_object/).
 
@@ -383,7 +383,7 @@ Si vous déclenchez le Canvas avec le champ `email` de Braze au lieu de `user_al
 ```
 {% enddetails %}
 
-### Exemple d'utilisation de Liquid
+### Exemple d'utilisation de Liquid {#example-liquid-usage}
 
 Lorsque Wunderkind appelle `/canvas/trigger/send`, les clés et valeurs transmises dans l'objet `context` de chaque destinataire deviennent des données d'entrée Canvas. Dans les étapes Message, référencez-les avec l'espace de noms Liquid `context`. Par exemple {% raw %}`{{context.${WkPurpose}}}`{% endraw %}, comme décrit dans [Objet de contexte Canvas]({{site.baseurl}}/api/objects_filters/context_object/) et [Message]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step/). Aucune configuration supplémentaire n'est nécessaire au-delà de l'utilisation de la syntaxe Liquid correcte.
 
@@ -420,9 +420,9 @@ Les indicateurs suivants seront bientôt disponibles dans le tableau de bord de 
 | Clics | Braze Currents |
 | Conversions | Braze Currents (événement défini lors de la configuration) |
 | Désabonnements | Braze Currents |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reporting" }
 
-## Limitations
+## Limitations {#limitations}
 
 - **Pas de synchronisation des suppressions/désinscriptions.** La suppression doit être gérée nativement dans Braze. Remarque : pour les clients Wunderkind existants migrant vers Braze Signals, Wunderkind collabore avec votre équipe pour préserver votre configuration actuelle.
 - **Canal e-mail uniquement.** Le SMS n'est actuellement pas pris en charge par cette intégration.
@@ -430,7 +430,7 @@ Les indicateurs suivants seront bientôt disponibles dans le tableau de bord de 
 - **E-mail comme identifiant.** Si le déclencheur Canvas identifie le destinataire avec `email` au lieu de `user_alias`, incluez [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) dans l'objet destinataire, comme requis par Braze.
 
 
-## Ressources supplémentaires
+## Ressources supplémentaires {#additional-resources}
 
 - [Centre d'aide Wunderkind — Aperçu de Signals pour Braze](https://support.wunderkind.co/hc/en-us/articles/47156898436891-Signals-for-Braze-Overview)
 - [Portail développeur Wunderkind — Aperçu de l'intégration](https://developer.wunderkind.co/docs/integration-overview)

@@ -112,7 +112,8 @@ For example, to keep a white background on a cell, use this:
 Replace `#ffffff` with your intended color.
 
 {% alert note %}
-This approach does not apply reliably to `<table>` elements alone, so set the gradient on the cell instead of only on the table.
+This approach does not apply reliably to `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` elements alone, so set the gradient on the cell instead of only on the table.
+  <caption>Gmail mobile app and dark mode</caption>
 {% endalert %}
 
 For more information about gradient syntax, see [CSS gradients on W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -136,6 +137,16 @@ Under **Sending Settings** > **Advanced**, turn on **inline CSS** for the widest
 
 You can also add personalization for email headers and email extras to send additional data back to other email service providers.
 
+##### Email attachments
+
+You can also add email attachments by the following methods:
+
+- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
+- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word documents, Excel files, and PowerPoint presentations are all supported.
+- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+
+Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
+
 ##### Email headers
 
 To add email headers, select **Add New Header**. Email headers contain information about the email being sent. These [key-value pairs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) typically include sender, recipient, authentication protocol, and routing information. Braze automatically adds the RFC-required header information for emails to reach inbox providers.
@@ -151,7 +162,8 @@ Avoid using the following keys:
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
+  <caption>Email headers</caption>
 <thead>
   <tr>
     <th>Reserved Fields</th>
@@ -231,6 +243,10 @@ Email clients that support preview text always pull in enough characters to fill
 For the drag-and-drop editor, add only the zero-width non-joiners (‌`&zwnj;`) without the `<div>` formatting directly in the preheader in the **Sending Settings** section.
 {% endalert %}
 
+{% alert note %}
+In the Apple Mail app, image links in HTML email must use `https://` URLs to be clickable. Use secure links for any image wrapped in an anchor tag when you expect clicks from Apple Mail recipients.
+{% endalert %}
+
 ### Step 3.3: Check for email errors
 
 Before send, the editor flags common issues:
@@ -260,7 +276,7 @@ Deliver emails based on a scheduled time, an action, or an API trigger. For more
 For API-triggered campaigns, when the trigger action is set to **Interact With Campaign**, selecting a **Receive** option as the interaction will cause your new campaign to trigger as soon as Braze marks the selected campaign as sent, even if that message bounces or fails to be delivered.
 {% endalert %}
 
-You can also set the campaign's duration, specify [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
+You can also set the campaign's duration, specify [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 
 #### Choose users to target
 

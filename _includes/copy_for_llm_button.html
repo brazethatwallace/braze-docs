@@ -53,31 +53,38 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!copyBtn) return;
   
   function getMarkdownPath(pathname) {
-    if (!pathname) {
-      return '/index.md';
+    const siteBaseUrl = '{{ site.baseurl }}';
+    let normalizedPath = pathname || '/';
+
+    normalizedPath = normalizedPath.split('?')[0].split('#')[0];
+
+    if (siteBaseUrl && siteBaseUrl !== '/' &&
+        !normalizedPath.startsWith(siteBaseUrl + '/') &&
+        normalizedPath !== siteBaseUrl) {
+      normalizedPath = siteBaseUrl + (normalizedPath.startsWith('/') ? normalizedPath : '/' + normalizedPath);
     }
 
-    if (pathname.endsWith('/index.md')) {
-      return pathname;
+    if (normalizedPath.endsWith('/index.md') || normalizedPath.endsWith('.md')) {
+      return normalizedPath;
     }
 
-    if (pathname.endsWith('/')) {
-      return pathname.slice(0, -1) + '/index.md';
+    if (normalizedPath.endsWith('/')) {
+      return normalizedPath + 'index.md';
     }
 
-    if (pathname.endsWith('.html')) {
-      return pathname.replace('.html', '/index.md');
+    if (normalizedPath.endsWith('.html')) {
+      return normalizedPath.replace('.html', '/index.md');
     }
 
-    return pathname + '/index.md';
+    return normalizedPath + '/index.md';
   }
 
   function repositionCopyButtons() {
     const buttonContainer = copyBtn.closest('.copy-for-llm-page-header');
     if (!buttonContainer) return;
 
-    const firstH1 = document.querySelector('#article-main h1');
-    const fallbackHeading = document.querySelector('#article-main h2, #article-main h3');
+    const firstH1 = document.querySelector('#article-main h1, #api-main h1');
+    const fallbackHeading = document.querySelector('#article-main h2, #article-main h3, #api-main h2, #api-main h3');
     const targetHeading = firstH1 || fallbackHeading;
     if (!targetHeading || !targetHeading.parentNode) return;
 
@@ -259,9 +266,15 @@ document.addEventListener('DOMContentLoaded', function() {
   text-decoration: none;
 }
 
-.copy-for-llm-button:focus {
+.copy-for-llm-button:focus:not(:focus-visible) {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(128, 30, 215, 0.25);
+  box-shadow: none;
+}
+
+.copy-for-llm-button:focus-visible {
+  outline: 2px solid #801ED7;
+  outline-offset: 2px;
+  box-shadow: none;
 }
 
 .copy-for-llm-button:active {

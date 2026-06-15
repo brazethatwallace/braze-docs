@@ -1,98 +1,98 @@
 ---
 nav_title: Odicci
 article_title: Odicci
-description: "Schritt-für-Schritt-Anleitung zur Integration von Odicci mit Braze für personalisierte Kampagnen im Marketing"
+description: "Schritt-für-Schritt-Anleitung zur Integration von Odicci mit Braze für personalisierte Marketing-Campaigns"
 alias: /partners/odicci/
 page_type: partner
 search_tag: Partner
 ---
 
-# Integration von Odicci mit Braze
+# Integration von Odicci mit Braze {#integrate-odicci-with-braze}
 
-> Erfahren Sie, wie Sie Braze in [Odicci](https://www.odicci.com/) integrieren können, eine Plattform, die es Unternehmen ermöglicht, Kunden durch loyale Omnichannel-Erlebnisse zu gewinnen, zu engagieren und zu binden.
+> Erfahren Sie, wie Sie Braze mit [Odicci](https://www.odicci.com/) integrieren können, einer Plattform, die es Unternehmen ermöglicht, Kund:innen durch loyalitätsgetriebene Omnichannel-Erlebnisse zu gewinnen, zu binden und zu halten.
 
 {% alert tip %}
 Weitere Ressourcen und FAQs finden Sie im [Odicci Help Center](https://help.odicci.com).
 {% endalert %}
 
-## Anwendungsfälle
+## Anwendungsfälle {#use-cases}
 
-Sie können die Odicci-Plattform mit Braze verbinden, um nahtlos Daten auszutauschen und Kampagnen zu verwalten. Dies beinhaltet:
+Sie können die Odicci-Plattform mit Braze verbinden, um nahtlose Datenfreigabe und Campaign-Verwaltung zu ermöglichen. Dies umfasst:
 
-- Automatische Übermittlung der in Odicci gesammelten Daten der Zielgruppe an Braze.
-- Triggern von personalisierten Marketing Kampagnen auf der Grundlage von Nutzer:innen-Interaktionen.
-- Abbildung der Felder zwischen Odicci und Braze, um eine genaue Synchronisierung der Daten zu gewährleisten.
+- Automatische Übermittlung der in Odicci-Erlebnissen gesammelten Zielgruppendaten an Braze.
+- Triggern personalisierter Marketing-Campaigns basierend auf Nutzer:innen-Interaktionen.
+- Abbildung von Feldern zwischen Odicci und Braze, um eine genaue Datensynchronisierung zu gewährleisten.
 
-## Beispiel
+## Beispiel {#example}
 
-Ein Marketer nutzt die spielerischen Erlebnisse von Odicci, um E-Mail-Adressen für eine Marketing-Kampagne zu sammeln.
+Ein Einzelhändler nutzt die spielerischen Erlebnisse von Odicci, um E-Mail-Adressen für eine Marketing-Campaign zu sammeln.
 
-1. Ein Kunde schließt ein Spiel in Odicci ab und gibt dabei seine E-Mail Adresse an.
+1. Eine Kundin oder ein Kunde schließt ein Spiel in Odicci ab und gibt dabei ihre bzw. seine E-Mail-Adresse an.
 2. Odicci synchronisiert diese Daten automatisch mit Braze.
-3. Braze triggert eine personalisierte "Danke"-E-Mail und enthält einen Rabattcode.
+3. Braze triggert eine personalisierte „Danke“-E-Mail und fügt einen Rabattcode hinzu.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Bevor Sie beginnen, benötigen Sie Folgendes:
 
-| Voraussetzung             | Beschreibung                                                               |
+| Voraussetzung | Beschreibung |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| Ein Bericht von Odicci            | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Odicci-Konto mit Zugriff auf den Bereich **Integrationen**.|
-| Braze REST API-Schlüssel        | Ein Braze REST API-Schlüssel mit den Berechtigungen `users.track` und 'campaigns.list'. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Ein Odicci-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Odicci-Konto mit Zugriff auf den Bereich **Integrations**. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track` und `campaigns.list`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## Integration von Odicci
+## Integration von Odicci {#integrating-odicci}
 
-### Schritt 1: Aktivieren Sie die Integration in Odicci
+### 1. Schritt: Aktivieren Sie die Integration in Odicci {#step-1-enable-the-integration-in-odicci}
 
-1. Melden Sie sich bei Ihrem Odicci Konto an.
-2. Navigieren Sie zum Bereich **Einstellungen > Integrationen**.
-3. Suchen Sie die **Braze** Integration und klicken Sie auf **Verbinden**.
+1. Melden Sie sich bei Ihrem Odicci-Konto an.
+2. Navigieren Sie zum Bereich **Settings > Integrations**.
+3. Suchen Sie die **Braze**-Integration und klicken Sie auf **Connect**.
 
-   ![Connect Braze Integration]({% image_buster /assets/img/odicci/braze_connect.png %})
+   ![Braze-Integration verbinden]({% image_buster /assets/img/odicci/braze_connect.png %})
 
-4. Geben Sie Ihren Braze REST API-Schlüssel in das vorgesehene Feld ein.
+4. Geben Sie Ihren Braze REST-API-Schlüssel in das vorgesehene Feld ein.
 5. Speichern Sie die Einstellungen, um die Integration auf Kontoebene zu aktivieren.
 
-### Schritt 2: Beziehen Sie Ihren Braze REST API-Schlüssel
+### 2. Schritt: Beziehen Sie Ihren Braze REST-API-Schlüssel {#step-2-obtain-your-braze-rest-api-key}
 
 1. Melden Sie sich bei Ihrem Braze-Konto an.
-2. Gehen Sie zu **Entwicklungskonsole > REST API-Schlüssel.**
+2. Gehen Sie zu **Entwicklungskonsole > REST API Keys**.
 3. Erstellen Sie einen neuen API-Schlüssel oder kopieren Sie einen vorhandenen Schlüssel mit der Berechtigung `users.track`.
 
-### Schritt 3: Aktivieren Sie die Integration auf der Erfahrungsebene
+### 3. Schritt: Aktivieren Sie die Integration auf Erlebnisebene {#step-3-activate-the-integration-at-the-experience-level}
 
-1. Erstellen oder öffnen Sie eine **Experience** in Odicci Studio.
-2. Navigieren Sie zu **Studio > Einstellungen > Integrationen.**
-3. Suchen Sie das Kontrollkästchen **Braze** und markieren Sie es, um die Integration für das Erlebnis zu aktivieren.
+1. Erstellen oder öffnen Sie ein **Experience** in Odicci Studio.
+2. Navigieren Sie zu **Studio > Settings > Integrations**.
+3. Suchen Sie das Kontrollkästchen **Braze** und aktivieren Sie es, um die Integration für das Erlebnis einzuschalten.
 4. Speichern Sie Ihre Änderungen.
 
-### Schritt 4: Abbildung Felder
+### 4. Schritt: Felder zuordnen {#step-4-map-fields}
 
-1. Nachdem Sie die Integration aktiviert haben, bleiben Sie im Bereich **Studio > Einstellungen > Integrationen**.
-2. Ordnen Sie die Felder aus Ihrer Odicci-Erfahrung (e.g., `Email`, `Name`) den entsprechenden Feldern in Braze zu.
+1. Nachdem Sie die Integration aktiviert haben, bleiben Sie im Bereich **Studio > Settings > Integrations**.
+2. Ordnen Sie die Felder aus Ihrem Odicci-Erlebnis (z. B. `Email`, `Name`) den entsprechenden Feldern in Braze zu.
 3. Speichern Sie Ihre Konfiguration.
 
-   ![Feld Abbildung Konfiguration]({% image_buster /assets/img/odicci/braze_field_mapping.png %})
+   ![Konfiguration der Feldzuordnung]({% image_buster /assets/img/odicci/braze_field_mapping.png %})
 
-### Schritt 5: Testen Sie die Integration
+### 5. Schritt: Testen Sie die Integration {#step-5-test-the-integration}
 
-1. Führen Sie die Erfahrung in Odicci aus, um Daten zu sammeln.
-2. Überprüfen Sie, ob die Daten korrekt mit Braze synchronisiert werden, indem Sie das Braze-Dashboard oder die Datenprotokolle überprüfen.
-3. Stellen Sie sicher, dass die abgebildeten Felder in Braze korrekt ausgefüllt sind.
+1. Führen Sie das Erlebnis in Odicci aus, um Testdaten zu sammeln.
+2. Überprüfen Sie, ob die Daten korrekt mit Braze synchronisiert werden, indem Sie das Braze-Dashboard oder die Datenprotokolle prüfen.
+3. Stellen Sie sicher, dass die zugeordneten Felder in Braze korrekt befüllt sind.
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
-Wenn Sie Probleme mit der Integration haben, sollten Sie die folgenden Lösungen in Betracht ziehen. Für weitere Unterstützung wenden Sie sich bitte an den [Odicci Support](https://help.odicci.com).
+Wenn Sie Probleme mit der Integration haben, ziehen Sie die folgenden Lösungen in Betracht. Für weitere Unterstützung wenden Sie sich an den [Odicci-Support](https://help.odicci.com).
 
-### API-Schlüssel nicht gültig
+### API-Schlüssel nicht gültig {#api-key-not-valid}
 
-Überprüfen Sie Ihren Braze API-Schlüssel und stellen Sie sicher, dass er über die erforderlichen Berechtigungen verfügt. Geben Sie dann den API-Schlüssel in den Einstellungen für die Integration von Odicci erneut ein.
+Überprüfen Sie Ihren Braze-API-Schlüssel und stellen Sie sicher, dass er über die erforderlichen Berechtigungen verfügt. Geben Sie den API-Schlüssel anschließend erneut in den Odicci-Integrationseinstellungen ein.
 
-### Daten werden nicht synchronisiert
+### Daten werden nicht synchronisiert {#data-not-syncing}
 
-Überprüfen Sie, ob die Felder im Abschnitt **Abbildung der Felder** korrekt konfiguriert sind. Stellen Sie dann sicher, dass der API-Schlüssel über die Berechtigung für Nutzerdatenimporte verfügt.
+Überprüfen Sie, ob die Felder im Abschnitt **Field Mapping** korrekt konfiguriert sind. Stellen Sie dann sicher, dass der API-Schlüssel über die Berechtigung für Nutzerdatenimporte verfügt.
 
-### Kampagne nicht triggernd
+### Campaign wird nicht getriggert {#campaign-not-triggering}
 
-Überprüfen Sie die Einstellungen der Braze Kampagne, um sicherzustellen, dass die richtige Zielgruppe oder die richtigen Triggerbedingungen eingestellt sind.
+Überprüfen Sie die Braze-Campaign-Einstellungen, um sicherzustellen, dass die richtige Zielgruppe oder die richtigen Triggerbedingungen festgelegt sind.

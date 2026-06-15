@@ -25,7 +25,7 @@ To complete this guide, you need:
 | Braze REST API key | A key with the `users.track` permission and, if managing catalogs via API, the relevant catalogs permissions. To create one, go to **Settings** > **API Keys**. |
 | Braze catalog | A catalog containing your product metadata (such as name, category, price, and image URL). To create one, see [Create a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create/). |
 | Liquid knowledge | Intermediate familiarity with [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) for templating personalized variables and using Connected Content. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Step 1: Store recommendations on user profiles
 

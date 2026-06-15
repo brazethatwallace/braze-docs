@@ -6,7 +6,7 @@ description: "Aprenda como definir IDs de usuários através do SDK da Braze."
 
 ---
 
-# Definir IDs de usuários
+# Definir IDs de usuários {#set-user-ids}
 
 > Aprenda como definir IDs de usuários através do SDK da Braze. Estes são identificadores únicos que permitem rastrear usuários em dispositivos e plataformas, importar seus dados através da [API de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) e enviar mensagens direcionadas através da [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/). Se você não atribuir um ID único a um usuário, a Braze atribuirá a ele um ID anônimo; no entanto, você não poderá usar esses recursos até que o faça.
 
@@ -14,11 +14,11 @@ description: "Aprenda como definir IDs de usuários através do SDK da Braze."
 Para wrapper SDKs não listados, use o método nativo relevante do Android ou Swift.
 {% endalert %}
 
-## Sobre usuários anônimos
+## Sobre usuários anônimos {#about-anonymous-users}
 
 {% multi_lang_include anonymous_users/about_anonymous_users.md %}
 
-### Prevenindo o rastreamento de usuários anônimos
+### Prevenindo o rastreamento de usuários anônimos {#preventing-anonymous-user-tracking}
 
 Se o seu caso de uso exige que nenhum dado seja coletado antes de um usuário ser identificado, você pode adiar a inicialização do SDK da Braze até que o usuário faça login e um `external_id` esteja disponível. Defina uma flag no seu código que mude para `true` quando o usuário fizer login e só inicialize o SDK quando essa flag estiver definida.
 
@@ -26,7 +26,7 @@ Se o seu caso de uso exige que nenhum dado seja coletado antes de um usuário se
 Só adie a inicialização na **primeira vez** que um usuário baixar seu app (antes de um `external_id` ser definido). Se você impedir o SDK de inicializar toda vez que um usuário fizer logout ou iniciar uma nova sessão, isso interferirá no pré-carregamento de ativos de mensagens no app e cartões de conteúdo, o que pode causar erros de entregabilidade para essas campanhas.
 {% endalert %}
 
-## Definindo um ID de usuário
+## Definindo um ID de usuário {#setting-a-user-id}
 
 Para definir um ID de usuário, chame o método `changeUser()` após o usuário fazer login inicialmente. Os IDs devem ser únicos e seguir nossas [melhores práticas de nomenclatura](#naming-best-practices).
 
@@ -44,7 +44,7 @@ Se você preferir usar o Google Tag Manager, pode usar o tipo de tag **Change Us
 
 Certifique-se de inserir o ID exclusivo do usuário atual no campo **External User ID**, normalmente preenchido usando uma variável de camada de dados enviada pelo seu site.
 
-![Uma caixa de diálogo mostrando as definições de configuração da tag de ação da Braze. As configurações incluídas são "tag type" e "external user ID".]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
+![Uma caixa de diálogo mostrando as configurações da tag de ação da Braze. As configurações incluídas são "tag type" e "external user ID".]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
 {% endtab %}
 
 {% tab ANDROID %}
@@ -102,7 +102,7 @@ Braze.changeUser("YOUR_USER_ID_STRING");
 {% endtab %}
 {% endtabs %}
 
-### Como o `changeUser()` funciona
+### Como o `changeUser()` funciona {#how-changeuser-works}
 
 Quando você chama `changeUser()`, os seguintes comportamentos se aplicam:
 
@@ -119,13 +119,13 @@ Chamar `changeUser()` aciona um flush de dados como parte do fechamento da sess�
 Não atribua um único ID de usuário compartilhado (por exemplo, um ID externo padrão estático) nem chame `changeUser()` quando um usuário fizer logout. Fazer isso impedirá que você reengaje qualquer usuário que tenha feito login anteriormente em dispositivos compartilhados e fará com que todos os dados sejam registrados em um único ID de usuário, o que pode causar comportamentos inesperados em outros recursos. Em vez disso, mantenha o controle de todos os IDs de usuários separadamente e garanta que o processo de logout do seu app permita a troca de volta para um usuário que já estava logado. Quando uma nova sessão começa, a Braze atualiza automaticamente os dados do perfil recém-ativo.
 {% endalert %}
 
-## Alias do usuário
+## Aliases de usuário {#user-aliases}
 
-### Como funcionam
+### Como funcionam {#how-they-work}
 
 {% multi_lang_include anonymous_users/about_user_aliases.md %}
 
-### Definindo um alias de usuário
+### Definindo um alias de usuário {#setting-a-user-alias}
 
 Um alias de usuário consiste em duas partes: um nome e um rótulo. O nome refere-se ao identificador em si, enquanto o rótulo refere-se ao tipo de identificador ao qual pertence. Por exemplo, se você tiver um usuário em uma plataforma de suporte ao cliente de terceiros com o ID externo `987654`, você pode atribuir a ele um alias na Braze com o nome `987654` e o rótulo `support_id`, para que você possa rastreá-lo entre plataformas.
 
@@ -193,7 +193,7 @@ Alternativamente, você pode fazer hash de um identificador único existente (co
 {% alert warning %}
 Não use um valor previsível ou um número incremental para seu ID de usuário. Isso pode expor sua organização a ataques maliciosos ou exfiltração de dados.
 
-Para maior segurança, use a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/).
+Para maior segurança, use a [Autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/).
 {% endalert %}
 
 Embora seja essencial que você nomeie corretamente seus IDs de usuários desde o início, você sempre pode renomeá-los no futuro usando o endpoint [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/).
@@ -203,7 +203,7 @@ Embora seja essencial que você nomeie corretamente seus IDs de usuários desde 
 | ID de perfil visível do usuário ou nome de usuário | JonDoe829525552 |
 | Endereço de e-mail | Anna@email.com |
 | ID de usuário auto-incremental | 123 |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Melhores práticas para nomeação de IDs" }
 
 {% alert warning %}
 Evite compartilhar detalhes sobre como você cria IDs de usuários, pois isso pode expor sua organização a ataques maliciosos ou exfiltração de dados.

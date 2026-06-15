@@ -1,21 +1,21 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Fonctionnalités intégrées
+## Fonctionnalités intégrées {#built-in-features}
 
 Les fonctionnalités suivantes sont intégrées au SDK Android de Braze. Pour utiliser d'autres fonctionnalités de notifications push, vous devrez [configurer les notifications push](#android_setting-up-push-notifications) pour votre application.
 
-|Fonctionnalité|Description|
+| Fonctionnalité | Description |
 |-------|-----------|
-|Contenu push|Le contenu push Android est intégré par défaut au SDK Android de Braze. Pour en savoir plus, consultez la section [Contenu push]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/).|
-|Amorces de notifications push|Les campagnes d'amorces de notifications push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Ceci peut se faire sans personnalisation du SDK, grâce à notre [amorce de notifications push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Push Stories | Les Push Stories Android sont intégrées par défaut au SDK Android de Braze. Pour en savoir plus, consultez la section [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/). |
+| Amorces de notifications push | Les campagnes d'amorces de notifications push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Ceci peut se faire sans personnalisation du SDK, grâce à notre [amorce de notifications push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
 
 ## À propos du cycle de vie des notifications push {#push-notification-lifecycle}
 
 Le diagramme suivant illustre la manière dont Braze gère le cycle de vie des notifications push, notamment les demandes d'autorisation, la génération de jetons et la distribution des messages.
 
 {% tabs local %}
-{% tab Granting permissions %}
+{% tab Accorder les autorisations %}
 ```mermaid
 ---
 config:
@@ -28,35 +28,35 @@ subgraph Permission[Push Permissions]
     B{Android version of the device?}
     B -->|Android 13+| C["requestPushPermissionPrompt() called"]
     B -->|Android 12 and earlier| D[No permissions required]
-    
+
     %% Connect Android 12 path to Braze state
     D --> H3[Braze: user subscription state]
     H3 --> J3[Defaults to 'subscribed' when user profile created]
-    
+
     C --> E{Did the user grant push permission?}
     E -->|Yes| F[POST_NOTIFICATIONS permission granted]
     E -->|No| G[POST_NOTIFICATIONS permission denied]
-    
+
     %% Braze subscription state updates
     F --> H1[Braze: user subscription state]
     G --> H2[Braze: user subscription state]
-    
+
     H1 --> I1{Automatically opt in after permission granted?}
     I1 -->|true| J1[Set to 'opted-in']
     I1 -->|false| J2[Remains 'subscribed']
-    
+
     H2 --> K1[Remains 'subscribed'<br/>or 'unsubscribed']
-    
+
     %% Subscription state legend
     subgraph BrazeStates[Braze subscription states]
         L1['Subscribed' - default state<br/>when user profile created]
         L2['Opted-in' - user explicitly<br/>wants push notifications]
         L3['Unsubscribed' - user explicitly<br/>opted out of push]
     end
-    
+
     %% Note about user-level states
     note1[Note: These states are user-level<br/>and apply across all devices for the user]
-    
+
     %% Connect states to legend
     J1 -.-> L2
     J2 -.-> L1
@@ -84,7 +84,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Generating push tokens %}
+{% tab Génération des jetons push %}
 ```mermaid
 ---
 config:
@@ -133,7 +133,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Displaying notifications %}
+{% tab Affichage des notifications %}
 ```mermaid
 ---
 config:
@@ -179,21 +179,21 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 {% endtab %}
 {% endtabs %}
 
-## Configuration des notifications push
+## Configuration des notifications push {#setting-up-push-notifications}
 
 {% alert tip %}
-Pour découvrir un exemple d'application utilisant FCM avec le SDK Android de Braze, consultez [Braze : Exemple d'application Firebase Push](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push).
+Pour découvrir un exemple d'application utilisant FCM avec le SDK Android de Braze, consultez [Braze : exemple d'application Firebase Push](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push).
 {% endalert %}
 
-### Limites de débit
+### Limites de débit {#rate-limits}
 
 L'API Firebase Cloud Messaging (FCM) présente une limite de débit par défaut de 600 000 requêtes par minute. Si vous atteignez cette limite, Braze réessaiera automatiquement dans quelques minutes. Pour demander une augmentation, contactez l'[assistance Firebase](https://firebase.google.com/support).
 
-### Étape 1 : Ajoutez Firebase à votre projet
+### Étape 1 : Ajoutez Firebase à votre projet {#step-1-add-firebase-to-your-project}
 
 Tout d'abord, ajoutez Firebase à votre projet Android. Pour obtenir des instructions pas à pas, consultez le [guide de configuration de Firebase](https://firebase.google.com/docs/android/setup) de Google.
 
-### Étape 2 : Ajoutez Cloud Messaging à vos dépendances
+### Étape 2 : Ajoutez Cloud Messaging à vos dépendances {#step-2-add-cloud-messaging-to-your-dependencies}
 
 Ensuite, ajoutez la bibliothèque Cloud Messaging aux dépendances de votre projet. Dans votre projet Android, ouvrez `build.gradle`, puis ajoutez la ligne suivante à votre bloc `dependencies`.
 
@@ -210,7 +210,7 @@ dependencies {
 }
 ```
 
-### Étape 3 : Activez l'API Firebase Cloud Messaging
+### Étape 3 : Activez l'API Firebase Cloud Messaging {#step-3-enable-the-firebase-cloud-messaging-api}
 
 Dans Google Cloud, sélectionnez le projet utilisé par votre application Android, puis activez l'[API Firebase Cloud Messaging](https://console.cloud.google.com/apis/library/fcm.googleapis.com).
 
@@ -254,13 +254,13 @@ N'oubliez pas l'emplacement de téléchargement de la clé&#8212;vous en aurez b
 Les clés privées peuvent présenter un risque de sécurité si elles sont compromises. Conservez vos identifiants JSON dans un emplacement sécurisé pour l'instant&#8212;vous supprimerez votre clé après l'avoir chargée sur Braze.
 {% endalert %}
 
-### Étape 6 : Chargez vos identifiants JSON sur Braze
+### Étape 6 : Chargez vos identifiants JSON sur Braze {#step-6-upload-your-json-credentials-to-braze}
 
-Ensuite, chargez vos identifiants JSON dans votre tableau de bord de Braze. Dans Braze, sélectionnez <i class="fa-solid fa-gear"></i>&nbsp;**Paramètres** > **Paramètres de l'application**.
+Ensuite, chargez vos identifiants JSON dans votre tableau de bord de Braze. Dans Braze, sélectionnez <i class="fa-solid fa-gear"></i>&nbsp;**Paramètres** > **Paramètres des applications**.
 
-![Le menu « Paramètres » ouvert dans Braze avec « Paramètres de l'application » mis en évidence.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
+![Le menu « Paramètres » ouvert dans Braze avec « Paramètres des applications » mis en évidence.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
-Sous les **paramètres de notifications push** de votre application Android, choisissez **Firebase**, puis sélectionnez **Upload JSON File** et chargez les identifiants [que vous avez générés précédemment](#android_json). Lorsque vous avez terminé, sélectionnez **Enregistrer**.
+Sous les **Paramètres des notifications push** de votre application Android, choisissez **Firebase**, puis sélectionnez **Upload JSON File** et chargez les identifiants [que vous avez générés précédemment](#android_json). Lorsque vous avez terminé, sélectionnez **Save**.
 
 ![Le formulaire « Push Notification Settings » avec « Firebase » sélectionné comme fournisseur de notifications push.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
 
@@ -268,7 +268,7 @@ Sous les **paramètres de notifications push** de votre application Android, cho
 Les clés privées peuvent présenter un risque de sécurité si elles sont compromises. Maintenant que votre clé est chargée sur Braze, supprimez le fichier [que vous avez généré précédemment](#android_json).
 {% endalert %}
 
-### Étape 7 : Configurez l'enregistrement automatique des jetons
+### Étape 7 : Configurez l'enregistrement automatique des jetons {#step-7-set-up-automatic-token-registration}
 
 Lorsqu'un de vos utilisateurs opte pour les notifications push, votre application doit générer un jeton FCM sur son appareil avant de pouvoir lui envoyer des notifications push. Avec le SDK Braze, vous pouvez activer l'enregistrement automatique des jetons FCM pour l'appareil de chaque utilisateur dans les fichiers de configuration Braze de votre projet.
 
@@ -360,18 +360,18 @@ Si vous souhaitez enregistrer manuellement des jetons FCM, vous pouvez appeler [
 {% endtab %}
 {% endtabs %}
 
-### Étape 8 : Supprimez les requêtes automatiques dans votre classe Application
+### Étape 8 : Supprimez les requêtes automatiques dans votre classe Application {#step-8-remove-automatic-requests-in-your-application-class}
 
 Pour éviter que Braze ne déclenche des requêtes réseau inutiles à chaque envoi de notifications push silencieuses, supprimez toutes les requêtes réseau automatiques configurées dans la méthode `onCreate()` de votre classe `Application`. Pour plus d'informations, consultez la [référence pour les développeurs Android : Application](https://developer.android.com/reference/android/app/Application).
 
-## Affichage des notifications
+## Affichage des notifications {#displaying-notifications}
 
-### Étape 1 : Enregistrez le service de messagerie Firebase de Braze
+### Étape 1 : Enregistrez le service de messagerie Firebase de Braze {#step-1-register-braze-firebase-messaging-service}
 
 Vous pouvez créer un nouveau service de messagerie Firebase, utiliser un service existant ou un service non Braze. Choisissez l'option qui répond le mieux à vos besoins.
 
 {% tabs local %}
-{% tab New %}
+{% tab Nouveau %}
 Braze inclut un service pour gérer la réception des notifications push et les intentions d'ouverture. Notre classe `BrazeFirebaseMessagingService` doit être enregistrée dans votre `AndroidManifest.xml` :
 
 ```xml
@@ -390,7 +390,7 @@ Avant la version 3.1.1 du SDK Braze, `AppboyFcmReceiver` était utilisé pour g�
 {% endalert %}
 {% endtab %}
 
-{% tab Existing %}
+{% tab Existant %}
 Si vous avez déjà enregistré un service de messagerie Firebase, vous pouvez passer des objets [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) à Braze via [`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html). Cette méthode n'affichera une notification que si l'objet [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) provient de Braze et l'ignorera en toute sécurité dans le cas contraire.
 
 {% subtabs %}
@@ -473,7 +473,7 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-### Étape 2 : Conformez les petites icônes aux lignes directrices de conception
+### Étape 2 : Conformez les petites icônes aux lignes directrices de conception {#step-2-conform-small-icons-to-design-guidelines}
 
 Pour des informations générales sur les icônes de notification Android, consultez l'[aperçu des notifications](https://developer.android.com/guide/topics/ui/notifiers/notifications).
 
@@ -493,7 +493,7 @@ Les grandes et petites icônes suivantes sont des exemples d'icônes correctemen
 
 ### Étape 3 : Configurez les icônes de notification {#configure-icons}
 
-#### Spécifier des icônes dans braze.xml
+#### Spécifier des icônes dans braze.xml {#specifying-icons-in-brazexml}
 
 Braze vous permet de configurer vos icônes de notification en spécifiant des ressources drawable dans votre `braze.xml` :
 
@@ -506,7 +506,7 @@ La définition d'une petite icône de notification est requise. **Si vous n'en d
 
 La définition d'une grande icône de notification est facultative, mais recommandée.
 
-#### Spécifier la couleur d'accentuation de l'icône
+#### Spécifier la couleur d'accentuation de l'icône {#specifying-icon-accent-color}
 
 La couleur d'accentuation de l'icône de notification peut être modifiée dans votre `braze.xml`. Si la couleur n'est pas spécifiée, la couleur par défaut est le même gris que celui utilisé par Lollipop pour les notifications système.
 
@@ -520,9 +520,9 @@ Vous pouvez également utiliser une référence de couleur :
 <color name="com_braze_default_notification_accent_color">@color/my_color_here</color>
 ```
 
-### Étape 4 : Ajoutez des liens profonds
+### Étape 4 : Ajoutez des liens profonds {#step-4-add-deep-links}
 
-#### Activer l'ouverture automatique des liens profonds
+#### Activer l'ouverture automatique des liens profonds {#enabling-automatic-deep-link-opening}
 
 Pour permettre à Braze d'ouvrir automatiquement votre application et les liens profonds lorsqu'une notification push est cliquée, définissez `com_braze_handle_push_deep_links_automatically` sur `true` dans votre `braze.xml` :
 
@@ -555,15 +555,15 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-Si vous souhaitez gérer les liens profonds de manière personnalisée, vous devrez créer un rappel push qui écoute les intentions de réception et d'ouverture de push de Braze. Pour plus d'informations, consultez la section [Utilisation d'un rappel pour les événements push]({{site.baseurl}}/developer_guide/push_notifications/customization#android_using-a-callback-for-push-events).
+Si vous souhaitez gérer les liens profonds de manière personnalisée, vous devrez créer un rappel push qui écoute les intentions de réception et d'ouverture de push de Braze. Pour plus d'informations, consultez la section [Utilisation d'un rappel pour les événements push]({{site.baseurl}}/developer_guide/push_notifications/customization/#android_using-a-callback-for-push-events).
 
-## Gestion des notifications au premier plan
+## Gestion des notifications au premier plan {#handling-foreground-notifications}
 
-Par défaut, lorsqu'une notification push arrive alors que votre application est au premier plan sur Android, le système l'affiche automatiquement. Pour que Braze traite la charge utile de la notification push (suivi analytique, gestion des liens profonds et traitement personnalisé), acheminez les données push entrantes vers Braze dans votre méthode `FirebaseMessagingService.onMessageReceived`.
+Par défaut, lorsqu'une notification push arrive alors que votre application est au premier plan sur Android, le système l'affiche automatiquement. Pour que Braze traite le payload de la notification push (suivi analytique, gestion des liens profonds et traitement personnalisé), acheminez les données push entrantes vers Braze dans votre méthode `FirebaseMessagingService.onMessageReceived`.
 
-### Fonctionnement
+### Fonctionnement {#how-it-works}
 
-Lorsque vous appelez `BrazeFirebaseMessagingService.handleBrazeRemoteMessage`, Braze détermine si la charge utile est une notification push Braze et, le cas échéant, crée et affiche la notification via la méthode `NotificationManagerCompat`. Contrairement à iOS, Android affiche les notifications que l'application soit au premier plan ou en arrière-plan.
+Lorsque vous appelez `BrazeFirebaseMessagingService.handleBrazeRemoteMessage`, Braze détermine si le payload est une notification push Braze et, le cas échéant, crée et affiche la notification via la méthode `NotificationManagerCompat`. Contrairement à iOS, Android affiche les notifications que l'application soit au premier plan ou en arrière-plan.
 
 {% tabs %}
 {% tab JAVA %}
@@ -578,7 +578,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-        
+
         // Let Braze process the payload and display the notification
         if (BrazeFirebaseMessagingService.handleBrazeRemoteMessage(this, remoteMessage)) {
             // Braze successfully handled the push notification
@@ -601,7 +601,7 @@ import com.google.firebase.messaging.RemoteMessage
 class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
-        
+
         // Let Braze process the payload and display the notification
         if (BrazeFirebaseMessagingService.handleBrazeRemoteMessage(this, remoteMessage)) {
             // Braze successfully handled the push notification
@@ -616,7 +616,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 Pour plus d'informations, consultez l'[exemple d'intégration Firebase](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseMessagingService.kt) dans le dépôt du SDK Android de Braze.
 
-### Personnalisation du comportement au premier plan
+### Personnalisation du comportement au premier plan {#customizing-foreground-behavior}
 
 Si vous souhaitez personnaliser le comportement au premier plan, par exemple supprimer la notification système ou afficher une interface in-app à la place, vous pouvez :
 
@@ -625,17 +625,17 @@ Si vous souhaitez personnaliser le comportement au premier plan, par exemple sup
 
 Pour plus d'informations sur la personnalisation des notifications, consultez la section [Usine de notifications personnalisées]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#custom-notification-factory).
 
-#### Création de liens profonds personnalisés
+#### Création de liens profonds personnalisés {#creating-custom-deep-links}
 
-Suivez les instructions de la [documentation pour développeurs Android](http://developer.android.com/training/app-indexing/deep-linking.html) sur la création de liens profonds si vous n'en avez pas encore ajouté à votre application. Pour en savoir plus sur les liens profonds, consultez notre [article de FAQ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking).
+Suivez les instructions de la [documentation pour développeurs Android](http://developer.android.com/training/app-indexing/deep-linking.html) sur la création de liens profonds si vous n'en avez pas encore ajouté à votre application. Pour en savoir plus sur les liens profonds, consultez notre [article de FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
-#### Ajouter des liens profonds
+#### Ajouter des liens profonds {#adding-deep-links}
 
-Le tableau de bord de Braze permet de définir des liens profonds ou des URL Web dans les campagnes de notifications push et les Canvas, qui seront ouverts lorsque la notification est cliquée.
+Le tableau de bord de Braze permet de définir des liens profonds ou des URL Web dans les Campaigns de notifications push et les Canvas, qui seront ouverts lorsque la notification est cliquée.
 
 ![Le paramètre « On Click Behavior » dans le tableau de bord de Braze avec « Deep Link Into Application » sélectionné dans le menu déroulant.]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
 
-#### Personnaliser le comportement de la pile arrière
+#### Personnaliser le comportement de la pile arrière {#customizing-back-stack-behavior}
 
 Par défaut, le SDK Android place l'activité du lanceur principal de votre application hôte dans la pile arrière lorsqu'il suit des liens profonds de notification push. Braze vous permet de définir une activité personnalisée à ouvrir dans la pile arrière à la place de votre activité de lanceur principal, ou de désactiver complètement la pile arrière.
 
@@ -673,15 +673,15 @@ Consultez la configuration équivalente pour votre `braze.xml`. Notez que le nom
 <string name="com_braze_push_deep_link_back_stack_activity_class_name">your.package.name.YourMainActivity</string>
 ```
 
-### Étape 5 : Définissez les canaux de notification
+### Étape 5 : Définissez les canaux de notification {#step-5-define-notification-channels}
 
-Le SDK Android de Braze prend en charge les [canaux de notification Android](https://developer.android.com/preview/features/notification-channels.html). Si une notification Braze ne contient pas d'ID de canal de notification ou contient un ID de canal non valide, Braze affichera la notification avec le canal de notification par défaut défini dans le SDK. Les utilisateurs de la plateforme peuvent utiliser les [canaux de notification Android]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/) pour regrouper les notifications.
+Le SDK Android de Braze prend en charge les [canaux de notification Android](https://developer.android.com/preview/features/notification-channels.html). Si une notification Braze ne contient pas d'ID de canal de notification ou contient un ID de canal non valide, Braze affichera la notification avec le canal de notification par défaut défini dans le SDK. Les utilisateurs de l'entreprise peuvent utiliser les [canaux de notification Android]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/) au sein de la plateforme pour regrouper les notifications.
 
 Pour définir le nom du canal de notification par défaut de Braze visible par l'utilisateur, utilisez [`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html).
 
 Pour définir la description du canal de notification par défaut de Braze visible par l'utilisateur, utilisez [`BrazeConfig.setDefaultNotificationChannelDescription()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-description.html).
 
-Mettez à jour toutes les campagnes API avec le paramètre [Android push object]({{site.baseurl}}/api/objects_filters/messaging/android_object/) pour inclure le champ `notification_channel`. Si ce champ n'est pas spécifié, Braze enverra la charge utile de notification avec l'ID du [canal de repli du tableau de bord]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel).
+Mettez à jour toutes les Campaigns API avec le paramètre [Android push object]({{site.baseurl}}/api/objects_filters/messaging/android_object/) pour inclure le champ `notification_channel`. Si ce champ n'est pas spécifié, Braze enverra le payload de notification avec l'ID du [canal de repli du tableau de bord]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel).
 
 En dehors du canal de notification par défaut, Braze ne crée aucun canal. Tous les autres canaux doivent être définis par programmation par l'application hôte, puis saisis dans le tableau de bord de Braze.
 
@@ -692,28 +692,28 @@ Le nom et la description par défaut du canal peuvent également être configur�
 <string name="com_braze_default_notification_channel_description">Your channel description</string>
 ```
 
-### Étape 6 : Testez l'affichage et l'analytique des notifications
+### Étape 6 : Testez l'affichage et l'analytique des notifications {#step-6-test-notification-display-and-analytics}
 
-#### Tester l'affichage
+#### Tester l'affichage {#testing-display}
 
-À ce stade, vous devriez pouvoir voir les notifications envoyées par Braze. Pour tester cela, rendez-vous sur la page **Campagnes** de votre tableau de bord de Braze et créez une campagne de **notification push**. Choisissez **Android Push** et concevez votre message. Cliquez ensuite sur l'icône en forme d'œil dans le composeur pour accéder à l'expéditeur de test. Saisissez l'ID utilisateur ou l'adresse e-mail de votre utilisateur actuel et cliquez sur **Envoyer le test**. La notification push devrait s'afficher sur votre appareil.
+À ce stade, vous devriez pouvoir voir les notifications envoyées par Braze. Pour tester cela, rendez-vous sur la page **Campaigns** de votre tableau de bord de Braze et créez une Campaign de **notification push**. Choisissez **Android Push** et concevez votre message. Cliquez ensuite sur l'icône en forme d'œil dans le composeur pour accéder à l'expéditeur de test. Saisissez l'ID utilisateur ou l'adresse e-mail de votre utilisateur actuel et cliquez sur **Send Test**. La notification push devrait s'afficher sur votre appareil.
 
-![L'onglet « Test » d'une campagne de notifications push dans le tableau de bord de Braze.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
+![L'onglet « Test » d'une Campaign de notifications push dans le tableau de bord de Braze.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
 Pour les problèmes liés à l'affichage des notifications push, consultez notre [guide de résolution des problèmes]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android).
 
-#### Tester l'analytique
+#### Tester l'analytique {#testing-analytics}
 
-À ce stade, vous devriez également disposer de l'enregistrement analytique pour les ouvertures de notifications push. Cliquer sur la notification lorsqu'elle arrive devrait faire augmenter de 1 le compteur d'**ouvertures directes** sur la page des résultats de votre campagne. Consultez notre article sur les [rapports push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/) pour en savoir plus sur l'analytique push.
+À ce stade, vous devriez également disposer de l'enregistrement analytique pour les ouvertures de notifications push. Cliquer sur la notification lorsqu'elle arrive devrait faire augmenter de 1 le compteur d'**ouvertures directes** sur la page des résultats de votre Campaign. Consultez notre article sur les [rapports push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/) pour en savoir plus sur l'analytique push.
 
 Pour les problèmes liés à l'analytique push, consultez notre [guide de résolution des problèmes]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android).
 
-#### Tester depuis la ligne de commande
+#### Tester depuis la ligne de commande {#testing-from-command-line}
 
 Si vous souhaitez tester les notifications in-app et push via l'interface de ligne de commande, vous pouvez envoyer une seule notification via le terminal avec cURL et l'[API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/). Vous devrez remplacer les champs suivants par les valeurs correctes pour votre cas de test :
 
-- `YOUR_API_KEY` (Accédez à **Paramètres** > **Clés API**.)
-- `YOUR_EXTERNAL_USER_ID` (Recherchez un profil sur la page **Recherche d'utilisateurs**.)
+- `YOUR_API_KEY` (Accédez à **Settings** > **API Keys**.)
+- `YOUR_EXTERNAL_USER_ID` (Recherchez un profil sur la page **Search Users**.)
 - `YOUR_KEY1` (facultatif)
 - `YOUR_VALUE1` (facultatif)
 
@@ -727,37 +727,37 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
       "extra": {
         "YOUR_KEY1":"YOUR_VALUE1"
       }
-    }  
+    }
   }
 }' https://rest.iad-01.braze.com/messages/send
 ```
 
 Cet exemple utilise l'instance `US-01`. Si vous n'êtes pas sur cette instance, remplacez l'endpoint `US-01` par [votre endpoint]({{site.baseurl}}/api/basics/#endpoints).
 
-## Notifications push de conversation
+## Notifications push de conversation {#conversation-push-notifications}
 
 ![]({% image_buster /assets/img/android/push/conversations_android.png %}){: style="float:right;max-width:35%;margin-left:15px;border: 0;"}
 
 L'[initiative People and Conversations](https://developer.android.com/guide/topics/ui/conversations) est une initiative Android pluriannuelle qui vise à mettre en avant les personnes et les conversations dans les surfaces système du téléphone. Cette priorité repose sur le fait que la communication et l'interaction avec d'autres personnes restent la zone fonctionnelle la plus valorisée et la plus importante pour la majorité des utilisateurs Android, toutes tranches démographiques confondues.
 
-### Exigences d'utilisation
+### Exigences d'utilisation {#usage-requirements}
 
 - Ce type de notification nécessite le SDK Braze pour Android v15.0.0+ et des appareils Android 11+.
 - Les appareils ou SDK non pris en charge basculeront sur une notification push standard.
 
-Cette fonctionnalité est uniquement disponible via l'API REST de Braze. Consultez l'[objet push Android]({{site.baseurl}}/api/objects_filters/messaging/android_object#android-conversation-push-object) pour plus d'informations.
+Cette fonctionnalité est uniquement disponible via la REST API de Braze. Consultez l'[objet push Android]({{site.baseurl}}/api/objects_filters/messaging/android_object/#android-conversation-push-object) pour plus d'informations.
 
-## Erreurs de dépassement du quota FCM
+## Erreurs de dépassement du quota FCM {#fcm-quota-exceeded-errors}
 
 Lorsque votre limite pour Firebase Cloud Messaging (FCM) est dépassée, Google renvoie des erreurs « quota exceeded ». La limite par défaut pour FCM est de 600 000 requêtes par minute. Braze effectue de nouvelles tentatives d'envoi conformément aux bonnes pratiques recommandées par Google. Cependant, un volume important de ces erreurs peut prolonger le temps d'envoi de plusieurs minutes. Afin d'atténuer tout impact potentiel, Braze vous enverra une alerte vous informant que la limite de débit est dépassée et vous indiquera les mesures à prendre pour éviter ces erreurs.
 
 Pour vérifier votre limite actuelle, rendez-vous dans votre **Google Cloud Console** > **APIs & Services** > **Firebase Cloud Messaging API** > **Quotas & System Limits**, ou consultez la [page Quotas de l'API FCM](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas).
 
-### Bonnes pratiques
+### Bonnes pratiques {#best-practices}
 
 Nous recommandons les bonnes pratiques suivantes pour maintenir ces volumes d'erreurs à un niveau bas.
 
-#### Demander une augmentation de la limite de débit auprès de FCM
+#### Demander une augmentation de la limite de débit auprès de FCM {#request-a-rate-limit-increase-from-fcm}
 
 Pour demander une augmentation de la limite de débit auprès de FCM, vous pouvez contacter directement l'[assistance Firebase](https://firebase.google.com/support) ou suivre les étapes suivantes :
 
@@ -766,6 +766,6 @@ Pour demander une augmentation de la limite de débit auprès de FCM, vous pouve
 3. Sélectionnez **Edit Quota**.
 4. Saisissez une nouvelle valeur et soumettez votre demande.
 
-#### Appliquer une limite de débit au niveau de l'espace de travail
+#### Appliquer une limite de débit au niveau de l'espace de travail {#apply-a-workspace-rate-limit}
 
-Vous pouvez appliquer une limite de débit au niveau de l'espace de travail pour les notifications push Android. Cela permet de réguler le rythme de distribution de vos messages sortants. Pour plus de détails, consultez [Limites de débit d'envoi de messages de l'espace de travail]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits).
+Vous pouvez appliquer une limite de débit au niveau de l'espace de travail pour les notifications push Android. Cela permet de réguler le rythme de distribution de vos messages sortants. Pour plus de détails, consultez [Limites de débit d'envoi de messages de l'espace de travail]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits/).

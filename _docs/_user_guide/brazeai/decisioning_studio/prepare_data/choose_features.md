@@ -26,7 +26,7 @@ There are four common categories of customer features:
 | **User propensity** | Model-derived scores for the customer's likelihood to do something | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **User behavioral** | Summaries of customer activity over a time window | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **Environmental** | Contextual signals external to the customer | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Types of customer features" }
 
 Together, these feature types give the model the information it needs to identify segments, distinguish between customers, and adapt recommendations accordingly.
 

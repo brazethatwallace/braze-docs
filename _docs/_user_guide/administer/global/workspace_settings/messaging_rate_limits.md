@@ -30,7 +30,7 @@ For example, let’s say you have a workspace messaging rate limit of 100,000 me
 | Campaign 1 | 100,000            | 12 pm     |
 | Campaign 2 | 100,000            | 12 pm     |
 | Campaign 3 | 100,000            | 12 pm     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How it works" }
 
 The messages are dispatched over a 3-minute interval.
 
@@ -44,7 +44,7 @@ Consider the next example with a workspace messaging rate limit of 100,000 messa
 |------------|--------------------|-----------|
 | Campaign 1 | 1,000,000          | 9 am      |
 | Campaign 2 | 1,000,000          | 9:05 am   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How it works" }
 
 The following is the expected dispatch schedule and messages sent per minute:
 

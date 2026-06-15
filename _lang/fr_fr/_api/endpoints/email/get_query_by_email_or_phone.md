@@ -1,39 +1,39 @@
 ---
-nav_title: "GET : Indiquez l'état de l'abonnement avec l'adresse e-mail ou le numéro de téléphone"
-article_title: "GET : Liste de l'État d'abonnement avec l'adresse e-mail ou le numéro de téléphone"
+nav_title: "GET : Lister l'état d'abonnement avec une adresse e-mail ou un numéro de téléphone"
+article_title: "GET : Lister l'état d'abonnement avec une adresse e-mail ou un numéro de téléphone"
 search_tag: Endpoint
 page_order: 2
 hidden: true
 layout: api_page
 page_type: reference
-description: "Cet article présente les détails de l'état de l'abonnement à la liste avec une adresse e-mail ou un numéro de téléphone du point de terminaison Braze."
+description: "Cet article présente les détails de l'endpoint Braze permettant de lister l'état d'abonnement avec une adresse e-mail ou un numéro de téléphone."
 
 ---
 {% api %}
-# Liste de l'état de l'abonnement avec une adresse e-mail ou un numéro de téléphone
+# Lister l'état d'abonnement avec une adresse e-mail ou un numéro de téléphone {#list-subscription-state-with-an-email-address-or-phone-number}
 {% apimethod get %}
-/utilisateurs/abonnement
+/users/subscription
 {% endapimethod %}
 
-> Utilisez cet endpoint pour renvoyer la valeur de l'état de l'abonnement en fonction d'une adresse e-mail ou d'un numéro de téléphone.
+> Utilisez cet endpoint pour renvoyer la valeur de l'état d'abonnement en fonction d'une adresse e-mail ou d'un numéro de téléphone.
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --- | --- | --- | --- |
 | `email` | Oui | Chaîne de caractères | L'adresse e-mail de l'utilisateur (doit comprendre au moins une adresse et au plus 50 adresses). |
-| `phone` | Oui | Chaîne de caractères | Le numéro de téléphone de l'utilisateur (doit comprendre au moins un numéro de téléphone et au plus 50 numéros de téléphone). Nous vous recommandons de fournir ces informations sous le format E.164. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `phone` | Oui | Chaîne de caractères | Le numéro de téléphone de l'utilisateur (doit comprendre au moins un numéro de téléphone et au plus 50 numéros de téléphone). Nous vous recommandons de le fournir au format E.164. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/users/subscriptions?phone=+12123355555&email=example%40braze.com' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
 ```
 
-## Réponse
+## Réponse {#response}
 
-Les entrées sont répertoriées par ordre décroissant.
+Les entrées sont listées par ordre décroissant.
 
 ```json
 {

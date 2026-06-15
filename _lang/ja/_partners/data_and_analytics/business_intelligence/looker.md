@@ -2,80 +2,80 @@
 nav_title: Looker
 article_title: Looker
 alias: /partners/looker/
-description: "この参考記事では、Brazeとビジネス・インテリジェンスおよびビッグデータ分析プラットフォームであるLookerのパートナーシップについて概説している。"
+description: "このリファレンス記事では、Brazeとビジネスインテリジェンスおよびビッグデータ分析プラットフォームであるLookerとのパートナーシップについて説明します。"
 page_type: partner
 search_tag: Partner
 
 ---
 
-# [![Braze ラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"} Looker
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
 
-> ビジネスインテリジェンスとビッグデータ分析のプラットフォームである [Looker](https://looker.com/) は、リアルタイムのビジネス分析の探索、分析、共有をシームレスに行えるようにしています。
+> ビジネスインテリジェンスおよびビッグデータ分析プラットフォームである [Looker](https://looker.com/) を使用すると、リアルタイムのビジネス分析をシームレスに探索、分析、共有できます。
 
-Braze と Looker の統合により、Braze をご利用のお客様は REST API を介してファーストパーティの [Looker Blocks](#looker-blocks) と [Looker Actions](#looker-actions) ユーザーフラグを利用できます。これらのフラグを立てたユーザーをセグメントに追加し、将来のBrazeキャンペーンやCanvasの[ターゲットにする](#segment-users)ことができる。Braze と Looker を使用するには、[Braze Currents を使用してデータウェアハウス]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/available_partners/)に Braze データを送信してから、Braze の Looker Blocks を使用して Looker で Braze データをスピーディーにモデル化および視覚化することをお勧めします。
+BrazeとLookerの統合により、会社ユーザーはREST APIを介してファーストパーティの[Looker Blocks](#looker-blocks)と[Looker Actions](#looker-actions)のユーザーフラグ機能を活用できます。フラグを設定したユーザーをセグメントに追加して、将来のBraze キャンペーンやキャンバスを[ターゲット](#segment-users)にすることができます。LookerをBrazeと併用するには、[Braze Currentsを使用してデータウェアハウス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)にBrazeデータを送信し、Braze Looker Blocksを使用してLookerでBrazeデータを素早くモデル化および視覚化することをお勧めします。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-|Looker アカウント | このパートナーシップを活用するには、[Looker アカウント](https://looker.com/)が必要です。 |
-| Braze REST API キー | `users.track` 権限を持つ Braze REST API キー。<br><br> これは、Brazeダッシュボードの**「設定」**>「**APIキー**」から作成できる。 |
-| Braze RESTエンドポイント  | REST エンドポイントのURL。エンドポイントはインスタンスの [Braze URL]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/) に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Lookerアカウント | このパートナーシップを活用するには、[Lookerアカウント](https://looker.com/)が必要です。 |
+| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)に応じて異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-#### 制限事項
+#### 注意事項 {#considerations}
 
-- このプロセスは、ピボットされていないデータに対してのみ機能する。
-- APIは一度に最大100,000行を処理する。
+- このプロセスは、ピボットされていないデータに対してのみ機能します。
+- APIは一度に最大100,000行を処理します。
 - ユーザーの最終的なフラグの数は、重複や非ユーザーが原因で少なくなる可能性があります。
 
-## 統合
+## 統合 {#integration}
 
-### Looker Blocks
+### Looker Blocks {#looker-blocks}
 
-Looker Blocks により、Braze のお客様は [Currents]({{site.baseurl}}/partners/braze_currents/about/) で当社から提供される詳細なデータのビューに素早くアクセスできるようになります。Braze のブロックは、Currents データ用に事前に作成されている視覚化とモデリング機能を提供します。これにより、Braze のお客様は、リテンションなどの分析パターンを容易に実装し、メッセージの配信可能性を評価し、ユーザーの行動をより細かく確認することなどができるようになります。
+Looker Blocksにより、Brazeのお客様は[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)で提供される詳細なデータのビューに素早くアクセスできるようになります。Brazeのブロックは、Currentsデータ用に事前に作成された視覚化とモデリング機能を提供するため、Brazeのお客様はリテンションなどの分析パターンを容易に実装し、メッセージの配信可能性を評価し、ユーザーの動作をより細かく確認することなどができます。
 
-Looker Blocksを実装するには、GitHubコードのREADMEファイルの指示に従う。
-- [メッセージ・エンゲージメント分析ブロック README](https://github.com/llooker/braze_message_engagement_block/blob/master/README.md)
-- [ユーザー行動分析ブロック README](https://github.com/llooker/braze_retention_block/blob/master/README.md)
+Looker Blocksを実装するには、GitHubコードのREADMEファイルの指示に従ってください。
+- [メッセージエンゲージメント分析ブロック README](https://github.com/llooker/braze_message_engagement_block/blob/master/README.md)
+- [ユーザー動作分析ブロック README](https://github.com/llooker/braze_retention_block/blob/master/README.md)
 
-どちらの統合も、[初回の Braze 統合]({{site.baseurl}}/user_guide/onboarding_with_braze/integration/)と、Looker 互換の[データウェアハウス](https://looker.com/solutions/other-databases?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct)と Braze の統合が、必要なデータを取り込んで送信するように適切に設定されていることを前提としています。
+どちらの統合も、[初回のBraze統合]({{site.baseurl}}/user_guide/get_started/sdk_overview/)と、Looker互換の[データウェアハウス](https://looker.com/solutions/other-databases?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct)とのBraze統合が、必要なデータを取り込んで送信するように適切に設定されていることを前提としています。
 
 
 {% alert important %}
-Brazeは[Snowflakeを](https://www.snowflake.com/)データウェアハウスとして使用してLooker Blocksを構築した。ブロックはできるだけ多くのデータウェアハウスで動作することを目指しているが、SQL関数の中には方言によって利用可能なもの、構文、動作が異なるものがある。
+Brazeは[Snowflake](https://www.snowflake.com/)をデータウェアハウスとして使用してLooker Blocksを構築しています。ブロックはできるだけ多くのデータウェアハウスで動作することを目指していますが、SQL関数の中には方言によって利用可能性、構文、動作が異なるものがあります。
 {% endalert %}
 
 {% alert warning %}
-さまざまな命名規則に注意すること！カスタム名は、対応する名前をすべて変更しない限り、データの不整合を引き起こす可能性がある。ビュー名、テーブル名、モデル名をカスタマイズしている場合は、LookML 内のそれぞれの名前を、選択した名前に変更する。
+さまざまな命名規則に注意してください！カスタム名は、対応する名前をすべて変更しない限り、データの不整合を引き起こす可能性があります。ビュー名、テーブル名、モデル名をカスタマイズしている場合は、LookML内のそれぞれの名前を、選択した名前に変更してください。
 {% endalert %}
 
-#### 利用可能なブロック
+#### 利用可能なブロック {#available-blocks}
 
 | ブロック | 説明 |
 |---|---|
-| メッセージ・エンゲージメント分析ブロック | このブロックには、プッシュ、メール、アプリ内メッセージ、Webhook、変換、キャンバスエントリ、およびキャンペーンコントロールグループ登録イベントに関するデータが含まれます。<br><br>この [Looker ブロック](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct)の詳細については、[GitHub のコード](https://github.com/llooker/braze_message_engagement_block)をご確認ください。 |
-| ユーザー行動分析ブロック | このブロックには、カスタムイベント、購入、セッション、ロケーションイベント、アンインストールに関するデータが含まれる。<br><br>この [Looker ブロック](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct)の詳細については、[GitHub のコード](https://github.com/llooker/braze_retention_block)をご確認ください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| メッセージエンゲージメント分析ブロック | このブロックには、プッシュ、メール、アプリ内メッセージ、Webhook、コンバージョン、キャンバスエントリ、およびキャンペーンコントロールグループ登録イベントに関するデータが含まれます。<br><br>この[Lookerブロック](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct)の詳細については、[GitHubのコード](https://github.com/llooker/braze_message_engagement_block)をご確認ください。 |
+| ユーザー動作分析ブロック | このブロックには、カスタムイベント、購入、セッション、ロケーションイベント、アンインストールに関するデータが含まれます。<br><br>この[Lookerブロック](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct)の詳細については、[GitHubのコード](https://github.com/llooker/braze_retention_block)をご確認ください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available Blocks" }
 
-### Looker Actions
+### Looker Actions {#looker-actions}
 
-Looker Actions を使用すると、Looker Look から REST API エンドポイントを介して Braze 内のユーザーにフラグを設定することができます。アクションを使用するには、ディメンションに `braze_id` というタグが付けられている必要があります。アクションは、フラグを立てた値をユーザーのカスタム属性（`looker_export` ）に追加する。
+Looker Actionsを使用すると、Looker LookからREST APIエンドポイントを介してBraze内のユーザーにフラグを設定できます。アクションを使用するには、ディメンションに `braze_id` というタグが付けられている必要があります。アクションは、フラグを設定した値をユーザーの `looker_export` カスタム属性に追加します。
 
 {% alert important %}
-フラグが立つのは既存のユーザーだけだ。Brazeでデータにフラグを立てる場合、ピボット・ルックは使用できない。
+フラグが設定されるのは既存のユーザーのみです。Brazeでデータにフラグを設定する場合、ピボットされたLookは使用できません。
 {% endalert %}
 
-#### ステップ1:Braze Looker アクションを設定する
+#### ステップ1:Braze Lookerアクションを設定する {#step-1-set-up-a-braze-looker-action}
 
-Braze REST API キーと REST エンドポイントを使用して、Braze Looker アクションを設定します。
+Braze REST APIキーとRESTエンドポイントを使用して、Braze Lookerアクションを設定します。
 
-![Looker Brazeの設定ページ。Braze API キーと Braze REST API エンドポイントのフィールドがある。]({% image_buster /assets/img/braze-looker-action.png %})
+![Looker Brazeの設定ページ。Braze APIキーとBraze REST APIエンドポイントのフィールドがあります。]({% image_buster /assets/img/braze-looker-action.png %})
 
-#### ステップ2:Looker Developをセットアップする
+#### ステップ2:Looker Developをセットアップする {#step-2-set-up-looker-develop}
 
-Looker Develop 内で、適切なビューを選択する。ディメンションタグに `braze_id` を追加し、変更をコミットします。
-この`braze_id` タグは、どのフィールドがユニークキーであるかを決定するために使用される。
+Looker Develop内で、適切なビューを選択します。ディメンションタグに `braze_id` を追加し、変更をコミットします。
+この `braze_id` タグは、どのフィールドがユニークキーであるかを決定するために使用されます。
 
 ```lookml
 dimension: external_id {
@@ -86,38 +86,38 @@ dimension: external_id {
 }
 ```
 
-**必ず変更をコミットすること。Looker アクションは本番環境の設定でのみ機能します。**
+**必ず変更をコミットしてください。Lookerアクションは本番環境の設定でのみ機能します。**
 
-#### ステップ3:タグにユーザー属性を設定する
+#### ステップ3:タグにユーザー属性を設定する {#step-3-set-user-attributes-in-tags}
 
 オプションで、`braze[]` タグを使用し、属性名を括弧で囲んで属性を設定することもできます。たとえば、カスタム属性 `user_segment` を送信する場合、タグは `braze[user_segment]` になります。
 
-以下の制限に注意：
-- 属性は、**Look 内のフィールドとして含まれている**場合にのみ送信されます。
-- サポートされているタイプは`Strings`、`Boolean`、`Numbers`、`Dates` です。
-- 属性名は大文字と小文字を区別する。
-- 標準[ユーザープロファイル]({{site.baseurl}}/api/endpoints/user_data/#braze-user-profile-fields)名と完全に一致する限り、標準属性も設定できる。
-- 完全なタグは引用符で囲む。例: `tags: ["braze[first_name]"]`。他のタグを割り当てることもできるが、無視される。
+以下の制限に注意してください:
+- 属性は、**Look内のフィールドとして含まれている**場合にのみ送信されます。
+- サポートされているタイプは `Strings`、`Boolean`、`Numbers`、`Dates` です。
+- 属性名は大文字と小文字を区別します。
+- [標準ユーザープロファイル]({{site.baseurl}}/api/endpoints/user_data/#braze-user-profile-fields)名と完全に一致する限り、標準属性も設定できます。
+- 完全なタグは引用符で囲む必要があります。例: `tags: ["braze[first_name]"]`。他のタグを割り当てることもできますが、無視されます。
 - 追加情報は [GitHub](https://github.com/looker/actions/tree/master/src/actions/braze) で確認できます。
 
-#### ステップ4:Looker アクションを送信する
+#### ステップ4:Lookerアクションを送信する {#step-4-send-the-looker-action}
 
-1. `braze_id` ディメンションが選択されている Look 内で、右上の設定の歯車 (<i class="fas fa-cog"></i>) をクリックし、[**Send...**] を選択します。
-2. カスタム Braze アクションを選択します。
-3. [**Unique Keｙ**] で Braze アカウントのプライマリユーザーマッピングキー (`external_id` または`braze_id`) を入力します。
-4. エクスポートに名前をつける。指定されない場合は `LOOKER_EXPORT` が使用されます。
-5. **Advanced Options（詳細オプション）**」で、**「Results in Table（テーブル内の結果**）」または「**All Results（すべての結果）**」を選択し、「**Send（送信）**」を選択する。<br><br>![]({% image_buster /assets/img/send-looker-action.png %})<br><br>エクスポートが正しく送信された場合、`LOOKER_EXPORT` は、アクションに入力された値を含むカスタム属性としてユーザーのプロファイルに表示されます。<br><br>![]({% image_buster /assets/img/custom-attributes-looker.png %})
+1. `braze_id` ディメンションが選択されているLook内で、右上の設定の歯車（<i class="fas fa-cog"></i>）をクリックし、**Send...** を選択します。
+2. カスタムBrazeアクションを選択します。
+3. **Unique Key** で、Brazeアカウントのプライマリユーザーマッピングキー（`external_id` または `braze_id`）を入力します。
+4. エクスポートに名前を付けます。指定されない場合は `LOOKER_EXPORT` が使用されます。
+5. **Advanced Options** で、**Results in Table** または **All Results** を選択し、**Send** をクリックします。<br><br>![]({% image_buster /assets/img/send-looker-action.png %})<br><br>エクスポートが正しく送信された場合、`LOOKER_EXPORT` は、アクションに入力した値を含むカスタム属性としてユーザーのプロファイルに表示されます。<br><br>![]({% image_buster /assets/img/custom-attributes-looker.png %})
 
-##### 送信 API の例
+##### 送信APIの例 {#example-outgoing-api}
 
-以下に、[`/users/track/` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)に送信される送信 API 呼び出しの例を示します。
+以下に、[`/users/track/` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)に送信される送信API呼び出しの例を示します。
 
-###### ヘッダー
+###### ヘッダー {#header}
 ```
 Authorization: Bearer [API_KEY]
 ```
 
-###### 本文
+###### 本文 {#body}
 ```json
 {
    "attributes" : [
@@ -141,25 +141,24 @@ Authorization: Bearer [API_KEY]
 }
 ```
 
-### Braze でユーザーをセグメント化する {#segment-users}
+### Brazeでユーザーをセグメント化する {#segment-users}
 
-Brazeで、これらのフラグを付けたユーザーのセグメントを作成するには、**エンゲージメントの**下の**セグメントに**移動し、セグメントに名前を付け、フィルターとして **Looker_Export**をフィルターとして選択する。次に、"includes value "オプションを使い、Lookerで割り当てたカスタム属性フラグを指定する。
+Brazeでこれらのフラグ付きユーザーのセグメントを作成するには、**エンゲージメント**の下の**セグメント**に移動し、セグメントに名前を付け、フィルターとして **Looker_Export** を選択します。次に、「includes value」オプションを使用し、Lookerで割り当てたカスタム属性フラグを指定します。
 
-![Brazeセグメントビルダーでは、フィルター"looker_export" 、"includes_value" 、"Looker "に設定されている。]({% image_buster /assets/img/braze_segments.png %})
+![Brazeのセグメントビルダーで、フィルター「looker_export」が「includes_value」と「Looker」に設定されています。]({% image_buster /assets/img/braze_segments.png %})
 
-保存すると、キャンバスやキャンペーンの作成時にターゲットユーザーのステップでこのSegmentを参照できます。
+保存すると、キャンバスやキャンペーン作成時のターゲットユーザーステップでこのセグメントを参照できます。
 
-## トラブルシューティング
-Looker アクションに問題がある場合、テストユーザーを [内部グループ]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/) に追加し、以下を確認します。
+## トラブルシューティング {#troubleshooting}
+Lookerアクションに問題がある場合は、テストユーザーを[内部グループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)に追加し、以下を確認してください。
 
-* APIキーには`users.track` の権限がある。
-* 正しい REST エンドポイントが入力されている (例: `https://rest.iad-01.braze.com`)。
+* APIキーに `users.track` 権限がある。
+* 正しいRESTエンドポイントが入力されている（例: `https://rest.iad-01.braze.com`）。
 * ディメンションビューで `braze_id` タグが設定されている。
-* クエリには、Id ディメンションまたは属性が列として含まれている。
-* ルッカーの結果はピボットされない。
-* ユニークキーは正しく選択されている。通常は `external_id` です。
-* ディメンションの `braze_id` は API の `braze_id` とは異なる。ディメンションの `braze_id` は、Braze API の `id` フィールドであることを示すために使用されます。ほとんどの場合、送信時には `external_id` がプライマリキーとなります。
-* `external_id` ユーザーはBrazeプラットフォームに存在する。
-* `looker_export` フィールドは`Braze Platform > Settings > Manage Settings > Custom Attributes` の下に`Automatically Detect` として設定されている。
-* 変更はプロダクションにコミットされる。Looker Actionは本番環境でも機能する。
-
+* クエリにIdディメンションまたは属性が列として含まれている。
+* Lookerの結果がピボットされていない。
+* ユニークキーが正しく選択されている。通常は `external_id` です。
+* ディメンションの `braze_id` はAPIの `braze_id` とは異なります。ディメンションの `braze_id` は、Braze APIの `id` フィールドであることを示すために使用されます。ほとんどの場合、送信時には `external_id` がプライマリキーとなります。
+* `external_id` ユーザーがBrazeプラットフォームに存在する。
+* `looker_export` フィールドが `Braze Platform > Settings > Manage Settings > Custom Attributes` の下で `Automatically Detect` として設定されている。
+* 変更がプロダクションにコミットされている。Lookerアクションは本番環境の設定で機能します。

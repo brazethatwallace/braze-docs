@@ -23,7 +23,7 @@ You can customize your email messaging in a variety of ways, including:
 
 - [Braze email templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
 - [Custom HTML templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
-- [Blocks for drag-and-drop editor]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/)
+- [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)
 - [User subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions/)
 
 ## Use cases
@@ -36,7 +36,7 @@ You can customize your email messaging in a variety of ways, including:
 | Multimedia content | Ease of multimedia content placement that engages users such as videos and images. |
 | Newsletters | Conveniently send monthly or weekly newsletters to maintain user engagement. |
 | Transactions | Notify users of recent purchases and deliver important product and shipping information with [transactional emails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## Email services {#email-services}
 

@@ -2,7 +2,7 @@
 nav_title: Product announcement
 article_title: Product Announcement
 alias: "/product_announcement/"
-page_order: 7
+page_order: 8
 description: "This page covers how to use the in-app message drag-and-drop editor to boost awareness of new product launches."
 ---
 

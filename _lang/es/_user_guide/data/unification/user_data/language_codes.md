@@ -1,12 +1,13 @@
 ---
-nav_title: Códigos de lengua
+nav_title: Códigos de idioma
 article_title: Códigos de idioma admitidos
+page_order: 7
 page_type: reference
-description: "Estos son los códigos de idioma de usuario que actualmente admite Braze." 
+description: "Estos son los códigos de idioma de usuario que actualmente admite Braze."
 
 ---
 
-# Códigos de lengua
+# Códigos de idioma {#language-codes}
 
 > Estos son los códigos de idioma admitidos actualmente por Braze.
 

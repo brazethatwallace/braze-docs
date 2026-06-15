@@ -11,7 +11,7 @@ description: "Activate your data with custom attributes, events, and catalogs. U
 guide_featured_title: "Custom data"
 guide_featured_list:
   - name: Custom data
-    link: /docs/user_guide/data/activation
+    link: /docs/user_guide/data/activation/custom_data
     image: /assets/img/braze_icons/table.svg
   - name: Data types
     link: /docs/user_guide/data/activation/custom_data/data_types

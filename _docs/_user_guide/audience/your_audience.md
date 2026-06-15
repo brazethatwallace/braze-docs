@@ -167,4 +167,4 @@ Once user data is in Braze, it powers nearly every engagement capability. The mo
 | Automation and orchestration  | Trigger messages and journeys based on: {::nomarkdown}<ul><li>User actions</li> <li>Attribute changes</li> <li>Time-based conditions</li></ul>{:/} |
 | Cross-channel coordination | Reach users on the most appropriate channel while respecting: {::nomarkdown}<ul><li>Opt-in status</li> <li>Frequency caps</li> <li>Channel preferences</li></ul>{:/} |
 | [Analytics and insights]({{site.baseurl}}/user_guide/analytics) | Understand how different audiences behave by analyzing: {::nomarkdown}<ul><li>Engagement rates</li> <li>Conversion paths</li> <li>Segment performance over time</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience data features" }

@@ -78,7 +78,7 @@ The following attributes are currently in beta for the BrazeAI<sup>TM</sup> Liqu
 | Default and standard user attributes | Attributes |
 | Custom attributes that have any of these data types: {::nomarkdown}<ul><li>Booleans</li><li>Numbers</li><li>Strings</li><li>Arrays</li><li>Time</li></ul>{:/} | Attributes |
 | Connected Content | Coding |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid attributes" }
 
 ## Best practices
 

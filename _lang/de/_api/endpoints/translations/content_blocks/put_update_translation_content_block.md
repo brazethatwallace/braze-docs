@@ -1,25 +1,23 @@
 ---
 nav_title: "PUT: Übersetzung in einem Content-Block aktualisieren"
 article_title: "PUT: Übersetzung in einem Content-Block aktualisieren"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel enthält detaillierte Informationen zum Update der Übersetzung in einem Content-Block-Endpunkt."
+description: "Dieser Artikel beschreibt den Endpunkt „Übersetzung in einem Content-Block aktualisieren“."
 ---
 
 {% api %}
-# Übersetzung in einem Content-Block aktualisieren
+# Übersetzung in einem Content-Block aktualisieren {#update-translation-in-a-content-block}
 {% apimethod put %}
 /content_blocks/translations
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für einen [Content-Block]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/) zu Update. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [„Locales in Nachrichten]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/)“.
+> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `content_blocks.translations.update`.
 
@@ -27,24 +25,24 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Pfad-Parameter
+## Pfadparameter {#path-parameters}
 
 Für diesen Endpunkt gibt es keine Pfadparameter.
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
 | `content_block_id` | Erforderlich | String | Die ID Ihres Content-Blocks. |
-| `locale_id`| Erforderlich | String | Die ID (UUID) der Locale. |
+| `locale_id` | Erforderlich | String | Die ID (UUID) der Locale. |
 | `translation_map` | Erforderlich | Objekt | Objekt, das die neuen Übersetzungen enthält. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.
 {% endalert %}
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```json
 {
@@ -56,11 +54,11 @@ Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die
 }
 ```
 
-## Antwort
+## Antwort {#response}
 
-Es gibt vier Status Code Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
+Es gibt vier Statuscode-Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
 ```json
 {
@@ -68,9 +66,9 @@ Es gibt vier Status Code Antworten für diesen Endpunkt: `200`, `400`, `404` und
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
 
 ```json
 {

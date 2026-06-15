@@ -34,7 +34,7 @@ When sending a silent push notification, you might also want to include some dat
 
 ## Ignoring internal push notifications
 
-Braze uses silent push notifications to internally handle certain advanced features, such as uninstall tracking or geofences. If your app takes automatic actions on application launches or background pushes, consider gating that activity so it's not triggered by any internal push notifications.
+Braze uses silent push notifications to internally handle certain advanced features, such as uninstall tracking. If your app takes automatic actions on application launches or background pushes, consider gating that activity so it's not triggered by any internal push notifications.
 
 For example, if you have logic that calls your servers for new content upon every background push or application launch, you may want to prevent triggering Braze’s internal pushes to avoid unnecessary network traffic. Because Braze sends certain kinds of internal pushes to all users at approximately the same time, significant server load may occur if on-launch network calls from internal pushes are not gated.
 
@@ -47,7 +47,7 @@ Check your application for automatic actions in the following places and update 
 
 ### Step 2: Use the internal push utility method
 
-You can use the static utility method in `Braze.Notifications` to check if your app has received or was launched by a Braze internal push. [`Braze.Notifications.isInternalNotification(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/notifications-swift.class/isinternalnotification(_:)) will return `true` on all Braze internal push notifications, which include uninstall tracking, feature flags sync, and geofences sync notifications.
+You can use the static utility method in `Braze.Notifications` to check if your app has received or was launched by a Braze internal push. [`Braze.Notifications.isInternalNotification(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/notifications-swift.class/isinternalnotification(_:)) returns `true` for all Braze internal push notifications, which include uninstall tracking and [Feature flags]({{site.baseurl}}/user_guide/messaging/feature_flags/) sync notifications.
 
 For example:
 

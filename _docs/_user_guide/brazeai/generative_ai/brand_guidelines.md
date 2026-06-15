@@ -15,7 +15,7 @@ Follow these steps to create brand guidelines in the AI copywriting assistant. Y
 
 ### Step 1: Create a brand guideline
 
-1. From your message composer, find and select <i class="fa-solid fa-wand-magic-sparkles" title="AI Copywriter"></i> to [open the AI copywriting assistant]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting#access).
+1. From your message composer, find and select <i class="fa-solid fa-wand-magic-sparkles" title="AI Copywriter"></i> **AI Copywriter** to [open the AI copywriting assistant]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting#access).
 2. Select **Apply brand guideline** and then **Create a brand guideline**.
 
 ![Dropdown for "Apply brand guidelines" expanded with the button "Create a brand guideline" in focus.]({% image_buster /assets/img/ai_copywriter/create_brand_guideline_button.png %}){:style="max-width:75%"}
@@ -40,7 +40,7 @@ For **Brand personality**, think about what makes your brand unique. Include tra
 | Differentiation          | Unique qualities that set your brand apart from competitors.                         | We stand out by offering personalized customer service that goes above and beyond. |
 | Brand voice              | The tone and style of communication your brand uses.                                 | Our voice is casual yet informative, ensuring clarity without being too formal. |
 | Brand archetype          | The archetype that represents your brand’s persona (The Hero, The Creator, and so on).    | We embody the ‘Explorer’ archetype, always seeking new challenges and adventures. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Describe your brand personality" }
 
 ### Step 3: Define language that should be avoided (optional)
 

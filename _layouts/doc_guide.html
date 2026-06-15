@@ -3,6 +3,8 @@ layout: default
 hide_toc: true
 hide_bottom_nav: true
 hide_breadcrumb: true
+hide_feedback: true
+hide_binary_feedback: false
 ---
 
 
@@ -44,7 +46,7 @@ hide_breadcrumb: true
   <div class="doc-container">
     <div class="row doc-row">
       <div id="doc-main" class="col-xl justify-content-between">
-      <div id="content_start"></div>
+      <div id="content_start" tabindex="-1"></div>
       {%- unless hide_breadcrumb -%}
       <div id="breadcrumb">
       </div>
@@ -105,7 +107,7 @@ hide_breadcrumb: true
               Help
             </div>
             <div class="doc_description">
-              Can't find what you're looking for? Search below, or visit our <a href="{{site.baseurl}}/help/home/">Help page</a>.
+              Can't find what you're looking for? Search below, or visit the <a href="{{site.baseurl}}/user_guide/home/">Braze User Guide</a>.
             </div>
             <form id="help-search-form"  action="{{site.baseurl}}/search/" method="get" class="form-inline">
               <div class="input-group ">
@@ -176,6 +178,9 @@ hide_breadcrumb: true
         window.addEventListener('load', loadStatusPage, false);
       </script>
 
+      {% unless hide_binary_feedback -%}
+      {% include binary_feedback.html  %}
+      {% endunless -%}
 
     </div>
     </div>

@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 5.5
 layout: dev_guide
 
-description: "Diese Landing Page listet die Braze SDK-Authentifizierungs-Endpunkte auf."
+description: "Diese Landing-Page listet die Braze SDK-Authentifizierungs-Endpunkte auf."
 page_type: landing
 
 guide_top_header: "SDK-Authentifizierungs-Endpunkte"
@@ -22,7 +22,7 @@ guide_featured_list:
   - name: "PUT: Primären SDK-Authentifizierungsschlüssel festlegen"
     link: /docs/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key/
     image: /assets/img/braze_icons/pencil-01.svg
-  - name: "LÖSCHEN: SDK-Authentifizierungsschlüssel entfernen"
+  - name: "DELETE: SDK-Authentifizierungsschlüssel entfernen"
     link: /docs/api/endpoints/sdk_authentication/delete_sdk_authentication_key/
     image: /assets/img/braze_icons/trash-01.svg
 ---

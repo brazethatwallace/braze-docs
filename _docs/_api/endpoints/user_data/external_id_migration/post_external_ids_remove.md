@@ -50,7 +50,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
 | `external_ids` | Required | Array of strings | External identifiers for the users to remove. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Request example
 

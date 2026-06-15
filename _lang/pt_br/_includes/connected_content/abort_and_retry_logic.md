@@ -1,0 +1,3 @@
+## Chamadas de Conteúdo conectado com lógica de cancelamento e nova tentativa {#connected-content-calls-with-abort-and-retry-logic}
+
+Se uma chamada de Conteúdo conectado usa lógica de cancelamento para a mesma condição da lógica de nova tentativa, a lógica de cancelamento tem prioridade. Isso impede que qualquer nova tentativa seja feita. A lógica de nova tentativa já reenvia a chamada antes de cancelá-la se o código de status não for bem-sucedido. Como ambas tratam o mesmo comportamento de código de status, você pode remover a lógica de cancelamento e a chamada ainda será cancelada se todas as novas tentativas falharem.

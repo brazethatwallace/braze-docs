@@ -96,10 +96,10 @@ Another apparent way to identify areas of adjustment for your Canvas can occur w
 
 Next, it's important to identify these settings that can affect when and if messages are sent to your users:
 - [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
-- Quiet Hours
+- [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)
 - Delivery validations
 
-In general, choose either Intelligent Timing or Quiet Hours for your Canvas, not both. The same suggestion applies to use either Intelligent Timing or [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), not both. For more information on how to best use the Intelligence Suite, read our [Intelligent Suite use cases]({{site.baseurl}}/user_guide/brazeai/intelligence_suite#use-cases).
+In general, choose either Intelligent Timing or [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) for your Canvas, not both. The same suggestion applies to use either Intelligent Timing or [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), not both. For more information on how to best use the Intelligence Suite, read our [Intelligence Suite use cases]({{site.baseurl}}/user_guide/brazeai/intelligence_suite#use-cases).
 
 ### Suspicious send volumes between paths
 

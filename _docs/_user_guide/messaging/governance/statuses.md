@@ -35,7 +35,7 @@ These are the available statuses for campaigns and Canvases:
 | Archived | Archived campaigns and Canvases are messages that are no longer being sent. These campaigns and Canvases are also removed from the statistic graphs on the [**Home**]({{site.baseurl}}/user_guide/analytics/dashboards/home/) and [**Revenue**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) pages.|
 | Stopped | Stopped campaigns and Canvases are paused, but you can still edit them. To resume a Canvas, go to the **Summary** step of the Canvas builder and select **Resume Canvas**. For campaigns, select the <i class="fas fa-ellipsis-vertical"></i> menu, then **Resume**. For more information, refer to [Stopped Canvas behavior](#stopped-canvas-behavior). |
 | Idle | When a campaign or Canvas is no longer sending messages, Braze will assign it an idle status to help sort and manage your list of campaigns and Canvases. You can view which campaigns or Canvases will be automatically stopped and the associated stop date. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available statuses" }
 
 ### Stopped Canvas behavior {#stopped-canvas-behavior}
 

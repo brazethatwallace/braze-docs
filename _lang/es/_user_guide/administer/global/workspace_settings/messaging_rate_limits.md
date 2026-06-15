@@ -1,0 +1,82 @@
+---
+nav_title: Límites de velocidad de mensajería
+article_title: Límites de velocidad de mensajería del espacio de trabajo
+alias: /workspace_messaging_rate_limits/
+page_type: reference
+description: "Este artículo de referencia describe los límites de velocidad de mensajería del espacio de trabajo y cómo funcionan con tus mensajes."
+page_order: 10
+---
+
+# Límites de velocidad de mensajería del espacio de trabajo {#workspace-messaging-rate-limits}
+
+> Usa los límites de velocidad de mensajería del espacio de trabajo para regular la tasa de entrega de tus mensajes salientes desde tu plataforma y asegurarte de que tus usuarios reciban los mensajes que necesitan.
+
+{% alert important %}
+Los límites de velocidad de mensajería del espacio de trabajo se están implementando gradualmente. Es posible que aún no veas esta configuración en tu dashboard.
+{% endalert %}
+
+## Cómo funciona {#how-it-works}
+
+Los límites de velocidad de mensajería del espacio de trabajo se aplican al total de mensajes enviados en tu espacio de trabajo. Al establecer y optimizar un límite de velocidad a nivel de espacio de trabajo, puedes controlar mejor el tráfico saliente de tus mensajes de Braze, evitando posibles picos de demanda que podrían afectar el rendimiento del servidor.
+{% alert note %}
+Ten en cuenta que los mensajes enviados mediante puntos de conexión de mensajería de API como `/messages/send` y `/messages/schedule/create` también se contabilizan y se ven afectados por los límites de velocidad de mensajería del espacio de trabajo.
+{% endalert %}
+El recuento total de mensajes enviados por minuto no excede los límites de velocidad configurados del espacio de trabajo. No hay un orden particular en cuanto a qué Campaigns se despachan en los primeros minutos en comparación con los minutos posteriores.
+
+Por ejemplo, supongamos que tienes un límite de velocidad de mensajería del espacio de trabajo de 100 000 mensajes por minuto, y los siguientes mensajes se están procesando a las 12 pm:
+
+| Campaign   | Número de mensajes | Hora de envío |
+|------------|--------------------|---------------|
+| Campaign 1 | 100 000            | 12 pm         |
+| Campaign 2 | 100 000            | 12 pm         |
+| Campaign 3 | 100 000            | 12 pm         |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cómo funciona" }
+
+Los mensajes se despachan en un intervalo de 3 minutos.
+
+Los mensajes se procesan en paralelo. Cuando se procesan, los mensajes se planifican respetando el límite de velocidad de mensajería del espacio de trabajo por orden de llegada. Esto significa que, en el ejemplo anterior, los mensajes enviados cada minuto son una mezcla variable de las Campaigns 1, 2 y 3 que suman 100 000.
+
+![Ejemplo de cómo se despachan los mensajes para las tres Campaigns.]({% image_buster /assets/img/workspace_messaging_rate_limits2.png %})
+
+Considera el siguiente ejemplo con un límite de velocidad de mensajería del espacio de trabajo de 100 000 mensajes por minuto, con los siguientes mensajes configurados:
+
+| Campaign   | Número de mensajes | Hora de envío |
+|------------|--------------------|---------------|
+| Campaign 1 | 1 000 000          | 9 am          |
+| Campaign 2 | 1 000 000          | 9:05 am       |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cómo funciona" }
+
+A continuación se muestra la planificación de despacho esperada y los mensajes enviados por minuto:
+
+- Campaign 1 se planificaría de 9 am a 9:10 am, con 100 000 mensajes enviados por minuto.
+- Campaign 2 se planificaría para despachar 5 minutos después de su hora de despacho original, de 9:10 am a 9:20 am, con 100 000 mensajes enviados por minuto.
+
+![Ejemplo de cómo se despachan los mensajes por minuto para las dos Campaigns.]({% image_buster /assets/img/workspace_messaging_rate_limits1.png %})
+
+{% alert note %}
+Después de establecer el límite de velocidad de mensajería del espacio de trabajo, puedes aumentarlo. Sin embargo, cada mensaje ya procesado antes del aumento utiliza el límite establecido previamente.
+{% endalert %}
+
+## Configurar tu límite de velocidad de mensajería del espacio de trabajo {#setting-your-workspace-messaging-rate-limit}
+
+1. En el dashboard de Braze, ve a **Settings** > **Workspace Settings** > **Messaging Rate Limits**.
+2. Selecciona **+ Add rate limit** y luego selecciona un canal de mensajería.
+3. En **Messages per minute**, introduce el límite de velocidad.
+4. Selecciona **Save**.
+
+## Cosas que debes saber {#things-to-know}
+
+El límite de velocidad se aplica al despacho, es decir, al inicio del intento de envío del mensaje. Cuando hay fluctuaciones en el tiempo que tarda en completarse el envío, el número de envíos completados puede superar ligeramente el límite de velocidad en algunos minutos. Con el tiempo, el número de envíos por minuto se promedia para no exceder el límite de velocidad.
+
+Cuando una Campaign o un Canvas tiene su propio límite de velocidad establecido y también se aplica un límite de velocidad a nivel de espacio de trabajo, ambos se aplican. Por ejemplo, si una Campaign tiene un límite de velocidad de 500 000 pero, debido a los límites de velocidad del espacio de trabajo, solo puede enviar 100 000 mensajes por minuto en ese momento, entonces el límite de velocidad del espacio de trabajo tiene efecto.
+
+Braze intenta distribuir uniformemente los despachos de mensajes a lo largo del minuto, pero no puede garantizarlo. Por ejemplo, si tienes una Campaign con un límite de velocidad de 500 000 mensajes por minuto, intentaremos distribuir los 500 000 mensajes de manera uniforme durante el minuto (aproximadamente 8400 mensajes por segundo), pero puede haber cierta variación en la tasa por segundo.
+
+Ten en cuenta que aún puedes establecer límites de velocidad individuales en tus Campaigns y Canvas. Estos se aplican de forma independiente de los límites de velocidad de mensajería del espacio de trabajo.
+
+### Mensajes no incluidos en los límites de velocidad de mensajería del espacio de trabajo {#messages-not-included-in-the-workspace-messaging-rate-limits}
+
+- Los mensajes enviados mediante [Campaigns de correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/) no se incluyen en los límites de velocidad de mensajería del espacio de trabajo. Esto significa que tienen su propio límite de velocidad y no se contabilizan en ningún límite de velocidad de mensajería del espacio de trabajo establecido.
+- Los mensajes a [grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups) y [envíos de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) no se incluyen en los límites de velocidad de mensajería del espacio de trabajo. Esto significa que no tienen límite de velocidad y no se contabilizan en ningún límite de velocidad de mensajería del espacio de trabajo establecido.
+- Las respuestas automáticas de SMS no se incluyen en los límites de velocidad de mensajería del espacio de trabajo. Esto significa que no tienen límite de velocidad y no se contabilizan en ningún límite de velocidad de mensajería del espacio de trabajo establecido.
+- Los límites de velocidad de mensajería del espacio de trabajo no son compatibles con mensajes dentro de la aplicación, conmutadores de características ni Banners.

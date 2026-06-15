@@ -9,33 +9,33 @@ search_tag: Partner
 
 # Contentful
 
->[Contentful](https://www.contentful.com/) es un sistema de gestión de contenidos headless que te permite crear, gestionar y distribuir contenidos en cualquier plataforma. A diferencia de un sistema de gestión de contenidos (CMS), Contentful te permite crear tu modelo de contenidos para que puedas decidir qué contenidos quieres gestionar.<br><br>Esta página proporciona una guía paso a paso para configurar el contenido conectado de Braze para obtener datos de la API de entrega de contenido de Contentful. 
+>[Contentful](https://www.contentful.com/) es un sistema de gestión de contenidos headless que te permite crear, gestionar y distribuir contenidos en cualquier plataforma. A diferencia de un sistema de gestión de contenidos (CMS), Contentful te permite crear tu modelo de contenidos para que puedas decidir qué contenidos quieres gestionar.<br><br>Esta página proporciona una guía paso a paso para configurar el contenido conectado de Braze para obtener datos de la API de entrega de contenido de Contentful.
 
 Una vez integrado, puedes utilizar las API RESTful de Contentful para entregar tu contenido a través de múltiples canales, como sitios web, aplicaciones móviles (iOS, Android y Windows) o muchas otras plataformas. También puedes extraer contenido dinámicamente de Contentful para utilizarlo en tus campañas de Braze.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Antes de empezar, necesitarás lo siguiente:
 
-| Requisito previo          | Descripción                        |
+| Requisito previo | Descripción |
 |-----------------------|------------------------------------|
 | Una cuenta de Contentful | Necesitas una cuenta de Contentful con acceso a la API de entrega de contenidos. |
 | Una cuenta de Braze | Necesitas una cuenta de Braze con acceso a la característica de contenido conectado. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Integración
+## Integración {#integration}
 
-### Paso 1: Obtén tus credenciales de API de Contentful
+### Paso 1: Obtén tus credenciales de API de Contentful {#step-1-get-your-contentful-api-credentials}
 
 1. [Inicia sesión en Contentful](https://app.contentful.com/login) con tus credenciales.
 2. Crea o recupera tokens de acceso a la API en el dashboard de Contentful yendo a **Settings** > **API keys**. Si aún no tienes una clave de API, crea una nueva:<br>2.1 Selecciona **Add API key**.<br>2.2 Introduce los datos necesarios y selecciona el entorno adecuado.<br>2.3 Selecciona **Save** y anota el **Space ID** y el **Content Delivery API - access token**.
 3. Identifica el modelo de contenido al que quieres acceder a través de la API de Contentful.
 
-### Paso 2: Configura el contenido conectado de Braze
+### Paso 2: Configura el contenido conectado de Braze {#step-2-configure-braze-connected-content}
 
 1. [Inicia sesión en Braze](https://dashboard.braze.com/sign_in) con tus credenciales.
-2. En el dashboard de Braze, ve a **Plantillas** > **Bloques de contenido** > **Crear bloque de contenido** > **Editor de código HTML**.
-3. Crea una solicitud de contenido conectado a la [URL de la API de entrega de contenido de Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links). Un ejemplo de URL de la API de entrega de contenidos de Contentful es ```https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries```.<br><br> Recuperar distintos activos requiere incluir variables específicas. El ejemplo de solicitud de URL de contenido conectado se dirige al punto de conexión de [Entry](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console) de Contentful. Este punto de conexión necesita variables como `{space_id}` y `{environment_id}`, o `{entry_id}` y `{access_token}`. Se pueden tomar de tu instancia de Contentful. En este ejemplo de bloque de contenido, las variables deben sustituirse por tu Space ID y Environment ID de Contentful.<br><br>La URL de la API de entrega de contenidos de ejemplo utiliza solo uno de los puntos de conexión disponibles de Contentful. Se pueden conseguir diferentes casos de uso aprovechando diferentes URL. Por ejemplo, la [API de imágenes](https://www.contentful.com/developers/docs/references/images-api/) puede utilizarse para capturar imágenes almacenadas en Contentful. Para más información, consulta la [API de entrega de contenidos](https://www.contentful.com/developers/docs/references/content-delivery-api/).
+2. En el dashboard de Braze, ve a **Content** > **Content Block** > **Create Content Block** > **HTML code editor**.
+3. Crea una solicitud de contenido conectado a la [URL de la API de entrega de contenido de Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links). Un ejemplo de URL de la API de entrega de contenidos de Contentful es `https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries`.<br><br> Recuperar distintos activos requiere incluir variables específicas. El ejemplo de solicitud de URL de contenido conectado se dirige al punto de conexión de [Entry](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console) de Contentful. Este punto de conexión necesita variables como `{space_id}` y `{environment_id}`, o `{entry_id}` y `{access_token}`. Se pueden tomar de tu instancia de Contentful. En este ejemplo de bloque de contenido, las variables deben sustituirse por tu Space ID y Environment ID de Contentful.<br><br>La URL de la API de entrega de contenidos de ejemplo utiliza solo uno de los puntos de conexión disponibles de Contentful. Se pueden conseguir diferentes casos de uso aprovechando diferentes URL. Por ejemplo, la [API de imágenes](https://www.contentful.com/developers/docs/references/images-api/) puede utilizarse para capturar imágenes almacenadas en Contentful. Para más información, consulta la [API de entrega de contenidos](https://www.contentful.com/developers/docs/references/content-delivery-api/).
 
 {% alert note %}
 Diferentes puntos de conexión pueden requerir nuevas variables; por ejemplo, la API de imágenes requiere un `{asset_id}`, `{unique_id},` y `{name}`. Para más información, ponte en contacto con Contentful.
@@ -62,11 +62,11 @@ Diferentes puntos de conexión pueden requerir nuevas variables; por ejemplo, la
 5. Selecciona **Done** para guardar tu bloque de contenido.
 6. Dale a tu bloque de contenido un nombre descriptivo, como "Contentful API", y luego selecciona **Launch Content Block**.
 
-### Paso 3: Utiliza contenido conectado en campañas y Canvas
+### Paso 3: Utiliza contenido conectado en Campaigns y Canvas {#step-3-use-connected-content-in-campaigns-and-canvasses}
 
 1. En Braze, crea una nueva campaña o edita una existente.
 2. Utiliza el bloque de contenido conectado para insertar datos obtenidos de Contentful. Utiliza las rutas de datos que definiste durante la configuración para rellenar dinámicamente el contenido de la campaña.<br><br>
-- **Ruta de respuesta:** Tras incluir el bloque de contenido en una campaña de Braze o Canvas, la respuesta estará disponible cuando insertes la variable `{response}` en tu mensaje.<br><br>La notación de puntos JSON te permite especificar qué parte del cuerpo de la respuesta de Contentful quieres incluir en tu mensaje. Esto variará en función de tu caso de uso. Por ejemplo, puedes utilizar el valor del título ({% raw %}```liquid{{response.items[0].fields.title}}```{% endraw %}) del punto de conexión Entry de Contentful y recibir una respuesta como esta:
+- **Ruta de respuesta:** Tras incluir el bloque de contenido en una Campaign o Canvas de Braze, la respuesta estará disponible cuando insertes la variable `{response}` en tu mensaje.<br><br>La notación de puntos JSON te permite especificar qué parte del cuerpo de la respuesta de Contentful quieres incluir en tu mensaje. Esto variará en función de tu caso de uso. Por ejemplo, puedes utilizar el valor del título ({% raw %}`liquid{{response.items[0].fields.title}}`{% endraw %}) del punto de conexión Entry de Contentful y recibir una respuesta como esta:
 
 {% raw %}
 ```json
@@ -120,18 +120,18 @@ Diferentes puntos de conexión pueden requerir nuevas variables; por ejemplo, la
 3. Previsualiza y prueba tu campaña para confirmar que los datos de contenido conectado se muestran correctamente.
 4. Cuando estés satisfecho con la configuración, lanza tu campaña.
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
-### Respuesta de la API
+### Respuesta de la API {#api-response}
 
 Asegúrate de que tus credenciales de la API de Contentful y la URL del punto de conexión son correctas. Comprueba si hay mensajes de error en Braze que puedan indicar problemas con la llamada a la API.
 
-### Mapeado de datos
+### Mapeado de datos {#data-mapping}
 
 Comprueba que los mapeados de la ruta de respuesta están correctamente configurados y que la estructura de respuesta de la API se ajusta a tus expectativas.
 
-## Recursos adicionales
+## Recursos adicionales {#additional-resources}
 
 - [Documentación de la API de entrega de contenidos de Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/)
-- [Contenido conectado de Braze]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)
-- [Bloques de contenido de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/)
+- [Contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)
+- [Content Blocks de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)

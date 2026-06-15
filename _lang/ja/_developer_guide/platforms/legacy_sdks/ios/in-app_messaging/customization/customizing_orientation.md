@@ -31,7 +31,7 @@ id<ABKInAppMessageUIControlling> inAppMessageUIController = [Appboy sharedInstan
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // Set fixed in-app message orientation to portrait
 // Use .landscape to display in-app messages in landscape
 if let controller = Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController as? ABKInAppMessageUIController {
@@ -51,7 +51,7 @@ if let controller = Appboy.sharedInstance()?.inAppMessageController.inAppMessage
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 // Set inAppMessage orientation to portrait
 inAppMessage.orientation = ABKInAppMessageOrientationPortrait;
 
@@ -62,7 +62,7 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% tab swift %}
 
-```swift    
+`````````swift    
   // Set inAppMessage orientation to portrait
   inAppMessage.orientation = ABKInAppMessageOrientation.portrait
 

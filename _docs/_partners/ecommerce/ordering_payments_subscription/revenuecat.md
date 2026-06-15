@@ -29,7 +29,7 @@ At a minimum, you will need to enable the integration from the RevenueCat dashbo
 | Braze instance | Your Braze instance can be obtained from your Braze onboarding manager or can be found on the [API overview page]({{site.baseurl}}/api/basics/#endpoints).<br><br>RevenueCat requires the Braze instance to send server-side to the correct Braze REST endpoint. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze test REST API key (optional) | A test API key can be used for test and production purchases if you'd like these requests sent to separate Braze instances. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use Cases 
 
@@ -100,7 +100,7 @@ If you want to send an alternative unique user identifier different from the Rev
 |---|---|
 | `$brazeAliasName` | The Braze `alias_name` in the [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object/) |
 | `$brazeAliasLabel` | The Braze `alias_label` in the [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object/) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Send user alias object to Braze (optional)" }
 
 Both attributes are required for the [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object/) to be sent alongside your event data. These properties can be set manually, like any other [RevenueCat subscriber attribute](https://docs.revenuecat.com/docs/subscriber-attributes). Example code snippets are shown in step one.
 
@@ -130,7 +130,7 @@ Enter the event names that RevenueCat will send or select from the default event
 | Non Subscription Purchase | The purchase of any product that's not an auto-renewing subscription. |
 | Expiration | When a subscription expires. |
 | Billing Issue | When there has been a problem trying to charge the user. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure event names #configure-event-names" }
 
 For events that include revenue, RevenueCat will automatically record this amount along with the event in Braze, such as trial conversions and renewals.
 
